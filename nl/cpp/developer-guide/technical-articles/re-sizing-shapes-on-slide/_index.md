@@ -1,54 +1,69 @@
 ---
-title: Vormen schalen op presentatiedia's
+title: Vormen op presentatieslides schalen
 type: docs
 weight: 100
 url: /nl/cpp/re-sizing-shapes-on-slide/
 keywords:
 - vorm schalen
-- vormgrootte wijzigen
+- grootte van vorm wijzigen
 - PowerPoint
 - OpenDocument
 - presentatie
 - C++
 - Aspose.Slides
-description: "Schakel gemakkelijk het schalen van vormen op PowerPoint- en OpenDocument-dia's met Aspose.Slides voor C++ in--automatiseer dia-indelingsaanpassingen en verhoog de productiviteit."
+description: "Schakel eenvoudig het schalen van vormen op PowerPoint- en OpenDocument-slides met Aspose.Slides voor C++—automatiseer aanpassingen van de slide‑lay-out en verhoog de productiviteit."
 ---
 ## **Overzicht**
 
-Een van de meest voorkomende vragen van Aspose.Slides voor C++-klanten is hoe vormen te schalen zodat, wanneer de diaformaat verandert, de gegevens niet worden afgeknipt. Dit korte technische artikel laat zien hoe dat te doen.
+Een van de meest voorkomende vragen van Aspose.Slides voor C++ klanten is hoe vormen te verkleinen zodat, wanneer de slidegrootte verandert, de data niet wordt afgekapt. Dit korte technische artikel laat zien hoe dat te doen.
 
 ## **Vormen schalen**
 
-Om te voorkomen dat vormen scheef komen te staan wanneer de diaformaat verandert, dient u de positie en afmetingen van elke vorm bij te werken zodat ze overeenkomen met de nieuwe dia‑indeling.
+Om te voorkomen dat vormen uit lijnen raken wanneer de slidegrootte verandert, moet u de positie en afmetingen van elke vorm bijwerken zodat ze overeenkomen met de nieuwe slide‑indeling.
 
 ```cpp
-// Laad het presentatiebestand.
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/SlideSizeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// Laad het presentatie‑bestand.
 auto presentation = MakeObject<Presentation>(u"sample.ppt");
 
-// Haal de oorspronkelijke diaformaat op.
+// Haal de oorspronkelijke slide‑grootte op.
 float currentHeight = presentation->get_SlideSize()->get_Size().get_Height();
 float currentWidth = presentation->get_SlideSize()->get_Size().get_Width();
 
-// Wijzig de diaformaat zonder bestaande vormen te schalen.
+// Wijzig de slide‑grootte zonder bestaande vormen te schalen.
 presentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::DoNotScale);
 
-// Haal de nieuwe diaformaat op.
+// Haal de nieuwe slide‑grootte op.
 float newHeight = presentation->get_SlideSize()->get_Size().get_Height();
 float newWidth = presentation->get_SlideSize()->get_Size().get_Width();
 
 float heightRatio = newHeight / currentHeight;
 float widthRatio = newWidth / currentWidth;
 
-// Formen schalen en verplaatsen op elke dia.
+// Verklein en verplaats vormen op elke slide.
 for (auto&& slide : presentation->get_Slides())
 {
     for (auto&& shape : slide->get_Shapes())
     {
-        // Schaal de vormgrootte.
+        // Schaalt de grootte van de vorm.
         shape->set_Height(shape->get_Height() * heightRatio);
         shape->set_Width(shape->get_Width() * widthRatio);
 
-        // Schaal de vormpositie.
+        // Schaalt de positie van de vorm.
         shape->set_Y(shape->get_Y() * heightRatio);
         shape->set_X(shape->get_X() * widthRatio);
     }
@@ -58,24 +73,49 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert color="primary" %}} 
-Als een dia een tabel bevat, werkt de bovenstaande code niet correct. In dat geval moet elke cel in de tabel worden geschaald.
+{{% alert color="info" %}} 
+Als een slide een tabel bevat, werkt de bovenstaande code niet correct. In dat geval moet elke cel in de tabel worden herschaald.
 {{% /alert %}} 
 
-Gebruik de volgende code aan uw kant om dia's die tabellen bevatten te schalen. Voor tabellen is het instellen van de breedte of hoogte een speciaal geval: u moet de hoogtes van afzonderlijke rijen en de breedtes van kolommen aanpassen om de totale grootte van de tabel te wijzigen.
+Gebruik de onderstaande code om slides met tabellen te herschalen. Voor tabellen is het instellen van de breedte of hoogte een speciaal geval: u moet de hoogtes van individuele rijen en de breedtes van kolommen aanpassen om de totale grootte van de tabel te wijzigen.
 
 ```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILayoutSlideCollection.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/SlideSizeType.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// Haal de oorspronkelijke diaformaat op.
+// Haal de oorspronkelijke slidegrootte op.
 float currentHeight = presentation->get_SlideSize()->get_Size().get_Height();
 float currentWidth = presentation->get_SlideSize()->get_Size().get_Width();
 
-// Wijzig de diaformaat zonder bestaande vormen te schalen.
+// Wijzig de slidegrootte zonder bestaande vormen te schalen.
 presentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::DoNotScale);
 //presentation.SlideSize.Orientation = SlideOrienation.Portrait;
 
-// Haal de nieuwe diaformaat op.
+// Haal de nieuwe slidegrootte op.
 float newHeight = presentation->get_SlideSize()->get_Size().get_Height();
 float newWidth = presentation->get_SlideSize()->get_Size().get_Width();
 
@@ -86,11 +126,11 @@ for (auto&& master : presentation->get_Masters())
 {
     for (auto&& shape : master->get_Shapes())
     {
-        // Schaal de vormgrootte.
+        // Schaald de grootte van de vorm.
         shape->set_Height(shape->get_Height() * heightRatio);
         shape->set_Width(shape->get_Width() * widthRatio);
 
-        // Schaal de vormpositie.
+        // Schaald de positie van de vorm.
         shape->set_Y(shape->get_Y() * heightRatio);
         shape->set_X(shape->get_X() * widthRatio);
     }
@@ -99,11 +139,11 @@ for (auto&& master : presentation->get_Masters())
     {
         for (auto&& shape : layoutSlide->get_Shapes())
         {
-            // Schaal de vormgrootte.
+            // Schaald de grootte van de vorm.
             shape->set_Height(shape->get_Height() * heightRatio);
             shape->set_Width(shape->get_Width() * widthRatio);
 
-            // Schaal de vormpositie.
+            // Schaald de positie van de vorm.
             shape->set_Y(shape->get_Y() * heightRatio);
             shape->set_X(shape->get_X() * widthRatio);
         }
@@ -114,11 +154,11 @@ for (auto&& slide : presentation->get_Slides())
 {
     for (auto&& shape : slide->get_Shapes())
     {
-        // Schaal de vormgrootte.
+        // Schaald de grootte van de vorm.
         shape->set_Height(shape->get_Height() * heightRatio);
         shape->set_Width(shape->get_Width() * widthRatio);
 
-        // Schaal de vormpositie.
+        // Schaald de positie van de vorm.
         shape->set_Y(shape->get_Y() * heightRatio);
         shape->set_X(shape->get_X() * widthRatio);
 
@@ -141,32 +181,32 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Veelgestelde vragen**
+## **FAQ**
 
-**Waarom worden vormen vervormd of afgeknipt na het schalen van een dia?**
+### Waarom worden vormen vervormd of afgeknipt na het schalen van een slide?
 
-Bij het schalen van een dia behouden vormen hun oorspronkelijke positie en grootte, tenzij de schaal expliciet wordt aangepast. Hierdoor kan inhoud worden bijgesneden of kunnen vormen scheef komen te staan.
+Bij het schalen van een slide behouden vormen hun oorspronkelijke positie en grootte tenzij de schaal expliciet wordt gewijzigd. Dit kan ertoe leiden dat inhoud wordt bijgesneden of dat vormen uit lijnen raken.
 
-**Werkt de meegeleverde code voor alle vormtypen?**
+### Werkt de geleverde code voor alle vormtypen?
 
-Het basisvoorbeeld werkt voor de meeste vormtypen (tekstvakken, afbeeldingen, diagrammen, enz.). Voor tabellen moet u echter rijen en kolommen afzonderlijk behandelen, omdat de hoogte en breedte van een tabel worden bepaald door de afmetingen van individuele cellen.
+Het basisvoorbeeld werkt voor de meeste vormtypen (tekstvakken, afbeeldingen, grafieken, enz.). Voor tabellen moet u echter rijen en kolommen apart behandelen, aangezien de hoogte en breedte van een tabel worden bepaald door de afmetingen van individuele cellen.
 
-**Hoe schaalt ik tabellen bij het schalen van een dia?**
+### Hoe schaalt u tabellen bij het schalen van een slide?
 
-U moet door alle rijen en kolommen van de tabel itereren en hun hoogte en breedte evenredig aanpassen, zoals getoond in het tweede code‑voorbeeld.
+U moet door alle rijen en kolommen van de tabel lopen en hun hoogte en breedte evenredig aanpassen, zoals weergegeven in het tweede code‑voorbeeld.
 
-**Werkt deze schaalverandering ook voor masterdia's en lay‑outdia's?**
+### Werkt deze schaalbewerking voor masterslides en layoutslides?
 
-Ja, maar u moet ook door de [Masters](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/get_masters/) en [Layout slides](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/get_layoutslides/) itereren en dezelfde schaallogica op hun vormen toepassen om consistentie in de hele presentatie te waarborgen.
+Ja, maar u moet ook door [Masters](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/get_masters/) en [Layout slides](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/get_layoutslides/) lopen en dezelfde schaallogica toepassen op hun vormen om consistentie door de hele presentatie te waarborgen.
 
-**Kan ik de oriëntatie van een dia (staand/liggend) tegelijk met het schalen wijzigen?**
+### Kan ik de oriëntatie van een slide (portret/landschap) wijzigen samen met het schalen?
 
-Ja. U kunt [presentation->get_SlideSize()->set_Orientation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islidesize/set_orientation/) gebruiken om de oriëntatie te wijzigen. Zorg ervoor dat u de schaallogica hierop aanpast om de indeling te behouden.
+Ja. U kunt [presentation->get_SlideSize()->set_Orientation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islidesize/set_orientation/) gebruiken om de oriëntatie te wijzigen. Zorg ervoor dat u de schaallogica dienovereenkomstig aanpast om de lay‑out te behouden.
 
-**Is er een limiet aan de diaformaat die ik kan instellen?**
+### Is er een limiet aan de slidegrootte die ik kan instellen?
 
-Aspose.Slides ondersteunt aangepaste formaten, maar zeer grote formaten kunnen de prestaties beïnvloeden of incompatibel zijn met bepaalde versies van PowerPoint.
+Aspose.Slides ondersteunt aangepaste groottes, maar zeer grote groottes kunnen de prestaties beïnvloeden of compatibiliteitsproblemen veroorzaken met sommige versies van PowerPoint.
 
-**Hoe kan ik voorkomen dat vormen met een vaste beeldverhouding vervormd raken?**
+### Hoe kan ik voorkomen dat vormen met een vast beeldverhouding vervormd raken?
 
-U kunt de `get_AspectRatioLocked`-methode van de vorm controleren voordat u schaalt. Als deze vergrendeld is, past u de breedte of hoogte evenredig aan in plaats van ze afzonderlijk te schalen.
+U kunt de `get_AspectRatioLocked`‑methode van de vorm controleren vóór het schalen. Als deze vergrendeld is, past u de breedte of hoogte evenredig aan in plaats van ze afzonderlijk te schalen.

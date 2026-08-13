@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides for .NET 15.6.0'da Genel API ve Geriye Uyumsuz Değişiklikler
+title: Aspose.Slides for .NET 15.6.0'de Genel API ve Geriye Uyumsuz Değişiklikler
 linktitle: Aspose.Slides for .NET 15.6.0
 type: docs
 weight: 170
@@ -16,38 +16,34 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET'teki genel API güncellemelerini ve kırılma noktası değişikliklerini inceleyerek PowerPoint PPT, PPTX ve ODP sunum çözümlerinizi sorunsuz bir şekilde taşıyabilirsiniz."
+description: "Aspose.Slides for .NET'te genel API güncellemelerini ve kırıcı değişiklikleri inceleyerek PowerPoint PPT, PPTX ve ODP sunum çözümlerinizi sorunsuz bir şekilde taşıyın."
 ---
-{{% alert color="primary" %}} 
-Bu sayfa, Aspose.Slides for .NET 15.6.0 API'siyle tanıtılan eklenen [added](/slides/tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-6-0/) veya kaldırılan [removed](/slides/tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-6-0/) sınıfları, yöntemleri, özellikleri vb. ve diğer değişiklikleri listeler.
-{{% /alert %}} 
-## **Public API Changes**
-#### **DataLabel Constructor Signature Has Been Changed**
-DataLabel yapıcı imzası değiştirildi:
-eski: DataLabel.#ctor(Aspose.Slides.Charts.IChartSeries);
-yeni: DataLabel.#ctor(Aspose.Slides.Charts.IChartDataPoint).
-#### **Members IDocumentProperties.Count, .GetPropertyName(int index), .Remove(string name), .Contains(string name) Have Been Marked as Obsolete and Its Substitutions Have Been Introduced Instead.**
-IDocumentProperties.Count özelliği ve IDocumentProperties.GetPropertyName(int index), .Remove(string name), .Contains(string name) yöntemleri kullanımdan kaldırıldı. Bunun yerine IDocumentProperties.CountOfCustomProperties özelliği ve IDocumentProperties.GetCustomPropertyName(int index), .RemoveCustomProperty(string name), .ContainsCustomProperty(string name) yöntemleri eklendi.
-#### **Method INotesSlideManager.RemoveNotesSlide() Has Been Added**
-INotesSlideManager.RemoveNotesSlide() yöntemi eklendi.
-INotesSlideManager.RemoveNotesSlide() yöntemi, bir slaytın not slaydını kaldırmak için eklendi.
-#### **Method Remove Has Been Added to IComment**
-IComment.Remove yöntemi, yorumun koleksiyondan kaldırılması için eklendi.
-#### **Method Remove Has Been Added to ICommentAuthor**
-ICommentAuthor.Remove yöntemi, yorum yazarının koleksiyondan kaldırılması için eklendi.
-#### **Methods ClearCustomProperties and ClearBuiltInProperties Have Been Added to IDocumentProperties**
-IDocumentProperties.ClearCustomProperties yöntemi, tüm özel belge özelliklerini kaldırmak için eklendi.
-IDocumentProperties.ClearBuiltInProperties yöntemi, tüm yerleşik belge özelliklerini (Company, Subject, Author vb.) kaldırmak ve varsayılan değerlerine döndürmek için eklendi.
-#### **Methods RemoveAt, Remove and Clear Have Been Added to ICommentAuthorCollection**
-ICommentAuthorCollection.RemoveAt yöntemi, belirtilen indeksteki yazarın kaldırılması için eklendi.
-ICommentAuthorCollection.Remove yöntemi, belirtilen yazarın koleksiyondan kaldırılması için eklendi.
-ICommentAuthorCollection.Clear yöntemi, koleksiyondaki tüm öğelerin kaldırılması için eklendi.
-#### **Property AppVersion Has Been Added to IDocumentProperties**
-IDocumentProperties.AppVersion özelliği, Microsoft'un geliştirme sırasında kullandığı iç sürüm numaralarını temsil eden yerleşik belge özelliğini almak için eklendi.
-#### **Property BlackWhiteMode Has Been Added to IShape and to Shape**
-BlackWhiteMode özelliği IShape ve Shape nesnelerine eklendi.
+{{% alert color="info" %}} 
 
-Bu özellik, bir şeklin siyah‑beyaz görüntü modunda nasıl render edileceğini belirler.
+Bu sayfa, Aspose.Slides for .NET 15.6.0 API'sı ile tanıtılan eklenen [eklenen](/slides/tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-6-0/) veya kaldırılan [kaldırılan](/slides/tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-6-0/) sınıfları, metodları, özellikleri vb. ve diğer değişiklikleri listeler.
+
+{{% /alert %}} 
+## **Genel API Değişiklikleri**
+#### **DataLabel Yapıcı İmzası Değiştirildi**
+DataLabel yapıcı imzası değiştirildi: önceki: DataLabel.#ctor(Aspose.Slides.Charts.IChartSeries); artık: DataLabel.#ctor(Aspose.Slides.Charts.IChartDataPoint).
+#### **Üyeler IDocumentProperties.Count, .GetPropertyName(int index), .Remove(string name), .Contains(string name) Kullanımdan Kaldırıldı ve Yerine Değiştirmeleri Tanıtıldı.**
+IDocumentProperties.Count özelliği ve IDocumentProperties.GetPropertyName(int index), .Remove(string name), .Contains(string name) metodları Kullanımdan Kaldırıldı. Yerine IDocumentProperties.CountOfCustomProperties özelliği ve IDocumentProperties.GetCustomPropertyName(int index), .RemoveCustomProperty(string name), .ContainsCustomProperty(string name) metodları eklendi.
+#### **INotesSlideManager.RemoveNotesSlide() Metodu Eklendi**
+INotesSlideManager.RemoveNotesSlide() metodu, bir slaydın not slaydını kaldırmak için eklendi.
+#### **IComment İçin Remove Metodu Eklendi**
+IComment.Remove metodu, koleksiyondan yorumu kaldırmak için eklendi.
+#### **ICommentAuthor İçin Remove Metodu Eklendi**
+ICommentAuthor.Remove metodu, yorum yazarını koleksiyondan kaldırmak için eklendi.
+#### **IDocumentProperties İçin ClearCustomProperties ve ClearBuiltInProperties Metodları Eklendi**
+IDocumentProperties.ClearCustomProperties metodu, tüm özel belge özelliklerini kaldırmak için eklendi. IDocumentProperties.ClearBuiltInProperties metodu, tüm yerleşik belge özelliklerini (Company, Subject, Author vb.) kaldırmak ve varsayılan değerlere ayarlamak için eklendi.
+#### **ICommentAuthorCollection İçin RemoveAt, Remove ve Clear Metodları Eklendi**
+ICommentAuthorCollection.RemoveAt metodu, belirtilen indeks ile yazarı kaldırmak için eklendi. ICommentAuthorCollection.Remove metodu, belirtilen yazarı koleksiyondan kaldırmak için eklendi. ICommentAuthorCollection.Clear metodu, koleksiyondaki tüm öğeleri kaldırmak için eklendi.
+#### **IDocumentProperties İçin AppVersion Özelliği Eklendi**
+IDocumentProperties.AppVersion özelliği, Microsoft'un geliştirme sırasında kullandığı dahili sürüm numaralarını temsil eden yerleşik belge özelliğini almak için eklendi.
+#### **IShape ve Shape İçin BlackWhiteMode Özelliği Eklendi**
+BlackWhiteMode özelliği IShape ve Shape'e eklendi.
+
+Bu özellik, bir şeklin siyah-beyaz görüntü modunda nasıl render edileceğini belirtir.
 
 |**Değer** |**Anlam** |
 | :- | :- |
@@ -61,26 +57,26 @@ Bu özellik, bir şeklin siyah‑beyaz görüntü modunda nasıl render edilece�
 |BlackWhite |Siyah ve beyaz renkle render eder |
 |Black |Sadece siyah renkle render eder |
 |White |Beyaz renkle render eder |
-|Hidden |Render edilmez |
-|NotDefined|özelliğin ayarlanmadığını gösterir|
-#### **Рroperty ISlide.NotesSlideManager Has Been Added. Property ISlide.NotesSlide and Method ISlide.AddNotesSlide() Have Been Marked as Obsolete.**
-ISlide.NotesSlideManager özelliği eklendi. ISlide.NotesSlide özelliği ve ISlide.AddNotesSlide() yöntemi kullanımdan kaldırıldı.
-ISlide.NotesSlide ve ISlide.AddNotesSlide() üyeleri kullanımdan kaldırıldı. Bunun yerine yeni ISlide.NotesSlideManager özelliği kullanılmalıdır.
+|Hidden |Render etmez |
+|NotDefined|özelliğin ayarlanmadığını gösterir |
+#### **ISlide.NotesSlideManager Özelliği Eklendi. ISlide.NotesSlide ve ISlide.AddNotesSlide() Metodu Kullanımdan Kaldırıldı.**
+ISlide.NotesSlide ve ISlide.AddNotesSlide() üyeleri Kullanımdan Kaldırıldı. Yeni ISlide.NotesSlideManager özelliğini kullanın.
 
 ``` csharp
+using Aspose.Slides;
 
- ISlide slide = ...;
+using (Presentation pres = new Presentation("sample.pptx"))
+{
+    ISlide slide = pres.Slides[0];
 
-INotesSlide notes;
+    INotesSlide notes;
 
-// notes = slide.AddNotesSlide(); - kullanımdan kaldırılmış
+    // notes = slide.AddNotesSlide(); - kullanımdan kaldırıldı
+    // notes = slide.NotesSlide; - kullanımdan kaldırıldı
 
-// notes = slide.NotesSlide; - kullanımdan kaldırılmış
+    notes = slide.NotesSlideManager.NotesSlide;
+    notes = slide.NotesSlideManager.AddNotesSlide();
 
-notes = slide.NotesSlideManager.NotesSlide;
-
-notes = slide.NotesSlideManager.AddNotesSlide();
-
-slide.NotesSlideManager.RemoveNotesSlide();
-
+    slide.NotesSlideManager.RemoveNotesSlide();
+}
 ```

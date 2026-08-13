@@ -5,8 +5,8 @@ type: docs
 weight: 20
 url: /it/java/presentation-background/
 keywords:
-- sfondo presentazione
-- sfondo diapositiva
+- sfondo della presentazione
+- sfondo della diapositiva
 - colore solido
 - colore a gradiente
 - sfondo immagine
@@ -17,17 +17,17 @@ keywords:
 - presentazione
 - Java
 - Aspose.Slides
-description: "Scopri come impostare sfondi dinamici nei file PowerPoint e OpenDocument usando Aspose.Slides per Java, con suggerimenti di codice per migliorare le tue presentazioni."
+description: "Scopri come impostare sfondi dinamici nei file PowerPoint e OpenDocument usando Aspose.Slides per Java, con suggerimenti di codice per potenziare le tue presentazioni."
 ---
 ## **Introduzione**
 
-I colori solidi, i gradienti e le immagini sono comunemente usati per gli sfondi delle diapositive. È possibile impostare lo sfondo per una **diapositiva normale** (una singola diapositiva) o per una **diapositiva master** (applicata a più diapositive contemporaneamente).
+I colori solidi, i gradienti e le immagini sono comunemente usati per gli sfondi delle diapositive. È possibile impostare lo sfondo per una **diapositiva normale** (una singola diapositiva) o una **diapositiva master** (vale per più diapositive contemporaneamente).
 
-![Sfondo PowerPoint](powerpoint-background.png)
+![sfondo PowerPoint](powerpoint-background.png)
 
-## **Imposta uno Sfondo a Colore Solido per una Diapositiva Normale**
+## **Imposta uno sfondo a colore solido per una diapositiva normale**
 
-Aspose.Slides consente di impostare un colore solido come sfondo per una diapositiva specifica in una presentazione, anche se la presentazione utilizza una diapositiva master. La modifica si applica solo alla diapositiva selezionata.
+Aspose.Slides consente di impostare un colore solido come sfondo per una diapositiva specifica in una presentazione—anche se la presentazione utilizza una diapositiva master. La modifica si applica solo alla diapositiva selezionata.
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/).
 2. Imposta il [BackgroundType](https://reference.aspose.com/slides/it/java/com.aspose.slides/backgroundtype/) della diapositiva su `OwnBackground`.
@@ -38,12 +38,15 @@ Aspose.Slides consente di impostare un colore solido come sfondo per una diaposi
 Il seguente esempio Java mostra come impostare un colore solido blu come sfondo per una diapositiva normale:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Crea un'istanza della classe Presentation.
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Imposta il colore di sfondo della diapositiva a blu.
+    // Imposta il colore di sfondo della diapositiva su blu.
     slide.getBackground().setType(BackgroundType.OwnBackground);
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
@@ -55,25 +58,28 @@ try {
 }
 ```
 
-## **Imposta uno Sfondo a Colore Solido per una Diapositiva Master**
+## **Imposta uno sfondo a colore solido per una diapositiva master**
 
-Aspose.Slides consente di impostare un colore solido come sfondo per la diapositiva master in una presentazione. La diapositiva master funge da modello che controlla la formattazione di tutte le diapositive, quindi quando si sceglie un colore solido per lo sfondo della diapositiva master, questo viene applicato a tutte le diapositive.
+Aspose.Slides consente di impostare un colore solido come sfondo per la diapositiva master in una presentazione. La diapositiva master funge da modello che controlla la formattazione di tutte le diapositive, quindi quando scegli un colore solido per lo sfondo della diapositiva master, questo viene applicato a ogni diapositiva.
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/).
 2. Imposta il [BackgroundType](https://reference.aspose.com/slides/it/java/com.aspose.slides/backgroundtype/) della diapositiva master (tramite `getMasters`) su `OwnBackground`.
-3. Imponi il [FillType](https://reference.aspose.com/slides/it/java/com.aspose.slides/filltype/) dello sfondo della diapositiva master su `Solid`.
+3. Imposta il [FillType](https://reference.aspose.com/slides/it/java/com.aspose.slides/filltype/) dello sfondo della diapositiva master su `Solid`.
 4. Utilizza il metodo [getSolidFillColor](https://reference.aspose.com/slides/it/java/com.aspose.slides/fillformat/#getSolidFillColor--) per specificare il colore solido dello sfondo.
 5. Salva la presentazione modificata.
 
 Il seguente esempio Java mostra come impostare un colore solido (verde) come sfondo per una diapositiva master:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Crea un'istanza della classe Presentation.
 Presentation presentation = new Presentation();
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
 
-    // Imposta il colore di sfondo per la diapositiva Master a Verde foresta.
+    // Imposta il colore di sfondo della diapositiva master su verde.
     masterSlide.getBackground().setType(BackgroundType.OwnBackground);
     masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
     masterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
@@ -85,19 +91,22 @@ try {
 }
 ```
 
-## **Imposta uno Sfondo a Gradiente per una Diapositiva**
+## **Imposta uno sfondo a gradiente per una diapositiva**
 
-Un gradiente è un effetto grafico creato da una variazione graduale di colore. Quando viene utilizzato come sfondo di una diapositiva, i gradienti possono rendere le presentazioni più artistiche e professionali. Aspose.Slides consente di impostare un colore a gradiente come sfondo per le diapositive.
+Un gradiente è un effetto grafico creato da una variazione graduale di colore. Quando viene usato come sfondo della diapositiva, il gradiente può rendere le presentazioni più artistiche e professionali. Aspose.Slides consente di impostare un colore a gradiente come sfondo per le diapositive.
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/).
 2. Imposta il [BackgroundType](https://reference.aspose.com/slides/it/java/com.aspose.slides/backgroundtype/) della diapositiva su `OwnBackground`.
 3. Imposta il [FillType](https://reference.aspose.com/slides/it/java/com.aspose.slides/filltype/) dello sfondo della diapositiva su `Gradient`.
-4. Utilizza il metodo [getGradientFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/fillformat/#getGradientFormat--) su [FillFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/fillformat/) per configurare le impostazioni di gradiente preferite.
+4. Utilizza il metodo [getGradientFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/fillformat/#getGradientFormat--) su [FillFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/fillformat/) per configurare le impostazioni del gradiente desiderate.
 5. Salva la presentazione modificata.
 
 Il seguente esempio Java mostra come impostare un colore a gradiente come sfondo per una diapositiva:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Crea un'istanza della classe Presentation.
 Presentation presentation = new Presentation();
 try {
@@ -106,7 +115,13 @@ try {
     // Applica un effetto gradiente allo sfondo.
     slide.getBackground().setType(BackgroundType.OwnBackground);
     slide.getBackground().getFillFormat().setFillType(FillType.Gradient);
-    slide.getBackground().getFillFormat().getGradientFormat().setTileFlip(TileFlip.FlipBoth);
+
+    IGradientFormat gradientFormat = slide.getBackground().getFillFormat().getGradientFormat();
+    gradientFormat.setTileFlip(TileFlip.FlipBoth);
+
+    // Aggiungi i colori del gradiente. Senza punti di gradiente, lo sfondo ritorna a una rampa predefinita dal nero al bianco.
+    gradientFormat.getGradientStops().add(0f, Color.CYAN);
+    gradientFormat.getGradientStops().add(1f, Color.BLUE);
 
     // Salva la presentazione su disco.
     presentation.save("GradientBackground.pptx", SaveFormat.Pptx);
@@ -115,21 +130,23 @@ try {
 }
 ```
 
-## **Imposta un'Immagine come Sfondo della Diapositiva**
+## **Imposta un'immagine come sfondo della diapositiva**
 
-Oltre a riempimenti solidi e a gradiente, Aspose.Slides consente di utilizzare immagini come sfondi delle diapositive.
+Oltre ai riempimenti solidi e a gradiente, Aspose.Slides consente di utilizzare immagini come sfondo delle diapositive.
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/).
 2. Imposta il [BackgroundType](https://reference.aspose.com/slides/it/java/com.aspose.slides/backgroundtype/) della diapositiva su `OwnBackground`.
 3. Imposta il [FillType](https://reference.aspose.com/slides/it/java/com.aspose.slides/filltype/) dello sfondo della diapositiva su `Picture`.
-4. Carica l'immagine che desideri utilizzare come sfondo della diapositiva.
-5. Aggiungi l'immagine alla raccolta di immagini della presentazione.
+4. Carica l'immagine da usare come sfondo della diapositiva.
+5. Aggiungi l'immagine alla collezione di immagini della presentazione.
 6. Utilizza il metodo [getPictureFillFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/fillformat/#getPictureFillFormat--) su [FillFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/fillformat/) per assegnare l'immagine come sfondo.
 7. Salva la presentazione modificata.
 
 Il seguente esempio Java mostra come impostare un'immagine come sfondo per una diapositiva:
 
 ```java
+import com.aspose.slides.*;
+
 // Crea un'istanza della classe Presentation.
 Presentation presentation = new Presentation();
 try {
@@ -142,7 +159,7 @@ try {
     
     // Carica l'immagine.
     IImage image = Images.fromFile("Tulips.jpg");
-    // Aggiungi l'immagine alla raccolta di immagini della presentazione.
+    // Aggiungi l'immagine alla collezione di immagini della presentazione.
     IPPImage ppImage = presentation.getImages().addImage(image);
     image.dispose();
 
@@ -155,9 +172,11 @@ try {
 }
 ```
 
-Il seguente frammento di codice mostra come impostare il tipo di riempimento dello sfondo su un'immagine affiancata e modificare le proprietà di affiancamento:
+Il seguente esempio di codice mostra come impostare il tipo di riempimento dello sfondo su un'immagine affiancata e modificare le proprietà di affiancamento:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide firstSlide = presentation.getSlides().get_Item(0);
@@ -171,11 +190,11 @@ try {
     IPPImage ppImage = presentation.getImages().addImage(newImage);
     newImage.dispose();
 
-    // Imposta l'immagine utilizzata per il riempimento dello sfondo.
+    // Imposta l'immagine usata per il riempimento dello sfondo.
     IPictureFillFormat backPictureFillFormat = background.getFillFormat().getPictureFillFormat();
     backPictureFillFormat.getPicture().setImage(ppImage);
 
-    // Imposta la modalità di riempimento immagine su Tile e regola le proprietà della tessitura.
+    // Imposta la modalità di riempimento dell'immagine su Tile e regola le proprietà del riquadro.
     backPictureFillFormat.setPictureFillMode(PictureFillMode.Tile);
     backPictureFillFormat.setTileOffsetX(15f);
     backPictureFillFormat.setTileOffsetY(15f);
@@ -190,53 +209,66 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-Leggi di più: [**Tile Picture As Texture**](/slides/it/java/shape-formatting/#tile-picture-as-texture).
+{{% alert color="info" %}}
+Read more: [**Immagine affiancata come texture**](/slides/it/java/shape-formatting/#tile-picture-as-texture).
 {{% /alert %}}
 
-### **Modifica la Trasparenza dell'Immagine di Sfondo**
+### **Modifica la trasparenza dell'immagine di sfondo**
 
-Potresti voler regolare la trasparenza dell'immagine di sfondo di una diapositiva per far risaltare il contenuto della diapositiva. Il seguente codice Java mostra come modificare la trasparenza per un'immagine di sfondo di una diapositiva:
+Potresti voler regolare la trasparenza dell'immagine di sfondo di una diapositiva per far risaltare il contenuto della diapositiva. Il seguente codice Java mostra come modificare la trasparenza di un'immagine di sfondo della diapositiva:
 
 ```java
+import com.aspose.slides.*;
+
 int transparencyValue = 30; // Ad esempio.
 
-// Ottieni la collezione delle operazioni di trasformazione dell'immagine.
-IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-// Trova un effetto di trasparenza a percentuale fissa esistente.
-IAlphaModulateFixed transparencyOperation = null;
-for (IImageTransformOperation operation : imageTransform) {
-    if (operation instanceof IAlphaModulateFixed) {
-        transparencyOperation = (IAlphaModulateFixed)operation;
-        break;
+    // Ottieni la collezione delle operazioni di trasformazione dell'immagine.
+    IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+
+    // Trova un effetto di trasparenza a percentuale fissa esistente.
+    IAlphaModulateFixed transparencyOperation = null;
+    for (IImageTransformOperation operation : imageTransform) {
+        if (operation instanceof IAlphaModulateFixed) {
+            transparencyOperation = (IAlphaModulateFixed)operation;
+            break;
+        }
     }
-}
 
-// Imposta il nuovo valore di trasparenza.
-if (transparencyOperation == null) {
-    imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
-}
-else {
-    transparencyOperation.setAmount(100 - transparencyValue);
+    // Imposta il nuovo valore di trasparenza.
+    if (transparencyOperation == null) {
+        imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
+    }
+    else {
+        transparencyOperation.setAmount(100 - transparencyValue);
+    }
+
+    presentation.save("output.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Ottieni il Valore di Sfondo della Diapositiva**
+## **Ottieni il valore dello sfondo della diapositiva**
 
-Aspose.Slides fornisce l'interfaccia [IBackgroundEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibackgroundeffectivedata/) per recuperare i valori effettivi dello sfondo di una diapositiva. Questa interfaccia espone il [FillFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibackgroundeffectivedata/#getFillFormat--) e il [EffectFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibackgroundeffectivedata/#getEffectFormat--) effettivi.
+Aspose.Slides fornisce l'interfaccia [IBackgroundEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibackgroundeffectivedata/) per recuperare i valori effettivi dello sfondo di una diapositiva. Questa interfaccia espone il [FillFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibackgroundeffectivedata/#getFillFormat--) e l'[EffectFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibackgroundeffectivedata/#getEffectFormat--) effettivi.
 
-Utilizzando il metodo `getBackground` della classe [BaseSlide](https://reference.aspose.com/slides/it/java/com.aspose.slides/baseslide/), è possibile ottenere lo sfondo effettivo per una diapositiva.
+Utilizzando il metodo `getBackground` della classe [BaseSlide](https://reference.aspose.com/slides/it/java/com.aspose.slides/baseslide/), è possibile ottenere lo sfondo effettivo di una diapositiva.
 
 Il seguente esempio Java mostra come ottenere il valore effettivo dello sfondo di una diapositiva:
 
 ```java
+import com.aspose.slides.*;
+
 // Crea un'istanza della classe Presentation.
 Presentation presentation = new Presentation("Sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Recupera lo sfondo effettivo, tenendo conto di master, layout e tema.
+    // Recupera lo sfondo efficace, tenendo conto di master, layout e tema.
     IBackgroundEffectiveData effBackground = slide.getBackground().getEffective();
     
     if (effBackground.getFillFormat().getFillType() == FillType.Solid)
@@ -250,10 +282,10 @@ try {
 
 ## **FAQ**
 
-**Posso reimpostare uno sfondo personalizzato e ripristinare lo sfondo del tema/layout?**
+### Posso ripristinare uno sfondo personalizzato e recuperare lo sfondo del tema/layout?
 
 Sì. Rimuovi il riempimento personalizzato della diapositiva e lo sfondo verrà nuovamente ereditato dalla diapositiva di [layout](/slides/it/java/slide-layout/)/[master](/slides/it/java/slide-master/) corrispondente (cioè dallo [sfondo del tema](/slides/it/java/presentation-theme/)).
 
-**Cosa succede allo sfondo se modifico il tema della presentazione in seguito?**
+### Cosa succede allo sfondo se modifico successivamente il tema della presentazione?
 
-Se una diapositiva ha un proprio riempimento, questo rimarrà invariato. Se lo sfondo è ereditato dal [layout](/slides/it/java/slide-layout/)/[master](/slides/it/java/slide-master/), verrà aggiornato per corrispondere al [nuovo tema](/slides/it/java/presentation-theme/).
+Se una diapositiva ha un riempimento proprio, rimarrà invariato. Se lo sfondo è ereditato dal [layout](/slides/it/java/slide-layout/)/[master](/slides/it/java/slide-master/), verrà aggiornato per corrispondere al [nuovo tema](/slides/it/java/presentation-theme/).

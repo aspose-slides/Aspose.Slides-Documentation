@@ -5,33 +5,36 @@ type: docs
 weight: 80
 url: /es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/
 keywords:
-  - migración
-  - código heredado
-  - código moderno
-  - enfoque heredado
-  - enfoque moderno
-  - PowerPoint
-  - OpenDocument
-  - presentación
-  - .NET
-  - C#
-  - Aspose.Slides
-description: "Revisa las actualizaciones de la API pública y los cambios incompatibles en Aspose.Slides para .NET para migrar sin problemas tus soluciones de presentaciones PowerPoint PPT, PPTX y ODP."
+- migración
+- código legado
+- código moderno
+- enfoque legado
+- enfoque moderno
+- PowerPoint
+- OpenDocument
+- presentación
+- .NET
+- C#
+- Aspose.Slides
+description: "Revisa las actualizaciones de la API pública y los cambios incompatibles en Aspose.Slides para .NET para migrar sin problemas tus soluciones de presentación PowerPoint PPT, PPTX y ODP."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-Esta página enumera todas las [clases agregadas](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/), métodos, propiedades y demás, cualquier [restricción nueva](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) y otros [cambios](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) introducidos con la API Aspose.Slides for .NET 14.6.0.
+Esta página enumera todas las [añadido](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) clases, métodos, propiedades y demás, cualquier [restricción](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) y otros [cambios](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) introducidos con la API de Aspose.Slides for .NET 14.6.0.
 
 {{% /alert %}} 
 ## **Cambios en la API pública**
-### **Interfaces, métodos y propiedades agregados**
-#### **Se agregó la interfaz Aspose.Slides.Charts.IErrorBarsFormat**
+### **Interfaces, métodos y propiedades añadidos**
+#### **Añadida la interfaz Aspose.Slides.Charts.IErrorBarsFormat**
 Representa las barras de error de una serie de gráfico.
 
-En caso de tipo de valor personalizado, para especificar un valor, use la propiedad ErrorBarCustomValues del punto de datos específico en la colección DataPoints de la serie.
+En caso de tipo de valor personalizado, para especificar un valor, utilice la propiedad ErrorBarCustomValues del punto de datos concreto en la colección DataPoints de la serie.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -64,12 +67,15 @@ En caso de tipo de valor personalizado, para especificar un valor, use la propie
     pres.Save("ErrorBars.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Se agregó la interfaz Aspose.Slides.Charts.IErrorBarsCustomValues**
-Cuando la propiedad IErrorBarsFormat.ValueType es igual a Custom, para especificar un valor, use la propiedad ErrorBarCustomValues del punto de datos específico en la colección DataPoints.
+#### **Añadida la interfaz Aspose.Slides.Charts.IErrorBarsCustomValues**
+Cuando la propiedad IErrorBarsFormat.ValueType es igual a Custom, para especificar un valor, utilice la propiedad ErrorBarCustomValues del punto de datos concreto en la colección DataPoints.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -118,12 +124,15 @@ Cuando la propiedad IErrorBarsFormat.ValueType es igual a Custom, para especific
     pres.Save("ErrorBarsCustomValues", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Se agregó la interfaz Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues**
+#### **Añadida la interfaz Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues**
 Especifica los tipos de valores en la lista de propiedades ChartDataPoint.ErrorBarsCustomValues.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -172,9 +181,8 @@ Especifica los tipos de valores en la lista de propiedades ChartDataPoint.ErrorB
     pres.Save("ErrorBarsCustomValues", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Se agregaron los métodos Aspose.Slides.IShapeCollection.AddClone(...), y .InsertClone(...)**
+#### **Añadidos los métodos Aspose.Slides.IShapeCollection.AddClone(...), y .InsertClone(...)**
 Los siguientes métodos añaden/insertan una copia de una forma especificada en la colección. 
 
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape)
@@ -185,8 +193,10 @@ Los siguientes métodos añaden/insertan una copia de una forma especificada en 
 - Aspose.Slides.IShapeCollection.InsertClone(int index, IShape sourceShape, float x, float y, float width, float height)
 
 ``` csharp
+using Aspose.Slides;
 
- using (Presentation srcPres = new Presentation(dataPath_ShapeCloning + "Source Frame.pptx"))
+
+ using (Presentation srcPres = new Presentation("Source Frame.pptx"))
 
 {
 
@@ -211,12 +221,13 @@ Los siguientes métodos añaden/insertan una copia de una forma especificada en 
     destShapes.InsertClone(0, sourceShapes[0], 50, 150);
 
 }
-
 ``` 
-#### **Se agregó el enum ViewType, la interfaz IViewProperties, la clase ViewProperties y la propiedad IPresentation.ViewProperties**
-IPresentation.ViewProperty permite a los desarrolladores cambiar el tipo de vista de la presentación y la visibilidad de notas cuando una presentación se abre en PowerPoint.
+#### **Añadidos el Enum ViewType, la interfaz IViewProperties, la clase ViewProperties y las propiedades IPresentation.ViewProperties**
+La propiedad IPresentation.ViewProperty permite a los desarrolladores cambiar el tipo de vista de la presentación y la visibilidad de las notas cuando una presentación se abre en PowerPoint.
 
 ``` csharp
+using Aspose.Slides;
+
 
  using(Presentation p = new Presentation())
 
@@ -225,5 +236,4 @@ IPresentation.ViewProperty permite a los desarrolladores cambiar el tipo de vist
     p.ViewProperties.LastView = ViewType.SlideMasterView;
 
 }
-
 ```

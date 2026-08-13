@@ -1,6 +1,6 @@
 ---
-title: "Android'de Sunumlarda Madde İşaretli ve Numaralı Listeleri Yönetme"
-linktitle: "Listeleri Yönet"
+title: Android Sunumlarında Madde İşaretli ve Numaralı Listeleri Yönetme
+linktitle: Listeleri Yönet
 type: docs
 weight: 60
 url: /tr/androidjava/manage-lists/
@@ -21,29 +21,32 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java kullanarak PowerPoint ve OpenDocument sunumlarında madde işaretli, resimli, çok seviyeli ve numaralı listeleri oluşturmayı ve biçimlendirmeyi öğrenin."
+description: "Aspose.Slides for Android via Java kullanarak PowerPoint ve OpenDocument sunumlarında madde işaretli, resimli, çok seviyeli ve numaralı listeleri nasıl oluşturup biçimlendireceğinizi öğrenin."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for Android via Java, PowerPoint ve OpenDocument sunumlarında madde işaretli ve numaralı listeler oluşturmanıza ve biçimlendirmenize olanak tanır. Bir liste öğesi, madde işareti ayarları paragraf formatı aracılığıyla kontrol edilen bir paragraftır.
+Aspose.Slides for Android via Java, PowerPoint ve OpenDocument sunumlarında madde işaretli ve numaralı listeler oluşturmanıza ve biçimlendirmenize olanak tanır. Bir liste öğesi, madde işareti ayarları paragraf biçimi aracılığıyla kontrol edilen bir paragraftır.
 
-Paragraf düzeyindeki liste ayarlarına erişmek için [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraph/#getParagraphFormat--) yöntemini kullanın. Ana giriş noktası, bir [IBulletFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/) nesnesi döndüren [IParagraphFormat.getBullet](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#getBullet--) yöntemidir. Bu nesne ile madde işareti türünü, sembolünü, resmini, rengini, boyutunu, numaralandırma stilini ve başlangıç sayısını ayarlayabilirsiniz.
+Paragraf düzeyindeki liste ayarlarına erişmek için [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraph/#getParagraphFormat--) yöntemini kullanın. Ana giriş noktası [IParagraphFormat.getBullet](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#getBullet--), bu yöntem bir [IBulletFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/) nesnesi döndürür. Bu nesne ile madde işareti türünü, sembolü, resmi, rengi, boyutu, numaralandırma stilini ve başlangıç numarasını ayarlayabilirsiniz.
 
-Bu makale aşağıdakileri gösterir:
+Bu makale şunların nasıl yapılacağını gösterir:
 
-- özel bir sembolle madde işaretli bir liste oluşturma
-- resimli madde işareti oluşturma
-- paragraf derinliğini ayarlayarak çok seviyeli bir liste oluşturma
-- numaralı bir liste oluşturma
+- özel bir sembolle madde işaretli liste oluşturma
+- resim madde işareti oluşturma
+- paragraf derinliği ayarlanarak çok düzeyli liste oluşturma
+- numaralı liste oluşturma
 - mevcut bir sunumda liste biçimlendirmesini inceleme ve değiştirme
 
 ## **Madde İşaretli Liste Oluşturma**
 
-Madde işaretli bir liste oluşturmak için, bir [ITextFrame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itextframe/) içine paragraflar ekleyin ve [IBulletFormat.setType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) metodunu [BulletType.Symbol](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/bullettype/) değerine ayarlayın. Ardından, madde işaretinin görünümünü kontrol etmek için [IBulletFormat.setChar](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/#setChar-char-), [IBulletFormat.getColor](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/#getColor--) ve [IBulletFormat.setHeight](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/#setHeight-float-) metodlarını kullanabilirsiniz.
+Madde işaretli bir liste oluşturmak için bir [ITextFrame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itextframe/) içine paragraflar ekleyin ve [IBulletFormat.setType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) özelliğini [BulletType.Symbol](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/bullettype/) olarak ayarlayın. Ardından madde işaretinin görünümünü kontrol etmek için [IBulletFormat.setChar](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/#setChar-char-), [IBulletFormat.getColor](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/#getColor--) ve [IBulletFormat.setHeight](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/#setHeight-float-) özelliklerini ayarlayabilirsiniz.
 
-Aşağıdaki Java kodu, bir slaytta madde işaretli liste nasıl oluşturulacağını gösterir:
+Aşağıdaki Java kodu bir slaytta madde işaretli liste nasıl oluşturulacağını gösterir:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -52,12 +55,14 @@ try {
     ITextFrame textFrame = autoShape.getTextFrame();
     textFrame.getParagraphs().clear();
 
+    Color bulletColor = new Color(205, 92, 92);
+
     Paragraph paragraph1 = new Paragraph();
     paragraph1.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     paragraph1.getParagraphFormat().getBullet().setChar('*');
     paragraph1.getParagraphFormat().setIndent(15);
     paragraph1.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True);
-    paragraph1.getParagraphFormat().getBullet().getColor().setColor(Color.RED);
+    paragraph1.getParagraphFormat().getBullet().getColor().setColor(bulletColor);
     paragraph1.getParagraphFormat().getBullet().setHeight(100);
     paragraph1.setText("The first paragraph");
     textFrame.getParagraphs().add(paragraph1);
@@ -67,7 +72,7 @@ try {
     paragraph2.getParagraphFormat().getBullet().setChar('*');
     paragraph2.getParagraphFormat().setIndent(15);
     paragraph2.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True);
-    paragraph2.getParagraphFormat().getBullet().getColor().setColor(Color.RED);
+    paragraph2.getParagraphFormat().getBullet().getColor().setColor(bulletColor);
     paragraph2.getParagraphFormat().getBullet().setHeight(100);
     paragraph2.setText("The second paragraph");
     textFrame.getParagraphs().add(paragraph2);
@@ -84,11 +89,13 @@ Sonuç:
 
 ## **Numaralı Liste Oluşturma**
 
-Öğelerin sırası önemli olduğunda numaralı listeler kullanın. [IBulletFormat.setType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) metodunu [BulletType.Numbered](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/bullettype/) değerine ayarlayın. Ayrıca, [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) ile bir numaralandırma biçimi seçebilir veya listenin 1 dışındaki bir değerden başlamasını istediğinizde [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) metodunu ayarlayabilirsiniz.
+Öğelerin sırası önemli olduğunda numaralı listeler kullanın. [IBulletFormat.setType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) özelliğini [BulletType.Numbered](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/bullettype/) olarak ayarlayın. Ayrıca [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) ile bir numaralandırma biçimi seçebilir veya listenin 1 dışındaki bir değerle başlamasını istiyorsanız [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) özelliğini kullanın.
 
-Aşağıdaki Java kodu, bir slaytta numaralı liste nasıl oluşturulacağını gösterir:
+Aşağıdaki Java kodu bir slaytta numaralı liste nasıl oluşturulacağını gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -124,21 +131,25 @@ Sonuç:
 
 ## **Resim Madde İşareti Oluşturma**
 
-Aspose.Slides, normal bir madde işareti sembolünü bir görüntüyle değiştirmenize olanak tanır. Resim madde işaretleri, küçük boyutta okunabilirliği koruyan basit görüntülerle, örneğin simgeler veya küçük şeffaf PNG dosyalarıyla en iyi çalışır.
+Aspose.Slides, normal bir madde işareti sembolünü bir görüntüyle değiştirmenize olanak tanır. Resim madde işaretleri, küçük boyutta okunabilirliğini koruyan basit görüntüler, örneğin simgeler veya küçük şeffaf PNG dosyaları ile en iyi şekilde çalışır.
 
-{{% alert color="primary" %}}
-İdeal olarak, normal madde işareti sembolünü bir görüntüyle değiştirmeyi planlıyorsanız, şeffaf bir arka plana sahip basit bir grafik seçmek en iyisidir. Bu tür görüntüler, özel madde işareti sembolleri olarak iyi çalışır.
+{{% alert color="info" %}}
+İdeal olarak, normal madde işareti sembolünü bir görüntüyle değiştirmeyi planlıyorsanız, şeffaf bir arka plana sahip basit bir grafik seçmeniz en iyisidir. Bu tür görüntüler, özel madde işareti sembolleri olarak iyi çalışır.
+
+Görüntünün çok küçük bir boyuta ölçekleneceğini unutmayın. Bu nedenle, bir listede madde işareti olarak kullanıldığında net ve görsel olarak etkili kalacak bir görüntü seçmenizi şiddetle öneririz.
 {{% /alert %}}
 
-Resim madde işareti oluşturmak için, bir görüntüyü [Presentation.getImages](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/#getImages--) metoduna ekleyin ve döndürülen [IPPImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ippimage/) nesnesini [IBulletFormat.getPicture](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/#getPicture--) metoduna atayın. Görüntüyü atamadan önce [IBulletFormat.setType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) metodunu [BulletType.Picture](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/bullettype/) değerine ayarlayın.
+Resim madde işareti oluşturmak için bir görüntüyü [Presentation.getImages](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/#getImages--) ile ekleyin ve döndürülen [IPPImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ippimage/) nesnesini [IBulletFormat.getPicture](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/#getPicture--) özelliğine atayın. Görüntüyü atamadan önce [IBulletFormat.setType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) özelliğini [BulletType.Picture](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/bullettype/) olarak ayarlayın.
 
-Diyelim ki bir "image.png" dosyamız var:
+Diyelim ki elimizde "image.png" adlı bir dosya var:
 
 ![Madde işaretleri için bir resim](picture_for_bullets.png)
 
-Aşağıdaki Java kodu, bir slaytta resim madde işaretleri nasıl oluşturulacağını gösterir:
+Aşağıdaki Java kodu bir slaytta resim madde işaretleri nasıl oluşturulacağını gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -175,13 +186,15 @@ Sonuç:
 
 ![Resim madde işaretleri](picture_bullets.png)
 
-## **Çok Seviyeli Liste Oluşturma**
+## **Çok Düzeyli Liste Oluşturma**
 
-Liste öğelerini farklı seviyelere yerleştirmek için [IParagraphFormat.setDepth](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) metodunu kullanın. Seviye 0 en üst seviyedir, seviye 1 onun altında iç içe bir seviyedir ve bu şekilde devam eder.
+Liste öğelerini farklı seviyelere yerleştirmek için [IParagraphFormat.setDepth](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) özelliğini kullanın. Seviye 0 en üst seviyedir, seviye 1 onun altında iç içe geçer ve bu şekilde devam eder.
 
-Aşağıdaki Java kodu, çok seviyeli madde işaretli bir liste nasıl oluşturulacağını gösterir:
+Aşağıdaki Java kodu çok düzeyli bir liste nasıl oluşturulacağını gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -218,15 +231,17 @@ try {
 
 Sonuç:
 
-![Çok seviyeli liste](multilevel_list.png)
+![Çok düzeyli liste](multilevel_list.png)
 
 ## **Mevcut Bir Listeyi Değiştirme**
 
-Mevcut bir sunumda liste biçimlendirmesini değiştirmek için, hedef paragrafı erişin ve onun [IParagraphFormat.getBullet](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#getBullet--) ayarlarını güncelleyin. Listeleri oluşturmak için kullanılan aynı yöntemler, PPT, PPTX veya ODP dosyasından yüklenen listeleri incelemek veya değiştirmek için de kullanılabilir.
+Mevcut bir sunumda liste biçimlendirmesini değiştirmek için hedef paragrafı alın ve [IParagraphFormat.getBullet](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#getBullet--) ayarlarını güncelleyin. PPT, PPTX veya ODP dosyasından yüklenen listeleri incelemek veya değiştirmek için listeler oluştururken kullanılan aynı yöntemler kullanılabilir.
 
-Aşağıdaki Java kodu, bir metin çerçevesindeki ilk paragrafı numaralı liste stilini kullanacak şekilde değiştirir:
+Aşağıdaki Java kodu bir metin çerçevesindeki ilk paragrafı numaralı liste stiline dönüştürür:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -247,14 +262,14 @@ try {
 
 ## **SSS**
 
-**Madde işaretli ve numaralı listeler PDF veya görüntülere aktarılabilir mi?**
+### Madde işaretli ve numaralı listeler PDF veya görüntülere dışa aktarılabilir mi?
 
-Evet. Aspose.Slides, hedef format ilgili metin düzenini ve madde işareti özelliklerini desteklediğinde liste biçimlendirmesini korur.
+Evet. Aspose.Slides, hedef format ilgili metin düzeni ve madde işareti özelliklerini desteklediğinde liste biçimlendirmesini korur.
 
-**Mevcut sunumlardaki listeleri düzenleyebilir miyim?**
+### Mevcut sunumlarda listeleri düzenleyebilir miyim?
 
-Evet. Sunumu yükleyin, hedef paragrafı erişin, onun [IParagraphFormat.getBullet](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#getBullet--) ayarlarını inceleyin veya güncelleyin ve sunumu kaydedin.
+Evet. Sunumu yükleyin, hedef paragrafı alın, [IParagraphFormat.getBullet](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraphformat/#getBullet--) ayarlarını inceleyin veya güncelleyin ve ardından sunumu kaydedin.
 
-**Listeler Latin olmayan metin içerebilir mi?**
+### Listeler Latin olmayan metin içerebilir mi?
 
-Evet. Liste öğesi metni Unicode karakterler içerebilir, böylece çok dilli sunumlarda listeler oluşturabilirsiniz. Sunumda kullanılan yazı tiplerinin ihtiyacınız olan karakterleri desteklediğinden emin olun.
+Evet. Liste öğesi metni Unicode karakterler içerebilir, bu sayede çok dilli sunumlarda listeler oluşturabilirsiniz. Sunumda kullanılan yazı tiplerinin ihtiyacınız olan karakterleri desteklediğinden emin olun.

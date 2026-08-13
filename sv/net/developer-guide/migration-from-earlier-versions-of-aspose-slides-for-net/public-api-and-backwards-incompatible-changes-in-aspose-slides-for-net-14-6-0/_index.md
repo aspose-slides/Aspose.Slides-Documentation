@@ -1,14 +1,14 @@
 ---
-title: Publikt API och bakåt oförenliga ändringar i Aspose.Slides för .NET 14.6.0
+title: Offentligt API och bakåtinkompatibla förändringar i Aspose.Slides för .NET 14.6.0
 linktitle: Aspose.Slides för .NET 14.6.0
 type: docs
 weight: 80
 url: /sv/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/
 keywords:
 - migrering
-- legacy-kod
+- gammal kod
 - modern kod
-- legacy-metod
+- gammal metod
 - modern metod
 - PowerPoint
 - OpenDocument
@@ -16,19 +16,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Granska uppdateringar av publikt API och brytande förändringar i Aspose.Slides för .NET för att smidigt migrera dina PowerPoint‑PPT, PPTX‑ och ODP‑presentationslösningar."
+description: "Gå igenom offentliga API-uppdateringar och brytande förändringar i Aspose.Slides för .NET för att smidigt migrera dina PowerPoint PPT-, PPTX- och ODP-presentationslösningar."
 ---
-{{% alert color="primary" %}} 
-Den här sidan listar alla [tillagda](/slides/sv/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) klasser, metoder, egenskaper med mera, eventuella nya [restriktioner](/slides/sv/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) och andra [ändringar](/slides/sv/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) som introducerats med Aspose.Slides för .NET 14.6.0 API.
+{{% alert color="info" %}} 
+Den här sidan listar alla [tillägg](/slides/sv/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) klasser, metoder, egenskaper osv., eventuella nya [restriktioner](/slides/sv/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) och andra [ändringar](/slides/sv/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) som introduceras med Aspose.Slides för .NET 14.6.0 API.
 {{% /alert %}} 
-## **Ändringar i publikt API**
+## **Offentliga API-ändringar**
 ### **Tillagda gränssnitt, metoder och egenskaper**
 #### **Tillagt gränssnittet Aspose.Slides.Charts.IErrorBarsFormat**
 Detta representerar felstaplar för diagramserier.
 
-Om typen är anpassad, ange ett värde genom att använda egenskapen ErrorBarCustomValues för den specifika datapunkten i DataPoints‑samlingen för serien.
+Vid anpassad värdetyp, för att ange ett värde, använd egenskapen ErrorBarCustomValues för den specifika datapunkten i DataPoints‑samlingen för serien.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -61,12 +65,15 @@ Om typen är anpassad, ange ett värde genom att använda egenskapen ErrorBarCus
     pres.Save("ErrorBars.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
 #### **Tillagt gränssnittet Aspose.Slides.Charts.IErrorBarsCustomValues**
-När egenskapen IErrorBarsFormat.ValueType är lika med Custom, ange ett värde genom att använda egenskapen ErrorBarCustomValues för den specifika datapunkten i DataPoints‑samlingen.
+När egenskapen IErrorBarsFormat.ValueType är lika med Custom, för att ange ett värde, använd egenskapen ErrorBarCustomValues för den specifika datapunkten i DataPoints‑samlingen.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -115,12 +122,15 @@ När egenskapen IErrorBarsFormat.ValueType är lika med Custom, ange ett värde 
     pres.Save("ErrorBarsCustomValues", SaveFormat.Pptx);
 
 }
-
 ``` 
 #### **Tillagt gränssnittet Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues**
-Anger typer av värden i listan för egenskapen ChartDataPoint.ErrorBarsCustomValues.
+Specificerar typer av värden i listan för egenskaperna ChartDataPoint.ErrorBarsCustomValues.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -169,10 +179,9 @@ Anger typer av värden i listan för egenskapen ChartDataPoint.ErrorBarsCustomVa
     pres.Save("ErrorBarsCustomValues", SaveFormat.Pptx);
 
 }
-
 ``` 
 #### **Tillagda metoderna Aspose.Slides.IShapeCollection.AddClone(...), och .InsertClone(...)**
-Följande metoder lägger till/infogar en kopia av en specificerad form i samlingen. 
+Följande metoder lägger till/infogar en kopia av en angiven form i samlingen. 
 
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape)
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape, float x, float y)
@@ -182,8 +191,10 @@ Följande metoder lägger till/infogar en kopia av en specificerad form i samlin
 - Aspose.Slides.IShapeCollection.InsertClone(int index, IShape sourceShape, float x, float y, float width, float height)
 
 ``` csharp
+using Aspose.Slides;
 
- using (Presentation srcPres = new Presentation(dataPath_ShapeCloning + "Source Frame.pptx"))
+
+ using (Presentation srcPres = new Presentation("Source Frame.pptx"))
 
 {
 
@@ -208,12 +219,13 @@ Följande metoder lägger till/infogar en kopia av en specificerad form i samlin
     destShapes.InsertClone(0, sourceShapes[0], 50, 150);
 
 }
-
 ``` 
-#### **Tillagda ViewType Enum, IViewProperties Interface, ViewProperties-klass och IPresentation.ViewProperties-egenskaper**
-IPresentation.ViewProperty låter utvecklare ändra presentationsvystyp och synlighet för anteckningar när en presentation öppnas i PowerPoint.
+#### **Tillagda ViewType‑enum, IViewProperties‑gränssnitt, ViewProperties‑klass och IPresentation.ViewProperties‑egenskaper**
+IPresentation.ViewProperty gör det möjligt för utvecklare att ändra presentationsvytyp och noternas synlighet när en presentation öppnas i PowerPoint.
 
 ``` csharp
+using Aspose.Slides;
+
 
  using(Presentation p = new Presentation())
 
@@ -222,5 +234,4 @@ IPresentation.ViewProperty låter utvecklare ändra presentationsvystyp och synl
     p.ViewProperties.LastView = ViewType.SlideMasterView;
 
 }
-
 ```

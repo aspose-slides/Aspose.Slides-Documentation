@@ -1,6 +1,6 @@
 ---
-title: "Java'da Sunum Köprülerini Yönetme"
-linktitle: "Köprüyü Yönet"
+title: Java'da Sunum Köprülerini Yönetme
+linktitle: Köprüyü Yönet
 type: docs
 weight: 20
 url: /tr/java/manage-hyperlinks/
@@ -8,13 +8,13 @@ keywords:
 - URL ekle
 - köprü ekle
 - köprü oluştur
-- köprüyü biçimlendir
-- köprüyü kaldır
-- köprüyü güncelle
+- köprü biçimlendir
+- köprü kaldır
+- köprü güncelle
 - metin köprüsü
 - slayt köprüsü
 - şekil köprüsü
-- görsel köprüsü
+- görüntü köprüsü
 - video köprüsü
 - değiştirilebilir köprü
 - PowerPoint
@@ -22,30 +22,32 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java ile PowerPoint ve OpenDocument sunumlarındaki köprüleri zahmetsizce yönetin—etkileşimi ve iş akışını dakikalar içinde geliştirin."
+description: "Aspose.Slides for Java ile PowerPoint ve OpenDocument sunumlarında köprüleri zahmetsizce yönetin—interaktiviteyi ve iş akışını dakikalar içinde artırın."
 ---
 ## **Giriş**
 
-Bir köprü, bir nesneye, veriye ya da bir yere referanstır. Bunlar PowerPoint Sunularında yaygın köprülerdir:
+Bir köprü, bir nesneye, veriye veya bir yere yapılan referanstır. Bunlar PowerPoint Sunumlarında yaygın köprülerdir:
 
-* Metin, şekil veya medya içindeki web sitesi bağlantıları
+* Metin, şekil veya medya içindeki web sitesine bağlantılar
 * Slaytlara bağlantılar
 
-Aspose.Slides for Java, sunularda köprülerle ilgili birçok görevi gerçekleştirmenizi sağlar. 
+Aspose.Slides for Java, sunumlarda köprülerle ilgili birçok görevi gerçekleştirmenizi sağlar. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Aspose basit, [ücretsiz çevrimiçi PowerPoint düzenleyicisini](https://products.aspose.app/slides/tr/editor) incelemek isteyebilirsiniz.
+Aspose simple'ı, [ücretsiz çevrimiçi PowerPoint düzenleyicisini](https://products.aspose.app/slides/tr/editor) incelemek isteyebilirsiniz.
 
 {{% /alert %}} 
 
 ## **URL Köprüleri Ekleme**
 
-### **Metne URL Köprüleri Ekleme**
+### **Metne URL Köprüsü Ekleme**
 
-Bu Java kodu, bir metne web sitesi köprüsü eklemenizi gösterir:
+Bu Java kodu, bir metne web sitesi köprüsü eklemenin nasıl yapılacağını gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
 	IAutoShape shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -62,11 +64,13 @@ try {
 }
 ```
 
-### **Şekillere veya Çerçevelere URL Köprüleri Ekleme**
+### **Şekillere veya Çerçevelere URL Köprüsü Ekleme**
 
-Bu örnek Java kodu, bir şekle web sitesi köprüsü eklemenizi gösterir:
+Bu Java örnek kodu, bir şekle web sitesi köprüsü eklemenin nasıl yapılacağını gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -80,22 +84,24 @@ try {
 }
 ```
 
-### **Medyaya URL Köprüleri Ekleme**
+### **Medyaya URL Köprüsü Ekleme**
 
-Aspose.Slides, görüntülere, ses ve video dosyalarına köprü eklemenizi sağlar. 
+Aspose.Slides, görüntülere, ses ve video dosyalarına köprü eklemenize olanak tanır. 
 
-Bu örnek kod, bir **görüntüye** köprü eklemenizi gösterir:
+Bu örnek kod, bir **görüntü**ye köprü eklemenin nasıl yapılacağını gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	// Sunuma resim ekler
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
-    picture = pres.getImages().addImage(picture);
+        picture = pres.getImages().addImage(image);
     } finally {
-          if (image != null) image.dispose();
+        if (image != null) image.dispose();
     }
 	// Daha önce eklenen resme dayanarak slayt 1'de resim çerçevesi oluşturur
 	IPictureFrame pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
@@ -104,15 +110,19 @@ try {
 	pictureFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 
 	pres.save("pres-out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
-Bu örnek kod, bir **ses dosyasına** köprü eklemenizi gösterir:
+Bu örnek kod, bir **ses dosyasına** köprü eklemenin nasıl yapılacağını gösterir:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IAudio audio = pres.getAudios().addAudio(Files.readAllBytes(Paths.get("audio.mp3")));
@@ -128,9 +138,14 @@ try {
 }
 ```
 
-Bu örnek kod, bir **video**ya köprü eklemenizi gösterir:
+Bu örnek kod, bir **video**ya köprü eklemenin nasıl yapılacağını gösterir:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IVideo video = pres.getVideos().addVideo(Files.readAllBytes(Paths.get("video.avi")));
@@ -146,19 +161,22 @@ try {
 }
 ```
 
-{{%  alert  title="Tip"  color="primary"  %}} 
+{{%  alert  title="Tip"  color="info"  %}} 
 
-Şu sayfaya bakmak isteyebilirsiniz *[OLE Yönetimi](/slides/tr/java/manage-ole/)*.
+*[OLE Yönetimini](/slides/tr/java/manage-ole/)* görmek isteyebilirsiniz.
 
 {{% /alert %}}
 
 ## **Köprüleri Kullanarak İçindekiler Tablosu Oluşturma**
 
-Köprüler nesnelere veya yerlere referans eklemenizi sağladığı için, bunları bir içindekiler tablosu oluşturmakta kullanabilirsiniz. 
+Köprüler nesnelere veya yerlere referans eklemenizi sağladığından, bunları bir içindekiler tablosu oluşturmak için kullanabilirsiniz. 
 
-Bu örnek kod, köprülerle bir içindekiler tablosu oluşturmanızı gösterir:
+Bu örnek kod, köprülerle bir içindekiler tablosu oluşturmanın nasıl yapılacağını gösterir:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	ISlide firstSlide = pres.getSlides().get_Item(0);
@@ -191,11 +209,14 @@ try {
 
 ### **Renk**
 
-[IHyperlink](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IHyperlink) arayüzündeki [ColorSource](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Hyperlink#setColorSource-int-) özelliği ile köprülerin rengini ayarlayabilir ve köprülerin renk bilgisini alabilirsiniz. Bu özellik ilk kez PowerPoint 2019'da tanıtıldı, bu yüzden özelliği etkileyen değişiklikler eski PowerPoint sürümlerine uygulanmaz.
+[IHyperlink](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IHyperlink) arayüzündeki [ColorSource](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Hyperlink#setColorSource-int-) özelliği ile köprülerin rengini ayarlayabilir ve köprülerden renk bilgisini alabilirsiniz. Bu özellik ilk kez PowerPoint 2019'da tanıtıldı, bu yüzden özelliği etkileyen değişiklikler eski PowerPoint sürümlerine uygulanmaz.
 
-Bu örnek kod, farklı renklerde köprülerin aynı slayta eklendiği bir işlemi gösterir:
+Bu örnek kod, aynı slayta farklı renklerde köprülerin eklendiği bir işlemi göstermektedir:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -220,17 +241,19 @@ try {
 
 ### **Metinden Köprüleri Kaldırma**
 
-Bu Java kodu, bir sunum slaydındaki metinden köprüyü kaldırmanızı gösterir:
+Bu Java kodu, bir sunum slaydındaki bir metinden köprüyü kaldırmanın nasıl yapılacağını gösterir:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
 	{
-		IAutoShape autoShape = (IAutoShape)shape;
-		if (autoShape != null)
+		if (shape instanceof IAutoShape)
 		{
+			IAutoShape autoShape = (IAutoShape)shape;
 			for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs())
 			{
 				for (IPortion portion : paragraph.getPortions())
@@ -249,10 +272,12 @@ try {
 
 ### **Şekillerden veya Çerçevelerden Köprüleri Kaldırma**
 
-Bu Java kodu, bir sunum slaydındaki bir şekilden köprüyü kaldırmanızı gösterir: 
+Bu Java kodu, bir sunum slaydındaki bir şekilden köprüyü kaldırmanın nasıl yapılacağını gösterir: 
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
@@ -275,9 +300,11 @@ try {
 - [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IHyperlink#setHighlightClick-boolean-)
 - [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
 
-Bu kod parçacığı, bir slayta köprü eklemenizi ve daha sonra araç ipucunu düzenlemenizi gösterir:
+Kod snippet'i, bir slayta köprü eklemenin ve daha sonra araç ipucunu düzenlemenin nasıl yapılacağını gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -288,21 +315,24 @@ try {
 	portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 	portionFormat.setFontHeight(32);
 
+	// Zaten eklenmiş köprünün araç ipucunu değiştirir
+	portionFormat.getHyperlinkClick().setTooltip("Aspose: the File Format APIs");
+
 	pres.save("presentation-out.pptx", SaveFormat.Pptx);
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
-## **IHyperlinkQueries içinde Desteklenen Özellikler**
+## **IHyperlinkQueries İçindeki Desteklenen Özellikler**
 
-Köprünün tanımlı olduğu bir sunum, slayt veya metinden [IHyperlinkQueries](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IHyperlinkQueries) öğesine erişebilirsiniz. 
+Köprünün tanımlı olduğu bir sunum, slayt veya metinden [IHyperlinkQueries](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IHyperlinkQueries) erişebilirsiniz. 
 
 - [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IPresentation#getHyperlinkQueries--)
 - [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
 - [ITextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ITextFrame#getHyperlinkQueries--)
 
-[IHyperlinkQueries](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IHyperlinkQueries) sınıfı şu yöntem ve özellikleri destekler: 
+[IHyperlinkQueries](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IHyperlinkQueries) sınıfı bu yöntem ve özellikleri destekler: 
 
 - [IHyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
 - [IHyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
@@ -311,14 +341,14 @@ Köprünün tanımlı olduğu bir sunum, slayt veya metinden [IHyperlinkQueries]
 
 ## **SSS**
 
-**Bir slayta değil, bir "bölüm"e veya bir bölümün ilk slaytına iç gezinme nasıl oluşturabilirim?**  
+### Bir slayta değil, bir "bölüm"a ya da bir bölümün ilk slaytına dahili bir navigasyon nasıl oluşturabilirim?
 
-PowerPoint'teki bölümler, slaytların gruplandırılmalarıdır; gezinme teknik olarak belirli bir slayta hedeflenir. "Bir bölüme gezinmek" için genellikle bölümün ilk slaytına bağlanırsınız.
+PowerPoint'teki bölümler, slayt gruplarıdır; navigasyon teknik olarak belirli bir slayta yönelir. Bir bölüme "gitmek" için genellikle o bölümün ilk slaytına bağlantı verirsiniz.
 
-**Ana slayt öğelerine köprü ekleyebilir miyim, böylece tüm slaytlarda çalışır?**  
+### Ana slayt öğelerine bir köprü ekleyebilir miyim, böylece tüm slaytlarda çalışır?
 
-Evet. Ana slayt ve düzen öğeleri köprüleri destekler. Bu tür bağlantılar alt slaytlarda görünür ve sunum sırasında tıklanabilir.
+Evet. Ana slayt ve yerleşim öğeleri köprüleri destekler. Bu bağlantılar alt slaytlarda görünür ve slayt gösterisi sırasında tıklanabilir.
 
-**PDF, HTML, görüntüler veya video olarak dışa aktarırken köprüler korunur mu?**  
+### PDF, HTML, görüntüler veya video olarak dışa aktarırken köprüler korunur mu?
 
-[PDF](/slides/tr/java/convert-powerpoint-to-pdf/) ve [HTML](/slides/tr/java/convert-powerpoint-to-html/) formatlarında evet—bağlantılar genellikle korunur. [Görüntüler](/slides/tr/java/convert-powerpoint-to-png/) ve [video](/slides/tr/java/convert-powerpoint-to-video/) formatlarına dışa aktarırken, bu formatların doğası gereği (raster çerçeveler/video köprüleri desteklemez) tıklanabilirlik taşınmaz.
+[PDF](/slides/tr/java/convert-powerpoint-to-pdf/) ve [HTML](/slides/tr/java/convert-powerpoint-to-html/) formatlarında evet—bağlantılar genellikle korunur. [Görüntüler](/slides/tr/java/convert-powerpoint-to-png/) ve [video](/slides/tr/java/convert-powerpoint-to-video/) formatlarına dışa aktarırken ise, bu formatların doğası gereği (raster çerçeveler/video köprüleri desteklemez) tıklanabilirlik korunmaz.

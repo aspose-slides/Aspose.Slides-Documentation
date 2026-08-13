@@ -1,5 +1,5 @@
 ---
-title: 從 PDF 或 HTML 匯入簡報（Java）
+title: 在 Java 中從 PDF 或 HTML 匯入簡報
 linktitle: 匯入簡報
 type: docs
 weight: 60
@@ -21,11 +21,11 @@ keywords:
 - OpenDocument
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides，於 Java 中輕鬆將 PDF 與 HTML 文件匯入 PowerPoint 與 OpenDocument 簡報，實現無縫且高效能的投影片處理。"
+description: "使用 Aspose.Slides，在 Java 中輕鬆將 PDF 和 HTML 文件匯入 PowerPoint 與 OpenDocument 簡報，實現流暢且高效能的投影片處理。"
 ---
 ## **簡介**
 
-使用 Aspose.Slides，您可以從其他格式的檔案匯入簡報。Aspose.Slides 提供 [SlideCollection](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/slidecollection/) 類別，可讓您從 PDF 和 HTML 文件匯入簡報。
+使用 Aspose.Slides，您可以從其他格式的檔案匯入簡報。Aspose.Slides 提供 [SlideCollection](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/slidecollection/) 類別，允許您從 PDF 和 HTML 文件匯入簡報。
 
 ## **從 PDF 匯入 PowerPoint**
 
@@ -34,12 +34,14 @@ description: "使用 Aspose.Slides，於 Java 中輕鬆將 PDF 與 HTML 文件�
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom:50%;" />
 
 1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/) 類別的實例。 
-2. 呼叫 [addFromPdf()](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/SlideCollection#addFromPdf-java.lang.String-) 方法，並傳入 PDF 檔案。 
+2. 呼叫 [addFromPdf()](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/SlideCollection#addFromPdf-java.lang.String-) 方法並傳入 PDF 檔案。 
 3. 使用 [save()](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/Presentation#save-java.lang.String-int-) 方法將檔案儲存為 PowerPoint 格式。
 
-以下 Java 程式碼示範 PDF 轉 PowerPoint 的操作：
+此 Java 程式碼示範了 PDF 轉 PowerPoint 的操作：
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     pres.getSlides().addFromPdf("InputPDF.pdf");
@@ -49,9 +51,9 @@ try {
 }
 ```
 
-{{% alert  title="Tip" color="primary" %}} 
+{{% alert  title="技巧" color="info" %}} 
 
-您可能想要查看 **Aspose free** [PDF to PowerPoint](https://products.aspose.app/slides/zh-hant/import/pdf-to-powerpoint) 網路應用程式，因為它是此處描述過程的即時實作。 
+您可以試用 **Aspose free** [PDF to PowerPoint](https://products.aspose.app/slides/zh-hant/import/pdf-to-powerpoint) 網路應用程式，因為它是此處描述流程的即時實作。 
 
 {{% /alert %}} 
 
@@ -60,12 +62,16 @@ try {
 在此情況下，您可以將 HTML 文件轉換為 PowerPoint 簡報。
 
 1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/) 類別的實例。 
-2. 呼叫 [addFromHtml()](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) 方法，並傳入 PDF 檔案。 
+2. 呼叫 [addFromHtml()](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) 方法並傳入含有 HTML 文件的串流。 
 3. 使用 [save()](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/Presentation#save-java.lang.String-int-) 方法將檔案儲存為 PowerPoint 格式。
 
-以下 Java 程式碼示範 HTML 轉 PowerPoint 的操作： 
+此 Java 程式碼示範了 HTML 轉 PowerPoint 的操作： 
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 Presentation presentation = new Presentation();
 try {
     FileInputStream htmlStream = new FileInputStream("page.html");
@@ -84,13 +90,13 @@ try {
 
 ## **常見問題**
 
-**在匯入 PDF 時，表格會被保留嗎？其偵測能否改進？**
+### 匯入 PDF 時表格是否會被保留，且能否改善其偵測？
 
-匯入時可以偵測表格；[PdfImportOptions](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/pdfimportoptions/) 包含一個 [setDetectTables](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/pdfimportoptions/#setDetectTables-boolean-) 方法，可啟用表格辨識。其效能取決於 PDF 的結構。
+匯入過程中可以偵測表格；[PdfImportOptions](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/pdfimportoptions/) 包含 [setDetectTables](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/pdfimportoptions/#setDetectTables-boolean-) 方法，可啟用表格辨識。其效果取決於 PDF 的結構。
 
-{{% alert title="Note" color="warning" %}} 
+{{% alert title="注意" color="warning" %}} 
 
-您也可以使用 Aspose.Slides 將 HTML 轉換為其他常見的檔案格式： 
+您亦可使用 Aspose.Slides 將 HTML 轉換為其他常見檔案格式：
 
 * [HTML to image](https://products.aspose.com/slides/zh-hant/java/conversion/html-to-image/)
 * [HTML to JPG](https://products.aspose.com/slides/zh-hant/java/conversion/html-to-jpg/)

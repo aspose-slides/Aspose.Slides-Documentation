@@ -1,112 +1,154 @@
 ---
-title: Použít animace tvarů v prezentacích pomocí C++
-linktitle: Animace tvaru
+title: "Aplikace animací tvarů v prezentacích pomocí C++"
+linktitle: "Animace tvaru"
 type: docs
 weight: 60
 url: /cs/cpp/shape-animation/
 keywords:
-- tvar
-- animace
-- efekt
-- animovaný tvar
-- animovaný text
-- přidat animaci
-- získat animaci
-- extrahovat animaci
-- přidat efekt
-- získat efekt
-- extrahovat efekt
-- zvuk efektu
-- aplikovat animaci
-- PowerPoint
-- prezentace
-- C++
-- Aspose.Slides
+- "tvar"
+- "animace"
+- "efekt"
+- "animovaný tvar"
+- "animovaný text"
+- "přidat animaci"
+- "získat animaci"
+- "extrahovat animaci"
+- "přidat efekt"
+- "získat efekt"
+- "extrahovat efekt"
+- "zvuk efektu"
+- "aplikovat animaci"
+- "PowerPoint"
+- "prezentace"
+- "C++"
+- "Aspose.Slides"
 description: "Objevte, jak vytvářet a přizpůsobovat animace tvarů v prezentacích PowerPoint pomocí Aspose.Slides pro C++. Vynikněte!"
 ---
 ## **Úvod**
 
-Animace jsou vizuální efekty, které lze použít na texty, obrázky, tvary nebo [grafy](/slides/cs/cpp/animated-charts/). Dodávají život prezentacím nebo jejich částem. 
+Animace jsou vizuální efekty, které lze použít na texty, obrázky, tvary nebo [grafy](/slides/cs/cpp/animated-charts/). Dodávají prezentacím nebo jejich částem život.
 
 ## **Proč používat animace v prezentacích?**
 
-Používáním animací můžete 
-
-* ovládat tok informací
+Pomocí animací můžete
+* řídit tok informací
 * zdůraznit důležité body
-* zvýšit zájem či zapojení publika
-* usnadnit čtení, vstřebání nebo zpracování obsahu
-* upoutat pozornost čtenářů nebo diváků na důležité části v prezentaci
+* zvýšit zájem nebo zapojení publika
+* učinit obsah snazší ke čtení, vstřebání nebo zpracování
+* upoutat pozornost čtenářů či diváků na důležité části prezentace
 
-PowerPoint poskytuje mnoho možností a nástrojů pro animace a animační efekty v kategoriích **vstup**, **odchod**, **zdůraznění** a **cesty pohybu**. 
+PowerPoint nabízí mnoho možností a nástrojů pro animace a animační efekty v kategoriích **vstup**, **odchod**, **zdůraznění** a **cesty pohybu**.
 
 ## **Animace v Aspose.Slides**
 
-* Aspose.Slides poskytuje třídy a typy, které potřebujete pro práci s animacemi v namespace [Aspose.Slides.Animation](https://reference.aspose.com/slides/cs/cpp/namespace/aspose.slides.animation),
-* Aspose.Slides poskytuje více než **150 animačních efektů** v enumeraci [EffectType](https://reference.aspose.com/slides/cs/cpp/namespace/aspose.slides.animation#ae0da11508d382465aa4e7a011df1bf31). Tyto efekty jsou v podstatě stejné (nebo ekvivalentní) efekty používané v PowerPointu.
+* Aspose.Slides poskytuje třídy a typy potřebné k práci s animacemi v rámci jmenného prostoru [Aspose.Slides.Animation](https://reference.aspose.com/slides/cs/cpp/namespace/aspose.slides.animation),
+* Aspose.Slides nabízí více než **150 animačních efektů** v výčtu [EffectType](https://reference.aspose.com/slides/cs/cpp/namespace/aspose.slides.animation#ae0da11508d382465aa4e7a011df1bf31). Tyto efekty jsou v podstatě stejné (nebo ekvivalentní) jako efekty používané v PowerPointu.
 
-## **Použít animaci na TextBox**
+## **Použití animace na TextBox**
 
-Aspose.Slides pro C++ vám umožňuje použít animaci na text ve tvaru. 
+Aspose.Slides for C++ umožňuje aplikovat animaci na text ve tvaru.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation/).
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte `rectangle` [IAutoShape](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_auto_shape). 
+2. Získejte odkaz na snímek pomocí jeho indexu.
+3. Přidejte `rectangle` [IAutoShape](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_auto_shape).
 4. Přidejte text do [IAutoShape.TextFrame](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_auto_shape#afb267108fea5ee5a213c162c004fcef3).
 5. Získejte hlavní sekvenci efektů.
-6. Přidejte animační efekt do [IAutoShape](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_auto_shape). 
-7. Nastavte vlastnost [TextAnimation.BuildType](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.animation.text_animation#afa90da088213f947baf64f8cdddd18b8) na hodnotu z [BuildType Enumeration](https://reference.aspose.com/slides/cs/cpp/namespace/aspose.slides.animation#a1b0f1615881ac05b1a72c670a125b8e7).
-8. Uložte prezentaci na disk ve formátu PPTX.
+6. Přidejte animační efekt na [IAutoShape](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_auto_shape).
+7. Nastavte vlastnost [TextAnimation.BuildType](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.animation.text_animation#afa90da088213f947baf64f8cdddd18b8) na hodnotu z výčtu [BuildType Enumeration](https://reference.aspose.com/slides/cs/cpp/namespace/aspose.slides.animation#a1b0f1615881ac05b1a72c670a125b8e7).
+8. Uložte prezentaci na disk jako soubor PPTX.
 
-Tento C++ kód ukazuje, jak použít efekt `Fade` na AutoShape a nastavit animaci textu na hodnotu *By 1st Level Paragraphs*:
-
-```c++
- // Vytvoří instanci třídy prezentace, která představuje soubor prezentace.
- System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-
- System::SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
-
- // Přidá nový AutoShape s textem
- System::SharedPtr<IAutoShape> autoShape =
-     sld->get_Shapes()->AddAutoShape(Aspose::Slides::ShapeType::Rectangle, 20.0f, 20.0f, 150.0f, 100.0f);
-
- System::SharedPtr<ITextFrame> textFrame = autoShape->get_TextFrame();
- textFrame->set_Text(u"First paragraph \nSecond paragraph \n Third paragraph");
-
- // Získá hlavní sekvenci snímku.
- System::SharedPtr<ISequence> sequence = sld->get_Timeline()->get_MainSequence();
-
- // Přidá efekt animace Fade do tvaru
- System::SharedPtr<IEffect> effect = sequence->AddEffect(autoShape, Aspose::Slides::Animation::EffectType::Fade,
-     Aspose::Slides::Animation::EffectSubtype::None, Aspose::Slides::Animation::EffectTriggerType::OnClick);
-
- // Animuje text tvaru podle odstavců první úrovně
- effect->get_TextAnimation()->set_BuildType(Aspose::Slides::Animation::BuildType::ByLevelParagraphs1);
-
- // Uloží soubor PPTX na disk
- pres->Save(path + u"AnimText_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-{{%  alert color="primary"  %}} 
-
-Kromě aplikování animací na text můžete také aplikovat animace na jednotlivý [Paragraph](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_paragraph). Viz [**Animated Text**](/slides/cs/cpp/animated-text/).
-
-{{% /alert %}} 
-
-## **Použít animaci na PictureFrame**
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation/).
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte nebo získejte [PictureFrame](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_picture_frame) na snímku. 
-4. Získejte hlavní sekvenci efektů.
-5. Přidejte animační efekt do [PictureFrame](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_picture_frame).
-6. Uložte prezentaci na disk ve formátu PPTX.
+Tento C++ kód ukazuje, jak aplikovat efekt `Fade` na AutoShape a nastavit animaci textu na hodnotu *By 1st Level Paragraphs*:
 
 ```c++
+#include <DOM/Animation/BuildType.h>
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITextAnimation.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+
 // Vytvoří instanci třídy prezentace, která představuje soubor prezentace.
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
-// Načte obrázek, který má být přidán do kolekce obrázků prezentace
+System::SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
+
+// Přidá nový AutoShape s textem
+System::SharedPtr<IAutoShape> autoShape =
+    sld->get_Shapes()->AddAutoShape(Aspose::Slides::ShapeType::Rectangle, 20.0f, 20.0f, 150.0f, 100.0f);
+
+System::SharedPtr<ITextFrame> textFrame = autoShape->get_TextFrame();
+textFrame->set_Text(u"First paragraph \nSecond paragraph \n Third paragraph");
+
+// Získá hlavní sekvenci snímku.
+System::SharedPtr<ISequence> sequence = sld->get_Timeline()->get_MainSequence();
+
+// Přidá efekt animace Fade k tvaru
+System::SharedPtr<IEffect> effect = sequence->AddEffect(autoShape, Aspose::Slides::Animation::EffectType::Fade,
+    Aspose::Slides::Animation::EffectSubtype::None, Aspose::Slides::Animation::EffectTriggerType::OnClick);
+
+// Animuje text tvaru podle odstavců první úrovně
+effect->get_TextAnimation()->set_BuildType(Aspose::Slides::Animation::BuildType::ByLevelParagraphs1);
+
+// Uloží soubor PPTX na disk
+pres->Save(u"AnimText_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+```
+
+{{%  alert color="info"  %}} 
+
+Kromě aplikace animací na text můžete také aplikovat animace na jednotlivý [Paragraph](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_paragraph). Viz [**Animovaný text**](/slides/cs/cpp/animated-text/).
+
+{{% /alert %}} 
+
+## **Použití animace na PictureFrame**
+
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation/).
+2. Získejte odkaz na snímek pomocí jeho indexu.
+3. Přidejte nebo získejte [PictureFrame](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_picture_frame) na snímku.
+4. Získejte hlavní sekvenci efektů.
+5. Přidejte animační efekt na [PictureFrame](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_picture_frame).
+6. Uložte prezentaci na disk jako soubor PPTX.
+
+Tento C++ kód ukazuje, jak aplikovat efekt `Fly` na rámeček obrázku:
+
+```c++
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+
+// Vytvoří instanci třídy prezentace, která představuje soubor prezentace.
+System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+
+// Načte obrázek, který bude přidán do kolekce obrázků prezentace
 System::SharedPtr<IImage> img = Images::FromFile(u"aspose-logo.jpg");
 System::SharedPtr<IPPImage> image = pres->get_Images()->AddImage(img);
 
@@ -122,21 +164,50 @@ System::SharedPtr<IEffect> effect = sequence->AddEffect(picFrame, Aspose::Slides
     Aspose::Slides::Animation::EffectSubtype::Left, Aspose::Slides::Animation::EffectTriggerType::OnClick);
 
 // Uloží soubor PPTX na disk
-pres->Save(path + u"AnimImage_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+pres->Save(u"AnimImage_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Použít animaci na tvar**
+## **Použití animace na Shape**
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation/).
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte `rectangle` [IAutoShape](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_auto_shape). 
+2. Získejte odkaz na snímek pomocí jeho indexu.
+3. Přidejte `rectangle` [IAutoShape](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_auto_shape).
 4. Přidejte `Bevel` [IAutoShape](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_auto_shape) (když je tento objekt kliknut, animace se spustí).
 5. Vytvořte sekvenci efektů na tvaru bevel.
 6. Vytvořte vlastní `UserPath`.
-7. Přidejte příkazy pro přesun na `UserPath`.
-8. Uložte prezentaci na disk ve formátu PPTX.
+7. Přidejte příkazy pro pohyb na `UserPath`.
+8. Uložte prezentaci na disk jako soubor PPTX.
+
+Tento C++ kód ukazuje, jak aplikovat efekt `PathFootball` (cesta fotbal) na tvar:
 
 ```c++
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IBehaviorCollection.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/IMotionPath.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ISequenceCollection.h>
+#include <DOM/Animation/MotionCommandPathType.h>
+#include <DOM/Animation/MotionEffect.h>
+#include <DOM/Animation/MotionPathPointsType.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 	// Cesta k adresáři dokumentů.
 	const String outPath = u"../out/AnimationsOnShapes_out.pptx";
 	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
@@ -150,16 +221,16 @@ pres->Save(path + u"AnimImage_out.pptx", Aspose::Slides::Export::SaveFormat::Ppt
 	// Přistupuje ke kolekci tvarů pro vybraný snímek
 	SharedPtr<IShapeCollection> shapes = slide->get_Shapes();
 
-	// Vytvoří efekt PathFootball pro existující tvar od začátku.
+	// Vytvoří efekt PathFootball pro existující tvar od nuly.
 	SharedPtr<IAutoShape> ashp = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 150, 250, 25);
 
 	ashp->AddTextFrame(u"Animated TextBox");
 
-	// Přidá animační efekt PathFootball
+	// Přidá animační efekt PathFootBall
 	slide->get_Timeline()->get_MainSequence()->AddEffect(ashp, EffectType::PathFootball,
 		EffectSubtype::None, EffectTriggerType::AfterPrevious);
 
-	// Vytvoří nějaký druh "tlačítka".
+	// Vytvoří určitý typ "tlačítka".
 	SharedPtr<IAutoShape> shapeTrigger = slide->get_Shapes()->AddAutoShape(ShapeType::Bevel, 10, 10, 20, 20);
 
 	// Vytvoří sekvenci efektů pro toto tlačítko.
@@ -188,15 +259,26 @@ pres->Save(path + u"AnimImage_out.pptx", Aspose::Slides::Export::SaveFormat::Ppt
 	 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Získat animační efekty aplikované na tvar**
+## **Získání animačních efektů aplikovaných na tvar**
 
-Níže uvedené příklady ukazují, jak použít metodu `GetEffectsByShape` z rozhraní [ISequence](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/isequence/) k získání všech animačních efektů aplikovaných na tvar. 
+Následující příklady ukazují, jak použít metodu `GetEffectsByShape` z rozhraní [ISequence](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/isequence/) k získání všech animačních efektů aplikovaných na tvar.
 
-**Příklad 1: Získat animační efekty aplikované na tvar na běžném snímku**
+**Příklad 1: Získání animačních efektů aplikovaných na tvar na normálním snímku**
 
-Dříve jste se naučili, jak přidávat animační efekty do tvarů v prezentacích PowerPoint. Následující ukázkový kód ukazuje, jak získat efekty aplikované na první tvar na prvním běžném snímku v prezentaci `AnimExample_out.pptx`.
+Dříve jste se naučili, jak přidávat animační efekty k tvarům v prezentacích PowerPoint. Následující ukázkový kód ukazuje, jak získat efekty aplikované na první tvar na prvním normálním snímku v prezentaci `AnimExample_out.pptx`.
 
 ```c++
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace System;
+
 SharedPtr<Presentation> presentation = MakeObject<Presentation>(u"AnimExample_out.pptx");
 
 SharedPtr<ISlide> firstSlide = presentation->get_Slide(0);
@@ -218,47 +300,77 @@ if (shapeEffects->get_Length() > 0)
 presentation->Dispose();
 ```
 
-**Příklad 2: Získat všechny animační efekty, včetně těch zděděných z placeholderů**
+**Příklad 2: Získání všech animačních efektů, včetně těch zděděných z placeholderů**
 
-Pokud má tvar na běžném snímku placeholdery, které jsou na snímku rozvržení a/nebo hlavním snímku, a na tyto placeholdery byly přidány animační efekty, pak budou během prezentace přehrány všechny efekty tvaru, včetně těch zděděných z placeholderů.
+Pokud má tvar na normálním snímku placeholdery, které jsou na rozložení snímku a/nebo hlavním snímku, a na tyto placeholdery byly přidány animační efekty, pak budou během prezentace přehrány všechny efekty tvaru, včetně těch zděděných z placeholderů.
 
-Řekněme, že máme soubor prezentace PowerPoint `sample.pptx` s jedním snímkem obsahujícím pouze tvar zápatí s textem "Made with Aspose.Slides" a na tento tvar je aplikován efekt **Random Bars**.
+Předpokládejme, že máme soubor prezentace PowerPoint `sample.pptx` s jedním snímkem obsahujícím pouze tvar zápatí s textem "Made with Aspose.Slides" a na tento tvar je aplikován efekt **Random Bars**.
 
-![Slide shape animation effect](slide-shape-animation.png)
+![Animace tvaru na snímku](slide-shape-animation.png)
 
-Předpokládejme také, že efekt **Split** je aplikován na placeholder zápatí na snímku **layout**.
+Dále předpokládejme, že na placeholder zápatí na **rozložení** snímku je aplikován efekt **Split**.
 
-![Layout shape animation effect](layout-shape-animation.png)
+![Animace tvaru na rozložení](layout-shape-animation.png)
 
-A nakonec je na placeholder zápatí na snímku **master** aplikován efekt **Fly In**.
+A nakonec, na placeholder zápatí na **hlavním** snímku je aplikován efekt **Fly In**.
 
-![Master shape animation effect](master-shape-animation.png)
+![Animace tvaru na hlavním snímku](master-shape-animation.png)
 
-Následující ukázkový kód ukazuje, jak použít metodu `GetBasePlaceholder` z rozhraní [IShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishape/) k přístupu k placeholderům tvaru a získání animačních efektů aplikovaných na tvar zápatí, včetně těch zděděných z placeholderů umístěných na snímcích layout a master.
+Následující ukázkový kód ukazuje, jak použít metodu `GetBasePlaceholder` z rozhraní [IShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishape/) k přístupu k placeholderům tvaru a získání animačních efektů aplikovaných na tvar zápatí, včetně těch zděděných z placeholderů umístěných na rozložení a hlavním snímku.
 
 ```cpp
-void PrintEffects(ArrayPtr<SharedPtr<IEffect>> effects)
+#include <DOM/Animation/IEffect.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+using namespace Aspose::Slides::Animation;
+using namespace System;
+
+auto PrintEffects = [](ArrayPtr<SharedPtr<IEffect>> effects)
 {
     for (SharedPtr<IEffect> effect : effects)
     {
         Console::WriteLine(String::Format(u"Type: {0}, subtype: {1}", effect->get_Type(), effect->get_Subtype()));
     }
-}
+};
 ```
 ```cpp
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace System;
+
+auto PrintEffects = [](ArrayPtr<SharedPtr<IEffect>> effects)
+{
+    for (SharedPtr<IEffect> effect : effects)
+    {
+        Console::WriteLine(String::Format(u"Type: {0}, subtype: {1}", effect->get_Type(), effect->get_Subtype()));
+    }
+};
+
 SharedPtr<Presentation> presentation = MakeObject<Presentation>(u"sample.pptx");
 
 SharedPtr<ISlide> slide = presentation->get_Slide(0);
 
-// Get animation effects of the shape on the normal slide.
+// Získá animační efekty tvaru na normálním snímku.
 SharedPtr<IShape> shape = slide->get_Shape(0);
 ArrayPtr<SharedPtr<IEffect>> shapeEffects = slide->get_Timeline()->get_MainSequence()->GetEffectsByShape(shape);
 
-// Get animation effects of the placeholder on the layout slide.
+// Získá animační efekty placeholderu na snímku rozložení.
 SharedPtr<IShape> layoutShape = shape->GetBasePlaceholder();
 ArrayPtr<SharedPtr<IEffect>> layoutShapeEffects = slide->get_LayoutSlide()->get_Timeline()->get_MainSequence()->GetEffectsByShape(layoutShape);
 
-// Get animation effects of the placeholder on the master slide.
+// Získá animační efekty placeholderu na hlavním snímku.
 SharedPtr<IShape> masterShape = layoutShape->GetBasePlaceholder();
 ArrayPtr<SharedPtr<IEffect>> masterShapeEffects = slide->get_LayoutSlide()->get_MasterSlide()->get_Timeline()->get_MainSequence()->GetEffectsByShape(masterShape);
 
@@ -270,34 +382,50 @@ PrintEffects(layoutShapeEffects);
 PrintEffects(shapeEffects);
 ```
 
+Output:
 ```text
 Main sequence of shape effects:
-Type: 47, subtype: 2              // Prolet, Dole
-Type: 134, subtype: 45            // Rozdělení, Svisle dovnitř
+Type: 47, subtype: 2              // Let, Dole
+Type: 134, subtype: 45            // Rozdělení, Vertikální vstup
 Type: 126, subtype: 22            // Náhodné pruhy, Horizontální
 ```
 
-## **Změnit časové vlastnosti animačního efektu**
+## **Změna časových vlastností animačního efektu**
 
-Aspose.Slides pro C++ vám umožňuje změnit časové vlastnosti animačního efektu.
+Aspose.Slides for C++ umožňuje změnit časové vlastnosti animačního efektu.
 
-This is the Animation Timing pane in Microsoft PowerPoint:
+Toto je panel Timing animace v Microsoft PowerPoint:
 
 ![example1_image](shape-animation.png)
 
-Jedná se o odpovídající položky mezi časováním v PowerPointu a vlastnostmi [Effect.Timing](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.animation.effect#a333640cbb8d32c413ccda11c1a7c3b4c) :
+Tyto odpovídají časování v PowerPointu a vlastnostem [Effect.Timing](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.animation.effect#a333640cbb8d32c413ccda11c1a7c3b4c):
 
-- Rozbalovací seznam **Start** v časování PowerPointu odpovídá vlastnosti [Effect.Timing.TriggerType](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.animation.i_timing#a9cec24d555c39e33f0b71dc2210daab3). 
-- **Duration** v časování PowerPointu odpovídá vlastnosti [Effect.Timing.Duration](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.animation.i_timing#a4f5eebdec3b0b2e6d57ee944b5a8a340). Délka animace (v sekundách) je celková doba, kterou animace potřebuje k dokončení jednoho cyklu. 
-- **Delay** v časování PowerPointu odpovídá vlastnosti [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.animation.i_timing#a947ac2f79c7310d0276ef17999b7214b). 
+- Rozbalovací seznam PowerPoint Timing **Start** odpovídá vlastnosti [Effect.Timing.TriggerType](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.animation.i_timing#a9cec24d555c39e33f0b71dc2210daab3).
+- PowerPoint Timing **Duration** odpovídá vlastnosti [Effect.Timing.Duration](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.animation.i_timing#a4f5eebdec3b0b2e6d57ee944b5a8a340). Doba trvání animace (v sekundách) je celkový čas, který animace potřebuje k dokončení jednoho cyklu.
+- PowerPoint Timing **Delay** odpovídá vlastnosti [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.animation.i_timing#a947ac2f79c7310d0276ef17999b7214b).
 
-Takto změníte vlastnosti časování efektu:
+Takto změníte vlastnosti Timing efektu:
 
-1. [Použít](#apply-animation-to-shape) nebo získat animační efekt.
-2. Nastavte nové hodnoty požadovaných vlastností [Effect.Timing](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.animation.effect#a333640cbb8d32c413ccda11c1a7c3b4c).
+1. [Apply](#apply-animation-to-shape) nebo získejte animační efekt.
+2. Nastavte nové hodnoty pro vlastnosti [Effect.Timing](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.animation.effect#a333640cbb8d32c413ccda11c1a7c3b4c), které potřebujete.
 3. Uložte upravený soubor PPTX.
 
+Tento C++ kód demonstruje operaci:
+
 ```c++
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+
 // Vytvoří instanci třídy prezentace, která představuje soubor prezentace.
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimExample_out.pptx");
 
@@ -307,7 +435,7 @@ System::SharedPtr<ISequence> sequence = pres->get_Slides()->idx_get(0)->get_Time
 // Získá první efekt hlavní sekvence.
 System::SharedPtr<IEffect> effect = sequence->idx_get(0);
 
-// Změní TriggerType efektu tak, aby se spustil kliknutím
+// Změní TriggerType efektu tak, aby se spustil po kliknutí
 effect->get_Timing()->set_TriggerType(Aspose::Slides::Animation::EffectTriggerType::OnClick);
 
 // Změní délku trvání efektu
@@ -322,19 +450,32 @@ pres->Save(u"AnimExample_changed.pptx", Aspose::Slides::Export::SaveFormat::Pptx
 
 ## **Zvuk animačního efektu**
 
-Aspose.Slides poskytuje následující vlastnosti, které umožňují práci se zvuky v animačních efektech: 
+Aspose.Slides poskytuje tyto vlastnosti pro práci se zvuky v animačních efektech:
+- [set_Sound()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/effect/set_sound/)
+- [set_StopPreviousSound()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/effect/set_stopprevioussound/)
 
-- [set_Sound()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/effect/set_sound/) 
-- [set_StopPreviousSound()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/effect/set_stopprevioussound/) 
-
-### **Přidat zvuk animačního efektu**
+### **Přidání zvuku animačního efektu**
 
 Tento C++ kód ukazuje, jak přidat zvuk animačního efektu a zastavit jej, když začne další efekt:
 
 ```c++
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAudio.h>
+#include <DOM/IAudioCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimExample_out.pptx");
 
-// Přidá zvuk do kolekce audio souborů prezentace
+// Přidá audio do kolekce audio v prezentaci
 System::SharedPtr<IAudio> effectSound = pres->get_Audios()->AddAudio(System::IO::File::ReadAllBytes(u"sampleaudio.wav"));
 System::SharedPtr<ISlide> firstSlide = pres->get_Slide(0);
 
@@ -344,33 +485,42 @@ System::SharedPtr<ISequence> sequence = firstSlide->get_Timeline()->get_MainSequ
 // Získá první efekt hlavní sekvence
 System::SharedPtr<IEffect> firstEffect = sequence->idx_get(0);
 
-// Kontroluje, zda efekt nemá žádný zvuk
+// Kontroluje, zda efekt nemá zvuk
 if (!firstEffect->get_StopPreviousSound() && firstEffect->get_Sound() == nullptr)
 {
-    // Přidá zvuk k prvnímu efektu
+    // Přidá zvuk pro první efekt
     firstEffect->set_Sound(effectSound);
 }
 
 // Získá první interaktivní sekvenci snímku.
 System::SharedPtr<ISequence> interactiveSequence = firstSlide->get_Timeline()->get_InteractiveSequence(0);
 
-// Nastaví příznak efektu "Stop previous sound"
+// Nastaví příznak efektu "Zastavit předchozí zvuk"
 interactiveSequence->idx_get(0)->set_StopPreviousSound(true);
 
 // Zapíše soubor PPTX na disk
 pres->Save(u"AnimExample_Sound_out.pptx", SaveFormat::Pptx);
 ```
 
-### **Extrahovat zvuk animačního efektu**
+### **Extrahování zvuku animačního efektu**
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/).
-2. Získejte odkaz na snímek podle jeho indexu. 
-3. Získejte hlavní sekvenci efektů. 
-4. Extrahujte vložený [set_Sound()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/effect/set_sound/) z každého animačního efektu. 
+2. Získejte odkaz na snímek pomocí jeho indexu.
+3. Získejte hlavní sekvenci efektů.
+4. Extrahujte vestavěný [set_Sound()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/effect/set_sound/) ke každému animačnímu efektu.
 
-Tento C++ kód ukazuje, jak extrahovat zvuk vložený do animačního efektu:
+Tento C++ kód ukazuje, jak extrahovat zvuk vestavěný v animačním efektu:
 
 ```c++
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAudio.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+
 // Vytvoří instanci třídy prezentace, která představuje soubor prezentace.
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"EffectSound.pptx");
 System::SharedPtr<ISlide> slide = pres->get_Slide(0);
@@ -391,22 +541,37 @@ for (auto&& effect : sequence)
 
 ## **Po animaci**
 
-Aspose.Slides pro C++ vám umožňuje změnit vlastnost After animation (Po animaci) animačního efektu.
+Aspose.Slides for C++ umožňuje změnit vlastnost After animation animačního efektu.
 
-This is the Animation Effect pane and extended menu in Microsoft PowerPoint:
+Toto je panel Effect a rozšířené menu v Microsoft PowerPoint:
 
 ![example1_image](shape-after-animation.png)
 
-Rozbalovací seznam **After animation** v PowerPointu odpovídá těmto vlastnostem: 
+Rozbalovací seznam PowerPoint Effect **After animation** odpovídá těmto vlastnostem:
+- Vlastnost [set_AfterAnimationType()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/ieffect/set_afteranimationtype/) popisuje typ After animation:
+  * PowerPoint **More Colors** odpovídá typu [AfterAnimationType.Color](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/afteranimationtype/);
+  * Položka PowerPoint **Don't Dim** odpovídá typu [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/afteranimationtype/) (výchozí typ after animation);
+  * Položka PowerPoint **Hide After Animation** odpovídá typu [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/afteranimationtype/);
+  * Položka PowerPoint **Hide on Next Mouse Click** odpovídá typu [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/afteranimationtype/);
+- Vlastnost [set_AfterAnimationColor()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/ieffect/set_afteranimationcolor/) definuje formát barvy po animaci. Tato vlastnost funguje ve spojení s typem [AfterAnimationType.Color](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/afteranimationtype/). Pokud změníte typ na jiný, barva po animaci bude vymazána.
 
-- Vlastnost [set_AfterAnimationType()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/ieffect/set_afteranimationtype/) , která popisuje typ After animation :
-  * PowerPoint **More Colors** odpovídá typu [AfterAnimationType.Color](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/afteranimationtype/) ;
-  * PowerPoint **Don't Dim** odpovídá typu [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/afteranimationtype/) (výchozí typ po animaci);
-  * PowerPoint **Hide After Animation** odpovídá typu [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/afteranimationtype/) ;
-  * PowerPoint **Hide on Next Mouse Click** odpovídá typu [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/afteranimationtype/) ;
-- Vlastnost [set_AfterAnimationColor()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/ieffect/set_afteranimationcolor/) , která definuje formát barvy po animaci. Tato vlastnost funguje ve spojení s typem [AfterAnimationType.Color](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/afteranimationtype/). Pokud typ změníte na jiný, barva po animaci bude vymazána.
+Tento C++ kód ukazuje, jak změnit efekt after animation:
 
 ```c++
+#include <DOM/Animation/AfterAnimationType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+
 // Vytvoří instanci třídy prezentace, která představuje soubor prezentace
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimImage_out.pptx");
 System::SharedPtr<ISlide> firstSlide = pres->get_Slide(0);
@@ -414,7 +579,7 @@ System::SharedPtr<ISlide> firstSlide = pres->get_Slide(0);
 // Získá první efekt hlavní sekvence
 System::SharedPtr<IEffect> firstEffect = firstSlide->get_Timeline()->get_MainSequence()->idx_get(0);
 
-// Změní typ po animaci na Color
+// Změní typ po animaci na Barva
 firstEffect->set_AfterAnimationType(AfterAnimationType::Color);
 
 // Nastaví barvu po animaci
@@ -426,22 +591,36 @@ pres->Save(u"AnimImage_AfterAnimation.pptx", SaveFormat::Pptx);
 
 ## **Animovat text**
 
-Aspose.Slides poskytuje následující vlastnosti, které umožňují práci s blokem *Animate text* animačního efektu: 
-
-- [set_AnimateTextType()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) , která popisuje typ animovaného textu efektu. Text tvaru může být animován:
-  * Vše najednou ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/animatetexttype/) typ)
-  * Po slově ([AnimateTextType.ByWord](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/animatetexttype/) typ)
-  * Po písmenu ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/animatetexttype/) typ)
-- [set_DelayBetweenTextParts()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) , nastavuje prodlevu mezi částmi animovaného textu (slovy nebo písmeny). Kladná hodnota udává procento trvání efektu. Záporná hodnota udává prodlevu v sekundách.
+Aspose.Slides poskytuje tyto vlastnosti pro práci s blokem *Animate text* animačního efektu:
+- [set_AnimateTextType()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) popisuje typ animace textu efektu. Text tvaru může být animován:
+  - Vše najednou ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/animatetexttype/) typ)
+  - Slovo po slovu ([AnimateTextType.ByWord](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/animatetexttype/) typ)
+  - Písmeno po písmenu ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/animatetexttype/) typ)
+- [set_DelayBetweenTextParts()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) nastavuje prodlevu mezi animovanými částmi textu (slovy nebo písmeny). Kladná hodnota udává procento trvání efektu. Záporná hodnota udává prodlevu v sekundách.
 
 Takto můžete změnit vlastnosti Effect Animate text:
-
-1. [Použít](#apply-animation-to-shape) nebo získat animační efekt.
-2. Nastavte vlastnost [set_BuildType()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/itextanimation/set_buildtype/) na hodnotu [BuildType.AsOneObject](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/buildtype/) , čímž vypnete režim animace *By Paragraphs*.
+1. [Apply](#apply-animation-to-shape) nebo získejte animační efekt.
+2. Nastavte vlastnost [set_BuildType()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation.itextanimation/set_buildtype/) na hodnotu [BuildType.AsOneObject](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/buildtype/) pro vypnutí režimu animace *By Paragraphs*.
 3. Nastavte nové hodnoty pro vlastnosti [set_AnimateTextType()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) a [set_DelayBetweenTextParts()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/).
 4. Uložte upravený soubor PPTX.
 
+Tento C++ kód demonstruje operaci:
+
 ```c++
+#include <DOM/Animation/AnimateTextType.h>
+#include <DOM/Animation/BuildType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITextAnimation.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+
 // Vytvoří instanci třídy prezentace, která představuje soubor prezentace.
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimTextBox_out.pptx");
 System::SharedPtr<ISlide> firstSlide = pres->get_Slide(0);
@@ -452,7 +631,7 @@ System::SharedPtr<IEffect> firstEffect = firstSlide->get_Timeline()->get_MainSeq
 // Změní typ textové animace efektu na "As One Object"
 firstEffect->get_TextAnimation()->set_BuildType(BuildType::AsOneObject);
 
-// Změní typ animovaného textu efektu na "By word"
+// Změní typ animace textu efektu na "By word"
 firstEffect->set_AnimateTextType(AnimateTextType::ByWord);
 
 // Nastaví prodlevu mezi slovy na 20% trvání efektu
@@ -462,16 +641,16 @@ firstEffect->set_DelayBetweenTextParts(20.0f);
 pres->Save(u"AnimTextBox_AnimateText.pptx", SaveFormat::Pptx);
 ```
 
-## **Často kladené dotazy**
+## **FAQ**
 
-**Jak mohu zajistit, že animace zůstanou zachovány při publikování prezentace na web?**
+### Jak mohu zajistit, aby byly animace zachovány při publikování prezentace na web?
 
-[Export to HTML5](/slides/cs/cpp/export-to-html5/) a povolte [options](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/html5options/) zodpovědné za animace [shape](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/html5options/set_animateshapes/) a [transition](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/html5options/set_animatetransitions/). Prostý HTML animace snímků nepřehraje, zatímco HTML5 ano.
+[Export do HTML5](/slides/cs/cpp/export-to-html5/) a povolte [options](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/html5options/) zodpovědné za animaci [shape](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/html5options/set_animateshapes/) a [transition](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/html5options/set_animatetransitions/). Čisté HTML nepřehrává animace snímků, zatímco HTML5 ano.
 
-**Jak ovlivňuje změna z-order (pořadí vrstev) tvarů animaci?**
+### Jak změna z-order (vrstvy) tvarů ovlivňuje animaci?
 
-Animace a pořadí vykreslování jsou nezávislé: efekt řídí časování a typ objevování/zmizení, zatímco [z-order](https://reference.aspose.com/slides/cs/cpp/aspose.slides/shape/get_zorderposition/) určuje, co co překrývá. Viditelný výsledek je definován jejich kombinací. (Toto je obecné chování PowerPointu; model efektů a tvarů Aspose.Slides následuje stejnou logiku.)
+Animace a pořadí kreslení jsou nezávislé: efekt řídí načasování a typ zobrazování/skrývání, zatímco [z-order](https://reference.aspose.com/slides/cs/cpp/aspose.slides/shape/get_zorderposition/) určuje, co co překrývá. Viditelné výsledky jsou definovány jejich kombinací. (Toto je obecné chování PowerPointu; model efekty‑a‑tvary v Aspose.Slides následuje stejnou logiku.)
 
-**Existují omezení při konverzi animací do videa u některých efektů?**
+### Existují omezení při převodu animací do videa pro některé efekty?
 
-Obecně jsou [animace podporovány](/slides/cs/cpp/convert-powerpoint-to-video/), ale v ojedinělých případech nebo u specifických efektů může dojít k odlišnému vykreslení. Doporučuje se otestovat s efekty, které používáte, a s verzí knihovny.
+Obecně jsou [animace podporovány](/slides/cs/cpp/convert-powerpoint-to-video/), ale v rozdílných případech zcela definitivně nedochází. Doporučuje se testovat s efekty, které používáte a s knihovnou verze.

@@ -1,49 +1,46 @@
 ---
-title: Android でのプレゼンテーションのスライド トランジションの管理
-linktitle: スライド トランジション
+title: Android でのプレゼンテーションにおけるスライド遷移の管理
+linktitle: スライド遷移
 type: docs
 weight: 80
 url: /ja/androidjava/slide-transition/
 keywords:
-- スライド トランジション
-- スライド トランジションの追加
-- スライド トランジションの適用
-- 高度なスライド トランジション
-- モーフ トランジション
-- トランジション タイプ
-- トランジション 効果
+- スライド遷移
+- スライド遷移の追加
+- スライド遷移の適用
+- 高度なスライド遷移
+- モーフ遷移
+- 遷移タイプ
+- 遷移効果
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java でスライド トランジションをカスタマイズする方法を、PowerPoint と OpenDocument のプレゼンテーション向けのステップバイステップガイドとともに紹介します。"
+description: "Aspose.Slides for Android via Java でスライド遷移をカスタマイズする方法を、PowerPoint と OpenDocument のプレゼンテーション向けにステップバイステップで解説します。"
 ---
-
 ## **概要**
-{{% alert color="primary" %}} 
 
-Aspose.Slides for Android via Java は、開発者がスライドのトランジション効果を管理またはカスタマイズできるようにします。本トピックでは、Aspose.Slides for Android via Java を使用してスライドトランジションを簡単に制御する方法について説明します。
+この記事では、Aspose.Slides を使用してプレゼンテーションのスライド遷移を管理する方法を説明します。スライドに遷移タイプを適用する方法、クリックで進むか指定時間後に進むかといった遷移動作の設定、Morph 遷移とその種類の使用方法、遷移効果オプションの設定方法を示します。サンプルでは、プレゼンテーションを読み込むまたは作成し、選択したスライドの遷移設定を変更し、結果を PPTX ファイルとして保存する手順を示しています。また、遷移速度、遷移サウンド、複数スライドへの同一遷移の適用、スライド上に現在設定されている遷移の確認に関するよくある質問にも答えています。
 
-{{% /alert %}} 
+## **スライド遷移の追加**
+単純なスライド遷移効果を作成するには、以下の手順に従います。
 
-理解しやすくするために、Aspose.Slides for Android via Java を使用してシンプルなスライドトランジションを管理する方法をデモしています。開発者はスライドにさまざまなトランジション効果を適用できるだけでなく、これらの効果の動作もカスタマイズできます。
+1. [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation) クラスのインスタンスを作成します。
+2. TransitionType 列挙体を使用して、Aspose.Slides for Android via Java が提供する遷移効果のいずれかをスライドに適用します。
+3. 変更したプレゼンテーション ファイルを書き込みます。
 
-## **スライド トランジションの追加**
-シンプルなスライドトランジション効果を作成するには、以下の手順に従います。
-
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) クラスのインスタンスを作成します。
-2. Aspose.Slides for Android via Java が提供する TransitionType 列挙体を使用して、スライドにスライド トランジション タイプを適用します。
-3. 変更されたプレゼンテーション ファイルを書き出します。
 ```java
-// ソースプレゼンテーション ファイルを読み込むために Presentation クラスのインスタンスを作成します
+import com.aspose.slides.*;
+
+// ソース プレゼンテーション ファイルを読み込むために Presentation クラスのインスタンスを作成します
 Presentation presentation = new Presentation("AccessSlides.pptx");
 try {
-    // スライド 1 にサークル タイプのトランジションを適用します
+    // スライド 1 にサークル タイプの遷移を適用します
     presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
 
-    // スライド 2 にコーム タイプのトランジションを適用します
+    // スライド 2 にコンブ タイプの遷移を適用します
     presentation.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
 
     // プレゼンテーションをディスクに保存します
@@ -53,37 +50,39 @@ try {
 }
 ```
 
+## **高度なスライド遷移の追加**
+上記のセクションでは単純な遷移効果のみを適用しました。ここでは、同じ遷移効果をより細かく制御できるようにする手順をご紹介します。
 
-## **高度なスライド トランジションの追加**
-上記のセクションでは、シンプルなトランジション効果をスライドに適用しました。次に、シンプルなトランジション効果をさらに高度に制御できるように、以下の手順に従ってください。
+1. [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation) クラスのインスタンスを作成します。
+2. Aspose.Slides for Android via Java が提供する遷移効果のいずれかをスライドに適用します。
+3. 遷移を「クリックで進む」や「指定時間後に進む」またはその両方に設定できます。
+4. スライド遷移が「クリックで進む」ように設定されている場合、マウスをクリックしたときにのみ遷移が進みます。さらに、Advance After Time プロパティが設定されている場合、指定した時間が経過すると自動的に遷移が進みます。
+5. 変更したプレゼンテーションをプレゼンテーション ファイルとして書き込みます。
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) クラスのインスタンスを作成します。
-2. Aspose.Slides for Android via Java が提供するトランジション効果から、スライドにスライド トランジション タイプを適用します。
-3. トランジションをクリックで進む、特定の時間経過後、またはその両方に設定できます。
-4. スライド トランジションが「クリックで進む」ように有効になっている場合、マウスクリック時にのみトランジションが進みます。さらに、Advance After Time プロパティが設定されている場合、指定された時間が経過するとトランジションは自動的に進行します。
-5. 変更されたプレゼンテーションをプレゼンテーション ファイルとして書き出します。
 ```java
+import com.aspose.slides.*;
+
 // プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します
 Presentation pres = new Presentation("BetterSlideTransitions.pptx");
 try {
-    // スライド 1 にサークル タイプのトランジションを適用します
+    // スライド 1 にサークル タイプの遷移を適用します
     pres.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
 
-    // トランジション時間を 3 秒に設定します
+    // クリックで進むか、3 秒後に自動的に進むように設定します
     pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceOnClick(true);
     pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceAfterTime(3000);
 
-    // スライド 2 にコーム タイプのトランジションを適用します
+    // スライド 2 にコンブ タイプの遷移を適用します
     pres.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
     
-    // トランジション時間を 5 秒に設定します
+    // クリックで進むか、5 秒後に自動的に進むように設定します
     pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceOnClick(true);
     pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceAfterTime(5000);
 
-    // スライド 3 にズーム タイプのトランジションを適用します
+    // スライド 3 にズーム タイプの遷移を適用します
     pres.getSlides().get_Item(2).getSlideShowTransition().setType(TransitionType.Zoom);
     
-    // トランジション時間を 7 秒に設定します
+    // クリックで進むか、7 秒後に自動的に進むように設定します
     pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceOnClick(true);
     pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceAfterTime(7000);
 
@@ -94,18 +93,20 @@ try {
 }
 ```
 
+## **モーフ遷移**
+{{% alert color="info" %}} 
 
-## **モーフ トランジション**
-{{% alert color="primary" %}} 
-
-Aspose.Slides for Android via Java は、[Morph Transition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMorphTransition) をサポートするようになりました。これは PowerPoint 2019 で導入された新しいモーフ トランジションです。
+Aspose.Slides for Android via Java は現在、[Morph Transition](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/IMorphTransition) をサポートしています。これは PowerPoint 2019 で導入された新しいモーフ遷移です。
 
 {{% /alert %}} 
 
-モーフ トランジションにより、あるスライドから次のスライドへスムーズな動きをアニメーション化できます。本稿では、モーフ トランジションの概念と使用方法について説明します。モーフ トランジションを効果的に使用するには、少なくとも1つの共通オブジェクトを持つ2つのスライドが必要です。最も簡単な方法は、スライドを複製し、2番目のスライド上のオブジェクトを別の位置に移動することです。
+モーフ遷移を使用すると、あるスライドから次のスライドへ滑らかな動きをアニメーション化できます。本稿ではモーフ遷移の概念と使用方法を説明します。モーフ遷移を有効に活用するには、少なくとも 1 つのオブジェクトが共通する 2 枚のスライドが必要です。最も簡単な方法はスライドを複製し、2 枚目のスライドでオブジェクトを別の位置に移動することです。
 
-以下のコードスニペットは、テキストを含むスライドのクローンをプレゼンテーションに追加し、2番目のスライドに [morph type](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TransitionType) のトランジションを設定する方法を示しています。
+次のコードスニペットは、テキストを含むスライドのクローンをプレゼンテーションに追加し、2 枚目のスライドに [morph type](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/TransitionType) の遷移を設定する方法を示しています。
+
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     AutoShape autoshape = (AutoShape)presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
@@ -128,18 +129,20 @@ finally {
 }
 ```
 
+## **モーフ遷移の種類**
+新しい [TransitionMorphType](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/TransitionMorphType) 列挙体が追加されました。これはモーフ スライド遷移のさまざまな種類を表します。
 
-## **モーフ トランジション タイプ**
-新しい [TransitionMorphType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TransitionMorphType) 列挙体が追加されました。これはモーフ スライド トランジションのさまざまなタイプを表します。
+TransitionMorphType 列挙体には 3 つのメンバーがあります。
 
-TransitionMorphType 列挙体には次の 3 つのメンバーがあります。
+- ByObject: オブジェクトを不可分な形状として扱い、モーフ遷移を実行します。
+- ByWord: 可能な場合は単語単位でテキストを転送しながらモーフ遷移を実行します。
+- ByChar: 可能な場合は文字単位でテキストを転送しながらモーフ遷移を実行します。
 
-- ByObject: 形状を分割不可能なオブジェクトとして扱い、モーフ トランジションを実行します。
-- ByWord: 可能な場合は単語単位でテキストを転送し、モーフ トランジションを実行します。
-- ByChar: 可能な場合は文字単位でテキストを転送し、モーフ トランジションを実行します。
+以下のコードスニペットは、スライドにモーフ遷移を設定し、モーフ タイプを変更する方法を示しています。
 
-以下のコードスニペットは、スライドにモーフ トランジションを設定し、モーフ タイプを変更する方法を示しています。
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Morph);
@@ -150,17 +153,19 @@ try {
 }
 ```
 
+## **遷移効果の設定**
+Aspose.Slides for Android via Java は、黒からのフェード、左からのスライド、右からのスライドなどの遷移効果の設定をサポートしています。遷移効果を設定するには、以下の手順に従ってください。
 
-## **トランジション効果の設定**
-Aspose.Slides for Android via Java は、左から、右から、黒からなどのトランジション効果の設定をサポートしています。トランジション効果を設定するには、以下の手順に従ってください。
-
-- [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
+- [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
 - スライドの参照を取得します。
-- トランジション効果を設定します。
-- プレゼンテーションを [PPTX](https://docs.fileformat.com/presentation/pptx/) ファイルとして書き出します。
+- 遷移効果を設定します。
+- プレゼンテーションを [PPTX](https://docs.fileformat.com/presentation/pptx/) ファイルとして書き込みます。
 
-以下の例では、トランジション効果を設定しています。
+以下の例では、遷移効果を設定しています。
+
 ```java
+import com.aspose.slides.*;
+
 // Presentation クラスのインスタンスを作成します
 Presentation presentation = new Presentation("AccessSlides.pptx");
 try {
@@ -168,28 +173,27 @@ try {
     presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Cut);
     ((OptionalBlackTransition)presentation.getSlides().get_Item(0).getSlideShowTransition().getValue()).setFromBlack(true);
     
-    // プレゼンテーションをディスクに保存します
+    // プレゼンテーションをディスクに書き込みます
     presentation.save("SetTransitionEffects_out.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-
 ## **FAQ**
 
-**スライド トランジションの再生速度を制御できますか？**
+### スライド遷移の再生速度を制御できますか？
 
-はい。[TransitionSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionspeed/) 設定（例: slow/medium/fast）を使用して、トランジションの [speed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slideshowtransition/#setSpeed-int-) を設定できます。
+はい。遷移の [speed](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/slideshowtransition/#setSpeed-int-) を、[TransitionSpeed](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/transitionspeed/) 設定（例：slow/medium/fast）で設定できます。
 
-**トランジションにオーディオを添付し、ループさせることはできますか？**
+### 遷移にオーディオを添付してループ再生できますか？
 
-はい。トランジション用にサウンドを埋め込み、サウンド モードやループなどの設定（例: [setSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slideshowtransition/#setSound-com.aspose.slides.IAudio-), [setSoundMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slideshowtransition/#setSoundMode-int-), [setSoundLoop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slideshowtransition/#setSoundLoop-boolean-), さらに [setSoundIsBuiltIn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slideshowtransition/#setSoundIsBuiltIn-boolean-) や [setSoundName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slideshowtransition/#setSoundName-java.lang.String-)) で動作を制御できます。
+はい。遷移にサウンドを埋め込み、サウンドモードやループ設定（例：[setSound](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/slideshowtransition/#setSound-com.aspose.slides.IAudio-)、[setSoundMode](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/slideshowtransition/#setSoundMode-int-)、[setSoundLoop](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/slideshowtransition/#setSoundLoop-boolean-)）で動作を制御できます。また、[setSoundIsBuiltIn](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/slideshowtransition/#setSoundIsBuiltIn-boolean-) や [setSoundName](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/slideshowtransition/#setSoundName-java.lang.String-) などのメタデータも設定可能です。
 
-**すべてのスライドに同じトランジションを適用する最速の方法は何ですか？**
+### すべてのスライドに同じ遷移を適用する最速の方法は？
 
-各スライドのトランジション設定で目的のトランジション タイプを構成します。トランジションはスライドごとに保存されるため、すべてのスライドに同じタイプを適用すれば一貫した結果が得られます。
+各スライドの遷移設定で目的の遷移タイプを構成します。遷移はスライドごとに保存されるため、すべてのスライドに同一タイプを設定すれば一貫した結果になります。
 
-**スライドに現在設定されているトランジションを確認するにはどうすればよいですか？**
+### スライドに現在設定されている遷移を確認するには？
 
-スライドの [transition settings](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getSlideShowTransition--) を調べ、[transition type](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slideshowtransition/#setType-int-) を取得します。その値が適用されている効果を正確に示します。
+スライドの [transition settings](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/baseslide/#getSlideShowTransition--) を調べ、[transition type](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/slideshowtransition/#setType-int-) を取得します。その値が適用されている効果を正確に示します。

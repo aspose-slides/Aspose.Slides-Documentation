@@ -1,14 +1,14 @@
 ---
-title: Java'da Sunum Görünüm Özelliklerini Alıp Güncelleme
+title: Java'da Sunum Görünüm Özelliklerini Al ve Güncelle
 linktitle: Görünüm Özellikleri
 type: docs
 weight: 80
 url: /tr/java/presentation-view-properties/
-keywords: 
+keywords:
 - görünüm özellikleri
 - normal görünüm
-- taslak içerik
-- taslak ikonlar
+- ana hat içeriği
+- ana hat simgeleri
 - dikey bölücüyü yakala
 - tek görünüm
 - çubuk durumu
@@ -20,41 +20,43 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java görünüm özelliklerini keşfedin; PPT, PPTX ve ODP slayt formatlarını özelleştirin—düzenleri, yakınlaştırma seviyelerini ve görüntüleme ayarlarını ayarlayın."
+description: "Aspose.Slides for Java görünüm özelliklerini keşfedin; PPT, PPTX ve ODP slayt formatlarını özelleştirin—yerleşim, yakınlaştırma seviyeleri ve görüntüleme ayarlarını ayarlayın."
 ---
 ## **Giriş**
 
-Normal görünüm üç içerik bölgesinden oluşur: slayt kendisi, yan içerik bölgesi ve alt içerik bölgesi. Farklı içerik bölgelerinin konumlandırılmasıyla ilgili özellikler. Bu bilgi uygulamanın görünüm durumunu dosyaya kaydetmesini sağlar, böylece yeniden açıldığında görünüm, sunum son kaydedildiği zamandaki aynı durumda olur.
+Normal görünüm üç içerik bölgesinden oluşur: slayt kendisi, yan içerik bölgesi ve alt içerik bölgesi. Farklı içerik bölgelerinin konumlandırılmasına ilişkin özellikler. Bu bilgiler uygulamanın görünüm durumunu dosyaya kaydetmesini sağlar; böylece dosya yeniden açıldığında görünüm, sunum en son kaydedildiğinde olduğu durumla aynı olur.
 
-Sunumun normal görünüm özelliklerine erişim sağlamak için [IViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IViewProperties#getNormalViewProperties--) metodu eklenmiştir.  
+Metot [IViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IViewProperties#getNormalViewProperties--) sunumun normal görünüm özelliklerine erişim sağlamak için eklenmiştir.
 
-[INormalViewProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewProperties), [INormalViewRestoredProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewRestoredProperties) arayüzleri ve onların türevleri, [SplitterBarStateType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/SplitterBarStateType) enumu eklenmiştir.
+[INormalViewProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewProperties), [INormalViewRestoredProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewRestoredProperties) arayüzleri ve bunların türevleri, [SplitterBarStateType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/SplitterBarStateType) enumu eklendi.
 
 ## **INormalViewProperties Hakkında**
 
 Normal görünüm özelliklerini temsil eder.
 
-[**getShowOutlineIcons**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewProperties#getShowOutlineIcons--) ve [**setShowOutlineIcons**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewProperties#setShowOutlineIcons-boolean-) metodları, normal görünüm modunda herhangi bir içerik bölgesinde taslak içerik gösterilirken uygulamanın ikonları gösterip göstermeyeceğini belirtir.
+Methodlar [getShowOutlineIcons](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewProperties#getShowOutlineIcons--) ve [setShowOutlineIcons](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewProperties#setShowOutlineIcons-boolean-) uygulamanın, normal görünüm modunda içerik bölgelerinden birinde anahat içeriği görüntüleniyorsa simgeleri gösterip göstermeyeceğini belirler.
 
-[**getSnapVerticalSplitter**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewProperties#getSnapVerticalSplitter--) ve [**setSnapVerticalSplitter**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewProperties#setSnapVerticalSplitter-boolean-) metodları, yan bölge yeterince küçük olduğunda dikey ayırıcı çubuğun küçültülmüş bir duruma kilitlenip kilitlenmeyeceğini belirtir.
+Methodlar [getSnapVerticalSplitter](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewProperties#getSnapVerticalSplitter--) ve [setSnapVerticalSplitter](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewProperties#setSnapVerticalSplitter-boolean-) yan bölge yeterince küçük olduğunda dikey bölücünün küçültülmüş duruma yapışıp yapışmayacağını belirler.
 
-[**getPreferSingleView**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewProperties#getPreferSingleView--) ve [**setPreferSingleView**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewProperties#setPreferSingleView-boolean-) özellikleri, kullanıcının üç içerik bölgesiyle standart normal görünüm yerine tek bir içerik bölgesiyle tam pencere görünümünü tercih edip etmediğini belirtir. Etkinleştirildiğinde uygulama, içerik bölgelerinden birini tüm pencere içinde gösterebilir.
+Özellik [getPreferSingleView](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewProperties#getPreferSingleView--) ve [setPreferSingleView](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewProperties#setPreferSingleView-boolean-) kullanıcının, standart normal görünümdeki üç içerik bölgesi yerine tam pencere tek içerik bölgesi görmeyi tercih edip etmeyeceğini belirler. Etkinleştirildiğinde, uygulama içerik bölgelerinden birini tüm pencerede görüntülemeyi seçebilir.
 
-[**getVerticalBarState**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewProperties#getVerticalBarState--) ve [**getHorizontalBarState**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) metodları, yatay ya da dikey ayırıcı çubuğun hangi durumda gösterileceğini belirtir. Yatay ayırıcı çubuk slaytı slaytın altındaki içerik bölgesinden ayırırken, dikey ayırıcı çubuk slaytı yan içerik bölgesinden ayırır. Olası değerler: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/tr/java/com.aspose.slides/SplitterBarStateType#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/tr/java/com.aspose.slides/SplitterBarStateType#Maximized) ve [SplitterBarStateType.Restored](https://reference.aspose.com/slides/tr/java/com.aspose.slides/SplitterBarStateType#Restored).
+Methodlar [getVerticalBarState](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewProperties#getVerticalBarState--) ve [getHorizontalBarState](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) yatay veya dikey bölücü çubuğunun hangi durumda gösterileceğini belirtir. Yatay bölücü çubuk slaytı slayt altındaki içerik bölgesinden, dikey bölücü çubuk slaytı yan içerik bölgesinden ayırır. Olası değerler: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/tr/java/com.aspose.slides/SplitterBarStateType#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/tr/java/com.aspose.slides/SplitterBarStateType#Maximized) ve [SplitterBarStateType.Restored](https://reference.aspose.com/slides/tr/java/com.aspose.slides/SplitterBarStateType#Restored).
 
-[**getRestoredLeft**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewProperties#getRestoredLeft--) ve [**getRestoredTop**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewProperties#getRestoredTop--) metodları, [SplitterBarStateType.Restored](https://reference.aspose.com/slides/tr/java/com.aspose.slides/SplitterBarStateType#Restored) değeri [**getVerticalBarState**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewProperties#getVerticalBarState--) ve [**getHorizontalBarState**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) için uygulandığında normal görünümün üst veya yan slayt bölgesinin boyutlandırılmasını tanımlar.
+Methodlar [getRestoredLeft](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewProperties#getRestoredLeft--) ve [getRestoredTop](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewProperties#getRestoredTop--) Normal görünümde üst veya yan slayt bölgesinin boyutlandırmasını belirtir; bu, [SplitterBarStateType.Restored](https://reference.aspose.com/slides/tr/java/com.aspose.slides/SplitterBarStateType#Restored) değeri [getVerticalBarState](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewProperties#getVerticalBarState--) ve [getHorizontalBarState](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) için uygulandığında geçerlidir.
 
-## **INormalViewProperties'in Geri Yüklenmesi Hakkında**
+## **INormalViewProperties Geri Yükleme Hakkında**
 
-Normal görünümde bölgenin değişken bir geri yüklenmiş boyutta (küçültülmüş ya da büyütülmüş olmayan) olduğu durumlarda slayt bölgesinin (getRestoredTop çocuğu ise genişlik, getRestoredLeft çocuğu ise yükseklik) boyutlandırılmasını belirtir.
+Normal görünümde, bölge değişken bir geri yüklenmiş boyutta (ne küçültülmüş ne de büyütülmüş) olduğunda, slayt bölgesinin (getRestoredTop'un çocuğu olduğunda genişlik, getRestoredLeft'in çocuğu olduğunda yükseklik) boyutlandırmasını belirtir.
 
-[getDimensionSize](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewRestoredProperties#getDimensionSize--) yöntemi, geri yüklenmişTop çocuğu olduğunda genişlik, geri yüklenmişLeft çocuğu olduğunda yükseklik olmak üzere slayt bölgesi boyutunu belirtir.
+Method [getDimensionSize](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewRestoredProperties#getDimensionSize--) slayt bölgesinin boyutunu (restoredTop'un çocuğu olduğunda genişlik, restoredLeft'in çocuğu olduğunda yükseklik) belirtir.
 
-[getAutoAdjust](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewRestoredProperties#getAutoAdjust--) yöntemi, pencere yeniden boyutlandırıldığında yan içerik bölgesinin yeni boyuta göre denge sağlanıp sağlanmayacağını belirtir.
+Method [getAutoAdjust](https://reference.aspose.com/slides/tr/java/com.aspose.slides/INormalViewRestoredProperties#getAutoAdjust--) uygulama içinde görünümü içeren pencere yeniden boyutlandırıldığında yan içerik bölgesinin boyutunun yeni boyuta göre ayarlanıp ayarlanmayacağını belirler.
 
-Aşağıda verilen örnek, bir sunum için [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ViewProperties#getNormalViewProperties--) özelliklerine nasıl erişileceğini göstermektedir.
+Aşağıda verilen bir örnek, bir sunum için [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ViewProperties#getNormalViewProperties--) özelliklerine nasıl erişileceğini göstermektedir.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     pres.getViewProperties().getNormalViewProperties().setHorizontalBarState(SplitterBarStateType.Restored);
@@ -71,22 +73,24 @@ try {
 }
 ```
 
-## **Varsayılan Yakınlaştırma Değerini Ayarlama**
+## **Varsayılan Yakınlaştırma Değerini Ayarla**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Aspose.Slides for Java artık sunumun varsayılan yakınlaştırma değerinin ayarlanmasını destekler; böylece sunum açıldığında yakınlaştırma zaten ayarlanmış olur. Bu, bir sunumun [ViewProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ViewProperties) ayarlanarak yapılabilir. [getSlideViewProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ViewProperties#getSlideViewProperties--) ve [getNotesViewProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ViewProperties#getNotesViewProperties--) programatik olarak ayarlanabilir. Bu konuda, bir [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation) için [View Properties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ViewProperties)’i nasıl ayarlayacağımızı bir örnekle göreceğiz.
+Aspose.Slides for Java artık sunum için varsayılan yakınlaştırma değerini ayarlamayı destekliyor; böylece sunum açıldığında yakınlaştırma zaten ayarlı olur. Bu, bir sunumun [ViewProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ViewProperties) ayarlanarak yapılabilir. [getSlideViewProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ViewProperties#getSlideViewProperties--) ve [getNotesViewProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ViewProperties#getNotesViewProperties--) programlı olarak ayarlanabilir. Bu konuda, bir örnekle [Aspose.Slides](/slides/tr/) içinde [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation) öğesinin [View Properties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ViewProperties) nasıl ayarlanır göreceğiz.
 
 {{% /alert %}} 
 
 Görünüm özelliklerini ayarlamak için aşağıdaki adımları izleyin:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation) sınıfının bir örneğini oluşturun.  
-2. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation) için [View Properties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ViewProperties)’i ayarlayın.  
-3. Sunumu bir [PPTX](https://docs.fileformat.com/presentation/pptx/) dosyası olarak yazın.  
-   Aşağıda verilen örnekte slayt görünümü ve not görünümü için yakınlaştırma değeri ayarlanmıştır.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation) sınıfının bir örneğini oluşturun.
+1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation) için [View Properties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ViewProperties) ayarlayın.
+1. Sunumu bir [PPTX](https://docs.fileformat.com/presentation/pptx/) dosyası olarak kaydedin.
+   Aşağıda verilen örnekte, slayt görünümü ve not görünümü için yakınlaştırma değeri ayarlanmıştır.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     // Sunumun görünüm özelliklerini ayarlama
@@ -101,14 +105,14 @@ try {
 
 ## **SSS**
 
-**Sunumun farklı bölümleri için farklı görünüm ayarları belirleyebilir miyim?**
+### Bir sunumun farklı bölümleri için farklı görüntü ayarları belirleyebilir miyim?
 
-[View settings](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#getViewProperties--) sunum seviyesinde ([Normal View](https://reference.aspose.com/slides/tr/java/com.aspose.slides/viewproperties/#getNormalViewProperties--)/[Slide View](https://reference.aspose.com/slides/tr/java/com.aspose.slides/viewproperties/#getSlideViewProperties--)) tanımlanır, bölüm bazında değil, bu nedenle bir kez tanımlanan parametreler dosya açıldığında tüm belgeye uygulanır.
+[View settings](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#getViewProperties--) sunum seviyesinde ([Normal View](https://reference.aspose.com/slides/tr/java/com.aspose.slides/viewproperties/#getNormalViewProperties--)/[Slide View](https://reference.aspose.com/slides/tr/java/com.aspose.slides/viewproperties/#getSlideViewProperties--)) tanımlanır, bölüm bazında değil; bu nedenle belge açıldığında tek bir parametre kümesi tüm belgeye uygulanır.
 
-**Farklı kullanıcılar için farklı görünüm durumlarını önceden tanımlayabilir miyim?**
+### Farklı kullanıcılar için farklı görüntü durumlarını önceden tanımlayabilir miyim?
 
-Hayır. Ayarlar dosyada saklanır ve paylaşılır. Görüntüleyici uygulamalar kullanıcı tercihlerini dikkate alabilir, ancak dosya kendisi tek bir görünüm özelliği seti içerir.
+Hayır. Ayarlar dosyada saklanır ve paylaşıldır. Görüntüleyici uygulamalar kullanıcı tercihlerine uyabilir, ancak dosya kendisi yalnız bir görüntü özelliği kümesi içerir.
 
-**Yeni sunumların aynı şekilde açılmasını sağlamak için önceden tanımlı Görünüm Özelliklerine sahip bir şablon hazırlayabilir miyim?**
+### Önceden tanımlı View Properties ile bir şablon hazırlayıp yeni sunumların aynı şekilde açılmasını sağlayabilir miyim?
 
-Evet. [View properties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#getViewProperties--) sunum seviyesinde saklandığından, bunları bir şablona gömebilir ve yeni belgeleri aynı başlangıç görünüm yapılandırmasıyla oluşturabilirsiniz.
+Evet. [view properties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#getViewProperties--) sunum seviyesinde depolandığı için, bunları bir şablona ekleyebilir ve aynı başlangıç görüntü yapılandırmasıyla yeni belgeler oluşturabilirsiniz.

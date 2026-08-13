@@ -1,5 +1,5 @@
 ---
-title: OLE kezelése prezentációkban C++-ban
+title: OLE kezelése prezentációkban C++ segítségével
 linktitle: OLE kezelése
 type: docs
 weight: 40
@@ -13,8 +13,8 @@ keywords:
 - objektum beágyazása
 - fájl hozzáadása
 - fájl beágyazása
-- linkelt objektum
-- linkelt fájl
+- hivatkozott objektum
+- hivatkozott fájl
 - OLE módosítása
 - OLE ikon
 - OLE cím
@@ -25,42 +25,54 @@ keywords:
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Optimalizálja az OLE objektumok kezelését PowerPoint és OpenDocument fájlokban az Aspose.Slides for C++ segítségével. Az OLE tartalmat zökkenőmentesen ágyazza be, frissíti és exportálja."
+description: "Optimalizálja az OLE objektumok kezelését PowerPoint és OpenDocument fájlokban az Aspose.Slides for C++ segítségével. Beágyazhat, frissíthet és exportálhat OLE tartalmat zökkenőmentesen."
 ---
 ## **Bevezetés**
 
 {{% alert title="Info" color="info" %}}
-
-Az OLE (Object Linking & Embedding) egy Microsoft technológia, amely lehetővé teszi, hogy egy alkalmazásban létrehozott adatokat és objektumokat egy másik alkalmazásban helyezzük el hivatkozás vagy beágyazás útján.
-
+Az OLE (Object Linking & Embedding) egy Microsoft technológia, amely lehetővé teszi, hogy egy alkalmazásban létrehozott adatokat és objektumokat egy másik alkalmazásban helyezzük el hivatkozás vagy beágyazás útján. 
 {{% /alert %}} 
 
-Tekintsünk egy MS Excelben létrehozott diagramot. A diagramot ezután egy PowerPoint diára helyezzük. Ez az Excel-diagram OLE objektumnak minősül.
+Vegyünk egy a MS Excelben létrehozott diagramot. A diagramot ezután egy PowerPoint-diára helyezzük. Ez az Excel-diagram OLE objektumnak tekinthető. 
 
-- Egy OLE objektum ikonként jelenhet meg. Ebben az esetben, ha duplán kattintunk az ikonra, a diagram a hozzárendelt alkalmazásban (Excel) nyílik meg, vagy felkérik a felhasználót, hogy válasszon egy alkalmazást az objektum megnyitásához vagy szerkesztéséhez.  
-- Egy OLE objektum megjelenítheti a tényleges tartalmát, például egy diagram adatait. Ebben az esetben a diagram a PowerPointban aktiválódik, betöltődik a diagram interfésze, és a diagram adatait a PowerPointon belül módosíthatja.
+- Egy OLE objektum ikonként jelenhet meg. Ebben az esetben, ha duplán kattintunk az ikonra, a diagram a kapcsolódó alkalmazásban (Excel) nyílik meg, vagy felkérik, hogy válasszunk egy alkalmazást az objektum megnyitásához vagy szerkesztéséhez. 
+- Egy OLE objektum megjelenítheti saját tartalmát, például egy diagram adatait. Ebben az esetben a diagram a PowerPointban aktiválódik, a diagram felület betöltődik, és a PowerPointon belül módosíthatjuk a diagram adatait. 
 
-[Aspose.Slides for C++](https://products.aspose.com/slides/hu/cpp/) lehetővé teszi OLE objektumok beszúrását a diákba OLE objektumkeretként ([OleObjectFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/oleobjectframe/)).
+[Aspose.Slides for C++](https://products.aspose.com/slides/hu/cpp/) lehetővé teszi OLE objektumok beillesztését a diákba OLE objektumkeretként (OleObjectFrame).
 
-## **OLE Objektumkeretek Hozzáadása a Diákhoz**
+## **OLE objektumkeretek hozzáadása a diákhoz**
 
-Tegyük fel, hogy már létrehozott egy diagramot a Microsoft Excelben, és azt OLE objektumkeretként szeretné beágyazni egy diára az Aspose.Slides for C++ segítségével, ezt a következőképpen teheti meg:
+Tegyük fel, hogy már létrehoztál egy diagramot a Microsoft Excelben, és azt egy OLE objektumkeretként szeretnéd beágyazni egy diára az Aspose.Slides for C++ segítségével, ezt a következőképpen teheted meg:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.  
-2. Szerezze meg a dia referencia‑jét az indexe alapján.  
-3. Olvassa be az Excel‑fájlt bájt­tömbként.  
-4. Adja hozzá a [OleObjectFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/oleobjectframe/) objektumot a diához, a bájt­tömbbel és az OLE objektumhoz tartozó egyéb információkkal.  
-5. Írja ki a módosított prezentációt PPTX‑fájlként.
+1. Hozz létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.  
+2. Szerezz egy hivatkozást a diára az indexe alapján.  
+3. Olvasd be az Excel-fájlt bájt tömbként.  
+4. Add hozzá a [OleObjectFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/oleobjectframe/) keretet a diához, amely tartalmazza a bájt tömböt és egyéb információkat az OLE objektumról.  
+5. Írd ki a módosított prezentációt PPTX fájlként.  
 
-Az alábbi példában egy Excel‑fájlból származó diagramot adtunk hozzá egy diához [OleObjectFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/oleobjectframe/) használatával az Aspose.Slides for C++‑ban.  
-**Megjegyzés**: a [OleEmbeddedDataInfo](https://reference.aspose.com/slides/hu/cpp/aspose.slides.dom.ole/oleembeddeddatainfo/) konstruktor második paramétereként egy beágyazható objektum kiterjesztést vár. Ez a kiterjesztés lehetővé teszi a PowerPoint számára, hogy helyesen értelmezze a fájltípust, és kiválassza a megfelelő alkalmazást az OLE objektum megnyitásához.
+Az alábbi példában egy Excel-fájlból származó diagramot adtunk hozzá a diához [OleObjectFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/oleobjectframe/) keretként az Aspose.Slides for C++ segítségével. **Megjegyzés** hogy a [OleEmbeddedDataInfo](https://reference.aspose.com/slides/hu/cpp/aspose.slides.dom.ole/oleembeddeddatainfo/) konstruktor második paraméterként egy beágyazható objektum kiterjesztést vesz át. Ez a kiterjesztés lehetővé teszi a PowerPoint számára, hogy helyesen értelmezze a fájltípust, és a megfelelő alkalmazást válassza az OLE objektum megnyitásához. 
 
 ``` cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <drawing/size_f.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>();
 auto slideSize = presentation->get_SlideSize()->get_Size();
 auto slide = presentation->get_Slide(0);
 
-// Prepare data for the OLE object.
+// Előkészíti az OLE objektum adatait.
 auto fileData = File::ReadAllBytes(u"book.xlsx");
 auto dataInfo = MakeObject<OleEmbeddedDataInfo>(fileData, u"xlsx");
 
@@ -71,36 +83,52 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Linkelt OLE Objektumkeretek Hozzáadása**
+### **Hivatkozott OLE objektumkeretek hozzáadása**
 
-Az Aspose.Slides for C++ lehetővé teszi egy [OleObjectFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/oleobjectframe/) hozzáadását anélkül, hogy beágyazná az adatokat, csupán a fájlra mutató hivatkozásként.
+Az Aspose.Slides for C++ lehetővé teszi egy [OleObjectFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/oleobjectframe/) hozzáadását adat beágyazása nélkül, csak a fájlra mutató hivatkozással.
 
-Ez a C++ kód megmutatja, hogyan adhat hozzá egy [OleObjectFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/oleobjectframe/) objektumot egy linkelt Excel‑fájllal egy diához:
+Ez a C++ kód bemutatja, hogyan adhatunk hozzá egy [OleObjectFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/oleobjectframe/) keretet hivatkozott Excel-fájllal egy diához: 
 
 ```cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
-// Olyan OLE objektumkeret hozzáadása, amely egy linkelt Excel fájlra mutat.
+// OLE objektumkeret hozzáadása hivatkozott Excel-fájllal.
 slide->get_Shapes()->AddOleObjectFrame(20, 20, 200, 150, u"Excel.Sheet.12", u"book.xlsx");
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **OLE Objektumkeretek Elérése**
+## **OLE objektumkeretek elérése**
 
-Ha egy OLE objektum már be van ágyazva egy diára, a következő módon könnyedén megtalálhatja vagy elérheti azt:
+Ha egy OLE objektum már be van ágyazva egy dián, egyszerűen megtalálhatod vagy elérheted a következő módon:
 
-1. Töltse be a prezentációt a beágyazott OLE objektummal úgy, hogy példányosítja a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályt.  
-2. Szerezze meg a dia referencia‑jét az indexe alapján.  
-3. Hozzáférés a [OleObjectFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/oleobjectframe/) alakzathoz.  
-   A példánkban a korábban létrehozott PPTX‑et használtuk, amelynek az első diáján csak egy alakzat van. Ezt az alakzatot *cast*-oltuk egy [IOleObjectFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ioleobjectframe/) típusú objektummá, amely a kívánt OLE objektumkeret.  
-4. Miután az OLE objektumkeret elérhető, bármilyen műveletet végrehajthat rajta.
+1. Tölts be egy prezentációt, amely tartalmazza a beágyazott OLE objektumot, úgy, hogy létrehozod a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztály egy példányát.  
+2. Szerezz egy hivatkozást a diára az indexének használatával.  
+3. Érj el a [OleObjectFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/oleobjectframe/) alakzatot. A példánkban a korábban létrehozott PPTX-et használtuk, amelyen az első dián csak egy alakzat van. Ezután *cast*-oltuk az objektumot [IOleObjectFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ioleobjectframe/) típussá. Ez volt a kívánt OLE objektumkeret, amelyet el szerettünk érni.  
+4. Miután elérted az OLE objektumkeretet, bármilyen műveletet végrehajthatsz rajta.  
 
-Az alábbi példában egy OLE objektumkeret (egy Excel‑diagram, amely egy diára van beágyazva) és annak fájladatát férünk hozzá.
+Az alábbi példában egy OLE objektumkeret (egy beágyazott Excel-diagram objektum) és a hozzá tartozó fájl adat elérhető. 
 
 ``` cpp
+#include <DOM/IOleEmbeddedDataInfo.h>
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 auto shape = slide->get_Shape(0);
@@ -109,23 +137,31 @@ if (ObjectExt::Is<IOleObjectFrame>(shape))
 { 
     auto oleFrame = ExplicitCast<IOleObjectFrame>(shape);
 
-    // A beágyazott fájl adatok lekérése.
+    // Lekérdezi a beágyazott fájl adatait.
     auto fileData = oleFrame->get_EmbeddedData()->get_EmbeddedFileData();
 
-    // A beágyazott fájl kiterjesztésének lekérése.
+    // Lekérdezi a beágyazott fájl kiterjesztését.
     auto fileExtension = oleFrame->get_EmbeddedData()->get_EmbeddedFileExtension();
 
     // ...
 }
 ```
 
-### **Linkelt OLE Objektumkeret Tulajdonságainak Elérése**
+### **Hivatkozott OLE objektumkeret tulajdonságainak elérése**
 
-Az Aspose.Slides lehetővé teszi a linkelt OLE objektumkeret tulajdonságainak elérését.
+Az Aspose.Slides lehetővé teszi a hivatkozott OLE objektumkeret tulajdonságainak elérését. 
 
-Ez a C++ kód megmutatja, hogyan ellenőrizheti, hogy egy OLE objektum linkelt‑e, majd hogyan szerezheti meg a linkelt fájl elérési útját:
+Ez a C++ kód megmutatja, hogyan ellenőrizheted, hogy egy OLE objektum hivatkozott‑e, és hogyan nyerheted ki a hivatkozott fájl elérési útját: 
 
 ```cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.ppt");
 auto slide = presentation->get_Slide(0);
 auto shape = slide->get_Shape(0);
@@ -134,13 +170,13 @@ if (ObjectExt::Is<IOleObjectFrame>(shape))
 {
     auto oleFrame = ExplicitCast<IOleObjectFrame>(shape);
 
-    // Ellenőrizze, hogy az OLE objektum linkelt-e.
+    // Ellenőrzi, hogy az OLE objektum hivatkozott-e.
     if (oleFrame->get_IsObjectLink())
     {
-        // Írja ki a linkelt fájl teljes elérési útját.
+        // Kiírja a hivatkozott fájl teljes útvonalát.
         std::wcout << L"OLE object frame is linked to: " << oleFrame->get_LinkPathLong() << std::endl;
 
-        // Írja ki a linkelt fájl relatív útvonalát, ha létezik.
+        // Kiírja a hivatkozott fájl relatív útvonalát, ha létezik.
         // Csak a PPT prezentációk tartalmazhatják a relatív útvonalat.
         if (!String::IsNullOrEmpty(oleFrame->get_LinkPathRelative()))
         {
@@ -150,45 +186,68 @@ if (ObjectExt::Is<IOleObjectFrame>(shape))
 }
 ```
 
-## **OLE Objektum Adatainak Módosítása**
+## **OLE objektum adatának módosítása**
 
-{{% alert color="primary" %}} 
-
-Ebben a szakaszban az alábbi kódrészlet a [Aspose.Cells for C++](/cells/cpp/) használatát mutatja be.
-
+{{% alert color="info" %}} 
+Ebben a szakaszban az alábbi kódpélda a [Aspose.Cells for C++](/cells/cpp/) használja. 
 {{% /alert %}}
 
-Ha egy OLE objektum már be van ágyazva egy diára, a következő módon könnyedén hozzáférhet az objektumhoz és módosíthatja annak adatait:
+Ha egy OLE objektum már be van ágyazva egy dián, a következő módon könnyedén elérheted és módosíthatod annak adatait:
 
-1. Töltse be a prezentációt a beágyazott OLE objektummal úgy, hogy példányosítja a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályt.  
-2. Szerezze meg a dia referencia‑jét az indexe alapján.  
-3. Hozzáférés a [OLEObjectFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/oleobjectframe/) alakzathoz.  
-   A példánkban a korábban létrehozott PPTX‑et használtuk, amelynek az első diáján egy alakzat található. Ezt az alakzatot *cast*-oltuk egy [IOleObjectFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ioleobjectframe/) típusú objektummá, amely a kívánt OLE objektumkeret.  
-4. Miután az OLE objektumkeret elérhető, bármilyen műveletet végrehajthat rajta.  
-5. Hozzon létre egy `Workbook` objektumot, és férjen hozzá az OLE adatához.  
-6. Hozzáférés a kívánt `Worksheet`‑hez, és módosítsa az adatokat.  
-7. Mentse a frissített `Workbook`‑ot egy adatfolyamban.  
-8. Cserélje le az OLE objektum adatát a folyamattal.
+1. Tölts be egy prezentációt, amely tartalmazza a beágyazott OLE objektumot, úgy, hogy létrehozod a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztály egy példányát.  
+2. Szerezz egy hivatkozást a diára az indexe alapján.  
+3. Érj el a [OLEObjectFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/oleobjectframe/) alakzatot. A példánkban a korábban létrehozott PPTX-et használtuk, amelyen az első dián egy alakzat van. Ezután *cast*-oltuk az objektumot [IOleObjectFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ioleobjectframe/) típussá. Ez volt a kívánt OLE objektumkeret, amelyet el szerettünk érni.  
+4. Miután elérted az OLE objektumkeretet, bármilyen műveletet végrehajthatsz rajta.  
+5. Hozz létre egy `Workbook` objektumot, és férj hozzá az OLE adatokhoz.  
+6. Érj el a kívánt `Worksheet`-et, és módosítsd az adatokat.  
+7. Mentsd el a frissített `Workbook`-ot egy streambe.  
+8. Módosítsd az OLE objektum adatait a streamből.  
 
-Az alábbi példában egy OLE objektumkeretet (egy Excel‑diagram, amely egy diára van beágyazva) érünk el, majd a fájladatot módosítjuk a diagram adatai frissítéséhez.
+Az alábbi példában egy OLE objektumkeret (egy beágyazott Excel-diagram objektum) elérhető, és a fájl adatai módosítva vannak, hogy frissítsék a diagram adatait. 
 
 ``` cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+#include "Aspose.Cells/Cell.h"
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/Initializer.h"
+#include "Aspose.Cells/OoxmlSaveOptions.h"
+#include "Aspose.Cells/SaveFormat.h"
+#include "Aspose.Cells/U16String.h"
+#include "Aspose.Cells/Vector.h"
+#include "Aspose.Cells/Workbook.h"
+#include "Aspose.Cells/Worksheet.h"
+#include "Aspose.Cells/WorksheetCollection.h"
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+// Az Aspose.Cells for C++-t el kell indítani, mielőtt bármely típusát használnánk.
+Aspose::Cells::Startup();
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 
-// Az első alakzat lekérése OLE objektumkeretként.
+// Get the first shape as an OLE object frame.
 auto oleFrame = AsCast<IOleObjectFrame>(slide->get_Shape(0));
 
 if (oleFrame != nullptr)
 {
     auto oleStream = MakeObject<MemoryStream>(oleFrame->get_EmbeddedData()->get_EmbeddedFileData());
 
-    // Olvassa be az OLE objektum adatait Workbook objektumként.
+    // Olvassa be az OLE objektum adatát Workbook objektumként.
     auto oleArray = oleStream->ToArray();
     std::vector<uint8_t> workbookData(oleArray->data().begin(), oleArray->data().end());
     Aspose::Cells::Workbook workbook(Aspose::Cells::Vector<uint8_t>(workbookData.data(), workbookData.size()));
 
-    // Módosítsa a workbook adatait.
+    // Módosítsa a Workbook adatait.
     auto worksheet = workbook.GetWorksheets().Get(0);
     worksheet.GetCells().Get(0, 4).PutValue(Aspose::Cells::U16String("E"));
     worksheet.GetCells().Get(1, 4).PutValue(12);
@@ -203,21 +262,37 @@ if (oleFrame != nullptr)
         MakeArray<uint8_t>(std::vector<uint8_t>(newWorkbookData.GetData(), newWorkbookData.GetData() + newWorkbookData.GetLength())),
         0, newWorkbookData.GetLength());
 
-    // Módosítsa az OLE keret objektum adatait.
+    // Cserélje le az OLE keret objektum adatait.
     auto newData = MakeObject<OleEmbeddedDataInfo>(newOleStream->ToArray(), oleFrame->get_EmbeddedData()->get_EmbeddedFileExtension());
     oleFrame->SetEmbeddedData(newData);
 }
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
+
+Aspose::Cells::Cleanup();
 ```
 
-## **Egyéb Fájltípusok Beágyazása a Diákba**
+## **Más fájltípusok beágyazása diákba**
 
-Az Excel‑diagramok mellett az Aspose.Slides for C++ lehetővé teszi más típusú fájlok beágyazását a diákba. Például HTML, PDF és ZIP fájlokat is beszúrhat objektumként. Amikor a felhasználó duplán kattint a beszúrt objektumra, az automatikusan megnyílik a megfelelő programban, vagy a felhasználót felkérik, hogy válasszon egy megfelelő programot a megnyitáshoz.
+Az Excel-diagramokon kívül az Aspose.Slides for C++ lehetővé teszi más fájltípusok beágyazását a diákba. Például HTML, PDF és ZIP fájlokat is beilleszthetsz objektumként. Amikor a felhasználó duplán kattint a beillesztett objektumra, az automatikusan megnyílik a megfelelő programban, vagy a felhasználót felszólítják, hogy válasszon egy megfelelő programot a megnyitáshoz. 
 
-Ez a C++ kód megmutatja, hogyan ágyazhat be HTML‑t és ZIP‑et egy diára:
+Ez a C++ kód bemutatja, hogyan ágyazhatod be a HTML-t és a ZIP-et egy diára: 
 
 ``` cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -235,13 +310,24 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Beágyazott Objektumok Fájltípusának Beállítása**
+## **Beágyazott objektumok fájltípusának beállítása**
 
-Prezentációk kezelésekor előfordulhat, hogy régi OLE objektumokat újakkal kell helyettesíteni, vagy egy nem támogatott OLE objektumot támogatottal cserélni. Az Aspose.Slides for C++ lehetővé teszi, hogy beállítsa a beágyazott objektum fájltípusát, így frissítheti az OLE keret adatait vagy annak kiterjesztését.
+Prezentációk kezelése közben előfordulhat, hogy régi OLE objektumokat újakkal kell helyettesíteni, vagy nem támogatott OLE objektumot támogatottal. Az Aspose.Slides for C++ lehetővé teszi a beágyazott objektum fájltípusának beállítását, így frissítheted az OLE keret adatait vagy annak kiterjesztését. 
 
-Ez a C++ kód megmutatja, hogyan állíthatja be egy beágyazott OLE objektum fájltípusát `zip`‑re:
+Ez a C++ kód bemutatja, hogyan állíthatod be a beágyazott OLE objektum fájltípusát `zip`‑re: 
 
 ``` cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 auto oleFrame = ExplicitCast<IOleObjectFrame>(slide->get_Shape(0));
@@ -251,29 +337,43 @@ auto fileData = oleFrame->get_EmbeddedData()->get_EmbeddedFileData();
 
 std::wcout << L"Current embedded file extension is: " << fileExtension << std::endl;
 
-// Change the file type to ZIP.
+// A fájltípus módosítása ZIP-re.
 oleFrame->SetEmbeddedData(MakeObject<OleEmbeddedDataInfo>(fileData, u"zip"));
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Ikonképek és Címek Beállítása a Beágyazott Objektumokhoz**
+## **Ikonképek és címek beállítása beágyazott objektumokhoz**
 
-Az OLE objektum beágyazása után automatikusan hozzáadódik egy előnézet, amely egy ikonképből áll. Ez az előnézet az, amit a felhasználók látnak, mielőtt hozzáférnének vagy megnyitnák az OLE objektumot. Ha egy konkrét képet és szöveget szeretne használni az előnézet elemeiként, beállíthatja az ikonképet és a címet az Aspose.Slides for C++‑ban.
+Egy OLE objektum beágyazása után automatikusan hozzáadódik egy előnézet, amely ikonképből áll. Ez az előnézet látható a felhasználók számára, mielőtt a OLE objektumot megnyitnák vagy elérnék. Ha egy adott képet és szöveget szeretnél használni az előnézet elemeiként, az Aspose.Slides for C++ segítségével beállíthatod az ikonképet és a címet. 
 
-Ez a C++ kód megmutatja, hogyan állíthatja be az ikonképet és a címet egy beágyazott objektumhoz:
+Ez a C++ kód bemutatja, hogyan állíthatod be az ikonképet és a címet egy beágyazott objektumhoz: 
 
 ``` cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 auto oleFrame = ExplicitCast<IOleObjectFrame>(slide->get_Shape(0));
 
-// Képet ad hozzá a prezentáció erőforrásaihoz.
+// Kép hozzáadása a prezentáció erőforrásaihoz.
 auto imageData = File::ReadAllBytes(u"image.png");
 auto oleImage = presentation->get_Images()->AddImage(imageData);
 
-// Cím és kép beállítása az OLE előnézethez.
+// Set a title and the image for the OLE preview.
 oleFrame->set_SubstitutePictureTitle(u"My title");
 oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(oleImage);
 oleFrame->set_IsObjectIcon(true);
@@ -282,25 +382,48 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Az OLE Objektumkeret Átméretezésének és Újrapozicionálásának Megakadályozása**
+## **Az OLE objektumkeret átméretezésének és áthelyezésének megakadályozása**
 
-Miután egy linkelt OLE objektumot hozzáadott egy prezentációs diára, a PowerPoint megnyitásakor megjelenhet egy üzenet, amely a hivatkozások frissítését kéri. A „Frissítse a hivatkozásokat” gomb megnyomása megváltoztathatja az OLE objektumkeret méretét és pozícióját, mert a PowerPoint frissíti a linkelt OLE objektum adatát és újrarajzolja az előnézetet. Ahhoz, hogy a PowerPoint ne kérje az objektum adatának frissítését, állítsa a [IOleObjectFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ioleobjectframe/) interfész `set_UpdateAutomatic` metódusát **false**‑ra:
+Miután egy hivatkozott OLE objektumot hozzáadsz egy prezentációs diára, a PowerPoint megnyitásakor megjelenhet egy üzenet, amely a hivatkozások frissítését kéri. Az “Update Links” gomb megnyomása megváltoztathatja az OLE objektumkeret méretét és pozícióját, mivel a PowerPoint frissíti a hivatkozott OLE objektum adatait, és újratölti az előnézetet. Ahhoz, hogy a PowerPoint ne kérje az objektum adatainak frissítését, állítsd a [IOleObjectFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ioleobjectframe/) interfész `set_UpdateAutomatic` metódusát `false`‑ra: 
 
 ```cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+auto oleFrame = ExplicitCast<IOleObjectFrame>(slide->get_Shape(0));
+
 oleFrame->set_UpdateAutomatic(false);
 ```
 
-## **Beágyazott Fájlok Kivonása**
+## **Beágyazott fájlok kinyerése**
 
-Az Aspose.Slides for C++ lehetővé teszi a diákba beágyazott OLE objektumként tárolt fájlok kivonását a következő módon:
+Az Aspose.Slides for C++ lehetővé teszi a diákba beágyazott, OLE objektumként tárolt fájlok kinyerését a következő módon:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból, amely tartalmazza a kivonni kívánt OLE objektumokat.  
-2. Járja be a prezentáció összes alakzatát, és érje el a [OLEObjectFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/oleobjectframe/) alakzatokat.  
-3. Hozzáférés a beágyazott fájlok adatához az OLE objektumkeretekből, majd írja ki őket a lemezre.
+1. Hozz létre egy [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztály példányt, amely a kinyerni kívánt OLE objektumokat tartalmazza.  
+2. Járd be a prezentáció összes alakzatát, és érj hozzá az [OLEObjectFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/oleobjectframe/) alakzatokhoz.  
+3. Férj hozzá a beágyazott fájlok adataihoz az OLE objektumkeretekből, és írd őket le a lemezre.  
 
-Ez a C++ kód megmutatja, hogyan vonhat ki fájlokat, amelyeket egy diában OLE objektumként ágyaztak be:
+Ez a C++ kód bemutatja, hogyan nyerheted ki a diában beágyazott fájlokat OLE objektumokként: 
 
 ``` cpp
+#include <DOM/IOleEmbeddedDataInfo.h>
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 
@@ -325,18 +448,18 @@ presentation->Dispose();
 
 ## **GYIK**
 
-**Az OLE tartalom megjelenik, amikor a diákat PDF‑be/képekbe exportálják?**
+### **Az OLE tartalom megjelenik‑e a diák PDF‑ vagy képexportálásakor?**
 
-A dián látható elemek kerülnek renderelésre – a ikon/helyettesítő kép (előnézet). Az „élő” OLE tartalom nincs végrehajtva a renderelés során. Szükség esetén állítson be saját előnézeti képet, hogy a várt megjelenés megjelenjen az exportált PDF‑ben.
+A dián látható elem kerül renderelésre – az ikon/helyettesítő kép (előnézet). Az „élő” OLE tartalom nem kerül végrehajtásra a renderelés során. Szükség esetén állíts be saját előnézeti képet, hogy a várt megjelenés megjelenjen az exportált PDF‑ben.  
 
-**Hogyan zárhatok le egy OLE objektumot a dián, hogy a felhasználók ne tudják mozgatni/szerkeszteni PowerPointban?**
+### **Hogyan zárolhatok egy OLE objektumot a dián, hogy a felhasználók ne mozgassák vagy szerkesszék PowerPointban?**
 
-Zárolja az alakzatot: az Aspose.Slides [alakzat‑szintű zárolásokat](/slides/hu/cpp/applying-protection-to-presentation/) biztosít. Ez nem titkosítás, de hatékonyan megakadályozza a véletlen szerkesztéseket és mozgatásokat.
+Zárolhatod az alakzatot: az Aspose.Slides [alakzatszintű zárolásokat](/slides/hu/cpp/applying-protection-to-presentation/) biztosít. Ez nem titkosítás, de hatékonyan megakadályozza a véletlen szerkesztéseket és az áthelyezést.  
 
-**Miért „ugrik” vagy változik mérete egy linkelt Excel objektum, amikor megnyitom a prezentációt?**
+### **Miért ugrál vagy változik mérete egy hivatkozott Excel‑objektum, amikor megnyitom a prezentációt?**
 
-A PowerPoint frissítheti a linkelt OLE előnézetét. Stabil megjelenésért kövesse a [Működő megoldást a munkalap átméretezéséhez](/slides/hu/cpp/working-solution-for-worksheet-resizing/) irányelveket – vagy illessze a keretet a tartományhoz, vagy skálázza a tartományt egy rögzített keretre, és állítson be megfelelő helyettesítő képet.
+A PowerPoint frissítheti a hivatkozott OLE előnézetét. A stabil megjelenés érdekében kövesd a [Működő megoldást a munkalap átméretezéséhez](/slides/hu/cpp/working-solution-for-worksheet-resizing/) ajánlásait – vagy illeszd a keretet a tartományhoz, vagy méretezd a tartományt egy fix kerethez, és állíts be megfelelő helyettesítő képet.  
 
-**A linkelt OLE objektumok relatív útvonalai megmaradnak a PPTX formátumban?**
+### **A hivatkozott OLE objektumok relatív útvonalai megmaradnak‑e a PPTX formátumban?**
 
-A PPTX‑ben a „relatív útvonal” információ nem érhető el – csak a teljes útvonal szerepel. Relatív útvonalak a régebbi PPT formátumban találhatók. A hordozhatóság érdekében részesítse előnyben a megbízható abszolút útvonalakat/elérhető URI‑kat vagy a beágyazást.
+A PPTX‑ben nincs relatív útvonal‑információ – csak a teljes útvonal tárolódik. A relatív útvonalak a régebbi PPT formátumban érhetők el. A hordozhatóság érdekében használj megbízható abszolút útvonalakat vagy elérhető URI‑kat, vagy ágyazd be a fájlokat.

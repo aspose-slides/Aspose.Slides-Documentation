@@ -1,138 +1,146 @@
 ---
-title: Aspose.Slides for Java 14.5.0における公開APIと互換性のない変更
+title: Aspose.Slides for Java 14.5.0 のパブリック API と下位互換性のない変更
+linktitle: Aspose.Slides for Java 14.5.0
 type: docs
 weight: 40
 url: /ja/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-5-0/
+keywords:
+- 移行
+- レガシーコード
+- モダンコード
+- レガシーアプローチ
+- モダンアプローチ
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Java のパブリック API の更新と破壊的変更を確認し、PowerPoint PPT、PPTX、ODP プレゼンテーション ソリューションをスムーズに移行できるようにします。"
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-このページでは、Aspose.Slides for Java 14.5.0 APIで追加されたすべての [クラス](/slides/ja/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-5-0/)、 [メソッド](/slides/ja/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-5-0/)、 [プロパティ](/slides/ja/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-5-0/) およびその他の [変更](/slides/ja/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-5-0/) をリストします。
+このページでは、Aspose.Slides for Java 14.5.0 APIで導入されたすべての[added](/slides/ja/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-5-0/) クラス、メソッド、プロパティ等、また新しい[restrictions](/slides/ja/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-5-0/) と他の[changes](/slides/ja/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-5-0/) を一覧表示します。
 
 {{% /alert %}} 
-## **公開APIと互換性のない変更**
+## **パブリック API と下位互換性のない変更**
 ### **追加されたクラスとメソッド**
-#### **Aspose.Slides.IPresentationInfoインターフェイスとPresentationInfoクラスの追加**
+#### **Aspose.Slides.IPresentationInfo インターフェイスと PresentationInfo クラスを追加**
 プレゼンテーションに関する情報を表します。
 
-メソッド Boolean isEncrypted() は、プレゼンテーションが暗号化されている場合にはTrueを返し、そうでない場合はFalseを返します。
+メソッド Boolean isEncrypted() は、プレゼンテーションが暗号化されている場合は True を、そうでない場合は False を取得します。
 
-メソッド LoadFormat getLoadFormat() はプレゼンテーションのタイプを取得します。
-#### **Aspose.Slides.IShape.isGrouped()メソッドの追加**
-メソッド Aspose.Slides.IShape.isGrouped() は、形状がグループ化されているかどうかを判断します。
-#### **Aspose.Slides.IShape.getParentGroup()メソッドの追加**
-メソッド Aspose.Slides.IShape.getParentGroup() は、形状がグループ化されている場合、親のGroupShapeオブジェクトを返します。そうでない場合はnullを返します。
-#### **Aspose.Slides.IShapeCollection.addGroupShape()メソッドの追加**
-メソッド Aspose.Slides.IShapeCollection.addGroupShape() は新しいGroupShapeを作成し、コレクションの最後に追加します。
+メソッド LoadFormat getLoadFormat() は、プレゼンテーションの種類を取得します。
+#### **Aspose.Slides.IShape.isGrouped() メソッドを追加**
+メソッド Aspose.Slides.IShape.isGrouped() は、シェイプがグループ化されているかどうかを判定します。
+#### **Aspose.Slides.IShape.getParentGroup() メソッドを追加**
+メソッド Aspose.Slides.IShape.getParentGroup() は、シェイプがグループ化されている場合は親の GroupShape オブジェクトを返します。そうでない場合は null を返します。
+#### **Aspose.Slides.IShapeCollection.addGroupShape() メソッドを追加**
+メソッド Aspose.Slides.IShapeCollection.addGroupShape() は新しい GroupShape を作成し、コレクションの末尾に追加します。
 
-新しい形状がGroupShapeに追加されると、GroupShapeのフレームサイズと位置は内容に合わせて調整されます。
-#### **Aspose.Slides.IShapeCollection.clear()メソッドの追加**
-メソッド Aspose.Slides.IShapeCollection.clear() はコレクションからすべての形状を削除します。
-#### **Aspose.Slides.IShapeCollection.insertGroupShape(int)メソッドの追加**
-メソッド Aspose.Slides.IShapeCollection.insertGroupShape(int) は新しいGroupShapeを作成し、指定されたインデックスでコレクションに挿入します。
-新しい形状がGroupShapeに追加されると、GroupShapeのフレームサイズと位置は内容に合わせて調整されます。
-#### **IPresentationFactory.getPresentationInfo(string file)、IPresentationFactory.getPresentationInfo(InputStream stream)メソッドの追加**
-これらのメソッドは、開発者がプレゼンテーションファイル/ストリームについての情報をフルプレゼンテーションをロードせずに取得できるようにします。
-#### **IPresentationFactory PresentationFactory.getInstance()メソッドの追加**
-インスタンス化せずにファクトリ機能を使用できるようにします。
-### **制限**
-#### **IShape.getFrame()に対する未定義値の使用に制限が追加されました**
-未定義のフレームをIShape.setFrame(IShapeFrame)に割り当てようとするコードは、一般的には意味がありません（特に親のGroupShapeが他の{{GroupShape}}に複数回ネストされている場合）。例えば：
+新しいシェイプが GroupShape に追加されると、GroupShape のフレームサイズと位置はコンテンツに合わせて調整されます。
+#### **Aspose.Slides.IShapeCollection.clear() メソッドを追加**
+メソッド Aspose.Slides.IShapeCollection.clear() は、コレクション内のすべてのシェイプを削除します。
+#### **Aspose.Slides.IShapeCollection.insertGroupShape(int) メソッドを追加**
+メソッド Aspose.Slides.IShapeCollection.insertGroupShape(int) は新しい GroupShape を作成し、指定したインデックスに挿入します。
+
+GroupShape のフレームサイズと位置は、GroupShape に新しいシェイプが追加されるとコンテンツに合わせて調整されます。
+#### **IPresentationFactory.getPresentationInfo(string file)、IPresentatoinFactory.getPresentationInfo(InputStream stream) メソッドを追加**
+これらのメソッドにより、開発者はプレゼンテーション全体を読み込まずに、プレゼンテーションファイル/ストリームに関する情報を取得できます。
+#### **IPresentationFactory PresentationFactory.getInstance() メソッドを追加**
+インスタンス化せずにファクトリ機能を利用できるようにします。
+### **制限事項**
+#### **IShape.getFrame() の未定義値使用に対する制限が追加されました**
+未定義のフレームを IShape.setFrame(IShapeFrame) に割り当てようとするコードは、一般的なケース（特に親の GroupShape が他の {{GroupShape}} に複数階層でネストされている場合）では意味がありません。例として：
 
 ``` java
+import com.aspose.slides.*;
 
- IShape shape = ...;
+Presentation pres = new Presentation();
+try {
+    IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-shape.setFrame(new ShapeFrame(Float.NaN, Float.NaN, Float.NaN, Float.NaN, NullableBool.NotDefined, NullableBool.NotDefined, Float.NaN));
-
+    // ArgumentException をスローします: フレーム値は定義されている必要があります。
+    shape.setFrame(new ShapeFrame(Float.NaN, Float.NaN, Float.NaN, Float.NaN, NullableBool.NotDefined, NullableBool.NotDefined, Float.NaN));
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 または
 
 ``` java
+import com.aspose.slides.*;
 
- slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, Float.NaN, Float.NaN, Float.NaN, Float.NaN);
+Presentation pres = new Presentation();
+try {
+    ISlide slide = pres.getSlides().get_Item(0);
 
-```
-
-このようなコードはあいまいな状況につながる可能性があります。したがって、IShape.Frameに対する未定義値の使用に制限が追加されました。x、y、width、height、flipH、flipV、およびrotationAngleの値は定義されている必要があります（Float.NaNまたはNullableBool.NotDefinedであってはいけません）。上記の例コードは現在、ArgumentException例外をスローします。
-これは以下の使用ケースに適用されます：
-
-``` java
-
- IShape shape = ...;
-
-shape.setFrame(...); // 未定義にはできません
-
-IShapeCollection shapes = ...;
-
-// x、y、width、heightパラメータはFloat.NaNにはできません：
-
-{
-
-    shapes.addAudioFrameCD(...);
-
-    shapes.addAudioFrameEmbedded(...);
-
-    shapes.addAudioFrameLinked(...);
-
-    shapes.addAutoShape(...);
-
-    shapes.addChart(...);
-
-    shapes.addConnector(...);
-
-    shapes.addOleObjectFrame(...);
-
-    shapes.addPictureFrame(...);
-
-    shapes.addSmartArt(...);
-
-    shapes.addTable(...);
-
-    shapes.addVideoFrame(...);
-
-    shapes.insertAudioFrameEmbedded(...);
-
-    shapes.insertAudioFrameLinked(...);
-
-    shapes.insertAutoShape(...);
-
-    shapes.insertChart(...);
-
-    shapes.insertConnector(...);
-
-    shapes.insertOleObjectFrame(...);
-
-    shapes.insertPictureFrame(...);
-
-    shapes.insertTable(...);
-
-    shapes.insertVideoFrame(...);
-
+    // ArgumentException をスローします: x、y、幅、そして高さの値は定義されている必要があります。
+    slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, Float.NaN, Float.NaN, Float.NaN, Float.NaN);
+} finally {
+    if (pres != null) pres.dispose();
 }
-
 ```
 
-しかし、IShape.getRawFrame()フレームは未定義である可能性があります。これは、形状がプレースホルダーにリンクされている場合に意味があります。未定義の形状フレーム値は、親のプレースホルダー形状から上書きされます。その形状に親のプレースホルダー形状がない場合は、IShape.getRawFrame()に基づいて効果的なフレームが評価されるときにデフォルト値が使用されます。デフォルト値はx、y、width、height、flipH、flipV、rotationAngleの値がそれぞれ0およびNullableBool.Falseです。例えば：
+このようなコードは不明瞭な状況を招く可能性があります。そのため、IShape.Frame の未定義値使用に対する制限が追加されました。x、y、width、height、flipH、flipV、rotationAngle の値は必ず定義されている必要があります（Float.NaN または NullableBool.NotDefined ではいけません）。上記の例コードは現在 ArgumentException をスローします。
+
+これは以下の使用例に適用されます：
 
 ``` java
+// IShape.setFrame(IShapeFrame) に渡されるフレームには未定義の値を含められません.
 
- IShape shape = ...; // 形状はプレースホルダーにリンクされている
+// 以下の IShapeCollection メソッドの x、y、幅、そして高さ パラメータは
+// Float.NaN にすることもできません.
+//:
 
-shape.setRawFrame(new ShapeFrame(Float.NaN, Float.NaN, 100, Float.NaN, NullableBool.NotDefined, NullableBool.NotDefined, 0));
+//     addAudioFrameCD
+//     addAudioFrameEmbedded
+//     addAudioFrameLinked
+//     addAutoShape
+//     addChart
+//     addConnector
+//     addOleObjectFrame
+//     addPictureFrame
+//     addSmartArt
+//     addTable
+//     addVideoFrame
+//     insertAudioFrameEmbedded
+//     insertAudioFrameLinked
+//     insertAutoShape
+//     insertChart
+//     insertConnector
+//     insertOleObjectFrame
+//     insertPictureFrame
+//     insertTable
+//     insertVideoFrame
+```
 
-// 現在、形状はプレースホルダーからx、y、height、flipH、flipVの値を継承し、width=100およびrotationAngle=0を上書きします。
+ただし、IShape.getRawFrame() のフレームは未定義であることが許容されます。シェイプがプレースホルダーにリンクされている場合、未定義のシェイプフレーム値は親プレースホルダーシェイプから上書きされます。シェイプに親プレースホルダーシェイプが存在しない場合、IShape.getRawFrame() に基づいて有効フレームを評価するときにデフォルト値が使用されます。デフォルト値は x、y、width、height、flipH、flipV、rotationAngle がそれぞれ 0 と NullableBool.False です。例として：
 
+``` java
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("pres.pptx");
+try {
+    // シェイプはプレースホルダーにリンクされています。
+    IShape shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
+
+    shape.setRawFrame(new ShapeFrame(Float.NaN, Float.NaN, 100, Float.NaN, NullableBool.NotDefined, NullableBool.NotDefined, 0));
+
+    // 今、このシェイプはプレースホルダーから x、y、height、flipH、flipV の値を継承します
+    // そして width = 100 と rotationAngle = 0 を上書きします。
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 ### **変更されたプロパティ**
-#### **Aspose.Slides.IShapeCollection.getParent()メソッドの型と名前の変更**
-Aspose.Slides.IShapeCollection.Parentプロパティの型はISlideComponentから新しいIGroupShapeインターフェイスに変更されました。IGroupShapeインターフェイスはISlideComponentの子孫であるため、既存のコードは適応の必要がありません。
+#### **Aspose.Slides.IShapeCollection.getParent() メソッドの型と名前が変更されました**
+Aspose.Slides.IShapeCollection.Parent プロパティの型は、ISlideComponent から新しい IGroupShape インターフェイスに変更されました。IGroupShape インターフェイスは ISlideComponent の派生なので、既存のコードは変更不要です。
 
-Aspose.Slides.IShapeCollection.getParent()メソッドの名前はgetParentからgetParentGroup()に変更されました。
-#### **Aspose.Slides.IShapeFrame.getFlipH()および.getFlipV()メソッドの型の変更**
-Aspose.Slides.IShapeFrame.getFlipH()メソッドの型はboolからNullableBoolに変更されました。
+Aspose.Slides.IShapeCollection.getParent() メソッドの名前は、getParent から getParentGroup() に変更されました。
+#### **Aspose.Slides.IShapeFrame.getFlipH() および .getFlipV() メソッドの型が変更されました**
+Aspose.Slides.IShapeFrame.getFlipH() メソッドの型は bool から NullableBool に変更されました。
 
-IShape.getFrame()メソッドは、IShapeFrameの有効なインスタンスを返します（すべてのプロパティは定義された有効な値を持っています）。
+IShape.getFrame() メソッドは、すべてのプロパティに有効な値が定義された IShapeFrame の実体を返します。
 
-IShape.getRawFrame()メソッドは、各プロパティが未定義の値を持つ可能性のあるIShapeFrameインスタンスを返します（特にFlipHまたはFlipVはNullableBool.NotDefinedの値を持つことがあります）。
+IShape.getRawFrame() メソッドは、各プロパティが未定義（特に FlipH または FlipV が NullableBool.NotDefined になる可能性がある）になる可能性のある IShapeFrame インスタンスを返します。

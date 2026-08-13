@@ -6,9 +6,9 @@ weight: 160
 url: /pl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/
 keywords:
 - migracja
-- kod przestarzały
+- kod legacy
 - nowoczesny kod
-- przestarzałe podejście
+- podejście legacy
 - nowoczesne podejście
 - PowerPoint
 - OpenDocument
@@ -16,25 +16,25 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Przejrzyj aktualizacje publicznego API oraz zmiany łamiące w Aspose.Slides dla .NET, aby płynnie migrować rozwiązania prezentacji PowerPoint PPT, PPTX i ODP."
+description: "Przegląd aktualizacji publicznego API oraz zmian łamiących kompatybilność w Aspose.Slides dla .NET, aby płynnie migrować rozwiązania prezentacji PowerPoint PPT, PPTX i ODP."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Ta strona wymienia wszystkie [dodane](/slides/pl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/) lub [usunięte](/slides/pl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/) klasy, metody, właściwości itp., oraz inne zmiany wprowadzone w API Aspose.Slides for .NET 15.5.0.
+Ta strona wymienia wszystkie [dodane](/slides/pl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/) lub [usunięte](/slides/pl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/) klasy, metody, własności i tak dalej, oraz inne zmiany wprowadzone w API Aspose.Slides dla .NET 15.5.0.
 
 {{% /alert %}} 
-## **Zmiany publicznego API**
-#### **Klasa CommonSlideViewProperties i interfejs ICommonSlideViewProperties zostały dodane**
+## **Zmiany w publicznym API**
+#### **Dodano klasę CommonSlideViewProperties i interfejs ICommonSlideViewProperties**
 Klasa Aspose.Slides.CommonSlideViewProperties oraz interfejs Aspose.Slides.ICommonSlideViewProperties reprezentują wspólne właściwości widoku slajdu (obecnie opcje skalowania widoku).
-#### **Właściwość IAxis.LabelOffset została dodana**
-Właściwość IAxis.LabelOffset określa odległość etykiet od osi. Stosowana do osi kategorialnej lub datowej.
-#### **Właściwość IChartTextBlockFormat.AutofitType została dodana**
-Zmiana tej właściwości może mieć wpływ tylko na następujące elementy wykresu: DataLabel i DataLabelFormat (pełne wsparcie w PowerPoint 2013; w PowerPoint 2007 nie ma efektu przy renderowaniu).
-#### **Właściwość IChartTextBlockFormat.WrapText została dodana**
-Zmiana tej właściwości może mieć wpływ tylko na następujące elementy wykresu: DataLabel i DataLabelFormat (pełne wsparcie w PowerPoint 2007/2013).
-#### **Właściwości marginesu zostały dodane do IChartTextBlockFormat**
-Zmiana tych właściwości może mieć wpływ tylko na następujące elementy wykresu: DataLabel i DataLabelFormat (pełne wsparcie w PowerPoint 2013; w PowerPoint 2007 nie ma efektu przy renderowaniu).
-#### **Właściwość ViewProperties.NotesViewProperties została dodana**
-Dodano właściwość Aspose.Slides.ViewProperties.NotesViewProperties. Określa ona wspólne właściwości widoku powiązane z trybem widoku notatek.
-#### **Właściwość ViewProperties.SlideViewProperties została dodana**
-Dodano właściwość Aspose.Slides.ViewProperties.SlideViewProperties. Określa ona wspólne właściwości widoku powiązane z trybem widoku slajdu.
+#### **Dodano własność IAxis.LabelOffset**
+Właściwość IAxis.LabelOffset określa odległość etykiet od osi. Stosowana do osi kategorii lub daty.
+#### **Dodano własność IChartTextBlockFormat.AutofitType**
+Zmiana tej własności może wywołać pewien wpływ tylko na następujące elementy wykresu: DataLabel i DataLabelFormat (pełne wsparcie w PowerPoint 2013; w PowerPoint 2007 nie ma efektu przy renderowaniu).
+#### **Dodano własność IChartTextBlockFormat.WrapText**
+Zmiana tej własności może wywołać pewien wpływ tylko na następujące elementy wykresu: DataLabel i DataLabelFormat (pełne wsparcie w PowerPoint 2007/2013).
+#### **Dodano właściwości marginesu do IChartTextBlockFormat**
+Zmiana tych właściwości może wywołać pewien wpływ tylko na następujące elementy wykresu: DataLabel i DataLabelFormat (pełne wsparcie w PowerPoint 2013; w PowerPoint 2007 nie ma efektu przy renderowaniu).
+#### **Dodano własność ViewProperties.NotesViewProperties**
+Właściwość Aspose.Slides.ViewProperties.NotesViewProperties została dodana. Określa ona wspólne właściwości widoku powiązane z trybem widoku notatek.
+#### **Dodano własność ViewProperties.SlideViewProperties**
+Właściwość Aspose.Slides.ViewProperties.SlideViewProperties została dodana. Określa ona wspólne właściwości widoku powiązane z trybem widoku slajdu.

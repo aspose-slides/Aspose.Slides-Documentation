@@ -5,29 +5,29 @@ type: docs
 weight: 100
 url: /pl/androidjava/extracting-images-from-presentation-shapes/
 keywords:
-- wyodrębnianie obrazu
-- pobieranie obrazu
+- wyodrębnić obraz
+- pobrać obraz
 - PowerPoint
 - OpenDocument
 - prezentacja
 - Android
 - Java
 - Aspose.Slides
-description: "Wyodrębniaj obrazy z kształtów w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Androida w Javie – szybkie, przyjazne programistom rozwiązanie."
+description: "Wyodrębnij obrazy z kształtów w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Androida w Javie – szybkie, przyjazne dla kodu rozwiązanie."
 ---
 ## **Przegląd**
 
-Obrazy w prezentacji mogą pojawiać się w kilku typach kształtów: jako zwykłe ramki obrazów, jako wypełnienia obrazami zastosowane do kształtów, jako podglądowe obrazy obiektów OLE, jako miniatury klatek wideo lub audio, jako obrazy powiększenia lub jako obrazy osadzone w tabelach, wykresach i kształtach SmartArt. Aspose.Slides przechowuje te obrazy w kolekcji obrazów prezentacji, udostępnianej poprzez [IImageCollection](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iimagecollection/) i [IPPImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/)​.
+Obrazy w prezentacji mogą występować w kilku typach kształtów: jako zwykłe ramki obrazu, jako wypełnienia obrazu stosowane do kształtów, jako obrazy podglądu obiektów OLE, jako miniatury ramek wideo lub audio, jako obrazy powiększenia lub jako obrazy zagnieżdżone w kształtach tabeli, wykresu i SmartArt. Aspose.Slides przechowuje te obrazy w kolekcji obrazów prezentacji, udostępnianej poprzez obiekty [IImageCollection](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iimagecollection/) i [IPPImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/) .
 
-Jeśli potrzebujesz wyeksportować każdy zasób obrazu osadzony w prezentacji, iteruj po `presentation.getImages()`. Ten artykuł skupia się na innym zadaniu: przeglądaniu kształtów w celu znalezienia, gdzie obrazy są używane na slajdach, aby zapisane pliki mogły zachować przydatny kontekst, taki jak numer slajdu, pozycja kształtu i typ źródła (ramka obrazu, wypełnienie obrazu, podgląd multimediów, podgląd OLE lub obraz powiększenia).
+Jeśli potrzebujesz jedynie wyeksportować każdy zasób obrazu osadzony w prezentacji, iteruj przez `presentation.getImages()`. Ten artykuł koncentruje się na innym zadaniu: przeglądaniu kształtów w celu znalezienia, gdzie obrazy są używane na slajdach, aby zapisane pliki zachowały przydatny kontekst, taki jak numer slajdu, pozycja kształtu i typ źródła (ramka obrazu, wypełnienie obrazu, podgląd multimediów, podgląd OLE lub obraz powiększenia).
 
-{{% alert title="Tip" color="primary" %}}
-Użyj [IPPImage.getBinaryData](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/#getBinaryData--)​, aby zachować oryginalne zakodowane dane obrazu i typ pliku. Użyj [IPPImage.getImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/#getImage--)​ z [IImage.save](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-)​, gdy chcesz znormalizować wyjście do konkretnego formatu, takiego jak PNG.
+{{% alert title="Wskazówka" color="info" %}}
+Użyj [IPPImage.getBinaryData](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/#getBinaryData--) aby zachować oryginalne zakodowane dane obrazu oraz typ pliku. Użyj [IPPImage.getImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/#getImage--) wraz z [IImage.save](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) , gdy chcesz znormalizować wyjście do określonego formatu, takiego jak PNG.
 {{% /alert %}}
 
-## **Wspólne Metody Pomocnicze**
+## **Wspólne metody pomocnicze**
 
-Metody pomocnicze poniżej utrzymują przykłady krótkie. `saveOriginalImage` zapisuje oryginalne osadzone bajty, wybiera bezpieczne rozszerzenie z typu MIME i pomija duplikaty binarne obrazów przy użyciu hashu SHA‑256.
+Poniższe metody pomocnicze skracają przykłady. `saveOriginalImage` zapisuje oryginalne osadzone bajty, wybiera bezpieczne rozszerzenie na podstawie typu MIME i pomija duplikaty binarne obrazów przy użyciu hasha SHA‑256.
 
 ```java
 import com.aspose.slides.*;
@@ -223,11 +223,16 @@ private static String makeSafeFileNamePart(String value)
 }
 ```
 
-## **Wyodrębnianie Obrazów z Ramki Obrazu**
+## **Wyodrębnianie obrazów z ramek obrazu**
 
-Użyj tego podejścia dla obrazów wstawionych jako samodzielne obiekty. [IPictureFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipictureframe/)​ przechowuje swój obraz w `getPictureFormat().getPicture().getImage()`, co zwraca obiekt [IPPImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/)​.
+Użyj tego podejścia dla obrazów wstawionych jako oddzielne obiekty. [IPictureFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipictureframe/) przechowuje swój obraz w `getPictureFormat().getPicture().getImage()`, co zwraca obiekt [IPPImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/) . Zwróć uwagę, że [IVideoFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ivideoframe/) i [IAudioFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iaudioframe/) dziedziczą po [IPictureFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipictureframe/), więc to sprawdzenie `instanceof` obejmuje również ramki multimedialne i eksportuje ich obrazy podglądu; najpierw testuj te typy, gdy chcesz traktować je oddzielnie, jak to robi ostatni przykład na tej stronie.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "extracted-images");
@@ -267,11 +272,15 @@ finally
 }
 ```
 
-## **Wyodrębnianie Obrazów z Kształtów Wypełnionych Obrazem**
+## **Wyodrębnianie obrazów z kształtów wypełnionych obrazem**
 
-Kształty mogą używać obrazu jako wypełnienia. Najpierw sprawdź typ wypełnienia kształtu: jeśli nie jest to [FillType.Picture](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/filltype/), nie ma obrazu do wyodrębnienia z tego wypełnienia. Poniższy przykład obsługuje obiekty [IAutoShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iautoshape/)​ i zapisuje każdy obraz jako PNG przy użyciu [IPPImage.getImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/#getImage--)​.
+Kształty mogą używać obrazu jako wypełnienia. Najpierw sprawdź typ wypełnienia kształtu: jeśli nie jest to [FillType.Picture](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/filltype/), nie ma obrazu do wyodrębnienia z tego wypełnienia. Poniższy przykład obsługuje obiekty [IAutoShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iautoshape/) i zapisuje każdy obraz jako PNG przy użyciu [IPPImage.getImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/#getImage--).
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "shape-fill-images");
@@ -313,11 +322,16 @@ finally
 }
 ```
 
-## **Wyodrębnianie Obrazów Podglądu z Ramki Obiektu OLE**
+## **Wyodrębnianie podglądów obrazów z ramek obiektów OLE**
 
-[IOleObjectFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ioleobjectframe/)​ może mieć zamienny obraz, którego PowerPoint używa jako podgląd obiektu na slajdzie. Ten obraz jest dostępny przez `getSubstitutePictureFormat().getPicture().getImage()`. Wyodrębnienie tego obrazu daje podgląd, a nie osadzone treści pakietu OLE.
+[IOleObjectFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ioleobjectframe/) może mieć obraz zastępczy, którego PowerPoint używa jako podgląd obiektu na slajdzie. Ten obraz jest dostępny poprzez `getSubstitutePictureFormat().getPicture().getImage()` . Wyodrębnienie tego obrazu daje podgląd, a nie zawartość osadzonego pakietu OLE.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "ole-preview-images");
@@ -361,11 +375,16 @@ finally
 }
 ```
 
-## **Wyodrębnianie Obrazów Podglądu z Ramki Wideo**
+## **Wyodrębnianie podglądów obrazów z ramek wideo**
 
-[IVideoFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ivideoframe/)​ może również przechowywać obraz podglądu w `getPictureFormat().getPicture().getImage()`. To jest plakat lub miniatura wyświetlana na slajdzie, a nie klatka zdekodowana z strumienia wideo.
+[IVideoFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ivideoframe/) może również przechowywać obraz podglądu w `getPictureFormat().getPicture().getImage()` . Jest to plakat lub miniatura wyświetlana na slajdzie, a nie klatka zdekodowana ze strumienia wideo.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "video-preview-images");
@@ -409,11 +428,16 @@ finally
 }
 ```
 
-## **Wyodrębnianie Obrazów Podglądu z Ramki Dźwięku**
+## **Wyodrębnianie podglądów obrazów z ramek audio**
 
-[IAudioFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iaudioframe/)​ może przechowywać miniaturę w `getPictureFormat().getPicture().getImage()`. To jest obraz wyświetlany dla obiektu dźwiękowego na slajdzie.
+[IAudioFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iaudioframe/) może przechowywać miniaturę w `getPictureFormat().getPicture().getImage()` . Jest to obraz wyświetlany dla obiektu audio na slajdzie.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "audio-preview-images");
@@ -457,11 +481,16 @@ finally
 }
 ```
 
-## **Wyodrębnianie Obrazów z Obiektów Powiększenia**
+## **Wyodrębnianie obrazów z obiektów powiększenia**
 
-[IZoomFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/izoomframe/)​ i [ISectionZoomFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/isectionzoomframe/)​ mogą używać własnych obrazów. Odczytaj `getZoomImage()` z ramki powiększenia.
+[IZoomFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/izoomframe/) i [ISectionZoomFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/isectionzoomframe/) mogą używać własnych obrazów. Odczytaj `getZoomImage()` z ramki powiększenia.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "zoom-images");
@@ -518,11 +547,16 @@ finally
 }
 ```
 
-## **Wyodrębnianie Obrazów z Ramki Podsumowania Powiększenia**
+## **Wyodrębnianie obrazów z ramek podsumowującego powiększenia**
 
-[ISummaryZoomFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/isummaryzoomframe/)​ jest również kształtem. Jego elementy sekcji mogą używać własnych obrazów, udostępnianych przez metodę `getZoomImage()` każdego podsumowującego elementu sekcji.
+[ISummaryZoomFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/isummaryzoomframe/) jest również kształtem. Elementy jego sekcji mogą używać własnych obrazów, udostępnianych przez metodę `getZoomImage()` każdej sekcji podsumowującego powiększenia.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "summary-zoom-images");
@@ -572,11 +606,16 @@ finally
 }
 ```
 
-## **Wyodrębnianie Obrazów z Kształtów Tabeli**
+## **Wyodrębnianie obrazów z kształtów tabeli**
 
-[ITable](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/itable/)​ jest kształtem. Obrazy w tabeli są zazwyczaj przechowywane jako wypełnienia obrazami w komórkach tabeli.
+[ITable](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/itable/) jest kształtem. Obrazy w tabeli są zwykle przechowywane jako wypełnienia obrazem w komórkach tabeli.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "table-images");
@@ -632,11 +671,16 @@ finally
 }
 ```
 
-## **Wyodrębnianie Obrazów z Kształtów Wykresu**
+## **Wyodrębnianie obrazów z kształtów wykresu**
 
-[IChart](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichart/)​ jest kształtem. Poniższy przykład wyodrębnia obraz z wypełnienia obrazu obszaru wykresu.
+[IChart](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichart/) jest kształtem. Poniższy przykład wyodrębnia obraz z wypełnienia obrazu obszaru wykresu.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "chart-images");
@@ -681,11 +725,16 @@ finally
 }
 ```
 
-## **Wyodrębnianie Obrazów z Kształtów SmartArt**
+## **Wyodrębnianie obrazów z kształtów SmartArt**
 
-[ISmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ismartart/)​ jest obiektem kształtu. W zależności od układu SmartArt, obrazy mogą być przechowywane w wypełnieniach wypunktowań węzłów lub w formatach wypełnienia kształtów węzłów.
+[ISmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ismartart/) jest kształtem. W zależności od układu SmartArt, obrazy mogą być przechowywane w wypełnieniach punktorów węzłów lub w formatach wypełnienia kształtów węzłów.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "smartart-images");
@@ -751,11 +800,16 @@ finally
 }
 ```
 
-## **Dołączanie Obrazów w Ramkach Grupowanych Kształtów**
+## **Uwzględnianie obrazów wewnątrz grupowanych kształtów**
 
-Grupowane kształty zawierają własne kolekcje kształtów. Współdzielona metoda pomocnicza `enumerateShapes` posiada opcję `includeGroupedShapes`. Ustaw ją na `true`, gdy chcesz sprawdzić kształty wewnątrz obiektów [IGroupShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/igroupshape/)​ . Poniższy przykład wyodrębnia obrazy z ramek obrazów, kształtów wypełnionych obrazem, podglądów obiektów OLE, miniatur klatek wideo i audio. Aby dołączyć także obrazy z tabel, wykresów, SmartArt i podsumowań powiększenia, ponownie wykorzystaj wyspecjalizowaną logikę ekstrakcji z poprzednich sekcji, zachowując tę samą rekurencyjną traversję kształtów.
+Grupowane kształty zawierają własne kolekcje kształtów. Wspólna metoda pomocnicza `enumerateShapes` posiada opcję `includeGroupedShapes`. Ustaw ją na `true`, gdy chcesz sprawdzić kształty wewnątrz obiektów [IGroupShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/igroupshape/) . Poniższy przykład wyodrębnia obrazy z ramek obrazu, kształtów wypełnionych obrazem, podglądów obiektów OLE, miniatur ramek wideo i miniatur ramek audio. Aby również uwzględnić obrazy z tabel, wykresów, SmartArt i podsumowującego powiększenia, użyj ponownie specjalistycznej logiki wyodrębniania z poprzednich sekcji, zachowując tę samą rekurencyjną iterację kształtów.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "all-shape-images");
@@ -846,45 +900,45 @@ finally
 }
 ```
 
-## **Szczególne Przypadki i Praktyczne Uwagi**
+## **Przypadki brzegowe i praktyczne uwagi**
 
-- **Duplikaty obrazów:** Wiele kształtów może odwoływać się do tego samego obrazu lub do odrębnych obrazów o identycznych bajtach. Oblicz hash [IPPImage.getBinaryData](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/#getBinaryData--)​ przed zapisem plików, jeśli chcesz jeden plik wyjściowy na unikalny obraz.
-- **Oryginalne dane vs. przekonwertowane wyjście:** Zapis [IPPImage.getBinaryData](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/#getBinaryData--)​ zachowuje osadzone dane JPEG, PNG, GIF, SVG, EMF lub WMF. Zapis [IPPImage.getImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/#getImage--)​ przy pomocy [IImage.save](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-)​ jest przydatny, gdy potrzebny jest spójny format wyjściowy.
-- **Nieobsługiwane typy wypełnień:** Kształty wypełnione kolorem stałym, gradientem, wzorem lub brak wypełnienia nie zawierają obrazu wypełniającego. Sprawdź [FillType](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/filltype/)​ przed odczytem `getPictureFillFormat()`.
-- **Kształty grupowane:** Górna kolekcja kształtów slajdu nie spłaszcza grup. Rekurencyjnie sprawdzaj [IGroupShape.getShapes](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/igroupshape/#getShapes--)​, gdy zawartość grup ma znaczenie.
-- **Podglądy obiektów OLE:** [IOleObjectFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ioleobjectframe/)​ może udostępniać obraz podglądu przez `getSubstitutePictureFormat()`, ale ten obraz jest jedynie podglądem slajdu. Nie jest to osadzony plik wewnątrz obiektu OLE.
-- **Miniatury klatek wideo:** [IVideoFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ivideoframe/)​ może udostępniać obraz podglądu przez `getPictureFormat()`, ale jest to jedynie plakat wyświetlany na slajdzie. Nie jest to klatka wyodrębniona ze strumienia wideo.
-- **Miniatury klatek audio:** [IAudioFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iaudioframe/)​ może udostępniać ikonę lub miniaturę przez `getPictureFormat()`; nie jest to osadzony dźwięk.
-- **Obrazy powiększenia:** Kształty powiększenia slajdu, sekcji i podsumowania mogą używać własnych obiektów [IPPImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/)​ poprzez `getZoomImage()`.
-- **Zagnieżdżone modele kształtów:** Obiekty tabel, wykresów i SmartArt implementują [IShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ishape/)​, ale ich obrazy są często przechowywane w zagnieżdżonych obiektach formatowania komórek tabeli, elementów wykresu lub węzłów SmartArt.
-- **Obrazy przycięte lub przekształcone:** Dostęp do [IPPImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/)​ daje zasób obrazu przechowywany w pliku. Nie renderuje on przycięć, przezroczystości, przetwarzania kolorów, rotacji ani innych efektów wizualnych zastosowanych przez kształt.
+- **Duplikaty obrazów:** Wiele kształtów może odwoływać się do tego samego obrazu lub do oddzielnych obrazów o identycznych bajtach. Oblicz hash [IPPImage.getBinaryData](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/#getBinaryData--) przed zapisem plików, jeśli chcesz mieć jeden plik wyjściowy na każdy unikalny obraz.
+- **Oryginalne dane vs. konwertowane wyjście:** Zapisując [IPPImage.getBinaryData](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/#getBinaryData--) zachowujesz osadzony JPEG, PNG, GIF, SVG, EMF lub WMF. Zapisując [IPPImage.getImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/#getImage--) przy pomocy [IImage.save](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) uzyskasz spójny format wyjściowy.
+- **Nieobsługiwane typy wypełnień:** Kształty wypełnione kolorem stałym, gradientem, wzorem lub bez wypełnienia nie zawierają wypełnienia obrazem. Sprawdź [FillType](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/filltype/) przed odczytem `getPictureFillFormat()`.
+- **Grupowane kształty:** Górna kolekcja kształtów slajdu nie spłaszcza grup. Rekurencyjnie sprawdzaj [IGroupShape.getShapes](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/igroupshape/#getShapes--) gdy zawartość grup ma znaczenie.
+- **Podglądy obiektów OLE:** [IOleObjectFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ioleobjectframe/) może udostępniać obraz podglądu poprzez `getSubstitutePictureFormat()`, ale jest to jedynie podgląd slajdu. Nie jest to osadzony plik w obiekcie OLE.
+- **Miniatury ramek wideo:** [IVideoFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ivideoframe/) może udostępniać obraz podglądu poprzez `getPictureFormat()`, ale jest to jedynie plakat wyświetlany na slajdzie. Nie jest wyodrębniany ze strumienia wideo.
+- **Miniatury ramek audio:** [IAudioFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iaudioframe/) może udostępniać ikonę lub miniaturę poprzez `getPictureFormat()`; nie jest to osadzony dźwięk.
+- **Obrazy powiększenia:** Kształty powiększenia slajdu, sekcji i podsumowania mogą używać własnych obiektów [IPPImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/) , poprzez `getZoomImage()`.
+- **Zagnieżdżone modele kształtów:** Obiekty tabeli, wykresu i SmartArt implementują [IShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ishape/) , ale ich obrazy często są przechowywane w zagnieżdżonych obiektach formatowania komórek tabeli, elementów wykresu lub węzłów SmartArt.
+- **Przycięte lub przekształcone obrazy:** Dostęp do [IPPImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/) daje zasób przechowywanego obrazu. Nie renderuje przycięć, przezroczystości, zmian kolorów, rotacji ani innych efektów wizualnych zastosowanych przez kształt.
 
-## **FAQ**
+## **Najczęściej zadawane pytania**
 
-**Czy mogę wyodrębnić oryginalny obraz bez przycinania, efektów lub transformacji kształtu?**
+### Czy mogę wyodrębnić oryginalny obraz bez przycinania, efektów lub transformacji kształtu?
 
-Tak. Uzyskaj obiekt [IPPImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/)​ i zapisz [IPPImage.getBinaryData](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/#getBinaryData--)​ na dysk. Zachowuje to oryginalnie zakodowany obraz przechowywany w prezentacji, a nie sposób, w jaki obraz jest renderowany na slajdzie.
+Tak. Uzyskaj dostęp do obiektu [IPPImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/) i zapisz [IPPImage.getBinaryData](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/#getBinaryData--) na dysk. Zachowuje to oryginalnie zakodowany obraz przechowywany w prezentacji, a nie sposób, w jaki jest renderowany na slajdzie.
 
-**Czy mogę wyeksportować każdy wyodrębniony obraz jako PNG?**
+### Czy mogę wyeksportować każdy wyodrębiony obraz jako PNG?
 
-Tak. Użyj [IPPImage.getImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/#getImage--)​, aby uzyskać obiekt [IImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iimage/)​, a następnie wywołaj [IImage.save](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-)​ z [ImageFormat.Png](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imageformat/)​ . To konwertuje wyjście i może nie zachować oryginalnego typu pliku ani danych wektorowych.
+Tak. Użyj [IPPImage.getImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/#getImage--) , aby uzyskać obiekt [IImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iimage/) , a następnie wywołaj [IImage.save](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) z [ImageFormat.Png](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imageformat/) . To konwertuje wyjście i może nie zachować oryginalnego typu pliku ani danych wektorowych.
 
-**Jak uniknąć zapisywania tego samego obrazu wielokrotnie?**
+### Jak uniknąć zapisywania tego samego obrazu więcej niż raz?
 
-Użyj hasha [IPPImage.getBinaryData](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/#getBinaryData--)​ i przechowuj hashe w zbiorze. Jeśli nowy obraz ma hash, który już istnieje, pomiń go lub zarejestruj kolejne odwołanie do istniejącego pliku wyjściowego.
+Użyj skrótu (hash) [IPPImage.getBinaryData](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/#getBinaryData--) i przechowuj hashe w zbiorze. Jeśli nowy obraz ma hash, który już istnieje, pomiń go lub zanotuj dodatkowe odniesienie do istniejącego pliku wyjściowego.
 
-**Dlaczego niektóre kształty nie generują obrazu?**
+### Dlaczego niektóre kształty nie generują obrazu?
 
-Ramki obrazów, kształty wypełnione obrazem, ramki obiektów OLE, ramki multimedialne, ramki powiększenia, tabele, wykresy i obiekty SmartArt mogą odwoływać się do obrazów. Niektóre typy kształtów udostępniają obrazy poprzez zagnieżdżone obiekty formatowania, więc proste sprawdzenie `getPictureFormat()` lub `getFillFormat()` nie zawsze wystarczy.
+Ramki obrazu, kształty wypełnione obrazem, ramki obiektów OLE, ramki multimedialne, ramki powiększenia, tabele, wykresy i obiekty SmartArt mogą odwoływać się do obrazów. Niektóre typy kształtów udostępniają obrazy poprzez zagnieżdżone obiekty formatowania, więc proste sprawdzenie `getPictureFormat()` lub `getFillFormat()` kształtu nie zawsze wystarczy.
 
-**Czy mogę wyodrębnić miniaturę wyświetlaną dla ramki wideo?**
+### Czy mogę wyodrębnić miniaturę wyświetlaną dla ramki wideo?
 
-Tak. Użyj [IVideoFrame.getPictureFormat](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ivideoframe/#getPictureFormat--)​ i odczytaj `getPictureFormat().getPicture().getImage()`. To wyodrębnia plakat przechowywany z ramką wideo, a nie klatkę wygenerowaną z pliku wideo.
+Tak. Użyj [IVideoFrame.getPictureFormat](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ivideoframe/#getPictureFormat--) , aby odczytać `getPictureFormat().getPicture().getImage()` . To wyodrębnia plakat zapisany razem z ramką wideo, a nie klatkę wygenerowaną z pliku wideo.
 
-**Jak mogę określić, które kształty używają konkretnego obrazu z kolekcji obrazów prezentacji?**
+### Jak mogę określić, które kształty używają konkretnego obrazu z kolekcji obrazów prezentacji?
 
-Aspose.Slides nie przechowuje odwróconych linków od [IPPImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/)​ do kształtów. Zbuduj mapowanie podczas przeglądania: za każdym razem, gdy znajdziesz odwołanie do obrazu, zapisz numer slajdu, ścieżkę kształtu oraz hash obrazu lub element kolekcji.
+Aspose.Slides nie przechowuje odwrotnych odnośników od [IPPImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/) do kształtów. Zbuduj mapowanie podczas przeglądania: za każdym razem, gdy znajdziesz odniesienie do obrazu, zarejestruj numer slajdu, ścieżkę kształtu oraz hash obrazu lub element kolekcji.
 
-**Czy mogę wyodrębnić obrazy osadzone wewnątrz obiektów OLE, takie jak załączone dokumenty?**
+### Czy mogę wyodrębnić obrazy osadzone w obiektach OLE, takich jak dołączone dokumenty?
 
-Możesz wyodrębnić podgląd slajdu obiektu OLE przy użyciu [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--)​ . Jednak ten podgląd nie jest samym osadzonym dokumentem. Aby wyodrębnić obrazy z wnętrza pliku osadzonego, musisz wyekstrahować dane OLE i przeanalizować je odpowiednimi narzędziami dla tego typu pliku.
+Możesz wyodrębnić podgląd slajdu obiektu OLE przy użyciu [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--) . Jednak ten podgląd nie jest osadzonym dokumentem. Aby wyodrębnić obrazy z wnętrza osadzonego pliku, wyodrębnij dane OLE i zbadaj je przy pomocy narzędzi odpowiednich dla tego typu pliku.

@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides for .NET 15.4.0'de Genel API ve Geriye Uyumsuz Değişiklikler
+title: Aspose.Slides for .NET 15.4.0'da Genel API ve Geriye Uyumsuz Değişiklikler
 linktitle: Aspose.Slides for .NET 15.4.0
 type: docs
 weight: 150
@@ -16,24 +16,27 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET'teki genel API güncellemelerini ve kırıcı değişiklikleri inceleyerek PowerPoint PPT, PPTX ve ODP sunum çözümlerinizi sorunsuz bir şekilde taşıyın."
+description: "Aspose.Slides for .NET'teki genel API güncellemeleri ve geriye uyumsuz değişiklikleri inceleyerek PowerPoint PPT, PPTX ve ODP sunum çözümlerinizi sorunsuz bir şekilde taşıyın."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Bu sayfa, Aspose.Slides for .NET 15.4.0 API'siyle tanıtılan eklenen veya kaldırılan sınıfları, metodları, özellikleri ve benzeri diğer değişiklikleri listeler.
+Bu sayfa, Aspose.Slides for .NET 15.4.0 API'siyle getirilen eklenen [added](/slides/tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) veya kaldırılan [removed](/slides/tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) sınıfları, yöntemleri, özellikleri vb. ve diğer değişiklikleri listeler.
 
 {{% /alert %}} 
-## **Public API Değişiklikleri**
+## **Genel API Değişiklikleri**
 #### **Enum OrganizationChartLayoutType Eklendi**
-The Aspose.Slides.SmartArt.OrganizationChartLayoutType enum represents formatting type the child nodes in an organization chart.
+Aspose.Slides.SmartArt.OrganizationChartLayoutType enum'u, bir organizasyon şemasındaki alt düğümlerin biçimlendirme türünü temsil eder.
 #### **Method IBulletFormat.ApplyDefaultParagraphIndentsShifts Eklendi**
-Method Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts sets default non-zero shifts for effective paragraph Indent and MarginLeft when bullets is enabled (like PowerPoint do if enable paragraph bullets/numbering in it). If bullets is disabled then just reset paragraph Indent and MarginLeft (like PowerPoint do if disable paragraph bullets/numbering in it).
+Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts yöntemi, maddeler etkin olduğunda (PowerPoint'in paragraf maddelerini/numaralandırmasını etkinleştirdiğinde yaptığı gibi) etkili paragraf Indent ve MarginLeft için varsayılan sıfır olmayan kaymaları ayarlar. Maddeler devre dışı bırakıldığında ise sadece paragraf Indent ve MarginLeft sıfırlanır (PowerPoint'in paragraf maddelerini/numaralandırmasını devre dışı bıraktığında yaptığı gibi).
 
-See examples [here](/slides/tr/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx):
+Örnekleri [burada](/slides/tr/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx) inceleyin:
 #### **Method IConnector.Reroute Eklendi**
-Method Aspose.Slides.IConnector.Reroute reroutes connector so that it take the shortest possible path between the shapes it connect. To do this, the Reroute() method may change the StartShapeConnectionSiteIndex and EndShapeConnectionSiteIndex.
+Aspose.Slides.IConnector.Reroute yöntemi, bağlayıcıyı bağladığı şekiller arasındaki olası en kısa yolu alacak şekilde yeniden yönlendirir. Bunu yapmak için Reroute() yöntemi StartShapeConnectionSiteIndex ve EndShapeConnectionSiteIndex değerlerini değiştirebilir.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
  using(Presentation input = new Presentation())
 
@@ -59,9 +62,12 @@ Method Aspose.Slides.IConnector.Reroute reroutes connector so that it take the s
 
 ``` 
 #### **Method IPresentation.GetSlideById Eklendi**
-Method Aspose.Slides.IPresentation.GetSlideById(System.UInt32) returns a Slide, MasterSlide or LayoutSlide by slide Id.
+Aspose.Slides.IPresentation.GetSlideById(System.UInt32) yöntemi, slide Id'sine göre bir Slide, MasterSlide veya LayoutSlide döndürür.
 
 ``` csharp
+using System.Diagnostics;
+using Aspose.Slides;
+
 
  using (Presentation presentation = new Presentation())
 
@@ -74,12 +80,14 @@ Method Aspose.Slides.IPresentation.GetSlideById(System.UInt32) returns a Slide, 
     Debug.Assert(presentation.Slides[0] == slide);
 
 }
-
 ``` 
 #### **Property IShape.ConnectionSiteCount Eklendi**
-Property Aspose.Slides.IShape.ConnectionSiteCount returns the number of connection sites on the shape.
+Aspose.Slides.IShape.ConnectionSiteCount özelliği, şeklin üzerindeki bağlantı noktalarının sayısını döndürür.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
  using(Presentation input = new Presentation())
 
@@ -110,12 +118,15 @@ Property Aspose.Slides.IShape.ConnectionSiteCount returns the number of connecti
   input.Save("output.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
 #### **Property ISmartArt.IsReversed Eklendi**
-Property Aspose.Slides.SmartArt.ISmartArt.IsReversed allows get or sets the state of the SmartArt diagram with regard to (left-to-right) LTR or (right-to-left) RTL, if the diagram supports reversal.
+Aspose.Slides.SmartArt.ISmartArt.IsReversed özelliği, diyagram terslemeyi destekliyorsa, SmartArt diyagramının (soldan sağa) LTR veya (sağdan sola) RTL durumunu alıp ayarlamaya izin verir.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -125,15 +136,18 @@ Property Aspose.Slides.SmartArt.ISmartArt.IsReversed allows get or sets the stat
 
   smart.IsReversed = true;
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
 #### **Property ISmartArt.Nodes Eklendi**
-Property Aspose.Slides.SmartArt.ISmartArt.Nodes returns collection of root nodes in SmartArt object.
+Aspose.Slides.SmartArt.ISmartArt.Nodes özelliği, SmartArt nesnesindeki kök düğümlerin koleksiyonunu döndürür.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -145,31 +159,49 @@ Property Aspose.Slides.SmartArt.ISmartArt.Nodes returns collection of root nodes
 
   node.TextFrame.Text = "Second root node";
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
 ``` 
 #### **Property ISmartArtNode.IsHidden Eklendi**
-Property Aspose.Slides.SmartArt.ISmartArtNode.IsHidden returns true if this node is a hidden node in the data model.
+Aspose.Slides.SmartArt.ISmartArtNode.IsHidden özelliği, bu düğüm veri modelinde gizli bir düğüm ise true döndürür.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
+
 {
+
   ISmartArt smart = pres.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.RadialCycle);
+
   ISmartArtNode node = smart.AllNodes.AddNode();
+
   bool hidden = node.IsHidden; //true döndürür
+
   if(hidden)
+
   {
-    //bazı eylemler veya bildirimler yap
+
+    //bazı eylemler veya bildirimler
+
   }
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+
+  pres.Save("out.pptx", SaveFormat.Pptx);
+
 }
 ``` 
 #### **Property ISmartArtNode.OrganizationChartLayout Eklendi**
-Property Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout allows get or sets organization chart type associated with current node.
+Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout özelliği, mevcut düğümle ilişkili organizasyon şeması tipini alıp ayarlamaya izin verir.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -179,29 +211,37 @@ Property Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout allows get
 
   smart.Nodes[0].OrganizationChartLayout = OrganizationChartLayoutType.LeftHanging;
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Set Method for Property ISmartArt.Layout Eklendi**
-The set method for property Aspose.Slides.SmartArt.ISmartArt.Layout has been added.It allows change layout type of an existing diagram.
+#### **Property ISmartArt.Layout için Set Metodu Eklendi**
+Aspose.Slides.SmartArt.ISmartArt.Layout özelliği için set metodu eklendi. Mevcut bir diyagramın düzen tipini değiştirmeye olanak tanır.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
+
 {
+
   ISmartArt smart = pres.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
+
   smart.Layout = SmartArtLayoutType.BasicProcess;
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+
+  pres.Save("out.pptx", SaveFormat.Pptx);
+
 }
 ``` 
 #### **Küçük API Değişiklikleri**
-**Küçük API Değişikliklerinin Listesi:**
+**Bu, Küçük API Değişikliklerinin Listesidir:**
 
-|Enum Aspose.Slides.BevelColorMode |silinmiş, kullanılmayan enum |
+|Enum Aspose.Slides.BevelColorMode |silindi, kullanılmayan enum |
 | :- | :- |
-|Property ThreeDFormatEffectiveData.BevelColorMode |silinmiş, kullanılmayan özellik |
+|Property ThreeDFormatEffectiveData.BevelColorMode |silindi, kullanılmayan property |
 |Property Aspose.Slides.Charts.ChartSeriesGroup.Chart <br>Property Aspose.Slides.Charts.IChartSeriesGroup.AsIChartComponent |eklendi |
-|Property Aspose.Slides.IParagraphFormatEffectiveData.AsISlideComponent <br>Inheritance of IParagraphFormatEffectiveData from ISlideComponent <br>Property Aspose.Slides.IThreeDFormat.AsISlideComponent <br>Inheritance of IThreeDFormat from ISlideComponent |silinmiş |
-|Property Aspose.Slides.ParagraphFormatEffectiveData.BulletChar <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletFont <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletHeight <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletType <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStartWith <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStyle |silinmiş, artık kullanılmaz |
+|Property Aspose.Slides.IParagraphFormatEffectiveData.AsISlideComponent <br>Inheritance of IParagraphFormatEffectiveData from ISlideComponent <br>Property Aspose.Slides.IThreeDFormat.AsISlideComponent <br>Inheritance of IThreeDFormat from ISlideComponent |silindi |
+|Property Aspose.Slides.ParagraphFormatEffectiveData.BulletChar <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletFont <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletHeight <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletType <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStartWith <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStyle |eski olduğu için silindi |

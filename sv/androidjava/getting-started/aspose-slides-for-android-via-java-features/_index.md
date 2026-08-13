@@ -11,33 +11,33 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Utforska funktionerna i Aspose.Slides för Android via Java jämfört med Aspose.Slides för Java, inklusive stöd för PPT, PPTX och ODP, konverteringar och rendering."
+description: "Utforska Aspose.Slides för Android via Java-funktioner jämfört med Aspose.Slides för Java, inklusive stöd för PPT, PPTX och ODP, konverteringar och rendering."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Denna sektion listar alla funktioner i API:et och visar den jämförande tillgängligheten för dessa i Aspose.Slides för Java jämfört med Aspose.Slides för Android via Java.
+Detta avsnitt listar alla funktioner i API:et och visar den jämförande tillgängligheten för dessa i Aspose.Slides för Java jämfört med Aspose.Slides för Android via Java.
 
 {{% /alert %}} 
 
-|**Nr.**|**Funktion**|**Aspose.Slides för Java**|**Aspose.Slides för Android via Java**|
+|**Nr.**|**Funktion**|**Aspose.Slides for Java**|**Aspose.Slides for Android via Java**|
 | :-: | :-: | :-: | :-: |
 |1|Arbeta med Microsoft PowerPoint (PPT)|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
 |2|Arbeta med PresentationML (PPTX, XML)|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
-|3|Stöd för PPT till PPTX-konvertering|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
+|3|Stöd för konvertering från PPT till PPTX|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
 |4|Stöd för Portable Document Format (PDF)|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
 |5|Stöd för XML Parser Specification (XPS)|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
 |6|Stöd för Tagged Image File Format (TIFF)|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
-|7|Stöd för ODP till PPTX-konvertering|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
+|7|Stöd för konvertering från ODP till PPTX|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
 |8|Stöd för konvertering av presentation till HTML|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
 |9|Stöd för export till SVG-format|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
-|10|Stöd för bildspelsminiaturer|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
+|10|Stöd för bildminiatyrer för bildspel|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
 |11|Stöd för masterbilder|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
 |12|Stöd för vanliga bilder|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
 |13|Stöd för anteckningsbilder|<p> </p><p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
 |14|Stöd för layoutbilder|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
-|15|Stöd för kloning av bilder|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
+|15|Stöd för duplicering av bilder|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
 |16|Stöd för att arbeta med platshållare och texthållare|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
-|17|Stöd för AutoShapes i bildspel|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
+|17|Stöd för bildspelsautoformer|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
 |18|Stöd för tabeller|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
 |19|Stöd för SmartArt|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
 |20|Stöd för OLE-objekt|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|

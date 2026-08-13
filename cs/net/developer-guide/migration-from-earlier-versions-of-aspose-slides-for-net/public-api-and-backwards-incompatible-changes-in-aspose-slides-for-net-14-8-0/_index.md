@@ -6,9 +6,9 @@ weight: 100
 url: /cs/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-8-0/
 keywords:
 - migrace
-- zastaralý kód
+- starý kód
 - moderní kód
-- zastaralý přístup
+- starý přístup
 - moderní přístup
 - PowerPoint
 - OpenDocument
@@ -16,25 +16,29 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Prohlédněte si aktualizace veřejného API a nepřetržité změny v Aspose.Slides pro .NET, abyste mohli plynule migrovat svá řešení prezentací PowerPoint PPT, PPTX a ODP."
+description: "Prohlédněte si aktualizace veřejného API a breaking changes v Aspose.Slides pro .NET a snadno migrujte své řešení pro PowerPoint PPT, PPTX a ODP prezentace."
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" %}} 
 
-Tato stránka uvádí všechny [přidané](/slides/cs/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-8-0/) nebo [odstraněné](/slides/cs/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-8-0/) třídy, metody, vlastnosti a podobně, a další změny zavedené v API Aspose.Slides pro .NET 14.8.0.
+Tato stránka uvádí všechny [added](/slides/cs/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-8-0/) nebo [removed](/slides/cs/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-8-0/) třídy, metody, vlastnosti a podobně a další změny zavedené v rozhraní Aspose.Slides for .NET 14.8.0 API.
 
 {{% /alert %}} 
-## **Změny veřejného API**
-### **Změněné vlastnosti**
-#### **Přidáno rozhraní IVbaProject, změněna vlastnost Presentation.VbaProject**
+## **Public API Changes**
+### **Changed Properties**
+#### **Added the IVbaProject Interface, Changed the Presentation.VbaProject Property**
 Vlastnost VbaProject třídy Presentation byla nahrazena. Místo surové bajtové reprezentace VBA projektu byla přidána nová implementace rozhraní IVbaProject.
 
-Použijte vlastnost IVbaProject k správě VBA projektů vložených do prezentace. Můžete přidávat nové odkazy na projekty, upravovat existující moduly a vytvářet nové.
+Použijte vlastnost IVbaProject k řízení VBA projektů vložených do prezentace. Můžete přidávat nové odkazy na projekty, upravovat existující moduly a vytvářet nové.
 
 Také můžete vytvořit nový VBA projekt pomocí třídy VbaProject, která implementuje rozhraní IVbaProject.
 
-Následující příklad ukazuje vytvoření jednoduchého VBA projektu obsahujícího jeden modul a přidání dvou požadovaných odkazů na knihovny.
+Níže uvedený příklad ukazuje vytvoření jednoduchého VBA projektu obsahujícího jeden modul a přidání dvou požadovaných odkazů na knihovny.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Vba;
+
 
  using (Presentation pres = new Presentation())
 
@@ -81,9 +85,12 @@ Následující příklad ukazuje vytvoření jednoduchého VBA projektu obsahuj�
 }
 ``` 
 
-Tento příklad ukazuje, jak zkopírovat VBA projekt ze stávající prezentace do nové.
+Tento příklad ukazuje, jak zkopírovat VBA projekt z existující prezentace do nové.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Vba;
+
 
  using (Presentation pres1 = new Presentation("PresentationWithMacroses.pptm"), pres2 = new Presentation())
 
@@ -92,18 +99,20 @@ Tento příklad ukazuje, jak zkopírovat VBA projekt ze stávající prezentace 
     pres2.VbaProject = new VbaProject(pres1.VbaProject.ToBinary());
 
 }
-
 ``` 
-### **Přidány rozhraní, vlastnosti a hodnoty výčtů**
-#### **Přidána vlastnost Aspose.Slides.Charts.IChartSeries.Overlap**
-Vlastnost Aspose.Slides.Charts.IChartSeries.Overlap určuje, jak moc se mají sloupce a pruhy překrývat v 2D grafech (rozsah od -100 do 100).
+### **Added Interfaces, Properties and Enumeration Options**
+#### **Added the Aspose.Slides.Charts.IChartSeries.Overlap Property**
+Vlastnost Aspose.Slides.Charts.IChartSeries.Overlap určuje, jak moc se mají sloupce a pruhy překrývat v 2D grafech (v rozmezí od -100 do 100).
 
-Tato vlastnost se týká nejen této řady, ale všech řad v nadřazené skupině řad – jedná se o projekci příslušné vlastnosti skupiny. Tato vlastnost je tedy pouze pro čtení.
+Tato vlastnost se vztahuje nejen na tuto řadu, ale i na všechny řady v nadřazené skupině řad – jedná se o projekci odpovídající skupinové vlastnosti. Tato vlastnost je pouze pro čtení.
 
-- Použijte vlastnost ParentSeriesGroup k přístupu k nadřazené skupině řad.
-- Použijte vlastnost ParentSeriesGroup.Overlap pro čtení/zápis k změně hodnoty.
+- Použijte vlastnost ParentSeriesGroup pro přístup k nadřazené skupině řad.
+- Použijte vlastnost ParentSeriesGroup.Overlap pro čtení/zápis a změnu hodnoty.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 
  using (Presentation pres = new Presentation())
 
@@ -122,12 +131,14 @@ Tato vlastnost se týká nejen této řady, ale všech řad v nadřazené skupin
       }
 
 }
-
 ``` 
-#### **Přidána vlastnost Aspose.Slides.Charts.IChartSeriesGroup.Overlap**
+#### **Added the Aspose.Slides.Charts.IChartSeriesGroup.Overlap Property**
 Vlastnost Aspose.Slides.Charts.IChartSeriesGroup.Overlap určuje, jak moc se mají sloupce a pruhy překrývat v 2D grafech (od -100 do 100).
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 
 
 
@@ -142,22 +153,18 @@ using (Presentation pres = new Presentation())
    series[0].ParentSeriesGroup.Overlap = -30;
 
 }
-
 ``` 
-#### **Přidána hodnota výčtu ShapeThumbnailBounds.Appearance**
-Tato metoda vytváření náhledů tvarů vám umožňuje generovat náhled tvaru v mezích jeho vzhledu. Zohledňuje všechny efekty tvaru. Vytvořený náhled tvaru je ohraničen mezemi snímku.
+#### **Added the ShapeThumbnailBounds.Appearance Enum Value**
+Tato metoda vytváření miniatury tvaru umožňuje vygenerovat miniaturu tvaru v mezích jeho vzhledu. Bere v úvahu všechny efekty tvaru. Vygenerovaná miniatura tvaru je omezena mezemi snímku.
 
 ``` csharp
-
-
+using Aspose.Slides;
 
 using (Presentation p = new Presentation("Presentation.pptx"))
-
 {
-
-    Bitmap st = p.Slides[0].Shapes[0].GetThumbnail(ShapeThumbnailBounds.Appearance, 1, 1);
-
-    st.Save("ShapeThumbnail.png", ImageFormat.Png);
-
+    using (IImage image = p.Slides[0].Shapes[0].GetImage(ShapeThumbnailBounds.Appearance, 1, 1))
+    {
+        image.Save("ShapeThumbnail.png", ImageFormat.Png);
+    }
 }
 ```

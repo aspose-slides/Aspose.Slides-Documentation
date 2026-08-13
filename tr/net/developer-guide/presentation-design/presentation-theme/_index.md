@@ -22,23 +22,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET içinde sunum temalarını yöneterek, tutarlı marka kimliğiyle PowerPoint dosyaları oluşturun, özelleştirin ve dönüştürün."
+description: "Aspose.Slides for .NET ile tutarlı marka kimliği sağlayarak PowerPoint dosyalarını oluşturmak, özelleştirmek ve dönüştürmek için ana sunum temalarını yönetin."
 ---
 ## **Giriş**
 
-Bir sunum teması, tasarım öğelerinin özelliklerini tanımlar. Bir sunum teması seçtiğinizde, aslında belirli bir görsel öğe kümesini ve bunların özelliklerini seçmiş olursunuz.
+Bir sunum teması, tasarım öğelerinin özelliklerini tanımlar. Bir sunum teması seçtiğinizde, esasen belirli bir görsel öğe kümesini ve bunların özelliklerini seçmiş olursunuz.
 
-PowerPoint'te bir tema, renkler, [fonts](/slides/tr/net/powerpoint-fonts/), [background styles](/slides/tr/net/presentation-background/) ve efektlerden oluşur.
+PowerPoint'te bir tema, renkler, [yazı tipleri](/slides/tr/net/powerpoint-fonts/), [arkaplan stilleri](/slides/tr/net/presentation-background/) ve efektlerden oluşur.
 
 ![theme-constituents](theme-constituents.png)
 
 ## **Tema Rengini Değiştir**
 
-Bir PowerPoint teması, slayttaki farklı öğeler için belirli bir renk seti kullanır. Renkleri beğenmezseniz, temaya yeni renkler uygulayarak değiştirirsiniz. Yeni bir tema rengi seçebilmeniz için Aspose.Slides, [SchemeColor](https://reference.aspose.com/slides/tr/net/aspose.slides/schemecolor/) sayımında değerler sağlar.
-
-Bu C# kodu, bir tema için vurgu rengini nasıl değiştireceğinizi gösterir:
+PowerPoint teması, slayttaki farklı öğeler için belirli bir renk kümesi kullanır. Renkleri beğenmezseniz, temaya yeni renkler uygulayarak renkleri değiştirirsiniz. Yeni bir tema rengi seçebilmeniz için Aspose.Slides, [SchemeColor](https://reference.aspose.com/slides/tr/net/aspose.slides/schemecolor/) enumunda değerler sunar.
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation())
     
 {
@@ -53,48 +53,66 @@ using (Presentation pres = new Presentation())
 Bu şekilde, elde edilen rengin etkili değerini belirleyebilirsiniz:
 
 ```c#
-var fillEffective = shape.FillFormat.GetEffective();
+using Aspose.Slides;
 
-Console.WriteLine($"{fillEffective.SolidFillColor.Name} ({fillEffective.SolidFillColor})"); // ff8064a2 (Renk [A=255, R=128, G=100, B=162])
+using (Presentation pres = new Presentation())
+{
+    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+
+    shape.FillFormat.FillType = FillType.Solid;
+
+    shape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+
+    var fillEffective = shape.FillFormat.GetEffective();
+
+    Console.WriteLine($"{fillEffective.SolidFillColor.Name} ({fillEffective.SolidFillColor})"); // ff8064a2 (Renk [A=255, R=128, G=100, B=162])
+}
 ```
 
-Renk değişimi işlemini daha da göstermek için, başka bir öğe oluşturup vurgu rengini (ilk işlemeden) ona atarız. Ardından temadaki rengi değiştiririz:
+Renk değişikliği işlemini daha da göstermek için başka bir öğe oluşturup ona vurgu rengini (ilk işlemeden) atarız. Ardından temadaki rengi değiştiririz:
 
 ```c#
-IAutoShape otherShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
+using System.Drawing;
+using Aspose.Slides;
 
-otherShape.FillFormat.FillType = FillType.Solid;
+using (Presentation pres = new Presentation())
+{
+    IAutoShape otherShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
 
-otherShape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+    otherShape.FillFormat.FillType = FillType.Solid;
 
-pres.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
+    otherShape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+
+    pres.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
+}
 ```
 
-Yeni renk her iki öğeye de otomatik olarak uygulanır.
+Yeni renk her iki öğeye otomatik olarak uygulanır.
 
-### **Ek Palet'ten Tema Rengini Ayarla**
+### **Ek Paletten Tema Rengini Ayarla**
 
-Ana tema rengine(1) parlaklık dönüşümleri uyguladığınızda, ek paletten(2) renkler oluşur. Daha sonra bu tema renklerini ayarlayabilir ve alabilirsiniz.
+Ana tema rengine (1) parlaklık dönüşümleri uyguladığınızda, ek paletten (2) renkler oluşur. Bu tema renklerini daha sonra ayarlayabilir ve alabilirsiniz.
 
 ![additional-palette-colors](additional-palette-colors.png)
 
 **1** - Ana tema renkleri  
 **2** - Ek paletten gelen renkler.
 
-Bu C# kodu, ek palet renklerinin ana tema renginden elde edilip şekillerde kullanıldığı bir işlemi gösterir:
-
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // Vurgu 4
+    // Accent 4
     IShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 50, 50);
 
     shape1.FillFormat.FillType = FillType.Solid;
     shape1.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
 
-    // Vurgu 4, %80 Daha Açık
+    // Accent 4, %80 Daha Açık
     IShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 70, 50, 50);
 
     shape2.FillFormat.FillType = FillType.Solid;
@@ -102,7 +120,7 @@ using (Presentation presentation = new Presentation())
     shape2.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.2f);
     shape2.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.8f);
 
-    // Vurgu 4, %60 Daha Açık
+    // Accent 4, %60 Daha Açık
     IShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 130, 50, 50);
 
     shape3.FillFormat.FillType = FillType.Solid;
@@ -110,7 +128,7 @@ using (Presentation presentation = new Presentation())
     shape3.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.4f);
     shape3.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.6f);
 
-    // Vurgu 4, %40 Daha Açık
+    // Accent 4, %40 Daha Açık
     IShape shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 190, 50, 50);
 
     shape4.FillFormat.FillType = FillType.Solid;
@@ -118,14 +136,14 @@ using (Presentation presentation = new Presentation())
     shape4.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.6f);
     shape4.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.4f);
 
-    // Vurgu 4, %25 Daha Koyu
+    // Accent 4, %25 Daha Koyu
     IShape shape5 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 250, 50, 50);
 
     shape5.FillFormat.FillType = FillType.Solid;
     shape5.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
     shape5.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.75f);
 
-    // Vurgu 4, %50 Daha Koyu
+    // Accent 4, %50 Daha Koyu
     IShape shape6 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 310, 50, 50);
 
     shape6.FillFormat.FillType = FillType.Solid;
@@ -136,69 +154,81 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **`SchemeColor`'ı `IColorScheme` Renklerine Eşleme**
+### **`SchemeColor`'ı `IColorScheme` Renklerine Eşleştir**
 
-[SchemeColor](https://reference.aspose.com/slides/tr/net/aspose.slides/schemecolor/) ile çalışırken, aşağıdaki tema renk değerlerini içerdiğini fark edebilirsiniz: `Background1`, `Background2`, `Text1` ve `Text2`.
+[SchemeColor](https://reference.aspose.com/slides/tr/net/aspose.slides/schemecolor/) ile çalışırken, aşağıdaki tema renk değerlerini içerdiğini fark edebilirsiniz: `Background1`, `Background2`, `Text1`, ve `Text2`.
 
-Ancak `Presentation.MasterTheme.ColorScheme` [IColorScheme](https://reference.aspose.com/slides/tr/net/aspose.slides.theme/icolorscheme/) döndürür ve karşılık gelen renkleri şu şekilde sunar: `Dark1`, `Dark2`, `Light1` ve `Light2`.
+Ancak, `Presentation.MasterTheme.ColorScheme` [IColorScheme](https://reference.aspose.com/slides/tr/net/aspose.slides.theme/icolorscheme/) döndürür ve karşılık gelen renkleri şu şekilde gösterir: `Dark1`, `Dark2`, `Light1`, ve `Light2`.
 
-Bu fark yalnızca adlandırmada ortaya çıkar. Bu değerler aynı tema renk yuvalarına gönderme yapar ve eşleme sabittir:
+Bu fark sadece isimlendirmededir. Bu değerler aynı tema rengi yuvalarına işaret eder ve eşleme sabittir:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-`Text`/`Background` ile `Dark`/`Light` arasında dinamik bir dönüşüm yoktur. Bunlar aynı tema renkleri için alternatif adlardır.
+`Text`/`Background` ile `Dark`/`Light` arasında dinamik bir dönüşüm yoktur. Bunlar aynı tema renklerinin sadece alternatif adlarıdır.
 
-Bu adlandırma farkı, Microsoft Office terminolojisinden kaynaklanmaktadır. Eski Office sürümleri `Dark 1`, `Light 1`, `Dark 2` ve `Light 2` kullanırken, yeni UI sürümleri aynı yuvaları `Text 1`, `Background 1`, `Text 2` ve `Background 2` olarak gösterir.
+Bu isimlendirme farkı Microsoft Office terminolojisinden kaynaklanır. Eski Office sürümleri `Dark 1`, `Light 1`, `Dark 2` ve `Light 2` kullanırken, yeni UI sürümleri aynı yuvaları `Text 1`, `Background 1`, `Text 2` ve `Background 2` olarak gösterir.
 
 ## **Tema Yazı Tipini Değiştir**
 
-Tema ve diğer amaçlar için yazı tiplerini seçmenizi sağlamak amacıyla, Aspose.Slides bu özel tanımlayıcıları (PowerPoint'te kullanılanlara benzer) kullanır:
+Temalar ve diğer amaçlar için yazı tiplerini seçebilmeniz için Aspose.Slides bu özel tanımlayıcıları (PowerPoint'te kullanılanlara benzer) kullanır:
 
 * **+mn-lt** - Gövde Yazı Tipi Latin (Küçük Latin Yazı Tipi)
 * **+mj-lt** - Başlık Yazı Tipi Latin (Büyük Latin Yazı Tipi)
 * **+mn-ea** - Gövde Yazı Tipi Doğu Asya (Küçük Doğu Asya Yazı Tipi)
 * **+mj-ea** - Başlık Yazı Tipi Doğu Asya (Büyük Doğu Asya Yazı Tipi)
 
-Bu C# kodu, Latin yazı tipini bir tema öğesine atamanızı gösterir:
+Bu C# kodu, Latin yazı tipini bir tema öğesine nasıl atayacağınızı gösterir:
 
 ```c#
-IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+using Aspose.Slides;
 
-Paragraph paragraph = new Paragraph();
+using (Presentation pres = new Presentation())
+{
+    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
-Portion portion = new Portion("Theme text format");
+    Paragraph paragraph = new Paragraph();
 
-paragraph.Portions.Add(portion);
+    Portion portion = new Portion("Theme text format");
 
-shape.TextFrame.Paragraphs.Add(paragraph);
+    paragraph.Portions.Add(portion);
 
-portion.PortionFormat.LatinFont = new FontData("+mn-lt");
+    shape.TextFrame.Paragraphs.Add(paragraph);
+
+    portion.PortionFormat.LatinFont = new FontData("+mn-lt");
+}
 ```
 
-Bu C# kodu, sunum temasının yazı tipini nasıl değiştireceğinizi gösterir:
+Bu C# kodu, sunum teması yazı tipini nasıl değiştireceğinizi gösterir:
 
 ```c#
-pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
+using Aspose.Slides;
+
+using (Presentation pres = new Presentation())
+{
+    pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
+}
 ```
 
 Tüm metin kutularındaki yazı tipi güncellenecektir.
 
-{{% alert color="primary" title="TIP" %}} 
-PowerPoint yazı tiplerine göz atmak isteyebilirsiniz. 
+{{% alert color="info" title="TIP" %}} 
+PowerPoint yazı tiplerine bakmak isteyebilirsiniz: [PowerPoint yazı tipleri](/slides/tr/net/powerpoint-fonts/).
 {{% /alert %}}
 
-## **Tema Arka Plan Stilini Değiştir**
+## **Tema Arkaplan Stilini Değiştir**
 
-Varsayılan olarak, PowerPoint uygulaması 12 önceden tanımlı arka plan sunar ancak bu 12 arka planın yalnızca 3'ü tipik bir sunumda kaydedilir. 
+Varsayılan olarak, PowerPoint uygulaması 12 ön tanımlı arka plan sunar ancak bu 12 arka planın yalnızca 3’ü tipik bir sunumda kaydedilir.
 
 ![todo:image_alt_text](presentation-design_8.png)
 
-Örneğin, PowerPoint uygulamasında bir sunumu kaydettikten sonra, sunumdaki önceden tanımlı arka plan sayısını öğrenmek için bu C# kodunu çalıştırabilirsiniz:
+Örneğin, PowerPoint uygulamasında bir sunumu kaydettikten sonra, sunumdaki ön tanımlı arka plan sayısını öğrenmek için bu C# kodunu çalıştırabilirsiniz:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 
 {
@@ -209,32 +239,39 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 {{% alert color="warning" %}} 
-[FormatScheme](https://reference.aspose.com/slides/tr/net/aspose.slides.theme/formatscheme/) sınıfındaki [BackgroundFillStyles](https://reference.aspose.com/slides/tr/net/aspose.slides.theme/formatscheme/backgroundfillstyles/) özelliğini kullanarak, PowerPoint temasında arka plan stilini ekleyebilir veya erişebilirsiniz. 
+[BackgroundFillStyles](https://reference.aspose.com/slides/tr/net/aspose.slides.theme/formatscheme/backgroundfillstyles/) özelliğini [FormatScheme](https://reference.aspose.com/slides/tr/net/aspose.slides.theme/formatscheme/) sınıfından kullanarak bir PowerPoint temasında arka plan stilini ekleyebilir veya erişebilirsiniz. 
 {{% /alert %}}
 
-Bu C# kodu, bir sunum için arka planı nasıl ayarlayacağınızı gösterir:
+Bu C# kodu, bir sunumun arka planını nasıl ayarlayacağınızı gösterir:
 
 ```c#
-pres.Masters[0].Background.StyleIndex = 2;
+using Aspose.Slides;
+
+using (Presentation pres = new Presentation("pres.pptx"))
+{
+    pres.Masters[0].Background.StyleIndex = 2;
+}
 ```
 
-**Dizin rehberi**: 0 dolgu yok anlamına gelir. Dizin 1'den başlar.
+**Dizin rehberi**: 0 dolgu yok anlamında kullanılır. Dizin 1'den başlar.
 
-{{% alert color="primary" title="TIP" %}} 
-PowerPoint Arka Planına göz atmak isteyebilirsiniz. 
+{{% alert color="info" title="TIP" %}} 
+PowerPoint arka planına bakmak isteyebilirsiniz: [PowerPoint Arka Plan](/slides/tr/net/presentation-background/).
 {{% /alert %}}
 
 ## **Tema Efektini Değiştir**
 
-Bir PowerPoint teması genellikle her stil dizisi için 3 değer içerir. Bu diziler, üç etkiye (hafif, orta, yoğun) birleştirilir. Örneğin, bir şekle efektler uygulandığında ortaya çıkan sonuç aşağıdaki gibidir:
+PowerPoint teması genellikle her stil dizisi için 3 değer içerir. Bu diziler, ince, orta ve yoğun olmak üzere 3 etkibe birleştirilir. Örneğin, efektler belirli bir şekle uygulandığında ortaya çıkan sonuç şöyledir:
 
 ![todo:image_alt_text](presentation-design_10.png)
 
-[FormatScheme](https://reference.aspose.com/slides/tr/net/aspose.slides.theme/formatscheme) sınıfındaki 3 özellik ([FillStyles](https://reference.aspose.com/slides/tr/net/aspose.slides.theme/formatscheme/fillstyles), [LineStyles](https://reference.aspose.com/slides/tr/net/aspose.slides.theme/formatscheme/linestyles), [EffectStyles](https://reference.aspose.com/slides/tr/net/aspose.slides.theme/formatscheme/effectstyles)) kullanarak bir temadaki öğeleri değiştirebilirsiniz (PowerPoint'teki seçeneklerden daha esnek bir şekilde).
-
-Bu C# kodu, öğelerin bölümlerini değiştirerek bir tema efektinin nasıl değiştirileceğini gösterir:
+[FillStyles](https://reference.aspose.com/slides/tr/net/aspose.slides.theme/formatscheme/fillstyles), [LineStyles](https://reference.aspose.com/slides/tr/net/aspose.slides.theme/formatscheme/linestyles), [EffectStyles](https://reference.aspose.com/slides/tr/net/aspose.slides.theme/formatscheme/effectstyles) özelliklerini [FormatScheme](https://reference.aspose.com/slides/tr/net/aspose.slides.theme/formatscheme) sınıfından kullanarak bir temadaki öğeleri (PowerPoint'teki seçeneklerden daha esnek bir şekilde) değiştirebilirsiniz:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx"))
 {
     pres.MasterTheme.FormatScheme.LineStyles[0].FillFormat.SolidFillColor.Color = Color.Red;
@@ -249,20 +286,20 @@ using (Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx"))
 }
 ```
 
-Ortaya çıkan dolgu rengi, dolgu türü, gölge efekti vb. değişiklikler:
+Dolgu rengi, dolgu tipi, gölge efekti vb. üzerindeki sonuç değişiklikleri:
 
 ![todo:image_alt_text](presentation-design_11.png)
 
 ## **SSS**
 
-**Bir temayı ana temayı değiştirmeden tek bir slayta uygulayabilir miyim?**
+### Bir temayı ana temayı değiştirmeden tek bir slayta uygulayabilir miyim?
 
-Evet. Aspose.Slides, slayt düzeyinde tema geçersiz kılmalarını destekler, bu sayede yalnızca o slayta yerel bir tema uygulayabilir ve ana temayı (via the [SlideThemeManager](https://reference.aspose.com/slides/tr/net/aspose.slides.theme/slidethememanager/)) aynı tutabilirsiniz.
+Evet. Aspose.Slides, slayt düzeyinde tema geçersiz kılmalarını destekler; böylece sadece o slayta yerel bir tema uygulayabilir ve ana temayı ([SlideThemeManager](https://reference.aspose.com/slides/tr/net/aspose.slides.theme/slidethememanager/)) değiştirmeden koruyabilirsiniz.
 
-**Bir temayı bir sunumdan diğerine taşırken en güvenli yöntem nedir?**
+### Bir temayı bir sunumdan diğerine taşımanın en güvenli yolu nedir?
 
-[Clone slides](/slides/tr/net/clone-slides/) birlikte ana temalarıyla hedef sunuma kopyalayarak. Bu, orijinal ana temayı, düzenleri ve ilişkili temayı korur, böylece görünüm tutarlı kalır.
+[Slaytları kopyala](/slides/tr/net/clone-slides/) ve ana temaları hedef sunuma taşıyarak. Bu, orijinal ana temayı, düzenleri ve ilişkili temayı korur; böylece görünüm tutarlı kalır.
 
-**Tüm kalıtım ve geçersiz kılmalardan sonra "etkili" değerleri nasıl görebilirim?**
+### Tüm kalıtımlar ve geçersiz kılmalar sonrası "etkili" değerleri nasıl görebilirim?
 
-API'nin ["effective"]( /slides/tr/net/shape-effective-properties/) görünümlerini tema/renk/yazı tipi/efekt için kullanın. Bunlar, ana temanın ve herhangi bir yerel geçersiz kılmanın uygulanmasından sonra çözümlenmiş, son özellikleri döndürür.
+Tema/rengi/yazı tipi/efekt için API'nin ["etkili" görünümlerini](/slides/tr/net/shape-effective-properties/) kullanın. Bunlar, ana temayı ve yerel geçersiz kılmaları uyguladıktan sonra çözümlenmiş, final özellikleri döndürür.

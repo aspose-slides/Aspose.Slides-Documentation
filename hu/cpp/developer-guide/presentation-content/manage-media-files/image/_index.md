@@ -1,61 +1,76 @@
 ---
-title: "Képek kezelése a prezentációkban C++-szal optimalizálva"
-linktitle: "Képek kezelése"
+title: Képek kezelésének optimalizálása a bemutatókban C++ használatával
+linktitle: Képek kezelése
 type: docs
 weight: 10
 url: /hu/cpp/image/
 keywords:
-- "kép hozzáadása"
-- "grafika hozzáadása"
-- "bitmap hozzáadása"
-- "kép cseréje"
-- "grafika cseréje"
-- "webről"
-- "háttér"
-- "PNG hozzáadása"
-- "JPG hozzáadása"
-- "SVG hozzáadása"
-- "EMF hozzáadása"
-- "WMF hozzáadása"
-- "TIFF hozzáadása"
-- "PowerPoint"
-- "OpenDocument"
-- "prezentáció"
-- "EMF"
-- "SVG"
-- "C++"
-- "Aspose.Slides"
-description: "Egyszerűsítse a képek kezelését a PowerPoint és OpenDocument formátumokban az Aspose.Slides for C++ segítségével, javítva a teljesítményt és automatizálva a munkafolyamatot."
+- kép hozzáadása
+- kép hozzáadása
+- bitmap hozzáadása
+- kép cseréje
+- kép cseréje
+- webről
+- háttér
+- PNG hozzáadása
+- JPG hozzáadása
+- SVG hozzáadása
+- külső SVG erőforrások
+- SVG feloldó
+- összekapcsolt SVG képek
+- SVG betűkészletek
+- EMF hozzáadása
+- WMF hozzáadása
+- TIFF hozzáadása
+- PowerPoint
+- OpenDocument
+- bemutató
+- C++
+- Aspose.Slides
+description: "Egyszerűsítse a képek kezelését PowerPointban és OpenDocumentben az Aspose.Slides for C++ segítségével, optimalizálva a teljesítményt és automatizálva a munkafolyamatát."
 ---
 ## **Bevezetés**
 
-A képek élénkebbé és érdekesebbé teszik a prezentációkat. A Microsoft PowerPointban képeket szúrhat be fájlból, az internetről vagy más helyekről a diákra. Hasonlóképpen az Aspose.Slides lehetővé teszi, hogy képeket adjon hozzá a prezentációk diáihoz különböző eljárásokon keresztül. 
+Képek teszik a bemutatókat élvezetesebbé és vizuálisan vonzóbbá. A Microsoft PowerPointban képeket szúrhat be a diákra fájlokból, az internetről vagy más forrásokból. Hasonlóan, az Aspose.Slides lehetővé teszi képek hozzáadását a bemutató diákhoz többféleképpen. 
 
-{{% alert title="Tip" color="primary" %}} 
+{{% alert title="Tipp" color="info" %}} 
 
-Az Aspose ingyenes konvertereket biztosít – [JPEG to PowerPoint](https://products.aspose.app/slides/hu/import/jpg-to-ppt) és [PNG to PowerPoint](https://products.aspose.app/slides/hu/import/png-to-ppt) –, amelyek lehetővé teszik, hogy a felhasználók gyorsan prezentációkat hozzanak létre képekből. 
+Aspose ingyenes konvertálókat biztosít—[JPEG PowerPoint-be](https://products.aspose.app/slides/hu/import/jpg-to-ppt) és [PNG PowerPoint-be](https://products.aspose.app/slides/hu/import/png-to-ppt)—amelyekkel gyorsan készíthet bemutatókat képekből. 
 
 {{% /alert %}} 
 
 {{% alert title="Info" color="info" %}}
 
-Ha képet szeretne keretobjektumként hozzáadni – különösen, ha a képre szabványos formázási lehetőségeket kíván alkalmazni a méret módosításához, effektusok hozzáadásához stb. – tekintse meg a [Képkocka](/slides/hu/cpp/picture-frame/) oldalát. 
+Ha egy képet képkockaként szeretne hozzáadni – különösen, ha átméretezni, effektusokat alkalmazni vagy más szabványos formázási lehetőségeket használni kíván – tekintse meg a [Képkocka](/slides/hu/cpp/picture-frame/) oldalt. 
 
 {{% /alert %}} 
 
-{{% alert title="Note" color="warning" %}}
+{{% alert title="Megjegyzés" color="warning" %}}
 
-Képek és PowerPoint prezentációk közötti be- és kimeneti műveleteket kezelhet, hogy egy képet egy formátumból a másikba konvertáljon. Lásd ezeket az oldalakat: konvertálás [kép JPG‑re](https://products.aspose.com/slides/hu/cpp/conversion/image-to-jpg/); konvertálás [JPG képre](https://products.aspose.com/slides/hu/cpp/conversion/jpg-to-image/); konvertálás [JPG‑ról PNG‑ra](https://products.aspose.com/slides/hu/cpp/conversion/jpg-to-png/), konvertálás [PNG‑ról JPG‑ra](https://products.aspose.com/slides/hu/cpp/conversion/png-to-jpg/); konvertálás [PNG‑ról SVG‑ra](https://products.aspose.com/slides/hu/cpp/conversion/png-to-svg/), konvertálás [SVG‑ról PNG‑ra](https://products.aspose.com/slides/hu/cpp/conversion/svg-to-png/).
+Képeket konvertálhat az egyik formátumból a másikba. Lásd a következő oldalakat: konvertálás [kép JPG-re](https://products.aspose.com/slides/hu/cpp/conversion/image-to-jpg/), [JPG képre](https://products.aspose.com/slides/hu/cpp/conversion/jpg-to-image/), [JPG PNG-re](https://products.aspose.com/slides/hu/cpp/conversion/jpg-to-png/), [PNG JPG-re](https://products.aspose.com/slides/hu/cpp/conversion/png-to-jpg/), [PNG SVG-re](https://products.aspose.com/slides/hu/cpp/conversion/png-to-svg/), és [SVG PNG-re](https://products.aspose.com/slides/hu/cpp/conversion/svg-to-png/).
 
 {{% /alert %}}
 
-Az Aspose.Slides támogatja a képekkel végzett műveleteket a következő népszerű formátumokban: JPEG, PNG, GIF és egyebek. 
+Az Aspose.Slides a népszerű formátumokat, például a JPEG, PNG, BMP, GIF és mások támogatja. 
 
-## **Képek helyi tárolásból való hozzáadása a diákhoz**
+## **Helyileg tárolt képek hozzáadása a diákhoz**
 
-A számítógépén tárolt egy vagy több képet hozzáadhatja a prezentáció egy diájához. Az alábbi C++ példakód megmutatja, hogyan lehet képet adni egy diához:
+Egy vagy több, a számítógépén tárolt képet adhat hozzá a bemutató diához. Az alábbi C++ minta kód megmutatja, hogyan adjon képhez egy diát:
 
 ``` cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto pres = System::MakeObject<Presentation>();
 
 auto slide = pres->get_Slides()->idx_get(0);
@@ -65,19 +80,31 @@ slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f,
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-
-
 ## **Képek hozzáadása a webről a diákhoz**
 
-Ha a kívánt kép nincs a számítógépén, közvetlenül a webről adhatja hozzá a diához. 
+Ha a diagramhoz hozzáadni kívánt kép nincs a számítógépén, közvetlenül a webről is hozzáadhatja. 
 
-Ez a példakód megmutatja, hogyan adhat hozzá egy képet a webről egy diához C++‑ban:
+Az alábbi C++ minta kód megmutatja, hogyan adjon képet a webről egy diához:
 
 ``` cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <net/web_client.h>
+#include <system/uri.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
-    
-auto webClient = System::MakeObject<WebClient>();
+
+auto webClient = System::MakeObject<System::Net::WebClient>();
 auto imageData = webClient->DownloadData(System::MakeObject<Uri>(u"[REPLACE WITH URL]"));
 
 auto image = pres->get_Images()->AddImage(imageData);
@@ -86,13 +113,28 @@ slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f,
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-## **Képek hozzáadása dia mesterekhez**
+## **Képek hozzáadása diamesterekhez**
 
-A dia mester a legfelső dia, amely tárolja és vezérli az összes alatta lévő dia információit (téma, elrendezés stb.). Így, amikor egy képet ad hozzá egy dia mesterhez, az a kép minden alatta lévő dián megjelenik. 
+A diamester tárolja és irányítja az információkat, például a témát és az elrendezést a használói diákhoz. Amikor képet ad hozzá egy diamesterhez, a kép minden, a mesterhez tartozó dián megjelenik. 
 
-Ez a C++ példakód megmutatja, hogyan adhat hozzá egy képet egy dia mesterhez:
+Az alábbi C++ minta kód megmutatja, hogyan adjon képet egy diamasterhez:
 
 ``` cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
 auto masterSlide = slide->get_LayoutSlide()->get_MasterSlide();
@@ -105,143 +147,449 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ## **Képek hozzáadása diák háttérként**
 
-Előfordulhat, hogy egy képet szeretne háttérként használni egy adott dián vagy több dián. Ebben az esetben tekintse meg a *[Képek beállítása diák háttereként](https://docs.aspose.com/slides/hu/cpp/presentation-background/#setting-images-as-background-for-slides)* oldalt.
+A képet háttérként használhatja egy vagy több dia esetén. Részletekért lásd a *[Képek beállítása háttérként a diákhoz](/slides/hu/cpp/presentation-background/#setting-images-as-background-for-slides)*.
 
-## **SVG hozzáadása prezentációkhoz**
-Bármilyen képet hozzáadhat vagy beilleszthet egy prezentációba az [AddPictureFrame](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_shape_collection#ab55ae8c24dd32665637725a26ca1c1a9) metódussal, amely az [IShapeCollection](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_shape_collection) interfészhez tartozik.
+## **SVG hozzáadása bemutatókhoz**
 
-Az SVG képen alapuló képobjektus létrehozásához a következő módon járhat el:
+SVG tartalmat adhat hozzá egy bemutatóhoz a [SvgImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/svgimage/) osztály használatával. A kapott [ISvgImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/isvgimage/) objektum ezután hozzáadható a bemutató képkollekciójához, és használható képkocka létrehozásához.
 
-1. Hozzon létre egy **SvgImage** objektumot, hogy beillessze az **ImageShapeCollection**‑be.
-2. Hozzon létre egy **PPImage** objektumot az **ISvgImage**‑ből.
-3. Hozzon létre egy **PictureFrame** objektumot az **IPPImage** interfész használatával.
+Az alábbi C++ példa egy önálló SVG karakterláncot importál. Az SVG által használt összes kép, stílus és egyéb erőforrás közvetlenül az SVG tartalomba van beágyazva.
 
-Ez a példakód megmutatja, hogyan valósítható meg a fenti lépések egy SVG kép prezentációba való hozzáadásához:
-``` cpp 
-// A dokumentumok könyvtárának útvonala
-System::String dataDir = u"D:\\Documents\\";
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
 
-// A forrás SVG fájl neve
-System::String svgFileName = dataDir + u"sample.svg";
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// A kimeneti prezentáció fájl neve
-System::String outPptxPath = dataDir + u"presentation.pptx";
+auto svgContent = String(uR"(
+<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>
+    <rect width='320' height='180' fill='#4F81BD'/>
+    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>
+</svg>)");
 
-// Új prezentáció létrehozása
-auto p = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto svgImage = MakeObject<SvgImage>(svgContent);
+auto image = presentation->get_Images()->AddImage(svgImage);
 
-// SVG fájl tartalmának beolvasása
-System::String svgContent = File::ReadAllText(svgFileName);
+presentation->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(
+    ShapeType::Rectangle, 20.0f, 20.0f,
+    static_cast<float>(image->get_Width()),
+    static_cast<float>(image->get_Height()),
+    image);
 
-// SvgImage objektum létrehozása
-System::SharedPtr<ISvgImage> svgImage = System::MakeObject<SvgImage>(svgContent);
-
-// PPImage objektum létrehozása
-System::SharedPtr<IPPImage> ppImage = p->get_Images()->AddImage(svgImage);
-
-// Új PictureFrame létrehozása 
-p->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 200.0f, 100.0f, static_cast<float>(ppImage->get_Width()), static_cast<float>(ppImage->get_Height()), ppImage);
-
-// Prezentáció mentése PPTX formátumban
-p->Save(outPptxPath, SaveFormat::Pptx);
+presentation->Save(u"self-contained-svg.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **SVG konvertálása alakzatkészletre**
-Az Aspose.Slides SVG‑ről alakzatkészletre történő konvertálása hasonló a PowerPoint SVG‑képekkel való munkára szolgáló funkciójához:
+## **SVG tartalom importálása külső erőforrásokkal**
+
+A tervezőeszközök, diagramkészítők, ikonrendszerek és webes csővezetékek által exportált SVG fájlok hivatkozhatnak a SVG dokumentumon kívül tárolt erőforrásokra. Például egy SVG tartalmazhat egy képhivatkozást, például `images/photo.png`, egy CSS `url(...)` értéket vagy egy betűkészlet URL‑t.
+
+Az ilyen SVG tartalom importálásához hozzon létre egy [IExternalResourceResolver](https://reference.aspose.com/slides/hu/cpp/aspose.slides.import/iexternalresourceresolver/) implementációt, és adja át, a bázis URI‑val együtt, egy megfelelő `SvgImage` konstruktorhoz. A bázis URI az SVG dokumentum helyét azonosítja, és a relatív hivatkozások feloldásához használják.
+
+Az [ISvgImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/isvgimage/) interfész hozzáférést biztosít az importált SVG információihoz:
+
+- `get_SvgContent()` visszaadja az SVG jelölést karakterláncként.
+- `get_SvgData()` visszaadja az SVG tartalmat bájt tömbként.
+- `get_BaseUri()` visszaadja a relatív hivatkozásokhoz használt bázis URI‑t.
+- `get_ExternalResourceResolver()` visszaadja az SVG képhez rendelt feloldót.
+
+### **Külső erőforrás feloldó megvalósítása**
+
+A feloldónak két metódusa van:
+
+- [ResolveUri](https://reference.aspose.com/slides/hu/cpp/aspose.slides.import/iexternalresourceresolver/resolveuri/) kombinálja a bázis URI‑t és egy relatív erőforrás hivatkozást, és egy abszolút URI‑t ad vissza. Null karakterláncot adjon vissza, ha a hivatkozást nem lehet feloldani vagy nem engedélyezett.
+- [GetEntity](https://reference.aspose.com/slides/hu/cpp/aspose.slides.import/iexternalresourceresolver/getentity/) visszaad egy olvasható adatfolyamot egy abszolút erőforrás URI‑hoz. `nullptr`‑t adjon vissza, ha az erőforrás hiányzik, blokkolva van vagy nem érhető el. Egy tartalék adatfolyam is visszaadható, ha megfelelő.
+
+Az alábbi feloldó csak egy engedélyezett helyi könyvtárból tölti be a hivatkozott erőforrásokat. Hálózati erőforrások és a megengedett könyvtáron kívüli elérési utak blokkolva vannak. Egy opcionális tartalék kép visszaadásra kerül a feloldatlan képhivatkozások esetén.
+
+```cpp
+#include <Import/IExternalResourceResolver.h>
+#include <system/array.h>
+#include <system/io/file.h>
+#include <system/io/memory_stream.h>
+#include <system/io/path.h>
+#include <system/io/stream.h>
+#include <system/string.h>
+#include <system/smart_ptr.h>
+#include <system/string_comparison.h>
+#include <system/uri.h>
+
+using namespace Aspose::Slides::Import;
+using namespace System;
+using namespace System::IO;
+
+class LocalSvgResourceResolver : public IExternalResourceResolver
+{
+public:
+    LocalSvgResourceResolver(String allowedRoot, ArrayPtr<uint8_t> fallbackImageData = nullptr)
+        : _allowedRoot(Path::GetFullPath(allowedRoot)),
+          _fallbackImageData(fallbackImageData)
+    {
+    }
+
+    String ResolveUri(String baseUri, String relativeUri) override
+    {
+        if (String::IsNullOrWhiteSpace(baseUri) ||
+            String::IsNullOrWhiteSpace(relativeUri))
+        {
+            return String::Null;
+        }
+
+        auto baseAddress = SharedPtr<Uri>();
+        auto absoluteAddress = SharedPtr<Uri>();
+        if (!Uri::TryCreate(baseUri, UriKind::Absolute, baseAddress) ||
+            !Uri::TryCreate(baseAddress, relativeUri, absoluteAddress))
+        {
+            return String::Null;
+        }
+
+        // Ez a feloldó szándékosan csak helyi fájlok használatát engedélyezi.
+        if (!absoluteAddress->get_IsFile())
+        {
+            return String::Null;
+        }
+
+        auto resourcePath = Path::GetFullPath(absoluteAddress->get_LocalPath());
+        if (!IsInsideAllowedRoot(resourcePath))
+        {
+            return String::Null;
+        }
+
+        return absoluteAddress->get_AbsoluteUri();
+    }
+
+    SharedPtr<Stream> GetEntity(String absoluteUri) override
+    {
+        auto resourceUri = SharedPtr<Uri>();
+        if (!Uri::TryCreate(absoluteUri, UriKind::Absolute, resourceUri) ||
+            !resourceUri->get_IsFile())
+        {
+            return nullptr;
+        }
+
+        auto resourcePath = Path::GetFullPath(resourceUri->get_LocalPath());
+        if (!IsInsideAllowedRoot(resourcePath))
+        {
+            return nullptr;
+        }
+
+        if (File::Exists(resourcePath))
+        {
+            return File::OpenRead(resourcePath);
+        }
+
+        // Csak képfájlokhoz használjon tartalékot.
+        // Kép adatfolyam visszaadása hiányzó betűtípus vagy stíluslap esetén nem lenne érvényes.
+        if (_fallbackImageData != nullptr && IsImageFile(resourcePath))
+        {
+            return MakeObject<MemoryStream>(_fallbackImageData, false);
+        }
+
+        return nullptr;
+    }
+
+private:
+    String _allowedRoot;
+    ArrayPtr<uint8_t> _fallbackImageData;
+
+    bool IsInsideAllowedRoot(String resourcePath)
+    {
+        auto normalizedRoot = _allowedRoot;
+        auto directorySeparator = String(Path::DirectorySeparatorChar, 1);
+        if (!normalizedRoot.EndsWith(directorySeparator))
+        {
+            normalizedRoot += directorySeparator;
+        }
+
+        auto normalizedPath = Path::GetFullPath(resourcePath);
+        auto comparison = Path::DirectorySeparatorChar == u'\\'
+            ? StringComparison::OrdinalIgnoreCase
+            : StringComparison::Ordinal;
+
+        return normalizedPath.StartsWith(normalizedRoot, comparison) ||
+               String::Equals(normalizedPath, _allowedRoot, comparison);
+    }
+
+    static bool IsImageFile(String path)
+    {
+        auto extension = Path::GetExtension(path);
+
+        return String::Equals(extension, u".png", StringComparison::OrdinalIgnoreCase) ||
+               String::Equals(extension, u".jpg", StringComparison::OrdinalIgnoreCase) ||
+               String::Equals(extension, u".jpeg", StringComparison::OrdinalIgnoreCase) ||
+               String::Equals(extension, u".gif", StringComparison::OrdinalIgnoreCase) ||
+               String::Equals(extension, u".bmp", StringComparison::OrdinalIgnoreCase);
+    }
+};
+```
+
+### **Hivatkozott erőforrások feloldása SVG importálás közben**
+
+Tegyük fel, hogy a `assets/diagram.svg` egy relatív hivatkozást tartalmaz, például:
+
+```xml
+<image href="images/photo.png" x="20" y="20" width="320" height="180" />
+```
+
+Az alábbi C++ példa átadja az SVG fájl URI‑ját bázis URI‑ként, és egy egyéni feloldót biztosít. A feloldó a relatív képhivatkozást abszolút URI‑vá alakítja, és egy adatfolyamot ad vissza a hivatkozott erőforrással, miközben az Aspose.Slides feldolgozza az SVG‑t.
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <Import/IExternalResourceResolver.h>
+#include <system/array.h>
+#include <system/environment.h>
+#include <system/io/file.h>
+#include <system/io/path.h>
+#include <system/string.h>
+#include <system/uri.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::Import;
+using namespace System;
+using namespace System::IO;
+
+auto svgFilePath = Path::GetFullPath(Path::Combine(u"assets", u"diagram.svg"));
+auto assetDirectory = Path::GetDirectoryName(svgFilePath);
+if (String::IsNullOrEmpty(assetDirectory))
+{
+    assetDirectory = Environment::get_CurrentDirectory();
+}
+
+auto svgContent = File::ReadAllText(svgFilePath);
+
+// A bázis URI a SVG dokumentum helyét jelöli.
+auto baseUri = MakeObject<Uri>(svgFilePath)->get_AbsoluteUri();
+
+auto fallbackImageData = ArrayPtr<uint8_t>();
+auto fallbackImagePath = Path::Combine(assetDirectory, u"fallback.png");
+if (File::Exists(fallbackImagePath))
+{
+    fallbackImageData = File::ReadAllBytes(fallbackImagePath);
+}
+
+auto resolver = MakeObject<LocalSvgResourceResolver>(assetDirectory, fallbackImageData);
+auto svgImage = MakeObject<SvgImage>(svgContent, resolver, baseUri);
+
+// ISvgImage exposes the source content, binary data, base URI, and resolver.
+auto importedContent = svgImage->get_SvgContent();
+auto importedData = svgImage->get_SvgData();
+auto importedBaseUri = svgImage->get_BaseUri();
+auto importedResolver = svgImage->get_ExternalResourceResolver();
+
+auto presentation = MakeObject<Presentation>();
+auto image = presentation->get_Images()->AddImage(svgImage);
+
+presentation->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(
+    ShapeType::Rectangle, 20.0f, 20.0f,
+    static_cast<float>(image->get_Width()),
+    static_cast<float>(image->get_Height()),
+    image);
+
+presentation->Save(u"svg-with-linked-resources.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+A `SvgImage` osztály további túlterheléseket is kínál, amelyek SVG adatot fogadnak bájt tömbként vagy adatfolyamként, valamint egy külső erőforrás feloldót és egy bázis URI‑t.
+
+{{% alert title="Fontos" color="warning" %}}
+
+Az erőforrás feloldó kívülről származó erőforrásokat tesz elérhetővé, miközben az Aspose.Slides feldolgozza és rendereli az SVG‑t. Nem módosítja az eredeti SVG jelölést, és nem ágyazza be automatikusan a feloldott erőforrásokat.
+
+Amikor egy `ISvgImage` kerül hozzáadásra a bemutató képkollekciójához, a PPTX fájl tartalmazhatja az eredeti SVG ábrázolást és egy raszteres tartalék képet is. Egy hivatkozott erőforrás megjelenhet a létrehozott tartalék képen, míg egy relatív hivatkozás, például `images/photo.png`, változatlan marad a tárolt SVG‑ben. Az alkalmazás, amely a natív SVG ábrázolást rendereli, ezért kihagyhatja a hivatkozott tartalmat, ha az eredeti külső erőforrás nem érhető el.
+
+{{% /alert %}}
+
+### **Hordozható SVG kép létrehozása**
+
+Ahhoz, hogy olyan SVG képet hozzon létre, amely nem függ külső fájloktól, tegye self‑contained‑é a SVG‑t a `SvgImage` létrehozása előtt. Például cserélje le a hivatkozott kép URL‑eket `data:` URI‑kra, amelyek a kép adatokat tartalmazzák:
+
+```xml
+<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
+```
+
+Miután minden szükséges erőforrás be van ágyazva az SVG tartalomba, hozza létre a `SvgImage`‑t, adja hozzá a bemutató képkollekciójához, és szúrja be egy képkockába, ahogy az előző példában.
+
+### **Hiányzó vagy blokkolt erőforrások kezelése**
+
+Null karakterláncot adjon vissza a `ResolveUri`‑ból, ha egy erőforrás URI érvénytelen, tiltott vagy nem oldható fel. `nullptr`‑t adjon vissza a `GetEntity`‑ből, ha az erőforrás nem olvasható. Az Aspose.Slides a lehető legjobban folytatja az SVG feldolgozását az adott erőforrás nélkül.
+
+Egy tartalék adatfolyam visszaadható hiányzó erőforrás esetén, de annak tartalma legyen kompatibilis a kért erőforrás típusával. Például csak kép adatfolyamot adjon vissza hiányzó kép esetén, nem betűkészlet vagy stíluslap esetén.
+
+{{% alert title="Biztonság" color="warning" %}}
+
+Ne oldjon fel önkényes fájl útvonalakat vagy korlátlan hálózati URL‑ket megbízhatatlan SVG fájlokból. Korlátozza a megengedett sémákat, könyvtárakat és hostokat. Hálózati erőforrások esetén alkalmazzon kapcsolat időkorlátot, válaszméret korlátot és tartalom ellenőrzést.
+
+{{% /alert %}}
+
+## **SVG konvertálása alakzatkészletévé**
+Az Aspose.Slides SVG‑t alakzatkészletté konvertálhat, hasonlóan a PowerPoint megfelelő funkciójához:
 
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-A funkciót a [AddGroupShape](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_shape_collection#a07def8851fe87a8f73a1621d2375d13b) metódus egyik túlterhelése biztosítja az [IShapeCollection](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_shape_collection) interfészen, amely első argumentumként egy **ISvgImage** objektumot vár.
+Ez a funkcionalitás egy [AddGroupShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapecollection/) metódus túlterhelésével valósul meg az [IShapeCollection](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapecollection/) interfészben, amely első argumentumként egy [ISvgImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/isvgimage/) objektumot kap.
 
-Ez a példakód megmutatja, hogyan használja a leírt metódust egy SVG fájl alakzatkészletté konvertálásához:
+Az alábbi C++ minta kód megmutatja, hogyan használja ezt a módszert egy SVG fájl alakzatkészletté konvertálásához:
 
 ``` cpp 
-// A dokumentumok könyvtárának útvonala
-System::String dataDir = u"D:\\Documents\\";
+#include <DOM/IPresentation.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/ISvgImage.h>
+#include <DOM/Presentation.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/io/file.h>
 
-// A forrás SVG fájl neve
-System::String svgFileName = dataDir + u"sample.svg";
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
 
-// A kimeneti prezentáció fájl neve
-System::String outPptxPath = dataDir + u"presentation.pptx";
+// Forrás SVG fájl neve
+auto svgFileName = System::String(u"sample.svg");
 
-// Új prezentáció létrehozása
-System::SharedPtr<IPresentation> presentation = System::MakeObject<Presentation>();
+// Kimeneti bemutató fájl neve
+auto outPptxPath = System::String(u"presentation.pptx");
+
+// Új bemutató létrehozása
+auto presentation = System::MakeObject<Presentation>();
 
 // SVG fájl tartalmának beolvasása
-System::String svgContent = File::ReadAllText(svgFileName);
+auto svgContent = File::ReadAllText(svgFileName);
 
 // SvgImage objektum létrehozása
-System::SharedPtr<ISvgImage> svgImage = System::MakeObject<SvgImage>(svgContent);
+auto svgImage = System::MakeObject<SvgImage>(svgContent);
 
 // Dia méretének lekérése
-System::Drawing::SizeF slideSize = presentation->get_SlideSize()->get_Size();
+auto slideSize = presentation->get_SlideSize()->get_Size();
 
-// SVG képet alakzatcsoporttá konvertálása, a dia méretére skálázva
+// Az SVG képet alakzatcsoporttá konvertálja és a dia méretéhez méretezi
 presentation->get_Slides()->idx_get(0)->get_Shapes()->AddGroupShape(svgImage, 0.f, 0.f, slideSize.get_Width(), slideSize.get_Height());
 
-// Prezentáció mentése PPTX formátumban
+// A bemutató mentése PPTX formátumban
 presentation->Save(outPptxPath, SaveFormat::Pptx);
 ```
 
 ## **Képek hozzáadása EMF‑ként a diákhoz**
-Az Aspose.Slides for C++ lehetővé teszi, hogy Excel‑lapokból EMF képeket generáljon, majd ezeket az EMF képeket az Aspose.Cells segítségével a diákba illessze. 
+Az Aspose.Slides for C++ lehetővé teszi EMF képek generálását Excel munkalapokból az Aspose.Cells segítségével, és azok hozzáadását a bemutató diáihoz. 
 
-Ez a példakód megmutatja, hogyan hajtható végre a leírt feladat:
+Az alábbi C++ minta kód megmutatja, hogyan kell ezt megtenni:
 
 ``` cpp 
-System::String dataDir = u"D:\\Documents\\";
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+#include "Aspose.Cells/ImageOrPrintOptions.h"
+#include "Aspose.Cells/ImageType.h"
+#include "Aspose.Cells/Initializer.h"
+#include "Aspose.Cells/SheetRender.h"
+#include "Aspose.Cells/Vector.h"
+#include "Aspose.Cells/Workbook.h"
+#include "Aspose.Cells/Worksheet.h"
+#include "Aspose.Cells/WorksheetCollection.h"
 
-StringPtr cellsXls = new String(dataDir.ToWCS().c_str());
-cellsXls->Append(L"chart.xls");
-intrusive_ptr<Aspose::Cells::IWorkbook> book = Aspose::Cells::Factory::CreateIWorkbook(cellsXls);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-intrusive_ptr<Aspose::Cells::IWorksheet> sheet = book->GetIWorksheets()->GetObjectByIndex(0);
-intrusive_ptr<Aspose::Cells::Rendering::IImageOrPrintOptions> options = Aspose::Cells::Factory::CreateIImageOrPrintOptions();
-options->SetHorizontalResolution(200);
-options->SetVerticalResolution(200);
-options->SetImageFormat(Aspose::Cells::Systems::Drawing::Imaging::ImageFormat::GetEmf());
+// Aspose.Cells for C++-t el kell indítani, mielőtt bármely típusát használjuk.
+Aspose::Cells::Startup();
 
-// Save the workbook to stream
-intrusive_ptr<Aspose::Cells::Rendering::ISheetRender> sr = Aspose::Cells::Factory::CreateISheetRender(sheet, options);
+auto workbook = Aspose::Cells::Workbook(u"chart.xls");
+auto sheet = workbook.GetWorksheets().Get(0);
 
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+// A munkalap renderelése EMF formátumban.
+auto options = Aspose::Cells::ImageOrPrintOptions();
+options.SetHorizontalResolution(200);
+options.SetVerticalResolution(200);
+options.SetImageType(Aspose::Cells::Drawing::ImageType::Emf);
 
-pres->get_Slides()->RemoveAt(0);
+auto sheetRender = Aspose::Cells::SheetRender(sheet, options);
 
-System::String EmfSheetName;
-for (int32_t j = 0; j < sr->GetPageCount(); j++)
+auto presentation = System::MakeObject<Presentation>();
+presentation->get_Slides()->RemoveAt(0);
+
+for (auto pageIndex = 0; pageIndex < sheetRender.GetPageCount(); pageIndex++)
 {
-    EmfSheetName = dataDir + u"test" + System::String::FromWCS(sheet->GetName()->value()) + u" Page" + (j + 1) + u".out.emf";
-    sr->ToImage(j, new String(EmfSheetName.ToWCS().c_str()));
+    // Az Aspose.Cells a renderelt oldalt bufferként adja vissza, amit az Aspose.Slides képként ad hozzá.
+    auto emfData = sheetRender.ToImage(pageIndex);
+    auto emfBytes = System::MakeArray<uint8_t>(emfData.GetLength(), emfData.GetData());
+    auto emfImage = presentation->get_Images()->AddImage(emfBytes);
 
-    auto bytes = System::IO::File::ReadAllBytes(EmfSheetName);
-    auto emfImage = pres->get_Images()->AddImage(bytes);
-
-    System::SharedPtr<ISlide> slide = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->GetByType(SlideLayoutType::Blank));
-    auto slideSize = pres->get_SlideSize()->get_Size();
+    auto slide = presentation->get_Slides()->AddEmptySlide(
+        presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank));
+    auto slideSize = presentation->get_SlideSize()->get_Size();
     slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 0.0f, 0.0f, slideSize.get_Width(), slideSize.get_Height(), emfImage);
 }
 
-pres->Save(dataDir + u"Saved.pptx", SaveFormat::Pptx);
+presentation->Save(u"Saved.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+workbook.Dispose();
+
+Aspose::Cells::Cleanup();
 ```
 
-## **Képek cseréje a képgyűjteményben**
+## **Képek cseréje a képkollekcióban**
 
-Az Aspose.Slides lehetővé teszi a prezentáció képgyűjteményében (beleértve a dia alakzatok által használt képeket is) tárolt képek cseréjét. Ez a szakasz több megközelítést mutat be a gyűjteményben lévő képek frissítésére. Az API egyszerű módszereket kínál a kép cseréjére nyers bájtadatok, egy [IImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iimage/) példány vagy egy már a gyűjteményben létező másik kép használatával.
+Az Aspose.Slides lehetővé teszi a bemutató képkollekciójában tárolt képek cseréjét, beleértve a diák alakzatai által használt képeket is. Ez a szakasz többféle módot ír le a kollekcióban lévő képek frissítésére. Képet cserélhet nyers bájt adatokkal, egy [IImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iimage/) példánnyal, vagy egy már a kollekcióban létező képpel.
 
 Kövesse az alábbi lépéseket:
 
-1. Töltse be a képeket tartalmazó prezentációs fájlt a [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) osztállyal.
-2. Töltsön be egy új képet fájlból egy bájt tömbbe.
-3. Cserélje le a célképet az új képre a bájt tömb használatával.
-4. A második megközelítésben töltse be a képet egy [IImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iimage/) objektumba, majd cserélje le a célképet ezzel az objektummal.
-5. A harmadik megközelítésben cserélje le a célképet egy olyan képpel, amely már létezik a prezentáció képgyűjteményében.
-6. Írja a módosított prezentációt PPTX fájlként.
+1. Töltse be a képeket tartalmazó bemutató fájlt a [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) osztállyal.
+1. Töltsön be egy új képet egy fájlból egy bájt tömbbe.
+1. Cserélje le a célképet az új képre a bájt tömb használatával.
+1. A második megközelítésben töltse be a képet egy [IImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iimage/) objektumba, és cserélje le a célképet ezzel az objektummal.
+1. A harmadik megközelítésben cserélje le a célképet egy már a bemutató képkollekciójában létező képpel.
+1. Írja ki a módosított bemutatót PPTX fájlként.
 
 ```cpp
-// Példányosítsa a Presentation osztályt, amely egy prezentációs fájlt képvisel.
+#include <DOM/IPPImage.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+// Hozzon létre egy Presentation példányt, amely egy bemutató fájlt képvisel.
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
 // Az első mód.
@@ -259,35 +607,35 @@ newImage->Dispose();
 oldImage = presentation->get_Image(2);
 oldImage->ReplaceImage(presentation->get_Image(3));
 
-// Mentse a prezentációt egy fájlba.
+// Mentse a bemutatót egy fájlba.
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
 {{% alert title="Info" color="info" %}}
 
-Az Aspose INGYENES [Text to GIF](https://products.aspose.app/slides/hu/text-to-gif) konverterével könnyedén animálhat szövegeket, GIF‑eket készíthet szövegekből stb. 
+Az Aspose ingyenes [Szöveg GIF‑re](https://products.aspose.app/slides/hu/text-to-gif) konvertálója segítségével egyszerűen animálhat szöveget és hozhat létre GIF‑eket a szövegből. 
 
 {{% /alert %}}
 
 ## **GYIK**
 
-**Megmarad az eredeti kép felbontása a beszúrás után?**
+**Megmarad‑e az eredeti kép felbontása a beillesztés után?**
 
-Igen. A forráspixelek megmaradnak, de a végső megjelenés attól függ, hogy a [kép](/slides/hu/cpp/picture-frame/) hogyan van méretezve a dián, és milyen tömörítést alkalmaznak mentéskor.
+Igen. A forrás pixelek megmaradnak, de a végső megjelenés attól függ, hogy a [picture](/slides/hu/cpp/picture-frame/) hogyan skálázódik a dián és milyen tömörítést alkalmaznak mentéskor.
 
-**Mi a legjobb módja annak, hogy egyszerre több tucat dián cseréljük le ugyanazt a logót?**
+**Mi a legjobb módja annak, hogy egy logót egyszerre cseréljünk több tucat dián?**
 
-Helyezze a logót a mesterdiára vagy egy elrendezésre, és cserélje le a prezentáció képgyűjteményében – a frissítés minden olyan elemre kiterjed, amely azt a forrást használja.
+Helyezze a logót a master diára vagy egy elrendezésre, és cserélje a bemutató képkollekciójában – a frissítések minden, azt az erőforrást használó elemre kiterjednek.
 
-**Átalakítható‑e egy beillesztett SVG szerkeszthető alakzatokká?**
+**Konvertálható‑e egy beillesztett SVG szerkeszthető alakzatokká?**
 
-Igen. Az SVG‑t konvertálhatja alakzatcsoporttá, majd az egyes részek szerkeszthetők lesznek a szokásos alakzattulajdonságokkal.
+Igen. Az SVG konvertálható alakzatcsoporttá, amelynek egyes részei szerkeszthetők a szokásos alakzat tulajdonságokkal.
 
-**Hogyan állíthatom be egy képet háttérként több diára egyszerre?**
+**Hogyan állíthatok be egy képet háttérként több diára egyszerre?**
 
-[Állítsa be a képet háttérnek](/slides/hu/cpp/presentation-background/) a mesterdián vagy a megfelelő elrendezésen – a master/​layout‑ot használó diák öröklik a hátteret.
+[Tegye a képet háttérként](/slides/hu/cpp/presentation-background/) a master diára vagy a megfelelő elrendezésre – minden, ezt a mastert/elrendezést használó dia örökli a hátteret.
 
-**Hogyan kerülhetem el, hogy a prezentáció sok kép miatt „fellő” a méretét?**
+**Hogyan kerülhetem el, hogy a prezentáció túl nagy legyen a sok képek miatt?**
 
-Használjon egyetlen képforrást a másolatok helyett, válasszon megfelelő felbontást, alkalmazzon tömörítést mentéskor, és ismétlődő grafikákat tegyen a mesterre, ahol indokolt.
+Használjon egyetlen kép erőforrást a másolatok helyett, válasszon megfelelő felbontást, alkalmazzon tömörítést mentéskor, és tartsa a gyakran ismétlődő grafikákat a masteren, ahol szükséges.

@@ -10,29 +10,31 @@ keywords:
 - terapkan font
 - ganti font
 - rentang Unicode
-- glif yang hilang
-- glif yang tepat
+- glyph yang hilang
+- glyph yang tepat
 - PowerPoint
 - OpenDocument
 - presentasi
 - Android
 - Java
 - Aspose.Slides
-description: "Menguasai Aspose.Slides untuk Android via Java untuk mengatur font fallback dalam file PPT, PPTX, dan ODP, memastikan tampilan teks yang konsisten pada perangkat atau sistem operasi apa pun."
+description: "Kuasi Aspose.Slides untuk Android dengan Java untuk mengatur font fallback dalam file PPT, PPTX, dan ODP, menjamin tampilan teks yang konsisten di perangkat atau sistem operasi apa pun."
 ---
 ## **Ikhtisar**
 
-Aspose.Slides memungkinkan Anda menentukan font fallback untuk rendering presentasi dan operasi ekspor. Font fallback digunakan ketika font utama tidak memiliki glif untuk karakter tertentu.
+Aspose.Slides memungkinkan Anda menentukan font fallback untuk proses render presentasi dan operasi ekspor. Font fallback digunakan ketika font utama tidak memiliki glyph untuk karakter tertentu.
 
-Perilaku fallback dikonfigurasi melalui aturan fallback. Setiap aturan mengaitkan rentang Unicode dengan satu atau lebih font yang mungkin berisi glif yang diperlukan. Anda dapat menentukan aturan untuk rentang karakter yang berbeda, menambah atau menghapus font fallback dari aturan yang ada, dan mengatur beberapa aturan dalam koleksi aturan font fallback.
+Perilaku fallback dikonfigurasi melalui aturan fallback. Setiap aturan mengaitkan rentang Unicode dengan satu atau lebih font yang mungkin berisi glyph yang dibutuhkan. Anda dapat mendefinisikan aturan untuk rentang karakter yang berbeda, menambah atau menghapus font fallback dari aturan yang ada, dan mengatur beberapa aturan dalam koleksi aturan font fallback.
 
-Aturan fallback adalah pengaturan rendering saat runtime. Mereka tidak mengubah file presentasi itu sendiri dan tidak disimpan di dalam file PPTX.
+Aturan fallback adalah pengaturan rendering waktu runtime. Mereka tidak mengubah file presentasi itu sendiri dan tidak disimpan di dalam file PPTX.
 
 ## **Aturan Fallback**
 
-Aspose.Slides mendukung antarmuka [IFontFallBackRule](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IFontFallBackRule) dan kelas [FontFallBackRule](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/FontFallBackRule) untuk menentukan aturan penerapan font fallback. Kelas [FontFallBackRule](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/FontFallBackRule) mewakili asosiasi antara rentang Unicode yang ditentukan, yang digunakan untuk mencari glif yang hilang, dan daftar font yang mungkin berisi glif yang tepat:
+Aspose.Slides mendukung antarmuka [IFontFallBackRule](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IFontFallBackRule) dan kelas [FontFallBackRule](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/FontFallBackRule) untuk menentukan aturan penerapan font fallback. Kelas [FontFallBackRule](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/FontFallBackRule) mewakili asosiasi antara rentang Unicode yang ditentukan, yang digunakan untuk mencari glyph yang tidak ditemukan, dan daftar font yang mungkin berisi glyph yang tepat:
 
 ```java
+import com.aspose.slides.*;
+
 long startUnicodeIndex = 0x0B80;
 long endUnicodeIndex = 0x0BFF;
 
@@ -45,32 +47,32 @@ String[] fontNames = new String[] { "Segoe UI Emoji, Segoe UI Symbol", "Arial" }
 IFontFallBackRule thirdRule = new FontFallBackRule(0x1F300, 0x1F64F, fontNames);
 ```
 
-Anda juga dapat [remove](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/FontFallBackRule#remove-java.lang.String-) font fallback atau [addFallBackFonts](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) ke dalam objek [FontFallBackRule](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/FontFallBackRule) yang ada.
+Juga dimungkinkan untuk [remove](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/FontFallBackRule#remove-java.lang.String-) font fallback atau [addFallBackFonts](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) ke dalam objek [FontFallBackRule](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/FontFallBackRule) yang sudah ada.
 
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/FontFallBackRulesCollection) dapat digunakan untuk mengatur daftar objek [FontFallBackRule](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/FontFallBackRule), ketika diperlukan untuk menentukan aturan penggantian font fallback untuk beberapa rentang Unicode.
 
-{{% alert color="primary" title="Lihat juga" %}} 
-- [Buat Koleksi Font Fallback](/slides/id/androidjava/create-fallback-fonts-collection/)
+{{% alert color="info" title="Lihat juga" %}} 
+- [Create Fallback Fonts Collection](/slides/id/androidjava/create-fallback-fonts-collection/)
 {{% /alert %}}
 
 ## **FAQ**
 
-**Apa perbedaan antara font fallback, substitusi font, dan embedding font?**
+### Apa perbedaan antara font fallback, substitusi font, dan penyematan font?
 
-Font fallback hanya digunakan untuk karakter yang tidak ada dalam font utama. [Font substitution](/slides/id/androidjava/font-substitution/) menggantikan seluruh font yang ditentukan dengan font lain. [Font embedding](/slides/id/androidjava/embedded-font/) mengemas font ke dalam file output sehingga penerima dapat melihat teks sesuai yang dimaksud.
+Font fallback hanya digunakan untuk karakter yang hilang di font utama. [Font substitution](/slides/id/androidjava/font-substitution/) menggantikan seluruh font yang ditentukan dengan font lain. [Font embedding](/slides/id/androidjava/embedded-font/) menyertakan font di dalam file output sehingga penerima dapat melihat teks seperti yang dimaksud.
 
-**Apakah font fallback diterapkan selama ekspor seperti PDF, PNG, atau SVG, atau hanya pada rendering di layar?**
+### Apakah font fallback diterapkan selama ekspor seperti PDF, PNG, atau SVG, atau hanya pada rendering layar?
 
-Ya. Fallback memengaruhi semua [operasi rendering dan ekspor](/slides/id/androidjava/convert-presentation/) di mana karakter harus digambar tetapi tidak ada dalam font sumber.
+Ya. Fallback memengaruhi semua [rendering and export operations](/slides/id/androidjava/convert-presentation/) di mana karakter harus digambar tetapi tidak ada di font sumber.
 
-**Apakah mengonfigurasi fallback mengubah file presentasi itu sendiri, dan apakah pengaturan akan tetap ada untuk pembukaan selanjutnya?**
+### Apakah mengonfigurasi fallback mengubah file presentasi itu sendiri, dan apakah pengaturan ini akan tetap ada saat dibuka di kemudian hari?
 
-Tidak. Aturan fallback adalah pengaturan rendering runtime dalam kode Anda; mereka tidak disimpan di dalam .pptx dan tidak akan muncul di PowerPoint.
+Tidak. Aturan fallback adalah pengaturan rendering waktu runtime dalam kode Anda; mereka tidak disimpan di dalam .pptx dan tidak akan muncul di PowerPoint.
 
-**Apakah sistem operasi (Windows/Linux/macOS) dan kumpulan direktori font memengaruhi pemilihan fallback?**
+### Apakah sistem operasi (Windows/Linux/macOS) dan set direktori font memengaruhi pemilihan fallback?
 
-Ya. Mesin mencari font dari folder sistem yang tersedia dan [jalur tambahan](/slides/id/androidjava/custom-font/) yang Anda berikan. Jika sebuah font tidak tersedia secara fisik, aturan yang merujuk padanya tidak dapat diterapkan.
+Ya. Mesin mencari font dari folder sistem yang tersedia dan setiap [additional paths](/slides/id/androidjava/custom-font/) yang Anda berikan. Jika sebuah font tidak tersedia secara fisik, aturan yang merujuk padanya tidak dapat diterapkan.
 
-**Apakah fallback berfungsi untuk WordArt, SmartArt, dan diagram?**
+### Apakah fallback berfungsi untuk WordArt, SmartArt, dan diagram?
 
-Ya. Ketika objek-objek ini berisi teks, mekanisme substitusi glif yang sama diterapkan untuk merender karakter yang hilang.
+Ya. Ketika objek-objek ini berisi teks, mekanisme substitusi glyph yang sama diterapkan untuk merender karakter yang hilang.

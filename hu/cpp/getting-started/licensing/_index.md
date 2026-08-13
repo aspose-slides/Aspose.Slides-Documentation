@@ -10,72 +10,83 @@ keywords:
 - licenc használata
 - licenc ellenőrzése
 - licencfájl
-- értékelő verzió
+- értékelési verzió
 - PowerPoint
 - OpenDocument
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Licenc alkalmazása, kezelése és hibaelhárítása az Aspose.Slides for C++-ban. Biztosítsa a teljes funkciók megszakítás nélküli elérését lépésről lépésre útmutatónkkal."
+description: "Licencek alkalmazása, kezelése és hibák elhárítása az Aspose.Slides for C++‑ban. Biztosítsa a folyamatos hozzáférést a teljes funkciókhoz lépésről‑lépésre útmutatónkkal a licenceléshez."
 ---
 ## **Áttekintés**
 
-Aspose.Slides használható értékelő módban vagy érvényes licencszel. Az értékelő verzió ugyanazt a funkcionalitást biztosítja, mint a licencelt változat, de értékelő vizesjelet helyez a prezentációk megnyitásakor vagy mentésekor, és a szövegkivonatolást egy diára korlátozza.
+Az Aspose.Slides használható értékelési módban vagy érvényes licenccel. Az értékelési verzió ugyanazt a funkcionalitást biztosítja, mint a licencelt verzió, de egy értékelési vízjelet helyez a prezentációk megnyitásakor vagy mentésekor, és a szövegkivonást egy diára korlátozza.
 
-Ez a cikk elmagyarázza, hogyan működik a licencelés az Aspose.Slides-ben, és hogyan alkalmazzunk licencet a könyvtár használata előtt. A licenc betölthető fájlból, streamből vagy beágyazott erőforrásból a `License` osztály segítségével. A cikk bemutatja továbbá, hogyan ellenőrizhetjük, hogy a licenc helyesen lett-e alkalmazva.
+Ez a cikk bemutatja, hogyan működik a licencelés az Aspose.Slides-ben, és hogyan alkalmazhat licencet a könyvtár használata előtt. Licencet betölthet fájlból, adatfolyamból vagy beágyazott erőforrásból a `License` osztály használatával. A cikk azt is megmutatja, hogyan ellenőrizheti, hogy a licenc megfelelően alkalmazásra került-e.
 
-## **Az Aspose.Slides értékelése**
+## **Értékelje az Aspose.Slides**
 
-{{% alert color="primary" %}} 
-Letöltheti a **Aspose.Slides for C++** értékelő verzióját [a NuGet letöltési oldaláról](https://www.nuget.org/packages/Aspose.Slides.CPP/). Az értékelő verzió ugyanazt a funkcionalitást kínálja, mint a licencelt termék. Valójában az értékelő csomag azonos a megvásárolttal – csak néhány kódsor hozzáadásával válik licencelté.
+{{% alert color="info" %}} 
 
-Miután elégedett a **Aspose.Slides** értékelésével, [licencet vásárolhat](https://purchase.aspose.com/buy). Javasoljuk, hogy tekintse át a rendelkezésre álló előfizetési típusokat. Ha kérdése van, nyugodtan lépjen kapcsolatba az Aspose értékesítési csapatával.
+Letöltheti az **Aspose.Slides for C++** értékelési verzióját a [nuget letöltési oldaláról](https://www.nuget.org/packages/Aspose.Slides.CPP/). Az értékelési verzió ugyanazt a funkcionalitást kínálja, mint a licencelt termék. Valójában az értékelési csomag azonos a megvásároltal – egyszerűen csak licencelt lesz, ha néhány sor kóddal alkalmazza a licencet.
 
-Minden Aspose licenc egyéves előfizetést tartalmaz ingyenes frissítésekkel, beleértve az ebben az időszakban kiadott új verziókat és hibajavításokat. Akár licencelt, akár értékelő verziót használ, ingyenes és korlátlan technikai támogatást kap.
+Ha elégedett az **Aspose.Slides** értékelésével, akkor [licencet vásárolhat](https://purchase.aspose.com/buy). Javasoljuk, hogy tekintse át a rendelkezésre álló előfizetéstípusokat. Ha kérdése van, forduljon az Aspose értékesítési csapatához.
+
+Minden Aspose licenc egyéves előfizetést tartalmaz ingyenes frissítésekhez, beleértve az ebben az időszakban kiadott új verziókat és hibajavításokat. Legyen szó licencelt vagy értékelési verzióról, ingyenes és korlátlan műszaki támogatást kap.
+
 {{% /alert %}} 
 
-**Az értékelő verzió korlátozásai**
+**Az értékelési verzió korlátozásai**
 
-* Míg az Aspose.Slides értékelő verziója (licenc hiányában) a termék teljes funkcionalitását biztosítja, megnyitás és mentés közben a dokumentum tetejére értékelő vizesjelet helyez.
-* Szövegkivonatolás egy diára korlátozódik az értékelő verzió használata esetén.
+* Míg az Aspose.Slides értékelési verziója (amikor nincs licenc alkalmazva) a teljes termékfunkcionalitást biztosítja, egy értékelési vízjelet helyez a dokumentum tetejére a megnyitási és mentési műveletek során.
+* A szövegkivonás egy diára korlátozott az értékelési verzió használatakor.
 
-{{% alert color="primary" %}} 
-Az Aspose.Slides korlátok nélküli teszteléséhez kérhet **30 napos ideiglenes licencet**. További információkért lásd a [Temporary License beszerzése](https://purchase.aspose.com/temporary-license) oldalt.
+{{% alert color="info" %}} 
+
+A korlátok nélküli teszteléshez kérhet **30 napos ideiglenes licencet**. További információért tekintse meg a [Ideiglenes licenc beszerzése](https://purchase.aspose.com/temporary-license) oldalt.
+
 {{% /alert %}}
 
 ## **Licencelés az Aspose.Slides-ben**
 
-* Az értékelő verzió licencelté válik, miután licencet vásárol és néhány kódsorral alkalmazza.
-* A licenc egy egyszerű szöveges XML fájl, amely tartalmazza például a termék nevét, a licencelt fejlesztők számát, az előfizetés lejárati dátumát és egyebeket.
-* A licencfájl digitálisan aláírt, ezért nem módosítható. Még egy véletlen változtatás – például egy sortörés hozzáadása – érvényteleníti a fájlt.
+* Az értékelési verzió licencelté válik, miután megvásárolta a licencet, és néhány sor kóddal alkalmazza.
+* A licenc egy egyszerű szöveges XML fájl, amely olyan adatokat tartalmaz, mint a termék neve, a licencelt fejlesztők száma, az előfizetés lejárati dátuma és egyebek.
+* A licencfájlt digitálisan aláírják, ezért azt nem szabad módosítani. Még egy véletlen sortörés is érvényteleníti a fájlt.
 * Az Aspose.Slides for C++ általában a licencfájlt a következő helyeken keresi:
-  * A kódban explicit módon megadott útvonal
-  * A komponens DLL-t (az Aspose.Slides-ben) tartalmazó mappa
-  * Az a mappa, amely a komponens DLL-t meghívó assembly-t tartalmazza
-* Az értékelő verzió korlátozásainak elkerülése érdekében be kell állítania a licencet az Aspose.Slides használata előtt. A licencet csak egyszer kell beállítani alkalmazáson vagy folyamatonként.
+  * Kódban kifejezetten megadott útvonal
+  * A komponens DLL‑jét tartalmazó mappa (az Aspose.Slides-ben)
+  * Az a mappa, amely a komponens DLL‑jét meghívó assembly‑t tartalmazza
+* Az értékelési verzió korlátozásainak elkerülése érdekében a licencet a Aspose.Slides használata előtt kell beállítani. Egy licencet csak egyszer kell beállítani alkalmazásonként vagy folyamatonként.
 
 ## **Licenc alkalmazása**
 
-A licenc betölthető **fájlból**, **streamből** vagy **beágyazott erőforrásból**.
+A licenc betölthető **fájlból**, **adatfolyamból** vagy **beágyazott erőforrásból**.
 
-{{% alert color="primary" %}}
-Az Aspose.Slides a [License](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.license/) osztályt biztosítja a licencelési műveletekhez.
+{{% alert color="info" %}}
+
+Az Aspose.Slides biztosítja a [License](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.license/) osztályt a licencelési műveletekhez.
+
 {{% /alert %}} 
 
 {{% alert color="warning" %}}
-Az új licenc csak a 21.4 vagy újabb verzióval aktiválható az Aspose.Slides-ben. A korábbi verziók más licencelési rendszert használnak, és nem ismerik fel ezeket a licenceket.
+
+Új licencek csak a 21.4 vagy újabb verzióval aktiválhatók az Aspose.Slides-ben. A korábbi verziók más licencelési rendszert használnak, és nem ismerik fel ezeket a licenceket.
+
 {{% /alert %}}
 
 ### **Fájl**
 
-A licenc beállításának legegyszerűbb módja, ha a licencfájlt a komponens DLL-jével (az Aspose.Slides-ben) azonos mappába helyezzük, és csak a fájlnevet adjuk meg, az útvonal nélkül.
+A legegyszerűbb módja a licenc beállításának, ha a licencfájlt a komponens DLL‑jét tartalmazó mappában helyezi el (az Aspose.Slides-ben), és csak a fájlnevet adja meg, útvonal nélkül.
 
-A következő C++ kód bemutatja, hogyan kell beállítani egy licencfájlt:
+Az alábbi C++ kód bemutatja, hogyan állítsuk be a licencfájlt:
 
 ```c++
 #include <Util/License.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
 
 using namespace Aspose::Slides;
+using namespace System;
 
 int main()
 {
@@ -87,16 +98,25 @@ int main()
 ```
 
 {{% alert color="warning" %}} 
-Ha a licencfájlt más könyvtárba helyezi, akkor a [License::SetLicense](https://reference.aspose.com/slides/hu/cpp/aspose.slides/license/setlicense/) metódus hívásakor a megadott explicit útvonal végén szereplő fájlnévnek pontosan meg kell egyeznie a licencfájl nevével.
 
-Például, ha a licencfájlt *Aspose.Slides.lic.xml*-re nevezik át, a kódban a [License::SetLicense](https://reference.aspose.com/slides/hu/cpp/aspose.slides/license/setlicense/) metódusnak a teljes, *Aspose.Slides.lic.xml*-re végződő elérési utat kell átadni.
+Ha a licencfájlt más könyvtárba helyezi, akkor a [License::SetLicense](https://reference.aspose.com/slides/hu/cpp/aspose.slides/license/setlicense/) metódus meghívásakor a megadott explicit útvonal utolsó részének pontosan meg kell egyeznie a licencfájl nevével.
+
+Például, ha a licencfájlt *Aspose.Slides.lic.xml* névre változtatja, akkor a [License::SetLicense](https://reference.aspose.com/slides/hu/cpp/aspose.slides/license/setlicense/) metódusnak a teljes, *Aspose.Slides.lic.xml*-re végződő útvonalat kell átadnia a kódban.
+
 {{% /alert %}}
 
 ### **Adatfolyam**
 
-A licencet betöltheti egy adatfolyamból. A következő C++ kód bemutatja, hogyan kell licencet alkalmazni adatfolyamból:
+Betölthet licencet egy adatfolyamból. Az alábbi C++ kód bemutatja, hogyan alkalmazzon licencet adatfolyamból:
 
 ```c++
+#include <Util/License.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto license = MakeObject<License>();
 
 auto stream = File::OpenRead(u"Aspose.Slides.lic");
@@ -106,9 +126,14 @@ license->SetLicense(stream);
 
 ## **Licenc ellenőrzése**
 
-Annak ellenőrzésére, hogy a licenc megfelelően lett-e beállítva, validálhatja azt. A következő C++ kód bemutatja, hogyan kell licencet ellenőrizni:
+Annak ellenőrzéséhez, hogy a licenc helyesen lett-e beállítva, validálhatja azt. Az alábbi C++ kód mutatja, hogyan validálja a licencet:
 
 ```c++
+#include <Util/License.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto license = MakeObject<License>();
 
 license->SetLicense(u"Aspose.Slides.lic");
@@ -123,15 +148,17 @@ if (license->IsLicensed())
 ## **Szálbiztonság**
 
 {{% alert title="Note" color="warning" %}} 
-A [License::SetLicense](https://reference.aspose.com/slides/hu/cpp/aspose.slides/license/setlicense/) metódus **nem szálbiztos**. Ha ezt a metódust egyszerre több szálból akarja hívni, ajánlott szinkronizációs primitíveket (például lock-ot) használni a lehetséges problémák elkerülése érdekében.
+
+A [License::SetLicense](https://reference.aspose.com/slides/hu/cpp/aspose.slides/license/setlicense/) metódus **nem szálbiztos**. Ha ezt a metódust egyszerre több szálból kell meghívni, ajánlott szinkronizációs primitíveket (például lockot) használni a lehetséges problémák elkerülése érdekében.
+
 {{% /alert %}}
 
-## **GYIK**
+## **FAQ**
 
-**Alkalmazhatom a licencet teljesen offline környezetben (nincs internetkapcsolat)?**
+### Alkalmazhatom-e a licencet teljesen offline környezetben (internetkapcsolat nélkül)?
 
-Igen. A licenc ellenőrzése helyben történik a licencfájl használatával; internetkapcsolat nem szükséges.
+Igen. A licenc ellenőrzése helyben, a licencfájl használatával történik; internetkapcsolatra nincs szükség.
 
-**Mi történik, amikor az egyéves előfizetés lejár? Leáll a könyvtár működése?**
+### Mi történik, ha az egyéves előfizetés lejár?
 
-Nem. A licenc örökös: továbbra is használhatja az előfizetés vége előtti kiadott verziókat; csak az újabb kiadásokat nem vehetik igénybe megújítás nélkül.
+Nem. A licenc örökös: a feliratkozás befejeződése előtt kiadott verziókat továbbra is használhatja; csak az újabb kiadásokhoz újra kell vásárolnia a licencet.

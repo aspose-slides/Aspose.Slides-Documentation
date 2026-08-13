@@ -1,29 +1,29 @@
 ---
-title: Định dạng Tài liệu Di động (PDF)
+title: Định dạng tài liệu di động (PDF)
 type: docs
 weight: 40
 url: /vi/java/portable-document-format-pdf/
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-[Định dạng Tài liệu Di động](https://en.wikipedia.org/wiki/PDF) là một định dạng tệp do Adobe Systems tạo ra để trao đổi tài liệu giữa các tổ chức. Mục đích của định dạng này là giữ nguyên nội dung và bố cục, bất kể nền tảng mà nó được xem. Aspose.Slides for Java cho phép bạn chuyển đổi tệp trình chiếu sang PDF.
+[Định dạng tài liệu di động](https://en.wikipedia.org/wiki/PDF) là một định dạng tệp được tạo bởi Adobe Systems để trao đổi tài liệu giữa các tổ chức. Mục đích của định dạng này là giữ nguyên nội dung và bố cục, bất kể nền tảng mà nó được xem. Aspose.Slides for Java cho phép bạn chuyển đổi các tệp trình chiếu sang PDF.
 
 {{% /alert %}} 
 
 ## **PDF trong Aspose.Slides for Java**
-Bất kỳ bài thuyết trình nào có thể tải vào Aspose.Slides for Java đều có thể được chuyển đổi sang PDF đáp ứng [PDF 1.5](https://en.wikipedia.org/wiki/PDF/A), [PDF/A-1a](https://en.wikipedia.org/wiki/PDF/A), [PDF/A-1b](https://en.wikipedia.org/wiki/PDF/A) hoặc [PDF/UA](https://en.wikipedia.org/wiki/PDF/UA) tùy theo lựa chọn của bạn. Aspose.Slides for Java xuất bài thuyết trình sang PDF và trong hầu hết các trường hợp, PDF đầu ra trông giống hệt bản trình bày gốc.
+Bất kỳ bản trình chiếu nào có thể được tải vào Aspose.Slides for Java đều có thể được chuyển đổi sang PDF tuân thủ [PDF 1.5](https://en.wikipedia.org/wiki/PDF/A), [PDF/A-1a](https://en.wikipedia.org/wiki/PDF/A), [PDF/A-1b](https://en.wikipedia.org/wiki/PDF/A) hoặc [PDF/UA](https://en.wikipedia.org/wiki/PDF/UA) tùy theo lựa chọn của bạn. Aspose.Slides for Java xuất các bản trình chiếu sang PDF và trong hầu hết các trường hợp, PDF đầu ra trông giống hệt bản trình chiếu gốc.
 
 Aspose.Slides hỗ trợ các tính năng trình chiếu sau khi chuyển đổi sang PDF:
 
-- Hình ảnh, ô văn bản và các hình dạng khác.
+- Hình ảnh, hộp văn bản và các hình dạng khác.
 - Văn bản và định dạng.
 - Đoạn văn và định dạng.
-- Siêu liên kết.
-- Header và footer.
-- Đầu mục.
+- Liên kết.
+- Đầu trang và chân trang.
+- Danh sách dấu đầu dòng.
 - Bảng.
 
-Bạn có thể xuất bài thuyết trình sang PDF trực tiếp bằng Aspose.Slides for Java: không cần bất kỳ thành phần nào khác. Hơn nữa, bạn có thể tùy chỉnh việc xuất trình chiếu sang PDF với các tùy chọn khác nhau như được giải thích trong [Chuyển đổi sang PDF](/slides/vi/java/converting-a-presentation/).
+Bạn có thể xuất bản trình chiếu sang PDF trực tiếp bằng cách sử dụng Aspose.Slides for Java: không cần bất kỳ thành phần nào khác. Hơn nữa, bạn có thể tùy chỉnh việc xuất bản trình chiếu sang PDF với nhiều tùy chọn khác nhau như được giải thích trong [Chuyển đổi sang PDF](/slides/vi/java/converting-a-presentation/).
 
 **Bản trình chiếu đầu vào** 
 

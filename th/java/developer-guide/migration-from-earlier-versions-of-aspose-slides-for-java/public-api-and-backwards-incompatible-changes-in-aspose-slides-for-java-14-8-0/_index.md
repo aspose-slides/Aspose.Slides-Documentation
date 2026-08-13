@@ -1,34 +1,36 @@
 ---
-title: API สาธารณะและการเปลี่ยนแปลงที่ไม่เข้ากันย้อนหลังใน Aspose.Slides for Java 14.8.0
+title: API สาธารณะและการเปลี่ยนแปลงที่ไม่เข้ากันย้อนกลับใน Aspose.Slides for Java 14.8.0
 linktitle: Aspose.Slides for Java 14.8.0
 type: docs
 weight: 70
 url: /th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/
 keywords:
-- การย้าย
-- โค้ดเก่า
+- การโยกย้าย
+- โค้ดเดิม
 - โค้ดสมัยใหม่
-- วิธีการเก่า
+- วิธีการแบบดั้งเดิม
 - วิธีการสมัยใหม่
 - PowerPoint
 - OpenDocument
 - การนำเสนอ
 - Java
 - Aspose.Slides
-description: "ตรวจสอบอัปเดต API สาธารณะและการเปลี่ยนแปลงที่ทำให้ไม่เข้ากันใน Aspose.Slides for Java เพื่อย้ายโซลูชั่นการนำเสนอ PowerPoint PPT, PPTX และ ODP ของคุณอย่างราบรื่น."
+description: "ตรวจสอบการอัปเดต API สาธารณะและการเปลี่ยนแปลงที่ทำให้เกิดข้อผิดพลาดใน Aspose.Slides for Java เพื่อย้ายโซลูชันการนำเสนอ PowerPoint PPT, PPTX และ ODP ของคุณอย่างราบรื่น"
 ---
-{{% alert color="primary" %}} 
-หน้านี้แสดงรายการทั้งหมด [เพิ่ม](/slides/th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) ของคลาส, เมธอด, คุณสมบัติ ฯลฯ, ข้อจำกัดใหม่ใด ๆ และ [การเปลี่ยนแปลง](/slides/th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) ที่แนะนำพร้อมกับ Aspose.Slides for Java 14.8.0 API.
+{{% alert color="info" %}} 
+หน้านี้แสดงรายการคลาส, เมธอด, คุณสมบัติ และอื่น ๆ ที่ [เพิ่ม](/slides/th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) ทั้งหมด, ข้อจำกัดใหม่ใด ๆ และ [การเปลี่ยนแปลง](/slides/th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) อื่น ๆ ที่แนะนำใน API Aspose.Slides for Java 14.8.0
 {{% /alert %}} 
 ## **การเปลี่ยนแปลง Public API**
-### **เพิ่มเมธอด Aspose.Slides.Charts.IChartSeries.getOverlap(), IChartSeriesGroup.getOverlap(), และ setOverlap(byte) Methods**
-Aspose.Slides.Charts.IChartSeries.getOverlap() จะคืนค่าระดับการทับซ้อนของแท่งและคอลัมน์บนแผนภูมิ 2D (ในช่วงจาก -100 ถึง 100).
-เมธอดนี้ไม่ใช่สำหรับซีรีส์เฉพาะเท่านั้น แต่สำหรับซีรีส์ทั้งหมดของกลุ่มซีรีส์แม่ – นี้เป็นการฉายคุณสมบัติของกลุ่มที่เหมาะสม.
+### **เพิ่ม Aspose.Slides.Charts.IChartSeries.getOverlap(), IChartSeriesGroup.getOverlap() และเมธอด setOverlap(byte)**
+Aspose.Slides.Charts.IChartSeries.getOverlap() จะคืนค่าการทับของแท่งและคอลัมน์ในแผนภูมิ 2 มิติ (ในช่วงจาก -100 ถึง 100).  
+เมธอดนี้ไม่ใช่เพียงสำหรับซีรีส์เฉพาะแต่สำหรับทุกซีรีส์ในกลุ่มซีรีส์แม่ - นี่คือการฉายคุณสมบัติของกลุ่มที่เหมาะสม.  
 
-- ใช้เมธอด IChartSeries.getParentSeriesGroup() เพื่อเข้าถึงกลุ่มซีรีส์แม่.
-- ใช้เมธอด IChartSeriesGroup.getOverlap() และ setOverlap(byte) เพื่อจัดการค่าดังกล่าว.
+- ใช้เมธอด IChartSeries.getParentSeriesGroup() เพื่อเข้าถึงกลุ่มซีรีส์แม่.  
+- ใช้เมธอด IChartSeriesGroup.getOverlap() และ setOverlap(byte) เพื่อจัดการค่าดังกล่าว.  
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -38,33 +40,37 @@ IChartSeriesCollection series = chart.getChartData().getSeries();
 
 if (series.get_Item(0).getOverlap() == 0) {
 
-  series.get_Item(0).getParentSeriesGroup().setOverlap(-30);
+  series.get_Item(0).getParentSeriesGroup().setOverlap((byte)-30);
 
 }
 
 ```
 ### **เพิ่มค่า Enum ShapeThumbnailBounds.Appearance**
-วิธีการสร้างรูปย่อของรูปร่างนี้ช่วยให้นักพัฒนาสามารถสร้างรูปย่อของรูปร่างในขอบเขตของการแสดงผลของมันได้ พิจารณาผลกระทบของรูปร่างทั้งหมด รูปย่อที่สร้างขึ้นจะถูกจำกัดโดยขอบเขตของสไลด์.
+เมธอดนี้สำหรับการสร้างรูปย่อของรูปทรงช่วยให้นักพัฒนาสามารถสร้างรูปย่อของรูปทรงภายในขอบเขตของลักษณะที่ปรากฏของมันได้ โดยคำนึงถึงเอฟเฟ็กต์ของรูปทรงทั้งหมด. รูปย่อที่สร้างจะถูกจำกัดโดยขอบเขตของสไลด์.  
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation();
 
-BufferedImage st = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThumbnail(ShapeThumbnailBounds.Appearance, 1, 1);
+ Presentation pres = new Presentation("Presentation.pptx");
+
+IImage st = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(ShapeThumbnailBounds.Appearance, 1, 1);
 
 ```
-### **เพิ่มคลาส VbaProject และอินเทอร์เฟซ IVbaProject, ปรับเปลี่ยนเมธอด Presentation.getVbaProject() และ setVbaProject(VbaProject)**
-ฟีเจอร์ใหม่ช่วยให้นักพัฒนาสามารถสร้างและแก้ไขโครงการ VBA ในงานนำเสนอได้.
+### **เพิ่มคลาส VbaProject และอินเทอร์เฟซ IVbaProject, แก้ไขเมธอด Presentation.getVbaProject() และ setVbaProject(VbaProject)**
+ฟีเจอร์ใหม่นี้ทำให้นักพัฒนาสามารถสร้างและแก้ไขโครงการ VBA ในการนำเสนอได้.  
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
-// สร้างโครงการ VBA ใหม่
+// สร้าง VBA Project ใหม่
 
 pres.setVbaProject(new VbaProject());
 
-// เพิ่มโมดูลว่างไปยังโครงการ VBA
+// เพิ่มโมดูลเปล่าลงใน VBA Project
 
 IVbaModule module = pres.getVbaProject().getModules().addEmptyModule("Module");
 
@@ -72,7 +78,7 @@ IVbaModule module = pres.getVbaProject().getModules().addEmptyModule("Module");
 
 module.setSourceCode("Sub Test(oShape As Shape)\r\n    MsgBox \"Test\"\r\nEnd Sub");
 
-// สร้างอ้างอิงไปยัง <stdole>
+// สร้างการอ้างอิงถึง <stdole>
 
 VbaReferenceOleTypeLib stdoleReference =
 
@@ -80,7 +86,7 @@ VbaReferenceOleTypeLib stdoleReference =
 
     "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation");
 
-// สร้างอ้างอิงไปยัง Office
+// สร้างการอ้างอิงถึง Office
 
 VbaReferenceOleTypeLib officeReference =
 
@@ -88,12 +94,12 @@ VbaReferenceOleTypeLib officeReference =
 
     "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
 
-// เพิ่มอ้างอิงไปยังโครงการ VBA
+// เพิ่มการอ้างอิงลงใน VBA Project
 
 pres.getVbaProject().getReferences().add(stdoleReference);
 
 pres.getVbaProject().getReferences().add(officeReference);
 
-pres.save("data\\test.pptm", SaveFormat.Pptm);
+pres.save("test.pptm", SaveFormat.Pptm);
 
 ```

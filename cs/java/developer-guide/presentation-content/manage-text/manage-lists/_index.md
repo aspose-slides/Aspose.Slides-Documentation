@@ -1,5 +1,5 @@
 ---
-title: Správa odrážkových a číslovaných seznamů v prezentacích v Javě
+title: Spravovat odrážkové a číslované seznamy v prezentacích v Java
 linktitle: Spravovat seznamy
 type: docs
 weight: 60
@@ -20,11 +20,11 @@ keywords:
 - prezentace
 - Java
 - Aspose.Slides
-description: "Naučte se, jak vytvářet a formátovat odrážkové, obrázkové, víceúrovňové a číslované seznamy v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Java."
+description: "Zjistěte, jak vytvářet a formátovat odrážkové, obrázkové, víceúrovňové a číslované seznamy v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Java."
 ---
 ## **Přehled**
 
-Aspose.Slides for Java umožňuje vytvářet a formátovat odrážkové a číslované seznamy v prezentacích PowerPoint a OpenDocument. Položka seznamu je odstavec, jehož nastavení odrážky je řízeno formátem odstavce.
+Aspose.Slides pro Java vám umožňuje vytvářet a formátovat odrážkové a číslované seznamy v prezentacích PowerPoint a OpenDocument. Položka seznamu je odstavec, jehož nastavení odrážky je řízeno prostřednictvím formátu odstavce.
 
 Použijte metodu [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iparagraph/#getParagraphFormat--) k přístupu k nastavením seznamu na úrovni odstavce. Hlavním vstupním bodem je [IParagraphFormat.getBullet](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iparagraphformat/#getBullet--), který vrací objekt [IBulletFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibulletformat/). S tímto objektem můžete nastavit typ odrážky, symbol, obrázek, barvu, velikost, styl číslování a počáteční číslo.
 
@@ -34,15 +34,18 @@ Tento článek ukazuje, jak:
 - vytvořit obrázkovou odrážku
 - vytvořit víceúrovňový seznam nastavením hloubky odstavce
 - vytvořit číslovaný seznam
-- prohlédnout a změnit formátování seznamu v existující prezentaci
+- zkontrolovat a změnit formátování seznamu v existující prezentaci
 
-## **Vytvoření odrážkového seznamu**
+## **Vytvořit odrážkový seznam**
 
-Chcete‑li vytvořit odrážkový seznam, přidejte objekty [IParagraph](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iparagraph/) do objektu [ITextFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/itextframe/) a nastavte [IBulletFormat.setType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibulletformat/#setType-byte-) na [BulletType.Symbol](https://reference.aspose.com/slides/cs/java/com.aspose.slides/bullettype/#Symbol). Poté můžete nastavit [IBulletFormat.setChar](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibulletformat/#setChar-char-), [IBulletFormat.getColor](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibulletformat/#getColor--) a [IBulletFormat.setHeight](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibulletformat/#setHeight-float-) pro ovládání vzhledu odrážky.
+Pro vytvoření odrážkového seznamu přidejte objekty [IParagraph](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iparagraph/) do [ITextFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/itextframe/) a nastavte [IBulletFormat.setType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibulletformat/#setType-byte-) na [BulletType.Symbol](https://reference.aspose.com/slides/cs/java/com.aspose.slides/bullettype/#Symbol). Pak můžete nastavit [IBulletFormat.setChar](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibulletformat/#setChar-char-), [IBulletFormat.getColor](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibulletformat/#getColor--) a [IBulletFormat.setHeight](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibulletformat/#setHeight-float-) pro ovládání vzhledu odrážky.
 
 Následující kód v jazyce Java ukazuje, jak vytvořit odrážkový seznam na snímku:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -81,15 +84,17 @@ try {
 
 Výsledek:
 
-![Symboly odrážek](symbol_bullets.png)
+![Symbolické odrážky](symbol_bullets.png)
 
-## **Vytvoření číslovaného seznamu**
+## **Vytvořit číslovaný seznam**
 
-Používejte číslované seznamy, když záleží na pořadí položek. Nastavte [IBulletFormat.setType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibulletformat/#setType-byte-) na [BulletType.Numbered](https://reference.aspose.com/slides/cs/java/com.aspose.slides/bullettype/#Numbered). Můžete také zvolit formát číslování pomocí [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) nebo nastavit [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-), pokud má seznam začínat hodnotou jinou než 1.
+Používejte číslované seznamy, když je pořadí položek důležité. Nastavte [IBulletFormat.setType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibulletformat/#setType-byte-) na [BulletType.Numbered](https://reference.aspose.com/slides/cs/java/com.aspose.slides/bullettype/#Numbered). Můžete také zvolit formát číslování pomocí [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) nebo nastavit [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-), pokud má seznam začít od hodnoty odlišné od 1.
 
 Následující kód v jazyce Java ukazuje, jak vytvořit číslovaný seznam na snímku:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -123,25 +128,27 @@ Výsledek:
 
 ![Číslované odrážky](numbered_bullets.png)
 
-## **Vytvoření obrázkové odrážky**
+## **Vytvořit obrázkovou odrážku**
 
-Aspose.Slides umožňuje nahradit běžný symbol odrážky obrázkem. Obrázkové odrážky fungují nejlépe u jednoduchých obrázků, které zůstávají čitelné i v malém měřítku, jako jsou ikony nebo malé průhledné soubory PNG.
+Aspose.Slides vám umožňuje nahradit běžný symbol odrážky obrázkem. Obrázkové odrážky fungují nejlépe s jednoduchými obrázky, které zůstávají čitelné i při malé velikosti, například ikony nebo malé průhledné soubory PNG.
 
-{{% alert color="primary" %}}
-Ideální je, pokud plánujete nahradit běžný symbol odrážky obrázkem, zvolit jednoduchou grafiku s průhledným pozadím. Takové obrázky fungují dobře jako vlastní symboly odrážek.
+{{% alert color="info" %}}
+Ideálně, pokud plánujete nahradit běžný symbol odrážky obrázkem, je nejlepší zvolit jednoduchou grafiku s průhledným pozadím. Takové obrázky dobře fungují jako vlastní symboly odrážek.
 
-Mějte na paměti, že obrázek bude zmenšen na velmi malou velikost. Z tohoto důvodu důrazně doporučujeme vybrat obrázek, který zůstane jasný a vizuálně účinný, když se použije jako odrážka v seznamu.
+Mějte na paměti, že obrázek bude zmenšen na velmi malou velikost. Z tohoto důvodu důrazně doporučujeme zvolit obrázek, který zůstane jasný a vizuálně účinný, když bude použit jako odrážka v seznamu.
 {{% /alert %}}
 
-Chcete‑li vytvořit obrázkovou odrážku, přidejte obrázek do [Presentation.getImages](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#getImages--) a přiřaďte vrácený objekt obrázku metodě [IBulletFormat.getPicture](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibulletformat/#getPicture--). Nastavte [IBulletFormat.setType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibulletformat/#setType-byte-) na [BulletType.Picture](https://reference.aspose.com/slides/cs/java/com.aspose.slides/bullettype/#Picture) před přiřazením obrázku.
+Pro vytvoření obrázkové odrážky přidejte obrázek do [Presentation.getImages](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#getImages--) a přiřaďte získaný objekt obrázku metodě [IBulletFormat.getPicture](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibulletformat/#getPicture--). Před přiřazením obrázku nastavte [IBulletFormat.setType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibulletformat/#setType-byte-) na [BulletType.Picture](https://reference.aspose.com/slides/cs/java/com.aspose.slides/bullettype/#Picture).
 
-Předpokládejme, že máme soubor „image.png“:
+Řekněme, že máme soubor "image.png":
 
 ![Obrázek pro odrážky](picture_for_bullets.png)
 
 Následující kód v jazyce Java ukazuje, jak vytvořit obrázkové odrážky na snímku:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -178,13 +185,15 @@ Výsledek:
 
 ![Obrázkové odrážky](picture_bullets.png)
 
-## **Vytvoření víceúrovňového seznamu**
+## **Vytvořit víceúrovňový seznam**
 
 Použijte [IParagraphFormat.setDepth](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iparagraphformat/#setDepth-short-) k umístění položek seznamu na různé úrovně. Úroveň 0 je nejvyšší úroveň, úroveň 1 je pod ní a tak dále.
 
 Následující kód v jazyce Java ukazuje, jak vytvořit víceúrovňový odrážkový seznam:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -223,13 +232,13 @@ Výsledek:
 
 ![Víceúrovňový seznam](multilevel_list.png)
 
-## **Změna existujícího seznamu**
+## **Změnit existující seznam**
 
-Chcete‑li změnit formátování seznamu v existující prezentaci, přistupte k cílovému odstavci a aktualizujte jeho nastavení [IParagraphFormat.getBullet](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iparagraphformat/#getBullet--). Stejné vlastnosti použité při vytváření seznamů lze použít k prohlížení nebo úpravě seznamů načtených ze souboru PPT, PPTX nebo ODP.
-
-Následující kód v jazyce Java mění první odstavec v textovém rámci tak, aby používal styl číslovaného seznamu:
+Pro změnu formátování seznamu v existující prezentaci přistupte k cílovému odstavci a aktualizujte jeho nastavení [IParagraphFormat.getBullet](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iparagraphformat/#getBullet--). Stejné vlastnosti použité k vytvoření seznamů lze použít i k prohlížení nebo úpravě seznamů načtených ze souboru PPT, PPTX nebo ODP.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -248,16 +257,16 @@ try {
 }
 ```
 
-## **Časté dotazy**
+## **Často kladené otázky**
 
-**Lze odrážkové a číslované seznamy exportovat do PDF nebo obrázků?**
+### Může být odrážkový a číslovaný seznam exportován do PDF nebo obrázků?
 
 Ano. Aspose.Slides zachovává formátování seznamu, pokud cílový formát podporuje odpovídající rozvržení textu a funkce odrážek.
 
-**Mohu upravovat seznamy v existujících prezentacích?**
+### Mohu upravovat seznamy v existujících prezentacích?
 
-Ano. Načtěte prezentaci, přistupte k cílovému odstavci, prohlédněte nebo aktualizujte jeho nastavení [IParagraphFormat.getBullet](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iparagraphformat/#getBullet--), a uložte prezentaci.
+Ano. Načtěte prezentaci, přistupte k cílovému odstavci, prohlédněte nebo aktualizujte jeho nastavení [IParagraphFormat.getBullet](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iparagraphformat/#getBullet--) a prezentaci uložte.
 
-**Mohou seznamy obsahovat nestandardní (ne‑latinské) texty?**
+### Mohou seznamy obsahovat ne‑latinský text?
 
-Ano. Text položky seznamu může obsahovat Unicode znaky, takže můžete vytvářet seznamy ve vícejazyčných prezentacích. Ujistěte se, že použité fonty v prezentaci podporují potřebné znaky.
+Ano. Text položek seznamu může obsahovat Unicode znaky, takže můžete vytvářet seznamy v vícejazyčných prezentacích. Ujistěte se, že použité fonty v prezentaci podporují požadované znaky.

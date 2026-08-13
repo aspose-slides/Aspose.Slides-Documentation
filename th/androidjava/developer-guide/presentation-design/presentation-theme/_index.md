@@ -12,33 +12,35 @@ keywords:
 - เปลี่ยนธีม
 - จัดการธีม
 - สีธีม
-- พาเลตเพิ่มเติม
+- พาเล็ตเพิ่มเติม
 - ฟอนต์ธีม
 - สไตล์ธีม
-- เอฟเฟ็กต์ธีม
+- เอฟเฟกต์ธีม
 - PowerPoint
 - OpenDocument
 - การนำเสนอ
 - Android
 - Java
 - Aspose.Slides
-description: "ควบคุมธีมการนำเสนอใน Aspose.Slides สำหรับ Android ผ่าน Java เพื่อสร้าง ปรับแต่ง และแปลงไฟล์ PowerPoint โดยคงแบรนด์ดิ้งที่สอดคล้องกัน"
+description: "ควบคุมธีมการนำเสนอใน Aspose.Slides สำหรับ Android ผ่าน Java เพื่อสร้าง ปรับแต่งและแปลงไฟล์ PowerPoint ด้วยการสร้างแบรนด์ที่สอดคล้องกัน"
 ---
 ## **บทนำ**
 
 ธีมการนำเสนอกำหนดคุณสมบัติขององค์ประกอบการออกแบบ เมื่อคุณเลือกธีมการนำเสนอ คุณกำลังเลือกชุดขององค์ประกอบภาพและคุณสมบัติเฉพาะของมัน
 
-ใน PowerPoint ธีมประกอบด้วยสี, [ฟอนต์](/slides/th/androidjava/powerpoint-fonts/), [สไตล์พื้นหลัง](/slides/th/androidjava/presentation-background/), และเอฟเฟ็กต์
+ใน PowerPoint ธีมประกอบด้วยสี, [แบบอักษร](/slides/th/androidjava/powerpoint-fonts/), [รูปแบบพื้นหลัง](/slides/th/androidjava/presentation-background/), และเอฟเฟกต์
 
-![theme-constituents](theme-constituents.png)
+![ส่วนประกอบของธีม](theme-constituents.png)
 
 ## **เปลี่ยนสีธีม**
 
-ธีม PowerPoint ใช้ชุดสีเฉพาะสำหรับองค์ประกอบต่าง ๆ บนสไลด์ หากคุณไม่ชอบสีเหล่านั้น คุณสามารถเปลี่ยนสีโดยกำหนดสีใหม่ให้กับธีม เพื่อให้คุณเลือกสีธีมใหม่ Aspose.Slides ให้ค่าไว้ภายใต้การนับจำนวนของ enumeration [SchemeColor](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/SchemeColor)
+ธีม PowerPoint ใช้ชุดสีเฉพาะสำหรับองค์ประกอบต่าง ๆ บนสไลด์ หากคุณไม่ชอบสีเหล่านั้น คุณสามารถเปลี่ยนสีโดยกำหนดสีใหม่ให้ธีมได้ เพื่อให้คุณเลือกสีธีมใหม่ Aspose.Slides ให้ค่าต่าง ๆ ภายใต้ enumeration [SchemeColor](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/SchemeColor)
 
-โค้ด Java นี้แสดงวิธีเปลี่ยนสีอักเซนท์สำหรับธีม:
+โค้ด Java นี้แสดงวิธีการเปลี่ยนสีเน้นสำหรับธีม:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
@@ -51,44 +53,67 @@ try {
 }
 ```
 
-คุณสามารถหาค่าที่แท้จริงของสีที่ได้จากการเปลี่ยนแปลงนี้ได้โดย:
+คุณสามารถกำหนดค่าที่แท้จริงของสีที่ได้อย่างนี้:
 
 ```java
-IFillFormatEffectiveData fillEffective = shape.getFillFormat().getEffective();
+import com.aspose.slides.*;
+import java.awt.Color;
 
-Color effectiveColor = fillEffective.getSolidFillColor();
+Presentation pres = new Presentation();
+try {
+    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
-System.out.println(String.format("Color [A=%d, R=%d, G=%d, B=%d]", 
-        effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
+    shape.getFillFormat().setFillType(FillType.Solid);
+
+    shape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+
+    IFillFormatEffectiveData fillEffective = shape.getFillFormat().getEffective();
+
+    Color effectiveColor = fillEffective.getSolidFillColor();
+
+    System.out.println(String.format("Color [A=%d, R=%d, G=%d, B=%d]",
+            effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
-เพื่อสาธิตการเปลี่ยนสีเพิ่มเติม เราจะสร้างองค์ประกอบอีกหนึ่งอันและกำหนดสีอักเซนท์ (จากการดำเนินการแรก) ให้กับมัน แล้วจึงเปลี่ยนสีในธีม:
+เพื่อแสดงการเปลี่ยนสีเพิ่มเติม เราสร้างองค์ประกอบใหม่และกำหนดสีเน้น (จากการทำงานครั้งแรก) ให้กับมัน แล้วจึงเปลี่ยนสีในธีม:
 
 ```java
-IAutoShape otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
+import com.aspose.slides.*;
+import java.awt.Color;
 
-otherShape.getFillFormat().setFillType(FillType.Solid);
+Presentation pres = new Presentation();
+try {
+    IAutoShape otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
 
-otherShape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+    otherShape.getFillFormat().setFillType(FillType.Solid);
 
-pres.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED);
+    otherShape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+
+    pres.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 สีใหม่จะถูกนำไปใช้โดยอัตโนมัติบนทั้งสององค์ประกอบ
 
-### **กำหนดสีธีมจากพาเลตเพิ่มเติม**
+### **ตั้งค่าสีธีมจากพาเล็ตเพิ่มเติม**
 
-เมื่อคุณทำการแปลงความสว่างของสีธีมหลัก (1) สีจากพาเลตเพิ่มเติม (2) จะถูกสร้างขึ้น จากนั้นคุณจึงสามารถตั้งค่าและรับค่าสีธีมเหล่านั้นได้
+เมื่อคุณทำการแปลงค่าความสว่างกับสีธีมหลัก(1) จะได้สีจากพาเล็ตเพิ่มเติม(2) คุณจึงสามารถตั้งค่าและดึงค่าสีธีมเหล่านั้นได้
 
-![additional-palette-colors](additional-palette-colors.png)
+![สีจากพาเล็ตเพิ่มเติม](additional-palette-colors.png)
 
-**1** - สีธีมหลัก
+**1** - สีธีมหลัก  
+**2** - สีจากพาเล็ตเพิ่มเติม
 
-**2** - สีจากพาเลตเพิ่มเติม
-
-โค้ด Java นี้แสดงการดำเนินการที่รับสีจากพาเลตเพิ่มเติมจากสีธีมหลักและนำไปใช้ในรูปทรง:
+โค้ด Java นี้แสดงการทำงานที่ดึงสีจากพาเล็ตเพิ่มเติมจากสีธีมหลักแล้วนำไปใช้ในรูปทรง:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -99,7 +124,7 @@ try {
     shape1.getFillFormat().setFillType(FillType.Solid);
     shape1.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
 
-    // Accent 4, สว่างขึ้น 80%
+    // Accent 4, สีอ่อน 80%
     IShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 70, 50, 50);
 
     shape2.getFillFormat().setFillType(FillType.Solid);
@@ -107,7 +132,7 @@ try {
     shape2.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.2f);
     shape2.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.8f);
 
-    // Accent 4, สว่างขึ้น 60%
+    // Accent 4, สีอ่อน 60%
     IShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 130, 50, 50);
 
     shape3.getFillFormat().setFillType(FillType.Solid);
@@ -115,7 +140,7 @@ try {
     shape3.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.4f);
     shape3.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.6f);
 
-    // Accent 4, สว่างขึ้น 40%
+    // Accent 4, สีอ่อน 40%
     IShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 190, 50, 50);
 
     shape4.getFillFormat().setFillType(FillType.Solid);
@@ -123,93 +148,109 @@ try {
     shape4.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.6f);
     shape4.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.4f);
 
-    // Accent 4, สีเข้มขึ้น 25%
+    // Accent 4, สีเข้ม 25%
     IShape shape5 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 250, 50, 50);
 
     shape5.getFillFormat().setFillType(FillType.Solid);
     shape5.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape5.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.75f);
 
-    // Accent 4, สีเข้มขึ้น 50%
+    // Accent 4, สีเข้ม 50%
     IShape shape6 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 310, 50, 50);
 
     shape6.getFillFormat().setFillType(FillType.Solid);
     shape6.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape6.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.5f);
 
-    presentation.save(path + "example_accent4.pptx", SaveFormat.Pptx);
+    presentation.save("example_accent4.pptx", SaveFormat.Pptx);
 } finally {
     if (presentation != null) presentation.dispose();
 }
 ```
 
-### **แมป `SchemeColor` ไปยังสี `IColorScheme`**
+### **แมพ `SchemeColor` ไปยังสี `IColorScheme`**
 
-เมื่อคุณทำงานกับ [SchemeColor](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/schemecolor/) คุณอาจสังเกตว่าในนั้นมีค่าธีมสีต่อไปนี้:
+เมื่อคุณทำงานกับ [SchemeColor](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/schemecolor/), คุณอาจสังเกตว่ามีค่าของสีธีมต่อไปนี้:
 
-`Background1`, `Background2`, `Text1`, และ `Text2`
+`Background1`, `Background2`, `Text1`, and `Text2`.
 
-อย่างไรก็ตาม `Presentation.getMasterTheme().getColorScheme()` จะคืนค่า [IColorScheme](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icolorscheme/) ซึ่งเปิดเผยสีที่สอดคล้องกันเป็น:
+อย่างไรก็ตาม `Presentation.getMasterTheme().getColorScheme()` จะคืนค่า [IColorScheme](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icolorscheme/), ซึ่งแสดงสีที่สอดคล้องกันเป็น:
 
-`Dark1`, `Dark2`, `Light1`, และ `Light2`
+`Dark1`, `Dark2`, `Light1`, and `Light2`.
 
-ความแตกต่างนี้อยู่ที่ชื่อเท่านั้น ค่าต่าง ๆ นี้อ้างอิงถึงสล็อตสีธีมเดียวกันและการแมปถูกกำหนดไว้คงที่:
+ความแตกต่างนี้เป็นเพียงการตั้งชื่อ ค่าเหล่านี้อ้างอิงถึงช่องสีธีมเดียวกันและการแมพจะคงที่:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-ไม่มีการแปลงแบบไดนามิกระหว่าง `Text`/`Background` และ `Dark`/`Light` พวกมันเป็นเพียงชื่อทางเลือกของสีธีมเดียวกัน
+ไม่มีการแปลงแบบไดนามิกระหว่าง `Text`/`Background` กับ `Dark`/`Light` พวกมันเป็นเพียงชื่อทางเลือกของสีธีมเดียวกัน
 
-ความแตกต่างของชื่อมาจากศัพท์ของ Microsoft Office รุ่นเก่าจะใช้ `Dark 1`, `Light 1`, `Dark 2`, และ `Light 2` ส่วน UI รุ่นใหม่จะแสดงสล็อตเดียวกันเป็น `Text 1`, `Background 1`, `Text 2`, และ `Background 2`
+ความแตกต่างในการตั้งชื่อนี้มาจากคำศัพท์ของ Microsoft Office รุ่นเก่าใช้ `Dark 1`, `Light 1`, `Dark 2`, และ `Light 2` ในขณะที่ UI รุ่นใหม่แสดงช่องเดียวกันเป็น `Text 1`, `Background 1`, `Text 2`, และ `Background 2`.
 
 ## **เปลี่ยนฟอนต์ธีม**
 
-เพื่อให้คุณสามารถเลือกฟอนต์สำหรับธีมและวัตถุประสงค์อื่น ๆ Aspose.Slides ใช้ตัวระบุพิเศษเหล่านี้ (คล้ายกับที่ใช้ใน PowerPoint):
+เพื่อให้คุณเลือกฟอนต์สำหรับธีมและการใช้อื่น Aspose.Slides ใช้ตัวระบุพิเศษเหล่านี้ (คล้ายกับที่ใช้ใน PowerPoint):
 
-* **+mn-lt** - ฟอนต์ข้อความหลัก Latin (Minor Latin Font)
-* **+mj-lt** - ฟอนต์หัวเรื่อง Latin (Major Latin Font)
-* **+mn-ea** - ฟอนต์ข้อความหลัก East Asian (Minor East Asian Font)
-* **+mj-ea** - ฟอนต์หัวเรื่อง East Asian (Major East Asian Font)
+* **+mn-lt** - ฟอนต์ข้อความหลัก Latin (ฟอนต์ Latin ย่อย)
+* **+mj-lt** - ฟอนต์หัวเรื่อง Latin (ฟอนต์ Latin หลัก)
+* **+mn-ea** - ฟอนต์ข้อความหลัก East Asian (ฟอนต์ East Asian ย่อย)
+* **+mj-ea** - ฟอนต์ข้อความหลัก East Asian (ฟอนต์ East Asian หลัก)
 
-โค้ด Java นี้แสดงวิธีกำหนดฟอนต์ Latin ให้กับองค์ประกอบธีม:
-
-```java
-IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
-
-Paragraph paragraph = new Paragraph();
-
-Portion portion = new Portion("Theme text format");
-
-paragraph.getPortions().add(portion);
-
-shape.getTextFrame().getParagraphs().add(paragraph);
-
-portion.getPortionFormat().setLatinFont(new FontData("+mn-lt"));
-```
-
-โค้ด Java นี้แสดงวิธีเปลี่ยนฟอนต์ธีมการนำเสนอ:
+โค้ด Java นี้แสดงวิธีการกำหนดฟอนต์ Latin ให้กับองค์ประกอบของธีม:
 
 ```java
-pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation();
+try {
+    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+
+    Paragraph paragraph = new Paragraph();
+
+    Portion portion = new Portion("Theme text format");
+
+    paragraph.getPortions().add(portion);
+
+    shape.getTextFrame().getParagraphs().add(paragraph);
+
+    portion.getPortionFormat().setLatinFont(new FontData("+mn-lt"));
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
-ฟอนต์ในกล่องข้อความทั้งหมดจะถูกอัปเดต
+โค้ด Java นี้แสดงวิธีการเปลี่ยนฟอนต์ธีมการนำเสนอ:
 
-{{% alert color="primary" title="TIP" %}} 
-คุณอาจต้องการดู [ฟอนต์ PowerPoint](/slides/th/androidjava/powerpoint-fonts/)
+```java
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation();
+try {
+    pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
+ฟอนต์ในกล่องข้อความทั้งหมดจะได้รับการอัปเดต
+
+{{% alert color="info" title="TIP" %}} 
+คุณอาจต้องการดู [ฟอนต์ PowerPoint](/slides/th/androidjava/powerpoint-fonts/).
 {{% /alert %}}
 
 ## **เปลี่ยนสไตล์พื้นหลังธีม**
 
-โดยค่าเริ่มต้น แอป PowerPoint ให้พื้นหลังที่กำหนดล่วงหน้า 12 รูป แต่เพียง 3 รูปจาก 12 รูปนี้จะถูกบันทึกในงานนำเสนอทั่วไป
+โดยค่าเริ่มต้น แอป PowerPoint มีพื้นหลังที่กำหนดไว้ล่วงหน้า 12 รายการ แต่เพียง 3 จาก 12 รายการนั้นจะถูกบันทึกในงานนำเสนอทั่วไป
 
 ![todo:image_alt_text](presentation-design_8.png)
 
-ตัวอย่างเช่น หลังจากคุณบันทึกงานนำเสนอในแอป PowerPoint คุณสามารถรันโค้ด Java นี้เพื่อค้นหาจำนวนพื้นหลังที่กำหนดล่วงหน้าในงานนำเสนอ:
+ตัวอย่างเช่น หลังจากคุณบันทึกงานนำเสนอในแอป PowerPoint คุณสามารถรันโค้ด Java นี้เพื่อหาจำนวนพื้นหลังที่กำหนดไว้ล่วงหน้าในงานนำเสนอ:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     int numberOfBackgroundFills = pres.getMasterTheme().getFormatScheme().getBackgroundFillStyles().size();
@@ -221,32 +262,42 @@ try {
 ```
 
 {{% alert color="warning" %}} 
-โดยใช้คุณสมบัติ [BackgroundFillStyles](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/FormatScheme#getBackgroundFillStyles--) จากคลาส [FormatScheme](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/FormatScheme) คุณสามารถเพิ่มหรือเข้าถึงสไตล์พื้นหลังในธีม PowerPoint
+โดยใช้คุณสมบัติ [BackgroundFillStyles](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/FormatScheme#getBackgroundFillStyles--) จากคลาส [FormatScheme](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/FormatScheme) คุณสามารถเพิ่มหรือเข้าถึงสไตล์พื้นหลังในธีม PowerPoint ได้.
 {{% /alert %}} 
 
-โค้ด Java นี้แสดงวิธีตั้งค่าพื้นหลังสำหรับงานนำเสนอ:
+โค้ด Java นี้แสดงวิธีการตั้งค่าพื้นหลังสำหรับงานนำเสนอ:
 
 ```java
-pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("pres.pptx");
+try {
+    pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
-**คู่มือดัชนี**: 0 ใช้สำหรับไม่มีการเติม สี ดัชนีเริ่มจาก 1
+**แนวทางการใช้ดัชนี**: 0 ใช้สำหรับไม่เติม สี ดัชนีเริ่มจาก 1.
 
-{{% alert color="primary" title="TIP" %}} 
-คุณอาจต้องการดู [พื้นหลัง PowerPoint](/slides/th/androidjava/presentation-background/)
+{{% alert color="info" title="TIP" %}} 
+คุณอาจต้องการดู [พื้นหลัง PowerPoint](/slides/th/androidjava/presentation-background/).
 {{% /alert %}}
 
-## **เปลี่ยนเอฟเฟ็กต์ธีม**
+## **เปลี่ยนเอฟเฟกต์ธีม**
 
-ธีม PowerPoint ปกติมีค่าต่าง ๆ 3 ค่า สำหรับแต่ละอาร์เรย์สไตล์ ค่าพวกนี้ถูกรวมเป็น 3 เอฟเฟ็กต์: ละมุน (subtle), กลาง (moderate) และเข้ม (intense) ตัวอย่างเช่น นี่คือผลลัพธ์เมื่อเอฟเฟ็กต์เหล่านั้นถูกนำไปใช้กับรูปทรงเฉพาะ:
+ธีม PowerPoint ปกติจะมีค่า 3 ค่าสำหรับแต่ละชุดสไตล์ ชุดสไตล์เหล่านั้นจะถูกรวมเป็น 3 เอฟเฟกต์: เบา, ปานกลาง, และเข้ม ตัวอย่างเช่น นี่คือผลลัพธ์เมื่อเอฟเฟกต์ถูกนำไปใช้กับรูปร่างเฉพาะ:
 
 ![todo:image_alt_text](presentation-design_10.png)
 
-โดยใช้ 3 คุณสมบัติ ([FillStyles](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/FormatScheme#getEffectStyles--)) จากคลาส [FormatScheme](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/FormatScheme) คุณสามารถเปลี่ยนองค์ประกอบในธีม (ยืดหยุ่นกว่าตัวเลือกใน PowerPoint)
+โดยใช้ 3 คุณสมบัติ ([FillStyles](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/FormatScheme#getEffectStyles--)) จากคลาส [FormatScheme](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/FormatScheme) คุณสามารถเปลี่ยนองค์ประกอบในธีมได้ (ยืดหยุ่นกว่าตัวเลือกใน PowerPoint).
 
-โค้ด Java นี้แสดงวิธีเปลี่ยนเอฟเฟ็กต์ธีมโดยการปรับส่วนต่าง ๆ ขององค์ประกอบ:
+โค้ด Java นี้แสดงวิธีการเปลี่ยนเอฟเฟกต์ธีมโดยการแก้ไขส่วนต่าง ๆ ขององค์ประกอบ:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx");
 try {
     pres.getMasterTheme().getFormatScheme().getLineStyles().get_Item(0).getFillFormat().getSolidFillColor().setColor(Color.RED);
@@ -263,20 +314,20 @@ try {
 }
 ```
 
-การเปลี่ยนแปลงที่เกิดขึ้นในสีเติม, ประเภทการเติม, เงา ฯลฯ:
+การเปลี่ยนแปลงที่ได้ในสีเติม, ประเภทการเติม, เอฟเฟกต์เงา ฯลฯ:
 
 ![todo:image_alt_text](presentation-design_11.png)
 
-## **คำถามที่พบบ่อย**
+## **ถาม‑ตอบ**
 
-**ฉันสามารถใช้ธีมกับสไลด์เดียวโดยไม่ต้องเปลี่ยน Master ได้หรือไม่?**
+### ฉันสามารถใช้ธีมกับสไลด์เดียวโดยไม่เปลี่ยนมาสเตอร์ได้หรือไม่?
 
-ได้ Aspose.Slides รองรับการแทนที่ธีมในระดับสไลด์ ดังนั้นคุณสามารถใช้ธีมเฉพาะท้องถิ่นกับสไลด์นั้นได้โดยที่ยังคงธีม Master อยู่ (ผ่าน [SlideThemeManager](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/slidethememanager/))
+ได้ Aspose.Slides รองรับการแทนที่ธีมระดับสไลด์ ดังนั้นคุณสามารถใช้ธีมเฉพาะสไลด์นั้นโดยคงธีมมาสเตอร์ไว้ (ผ่าน [SlideThemeManager](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/slidethememanager/)).
 
-**วิธีที่ปลอดภัยที่สุดในการย้ายธีมจากงานนำเสนอหนึ่งไปยังอีกงานหนึ่งคืออะไร?**
+### วิธีที่ปลอดภัยที่สุดในการย้ายธีมจากงานนำเสนอหนึ่งไปยังอีกงานนำเสนอคืออะไร?
 
-[คัดลอกสไลด์](/slides/th/androidjava/clone-slides/) พร้อมกับ Master ของมันไปยังงานนำเป้าหมาย วิธีนี้จะคง Master, Layouts และธีมที่เกี่ยวข้องไว้ ทำให้รูปลักษณ์สอดคล้องกัน
+[Clone slides](/slides/th/androidjava/clone-slides/) พร้อมกับมาสเตอร์ของพวกเขาเข้าสู่การนำเสนอเป้าหมาย วิธีนี้จะรักษามาสเตอร์เดิม, เลย์เอาต์, และธีมที่เชื่อมโยงไว้เพื่อให้ลักษณะการแสดงผลคงที่.
 
-**ฉันจะดูค่าที่ “effective” หลังจากการสืบทอดและการแทนที่ทั้งหมดได้อย่างไร?**
+### ฉันจะดูค่าที่ "effective" หลังจากการสืบทอดและการแทนที่ทั้งหมดได้อย่างไร?
 
-ใช้ “effective” view ของ API [/slides/th/androidjava/shape-effective-properties/] สำหรับธีม/สี/ฟอนต์/เอฟเฟ็กต์ วิธีนี้จะคืนค่าคุณสมบัติที่ได้รับการแก้ไขขั้นสุดท้ายหลังจากนำ Master และการแทนที่ท้องถิ่นมาประยุกต์ใช้.
+ใช้มุมมอง ["effective"](/slides/th/androidjava/shape-effective-properties/) ของ API สำหรับธีม/สี/ฟอนต์/เอฟเฟกต์ ค่าที่คืนมาคือคุณสมบัติที่ได้รับการแก้ไขขั้นสุดท้ายหลังจากใช้มาสเตอร์และการแทนที่ในระดับท้องถิ่น.

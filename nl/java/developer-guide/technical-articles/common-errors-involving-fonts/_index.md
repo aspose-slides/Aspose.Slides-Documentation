@@ -3,33 +3,35 @@ title: Veelvoorkomende uitzonderingen en fouten met lettertypen op Linux
 type: docs
 weight: 200
 url: /nl/java/common-errors-involving-fonts/
-keywords: "Lettertype-uitzondering, Lettertype-fout, Linux, Java, Aspose.Slides voor Java"
-description: "Lettertype-uitzonderingen en -fouten op Linux"
+aliases:
+  - /java/technical-articles/common-errors-involving-fonts/
+keywords: "Lettertype‑uitzondering, Lettertype‑fout, Linux, Java, Aspose.Slides for Java"
+description: "Lettertype‑uitzonderingen en -fouten op Linux"
 ---
 ## **Overzicht**
 
-Wanneer Aspose.Slides op Linux wordt gebruikt, kunnen er lettertype‑gerelateerde problemen optreden als het Java‑proces geen toegang heeft tot de benodigde lettertype‑mappen of de tijdelijke map, als er geen lettertypen op het systeem geïnstalleerd zijn, of als vereiste systeembibliotheken zoals fontconfig of libfreetype ontbreken.
+Wanneer Aspose.Slides op Linux wordt gebruikt, kunnen er problemen met lettertypen optreden wanneer het Java‑proces geen toegang heeft tot de vereiste lettertype‑mappen of de tijdelijke map, wanneer er geen lettertypen op het systeem zijn geïnstalleerd, of wanneer vereiste systeem‑bibliotheken zoals fontconfig of libfreetype ontbreken.
 
-Dit artikel beschrijft veelvoorkomende fouten en uitzonderingen met betrekking tot lettertypen op Linux en biedt oplossingen om deze op te lossen. Het legt uit hoe je de toegang tot lettertype‑ en TEMP‑mappen controleert, de benodigde lettertypen en bibliotheken installeert, en `FontsLoader` gebruikt om lettertypen te laden zonder ze systeemwijd te installeren.
+Dit artikel beschrijft veelvoorkomende fouten en uitzonderingen met betrekking tot lettertypen op Linux en biedt oplossingen om deze op te lossen. Het legt uit hoe u de toegang tot lettertype‑ en TEMP‑mappen controleert, de vereiste lettertypen en bibliotheken installeert, en `FontsLoader` gebruikt om lettertypen te laden zonder ze systeem‑breed te installeren.
 
 ## **Ontbrekende tekst of afbeeldingen (EMF of WMF) wanneer code wordt uitgevoerd op Linux**
 
 Dit probleem treedt op in systemen met beperkingen in de volgende gevallen:
 
-1. Wanneer er geen lettertypen geïnstalleerd zijn of wanneer de lettertype‑map voor het Java‑proces niet toegankelijk is
+1. Wanneer er geen lettertypen zijn geïnstalleerd of wanneer de lettertype‑map voor het Java‑proces niet toegankelijk is
 2. Wanneer de TEMP‑map niet toegankelijk is.
 
 ### **Oplossing**
 
-Controleer en bevestig dat toegang tot de TEMP‑map en de lettertype‑map is verleend. 
+Controleer en bevestig dat de toegang tot de TEMP‑map en de lettertype‑map is verleend. 
 
 {{% alert color="warning" %}}
-In sommige gevallen kun je mogelijk geen toegang verlenen tot mappen vanwege beperkingen opgelegd door de omgeving of een beveiligingsbeleid. Probeer de volgende oplossingen: 
+In sommige gevallen kunt u mogelijk geen toegang tot mappen verlenen vanwege beperkingen opgelegd door de omgeving of een beveiligingsbeleid. Probeer de volgende oplossingen: 
 {{% /alert %}}
 
-**Omzeilingsmethode**
+**Omzeiloplossing**
 
-Gebruik [FontsLoader](https://reference.aspose.com/slides/nl/java/com.aspose.slides/FontsLoader) om de vereiste lettertypen te laden zonder ze systeemwijd te installeren:
+Gebruik [FontsLoader](https://reference.aspose.com/slides/nl/java/com.aspose.slides/FontsLoader) om de benodigde lettertypen te laden zonder ze te installeren:
 
 ```
 FontsLoader.loadExternalFonts(pathToFontsFolders);
@@ -55,22 +57,22 @@ try {
 }
 ```
 
-## **Uitzondering: InvalidOperationException: Kan geen enkele geïnstalleerde lettertype op het systeem vinden**
+## **Uitzondering: InvalidOperationException: Geen geïnstalleerde lettertypen gevonden op het systeem**
 
 Deze uitzondering treedt op wanneer
 
 1) het Java‑proces geen toegang heeft tot de lettertype‑map  
-2) er geen lettertypen geïnstalleerd zijn.
+2) er geen lettertypen zijn geïnstalleerd.
 
 ### **Oplossing**
 
-1. Controleer en bevestig dat toegang tot de lettertype‑map voor het Java‑proces is verleend.  
+1. Controleer en bevestig dat de toegang tot de lettertype‑map voor het Java‑proces is verleend.
 
-2. Installeer enkele lettertypen of gebruik [FontsLoader](https://reference.aspose.com/slides/nl/java/com.aspose.slides/FontsLoader).  
+2. Installeer enkele lettertypen of gebruik [FontsLoader](https://reference.aspose.com/slides/nl/java/com.aspose.slides/FontsLoader).
 
-3. Installeer lettertypen.  
+3. Installeer lettertypen.
 
-   * Ubuntu:  
+   * Ubuntu: 
 
      ```
      sudo apt-get update
@@ -78,7 +80,7 @@ Deze uitzondering treedt op wanneer
      fc-cache -fv
      ```
 
-   * CentOS:  
+   * CentOS: 
 
      ```
      sudo yum makecache
@@ -86,15 +88,15 @@ Deze uitzondering treedt op wanneer
      fc-cache -fv
      ```
 
-   * Using [FontsLoader](https://reference.aspose.com/slides/nl/java/com.aspose.slides/FontsLoader):  
+   * Met behulp van [FontsLoader](https://reference.aspose.com/slides/nl/java/com.aspose.slides/FontsLoader): 
 
      ```
      FontsLoader.loadExternalFonts(pathToFontsFolders);
      ```
 
-## **Uitzondering: NoClassDefFoundError: Kon klasse com.aspose.slides.internal.ey.this niet initialiseren**
+## **Uitzondering: NoClassDefFoundError: Kan klasse com.aspose.slides.internal.ey.this niet initialiseren**
 
-Deze uitzondering treedt op op een Linux‑systeem dat fontconfig en lettertypen mist. 
+Deze uitzondering treedt op op een Linux‑systeem dat geen fontconfig en geen lettertypen heeft. 
 
 ### **Oplossing**
 
@@ -114,7 +116,7 @@ Installeer fontconfig:
   sudo yum -y install fontconfig
   ```
 
-Bovendien vereisen sommige open-jdk‑versies (bijvoorbeeld **alpine JDK**) ook **geïnstalleerde lettertypen**.
+Bovendien vereisen sommige open‑jdk‑versies (bijvoorbeeld **alpine JDK**) ook **geïnstalleerde lettertypen**.
 
 * Ubuntu:
 
@@ -154,6 +156,6 @@ Installeer libfreetype en fontconfig:
   sudo yum -y install fontconfig
   ```
 
-{{% alert title="TIP" color="primary" %}} 
+{{% alert title="TIP" color="info" %}} 
 Vergeet niet om lettertypen te installeren of FontsLoader te gebruiken.
 {{% /alert %}}

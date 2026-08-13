@@ -5,7 +5,7 @@ type: docs
 weight: 10
 url: /id/net/presentation-theme/
 keywords:
-- tema PowerPoint
+- Tema PowerPoint
 - tema presentasi
 - tema slide
 - atur tema
@@ -26,17 +26,21 @@ description: "Kuasai tema presentasi di Aspose.Slides untuk .NET untuk membuat, 
 ---
 ## **Pendahuluan**
 
-Tema presentasi mendefinisikan properti elemen desain. Ketika Anda memilih tema presentasi, Anda pada dasarnya memilih satu set elemen visual tertentu beserta propertinya.
+Tema presentasi mendefinisikan properti elemen desain. Ketika Anda memilih tema presentasi, pada dasarnya Anda memilih satu set elemen visual tertentu beserta propertinya.
 
 Di PowerPoint, sebuah tema terdiri dari warna, [font](/slides/id/net/powerpoint-fonts/), [gaya latar belakang](/slides/id/net/presentation-background/), dan efek.
 
-![theme-constituents](theme-constituents.png)
+![bagian tema](theme-constituents.png)
 
 ## **Ubah Warna Tema**
 
-Tema PowerPoint menggunakan satu set warna tertentu untuk elemen‑elemen berbeda pada slide. Jika Anda tidak menyukai warna‑warna tersebut, Anda dapat mengubahnya dengan menerapkan warna baru untuk tema. Untuk memungkinkan Anda memilih warna tema baru, Aspose.Slides menyediakan nilai‑nilai di bawah enumerasi [SchemeColor](https://reference.aspose.com/slides/id/net/aspose.slides/schemecolor/).
+Tema PowerPoint menggunakan satu set warna tertentu untuk elemen berbeda pada slide. Jika Anda tidak menyukai warna-warna tersebut, Anda dapat mengubahnya dengan menerapkan warna baru untuk tema. Untuk memungkinkan Anda memilih warna tema baru, Aspose.Slides menyediakan nilai-nilai di bawah enumerasi [SchemeColor](https://reference.aspose.com/slides/id/net/aspose.slides/schemecolor/).
+
+Kode C# berikut menunjukkan cara mengubah warna aksen untuk sebuah tema:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation())
     
 {
@@ -51,36 +55,57 @@ using (Presentation pres = new Presentation())
 Anda dapat menentukan nilai efektif warna yang dihasilkan dengan cara berikut:
 
 ```c#
-var fillEffective = shape.FillFormat.GetEffective();
+using Aspose.Slides;
 
-Console.WriteLine($"{fillEffective.SolidFillColor.Name} ({fillEffective.SolidFillColor})"); // ff8064a2 (Warna [A=255, R=128, G=100, B=162])
+using (Presentation pres = new Presentation())
+{
+    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+
+    shape.FillFormat.FillType = FillType.Solid;
+
+    shape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+
+    var fillEffective = shape.FillFormat.GetEffective();
+
+    Console.WriteLine($"{fillEffective.SolidFillColor.Name} ({fillEffective.SolidFillColor})"); // ff8064a2 (Warna [A=255, R=128, G=100, B=162])
+}
 ```
 
-Untuk lebih menunjukkan operasi perubahan warna, kami membuat elemen lain dan menetapkan warna aksen (dari operasi awal) kepadanya. Kemudian kami mengubah warna dalam tema:
+Untuk lebih memperlihatkan operasi perubahan warna, kami membuat elemen lain dan menetapkan warna aksen (dari operasi awal) kepadanya. Kemudian kami mengubah warna dalam tema:
 
 ```c#
-IAutoShape otherShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
+using System.Drawing;
+using Aspose.Slides;
 
-otherShape.FillFormat.FillType = FillType.Solid;
+using (Presentation pres = new Presentation())
+{
+    IAutoShape otherShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
 
-otherShape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+    otherShape.FillFormat.FillType = FillType.Solid;
 
-pres.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
+    otherShape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+
+    pres.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
+}
 ```
 
 Warna baru diterapkan secara otomatis pada kedua elemen.
 
-### **Atur Warna Tema dari Palet Tambahan**
+### **Set Warna Tema dari Palet Tambahan**
 
-Ketika Anda menerapkan transformasi luminansi pada warna tema utama(1), warna‑warna dari palet tambahan(2) terbentuk. Anda kemudian dapat mengatur dan mengambil warna‑warna tema tersebut.
+Ketika Anda menerapkan transformasi luminansi pada warna tema utama (1), warna-warna dari palet tambahan (2) terbentuk. Anda kemudian dapat mengatur dan mengambil warna tema tersebut.
 
-![additional-palette-colors](additional-palette-colors.png)
+![warna palet tambahan](additional-palette-colors.png)
 
 **1** - Warna tema utama  
-
 **2** - Warna dari palet tambahan.
 
+Kode C# berikut mendemonstrasikan operasi di mana warna palet tambahan diperoleh dari warna tema utama dan kemudian digunakan dalam bentuk:
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -135,67 +160,83 @@ using (Presentation presentation = new Presentation())
 
 ### **Pemetaan `SchemeColor` ke Warna `IColorScheme`**
 
-Saat Anda bekerja dengan [SchemeColor](https://reference.aspose.com/slides/id/net/aspose.slides/schemecolor/), Anda mungkin memperhatikan bahwa ia berisi nilai‑nilai warna tema berikut:
+Ketika Anda bekerja dengan [SchemeColor](https://reference.aspose.com/slides/id/net/aspose.slides/schemecolor/), Anda mungkin memperhatikan bahwa ia berisi nilai-nilai warna tema berikut:
 
 `Background1`, `Background2`, `Text1`, dan `Text2`.
 
-Namun, `Presentation.MasterTheme.ColorScheme` mengembalikan [IColorScheme](https://reference.aspose.com/slides/id/net/aspose.slides.theme/icolorscheme/), yang menampilkan warna‑warna yang bersesuaian sebagai:
+Namun, `Presentation.MasterTheme.ColorScheme` mengembalikan [IColorScheme](https://reference.aspose.com/slides/id/net/aspose.slides.theme/icolorscheme/), yang mengekspos warna yang bersesuaian sebagai:
 
 `Dark1`, `Dark2`, `Light1`, dan `Light2`.
 
-Perbedaan ini hanya pada penamaan. Nilai‑nilai tersebut merujuk pada slot warna tema yang sama dan pemetaan bersifat tetap:
+Perbedaan ini hanya pada penamaan. Nilai-nilai ini merujuk pada slot warna tema yang sama dan pemetaan bersifat tetap:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Tidak ada konversi dinamis antara `Text`/`Background` dan `Dark`/`Light`. Mereka hanyalah nama alternatif untuk warna tema yang sama.
+Tidak ada konversi dinamis antara `Text`/`Background` dan `Dark`/`Light`. Mereka hanya nama alternatif untuk warna tema yang sama.
 
-Perbedaan penamaan ini berasal dari terminologi Microsoft Office. Versi Office yang lebih lama menggunakan `Dark 1`, `Light 1`, `Dark 2`, dan `Light 2`, sementara versi UI yang lebih baru menampilkan slot yang sama sebagai `Text 1`, `Background 1`, `Text 2`, dan `Background 2`.
+Perbedaan penamaan ini berasal dari terminologi Microsoft Office. Versi Office yang lebih lama menggunakan `Dark 1`, `Light 1`, `Dark 2`, dan `Light 2`, sedangkan versi UI yang lebih baru menampilkan slot yang sama sebagai `Text 1`, `Background 1`, `Text 2`, dan `Background 2`.
 
 ## **Ubah Font Tema**
 
-Untuk memungkinkan Anda memilih font untuk tema dan keperluan lainnya, Aspose.Slides menggunakan pengenal khusus berikut (mirip dengan yang digunakan di PowerPoint):
+Untuk memungkinkan Anda memilih font untuk tema dan keperluan lainnya, Aspose.Slides menggunakan pengidentifikasi khusus berikut (mirip dengan yang digunakan di PowerPoint):
 
-* **+mn-lt** - Font Tubuh Latin (Font Latin Minor)
-* **+mj-lt** - Font Judul Latin (Font Latin Mayor)
-* **+mn-ea** - Font Tubuh Asia Timur (Font Asia Timur Minor)
-* **+mj-ea** - Font Judul Asia Timur (Font Asia Timur Mayor)
+* **+mn-lt** - Font Badan Latin (Minor Latin Font)
+* **+mj-lt** - Font Heading Latin (Major Latin Font)
+* **+mn-ea** - Font Badan Asia Timur (Minor East Asian Font)
+* **+mj-ea** - Font Badan Asia Timur (Minor East Asian Font)
 
-```c#
-IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
-
-Paragraph paragraph = new Paragraph();
-
-Portion portion = new Portion("Theme text format");
-
-paragraph.Portions.Add(portion);
-
-shape.TextFrame.Paragraphs.Add(paragraph);
-
-portion.PortionFormat.LatinFont = new FontData("+mn-lt");
-```
+Kode C# berikut menunjukkan cara menetapkan font Latin ke elemen tema:
 
 ```c#
-pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
+using Aspose.Slides;
+
+using (Presentation pres = new Presentation())
+{
+    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+
+    Paragraph paragraph = new Paragraph();
+
+    Portion portion = new Portion("Theme text format");
+
+    paragraph.Portions.Add(portion);
+
+    shape.TextFrame.Paragraphs.Add(paragraph);
+
+    portion.PortionFormat.LatinFont = new FontData("+mn-lt");
+}
 ```
 
-Font pada semua kotak teks akan diperbarui.
+Kode C# berikut menunjukkan cara mengubah font tema presentasi:
 
-{{% alert color="primary" title="TIP" %}} 
+```c#
+using Aspose.Slides;
+
+using (Presentation pres = new Presentation())
+{
+    pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
+}
+```
+
+Font di semua kotak teks akan diperbarui.
+
+{{% alert color="info" title="TIP" %}} 
 Anda mungkin ingin melihat [font PowerPoint](/slides/id/net/powerpoint-fonts/). 
 {{% /alert %}}
 
 ## **Ubah Gaya Latar Belakang Tema**
 
-Secara default, aplikasi PowerPoint menyediakan 12 latar belakang bawaan tetapi hanya 3 di antaranya yang disimpan dalam presentasi standar.
+Secara default, aplikasi PowerPoint menyediakan 12 latar belakang bawaan namun hanya 3 dari 12 latar belakang tersebut yang disimpan dalam sebuah presentasi tipikal.
 
 ![todo:image_alt_text](presentation-design_8.png)
 
-Misalnya, setelah Anda menyimpan presentasi di aplikasi PowerPoint, Anda dapat menjalankan kode C# berikut untuk mengetahui jumlah latar belakang bawaan dalam presentasi:
+Misalnya, setelah Anda menyimpan sebuah presentasi di aplikasi PowerPoint, Anda dapat menjalankan kode C# berikut untuk mengetahui jumlah latar belakang bawaan dalam presentasi:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 
 {
@@ -206,28 +247,41 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 {{% alert color="warning" %}} 
-Dengan menggunakan properti [BackgroundFillStyles](https://reference.aspose.com/slides/id/net/aspose.slides.theme/formatscheme/backgroundfillstyles/) dari kelas [FormatScheme](https://reference.aspose.com/slides/id/net/aspose.slides.theme/formatscheme/), Anda dapat menambah atau mengakses gaya latar belakang dalam tema PowerPoint. 
+Dengan menggunakan properti [BackgroundFillStyles](https://reference.aspose.com/slides/id/net/aspose.slides.theme/formatscheme/backgroundfillstyles/) dari kelas [FormatScheme](https://reference.aspose.com/slides/id/net/aspose.slides.theme/formatscheme/), Anda dapat menambahkan atau mengakses gaya latar belakang dalam tema PowerPoint. 
 {{% /alert %}}
 
+Kode C# berikut menunjukkan cara mengatur latar belakang untuk sebuah presentasi:
+
 ```c#
-pres.Masters[0].Background.StyleIndex = 2;
+using Aspose.Slides;
+
+using (Presentation pres = new Presentation("pres.pptx"))
+{
+    pres.Masters[0].Background.StyleIndex = 2;
+}
 ```
 
-**Panduan indeks**: 0 berarti tanpa isian. Indeks dimulai dari 1.
+**Panduan Indeks**: 0 digunakan untuk tanpa isi. Indeks dimulai dari 1.
 
-{{% alert color="primary" title="TIP" %}} 
+{{% alert color="info" title="TIP" %}} 
 Anda mungkin ingin melihat [Latar Belakang PowerPoint](/slides/id/net/presentation-background/). 
 {{% /alert %}}
 
 ## **Ubah Efek Tema**
 
-Tema PowerPoint biasanya berisi 3 nilai untuk setiap array gaya. Array‑array tersebut digabungkan menjadi 3 efek: halus, sedang, dan intens. Misalnya, inilah hasil ketika efek‑efek tersebut diterapkan pada sebuah bentuk tertentu:
+Tema PowerPoint biasanya berisi 3 nilai untuk setiap array gaya. Array tersebut digabung menjadi 3 efek ini: subtle, moderate, dan intense. Misalnya, inilah hasil ketika efek diterapkan pada sebuah bentuk tertentu:
 
 ![todo:image_alt_text](presentation-design_10.png)
 
-Dengan menggunakan 3 properti ([FillStyles](https://reference.aspose.com/slides/id/net/aspose.slides.theme/formatscheme/fillstyles), [LineStyles](https://reference.aspose.com/slides/id/net/aspose.slides.theme/formatscheme/linestyles), [EffectStyles](https://reference.aspose.com/slides/id/net/aspose.slides.theme/formatscheme/effectstyles)) dari kelas [FormatScheme](https://reference.aspose.com/slides/id/net/aspose.slides.theme/formatscheme) Anda dapat mengubah elemen‑elemen dalam tema (lebih fleksibel dibandingkan opsi di PowerPoint).
+Dengan menggunakan 3 properti ([FillStyles](https://reference.aspose.com/slides/id/net/aspose.slides.theme/formatscheme/fillstyles), [LineStyles](https://reference.aspose.com/slides/id/net/aspose.slides.theme/formatscheme/linestyles), [EffectStyles](https://reference.aspose.com/slides/id/net/aspose.slides.theme/formatscheme/effectstyles)) dari kelas [FormatScheme](https://reference.aspose.com/slides/id/net/aspose.slides.theme/formatscheme), Anda dapat mengubah elemen dalam tema (lebih fleksibel daripada opsi di PowerPoint).
+
+Kode C# berikut menunjukkan cara mengubah efek tema dengan memodifikasi bagian-bagian elemen:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx"))
 {
     pres.MasterTheme.FormatScheme.LineStyles[0].FillFormat.SolidFillColor.Color = Color.Red;
@@ -242,20 +296,20 @@ using (Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx"))
 }
 ```
 
-Perubahan yang dihasilkan pada warna isian, tipe isian, efek bayangan, dll:
+Perubahan yang dihasilkan pada warna isi, tipe isi, efek bayangan, dll:
 
 ![todo:image_alt_text](presentation-design_11.png)
 
 ## **FAQ**
 
-**Apakah saya dapat menerapkan tema ke satu slide tanpa mengubah master?**
+### Bisakah saya menerapkan tema ke satu slide tanpa mengubah master?
 
-Ya. Aspose.Slides mendukung penimpaan tema tingkat slide, sehingga Anda dapat menerapkan tema lokal hanya pada slide tersebut sambil mempertahankan tema master tidak berubah (melalui [SlideThemeManager](https://reference.aspose.com/slides/id/net/aspose.slides.theme/slidethememanager/)).
+Ya. Aspose.Slides mendukung penimpaan tema pada tingkat slide, sehingga Anda dapat menerapkan tema lokal hanya pada slide tersebut sambil mempertahankan tema master tetap (melalui [SlideThemeManager](https://reference.aspose.com/slides/id/net/aspose.slides.theme/slidethememanager/)).
 
-**Apa cara paling aman untuk memindahkan tema dari satu presentasi ke presentasi lain?**
+### Apa cara paling aman untuk memindahkan tema dari satu presentasi ke lainnya?
 
-[Clone slides](/slides/id/net/clone-slides/) bersama masternya ke dalam presentasi target. Ini mempertahankan master asli, tata letak, dan tema terkait sehingga tampilan tetap konsisten.
+[Clone slides](/slides/id/net/clone-slides/) bersama master mereka ke dalam presentasi target. Ini menjaga master asli, tata letak, dan tema terkait sehingga tampilan tetap konsisten.
 
-**Bagaimana saya dapat melihat nilai "efektif" setelah semua pewarisan dan penimpaan?**
+### Bagaimana saya dapat melihat nilai "effective" setelah semua pewarisan dan penimpaan?
 
-Gunakan tampilan ["effective"](/slides/id/net/shape-effective-properties/) API untuk tema/warna/font/efek. Tampilan ini mengembalikan properti yang telah diselesaikan dan final setelah menerapkan master serta setiap penimpaan lokal.
+Gunakan [tampilan "effective"](/slides/id/net/shape-effective-properties/) API untuk tema/warna/font/efek. Ini mengembalikan properti akhir yang telah diselesaikan setelah menerapkan master ditambah penimpaan lokal apa pun.

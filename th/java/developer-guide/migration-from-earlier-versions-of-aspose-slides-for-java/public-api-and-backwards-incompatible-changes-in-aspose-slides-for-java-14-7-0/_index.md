@@ -5,45 +5,41 @@ type: docs
 weight: 60
 url: /th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-7-0/
 keywords:
-- การย้ายข้อมูล
-- โค้ดเดิม
-- โค้ดสมัยใหม่
-- วิธีการเดิม
-- วิธีการสมัยใหม่
+- การย้าย
+- โค้ดเก่า
+- โค้ดทันสมัย
+- แนวทางเก่า
+- แนวทางทันสมัย
 - PowerPoint
 - OpenDocument
 - การนำเสนอ
 - Java
 - Aspose.Slides
-description: "ตรวจสอบการอัปเดต API สาธารณะและการเปลี่ยนแปลงที่ทำให้เกิดการแตกหักใน Aspose.Slides for Java เพื่อให้การย้ายโซลูชันการนำเสนอ PowerPoint PPT, PPTX และ ODP ของคุณเป็นไปอย่างราบรื่น"
+description: ตรวจสอบการอัปเดต API สาธารณะและการเปลี่ยนแปลงที่ทำให้หยุดทำงานใน Aspose.Slides for Java เพื่อย้ายโซลูชันการนำเสนอ PowerPoint PPT, PPTX และ ODP ของคุณอย่างราบรื่น
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-หน้านี้แสดงรายการทั้งหมดของคลาส, เมธอด, คุณสมบัติ ฯลฯ ที่[เพิ่ม](/slides/th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-7-0/) รวมถึงข้อจำกัดใหม่และการเปลี่ยนแปลงอื่น ๆ ที่แนะนำใน Aspose.Slides for Java 14.7.0 API
+หน้านี้แสดงรายการคลาส, เมธอด, คุณสมบัติ ฯลฯ ทั้งหมดที่ [added](/slides/th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-7-0/) , ข้อจำกัดใหม่และการเปลี่ยนแปลงอื่น ๆ ที่แนะนำใน API ของ Aspose.Slides for Java 14.7.0
 
 {{% /alert %}} 
-## **การเปลี่ยนแปลง Public API**
-### **ได้ลบคอนสตรัคเตอร์ของบางประเภทย่อยของ TransitionValueBase และได้ลบ TransitionValueFactory**
-คอนสตรัคเตอร์ของบางประเภทย่อยของ TransitionValueBase (เช่น CornerDirectionTransition, EightDirectionTransition, EmptyTransition, InOutTransition, OptionalBlackTransition, OrientationTransition, SideDirectionTransition, SplitTransition, WheelTransition) ไม่มีความจำเป็นใน Public API จึงถูกลบออกแล้ว คลาสที่เกี่ยวข้อง TransitionValueFactory และอินเทอร์เฟซ ITransitionValueFactory ถูกลบเนื่องจากเหตุผลเดียวกัน
-### **ได้ลบสมาชิก SoundAction จาก enumeration com.aspose.slides.TransitionType**
-สมาชิก SoundAction ผิดพลาดและไม่ได้ถูกใช้งาน การตั้งค่าเสียงกำหนดโดยคุณสมบัติ SlideShowTransition.SoundMode, .Sound, .SoundLoop, .SoundIsBuiltIn, .SoundName
-### **ได้เพิ่มคลาส FlyThroughTransition และอินเทอร์เฟซ IFlyThroughTransition**
-คลาส com.aspose.slides.FlyThroughTransition (และอินเทอร์เฟซ com.aspose.slides.IFlyThroughTransition) เชื่อมโยงกับประเภทการเปลี่ยนภาพ Flythrough ที่รองรับในรุ่นนี้
-### **ได้เพิ่มคลาส GlitterTransition, อินเทอร์เฟซ IGlitterTransition และ enumeration TransitionPattern**
-คลาส com.aspose.slides.GlitterTransition (และอินเทอร์เฟซ com.aspose.slides.IGlitterTransition) เชื่อมโยงกับประเภทการเปลี่ยนภาพ Glitter ที่รองรับในรุ่นนี้
-enumeration com.aspose.slides.TransitionPattern ใช้ในคลาสนี้และระบุรูปแบบเรขาคณิตที่ต่อกันเป็นแผ่นเพื่อเติมพื้นที่ขนาดใหญ่
-### **ได้เพิ่มคลาส LeftRightDirectionTransition, อินเทอร์เฟซ ILeftRightDirectionTransition และ enumeration TransitionLeftRightDirectionType**
-คลาส com.aspose.slides.LeftRightDirectionTransition (และอินเทอร์เฟซ com.aspose.slides.ILeftRightDirectionTransition) เชื่อมโยงกับประเภทการเปลี่ยนภาพ Switch, Flip, Ferris, Gallery, Conveyor ที่รองรับในรุ่นนี้
-enumeration com.aspose.slides.TransitionLeftRightDirectionType ใช้ในคลาสนี้และระบุทิศทางที่จำกัดอยู่ที่ค่า left และ right
-### **ได้เพิ่มสมาชิกใหม่ใน enumeration com.aspose.slides.TransitionType**
-enumeration com.aspose.slides.TransitionType ได้ขยายด้วยสมาชิกใหม่
-สมาชิกใหม่ที่เกี่ยวข้องกับการเปลี่ยนภาพ PowerPoint 2010: Vortex, Switch, Flip, Ripple, Honeycomb, Cube, Box, Rotate, Orbit, Doors, Window, Ferris, Gallery, Conveyor, Pan, Glitter, Warp, Flythrough, Flash, Shred, Reveal, WheelReverse
-สมาชิกใหม่ที่เกี่ยวข้องกับการเปลี่ยนภาพ PowerPoint 2013: FallOver, Drape, Curtains, Wind, Prestige, Fracture, Crush, PeelOff, PageCurlDouble, PageCurlSingle, Airplane, Origami
-### **ได้เพิ่มคลาส RevealTransition และอินเทอร์เฟซ IRevealTransition**
-คลาส com.aspose.slides.RevealTransition (และอินเทอร์เฟซ com.aspose.slides.IRevealTransition) เชื่อมโยงกับประเภทการเปลี่ยนภาพ Reveal ที่รองรับในรุ่นนี้
-### **ได้เพิ่มคลาส RippleTransition, อินเทอร์เฟซ IRippleTransition และ enumeration TransitionCornerAndCenterDirectionType**
-คลาส com.aspose.slides.RippleTransition (และอินเทอร์เฟซ com.aspose.slides.IRippleTransition) เชื่อมโยงกับประเภทการเปลี่ยนภาพ Ripple ที่รองรับในรุ่นนี้
-enumeration com.aspose.slides.TransitionCornerAndCenterDirectionType ใช้ในคลาสนี้และระบุทิศทางที่จำกัดอยู่ที่มุมและศูนย์กลาง
-### **ได้เพิ่มคลาส ShredTransition, อินเทอร์เฟซ IShredTransition และ enumeration TransitionShredPattern**
-คลาส com.aspose.slides.ShredTransition (และอินเทอร์เฟซ com.aspose.slides.IShredTransition) เชื่อมโยงกับประเภทการเปลี่ยนภาพ Shred ที่รองรับในรุ่นนี้
-enumeration com.aspose.slides.TransitionShredPattern ใช้ในคลาสนี้และระบุรูปทรงเรขาคณิตที่ต่อกันเป็นแผ่นเพื่อเติมพื้นที่ขนาดใหญ่
+## **การเปลี่ยนแปลง API สาธารณะ**
+### **คอนสตรัคเตอร์ของบางซับไทป์ของ TransitionValueBase ถูกลบและ TransitionValueFactory ถูกลบ**
+คอนสตรัคเตอร์ของบางซับไทป์ของ TransitionValueBase (โดยเฉพาะ CornerDirectionTransition, EightDirectionTransition, EmptyTransition, InOutTransition, OptionalBlackTransition, OrientationTransition, SideDirectionTransition, SplitTransition, WheelTransition) ไม่มีประโยชน์ใน API สาธารณะและจึงถูกลบ คลาสที่เกี่ยวข้อง TransitionValueFactory และอินเทอร์เฟซ ITransitionValueFactory ถูกลบด้วยเหตุผลเดียวกัน
+### **สมาชิก SoundAction ถูกลบออกจาก enumeration com.aspose.slides.TransitionType**
+สมาชิก SoundAction ไม่ถูกต้องและไม่ได้ใช้งาน การตั้งค่าเสียงจะถูกกำหนดโดยคุณสมบัติ SlideShowTransition.SoundMode, .Sound, .SoundLoop, .SoundIsBuiltIn, .SoundName
+### **คลาส FlyThroughTransition และอินเทอร์เฟซ IFlyThroughTransition ถูกเพิ่ม**
+คลาส com.aspose.slides.FlyThroughTransition (และอินเทอร์เฟซ com.aspose.slides.IFlyThroughTransition) เกี่ยวข้องกับประเภทการเปลี่ยนภาพ Flythrough ที่รองรับในรุ่นนี้
+### **คลาส GlitterTransition, อินเทอร์เฟซ IGlitterTransition และ enumeration TransitionPattern ถูกเพิ่ม**
+คลาส com.aspose.slides.GlitterTransition (และอินเทอร์เฟซ com.aspose.slides.IGlitterTransition) เกี่ยวข้องกับประเภทการเปลี่ยนภาพ Glitter ที่รองรับในรุ่นนี้  enumeration com.aspose.slides.TransitionPattern ถูกใช้ในคลาสนี้และระบุรูปแบบเรขาคณิตที่จัดเรียงต่อกันเพื่อเติมพื้นที่ขนาดใหญ่
+### **คลาส LeftRightDirectionTransition, อินเทอร์เฟซ ILeftRightDirectionTransition และ enumeration TransitionLeftRightDirectionType ถูกเพิ่ม**
+คลาส com.aspose.slides.LeftRightDirectionTransition (และอินเทอร์เฟซ com.aspose.slides.ILeftRightDirectionTransition) เกี่ยวข้องกับประเภทการเปลี่ยนภาพ Switch, Flip, Ferris, Gallery, Conveyor ที่รองรับในรุ่นนี้  enumeration com.aspose.slides.TransitionLeftRightDirectionType ถูกใช้ในคลาสนี้และระบุทิศทางที่จำกัดให้เป็นค่าซ้ายและขวา
+### **สมาชิกใหม่ถูกเพิ่มเข้าไปใน enumeration com.aspose.slides.TransitionType**
+enumeration com.aspose.slides.TransitionType ถูกขยายด้วยสมาชิกใหม่  
+สมาชิกใหม่ที่เกี่ยวข้องกับการเปลี่ยนภาพ PowerPoint 2010: Vortex, Switch, Flip, Ripple, Honeycomb, Cube, Box, Rotate, Orbit, Doors, Window, Ferris, Gallery, Conveyor, Pan, Glitter, Warp, Flythrough, Flash, Shred, Reveal, WheelReverse.  
+สมาชิกใหม่ที่เกี่ยวข้องกับการเปลี่ยนภาพ PowerPoint 2013: FallOver, Drape, Curtains, Wind, Prestige, Fracture, Crush, PeelOff, PageCurlDouble, PageCurlSingle, Airplane, Origami.
+### **คลาส RevealTransition และอินเทอร์เฟซ IRevealTransition ถูกเพิ่ม**
+คลาส com.aspose.slides.RevealTransition (และอินเทอร์เฟซ com.aspose.slides.IRevealTransition) เกี่ยวข้องกับประเภทการเปลี่ยนภาพ Reveal ที่รองรับในรุ่นนี้  
+คลาส RippleTransition, อินเทอร์เฟซ IRippleTransition และ enumeration TransitionCornerAndCenterDirectionType ถูกเพิ่ม  
+คลาส com.aspose.slides.RippleTransition (และอินเทอร์เฟซ com.aspose.slides.IRippleTransition) เกี่ยวข้องกับประเภทการเปลี่ยนภาพ Ripple ที่รองรับในรุ่นนี้  enumeration com.aspose.slides.TransitionCornerAndCenterDirectionType ถูกใช้ในคลาสนี้และระบุทิศทางที่จำกัดให้เป็นมุมและศูนย์กลาง
+### **คลาส ShredTransition, อินเทอร์เฟซ IShredTransition และ enumeration TransitionShredPattern ถูกเพิ่ม**
+คลาส com.aspose.slides.ShredTransition (และอินเทอร์เฟซ com.aspose.slides.IShredTransition) เกี่ยวข้องกับประเภทการเปลี่ยนภาพ Shred ที่รองรับในรุ่นนี้  enumeration com.aspose.slides.TransitionShredPattern ถูกใช้ในคลาสนี้และระบุรูปทรงเรขาคณิตที่จัดเรียงต่อกันเพื่อเติมพื้นที่ขนาดใหญ่

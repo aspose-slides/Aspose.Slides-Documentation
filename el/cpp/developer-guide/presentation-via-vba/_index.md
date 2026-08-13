@@ -1,68 +1,81 @@
 ---
-title: Διαχείριση έργων VBA σε παρουσιάσεις χρησιμοποιώντας C++
-linktitle: Παρουσίαση μέσω VBA
+title: "Διαχείριση έργων VBA σε παρουσιάσεις με C++"
+linktitle: "Παρουσίαση μέσω VBA"
 type: docs
 weight: 250
 url: /el/cpp/presentation-via-vba/
 keywords:
-- μακροεντολή
-- VBA
-- μακροεντολή VBA
-- προσθήκη μακροεντολής
-- αφαίρεση μακροεντολής
-- εξαγωγή μακροεντολής
-- προσθήκη VBA
-- αφαίρεση VBA
-- εξαγωγή VBA
-- PowerPoint
-- OpenDocument
-- παρουσίαση
-- C++
-- Aspose.Slides
-description: "Ανακαλύψτε πώς να δημιουργείτε και να διαχειρίζεστε παρουσιάσεις PowerPoint και OpenDocument μέσω VBA με το Aspose.Slides για C++ για να βελτιώσετε την καθημερινή σας ροή εργασίας."
+- "μακροεντολή"
+- "VBA"
+- "μακροεντολή VBA"
+- "προσθήκη μακροεντολής"
+- "αφαίρεση μακροεντολής"
+- "εξαγωγή μακροεντολής"
+- "προσθήκη VBA"
+- "αφαίρεση VBA"
+- "εξαγωγή VBA"
+- "PowerPoint"
+- "OpenDocument"
+- "παρουσίαση"
+- "C++"
+- "Aspose.Slides"
+description: "Ανακαλύψτε πώς να δημιουργείτε και να διαχειρίζεστε παρουσιάσεις PowerPoint και OpenDocument μέσω VBA με το Aspose.Slides για C++ ώστε να βελτιώσετε τη ροή εργασίας σας."
 ---
 ## **Εισαγωγή**
 
-The [Aspose.Slides.Vba](https://reference.aspose.com/slides/el/cpp/namespace/aspose.slides.vba/) namespace contains classes and interfaces for working with macros and VBA code.
+Ο χώρος ονομάτων [Aspose.Slides.Vba](https://reference.aspose.com/slides/el/cpp/namespace/aspose.slides.vba/) περιλαμβάνει κλάσεις και διεπαφές για εργασία με μακροεντολές και κώδικα VBA.
 
 {{% alert title="Note" color="warning" %}} 
 
-When you convert a presentation containing macros to a different file format (PDF, HTML, etc.), Aspose.Slides ignores all macros (macros are not carried into the resulting file).
+Όταν μετατρέπετε μια παρουσίαση που περιέχει μακροεντολές σε διαφορετική μορφή αρχείου (PDF, HTML, κ.λπ.), το Aspose.Slides αγνοεί όλες τις μακροεντολές (οι μακροεντολές δεν μεταφέρονται στο παραγόμενο αρχείο).
 
-When you add macros to a presentation or resave a presentation containing macros, Aspose.Slides simply writes the bytes for the macros.
+Όταν προσθέτετε μακροεντολές σε μια παρουσίαση ή αποθηκεύετε ξανά μια παρουσίαση που περιέχει μακροεντολές, το Aspose.Slides απλώς γράφει τα bytes των μακροεντολών.
 
-Aspose.Slides **never** runs the macros in a presentation.
+Το Aspose.Slides **ποτέ** δεν εκτελεί τις μακροεντολές σε μια παρουσίαση.
 
 {{% /alert %}}
 
-## **Προσθήκη VBA Μακροεντολών**
+## **Προσθήκη Μακροεντολών VBA**
 
-Aspose.Slides provides the [VbaProject](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.vba.vba_project) class to allow you to create VBA projects (and project references) and edit existing modules. You can use the [IVbaProject](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.vba.i_vba_project/) interface to manage VBA embedded in a presentation.
+Το Aspose.Slides παρέχει την κλάση [VbaProject](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.vba.vba_project) για να δημιουργήσετε έργα VBA (και αναφορές έργου) και να επεξεργαστείτε υπάρχουσες μονάδες. Μπορείτε να χρησιμοποιήσετε τη διεπαφή [IVbaProject](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.vba.i_vba_project/) για να διαχειριστείτε το VBA ενσωματωμένο σε μια παρουσίαση.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation) class.
-1. Use the [VbaProject](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.vba.vba_project#a01b7a0287df8a75f2f8d85185f3e197b) constructor to add a new VBA project.
-1. Add a module to the VbaProject.
-1. Set the module source code.
-1. Add references to <stdole>.
-1. Add references to **Microsoft Office**.
-1. Associate the references with the VBA project.
-1. Save the presentation.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation).
+2. Χρησιμοποιήστε τον κατασκευαστή [VbaProject](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.vba.vba_project#a01b7a0287df8a75f2f8d85185f3e197b) για να προσθέσετε ένα νέο έργο VBA.
+3. Προσθέστε μια μονάδα στο VbaProject.
+4. Ορίστε τον πηγαίο κώδικα της μονάδας.
+5. Προσθέστε αναφορές στο <stdole>.
+6. Προσθέστε αναφορές στο **Microsoft Office**.
+7. Συσχετίστε τις αναφορές με το έργο VBA.
+8. Αποθηκεύστε την παρουσίαση.
 
-This C++ code shows you how to add a VBA macro from scratch to a presentation: 
+Αυτός ο κώδικας C++ δείχνει πώς να προσθέσετε μια μακροεντολή VBA από την αρχή σε μια παρουσίαση:
 
 ```c++
-// Η διαδρομή προς το φάκελο εγγράφων.
+#include <DOM/Presentation.h>
+#include <DOM/Vba/IVbaModule.h>
+#include <DOM/Vba/IVbaModuleCollection.h>
+#include <DOM/Vba/IVbaReferenceCollection.h>
+#include <DOM/Vba/VbaProject.h>
+#include <DOM/Vba/VbaReferenceOleTypeLib.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::Vba;
+using namespace System;
+
+// Η διαδρομή προς τον φάκελο εγγράφων.
 const String outPath = u"../out/AddVBAMacros_out.pptm";
 
-// Δημιουργεί μια παρουσία της κλάσης Presentation
+// Δημιουργεί μια παρουσία της κλάσης παρουσίασης
 SharedPtr<Presentation> presentation = MakeObject<Presentation>();
 // Δημιουργεί ένα νέο έργο VBA
 presentation->set_VbaProject(MakeObject<VbaProject>());
 
-// Προσθέτει ένα κενό module στο έργο VBA
+// Προσθέτει μια κενή μονάδα στο έργο VBA
 SharedPtr<IVbaModule> module = presentation->get_VbaProject()->get_Modules()->AddEmptyModule(u"Module");
 
-// Ορίζει τον κώδικα πηγής του module
+// Ορίζει τον πηγαίο κώδικα της μονάδας
 module->set_SourceCode(u"Sub Test(oShape As Shape) MsgBox \"Test\" End Sub");
 
 // Δημιουργεί μια αναφορά στο <stdole>
@@ -81,55 +94,73 @@ presentation->get_VbaProject()->get_References()->Add(officeReference);
 presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptm);
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-You may want to check out **Aspose** [Macro Remover](https://products.aspose.app/slides/el/remove-macros), which a free web app used to remove macros from PowerPoint, Excel, and Word documents. 
+Μπορεί να θέλετε να δοκιμάσετε το **Aspose** [Macro Remover](https://products.aspose.app/slides/el/remove-macros), μια δωρεάν διαδικτυακή εφαρμογή που χρησιμοποιείται για την αφαίρεση μακροεντολών από έγγραφα PowerPoint, Excel και Word. 
 
 {{% /alert %}} 
 
-## **Αφαίρεση VBA Μακροεντολών**
+## **Αφαίρεση Μακροεντολών VBA**
 
-Using the [VbaProject](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation#ac9554082a2ac5ed57adf6012c90da5f4) property under the [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation) class, you can remove a VBA macro.
+Χρησιμοποιώντας την ιδιότητα [VbaProject](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation#ac9554082a2ac5ed57adf6012c90da5f4) στην κλάση [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation), μπορείτε να αφαιρέσετε μια μακροεντολή VBA.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation) class and load the presentation containing the macro.
-1. Access the Macro module and remove it.
-1. Save the modified presentation.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation) και φορτώστε την παρουσίαση που περιέχει τη μακροεντολή.
+2. Πρόσβαση στη μονάδα Macro και αφαίρεσή της.
+3. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
-This C++ code shows you how to remove a VBA macro: 
+Αυτός ο κώδικας C++ δείχνει πώς να αφαιρέσετε μια μακροεντολή VBA:
 
 ```c++
-// Η διαδρομή προς το φάκελο εγγράφων.
+#include <DOM/Presentation.h>
+#include <DOM/Vba/IVbaModule.h>
+#include <DOM/Vba/IVbaModuleCollection.h>
+#include <DOM/Vba/IVbaProject.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+// Η διαδρομή προς τον φάκελο εγγράφων.
 const String outPath = u"../out/RemoveVBAMacros_out.pptm";
 const String templatePath = u"../templates/vba.pptm";
 
 // Φορτώνει την παρουσίαση που περιέχει τη μακροεντολή
 SharedPtr<Presentation> presentation = MakeObject<Presentation>(templatePath);
 
-// Πρόσβαση στο module Vba και αφαίρεσή του 
+// Πρόσβαση στη μονάδα Vba και αφαίρεσή της
 presentation->get_VbaProject()->get_Modules()->Remove(presentation->get_VbaProject()->get_Modules()->idx_get(0));
 
-// Αποθηκεύει την παρουσίαση
+// Αποθηκεύει την Παρουσίαση
 presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptm);
 ```
 
-## **Εξαγωγή VBA Μακροεντολών**
+## **Εξαγωγή Μακροεντολών VBA**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation) class and load the presentation containing the macro.
-2. Check if the presentation contains a VBA Project.
-3. Loop through all the modules contained in the VBA Project to view the macros.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation) και φορτώστε την παρουσίαση που περιέχει τη μακροεντολή.
+2. Ελέγξτε αν η παρουσίαση περιέχει Έργο VBA.
+3. Διατρέξτε όλες τις μονάδες που περιέχονται στο Έργο VBA για να προβάλετε τις μακροεντολές.
 
-This C++ code shows you how to extract VBA macros from a presentation containing macros: 
+Αυτός ο κώδικας C++ δείχνει πώς να εξαγάγετε μακροεντολές VBA από μια παρουσίαση που περιέχει μακροεντολές:
 
 ```c++
+#include <DOM/Presentation.h>
+#include <DOM/Vba/IVbaModule.h>
+#include <DOM/Vba/IVbaModuleCollection.h>
+#include <DOM/Vba/IVbaProject.h>
+#include <system/console.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Vba;
+using namespace System;
 
-	// Η διαδρομή προς το φάκελο εγγράφων.
+	// Η διαδρομή προς τον φάκελο εγγράφων.
 	const String templatePath = u"../templates/VBA.pptm";
 
 	// Φορτώνει την παρουσίαση που περιέχει τη μακροεντολή
 	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
 
 
-	if (pres->get_VbaProject() != NULL) // Ελέγχει αν η παρουσίαση περιέχει έργο VBA
+	if (pres->get_VbaProject() != NULL) // Ελέγχει αν η Παρουσίαση περιέχει Έργο VBA
 	{
 		
 		//for (SharedPtr<IVbaModule> module : pres->get_VbaProject()->get_Modules())
@@ -143,15 +174,22 @@ This C++ code shows you how to extract VBA macros from a presentation containing
 	}
 ```
 
-## **Έλεγχος εάν ένα VBA Project είναι προστατευμένο με κωδικό**
+## **Έλεγχος αν ένα Έργο VBA είναι προστατευμένο με κωδικό**
 
-Using the [IVbaProject::get_IsPasswordProtected](https://reference.aspose.com/slides/el/cpp/aspose.slides.vba/ivbaproject/get_ispasswordprotected/) property, you can determine whether a project’s properties are password-protected.
+Χρησιμοποιώντας την ιδιότητα [IVbaProject::get_IsPasswordProtected](https://reference.aspose.com/slides/el/cpp/aspose.slides.vba/ivbaproject/get_ispasswordprotected/), μπορείτε να καθορίσετε αν οι ιδιότητες ενός έργου είναι προστατευμένες με κωδικό.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/) class and load a presentation that contains a macro.
-2. Check whether the presentation contains a [VBA project](https://reference.aspose.com/slides/el/cpp/aspose.slides.vba/vbaproject/).
-3. Check whether the VBA project is password-protected to view its properties.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/) και φορτώστε μια παρουσίαση που περιέχει μακροεντολή.
+2. Ελέγξτε αν η παρουσίαση περιέχει ένα [VBA project](https://reference.aspose.com/slides/el/cpp/aspose.slides.vba/vbaproject/).
+3. Ελέγξτε αν το έργο VBA είναι προστατευμένο με κωδικό για να δείτε τις ιδιότητές του.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <DOM/Vba/IVbaProject.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Vba;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"VBA.pptm");
     
 if (presentation->get_VbaProject() != nullptr) // Ελέγχει αν η παρουσίαση περιέχει έργο VBA.
@@ -165,16 +203,16 @@ if (presentation->get_VbaProject() != nullptr) // Ελέγχει αν η παρ�
 presentation->Dispose();
 ```
 
-## **Συχνές ερωτήσεις**
+## **Συχνές Ερωτήσεις**
 
-**What happens to macros if I save the presentation as PPTX?**
+### Τι συμβαίνει με τις μακροεντολές αν αποθηκεύσω την παρουσίαση ως PPTX;
 
-Macros will be removed because PPTX does not support VBA. To keep macros, choose PPTM, PPSM, or POTM.
+Οι μακροεντολές θα αφαιρεθούν επειδή το PPTX δεν υποστηρίζει VBA. Για να διατηρήσετε τις μακροεντολές, επιλέξτε PPTM, PPSM ή POTM.
 
-**Can Aspose.Slides run macros inside a presentation to, for example, refresh data?**
+### Μπορεί το Aspose.Slides να εκτελέσει μακροεντολές μέσα σε μια παρουσίαση για, παράδειγμα, ανανέωση δεδομένων;
 
-No. The library never executes VBA code; execution is only possible inside PowerPoint with the appropriate security settings.
+Όχι. Η βιβλιοθήκη ποτέ δεν εκτελεί κώδικα VBA· η εκτέλεση είναι εφικτή μόνο μέσα στο PowerPoint με τις κατάλληλες ρυθμίσεις ασφαλείας.
 
-**Is working with ActiveX controls linked to VBA code supported?**
+### Υποστηρίζεται η εργασία με στοιχεία ActiveX που συνδέονται με κώδικα VBA;
 
-Yes, you can access existing [ActiveX controls](/slides/el/cpp/activex/), modify their properties, and remove them. This is useful when macros interact with ActiveX.
+Ναι, μπορείτε να προσπελάσετε υπάρχοντα [ActiveX controls](/slides/el/cpp/activex/), να τροποποιήσετε τις ιδιότητές τους και να τα αφαιρέσετε. Αυτό είναι χρήσιμο όταν οι μακροεντολές αλληλεπιδρούν με ActiveX.

@@ -1,32 +1,37 @@
 ---
-title: Offentligt API och bakåtinkompatibla förändringar i Aspose.Slides för Java 16.1.0
+title: Offentligt API och bakåt oförenliga ändringar i Aspose.Slides för Java 16.1.0
 linktitle: Aspose.Slides för Java 16.1.0
 type: docs
 weight: 200
 url: /sv/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/
 keywords:
-- migrering
+- migration
 - gammal kod
 - modern kod
-- gammal metod
-- modern metod
+- gammalt tillvägagångssätt
+- modernt tillvägagångssätt
 - PowerPoint
 - OpenDocument
 - presentation
 - Java
 - Aspose.Slides
-description: "Granska offentliga API-uppdateringar och brytande förändringar i Aspose.Slides för Java för att smidigt migrera dina PowerPoint-PPT, PPTX- och ODP-presentationslösningar."
+description: "Granska offentliga API-uppdateringar och brytande förändringar i Aspose.Slides för Java för att smidigt migrera dina PowerPoint PPT-, PPTX- och ODP-presentationslösningar."
 ---
-{{% alert color="primary" %}} 
-Denna sida listar alla [tillagda](/slides/sv/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) eller [borttagna](/slides/sv/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) klasser, metoder, egenskaper osv., samt andra förändringar som införts med Aspose.Slides för Java 16.1.0 API.
-{{% /alert %}} 
-## **Offentliga API‑ändringar**
+{{% alert color="info" %}} 
 
-#### **Metoderna getRotationAngle() och setRotationAngle() har lagts till i IChartTextBlockFormat‑ och ITextFrameFormat‑gränssnitten**
+Den här sidan listar alla [tillagda](/slides/sv/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) eller [borttagna](/slides/sv/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) klasser, metoder, egenskaper och så vidare, samt andra förändringar som införts med Aspose.Slides för Java 16.1.0 API.
+
+{{% /alert %}} 
+## **Offentliga API-ändringar**
+
+
+#### **Metoderna getRotationAngle() och setRotationAngle() har lagts till i IChartTextBlockFormat- och ITextFrameFormat-gränssnitten**
 Metoderna getRotationAngle() och setRotationAngle() har lagts till i gränssnitten com.aspose.slides.IChartTextBlockFormat och com.aspose.slides.ITextFrameFormat.
-De ger åtkomst till den anpassade rotation som appliceras på texten inom omgivningsrutan.
+De ger åtkomst till den anpassade rotation som appliceras på texten inom den omgivande rutan.
 
 ``` java
+import com.aspose.slides.*;
+
 
 
 

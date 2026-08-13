@@ -1,5 +1,5 @@
 ---
-title: Změna velikosti snímku v prezentaci v C++
+title: Změna velikosti snímku prezentace v C++
 linktitle: Velikost snímku
 type: docs
 weight: 70
@@ -7,15 +7,15 @@ url: /cs/cpp/slide-size/
 keywords:
 - velikost snímku
 - poměr stran
-- standard
+- standardní
 - širokoúhlý
 - 4:3
 - 16:9
-- nastavení velikosti snímku
-- změna velikosti snímku
+- nastavit velikost snímku
+- změnit velikost snímku
 - vlastní velikost snímku
 - speciální velikost snímku
-- jedinečná velikost snímku
+- unikátní velikost snímku
 - snímek v plné velikosti
 - typ obrazovky
 - neškálovat
@@ -26,85 +26,106 @@ keywords:
 - prezentace
 - C++
 - Aspose.Slides
-descriptions: "Naučte se rychle měnit velikost snímků v souborech PPT, PPTX a ODP pomocí C++ a Aspose.Slides, optimalizujte prezentace pro jakoukoli obrazovku bez ztráty kvality."
+description: "Naučte se rychle měnit velikost snímků v souborech PPT, PPTX a ODP pomocí C++ a Aspose.Slides, optimalizovat prezentace pro jakoukoli obrazovku bez ztráty kvality."
 ---
 ## **Úvod**
 
-Aspose.Slides poskytuje komplexní nástroje pro úpravu velikosti snímku a poměru stran v prezentacích PowerPoint, což je důležité jak pro tisk, tak pro zobrazení na obrazovce.  
+Aspose.Slides poskytuje komplexní nástroje pro úpravu velikosti snímku a poměru stran v prezentacích PowerPoint, což je důležité jak pro tisk, tak pro zobrazení na obrazovce.
 
-Oblíbené velikosti snímků a poměry:
+Populární velikosti snímků a poměry:
 
-- **Standard (poměr stran 4:3)**: Ideální pro starší obrazovky a zařízení.  
-- **Širokoúhlý (poměr stran 16:9)**: Doporučeno pro moderní projektory a displeje.  
+- **Standard (4:3 Aspect Ratio)**: Ideální pro starší obrazovky a zařízení.
+- **Widescreen (16:9 Aspect Ratio)**: Doporučeno pro moderní projektory a displeje.
 
-Zajistěte konzistenci v celé prezentaci, protože jedna velikost snímku a poměr stran se použijí na všechny snímky. Pro optimální výsledek nastavte rozměry snímku na začátku tvorby prezentace, abyste se vyhnuli komplikacím.
+Zajistěte konzistenci v celé prezentaci, protože jednotná velikost snímku a poměr stran se vztahují na všechny snímky. Pro optimální výsledky nastavte rozměry snímku na začátku tvorby prezentace, abyste se vyhnuli komplikacím.
 
-{{% alert color="primary" %}} 
-Ve výchozím nastavení používají prezentace vytvořené pomocí Aspose.Slides standardní poměr stran 4:3.
+{{% alert color="info" %}} 
+Ve výchozím nastavení používají prezentace vytvořené pomocí Aspose.Slides standardní poměr 4:3.
 {{% /alert %}}
 
 ## **Změna velikosti snímku v prezentacích**
 
- Tento ukázkový kód vám ukazuje, jak změnit velikost snímku v prezentaci v jazyce C++ pomocí Aspose.Slides:
+Tento ukázkový kód ukazuje, jak změnit velikost snímku v prezentaci v C++ pomocí Aspose.Slides:
 
 ``` cpp
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/SlideSizeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>(u"pres-4x3-aspect-ratio.pptx");
 pres->get_SlideSize()->SetSize(SlideSizeType::OnScreen16x9, SlideSizeScaleType::DoNotScale);
 pres->Save(u"pres-4x3-aspect-ratio.pptx", SaveFormat::Pptx);
 ```
 
-## **Určení vlastní velikosti snímků v prezentacích**
+## **Určení vlastních velikostí snímků v prezentacích**
 
-Pokud vám běžné velikosti snímků (4:3 a 16:9) nevyhovují, můžete se rozhodnout použít specifickou nebo jedinečnou velikost snímku. Například pokud plánujete tisknout snímky v plné velikosti z vaší prezentace na vlastní rozvržení stránky nebo pokud chcete prezentaci zobrazit na určitých typech obrazovek, pravděpodobně získáte výhodu z nastavení vlastní velikosti pro vaši prezentaci.  
+Pokud vám běžné velikosti snímků (4:3 a 16:9) nevyhovují, můžete se rozhodnout použít konkrétní nebo jedinečnou velikost snímku. Například pokud plánujete tisknout snímky v plné velikosti z vaší prezentace na vlastní rozvržení stránky nebo pokud chcete prezentaci zobrazovat na určitých typech obrazovek, pravděpodobně vám prospěje nastavení vlastní velikosti pro vaši prezentaci.
 
-Tento ukázkový kód vám ukazuje, jak pomocí Aspose.Slides pro C++ specifikovat vlastní velikost snímku pro prezentaci v jazyce C++:
+Tento ukázkový kód ukazuje, jak pomocí Aspose.Slides pro C++ zadat vlastní velikost snímku pro prezentaci v C++:
 
 ``` cpp
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 // Velikost papíru A4
 pres->get_SlideSize()->SetSize(780.0f, 540.0f, SlideSizeScaleType::DoNotScale);
 pres->Save(u"pres-a4-slide-size.pptx", SaveFormat::Pptx);
 ```
 
-## **Zpracování obsahu snímků po změně velikosti**
+## **Manipulace s obsahem snímků po změně velikosti**
 
-Po změně velikosti snímku v prezentaci se může obsah snímků (například obrázky nebo objekty) deformovat. Ve výchozím nastavení jsou objekty automaticky přizpůsobeny tak, aby odpovídaly nové velikosti snímku. Při změně velikosti snímku však můžete zadat nastavení, které určuje, jak Aspose.Slides zachází s obsahem na snímcích.  
+Po změně velikosti snímku v prezentaci se může obsah snímků (obrázky nebo objekty, například) deformovat. Standardně se objekty automaticky přizpůsobí nové velikosti snímku. Přesto při změně velikosti snímku můžete určit nastavení, které určuje, jak Aspose.Slides zachází s obsahem na snímcích.
 
-Podle toho, co chcete dosáhnout, můžete použít některé z těchto nastavení:
+Podle toho, co chcete dosáhnout, můžete použít některé z následujících nastavení:
 
 - `DoNotScale`
 
-  Pokud **NE** chcete, aby byly objekty na snímcích přizpůsobovány, použijte toto nastavení.
+  Pokud nechcete, aby se objekty na snímcích přizpůsobovaly, použijte toto nastavení.
 
 - `EnsureFit`
 
-  Pokud chcete měnit velikost na menší snímek a potřebujete, aby Aspose.Slides zmenšilo objekty na snímcích tak, aby se všechny vešly (tím se vyhnete ztrátě obsahu), použijte toto nastavení. 
+  Pokud chcete přizpůsobit menší velikosti snímku a potřebujete, aby Aspose.Slides zmenšil objekty snímků tak, aby se všechny vešly (tím se vyhnete ztrátě obsahu), použijte toto nastavení.
 
 - `Maximize`
 
-  Pokud chcete měnit velikost na větší snímek a potřebujete, aby Aspose.Slides zvětšilo objekty na snímcích tak, aby byly úměrné nové velikosti snímku, použijte toto nastavení. 
+  Pokud chcete přizpůsobit větší velikosti snímku a potřebujete, aby Aspose.Slides zvětšil objekty snímků tak, aby byly proporcionální nové velikosti snímku, použijte toto nastavení.
 
-Tento ukázkový kód vám ukazuje, jak použít nastavení `Maximize` při změně velikosti snímku v prezentaci:
+Tento ukázkový kód ukazuje, jak použít nastavení `Maximize` při změně velikosti snímku v prezentaci:
 
 ``` cpp
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/SlideSizeType.h>
+using namespace Aspose::Slides;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 pres->get_SlideSize()->SetSize(SlideSizeType::Ledger, SlideSizeScaleType::Maximize);
 ```
 
 ## **Často kladené otázky**
 
-**Mohu nastavit vlastní velikost snímku pomocí jednotek jiných než palce (například body nebo milimetry)?**
+### Můžu nastavit vlastní velikost snímku pomocí jednotek jiných než palce (například body nebo milimetry)?
 
-Ano. Aspose.Slides interně používá body, kde 1 bod odpovídá 1/72 palce. Můžete převést jakoukoli jednotku (například milimetry nebo centimetry) na body a použít převedené hodnoty k definování šířky a výšky snímku.  
+Ano. Aspose.Slides interně používá body, kde 1 bod odpovídá 1/72 palce. Můžete převést libovolnou jednotku (například milimetry nebo centimetry) na body a použít tyto převedené hodnoty k definování šířky a výšky snímku.
 
-**Může velmi velká vlastní velikost snímku ovlivnit výkon a spotřebu paměti během vykreslování?**
+### Ovlivní velmi velká vlastní velikost snímku výkon a spotřebu paměti během renderování?
 
-Ano. Větší rozměry snímku (v bodech) v kombinaci s vyšším měřítkem vykreslování vedou ke zvýšené spotřebě paměti a delším časům zpracování. Snažte se zvolit praktickou velikost snímku a měřítko vykreslování upravujte jen podle potřeby, aby byl dosažen požadovaný výstupní kvalita.  
+Ano. Větší rozměry snímku (v bodech) v kombinaci s vyšším měřítkem renderování vedou k vyšší spotřebě paměti a delším dobám zpracování. Dbejte na praktickou velikost snímku a měřítko renderování upravujte jen podle potřeby k dosažení požadované kvality výstupu.
 
-**Mohu definovat jednu nestandardní velikost snímku a poté sloučit snímky z prezentací, které mají různé velikosti?**
+### Můžu definovat jednu nestandardní velikost snímku a poté sloučit snímky z prezentací, které mají různé velikosti?
 
-Nemůžete [sloučit prezentace](/slides/cs/cpp/merge-presentation/) pokud mají různé velikosti snímků — nejprve změňte velikost jedné prezentace, aby odpovídala druhé. Při změně velikosti snímku můžete zvolit, jak se zachází s existujícím obsahem, pomocí možnosti [SlideSizeScaleType](https://reference.aspose.com/slides/cs/cpp/aspose.slides/slidesizescaletype/). Po vyrovnání velikostí můžete sloučit snímky při zachování formátování.  
+Nemůžete [sloučit prezentace](/slides/cs/cpp/merge-presentation/) , pokud mají různé velikosti snímků — nejprve změňte velikost jedné prezentace, aby odpovídala druhé. Při změně velikosti snímku můžete zvolit, jak bude zacházeno s existujícím obsahem, pomocí volby [SlideSizeScaleType](https://reference.aspose.com/slides/cs/cpp/aspose.slides/slidesizescaletype/). Po sladění velikostí můžete sloučit snímky a zachovat formátování.
 
-**Mohu generovat náhledy pro jednotlivé tvary nebo konkrétní oblasti snímku a budou respektovat novou velikost snímku?**
+### Můžu generovat miniatury pro jednotlivé tvary nebo konkrétní oblasti snímku a budou respektovat novou velikost snímku?
 
-Ano. Aspose.Slides může vykreslovat náhledy pro [celé snímky](https://reference.aspose.com/slides/cs/cpp/aspose.slides/slide/getimage/) i pro [vybrané tvary](https://reference.aspose.com/slides/cs/cpp/aspose.slides/shape/getimage/). Výsledné obrázky odrážejí aktuální velikost snímku a poměr stran, což zajišťuje konzistentní ohraničení a geometrie.
+Ano. Aspose.Slides dokáže vytvořit miniatury pro [celé snímky](https://reference.aspose.com/slides/cs/cpp/aspose.slides/slide/getimage/) i pro [vybrané tvary](https://reference.aspose.com/slides/cs/cpp/aspose.slides/shape/getimage/). Výsledné obrázky odrážejí aktuální velikost snímku a poměr stran, čímž zajišťují konzistentní ohraničení a geometrie.

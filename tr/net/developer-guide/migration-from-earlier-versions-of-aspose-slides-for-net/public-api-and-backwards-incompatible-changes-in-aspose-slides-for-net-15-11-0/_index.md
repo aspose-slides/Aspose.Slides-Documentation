@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides for .NET 15.11.0'da Genel API ve Geriye Uyumsuz Değişiklikler
+title: Aspose.Slides for .NET 15.11.0'de Genel API ve Geriye Dönük Uyumsuz Değişiklikler
 linktitle: Aspose.Slides for .NET 15.11.0
 type: docs
 weight: 210
@@ -16,17 +16,17 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET'teki genel API güncellemelerini ve kırılma yaratan değişiklikleri inceleyerek PowerPoint PPT, PPTX ve ODP sunum çözümlerinizi sorunsuz bir şekilde taşıyın."
+description: "Aspose.Slides for .NET'deki genel API güncellemelerini ve kırılma noktası değişikliklerini inceleyerek PowerPoint PPT, PPTX ve ODP sunum çözümlerinizi sorunsuz bir şekilde taşıyın."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Bu sayfa, Aspose.Slides for .NET 15.11.0 API'siyle tanıtılan eklenmiş veya kaldırılmış sınıfları, yöntemleri, özellikleri vb. ve diğer değişiklikleri listeler. [eklenen](/slides/tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) veya [kaldırılan](/slides/tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) sınıflar vb.
+Bu sayfa, Aspose.Slides for .NET 15.11.0 API'sı ile tanıtılan tüm [eklenen](/slides/tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) veya [kaldırılan](/slides/tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) sınıfları, metodları, özellikleri vb. ve diğer değişiklikleri listeler.
 
 {{% /alert %}} 
-## **Public API Değişiklikleri**
+## **Genel API Değişiklikleri**
 
-#### **DataLabelCollection Sınıfındaki Eski Özellikler Silindi**
-Obsolete properties in DataLabelCollection class have been deleted:
+#### **DataLabelCollection Sınıfındaki Kullanım Dışı Özellikler Silindi**
+DataLabelCollection sınıfındaki kullanım dışı özellikler silindi:
 Aspose.Slides.Charts.DataLabelCollection.Delete
 Aspose.Slides.Charts.DataLabelCollection.Format
 Aspose.Slides.Charts.DataLabelCollection.LinkedSource
@@ -41,23 +41,24 @@ Aspose.Slides.Charts.DataLabelCollection.ShowPercentage
 Aspose.Slides.Charts.DataLabelCollection.ShowSeriesName
 Aspose.Slides.Charts.DataLabelCollection.ShowValue
 
-#### **Presentation Sınıfına Yeni FirstSlideNumber Özelliği Eklendi**
-The new property FirstSlideNumber added to Presentation allows to get or to set the number of first slide in a presentation.
+#### **Presentation Sınıfına Yeni Özellik FirstSlideNumber Eklendi**
+Presentation sınıfına eklenen yeni FirstSlideNumber özelliği, sunumdaki ilk slayt numarasını almanıza veya ayarlamanıza olanak tanır.
 
-When a new FirstSlideNumber value is specified all slide numbers are recalculated.
+Yeni bir FirstSlideNumber değeri belirtildiğinde tüm slayt numaraları yeniden hesaplanır.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- using(var pres = new Presenation(path))
+string path = "sample.pptx";
+string newPath = "output.pptx";
 
+using (var pres = new Presentation(path))
 {
+    int firstSlideNumber = pres.FirstSlideNumber;
 
-  int firstSlideNumber = pres.FirstSlideNumber;
+    pres.FirstSlideNumber = 10;
 
-  pres.FirstSlideNumber = 10;
-
-  pres.Save(newPath, SaveFormat.Pptx);
-
+    pres.Save(newPath, SaveFormat.Pptx);
 }
-
 ```

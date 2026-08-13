@@ -9,7 +9,7 @@ keywords:
 - węzeł podrzędny
 - dodaj węzeł
 - pozycja węzła
-- uzyskaj dostęp do węzła
+- dostęp do węzła
 - usuń węzeł
 - niestandardowa pozycja
 - węzeł asystenta
@@ -20,26 +20,28 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Zarządzaj węzłami kształtu SmartArt w plikach PPT i PPTX za pomocą Aspose.Slides dla Androida. Uzyskaj przejrzyste przykłady kodu Java i wskazówki ułatwiające tworzenie prezentacji."
+description: "Zarządzaj węzłami kształtu SmartArt w plikach PPT i PPTX przy użyciu Aspose.Slides dla Androida. Uzyskaj przejrzyste przykłady kodu Java oraz wskazówki ułatwiające tworzenie prezentacji."
 ---
 ## **Przegląd**
 
-Grafiki SmartArt w prezentacjach PowerPoint są organizowane za pomocą węzłów, które zawierają tekst i definiują strukturę diagramu. Aspose.Slides umożliwia programowe operowanie na tych węzłach SmartArt: dodawanie nowych węzłów i węzłów podrzędnych, wstawianie węzłów podrzędnych w określonej pozycji, dostęp do istniejących węzłów oraz odczytywanie ich tekstu, poziomu i pozycji.
+Grafiki SmartArt w prezentacjach PowerPoint są organizowane za pomocą węzłów zawierających tekst i definiujących strukturę diagramu. Aspose.Slides umożliwia programowe operowanie na tych węzłach SmartArt: dodawanie nowych węzłów i węzłów podrzędnych, wstawianie węzłów podrzędnych w określonej pozycji, dostęp do istniejących węzłów oraz odczytywanie ich tekstu, poziomu i pozycji.
 
-Ten artykuł wyjaśnia, jak zarządzać węzłami kształtów SmartArt. Pokazuje, jak usuwać węzły, pracować z węzłami podrzędnymi według indeksu lub pozycji, zmienić węzeł asystenta na węzeł zwykły, dostosować pozycję, rozmiar i obrót kształtów węzłów SmartArt, ustawić formaty wypełnienia węzłów oraz wygenerować miniaturę obrazu dla węzła podrzędnego SmartArt.
+Ten artykuł wyjaśnia, jak zarządzać węzłami kształtów SmartArt. Pokazuje, jak usuwać węzły, pracować z węzłami podrzędnymi według indeksu lub pozycji, zmienić węzeł asystenta na węzeł normalny, dostosować pozycję, rozmiar i obrót kształtów węzłów SmartArt, ustawić format wypełnienia węzła oraz wygenerować miniaturę węzła SmartArt.
 
-## **Dodaj węzeł SmartArt**
+## **Dodawanie węzła SmartArt**
 Aspose.Slides for Android via Java udostępnia najprostsze API do zarządzania kształtami SmartArt w najłatwiejszy sposób. Poniższy przykładowy kod pomoże dodać węzeł i węzeł podrzędny wewnątrz kształtu SmartArt.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Presentation) i załaduj prezentację z kształtem SmartArt.
-1. Uzyskaj referencję do pierwszego slajdu, używając jego indeksu.
-1. Przejdź przez wszystkie kształty na pierwszym slajdzie.
-1. Sprawdź, czy kształt jest typu [SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArt) i rzutuj wybrany kształt na [SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArt), jeśli jest SmartArt.
-1. [Add a new Node](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArtNodeCollection#addNode--) w kształcie SmartArt [**NodeCollection**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArt#getAllNodes--) i ustaw tekst w TextFrame.
-1. Teraz, [Add](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArtNodeCollection#addNode--) [**Child Node**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--) w nowo dodanym węźle [SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArt) i ustaw tekst w TextFrame
-1. Zapisz prezentację.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Presentation) i wczytaj prezentację z kształtem SmartArt.  
+2. Uzyskaj referencję do pierwszego slajdu, używając jego indeksu.  
+3. Przejdź przez wszystkie kształty na pierwszym slajdzie.  
+4. Sprawdź, czy kształt jest typu [SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArt) i rzutuj wybrany kształt na [SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArt), jeśli jest to SmartArt.  
+5. [Dodaj nowy węzeł](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArtNodeCollection#addNode--) w kolekcji węzłów SmartArt **NodeCollection**([https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArt#getAllNodes--]) i ustaw tekst w TextFrame.  
+6. Następnie [dodaj](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArtNodeCollection#addNode--) **węzeł podrzędny**([https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--]) do nowo dodanego węzła SmartArt i ustaw tekst w TextFrame.  
+7. Zapisz prezentację.
 
 ```java
+import com.aspose.slides.*;
+
 // Załaduj żądaną prezentację
 Presentation pres = new Presentation("SimpleSmartArt.pptx");
 try {
@@ -58,7 +60,7 @@ try {
             // Dodawanie tekstu
             TemNode.getTextFrame().setText("Test");
     
-            // Dodawanie nowego węzła podrzędnego w węźle nadrzędnym. Zostanie dodany na końcu kolekcji
+            // Dodawanie nowego węzła podrzędnego do węzła nadrzędnego. Zostanie dodany na końcu kolekcji
             SmartArtNode newNode = (SmartArtNode) TemNode.getChildNodes().addNode();
     
             // Dodawanie tekstu
@@ -73,27 +75,29 @@ try {
 }
 ```
 
-## **Dodaj węzeł SmartArt w określonej pozycji**
-W poniższym przykładzie kodu wyjaśniono, jak dodać węzły podrzędne należące do odpowiednich węzłów kształtu SmartArt w określonej pozycji.
+## **Dodawanie węzła SmartArt w określonej pozycji**
+W poniższym przykładowym kodzie wyjaśniono, jak dodać węzły podrzędne należące do odpowiednich węzłów kształtu SmartArt w określonej pozycji.
 
-1. Utwórz instancję klasy Presentation.
-1. Uzyskaj referencję do pierwszego slajdu, używając jego indeksu.
-1. Dodaj kształt [SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/SmartArt) typu [**StackedList**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/SmartArtLayoutType#StackedList) na wybranym slajdzie.
-1. Uzyskaj dostęp do pierwszego węzła w dodanym kształcie SmartArt
-1. Teraz dodaj [**Child Node**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--) dla wybranego [**Node**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/SmartArtNode) na pozycji 2 i ustaw jego tekst.
-1. Zapisz prezentację
+1. Utwórz instancję klasy [Presentation].  
+2. Uzyskaj referencję do pierwszego slajdu, używając jego indeksu.  
+3. Dodaj kształt SmartArt typu [**StackedList**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/SmartArtLayoutType#StackedList) na wybranym slajdzie.  
+4. Uzyskaj dostęp do pierwszego węzła w dodanym kształcie SmartArt.  
+5. Teraz dodaj **węzeł podrzędny**([https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--]) dla wybranego **węzła**([https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/SmartArtNode]) na pozycji 2 i ustaw jego tekst.  
+6. Zapisz prezentację.
 
 ```java
+import com.aspose.slides.*;
+
 // Tworzenie instancji prezentacji
 Presentation pres = new Presentation();
 try {
     // Dostęp do slajdu prezentacji
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Dodaj Smart Art IShape
+    // Dodaj IShape Smart Art
     ISmartArt smart = slide.getShapes().addSmartArt(0, 0, 400, 400, SmartArtLayoutType.StackedList);
 
-    // Dostęp do węzła SmartArt o indeksie 0
+    // Uzyskiwanie węzła SmartArt o indeksie 0
     ISmartArtNode node = smart.getAllNodes().get_Item(0);
 
     // Dodawanie nowego węzła podrzędnego na pozycji 2 w węźle nadrzędnym
@@ -109,17 +113,19 @@ try {
 }
 ```
 
-## **Uzyskaj dostęp do węzła SmartArt**
-Poniższy przykładowy kod pomoże uzyskać dostęp do węzłów wewnątrz kształtu SmartArt. Należy pamiętać, że nie można zmienić właściwości LayoutType SmartArt, ponieważ jest ona tylko do odczytu i jest ustawiana wyłącznie przy dodawaniu kształtu SmartArt.
+## **Dostęp do węzła SmartArt**
+Poniższy przykładowy kod pomoże uzyskać dostęp do węzłów wewnątrz kształtu SmartArt. Należy pamiętać, że LayoutType SmartArt jest wybierany w momencie dodawania kształtu; zmiana go później metodą **setLayout** powoduje przebudowę całego diagramu, więc pozycje i rozmiary węzłów, które mogłeś ustawić, są przeliczane ponownie.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation) i załaduj prezentację z kształtem SmartArt.
-1. Uzyskaj referencję do pierwszego slajdu, używając jego indeksu.
-1. Przejdź przez wszystkie kształty na pierwszym slajdzie.
-1. Sprawdź, czy kształt jest typu [SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArt) i rzutuj wybrany kształt na [SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArt), jeśli jest SmartArt.
-1. Przejdź przez wszystkie [**Nodes**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/SmartArt#getAllNodes--) wewnątrz kształtu SmartArt.
-1. Uzyskaj dostęp i wyświetl informacje, takie jak pozycja węzła SmartArt, poziom i tekst.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation) i wczytaj prezentację z kształtem SmartArt.  
+2. Uzyskaj referencję do pierwszego slajdu, używając jego indeksu.  
+3. Przejdź przez wszystkie kształty na pierwszym slajdzie.  
+4. Sprawdź, czy kształt jest typu [SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArt) i rzutuj go na [SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArt), jeśli jest to SmartArt.  
+5. Przejdź przez wszystkie **węzły**([https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/SmartArt#getAllNodes--]) wewnątrz kształtu SmartArt.  
+6. Uzyskaj dostęp i wyświetl informacje, takie jak pozycja węzła SmartArt, poziom i tekst.
 
 ```java
+import com.aspose.slides.*;
+
 // Utwórz instancję klasy Presentation
 Presentation pres = new Presentation("SmartArtShape.pptx");
 try {
@@ -138,10 +144,10 @@ try {
             // Przejdź przez wszystkie węzły wewnątrz SmartArt
             for (int i = 0; i < smart.getAllNodes().size(); i++) 
             {
-                // Uzyskiwanie dostępu do węzła SmartArt o indeksie i
+                // Dostęp do węzła SmartArt o indeksie i
                 SmartArtNode node = (SmartArtNode) smart.getAllNodes().get_Item(i);
     
-                // Wyświetlanie parametrów węzła SmartArt
+                // Wypisywanie parametrów węzła SmartArt
                 System.out.print(node.getTextFrame().getText() + " " + node.getLevel() + " " + node.getPosition());
             }
         }
@@ -151,18 +157,20 @@ try {
 }
 ```
 
-## **Uzyskaj dostęp do węzła podrzędnego SmartArt**
+## **Dostęp do węzła podrzędnego SmartArt**
 Poniższy przykładowy kod pomoże uzyskać dostęp do węzłów podrzędnych należących do odpowiednich węzłów kształtu SmartArt.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation) i załaduj prezentację z kształtem SmartArt.
-1. Uzyskaj referencję do pierwszego slajdu, używając jego indeksu.
-1. Przejdź przez wszystkie kształty na pierwszym slajdzie.
-1. Sprawdź, czy kształt jest typu [SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArt) i rzutuj wybrany kształt na [SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArt), jeśli jest SmartArt.
-1. Przejdź przez wszystkie [**Nodes**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/SmartArt#getAllNodes--) wewnątrz kształtu SmartArt.
-1. Dla każdego wybranego [**Node**] kształtu SmartArt, przejdź przez wszystkie [**Child Nodes**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/SmartArtNode#getChildNodes--) wewnątrz danego węzła.
-1. Uzyskaj dostęp i wyświetl informacje, takie jak pozycja [**Child Node**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--) , poziom i tekst.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation) i wczytaj prezentację z kształtem SmartArt.  
+2. Uzyskaj referencję do pierwszego slajdu, używając jego indeksu.  
+3. Przejdź przez wszystkie kształty na pierwszym slajdzie.  
+4. Sprawdź, czy kształt jest typu [SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArt) i rzutuj go na [SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArt), jeśli jest to SmartArt.  
+5. Przejdź przez wszystkie **węzły**([https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/SmartArt#getAllNodes--]) wewnątrz kształtu SmartArt.  
+6. Dla każdego wybranego **węzła**([https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/SmartArtNode]) przejdź przez wszystkie **węzły podrzędne**([https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/SmartArtNode#getChildNodes--]) w danym węźle.  
+7. Uzyskaj dostęp i wyświetl informacje, takie jak pozycja, poziom i tekst **węzła podrzędnego**([https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--]).
 
 ```java
+import com.aspose.slides.*;
+
 // Utwórz instancję klasy Presentation
 Presentation pres = new Presentation("AccessChildNodes.pptx");
 try {
@@ -181,16 +189,16 @@ try {
             // Przejdź przez wszystkie węzły wewnątrz SmartArt
             for (int i = 0; i < smart.getAllNodes().size(); i++) 
             {
-                // Uzyskiwanie dostępu do węzła SmartArt o indeksie i
+                // Dostęp do węzła SmartArt o indeksie i
                 SmartArtNode node0 = (SmartArtNode) smart.getAllNodes().get_Item(i);
                 
-                // Przechodzenie przez węzły podrzędne w węźle SmartArt o indeksie i
+                // Przeglądanie węzłów podrzędnych w węźle SmartArt o indeksie i
                 for (int j = 0; j < node0.getChildNodes().size(); j++) 
                 {
-                    // Uzyskiwanie dostępu do węzła podrzędnego w węźle SmartArt
+                    // Dostęp do węzła podrzędnego w węźle SmartArt
                     SmartArtNode node = (SmartArtNode) node0.getChildNodes().get_Item(j);
     
-                    // Wyświetlanie parametrów węzła podrzędnego SmartArt
+                    // Wypisywanie parametrów węzła podrzędnego SmartArt
                     System.out.print("j = " + j + ", Text = " + node.getTextFrame().getText() + ",  Level = " + node.getLevel() + ", Position = " + node.getPosition());
                 }
             }
@@ -201,18 +209,20 @@ try {
 }
 ```
 
-## **Uzyskaj dostęp do węzła podrzędnego SmartArt w określonej pozycji**
-W tym przykładzie nauczymy się uzyskiwać dostęp do węzłów podrzędnych w określonej pozycji należących do odpowiednich węzłów kształtu SmartArt.
+## **Dostęp do węzła podrzędnego SmartArt w określonej pozycji**
+W tym przykładzie nauczymy się uzyskiwać dostęp do węzłów podrzędnych w określonych pozycjach, należących do odpowiednich węzłów kształtu SmartArt.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation) .
-1. Uzyskaj referencję do pierwszego slajdu, używając jego indeksu.
-1. Dodaj kształt SmartArt typu [**StackedList**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/SmartArtLayoutType#StackedList).
-1. Uzyskaj dostęp do dodanego kształtu SmartArt.
-1. Uzyskaj dostęp do węzła o indeksie 0 w wybranym kształcie SmartArt.
-1. Teraz uzyskaj dostęp do [**Child Node**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--) na pozycji 1 dla wybranego węzła SmartArt, używając metody **get_Item()**.
-1. Uzyskaj dostęp i wyświetl informacje, takie jak pozycja [**Child Node**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--) , poziom i tekst.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation).  
+2. Uzyskaj referencję do pierwszego slajdu, używając jego indeksu.  
+3. Dodaj kształt SmartArt typu [**StackedList**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/SmartArtLayoutType#StackedList).  
+4. Uzyskaj dostęp do dodanego kształtu SmartArt.  
+5. Uzyskaj dostęp do węzła o indeksie 0 w tym kształcie.  
+6. Następnie uzyskaj dostęp do **węzła podrzędnego**([https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--]) na pozycji 1 dla wybranego węzła SmartArt, używając metody **get_Item()**.  
+7. Wyświetl informacje, takie jak pozycja, poziom i tekst **węzła podrzędnego**([https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--]).
 
 ```java
+import com.aspose.slides.*;
+
 // Utwórz instancję prezentacji
 Presentation pres = new Presentation();
 try {
@@ -222,10 +232,10 @@ try {
     // Dodawanie kształtu SmartArt na pierwszym slajdzie
     ISmartArt smart = slide.getShapes().addSmartArt(0, 0, 400, 400, SmartArtLayoutType.StackedList);
     
-    // Uzyskiwanie dostępu do węzła SmartArt o indeksie 0
+    // Dostęp do węzła SmartArt o indeksie 0
     ISmartArtNode node = smart.getAllNodes().get_Item(0);
     
-    // Uzyskiwanie dostępu do węzła podrzędnego na pozycji 1 w węźle nadrzędnym
+    // Dostęp do węzła podrzędnego na pozycji 1 w węźle nadrzędnym
     int position = 1;
     SmartArtNode chNode = (SmartArtNode) ((SmartArtNodeCollection) node.getChildNodes()).get_Item(position);
     
@@ -236,19 +246,21 @@ try {
 }
 ```
 
-## **Usuń węzeł SmartArt**
+## **Usuwanie węzła SmartArt**
 W tym przykładzie nauczymy się usuwać węzły wewnątrz kształtu SmartArt.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation) i załaduj prezentację z kształtem SmartArt.
-1. Uzyskaj referencję do pierwszego slajdu, używając jego indeksu.
-1. Przejdź przez wszystkie kształty na pierwszym slajdzie.
-1. Sprawdź, czy kształt jest typu [SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArt) i rzutuj wybrany kształt na [SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArt), jeśli jest SmartArt.
-1. Sprawdź, czy [SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArt) ma więcej niż 0 węzłów.
-1. Wybierz węzeł SmartArt, który ma zostać usunięty.
-1. Teraz usuń wybrany węzeł, używając metody [**RemoveNode**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArtNodeCollection#removeNode-com.aspose.slides.ISmartArtNode-).
-1. Zapisz prezentację.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation) i wczytaj prezentację z kształtem SmartArt.  
+2. Uzyskaj referencję do pierwszego slajdu, używając jego indeksu.  
+3. Przejdź przez wszystkie kształty na pierwszym slajdzie.  
+4. Sprawdź, czy kształt jest typu [SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArt) i rzutuj go na [SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArt), jeśli jest to SmartArt.  
+5. Sprawdź, czy [SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArt) zawiera więcej niż 0 węzłów.  
+6. Wybierz węzeł SmartArt do usunięcia.  
+7. Usuń wybrany węzeł, używając metody [**RemoveNode**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArtNodeCollection#removeNode-com.aspose.slides.ISmartArtNode-).  
+8. Zapisz prezentację.
 
 ```java
+import com.aspose.slides.*;
+
 // Załaduj żądaną prezentację
 Presentation pres = new Presentation("AddSmartArtNode.pptx");
 try {
@@ -263,7 +275,7 @@ try {
     
             if (smart.getAllNodes().size() > 0) 
             {
-                // Uzyskiwanie dostępu do węzła SmartArt o indeksie 0
+                // Dostęp do węzła SmartArt o indeksie 0
                 ISmartArtNode node = smart.getAllNodes().get_Item(0);
     
                 // Usuwanie wybranego węzła
@@ -279,19 +291,21 @@ try {
 }
 ```
 
-## **Usuń węzeł SmartArt z określonej pozycji**
-W tym przykładzie nauczymy się usuwać węzły wewnątrz kształtu SmartArt w konkretnej pozycji.
+## **Usuwanie węzła SmartArt z określonej pozycji**
+W tym przykładzie nauczymy się usuwać węzły wewnątrz kształtu SmartArt w określonej pozycji.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation) i załaduj prezentację z kształtem SmartArt.
-1. Uzyskaj referencję do pierwszego slajdu, używając jego indeksu.
-1. Przejdź przez wszystkie kształty na pierwszym slajdzie.
-1. Sprawdź, czy kształt jest typu [SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArt) i rzutuj wybrany kształt na [SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArt), jeśli jest SmartArt.
-1. Wybierz węzeł kształtu SmartArt o indeksie 0.
-1. Teraz sprawdź, czy wybrany węzeł SmartArt ma więcej niż 2 węzły podrzędne.
-1. Teraz usuń węzeł na **Position 1** za pomocą metody [**RemoveNode**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArtNodeCollection#removeNode-int-).
-1. Zapisz prezentację.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation) i wczytaj prezentację z kształtem SmartArt.  
+2. Uzyskaj referencję do pierwszego slajdu, używając jego indeksu.  
+3. Przejdź przez wszystkie kształty na pierwszym slajdzie.  
+4. Sprawdź, czy kształt jest typu [SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArt) i rzutuj go na [SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArt), jeśli jest to SmartArt.  
+5. Wybierz węzeł kształtu SmartArt o indeksie 0.  
+6. Sprawdź, czy wybrany węzeł SmartArt ma więcej niż 2 węzły podrzędne.  
+7. Usuń węzeł na **pozycji 1**, używając metody [**RemoveNode**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArtNodeCollection#removeNode-int-).  
+8. Zapisz prezentację.
 
 ```java
+import com.aspose.slides.*;
+
 // Załaduj żądaną prezentację
 Presentation pres = new Presentation("AddSmartArtNode.pptx");
 try {
@@ -306,7 +320,7 @@ try {
     
             if (smart.getAllNodes().size() > 0) 
             {
-                // Uzyskiwanie dostępu do węzła SmartArt o indeksie 0
+                // Dostęp do węzła SmartArt o indeksie 0
                 ISmartArtNode node = smart.getAllNodes().get_Item(0);
     
                 if (node.getChildNodes().size() >= 2) 
@@ -325,10 +339,12 @@ try {
 }
 ```
 
-## **Ustaw niestandardową pozycję dla węzła podrzędnego w obiekcie SmartArt**
-Teraz Aspose.Slides for Android via Java obsługuje ustawianie właściwości [SmartArtShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/SmartArtShape) [X](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IShape#setX-float-) i [Y](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IShape#setY-float-). Poniższy fragment kodu pokazuje, jak ustawić niestandardową pozycję, rozmiar i obrót SmartArtShape; należy również zauważyć, że dodawanie nowych węzłów powoduje przeliczenie pozycji i rozmiarów wszystkich węzłów. Dzięki ustawieniom niestandardowej pozycji użytkownik może dostosować węzły do własnych wymagań.
+## **Ustawienie własnej pozycji dla węzła podrzędnego w obiekcie SmartArt**
+Aspose.Slides for Android via Java wspiera ustawianie właściwości [SmartArtShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/SmartArtShape) **X**([https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IShape#setX-float-]) i **Y**([https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IShape#setY-float-]). Poniższy fragment kodu pokazuje, jak ustawić własną pozycję, rozmiar i obrót SmartArtShape; należy również pamiętać, że dodanie nowych węzłów powoduje przeliczenie pozycji i rozmiarów wszystkich węzłów. Dzięki własnym ustawieniom pozycji użytkownik może dostosować węzły do własnych wymagań.
 
 ```java
+import com.aspose.slides.*;
+
 // Utwórz instancję klasy Presentation
 Presentation pres = new Presentation("SimpleSmartArt.pptx");
 try{
@@ -361,34 +377,36 @@ try{
 }
 ```
 
-## **Sprawdź węzeł asystenta**
-{{% alert color="primary" %}} 
+## **Sprawdzanie węzła asystenta**
+{{% alert color="info" %}} 
 
-W tym artykule przyjrzymy się bliżej funkcjom kształtów SmartArt dodawanych do slajdów prezentacji programowo przy użyciu Aspose.Slides for Android via Java.
+W tym artykule bliżej przyjrzymy się funkcjom kształtów SmartArt dodawanym programowo do slajdów prezentacji przy użyciu Aspose.Slides for Android via Java.
 
 {{% /alert %}} 
 
-Do naszych badań w różnych sekcjach tego artykułu użyjemy następującego źródłowego kształtu SmartArt.
+Do badania użyjemy następującego źródłowego kształtu SmartArt w różnych sekcjach tego artykułu.
 
 |![todo:image_alt_text](https://i.imgur.com/FItwczY.png)|
 | :- |
-|**Rysunek: źródłowy kształt SmartArt na slajdzie**|
+|**Rysunek: Źródłowy kształt SmartArt na slajdzie**|
 
-W poniższym przykładzie kodu zbadamy, jak zidentyfikować **węzły asystenta** w kolekcji węzłów SmartArt i jak je zmienić.
+W poniższym przykładowym kodzie zbadamy, jak identyfikować **węzły asystenta** w kolekcji węzłów SmartArt i jak je zmieniać.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation) i załaduj prezentację z kształtem SmartArt.
-1. Uzyskaj referencję do drugiego slajdu, używając jego indeksu.
-1. Przejdź przez wszystkie kształty na pierwszym slajdzie.
-1. Sprawdź, czy kształt jest typu [SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArt) i rzutuj wybrany kształt na [SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArt), jeśli jest SmartArt.
-1. Przejdź przez wszystkie węzły w kształcie SmartArt i sprawdź, czy są [**Assistant Nodes**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/SmartArtNode#isAssistant--).
-1. Zmieni status węzła asystenta na węzeł normalny.
-1. Zapisz prezentację.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation) i wczytaj prezentację z kształtem SmartArt.  
+2. Uzyskaj referencję do pierwszego slajdu, używając jego indeksu.  
+3. Przejdź przez wszystkie kształty na pierwszym slajdzie.  
+4. Sprawdź, czy kształt jest typu [SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArt) i rzutuj go na [SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArt), jeśli jest to SmartArt.  
+5. Przejdź przez wszystkie węzły w kształcie SmartArt i sprawdź, czy są to [**węzły asystenta**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/SmartArtNode#isAssistant--).  
+6. Zmień status węzła asystenta na węzeł normalny.  
+7. Zapisz prezentację.
 
 ```java
+import com.aspose.slides.*;
+
 // Tworzenie instancji prezentacji
 Presentation pres = new Presentation("AddNodes.pptx");
 try {
-    // Przechodzenie przez wszystkie kształty na pierwszym slajdzie
+    // Przejdź przez wszystkie kształty na pierwszym slajdzie
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
         // Sprawdź, czy kształt jest typu SmartArt
@@ -397,15 +415,15 @@ try {
             // Rzutuj kształt na SmartArt
             ISmartArt smart = (SmartArt) shape;
     
-            // Przechodzenie przez wszystkie węzły kształtu SmartArt
+            // Przeglądanie wszystkich węzłów kształtu SmartArt
             for (int i = 0; i < smart.getAllNodes().size(); i++) 
             {
                 ISmartArtNode node = smart.getAllNodes().get_Item(i);
                 // Sprawdź, czy węzeł jest węzłem asystenta
                 if (node.isAssistant()) 
                 {
-                    // Ustawienie węzła asystenta na false i przekształcenie go w węzeł normalny
-                    node.isAssistant();
+                    // Ustawienie właściwości Assistant na false i przekształcenie w węzeł normalny
+                    node.setAssistant(false);
                 }
             }
         }
@@ -420,20 +438,23 @@ try {
 
 |![todo:image_alt_text](https://i.imgur.com/qpAl4rN.png)|
 | :- |
-|**Rysunek: zmienione węzły asystenta w kształcie SmartArt na slajdzie**|
+|**Rysunek: Węzły asystenta zmienione w kształcie SmartArt na slajdzie**|
 
-## **Ustaw format wypełnienia węzła**
-Aspose.Slides for Android via Java umożliwia dodawanie niestandardowych kształtów SmartArt i ustawianie ich formatu wypełnienia. Ten artykuł wyjaśnia, jak tworzyć i uzyskiwać dostęp do kształtów SmartArt oraz jak ustawiać ich format wypełnienia przy użyciu Aspose.Slides for Android via Java.
+## **Ustawienie formatu wypełnienia węzła**
+Aspose.Slides for Android via Java umożliwia dodawanie niestandardowych kształtów SmartArt i ustawianie ich formatu wypełnienia. Ten artykuł wyjaśnia, jak tworzyć i uzyskiwać dostęp do kształtów SmartArt oraz ustawiać ich format wypełnienia przy użyciu Aspose.Slides for Android via Java.
 
 Proszę wykonać następujące kroki:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation).
-1. Uzyskaj referencję do slajdu, używając jego indeksu.
-1. Dodaj kształt [SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArt), ustawiając jego [**LayoutType**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/SmartArtLayoutType#ClosedChevronProcess).
-1. Ustaw [**FillFormat**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IShape#getFillFormat--) dla węzłów kształtu SmartArt.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation).  
+2. Uzyskaj referencję do slajdu, używając jego indeksu.  
+3. Dodaj kształt [SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArt), ustawiając jego [**LayoutType**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/SmartArtLayoutType#ClosedChevronProcess).  
+4. Ustaw [**FillFormat**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IShape#getFillFormat--) dla węzłów kształtu SmartArt.  
+5. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Utwórz instancję prezentacji
 Presentation pres = new Presentation();
 try {
@@ -459,23 +480,25 @@ try {
 }
 ```
 
-## **Wygeneruj miniaturę węzła podrzędnego SmartArt**
-Programiści mogą wygenerować miniaturę węzła podrzędnego SmartArt, postępując zgodnie z poniższymi krokami:
+## **Generowanie miniatury węzła SmartArt**
+Programiści mogą wygenerować miniaturę węzła SmartArt, postępując zgodnie z poniższymi krokami:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation).
-1. [Add SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArtNodeCollection#addNode--).
-1. Uzyskaj referencję do węzła, używając jego indeksu
-1. Pobierz obraz miniatury.
-1. Zapisz obraz miniatury w wybranym formacie obrazu.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation).  
+2. [Dodaj SmartArt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ISmartArtNodeCollection#addNode--).  
+3. Uzyskaj referencję do węzła, używając jego indeksu.  
+4. Pobierz obraz miniatury.  
+5. Zapisz obraz miniatury w wybranym formacie graficznym.
 
 ```java
-// Utwórz klasę Presentation reprezentującą plik PPTX 
+import com.aspose.slides.*;
+
+// Utwórz instancję klasy Presentation, która reprezentuje plik PPTX
 Presentation pres = new Presentation();
 try {
-    // Dodaj SmartArt 
+    // Dodaj SmartArt
     ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicCycle);
 
-    // Uzyskaj referencję do węzła za pomocą jego indeksu  
+    // Uzyskaj referencję do węzła, używając jego indeksu  
     ISmartArtNode node = smart.getNodes().get_Item(1);
 
     // Pobierz miniaturę
@@ -494,18 +517,18 @@ try {
 
 ## **FAQ**
 
-**Czy animacje SmartArt są obsługiwane?**
+### Czy animacje SmartArt są obsługiwane?
 
-Tak. SmartArt jest traktowany jako zwykły kształt, więc możesz [zastosować standardowe animacje](/slides/pl/androidjava/shape-animation/) (wejścia, wyjścia, podkreślenia, ścieżki ruchu) i dostosować ich czas. W razie potrzeby możesz również animować kształty wewnątrz węzłów SmartArt.
+Tak. SmartArt jest traktowany jak zwykły kształt, więc możesz [zastosować standardowe animacje](/slides/pl/androidjava/shape-animation/) (wejście, zakończenie, podkreślenie, ścieżki ruchu) i dostosować ich timing. W razie potrzeby można także animować kształty wewnątrz węzłów SmartArt.
 
-**Jak mogę niezawodnie zlokalizować konkretny SmartArt na slajdzie, jeśli jego wewnętrzny identyfikator jest nieznany?**
+### Jak mogę niezawodnie zlokalizować konkretny SmartArt na slajdzie, jeśli nie znam jego wewnętrznego identyfikatora?
 
-Przypisz i wyszukaj po [alternatywnym tekście](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/shape/#getAlternativeText--). Ustawienie wyróżniającego się AltText w SmartArt pozwala znaleźć go programowo bez polegania na wewnętrznych identyfikatorach.
+Przypisz i wyszukuj po [alternatywnym tekście](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/shape/#getAlternativeText--). Ustawiając charakterystyczny AltText na SmartArt, możesz go odnaleźć programowo, nie polegając na wewnętrznych identyfikatorach.
 
-**Czy wygląd SmartArt zostanie zachowany przy konwersji prezentacji do PDF?**
+### Czy wygląd SmartArt zostanie zachowany przy konwersji prezentacji do PDF?
 
 Tak. Aspose.Slides renderuje SmartArt z wysoką wiernością wizualną podczas [eksportu do PDF](/slides/pl/androidjava/convert-powerpoint-to-pdf/), zachowując układ, kolory i efekty.
 
-**Czy mogę wyodrębnić obraz całego SmartArt (do podglądów lub raportów)?**
+### Czy mogę wyodrębnić obraz całego SmartArt (do podglądów lub raportów)?
 
-Tak. Możesz renderować kształt SmartArt do [formatów rastrowych](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/shape/#getImage-int-float-float-) lub do [SVG](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-), co umożliwia uzyskanie skalowalnego wyjścia wektorowego, przydatnego do miniatur, raportów lub zastosowań internetowych.
+Tak. Możesz renderować kształt SmartArt do [formatów rastrowych](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/shape/#getImage-int-float-float-) lub do [SVG](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) dla wektorowego wyjścia, co nadaje się do miniatur, raportów lub zastosowań internetowych.

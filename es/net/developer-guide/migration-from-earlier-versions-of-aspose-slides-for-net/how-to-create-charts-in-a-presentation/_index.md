@@ -17,17 +17,20 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aprenda cómo crear gráficos en presentaciones PowerPoint PPT, PPTX y ODP en .NET con Aspose.Slides utilizando tanto las API de gráficos heredadas como las modernas."
+description: "Aprenda cómo crear gráficos en presentaciones PowerPoint PPT, PPTX y ODP en .NET con Aspose.Slides usando tanto las APIs de gráficos heredadas como las modernas."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-Se ha publicado una nueva [Aspose.Slides for .NET API](/slides/es/net/) y ahora este único producto soporta la capacidad de generar documentos PowerPoint desde cero y editar los existentes.
+Se ha lanzado una nueva [API de Aspose.Slides para .NET](/slides/es/net/) y ahora este producto único admite la capacidad de generar documentos PowerPoint desde cero y de editar los existentes.
+
 {{% /alert %}} 
 ## **Compatibilidad con código heredado**
-Para usar el código heredado desarrollado con versiones de Aspose.Slides for .NET anteriores a la 13.x, es necesario realizar algunos cambios menores en su código y éste funcionará como antes. Todas las clases que estaban presentes en el antiguo Aspose.Slides for .NET bajo los espacios de nombres Aspose.Slide y Aspose.Slides.Pptx ahora están combinadas en un único espacio de nombres Aspose.Slides. Por favor, revise el siguiente fragmento de código simple para crear un gráfico normal desde cero en una presentación utilizando la API heredada de Aspose.Slides y siga los pasos que describen cómo migrar a la nueva API combinada.
+Para utilizar el código heredado desarrollado con versiones de Aspose.Slides para .NET anteriores a la 13.x, es necesario realizar algunos cambios menores en su código y éste volverá a funcionar como antes. Todas las clases que estaban presentes en el antiguo Aspose.Slides para .NET bajo los espacios de nombres Aspose.Slide y Aspose.Slides.Pptx ahora se han fusionado en un único espacio de nombres Aspose.Slides. Revise el siguiente fragmento de código simple para crear un gráfico normal desde cero en una presentación usando la API heredada de Aspose.Slides y siga los pasos que describen cómo migrar a la nueva API fusionada.
 ## **Enfoque heredado de Aspose.Slides para .NET**
 ```c#
- //Instanciar la clase PresentationEx que representa un archivo PPTX
+using System.Drawing;
+
+//Instanciar la clase PresentationEx que representa un archivo PPTX
 using (PresentationEx pres = new PresentationEx())
 {
 	//Acceder a la primera diapositiva
@@ -57,11 +60,11 @@ using (PresentationEx pres = new PresentationEx())
 	int s = chart.ChartData.Series.Count;
 	s = chart.ChartData.Categories.Count;
 
-	//Agregar nuevas series
+	//Añadir nuevas series
 	chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.Type);
 	chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.Type);
 
-	//Agregar nuevas categorías
+	//Añadir nuevas categorías
 	chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
 	chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
 	chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
@@ -69,7 +72,7 @@ using (PresentationEx pres = new PresentationEx())
 	//Obtener la primera serie del gráfico
 	ChartSeriesEx series = chart.ChartData.Series[0];
 
-	//Ahora rellenando los datos de la serie
+	//Rellenar ahora los datos de la serie
 	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
 	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
 	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
@@ -82,7 +85,7 @@ using (PresentationEx pres = new PresentationEx())
 	//Obtener la segunda serie del gráfico
 	series = chart.ChartData.Series[1];
 
-	//Ahora rellenando los datos de la serie
+	//Rellenar ahora los datos de la serie
 	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 1, 2, 30));
 	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 2, 2, 10));
 	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 3, 2, 60));
@@ -126,8 +129,14 @@ using (PresentationEx pres = new PresentationEx())
 ```
 
 
-## **Enfoque nuevo de Aspose.Slides para .NET 13.x**
+
+## **Nuevo enfoque de Aspose.Slides para .NET 13.x**
 ``` csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 //Instanciar la clase Presentation que representa un archivo PPTX//Instanciar la clase Presentation que representa un archivo PPTX
 Presentation pres = new Presentation();
 
@@ -144,9 +153,6 @@ chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBoo
 chart.ChartTitle.Height = 20;
 chart.HasTitle = true;
 
-//Configurar la primera serie para mostrar valores
-chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
 //Establecer el índice de la hoja de datos del gráfico
 int defaultWorksheetIndex = 0;
 
@@ -159,11 +165,14 @@ chart.ChartData.Categories.Clear();
 int s = chart.ChartData.Series.Count;
 s = chart.ChartData.Categories.Count;
 
-//Agregar nuevas series
+//Añadir nuevas series
 chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.Type);
 chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.Type);
 
-//Agregar nuevas categorías
+//Configurar la primera serie para mostrar valores
+chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
+
+//Añadir nuevas categorías
 chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
 chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
 chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
@@ -171,8 +180,7 @@ chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 3, 0, "Caeteg
 //Obtener la primera serie del gráfico
 IChartSeries series = chart.ChartData.Series[0];
 
-//Ahora rellenando los datos de la serie
-
+//Rellenar ahora los datos de la serie
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
@@ -181,11 +189,10 @@ series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3
 series.Format.Fill.FillType = FillType.Solid;
 series.Format.Fill.SolidFillColor.Color = Color.Red;
 
-
 //Obtener la segunda serie del gráfico
 series = chart.ChartData.Series[1];
 
-//Ahora rellenando los datos de la serie
+//Rellenar ahora los datos de la serie
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 2, 30));
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 2, 10));
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 2, 60));
@@ -194,8 +201,7 @@ series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3
 series.Format.Fill.FillType = FillType.Solid;
 series.Format.Fill.SolidFillColor.Color = Color.Green;
 
-
-//Crear etiquetas personalizadas para cada categoría de la nueva serie
+//crear etiquetas personalizadas para cada categoría de la nueva serie
 
 //la primera etiqueta mostrará el nombre de la categoría
 IDataLabel lbl = series.DataPoints[0].Label;
@@ -214,7 +220,8 @@ lbl.DataLabelFormat.Separator = "/";
 pres.Save("AsposeChart.pptx", SaveFormat.Pptx);
 ```
 
-Por favor, revise el siguiente fragmento de código simple para crear un gráfico de dispersión desde cero en una presentación utilizando la API heredada de Aspose.Slides y cómo lograrlo con la nueva API combinada.
+Revise el siguiente fragmento de código simple para crear un gráfico de dispersión desde cero en una presentación usando la API heredada de Aspose.Slides y cómo lograrlo con la nueva API fusionada.
+
 ## **Enfoque heredado de Aspose.Slides para .NET**
 ```c#
 using (PresentationEx pres = new PresentationEx())
@@ -233,18 +240,18 @@ using (PresentationEx pres = new PresentationEx())
     //Eliminar series de demostración
     chart.ChartData.Series.Clear();
 
-    //Agregar nuevas series
+    //Agregar nueva serie
     chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.Type);
     chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.Type);
 
     //Obtener la primera serie del gráfico
     ChartSeriesEx series = chart.ChartData.Series[0];
 
-    //Agregar nuevo punto (1:3) allí.
+    //Añadir nuevo punto (1:3) allí.
     series.XValues.Add(fact.GetCell(defaultWorksheetIndex, 2, 1, 1));
     series.YValues.Add(fact.GetCell(defaultWorksheetIndex, 2, 2, 3));
 
-    //Agregar nuevo punto (2:10)
+    //Añadir nuevo punto (2:10)
     series.XValues.Add(fact.GetCell(defaultWorksheetIndex, 3, 1, 2));
     series.YValues.Add(fact.GetCell(defaultWorksheetIndex, 3, 2, 10));
 
@@ -258,19 +265,19 @@ using (PresentationEx pres = new PresentationEx())
     //Obtener la segunda serie del gráfico
     series = chart.ChartData.Series[1];
 
-    //Agregar nuevo punto (5:2) allí.
+    //Añadir nuevo punto (5:2) allí.
     series.XValues.Add(fact.GetCell(defaultWorksheetIndex, 2, 3, 5));
     series.YValues.Add(fact.GetCell(defaultWorksheetIndex, 2, 4, 2));
 
-    //Agregar nuevo punto (3:1)
+    //Añadir nuevo punto (3:1)
     series.XValues.Add(fact.GetCell(defaultWorksheetIndex, 3, 3, 3));
     series.YValues.Add(fact.GetCell(defaultWorksheetIndex, 3, 4, 1));
 
-    //Agregar nuevo punto (2:2)
+    //Añadir nuevo punto (2:2)
     series.XValues.Add(fact.GetCell(defaultWorksheetIndex, 4, 3, 2));
     series.YValues.Add(fact.GetCell(defaultWorksheetIndex, 4, 4, 2));
 
-    //Agregar nuevo punto (5:1)
+    //Añadir nuevo punto (5:1)
     series.XValues.Add(fact.GetCell(defaultWorksheetIndex, 5, 3, 5));
     series.YValues.Add(fact.GetCell(defaultWorksheetIndex, 5, 4, 1));
 
@@ -283,8 +290,12 @@ using (PresentationEx pres = new PresentationEx())
 ```
 
 
-## **Enfoque nuevo de Aspose.Slides para .NET 13.x**
+## **Nuevo enfoque de Aspose.Slides para .NET 13.x**
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 Presentation pres = new Presentation();
 
 ISlide slide = pres.Slides[0];
@@ -301,17 +312,17 @@ IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
 //Eliminar series de demostración
 chart.ChartData.Series.Clear();
 
-//Agregar nuevas series
+//Añadir nueva serie
 chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.Type);
 chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.Type);
 
 //Obtener la primera serie del gráfico
 IChartSeries series = chart.ChartData.Series[0];
 
-//Agregar nuevo punto (1:3) allí.
+//Añadir nuevo punto (1:3) allí.
 series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 1), fact.GetCell(defaultWorksheetIndex, 2, 2, 3));
 
-//Agregar nuevo punto (2:10)
+//Añadir nuevo punto (2:10)
 series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 2), fact.GetCell(defaultWorksheetIndex, 3, 2, 10));
 
 //Editar el tipo de serie
@@ -324,16 +335,16 @@ series.Marker.Symbol = MarkerStyleType.Star;
 //Obtener la segunda serie del gráfico
 series = chart.ChartData.Series[1];
 
-//Agregar nuevo punto (5:2) allí.
+//Añadir nuevo punto (5:2) allí.
 series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetIndex, 2, 3, 5), fact.GetCell(defaultWorksheetIndex, 2, 4, 2));
 
-//Agregar nuevo punto (3:1)
+//Añadir nuevo punto (3:1)
 series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetIndex, 3, 3, 3), fact.GetCell(defaultWorksheetIndex, 3, 4, 1));
 
-//Agregar nuevo punto (2:2)
+//Añadir nuevo punto (2:2)
 series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetIndex, 4, 3, 2), fact.GetCell(defaultWorksheetIndex, 4, 4, 2));
 
-//Agregar nuevo punto (5:1)
+//Añadir nuevo punto (5:1)
 series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetIndex, 5, 3, 5), fact.GetCell(defaultWorksheetIndex, 5, 4, 1));
 
 //Cambiar el marcador de la serie del gráfico

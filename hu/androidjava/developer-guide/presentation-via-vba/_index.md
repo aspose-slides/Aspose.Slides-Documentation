@@ -1,6 +1,6 @@
 ---
-title: VBA projektek kezelése bemutatókban Androidon
-linktitle: Bemutató VBA-val
+title: VBA projektek kezelése prezentációkban Androidon
+linktitle: Prezentáció VBA-val
 type: docs
 weight: 250
 url: /hu/androidjava/presentation-via-vba/
@@ -16,11 +16,11 @@ keywords:
 - VBA kinyerése
 - PowerPoint
 - OpenDocument
-- bemutató
+- prezentáció
 - Android
 - Java
 - Aspose.Slides
-description: "Fedezze fel, hogyan hozhat létre és módosíthat PowerPoint és OpenDocument bemutatókat VBA-val az Aspose.Slides for Android Java segítségével, hogy hatékonyabbá tegye munkafolyamatát."
+description: "Fedezze fel, hogyan lehet VBA segítségével PowerPoint és OpenDocument prezentációkat létrehozni és módosítani az Aspose.Slides for Android Java segítségével, hogy egyszerűsítse munkafolyamatát."
 ---
 ## **Bevezetés**
 
@@ -28,84 +28,84 @@ Az Aspose.Slides osztályokat és interfészeket biztosít a makrókkal és VBA 
 
 {{% alert title="Megjegyzés" color="warning" %}} 
 
-Amikor egy makrókat tartalmazó bemutatót átalakít más fájlformátumba (PDF, HTML stb.), az Aspose.Slides figyelmen kívül hagyja a makrókat (a makrók nem kerülnek át a létrehozott fájlba).
+Amikor egy makrókat tartalmazó prezentációt más fájlformátumra (PDF, HTML, stb.) konvertál, az Aspose.Slides figyelmen kívül hagyja az összes makrót (a makrók nem kerülnek át a létrehozott fájlba).
 
-Amikor makrókat ad hozzá egy bemutatóhoz, vagy újra ment egy makrókat tartalmazó bemutatót, az Aspose.Slides egyszerűen kiírja a makrók bájtjait.
+Amikor makrókat ad hozzá egy prezentációhoz vagy újra ment egy makrókat tartalmazó prezentációt, az Aspose.Slides egyszerűen a makrók bájtjait írja.
 
-Az Aspose.Slides **soha** nem futtatja a bemutató makróit.
+Az Aspose.Slides **soha** nem futtatja a prezentációban lévő makrókat.
 
 {{% /alert %}}
 
 ## **VBA makrók hozzáadása**
 
-Az Aspose.Slides biztosítja a [VbaProject](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/vbaproject/) osztályt, amely lehetővé teszi VBA projektek (és projekt hivatkozások) létrehozását és meglévő modulok szerkesztését. Használhatja a [IVbaProject](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ivbaproject/) interfészt a bemutatóba beágyazott VBA kezelésére.
+Az Aspose.Slides a [VbaProject](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/vbaproject/) osztályt biztosítja, amely lehetővé teszi VBA projektek (és projektreferenciák) létrehozását, valamint meglévő modulok szerkesztését. Használhatja az [IVbaProject](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ivbaproject/) interfészt a prezentációban beágyazott VBA kezeléséhez.
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation) osztályból.
-2. Használja a [VbaProject](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/vbaproject/#VbaProject--) konstruktort új VBA projekt hozzáadásához.
-3. Adjon egy modult a VbaProject-hez.
+2. Használja a [VbaProject](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/vbaproject/#VbaProject--) konstruktorát új VBA projekt hozzáadásához.
+3. Adjon modult a VbaProject-hez.
 4. Állítsa be a modul forráskódját.
-5. Adjon hivatkozásokat a <stdole>-hez.
-6. Adjon hivatkozásokat a **Microsoft Office**-ra.
-7. Kapcsolja össze a hivatkozásokat a VBA projekttel.
-8. Mentse el a bemutatót.
-
-Ez a Java kód bemutatja, hogyan lehet egy VBA makrót a semmiből hozzáadni egy bemutatóhoz:
+5. Adjon hozzá hivatkozásokat a <stdole>-ra.
+6. Adjon hozzá hivatkozásokat a **Microsoft Office**-ra.
+7. Kösse össze a hivatkozásokat a VBA projekttel.
+8. Mentse a prezentációt.
 
 ```java
+import com.aspose.slides.*;
+
 // Létrehozza a prezentáció osztály egy példányát
 Presentation pres = new Presentation();
 try {
     // Létrehozza az új VBA projektet
     pres.setVbaProject(new VbaProject());
     
-    // Üres modult ad a VBA projekthez
+    // Üres modult ad hozzá a VBA projekthez
     IVbaModule module = pres.getVbaProject().getModules().addEmptyModule("Module");
     
     // Beállítja a modul forráskódját
     module.setSourceCode("Sub Test(oShape As Shape)MsgBox Test End Sub");
     
-    // Létrehozza a <stdole> hivatkozást
+    // Létrehoz egy hivatkozást a <stdole>-ra
     VbaReferenceOleTypeLib stdoleReference = new VbaReferenceOleTypeLib("stdole", "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation");
     
-    // Létrehozza az Office hivatkozást
+    // Létrehoz egy hivatkozást az Office-ra
     VbaReferenceOleTypeLib officeReference = new VbaReferenceOleTypeLib("Office",
             "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
     
-    // Hozzáadja a hivatkozásokat a VBA projekthez
+    // Hivatkozásokat ad a VBA projekthez
     pres.getVbaProject().getReferences().add(stdoleReference);
     pres.getVbaProject().getReferences().add(officeReference);
    
-    // Elmenti a prezentációt
+    // Mentés a prezentáció
     pres.save("test.pptm", SaveFormat.Pptm);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Érdemes megnézni a **Aspose** [Macro Remover](https://products.aspose.app/slides/hu/remove-macros) ingyenes webalkalmazást, amely a PowerPoint, Excel és Word dokumentumokból távolítja el a makrókat. 
+Érdemes megnézni az **Aspose** [Macro Remover](https://products.aspose.app/slides/hu/remove-macros) alkalmazást, amely egy ingyenes webalkalmazás a makrók eltávolításához a PowerPoint, Excel és Word dokumentumokból. 
 
 {{% /alert %}} 
 
 ## **VBA makrók eltávolítása**
 
-A [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation) osztály [VbaProject](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/#getVbaProject--) tulajdonságának használatával eltávolíthat egy VBA makrót.
+A [VbaProject](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/#getVbaProject--) tulajdonság használatával a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation) osztályon belül eltávolíthat egy VBA makrót.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation) osztályból, és töltse be a makrót tartalmazó bemutatót.
-2. Hozzáfér a Makró modulhoz, és eltávolítja azt.
-3. Mentse el a módosított bemutatót.
-
-Ez a Java kód bemutatja, hogyan lehet eltávolítani egy VBA makrót:
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation) osztályból, és töltse be a makrót tartalmazó prezentációt.
+2. Érje el a Makró modult, és távolítsa el azt.
+3. Mentse a módosított prezentációt.
 
 ```java
+import com.aspose.slides.*;
+
 // Betölti a makrót tartalmazó prezentációt
 Presentation pres = new Presentation("VBA.pptm");
 try {
     // Eléri a Vba modult és eltávolítja 
     pres.getVbaProject().getModules().remove(pres.getVbaProject().getModules().get_Item(0));
     
-    // Elmenti a prezentációt
+    // Mentés a prezentációt
     pres.save("test.pptm", SaveFormat.Pptm);
 } finally {
     if (pres != null) pres.dispose();
@@ -114,13 +114,13 @@ try {
 
 ## **VBA makrók kinyerése**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation) osztályból, és töltse be a makrót tartalmazó bemutatót.
-2. Ellenőrizze, hogy a bemutató tartalmaz-e VBA projektet.
-3. Iteráljon a VBA Projektben található összes modulon a makrók megtekintéséhez.
-
-Ez a Java kód bemutatja, hogyan lehet kinyerni a VBA makrókat egy makrókat tartalmazó bemutatóból:
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation) osztályból, és töltse be a makrót tartalmazó prezentációt.
+2. Ellenőrizze, hogy a prezentáció tartalmaz‑e VBA Projektet.
+3. Járja be a VBA Projektben lévő összes modult a makrók megtekintéséhez.
 
 ```java
+import com.aspose.slides.*;
+
 // Betölti a makrót tartalmazó prezentációt
 Presentation pres = new Presentation("VBA.pptm");
 try {
@@ -137,18 +137,20 @@ try {
 }
 ```
 
-## **VBA projekt jelszóval védett-e ellenőrzése**
+## **Ellenőrizze, hogy a VBA projekt jelszóval védett‑e**
 
-Az [IVbaProject.isPasswordProtected](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ivbaproject/#isPasswordProtected--) metódus segítségével meghatározhatja, hogy egy projekt tulajdonságai jelszóval védettek-e.
+Az [IVbaProject.isPasswordProtected](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ivbaproject/#isPasswordProtected--) metódus használatával meghatározhatja, hogy egy projekt tulajdonságai jelszóval védettek‑e.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból, és töltse be a makrót tartalmazó bemutatót.
-2. Ellenőrizze, hogy a bemutató tartalmaz-e [VBA projektet](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/vbaproject/).
-3. Ellenőrizze, hogy a VBA projekt jelszóval védett-e a tulajdonságok megtekintéséhez.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból, és töltsön be egy makrót tartalmazó prezentációt.
+2. Ellenőrizze, hogy a prezentáció tartalmaz‑e [VBA projektet](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/vbaproject/).
+3. Ellenőrizze, hogy a VBA projekt jelszóval védett‑e a tulajdonságok megtekintéséhez.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("VBA.pptm");
 try {
-    if (presentation.getVbaProject() != null) { // Ellenőrizze, hogy a prezentáció tartalmaz-e VBA projektet.
+    if (presentation.getVbaProject() != null) { // Ellenőrzi, hogy a prezentáció tartalmaz-e VBA projektet.
         if (presentation.getVbaProject().isPasswordProtected()) {
             System.out.printf("The VBA Project '%s' is protected by password to view project properties.", 
                     presentation.getVbaProject().getName());
@@ -161,14 +163,14 @@ try {
 
 ## **GYIK**
 
-**Mi történik a makrókkal, ha a bemutatót PPTX formátumban mentem?**
+### Mi történik a makrókkal, ha a prezentációt PPTX formátumban mentem?
 
-A makrók eltávolításra kerülnek, mivel a PPTX nem támogatja a VBA-t. A makrók megőrzéséhez válassza a PPTM, PPSM vagy POTM formátumot.
+A makrók eltávolításra kerülnek, mert a PPTX nem támogatja a VBA‑t. A makrók megtartásához válassza a PPTM, PPSM vagy POTM formátumot.
 
-**Futtathatja az Aspose.Slides a bemutatóban a makrókat, például adatok frissítésére?**
+### Futtathatja az Aspose.Slides a makrókat a prezentációban, például adatok frissítésére?
 
-Nem. A könyvtár soha nem hajtja végre a VBA kódot; a végrehajtás csak a PowerPointban lehetséges a megfelelő biztonsági beállításokkal.
+Nem. A könyvtár soha nem hajtja végre a VBA‑kódot; a végrehajtás csak a megfelelő biztonsági beállításokkal rendelkező PowerPointban lehetséges.
 
-**Támogatott-e az ActiveX vezérlőkkel, amelyek VBA kódhoz vannak kapcsolva, való munka?**
+### Támogatott‑e az ActiveX vezérlőkkel, VBA kóddal összekapcsolt munkavégzés?
 
-Igen, elérheti a meglévő [ActiveX vezérlőket](/slides/hu/androidjava/activex/), módosíthatja azok tulajdonságait, és eltávolíthatja őket. Ez hasznos, ha a makrók az ActiveX-szel kommunikálnak.
+Igen, elérheti a meglévő [ActiveX controls](/slides/hu/androidjava/activex/), módosíthatja azok tulajdonságait, és eltávolíthatja őket. Ez akkor hasznos, ha a makrók az ActiveX‑szel lépnek interakcióba.

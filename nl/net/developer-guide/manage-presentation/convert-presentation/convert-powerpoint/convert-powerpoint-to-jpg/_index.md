@@ -25,28 +25,32 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Converteer PowerPoint (PPT, PPTX) dia's naar hoogwaardige JPG-afbeeldingen in C# met Aspose.Slides voor .NET, gebruikmakend van snelle, betrouwbare codevoorbeelden."
+description: "Converteer PowerPoint (PPT, PPTX) dia's naar hoogwaardige JPG-afbeeldingen in C# met Aspose.Slides voor .NET, met snelle en betrouwbare code-voorbeelden."
 ---
 ## **Introductie**
 
-Het converteren van PowerPoint- en OpenDocument-presentaties naar JPG-afbeeldingen helpt bij het delen van dia's, het optimaliseren van de prestaties en het insluiten van inhoud in websites of toepassingen. Aspose.Slides voor .NET stelt u in staat PPTX-, PPT- en ODP-bestanden om te zetten naar JPEG-afbeeldingen van hoge kwaliteit. Deze gids legt verschillende methoden voor conversie uit.
+Het converteren van PowerPoint‑ en OpenDocument‑presentaties naar JPG‑afbeeldingen vergemakkelijkt het delen van dia’s, optimaliseert de prestaties en maakt het mogelijk om inhoud in websites of applicaties te embedden. Aspose.Slides for .NET stelt je in staat om PPTX‑, PPT‑ en ODP‑bestanden om te zetten naar hoogwaardige JPEG‑afbeeldingen. Deze gids legt de verschillende conversiemethoden uit.
 
-Met deze functies is het eenvoudig om uw eigen presentatieweergave te implementeren en een miniatuur voor elke dia te maken. Dit kan nuttig zijn als u dia's wilt beschermen tegen kopiëren of de presentatie in alleen-lezen-modus wilt tonen. Aspose.Slides stelt u in staat de volledige presentatie of een specifieke dia om te zetten naar afbeeldingsformaten.
+Met deze functionaliteit kun je eenvoudig je eigen presentatieweergave implementeren en een miniatuur voor elke dia maken. Dit kan handig zijn wanneer je presentatiedia’s wilt beschermen tegen kopiëren of de presentatie wilt tonen in alleen‑lezen‑modus. Aspose.Slides maakt het mogelijk om de gehele presentatie of een specifieke dia naar een afbeelding te converteren.
 
-## **Presentatiedia’s converteren naar JPG-afbeeldingen**
+## **Convert Presentation Slides to JPG Images**
 
-Dit zijn de stappen om een PPT-, PPTX- of ODP-bestand naar JPG te converteren:
+Hier volgen de stappen om een PPT‑, PPTX‑ of ODP‑bestand naar JPG te converteren:
 
-1. Maak een instantie van de [Presentatie](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) klasse.  
-2. Haal het dia‑object van het type [ISlide](https://reference.aspose.com/slides/nl/net/aspose.slides/islide) op uit de collectie [Presentation.Slides](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/properties/slides).  
-3. Maak een afbeelding van de dia met behulp van de methode [ISlide.GetImage(float, float)](https://reference.aspose.com/slides/nl/net/aspose.slides/islide/getimage/#getimage_5).  
-4. Roep de methode [IImage.Save(string, ImageFormat)](https://reference.aspose.com/slides/nl/net/aspose.slides/iimage/save/#save_3) aan op het afbeeldingsobject. Geef de uitvoernaam en het afbeeldingsformaat als argumenten op.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation)‑klasse.
+1. Haal het dia‑object van het type [ISlide](https://reference.aspose.com/slides/nl/net/aspose.slides/islide) op uit de [Presentation.Slides](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/properties/slides)‑collectie.
+1. Maak een afbeelding van de dia met de [ISlide.GetImage(float, float)](https://reference.aspose.com/slides/nl/net/aspose.slides/islide/getimage/#getimage_5)‑methode.
+1. Roep de [IImage.Save(string, ImageFormat)](https://reference.aspose.com/slides/nl/net/aspose.slides/iimage/save/#save_3)‑methode aan op het afbeeldingsobject. Geef de naam van het uitvoerbestand en het afbeeldingsformaat als argumenten.
 
-{{% alert color="primary" %}} 
-**Opmerking:** De conversie van PPT, PPTX of ODP naar JPG verschilt van de conversie naar andere formaten in de Aspose.Slides .NET-API. Voor andere formaten gebruikt u doorgaans de methode [IPresentation.Save(String, SaveFormat, ISaveOptions)](https://reference.aspose.com/slides/nl/net/aspose.slides/ipresentation/save/#save_5). Voor JPG-conversie moet u echter de methode [IImage.Save(string, ImageFormat)](https://reference.aspose.com/slides/nl/net/aspose.slides/iimage/save/#save_3) gebruiken. 
+{{% alert color="info" %}} 
+
+**Opmerking:** De conversie van PPT, PPTX of ODP naar JPG verschilt van conversie naar andere formaten in de Aspose.Slides .NET‑API. Voor andere formaten gebruik je doorgaans de [IPresentation.Save(String, SaveFormat, ISaveOptions)](https://reference.aspose.com/slides/nl/net/aspose.slides/ipresentation/save/#save_5)‑methode. Voor JPG‑conversie moet je echter de [IImage.Save(string, ImageFormat)](https://reference.aspose.com/slides/nl/net/aspose.slides/iimage/save/#save_3)‑methode gebruiken.
+
 {{% /alert %}} 
 
 ```c#
+using Aspose.Slides;
+
 int scaleX = 1;
 int scaleY = scaleX;
 
@@ -54,10 +58,10 @@ using (Presentation presentation = new Presentation("PowerPoint_Presentation.ppt
 {
     foreach (ISlide slide in presentation.Slides)
     {
-        // Maak een dia-afbeelding met de opgegeven schaal.
+        // Maak een dia‑afbeelding van de opgegeven schaal.
         using (IImage thumbnail = slide.GetImage(scaleX, scaleY))
         {
-            // Sla de afbeelding op schijf op in JPEG-formaat.
+            // Sla de afbeelding op schijf op in JPEG‑formaat.
             string imageFileName = $"Slide_{slide.SlideNumber}.jpg";
             thumbnail.Save(imageFileName, ImageFormat.Jpeg);
         }
@@ -65,21 +69,24 @@ using (Presentation presentation = new Presentation("PowerPoint_Presentation.ppt
 }
 ```
 
-## **Dia’s omzetten naar JPG met aangepaste afmetingen**
+## **Convert Slides to JPG with Customized Dimensions**
 
-Om de afmetingen van de resulterende JPG-afbeeldingen te wijzigen, kunt u de afbeeldingsgrootte instellen door deze door te geven aan de methode [ISlide.GetImage(Size)](https://reference.aspose.com/slides/nl/net/aspose.slides/islide/getimage/#getimage_6). Hierdoor kunt u afbeeldingen genereren met specifieke breedte- en hoogtewaarden, zodat de output voldoet aan uw vereisten voor resolutie en beeldverhouding. Deze flexibiliteit is vooral nuttig bij het genereren van afbeeldingen voor webtoepassingen, rapporten of documentatie, waar precieze afbeeldingsafmetingen vereist zijn.
+Om de afmetingen van de gegenereerde JPG‑afbeeldingen aan te passen, kun je de afbeeldingsgrootte instellen door deze door te geven aan de [ISlide.GetImage(Size)](https://reference.aspose.com/slides/nl/net/aspose.slides/islide/getimage/#getimage_6)‑methode. Hierdoor kun je beelden genereren met specifieke breedte‑ en hoogte‑waarden, zodat de uitvoer voldoet aan je eisen voor resolutie en beeldverhouding. Deze flexibiliteit is vooral nuttig bij het genereren van afbeeldingen voor webapplicaties, rapporten of documentatie, waar precieze afmetingen vereist zijn.
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+
 Size imageSize = new Size(1200, 800);
 
 using (Presentation presentation = new Presentation("PowerPoint_Presentation.pptx"))
 {
     foreach (ISlide slide in presentation.Slides)
     {
-        // Maak een dia-afbeelding met de opgegeven grootte.
+        // Maak een dia‑afbeelding van de opgegeven grootte.
         using (IImage thumbnail = slide.GetImage(imageSize))
         {
-            // Sla de afbeelding op schijf op in JPEG-formaat.
+            // Sla de afbeelding op schijf op in JPEG‑formaat.
             string imageFileName = $"Slide_{slide.SlideNumber}.jpg";
             thumbnail.Save(imageFileName, ImageFormat.Jpeg);
         }
@@ -87,17 +94,21 @@ using (Presentation presentation = new Presentation("PowerPoint_Presentation.ppt
 }
 ```
 
-## **Opmerkingen renderen bij het opslaan van dia’s als afbeeldingen**
+## **Render Comments When Saving Slides as Images**
 
-Aspose.Slides voor .NET biedt een functie waarmee u opmerkingen op de dia's van een presentatie kunt renderen wanneer u ze omzet naar JPG-afbeeldingen. Deze functionaliteit is vooral nuttig om annotaties, feedback of discussies die door collega's aan PowerPoint-presentaties zijn toegevoegd te behouden. Door deze optie in te schakelen, zorgt u ervoor dat opmerkingen zichtbaar zijn in de gegenereerde afbeeldingen, waardoor het eenvoudiger wordt om feedback te beoordelen en te delen zonder het oorspronkelijke presentiebestand te openen.
+Aspose.Slides for .NET biedt een functie waarmee je opmerkingen op de dia’s van een presentatie kunt renderen wanneer je ze converteert naar JPG‑afbeeldingen. Deze mogelijkheid is bijzonder handig om annotaties, feedback of discussies die door samenwerkers in PowerPoint‑presentaties zijn toegevoegd, te behouden. Door deze optie in te schakelen, zorg je ervoor dat opmerkingen zichtbaar zijn in de gegenereerde beelden, waardoor het eenvoudiger wordt om feedback te bekijken en te delen zonder het originele presentatiebestand te openen.
 
-Stel, we hebben een presentiebestand "sample.pptx" met een dia die opmerkingen bevat:
+Stel, we hebben een presentatie‑bestand, "sample.pptx", met een dia die opmerkingen bevat:
 
 ![De dia met opmerkingen](slide_with_comments.png)
 
-De volgende C#‑code zet de dia om naar een JPG-afbeelding terwijl de opmerkingen behouden blijven:
+De volgende C#‑code converteert de dia naar een JPG‑afbeelding terwijl de opmerkingen behouden blijven:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 int scaleX = 2;
 int scaleY = scaleX;
 
@@ -105,7 +116,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 {
     IRenderingOptions options = new RenderingOptions
     {
-        // Stel opties in voor de dia-opmerkingen.
+        // Stel opties in voor de dia‑opmerkingen.
         SlidesLayoutOptions = new NotesCommentsLayoutingOptions
         {
             CommentsPosition = CommentsPositions.Right,
@@ -124,38 +135,43 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
 Het resultaat:
 
-![De JPG-afbeelding met opmerkingen](image_with_comments.png)
+![De JPG‑afbeelding met opmerkingen](image_with_comments.png)
 
 ## **Zie ook**
 
-- [PowerPoint converteren naar GIF](/slides/nl/net/convert-powerpoint-to-animated-gif/)  
-- [PowerPoint converteren naar PNG](/slides/nl/net/convert-powerpoint-to-png/)  
-- [PowerPoint converteren naar TIFF](/slides/nl/net/convert-powerpoint-to-tiff/)  
-- [PowerPoint converteren naar SVG](/slides/nl/net/render-a-slide-as-an-svg-image/)
+Bekijk andere opties om PPT, PPTX of ODP naar afbeeldingen te converteren, zoals:
 
-{{% alert color="primary" %}} 
+- [Convert PowerPoint to GIF](/slides/nl/net/convert-powerpoint-to-animated-gif/)
+- [Convert PowerPoint to PNG](/slides/nl/net/convert-powerpoint-to-png/)
+- [Convert PowerPoint to TIFF](/slides/nl/net/convert-powerpoint-to-tiff/)
+- [Convert PowerPoint to SVG](/slides/nl/net/render-a-slide-as-an-svg-image/)
 
-Om te zien hoe Aspose.Slides PowerPoint naar JPG-afbeeldingen converteert, probeer deze gratis online converters: PowerPoint [PPTX naar JPG](https://products.aspose.app/slides/nl/conversion/pptx-to-jpg) en [PPT naar JPG](https://products.aspose.app/slides/nl/conversion/ppt-to-jpg). 
+{{% alert color="info" %}} 
+
+Om te zien hoe Aspose.Slides PowerPoint naar JPG‑afbeeldingen converteert, probeer deze gratis online converters: PowerPoint [PPTX to JPG](https://products.aspose.app/slides/nl/conversion/pptx-to-jpg) en [PPT to JPG](https://products.aspose.app/slides/nl/conversion/ppt-to-jpg). 
 
 {{% /alert %}} 
 
-![Gratis online PPTX-naar-JPG-converter](ppt-to-jpg.png)
+![Gratis online PPTX‑naar‑JPG‑converter](ppt-to-jpg.png)
 
-{{% alert title="Tip" color="primary" %}}
+{{% alert title="Tip" color="info" %}}
 
-Aspose biedt een [GRATIS Collage‑webapp](https://products.aspose.app/slides/nl/collage). Met deze online service kunt u [JPG naar JPG](https://products.aspose.app/slides/nl/collage/jpg) of PNG naar PNG-afbeeldingen samenvoegen, [foto‑rasters](https://products.aspose.app/slides/nl/collage/photo-grid) maken, enzovoort.
+Aspose biedt een [GRATIS Collage‑webapp](https://products.aspose.app/slides/nl/collage). Met deze online service kun je [JPG naar JPG](https://products.aspose.app/slides/nl/collage/jpg) of PNG naar PNG‑afbeeldingen samenvoegen, [fotogalerijen](https://products.aspose.app/slides/nl/collage/photo-grid) maken, enzovoort. 
 
-Met dezelfde principes die in dit artikel worden beschreven, kunt u afbeeldingen van het ene formaat naar het andere converteren. Voor meer informatie, zie deze pagina's: converteer [afbeelding naar JPG](https://products.aspose.com/slides/nl/net/conversion/image-to-jpg/); converteer [JPG naar afbeelding](https://products.aspose.com/slides/nl/net/conversion/jpg-to-image/); converteer [JPG naar PNG](https://products.aspose.com/slides/nl/net/conversion/jpg-to-png/); converteer [PNG naar JPG](https://products.aspose.com/slides/nl/net/conversion/png-to-jpg/); converteer [PNG naar SVG](https://products.aspose.com/slides/nl/net/conversion/png-to-svg/); converteer [SVG naar PNG](https://products.aspose.com/slides/nl/net/conversion/svg-to-png/). 
+Met dezelfde principes als in dit artikel kun je afbeeldingen van het ene formaat naar het andere converteren. Zie voor meer informatie deze pagina’s: converteer [image to JPG](https://products.aspose.com/slides/nl/net/conversion/image-to-jpg/); converteer [JPG to image](https://products.aspose.com/slides/nl/net/conversion/jpg-to-image/); converteer [JPG to PNG](https://products.aspose.com/slides/nl/net/conversion/jpg-to-png/), converteer [PNG to JPG](https://products.aspose.com/slides/nl/net/conversion/png-to-jpg/); converteer [PNG to SVG](https://products.aspose.com/slides/nl/net/conversion/png-to-svg/), converteer [SVG to PNG](https://products.aspose.com/slides/nl/net/conversion/svg-to-png/).
 
 {{% /alert %}}
 
-## **Veelgestelde vragen**
+## **FAQ**
 
-**Ondersteunt deze methode batchconversie?**  
-Ja, Aspose.Slides ondersteunt batchconversie van meerdere dia’s naar JPG in één enkele bewerking.
+### Ondersteunt deze methode batch‑conversie?
 
-**Ondersteunt de conversie SmartArt, grafieken en andere complexe objecten?**  
-Ja, Aspose.Slides rendert alle inhoud, inclusief SmartArt, grafieken, tabellen, vormen en meer. De weergave‑nauwkeurigheid kan echter enigszins variëren ten opzichte van PowerPoint, vooral wanneer er aangepaste of ontbrekende lettertypen worden gebruikt.
+Ja, Aspose.Slides maakt batch‑conversie van meerdere dia’s naar JPG in één enkele bewerking mogelijk.
 
-**Zijn er beperkingen aan het aantal dia’s dat verwerkt kan worden?**  
-Aspose.Slides zelf stelt geen strikte limieten aan het aantal dia’s dat u kunt verwerken. Bij zeer grote presentaties of afbeeldingen met hoge resolutie kunt u echter een out‑of‑memory‑fout tegenkomen.
+### Ondersteunt de conversie SmartArt, grafieken en andere complexe objecten?
+
+Ja, Aspose.Slides rendert alle inhoud, inclusief SmartArt, grafieken, tabellen, vormen en meer. De rendernauwkeurigheid kan echter enigszins variëren ten opzichte van PowerPoint, vooral bij gebruik van aangepaste of ontbrekende lettertypen.
+
+### Zijn er beperkingen op het aantal dia’s dat verwerkt kan worden?
+
+Aspose.Slides zelf legt geen strikte limieten op aan het aantal dia’s dat je kunt verwerken. Bij zeer grote presentaties of hoge resoluties kun je echter een out‑of‑memory‑fout tegenkomen.

@@ -30,33 +30,43 @@ description: "Konvertera enkelt PowerPoint-presentationer (PPT, PPTX) till anime
 ---
 ## **Översikt**
 
-Aspose.Slides låter dig konvertera PowerPoint‑presentationer till animerade GIF‑filer med bara några rader kod. Detta är användbart när du behöver dela bildinnehåll i ett lättviktigt, brett stödt animerat format som kan bäddas in i webbsidor, meddelandetjänster eller dokumentation. Denna artikel förklarar hur du exporterar en presentation till GIF med standardinställningar och hur du anpassar resultatet genom att konfigurera alternativ som bildstorlek, bildfördröjning och övergångshastighet via [GifOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/gifoptions/).
+Aspose.Slides låter dig konvertera PowerPoint‑presentationer till animerade GIF‑filer med bara några få rader kod. Detta är användbart när du behöver dela bildinnehåll i ett lättviktigt, allmänt stödt animerat format som kan bäddas in i webbsidor, meddelandeappar eller dokumentation. Denna artikel förklarar hur du exporterar en presentation till GIF med standardinställningar och hur du anpassar resultatet genom att konfigurera alternativ såsom bildstorlek, bildfördröjning och övergångshastighet via [GifOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/gifoptions/).
 
 ## **Konvertera presentationer till animerad GIF med standardinställningar**
 
-Denna exempelkod i C++ visar hur du konverterar en presentation till animerad GIF med standardinställningar:
+Denna exempel kod i C++ visar hur du konverterar en presentation till animerad GIF med standardinställningar:
 
 ``` cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 pres->Save(u"pres.gif", SaveFormat::Gif);
 ```
 
-Den animerade GIF‑en skapas med standardparametrar. 
+Den animerade GIF‑filen kommer att skapas med standardparametrar.
 
-{{%  alert  title="TIPS"  color="primary"  %}} 
-
-Om du föredrar att anpassa parametrarna för GIF‑en kan du använda klassen [GifOptions](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.export.gif_options). Se exempelkoden nedan. 
-
+{{%  alert  title="TIP"  color="info"  %}} 
+Om du föredrar att anpassa parametrarna för GIF‑filen kan du använda klassen [GifOptions](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.export.gif_options). Se exempel koden nedan. 
 {{% /alert %}} 
 
 ## **Konvertera presentationer till animerad GIF med anpassade inställningar**
 
-Denna exempelkod visar hur du konverterar en presentation till animerad GIF med anpassade inställningar i C++:
+Denna exempel kod visar hur du konverterar en presentation till animerad GIF med anpassade inställningar i C++:
 
 ``` cpp
+#include <DOM/Presentation.h>
+#include <Export/GifOptions.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto gifOptions = System::MakeObject<GifOptions>();
 // storleken på den resulterande GIF-filen
-gifOptions->set_FrameSize(Size(960, 720));
+gifOptions->set_FrameSize(System::Drawing::Size(960, 720));
 // hur länge varje bild visas innan den byts till nästa
 gifOptions->set_DefaultDelay(2000);
 // öka FPS för bättre övergångsanimeringskvalitet
@@ -67,17 +77,15 @@ pres->Save(u"pres.gif", SaveFormat::Gif, gifOptions);
 ```
 
 {{% alert title="Info" color="info" %}}
-
-Du kanske vill prova en GRATIS [Text till GIF](https://products.aspose.app/slides/sv/text-to-gif)‑konverterare som utvecklats av Aspose. 
-
+Du kanske vill kolla in en GRATIS [Text to GIF](https://products.aspose.app/slides/sv/text-to-gif) konverterare utvecklad av Aspose. 
 {{% /alert %}}
 
-## **FAQ**
+## **Vanliga frågor**
 
-**Vad händer om teckensnitten som används i presentationen inte är installerade på systemet?**
+### Vad händer om teckensnitten som används i presentationen inte är installerade på systemet?
 
-Installera de saknade teckensnitten eller [konfigurera reservtypsnitt](/slides/sv/cpp/powerpoint-fonts/). Aspose.Slides ersätter dem, men utseendet kan skilja sig. För varumärkesprofilering bör du alltid säkerställa att de nödvändiga teckensnitten explicit finns tillgängliga.
+Installera de saknade teckensnitten eller [configure fallback fonts](/slides/sv/cpp/powerpoint-fonts/). Aspose.Slides kommer att ersätta dem, men utseendet kan skilja sig. För varumärkesidentitet, se alltid till att de nödvändiga teckensnitten finns explicit tillgängliga.
 
-**Kan jag lägga ett vattenmärke ovanpå GIF‑bilderna?**
+### Kan jag överlagra ett vattenmärke på GIF‑ramarna?
 
-Ja. [Lägg till ett semitransparent objekt/logo](/slides/sv/cpp/watermark/) på huvudbilden eller på enskilda bilder innan export – vattenmärket visas på varje bildruta.
+Ja. [Add a semi-transparent object/logo](/slides/sv/cpp/watermark/) till mastern eller till enskilda bilder innan export — vattenmärket kommer att visas på varje ram.

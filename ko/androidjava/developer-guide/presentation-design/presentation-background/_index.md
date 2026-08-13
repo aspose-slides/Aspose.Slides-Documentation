@@ -1,5 +1,5 @@
 ---
-title: 안드로이드에서 프레젠테이션 배경 관리
+title: Android에서 프레젠테이션 배경 관리
 linktitle: 슬라이드 배경
 type: docs
 weight: 20
@@ -18,27 +18,30 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android를 사용하여 Java로 PowerPoint 및 OpenDocument 파일에 동적 배경을 설정하는 방법을 배우고, 프레젠테이션을 향상시키는 코드 팁을 확인하세요."
+description: "Aspose.Slides for Android 를 Java 로 사용하여 PowerPoint 및 OpenDocument 파일에서 동적 배경을 설정하는 방법을 배우고, 프레젠테이션을 향상시키는 코드 팁을 제공합니다."
 ---
 ## **소개**
 
-단색, 그라디언트 및 이미지는 슬라이드 배경으로 일반적으로 사용됩니다. **일반 슬라이드**(단일 슬라이드) 또는 **마스터 슬라이드**(한 번에 여러 슬라이드에 적용) 배경을 설정할 수 있습니다.
+단색, 그라디언트 및 이미지는 슬라이드 배경으로 일반적으로 사용됩니다. 배경을 **일반 슬라이드**(단일 슬라이드) 또는 **마스터 슬라이드**(여러 슬라이드에 동시에 적용)로 설정할 수 있습니다.
 
-![PowerPoint background](powerpoint-background.png)
+![PowerPoint 배경](powerpoint-background.png)
 
 ## **일반 슬라이드에 단색 배경 설정**
 
-Aspose.Slides는 프레젠테이션의 특정 슬라이드에 단색을 배경으로 설정할 수 있습니다—프레젠테이션이 마스터 슬라이드를 사용하더라도. 변경 사항은 선택한 슬라이드에만 적용됩니다.
+Aspose.Slides를 사용하면 프레젠테이션에서 특정 슬라이드의 배경을 단색으로 설정할 수 있습니다—프레젠테이션이 마스터 슬라이드를 사용하더라도 선택한 슬라이드에만 적용됩니다.
 
 1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
 2. 슬라이드의 [BackgroundType](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/backgroundtype/)을 `OwnBackground`로 설정합니다.
 3. 슬라이드 배경의 [FillType](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/filltype/)을 `Solid`로 설정합니다.
-4. [FillFormat](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/fillformat/)에서 [getSolidFillColor](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/fillformat/#getSolidFillColor--) 메서드를 사용하여 단색 배경 색을 지정합니다.
+4. 고체 배경 색을 지정하려면 [FillFormat](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/fillformat/)의 [getSolidFillColor](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/fillformat/#getSolidFillColor--) 메서드를 사용합니다.
 5. 수정된 프레젠테이션을 저장합니다.
 
-다음 Java 예제는 일반 슬라이드 배경을 파란색 단색으로 설정하는 방법을 보여줍니다:
+다음 Java 예제는 일반 슬라이드의 배경을 파란색 단색으로 설정하는 방법을 보여줍니다:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Presentation 클래스의 인스턴스를 생성합니다.
 Presentation presentation = new Presentation();
 try {
@@ -58,23 +61,26 @@ try {
 
 ## **마스터 슬라이드에 단색 배경 설정**
 
-Aspose.Slides는 프레젠테이션의 마스터 슬라이드에 단색을 배경으로 설정할 수 있습니다. 마스터 슬라이드는 모든 슬라이드의 서식을 제어하는 템플릿 역할을 하므로, 마스터 슬라이드 배경에 단색을 선택하면 모든 슬라이드에 적용됩니다.
+Aspose.Slides를 사용하면 프레젠테이션의 마스터 슬라이드 배경을 단색으로 설정할 수 있습니다. 마스터 슬라이드는 모든 슬라이드의 서식을 제어하는 템플릿이므로, 마스터 슬라이드 배경에 단색을 지정하면 모든 슬라이드에 적용됩니다.
 
 1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
-2. 마스터 슬라이드의 [BackgroundType](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/backgroundtype/)을 (`getMasters`를 통해) `OwnBackground`로 설정합니다.
+2. `getMasters`를 통해 얻은 마스터 슬라이드의 [BackgroundType](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/backgroundtype/)을 `OwnBackground`로 설정합니다.
 3. 마스터 슬라이드 배경의 [FillType](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/filltype/)을 `Solid`로 설정합니다.
-4. [getSolidFillColor](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/fillformat/#getSolidFillColor--) 메서드를 사용하여 단색 배경 색을 지정합니다.
+4. 고체 배경 색을 지정하려면 [getSolidFillColor](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/fillformat/#getSolidFillColor--) 메서드를 사용합니다.
 5. 수정된 프레젠테이션을 저장합니다.
 
-다음 Java 예제는 마스터 슬라이드 배경을 초록색 단색으로 설정하는 방법을 보여줍니다:
+다음 Java 예제는 마스터 슬라이드의 배경을 초록색 단색으로 설정하는 방법을 보여줍니다:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Presentation 클래스의 인스턴스를 생성합니다.
 Presentation presentation = new Presentation();
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
 
-    // 마스터 슬라이드의 배경 색을 포레스트 그린으로 설정합니다.
+    // 마스터 슬라이드의 배경 색을 초록색으로 설정합니다.
     masterSlide.getBackground().setType(BackgroundType.OwnBackground);
     masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
     masterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
@@ -88,17 +94,20 @@ try {
 
 ## **슬라이드에 그라디언트 배경 설정**
 
-그라디언트는 색상이 점진적으로 변하는 그래픽 효과입니다. 슬라이드 배경으로 사용하면 프레젠테이션이 더 예술적이고 전문적으로 보일 수 있습니다. Aspose.Slides는 슬라이드 배경으로 그라디언트 색을 설정할 수 있습니다.
+그라디언트는 색상이 점진적으로 변화하는 그래픽 효과입니다. 슬라이드 배경으로 사용하면 프레젠테이션을 보다 예술적이고 전문적으로 보이게 할 수 있습니다. Aspose.Slides를 사용하면 슬라이드 배경을 그라디언트 색으로 설정할 수 있습니다.
 
 1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
 2. 슬라이드의 [BackgroundType](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/backgroundtype/)을 `OwnBackground`로 설정합니다.
 3. 슬라이드 배경의 [FillType](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/filltype/)을 `Gradient`로 설정합니다.
-4. [FillFormat](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/fillformat/)에서 [getGradientFormat](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/fillformat/#getGradientFormat--) 메서드를 사용하여 원하는 그라디언트 설정을 구성합니다.
+4. 원하는 그라디언트 설정을 구성하려면 [FillFormat](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/fillformat/)의 [getGradientFormat](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/fillformat/#getGradientFormat--) 메서드를 사용합니다.
 5. 수정된 프레젠테이션을 저장합니다.
 
 다음 Java 예제는 슬라이드 배경을 그라디언트 색으로 설정하는 방법을 보여줍니다:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Presentation 클래스의 인스턴스를 생성합니다.
 Presentation presentation = new Presentation();
 try {
@@ -107,7 +116,13 @@ try {
     // 배경에 그라디언트 효과를 적용합니다.
     slide.getBackground().setType(BackgroundType.OwnBackground);
     slide.getBackground().getFillFormat().setFillType(FillType.Gradient);
-    slide.getBackground().getFillFormat().getGradientFormat().setTileFlip(TileFlip.FlipBoth);
+
+    IGradientFormat gradientFormat = slide.getBackground().getFillFormat().getGradientFormat();
+    gradientFormat.setTileFlip(TileFlip.FlipBoth);
+
+    // 그라디언트 색을 추가합니다. 그라디언트 스톱이 없으면 배경이 기본 검은색-흰색 구간으로 돌아갑니다.
+    gradientFormat.getGradientStops().add(0f, Color.CYAN);
+    gradientFormat.getGradientStops().add(1f, Color.BLUE);
 
     // 프레젠테이션을 디스크에 저장합니다.
     presentation.save("GradientBackground.pptx", SaveFormat.Pptx);
@@ -116,21 +131,23 @@ try {
 }
 ```
 
-## **슬라이드 배경으로 이미지 설정**
+## **슬라이드 배경에 이미지 설정**
 
-단색 및 그라디언트 채우기에 추가하여, Aspose.Slides는 이미지을 슬라이드 배경으로 사용할 수 있습니다.
+단색 및 그라디언트 채우기 외에도 Aspose.Slides를 사용하면 이미지를 슬라이드 배경으로 사용할 수 있습니다.
 
 1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
 2. 슬라이드의 [BackgroundType](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/backgroundtype/)을 `OwnBackground`로 설정합니다.
 3. 슬라이드 배경의 [FillType](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/filltype/)을 `Picture`로 설정합니다.
 4. 슬라이드 배경으로 사용할 이미지를 로드합니다.
 5. 이미지를 프레젠테이션의 이미지 컬렉션에 추가합니다.
-6. [FillFormat](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/fillformat/)에서 [getPictureFillFormat](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/fillformat/#getPictureFillFormat--) 메서드를 사용하여 이미지를 배경으로 지정합니다.
+6. [FillFormat](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/fillformat/)의 [getPictureFillFormat](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/fillformat/#getPictureFillFormat--) 메서드를 사용해 이미지를 배경으로 지정합니다.
 7. 수정된 프레젠테이션을 저장합니다.
 
 다음 Java 예제는 슬라이드 배경을 이미지로 설정하는 방법을 보여줍니다:
 
 ```java
+import com.aspose.slides.*;
+
 // Presentation 클래스의 인스턴스를 생성합니다.
 Presentation presentation = new Presentation();
 try {
@@ -159,6 +176,8 @@ try {
 다음 코드 샘플은 배경 채우기 유형을 타일링된 그림으로 설정하고 타일링 속성을 수정하는 방법을 보여줍니다:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide firstSlide = presentation.getSlides().get_Item(0);
@@ -172,11 +191,11 @@ try {
     IPPImage ppImage = presentation.getImages().addImage(newImage);
     newImage.dispose();
 
-    // 배경 채우기에 사용할 이미지를 설정합니다.
+    // 배경 채우기에 사용될 이미지를 설정합니다.
     IPictureFillFormat backPictureFillFormat = background.getFillFormat().getPictureFillFormat();
     backPictureFillFormat.getPicture().setImage(ppImage);
 
-    // 그림 채우기 모드를 타일로 설정하고 타일 속성을 조정합니다.
+    // 그림 채우기 모드를 Tile(타일)로 설정하고 타일 속성을 조정합니다.
     backPictureFillFormat.setPictureFillMode(PictureFillMode.Tile);
     backPictureFillFormat.setTileOffsetX(15f);
     backPictureFillFormat.setTileOffsetY(15f);
@@ -191,47 +210,60 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-자세히 보기: [**타일 그림 텍스처**](/slides/ko/androidjava/shape-formatting/#tile-picture-as-texture).
+{{% alert color="info" %}}
+자세히 보기: [**Tile Picture As Texture**](/slides/ko/androidjava/shape-formatting/#tile-picture-as-texture).
 {{% /alert %}}
 
 ### **배경 이미지 투명도 변경**
 
-슬라이드 배경 이미지의 투명도를 조정하여 슬라이드 내용이 돋보이게 할 수 있습니다. 다음 Java 코드는 슬라이드 배경 이미지의 투명도를 변경하는 방법을 보여줍니다:
+슬라이드 배경 이미지의 투명도를 조정하여 슬라이드 내용이 더 돋보이게 할 수 있습니다. 다음 Java 코드는 슬라이드 배경 이미지의 투명도를 변경하는 방법을 보여줍니다:
 
 ```java
-int transparencyValue = 30; // 예를 들어.
+import com.aspose.slides.*;
 
- // Get the collection of picture transform operations.
-IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+int transparencyValue = 30; // 예시.
 
-// Find an existing fixed-percentage transparency effect.
-IAlphaModulateFixed transparencyOperation = null;
-for (IImageTransformOperation operation : imageTransform) {
-    if (operation instanceof IAlphaModulateFixed) {
-        transparencyOperation = (IAlphaModulateFixed)operation;
-        break;
+Presentation presentation = new Presentation("Sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    // 그림 변환 작업 컬렉션을 가져옵니다.
+    IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+
+    // 기존 고정 비율 투명도 효과를 찾습니다.
+    IAlphaModulateFixed transparencyOperation = null;
+    for (IImageTransformOperation operation : imageTransform) {
+        if (operation instanceof IAlphaModulateFixed) {
+            transparencyOperation = (IAlphaModulateFixed)operation;
+            break;
+        }
     }
-}
 
-// Set the new transparency value.
-if (transparencyOperation == null) {
-    imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
-}
-else {
-    transparencyOperation.setAmount(100 - transparencyValue);
+    // 새 투명도 값을 설정합니다.
+    if (transparencyOperation == null) {
+        imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
+    }
+    else {
+        transparencyOperation.setAmount(100 - transparencyValue);
+    }
+
+    presentation.save("TransparentBackground.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **슬라이드 배경 값 가져오기**
 
-Aspose.Slides는 슬라이드의 실제 배경 값을 검색하기 위해 [IBackgroundEffectiveData](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibackgroundeffectivedata/) 인터페이스를 제공합니다. 이 인터페이스는 실제 [FillFormat](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibackgroundeffectivedata/#getFillFormat--) 및 [EffectFormat](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibackgroundeffectivedata/#getEffectFormat--)을 노출합니다.
+Aspose.Slides는 슬라이드의 실제 배경 값을 검색하기 위한 [IBackgroundEffectiveData](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibackgroundeffectivedata/) 인터페이스를 제공합니다. 이 인터페이스는 실제 [FillFormat](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibackgroundeffectivedata/#getFillFormat--) 및 [EffectFormat](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibackgroundeffectivedata/#getEffectFormat--)을 노출합니다.
 
-[BaseSlide](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/baseslide/) 클래스의 `getBackground` 메서드를 사용하여 슬라이드의 실제 배경을 얻을 수 있습니다.
+[BaseSlide](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/baseslide/) 클래스의 `getBackground` 메서드를 사용하면 슬라이드의 실제 배경을 얻을 수 있습니다.
 
 다음 Java 예제는 슬라이드의 실제 배경 값을 가져오는 방법을 보여줍니다:
 
 ```java
+import com.aspose.slides.*;
+
 // Presentation 클래스의 인스턴스를 생성합니다.
 Presentation presentation = new Presentation("Sample.pptx");
 try {
@@ -251,10 +283,10 @@ try {
 
 ## **FAQ**
 
-**맞춤 배경을 재설정하고 테마/레이아웃 배경을 복원할 수 있나요?**
+### 사용자 지정 배경을 재설정하고 테마/레이아웃 배경을 복원할 수 있나요?
 
-예. 슬라이드의 맞춤 채우기를 제거하면 배경이 해당 [layout](/slides/ko/androidjava/slide-layout/)/[master](/slides/ko/androidjava/slide-master/) 슬라이드(즉, [theme background](/slides/ko/androidjava/presentation-theme/))에서 다시 상속됩니다.
+예. 슬라이드의 사용자 지정 채우기를 제거하면 해당 [layout](/slides/ko/androidjava/slide-layout/)/[master](/slides/ko/androidjava/slide-master/) 슬라이드(즉, [theme background](/slides/ko/androidjava/presentation-theme/))에서 배경이 다시 상속됩니다.
 
-**프레젠테이션의 테마를 나중에 변경하면 배경은 어떻게 됩니까?**
+### 프레젠테이션의 테마를 나중에 변경하면 배경은 어떻게 되나요?
 
-슬라이드에 자체 채우기가 있으면 변경되지 않은 상태로 유지됩니다. 배경이 [layout](/slides/ko/androidjava/slide-layout/)/[master](/slides/ko/androidjava/slide-master/)에서 상속된 경우, [새 테마](/slides/ko/androidjava/presentation-theme/)에 맞게 업데이트됩니다.
+슬라이드에 자체 채우기가 있는 경우 그대로 유지됩니다. 배경이 [layout](/slides/ko/androidjava/slide-layout/)/[master](/slides/ko/androidjava/slide-master/)에서 상속된 경우 새 테마에 맞게 업데이트됩니다.

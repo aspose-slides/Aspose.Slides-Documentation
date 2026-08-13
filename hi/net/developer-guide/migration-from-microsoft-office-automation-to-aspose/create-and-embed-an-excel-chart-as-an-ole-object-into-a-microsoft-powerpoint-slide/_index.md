@@ -1,6 +1,6 @@
 ---
-title: VSTO और Aspose.Slides for .NET का उपयोग करके Excel चार्ट को OLE ऑब्जेक्ट के रूप में बनाना और एम्बेड करना
-linktitle: Excel चार्ट को OLE ऑब्जेक्ट के रूप में बनाना और एम्बेड करना
+title: VSTO और Aspose.Slides for .NET का उपयोग करके OLE ऑब्जेक्ट के रूप में Excel चार्ट बनाना और एम्बेड करना
+linktitle: OLE ऑब्जेक्ट के रूप में Excel चार्ट बनाना और एम्बेड करना
 type: docs
 weight: 70
 url: /hi/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
@@ -8,32 +8,32 @@ keywords:
 - चार्ट बनाना
 - Excel चार्ट एम्बेड करना
 - OLE ऑब्जेक्ट
-- माइग्रेशन
+- स्थांतरण
 - VSTO
 - ऑफिस ऑटोमेशन
 - PowerPoint
-- प्रेजेंटेशन
+- प्रस्तुति
 - .NET
 - C#
 - Aspose.Slides
 description: "Microsoft Office ऑटोमेशन से Aspose.Slides for .NET में माइग्रेट करें और C# में PowerPoint (PPT, PPTX) स्लाइड्स में Excel चार्ट को OLE ऑब्जेक्ट के रूप में एम्बेड करें।"
 ---
-{{% alert color="primary" %}} 
-चार्ट आपके डेटा के दृश्य प्रतिनिधित्व हैं और प्रस्तुति स्लाइड्स में व्यापक रूप से उपयोग होते हैं। इस लेख में आप कोड देखेंगे जो प्रोग्रामेटिक रूप से [VSTO](/slides/hi/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) और [Aspose.Slides for .NET](/slides/hi/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) का उपयोग करके Excel चार्ट को OLE ऑब्जेक्ट के रूप में PowerPoint स्लाइड में बनाता और एम्बेड करता है।
+{{% alert color="info" %}} 
+चार्ट आपके डेटा के दृश्य प्रतिनिधित्व होते हैं और प्रस्तुति स्लाइड्स में व्यापक रूप से उपयोग किए जाते हैं। इस लेख में हम आपको कोड दिखाएंगे जिससे आप प्रोग्रामेटिकली Excel चार्ट को OLE ऑब्जेक्ट के रूप में PowerPoint स्लाइड में बनाकर एम्बेड कर सकते हैं, इसके लिए आप [VSTO](/slides/hi/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) और [Aspose.Slides for .NET](/slides/hi/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) का उपयोग करेंगे।
 {{% /alert %}} 
 ## **Excel चार्ट बनाना और एम्बेड करना**
-नीचे दो कोड उदाहरण लम्बे और विस्तृत हैं क्योंकि वे जिस कार्य का वर्णन कर रहे हैं वह जटिल है। आप एक Microsoft Excel वर्कबुक बनाते हैं, एक चार्ट बनाते हैं और फिर वह Microsoft PowerPoint प्रस्तुति बनाते हैं जिसमें आप चार्ट को एम्बेड करेंगे। OLE ऑब्जेक्ट्स में मूल दस्तावेज़ के लिंक होते हैं इसलिए जब उपयोगकर्ता एम्बेडेड फ़ाइल पर डबल‑क्लिक करता है तो वह फ़ाइल और उसका अनुप्रयोग लॉन्च हो जाता है।
+नीचे दिए गए दो कोड उदाहरण लंबे और विवरणपूर्ण हैं क्योंकि वे जिस कार्य को वर्णित कर रहे हैं वह जटिल है। आप एक Microsoft Excel वर्कबुक बनाते हैं, एक चार्ट बनाते हैं और फिर Microsoft PowerPoint प्रस्तुति बनाते हैं जिसमें आप चार्ट एम्बेड करेंगे। OLE ऑब्जेक्ट मूल दस्तावेज़ के लिंक रखते हैं, इसलिए उपयोगकर्ता जो एम्बेडेड फ़ाइल पर डबल‑क्लिक करता है, वह फ़ाइल और उसका अनुप्रयोग लॉन्च करेगा।
 ## **VSTO उदाहरण**
-Using VSTO, the following steps are performed:
+VSTO का उपयोग करके निम्नलिखित चरणों को लागू किया जाता है:
 
 1. Microsoft Excel ApplicationClass ऑब्जेक्ट का एक इंस्टेंस बनाएं।
 1. एक नई वर्कबुक बनाएं जिसमें एक शीट हो।
 1. शीट में चार्ट जोड़ें।
 1. वर्कबुक को सेव करें।
-1. चार्ट डेटा वाली शीट वाला Excel वर्कबुक खोलें।
-1. शीट के लिए ChartObjects कलेक्शन प्राप्त करें।
+1. उस Excel वर्कबुक को खोलें जिसमें चार्ट डेटा वाली वर्कशीट हो।
+1. शीट के लिए ChartObjects संग्रह प्राप्त करें।
 1. कॉपी करने के लिए चार्ट प्राप्त करें।
-1. Microsoft PowerPoint प्रस्तुति बनाएं।
+1. एक Microsoft PowerPoint प्रस्तुति बनाएं।
 1. प्रस्तुति में एक खाली स्लाइड जोड़ें।
 1. Excel वर्कशीट से चार्ट को क्लिपबोर्ड में कॉपी करें।
 1. चार्ट को PowerPoint प्रस्तुति में पेस्ट करें।
@@ -55,14 +55,14 @@ static void SetCellValue(xlNS.Worksheet targetSheet, string Cell, object Value)
 ```c#
 static void CreateNewChartInExcel()
 {
-    // Excel ApplicationClass इंस्टेंस के लिए एक वेरिएबल घोषित करें।
+    // Excel ApplicationClass इंस्टेंस के लिए एक वैरिएबल घोषित करें।
     Microsoft.Office.Interop.Excel.ApplicationClass excelApplication = null;
 
-    // Workbooks.Open मेथड पैरामीटर्स के लिए वेरिएबल्स घोषित करें।
+    // Workbooks.Open मेथड पैरामीटरों के लिए वैरिएबल्स घोषित करें।
     string paramWorkbookPath = Application.StartupPath + @"\ChartData.xlsx";
     object paramMissing = Type.Missing;
 
-    // Chart.ChartWizard मेथड के लिए वेरिएबल्स घोषित करें।
+    // Chart.ChartWizard मेथड के लिए वैरिएबल्स घोषित करें।
     object paramChartFormat = 1;
     object paramCategoryLabels = 0;
     object paramSeriesLabels = 0;
@@ -73,10 +73,10 @@ static void CreateNewChartInExcel()
 
     try
     {
-        // Excel ApplicationClass ऑब्जेक्ट का एक इंस्टेंस बनाएं।
+        // Excel ApplicationClass ऑब्जेक्ट का एक इंस्टेंस बनाएँ।
         excelApplication = new Microsoft.Office.Interop.Excel.ApplicationClass();
 
-        // एक नई वर्कबुक बनाएं जिसमें 1 शीट हो।
+        // एक नया वर्कबुक बनाएँ जिसमें 1 शीट हो।
         xlNS.Workbook newWorkbook = excelApplication.Workbooks.Add(xlNS.XlWBATemplate.xlWBATWorksheet);
 
         // शीट का नाम बदलें।
@@ -86,10 +86,10 @@ static void CreateNewChartInExcel()
         // शीट में चार्ट के लिए कुछ डेटा डालें।
         //              A       B       C       D       E
         //     1                Q1      Q2      Q3      Q4
-        //     2    N. America  1.5     2       1.5     2.5
-        //     3    S. America  2       1.75    2       2
-        //     4    Europe      2.25    2       2.5     2
-        //     5    Asia        2.5     2.5     2       2.75
+        //     2    उत्तरी अमेरिका  1.5     2       1.5     2.5
+        //     3    दक्षिणी अमेरिका  2       1.75    2       2
+        //     4    यूरोप      2.25    2       2.5     2
+        //     5    एशिया        2.5     2.5     2       2.75
 
         SetCellValue(targetSheet, "A2", "N. America");
         SetCellValue(targetSheet, "A3", "S. America");
@@ -120,17 +120,17 @@ static void CreateNewChartInExcel()
         SetCellValue(targetSheet, "E4", 2);
         SetCellValue(targetSheet, "E5", 2.75);
 
-        // चार्ट डेटा रखने वाली रेंज प्राप्त करें।
+        // चार्ट डेटा को धारण करने वाली रेंज प्राप्त करें।
         xlNS.Range dataRange = targetSheet.get_Range("A1", "E5");
 
-        // शीट के लिए ChartObjects कलेक्शन प्राप्त करें।
+        // शीट के लिए ChartObjects संग्रह प्राप्त करें।
         xlNS.ChartObjects chartObjects = (xlNS.ChartObjects)(targetSheet.ChartObjects(paramMissing));
 
-        // कलेक्शन में एक चार्ट जोड़ें।
+        // संग्रह में एक चार्ट जोड़ें।
         xlNS.ChartObject newChartObject = chartObjects.Add(0, 100, 600, 300);
         newChartObject.Name = "Sales Chart";
 
-        // डेटा से एक नया चार्ट बनाएं।
+        // डेटा का नया चार्ट बनाएँ।
         newChartObject.Chart.ChartWizard(dataRange, xlNS.XlChartType.xl3DColumn, paramChartFormat, xlNS.XlRowCol.xlRows,
             paramCategoryLabels, paramSeriesLabels, paramHasLegend, paramTitle, paramCategoryTitle, paramValueTitle, paramMissing);
 
@@ -156,13 +156,13 @@ static void CreateNewChartInExcel()
 ```c#
 static void UseCopyPaste()
 {
-    // PowerPoint ऑब्जेक्ट्स के रेफ़रेंस रखने वाले वेरिएबल्स घोषित करें।
+    // PowerPoint ऑब्जेक्ट्स के रेफरेंस रखने के लिए वैरिएबल्स घोषित करें।
     pptNS.ApplicationClass powerpointApplication = null;
     pptNS.Presentation pptPresentation = null;
     pptNS.Slide pptSlide = null;
     pptNS.ShapeRange shapeRange = null;
 
-    // Excel ऑब्जेक्ट्स के रेफ़रेंस रखने वाले वेरिएबल्स घोषित करें।
+    // Excel ऑब्जेक्ट्स के रेफरेंस रखने के लिए वैरिएबल्स घोषित करें।
     xlNS.ApplicationClass excelApplication = null;
     xlNS.Workbook excelWorkBook = null;
     xlNS.Worksheet targetSheet = null;
@@ -181,17 +181,17 @@ static void UseCopyPaste()
         // Excel का एक इंस्टेंस बनाएं।
         excelApplication = new xlNS.ApplicationClass();
 
-        // चार्ट डेटा वाली वर्कशीट शामिल करने वाली Excel वर्कबुक खोलें।
+        // चार्ट डेटा वाली वर्कशीट वाले Excel वर्कबुक को खोलें।
         excelWorkBook = excelApplication.Workbooks.Open(paramWorkbookPath,
             paramMissing, paramMissing, paramMissing, paramMissing, paramMissing,
             paramMissing, paramMissing, paramMissing, paramMissing, paramMissing,
             paramMissing, paramMissing, paramMissing, paramMissing);
 
-        // चार्ट वाली वर्कशीट प्राप्त करें।
+        // चार्ट वाले वर्कशीट को प्राप्त करें।
         targetSheet =
             (xlNS.Worksheet)(excelWorkBook.Worksheets["Quarterly Sales"]);
 
-        // शीट के लिए ChartObjects कलेक्शन प्राप्त करें।
+        // शीट के लिए ChartObjects संग्रह प्राप्त करें।
         chartObjects =
             (xlNS.ChartObjects)(targetSheet.ChartObjects(paramMissing));
 
@@ -208,7 +208,7 @@ static void UseCopyPaste()
         pptSlide =
             pptPresentation.Slides.Add(1, pptNS.PpSlideLayout.ppLayoutBlank);
 
-        // Excel वर्कशीट से चार्ट को क्लिपबोर्ड में कॉपी करें।
+        // Excel वर्कशीट से चार्ट को क्लिपबोर्ड पर कॉपी करें।
         existingChartObject.Copy();
 
         // चार्ट को PowerPoint प्रस्तुति में पेस्ट करें।
@@ -273,38 +273,44 @@ static void UseCopyPaste()
 ```
 
 ## **Aspose.Slides for .NET उदाहरण**
-Using Aspose.Slides for .NET, the following steps are performed:
+Aspose.Slides for .NET का उपयोग करके निम्नलिखित चरणों को लागू किया जाता है:
 
 1. Aspose.Cells for .NET का उपयोग करके एक वर्कबुक बनाएं।
-1. एक Microsoft Excel चार्ट बनाएं।
+1. Microsoft Excel चार्ट बनाएं।
 1. Excel चार्ट का OLE आकार सेट करें।
 1. चार्ट की एक इमेज प्राप्त करें।
-1. Aspose.Slides for .NET का उपयोग करके Excel चार्ट को PPTX प्रस्तुति में OLE ऑब्जेक्ट के रूप में एम्बेड करें।
-1. ऑब्जेक्ट बदला गया इमेज को चरण 3 में प्राप्त इमेज से बदलें ताकि ऑब्जेक्ट बदलने की समस्या को हल किया जा सके।
+1. Aspose.Slides for .NET का उपयोग करके PPTX प्रस्तुति के भीतर Excel चार्ट को OLE ऑब्जेक्ट के रूप में एम्बेड करें।
+1. ऑब्जेक्ट बदलने की समस्या को संभालने के लिए चरण 3 में प्राप्त इमेज से ऑब्जेक्ट बदलने वाली इमेज को बदलें।
 1. आउटपुट प्रस्तुति को PPTX फॉर्मेट में डिस्क पर लिखें।
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+
 //Step - 1: Aspose.Cells का उपयोग करके एक्सेल चार्ट बनाएं
 //--------------------------------------------------
 //एक वर्कबुक बनाएं
 Aspose.Cells.Workbook wb = new Aspose.Cells.Workbook();
-//Add an excel chart
+//एक एक्सेल चार्ट जोड़ें
 int chartRows = 55;
 int chartCols = 25;
 int chartSheetIndex = AddExcelChartInWorkbook(wb, chartRows, chartCols);
-//Step - 2: चार्ट का OLE आकार सेट करें. Aspose.Cells का उपयोग करके
+//Step - 2: चार्ट का OLE आकार सेट करें। Aspose.Cells का उपयोग करके
 //-----------------------------------------------------------
 wb.Worksheets.SetOleSize(0, chartRows, 0, chartCols);
-//Step - 3: चार्ट की छवि Aspose.Cells से प्राप्त करें
+//Step - 3: Aspose.Cells से चार्ट की इमेज प्राप्त करें
 //-----------------------------------------------------------
-Bitmap imgChart = wb.Worksheets[chartSheetIndex].Charts[0].ToImage();
-//Save the workbook to stream
+MemoryStream chartImageStream = new MemoryStream();
+wb.Worksheets[chartSheetIndex].Charts[0].ToImage(chartImageStream, Aspose.Cells.Drawing.ImageType.Png);
+chartImageStream.Position = 0;
+Bitmap imgChart = new Bitmap(chartImageStream);
+//वर्कबुक को स्ट्रीम में सेव करें
 MemoryStream wbStream = wb.SaveToStream();
-//Step - 4  AND 5
+//Step - 4 और 5
 //-----------------------------------------------------------
 //Step - 4: Aspose.Slides का उपयोग करके .ppt प्रस्तुति में चार्ट को OLE ऑब्जेक्ट के रूप में एम्बेड करें
 //-----------------------------------------------------------
-//Step - 5: ऑब्जेक्ट परिवर्तन समस्या को हल करने के लिए चरण 3 में प्राप्त छवि से ऑब्जेक्ट बदलती छवि को बदलें
+//Step - 5: ऑब्जेक्ट बदलने की समस्या को संभालने के लिए स्टेप 3 में प्राप्त इमेज से ऑब्जेक्ट बदला गया इमेज बदलें
 //-----------------------------------------------------------
 //एक प्रस्तुति बनाएं
 Presentation pres = new Presentation();
@@ -317,6 +323,10 @@ pres.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
 static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, Stream workbookStream, Bitmap chartImage)
 {
     float oleWidth = presentation.SlideSize.Size.Width;
@@ -344,7 +354,7 @@ static void AddExcelChartInPresentation(Presentation presentation, ISlide slide,
 ```c#
 static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int chartCols)
 {
-    //सेल नामों की ऐरे
+    //सेल नामों की एरे
     string[] cellsName = new string[]
       {
   "A1", "A2", "A3", "A4",
@@ -354,7 +364,7 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int 
   "E1", "E2", "E3", "E4"
       };
 
-    //सेल डेटा की ऐरे
+    //सेल डेटा की एरे
     int[] cellsValue = new int[]
       {
  67,86,68,91,
@@ -363,12 +373,12 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int 
  43,29,69,26,
  24,40,38,25
       };
-    //डेटा से सेल भरने के लिए एक नई वर्कशीट जोड़ें
+    //डेटा के साथ सेल्स को भरने के लिए एक नया वर्कशीट जोड़ें
     int dataSheetIdx = wb.Worksheets.Add();
     Aspose.Cells.Worksheet dataSheet = wb.Worksheets[dataSheetIdx];
     string sheetName = "DataSheet";
     dataSheet.Name = sheetName;
-    //DataSheet में डेटा भरें
+    //DataSheet को डेटा से भरें
     for (int i = 0; i < cellsName.Length; i++)
     {
         string cellName = cellsName[i];
@@ -379,7 +389,7 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int 
     int chartSheetIdx = wb.Worksheets.Add(Aspose.Cells.SheetType.Chart);
     Aspose.Cells.Worksheet chartSheet = wb.Worksheets[chartSheetIdx];
     chartSheet.Name = "ChartSheet";
-    //DataSheet से डेटा सीरीज़ के साथ ChartSheet में एक चार्ट जोड़ें
+    //DataSheet से डेटा श्रृंखला के साथ ChartSheet में एक चार्ट जोड़ें
     int chartIdx = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, chartRows, 0, chartCols);
     Aspose.Cells.Charts.Chart chart = chartSheet.Charts[chartIdx];
     chart.NSeries.Add(sheetName + "!A1:E1", false);

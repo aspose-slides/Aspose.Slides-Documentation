@@ -1,49 +1,55 @@
 ---
-title: Beheer opsomming- en nummeringslijsten in presentaties in .NET
-linktitle: Beheer lijsten
+title: Beheer van opsommingstekens en genummerde lijsten in presentaties in .NET
+linktitle: Beheer Lijsten
 type: docs
 weight: 70
 url: /nl/net/manage-lists/
+aliases:
+  - /net/manage-bullet-and-numbered-lists/
 keywords:
 - opsommingsteken
-- opsomming lijst
+- opsomminglijst
 - genummerde lijst
 - symbool opsommingsteken
-- afbeeldings-opsommingsteken
+- afbeelding opsommingsteken
 - aangepast opsommingsteken
-- meerlaagse lijst
-- maak opsomming
-- voeg opsomming toe
-- voeg lijst toe
+- meerlagige lijst
+- opsommingsteken maken
+- opsommingsteken toevoegen
+- lijst toevoegen
 - PowerPoint
 - OpenDocument
 - presentatie
 - .NET
 - C#
 - Aspose.Slides
-description: "Leer hoe u opsomming-, afbeelding-, meerlagige en genummerde lijsten maakt en opmaakt in PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor .NET."
+description: "Leer hoe u opsommingstekens, afbeelding‑opsommingstekens, meerlagige en genummerde lijsten kunt maken en opmaken in PowerPoint‑ en OpenDocument‑presentaties met Aspose.Slides voor .NET."
 ---
 ## **Overzicht**
 
-Aspose.Slides voor .NET stelt u in staat om opsomming‑ en nummeringslijsten te maken en op te maken in PowerPoint‑ en OpenDocument‑presentaties. Een lijstitem is een alinea waarvan de opsomminginstellingen worden beheerd via het alinea‑formaat.
+Aspose.Slides for .NET stelt u in staat om opsommingstekens en genummerde lijsten te maken en op te maken in PowerPoint‑ en OpenDocument‑presentaties. Een lijstitem is een alinea waarvan de opsommingstekeninstellingen worden beheerd via de alinea‑opmaak.
 
-Gebruik de [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraph/paragraphformat/)‑eigenschap om de lijstinstellingen op alinea‑niveau te benaderen. Het belangrijkste toegangspunt is [IParagraphFormat.Bullet](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/bullet/), dat een [IBulletFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/ibulletformat/)‑object teruggeeft. Met dit object kunt u het opsommingstype, het symbool, de afbeelding, de kleur, de grootte, de nummeringsstijl en het startnummer definiëren.
+Gebruik de [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraph/paragraphformat/) eigenschap om de lijstinstellingen op alinea‑niveau te benaderen. Het belangrijkste toegangspunt is [IParagraphFormat.Bullet](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/bullet/), die een [IBulletFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/ibulletformat/) object retourneert. Met dit object kunt u het type opsommingsteken, symbool, afbeelding, kleur, grootte, nummeringsstijl en startnummer instellen.
 
 Dit artikel laat zien hoe u:
 
-- een opsomming met een aangepast symbool maakt
-- een afbeelding‑opsomming maakt
-- een meerlagige lijst maakt door de alinea‑diepte in te stellen
+- een opsomminglijst maakt met een aangepast symbool
+- een afbeelding‑opsommingsteken maakt
+- een meerlagige lijst maakt door de diepte van de alinea in te stellen
 - een genummerde lijst maakt
-- de lijstopmaak inspecteert en wijzigt in een bestaande presentatie
+- de lijstopmaak in een bestaande presentatie bekijkt en wijzigt
 
-## **Een opsomming maken**
+## **Een opsomminglijst maken**
 
-Om een opsomming te maken, voegt u [IParagraph](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraph/)‑objecten toe aan een [ITextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframe/) en stelt u [IBulletFormat.Type](https://reference.aspose.com/slides/nl/net/aspose.slides/ibulletformat/type/) in op [BulletType.Symbol](https://reference.aspose.com/slides/nl/net/aspose.slides/bullettype/). Vervolgens kunt u [IBulletFormat.Char](https://reference.aspose.com/slides/nl/net/aspose.slides/ibulletformat/char/), [IBulletFormat.Color](https://reference.aspose.com/slides/nl/net/aspose.slides/ibulletformat/color/) en [IBulletFormat.Height](https://reference.aspose.com/slides/nl/net/aspose.slides/ibulletformat/height/) instellen om het uiterlijk van de opsomming te regelen.
+Om een opsomminglijst te maken, voegt u [IParagraph](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraph/) objecten toe aan een [ITextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframe/) en stelt u [IBulletFormat.Type](https://reference.aspose.com/slides/nl/net/aspose.slides/ibulletformat/type/) in op [BulletType.Symbol](https://reference.aspose.com/slides/nl/net/aspose.slides/bullettype/). Daarna kunt u [IBulletFormat.Char](https://reference.aspose.com/slides/nl/net/aspose.slides/ibulletformat/char/), [IBulletFormat.Color](https://reference.aspose.com/slides/nl/net/aspose.slides/ibulletformat/color/) en [IBulletFormat.Height](https://reference.aspose.com/slides/nl/net/aspose.slides/ibulletformat/height/) instellen om het uiterlijk van het opsommingsteken te regelen.
 
-De volgende C#‑code demonstreert hoe u een opsomming maakt in een dia:
+De volgende C#‑code laat zien hoe u een opsomminglijst in een dia maakt:
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 static Paragraph CreateParagraph(string text)
 {
     var paragraph = new Paragraph();
@@ -76,15 +82,18 @@ presentation.Save("symbol_bullets.pptx", SaveFormat.Pptx);
 
 Het resultaat:
 
-![De symbolische opsommingen](symbol_bullets.png)
+![De symboolopsommingstekens](symbol_bullets.png)
 
 ## **Een genummerde lijst maken**
 
-Gebruik genummerde lijsten wanneer de volgorde van items van belang is. Stel [IBulletFormat.Type](https://reference.aspose.com/slides/nl/net/aspose.slides/ibulletformat/type/) in op [BulletType.Numbered](https://reference.aspose.com/slides/nl/net/aspose.slides/bullettype/). U kunt ook een nummeringsopmaak kiezen met [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/nl/net/aspose.slides/ibulletformat/numberedbulletstyle/) of [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/nl/net/aspose.slides/ibulletformat/numberedbulletstartwith/) instellen wanneer de lijst moet beginnen vanaf een andere waarde dan 1.
+Gebruik genummerde lijsten wanneer de volgorde van de items van belang is. Stel [IBulletFormat.Type](https://reference.aspose.com/slides/nl/net/aspose.slides/ibulletformat/type/) in op [BulletType.Numbered](https://reference.aspose.com/slides/nl/net/aspose.slides/bullettype/). U kunt ook een nummeropmaak kiezen met [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/nl/net/aspose.slides/ibulletformat/numberedbulletstyle/) of [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/nl/net/aspose.slides/ibulletformat/numberedbulletstartwith/) instellen wanneer de lijst moet beginnen met een andere waarde dan 1.
 
-De volgende C#‑code laat zien hoe u een genummerde lijst maakt in een dia:
+De volgende C#‑code toont hoe u een genummerde lijst in een dia maakt:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
@@ -113,27 +122,30 @@ presentation.Save("numbered_bullets.pptx", SaveFormat.Pptx);
 
 Het resultaat:
 
-![De genummerde opsommingen](numbered_bullets.png)
+![De genummerde opsommingstekens](numbered_bullets.png)
 
-## **Een afbeelding‑opsomming maken**
+## **Een afbeelding‑opsommingsteken maken**
 
-Aspose.Slides stelt u in staat om een regulier opsommingssymbool te vervangen door een afbeelding. Afbeeldings‑opsommingen werken het beste met eenvoudige afbeeldingen die ook op een kleine schaal leesbaar blijven, zoals pictogrammen of kleine transparante PNG‑bestanden.
+Aspose.Slides stelt u in staat een regulier opsommingsteken te vervangen door een afbeelding. Afbeeldings‑opsommingstekens werken het beste met eenvoudige afbeeldingen die op een kleine grootte nog leesbaar blijven, zoals pictogrammen of kleine transparante PNG‑bestanden.
 
-{{% alert color="primary" %}}
-Idealiter kiest u, wanneer u het reguliere opsommingssymbool wilt vervangen door een afbeelding, een eenvoudige grafiek met een transparante achtergrond. Dergelijke afbeeldingen werken goed als aangepaste opsomming‑symbolen.
-
-Houd er rekening mee dat de afbeelding wordt verkleind tot een zeer klein formaat. Daarom raden we sterk aan een afbeelding te kiezen die duidelijk en visueel effectief blijft wanneer deze als opsomming in een lijst wordt gebruikt.
+{{% alert color="info" %}}
+Idealiter, als u van plan bent het reguliere opsommingsteken te vervangen door een afbeelding, kiest u een eenvoudige grafiek met een transparante achtergrond. Dergelijke afbeeldingen werken goed als aangepaste opsommingstekens.
 {{% /alert %}}
 
-Om een afbeelding‑opsomming te maken, voegt u een afbeelding toe aan [Presentation.Images](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/images/) en kent u het geretourneerde afbeeldingsobject toe aan [IBulletFormat.Picture](https://reference.aspose.com/slides/nl/net/aspose.slides/ibulletformat/picture/). Stel [IBulletFormat.Type](https://reference.aspose.com/slides/nl/net/aspose.slides/ibulletformat/type/) in op [BulletType.Picture](https://reference.aspose.com/slides/nl/net/aspose.slides/bullettype/) voordat u de afbeelding toewijst.
+Houd er rekening mee dat de afbeelding wordt verkleind tot een zeer kleine grootte. Om die reden raden wij sterk aan een afbeelding te kiezen die duidelijk blijft en visueel effectief is wanneer deze als opsommingsteken in een lijst wordt gebruikt.
 
-Stel dat we een “image.png” hebben:
+Om een afbeelding‑opsommingsteken te maken, voegt u een afbeelding toe aan [Presentation.Images](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/images/) en kent u het geretourneerde afbeeldingsobject toe aan [IBulletFormat.Picture](https://reference.aspose.com/slides/nl/net/aspose.slides/ibulletformat/picture/). Stel [IBulletFormat.Type](https://reference.aspose.com/slides/nl/net/aspose.slides/ibulletformat/type/) in op [BulletType.Picture](https://reference.aspose.com/slides/nl/net/aspose.slides/bullettype/) voordat u de afbeelding toewijst.
 
-![Een afbeelding voor de opsommingen](picture_for_bullets.png)
+Stel dat we een "image.png" hebben:
 
-De volgende C#‑code laat zien hoe u afbeelding‑opsommingen maakt in een dia:
+![Een afbeelding voor de opsommingstekens](picture_for_bullets.png)
+
+De volgende C#‑code toont hoe u afbeelding‑opsommingstekens in een dia maakt:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 static Paragraph CreateParagraph(string text, IPPImage image)
 {
     var paragraph = new Paragraph();
@@ -167,15 +179,16 @@ presentation.Save("picture_bullets.pptx", SaveFormat.Pptx);
 
 Het resultaat:
 
-![De afbeelding‑opsommingen](picture_bullets.png)
+![De afbeeldings‑opsommingstekens](picture_bullets.png)
 
 ## **Een meerlagige lijst maken**
 
-Gebruik [IParagraphFormat.Depth](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/depth/) om lijstitems op verschillende niveaus te plaatsen. Niveau 0 is het hoogste niveau, niveau 1 is eronder genest, enzovoort.
-
-De volgende C#‑code toont hoe u een meerlagige opsomming maakt:
+Gebruik [IParagraphFormat.Depth](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/depth/) om lijstitems op verschillende niveaus te plaatsen. Niveau 0 is het bovenste niveau, niveau 1 staat eronder genesteld, enzovoort.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
@@ -211,13 +224,14 @@ Het resultaat:
 
 ![De meerlagige lijst](multilevel_list.png)
 
-## **Een bestaande lijst wijzigen**
+## **Een bestaande lijst aanpassen**
 
-Om de lijstopmaak in een bestaande presentatie te wijzigen, krijgt u toegang tot de desbetreffende alinea en werkt u de [IParagraphFormat.Bullet](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/bullet/)‑instellingen bij. Dezelfde eigenschappen die worden gebruikt om lijsten te maken, kunnen ook worden gebruikt om lijsten die uit een PPT, PPTX of ODP‑bestand zijn geladen, te inspecteren of aan te passen.
-
-De volgende C#‑code wijzigt de eerste alinea in een tekstframe zodat deze een genummerde lijststijl gebruikt:
+Om de lijstopmaak in een bestaande presentatie te wijzigen, krijgt u toegang tot de doel‑alinea en werkt u de [IParagraphFormat.Bullet](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/bullet/)‑instellingen bij. Dezelfde eigenschappen die worden gebruikt om lijsten te maken, kunnen worden gebruikt om lijsten die uit een PPT, PPTX of ODP‑bestand zijn geladen, te bekijken of aan te passen.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("input.pptx");
 
 var slide = presentation.Slides[0];
@@ -235,14 +249,14 @@ presentation.Save("updated_list.pptx", SaveFormat.Pptx);
 
 ## **FAQ**
 
-**Kunnen opsomming‑ en genummerde lijsten geëxporteerd worden naar PDF of afbeeldingen?**
+### Kunnen opsommingstekens en genummerde lijsten worden geëxporteerd naar PDF of afbeeldingen?
 
-Ja. Aspose.Slides behoudt de lijstopmaak wanneer het doelformaat de overeenkomstige tekstopmaak en opsommingseigenschappen ondersteunt.
+Ja. Aspose.Slides behoudt de lijstopmaak wanneer het doel‑formaat de overeenkomstige tekstlay‑out en opsommingsteken‑functies ondersteunt.
 
-**Kan ik lijsten bewerken in bestaande presentaties?**
+### Kan ik lijsten bewerken in bestaande presentaties?
 
-Ja. Laad de presentatie, krijg toegang tot de desbetreffende alinea, inspecteer of werk de [IParagraphFormat.Bullet](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/bullet/)‑instellingen bij en sla de presentatie op.
+Ja. Laad de presentatie, krijg toegang tot de doel‑alinea, bekijk of werk de [IParagraphFormat.Bullet](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/bullet/)‑instellingen bij, en sla de presentatie op.
 
-**Kunnen lijsten niet‑Latijnse tekst bevatten?**
+### Kunnen lijsten niet‑Latijnse tekst bevatten?
 
-Ja. De tekst van lijstitems kan Unicode‑tekens bevatten, zodat u lijsten kunt maken in meertalige presentaties. Zorg ervoor dat de gebruikte lettertypen in de presentatie de benodigde tekens ondersteunen.
+Ja. De tekst van een lijstitem kan Unicode‑tekens bevatten, zodat u lijsten kunt maken in meertalige presentaties. Zorg ervoor dat de gebruikte lettertypen in de presentatie de benodigde tekens ondersteunen.

@@ -1,40 +1,54 @@
 ---
-title: Aspose.Slides for Java 14.6.0 における公開 API と後方互換性のない変更
+title: Aspose.Slides for Java 14.6.0 のパブリック API と後方互換性がない変更
+linktitle: Aspose.Slides for Java 14.6.0
 type: docs
 weight: 50
 url: /ja/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/
+keywords:
+- 移行
+- レガシーコード
+- モダンコード
+- レガシーアプローチ
+- モダンアプローチ
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Java のパブリック API の更新と破壊的変更を確認し、PowerPoint の PPT、PPTX、ODP プレゼンテーション ソリューションをスムーズに移行できるようにします。"
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-このページでは、Aspose.Slides for Java 14.6.0 API で追加されたすべての [追加された](/slides/ja/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/) クラス、メソッド、プロパティ、その他新しい制限や変更点がリストされています。
+このページでは、Aspose.Slides for Java 14.6.0 APIで導入された、追加されたクラス、メソッド、プロパティなど、すべてのクラス、メソッド、プロパティ、および新しい制限やその他の変更を一覧表示します。
 
 {{% /alert %}} 
-## **公開 API の変更**
-### **追加されたクラス、メソッド、インターフェース、列挙型**
-#### **ViewType 列挙型、IViewProperties インターフェース、ViewProperties クラス、および IPresentation.getViewProperties() メソッドの追加**
-IPresentation.getViewProperty() メソッドは IViewProperties へのアクセスを提供し、プレゼンテーションが Microsoft PowerPoint で開かれた際のプレゼンテーションのビューユー種類とノートの表示状態を変更することができます。
+## **パブリック API の変更**
+### **追加されたクラス、メソッド、インターフェイス、列挙体**
+#### **追加された ViewType 列挙体、IViewProperties インターフェイス、ViewProperties クラス、および IPresentation.getViewProperties() メソッド**
+IPresentation.getViewProperties() メソッドは IViewProperties へのアクセスを提供し、プレゼンテーションが Microsoft PowerPoint で開かれたときに、表示タイプやノートの表示設定を変更できるようにします。
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation p = new Presentation();
 
 p.getViewProperties().setLastView(ViewType.SlideMasterView);
 
 ```
-#### **Aspose.Slides.IShapeCollection.addClone(...) および .insertClone(...) メソッドの追加**
+#### **追加された Aspose.Slides.IShapeCollection.addClone(...) および .insertClone(...) メソッド**
 これらのメソッドは
-
 - Aspose.Slides.IShapeCollection.addClone(IShape sourceShape),
 - Aspose.Slides.IShapeCollection.addClone(IShape sourceShape, float x, float y),
 - Aspose.Slides.IShapeCollection.addClone(IShape sourceShape, float x, float y, float width, float height),
 - Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape),
 - Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape, float x, float y), および
 - Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape, float x, float y, float width, float height)
-
-指定されたシェイプのコピーをコレクションに追加または挿入します。
+は、指定されたシェイプのコピーをコレクションに追加/挿入します。 
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation srcPres = new Presentation("data/Source Frame.pptx");
 
@@ -59,10 +73,12 @@ destShapes.addClone(sourceShapes.get_Item(5), 300, 300, 50, 200);
 destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
 
 ```
-#### **Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues インターフェースの追加**
-このインターフェースは ChartDataPoint.ErrorBarsCustomValues プロパティリスト内の値の種類を指定します。
+#### **追加された Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues インターフェイス**
+このインターフェイスは、ChartDataPoint.ErrorBarsCustomValues プロパティ リストにおける値の種類を指定します。
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -109,10 +125,12 @@ for (int i = 0; i < points.size(); i++)
 pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 
 ```
-#### **Aspose.Slides.Charts.IErrorBarsCustomValues インターフェースの追加**
-IErrorBarsFormat.ValueType プロパティが Custom に等しい場合は、系列の DataPoints コレクション内の特定のデータポイントの ErrorBarCustomValues プロパティを使用して値を指定します。
+#### **追加された Aspose.Slides.Charts.IErrorBarsCustomValues インターフェイス**
+IErrorBarsFormat.ValueType プロパティが Custom に設定されている場合、系列の DataPoints コレクション内の特定のデータポイントの ErrorBarCustomValues プロパティを使用して値を指定します。
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -159,11 +177,13 @@ for (int i = 0; i < points.size(); i++)
 pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 
 ```
-#### **Aspose.Slides.Charts.IErrorBarsFormat インターフェースの追加**
-このインターフェースはチャート系列のエラーバーを表します。
-カスタム値タイプの場合、値を指定するには系列の DataPoins コレクション内の特定のデータポイントの ErrorBarCustomValues プロパティを使用します。
+#### **追加された Aspose.Slides.Charts.IErrorBarsFormat インターフェイス**
+このインターフェイスは、チャート系列のエラーバーを表します。
+カスタム値タイプの場合、系列の DataPoints コレクション内の特定のデータポイントの ErrorBarCustomValues プロパティを使用して値を指定します。
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 

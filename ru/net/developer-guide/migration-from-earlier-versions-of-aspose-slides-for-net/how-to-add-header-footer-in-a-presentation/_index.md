@@ -1,12 +1,12 @@
 ---
-title: Как добавить колонтитулы в презентации в .NET
-linktitle: Добавить колонтитул
+title: Как добавить верхний и нижний колонтитулы в презентации в .NET
+linktitle: Добавить верхний и нижний колонтитул
 type: docs
 weight: 20
 url: /ru/net/how-to-add-header-footer-in-a-presentation/
 keywords:
 - миграция
-- добавить заголовок
+- добавить верхний колонтитул
 - добавить нижний колонтитул
 - устаревший код
 - современный код
@@ -18,63 +18,60 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Узнайте, как добавить колонтитулы в презентации PowerPoint PPT, PPTX и ODP в .NET, используя как устаревшие, так и современные API Aspose.Slides."
+description: "Узнайте, как добавить верхний и нижний колонтитулы в презентации PowerPoint PPT, PPTX и ODP в .NET, используя как устаревшие, так и современные API Aspose.Slides."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-Вышел новый [Aspose.Slides for .NET API](/slides/ru/net/), и теперь этот единый продукт поддерживает возможность создания PowerPoint-документов с нуля и их редактирования.
+Выпущен новый [Aspose.Slides for .NET API](/slides/ru/net/), и теперь этот единственный продукт поддерживает возможность создавать документы PowerPoint с нуля и редактировать существующие.
+
 {{% /alert %}} 
 ## **Поддержка устаревшего кода**
-Чтобы использовать устаревший код, разработанный для версий Aspose.Slides for .NET ранее 13.x, необходимо внести небольшие изменения в ваш код, и он будет работать как раньше. Все классы, которые находились в старых версиях Aspose.Slides for .NET в пространствах имен Aspose.Slide и Aspose.Slides.Pptx, теперь объединены в едином пространстве имен Aspose.Slides. Пожалуйста, ознакомьтесь со следующим простым примером кода для добавления колонтитулов в презентацию в устаревшем API Aspose.Slides и следуйте инструкциям, описывающим процесс миграции на новый объединённый API.
-## **Подход Legacy Aspose.Slides for .NET**
+Чтобы использовать устаревший код, разработанный для версий Aspose.Slides for .NET до 13.x, необходимо внести небольшие изменения в ваш код, и он будет работать так же, как раньше. Все классы, которые были в старых версиях Aspose.Slides for .NET в пространствах имён Aspose.Slide и Aspose.Slides.Pptx, теперь объединены в единственное пространство имён Aspose.Slides. Пожалуйста, ознакомьтесь со следующим простым фрагментом кода для добавления верхнего и нижнего колонтитулов в презентацию в устаревшем API Aspose.Slides и следуйте шагам, описывающим миграцию на новое объединённое API.
+## **Подход к устаревшему Aspose.Slides for .NET**
 ```c#
 PresentationEx sourcePres = new PresentationEx();
 
 //Установка свойств видимости верхнего и нижнего колонтитулов
-//Обновление полей даты и времени
-//Показать заполнитель даты и времени
-//Показать заполнитель нижнего колонтитула
-//Показать номер слайда
-//Установить  видимость верхнего и нижнего колонтитулов на титульном слайде
-//Записать презентацию на диск
 sourcePres.UpdateSlideNumberFields = true;
 
-//Update the Date Time Fields
+//Обновить поля даты и времени
 sourcePres.UpdateDateTimeFields = true;
 
-//Show date time placeholder
+//Показать заполнитель даты и времени
 sourcePres.HeaderFooterManager.IsDateTimeVisible = true;
 
-//Show the footer place holder
+//Показать заполнитель нижнего колонтитула
 sourcePres.HeaderFooterManager.IsFooterVisible = true;
 
-//Show Slide Number
+//Показать номер слайда
 sourcePres.HeaderFooterManager.IsSlideNumberVisible = true;
 
-//Set the  header footer visibility on Title Slide
+//Установить видимость верхнего и нижнего колонтитулов на титульном слайде
 sourcePres.HeaderFooterManager.SetVisibilityOnTitleSlide(true);
 
-//Write the presentation to the disk
+//Записать презентацию на диск
 sourcePres.Write("NewSource.pptx");
 ```
 
 ```c#
+using Aspose.Slides;
+
 //Создать презентацию
 Presentation pres = new Presentation();
 
 //Получить первый слайд
 Slide sld = pres.GetSlideByPosition(1);
 
-//Получить доступ к заголовку/колонтитулу слайда
+//Получить доступ к заголовку / нижнему колонтитулу слайда
 HeaderFooter hf = sld.HeaderFooter;
 
-//Установить видимость номера слайда
+//Установить видимость номера страницы
 hf.PageNumberVisible = true;
 
 //Установить видимость нижнего колонтитула
 hf.FooterVisible = true;
 
-//Установить видимость верхнего колонтитула
+//Установить видимость заголовка
 hf.HeaderVisible = true;
 
 //Установить видимость даты и времени
@@ -94,14 +91,18 @@ pres.Write("HeadFoot.ppt");
 ```
 
 
+
 ## **Новый подход Aspose.Slides for .NET 13.x**
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation sourcePres = new Presentation())
 {
-    //Установка свойств видимости колонтитулов
+    //Установка свойств видимости верхнего и нижнего колонтитулов
     sourcePres.HeaderFooterManager.SetAllSlideNumbersVisibility(true);
 
-    //Обновление полей даты и времени
+    //Обновить поля даты и времени
     sourcePres.HeaderFooterManager.SetAllDateTimesVisibility(true);
 
     //Показать заполнитель даты и времени
@@ -110,7 +111,7 @@ using (Presentation sourcePres = new Presentation())
     //Показать заполнитель нижнего колонтитула
     sourcePres.HeaderFooterManager.SetAllFootersVisibility(true);
     
-    //Установить видимость колонтитулов на титульном слайде
+    //Установить видимость верхнего и нижнего колонтитулов на титульном слайде
     sourcePres.HeaderFooterManager.SetVisibilityOnAllTitleSlides(true);
 
     //Записать презентацию на диск

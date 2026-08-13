@@ -1,32 +1,33 @@
 ---
-title: .NET でプレゼンテーション シェイプから画像を抽出
-linktitle: シェイプからの画像
+title: .NET でプレゼンテーション形状から画像を抽出
+linktitle: 形状からの画像
 type: docs
 weight: 90
 url: /ja/net/extracting-images-from-presentation-shapes/
 keywords:
-- 画像の抽出
-- 画像の取得
+- 画像抽出
+- 画像取得
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET を使用して、PowerPoint および OpenDocument のプレゼンテーション内のシェイプから画像を抽出します - 迅速でコードに優しいソリューション。"
+description: "Aspose.Slides for .NET を使用して、PowerPoint および OpenDocument プレゼンテーションの形状から画像を抽出する、迅速でコードに優しいソリューションです。"
 ---
 ## **概要**
 
-プレゼンテーション内の画像は、さまざまなシェイプタイプで表示されます：普通の画像フレーム、シェイプに適用された画像塗りつぶし、OLE オブジェクトのプレビュー画像、ビデオまたはオーディオフレームのサムネイル、ズーム画像、またはテーブル、チャート、SmartArt シェイプ内にネストされた画像などです。Aspose.Slides はこれらの画像をプレゼンテーションの画像コレクションに保存し、[ImageCollection](https://reference.aspose.com/slides/ja/net/aspose.slides/imagecollection/) と [IPPImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) オブジェクトで公開します。
+プレゼンテーション内の画像は、さまざまな形状タイプで表示される可能性があります。普通の画像フレーム、形状に適用された画像塗りつぶし、OLE オブジェクトのプレビュー画像、ビデオまたはオーディオ フレームのサムネイル、ズーム画像、またはテーブル、チャート、SmartArt 形状に入れ子になった画像などです。Aspose.Slides はこれらの画像をプレゼンテーションの画像コレクションに保存し、[ImageCollection](https://reference.aspose.com/slides/ja/net/aspose.slides/imagecollection/) と [IPPImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) オブジェクトで公開します。
 
-プレゼンテーションに埋め込まれたすべての画像リソースをエクスポートしたいだけの場合は `presentation.Images` を列挙してください。本記事は別のタスクに焦点を当てています：スライド上で画像が使用されている場所をシェイプをたどって検出し、保存したファイルにスライド番号、シェイプの位置、ソースタイプ（画像フレーム、塗りつぶし画像、メディアプレビュー、OLE プレビュー、ズーム画像）といった有用なコンテキストを保持できるようにします。
+プレゼンテーションに埋め込まれたすべての画像リソースをエクスポートしたいだけの場合は、`presentation.Images` を反復処理します。本稿では別のタスクに焦点を当てます。スライド上で画像が使用されている形状を走査し、保存されたファイルにスライド番号、形状の位置、ソースタイプ（画像フレーム、塗りつぶし画像、メディアプレビュー、OLE プレビュー、またはズーム画像）などの有用なコンテキストを保持できるようにします。
 
-{{% alert title="Tip" color="primary" %}}
-[IPPImage.BinaryData](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) を使用すると、元のエンコード画像データとファイルタイプを保持できます。特定の形式（例: PNG）に出力を正規化したい場合は、[IPPImage.Image](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) と [IImage.Save](https://reference.aspose.com/slides/ja/net/aspose.slides/iimage/) を使用してください。{{% /alert %}}
+{{% alert title="Tip" color="info" %}}
+元のエンコードされた画像データとファイルタイプを保持するには、[IPPImage.BinaryData](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) を使用します。出力を PNG などの特定の形式に正規化したい場合は、[IPPImage.Image](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) と [IImage.Save](https://reference.aspose.com/slides/ja/net/aspose.slides/iimage/) を使用します。
+{{% /alert %}}
 
-## **共有ヘルパーメソッド**
+## **共通ヘルパーメソッド**
 
-以下のヘルパーメソッドはサンプルを簡潔に保ちます。`SaveOriginalImage` は元の埋め込みバイトを書き込み、MIME タイプから安全な拡張子を選択し、SHA-256 ハッシュで重複画像バイナリをスキップします。
+以下のヘルパーメソッドはサンプルを簡潔に保ちます。`SaveOriginalImage` は元の埋め込みバイトを書き込み、MIME タイプから安全な拡張子を選択し、SHA-256 ハッシュで重複する画像バイナリをスキップします。
 
 ```c#
 using Aspose.Slides;
@@ -163,9 +164,11 @@ private static string MakeSafeFileNamePart(string value)
 
 ## **画像フレームから画像を抽出**
 
-単体オブジェクトとして挿入された画像にこのアプローチを使用します。[IPictureFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/ipictureframe/) は画像を `PictureFormat.Picture.Image` に保持し、[IPPImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) オブジェクトを返します。
+単体オブジェクトとして挿入された画像にこのアプローチを使用します。[IPictureFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/ipictureframe/) は `PictureFormat.Picture.Image` に画像を格納し、[IPPImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) オブジェクトを返します。
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "extracted-images");
 Directory.CreateDirectory(outputDirectory);
@@ -192,11 +195,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **画像で塗りつぶされたシェイプから画像を抽出**
+## **画像で塗りつぶされた形状から画像を抽出**
 
-シェイプは画像で塗りつぶすことができます。まずシェイプの塗りつぶしタイプを確認してください：`FillType.Picture` でない場合、その塗りつぶしから抽出できる画像はありません。以下の例は [IAutoShape](https://reference.aspose.com/slides/ja/net/aspose.slides/iautoshape/) オブジェクトを対象にし、各画像を PNG として [IPPImage.Image](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) を介して保存します。
+形状は画像を塗りつぶしとして使用できます。まず形状の塗りつぶしタイプを確認してください: それが[FillType.Picture](https://reference.aspose.com/slides/ja/net/aspose.slides/filltype/)でない場合、その塗りつぶしから抽出できる画像はありません。以下の例は[IAutoShape](https://reference.aspose.com/slides/ja/net/aspose.slides/iautoshape/)オブジェクトを処理し、[IPPImage.Image](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) を使用して各画像を PNG として保存します。
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "shape-fill-images");
 Directory.CreateDirectory(outputDirectory);
@@ -226,9 +231,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **OLE オブジェクトフレームからプレビュー画像を抽出**
 
-[IOleObjectFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/ioleobjectframe/) は、PowerPoint がスライド上のオブジェクトのプレビューとして使用する代替画像を持つことがあります。この画像は `SubstitutePictureFormat.Picture.Image` から取得できます。抽出されるのはプレビュー画像であり、埋め込まれた OLE パッケージの内容ではありません。
+[IOleObjectFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/ioleobjectframe/) には、PowerPoint がスライド上のオブジェクトのプレビューとして使用する代替画像が設定されている場合があります。この画像は `SubstitutePictureFormat.Picture.Image` から取得できます。この画像を抽出すると、プレビュー画像が得られ、埋め込まれた OLE パッケージの内容は取得できません。
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "ole-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -261,9 +268,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **ビデオフレームからプレビュー画像を抽出**
 
-[IVideoFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/ivideoframe/) も `PictureFormat.Picture.Image` にプレビュー画像を保持できます。これはスライド上に表示されるポスターまたはサムネイルであり、ビデオストリームからデコードされたフレームではありません。
+[IVideoFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/ivideoframe/) も `PictureFormat.Picture.Image` にプレビュー画像を格納できます。これはスライド上に表示されるポスターまたはサムネイルであり、ビデオストリームからデコードされたフレームではありません。
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "video-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -296,9 +305,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **オーディオフレームからプレビュー画像を抽出**
 
-[IAudioFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/iaudioframe/) は `PictureFormat.Picture.Image` にサムネイルを保持できます。これはスライド上のオーディオオブジェクトに表示される画像です。
+[IAudioFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/iaudioframe/) は `PictureFormat.Picture.Image` にサムネイルを格納できます。これはスライド上のオーディオオブジェクトに表示される画像です。
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "audio-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -331,9 +342,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **ズームオブジェクトから画像を抽出**
 
-[IZoomFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/izoomframe/) と [ISectionZoomFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/isectionzoomframe/) シェイプはカスタム画像を使用できます。ズームフレームの `ZoomImage` を読み取ります。
+[IZoomFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/izoomframe/) と [ISectionZoomFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/isectionzoomframe/) 形状はカスタム画像を使用できます。ズームフレームから `ZoomImage` を取得してください。
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "zoom-images");
 Directory.CreateDirectory(outputDirectory);
@@ -371,9 +384,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **サマリーズームフレームから画像を抽出**
 
-[ISummaryZoomFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/isummaryzoomframe/) もシェイプです。そのセクション項目はカスタム画像を使用でき、各サマリーズームセクションの `ZoomImage` プロパティで取得できます。
+[ISummaryZoomFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/isummaryzoomframe/) も形状です。そのセクション項目はカスタム画像を使用でき、各サマリーズームセクションの `ZoomImage` プロパティで取得できます。
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "summary-zoom-images");
 Directory.CreateDirectory(outputDirectory);
@@ -409,11 +424,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **テーブルシェイプから画像を抽出**
+## **テーブル形状から画像を抽出**
 
-[ITable](https://reference.aspose.com/slides/ja/net/aspose.slides/itable/) はシェイプです。テーブル内の画像は通常、セルの画像塗りつぶしとして保存されています。
+[ITable](https://reference.aspose.com/slides/ja/net/aspose.slides/itable/) は形状です。テーブル内の画像は通常、テーブルセルの画像塗りつぶしとして格納されています。
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "table-images");
 Directory.CreateDirectory(outputDirectory);
@@ -453,11 +470,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **チャートシェイプから画像を抽出**
+## **チャート形状から画像を抽出**
 
-[IChart](https://reference.aspose.com/slides/ja/net/aspose.slides.charts/ichart/) はシェイプです。以下の例はチャート領域の画像塗りつぶしから画像を抽出します。
+[IChart](https://reference.aspose.com/slides/ja/net/aspose.slides.charts/ichart/) は形状です。以下の例はチャート領域の画像塗りつぶしから画像を抽出します。
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "chart-images");
 Directory.CreateDirectory(outputDirectory);
@@ -489,11 +508,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **SmartArt シェイプから画像を抽出**
+## **SmartArt 形状から画像を抽出**
 
-[ISmartArt](https://reference.aspose.com/slides/ja/net/aspose.slides.smartart/ismartart/) オブジェクトはシェイプです。SmartArt のレイアウトによっては、画像がノードの箇条書き塗りつぶしやノードシェイプの塗りつぶしフォーマットに格納されます。
+[ISmartArt](https://reference.aspose.com/slides/ja/net/aspose.slides.smartart/ismartart/) オブジェクトは形状です。SmartArt のレイアウトに応じて、画像はノードの箇条書き塗りつぶしまたはノード形状の塗りつぶし形式に格納されている場合があります。
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "smartart-images");
 Directory.CreateDirectory(outputDirectory);
@@ -541,11 +562,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **グループ化シェイプ内の画像を含める**
+## **グループ化された形状内の画像を含める**
 
-グループ化シェイプは独自のシェイプコレクションを保持します。共有 `EnumerateShapes` ヘルパーには `includeGroupedShapes` オプションがあります。`IGroupShape` オブジェクト内のシェイプを調査したい場合は `true` に設定してください。以下の例は画像フレーム、画像で塗りつぶされたシェイプ、OLE オブジェクトプレビュー、ビデオフレームサムネイル、オーディオフレームサムネイルから画像を抽出します。テーブル、チャート、SmartArt、サマリーズームの画像も含める場合は、前節の専用抽出ロジックを再利用しつつ同じ再帰的シェイプ走査を行ってください。
+グループ化された形状は独自の形状コレクションを持ちます。共有ヘルパー `EnumerateShapes` には `includeGroupedShapes` オプションがあります。 [IGroupShape](https://reference.aspose.com/slides/ja/net/aspose.slides/igroupshape/) オブジェクト内の形状を調べたい場合は、これを `true` に設定してください。以下の例は画像フレーム、画像で塗りつぶされた形状、OLE オブジェクトプレビュー、ビデオフレームサムネイル、オーディオフレームサムネイルから画像を抽出します。テーブル、チャート、SmartArt、サマリーズーム画像も含めるには、前節の専門的な抽出ロジックを再利用し、同じ再帰的形状走査を維持してください。
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "all-shape-images");
 Directory.CreateDirectory(outputDirectory);
@@ -620,43 +643,43 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **エッジケースと実用的な注意点**
 
-- **重複画像:** 複数のシェイプが同じ画像を参照したり、バイトが同一の別画像を参照したりすることがあります。ユニークな画像ごとに1つの出力ファイルにしたい場合は、ファイルを書き込む前に [IPPImage.BinaryData](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) のハッシュを取得してください。
-- **元データと変換後出力:** [IPPImage.BinaryData](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) を保存すると埋め込まれた JPEG、PNG、GIF、SVG、EMF、WMF データが保持されます。[IPPImage.Image](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) を [IImage.Save](https://reference.aspose.com/slides/ja/net/aspose.slides/iimage/) で保存すると、出力形式を PNG などに統一できます。
-- **サポートされていない塗りつぶしタイプ:** 塗りつぶしがない、単色、グラデーション、パターンのシェイプには画像塗りつぶしが含まれません。`PictureFillFormat` を読む前に [FillType](https://reference.aspose.com/slides/ja/net/aspose.slides/filltype/) を確認してください。
-- **グループ化シェイプ:** 上位スライドのシェイプコレクションはグループをフラット化しません。グループ化された内容が重要な場合は、[IGroupShape.Shapes](https://reference.aspose.com/slides/ja/net/aspose.slides/igroupshape/) を再帰的に調べてください。
-- **OLE オブジェクトのプレビュー:** [IOleObjectFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/ioleobjectframe/) は `SubstitutePictureFormat` を介してプレビュー画像を公開することがありますが、これはスライド上のプレビューであり、OLE オブジェクト内部の埋め込まれたファイルではありません。
-- **ビデオフレームのサムネイル:** [IVideoFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/ivideoframe/) は `PictureFormat` からプレビュー画像を取得できますが、これはスライド上に表示されるポスタ―画像であり、ビデオストリームから抽出されたものではありません。
-- **オーディオフレームのサムネイル:** [IAudioFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/iaudioframe/) は `PictureFormat` を通じてアイコンやサムネイルを提供しますが、埋め込まれたオーディオデータそのものではありません。
-- **ズーム画像:** スライドズーム、セクションズーム、サマリーズームのシェイプは `ZoomImage` を介してカスタム [IPPImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) オブジェクトを使用できることがあります。
-- **ネストされたシェイプモデル:** テーブル、チャート、SmartArt オブジェクトは [IShape](https://reference.aspose.com/slides/ja/net/aspose.slides/ishape/) を実装していますが、画像はしばしばテーブルセル、チャート要素、SmartArt ノードのフォーマッティングオブジェクトに格納されます。
-- **切り抜きまたは変形された画像:** [IPPImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) にアクセスすると保存された画像リソースが得られます。シェイプが適用した切り抜き、透明度、色変換、回転、その他の視覚効果は反映されません。
+- **重複画像:** 複数の形状が同じ画像を参照したり、バイトが同一の別々の画像を参照したりすることがあります。ユニークな画像ごとに1つの出力ファイルにしたい場合は、ファイルを書き込む前に[IPPImage.BinaryData](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) のハッシュを取得してください。
+- **元データと変換出力:** [IPPImage.BinaryData](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) を保存すると、埋め込まれた JPEG、PNG、GIF、SVG、EMF、WMF データが保持されます。[IPPImage.Image](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) を [IImage.Save](https://reference.aspose.com/slides/ja/net/aspose.slides/iimage/) を介して保存すると、出力形式を統一したい場合に便利です。
+- **サポートされていない塗りつぶしタイプ:** ソリッド、グラデーション、パターン、無塗りつぶしの形状には画像塗りつぶしが含まれません。`PictureFillFormat` を読み取る前に[FillType](https://reference.aspose.com/slides/ja/net/aspose.slides/filltype/) を確認してください。
+- **グループ化された形状:** スライドの上位レベル形状コレクションはグループをフラット化しません。グループ化されたコンテンツが重要な場合は、[IGroupShape.Shapes](https://reference.aspose.com/slides/ja/net/aspose.slides/igroupshape/) を再帰的に調べてください。
+- **OLE オブジェクトプレビュー:** [IOleObjectFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/ioleobjectframe/) は `SubstitutePictureFormat` を通じてプレビュー画像を提供する場合がありますが、その画像はスライドのプレビューであり、OLE オブジェクト内の埋め込まれたファイルではありません。
+- **ビデオフレームサムネイル:** [IVideoFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/ivideoframe/) は `PictureFormat` を通じてプレビュー画像を提供する場合がありますが、その画像はスライド上に表示されるポスターであり、ビデオストリームから抽出されたものではありません。
+- **オーディオフレームサムネイル:** [IAudioFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/iaudioframe/) は `PictureFormat` を通じてアイコンまたはサムネイルを提供する場合がありますが、埋め込まれたオーディオデータではありません。
+- **ズーム画像:** スライドズーム、セクションズーム、サマリーズーム形状は、`ZoomImage` を介してカスタム [IPPImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) オブジェクトを使用できる場合があります。
+- **入れ子になった形状モデル:** テーブル、チャート、SmartArt オブジェクトは[IShape](https://reference.aspose.com/slides/ja/net/aspose.slides/ishape/) を実装していますが、その画像はしばしば入れ子になったテーブルセル、チャート要素、または SmartArt ノードの書式設定オブジェクトに格納されています。
+- **切り抜きまたは変形された画像:** [IPPImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) にアクセスすると格納された画像リソースが取得できますが、形状が適用した切り抜き、透明度、再色付け、回転、その他の視覚効果は反映されません。
 
 ## **FAQ**
 
-**画像を切り抜きやエフェクト、シェイプ変換なしで元のまま抽出できますか？**
+### 画像を切り抜きやエフェクト、形状変換なしで元のまま抽出できますか？
 
-はい。 [IPPImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) オブジェクトにアクセスし、[IPPImage.BinaryData](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) をディスクに書き込んでください。これにより、プレゼンテーションに保存されている元のエンコード画像が保持され、スライド上での表示方法は反映されません。
+はい。[IPPImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) オブジェクトにアクセスし、[IPPImage.BinaryData](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) をディスクに書き込んでください。これにより、プレゼンテーションに保存されている元のエンコード画像が保持され、スライド上でのレンダリング方法は反映されません。
 
-**抽出したすべての画像を PNG 形式でエクスポートできますか？**
+### 抽出したすべての画像を PNG としてエクスポートできますか？
 
-はい。 [IPPImage.Image](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) で [IImage](https://reference.aspose.com/slides/ja/net/aspose.slides/iimage/) オブジェクトを取得し、[IImage.Save](https://reference.aspose.com/slides/ja/net/aspose.slides/iimage/) に [ImageFormat.Png](https://reference.aspose.com/slides/ja/net/aspose.slides/imageformat/) を指定して保存してください。これにより出力は PNG に変換され、元のファイルタイプやベクターデータは保持されません。
+はい。[IPPImage.Image](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) を使用して [IImage](https://reference.aspose.com/slides/ja/net/aspose.slides/iimage/) オブジェクトを取得し、[IImage.Save](https://reference.aspose.com/slides/ja/net/aspose.slides/iimage/) に [ImageFormat.Png](https://reference.aspose.com/slides/ja/net/aspose.slides/imageformat/) を指定して呼び出します。これにより出力が変換され、元のファイルタイプやベクターデータは保持されない可能性があります。
 
-**同じ画像を複数回保存しないようにするには？**
+### 同じ画像を複数回保存しないようにするには？
 
-[IPPImage.BinaryData](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) のハッシュを計算し、ハッシュの集合で管理してください。新しい画像のハッシュが既に存在する場合は保存をスキップするか、既存の出力ファイルへの別の参照として記録します。
+[IPPImage.BinaryData](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) のハッシュを使用し、ハッシュの集合で管理してください。新しい画像のハッシュが既に存在する場合は、保存をスキップするか、既存の出力ファイルへの別の参照として記録します。
 
-**なぜ一部のシェイプから画像が取得できないのですか？**
+### なぜ一部の形状から画像が取得できないのですか？
 
-画像フレーム、画像で塗りつぶされたシェイプ、OLE オブジェクトフレーム、メディアフレーム、ズームフレーム、テーブル、チャート、SmartArt オブジェクトは画像を参照できますが、一部のシェイプタイプはネストされたフォーマッティングオブジェクトを通して画像を公開するため、単純な `PictureFormat` やシェイプの `FillFormat` のチェックだけでは検出できないことがあります。
+画像フレーム、画像で塗りつぶされた形状、OLE オブジェクトフレーム、メディアフレーム、ズームフレーム、テーブル、チャート、SmartArt オブジェクトは画像を参照できます。形状タイプによっては、画像が入れ子になった書式設定オブジェクトを通じて公開されるため、単純な `PictureFormat` や形状の `FillFormat` のチェックだけでは不十分な場合があります。
 
-**ビデオフレームに表示されるサムネイルを抽出できますか？**
+### ビデオフレームに表示されるサムネイルを抽出できますか？
 
-はい。 [IVideoFrame.PictureFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/ivideoframe/) を使用し、`PictureFormat.Picture.Image` を読み取ってください。これによりビデオフレームに格納されたポスター画像が抽出されますが、ビデオファイルから生成されたフレームではありません。
+はい。[IVideoFrame.PictureFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/ivideoframe/) を使用し、`PictureFormat.Picture.Image` を読み取ります。これによりビデオフレームに保存されたポスター画像が抽出され、ビデオファイルから生成されたフレームではありません。
 
-**プレゼンテーション画像コレクション内の特定の画像を使用しているシェイプをどのように特定できますか？**
+### プレゼンテーションの画像コレクション内の特定の画像を使用している形状を特定するには？
 
-Aspose.Slides は [IPPImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) からシェイプへの逆リンクを保持していません。走査中に画像参照を見つけたら、スライド番号、シェイプのパス、画像のハッシュまたはコレクション項目を記録してマッピングを構築してください。
+Aspose.Slides は [IPPImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) から形状への逆リンクを保持していません。走査中にマッピングを作成してください。画像参照を見つけたら、スライド番号、形状パス、および画像ハッシュまたはコレクション項目を記録します。
 
-**OLE オブジェクト内に埋め込まれた画像（添付文書など）を抽出できますか？**
+### OLE オブジェクト内に埋め込まれた画像（添付ドキュメントなど）を抽出できますか？
 
-[IOleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/ioleobjectframe/) から OLE オブジェクトのスライドプレビューは抽出できますが、これは埋め込まれたドキュメントそのものではありません。埋め込まれたファイル内部の画像を抽出したい場合は、OLE データを取り出して対象ファイル種別のツールで解析してください。
+[IOleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/ioleobjectframe/) から OLE オブジェクトのスライドプレビューは抽出できますが、そのプレビューは埋め込まれたドキュメントそのものではありません。埋め込まれたファイル内の画像を抽出するには、OLE データを抽出し、該当ファイルタイプ用のツールで確認してください。

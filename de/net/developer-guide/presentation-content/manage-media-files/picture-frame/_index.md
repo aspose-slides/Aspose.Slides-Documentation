@@ -1,23 +1,23 @@
 ---
-title: Verwalten von Bilderrahmen in Präsentationen in .NET
-linktitle: Bilderrahmen
+title: Verwalten von Bildrahmen in Präsentationen in .NET
+linktitle: Bildrahmen
 type: docs
 weight: 10
 url: /de/net/picture-frame/
 keywords:
-- Bilderrahmen
-- Bilderrahmen hinzufügen
-- Bilderrahmen erstellen
+- Bildrahmen
+- Bildrahmen hinzufügen
+- Bildrahmen erstellen
 - Bild hinzufügen
 - Bild erstellen
 - Bild extrahieren
 - Rasterbild
 - Vektorbild
 - Bild zuschneiden
-- Zugeschnittener Bereich
-- StretchOff-Eigenschaft
-- Bilderrahmen-Formatierung
-- Bilderrahmen-Eigenschaften
+- zugeschnittener Bereich
+- StretchOff‑Eigenschaft
+- Bildrahmenformatierung
+- Bildrahmen‑Eigenschaften
 - relative Skalierung
 - Bildeffekt
 - Seitenverhältnis
@@ -28,90 +28,97 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Fügen Sie PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für .NET Bilderrahmen hinzu. Optimieren Sie Ihren Arbeitsablauf und verbessern Sie das Design der Folien."
+description: "Fügen Sie PowerPoint- und OpenDocument‑Präsentationen mit Aspose.Slides für .NET Bildrahmen hinzu. Optimieren Sie Ihren Arbeitsablauf und verbessern Sie das Design Ihrer Folien."
 ---
 ## **Einleitung**
 
-Ein Bilderrahmen ist eine Form, die ein Bild enthält – es ist wie ein Bild in einem Rahmen. 
+Ein Bildrahmen ist eine Form, die ein Bild enthält – er ist wie ein Bild in einem Rahmen.
 
-Sie können einem Dia ein Bild über einen Bilderrahmen hinzufügen. Auf diese Weise können Sie das Bild formatieren, indem Sie den Bilderrahmen formatieren.
+Sie können ein Bild über einen Bildrahmen zu einer Folie hinzufügen. Auf diese Weise können Sie das Bild formatieren, indem Sie den Bildrahmen formatieren.
 
-{{% alert  title="Tip" color="primary" %}} 
+{{% alert  title="Tip" color="info" %}} 
 
-Aspose bietet kostenlose Konverter—[JPEG zu PowerPoint](https://products.aspose.app/slides/de/import/jpg-to-ppt) und [PNG zu PowerPoint](https://products.aspose.app/slides/de/import/png-to-ppt)—die es ermöglichen, schnell aus Bildern Präsentationen zu erstellen. 
+Aspose bietet kostenlose Konverter — [JPEG zu PowerPoint](https://products.aspose.app/slides/de/import/jpg-to-ppt) und [PNG zu PowerPoint](https://products.aspose.app/slides/de/import/png-to-ppt) — die es ermöglichen, Präsentationen schnell aus Bildern zu erstellen. 
 
 {{% /alert %}} 
 
-## **Erstellen eines Bilderrahmens**
+## **Erstellen eines Bildrahmens**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation) Klasse. 
-2. Holen Sie die Referenz einer Folie über deren Index. 
-3. Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/de/net/aspose.slides/ippimage) Objekt, indem Sie ein Bild zur [IImagescollection](https://reference.aspose.com/slides/de/net/aspose.slides/iimagecollection) hinzufügen, die mit dem Präsentationsobjekt verknüpft ist und zum Füllen der Form verwendet wird.
+1. Erzeugen Sie eine Instanz der [Presentation ](https://reference.aspose.com/slides/de/net/aspose.slides/presentation)class. 
+2. Holen Sie sich einen Folienverweis über ihren Index. 
+3. Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/de/net/aspose.slides/ippimage)-Objekt, indem Sie ein Bild zur [IImagescollection](https://reference.aspose.com/slides/de/net/aspose.slides/iimagecollection) hinzufügen, die dem Präsentationsobjekt zugeordnet ist und zum Füllen der Form verwendet wird.
 4. Geben Sie die Breite und Höhe des Bildes an.
-5. Erstellen Sie einen [PictureFrame](https://reference.aspose.com/slides/de/net/aspose.slides/pictureframe) basierend auf der Breite und Höhe des Bildes über die Methode `AddPictureFrame`, die vom Formobjekt der referenzierten Folie bereitgestellt wird.
-6. Fügen Sie der Folie einen Bilderrahmen (der das Bild enthält) hinzu.
-7. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
+5. Erzeugen Sie einen [PictureFrame](https://reference.aspose.com/slides/de/net/aspose.slides/pictureframe) basierend auf der Bildbreite und -höhe über die `AddPictureFrame`‑Methode, die vom Shape‑Objekt der referenzierten Folie bereitgestellt wird.
+6. Fügen Sie der Folie einen Bildrahmen (mit dem Bild) hinzu.
+7. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser C#‑Code zeigt, wie ein Bilderrahmen erstellt wird:
+Dieser C#‑Code zeigt, wie ein Bildrahmen erstellt wird:
 
 ```c#
-// Instanziiert die Presentation-Klasse, die eine PPTX-Datei repräsentiert
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Erstellt eine Instanz der Presentation-Klasse, die eine PPTX-Datei darstellt
 using (Presentation pres = new Presentation())
 {
     // Holt die erste Folie
     ISlide slide = pres.Slides[0];
 
-    // Lädt ein Bild und fügt es zur Bildersammlung der Präsentation hinzu
+    // Lädt ein Bild und fügt es der Bildsammlung der Präsentation hinzu
     IImage image = Images.FromFile("aspose-logo.jpg");
     IPPImage ppImage = pres.Images.AddImage(image);
     image.Dispose();
 
-    // Fügt einen Bilderrahmen mit gleicher Höhe und Breite hinzu
+    // Fügt einen Bildrahmen mit gleicher Höhe und Breite hinzu
     IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
 
-    // Wendet einige Formatierungen auf den Bildernrahmen an
+    // Wendet einige Formatierungen auf den Bildrahmen an
     pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
     pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
     pictureFrame.LineFormat.Width = 20;
     pictureFrame.Rotation = 45;
 
-    // Speichert die Präsentation in einer PPTX-Datei
+    // Schreibt die Präsentation in eine PPTX-Datei
     pres.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 {{% alert color="warning" %}} 
 
-Bilderrahmen ermöglichen es Ihnen, schnell Präsentationsfolien auf Basis von Bildern zu erstellen. Wenn Sie einen Bilderrahmen mit den Speicheroptionen von Aspose.Slides kombinieren, können Sie Ein‑ und Ausgabe‑Operationen steuern, um Bilder von einem Format in ein anderes zu konvertieren. Sie können diese Seiten ansehen: konvertieren [Bild zu JPG](https://products.aspose.com/slides/de/net/conversion/image-to-jpg/); konvertieren [JPG zu Bild](https://products.aspose.com/slides/de/net/conversion/jpg-to-image/); konvertieren [JPG zu PNG](https://products.aspose.com/slides/de/net/conversion/jpg-to-png/), konvertieren [PNG zu JPG](https://products.aspose.com/slides/de/net/conversion/png-to-jpg/); konvertieren [PNG zu SVG](https://products.aspose.com/slides/de/net/conversion/png-to-svg/), konvertieren [SVG zu PNG](https://products.aspose.com/slides/de/net/conversion/svg-to-png/).
+Bildrahmen ermöglichen das schnelle Erstellen von Präsentationsfolien basierend auf Bildern. Kombiniert man Bildrahmen mit den Speicheroptionen von Aspose.Slides, kann man Ein‑ und Ausgabe‑Operationen manipulieren, um Bilder von einem Format in ein anderes zu konvertieren. Weitere nützliche Seiten sind: Konvertieren von [Bild zu JPG](https://products.aspose.com/slides/de/net/conversion/image-to-jpg/); von [JPG zu Bild](https://products.aspose.com/slides/de/net/conversion/jpg-to-image/); von [JPG zu PNG](https://products.aspose.com/slides/de/net/conversion/jpg-to-png/), von [PNG zu JPG](https://products.aspose.com/slides/de/net/conversion/png-to-jpg/); von [PNG zu SVG](https://products.aspose.com/slides/de/net/conversion/png-to-svg/), von [SVG zu PNG](https://products.aspose.com/slides/de/net/conversion/svg-to-png/).
 
 {{% /alert %}}
 
-## **Erstellen eines Bilderrahmens mit relativer Skalierung**
+## **Erstellen eines Bildrahmens mit relativer Skalierung**
 
-Durch Ändern der relativen Skalierung eines Bildes können Sie einen komplexeren Bilderrahmen erstellen. 
+Durch Ändern der relativen Skalierung eines Bildes können Sie einen komplexeren Bildrahmen erzeugen. 
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation) Klasse.
-2. Holen Sie die Referenz einer Folie über deren Index. 
-3. Fügen Sie ein Bild zur Bildersammlung der Präsentation hinzu.
-4. Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/de/net/aspose.slides/ippimage) Objekt, indem Sie ein Bild zur [IImagescollection](https://reference.aspose.com/slides/de/net/aspose.slides/iimagecollection) hinzufügen, die mit dem Präsentationsobjekt verknüpft ist und zum Füllen der Form verwendet wird.
-5. Geben Sie die relative Breite und Höhe des Bildes im Bilderrahmen an.
-6. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
+1. Erzeugen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation)class. 
+2. Holen Sie sich einen Folienverweis über ihren Index. 
+3. Fügen Sie ein Bild zur Bildsammlung der Präsentation hinzu. 
+4. Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/de/net/aspose.slides/ippimage)-Objekt, indem Sie ein Bild zur [IImagescollection](https://reference.aspose.com/slides/de/net/aspose.slides/iimagecollection) hinzufügen, die dem Präsentationsobjekt zugeordnet ist und zum Füllen der Form verwendet wird.
+5. Geben Sie die relative Breite und Höhe des Bildes im Bildrahmen an.
+6. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser C#‑Code zeigt, wie ein Bilderrahmen mit relativer Skalierung erstellt wird:
+Dieser C#‑Code zeigt, wie ein Bildrahmen mit relativer Skalierung erstellt wird:
 
 ```c#
-// Instanziiert die Presentation-Klasse, die eine PPTX-Datei repräsentiert
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Instanziiert die Presentation-Klasse, die eine PPTX-Datei darstellt
 using (Presentation presentation = new Presentation())
 {
-    // Lädt ein Bild und fügt es zur Bildersammlung der Präsentation hinzu
+    // Lädt ein Bild und fügt es der Bildsammlung der Präsentation hinzu
     IImage image = Images.FromFile("aspose-logo.jpg");
     IPPImage ppImage = presentation.Images.AddImage(image);
     image.Dispose();
 
-    // Fügt einen Bilderrahmen zur Folie hinzu
+    // Fügt einen Bildrahmen zur Folie hinzu
     IPictureFrame pictureFrame = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, ppImage);
 
-    // Setzt die relative Skalierungsbreite und -höhe
+    // Setzt die relative Skalierung von Breite und Höhe
     pictureFrame.RelativeScaleHeight = 0.8f;
     pictureFrame.RelativeScaleWidth = 1.35f;
 
@@ -120,11 +127,13 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Rasterbilder aus Bilderrahmen extrahieren**
+## **Extrahieren von Rasterbildern aus Bildrahmen**
 
-Sie können Rasterbilder aus [PictureFrame](https://reference.aspose.com/slides/de/net/aspose.slides/pictureframe)‑Objekten extrahieren und sie im PNG‑, JPG‑ oder anderen Formaten speichern. Das untenstehende Codebeispiel demonstriert, wie ein Bild aus dem Dokument „sample.pptx“ extrahiert und im PNG‑Format gespeichert wird.
+Sie können Rasterbilder aus [PictureFrame](https://reference.aspose.com/slides/de/net/aspose.slides/pictureframe)-Objekten extrahieren und sie in PNG, JPG und anderen Formaten speichern. Das folgende Codebeispiel demonstriert, wie ein Bild aus dem Dokument „sample.pptx“ extrahiert und im PNG‑Format gespeichert wird.
 
 ```c#
+using Aspose.Slides;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var firstSlide = presentation.Slides[0];
@@ -132,19 +141,21 @@ using (var presentation = new Presentation("sample.pptx"))
 
     if (firstShape is IPictureFrame pictureFrame)
     {
-        var image = pictureFrame.PictureFormat.Picture.Image.SystemImage;
-        image.Save("slide_1_shape_1.png", ImageFormat.Png);
+        var ppImage = pictureFrame.PictureFormat.Picture.Image;
+        ppImage.Image.Save("slide_1_shape_1.png", ImageFormat.Png);
     }
 }
 ```
 
-## **SVG‑Bilder aus Bilderrahmen extrahieren**
+## **Extrahieren von SVG‑Bildern aus Bildrahmen**
 
-Wenn eine Präsentation SVG‑Grafiken enthält, die in [PictureFrame](https://reference.aspose.com/slides/de/net/aspose.slides/pictureframe/)‑Formen platziert sind, ermöglicht Aspose.Slides für .NET das Abrufen der ursprünglichen Vektorbilder mit voller Treue. Durch Durchlaufen der Formensammlung der Folie können Sie jedes [PictureFrame](https://reference.aspose.com/slides/de/net/aspose.slides/pictureframe/) identifizieren, prüfen, ob das zugrunde liegende [IPPImage](https://reference.aspose.com/slides/de/net/aspose.slides/ippimage/) SVG‑Inhalt enthält, und das Bild anschließend im nativen SVG‑Format auf Datenträger oder in einen Stream speichern.
+Enthält eine Präsentation SVG‑Grafiken, die in [PictureFrame](https://reference.aspose.com/slides/de/net/aspose.slides/pictureframe/)-Formen platziert sind, ermöglicht Aspose.Slides für .NET das Abrufen der ursprünglichen Vektorbilder mit voller Treue. Durch Durchlaufen der Shape‑Sammlung der Folie können Sie jede [PictureFrame](https://reference.aspose.com/slides/de/net/aspose.slides/pictureframe/)-Form identifizieren, prüfen, ob das zugrunde liegende [IPPImage](https://reference.aspose.com/slides/de/net/aspose.slides/ippimage/) SVG‑Inhalt enthält, und das Bild dann im nativen SVG‑Format auf Datenträger oder in einen Stream speichern.
 
-Der folgende Code demonstriert, wie ein SVG‑Bild aus einem Bilderrahmen extrahiert wird:
+Das folgende Codebeispiel demonstriert das Extrahieren eines SVG‑Bildes aus einem Bildrahmen:
 
 ```cs
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -160,11 +171,14 @@ if (shape is IPictureFrame pictureFrame)
 }
 ```
 
-## **Transparenz eines Bildes abrufen**
+## **Transparenz eines Bildes ermitteln**
 
-Aspose.Slides ermöglicht das Abrufen des Transparenzeffekts, der auf ein Bild angewendet wurde. Dieser C#‑Code demonstriert die Vorgehensweise:
+Aspose.Slides ermöglicht das Abrufen des auf ein Bild angewendeten Transparenzeffekts. Dieser C#‑Code demonstriert den Vorgang:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Effects;
+
 using (var presentation = new Presentation("Test.pptx"))
 {
     var pictureFrame = (IPictureFrame)presentation.Slides[0].Shapes[0];
@@ -180,13 +194,16 @@ using (var presentation = new Presentation("Test.pptx"))
 }
 ```
 
-## **Helligkeit und Kontrast eines Bildes abrufen**
+## **Helligkeit und Kontrast eines Bildes ermitteln**
 
-Aspose.Slides ermöglicht das Abrufen von Helligkeit‑ und Kontrasteffekten, die auf ein Bild angewendet wurden. Das Interface [ILuminance](https://reference.aspose.com/slides/de/net/aspose.slides.effects/iluminance/) repräsentiert diesen Bildtransformations‑Effekt.
+Aspose.Slides ermöglicht das Abrufen des auf ein Bild angewendeten Helligkeits‑ und Kontrasteffekts. Das [ILuminance](https://reference.aspose.com/slides/de/net/aspose.slides.effects/iluminance/)-Interface repräsentiert diesen Bild‑Transformations‑Effekt.
 
-Dieser C#‑Code zeigt, wie die Helligkeits‑ und Kontrasteinstellungen aus einem Bilderrahmen gelesen werden:
+Dieser C#‑Code demonstriert, wie die Helligkeits‑ und Kontrasteinstellungen eines Bildrahmens ermittelt werden:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Effects;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var slide = presentation.Slides[0];
@@ -209,46 +226,50 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 Alle auf Bilder angewendeten Effekte finden Sie in [Aspose.Slides.Effects](https://reference.aspose.com/slides/de/net/aspose.slides.effects/).
 {{% /alert %}}
 
-## **Formatierung von Bilderrahmen**
+## **Bildrahmen‑Formatierung**
 
-Aspose.Slides bietet zahlreiche Formatierungsoptionen, die auf einen Bilderrahmen angewendet werden können. Mit diesen Optionen können Sie einen Bilderrahmen so anpassen, dass er spezifischen Anforderungen entspricht.
+Aspose.Slides bietet zahlreiche Formatierungsoptionen, die auf einen Bildrahmen angewendet werden können. Mit diesen Optionen können Sie einen Bildrahmen so anpassen, dass er spezifischen Anforderungen entspricht.
 
-1. Erstellen Sie eine Instanz der [Presentation](http://www.aspose.com/api/net/slides/de/aspose.slides/) Klasse.
-2. Holen Sie die Referenz einer Folie über deren Index. 
-3. Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/de/net/aspose.slides/ippimage) Objekt, indem Sie ein Bild zur [IImagescollection](https://reference.aspose.com/slides/de/net/aspose.slides/iimagecollection) hinzufügen, die mit dem Präsentationsobjekt verknüpft ist und zum Füllen der Form verwendet wird.
+1. Erzeugen Sie eine Instanz der [Presentation](http://www.aspose.com/api/net/slides/de/aspose.slides/)class. 
+2. Holen Sie sich einen Folienverweis über ihren Index. 
+3. Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/de/net/aspose.slides/ippimage)-Objekt, indem Sie ein Bild zur [IImagescollection](https://reference.aspose.com/slides/de/net/aspose.slides/iimagecollection) hinzufügen, die dem Präsentationsobjekt zugeordnet ist und zum Füllen der Form verwendet wird.
 4. Geben Sie die Breite und Höhe des Bildes an.
-5. Erstellen Sie einen `PictureFrame` basierend auf der Breite und Höhe des Bildes über die [AddPictureFrame](http://www.aspose.com/api/net/slides/de/aspose.slides/ishapecollection/methods/addpictureframe)‑Methode, die vom [IShapes](http://www.aspose.com/api/net/slides/de/aspose.slides/ishapecollection)‑Objekt der referenzierten Folie bereitgestellt wird.
-6. Fügen Sie der Folie den Bilderrahmen (der das Bild enthält) hinzu.
-7. Legen Sie die Linienfarbe des Bilderrahmens fest.
-8. Legen Sie die Linienbreite des Bilderrahmens fest.
-9. Drehen Sie den Bilderrahmen, indem Sie ihm einen positiven oder negativen Wert zuweisen.
-   * Ein positiver Wert dreht das Bild im Uhrzeigersinn. 
-   * Ein negativer Wert dreht das Bild gegen den Uhrzeigersinn.
-10. Fügen Sie den Bilderrahmen (der das Bild enthält) erneut zur Folie hinzu.
-11. Schreiben Sie die modifizierte Präsentation als PPTX‑Datei.
+5. Erzeugen Sie ein `PictureFrame` basierend auf der Bildbreite und -höhe über die [AddPictureFrame](http://www.aspose.com/api/net/slides/de/aspose.slides/ishapecollection/methods/addpictureframe)-Methode, die vom [IShapes](http://www.aspose.com/api/net/slides/de/aspose.slides/ishapecollection)-Objekt der referenzierten Folie bereitgestellt wird.
+6. Fügen Sie den Bildrahmen (mit dem Bild) zur Folie hinzu.
+7. Setzen Sie die Linienfarbe des Bildrahmens.
+8. Setzen Sie die Linienbreite des Bildrahmens.
+9. Drehen Sie den Bildrahmen, indem Sie ihm einen positiven oder negativen Wert zuweisen.  
+   * Ein positiver Wert dreht das Bild im Uhrzeigersinn.  
+   * Ein negativer Wert dreht das Bild gegen den Uhrzeigersinn.  
+10. Fügen Sie den Bildrahmen (mit dem Bild) zur Folie hinzu.  
+11. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser C#‑Code demonstriert den Formatierungsprozess eines Bilderrahmens:
+Dieser C#‑Code demonstriert den Bildrahmen‑Formatierungsprozess:
 
 ```c#
-// Instanziiert die Presentation-Klasse, die eine PPTX-Datei repräsentiert
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Instanziert die Presentation-Klasse, die eine PPTX-Datei darstellt
 using (Presentation presentation = new Presentation())
 {
     // Holt die erste Folie
     ISlide slide = presentation.Slides[0];
 
-    // Lädt ein Bild und fügt es zur Bildersammlung der Präsentation hinzu
+    // Lädt ein Bild und fügt es der Bildsammlung der Präsentation hinzu
     IImage image = Images.FromFile("aspose-logo.jpg");
     IPPImage ppImage = presentation.Images.AddImage(image);
     image.Dispose();
 
-    // Fügt einen Bilderrahmen mit der entsprechenden Höhe und Breite des Bildes hinzu
+    // Fügt einen Bildrahmen mit der entsprechenden Höhe und Breite des Bildes hinzu
     IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
 
-    // Wendet einige Formatierungen auf den Bilderrahmen an
+    // Wendet einige Formatierungen auf den Bildrahmen an
     pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
     pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
     pictureFrame.LineFormat.Width = 20;
@@ -259,17 +280,20 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
-Aspose hat kürzlich einen [kostenlosen Collage Maker](https://products.aspose.app/slides/de/collage) entwickelt. Wenn Sie jemals JPG/JPEG‑ oder PNG‑Bilder zusammenführen oder aus Fotos Raster‑Layouts erstellen möchten, können Sie diesen Service nutzen. 
+Aspose hat kürzlich einen [kostenlosen Collage Maker](https://products.aspose.app/slides/de/collage) entwickelt. Wenn Sie jemals [JPG/JPEG](https://products.aspose.app/slides/de/collage/jpg) oder PNG‑Bilder zusammenführen, [Raster aus Fotos erstellen](https://products.aspose.app/slides/de/collage/photo-grid) möchten, können Sie diesen Service nutzen. 
 
 {{% /alert %}}
 
 ## **Ein Bild als Link hinzufügen**
 
-Um große Präsentationsdateien zu vermeiden, können Sie Bilder (oder Videos) über Links einbinden, anstatt die Dateien direkt in die Präsentation einzubetten. Dieser C#‑Code zeigt, wie ein Bild und ein Video in einen Platzhalter eingefügt werden:
+Um große Präsentationsdateien zu vermeiden, können Sie Bilder (oder Videos) über Links einbinden, anstatt die Dateien direkt in die Präsentation zu integrieren. Dieser C#‑Code zeigt, wie ein Bild und ein Video in einen Platzhalter eingefügt werden:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("input.pptx"))
 {
     var shapesToRemove = new List<IShape>();
@@ -324,18 +348,21 @@ using (var presentation = new Presentation("input.pptx"))
 Dieser C#‑Code zeigt, wie ein vorhandenes Bild auf einer Folie zugeschnitten wird:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     // Erstellt ein neues Bildobjekt
-    IImage image = Images.FromFile(imagePath);
+    IImage image = Images.FromFile("aspose-logo.jpg");
     IPPImage newImage = presentation.Images.AddImage(image);
     image.Dispose();
 
-    // Fügt einer Folie einen Bilderrahmen hinzu
+    // Fügt einen Bildrahmen zu einer Folie hinzu
     IPictureFrame picFrame = presentation.Slides[0].Shapes.AddPictureFrame(
         ShapeType.Rectangle, 100, 100, 420, 250, newImage);
 
-    // Schneidet das Bild zu (Prozentwerte)
+    // Zuschneiden des Bildes (Prozentwerte)
     picFrame.PictureFormat.CropLeft = 23.6f;
     picFrame.PictureFormat.CropRight = 21.5f;
     picFrame.PictureFormat.CropTop = 3;
@@ -348,19 +375,22 @@ using (Presentation presentation = new Presentation())
 
 ## **Zugeschnittene Bereiche eines Bildes löschen**
 
-Wenn Sie die zugeschnittenen Bereiche eines Bildes, das in einem Rahmen enthalten ist, löschen möchten, können Sie die Methode [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/de/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) verwenden. Diese Methode gibt das zugeschnittene Bild oder das ursprüngliche Bild zurück, wenn kein Zuschnitt erforderlich ist.
+Möchten Sie die zugeschnittenen Bereiche eines in einem Rahmen enthaltenen Bildes entfernen, können Sie die Methode [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/de/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) verwenden. Diese Methode gibt das zugeschnittene Bild oder das Originalbild zurück, falls kein Zuschnitt nötig ist.
 
-Dieser C#‑Code demonstriert die Vorgehensweise:
+Dieser C#‑Code demonstriert den Vorgang:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("PictureFrameCrop.pptx"))
 {
     ISlide slide = presentation.Slides[0];
 
-    // Holt den PictureFrame von der ersten Folie
+    // Holt den Bildrahmen von der ersten Folie
     IPictureFrame picFrame = slide.Shapes[0] as IPictureFrame;
 
-    // Löscht zugeschnittene Bereiche des PictureFrame-Bildes und gibt das zugeschnittene Bild zurück
+    // Löscht die zugeschnittenen Bereiche des Bildrahmen-Bildes und gibt das zugeschnittene Bild zurück
     IPPImage croppedImage = picFrame.PictureFormat.DeletePictureCroppedAreas();
 
     // Speichert das Ergebnis
@@ -370,30 +400,33 @@ using (Presentation presentation = new Presentation("PictureFrameCrop.pptx"))
 
 {{% alert title="NOTE" color="warning" %}} 
 
-Die Methode [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/de/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) fügt das zugeschnittene Bild der Bildersammlung der Präsentation hinzu. Wird das Bild ausschließlich im verarbeiteten [PictureFrame](https://reference.aspose.com/slides/de/net/aspose.slides/pictureframe/) verwendet, kann diese Vorgehensweise die Dateigröße der Präsentation reduzieren. Andernfalls erhöht sich die Anzahl der Bilder in der resultierenden Präsentation.
+Die Methode [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/de/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) fügt das zugeschnittene Bild der Präsentations‑Bildsammlung hinzu. Wird das Bild ausschließlich im verarbeiteten [PictureFrame](https://reference.aspose.com/slides/de/net/aspose.slides/pictureframe/) verwendet, kann diese Vorgehensweise die Dateigröße reduzieren. Andernfalls erhöht sich die Anzahl der Bilder in der resultierenden Präsentation.
 
-Die Methode wandelt WMF/EMF‑Metadateien im Zuschneidevorgang in Raster‑PNG‑Bilder um. 
+Die Methode konvertiert WMF/EMF‑Metadateien während des Zuschnitts in ein Raster‑PNG‑Bild. 
 
 {{% /alert %}}
 
 ## **Bilder komprimieren**
 
-Sie können ein Bild in einer Präsentation mithilfe der Methode [IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/de/net/aspose.slides/ipicturefillformat/compressimage/) komprimieren. Diese Methode reduziert die Bildgröße anhand der Formgröße und der angegebenen Auflösung und kann dabei zugeschnittene Bereiche entfernen. 
+Sie können ein Bild in einer Präsentation mithilfe der Methode [IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/de/net/aspose.slides/ipicturefillformat/compressimage/) komprimieren. Diese Methode reduziert die Bildgröße anhand der Formgröße und der angegebenen Auflösung und bietet die Option, zugeschnittene Bereiche zu löschen. 
 
-Sie passt die Bildgröße und Auflösung ähnlich der PowerPoint‑Funktion **Bildformat → Bilder komprimieren → Auflösung** an.
+Sie passt Größe und Auflösung des Bildes ähnlich der PowerPoint‑Funktion **Bildformat → Bilder komprimieren → Auflösung** an.
 
-Die folgenden C#‑Beispiele zeigen, wie ein Bild in einer Präsentation durch Angabe einer Zielauflösung und optionalem Entfernen zugeschnittener Bereiche komprimiert wird:
+Die folgenden C#‑Beispiele zeigen, wie ein Bild in einer Präsentation komprimiert wird, indem eine Zielauflösung angegeben und optional zugeschnittene Bereiche entfernt werden:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("demo.pptx"))
 {
     ISlide slide = presentation.Slides[0];
     IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
 
-    // Komprimiert das Bild mit einer Zielauflösung von 150 DPI (Web-Auflösung) und entfernt zugeschnittene Bereiche.
+    // Komprimiert das Bild mit einer Zielauflösung von 150 DPI (Webauflösung) und entfernt zugeschnittene Bereiche.
     bool result = pictureFrame.PictureFormat.CompressImage(true, PicturesCompression.Dpi150);
 
-    // Überprüft das Ergebnis der Komprimierung.
+    // Überprüft das Ergebnis der Kompression.
     if (result)
     {
         Console.WriteLine("Image successfully compressed.");
@@ -407,15 +440,18 @@ using (Presentation presentation = new Presentation("demo.pptx"))
 }
 ```
 
-Oder direkt mit einem benutzerdefinierten DPI‑Wert:
+Oder indem ein benutzerdefinierter DPI‑Wert direkt verwendet wird:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("demo.pptx"))
 {
     ISlide slide = presentation.Slides[0];
     IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
 
-    // Komprimiert das Bild auf 150 DPI (Web-Auflösung) und entfernt zugeschnittene Bereiche.
+    // Komprimiert das Bild auf 150 DPI (Webauflösung), entfernt zugeschnittene Bereiche.
     pictureFrame.PictureFormat.CompressImage(true, 150f);
 
     presentation.Save("CompressedImage.pptx", SaveFormat.Pptx);
@@ -424,18 +460,20 @@ using (Presentation presentation = new Presentation("demo.pptx"))
 
 {{% alert title="NOTE" color="warning" %}} 
 
-Die Methode wandelt das Bild basierend auf der Formgröße und dem angegebenen DPI in eine niedrigere Auflösung um. Zugeschnittene Regionen können ebenfalls gelöscht werden, um die Dateigröße zu optimieren.  
-Handelt es sich bei dem Bild um eine Metadatei (WMF/EMF) oder SVG, wird keine Kompression angewendet. Außerdem wird die JPEG‑Qualität je nach Auflösung erhalten bzw. leicht reduziert, analog zu PowerPoints Behandlung hochauflösender JPEG‑Bilder.
+Die Methode konvertiert das Bild basierend auf der Formgröße und dem angegebenen DPI in eine niedrigere Auflösung. Zugeschnittene Bereiche können ebenfalls gelöscht werden, um die Dateigröße zu optimieren.  
+Handelt es sich bei dem Bild um eine Metadatei (WMF/EMF) oder SVG, wird keine Kompression angewendet. Ebenso bleibt die JPEG‑Qualität erhalten oder wird leicht reduziert, je nach Auflösung, analog zu PowerPoint‑Verhalten bei hochauflösenden JPEGs.
 
 {{% /alert %}}
 
 ## **Seitenverhältnis sperren**
 
-Wenn Sie möchten, dass eine Form, die ein Bild enthält, ihr Seitenverhältnis auch nach einer Größenänderung des Bildes beibehält, können Sie die Eigenschaft [IPictureFrameLock.AspectRatioLocked](https://reference.aspose.com/slides/de/net/aspose.slides/ipictureframelock/aspectratiolocked/) verwenden, um die Einstellung *Seitenverhältnis sperren* zu setzen. 
+Wenn Sie möchten, dass eine Form, die ein Bild enthält, ihr Seitenverhältnis beibehält, selbst wenn Sie die Bildabmessungen ändern, können Sie die Eigenschaft [IPictureFrameLock.AspectRatioLocked](https://reference.aspose.com/slides/de/net/aspose.slides/ipictureframelock/aspectratiolocked/) verwenden, um die Einstellung *Seitenverhältnis sperren* zu setzen. 
 
 Dieser C#‑Code zeigt, wie das Seitenverhältnis einer Form gesperrt wird:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     ILayoutSlide layout = pres.LayoutSlides.GetByType(SlideLayoutType.Custom);
@@ -447,36 +485,39 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
     IPictureFrame pictureFrame = emptySlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, presImage.Width, presImage.Height, presImage);
 
-    // Setzt die Form so, dass das Seitenverhältnis beim Skalieren beibehalten wird
+    // Setzt die Form, damit das Seitenverhältnis beim Skalieren beibehalten wird
     pictureFrame.PictureFrameLock.AspectRatioLocked = true;
 }
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
 
-Diese *Seitenverhältnis‑sperren*‑Einstellung bewahrt ausschließlich das Seitenverhältnis der Form, nicht jedoch das des darin enthaltenen Bildes.
+Die Einstellung *Seitenverhältnis sperren* bewahrt nur das Seitenverhältnis der Form, nicht jedoch das des enthaltenen Bildes.
 
 {{% /alert %}}
 
-## **Verwenden der StretchOff‑Eigenschaft**
+## **Verwendung der StretchOff‑Eigenschaft**
 
-Durch die Nutzung der Eigenschaften [StretchOffsetLeft](https://reference.aspose.com/slides/de/net/aspose.slides/picturefillformat/properties/stretchoffsetleft), [StretchOffsetTop](https://reference.aspose.com/slides/de/net/aspose.slides/picturefillformat/properties/stretchoffsettop), [StretchOffsetRight](https://reference.aspose.com/slides/de/net/aspose.slides/picturefillformat/properties/stretchoffsetright) und [StretchOffsetBottom](https://reference.aspose.com/slides/de/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom) aus dem Interface [IPictureFillFormat](https://reference.aspose.com/slides/de/net/aspose.slides/ipicturefillformat) und der Klasse [PictureFillFormat](https://reference.aspose.com/slides/de/net/aspose.slides/picturefillformat) können Sie ein Füllrechteck festlegen. 
+Durch die Verwendung der Eigenschaften [StretchOffsetLeft](https://reference.aspose.com/slides/de/net/aspose.slides/picturefillformat/properties/stretchoffsetleft), [StretchOffsetTop](https://reference.aspose.com/slides/de/net/aspose.slides/picturefillformat/properties/stretchoffsettop), [StretchOffsetRight](https://reference.aspose.com/slides/de/net/aspose.slides/picturefillformat/properties/stretchoffsetright) und [StretchOffsetBottom](https://reference.aspose.com/slides/de/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom) aus dem Interface [IPictureFillFormat](https://reference.aspose.com/slides/de/net/aspose.slides/ipicturefillformat) und der Klasse [PictureFillFormat](https://reference.aspose.com/slides/de/net/aspose.slides/picturefillformat) können Sie ein Füllrechteck festlegen. 
 
-Wenn für ein Bild ein Stretch angegeben wird, wird ein Quellrechteck so skaliert, dass es in das angegebene Füllrechteck passt. Jede Kante des Füllrechtecks wird durch einen prozentualen Versatz von der entsprechenden Kante der Begrenzungsbox der Form definiert. Ein positiver Prozentsatz bedeutet ein Einschieben, ein negativer Prozentsatz ein Herausziehen.
+Wird für ein Bild ein Strecken angegeben, wird ein Quellrechteck skaliert, um in das angegebene Füllrechteck zu passen. Jede Kante des Füllrechtecks wird durch einen prozentualen Versatz von der entsprechenden Kante der Begrenzungsbox der Form definiert. Ein positiver Prozentsatz gibt einen Innenversatz an, ein negativer Prozentsatz einen Außenversatz.
 
-1. Erstellen Sie eine Instanz der [Presentation](http://www.aspose.com/api/net/slides/de/aspose.slides/) Klasse.
-2. Holen Sie die Referenz einer Folie über deren Index.
+1. Erzeugen Sie eine Instanz der [Presentation](http://www.aspose.com/api/net/slides/de/aspose.slides/)class. 
+2. Holen Sie sich einen Folienverweis über ihren Index. 
 3. Fügen Sie ein Rechteck `AutoShape` hinzu. 
-4. Erstellen Sie ein Bild.
-5. Legen Sie den Fülltyp der Form fest.
-6. Legen Sie den Bildfüllmodus der Form fest.
-7. Fügen Sie ein Bild zum Füllen der Form hinzu.
-8. Geben Sie Bildversätze von der jeweiligen Kante der Begrenzungsbox der Form an.
-9. Schreiben Sie die modifizierte Präsentation als PPTX‑Datei.
+4. Erzeugen Sie ein Bild. 
+5. Setzen Sie den Fülltyp der Form. 
+6. Setzen Sie den Bildfüllmodus der Form. 
+7. Fügen Sie ein Bild zum Füllen der Form hinzu. 
+8. Geben Sie Bildversätze von der entsprechenden Kante der Begrenzungsbox der Form an. 
+9. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
 
 Dieser C#‑Code demonstriert einen Prozess, bei dem die StretchOff‑Eigenschaft verwendet wird:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IImage image = Images.FromFile("image.png");
@@ -485,7 +526,7 @@ using (Presentation pres = new Presentation())
 
     IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 400, 400, ppImage);
 
-    // Streckt das Bild von jeder Seite im Formkörper
+    // Setzt das Bild, das von jeder Seite im Shape-Körper gestreckt wird
     pictureFrame.PictureFormat.PictureFillMode = PictureFillMode.Stretch;
     pictureFrame.PictureFormat.StretchOffsetLeft = 24;
     pictureFrame.PictureFormat.StretchOffsetRight = 24;
@@ -498,18 +539,18 @@ using (Presentation pres = new Presentation())
 
 ## **FAQ**
 
-**Wie kann ich herausfinden, welche Bildformate für PictureFrame unterstützt werden?**
+### Wie kann ich herausfinden, welche Bildformate für PictureFrame unterstützt werden?
 
-Aspose.Slides unterstützt sowohl Rasterbilder (PNG, JPEG, BMP, GIF usw.) als auch Vektorbilder (zum Beispiel SVG) über das Bildobjekt, das einem [PictureFrame](https://reference.aspose.com/slides/de/net/aspose.slides/pictureframe/) zugewiesen wird. Die Liste der unterstützten Formate überschneidet sich im Allgemeinen mit den Fähigkeiten der Folien‑ und Bildkonvertierungs‑Engine.
+Aspose.Slides unterstützt sowohl Rasterbilder (PNG, JPEG, BMP, GIF usw.) als auch Vektorbilder (z. B. SVG) über das Bildobjekt, das einem [PictureFrame](https://reference.aspose.com/slides/de/net/aspose.slides/pictureframe/) zugewiesen wird. Die Liste der unterstützten Formate überschneidet sich im Allgemeinen mit den Fähigkeiten der Folien‑ und Bildkonvertierungs‑Engine.
 
-**Wie wirkt sich das Hinzufügen dutzender großer Bilder auf die PPTX‑Größe und Performance aus?**
+### Wie wirkt sich das Hinzufügen von Dutzenden großer Bilder auf die PPTX‑Größe und -Leistung aus?
 
-Das Einbetten großer Bilder erhöht die Dateigröße und den Speicherverbrauch; das Verlinken von Bildern hält die Präsentationsgröße klein, erfordert jedoch, dass die externen Dateien weiterhin verfügbar sind. Aspose.Slides bietet die Möglichkeit, Bilder per Link hinzuzufügen, um die Dateigröße zu reduzieren.
+Das Einbetten großer Bilder erhöht Dateigröße und Speicherverbrauch; das Verlinken von Bildern hält die Präsentationsgröße gering, erfordert jedoch, dass die externen Dateien weiterhin zugänglich sind. Aspose.Slides bietet die Möglichkeit, Bilder per Link hinzuzufügen, um die Dateigröße zu reduzieren.
 
-**Wie kann ich ein Bildobjekt davor schützen, versehentlich verschoben oder skaliert zu werden?**
+### Wie kann ich ein Bildobjekt vor versehentlichem Verschieben/Größenändern schützen?
 
-Verwenden Sie [Form‑Sperren](https://reference.aspose.com/slides/de/net/aspose.slides/pictureframe/pictureframelock/) für einen [PictureFrame](https://reference.aspose.com/slides/de/net/aspose.slides/pictureframe/) (zum Beispiel zum Deaktivieren von Verschieben oder Skalieren). Der Sperrmechanismus wird für Formen in einem separaten [Schutz‑Artikel](/slides/de/net/applying-protection-to-presentation/) beschrieben und wird für verschiedene Formtypen unterstützt, einschließlich [PictureFrame](https://reference.aspose.com/slides/de/net/aspose.slides/pictureframe/).
+Verwenden Sie [Shape‑Locks](https://reference.aspose.com/slides/de/net/aspose.slides/pictureframe/pictureframelock/) für ein [PictureFrame](https://reference.aspose.com/slides/de/net/aspose.slides/pictureframe/) (z. B. Deaktivieren von Verschieben oder Größenändern). Der Sperrmechanismus wird in einem separaten [Schutz‑Artikel](/slides/de/net/applying-protection-to-presentation/) für Formen beschrieben und wird für verschiedene Formtypen, einschließlich [PictureFrame](https://reference.aspose.com/slides/de/net/aspose.slides/pictureframe/), unterstützt.
 
-**Wird die Vektor‑Treue von SVG beim Export einer Präsentation zu PDF/Bildern erhalten?**
+### Wird die Vektortreue von SVG beim Export einer Präsentation nach PDF/Bildern beibehalten?
 
-Aspose.Slides ermöglicht das Extrahieren eines SVG aus einem [PictureFrame](https://reference.aspose.com/slides/de/net/aspose.slides/pictureframe/) als ursprünglichen Vektor. Beim [Export zu PDF](/slides/de/net/convert-powerpoint-to-pdf/) oder zu [Rasterformaten](/slides/de/net/convert-powerpoint-to-png/) kann das Ergebnis je nach Exporteinstellungen gerastert werden; das originale SVG bleibt als Vektor erhalten, wie das Extraktionsverhalten bestätigt.
+Aspose.Slides ermöglicht das Extrahieren eines SVG aus einem [PictureFrame](https://reference.aspose.com/slides/de/net/aspose.slides/pictureframe/) als ursprünglichen Vektor. Beim [Export nach PDF](/slides/de/net/convert-powerpoint-to-pdf/) oder in [Rasterformate](/slides/de/net/convert-powerpoint-to-png/) kann das Ergebnis je nach Exporteinstellungen gerastert werden; die Tatsache, dass das ursprüngliche SVG als Vektor gespeichert ist, wird durch das Extraktionsverhalten bestätigt.

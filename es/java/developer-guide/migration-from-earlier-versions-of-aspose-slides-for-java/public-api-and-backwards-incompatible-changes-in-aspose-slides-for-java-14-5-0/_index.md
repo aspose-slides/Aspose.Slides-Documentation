@@ -1,138 +1,143 @@
 ---
-title: API público y cambios incompatibles hacia atrás en Aspose.Slides para Java 14.5.0
+title: "API pública y cambios incompatibles con versiones anteriores en Aspose.Slides para Java 14.5.0"
+linktitle: "Aspose.Slides para Java 14.5.0"
 type: docs
 weight: 40
 url: /es/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-5-0/
+keywords:
+- migración
+- código heredado
+- código moderno
+- enfoque heredado
+- enfoque moderno
+- PowerPoint
+- OpenDocument
+- presentación
+- Java
+- Aspose.Slides
+description: "Revisa las actualizaciones de la API pública y los cambios incompatibles en Aspose.Slides para Java para migrar sin problemas tus soluciones de presentaciones PowerPoint PPT, PPTX y ODP."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-Esta página lista todas las [clases](/slides/es/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-5-0/) añadidas, métodos, propiedades, etc., cualquier nueva [restricción](/slides/es/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-5-0/) y otros [cambios](/slides/es/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-5-0/) introducidos con la API de Aspose.Slides para Java 14.5.0.
+Esta página enumera todas las clases, métodos, propiedades y demás, cualquier nueva [restricciones](/slides/es/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-5-0/) y otros [cambios](/slides/es/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-5-0/) introducidos con la API de Aspose.Slides para Java 14.5.0.
 
 {{% /alert %}} 
-## **API Público y Cambios Incompatibles Hacia Atrás**
-### **Clases y Métodos Añadidos**
+## **API pública y cambios incompatibles con versiones anteriores**
+### **Clases y métodos añadidos**
 #### **Añadida la interfaz Aspose.Slides.IPresentationInfo y las clases PresentationInfo**
-Representa la información sobre la presentación.
+Representa información sobre la presentación.
 
-El método Boolean isEncrypted() devuelve True si una presentación está encriptada, de lo contrario devuelve False.
+El método Boolean isEncrypted() devuelve True si una presentación está cifrada, de lo contrario devuelve False.
 
-El método LoadFormat getLoadFormat() obtiene el tipo de presentación.
+El método LoadFormat getLoadFormat() devuelve el tipo de presentación.
 #### **Añadido el método Aspose.Slides.IShape.isGrouped()**
 El método Aspose.Slides.IShape.isGrouped() determina si la forma está agrupada.
 #### **Añadido el método Aspose.Slides.IShape.getParentGroup()**
-El método Aspose.Slides.IShape.getParentGroup() devuelve el objeto GroupShape padre si la forma está agrupada. De lo contrario, devuelve null.
+El método Aspose.Slides.IShape.getParentGroup() devuelve el objeto GroupShape padre si la forma está agrupada. En caso contrario devuelve null.
 #### **Añadido el método Aspose.Slides.IShapeCollection.addGroupShape()**
 El método Aspose.Slides.IShapeCollection.addGroupShape() crea un nuevo GroupShape y lo añade al final de la colección.
 
-El tamaño y la posición del marco de GroupShape se ajustarán al contenido cuando se añada una nueva forma al GroupShape.
+El tamaño y la posición del marco del GroupShape se ajustarán al contenido cuando se añada una nueva forma al GroupShape.
 #### **Añadido el método Aspose.Slides.IShapeCollection.clear()**
 El método Aspose.Slides.IShapeCollection.clear() elimina todas las formas de la colección.
 #### **Añadido el método Aspose.Slides.IShapeCollection.insertGroupShape(int)**
 El método Aspose.Slides.IShapeCollection.insertGroupShape(int) crea un nuevo GroupShape y lo inserta en la colección en el índice especificado.
-El tamaño y la posición del marco de GroupShape se ajustarán al contenido cuando se añada una nueva forma al GroupShape.
-#### **Añados los métodos IPresentationFactory.getPresentationInfo(string file), IPresentationFactory.getPresentationInfo(InputStream stream)**
-Estos métodos permiten a los desarrolladores obtener información sobre un archivo/flujo de presentación sin necesidad de cargar completamente la presentación.
+El tamaño y la posición del marco del GroupShape se ajustarán al contenido cuando se añada una nueva forma al GroupShape.
+#### **Añadidos los métodos IPresentationFactory.getPresentationInfo(string file), IPresentatoinFactory.getPresentationInfo(InputStream stream)**
+Estos métodos permiten a los desarrolladores obtener información sobre un archivo/flujo de presentación sin cargar la presentación completa.
 #### **Añadido el método IPresentationFactory PresentationFactory.getInstance()**
-Permite utilizar la funcionalidad de fábrica sin instanciación.
+Permite usar la funcionalidad de la fábrica sin instanciarla.
 ### **Restricciones**
-#### **Se han añadido restricciones para usar valores indefinidos para IShape.getFrame()**
-El código que intenta asignar un marco indefinido a IShape.setFrame(IShapeFrame) no tiene sentido en casos generales (particularmente cuando el GroupShape padre está anidado múltiples veces en otros {{GroupShape}}s). Por ejemplo:
+#### **Se han añadido restricciones para el uso de valores indefinidos en IShape.getFrame()**
+El código que intenta asignar un marco indefinido a IShape.setFrame(IShapeFrame) no tiene sentido en casos generales (en particular cuando el GroupShape padre está anidado múltiples veces dentro de otros {{GroupShape}}). Por ejemplo:
 
 ``` java
+import com.aspose.slides.*;
 
- IShape shape = ...;
+Presentation pres = new Presentation();
+try {
+    IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-shape.setFrame(new ShapeFrame(Float.NaN, Float.NaN, Float.NaN, Float.NaN, NullableBool.NotDefined, NullableBool.NotDefined, Float.NaN));
-
+    // Lanza una ArgumentException: los valores del marco deben estar definidos.
+    shape.setFrame(new ShapeFrame(Float.NaN, Float.NaN, Float.NaN, Float.NaN, NullableBool.NotDefined, NullableBool.NotDefined, Float.NaN));
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 o
 
 ``` java
+import com.aspose.slides.*;
 
- slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, Float.NaN, Float.NaN, Float.NaN, Float.NaN);
+Presentation pres = new Presentation();
+try {
+    ISlide slide = pres.getSlides().get_Item(0);
 
-```
-
-Tal código puede llevar a situaciones poco claras. Así que se han añadido restricciones para usar valores indefinidos para IShape.Frame. Los valores de x, y, ancho, alto, flipH, flipV y rotationAngle deben estar definidos (no Float.NaN o NullableBool.NotDefined). El código de ejemplo anterior ahora lanza una excepción ArgumentException.
-Esto aplica a estos casos de uso:
-
-``` java
-
- IShape shape = ...;
-
-shape.setFrame(...); // no puede ser indefinido
-
-IShapeCollection shapes = ...;
-
-// los parámetros x, y, ancho, alto no pueden ser Float.NaN:
-
-{
-
-    shapes.addAudioFrameCD(...);
-
-    shapes.addAudioFrameEmbedded(...);
-
-    shapes.addAudioFrameLinked(...);
-
-    shapes.addAutoShape(...);
-
-    shapes.addChart(...);
-
-    shapes.addConnector(...);
-
-    shapes.addOleObjectFrame(...);
-
-    shapes.addPictureFrame(...);
-
-    shapes.addSmartArt(...);
-
-    shapes.addTable(...);
-
-    shapes.addVideoFrame(...);
-
-    shapes.insertAudioFrameEmbedded(...);
-
-    shapes.insertAudioFrameLinked(...);
-
-    shapes.insertAutoShape(...);
-
-    shapes.insertChart(...);
-
-    shapes.insertConnector(...);
-
-    shapes.insertOleObjectFrame(...);
-
-    shapes.insertPictureFrame(...);
-
-    shapes.insertTable(...);
-
-    shapes.insertVideoFrame(...);
-
+    // Lanza una ArgumentException: los valores de x, y, anchura y altura deben estar definidos.
+    slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, Float.NaN, Float.NaN, Float.NaN, Float.NaN);
+} finally {
+    if (pres != null) pres.dispose();
 }
-
 ```
 
-Pero el marco IShape.getRawFrame() puede ser indefinido. Esto tiene sentido cuando una forma está vinculada a un marcador de posición. Luego, los valores de marco indefinidos de la forma se sobrescriben desde el marcador de posición padre. Si no hay un marcador de posición padre para esa forma, entonces se utilizan valores predeterminados cuando evalúa el marco efectivo basado en su IShape.getRawFrame(). Los valores predeterminados son 0 y NullableBool.False para x, y, ancho, alto, flipH, flipV y rotationAngle. Por ejemplo:
+Tal código puede conducir a situaciones poco claras. Por lo tanto, se han añadido restricciones para el uso de valores indefinidos en IShape.Frame. Los valores de x, y, width, height, flipH, flipV y rotationAngle deben estar definidos (no Float.NaN ni NullableBool.NotDefined). El código de ejemplo anterior ahora lanza una excepción ArgumentException.
+Esto se aplica a los siguientes casos de uso:
 
 ``` java
+// El marco pasado a IShape.setFrame(IShapeFrame) no puede contener valores indefinidos.
 
- IShape shape = ...; // la forma está vinculada a un marcador de posición
-
-shape.setRawFrame(new ShapeFrame(Float.NaN, Float.NaN, 100, Float.NaN, NullableBool.NotDefined, NullableBool.NotDefined, 0));
-
-// ahora la forma hereda los valores x, y, alto, flipH, flipV del marcador de posición y sobrescribe ancho=100 y rotationAngle=0.
-
+// Los parámetros x, y, anchura y altura de los siguientes métodos de IShapeCollection
+// no pueden ser Float.NaN tampoco:
+//
+//     addAudioFrameCD
+//     addAudioFrameEmbedded
+//     addAudioFrameLinked
+//     addAutoShape
+//     addChart
+//     addConnector
+//     addOleObjectFrame
+//     addPictureFrame
+//     addSmartArt
+//     addTable
+//     addVideoFrame
+//     insertAudioFrameEmbedded
+//     insertAudioFrameLinked
+//     insertAutoShape
+//     insertChart
+//     insertConnector
+//     insertOleObjectFrame
+//     insertPictureFrame
+//     insertTable
+//     insertVideoFrame
 ```
-### **Propiedades Cambiadas**
-#### **Cambiado el Tipo y Nombre del Método Aspose.Slides.IShapeCollection.getParent()**
-El tipo de la propiedad Aspose.Slides.IShapeCollection.Parent ha sido cambiado de ISlideComponent a la nueva interfaz IGroupShape. La interfaz IGroupShape es descendiente de ISlideComponent, por lo que el código existente no necesita adaptación.
+
+Sin embargo, el marco devuelto por IShape.getRawFrame() puede ser indefinido. Esto tiene sentido cuando una forma está vinculada a un marcador de posición. Entonces los valores indefinidos del marco de la forma se sobrescriben con los del marcador de posición padre. Si no hay un marcador de posición padre para esa forma, se utilizan valores predeterminados al evaluar el marco efectivo basándose en su IShape.getRawFrame(). Los valores predeterminados son 0 y NullableBool.False para x, y, width, height, flipH, flipV y rotationAngle. Por ejemplo:
+
+``` java
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("pres.pptx");
+try {
+    // La forma está vinculada a un marcador de posición.
+    IShape shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
+
+    shape.setRawFrame(new ShapeFrame(Float.NaN, Float.NaN, 100, Float.NaN, NullableBool.NotDefined, NullableBool.NotDefined, 0));
+
+    // Ahora la forma hereda los valores de x, y, altura, flipH y flipV del marcador de posición
+    // y sobrescribe ancho = 100 y rotationAngle = 0.
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+### **Propiedades modificadas**
+#### **Modificado el tipo y nombre del método Aspose.Slides.IShapeCollection.getParent()**
+El tipo de la propiedad Aspose.Slides.IShapeCollection.Parent ha cambiado de ISlideComponent a la nueva interfaz IGroupShape. La interfaz IGroupShape es descendiente de ISlideComponent, por lo que el código existente no requiere adaptación.
 
 El nombre del método Aspose.Slides.IShapeCollection.getParent() ha sido cambiado de getParent a getParentGroup().
-#### **Cambia el Tipo de los Métodos Aspose.Slides.IShapeFrame.getFlipH() y .getFlipV()**
-El tipo del método Aspose.Slides.IShapeFrame.getFlipH() ha sido cambiado de bool a NullableBool.
+#### **Cambiar el tipo de los métodos Aspose.Slides.IShapeFrame.getFlipH() y .getFlipV()**
+El tipo del método Aspose.Slides.IShapeFrame.getFlipH() ha cambiado de bool a NullableBool.
 
-El método IShape.getFrame() devuelve la instancia efectiva de IShapeFrame (todas cuyas propiedades tienen valores efectivos definidos).
+El método IShape.getFrame() devuelve la instancia efectiva de IShapeFrame (cuyas propiedades tienen valores efectivos definidos).
 
-El método IShape.getRawFrame() devuelve una instancia de IShapeFrame de la cual cada propiedad puede tener un valor indefinido (particularmente FlipH o FlipV pueden tener el valor NullableBool.NotDefined).
+El método IShape.getRawFrame() devuelve una instancia de IShapeFrame cuyas propiedades pueden tener valores indefinidos (en particular FlipH o FlipV pueden tener el valor NullableBool.NotDefined).

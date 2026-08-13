@@ -1,36 +1,86 @@
 ---
-title: Sunumlardan Matematik Denklemlerini Java ile Dışa Aktarma
+title: Sunumlardan Java'da Matematik Denklemlerini Dışa Aktarma
 linktitle: Denklemleri Dışa Aktar
 type: docs
 weight: 30
 url: /tr/java/exporting-math-equations/
 keywords:
 - matematik denklemlerini dışa aktar
+- denklemleri LaTeX'e dışa aktar
+- PowerPoint'tan LaTeX'e
 - MathML
 - LaTeX
 - PowerPoint
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java kullanarak PowerPoint'ten MathML'ye matematik denklemlerinin sorunsuz dışa aktarımının kilidini açın—formatlamayı koruyun ve uyumluluğu artırın."
+description: "Java için Aspose.Slides ile PowerPoint sunumlarından matematik denklemlerini doğrudan LaTeX veya MathML'e dışa aktarın."
 ---
 ## **Giriş**
 
-Aspose.Slides, sunumlardan matematik denklemlerini dışa aktarmanıza olanak tanır. Örneğin, belirli bir sunumda bulunan slaytlardaki matematik denklemlerini çıkarmanız ve bunları başka bir programda veya platformda kullanmanız gerekebilir. 
+Aspose.Slides, sunumlardan matematik denklemlerini dışa aktarmanıza olanak tanır. Örneğin, belirli bir sunumdaki slaytlardaki matematik denklemlerini çıkarmanız ve bunları başka bir programda veya platformda kullanmanız gerekebilir. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Denklikleri MathML'ye dışa aktarabilirsiniz; bu, webde ve birçok uygulamada görülen matematik denklemleri ve benzeri içerikler için popüler bir format veya standarttır. 
+Denklikleri doğrudan LaTeX'e veya MathML'e dışa aktarabilirsiniz; MathML, web üzerinde ve birçok uygulamada kullanılan popüler bir matematik içerik standardıdır. 
 
 {{% /alert %}}
 
-## **Math Denklemlerini MathML Olarak Kaydet**
+## **Matematik Denklemlerini LaTeX'e Dışa Aktarma**
 
-İnsanlar LaTeX gibi bazı denklem formatları için kodu kolayca yazarken, MathML kodunu yazmakta zorlanırlar; çünkü MathML, uygulamalar tarafından otomatik olarak üretilmek üzere tasarlanmıştır. Programlar MathML'yi kolayca okuyup ayrıştırır, çünkü kodu XML biçimindedir; bu nedenle MathML birçok alanda çıktı ve baskı formatı olarak yaygın olarak kullanılır. 
+Aspose.Slides, bir PowerPoint matematik denklemini doğrudan LaTeX'e dönüştürebilir; ara bir MathML dosyası ve harici bir dönüştürücü gerekmez. Bir matematik denklemi, bir metin çerçevesinde [IMathPortion](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imathportion/) olarak depolanır. [IMathPortion.getMathParagraph](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imathportion/#getMathParagraph--) metodunu kullanarak bir [IMathParagraph](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imathparagraph/) elde edin ve ardından [IMathParagraph.toLatex](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imathparagraph/#toLatex--) metodunu çağırın. Metot, kaydedebileceğiniz, görüntüleyebileceğiniz, başka bir uygulamaya gönderebileceğiniz veya daha fazla işleyebileceğiniz bir dize döndürür.
 
-Bu örnek kod, bir sunumdan matematik denklemini MathML'ye nasıl dışa aktaracağınızı gösterir:
+Aşağıdaki örnek, her slayttaki tüm metin çerçevelerini inceler, tüm matematik bölümlerini bulur ve her denklemi ayrı bir `.tex` dosyasına yazar:
 
 ```java
+Presentation presentation = new Presentation("equations.pptx");
+try {
+    int slideCount = presentation.getSlides().size();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++) {
+        ISlide slide = presentation.getSlides().get_Item(slideIndex);
+        int slideNumber = slideIndex + 1;
+        int equationNumber = 1;
+        ITextFrame[] textFrames = SlideUtil.getAllTextBoxes(slide);
+
+        for (ITextFrame textFrame : textFrames) {
+            for (IParagraph paragraph : textFrame.getParagraphs()) {
+                for (IPortion portion : paragraph.getPortions()) {
+                    if (!(portion instanceof IMathPortion))
+                        continue;
+
+                    IMathPortion mathPortion = (IMathPortion) portion;
+                    IMathParagraph mathParagraph = mathPortion.getMathParagraph();
+                    String latexFileName = "slide_" + slideNumber + "_equation_" + equationNumber + ".tex";
+
+                    String latexText = mathParagraph.toLatex();
+                    Path latexPath = Paths.get(latexFileName);
+                    byte[] latexBytes = latexText.getBytes(StandardCharsets.UTF_8);
+                    Files.write(latexPath, latexBytes);
+                    equationNumber++;
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+[SlideUtil.getAllTextBoxes](https://reference.aspose.com/slides/tr/java/com.aspose.slides/slideutil/#getAllTextBoxes-com.aspose.slides.IBaseSlide-) bir slaytta bulunan tüm metin çerçevelerini döndürür. [IMathPortion](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imathportion/) tip kontrolü, gerçek düzenlenebilir denklemleri sıradan metin ve görüntülerden ayırır.
+
+LaTeX motorları ve belge şablonları aynı komutları, paketleri veya Unicode karakterlerini desteklemez. Döndürülen dizeyi uygulamanızın kullandığı LaTeX motoru ile test edin. Eğer bir sembol veya Office Math öğesi o ortamda uygun bir temsile sahip değilse, döndürülen dizgedeki bu öğeyi proje özelinde bir komutla değiştirin veya denklemi atlayıp sorunu inceleme için kaydedin.
+
+## **Matematik Denklemlerini MathML Olarak Kaydet**
+
+İnsanlar LaTeX gibi bazı denklem formatlarının kodunu kolayca yazabilirken, MathML kodunu yazmakta zorlanırlar çünkü MathML, uygulamalar tarafından otomatik olarak üretilmek üzere tasarlanmıştır. Programlar MathML'i kolayca okur ve ayrıştırır çünkü kodu XML formatındadır; bu nedenle MathML birçok alanda çıktı ve yazdırma formatı olarak yaygın şekilde kullanılır. 
+
+Bu örnek kod, bir sunumdan bir matematik denklemini MathML'e nasıl dışa aktaracağınızı gösterir:
+
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 Presentation pres = new Presentation();
 try {
     IAutoShape autoShape = pres.getSlides().get_Item(0).getShapes().addMathShape(0, 0, 500, 50);
@@ -54,22 +104,22 @@ try {
 
 ## **SSS**
 
-**MathML'ye tam olarak ne dışa aktarılır—bir paragraf mı yoksa bireysel bir formül bloğu mu?**
+**MathML'e tam olarak ne dışa aktarılıyor—bir paragraf mı yoksa bireysel bir formül bloğu mu?**
 
-Tam bir matematik paragrafı ([MathParagraph](https://reference.aspose.com/slides/tr/java/com.aspose.slides/mathparagraph/)) ya da ayrı bir blok ([MathBlock](https://reference.aspose.com/slides/tr/java/com.aspose.slides/mathblock/)) MathML'ye dışa aktarılabilir. Her iki tür de MathML'ye yazmak için bir yöntem sağlar.
+MathML'e ya tüm bir matematik paragrafı ([MathParagraph](https://reference.aspose.com/slides/tr/java/com.aspose.slides/mathparagraph/)) ya da bireysel bir blok ([MathBlock](https://reference.aspose.com/slides/tr/java/com.aspose.slides/mathblock/)) dışa aktarabilirsiniz. Her iki tür de MathML'e yazma yöntemi sunar. 
 
-**Bir slayd üzerindeki bir nesnenin normal metin veya resim değil, bir matematik formülü olduğunu nasıl anlayabilirim?**
+**Bir slayttaki nesnenin normal metin veya görüntü yerine bir matematik formülü olduğunu nasıl anlayabilirim?**
 
-Formül bir [MathPortion](https://reference.aspose.com/slides/tr/java/com.aspose.slides/mathportion/) içinde bulunur ve bir [MathParagraph](https://reference.aspose.com/slides/tr/java/com.aspose.slides/mathparagraph/) içerir. [MathParagraph](https://reference.aspose.com/slides/tr/java/com.aspose.slides/mathparagraph/) içermeyen görüntüler ve normal metin bölümleri dışa aktarılabilir formül değildir.
+Bir formül, bir [MathPortion](https://reference.aspose.com/slides/tr/java/com.aspose.slides/mathportion/) içinde yer alır ve bir [MathParagraph](https://reference.aspose.com/slides/tr/java/com.aspose.slides/mathparagraph/) içerir. [MathParagraph] içermeyen görüntüler ve normal metin bölümleri dışa aktarılabilir formüller değildir. 
 
-**Sunumdaki MathML nereden gelir—PowerPoint'e özgü mü yoksa bir standart mı?**
+**Sunumda MathML nereden geliyor—PowerPoint’e özgü mü yoksa bir standart mı?**
 
-Dışa aktarım, standart MathML (XML) hedefler. Aspose, sunum alt kümesi olan Presentation MathML'yi kullanır; bu, uygulamalar ve web arasında yaygın olarak kullanılan bir standarttır.
+Dışa aktarma, standart MathML (XML) hedef alır. Aspose, sunum alt kümesi olan Presentation MathML'i kullanır; bu, uygulamalar ve web arasında yaygın olarak kullanılan bir standarttır. 
 
 **Tablolar, SmartArt, gruplar vb. içindeki formüllerin dışa aktarılması destekleniyor mu?**
 
-Evet, bu nesneler bir [MathParagraph](https://reference.aspose.com/slides/tr/java/com.aspose.slides/mathparagraph/) içeren metin bölümleri (gerçek PowerPoint formülleri) içeriyorsa dışa aktarılır. Formül bir görüntü olarak gömülü ise dışa aktarılmaz.
+Evet, bu nesneler bir [MathParagraph] (yani gerçek PowerPoint formülleri) içeren metin bölümleri barındırıyorsa dışa aktarılırlar. Formül bir görüntü olarak gömülü ise dışa aktarılmaz. 
 
-**MathML'ye dışa aktarmak orijinal sunumu değiştirir mi?**
+**MathML'e dışa aktarma orijinal sunumu değiştirir mi?**
 
-Hayır. MathML yazma işlemi, formülün içeriğinin bir serileştirilmesidir; sunum dosyasını değiştirmez.
+Hayır. MathML yazımı, formülün içeriğinin bir serileştirilmesidir; sunum dosyasını değiştirmez.

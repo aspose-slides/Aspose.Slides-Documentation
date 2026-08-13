@@ -1,69 +1,78 @@
 ---
 title: Fallback-Schriften für Präsentationen auf Android festlegen
-linktitle: Fallback-Schriftart
+linktitle: Ersatzschrift
 type: docs
 weight: 10
 url: /de/androidjava/create-fallback-font/
 keywords:
-- Fallback-Schriftart
-- Fallback-Regel
-- Schriftart anwenden
-- Schriftart ersetzen
+- Ersatzschrift
+- Ersatzregel
+- Schrift anwenden
+- Schrift ersetzen
 - Unicode-Bereich
 - fehlende Glyphe
-- korrekte Glyphe
+- richtige Glyphe
 - PowerPoint
 - OpenDocument
 - Präsentation
 - Android
 - Java
 - Aspose.Slides
-description: "Meistern Sie Aspose.Slides für Android mit Java, um Fallback-Schriften in PPT-, PPTX- und ODP-Dateien festzulegen und eine konsistente Textdarstellung auf jedem Gerät oder Betriebssystem zu gewährleisten."
+description: "Meistern Sie Aspose.Slides für Android via Java, um Ersatzschriften in PPT-, PPTX- und ODP-Dateien festzulegen und damit eine konsistente Textdarstellung auf jedem Gerät oder Betriebssystem zu gewährleisten."
 ---
+## **Übersicht**
 
-## **Fallback-Regeln**
+Aspose.Slides ermöglicht es Ihnen, Ersatzschriften für die Darstellung und den Export von Präsentationen anzugeben. Ersatzschriften werden verwendet, wenn die primäre Schrift die Glyphen für bestimmte Zeichen nicht enthält.
 
-Aspose.Slides unterstützt das Interface [IFontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IFontFallBackRule) und die Klasse [FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule), um die Regeln zum Anwenden einer Fallback‑Schriftart festzulegen. Die Klasse [FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule) stellt eine Zuordnung zwischen dem angegebenen Unicode‑Bereich, der zum Suchen fehlender Glyphen verwendet wird, und einer Liste von Schriftarten dar, die die passenden Glyphen enthalten können:
+Das Verhalten von Ersatzschriften wird über Ersatzregeln konfiguriert. Jede Regel verknüpft einen Unicode-Bereich mit einer oder mehreren Schriften, die die erforderlichen Glyphen enthalten können. Sie können Regeln für verschiedene Zeichenbereiche definieren, Ersatzschriften zu bestehenden Regeln hinzufügen oder entfernen und mehrere Regeln in einer Sammlung von Ersatzschrift-Regeln organisieren.
+
+Ersatzregeln sind Laufzeit-Rendering-Einstellungen. Sie ändern die Präsentationsdatei selbst nicht und werden nicht in der PPTX-Datei gespeichert.
+
+## **Ersatzregeln**
+
+Aspose.Slides unterstützt das Interface [IFontFallBackRule](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/IFontFallBackRule) und die Klasse [FontFallBackRule](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/FontFallBackRule), um die Regeln zum Anwenden einer Ersatzschrift festzulegen. Die Klasse [FontFallBackRule](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/FontFallBackRule) stellt eine Zuordnung zwischen dem angegebenen Unicode-Bereich, der zur Suche nach fehlenden Glyphen verwendet wird, und einer Liste von Schriften dar, die die passenden Glyphen enthalten können:
+
 ```java
+import com.aspose.slides.*;
+
 long startUnicodeIndex = 0x0B80;
 long endUnicodeIndex = 0x0BFF;
 
 IFontFallBackRule firstRule = new FontFallBackRule(startUnicodeIndex, endUnicodeIndex, "Vijaya");
 IFontFallBackRule secondRule = new FontFallBackRule(0x3040, 0x309F, "MS Mincho, MS Gothic");
 
-//Using multiple ways you can add fonts list:
+//Verwenden Sie mehrere Möglichkeiten, um die Schriftliste hinzuzufügen:
 String[] fontNames = new String[] { "Segoe UI Emoji, Segoe UI Symbol", "Arial" };
 
 IFontFallBackRule thirdRule = new FontFallBackRule(0x1F300, 0x1F64F, fontNames);
 ```
 
+Es ist außerdem möglich, eine Ersatzschrift zu [remove](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/FontFallBackRule#remove-java.lang.String-) zu entfernen oder [addFallBackFonts](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) zu einem bestehenden [FontFallBackRule](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/FontFallBackRule)-Objekt hinzuzufügen.
 
-Es ist außerdem möglich, die Fallback‑Schriftart zu [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule#remove-java.lang.String-) zu entfernen oder [addFallBackFonts](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) zu einem bestehenden [FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule)‑Objekt hinzuzufügen.
+Die Klasse [FontFallBackRulesCollection](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/FontFallBackRulesCollection) kann verwendet werden, um eine Liste von [FontFallBackRule](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/FontFallBackRule)-Objekten zu organisieren, wenn Ersatzschrift-Ersetzungsregeln für mehrere Unicode-Bereiche angegeben werden müssen.
 
-[FontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRulesCollection) kann verwendet werden, um eine Liste von [FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule)-Objekten zu organisieren, wenn es nötig ist, Fallback‑Schriftart‑Ersetzungsregeln für mehrere Unicode‑Bereiche anzugeben.
-
-{{% alert color="primary" title="See also" %}} 
-- [Create Fallback Fonts Collection](/slides/de/androidjava/create-fallback-fonts-collection/)
+{{% alert color="info" title="Siehe auch" %}} 
+- [Erstellen einer Ersatzschrift-Sammlung](/slides/de/androidjava/create-fallback-fonts-collection/)
 {{% /alert %}}
 
 ## **FAQ**
 
-**Was ist der Unterschied zwischen einer Fallback‑Schriftart, einer Schriftart‑Substitution und dem Einbetten von Schriftarten?**
+### Was ist der Unterschied zwischen einer Ersatzschrift, Schrift‑substitution und Schrift‑einbettung?
 
-Eine Fallback‑Schriftart wird nur für Zeichen verwendet, die in der primären Schriftart fehlen. [Font substitution](/slides/de/androidjava/font-substitution/) ersetzt die gesamte angegebene Schriftart durch eine andere Schriftart. [Font embedding](/slides/de/androidjava/embedded-font/) verpackt die Schriftarten in die Ausgabedatei, sodass Empfänger den Text wie beabsichtigt sehen können.
+Eine Ersatzschrift wird nur für Zeichen verwendet, die in der primären Schrift fehlen. [Font substitution](/slides/de/androidjava/font-substitution/) ersetzt die gesamte angegebene Schrift durch eine andere Schrift. [Font embedding](/slides/de/androidjava/embedded-font/) packt die Schriften in die Ausgabedatei, sodass Empfänger den Text wie beabsichtigt sehen können.
 
-**Werden Fallback‑Schriftarten bei Exporten wie PDF, PNG oder SVG angewendet oder nur bei der Bildschirmausgabe?**
+### Werden Ersatzschriften bei Exporten wie PDF, PNG oder SVG angewendet oder nur bei der Bildschirmausgabe?
 
-Ja. Fallback wirkt sich auf alle [rendering and export operations](/slides/de/androidjava/convert-presentation/) aus, bei denen Zeichen gezeichnet werden müssen, die jedoch in der Quellschriftart fehlen.
+Ja. Ersatzschriften wirken sich auf alle [Render- und Exportvorgänge](/slides/de/androidjava/convert-presentation/) aus, bei denen Zeichen gezeichnet werden müssen, die jedoch in der Quellschrift fehlen.
 
-**Verändert die Konfiguration von Fallback die Präsentationsdatei selbst und bleibt die Einstellung bei zukünftigen Öffnungen erhalten?**
+### Ändert die Konfiguration von Ersatzschriften die Präsentationsdatei selbst, und bleibt die Einstellung bei zukünftigen Öffnungen bestehen?
 
-Nein. Fallback‑Regeln sind Laufzeit‑Rendering‑Einstellungen in Ihrem Code; sie werden nicht in der .pptx gespeichert und erscheinen nicht in PowerPoint.
+Nein. Ersatzregeln sind Laufzeit-Rendering-Einstellungen in Ihrem Code; sie werden nicht in der .pptx gespeichert und erscheinen nicht in PowerPoint.
 
-**Beeinflussen das Betriebssystem (Windows/Linux/macOS) und die Menge der Schriftverzeichnisse die Auswahl von Fallbacks?**
+### Beeinflussen das Betriebssystem (Windows/Linux/macOS) und die Menge der Schriftordner die Auswahl von Ersatzschriften?
 
-Ja. Die Engine löst Schriftarten aus den verfügbaren Systemordnern und allen von Ihnen angegebenen [additional paths](/slides/de/androidjava/custom-font/) auf. Ist eine Schriftart physisch nicht verfügbar, kann eine Regel, die sie referenziert, nicht wirksam werden.
+Ja. Die Engine ermittelt Schriften aus den verfügbaren Systemordnern und allen [zusätzlichen Pfaden](/slides/de/androidjava/custom-font/), die Sie angeben. Wenn eine Schrift nicht physisch verfügbar ist, kann eine Regel, die sie referenziert, nicht wirksam werden.
 
-**Funktioniert Fallback für WordArt, SmartArt und Diagramme?**
+### Funktionieren Ersatzschriften für WordArt, SmartArt und Diagramme?
 
-Ja. Enthalten diese Objekte Text, wird derselbe Glyph‑Substitutions‑Mechanismus angewendet, um fehlende Zeichen darzustellen.
+Ja. Wenn diese Objekte Text enthalten, wird derselbe Glyph‑Substitutions‑Mechanismus angewendet, um fehlende Zeichen darzustellen.

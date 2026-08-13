@@ -1,44 +1,47 @@
 ---
-title: Androidon bemutatók hátterének kezelése
+title: Prezentáció hátterek kezelése Androidon
 linktitle: Dia háttér
 type: docs
 weight: 20
 url: /hu/androidjava/presentation-background/
 keywords:
-- bemutató háttér
+- prezentáció háttér
 - dia háttér
-- egyszínű szín
+- szilárd szín
 - színátmenetes szín
 - kép háttér
 - háttér átlátszóság
 - háttér tulajdonságok
 - PowerPoint
 - OpenDocument
-- bemutató
+- prezentáció
 - Android
 - Java
 - Aspose.Slides
-description: "Tanulja meg, hogyan állíthat be dinamikus háttereket PowerPoint és OpenDocument fájlokban az Aspose.Slides for Android segítségével Java nyelven, kódtippekkel, amelyek javítják bemutatóit."
+description: "Ismerje meg, hogyan állíthat be dinamikus háttereket PowerPoint és OpenDocument fájlokban az Androidra fejlesztett Aspose.Slides használatával Java nyelven, kódtippekkel, amelyek felgyorsítják prezentációit."
 ---
 ## **Bevezetés**
 
-Az egyszínű színek, a színátmenetek és a képek gyakran használatosak a diák háttérként. Beállíthatja a háttérképet egy **normál dia** (egyetlen diára) vagy egy **mesterdia** (több diára egyszerre) számára.
+Az egyszínű színek, a színátmenetek és a képek gyakran használatosak a diák háttereként. Beállíthatja a hátteret egy **normál dia** (egyes dia) vagy egy **master dia** (több diara egyszerre).
 
 ![PowerPoint background](powerpoint-background.png)
 
 ## **Egyszínű háttér beállítása normál diára**
 
-Az Aspose.Slides lehetővé teszi, hogy egy konkrét diára egyszínű színt állítson be háttérnek – még akkor is, ha a bemutató egy mesterdiát használ. A változás csak a kiválasztott diára vonatkozik.
+Az Aspose.Slides lehetővé teszi, hogy egy konkrét diához egy egyszínű hátteret állítson be a prezentációban – még akkor is, ha a prezentáció master diát használ. A módosítás csak a kiválasztott diára vonatkozik.
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
 2. Állítsa be a dia [BackgroundType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/backgroundtype/) értékét `OwnBackground`-ra.
 3. Állítsa be a dia háttér [FillType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/filltype/) értékét `Solid`-ra.
-4. Használja a [getSolidFillColor](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fillformat/#getSolidFillColor--) metódust a [FillFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fillformat/) osztályon a szilárd háttérszín megadásához.
-5. Mentse el a módosított bemutatót.
+4. Használja a [getSolidFillColor](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fillformat/#getSolidFillColor--) metódust a [FillFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fillformat/) osztályon a szilárd háttérszín meghatározásához.
+5. Mentse el a módosított prezentációt.
 
-A következő Java példa bemutatja, hogyan állíthat be kék egyszínű színt háttérként egy normál diára:
+A következő Java példa bemutatja, hogyan állíthat be kék szilárd színt háttérként egy normál diára:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Hozzon létre egy példányt a Presentation osztályból.
 Presentation presentation = new Presentation();
 try {
@@ -49,67 +52,79 @@ try {
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     
-    // Mentse el a bemutatót a lemezen.
+    // Mentse el a prezentációt a lemezen.
     presentation.save("SolidColorBackground.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Egyszínű háttér beállítása mesterdiára**
+## **Egyszínű háttér beállítása master diára**
 
-Az Aspose.Slides lehetővé teszi, hogy egyszínű színt állítson be a bemutató mesterdiájának háttérként. A mesterdia sablonként működik, amely az összes dia formázását szabályozza, így ha egyszínű színt választ a mesterdia háttérnek, az minden diára érvényes lesz.
+Az Aspose.Slides lehetővé teszi, hogy egy egyszínű hátteret állítson be a prezentáció master diájához. A master dia sablonként működik, amely a formázást minden diához szabályozza, ezért amikor egy egyszínű színt választ a master dia háttéréhez, az minden diára érvényes lesz.
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-2. Állítsa be a mesterdia [BackgroundType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/backgroundtype/) (a `getMasters` segítségével) értékét `OwnBackground`-ra.
-3. Állítsa be a mesterdia háttér [FillType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/filltype/) értékét `Solid`-ra.
-4. Használja a [getSolidFillColor](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fillformat/#getSolidFillColor--) metódust a szilárd háttérszín megadásához.
-5. Mentse el a módosított bemutatót.
+2. Állítsa be a master dia [BackgroundType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/backgroundtype/) (a `getMasters` segítségével) értékét `OwnBackground`-ra.
+3. Állítsa be a master dia háttér [FillType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/filltype/) értékét `Solid`-ra.
+4. Használja a [getSolidFillColor](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fillformat/#getSolidFillColor--) metódust a szilárd háttérszín meghatározásához.
+5. Mentse el a módosított prezentációt.
 
-A következő Java példa bemutatja, hogyan állíthat be egy szilárd színt (zöld) háttérként a mesterdia számára:
+A következő Java példa bemutatja, hogyan állíthat be egy zöld szilárd színt háttérként egy master diára:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Hozzon létre egy példányt a Presentation osztályból.
 Presentation presentation = new Presentation();
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
 
-    // Állítsa be a Mester dia háttérszínét erdőzöldre.
+    // Állítsa be a master dia háttérszínét zöldre.
     masterSlide.getBackground().setType(BackgroundType.OwnBackground);
     masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
     masterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
 
-    // Mentse el a bemutatót a lemezen.
+    // Mentse el a prezentációt a lemezen.
     presentation.save("MasterSlideBackground.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Színátmenetes háttér beállítása diára**
+## **Színátmenetes háttér beállítása diához**
 
-A színátmenet egy olyan grafikai hatás, amely fokozatos színváltozással jön létre. Diák háttérként használva a színátmenetek művészibbé és professzionálisabbá tehetik a bemutatókat. Az Aspose.Slides lehetővé teszi, hogy színátmenetes színű hátteret állítson be diákhoz.
+A színátmenet egy grafikus hatás, amely fokozatos színváltással jön létre. Diák háttérként használva a színátmenetek művészibbé és professzionálisabbá tehetik a prezentációkat. Az Aspose.Slides lehetővé teszi, hogy színátmenetes színt állítson be a diák háttérként.
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
 2. Állítsa be a dia [BackgroundType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/backgroundtype/) értékét `OwnBackground`-ra.
 3. Állítsa be a dia háttér [FillType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/filltype/) értékét `Gradient`-ra.
 4. Használja a [getGradientFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fillformat/#getGradientFormat--) metódust a [FillFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fillformat/) osztályon a kívánt színátmenet beállítások konfigurálásához.
-5. Mentse el a módosított bemutatót.
+5. Mentse el a módosított prezentációt.
 
 A következő Java példa bemutatja, hogyan állíthat be színátmenetes színt háttérként egy diára:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Hozzon létre egy példányt a Presentation osztályból.
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
     
-    // Alkalmazzon egy színátmenet hatást a háttérre.
+    // Alkalmazzon színátmenet hatást a háttérre.
     slide.getBackground().setType(BackgroundType.OwnBackground);
     slide.getBackground().getFillFormat().setFillType(FillType.Gradient);
-    slide.getBackground().getFillFormat().getGradientFormat().setTileFlip(TileFlip.FlipBoth);
 
-    // Mentse el a bemutatót a lemezen.
+    IGradientFormat gradientFormat = slide.getBackground().getFillFormat().getGradientFormat();
+    gradientFormat.setTileFlip(TileFlip.FlipBoth);
+
+    // Adja hozzá a színátmenet színeit. Gradient stopok nélkül a háttér alapértelmezett fekete-fehér színskálára visszaesik.
+    gradientFormat.getGradientStops().add(0f, Color.CYAN);
+    gradientFormat.getGradientStops().add(1f, Color.BLUE);
+
+    // Mentse el a prezentációt a lemezen.
     presentation.save("GradientBackground.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -118,19 +133,21 @@ try {
 
 ## **Kép beállítása diák háttérként**
 
-Az egyszínű és színátmenetes kitöltések mellett az Aspose.Slides lehetővé teszi képek használatát diák háttérként.
+Az egyszínű és színátmenetes kitöltéseken kívül az Aspose.Slides lehetővé teszi képek használatát diák háttérként.
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
 2. Állítsa be a dia [BackgroundType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/backgroundtype/) értékét `OwnBackground`-ra.
 3. Állítsa be a dia háttér [FillType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/filltype/) értékét `Picture`-ra.
-4. Töltse be a képet, amelyet diák háttérként szeretne használni.
-5. Adja hozzá a képet a bemutató képgyűjteményéhez.
-6. Használja a [getPictureFillFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fillformat/#getPictureFillFormat--) metódust a [FillFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fillformat/) osztályon a kép háttérként való hozzárendeléséhez.
-7. Mentse el a módosított bemutatót.
+4. Töltse be a képet, amelyet a diának háttérként szeretne használni.
+5. Adja hozzá a képet a prezentáció képgyűjteményéhez.
+6. Használja a [getPictureFillFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fillformat/#getPictureFillFormat--) metódust a [FillFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fillformat/) osztályon a kép háttérként történő hozzárendeléséhez.
+7. Mentse el a módosított prezentációt.
 
-A következő Java példa bemutatja, hogyan állíthat be képet háttérként egy diára:
+A következő Java példa bemutatja, hogyan állíthat be egy képet háttérként egy diára:
 
 ```java
+import com.aspose.slides.*;
+
 // Hozzon létre egy példányt a Presentation osztályból.
 Presentation presentation = new Presentation();
 try {
@@ -143,22 +160,24 @@ try {
     
     // Töltse be a képet.
     IImage image = Images.fromFile("Tulips.jpg");
-    // Add the image to the presentation's image collection.
+    // Adja hozzá a képet a prezentáció képgyűjteményéhez.
     IPPImage ppImage = presentation.getImages().addImage(image);
     image.dispose();
 
     slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(ppImage);
     
-    // Mentse el a bemutatót a lemezen.
+    // Mentse el a prezentációt a lemezen.
     presentation.save("ImageAsBackground.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-A következő kódrészlet bemutatja, hogyan állíthatja be a háttér kitöltését csempeképre, és módosíthatja a csempebeállításokat:
+A következő kódrészlet mutatja, hogyan állítható be a háttér kitöltési típusa csempézett képre, és módosíthatók a csempézés tulajdonságai:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide firstSlide = presentation.getSlides().get_Item(0);
@@ -172,11 +191,11 @@ try {
     IPPImage ppImage = presentation.getImages().addImage(newImage);
     newImage.dispose();
 
-    // Állítsa be a háttérkitöltéshez használt képet.
+    // A háttér kitöltéséhez használt kép beállítása.
     IPictureFillFormat backPictureFillFormat = background.getFillFormat().getPictureFillFormat();
     backPictureFillFormat.getPicture().setImage(ppImage);
 
-    // Állítsa be a képkitöltési módot Csempe-re, és módosítsa a csempe tulajdonságait.
+    // A kép kitöltési mód beállítása Csempére és a csempézés tulajdonságainak módosítása.
     backPictureFillFormat.setPictureFillMode(PictureFillMode.Tile);
     backPictureFillFormat.setTileOffsetX(15f);
     backPictureFillFormat.setTileOffsetY(15f);
@@ -191,53 +210,66 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-Olvassa el tovább: [**Tile Picture As Texture**](/slides/hu/androidjava/shape-formatting/#tile-picture-as-texture).
+{{% alert color="info" %}}
+További információ: [**Tile Picture As Texture**](/slides/hu/androidjava/shape-formatting/#tile-picture-as-texture).
 {{% /alert %}}
 
 ### **A háttérkép átlátszóságának módosítása**
 
-Előfordulhat, hogy a dia háttérképének átlátszóságát szeretné módosítani, hogy a dia tartalma kiemelkedjen. A következő Java kód bemutatja, hogyan változtathatja meg egy dia háttérképének átlátszóságát:
+Lehet, hogy a diák háttérkép átlátszóságát szeretné állítani, hogy a dia tartalma jobban kiemelkedjen. A következő Java kód bemutatja, hogyan változtathatja meg a diák háttérkép átlátszóságát:
 
 ```java
+import com.aspose.slides.*;
+
 int transparencyValue = 30; // Például.
 
-// Get the collection of picture transform operations.
-IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
-
-// Find an existing fixed-percentage transparency effect.
-IAlphaModulateFixed transparencyOperation = null;
-for (IImageTransformOperation operation : imageTransform) {
-    if (operation instanceof IAlphaModulateFixed) {
-        transparencyOperation = (IAlphaModulateFixed)operation;
-        break;
-    }
-}
-
-// Set the new transparency value.
-if (transparencyOperation == null) {
-    imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
-}
-else {
-    transparencyOperation.setAmount(100 - transparencyValue);
-}
-```
-
-## **Diák háttérérték lekérése**
-
-Az Aspose.Slides biztosítja a [IBackgroundEffectiveData](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibackgroundeffectivedata/) interfészt a dia tényleges háttérértékeinek lekérdezéséhez. Ez az interfész a tényleges [FillFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibackgroundeffectivedata/#getFillFormat--) és [EffectFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibackgroundeffectivedata/#getEffectFormat--) adatait teszi elérhetővé.
-
-A [BaseSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/baseslide/) osztály `getBackground` metódusával lekérheti egy dia tényleges háttérét.
-
-A következő Java példa bemutatja, hogyan lehet lekérni egy dia tényleges háttérértékét:
-
-```java
-// Hozzon létre egy példányt a Presentation osztályból.
 Presentation presentation = new Presentation("Sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Szerezze be a tényleges hátteret, figyelembe véve a mestert, elrendezést és a témát.
+    // A képtömörítés műveletek gyűjteményének lekérése.
+    IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+
+    // Keressen egy meglévő fix százalékos átlátszósági effektet.
+    IAlphaModulateFixed transparencyOperation = null;
+    for (IImageTransformOperation operation : imageTransform) {
+        if (operation instanceof IAlphaModulateFixed) {
+            transparencyOperation = (IAlphaModulateFixed)operation;
+            break;
+        }
+    }
+
+    // Az új átlátszósági érték beállítása.
+    if (transparencyOperation == null) {
+        imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
+    }
+    else {
+        transparencyOperation.setAmount(100 - transparencyValue);
+    }
+
+    presentation.save("TransparentBackground.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **A dia háttérértékének lekérdezése**
+
+Az Aspose.Slides biztosítja a [IBackgroundEffectiveData](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibackgroundeffectivedata/) interfészt a dia tényleges háttérértékeinek lekérdezéséhez. Ez az interfész elérhetővé teszi a tényleges [FillFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibackgroundeffectivedata/#getFillFormat--) és [EffectFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibackgroundeffectivedata/#getEffectFormat--) értékeket.
+
+A [BaseSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/baseslide/) osztály `getBackground` metódusával lekérheti a dia tényleges hátterét.
+
+A következő Java példa bemutatja, hogyan lehet lekérni egy dia tényleges háttérértékét:
+
+```java
+import com.aspose.slides.*;
+
+// Létrehoz egy példányt a Presentation osztályból.
+Presentation presentation = new Presentation("Sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    // Lekéri a tényleges hátteret, figyelembe véve a master, layout és téma beállításait.
     IBackgroundEffectiveData effBackground = slide.getBackground().getEffective();
     
     if (effBackground.getFillFormat().getFillType() == FillType.Solid)
@@ -251,10 +283,8 @@ try {
 
 ## **GYIK**
 
-**Visszaállíthatom-e az egyéni hátteret és helyreállíthatom a téma/layout hátteret?**
+### **Visszaállíthatom-e az egyéni hátteret és visszaállíthatom a téma/layoutháttér értékét?**
+Igen. Távolítsa el a dia egyéni kitöltését, és a háttér újra az adott [layout](/slides/hu/androidjava/slide-layout/)/[master](/slides/hu/androidjava/slide-master/) diához (azaz a [téma háttérhez](/slides/hu/androidjava/presentation-theme/)) lesz örökölve.
 
-Igen. Távolítsa el a dia egyéni kitöltését, és a háttér újra az adott [elrendezés](/slides/hu/androidjava/slide-layout/)/[mester](/slides/hu/androidjava/slide-master/) diáról lesz örökölve (azaz a [theme background](/slides/hu/androidjava/presentation-theme/) lesz).
-
-**Mi történik a háttérrel, ha később megváltoztatom a bemutató témáját?**
-
-Ha egy diának saját kitöltése van, az változatlan marad. Ha a háttér az [elrendezés](/slides/hu/androidjava/slide-layout/)/[mester](/slides/hu/androidjava/slide-master/) diától van örökölve, akkor frissül, hogy az [új téma](/slides/hu/androidjava/presentation-theme/) témához igazodjon.
+### **Mi történik a háttérrel, ha később megváltoztatom a prezentáció témáját?**
+Ha egy diához saját kitöltése van, az változatlan marad. Ha a háttér a [layout](/slides/hu/androidjava/slide-layout/)/[master](/slides/hu/androidjava/slide-master/) diáról van örökölve, akkor frissül, hogy megfeleljen az [új témának](/slides/hu/androidjava/presentation-theme/).

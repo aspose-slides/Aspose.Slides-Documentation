@@ -1,38 +1,40 @@
 ---
-title: Dapatkan Properti Efektif Bentuk dari Presentasi di Android
-linktitle: Properti Efektif
+title: "Mendapatkan Properti Efektif Bentuk dari Presentasi pada Android"
+linktitle: "Properti Efektif"
 type: docs
 weight: 50
 url: /id/androidjava/shape-effective-properties/
 keywords:
-- properti bentuk
-- properti kamera
-- rig cahaya
-- bentuk bevel
-- bingkai teks
-- gaya teks
-- tinggi font
-- format isian
-- PowerPoint
-- presentasi
-- Android
-- Java
-- Aspose.Slides
-description: "Temukan bagaimana Aspose.Slides untuk Android via Java menghitung dan menerapkan properti bentuk efektif untuk rendering PowerPoint yang presisi."
+- "properti bentuk"
+- "properti kamera"
+- "rig cahaya"
+- "bentuk bevel"
+- "kerangka teks"
+- "gaya teks"
+- "tinggi font"
+- "format isi"
+- "PowerPoint"
+- "presentasi"
+- "Android"
+- "Java"
+- "Aspose.Slides"
+description: "Temukan bagaimana Aspose.Slides untuk Android melalui Java menghitung dan menerapkan properti bentuk efektif untuk rendering PowerPoint yang tepat."
 ---
-## **Gambaran Umum**
+## **Ikhtisar**
 
-Topik ini menjelaskan perbedaan antara properti **lokal** dan **efektif**. Nilai lokal adalah nilai yang ditetapkan langsung pada tingkat format tertentu, seperti:
+Topik ini menjelaskan perbedaan antara properti **lokal** dan **efektif**. Nilai lokal adalah nilai yang diatur langsung pada tingkat pemformatan tertentu, seperti:
 
-1. Properti portion pada slide.  
-1. Gaya teks bentuk prototipe pada tata letak atau slide master, ketika bentuk bingkai teks portion memiliki satu.  
-1. Pengaturan teks global dalam sebuah presentasi.  
+1. Properti bagian pada sebuah slide.
+1. Gaya teks bentuk prototipe pada tata letak atau slide master, ketika bentuk kerangka teks bagian memiliki satu.
+1. Pengaturan teks global dalam sebuah presentasi.
 
-Nilai lokal dapat didefinisikan atau diabaikan pada tingkat mana pun. Ketika Aspose.Slides memerlukan format akhir “seperti yang dirender”, ia menyelesaikan rantai pewarisan dan mengembalikan nilai **efektif**. Anda dapat memperolehnya dengan memanggil metode `getEffective()` pada objek format lokal.
+Nilai lokal dapat didefinisikan atau diabaikan pada tingkat mana pun. Ketika Aspose.Slides membutuhkan pemformatan akhir “seperti yang dirender”, ia menyelesaikan rantai pewarisan dan mengembalikan nilai **efektif**. Anda dapat memperolehnya dengan memanggil metode `getEffective()` pada objek format lokal.
 
-Contoh berikut memperlihatkan cara mendapatkan nilai efektif. Contoh ini mengasumsikan bahwa bentuk pertama pada slide pertama adalah sebuah [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) dengan bingkai teks dan setidaknya satu portion.
+Contoh berikut menunjukkan cara mendapatkan nilai efektif. Contoh ini mengasumsikan bahwa bentuk pertama pada slide pertama adalah sebuah [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) dengan kerangka teks dan setidaknya satu bagian.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -48,17 +50,19 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-Data format efektif mewakili format yang dihitung saat ini setelah pewarisan diterapkan. Pada implementasi saat ini, beberapa objek data efektif, seperti [IPortionFormatEffectiveData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iportionformateffectivedata/), mungkin disimpan dalam cache secara internal. Memanggil `getEffective()` lagi setelah mengubah format induk atau yang diwarisi dapat menyegarkan data yang di-cache, dan objek yang sebelumnya diperoleh mungkin tidak lagi mewakili keadaan sebelumnya. Jika Anda perlu mempertahankan nilai efektif untuk penggunaan kembali nanti, salin properti yang diperlukan, seperti tinggi font, warna isian, gaya font, atau perataan, ke dalam objek data Anda sendiri.
+{{% alert color="info" %}}
+Data pemformatan efektif mewakili pemformatan terhitung saat ini setelah pewarisan diterapkan. Pada implementasi saat ini, beberapa objek data efektif, seperti [IPortionFormatEffectiveData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iportionformateffectivedata/), dapat disimpan dalam cache secara internal. Memanggil `getEffective()` lagi setelah mengubah pemformatan induk atau yang diwariskan dapat menyegarkan data yang di‑cache, dan objek yang sebelumnya diperoleh mungkin tidak lagi merepresentasikan keadaan sebelumnya. Jika Anda perlu menyimpan nilai efektif untuk digunakan kembali nanti, salin properti yang diperlukan, seperti tinggi font, warna isi, gaya font, atau perataan, ke dalam objek data Anda sendiri.
 {{% /alert %}}
 
-## **Dapatkan Properti Efektif dari Kamera**
+## **Mendapatkan Properti Efektif Kamera**
 
-Aspose.Slides memungkinkan Anda mendapatkan properti efektif dari kamera. Antarmuka [ICameraEffectiveData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/icameraeffectivedata/) mewakili sebuah objek tak berubah yang berisi properti kamera yang efektif. Sebuah instance [ICameraEffectiveData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/icameraeffectivedata/) disajikan melalui [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ithreedformateffectivedata/), yang menyediakan nilai efektif untuk [IThreeDFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ithreedformat/).
+Aspose.Slides memungkinkan Anda mendapatkan properti efektif kamera. Antarmuka [ICameraEffectiveData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/icameraeffectivedata/) merepresentasikan objek tak dapat diubah yang berisi properti kamera efektif. Sebuah instance [ICameraEffectiveData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/icameraeffectivedata/) diakses melalui [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ithreedformateffectivedata/), yang menyediakan nilai efektif untuk [IThreeDFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ithreedformat/).
 
-Contoh kode berikut memperlihatkan cara mendapatkan properti efektif untuk kamera. Contoh ini mengasumsikan bahwa bentuk pertama pada slide pertama memiliki format 3D.
+Potongan kode berikut menunjukkan cara mendapatkan properti efektif untuk kamera. Contoh ini mengasumsikan bahwa bentuk pertama pada slide pertama memiliki pemformatan 3D.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -76,13 +80,15 @@ try {
 }
 ```
 
-## **Dapatkan Properti Efektif dari Light Rig**
+## **Mendapatkan Properti Efektif Light Rig**
 
-Aspose.Slides memungkinkan Anda mendapatkan properti efektif dari light rig. Antarmuka [ILightRigEffectiveData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilightrigeffectivedata/) mewakili sebuah objek tak berubah yang berisi properti light rig yang efektif. Sebuah instance [ILightRigEffectiveData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilightrigeffectivedata/) disajikan melalui [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ithreedformateffectivedata/), yang menyediakan nilai efektif untuk [IThreeDFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ithreedformat/).
+Aspose.Slides memungkinkan Anda mendapatkan properti efektif light rig. Antarmuka [ILightRigEffectiveData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilightrigeffectivedata/) merepresentasikan objek tak dapat diubah yang berisi properti light rig efektif. Sebuah instance [ILightRigEffectiveData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilightrigeffectivedata/) diakses melalui [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ithreedformateffectivedata/), yang menyediakan nilai efektif untuk [IThreeDFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ithreedformat/).
 
-Contoh kode berikut memperlihatkan cara mendapatkan properti efektif untuk light rig. Contoh ini mengasumsikan bahwa bentuk pertama pada slide pertama memiliki format 3D.
+Potongan kode berikut menunjukkan cara mendapatkan properti efektif untuk light rig. Contoh ini mengasumsikan bahwa bentuk pertama pada slide pertama memiliki pemformatan 3D.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -99,13 +105,15 @@ try {
 }
 ```
 
-## **Dapatkan Properti Efektif dari Bentuk Bevel**
+## **Mendapatkan Properti Efektif Bevel Bentuk**
 
-Aspose.Slides memungkinkan Anda mendapatkan properti efektif dari bevel bentuk. Antarmuka [IShapeBevelEffectiveData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishapebeveleffectivedata/) mewakili sebuah objek tak berubah yang berisi properti relief wajah yang efektif untuk sebuah bentuk. Sebuah instance [IShapeBevelEffectiveData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishapebeveleffectivedata/) disajikan melalui [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ithreedformateffectivedata/), yang menyediakan nilai efektif untuk [IThreeDFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ithreedformat/).
+Aspose.Slides memungkinkan Anda mendapatkan properti efektif bevel bentuk. Antarmuka [IShapeBevelEffectiveData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishapebeveleffectivedata/) merepresentasikan objek tak dapat diubah yang berisi properti relief muka efektif untuk sebuah bentuk. Sebuah instance [IShapeBevelEffectiveData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishapebeveleffectivedata/) diakses melalui [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ithreedformateffectivedata/), yang menyediakan nilai efektif untuk [IThreeDFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ithreedformat/).
 
-Contoh kode berikut memperlihatkan cara mendapatkan properti efektif untuk bevel atas sebuah bentuk. Contoh ini mengasumsikan bahwa bentuk pertama pada slide pertama memiliki format 3D.
+Potongan kode berikut menunjukkan cara mendapatkan properti efektif untuk bevel atas sebuah bentuk. Contoh ini mengasumsikan bahwa bentuk pertama pada slide pertama memiliki pemformatan 3D.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -123,13 +131,15 @@ try {
 }
 ```
 
-## **Dapatkan Properti Efektif dari Bingkai Teks**
+## **Mendapatkan Properti Efektif Kerangka Teks**
 
-Dengan Aspose.Slides, Anda dapat memperoleh properti efektif dari bingkai teks. Antarmuka [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframeformateffectivedata/) berisi properti format bingkai teks yang efektif.
+Dengan Aspose.Slides, Anda dapat mendapatkan properti efektif kerangka teks. Antarmuka [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframeformateffectivedata/) berisi properti pemformatan kerangka teks efektif.
 
-Contoh kode berikut memperlihatkan cara mendapatkan properti format bingkai teks yang efektif. Contoh ini mengasumsikan bahwa bentuk pertama pada slide pertama adalah sebuah [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) dengan bingkai teks.
+Potongan kode berikut menunjukkan cara mendapatkan properti pemformatan kerangka teks efektif. Contoh ini mengasumsikan bahwa bentuk pertama pada slide pertama adalah sebuah [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) dengan kerangka teks.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -150,13 +160,15 @@ try {
 }
 ```
 
-## **Dapatkan Properti Efektif dari Gaya Teks**
+## **Mendapatkan Properti Efektif Gaya Teks**
 
-Dengan Aspose.Slides, Anda dapat memperoleh properti efektif dari gaya teks. Antarmuka [ITextStyleEffectiveData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextstyleeffectivedata/) berisi properti gaya teks yang efektif.
+Dengan Aspose.Slides, Anda dapat mendapatkan properti efektif gaya teks. Antarmuka [ITextStyleEffectiveData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextstyleeffectivedata/) berisi properti gaya teks efektif.
 
-Contoh kode berikut memperlihatkan cara mendapatkan properti gaya teks yang efektif. Contoh ini mengasumsikan bahwa bentuk pertama pada slide pertama adalah sebuah [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) dengan bingkai teks.
+Potongan kode berikut menunjukkan cara mendapatkan properti gaya teks efektif. Contoh ini mengasumsikan bahwa bentuk pertama pada slide pertama adalah sebuah [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) dengan kerangka teks.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -180,11 +192,13 @@ try {
 }
 ```
 
-## **Dapatkan Nilai Tinggi Font Efektif**
+## **Mendapatkan Nilai Tinggi Font Efektif**
 
-Dengan Aspose.Slides, Anda dapat memperoleh tinggi font yang efektif. Kode berikut menunjukkan bagaimana tinggi font efektif sebuah portion berubah setelah nilai tinggi font lokal ditetapkan pada tingkat struktur presentasi yang berbeda.
+Dengan Aspose.Slides, Anda dapat mendapatkan tinggi font yang efektif. Kode berikut mendemonstrasikan bagaimana tinggi font efektif bagian berubah setelah nilai tinggi font lokal diatur pada tingkat struktur presentasi yang berbeda.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -255,13 +269,15 @@ try {
 }
 ```
 
-## **Dapatkan Format Isi Efektif untuk Tabel**
+## **Mendapatkan Format Isi Efektif untuk Tabel**
 
-Dengan Aspose.Slides, Anda dapat memperoleh format isi yang efektif untuk berbagai bagian tabel. Antarmuka [IFillFormatEffectiveData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ifillformateffectivedata/) berisi properti format isi yang efektif. Format sel memiliki prioritas lebih tinggi daripada format baris, format baris memiliki prioritas lebih tinggi daripada format kolom, dan format kolom memiliki prioritas lebih tinggi daripada format seluruh tabel.
+Dengan Aspose.Slides, Anda dapat mendapatkan pemformatan isi efektif untuk berbagai bagian tabel. Antarmuka [IFillFormatEffectiveData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ifillformateffectivedata/) berisi properti pemformatan isi efektif. Pemformatan sel memiliki prioritas lebih tinggi daripada pemformatan baris, pemformatan baris lebih tinggi daripada pemformatan kolom, dan pemformatan kolom lebih tinggi daripada pemformatan seluruh tabel.
 
-Akibatnya, properti [ICellFormatEffectiveData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/icellformateffectivedata/) digunakan untuk menggambar sel tabel. Contoh kode berikut memperlihatkan cara mendapatkan format isi efektif untuk berbagai bagian tabel. Contoh ini mengasumsikan bahwa bentuk pertama pada slide pertama adalah sebuah [ITable](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itable/).
+Akibatnya, properti [ICellFormatEffectiveData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/icellformateffectivedata/) digunakan untuk menggambar sel tabel. Potongan kode berikut menunjukkan cara mendapatkan pemformatan isi efektif untuk berbagai bagian tabel. Contoh ini mengasumsikan bahwa bentuk pertama pada slide pertama adalah sebuah [ITable](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itable/).
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -282,34 +298,34 @@ try {
 
 ## **FAQ**
 
-**Apakah `getEffective()` mengembalikan snapshot?**
+### Apakah `getEffective()` mengembalikan snapshot?
 
-Tidak selalu. Data efektif mewakili format yang dihitung setelah pewarisan diterapkan, tetapi beberapa objek data efektif dapat disimpan dalam cache secara internal. Panggilan `getEffective()` berikutnya dapat menghitung ulang format dan menyegarkan data yang di-cache, sehingga objek yang diperoleh sebelumnya tidak boleh dianggap sebagai snapshot yang tahan lama.
+Tidak selalu. Data efektif merepresentasikan pemformatan yang dihitung setelah pewarisan diterapkan, tetapi beberapa objek data efektif dapat disimpan dalam cache secara internal. Pemanggilan `getEffective()` berikutnya dapat menghitung ulang pemformatan dan menyegarkan data yang di‑cache, sehingga objek yang sebelumnya diperoleh tidak boleh diperlakukan sebagai snapshot yang tahan lama.
 
-**Kapan saya harus membaca properti efektif lagi?**
+### Kapan saya harus membaca kembali properti efektif?
 
-Panggil `getEffective()` lagi setelah mengubah format lokal, gaya induk, format tata letak, format master, atau default tingkat presentasi. Panggilan berikutnya akan mengevaluasi kembali hierarki format dan mengembalikan hasil efektif saat ini.
+Panggil `getEffective()` lagi setelah mengubah pemformatan lokal, gaya induk, pemformatan tata letak, pemformatan master, atau nilai default pada tingkat presentasi. Panggilan berikutnya akan mengevaluasi ulang hierarki pemformatan dan mengembalikan hasil efektif saat ini.
 
-**Apakah mengubah atau menghapus slide layout/master memengaruhi properti efektif yang sudah diambil?**
+### Apakah mengubah atau menghapus slide tata letak/master memengaruhi properti efektif yang sudah diambil?
 
-Ya, tetapi perubahan tersebut tercermin pada pemanggilan `getEffective()` berikutnya. Jika sumber format induk diubah atau dihapus, data efektif yang sebelumnya diperoleh mungkin sudah usang. Setelah `getEffective()` dipanggil lagi, Aspose.Slides akan mengevaluasi kembali pohon format dan font, warna, ukuran, atau nilai lainnya dapat berubah.
+Ya, tetapi perubahan tersebut tercermin pada pemanggilan `getEffective()` berikutnya. Jika sumber pemformatan induk diubah atau dihapus, data efektif yang sudah diperoleh sebelumnya mungkin sudah usang. Setelah `getEffective()` dipanggil lagi, Aspose.Slides mengevaluasi ulang pohon pemformatan dan font, warna, ukuran, atau nilai lainnya dapat berubah.
 
-**Bisakah saya mengubah nilai melalui objek data efektif?**
+### Dapatkah saya memodifikasi nilai melalui objek data efektif?
 
-Tidak. Objek data efektif hanya menampilkan nilai yang dihitung. Lakukan perubahan pada objek format lokal, lalu peroleh nilai efektif kembali.
+Tidak. Objek data efektif hanya menampilkan nilai yang telah dihitung. Lakukan perubahan pada objek pemformatan lokal, kemudian peroleh kembali nilai efektif.
 
-**Apa yang terjadi jika properti tidak diatur pada tingkat bentuk, maupun pada layout/master, maupun pada pengaturan global?**
+### Apa yang terjadi jika sebuah properti tidak diatur pada tingkat bentuk, tata letak/master, maupun pengaturan global?
 
-Nilai efektif ditentukan oleh mekanisme default, yang mencakup nilai default PowerPoint dan Aspose.Slides. Nilai yang teridentifikasi menjadi bagian dari data efektif saat ini.
+Nilai efektif ditentukan oleh mekanisme default, yang mencakup nilai default PowerPoint dan Aspose.Slides. Nilai yang diselesaikan tersebut menjadi bagian dari data efektif saat ini.
 
-**Dari nilai font efektif, dapatkah saya mengetahui level mana yang menyediakan ukuran atau jenis huruf?**
+### Dari nilai font efektif, dapatkah saya mengetahui tingkat mana yang menyediakan ukuran atau jenis hurufnya?
 
-Tidak secara langsung. Data efektif hanya mengembalikan nilai akhir. Untuk menemukan sumbernya, periksa nilai lokal pada portion, paragraf, bingkai teks, dan gaya teks pada tingkat layout, master, dan presentasi untuk melihat di mana definisi eksplisit pertama muncul.
+Tidak secara langsung. Data efektif mengembalikan nilai final. Untuk menemukan sumbernya, periksa nilai lokal pada bagian, paragraf, kerangka teks, dan gaya teks pada tata letak, master, serta tingkat presentasi untuk melihat di mana definisi eksplisit pertama muncul.
 
-**Mengapa nilai efektif kadang terlihat identik dengan nilai lokal?**
+### Mengapa nilai efektif kadang terlihat identik dengan nilai lokal?
 
-Karena nilai lokal akhirnya menjadi nilai akhir (tidak diperlukan pewarisan dari tingkat yang lebih tinggi). Dalam kasus tersebut, nilai efektif sama dengan nilai lokal.
+Karena nilai lokal ternyata merupakan nilai final (tidak diperlukan pewarisan tingkat lebih tinggi). Dalam kasus tersebut, nilai efektif sama dengan nilai lokal.
 
-**Kapan saya harus menggunakan properti efektif, dan kapan saya hanya bekerja dengan properti lokal?**
+### Kapan saya harus menggunakan properti efektif, dan kapan saya hanya harus bekerja dengan nilai lokal?
 
-Gunakan data efektif ketika Anda membutuhkan hasil “seperti yang dirender” setelah semua pewarisan diterapkan, misalnya untuk menyelaraskan warna, indentasi, atau ukuran. Jika Anda perlu mempertahankan nilai-nilai tersebut terlepas dari perubahan format nantinya, salin properti yang diperlukan ke dalam objek Anda sendiri. Jika Anda perlu mengubah format pada tingkat tertentu, ubah properti lokal dan kemudian, bila diperlukan, baca kembali data efektif untuk memverifikasi hasilnya.
+Gunakan data efektif ketika Anda memerlukan hasil “seperti yang dirender” setelah semua pewarisan diterapkan, misalnya untuk menyelaraskan warna, indentasi, atau ukuran. Jika Anda perlu mempertahankan nilai tersebut terlepas dari perubahan pemformatan di masa mendatang, salin properti yang diperlukan ke dalam objek Anda sendiri. Jika Anda perlu mengubah pemformatan pada tingkat tertentu, modifikasi properti lokal dan kemudian, bila diperlukan, baca kembali data efektif untuk memverifikasi hasilnya.

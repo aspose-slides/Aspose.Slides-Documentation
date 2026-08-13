@@ -6,31 +6,31 @@ weight: 220
 url: /fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/
 keywords:
 - مهاجرت
-- کدهای قدیمی
-- کدهای مدرن
+- کد قدیمی
+- کد مدرن
 - رویکرد قدیمی
 - رویکرد مدرن
-- پاورپوینت
+- PowerPoint
 - OpenDocument
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "به‌روزرسانی‌های API عمومی و تغییرات ناسازگار در Aspose.Slides برای .NET را بررسی کنید تا به‌صورت یکپارچه راه‌حل‌های ارائه PowerPoint (PPT, PPTX) و ODP خود را مهاجرت دهید."
+description: "به‌روزرسانی‌های API عمومی و تغییرات ناسازگار در Aspose.Slides برای .NET را بررسی کنید تا بتوانید راه‌حل‌های ارائه PowerPoint (PPT، PPTX) و ODP خود را به‌صورت روان مهاجرت دهید."
 ---
-{{% alert color="primary" %}} 
-
-این صفحه تمام کلاس‌ها، متدها، خصوصیات و موارد مشابهی که [اضافه‌شده](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) یا [حذف‌شده](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) هستند، و سایر تغییراتی که در API Aspose.Slides برای .NET نسخه 16.1.0 معرفی شده‌اند را فهرست می‌کند.
-
+{{% alert color="info" %}} 
+این صفحه تمام کلاس‌ها، متدها، ویژگی‌ها و غیره که [اضافه‌شده](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) یا [حذف‌شده](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) هستند و سایر تغییرات معرفی‌شده در API Aspose.Slides for .NET 16.1.0 را فهرست می‌کند.
 {{% /alert %}} 
 ## **تغییرات API عمومی**
 
-
-#### **ویژگی RotationAngle به اینترفیس‌های IChartTextBlockFormat و ITextFrameFormat اضافه شد**
-ویژگی RotationAngle به اینترفیس‌های Aspose.Slides.Charts.IChartTextBlockFormat و Aspose.Slides.ITextFrameFormat اضافه شده است.
-این ویژگی چرخش سفارشی را که بر روی متن داخل کادر مرزی اعمال می‌شود، مشخص می‌کند.
+#### **ویژگی RotationAngle به اینترفیس‌های IChartTextBlockFormat و ITextFrameFormat اضافه شده است**
+ویژگی RotationAngle به اینترفیس‌های Aspose.Slides.Charts.IChartTextBlockFormat و Aspose.Slides.ITextFrameFormat اضافه شده است. این ویژگی چرخش سفارشی که بر متن داخل جعبه مرزی اعمال می‌شود را مشخص می‌کند.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -54,4 +54,4 @@ pres.Save("out.pptx", SaveFormat.Pptx);
 
 
 ``` 
-#### **OdpException از Aspose.Slides.Odp به فضای نام Aspose.Slides منتقل شد**
+#### **استثنای OdpException از Aspose.Slides.Odp به فضای نام Aspose.Slides منتقل شد**

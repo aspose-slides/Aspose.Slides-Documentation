@@ -15,9 +15,9 @@ keywords:
 - Aspose.Slides
 description: "Przenieś automatyzację Microsoft Office do Aspose.Slides dla Javy i twórz tabele w slajdach PowerPoint (PPT, PPTX) w Javie z elastycznym formatowaniem."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Tabele są powszechnie używane do wyświetlania danych na slajdach prezentacji. Ten artykuł pokazuje, jak programowo utworzyć tabelę 15 × 15 o rozmiarze czcionki 10, najpierw przy użyciu [VSTO 2008](/slides/pl/java/creating-a-table-on-powerpoint-slide/) i następnie [Aspose.Slides for Java](/slides/pl/java/creating-a-table-on-powerpoint-slide/).
+Tabele są powszechnie używane do wyświetlania danych na slajdach prezentacji. Ten artykuł pokazuje, jak programowo utworzyć tabelę 15 x 15 o rozmiarze czcionki 10, najpierw przy użyciu [VSTO 2008](/slides/pl/java/creating-a-table-on-powerpoint-slide/), a następnie [Aspose.Slides for Java](/slides/pl/java/creating-a-table-on-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **Tworzenie tabel**
@@ -26,7 +26,7 @@ Poniższe kroki dodają tabelę do slajdu Microsoft PowerPoint przy użyciu VSTO
 
 1. Utwórz prezentację.
 1. Dodaj pusty slajd do prezentacji.
-1. Dodaj tabelę 15 × 15 do slajdu.
+1. Dodaj tabelę 15 x 15 do slajdu.
 1. Dodaj tekst do każdej komórki tabeli o rozmiarze czcionki 10.
 1. Zapisz prezentację na dysku.
 
@@ -37,7 +37,7 @@ Poniższe kroki dodają tabelę do slajdu Microsoft PowerPoint przy użyciu VSTO
 Poniższe kroki dodają tabelę do slajdu Microsoft PowerPoint przy użyciu Aspose.Slides:
 
 1. Utwórz prezentację.
-1. Dodaj tabelę 15 × 15 do pierwszego slajdu.
+1. Dodaj tabelę 15 x 15 do pierwszego slajdu.
 1. Dodaj tekst do każdej komórki tabeli o rozmiarze czcionki 10.
 1. Zapisz prezentację na dysku.
 

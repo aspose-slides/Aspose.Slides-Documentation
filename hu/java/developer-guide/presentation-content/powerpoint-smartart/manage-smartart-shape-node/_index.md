@@ -8,7 +8,7 @@ keywords:
 - SmartArt csomópont
 - gyermekcsomópont
 - csomópont hozzáadása
-- csomópont pozíció
+- csomópont pozíciója
 - csomópont elérése
 - csomópont eltávolítása
 - egyéni pozíció
@@ -19,36 +19,38 @@ keywords:
 - prezentáció
 - Java
 - Aspose.Slides
-description: "SmartArt alakzat csomópontok kezelése PPT és PPTX fájlokban az Aspose.Slides for Java segítségével. Szerezzen világos kódpéldákat és tippeket a prezentációk hatékonyabbá tételéhez."
+description: "Kezelje a SmartArt alakzat csomópontjait PPT és PPTX fájlokban az Aspose.Slides for Java segítségével. Kapjon világos kódrészleteket és tippeket a prezentációk hatékonyabbá tételéhez."
 ---
 ## **Áttekintés**
 
-A PowerPoint‑prezentációkban a SmartArt grafikonok csomópontokkal vannak szervezve, amelyek szöveget tartalmaznak, és meghatározzák a diagram felépítését. Az Aspose.Slides lehetővé teszi ezen SmartArt csomópontok programozott kezelését: új csomópontok és gyermekcsomópontok hozzáadása, gyermekcsomópontok beszúrása meghatározott pozícióba, létező csomópontok elérése, valamint a szöveg, szint és pozíció kiolvasása.
+PowerPoint‑prezentációk SmartArt‑grafikái csomópontok segítségével vannak szervezve, amelyek szöveget tartalmaznak és meghatározzák a diagram felépítését. Az Aspose.Slides lehetővé teszi, hogy programozott módon kezelje ezeket a SmartArt‑csomópontokat: új csomópontok és gyermekcsomópontok hozzáadása, gyermekcsomópontok beszúrása adott pozícióban, meglévő csomópontok elérése, valamint szövegük, szintjük és pozíciójuk olvasása.
 
-Ez a cikk bemutatja, hogyan kezelhetők a SmartArt alakzat csomópontjai. Megmutatja, hogyan távolíthatók el a csomópontok, hogyan dolgozhatunk a gyermekcsomópontokkal index vagy pozíció alapján, hogyan alakítható egy asszisztens csomópont normál csomóponttá, hogyan állítható be a SmartArt csomópont alakzatok pozíciója, mérete és forgatása, hogyan állítható be a csomópont kitöltési formátuma, illetve hogyan generálható bélyegkép egy SmartArt gyermekcsomópontról.
+Ez a cikk bemutatja a SmartArt‑alak csomópontok kezelését. Megmutatja, hogyan lehet csomópontokat eltávolítani, gyermekcsomópontokkal index vagy pozíció szerint dolgozni, egy asszisztens csomópontot normál csomópontra változtatni, a SmartArt‑csomópont alakzatok pozícióját, méretét és forgását beállítani, a csomópont kitöltési formátumát megadni, valamint előnézeti képet (thumbnail) generálni egy SmartArt‑gyermekcsomópontról.
 
 ## **SmartArt csomópont hozzáadása**
-Az Aspose.Slides for Java a legegyszerűbb API‑t biztosítja a SmartArt alakzatok kezeléséhez. Az alábbi mintakód segít csomópont és gyermekcsomópont hozzáadásában egy SmartArt alakzatba.
+Az Aspose.Slides for Java a legegyszerűbb API‑t biztosítja a SmartArt alakzatok kezeléséhez a legegyszerűbb módon. Az alábbi mintakód segít csomópont és gyermekcsomópont hozzáadásában egy SmartArt alakzaton belül.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/Presentation) osztályból, és töltse be a prezentációt SmartArt alakzattal.
-1. Szerezze meg az első dia hivatkozását az indexe alapján.
-1. Járja be az első diában lévő összes alakzatot.
-1. Ellenőrizze, hogy az alakzat [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArt) típusú‑e, és ha igen, típuskonvertálja a kijelölt alakzatot [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArt) típusra.
+1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/Presentation) osztálypéldányt, és töltse be a prezentációt a SmartArt alakzattal.
+1. Szerezze meg az első dia hivatkozását az Index használatával.
+1. Iteráljon végig az első dián található összes alakzaton.
+1. Ellenőrizze, hogy az alakzat [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArt) típusú-e, és ha igen, tüntesse át a kiválasztott alakzatot [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArt) típusra.
 1. [Add a new Node](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArtNodeCollection#addNode--) a SmartArt alakzat [**NodeCollection**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArt#getAllNodes--)‑be, és állítsa be a szöveget a TextFrame‑ben.
-1. Most, [Add](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArtNodeCollection#addNode--) egy [**Child Node**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArtNode#getChildNodes--) az újonnan hozzáadott [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArt) csomópontban, és állítsa be a szöveget a TextFrame‑ben.
+1. Ezután [Add](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArtNodeCollection#addNode--) egy [**Child Node**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArtNode#getChildNodes--) az újonnan hozzáadott [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArt) csomópontba, és állítsa be a szöveget a TextFrame‑ben
 1. Mentse a prezentációt.
 
 ```java
-// Betölti a kívánt prezentációt
+import com.aspose.slides.*;
+
+// Töltsük be a kívánt prezentációt
 Presentation pres = new Presentation("SimpleSmartArt.pptx");
 try {
-    // Bejárja az első dián belüli összes alakzatot
+    // Iteráljon végig az első dia minden alakzaton
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
-        // Ellenőrzi, hogy az alakzat SmartArt típusú-e
+        // Ellenőrizze, hogy az alakzat SmartArt típusú-e
         if (shape instanceof SmartArt) 
         {
-            // Átalakítja az alakzatot SmartArt típusra
+            // Típuskonvertálja az alakzatot SmartArt-ra
             SmartArt smart = (SmartArt) shape;
     
             // Új SmartArt csomópont hozzáadása
@@ -57,7 +59,7 @@ try {
             // Szöveg hozzáadása
             TemNode.getTextFrame().setText("Test");
     
-            // Új gyermekcsomópont hozzáadása a szülőcsomóponthoz. A gyűjtemény végére kerül.
+            // Új gyermekcsomópont hozzáadása a szülőcsomóponthoz. A gyűjtemény végén lesz hozzáadva
             SmartArtNode newNode = (SmartArtNode) TemNode.getChildNodes().addNode();
     
             // Szöveg hozzáadása
@@ -72,17 +74,19 @@ try {
 }
 ```
 
-## **SmartArt csomópont hozzáadása meghatározott pozícióban**
-Az alábbi mintakódban ismertetjük, hogyan adhatók hozzá a megfelelő SmartArt csomópontok gyermekcsomópontjai egy konkrét pozícióban.
+## **SmartArt csomópont hozzáadása adott pozícióban**
+Az alábbi mintakódban bemutattuk, hogyan adhatjuk hozzá a SmartArt alakzat megfelelő csomópontjaihoz tartozó gyermekcsomópontokat egy meghatározott pozícióban.
 
 1. Hozzon létre egy Presentation osztálypéldányt.
-1. Szerezze meg az első dia hivatkozását az indexe alapján.
-1. Adjon hozzá egy [**StackedList**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/SmartArtLayoutType#StackedList) típusú [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/SmartArt) alakzatot a megnyitott dián.
-1. Érje el az első csomópontot a hozzáadott SmartArt alakzatban.
-1. Most, adja hozzá a [**Child Node**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArtNode#getChildNodes--) elemet a kiválasztott [**Node**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/SmartArtNode) 2. pozíciójába, és állítsa be a szöveget.
+1. Szerezze meg az első dia hivatkozását az Index használatával.
+1. Adjon hozzá egy [**StackedList**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/SmartArtLayoutType#StackedList) típusú [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/SmartArt) alakzatot a lekért dián.
+1. Szerezze meg az első csomópontot a hozzáadott SmartArt alakzatban.
+1. Ezután adja hozzá a [**Child Node**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArtNode#getChildNodes--) a kiválasztott [**Node**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/SmartArtNode) számára a 2. pozícióban, és állítsa be a szövegét.
 1. Mentse a prezentációt.
 
 ```java
+import com.aspose.slides.*;
+
 // Prezentáció példány létrehozása
 Presentation pres = new Presentation();
 try {
@@ -92,10 +96,10 @@ try {
     // Smart Art IShape hozzáadása
     ISmartArt smart = slide.getShapes().addSmartArt(0, 0, 400, 400, SmartArtLayoutType.StackedList);
 
-    // A 0 indexű SmartArt csomópont elérése
+    // A SmartArt csomópont elérése 0 indexen
     ISmartArtNode node = smart.getAllNodes().get_Item(0);
 
-    // Új gyermekcsomópont hozzáadása a szülőcsomópontban 2. pozícióban
+    // Új gyermekcsomópont hozzáadása a szülőcsomópontban a 2. pozíción
     SmartArtNode chNode = (SmartArtNode) ((SmartArtNodeCollection) node.getChildNodes()).addNodeByPosition(2);
 
     // Szöveg hozzáadása
@@ -109,32 +113,34 @@ try {
 ```
 
 ## **SmartArt csomópont elérése**
-Az alábbi mintakód segít a SmartArt alakzatban lévő csomópontok elérésében. Vegye figyelembe, hogy a SmartArt LayoutType‑ja csak olvasható, és csak a SmartArt alakzat hozzáadása során állítható be.
+Az alábbi mintakód segít a SmartArt alakzaton belüli csomópontok elérésében. Kérjük, vegye figyelembe, hogy a SmartArt LayoutType‑ját nem lehet módosítani, mivel csak olvasható, és csak a SmartArt alakzat hozzáadása során állítható be.
 
-1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation) osztálypéldányt, és töltse be a prezentációt SmartArt alakzattal.
-1. Szerezze meg az első dia hivatkozását az indexe alapján.
-1. Járja be az első diában lévő összes alakzatot.
-1. Ellenőrizze, hogy az alakzat [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArt) típusú‑e, és ha igen, típuskonvertálja a kijelölt alakzatot [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArt) típusra.
-1. Járja be az összes [**Nodes**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/SmartArt#getAllNodes--) elemet a SmartArt alakzatban.
-1. Érje el és jelenítse meg a SmartArt csomópont pozícióját, szintjét és szövegét.
+1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation) osztálypéldányt, és töltse be a prezentációt a SmartArt alakzattal.
+1. Szerezze meg az első dia hivatkozását az Index használatával.
+1. Iteráljon végig az első dián található összes alakzaton.
+1. Ellenőrizze, hogy az alakzat [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArt) típusú-e, és ha igen, tüntesse át a kiválasztott alakzatot [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArt) típusra.
+1. Iteráljon végig az összes [**Nodes**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/SmartArt#getAllNodes--) a SmartArt alakzaton belül.
+1. Érje el és jelenítse meg az információkat, például a SmartArt csomópont pozícióját, szintjét és szövegét.
 
 ```java
-// Presentation osztály példányosítása
+import com.aspose.slides.*;
+
+// Prezentáció osztály példányosítása
 Presentation pres = new Presentation("SmartArtShape.pptx");
 try {
-    // Az első dia lekérése
+    // Első dia lekérése
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Bejárja az első dián belüli összes alakzatot
+    // Az első dián található összes alakzat bejárása
     for (IShape shape : slide.getShapes()) 
     {
-        // Ellenőrzi, hogy az alakzat SmartArt típusú-e
+        // Ellenőrizze, hogy az alakzat SmartArt típusú-e
         if (shape instanceof ISmartArt) 
         {
-            // Átalakítja az alakzatot SmartArt típusra
+            // Típuskonvertálja az alakzatot SmartArt-ra
             ISmartArt smart = (ISmartArt) shape;
     
-            // Bejárja a SmartArt összes csomópontját
+            // Az összes csomópont bejárása a SmartArt-ban
             for (int i = 0; i < smart.getAllNodes().size(); i++) 
             {
                 // A SmartArt csomópont elérése i indexen
@@ -151,33 +157,35 @@ try {
 ```
 
 ## **SmartArt gyermekcsomópont elérése**
-Az alábbi mintakód segít a SmartArt alakzat megfelelő csomópontjainak gyermekcsomópontjainak elérésében.
+Az alábbi mintakód segít a SmartArt alakzat megfelelő csomópontjaihoz tartozó gyermekcsomópontok elérésében.
 
-1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation) osztálypéldányt, és töltse be a prezentációt SmartArt alakzattal.
-1. Szerezze meg a második dia hivatkozását az indexe alapján.
-1. Járja be az első diában lévő összes alakzatot.
-1. Ellenőrizze, hogy az alakzat [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArt) típusú‑e, és ha igen, típuskonvertálja a kijelölt alakzatot [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArt) típusra.
-1. Járja be az összes [**Nodes**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/SmartArt#getAllNodes--) elemet a SmartArt alakzatban.
-1. Minden kiválasztott SmartArt [**Node**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/SmartArtNode) esetén járja be az adott csomópont összes [**Child Nodes**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/SmartArtNode#getChildNodes--) elemét.
-1. Érje el és jelenítse meg a [**Child Node**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArtNode#getChildNodes--) pozícióját, szintjét és szövegét.
+1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation) osztálypéldányt, és töltse be a prezentációt a SmartArt alakzattal.
+1. Szerezze meg az első dia hivatkozását az Index használatával.
+1. Iteráljon végig az első dián található összes alakzaton.
+1. Ellenőrizze, hogy az alakzat [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArt) típusú-e, és ha igen, tüntesse át a kiválasztott alakzatot [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArt) típusra.
+1. Iteráljon végig az összes [**Nodes**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/SmartArt#getAllNodes--) a SmartArt alakzaton belül.
+1. Minden kiválasztott SmartArt alakzat [**Node**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/SmartArtNode) esetén iteráljon végig az adott csomóponton belüli összes [**Child Nodes**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/SmartArtNode#getChildNodes--) elemen.
+1. Érje el és jelenítse meg az információkat, például a [**Child Node**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArtNode#getChildNodes--) pozícióját, szintjét és szövegét.
 
 ```java
-// Presentation osztály példányosítása
+import com.aspose.slides.*;
+
+// Prezentáció osztály példányosítása
 Presentation pres = new Presentation("AccessChildNodes.pptx");
 try {
-    // Az első dia lekérése
+    // Első dia lekérése
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Bejárja az első dián belüli összes alakzatot
+    // Az első dián található minden alakzat bejárása
     for (IShape shape : slide.getShapes()) 
     {
-        // Ellenőrzi, hogy az alakzat SmartArt típusú-e
+        // Ellenőrizze, hogy az alakzat SmartArt típusú-e
         if (shape instanceof ISmartArt) 
         {
-            // Átalakítja az alakzatot SmartArt típusra
+            // Típuskonvertálja az alakzatot SmartArt-ra
             ISmartArt smart = (ISmartArt) shape;
     
-            // Bejárja a SmartArt összes csomópontját
+            // Az összes csomópont bejárása a SmartArt-ban
             for (int i = 0; i < smart.getAllNodes().size(); i++) 
             {
                 // A SmartArt csomópont elérése i indexen
@@ -200,19 +208,21 @@ try {
 }
 ```
 
-## **SmartArt gyermekcsomópont elérése meghatározott pozícióban**
-Ebben a példában megtanuljuk, hogyan érhetők el a gyermekcsomópontok egy adott pozícióban a SmartArt megfelelő csomópontjainál.
+## **SmartArt gyermekcsomópont elérése adott pozícióban**
+Ebben a példában megtanuljuk, hogyan érhetjük el a SmartArt alakzat megfelelő csomópontjaihoz tartozó gyermekcsomópontokat egy adott pozícióban.
 
 1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation) osztálypéldányt.
-1. Szerezze meg az első dia hivatkozását az indexe alapján.
-1. Adjon hozzá egy [**StackedList**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/SmartArtLayoutType#StackedList) típusú SmartArt alakzatot.
+1. Szerezze meg a második dia hivatkozását az Index használatával.
+1. Adjunk hozzá egy [**StackedList**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/SmartArtLayoutType#StackedList) típusú SmartArt alakzatot.
 1. Érje el a hozzáadott SmartArt alakzatot.
-1. Érje el a 0. indexű csomópontot a kiválasztott SmartArt alakzatban.
-1. Most, a **get_Item()** metódussal érje el a 1. pozícióban lévő [**Child Node**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArtNode#getChildNodes--) elemet.
-1. Érje el és jelenítse meg a [**Child Node**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArtNode#getChildNodes--) pozícióját, szintjét és szövegét.
+1. Érje el a 0. indexű csomópontot a lekért SmartArt alakzatban.
+1. Ezután érje el a [**Child Node**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArtNode#getChildNodes--) csomópontot az 1. pozícióban a lekért SmartArt csomópontnál a **get_Item()** metódussal.
+1. Érje el és jelenítse meg az információkat, például a [**Child Node**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArtNode#getChildNodes--) pozícióját, szintjét és szövegét.
 
 ```java
-// A prezentáció példányosítása
+import com.aspose.slides.*;
+
+// Prezentáció példányosítása
 Presentation pres = new Presentation();
 try {
     // Az első dia elérése
@@ -224,7 +234,7 @@ try {
     // A SmartArt csomópont elérése 0 indexen
     ISmartArtNode node = smart.getAllNodes().get_Item(0);
     
-    // A gyermekcsomópont elérése 1 pozíción a szülőcsomópontban
+    // A szülőcsomópont 1. pozíciójában lévő gyermekcsomópont elérése
     int position = 1;
     SmartArtNode chNode = (SmartArtNode) ((SmartArtNodeCollection) node.getChildNodes()).get_Item(position);
     
@@ -236,28 +246,30 @@ try {
 ```
 
 ## **SmartArt csomópont eltávolítása**
-Ebben a példában megtanuljuk, hogyan távolíthatók el a SmartArt alakzat csomópontjai.
+Ebben a példában megtanuljuk, hogyan távolítsuk el a SmartArt alakzaton belüli csomópontokat.
 
-1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation) osztálypéldányt, és töltse be a prezentációt SmartArt alakzattal.
-1. Szerezze meg az első dia hivatkozását az indexe alapján.
-1. Járja be az első diában lévő összes alakzatot.
-1. Ellenőrizze, hogy az alakzat [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArt) típusú‑e, és ha igen, típuskonvertálja a kijelölt alakzatot [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArt) típusra.
-1. Ellenőrizze, hogy a [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArt) több mint 0 csomópontot tartalmaz‑e.
+1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation) osztálypéldányt, és töltse be a prezentációt a SmartArt alakzattal.
+1. Szerezze meg az első dia hivatkozását az Index használatával.
+1. Iteráljon végig az első dián található összes alakzaton.
+1. Ellenőrizze, hogy az alakzat [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArt) típusú-e, és ha igen, tüntesse át a kiválasztott alakzatot [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArt) típusra.
+1. Ellenőrizze, hogy a [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArt) több mint 0 csomóponttal rendelkezik-e.
 1. Válassza ki a törlendő SmartArt csomópontot.
-1. Most, távolítsa el a kiválasztott csomópontot a [**RemoveNode**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArtNodeCollection#removeNode-com.aspose.slides.ISmartArtNode-) metódussal.
+1. Ezután távolítsa el a kiválasztott csomópontot a [**RemoveNode**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArtNodeCollection#removeNode-com.aspose.slides.ISmartArtNode-) metódus használatával.
 1. Mentse a prezentációt.
 
 ```java
-// Betölti a kívánt prezentációt
+import com.aspose.slides.*;
+
+// A kívánt prezentáció betöltése
 Presentation pres = new Presentation("AddSmartArtNode.pptx");
 try {
-    // Bejárja az első dián belüli összes alakzatot
+    // Az első dián található minden alakzat bejárása
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
-        // Ellenőrzi, hogy az alakzat SmartArt típusú-e
+        // Ellenőrizze, hogy az alakzat SmartArt típusú-e
         if (shape instanceof ISmartArt) 
         {
-            // Átalakítja az alakzatot SmartArt típusra
+            // Típuskonvertálja az alakzatot SmartArt-ra
             ISmartArt smart = (ISmartArt) shape;
     
             if (smart.getAllNodes().size() > 0) 
@@ -278,29 +290,31 @@ try {
 }
 ```
 
-## **SmartArt csomópont eltávolítása meghatározott pozícióból**
-Ebben a példában megtanuljuk, hogyan távolíthatók el a SmartArt alakzat csomópontjai egy adott pozícióból.
+## **SmartArt csomópont eltávolítása adott pozícióból**
+Ebben a példában megtanuljuk, hogyan távolítsuk el a SmartArt alakzaton belüli csomópontokat egy adott pozícióból.
 
-1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation) osztálypéldányt, és töltse be a prezentációt SmartArt alakzattal.
-1. Szerezze meg az első dia hivatkozását az indexe alapján.
-1. Járja be az első diában lévő összes alakzatot.
-1. Ellenőrizze, hogy az alakzat [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArt) típusú‑e, és ha igen, típuskonvertálja a kijelölt alakzatot [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArt) típusra.
-1. Válassza ki a SmartArt alakzat 0. indexű csomópontját.
-1. Ellenőrizze, hogy a kiválasztott SmartArt csomópont több mint 2 gyermekcsomópontot tartalmaz‑e.
-1. Most, a **RemoveNode** metódussal ( [**RemoveNode**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArtNodeCollection#removeNode-int-) ) távolítsa el az 1. **Position**‑ban lévő csomópontot.
+1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation) osztálypéldányt, és töltse be a prezentációt a SmartArt alakzattal.
+1. Szerezze meg az első dia hivatkozását az Index használatával.
+1. Iteráljon végig az első dián található összes alakzaton.
+1. Ellenőrizze, hogy az alakzat [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArt) típusú-e, és ha igen, tüntesse át a kiválasztott alakzatot [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArt) típusra.
+1. Válassza ki a 0. indexű SmartArt alakzat csomópontot.
+1. Ezután ellenőrizze, hogy a kiválasztott SmartArt csomópont több mint 2 gyermekcsomóponttal rendelkezik-e.
+1. Ezután távolítsa el az **1. Position**‑ban lévő csomópontot a [**RemoveNode**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArtNodeCollection#removeNode-int-) metódus használatával.
 1. Mentse a prezentációt.
 
 ```java
-// Betölti a kívánt prezentációt
+import com.aspose.slides.*;
+
+// A kívánt prezentáció betöltése
 Presentation pres = new Presentation("AddSmartArtNode.pptx");
 try {
-    // Bejárja az első dián belüli összes alakzatot
+    // Az első dián található minden alakzat bejárása
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
-        // Ellenőrzi, hogy az alakzat SmartArt típusú-e
+        // Ellenőrizze, hogy az alakzat SmartArt típusú-e
         if (shape instanceof SmartArt) 
         {
-            // Átalakítja az alakzatot SmartArt típusra
+            // Típuskonvertálja az alakzatot SmartArt-ra
             SmartArt smart = (SmartArt) shape;
     
             if (smart.getAllNodes().size() > 0) 
@@ -310,7 +324,7 @@ try {
     
                 if (node.getChildNodes().size() >= 2) 
                 {
-                    // A gyermekcsomópont eltávolítása 1 pozíción
+                    // A gyermekcsomópont eltávolítása az 1. pozíción
                     (node.getChildNodes()).removeNode(1);
                 }
             }
@@ -324,11 +338,13 @@ try {
 }
 ```
 
-## **Egy gyermekcsomópont egyéni pozíciójának beállítása SmartArt objektumban**
-Az Aspose.Slides for Java mostantól támogatja a [SmartArtShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/SmartArtShape) [X](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IShape#setX-float-) és [Y](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IShape#setY-float-) tulajdonságok beállítását. Az alábbi kódrészlet megmutatja, hogyan állítható be egyéni SmartArtShape pozíció, méret és forgatás; vegye figyelembe, hogy új csomópontok hozzáadása az összes csomópont pozíciójának és méretének újraszámítását eredményezi. Egyéni pozícióbeállításokkal a felhasználó a csomópontokat igényei szerint helyezheti el.
+## **Egyéni pozíció beállítása gyermekcsomópont számára egy SmartArt objektumban**
+Az Aspose.Slides for Java most támogatja a [SmartArtShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/SmartArtShape) [X](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IShape#setX-float-) és [Y](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IShape#setY-float-) tulajdonságok beállítását. Az alábbi kódrészlet bemutatja, hogyan állítható be egyéni SmartArtShape pozíció, méret és forgatás, továbbá vegye figyelembe, hogy új csomópontok hozzáadása az összes csomópont pozíciójának és méretének újraszámítását eredményezi. Az egyéni pozícióbeállításokkal a felhasználó a csomópontokat a követelményeknek megfelelően állíthatja.
 
 ```java
-// Presentation osztály példányosítása
+import com.aspose.slides.*;
+
+// Prezentáció osztály példányosítása
 Presentation pres = new Presentation("SimpleSmartArt.pptx");
 try{
     ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(20, 20, 600, 500, SmartArtLayoutType.OrganizationChart);
@@ -361,50 +377,50 @@ try{
 ```
 
 ## **Asszisztens csomópont ellenőrzése**
-{{% alert color="primary" %}} 
-
-Ebben a cikkben tovább vizsgáljuk a prezentációs diákba programozottan hozzáadott SmartArt alakzatok funkcióit az Aspose.Slides for Java használatával.
-
+{{% alert color="info" %}} 
+Ebben a cikkben tovább vizsgáljuk a programozottan, az Aspose.Slides for Java segítségével a prezentációs diákhoz hozzáadott SmartArt alakzatok funkcióit.
 {{% /alert %}} 
 
-Az alábbi forrás‑SmartArt alakzatot használjuk majd a cikk különböző részeiben.
+A cikk különböző részeiben a következő forrás SmartArt alakzatot fogjuk felhasználni a vizsgálathoz.
 
 |![todo:image_alt_text](https://i.imgur.com/FItwczY.png)|
 | :- |
-|**Ábra: Forrás‑SmartArt alakzat a dián**|
+|**Ábra: Forrás SmartArt alakzat a dián**|
 
-A következő mintakódban megvizsgáljuk, hogyan azonosíthatók a **Assistant Nodes** a SmartArt csomópontgyűjteményben, valamint hogyan módosíthatók.
+Az alábbi mintakódban megvizsgáljuk, hogyan azonosítsuk a **Assistant Nodes** (asszisztens csomópontokat) a SmartArt csomópontgyűjteményben, és hogyan módosíthatjuk őket.
 
-1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation) osztálypéldányt, és töltse be a prezentációt SmartArt alakzattal.
-1. Szerezze meg a második dia hivatkozását az indexe alapján.
-1. Járja be az első diában lévő összes alakzatot.
-1. Ellenőrizze, hogy az alakzat [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArt) típusú‑e, és ha igen, típuskonvertálja a kijelölt alakzatot [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArt) típusra.
-1. Járja be a SmartArt alakzat összes csomópontját, és ellenőrizze, hogy [**Assistant Nodes**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/SmartArtNode#isAssistant--)‑ek‑e.
-1. Módosítsa az Assistant Node állapotát normál csomóponttá.
+1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation) osztálypéldányt, és töltse be a prezentációt a SmartArt alakzattal.
+1. Szerezze meg a második dia hivatkozását az Index használatával.
+1. Iteráljon végig az első dián található összes alakzaton.
+1. Ellenőrizze, hogy az alakzat [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArt) típusú-e, és ha igen, tüntesse át a kiválasztott alakzatot [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArt) típusra.
+1. Iteráljon végig a SmartArt alakzaton belüli összes csomóponton, és ellenőrizze, hogy [**Assistant Nodes**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/SmartArtNode#isAssistant--) vannak-e.
+1. Módosítsa az asszisztens csomópont állapotát normál csomóponttá.
 1. Mentse a prezentációt.
 
 ```java
+import com.aspose.slides.*;
+
 // Prezentáció példány létrehozása
 Presentation pres = new Presentation("AddNodes.pptx");
 try {
-    // Bejárja az első dián belüli összes alakzatot
+    // Az első dián található minden alakzat bejárása
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
-        // Ellenőrzi, hogy az alakzat SmartArt típusú-e
+        // Ellenőrizze, hogy az alakzat SmartArt típusú-e
         if (shape instanceof ISmartArt) 
         {
-            // Átalakítja az alakzatot SmartArt típusra
+            // Típuskonvertálja az alakzatot SmartArt-ra
             ISmartArt smart = (SmartArt) shape;
     
-            // Bejárja a SmartArt alakzat összes csomópontját
+            // Az összes csomópont bejárása a SmartArt alakzaton
             for (int i = 0; i < smart.getAllNodes().size(); i++) 
             {
                 ISmartArtNode node = smart.getAllNodes().get_Item(i);
-                // Ellenőrzi, hogy a csomópont Assistant csomópont-e
+                // Ellenőrizze, hogy a csomópont asszisztens-e
                 if (node.isAssistant()) 
                 {
-                    // Az Assistant csomópont állapotát false-ra állítja, így normál csomópont lesz
-                    node.isAssistant();
+                    // Az asszisztens csomópont beállítása false értékre, normál csomópontra alakítva
+                    node.setAssistant(false);
                 }
             }
         }
@@ -419,24 +435,27 @@ try {
 
 |![todo:image_alt_text](https://i.imgur.com/qpAl4rN.png)|
 | :- |
-|**Ábra: Assistant Node‑ok módosítva a SmartArt alakzatban a dián**|
+|**Ábra: Asszisztens csomópontok módosítva a SmartArt alakzaton a dián belül**|
 
 ## **Csomópont kitöltési formátumának beállítása**
-Az Aspose.Slides for Java lehetővé teszi egyedi SmartArt alakzatok hozzáadását és kitöltési formátumuk beállítását. Ez a cikk bemutatja, hogyan hozhatók létre és érhetők el a SmartArt alakzatok, valamint hogyan állítható be a csomópontok kitöltési formátuma az Aspose.Slides for Java‑val.
+Az Aspose.Slides for Java lehetővé teszi egyéni SmartArt alakzatok hozzáadását és azok kitöltési formátumának beállítását. Ez a cikk bemutatja, hogyan hozhatók létre és érhetők el a SmartArt alakzatok, valamint hogyan állítható be a kitöltési formátum az Aspose.Slides for Java segítségével.
 
 Kérjük, kövesse az alábbi lépéseket:
 
 1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation) osztálypéldányt.
 1. Szerezze meg egy dia hivatkozását az indexe alapján.
 1. Adjon hozzá egy [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArt) alakzatot a [**LayoutType**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/SmartArtLayoutType#ClosedChevronProcess) beállításával.
-1. Állítsa be a [**FillFormat**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IShape#getFillFormat--) formátumot a SmartArt alakzat csomópontjaihoz.
+1. Állítsa be a [**FillFormat**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IShape#getFillFormat--) értékét a SmartArt alakzat csomópontjaihoz.
 1. Írja ki a módosított prezentációt PPTX fájlként.
 
 ```java
-// A prezentáció példányosítása
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// Prezentáció példányosítása
 Presentation pres = new Presentation();
 try {
-    // Diának elérése
+    // Diának a lekérése
     ISlide slide = pres.getSlides().get_Item(0);
     
     // SmartArt alakzat és csomópontok hozzáadása
@@ -444,7 +463,7 @@ try {
     ISmartArtNode node = chevron.getAllNodes().addNode();
     node.getTextFrame().setText("Some text");
     
-    // Csomópont kitöltési színének beállítása
+    // Csomópont kitöltő színének beállítása
     for (IShape item : node.getShapes()) 
     {
         item.getFillFormat().setFillType(FillType.Solid);
@@ -458,29 +477,31 @@ try {
 }
 ```
 
-## **SmartArt gyermekcsomópont bélyegképének generálása**
-A fejlesztők az alábbi lépések követésével generálhatnak bélyegképet egy SmartArt gyermekcsomópontról:
+## **SmartArt gyermekcsomópont előnézeti képének generálása**
+A fejlesztők a következő lépéseket követve generálhatnak előnézeti képet egy SmartArt gyermekcsomópontjáról:
 
 1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation) osztálypéldányt.
 1. [Add SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISmartArtNodeCollection#addNode--).
-1. Szerezze meg egy csomópont hivatkozását az indexe alapján.
-1. Szerezze meg a bélyegkép‑képet.
-1. Mentse a bélyegkép‑képet a kívánt képformátumban.
+1. Szerezze meg egy csomópont hivatkozását az Index használatával
+1. Szerezze meg az előnézeti képet.
+1. Mentse az előnézeti képet tetszőleges képformátumban.
 
 ```java
-// PPTX fájlt reprezentáló Presentation osztály példányosítása
+import com.aspose.slides.*;
+
+// PPTX fájlt képviselő Presentation osztály példányosítása 
 Presentation pres = new Presentation();
 try {
-    // SmartArt hozzáadása
+    // SmartArt hozzáadása 
     ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicCycle);
 
-    // Egy csomópont hivatkozásának megszerzése az indexe alapján
+    // Csomópont hivatkozásának lekérése az Index használatával  
     ISmartArtNode node = smart.getNodes().get_Item(1);
 
-    // Bélyegkép lekérése
+    // Előnézeti kép lekérése
     IImage slideImage = node.getShapes().get_Item(0).getImage();
 
-    // Bélyegkép mentése
+    // Előnézeti kép mentése
     try {
           slideImage.save("SmartArt_ChildNote_Thumbnail.png", ImageFormat.Png);
     } finally {
@@ -491,20 +512,16 @@ try {
 }
 ```
 
-## **GYIK**
+## **FAQ**
 
-**Támogatott-e a SmartArt animáció?**
+### Támogatott-e a SmartArt animáció?
+Igen. A SmartArt-ot szabályos alakzatként kezelik, így [alkalmazhat standard animációkat](/slides/hu/java/shape-animation/) (belépés, kilépés, hangsúlyozás, mozgáspályák) és beállíthatja az időzítést. Szükség esetén a SmartArt csomópontok belsejében lévő alakzatokat is animálhatja.
 
-Igen. A SmartArt‑ot normál alakzatként kezelik, ezért [alkalmazhat standard animációkat](/slides/hu/java/shape-animation/) (belépés, kilépés, hangsúly, mozgási útvonal) és beállíthatja az időzítést. Szükség esetén a SmartArt csomópontok belsejében lévő alakzatokat is animálhatja.
+### Hogyan találhatom meg megbízhatóan egy adott SmartArt-ot egy dián, ha annak belső azonosítója ismeretlen?
+Rendeljen hozzá és keressen az [alternatív szöveg](https://reference.aspose.com/slides/hu/java/com.aspose.slides/shape/#getAlternativeText--) alapján. Egy megkülönböztető AltText beállítása a SmartArt-hoz lehetővé teszi, hogy programozottan megtalálja anélkül, hogy a belső azonosítókra támaszkodna.
 
-**Hogyan találhatom meg megbízhatóan egy adott SmartArt‑ot a dián, ha a belső azonosítója ismeretlen?**
+### Megmarad-e a SmartArt megjelenése a prezentáció PDF-re konvertálásakor?
+Igen. Az Aspose.Slides magas vizuális hűséggel rendereli a SmartArt-ot a [PDF export](/slides/hu/java/convert-powerpoint-to-pdf/) során, megőrizve a elrendezést, színeket és hatásokat.
 
-Keressen [alternatív szöveg](https://reference.aspose.com/slides/hu/java/com.aspose.slides/shape/#getAlternativeText--) alapján. Egy egyedi AltText beállítása a SmartArt‑on lehetővé teszi, hogy programkódból megtalálja anélkül, hogy belső azonosítókra támaszkodna.
-
-**Megmarad-e a SmartArt megjelenése a prezentáció PDF‑re konvertálásakor?**
-
-Igen. Az Aspose.Slides a [PDF export](/slides/hu/java/convert-powerpoint-to-pdf/) során magas vizuális pontossággal rendereli a SmartArt‑ot, megőrizve a elrendezést, színeket és effektusokat.
-
-**Kivonhatok‑e képet az egész SmartArt‑ról (előnézetekhez vagy jelentésekhez)?**
-
-Igen. A SmartArt alakzatot renderelheti [raszteres formátumokba](https://reference.aspose.com/slides/hu/java/com.aspose.slides/shape/#getImage-int-float-float-) vagy [SVG‑be](https://reference.aspose.com/slides/hu/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) a skálázható vektorkimenethez, ami alkalmas bélyegképekhez, jelentésekhez vagy webes használathoz.
+### Kinyerhetek-e a teljes SmartArt képet (előnézetekhez vagy jelentésekhez)?
+Igen. A SmartArt alakzatot renderelheti [raszteres formátumokba](https://reference.aspose.com/slides/hu/java/com.aspose.slides/shape/#getImage-int-float-float-) vagy [SVG](https://reference.aspose.com/slides/hu/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) formátumba, amely skálázható vektorkimenetet biztosít, így alkalmas előnézetekhez, jelentésekhez vagy webes használatra.

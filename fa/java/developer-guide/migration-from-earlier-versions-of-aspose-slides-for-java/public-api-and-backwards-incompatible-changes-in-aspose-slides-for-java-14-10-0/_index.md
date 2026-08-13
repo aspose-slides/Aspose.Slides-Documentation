@@ -1,5 +1,5 @@
 ---
-title: API عمومی و تغییرات ناسازگار به عقب در Aspose.Slides برای Java 14.10.0
+title: API عمومی و تغییرات ناسازگار به عقب در Aspose.Slides for Java 14.10.0
 linktitle: Aspose.Slides برای Java 14.10.0
 type: docs
 weight: 90
@@ -15,29 +15,31 @@ keywords:
 - ارائه
 - Java
 - Aspose.Slides
-description: "به‌روزرسانی‌های API عمومی و تغییرات ناسازگار در Aspose.Slides برای Java را بررسی کنید تا بتوانید راه‌حل‌های ارائه PowerPoint (PPT, PPTX) و ODP خود را به‌صورت روان مهاجرت کنید."
+description: "به‌روزرسانی‌های API عمومی و تغییرات ناسازگار در Aspose.Slides برای Java را بررسی کنید تا بتوانید راه‌حل‌های ارائه PowerPoint (PPT، PPTX) و ODP خود را به‌صورت یکپارچه منتقل کنید."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-این صفحه تمام کلاس‌ها، متدها، ویژگی‌ها و غیره [اضافه‌شده](/slides/fa/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) را، هر محدودیت جدید و سایر [تغییرات](/slides/fa/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) معرفی‌شده با Aspose.Slides for Java 14.10.0 API، فهرست می‌کند.
+این صفحه فهرستی از تمام کلاس‌ها، متدها، ویژگی‌ها و غیره که [اضافه‌شده](/slides/fa/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) هستند، هر محدودیت جدید و سایر [تغییرات](/slides/fa/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) معرفی‌شده با API Aspose.Slides for Java 14.10.0 را ارائه می‌دهد.
 
 {{% /alert %}} 
 ## **تغییرات API عمومی**
 ### **متد com.aspose.slides.FieldType.getFooter() اضافه شده است**
-متد getFooter() نوع فیلد پاورقی را برمی‌گرداند. این متد برای امکان‌پذیری ایجاد فیلدهای این نوع و برای سریال‌سازی صحیح ارائه اضافه شده است.
+متد getFooter() نوع فیلد پاورقی را برمی‌گرداند. این متد برای امکان‌پذیری ایجاد فیلدهایی از این نوع و برای سریال‌سازی صحیح ارائه اضافه شده است.
 ### **عنصر com.aspose.slides.ShapeElementFillSource.Own حذف شده است**
 عنصر ShapeElementFillSource.Own به‌دلیل تکراری بودن حذف شده است. به جای ShapeElementFillSource.Own از ShapeElementFillSource.Shape استفاده کنید.
-### **متدهایی برای حذف نقاط داده نمودار و دسته‌ها اضافه شده‌اند**
+### **متدهای حذف نقاط داده نمودار و دسته‌ها اضافه شده‌اند**
 **متدهای زیر که امکان حذف نقطه داده نمودار از مجموعه نقاط داده نمودار را فراهم می‌کنند، اضافه شده‌اند:**
 
 IChartDataPointCollection.remove(IChartDataPoint)
 IChartDataPoint.remove()
 
-**متد زیر که امکان حذف یک دسته‌بندی نمودار از مجموعه مربوطه را فراهم می‌کند، اضافه شده است:**
+**متد زیر که امکان حذف یک دسته‌بندی نمودار از مجموعهٔ حاوی آن را فراهم می‌کند، اضافه شده است:**
 
 IChartCategory.remove()
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -53,16 +55,16 @@ for (IChartSeries ser : chart.getChartData().getSeries())
 
     ser.getDataPoints().get_Item(0).remove(); // حذف با ChartDataPoint.remove()
 
-    ser.getDataPoints().remove(ser.getDataPoints().get_Item(0)); // حذف با ChartDataPointCollection.remove()
+    ser.getDataPoints().remove(ser.getDataPoints().get_Item(0)); // ChartDataPointCollection.remove()
 
 }
 
 pres.save("presentation.pptx", SaveFormat.Pptx);
 
 ```
-### **متدهای منسوخ‌شده Aspose.Slides.ParagraphFormat حذف شده‌اند**
-متدهای getBulletChar()، getBulletColor()، getBulletColorFormat()، getBulletFont()، getBulletHeight()، getBulletType()، isBulletHardColor()، isBulletHardFont()، getNumberedBulletStartWith()، getNumberedBulletStyle() و متدهای set مربوطه حذف شده‌اند. این‌ها مدت‌ها پیش به‌عنوان منسوخ علامت‌گذاری شده بودند.
-### **سازنده‌های غیرقابل‌استفاده و منسوخ حذف شده‌اند**
+### **متدهای منسوخ شده Aspose.Slides.ParagraphFormat حذف شده‌اند**
+متدهای getBulletChar()، getBulletColor()، getBulletColorFormat()، getBulletFont()، getBulletHeight()، getBulletType()، isBulletHardColor()، isBulletHardFont()، getNumberedBulletStartWith()، getNumberedBulletStyle() و متدهای set متناظر آن‌ها حذف شده‌اند. این متدها مدت‌ها پیش به‌عنوان منسوخ علامت‌گذاری شده بودند.
+### **سازنده‌های غیر مفید و منسوخ حذف شده‌اند**
 سازنده‌های زیر حذف شده‌اند:
 
 com.aspose.slides.AlphaBiLevel(float)

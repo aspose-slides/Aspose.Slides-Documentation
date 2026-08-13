@@ -1,26 +1,26 @@
 ---
-title: Publiczne API i niekompatybilne zmiany wstecz w Aspose.Slides dla .NET 14.7.0
+title: Publiczne API i zmiany niezgodne wstecz w Aspose.Slides dla .NET 14.7.0
 linktitle: Aspose.Slides dla .NET 14.7.0
 type: docs
 weight: 90
 url: /pl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-7-0/
 keywords:
-- migracja
-- stary kod
-- nowoczesny kod
-- stare podejście
-- nowoczesne podejście
-- PowerPoint
-- OpenDocument
-- prezentacja
-- .NET
-- C#
-- Aspose.Slides
-description: "Przejrzyj aktualizacje publicznego API i zmiany łamiące w Aspose.Slides dla .NET, aby płynnie migrować rozwiązania prezentacji PowerPoint PPT, PPTX i ODP."
+  - migracja
+  - kod legacy
+  - nowoczesny kod
+  - podejście legacy
+  - nowoczesne podejście
+  - PowerPoint
+  - OpenDocument
+  - prezentacja
+  - .NET
+  - C#
+  - Aspose.Slides
+description: "Przegląd aktualizacji publicznego API oraz zmian łamiących w Aspose.Slides dla .NET, aby płynnie migrować rozwiązania prezentacji PowerPoint PPT, PPTX i ODP."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Ta strona wymienia wszystkie [dodane](/slides/pl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-7-0/) lub [usunięte](/slides/pl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-7-0/) klasy, metody, właściwości i podobne elementy, a także inne zmiany wprowadzone w API Aspose.Slides for .NET 14.7.0.
+Ta strona zawiera wykaz wszystkich [dodane](/slides/pl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-7-0/) lub [usunięte](/slides/pl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-7-0/) klas, metod, właściwości i tak dalej, oraz innych zmian wprowadzonych w API Aspose.Slides dla .NET 14.7.0.
 
 {{% /alert %}} 
 ## **Zmiany w publicznym API**
@@ -30,7 +30,7 @@ Konstruktory niektórych podtypów TransitionValueBase (konkretnie CornerDirecti
 
 Powiązana klasa TransitionValueFactory oraz jej interfejs ITransitionValueFactory zostały usunięte z tego samego powodu.
 #### **Usunięto element SoundAction z wyliczenia Aspose.Slides.SlideShow.TransitionType**
-Element SoundAction był nieprawidłowy i nieużywany. Ustawienia dźwięku definiowane są właściwościami SlideShowTransition.SoundMode, .Sound, .SoundLoop, .SoundIsBuiltIn, .SoundName.
+Element SoundAction był niepoprawny i nieużywany. Ustawienia dźwięku są definiowane przez właściwości SlideShowTransition.SoundMode, .Sound, .SoundLoop, .SoundIsBuiltIn, .SoundName.
 ### **Dodane klasy i interfejsy**
 #### **Dodano klasę FlyThroughTransition oraz interfejs IFlyThroughTransition**
 Klasa Aspose.Slides.SlideShow.FlyThroughTransition (oraz jej interfejs Aspose.Slides.SlideShow.IFlyThroughTransition) odnosi się do typu przejścia Flythrough obsługiwanego od tej wersji.

@@ -4,7 +4,7 @@ type: docs
 weight: 45
 url: /tr/jasperreports/integration-with-jasperserver/
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Aspose.Slides for JasperReports'u JasperServer ile bütünleştirmek için birkaç ek adım atmak ve JasperServer yapılandırma dosyalarını güncellemek gerekir. Bu makale nasıl yapılacağını açıklar.
 
@@ -27,12 +27,12 @@ Aspose.Slides for JasperReports'u JasperServer ile bütünleştirmek için birka
 </bean>
 
 <util:map id="exporterConfigMap">
-    <!-- exporterConfigMap'e bu girişi ekleyin -->
+    <!-- Bu girdiyi exporterConfigMap'e ekleyin -->
     <entry key="ppt" value-ref="pptExporterConfiguration"/>
 </util:map>
 ```
 
-2. **aspose.slides.jasperreports.jar** dosyasını **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\lib** dizinine kopyalayın.
+2. **aspose.slides.jasperreports.jar** dosyasını **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\lib** konumuna kopyalayın.  
 3. Yazı tipi eşleme özelliğini kullanmak için, **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** dosyasını aşağıdaki gibi güncelleyin.
 
 ``` xml

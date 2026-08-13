@@ -16,10 +16,12 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Prohlédněte si aktualizace veřejného API a nekompatibilní změny v Aspose.Slides pro .NET, abyste hladce migrovali své řešení prezentací PowerPoint PPT, PPTX a ODP."
+description: Prohlédněte si aktualizace veřejného API a zásadní změny v Aspose.Slides pro .NET, abyste hladce migrovali svá řešení prezentací PowerPoint PPT, PPTX a ODP.
 ---
-{{% alert color="primary" %}} 
-Tato stránka uvádí všechny [přidané](/slides/cs/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) nebo [odebrané](/slides/cs/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) třídy, metody, vlastnosti a podobně, a další změny zavedené s API Aspose.Slides pro .NET 15.11.0.
+{{% alert color="info" %}} 
+
+Tato stránka uvádí všechny [added](/slides/cs/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) nebo [removed](/slides/cs/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) třídy, metody, vlastnosti a podobně a další změny zavedené v API Aspose.Slides pro .NET 15.11.0 API.
+
 {{% /alert %}} 
 ## **Změny veřejného API**
 
@@ -40,22 +42,23 @@ Aspose.Slides.Charts.DataLabelCollection.ShowSeriesName
 Aspose.Slides.Charts.DataLabelCollection.ShowValue
 
 #### **Nová vlastnost FirstSlideNumber byla přidána do třídy Presentation**
-Nová vlastnost FirstSlideNumber přidaná do třídy Presentation umožňuje získat nebo nastavit číslo první snímku v prezentaci.
+Nová vlastnost FirstSlideNumber přidaná do třídy Presentation umožňuje získat nebo nastavit číslo první stránky v prezentaci.
 
 Když je zadána nová hodnota FirstSlideNumber, všechna čísla snímků jsou přepočítána.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- using(var pres = new Presenation(path))
+string path = "sample.pptx";
+string newPath = "output.pptx";
 
+using (var pres = new Presentation(path))
 {
+    int firstSlideNumber = pres.FirstSlideNumber;
 
-  int firstSlideNumber = pres.FirstSlideNumber;
+    pres.FirstSlideNumber = 10;
 
-  pres.FirstSlideNumber = 10;
-
-  pres.Save(newPath, SaveFormat.Pptx);
-
+    pres.Save(newPath, SaveFormat.Pptx);
 }
-
 ```

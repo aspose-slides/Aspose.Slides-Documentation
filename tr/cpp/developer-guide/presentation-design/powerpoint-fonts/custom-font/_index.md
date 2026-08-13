@@ -1,6 +1,6 @@
 ---
-title: C++'ta PowerPoint Yazı Tiplerini Özelleştir
-linktitle: Özel Yazı Tipi
+title: C++ ile PowerPoint Fontlarını Özelleştir
+linktitle: Özel Font
 type: docs
 weight: 20
 url: /tr/cpp/custom-font/
@@ -16,80 +16,104 @@ keywords:
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ ile PowerPoint slaytlarındaki yazı tiplerini özelleştirerek sunumlarınızın her cihazda net ve tutarlı olmasını sağlayın."
+description: "Aspose.Slides for C++ ile PowerPoint slaytlarındaki yazı tiplerini özelleştirerek sunumlarınızı her cihazda net ve tutarlı tutun."
 ---
-## **Genel Bakış**
+## **Overview**
 
-Aspose.Slides, işletim sistemine kurulum yapmadan sunumlarda özel yazı tiplerini kullanmanıza olanak tanır. Yazı tiplerini özel klasörlerden yükleyebilir, belge düzeyinde yazı tipi kaynakları aracılığıyla belirli bir sunuma yazı tipleri sağlayabilir veya dış yazı tiplerini doğrudan ikili veriden yükleyebilirsiniz.
+Aspose.Slides, özel fontları işletim sistemine kurmadan sunumlarda kullanmanıza olanak tanır. Fontları özel klasörlerden yükleyebilir, belge düzeyindeki font kaynakları aracılığıyla belirli bir sunuma font sağlayabilir veya dış fontları doğrudan ikili veri olarak yükleyebilirsiniz.
 
-Yüklenen yazı tipleri, bir sunum renderlendiğinde veya dışa aktarıldığında, örneğin PDF, görüntüler ve diğer desteklenen formatlara, kullanılır. Bu, sunum çıktısının farklı ortamlar arasında tutarlı kalmasına yardımcı olur. Makale ayrıca Aspose.Slides tarafından kullanılan yazı tipi klasörlerinin nasıl inceleneceğini ve dış yazı tipleriyle çalıştıktan sonra yazı tipi önbelleğinin nasıl temizleneceğini açıklar.
+Yüklenen fontlar, bir sunum render edildiğinde veya PDF, görüntüler ve diğer desteklenen formatlara dışa aktarıldığında kullanılır. Bu, sunum çıktısının farklı ortamlar arasında tutarlı kalmasına yardımcı olur. Makale ayrıca Aspose.Slides tarafından kullanılan font klasörlerini nasıl inceleyeceğinizi ve dış fontlarla çalıştıktan sonra font önbelleğini nasıl temizleyeceğinizi açıklar.
 
-Özel yazı tiplerini renderleme için kaydetmek, yazı tiplerini bir PPTX dosyasına gömmekten ayrı bir işlemdir. Bir yazı tipinin sunumun içinde depolanması gerekiyorsa, yazı tipi gömme özelliklerini açıkça kullanın.
+Render için özel fontları kaydetmek, fontları bir PPTX dosyasına gömmekten ayrı bir işlemdir. Eğer bir fontun sunum içinde saklanması gerekiyorsa, font gömme özelliklerini açıkça kullanın.
 
-{{% alert color="primary" %}} 
-Aspose Slides, bu yazı tiplerini [FontsLoader::LoadExternalFonts](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsloader/loadexternalfonts/) kullanarak yüklemenize olanak tanır:
+{{% alert color="info" %}} 
+Aspose Slides, bu fontları [FontsLoader::LoadExternalFonts](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsloader/loadexternalfonts/) kullanarak yüklemenize olanak tanır:
 
-* TrueType (.ttf) ve TrueType Collection (.ttc) yazı tipleri. Bakınız [TrueType](https://en.wikipedia.org/wiki/TrueType).
+* TrueType (.ttf) ve TrueType Collection (.ttc) fontları. Bakınız [TrueType](https://en.wikipedia.org/wiki/TrueType).
 
-* OpenType (.otf) yazı tipleri. Bakınız [OpenType](https://en.wikipedia.org/wiki/OpenType).
+* OpenType (.otf) fontları. Bakınız [OpenType](https://en.wikipedia.org/wiki/OpenType).
 
 {{% /alert %}}
 
-## **Özel Yazı Tiplerini Yükleme**
+## **Özel Fontları Yükleme**
 
-Aspose.Slides, bir sunumda kullanılan yazı tiplerini sistemde kurmadan yüklemenize olanak tanır. Bu, PDF, görüntüler ve diğer desteklenen formatlar gibi dışa aktarım çıktısını etkiler; böylece ortaya çıkan belgeler ortamlar arasında tutarlı görünür. Yazı tipleri özel dizinlerden yüklenir.
+Aspose.Slides, bir sunumda kullanılan fontları sistemde kurmadan yüklemenize olanak tanır. Bu, PDF, görüntüler ve diğer desteklenen formatlar gibi dışa aktarma çıktısını etkiler; böylece ortaya çıkan belgeler ortamlar arasında tutarlı görünür. Fontlar özel dizinlerden yüklenir.
 
-1. Yazı dosyalarını içeren bir veya daha fazla klasör belirtin.
-2. Bu klasörlerden yazı tiplerini yüklemek için statik [FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsloader/loadexternalfonts/) yöntemini çağırın.
-3. Sunumu yükleyin ve render/çıkartın.
-4. Yazı tipi önbelleğini temizlemek için [FontsLoader.clearCache](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsloader/clearcache/) yöntemini çağırın.
+1. Font dosyalarını içeren bir veya daha fazla klasör belirtin.
+2. Bu klasörlerden fontları yüklemek için statik [FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsloader/loadexternalfonts/) yöntemini çağırın.
+3. Sunumu yükleyin ve render/dışa aktarın.
+4. Font önbelleğini temizlemek için [FontsLoader.clearCache](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsloader/clearcache/) yöntemini çağırın.
 
-Aşağıdaki kod örneği, yazı tipi yükleme sürecini göstermektedir:
+Aşağıdaki kod örneği font yükleme sürecini göstermektedir:
 
 ```cpp
-// Özel yazı tipi dosyalarını içeren klasörleri tanımlayın.
+#include <DOM/Fonts/FontsLoader.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// Özel font dosyalarını içeren klasörleri tanımlayın.
+String externalFontFolder = u"assets/fonts";
 auto fontFolders = MakeObject<Array<String>>(1, externalFontFolder );
 
-// Özel yazı tiplerini belirli klasörlerden yükleyin.
+// Belirtilen klasörlerden özel fontları yükleyin.
 FontsLoader::LoadExternalFonts(fontFolders);
 
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// Yüklenen yazı tiplerini kullanarak sunumu renderleyin/ dışa aktarın (örn. PDF, görüntüler veya diğer formatlar).
+// Yüklenen fontları kullanarak sunumu render/dışa aktarın (örn. PDF, görüntüler veya diğer formatlar).
 presentation->Save(u"output.pdf", SaveFormat::Pdf);
 presentation->Dispose();
 
-// İş tamamlandıktan sonra yazı tipi önbelleğini temizleyin.
+// İş bittiğinde font önbelleğini temizleyin.
 FontsLoader::ClearCache();
 ```
 
 {{% alert color="info" title="Note" %}}
-[FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsloader/loadexternalfonts/) ek klasörleri yazı tipi arama yollarına ekler, ancak yazı tipi başlatma sırasını değiştirmez.
-Yazı tipleri şu sırayla başlatılır:
 
-1. İşletim sisteminin varsayılan yazı tipi yolu.
-1. [FontsLoader](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsloader/) üzerinden yüklenen yollar.
+[FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsloader/loadexternalfonts/) font arama yollarına ek klasörler ekler, ancak font başlatma sırasını değiştirmez.
+Fontlar aşağıdaki sırayla başlatılır:
+
+1. Varsayılan işletim sistemi font yolu.
+1. [FontsLoader](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsloader/) ile yüklenen yollar.
+
 {{%/alert %}}
 
-## **Özel Yazı Tipi Klasörlerini Al**
+## **Özel Font Klasörlerini Al**
 
-Aspose.Slides, yazı tipi klasörlerini bulmanızı sağlayan [FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsloader/getfontfolders/) sağlar. Bu yöntem, `LoadExternalFonts` yöntemiyle eklenen klasörleri ve sistem yazı tipi klasörlerini döndürür.
+Aspose.Slides, font klasörlerini bulmanızı sağlayan [FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsloader/getfontfolders/) metodunu sunar. Bu yöntem, `LoadExternalFonts` yöntemiyle eklenen klasörleri ve sistem font klasörlerini döndürür.
 
 Bu C++ kodu, [FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsloader/getfontfolders/) yönteminin nasıl kullanılacağını gösterir:
 
 ``` cpp
-// Bu satır, yazı tipi dosyaları için kontrol edilen klasörleri çıktılar.
-// Bunlar, LoadExternalFonts yöntemiyle eklenen ve sistem yazı tipi klasörleridir.
+#include <DOM/Fonts/FontsLoader.h>
+using namespace Aspose::Slides;
+
+// Bu satır, font dosyaları için kontrol edilen klasörleri çıktı olarak verir.
+// Bunlar, LoadExternalFonts yöntemiyle eklenen klasörler ve sistem font klasörleridir.
 auto fontFolders = FontsLoader::GetFontFolders();
 ```
 
-## **Sunumla Kullanılan Özel Yazı Tiplerini Belirtme**
+## **Bir Sunumla Kullanılan Özel Fontları Belirleme**
 
-Aspose.Slides, sunumla birlikte kullanılacak dış yazı tiplerini belirtmenizi sağlayan [LoadOptions::set_DocumentLevelFontSources](https://reference.aspose.com/slides/tr/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/) özelliğini sunar.
+Aspose.Slides, sunumla birlikte kullanılacak dış fontları belirlemenizi sağlayan [LoadOptions::set_DocumentLevelFontSources](https://reference.aspose.com/slides/tr/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/) özelliğini sunar.
 
 Bu C++ kodu, [LoadOptions::set_DocumentLevelFontSources](https://reference.aspose.com/slides/tr/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/) özelliğinin nasıl kullanılacağını gösterir:
 
 ``` cpp
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <IFontSources.h>
+#include <system/io/file.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto memoryFont1 = File::ReadAllBytes(u"customfonts\\CustomFont1.ttf");
 auto memoryFont2 = File::ReadAllBytes(u"customfonts\\CustomFont2.ttf");
 
@@ -98,19 +122,28 @@ loadOptions->get_DocumentLevelFontSources()->set_FontFolders(System::MakeArray<S
 loadOptions->get_DocumentLevelFontSources()->set_MemoryFonts(System::MakeArray<ArrayPtr<uint8_t>>({memoryFont1, memoryFont2}));
 {
     auto presentation = System::MakeObject<Presentation>(u"MyPresentation.pptx", loadOptions);
-    // sunum üzerinde çalışın
-    // CustomFont1, CustomFont2 ile birlikte assets\fonts ve global\fonts klasörlerinden ve alt klasörlerinden gelen yazı tipleri de sunumda kullanılabilir.
+    //sunumla çalış
+    //CustomFont1, CustomFont2 ve assets\fonts & global\fonts klasörleri ve alt klasörlerinden gelen fontlar sunum için kullanılabilir
 }
 ```
 
-## **Yazı Tiplerini Dışarıdan Yönetme**
+## **Fontları Dışarıdan Yönetme**
 
-Aspose.Slides, dış yazı tiplerini bayt dizisine yüklemenizi sağlayan [FontsLoader::LoadExternalFont](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsloader/loadexternalfont/) yöntemini sunar.
+Aspose.Slides, dış fontları bir bayt dizisine yüklemenizi sağlayan [FontsLoader::LoadExternalFont](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsloader/loadexternalfont/) yöntemini sunar.
 
-Bu C++ kodu, bayt dizisi yazı tipi yükleme sürecini göstermektedir:
+Bu C++ kodu, bayt dizisi font yükleme sürecini göstermektedir:
 
 ```cpp
-// Belge dizininin yolu
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <IFontSources.h>
+#include <system/io/file.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+// Belgeler dizinine giden yol
 const String outPath = u"../out/SpecifyFontsUsedWithPresentation.pptx";
 const String templatePath = u"../templates/AccessSlides.pptx";
 
@@ -127,22 +160,22 @@ SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath, loadOption
 
 ## **SSS**
 
-**Özel yazı tipleri tüm formatlara (PDF, PNG, SVG, HTML) dışa aktarmayı etkiler mi?**
+### Özel fontlar tüm formatlara (PDF, PNG, SVG, HTML) dışa aktarmayı etkiler mi?
 
-Evet. Bağlı yazı tipleri, renderleyici tarafından tüm dışa aktarım formatlarında kullanılır.
+Evet. Bağlı fontlar, render tarafından tüm dışa aktarma formatlarında kullanılır.
 
-**Özel yazı tipleri sonuç PPTX dosyasına otomatik olarak gömülür mü?**
+### Özel fontlar otomatik olarak oluşturulan PPTX dosyasına gömülür mü?
 
-Hayır. Bir yazı tipini renderleme için kaydetmek, PPTX dosyasına gömmekle aynı değildir. Yazı tipinin sunum dosyasının içinde taşınması gerekiyorsa, açıkça [gömme özelliklerini](/slides/tr/cpp/embedded-font/) kullanmalısınız.
+Hayır. Bir fontu render için kaydetmek, onu bir PPTX dosyasına gömmekle aynı şey değildir. Fontun sunum dosyası içinde bulunmasını istiyorsanız, açıkça [gömme özelliklerini](/slides/tr/cpp/embedded-font/) kullanmalısınız.
 
-**Bir özel yazı tipinde belirli glifler eksik olduğunda geri dönüş davranışını kontrol edebilir miyim?**
+### Özelleştirilmiş bir font belirli glifleri içermediğinde geri dönüş (fallback) davranışını kontrol edebilir miyim?
 
-Evet. İstenen glif eksik olduğunda hangi yazı tipinin kullanılacağını tam olarak tanımlamak için [yazı tipi ikamesi](/slides/tr/cpp/font-substitution/), [değiştirme kuralları](/slides/tr/cpp/font-replacement/) ve [geri dönüş setleri](/slides/tr/cpp/fallback-font/) yapılandırın.
+Evet. İstenen glif bulunmadığında hangi fontun kullanılacağını kesin olarak tanımlamak için [font ikamesi](/slides/tr/cpp/font-substitution/), [değiştirme kuralları](/slides/tr/cpp/font-replacement/) ve [geri dönüş setleri](/slides/tr/cpp/fallback-font/) yapılandırabilirsiniz.
 
-**Yazı tiplerini Linux/Docker konteynerlerinde sistem genelinde kurmadan kullanabilir miyim?**
+### Fontları Linux/Docker konteynerlerinde sistem genelinde kurmadan kullanabilir miyim?
 
-Evet. Kendi yazı tipi klasörlerinize işaret edebilir veya yazı tiplerini bayt dizilerinden yükleyebilirsiniz. Bu, konteyner imajındaki sistem yazı tipi dizinlerine bağımlılığı ortadan kaldırır.
+Evet. Kendi font klasörlerinize işaret edebilir veya fontları bayt dizilerinden yükleyebilirsiniz. Bu, konteyner imajında sistem font dizinlerine olan bağımlılığı ortadan kaldırır.
 
-**Lisanslama konusunda ne? Herhangi bir özel yazı tipini kısıtlama olmadan gömebilir miyim?**
+### Lisanslama konusunda—herhangi bir özel fontu kısıtlama olmadan gömebilir miyim?
 
-Yazı tipi lisansına uyumluluktan siz sorumludur. Şartlar değişiklik gösterir; bazı lisanslar gömme veya ticari kullanımı yasaklayabilir. Çıktıları dağıtmadan önce her zaman yazı tipinin son kullanıcı lisans sözleşmesini (EULA) inceleyin.
+Font lisans uyumluluğundan siz sorumlusunuz. Şartlar değişiklik gösterebilir; bazı lisanslar gömmeyi veya ticari kullanımı yasaklar. Çıktıları dağıtmadan önce her zaman fontun EULA'sını gözden geçirin.

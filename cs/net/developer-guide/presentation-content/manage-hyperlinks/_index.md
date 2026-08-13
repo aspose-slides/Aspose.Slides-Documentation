@@ -1,6 +1,6 @@
 ---
 title: Správa hypertextových odkazů v prezentacích v .NET
-linktitle: Správa hypertextového odkazu
+linktitle: Spravovat hypertextový odkaz
 type: docs
 weight: 20
 url: /cs/net/manage-hyperlinks/
@@ -23,30 +23,31 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Jednoduše spravujte hypertextové odkazy v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro .NET—zvyšte interaktivitu a efektivitu práce během několika minut."
+description: "Jednoduše spravujte hypertextové odkazy v PowerPoint a OpenDocument prezentacích pomocí Aspose.Slides pro .NET—zvyšte interaktivitu a efektivitu práce během několika minut."
 ---
 ## **Úvod**
 
 Hyperlink je odkaz na objekt, data nebo místo v něčem. Toto jsou běžné hypertextové odkazy v prezentacích PowerPoint:
 
-* Odkazy na webové stránky uvnitř textu, tvarů nebo médií
+* Odkazy na webové stránky v textu, tvarech nebo médiích
 * Odkazy na snímky
 
-Aspose.Slides pro .NET vám umožňuje provádět mnoho úkolů souvisejících s hypertextovými odkazy v prezentacích. 
+Aspose.Slides pro .NET vám umožňuje provádět řadu úkolů týkajících se hypertextových odkazů v prezentacích. 
 
-{{% alert color="primary" %}} 
-
+{{% alert color="info" %}} 
 Možná budete chtít vyzkoušet jednoduchý, [bezplatný online editor PowerPointu.](https://products.aspose.app/slides/cs/editor)
-
 {{% /alert %}} 
 
 ## **Přidání URL hypertextových odkazů**
 
 ### **Přidání URL hypertextových odkazů do textu**
 
-Tento C# kód ukazuje, jak přidat hypertextový odkaz na webovou stránku do textu:
+Tento C# kód ukazuje, jak přidat odkaz na webovou stránku do textu:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
 	IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -61,9 +62,12 @@ using (Presentation presentation = new Presentation())
 
 ### **Přidání URL hypertextových odkazů do tvarů nebo rámců**
 
-Tento ukázkový kód v C# ukazuje, jak přidat hypertextový odkaz na webovou stránku do tvaru:
+Tento ukázkový kód v C# ukazuje, jak přidat odkaz na webovou stránku do tvaru:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -75,13 +79,16 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **Přidání URL hypertextových odkazů k médiím**
+### **Přidání URL hypertextových odkazů do médií**
 
 Aspose.Slides vám umožňuje přidávat hypertextové odkazy k obrázkům, audio a video souborům. 
 
-Tento ukázkový kód ukazuje, jak přidat hypertextový odkaz k **obrázku**:
+Tento ukázkový kód ukazuje, jak přidat odkaz na **obrázek**:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     // Přidá obrázek do prezentace
@@ -96,9 +103,12 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-Tento ukázkový kód ukazuje, jak přidat hypertextový odkaz k **audio souboru**:
+Tento ukázkový kód ukazuje, jak přidat odkaz na **audio soubor**:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IAudio audio = pres.Audios.AddAudio(File.ReadAllBytes("audio.mp3"));
@@ -111,9 +121,12 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-Tento ukázkový kód ukazuje, jak přidat hypertextový odkaz k **videu**:
+Tento ukázkový kód ukazuje, jak přidat odkaz na **video**:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IVideo video = pres.Videos.AddVideo(File.ReadAllBytes("video.avi"));
@@ -126,19 +139,21 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-{{%  alert  title="Tip"  color="primary"  %}} 
-
+{{%  alert  title="Tip"  color="info"  %}} 
 Možná budete chtít zobrazit *[Spravovat OLE](https://docs.aspose.com/slides/cs/net/manage-ole/)*.
-
 {{% /alert %}}
 
 ## **Použití hypertextových odkazů k vytvoření obsahu**
 
-Protože hypertextové odkazy vám umožňují přidávat odkazy na objekty či místa, můžete je použít k vytvoření obsahu.
+Protože hypertextové odkazy umožňují přidávat odkazy na objekty nebo místa, můžete je použít k vytvoření obsahu.
 
 Tento ukázkový kód ukazuje, jak vytvořit obsah s hypertextovými odkazy:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation())
 {
     var firstSlide = presentation.Slides[0];
@@ -169,11 +184,15 @@ using (var presentation = new Presentation())
 
 ### **Barva**
 
-Pomocí vlastnosti [ColorSource](https://reference.aspose.com/slides/cs/net/aspose.slides/ihyperlink/properties/colorsource) v rozhraní [IHyperlink](https://reference.aspose.com/slides/cs/net/aspose.slides/ihyperlink) můžete nastavit barvu hypertextových odkazů a také získat informace o barvě z hypertextových odkazů. Tato funkce byla poprvé představena v PowerPointu 2019, takže změny související s touto vlastností se nevztahují na starší verze PowerPointu.
+Pomocí vlastnosti [ColorSource](https://reference.aspose.com/slides/cs/net/aspose.slides/ihyperlink/properties/colorsource) v rozhraní [IHyperlink](https://reference.aspose.com/slides/cs/net/aspose.slides/ihyperlink) můžete nastavit barvu hypertextových odkazů a také získat informace o barvě z hypertextových odkazů. Tato funkce byla poprvé představena v PowerPoint 2019, takže změny týkající se této vlastnosti se nevztahují na starší verze PowerPointu.
 
-Tento ukázkový kód demonstruje operaci, při níž byly na stejný snímek přidány hypertextové odkazy s různými barvami:
+Tento ukázkový kód demonstrativně přidává hypertextové odkazy s různými barvami na stejný snímek:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -192,15 +211,18 @@ using (Presentation presentation = new Presentation())
 ```
 ### **Zvuk**
 
-Aspose.Slides poskytuje tyto vlastnosti, které vám umožní zdůraznit hypertextový odkaz zvukem:
+Aspose.Slides poskytuje následující vlastnosti, které vám umožní zvýraznit hypertextový odkaz zvukem:
 - [IHyperlink.Sound](https://reference.aspose.com/slides/cs/net/aspose.slides/ihyperlink/properties/sound) 
 - [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/cs/net/aspose.slides/ihyperlink/properties/stopsoundonclick)
 
 #### **Přidání zvuku k hypertextovému odkazu**
 
-Tento C# kód ukazuje, jak nastavit hypertextový odkaz, který přehrává zvuk, a zastavit jej pomocí dalšího hypertextového odkazu:
+Tento C# kód ukazuje, jak nastavit hypertextový odkaz, který přehrává zvuk, a zastavit jej pomocí jiného hypertextového odkazu:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
 	// Přidá nový zvuk do kolekce zvuků prezentace
@@ -208,11 +230,11 @@ using (Presentation pres = new Presentation())
 
 	ISlide firstSlide = pres.Slides[0];
 
-	// Přidá nový tvar s hypertextovým odkazem na následující snímek
+	// Přidá nový tvar s hypertextovým odkazem na další snímek
 	IShape firstShape = firstSlide.Shapes.AddAutoShape(ShapeType.SoundButton, 100, 100, 100, 50);
 	firstShape.HyperlinkClick = Hyperlink.NextSlide;
 
-	// Kontroluje hypertextový odkaz pro "Žádný zvuk"
+	// Zkontroluje hypertextový odkaz pro "Žádný zvuk"
 	if (!firstShape.HyperlinkClick.StopSoundOnClick && firstShape.HyperlinkClick.Sound == null)
 	{
 		// Nastaví hypertextový odkaz, který přehrává zvuk
@@ -238,6 +260,8 @@ using (Presentation pres = new Presentation())
 Tento C# kód ukazuje, jak extrahovat zvuk použitý v hypertextovém odkazu:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 {
 	ISlide firstSlide = pres.Slides[0];
@@ -260,6 +284,9 @@ using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 Tento C# kód ukazuje, jak odstranit hypertextový odkaz z textu na snímku prezentace:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     ISlide slide = pres.Slides[0];
@@ -287,6 +314,9 @@ using (Presentation pres = new Presentation("pres.pptx"))
 Tento C# kód ukazuje, jak odstranit hypertextový odkaz z tvaru na snímku prezentace: 
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("demo.pptx")) 
 { 
    ISlide slide = pres.Slides[0]; 
@@ -298,18 +328,21 @@ using (Presentation pres = new Presentation("demo.pptx"))
 }
 ```
 
-## **Měnný hypertextový odkaz**
+## **Měnitelný hypertextový odkaz**
 
-Třída [Hyperlink](https://reference.aspose.com/slides/cs/net/aspose.slides/hyperlink) je měnná. S touto třídou můžete měnit hodnoty těchto vlastností:
+Třída [Hyperlink](https://reference.aspose.com/slides/cs/net/aspose.slides/hyperlink) je měnitelná. S touto třídou můžete měnit hodnoty následujících vlastností:
 
 - [IHyperlink.TargetFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ihyperlink/properties/targetframe)
 - [IHyperlink.Tooltip](https://reference.aspose.com/slides/cs/net/aspose.slides/ihyperlink/properties/tooltip)
 - [IHyperlink.History](https://reference.aspose.com/slides/cs/net/aspose.slides/ihyperlink/properties/history)
 - [IHyperlink.HighlightClick](https://reference.aspose.com/slides/cs/net/aspose.slides/ihyperlink/properties/highlightclick)
 
-Ukázkový úryvek kódu ukazuje, jak přidat hypertextový odkaz na snímek a později upravit jeho popisek:
+Ukázka kódu ukazuje, jak přidat hypertextový odkaz na snímek a později upravit jeho popisek:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {   
    IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);    
@@ -334,7 +367,7 @@ K IHyperlinkQueries můžete přistupovat z prezentace, snímku nebo textu, pro 
 - [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/cs/net/aspose.slides/ibaseslide/properties/hyperlinkqueries)
 - [ITextFrame.HyperlinkQueries](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/properties/hyperlinkqueries)
 
-Třída IHyperlinkQueries podporuje tyto metody a vlastnosti: 
+Třída IHyperlinkQueries podporuje následující metody a vlastnosti: 
 
 - [IHyperlinkQueries.GetHyperlinkClicks();](https://reference.aspose.com/slides/cs/net/aspose.slides/ihyperlinkqueries/methods/gethyperlinkclicks)
 - [IHyperlinkQueries.GetHyperlinkMouseOvers();](https://reference.aspose.com/slides/cs/net/aspose.slides/ihyperlinkqueries/methods/gethyperlinkmouseovers)
@@ -343,14 +376,14 @@ Třída IHyperlinkQueries podporuje tyto metody a vlastnosti:
 
 ## **Často kladené otázky**
 
-**Jak mohu vytvořit vnitřní navigaci nejen na snímek, ale i na „sekci“ nebo první snímek sekce?**
+### Jak mohu vytvořit interní navigaci nejen na snímek, ale i na „sekci“ nebo první snímek sekce?
 
 Sekce v PowerPointu jsou seskupení snímků; navigace technicky cílí na konkrétní snímek. Pro „navigaci do sekce“ obvykle odkazujete na její první snímek.
 
-**Mohu připojit hypertextový odkaz k prvkům hlavní šablony, aby fungoval na všech snímcích?**
+### Mohu přiřadit hypertextový odkaz k prvkům hlavního snímku, aby fungoval na všech snímcích?
 
-Ano. Prvky hlavní šablony a rozvržení podporují hypertextové odkazy. Tyto odkazy se zobrazí na podřízených snímcích a jsou klikatelné během prezentace.
+Ano. Prvky hlavního snímku a rozvržení podporují hypertextové odkazy. Tyto odkazy se zobrazí na podřízených snímcích a jsou klikatelné během prezentace.
 
-**Zůstanou hypertextové odkazy zachovány při exportu do PDF, HTML, obrázků nebo videa?**
+### Zůstanou hypertextové odkazy zachovány při exportu do PDF, HTML, obrázků nebo videa?
 
-V [PDF](/slides/cs/net/convert-powerpoint-to-pdf/) a [HTML](/slides/cs/net/convert-powerpoint-to-html/) ano—odkazy jsou obecně zachovány. Při exportu do [obrázků](/slides/cs/net/convert-powerpoint-to-png/) a [videí](/slides/cs/net/convert-powerpoint-to-video/) klikatelnost nepřetrvá kvůli povaze těchto formátů (rastrální snímky/video nepodporují hypertextové odkazy).
+V [PDF](/slides/cs/net/convert-powerpoint-to-pdf/) a [HTML](/slides/cs/net/convert-powerpoint-to-html/) ano – odkazy jsou obecně zachovány. Při exportu do [images](/slides/cs/net/convert-powerpoint-to-png/) a [video](/slides/cs/net/convert-powerpoint-to-video/) klikatelnost nebudou přeneseny, protože tyto formáty (rastrální snímky/video) hypertextové odkazy nepodporují.

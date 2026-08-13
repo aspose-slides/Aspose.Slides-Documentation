@@ -8,18 +8,16 @@ keywords:
 - membuat tabel
 - migrasi
 - VSTO
-- otomatisasi Office
+- otomasi Office
 - PowerPoint
 - presentasi
 - .NET
 - C#
 - Aspose.Slides
-description: "Migrasi dari otomatisasi Microsoft Office ke Aspose.Slides untuk .NET dan buat tabel dalam slide PowerPoint (PPT, PPTX) dengan C# dengan format yang fleksibel."
+description: "Migrasi dari otomasi Microsoft Office ke Aspose.Slides untuk .NET dan buat tabel dalam slide PowerPoint (PPT, PPTX) menggunakan C# dengan format yang fleksibel."
 ---
-{{% alert color="primary" %}} 
-
+{{% alert color="info" %}} 
 Tabel banyak digunakan untuk menampilkan data pada slide presentasi. Artikel ini menunjukkan cara membuat tabel 15 x 15 dengan ukuran font 10 secara programatis menggunakan pertama [VSTO 2008](/slides/id/net/creating-a-table-on-powerpoint-slide/) dan kemudian [Aspose.Slides for .NET](/slides/id/net/creating-a-table-on-powerpoint-slide/).
-
 {{% /alert %}} 
 ## **Membuat Tabel**
 #### **Contoh VSTO 2008**
@@ -32,7 +30,7 @@ Langkah-langkah berikut menambahkan tabel ke slide Microsoft PowerPoint mengguna
 1. Simpan presentasi ke disk.
 
 ```c#
-//Buat presentasi
+ //Buat presentasi
 PowerPoint.Presentation pres = Globals.ThisAddIn.Application
               .Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 //Tambahkan slide kosong
@@ -54,11 +52,11 @@ foreach (PowerPoint.Row row in tbl.Rows)
     foreach (PowerPoint.Cell cell in row.Cells)
     {
         j = j + 1;
-        //Dapatkan bingkai teks setiap sel
+        //Dapatkan frame teks dari setiap sel
         PowerPoint.TextFrame tf = cell.Shape.TextFrame;
-        //Tambahkan teks
+        //Tambahkan beberapa teks
         tf.TextRange.Text = "T" + i.ToString() + j.ToString();
-        //Setel ukuran font teks menjadi 10
+        //Atur ukuran font teks menjadi 10
         tf.TextRange.Paragraphs(0, tf.TextRange.Text.Length).Font.Size = 10;
     }
 }
@@ -69,9 +67,7 @@ pres.SaveAs("d:\\tblVSTO.ppt",
       Microsoft.Office.Core.MsoTriState.msoFalse);
 ```
 
-
-
-### **Contoh Aspose.Slides for .NET**
+### **Contoh Aspose.Slides untuk .NET**
 Langkah-langkah berikut menambahkan tabel ke slide Microsoft PowerPoint menggunakan Aspose.Slides:
 
 1. Buat presentasi.
@@ -80,34 +76,37 @@ Langkah-langkah berikut menambahkan tabel ke slide Microsoft PowerPoint mengguna
 1. Tuliskan presentasi ke disk.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 Presentation pres = new Presentation();
 
 //Akses slide pertama
 ISlide sld = pres.Slides[0];
 
-//Tentukan kolom dengan lebar dan baris dengan tinggi
+//Definisikan kolom dengan lebar dan baris dengan tinggi
 double[] dblCols = { 50, 50, 50 };
 double[] dblRows = { 50, 30, 30, 30, 30 };
 
 //Tambahkan tabel
 Aspose.Slides.ITable tbl = sld.Shapes.AddTable(50, 50, dblCols, dblRows);
 
-//Setel format batas untuk setiap sel
+//Atur format batas untuk setiap sel
 foreach (IRow row in tbl.Rows)
 {
-		foreach (ICell cell in row)
-		{
+	foreach (ICell cell in row)
+	{
 
-			//Dapatkan bingkai teks setiap sel
-			ITextFrame tf = cell.TextFrame;
-			//Tambahkan teks
-			tf.Text = "T" + cell.FirstRowIndex.ToString() + cell.FirstColumnIndex.ToString();
-			//Setel ukuran font menjadi 10
-			tf.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 10;
-			tf.Paragraphs[0].ParagraphFormat.Bullet.Type = BulletType.None;
-		}
+		//Dapatkan frame teks dari setiap sel
+		ITextFrame tf = cell.TextFrame;
+		//Tambahkan beberapa teks
+		tf.Text = "T" + cell.FirstRowIndex.ToString() + cell.FirstColumnIndex.ToString();
+		//Atur ukuran font menjadi 10
+		tf.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 10;
+		tf.Paragraphs[0].ParagraphFormat.Bullet.Type = BulletType.None;
+	}
 }
 
-//Tuliskan presentasi ke disk
-pres.Save("C:\\data\\tblSLD.ppt", SaveFormat.Ppt);
+//Tulis presentasi ke disk
+pres.Save("tblSLD.ppt", SaveFormat.Ppt);
 ```

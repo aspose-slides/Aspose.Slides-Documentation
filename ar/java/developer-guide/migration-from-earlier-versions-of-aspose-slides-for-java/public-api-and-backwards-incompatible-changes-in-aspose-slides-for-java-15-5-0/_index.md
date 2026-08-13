@@ -1,30 +1,39 @@
 ---
-title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides لـ Java 15.5.0
+title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة إلى الخلف في Aspose.Slides for Java 15.5.0
+linktitle: Aspose.Slides لـ Java 15.5.0
 type: docs
 weight: 130
 url: /ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-5-0/
+keywords:
+- الهجرة
+- كود قديم
+- كود حديث
+- نهج قديم
+- نهج حديث
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Java
+- Aspose.Slides
+description: "استعرض تحديثات واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة في Aspose.Slides for Java لتسهيل ترحيل حلول عروض PowerPoint (PPT, PPTX) و ODP الخاصة بك."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-تقوم هذه الصفحة بإدراج جميع [الإضافات](/slides/ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-5-0/) من الفئات والأساليب والخصائص وما إلى ذلك، وأي قيود جديدة وأخرى [التغييرات](/slides/ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-5-0/) التي تم تقديمها مع واجهة برمجة التطبيقات Aspose.Slides لـ Java 15.5.0.
+تُدرج هذه الصفحة جميع [المضافة](/slides/ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-5-0/) الفئات والطرق والخصائص وما إلى ذلك، وأي قيود جديدة و[التغييرات](/slides/ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-5-0/) الأخرى التي تم تقديمها مع Aspose.Slides for Java 15.5.0 API.
 
 {{% /alert %}} 
 ## **تغييرات واجهة برمجة التطبيقات العامة**
-### **تمت إضافة فئة CommonSlideViewProperties وواجهة ICommonSlideViewProperties**
-تُمثل فئة com.aspose.slides.CommonSlideViewProperties (وواجهتها com.aspose.slides.ICommonSlideViewProperties) خصائص عرض الشرائح المشتركة (حاليًا خيارات مقياس العرض).
-### **تمت إضافة طرق IAxis.getLabelOffset() و setLabelOffset(int)**
-تتيح طرق IAxis.getLabelOffset() و setLabelOffset(int) الحصول على وتحديد المسافة بين التسميات والمحور. تُطبق على المحاور الفئوية أو الزمنية.
-### **تمت إضافة طرق IChartTextBlockFormat.getAutofitType() و setAutofitType(byte)**
-تمت إضافة طرق getAutofitType() و setAutofitType(/**TextAutofitType**/byte) إلى واجهة com.aspose.slides.IChartTextBlockFormat.
-يمكن أن يؤثر تغيير هذه القيمة على أجزاء معينة فقط من الرسم البياني: DataLabel و DataLabelFormat (دعم كامل في PowerPoint 2013؛ في PowerPoint 2007 لا يوجد تأثير على الرندر).
-### **تمت إضافة طرق IChartTextBlockFormat.getWrapText() و setWrapText(byte)**
-تمت إضافة طرق getWrapText() و setWrapText(/**NullableBool**/byte) إلى واجهة com.aspose.slides.IChartTextBlockFormat.
-يمكن أن يؤثر تغيير هذه القيمة على أجزاء معينة فقط من الرسم البياني: DataLabel و DataLabelFormat (دعم كامل في PowerPoint 2007/2013).
-### **تمت إضافة طرق لإدارة الهوامش إلى IChartTextBlockFormat**
-تمت إضافة طرق getMarginLeft() و setMarginLeft(double) و getMarginRight() و setMarginRight(double) و getMarginTop() و setMarginTop(double) و getMarginBottom() و setMarginBottom(double) إلى واجهة com.aspose.slides.IChartTextBlockFormat.
-يمكن أن يؤثر تغيير هذه القيم على أجزاء معينة فقط من الرسم البياني: DataLabel و DataLabelFormat (دعم كامل في PowerPoint 2013؛ في PowerPoint 2007 لا يوجد تأثير على الرندر).
-### **تمت إضافة طريقة ViewProperties.getNotesViewProperties()**
-تمت إضافة خاصية com.aspose.slides.ViewProperties.getNotesViewProperties(). تسترجع الخصائص العامة المرتبطة بوضع عرض الملاحظات.
-### **تمت إضافة طريقة ViewProperties.getSlideViewProperties()**
-تمت إضافة طريقة com.aspose.slides.ViewProperties.getSlideViewProperties(). تسترجع الخصائص العامة المرتبطة بوضع عرض الشريحة.
+### **تمت إضافة الفئة CommonSlideViewProperties والواجهة ICommonSlideViewProperties**
+تمثل الفئة com.aspose.slides.CommonSlideViewProperties (وواجهتها com.aspose.slides.ICommonSlideViewProperties) خصائص عرض الشريحة العامة (حالياً خيارات مقياس العرض).
+### **تمت إضافة الطرق IAxis.getLabelOffset() و setLabelOffset(int)**
+تسمح الطرق IAxis.getLabelOffset() و setLabelOffset(int) بالحصول على وتحديد المسافة بين التسميات والمحور. تُطبق على محور الفئة أو التاريخ.
+### **تمت إضافة الطرق IChartTextBlockFormat.getAutofitType() و setAutofitType(byte)**
+تمت إضافة الطريقتين getAutofitType() و setAutofitType(/**TextAutofitType**/byte) إلى الواجهة com.aspose.slides.IChartTextBlockFormat. يمكن أن يؤثر تغيير هذه القيمة فقط على أجزاء المخطط التالية: DataLabel و DataLabelFormat (دعم كامل في PowerPoint 2013؛ لا تأثير في PowerPoint 2007 للعرض).
+### **تمت إضافة الطرق IChartTextBlockFormat.getWrapText() و setWrapText(byte)**
+تمت إضافة الطريقتين getWrapText() و setWrapText(/**NullableBool**/byte) إلى الواجهة com.aspose.slides.IChartTextBlockFormat. يمكن أن يؤثر تغيير هذه القيمة فقط على أجزاء المخطط التالية: DataLabel و DataLabelFormat (دعم كامل في PowerPoint 2007/2013).
+### **تمت إضافة طرق إدارة الهوامش إلى IChartTextBlockFormat**
+تمت إضافة الطرائق getMarginLeft()، setMarginLeft(double)، getMarginRight()، setMarginRight(double)، getMarginTop()، setMarginTop(double)، getMarginBottom() و setMarginBottom(double) إلى الواجهة com.aspose.slides.IChartTextBlockFormat. يمكن أن يؤثر تغيير هذه القيم فقط على أجزاء المخطط التالية: DataLabel و DataLabelFormat (دعم كامل في PowerPoint 2013؛ لا تأثير في PowerPoint 2007 للعرض).
+### **تمت إضافة الطريقة ViewProperties.getNotesViewProperties()**
+تمت إضافة الخاصية com.aspose.slides.ViewProperties.getNotesViewProperties()، والتي تُعيد خصائص العرض العامة المرتبطة بوضع عرض الملاحظات.
+### **تمت إضافة الطريقة ViewProperties.getSlideViewProperties()**
+تمت إضافة الطريقة com.aspose.slides.ViewProperties.getSlideViewProperties()، والتي تُعيد خصائص العرض العامة المرتبطة بوضع عرض الشريحة.

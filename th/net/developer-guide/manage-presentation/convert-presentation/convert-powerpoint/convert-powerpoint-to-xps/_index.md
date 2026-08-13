@@ -24,55 +24,58 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "แปลง PowerPoint PPT/PPTX เป็น XPS คุณภาพสูง ไม่ขึ้นกับแพลตฟอร์มใน .NET ด้วย Aspose.Slides รับคำแนะนำทีละขั้นตอนและตัวอย่างโค้ด C#"
+description: "แปลง PowerPoint PPT/PPTX เป็น XPS คุณภาพสูงและเป็นอิสระจากแพลตฟอร์มใน .NET ด้วย Aspose.Slides รับคู่มือขั้นตอนและตัวอย่างโค้ด C#"
 ---
 ## **ภาพรวม**
 
-Aspose.Slides ช่วยให้คุณแปลงงานนำเสนอ PowerPoint เป็น XPS ได้โดยบันทึกไฟล์ PPT หรือ PPTX ในรูปแบบ XPS บทความนี้อธิบายว่าเมื่อใดที่รูปแบบ XPS จะเป็นประโยชน์และแสดงวิธีการทำการแปลงด้วย Aspose.Slides โดยใช้การตั้งค่าเริ่มต้นหรือการตั้งค่า [XpsOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/xpsoptions/) แบบกำหนดเอง
+Aspose.Slides ช่วยให้คุณแปลงงานนำเสนอ PowerPoint เป็น XPS โดยการบันทึกไฟล์ PPT หรือ PPTX ในรูปแบบ XPS บทความนี้อธิบายว่าเมื่อใดที่รูปแบบ XPS จะเป็นประโยชน์และแสดงวิธีการทำการแปลงด้วย Aspose.Slides โดยใช้การตั้งค่าเริ่มต้นหรือการตั้งค่าแบบกำหนดเอง [XpsOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/xpsoptions/) 
 
 ## **เกี่ยวกับ XPS**
-Microsoft พัฒนา [XPS](https://docs.fileformat.com/page-description-language/xps/) เป็นทางเลือกสำหรับ [PDF](https://docs.fileformat.com/pdf/)  มันช่วยให้คุณพิมพ์เนื้อหาโดยส่งออกไฟล์ที่คล้ายกับ PDF รูปแบบ XPS มีพื้นฐานจาก XML โครงสร้างของไฟล์ XPS จะคงที่บนระบบปฏิบัติการและเครื่องพิมพ์ทั้งหมด
+Microsoft พัฒนา [XPS](https://docs.fileformat.com/page-description-language/xps/) เป็นทางเลือกของ [PDF](https://docs.fileformat.com/pdf/) มันช่วยให้คุณพิมพ์เนื้อหาโดยการสร้างไฟล์ที่คล้ายกับ PDF รูปแบบ XPS มีพื้นฐานมาจาก XML การจัดวางหรือโครงสร้างของไฟล์ XPS จะคงที่บนระบบปฏิบัติการและเครื่องพิมพ์ทุกประเภท  
 
-## **เมื่อใดควรใช้รูปแบบ Microsoft XPS**
+## **เมื่อควรใช้รูปแบบ Microsoft XPS**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-เพื่อดูวิธีที่ Aspose.Slides แปลงงานนำเสนอ PPT หรือ PPTX เป็นรูปแบบ XPS คุณสามารถลองใช้ [this free online converter app](https://products.aspose.app/slides/th/conversion) 
+เพื่อดูว่า Aspose.Slides แปลงงานนำเสนอ PPT หรือ PPTX เป็นรูปแบบ XPS อย่างไร คุณสามารถตรวจสอบ [แอปแปลงออนไลน์ฟรีนี้](https://products.aspose.app/slides/th/conversion) 
 
 {{% /alert %}} 
 
-หากคุณต้องการลดค่าใช้จ่ายในการจัดเก็บ คุณสามารถแปลงงานนำเสนอ Microsoft PowerPoint ของคุณเป็นรูปแบบ XPS ด้วย วิธีนี้จะทำให้การบันทึก แบ่งปัน และพิมพ์เอกสารของคุณง่ายขึ้น
+หากคุณต้องการลดค่าใช้จ่ายในการจัดเก็บ คุณสามารถแปลงงานนำเสนอ Microsoft PowerPoint ของคุณเป็นรูปแบบ XPS วิธีนี้จะทำให้การบันทึก, แชร์ และพิมพ์เอกสารของคุณง่ายขึ้น  
 
-Microsoft ยังให้การสนับสนุน XPS อย่างแข็งขันใน Windows (รวมถึง Windows 10) ดังนั้นคุณอาจพิจารณาบันทึกไฟล์เป็นรูปแบบนี้ หากคุณกำลังใช้งาน Windows 8.1, Windows 8, Windows 7 และ Windows Vista XPS อาจเป็นตัวเลือกที่ดีที่สุดสำหรับบางการทำงาน
+Microsoft ยังคงให้การสนับสนุน XPS อย่างแข็งแกร่งใน Windows (แม้ใน Windows 10) ดังนั้นคุณอาจพิจารณาบันทึกไฟล์ในรูปแบบนี้ หากคุณใช้ Windows 8.1, Windows 8, Windows 7 และ Windows Vista แล้ว XPS อาจเป็นตัวเลือกที่ดีที่สุดสำหรับบางการดำเนินการ  
 
-- **Windows 8** ใช้รูปแบบ OXPS (Open XPS) สำหรับไฟล์ XPS OXPS เป็นเวอร์ชันมาตรฐานของรูปแบบ XPS ดั้งเดิม Windows 8 มีการสนับสนุนไฟล์ XPS ดีกว่าไฟล์ PDF
-  - **XPS:** มีตัวดู/อ่าน XPS ในตัวและฟีเจอร์การพิมพ์เป็น XPS
-  - **PDF:** มีตัวอ่าน PDF แต่ไม่มีฟีเจอร์การพิมพ์เป็น PDF
+- **Windows 8** ใช้รูปแบบ OXPS (Open XPS) สำหรับไฟล์ XPS OXPS เป็นเวอร์ชันมาตรฐานของรูปแบบ XPS ดั้งเดิม Windows 8 ให้การสนับสนุนไฟล์ XPS ดีกว่าการสนับสนุนไฟล์ PDF.  
+  - **XPS:** มีตัวดู/อ่าน XPS ในระบบและฟีเจอร์การพิมพ์เป็น XPS  
+  - **PDF**: มีโปรแกรมอ่าน PDF แต่ไม่มีฟีเจอร์การพิมพ์เป็น PDF  
 
-- **Windows 7 และ Windows Vista** ใช้รูปแบบ XPS ดั้งเดิม ระบบปฏิบัติการเหล่านี้ยังให้การสนับสนุนไฟล์ XPS ดีกว่า PDF
-  - **XPS:** มีตัวดู XPS ในตัวและฟีเจอร์การพิมพ์เป็น XPS
-  - **PDF:** ไม่มีตัวอ่าน PDF และไม่มีฟีเจอร์การพิมพ์เป็น PDF
+- **Windows 7 และ Windows Vista** ใช้รูปแบบ XPS ดั้งเดิม ระบบปฏิบัติการเหล่านี้ยังให้การสนับสนุนไฟล์ XPS ดีกว่าการสนับสนุน PDF.  
+  - **XPS**: มีตัวดู XPS ในระบบและฟีเจอร์การพิมพ์เป็น XPS  
+  - **PDF**: ไม่มีโปรแกรมอ่าน PDF ไม่มีฟีเจอร์การพิมพ์เป็น PDF  
 
 |<p>**อินพุต PPT(X):**</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_1.png)**</p>|<p>**เอาต์พุต XPS:**</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_2.png)**</p>|
 | :- | :- |
 
-Microsoft ในที่สุดได้เพิ่มการสนับสนุนการดำเนินการพิมพ์ใน PDF ผ่านฟีเจอร์ Print to PDF ใน Windows 10 ก่อนหน้านี้ผู้ใช้ต้องพิมพ์เอกสารผ่านรูปแบบ XPS
+Microsoft ในที่สุดก็ได้เพิ่มการสนับสนุนการพิมพ์ใน PDF ผ่านฟีเจอร์ Print to PDF ใน Windows 10 ก่อนหน้านี้ผู้ใช้คาดว่าจะพิมพ์เอกสารผ่านรูปแบบ XPS  
 
 ## **การแปลง XPS ด้วย Aspose.Slides**
 
-ใน [**Aspose.Slides**](https://products.aspose.com/slides/th/net/) สำหรับ .NET คุณสามารถใช้เมธอด [**Save**](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/methods/save/index) ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation) เพื่อแปลงงานนำเสนอทั้งหมดเป็นเอกสาร XPS
+ใน [**Aspose.Slides**](https://products.aspose.com/slides/th/net/) สำหรับ .NET คุณสามารถใช้เมธอด [**Save**](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/methods/save/index) ที่เปิดโดยคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation) เพื่อแปลงงานนำเสนอทั้งหมดเป็นเอกสาร XPS  
 
-เมื่อแปลงงานนำเสนอเป็น XPS คุณต้องบันทึกงานนำเสนอโดยใช้การตั้งค่าใดการตั้งหน้าดังต่อไปนี้:
+เมื่อแปลงงานนำเสนอเป็น XPS คุณต้องบันทึกงานนำเสนอโดยใช้การตั้งค่าใดการตั้งค่าหนึ่งต่อไปนี้:  
 
-- การตั้งค่าเริ่มต้น (โดยไม่ใช้ [**XPSOptions**](https://reference.aspose.com/slides/th/net/aspose.slides.export/xpsoptions))
-- การตั้งค่าแบบกำหนดเอง (โดยใช้ [**XPSOptions**](https://reference.aspose.com/slides/th/net/aspose.slides.export/xpsoptions))
+- การตั้งค่าเริ่มต้น (โดยไม่มี [**XPSOptions**](https://reference.aspose.com/slides/th/net/aspose.slides.export/xpsoptions))  
+- การตั้งค่ากำหนดเอง (โดยใช้ [**XPSOptions**](https://reference.aspose.com/slides/th/net/aspose.slides.export/xpsoptions))  
 
 ### **แปลงงานนำเสนอเป็น XPS ด้วยการตั้งค่าเริ่มต้น**
 
-โค้ดตัวอย่างใน C# นี้แสดงวิธีแปลงงานนำเสนอเป็นเอกสาร XPS ด้วยการตั้งค่ามาตรฐาน:
+โค้ดตัวอย่างนี้ใน C# แสดงวิธีการแปลงงานนำเสนอเป็นเอกสาร XPS ด้วยการตั้งค่ามาตรฐาน:  
 
 ```c#
-// สร้างวัตถุ Presentation ที่แทนไฟล์งานนำเสนอ
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// สร้างอ็อบเจกต์ Presentation ที่แสดงไฟล์งานนำเสนอ
 using (Presentation pres = new Presentation("Convert_XPS.pptx"))
 {
     // บันทึกงานนำเสนอเป็นเอกสาร XPS
@@ -80,14 +83,18 @@ using (Presentation pres = new Presentation("Convert_XPS.pptx"))
 }
 ```
 
-### **แปลงงานนำเสนอเป็น XPS ด้วยการตั้งค่าแบบกำหนดเอง**
-โค้ดตัวอย่างนี้แสดงวิธีแปลงงานนำเสนอเป็นเอกสาร XPS ด้วยการตั้งค่าแบบกำหนดเองใน C#:
+### **แปลงงานนำเสนอเป็น XPS ด้วยการตั้งค่ากำหนดเอง**
+
+โค้ดตัวอย่างนี้แสดงวิธีการแปลงงานนำเสนอเป็นเอกสาร XPS ด้วยการตั้งค่ากำหนดเองใน C#:  
 
 ```c#
-// สร้างอ็อบเจกต์ Presentation ที่แทนไฟล์งานนำเสนอ
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// สร้างอ็อบเจกต์ Presentation ที่แสดงไฟล์งานนำเสนอ
 using (Presentation pres = new Presentation("Convert_XPS_Options.pptx"))
 {
-    // สร้างอินสแตนซ์ของคลาส TiffOptions
+    // สร้างอ็อบเจกต์คลาส TiffOptions
     XpsOptions options = new XpsOptions();
 
     // บันทึก MetaFiles เป็น PNG
@@ -100,10 +107,10 @@ using (Presentation pres = new Presentation("Convert_XPS_Options.pptx"))
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถบันทึกเป็น XPS ลงในสตรีมแทนไฟล์ได้หรือไม่?**
+### ฉันสามารถบันทึกเป็น XPS ลงในสตรีมแทนไฟล์ได้ไหม?
 
-ได้—Aspose.Slides ให้คุณส่งออกโดยตรงเป็นสตรีม ซึ่งเหมาะกับ Web API, รายการทำงานฝั่งเซิร์ฟเวอร์ หรือสถานการณ์ใด ๆ ที่ต้องการส่ง XPS โดยไม่ต้องสัมผัสระบบไฟล์
+ใช่—Aspose.Slides ให้คุณส่งออกโดยตรงไปยังสตรีม ซึ่งเหมาะสำหรับเว็บ API, pipeline ฝั่งเซิร์ฟเวอร์ หรือสถานการณ์ใด ๆ ที่คุณต้องการส่ง XPS โดยไม่ต้องสัมผัสระบบไฟล์  
 
-**สไลด์ที่ซ่อนอยู่จะถูกแปลงเป็น XPS หรือไม่ และฉันสามารถละเว้นได้หรือไม่?**
+### สไลด์ที่ซ่อนอยู่จะถูกนำไปยัง XPS หรือไม่ และฉันสามารถยกเว้นได้หรือไม่?
 
-โดยค่าเริ่มต้นจะเรนเดอร์เฉพาะสไลด์ที่ปรากฏเท่านั้น คุณสามารถ [รวมหรือยกเว้นสไลด์ที่ซ่อนอยู่](https://reference.aspose.com/slides/th/net/aspose.slides.export/xpsoptions/showhiddenslides/) ผ่าน [การตั้งค่า export](https://reference.aspose.com/slides/th/net/aspose.slides.export/xpsoptions/) ก่อนบันทึกเป็น XPS เพื่อให้ผลลัพธ์มีเพียงหน้าที่คุณต้องการเท่านั้น
+โดยค่าเริ่มต้น จะเรนเดอร์เฉพาะสไลด์ปกติ (ที่มองเห็นได้) เท่านั้น คุณสามารถ [รวมหรือยกเว้นสไลด์ที่ซ่อนอยู่](https://reference.aspose.com/slides/th/net/aspose.slides.export/xpsoptions/showhiddenslides/) ผ่าน [การตั้งค่าการส่งออก](https://reference.aspose.com/slides/th/net/aspose.slides.export/xpsoptions/) ก่อนบันทึกเป็น XPS เพื่อให้ผลลัพธ์มีเพียงหน้าที่คุณต้องการเท่านั้น

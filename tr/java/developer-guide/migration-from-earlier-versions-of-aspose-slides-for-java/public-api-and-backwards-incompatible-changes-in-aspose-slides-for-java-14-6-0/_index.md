@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides for Java 14.6.0'da Genel API ve Geriye Dönük Uyumsuz Değişiklikler
+title: Aspose.Slides for Java 14.6.0'da Genel API ve Geriye Uyumsuz Değişiklikler
 linktitle: Aspose.Slides for Java 14.6.0
 type: docs
 weight: 50
@@ -15,28 +15,27 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java'daki genel API güncellemelerini ve kırıcı değişiklikleri inceleyerek PowerPoint PPT, PPTX ve ODP sunum çözümlerinizi sorunsuz bir şekilde taşıyın."
+description: "Aspose.Slides for Java'daki genel API güncellemelerini ve kırılma değişikliklerini inceleyerek PowerPoint PPT, PPTX ve ODP sunum çözümlerinizin sorunsuz bir şekilde geçiş yapmasını sağlayın."
 ---
-{{% alert color="primary" %}} 
-
-Bu sayfa, Aspose.Slides for Java 14.6.0 API'sı ile tanıtılan tüm [eklenen](/slides/tr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/) sınıfları, yöntemleri, özellikleri vb., yeni kısıtlamaları ve diğer değişiklikleri listeler.
-
+{{% alert color="info" %}} 
+Bu sayfa, Aspose.Slides for Java 14.6.0 API'siyle tanıtılan tüm [eklenen](/slides/tr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/) sınıfları, metodları, özellikleri vb., yeni kısıtlamaları ve diğer değişiklikleri listeler.
 {{% /alert %}} 
 ## **Genel API Değişiklikleri**
-### **Eklenen Sınıflar, Yöntemler, Arabirimler ve Enumlar**
-#### **Eklenen ViewType Enumı, IViewProperties Arabirimi, ViewProperties Sınıfı ve IPresentation.getViewProperties() Yöntemi**
-IPresentation.getViewProperty() yöntemi, IViewProperties'e erişim sağlar ve bir sunum Microsoft PowerPoint'te açıldığında sunum görünüm türünü ve notların görünürlüğünü değiştirmenize olanak tanır.
+### **Eklenen Sınıflar, Metodlar, Arabirimler ve Enumlar**
+#### **Eklenen ViewType Enumerasyonu, IViewProperties Arabirimi, ViewProperties Sınıfı ve IPresentation.getViewProperties() Metodu**
+IPresentation.getViewProperties() metodu, IViewProperties erişimi sağlar ve bir sunum Microsoft PowerPoint'te açıldığında sunum görünüm türünü ve notların görünürlüğünü değiştirmenize olanak tanır.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation p = new Presentation();
 
 p.getViewProperties().setLastView(ViewType.SlideMasterView);
 
 ```
-#### **Aspose.Slides.IShapeCollection.addClone(...) ve .insertClone(...) Yöntemleri Eklendi**
-Bu yöntemler
-
+#### **Eklenen Aspose.Slides.IShapeCollection.addClone(...) ve .insertClone(...) Metodları**
+Metotlar
 - Aspose.Slides.IShapeCollection.addClone(IShape sourceShape),
 - Aspose.Slides.IShapeCollection.addClone(IShape sourceShape, float x, float y),
 - Aspose.Slides.IShapeCollection.addClone(IShape sourceShape, float x, float y, float width, float height),
@@ -44,9 +43,11 @@ Bu yöntemler
 - Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape, float x, float y), and
 - Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape, float x, float y, float width, float height)
 
-belirtilen şeklin bir kopyasını koleksiyona ekler.
+Belirtilen şeklin bir kopyasını koleksiyona ekler.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation srcPres = new Presentation("data/Source Frame.pptx");
 
@@ -71,10 +72,12 @@ destShapes.addClone(sourceShapes.get_Item(5), 300, 300, 50, 200);
 destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
 
 ```
-#### **Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues Arabirimi Eklendi**
-Bu arabirim, ChartDataPoint.ErrorBarsCustomValues özelliği listesinde bulunan değer türlerini belirler.
+#### **Eklenen Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues Arabirimi**
+Bu arabirim, ChartDataPoint.ErrorBarsCustomValues özellik listesindeki değer türlerini belirtir.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -121,10 +124,12 @@ for (int i = 0; i < points.size(); i++)
 pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 
 ```
-#### **Aspose.Slides.Charts.IErrorBarsCustomValues Arabirimi Eklendi**
-IErrorBarsFormat.ValueType özelliği Custom olduğunda, değeri belirtmek için serinin DataPoints koleksiyonundaki belirli veri noktasının ErrorBarCustomValues özelliğini kullanın.
+#### **Eklenen Aspose.Slides.Charts.IErrorBarsCustomValues Arabirimi**
+IErrorBarsFormat.ValueType özelliği Custom değerine eşit olduğunda, değeri belirtmek için serinin DataPoints koleksiyonundaki belirli veri noktasının ErrorBarCustomValues özelliğini kullanın.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -171,11 +176,13 @@ for (int i = 0; i < points.size(); i++)
 pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 
 ```
-#### **Aspose.Slides.Charts.IErrorBarsFormat Arabirimi Eklendi**
-Bu arabirim, grafik serilerinin hata çubuklarını temsil eder.
+#### **Eklenen Aspose.Slides.Charts.IErrorBarsFormat Arabirimi**
+Bu arabirim, grafik serisinin hata çubuklarını temsil eder.
 Özel değer türü durumunda, değeri belirtmek için serinin DataPoints koleksiyonundaki belirli bir veri noktasının ErrorBarCustomValues özelliğini kullanın.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 

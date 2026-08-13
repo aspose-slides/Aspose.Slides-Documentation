@@ -1,36 +1,40 @@
 ---
-title: การอัปเดต Public API และการเปลี่ยนแปลงที่ไม่เข้ากันย้อนหลังใน Aspose.Slides for .NET 14.6.0
-linktitle: Aspose.Slides for .NET 14.6.0
+title: API สาธารณะและการเปลี่ยนแปลงที่ไม่เข้ากันย้อนหลังใน Aspose.Slides สำหรับ .NET 14.6.0
+linktitle: Aspose.Slides สำหรับ .NET 14.6.0
 type: docs
 weight: 80
 url: /th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/
 keywords:
 - การย้าย
-- โค้ดเก่า
+- โค้ดรุ่นเก่า
 - โค้ดสมัยใหม่
-- วิธีการแบบเก่า
-- วิธีการสมัยใหม่
+- แนวทางรุ่นเก่า
+- แนวทางสมัยใหม่
 - PowerPoint
 - OpenDocument
-- งานนำเสนอ
+- การนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "ทบทวนการอัปเดต Public API และการเปลี่ยนแปลงที่ทำให้เกิดการพังใน Aspose.Slides for .NET เพื่อย้ายโซลูชันงานนำเสนอ PowerPoint PPT, PPTX และ ODP ของคุณอย่างราบรื่น."
+description: "ทบทวนการอัปเดต API สาธารณะและการเปลี่ยนแปลงที่ทำให้เสียหายใน Aspose.Slides สำหรับ .NET เพื่อการย้ายโซลูชันการนำเสนอ PowerPoint PPT, PPTX และ ODP อย่างราบรื่น"
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-หน้านี้แสดงรายการทั้งหมดของ [เพิ่ม](/slides/th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) คลาส, เมธอด, คุณสมบัติ ฯลฯ, [ข้อจำกัด](/slides/th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) ใหม่ใด ๆ และ [การเปลี่ยนแปลง](/slides/th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) อื่น ๆ ที่แนะนำใน API ของ Aspose.Slides for .NET 14.6.0
+หน้านี้แสดงรายการทุก [เพิ่ม](/slides/th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) คลาส, เมธอด, คุณสมบัติ ฯลฯ, [ข้อจำกัด](/slides/th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) ใหม่ และ [การเปลี่ยนแปลง](/slides/th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) ที่แนะนำมาพร้อมกับ API Aspose.Slides for .NET 14.6.0
 
 {{% /alert %}} 
 ## **การเปลี่ยนแปลง Public API**
-### **อินเทอร์เฟซ, เมธอดและคุณสมบัติที่เพิ่ม**
+### **อินเทอร์เฟซ, เมธอด และคุณสมบัติที่เพิ่มเข้ามา**
 #### **เพิ่มอินเทอร์เฟซ Aspose.Slides.Charts.IErrorBarsFormat**
-นี่เป็นการแทนค่า error bars ของชุดข้อมูลแผนภูมิ
+นี้เป็นการแสดงแท่งข้อผิดพลาดของชุดข้อมูลในแผนภูมิ
 
-ในกรณีที่ประเภทค่าคือแบบกำหนดเอง, เพื่อระบุค่า ให้ใช้คุณสมบัติ ErrorBarCustomValues ของจุดข้อมูลเฉพาะในคอลเลกชัน DataPoints ของชุดข้อมูล
+ในกรณีของประเภทค่าที่กำหนดเอง, เพื่อระบุค่าให้ใช้คุณสมบัติ ErrorBarCustomValues ของจุดข้อมูลเฉพาะในคอลเลกชัน DataPoints ของชุดข้อมูล
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -66,9 +70,13 @@ description: "ทบทวนการอัปเดต Public API และก
 
 ``` 
 #### **เพิ่มอินเทอร์เฟซ Aspose.Slides.Charts.IErrorBarsCustomValues**
-เมื่อคุณสมบัติ IErrorBarsFormat.ValueType มีค่าเท่ากับ Custom, เพื่อระบุค่า ให้ใช้คุณสมบัติ ErrorBarCustomValues ของจุดข้อมูลเฉพาะในคอลเลกชัน DataPoints
+เมื่อคุณสมบัติ IErrorBarsFormat.ValueType มีค่าเท่ากับ Custom, เพื่อระบุค่าให้ใช้คุณสมบัติ ErrorBarCustomValues ของจุดข้อมูลเฉพาะในคอลเลกชัน DataPoints
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -120,9 +128,13 @@ description: "ทบทวนการอัปเดต Public API และก
 
 ``` 
 #### **เพิ่มอินเทอร์เฟซ Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues**
-ระบุประเภทของค่าต่าง ๆ ในรายการคุณสมบัติ ChartDataPoint.ErrorBarsCustomValues
+ระบุประเภทของค่าในรายการคุณสมบัติ ChartDataPoint.ErrorBarsCustomValues
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -174,7 +186,7 @@ description: "ทบทวนการอัปเดต Public API และก
 
 ``` 
 #### **เพิ่มเมธอด Aspose.Slides.IShapeCollection.AddClone(...), และ .InsertClone(...)**
-เมธอดต่อไปนี้จะเพิ่ม/แทรกสำเนาของรูปร่างที่ระบุเข้าไปในคอลเลกชัน
+เมธอดต่อไปนี้เพิ่ม/แทรกสำเนาของรูปร่างที่ระบุลงในคอลเลกชัน 
 
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape)
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape, float x, float y)
@@ -184,8 +196,10 @@ description: "ทบทวนการอัปเดต Public API และก
 - Aspose.Slides.IShapeCollection.InsertClone(int index, IShape sourceShape, float x, float y, float width, float height)
 
 ``` csharp
+using Aspose.Slides;
 
- using (Presentation srcPres = new Presentation(dataPath_ShapeCloning + "Source Frame.pptx"))
+
+ using (Presentation srcPres = new Presentation("Source Frame.pptx"))
 
 {
 
@@ -210,12 +224,13 @@ description: "ทบทวนการอัปเดต Public API และก
     destShapes.InsertClone(0, sourceShapes[0], 50, 150);
 
 }
-
 ``` 
 #### **เพิ่ม Enum ViewType, อินเทอร์เฟซ IViewProperties, คลาส ViewProperties และคุณสมบัติ IPresentation.ViewProperties**
-IPresentation.ViewProperty ช่วยให้นักพัฒนาสามารถเปลี่ยนประเภทการแสดงผลของงานนำเสนอและการมองเห็นโน้ตเมื่อเปิดงานนำเสนอใน PowerPoint
+IPresentation.ViewProperty ช่วยให้นักพัฒนาสามารถเปลี่ยนประเภทการมองเห็นของการนำเสนอและการแสดงโน้ตเมื่อการนำเสนอถูกเปิดใน PowerPoint
 
 ``` csharp
+using Aspose.Slides;
+
 
  using(Presentation p = new Presentation())
 
@@ -224,5 +239,4 @@ IPresentation.ViewProperty ช่วยให้นักพัฒนาสา�
     p.ViewProperties.LastView = ViewType.SlideMasterView;
 
 }
-
 ```

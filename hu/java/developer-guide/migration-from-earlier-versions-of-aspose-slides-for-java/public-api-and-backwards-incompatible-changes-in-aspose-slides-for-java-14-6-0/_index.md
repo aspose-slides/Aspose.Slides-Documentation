@@ -1,41 +1,43 @@
 ---
-title: Nyilvános API és visszafelé nem kompatibilis változások az Aspose.Slides for Java 14.6.0-ban
-linktitle: Aspose.Slides for Java 14.6.0
+title: "Publikus API és visszafelé nem kompatibilis változások az Aspose.Slides for Java 14.6.0-ban"
+linktitle: "Aspose.Slides for Java 14.6.0"
 type: docs
 weight: 50
 url: /hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/
 keywords:
 - migráció
-- régi kód
+- örökölt kód
 - modern kód
-- régi megközelítés
+- örökölt megközelítés
 - modern megközelítés
 - PowerPoint
 - OpenDocument
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Tekintse át az Aspose.Slides for Java nyilvános API frissítéseit és a töréspontot jelentő változásokat, hogy zökkenőmentesen migrálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
+description: "Tekintse át a publikus API frissítéseket és a töréspontokat az Aspose.Slides for Java-ban, hogy zökkenőmentesen migrálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" %}} 
 
-Ez az oldal felsorolja az összes [hozzáadott](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/) osztályt, metódust, tulajdonságot stb., valamint az új korlátozásokat és egyéb változásokat, amelyeket az Aspose.Slides for Java 14.6.0 API hozott.
+Ez az oldal felsorolja az összes [hozzáadott](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/) osztályt, metódust, tulajdonságot stb., valamint az új korlátozásokat és egyéb változásokat, amelyeket az Aspose.Slides for Java 14.6.0 API hozott. 
 
-{{% /alert %}}
-## **Nyilvános API változások**
+{{% /alert %}} 
+## **Public API változások**
 ### **Hozzáadott osztályok, metódusok, interfészek és felsorolások**
-#### **Hozzáadott ViewType felsoroló, IViewProperties interfész, ViewProperties osztály és IPresentation.getViewProperties() metódus**
-Az IPresentation.getViewProperty() metódus hozzáférést biztosít az IViewProperties-hez, és lehetővé teszi a bemutató nézet típusának és a jegyzetek láthatóságának módosítását, amikor a bemutatót a Microsoft PowerPoint nyitja meg.
+#### **Hozzáadott ViewType felsorolás, IViewProperties interfész, ViewProperties osztály és az IPresentation.getViewProperties() metódus**
+Az IPresentation.getViewProperties() metódus hozzáférést biztosít az IViewProperties-hez, és lehetővé teszi a bemutató nézet típusának és a jegyzetek láthatóságának módosítását, amikor a bemutatót a Microsoft PowerPoint nyitja meg.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation p = new Presentation();
 
 p.getViewProperties().setLastView(ViewType.SlideMasterView);
 
 ```
-#### **Hozzáadott az Aspose.Slides.IShapeCollection.addClone(...) és .insertClone(...) metódusok**
-A metódusok
+#### **Hozzáadott Aspose.Slides.IShapeCollection.addClone(...) és .insertClone(...) metódusok**
+A fenti metódusok egy megadott alakzat másolatát adják hozzá vagy helyezik be a gyűjteménybe. 
 
 - Aspose.Slides.IShapeCollection.addClone(IShape sourceShape),
 - Aspose.Slides.IShapeCollection.addClone(IShape sourceShape, float x, float y),
@@ -44,9 +46,9 @@ A metódusok
 - Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape, float x, float y), and
 - Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape, float x, float y, float width, float height)
 
-másolást/illesztést hajtanak végre egy megadott alakzat másolatával a gyűjteménybe. 
-
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation srcPres = new Presentation("data/Source Frame.pptx");
 
@@ -71,10 +73,12 @@ destShapes.addClone(sourceShapes.get_Item(5), 300, 300, 50, 200);
 destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
 
 ```
-#### **Hozzáadott az Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues interfész**
-Ez az interfész meghatározza az értéktípusokat a ChartDataPoint.ErrorBarsCustomValues tulajdonságlista elemeiben.
+#### **Hozzáadott Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues interfész**
+Ez az interfész meghatározza a ChartDataPoint.ErrorBarsCustomValues tulajdonságlistában szereplő értéktípusokat.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -121,10 +125,12 @@ for (int i = 0; i < points.size(); i++)
 pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 
 ```
-#### **Hozzáadott az Aspose.Slides.Charts.IErrorBarsCustomValues interfész**
-Amikor az IErrorBarsFormat.ValueType tulajdonság az Egyéni értékre van állítva, az érték megadásához a sorozat DataPoints gyűjteményének adott adatpontjának ErrorBarCustomValues tulajdonságát kell használni.
+#### **Hozzáadott Aspose.Slides.Charts.IErrorBarsCustomValues interfész**
+Amikor az IErrorBarsFormat.ValueType tulajdonság értéke Custom, az érték megadásához a sorozat DataPoints gyűjteményében lévő adott adatpont ErrorBarCustomValues tulajdonságát kell használni.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -171,11 +177,12 @@ for (int i = 0; i < points.size(); i++)
 pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 
 ```
-#### **Hozzáadott az Aspose.Slides.Charts.IErrorBarsFormat interfész**
-Ez az interfész a diagram sorozatok hibasávjait képviseli.
-Egyéni értéktípus esetén az érték megadásához a sorozat DataPoins gyűjteményének adott adatpontjának ErrorBarCustomValues tulajdonságát kell használni.
+#### **Hozzáadott Aspose.Slides.Charts.IErrorBarsFormat interfész**
+Ez az interfész a diagram sorozat hibasávjait reprezentálja. Egyéni értéktípus esetén az érték megadásához a sorozat DataPoints gyűjteményében lévő adott adatpont ErrorBarCustomValues tulajdonságát kell használni.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 

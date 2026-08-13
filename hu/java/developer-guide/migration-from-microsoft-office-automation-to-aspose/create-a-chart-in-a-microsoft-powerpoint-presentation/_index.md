@@ -1,5 +1,5 @@
 ---
-title: Diagramok létrehozása VSTO és Aspose.Slides for Java használatával
+title: Diagramok létrehozása VSTO-val és Aspose.Slides for Java segítségével
 linktitle: Diagram létrehozása
 type: docs
 weight: 70
@@ -13,69 +13,73 @@ keywords:
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Ismerje meg, hogyan automatizálhatja a PowerPoint diagramok létrehozását Java-ban. Ez a lépésről-lépésre útmutató bemutatja, miért gyorsabb és erősebb alternatíva a Aspose.Slides for Java a Microsoft.Office.Interop-hoz képest."
+description: "Tanulja meg, hogyan automatizálhatja a PowerPoint diagramok létrehozását Java-ban. Ez a lépésről-lépésre útmutató bemutatja, miért a Aspose.Slides for Java gyorsabb és erőteljesebb alternatíva a Microsoft.Office.Interop-hez képest."
 ---
-{{% alert color="primary" %}} 
-A diagramok a adatok vizuális ábrázolásai, amelyeket széles körben használnak prezentációkban. Ez a cikk bemutatja a kódot egy diagram programozott létrehozásához a Microsoft PowerPointban a [VSTO](/slides/hu/java/create-a-chart-in-a-microsoft-powerpoint-presentation/) és a [Aspose.Slides for Java](/slides/hu/java/create-a-chart-in-a-microsoft-powerpoint-presentation/) használatával.
+{{% alert color="info" %}} 
+
+A diagramok a adatok vizuális ábrázolásai, amelyeket széles körben használnak prezentációkban. Ebben a cikkben a Microsoft PowerPoint programozott diagramlétrehozásának kódját mutatjuk be a [VSTO](/slides/hu/java/create-a-chart-in-a-microsoft-powerpoint-presentation/) és a [Aspose.Slides for Java](/slides/hu/java/create-a-chart-in-a-microsoft-powerpoint-presentation/) segítségével.
+
 {{% /alert %}} 
-## **Diagram létrehozása**
-Az alábbi kódrészletek leírják egy egyszerű 3D klaszter oszlopdiagram VSTO-val történő hozzáadásának folyamatát. Létrehoz egy prezentáció példányt, hozzáad egy alapértelmezett diagramot. Ezután a Microsoft Excel munkafüzetet használja a diagram adatok eléréséhez és módosításához, valamint a diagram tulajdonságainak beállításához. Végül elmenti a prezentációt.
-### **VSTO példa**
-A VSTO használatával a következő lépések hajtódnak végre:
+## **Creating a Chart**
+Az alábbi kódpéldák leírják egy egyszerű 3D csoportosított oszlopdiagram hozzáadásának folyamatát VSTO segítségével. Létrehoz egy prezentációpéldányt, hozzáad egy alapértelmezett diagramot, majd a Microsoft Excel munkafüzetet használja a diagramadatok eléréséhez és módosításához, valamint a diagram tulajdonságainak beállításához. Végül elmenti a prezentációt.
+### **VSTO Example**
+VSTO használatával a következő lépések hajtódnak végre:
 
-1. Hozzon létre egy Microsoft PowerPoint prezentáció példányt.
-1. Adjon hozzá egy üres diát a prezentációhoz.
-1. Adjon hozzá egy **3D clustered column** diagramot, és férjen hozzá.
-1. Hozzon létre egy új Microsoft Excel Workbook példányt, és töltse be a diagram adatokat.
-1. A diagram adat munkalaphoz a Microsoft Excel Workbook instancefromworkbook használatával férjen hozzá.
-1. Állítsa be a diagram tartományt a munkalapon, és távolítsa el a 2. és 3. sorozatot a diagramról.
-1. Módosítsa a diagram kategóriaadatait a diagram adat munkalapon.
-1. Módosítsa a diagram 1. sorozatának adatait a diagram adat munkalapon.
-1. Most férjen hozzá a diagram címéhez, és állítsa be a betűtípusra vonatkozó tulajdonságokat.
-1. Férjen hozzá a diagram értéktengelyéhez, és állítsa be a fő egységet, a mellék egységeket, a maximális és minimális értékeket.
-1. Férjen hozzá a diagram mélység vagy sorozat tengelyéhez, és távolítsa el azt, mivel ebben a példában csak egy sorozatot használnak.
-1. Most állítsa be a diagram forgatási szögeit X és Y irányban.
-1. Mentse a prezentációt.
-1. Zárja be a Microsoft Excel és PowerPoint példányait.
+1. Létrehoz egy Microsoft PowerPoint prezentáció példányt.
+2. Hozzáad egy üres diát a prezentációhoz.
+3. Hozzáad egy **3D csoportosított oszlop** diagramot és eléri azt.
+4. Létrehoz egy új Microsoft Excel Workbook példányt és betölti a diagram adatokat.
+5. A Microsoft Excel Workbook példány segítségével eléri a diagram adatlapot.
+6. Beállítja a diagram tartományt a munkalapon, és eltávolítja a 2-es és 3-as sorozatot a diagramról.
+7. Módosítja a diagram kategóriaadatait a diagram adatlapján.
+8. Módosítja az 1-es sorozat adatait a diagram adatlapján.
+9. Ezután eléri a diagram címet és beállítja a betűtípusra vonatkozó tulajdonságokat.
+10. Eléri a diagram érték tengelyét és beállítja a fő egységet, a kisegységeket, a maximális és minimális értékeket.
+11. Eléri a diagram mélység‑ vagy sorozattengelyét, és eltávolítja azt, mivel ebben a példában csak egy sorozatot használunk.
+12. Beállítja a diagram forgatási szögeit X és Y irányban.
+13. Elmenti a prezentációt.
+14. Bezárja a Microsoft Excel és PowerPoint példányokat.
 
-**A VSTO-val létrehozott kimeneti prezentáció** 
+**A VSTO‑val készült kimeneti prezentáció** 
 
 ![todo:image_alt_text](create-a-chart-in-a-microsoft-powerpoint-presentation_1.png)
+
+
 
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-VSTO-VSTOChart-VSTOChart.cs" >}}
 
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-VSTO-VSTOChart-EnsurePowerPointIsRunning.cs" >}}
-### **Aspose.Slides for Java példa**
-Az Aspose.Slides for Java használatával a következő lépések hajtódnak végre:
+### **Aspose.Slides for Java Example**
+Aspose.Slides for Java használatával a következő lépések hajtódnak végre:
 
-1. Hozzon létre egy Microsoft PowerPoint prezentáció példányt.
-1. Adjon hozzá egy üres diát a prezentációhoz.
-1. Adjon hozzá egy **3D clustered column** diagramot, és férjen hozzá.
-1. A diagram adat munkalaphoz a Microsoft Excel Workbook instancefromworkbook használatával férjen hozzá.
-1. Távolítsa el a nem használt 2. és 3. sorozatot.
-1. Férjen hozzá a diagram kategóriáihoz, és módosítsa a címkéket.
-1. Férjen hozzá az 1. sorozathoz, és módosítsa a sorozat értékeit.
-1. Most férjen hozzá a diagram címéhez, és állítsa be a betűtípus tulajdonságait.
-1. Férjen hozzá a diagram értéktengelyéhez, és állítsa be a fő egységet, a mellék egységeket, a maximális és minimális értékeket.
-1. Most állítsa be a diagram forgatási szögeit X és Y irányban.
-1. Mentse a prezentációt PPTX formátumban.
+1. Létrehoz egy Microsoft PowerPoint prezentáció példányt.
+2. Hozzáad egy üres diát a prezentációhoz.
+3. Hozzáad egy **3D csoportosított oszlop** diagramot és eléri azt.
+4. A Microsoft Excel Workbook példány segítségével eléri a diagram adatlapját.
+5. Eltávolítja a használaton kívüli 2‑es és 3‑as sorozatokat.
+6. Eléri a diagram kategóriáit és módosítja a címkéket.
+7. Eléri az 1‑es sorozatot és módosítja a sorozat értékeit.
+8. Ezután eléri a diagram címet és beállítja a betűtípus tulajdonságait.
+9. Eléri a diagram érték tengelyét és beállítja a fő egységet, a kisegységeket, a maximális és minimális értékeket.
+10. Beállítja a diagram forgatási szögeit X és Y irányban.
+11. Elmenti a prezentációt PPTX formátumban.
 
-**A Aspose.Slides-szal létrehozott kimeneti prezentáció** 
+**Az Aspose.Slides‑sel készült kimeneti prezentáció** 
 
 ![todo:image_alt_text](create-a-chart-in-a-microsoft-powerpoint-presentation_2.png)
 
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-CreateChart-CreateChart.java" >}}
 
-## **GYIK**
+## **FAQ**
 
-**Létrehozhatok más típusú diagramokat, például kör-, vonal- vagy oszlopdiagramokat az Aspose.Slides használatával?**
+### Készíthetek más típusú diagramokat, például kör, vonal vagy oszlop diagramot az Aspose.Slides‑szel?
 
-Igen. Az Aspose.Slides számos [diagramtípust](/slides/hu/java/create-chart/) támogat, beleértve a kördiagramokat, vonaldiagramokat, oszlopdiagramokat, szórásdiagramokat, buborékdiagramokat és még sok más típust. A kívánt diagramtípust a diagram hozzáadásakor a [ChartType](https://reference.aspose.com/slides/hu/java/com.aspose.slides/charttype/) osztály használatával adhatja meg.
+Igen. Az Aspose.Slides számos [diagramtípust](/slides/hu/java/create-chart/) támogat, többek között kördiagramot, vonaldiagramot, oszlopdiagramot, szórási diagramot, buborékdiagramot és még sok mást. A kívánt diagramtípust a [ChartType](https://reference.aspose.com/slides/hu/java/com.aspose.slides/charttype/) osztály használatával adhatja meg diagram hozzáadásakor.
 
-**Alkalmazhatok egyéni stílusokat vagy témákat a diagramra?**
+### Alkalmazhatok egyedi stílusokat vagy témákat a diagramra?
 
-Igen. Teljesen testreszabhatja a diagram megjelenését, beleértve a színeket, betűtípusokat, kitöltéseket, körvonalakat, rácsvonalakat és elrendezést. Azonban az Office témák pontos, PowerPointban látható módon történő alkalmazása egyéni stílusok kézi beállítását igényli.
+Igen. Teljesen testre szabhatja a diagram megjelenését, beleértve a színeket, betűtípusokat, kitöltéseket, körvonalakat, rácsvonalakat és az elrendezést. Azonban az Office témák pontos, PowerPoint‑ban látható formában történő alkalmazása manuális stílusbeállításokat igényel.
 
-**Exportálhatom a diagramot képként külön a diától?**
+### Exportálhatom a diagramot képként külön a diától?
 
-Igen, az Aspose.Slides lehetővé teszi bármely alakzat, beleértve a diagramokat, külön képként (például PNG, JPEG) való exportálását a diagram [shape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/shape/) `getImage` metódusának használatával.
+Igen, az Aspose.Slides lehetővé teszi, hogy bármely alakzatot – beleértve a diagramokat is – külön képként (például PNG, JPEG) exportálja a diagram [shape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/shape/) `getImage` metódusával.

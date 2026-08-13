@@ -1,6 +1,6 @@
 ---
 title: Aspose.Slides برای Android از طریق Java
-second_title: Aspose.Slides for Android
+second_title: Aspose.Slides برای Android
 type: docs
 weight: 40
 url: /fa/androidjava/
@@ -16,27 +16,27 @@ keywords:
 description: Aspose.Slides برای Android یک API مدیریت Microsoft PowerPoint® است که به برنامه‌های Java امکان خواندن و نوشتن اسناد PowerPoint® را بدون استفاده از Microsoft PowerPoint® می‌دهد.
 is_root: true
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
-![لوگوی محصول Aspose.Slides برای اندروید](home_1.png)
+![لوگوی محصول Aspose.Slides برای Android](home_1.png)
 
-**به Aspose.Slides برای اندروید از طریق جاوا خوش آمدید**
+**به Aspose.Slides برای Android از طریق Java خوش آمدید**
 
-Aspose.Slides برای اندروید از طریق جاوا یک API مدیریت Microsoft PowerPoint® است که به برنامه‌های اندروید امکان خواندن و نوشتن اسناد PowerPoint® را بدون نیاز به Microsoft PowerPoint® می‌دهد. Aspose.Slides برای اندروید از طریق جاوا اولین و تنها مؤلفه‌ای است که عملکردهای مورد نیاز برای مدیریت اسناد PowerPoint® در بسترهای اندروید را فراهم می‌کند. Aspose.Slides برای اندروید ویژگی‌های کلیدی فراوانی ارائه می‌دهد که به شما امکان افزودن، اصلاح و دستکاری متن، اشکال، جداول و انیمیشن‌ها، صوت‌ها و ویدئوها در اسلایدها را می‌دهد.
+Aspose.Slides برای Android از طریق Java یک API مدیریت Microsoft PowerPoint® است که به برنامه‌های Android امکان خواندن و نوشتن اسناد PowerPoint® را بدون نیاز به Microsoft PowerPoint® می‌دهد. Aspose.Slides برای Android از طریق Java اولین و تنها مؤلفه‌ای است که عملکردهای مورد نیاز برای مدیریت اسناد PowerPoint® در پلتفرم‌های Android را فراهم می‌کند. Aspose.Slides برای Android ویژگی‌های کلیدی بسیاری ارائه می‌دهد که به شما اجازه می‌دهد متن، اشکال، جدول‌ها و انیمیشن‌ها، صداها و ویدیوها را در اسلایدها اضافه، ویرایش و دستکاری کنید.
 
 {{% /alert %}}
 
-## **منابع Aspose.Slides برای اندروید از طریق جاوا**
+## **منابع Aspose.Slides برای Android از طریق Java**
 
 These are links to useful resources you may need to do your work:
 
-- [مستندات آنلاین Aspose.Slides برای اندروید از طریق جاوا](/slides/fa/androidjava/)
-- [ویژگی‌های Aspose.Slides برای اندروید از طریق جاوا](https://docs.aspose.com/slides/fa/androidjava/aspose-slides-for-android-via-java-features/)
-- [یادداشت‌های انتشار Aspose.Slides برای اندروید از طریق جاوا](https://releases.aspose.com/slides/fa/androidjava/release-notes/)
-- [صفحه محصول Aspose.Slides برای اندروید از طریق جاوا](https://products.aspose.com/slides/fa/android-java/)
-- [دانلود Aspose.Slides برای اندروید از طریق جاوا](https://releases.aspose.com/slides/fa/androidjava/)
-- [مخزن Maven Aspose.Slides برای اندروید از طریق جاوا](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)
-- [نصب Aspose.Slides برای اندروید از طریق جاوا](/slides/fa/androidjava/install-aspose-slides-for-android-via-java/)
-- [راهنمای مرجع API Aspose.Slides برای اندروید از طریق جاوا](https://reference.aspose.com/slides/fa/androidjava)
-- [انجمن پشتیبانی رایگان Aspose.Slides برای اندروید از طریق جاوا](https://forum.aspose.com/c/slides/fa/11)
-- [پشتیبانی پولی Aspose.Slides برای اندروید از طریق جاوا](https://helpdesk.aspose.com/)
+- [مستندات آنلاین Aspose.Slides برای Android از طریق Java](/slides/fa/androidjava/)
+- [ویژگی‌های Aspose.Slides برای Android از طریق Java](https://docs.aspose.com/slides/fa/androidjava/aspose-slides-for-android-via-java-features/)
+- [یادداشت‌های انتشار Aspose.Slides برای Android از طریق Java](https://releases.aspose.com/slides/fa/androidjava/release-notes/)
+- [صفحه محصول Aspose.Slides برای Android از طریق Java](https://products.aspose.com/slides/fa/android-java/)
+- [بارگیری Aspose.Slides برای Android از طریق Java](https://releases.aspose.com/slides/fa/androidjava/)
+- [مخزن Maven Aspose.Slides برای Android از طریق Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)
+- [نصب Aspose.Slides برای Android از طریق Java](/slides/fa/androidjava/install-aspose-slides-for-android-via-java/)
+- [راهنمای مرجع API Aspose.Slides برای Android از طریق Java](https://reference.aspose.com/slides/fa/androidjava)
+- [انجمن پشتیبانی رایگان Aspose.Slides برای Android از طریق Java](https://forum.aspose.com/c/slides/fa/11)
+- [پشتیبانی پرداختی Aspose.Slides برای Android از طریق Java](https://helpdesk.aspose.com/)

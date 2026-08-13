@@ -1,126 +1,130 @@
 ---
-title: จัดการโปรเจกต์ VBA ในงานนำเสนอบน Android
-linktitle: งานนำเสนอผ่าน VBA
+title: "จัดการโครงการ VBA ในงานพรีเซนเทชันบน Android"
+linktitle: "พรีเซนเทชันผ่าน VBA"
 type: docs
 weight: 250
 url: /th/androidjava/presentation-via-vba/
 keywords:
-- มาโคร
-- VBA
-- มาโคร VBA
-- เพิ่มมาโคร
-- ลบมาโคร
-- ดึงมาโคร
-- เพิ่ม VBA
-- ลบ VBA
-- ดึง VBA
-- PowerPoint
-- OpenDocument
-- งานนำเสนอ
-- Android
-- Java
-- Aspose.Slides
-description: "ค้นพบวิธีสร้างและจัดการงานนำเสนอ PowerPoint และ OpenDocument ผ่าน VBA ด้วย Aspose.Slides สำหรับ Android ผ่าน Java เพื่อทำให้กระบวนการทำงานของคุณเป็นระเบียบและมีประสิทธิภาพ"
+  - "แมโคร"
+  - "VBA"
+  - "แมโคร VBA"
+  - "เพิ่มแมโคร"
+  - "ลบแมโคร"
+  - "สกัดแมโคร"
+  - "เพิ่ม VBA"
+  - "ลบ VBA"
+  - "สกัด VBA"
+  - "PowerPoint"
+  - "OpenDocument"
+  - "พรีเซนเทชัน"
+  - "Android"
+  - "Java"
+  - "Aspose.Slides"
+description: "ค้นพบวิธีสร้างและจัดการพรีเซนเทชัน PowerPoint และ OpenDocument ผ่าน VBA ด้วย Aspose.Slides สำหรับ Android ด้วย Java เพื่อปรับปรุงกระบวนการทำงานของคุณ."
 ---
-## **คำนำ**
+## **บทนำ**
 
-Aspose.Slides ให้คลาสและอินเทอร์เฟซสำหรับการทำงานกับมาโครและโค้ด VBA
+Aspose.Slides มีคลาสและอินเทอร์เฟซสำหรับทำงานกับแมโครและโค้ด VBA.
 
 {{% alert title="Note" color="warning" %}} 
-เมื่อคุณแปลงงานนำเสนอที่มีมาโครเป็นรูปแบบไฟล์อื่น (PDF, HTML, ฯลฯ) Aspose.Slides จะละเว้นมาโครทั้งหมด (มาโครจะไม่ถูกรวมเข้าในไฟล์ผลลัพธ์)
 
-เมื่อคุณเพิ่มมาโครลงในงานนำเสนอหรือบันทึกงานนำเสนอที่มีมาโครใหม่ Aspose.Slides จะเพียงแค่เขียนไบต์ของมาโครลงไป
+เมื่อคุณแปลงงานพรีเซนเทชันที่มีแมโครเป็นรูปแบบไฟล์อื่น (PDF, HTML, ฯลฯ) Aspose.Slides จะละเลยแมโครทั้งหมด (แมโครจะไม่ได้ถ่ายทอดไปยังไฟล์ผลลัพธ์)
 
-Aspose.Slides **ไม่เคย** รันมาโครในงานนำเสนอ
+เมื่อคุณเพิ่มแมโครลงในงานพรีเซนเทชันหรือบันทึกงานพรีเซนเทชันที่มีแมโครใหม่อีกครั้ง Aspose.Slides จะเขียนไบต์ของแมโครเท่านั้น
+
+Aspose.Slides **ไม่เคย** รันแมโครในงานพรีเซนเทชัน
+
 {{% /alert %}}
 
-## **เพิ่ม VBA Macros**
+## **เพิ่ม VBA แมโคร**
 
-Aspose.Slides มีคลาส [VbaProject](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/vbaproject/) เพื่อให้คุณสร้างโปรเจกต์ VBA (และการอ้างอิงโปรเจกต์) และแก้ไขโมดูลที่มีอยู่ คุณสามารถใช้อินเทอร์เฟซ [IVbaProject](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ivbaproject/) เพื่อจัดการ VBA ที่ฝังอยู่ในงานนำเสนอได้
+Aspose.Slides ให้คลาส [VbaProject](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/vbaproject/) เพื่อให้คุณสร้างโครงการ VBA (และอ้างอิงโครงการ) และแก้ไขโมดูลที่มีอยู่ คุณสามารถใช้อินเทอร์เฟซ [IVbaProject](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ivbaproject/) เพื่อจัดการ VBA ที่ฝังอยู่ในงานพรีเซนเทชัน
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation)
-1. ใช้คอนสตรัคเตอร์ [VbaProject](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/vbaproject/#VbaProject--) เพื่อเพิ่มโปรเจกต์ VBA ใหม่
-1. เพิ่มโมดูลลงใน VbaProject
-1. ตั้งค่าซอร์สโค้ดของโมดูล
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation) 
+1. ใช้คอนสตรัคเตอร์ [VbaProject](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/vbaproject/#VbaProject--) เพื่อเพิ่มโครงการ VBA ใหม่
+1. เพิ่มโมดูลไปยัง VbaProject
+1. ตั้งค่ารหัสต้นฉบับของโมดูล
 1. เพิ่มการอ้างอิงไปยัง <stdole>
 1. เพิ่มการอ้างอิงไปยัง **Microsoft Office**
-1. ผสานการอ้างอิงเข้ากับโปรเจกต์ VBA
-1. บันทึกงานนำเสนอ
-
-โค้ด Java ต่อไปนี้แสดงวิธีการเพิ่มมาโคร VBA ตั้งแต่ต้นลงในงานนำเสนอ:
+1. เชื่อมโยงการอ้างอิงกับโครงการ VBA
+1. บันทึกการพรีเซนเทชัน
 
 ```java
-// สร้างอินสแตนซ์ของคลาสงานนำเสนอ
+import com.aspose.slides.*;
+
+// สร้างอินสแตนซ์ของคลาสพรีเซนเทชัน
 Presentation pres = new Presentation();
 try {
     // สร้าง VBA Project ใหม่
     pres.setVbaProject(new VbaProject());
     
-    // เพิ่มโมดูลเปล่าลงใน VBA project
+    // เพิ่มโมดูลว่างลงใน VBA Project
     IVbaModule module = pres.getVbaProject().getModules().addEmptyModule("Module");
     
-    // ตั้งค่าซอร์สโค้ดของโมดูล
+    // ตั้งค่ารหัสต้นฉบับของโมดูล
     module.setSourceCode("Sub Test(oShape As Shape)MsgBox Test End Sub");
     
-    // สร้างการอ้างอิงถึง <stdole>
+    // สร้างการอ้างอิงไปยัง <stdole>
     VbaReferenceOleTypeLib stdoleReference = new VbaReferenceOleTypeLib("stdole", "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation");
     
-    // สร้างการอ้างอิงถึง Office
+    // สร้างการอ้างอิงไปยัง Office
     VbaReferenceOleTypeLib officeReference = new VbaReferenceOleTypeLib("Office",
             "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
     
-    // เพิ่มการอ้างอิงลงใน VBA project
+    // เพิ่มการอ้างอิงไปยัง VBA Project
     pres.getVbaProject().getReferences().add(stdoleReference);
     pres.getVbaProject().getReferences().add(officeReference);
    
-    // บันทึกงานนำเสนอ
+    // บันทึกพรีเซนเทชัน
     pres.save("test.pptm", SaveFormat.Pptm);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-{{% alert color="primary" %}} 
-คุณอาจต้องการลองใช้ **Aspose** [Macro Remover](https://products.aspose.app/slides/th/remove-macros) ซึ่งเป็นเว็บแอปฟรีที่ใช้ลบมาโครจากไฟล์ PowerPoint, Excel และ Word  
+{{% alert color="info" %}} 
+
+คุณอาจต้องการตรวจสอบ **Aspose** [Macro Remover](https://products.aspose.app/slides/th/remove-macros) ซึ่งเป็นแอปเว็บฟรีที่ใช้ในการลบแมโครจากเอกสาร PowerPoint, Excel และ Word
+
 {{% /alert %}} 
 
-## **ลบ VBA Macros**
+## **ลบ VBA แมโคร**
 
-โดยใช้คุณสมบัติ [VbaProject](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/#getVbaProject--) ภายใต้คลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation) คุณสามารถลบมาโคร VBA ได้
+โดยใช้คุณสมบัติ [VbaProject](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/#getVbaProject--) ภายใต้คลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation) คุณสามารถลบแมโคร VBA ได้
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation) และโหลดงานนำเสนอที่มีมาโคร
-1. เข้าถึงโมดูล Macro และลบออก
-1. บันทึกงานนำเสนอที่แก้ไขแล้ว
-
-โค้ด Java ต่อไปนี้แสดงวิธีการลบมาโคร VBA:
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation) และโหลดงานพรีเซนเทชันที่มีแมโคร
+1. เข้าถึงโมดูลแมโครและลบออก
+1. บันทึกการพรีเซนเทชันที่แก้ไข
 
 ```java
-// โหลดงานนำเสนอที่มีมาโคร
+import com.aspose.slides.*;
+
+// โหลดพรีเซนเทชันที่มีแมโคร
 Presentation pres = new Presentation("VBA.pptm");
 try {
-    // เข้าถึงโมดูล Vba และลบออก 
+    // เข้าาถึงโมดูล Vba และลบออก 
     pres.getVbaProject().getModules().remove(pres.getVbaProject().getModules().get_Item(0));
     
-    // บันทึกงานนำเสนอ
+    // บันทึกพรีเซนเทชัน
     pres.save("test.pptm", SaveFormat.Pptm);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **ดึง VBA Macros**
+## **สกัด VBA แมโคร**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation) และโหลดงานนำเสนอที่มีมาโคร
-2. ตรวจสอบว่ามี VBA Project อยู่หรือไม่
-3. วนลูปผ่านโมดูลทั้งหมดใน VBA Project เพื่อดูมาโคร
-
-โค้ด Java ต่อไปนี้แสดงวิธีการดึง VBA macros จากงานนำเสนอที่มีมาโคร:
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation) และโหลดงานพรีเซนเทชันที่มีแมโคร
+2. ตรวจสอบว่าการพรีเซนเทชันมี VBA Project หรือไม่
+3. วนลูปผ่านโมดูลทั้งหมดที่อยู่ใน VBA Project เพื่อดูแมโคร
 
 ```java
-// โหลดงานนำเสนอที่มีมาโคร
+import com.aspose.slides.*;
+
+// โหลดพรีเซนเทชันที่มีแมโคร
 Presentation pres = new Presentation("VBA.pptm");
 try {
-    if (pres.getVbaProject() != null) // ตรวจสอบว่างานนำเสนอมี VBA Project หรือไม่
+    if (pres.getVbaProject() != null) // ตรวจสอบว่าพรีเซนเทชันมี VBA Project หรือไม่
     {
         for (IVbaModule module : pres.getVbaProject().getModules())
         {
@@ -133,18 +137,20 @@ try {
 }
 ```
 
-## **ตรวจสอบว่า VBA Project มีการป้องกันด้วยรหัสผ่านหรือไม่**
+## **ตรวจสอบว่า VBA Project ถูกป้องกันด้วยรหัสผ่านหรือไม่**
 
-โดยใช้เมธอด [IVbaProject.isPasswordProtected](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ivbaproject/#isPasswordProtected--) คุณสามารถตรวจสอบได้ว่าโปรเจกต์ถูกป้องกันด้วยรหัสผ่านหรือไม่
+โดยใช้เมธอด [IVbaProject.isPasswordProtected](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ivbaproject/#isPasswordProtected--) คุณสามารถระบุได้ว่าโครงการมีการป้องกันด้วยรหัสผ่านหรือไม่
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) และโหลดงานนำเสนอที่มีมาโคร
-2. ตรวจสอบว่ามี [VBA project](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/vbaproject/) อยู่หรือไม่
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) และโหลดงานพรีเซนเทชันที่มีแมโคร
+2. ตรวจสอบว่าการพรีเซนเทชันมี [VBA project](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/vbaproject/) หรือไม่
 3. ตรวจสอบว่า VBA project ถูกป้องกันด้วยรหัสผ่านหรือไม่เพื่อดูคุณสมบัติของมัน
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("VBA.pptm");
 try {
-    if (presentation.getVbaProject() != null) { // ตรวจสอบว่างานนำเสนอมีโปรเจกต์ VBA หรือไม่.
+    if (presentation.getVbaProject() != null) { // ตรวจสอบว่าพรีเซนเทชันมีโครงการ VBA หรือไม่
         if (presentation.getVbaProject().isPasswordProtected()) {
             System.out.printf("The VBA Project '%s' is protected by password to view project properties.", 
                     presentation.getVbaProject().getName());
@@ -157,14 +163,14 @@ try {
 
 ## **FAQ**
 
-**จะเกิดอะไรขึ้นกับมาโครถ้าฉันบันทึกงานนำเสนอเป็น PPTX?**
+### จะเกิดอะไรขึ้นกับแมโครหากฉันบันทึกการพรีเซนเทชันเป็น PPTX?
 
-มาโครจะถูกลบออกเพราะ PPTX ไม่รองรับ VBA หากต้องการเก็บมาโครให้ใช้รูปแบบ PPTM, PPSM หรือ POTM
+แมโครจะถูกลบเนื่องจาก PPTX ไม่รองรับ VBA หากต้องการเก็บแมโครไว้ให้เลือกใช้ PPTM, PPSM หรือ POTM
 
-**Aspose.Slides สามารถรันมาโครในงานนำเสนอเพื่อทำอย่างเช่นรีเฟรชข้อมูลได้หรือไม่?**
+### Aspose.Slides สามารถรันแมโครภายในงานพรีเซนเทชันเพื่อเช่น การรีเฟรชข้อมูลได้หรือไม่?
 
-ไม่ได้ ไลบรารีไม่เคยดำเนินการโค้ด VBA; การทำงานของ VBA เป็นไปได้เฉพาะใน PowerPoint โดยมีการตั้งค่าความปลอดภัยที่เหมาะสมเท่านั้น
+ไม่ได้ ไลบรารีจะไม่มีการประมวลผลโค้ด VBA; การประมวลผลสามารถทำได้เฉพาะใน PowerPoint พร้อมการตั้งค่าความปลอดภัยที่เหมาะสมเท่านั้น
 
-**การทำงานกับ ActiveX control ที่เชื่อมโยงกับโค้ด VBA ได้รับการสนับสนุนหรือไม่?**
+### รองรับการทำงานกับคอนโทรล ActiveX ที่เชื่อมโยงกับโค้ด VBA หรือไม่?
 
-ได้ คุณสามารถเข้าถึง [ActiveX controls](/slides/th/androidjava/activex/) ที่มีอยู่แล้ว, ปรับเปลี่ยนคุณสมบัติและลบออกได้ ซึ่งเป็นประโยชน์เมื่อมาโครโต้ตอบกับ ActiveX  
+ใช่ คุณสามารถเข้าถึง [ActiveX controls](/slides/th/androidjava/activex/) ที่มีอยู่แก้ไขคุณสมบัติของมันและลบออกได้ ซึ่งมีประโยชน์เมื่อแมโครทำงานร่วมกับ ActiveX

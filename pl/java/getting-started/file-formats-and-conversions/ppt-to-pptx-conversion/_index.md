@@ -4,13 +4,13 @@ type: docs
 weight: 30
 url: /pl/java/ppt-to-pptx-conversion/
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Konwersja PPT do PPTX jest obsługiwana w Aspose.Slides for Java. Większość funkcji prezentacji – slajdy master, struktura i tak dalej – jest zachowywana przy konwersji z jednego formatu na drugi, ale istnieje [kilka ograniczeń](/slides/pl/java/ppt-to-pptx-conversion/).
+Konwersja PPT do PPTX jest obsługiwana w Aspose.Slides for Java. Większość funkcji prezentacji – slajdy główne, struktura i inne – jest zachowywana przy konwersji z jednego formatu na drugi, ale istnieje [kilka ograniczeń](/slides/pl/java/ppt-to-pptx-conversion/).
 
 {{% /alert %}} 
-## **Funkcje obsługiwane przy konwersji**
-Aspose.Slides for Java zapewnia częściowe wsparcie dla konwersji formatu pliku PPT do PPTX. Wsparcie dla konwersji zostało dopiero wprowadzone w Aspose.Slides for Java, więc ma kilka ograniczeń i najlepiej sprawdza się w prostych prezentacjach. Główną zaletą, którą Aspose.Slides for Java oferuje przy konwersji PPT do PPTX, jest łatwość użycia API. Aby zobaczyć przykłady kodu, przeczytaj o [Konwertowanie PPT do PPTX](). Poniżej listy wyjaśniają, które funkcje są obsługiwane, a które nie w konwersji PPT do PPTX.
+## **Funkcje obsługiwane w konwersji**
+Aspose.Slides for Java zapewnia częściowe wsparcie dla konwertowania formatu pliku PPT do PPTX. Wsparcie dla konwersji zostało dopiero wprowadzone w Aspose.Slides for Java, więc ma kilka ograniczeń i najlepiej sprawdza się przy prostych prezentacjach. Główną zaletą, jaką oferuje Aspose.Slides for Java przy konwertowaniu PPT do PPTX, jest prostota użycia API. Aby zobaczyć przykłady kodu, przeczytaj o [Konwertowaniu PPT do PPTX](). Poniżej listy wyjaśniają, które funkcje są obsługiwane, a które nie w konwersji PPT do PPTX.
 
 
 **Źródłowa prezentacja PPT**
@@ -26,18 +26,18 @@ Aspose.Slides for Java zapewnia częściowe wsparcie dla konwersji formatu pliku
 
 
 ## **Obsługiwane funkcje**
-The following features are supported for conversion:
+Poniższe funkcje są obsługiwane przy konwersji:
 
-- Konwersja struktury szablonów master, układów i slajdów.
+- Konwersja struktury masterów, układów i slajdów.
 - Konwersja wykresów.
 - Kształty grupowe.
 - Konwersja autokształtów, w tym prostokątów i elips.
-- Kształty o niestandardowej geometrii.
+- Kształty z niestandardową geometrią.
 - Tekstury i style wypełnienia obrazami dla autokształtów.
-- Konwersja pól zastępczych.
+- Konwersja placeholderów.
 - Konwersja linii i polilinii.
-- Formaty linii i wypełnień.
+- Formaty linii i wypełnienia.
 - Style wypełnienia gradientowego.
 - Ramki OLE, tabele, ramki wideo i audio itp.
 - Właściwości animacji i pokazu slajdów.
-- Konwersja tekstu w ramkach tekstowych i elementach tekstowych.
+- Konwersja tekstu w ramkach tekstowych i kontenerach tekstowych.

@@ -22,37 +22,52 @@ keywords:
 - 프레젠테이션
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++를 사용하여 PowerPoint 및 OpenDocument 프레젠테이션에서 하이퍼링크를 손쉽게 관리하고, 몇 분 만에 인터랙티브성과 작업 흐름을 강화하세요."
+description: "Aspose.Slides for C++를 사용하여 PowerPoint 및 OpenDocument 프레젠테이션에서 하이퍼링크를 손쉽게 관리하고, 몇 분 안에 상호작용성과 워크플로를 향상시키세요."
 ---
 ## **소개**
 
-하이퍼링크는 객체나 데이터, 혹은 무언가 안의 위치에 대한 참조입니다. 다음은 PowerPoint 프레젠테이션에서 흔히 사용되는 하이퍼링크입니다:
+하이퍼링크는 객체, 데이터 또는 무언가의 위치에 대한 참조입니다. 다음은 PowerPoint 프레젠테이션에서 흔히 사용되는 하이퍼링크입니다:
 
 * 텍스트, 도형 또는 미디어 내부의 웹사이트 링크
-* 슬라이드에 대한 링크
+* 슬라이드 링크
 
-Aspose.Slides for C++를 사용하면 프레젠테이션에서 하이퍼링크와 관련된 다양한 작업을 수행할 수 있습니다.
+Aspose.Slides for C++ 를 사용하면 프레젠테이션에서 하이퍼링크와 관련된 다양한 작업을 수행할 수 있습니다.
 
-{{% alert color="primary" %}} 
-
-Aspose 간단한, [무료 온라인 PowerPoint 편집기.](https://products.aspose.app/slides/ko/editor)를 확인해 보세요.
-
+{{% alert color="info" %}} 
+Aspose 간단한, [무료 온라인 PowerPoint 편집기.](https://products.aspose.app/slides/ko/editor) 를 확인해 보세요.
 {{% /alert %}} 
 
 ## **URL 하이퍼링크 추가**
 
 ### **텍스트에 URL 하이퍼링크 추가**
 
-다음 C++ 코드는 텍스트에 웹사이트 하이퍼링크를 추가하는 방법을 보여줍니다:
+이 C++ 코드는 텍스트에 웹사이트 하이퍼링크를 추가하는 방법을 보여줍니다:
 
 ``` cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
 auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 600.0f, 50.0f, false);
 shape->AddTextFrame(u"Aspose: File Format APIs");
 
 auto portionFormat = shape->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
-portionFormat->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+portionFormat->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 portionFormat->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
 portionFormat->set_FontHeight(32.0f);
 
@@ -61,9 +76,20 @@ presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 
 ### **도형 또는 프레임에 URL 하이퍼링크 추가**
 
-다음 C++ 샘플 코드는 도형에 웹사이트 하이퍼링크를 추가하는 방법을 보여줍니다:
+이 C++ 샘플 코드는 도형에 웹사이트 하이퍼링크를 추가하는 방법을 보여줍니다:
 
 ``` cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
 auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 600.0f, 50.0f);
@@ -76,19 +102,33 @@ pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
 
 ### **미디어에 URL 하이퍼링크 추가**
 
-Aspose.Slides를 사용하면 이미지, 오디오 및 비디오 파일에 하이퍼링크를 추가할 수 있습니다. 
+Aspose.Slides 를 사용하면 이미지, 오디오 및 비디오 파일에 하이퍼링크를 추가할 수 있습니다. 
 
 다음 샘플 코드는 **이미지**에 하이퍼링크를 추가하는 방법을 보여줍니다:
 
 ``` cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-// 프레젠테이션에 이미지 추가
+// 프레젠테이션에 이미지를 추가합니다
 auto image = pres->get_Images()->AddImage(File::ReadAllBytes(u"image.png"));
-// 슬라이드 1에 이전에 추가된 이미지를 기반으로 그림 프레임 생성
+// 슬라이드 1에 이전에 추가한 이미지를 기반으로 그림 프레임을 생성합니다
 auto pictureFrame = shapes->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
 
-pictureFrame->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+pictureFrame->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 pictureFrame->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
 
 pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
@@ -97,12 +137,25 @@ pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
 다음 샘플 코드는 **오디오 파일**에 하이퍼링크를 추가하는 방법을 보여줍니다:
 
 ``` cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IAudioCollection.h>
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
 auto audio = pres->get_Audios()->AddAudio(File::ReadAllBytes(u"audio.mp3"));
 auto audioFrame = shapes->AddAudioFrameEmbedded(10.0f, 10.0f, 100.0f, 100.0f, audio);
 
-audioFrame->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+audioFrame->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 audioFrame->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
 
 pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
@@ -111,30 +164,64 @@ pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
 다음 샘플 코드는 **비디오**에 하이퍼링크를 추가하는 방법을 보여줍니다:
 
 ``` cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/IVideoCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
 auto video = pres->get_Videos()->AddVideo(File::ReadAllBytes(u"video.avi"));
 auto videoFrame = shapes->AddVideoFrame(10.0f, 10.0f, 100.0f, 100.0f, video);
 
-videoFrame->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+videoFrame->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 videoFrame->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
 
 pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
 ```
 
-{{%  alert  title="Tip"  color="primary"  %}} 
-
-다음 *[OLE 관리](https://docs.aspose.com/slides/ko/cpp/manage-ole/)*를 확인해 보세요.
-
+{{%  alert  title="Tip"  color="info"  %}} 
+다음도 확인해 보세요 *[OLE 관리](https://docs.aspose.com/slides/ko/cpp/manage-ole/)*.
 {{% /alert %}}
 
 ## **하이퍼링크를 사용하여 목차 만들기**
 
-하이퍼링크를 사용하면 객체나 위치에 대한 참조를 추가할 수 있으므로, 이를 이용해 목차를 만들 수 있습니다. 
+하이퍼링크는 객체나 위치에 대한 참조를 추가할 수 있으므로 목차를 만드는 데 활용할 수 있습니다. 
 
 다음 샘플 코드는 하이퍼링크가 포함된 목차를 만드는 방법을 보여줍니다:
 
 ``` cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IHyperlinkManager.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>();
 auto firstSlide = presentation->get_Slides()->idx_get(0);
 auto secondSlide = presentation->get_Slides()->AddEmptySlide(firstSlide->get_LayoutSlide());
@@ -162,17 +249,40 @@ contentTable->get_TextFrame()->get_Paragraphs()->Add(paragraph);
 
 ### **색상**
 
-[IHyperlink](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.i_hyperlink) 인터페이스의 [set_ColorSource()](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.i_hyperlink#ab739ae21025485366d44a3b72e0d7dac) 및 [get_ColorSource()](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.i_hyperlink#af5370af1ba9fba7b22fcc8a7ce344494) 메서드를 사용하면 하이퍼링크의 색상을 설정하고 색상 정보를 가져올 수 있습니다. 이 기능은 PowerPoint 2019에서 처음 도입되었으며, 해당 속성에 대한 변경은 이전 PowerPoint 버전에는 적용되지 않습니다.
+[IHyperlink](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.i_hyperlink) 인터페이스에서 [set_ColorSource()](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.i_hyperlink#ab739ae21025485366d44a3b72e0d7dac) 및 [get_ColorSource()](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.i_hyperlink#af5370af1ba9fba7b22fcc8a7ce344494) 메서드를 사용하면 하이퍼링크의 색상을 설정하고 색상 정보를 가져올 수 있습니다. 이 기능은 PowerPoint 2019에서 처음 도입되었으며, 해당 속성에 대한 변경은 이전 버전의 PowerPoint에는 적용되지 않습니다.
 
-다음 샘플 코드는 동일한 슬라이드에 서로 다른 색상의 하이퍼링크가 추가되는 작업을 보여줍니다:
+다음 샘플 코드는 서로 다른 색상의 하이퍼링크가 같은 슬라이드에 추가되는 작업을 보여줍니다:
 
 ``` cpp
+#include <DOM/FillType.h>
+#include <DOM/Hyperlink.h>
+#include <DOM/HyperlinkColorSource.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>();
 auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
 auto shape1 = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 450.0f, 50.0f, false);
 shape1->AddTextFrame(u"This is a sample of colored hyperlink.");
 auto shape1PortionFormat = shape1->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
-shape1PortionFormat->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+shape1PortionFormat->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 shape1PortionFormat->get_HyperlinkClick()->set_ColorSource(HyperlinkColorSource::PortionFormat);
 shape1PortionFormat->get_FillFormat()->set_FillType(FillType::Solid);
 shape1PortionFormat->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
@@ -180,7 +290,7 @@ shape1PortionFormat->get_FillFormat()->get_SolidFillColor()->set_Color(Color::ge
 auto shape2 = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 450.0f, 50.0f, false);
 shape2->AddTextFrame(u"This is a sample of usual hyperlink.");
 auto shape2PortionFormat = shape2->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
-shape2PortionFormat->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+shape2PortionFormat->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 
 presentation->Save(u"presentation-out-hyperlink.pptx", SaveFormat::Pptx);
 ```
@@ -189,9 +299,25 @@ presentation->Save(u"presentation-out-hyperlink.pptx", SaveFormat::Pptx);
 
 ### **텍스트에서 하이퍼링크 제거**
 
-다음 C++ 코드는 프레젠테이션 슬라이드의 텍스트에서 하이퍼링크를 제거하는 방법을 보여줍니다:
+이 C++ 코드는 프레젠테이션 슬라이드의 텍스트에서 하이퍼링크를 제거하는 방법을 보여줍니다:
 
 ``` cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IHyperlinkManager.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 auto slide = pres->get_Slides()->idx_get(0);
 for (const auto& shape : slide->get_Shapes())
@@ -215,9 +341,19 @@ pres->Save(u"pres-removed-hyperlinks.pptx", SaveFormat::Pptx);
 
 ### **도형 또는 프레임에서 하이퍼링크 제거**
 
-다음 C++ 코드는 프레젠테이션 슬라이드의 도형에서 하이퍼링크를 제거하는 방법을 보여줍니다: 
+이 C++ 코드는 프레젠테이션 슬라이드의 도형에서 하이퍼링크를 제거하는 방법을 보여줍니다: 
 
 ``` cpp
+#include <DOM/IHyperlinkManager.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>(u"demo.pptx");
 auto slide = pres->get_Slides()->idx_get(0);
 for (const auto& shape : slide->get_Shapes())
@@ -229,7 +365,7 @@ pres->Save(u"pres-removed-hyperlinks.pptx", SaveFormat::Pptx);
 
 ## **가변 하이퍼링크**
 
-The [Hyperlink](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.hyperlink) 클래스는 가변(mutable)입니다. 이 클래스를 사용하면 다음 메서드들의 값을 변경할 수 있습니다:
+[Hyperlink](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.hyperlink) 클래스는 가변(mutable)합니다. 이 클래스를 사용하면 다음 메서드의 값을 변경할 수 있습니다:
 
 - [IHyperlink::set_TargetFrame()](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.i_hyperlink#af2d9c5672517d98afe5868903a5a637f)
 - [IHyperlink::set_Tooltip()](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.i_hyperlink#adf1c8eee89bd292292293e58da79a6f2)
@@ -240,6 +376,23 @@ The [Hyperlink](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.h
 다음 코드 스니펫은 슬라이드에 하이퍼링크를 추가하고 나중에 툴팁을 편집하는 방법을 보여줍니다:
 
 ``` cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
 auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 600.0f, 50.0f, false);
@@ -247,7 +400,7 @@ auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 600.0f, 
 shape->AddTextFrame(u"Aspose: File Format APIs");
 
 auto shapePortionFormat = shape->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
-shapePortionFormat->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+shapePortionFormat->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 shapePortionFormat->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
 shapePortionFormat->set_FontHeight(32.0f);
 
@@ -271,14 +424,14 @@ IHyperlinkQueries 클래스는 다음 메서드를 지원합니다:
 
 ## **FAQ**
 
-**슬라이드 뿐 아니라 "섹션" 또는 섹션의 첫 슬라이드로 내부 탐색을 만들려면 어떻게 해야 하나요?**
+### 어떻게 하면 슬라이드뿐만 아니라 "섹션" 또는 섹션의 첫 번째 슬라이드로 내부 탐색을 만들 수 있나요?
 
-PowerPoint에서 섹션은 슬라이드 그룹이며, 탐색은 기술적으로 특정 슬라이드를 대상으로 합니다. "섹션으로 이동"하려면 일반적으로 해당 섹션의 첫 슬라이드에 링크합니다.
+PowerPoint의 섹션은 슬라이드 그룹이며, 탐색은 기술적으로 특정 슬라이드를 대상으로 합니다. "섹션으로 이동"하려면 일반적으로 해당 섹션의 첫 번째 슬라이드에 링크합니다.
 
-**마스터 슬라이드 요소에 하이퍼링크를 붙여 모든 슬라이드에서 작동하도록 할 수 있나요?**
+### 마스터 슬라이드 요소에 하이퍼링크를 연결하면 모든 슬라이드에서 작동하게 할 수 있나요?
 
-예. 마스터 슬라이드와 레이아웃 요소는 하이퍼링크를 지원합니다. 이러한 링크는 하위 슬라이드에 표시되며 슬라이드 쇼 중에 클릭할 수 있습니다.
+예. 마스터 슬라이드와 레이아웃 요소는 하이퍼링크를 지원합니다. 이러한 링크는 자식 슬라이드에 표시되며 슬라이드 쇼 중에 클릭할 수 있습니다.
 
-**PDF, HTML, 이미지 또는 비디오로 내보낼 때 하이퍼링크가 유지됩니까?**
+### PDF, HTML, 이미지 또는 비디오로 내보낼 때 하이퍼링크가 유지되나요?
 
-[PDF](/slides/ko/cpp/convert-powerpoint-to-pdf/)와 [HTML](/slides/ko/cpp/convert-powerpoint-to-html/)에서는 일반적으로 링크가 유지됩니다. [이미지](/slides/ko/cpp/convert-powerpoint-to-png/)와 [비디오](/slides/ko/cpp/convert-powerpoint-to-video/)로 내보낼 경우, 해당 포맷의 특성상(래스터 프레임/비디오는 하이퍼링크를 지원하지 않음) 클릭 가능성이 유지되지 않습니다.
+PDF 및 HTML에서는 링크가 일반적으로 유지됩니다. 이미지와 비디오로 내보낼 경우, 해당 형식은 래스터 프레임/비디오이므로 하이퍼링크가 유지되지 않습니다.

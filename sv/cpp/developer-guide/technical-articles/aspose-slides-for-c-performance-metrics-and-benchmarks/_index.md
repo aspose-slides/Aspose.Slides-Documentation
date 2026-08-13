@@ -1,47 +1,46 @@
 ---
-title: "Aspose.Slides for C++: Prestandamått och prestandatester"
+title: "Aspose.Slides för C++: Prestandamått och benchmark"
 type: docs
 weight: 20
 url: /sv/cpp/aspose-slides-for-c-performance-metrics-and-benchmarks/
 keywords:
 - prestanda
-- mätvärden
-- prestandatester
+- mått
+- benchmark
 - VSTO
 - PowerPoint
 - OpenDocument
 - presentation
 - C++
 - Aspose.Slides
-description: "Jämför prestanda för Aspose.Slides for C++ med VSTO med hjälp av riktiga prestandatester och se hur det påskyndar arbete med PPT-, PPTX- och ODP-presentationer."
+description: "Jämför prestandan för Aspose.Slides for C++ med VSTO med hjälp av riktiga benchmark‑tester och se hur det snabbar upp arbetet med PPT-, PPTX- och ODP‑presentationer."
 ---
 ## **Syfte**
-Performance is often the first critical factor when choosing a component. This article measures the performance of Aspose.Slides for C++ and VSTO 2008. The simple tests are conducted across the similar operating system, hardware components, and configurations. 
+Prestanda är ofta den första kritiska faktorn när man väljer en komponent. Denna artikel mäter prestandan för Aspose.Slides for C++ och VSTO 2008. De enkla testerna utförs på liknande operativsystem, hårdvarukomponenter och konfigurationer. 
 
+Denna artikel presenterar prestandamätningar för produkter inklusive **Aspose.Slides for C++** och **VSTO 2008**. Prestandaestimat som presenteras här är avsedda att hjälpa dig att förstå vad du kan förvänta dig av olika komponenter i några vanliga scenarier under liknande konfigurationer på standardhårdvara som kör allmänt använda operativsystem. Naturligtvis beror din applikations prestanda på dina data, åtkomstmönster för data, cachestorlek, andra konfigurationsparametrar, operativsystem och hårdvara etc. Benchmarket syftar till att illustrera hur komponenterna presterar under minimihårdvaruförhållanden; ju snabbare hårdvara, desto snabbare kommer uppgifterna att bearbetas av komponenterna. 
+## **Förklaring**
+Detta dokument tillhandahålls endast för information och innehållet kan ändras utan föregående meddelande. Detta dokument garanteras inte vara felfritt, och omfattas inte av några andra garantier eller villkor, vare sig uttryckta muntligt eller underförstådda enligt lag, inklusive underförstådda garantier och villkor om säljbarhet eller lämplighet för ett särskilt ändamål. Vi frånsäger oss specifikt allt ansvar i samband med detta dokument och inga avtalsförpliktelser uppstår varken direkt eller indirekt genom detta dokument. Detta dokument får inte reproduceras eller överföras i någon form eller på något sätt, elektroniskt eller mekaniskt, för något ändamål. 
 
-This article presents performance measurements for products including **Aspose.Slides for C++** and **VSTO 2008**. Performance estimates presented here are intended to help you understand what to expect from different components in some commonly used scenarios under similar configurations on commodity hardware running widely used operating systems. Naturally, your application performance depends on your data, data access patterns, cache size, other configuration parameters, operating system and hardware etc. The benchmark aims to illustrate how the components perform under minimum hardware conditions, the faster the hardware, the faster the tasks will be processed by the components. 
-## **Deklaration**
-This document is provided for information purposes only and the contents hereof are subjected to change without notice. This document is not warranted to be error-free, nor subject to any other warranties or conditions, whether exp ressed orally or implied in law including implied warranties and conditions of merchantability or fitness for a particular purpose. We specifically disclaimer any liability with respect to this document and no contractual obligations are formed either directly or indirectly by this document. This document may not be reproduced or transmitted in any form or by any means, electronic or mechanical, for any purpose. 
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-Benchmarks provide guidelines and help to set basic operational expectations. The topic shows benchmark tes ts that have been performed against Aspose.Slides for C++ and VSTO 2008 . The Performance Measures *{*} allow even novice users to benchmark the performance of the component they are using. The tests will *{*} allow you to objectively benchmark a component using a variety of different speed tests. All the tasks are common and carefully chosen exploring the relevant features to make sure that both the components may complete the tasks with ease. Moreover, the APIs to perform a test by each component are carefully chosen and selected to get the best possible results that a component can produce while evaluating its performance and all the tasks were implemented twice / thrice to better judge the figures. 
+Prestandatester ger riktlinjer och hjälper till att fastställa grundläggande operativa förväntningar. Ämnet visar benchmark‑tester som har utförts mot Aspose.Slides for C++ och VSTO 2008. Prestandamåtten *{*} gör det även för nybörjare att benchmarka prestandan för den komponent de använder. Tester kommer *{*} att låta dig objektivt benchmarka en komponent med en mängd olika hastighetstester. Alla uppgifter är vanliga och noggrant utvalda för att utforska relevanta funktioner och säkerställa att båda komponenterna kan slutföra uppgifterna utan problem. Dessutom är API:erna för att utföra ett test per komponent noggrant valda för att få de bästa möjliga resultaten som en komponent kan producera vid utvärdering av dess prestanda, och alla uppgifter implementerades två‑ eller tre‑gånger för att bättre bedöma siffrorna. 
 
 {{% /alert %}} 
-## **Testmetodologi**
-All the performance tests were conducted on a common hardware and operating system combinations, without customized configuration, tuning or any other performance enhancing techniques. All tests were run with the component insta llations on the same system those were otherwise quiescent. To get accurate readings, we performed all the tasks twice / thrice at a time to better evaluate a component and to get accurate readings. 
+## **Testmetodik**
+Alla prestandatester utfördes på gemensam hårdvara och kombinationer av operativsystem, utan anpassad konfiguration, fininställning eller någon annan prestandaförbättrande teknik. Alla tester kördes med komponentinstallationerna på samma system som annars var inaktiva. För att få korrekta avläsningar utförde vi alla uppgifter två‑ eller tre‑gånger i taget för att bättre utvärdera en komponent och få exakta mätvärden. 
 ## **Benchmark‑konfiguration**
-The following table enlists the Benchmark Setup: 
+Följande tabell listar Benchmark‑konfigurationen: 
 
 ![todo:image_alt_text](/plugins/servlet/confluence/placeholder/unknown-attachment)
 ### **Prestandaresultat**
-The following table enlists the performance results: 
+Följande tabell listar prestandaresultaten: 
 
 ![todo:image_alt_text](/plugins/servlet/confluence/placeholder/unknown-attachment)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-The exe cution time is taken after deploying the applications as it gives the exact time, otherwise time calculation in the Visual Studio Debugger results in unexpected and unrealistic results. For example, if the code snippets in the attached source code are executed in Visual Studio Debugger 3 – 5 times, there will be a marginal difference of the results in every attempt thus creating a situation with no conclusion. 
+Exekveringstiden tas efter distribution av applikationerna eftersom den ger den exakta tiden; annars leder tidsberäkning i Visual Studio Debugger till oväntade och orimliga resultat. Till exempel, om kodsnuttarna i den bifogade källkoden körs i Visual Studio Debugger 3–5 gånger, kommer det att finnas en marginell skillnad i resultaten för varje försök, vilket skapar en situation utan slutsats. 
 
 {{% /alert %}} 
 ## **Prestandaresultat (Excel‑diagram)**

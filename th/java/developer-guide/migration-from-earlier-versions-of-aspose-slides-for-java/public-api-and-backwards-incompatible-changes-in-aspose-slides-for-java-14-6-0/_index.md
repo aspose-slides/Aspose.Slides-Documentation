@@ -1,33 +1,35 @@
 ---
-title: การเปลี่ยนแปลง Public API และการไม่เข้ากันย้อนหลังใน Aspose.Slides สำหรับ Java 14.6.0
+title: API สาธารณะและการเปลี่ยนแปลงที่ไม่เข้ากันย้อนหลังใน Aspose.Slides for Java 14.6.0
 linktitle: Aspose.Slides สำหรับ Java 14.6.0
 type: docs
 weight: 50
 url: /th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/
 keywords:
-- การย้าย
-- โค้ดเดิม
+- การย้ายระบบ
+- โค้ดเก่า
 - โค้ดสมัยใหม่
-- วิธีการเดิม
+- วิธีการเก่า
 - วิธีการสมัยใหม่
 - PowerPoint
 - OpenDocument
 - การนำเสนอ
 - Java
 - Aspose.Slides
-description: "รีวิวการอัปเดต Public API และการเปลี่ยนแปลงที่ทำให้ไม่เข้ากันใน Aspose.Slides สำหรับ Java เพื่อย้ายโซลูชันการนำเสนอ PowerPoint PPT, PPTX และ ODP ของคุณอย่างราบรื่น."
+description: "ทบทวนการอัปเดต API สาธารณะและการเปลี่ยนแปลงที่ทำให้ระบบเสียหายใน Aspose.Slides for Java เพื่อการย้ายระบบ PowerPoint PPT, PPTX และ ODP ของคุณอย่างราบรื่น."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-หน้านี้แสดงรายการทั้งหมดของคลาส, เมธอด, คุณสมบัติ ฯลฯ ที่ [เพิ่ม](/slides/th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/) รวมถึงข้อจำกัดใหม่และการเปลี่ยนแปลงอื่น ๆ ที่นำเสนอด้วย Aspose.Slides for Java 14.6.0 API
+หน้านี้แสดงรายการคลาส, เมธอด, คุณสมบัติ ฯลฯ ที่ **เพิ่ม** เข้ามา, ข้อจำกัดใหม่และการเปลี่ยนแปลงอื่น ๆ ที่นำมาใช้ใน Aspose.Slides for Java 14.6.0 API
 
 {{% /alert %}} 
-## **การเปลี่ยนแปลง Public API**
-### **คลาส, เมธอด, อินเทอร์เฟซ และ Enumerations ที่เพิ่มขึ้น**
-#### **เพิ่ม Enumeration ViewType, อินเทอร์เฟซ IViewProperties, คลาส ViewProperties และเมธอด IPresentation.getViewProperties()**
-เมธอด IPresentation.getViewProperty() ให้การเข้าถึง IViewProperties และอนุญาตให้คุณเปลี่ยนประเภทการแสดงผลของงานนำเสนอและการมองเห็นหมายเหตุเมื่อเปิดงานนำเสนอใน Microsoft PowerPoint
+## **การเปลี่ยแปลง Public API**
+### **คลาส, เมธอด, อินเทอร์เฟซ และการนับจำนวนที่เพิ่มเข้ามา**
+#### **เพิ่มการนับจำนวน ViewType, อินเทอร์เฟซ IViewProperties, คลาส ViewProperties และเมธอด IPresentation.getViewProperties()**
+เมธอด IPresentation.getViewProperties() ให้เข้าถึง IViewProperties และอนุญาตให้คุณเปลี่ยนประเภทการแสดงผลของงานนำเสนอและการมองเห็นโน้ตเมื่อเปิดงานนำเสนอใน Microsoft PowerPoint
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation p = new Presentation();
 
@@ -41,12 +43,14 @@ p.getViewProperties().setLastView(ViewType.SlideMasterView);
 - Aspose.Slides.IShapeCollection.addClone(IShape sourceShape, float x, float y),
 - Aspose.Slides.IShapeCollection.addClone(IShape sourceShape, float x, float y, float width, float height),
 - Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape),
-- Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape, float x, float y), and
+- Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape, float x, float y), และ
 - Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape, float x, float y, float width, float height)
 
-เพิ่ม/แทรกสำเนาของรูปทรงที่ระบุลงในคอลเลกชัน
+จะเพิ่ม/แทรกสำเนาของรูปร่างที่ระบุลงในคอลเลกชัน
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation srcPres = new Presentation("data/Source Frame.pptx");
 
@@ -75,6 +79,8 @@ destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
 อินเทอร์เฟซนี้ระบุประเภทของค่าที่อยู่ในรายการคุณสมบัติ ChartDataPoint.ErrorBarsCustomValues
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -122,9 +128,11 @@ pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 
 ```
 #### **เพิ่มอินเทอร์เฟซ Aspose.Slides.Charts.IErrorBarsCustomValues**
-เมื่อคุณสมบัติ IErrorBarsFormat.ValueType มีค่าเป็น Custom เพื่อตั้งค่าค่า ให้ใช้คุณสมบัติ ErrorBarCustomValues ของจุดข้อมูลเฉพาะในคอลเลกชัน DataPoints ของซีรีส์
+เมื่อคุณสมบัติ IErrorBarsFormat.ValueType มีค่าเท่ากับ Custom เพื่อตั้งค่าค่าให้ใช้คุณสมบัติ ErrorBarCustomValues ของจุดข้อมูลเฉพาะในคอลเลกชัน DataPoints ของซีรีส์
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -172,10 +180,12 @@ pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 
 ```
 #### **เพิ่มอินเทอร์เฟซ Aspose.Slides.Charts.IErrorBarsFormat**
-อินเทอร์เฟซนี้แสดงถึงแถบความคลาดเคลื่อนของชุดข้อมูลแผนภูมิ
-ในกรณีที่ประเภทค่าคือ custom เพื่อระบุค่า ให้ใช้คุณสมบัติ ErrorBarCustomValues ของจุดข้อมูลเฉพาะในคอลเลกชัน DataPoins ของซีรีส์
+อินเทอร์เฟซนี้แทนบาร์ความผิดพลาดของซีรีส์แผนภูมิ
+ในกรณีที่ประเภทค่าคือ custom เพื่อตั้งค่าค่าให้ใช้คุณสมบัติ ErrorBarCustomValues ของจุดข้อมูลเฉพาะในคอลเลกชัน DataPoins ของซีรีส์
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 

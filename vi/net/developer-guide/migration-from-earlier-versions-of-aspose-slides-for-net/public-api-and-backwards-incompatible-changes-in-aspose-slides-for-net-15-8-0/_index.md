@@ -12,24 +12,26 @@ keywords:
 - cách tiếp cận hiện đại
 - PowerPoint
 - OpenDocument
-- bản trình chiếu
+- bài thuyết trình
 - .NET
 - C#
 - Aspose.Slides
-description: "Xem lại các cập nhật API công khai và các thay đổi gây lỗi trong Aspose.Slides cho .NET để dễ dàng di chuyển các giải pháp bản trình chiếu PowerPoint PPT, PPTX và ODP của bạn."
+description: "Xem xét các cập nhật API công khai và các thay đổi gây phá vỡ trong Aspose.Slides cho .NET để di chuyển suôn sẻ các giải pháp bài thuyết trình PowerPoint PPT, PPTX và ODP của bạn."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Trang này liệt kê tất cả các lớp, phương thức, thuộc tính được [added](/slides/vi/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) hoặc [removed](/slides/vi/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/), và các thay đổi khác được giới thiệu trong API Aspose.Slides for .NET 15.8.0.
+Trang này liệt kê tất cả các lớp, phương thức, thuộc tính và các mục khác [được thêm](/slides/vi/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) hoặc [bị xóa](/slides/vi/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) và các thay đổi khác được giới thiệu trong API Aspose.Slides for .NET 15.8.0.
 
 {{% /alert %}} 
-## **Thay đổi API công khai**
-#### **Property DoughnutHoleSize Has Been Added to IChartSeries and ChartSeries**
-Thuộc tính DoughnutHoleSize đã được thêm vào IChartSeries và ChartSeries.
-
-Xác định kích thước của lỗ trong biểu đồ bánh rán.
+## **Các thay đổi API công khai**
+#### **Thuộc tính DoughnutHoleSize đã được thêm vào IChartSeries và ChartSeries**
+Xác định kích thước của lỗ trong biểu đồ donut.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 

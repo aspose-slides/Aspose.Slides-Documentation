@@ -1,5 +1,5 @@
 ---
-title: Android'de Sunum Temalarını Yönetme
+title: Android'de Sunum Temalarını Yönet
 linktitle: Sunum Teması
 type: docs
 weight: 10
@@ -9,8 +9,8 @@ keywords:
 - sunum teması
 - slayt teması
 - tema ayarla
-- tema değiştir
-- temayı yönet
+- temayı değiştir
+- tema yönet
 - tema rengi
 - ek palet
 - tema yazı tipi
@@ -22,23 +22,25 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Java aracılığıyla Android için Aspose.Slides'te sunum temalarını yöneterek, tutarlı marka kimliğiyle PowerPoint dosyaları oluşturun, özelleştirin ve dönüştürün."
+description: "Java üzerinden Android için Aspose.Slides'te sunum temalarını yöneterek, PowerPoint dosyalarını tutarlı bir marka kimliğiyle oluşturun, özelleştirin ve dönüştürün."
 ---
 ## **Giriş**
 
-Bir sunum teması, tasarım öğelerinin özelliklerini tanımlar. Bir sunum teması seçtiğinizde, temelde belirli bir görsel öğe kümesini ve bu öğelerin özelliklerini seçmiş olursunuz.
+Bir sunum teması, tasarım öğelerinin özelliklerini tanımlar. Bir sunum teması seçtiğinizde, aslında belirli bir görsel öğe seti ve onların özelliklerini seçmiş olursunuz.
 
 PowerPoint'te bir tema, renkler, [fonts](/slides/tr/androidjava/powerpoint-fonts/), [background styles](/slides/tr/androidjava/presentation-background/) ve efektlerden oluşur.
 
-![theme-constituents](theme-constit
+![theme-constituents](theme-constituents.png)
 
-## **Tema Rengini Değiştirme**
+## **Tema Rengini Değiştir**
 
-PowerPoint teması, slayttaki farklı öğeler için belirli bir renk kümesi kullanır. Renkleri beğenmezseniz, temaya yeni renkler uygulayarak renkleri değiştirebilirsiniz. Yeni bir tema rengi seçmenizi sağlamak için Aspose.Slides, [SchemeColor](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/SchemeColor) enumunda değerler sunar.
+PowerPoint teması, slayttaki farklı öğeler için belirli bir renk seti kullanır. Renkleri beğenmezseniz, tema için yeni renkler uygulayarak renkleri değiştirirsiniz. Yeni bir tema rengi seçebilmeniz için Aspose.Slides, [SchemeColor](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/SchemeColor) numaralandırması altında değerler sunar.
 
-Bu Java kodu, bir temasının vurgu rengini nasıl değiştireceğinizi gösterir:
+Bu Java kodu, bir temanın vurgu renginin nasıl değiştirileceğini gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
@@ -51,43 +53,68 @@ try {
 }
 ```
 
-Bu şekilde oluşan rengin etkili değerini belirleyebilirsiniz:
+Aşağıdaki şekilde elde edilen rengin etkili değerini belirleyebilirsiniz:
 
 ```java
-IFillFormatEffectiveData fillEffective = shape.getFillFormat().getEffective();
+import com.aspose.slides.*;
+import java.awt.Color;
 
-Color effectiveColor = fillEffective.getSolidFillColor();
+Presentation pres = new Presentation();
+try {
+    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
-System.out.println(String.format("Color [A=%d, R=%d, G=%d, B=%d]", 
-        effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
+    shape.getFillFormat().setFillType(FillType.Solid);
+
+    shape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+
+    IFillFormatEffectiveData fillEffective = shape.getFillFormat().getEffective();
+
+    Color effectiveColor = fillEffective.getSolidFillColor();
+
+    System.out.println(String.format("Color [A=%d, R=%d, G=%d, B=%d]",
+            effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
-Renk değişikliği işlemini daha da göstermek için başka bir öğe oluşturup vurgu rengini (ilk işlemden) ona atıyoruz. Ardından temadaki rengi değiştiriyoruz:
+Renk değişimi işlemini daha iyi göstermek için başka bir öğe oluşturur ve ona (ilk işlemden elde edilen) vurgu rengini atarız. Ardından temadaki rengi değiştiririz:
 
 ```java
-IAutoShape otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
+import com.aspose.slides.*;
+import java.awt.Color;
 
-otherShape.getFillFormat().setFillType(FillType.Solid);
+Presentation pres = new Presentation();
+try {
+    IAutoShape otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
 
-otherShape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+    otherShape.getFillFormat().setFillType(FillType.Solid);
 
-pres.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED);
+    otherShape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+
+    pres.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
-Yeni renk otomatik olarak her iki öğeye de uygulanır.
+Yeni renk her iki öğeye de otomatik olarak uygulanır.
 
-### **Ek Paletten Tema Rengini Ayarlama**
+### **Ek Paletten Tema Rengi Ayarlama**
 
-Ana tema rengine (1) parlaklık dönüşümleri uyguladığınızda, ek paletten (2) renkler oluşur. Bu tema renklerini daha sonra ayarlayabilir ve alabilirsiniz.
+Ana tema rengine (1) parlaklık dönüşümleri uygulandığında, ek paletten (2) renkler oluşur. Bu tema renklerini ayarlayabilir ve alabilirsiniz.
 
 ![additional-palette-colors](additional-palette-colors.png)
 
 **1** - Ana tema renkleri  
+
 **2** - Ek paletten gelen renkler.
 
-Bu Java kodu, ek palet renklerinin ana tema renginden elde edilip şekillerde kullanılmasını gösterir:
+Bu Java kodu, ek palet renklerinin ana tema renginden elde edildiği ve ardından şekillerde kullanıldığı bir işlemi gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -136,7 +163,7 @@ try {
     shape6.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape6.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.5f);
 
-    presentation.save(path + "example_accent4.pptx", SaveFormat.Pptx);
+    presentation.save("example_accent4.pptx", SaveFormat.Pptx);
 } finally {
     if (presentation != null) presentation.dispose();
 }
@@ -144,7 +171,7 @@ try {
 
 ### **`SchemeColor`'ı `IColorScheme` Renklerine Eşleme**
 
-[SchemeColor](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/schemecolor/) ile çalışırken aşağıdaki tema rengi değerlerini içerdiğini fark edebilirsiniz:
+[SchemeColor](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/schemecolor/) ile çalışırken aşağıdaki tema renk değerlerini içerdiğini görebilirsiniz:
 
 `Background1`, `Background2`, `Text1` ve `Text2`.
 
@@ -152,63 +179,79 @@ Ancak `Presentation.getMasterTheme().getColorScheme()` [IColorScheme](https://re
 
 `Dark1`, `Dark2`, `Light1` ve `Light2`.
 
-Bu fark yalnızca adlandırmadadır. Bu değerler aynı tema rengi konumlarına işaret eder ve eşleme sabittir:
+Bu fark sadece adlandırmadadır. Bu değerler aynı tema rengi yuvalarına karşılık gelir ve eşleme sabittir:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-`Text`/`Background` ile `Dark`/`Light` arasında dinamik bir dönüşüm yoktur. Bunlar aynı tema renkleri için sadece alternatif isimlerdir.
+`Text`/`Background` ile `Dark`/`Light` arasında dinamik bir dönüşüm yoktur. Aynı tema renklerinin alternatif adlarıdır.
 
-Bu adlandırma farkı Microsoft Office terminolojisinden gelmektedir. Eski Office sürümleri `Dark 1`, `Light 1`, `Dark 2` ve `Light 2` kullanırken, yeni UI sürümleri aynı konumları `Text 1`, `Background 1`, `Text 2` ve `Background 2` olarak gösterir.
+Bu adlandırma farkı Microsoft Office terminolojisinden kaynaklanır. Eski Office sürümleri `Dark 1`, `Light 1`, `Dark 2` ve `Light 2` kullanırken, yeni UI sürümleri aynı yuvaları `Text 1`, `Background 1`, `Text 2` ve `Background 2` olarak gösterir.
 
-## **Tema Yazı Tipini Değiştirme**
+## **Tema Yazı Tipini Değiştir**
 
-Tema ve diğer amaçlar için yazı tipleri seçmenizi sağlamak amacıyla Aspose.Slides, bu özel tanımlayıcıları (PowerPoint'te kullanılanlara benzer) kullanır:
+Tema ve diğer amaçlar için yazı tiplerini seçebilmeniz için Aspose.Slides, PowerPoint'te kullanılanlarla benzer özel tanımlayıcıları kullanır:
 
-* **+mn-lt** - Gövde Yazı Tipi Latin (Küçük Latin Yazı Tipi)
-* **+mj-lt** - Başlık Yazı Tipi Latin (Büyük Latin Yazı Tipi)
-* **+mn-ea** - Gövde Yazı Tipi Doğu Asya (Küçük Doğu Asya Yazı Tipi)
-* **+mj-ea** - Gövde Yazı Tipi Doğu Asya (Büyük Doğu Asya Yazı Tipi)
+* **+mn-lt** – Gövde Yazı Tipi Latin (Minor Latin Font)
+* **+mj-lt** – Başlık Yazı Tipi Latin (Major Latin Font)
+* **+mn-ea** – Gövde Yazı Tipi Doğu Asya (Minor East Asian Font)
+* **+mj-ea** – Başlık Yazı Tipi Doğu Asya (Major East Asian Font)
 
-Bu Java kodu, Latin yazı tipini bir tema öğesine nasıl atayacağınızı gösterir:
+Bu Java kodu, Latin yazı tipini bir tema öğesine atamayı gösterir:
 
 ```java
-IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+import com.aspose.slides.*;
 
-Paragraph paragraph = new Paragraph();
+Presentation pres = new Presentation();
+try {
+    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
-Portion portion = new Portion("Theme text format");
+    Paragraph paragraph = new Paragraph();
 
-paragraph.getPortions().add(portion);
+    Portion portion = new Portion("Theme text format");
 
-shape.getTextFrame().getParagraphs().add(paragraph);
+    paragraph.getPortions().add(portion);
 
-portion.getPortionFormat().setLatinFont(new FontData("+mn-lt"));
+    shape.getTextFrame().getParagraphs().add(paragraph);
+
+    portion.getPortionFormat().setLatinFont(new FontData("+mn-lt"));
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 Bu Java kodu, sunum temasının yazı tipini nasıl değiştireceğinizi gösterir:
 
 ```java
-pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation();
+try {
+    pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 Tüm metin kutularındaki yazı tipi güncellenecektir.
 
-{{% alert color="primary" title="TIP" %}} 
-PowerPoint yazı tiplerine bakmak isteyebilirsiniz. 
+{{% alert color="info" title="TIP" %}} 
+Temayı görmek isteyebilirsiniz [PowerPoint fonts](/slides/tr/androidjava/powerpoint-fonts/).
 {{% /alert %}}
 
-## **Tema Arka Plan Stilini Değiştirme**
+## **Tema Arka Plan Stili Değiştir**
 
-Varsayılan olarak, PowerPoint uygulaması 12 önceden tanımlanmış arka plan sağlar ancak bu 12 arka planın sadece 3'ü tipik bir sunumda kaydedilir.
+Varsayılan olarak PowerPoint uygulaması 12 önceden tanımlı arka plan sunar, ancak tipik bir sunumda bu 12 arka planın yalnızca 3'ü kaydedilir.
 
 ![todo:image_alt_text](presentation-design_8.png)
 
-Örneğin, PowerPoint uygulamasında bir sunumu kaydettikten sonra, sunumdaki önceden tanımlanmış arka plan sayısını öğrenmek için bu Java kodunu çalıştırabilirsiniz:
+Örneğin, PowerPoint uygulamasında bir sunumu kaydettikten sonra, sunumdaki önceden tanımlı arka plan sayısını öğrenmek için bu Java kodunu çalıştırabilirsiniz:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     int numberOfBackgroundFills = pres.getMasterTheme().getFormatScheme().getBackgroundFillStyles().size();
@@ -220,30 +263,42 @@ try {
 ```
 
 {{% alert color="warning" %}} 
-PowerPoint temasında arka plan stilini eklemek veya erişmek için [FormatScheme](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/FormatScheme) sınıfının [BackgroundFillStyles](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/FormatScheme#getBackgroundFillStyles--) özelliğini kullanabilirsiniz. 
+[BackgroundFillStyles](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/FormatScheme#getBackgroundFillStyles--) özelliğini [FormatScheme](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/FormatScheme) sınıfından kullanarak bir PowerPoint temasında arka plan stilini ekleyebilir veya erişebilirsiniz.
 {{% /alert %}} 
 
-Bu Java kodu, bir sunum için arka planı nasıl ayarlayacağınızı gösterir:
+Bu Java kodu, bir sunumun arka planını nasıl ayarlayacağınızı gösterir:
 
 ```java
-pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("pres.pptx");
+try {
+    pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
-**Dizin rehberi**: 0 doldurma yok anlamında kullanılır. Dizin 1'den başlar.
+**Dizin rehberi**: 0, doldurma yok anlamına gelir. Dizin 1'den başlar.
 
-{{% alert color="primary" title="TIP" %}} 
-PowerPoint Arka Planına bakmak isteyebilirsiniz. 
+{{% alert color="info" title="TIP" %}} 
+[PowerPoint Background](/slides/tr/androidjava/presentation-background/) sayfasına bakabilirsiniz.
 {{% /alert %}}
 
-## **Tema Efektini Değiştirme**
+## **Tema Efektini Değiştir**
 
-PowerPoint teması genellikle her stil dizisi için 3 değer içerir. Bu diziler, ince, orta ve yoğun olmak üzere bu 3 etkeye birleştirilir. Örneğin, etkiler belirli bir şekle uygulandığında ortaya çıkan sonuç şu şekildedir:
+Bir PowerPoint teması genellikle her stil dizisi için 3 değer içerir. Bu diziler, şunları birleştirerek 3 etki oluşturur: ince, orta ve yoğun. Örneğin, etkiler belirli bir şekle uygulandığında ortaya çıkan sonuç şöyle olur:
 
 ![todo:image_alt_text](presentation-design_10.png)
 
-[FormatScheme](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/FormatScheme) sınıfının 3 özelliğini ([FillStyles](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/FormatScheme#getEffectStyles--)) kullanarak bir temadaki öğeleri (PowerPoint'teki seçeneklerden daha esnek bir şekilde) değiştirebilirsiniz:
+[FormatScheme](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/FormatScheme) sınıfından 3 özellik ([FillStyles](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/FormatScheme#getEffectStyles--)) kullanarak bir temadaki öğeleri (PowerPoint'teki seçeneklerden daha esnek bir şekilde) değiştirebilirsiniz.
+
+Bu Java kodu, öğelerin bölümlerini değiştirerek bir tema efektini nasıl değiştireceğinizi gösterir:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx");
 try {
     pres.getMasterTheme().getFormatScheme().getLineStyles().get_Item(0).getFillFormat().getSolidFillColor().setColor(Color.RED);
@@ -260,17 +315,20 @@ try {
 }
 ```
 
-Dolgu rengi, dolgu tipi, gölge efekti vb. üzerindeki oluşan değişiklikler:
+Dolayısıyla doldurma rengi, doldurma türü, gölge efekti vb. değişiklikler şu şekilde görünür:
 
 ![todo:image_alt_text](presentation-design_11.png)
 
 ## **SSS**
 
-**Bir master'ı değiştirmeden bir slayda tema uygulayabilir miyim?**  
-Evet. Aspose.Slides, slayt düzeyinde tema geçersiz kılmalarını destekler; bu sayede sadece o slayta yerel bir tema uygulayabilir ve ana temayı ( [SlideThemeManager](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/slidethememanager/) aracılığıyla) aynı tutabilirsiniz.
+### Tek bir slayta, master değiştirilmeden tema uygulayabilir miyim?
 
-**Bir temayı bir sunumdan diğerine taşımanın en güvenli yolu nedir?**  
-[Clone slides](/slides/tr/androidjava/clone-slides/) hedef sunuma, masterlarıyla birlikte taşıyın. Bu, orijinal master, düzenler ve ilişkili temayı korur, böylece görünüm tutarlı kalır.
+Evet. Aspose.Slides, slayt seviyesinde tema geçersiz kılmalarını destekler; böylece yalnızca o slayta yerel bir tema uygulayabilir ve master temayı ( [SlideThemeManager](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/slidethememanager/) aracılığıyla) bozmadan bırakabilirsiniz.
 
-**Tüm kalıtım ve geçersiz kılmalar sonrasında “etkili” değerleri nasıl görebilirim?**  
-Tema, renk, yazı tipi ve efekt için API'nin [“effective” görünümlerini](/slides/tr/androidjava/shape-effective-properties/) kullanın. Bunlar, master ve yerel geçersiz kılmalar uygulandıktan sonra çözülmüş, nihai özellikleri döndürür.
+### Bir sunumdan diğerine temayı en güvenli şekilde nasıl taşıyabilirim?
+
+[Clone slides](/slides/tr/androidjava/clone-slides/) komutunu, hedef sunuma masterıyla birlikte kullanın. Bu, orijinal master, düzenler ve ilişkili temayı korur, böylece görünüm tutarlı kalır.
+
+### Tüm kalıtım ve geçersiz kılmalar sonrası “etkin” değerleri nasıl görebilirim?
+
+Tema/rengi/yazı tipi/efekti için API'nin ["effective" views](/slides/tr/androidjava/shape-effective-properties/) özelliğini kullanın. Bu, master ve yerel geçersiz kılmalar uygulandıktan sonra çözülmüş, son özellikleri döndürür.

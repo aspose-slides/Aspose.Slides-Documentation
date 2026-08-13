@@ -4,27 +4,27 @@ type: docs
 weight: 50
 url: /ja/jasperreports/licensing/
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
+Aspose.Slides for JasperReports は、[ダウンロードページ](https://downloads.aspose.com/slides/ja/jasperreport)から無期限の無料評価版として利用できます。製品の評価版とライセンス版は同じダウンロードです。
 
-Aspose.Slides for JasperReportsは、[ダウンロードページ](https://downloads.aspose.com/slides/jasperreport)から無制限の評価版として無料で提供されています。評価版とライセンス版は同じダウンロードです。
+評価に満足したら、[ライセンスを購入](https://purchase.aspose.com/buy)してください。サブスクリプション条件を理解し、同意したことを確認してください。
 
-評価に満足したら、[ライセンスを購入](https://purchase.aspose.com/buy)してください。サブスクリプションの条件を理解し、同意していることを確認してください。
+ライセンスは、注文が支払われた後、注文ページからダウンロードできます。ライセンスはクリーンテキストのデジタル署名されたXMLファイルで、クライアント名、購入製品、ライセンス種別などの情報が含まれます。ライセンスファイルの内容は一切変更しないでください。変更するとライセンスは無効になります。
 
-ライセンスは、注文が支払われた後に注文ページからダウンロードできます。ライセンスは、クライアント名、購入した製品、ライセンスタイプなどの情報を含む、デジタル署名されたXMLファイルです。ライセンスファイルの内容を変更しないでください。変更するとライセンスが無効になります。
-
-ライセンスをコンピューターにダウンロードし、適切なフォルダー（たとえば、アプリケーションフォルダーまたは**JasperReports\lib**）にコピーしてください。
+ライセンスをコンピュータにダウンロードし、適切なフォルダー（例: アプリケーションフォルダーや **JasperReports\lib**）にコピーしてください。
+{{% /alert %}}
 
 ## **評価版の制限**
-Aspose.Slidesの評価版（ライセンスが指定されていない）は、製品の全機能を提供しますが（プレゼンテーションを保存するとき）、下記の図に示すように各スライドの中央に評価用の透かしを挿入します：
+評価版の Aspose.Slides（ライセンスが指定されていない）は、製品の全機能を提供しますが、プレゼンテーションを保存する際に、以下の図のように各スライドの中央に評価用の透かしが挿入されます。
 
 ![todo:image_alt_text](evaluation_watermark.png) 
 
 ## **ライセンスの適用**
-ライセンスを適用する方法はいくつかあります。JasperReportsまたはJasperServerで作業しているかによって異なります。
+JasperReports で作業するか JasperServer で作業するかに応じて、ライセンスを適用する方法はいくつかあります。
 
-### **JasperReportsのライセンスの適用**
-Aspose.Slides for Javaと同様に、直接setLicenseメソッドを呼び出します。
+### **JasperReports 用のライセンス適用**
+Aspose.Slides for Java と同様に、直接 setLicense メソッドを呼び出します。
 
 ```java
 import com.aspose.slides.jasperreports.License;
@@ -32,20 +32,20 @@ import com.aspose.slides.jasperreports.License;
 ..... 
 
 try {
-    //ライセンスファイルを含むストリームオブジェクトを作成
+    //ライセンスファイルを含むストリームオブジェクトを作成します
     FileInputStream fstream=new FileInputStream("Aspose.Slides.JasperReports.Developer.lic");
 	
-    //Licenseクラスをインスタンス化
+    //License クラスのインスタンスを作成します
     License license = new License();
 	
-    //ストリームオブジェクトを通じてライセンスを設定
+    //ストリームオブジェクトを通じてライセンスを設定します
     license.setLicense(fstream);
 } catch(Exception ex) {
     System.out.println(ex.toString());
 }
 ```
 
-または、コード内でエクスポーターパラメータを設定します。
+あるいは、コード内で exporter パラメーターを設定します。
 
 ```java
 ASPptExporter exporter = new ASPptExporter (); 
@@ -53,8 +53,8 @@ exporter.setParameter(ASExporterParameters.PPT_LICENSE, "Aspose.Slides.JasperRep
 exporter.exportReport();
 ```
 
-### **JasperServerでのライセンスの適用**
-applicationContext.xmlでエクスポーターパラメータを設定します。
+### **JasperServer でのライセンス適用**
+applicationContext.xml で exporter パラメーターを設定します。
 
 ``` xml
 <bean id="asExportParametersBean" class="com.aspose.slides.jasperreports.ASExportParametersBean">

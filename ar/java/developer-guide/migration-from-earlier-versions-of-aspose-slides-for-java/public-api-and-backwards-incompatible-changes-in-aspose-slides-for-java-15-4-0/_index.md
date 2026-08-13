@@ -1,24 +1,37 @@
 ---
-title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides لـ Java 15.4.0
+title: "واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة للوراء في Aspose.Slides للـ Java 15.4.0"
+linktitle: "Aspose.Slides للـ Java 15.4.0"
 type: docs
 weight: 120
 url: /ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/
+keywords:
+- "الهجرة"
+- "كود قديم"
+- "كود حديث"
+- "نهج قديم"
+- "نهج حديث"
+- "PowerPoint"
+- "OpenDocument"
+- "عرض تقديمي"
+- "Java"
+- "Aspose.Slides"
+description: "استعرض تحديثات واجهة برمجة التطبيقات العامة والتغييرات المكسرة في Aspose.Slides للـ Java لتسهيل ترحيل حلول عروض PowerPoint (PPT، PPTX) و ODP الخاصة بك."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-تسرد هذه الصفحة جميع [التي تمت إضافتها](/slides/ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/) من الفئات، والطُرق، والخصائص، وما إلى ذلك، وأي قيود جديدة، وأخرى [التغييرات](/slides/ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/) التي تم تقديمها مع واجهة برمجة التطبيقات Aspose.Slides لـ Java 15.4.0.
+تُظهر هذه الصفحة جميع الفئات، الأساليب، الخصائص وما إلى ذلك [المضافة](/slides/ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/)، وأي قيود جديدة و[التغييرات](/slides/ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/) التي تم تقديمها مع Aspose.Slides for Java 15.4.0 API.
 
 {{% /alert %}} 
-## **تغييرات واجهة برمجة التطبيقات العامة**
-### **تمت إضافة Enum OrganizationChartLayoutType**
-يمثل Enum com.aspose.slides.OrganizationChartLayoutType نوع التنسيق للعقد الفرعية في مخطط المنظمة.
-### **تمت إضافة الطريقة IBulletFormat.applyDefaultParagraphIndentsShifts()**
-تقوم الطريقة com.aspose.slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts بتعيين تحولات افتراضية غير صفرية لفراغ الفقرة الفعال وMarginLeft عند تمكين الفقاعات (كما تفعل PowerPoint إذا قمت بتمكين فقاعات/ترقيم الفقرات فيها). إذا كانت الفقاعات معطلة، فإنها تعيد تعيين فراغ الفقرة وMarginLeft فقط (كما تفعل PowerPoint إذا قمت بإلغاء تمكين فقاعات/ترقيم الفقرات فيها).
-### **تمت إضافة الطريقة IConnector.reroute()**
-تقوم الطريقة com.aspose.slides.IConnector.reroute() بإعادة توجيه الموصل بحيث يأخذ أقصر طريق ممكن بين الأشكال التي يتصل بها. لتحقيق ذلك، قد تقوم الطريقة reroute() بتغيير StartShapeConnectionSiteIndex وEndShapeConnectionSiteIndex.
-
+## **تغييرات API العامة**
+### **تم إضافة تعداد OrganizationChartLayoutType**
+يمثل تعداد com.aspose.slides.OrganizationChartLayoutType نوع تنسيق العقد الفرعية في مخطط تنظيمي.
+### **تم إضافة طريقة IBulletFormat.applyDefaultParagraphIndentsShifts()**
+تُعيّن طريقة com.aspose.slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts القيم الافتراضية غير الصفرية للإزاحات الخاصة بالمسافة البادئة للفقرة والهوامش اليسرى عندما تكون النقاط مفعّلة (كما يفعل PowerPoint عند تفعيل نقاط/ترقيم الفقرات). إذا تم إلغاء تفعيل النقاط، فإنها تعيد تعيين المسافة البادئة للفقرة والهوامش اليسرى إلى القيم الأصلية (كما يفعل PowerPoint عند إلغاء تفعيل نقاط/ترقيم الفقرات).
+### **تم إضافة طريقة IConnector.reroute()**
+تُعيد طريقة com.aspose.slides.IConnector.reroute() توجيه الموصل بحيث يأخذ أقصر مسار ممكن بين الأشكال التي يربطها. للقيام بذلك، قد تُغيّر طريقة reroute() قيمتي StartShapeConnectionSiteIndex و EndShapeConnectionSiteIndex.
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation input = new Presentation();
 
@@ -39,10 +52,11 @@ connector.reroute();
 input.save("output.pptx", SaveFormat.Pptx);
 
 ```
-### **تمت إضافة الطريقة IPresentation.getSlideById(long)**
-تقوم الطريقة Aspose.Slides.IPresentation.getSlideById(int) بإرجاع شريحة أو MasterSlide أو LayoutSlide بواسطة معرف الشريحة.
-
+### **تم إضافة طريقة IPresentation.getSlideById(long)**
+تُعيد طريقة Aspose.Slides.IPresentation.getSlideById(long) شريحة (Slide) أو شريحة رئيسية (MasterSlide) أو شريحة تخطيط (LayoutSlide) بحسب معرّف الشريحة.
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation presentation = new Presentation();
 
@@ -51,10 +65,11 @@ long id = presentation.getSlides().get_Item(0).getSlideId();
 IBaseSlide slide = presentation.getSlideById(id);
 
 ```
-### **تمت إضافة الطريقة ISmartArt.getNodes()**
-تقوم الطريقة com.aspose.slides.ISmartArt.getNodes() بإرجاع مجموعة من العقد الجذرية في كائن SmartArt.
-
+### **تم إضافة طريقة ISmartArt.getNodes()**
+تُعيد طريقة com.aspose.slides.ISmartArt.getNodes() مجموعة من العقد الجذرية في كائن SmartArt.
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -62,15 +77,16 @@ ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 4
 
 ISmartArtNode node = smart.getNodes().get_Item(1); // اختر العقدة الجذرية الثانية
 
-node.getTextFrame().setText("العقدة الجذرية الثانية");
+node.getTextFrame().setText("Second root node");
 
 pres.save("out.pptx", SaveFormat.Pptx);
 
 ```
-### **تمت إضافة الطريقة ISmartArt.setLayout(int)**
-تمت إضافة الطريقة لخصائص com.aspose.slides.ISmartArt.setLayout(int). يسمح بتغيير نوع التخطيط لرسم بياني موجود.
-
+### **تم إضافة طريقة ISmartArt.setLayout(int)**
+تم إضافة طريقة للخاصية com.aspose.slides.ISmartArt.setLayout(int). تسمح بتغيير نوع التخطيط لمخطط موجود.
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -81,10 +97,11 @@ smart.setLayout(SmartArtLayoutType.BasicProcess);
 pres.save("out.pptx", SaveFormat.Pptx);
 
 ```
-### **تمت إضافة الطريقة ISmartArtNode.isHidden()**
-تقوم الطريقة com.aspose.slides.ISmartArtNode.isHidden() بإرجاع true إذا كانت هذه العقدة عقدة مخفية في نموذج البيانات.
-
+### **تم إضافة طريقة ISmartArtNode.isHidden()**
+تُعيد طريقة com.aspose.slides.ISmartArtNode.isHidden() القيمة true إذا كان هذا العقدة مخفية في نموذج البيانات.
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -92,7 +109,7 @@ ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 4
 
 ISmartArtNode node = smart.getAllNodes().addNode();
 
-boolean hidden = node.isHidden(); // يعيد true
+boolean hidden = node.isHidden(); // يرجع true
 
 if(hidden) {
 
@@ -100,13 +117,13 @@ if(hidden) {
 
 }
 
-pres.Save("out.pptx", SaveFormat.Pptx);
-
+pres.save("out.pptx", SaveFormat.Pptx);
 ```
-### **تمت إضافة الطريقتين ISmartArt.isReversed() وsetReserved()**
-تسمح الخاصية com.aspose.slides.ISmartArt.IsReversed بالحصول على حالة الرسم البياني لـ SmartArt فيما يتعلق بـ (من اليسار إلى اليمين) LTR أو (من اليمين إلى اليسار) RTL، إذا كان الرسم البياني يدعم العكس.
-
+### **تم إضافة طرق ISmartArt.isReversed() و setReversed()**
+تتيح الخاصية com.aspose.slides.ISmartArt.IsReversed الحصول على أو تعيين حالة مخطط SmartArt بالنسبة للاتجاه من اليسار إلى اليمين (LTR) أو من اليمين إلى اليسار (RTL)، إذا كان المخطط يدعم العكس.
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation presentation = new Presentation();
 
@@ -117,10 +134,11 @@ smart.setReversed(true);
 presentation.save("out.pptx", SaveFormat.Pptx);
 
 ```
-### **تمت إضافة الطريقتين ISmartArtNode.getOrganizationChartLayout() وsetOrganizationChartLayout(int)**
-تسمح الطريقتان com.aspose.slides.ISmartArtNode.getOrganizationChartLayout() وsetOrganizationChartLayout(int) بالحصول على نوع مخطط المنظمة المرتبط بالعقدة الحالية أو تعيينه.
-
+### **تم إضافة طرق ISmartArtNode.getOrganizationChartLayout() و setOrganizationChartLayout(int)**
+تسمح طرق com.aspose.slides.ISmartArtNode.getOrganizationChartLayout() و setOrganizationChartLayout(int) بالحصول على أو تعيين نوع مخطط التنظيم المرتبط بالعقدة الحالية.
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -131,10 +149,11 @@ smart.getNodes().get_Item(0).setOrganizationChartLayout(OrganizationChartLayoutT
 pres.save("out.pptx", SaveFormat.Pptx);
 
 ```
-### **تمت إضافة الخاصية IShape.getConnectionSiteCount()**
-تقوم الخاصية com.aspose.slides.getConnectionSiteCount() بإرجاع عدد مواقع الاتصال على الشكل.
-
+### **تم إضافة خاصية IShape.getConnectionSiteCount()**
+تُعيد الخاصية com.aspose.slides.getConnectionSiteCount() عدد مواقع الاتصال على الشكل.
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation input = new Presentation();
 
@@ -161,12 +180,12 @@ if (ellipse.getConnectionSiteCount() > wantedIndex) {
 input.save("output.pptx", SaveFormat.Pptx);
 
 ```
-### **التغييرات الطفيفة**
-هذه هي قائمة بالتغييرات الطفيفة في واجهة برمجة التطبيقات:
+### **تغييرات طفيفة**
+هذه قائمة التغييرات الطفيفة في API:
 
-| Enum com.aspose.slides.BevelColorMode | تم الحذف، enum غير مستخدم |
+|Enum com.aspose.slides.BevelColorMode |deleted, unused enum |
 | :- | :- |
-| Method ThreeDFormatEffectiveData.getBevelColorMode() | تم الحذف، خاصية غير مستخدمة |
-| Method com.aspose.slides.ChartSeriesGroup.getChart() | تمت الإضافة |
-| وراثة IParagraphFormatEffectiveData من ISlideComponent <br> وراثة IThreeDFormat من ISlideComponent | تم الحذف |
-| Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletChar() <br> Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletFont() <br> Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletHeight() <br> Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletType() <br> Method com.aspose.slides.ParagraphFormatEffectiveData.getNumberedBulletStartWith() <br> Method com.aspose.slides.ParagraphFormatEffectiveData.getNumberedBulletStyle() | تم الحذف باعتبارها قديمة |
+|Method ThreeDFormatEffectiveData.getBevelColorMode() |deleted, unused property |
+|Method com.aspose.slides.ChartSeriesGroup.getChart() |added |
+|Inheritance of IParagraphFormatEffectiveData from ISlideComponent <br>Inheritance of IThreeDFormat from ISlideComponent |deleted |
+|Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletChar() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletFont() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletHeight() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletType() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getNumberedBulletStartWith() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getNumberedBulletStyle() |deleted as obsolete |

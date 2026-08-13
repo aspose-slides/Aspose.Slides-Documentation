@@ -25,34 +25,49 @@ keywords:
 - presentasi
 - C++
 - Aspose.Slides
-description: "Optimalkan manajemen objek OLE dalam file PowerPoint dan OpenDocument dengan Aspose.Slides untuk C++. Sematkan, perbarui, dan ekspor konten OLE secara mulus."
+description: "Optimalkan manajemen objek OLE di PowerPoint dan file OpenDocument dengan Aspose.Slides untuk C++. Sematkan, perbarui, dan ekspor konten OLE secara mulus."
 ---
 ## **Pendahuluan**
 
 {{% alert title="Info" color="info" %}}
-OLE (Object Linking & Embedding) adalah teknologi Microsoft yang memungkinkan data dan objek yang dibuat dalam satu aplikasi ditempatkan di aplikasi lain melalui penautan atau penyematan. 
+OLE (Object Linking & Embedding) adalah teknologi Microsoft yang memungkinkan data dan objek yang dibuat di satu aplikasi ditempatkan di aplikasi lain melalui penautan atau penyematan. 
 {{% /alert %}} 
 
-Pertimbangkan sebuah diagram yang dibuat di MS Excel. Diagram tersebut kemudian ditempatkan di dalam slide PowerPoint. Diagram Excel itu dianggap sebagai objek OLE. 
+Pertimbangkan sebuah diagram yang dibuat di MS Excel. Diagram tersebut kemudian ditempatkan di dalam slide PowerPoint. Diagram Excel tersebut dianggap sebagai objek OLE. 
 
-- Objek OLE dapat muncul sebagai ikon. Dalam kasus ini, ketika Anda mengklik ganda ikon, diagram akan terbuka di aplikasi terkait (Excel), atau Anda akan diminta memilih aplikasi untuk membuka atau menyunting objek. 
-- Objek OLE dapat menampilkan isi sebenarnya, seperti isi sebuah diagram. Dalam kasus ini, diagram diaktifkan di PowerPoint, antarmuka diagram dimuat, dan Anda dapat memodifikasi data diagram di dalam PowerPoint.
+- Sebuah objek OLE dapat muncul sebagai ikon. Dalam kasus ini, ketika Anda mengklik ganda ikon, diagram terbuka di aplikasi yang terkait (Excel), atau Anda diminta memilih aplikasi untuk membuka atau menyunting objek. 
+- Sebuah objek OLE dapat menampilkan isi sebenarnya, seperti isi sebuah diagram. Dalam kasus ini, diagram diaktifkan di PowerPoint, antarmuka diagram dimuat, dan Anda dapat memodifikasi data diagram di dalam PowerPoint.
 
-[Aspose.Slides for C++](https://products.aspose.com/slides/id/cpp/) memungkinkan Anda menyisipkan OLE Objects ke dalam slide sebagai bingkai objek OLE ([OleObjectFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/oleobjectframe/)).
+[Aspose.Slides for C++](https://products.aspose.com/slides/id/cpp/) memungkinkan Anda memasukkan OLE Objects ke dalam slide sebagai bingkai objek OLE ([OleObjectFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/oleobjectframe/)).
 
-## **Tambahkan Bingkai OLE Object ke Slide**
+## **Menambahkan Bingkai Objek OLE ke Slide**
 
-Anda sudah membuat diagram di Microsoft Excel dan ingin menyematkannya ke dalam slide sebagai bingkai OLE object menggunakan Aspose.Slides for C++, Anda dapat melakukannya dengan cara berikut:
+Dengan asumsi Anda telah membuat sebuah diagram di Microsoft Excel dan ingin menyematkannya dalam slide sebagai bingkai objek OLE menggunakan Aspose.Slides for C++, Anda dapat melakukannya dengan cara berikut:
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation). 
-2. Dapatkan referensi slide melalui indeksnya. 
-3. Baca file Excel sebagai array byte. 
-4. Tambahkan [OleObjectFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/oleobjectframe/) ke slide yang berisi array byte dan informasi lain tentang objek OLE. 
-5. Tuliskan presentasi yang telah dimodifikasi sebagai file PPTX. 
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
+2. Dapatkan referensi slide melalui indeksnya.
+3. Baca file Excel sebagai array byte.
+4. Tambahkan [OleObjectFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/oleobjectframe/) ke slide yang berisi array byte dan informasi lain tentang objek OLE.
+5. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Pada contoh di bawah, kami menambahkan diagram dari file Excel ke slide sebagai [OleObjectFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/oleobjectframe/) menggunakan Aspose.Slides for C++. **Catatan** bahwa konstruktor [OleEmbeddedDataInfo](https://reference.aspose.com/slides/id/cpp/aspose.slides.dom.ole/oleembeddeddatainfo/) mengambil ekstensi objek yang dapat disematkan sebagai parameter kedua. Ekstensi ini memungkinkan PowerPoint menginterpretasikan tipe file dengan benar dan memilih aplikasi yang tepat untuk membuka objek OLE ini.
+Dalam contoh di bawah, kami menambahkan sebuah diagram dari file Excel ke slide sebagai [OleObjectFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/oleobjectframe/) menggunakan Aspose.Slides for C++. **Catatan** bahwa konstruktor [OleEmbeddedDataInfo](https://reference.aspose.com/slides/id/cpp/aspose.slides.dom.ole/oleembeddeddatainfo/) menerima ekstensi objek yang dapat disematkan sebagai parameter kedua. Ekstensi ini memungkinkan PowerPoint menginterpretasikan tipe file dengan benar dan memilih aplikasi yang tepat untuk membuka objek OLE ini.
 
 ``` cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <drawing/size_f.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>();
 auto slideSize = presentation->get_SlideSize()->get_Size();
 auto slide = presentation->get_Slide(0);
@@ -68,35 +83,52 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Tambahkan Bingkai OLE Object Tertaut**
+### **Menambahkan Bingkai OLE Object yang Ditautkan**
 
 Aspose.Slides for C++ memungkinkan Anda menambahkan [OleObjectFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/oleobjectframe/) tanpa menyematkan data, melainkan hanya dengan tautan ke file.
 
-Kode C++ berikut menunjukkan cara menambahkan [OleObjectFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/oleobjectframe/) dengan file Excel yang ditautkan ke sebuah slide:
+Kode C++ berikut menunjukkan cara menambahkan [OleObjectFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/oleobjectframe/) dengan file Excel yang ditautkan ke slide:
 
 ```cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
-// Tambah bingkai OLE object dengan file Excel yang ditautkan.
+// Tambahkan bingkai objek OLE dengan file Excel yang ditautkan.
 slide->get_Shapes()->AddOleObjectFrame(20, 20, 200, 150, u"Excel.Sheet.12", u"book.xlsx");
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Akses Bingkai OLE Object**
+## **Mengakses Bingkai Objek OLE**
 
-Jika sebuah objek OLE sudah disematkan dalam slide, Anda dapat dengan mudah menemukannya atau mengaksesnya dengan cara berikut:
+Jika sebuah objek OLE sudah disematkan dalam slide, Anda dapat dengan mudah menemukan atau mengaksesnya dengan cara berikut:
 
-1. Muat sebuah presentasi dengan objek OLE yang disematkan dengan membuat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation). 
-2. Dapatkan referensi slide dengan menggunakan indeksnya. 
-3. Akses bentuk [OleObjectFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/oleobjectframe/). Dalam contoh kami, kami menggunakan PPTX yang sebelumnya dibuat yang hanya memiliki satu bentuk pada slide pertama. Kami kemudian *cast* objek tersebut sebagai [IOleObjectFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/ioleobjectframe/). Ini adalah bingkai OLE object yang diinginkan untuk diakses. 
-4. Setelah bingkai OLE object diakses, Anda dapat melakukan operasi apa pun padanya. 
+1. Muat presentasi yang berisi objek OLE yang disematkan dengan membuat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
+2. Dapatkan referensi slide dengan menggunakan indeksnya.
+3. Akses shape [OleObjectFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/oleobjectframe/). Dalam contoh kami, kami menggunakan PPTX yang sebelumnya dibuat yang hanya memiliki satu shape pada slide pertama. Kami kemudian *cast* objek tersebut sebagai [IOleObjectFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/ioleobjectframe/). Ini adalah bingkai objek OLE yang diinginkan untuk diakses.
+4. Setelah bingkai objek OLE diakses, Anda dapat melakukan operasi apa pun padanya.
 
-Pada contoh di bawah, sebuah bingkai OLE object (objek diagram Excel yang disematkan dalam slide) dan data file-nya diakses.
+Dalam contoh di bawah, sebuah bingkai objek OLE (objek diagram Excel yang disematkan dalam slide) dan data file-nya diakses.
 
 ``` cpp
+#include <DOM/IOleEmbeddedDataInfo.h>
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 auto shape = slide->get_Shape(0);
@@ -106,22 +138,26 @@ if (ObjectExt::Is<IOleObjectFrame>(shape))
     auto oleFrame = ExplicitCast<IOleObjectFrame>(shape);
 
     // Dapatkan data file yang disematkan.
-    auto fileData = oleFrame->get_EmbeddedData()->get_EmbeddedFileData();
-
     // Dapatkan ekstensi file yang disematkan.
-    auto fileExtension = oleFrame->get_EmbeddedData()->get_EmbeddedFileExtension();
-
     // ...
 }
 ```
 
-### **Akses Properti Bingkai OLE Object Tertaut**
+### **Mengakses Properti Bingkai OLE Object yang Ditautkan**
 
 Aspose.Slides memungkinkan Anda mengakses properti bingkai OLE object yang ditautkan.
 
-Kode C++ berikut menunjukkan cara memeriksa apakah sebuah OLE object ditautkan dan kemudian memperoleh jalur ke file yang ditautkan:
+Kode C++ berikut menunjukkan cara memeriksa apakah sebuah objek OLE ditautkan dan kemudian memperoleh path ke file yang ditautkan:
 
 ```cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.ppt");
 auto slide = presentation->get_Slide(0);
 auto shape = slide->get_Shape(0);
@@ -146,30 +182,56 @@ if (ObjectExt::Is<IOleObjectFrame>(shape))
 }
 ```
 
-## **Ubah Data OLE Object**
+## **Mengubah Data Objek OLE**
 
-{{% alert color="primary" %}} 
-Pada bagian ini, contoh kode di bawah menggunakan [Aspose.Cells for C++](/cells/cpp/). 
+{{% alert color="info" %}} 
+Di bagian ini, contoh kode di bawah menggunakan [Aspose.Cells for C++](/cells/cpp/).
 {{% /alert %}}
 
-Jika sebuah OLE object sudah disematkan dalam slide, Anda dapat dengan mudah mengakses objek tersebut dan memodifikasi datanya dengan cara berikut:
+Jika sebuah objek OLE sudah disematkan dalam slide, Anda dapat dengan mudah mengakses objek tersebut dan memodifikasi datanya dengan cara berikut:
 
-1. Muat sebuah presentasi dengan OLE object yang disematkan dengan membuat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation). 
+1. Muat presentasi yang berisi objek OLE yang disematkan dengan membuat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
 2. Dapatkan referensi slide melalui indeksnya. 
-3. Akses bentuk [OLEObjectFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/oleobjectframe/). Dalam contoh kami, kami menggunakan PPTX yang sebelumnya dibuat yang memiliki satu bentuk pada slide pertama. Kami kemudian *cast* objek tersebut sebagai [IOleObjectFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/ioleobjectframe/). Ini adalah bingkai OLE object yang diinginkan untuk diakses. 
-4. Setelah bingkai OLE object diakses, Anda dapat melakukan operasi apa pun padanya. 
-5. Buat objek `Workbook` dan akses data OLE. 
-6. Akses `Worksheet` yang diinginkan dan ubah data. 
-7. Simpan `Workbook` yang diperbarui ke dalam stream. 
-8. Ubah data OLE object dari stream. 
+3. Akses shape [OLEObjectFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/oleobjectframe/). Dalam contoh kami, kami menggunakan PPTX yang sebelumnya dibuat yang memiliki satu shape pada slide pertama. Kami kemudian *cast* objek tersebut sebagai [IOleObjectFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/ioleobjectframe/). Ini adalah bingkai objek OLE yang diinginkan untuk diakses.
+4. Setelah bingkai objek OLE diakses, Anda dapat melakukan operasi apa pun padanya.
+5. Buat objek `Workbook` dan akses data OLE.
+6. Akses `Worksheet` yang diinginkan dan ubah datanya.
+7. Simpan `Workbook` yang telah diperbarui ke dalam stream.
+8. Ganti data objek OLE dari stream.
 
-Pada contoh di bawah, sebuah bingkai OLE object (objek diagram Excel yang disematkan dalam slide) diakses, dan data file-nya dimodifikasi untuk memperbarui data diagram.
+Dalam contoh di bawah, sebuah bingkai objek OLE (objek diagram Excel yang disematkan dalam slide) diakses, dan data file-nya dimodifikasi untuk memperbarui data diagram.
 
 ``` cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+#include "Aspose.Cells/Cell.h"
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/Initializer.h"
+#include "Aspose.Cells/OoxmlSaveOptions.h"
+#include "Aspose.Cells/SaveFormat.h"
+#include "Aspose.Cells/U16String.h"
+#include "Aspose.Cells/Vector.h"
+#include "Aspose.Cells/Workbook.h"
+#include "Aspose.Cells/Worksheet.h"
+#include "Aspose.Cells/WorksheetCollection.h"
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+// Aspose.Cells for C++ harus dimulai sebelum jenis apa pun digunakannya.
+Aspose::Cells::Startup();
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 
-// Dapatkan bentuk pertama sebagai bingkai objek OLE.
+// Get the first shape as an OLE object frame.
 auto oleFrame = AsCast<IOleObjectFrame>(slide->get_Shape(0));
 
 if (oleFrame != nullptr)
@@ -181,7 +243,7 @@ if (oleFrame != nullptr)
     std::vector<uint8_t> workbookData(oleArray->data().begin(), oleArray->data().end());
     Aspose::Cells::Workbook workbook(Aspose::Cells::Vector<uint8_t>(workbookData.data(), workbookData.size()));
 
-    // Modifikasi data workbook.
+    // Ubah data workbook.
     auto worksheet = workbook.GetWorksheets().Get(0);
     worksheet.GetCells().Get(0, 4).PutValue(Aspose::Cells::U16String("E"));
     worksheet.GetCells().Get(1, 4).PutValue(12);
@@ -202,15 +264,31 @@ if (oleFrame != nullptr)
 }
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
+
+Aspose::Cells::Cleanup();
 ```
 
-## **Sematkan Jenis File Lain ke Slide**
+## **Menyematkan Jenis File Lain ke Slide**
 
-Selain diagram Excel, Aspose.Slides for C++ memungkinkan Anda menyematkan jenis file lain ke dalam slide. Misalnya, Anda dapat menyisipkan file HTML, PDF, dan ZIP sebagai objek. Ketika pengguna mengklik ganda objek yang disisipkan, ia secara otomatis terbuka di program yang relevan, atau pengguna diminta memilih program yang sesuai untuk membukanya.
+Selain diagram Excel, Aspose.Slides for C++ memungkinkan Anda menyematkan jenis file lain ke dalam slide. Misalnya, Anda dapat memasukkan file HTML, PDF, dan ZIP sebagai objek. Saat pengguna mengklik ganda objek yang disisipkan, ia otomatis terbuka di program terkait, atau pengguna diminta memilih program yang sesuai untuk membukanya.
 
 Kode C++ berikut menunjukkan cara menyematkan HTML dan ZIP ke dalam slide:
 
 ``` cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -228,13 +306,24 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Tetapkan Tipe File untuk Objek yang Disematkan**
+## **Mengatur Tipe File untuk Objek yang Disematkan**
 
-Saat bekerja dengan presentasi, Anda mungkin perlu mengganti objek OLE lama dengan yang baru atau mengganti objek OLE yang tidak didukung dengan yang didukung. Aspose.Slides for C++ memungkinkan Anda menetapkan tipe file untuk objek yang disematkan, sehingga Anda dapat memperbarui data bingkai OLE atau ekstensinya.
+Saat bekerja dengan presentasi, Anda mungkin perlu mengganti objek OLE lama dengan yang baru atau mengganti objek OLE yang tidak didukung dengan yang didukung. Aspose.Slides for C++ memungkinkan Anda mengatur tipe file untuk objek yang disematkan, sehingga Anda dapat memperbarui data bingkai OLE atau ekstensi filenya.
 
-Kode C++ berikut menunjukkan cara menetapkan tipe file untuk objek OLE yang disematkan menjadi `zip`:
+Kode C++ berikut menunjukkan cara mengatur tipe file untuk objek OLE yang disematkan menjadi `zip`:
 
 ``` cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 auto oleFrame = ExplicitCast<IOleObjectFrame>(slide->get_Shape(0));
@@ -251,18 +340,32 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Tetapkan Gambar Ikon dan Judul untuk Objek yang Disematkan**
+## **Mengatur Gambar Ikon dan Judul untuk Objek yang Disematkan**
 
-Setelah menyematkan sebuah OLE object, pratinjau yang terdiri dari gambar ikon secara otomatis ditambahkan. Pratinjau ini adalah apa yang dilihat pengguna sebelum mengakses atau membuka OLE object. Jika Anda ingin menggunakan gambar dan teks tertentu sebagai elemen dalam pratinjau, Anda dapat menetapkan gambar ikon dan judul menggunakan Aspose.Slides for C++.
+Setelah menyematkan sebuah objek OLE, preview yang terdiri dari gambar ikon secara otomatis ditambahkan. Preview inilah yang dilihat pengguna sebelum mengakses atau membuka objek OLE. Jika Anda ingin menggunakan gambar dan teks tertentu sebagai elemen dalam preview, Anda dapat mengatur gambar ikon dan judul menggunakan Aspose.Slides for C++.
 
-Kode C++ berikut menunjukkan cara menetapkan gambar ikon dan judul untuk objek yang disematkan: 
+Kode C++ berikut menunjukkan cara mengatur gambar ikon dan judul untuk objek yang disematkan: 
 
 ``` cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 auto oleFrame = ExplicitCast<IOleObjectFrame>(slide->get_Shape(0));
 
-// Tambahkan gambar ke sumber daya presentasi.
+// Add an image to the presentation resources.
 auto imageData = File::ReadAllBytes(u"image.png");
 auto oleImage = presentation->get_Images()->AddImage(imageData);
 
@@ -275,25 +378,48 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Cegah Bingkai OLE Object Agar Tidak Diubah Ukuran dan Posisi**
+## **Mencegah Bingkai OLE Object Diubah Ukuran dan Posisinya**
 
-Setelah Anda menambahkan OLE object yang ditautkan ke slide presentasi, ketika membuka presentasi di PowerPoint, Anda mungkin melihat pesan yang meminta Anda memperbarui tautan. Mengklik tombol "Update Links" dapat mengubah ukuran dan posisi bingkai OLE object karena PowerPoint memperbarui data dari OLE object yang ditautkan dan menyegarkan pratinjau objek. Untuk mencegah PowerPoint meminta memperbarui data objek, setel metode `set_UpdateAutomatic` dari antarmuka [IOleObjectFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/ioleobjectframe/) ke `false`:
+Setelah Anda menambahkan objek OLE yang ditautkan ke slide presentasi, ketika Anda membuka presentasi di PowerPoint, mungkin muncul pesan yang meminta Anda memperbarui tautan. Mengklik tombol "Update Links" dapat mengubah ukuran dan posisi bingkai objek OLE karena PowerPoint memperbarui data dari objek OLE yang ditautkan dan menyegarkan preview objek. Untuk mencegah PowerPoint meminta pembaruan data objek, setel metode `set_UpdateAutomatic` pada antarmuka [IOleObjectFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/ioleobjectframe/) menjadi `false`:
 
 ```cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+auto oleFrame = ExplicitCast<IOleObjectFrame>(slide->get_Shape(0));
+
 oleFrame->set_UpdateAutomatic(false);
 ```
 
-## **Ekstrak File yang Disematkan**
+## **Mengekstrak File yang Disematkan**
 
-Aspose.Slides for C++ memungkinkan Anda mengekstrak file yang disematkan dalam slide sebagai OLE objects dengan cara berikut:
+Aspose.Slides for C++ memungkinkan Anda mengekstrak file yang disematkan dalam slide sebagai objek OLE dengan cara berikut:
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation) yang berisi OLE objects yang ingin Anda ekstrak. 
-2. Loop melalui semua bentuk dalam presentasi dan akses bentuk [OLEObjectFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/oleobjectframe/). 
-3. Akses data file yang disematkan dari bingkai OLE object dan tulis ke disk. 
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation) yang berisi objek OLE yang ingin Anda ekstrak.
+2. Loop melalui semua shape dalam presentasi dan akses shape [OLEObjectFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/oleobjectframe/).
+3. Akses data file yang disematkan dari bingkai OLE object dan tulis ke disk.
 
-Kode C++ berikut menunjukkan cara mengekstrak file yang disematkan dalam slide sebagai OLE objects:
+Kode C++ berikut menunjukkan cara mengekstrak file yang disematkan dalam slide sebagai objek OLE:
 
 ``` cpp
+#include <DOM/IOleEmbeddedDataInfo.h>
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 
@@ -318,18 +444,18 @@ presentation->Dispose();
 
 ## **FAQ**
 
-**Apakah konten OLE akan dirender saat mengekspor slide ke PDF/gambar?**
+### Apakah konten OLE akan dirender saat mengekspor slide ke PDF/gambar?
 
-Apa yang terlihat pada slide yang dirender—ikon/gambar pengganti (pratinjau). Konten OLE "live" tidak dieksekusi selama proses rendering. Jika diperlukan, atur gambar pratinjau Anda sendiri untuk memastikan tampilan yang diharapkan dalam PDF yang diekspor.
+Apa yang terlihat pada slide yang dirender—ikon/gambar pengganti (preview). Konten OLE "hidup" tidak dijalankan selama proses rendering. Jika diperlukan, atur gambar preview Anda sendiri untuk memastikan tampilan yang diharapkan dalam PDF yang diekspor.
 
-**Bagaimana saya dapat mengunci OLE object pada slide sehingga pengguna tidak dapat memindahkan/mengeditnya di PowerPoint?**
+### Bagaimana cara mengunci objek OLE pada slide sehingga pengguna tidak dapat memindahkan/menyuntingnya di PowerPoint?
 
-Kunci bentuk: Aspose.Slides menyediakan [kunci tingkat bentuk](/slides/id/cpp/applying-protection-to-presentation/). Ini bukan enkripsi, tetapi secara efektif mencegah penyuntingan dan perpindahan tidak sengaja.
+Kunci shape: Aspose.Slides menyediakan [kunci pada level shape](/slides/id/cpp/applying-protection-to-presentation/). Ini bukan enkripsi, tetapi secara efektif mencegah penyuntingan dan pemindahan yang tidak disengaja.
 
-**Mengapa objek Excel yang ditautkan "melompat" atau berubah ukuran ketika saya membuka presentasi?**
+### Mengapa objek Excel yang ditautkan "melompat" atau berubah ukuran saat saya membuka presentasi?
 
-PowerPoint mungkin menyegarkan pratinjau OLE yang ditautkan. Untuk tampilan yang stabil, ikuti praktik [Solusi Pengerjaan untuk Pengubahan Ukuran Worksheet](/slides/id/cpp/working-solution-for-worksheet-resizing/)—baik menyesuaikan bingkai dengan rentang, atau menskalakan rentang ke bingkai tetap dan mengatur gambar pengganti yang sesuai.
+PowerPoint mungkin menyegarkan preview OLE yang ditautkan. Untuk tampilan yang stabil, ikuti praktik [Solusi yang Berfungsi untuk Pengubahan Ukuran Worksheet](/slides/id/cpp/working-solution-for-worksheet-resizing/)—baik sesuaikan bingkai dengan rentang, atau skala rentang ke bingkai tetap dan atur gambar pengganti yang sesuai.
 
-**Apakah jalur relatif untuk OLE object yang ditautkan akan dipertahankan dalam format PPTX?**
+### Apakah jalur relatif untuk objek OLE yang ditautkan akan dipertahankan dalam format PPTX?
 
-Dalam PPTX, informasi "jalur relatif" tidak tersedia—hanya jalur lengkap. Jalur relatif ditemukan di format PPT yang lebih lama. Untuk portabilitas, lebih baik menggunakan jalur absolut yang dapat diandalkan/URI yang dapat diakses atau menyematkan.
+Dalam PPTX, informasi "jalur relatif" tidak tersedia—hanya jalur lengkap. Jalur relatif terdapat pada format PPT lama. Untuk portabilitas, lebih baik gunakan jalur absolut yang dapat diandalkan/URI yang dapat diakses atau menyematkan file.

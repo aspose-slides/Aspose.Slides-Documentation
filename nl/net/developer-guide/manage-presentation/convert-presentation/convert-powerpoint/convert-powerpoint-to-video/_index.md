@@ -1,5 +1,5 @@
 ---
-title: PowerPoint-presentaties converteren naar video in .NET
+title: PowerPoint-presentaties naar video converteren in .NET
 linktitle: PowerPoint naar video
 type: docs
 weight: 130
@@ -21,55 +21,57 @@ keywords:
 - PPTX opslaan als MP4
 - PPT exporteren naar MP4
 - PPTX exporteren naar MP4
-- video conversie
+- video-conversie
 - PowerPoint
 - .NET
 - C#
 - Aspose.Slides
-description: "Leer hoe u PowerPoint-presentaties kunt converteren naar video in .NET. Ontdek voorbeeld-C#-code en automatiseringstechnieken om uw workflow te stroomlijnen."
+description: "Leer hoe u PowerPoint‑presentaties naar video kunt converteren in .NET. Ontdek voorbeeld‑C#‑code en automatiseringstechnieken om uw workflow te stroomlijnen."
 ---
 ## **Inleiding**
 
-Door uw PowerPoint‑ of OpenDocument‑presentatie naar video te converteren, krijgt u:
+Door uw PowerPoint‑ of OpenDocument‑presentatie naar video om te zetten, krijgt u:
 
-**Verbeterde toegankelijkheid:** Alle apparaten, ongeacht het platform, beschikken standaard over videospelers, waardoor het voor gebruikers gemakkelijker is om video's te openen of af te spelen dan traditionele presentatietoepassingen.
+**Verbeterde toegankelijkheid:** Alle apparaten, ongeacht het platform, beschikken standaard over videospelers, waardoor het voor gebruikers gemakkelijker is om video's te openen of af te spelen dan traditionele presentatie­applicaties.
 
-**Grotere bereik:** Video’s stellen u in staat een breder publiek te bereiken en informatie op een aantrekkelijkere manier te presenteren. Enquêtes en statistieken tonen aan dat mensen liever video‑inhoud bekijken en consumeren dan andere vormen, waardoor uw boodschap meer impact heeft.
+**Grotere bereik:** Video’s stellen u in staat een breder publiek te bereiken en informatie op een boeiender manier te presenteren. Enquêtes en statistieken tonen aan dat mensen liever video‑inhoud bekijken en consumeren dan andere vormen, waardoor uw boodschap meer impact heeft.
 
-{{% alert color="primary" %}} 
-Bekijk onze [**PowerPoint‑naar‑Video Online Converter**](https://products.aspose.app/slides/nl/video) omdat deze een live en effectieve implementatie van het hier beschreven proces biedt.
+{{% alert color="info" %}} 
+
+Bekijk onze [**PowerPoint naar Video Online Converter**](https://products.aspose.app/slides/nl/video) omdat deze een live en effectieve uitvoering van het hier beschreven proces biedt.
+
 {{% /alert %}} 
 
 In Aspose.Slides for .NET hebben we ondersteuning geïmplementeerd voor het converteren van presentaties naar video.
 
-* Gebruik Aspose.Slides for .NET om frames uit de presentatieslides te genereren met een opgegeven framerate (FPS).
-* Gebruik vervolgens een externe tool zoals ffmpeg om deze frames samen te voegen tot een video.
+* Gebruik Aspose.Slides for .NET om frames uit de presentatieslides te genereren met een opgegeven framesnelheid (FPS).  
+* Gebruik vervolgens een hulpprogramma van derden, zoals ffmpeg, om deze frames samen te voegen tot een video.
 
 ## **Een PowerPoint‑presentatie naar video converteren**
 
-1. Gebruik de `dotnet add package`‑opdracht om Aspose.Slides en de FFMpegCore‑bibliotheek aan uw project toe te voegen:
-   * voer `dotnet add package Aspose.Slides.NET --version 22.11.0` uit
+1. Gebruik het `dotnet add package`‑commando om Aspose.Slides en de FFMpegCore‑bibliotheek aan uw project toe te voegen:  
+   * voer `dotnet add package Aspose.Slides.NET --version 22.11.0` uit  
    * voer `dotnet add package FFMpegCore --version 4.8.0` uit
-2. Download ffmpeg van [hier](https://ffmpeg.org/download.html).
-3. FFMpegCore vereist dat u het pad naar de gedownloade ffmpeg opgeeft (bijvoorbeeld uitgepakt naar "C:\tools\ffmpeg"):  
+2. Download ffmpeg van [hier](https://ffmpeg.org/download.html).  
+3. FFMpegCore vereist dat u het pad naar de gedownloade ffmpeg opgeeft (bijv. uitgepakt naar "C:\tools\ffmpeg"):  
 ```cs
     GlobalFFOptions.Configure(new FFOptions { BinaryFolder = @"c:\tools\ffmpeg\bin" });
 ```
 4. Voer de PowerPoint‑naar‑video‑conversiecode uit.
 
-Deze C#‑code laat zien hoe u een presentatie (met een vorm en twee animatie‑effecten) omzet naar een video:
+Deze C#‑code toont hoe een presentatie (met een vorm en twee animatie‑effecten) naar een video wordt omgezet:
 
 ```c#
 using System.Collections.Generic;
 using Aspose.Slides;
-using FFMpegCore; // zal de FFmpeg-binaries gebruiken die we eerder hebben uitgepakt naar C:\tools\ffmpeg.
+using FFMpegCore; // zal de FFmpeg‑binaries gebruiken die we eerder hebben uitgepakt naar C:\tools\ffmpeg.
 using Aspose.Slides.Animation;
 
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // Voeg een glimlach-vorm toe en animeer deze vervolgens.
+    // Voeg een glimlach‑vorm toe en animeer deze vervolgens.
     IAutoShape smile = slide.Shapes.AddAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
 
     IEffect effectIn = slide.Timeline.MainSequence.AddEffect(
@@ -96,40 +98,48 @@ using (Presentation presentation = new Presentation())
         animationsGenerator.Run(presentation.Slides);
     }
 
-    // Configureer de map met ffmpeg-binaries. Zie deze pagina: https://github.com/rosenbjerg/FFMpegCore#installation
+    // Configureer de map met de ffmpeg‑binaries. Zie deze pagina: https://github.com/rosenbjerg/FFMpegCore#installation
     GlobalFFOptions.Configure(new FFOptions { BinaryFolder = @"c:\tools\ffmpeg\bin" });
 
-    // Converteer de frames naar een webm-video.
+    // Converteer de frames naar een webm‑video.
     FFMpeg.JoinImageSequence("smile.webm", Fps, frames.Select(frame => ImageInfo.FromPath(frame)).ToArray());
 }
 ```
 
 ## **Video‑effecten**
 
-Wanneer u een PowerPoint‑presentatie converteert naar video met Aspose.Slides for .NET, kunt u diverse video‑effecten toepassen om de visuele kwaliteit van de output te verbeteren. Deze effecten geven u controle over het uiterlijk van de slides in de uiteindelijke video door vloeiende overgangen, animaties en andere visuele elementen toe te voegen. Deze sectie legt de beschikbare video‑effectopties uit en toont hoe u ze toepast.
+Bij het converteren van een PowerPoint‑presentatie naar video met Aspose.Slides for .NET kunt u diverse video‑effecten toepassen om de visuele kwaliteit van de uitvoer te verbeteren. Deze effecten stellen u in staat het uiterlijk van slides in de uiteindelijke video te regelen door vloeiende overgangen, animaties en andere visuele elementen toe te voegen. Deze sectie legt de beschikbare video‑effectopties uit en laat zien hoe u ze toepast.
 
-{{% alert color="primary" %}} 
-Zie:
-- [PowerPoint‑presentaties verbeteren met animaties in C#](https://docs.aspose.com/slides/nl/net/powerpoint-animation/)
-- [Vorm‑animatie](https://docs.aspose.com/slides/nl/net/shape-animation/)
+{{% alert color="info" %}} 
+
+Zie:  
+- [PowerPoint‑presentaties verbeteren met animaties in C#](https://docs.aspose.com/slides/nl/net/powerpoint-animation/)  
+- [Vormanimatie](https://docs.aspose.com/slides/nl/net/shape-animation/)  
 - [Vorm‑effecten toepassen in PowerPoint met C#](https://docs.aspose.com/slides/nl/net/shape-effect/)
+
 {{% /alert %}} 
 
-Animaties en overgangen maken diavoorstellingen boeiender en interessanter — en ze doen hetzelfde voor video’s. Laten we een extra slide en overgang aan de code van de vorige presentatie toevoegen:
+Animaties en overgangen maken diavoorstellingen boeiender en interessanter — en ze hebben hetzelfde effect op video’s. Laten we een extra slide en overgang toevoegen aan de code voor de vorige presentatie:
 
 ```c#
-// Voeg een glimlachvorm toe en animeer deze.
-// ...
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.SlideShow;
 
-// Voeg een nieuwe dia toe en een geanimeerde overgang.
-ISlide newSlide = presentation.Slides.AddEmptySlide(presentation.Slides[0].LayoutSlide);
-newSlide.Background.Type = BackgroundType.OwnBackground;
-newSlide.Background.FillFormat.FillType = FillType.Solid;
-newSlide.Background.FillFormat.SolidFillColor.Color = Color.Indigo;
-newSlide.SlideShowTransition.Type = TransitionType.Push;
+using (Presentation presentation = new Presentation())
+{
+    // Voeg een glimlachvorm toe en animeer deze (zie de code hierboven).
+
+    // Voeg een nieuwe slide toe en een geanimeerde overgang.
+    ISlide newSlide = presentation.Slides.AddEmptySlide(presentation.Slides[0].LayoutSlide);
+    newSlide.Background.Type = BackgroundType.OwnBackground;
+    newSlide.Background.FillFormat.FillType = FillType.Solid;
+    newSlide.Background.FillFormat.SolidFillColor.Color = Color.Indigo;
+    newSlide.SlideShowTransition.Type = TransitionType.Push;
+}
 ```
 
-Aspose.Slides ondersteunt ook tekstanimaties. In dit voorbeeld animeren we alinea’s op objecten zodat ze één voor één verschijnen, met een vertraging van één seconde tussen elke alinea:
+Aspose.Slides ondersteunt ook tekstan animaties. In dit voorbeeld animeren we alinea’s op objecten zodat ze één voor één verschijnen, met een vertraging van één seconde tussen elke alinea:
 
 ```c#
 using System.Collections.Generic;
@@ -142,7 +152,7 @@ using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // Tekst en animaties toevoegen.
+    // Voeg tekst en animaties toe.
     IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 210, 120, 300, 300);
     Paragraph para1 = new Paragraph();
     para1.Portions.Add(new Portion("Aspose Slides for .NET"));
@@ -189,7 +199,7 @@ using (Presentation presentation = new Presentation())
         animationsGenerator.Run(presentation.Slides);
     }
 
-    // Configureer de map met ffmpeg-binaries. Zie deze pagina: https://github.com/rosenbjerg/FFMpegCore#installation
+    // Configureer de map met de ffmpeg-binaries. Zie deze pagina: https://github.com/rosenbjerg/FFMpegCore#installation
     GlobalFFOptions.Configure(new FFOptions { BinaryFolder = @"c:\tools\ffmpeg\bin" });
 
     // Converteer de frames naar een webm-video.
@@ -197,17 +207,21 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Video‑conversie‑klassen**
+## **Klassen voor video‑conversie**
 
-Om taken voor PowerPoint‑naar‑video‑conversie mogelijk te maken, biedt Aspose.Slides for .NET de klassen [PresentationAnimationsGenerator](https://reference.aspose.com/slides/nl/net/aspose.slides.export/presentationanimationsgenerator/) en [PresentationPlayer](https://reference.aspose.com/slides/nl/net/aspose.slides.export/presentationplayer/).
+Om PowerPoint‑naar‑video‑taken mogelijk te maken, biedt Aspose.Slides for .NET de klassen [PresentationAnimationsGenerator](https://reference.aspose.com/slides/nl/net/aspose.slides.export/presentationanimationsgenerator/) en [PresentationPlayer](https://reference.aspose.com/slides/nl/net/aspose.slides.export/presentationplayer/).
 
-`PresentationAnimationsGenerator` stelt u in staat de frame‑grootte voor de video (die later wordt aangemaakt) en de FPS‑waarde via de constructor te definiëren. Als u een presentatie‑instantie doorgeeft, wordt `Presentation.SlideSize` gebruikt en genereert de klasse animaties die [PresentationPlayer](https://reference.aspose.com/slides/nl/net/aspose.slides.export/presentationplayer/) gebruikt.
+`PresentationAnimationsGenerator` maakt het mogelijk de frame‑grootte voor de later te maken video en de FPS‑waarde (frames per seconde) via de constructor in te stellen. Als u een presentatie‑instantie doorgeeft, wordt de `Presentation.SlideSize` ervan gebruikt en genereert het animaties die [PresentationPlayer](https://reference.aspose.com/slides/nl/net/aspose.slides.export/presentationplayer/) gebruikt.
 
-Wanneer animaties worden gegenereerd, wordt voor elke opeenvolgende animatie een `NewAnimation`‑event getriggerd, met een [IPresentationAnimationPlayer](https://reference.aspose.com/slides/nl/net/aspose.slides.export/ipresentationanimationplayer/)‑parameter. Deze klasse vertegenwoordigt een speler voor een individuele animatie.
+Wanneer animaties worden gegenereerd, wordt voor elke opvolgende animatie een `NewAnimation`‑event getriggerd, met een [IPresentationAnimationPlayer](https://reference.aspose.com/slides/nl/net/aspose.slides.export/ipresentationanimationplayer/)‑parameter. Deze klasse vertegenwoordigt een speler voor een individuele animatie.
 
-Om met [IPresentationAnimationPlayer](https://reference.aspose.com/slides/nl/net/aspose.slides.export/ipresentationanimationplayer/) te werken, gebruikt u de eigenschap [Duration](https://reference.aspose.com/slides/nl/net/aspose.slides.export/ipresentationanimationplayer/duration/) (die de totale duur van de animatie geeft) en de methode [SetTimePosition](https://reference.aspose.com/slides/nl/net/aspose.slides.export/ipresentationanimationplayer/settimeposition/). Elke animatie‑positie wordt ingesteld binnen het bereik *0 tot duration*, en de `GetFrame`‑methode retourneert vervolgens een Bitmap die de animatiestatus op dat moment weergeeft.
+Om met [IPresentationAnimationPlayer](https://reference.aspose.com/slides/nl/net/aspose.slides.export/ipresentationanimationplayer/) te werken, gebruikt u de [Duration](https://reference.aspose.com/slides/nl/net/aspose.slides.export/ipresentationanimationplayer/duration/)‑eigenschap (die de totale duur van de animatie geeft) en de [SetTimePosition](https://reference.aspose.com/slides/nl/net/aspose.slides.export/ipresentationanimationplayer/settimeposition/)‑methode. Elke animatie‑positie wordt ingesteld binnen het bereik *0 tot duur*, en de `GetFrame`‑methode retourneert vervolgens een Bitmap die de animatiestatus op dat moment weergeeft.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -230,20 +244,23 @@ using (Presentation presentation = new Presentation())
         {
             Console.WriteLine($"Total animation duration: {animationPlayer.Duration}");
 
-            animationPlayer.SetTimePosition(0);          // De initiële animatiestatus.
-            Bitmap bitmap = animationPlayer.GetFrame();  // De bitmap van de initiële animatiestatus.
+            animationPlayer.SetTimePosition(0);        // De begintoestand van de animatie.
+            IImage image = animationPlayer.GetFrame(); // De afbeelding van de begintoestand van de animatie.
 
-            animationPlayer.SetTimePosition(animationPlayer.Duration);  // De uiteindelijke status van de animatie.
-            Bitmap lastBitmap = animationPlayer.GetFrame();             // Het laatste frame van de animatie.
-            lastBitmap.Save("last.png");
+            animationPlayer.SetTimePosition(animationPlayer.Duration); // De eindtoestand van de animatie.
+            IImage lastImage = animationPlayer.GetFrame();             // Het laatste frame van de animatie.
+            lastImage.Save("last.png");
         };
     }
 }
 ```
 
-Om alle animaties in een presentatie tegelijk af te spelen, wordt de klasse [PresentationPlayer](https://reference.aspose.com/slides/nl/net/aspose.slides.export/presentationplayer/) gebruikt. Deze klasse neemt een [PresentationAnimationsGenerator](https://reference.aspose.com/slides/nl/net/aspose.slides.export/presentationanimationsgenerator/)‑instantie en een FPS‑waarde voor effecten in de constructor, en roept vervolgens het `FrameTick`‑event aan voor alle animaties om ze af te spelen:
+Om alle animaties in een presentatie tegelijk te laten afspelen, wordt de klasse [PresentationPlayer](https://reference.aspose.com/slides/nl/net/aspose.slides.export/presentationplayer/) gebruikt. Deze klasse neemt een [PresentationAnimationsGenerator](https://reference.aspose.com/slides/nl/net/aspose.slides.export/presentationanimationsgenerator/)‑instantie en een FPS‑waarde voor effecten in de constructor, en roept vervolgens het `FrameTick`‑event voor alle animaties aan om ze af te spelen:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("animated.pptx"))
 {
     using (var animationsGenerator = new PresentationAnimationsGenerator(presentation))
@@ -262,7 +279,7 @@ Vervolgens kunnen de gegenereerde frames worden samengevoegd tot een video. Zie 
 
 ## **Ondersteunde animaties en effecten**
 
-Wanneer u een PowerPoint‑presentatie converteert naar video met Aspose.Slides for .NET, is het belangrijk te weten welke animaties en effecten in de output worden ondersteund. Aspose.Slides ondersteunt een breed scala aan veelvoorkomende binnenkomst‑, vertrek‑ en nadruk‑effecten zoals vervagen, binnenvliegen, inzoomen en draaien. Sommige geavanceerde of aangepaste animaties kunnen echter niet volledig worden behouden of kunnen er anders uitzien in de uiteindelijke video. Deze sectie geeft een overzicht van de ondersteunde animaties en effecten.
+Bij het converteren van een PowerPoint‑presentatie naar video met Aspose.Slides for .NET is het belangrijk te weten welke animaties en effecten worden ondersteund in de uitvoer. Aspose.Slides ondersteunt een breed scala aan gangbare binnenkomst‑, uitgangs‑ en nadruk‑effecten zoals vervagen, binnenvliegen, zoomen en draaien. Sommige geavanceerde of aangepaste animaties worden echter mogelijk niet volledig behouden of kunnen er anders uitzien in de uiteindelijke video. Deze sectie geeft een overzicht van de ondersteunde animaties en effecten.
 
 **Binnenkomst**:
 
@@ -300,7 +317,7 @@ Wanneer u een PowerPoint‑presentatie converteert naar video met Aspose.Slides 
 | **Line Color** | ![not supported](x.png) | ![supported](v.png) |
 | **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
 
-**Vertrek**:
+**Uitgang**:
 
 | Animatietype | Aspose.Slides | PowerPoint |
 |---|---|---|
@@ -330,11 +347,11 @@ Wanneer u een PowerPoint‑presentatie converteert naar video met Aspose.Slides 
 
 ## **Ondersteunde slide‑overgangseffecten**
 
-Slide‑overgangseffecten spelen een belangrijke rol bij het creëren van vloeiende en visueel aantrekkelijke overgangen tussen slides in een video. Aspose.Slides for .NET ondersteunt een verscheidenheid aan veelgebruikte overgangseffecten om de stroom en stijl van uw originele presentatie te behouden. Deze sectie belicht welke overgangseffecten tijdens het conversieproces worden ondersteund.
+Slide‑overgangseffecten spelen een belangrijke rol bij het creëren van vloeiende en visueel aantrekkelijke overgangen tussen slides in een video. Aspose.Slides for .NET ondersteunt een verscheidenheid aan veelgebruikte overgangseffecten om de stroom en stijl van uw oorspronkelijke presentatie te behouden. Deze sectie belicht welke overgangseffecten tijdens het conversieproces worden ondersteund.
 
 **Subtiel**:
 
-| Overgangstype | Aspose.Slides | PowerPoint |
+| Animatietype | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Morph** | ![not supported](x.png) | ![supported](v.png) |
 | **Fade** | ![supported](v.png) | ![supported](v.png) |
@@ -350,9 +367,9 @@ Slide‑overgangseffecten spelen een belangrijke rol bij het creëren van vloeie
 | **Flash** | ![supported](v.png) | ![supported](v.png) |
 | **Strips** | ![supported](v.png) | ![supported](v.png) |
 
-**Opwindend**:
+**Ongeduldig**:
 
-| Overgangstype | Aspose.Slides | PowerPoint |
+| Animatietype | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Fall Over** | ![not supported](x.png) | ![supported](v.png) |
 | **Drape** | ![not supported](x.png) | ![supported](v.png) |
@@ -386,7 +403,7 @@ Slide‑overgangseffecten spelen een belangrijke rol bij het creëren van vloeie
 
 **Dynamische inhoud**:
 
-| Overgangstype | Aspose.Slides | PowerPoint |
+| Animatietype | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Pan** | ![not supported](x.png) | ![supported](v.png) |
 | **Ferris Wheel** | ![supported](v.png) | ![supported](v.png) |
@@ -397,14 +414,14 @@ Slide‑overgangseffecten spelen een belangrijke rol bij het creëren van vloeie
 
 ## **FAQ**
 
-**Is het mogelijk om presentaties te converteren die met een wachtwoord beveiligd zijn?**
+### Is het mogelijk om presentaties die met een wachtwoord beschermd zijn te converteren?
 
-Ja, Aspose.Slides for .NET kan werken met wachtwoord‑beveiligde presentaties. Bij het verwerken van dergelijke bestanden moet u het correcte wachtwoord opgeven zodat de bibliotheek toegang heeft tot de inhoud van de presentatie.
+Ja, Aspose.Slides for .NET maakt het werken met wachtwoord‑beveiligde presentaties mogelijk. Bij het verwerken van dergelijke bestanden moet u het juiste wachtwoord opgeven zodat de bibliotheek toegang krijgt tot de inhoud van de presentatie.
 
-**Ondersteunt Aspose.Slides for .NET gebruik in cloud‑oplossingen?**
+### Ondersteunt Aspose.Slides for .NET gebruik in cloud‑oplossingen?
 
-Ja, Aspose.Slides for .NET kan geïntegreerd worden in cloud‑toepassingen en -diensten. De bibliotheek is ontworpen om in serveromgevingen te werken, waarbij hoge prestaties en schaalbaarheid voor batchverwerking van bestanden gegarandeerd zijn.
+Ja, Aspose.Slides for .NET kan worden geïntegreerd in cloud‑applicaties en -services. De bibliotheek is ontworpen om in serveromgevingen te werken, met hoge prestaties en schaalbaarheid voor batchverwerking van bestanden.
 
-**Zijn er limieten voor de grootte van presentaties tijdens conversie?**
+### Zijn er limieten qua bestandsgrootte bij het converteren van presentaties?
 
-Aspose.Slides for .NET kan presentaties van praktisch elke grootte verwerken. Bij zeer grote bestanden kunnen echter extra systeembronnen nodig zijn, en het wordt soms aangeraden de presentatie te optimaliseren om de prestaties te verbeteren.
+Aspose.Slides for .NET kan presentaties van praktisch elke grootte aan. Bij zeer grote bestanden kunnen echter extra systeembronnen nodig zijn, en wordt soms aangeraden de presentatie te optimaliseren om de prestaties te verbeteren.

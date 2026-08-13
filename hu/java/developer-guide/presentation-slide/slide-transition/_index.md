@@ -1,87 +1,91 @@
 ---
-title: Diaátmenetek kezelése prezentációkban Java használatával
-linktitle: Diaátmenet
+title: Diaváltások kezelése prezentációkban Java használatával
+linktitle: Diaváltás
 type: docs
 weight: 80
 url: /hu/java/slide-transition/
 keywords:
-- diaátmenet
-- diaátmenet hozzáadása
-- diaátmenet alkalmazása
-- haladó diaátmenet
-- Morph átmenet
-- átmenet típusa
-- átmeneti hatás
+- diaváltás
+- diaváltás hozzáadása
+- diaváltás alkalmazása
+- fejlett diaváltás
+- morph átmenet
+- átmenettípus
+- átmeneti effektus
 - PowerPoint
 - OpenDocument
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Fedezze fel, hogyan szabhatja testre a diaátmeneteket az Aspose.Slides for Java-ban, részletes, lépésről-lépésre útmutatóval a PowerPoint és OpenDocument prezentációkhoz."
+description: "Fedezze fel, hogyan testreszabhatja a diaváltásokat az Aspose.Slides for Java-ban, lépésről lépésre útmutatóval a PowerPoint és OpenDocument prezentációkhoz."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan kezelhetőek a diaátmenetek prezentációkban az Aspose.Slides használatával. Megmutatja, hogyan alkalmazhatók átmenet típusok a diákra, hogyan konfigurálható az átmenet viselkedése, például kattintásra vagy meghatározott idő után történő előrehaladás, az automatikus előrehaladás ellenőrzése és letiltása, a Morph átmenet és típusainak használata, valamint az átmeneti hatás beállításai. A példák bemutatják, hogyan töltsön be vagy hozzon létre egy prezentációt, módosítsa a kiválasztott diák átmeneti beállításait, és mentse az eredményt PPTX fájlként. A cikk továbbá válaszol gyakori kérdésekre az átmenet sebességéről, hangokról, ugyanannak az átmenetnek a több diára történő alkalmazásáról és arról, hogyan ellenőrizhető a dián jelenleg beállított átmenet.
+Ez a cikk elmagyarázza, hogyan kezelhetők a diaváltások a prezentációkban az Aspose.Slides használatával. Bemutatja, hogyan alkalmazhatók átmenettípusok a diákra, hogyan konfigurálható az átmenet viselkedése, például a kattintásra vagy egy meghatározott idő után történő előrehaladás, hogyan ellenőrizhető és letiltható az automatikus előrehaladás, a Morph átmenet és annak típusainak használata, valamint az átmeneti effektusok beállítása. A példák bemutatják, hogyan tölthető be vagy hozható létre egy prezentáció, hogyan módosíthatók a kiválasztott diák átmenetbeállításai, és hogyan menthető az eredmény PPTX fájlként. A cikk válaszol a gyakori kérdésekre is, mint az átmenet sebessége, az átmeneti hangok, ugyanaznak az átmenetnek a több diára való alkalmazása, és hogyan ellenőrizhető a dián jelenleg beállított átmenet.
 
-## **Diaátmenet hozzáadása**
-Egyszerű diaátmenet‑hatás létrehozásához kövesse az alábbi lépéseket:
+## **Diaváltás hozzáadása**
+Egyszerű diaváltási effektus létrehozásához kövesse az alábbi lépéseket:
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation) osztályból.  
-1. Alkalmazzon egy Diaátmenet típust a diára az Aspose.Slides for Java által kínált átmeneti hatások egyikéből a TransitionType felsoroló segítségével.  
-1. Írja ki a módosított prezentáció fájlt.
+2. Alkalmazzon egy diaváltás típust a diára az Aspose.Slides for Java által a TransitionType enumon keresztül kínált átmeneti hatások egyikéből.  
+3. Írja ki a módosított prezentációfájlt.
 
 ```java
-// A Presentation osztály példányosítása a forrás prezentáció betöltéséhez
+import com.aspose.slides.*;
+
+// Példányosítsa a Presentation osztályt a forrásprezentáció betöltéséhez
 Presentation presentation = new Presentation("AccessSlides.pptx");
 try {
-    // Kör típusú átmenet alkalmazása az 1. dián
+    // Alkalmazza a kör típusú átmenetet az 1. dián
     presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
 
-    // Comb típusú átmenet alkalmazása a 2. dián
+    // Alkalmazza a füttön típusú átmenetet a 2. dián
     presentation.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
 
-    // A prezentáció mentése a lemezre
+    // Mentse a prezentációt a lemezre
     presentation.save("SampleTransition_out.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Haladó diaátmenet hozzáadása**
-Az előző szakaszban egyszerű átmenet‑hatást alkalmaztunk a diára. Most, hogy ez az egyszerű átmenet még jobb és irányítható legyen, kövesse az alábbi lépéseket:
+## **Fejlett diaváltás hozzáadása**
+Az előző részben csak egy egyszerű átmeneti effektust alkalmaztunk a diára. Most, hogy ezt a egyszerű átmenetet még jobbá és szabályozhatóbbá tegyük, kövesse az alábbi lépéseket:
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation) osztályból.  
-1. Alkalmazzon egy Diaátmenet típust a diára az Aspose.Slides for Java által kínált átmeneti hatások egyikéből.  
-1. Beállíthatja, hogy az átmenet kattintásra lépjen tovább, egy adott időszak után, vagy mindkettő.  
-1. Ha a diaátmenet engedélyezve van a Kattintásra léptetésre, az átmenet csak akkor lép tovább, amikor valaki rákattint az egérre. Továbbá, ha az Idő után léptetés tulajdonság be van állítva, az átmenet automatikusan lép tovább a megadott idő elteltével.  
-1. Írja ki a módosított prezentációt egy prezentációfájlként.
+2. Alkalmazzon egy diaváltás típust a diára az Aspose.Slides for Java által kínált átmeneti hatások egyikéből.  
+3. Beállíthatja továbbá, hogy az átmenet kattintásra előrehaladjon, egy meghatározott idő elteltével vagy mindkettő.  
+4. Ha a diaváltás az „Advance On Click” (kattintásra előrehaladás) beállítással van engedélyezve, az átmenet csak akkor halad tovább, ha valaki rákattint az egérre. Ha az „Advance After Time” (idő után előrehaladás) tulajdonság be van állítva, az átmenet automatikusan a megadott idő letelte után továbbhalad.  
+5. Írja ki a módosított prezentációt prezentációfájlként.
 
 ```java
-// A Presentation osztály példányosítása, amely egy prezentációs fájlt képvisel
+import com.aspose.slides.*;
+
+// Példányosítja a Presentation osztályt, amely egy prezentációs fájlt képvisel
 Presentation pres = new Presentation("BetterSlideTransitions.pptx");
 try {
-    // Kör típusú átmenet alkalmazása az 1. dián
+    // Alkalmazza a kör típusú átmenetet az 1. dián
     pres.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
 
-    // Átmeneti idő beállítása 3 másodpercre
+    // Állítsa be az átmenet időtartamát 3 másodpercre
     pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceOnClick(true);
     pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceAfterTime(3000);
 
-    // Comb típusú átmenet alkalmazása a 2. dián
+    // Alkalmazza a füttön típusú átmenetet a 2. dián
     pres.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
     
-    // Átmeneti idő beállítása 5 másodpercre
+    // Állítsa be az átmenet időtartamát 5 másodpercre
     pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceOnClick(true);
     pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceAfterTime(5000);
 
-    // Zoom típusú átmenet alkalmazása a 3. dián
+    // Alkalmazza a zoom típusú átmenetet a 3. dián
     pres.getSlides().get_Item(2).getSlideShowTransition().setType(TransitionType.Zoom);
     
-    // Átmeneti idő beállítása 7 másodpercre
+    // Állítsa be az átmenet időtartamát 7 másodpercre
     pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceOnClick(true);
     pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceAfterTime(7000);
 
-    // A prezentáció mentése a lemezre
+    // Mentse a prezentációt a lemezre
     pres.save("SampleTransition_out.pptx", SaveFormat.Pptx);
 } finally {
     pres.dispose();
@@ -89,17 +93,19 @@ try {
 ```
 
 ## **Morph átmenet**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Az Aspose.Slides for Java most támogatja a [Morph Transition](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IMorphTransition)-t. Ezek a PowerPoint 2019‑ben bevezetett új morph átmenetet képviselik.
+Aspose.Slides for Java most már támogatja a [Morph Transition](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IMorphTransition)‑t. Ezek a PowerPoint 2019‑ben bevezetett új morph átmenetek.
 
 {{% /alert %}} 
 
-A Morph átmenet lehetővé teszi a sima mozgás animálását az egyik diáról a következőre. Ez a cikk bemutatja a koncepciót és a Morph átmenet használatát. A Morph átmenet hatékony használatához két diára van szükség, amelyeknek legalább egy közös objektumuk van. A legegyszerűbb módja a dia duplikálása, majd a második dián az objektum áthelyezése egy másik helyre.
+A Morph átmenet lehetővé teszi a sima mozgás animálását egy dia és a következő között. Ez a cikk leírja a koncepciót és a Morph átmenet használatát. A Morph átmenet hatékony használatához két diára van szükség, amelyek legalább egy közös objektummal rendelkeznek. A legegyszerűbb módja ennek, ha duplikálja a diát, majd a második dián áthelyezi az objektumot egy másik helyre.
 
-Az alábbi kódrészlet megmutatja, hogyan adjon egy klónt a diáról szöveggel a prezentációhoz, és hogyan állítson be egy [morph type](https://reference.aspose.com/slides/hu/java/com.aspose.slides/TransitionType) átmenetet a második diára.
+Az alábbi kódrészlet bemutatja, hogyan adhat hozzá egy klónton a szöveggel ellátott diát a prezentációhoz, és állíthat be egy [morph type](https://reference.aspose.com/slides/hu/java/com.aspose.slides/TransitionType) átmenetet a második diára.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     AutoShape autoshape = (AutoShape)presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
@@ -123,17 +129,17 @@ finally {
 ```
 
 ## **Morph átmenet típusok**
-Új [TransitionMorphType](https://reference.aspose.com/slides/hu/java/com.aspose.slides/TransitionMorphType) felsoroló került hozzáadásra. Különböző Morph diaátmenet típusokat képvisel.
+Új [TransitionMorphType](https://reference.aspose.com/slides/hu/java/com.aspose.slides/TransitionMorphType) enum lett hozzáadva. Különböző Morph diaváltás típusokat képvisel.
 
-A TransitionMorphType felsoroló három taggal rendelkezik:
+A TransitionMorphType enum három taggal rendelkezik:
 
-- ByObject: A Morph átmenet a formákat megoszthatatlan objektumokként kezeli.  
-- ByWord: A Morph átmenet a szöveget szavakra bontva, ahol lehetséges, továbbítja.  
-- ByChar: A Morph átmenet a szöveget karakterenként, ahol lehetséges, továbbítja.
-
-Az alábbi kódrészlet megmutatja, hogyan állítsa be a morph átmenetet a diára és hogyan változtassa meg a morph típust:
+- ByObject: A Morph átmenet úgy lesz végrehajtva, hogy a alakzatokat oszthatatlan objektumokként veszi figyelembe.  
+- ByWord: A Morph átmenet a szavakra bontott szöveg átadásával történik, ahol lehetséges.  
+- ByChar: A Morph átmenet a karakterekre bontott szöveg átadásával történik, ahol lehetséges.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Morph);
@@ -144,45 +150,47 @@ try {
 }
 ```
 
-## **Átmeneti hatások beállítása**
-Az Aspose.Slides for Java támogatja az átmeneti hatások beállítását, például feketéről, balról, jobbról stb. Az átmeneti hatás beállításához kövesse az alábbi lépéseket:
+## **Átmeneti effektusok beállítása**
+Az Aspose.Slides for Java támogatja az átmeneti effektusok beállítását, például „from black”, „from left”, „from right” stb. Az átmeneti effektus beállításához kövesse az alábbi lépéseket:
 
 - Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/Presentation) osztályból.  
-- Szerezze meg a dia referenciáját.  
-- Állítsa be az átmeneti hatást.  
+- Szerezze meg a dia hivatkozását.  
+- Állítsa be az átmeneti effektust.  
 - Írja ki a prezentációt egy [PPTX](https://docs.fileformat.com/presentation/pptx/) fájlként.
 
-Az alábbi példa mutatja, hogyan állítottuk be az átmeneti hatásokat.
+Az alábbi példában beállítottuk az átmeneti effektusokat.
 
 ```java
-// A Presentation osztály egy példányának létrehozása
+import com.aspose.slides.*;
+
+// Példányosít egy Presentation osztályt
 Presentation presentation = new Presentation("AccessSlides.pptx");
 try {
-    // Effektus beállítása
+    // Állítsa be a hatást
     presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Cut);
     ((OptionalBlackTransition)presentation.getSlides().get_Item(0).getSlideShowTransition().getValue()).setFromBlack(true);
     
-    // A prezentáció mentése a lemezre
+    // Mentse a prezentációt a lemezre
     presentation.save("SetTransitionEffects_out.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **GyIK**
 
-**Módosíthatom a diaátmenet lejátszási sebességét?**
+### Kezelhetem a diaváltás lejátszási sebességét?
 
-Igen. Állítsa be az átmenet [speed](https://reference.aspose.com/slides/hu/java/com.aspose.slides/slideshowtransition/#setSpeed-int-) értékét a [TransitionSpeed](https://reference.aspose.com/slides/hu/java/com.aspose.slides/transitionspeed/) beállítással (pl. lassú/közepes/gyors).
+Igen. Az átmenet [speed](https://reference.aspose.com/slides/hu/java/com.aspose.slides/slideshowtransition/#setSpeed-int-) beállítását a [TransitionSpeed](https://reference.aspose.com/slides/hu/java/com.aspose.slides/transitionspeed/) használatával állíthatja be (például slow/medium/fast).
 
-**Csatolhatok hangot egy átmenethez, és ismételhetem azt?**
+### Csatolhatok hangot egy átmenethez, és lehetővé tehetem a hurkolást?
 
-Igen. Beágyazhatsz hangot az átmenethez, és a viselkedést szabályozhatod olyan beállításokkal, mint a hang mód és a loop (pl. [setSound](https://reference.aspose.com/slides/hu/java/com.aspose.slides/slideshowtransition/#setSound-com.aspose.slides.IAudio-), [setSoundMode](https://reference.aspose.com/slides/hu/java/com.aspose.slides/slideshowtransition/#setSoundMode-int-), [setSoundLoop](https://reference.aspose.com/slides/hu/java/com.aspose.slides/slideshowtransition/#setSoundLoop-boolean-), valamint metaadatok, például [setSoundIsBuiltIn](https://reference.aspose.com/slides/hu/java/com.aspose.slides/slideshowtransition/#setSoundIsBuiltIn-boolean-) és [setSoundName](https://reference.aspose.com/slides/hu/java/com.aspose.slides/slideshowtransition/#setSoundName-java.lang.String-)).
+Igen. Beágyazhat egy hangot az átmenethez, és a viselkedést hangmód és hurkolás beállításokkal szabályozhatja (például [setSound](https://reference.aspose.com/slides/hu/java/com.aspose.slides/slideshowtransition/#setSound-com.aspose.slides.IAudio-), [setSoundMode](https://reference.aspose.com/slides/hu/java/com.aspose.slides/slideshowtransition/#setSoundMode-int-), [setSoundLoop](https://reference.aspose.com/slides/hu/java/com.aspose.slides/slideshowtransition/#setSoundLoop-boolean-), valamint metaadatok, mint a [setSoundIsBuiltIn](https://reference.aspose.com/slides/hu/java/com.aspose.slides/slideshowtransition/#setSoundIsBuiltIn-boolean-) és a [setSoundName](https://reference.aspose.com/slides/hu/java/com.aspose.slides/slideshowtransition/#setSoundName-java.lang.String-)).
 
-**Mi a leggyorsabb módja annak, hogy ugyanazt az átmenetet alkalmazzam minden diára?**
+### Mi a leggyorsabb módja annak, hogy ugyanazt az átmenetet alkalmazzuk minden diára?
 
-Állítsa be a kívánt átmenet típust minden dia átmeneti beállításában; az átmenetek diánként tárolódnak, így ugyanazon típus alkalmazása az összes dián konzisztens eredményt ad.
+Állítsa be a kívánt átmenettípust minden dia átmenetbeállításában; az átmenetek diánként tárolódnak, így az azonos típus alkalmazása az összes dián egységes eredményt ad.
 
-**Hogyan ellenőrizhetem, hogy melyik átmenet van jelenleg beállítva egy dián?**
+### Hogyan ellenőrizhetem, hogy melyik átmenet van jelenleg beállítva egy dián?
 
-Vizsgálja meg a dia [transition settings](https://reference.aspose.com/slides/hu/java/com.aspose.slides/baseslide/#getSlideShowTransition--) beállításait, és olvassa ki a [transition type](https://reference.aspose.com/slides/hu/java/com.aspose.slides/slideshowtransition/#setType-int-) értékét; ez pontosan megmutatja, melyik effektus van alkalmazva.
+Vizsgálja meg a dia [transition settings](https://reference.aspose.com/slides/hu/java/com.aspose.slides/baseslide/#getSlideShowTransition--) és olvassa ki a [transition type](https://reference.aspose.com/slides/hu/java/com.aspose.slides/slideshowtransition/#setType-int-) értékét; ez pontosan megmondja, melyik effektus van alkalmazva.

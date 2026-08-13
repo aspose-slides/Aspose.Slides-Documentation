@@ -1,24 +1,35 @@
 ---
-title: API publique et changements incompatibles avec les versions antérieures dans Aspose.Slides pour Java 15.4.0
+title: API publique et modifications incompatibles rétroactives dans Aspose.Slides pour Java 15.4.0
+linktitle: Aspose.Slides pour Java 15.4.0
 type: docs
 weight: 120
 url: /fr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/
+keywords:
+- migration
+- code hérité
+- code moderne
+- approche héritée
+- approche moderne
+- PowerPoint
+- OpenDocument
+- présentation
+- Java
+- Aspose.Slides
+description: "Examinez les mises à jour de l'API publique et les changements majeurs dans Aspose.Slides pour Java afin de migrer en douceur vos solutions de présentations PowerPoint PPT, PPTX et ODP."
 ---
-
-{{% alert color="primary" %}} 
-
-Cette page répertorie toutes les classes, méthodes, propriétés, etc. [ajoutées](/slides/fr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/), toute nouvelle restriction et d'autres [changements](/slides/fr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/) introduits avec l'API Aspose.Slides pour Java 15.4.0.
-
+{{% alert color="info" %}} 
+Cette page répertorie toutes les classes, méthodes, propriétés, etc., [added](/slides/fr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/) ainsi que les nouvelles restrictions et d'autres [changes](/slides/fr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/) introduites avec l'API Aspose.Slides for Java 15.4.0.
 {{% /alert %}} 
-## **Changements de l'API publique**
-### **L'énumération OrganizationChartLayoutType a été ajoutée**
+## **Modifications de l'API publique**
+### **Enum OrganizationChartLayoutType a été ajouté**
 L'énumération com.aspose.slides.OrganizationChartLayoutType représente le type de formatage des nœuds enfants dans un organigramme.
 ### **La méthode IBulletFormat.applyDefaultParagraphIndentsShifts() a été ajoutée**
-La méthode com.aspose.slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts définit des décalages par défaut non nuls pour l'indentation et la marge gauche de paragraphe effectives lorsque les puces sont activées (comme le fait PowerPoint s'il active les puces/numéros de paragraphe). Si les puces sont désactivées, alors réinitialisez simplement l'indentation et la marge gauche de paragraphe (comme PowerPoint le fait s'il désactive les puces/numéros de paragraphe).
+La méthode com.aspose.slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts définit les décalages non nuls par défaut pour le retrait de paragraphe effectif et la marge gauche lorsque les puces sont activées (comme PowerPoint le fait lorsqu’on active les puces/numérotation de paragraphe). Si les puces sont désactivées, elle réinitialise simplement le retrait de paragraphe et la marge gauche (comme PowerPoint le fait lorsqu’on désactive les puces/numérotation de paragraphe).
 ### **La méthode IConnector.reroute() a été ajoutée**
-La méthode com.aspose.slides.IConnector.reroute() redirige le connecteur afin qu'il prenne le chemin le plus court possible entre les formes qu'il connecte. Pour ce faire, la méthode reroute() peut modifier l'index de site de connexion de forme de départ et l'index de site de connexion de forme de fin.
-
+La méthode com.aspose.slides.IConnector.reroute() re-route le connecteur afin qu'il prenne le chemin le plus court possible entre les formes qu'il relie. Pour ce faire, la méthode reroute() peut modifier les propriétés StartShapeConnectionSiteIndex et EndShapeConnectionSiteIndex.
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation input = new Presentation();
 
@@ -40,9 +51,10 @@ input.save("output.pptx", SaveFormat.Pptx);
 
 ```
 ### **La méthode IPresentation.getSlideById(long) a été ajoutée**
-La méthode Aspose.Slides.IPresentation.getSlideById(int) retourne une diapositive, une diapositive maître ou une diapositive de disposition par ID de diapositive.
-
+La méthode Aspose.Slides.IPresentation.getSlideById(long) renvoie une Slide, MasterSlide ou LayoutSlide à partir de l'identifiant de la diapositive.
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation presentation = new Presentation();
 
@@ -52,9 +64,10 @@ IBaseSlide slide = presentation.getSlideById(id);
 
 ```
 ### **La méthode ISmartArt.getNodes() a été ajoutée**
-La méthode com.aspose.slides.ISmartArt.getNodes() retourne une collection de nœuds racines dans un objet SmartArt.
-
+La méthode com.aspose.slides.ISmartArt.getNodes() renvoie une collection de nœuds racines dans l'objet SmartArt.
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -62,15 +75,16 @@ ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 4
 
 ISmartArtNode node = smart.getNodes().get_Item(1); // sélectionner le deuxième nœud racine
 
-node.getTextFrame().setText("Deuxième nœud racine");
+node.getTextFrame().setText("Second root node");
 
 pres.save("out.pptx", SaveFormat.Pptx);
 
 ```
 ### **La méthode ISmartArt.setLayout(int) a été ajoutée**
-La méthode pour la propriété com.aspose.slides.ISmartArt.setLayout(int) a été ajoutée. Elle permet de modifier le type de disposition d'un diagramme existant.
-
+La méthode pour la propriété com.aspose.slides.ISmartArt.setLayout(int) a été ajoutée. Elle permet de changer le type de mise en page d'un diagramme existant.
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -82,9 +96,10 @@ pres.save("out.pptx", SaveFormat.Pptx);
 
 ```
 ### **La méthode ISmartArtNode.isHidden() a été ajoutée**
-La méthode com.aspose.slides.ISmartArtNode.isHidden() retourne vrai si ce nœud est un nœud caché dans le modèle de données.
-
+La méthode com.aspose.slides.ISmartArtNode.isHidden() renvoie true si ce nœud est un nœud masqué dans le modèle de données.
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -92,21 +107,21 @@ ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 4
 
 ISmartArtNode node = smart.getAllNodes().addNode();
 
-boolean hidden = node.isHidden(); //retourne vrai
+boolean hidden = node.isHidden(); //renvoie true
 
 if(hidden) {
 
-    //effectuer certaines actions ou notifications
+    //effectuer des actions ou des notifications
 
 }
 
-pres.Save("out.pptx", SaveFormat.Pptx);
-
+pres.save("out.pptx", SaveFormat.Pptx);
 ```
-### **Les méthodes ISmartArt.isReversed(), setReserved() ont été ajoutées**
-La propriété com.aspose.slides.ISmartArt.IsReversed permet d'obtenir ou de définir l'état du diagramme SmartArt concernant (de gauche à droite) LTR ou (de droite à gauche) RTL, si le diagramme supporte la réversion.
-
+### **Les méthodes ISmartArt.isReversed() et setReversed() ont été ajoutées**
+La propriété com.aspose.slides.ISmartArt.IsReversed permet d'obtenir ou de définir l'état du diagramme SmartArt par rapport à la direction (de gauche à droite) LTR ou (de droite à gauche) RTL, si le diagramme prend en charge l'inversion.
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation presentation = new Presentation();
 
@@ -117,10 +132,11 @@ smart.setReversed(true);
 presentation.save("out.pptx", SaveFormat.Pptx);
 
 ```
-### **Les méthodes ISmartArtNode.getOrganizationChartLayout(), setOrganizationChartLayout(int) ont été ajoutées**
-Les méthodes com.aspose.slides.ISmartArtNode.getOrganizationChartLayout(), setOrganizationChartLayout(int) permettent d'obtenir ou de définir le type d'organigramme associé au nœud actuel.
-
+### **Les méthodes ISmartArtNode.getOrganizationChartLayout() et setOrganizationChartLayout(int) ont été ajoutées**
+Les méthodes com.aspose.slides.ISmartArtNode.getOrganizationChartLayout() et setOrganizationChartLayout(int) permettent d'obtenir ou de définir le type d'organigramme associé au nœud actuel.
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -129,12 +145,12 @@ ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 4
 smart.getNodes().get_Item(0).setOrganizationChartLayout(OrganizationChartLayoutType.LeftHanging);
 
 pres.save("out.pptx", SaveFormat.Pptx);
-
 ```
 ### **La propriété IShape.getConnectionSiteCount() a été ajoutée**
-La propriété com.aspose.slides.getConnectionSiteCount() retourne le nombre de sites de connexion sur la forme.
-
+La propriété com.aspose.slides.getConnectionSiteCount() renvoie le nombre de points de connexion sur la forme.
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation input = new Presentation();
 
@@ -161,12 +177,12 @@ if (ellipse.getConnectionSiteCount() > wantedIndex) {
 input.save("output.pptx", SaveFormat.Pptx);
 
 ```
-### **Changements mineurs**
-Voici la liste des changements mineurs de l'API :
+### **Modifications mineures**
+Voici la liste des modifications mineures de l'API :
 
-| Énumération com.aspose.slides.BevelColorMode | énumération supprimée, inutilisée |
+|Énumération com.aspose.slides.BevelColorMode |supprimée, énumération inutilisée |
 | :- | :- |
-| Méthode ThreeDFormatEffectiveData.getBevelColorMode() | propriété supprimée, inutilisée |
-| Méthode com.aspose.slides.ChartSeriesGroup.getChart() | ajoutée |
-| Héritage de IParagraphFormatEffectiveData d'ISlideComponent <br> Héritage de IThreeDFormat d'ISlideComponent | supprimé |
-| Méthode com.aspose.slides.ParagraphFormatEffectiveData.getBulletChar() <br> Méthode com.aspose.slides.ParagraphFormatEffectiveData.getBulletFont() <br> Méthode com.aspose.slides.ParagraphFormatEffectiveData.getBulletHeight() <br> Méthode com.aspose.slides.ParagraphFormatEffectiveData.getBulletType() <br> Méthode com.aspose.slides.ParagraphFormatEffectiveData.getNumberedBulletStartWith() <br> Méthode com.aspose.slides.ParagraphFormatEffectiveData.getNumberedBulletStyle() | supprimées en tant qu'obsolètes |
+|Méthode ThreeDFormatEffectiveData.getBevelColorMode() |supprimée, propriété inutilisée |
+|Méthode com.aspose.slides.ChartSeriesGroup.getChart() |ajoutée |
+|Héritage de IParagraphFormatEffectiveData à partir de ISlideComponent <br>Héritage de IThreeDFormat à partir de ISlideComponent |supprimé |
+|Méthode com.aspose.slides.ParagraphFormatEffectiveData.getBulletChar() <br>Méthode com.aspose.slides.ParagraphFormatEffectiveData.getBulletFont() <br>Méthode com.aspose.slides.ParagraphFormatEffectiveData.getBulletHeight() <br>Méthode com.aspose.slides.ParagraphFormatEffectiveData.getBulletType() <br>Méthode com.aspose.slides.ParagraphFormatEffectiveData.getNumberedBulletStartWith() <br>Méthode com.aspose.slides.ParagraphFormatEffectiveData.getNumberedBulletStyle() |supprimée comme obsolète |

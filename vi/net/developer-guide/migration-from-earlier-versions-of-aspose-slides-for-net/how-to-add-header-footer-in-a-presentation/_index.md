@@ -1,5 +1,5 @@
 ---
-title: Cách Thêm Headers & Footers vào Bản Trình Chiếu trong .NET
+title: Cách Thêm Headers & Footers vào Presentations trong .NET
 linktitle: Thêm Header & Footer
 type: docs
 weight: 20
@@ -14,99 +14,102 @@ keywords:
 - cách tiếp cận hiện đại
 - PowerPoint
 - OpenDocument
-- bản trình chiếu
+- bài trình chiếu
 - .NET
 - C#
 - Aspose.Slides
-description: "Tìm hiểu cách thêm headers và footers trong các bản trình chiếu PowerPoint PPT, PPTX và ODP trong .NET bằng cả API legacy và hiện đại của Aspose.Slides."
+description: "Tìm hiểu cách thêm header và footer vào các bản trình chiếu PowerPoint PPT, PPTX và ODP trong .NET bằng cả API Aspose.Slides legacy và hiện đại."
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" %}} 
 
-Một phiên bản mới của [Aspose.Slides for .NET API](/slides/vi/net/) đã được phát hành và hiện sản phẩm duy nhất này hỗ trợ khả năng tạo tài liệu PowerPoint từ đầu và chỉnh sửa các tài liệu hiện có.
+Một [Aspose.Slides for .NET API](/slides/vi/net/) mới đã được phát hành và giờ sản phẩm duy nhất này hỗ trợ khả năng tạo tài liệu PowerPoint từ đầu và chỉnh sửa các tài liệu hiện có.
 
-{{% /alert %}}
-## **Hỗ trợ Mã Legacy**
-Để sử dụng mã legacy được phát triển với các phiên bản Aspose.Slides for .NET trước 13.x, bạn cần thực hiện một số thay đổi nhỏ trong mã của mình và mã sẽ hoạt động như trước. Tất cả các lớp đã có trong Aspose.Slides for .NET cũ dưới các namespace Aspose.Slide và Aspose.Slides.Pptx hiện đã được hợp nhất trong một namespace Aspose.Slides duy nhất. Vui lòng xem đoạn mã mẫu đơn giản dưới đây để thêm header footer vào bản trình chiếu trong API Aspose.Slides legacy và làm theo các bước mô tả cách di chuyển sang API hợp nhất mới.
-## **Cách tiếp cận Legacy Aspose.Slides cho .NET**
+{{% /alert %}} 
+## **Hỗ trợ mã legacy**
+Để sử dụng mã legacy được phát triển với Aspose.Slides for .NET các phiên bản trước 13.x, bạn cần thực hiện một vài thay đổi nhỏ trong mã và mã sẽ hoạt động như trước. Tất cả các lớp từng có trong Aspose.Slides for .NET cũ dưới các không gian tên Aspose.Slide và Aspose.Slides.Pptx hiện đã được hợp nhất vào không gian tên duy nhất Aspose.Slides. Vui lòng xem đoạn mã mẫu dưới đây để thêm header footer vào bản trình chiếu trong API Aspose.Slides legacy và làm theo các bước mô tả cách di chuyển sang API hợp nhất mới.
+## **Cách tiếp cận Legacy Aspose.Slides for .NET**
 ```c#
 PresentationEx sourcePres = new PresentationEx();
 
 //Thiết lập thuộc tính hiển thị Header Footer
-sourcePres.UpdateSlideNumberFields = true;
-
-//Cập nhật các trường Ngày Giờ
-sourcePres.UpdateDateTimeFields = true;
-
-//Hiển thị placeholder ngày giờ
-sourcePres.HeaderFooterManager.IsDateTimeVisible = true;
-
-//Hiển thị placeholder chân trang
-sourcePres.HeaderFooterManager.IsFooterVisible = true;
-
-//Hiển thị Số slide
-sourcePres.HeaderFooterManager.IsSlideNumberVisible = true;
-
-//Đặt hiển thị  header footer trên Slide tiêu đề
-sourcePres.HeaderFooterManager.SetVisibilityOnTitleSlide(true);
-
+//Cập nhật các trường Date Time
+//Hiển thị trình giữ chỗ ngày giờ
+//Hiển thị trình giữ chỗ footer
+//Hiển thị số slide
+//Đặt hiển thị header footer trên Slide tiêu đề
 //Ghi bản trình chiếu vào đĩa
 sourcePres.Write("NewSource.pptx");
 ```
 
 ```c#
+using Aspose.Slides;
+
 //Tạo bản trình chiếu
+//Lấy slide đầu tiên
+//Truy cập Header / Footer của slide
+//Đặt hiển thị số trang
+//Đặt hiển thị Footer
+//Đặt hiển thị Header
+//Đặt hiển thị Date Time
+//Đặt định dạng Date Time
+//Đặt văn bản Header
+//Đặt văn bản Footer
+//Ghi bản trình chiếu vào đĩa
 Presentation pres = new Presentation();
 
-//Lấy slide đầu tiên
+//Get first slide
 Slide sld = pres.GetSlideByPosition(1);
 
-//Truy cập Header / Footer của slide
+//Access the Header / Footer of the slide
 HeaderFooter hf = sld.HeaderFooter;
 
-//Đặt hiển thị Số trang
+//Set Page Number Visibility
 hf.PageNumberVisible = true;
 
-//Đặt hiển thị Footer
+//Set Footer Visibility
 hf.FooterVisible = true;
 
-//Đặt hiển thị Header
+//Set Header Visibility
 hf.HeaderVisible = true;
 
-//Đặt hiển thị Ngày Giờ
+//Set Date Time Visibility
 hf.DateTimeVisible = true;
 
-//Đặt định dạng Ngày Giờ
+//Set Date Time format
 hf.DateTimeFormat = DateTimeFormat.DateTime_dMMMMyyyy;
 
-//Đặt văn bản Header
+//Set Header Text
 hf.HeaderText = "Header Text";
 
-//Đặt văn bản Footer
+//Set Footer Text
 hf.FooterText = "Footer Text";
 
-//Ghi bản trình chiếu vào đĩa
+//Write the presentation to the disk
 pres.Write("HeadFoot.ppt");
 ```
 
 
 
-## **Cách tiếp cận mới Aspose.Slides cho .NET 13.x**
+## **Cách tiếp cận Aspose.Slides for .NET 13.x mới**
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation sourcePres = new Presentation())
 {
-    //Thiết lập thuộc tính hiển thị Header Footer
+    //Thiết lập các thuộc tính hiển thị Header Footer
     sourcePres.HeaderFooterManager.SetAllSlideNumbersVisibility(true);
 
-    //Cập nhật các trường Ngày Giờ
+    //Cập nhật các trường Date Time
     sourcePres.HeaderFooterManager.SetAllDateTimesVisibility(true);
 
-    //Hiển thị placeholder ngày giờ
+    //Hiển thị trình giữ chỗ ngày giờ
     sourcePres.HeaderFooterManager.SetAllDateTimesVisibility(true);
 
-    //Hiển thị placeholder chân trang
+    //Hiển thị trình giữ chỗ footer
     sourcePres.HeaderFooterManager.SetAllFootersVisibility(true);
     
-    //Set the  header footer visibility on Title Slide
+    //Đặt hiển thị header footer trên Slide tiêu đề
     sourcePres.HeaderFooterManager.SetVisibilityOnAllTitleSlides(true);
 
     //Ghi bản trình chiếu vào đĩa

@@ -1,5 +1,5 @@
 ---
-title: مدیریت انتقال‌های اسلاید در ارائه‌ها با استفاده از جاوا
+title: مدیریت انتقال اسلایدها در ارائه‌ها با استفاده از جاوا
 linktitle: انتقال اسلاید
 type: docs
 weight: 80
@@ -17,27 +17,29 @@ keywords:
 - ارائه
 - Java
 - Aspose.Slides
-description: "کشف کنید چگونه می‌توانید انتقال‌های اسلاید را در Aspose.Slides برای جاوا سفارشی کنید، با راهنمایی گام به گام برای ارائه‌های PowerPoint و OpenDocument."
+description: "کشف کنید چگونه می‌توانید انتقال اسلایدها را در Aspose.Slides برای جاوا سفارشی کنید، همراه با راهنمای گام‌به‌گام برای ارائه‌های PowerPoint و OpenDocument."
 ---
 ## **بررسی کلی**
 
-این مقاله توضیح می‌دهد که چگونه انتقال اسلایدها را در ارائه‌ها با Aspose.Slides مدیریت کنید. نشان می‌دهد چگونه انواع انتقال را به اسلایدها اعمال کنید، رفتار انتقال را مانند پیشروی با کلیک یا پس از زمان مشخص تنظیم کنید، پیشروی خودکار را بررسی و غیرفعال کنید، از انتقال Morph و انواع آن استفاده کنید و گزینه‌های اثر انتقال را تنظیم کنید. مثال‌ها نشان می‌دهند چگونه یک ارائه را بارگذاری یا ایجاد کنید، تنظیمات انتقال را برای اسلایدهای انتخاب شده اصلاح کنید و نتیجه را به صورت فایل PPTX ذخیره کنید. مقاله همچنین به سؤالات رایج درباره سرعت انتقال، صداهای انتقال، اعمال همان انتقال به چندین اسلاید و بررسی انتقال فعلی روی یک اسلاید پاسخ می‌دهد.
+این مقاله توضیح می‌دهد که چگونه می‌توان انتقال‌های اسلاید در ارائه‌ها را با استفاده از Aspose.Slides مدیریت کرد. نشان می‌دهد چگونه انواع انتقال را به اسلایدها اعمال کنید، رفتار انتقال مانند پیشروی با کلیک یا پس از زمان مشخص را پیکربندی کنید، پیشروی خودکار را بررسی و غیرفعال کنید، از انتقال Morph و انواع آن استفاده کنید و گزینه‌های افکت انتقال را تنظیم کنید. مثال‌ها نحوه بارگذاری یا ایجاد یک ارائه، تغییر تنظیمات انتقال برای اسلایدهای انتخاب شده و ذخیره نتیجه به عنوان فایل PPTX را نشان می‌دهند. مقاله همچنین به سؤالات رایج درباره سرعت انتقال، صداهای انتقال، اعمال همان انتقال برای چندین اسلاید و بررسی انتقال فعلی تنظیم شده بر روی یک اسلاید پاسخ می‌دهد.
 
 ## **افزودن انتقال اسلاید**
-برای ایجاد یک اثر انتقال اسلاید ساده، مراحل زیر را دنبال کنید:
+برای ایجاد یک اثر ساده انتقال اسلاید، مراحل زیر را دنبال کنید:
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation) ایجاد کنید.
-1. یک نوع انتقال اسلاید را از یکی از افکت‌های انتقال ارائه‌شده توسط Aspose.Slides for Java از طریق مقدار enum TransitionType به اسلاید اعمال کنید.
-1. فایل ارائه‌ی اصلاح‌شده را بنویسید.
+1. یک نوع Slide Transition را از یکی از افکت‌های انتقال ارائه‌شده توسط Aspose.Slides برای Java از طریق enum TransitionType به اسلاید اعمال کنید.
+1. فایل ارائه تغییر یافته را بنویسید.
 
 ```java
-// ایجاد یک شی از کلاس Presentation برای بارگذاری فایل ارائه منبع
+import com.aspose.slides.*;
+
+// نمونه‌سازی کلاس Presentation برای بارگذاری فایل ارائه منبع
 Presentation presentation = new Presentation("AccessSlides.pptx");
 try {
-    // اعمال انتقال نوع دایره‌ای بر اسلاید 1
+    // اعمال انتقال نوع دایره‌ای بر روی اسلاید 1
     presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
 
-    // اعمال انتقال نوع شانه‌ای بر اسلاید 2
+    // اعمال انتقال نوع شانه‌ای بر روی اسلاید 2
     presentation.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
 
     // ذخیره ارائه بر روی دیسک
@@ -48,33 +50,35 @@ try {
 ```
 
 ## **افزودن انتقال پیشرفته اسلاید**
-در بخش قبلی فقط یک اثر انتقال ساده بر اسلاید اعمال شد. اکنون برای بهتر و کنترل‌شده‌تر کردن این اثر ساده، مراحل زیر را دنبال کنید:
+در بخش فوق، ما فقط یک اثر ساده انتقال را بر روی اسلاید اعمال کردیم. اکنون برای بهبود و کنترل بهتر این اثر ساده، مراحل زیر را دنبال کنید:
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation) ایجاد کنید.
-1. یک نوع انتقال اسلاید را از یکی از افکت‌های انتقال ارائه‌شده توسط Aspose.Slides for Java به اسلاید اعمال کنید.
-1. می‌توانید انتقال را روی «پیشروی با کلیک»، پس از یک بازه زمانی مشخص یا هر دو تنظیم کنید.
-1. اگر انتقال اسلاید روی «پیشروی با کلیک» فعال باشد، انتقال فقط وقتی که کسی کلیک کند پیش می‌رود. علاوه بر این، اگر ویژگی Advance After Time تنظیم شده باشد، انتقال به‌صورت خودکار پس از گذشت زمان مشخص پیش می‌رود.
-1. ارائه‌ی اصلاح‌شده را به‌عنوان یک فایل ارائه بنویسید.
+1. یک نوع Slide Transition را از یکی از افکت‌های انتقال ارائه‌شده توسط Aspose.Slides برای Java اعمال کنید.
+1. همچنین می‌توانید انتقال را به حالت Advance On Click، پس از یک دوره زمان خاص یا هر دو تنظیم کنید.
+1. اگر انتقال اسلاید برای Advance On Click فعال باشد، انتقال تنها زمانی که کاربر کلیک کند پیش می‌رود. علاوه بر این، اگر ویژگی Advance After Time تنظیم شود، انتقال به طور خودکار پس از گذشت زمان تعیین‌شده پیش می‌رود.
+1. ارائه تغییر یافته را به عنوان یک فایل ارائه بنویسید.
 
 ```java
-// ایجاد یک شی از کلاس Presentation که نمایانگر یک فایل ارائه است
+import com.aspose.slides.*;
+
+// نمونه‌سازی کلاس Presentation که نمایانگر یک فایل ارائه است
 Presentation pres = new Presentation("BetterSlideTransitions.pptx");
 try {
-    // اعمال انتقال نوع دایره‌ای بر اسلاید 1
+    // اعمال انتقال نوع دایره‌ای بر روی اسلاید 1
     pres.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
 
     // تنظیم زمان انتقال به 3 ثانیه
     pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceOnClick(true);
     pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceAfterTime(3000);
 
-    // اعمال انتقال نوع شانه‌ای بر اسلاید 2
+    // اعمال انتقال نوع شانه‌ای بر روی اسلاید 2
     pres.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
     
     // تنظیم زمان انتقال به 5 ثانیه
     pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceOnClick(true);
     pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceAfterTime(5000);
 
-    // اعمال انتقال نوع زوم بر اسلاید 3
+    // اعمال انتقال نوع بزرگ‌نمایی بر روی اسلاید 3
     pres.getSlides().get_Item(2).getSlideShowTransition().setType(TransitionType.Zoom);
     
     // تنظیم زمان انتقال به 7 ثانیه
@@ -89,17 +93,19 @@ try {
 ```
 
 ## **انتقال Morph**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Aspose.Slides for Java اکنون از [Morph Transition](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IMorphTransition) پشتیبانی می‌کند. این‌ها انتقال Morph جدیدی هستند که در PowerPoint 2019 معرفی شد.
+Aspose.Slides برای Java هم‌اکنون از [Morph Transition](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IMorphTransition) پشتیبانی می‌کند. این‌ها انتقال Morph جدیدی هستند که در PowerPoint 2019 معرفی شده‌اند.
 
 {{% /alert %}} 
 
-انتقال Morph به شما امکان می‌دهد حرکت نرم از یک اسلاید به اسلاید بعدی را انیمیشن کنید. این مقاله مفهوم را توضیح می‌دهد و نحوه استفاده از انتقال Morph را نشان می‌دهد. برای استفاده مؤثر از انتقال Morph، نیاز به دو اسلاید دارید که حداقل یک شیء مشترک داشته باشند. ساده‌ترین راه این است که اسلاید را کپی کنید و سپس شیء را در اسلاید دوم به مکان دیگری منتقل کنید.
+انتقال Morph به شما اجازه می‌دهد حرکت صاف از یک اسلاید به اسلاید بعدی را انیمیت کنید. این مقاله مفهوم و نحوه استفاده از انتقال Morph را توضیح می‌دهد. برای استفاده مؤثر از انتقال Morph، به دو اسلاید با حداقل یک شیء مشترک نیاز دارید. ساده‌ترین راه این است که اسلاید را تکثیر کنید و سپس شیء را در اسلاید دوم به مکان دیگری جابجا کنید.
 
-قطعه کد زیر نشان می‌دهد چگونه یک کپی از اسلاید با متنی به ارائه اضافه کنید و انتقال [morph type](https://reference.aspose.com/slides/fa/java/com.aspose.slides/TransitionType) را به اسلاید دوم اختصاص دهید.
+قطعه کد زیر نشان می‌دهد چگونه یک کلون از اسلاید با برخی متن را به ارائه اضافه کنید و یک انتقال از نوع [morph type](https://reference.aspose.com/slides/fa/java/com.aspose.slides/TransitionType) را به اسلاید دوم اختصاص دهید.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     AutoShape autoshape = (AutoShape)presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
@@ -123,17 +129,19 @@ finally {
 ```
 
 ## **انواع انتقال Morph**
-enum جدید [TransitionMorphType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/TransitionMorphType) اضافه شده است. این enum انواع مختلف انتقال اسلاید Morph را نمایندگی می‌کند.
+enum جدید [TransitionMorphType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/TransitionMorphType) اضافه شده است. این enum نمایانگر انواع مختلف انتقال اسلاید Morph است.
 
 enum TransitionMorphType سه عضو دارد:
 
-- ByObject: انتقال Morph با در نظر گرفتن شکل‌ها به‌عنوان اشیای جداپذیر انجام می‌شود.
-- ByWord: انتقال Morph با انتقال متن به‌صورت کلمات (در صورت امکان) انجام می‌شود.
-- ByChar: انتقال Morph با انتقال متن به‌صورت کاراکترها (در صورت امکان) انجام می‌شود.
+- ByObject: انتقال Morph با در نظر گرفتن اشکال به عنوان اشیای غیرقابل تقسیم انجام می‌شود.
+- ByWord: انتقال Morph به‌صورت انتقال متن به‌صورت کلمات انجام می‌شود، در صورت امکان.
+- ByChar: انتقال Morph به‌صورت انتقال متن به‌صورت کاراکترها انجام می‌شود، در صورت امکان.
 
 قطعه کد زیر نشان می‌دهد چگونه انتقال Morph را به اسلاید اختصاص دهید و نوع Morph را تغییر دهید:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Morph);
@@ -144,18 +152,20 @@ try {
 }
 ```
 
-## **تنظیم اثرات انتقال**
-Aspose.Slides for Java از تنظیم اثرهای انتقال مانند از سیاه، از چپ، از راست و غیره پشتیبانی می‌کند. برای تنظیم اثر انتقال، مراحل زیر را دنبال کنید:
+## **تنظیم افکت‌های انتقال**
+Aspose.Slides برای Java از تنظیم افکت‌های انتقال مانند از سیاه، از چپ، از راست و غیره پشتیبانی می‌کند. برای تنظیم افکت انتقال، مراحل زیر را دنبال کنید:
 
 - یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/Presentation) ایجاد کنید.
 - مرجع اسلاید را دریافت کنید.
-- اثر انتقال را تنظیم کنید.
-- ارائه را به‌صورت [PPTX](https://docs.fileformat.com/presentation/pptx/) فایل بنویسید.
+- افکت انتقال را تنظیم کنید.
+- ارائه را به عنوان یک فایل [PPTX](https://docs.fileformat.com/presentation/pptx/) نویسید.
 
-در مثال زیر، ما اثرهای انتقال را تنظیم کرده‌ایم.
+در مثال زیر، ما افکت‌های انتقال را تنظیم کرده‌ایم.
 
 ```java
-// ایجاد یک نمونه از کلاس Presentation
+import com.aspose.slides.*;
+
+// یک نمونه از کلاس Presentation ایجاد کنید
 Presentation presentation = new Presentation("AccessSlides.pptx");
 try {
     // تنظیم اثر
@@ -169,20 +179,20 @@ try {
 }
 ```
 
-## **پرسش‌های متداول**
+## **سؤالات متداول**
 
-**آیا می‌توانم سرعت پخش یک انتقال اسلاید را کنترل کنم؟**
+### آیا می‌توانم سرعت پخش انتقال اسلاید را کنترل کنم؟
 
-بله. با استفاده از تنظیم [TransitionSpeed](https://reference.aspose.com/slides/fa/java/com.aspose.slides/transitionspeed/) سرعت انتقال را تنظیم کنید (مثلاً آهستہ/متوسط/سریع) با متد [setSpeed](https://reference.aspose.com/slides/fa/java/com.aspose.slides/slideshowtransition/#setSpeed-int-).
+بله. سرعت انتقال را با استفاده از تنظیم [TransitionSpeed](https://reference.aspose.com/slides/fa/java/com.aspose.slides/transitionspeed/) (مثلاً slow/medium/fast) تنظیم کنید.
 
-**آیا می‌توانم صدا به یک انتقال وصل کنم و آن را حلقه‌دار کنم؟**
+### آیا می‌توانم صدا را به انتقال وصل کنم و آن را حلقه‌دار کنم؟
 
-بله. می‌توانید صدا را برای انتقال جاسازی کنید و رفتار آن را از طریق تنظیماتی مانند حالت صدا و حلقه‌دار شدن کنترل کنید (مثلاً [setSound](https://reference.aspose.com/slides/fa/java/com.aspose.slides/slideshowtransition/#setSound-com.aspose.slides.IAudio-)، [setSoundMode](https://reference.aspose.com/slides/fa/java/com.aspose.slides/slideshowtransition/#setSoundMode-int-)، [setSoundLoop](https://reference.aspose.com/slides/fa/java/com.aspose.slides/slideshowtransition/#setSoundLoop-boolean-)، به‌علاوهٔ متادیتاهایی مانند [setSoundIsBuiltIn](https://reference.aspose.com/slides/fa/java/com.aspose.slides/slideshowtransition/#setSoundIsBuiltIn-boolean-) و [setSoundName](https://reference.aspose.com/slides/fa/java/com.aspose.slides/slideshowtransition/#setSoundName-java.lang.String-)).
+بله. می‌توانید صدا را برای انتقال جاسازی کنید و رفتار را از طریق تنظیماتی مانند حالت صدا و حلقه‌دار شدن (مثلاً [setSound](https://reference.aspose.com/slides/fa/java/com.aspose.slides/slideshowtransition/#setSound-com.aspose.slides.IAudio-)، [setSoundMode](https://reference.aspose.com/slides/fa/java/com.aspose.slides/slideshowtransition/#setSoundMode-int-)، [setSoundLoop](https://reference.aspose.com/slides/fa/java/com.aspose.slides/slideshowtransition/#setSoundLoop-boolean-)، به‌اضافه metadataهایی مثل [setSoundIsBuiltIn](httpsuilder.aspose.com/slides/fa/java/com.aspose.slides/slideshowtransition/#setSoundIsBuiltIn-boolean-) و [setSoundName](https://reference.aspose.com/slides/fa/java/com.aspose.slides/slideshowtransition/#setSoundName-java.lang.String-)) انجام دهید.
 
-**سریع‌ترین روش برای اعمال یک انتقال یکسان به تمام اسلایدها چیست؟**
+### سریع‌ترین روش برای اعمال یکسان همان انتقال به تمام اسلایدها چیست؟
 
-نوع انتقال دلخواه را به تنظیمات انتقال هر اسلاید اعمال کنید؛ انتقال‌ها به‌صورت جداگانه برای هر اسلاید ذخیره می‌شوند، بنابراین اعمال همان نوع به تمام اسلایدها نتیجه‌ی یکدستی می‌دهد.
+نوع انتقال موردنظر را بر روی تنظیمات انتقال هر اسلاید پیکربندی کنید؛ انتقال‌ها به‌صورت جداگانه در هر اسلاید ذخیره می‌شوند، بنابراین اعمال یک نوع یکسان بر تمام اسلایدها نتیجهٔ یکدست خواهد داد.
 
-**چگونه می‌توانم بررسی کنم که چه انتقالی در حال حاضر روی یک اسلاید تنظیم شده است؟**
+### چگونه می‌توانم بررسی کنم که در حال حاضر چه انتقالی بر روی یک اسلاید تنظیم شده است؟
 
-تنظیمات انتقال اسلاید را بررسی کنید ([transition settings](https://reference.aspose.com/slides/fa/java/com.aspose.slides/baseslide/#getSlideShowTransition--)) و نوع انتقال آن را بخوانید ([transition type](https://reference.aspose.com/slides/fa/java/com.aspose.slides/slideshowtransition/#setType-int-))؛ این مقدار دقیقاً نشان می‌دهد که کدام اثر اعمال شده است.
+تنظیمات انتقال اسلاید را بررسی کنید و نوع انتقال را با خواندن [transition type](https://reference.aspose.com/slides/fa/java/com.aspose.slides/slideshowtransition/#setType-int-) بخوانید؛ این مقدار دقیقاً نشان می‌دهد چه اثری اعمال شده است.

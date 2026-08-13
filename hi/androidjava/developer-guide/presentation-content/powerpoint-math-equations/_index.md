@@ -1,54 +1,56 @@
 ---
-title: Android पर PowerPoint प्रस्तुतियों में गणितीय समीकरण जोड़ें
-linktitle: PowerPoint गणितीय समीकरण
+title: Android पर PowerPoint प्रस्तुतियों में गणित समीकरण जोड़ें
+linktitle: PowerPoint गणित समीकरण
 type: docs
 weight: 80
 url: /hi/androidjava/powerpoint-math-equations/
 keywords:
-- गणितीय समीकरण
-- गणितीय प्रतीक
-- गणितीय सूत्र
-- गणितीय पाठ
-- गणितीय समीकरण जोड़ें
-- गणितीय प्रतीक जोड़ें
-- गणितीय सूत्र जोड़ें
-- गणितीय पाठ जोड़ें
+- गणित समीकरण
+- गणित चिन्ह
+- गणित सूत्र
+- गणित पाठ
+- गणित समीकरण जोड़ें
+- गणित चिन्ह जोड़ें
+- गणित सूत्र जोड़ें
+- गणित पाठ जोड़ें
 - PowerPoint
 - प्रस्तुति
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android के साथ PowerPoint PPT और PPTX में गणितीय समीकरण सम्मिलित और संपादित करें, OMML का समर्थन, स्वरूपण नियंत्रण, और स्पष्ट Java कोड उदाहरण प्रदान करता है।"
+description: "Aspose.Slides for Android के साथ PowerPoint PPT और PPTX में गणित समीकरण सम्मिलित और संपादित करें, OMML का समर्थन, स्वरूपण नियंत्रण, और स्पष्ट Java कोड नमूने।"
 ---
-## **अवलोकन**
+## **सारांश**
 
-PowerPoint समीकरणों को Office Math Markup Language (OMML) के रूप में संग्रहीत करता है। Aspose.Slides for Android via Java के साथ, आप समान प्रकार की गणितीय सामग्री प्रोग्रामmatically बना सकते हैं: भिन्न, मूल, फ़ंक्शन, सीमाएँ, N-ary ऑपरेटर, मैट्रिक्स, एरे, और स्वरूपित गणित ब्लॉक्स।
+PowerPoint समीकरणों को Office Math Markup Language (OMML) में संग्रहीत करता है। Aspose.Slides for Android via Java के साथ, आप प्रोग्रामmatically समान प्रकार की गणितीय सामग्री बना सकते हैं: भिन्न, रेडिकल, फ़ंक्शन, सीमाएँ, N-ary ऑपरेटर, मैट्रिक्स, एरे, और स्वरूपित गणित ब्लॉक।
 
-PowerPoint में, उपयोगकर्ता सामान्यतः समीकरण **Insert > Equation** से जोड़ते हैं:
+PowerPoint में, उपयोगकर्ता आमतौर पर **Insert>Equation** से समीकरण जोड़ते हैं:
 
 ![PowerPoint Insert टैब जिसमें Equation कमांड चयनित है](powerpoint-math-equations_1.png)
 
-परिणाम स्लाइड पर संपादन योग्य गणित टेक्स्ट होता है:
+परिणाम स्लाइड पर संपादन योग्य गणित पाठ होता है:
 
-![PowerPoint स्लाइड जिसमें संपादन योग्य गणित समीकरण है](powerpoint-math-equations_2.png)
+![एक PowerPoint स्लाइड जिसमें संपादन योग्य गणित समीकरण है](powerpoint-math-equations_2.png)
 
-Aspose.Slides उस गणित टेक्स्ट को तीन मुख्य वस्तुओं के माध्यम से बनाता है:
+Aspose.Slides इस गणित पाठ को तीन मुख्य वस्तुओं के माध्यम से बनाता है:
 
-- एक गणितीय आकार, जो [addMathShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ishapecollection/) द्वारा बनाया गया है, वह आकार है जो समीकरण को सम्मिलित करता है।
-- [MathPortion](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/mathportion/) आकार के टेक्स्ट फ्रेम के भीतर गणितीय सामग्री संग्रहीत करता है।
-- [MathParagraph](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/mathparagraph/) एक या अधिक [MathBlock](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/mathblock/) वस्तुओं को सम्मिलित करता है।
+- एक गणितीय आकार, जिसे [addMathShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ishapecollection/) से बनाया गया है, वह आकार है जिसमें समीकरण शामिल है।
+- [MathPortion](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/mathportion/) आकार के टेक्स्ट फ़्रेम के भीतर गणित सामग्री संग्रहीत करता है।
+- [MathParagraph](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/mathparagraph/) एक या अधिक [MathBlock](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/mathblock/) वस्तुओं को रखता है।
 
-नीचे के अधिकांश उदाहरण [MathematicalText](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/mathematicaltext/) और [IMathElement](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imathelement/) की fluent विधियों का उपयोग करते हैं ताकि कोड छोटा और पठनीय रहे।
+नीचे अधिकांश उदाहरण [MathematicalText](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/mathematicaltext/) और [IMathElement](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imathelement/) की फ़्लूएंट मेथड्स का उपयोग करते हैं ताकि कोड छोटा और पठनीय रहे।
 
 MathML निर्यात परिदृश्यों के लिए, देखें [Export Math Equations from Presentations on Android](/slides/hi/androidjava/exporting-math-equations/)।
 
-## **एक समीकरण बनाएँ**
+## **समीकरण बनाएं**
 
-c वर्ग a वर्ग प्लस b वर्ग के बराबर
+यह उदाहरण एक गणितीय आकार बनाता है और पाइथागोरस प्रमेय जोड़ता है:
 
-![c² = a² + b²](powerpoint-math-equations_3.png)
+![समीकरण c² = a² + b²](powerpoint-math-equations_3.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -72,17 +74,21 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-`addMathShape` एक आकार बनाता है जिसमें पहले से ही एक गणित पैराग्राफ़ होता है। पहला `MathPortion` प्राप्त करें, उसका `MathParagraph` ले और उसमें गणित ब्लॉक्स या गणित तत्व जोड़ें।
+{{% alert color="info" %}}
+
+`addMathShape` एक आकार बनाता है जिसमें पहले से ही एक गणित पैराग्राफ होता है। पहला `MathPortion` एक्सेस करें, उसका `MathParagraph` प्राप्त करें, और उसमें गणित ब्लॉक या गणित तत्व जोड़ें।
+
 {{% /alert %}}
 
 ## **भिन्न जोड़ें**
 
-`divide` का उपयोग करके एक भिन्न बनाएं। आप एक भिन्न शैली [MathFractionTypes](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/mathfractiontypes/) से चुन सकते हैं।
+`divide` का उपयोग करके एक भिन्न बनाएं। आप [MathFractionTypes](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/mathfractiontypes/) से एक भिन्न शैली चुन सकते हैं।
 
-![एक तिरछा गणितीय भिन्न जिसमें एक को x से विभाजित दिखाया गया है](powerpoint-math-equations_4.png)
+![एक तिरछा गणितीय भिन्न जिसमें 1 को x से विभाजित दिखाया गया है](powerpoint-math-equations_4.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -102,19 +108,23 @@ try {
 }
 ```
 
-एक स्टैक्ड भिन्न के लिए, `MathFractionTypes.Bar` का प्रयोग करें:
+स्टैक्ड भिन्न के लिए, `MathFractionTypes.Bar` का उपयोग करें:
 
 ```java
+import com.aspose.slides.*;
+
 IMathFraction stackedFraction = new MathematicalText("x + 1").divide("y - 1", MathFractionTypes.Bar);
 ```
 
-## **मूल जोड़ें**
+## **रेडिकल जोड़ें**
 
-`radical` का उपयोग करके वर्गमूल, घनमूल या अन्य मूल बनाएं। वर्तमान तत्व आधार बन जाता है, और तर्क डिग्री बन जाता है।
+`radical` का उपयोग करके वर्गमूल, घनमूल या अन्य मूल बनाएं। मौजूदा तत्व आधार बन जाता है, और तर्क डिग्री बन जाता है।
 
-![एक n‑थ मूल अभिव्यक्ति जिसमें x मूल संकेत के नीचे है](powerpoint-math-equations_5.png)
+![एक n-था मूल रेडिकल अभिव्यक्ति जिसमें x रेडिकल संकेत के नीचे है](powerpoint-math-equations_5.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -136,11 +146,13 @@ try {
 
 ## **फ़ंक्शन और सीमाएँ जोड़ें**
 
-`asArgumentOfFunction` या `function` का उपयोग `sin(x)`, `log(x)` जैसी फ़ंक्शनों या कस्टम फ़ंक्शन नामों के लिए करें। सीमाओं के लिए, `lim` को एक [MathLimit](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/mathlimit/) में रखें या `setLowerLimit` प्रयोग करें।
+`asArgumentOfFunction` या `function` का उपयोग करके `sin(x)`, `log(x)` जैसे फ़ंक्शन या कस्टम फ़ंक्शन नाम जोड़ें। सीमाओं के लिए, `lim` को एक [MathLimit](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/mathlimit/) में रखें या `setLowerLimit` का उपयोग करें।
 
-![x की सीमा जब x अनंत की ओर बढ़ रहा हो](powerpoint-math-equations_8.png)
+![जब x अनंत की ओर जाता है तब x की सीमा](powerpoint-math-equations_8.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -161,19 +173,23 @@ try {
 }
 ```
 
-कस्टम फ़ंक्शन नाम के लिए, फ़ंक्शन नाम को वर्तमान तत्व बनाएं:
+कस्टम फ़ंक्शन नाम के लिए, फ़ंक्शन नाम को मौजूदा तत्व बनाएं:
 
 ```java
+import com.aspose.slides.*;
+
 IMathFunction customFunction = new MathematicalText("f").function("x + 1");
 ```
 
-## **N-ary ऑपरेटर और इंटेग्रल जोड़ें**
+## **N-ary ऑपरेटर और इंटीग्रल जोड़ें**
 
-सम्पूर्ण, संघ, प्रतिच्छेद और अन्य बड़े ऑपरेटरों के लिए `nary` का उपयोग करें। इंटेग्रल के लिए `integral` का उपयोग करें। दोनों विधियों से आप निचली और ऊपरी सीमाएँ निर्धारित कर सकते हैं।
+`summations`, `unions`, `intersections` आदि बड़े ऑपरेटरों के लिए `nary` का उपयोग करें। इंटीग्रल के लिए `integral` का प्रयोग करें। दोनों मेथड आपको निचली और ऊपरी सीमाएँ सेट करने देते हैं।
 
-![निचली और ऊपरी सीमाओं के साथ एक योग](powerpoint-math-equations_7.png)
+![निचली और ऊपरी सीमाओं के साथ एक योगन (summation)](powerpoint-math-equations_7.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -196,22 +212,26 @@ try {
 }
 ```
 
-N-ary ऑपरेटर बड़े ऑपरेटर होते हैं जिनमें वैकल्पिक सीमाएँ हो सकती हैं। `+`, `-`, `=` जैसे सरल ऑपरेटर आमतौर पर `MathematicalText` के रूप में जोड़े जाते हैं और अभिव्यक्ति में सम्मिलित होते हैं।
+N-ary ऑपरेटर बड़े ऑपरेटरों के लिए होते हैं जिनमें वैकल्पिक सीमाएँ हो सकती हैं। सरल ऑपरेटर जैसे `+`, `-`, और `=` आमतौर पर `MathematicalText` के रूप में जोड़े जाते हैं और अभिव्यक्ति में सम्मिलित होते हैं।
 
-इंटेग्रल के लिए, `integral` का प्रयोग करें:
+इंटीग्रल के लिए, `integral` का उपयोग करें:
 
 ```java
+import com.aspose.slides.*;
+
 IMathBlock integralBase = new MathematicalText("x").join(new MathematicalText("dx").toBox());
 IMathNaryOperator integral = integralBase.integral(MathIntegralTypes.Simple, "0", "1");
 ```
 
 ## **मैट्रिक्स जोड़ें**
 
-पंक्तियों और स्तंभों के लिए [MathMatrix](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/mathmatrix/) का उपयोग करें। मैट्रिक्स में डिफ़ॉल्ट रूप से कोष्ठक नहीं होते, इसलिए जब आपको कोष्ठक, ब्रैकेट या ब्रेसेस चाहिए तो मैट्रिक्स को उन में घेरें।
+पंक्तियों और स्तंभों के लिए [MathMatrix](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/mathmatrix/) का उपयोग करें। डिफ़ॉल्ट रूप से मैट्रिक्स में कोष्ठक शामिल नहीं होते, इसलिए जब आपको कोष्ठक, ब्रैकेट या ब्रेस चाहिए तो मैट्रिक्स को घेरें।
 
-![दो पंक्तियों वाला गणितीय मैट्रिक्स जिसमें एक खाली सेल है](powerpoint-math-equations_10.png)
+![एक दो-पंक्ति गणितीय मैट्रिक्स जिसमें एक खाली सेल है](powerpoint-math-equations_10.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -237,11 +257,13 @@ try {
 
 ## **समीकरण एरे जोड़ें**
 
-जब आपको संरेखित समीकरण या अभिव्यक्तियों की ऊर्ध्वाधर स्टैक चाहिए, तो `toMathArray` का उपयोग करें।
+संरेखित समीकरण या ऊर्ध्वाधर अभिव्यक्तियों के स्टैक की आवश्यकता होने पर `toMathArray` का उपयोग करें।
 
-![ऊर्ध्वाधर गणितीय एरे जिसमें x ऊपर y है](powerpoint-math-equations_11.png)
+![एक ऊर्ध्वाधर गणित एरे जिसमें x ऊपर y है](powerpoint-math-equations_11.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -264,11 +286,13 @@ try {
 
 ## **त्रिकोणमितीय फ़ंक्शन जोड़ें**
 
-जब तर्क वर्तमान तत्व हो और फ़ंक्शन नाम ज्ञात हो, तो `asArgumentOfFunction` का उपयोग करें।
+जब तर्क मौजूदा तत्व हो और फ़ंक्शन नाम ज्ञात हो, तो `asArgumentOfFunction` का उपयोग करें।
 
-![cos फ़ंक्शन को 2x पर लागू किया गया](powerpoint-math-equations_6.png)
+![त्रिकोणमितीय फ़ंक्शन cos को 2x पर लागू किया गया है](powerpoint-math-equations_6.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -290,11 +314,13 @@ try {
 
 ## **सबस्क्रिप्ट और सुपरस्क्रिप्ट जोड़ें**
 
-इंडेक्स और घातों के लिए सबस्क्रिप्ट और सुपरस्क्रिप्ट हेल्पर का उपयोग करें। जब इंडेक्स बेस के बाएँ पक्ष पर दिखना चाहिए, तो `setSubSuperscriptOnTheLeft` का प्रयोग करें।
+इंडेक्स और पावर के लिए सबस्क्रिप्ट और सुपरस्क्रिप्ट हेल्पर्स का उपयोग करें। जब इंडेक्स बेस के बाएँ पक्ष पर दिखना हो, तो `setSubSuperscriptOnTheLeft` का उपयोग करें।
 
-![बड़ी Y बाएँ‑साइड सबस्क्रिप्ट 1 और सुपरस्क्रिप्ट n के साथ](powerpoint-math-equations_9.png)
+![एक बड़ा Y जिसमें बाएँ-साइड सबस्क्रिप्ट 1 और सुपरस्क्रिप्ट n है](powerpoint-math-equations_9.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -316,11 +342,13 @@ try {
 
 ## **डिलिमिटर जोड़ें**
 
-एक अभिव्यक्ति को डिलिमिटर के भीतर रखने के लिए `enclose` का उपयोग करें। कई तत्वों वाली डिलिमिटर अभिव्यक्तियों के लिए आप एक विभाजक अक्षर भी सेट कर सकते हैं।
+एक अभिव्यक्ति को डिलिमिटर के अंदर रखने के लिए `enclose` का उपयोग करें। आप कई तत्वों वाली डिलिमिटर अभिव्यक्तियों के लिए विभाजक अक्षर भी सेट कर सकते हैं।
 
-![एक डिलिमिटर अभिव्यक्ति जिसमें x, y, और z वर्टिकल बार से अलग हैं](powerpoint-math-equations_13.png)
+![x, y, और z को लंबवत बार द्वारा अलग किए हुए एक डिलिमिटर अभिव्यक्ति](powerpoint-math-equations_13.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -345,11 +373,13 @@ try {
 
 ## **बॉर्डर बॉक्स जोड़ें**
 
-जब स्वयं समीकरण को फ्रेम किया जाना हो, तो `toBorderBox` का उपयोग करें।
+जब समीकरण को स्वयं फ्रेम किया जाना हो, तो `toBorderBox` का उपयोग करें।
 
-![एक बॉक्सित समीकरण जिसमें a² = b² + c² दिख रहा है](powerpoint-math-equations_12.png)
+![एक बॉक्स्ड समीकरण जिसमें a² = b² + c² दिखाया गया है](powerpoint-math-equations_12.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -374,13 +404,15 @@ try {
 }
 ```
 
-## **टर्म समूहित करें**
+## **टर्म्स को समूहित करें**
 
-एक समूहिंग चर को अभिव्यक्ति के ऊपर या नीचे रखने के लिए `group` का उपयोग करें। समूहित टर्म को लेबल करने हेतु एक सीमा जोड़ें।
+एक अभिव्यक्ति के ऊपर या नीचे समूहित चरित्र रखने के लिए `group` का उपयोग करें। समूहित टर्म्स को लेबल करने के लिए एक सीमा जोड़ें।
 
-![x + y अभिव्यक्ति को लेबल any text के साथ समूहित किया गया](powerpoint-math-equations_15.png)
+![x + y अभिव्यक्ति को नीचे किसी भी पाठ के लेबल के साथ समूहित किया गया है](powerpoint-math-equations_15.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -403,11 +435,13 @@ try {
 
 ## **गणित तत्व स्वरूपित करें**
 
-फ़ॉर्मेटिंग हेल्पर केवल तब उपयोग करें जब वह सूत्र को स्पष्ट करे। उदाहरण के लिए, `overbar` एक गणितीय तत्व के ऊपर बार रखता है।
+फ़ॉर्मेटिंग हेल्पर्स केवल तब उपयोग करें जब वे सूत्र को स्पष्ट बनाते हों। उदाहरण के लिए, `overbar` एक गणित तत्व के ऊपर बार रखता है।
 
-![ABC अभिव्यक्ति के ऊपर ओवरबार](powerpoint-math-equations_14.png)
+![ABC गणितीय अभिव्यक्ति के ऊपर ओवरबार के साथ](powerpoint-math-equations_14.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -430,26 +464,26 @@ try {
 
 | कार्य | मुख्य API |
 | --- | --- |
-| गणित टेक्स्ट बनाएं | [MathematicalText](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/mathematicaltext/) |
-| तत्वों को मिलाएँ | [IMathElement.join](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imathelement/) |
+| गणितीय पाठ बनाएं | [MathematicalText](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/mathematicaltext/) |
+| तत्वों को मिलाएं | [IMathElement.join](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imathelement/) |
 | भिन्न बनाएं | [IMathElement.divide](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imathelement/) |
 | सुपरस्क्रिप्ट या सबस्क्रिप्ट जोड़ें | [setSuperscript](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imathelement/), [setSubscript](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imathelement/) |
 | फ़ंक्शन जोड़ें | [function](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imathelement/), [asArgumentOfFunction](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imathelement/) |
-| मूल जोड़ें | [IMathElement.radical](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imathelement/) |
+| रेडिकल जोड़ें | [IMathElement.radical](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imathelement/) |
 | सीमाएँ जोड़ें | [setLowerLimit](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imathelement/), [setUpperLimit](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imathelement/) |
-| बाएँ‑पक्षीय स्क्रिप्ट जोड़ें | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imathelement/) |
-| योग और इंटेग्रल जोड़ें | [nary](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imathelement/), [integral](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imathelement/) |
+| बाएँ‑साइड स्क्रिप्ट जोड़ें | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imathelement/) |
+| योग और इंटीग्रल जोड़ें | [nary](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imathelement/), [integral](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imathelement/) |
 | मैट्रिक्स जोड़ें | [MathMatrix](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/mathmatrix/) |
 | समीकरण एरे जोड़ें | [toMathArray](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imathelement/) |
 | डिलिमिटर जोड़ें | [enclose](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imathelement/) |
 | बार और बॉर्डर जोड़ें | [overbar](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imathelement/), [toBorderBox](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imathelement/) |
-| टर्म समूहित करें | [group](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imathelement/) |
+| टर्म्स को समूहित करें | [group](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imathelement/) |
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
 **क्या मैं मौजूदा PowerPoint समीकरण को संपादित कर सकता हूँ?**
 
-हां। प्रस्तुति खोलें, उस आकार को खोजें जिसमें `MathPortion` हो, उसका `MathParagraph` प्राप्त करें, और उस पैराग्राफ़ में गणित ब्लॉकों को अपडेट करें।
+हां। प्रस्तुति खोलें, उस आकार को खोजें जिसमें `MathPortion` है, उसका `MathParagraph` प्राप्त करें, और उस पैराग्राफ में गणित ब्लॉक को अपडेट करें।
 
 **क्या समीकरण संपादन योग्य PowerPoint गणित के रूप में सहेजे जाते हैं?**
 
@@ -457,4 +491,4 @@ try {
 
 **क्या मैं समीकरणों को LaTeX में निर्यात कर सकता हूँ?**
 
-Aspose.Slides गणितीय समीकरणों को MathML में निर्यात करता है। यदि आपको LaTeX चाहिए, तो पहले MathML में निर्यात करें और फिर ऐसी टूल का उपयोग करके MathML को आपके लक्ष्य LaTeX डायलैक्ट में परिवर्तित करें।
+हां। समीकरण के [IMathParagraph](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imathparagraph/) को उसके [IMathPortion](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imathportion/) से प्राप्त करें, और सीधे निर्यात करने के लिए [IMathParagraph.toLatex](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imathparagraph/#toLatex--) को कॉल करें। पूर्ण उदाहरण के लिए, देखें [Export Math Equations from Presentations in Android via Java](/slides/hi/androidjava/exporting-math-equations/#export-math-equations-to-latex)।

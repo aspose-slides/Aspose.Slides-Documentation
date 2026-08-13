@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides para .NET
+title: Aspose.Slides for .NET
 second_title: Aspose.Slides for .NET
 type: docs
 weight: 10
@@ -16,11 +16,11 @@ keywords:
 description: Aspose.Slides for .NET é uma API de gerenciamento do Microsoft PowerPoint® que permite que aplicações .NET leiam e escrevam documentos PowerPoint® sem usar o Microsoft PowerPoint®.
 is_root: true
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 **Bem-vindo ao Aspose.Slides for .NET**
 
-![Logotipo do Produto Aspose.Slides for .NET](home_1.png)
+![Aspose.Slides for .NET Product Logo](home_1.png)
 
 Aspose.Slides for .NET é uma API de gerenciamento do Microsoft PowerPoint® que permite que aplicações .NET leiam e escrevam documentos PowerPoint® sem usar o Microsoft PowerPoint®.
 
@@ -37,11 +37,11 @@ Estes são links para recursos úteis:
 - [Documentação Online do Aspose.Slides for .NET](/slides/pt/net/)
 - [Recursos do Aspose.Slides for .NET](/slides/pt/net/features-overview/)
 - [Limitações do Aspose.Slides for .NET](/slides/pt/net/known-issues/)
-- [Notas de Versão do Aspose.Slides for .NET](https://releases.aspose.com/slides/pt/net/release-notes/)
+- [Notas de Lançamento do Aspose.Slides for .NET](https://releases.aspose.com/slides/pt/net/release-notes/)
 - [Página do Produto Aspose.Slides for .NET](https://products.aspose.com/slides/pt/net/)
 - [Baixar Aspose.Slides for .NET](https://releases.aspose.com/slides/pt/net/)
-- [Instalar o Pacote NuGet Aspose.Slides for .NET](https://www.nuget.org/packages/Aspose.Slides.NET/)
-- [Guia de Referência da API Aspose.Slides for .NET](https://reference.aspose.com/slides/pt/net)
+- [Instalar Pacote NuGet do Aspose.Slides for .NET](https://www.nuget.org/packages/Aspose.Slides.NET/)
+- [Guia de Referência da API do Aspose.Slides for .NET](https://reference.aspose.com/slides/pt/net)
 - [Baixar Exemplos de um Repositório GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET)
 - [Fórum de Suporte Gratuito do Aspose.Slides for .NET](https://forum.aspose.com/c/slides/pt/11)
 - [Helpdesk de Suporte Pago do Aspose.Slides for .NET](https://helpdesk.aspose.com/)

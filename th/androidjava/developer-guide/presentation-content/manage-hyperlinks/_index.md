@@ -1,6 +1,6 @@
 ---
-title: "จัดการ Hyperlink ของงานนำเสนอบน Android"
-linktitle: "จัดการ Hyperlink"
+title: จัดการ Hyperlink ของการนำเสนอบน Android
+linktitle: จัดการ Hyperlink
 type: docs
 weight: 20
 url: /th/androidjava/manage-hyperlinks/
@@ -16,35 +16,37 @@ keywords:
 - Hyperlink รูปร่าง
 - Hyperlink รูปภาพ
 - Hyperlink วิดีโอ
-- Hyperlink ที่เปลี่ยนแปลงได้
+- Hyperlink ที่แก้ไขได้
 - PowerPoint
 - OpenDocument
-- งานนำเสนอ
+- การนำเสนอ
 - Android
 - Java
 - Aspose.Slides
-description: "จัดการ Hyperlink อย่างง่ายดายในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ Android ผ่าน Java—เพิ่มความโต้ตอบและกระบวนการทำงานในเวลาเพียงไม่กี่นาที."
+description: "จัดการ Hyperlink ในการนำเสนอ PowerPoint และ OpenDocument อย่างง่ายดายด้วย Aspose.Slides สำหรับ Android ผ่าน Java — เพิ่มการโต้ตอบและกระบวนการทำงานในเวลาไม่กี่นาที."
 ---
 ## **บทนำ**
 
-Hyperlink คือการอ้างอิงถึงวัตถุหรือข้อมูล หรือสถานที่ในบางอย่าง ซึ่งเป็น Hyperlink ที่พบบ่อยในงานนำเสนอ PowerPoint:
+Hyperlink คือการอ้างอิงถึงวัตถุหรือข้อมูลหรือสถานที่ในบางอย่าง ซึ่งเป็น Hyperlink ที่พบทั่วไปในงานนำเสนอ PowerPoint:
 
-* ลิงก์ไปยังเว็บไซต์ในข้อความ, รูปร่าง, หรือสื่อ
+* ลิงก์ไปยังเว็บไซต์ภายในข้อความ, รูปร่าง หรือสื่อ
 * ลิงก์ไปยังสไลด์
 
-Aspose.Slides for Android via Java ช่วยให้คุณทำงานหลายอย่างที่เกี่ยวกับ Hyperlink ในการนำเสนอได้
+Aspose.Slides for Android ผ่าน Java ช่วยให้คุณทำงานหลายอย่างที่เกี่ยวกับ Hyperlink ในงานนำเสนอได้
 
-{{% alert color="primary" %}} 
-คุณอาจต้องการตรวจสอบ Aspose แบบง่าย, [เครื่องมือแก้ไข PowerPoint ออนไลน์ฟรี.](https://products.aspose.app/slides/th/editor)
+{{% alert color="info" %}} 
+คุณอาจต้องการลองดู Aspose อย่างง่าย, [ตัวแก้ไข PowerPoint ออนไลน์ฟรี.](https://products.aspose.app/slides/th/editor)
 {{% /alert %}} 
 
-## **เพิ่ม Hyperlink URL**
+## **เพิ่ม URL Hyperlink**
 
-### **เพิ่ม Hyperlink URL ให้กับข้อความ**
+### **เพิ่ม URL Hyperlink ไปยังข้อความ**
 
-โค้ด Java นี้แสดงวิธีเพิ่ม Hyperlink เว็บไซต์ให้กับข้อความ:
+โค้ด Java นี้แสดงวิธีการเพิ่ม Hyperlink ไปยังเว็บไซต์ในข้อความ:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
 	IAutoShape shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -61,11 +63,13 @@ try {
 }
 ```
 
-### **เพิ่ม Hyperlink URL ให้กับรูปร่างหรือเฟรม**
+### **เพิ่ม URL Hyperlink ไปยังรูปร่างหรือกรอบ**
 
-ตัวอย่างโค้ด Java นี้แสดงวิธีเพิ่ม Hyperlink เว็บไซต์ให้กับรูปร่าง:
+โค้ดตัวอย่างใน Java นี้แสดงวิธีการเพิ่ม Hyperlink ไปยังเว็บไซต์ในรูปร่าง:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -79,39 +83,45 @@ try {
 }
 ```
 
-### **เพิ่ม Hyperlink URL ให้กับสื่อ**
+### **เพิ่ม URL Hyperlink ไปยังสื่อ**
 
-Aspose.Slides ช่วยให้คุณเพิ่ม Hyperlink ไปยังรูปภาพ, ไฟล์เสียง, และไฟล์วิดีโอได้
+Aspose.Slides ให้คุณเพิ่ม Hyperlink ไปยังไฟล์ภาพ, ไฟล์เสียง, และไฟล์วิดีโอได้
 
-ตัวอย่างโค้ดนี้แสดงวิธีเพิ่ม Hyperlink ไปยัง **รูปภาพ**:
+โค้ดตัวอย่างนี้แสดงวิธีการเพิ่ม Hyperlink ไปยัง **ภาพ**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
-	// เพิ่มรูปภาพลงในงานนำเสนอ
+	// เพิ่มรูปภาพไปยังงานนำเสนอ
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
-    picture = pres.getImages().addImage(picture);
+        picture = pres.getImages().addImage(image);
     } finally {
-          if (image != null) image.dispose();
+        if (image != null) image.dispose();
     }
-	// สร้างกรอบภาพบนสไลด์ 1 จากภาพที่เพิ่มไว้ก่อนหน้านี้
+	// สร้างเฟรมรูปภาพบนสไลด์ที่ 1 ตามภาพที่เพิ่มไว้ก่อนหน้า
 	IPictureFrame pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
 
 	pictureFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
 	pictureFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 
 	pres.save("pres-out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
-ตัวอย่างโค้ดนี้แสดงวิธีเพิ่ม Hyperlink ไปยัง **ไฟล์เสียง**:
+โค้ดตัวอย่างนี้แสดงวิธีการเพิ่ม Hyperlink ไปยัง **ไฟล์เสียง**:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IAudio audio = pres.getAudios().addAudio(Files.readAllBytes(Paths.get("audio.mp3")));
@@ -127,9 +137,14 @@ try {
 }
 ```
 
-ตัวอย่างโค้ดนี้แสดงวิธีเพิ่ม Hyperlink ไปยัง **วิดีโอ**:
+โค้ดตัวอย่างนี้แสดงวิธีการเพิ่ม Hyperlink ไปยัง **วิดีโอ**:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IVideo video = pres.getVideos().addVideo(Files.readAllBytes(Paths.get("video.avi")));
@@ -145,17 +160,18 @@ try {
 }
 ```
 
-{{%  alert  title="Tip"  color="primary"  %}} 
+{{%  alert  title="Tip"  color="info"  %}} 
 คุณอาจต้องการดู *[จัดการ OLE](/slides/th/androidjava/manage-ole/)*.
 {{% /alert %}}
 
-## **ใช้ Hyperlink สร้างสารบัญ**
+## **ใช้ Hyperlink เพื่อสร้างสารบัญ**
 
-เพราะ Hyperlink ช่วยให้คุณเพิ่มการอ้างอิงถึงวัตถุหรือสถานที่ คุณจึงสามารถใช้มันสร้างสารบัญได้
-
-ตัวอย่างโค้ดนี้แสดงวิธีสร้างสารบัญพร้อม Hyperlink:
+เนื่องจาก Hyperlink ช่วยให้คุณเพิ่มการอ้างอิงถึงวัตถุหรือสถานที่ คุณจึงสามารถใช้มันเพื่อสร้างสารบัญได้.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	ISlide firstSlide = pres.getSlides().get_Item(0);
@@ -188,11 +204,14 @@ try {
 
 ### **สี**
 
-ด้วยคุณสมบัติ [ColorSource](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Hyperlink#setColorSource-int-) ในอินเตอร์เฟซ [IHyperlink](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IHyperlink) คุณสามารถตั้งค่าสีให้กับ Hyperlink และยังสามารถดึงข้อมูลสีจาก Hyperlink ได้ ฟีเจอร์นี้ถูกแนะนำครั้งแรกใน PowerPoint 2019 ดังนั้นการเปลี่ยนแปลงที่เกี่ยวกับคุณสมบัตินี้จะไม่ใช้กับ PowerPoint เวอร์ชันเก่า
+ด้วยคุณสมบัติ [ColorSource](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Hyperlink#setColorSource-int-) ในอินเทอร์เฟซ [IHyperlink](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IHyperlink) คุณสามารถกำหนดสีให้กับ Hyperlink และยังสามารถดึงข้อมูลสีจาก Hyperlink ได้ ฟีเจอร์นี้เริ่มต้นปรากฏใน PowerPoint 2019 ดังนั้นการเปลี่ยนแปลงที่เกี่ยวข้องกับคุณสมบัตินี้จึงไม่ใช้กับเวอร์ชัน PowerPoint เก่ากว่า
 
-ตัวอย่างโค้ดนี้สาธิตการเพิ่ม Hyperlink ที่มีสีต่างกันบนสไลด์เดียวกัน:
+โค้ดตัวอย่างนี้สาธิตการดำเนินการซึ่ง Hyperlink ที่มีสีต่างกันถูกเพิ่มลงในสไลด์เดียวกัน:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -213,21 +232,23 @@ try {
 }
 ```
 
-## **ลบ Hyperlink จากการนำเสนอ**
+## **ลบ Hyperlink จากงานนำเสนอ**
 
 ### **ลบ Hyperlink จากข้อความ**
 
-โค้ด Java นี้แสดงวิธีลบ Hyperlink จากข้อความในสไลด์การนำเสนอ:
+โค้ด Java นี้แสดงวิธีการลบ Hyperlink จากข้อความในสไลด์ของงานนำเสนอ:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
 	{
-		IAutoShape autoShape = (IAutoShape)shape;
-		if (autoShape != null)
+		if (shape instanceof IAutoShape)
 		{
+			IAutoShape autoShape = (IAutoShape)shape;
 			for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs())
 			{
 				for (IPortion portion : paragraph.getPortions())
@@ -244,12 +265,14 @@ try {
 }
 ```
 
-### **ลบ Hyperlink จากรูปร่างหรือเฟรม**
+### **ลบ Hyperlink จากรูปร่างหรือกรอบ**
 
-โค้ด Java นี้แสดงวิธีลบ Hyperlink จากรูปร่างในสไลด์การนำเสนอ:
+โค้ด Java นี้แสดงวิธีการลบ Hyperlink จากรูปร่างในสไลด์ของงานนำเสนอ: 
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
@@ -264,7 +287,7 @@ try {
 
 ## **Hyperlink ที่เปลี่ยนแปลงได้**
 
-คลาส [Hyperlink](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Hyperlink) เป็น mutable. ด้วยคลาสนี้คุณสามารถเปลี่ยนค่าให้กับคุณสมบัติต่าง ๆ ดังนี้:
+คลาส [Hyperlink](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Hyperlink) เป็นคลาสที่สามารถเปลี่ยนแปลงได้ ด้วยคลาสนี้คุณสามารถเปลี่ยนค่าของคุณสมบัติเหล่านี้:
 
 - [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
 - [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IHyperlink#setTooltip-java.lang.String-)
@@ -272,9 +295,11 @@ try {
 - [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IHyperlink#setHighlightClick-boolean-)
 - [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
 
-ส่วนของโค้ดต่อไปแสดงวิธีเพิ่ม Hyperlink ไปยังสไลด์และแก้ไข tooltip ของมันในภายหลัง:
+โค้ดสแนปเพ็ทนี้แสดงวิธีการเพิ่ม Hyperlink ไปยังสไลด์และแก้ไข tooltip ของมันภายหลัง:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -285,15 +310,18 @@ try {
 	portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 	portionFormat.setFontHeight(32);
 
+	// เปลี่ยน tooltip ของ hyperlink ที่ได้เพิ่มไว้แล้ว
+	portionFormat.getHyperlinkClick().setTooltip("Aspose: the File Format APIs");
+
 	pres.save("presentation-out.pptx", SaveFormat.Pptx);
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
-## **คุณสมบัติที่สนับสนุนใน IHyperlinkQueries**
+## **คุณสมบัติที่รองรับใน IHyperlinkQueries**
 
-คุณสามารถเข้าถึง [IHyperlinkQueries](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IHyperlinkQueries) จากการนำเสนอ, สไลด์, หรือข้อความที่กำหนด Hyperlink ไว้ได้
+คุณสามารถเข้าถึง [IHyperlinkQueries](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IHyperlinkQueries) จากงานนำเสนอ, สไลด์, หรือข้อความที่กำหนด Hyperlink ไว้ได้.
 
 - [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IPresentation#getHyperlinkQueries--)
 - [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
@@ -308,14 +336,14 @@ try {
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะสร้างการนำทางภายในไม่ใช่แค่ไปยังสไลด์ แต่ไปยัง "ส่วน" หรือสไลด์แรกของส่วนได้อย่างไร?**
+### ฉันจะสร้างการนำทางภายในไม่ใช่แค่ไปยังสไลด์เท่านั้น แต่ไปยัง "section" หรือสไลด์แรกของ section ได้อย่างไร?
 
-ส่วนใน PowerPoint คือการจัดกลุ่มสไลด์; การนำทางโดยเทคนิคจะไปยังสไลด์เฉพาะ เพื่อ "นำทางไปยังส่วน" คุณมักจะลิงก์ไปยังสไลด์แรกของส่วนนั้น
+Section ใน PowerPoint คือการจัดกลุ่มสไลด์; การนำทางโดยเทคนิคจะชี้ไปยังสไลด์เฉพาะ เพื่อ "นำทางไปยัง section" คุณมักจะลิงก์ไปยังสไลด์แรกของมัน.
 
-**ฉันสามารถแนบ Hyperlink ให้กับองค์ประกอบของมาสเตอร์สไลด์เพื่อให้ทำงานบนทุกสไลด์ได้หรือไม่?**
+### Can I attach a hyperlink to master slide elements so it works on all slides?
 
-ได้ มาสเตอร์สไลด์และองค์ประกอบของเลย์เอาต์รองรับ Hyperlink ลิงก์เหล่านี้จะแสดงบนสไลด์ลูกและสามารถคลิกได้ระหว่างการนำเสนอ
+ใช่. องค์ประกอบในมาสเตอร์สไลด์และเลเอาต์รองรับ Hyperlink ลิงก์เหล่านี้จะแสดงบนสไลด์ลูกและสามารถคลิกได้ในระหว่างการนำเสนอ.
 
-**Hyperlink จะถูกเก็บไว้เมื่อส่งออกเป็น PDF, HTML, ภาพ, หรือวิดีโอหรือไม่?**
+### Will hyperlinks be preserved when exporting to PDF, HTML, images, or video?
 
-ใน [PDF](/slides/th/androidjava/convert-powerpoint-to-pdf/) และ [HTML](/slides/th/androidjava/convert-powerpoint-to-html/) มีการเก็บลิงก์ไว้ทั่วไป แต่เมื่อส่งออกเป็น [images](/slides/th/androidjava/convert-powerpoint-to-png/) และ [video](/slides/th/androidjava/convert-powerpoint-to-video/) ความสามารถคลิกจะไม่ย้ายไปได้เนื่องจากลักษณะของฟอร์แมตเหล่านั้น (เฟรมแบบเรสเตอร์/วิดีโอไม่รองรับ Hyperlink)
+ใน [PDF](/slides/th/androidjava/convert-powerpoint-to-pdf/) และ [HTML](/slides/th/androidjava/convert-powerpoint-to-html/) ลิงก์จะถูกเก็บไว้โดยทั่วไป แต่เมื่อส่งออกเป็น [images](/slides/th/androidjava/convert-powerpoint-to-png/) และ [video](/slides/th/androidjava/convert-powerpoint-to-video/) ความสามารถในการคลิกจะไม่ถูกนำไป เพราะรูปแบบเหล่านั้นเป็นกรอบภาพ/วิดีโอแบบแรสเตอร์ ซึ่งไม่รองรับ Hyperlink.

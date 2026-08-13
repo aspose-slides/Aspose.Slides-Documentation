@@ -1,5 +1,5 @@
 ---
-title: Veřejné API a zpětně nekompatibilní změny v Aspose.Slides pro Java 14.6.0
+title: Veřejné API a nekompatibilní změny v Aspose.Slides pro Java 14.6.0
 linktitle: Aspose.Slides pro Java 14.6.0
 type: docs
 weight: 50
@@ -15,19 +15,21 @@ keywords:
 - prezentace
 - Java
 - Aspose.Slides
-description: "Prozkoumejte aktualizace veřejného API a rozbití změny v Aspose.Slides pro Java, abyste hladce migrovali svá řešení prezentací PowerPoint PPT, PPTX a ODP."
+description: "Prohlédněte si aktualizace veřejného API a nekompatibilní změny v Aspose.Slides pro Java, abyste hladce migrovali své řešení prezentací PowerPoint PPT, PPTX a ODP."
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" %}} 
 
-Tato stránka uvádí všechny [přidáno](/slides/cs/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/) třídy, metody, vlastnosti a podobně, všechna nová omezení a další změny zavedené v API Aspose.Slides pro Java 14.6.0.
+Tato stránka uvádí všechny [přidané](/slides/cs/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/) třídy, metody, vlastnosti a podobně, nová omezení a další změny zavedené v API Aspose.Slides pro Java 14.6.0.
 
-{{% /alert %}}
+{{% /alert %}} 
 ## **Změny veřejného API**
-### **Přidány třídy, metody, rozhraní a výčty**
-#### **Přidáno výčtové typ ViewType, rozhraní IViewProperties, třída ViewProperties a metoda IPresentation.getViewProperties()**
-Metoda IPresentation.getViewProperty() poskytuje přístup k IViewProperties a umožňuje změnit typ zobrazení prezentace a viditelnost poznámek, když je prezentace otevřena v Microsoft PowerPointu.
+### **Přidané třídy, metody, rozhraní a výčty**
+#### **Přidán výčet ViewType, rozhraní IViewProperties, třída ViewProperties a metoda IPresentation.getViewProperties()**
+Metoda IPresentation.getViewProperties() poskytuje přístup k IViewProperties a umožňuje změnit typ zobrazení prezentace a viditelnost poznámek při otevření prezentace v Microsoft PowerPoint.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation p = new Presentation();
 
@@ -35,7 +37,7 @@ p.getViewProperties().setLastView(ViewType.SlideMasterView);
 
 ```
 #### **Přidány metody Aspose.Slides.IShapeCollection.addClone(...) a .insertClone(...)**
-Metody
+The methods
 
 - Aspose.Slides.IShapeCollection.addClone(IShape sourceShape),
 - Aspose.Slides.IShapeCollection.addClone(IShape sourceShape, float x, float y),
@@ -44,9 +46,11 @@ Metody
 - Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape, float x, float y), and
 - Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape, float x, float y, float width, float height)
 
-přidá/vloží kopii určeného tvaru do kolekce.
+adds/inserts a copy of a specified shape into the collection. Tyto metody přidávají/vkládají kopii zadaného tvaru do kolekce.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation srcPres = new Presentation("data/Source Frame.pptx");
 
@@ -69,12 +73,13 @@ destShapes.addClone(sourceShapes.get_Item(4));
 destShapes.addClone(sourceShapes.get_Item(5), 300, 300, 50, 200);
 
 destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
-
 ```
 #### **Přidáno rozhraní Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues**
 Toto rozhraní určuje typy hodnot v seznamu vlastností ChartDataPoint.ErrorBarsCustomValues.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -122,9 +127,11 @@ pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 
 ```
 #### **Přidáno rozhraní Aspose.Slides.Charts.IErrorBarsCustomValues**
-Když je vlastnost IErrorBarsFormat.ValueType rovna Custom, pro zadání hodnoty použijte vlastnost ErrorBarCustomValues konkrétního datového bodu ve sbírce DataPoints řady.
+Když je vlastnost IErrorBarsFormat.ValueType nastavena na Custom, k určení hodnoty použijte vlastnost ErrorBarCustomValues konkrétního datového bodu v kolekci DataPoints série.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -173,9 +180,11 @@ pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 ```
 #### **Přidáno rozhraní Aspose.Slides.Charts.IErrorBarsFormat**
 Toto rozhraní představuje chybové pruhy řady grafu.
-V případě vlastního typu hodnoty pro zadání hodnoty použijte vlastnost ErrorBarCustomValues konkrétního datového bodu ve sbírce DataPoins řady.
+V případě vlastního typu hodnoty použijte vlastnost ErrorBarCustomValues konkrétního datového bodu v kolekci DataPoins řady.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 

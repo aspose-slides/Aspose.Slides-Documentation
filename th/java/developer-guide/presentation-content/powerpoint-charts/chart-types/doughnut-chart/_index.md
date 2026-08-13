@@ -1,42 +1,42 @@
 ---
-title: ปรับแต่งแผนภูมิ Doughnut ในการนำเสนอโดยใช้ Java
-linktitle: แผนภูมิ Doughnut
+title: ปรับแต่งแผนภูมิโดนัทในงานนำเสนอโดยใช้ Java
+linktitle: แผนภูมิโดนัท
 type: docs
 weight: 30
 url: /th/java/doughnut-chart/
 keywords:
-- แผนภูมิ doughnut
+- แผนภูมิโดนัท
 - ช่องว่างศูนย์กลาง
-- ขนาดของรู
+- ขนาดรู
 - PowerPoint
-- การนำเสนอ
+- งานนำเสนอ
 - Java
 - Aspose.Slides
-description: "ค้นพบวิธีการสร้างและปรับแต่งแผนภูมิ doughnut ใน Aspose.Slides สำหรับ Java รองรับรูปแบบ PowerPoint สำหรับการนำเสนอแบบไดนามิก"
+description: "ค้นหาวิธีสร้างและปรับแต่งแผนภูมิโดนัทใน Aspose.Slides for Java รองรับรูปแบบ PowerPoint สำหรับงานนำเสนอที่ไดนามิก"
 ---
 ## **ภาพรวม**
 
-บทความนี้แสดงวิธีการทำงานกับแผนภูมิ doughnut ใน Aspose.Slides โดยการเพิ่มแผนภูมิลงในสไลด์ ตั้งค่าขนาดของรูศูนย์กลาง และบันทึกการนำเสนอ เน้นที่เมธอด `setDoughnutHoleSize` และสาธิตขั้นตอนพื้นฐานที่จำเป็นสำหรับการปรับแต่งประเภทแผนภูมินี้ด้วยโค้ด
+บทความนี้แสดงวิธีการทำงานกับแผนภูมิโดนัทใน Aspose.Slides โดยการเพิ่มแผนภูมิลงในสไลด์ ตั้งขนาดของรูศูนย์กลาง และบันทึกงานนำเสนอ มุ่งเน้นที่เมธอด `setDoughnutHoleSize` และสาธิตขั้นตอนพื้นฐานที่จำเป็นในการปรับแต่งประเภทแผนภูมินี้ด้วยโค้ด
 
-บทความยังมี FAQ สั้น ๆ เกี่ยวกับสถานการณ์ที่เกี่ยวข้องกับแผนภูมิ doughnut เช่น การใช้ series หลายชุดเพื่อสร้างหลายวง การทำงานกับแผนภูมิ doughnut แบบ exploded และการส่งออกแผนภูมิเป็นภาพ raster หรือ SVG
+นอกจากนี้ยังมีส่วนคำถามที่พบบ่อยสั้น ๆ ครอบคลุมสถานการณ์ที่เกี่ยวข้องกับแผนภูมิโดนัท เช่น การใช้หลายซีรีส์เพื่อสร้างหลายวง การทำงานกับแผนภูมิโดนัทที่แยกส่วนออก และการส่งออกแผนภูมิเป็นภาพแบบราสเตอร์หรือ SVG
 
-## **กำหนดช่องว่างศูนย์กลางในแผนภูมิ Doughnut**
-{{% alert color="primary" %}} 
-
-Aspose.Slides for Java ตอนนี้รองรับการระบุขนาดของรูในแผนภูมิ doughnut ในหัวข้อนี้ เราจะดูตัวอย่างว่า วิธีการระบุขนาดของรูในแผนภูมิ doughnut อย่างไร
-
+## **ระบุช่องว่างศูนย์กลางในแผนภูมิโดนัท**
+{{% alert color="info" %}} 
+Aspose.Slides for Java ตอนนี้รองรับการระบุขนาดของรูในแผนภูมิโดนัท ในหัวข้อนี้ เราจะดูตัวอย่างวิธีการระบุขนาดของรูในแผนภูมิโดนัท
 {{% /alert %}} 
 
-เพื่อระบุขนาดของรูในแผนภูมิ doughnut โปรดทำตามขั้นตอนต่อไปนี้:
+เพื่อระบุขนาดของรูในแผนภูมิโดนัท โปรดทำตามขั้นตอนด้านล่าง:
 
-1. อินสแตนซ์วัตถุ [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation)
-1. เพิ่มแผนภูมิ doughnut บนสไลด์
-1. ระบุขนาดของรูในแผนภูมิ doughnut
-1. บันทึกการนำเสนอลงดิสก์
+1. สร้างอ็อบเจ็กต์ [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation)
+1. เพิ่มแผนภูมิโดนัทบนสไลด์
+1. ระบุขนาดของรูในแผนภูมิโดนัท
+1. เขียนงานนำเสนอลงดิสก์
 
-ในตัวอย่างด้านล่าง เราได้ตั้งค่าขนาดของรูในแผนภูมิ doughnut
+ในตัวอย่างด้านล่าง เราได้ตั้งค่าขนาดของรูในแผนภูมิโดนัท
 
 ```java
+import com.aspose.slides.*;
+
 // สร้างอินสแตนซ์ของคลาส Presentation
 Presentation pres = new Presentation();
 try {
@@ -44,23 +44,23 @@ try {
     
     chart.getChartData().getSeriesGroups().get_Item(0).setDoughnutHoleSize((byte)90);
 
-    // บันทึกการนำเสนอลงดิสก์
+    // เขียนงานนำเสนอลงดิสก์
     pres.save("DoughnutHoleSize_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**สามารถสร้าง doughnut ระดับหลายชั้นด้วยหลายวงได้หรือไม่?**
+### ฉันสามารถสร้างโดนัทหลายระดับที่มีหลายวงได้หรือไม่?
 
-ใช่ เพิ่ม series หลายชุดลงในแผนภูมิ doughnut เดียว—แต่ละ series จะกลายเป็นวงแยก ลำดับของวงกำหนดโดยลำดับของ series ในคอลเลกชัน
+ใช่. เพิ่มหลายซีรีส์ลงในแผนภูมิโดนัทเดียว—แต่ละซีรีส์จะกลายเป็นวงแยกต่างหาก ลำดับของวงจะกำหนดโดยลำดับของซีรีส์ในคอลเลกชัน
 
-**รองรับ doughnut "exploded" (ชิ้นส่วนที่แยกออก) หรือไม่?**
+### รองรับโดนัทแบบ "exploded" (สไลซ์แยก) หรือไม่?
 
-ใช่ มีประเภทแผนภูมิ Exploded Doughnut [chart type](https://reference.aspose.com/slides/th/java/com.aspose.slides/charttype/) และคุณสมบัติ explosion บน data points; คุณสามารถแยกชิ้นส่วนแต่ละชิ้นได้
+ใช่. มีประเภทแผนภูมิ Exploded Doughnut [chart type](https://reference.aspose.com/slides/th/java/com.aspose.slides/charttype/) และคุณสมบัติ explosion บนจุดข้อมูล; คุณสามารถแยกสไลซ์แต่ละอันได้
 
-**จะได้ภาพของแผนภูมิ doughnut (PNG/SVG) สำหรับรายงานอย่างไร?**
+### ฉันจะได้ภาพของแผนภูมิโดนัท (PNG/SVG) สำหรับรายงานได้อย่างไร?
 
-แผนภูมิเป็น shape; คุณสามารถเรนเดอร์เป็น [raster image](https://reference.aspose.com/slides/th/java/com.aspose.slides/shape/#getImage-int-float-float-) หรือส่งออกแผนภูมิเป็น [SVG image](https://reference.aspose.com/slides/th/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-).
+แผนภูมิเป็นรูปแบบ; คุณสามารถเรนเดอร์เป็น [raster image](https://reference.aspose.com/slides/th/java/com.aspose.slides/shape/#getImage-int-float-float-) หรือส่งออกแผนภูมิเป็น [SVG image](https://reference.aspose.com/slides/th/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-).

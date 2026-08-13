@@ -26,42 +26,41 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aprenda cómo convertir presentaciones de PowerPoint a video en .NET. Descubra código de muestra en C# y técnicas de automatización para optimizar su flujo de trabajo."
+description: "Aprenda a convertir presentaciones de PowerPoint a video en .NET. Descubra código de ejemplo en C# y técnicas de automatización para optimizar su flujo de trabajo."
 ---
+## **Introducción**
 
-## **Descripción general**
+Al convertir su presentación de PowerPoint o OpenDocument a video, obtiene:
 
-Al convertir su presentación de PowerPoint o OpenDocument a video, usted obtiene:
+**Mayor accesibilidad:** Todos los dispositivos, independientemente de la plataforma, vienen equipados con reproductores de video de forma predeterminada, lo que facilita a los usuarios abrir o reproducir videos en comparación con las aplicaciones tradicionales de presentaciones.
 
-**Mayor accesibilidad:** Todos los dispositivos, sin importar la plataforma, incluyen reproductores de video por defecto, lo que facilita a los usuarios abrir o reproducir videos en comparación con las aplicaciones tradicionales de presentaciones.
+**Mayor alcance:** Los videos le permiten llegar a una audiencia más amplia y presentar la información en un formato más atractivo. Encuestas y estadísticas indican que la gente prefiere ver y consumir contenido de video sobre otras formas, lo que hace que su mensaje sea más impactante.
 
-**Alcance más amplio:** Los videos le permiten llegar a una audiencia mayor y presentar la información en un formato más atractivo. Encuestas y estadísticas indican que las personas prefieren ver y consumir contenido en video sobre otras formas, haciendo que su mensaje sea más impactante.
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-Consulte nuestro [**Convertidor en línea de PowerPoint a video**](https://products.aspose.app/slides/video) porque ofrece una implementación en vivo y eficaz del proceso descrito aquí.
+Consulte nuestro [**Convertidor en línea de PowerPoint a Video**](https://products.aspose.app/slides/es/video) porque ofrece una implementación en directo y eficaz del proceso descrito aquí.
 
 {{% /alert %}} 
 
-En Aspose.Slides for .NET, implementamos soporte para convertir presentaciones a video.
+En Aspose.Slides for .NET, hemos implementado soporte para convertir presentaciones a video.
 
-* Utilice Aspose.Slides for .NET para generar fotogramas a partir de las diapositivas de la presentación a una tasa de fotogramas especificada (FPS).
-* Luego, use una utilidad de terceros como ffmpeg para compilar esos fotogramas en un video.
+* Utilice Aspose.Slides for .NET para generar fotogramas a partir de las diapositivas de la presentación a una velocidad de fotogramas especificada (FPS).
+* A continuación, use una utilidad de terceros como ffmpeg para compilar estos fotogramas en un video.
 
 ## **Convertir una presentación de PowerPoint a video**
 
-1. Utilice el comando `dotnet add package` para añadir Aspose.Slides y la biblioteca FFMpegCore a su proyecto:
+1. Utilice el comando `dotnet add package` para agregar Aspose.Slides y la biblioteca FFMpegCore a su proyecto:
    * ejecute `dotnet add package Aspose.Slides.NET --version 22.11.0`
    * ejecute `dotnet add package FFMpegCore --version 4.8.0`
 2. Descargue ffmpeg desde [aquí](https://ffmpeg.org/download.html).
-3. FFMpegCore requiere que indique la ruta al ffmpeg descargado (p. ej., extraído en "C:\tools\ffmpeg"):  
+3. FFMpegCore requiere que especifique la ruta al ffmpeg descargado (p.ej., extraído en "C:\tools\ffmpeg"):  
 ```cs
     GlobalFFOptions.Configure(new FFOptions { BinaryFolder = @"c:\tools\ffmpeg\bin" });
 ```
-
 4. Ejecute el código de conversión de PowerPoint a video.
 
-Este código C# demuestra cómo convertir una presentación (que contiene una forma y dos efectos de animación) en un video:
+Este código C# muestra cómo convertir una presentación (que contiene una forma y dos efectos de animación) en un video:
+
 ```c#
 using System.Collections.Generic;
 using Aspose.Slides;
@@ -72,7 +71,7 @@ using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // Agregar una forma de sonrisa y luego animarla.
+    // Añada una forma de sonrisa y luego anímela.
     IAutoShape smile = slide.Shapes.AddAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
 
     IEffect effectIn = slide.Timeline.MainSequence.AddEffect(
@@ -99,43 +98,49 @@ using (Presentation presentation = new Presentation())
         animationsGenerator.Run(presentation.Slides);
     }
 
-    // Configurar la carpeta de binarios de ffmpeg. Ver esta página: https://github.com/rosenbjerg/FFMpegCore#installation
+    // Configure la carpeta de binarios de ffmpeg. Consulte esta página: https://github.com/rosenbjerg/FFMpegCore#installation
     GlobalFFOptions.Configure(new FFOptions { BinaryFolder = @"c:\tools\ffmpeg\bin" });
 
-    // Convertir los fotogramas a un video webm.
+    // Convierta los fotogramas a un video webm.
     FFMpeg.JoinImageSequence("smile.webm", Fps, frames.Select(frame => ImageInfo.FromPath(frame)).ToArray());
 }
 ```
 
-
 ## **Efectos de video**
 
-Al convertir una presentación de PowerPoint a video usando Aspose.Slides for .NET, puede aplicar varios efectos de video para mejorar la calidad visual del resultado. Estos efectos le permiten controlar la apariencia de las diapositivas en el video final añadiendo transiciones suaves, animaciones y otros elementos visuales. Esta sección explica las opciones de efectos de video disponibles y muestra cómo aplicarlas.
+Al convertir una presentación de PowerPoint a video usando Aspose.Slides for .NET, puede aplicar varios efectos de video para mejorar la calidad visual del resultado. Estos efectos le permiten controlar la apariencia de las diapositivas en el video final añadiendo transiciones suaves, animaciones y otros elementos visuales. Esta sección explica las opciones de efectos de video disponibles y muestra cómo aplicarlos.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Vea:
-- [Mejorar presentaciones de PowerPoint con animaciones en C#](https://docs.aspose.com/slides/net/powerpoint-animation/)
-- [Animación de formas](https://docs.aspose.com/slides/net/shape-animation/)
-- [Aplicar efectos de forma en PowerPoint usando C#](https://docs.aspose.com/slides/net/shape-effect/)
+- [Mejorar presentaciones de PowerPoint con animaciones en C#](https://docs.aspose.com/slides/es/net/powerpoint-animation/)
+- [Animación de formas](https://docs.aspose.com/slides/es/net/shape-animation/)
+- [Aplicar efectos de forma en PowerPoint usando C#](https://docs.aspose.com/slides/es/net/shape-effect/)
 
 {{% /alert %}} 
 
 Las animaciones y transiciones hacen que las presentaciones sean más atractivas e interesantes — y lo mismo ocurre con los videos. Añadamos otra diapositiva y transición al código de la presentación anterior:
-```c#
-// Agregar una forma de sonrisa y animarla.
-// ...
 
-// Agregar una nueva diapositiva y una transición animada.
-ISlide newSlide = presentation.Slides.AddEmptySlide(presentation.Slides[0].LayoutSlide);
-newSlide.Background.Type = BackgroundType.OwnBackground;
-newSlide.Background.FillFormat.FillType = FillType.Solid;
-newSlide.Background.FillFormat.SolidFillColor.Color = Color.Indigo;
-newSlide.SlideShowTransition.Type = TransitionType.Push;
+```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.SlideShow;
+
+using (Presentation presentation = new Presentation())
+{
+    // Añada una forma de sonrisa y anímela (ver el código anterior).
+
+    // Añada una nueva diapositiva y una transición animada.
+    ISlide newSlide = presentation.Slides.AddEmptySlide(presentation.Slides[0].LayoutSlide);
+    newSlide.Background.Type = BackgroundType.OwnBackground;
+    newSlide.Background.FillFormat.FillType = FillType.Solid;
+    newSlide.Background.FillFormat.SolidFillColor.Color = Color.Indigo;
+    newSlide.SlideShowTransition.Type = TransitionType.Push;
+}
 ```
 
-
 Aspose.Slides también admite animaciones de texto. En este ejemplo, animamos párrafos en objetos para que aparezcan uno tras otro, con un retraso de un segundo entre ellos:
+
 ```c#
 using System.Collections.Generic;
 using Aspose.Slides.Export;
@@ -147,7 +152,7 @@ using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // Agregar texto y animaciones.
+    // Añadir texto y animaciones.
     IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 210, 120, 300, 300);
     Paragraph para1 = new Paragraph();
     para1.Portions.Add(new Portion("Aspose Slides for .NET"));
@@ -194,7 +199,7 @@ using (Presentation presentation = new Presentation())
         animationsGenerator.Run(presentation.Slides);
     }
 
-    // Configurar la carpeta de binarios de ffmpeg. Ver esta página: https://github.com/rosenbjerg/FFMpegCore#installation
+    // Configurar la carpeta de binarios de ffmpeg. Consulte esta página: https://github.com/rosenbjerg/FFMpegCore#installation
     GlobalFFOptions.Configure(new FFOptions { BinaryFolder = @"c:\tools\ffmpeg\bin" });
 
     // Convertir los fotogramas a un video webm.
@@ -202,22 +207,26 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-
 ## **Clases de conversión de video**
 
-Para habilitar tareas de conversión de PowerPoint a video, Aspose.Slides for .NET proporciona las clases [PresentationAnimationsGenerator](https://reference.aspose.com/slides/net/aspose.slides.export/presentationanimationsgenerator/) y [PresentationPlayer](https://reference.aspose.com/slides/net/aspose.slides.export/presentationplayer/).
+Para habilitar tareas de conversión de PowerPoint a video, Aspose.Slides for .NET proporciona las clases [PresentationAnimationsGenerator](https://reference.aspose.com/slides/es/net/aspose.slides.export/presentationanimationsgenerator/) y [PresentationPlayer](https://reference.aspose.com/slides/es/net/aspose.slides.export/presentationplayer/).
 
-`PresentationAnimationsGenerator` le permite establecer el tamaño del fotograma para el video (que se creará más adelante) y el valor de FPS (fotogramas por segundo) a través de su constructor. Si pasa una instancia de una presentación, se usará su `Presentation.SlideSize` y genera animaciones que [PresentationPlayer](https://reference.aspose.com/slides/net/aspose.slides.export/presentationplayer/) utiliza.
+`PresentationAnimationsGenerator` permite establecer el tamaño del fotograma para el video (que se creará más adelante) y el valor FPS (fotogramas por segundo) a través de su constructor. Si pasa una instancia de una presentación, su `Presentation.SlideSize` se utilizará y genera animaciones que [PresentationPlayer](https://reference.aspose.com/slides/es/net/aspose.slides.export/presentationplayer/) utiliza.
 
-Cuando se generan animaciones, se dispara un evento `NewAnimation` para cada animación subsiguiente, que incluye un parámetro [IPresentationAnimationPlayer](https://reference.aspose.com/slides/net/aspose.slides.export/ipresentationanimationplayer/). Esta clase representa un reproductor para una animación individual.
+Cuando se generan las animaciones, se dispara un evento `NewAnimation` para cada animación subsecuente, que incluye un parámetro [IPresentationAnimationPlayer](https://reference.aspose.com/slides/es/net/aspose.slides.export/ipresentationanimationplayer/). Esta clase representa un reproductor para una animación individual.
 
-Para trabajar con [IPresentationAnimationPlayer](https://reference.aspose.com/slides/net/aspose.slides.export/ipresentationanimationplayer/), usa la propiedad [Duration](https://reference.aspose.com/slides/net/aspose.slides.export/ipresentationanimationplayer/duration/) (que indica la duración total de la animación) y el método [SetTimePosition](https://reference.aspose.com/slides/net/aspose.slides.export/ipresentationanimationplayer/settimeposition/). Cada posición de animación se establece dentro del rango *0 a duración*, y el método `GetFrame` devuelve un Bitmap que representa el estado de la animación en ese momento.
+Para trabajar con [IPresentationAnimationPlayer](https://reference.aspose.com/slides/es/net/aspose.slides.export/ipresentationanimationplayer/), se usa la propiedad [Duration](https://reference.aspose.com/slides/es/net/aspose.slides.export/ipresentationanimationplayer/duration/) (que indica la duración total de la animación) y el método [SetTimePosition](https://reference.aspose.com/slides/es/net/aspose.slides.export/ipresentationanimationplayer/settimeposition/). Cada posición de animación se define dentro del rango *0 a duration*, y el método `GetFrame` devuelve un Bitmap que representa el estado de la animación en ese momento.
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // Agregar una forma de sonrisa y animarla.
+    // Añada una forma de sonrisa y anímela.
     IAutoShape smile = slide.Shapes.AddAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
 
     IEffect effectIn = slide.Timeline.MainSequence.AddEffect(
@@ -235,20 +244,23 @@ using (Presentation presentation = new Presentation())
         {
             Console.WriteLine($"Total animation duration: {animationPlayer.Duration}");
 
-            animationPlayer.SetTimePosition(0);          // El estado inicial de la animación.
-            Bitmap bitmap = animationPlayer.GetFrame();  // El mapa de bits del estado inicial de la animación.
+            animationPlayer.SetTimePosition(0);        // El estado inicial de la animación.
+            IImage image = animationPlayer.GetFrame(); // La imagen del estado inicial de la animación.
 
-            animationPlayer.SetTimePosition(animationPlayer.Duration);  // El estado final de la animación.
-            Bitmap lastBitmap = animationPlayer.GetFrame();             // El último fotograma de la animación.
-            lastBitmap.Save("last.png");
+            animationPlayer.SetTimePosition(animationPlayer.Duration); // El estado final de la animación.
+            IImage lastImage = animationPlayer.GetFrame();             // El último fotograma de la animación.
+            lastImage.Save("last.png");
         };
     }
 }
 ```
 
+Para que todas las animaciones de una presentación se reproduzcan a la vez, se utiliza la clase [PresentationPlayer](https://reference.aspose.com/slides/es/net/aspose.slides.export/presentationplayer/). Esta clase recibe una instancia de [PresentationAnimationsGenerator](https://reference.aspose.com/slides/es/net/aspose.slides.export/presentationanimationsgenerator/) y un valor FPS para los efectos en su constructor, y luego llama al evento `FrameTick` para todas las animaciones y reproducirlas:
 
-Para que todas las animaciones de una presentación se reproduzcan a la vez, se utiliza la clase [PresentationPlayer](https://reference.aspose.com/slides/net/aspose.slides.export/presentationplayer/). Esta clase recibe una instancia de [PresentationAnimationsGenerator](https://reference.aspose.com/slides/net/aspose.slides.export/presentationanimationsgenerator/) y un valor de FPS para los efectos en su constructor, y luego llama al evento `FrameTick` para todas las animaciones y reproducirlas:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("animated.pptx"))
 {
     using (var animationsGenerator = new PresentationAnimationsGenerator(presentation))
@@ -263,12 +275,11 @@ using (Presentation presentation = new Presentation("animated.pptx"))
 }
 ```
 
-
-Luego los fotogramas generados pueden compilarse para producir un video. Consulte la sección [Convertir una presentación de PowerPoint a video](/slides/es/net/convert-powerpoint-to-video/#convert-a-powerpoint-presentation-to-video).
+Luego los fotogramas generados pueden compilarse para producir un video. Vea la sección [Convertir una presentación de PowerPoint a video](/slides/es/net/convert-powerpoint-to-video/#convert-a-powerpoint-presentation-to-video).
 
 ## **Animaciones y efectos compatibles**
 
-Al convertir una presentación de PowerPoint a video usando Aspose.Slides for .NET, es importante entender qué animaciones y efectos son compatibles en el resultado. Aspose.Slides admite una amplia variedad de efectos comunes de entrada, salida y énfasis como desvanecimiento, entrada voladora, zoom y giro. Sin embargo, algunas animaciones avanzadas o personalizadas pueden no preservarse completamente o pueden aparecer de forma diferente en el video final. Esta sección describe las animaciones y efectos compatibles.
+Al convertir una presentación de PowerPoint a video usando Aspose.Slides for .NET, es importante conocer qué animaciones y efectos son compatibles en el resultado. Aspose.Slides soporta una amplia gama de efectos comunes de entrada, salida y énfasis como fundido, deslizamiento, zoom y rotación. Sin embargo, algunas animaciones avanzadas o personalizadas pueden no preservarse completamente o pueden aparecer de forma diferente en el video final. Esta sección describe las animaciones y efectos compatibles.
 
 **Entrada**:
 
@@ -336,9 +347,9 @@ Al convertir una presentación de PowerPoint a video usando Aspose.Slides for .N
 
 ## **Efectos de transición de diapositivas compatibles**
 
-Los efectos de transición de diapositivas juegan un papel importante al crear cambios suaves y visualmente atractivos entre diapositivas en un video. Aspose.Slides for .NET admite una variedad de efectos de transición de uso frecuente para ayudar a preservar el flujo y el estilo de su presentación original. Esta sección resalta qué efectos de transición son compatibles durante el proceso de conversión.
+Los efectos de transición de diapositivas juegan un papel importante en la creación de cambios suaves y visualmente atractivos entre diapositivas en un video. Aspose.Slides for .NET soporta una variedad de efectos de transición de uso frecuente para ayudar a preservar el flujo y estilo de su presentación original. Esta sección destaca los efectos de transición compatibles durante el proceso de conversión.
 
-**Sutiles**:
+**Sutil**:
 
 | Tipo de animación | Aspose.Slides | PowerPoint |
 |---|---|---|
@@ -356,7 +367,7 @@ Los efectos de transición de diapositivas juegan un papel importante al crear c
 | **Flash** | ![supported](v.png) | ![supported](v.png) |
 | **Strips** | ![supported](v.png) | ![supported](v.png) |
 
-**Emocionantes**:
+**Emocionante**:
 
 | Tipo de animación | Aspose.Slides | PowerPoint |
 |---|---|---|
@@ -378,7 +389,7 @@ Los efectos de transición de diapositivas juegan un papel importante al crear c
 | **Ripple** | ![not supported](x.png) | ![supported](v.png) |
 | **Honeycomb** | ![not supported](x.png) | ![supported](v.png) |
 | **Glitter** | ![not supported](x.png) | ![supported](v.png) |
-| **Vortex** | ![not supported](x.png) | ![supported](v.png) |
+| **Vortex** | ![not supported](x/png) | ![supported](v.png) |
 | **Shred** | ![not supported](x.png) | ![supported](v.png) |
 | **Switch** | ![not supported](x.png) | ![supported](v.png) |
 | **Flip** | ![not supported](x.png) | ![supported](v.png) |
@@ -403,14 +414,14 @@ Los efectos de transición de diapositivas juegan un papel importante al crear c
 
 ## **Preguntas frecuentes**
 
-**¿Es posible convertir presentaciones protegidas con contraseña?**
+### ¿Es posible convertir presentaciones protegidas con contraseña?
 
-Sí, Aspose.Slides for .NET permite trabajar con presentaciones protegidas con contraseña. Al procesar dichos archivos, debe proporcionar la contraseña correcta para que la biblioteca pueda acceder al contenido de la presentación.
+Sí, Aspose.Slides for .NET permite trabajar con presentaciones protegidas con contraseña. Al procesar dichos archivos, es necesario proporcionar la contraseña correcta para que la biblioteca pueda acceder al contenido de la presentación.
 
-**¿Aspose.Slides for .NET admite su uso en soluciones en la nube?**
+### ¿Aspose.Slides for .NET admite su uso en soluciones en la nube?
 
 Sí, Aspose.Slides for .NET puede integrarse en aplicaciones y servicios en la nube. La biblioteca está diseñada para funcionar en entornos de servidor, garantizando alto rendimiento y escalabilidad para el procesamiento por lotes de archivos.
 
-**¿Existen limitaciones de tamaño para las presentaciones durante la conversión?**
+### ¿Existen limitaciones de tamaño para las presentaciones durante la conversión?
 
-Aspose.Slides for .NET es capaz de manejar presentaciones de prácticamente cualquier tamaño. Sin embargo, al trabajar con archivos muy grandes, pueden requerirse recursos de sistema adicionales, y a veces se recomienda optimizar la presentación para mejorar el rendimiento.
+Aspose.Slides for .NET es capaz de manejar presentaciones de prácticamente cualquier tamaño. Sin embargo, al trabajar con archivos muy grandes pueden requerirse recursos del sistema adicionales, y a veces se recomienda optimizar la presentación para mejorar el rendimiento.

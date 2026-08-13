@@ -16,27 +16,29 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Skonfiguruj kolekcję czcionek zastępczych w Aspose.Slides dla Androida przy użyciu Javy, aby tekst w prezentacjach PowerPoint i OpenDocument był spójny i wyraźny."
+description: "Ustaw kolekcję czcionek zastępczych w Aspose.Slides dla Androida przy użyciu Javy, aby tekst był spójny i wyraźny w prezentacjach PowerPoint oraz OpenDocument."
 ---
 ## **Przegląd**
 
-Aspose.Slides umożliwia skonfigurowanie kolekcji reguł zastępczych czcionek dla prezentacji. Każda reguła zastępcza jest reprezentowana przez klasę `FontFallBackRule` i może zostać dodana do `FontFallBackRulesCollection`, który implementuje interfejs `IFontFallBackRulesCollection`.
+Aspose.Slides umożliwia skonfigurowanie kolekcji reguł czcionek zastępczych dla prezentacji. Każda reguła zastępcza jest reprezentowana przez klasę `FontFallBackRule` i może zostać dodana do `FontFallBackRulesCollection`, które implementuje interfejs `IFontFallBackRulesCollection`.
 
-Po utworzeniu kolekcji możesz przypisać ją do właściwości `FontFallBackRulesCollection` menedżera czcionek (`FontsManager`) prezentacji. `FontsManager` kontroluje czcionki w całej prezentacji, a każda instancja `Presentation` ma własny `FontsManager`.
+Po utworzeniu kolekcji możesz przypisać ją do właściwości `FontFallBackRulesCollection` obiektu `FontsManager` prezentacji. `FontsManager` kontroluje czcionki w całej prezentacji, a każda instancja `Presentation` posiada własny `FontsManager`.
 
-Po zainicjowaniu `FontsManager` z kolekcją czcionek zastępczych, określone czcionki zastępcze są stosowane podczas renderowania prezentacji.
+Gdy `FontsManager` zostanie zainicjowany kolekcją czcionek zastępczych, określone czcionki zastępcze są stosowane podczas renderowania prezentacji.
 
-## **Zastosuj reguły zastępcze**
+## **Zastosowanie reguł zastępczych**
 
-Instancje klasy [FontFallBackRule](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/FontFallBackRule) mogą być zorganizowane w [FontFallBackRulesCollection](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/FontFallBackRulesCollection), który implementuje interfejs [IFontFallBackRulesCollection](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IFontFallBackRulesCollection). Możliwe jest dodawanie lub usuwanie reguł z kolekcji.
+Instancje klasy [FontFallBackRule](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/FontFallBackRule) mogą być organizowane w [FontFallBackRulesCollection](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/FontFallBackRulesCollection), które implementuje interfejs [IFontFallBackRulesCollection](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IFontFallBackRulesCollection). Można dodawać lub usuwać reguły z kolekcji.
 
 Następnie tę kolekcję można przypisać do metody [FontFallBackRulesCollection](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/FontFallBackRulesCollection) klasy [FontsManager](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/FontsManager). `FontsManager` kontroluje czcionki w całej prezentacji.
 
 Każda [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Presentation) posiada metodę [getFontsManager](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Presentation#getFontsManager--) zwracającą własną instancję klasy [FontsManager](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/FontsManager).
 
-Poniżej znajduje się przykład, jak utworzyć kolekcję reguł czcionek zastępczych i przypisać ją do [FontsManager](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Presentation#getFontsManager--) określonej prezentacji:  
+Poniżej przykład, jak utworzyć kolekcję reguł czcionek zastępczych i przypisać ją do [FontsManager](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Presentation#getFontsManager--) określonej prezentacji:  
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IFontFallBackRulesCollection userRulesList = new FontFallBackRulesCollection();
@@ -50,26 +52,26 @@ try {
 }
 ```
 
-Po zainicjowaniu `FontsManager` z kolekcją czcionek zastępczych, czcionki zastępcze są stosowane podczas renderowania prezentacji.
+Po zainicjowaniu `FontsManager` kolekcją czcionek zastępczych, czcionki zastępcze są stosowane podczas renderowania prezentacji.
 
-{{% alert color="primary" %}} 
-Przeczytaj więcej o tym, jak [Render Presentation with Fallback Font](/slides/pl/androidjava/render-presentation-with-fallback-font/).
+{{% alert color="info" %}} 
+Przeczytaj więcej o tym, jak [Renderować prezentację z czcionką zastępczą](/slides/pl/androidjava/render-presentation-with-fallback-font/).
 {{% /alert %}}
 
 ## **FAQ**
 
-**Czy moje reguły zastępcze zostaną osadzone w pliku PPTX i będą widoczne w PowerPoint po zapisaniu?**
+### Czy moje reguły zastępcze zostaną osadzone w pliku PPTX i będą widoczne w PowerPoint po zapisaniu?
 
 Nie. Reguły zastępcze są ustawieniami renderowania w czasie wykonywania; nie są serializowane do pliku PPTX i nie będą widoczne w interfejsie PowerPoint.
 
-**Czy reguły zastępcze dotyczą tekstu wewnątrz SmartArt, WordArt, wykresów i tabel?**
+### Czy reguły zastępcze mają zastosowanie do tekstu w SmartArt, WordArt, wykresach i tabelach?
 
-Tak. Ten sam mechanizm podmiany glifów jest używany dla dowolnego tekstu w tych obiektach.
+Tak. Ten sam mechanizm zamiany glifów jest używany dla wszelkiego tekstu w tych obiektach.
 
-**Czy Aspose dostarcza jakiekolwiek czcionki wraz z biblioteką?**
+### Czy Aspose dystrybuuje jakieś czcionki wraz z biblioteką?
 
-Nie. Czcionki dodajesz i używasz samodzielnie, na własną odpowiedzialność.
+Nie. Czcionki dodajesz i używasz we własnym środowisku i na własną odpowiedzialność.
 
-**Czy zamiana/substitucja brakujących czcionek oraz zastępcze czcionki dla brakujących glifów mogą być używane razem?**
+### Czy zamiana/substitucja brakujących czcionek oraz reguły zastępcze dla brakujących glifów mogą być używane jednocześnie?
 
-Tak. Są to niezależne etapy tego samego potoku rozwiązywania czcionek: najpierw silnik rozwiązuje dostępność czcionek ([replacement](/slides/pl/androidjava/font-replacement/)/[substitution](/slides/pl/androidjava/font-substitution/)), a następnie reguły zastępcze wypełniają luki brakujących glifów w dostępnych czcionkach.
+Tak. Są to niezależne etapy tego samego potoku rozwiązywania czcionek: najpierw silnik określa dostępność czcionek ([replacement](/slides/pl/androidjava/font-replacement/)/[substitution](/slides/pl/androidjava/font-substitution/)), a następnie reguły zastępcze wypełniają luki dla brakujących glifów w dostępnych czcionkach.

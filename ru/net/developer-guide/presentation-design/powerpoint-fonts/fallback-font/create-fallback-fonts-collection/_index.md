@@ -16,19 +16,29 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Создайте коллекцию резервных шрифтов в Aspose.Slides для .NET, чтобы обеспечить согласованность и чёткость текста в презентациях PowerPoint и OpenDocument."
+description: "Создайте коллекцию резервных шрифтов в Aspose.Slides для .NET, чтобы текст оставался согласованным и чётким в презентациях PowerPoint и OpenDocument."
 ---
+## **Обзор**
 
-## **Применение правил резервного шрифта**
+Aspose.Slides позволяет вам настроить набор правил резервных шрифтов для презентации. Каждое правило резервного шрифта представлено классом `FontFallBackRule` и может быть добавлено в `FontFallBackRulesCollection`, который реализует интерфейс `IFontFallBackRulesCollection`.
 
-Экземпляры класса [FontFallBackRule](https://reference.aspose.com/slides/net/aspose.slides/FontFallBackRule) могут быть организованы в [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrulescollection), реализующий интерфейс [IFontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontfallbackrulescollection). Можно добавлять или удалять правила из коллекции.
+После создания коллекции вы можете назначить её свойству `FontFallBackRulesCollection` класса `FontsManager` презентации. `FontsManager` управляет шрифтами во всей презентации, и каждый экземпляр `Presentation` имеет собственный `FontsManager`.
 
-Затем эту коллекцию можно назначить свойству [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection) класса [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager). FontsManager управляет шрифтами во всей презентации.
+После инициализации `FontsManager` коллекцией резервных шрифтов указанные резервные шрифты применяются при рендеринге презентации.
 
-Каждая [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) имеет свойство [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/fontsmanager) со своим собственным экземпляром класса FontsManager.
+## **Применение правил резервных шрифтов**
 
-Ниже приведён пример того, как создать коллекцию правил резервных шрифтов и назначить её FontsManager конкретной презентации:  
+Экземпляры класса [FontFallBackRule](https://reference.aspose.com/slides/ru/net/aspose.slides/FontFallBackRule) можно организовать в [FontFallBackRulesCollection](https://reference.aspose.com/slides/ru/net/aspose.slides/fontfallbackrulescollection), который реализует интерфейс [IFontFallBackRulesCollection](https://reference.aspose.com/slides/ru/net/aspose.slides/ifontfallbackrulescollection). Можно добавлять или удалять правила из коллекции.
+
+Затем эту коллекцию можно назначить свойству [FontFallBackRulesCollection](https://reference.aspose.com/slides/ru/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection) класса [FontsManager](https://reference.aspose.com/slides/ru/net/aspose.slides/fontsmanager). FontsManager управляет шрифтами во всей презентации.
+
+Каждый [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation) имеет свойство [FontsManager](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/properties/fontsmanager) со своей собственной instance класса FontsManager.
+
+Ниже приведён пример создания коллекции правил резервных шрифтов и назначения её в FontsManager определённой презентации:  
+
 ```c#
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation())
 {
 	IFontFallBackRulesCollection userRulesList = new FontFallBackRulesCollection();
@@ -40,27 +50,26 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+После инициализации FontsManager коллекцией резервных шрифтов резервные шрифты применяются при рендеринге презентации.
 
-После инициализации FontsManager коллекцией резервных шрифтов, резервные шрифты применяются во время рендеринга презентации.
-
-{{% alert color="primary" %}} 
-Подробнее о том, как [Отобразить презентацию с резервным шрифтом](/slides/ru/net/render-presentation-with-fallback-font/).
+{{% alert color="info" %}} 
+Подробнее, как [Render Presentation with Fallback Font](/slides/ru/net/render-presentation-with-fallback-font/).
 {{% /alert %}}
 
-## **Вопросы и ответы**
+## **FAQ**
 
-**Будут ли мои правила резервного шрифта встроены в файл PPTX и видны в PowerPoint после сохранения?**
+### Будут ли мои правила резервных шрифтов встроены в файл PPTX и видимы в PowerPoint после сохранения?
 
-Нет. Правила резервного шрифта — это настройки рендеринга во время выполнения; они не сериализуются в PPTX и не будут отображаться в интерфейсе PowerPoint.
+Нет. Правила резервных шрифтов являются настройками рендеринга во время выполнения; они не сериализуются в PPTX и не будут отображаться в пользовательском интерфейсе PowerPoint.
 
-**Применяется ли резервный шрифт к тексту внутри SmartArt, WordArt, диаграмм и таблиц?**
+### Применяется ли резервный шрифт к тексту внутри SmartArt, WordArt, диаграмм и таблиц?
 
 Да. Для любого текста в этих объектах используется тот же механизм замены глифов.
 
-**Поставляет ли Aspose какие-либо шрифты вместе с библиотекой?**
+### Поставляет ли Aspose какие‑либо шрифты вместе с библиотекой?
 
-Нет. Шрифты вы добавляете и используете самостоятельно, неся за это ответственность.
+Нет. Шрифты добавляются и используются вами самостоятельно и на вашей ответственности.
 
-**Можно ли одновременно использовать замену/подстановку недостающих шрифтов и резервный шрифт для отсутствующих глифов?**
+### Можно ли одновременно использовать замену/подстановку недостающих шрифтов и резервный шрифт для недостающих глифов?
 
-Да. Это независимые этапы единого конвейера разрешения шрифтов: сначала движок определяет доступность шрифтов ([replacement](/slides/ru/net/font-replacement/)/[substitution](/slides/ru/net/font-substitution/)), затем резервный шрифт заполняет пробелы для отсутствующих глифов в доступных шрифтах.
+Да. Они являются независимыми этапами одного и того же конвейера разрешения шрифтов: сначала движок определяет доступность шрифтов ([replacement](/slides/ru/net/font-replacement/)/[substitution](/slides/ru/net/font-substitution/)), затем резервный шрифт заполняет пробелы для недостающих глифов в доступных шрифтах.

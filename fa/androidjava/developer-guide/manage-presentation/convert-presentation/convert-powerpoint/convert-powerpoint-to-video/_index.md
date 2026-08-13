@@ -1,5 +1,5 @@
 ---
-title: تبدیل ارائه‌های PowerPoint به ویدیو در Android
+title: تبدیل ارائه‌های PowerPoint به ویدیو در اندروید
 linktitle: PowerPoint به ویدیو
 type: docs
 weight: 130
@@ -17,8 +17,8 @@ keywords:
 - ارائه به MP4
 - PPT به MP4
 - PPTX به MP4
-- ذخیره PPT به عنوان MP4
-- ذخیره PPTX به عنوان MP4
+- ذخیره PPT به صورت MP4
+- ذخیره PPTX به صورت MP4
 - صادرات PPT به MP4
 - صادرات PPTX به MP4
 - تبدیل ویدیو
@@ -26,29 +26,23 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "بیاموزید چطور ارائه‌های PowerPoint را در Java به ویدیو تبدیل کنید. نمونه کد و تکنیک‌های خودکارسازی را برای ساده‌سازی جریان کار خود کشف کنید."
+description: "یاد بگیرید چگونه ارائه‌های PowerPoint را به ویدیو در جاوا تبدیل کنید. کد نمونه و تکنیک‌های خودکارسازی را برای بهینه‌سازی جریان کار خود کشف کنید."
 ---
-## **معرفی**
+## **مقدمه**
 
-با تبدیل ارائهٔ PowerPoint خود به ویدئو، می‌توانید 
+با تبدیل ارائه PowerPoint خود به ویدیو، شما دریافت می‌کنید  
 
-* **افزایش دسترسی‌پذیری:** تمام دستگاه‌ها (صرف‌نظر از پلتفرم) به‌صورت پیش‌فرض دارای پلیرهای ویدئویی هستند در مقایسه با برنامه‌های بازکن ارائه، بنابراین کاربران راحت‌تر می‌توانند ویدئوها را باز یا پخش کنند.
-* **دستیابی بیشتر:** از طریق ویدئوها می‌توانید به مخاطبان وسیعی دست یابید و اطلاعاتی را به آن‌ها ارائه دهید که در یک ارائه ممکن است خسته‌کننده به نظر برسد. اکثر نظرسنجی‌ها و آمارها نشان می‌دهند که مردم ویدئوها را نسبت به سایر انواع محتوا بیشتر تماشا و مصرف می‌کنند و عموماً این نوع محتوا را ترجیح می‌دهند.
+* **افزایش دسترسی‌پذیری:** تمام دستگاه‌ها (بدون در نظر گرفتن پلتفرم) به‌طور پیش‌فرض دارای پخش‌کننده‌های ویدیو هستند در مقایسه با برنامه‌های باز کردن ارائه، بنابراین کاربران راحت‌تر می‌توانند ویدیوها را باز یا پخش کنند.  
+* **دسترس بیشتر:** از طریق ویدیوها می‌توانید به مخاطبان گسترده‌ای دست پیدا کنید و اطلاعاتی را به آن‌ها ارائه دهید که در یک ارائه ممکن است خسته‌کننده به نظر برسد. اکثر نظرسنجی‌ها و آمارها نشان می‌دهند که مردم ویدیوها را بیش از سایر اشکال محتوا نگاه می‌کنند و مصرف می‌کنند و عموماً این نوع محتوا را ترجیح می‌دهند.  
 
-{{% alert color="primary" %}} 
+## **تبدیل PowerPoint به ویدیو در Aspose.Slides**
 
-ممکن است بخواهید [**مبدل آنلاین PowerPoint به ویدئو**](https://products.aspose.app/slides/fa/conversion/ppt-to-word) ما را بررسی کنید زیرا این یک پیاده‌سازی زنده و مؤثر از فرآیند توضیح داده‌شده در اینجا است.
+Aspose.Slides از تبدیل ارائه به ویدیو پشتیبانی می‌کند.  
 
-{{% /alert %}} 
+* از **Aspose.Slides** برای تولید مجموعه‌ای از فریم‌ها (از اسلایدهای ارائه) که با یک FPS (فریم در ثانیه) مشخص مطابقت دارند استفاده کنید  
+* از ابزاری شخص ثالث مانند **ffmpeg**([for java](https://github.com/bramp/ffmpeg-cli-wrapper)) برای ایجاد یک ویدیو بر پایه فریم‌ها استفاده کنید.  
 
-## **تبدیل PowerPoint به ویدئو در Aspose.Slides**
-
-Aspose.Slides از تبدیل ارائه به ویدئو پشتیبانی می‌کند.
-
-* از **Aspose.Slides** برای تولید مجموعه‌ای از فریم‌ها (از اسلایدهای ارائه) استفاده کنید که با FPS (قاب بر ثانیه) مورد نظر مطابقت دارند
-* از یک ابزار شخص ثالث مانند **ffmpeg** ([for java](https://github.com/bramp/ffmpeg-cli-wrapper)) برای ایجاد ویدئو بر پایه فریم‌ها استفاده کنید. 
-
-### **تبدیل PowerPoint به ویدئو**
+### **تبدیل PowerPoint به ویدیو**
 
 1. این را به فایل POM خود اضافه کنید:
 ```xml
@@ -59,16 +53,19 @@ Aspose.Slides از تبدیل ارائه به ویدئو پشتیبانی می�
    </dependency>
 ```
 
-2. ffmpeg را از [اینجا](https://ffmpeg.org/download.html) دانلود کنید.
+2. ffmpeg را از [اینجا](https://ffmpeg.org/download.html) دانلود کنید.  
 
-4. کد Java تبدیل PowerPoint به ویدئو را اجرا کنید.
+3. کد Java تبدیل PowerPoint به ویدیو را اجرا کنید.  
 
-این کد Java به شما نشان می‌دهد چگونه یک ارائه (که شامل یک شکل و دو افکت انیمیشن است) را به ویدئو تبدیل کنید:
-
+این کد Java به شما نشان می‌دهد چگونه یک ارائه (شامل یک شکل و دو اثر انیمیشن) را به یک ویدیو تبدیل کنید:
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation();
 try {
-    // یک شکل لبخند اضافه می‌کند و سپس آن را انیمیشن می‌دهد
+    // یک شکل لبخند اضافه می‌کند و سپس آن را انیمیت می‌کند
     IAutoShape smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effectIn = mainSequence.addEffect(smile, EffectType.Fly, EffectSubtype.TopLeft, EffectTriggerType.AfterPrevious);
@@ -102,7 +99,7 @@ try {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
 
-    // پوشه باینری‌های ffmpeg را پیکربندی کنید. این صفحه را ببینید: https://github.com/rosenbjerg/FFMpegCore#installation
+    // پوشه باینری‌های ffmpeg را تنظیم کنید. این صفحه را ببینید: https://github.com/bramp/ffmpeg-cli-wrapper
     FFmpeg ffmpeg = new FFmpeg("path/to/ffmpeg");
     FFprobe ffprobe = new FFprobe("path/to/ffprobe");
 
@@ -121,39 +118,44 @@ try {
 }
 ```
 
-## **افکت‌های ویدئویی**
+## **افکت‌های ویدیو**
 
-می‌توانید انیمیشن‌ها را بر روی اشیاء اسلایدها اعمال کنید و از انتقال‌ها بین اسلایدها استفاده کنید. 
+می‌توانید انیمیشن‌ها را بر روی اشیاء در اسلایدها اعمال کنید و از انتقال‌ها بین اسلایدها استفاده کنید.  
 
-{{% alert color="primary" %}} 
-
-ممکن است مایل باشید این مقالات را ببینید: [انیمیشن PowerPoint](https://docs.aspose.com/slides/fa/androidjava/powerpoint-animation/)، [انیمیشن شکل](https://docs.aspose.com/slides/fa/androidjava/shape-animation/)، و [افکت شکل](https://docs.aspose.com/slides/fa/androidjava/shape-effect/).
-
+{{% alert color="info" %}} 
+ممکن است بخواهید این مقالات را ببینید: [PowerPoint Animation](https://docs.aspose.com/slides/fa/androidjava/powerpoint-animation/), [Shape Animation](https://docs.aspose.com/slides/fa/androidjava/shape-animation/), و [Shape Effect](https://docs.aspose.com/slides/fa/androidjava/shape-effect/).  
 {{% /alert %}} 
 
-انیمیشن‌ها و انتقال‌ها نمایش اسلایدها را جذاب‌تر و جالب‌تر می‌کنند — و همین‌طور برای ویدئوها نیز صدق می‌کند. بیایید اسلاید دیگری و یک انتقال به کد ارائه قبلی اضافه کنیم:
-
+انیمیشن‌ها و انتقال‌ها اسلایدشوها را جذاب‌تر و جالب‌تر می‌کنند — و همین کار را برای ویدیوها نیز انجام می‌دهند. بیایید یک اسلاید دیگر و یک انتقال به کد ارائه قبلی اضافه کنیم:
 ```java
-// یک شکل لبخند اضافه می‌کند و آن را انیمیشن می‌دهد
+import com.aspose.slides.*;
+import java.awt.Color;
 
-// ...
+// ارائه‌ای که شکل لبخند متحرک در آن ایجاد شده است.
+Presentation presentation = new Presentation();
+try {
+    // یک اسلاید جدید و انتقال متحرک اضافه می‌کند
 
-// یک اسلاید جدید اضافه می‌کند و انتقال انیمیشن‌شده
+    ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
 
-ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
+    newSlide.getBackground().setType(BackgroundType.OwnBackground);
 
-newSlide.getBackground().setType(BackgroundType.OwnBackground);
+    newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
 
-newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
 
-newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
-
-newSlide.getSlideShowTransition().setType(TransitionType.Push);
+    newSlide.getSlideShowTransition().setType(TransitionType.Push);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 
-Aspose.Slides همچنین از انیمیشن برای متن‌ها پشتیبانی می‌کند. بنابراین ما پاراگراف‌ها را بر روی اشیاء انیمیشن می‌کنیم که یکی پس از دیگری ظاهر می‌شوند (با تاخیر یک ثانیه تنظیم شده):
-
+Aspose.Slides همچنین از انیمیشن برای متن‌ها پشتیبانی می‌کند. بنابراین ما پاراگراف‌ها را بر روی اشیاء انیمیشن می‌کنیم که یکی پس از دیگری ظاهر می‌شوند (با تاخیری تنظیم‌شده به یک ثانیه):
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation();
 try {
     // متن و انیمیشن‌ها را اضافه می‌کند
@@ -169,18 +171,15 @@ try {
     paragraphCollection.add(para1);
     paragraphCollection.add(para2);
     paragraphCollection.add(para3);
-    paragraphCollection.add(new Paragraph());
 
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effect1 = mainSequence.addEffect(para1, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     IEffect effect2 = mainSequence.addEffect(para2, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     IEffect effect3 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-    IEffect effect4 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
     effect1.getTiming().setTriggerDelayTime(1f);
     effect2.getTiming().setTriggerDelayTime(1f);
     effect3.getTiming().setTriggerDelayTime(1f);
-    effect4.getTiming().setTriggerDelayTime(1f);
 
     final int fps = 33;
     ArrayList<String> frames = new ArrayList<String>();
@@ -208,7 +207,7 @@ try {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
 
-    // پیکربندی پوشه باینری‌های ffmpeg. این صفحه را ببینید: https://github.com/rosenbjerg/FFMpegCore#installation
+    // پوشه باینری‌های ffmpeg را تنظیم کنید. این صفحه را ببینید: https://github.com/bramp/ffmpeg-cli-wrapper
     FFmpeg ffmpeg = new FFmpeg("path/to/ffmpeg");
     FFprobe ffprobe = new FFprobe("path/to/ffprobe");
 
@@ -227,20 +226,21 @@ try {
 }
 ```
 
-## **کلاس‌های تبدیل ویدئو**
+## **کلاس‌های تبدیل ویدیو**
 
-برای انجام وظایف تبدیل PowerPoint به ویدئو، Aspose.Slides کلاس‌های [PresentationAnimationsGenerator](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentationanimationsgenerator/) و [PresentationPlayer](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentationplayer/) را ارائه می‌دهد.
+برای اینکه بتوانید کارهای تبدیل PowerPoint به ویدیو را انجام دهید، Aspose.Slides کلاس‌های [PresentationAnimationsGenerator](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentationanimationsgenerator/) و [PresentationPlayer](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentationplayer/) را فراهم می‌کند.  
 
-[PresentationAnimationsGenerator](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentationanimationsgenerator/) به شما امکان می‌دهد اندازه فریم برای ویدئویی که بعداً ایجاد خواهد شد را از طریق سازنده‌اش تنظیم کنید. اگر نمونه‌ای از ارائه را پاس کنید، `Presentation.SlideSize` استفاده می‌شود و انیمیشن‌هایی را که [PresentationPlayer](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentationplayer/) استفاده می‌کند، تولید می‌کند.
+[PresentationAnimationsGenerator] به شما امکان می‌دهد اندازه فریم برای ویدیو (که بعداً ایجاد خواهد شد) را از طریق سازنده‌اش تنظیم کنید. اگر یک نمونه از ارائه را پاس کنید، `Presentation.SlideSize` استفاده می‌شود و انیمیشن‌هایی تولید می‌کند که [PresentationPlayer] از آنها استفاده می‌کند.  
 
-زمانی که انیمیشن‌ها تولید می‌شوند، برای هر انیمیشن بعدی یک رویداد `NewAnimation` ایجاد می‌شود که پارامتر [IPresentationAnimationPlayer](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipresentationanimationplayer/) دارد. این کلاس نمایانگر یک پلیر برای یک انیمیشن جداگانه است.
+هنگامی که انیمیشن‌ها تولید می‌شوند، یک رویداد `NewAnimation` برای هر انیمیشن بعدی ایجاد می‌شود که پارامتر [IPresentationAnimationPlayer] را دارد. این کلاس بازیکنی برای یک انیمیشن جداگانه را نشان می‌دهد.  
 
-برای کار با [IPresentationAnimationPlayer](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipresentationanimationplayer/)، از ویژگی [Duration](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipresentationanimationplayer/#getDuration--) (کل زمان انیمیشن) و متد [SetTimePosition](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipresentationanimationplayer/#setTimePosition-double-) استفاده می‌شود. هر موقعیت انیمیشن در بازه *۰ تا مدت زمان* تنظیم می‌شود و سپس متد `GetFrame` یک BufferedImage که متناظر با وضعیت انیمیشن در آن لحظه است، برمی‌گرداند:
-
+برای کار با [IPresentationAnimationPlayer]، ویژگی [Duration] (کل مدت زمان انیمیشن) و متد [SetTimePosition] استفاده می‌شوند. هر موقعیت انیمیشن در بازه *۰ تا مدت* تنظیم می‌شود و سپس متد `getFrame` یک [IImage] را برمی‌گرداند که با وضعیت انیمیشن در آن لحظه مطابقت دارد:
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // یک شکل لبخند اضافه می‌کند و آن را انیمیشن می‌دهد
+    // یک شکل لبخند اضافه می‌کند و آن را انیمیت می‌نماید
     IAutoShape smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effectIn = mainSequence.addEffect(smile, EffectType.Fly, EffectSubtype.TopLeft, EffectTriggerType.AfterPrevious);
@@ -253,21 +253,18 @@ try {
         animationsGenerator.setNewAnimation(animationPlayer ->
         {
             System.out.println(String.format("Animation total duration: %f", animationPlayer.getDuration()));
+
             animationPlayer.setTimePosition(0); // وضعیت اولیه انیمیشن
-            try {
-                // bitmap وضعیت اولیه انیمیشن
-                animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            animationPlayer.setTimePosition(animationPlayer.getDuration()); // فریم آخر انیمیشن
-            try {
-                // فریم آخر انیمیشن
-                animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            // نقشه بیت وضعیت اولیه انیمیشن
+            animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
+
+            animationPlayer.setTimePosition(animationPlayer.getDuration()); // وضعیت نهایی انیمیشن
+            // فریم آخر انیمیشن
+            animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
         });
+
+        // انیمیشن‌ها را تولید می‌کند. فراخوانی بالا برای هر یک از آنها اجرا می‌شود.
+        animationsGenerator.run(presentation.getSlides());
     } finally {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
@@ -276,9 +273,10 @@ try {
 }
 ```
 
-برای پخش تمام انیمیشن‌های یک ارائه به‌صورت همزمان، از کلاس [PresentationPlayer](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentationplayer/) استفاده می‌شود. این کلاس یک نمونه از [PresentationAnimationsGenerator](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentationanimationsgenerator/) و FPS برای افکت‌ها را در سازنده دریافت کرده و سپس برای تمام انیمیشن‌ها رویداد `FrameTick` را فراخوانی می‌کند تا آن‌ها پخش شوند:
-
+برای اینکه تمام انیمیشن‌های یک ارائه به‌صورت همزمان پخش شوند، از کلاس [PresentationPlayer] استفاده می‌شود. این کلاس یک نمونه [PresentationAnimationsGenerator] و FPS برای افکت‌ها را در سازنده‌اش می‌گیرد و سپس رویداد `FrameTick` را برای تمام انیمیشن‌ها فراخوانی می‌کند تا آن‌ها پخش شوند:
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("animated.pptx");
 try {
     PresentationAnimationsGenerator animationsGenerator = new PresentationAnimationsGenerator(presentation);
@@ -287,11 +285,7 @@ try {
         try {
             player.setFrameTick((sender, arguments) ->
             {
-                try {
-                    arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+                arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
             });
             animationsGenerator.run(presentation.getSlides());
         } finally {
@@ -305,7 +299,7 @@ try {
 }
 ```
 
-سپس فریم‌های تولیدشده می‌توانند به‌منظور ساخت یک ویدئو ترکیب شوند. بخش [تبدیل PowerPoint به ویدئو](https://docs.aspose.com/slides/fa/androidjava/convert-powerpoint-to-video/#convert-powerpoint-to-video) را ببینید.
+سپس فریم‌های تولید شده می‌توانند برای ساخت یک ویدیو ترکیب شوند. بخش [Convert PowerPoint to Video](https://docs.aspose.com/slides/fa/androidjava/convert-powerpoint-to-video/#convert-powerpoint-to-video) را ببینید.  
 
 ## **انیمیشن‌ها و افکت‌های پشتیبانی‌شده**
 
@@ -313,76 +307,76 @@ try {
 
 | نوع انیمیشن | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Appear** | ![not supported](x.png) | ![supported](v.png) |
-| **Fade** | ![supported](v.png) | ![supported](v.png) |
-| **Fly In** | ![supported](v.png) | ![supported](v.png) |
-| **Float In** | ![supported](v.png) | ![supported](v.png) |
-| **Split** | ![supported](v.png) | ![supported](v.png) |
-| **Wipe** | ![supported](v.png) | ![supported](v.png) |
-| **Shape** | ![supported](v.png) | ![supported](v.png) |
-| **Wheel** | ![supported](v.png) | ![supported](v.png) |
-| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
-| **Grow & Turn** | ![not supported](x.png) | ![supported](v.png) |
-| **Zoom** | ![supported](v.png) | ![supported](v.png) |
-| **Swivel** | ![supported](v.png) | ![supported](v.png) |
-| **Bounce** | ![supported](v.png) | ![supported](v.png) |
+| **ظاهر شدن** | ![not supported](x.png) | ![supported](v.png) |
+| **محو شدن** | ![supported](v.png) | ![supported](v.png) |
+| **پرواز به داخل** | ![supported](v.png) | ![supported](v.png) |
+| **شناور شدن به داخل** | ![supported](v.png) | ![supported](v.png) |
+| **تقسیم** | ![supported](v.png) | ![supported](v.png) |
+| **پاک کردن** | ![supported](v.png) | ![supported](v.png) |
+| **شکل** | ![supported](v.png) | ![supported](v.png) |
+| **چرخ** | ![supported](v.png) | ![supported](v.png) |
+| **نوارهای تصادفی** | ![supported](v.png) | ![supported](v.png) |
+| **رشد و چرخش** | ![not supported](x.png) | ![supported](v.png) |
+| **بزرگ‌نمایی** | ![supported](v.png) | ![supported](v.png) |
+| **چرخش** | ![supported](v.png) | ![supported](v.png) |
+| **پریدن** | ![supported](v.png) | ![supported](v.png) |
 
-**تاکید**:
+**تأکید**:
 
 | نوع انیمیشن | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Pulse** | ![not supported](x.png) | ![supported](v.png) |
-| **Color Pulse** | ![not supported](x.png) | ![supported](v.png) |
-| **Teeter** | ![supported](v.png) | ![supported](v.png) |
-| **Spin** | ![supported](v.png) | ![supported](v.png) |
-| **Grow/Shrink** | ![not supported](x.png) | ![supported](v.png) |
-| **Desaturate** | ![not supported](x.png) | ![supported](v.png) |
-| **Darken** | ![not supported](x.png) | ![supported](v.png) |
-| **Lighten** | ![not supported](x.png) | ![supported](v.png) |
-| **Transparency** | ![not supported](x.png) | ![supported](v.png) |
-| **Object Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Complementary Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Line Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
+| **پالس** | ![not supported](x.png) | ![supported](v.png) |
+| **پالس رنگی** | ![not supported](x.png) | ![supported](v.png) |
+| **دلقک‌وار** | ![supported](v.png) | ![supported](v.png) |
+| **چرخش** | ![supported](v.png) | ![supported](v.png) |
+| **رشد/کوچک شدن** | ![not supported](x.png) | ![supported](v.png) |
+| **از رنگ‌زدایی** | ![not supported](x.png) | ![supported](v.png) |
+| **تیره‌کردن** | ![not supported](x.png) | ![supported](v.png) |
+| **روشن‌کردن** | ![not supported](x.png) | ![supported](v.png) |
+| **شفافیت** | ![not supported](x.png) | ![supported](v.png) |
+| **رنگ شیء** | ![not supported](x.png) | ![supported](v.png) |
+| **رنگ مکمل** | ![not supported](x.png) | ![supported](v.png) |
+| **رنگ خط** | ![not supported](x.png) | ![supported](v.png) |
+| **رنگ پرکردن** | ![not supported](x.png) | ![supported](v.png) |
 
 **خروج**:
 
 | نوع انیمیشن | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Disappear** | ![not supported](x.png) | ![supported](v.png) |
-| **Fade** | ![supported](v.png) | ![supported](v.png) |
-| **Fly Out** | ![supported](v.png) | ![supported](v.png) |
-| **Float Out** | ![supported](v.png) | ![supported](v.png) |
-| **Split** | ![supported](v.png) | ![supported](v.png) |
-| **Wipe** | ![supported](v.png) | ![supported](v.png) |
-| **Shape** | ![supported](v.png) | ![supported](v.png) |
-| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
-| **Shrink & Turn** | ![not supported](x.png) | ![supported](v.png) |
-| **Zoom** | ![supported](v.png) | ![supported](v.png) |
-| **Swivel** | ![supported](v.png) | ![supported](v.png) |
-| **Bounce** | ![supported](v.png) | ![supported](v.png) |
+| **ناپدید شدن** | ![not supported](x.png) | ![supported](v.png) |
+| **محو شدن** | ![supported](v.png) | ![supported](v.png) |
+| **پرواز به بیرون** | ![supported](v.png) | ![supported](v.png) |
+| **شناور شدن به بیرون** | ![supported](v.png) | ![supported](v.png) |
+| **تقسیم** | ![supported](v.png) | ![supported](v.png) |
+| **پاک کردن** | ![supported](v.png) | ![supported](v.png) |
+| **شکل** | ![supported](v.png) | ![supported](v.png) |
+| **نوارهای تصادفی** | ![supported](v.png) | ![supported](v.png) |
+| **کوچک شدن و چرخش** | ![not supported](x.png) | ![supported](v.png) |
+| **بزرگ‌نمایی** | ![supported](v.png) | ![supported](v.png) |
+| **چرخش** | ![supported](v.png) | ![supported](v.png) |
+| **پریدن** | ![supported](v.png) | ![supported](v.png) |
 
-**مسیرهای حرکتی**:
+**مسیرهای حرکت**:
 
 | نوع انیمیشن | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Lines** | ![supported](v.png) | ![supported](v.png) |
-| **Arcs** | ![supported](v.png) | ![supported](v.png) |
-| **Turns** | ![supported](v.png) | ![supported](v.png) |
-| **Shapes** | ![supported](v.png) | ![supported](v.png) |
-| **Loops** | ![supported](v.png) | ![supported](v.png) |
-| **Custom Path** | ![supported](v.png) | ![supported](v.png) |
+| **خطوط** | ![supported](v.png) | ![supported](v.png) |
+| **قوس‌ها** | ![supported](v.png) | ![supported](v.png) |
+| **چرخش‌ها** | ![supported](v.png) | ![supported](v.png) |
+| **اشکال** | ![supported](v.png) | ![supported](v.png) |
+| **حلقه‌ها** | ![supported](v.png) | ![supported](v.png) |
+| **مسیر سفارشی** | ![supported](v.png) | ![supported](v.png) |
 
 ## **سوالات متداول**
 
-**آیا امکان تبدیل ارائه‌های دارای رمز عبور وجود دارد؟**
+### آیا امکان تبدیل ارائه‌های محافظت‌شده با رمز عبور وجود دارد؟
 
-بله، Aspose.Slides امکان کار با [ارائه‌های دارای رمز عبور](/slides/fa/androidjava/password-protected-presentation/) را فراهم می‌کند. هنگام پردازش چنین فایل‌هایی باید رمز عبور صحیح را ارائه دهید تا کتابخانه بتواند به محتوای ارائه دسترسی پیدا کند.
+بله، Aspose.Slides امکان کار با [presentations protected with password](/slides/fa/androidjava/password-protected-presentation/) را فراهم می‌کند. هنگام پردازش چنین فایل‌هایی باید رمز عبور صحیح را ارائه دهید تا کتابخانه به محتوای ارائه دسترسی پیدا کند.  
 
-**آیا Aspose.Slides از استفاده در راه‌حل‌های ابری پشتیبانی می‌کند؟**
+### آیا Aspose.Slides از استفاده در راه‌حل‌های ابری پشتیبانی می‌کند؟
 
-بله، Aspose.Slides می‌تواند در برنامه‌ها و سرویس‌های ابری یکپارچه شود. این کتابخانه برای کار در محیط‌های سروری طراحی شده است و عملکرد بالا و مقیاس‌پذیری را برای پردازش انبوه فایل‌ها تضمین می‌کند.
+بله، Aspose.Slides می‌تواند در برنامه‌ها و سرویس‌های ابری یکپارچه شود. این کتابخانه برای کار در محیط‌های سرور طراحی شده و عملکرد بالا و مقیاس‌پذیری برای پردازش دسته‌ای فایل‌ها را تضمین می‌کند.  
 
-**آیا محدودیت اندازه‌ای برای ارائه‌ها هنگام تبدیل وجود دارد؟**
+### آیا محدودیت‌های حجمی برای ارائه‌ها در هنگام تبدیل وجود دارد؟
 
-Aspose.Slides قادر به پردازش ارائه‌های با اندازه تقریباً هر چه باشد است. با این حال، هنگام کار با فایل‌های بسیار بزرگ ممکن است نیاز به منابع سیستمی بیشتری باشد و گاهی توصیه می‌شود تا بهبود عملکرد، ارائه را بهینه‌سازی کنید.
+Aspose.Slides می‌تواند ارائه‌های تقریباً با هر اندازه‌ای را پردازش کند. با این حال، هنگام کار با فایل‌های بسیار بزرگ ممکن است به منابع سیستم بیشتری نیاز باشد و گاهی توصیه می‌شود برای بهبود عملکرد، ارائه را بهینه‌سازی کنید.  

@@ -1,13 +1,13 @@
 ---
-title: چگونه سرصفحه‌ها و پاصفحه‌ها را به ارائه‌ها در .NET اضافه کنیم
-linktitle: افزودن سرصفحه و پاصفحه
+title: نحوه افزودن سرصفحه‌ها و پاورقی‌ها به ارائه‌ها در .NET
+linktitle: افزودن سرصفحه و پاورقی
 type: docs
 weight: 20
 url: /fa/net/how-to-add-header-footer-in-a-presentation/
 keywords:
-- انتقال
+- مهاجرت
 - افزودن سرصفحه
-- افزودن پاصفحه
+- افزودن پاورقی
 - کدهای قدیمی
 - کدهای مدرن
 - رویکرد قدیمی
@@ -18,26 +18,24 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "بیاموزید چگونه در ارائه‌های PowerPoint (PPT، PPTX) و ODP در .NET، سرصفحه‌ها و پاصفحه‌ها را با استفاده از APIهای Aspose.Slides قدیمی و مدرن اضافه کنید."
+description: "نحوه افزودن سرصفحه‌ها و پاورقی‌ها در ارائه‌های PowerPoint (PPT، PPTX) و ODP در .NET را با استفاده از هر دو API قدیمی و مدرن Aspose.Slides بیاموزید."
 ---
-{{% alert color="primary" %}} 
-
-یک [Aspose.Slides برای .NET API](/slides/fa/net/) جدید منتشر شده است و اکنون این محصول واحد قابلیت تولید اسناد PowerPoint از ابتدا و ویرایش اسناد موجود را پشتیبانی می‌کند.
-
+{{% alert color="info" %}} 
+یک [Aspose.Slides for .NET API](/slides/fa/net/) جدید منتشر شده است و اکنون این محصول واحد قابلیت تولید اسناد PowerPoint از صفر و ویرایش اسناد موجود را دارد.
 {{% /alert %}} 
-## **پشتیبانی از کدهای قدیمی**
-برای استفاده از کدهای قدیمی که با نسخه‌های Aspose.Slides برای .NET قبل از 13.x توسعه یافته‌اند، نیاز است برخی تغییرات جزئی در کد خود انجام دهید تا کد همانند قبل کار کند. تمام کلاس‌هایی که در نسخه‌های قدیمی Aspose.Slides برای .NET تحت فضای نام‌های Aspose.Slide و Aspose.Slides.Pptx موجود بودند، اکنون در یک فضای نام واحد Aspose.Slides ترکیب شده‌اند. لطفاً به قطعه کد ساده زیر برای افزودن سرصفحه و پاصفحه به ارائه در API قدیمی Aspose.Slides نگاهی بیندازید و مراحل انتقال به API ترکیبی جدید را دنبال کنید.
+## **پشتیبانی از کدهای پیشین**
+برای استفاده از کدهای پیشین که با نسخه‌های Aspose.Slides برای .NET پیش از 13.x توسعه یافته‌اند، باید مقداری تغییر کوچک در کد خود اعمال کنید و کد همان‌طور که قبلاً عمل می‌کرد، کار خواهد کرد. تمام کلاس‌هایی که در Aspose.Slides برای .NET قدیمی تحت فضای نام‌های Aspose.Slide و Aspose.Slides.Pptx وجود داشتند، اکنون در یک فضای نام واحد Aspose.Slides ادغام شده‌اند. لطفاً به قطعه کد ساده زیر برای افزودن سرصفحه و پاورقی به ارائه در API قدیمی Aspose.Slides نگاهی بیندازید و مراحل توصیف‌شده برای مهاجرت به API جدید ادغام‌شده را دنبال کنید.
 ## **رویکرد قدیمی Aspose.Slides برای .NET**
 ```c#
 PresentationEx sourcePres = new PresentationEx();
 
-// تنظیم ویژگی‌های قابل مشاهده سرصفحه و پاصفحه
-// به‌روزرسانی فیلدهای تاریخ و زمان
-// نمایش مکان‌گیر تاریخ و زمان
-// نمایش مکان‌گیر پاصفحه
-// نمایش شماره اسلاید
-// تنظیم قابلیت مشاهده سرصفحه و پاصفحه در اسلاید عنوان
-// نوشتن ارائه به دیسک
+//تنظیم ویژگی‌های نمایانی سرصفحه و پاورقی
+//به‌روزرسانی فیلدهای تاریخ و زمان
+//نمایش جای‌گذاری تاریخ و زمان
+//نمایش جای‌گذاری پاورقی
+//نمایش شماره اسلاید
+//تنظیم نمایانی سرصفحه و پاورقی بر روی اسلاید عنوان
+//نوشتن ارائه بر روی دیسک
 sourcePres.UpdateSlideNumberFields = true;
 sourcePres.UpdateDateTimeFields = true;
 sourcePres.HeaderFooterManager.IsDateTimeVisible = true;
@@ -48,25 +46,27 @@ sourcePres.Write("NewSource.pptx");
 ```
 
 ```c#
+using Aspose.Slides;
+
 //ایجاد ارائه
 Presentation pres = new Presentation();
 
 //دریافت اولین اسلاید
 Slide sld = pres.GetSlideByPosition(1);
 
-//دسترسی به سرصفحه / پاصفحه اسلاید
+//دسترسی به سرصفحه / پاورقی اسلاید
 HeaderFooter hf = sld.HeaderFooter;
 
-//تنظیم قابلیت مشاهده شماره صفحه
+//تنظیم نمایانی شماره صفحه
 hf.PageNumberVisible = true;
 
-//تنظیم قابلیت مشاهده پاصفحه
+//تنظیم نمایانی پاورقی
 hf.FooterVisible = true;
 
-//تنظیم قابلیت مشاهده سرصفحه
+//تنظیم نمایانی سرصفحه
 hf.HeaderVisible = true;
 
-//تنظیم قابلیت مشاهده تاریخ و زمان
+//تنظیم نمایانی تاریخ و زمان
 hf.DateTimeVisible = true;
 
 //تنظیم قالب تاریخ و زمان
@@ -75,35 +75,37 @@ hf.DateTimeFormat = DateTimeFormat.DateTime_dMMMMyyyy;
 //تنظیم متن سرصفحه
 hf.HeaderText = "Header Text";
 
-//تنظیم متن پاصفحه
+//تنظیم متن پاورقی
 hf.FooterText = "Footer Text";
 
-//نوشتن ارائه در دیسک
+//نوشتن ارائه به دیسک
 pres.Write("HeadFoot.ppt");
 ```
 
 
-
 ## **رویکرد جدید Aspose.Slides برای .NET 13.x**
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation sourcePres = new Presentation())
 {
-    //تنظیم ویژگی‌های قابل مشاهده سرصفحه و پاصفحه
+    //تنظیم ویژگی‌های نمایانی سرصفحه و پاورقی
     sourcePres.HeaderFooterManager.SetAllSlideNumbersVisibility(true);
 
     //به‌روزرسانی فیلدهای تاریخ و زمان
     sourcePres.HeaderFooterManager.SetAllDateTimesVisibility(true);
 
-    //نمایش مکان‌گیر تاریخ و زمان
+    //نمایش جای‌گذاری تاریخ و زمان
     sourcePres.HeaderFooterManager.SetAllDateTimesVisibility(true);
 
-    //نمایش مکان‌گیر پاصفحه
+    //نمایش جای‌گذاری پاورقی
     sourcePres.HeaderFooterManager.SetAllFootersVisibility(true);
     
-    //تنظیم قابلیت مشاهده سرصفحه و پاصفحه در اسلاید عنوان
+    //تنظیم نمایانی سرصفحه و پاورقی بر روی اسلاید عنوان
     sourcePres.HeaderFooterManager.SetVisibilityOnAllTitleSlides(true);
 
-    //نوشتن ارائه در دیسک
+    //نوشتن ارائه به دیسک
     sourcePres.Save("NewSource.pptx", SaveFormat.Pptx);
 }
 ```

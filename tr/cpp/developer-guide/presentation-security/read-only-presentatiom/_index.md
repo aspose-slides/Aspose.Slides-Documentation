@@ -1,63 +1,69 @@
 ---
-title: C++ Kullanarak Okunabilir Modda Sunumları Kaydet
-linktitle: Okunabilir Sunum
+title: C++ Kullanarak Okuma-Yalnızca Modunda Sunumları Kaydetme
+linktitle: Okuma-Yalnızca Sunum
 type: docs
 weight: 30
 url: /tr/cpp/read-only-presentation/
 keywords:
-- yalnızca okuma
-- sunumu koruma
-- düzenlemeyi önleme
+- okuma-yalnızca
+- sunumu koru
+- düzenlemeyi önle
 - PowerPoint
 - OpenDocument
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ ile PowerPoint dosyalarını (PPT, PPTX) okunabilir modda yükleyin ve kaydedin, sunumlarınızı değiştirmeden kesin slayt önizlemeleri sağlayın."
+description: "Aspose.Slides for C++ ile PowerPoint dosyalarını (PPT, PPTX) okuma-yalnızca modunda yükleyip kaydedin; sunumlarınızı değiştirmeden kesin slayt ön izlemeleri sunar."
 ---
 ## **Giriş**
 
-PowerPoint 2019'da Microsoft, sunumları korumak için kullanıcıların kullanabileceği seçeneklerden biri olarak **Always Open Read-Only** ayarını tanıttı. Bu Read-Only ayarını bir sunumu korumak istediğinizde kullanmak isteyebilirsiniz:
+PowerPoint 2019'da Microsoft, sunumları korumak için kullanıcıların kullanabileceği seçeneklerden biri olarak **Always Open Read-Only** ayarını tanıttı. Bu Okuma-Yalnızca ayarını bir sunumu korumak için şu durumlarda kullanmak isteyebilirsiniz
 
-- Sunumunuzun içeriğini kazara düzenlemeleri önlemek ve güvenli tutmak isterseniz.  
-- Sağladığınız sunumun son sürüm olduğunu insanlara bildirmek isterseniz.  
+- Yanlışlıkla yapılan düzenlemeleri önlemek ve sunum içeriğinizi güvende tutmak istediğinizde. 
+- Sağladığınız sunumun son sürüm olduğunu insanlara bildirmek istediğinizde. 
 
-**Always Open Read-Only** seçeneğini bir sunum için etkinleştirdikten sonra, kullanıcılar sunumu açtıklarında **Read-Only** tavsiyesini görür ve şu şekilde bir mesaj görebilirler: *Kazara değişiklikleri önlemek için yazar bu dosyayı yalnızca okunacak biçimde açılacak şekilde ayarlamıştır.*
+Bir sunum için **Always Open Read-Only** seçeneğini belirledikten sonra, kullanıcılar sunumu açtıklarında **Read-Only** önerisini görür ve şu şekilde bir ileti görebilirler: *Yanlışlıkla değişiklik yapılmasını önlemek için yazar bu dosyayı yalnızca okunacak şekilde ayarlamıştır.*
 
-Read-Only tavsiyesi, kullanıcıların bir sunumu düzenleyebilmeleri için önce bu tavsiyeyi kaldırmalarını gerektiren basit ama etkili bir caydırıcıdır. Eğer kullanıcıların bir sunumu değiştirmesini istemiyor ve bunu kibar bir şekilde iletmek istiyorsanız, Read-Only tavsiyesi sizin için iyi bir seçenek olabilir.  
+Read-Only önerisi, kullanıcıların bir sunumu düzenleyebilmek için önce bu öneriyi kaldırması gerektiği için düzenlemeyi caydıran basit ama etkili bir önlemdir. Kullanıcıların bir sunumu değiştirmesini istemiyor ve bunu nazik bir şekilde belirtmek istiyorsanız, Read-Only önerisi sizin için iyi bir seçenek olabilir. 
 
-> **Read-Only** korumasıyla açılmış bir sunum daha eski bir Microsoft PowerPoint uygulamasında (yeni işlevi desteklemeyen) açılırsa, **Read-Only** tavsiyesi yoksayılır (sunum normal şekilde açılır).
+> **Read-Only** korumalı bir sunum, yeni eklenen işlevi desteklemeyen daha eski bir Microsoft PowerPoint uygulamasında açılırsa, **Read-Only** önerisi göz ardı edilir (sunum normal şekilde açılır).
 
-## **Read-Only Modunu Uygula**
+## **Okuma-Yalnızca Modunu Uygula**
 
-Aspose.Slides for C++ size bir sunumu **Read-Only** olarak ayarlama imkanı verir; bu, kullanıcıların (sunumu açtıktan sonra) **Read-Only** tavsiyesini görmeleri anlamına gelir. Aşağıdaki örnek kod, Aspose.Slides kullanarak C++ içinde bir sunumu **Read-Only** olarak nasıl ayarlayacağınızı gösterir:
+Aspose.Slides for C++ size bir sunumu **Read-Only** olarak ayarlama imkanı sağlar; bu, kullanıcıların (sunumu açtıktan sonra) **Read-Only** önerisini görmesi anlamına gelir. Bu örnek kod, Aspose.Slides kullanarak C++’ta bir sunumu **Read-Only** olarak nasıl ayarlayacağınızı gösterir:
 
 ``` cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 pres->get_ProtectionManager()->set_ReadOnlyRecommended(true);
 pres->Save(u"ReadOnlyPresentation.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-**Not**: **Read-Only** tavsiyesi, bir PowerPoint sunumunda kazara değişiklik yapılmasını önlemek ya da düzenlemeyi caydırmak için tasarlanmıştır. İşini bilen bir kişi (ne yaptığını bilen) sunumunuzu düzenlemeye karar verirse, Read-Only ayarını kolayca kaldırabilir. Gerçekten yetkisiz düzenlemeleri önlemek istiyorsanız, [more stringent protections that involve encryptions and passwords](https://docs.aspose.com/slides/tr/cpp/password-protected-presentation/) kullanmanız daha iyidir. 
+**Not**: **Read-Only** önerisi, bir PowerPoint sunumunda düzenlemeyi caydırmak veya kullanıcıların yanlışlıkla değişiklik yapmasını önlemek için tasarlanmıştır. Ne yaptığını bilen motive bir kişi sunumunuzu düzenlemeye karar verirse, Read-Only ayarını kolayca kaldırabilir. Yetkisiz düzenlemeleri gerçekten önlemeniz gerekiyorsa, [şifrelemeler ve parolalar içeren daha katı korumalar](https://docs.aspose.com/slides/tr/cpp/password-protected-presentation/) kullanmanız daha iyidir. 
 
 {{% /alert %}} 
 
 ## **SSS**
 
-**'Read-Only recommended' tam parola korumasından nasıl farklıdır?**
+### 'Read-Only recommended' tam parola korumasından nasıl farklıdır?
 
-'Read-Only recommended' yalnızca dosyanın yalnızca okunacak modda açılması önerisini gösterir ve kolayca aşılabilir. [Password protection](/slides/tr/cpp/password-protected-presentation/) ise açma ya da düzenleme işlemlerini gerçekten kısıtlar ve gerçek güvenlik kontrollerine ihtiyaç duyduğunuzda uygundur.
+'Read-Only recommended' yalnızca dosyanın yalnızca okunacak modda açılması önerisini gösterir ve geçmesi kolaydır. [Parola koruması](/slides/tr/cpp/password-protected-presentation/) aslında açma veya düzenlemeyi kısıtlar ve gerçek güvenlik kontrollerine ihtiyacınız olduğunda uygundur.
 
-**'Read-Only recommended' bir su işareti (watermark) ile birleştirilebilir ve düzenlemeleri daha da caydırabilir mi?**
+### 'Read-Only recommended' su işaretlemelerle birleştirilebilir mi?
 
-Evet. Bu öneri, görsel bir caydırıcı olarak [watermarks](/slides/tr/cpp/watermark/) ile eşleştirilebilir; bunlar ayrı mekanizmalardır ve birlikte iyi çalışır.
+Evet. Öneri, görsel bir caydırıcı olarak [filigranlar](/slides/tr/cpp/watermark/) ile eşleştirilebilir; bunlar ayrı mekanizmalardır ve birlikte iyi çalışırlar.
 
-**Öneri etkin olduğunda bir makro ya da dış araç hâlâ dosyayı değiştirebilir mi?**
+### Bir makro ya da dış araç, öneri etkin olduğunda dosyayı değiştirebilir mi?
 
-Evet. Öneri programatik değişiklikleri engellemez. Otomatik düzenlemeleri önlemek için [passwords and encryption](/slides/tr/cpp/password-protected-presentation/) kullanın.
+Evet. Öneri programatik değişiklikleri engellemez. Otomatik düzenlemeleri önlemek için [parolalar ve şifreleme](/slides/tr/cpp/password-protected-presentation/) kullanın.
 
-**'Read-Only recommended' “is encrypted” ve “is write protected” bayraklarıyla nasıl ilişkilidir?**
+### 'Read-Only recommended' 'is encrypted' ve 'is write protected' bayraklarıyla nasıl ilişkilidir?
 
-Bunlar farklı sinyallerdir. 'Read-Only recommended' yumuşak, isteğe bağlı bir uyarıdır; [get_IsWriteProtected](https://reference.aspose.com/slides/tr/cpp/aspose.slides/protectionmanager/get_iswriteprotected/) ve [get_IsEncrypted](https://reference.aspose.com/slides/tr/cpp/aspose.slides/protectionmanager/get_isencrypted/) ise parolalar ya da şifreleme ile bağlı gerçek yazma ya da okuma kısıtlamalarını gösterir.
+Bunlar farklı sinyallerdir. 'Read-Only recommended' yumuşak, isteğe bağlı bir istemdir; [get_IsWriteProtected](https://reference.aspose.com/slides/tr/cpp/aspose.slides/protectionmanager/get_iswriteprotected/) ve [get_IsEncrypted](https://reference.aspose.com/slides/tr/cpp/aspose.slides/protectionmanager/get_isencrypted/) ise parolalar veya şifreleme ile belirlenen gerçek yazma veya okuma kısıtlamalarını gösterir.

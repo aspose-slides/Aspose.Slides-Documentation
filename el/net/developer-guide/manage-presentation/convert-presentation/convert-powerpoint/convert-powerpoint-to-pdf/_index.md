@@ -1,5 +1,5 @@
 ---
-title: Μετατροπή PPT και PPTX σε PDF με .NET [Συμπεριλαμβανομένα Προηγμένα Χαρακτηριστικά]
+title: Μετατροπή PPT και PPTX σε PDF στο .NET [Συμπεριλαμβάνονται Προηγμένα Χαρακτηριστικά]
 linktitle: PowerPoint σε PDF
 type: docs
 weight: 40
@@ -24,112 +24,121 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Μετατρέψτε PowerPoint PPT/PPTX σε υψηλής ποιότητας, αναζητήσιμα PDF σε .NET χρησιμοποιώντας Aspose.Slides, με γρήγορα παραδείγματα κώδικα C# και προηγμένες επιλογές μετατροπής."
+description: "Μετατρέψτε PowerPoint PPT/PPTX σε PDF υψηλής ποιότητας, αναζητήσιμα, στο .NET χρησιμοποιώντας το Aspose.Slides, με γρήγορα παραδείγματα κώδικα C# και προηγμένες επιλογές μετατροπής."
 ---
 ## **Επισκόπηση**
 
-Η μετατροπή παρουσιάσεων PowerPoint (PPT, PPTX, ODP κ.λπ.) σε μορφή PDF με C# προσφέρει πολλά πλεονεκτήματα, όπως συμβατότητα με διαφορετικές συσκευές και διατήρηση της διάταξης και της μορφοποίησης της παρουσίασής σας. Αυτός ο οδηγός δείχνει πώς να μετατρέψετε παρουσιάσεις σε έγγραφα PDF, να χρησιμοποιήσετε διάφορες επιλογές για τον έλεγχο της ποιότητας των εικόνων, να συμπεριλάβετε κρυφές διαφάνειες, να προστατεύσετε με κωδικό πρόσβασης τα αρχεία PDF, να εντοπίσετε αντικαταστάσεις γραμματοσειρών, να επιλέξετε συγκεκριμένες διαφάνειες για μετατροπή και να εφαρμόσετε πρότυπα συμμόρφωσης στα παραγόμενα έγγραφα.
+Η μετατροπή παρουσιάσεων PowerPoint (PPT, PPTX, ODP κ.λπ.) σε μορφή PDF σε C# προσφέρει διάφορα πλεονεκτήματα, όπως συμβατότητα σε διαφορετικές συσκευές και διατήρηση της διάταξης και μορφοποίησης της παρουσίασής σας. Αυτός ο οδηγός δείχνει πώς να μετατρέπετε παρουσιάσεις σε έγγραφα PDF, να χρησιμοποιείτε διάφορες επιλογές για έλεγχο της ποιότητας εικόνων, να συμπεριλάβετε κρυφές διαφάνειες, να προστατεύετε με κωδικό πρόσβασης τα αρχεία PDF, να εντοπίζετε αντικαταστάσεις γραμματοσειρών, να επιλέγετε συγκεκριμένες διαφάνειες για μετατροπή και να εφαρμόζετε πρότυπα συμμόρφωσης στα παραγόμενα έγγραφα.
 
 ## **Μετατροπές PowerPoint σε PDF**
 
-Με χρήση του Aspose.Slides, μπορείτε να μετατρέψετε παρουσιάσεις στις ακόλουθες μορφές σε PDF:
+Με τη χρήση του Aspose.Slides, μπορείτε να μετατρέψετε παρουσιάσεις στα ακόλουθα μορφότυπα σε PDF:
 
 * **PPT**
 * **PPTX**
 * **ODP**
 
-Για να μετατρέψετε μια παρουσίαση σε PDF, περάστε το όνομα του αρχείου ως όρισμα στην κλάση [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) και στη συνέχεια αποθηκεύστε την παρουσίαση ως PDF χρησιμοποιώντας τη μέθοδο [Save](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/save/). Η κλάση [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) εκθέτει τη μέθοδο [Save](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/save/) η οποία συνήθως χρησιμοποιείται για τη μετατροπή μιας παρουσίασης σε PDF.
+Για να μετατρέψετε μια παρουσίαση σε PDF, περάστε το όνομα του αρχείου ως όρισμα στην κλάση [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) και, στη συνέχεια, αποθηκεύστε την παρουσίαση ως PDF χρησιμοποιώντας τη μέθοδο [Save](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/save/). Η κλάση [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) εκθέτει τη μέθοδο [Save](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/save/) που χρησιμοποιείται συνήθως για τη μετατροπή μιας παρουσίασης σε PDF.
 
 {{%  alert title="NOTE"  color="warning"   %}} 
 
-Το Aspose.Slides for .NET εισάγει τις πληροφορίες του API και τον αριθμό έκδοσης στα έγγραφα εξόδου. Για παράδειγμα, κατά τη μετατροπή μιας παρουσίασης σε PDF, το Aspose.Slides συμπληρώνει το πεδίο Application με "*Aspose.Slides*" και το πεδίο PDF Producer με τιμή σε μορφή "*Aspose.Slides v XX.XX*". **Σημείωση** ότι δεν μπορείτε να υποδείξετε στο Aspose.Slides να αλλάξει ή να αφαιρέσει αυτές τις πληροφορίες από τα έγγραφα εξόδου.
+Το Aspose.Slides for .NET προσθέτει πληροφορίες API και αριθμό έκδοσης στα έγγραφα εξόδου. Για παράδειγμα, κατά τη μετατροπή μιας παρουσίασης σε PDF, το Aspose.Slides συμπληρώνει το πεδίο Application με "*Aspose.Slides*" και το πεδίο PDF Producer με μια τιμή σε μορφή "*Aspose.Slides v XX.XX*". **Σημείωση** ότι δεν μπορείτε να ζητήσετε από το Aspose.Slides να αλλάξει ή να αφαιρέσει αυτές τις πληροφορίες από τα έγγραφα εξόδου.
 
 {{% /alert %}}
 
-Το Aspose.Slides σας επιτρέπει να μετατρέψετε:
+Το Aspose.Slides επιτρέπει τη μετατροπή:
 
-* Ολόκληρες παρουσιάσεις σε PDF
-* Συγκεκριμένες διαφάνειες από μια παρουσίαση σε PDF
+* Ολόκληρων παρουσιάσεων σε PDF
+* Συγκεκριμένων διαφανειών από μια παρουσίαση σε PDF
 
-Το Aspose.Slides εξάγει παρουσιάσεις σε PDF, εξασφαλίζοντας ότι τα παραγόμενα PDF ταιριάζουν στενά με τις αρχικές παρουσιάσεις. Τα στοιχεία και οι ιδιότητες αποδίδονται ακριβώς κατά τη μετατροπή, συμπεριλαμβανομένων:
+Το Aspose.Slides εξάγει παρουσιάσεις σε PDF, διασφαλίζοντας ότι τα παραγόμενα PDF ταιριάζουν στενά με τις αρχικές παρουσιάσεις. Στοιχεία και ιδιότητες αποδίδονται με ακρίβεια στη μετατροπή, συμπεριλαμβανομένων:
 
 * Εικόνες
-* Κείμενα και σχήματα
+* Πλαίσια κειμένου και σχήματα
 * Μορφοποίηση κειμένου
 * Μορφοποίηση παραγράφων
 * Υπερσυνδέσμους
-* Κεφαλίδες και υποσέλιδα
+* Κεφαλίδες και υποσέλιδες
 * Κουκκίδες
 * Πίνακες
 
 ## **Μετατροπή PowerPoint σε PDF**
 
-Η τυπική διαδικασία μετατροπής PowerPoint‑σε‑PDF χρησιμοποιεί προεπιλεγμένες επιλογές. Σε αυτήν την περίπτωση, το Aspose.Slides προσπαθεί να μετατρέψει την παρεχόμενη παρουσίαση σε PDF χρησιμοποιώντας βέλτιστες ρυθμίσεις στα μέγιστα επίπεδα ποιότητας.
+Η τυπική διαδικασία μετατροπής PowerPoint‑σε‑PDF χρησιμοποιεί τις προεπιλεγμένες επιλογές. Σε αυτήν την περίπτωση, το Aspose.Slides προσπαθεί να μετατρέψει την παρεχόμενη παρουσίαση σε PDF χρησιμοποιώντας βέλτιστες ρυθμίσεις στα μέγιστα επίπεδα ποιότητας.
 
-Αυτός ο κώδικας C# δείχνει πώς να μετατρέψετε μια παρουσίαση (PPT, PPTX, ODP κ.λπ.) σε PDF:
+Αυτό το παράδειγμα κώδικα C# δείχνει πώς να μετατρέψετε μια παρουσίαση (PPT, PPTX, ODP κ.λπ.) σε PDF:
 
 ```c#
-// Δημιουργήστε την κλάση Presentation που αντιπροσωπεύει ένα αρχείο PowerPoint ή OpenDocument.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Δημιουργία αντικειμένου της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PowerPoint ή OpenDocument.
 using var presentation = new Presentation("PowerPoint.ppt");
 
-// Αποθηκεύστε την παρουσίαση ως PDF.
+// Αποθήκευση της παρουσίασης ως PDF.
 presentation.Save("PDF-result.pdf", SaveFormat.Pdf);
 ```
 
-{{%  alert  color="primary"  %}} 
+{{%  alert  color="info"  %}} 
 
-Το Aspose προσφέρει έναν δωρεάν διαδικτυακό [**μετατροπέα PowerPoint σε PDF**](https://products.aspose.app/slides/el/conversion/ppt-to-pdf) που επιδεικνύει τη διαδικασία μετατροπής παρουσίασης‑σε‑PDF. Μπορείτε να εκτελέσετε μια δοκιμή με αυτόν τον μετατροπέα για μια ζωντανή υλοποίηση της διαδικασίας που περιγράφεται εδώ.
+Το Aspose προσφέρει έναν δωρεάν διαδικτυακό [**μετατροπέα PowerPoint σε PDF**](https://products.aspose.app/slides/el/conversion/ppt-to-pdf) που επιδεικνύει τη διαδικασία μετατροπής παρουσίασης‑σε‑PDF. Μπορείτε να εκτελέσετε μια δοκιμή με αυτόν τον μετατροπέα για μια ζωντανή υλοποίηση της διαδικασίας που περιγράφηκε εδώ.
 
 {{% /alert %}}
 
 ## **Μετατροπή PowerPoint σε PDF με Επιλογές**
 
-Το Aspose.Slides παρέχει προσαρμοσμένες επιλογές—ιδιότητες της κλάσης [PdfOptions](https://reference.aspose.com/slides/el/net/aspose.slides.export/pdfoptions/)—που σας επιτρέπουν να προσαρμόσετε το παραγόμενο PDF, να το κλειδώσετε με κωδικό πρόσβασης ή να ορίσετε πώς θα προχωρήσει η διαδικασία μετατροπής.
+Το Aspose.Slides παρέχει προσαρμοσμένες επιλογές—ιδιότητες της κλάσης [PdfOptions](https://reference.aspose.com/slides/el/net/aspose.slides.export/pdfoptions/)—που σας επιτρέπουν να προσαρμόσετε το παραγόμενο PDF, να κλειδώσετε το PDF με κωδικό πρόσβασης ή να καθορίσετε πώς θα προχωρήσει η διαδικασία μετατροπής.
 
 ### **Μετατροπή PowerPoint σε PDF με Προσαρμοσμένες Επιλογές**
 
-Με χρήση προσαρμοσμένων επιλογών μετατροπής, μπορείτε να ορίσετε την προτιμώμενη ρύθμιση ποιότητας για ριζικές εικόνες, να καθορίσετε πώς θα διαχειριστούν τα metafiles, να ορίσετε επίπεδο συμπίεσης για κείμενο, να ρυθμίσετε DPI για εικόνες κ.λπ.
+Με τις προσαρμοσμένες επιλογές μετατροπής, μπορείτε να ορίσετε το προτιμώμενο επίπεδο ποιότητας για raster εικόνες, να καθορίσετε πώς θα χειριστούν τα metafile, να ορίσετε επίπεδο συμπίεσης για κείμενο, να ρυθμίσετε DPI για εικόνες και πολλά άλλα.
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να μετατρέψετε μια παρουσίαση PowerPoint σε PDF με πολλές προσαρμοσμένες επιλογές.
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να μετατρέψετε μια παρουσίαση PowerPoint σε PDF με αρκετές προσαρμοσμένες επιλογές.
 
 ```c#
-// Δημιουργία της κλάσης PdfOptions.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Δημιουργία αντικειμένου της κλάσης PdfOptions.
 var pdfOptions = new PdfOptions
 {
-    // Ορισμός της ποιότητας για εικόνες JPG.
+    // Ορισμός ποιότητας για εικόνες JPG.
     JpegQuality = 90,
 
     // Ορισμός DPI για εικόνες.
     SufficientResolution = 300,
 
-    // Ορισμός της συμπεριφοράς για μετααρχεία.
+    // Ορισμός συμπεριφοράς για metafiles.
     SaveMetafilesAsPng = true,
 
-    // Ορισμός του επιπέδου συμπίεσης κειμένου για το κειμενικό περιεχόμενο.
+    // Ορισμός επιπέδου συμπίεσης κειμένου για το κειμενικό περιεχόμενο.
     TextCompression = PdfTextCompression.Flate,
 
-    // Καθορισμός της λειτουργίας συμμόρφωσης PDF.
+    // Καθορισμός λειτουργίας συμμόρφωσης PDF.
     Compliance = PdfCompliance.Pdf15
 };
 
-// Δημιουργία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PowerPoint ή OpenDocument.
+// Δημιουργία αντικειμένου της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PowerPoint ή OpenDocument file.
 using var presentation = new Presentation("PowerPoint.pptx");
 
-// Αποθήκευση της παρουσίασης ως έγγραφο PDF.
+// Αποθήκευση της παρουσίασης ως PDF έγγραφο.
 presentation.Save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
 ### **Μετατροπή PowerPoint σε PDF με Κρυφές Διαφάνειες**
 
-Εάν μια παρουσίαση περιέχει κρυφές διαφάνειες, μπορείτε να χρησιμοποιήσετε την ιδιότητα [ShowHiddenSlides](https://reference.aspose.com/slides/el/net/aspose.slides.export/pdfoptions/showhiddenslides/) της κλάσης [PdfOptions](https://reference.aspose.com/slides/el/net/aspose.slides.export/pdfoptions/) για να συμπεριλάβετε τις κρυφές διαφάνειες ως σελίδες στο παραγόμενο PDF.
+Εάν μια παρουσίαση περιέχει κρυφές διαφάνειες, μπορείτε να χρησιμοποιήσετε την ιδιότητα [ShowHiddenSlides](https://reference.aspose.com/slides/el/net/aspose.slides.export/pdfoptions/showhiddenslides/) από την κλάση [PdfOptions](https://reference.aspose.com/slides/el/net/aspose.slides.export/pdfoptions/) για να συμπεριλάβετε τις κρυφές διαφάνειες ως σελίδες στο παραγόμενο PDF.
 
-Αυτός ο κώδικας C# δείχνει πώς να μετατρέψετε μια παρουσίαση PowerPoint σε PDF με κρυφές διαφάνειες:
+Αυτός ο κώδικας C# δείχνει πώς να μετατρέψετε μια παρουσίαση PowerPoint σε PDF με τις κρυφές διαφάνειες να περιλαμβάνονται:
 
 ```c#
-// Δημιουργία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PowerPoint ή OpenDocument.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Δημιουργία αντικειμένου της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PowerPoint ή OpenDocument.
 using var presentation = new Presentation("PowerPoint.pptx");
 
-// Δημιουργία της κλάσης PdfOptions.
+// Δημιουργία αντικειμένου της κλάσης PdfOptions.
 var pdfOptions = new PdfOptions();
 
 // Προσθήκη κρυφών διαφανειών.
@@ -139,15 +148,18 @@ pdfOptions.ShowHiddenSlides = true;
 presentation.Save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-### **Μετατροπή PowerPoint σε PDF με Προστασία Κωδικού Πρόσβασης**
+### **Μετατροπή PowerPoint σε PDF με Προστασία Κωδικού**
 
-Αυτός ο κώδικας C# επιδεικνύει πώς να μετατρέψετε μια παρουσίαση PowerPoint σε PDF προστατευμένο με κωδικό πρόσβασης χρησιμοποιώντας τις παραμέτρους προστασίας της κλάσης [PdfOptions](https://reference.aspose.com/slides/el/net/aspose.slides.export/pdfoptions/):
+Αυτός ο κώδικας C# δείχνει πώς να μετατρέψετε μια παρουσίαση PowerPoint σε PDF με προστασία κωδικού πρόσβασης χρησιμοποιώντας τις παραμέτρους προστασίας από την κλάση [PdfOptions](https://reference.aspose.com/slides/el/net/aspose.slides.export/pdfoptions/):
 
 ```c#
-// Δημιουργία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PowerPoint ή OpenDocument.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Δημιουργία αντικειμένου της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PowerPoint ή OpenDocument.
 using var presentation = new Presentation("PowerPoint.pptx");
 
-// Δημιουργία της κλάσης PdfOptions.
+// Δημιουργία αντικειμένου της κλάσης PdfOptions.
 var pdfOptions = new PdfOptions();
 
 // Ορισμός κωδικού πρόσβασης PDF και δικαιωμάτων πρόσβασης.
@@ -158,19 +170,23 @@ pdfOptions.AccessPermissions = PdfAccessPermissions.PrintDocument | PdfAccessPer
 presentation.Save("PPTX-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-### **Εντοπισμός Αντικαταστάσεων Γραμματοσειράς**
+### **Ανίχνευση Αντικατάστασης Γραμματοσειρών**
 
-Το Aspose.Slides παρέχει την ιδιότητα [WarningCallback](https://reference.aspose.com/slides/el/net/aspose.slides.export/saveoptions/warningcallback/) στην κλάση [PdfOptions](https://reference.aspose.com/slides/el/net/aspose.slides.export/pdfoptions/), επιτρέποντάς σας να εντοπίσετε αντικαταστάσεις γραμματοσειρών κατά τη διαδικασία μετατροπής παρουσίασης‑σε‑PDF.
+Το Aspose.Slides παρέχει την ιδιότητα [WarningCallback](https://reference.aspose.com/slides/el/net/aspose.slides.export/saveoptions/warningcallback/) στην κλάση [PdfOptions](https://reference.aspose.com/slides/el/net/aspose.slides.export/pdfoptions/), επιτρέποντάς σας να ανιχνεύσετε αντικαταστάσεις γραμματοσειρών κατά τη διαδικασία μετατροπής παρουσίασης‑σε‑PDF.
 
-Αυτός ο κώδικας C# δείχνει πώς να εντοπίσετε αντικαταστάσεις γραμματοσειράς:
+Αυτός ο κώδικας C# δείχνει πώς να ανιχνεύσετε αντικαταστάσεις γραμματοσειρών:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Warnings;
+
 public static void Main()
 {
-    // Δημιουργία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PowerPoint ή OpenDocument file. 
+    // Δημιουργία αντικειμένου της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PowerPoint ή OpenDocument file. 
     using var presentation = new Presentation("sample.pptx");
 
-    // Ορισμός της λειτουργίας επιστροφής προειδοποίησης στις επιλογές PDF.
+    // Ορισμός της λειτουργίας επανάκλησης προειδοποίησης στις επιλογές PDF.
     var pdfOptions = new PdfOptions();
     pdfOptions.WarningCallback = new FontSubstitutionHandler();
 
@@ -178,7 +194,7 @@ public static void Main()
     presentation.Save("output.pdf", SaveFormat.Pdf, pdfOptions);
 }
 
-// Υλοποίηση της λειτουργίας επιστροφής προειδοποίησης.
+// Υλοποίηση της λειτουργίας επανάκλησης προειδοποίησης.
 private class FontSubstitutionHandler : IWarningCallback
 {
     public ReturnAction Warning(IWarningInfo warning)
@@ -194,11 +210,11 @@ private class FontSubstitutionHandler : IWarningCallback
 }
 ```
 
-{{%  alert color="primary"  %}} 
+{{%  alert color="info"  %}} 
 
-Για περισσότερες πληροφορίες σχετικά με την λήψη callbacks για αντικατάσταση γραμματοσειρών κατά τη διαδικασία απόδοσης, δείτε [Getting Warning Callbacks for Fonts Substitution](/slides/el/net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
+Για περισσότερες πληροφορίες σχετικά με την λήψη callbacks για αντικατάσταση γραμματοσειρών κατά τη διαδικασία απόδοσης, δείτε το άρθρο [Getting Warning Callbacks for Fonts Substitution](/slides/el/net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
 
-Για περισσότερες πληροφορίες σχετικά με την αντικατάσταση γραμματοσειράς, δείτε το άρθρο [Font Substitution](/slides/el/net/font-substitution/).
+Για περισσότερες πληροφορίες σχετικά με την αντικατάσταση γραμματοσειρών, δείτε το άρθρο [Font Substitution](/slides/el/net/font-substitution/).
 
 {{% /alert %}} 
 
@@ -207,7 +223,10 @@ private class FontSubstitutionHandler : IWarningCallback
 Αυτός ο κώδικας C# δείχνει πώς να μετατρέψετε μόνο συγκεκριμένες διαφάνειες από μια παρουσίαση PowerPoint σε PDF:
 
 ```c#
-// Δημιουργία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PowerPoint ή OpenDocument file.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Δημιουργία αντικειμένου της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PowerPoint ή OpenDocument file.
 using var presentation = new Presentation("PowerPoint.pptx");
 
 // Ορισμός πίνακα αριθμών διαφανειών.
@@ -222,6 +241,9 @@ presentation.Save("PPTX-to-PDF.pdf", slides, SaveFormat.Pdf);
 Αυτός ο κώδικας C# δείχνει πώς να μετατρέψετε μια παρουσίαση PowerPoint σε PDF με καθορισμένο μέγεθος διαφάνειας:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 var slideWidth = 612;
 var slideHeight = 792;
 
@@ -238,19 +260,25 @@ resizedPresentation.SlideSize.SetSize(slideWidth, slideHeight, SlideSizeScaleTyp
 var slide = presentation.Slides[0];
 resizedPresentation.Slides.InsertClone(0, slide);
 
-// Save the resized presentation to a PDF with notes.
-resizedPresentation.Save("PDF_with_notes.pdf", SaveFormat.Pdf);
+// Remove the blank slide that the new presentation was created with.
+resizedPresentation.Slides.RemoveAt(1);
+
+// Save the resized presentation as a PDF.
+resizedPresentation.Save("PDF_with_custom_slide_size.pdf", SaveFormat.Pdf);
 ```
 
-## **Μετατροπή PowerPoint σε PDF σε Προβολή Σημειώσεων Διάφάνειας**
+## **Μετατροπή PowerPoint σε PDF στην Προβολή Σημειώσεων Διαφάνειας**
 
 Αυτός ο κώδικας C# δείχνει πώς να μετατρέψετε μια παρουσίαση PowerPoint σε PDF που περιλαμβάνει σημειώσεις:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Φόρτωση παρουσίασης PowerPoint.
 using var presentation = new Presentation("NotesFile.pptx");
 
-// Διαμόρφωση των επιλογών PDF με διάταξη σημειώσεων.
+// Ρύθμιση των επιλογών PDF με διάταξη σημειώσεων.
 var pdfOptions = new PdfOptions
 {
     SlidesLayoutOptions = new NotesCommentsLayoutingOptions
@@ -267,9 +295,12 @@ presentation.Save("PDF_with_notes.pdf", SaveFormat.Pdf, pdfOptions);
 
 Το Aspose.Slides σας επιτρέπει να χρησιμοποιήσετε μια διαδικασία μετατροπής που συμμορφώνεται με τις [Οδηγίες Προσβασιμότητας Περιεχομένου Ιστού (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Μπορείτε να εξάγετε ένα έγγραφο PowerPoint σε PDF χρησιμοποιώντας οποιοδήποτε από τα ακόλουθα πρότυπα συμμόρφωσης: **PDF/A1a**, **PDF/A1b** και **PDF/UA**.
 
-Αυτός ο κώδικας C# επιδεικνύει μια διαδικασία μετατροπής PowerPoint‑σε‑PDF που παράγει πολλαπλά PDFs βάσει διαφορετικών προτύπων συμμόρφωσης:
+Αυτός ο κώδικας C# δείχνει μια διαδικασία μετατροπής PowerPoint‑σε‑PDF που παράγει πολλαπλά PDF βάσει διαφορετικών προτύπων συμμόρφωσης:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("pres.pptx");
 
 presentation.Save("pres-a1a-compliance.pdf", SaveFormat.Pdf, new PdfOptions
@@ -290,36 +321,36 @@ presentation.Save("pres-ua-compliance.pdf", SaveFormat.Pdf, new PdfOptions
 
 {{% alert title="Note" color="warning" %}} 
 
-Το Aspose.Slides υποστηρίζει λειτουργίες μετατροπής PDF, επιτρέποντας τη μετατροπή αρχείων PDF σε δημοφιλείς μορφές αρχείων. Μπορείτε να εκτελέσετε μετατροπές [PDF to HTML](https://products.aspose.com/slides/el/net/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/el/net/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/el/net/conversion/pdf-to-jpg/), και [PDF to PNG](https://products.aspose.com/slides/el/net/conversion/pdf-to-png/). Άλλες λειτουργίες μετατροπής PDF σε εξειδικευμένες μορφές—[PDF to SVG](https://products.aspose.com/slides/el/net/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/el/net/conversion/pdf-to-tiff/), και [PDF to XML](https://products.aspose.com/slides/el/net/conversion/pdf-to-xml/)—επίσης υποστηρίζονται.
+Το Aspose.Slides υποστηρίζει λειτουργίες μετατροπής PDF, επιτρέποντάς σας να μετατρέψετε αρχεία PDF σε δημοφιλείς μορφές αρχείων. Μπορείτε να εκτελέσετε μετατροπές [PDF σε HTML](https://products.aspose.com/slides/el/net/conversion/pdf-to-html/), [PDF σε εικόνα](https://products.aspose.com/slides/el/net/conversion/pdf-to-image/), [PDF σε JPG](https://products.aspose.com/slides/el/net/conversion/pdf-to-jpg/) και [PDF σε PNG](https://products.aspose.com/slides/el/net/conversion/pdf-to-png/). Άλλες λειτουργίες μετατροπής PDF σε εξειδικευμένες μορφές—[PDF σε SVG](https://products.aspose.com/slides/el/net/conversion/pdf-to-svg/), [PDF σε TIFF](https://products.aspose.com/slides/el/net/conversion/pdf-to-tiff/), και [PDF σε XML](https://products.aspose.com/slides/el/net/conversion/pdf-to-xml/)—υποστηρίζονται επίσης.
 
 {{% /alert %}}
 
-> **Σημείωση:** Κατά την εξαγωγή σε PDF/UA, το Aspose.Slides αντιμετωπίζει περίπλογα γραφικά όπως SmartArt, διαγράμματα και τύπους ως μία ενιαία μορφή. Τα μεμονωμένα στοιχεία διαδρομής δεν διατηρούνται ως ξεχωριστό περιεχόμενο και μπορεί να χαρακτηριστούν ως τεχνουργήματα· το εναλλακτικό κείμενο παρέχεται μόνο για ολόκληρη τη μορφή.
+> **Σημείωση:** Κατά την εξαγωγή σε PDF/UA, το Aspose.Slides αντιμετωπίζει πολύπλογα γραφικά όπως SmartArt, διαγράμματα και τύπους ως μια ενιαία φιγούρα. Τα μεμονωμένα στοιχεία διαδρομής δεν διατηρούνται ως ξεχωριστό περιεχόμενο και μπορεί να χαρακτηριστούν ως τεχνητά αντικείμενα· το εναλλακτικό κείμενο παρέχεται μόνο για ολόκληρη τη φιγούρα.
 
-## **FAQ**
+## **Συχνές Ερωτήσεις**
 
-**Μπορώ να μετατρέψω πολλά αρχεία PowerPoint σε PDF μαζικά;**
+### Μπορώ να μετατρέψω πολλαπλά αρχεία PowerPoint σε PDF μαζικά;
 
-Ναι, το Aspose.Slides υποστηρίζει μαζική μετατροπή πολλαπλών αρχείων PPT ή PPTX σε PDF. Μπορείτε να επαναλάβετε τα αρχεία σας και να εφαρμόσετε τη διαδικασία μετατροπής προγραμματιστικά.
+Ναι, το Aspose.Slides υποστηρίζει μαζική μετατροπή πολλών αρχείων PPT ή PPTX σε PDF. Μπορείτε να επαναλάβετε τα αρχεία σας και να εφαρμόσετε τη διαδικασία μετατροπής προγραμματιστικά.
 
-**Μπορώ να προστατεύσω με κωδικό πρόσβασης το PDF που δημιουργείται;**
+### Είναι δυνατόν να προστατεύσω με κωδικό πρόσβασης το PDF που δημιουργήθηκε;
 
-Απόλυτα. Χρησιμοποιήστε την κλάση [PdfOptions](https://reference.aspose.com/slides/el/net/aspose.slides.export/pdfoptions/) για να ορίσετε κωδικό πρόσβασης και να καθορίσετε δικαιώματα πρόσβασης κατά τη διαδικασία μετατροπής.
+Απολύτως. Χρησιμοποιήστε την κλάση [PdfOptions](https://reference.aspose.com/slides/el/net/aspose.slides.export/pdfoptions/) για να ορίσετε έναν κωδικό πρόσβασης και να καθορίσετε δικαιώματα πρόσβασης κατά τη διαδικασία μετατροπής.
 
-**Πώς μπορώ να συμπεριλάβω κρυφές διαφάνειες στο PDF;**
+### Πώς συμπεριλαμβάνω κρυφές διαφάνειες στο PDF;
 
 Ορίστε την ιδιότητα `ShowHiddenSlides` στην κλάση [PdfOptions](https://reference.aspose.com/slides/el/net/aspose.slides.export/pdfoptions/) σε `true` για να συμπεριλάβετε τις κρυφές διαφάνειες στο παραγόμενο PDF.
 
-**Μπορεί το Aspose.Slides να διατηρήσει υψηλή ποιότητα εικόνας στο PDF;**
+### Μπορεί το Aspose.Slides να διατηρήσει υψηλή ποιότητα εικόνας στο PDF;
 
-Ναι, μπορείτε να ελέγξετε την ποιότητα εικόνας ορίζοντας ιδιότητες όπως `JpegQuality` και `SufficientResolution` στην κλάση [PdfOptions](https://reference.aspose.com/slides/el/net/aspose.slides.export/pdfoptions/) ώστε να διασφαλίσετε υψηλής ποιότητας εικόνες στο PDF σας.
+Ναι, μπορείτε να ελέγχετε την ποιότητα εικόνας ορίζοντας ιδιότητες όπως `JpegQuality` και `SufficientResolution` στην κλάση [PdfOptions](https://reference.aspose.com/slides/el/net/aspose.slides.export/pdfoptions/) ώστε να εξασφαλίζετε εικόνες υψηλής ποιότητας στο PDF σας.
 
-**Υποστηρίζει το Aspose.Slides πρότυπα συμμόρφωσης PDF/A;**
+### Υποστηρίζει το Aspose.Slides πρότυπα συμμόρφωσης PDF/A;
 
-Ναι, το Aspose.Slides σας επιτρέπει να εξάγετε PDFs που συμμορφώνονται με διάφορα πρότυπα, συμπεριλαμβανομένων των PDF/A1a, PDF/A1b και PDF/UA, εξασφαλίζοντας ότι τα έγγραφά σας πληρούν τις απαιτήσεις προσβασιμότητας και αρχειοθέτησης.
+Ναι, το Aspose.Slides σας επιτρέπει να εξάγετε PDF που συμμορφώνονται με διάφορα πρότυπα, όπως PDF/A1a, PDF/A1b και PDF/UA, εξασφαλίζοντας ότι τα έγγραφά σας πληρούν τις απαιτήσεις προσβασιμότητας και αρχειοθέτησης.
 
 ## **Πρόσθετοι Πόροι**
 
-- [Τεκμηρίωση Aspose.Slides για .NET](/slides/el/net/)
-- [Αναφορά API Aspose.Slides για .NET](https://reference.aspose.com/slides/el/net/)
+- [Τεκμηρίωση Aspose.Slides for .NET](/slides/el/net/)
+- [Αναφορά API Aspose.Slides for .NET](https://reference.aspose.com/slides/el/net/)
 - [Δωρεάν Online Μετατροπείς Aspose](https://products.aspose.app/slides/el/conversion)

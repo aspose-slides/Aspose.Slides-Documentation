@@ -1,6 +1,6 @@
 ---
-title: .NET में प्रस्तुतियों में VBA प्रोजेक्ट प्रबंधित करें
-linktitle: VBA के माध्यम से प्रस्तुति
+title: ".NET में प्रेजेंटेशन में VBA प्रोजेक्ट्स को प्रबंधित करें"
+linktitle: "VBA के माध्यम से प्रेजेंटेशन"
 type: docs
 weight: 250
 url: /hi/net/presentation-via-vba/
@@ -16,107 +16,114 @@ keywords:
 - VBA निकालें
 - PowerPoint
 - OpenDocument
-- प्रस्तुति
+- प्रेजेंटेशन
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET के साथ VBA के द्वारा PowerPoint और OpenDocument प्रस्तुतियों को उत्पन्न और संशोधित करके अपने कार्यप्रवाह को सरल बनाएं।"
+description: "Aspose.Slides for .NET के साथ VBA के माध्यम से PowerPoint और OpenDocument प्रेजेंटेशन बनाना और उन्हें संशोधित करना सीखें, जिससे आपका कार्यप्रवाह सुगम बन सके।"
 ---
 ## **परिचय**
 
-[Aspose.Slides.Vba](https://reference.aspose.com/slides/hi/net/aspose.slides.vba/) नेमस्पेस में मैक्रो और VBA कोड के साथ काम करने के लिए क्लास और इंटरफ़ेस शामिल हैं।
+The [Aspose.Slides.Vba](https://reference.aspose.com/slides/hi/net/aspose.slides.vba/) namespace contains classes and interfaces for working with macros and VBA code.
 
 {{% alert title="Note" color="warning" %}} 
-जब आप मैक्रो वाले प्रस्तुति को किसी अलग फ़ाइल फ़ॉर्मेट (PDF, HTML, आदि) में बदलते हैं, तो Aspose.Slides सभी मैक्रो को अनदेखा करता है (मैक्रो परिणामस्वरूप फ़ाइल में नहीं ले जाते)।
 
-जब आप प्रस्तुति में मैक्रो जोड़ते हैं या मैक्रो वाले प्रस्तुति को पुनः सहेजते हैं, तो Aspose.Slides केवल मैक्रो के बाइट्स को लिखता है।
+जब आप macros वाले प्रेजेंटेशन को किसी अलग फ़ाइल फ़ॉर्मेट (PDF, HTML, आदि) में कनवर्ट करते हैं, तो Aspose.Slides सभी macros को नजरअंदाज़ करता है (macros परिणामी फ़ाइल में नहीं रखे जाते)।
 
-Aspose.Slides **कभी भी** प्रस्तुति में मैक्रो नहीं चलाता है।
+जब आप प्रेजेंटेशन में macros जोड़ते हैं या macros वाले प्रेजेंटेशन को पुनः सेव करते हैं, तो Aspose.Slides बस macros के बाइट्स लिख देता है।
+
+Aspose.Slides **कभी भी** प्रेजेंटेशन में macros को नहीं चलाता।
+
 {{% /alert %}}
 
-## **VBA मैक्रो जोड़ें**
+## **VBA Macros जोड़ें**
 
-Aspose.Slides [VbaProject](https://reference.aspose.com/slides/hi/net/aspose.slides.vba/vbaproject/) क्लास प्रदान करता है जिससे आप VBA प्रोजेक्ट (और प्रोजेक्ट रेफ़रेंसेस) बना सकते हैं और मौजूदा मॉड्यूल को संपादित कर सकते हैं। आप प्रस्तुति में एम्बेडेड VBA को प्रबंधित करने के लिए [IVbaProject](https://reference.aspose.com/slides/hi/net/aspose.slides.vba/ivbaproject/) इंटरफ़ेस का उपयोग कर सकते हैं।
+Aspose.Slides [VbaProject](https://reference.aspose.com/slides/hi/net/aspose.slides.vba/vbaproject/) क्लास प्रदान करता है जिससे आप VBA प्रोजेक्ट्स (और प्रोजेक्ट रेफ़रेंसेज़) बना सकते हैं और मौजूदा मॉड्यूल को संपादित कर सकते हैं। आप [IVbaProject](https://reference.aspose.com/slides/hi/net/aspose.slides.vba/ivbaproject/) इंटरफ़ेस का उपयोग करके प्रेजेंटेशन में एम्बेडेड VBA को प्रबंधित कर सकते हैं।
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) क्लास का इंस्टैंस बनाएं।
-1. नया VBA प्रोजेक्ट जोड़ने के लिए [VbaProject](https://reference.aspose.com/slides/hi/net/aspose.slides.vba/vbaproject/vbaproject/#constructor) कंस्ट्रक्टर का उपयोग करें।
+1. एक [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) क्लास का इंस्टेंस बनाएँ।
+1. नया VBA प्रोजेक्ट जोड़ने के लिए [VbaProject](https://reference.aspose.com/slides/hi/net/aspose.slides.vba/vbaproject/vbaproject/#constructor) कन्स्टरक्टर का उपयोग करें।
 1. VbaProject में एक मॉड्यूल जोड़ें।
 1. मॉड्यूल का स्रोत कोड सेट करें।
-1. <stdole> के रेफ़रेंस जोड़ें।
-1. **Microsoft Office** के रेफ़रेंस जोड़ें।
-1. रेफ़रेंस को VBA प्रोजेक्ट से जोड़ें।
-1. प्रस्तुति सहेजें।
-
-यह C# कोड आपको दिखाता है कि कैसे एक नई VBA मैक्रो को शून्य से प्रस्तुति में जोड़ा जाता है:
+1. <stdole> के रेफ़रेंसेज़ जोड़ें।
+1. **Microsoft Office** के रेफ़रेंसेज़ जोड़ें।
+1. रेफ़रेंसेज़ को VBA प्रोजेक्ट के साथ संबद्ध करें।
+1. प्रेजेंटेशन को सेव करें।
 
 ```c#
-    // प्रेज़ेंटेशन क्लास का एक इंस्टैंस बनाता है
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Vba;
+
+// प्रेजेंटेशन क्लास का एक इंस्टेंस बनाता है
 using (Presentation presentation = new Presentation())
 {
-    // नया VBA प्रोजेक्ट बनाता है
+    // एक नया VBA प्रोजेक्ट बनाता है
     presentation.VbaProject = new VbaProject();
 
     // VBA प्रोजेक्ट में एक खाली मॉड्यूल जोड़ता है
     IVbaModule module = presentation.VbaProject.Modules.AddEmptyModule("Module");
-  
+
     // मॉड्यूल का स्रोत कोड सेट करता है
     module.SourceCode = @"Sub Test(oShape As Shape) MsgBox ""Test"" End Sub";
 
-    // <stdole> के लिए एक रेफ़रेंस बनाता है
+    // <stdole> के लिए रेफ़रेंस बनाता है
     VbaReferenceOleTypeLib stdoleReference =
         new VbaReferenceOleTypeLib("stdole", "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation");
 
-    // Office के लिए एक रेफ़रेंस बनाता है
+    // Office के लिए रेफ़रेंस बनाता है
     VbaReferenceOleTypeLib officeReference =
         new VbaReferenceOleTypeLib("Office", "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
 
-    // VBA प्रोजेक्ट में रेफ़रेंसेस जोड़ता है
+    // VBA प्रोजेक्ट में रेफ़रेंस जोड़ता है
     presentation.VbaProject.References.Add(stdoleReference);
     presentation.VbaProject.References.Add(officeReference);
 
-            
-    // प्रेज़ेंटेशन सहेजता है
-    presentation.Save(dataDir + "AddVBAMacros_out.pptm", SaveFormat.Pptm);
+    // प्रेजेंटेशन को सेव करता है
+    presentation.Save("AddVBAMacros_out.pptm", SaveFormat.Pptm);
 }
 ```
 
-{{% alert color="primary" %}} 
-आप **Aspose** [Macro Remover](https://products.aspose.app/slides/hi/remove-macros) को देखना चाहेंगे, जो PowerPoint, Excel और Word दस्तावेज़ों से मैक्रो हटाने के लिए एक मुफ्त वेब ऐप है। 
+{{% alert color="info" %}} 
+
+आप **Aspose** [Macro Remover](https://products.aspose.app/slides/hi/remove-macros) देख सकते हैं, जो एक मुफ्त वेब एप है जिसका उपयोग PowerPoint, Excel, और Word दस्तावेज़ों से macros को हटाने के लिए किया जाता है। 
+
 {{% /alert %}} 
 
-## **VBA मैक्रो हटाएँ**
-[Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) क्लास के अंतर्गत [VbaProject](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/vbaproject/) प्रॉपर्टी का उपयोग करके आप VBA मैक्रो हटा सकते हैं।
+## **VBA Macros हटाएँ**
+[Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) क्लास के तहत [VbaProject](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/vbaproject/) प्रॉपर्टी का उपयोग करके आप VBA macro हटा सकते हैं।
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) क्लास का इंस्टैंस बनाएं और मैक्रो वाली प्रस्तुति लोड करें।
-1. Macro मॉड्यूल तक पहुंचें और उसे हटाएं।
-1. परिवर्तित प्रस्तुति सहेजें।
-
-यह C# कोड आपको दिखाता है कि कैसे एक VBA मैक्रो हटाई जाती है:
+1. एक [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) क्लास का इंस्टेंस बनाएँ और macro वाली प्रेजेंटेशन लोड करें।
+1. Macro मॉड्यूल को एक्सेस करें और उसे हटाएँ।
+1. परिवर्तित प्रेजेंटेशन को सेव करें।
 
 ```c#
-    // मैक्रो वाले प्रस्तुति को लोड करता है
-using (Presentation presentation = new Presentation(dataDir + "VBA.pptm"))
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// मैक्रो वाले प्रेजेंटेशन को लोड करता है
+using (Presentation presentation = new Presentation("VBA.pptm"))
 {
-    // Vba मॉड्यूल तक पहुंचता है और उसे हटाता है
+    // Vba मॉड्यूल तक पहुँचता है और उसे हटाता है
     presentation.VbaProject.Modules.Remove(presentation.VbaProject.Modules[0]);
 
-    // प्रस्तुति सहेजता है
-    presentation.Save(dataDir + "RemovedVBAMacros_out.pptm", SaveFormat.Pptm);
+    // प्रेजेंटेशन को सेव करता है
+    presentation.Save("RemovedVBAMacros_out.pptm", SaveFormat.Pptm);
 }
 ```
 
-## **VBA मैक्रो निकालें**
-1. एक [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) क्लास का इंस्टैंस बनाएं और मैक्रो वाली प्रस्तुति लोड करें।
-2. जाँचें कि प्रस्तुति में VBA प्रोजेक्ट है या नहीं।
-3. VBA प्रोजेक्ट में मौजूद सभी मॉड्यूल्स को लूप करके मैक्रो देखें।
-
-यह C# कोड आपको दिखाता है कि कैसे मैक्रो वाले प्रस्तुति से VBA मैक्रो निकाली जाती हैं:
+## **VBA Macros निकालें**
+1. एक [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) क्लास का इंस्टेंस बनाएँ और macro वाली प्रेजेंटेशन लोड करें।
+2. जाँचें कि प्रेजेंटेशन में VBA Project मौजूद है या नहीं।
+3. VBA Project में मौजूद सभी मॉड्यूल को लूप करके macros देखें।
 
 ```c#
-    // मैक्रो वाले प्रस्तुति को लोड करता है
+using Aspose.Slides;
+using Aspose.Slides.Vba;
+
+    // मैक्रो वाले प्रेजेंटेशन को लोड करता है
 using (Presentation pres = new Presentation("VBA.pptm"))
 {
-	if (pres.VbaProject != null) // जाँचता है कि प्रस्तुति में VBA प्रोजेक्ट है या नहीं
+	if (pres.VbaProject != null) // जाँचता है कि प्रेजेंटेशन में VBA प्रोजेक्ट मौजूद है या नहीं
 	{
 		foreach (IVbaModule module in pres.VbaProject.Modules)
 		{
@@ -127,18 +134,20 @@ using (Presentation pres = new Presentation("VBA.pptm"))
 }
 ```
 
-## **जाँचें कि VBA प्रोजेक्ट पासवर्ड‑प्रोटेक्टेड है या नहीं**
+## **जाँचें कि VBA Project पासवर्ड-प्रोटेक्टेड है या नहीं**
 
-[IVbaProject.IsPasswordProtected](https://reference.aspose.com/slides/hi/net/aspose.slides.vba/ivbaproject/ispasswordprotected/) प्रॉपर्टी का उपयोग करके आप निर्धारित कर सकते हैं कि प्रोजेक्ट की प्रॉपर्टी पासवर्ड‑प्रोटेक्टेड है या नहीं।
+[IVbaProject.IsPasswordProtected](https://reference.aspose.com/slides/hi/net/aspose.slides.vba/ivbaproject/ispasswordprotected/) प्रॉपर्टी का उपयोग करके आप निर्धारित कर सकते हैं कि प्रोजेक्ट की प्रॉपर्टीज़ पासवर्ड-प्रोटेक्टेड हैं या नहीं।
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) क्लास का इंस्टैंस बनाएं और मैक्रो वाली प्रस्तुति लोड करें।
-2. जाँचें कि प्रस्तुति में [VBA project](https://reference.aspose.com/slides/hi/net/aspose.slides.vba/vbaproject/) है या नहीं।
-3. जाँचें कि VBA प्रोजेक्ट पासवर्ड‑प्रोटेक्टेड है या नहीं, ताकि उसकी प्रॉपर्टी देखी जा सके।
+1. एक [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) क्लास का इंस्टेंस बनाएँ और macro वाली प्रेजेंटेशन लोड करें।
+2. जाँचें कि प्रेजेंटेशन में [VBA project](https://reference.aspose.com/slides/hi/net/aspose.slides.vba/vbaproject/) मौजूद है या नहीं।
+3. VBA प्रोजेक्ट पासवर्ड-प्रोटेक्टेड है या नहीं, यह जाँचें ताकि उसकी प्रॉपर्टीज़ देख सकें।
 
 ```cs
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("VBA.pptm"))
 {
-    if (presentation.VbaProject != null) // जाँचें कि प्रस्तुति में VBA प्रोजेक्ट है या नहीं।
+    if (presentation.VbaProject != null) // जाँचें कि प्रेजेंटेशन में VBA प्रोजेक्ट मौजूद है या नहीं।
     {
         if (presentation.VbaProject.IsPasswordProtected)
         {
@@ -148,16 +157,16 @@ using (Presentation presentation = new Presentation("VBA.pptm"))
 }
 ```
 
-## **FAQ**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-**यदि मैं प्रस्तुति को PPTX के रूप में सहेजूँ तो मैक्रो का क्या होता है?**
+### यदि मैं प्रेजेंटेशन को PPTX के रूप में सेव करूँ तो macros का क्या होता है?
 
-मैक्रो हटा दिए जाते हैं क्योंकि PPTX VBA को सपोर्ट नहीं करता। मैक्रो को रखने के लिए PPTM, PPSM या POTM चुनें।
+Macros हटा दिए जाएंगे क्योंकि PPTX VBA को सपोर्ट नहीं करता। Macros को रखने के लिए, PPTM, PPSM, या POTM चुनें।
 
-**क्या Aspose.Slides प्रस्तुति में मैक्रो चला सकता है, उदाहरण के लिए डेटा रीफ़्रेश करने के लिए?**
+### क्या Aspose.Slides प्रेजेंटेशन के भीतर macros चला सकता है, उदाहरण के लिए डेटा रिफ्रेश करने के लिए?
 
-नहीं। लाइब्रेरी कभी भी VBA कोड नहीं चलाती; निष्पादन केवल PowerPoint में उचित सुरक्षा सेटिंग्स के साथ ही संभव है।
+नहीं। यह लाइब्रेरी कभी भी VBA कोड नहीं चलाती; निष्पादन केवल PowerPoint के भीतर उपयुक्त सुरक्षा सेटिंग्स के साथ संभव है।
 
-**क्या VBA कोड से जुड़े ActiveX कंट्रोल्स के साथ काम करना समर्थित है?**
+### क्या VBA कोड से जुड़े ActiveX नियंत्रणों के साथ काम करना समर्थित है?
 
-हाँ, आप मौजूदा [ActiveX controls](/slides/hi/net/activex/) तक पहुंच सकते हैं, उनकी प्रॉपर्टी बदल सकते हैं, और उन्हें हटा सकते हैं। यह तब उपयोगी है जब मैक्रो ActiveX के साथ इंटरैक्ट करते हैं।
+हां, आप मौजूदा [ActiveX controls](/slides/hi/net/activex/) को एक्सेस कर सकते हैं, उनकी प्रॉपर्टीज़ बदल सकते हैं, और उन्हें हटा सकते हैं। यह तब उपयोगी है जब macros ActiveX के साथ इंटरैक्ट करते हैं।

@@ -1,45 +1,60 @@
 ---
-title: Ändra storlek på former i presentationsbilder
+title: Ändra storlek på former på presentationsbilder
 type: docs
 weight: 100
 url: /sv/cpp/re-sizing-shapes-on-slide/
 keywords:
 - ändra formstorlek
-- ändra formens storlek
+- ändra formstorlek
 - PowerPoint
 - OpenDocument
 - presentation
 - C++
 - Aspose.Slides
-description: "Ändra enkelt storlek på former i PowerPoint- och OpenDocument-bilder med Aspose.Slides för C++ - automatisera justeringar av bildlayout och öka produktiviteten."
+description: "Enkel ändring av formstorlekar på PowerPoint- och OpenDocument-bilder med Aspose.Slides för C++—automatisera justeringar av bildlayout och öka produktiviteten."
 ---
 ## **Översikt**
 
-En av de vanligaste frågorna från Aspose.Slides för C++‑kunder är hur man ändrar storlek på former så att data inte kapas när bildstorleken ändras. Denna korta tekniska artikel visar hur man gör det.
+En av de vanligaste frågorna från Aspose.Slides för C++-kunder är hur man ändrar storlek på former så att, när bildstorleken ändras, data inte kapas bort. Denna korta tekniska artikel visar hur man gör det.
 
 ## **Ändra storlek på former**
 
-För att förhindra att former blir felplacerade när bildstorleken ändras, uppdatera varje forms position och dimensioner så att de följer den nya bildlayouten.
+För att förhindra att former blir felplacerade när bildstorleken ändras, uppdatera varje forms position och dimension så att de anpassas till den nya bildlayouten.
 
 ```cpp
-// Ladda presentationsfilen.
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/SlideSizeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// Læs in presentationsfilen.
 auto presentation = MakeObject<Presentation>(u"sample.ppt");
 
-// Hämta den ursprungliga bildstorleken.
+// Get the original slide size.
 float currentHeight = presentation->get_SlideSize()->get_Size().get_Height();
 float currentWidth = presentation->get_SlideSize()->get_Size().get_Width();
 
-// Ändra bildstorleken utan att skala befintliga former.
+// Change the slide size without scaling existing shapes.
 presentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::DoNotScale);
 
-// Hämta den nya bildstorleken.
+// Get the new slide size.
 float newHeight = presentation->get_SlideSize()->get_Size().get_Height();
 float newWidth = presentation->get_SlideSize()->get_Size().get_Width();
 
 float heightRatio = newHeight / currentHeight;
 float widthRatio = newWidth / currentWidth;
 
-// Skala formens storlek.
+// Resize and reposition shapes on every slide.
 for (auto&& slide : presentation->get_Slides())
 {
     for (auto&& shape : slide->get_Shapes())
@@ -58,20 +73,47 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert color="primary" %}} 
-Om en bild innehåller en tabell fungerar koden ovan inte korrekt. I så fall måste varje cell i tabellen ändras i storlek. 
+{{% alert color="info" %}} 
+
+Om en bild innehåller en tabell fungerar koden ovan inte korrekt. I så fall måste varje cell i tabellen ändras storlek.
+
 {{% /alert %}} 
 
-Använd följande kod för att ändra storlek på bilder som innehåller tabeller. För tabeller är det ett särskilt fall att sätta bredd eller höjd: du måste justera enskilda radhöjder och kolumnbredder för att ändra tabellens totala storlek.
+Använd följande kod för att ändra storlek på bilder som innehåller tabeller. För tabeller är inställning av bredd eller höjd ett specialfall: du måste justera enskilda radhöjder och kolumnbredder för att ändra tabellens totala storlek.
 
 ```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILayoutSlideCollection.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/SlideSizeType.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
 // Hämta den ursprungliga bildstorleken.
 float currentHeight = presentation->get_SlideSize()->get_Size().get_Height();
 float currentWidth = presentation->get_SlideSize()->get_Size().get_Width();
 
-// Ändra bildstorleken utan att skala befintliga former.
+// Ändra bildens storlek utan att skala befintliga former.
 presentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::DoNotScale);
 //presentation.SlideSize.Orientation = SlideOrienation.Portrait;
 
@@ -141,32 +183,32 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Vanliga frågor**
+## **FAQ**
 
-**Varför blir former förvrängda eller avkapade efter att en bild har ändrats i storlek?**
+### Varför blir former förvrängda eller kapas bort efter att en bild har ändrats i storlek?
 
-När en bild ändras i storlek behåller former sina ursprungliga position och storlek om skalan inte uttryckligen ändras. Detta kan leda till att innehållet kapas eller att former blir felplacerade.
+När en bild ändras i storlek behåller former sina ursprungliga position och storlek om skalan inte uttryckligen ändras. Detta kan leda till att innehåll beskärs eller att former blir felplacerade.
 
-**Fungerar den medföljande koden för alla formtyper?**
+### Fungerar den medföljande koden för alla typer av former?
 
-Det grundläggande exemplet fungerar för de flesta formtyper (textrutor, bilder, diagram osv.). För tabeller måste du dock hantera rader och kolumner separat, eftersom höjden och bredden på en tabell bestäms av dimensionerna på enskilda celler.
+Det grundläggande exemplet fungerar för de flesta former (textrutor, bilder, diagram osv.). För tabeller måste du dock hantera rader och kolumner separat, eftersom en tabells höjd och bredd bestäms av dimensionerna på enskilda celler.
 
-**Hur ändrar jag storlek på tabeller när jag ändrar bildens storlek?**
+### Hur ändrar jag storlek på tabeller när jag ändrar bildens storlek?
 
 Du måste loopa igenom alla rader och kolumner i tabellen och ändra deras höjd och bredd proportionellt, som visas i det andra kodexemplet.
 
-**Fungerar denna storleksändring för masternbilder och layoutbilder?**
+### Kommer denna storleksändring att fungera för masterbilder och layoutbilder?
 
-Ja, men du bör också loopa igenom [Masterna](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/get_masters/) och [Layoutbilder](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/get_layoutslides/) och tillämpa samma skalningslogik på deras former för att säkerställa konsekvens i hela presentationen.
+Ja, men du bör också loopa igenom [Masters](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/get_masters/) och [Layout slides](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/get_layoutslides/) och tillämpa samma skalningslogik på deras former för att säkerställa konsekvens i hela presentationen.
 
-**Kan jag ändra orienteringen på en bild (porträtt/landskap) samtidigt som jag ändrar storlek?**
+### Kan jag ändra orienteringen på en bild (stående/liggande) samtidigt som jag ändrar storlek?
 
 Ja. Du kan använda [presentation->get_SlideSize()->set_Orientation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/islidesize/set_orientation/) för att ändra orienteringen. Se till att du anpassar skalningslogiken därefter för att bevara layouten.
 
-**Finns det någon gräns för den bildstorlek jag kan ange?**
+### Finns det någon begränsning för vilken bildstorlek jag kan ange?
 
-Aspose.Slides stödjer anpassade storlekar, men mycket stora storlekar kan påverka prestanda eller kompatibilitet med vissa versioner av PowerPoint.
+Aspose.Slides stöder anpassade storlekar, men mycket stora storlekar kan påverka prestanda eller kompatibilitet med vissa versioner av PowerPoint.
 
-**Hur kan jag förhindra att former med låst bildförhållande blir förvrängda?**
+### Hur kan jag förhindra att former med låst bildförhållande blir förvrängda?
 
-Du kan kontrollera metoden `get_AspectRatioLocked` för formen innan du skalar. Om den är låst, justera bredd eller höjd proportionellt i stället för att skala dem individuellt.
+Du kan kontrollera metoden `get_AspectRatioLocked` för formen innan du skalar. Om den är låst, justera bredd eller höjd proportionellt istället för att skala dem individuellt.

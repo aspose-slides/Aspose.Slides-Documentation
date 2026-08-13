@@ -1,34 +1,38 @@
 ---
-title: HTML5へのエクスポート
+title: Java でプレゼンテーションを HTML5 に変換
+linktitle: プレゼンテーション to HTML5
 type: docs
 weight: 40
 url: /ja/java/export-to-html5/
 keywords:
-- PowerPointからHTML
-- スライドからHTML
-- HTML5
-- HTMLエクスポート
-- プレゼンテーションのエクスポート
-- プレゼンテーションの変換
-- スライドの変換
+- PowerPoint を HTML5 に変換
+- OpenDocument を HTML5 に変換
+- プレゼンテーション を HTML5 に変換
+- スライド を HTML5 に変換
+- PPT を HTML5 に変換
+- PPTX を HTML5 に変換
+- ODP を HTML5 に変換
+- PPT を HTML5 として保存
+- PPTX を HTML5 として保存
+- ODP を HTML5 として保存
+- PPT を HTML5 にエクスポート
+- PPTX を HTML5 にエクスポート
+- ODP を HTML5 にエクスポート
 - Java
-- Aspose.Slides for Java
-description: "JavaでPowerPointをHTML5にエクスポート"
+- Aspose.Slides
+description: "Aspose.Slides for Java を使用して、PowerPoint および OpenDocument プレゼンテーションをレスポンシブな HTML5 にエクスポートします。書式、アニメーション、インタラクティブ性を保持します。"
 ---
+## **概要**
 
-{{% alert title="情報" color="info" %}}
+この記事では、Aspose.Slides を使用して PowerPoint プレゼンテーションを HTML5 に変換する方法を説明します。Web 拡張機能や追加の依存関係なしで基本的な HTML5 エクスポートを行う方法と、シェイプ アニメーションやスライド トランジションを制御するオプションについて説明します。また、標準的な PowerPoint から HTML へのエクスポート プロセス、スライド ビュー モードで HTML5 出力を生成する方法、エクスポートされたドキュメントにコメントを含める方法も示します。
 
-[Aspose.Slides 21.9](/slides/ja/java/aspose-slides-for-java-21-9-release-notes/) では、HTML5エクスポートのサポートを実装しました。
+## **PowerPoint を HTML5 にエクスポート**
 
-{{% /alert %}} 
-
-ここでのHTML5へのエクスポートプロセスでは、ウェブ拡張または依存関係なしにPowerPointをHTMLに変換できます。この方法により、自分のテンプレートを使用して、エクスポートプロセスと結果として得られるHTML、CSS、JavaScript、およびアニメーション属性を定義する非常に柔軟なオプションを適用できます。 
-
-## **PowerPointをHTML5にエクスポート**
-
-このJavaコードは、ウェブ拡張や依存関係なしにプレゼンテーションをHTML5にエクスポートする方法を示しています：
+この Java コードは、Web 拡張機能や依存関係なしでプレゼンテーションを HTML5 にエクスポートする方法を示しています。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.save("pres.html", SaveFormat.Html5);
@@ -37,15 +41,15 @@ try {
 }
 ```
 
-{{% alert color="primary" %}} 
-
-この場合、クリーンなHTMLを得ることができます。 
-
+{{% alert color="info" %}} 
+この場合、クリーンな HTML が取得できます。 
 {{% /alert %}}
 
-この方法で形状アニメーションやスライド遷移の設定を指定することもできます：
+次のようにシェイプ アニメーションとスライド トランジションの設定を指定することもできます。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     Html5Options html5Options = new Html5Options();
@@ -58,11 +62,13 @@ try {
 }
 ```
 
-## **PowerPointをHTMLにエクスポート**
+## **PowerPoint を HTML にエクスポート**
 
-このJavaは、標準的なPowerPointからHTMLへのプロセスを示しています：
+この Java は標準的な PowerPoint から HTML へのプロセスを示します。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.save("pres.html", SaveFormat.Html);
@@ -71,31 +77,31 @@ try {
 }
 ```
 
-この場合、プレゼンテーション内容は次のようにSVGを介してレンダリングされます：
+この場合、プレゼンテーションの内容は次のような SVG 形式でレンダリングされます。
 
 ```html
 <body>
 <div class="slide" name="slide" id="slideslideIface1">
      <svg version="1.1">
-         <g> スライド内容がここに入ります </g>
+         <g> THE SLIDE CONTENT GOES HERE </g>
      </svg>
 </div>
 </body>
 ```
 
-{{% alert title="注意" color="warning" %}} 
-
-この方法を使用してPowerPointをHTMLにエクスポートすると、SVGレンダリングのために特定の要素にスタイルを適用したりアニメーションを追加したりすることができません。 
-
+{{% alert title="Note" color="warning" %}} 
+この方法で PowerPoint を HTML にエクスポートすると、SVG のレンダリングにより特定の要素にスタイルを適用したりアニメーションさせたりすることができません。 
 {{% /alert %}}
 
-## **PowerPointをHTML5スライドビューにエクスポート**
+## **PowerPoint を HTML5 スライドビューにエクスポート**
 
-**Aspose.Slides** は、PowerPointプレゼンテーションをHTML5文書に変換し、スライドがスライドビュー形式で表示されるようにします。この場合、生成されたHTML5ファイルをブラウザで開くと、ウェブページ上でスライドビュー形式でプレゼンテーションが表示されます。 
+**Aspose.Slides** を使用すると、スライドがスライド ビュー モードで表示される HTML5 ドキュメントに PowerPoint プレゼンテーションを変換できます。この場合、生成された HTML5 ファイルをブラウザーで開くと、Web ページ上でスライド ビュー モードのプレゼンテーションが表示されます。
 
-このJavaコードは、PowerPointからHTML5スライドビューへのエクスポートプロセスを示しています：
+この Java コードは PowerPoint から HTML5 スライドビューへのエクスポート プロセスを示しています。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     Html5Options html5Options = new Html5Options();
@@ -108,26 +114,45 @@ try {
 }
 ```
 
-## コメント付きのプレゼンテーションをHTML5文書に変換
+## **コメント付きで PowerPoint を HTML5 ドキュメントに変換**
 
-PowerPointのコメントは、ユーザーがプレゼンテーションスライドにメモやフィードバックを残すためのツールです。これは特に複数の人が特定のスライド要素に対して提案や意見を追加できる共同プロジェクトに役立ち、メインコンテンツを変更することなく使用されます。各コメントには、著者の名前が表示され、誰が発言したかを簡単に追跡できます。
+PowerPoint のコメントは、プレゼンテーション スライドにメモやフィードバックを残すためのツールです。共同作業プロジェクトで特に有用で、複数のユーザーがメイン コンテンツを変更せずに特定のスライド要素に対して提案や指摘を追加できます。各コメントには作成者の名前が表示されるため、誰がコメントしたかを簡単に追跡できます。
 
-例えば、次のPowerPointプレゼンテーションが "sample.pptx" ファイルに保存されているとしましょう。
+たとえば、次のような PowerPoint プレゼンテーションを「sample.pptx」ファイルに保存しているとします。
 
-![スライドに対する2つのコメント](two_comments_pptx.png)
+![プレゼンテーション スライド上の 2 つのコメント](two_comments_pptx.png)
 
-PowerPointプレゼンテーションをHTML5文書に変換する際、出力文書にプレゼンテーションのコメントを含めるかどうかを簡単に指定できます。これを行うには、[Html5Options](https://reference.aspose.com/slides/java/com.aspose.slides/html5options/) クラスの `getNotesCommentsLayouting` メソッドでコメントの表示パラメーターを指定する必要があります。
+PowerPoint プレゼンテーションを HTML5 ドキュメントに変換する際に、出力ドキュメントにプレゼンテーションからのコメントを含めるかどうかを簡単に指定できます。そのためには、[Html5Options](https://reference.aspose.com/slides/ja/java/com.aspose.slides/html5options/) クラスの `setSlidesLayoutOptions` メソッドにコメントの表示パラメータを渡します。
 
-次のコード例は、スライドの右にコメントが表示されたHTML5文書にプレゼンテーションを変換します。
+次のコード例は、スライドの右側にコメントを表示した状態でプレゼンテーションを HTML5 ドキュメントに変換します。
 ```java
+import com.aspose.slides.*;
+
 Html5Options html5Options = new Html5Options();
-html5Options.getNotesCommentsLayouting().setCommentsPosition(CommentsPositions.Right);
+
+NotesCommentsLayoutingOptions layoutingOptions = new NotesCommentsLayoutingOptions();
+layoutingOptions.setCommentsPosition(CommentsPositions.Right);
+html5Options.setSlidesLayoutOptions(layoutingOptions);
 
 Presentation presentation = new Presentation("sample.pptx");
 presentation.save("output.html", SaveFormat.Html5, html5Options);
 presentation.dispose();
 ```
 
-"output.html" ドキュメントは以下の画像のように表示されます。
+以下の画像は「output.html」ドキュメントの例です。
 
-![出力HTML5文書におけるコメント](two_comments_html5.png)
+![出力された HTML5 ドキュメント内のコメント](two_comments_html5.png)
+
+## **FAQ**
+
+### HTML5 でオブジェクト アニメーションやスライド トランジションの再生を制御できますか？
+
+はい、HTML5 では[シェイプ アニメーション](https://reference.aspose.com/slides/ja/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-)と[スライド トランジション](https://reference.aspose.com/slides/ja/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-)を有効または無効にする個別のオプションが提供されています。
+
+### コメントの出力はサポートされていますか？また、スライドに対してどこに配置できますか？
+
+はい、HTML5 にコメントを追加でき、[レイアウト設定](https://reference.aspose.com/slides/ja/java/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-)を使用してスライドの右側など任意の位置に配置できます。
+
+### セキュリティや CSP の理由で JavaScript を呼び出すリンクをスキップできますか？
+
+はい、保存時に JavaScript 呼び出しを含むハイパーリンクをスキップする[設定](https://reference.aspose.com/slides/ja/java/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-)があります。これにより、厳格なセキュリティ ポリシーへの準拠が容易になります。

@@ -1,34 +1,44 @@
 ---
-title: Android でフォールバック フォント コレクションを構成する
-linktitle: フォールバック フォント コレクション
+title: Android でフォールバックフォントコレクションを構成する
+linktitle: フォールバックフォントコレクション
 type: docs
 weight: 20
 url: /ja/androidjava/create-fallback-fonts-collection/
 keywords:
-- フォールバック フォント
-- フォールバック ルール
-- フォント コレクション
-- フォント の構成
-- フォント の設定
+- フォールバックフォント
+- フォールバックルール
+- フォントコレクション
+- フォント構成
+- フォント設定
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - Android
 - Java
 - Aspose.Slides
-description: "Java を使用して Android 用 Aspose.Slides のフォールバック フォント コレクションを設定し、PowerPoint および OpenDocument のプレゼンテーションでテキストの一貫性と鮮明さを保ちます。"
+description: "Android 用 Aspose.Slides で Java を使用してフォールバックフォントコレクションを設定し、PowerPoint と OpenDocument のプレゼンテーションでテキストを一貫性があり鮮明に保ちます。"
 ---
+## **概要**
 
-## **フォールバック ルールの適用**
+Aspose.Slides を使用すると、プレゼンテーション用のフォールバックフォントルールのコレクションを構成できます。各フォールバックルールは `FontFallBackRule` クラスで表され、`FontFallBackRulesCollection` に追加でき、これは `IFontFallBackRulesCollection` インターフェイスを実装しています。
 
-[FontFallBackRule] クラスのインスタンスは、[FontFallBackRulesCollection] に整理でき、[IFontFallBackRulesCollection] インターフェイスを実装しています。コレクションからルールを追加または削除することが可能です。
+コレクションを作成したら、プレゼンテーションの `FontsManager` の `FontFallBackRulesCollection` プロパティに割り当てることができます。`FontsManager` はプレゼンテーション全体のフォントを管理し、各 `Presentation` インスタンスは独自の `FontsManager` を持ちます。
 
-次に、このコレクションは [FontsManager] クラスの [FontFallBackRulesCollection] メソッドに割り当てることができます。FontsManager はプレゼンテーション全体のフォントを管理します。
+`FontsManager` がフォールバックフォントコレクションで初期化されると、指定したフォールバックフォントがプレゼンテーションのレンダリング時に適用されます。
 
-各 [Presentation] には、[FontsManager] クラスのインスタンスを返す [getFontsManager] メソッドがあります。
+## **フォールバックルールの適用**
 
-以下は、フォールバック フォント ルール コレクションを作成し、特定のプレゼンテーションの [FontsManager] に割り当てる例です。  
+[FontFallBackRule](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/FontFallBackRule) クラスのインスタンスは、[IFontFallBackRulesCollection](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/IFontFallBackRulesCollection) インターフェイスを実装する [FontFallBackRulesCollection](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/FontFallBackRulesCollection) に整理できます。コレクションからルールを追加または削除できます。
+
+その後、このコレクションは [FontsManager](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/FontsManager) クラスの [FontFallBackRulesCollection](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/FontFallBackRulesCollection) メソッドに割り当てることができます。FontsManager はプレゼンテーション全体のフォントを制御します。
+
+各 [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/Presentation) には、独自の [FontsManager](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/FontsManager) インスタンスを持つ [getFontsManager](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/Presentation#getFontsManager--) メソッドがあります。
+
+以下は、特定のプレゼンテーションの [FontsManager](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/Presentation#getFontsManager--) にフォールバックフォントルールコレクションを作成して割り当てる例です。
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IFontFallBackRulesCollection userRulesList = new FontFallBackRulesCollection();
@@ -42,27 +52,26 @@ try {
 }
 ```
 
+`FontsManager` がフォールバックフォントコレクションで初期化されると、フォールバックフォントがプレゼンテーションのレンダリング時に適用されます。
 
-FontsManager がフォールバック フォント コレクションで初期化されると、プレゼンテーションのレンダリング中にフォールバック フォントが適用されます。
-
-{{% alert color="primary" %}} 
-フォールバック フォントでプレゼンテーションをレンダリングする方法の詳細は、[Render Presentation with Fallback Font](/slides/ja/androidjava/render-presentation-with-fallback-font/) をご覧ください。
+{{% alert color="info" %}} 
+さらに詳しくは、[フォールバックフォントでプレゼンテーションをレンダリングする](/slides/ja/androidjava/render-presentation-with-fallback-font/) をご覧ください。 
 {{% /alert %}}
 
 ## **よくある質問**
 
-**フォールバック ルールは PPTX ファイルに埋め込まれ、保存後に PowerPoint で表示されますか？**
+### フォールバックルールは PPTX ファイルに埋め込まれ、保存後に PowerPoint で表示されますか？
 
-いいえ。フォールバック ルールは実行時のレンダリング設定であり、PPTX にシリアライズされないため、PowerPoint の UI には表示されません。
+いいえ。フォールバックルールは実行時のレンダリング設定であり、PPTX にシリアライズされないため、PowerPoint の UI には表示されません。
 
-**フォールバックは SmartArt、WordArt、チャート、テーブル内のテキストにも適用されますか？**
+### フォールバックは SmartArt、WordArt、チャート、テーブル内のテキストにも適用されますか？
 
-はい。これらのオブジェクト内のすべてのテキストに同じグリフ置換メカニズムが使用されます。
+はい。これらのオブジェクト内のすべてのテキストに対して、同じグリフ置換メカニズムが使用されます。
 
-**Aspose はライブラリと共にフォントを配布していますか？**
+### Aspose はライブラリと共にフォントを配布していますか？
 
-いいえ。フォントはご自身で追加・使用し、その責任は利用者にあります。
+いいえ。フォントはお客様側で追加・使用し、自己責任で管理してください。
 
-**欠落したフォントの置換/サブスティテューションと欠落したグリフのフォールバックは同時に使用できますか？**
+### 欠落フォントの置換/サブスティチューションと欠落グリフのフォールバックは同時に使用できますか？
 
-はい。これらは同一のフォント解決パイプラインの独立した段階です。まずエンジンがフォントの利用可能性を解決し（[replacement](/slides/ja/androidjava/font-replacement/)/[substitution](/slides/ja/androidjava/font-substitution/)）、次にフォールバックが利用可能なフォント内の欠落グリフを埋めます。
+はい。これらは同一のフォント解決パイプラインの独立した段階です。まずエンジンがフォントの利用可否を解決し（[replacement](/slides/ja/androidjava/font-replacement/)/[substitution](/slides/ja/androidjava/font-substitution/)）、次にフォールバックが利用可能なフォント内の欠落グリフを補填します。

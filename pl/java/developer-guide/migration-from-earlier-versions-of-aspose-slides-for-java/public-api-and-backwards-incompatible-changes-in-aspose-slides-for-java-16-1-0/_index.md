@@ -1,5 +1,5 @@
 ---
-title: Public API i zmiany niekompatybilne wstecz w Aspose.Slides dla Java 16.1.0
+title: Publiczne API i zmiany niekompatybilne wstecz w Aspose.Slides dla Java 16.1.0
 linktitle: Aspose.Slides dla Java 16.1.0
 type: docs
 weight: 200
@@ -15,18 +15,23 @@ keywords:
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Przeglądaj aktualizacje publicznego API oraz zmiany łamiące w Aspose.Slides dla Java, aby płynnie migrować rozwiązania prezentacji PowerPoint PPT, PPTX i ODP."
+description: "Przejrzyj aktualizacje publicznego API i zmiany niekompatybilne w Aspose.Slides dla Java, aby płynnie migrować rozwiązania prezentacji PowerPoint PPT, PPTX i ODP."
 ---
-{{% alert color="primary" %}} 
-Ta strona wymienia wszystkie [dodane](/slides/pl/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) lub [usunięte](/slides/pl/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) klasy, metody, właściwości i podobne, oraz inne zmiany wprowadzone w API Aspose.Slides for Java 16.1.0.
+{{% alert color="info" %}} 
+
+Ta strona wymienia wszystkie [dodane](/slides/pl/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) lub [usunięte](/slides/pl/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) klasy, metody, właściwości i tak dalej, oraz inne zmiany wprowadzone w API Aspose.Slides for Java 16.1.0.
+
 {{% /alert %}} 
-## **Zmiany w publicznym API**
+## **Zmiany publicznego API**
 
 
-#### **Do interfejsów IChartTextBlockFormat i ITextFrameFormat dodano metody getRotationAngle() i setRotationAngle()**
-Metody getRotationAngle() i setRotationAngle() zostały dodane do interfejsów com.aspose.slides.IChartTextBlockFormat i com.aspose.slides.ITextFrameFormat. Umożliwiają dostęp do niestandardowego obrotu stosowanego do tekstu wewnątrz pola ograniczającego.
+#### **Metody getRotationAngle() i setRotationAngle() zostały dodane do interfejsów IChartTextBlockFormat i ITextFrameFormat**
+Metody getRotationAngle() i setRotationAngle() zostały dodane do interfejsów com.aspose.slides.IChartTextBlockFormat oraz com.aspose.slides.ITextFrameFormat.
+Zapewniają dostęp do niestandardowego obrotu, który jest stosowany do tekstu wewnątrz ramki.
 
 ``` java
+import com.aspose.slides.*;
+
 
 
 

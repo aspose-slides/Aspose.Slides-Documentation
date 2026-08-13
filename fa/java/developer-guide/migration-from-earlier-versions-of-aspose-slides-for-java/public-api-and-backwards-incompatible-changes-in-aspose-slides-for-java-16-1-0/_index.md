@@ -1,5 +1,5 @@
 ---
-title: API عمومی و تغییرات ناسازگار با نسخه قبلی در Aspose.Slides برای Java 16.1.0
+title: API عمومی و تغییرات ناسازگار با نسخه‌های قبلی در Aspose.Slides برای Java 16.1.0
 linktitle: Aspose.Slides برای Java 16.1.0
 type: docs
 weight: 200
@@ -15,21 +15,19 @@ keywords:
 - ارائه
 - Java
 - Aspose.Slides
-description: "به‌روزرسانی‌های API عمومی و تغییرات ناسازگار در Aspose.Slides برای Java را بررسی کنید تا بتوانید به‌صورت روان راه‌حل‌های ارائه PowerPoint (PPT، PPTX) و ODP خود را مهاجرت دهید."
+description: "به‌روزرسانی‌های API عمومی و تغییرات شکسته‌کننده در Aspose.Slides برای Java را بررسی کنید تا بتوانید به‌صورت یکپارچه راه‌حل‌های ارائه PowerPoint (PPT، PPTX) و ODP خود را مهاجرت دهید."
 ---
-{{% alert color="primary" %}}
-
-این صفحه تمام [اضافه](/slides/fa/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) یا [حذف](/slides/fa/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) کلاس‌ها، متدها، ویژگی‌ها و غیره، و سایر تغییراتی که با API Aspose.Slides برای Java 16.1.0 معرفی شده‌اند را فهرست می‌کند.
-
+{{% alert color="info" %}}
+این صفحه تمام کلاس‌ها، متدها، ویژگی‌ها و موارد مشابه که [added](/slides/fa/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) یا [removed](/slides/fa/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) شده‌اند و سایر تغییراتی که با API Aspose.Slides for Java 16.1.0 معرفی شده‌اند را فهرست می‌کند.
 {{% /alert %}}
 ## **تغییرات API عمومی**
 
-#### **متدهای getRotationAngle() و setRotationAngle() به رابط‌های IChartTextBlockFormat و ITextFrameFormat اضافه شده‌اند**
-
-متدهای getRotationAngle() و setRotationAngle() به رابط‌های com.aspose.slides.IChartTextBlockFormat و com.aspose.slides.ITextFrameFormat اضافه شده‌اند.
-آنها دسترسی به چرخش سفارشی که بر متن داخل جعبه مرزی اعمال می‌شود را فراهم می‌کنند.
+#### **متدهای getRotationAngle() و setRotationAngle() به اینترفیس‌های IChartTextBlockFormat و ITextFrameFormat اضافه شده‌اند**
+متدهای getRotationAngle() و setRotationAngle() به اینترفیس‌های com.aspose.slides.IChartTextBlockFormat و com.aspose.slides.ITextFrameFormat اضافه شده‌اند. آن‌ها دسترسی به چرخش سفارشی که بر روی متن داخل جعبه مرز اعمال می‌شود را فراهم می‌کنند.
 
 ``` java
+import com.aspose.slides.*;
+
 
 
 

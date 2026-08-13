@@ -13,21 +13,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "استخراج الصور من الأشكال في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides لنظام Android عبر Java - حل سريع ومناسب للمطورين."
+description: "استخراج الصور من الأشكال في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للـ Android عبر Java - حل سريع وسهل الاستخدام في الكود."
 ---
 ## **نظرة عامة**
 
-يمكن أن تظهر الصور في العرض التقديمي بأشكال متعددة: كإطارات صور عادية، كملء صور مطبق على الأشكال، كصور معاينة كائن OLE، كصوري مصغرة لإطارات الفيديو أو الصوت، كصور تكبير، أو كصور متداخلة داخل جداول، مخططات، وأشكال SmartArt. تقوم Aspose.Slides بتخزين هذه الصور في مجموعة صور العرض التقديمي، التي يمكن الوصول إليها عبر كائنات [IImageCollection](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iimagecollection/) و[IPPImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/).
+يمكن أن تظهر الصور في العرض التقديمي بأشكال متعددة: كإطارات صور عادية، كملئ صور يُطبّق على الأشكال، كصور معاينة كائن OLE، كصورة مصغرة لإطار فيديو أو صوت، كصور تكبير، أو كصور متداخلة داخل جداول، مخططات، وأشكال SmartArt. تقوم Aspose.Slides بتخزين تلك الصور في مجموعة صور العرض التقديمي، التي يمكن الوصول إليها عبر كائنات [IImageCollection](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iimagecollection/) و[IPPImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/).
 
-إذا كنت تحتاج فقط إلى تصدير كل موارد الصور المضمَّنة في عرض تقديمي، فقم بالتكرار عبر `presentation.getImages()`. يركز هذا المقال على مهمة مختلفة: استكشاف الأشكال للعثور على المواقع التي تُستخدم فيها الصور على الشرائح، بحيث يمكن للملفات المحفوظة الاحتفاظ بالسياق المفيد مثل رقم الشريحة، موضع الشكل، ونوع المصدر (إطار صورة، صورة ملء، معاينة وسائط، معاينة OLE، أو صورة تكبير).
+إذا كنت تحتاج فقط إلى تصدير كل مورد صورة مضمن في العرض، يمكنك التكرار عبر `presentation.getImages()`. يركز هذا المقال على مهمة مختلفة: استعراض الأشكال للعثور على الأماكن التي تُستخدم فيها الصور على الشرائح، بحيث يمكن للملفات المحفوظة أن تحتفظ بسياق مفيد مثل رقم الشريحة، موقع الشكل، ونوع المصدر (إطار صورة، ملئ صورة، معاينة وسائط، معاينة OLE، أو صورة تكبير).
 
-{{% alert title="نصيحة" color="primary" %}}
-استخدم [IPPImage.getBinaryData](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/#getBinaryData--) للحفاظ على بيانات الصورة الأصلية المشفرة ونوع الملف. استخدم [IPPImage.getImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/#getImage--) مع [IImage.save](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) عندما تريد تطبيع المخرجات إلى تنسيق محدد مثل PNG.
+{{% alert title="Tip" color="info" %}}
+استخدم [IPPImage.getBinaryData](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/#getBinaryData--) للحفاظ على بيانات الصورة الأصلية المشفّرة ونوع الملف. استخدم [IPPImage.getImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/#getImage--) مع [IImage.save](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) عندما تريد توحيد الناتج إلى تنسيق محدد مثل PNG.
 {{% /alert %}}
 
-## **طرق المساعدة المشتركة**
+## **طرق المساعد المشتركة**
 
-تُبقي طرق المساعدة أدناه الأمثلة مختصرة. `saveOriginalImage` يكتب البايتات المضمنة الأصلية، يختار امتدادًا آمنًا من نوع MIME، ويتخطى النسخ المكررة من الصور عبر تجزئة SHA-256.
+طرق المساعد أدناه تُبقي الأمثلة قصيرة. `saveOriginalImage` يكتب البايتات الأصلية المدمجة، يختار امتدادًا آمنًا من نوع MIME، ويتخطى الصور الثنائية المكررة عبر تجزئة SHA-256.
 
 ```java
 import com.aspose.slides.*;
@@ -225,9 +225,14 @@ private static String makeSafeFileNamePart(String value)
 
 ## **استخراج الصور من إطارات الصور**
 
-استخدم هذا الأسلوب للصور التي تم إدراجها ككائنات مستقلة. يخزن [IPictureFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipictureframe/) صورته في `getPictureFormat().getPicture().getImage()`، والذي يرجع كائنًا من نوع [IPPImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/).
+استخدم هذا النهج للصور المُدرجة ككائنات مستقلة. يخزن [IPictureFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipictureframe/) صورته في `getPictureFormat().getPicture().getImage()`، الذي يُعيد كائنًا من نوع [IPPImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/). لاحظ أن [IVideoFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ivideoframe/) و[IAudioFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iaudioframe/) يُشتقان من [IPictureFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipictureframe/)، لذا يتحقق هذا الفحص `instanceof` أيضًا من إطارات الوسائط ويصدّر صور معاينتها؛ اختبر تلك الأنواع أولاً عندما تريد معالجتها بشكل منفصل، كما في المثال الأخير في هذه الصفحة.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "extracted-images");
@@ -269,9 +274,13 @@ finally
 
 ## **استخراج الصور من الأشكال المملوءة بالصور**
 
-يمكن للأشكال أن تستخدم صورة كملء لها. تحقق من نوع ملء الشكل أولاً: إذا لم يكن [FillType.Picture](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/filltype/) فلا توجد صورة لاستخراجها من ذلك الملء. يتعامل المثال أدناه مع كائنات [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) ويحفظ كل صورة كـ PNG عبر [IPPImage.getImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/#getImage--).
+يمكن للأشكال استخدام صورة كملئ لها. افحص نوع ملئ الشكل أولاً: إذا لم يكن [FillType.Picture](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/filltype/)، فلا توجد صورة لاستخراجها من ذلك الملئ. المثال أدناه يتعامل مع كائنات [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) ويحفظ كل صورة كـ PNG عبر [IPPImage.getImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/#getImage--).
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "shape-fill-images");
@@ -313,11 +322,16 @@ finally
 }
 ```
 
-## **استخراج صور المعاينة من إطارات كائن OLE**
+## **استخراج صور معاينة إطارات كائن OLE**
 
-يمكن أن يحتوي [IOleObjectFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ioleobjectframe/) على صورة بديلة تستخدمها PowerPoint كمعاينة للكائن على الشريحة. تتوفر هذه الصورة عبر `getSubstitutePictureFormat().getPicture().getImage()`. استخراج هذه الصورة يعطيك صورة المعاينة، وليس محتويات حزمة OLE المضمنة.
+يمكن أن يحتوي [IOleObjectFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ioleobjectframe/) على صورة بديلة تُستخدمها PowerPoint كمعاينة للكائن على الشريحة. تتوفر هذه الصورة عبر `getSubstitutePictureFormat().getPicture().getImage()`. استخراج هذه الصورة يمنحك صورة المعاينة، وليس محتويات حزمة OLE المدمجة.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "ole-preview-images");
@@ -361,11 +375,16 @@ finally
 }
 ```
 
-## **استخراج صور المعاينة من إطارات الفيديو**
+## **استخراج صور معاينة إطارات الفيديو**
 
-يمكن أيضًا لـ [IVideoFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ivideoframe/) تخزين صورة معاينة في `getPictureFormat().getPicture().getImage()`. هذه هي الصورة الافتتاحية أو المصغرة المعروضة على الشريحة، وليس إطارًا مُستخرجًا من تدفق الفيديو.
+يمكن أن يخزن [IVideoFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ivideoframe/) أيضًا صورة معاينة في `getPictureFormat().getPicture().getImage()`. هذه هي الملصق أو الصورة المصغرة المعروضة على الشريحة، وليس إطارًا مُفككًا من تدفق الفيديو.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "video-preview-images");
@@ -409,11 +428,16 @@ finally
 }
 ```
 
-## **استخراج صور المعاينة من إطارات الصوت**
+## **استخراج صور معاينة إطارات الصوت**
 
-يمكن لـ [IAudioFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iaudioframe/) تخزين صورة مصغرة في `getPictureFormat().getPicture().getImage()`. هذه هي الصورة المعروضة لكائن الصوت على الشريحة.
+يمكن أن يخزن [IAudioFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iaudioframe/) صورة مصغرة في `getPictureFormat().getPicture().getImage()`. هذه هي الصورة المعروضة لكائن الصوت على الشريحة.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "audio-preview-images");
@@ -462,6 +486,11 @@ finally
 يمكن للأشكال [IZoomFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/izoomframe/) و[ISectionZoomFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/isectionzoomframe/) استخدام صور مخصصة. اقرأ `getZoomImage()` من إطار التكبير.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "zoom-images");
@@ -518,11 +547,16 @@ finally
 }
 ```
 
-## **استخراج الصور من إطارات التكبير الملخص**
+## **استخراج الصور من إطارات التكبير الموجز**
 
-يُعد [ISummaryZoomFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/isummaryzoomframe/) أيضًا شكلًا. يمكن لعناصر القسم الخاصة به استخدام صور مخصصة، تُعرَض عبر طريقة كل قسم ملخص `getZoomImage()`.
+يُعد [ISummaryZoomFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/isummaryzoomframe/) أيضًا شكلًا. يمكن لعناصر القسم الخاصة به أن تستخدم صورًا مخصصة، تُعرض من خلال طريقة كل قسم `getZoomImage()`.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "summary-zoom-images");
@@ -574,9 +608,14 @@ finally
 
 ## **استخراج الصور من أشكال الجداول**
 
-يُعد [ITable](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itable/) شكلًا. عادةً ما تُخزن الصور في جدول كملء صور في خلايا الجدول.
+يُعد [ITable](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itable/) شكلًا. تُخزن الصور في الجدول عادةً كملئ صور في خلايا الجدول.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "table-images");
@@ -634,9 +673,14 @@ finally
 
 ## **استخراج الصور من أشكال المخططات**
 
-يُعد [IChart](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichart/) شكلًا. يستخرج المثال أدناه صورة من ملء صورة منطقة المخطط.
+يُعد [IChart](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichart/) شكلًا. المثال أدناه يستخرج صورة من ملئ صورة منطقة المخطط.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "chart-images");
@@ -683,9 +727,14 @@ finally
 
 ## **استخراج الصور من أشكال SmartArt**
 
-يُعد [ISmartArt](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ismartart/) كائنًا هو شكل. اعتمادًا على تخطيط SmartArt، قد تُخزن الصور في ملء نقاط القوائم للعقد أو في تنسيقات ملء أشكال العقد.
+كائن [ISmartArt](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ismartart/) هو شكل. بناءً على تخطيط SmartArt، قد تُخزن الصور في ملئ نقط التعداد للعقد أو في تنسيقات ملئ أشكال العقد.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "smartart-images");
@@ -753,9 +802,14 @@ finally
 
 ## **تضمين الصور داخل الأشكال المجمعة**
 
-تحتوي الأشكال المجمعة على مجموعات الأشكال الخاصة بها. يحتوي المساعد المشترك `enumerateShapes` على خيار `includeGroupedShapes`. عيّن قيمته إلى `true` عندما تريد فحص الأشكال داخل كائنات [IGroupShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/igroupshape/). يستخرج المثال أدناه الصور من إطارات الصور، الأشكال المملوءة بالصور، معاينات كائنات OLE، المصغرات لإطارات الفيديو، ومصغرات إطارات الصوت. لتضمين صور الجداول، المخططات، SmartArt، وصور التكبير الملخص أيضًا، أعد استخدام منطق الاستخراج المتخصص من الأقسام السابقة مع الحفاظ على نفس الاستعراض المتكرر للأشكال.
+تحتوي الأشكال المجمعة على مجموعات أشكال خاصة بها. المساعد المشترك `enumerateShapes` يحتوي على خيار `includeGroupedShapes`. اضبطه على `true` عندما تريد فحص الأشكال داخل كائنات [IGroupShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/igroupshape/). المثال أدناه يستخرج صورًا من إطارات الصور، الأشكال المملوءة بالصور، معاينات كائن OLE، مصغرات إطارات الفيديو، ومصغرات إطارات الصوت. لتضمين صور الجداول، المخططات، SmartArt، وتكبير الموجز أيضًا، أعد استخدام منطق الاستخراج المتخصص من الأقسام السابقة مع الحفاظ على نفس استعراض الأشكال المتكرر.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "all-shape-images");
@@ -848,43 +902,43 @@ finally
 
 ## **حالات خاصة وملاحظات عملية**
 
-- **الصور المكررة:** قد تشير أشكال متعددة إلى نفس الصورة أو إلى صور منفصلة ذات بايتات متطابقة. احسب تجزئة [IPPImage.getBinaryData](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/#getBinaryData--) قبل كتابة الملفات إذا كنت تريد ملفًا واحدًا لكل صورة فريدة.
-- **البيانات الأصلية مقابل المخرجات المحوّلة:** حفظ [IPPImage.getBinaryData](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/#getBinaryData--) يحافظ على بيانات JPEG أو PNG أو GIF أو SVG أو EMF أو WMF المضمنة. حفظ [IPPImage.getImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/#getImage--) عبر [IImage.save](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) مفيد عندما تريد تنسيق مخرج موحد.
-- **أنواع الملء غير المدعومة:** لا تحتوي الأشكال الصلبة، المتدرجة، النمطية، أو الخالية من الملء على صورة ملء. تحقق من [FillType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/filltype/) قبل قراءة `getPictureFillFormat()`.
-- **الأشكال المجمعة:** لا تقوم مجموعة الأشكال العليا في الشريحة بتسطيح المجموعات. افحص [IGroupShape.getShapes](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/igroupshape/#getShapes--) بشكل متكرر عندما تكون محتويات المجموعات مهمة.
-- **معاينات كائن OLE:** قد يُظهر [IOleObjectFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ioleobjectframe/) صورة معاينة عبر `getSubstitutePictureFormat()`، لكن هذه الصورة هي مجرد معاينة للشفرة وليس الملف المدمج داخل كائن OLE.
-- **المصغرات لإطارات الفيديو:** قد يُظهر [IVideoFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ivideoframe/) صورة معاينة عبر `getPictureFormat()`؛ هذه الصورة هي مجرد ملصق يُعرض على الشريحة ولا تُستخرج من تدفق الفيديو.
-- **المصغرات لإطارات الصوت:** قد يُظهر [IAudioFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iaudioframe/) أيقونة أو مصغرة عبر `getPictureFormat()`؛ ليست بيانات الصوت المضمنة.
-- **صور التكبير:** قد تستخدم أشكال تكبير الشريحة، تكبير القسم، وتكبير الملخص صورًا مخصصة عبر كائنات [IPPImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/) من خلال `getZoomImage()`.
-- **نماذج الأشكال المتداخلة:** تنفذ كائنات الجدول، المخطط، وSmartArt واجهة [IShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/)، لكن صورها غالبًا ما تُخزن في تنسيقات خلايا الجدول، عناصر المخطط، أو تنسيقات عقد SmartArt المتداخلة.
-- **الصور المقصوصة أو المحوَّلة:** الوصول إلى [IPPImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/) يمنحك مصدر الصورة المخزن. لا يقوم بتطبيق القص، الشفافية، إعادة اللون، الدوران، أو أي تأثيرات بصرية أخرى يطبقها الشكل.
+- **صور مكررة:** قد تشير عدة أشكال إلى نفس الصورة أو إلى صور منفصلة ذات بايتات متطابقة. احسب تجزئة [IPPImage.getBinaryData](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/#getBinaryData--) قبل كتابة الملفات إذا أردت ملفًا واحدًا لكل صورة فريدة.
+- **البيانات الأصلية مقابل المخرجات المحوّلة:** حفظ [IPPImage.getBinaryData](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/#getBinaryData--) يحافظ على بيانات JPEG، PNG، GIF، SVG، EMF أو WMF المدمجة. حفظ [IPPImage.getImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/#getImage--) عبر [IImage.save](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) مفيد عندما تريد تنسيق إخراج موحد.
+- **أنواع الملء غير المدعومة:** الأشكال الصلبة، المتدرجة، النمطية، وبدون ملء لا تحتوي على ملء صورة. افحص [FillType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/filltype/) قبل قراءة `getPictureFillFormat()`.
+- **الأشكال المجمعة:** مجموعة الأشكال على مستوى الشريحة لا تُسطّح المجموعات. افحص [IGroupShape.getShapes](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/igroupshape/#getShapes--) بشكل متكرر عندما تكون محتويات المجموعات مهمة.
+- **معاينات كائن OLE:** قد يُظهر [IOleObjectFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ioleobjectframe/) صورة معاينة عبر `getSubstitutePictureFormat()`، لكن هذه الصورة هي فقط معاينة الشريحة وليست الملف المدمج داخل كائن OLE.
+- **مصغرات إطارات الفيديو:** قد يُظهر [IVideoFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ivideoframe/) صورة معاينة عبر `getPictureFormat()`، لكن هذه الصورة هي فقط الملصق المعروض على الشريحة ولا تُستخرج من تدفق الفيديو.
+- **مصغرات إطارات الصوت:** قد يُظهر [IAudioFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iaudioframe/) أيقونة أو مصغرة عبر `getPictureFormat()`؛ وهي ليست بيانات الصوت المدمجة.
+- **صور التكبير:** قد تستخدم أشكال تكبير الشريحة، تكبير القسم، وتكبير الموجز صورًا مخصصة من نوع [IPPImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/) عبر `getZoomImage()`.
+- **نماذج الأشكال المتداخلة:** تنفّذ كائنات الجدول، المخطط، وSmartArt واجهة [IShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/)، لكن صورها غالبًا ما تُخزن في كائنات تنسيق خلية الجدول، عنصر المخطط، أو عقدة SmartArt المتداخلة.
+- **الصور المقصوصة أو المُحوّلة:** الوصول إلى [IPPImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/) يمنحك مصدر الصورة المخزن. لا يُطبق القص، الشفافية، إعادة اللون، الدوران أو أي تأثير بصري آخر يُطبق على الشكل.
 
 ## **الأسئلة الشائعة**
 
-**هل يمكنني استخراج الصورة الأصلية دون قص أو تأثيرات أو تحولات شكل؟**
+### هل يمكنني استخراج الصورة الأصلية دون قص أو تأثيرات أو تحويلات الشكل؟
 
-نعم. احصل على كائن [IPPImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/) واكتب [IPPImage.getBinaryData](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/#getBinaryData--) إلى القرص. هذا يحافظ على الصورة المشفرة الأصلية المخزنة في العرض التقديمي، وليس الطريقة التي تُعرض بها الصورة على الشريحة.
+نعم. وصول إلى كائن [IPPImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/) واكتب [IPPImage.getBinaryData](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/#getBinaryData--) إلى القرص. هذا يحافظ على الصورة المشفّرة الأصلية المخزنة في العرض، وليس الطريقة التي تُعرض بها الصورة على الشريحة.
 
-**هل يمكنني تصدير كل صورة مستخرجة كـ PNG؟**
+### هل يمكنني تصدير كل صورة مستخرجة كـ PNG؟
 
-نعم. استخدم [IPPImage.getImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/#getImage--) للحصول على كائن [IImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iimage/)، ثم استدعِ [IImage.save](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) مع [ImageFormat.Png](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imageformat/). هذا يحول المخرجات وقد لا يحافظ على نوع الملف الأصلي أو البيانات المتجهية.
+نعم. استخدم [IPPImage.getImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/#getImage--) للحصول على كائن [IImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iimage/)، ثم استدعِ [IImage.save](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) مع [ImageFormat.Png](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imageformat/). هذا يحول الناتج وقد لا يحافظ على نوع الملف الأصلي أو البيانات المتجهية.
 
-**كيف أتجنب حفظ نفس الصورة أكثر من مرة؟**
+### كيف أتجنب حفظ نفس الصورة أكثر من مرة؟
 
-استخدام تجزئة [IPPImage.getBinaryData](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/#getBinaryData--) والاحتفاظ بها في مجموعة. إذا كان للصورة الجديدة تجزئة موجودة مسبقًا، فتجاوزها أو سجّل إشارة إضافية إلى ملف الإخراج الموجود.
+استخدم تجزئة [IPPImage.getBinaryData](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/#getBinaryData--) واحتفظ بالتجزئات في مجموعة. إذا كانت الصورة الجديدة لها تجزئة موجودة مسبقًا، تجاوزها أو سجّل إشارة أخرى إلى ملف الإخراج الحالي.
 
-**لماذا بعض الأشكال لا تُنتج صورة؟**
+### لماذا لا تنتج بعض الأشكال صورة؟
 
-يمكن لإطارات الصور، الأشكال المملوءة بالصور، إطارات كائن OLE، إطارات الوسائط، إطارات التكبير، الجداول، المخططات، وكائنات SmartArt أن تشير إلى صور. بعض أنواع الأشكال تُظهر الصور عبر كائنات تنسيق متداخلة، لذا فحص `getPictureFormat()` أو `getFillFormat()` وحده قد لا يكون كافيًا.
+إطارات الصور، الأشكال المملوءة بالصور، إطارات كائن OLE، إطارات الوسائط، إطارات التكبير، الجداول، المخططات، وكائنات SmartArt يمكنها الإشارة إلى صور. بعض أنواع الأشكال تُظهر الصور عبر كائنات تنسيق متداخلة، لذا فحص بسيط بـ `getPictureFormat()` أو `getFillFormat()` لل shape قد لا يكون كافيًا.
 
-**هل يمكن استخراج المصغرة المعروضة لإطار الفيديو؟**
+### هل يمكنني استخراج المصغرة المعروضة لإطار فيديو؟
 
 نعم. استخدم [IVideoFrame.getPictureFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ivideoframe/#getPictureFormat--) واقرأ `getPictureFormat().getPicture().getImage()`. هذا يستخرج صورة الملصق المخزنة مع إطار الفيديو، وليس إطارًا مُستخرجًا من ملف الفيديو.
 
-**كيف يمكنني تحديد أي الأشكال تستخدم صورة معينة من مجموعة صور العرض التقديمي؟**
+### كيف يمكنني تحديد الأشكال التي تستخدم صورة معينة من مجموعة صور العرض؟
 
-لا تخزن Aspose.Slides روابط عكسية من [IPPImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/) إلى الأشكال. أنشئ خريطة أثناء الاستعراض: كلما وجدت مرجع صورة، سجّل رقم الشريحة، مسار الشكل، وتجزيء الصورة أو عنصر المجموعة.
+لا تخزن Aspose.Slides روابط عكسية من [IPPImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/) إلى الأشكال. أنشئ خريطة أثناء الاستعراض: كلما وجدت إشارة إلى صورة، سجّل رقم الشريحة، مسار الشكل، وتجزيء الصورة أو عنصر المجموعة.
 
-**هل يمكن استخراج الصور المدمجة داخل كائنات OLE، مثل المستندات المرفقة؟**
+### هل يمكنني استخراج الصور المدمجة داخل كائنات OLE، مثل المستندات المرفقة؟
 
-يمكنك استخراج معاينة شريحة كائن OLE عبر [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--). ومع ذلك، هذه المعاينة ليست المستند المدمج نفسه. لاستخراج الصور من داخل الملف المدمج، يجب استخراج بيانات OLE وفحصها بأدوات مناسبة لنوع الملف.
+يمكنك استخراج معاينة الشريحة لكائن OLE عبر [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--). ومع ذلك، هذه المعاينة ليست المستند المدمج نفسه. لاستخراج الصور من داخل الملف المدمج، استخرج بيانات OLE وافحصها بأدوات مخصصة لنوع ذلك الملف.

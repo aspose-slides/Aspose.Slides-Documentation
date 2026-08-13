@@ -1,33 +1,33 @@
 ---
-title: Trích xuất hình ảnh từ các hình dạng trong bản trình bày trên Android bằng Java
-linktitle: Hình ảnh từ Hình dạng
+title: Trích xuất hình ảnh từ các hình dạng trong bản trình chiếu trên Android bằng Java
+linktitle: Hình ảnh từ hình dạng
 type: docs
 weight: 100
 url: /vi/androidjava/extracting-images-from-presentation-shapes/
 keywords:
-- trích xuất hình ảnh
-- lấy lại hình ảnh
+- trích xuất ảnh
+- lấy ảnh
 - PowerPoint
 - OpenDocument
-- bản trình bày
+- bản trình chiếu
 - Android
 - Java
 - Aspose.Slides
-description: "Trích xuất hình ảnh từ các hình dạng trong các bản trình bày PowerPoint và OpenDocument bằng Aspose.Slides cho Android qua Java - giải pháp nhanh, thân thiện với mã."
+description: "Trích xuất hình ảnh từ các hình dạng trong bản trình chiếu PowerPoint và OpenDocument bằng Aspose.Slides cho Android qua Java - giải pháp nhanh, thân thiện với mã."
 ---
 ## **Tổng quan**
 
-Hình ảnh trong một bản trình bày có thể xuất hiện ở nhiều kiểu dạng: dưới dạng khung ảnh thông thường, dưới dạng hình ảnh nền được áp dụng cho các hình dạng, dưới dạng hình ảnh xem trước của đối tượng OLE, dưới dạng hình thu nhỏ khung video hoặc âm thanh, dưới dạng hình thu phóng, hoặc dưới dạng hình ảnh lồng trong các hình dạng bảng, biểu đồ và SmartArt. Aspose.Slides lưu những hình ảnh này trong bộ sưu tập hình ảnh của bản trình bày, được truy cập thông qua các đối tượng [IImageCollection](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iimagecollection/) và [IPPImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/) .
+Hình ảnh trong một bản trình chiếu có thể xuất hiện trong một số loại hình dạng: như khung ảnh thông thường, như ảnh nền được áp dụng cho các hình dạng, như ảnh xem trước của đối tượng OLE, như ảnh thu nhỏ của khung video hoặc âm thanh, như ảnh thu phóng, hoặc như hình ảnh lồng trong các hình dạng bảng, biểu đồ và SmartArt. Aspose.Slides lưu trữ những hình ảnh đó trong bộ sưu tập hình ảnh của bản trình chiếu, được cung cấp qua các đối tượng [IImageCollection](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iimagecollection/) và [IPPImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/) .
 
-Nếu bạn chỉ cần xuất mọi tài nguyên hình ảnh được nhúng trong một bản trình bày, hãy lặp qua `presentation.getImages()`. Bài viết này tập trung vào một công việc khác: duyệt các hình dạng để tìm nơi hình ảnh được sử dụng trên các slide, để các tệp đã lưu có thể giữ ngữ cảnh hữu ích như số slide, vị trí hình dạng và loại nguồn (khung ảnh, hình ảnh nền, xem trước đa phương tiện, xem trước OLE hoặc hình thu phóng).
+Nếu bạn chỉ cần xuất mọi tài nguyên ảnh được nhúng trong một bản trình chiếu, hãy lặp qua `presentation.getImages()`. Bài viết này tập trung vào một nhiệm vụ khác: duyệt các hình dạng để tìm nơi ảnh được sử dụng trên các slide, để các tệp đã lưu có thể giữ ngữ cảnh hữu ích như số slide, vị trí hình dạng và loại nguồn (khung ảnh, ảnh nền, xem trước media, xem trước OLE hoặc ảnh thu phóng).
 
-{{% alert title="Tip" color="primary" %}}
-Sử dụng [IPPImage.getBinaryData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/#getBinaryData--) để giữ nguyên dữ liệu hình ảnh đã mã hoá và loại tệp. Sử dụng [IPPImage.getImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/#getImage--) với [IImage.save](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) khi bạn muốn chuẩn hoá đầu ra thành định dạng cụ thể như PNG.
+{{% alert title="Tip" color="info" %}}
+Sử dụng [IPPImage.getBinaryData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/#getBinaryData--) để bảo toàn dữ liệu ảnh đã mã hoá và loại tệp gốc. Sử dụng [IPPImage.getImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/#getImage--) cùng với [IImage.save](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) khi bạn muốn chuẩn hoá đầu ra thành định dạng cụ thể như PNG.
 {{% /alert %}}
 
-## **Phương thức trợ giúp dùng chung**
+## **Phương thức trợ giúp chung**
 
-Các phương thức trợ giúp dưới đây giữ cho các ví dụ ngắn gọn. `saveOriginalImage` ghi các byte nhúng gốc, chọn phần mở rộng an toàn từ MIME type, và bỏ qua các hình ảnh nhị phân trùng lặp bằng hàm băm SHA-256.
+Các phương thức trợ giúp bên dưới giúp các ví dụ ngắn gọn. `saveOriginalImage` ghi các byte nhúng gốc, chọn phần mở rộng an toàn từ MIME type và bỏ qua các ảnh nhị phân trùng lặp bằng hàm băm SHA‑256.
 
 ```java
 import com.aspose.slides.*;
@@ -225,9 +225,14 @@ private static String makeSafeFileNamePart(String value)
 
 ## **Trích xuất hình ảnh từ khung ảnh**
 
-Sử dụng cách tiếp cận này cho các ảnh được chèn dưới dạng đối tượng độc lập. Một [IPictureFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ipictureframe/) lưu ảnh của nó trong `getPictureFormat().getPicture().getImage()`, phương thức này trả về một đối tượng [IPPImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/) .
+Sử dụng cách tiếp cận này cho những ảnh được chèn dưới dạng đối tượng độc lập. Một [IPictureFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ipictureframe/) lưu trữ ảnh của nó trong `getPictureFormat().getPicture().getImage()`, phương thức này trả về một đối tượng [IPPImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/). Lưu ý rằng [IVideoFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ivideoframe/) và [IAudioFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iaudioframe/) kế thừa từ [IPictureFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ipictureframe/), vì vậy kiểm tra `instanceof` này cũng khớp với các khung media và xuất ảnh xem trước của chúng; hãy kiểm tra các loại này trước khi muốn xử lý chúng riêng, như ví dụ cuối cùng trên trang này làm.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "extracted-images");
@@ -269,9 +274,13 @@ finally
 
 ## **Trích xuất hình ảnh từ các hình dạng được điền bằng ảnh**
 
-Các hình dạng có thể sử dụng ảnh làm nền. Kiểm tra loại nền của hình dạng trước: nếu nó không phải là [FillType.Picture](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/filltype/), thì không có ảnh nào để trích xuất từ nền đó. Ví dụ dưới đây xử lý các đối tượng [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape/) và lưu mỗi ảnh dưới dạng PNG qua [IPPImage.getImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/#getImage--) .
+Các hình dạng có thể sử dụng một ảnh làm nền. Kiểm tra loại nền của hình dạng trước: nếu không phải là [FillType.Picture](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/filltype/), sẽ không có ảnh nào để trích xuất từ nền đó. Ví dụ dưới đây xử lý các đối tượng [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape/) và lưu mỗi ảnh dưới dạng PNG thông qua [IPPImage.getImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/#getImage--).
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "shape-fill-images");
@@ -315,9 +324,14 @@ finally
 
 ## **Trích xuất ảnh xem trước từ khung đối tượng OLE**
 
-Một [IOleObjectFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ioleobjectframe/) có thể có một ảnh thay thế mà PowerPoint dùng làm xem trước đối tượng trên slide. Ảnh này có sẵn qua `getSubstitutePictureFormat().getPicture().getImage()` . Trích xuất ảnh này sẽ cho bạn ảnh xem trước, không phải nội dung gói OLE được nhúng.
+Một [IOleObjectFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ioleobjectframe/) có thể có một ảnh thay thế mà PowerPoint sử dụng làm xem trước của đối tượng trên slide. Ảnh này có sẵn qua `getSubstitutePictureFormat().getPicture().getImage()`. Việc trích xuất ảnh này sẽ cho bạn ảnh xem trước, không phải nội dung gói OLE đã nhúng.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "ole-preview-images");
@@ -363,9 +377,14 @@ finally
 
 ## **Trích xuất ảnh xem trước từ khung video**
 
-Một [IVideoFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ivideoframe/) cũng có thể lưu ảnh xem trước trong `getPictureFormat().getPicture().getImage()` . Đây là poster hoặc thumbnail hiển thị trên slide, không phải một khung được giải mã từ luồng video.
+Một [IVideoFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ivideoframe/) cũng có thể lưu một ảnh xem trước trong `getPictureFormat().getPicture().getImage()`. Đây là poster hoặc ảnh thu nhỏ hiển thị trên slide, không phải một khung được giải mã từ video.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "video-preview-images");
@@ -411,9 +430,14 @@ finally
 
 ## **Trích xuất ảnh xem trước từ khung âm thanh**
 
-Một [IAudioFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iaudioframe/) có thể lưu một thumbnail trong `getPictureFormat().getPicture().getImage()` . Đây là ảnh hiển thị cho đối tượng âm thanh trên slide.
+Một [IAudioFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iaudioframe/) có thể lưu một ảnh thu nhỏ trong `getPictureFormat().getPicture().getImage()`. Đây là ảnh hiển thị cho đối tượng âm thanh trên slide.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "audio-preview-images");
@@ -459,9 +483,14 @@ finally
 
 ## **Trích xuất hình ảnh từ đối tượng Zoom**
 
-[IZoomFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/izoomframe/) và [ISectionZoomFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/isectionzoomframe/) có thể sử dụng ảnh tùy chỉnh. Đọc `getZoomImage()` từ khung zoom.
+Các hình dạng [IZoomFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/izoomframe/) và [ISectionZoomFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/isectionzoomframe/) có thể sử dụng ảnh tùy chỉnh. Đọc `getZoomImage()` từ khung zoom.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "zoom-images");
@@ -520,9 +549,14 @@ finally
 
 ## **Trích xuất hình ảnh từ khung Summary Zoom**
 
-Một [ISummaryZoomFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/isummaryzoomframe/) cũng là một hình dạng. Các mục phần của nó có thể sử dụng ảnh tùy chỉnh, được lộ ra thông qua phương thức `getZoomImage()` của mỗi phần tóm tắt zoom.
+Một [ISummaryZoomFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/isummaryzoomframe/) cũng là một hình dạng. Các mục phần có thể sử dụng ảnh tùy chỉnh, được cung cấp qua phương thức `getZoomImage()` của mỗi phần zoom tóm tắt.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "summary-zoom-images");
@@ -572,11 +606,16 @@ finally
 }
 ```
 
-## **Trích xuất hình ảnh từ hình dạng Bảng**
+## **Trích xuất hình ảnh từ các hình dạng bảng**
 
 Một [ITable](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itable/) là một hình dạng. Hình ảnh trong bảng thường được lưu dưới dạng nền ảnh trong các ô bảng.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "table-images");
@@ -632,11 +671,16 @@ finally
 }
 ```
 
-## **Trích xuất hình ảnh từ hình dạng Biểu đồ**
+## **Trích xuất hình ảnh từ các hình dạng biểu đồ**
 
 Một [IChart](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichart/) là một hình dạng. Ví dụ dưới đây trích xuất ảnh từ nền ảnh của khu vực biểu đồ.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "chart-images");
@@ -681,11 +725,16 @@ finally
 }
 ```
 
-## **Trích xuất hình ảnh từ hình dạng SmartArt**
+## **Trích xuất hình ảnh từ các hình dạng SmartArt**
 
-Một [ISmartArt](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ismartart/) là một hình dạng. Tùy thuộc vào bố cục SmartArt, hình ảnh có thể được lưu trong nền bullet của nút hoặc trong định dạng nền của các hình dạng nút.
+Một [ISmartArt](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ismartart/) là một hình dạng. Tùy thuộc vào bố cục SmartArt, hình ảnh có thể được lưu trong nền ký hiệu của nút hoặc trong định dạng nền của các hình dạng nút.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "smartart-images");
@@ -751,11 +800,16 @@ finally
 }
 ```
 
-## **Bao gồm hình ảnh bên trong các hình dạng Nhóm**
+## **Bao gồm hình ảnh bên trong các hình dạng nhóm**
 
-Các hình dạng nhóm chứa bộ sưu tập hình dạng riêng. Trợ giúp `enumerateShapes` dùng chung có tùy chọn `includeGroupedShapes`. Đặt thành `true` khi bạn muốn kiểm tra các hình dạng bên trong các đối tượng [IGroupShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/igroupshape/) . Ví dụ dưới đây trích xuất hình ảnh từ khung ảnh, các hình dạng được điền bằng ảnh, xem trước đối tượng OLE, thumbnail khung video và thumbnail khung âm thanh. Để bao gồm cả hình ảnh bảng, biểu đồ, SmartArt và summary zoom, hãy tái sử dụng logic trích xuất chuyên biệt từ các phần trước trong khi giữ cùng cách duyệt hình dạng đệ quy.
+Các hình dạng nhóm chứa bộ sưu tập hình dạng riêng. Phương thức trợ giúp chung `enumerateShapes` có tùy chọn `includeGroupedShapes`. Đặt thành `true` khi bạn muốn kiểm tra các hình dạng bên trong các đối tượng [IGroupShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/igroupshape/). Ví dụ dưới đây trích xuất hình ảnh từ khung ảnh, các hình dạng được điền bằng ảnh, xem trước OLE, ảnh thu nhỏ khung video và ảnh thu nhỏ khung âm thanh. Để bao gồm cả hình ảnh bảng, biểu đồ, SmartArt và zoom tóm tắt, hãy tái sử dụng logic trích xuất chuyên biệt từ các phần trước trong khi vẫn giữ cùng cách duyệt hình dạng đệ quy.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "all-shape-images");
@@ -846,45 +900,45 @@ finally
 }
 ```
 
-## **Các trường hợp đặc biệt và ghi chú thực tiễn**
+## **Các trường hợp đặc biệt và lưu ý thực tế**
 
-- **Hình ảnh trùng lặp:** Nhiều hình dạng có thể tham chiếu cùng một hình ảnh hoặc các hình ảnh riêng biệt có byte giống hệt. Băm [IPPImage.getBinaryData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/#getBinaryData--) trước khi ghi tệp nếu bạn muốn một tệp đầu ra cho mỗi hình ảnh duy nhất.
-- **Dữ liệu gốc vs. đầu ra đã chuyển đổi:** Lưu [IPPImage.getBinaryData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/#getBinaryData--) giữ nguyên dữ liệu JPEG, PNG, GIF, SVG, EMF hoặc WMF được nhúng. Lưu [IPPImage.getImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/#getImage--) qua [IImage.save](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) hữu ích khi bạn muốn định dạng đầu ra nhất quán.
-- **Các loại nền không được hỗ trợ:** Các hình dạng đặc, gradient, pattern và không có nền không chứa ảnh nền. Kiểm tra [FillType](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/filltype/) trước khi đọc `getPictureFillFormat()` .
-- **Hình dạng nhóm:** Bộ sưu tập hình dạng slide cấp cao nhất không làm phẳng các nhóm. Kiểm tra đệ quy [IGroupShape.getShapes](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/igroupshape/#getShapes--) khi nội dung nhóm quan trọng.
-- **Xem trước đối tượng OLE:** Một [IOleObjectFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ioleobjectframe/) có thể lộ ảnh xem trước qua `getSubstitutePictureFormat()` , nhưng ảnh này chỉ là xem trước trên slide, không phải tệp được nhúng trong đối tượng OLE.
-- **Thumbnail khung video:** Một [IVideoFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ivideoframe/) có thể lộ ảnh xem trước qua `getPictureFormat()` , nhưng ảnh này chỉ là poster hiển thị trên slide, không được trích xuất từ luồng video.
-- **Thumbnail khung âm thanh:** Một [IAudioFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iaudioframe/) có thể lộ biểu tượng hoặc thumbnail qua `getPictureFormat()` ; nó không phải là dữ liệu âm thanh được nhúng.
-- **Ảnh Zoom:** Các hình dạng zoom slide, section zoom và summary zoom có thể sử dụng các đối tượng [IPPImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/) tùy chỉnh qua `getZoomImage()` .
-- **Mô hình hình dạng lồng nhau:** Các đối tượng bảng, biểu đồ và SmartArt thực thi [IShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishape/) , nhưng hình ảnh của chúng thường được lưu trong các đối tượng định dạng ô bảng, phần tử biểu đồ hoặc nút SmartArt.
-- **Ảnh đã cắt hoặc biến đổi:** Truy cập [IPPImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/) cho bạn tài nguyên hình ảnh lưu trữ. Nó không thực hiện việc cắt, trong suốt, thay đổi màu, xoay hoặc các hiệu ứng hình ảnh khác được áp dụng bởi hình dạng.
+- **Duplicate images:** Nhiều hình dạng có thể tham chiếu cùng một ảnh hoặc các ảnh riêng biệt có byte giống hệt nhau. Hãy băm [IPPImage.getBinaryData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/#getBinaryData--) trước khi ghi file nếu bạn muốn một file đầu ra cho mỗi ảnh duy nhất.
+- **Original data vs. converted output:** Lưu [IPPImage.getBinaryData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/#getBinaryData--) giữ nguyên dữ liệu JPEG, PNG, GIF, SVG, EMF hoặc WMF được nhúng. Lưu [IPPImage.getImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/#getImage--) thông qua [IImage.save](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) hữu ích khi bạn muốn đầu ra đồng nhất ở một định dạng nhất định.
+- **Unsupported fill types:** Các hình dạng rắn, gradient, pattern và không có nền không chứa ảnh nền. Kiểm tra [FillType](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/filltype/) trước khi đọc `getPictureFillFormat()`.
+- **Grouped shapes:** Bộ sưu tập hình dạng cấp slide không làm phẳng các nhóm. Kiểm tra đệ quy [IGroupShape.getShapes](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/igroupshape/#getShapes--) khi nội dung nhóm quan trọng.
+- **OLE object previews:** Một [IOleObjectFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ioleobjectframe/) có thể cung cấp ảnh xem trước qua `getSubstitutePictureFormat()`, nhưng ảnh này chỉ là xem trước trên slide, không phải tệp nhúng bên trong đối tượng OLE.
+- **Video frame thumbnails:** Một [IVideoFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ivideoframe/) có thể cung cấp ảnh xem trước qua `getPictureFormat()`, nhưng ảnh này chỉ là poster hiển thị trên slide, không được trích xuất từ luồng video.
+- **Audio frame thumbnails:** Một [IAudioFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iaudioframe/) có thể cung cấp biểu tượng hoặc ảnh thu nhỏ qua `getPictureFormat()`; nó không phải dữ liệu âm thanh được nhúng.
+- **Zoom images:** Các hình dạng slide zoom, section zoom và summary zoom có thể sử dụng các đối tượng [IPPImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/) tùy chỉnh qua `getZoomImage()`.
+- **Nested shape models:** Các đối tượng bảng, biểu đồ và SmartArt thực thi [IShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishape/), nhưng ảnh của chúng thường được lưu trong các đối tượng định dạng ô bảng, phần tử biểu đồ hoặc nút SmartArt lồng nhau.
+- **Cropped or transformed pictures:** Truy cập [IPPImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/) cho bạn tài nguyên ảnh đã lưu. Nó không áp dụng cắt, độ trong suốt, đổi màu, quay hay các hiệu ứng hình ảnh khác mà hình dạng có thể thực hiện.
 
 ## **Câu hỏi thường gặp**
 
-**Tôi có thể trích xuất hình ảnh gốc mà không bị cắt, áp hiệu ứng hoặc biến đổi hình dạng không?**
+### Tôi có thể trích xuất hình ảnh gốc mà không cắt, hiệu ứng hoặc biến đổi hình dạng không?
 
-Có. Truy cập đối tượng [IPPImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/) và ghi [IPPImage.getBinaryData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/#getBinaryData--) ra đĩa. Điều này giữ nguyên dữ liệu hình ảnh đã mã hoá ban đầu trong bản trình bày, không phải cách hình ảnh được hiển thị trên slide.
+Có. Truy cập đối tượng [IPPImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/) và ghi [IPPImage.getBinaryData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/#getBinaryData--) ra đĩa. Điều này bảo toàn hình ảnh đã mã hoá gốc được lưu trong bản trình chiếu, không phải cách hình ảnh được hiển thị trên slide.
 
-**Tôi có thể xuất mọi hình ảnh đã trích xuất dưới dạng PNG không?**
+### Tôi có thể xuất mọi hình ảnh đã trích xuất ở định dạng PNG không?
 
-Có. Sử dụng [IPPImage.getImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/#getImage--) để nhận một đối tượng [IImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iimage/) , sau đó gọi [IImage.save](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) với [ImageFormat.Png](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imageformat/) . Điều này chuyển đổi đầu ra và có thể không giữ nguyên loại tệp hoặc dữ liệu vector gốc.
+Có. Sử dụng [IPPImage.getImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/#getImage--) để lấy một đối tượng [IImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iimage/), sau đó gọi [IImage.save](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) với [ImageFormat.Png](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imageformat/). Điều này chuyển đổi đầu ra và có thể không giữ nguyên kiểu tệp hoặc dữ liệu vector gốc.
 
-**Làm sao tôi tránh lưu cùng một hình ảnh nhiều lần?**
+### Làm sao để tránh lưu cùng một hình ảnh nhiều lần?
 
-Sử dụng hàm băm của [IPPImage.getBinaryData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/#getBinaryData--) và giữ các hàm băm trong một tập hợp. Nếu một hình ảnh mới có hàm băm đã tồn tại, bỏ qua nó hoặc ghi lại tham chiếu khác tới tệp đầu ra hiện có.
+Sử dụng hàm băm của [IPPImage.getBinaryData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/#getBinaryData--) và lưu các băm vào một tập hợp. Nếu một ảnh mới có băm đã tồn tại, bỏ qua hoặc ghi lại tham chiếu tới tệp đầu ra đã có.
 
-**Tại sao một số hình dạng không tạo ra hình ảnh?**
+### Tại sao một số hình dạng không tạo ra hình ảnh?
 
-Khung ảnh, các hình dạng được điền bằng ảnh, khung đối tượng OLE, khung đa phương tiện, khung zoom, bảng, biểu đồ và đối tượng SmartArt có thể tham chiếu hình ảnh. Một số loại hình dạng lộ ảnh qua các đối tượng định dạng lồng nhau, vì vậy việc chỉ kiểm tra `getPictureFormat()` hoặc `getFillFormat()` không luôn đủ.
+Khung ảnh, các hình dạng được điền bằng ảnh, khung OLE, khung media, khung zoom, bảng, biểu đồ và đối tượng SmartArt có thể tham chiếu ảnh. Một số loại hình dạng đưa ảnh ra qua các đối tượng định dạng lồng nhau, vì vậy chỉ kiểm tra `getPictureFormat()` hoặc `getFillFormat()` của hình dạng không luôn đủ.
 
-**Tôi có thể trích xuất thumbnail hiển thị cho một khung video không?**
+### Tôi có thể trích xuất ảnh thu nhỏ hiển thị cho khung video không?
 
-Có. Sử dụng [IVideoFrame.getPictureFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ivideoframe/#getPictureFormat--) và đọc `getPictureFormat().getPicture().getImage()` . Điều này trích xuất ảnh poster được lưu cùng khung video, không phải một khung được tạo ra từ tệp video.
+Có. Sử dụng [IVideoFrame.getPictureFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ivideoframe/#getPictureFormat--) và đọc `getPictureFormat().getPicture().getImage()`. Điều này trích xuất ảnh poster được lưu cùng khung video, không phải một khung được tạo ra từ tệp video.
 
-**Làm sao tôi xác định hình dạng nào sử dụng một hình ảnh cụ thể trong bộ sưu tập hình ảnh của bản trình bày?**
+### Làm sao tôi có thể xác định các hình dạng nào sử dụng một hình ảnh cụ thể trong bộ sưu tập hình ảnh của bản trình chiếu?
 
-Aspose.Slides không lưu liên kết ngược từ [IPPImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/) tới các hình dạng. Xây dựng bản đồ trong quá trình duyệt: mỗi khi bạn tìm thấy một tham chiếu hình ảnh, ghi lại số slide, đường dẫn hình dạng và hàm băm hoặc mục trong bộ sưu tập.
+Aspose.Slides không lưu liên kết ngược từ [IPPImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/) tới các hình dạng. Hãy xây dựng bản đồ trong quá trình duyệt: mỗi khi bạn tìm thấy một tham chiếu ảnh, ghi lại số slide, đường dẫn hình dạng và băm ảnh hoặc chỉ mục trong bộ sưu tập.
 
-**Tôi có thể trích xuất hình ảnh được nhúng trong đối tượng OLE, chẳng hạn như tài liệu đính kèm không?**
+### Tôi có thể trích xuất hình ảnh được nhúng trong các đối tượng OLE, chẳng hạn như tài liệu đính kèm không?
 
-Bạn có thể trích xuất ảnh xem trước slide của đối tượng OLE qua [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--) . Tuy nhiên, ảnh xem trước này không phải là tài liệu nhúng thực tế. Để trích xuất hình ảnh bên trong tệp được nhúng, hãy trích xuất dữ liệu OLE và kiểm tra nó bằng các công cụ phù hợp với loại tệp đó.
+Bạn có thể trích xuất ảnh xem trước slide của đối tượng OLE từ [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--). Tuy nhiên, ảnh xem trước này không phải là tài liệu nhúng thực tế. Để trích xuất ảnh từ bên trong tệp OLE, hãy trích xuất dữ liệu OLE và kiểm tra bằng các công cụ phù hợp với loại tệp đó.

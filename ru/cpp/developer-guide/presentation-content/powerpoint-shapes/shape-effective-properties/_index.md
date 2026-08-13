@@ -7,10 +7,10 @@ url: /ru/cpp/shape-effective-properties/
 keywords:
 - свойства фигур
 - свойства камеры
-- осветительный блок
-- фаска фигуры
+- световая установка
+- фаска формы
 - текстовый кадр
-- текстовый стиль
+- стиль текста
 - высота шрифта
 - формат заливки
 - PowerPoint
@@ -21,17 +21,27 @@ description: "Узнайте, как Aspose.Slides для C++ вычисляет
 ---
 ## **Обзор**
 
-Эта тема объясняет разницу между **локальными** и **эффективными** свойствами. Локальные значения — это значения, которые задаются непосредственно на конкретном уровне форматирования, например:
+Эта статья объясняет разницу между **локальными** и **эффективными** свойствами. Локальные значения — это значения, которые задаются непосредственно на конкретном уровне форматирования, например:
 
-1. Свойства части на слайде.  
-1. Текстовые стили прототипа формы на макете или мастере, когда у формы текстового кадра части есть стиль.  
+1. Свойства фрагмента на слайде.  
+1. Стиль текста прототипов формы на макете или образце слайда, если у формы текстового кадра фрагмента они присутствуют.  
 1. Глобальные настройки текста в презентации.
 
-Локальные значения могут быть заданы или опущены на любом уровне. Когда Aspose.Slides требуется окончательное форматирование «как отображено», он разрешает цепочку наследования и возвращает **эффективные** значения. Их можно получить, вызвав метод `GetEffective` у объекта локального формата.
+Локальные значения могут быть заданы или опущены на любом уровне. Когда Aspose.Slides требуется окончательное форматирование «как отображено», он разрешает цепочку наследования и возвращает **эффективные** значения. Получить их можно, вызвав метод `GetEffective` у объекта локального формата.
 
-Следующий пример показывает, как получить эффективные значения. Предполагается, что первая фигура на первом слайде является [IAutoShape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iautoshape/) с текстовым кадром и как минимум одной частью.
+Следующий пример показывает, как получить эффективные значения. Предполагается, что первая фигура на первом слайде — это [IAutoShape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iautoshape/) с текстовым кадром и как минимум одним фрагментом.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -46,17 +56,28 @@ auto effectivePortionFormat = portion->get_PortionFormat()->GetEffective();
 presentation->Dispose();
 ```
 
-{{% alert color="primary" %}}
-Данные эффективного форматирования представляют текущие вычисленные параметры после применения наследования. В текущей реализации некоторые объекты эффективных данных, такие как [IPortionFormatEffectiveData](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iportionformateffectivedata/), могут кэшироваться внутри. Повторный вызов `GetEffective` после изменения родительского или унаследованного форматирования может обновить кэшированные данные, и ранее полученный объект может больше не отражать прежнее состояние. Если необходимо сохранить эффективные значения для последующего использования, скопируйте нужные свойства, такие как высота шрифта, цвет заливки, стиль шрифта или выравнивание, в собственный объект данных.
+{{% alert color="info" %}}
+Эффективные данные форматирования представляют текущие вычисленные параметры после применения наследования. В текущей реализации некоторые объекты эффективных данных, такие как [IPortionFormatEffectiveData](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iportionformateffectivedata/), могут кэшироваться внутри. Вызов `GetEffective` повторно после изменения родительского или унаследованного форматирования может обновить кэшированные данные, и ранее полученный объект может больше не отражать предыдущее состояние. Если необходимо сохранить эффективные значения для дальнейшего использования, скопируйте требуемые свойства, такие как высота шрифта, цвет заливки, стиль шрифта или выравнивание, в свой собственный объект данных.
 {{% /alert %}}
 
 ## **Получить эффективные свойства камеры**
 
 Aspose.Slides позволяет получить эффективные свойства камеры. Интерфейс [ICameraEffectiveData](https://reference.aspose.com/slides/ru/cpp/aspose.slides/icameraeffectivedata/) представляет неизменяемый объект, содержащий эффективные свойства камеры. Экземпляр [ICameraEffectiveData](https://reference.aspose.com/slides/ru/cpp/aspose.slides/icameraeffectivedata/) доступен через [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ithreedformateffectivedata/), который предоставляет эффективные значения для [IThreeDFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ithreedformat/).
 
-Следующий пример кода демонстрирует, как получить эффективные свойства камеры. Предполагается, что первая фигура на первом слайде имеет 3D‑форматирование.
+Следующий пример кода показывает, как получить эффективные свойства камеры. Предполагается, что первая фигура на первом слайде имеет 3D‑форматирование.
 
 ```cpp
+#include <DOM/ICameraEffectiveData.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -78,13 +99,24 @@ System::Console::WriteLine(System::String(u"Zoom: ") + cameraZoom);
 presentation->Dispose();
 ```
 
-## **Получить эффективные свойства осветительного устройства**
+## **Получить эффективные свойства световой установки**
 
-Aspose.Slides позволяет получить эффективные свойства осветительного устройства. Интерфейс [ILightRigEffectiveData](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilightrigeffectivedata/) представляет неизменяемый объект, содержащий эффективные свойства осветительного устройства. Экземпляр [ILightRigEffectiveData](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilightrigeffectivedata/) доступен через [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ithreedformateffectivedata/), который предоставляет эффективные значения для [IThreeDFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ithreedformat/).
+Aspose.Slides позволяет получить эффективные свойства световой установки. Интерфейс [ILightRigEffectiveData](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilightrigeffectivedata/) представляет неизменяемый объект, содержащий эффективные свойства световой установки. Экземпляр [ILightRigEffectiveData](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilightrigeffectivedata/) доступен через [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ithreedformateffectivedata/), который предоставляет эффективные значения для [IThreeDFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ithreedformat/).
 
-Следующий пример кода демонстрирует, как получить эффективные свойства осветительного устройства. Предполагается, что первая фигура на первом слайде имеет 3D‑форматирование.
+Следующий пример кода показывает, как получить эффективные свойства световой установки. Предполагается, что первая фигура на первом слайде имеет 3D‑форматирование.
 
 ```cpp
+#include <DOM/ILightRigEffectiveData.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 auto shape = presentation->get_Slide(0)->get_Shape(0);
 
@@ -101,13 +133,24 @@ System::Console::WriteLine(System::String(u"Direction: ") + lightDirection);
 presentation->Dispose();
 ```
 
-## **Получить эффективные свойства фаски фигуры**
+## **Получить эффективные свойства фаски формы**
 
-Aspose.Slides позволяет получить эффективные свойства фаски фигуры. Интерфейс [IShapeBevelEffectiveData](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ishapebeveleffectivedata/) представляет неизменяемый объект, содержащий эффективные свойства рельефа грани фигуры. Экземпляр [IShapeBevelEffectiveData](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ishapebeveleffectivedata/) доступен через [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ithreedformateffectivedata/), который предоставляет эффективные значения для [IThreeDFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ithreedformat/).
+Aspose.Slides позволяет получить эффективные свойства фаски формы. Интерфейс [IShapeBevelEffectiveData](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ishapebeveleffectivedata/) представляет неизменяемый объект, содержащий эффективные свойства рельефа грани формы. Экземпляр [IShapeBevelEffectiveData](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ishapebeveleffectivedata/) доступен через [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ithreedformateffectivedata/), который предоставляет эффективные значения для [IThreeDFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ithreedformat/).
 
-Следующий пример кода демонстрирует, как получить эффективные свойства верхней фаски фигуры. Предполагается, что первая фигура на первом слайде имеет 3D‑форматирование.
+Следующий пример кода показывает, как получить эффективные свойства верхней фаски формы. Предполагается, что первая фигура на первом слайде имеет 3D‑форматирование.
 
 ```cpp
+#include <DOM/IShape.h>
+#include <DOM/IShapeBevelEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 auto shape = presentation->get_Slide(0)->get_Shape(0);
 
@@ -129,11 +172,22 @@ presentation->Dispose();
 
 ## **Получить эффективные свойства текстового кадра**
 
-С помощью Aspose.Slides можно получить эффективные свойства текстового кадра. Интерфейс [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextframeformateffectivedata/) содержит свойства эффективного форматирования текстового кадра.
+С помощью Aspose.Slides можно получить эффективные свойства текстового кадра. Интерфейс [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextframeformateffectivedata/) содержит эффективные свойства форматирования текстового кадра.
 
-Следующий пример кода демонстрирует, как получить эффективные свойства форматирования текстового кадра. Предполагается, что первая фигура на первом слайде является [IAutoShape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iautoshape/) с текстовым кадром.
+Следующий пример кода показывает, как получить эффективные свойства форматирования текстового кадра. Предполагается, что первая фигура на первом слайде — это [IAutoShape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iautoshape/) с текстовым кадром.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/ITextFrameFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -166,13 +220,26 @@ System::Console::WriteLine(System::String(u"   Bottom: ") + marginBottom);
 presentation->Dispose();
 ```
 
-## **Получить эффективные свойства текстового стиля**
+## **Получить эффективные свойства стиля текста**
 
-С помощью Aspose.Slides можно получить эффективные свойства текстового стиля. Интерфейс [ITextStyleEffectiveData](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextstyleeffectivedata/) содержит свойства эффективного текстового стиля.
+С помощью Aspose.Slides можно получить эффективные свойства стиля текста. Интерфейс [ITextStyleEffectiveData](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itextstyleeffectivedata/) содержит эффективные свойства стиля текста.
 
-Следующий пример кода демонстрирует, как получить эффективные свойства текстового стиля. Предполагается, что первая фигура на первом слайде является [IAutoShape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iautoshape/) с текстовым кадром.
+Следующий пример кода показывает, как получить эффективные свойства стиля текста. Предполагается, что первая фигура на первом слайде — это [IAutoShape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iautoshape/) с текстовым кадром.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphFormatEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/ITextStyleEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -201,9 +268,28 @@ presentation->Dispose();
 
 ## **Получить значение эффективной высоты шрифта**
 
-С помощью Aspose.Slides можно получить эффективную высоту шрифта. Следующий код демонстрирует, как эффективная высота шрифта части меняется после установки локальных значений высоты шрифта на разных уровнях структуры презентации.
+С помощью Aspose.Slides можно получить эффективную высоту шрифта. Следующий код демонстрирует, как эффективная высота шрифта фрагмента меняется после установки локальных значений высоты шрифта на различных уровнях структуры презентации.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
@@ -262,11 +348,27 @@ presentation->Dispose();
 
 ## **Получить эффективный формат заливки для таблицы**
 
-С помощью Aspose.Slides можно получить эффективное форматирование заливки для различных частей таблицы. Интерфейс [IFillFormatEffectiveData](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ifillformateffectivedata/) содержит свойства эффективного форматирования заливки. Форматирование ячейки имеет более высокий приоритет, чем форматирование строки, строка — чем форматирование столбца, а столбец — чем форматирование всей таблицы.
+С помощью Aspose.Slides можно получить эффективное форматирование заливки для разных частей таблицы. Интерфейс [IFillFormatEffectiveData](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ifillformateffectivedata/) содержит свойства эффективного форматирования заливки. Форматирование ячейки имеет более высокий приоритет, чем форматирование строк, форматирование строк — более высокий приоритет, чем форматирование столбцов, а форматирование столбцов — более высокий приоритет, чем форматирование всей таблицы.
 
-В результате свойства [ICellFormatEffectiveData](https://reference.aspose.com/slides/ru/cpp/aspose.slides/icellformateffectivedata/) используются при отрисовке ячейки таблицы. Следующий пример кода показывает, как получить эффективное форматирование заливки для различных частей таблицы. Предполагается, что первая фигура на первом слайде является [ITable](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itable/).
+В результате свойства [ICellFormatEffectiveData](https://reference.aspose.com/slides/ru/cpp/aspose.slides/icellformateffectivedata/) используются при отрисовке ячейки таблицы. Следующий пример кода показывает, как получить эффективное форматирование заливки для разных частей таблицы. Предполагается, что первая фигура на первом слайде — это [ITable](https://reference.aspose.com/slides/ru/cpp/aspose.slides/itable/).
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/ICellFormatEffectiveData.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/IColumnFormat.h>
+#include <DOM/Table/IColumnFormatEffectiveData.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowFormat.h>
+#include <DOM/Table/IRowFormatEffectiveData.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ITableFormat.h>
+#include <DOM/Table/ITableFormatEffectiveData.h>
+using namespace Aspose::Slides;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -282,34 +384,34 @@ presentation->Dispose();
 
 ## **FAQ**
 
-**Возвращает ли `GetEffective` снимок?**
+### Возвращает ли `GetEffective` снимок?
 
-Не всегда. Данные эффективного форматирования представляют вычисленное форматирование после применения наследования, но некоторые объекты эффективных данных могут кэшироваться внутри. Последующий вызов `GetEffective` может пересчитать форматирование и обновить кэшированные данные, поэтому ранее полученный объект не следует рассматривать как долговременный снимок.
+Не всегда. Эффективные данные представляют вычисленное форматирование после применения наследования, но некоторые объекты эффективных данных могут кэшироваться внутри. Последующий вызов `GetEffective` может пересчитать форматирование и обновить кэшированные данные, поэтому ранее полученный объект не следует рассматривать как долговременный снимок.
 
-**Когда следует снова считывать эффективные свойства?**
+### Когда следует снова читать эффективные свойства?
 
-Вызовите `GetEffective` повторно после изменения локального форматирования, стилей‑родителей, форматирования макета, форматирования мастера или глобальных параметров презентации. Следующий вызов переоценивает иерархию форматирования и возвращает текущий эффективный результат.
+Вызовите `GetEffective` повторно после изменения локального форматирования, стилей‑родителей, форматирования макета, форматирования образца или глобальных параметров презентации. Следующий вызов переоценит иерархию форматирования и вернёт текущий эффективный результат.
 
-**Влияет ли изменение или удаление макета/мастер‑слайда на уже полученные эффективные свойства?**
+### Влияет ли изменение или удаление макета/образца слайда на уже полученные эффективные свойства?
 
-Да, но изменение отражается только при следующем вызове `GetEffective`. Если источник форматирования‑родителя изменён или удалён, ранее полученные эффективные данные могут устареть. После повторного вызова `GetEffective` Aspose.Slides переоценивает дерево форматирования, и полученные шрифты, цвета, размеры или другие значения могут измениться.
+Да, но изменение отразится только при следующем вызове `GetEffective`. Если источник форматирования родителя изменён или удалён, ранее полученные эффективные данные могут стать устаревшими. После повторного вызова `GetEffective` Aspose.Slides переоценит дерево форматирования, и полученные шрифты, цвета, размеры или другие значения могут измениться.
 
-**Можно ли изменять значения через объекты эффективных данных?**
+### Могу ли я изменить значения через объекты эффективных данных?
 
 Нет. Объекты эффективных данных лишь предоставляют вычисленные значения. Вносите изменения в локальные объекты форматирования, а затем заново получайте эффективные значения.
 
-**Что происходит, если свойство не задано на уровне фигуры, макета/мас­тера и глобальных настроек?**
+### Что происходит, если свойство не задано ни на уровне фигуры, ни в макете/образце, ни в глобальных настройках?
 
-Эффективное значение определяется механизмом значений по умолчанию, включающим стандарты PowerPoint и Aspose.Slides. Это вычисленное значение становится частью текущих эффективных данных.
+Эффективное значение определяется механизмом значений по умолчанию, который включает стандарты PowerPoint и Aspose.Slides. Это разрешённое значение становится частью текущих эффективных данных.
 
-**Можно ли по эффективному значению шрифта определить, какой уровень предоставил размер или гарнитуру?**
+### По эффективному значению шрифта могу ли я определить, какой уровень предоставил размер или гарнитуру?
 
-Не напрямую. Эффективные данные возвращают окончательное значение. Чтобы определить источник, проверьте локальные значения на уровне части, абзаца, текстового кадра и текстовых стилей в макете, мастере и презентации, чтобы увидеть, где первое явное определение встречается.
+Не напрямую. Эффективные данные возвращают окончательное значение. Чтобы выяснить источник, проверьте локальные значения на уровне фрагмента, абзаца, текстового кадра и стили текста на уровнях макета, образца и презентации, чтобы увидеть, где появилось первое явное определение.
 
-**Почему эффективные значения иногда совпадают с локальными?**
+### Почему эффективные значения иногда выглядят идентично локальным?
 
-Потому что локальное значение оказалось окончательным (не потребовалось наследование с более высокого уровня). В таких случаях эффективное значение равно локальному.
+Потому что локальное значение оказалось конечным (не потребовалось наследование с более высокого уровня). В таких случаях эффективное значение совпадает с локальным.
 
-**Когда следует использовать эффективные свойства, а когда работать только с локальными?**
+### Когда следует использовать эффективные свойства, а когда работать только с локальными?
 
-Используйте эффективные данные, когда нужна «как отображено» резуль­тата после применения всего наследования, например для согласования цветов, отступов или размеров. Если необходимо сохранить эти значения независимо от последующих изменений форматирования, скопируйте нужные свойства в собственный объект. Если нужно изменить форматирование на определённом уровне, изменяйте локальные свойства и при необходимости снова считывайте эффективные данные, чтобы убедиться в результате.
+Используйте эффективные данные, когда нужен результат «как отображено» после применения всего наследования, например для согласования цветов, отступов или размеров. Если необходимо сохранить эти значения независимо от последующих изменений форматирования, скопируйте требуемые свойства в свой объект. Если нужно изменить форматирование на конкретном уровне, изменяйте локальные свойства и, при необходимости, заново считывайте эффективные данные для проверки результата.

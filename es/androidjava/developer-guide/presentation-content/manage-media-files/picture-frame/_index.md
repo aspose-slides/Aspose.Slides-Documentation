@@ -18,7 +18,7 @@ keywords:
 - propiedad StretchOff
 - formato de marco de imagen
 - propiedades del marco de imagen
-- escala relativa
+- escalado relativo
 - efecto de imagen
 - relación de aspecto
 - transparencia de imagen
@@ -28,33 +28,36 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Añade marcos de imagen a presentaciones PowerPoint y OpenDocument con Aspose.Slides para Android mediante Java. Optimiza tu flujo de trabajo y mejora el diseño de las diapositivas."
+description: "Añade marcos de imagen a presentaciones PowerPoint y OpenDocument con Aspose.Slides para Android mediante Java. Simplifica tu flujo de trabajo y mejora el diseño de las diapositivas."
 ---
 ## **Introducción**
 
-Un marco de imagen es una forma que contiene una imagen; es como una foto dentro de un marco.
+Un marco de imagen es una forma que contiene una imagen; es como una foto en un marco.  
 
-Puedes añadir una imagen a una diapositiva mediante un marco de imagen. De esta forma, formateas la imagen formateando el marco de imagen.
+Puede añadir una imagen a una diapositiva mediante un marco de imagen. De esta forma, podrá formatear la imagen formateando el marco de imagen.
 
-{{% alert  title="Tip" color="primary" %}} 
-
-Aspose ofrece conversores gratuitos—[JPEG to PowerPoint](https://products.aspose.app/slides/es/import/jpg-to-ppt) y [PNG to PowerPoint](https://products.aspose.app/slides/es/import/png-to-ppt)—que permiten crear presentaciones rápidamente a partir de imágenes. 
-
+{{% alert  title="Tip" color="info" %}} 
+Aspose ofrece conversores gratuitos—[JPEG a PowerPoint](https://products.aspose.app/slides/es/import/jpg-to-ppt) y [PNG a PowerPoint](https://products.aspose.app/slides/es/import/png-to-ppt)—que permiten crear presentaciones rápidamente a partir de imágenes. 
 {{% /alert %}} 
 
 ## **Crear un marco de imagen**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/Presentation).
-2. Obtén la referencia de una diapositiva mediante su índice. 
-3. Crea un objeto [IPPImage]() añadiendo una imagen a la [IImagescollection](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IImageCollection) asociada al objeto de presentación que se usará para rellenar la forma.
-4. Especifica el ancho y alto de la imagen.
-5. Crea un [PictureFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/PictureFrame) basado en el ancho y alto de la imagen mediante el método `AddPictureFrame` expuesto por el objeto de forma asociado a la diapositiva referenciada.
-6. Añade un marco de imagen (que contiene la foto) a la diapositiva.
-7. Guarda la presentación modificada como un archivo PPTX.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/Presentation).  
+2. Obtenga la referencia de una diapositiva mediante su índice.  
+3. Cree un objeto [IPPImage]() añadiendo una imagen a la [IImagescollection](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IImageCollection) asociada al objeto Presentation que se utilizará para rellenar la forma.  
+4. Especifique el ancho y alto de la imagen.  
+5. Cree un [PictureFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/PictureFrame) basado en el ancho y alto de la imagen mediante el método `AddPictureFrame` expuesto por el objeto shape asociado a la diapositiva referenciada.  
+6. Añada un marco de imagen (que contiene la foto) a la diapositiva.  
+7. Guarde la presentación modificada como un archivo PPTX.  
 
-Este código Java muestra cómo crear un marco de imagen:
+Este código Java le muestra cómo crear un marco de imagen:
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 // Instancia la clase Presentation que representa un archivo PPTX
 Presentation pres = new Presentation();
 try {
@@ -64,10 +67,10 @@ try {
     // Instancia la clase Image
     IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
     
-    // Añade un marco de imagen con la altura y anchura equivalentes de la imagen
+    // Añade un marco de imagen con la altura y anchura equivalentes a la imagen
     sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
     
-    // Escribe el archivo PPTX en disco
+    // Guarda el archivo PPTX en disco
     pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -77,36 +80,39 @@ try {
 
 ## **Crear un marco de imagen con escala relativa**
 
-Al modificar la escala relativa de una imagen, puedes crear un marco de imagen más complejo. 
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/Presentation).  
+2. Obtenga la referencia de una diapositiva mediante su índice.  
+3. Añada una imagen a la colección de imágenes de la presentación.  
+4. Cree un objeto [IPPImage](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IPPImage) añadiendo una imagen a la [IImagescollection](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IImageCollection) asociada al objeto Presentation que se utilizará para rellenar la forma.  
+5. Especifique el ancho y alto relativos de la imagen en el marco de imagen.  
+6. Guarde la presentación modificada como un archivo PPTX.  
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/Presentation).
-2. Obtén la referencia de una diapositiva mediante su índice. 
-3. Añade una imagen a la colección de imágenes de la presentación.
-4. Crea un objeto [IPPImage](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IPPImage) añadiendo una imagen a la [IImagescollection](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IImageCollection) asociada al objeto de presentación que se usará para rellenar la forma.
-5. Especifica el ancho y alto relativos de la imagen en el marco de imagen.
-6. Guarda la presentación modificada como un archivo PPTX.
-
-Este código Java muestra cómo crear un marco de imagen con escala relativa:
+Este código Java le muestra cómo crear un marco de imagen con escala relativa:
 
 ```java
-// Instancia la clase Presentation que representa el PPTX
+import com.aspose.slides.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+// Instanciar la clase Presentation que representa el PPTX
 Presentation pres = new Presentation();
 try {
-    // Obtiene la primera diapositiva
+    // Obtener la primera diapositiva
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // Instancia la clase Image
+    // Instanciar la clase Image
     IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
     
     
-    // Añade un marco de imagen con la altura y anchura equivalentes de la imagen
+    // Añadir un marco de imagen con la altura y anchura equivalentes a la imagen
     IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
     
-    // Establece la escala relativa de anchura y altura
+    // Establecer la escala relativa de anchura y altura
     pf.setRelativeScaleHeight(0.8f);
     pf.setRelativeScaleWidth(1.35f);
     
-    // Escribe el archivo PPTX en disco
+    // Guardar el archivo PPTX en disco
     pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -114,11 +120,13 @@ try {
 }
 ```
 
-## **Extraer imágenes raster de marcos de imagen**
+## **Extraer imágenes rasterizadas de marcos de imagen**
 
-Puedes extraer imágenes raster de objetos [PictureFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/PictureFrame) y guardarlas en PNG, JPG y otros formatos. El ejemplo de código a continuación demuestra cómo extraer una imagen del documento "sample.pptx" y guardarla en formato PNG.
+Puede extraer imágenes rasterizadas de objetos [PictureFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/PictureFrame) y guardarlas en PNG, JPG y otros formatos. El ejemplo de código a continuación muestra cómo extraer una imagen del documento "sample.pptx" y guardarla en formato PNG.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 
 try {
@@ -127,14 +135,13 @@ try {
 
     if (firstShape instanceof IPictureFrame) {
         IPictureFrame pictureFrame = (IPictureFrame) firstShape;
+        IImage slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
         try {
-			IImage slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
-			slideImage.save("slide_1_shape_1.png", ImageFormat.Png);
-		} finally {
-			if (slideImage != null) slideImage.dispose();
-		}
+            slideImage.save("slide_1_shape_1.png", ImageFormat.Png);
+        } finally {
+            if (slideImage != null) slideImage.dispose();
+        }
     }
-} catch (IOException e) {
 } finally {
     presentation.dispose();
 }
@@ -142,11 +149,15 @@ try {
 
 ## **Extraer imágenes SVG de marcos de imagen**
 
-Cuando una presentación contiene gráficos SVG insertados dentro de formas [PictureFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/pictureframe/), Aspose.Slides para Android mediante Java permite recuperar las imágenes vectoriales originales con plena fidelidad. Al recorrer la colección de formas de la diapositiva, puedes identificar cada [PictureFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/pictureframe/), comprobar si el [IPPImage](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ippimage/) subyacente contiene contenido SVG y, a continuación, guardar esa imagen en disco o en un flujo en su formato SVG nativo.
+Cuando una presentación contiene gráficos SVG situados dentro de formas [PictureFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/pictureframe/) , Aspose.Slides para Android a través de Java le permite recuperar las imágenes vectoriales originales con total fidelidad. Una vez que dispone de un [PictureFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/pictureframe/) cuyo [IPPImage](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ippimage/) contiene contenido SVG, puede leer esa imagen SVG y guardarla en disco o en un flujo en su formato SVG nativo.
 
-El siguiente ejemplo de código demuestra cómo extraer una imagen SVG de un marco de imagen:
+El siguiente ejemplo de código muestra cómo extraer una imagen SVG de un marco de imagen:
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 Presentation presentation = new Presentation("sample.pptx");
 
 try {
@@ -170,9 +181,11 @@ try {
 
 ## **Obtener la transparencia de una imagen**
 
-Aspose.Slides permite obtener el efecto de transparencia aplicado a una imagen. Este código Java demuestra la operación:
+Aspose.Slides le permite obtener el efecto de transparencia aplicado a una imagen. Este código Java muestra la operación:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("Test.pptx");
 
 var pictureFrame = (IPictureFrame) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -186,13 +199,15 @@ for (var effect : imageTransform) {
 }
 ```
 
-## **Obtener brillo y contraste de una imagen**
+## **Obtener el brillo y el contraste de una imagen**
 
-Aspose.Slides permite obtener el efecto de brillo y contraste aplicado a una imagen. La interfaz [ILuminance](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iluminance/) representa este efecto de transformación de imagen.
+Aspose.Slides le permite obtener el efecto de brillo y contraste aplicado a una imagen. La interfaz [ILuminance](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iluminance/) representa este efecto de transformación de imagen.
 
-Este código Java muestra cómo obtener los valores de brillo y contraste de un marco de imagen:
+Este código Java muestra cómo obtener los ajustes de brillo y contraste de un marco de imagen:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 
 try {
@@ -216,27 +231,33 @@ try {
 }
 ```
 
-## **Formato de marcos de imagen**
+## **Formato del marco de imagen**
 
-Aspose.Slides ofrece muchas opciones de formato que pueden aplicarse a un marco de imagen. Con esas opciones, puedes modificar un marco de imagen para que cumpla requisitos específicos.
+Aspose.Slides proporciona muchas opciones de formato que pueden aplicarse a un marco de imagen. Con esas opciones, puede modificar un marco de imagen para que cumpla requisitos específicos.
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/Presentation).
-2. Obtén la referencia de una diapositiva mediante su índice. 
-3. Crea un objeto [IPPImage](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IPPImage) añadiendo una imagen a la [IImagescollection](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IImageCollection) asociada al objeto de presentación que se usará para rellenar la forma.
-4. Especifica el ancho y alto de la imagen.
-5. Crea un `PictureFrame` basado en el ancho y alto de la imagen mediante el método [AddPictureFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) expuesto por el objeto [IShapes](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IShapeCollection) asociado a la diapositiva referenciada.
-6. Añade el marco de imagen (que contiene la foto) a la diapositiva.
-7. Establece el color de línea del marco de imagen.
-8. Establece el ancho de línea del marco de imagen.
-9. Gira el marco de imagen asignándole un valor positivo o negativo.  
-   * Un valor positivo gira la imagen en sentido horario.  
-   * Un valor negativo gira la imagen en sentido antihorario.
-10. Añade el marco de imagen (que contiene la foto) a la diapositiva.
-11. Guarda la presentación modificada como un archivo PPTX.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/Presentation).  
+2. Obtenga la referencia de una diapositiva mediante su índice.  
+3. Cree un objeto [IPPImage](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IPPImage) añadiendo una imagen a la [IImagescollection](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IImageCollection) asociada al objeto Presentation que se utilizará para rellenar la forma.  
+4. Especifique el ancho y alto de la imagen.  
+5. Cree un `PictureFrame` basado en el ancho y alto de la imagen mediante el método [AddPictureFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) expuesto por el objeto [IShapes](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IShapeCollection) asociado a la diapositiva referenciada.  
+6. Añada el marco de imagen (que contiene la foto) a la diapositiva.  
+7. Establezca el color de línea del marco de imagen.  
+8. Establezca el ancho de línea del marco de imagen.  
+9. Gire el marco de imagen asignándole un valor positivo o negativo.  
+   * Un valor positivo rota la imagen en sentido horario.  
+   * Un valor negativo rota la imagen en sentido antihorario.  
+10. Añada el marco de imagen (que contiene la foto) a la diapositiva.  
+11. Guarde la presentación modificada como un archivo PPTX.  
 
-Este código Java demuestra el proceso de formato de marcos de imagen:
+Este código Java muestra el proceso de formato del marco de imagen:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 // Instancia la clase Presentation que representa el PPTX
 Presentation pres = new Presentation();
 try {
@@ -246,7 +267,7 @@ try {
     // Instancia la clase Image
     IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
     
-    // Añade un marco de imagen con la altura y anchura equivalentes de la imagen
+    // Añade un marco de imagen con la altura y anchura equivalentes a la imagen
     IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
     
     // Aplica algo de formato a PictureFrameEx
@@ -263,17 +284,18 @@ try {
 }
 ```
 
-{{% alert title="Tip" color="primary" %}}
-
-Aspose ha desarrollado recientemente un [Collage Maker gratuito](https://products.aspose.app/slides/es/collage). Si alguna vez necesitas [combinar imágenes JPG/JPEG](https://products.aspose.app/slides/es/collage/jpg) o PNG, o [crear cuadrículas a partir de fotos](https://products.aspose.app/slides/es/collage/photo-grid), puedes usar este servicio. 
-
-{{% /alert %}}
+{{% alert title="Tip" color="info" %}} 
+Aspose ha desarrollado recientemente un [Collage Maker gratuito](https://products.aspose.app/slides/es/collage). Si alguna vez necesita [combinar imágenes JPG/JPEG](https://products.aspose.app/slides/es/collage/jpg) o PNG, [crear cuadrículas a partir de fotos](https://products.aspose.app/slides/es/collage/photo-grid), puede usar este servicio. 
+{{% /alert %}} 
 
 ## **Añadir una imagen como enlace**
 
-Para evitar presentaciones de gran tamaño, puedes añadir imágenes (o videos) mediante enlaces en lugar de incrustar los archivos directamente en la presentación. Este código Java muestra cómo añadir una imagen y un vídeo a un marcador de posición:
+Para evitar presentaciones de gran tamaño, puede añadir imágenes (o vídeos) mediante enlaces en lugar de incrustar los archivos directamente en la presentación. Este código Java le muestra cómo añadir una imagen y un vídeo a un marcador de posición:
 
 ```java
+import com.aspose.slides.*;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation("input.pptx");
 try {
     ArrayList<IShape> shapesToRemove = new ArrayList<IShape>();
@@ -327,14 +349,16 @@ try {
 
 ## **Recortar imágenes**
 
-Este código Java muestra cómo recortar una imagen existente en una diapositiva:
+Este código Java le muestra cómo recortar una imagen existente en una diapositiva:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 // Crea un nuevo objeto de imagen
 try {
     IPPImage picture;
-    IImage image = Images.fromFile(imagePath);
+    IImage image = Images.fromFile("image.png");
     try {
         picture = pres.getImages().addImage(image);
     } finally {
@@ -352,20 +376,21 @@ try {
     picFrame.getPictureFormat().setCropBottom(31);
 
     // Guarda el resultado
-    pres.save(outPptxFile, SaveFormat.Pptx);
-} catch (IOException e) {
+    pres.save("cropped_image.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Eliminar áreas recortadas de una imagen**
+## **Eliminar áreas recortadas de un marco**
 
-Si deseas eliminar las áreas recortadas de una imagen contenida en un marco, puedes usar el método [deletePictureCroppedAreas()](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) . Este método devuelve la imagen recortada o la imagen original si el recorte no es necesario.
+Si desea eliminar las áreas recortadas de una imagen contenida en un marco, puede usar el método [deletePictureCroppedAreas()](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) . Este método devuelve la imagen recortada o la imagen original si el recorte no es necesario.
 
-Este código Java demuestra la operación:
+Este código Java muestra la operación:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("PictureFrameCrop.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -384,32 +409,31 @@ try {
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
-
 El método [deletePictureCroppedAreas()](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) añade la imagen recortada a la colección de imágenes de la presentación. Si la imagen se usa únicamente en el [PictureFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/pictureframe/) procesado, esta configuración puede reducir el tamaño de la presentación. De lo contrario, el número de imágenes en la presentación resultante aumentará.
 
-Este método convierte metarchivos WMF/EMF a imágenes PNG raster en la operación de recorte. 
-
-{{% /alert %}}
+Este método convierte archivos metafile WMF/EMF a imágenes PNG raster en la operación de recorte. 
+{{% /alert %}} 
 
 ## **Comprimir imágenes**
 
-Puedes comprimir una imagen en una presentación usando el método [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) .
-Este método comprime una imagen reduciendo su tamaño en función del tamaño de la forma y la resolución especificada, con la opción de eliminar áreas recortadas.
+Puede comprimir una imagen en una presentación mediante el método [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) . Este método comprime una imagen reduciendo su tamaño en función del tamaño de la forma y la resolución especificada, con la opción de eliminar áreas recortadas.
 
 Ajusta el tamaño y la resolución de la imagen de forma similar a la función **Formato de imagen > Comprimir imágenes > Resolución** de PowerPoint.
 
-Los siguientes ejemplos Java demuestran cómo comprimir una imagen en una presentación especificando una resolución objetivo y, opcionalmente, eliminando áreas recortadas:
+Los siguientes ejemplos en Java demuestran cómo comprimir una imagen en una presentación especificando una resolución objetivo y, opcionalmente, eliminando áreas recortadas:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("demo.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
     IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
 
-    // Comprime la imagen con una resolución objetivo de 150 DPI (resolución web) y elimina las áreas recortadas.
+    // Comprimir la imagen con una resolución objetivo de 150 DPI (resolución web) y eliminar las áreas recortadas.
     boolean result = pictureFrame.getPictureFormat().compressImage(true, PicturesCompression.Dpi150);
 
-    // Comprueba el resultado de la compresión.
+    // Comprobar el resultado de la compresión.
     if (result) {
         System.out.println("Image successfully compressed.");
     } else {
@@ -425,12 +449,14 @@ try {
 O usando directamente un valor DPI personalizado:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("demo.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
     IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
 
-    // Comprime la imagen a 150 DPI (resolución web), eliminando áreas recortadas.
+    // Comprimir la imagen a 150 DPI (resolución web), eliminando las áreas recortadas.
     pictureFrame.getPictureFormat().compressImage(true, 150f);
 
     presentation.save("CompressedImage.pptx", SaveFormat.Pptx);
@@ -440,19 +466,19 @@ try {
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
-
-El método convierte la imagen a una resolución inferior en función del tamaño de la forma y el DPI proporcionado. También pueden eliminarse las regiones recortadas para optimizar el tamaño del archivo.  
-Si la imagen es un metarchivo (WMF/EMF) o SVG, no se aplicará compresión. Además, la calidad JPEG se conserva o se reduce ligeramente según la resolución, de manera similar a cómo PowerPoint gestiona los JPEG de alta resolución.
-
-{{% /alert %}}
+El método convierte la imagen a una resolución inferior en función del tamaño de la forma y del DPI proporcionado. Las regiones recortadas también pueden eliminarse para optimizar el tamaño del archivo.  
+Si la imagen es un metafile (WMF/EMF) o SVG, no se aplicará compresión. Además, la calidad del JPEG se conserva o se reduce ligeramente según la resolución, de forma similar a como PowerPoint trata los JPEG de alta resolución. 
+{{% /alert %}} 
 
 ## **Bloquear relación de aspecto**
 
-Si deseas que una forma que contiene una imagen mantenga su relación de aspecto incluso después de cambiar las dimensiones de la imagen, puedes usar el método [setAspectRatioLocked](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) para establecer la opción *Bloquear relación de aspecto*.
+Si desea que una forma que contiene una imagen mantenga su relación de aspecto incluso después de cambiar las dimensiones de la imagen, puede usar el método [setAspectRatioLocked](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) para establecer la configuración *Lock Aspect Ratio*.
 
-Este código Java muestra cómo bloquear la relación de aspecto de una forma:
+Este código Java le muestra cómo bloquear la relación de aspecto de una forma:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     ILayoutSlide layout = pres.getLayoutSlides().getByType(SlideLayoutType.Custom);
@@ -465,41 +491,40 @@ try {
         if (image != null) image.dispose();
     }
     IPictureFrame pictureFrame = emptySlide.getShapes().addPictureFrame(
-            ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
+            ShapeType.Rectangle, 50, 150, picture.getWidth(), picture.getHeight(), picture);
 
-    // establecer forma para que preserve la relación de aspecto al redimensionar
+    // Establecer la forma para que preserve la relación de aspecto al redimensionarse
     pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
-} catch(IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
-
-Esta configuración *Bloquear relación de aspecto* preserva solo la relación de aspecto de la forma y no la de la imagen que contiene.
-
-{{% /alert %}}
+Esta configuración *Lock Aspect Ratio* conserva solo la relación de aspecto de la forma y no la de la imagen que contiene. 
+{{% /alert %}} 
 
 ## **Usar la propiedad StretchOff**
 
-Utilizando las propiedades [StretchOffsetLeft](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-), [StretchOffsetTop](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetTop--), [StretchOffsetRight](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetRight--) y [StretchOffsetBottom](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) de la interfaz [IPictureFillFormat](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IPictureFillFormat) y de la clase [PictureFillFormat](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IPictureFillFormat), puedes especificar un rectángulo de relleno.
+Mediante las propiedades [StretchOffsetLeft](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-), [StretchOffsetTop](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetTop--), [StretchOffsetRight](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetRight--) y [StretchOffsetBottom](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) de la interfaz [IPictureFillFormat](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IPictureFillFormat) y la clase [PictureFillFormat](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IPictureFillFormat), puede especificar un rectángulo de relleno.
 
-Cuando se especifica un estiramiento para una imagen, un rectángulo origen se escala para ajustarse al rectángulo de relleno especificado. Cada borde del rectángulo de relleno se define mediante un desplazamiento porcentual respecto al borde correspondiente del cuadro delimitador de la forma. Un porcentaje positivo indica una inserción, mientras que un porcentaje negativo indica una expansión.
+Cuando se especifica un estiramiento para una imagen, un rectángulo de origen se escala para ajustarse al rectángulo de relleno especificado. Cada borde del rectángulo de relleno se define mediante un desplazamiento porcentual desde el borde correspondiente del cuadro delimitador de la forma. Un porcentaje positivo indica un inset (inserción) y un porcentaje negativo indica un outset (extensión).
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/Presentation).
-2. Obtén la referencia de una diapositiva mediante su índice.
-3. Añade un rectángulo `AutoShape`. 
-4. Crea una imagen.
-5. Establece el tipo de relleno de la forma.
-6. Establece el modo de relleno de imagen de la forma.
-7. Añade la imagen establecida para rellenar la forma.
-8. Especifica los desplazamientos de la imagen respecto al borde correspondiente del cuadro delimitador de la forma.
-9. Guarda la presentación modificada como un archivo PPTX.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/Presentation).  
+2. Obtenga la referencia de una diapositiva mediante su índice.  
+3. Añada un rectángulo `AutoShape`.  
+4. Cree una imagen.  
+5. Establezca el tipo de relleno de la forma.  
+6. Establezca el modo de relleno de imagen de la forma.  
+7. Añada la imagen establecida para rellenar la forma.  
+8. Especifique los desplazamientos de la imagen desde el borde correspondiente del cuadro delimitador de la forma.  
+9. Guarde la presentación modificada como un archivo PPTX.  
 
-Este código Java demuestra un proceso en el que se usa la propiedad StretchOff:
+Este código Java muestra un proceso en el que se utiliza la propiedad StretchOff:
 
 ```java
+import com.aspose.slides.*;
+
 // Instancia la clase Presentation que representa un archivo PPTX
 Presentation pres = new Presentation();
 try {
@@ -515,7 +540,7 @@ try {
         if (image != null) image.dispose();
     }
 
-    // Añade una AutoShape configurada como Rectangle
+    // Añade un AutoShape configurado como Rectángulo
     IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
 
     // Establece el tipo de relleno de la forma
@@ -527,34 +552,33 @@ try {
     // Establece la imagen para rellenar la forma
     aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
-    // Especifica los desplazamientos de la imagen respecto al borde correspondiente del cuadro delimitador de la forma
+    // Especifica los desplazamientos de la imagen desde el borde correspondiente del cuadro delimitador de la forma
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
-    
-    //Escribe el archivo PPTX en disco
+
+    // Escribe el archivo PPTX en disco
     pres.save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **FAQ**
+## **Preguntas frecuentes**
 
-**¿Cómo puedo saber qué formatos de imagen son compatibles con PictureFrame?**
+### ¿Cómo puedo averiguar qué formatos de imagen son compatibles con PictureFrame?
 
-Aspose.Slides soporta tanto imágenes raster (PNG, JPEG, BMP, GIF, etc.) como imágenes vectoriales (por ejemplo, SVG) a través del objeto de imagen que se asigna a un [PictureFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/pictureframe/). La lista de formatos admitidos suele coincidir con las capacidades del motor de conversión de diapositivas e imágenes.
+Aspose.Slides admite tanto imágenes raster (PNG, JPEG, BMP, GIF, etc.) como imágenes vectoriales (por ejemplo, SVG) mediante el objeto de imagen asignado a un [PictureFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/pictureframe/). La lista de formatos compatibles suele coincidir con las capacidades del motor de conversión de diapositivas e imágenes.
 
-**¿Cómo afectará la incorporación de decenas de imágenes grandes al tamaño y rendimiento del PPTX?**
+### ¿Cómo afectará la incorporación de decenas de imágenes grandes al tamaño y rendimiento del PPTX?
 
-Incrustar imágenes grandes aumenta el tamaño del archivo y el consumo de memoria; enlazar imágenes ayuda a mantener reducido el tamaño de la presentación pero requiere que los archivos externos permanezcan accesibles. Aspose.Slides permite añadir imágenes mediante enlaces para reducir el tamaño del archivo.
+Incrustar imágenes grandes aumenta el tamaño del archivo y el uso de memoria; enlazar imágenes ayuda a mantener reducido el tamaño de la presentación pero requiere que los archivos externos sigan siendo accesibles. Aspose.Slides permite añadir imágenes mediante enlace para reducir el tamaño del archivo.
 
-**¿Cómo puedo bloquear un objeto de imagen para que no se mueva o redimensione accidentalmente?**
+### ¿Cómo puedo bloquear un objeto de imagen para evitar que se mueva o redimensione accidentalmente?
 
-Utiliza los [bloqueos de forma](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/pictureframe/#getPictureFrameLock--) para un [PictureFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/pictureframe/) (por ejemplo, desactivar el movimiento o el cambio de tamaño). El mecanismo de bloqueo es compatible con varios tipos de forma, incluido [PictureFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/pictureframe/).
+Utilice los [bloqueos de forma](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/pictureframe/#getPictureFrameLock--) para un [PictureFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/pictureframe/) (por ejemplo, desactivar el movimiento o el redimensionado). El mecanismo de bloqueo es compatible con varios tipos de forma, incluido [PictureFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/pictureframe/).
 
-**¿Se conserva la fidelidad vectorial del SVG al exportar una presentación a PDF/imágenes?**
+### ¿Se conserva la fidelidad vectorial de SVG al exportar una presentación a PDF/imagenes?
 
 Aspose.Slides permite extraer un SVG de un [PictureFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/pictureframe/) como el vector original. Al [exportar a PDF](/slides/es/androidjava/convert-powerpoint-to-pdf/) o a [formatos raster](/slides/es/androidjava/convert-powerpoint-to-png/), el resultado puede rasterizarse según la configuración de exportación; el hecho de que el SVG original se almacene como vector se confirma mediante el comportamiento de extracción.

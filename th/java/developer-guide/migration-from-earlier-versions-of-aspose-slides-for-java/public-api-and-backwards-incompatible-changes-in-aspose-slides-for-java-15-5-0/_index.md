@@ -6,37 +6,43 @@ weight: 130
 url: /th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-5-0/
 keywords:
 - การย้ายข้อมูล
-- โค้ดเก่า
+- โค้ดระบบเดิม
 - โค้ดสมัยใหม่
-- แนวทางดั้งเดิม
+- แนวทางแบบเดิม
 - แนวทางสมัยใหม่
 - PowerPoint
 - OpenDocument
 - การนำเสนอ
 - Java
 - Aspose.Slides
-description: "ตรวจสอบการอัปเดต API สาธารณะและการเปลี่ยนแปลงที่ทำให้เกิดความขัดแย้งใน Aspose.Slides for Java เพื่อย้ายโซลูชันการนำเสนอ PowerPoint PPT, PPTX และ ODP ของคุณอย่างราบรื่น."
+description: รีวิวการอัปเดต API สาธารณะและการเปลี่ยนแปลงที่ทำให้เกิดการทำลายใน Aspose.Slides for Java เพื่อการย้ายข้อมูล PowerPoint PPT, PPTX และ ODP ของคุณอย่างราบรื่น
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-หน้านี้แสดงรายการทั้งหมดของคลาส, เมธอด, คุณสมบัติ และอื่น ๆ ที่ [เพิ่ม](/slides/th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-5-0/) รวมถึงข้อจำกัดใหม่ใด ๆ และ [การเปลี่ยนแปลง](/slides/th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-5-0/) ที่แนะนำใน API ของ Aspose.Slides for Java 15.5.0
+หน้านี้แสดงรายการคลาส, เมธอด, คุณสมบัติและอื่น ๆ ที่ [เพิ่ม](/slides/th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-5-0/) , ข้อจำกัดใหม่และ [การเปลี่ยนแปลง](/slides/th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-5-0/) ที่นำเข้ามาใน Aspose.Slides for Java 15.5.0 API.
 
 {{% /alert %}} 
 ## **การเปลี่ยนแปลง Public API**
-### **คลาส CommonSlideViewProperties และอินเตอร์เฟส ICommonSlideViewProperties ถูกเพิ่ม**
-com.aspose.slides.CommonSlideViewProperties class (and its interface com.aspose.slides.ICommonSlideViewProperties) represents common slide view properties (currently view scale options).
-### **เมธอด IAxis.getLabelOffset(), setLabelOffset(int) ถูกเพิ่ม**
-IAxis.getLabelOffset(), setLabelOffset(int) methods allow to get and to specify the distance of labels from the axis. Applied to category or date axis.
-### **เมธอด IChartTextBlockFormat.getAutofitType(), setAutofitType(byte) ถูกเพิ่ม**
-Methods getAutofitType(), setAutofitType(/**TextAutofitType**/byte) have been added to com.aspose.slides.IChartTextBlockFormat interface.
-การเปลี่ยนแปลงค่านี้อาจมีผลเฉพาะกับส่วนของแผนภูมิเหล่านี้: DataLabel และ DataLabelFormat (รองรับเต็มรูปแบบใน PowerPoint 2013; ใน PowerPoint 2007 ไม่มีผลต่อการแสดงผล).
-### **เมธอด IChartTextBlockFormat.getWrapText(), setWrapText(byte) ถูกเพิ่ม**
-Methods getWrapText(), setWrapText(/**NullableBool**/byte) have been added to interface com.aspose.slides.IChartTextBlockFormat.
-การเปลี่ยนแปลงค่านี้อาจมีผลเฉพาะกับส่วนของแผนภูมิเหล่านี้: DataLabel และ DataLabelFormat (รองรับเต็มรูปแบบใน PowerPoint 2007/2013).
-### **เมธอดสำหรับจัดการระยะขอบถูกเพิ่มใน IChartTextBlockFormat**
-getMarginLeft(), setMarginLeft(double), getMarginRight(), setMarginRight(double), getMarginTop(), setMarginTop(double), getMarginBottom() and setMarginBottom(double) methods have been added to interface com.aspose.slides.IChartTextBlockFormat.
-การเปลี่ยนแปลงค่านี้อาจมีผลเฉพาะกับส่วนของแผนภูมิเหล่านี้: DataLabel และ DataLabelFormat (รองรับเต็มรูปแบบใน PowerPoint 2013; ใน PowerPoint 2007 ไม่มีผลต่อการแสดงผล).
-### **เมธอด ViewProperties.getNotesViewProperties() ถูกเพิ่ม**
-com.aspose.slides.ViewProperties.getNotesViewProperties() property has been added. It gets common view properties associated with the notes view mode.
-### **เมธอด ViewProperties.getSlideViewProperties() ถูกเพิ่ม**
-com.aspose.slides.ViewProperties.getSlideViewProperties() method has been added. Its gets common view properties associated with the slide view mode.
+### **ได้เพิ่มคลาส CommonSlideViewProperties และอินเทอร์เฟซ ICommonSlideViewProperties**
+คลาส com.aspose.slides.CommonSlideViewProperties (และอินเทอร์เฟซ com.aspose.slides.ICommonSlideViewProperties) แสดงถึงคุณสมบัติวิวสไลด์ทั่วไป (ขณะนี้เป็นตัวเลือกการปรับขนาดวิว)
+
+### **ได้เพิ่มเมธอด IA​xis.getLabelOffset() และ setLabelOffset(int)**
+เมธอด IA​xis.getLabelOffset() , setLabelOffset(int) ทำให้สามารถรับและระบุระยะห่างของป้ายจากแกนได้ ใช้กับแกนประเภทหรือแกนวันที่
+
+### **ได้เพิ่มเมธอด IChartTextBlockFormat.getAutofitType() และ setAutofitType(byte)**
+เมธอด getAutofitType() , setAutofitType(/**TextAutofitType**/byte) ได้รับการเพิ่มในอินเทอร์เฟซ com.aspose.slides.IChartTextBlockFormat  
+การเปลี่ยนแปลงค่านี้อาจมีผลต่อส่วนของแผนภูมิเฉพาะ: DataLabel และ DataLabelFormat (รองรับเต็มใน PowerPoint 2013; ใน PowerPoint 2007 จะไม่มีผลต่อการเรนเดอร์)
+
+### **ได้เพิ่มเมธอด IChartTextBlockFormat.getWrapText() และ setWrapText(byte)**
+เมธอด getWrapText() , setWrapText(/**NullableBool**/byte) ได้รับการเพิ่มในอินเทอร์เฟซ com.aspose.slides.IChartTextBlockFormat  
+การเปลี่ยนแปลงค่านี้อาจมีผลต่อส่วนของแผนภูมิเฉพาะ: DataLabel และ DataLabelFormat (รองรับเต็มใน PowerPoint 2007/2013)
+
+### **ได้เพิ่มเมธอดสำหรับจัดการระยะขอบใน IChartTextBlockFormat**
+เมธอด getMarginLeft(), setMarginLeft(double), getMarginRight(), setMarginRight(double), getMarginTop(), setMarginTop(double), getMarginBottom() และ setMarginBottom(double) ได้รับการเพิ่มในอินเทอร์เฟซ com.aspose.slides.IChartTextBlockFormat  
+การเปลี่ยนแปลงค่าต่าง ๆ นี้อาจมีผลต่อส่วนของแผนภูมิเฉพาะ: DataLabel และ DataLabelFormat (รองรับเต็มใน PowerPoint 2013; ใน PowerPoint 2007 จะไม่มีผลต่อการเรนเดอร์)
+
+### **ได้เพิ่มเมธอด ViewProperties.getNotesViewProperties()**
+คุณสมบัติ com.aspose.slides.ViewProperties.getNotesViewProperties() ได้รับการเพิ่มขึ้น ใช้เพื่อรับคุณสมบัติวิวทั่วไปที่สัมพันธ์กับโหมดวิวโน้ต
+
+### **ได้เพิ่มเมธอด ViewProperties.getSlideViewProperties()**
+เมธอด com.aspose.slides.ViewProperties.getSlideViewProperties() ได้รับการเพิ่มขึ้น ใช้เพื่อรับคุณสมบัติวิวทั่วไปที่สัมพันธ์กับโหมดวิวสไลด์

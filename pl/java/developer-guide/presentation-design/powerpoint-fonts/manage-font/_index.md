@@ -6,7 +6,7 @@ weight: 10
 url: /pl/java/manage-fonts/
 keywords:
 - zarządzanie czcionkami
-- właściwości czcionki
+- właściwości czcionek
 - akapit
 - formatowanie tekstu
 - PowerPoint
@@ -14,18 +14,18 @@ keywords:
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Kontroluj czcionki w Javie przy użyciu Aspose.Slides: osadzaj, zamieniaj i ładować niestandardowe czcionki, aby prezentacje PPT, PPTX i ODP były czytelne, zgodne z marką i spójne."
+description: "Kontroluj czcionki w Java przy użyciu Aspose.Slides: osadzaj, zamieniaj i wczytuj niestandardowe czcionki, aby prezentacje PPT, PPTX i ODP były czytelne, zgodne z marką i spójne."
 ---
 ## **Przegląd**
 
-Aspose.Slides umożliwia zarządzanie właściwościami czcionki w tekście prezentacji bezpośrednio z poziomu kodu. Możesz uzyskać dostęp do tekstu w slajdach poprzez kształty, ramki tekstowe, akapity i fragmenty, a następnie zastosować formatowanie do wybranego tekstu.
+Aspose.Slides umożliwia zarządzanie właściwościami czcionki w tekście prezentacji bezpośrednio z kodu. Możesz uzyskać dostęp do tekstu na slajdach poprzez kształty, ramki tekstowe, akapity i fragmenty, a następnie zastosować formatowanie do wybranego tekstu.
 
-Ten artykuł wyjaśnia, jak skonfigurować właściwości związane z czcionką dla istniejącego tekstu w prezentacji, w tym rodzinę czcionki, style pogrubienia i kursywy, wyrównanie akapitu oraz kolor czcionki. Pokazuje również, jak utworzyć pole tekstowe, dodać do niego tekst i ustawić właściwości czcionki, takie jak rodzina czcionki, pogrubienie, kursywa, podkreślenie, rozmiar czcionki i kolor, przed zapisaniem wyniku jako plik PPTX.
+Ten artykuł wyjaśnia, jak skonfigurować właściwości czcionki dla istniejącego tekstu w prezentacji, w tym rodzinę czcionki, style pogrubienia i kursywy, wyrównanie akapitu oraz kolor czcionki. Pokazuje również, jak utworzyć pole tekstowe, dodać do niego tekst i ustawić właściwości czcionki, takie jak rodzina czcionki, pogrubienie, kursywa, podkreślenie, rozmiar i kolor, przed zapisaniem wyniku jako plik PPTX.
 
 ## **Zarządzanie właściwościami czcionki**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Prezentacje zazwyczaj zawierają zarówno tekst, jak i obrazy. Tekst może być formatowany na różne sposoby, aby podkreślić określone sekcje i słowa lub aby spełniać wymogi stylu korporacyjnego. Formatowanie tekstu pomaga użytkownikom zmieniać wygląd i odczucie treści prezentacji. Ten artykuł pokazuje, jak używać Aspose.Slides for Java do konfigurowania właściwości czcionki akapitów tekstu na slajdach.
+Prezentacje zazwyczaj zawierają zarówno tekst, jak i obrazy. Tekst może być formatowany na różne sposoby, aby podkreślić określone sekcje i słowa lub aby dostosować się do stylów korporacyjnych. Formatowanie tekstu pomaga użytkownikom zmienić wygląd i odczucie treści prezentacji. Ten artykuł pokazuje, jak używać Aspose.Slides for Java do konfigurowania właściwości czcionki akapitów tekstu na slajdach.
 
 {{% /alert %}} 
 
@@ -33,17 +33,17 @@ Aby zarządzać właściwościami czcionki akapitu przy użyciu Aspose.Slides fo
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation).
 1. Uzyskaj odniesienie do slajdu, używając jego indeksu.
-1. Uzyskaj dostęp do kształtów [Placeholder](https://reference.aspose.com/slides/pl/java/com.aspose.slides/placeholder/) w slajdzie i rzutuj je na [AutoShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/autoshape/).
+1. Uzyskaj dostęp do kształtów [Placeholder](https://reference.aspose.com/slides/pl/java/com.aspose.slides/placeholder/) na slajdzie i rzutuj je na [AutoShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/autoshape/).
 1. Pobierz [Paragraph](https://reference.aspose.com/slides/pl/java/com.aspose.slides/paragraph/) z [TextFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/textframe/) udostępnionego przez [AutoShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/autoshape/).
-1. Wyrównaj akapit do obu stron.
-1. Uzyskaj dostęp do [Portion](https://reference.aspose.com/slides/pl/java/com.aspose.slides/portion/) tekstu w [Paragraph](https://reference.aspose.com/slides/pl/java/com.aspose.slides/paragraph/).
-1. Zdefiniuj czcionkę przy użyciu [FontData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/fontdata/) i ustaw **Font** tekstu w [Portion](https://reference.aspose.com/slides/pl/java/com.aspose.slides/portion/) odpowiednio.
-   1. Ustaw czcionkę jako pogrubioną.
-   1. Ustaw czcionkę jako kursywę.
+1. Wyrównaj akapit.
+1. Uzyskaj dostęp do fragmentu tekstowego [Portion](https://reference.aspose.com/slides/pl/java/com.aspose.slides/portion/) akapitu [Paragraph](https://reference.aspose.com/slides/pl/java/com.aspose.slides/paragraph/).
+1. Zdefiniuj czcionkę przy użyciu [FontData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/fontdata/) i ustaw **Font** [Portion](https://reference.aspose.com/slides/pl/java/com.aspose.slides/portion/) tekstu odpowiednio.
+   1. Ustaw czcionkę na pogrubioną.
+   1. Ustaw czcionkę na kursywę.
 1. Ustaw kolor czcionki przy użyciu [FillFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/fillformat/) udostępnionego przez obiekt [Portion](https://reference.aspose.com/slides/pl/java/com.aspose.slides/portion/).
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+1. Zapisz zmodyfikowaną prezentację do pliku PPTX.
 
-Implementacja powyższych kroków jest podana poniżej. Pobiera ona nieozdobioną prezentację i formatuje czcionki na jednym ze slajdów. Zrzuty ekranu poniżej pokazują plik wejściowy oraz to, jak fragmenty kodu go zmieniają. Kod zmienia czcionkę, kolor i styl czcionki.
+Implementacja powyższych kroków jest przedstawiona poniżej. Pobiera ona niesformatowaną prezentację i formatuje czcionki na jednym ze slajdów. Poniższe zrzuty ekranu pokazują plik wejściowy oraz efekt zmian wprowadzonych przez fragmenty kodu. Kod zmienia czcionkę, kolor i styl czcionki.
 
 |![todo:image_alt_text](http://i.imgur.com/rqpPgJn.jpg)|
 | :- |
@@ -54,24 +54,27 @@ Implementacja powyższych kroków jest podana poniżej. Pobiera ona nieozdobion�
 |**Rysunek: Ten sam tekst z zaktualizowanym formatowaniem**|
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Utwórz obiekt Presentation, który reprezentuje plik PPTX
 Presentation pres = new Presentation("FontProperties.pptx");
 try {
-	// Uzyskiwanie dostępu do slajdu za pomocą jego pozycji
+	// Uzyskiwanie dostępu do slajdu przy użyciu jego pozycji
 	ISlide slide = pres.getSlides().get_Item(0);
 
-	// Uzyskiwanie dostępu do pierwszego i drugiego placeholdera w slajdzie oraz rzutowanie go na AutoShape
+	// Dostęp do pierwszego i drugiego placeholdera na slajdzie oraz rzutowanie go na AutoShape
 	ITextFrame tf1 = ((IAutoShape) slide.getShapes().get_Item(0)).getTextFrame();
 	ITextFrame tf2 = ((IAutoShape) slide.getShapes().get_Item(1)).getTextFrame();
 
-	// Uzyskiwanie dostępu do pierwszego akapitu
+	// Dostęp do pierwszego akapitu
 	IParagraph para1 = tf1.getParagraphs().get_Item(0);
 	IParagraph para2 = tf2.getParagraphs().get_Item(0);
 
-	// Wyjustuj akapit
+	// Wyrównaj akapit do obu marginesów
 	para2.getParagraphFormat().setAlignment(TextAlignment.JustifyLow);
 
-	// Uzyskiwanie dostępu do pierwszej części
+	// Dostęp do pierwszego fragmentu
 	IPortion port1 = para1.getPortions().get_Item(0);
 	IPortion port2 = para2.getPortions().get_Item(0);
 
@@ -79,15 +82,15 @@ try {
 	FontData fd1 = new FontData("Elephant");
 	FontData fd2 = new FontData("Castellar");
 
-	// Przypisz nowe czcionki do części
+	// Przypisz nowe czcionki do fragmentu
 	port1.getPortionFormat().setLatinFont(fd1);
 	port2.getPortionFormat().setLatinFont(fd2);
 
-	// Ustaw czcionkę jako pogrubioną
+	// Ustaw czcionkę na pogrubioną
 	port1.getPortionFormat().setFontBold(NullableBool.True);
 	port2.getPortionFormat().setFontBold(NullableBool.True);
 
-	// Ustaw czcionkę jako kursywę
+	// Ustaw czcionkę na kursywę
 	port1.getPortionFormat().setFontItalic(NullableBool.True);
 	port2.getPortionFormat().setFontItalic(NullableBool.True);
 
@@ -104,10 +107,10 @@ try {
 }
 ```
 
-## **Ustaw właściwości czcionki tekstu**
-{{% alert color="primary" %}} 
+## **Ustawienie właściwości czcionki tekstu**
+{{% alert color="info" %}} 
 
-Jak wspomniano w **Zarządzanie właściwościami czcionki**, [Portion](https://reference.aspose.com/slides/pl/java/com.aspose.slides/portion/) służy do przechowywania tekstu o podobnym stylu formatowania w akapicie. Ten artykuł pokazuje, jak używać Aspose.Slides for Java do utworzenia pola tekstowego z pewnym tekstem, a następnie zdefiniować konkretną czcionkę oraz różne inne właściwości z kategorii rodziny czcionki.
+Jak wspomniano w **Zarządzanie właściwościami czcionki**, [Portion](https://reference.aspose.com/slides/pl/java/com.aspose.slides/portion/) służy do przechowywania tekstu o podobnym stylu formatowania w akapicie. Ten artykuł pokazuje, jak używać Aspose.Slides for Java do utworzenia pola tekstowego z pewnym tekstem oraz zdefiniowania określonej czcionki i różnych innych właściwości rodziny czcionki.
 
 {{% /alert %}} 
 
@@ -115,22 +118,25 @@ Aby utworzyć pole tekstowe i ustawić właściwości czcionki tekstu w nim:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation).
 1. Uzyskaj odniesienie do slajdu, używając jego indeksu.
-1. Dodaj do slajdu [AutoShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/autoshape/) typu **Rectangle**.
+1. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/autoshape/) typu **Rectangle** do slajdu.
 1. Usuń styl wypełnienia powiązany z [AutoShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/autoshape/).
-1. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/textframe/) [AutoShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/autoshape/).
-1. Dodaj jakiś tekst do [TextFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/textframe/).
+1. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/textframe/) kształtu [AutoShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/autoshape/).
+1. Dodaj trochę tekstu do [TextFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/textframe/).
 1. Uzyskaj dostęp do obiektu [Portion](https://reference.aspose.com/slides/pl/java/com.aspose.slides/portion/) powiązanego z [TextFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/textframe/).
 1. Zdefiniuj czcionkę, która ma być użyta dla [Portion](https://reference.aspose.com/slides/pl/java/com.aspose.slides/portion/).
-1. Ustaw inne właściwości czcionki, takie jak pogrubienie, kursywa, podkreślenie, kolor i wysokość, korzystając z odpowiednich właściwości udostępnionych przez obiekt [Portion](https://reference.aspose.com/slides/pl/java/com.aspose.slides/portion/).
+1. Ustaw inne właściwości czcionki, takie jak pogrubienie, kursywa, podkreślenie, kolor i rozmiar, używając odpowiednich właściwości udostępnionych przez obiekt [Portion](https://reference.aspose.com/slides/pl/java/com.aspose.slides/portion/).
 1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
-Implementacja powyższych kroków jest podana poniżej.
+Implementacja powyższych kroków jest przedstawiona poniżej.
 
 |![todo:image_alt_text](http://i.imgur.com/n5r12dS.jpg)|
 | :- |
-|**Rysunek: Tekst z niektórymi właściwościami czcionki ustawionymi przez Aspose.Slides for Java**|
+|**Rysunek: Tekst z niektórymi ustawionymi właściwościami czcionki przez Aspose.Slides for Java**|
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Utwórz obiekt Presentation, który reprezentuje plik PPTX
 Presentation pres = new Presentation();
 try {

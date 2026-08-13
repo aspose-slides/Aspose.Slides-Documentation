@@ -1,5 +1,5 @@
 ---
-title: Java ile Sunularda VBA Projelerini Yönetme
+title: Java Kullanarak Sunumlarda VBA Projelerini Yönetme
 linktitle: VBA ile Sunum
 type: docs
 weight: 250
@@ -7,7 +7,7 @@ url: /tr/java/presentation-via-vba/
 keywords:
 - makro
 - VBA
-- VBA makro
+- VBA makrosu
 - makro ekle
 - makro kaldır
 - makro çıkar
@@ -19,17 +19,17 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java ile VBA kullanarak PowerPoint ve OpenDocument sunumları oluşturmayı ve manipüle etmeyi keşfedin, iş akışınızı kolaylaştırın."
+description: "Aspose.Slides for Java ile VBA kullanarak PowerPoint ve OpenDocument sunumlarını oluşturma ve düzenleme yollarını keşfedin ve iş akışınızı hızlandırın."
 ---
 ## **Giriş**
 
-Aspose.Slides, makrolar ve VBA kodlarıyla çalışmak için sınıflar ve arabirimler sağlar.
+Aspose.Slides, makrolar ve VBA kodu ile çalışmak için sınıflar ve arabirimler sağlar.
 
-{{% alert title="Note" color="warning" %}} 
+{{% alert title="Not" color="warning" %}} 
 
-Bir sunumu makrolar içeriyorken farklı bir dosya biçimine (PDF, HTML, vb.) dönüştürdüğünüzde, Aspose.Slides tüm makroları yok sayar (makrolar sonuç dosyasına aktarılmaz).
+Makrolar içeren bir sunumu farklı bir dosya biçimine (PDF, HTML, vb.) dönüştürdüğünüzde, Aspose.Slides tüm makroları yok sayar (makrolar sonuç dosyasına taşınmaz).
 
-Bir sunuma makro eklediğinizde veya makro içeren bir sunuyu yeniden kaydettiğinizde, Aspose.Slides sadece makroların baytlarını yazar.
+Sunuma makro eklediğinizde veya makrolar içeren bir sunumu yeniden kaydettiğinizde, Aspose.Slides yalnızca makroların baytlarını yazar.
 
 Aspose.Slides **asla** bir sunumdaki makroları çalıştırmaz.
 
@@ -37,10 +37,10 @@ Aspose.Slides **asla** bir sunumdaki makroları çalıştırmaz.
 
 ## **VBA Makroları Ekleme**
 
-Aspose.Slides, VBA projeleri (ve proje referansları) oluşturmanıza ve mevcut modülleri düzenlemenize olanak tanıyan [VbaProject](https://reference.aspose.com/slides/tr/java/com.aspose.slides/vbaproject/) sınıfını sağlar. Sunuya gömülü VBA’yı yönetmek için [IVbaProject](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ivbaproject/) arabirimini kullanabilirsiniz.
+Aspose.Slides, VBA projeleri (ve proje referansları) oluşturmanıza ve mevcut modülleri düzenlemenize olanak tanıyan [VbaProject](https://reference.aspose.com/slides/tr/java/com.aspose.slides/vbaproject/) sınıfını sağlar. Sunuma gömülü VBA’yı yönetmek için [IVbaProject](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ivbaproject/) arabirimini kullanabilirsiniz.
 
 1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation) sınıfının bir örneğini oluşturun.
-1. Yeni bir VBA projesi eklemek için [VbaProject](https://reference.aspose.com/slides/tr/java/com.aspose.slides/vbaproject/#VbaProject--) yapıcı metodunu kullanın.
+1. Yeni bir VBA projesi eklemek için [VbaProject](https://reference.aspose.com/slides/tr/java/com.aspose.slides/vbaproject/#VbaProject--) yapıcısını kullanın.
 1. VbaProject’e bir modül ekleyin.
 1. Modül kaynak kodunu ayarlayın.
 1. <stdole> referanslarını ekleyin.
@@ -48,9 +48,11 @@ Aspose.Slides, VBA projeleri (ve proje referansları) oluşturmanıza ve mevcut 
 1. Referansları VBA projesiyle ilişkilendirin.
 1. Sunumu kaydedin.
 
-Bu Java kodu, baştan bir VBA makrosu eklemenizi gösterir:
+Bu Java kodu, bir sunuma sıfırdan VBA makrosu eklemenin yolunu gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 // Sunum sınıfının bir örneğini oluşturur
 Presentation pres = new Presentation();
 try {
@@ -63,14 +65,14 @@ try {
     // Modül kaynak kodunu ayarlar
     module.setSourceCode("Sub Test(oShape As Shape)MsgBox Test End Sub");
     
-    // <stdole> referansı oluşturur
+    // <stdole> için bir referans oluşturur
     VbaReferenceOleTypeLib stdoleReference = new VbaReferenceOleTypeLib("stdole", "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation");
     
-    // Office referansı oluşturur
+    // Office için bir referans oluşturur
     VbaReferenceOleTypeLib officeReference = new VbaReferenceOleTypeLib("Office",
             "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
     
-    // VBA projesine referansları ekler
+    // VBA projesine referanslar ekler
     pres.getVbaProject().getReferences().add(stdoleReference);
     pres.getVbaProject().getReferences().add(officeReference);
    
@@ -81,23 +83,25 @@ try {
 }
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-**Aspose** [Macro Remover](https://products.aspose.app/slides/tr/remove-macros) adlı, PowerPoint, Excel ve Word belgelerindeki makroları kaldırmak için kullanılan ücretsiz bir web uygulamasına göz atabilirsiniz. 
+Ücretsiz bir web uygulaması olan **Aspose** [Macro Remover](https://products.aspose.app/slides/tr/remove-macros) ile PowerPoint, Excel ve Word belgelerindeki makroları kaldırabilirsiniz. 
 
 {{% /alert %}} 
 
-## **VBA Makroları Kaldırma**
+## **VBA Makrolarını Kaldırma**
 
 [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation) sınıfının altındaki [VbaProject](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#getVbaProject--) özelliğini kullanarak bir VBA makrosunu kaldırabilirsiniz.
 
-1. Makro içeren sunumu yükleyerek bir [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation) örneği oluşturun.
-1. Makro modülüne erişin ve onu kaldırın.
-1. Değiştirilen sunumu kaydedin.
+1. Makroyu içeren sunumu yüklemek için [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation) sınıfının bir örneğini oluşturun.
+1. Makro modülüne erişin ve kaldırın.
+1. Değiştirilmiş sunumu kaydedin.
 
-Bu Java kodu, bir VBA makrosunu nasıl kaldıracağınızı gösterir:
+Bu Java kodu, bir VBA makrosunu kaldırmanın yolunu gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 // Makroyu içeren sunumu yükler
 Presentation pres = new Presentation("VBA.pptm");
 try {
@@ -111,15 +115,17 @@ try {
 }
 ```
 
-## **VBA Makroları Çıkarma**
+## **VBA Makrolarını Çıkarma**
 
-1. Makro içeren sunumu yükleyerek bir [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation) örneği oluşturun.
+1. Makroyu içeren sunumu yüklemek için [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation) sınıfının bir örneğini oluşturun.
 2. Sunumun bir VBA Projesi içerip içermediğini kontrol edin.
-3. VBA Projesi içinde bulunan tüm modülleri döngüye alarak makroları görüntüleyin.
+3. VBA Projesinde bulunan tüm modülleri dolaşarak makroları görüntüleyin.
 
-Bu Java kodu, makro içeren bir sunumdan VBA makrolarını nasıl çıkaracağınızı gösterir:
+Bu Java kodu, makrolar içeren bir sunumdan VBA makrolarını çıkarmanın yolunu gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 // Makroyu içeren sunumu yükler
 Presentation pres = new Presentation("VBA.pptm");
 try {
@@ -140,11 +146,13 @@ try {
 
 [IVbaProject.isPasswordProtected](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ivbaproject/#isPasswordProtected--) metodunu kullanarak bir projenin özelliklerinin şifre korumalı olup olmadığını belirleyebilirsiniz.
 
-1. Makro içeren bir sunumu yükleyerek bir [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) örneği oluşturun.
+1. Makro içeren bir sunumu yüklemek için [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
 2. Sunumun bir [VBA projesi](https://reference.aspose.com/slides/tr/java/com.aspose.slides/vbaproject/) içerip içermediğini kontrol edin.
-3. VBA projesinin özelliklerini görüntülemek için şifre korumalı olup olmadığını kontrol edin.
+3. VBA projesinin şifre korumalı olup olmadığını kontrol ederek özelliklerini inceleyin.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("VBA.pptm");
 try {
     if (presentation.getVbaProject() != null) { // Sunumun bir VBA projesi içerip içermediğini kontrol eder.
@@ -160,14 +168,14 @@ try {
 
 ## **SSS**
 
-**Sunumu PPTX olarak kaydedersem makrolar ne olur?**
+### Sunumu PPTX olarak kaydedersem makrolar ne olur?
 
-Makrolar kaldırılır çünkü PPTX VBA’yı desteklemez. Makroları korumak için PPTM, PPSM veya POTM formatlarını seçin.
+Makrolar kaldırılır çünkü PPTX VBA’yı desteklemez. Makroları tutmak için PPTM, PPSM veya POTM formatlarını seçin.
 
-**Aspose.Slides bir sunumdaki makroları, örneğin veri yenilemek için çalıştırabilir mi?**
+### Aspose.Slides, örneğin verileri yenilemek gibi bir amaçla sunum içindeki makroları çalıştırabilir mi?
 
-Hayır. Kütüphane asla VBA kodunu çalıştırmaz; yürütme yalnızca PowerPoint içinde uygun güvenlik ayarlarıyla mümkündür.
+Hayır. Kütüphane VBA kodunu asla çalıştırmaz; yürütme yalnızca PowerPoint içinde, uygun güvenlik ayarlarıyla mümkündür.
 
-**VBA koduna bağlı ActiveX denetimleriyle çalışmak destekleniyor mu?**
+### VBA koduna bağlı ActiveX denetimleriyle çalışma destekleniyor mu?
 
-Evet, mevcut [ActiveX controls](/slides/tr/java/activex/) üzerinde erişim sağlayabilir, özelliklerini değiştirebilir ve kaldırabilirsiniz. Bu, makroların ActiveX ile etkileşime girdiği durumlar için faydalıdır.
+Evet, mevcut [ActiveX controls](/slides/tr/java/activex/) öğelerine erişebilir, özelliklerini değiştirebilir ve kaldırabilirsiniz. Bu, makroların ActiveX ile etkileşimde bulunduğu durumlarda faydalıdır.

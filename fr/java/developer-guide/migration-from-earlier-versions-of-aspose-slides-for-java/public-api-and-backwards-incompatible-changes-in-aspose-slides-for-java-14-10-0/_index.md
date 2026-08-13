@@ -1,24 +1,36 @@
 ---
-title: API public et modifications non compatibles avec les versions antérieures dans Aspose.Slides pour Java 14.10.0
+title: API publique et modifications incompatibles ascendantes dans Aspose.Slides pour Java 14.10.0
+linktitle: Aspose.Slides pour Java 14.10.0
 type: docs
 weight: 90
 url: /fr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/
+keywords:
+- migration
+- code hérité
+- code moderne
+- approche héritée
+- approche moderne
+- PowerPoint
+- OpenDocument
+- présentation
+- Java
+- Aspose.Slides
+description: "Examinez les mises à jour de l'API publique et les changements incompatibles dans Aspose.Slides pour Java afin de migrer en douceur vos solutions de présentations PowerPoint PPT, PPTX et ODP."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-Cette page répertorie toutes les classes, méthodes, propriétés, etc. [ajoutées](/slides/fr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/), les nouvelles restrictions et autres [modifications](/slides/fr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) introduites avec l'API Aspose.Slides pour Java 14.10.0.
+Cette page répertorie toutes les classes, méthodes, propriétés [ajoutées](/slides/fr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/), ainsi que toutes les nouvelles restrictions et autres [changements](/slides/fr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) introduits avec l’API Aspose.Slides pour Java 14.10.0.
 
 {{% /alert %}} 
 ## **Modifications de l'API publique**
 ### **La méthode com.aspose.slides.FieldType.getFooter() a été ajoutée**
-La méthode getFooter() retourne le type de champ de pied de page. Elle a été ajoutée pour mettre en œuvre la possibilité de créer des champs de ce type et pour une sérialisation de présentation valide.
+La méthode getFooter() renvoie le type de champ de pied de page. Elle a été ajoutée pour permettre la création de champs de ce type et pour une sérialisation valide de la présentation.
 ### **L'élément com.aspose.slides.ShapeElementFillSource.Own a été supprimé**
-L'élément ShapeElementFillSource.Own a été supprimé car il était dupliqué. Utilisez ShapeElementFillSource.Shape au lieu de ShapeElementFillSource.Own.
-### **Des méthodes pour supprimer des points de données de graphiques et des catégories ont été ajoutées**
-**Les méthodes suivantes, qui permettent de supprimer un point de données de graphique d'une collection de points de données de graphique, ont été ajoutées :**
+L'élément ShapeElementFillSource.Own a été supprimé car dupliqué. Utilisez ShapeElementFillSource.Shape à la place de ShapeElementFillSource.Own.
+### **Des méthodes de suppression des points de données et des catégories de graphiques ont été ajoutées**
+**Les méthodes suivantes, qui permettent de supprimer un point de données d'une collection de points de données, ont été ajoutées :**
 
-IChartDataPointCollection.remove(IChartDataPoint)
+IChartDataPointCollection.remove(IChartDataPoint)  
 IChartDataPoint.remove()
 
 **La méthode suivante, qui permet de supprimer une catégorie de graphique de la collection contenant, a été ajoutée :**
@@ -26,6 +38,8 @@ IChartDataPoint.remove()
 IChartCategory.remove()
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -46,22 +60,21 @@ for (IChartSeries ser : chart.getChartData().getSeries())
 }
 
 pres.save("presentation.pptx", SaveFormat.Pptx);
-
 ```
 ### **Les méthodes obsolètes Aspose.Slides.ParagraphFormat ont été supprimées**
 Les méthodes getBulletChar(), getBulletColor(), getBulletColorFormat(), getBulletFont(), getBulletHeight(), getBulletType(), isBulletHardColor(), isBulletHardFont(), getNumberedBulletStartWith(), getNumberedBulletStyle() et les méthodes set correspondantes ont été supprimées. Elles étaient marquées comme obsolètes depuis longtemps.
-### **Des constructeurs inutiles et obsolètes ont été supprimés**
+### **Les constructeurs inutiles et obsolètes ont été supprimés**
 Les constructeurs suivants ont été supprimés :
 
-com.aspose.slides.AlphaBiLevel(float)
-com.aspose.slides.AlphaModulateFixed(float)
-com.aspose.slides.AlphaReplace(float)
-com.aspose.slides.BiLevel(float)
-com.aspose.slides.Blur(double, boolean)
-com.aspose.slides.HSL(float, float, float)
-com.aspose.slides.ImageTransformOperation(com.aspose.slides.ImageTransformOperationCollection)
-com.aspose.slides.Luminance(float, float)
-com.aspose.slides.Tint(float, float)
-com.aspose.slides.PortionFormat(com.aspose.slides.ParagraphFormat)
-com.aspose.slides.PortionFormat(com.aspose.slides.Portion)
+com.aspose.slides.AlphaBiLevel(float)  
+com.aspose.slides.AlphaModulateFixed(float)  
+com.aspose.slides.AlphaReplace(float)  
+com.aspose.slides.BiLevel(float)  
+com.aspose.slides.Blur(double, boolean)  
+com.aspose.slides.HSL(float, float, float)  
+com.aspose.slides.ImageTransformOperation(com.aspose.slides.ImageTransformOperationCollection)  
+com.aspose.slides.Luminance(float, float)  
+com.aspose.slides.Tint(float, float)  
+com.aspose.slides.PortionFormat(com.aspose.slides.ParagraphFormat)  
+com.aspose.slides.PortionFormat(com.aspose.slides.Portion)  
 com.aspose.slides.PortionFormat(com.aspose.slides.PortionFormat)

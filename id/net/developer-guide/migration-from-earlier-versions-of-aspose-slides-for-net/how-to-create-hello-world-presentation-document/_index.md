@@ -17,22 +17,27 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Buat presentasi PowerPoint PPT, PPTX, dan ODP Hello World di .NET dengan Aspose.Slides menggunakan API legacy dan modern dalam satu panduan sederhana."
+description: "Buat presentasi PowerPoint PPT, PPTX, dan ODP Hello World di .NET dengan Aspose.Slides menggunakan API warisan dan modern dalam satu panduan sederhana."
 ---
-{{% alert color="primary" %}} 
-Sebuah [Aspose.Slides for .NET API](/slides/id/net/) baru telah dirilis dan kini produk tunggal ini mendukung kemampuan untuk menghasilkan dokumen PowerPoint dari awal serta mengedit dokumen yang sudah ada.
+{{% alert color="info" %}} 
+
+Sebuah [Aspose.Slides for .NET API](/slides/id/net/) baru telah dirilis dan kini produk tunggal ini mendukung kemampuan untuk membuat dokumen PowerPoint dari awal serta mengedit dokumen yang sudah ada.
+
 {{% /alert %}} 
-## **Dukungan Kode Legacy**
-Untuk menggunakan kode warisan yang dikembangkan dengan Aspose.Slides untuk .NET versi sebelum 13.x, Anda perlu melakukan beberapa perubahan kecil pada kode Anda dan kode tersebut akan berfungsi seperti sebelumnya. Semua kelas yang ada di Aspose.Slides untuk .NET lama di namespace Aspose.Slide dan Aspose.Slides.Pptx kini digabungkan menjadi satu namespace Aspose.Slides. Silakan lihat potongan kode sederhana berikut untuk membuat dokumen Presentasi Hello World menggunakan API Aspose.Slides legacy dan ikuti langkah-langkah yang menjelaskan cara bermigrasi ke API yang baru digabungkan.
-## **Pendekatan Legacy Aspose.Slides untuk .NET**
+## **Dukungan untuk Kode Warisan**
+Untuk menggunakan kode warisan yang dikembangkan dengan Aspose.Slides for .NET versi sebelum 13.x, Anda perlu melakukan beberapa perubahan kecil pada kode Anda dan kode tersebut akan berfungsi seperti sebelumnya. Semua kelas yang ada di Aspose.Slides for .NET lama di bawah namespace Aspose.Slide dan Aspose.Slides.Pptx kini telah digabungkan menjadi satu namespace Aspose.Slides. Silakan lihat potongan kode sederhana berikut untuk membuat dokumen Presentasi Hello World menggunakan API Aspose.Slides legacy dan ikuti langkah-langkah yang menjelaskan cara bermigrasi ke API yang baru digabungkan.
+## **Pendekatan Aspose.Slides for .NET Legacy**
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+
 //Membuat objek Presentation yang mewakili file PPT
 Presentation pres = new Presentation();
 
-//Buat objek License
+//Membuat objek License
 License license = new License();
 
-//Set lisensi Aspose.Slides untuk .NET untuk menghindari batasan evaluasi
+//Mengatur lisensi Aspose.Slides untuk .NET agar menghindari batasan evaluasi
 license.SetLicense("Aspose.Slides.lic");
 
 //Menambahkan slide kosong ke presentasi dan mendapatkan referensi
@@ -56,21 +61,27 @@ pres.Slides.RemoveAt(0);
 pres.Write("C:\\hello.ppt");
 ```
 
-## **Pendekatan Baru Aspose.Slides untuk .NET 13.x**
+
+
+## **Pendekatan Aspose.Slides for .NET 13.x Baru**
 ```c#
-// Membuat instance Presentation
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Menginstansiasi Presentation
 Presentation pres = new Presentation();
 
-// Ambil slide pertama
+// Dapatkan slide pertama
 ISlide sld = (ISlide)pres.Slides[0];
 
-// Tambahkan AutoShape tipe Persegi panjang
+// Tambahkan AutoShape tipe Persegi Panjang
 IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
 
-// Tambahkan ITextFrame ke Persegi panjang
+// Tambahkan ITextFrame ke Persegi Panjang
 ashp.AddTextFrame("Hello World");
 
-// Ubah warna teks menjadi Hitam (yang defaultnya Putih)
+// Ubah warna teks menjadi Hitam (yang secara default adalah Putih)
 ashp.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FillFormat.FillType = FillType.Solid;
 ashp.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
 
@@ -81,5 +92,5 @@ ashp.ShapeStyle.LineColor.Color = Color.White;
 ashp.FillFormat.FillType = FillType.NoFill;
 
 // Simpan presentasi ke disk
-pres.Save("D:\\data\\HelloWorld.pptx", SaveFormat.Pptx);
+pres.Save("HelloWorld.pptx", SaveFormat.Pptx);
 ```

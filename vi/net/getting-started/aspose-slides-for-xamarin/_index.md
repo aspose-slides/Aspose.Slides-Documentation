@@ -1,5 +1,5 @@
 ---
-title: "Aspose.Slides cho Xamarin"
+title: Aspose.Slides cho Xamarin
 type: docs
 weight: 150
 url: /vi/net/aspose-slides-for-xamarin/
@@ -9,37 +9,39 @@ keywords:
 - Android
 - PowerPoint
 - OpenDocument
-- bản trình bày
+- bản trình chiếu
 - .NET
 - C#
 - Aspose.Slides
-description: "Xây dựng ứng dụng di động Xamarin bằng C# để xem, chỉnh sửa và chuyển đổi bản trình bày với Aspose.Slides, hỗ trợ các tính năng phong phú cho PPT, PPTX và ODP trên Android."
+description: "Xây dựng ứng dụng di động Xamarin bằng C# để xem, chỉnh sửa và chuyển đổi bản trình chiếu với Aspose.Slides, hỗ trợ các tính năng phong phú cho PPT, PPTX và ODP trên Android."
 ---
 ## **Giới thiệu**
 
-Xamarin là một khung làm việc được sử dụng cho phát triển di động trong .NET C#. Xamarin có các công cụ và thư viện mở rộng khả năng của nền tảng .NET. Nó cho phép các nhà phát triển xây dựng ứng dụng cho hệ điều hành **Android**.
+Xamarin là một khung được sử dụng để phát triển di động trong .NET C#. Xamarin có các công cụ và thư viện mở rộng khả năng của nền tảng .NET. Nó cho phép các nhà phát triển xây dựng ứng dụng cho hệ điều hành **Android**.
 
-{{% alert color="primary" %}} 
-Đối với việc phát triển trên Xamarin, lập trình viên có thể sử dụng môi trường phát triển thông thường của họ (C#, Visual Studio và các thư viện bên thứ ba).
+{{% alert color="info" %}} 
+
+Để phát triển trên Xamarin, lập trình viên có thể sử dụng môi trường phát triển thường ngày của họ (C#, Visual Studio và các thư viện bên thứ ba).
+
 {{% /alert %}}
 
-API Aspose.Slides hoạt động trên nền tảng Xamarin. Để đạt được điều này, gói Aspose.Slides .NET thêm một DLL riêng cho Xamarin. Aspose.Slides cho Xamarin hỗ trợ hầu hết các tính năng có trong phiên bản .NET:
+Aspose.Slides API hoạt động trên nền tảng Xamarin. Để đạt được điều này, gói Aspose.Slides .NET thêm một DLL riêng cho Xamarin. Aspose.Slides for Xamarin hỗ trợ hầu hết các tính năng có trong phiên bản .NET:
 
-- chuyển đổi và xem bản trình bày.
-- chỉnh sửa nội dung trong bản trình bày: văn bản, hình dạng, biểu đồ, SmartArt, âm thanh/video, phông chữ, v.v.
-- xử lý hoạt ảnh, hiệu ứng 2D, WordArt, v.v.
-- xử lý siêu dữ liệu và thuộc tính tài liệu.
-- in, sao chép, hợp nhất, so sánh, chia tách, v.v.
+- chuyển đổi và xem các bản trình chiếu.  
+- chỉnh sửa nội dung trong bản trình chiếu: văn bản, hình dạng, biểu đồ, SmartArt, âm thanh/video, phông chữ, v.v.  
+- xử lý/ quản lý hoạt ảnh, hiệu ứng 2D, WordArt, v.v.  
+- xử lý/ quản lý siêu dữ liệu và thuộc tính tài liệu.  
+- in ấn, sao chép, hợp nhất, so sánh, chia tách, v.v.
 
-Chúng tôi đã cung cấp một bảng so sánh đầy đủ các tính năng ở một phần khác gần cuối trang này.
+Chúng tôi đã cung cấp một so sánh toàn bộ tính năng trong một phần khác gần cuối trang này.
 
-Trong API Aspose.Slides cho Xamarin, các lớp, không gian tên, logic và hành vi càng giống càng tốt với phiên bản .NET. Bạn có thể chuyển đổi các ứng dụng Aspose.Slides .NET của mình sang Xamarin với chi phí tối thiểu.
-
+Trong Aspose.Slides for Xamarin API, các lớp, không gian tên, logic và hành vi được giữ càng giống càng tốt so với phiên bản .NET. Bạn có thể di chuyển các ứng dụng Aspose.Slides .NET của mình sang Xamarin với chi phí tối thiểu.
 
 ## **Ví dụ nhanh**
-Bạn có thể sử dụng Aspose.Slides cho Xamarin để xây dựng và sử dụng ứng dụng C# của mình thông qua Slides cho Android.
 
-Chúng tôi cung cấp một ví dụ ứng dụng Android qua Xamarin sử dụng Aspose.Slides để hiển thị các slide bản trình bày và thêm một hình dạng mới lên slide khi chạm. Bạn có thể tìm mã nguồn đầy đủ của các ví dụ trên [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
+Bạn có thể sử dụng Aspose.Slides for Xamarin để xây dựng và tận dụng ứng dụng C# của mình thông qua Slides for Android.
+
+Chúng tôi đang cung cấp một ví dụ về ứng dụng Android qua Xamarin sử dụng Aspose.Slides để hiển thị các slide trình chiếu và thêm một hình mới trên slide khi chạm. Bạn có thể tìm mã nguồn đầy đủ của các ví dụ trên [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
 
 Hãy bắt đầu bằng việc tạo một ứng dụng Xamarin Android:
 
@@ -93,10 +95,14 @@ Hãy bắt đầu bằng việc tạo một ứng dụng Xamarin Android:
 </LinearLayout>
 ```
 
-Ở đây, chúng ta tham chiếu thư viện "Aspose.Slides.Droid.dll" có chứa một bản trình bày mẫu ("HelloWorld.pptx") vào thư mục Assets của ứng dụng Xamarin và thêm việc khởi tạo của nó vào MainActivity:
+Ở đây, chúng ta tham chiếu thư viện "Aspose.Slides.Droid.dll" bao gồm một bản trình chiếu mẫu ("HelloWorld.pptx") vào Assets của ứng dụng Xamarin và thêm khởi tạo của nó vào MainActivity:
 
 **C# - MainActivity.cs - Khởi tạo**
+
 ``` csharp
+using System.Diagnostics;
+using Aspose.Slides.Theme;
+
 [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
 public class MainActivity : AppCompatActivity
 {
@@ -133,7 +139,11 @@ public class MainActivity : AppCompatActivity
 Hãy thêm hàm để hiển thị các slide Prev và Next khi nhấn các nút:
 
 **C# - MainActivity.cs - Hiển thị slide khi nhấn nút Prev và Next**
+
 ``` csharp
+using System.Diagnostics;
+using Aspose.Slides.Theme;
+
 [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
 public class MainActivity : AppCompatActivity
 {
@@ -263,9 +273,10 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-Cuối cùng, hãy triển khai một hàm để thêm một hình ellipse khi chạm vào slide:
+Cuối cùng, hãy thực hiện một hàm để thêm một hình ellipse khi chạm vào slide:
 
-**C# - MainActivity.cs - Thêm ellipse bằng cách nhấp vào slide**
+**C# - MainActivity.cs - Thêm hình ellipse khi click slide**
+
 ``` csharp
  private void ImageView_Touch(object sender, Android.Views.View.TouchEventArgs e)
 {
@@ -295,18 +306,18 @@ Cuối cùng, hãy triển khai một hàm để thêm một hình ellipse khi c
 }
 ```
 
-Mỗi lần nhấp vào slide bản trình bày sẽ thêm một ellipse có màu ngẫu nhiên:
-![todo:image_alt_text](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
+Mỗi lần click trên slide trình chiếu sẽ thêm một ellipse màu ngẫu nhiên:
 
+![todo:image_alt_text](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
 
 ## **Các tính năng được hỗ trợ**
 
 |**TÍNH NĂNG**|**Aspose.Slides for .NET**|**Aspose.Slides for Xamarin**|
 | :- | :- | :- |
-|**Các tính năng bản trình bày**:| | |
-|Tạo bản trình bày mới|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Mở/luựu định dạng PowerPoint 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Mở/luựu định dạng PowerPoint 2007|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Các tính năng trình chiếu**:| | |
+|Tạo bản trình chiếu mới|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Mở/ lưu định dạng PowerPoint 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Mở/ lưu định dạng PowerPoint 2007|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Hỗ trợ phần mở rộng PowerPoint 2010|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Hỗ trợ phần mở rộng PowerPoint 2013|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Hỗ trợ tính năng PowerPoint 2016|bị hạn chế|bị hạn chế|
@@ -314,8 +325,8 @@ Mỗi lần nhấp vào slide bản trình bày sẽ thêm một ellipse có mà
 |Chuyển đổi PPT sang PPTX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Chuyển đổi PPTX sang PPT|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |PPTX trong PPT|bị hạn chế|bị hạn chế|
-|Xử lý Theme|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Xử lý Macro|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Xử lý themes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Xử lý macro|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Xử lý thuộc tính tài liệu|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Bảo vệ bằng mật khẩu|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Trích xuất văn bản nhanh|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
@@ -335,35 +346,35 @@ Mỗi lần nhấp vào slide bản trình bày sẽ thêm một ellipse có mà
 |ODP|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |THMX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Các tính năng master slide:**| | |
-|Truy cập tất cả master slide hiện có|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Truy cập mọi master slide hiện có|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Tạo/xóa master slide|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Sao chép master slide|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Các tính năng layout slide:**| | |
-|Truy cập tất cả layout slide hiện có|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Truy cập mọi layout slide hiện có|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Tạo/xóa layout slide|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Sao chép layout slide|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Các tính năng slide:**| | |
-|Truy cập tất cả slide hiện có|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Truy cập mọi slide hiện có|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Tạo/xóa slide|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Sao chép slide|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Xuất slide ra hình ảnh|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Tạo/chỉnh sửa/xóa các phần của slide|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Xuất slide thành hình ảnh|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Tạo/chỉnh sửa/xóa phần đoạn slide|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Các tính năng notes slide**:| | |
-|Truy cập tất cả notes slide hiện có|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Truy cập mọi notes slide hiện có|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Các tính năng shape:**| | |
-|Truy cập tất cả shape trên slide|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Truy cập mọi shape trên slide|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Thêm shape mới|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Sao chép shape|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Xuất các shape riêng ra hình ảnh|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Xuất shape riêng thành hình ảnh|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Các loại shape được hỗ trợ:**| | |
-|Tất cả các loại shape được định sẵn|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Tất cả các loại shape định sẵn|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Khung hình ảnh|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Bảng|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Biểu đồ|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |SmartArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Sơ đồ cổ|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Sơ đồ cũ|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |WordArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Đối tượng OLE, ActiveX|bị hạn chế|bị hạn chế|
+|OLE, ActiveX objects|bị hạn chế|bị hạn chế|
 |Khung video|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Khung âm thanh|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Kết nối|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
@@ -376,7 +387,7 @@ Mỗi lần nhấp vào slide bản trình bày sẽ thêm một ellipse có mà
 |Hiệu ứng 3D|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |**Các tính năng văn bản:**| | |
 |Định dạng đoạn văn|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Định dạng phần văn bản|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Định dạng phần|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Các tính năng hoạt ảnh:**| | |
 |Xuất hoạt ảnh sang SWF|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |Xuất hoạt ảnh sang HTML|{{< emoticons/cross >}}|{{< emoticons/cross >}}|

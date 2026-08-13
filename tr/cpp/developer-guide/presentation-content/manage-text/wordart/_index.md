@@ -1,38 +1,51 @@
 ---
-title: C++'ta WordArt Efektleri Oluşturma ve Uygulama
+title: C++'da WordArt Efektleri Oluşturma ve Uygulama
 linktitle: WordArt
 type: docs
 weight: 110
 url: /tr/cpp/wordart/
 keywords:
 - WordArt
-- WordArt oluştur
-- WordArt şablonu
-- WordArt efekti
-- gölge efekti
-- gösterim efekti
-- parıltı efekti
-- WordArt dönüşümü
-- 3D efekti
-- dış gölge efekti
-- iç gölge efekti
+- WordArt Oluştur
+- WordArt Şablonu
+- WordArt Efekti
+- Gölge Efekti
+- Görüntü Efekti
+- Parlama Efekti
+- WordArt Dönüşümü
+- 3D Efekti
+- Dış Gölge Efekti
+- İç Gölge Efekti
 - PowerPoint
-- sunum
+- Sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++'ta WordArt efektlerini oluşturun ve özelleştirin. Bu adım adım rehber, geliştiricilerin C++'ta profesyonel metinle sunumları geliştirmelerine yardımcı olur."
+description: "Aspose.Slides for C++ içinde WordArt efektlerini oluşturun ve özelleştirin. Bu adım adım kılavuz, geliştiricilerin C++ ile profesyonel metinle sunumları geliştirmelerine yardımcı olur."
 ---
 ## **Genel Bakış**
 
-WordArt efektleri, PowerPoint sunumlarınıza görsel olarak çekici, stilize metin eklemenizi sağlar. Aspose.Slides ile geliştiriciler, Microsoft PowerPoint’te olduğu gibi WordArt’i programlı olarak oluşturabilir, özelleştirebilir ve yönetebilir—Office yüklü olmasına gerek olmadan. Bu makale, metin dönüşümleri, doldurma stilleri, konturlar, gölgeler ve diğer biçimlendirme seçeneklerini uygulayarak sunum içeriğinizi daha ifadeli ve etkileyici hâle getirmeyi kapsayan WordArt ile çalışma hakkında bir genel bakış sunar. WordArt, metni bir grafik nesne olarak ele almanıza olanak tanır. Metni daha çekici veya dikkat çekici kılmak için uygulanan efektler veya özel değişikliklerden oluşur.
+WordArt efektleri, PowerPoint sunumlarınıza görsel olarak çekici, stilize metin eklemenizi sağlar. Aspose.Slides ile geliştiriciler, Microsoft PowerPoint’te yaptıkları gibi WordArt’ı programatik olarak oluşturabilir, özelleştirebilir ve yönetebilir—Office yüklü olmasına gerek yok. Bu makale, WordArt ile çalışmaya genel bir bakış sunar; metin dönüşümleri, dolgu stilleri, hatlar, gölgeler ve diğer biçimlendirme seçeneklerini nasıl uygulayacağınızı gösterir, böylece sunum içeriğinizi daha etkileyici ve ilgi çekici hâle getirebilirsiniz. WordArt, metni bir grafik nesne gibi ele almanıza olanak tanır. Metni daha çekici veya dikkat çekici hâle getirmek için uygulanan efektler veya özel düzenlemelerden oluşur.
 
-## **Basit Bir WordArt Şablonu Oluşturun ve Metne Uygulayın**
+## **Basit bir WordArt Şablonu Oluşturun ve Metne Uygulayın**
 
-**Aspose.Slides Kullanarak** 
+**Aspose.Slides Kullanarak**  
 
-İlk olarak, bu C++ kodunu kullanarak basit bir metin oluşturuyoruz: 
+İlk olarak, bu C++ kodu ile basit bir metin oluşturuyoruz:
 
 ``` cpp 
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+using namespace Aspose::Slides;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
@@ -42,9 +55,31 @@ auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(
 portion->set_Text(u"Aspose.Slides");
 ```
 
-Şimdi, metnin yazı tipi yüksekliğini daha büyük bir değere ayarlayarak efekti daha belirgin hâle getiriyoruz: 
+Şimdi, efekti daha belirgin hâle getirmek için metnin yazı tipi yüksekliğini daha büyük bir değere ayarlıyoruz:
 
 ``` cpp 
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+using namespace Aspose::Slides;
+
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
 auto fontData = System::MakeObject<FontData>(u"Arial Black");
 portion->get_PortionFormat()->set_LatinFont(fontData);
 portion->get_PortionFormat()->set_FontHeight(36.0f);
@@ -52,21 +87,51 @@ portion->get_PortionFormat()->set_FontHeight(36.0f);
 
 **Microsoft PowerPoint Kullanarak**
 
-Microsoft PowerPoint’te WordArt efektleri menüsüne gidin: 
+Microsoft PowerPoint’te WordArt efektleri menüsüne gidin:
 
 ![todo:image_alt_text](image-20200930113926-1.png)
 
-Sağdaki menüden önceden tanımlı bir WordArt efekti seçebilir, soldaki menüden yeni bir WordArt için ayarları belirtebilirsiniz. 
+Sağdaki menüden önceden tanımlı bir WordArt efekti seçebilirsiniz. Soldaki menüden yeni bir WordArt için ayarları belirtebilirsiniz.
 
-Mevcut bazı parametreler veya seçenekler şunlardır: 
+Mevcut bazı parametreler veya seçenekler şunlardır:
 
 ![todo:image_alt_text](image-20200930114015-3.png)
 
 **Aspose.Slides Kullanarak**
 
-Burada, metne SmallGrid desen rengini uyguluyor ve bu kodu kullanarak 1 birim genişliğinde siyah bir metin kenarlığı ekliyoruz: 
+Burada, metne SmallGrid desen rengi uygular ve bu kodla 1 genişliğinde siyah bir metin kenarlığı ekleriz:
 
 ``` cpp 
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IPatternFormat.h>
+#include <DOM/PatternStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
 auto fillFormat = portion->get_PortionFormat()->get_FillFormat();
 fillFormat->set_FillType(FillType::Pattern);
 fillFormat->get_PatternFormat()->get_ForeColor()->set_Color(Color::get_DarkOrange());
@@ -78,25 +143,53 @@ lineFillFormat->set_FillType(FillType::Solid);
 lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
 ```
 
-Ortaya çıkan metin: 
+Elde edilen metin:
 
 ![todo:image_alt_text](image-20200930114108-4.png)
 
-## **Diğer WordArt Efektlerini Uygulama**
+## **Diğer WordArt Efektlerini Uygulayın**
 
 **Microsoft PowerPoint Kullanarak**
 
-Programın arayüzünden bu efektleri bir metne, metin bloğuna, şekle veya benzeri bir öğeye uygulayabilirsiniz: 
+Program arayüzünden bu efektleri bir metne, metin bloğuna, şekle veya benzeri bir öğeye uygulayabilirsiniz:
 
 ![todo:image_alt_text](image-20200930114129-5.png)
 
-Örneğin, Gölge, Yansıma ve Parıltı efektleri bir metne; 3D Biçim ve 3D Döndürme efektleri bir metin bloğuna; Yumuşak Kenarlar özelliği bir Şekil Nesnesine uygulanabilir (3D Biçim özelliği ayarlı olmasa bile etkisi vardır). 
+Örneğin, Gölge, Yansıma ve Parlama efektleri bir metne uygulanabilir; 3D Biçim ve 3D Döndürme efektleri bir metin bloğuna uygulanabilir; Yumuşak Kenarlar özelliği bir Şekil Nesnesine (3D Biçim özelliği ayarlı olmasa bile) uygulanabilir.
 
 ### **Metne Gölge Efektleri Uygulama**
 
-Burada yalnızca metne ilişkin özellikleri ayarlamayı amaçlıyoruz. Bu C++ kodunu kullanarak metne gölge etkisi uyguluyoruz: 
+Burada yalnızca metne ilişkin özellikleri ayarlamayı amaçlıyoruz. Aşağıdaki C++ kodu ile metne gölge efekti eklenir:
 
 ``` cpp 
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/Effects/IOuterShadow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableOuterShadowEffect();
 
@@ -112,30 +205,54 @@ outerShadowEffect->set_SkewVertical(0);
 outerShadowEffect->get_ShadowColor()->get_ColorTransform()->Add(ColorTransformOperation::SetAlpha, 0.32f);
 ```
 
-Aspose.Slides API üç tür gölgeyi destekler: OuterShadow, InnerShadow ve PresetShadow. 
+Aspose.Slides API üç tür gölgeyi destekler: OuterShadow, InnerShadow ve PresetShadow.
 
-PresetShadow ile önceden tanımlı değerleri kullanarak metne gölge uygulayabilirsiniz. 
+PresetShadow ile önceden tanımlı değerler kullanarak bir metne gölge uygulayabilirsiniz.
 
 **Microsoft PowerPoint Kullanarak**
 
-PowerPoint’te tek bir gölge türü kullanılabilir. İşte bir örnek: 
+PowerPoint’te yalnızca bir tür gölge kullanılabilir. İşte bir örnek:
 
 ![todo:image_alt_text](image-20200930114225-6.png)
 
 **Aspose.Slides Kullanarak**
 
-Aspose.Slides, aynı anda iki tür gölge uygulamanıza olanak tanır: InnerShadow ve PresetShadow. 
+Aspose.Slides, aynı anda iki tür gölge uygulamanıza izin verir: InnerShadow ve PresetShadow.
 
-Notlar: 
+**Notlar:**
 
-- OuterShadow ve PresetShadow birlikte kullanıldığında, yalnızca OuterShadow efekti uygulanır. 
-- OuterShadow ve InnerShadow aynı anda kullanılırsa, ortaya çıkan veya uygulanan efekt PowerPoint sürümüne bağlıdır. Örneğin, PowerPoint 2013’te efekt iki kat olur. Ancak PowerPoint 2007’de OuterShadow efekti uygulanır. 
+- OuterShadow ve PresetShadow birlikte kullanıldığında yalnızca OuterShadow efekti uygulanır.  
+- OuterShadow ve InnerShadow aynı anda kullanılırsa, uygulanan efekt PowerPoint sürümüne bağlıdır. Örneğin, PowerPoint 2013’te efekt iki kez uygulanır. PowerPoint 2007’de ise OuterShadow efekti uygulanır.
 
 ### **Yansıma Efektleri Uygulama**
 
-Bu C++ kod örneği ile metne yansıma ekliyoruz: 
+Aşağıdaki C++ kod örneği ile metne yansıma ekliyoruz:
 
 ``` cpp 
+#include <DOM/Effects/IReflection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/RectangleAlignment.h>
+#include <DOM/ShapeType.h>
+using namespace Aspose::Slides;
+
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableReflectionEffect();
 
@@ -152,11 +269,37 @@ reflectionEffect->set_EndReflectionOpacity(0.9f);
 reflectionEffect->set_RectangleAlign(RectangleAlignment::BottomLeft);
 ```
 
-### **Parıltı Efektleri Uygulama**
+### **Parlama (Glow) Efektleri Uygulama**
 
-Bu kodu kullanarak metne parıltı efekti uyguluyor ve parlak ya da öne çıkmasını sağlıyoruz: 
+Metne parlama efekti ekleyerek öne çıkmasını şu kodla sağlarız:
 
 ``` cpp 
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/Effects/IGlow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+using namespace Aspose::Slides;
+
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableGlowEffect();
 
@@ -166,43 +309,86 @@ glowEffect->get_Color()->get_ColorTransform()->Add(ColorTransformOperation::SetA
 glowEffect->set_Radius(7);
 ```
 
-İşlemin sonucu: 
+İşlemin sonucu:
 
 ![todo:image_alt_text](image-20200930114621-7.png)
 
-{{% alert color="primary" %}} 
-Gölge, gösterim ve parıltı parametrelerini değiştirebilirsiniz. Efektlerin özellikleri metnin her kısmına ayrı ayrı ayarlanır. 
-{{% /alert %}} 
+{{% alert color="info" %}}  
+Gölge, gösterim ve parlama parametrelerini değiştirebilirsiniz. Efekt özellikleri, metnin her bölümü için ayrı ayrı ayarlanır.  
+{{% /alert %}}  
 
-### **WordArt’ta Dönüşümleri Kullanma**
+### **WordArt’ta Dönüşümler Kullanma**
 
-Bu kod aracılığıyla set_Transform metodunu (tüm metin bloğu için geçerli) kullanıyoruz: 
+Aşağıdaki kod ile tüm metin bloğu üzerinde set_Transform metodunu (yerleşik) kullanıyoruz:
 
 ``` cpp 
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextShapeType.h>
+using namespace Aspose::Slides;
+
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+textFrame->set_Text(u"Aspose.Slides");
+
 textFrame->get_TextFrameFormat()->set_Transform(TextShapeType::ArchUpPour);
 ```
 
-Sonuç: 
+Sonuç:
 
 ![todo:image_alt_text](image-20200930114712-8.png)
 
-{{% alert color="primary" %}} 
-Microsoft PowerPoint ve C++ için Aspose.Slides, belirli sayıda önceden tanımlı dönüşüm tipi sunar. 
-{{% /alert %}} 
+{{% alert color="info" %}}  
+Hem Microsoft PowerPoint hem de Aspose.Slides for C++ belirli sayıda önceden tanımlı dönüşüm türü sağlar.  
+{{% /alert %}}  
 
 **PowerPoint Kullanarak**
 
-Önceden tanımlı dönüşüm türlerine erişmek için şu adımları izleyin: **Format** -> **TextEffect** -> **Transform**  
+Önceden tanımlı dönüşüm türlerine erişmek için şu yolu izleyin: **Format** -> **TextEffect** -> **Transform**
 
 **Aspose.Slides Kullanarak**
 
-Dönüşüm türünü seçmek için TextShapeType enum’ını kullanın.  
+Bir dönüşüm türü seçmek için TextShapeType enum’ını kullanın.
 
 ### **Metin ve Şekillere 3D Efektleri Uygulama**
 
-Bu örnek kodu kullanarak bir metin şekline 3D efekt uyguluyoruz: 
+Aşağıdaki örnek kod ile bir metin şekline 3D efekt ayarları yapılır:
 
 ``` cpp 
+#include <DOM/BevelPresetType.h>
+#include <DOM/CameraPresetType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILightRig.h>
+#include <DOM/IShapeBevel.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/LightRigPresetType.h>
+#include <DOM/LightingDirection.h>
+#include <DOM/MaterialPresetType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+autoShape->get_TextFrame()->set_Text(u"Aspose.Slides");
+
 auto threeDFormat = autoShape->get_ThreeDFormat();
 
 threeDFormat->get_BevelBottom()->set_BevelType(BevelPresetType::Circle);
@@ -230,13 +416,41 @@ threeDFormat->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
 threeDFormat->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
 
-Ortaya çıkan metin ve şekli: 
+Elde edilen metin ve şekli:
 
 ![todo:image_alt_text](image-20200930114816-9.png)
 
-Bu C++ kodu ile metne 3D efekt uyguluyoruz: 
+Metne 3D efektini bu C++ kodu ile uyguluyoruz:
 
 ``` cpp 
+#include <DOM/BevelPresetType.h>
+#include <DOM/CameraPresetType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILightRig.h>
+#include <DOM/IShapeBevel.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/LightRigPresetType.h>
+#include <DOM/LightingDirection.h>
+#include <DOM/MaterialPresetType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+textFrame->set_Text(u"Aspose.Slides");
+
 auto threeDFormat = textFrame->get_TextFrameFormat()->get_ThreeDFormat();
 
 threeDFormat->get_BevelBottom()->set_BevelType(BevelPresetType::Circle);
@@ -264,52 +478,70 @@ threeDFormat->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
 threeDFormat->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
 
-İşlemin sonucu: 
+İşlemin sonucu:
 
 ![todo:image_alt_text](image-20200930114905-10.png)
 
-{{% alert color="primary" %}} 
-Metinlere veya şekillerine 3D efekt uygulamaları ve efektler arasındaki etkileşimler belirli kurallara dayanır.
+{{% alert color="info" %}}  
+Metinlere veya şekillerine 3D efektlerinin uygulanması ve efektler arasındaki etkileşimler belirli kurallara dayanır.  
 
-Bir metin ve o metni içeren şekil için bir sahneyi düşünün. 3D efekt, 3D nesne temsili ve nesnenin yerleştirildiği sahneyi içerir.
+Bir metin ve onu içeren şekil için bir sahne düşünün. 3D efekt, 3D nesne temsili ve nesnenin yerleştirildiği sahneyi içerir.  
 
-- Sahne hem şekil hem de metin için ayarlandığında, şekil sahnesi daha yüksek önceliğe sahiptir—metin sahnesi yok sayılır.
-- Şeklin kendi sahnesi yok ancak 3D temsili varsa, metin sahnesi kullanılır.
-- Aksi taktirde—şeklin başlangıçta 3D etkisi yoksa—şekil düzdür ve 3D efekt yalnızca metne uygulanır.
+- Sahne hem şekil hem de metin için ayarlandığında, şekil sahnesi öncelikli olur—metin sahnesi göz ardı edilir.  
+- Şeklin kendi sahnesi yoksa ancak 3D temsili varsa, metin sahnesi kullanılır.  
+- Aksi takdirde—şeklin başlangıçta 3D etkisi yoksa—şekil düz kalır ve 3D efekt yalnızca metne uygulanır.  
 
-Bu açıklamalar ThreeDFormat.getLightRig() ve ThreeDFormat.getCamera() yöntemleriyle ilişkilidir. 
-{{% /alert %}} 
+Bu açıklamalar ThreeDFormat.getLightRig() ve ThreeDFormat.getCamera() metodlarıyla bağlantılıdır.  
+{{% /alert %}}  
 
 ## **Şekillere Dış Gölge Efektleri Uygulama**
-C++ için Aspose.Slides, TextFrame içinde taşınan bir metne gölge efektleri uygulamanızı sağlayan [**IOuterShadow**](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.effects.i_outer_shadow) ve [**IInnerShadow**](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.effects.i_inner_shadow) sınıflarını sunar. Bu adımları izleyin:
+Aspose.Slides for C++ aşağıdaki sınıfları sunar: [**IOuterShadow**](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.effects.i_outer_shadow) ve [**IInnerShadow**](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.effects.i_inner_shadow). Bu sınıflar, TextFrame içinde taşınan metne gölge efektleri eklemenizi sağlar. Aşağıdaki adımları izleyin:
 
-1. **Presentation** sınıfının bir örneğini oluşturun.  
-2. Slaytın indeksini kullanarak referansını alın.  
-3. Slayta Dikdörtgen tipinde bir AutoShape ekleyin.  
+1. [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfının bir örneğini oluşturun.  
+2. İndeksini kullanarak bir slayt referansı alın.  
+3. Slayta Rectangle türünde bir AutoShape ekleyin.  
 4. AutoShape ile ilişkili TextFrame’e erişin.  
-5. AutoShape’in FillType özelliğini NoFill olarak ayarlayın.  
+5. AutoShape’in FillType’ını NoFill olarak ayarlayın.  
 6. OuterShadow sınıfını örnekleyin.  
 7. Gölgenin BlurRadius değerini ayarlayın.  
-8. Gölgenin Direction (yön) değerini ayarlayın.  
-9. Gölgenin Distance (mesafe) değerini ayarlayın.  
-10. RectanglelAlign değerini TopLeft olarak ayarlayın.  
+8. Gölgenin Direction değerini ayarlayın.  
+9. Gölgenin Distance değerini ayarlayın.  
+10. RectangleAlign değerini TopLeft olarak ayarlayın.  
 11. Gölgenin PresetColor değerini Black olarak ayarlayın.  
 12. Sunumu PPTX dosyası olarak kaydedin.  
 
-Yukarıdaki adımların C++ hâlindeki örnek kodu, bir metne dış gölge etkisi nasıl uygulanır gösterir: 
+Aşağıdaki C++ örnek kodu, yukarıdaki adımları uygulayarak bir metne dış gölge efekti nasıl eklenir gösterir:
 
 ``` cpp
+#include <DOM/Effects/IOuterShadow.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/PresetColor.h>
+#include <DOM/RectangleAlignment.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Effects;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 // Slayt referansını al
 auto sld = pres->get_Slides()->idx_get(0);
 
-// Dikdörtgen tipinde bir AutoShape ekle
+// Rectangle türünde bir AutoShape ekle
 auto ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 150.0f, 50.0f);
 
-// Dikdörtgene TextFrame ekle
+// Rectangle'a TextFrame ekle
 ashp->AddTextFrame(u"Aspose TextBox");
 
-// Metnin gölgesini alabilmek için şekil dolgusu devre dışı bırak
+// Metnin gölgesini alabilmek için şekil dolgusunu devre dışı bırak
 ashp->get_FillFormat()->set_FillType(FillType::NoFill);
 
 // Dış gölge ekle ve gerekli tüm parametreleri ayarla
@@ -326,35 +558,58 @@ pres->Save(u"pres_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Şekillere İç Gölge Efektleri Uygulama**
-Bu adımları izleyin:
+Aşağıdaki adımları izleyin:
 
-1. **Presentation** sınıfının bir örneğini oluşturun.  
-2. Slaytın referansını alın.  
-3. Dikdörtgen tipinde bir AutoShape ekleyin.  
+1. [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfının bir örneğini oluşturun.  
+2. Slayt referansını alın.  
+3. Rectangle türünde bir AutoShape ekleyin.  
 4. InnerShadowEffect’i etkinleştirin.  
 5. Gerekli tüm parametreleri ayarlayın.  
-6. ColorType değerini Scheme olarak ayarlayın.  
-7. Scheme rengini belirleyin.  
+6. ColorType değerini Scheme olarak belirleyin.  
+7. Scheme Color’ı ayarlayın.  
 8. Sunumu bir [PPTX](https://docs.fileformat.com/presentation/pptx/) dosyası olarak kaydedin.  
 
-Bu örnek kod (yukarıdaki adımlara dayanarak) iki şekil arasında bir bağlayıcı eklemenin C++ kodunu gösterir: 
+Aşağıdaki örnek kod (yukarıdaki adımlara dayanarak) iki şekil arasında bir bağlayıcı eklemenin C++’da nasıl yapılacağını gösterir:
 
 ``` cpp
+#include <DOM/ColorType.h>
+#include <DOM/Effects/IInnerShadow.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
-// Bir slaydın referansını al
+// Slayt referansını al
 auto slide = presentation->get_Slides()->idx_get(0);
 
-// Dikdörtgen tipinde bir AutoShape ekle
+// Rectangle türünde bir AutoShape ekle
 auto ashp = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 400.0f, 300.0f);
 ashp->get_FillFormat()->set_FillType(FillType::NoFill);
 
-// Dikdörtgene TextFrame ekle
+// Rectangle'a TextFrame ekle
 ashp->AddTextFrame(u"Aspose TextBox");
 auto port = ashp->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
 auto pf = port->get_PortionFormat();
 pf->set_FontHeight(50.0f);
 
-// İç gölge efektini etkinleştir
+// İç Gölge Etkisini Etkinleştir    
 auto ef = pf->get_EffectFormat();
 ef->EnableInnerShadowEffect();
 
@@ -365,30 +620,30 @@ shadow->set_Direction(90.0F);
 shadow->set_Distance(6.0);
 shadow->get_ShadowColor()->set_B(189);
 
-// ColorType'ı Scheme olarak ayarla
+// Renk türünü Scheme olarak ayarla
 shadow->get_ShadowColor()->set_ColorType(ColorType::Scheme);
 
-// Scheme rengini ayarla
+// Scheme Rengini ayarla
 shadow->get_ShadowColor()->set_SchemeColor(SchemeColor::Accent1);
 
 // Sunumu kaydet
 presentation->Save(u"WordArt_out.pptx", SaveFormat::Pptx);
 ```
 
-## **FAQ**
+## **SSS**
 
-**Farklı yazı tipleri veya betiklerle (ör. Arapça, Çince) WordArt efektleri kullanabilir miyim?**
+### Farklı yazı tipleri veya betikler (ör. Arapça, Çince) ile WordArt efektleri kullanabilir miyim?
 
-Evet, Aspose.Slides Unicode desteğine sahiptir ve tüm başlıca yazı tipleri ve betiklerle çalışır. Gölge, doldurma ve kontur gibi WordArt efektleri dilinden bağımsız olarak uygulanabilir; ancak yazı tipi bulunabilirliği ve renderleme sistem yazı tiplerine bağlı olabilir.
+Evet, Aspose.Slides Unicode’u destekler ve tüm büyük yazı tipleri ve betiklerle çalışır. Gölge, doldurma ve hat gibi WordArt efektleri dil bağımsızdır; ancak yazı tipi bulunabilirliği ve işlenmesi sistem yazı tiplerine bağlı olabilir.
 
-**WordArt efektlerini slayt master öğelerine uygulayabilir miyim?**
+### WordArt efektlerini slayt ana sayfa öğelerine uygulayabilir miyim?
 
-Evet, WordArt efektlerini master slayt üzerindeki şekillere, başlık yer tutucularına, altbilgilere veya arka plan metnine uygulayabilirsiniz. Master düzeninde yapılan değişiklikler, ilişkili tüm slaytlara yansır.
+Evet, ana slayt üzerindeki şekillere, başlık yer tutucularına, altbilgilere veya arka plan metnine WordArt efektleri uygulayabilirsiniz. Ana sayfa düzeninde yapılan değişiklikler tüm ilgili slaytlara yansır.
 
-**WordArt efektleri sunum dosya boyutunu etkiler mi?**
+### WordArt efektleri sunum dosyasının boyutunu etkiler mi?
 
-Biraz. Gölgeler, parıltılar ve degrade doldurmalar gibi WordArt efektleri, ek biçimlendirme meta verileri nedeniyle dosya boyutunu hafifçe artırabilir, fakat fark genellikle ihmal edilebilir.
+Biraz. Gölge, parlama ve degrade doldurma gibi WordArt efektleri, ek biçimlendirme meta verileri eklediği için dosya boyutunu hafifçe artırabilir; ancak fark genellikle önemsizdir.
 
-**Sunumu kaydetmeden WordArt efektlerinin sonucunu önizleyebilir miyim?**
+### Sunumu kaydetmeden WordArt efektlerinin sonucunu önizleyebilir miyim?
 
-Evet, WordArt içeren slaytları PNG, JPEG gibi resimlere dönüştürmek için [IShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishape/) veya [ISlide](https://reference.aspose.com/slides/tr/cpp/aspose.slides/islide/) arayüzlerinin `GetImage` metodunu kullanabilirsiniz. Böylece sunumu kaydetmeden veya dışa aktarmadan bellekte ya da ekranda sonucu önizleyebilirsiniz.
+Evet, WordArt içeren slaytları `GetImage` yöntemiyle (ör. PNG, JPEG) görüntülere dönüştürebilirsiniz. Bu sayede tam sunumu kaydetmeden veya dışa aktarmadan hafızada veya ekranda önizleme yapabilirsiniz.

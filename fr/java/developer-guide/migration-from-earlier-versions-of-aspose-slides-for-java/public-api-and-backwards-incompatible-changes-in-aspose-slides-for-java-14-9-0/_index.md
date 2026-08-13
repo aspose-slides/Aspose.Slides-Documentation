@@ -1,42 +1,54 @@
 ---
-title: API Public et Changements Incompatibles Retrospectivement dans Aspose.Slides pour Java 14.9.0
+title: API publique et changements incompatibles avec les versions antérieures dans Aspose.Slides pour Java 14.9.0
+linktitle: Aspose.Slides pour Java 14.9.0
 type: docs
 weight: 80
 url: /fr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/
+keywords:
+- migration
+- code hérité
+- code moderne
+- approche héritée
+- approche moderne
+- PowerPoint
+- OpenDocument
+- présentation
+- Java
+- Aspose.Slides
+description: "Examinez les mises à jour de l'API publique et les changements majeurs dans Aspose.Slides pour Java afin de migrer en douceur vos solutions de présentation PowerPoint PPT, PPTX et ODP."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-Cette page liste toutes les [ajouts](/slides/fr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/) de classes, méthodes, propriétés, etc., ainsi que toute nouvelle restriction et d'autres [changements](/slides/fr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/) introduits avec l'API Aspose.Slides pour Java 14.9.0.
+Cette page répertorie toutes les classes, méthodes, propriétés, etc. [ajoutées](/slides/fr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/) et les nouvelles restrictions ainsi que les autres [modifications](/slides/fr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/) introduites avec l'API Aspose.Slides for Java 14.9.0.
 
 {{% /alert %}} 
-## **Changements de l'API Public**
-### **Méthodes Ajoutées pour Remplacer des Images dans PPImage, IPPImage**
+## **Modifications de l'API publique**
+### **Méthodes ajoutées pour remplacer Image par PPImage, IPPImage**
 Nouvelles méthodes ajoutées :
 
 - IPPImage.replaceImage(byte[] newImageData)
 - IPPImage.replaceImage(IPPImage newImage)
 
 ``` java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
- Présentation présentation = new Présentation("presentation.pptx");
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    // La première façon
+    byte[] imageData = Files.readAllBytes(Paths.get("image.png"));
+    presentation.getImages().get_Item(0).replaceImage(imageData);
 
-//La première manière
+    // La deuxième façon
+    presentation.getImages().get_Item(1).replaceImage(presentation.getImages().get_Item(0));
 
-byte[] imageData = // ...
-
-présentation.getImages().get_Item(0).replaceImage(imageData);
-
-//La seconde manière
-
-présentation.getImages().get_Item(1).replaceImage(
-
-    présentation.getImages().get_Item(0));
-
-présentation.save("presentation_out.pptx", SaveFormat.Pptx);
-
+    presentation.save("presentation_out.pptx", SaveFormat.Pptx);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
-### **Méthodes Ajoutées pour Sauvegarder des Diapositives en Conservant les Numéros de Page**
+### **Méthodes ajoutées pour enregistrer les diapositives en conservant les numéros de page**
 Les méthodes suivantes ont été ajoutées :
 
 - void IPresentation.save(string fname, int[] slides, SaveFormat format);
@@ -44,42 +56,52 @@ Les méthodes suivantes ont été ajoutées :
 - void IPresentation.save(Stream stream, int[] slides, SaveFormat format);
 - void IPresentation.save(Stream stream, int[] slides, SaveFormat format, ISaveOption options);
 
-Ces méthodes permettent de sauvegarder des diapositives de présentation spécifiées au formats PDF, XPS, TIFF, HTML. Le tableau 'slides' permet de spécifier des numéros de page, en commençant par 1.
+Ces méthodes permettent d'enregistrer des diapositives de la présentation spécifiées au format PDF, XPS, TIFF, HTML. Le tableau 'slides' permet de spécifier les numéros de page, à partir de 1.
 
 ``` java
-
- save(string fname, int[] slides, SaveFormat format);
-
+// Surcharges ajoutées à IPresentation (les valeurs de SaveFormat sont des constantes int en Java):
+//
+// void save(String fname, int[] slides, int format);
+// void save(String fname, int[] slides, int format, ISaveOptions options);
+// void save(OutputStream stream, int[] slides, int format);
+// void save(OutputStream stream, int[] slides, int format, ISaveOptions options);
 ```
 
 
 
 
 ``` java
+import com.aspose.slides.*;
 
- Présentation présentation = new Présentation(presentationFileName);
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    int[] slides = new int[] { 2, 3, 5 }; // Tableau des positions des diapositives
 
-int[] slides = new int[] { 2, 3, 5 }; //Array de positions de diapositives
-
-présentation.save(outFileName, slides, SaveFormat.Pdf);
-
+    presentation.save("presentation_out.pdf", slides, SaveFormat.Pdf);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
-### **Ajout de la Valeur Enum SmartArtLayoutType.Custom**
-Ce type de mise en page SmartArt représente un diagramme avec un modèle personnalisé. Les diagrammes personnalisés ne peuvent être chargés que depuis un fichier de présentation et ne peuvent pas être créés via la méthode ShapeCollection.addSmartArt(x, y, width, height, SmartArtLayoutType.Custom)
-### **Ajout de la Classe SmartArtShape et de l'Interface ISmartArtShape**
-La classe Aspose.Slides.SmartArt.SmartArtShape (et son interface Aspose.Slides.SmartArt.ISmartArtShape) ajoute un accès à des formes individuelles à l'intérieur du diagramme SmartArt. SmartArtShape peut être utilisé pour changer FillFormat, LineFormat, ajouter des Hyperliens, etc.
+### **Ajout de la valeur d'énumération SmartArtLayoutType.Custom**
+Ce type de disposition SmartArt représente un diagramme avec un modèle personnalisé. Les diagrammes personnalisés ne peuvent être chargés qu'à partir d'un fichier de présentation et ne peuvent pas être créés via la méthode ShapeCollection.addSmartArt(x, y, width, height, SmartArtLayoutType.Custom)
 
-{{% alert color="primary" %}} 
+### **Ajout de la classe SmartArtShape et de l'interface ISmartArtShape**
+La classe Aspose.Slides.SmartArt.SmartArtShape (et son interface Aspose.Slides.SmartArt.ISmartArtShape) donne accès aux formes individuelles à l'intérieur d'un diagramme SmartArt. SmartArtShape peut être utilisé pour modifier FillFormat, LineFormat, ajouter des Hyperliens, etc.
 
-SmartArtShape ne supporte pas les propriétés IShape RawFrame, Frame, Rotation, X, Y, Width, Height et lance une System.NotSupportedException lors de l'accès à ces propriétés.
+{{% alert color="info" %}} 
+
+SmartArtShape ne prend pas en charge les propriétés IShape RawFrame, Frame, Rotation, X, Y, Width, Height et lance System.NotSupportedException lorsqu'on tente d'y accéder.
 
 {{% /alert %}} 
 
 Exemple d'utilisation :
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.Color;
 
- Présentation pres = new Présentation();
+
+ Presentation pres = new Presentation();
 
 ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
 
@@ -99,19 +121,20 @@ pres.save("out.pptx", SaveFormat.Pptx);
 
 ```
 ### **Ajout de la classe SmartArtShapeCollection, de l'interface ISmartArtShapeCollection et de la méthode ISmartArtNode.getShapes()**
-La classe Aspose.Slides.SmartArt.SmartArtShapeCollection (et son interface Aspose.Slides.SmartArt.ISmartArtShapeCollection) additionne l'accès à des formes individuelles à l'intérieur du diagramme SmartArt. La collection contient des formes associées à SmartArtNode. La propriété SmartArtNode.Shapes retourne des collections de toutes les formes associées au nœud.
+La classe Aspose.Slides.SmartArt.SmartArtShapeCollection (et son interface Aspose.Slides.SmartArt.ISmartArtShapeCollection) donne accès aux formes individuelles à l'intérieur d'un diagramme SmartArt. La collection contient les formes associées à SmartArtNode. La propriété SmartArtNode.Shapes renvoie les collections de toutes les formes associées au nœud.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Selon le SmartArtLayoutType, une SmartArtShape peut être partagée entre plusieurs nœuds.
 
 {{% /alert %}} 
 
-﻿
-
 ``` java
+import com.aspose.slides.*;
+import java.awt.Color;
 
- Présentation pres = new Présentation();
+
+ Presentation pres = new Presentation();
 
 ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
 

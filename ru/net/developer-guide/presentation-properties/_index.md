@@ -1,5 +1,5 @@
 ---
-title: Управление свойствами презентаций PowerPoint в C#
+title: Управление свойствами презентации в .NET
 linktitle: Свойства презентации
 type: docs
 weight: 70
@@ -11,58 +11,61 @@ keywords:
 - Встроенные свойства
 - Пользовательские свойства
 - Расширенные свойства
-- Доступ к свойствам
-- Изменение свойств
 - Управление свойствами
+- Изменение свойств
 - Метаданные документа
 - Редактирование метаданных
 - Язык проверки
+- Язык по умолчанию
 - PowerPoint
-- Презентация
+- OpenDocument
+- презентация
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: "Узнайте, как легко управлять, читать и редактировать свойства документов PowerPoint с помощью Aspose.Slides for .NET на C#. Повышайте продуктивность и автоматизируйте свой рабочий процесс!"
+- Aspose.Slides
+description: "Управляйте свойствами презентации в Aspose.Slides for .NET, упрощая поиск, брендинг и рабочие процессы в ваших файлах PowerPoint и OpenDocument."
 ---
+## **Введение**
 
-## **Обзор**
+Aspose.Slides for .NET поддерживает два типа свойств документа: **Built-in** и **Custom**. Оба типа свойств легко доступны и управляются с помощью API Aspose.Slides for .NET.
 
-Aspose.Slides for .NET поддерживает два типа свойств документа: **Встроенные** и **Пользовательские**. Оба типа свойств легко доступны и управляются с помощью API Aspose.Slides for .NET.
+Aspose.Slides позволяет работать со свойствами документа презентации через интерфейс [IDocumentProperties](https://reference.aspose.com/slides/ru/net/aspose.slides/idocumentproperties/). Экземпляр этого интерфейса возвращается свойством [Presentation.DocumentProperties](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/documentproperties/). Ниже приведены примеры чтения, изменения и управления этими свойствами.
 
-Для работы со свойствами документа Aspose.Slides предоставляет интерфейс [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/), доступный через свойство [Presentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/presentation/documentproperties/). Разработчики могут использовать интерфейс [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) объекта `Presentation` для безболезненного чтения, изменения и управления свойствами презентации, как показано в примерах ниже.
-
-{{% alert color="primary" %}} 
-Обратите внимание, что поля **Application** и **Producer** невозможно изменить, так как они всегда отображают «Aspose Ltd.» и «Aspose.Slides for .NET x.x.x».
+{{% alert color="info" %}} 
+Please note that the **Application** and **Producer** fields cannot be modified, as these fields will always display "Aspose Ltd." and "Aspose.Slides for .NET x.x.x".
 {{% /alert %}} 
 
 ## **Управление свойствами презентации**
 
-Microsoft PowerPoint предоставляет возможность добавлять свойства к файлам презентаций. Эти свойства документа позволяют хранить полезную информацию вместе с файлами. Существует два типа свойств документа:
+Microsoft PowerPoint предоставляет возможность добавлять свойства к файлам презентаций. Эти свойства позволяют сохранять полезную информацию вместе с файлами. Существует два типа свойств документа:
 
-- Системные (встроенные) свойства
-- Пользовательские (настраиваемые) свойства
+- System-defined (built-in) properties
+- User-defined (custom) properties
 
-**Встроенные** свойства содержат общую информацию о документе, такую как заголовок, имя автора, статистика документа и т.д.
+**Built-in** свойства содержат общую информацию о документе, такую как заголовок, имя автора, статистика документа и прочее.
 
-**Пользовательские** свойства определяются пользователями как пары **Имя/Значение**, где и имя, и значение задаются пользователем.
+**Custom** свойства задаются пользователями в виде пар **Name/Value**, где как имя, так и значение задаются пользователем.
 
 С помощью Aspose.Slides for .NET разработчики могут получать доступ и изменять как встроенные, так и пользовательские свойства.
 
-Microsoft PowerPoint позволяет пользователям управлять свойствами документа, щёлкнув по значку Office, затем выбрав **File → Info → Properties**. После выбора **Advanced Properties** открывается диалог, где можно управлять всеми свойствами презентации.
+Microsoft PowerPoint позволяет пользователям управлять свойствами документа, щёлкнув значок Office, затем выбрав **File → Info → Properties**. После выбора **Advanced Properties** появляется диалог, где можно управлять всеми свойствами презентации.
 
-В диалоговом окне **Properties** есть несколько вкладок, таких как **General**, **Summary**, **Statistics**, **Contents** и **Custom**. Каждая вкладка предоставляет параметры для настройки определённых видов информации, относящейся к файлу PowerPoint. Вкладка **Custom** используется для управления пользовательскими свойствами.
+В диалоговом окне **Properties** есть несколько вкладок, таких как **General**, **Summary**, **Statistics**, **Contents** и **Custom**. Каждая вкладка предоставляет параметры для настройки определённых типов информации, связанной с файлом PowerPoint. Вкладка **Custom** используется для управления пользовательскими свойствами.
 
 ## **Доступ к встроенным свойствам**
 
-Эти свойства, объявленные интерфейсом [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/), включают: **Creator** (Автор), **Description**, **Keywords**, **Created** (Дата создания), **Modified** (Дата изменения), **Printed** (Дата последней печати), **LastModifiedBy**, **SharedDoc** (указание, общедоступен ли документ между разными производителями), **PresentationFormat**, **Subject**, **Title** и многое другое.
+Эти свойства, предоставляемые интерфейсом [IDocumentProperties](https://reference.aspose.com/slides/ru/net/aspose.slides/idocumentproperties/), включают: **Creator** (Author), **Description**, **Keywords**, **Created** (Creation Date), **Modified** (Modification Date), **Printed** (Last Print Date), **LastModifiedBy**, **SharedDoc** (indicates whether the document is shared between different producers), **PresentationFormat**, **Subject**, **Title** и др.
+
 ```cs
-// Создайте экземпляр класса Presentation, представляющего файл презентации.
+using Aspose.Slides;
+
+// Создайте экземпляр класса Presentation, который представляет файл презентации.
 using Presentation presentation = new Presentation("AccessBuiltInProperties.pptx");
 
-// Get a reference to the object of type IDocumentProperties associated with the presentation.
+// Получите ссылку на объект типа IDocumentProperties, связанный с презентацией.
 IDocumentProperties documentProperties = presentation.DocumentProperties;
 
-// Display the Built-in properties.
+// Отобразите встроенные свойства.
 Console.WriteLine("Category : " + documentProperties.Category);
 Console.WriteLine("Content status : " + documentProperties.ContentStatus);
 Console.WriteLine("Creation date : " + documentProperties.CreatedTime);
@@ -79,12 +82,15 @@ Console.WriteLine("Subject : " + documentProperties.Subject);
 Console.WriteLine("Title : " + documentProperties.Title);
 ```
 
-
 ## **Изменение встроенных свойств**
 
-Изменять встроенные свойства файлов презентаций так же просто, как их получать. Достаточно присвоить строковое значение нужному свойству, и значение свойства будет обновлено. В примере ниже показано, как изменить встроенные свойства документа презентации.
+Изменять встроенные свойства файлов презентаций так же просто, как получать к ним доступ. Достаточно присвоить строковое значение нужному свойству, и значение будет обновлено. В примере ниже показано, как изменить встроенные свойства документа презентации.
+
 ```cs
-// Создайте экземпляр класса Presentation, представляющего файл презентации.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Создайте экземпляр класса Presentation, который представляет файл презентации.
 using Presentation presentation = new Presentation("ModifyBuiltInProperties.pptx");
 
 // Получите ссылку на объект типа IDocumentProperties, связанный с презентацией.
@@ -101,11 +107,14 @@ documentProperties.Manager = "Aspose manager";
 presentation.Save("DocumentProperties_output.pptx", SaveFormat.Pptx);
 ```
 
-
 ## **Добавление пользовательских свойств презентации**
 
-Пользовательские свойства презентации позволяют разработчикам хранить дополнительную метаинформацию или специфические данные внутри файла презентации. Aspose.Slides упрощает создание и управление этими пользовательскими свойствами программно. Ниже приведены примеры, демонстрирующие, как добавить пользовательские свойства к вашим презентациям.
+Пользовательские свойства презентации позволяют разработчикам сохранять дополнительные метаданные или специфическую информацию внутри файла презентации. Aspose.Slides упрощает создание и управление этими свойствами программно. В следующих примерах демонстрируется, как добавить пользовательские свойства к вашим презентациям.
+
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Создайте экземпляр класса Presentation.
 using Presentation presentation = new Presentation();
 
@@ -121,18 +130,21 @@ documentProperties["Document version"] = 2;
 presentation.Save("CustomDocumentProperties_output.pptx", SaveFormat.Pptx);
 ```
 
-
 ## **Доступ и изменение пользовательских свойств**
 
-Aspose.Slides также позволяет разработчикам получать доступ к существующим пользовательским свойствам и легко изменять их значения. Эта возможность помогает поддерживать точные метаданные и поддерживает динамические обновления на основе ввода пользователя или бизнес‑логики. Примеры ниже показывают, как получить и обновить значения пользовательских свойств в презентации.
+Aspose.Slides также позволяет получать доступ к существующим пользовательским свойствам и легко изменять их значения. Эта возможность помогает поддерживать точные метаданные и поддерживает динамические обновления на основе ввода пользователя или **business logic**. Примеры ниже показывают, как извлекать и обновлять значения пользовательских свойств в презентации.
+
 ```cs
-// Создайте экземпляр класса Presentation, представляющего файл PPTX.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Создайте экземпляр класса Presentation, который представляет файл PPTX.
 using Presentation presentation = new Presentation("AccessAndModifyProperties.pptx");
 
-// Get a reference to the object of type IDocumentProperties associated with the presentation.
+// Получите ссылку на объект типа IDocumentProperties, связанный с презентацией.
 IDocumentProperties documentProperties = presentation.DocumentProperties;
 
-// Получите доступ к пользовательским свойствам и измените их.
+// Доступ к пользовательским свойствам и их изменение.
 for (int i = 0; i < documentProperties.CountOfCustomProperties; i++)
 {
     string propertyName = documentProperties.GetCustomPropertyName(i);
@@ -150,23 +162,22 @@ for (int i = 0; i < documentProperties.CountOfCustomProperties; i++)
 presentation.Save("CustomProperties_output.pptx", SaveFormat.Pptx);
 ```
 
+## **Рабочий пример**
 
-## **Пример в реальном времени**
+Попробуйте онлайн‑приложение [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/ru/metadata), чтобы увидеть, как работать со свойствами документа с помощью API Aspose.Slides:
 
-Попробуйте онлайн‑приложение [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata), чтобы увидеть, как работать со свойствами документа с помощью API Aspose.Slides:
-
-[![Просмотр и редактирование метаданных PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/ru/metadata)
 
 ## ***FAQ**
 
-**Как удалить встроенное свойство из презентации?**
+### Как удалить встроенное свойство из презентации?
 
-Встроенные свойства являются неотъемлемой частью презентации и полностью удалить их нельзя. Однако вы можете изменить их значения или, если это допускается для конкретного свойства, установить их в пустую строку.
+Встроенные свойства являются неотъемлемой частью презентации и полностью удалить их нельзя. Однако можно изменить их значения или установить пустое значение, если это позволяет конкретное свойство.
 
-**Что произойдет, если я добавлю пользовательское свойство, которое уже существует?**
+### Что произойдёт, если добавить пользовательское свойство, которое уже существует?
 
-Если добавить пользовательское свойство, которое уже существует, его текущее значение будет перезаписано новым. Нет необходимости предварительно удалять или проверять свойство — Aspose.Slides автоматически обновит его значение.
+Если добавить пользовательское свойство, которое уже существует, его текущее значение будет перезаписано новым. Нет необходимости предварительно удалять или проверять свойство — Aspose.Slides автоматически обновит значение свойства.
 
-**Могу ли я получить доступ к свойствам презентации, не загружая её полностью?**
+### Можно ли получить доступ к свойствам презентации без полной загрузки презентации?
 
-Да, вы можете получить доступ к свойствам презентации без полной загрузки, используя метод `GetPresentationInfo` класса [PresentationFactory](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/). Затем используйте метод `ReadDocumentProperties`, предоставляемый интерфейсом [IPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/), чтобы эффективно считать свойства, экономя память и повышая производительность.
+Да, можно получить доступ к свойствам презентации без полной загрузки, используя метод `GetPresentationInfo` класса [PresentationFactory](https://reference.aspose.com/slides/ru/net/aspose.slides/presentationfactory/). Затем используйте метод `ReadDocumentProperties`, предоставленный интерфейсом [IPresentationInfo](https://reference.aspose.com/slides/ru/net/aspose.slides/ipresentationinfo/), чтобы эффективно прочитать свойства, экономя память и улучшая производительность.

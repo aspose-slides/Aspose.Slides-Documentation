@@ -26,32 +26,42 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "تحسين إدارة كائنات OLE في ملفات PowerPoint وOpenDocument باستخدام Aspose.Slides لـ .NET. تضمين، تحديث، وتصدير محتوى OLE بسلاسة."
+description: "تحسين إدارة كائنات OLE في ملفات PowerPoint وOpenDocument باستخدام Aspose.Slides for .NET. قم بتضمين وتحديث وتصدير محتوى OLE بسلاسة."
 ---
+## **المقدمة**
 
 {{% alert title="Info" color="info" %}}
-OLE (Object Linking & Embedding) هي تقنية من Microsoft تسمح بنقل البيانات والكائنات التي تم إنشاؤها في تطبيق إلى تطبيق آخر عبر الربط أو الإدراج. 
+
+OLE (Object Linking & Embedding) هي تقنية من مايكروسوفت تسمح بنقل البيانات والكائنات التي تم إنشاؤها في تطبيق إلى تطبيق آخر عبر الارتباط أو الإدراج. 
+
 {{% /alert %}} 
 
-Consider a chart created in MS Excel. The chart is then placed inside a PowerPoint slide. That Excel chart is considered an OLE object. 
+تخيل رسمًا بيانيًا تم إنشاؤه في MS Excel. ثم يتم وضع هذا الرسم داخل شريحة PowerPoint. يُعتبر هذا الرسم كائن OLE. 
 
-- قد يظهر كائن OLE كأيقونة. في هذه الحالة، عند النقر المزدوج على الأيقونة، يُفتح المخطط في التطبيق المرتبط به (Excel)، أو يُطلب منك اختيار تطبيق لفتح الكائن أو تحريره. 
-- قد يعرض كائن OLE محتواه الفعلي، مثل محتويات المخطط. في هذه الحالة، يتم تنشيط المخطط في PowerPoint، يتم تحميل واجهة المخطط، ويمكنك تعديل بيانات المخطط داخل PowerPoint.
+- قد يظهر كائن OLE على شكل أيقونة. في هذه الحالة، عند النقر مزدوجًا على الأيقونة، يتم فتح الرسم في التطبيق المرتبط به (Excel)، أو يُطلب منك اختيار تطبيق لفتح أو تحرير الكائن. 
+- قد يعرض كائن OLE محتواه الفعلي، مثل محتويات الرسم البياني. في هذه الحالة يتم تنشيط الرسم داخل PowerPoint، تُحمَّل واجهة الرسم، وتتمكن من تعديل بيانات الرسم داخل PowerPoint.
 
-[Aspose.Slides for .NET](https://products.aspose.com/slides/net/) يتيح لك إدراج كائنات OLE في الشرائح كإطارات كائن OLE ([OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe)).
+[Aspose.Slides for .NET](https://products.aspose.com/slides/ar/net/) يتيح لك إدراج كائنات OLE في الشرائح كإطارات كائن OLE ([OleObjectFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/oleobjectframe)).
 
 ## **إضافة إطارات كائن OLE إلى الشرائح**
 
-بافتراض أنك قد أنشأت مخططًا بالفعل في Microsoft Excel وترغب في تضمينه في شريحة كإطار كائن OLE باستخدام Aspose.Slides for .NET، يمكنك القيام بذلك بهذه الطريقة:
+على افتراض أنك أنشأت رسمًا بيانيًا في Microsoft Excel وتريد إدراجه في شريحة كإطار كائن OLE باستخدام Aspose.Slides for .NET، يمكنك القيام بذلك بهذه الطريقة:
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
-2. الحصول على مرجع الشريحة عبر فهرستها.
-3. قراءة ملف Excel كمصفوفة بايت.
-4. إضافة [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) إلى الشريحة مع مصفوفة البايت ومعلومات أخرى عن كائن OLE.
-5. كتابة العرض التقديمي المعدل كملف PPTX.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation).  
+2. الحصول على مرجع الشريحة عبر فهرسها.  
+3. قراءة ملف Excel كمصفوفة بايت.  
+4. إضافة الـ [OleObjectFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/oleobjectframe) إلى الشريحة مع تمرير مصفوفة البايت ومعلومات أخرى حول كائن OLE.  
+5. كتابة العرض المعدل كملف PPTX.  
 
-في المثال أدناه، أضفنا مخططًا من ملف Excel إلى شريحة كـ[OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) باستخدام Aspose.Slides for .NET.  **ملاحظة** أن مُنشئ [OleEmbeddedDataInfo](https://reference.aspose.com/slides/net/aspose.slides.dom.ole/oleembeddeddatainfo/) يأخذ امتداد الكائن القابل للتضمين كمعامل ثانٍ. يتيح هذا الامتداد لـ PowerPoint تفسير نوع الملف بشكل صحيح واختيار التطبيق المناسب لفتح كائن OLE هذا.
+في المثال أدناه، أضفنا رسمًا بيانيًا من ملف Excel إلى شريحة كـ [OleObjectFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/oleobjectframe) باستخدام Aspose.Slides for .NET.  
+**ملاحظة** أن منشئ الـ [OleEmbeddedDataInfo](https://reference.aspose.com/slides/ar/net/aspose.slides.dom.ole/oleembeddeddatainfo/) يتلقى امتداد الكائن القابل للإدراج كمعامل ثانٍ. يتيح هذا الامتداد لـ PowerPoint تفسير نوع الملف بشكل صحيح واختيار التطبيق المناسب لفتح كائن OLE هذا.
+
 ```csharp 
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     SizeF slideSize = presentation.SlideSize.Size;
@@ -68,13 +78,16 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+### **إضافة إطارات كائن OLE المرتبطة**
 
-### **إضافة إطارات OLE مرتبطة**
+Aspose.Slides for .NET يتيح لك إضافة [OleObjectFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/oleobjectframe) بدون إدراج البيانات ولكن فقط مع رابط إلى الملف.
 
-Aspose.Slides for .NET يتيح لك إضافة [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) دون تضمين البيانات ولكن فقط مع ارتباط إلى الملف.
+يعرض الشيفرة C# أدناه طريقة إضافة [OleObjectFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/oleobjectframe) مع ملف Excel مرتبط إلى شريحة:
 
-This C# code shows you how to add an [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) with a linked Excel file to a slide:
 ```csharp 
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -86,18 +99,20 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+## **الوصول إلى إطارات كائن OLE**
 
-## **الوصول إلى إطارات OLE**
+إذا كان كائن OLE مدرجًا بالفعل في شريحة، يمكنك العثور عليه أو الوصول إليه بسهولة بهذه الطريقة:
 
-If an OLE object is already embedded in a slide, you can easily find or access it this way:
+1. تحميل عرض يحتوي على كائن OLE المدمج بإنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation).  
+2. الحصول على مرجع الشريحة باستخدام فهرستها.  
+3. الوصول إلى شكل الـ [OleObjectFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/oleobjectframe). في مثالنا، استخدمنا الـ PPTX الذي تم إنشاؤه مسبقًا والذي يحتوي على شكل واحد فقط في الشريحة الأولى. ثم *قمنا بتحويل* ذلك الكائن إلى [IOleObjectFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/ioleobjectframe). هذا هو إطار كائن OLE المطلوب الوصول إليه.  
+4. بمجرد الوصول إلى إطار كائن OLE، يمكنك تنفيذ أي عملية عليه.  
 
-1. تحميل عرض تقديمي يحتوي على كائن OLE مضمّن عن طريق إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
-2. الحصول على مرجع الشريحة باستخدام فهرستها.
-3. الوصول إلى شكل [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe). في مثالنا، استخدمنا الـ PPTX الذي تم إنشاؤه مسبقًا والذي يحتوي على شكل واحد فقط في الشريحة الأولى. ثم *cast* ذلك الكائن إلى [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe). كان هذا هو إطار OLE المطلوب الوصول إليه.
-4. بمجرد الوصول إلى إطار كائن OLE، يمكنك تنفيذ أي عملية عليه.
+في المثال أدناه، يتم الوصول إلى إطار كائن OLE (رسم Excel مدرج في شريحة) وبيانات ملفه.
 
-In the example below, an OLE object frame (an Excel chart object embedded in a slide) and its file data are accessed.
 ```csharp 
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -107,10 +122,10 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
     if (oleFrame != null)
     {
-        // احصل على بيانات الملف المضمّن.
+        // احصل على بيانات الملف المدمج.
         byte[] fileData = oleFrame.EmbeddedData.EmbeddedFileData;
 
-        // احصل على امتداد الملف المضمّن.
+        // احصل على امتداد الملف المدمج.
         string fileExtension = oleFrame.EmbeddedData.EmbeddedFileExtension;
 
         // ...
@@ -118,13 +133,15 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
+### **الوصول إلى خصائص إطار كائن OLE المرتبط**
 
-### **الوصول إلى خصائص إطار OLE المرتبط**
+Aspose.Slides يتيح لك الوصول إلى خصائص إطار كائن OLE المرتبط.
 
-Aspose.Slides يتيح لك الوصول إلى خصائص إطار OLE المرتبط.
+يعرض الشيفرة C# أدناه طريقة التحقق مما إذا كان كائن OLE مرتبطًا ثم الحصول على مسار الملف المرتبط:
 
-This C# code shows you how to check if an OLE object is linked and then obtain the path to the linked file:
 ```csharp
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.ppt"))
 {
     ISlide slide = presentation.Slides[0];
@@ -139,7 +156,7 @@ using (Presentation presentation = new Presentation("sample.ppt"))
         Console.WriteLine("OLE object frame is linked to: " + oleFrame.LinkPathLong);
 
         // طباعة المسار النسبي للملف المرتبط إذا كان موجودًا.
-        // يمكن لعروض PPT فقط أن تحتوي على المسار النسبي.
+        // يمكن فقط لعروض PPT أن تحتوي على المسار النسبي.
         if (!string.IsNullOrEmpty(oleFrame.LinkPathRelative))
         {
             Console.WriteLine("OLE object frame relative path: " + oleFrame.LinkPathRelative);
@@ -148,26 +165,32 @@ using (Presentation presentation = new Presentation("sample.ppt"))
 }
 ```
 
-
 ## **تغيير بيانات كائن OLE**
 
-{{% alert color="primary" %}} 
-في هذا القسم، يستخدم مثال التعليمات البرمجية أدناه [Aspose.Cells for .NET](/cells/net/).
+{{% alert color="info" %}} 
+
+في هذا القسم، يستخدم المثال البرمجي أدناه [Aspose.Cells for .NET](/cells/net/).
+
 {{% /alert %}}
 
-If an OLE object is already embedded in a slide, you can easily access that object and modify its data this way:
+إذا كان كائن OLE مدرجًا بالفعل في شريحة، يمكنك بسهولة الوصول إلى ذلك الكائن وتعديل بياناته بهذه الطريقة:
 
-1. تحميل عرض تقديمي يحتوي على كائن OLE مضمّن عن طريق إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
-2. الحصول على مرجع الشريحة عبر فهرستها. 
-3. الوصول إلى شكل [OLEObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe). في مثالنا، استخدمنا الـ PPTX الذي تم إنشاؤه مسبقًا والذي يحتوي على شكل واحد في الشريحة الأولى. ثم *cast* ذلك الكائن إلى [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe). كان هذا هو الإطار المطلوب الوصول إليه.
-4. بمجرد الوصول إلى إطار كائن OLE، يمكنك تنفيذ أي عملية عليه.
-5. إنشاء كائن `Workbook` والوصول إلى بيانات OLE.
-6. الوصول إلى الـ `Worksheet` المطلوب وتعديل البيانات.
-7. حفظ الـ `Workbook` المحدث في تدفق.
-8. تغيير بيانات كائن OLE من التدفق.
+1. تحميل عرض يحتوي على كائن OLE المدمج بإنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation).  
+2. الحصول على مرجع الشريحة عبر فهرستها.  
+3. الوصول إلى شكل الـ [OLEObjectFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/oleobjectframe). في مثالنا، استخدمنا الـ PPTX الذي تم إنشاؤه مسبقًا والذي يحتوي على شكل واحد في الشريحة الأولى. ثم *قمنا بتحويل* ذلك الكائن إلى [IOleObjectFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/ioleobjectframe). هذا هو إطار كائن OLE المطلوب الوصول إليه.  
+4. بمجرد الوصول إلى إطار كائن OLE، يمكنك تنفيذ أي عملية عليه.  
+5. إنشاء كائن `Workbook` والوصول إلى بيانات OLE.  
+6. الوصول إلى الـ `Worksheet` المطلوب وتعديل البيانات.  
+7. حفظ الـ `Workbook` المحدث في تدفق.  
+8. تغيير بيانات كائن OLE من التدفق.  
 
-In the example below, an OLE object frame (an Excel chart object embedded in a slide) is accessed, and its file data is modified to update the chart data.
+في المثال أدناه، يتم الوصول إلى إطار كائن OLE (رسم Excel مدرج في شريحة) وتعديل بيانات ملفه لتحديث بيانات الرسم.
+
 ```csharp 
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -180,7 +203,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
         using (MemoryStream oleStream = new MemoryStream(oleFrame.EmbeddedData.EmbeddedFileData))
         {
             // قراءة بيانات كائن OLE ككائن Workbook.
-            Workbook workbook = new Workbook(oleStream);
+            Aspose.Cells.Workbook workbook = new Aspose.Cells.Workbook(oleStream);
 
             using (MemoryStream newOleStream = new MemoryStream())
             {
@@ -190,10 +213,10 @@ using (Presentation presentation = new Presentation("sample.pptx"))
                 workbook.Worksheets[0].Cells[2, 4].PutValue(14);
                 workbook.Worksheets[0].Cells[3, 4].PutValue(15);
 
-                OoxmlSaveOptions fileOptions = new OoxmlSaveOptions(Aspose.Cells.SaveFormat.Xlsx);
+                Aspose.Cells.OoxmlSaveOptions fileOptions = new Aspose.Cells.OoxmlSaveOptions(Aspose.Cells.SaveFormat.Xlsx);
                 workbook.Save(newOleStream, fileOptions);
 
-                // تغيير بيانات كائن إطار OLE.
+                // تغيير بيانات إطار كائن OLE.
                 IOleEmbeddedDataInfo newData = new OleEmbeddedDataInfo(newOleStream.ToArray(), oleFrame.EmbeddedData.EmbeddedFileExtension);
                 oleFrame.SetEmbeddedData(newData);
             }
@@ -204,13 +227,17 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
+## **إدراج أنواع ملفات أخرى في الشرائح**
 
-## **تضمين أنواع ملفات أخرى في الشرائح**
+بالإضافة إلى رسوم Excel، Aspose.Slides for .NET يتيح لك إدراج أنواع ملفات أخرى في الشرائح. على سبيل المثال، يمكنك إدراج ملفات HTML وPDF وZIP ككائنات. عند النقر مزدوجًا على الكائن المُدرج، يفتح تلقائيًا في البرنامج المناسب أو يُطلب من المستخدم اختيار برنامج مناسب لفتحه.
 
-بالإضافة إلى مخططات Excel، يتيح لك Aspose.Slides for .NET تضمين أنواع ملفات أخرى في الشرائح. على سبيل المثال، يمكنك إدراج ملفات HTML وPDF وZIP ككائنات. عندما ينقر المستخدم مرتين على الكائن المُدرج، يتم فتحه تلقائيًا في البرنامج المناسب، أو يُطلب من المستخدم اختيار برنامج مناسب لفتحه.
+يعرض الشيفرة C# أدناه طريقة إدراج HTML وZIP في شريحة:
 
-This C# code shows you how to embed HTML and ZIP into a slide:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -229,13 +256,17 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+## **تعيين أنواع الملفات للكائنات المدمجة**
 
-## **تعيين أنواع الملفات للكائنات المضمنة**
+عند العمل على العروض، قد تحتاج إلى استبدال كائنات OLE القديمة بأخرى جديدة أو استبدال كائن OLE غير المدعوم بآخر مدعوم. Aspose.Slides for .NET يتيح لك تعيين نوع الملف لكائن مدمج، مما يمكنك من تحديث بيانات إطار OLE أو امتداده.
 
-عند العمل مع العروض التقديمية، قد تحتاج إلى استبدال كائنات OLE القديمة بأخرى جديدة أو استبدال كائن OLE غير المدعوم بآخر مدعوم. يتيح لك Aspose.Slides for .NET تعيين نوع الملف لكائن مضمّن، مما يمكنك من تحديث بيانات إطار OLE أو امتداده.
+يعرض الشيفرة C# أدناه طريقة تعيين نوع الملف لكائن OLE مدمج إلى `zip`:
 
-This C# code shows you how to set the file type for an embedded OLE object to `zip`:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -253,13 +284,16 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
+## **تعيين صور الأيقونة والعناوين للكائنات المدمجة**
 
-## **تعيين صور الأيقونات والعناوين للكائنات المضمنة**
+بعد إدراج كائن OLE، يتم إضافة معاينة تتكون من صورة أيقونة تلقائيًا. هذه المعاينة هي ما يراه المستخدمون قبل الوصول إلى الكائن أو فتحه. إذا أردت استخدام صورة ونص محددين كعناصر في المعاينة، يمكنك تعيين صورة الأيقونة والعنوان باستخدام Aspose.Slides for .NET.
 
-بعد تضمين كائن OLE، يتم إضافة معاينة تتكون من صورة أيقونة تلقائيًا. هذه المعاينة هي ما يراه المستخدمون قبل الوصول إلى كائن OLE أو فتحه. إذا أردت استخدام صورة ونص محددين كعناصر في المعاينة، يمكنك تعيين صورة الأيقونة والعنوان باستخدام Aspose.Slides for .NET.
+يعرض الشيفرة C# أدناه طريقة تعيين صورة الأيقونة والعنوان لكائن مدمج:
 
-This C# code shows you how to set the icon image and title for an embedded object: 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -269,7 +303,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
     byte[] imageData = File.ReadAllBytes("image.png");
     IPPImage oleImage = presentation.Images.AddImage(imageData);
 
-    // تعيين عنوان والصورة لمعاينة OLE.
+    // تعيين عنوان وصورة للمعاينة OLE.
     oleFrame.SubstitutePictureTitle = "My title";
     oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
     oleFrame.IsObjectIcon = true;
@@ -278,24 +312,37 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
+## **منع إطار كائن OLE من تغيير الحجم وإعادة الوضع**
 
-## **منع تغيير حجم وإعادة تموضع إطار OLE**
+بعد إضافة كائن OLE مرتبط إلى شريحة عرض، قد ترى عند فتح العرض في PowerPoint رسالة تطلب منك تحديث الروابط. النقر على زر "Update Links" قد يغير حجم وموقع إطار كائن OLE لأن PowerPoint يحدث البيانات من الكائن المرتبط ويُعيد تحديث المعاينة. لمنع PowerPoint من طلب تحديث بيانات الكائن، قم بتعيين خاصية `UpdateAutomatic` لواجهة [IOleObjectFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/ioleobjectframe/) إلى `false`:
 
-بعد إضافة كائن OLE مرتبط إلى شريحة عرض تقديمي، عند فتح العرض في PowerPoint قد يظهر لك رسالة تطلب تحديث الروابط. قد يؤدي النقر على زر "Update Links" إلى تغيير حجم وموقع إطار OLE لأن PowerPoint يحدث البيانات من كائن OLE المرتبط ويُعيد تحديث معاينة الكائن. لمنع PowerPoint من طلب تحديث بيانات الكائن، عيّن خاصية `UpdateAutomatic` لواجهة [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/) إلى `false`:
 ```cs
-oleFrame.UpdateAutomatic = false;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    IOleObjectFrame oleFrame = (IOleObjectFrame)presentation.Slides[0].Shapes[0];
+
+    // حافظ على حجم وموضع إطار كائن OLE عندما يقوم PowerPoint بتحديث الارتباط.
+    oleFrame.UpdateAutomatic = false;
+
+    presentation.Save("output.pptx", SaveFormat.Pptx);
+}
 ```
 
+## **استخراج الملفات المدمجة**
 
-## **استخراج الملفات المضمنة**
+Aspose.Slides for .NET يتيح لك استخراج الملفات المدمجة في الشرائح ككائنات OLE بهذه الطريقة:
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation) التي تحتوي على كائنات OLE التي تريد استخراجها.  
+2. التجول عبر جميع الأشكال في العرض والوصول إلى أشكال [OLEObjectFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/oleobjectframe).  
+3. الوصول إلى بيانات الملفات المدمجة من إطارات OLE وكتابتها إلى القرص.  
 
-Aspose.Slides for .NET يتيح لك استخراج الملفات المضمنة في الشرائح ككائنات OLE بهذه الطريقة:
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) التي تحتوي على كائنات OLE التي تريد استخراجها.
-2. التجول عبر جميع الأشكال في العرض والوصول إلى أشكال [OLEObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe).
-3. الوصول إلى بيانات الملفات المضمنة من إطارات OLE وكتابتها إلى القرص.
+يعرض الشيفرة C# أدناه طريقة استخراج الملفات المدمجة في شريحة ككائنات OLE:
 
-This C# code shows you how to extract files embedded in a slide as OLE objects:
 ```c#
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -317,21 +364,20 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
+## **الأسئلة الشائعة**
 
-## **FAQ**
+### هل سيتم عرض محتوى OLE عند تصدير الشرائح إلى PDF/صور؟
 
-**هل سيتم عرض محتوى OLE عند تصدير الشرائح إلى ملفات PDF/صور؟**
+ما يُظهر على الشريحة هو ما يتم تصييره — أي أيقونة/صورة بديلة (المعاينة). محتوى OLE "الحي" لا يُنفذ أثناء التصيير. إذا لزم الأمر، قم بتعيين صورة معاينة خاصة لضمان المظهر المتوقع في ملف PDF المصدر.
 
-ما يُعرض على الشريحة هو أيقونة/صورة المعاينة. لا يتم تنفيذ محتوى OLE "الحي" أثناء التصدير. إذا لزم الأمر، عيّن صورة معاينة خاصة لضمان المظهر المتوقع في الـ PDF المصدّر.
+### كيف يمكن قفل كائن OLE على شريحة بحيث لا يتمكن المستخدمون من تحريكه/تحريره في PowerPoint؟
 
-**كيف يمكنني قفل كائن OLE على الشريحة بحيث لا يستطيع المستخدمون تحريكه/تحريره في PowerPoint؟**
+قم بقفل الشكل: Aspose.Slides يوفر [قفل على مستوى الشكل](/slides/ar/net/applying-protection-to-presentation/). هذا ليس تشفيرًا، لكنه يمنع التعديلات غير المقصودة والتحريك.
 
-قفل الشكل: يوفر Aspose.Slides [قواعد قفل على مستوى الشكل](/slides/ar/net/applying-protection-to-presentation/). هذا ليس تشفيرًا، لكنه يمنع التعديلات أو النقل غير المقصود.
+### لماذا "يقفز" كائن Excel المرتبط أو يتغير حجمه عند فتح العرض؟
 
-**لماذا "يقفز" كائن Excel المرتبط أو يتغير حجمه عند فتح العرض؟**
+قد يقوم PowerPoint بتحديث معاينة OLE المرتبط. للحصول على مظهر ثابت، اتبع ممارسات [الحل العملي لإعادة حجم ورقة العمل](/slides/ar/net/working-solution-for-worksheet-resizing/) — إما ملاءمة الإطار للنطاق، أو ضبط النطاق إلى إطار ثابت وتعيين صورة بديلة مناسبة.
 
-قد يقوم PowerPoint بتحديث معاينة OLE المرتبط. للحصول على مظهر ثابت، اتبع ممارسات [حل النموذج لإعادة تحجيم ورقة العمل](/slides/ar/net/working-solution-for-worksheet-resizing/) — إما ملاءمة الإطار للنطاق، أو مقياس النطاق إلى إطار ثابت وتعيين صورة بديلة مناسبة.
+### هل سيتم الحفاظ على المسارات النسبية لكائنات OLE المرتبطة في صيغة PPTX؟
 
-**هل يتم الحفاظ على المسارات النسبية لكائنات OLE المرتبطة في صيغة PPTX؟**
-
-في PPTX لا تتوفر معلومات "المسار النسبي" — فقط المسار الكامل. المسارات النسبية موجودة في الصيغة القديمة PPT. لتقليل الاعتماد على المسارات، يفضَّل استخدام مسارات مطلقة موثوقة أو عناوين URI يمكن الوصول إليها أو تضمين الملفات.
+في PPTX، لا تتوفر معلومات "المسار النسبي" — فقط المسار الكامل. المسارات النسبية موجودة في تنسيق PPT القديم. من أجل القابلية للنقل، يفضَّل استخدام مسارات مطلقة موثوقة/عناوين URI قابلة للوصول أو الإدراج.

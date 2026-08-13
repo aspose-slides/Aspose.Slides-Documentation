@@ -20,13 +20,13 @@ keywords:
 - apresentação
 - Java
 - Aspose.Slides
-description: "Aprenda a criar e formatar listas com marcadores, imagem, multinível e numeradas em apresentações PowerPoint e OpenDocument usando Aspose.Slides para Java."
+description: "Aprenda a criar e formatar listas com marcadores, de imagem, multinível e numeradas em apresentações PowerPoint e OpenDocument usando Aspose.Slides para Java."
 ---
 ## **Visão geral**
 
-Aspose.Slides for Java permite que você crie e formate listas com marcadores e numeradas em apresentações PowerPoint e OpenDocument. Um item de lista é um parágrafo cujas configurações de marcador são controladas por meio de seu formato de parágrafo.
+O Aspose.Slides for Java permite criar e formatar listas com marcadores e numeradas em apresentações PowerPoint e OpenDocument. Um item de lista é um parágrafo cujas configurações de marcador são controladas por meio do seu formato de parágrafo.
 
-Use o método [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/pt/java/com.aspose.slides/iparagraph/#getParagraphFormat--) para acessar as configurações de lista ao nível do parágrafo. O ponto de entrada principal é [IParagraphFormat.getBullet](https://reference.aspose.com/slides/pt/java/com.aspose.slides/iparagraphformat/#getBullet--), que retorna um objeto [IBulletFormat](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ibulletformat/). Com esse objeto, você pode definir o tipo de marcador, símbolo, imagem, cor, tamanho, estilo de numeração e número inicial.
+Use o [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/pt/java/com.aspose.slides/iparagraph/#getParagraphFormat--) para acessar as configurações de lista em nível de parágrafo. O ponto de entrada principal é [IParagraphFormat.getBullet](https://reference.aspose.com/slides/pt/java/com.aspose.slides/iparagraphformat/#getBullet--), que devolve um objeto [IBulletFormat](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ibulletformat/). Com esse objeto, você pode definir o tipo de marcador, símbolo, imagem, cor, tamanho, estilo de numeração e número inicial.
 
 Este artigo mostra como:
 
@@ -36,13 +36,16 @@ Este artigo mostra como:
 - criar uma lista numerada
 - inspecionar e alterar a formatação de lista em uma apresentação existente
 
-## **Criar uma Lista com Marcadores**
+## **Criar uma lista com marcadores**
 
 Para criar uma lista com marcadores, adicione objetos [IParagraph](https://reference.aspose.com/slides/pt/java/com.aspose.slides/iparagraph/) a um [ITextFrame](https://reference.aspose.com/slides/pt/java/com.aspose.slides/itextframe/) e defina [IBulletFormat.setType](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ibulletformat/#setType-byte-) como [BulletType.Symbol](https://reference.aspose.com/slides/pt/java/com.aspose.slides/bullettype/#Symbol). Em seguida, você pode definir [IBulletFormat.setChar](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ibulletformat/#setChar-char-), [IBulletFormat.getColor](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ibulletformat/#getColor--) e [IBulletFormat.setHeight](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ibulletformat/#setHeight-float-) para controlar a aparência do marcador.
 
 O código Java a seguir demonstra como criar uma lista com marcadores em um slide:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -83,13 +86,15 @@ O resultado:
 
 ![Os marcadores de símbolo](symbol_bullets.png)
 
-## **Criar uma Lista Numerada**
+## **Criar uma lista numerada**
 
 Use listas numeradas quando a ordem dos itens for importante. Defina [IBulletFormat.setType](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ibulletformat/#setType-byte-) como [BulletType.Numbered](https://reference.aspose.com/slides/pt/java/com.aspose.slides/bullettype/#Numbered). Você também pode escolher um formato de numeração com [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) ou definir [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) quando a lista deve começar a partir de um valor diferente de 1.
 
 O código Java a seguir mostra como criar uma lista numerada em um slide:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -123,25 +128,27 @@ O resultado:
 
 ![Os marcadores numerados](numbered_bullets.png)
 
-## **Criar um Marcador de Imagem**
+## **Criar um marcador de imagem**
 
-Aspose.Slides permite substituir um símbolo de marcador padrão por uma imagem. Marcadores de imagem funcionam melhor com imagens simples que permanecem legíveis em tamanho pequeno, como ícones ou arquivos PNG transparentes pequenos.
+O Aspose.Slides permite substituir o símbolo padrão do marcador por uma imagem. Marcadores de imagem funcionam melhor com imagens simples que permanecem legíveis em tamanho pequeno, como ícones ou arquivos PNG transparentes.
 
-{{% alert color="primary" %}}
-Idealmente, se você planeja substituir o símbolo de marcador padrão por uma imagem, é melhor escolher um gráfico simples com fundo transparente. Essas imagens funcionam bem como símbolos de marcador personalizados.
+{{% alert color="info" %}}
+Idealmente, se você planeja substituir o símbolo padrão do marcador por uma imagem, é melhor escolher um gráfico simples com fundo transparente. Essas imagens funcionam bem como símbolos de marcador personalizados.
 
-Lembre-se de que a imagem será reduzida para um tamanho muito pequeno. Por esse motivo, recomendamos fortemente selecionar uma imagem que permaneça nítida e visualmente eficaz quando usada como marcador em uma lista.
+Lembre-se de que a imagem será reduzida a um tamanho muito pequeno. Por esse motivo, recomendamos fortemente selecionar uma imagem que continue clara e visualmente eficaz quando usada como marcador em uma lista.
 {{% /alert %}}
 
 Para criar um marcador de imagem, adicione uma imagem a [Presentation.getImages](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/#getImages--) e atribua o objeto de imagem retornado a [IBulletFormat.getPicture](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ibulletformat/#getPicture--). Defina [IBulletFormat.setType](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ibulletformat/#setType-byte-) como [BulletType.Picture](https://reference.aspose.com/slides/pt/java/com.aspose.slides/bullettype/#Picture) antes de atribuir a imagem.
 
-Digamos que temos um "image.png":
+Suponha que temos um “image.png”:
 
 ![Uma imagem para os marcadores](picture_for_bullets.png)
 
 O código Java a seguir mostra como criar marcadores de imagem em um slide:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -178,13 +185,15 @@ O resultado:
 
 ![Os marcadores de imagem](picture_bullets.png)
 
-## **Criar uma Lista Multinível**
+## **Criar uma lista multinível**
 
-Use [IParagraphFormat.setDepth](https://reference.aspose.com/slides/pt/java/com.aspose.slides/iparagraphformat/#setDepth-short-) para colocar itens de lista em diferentes níveis. O nível 0 é o nível superior, o nível 1 está aninhado abaixo dele, e assim por diante.
+Use [IParagraphFormat.setDepth](https://reference.aspose.com/slides/pt/java/com.aspose.slides/iparagraphformat/#setDepth-short-) para colocar itens de lista em níveis diferentes. O nível 0 é o nível superior, o nível 1 está aninhado abaixo dele e assim por diante.
 
-O código Java a seguir mostra como criar uma lista de marcadores multinível:
+O código Java a seguir mostra como criar uma lista com marcadores multinível:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -223,11 +232,15 @@ O resultado:
 
 ![A lista multinível](multilevel_list.png)
 
-## **Alterar uma Lista Existente**
+## **Alterar uma lista existente**
 
-Para alterar a formatação de lista em uma apresentação existente, acesse o parágrafo alvo e atualize suas configurações [IParagraphFormat.getBullet](https://reference.aspose.com/slides/pt/java/com.aspose.slides/iparagraphformat/#getBullet--). As mesmas propriedades usadas para criar listas podem ser usadas para inspecionar ou modificar listas carregadas de um arquivo PPT, PPTX ou ODP.
+Para alterar a formatação de lista em uma apresentação existente, acesse o parágrafo alvo e atualize suas configurações de [IParagraphFormat.getBullet](https://reference.aspose.com/slides/pt/java/com.aspose.slides/iparagraphformat/#getBullet--). As mesmas propriedades usadas para criar listas podem ser usadas para inspecionar ou modificar listas carregadas de um arquivo PPT, PPTX ou ODP.
+
+O código Java a seguir altera o primeiro parágrafo em um quadro de texto para usar o estilo de lista numerada:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -246,16 +259,16 @@ try {
 }
 ```
 
-## **Perguntas Frequentes**
+## **FAQ**
 
-**É possível exportar listas com marcadores e numeradas para PDF ou imagens?**
+### As listas com marcadores e numeradas podem ser exportadas para PDF ou imagens?
 
-Sim. Aspose.Slides preserva a formatação da lista quando o formato de destino oferece suporte ao layout de texto e aos recursos de marcadores correspondentes.
+Sim. O Aspose.Slides preserva a formatação da lista quando o formato de destino oferece suporte ao layout de texto correspondente e aos recursos de marcadores.
 
-**Posso editar listas em apresentações existentes?**
+### Posso editar listas em apresentações existentes?
 
-Sim. Carregue a apresentação, acesse o parágrafo alvo, inspecione ou atualize suas configurações [IParagraphFormat.getBullet](https://reference.aspose.com/slides/pt/java/com.aspose.slides/iparagraphformat/#getBullet--), e salve a apresentação.
+Sim. Carregue a apresentação, acesse o parágrafo alvo, inspecione ou atualize suas configurações de [IParagraphFormat.getBullet](https://reference.aspose.com/slides/pt/java/com.aspose.slides/iparagraphformat/#getBullet--), e salve a apresentação.
 
-**As listas podem conter texto não latino?**
+### As listas podem conter texto não latino?
 
-Sim. O texto dos itens de lista pode conter caracteres Unicode, permitindo criar listas em apresentações multilíngues. Certifique‑se de que as fontes usadas na apresentação suportem os caracteres necessários.
+Sim. O texto dos itens de lista pode conter caracteres Unicode, de modo que você pode criar listas em apresentações multilíngues. Certifique‑se de que as fontes usadas na apresentação suportam os caracteres necessários.

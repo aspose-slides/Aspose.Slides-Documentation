@@ -1,6 +1,6 @@
 ---
-title: Openbare API en achterwaarts incompatibele wijzigingen in Aspose.Slides voor .NET 15.11.0
-linktitle: Aspose.Slides voor .NET 15.11.0
+title: "Publieke API en terugwaartse incompatibele wijzigingen in Aspose.Slides voor .NET 15.11.0"
+linktitle: "Aspose.Slides voor .NET 15.11.0"
 type: docs
 weight: 210
 url: /nl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/
@@ -16,17 +16,17 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Bekijk de updates van de openbare API en brekende wijzigingen in Aspose.Slides voor .NET om moeiteloos uw PowerPoint PPT, PPTX en ODP presentatiesoplossingen te migreren."
+description: "Bekijk de publieke API‑updates en brekende wijzigingen in Aspose.Slides voor .NET om uw PowerPoint PPT, PPTX en ODP‑presentatieoplossingen soepel te migreren."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Deze pagina geeft een overzicht van alle [toegevoegd](/slides/nl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) of [verwijderd](/slides/nl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) klassen, methoden, eigenschappen enzovoort, en andere wijzigingen die zijn geïntroduceerd met de Aspose.Slides for .NET 15.11.0 API.
+Deze pagina geeft een overzicht van alle [toegevoegd](/slides/nl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) of [verwijderd](/slides/nl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) klassen, methoden, eigenschappen enzovoort, en andere wijzigingen die geïntroduceerd zijn met de Aspose.Slides for .NET 15.11.0 API.
 
 {{% /alert %}} 
-## **Openbare API-wijzigingen**
+## **Wijzigingen in de publieke API**
 
-#### **Verouderde eigenschappen in de DataLabelCollection‑klasse zijn verwijderd**
-Verouderde eigenschappen in de DataLabelCollection‑klasse zijn verwijderd:
+#### **Verouderde eigenschappen in de DataLabelCollection-klasse zijn verwijderd**
+Obsolete properties in DataLabelCollection class have been deleted:
 Aspose.Slides.Charts.DataLabelCollection.Delete
 Aspose.Slides.Charts.DataLabelCollection.Format
 Aspose.Slides.Charts.DataLabelCollection.LinkedSource
@@ -42,22 +42,23 @@ Aspose.Slides.Charts.DataLabelCollection.ShowSeriesName
 Aspose.Slides.Charts.DataLabelCollection.ShowValue
 
 #### **De nieuwe eigenschap FirstSlideNumber is toegevoegd aan de Presentation‑klasse**
-De nieuw toegevoegde eigenschap FirstSlideNumber in Presentation maakt het mogelijk om het nummer van de eerste dia in een presentatie te lezen of in te stellen.
+De nieuwe eigenschap FirstSlideNumber die aan Presentation is toegevoegd, maakt het mogelijk het nummer van de eerste dia in een presentatie op te vragen of in te stellen.
 
-Wanneer een nieuwe FirstSlideNumber‑waarde wordt opgegeven, worden alle dia‑nummers opnieuw berekend.
+Wanneer een nieuwe waarde voor FirstSlideNumber wordt gespecificeerd, worden alle dia‑nummers opnieuw berekend.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- using(var pres = new Presenation(path))
+string path = "sample.pptx";
+string newPath = "output.pptx";
 
+using (var pres = new Presentation(path))
 {
+    int firstSlideNumber = pres.FirstSlideNumber;
 
-  int firstSlideNumber = pres.FirstSlideNumber;
+    pres.FirstSlideNumber = 10;
 
-  pres.FirstSlideNumber = 10;
-
-  pres.Save(newPath, SaveFormat.Pptx);
-
+    pres.Save(newPath, SaveFormat.Pptx);
 }
-
 ```

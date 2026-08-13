@@ -1,5 +1,5 @@
 ---
-title: Java を使用したプレゼンテーションでのチャート作成方法
+title: Java を使用してプレゼンテーションでチャートを作成する方法
 linktitle: チャート作成
 type: docs
 weight: 30
@@ -16,20 +16,21 @@ keywords:
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Java と Aspose.Slides を使用して、PowerPoint の PPT、PPTX、および ODP プレゼンテーションで、レガシーおよびモダンなチャート API の両方を用いたチャートの作成方法を学びます。"
+description: "Aspose.Slides を使用して、Java で PowerPoint PPT、PPTX、ODP プレゼンテーションにおけるレガシーおよびモダンなチャート API を使ったチャート作成方法を学びます。"
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-新しい [Aspose.Slides for Java API](https://docs.aspose.com/slides/java/) がリリースされ、この単一製品で、最初から PowerPoint ドキュメントを生成したり、既存のドキュメントを編集したりする機能がサポートされました。
+新しい[Aspose.Slides for Java API](https://docs.aspose.com/slides/ja/java/)がリリースされ、現在この単一製品は、スクラッチからPowerPointドキュメントを生成し、既存のものを編集する機能をサポートしています。
+
 {{% /alert %}} 
 ## **レガシーコードのサポート**
-14.x.x より前のバージョンの Aspose.Slides for Java で開発されたレガシーコードを使用するには、コードにいくつかの小さな変更を加える必要がありますが、変更後も従来どおり動作します。古い Aspose.Slides for Java の com.aspose.slides および com.aspose.slides.pptx 名前空間に存在していたすべてのクラスは、現在単一の com.aspose.slides 名前空間に統合されています。レガシー Aspose.Slides API を使用してプレゼンテーションで最初から通常のチャートを作成する簡単なコードスニペットを以下で確認し、新しい統合 API への移行手順をご覧ください。
+レガシーコード（Aspose.Slides for Java 14.x.x より前のバージョンで開発されたもの）を使用するには、コードにいくつかの小さな変更を加える必要がありますが、変更後も以前と同様に動作します。以前の Aspose.Slides for Java の com.aspose.slides および com.aspose.slides.pptx 名前空間に存在していたすべてのクラスは、現在 single の com.aspose.slides 名前空間に統合されています。レガシー Aspose.Slides API を使用してプレゼンテーション内でスクラッチから通常のチャートを作成する簡単なコードスニペットを以下に示しますので、統合された新しい API への移行手順を確認してください。
 ## **レガシー Aspose.Slides for Java アプローチ**
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-CreateChartEx-CreateChartEx.java" >}}
 ## **新しい Aspose.Slides for Java 14.x.x アプローチ**
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-CreateAChart-CreateAChart.java" >}}
 
-レガシー Aspose.Slides API を使用してプレゼンテーションで最初から散布図チャートを作成する簡単なコードスニペットと、新しい統合 API でそれを実現する方法を以下で確認してください。
+レガシー Aspose.Slides API を使用してプレゼンテーション内でスクラッチから散布図チャートを作成する簡単なコードスニペットと、新しい統合 API でそれを実現する方法をご覧ください。
 ## **レガシー Aspose.Slides for Java アプローチ**
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-ExistingChart-ExistingChart.java" >}}
 ## **新しい Aspose.Slides for Java 14.x.x アプローチ**

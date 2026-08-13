@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie hiperłączami w prezentacjach w .NET
+title: Zarządzanie hiperłączami prezentacji w .NET
 linktitle: Zarządzaj hiperłączem
 type: docs
 weight: 20
@@ -8,10 +8,10 @@ keywords:
 - dodaj URL
 - dodaj hiperłącze
 - utwórz hiperłącze
-- formatowanie hiperłącza
+- formatuj hiperłącze
 - usuń hiperłącze
-- aktualizuj hiperłącze
-- hiperłącze w tekście
+- zaktualizuj hiperłącze
+- hiperłącze tekstowe
 - hiperłącze slajdu
 - hiperłącze kształtu
 - hiperłącze obrazu
@@ -23,20 +23,20 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Bez wysiłku zarządzaj hiperłączami w prezentacjach PowerPoint i OpenDocument za pomocą Aspose.Slides dla .NET - zwiększ interaktywność i efektywność pracy w kilka minut."
+description: "Bezproblemowo zarządzaj hiperłączami w prezentacjach PowerPoint i OpenDocument za pomocą Aspose.Slides dla .NET — zwiększ interaktywność i usprawnij przepływ pracy w kilka minut."
 ---
 ## **Wprowadzenie**
 
-Hiperłącze jest odwołaniem do obiektu, danych lub miejsca w czymś. Są to typowe hiperłącza w prezentacjach PowerPoint:
+Hiperłącze jest odwołaniem do obiektu, danych lub miejsca w czymś. Oto typowe hiperłącza w prezentacjach PowerPoint:
 
-* Linki do stron internetowych w tekście, kształtach lub mediach
-* Linki do slajdów
+* Odnośniki do witryn internetowych w obrębie tekstów, kształtów lub multimediów
+* Odnośniki do slajdów
 
 Aspose.Slides dla .NET umożliwia wykonywanie wielu zadań związanych z hiperłączami w prezentacjach. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Możesz chcieć wypróbować prosty, [darmowy edytor PowerPoint online.](https://products.aspose.app/slides/pl/editor)
+Możesz chcieć sprawdzić prosty, [darmowy edytor PowerPoint online.](https://products.aspose.app/slides/pl/editor)
 
 {{% /alert %}} 
 
@@ -47,6 +47,9 @@ Możesz chcieć wypróbować prosty, [darmowy edytor PowerPoint online.](https:/
 Ten kod C# pokazuje, jak dodać hiperłącze do strony internetowej w tekście:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
 	IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -64,6 +67,9 @@ using (Presentation presentation = new Presentation())
 Ten przykładowy kod w C# pokazuje, jak dodać hiperłącze do strony internetowej w kształcie:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -77,11 +83,14 @@ using (Presentation pres = new Presentation())
 
 ### **Dodaj hiperłącza URL do multimediów**
 
-Aspose.Slides pozwala dodawać hiperłącza do plików obrazów, dźwięku i wideo. 
+Aspose.Slides pozwala dodawać hiperłącza do obrazów, plików audio i wideo. 
 
 Ten przykładowy kod pokazuje, jak dodać hiperłącze do **obrazu**:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     // Dodaje obraz do prezentacji
@@ -99,6 +108,9 @@ using (Presentation pres = new Presentation())
 Ten przykładowy kod pokazuje, jak dodać hiperłącze do **pliku audio**:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IAudio audio = pres.Audios.AddAudio(File.ReadAllBytes("audio.mp3"));
@@ -114,6 +126,9 @@ using (Presentation pres = new Presentation())
 Ten przykładowy kod pokazuje, jak dodać hiperłącze do **wideo**:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IVideo video = pres.Videos.AddVideo(File.ReadAllBytes("video.avi"));
@@ -126,20 +141,24 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-{{%  alert  title="Tip"  color="primary"  %}} 
+{{%  alert  title="Tip"  color="info"  %}} 
 
-Możesz chcieć zobaczyć *[Zarządzaj OLE](https://docs.aspose.com/slides/pl/net/manage-ole/)*.
+Możesz chcieć zobaczyć *[Zarządzanie OLE](https://docs.aspose.com/slides/pl/net/manage-ole/)*.
 
 {{% /alert %}}
 
 
-## **Użyj hiperłączy do utworzenia spisu treści**
+## **Użyj hiperłączy do stworzenia spisu treści**
 
 Ponieważ hiperłącza pozwalają dodawać odwołania do obiektów lub miejsc, możesz ich używać do tworzenia spisu treści. 
 
-Ten przykładowy kod pokazuje, jak utworzyć spis treści z hiperłączami:
+Ten przykładowy kod pokazuje, jak stworzyć spis treści z hiperłączami:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation())
 {
     var firstSlide = presentation.Slides[0];
@@ -170,11 +189,15 @@ using (var presentation = new Presentation())
 
 ### **Kolor**
 
-Za pomocą właściwości [ColorSource](https://reference.aspose.com/slides/pl/net/aspose.slides/ihyperlink/properties/colorsource) w interfejsie [IHyperlink](https://reference.aspose.com/slides/pl/net/aspose.slides/ihyperlink) możesz ustawić kolor hiperłączy oraz pobrać informacje o kolorze z hiperłączy. Funkcja została po raz pierwszy wprowadzona w PowerPoint 2019, więc zmiany dotyczące tej właściwości nie mają zastosowania w starszych wersjach PowerPoint.
+Za pomocą właściwości [ColorSource](https://reference.aspose.com/slides/pl/net/aspose.slides/ihyperlink/properties/colorsource) w interfejsie [IHyperlink](https://reference.aspose.com/slides/pl/net/aspose.slides/ihyperlink) możesz ustawić kolor dla hiperłączy oraz pobrać informacje o kolorze z hiperłączy. Funkcja została wprowadzona po raz pierwszy w PowerPoint 2019, więc zmiany dotyczące tej właściwości nie mają zastosowania w starszych wersjach PowerPoint.
 
 Ten przykładowy kod demonstruje operację, w której do tego samego slajdu dodano hiperłącza o różnych kolorach:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -193,15 +216,18 @@ using (Presentation presentation = new Presentation())
 ```
 ### **Dźwięk**
 
-Aspose.Slides udostępnia następujące właściwości, aby umożliwić podkreślenie hiperłącza dźwiękiem:
+Aspose.Slides udostępnia następujące właściwości, które pozwalają podkreślić hiperłącze dźwiękiem:
 - [IHyperlink.Sound](https://reference.aspose.com/slides/pl/net/aspose.slides/ihyperlink/properties/sound) 
 - [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/pl/net/aspose.slides/ihyperlink/properties/stopsoundonclick)
 
 #### **Dodaj dźwięk do hiperłącza**
 
-Ten kod C# pokazuje, jak ustawić hiperłącze odtwarzające dźwięk i zatrzymać je za pomocą innego hiperłącza:
+Ten kod C# pokazuje, jak ustawić hiperłącze odtwarzające dźwięk i zatrzymać je innym hiperłączem:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
 	// Dodaje nowy dźwięk do kolekcji audio prezentacji
@@ -216,7 +242,7 @@ using (Presentation pres = new Presentation())
 	// Sprawdza hiperłącze pod kątem "No Sound"
 	if (!firstShape.HyperlinkClick.StopSoundOnClick && firstShape.HyperlinkClick.Sound == null)
 	{
-		// Ustawia hiperłącze odtwarzające dźwięk
+		// Ustawia hiperłącze, które odtwarza dźwięk
 		firstShape.HyperlinkClick.Sound = playSound;
 	}
 
@@ -239,6 +265,8 @@ using (Presentation pres = new Presentation())
 Ten kod C# pokazuje, jak wyodrębnić dźwięk użyty w hiperłączu:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 {
 	ISlide firstSlide = pres.Slides[0];
@@ -261,6 +289,9 @@ using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 Ten kod C# pokazuje, jak usunąć hiperłącze z tekstu na slajdzie prezentacji:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     ISlide slide = pres.Slides[0];
@@ -288,6 +319,9 @@ using (Presentation pres = new Presentation("pres.pptx"))
 Ten kod C# pokazuje, jak usunąć hiperłącze z kształtu na slajdzie prezentacji: 
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("demo.pptx")) 
 { 
    ISlide slide = pres.Slides[0]; 
@@ -301,16 +335,19 @@ using (Presentation pres = new Presentation("demo.pptx"))
 
 ## **Modyfikowalne hiperłącze**
 
-Klasa [Hyperlink](https://reference.aspose.com/slides/pl/net/aspose.slides/hyperlink) jest modyfikowalna. Dzięki tej klasie możesz zmieniać wartości następujących właściwości:
+Klasa [Hyperlink](https://reference.aspose.com/slides/pl/net/aspose.slides/hyperlink) jest modyfikowalna. Dzięki tej klasie możesz zmienić wartości następujących właściwości:
 
 - [IHyperlink.TargetFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/ihyperlink/properties/targetframe)
 - [IHyperlink.Tooltip](https://reference.aspose.com/slides/pl/net/aspose.slides/ihyperlink/properties/tooltip)
 - [IHyperlink.History](https://reference.aspose.com/slides/pl/net/aspose.slides/ihyperlink/properties/history)
 - [IHyperlink.HighlightClick](https://reference.aspose.com/slides/pl/net/aspose.slides/ihyperlink/properties/highlightclick)
 
-Fragment kodu pokazuje, jak dodać hiperłącze do slajdu i później edytować jego podpowiedź (tooltip):
+Fragment kodu pokazuje, jak dodać hiperłącze do slajdu i później edytować jego podpowiedź:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {   
    IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);    
@@ -344,14 +381,14 @@ Klasa IHyperlinkQueries obsługuje następujące metody i właściwości:
 
 ## **FAQ**
 
-**Jak mogę utworzyć wewnętrzną nawigację nie tylko do slajdu, ale do „sekcji” lub pierwszego slajdu sekcji?**
+### Jak mogę stworzyć wewnętrzną nawigację nie tylko do slajdu, ale do „sekcji” lub pierwszego slajdu sekcji?
 
-Sekcje w PowerPoint są grupami slajdów; nawigacja technicznie celuje w konkretny slajd. Aby „nawigować do sekcji”, zazwyczaj linkuje się do jej pierwszego slajdu.
+Sekcje w PowerPoint są grupowaniami slajdów; nawigacja technicznie kieruje się do konkretnego slajdu. Aby „nawigować do sekcji”, zazwyczaj linkuje się do jej pierwszego slajdu.
 
-**Czy mogę dołączyć hiperłącze do elementów slajdu głównego, aby działało na wszystkich slajdach?**
+### Czy mogę dołączyć hiperłącze do elementów slajdu głównego, aby działało na wszystkich slajdach?
 
-Tak. Elementy slajdu głównego i układu obsługują hiperłącza. Takie linki pojawiają się na slajdach podrzędnych i są klikalne podczas prezentacji.
+Tak. Elementy slajdu głównego i układu obsługują hiperłącza. Takie linki pojawiają się na slajdach podrzędnych i są klikalne podczas pokazu slajdów.
 
-**Czy hiperłącza będą zachowane przy eksportowaniu do PDF, HTML, obrazów lub wideo?**
+### Czy hiperłącza zostaną zachowane przy eksporcie do PDF, HTML, obrazów lub wideo?
 
-W [PDF](/slides/pl/net/convert-powerpoint-to-pdf/) i [HTML](/slides/pl/net/convert-powerpoint-to-html/) tak — linki są zazwyczaj zachowywane. Przy eksporcie do [images](/slides/pl/net/convert-powerpoint-to-png/) i [video](/slides/pl/net/convert-powerpoint-to-video/) klikalność nie zostanie przeniesiona ze względu na naturę tych formatów (klatki rastrowe/wideo nie obsługują hiperłączy).
+W [PDF](/slides/pl/net/convert-powerpoint-to-pdf/) i [HTML](/slides/pl/net/convert-powerpoint-to-html/) tak — linki są zazwyczaj zachowywane. Przy eksporcie do [obrazów](/slides/pl/net/convert-powerpoint-to-png/) i [wideo](/slides/pl/net/convert-powerpoint-to-video/) możliwość klikania nie zostanie przeniesiona ze względu na charakter tych formatów (klatki rastrowe/wideo nie obsługują hiperłączy).

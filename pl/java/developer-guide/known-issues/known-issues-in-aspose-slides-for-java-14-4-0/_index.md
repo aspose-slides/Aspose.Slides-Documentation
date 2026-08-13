@@ -10,17 +10,17 @@ keywords:
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Przejrzyj znane problemy w Aspose.Slides for Java 14.4.0, aby zapewnić prawidłową pracę z plikami PowerPoint i OpenDocument oraz uniknąć nieprzyjemnych niespodzianek w swoich prezentacjach."
+description: "Przejrzyj znane problemy w Aspose.Slides for Java 14.4.0, aby zapewnić prawidłowe działanie z plikami PowerPoint i OpenDocument oraz uniknąć niespodzianek w prezentacjach."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Aspose.Slides for Java 14.4.0 wprowadza nowe możliwości przetwarzania dokumentów PowerPoint. Istnieją pewne ograniczenia i znane problemy, które zostaną usunięte w kolejnych wersjach:
+Aspose.Slides for Java 14.4.0 zapewnia nowe rozwiązanie dla przetwarzania dokumentów PowerPoint. Istnieją pewne ograniczenia i znane problemy, które zostaną usunięte w kolejnych wersjach:
 
-- Niektóre kształty mają nieprawidłową geometrię w serializowanych dokumentach PPT (łuk, okrągła strzałka, dymki).
-- Nie wszystkie funkcje formatowania tekstu w PPTX są obsługiwane przy serializacji do PPT (ograniczenia tabulacji, wcięć i formatowania akapitu).
-- Informacje o języku tekstu i ustawieniach sprawdzania pisowni nie są obecne w serializowanych dokumentach PPT.
-- Nie wszystkie funkcje motywu PPTX są obsługiwane przy serializacji do PPT (tylko serializacja formatów wypełnień, linii i czcionek).
-- Istnieją znane problemy przy serializacji OLE/ActiveX z PPT do PPT.
+- Niektóre kształty mają błędną geometrię w serializowanych dokumentach PPT (łuk, okrągła strzałka, dymki).
+- Nie wszystkie funkcje formatowania tekstu w PPTX są obsługiwane w serializacji do PPT (ograniczenia tabulacji, wcięć i formatowania akapitów).
+- Informacje o języku tekstu i ustawieniach ortograficznych nie są obecne w serializowanych dokumentach PPT.
+- Nie wszystkie funkcje motywu PPTX są obsługiwane w serializacji do PPT (tylko serializacja formatów wypełnień, linii i czcionek).
+- Istnieją znane problemy w serializacji OLE/ActiveX z PPT do PPT.
 - Serializacja i renderowanie WordArt nie są obsługiwane.
 
 {{% /alert %}}

@@ -21,17 +21,19 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Exportera PowerPoint- och OpenDocument-presentationer till responsiv HTML5 med Aspose.Slides för Android via Java. Bevara formatering, animationer och interaktivitet."
+description: "Exportera PowerPoint‑ och OpenDocument‑presentationer till responsiv HTML5 med Aspose.Slides för Android via Java. Bevara formatering, animationer och interaktivitet."
 ---
 ## **Översikt**
 
-Denna artikel förklarar hur du konverterar PowerPoint‑presentationer till HTML5 med Aspose.Slides. Den täcker grundläggande HTML5‑export utan webb‑tillägg eller ytterligare beroenden, samt alternativ för att styra formanimationer och bildövergångar. Artikeln visar också den vanliga PowerPoint‑till‑HTML‑exportprocessen, förklarar hur du genererar HTML5‑utdata i bildvysläge och demonstrerar hur du inkluderar kommentarer i det exporterade dokumentet genom att konfigurera deras layout.
+Den här artikeln förklarar hur man konverterar PowerPoint‑presentationer till HTML5 med Aspose.Slides. Den täcker grundläggande HTML5‑export utan webbutökningar eller ytterligare beroenden, samt alternativ för att styra formanimationer och bildövergångar. Artikeln visar också den vanliga PowerPoint‑till‑HTML‑exportprocessen, förklarar hur man genererar HTML5‑utdata i bildvisningsläge och demonstrerar hur man inkluderar kommentarer i det exporterade dokumentet genom att konfigurera deras layout.
 
 ## **Exportera PowerPoint till HTML5**
 
-Den här Java‑koden visar hur du exporterar en presentation till HTML5 utan webb‑tillägg och beroenden:
+Den här Java‑koden visar hur du exporterar en presentation till HTML5 utan webbutökningar och beroenden:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.save("pres.html", SaveFormat.Html5);
@@ -40,13 +42,15 @@ try {
 }
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 I det här fallet får du ren HTML. 
 {{% /alert %}}
 
-Du kan specificera inställningar för formanimationer och bildövergångar på följande sätt:
+Du kan vilja ange inställningar för formanimationer och bildövergångar på detta sätt:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     Html5Options html5Options = new Html5Options();
@@ -61,9 +65,11 @@ try {
 
 ## **Exportera PowerPoint till HTML**
 
-Den här Java‑koden demonstrerar den vanliga PowerPoint‑till‑HTML‑processen:
+Den här Java‑koden demonstrerar den standardiserade PowerPoint‑till‑HTML‑processen:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.save("pres.html", SaveFormat.Html);
@@ -72,7 +78,7 @@ try {
 }
 ```
 
-I det här fallet renderas presentationsinnehållet via SVG i ett format som detta:
+I det här fallet renderas presentationsinnehållet via SVG i en form som detta:
 
 ```html
 <body>
@@ -85,16 +91,18 @@ I det här fallet renderas presentationsinnehållet via SVG i ett format som det
 ```
 
 {{% alert title="Note" color="warning" %}} 
-När du använder denna metod för att exportera PowerPoint till HTML, på grund av SVG‑renderingen, kommer du inte att kunna applicera stilar eller animera specifika element. 
+När du använder denna metod för att exportera PowerPoint till HTML, på grund av SVG‑renderingen, kommer du inte kunna tillämpa stilar eller animera specifika element. 
 {{% /alert %}}
 
-## **Exportera PowerPoint till HTML5‑bildvyn**
+## **Exportera PowerPoint till HTML5‑bildvisning**
 
-**Aspose.Slides** gör det möjligt att konvertera en PowerPoint-presentation till ett HTML5‑dokument där bilderna visas i bildvyläge. I det här fallet, när du öppnar den resulterande HTML5‑filen i en webbläsare, ser du presentationen i bildvyläge på en webbsida. 
+**Aspose.Slides** gör det möjligt att konvertera en PowerPoint‑presentation till ett HTML5‑dokument där bilderna visas i bildvisningsläge. I det här fallet, när du öppnar den resulterande HTML5‑filen i en webbläsare, ser du presentationen i bildvisningsläge på en webbsida. 
 
-Den här Java‑koden demonstrerar PowerPoint‑till‑HTML5‑bildvyn‑exportprocessen:
+Den här Java‑koden demonstrerar PowerPoint‑till‑HTML5‑bildvisnings‑exportprocessen:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     Html5Options html5Options = new Html5Options();
@@ -109,38 +117,43 @@ try {
 
 ## **Konvertera en presentation till ett HTML5‑dokument med kommentarer**
 
-Kommentarer i PowerPoint är ett verktyg som låter användare lämna anteckningar eller återkoppling på presentationsbilder. De är särskilt användbara i samarbetsprojekt, där flera personer kan lägga till sina förslag eller anmärkningar på specifika bildelement utan att ändra huvudinnehållet. Varje kommentar visar författarens namn, vilket gör det enkelt att spåra vem som lämnade anmärkningen.
+Kommentarer i PowerPoint är ett verktyg som låter användare lämna anteckningar eller återkoppling på presentationsbilder. De är särskilt användbara i samarbetsprojekt, där flera personer kan lägga till sina förslag eller anmärkningar på specifika bildelement utan att ändra huvudinnehållet. Varje kommentar visar författarens namn, vilket gör det enkelt att spåra vem som gjort anmärkningen.
 
-Anta att vi har följande PowerPoint-presentation sparad i filen "sample.pptx".
+Låt oss säga att vi har följande PowerPoint‑presentation sparad i filen "sample.pptx".
 
 ![Två kommentarer på presentationsbilden](two_comments_pptx.png)
 
-När du konverterar en PowerPoint-presentation till ett HTML5‑dokument kan du enkelt ange om kommentarer från presentationen ska inkluderas i utdata‑dokumentet. För att göra detta måste du ange visningsparametrarna för kommentarer i `getNotesCommentsLayouting`‑metoden i [Html5Options](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/html5options/)-klassen.
+När du konverterar en PowerPoint‑presentation till ett HTML5‑dokument kan du enkelt ange om kommentarer från presentationen ska inkluderas i utdatafilen. För att göra detta måste du skicka visningsparametrarna för kommentarer till `setSlidesLayoutOptions`‑metoden i klassen [Html5Options](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/html5options/).
 
-Följande kodexempel konverterar en presentation till ett HTML5‑dokument med kommentarer som visas till höger om bilderna.
+Följande kodexempel konverterar en presentation till ett HTML5‑dokument med kommentarer placerade till höger om bilderna.
 ```java
+import com.aspose.slides.*;
+
+NotesCommentsLayoutingOptions layoutingOptions = new NotesCommentsLayoutingOptions();
+layoutingOptions.setCommentsPosition(CommentsPositions.Right);
+
 Html5Options html5Options = new Html5Options();
-html5Options.getNotesCommentsLayouting().setCommentsPosition(CommentsPositions.Right);
+html5Options.setSlidesLayoutOptions(layoutingOptions);
 
 Presentation presentation = new Presentation("sample.pptx");
 presentation.save("output.html", SaveFormat.Html5, html5Options);
 presentation.dispose();
 ```
 
-Dokumentet "output.html" visas i bilden nedan.
+Dokumentet "output.html" visas på bilden nedan.
 
-![Kommentarna i det exporterade HTML5‑dokumentet](two_comments_html5.png)
+![Kommentarerna i HTML5‑utdatafilen](two_comments_html5.png)
 
 ## **FAQ**
 
-**Kan jag styra om objektanimationer och bildövergångar ska spelas upp i HTML5?**
+### Kan jag kontrollera om objektanimationer och bildövergångar ska spelas upp i HTML5?
 
 Ja, HTML5 erbjuder separata alternativ för att aktivera eller inaktivera [shape animations](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) och [slide transitions](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).
 
-**Stöds utdata av kommentarer, och var kan de placeras i förhållande till bilden?**
+### Stöds export av kommentarer, och var kan de placeras i förhållande till bilden?
 
-Ja, kommentarer kan läggas till i HTML5 och placeras (till exempel till höger om bilden) via [layout settings](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) för anteckningar och kommentarer.
+Ja, kommentarer kan läggas till i HTML5 och placeras (t.ex. till höger om bilden) via [layout settings](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) för anteckningar och kommentarer.
 
-**Kan jag hoppa över länkar som anropar JavaScript av säkerhets‑ eller CSP‑skäl?**
+### Kan jag hoppa över länkar som anropar JavaScript av säkerhets- eller CSP‑skäl?
 
-Ja, det finns en [setting](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-) som låter dig hoppa över hyperlänkar med JavaScript‑anrop vid sparande. Detta hjälper till att följa strikta säkerhetspolicyer.
+Ja, det finns en [setting](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-) som låter dig hoppa över hyperlänkar med JavaScript‑anrop vid sparande. Detta hjälper till att följa strikta säkerhetspolicys.

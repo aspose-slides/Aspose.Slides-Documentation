@@ -1,54 +1,60 @@
 ---
-title: ตัวแปลการนำเสนอที่ขับเคลื่อนด้วย AI
-linktitle: ตัวแปลที่ขับเคลื่อนด้วย AI
+title: เครื่องแปลงานนำเสนอด้วย AI
+linktitle: เครื่องแปลด้วย AI
 type: docs
 weight: 20
 url: /th/net/ai/translator/
 keywords:
-- ตัวแปลการนำเสนอด้วย AI
-- ตัวแปลสไลด์ด้วย AI
-- ฟีเจอร์ที่ขับเคลื่อนด้วย AI
-- การนำเสนอหลายภาษา
-- สไลด์หลายภาษา
-- การแปลการนำเสนอ
-- การแปลสไลด์
+- เครื่องแปลงานนำเสนอด้วย AI
+- เครื่องแปลสไลด์ด้วย AI
 - ฟีเจอร์ขับเคลื่อนด้วย AI
+- งานนำเสนอหลายภาษา
+- สไลด์หลายภาษา
+- การแปลงานนำเสนอ
+- การแปลสไลด์
+- ฟีเจอร์ที่ขับเคลื่อนโดย AI
 - ความสามารถของ AI
-- เอเจนท์ AI
-- ไคลเอนท์เว็บ
+- เอเจนต์ AI
+- ไคลเอนด์เว็บ
 - PowerPoint
 - OpenDocument
-- การนำเสนอ
+- งานนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "แปลสไลด์ PowerPoint ด้วย AI โดยใช้ Aspose.Slides สำหรับ .NET. ทำให้ PPT, PPTX และ ODP เป็นภาษาท้องถิ่นขณะคงเค้าโครงไว้—เร็วและเป็นมิตรต่อผู้พัฒนา. ลองใช้งานได้เลย."
+description: "แปลงสไลด์ PowerPoint ด้วย AI โดยใช้ Aspose.Slides สำหรับ .NET. ทำให้ PPT, PPTX และ ODP มีการแปลภาษาในขณะคงรูปแบบเดิม—รวดเร็วและเป็นมิตรต่อผู้พัฒนา. ลองใช้งาน."
 ---
 ## **บทนำ**
 
-Aspose.Slides เป็น API ที่ทรงพลังสำหรับการจัดการงานนำเสนอ PowerPoint อย่างเป็นโปรแกรม นอกจากการสร้าง, แก้ไข, และแปลงสไลด์แล้ว ยังมีฟีเจอร์ที่ขับเคลื่อนด้วย AI เช่น [Presentation Translation API](https://reference.aspose.com/slides/th/net/aspose.slides.ai/) สำหรับเนื้อหาสไลด์หลายภาษา
+Aspose.Slides เป็น API ที่มีประสิทธิภาพสำหรับการจัดการงานนำเสนอ PowerPoint ด้วยโปรแกรม ไม่ว่าจะเป็นการสร้าง แก้ไข และแปลงสไลด์ อีกทั้งยังมอบคุณลักษณะขับเคลื่อนด้วย AI เช่น [API การแปลงานนำเสนอ](https://reference.aspose.com/slides/th/net/aspose.slides.ai/) สำหรับเนื้อหาสไลด์หลายภาษา
 
 ## **วิธีการทำงาน**
 
-Aspose.Slides ไม่ได้มีความสามารถ AI ภายในตัว แต่รวมเข้ากับโมเดล AI ภายนอกผ่านอินเทอร์เน็ต ฟังก์ชันนี้เปิดให้ใช้ผ่านคลาส [SlidesAIAgent](https://reference.aspose.com/slides/th/net/aspose.slides.ai/slidesaiagent) ซึ่งใช้การนำเข้า (implementation) ของอินเทอร์เฟซ [IAIWebClient](https://reference.aspose.com/slides/th/net/aspose.slides.ai/iaiwebclient/) เพื่อสื่อสารกับบริการ AI
+Aspose.Slides ไม่ได้รวมความสามารถ AI ภายในตัวเอง แต่ทำการเชื่อมต่อกับโมเดล AI ภายนอกผ่านอินเทอร์เน็ต ฟังก์ชันนี้เปิดให้ใช้ผ่านคลาส [SlidesAIAgent](https://reference.aspose.com/slides/th/net/aspose.slides.ai/slidesaiagent) ซึ่งใช้การทำงานของอินเทอร์เฟซ [IAIWebClient](https://reference.aspose.com/slides/th/net/aspose.slides.ai/iaiwebclient/) เพื่อสื่อสารกับบริการ AI
 
-คุณสามารถใช้ [OpenAIWebClient](https://reference.aspose.com/slides/th/net/aspose.slides.ai/openaiwebclient/) ที่มาพร้อมเพื่อเชื่อมต่อกับ API ของ OpenAI หรือคุณสามารถสร้างการนำเข้า (implement) ของ [IAIWebClient](https://reference.aspose.com/slides/th/net/aspose.slides.ai/iaiwebclient/) ของคุณเองเพื่อใช้ผู้ให้บริการ AI หรือโมเดลภาษาที่แตกต่าง
+คุณสามารถใช้ [OpenAIWebClient](https://reference.aspose.com/slides/th/net/aspose.slides.ai/openaiwebclient/) ที่มีให้ในตัวเพื่อเชื่อมต่อกับ API ของ OpenAI หรือสร้างการทำงานของ [IAIWebClient](https://reference.aspose.com/slides/th/net/aspose.slides.ai/iaiwebclient/) ของคุณเองเพื่อใช้ผู้ให้บริการ AI หรือโมเดลภาษาอื่น
 
-Aspose.Slides จัดการการสื่อสาร, แยกวิเคราะห์การตอบกลับจาก AI, และใส่เนื้อหาที่แปลอย่างฉลาดโดยคงรูปแบบและการจัดวางสไลด์เดิมไว้
+Aspose.Slides จะจัดการการสื่อสาร วิเคราะห์ผลตอบกลับจาก AI และแทรกเนื้อหาที่แปลอย่างชาญฉลาดโดยคงรูปแบบและการจัดหน้าต้นฉบับของสไลด์ไว้
 
-{{% alert color="primary" %}}
-โปรดทราบว่า API ของ OpenAI เป็นบริการที่ต้องชำระเงิน ดังนั้นคุณต้องสร้างบัญชีและใส่คีย์ API ของคุณเมื่อใช้ [OpenAIWebClient](https://reference.aspose.com/slides/th/net/aspose.slides.ai/openaiwebclient/)
+{{% alert color="info" %}}
+
+โปรดทราบว่า API ของ OpenAI เป็นบริการที่ต้องชำระเงิน ดังนั้นคุณจะต้องสร้างบัญชีและระบุคีย์ API ของคุณเมื่อใช้ [OpenAIWebClient](https://reference.aspose.com/slides/th/net/aspose.slides.ai/openaiwebclient/)
+
 {{% /alert %}}
 
 ## **ตัวอย่าง**
 
-ในตัวอย่างนี้ เราแปลงานนำเสนอ PowerPoint เป็นภาษาญี่ปุ่นโดยใช้ [OpenAIWebClient](https://reference.aspose.com/slides/th/net/aspose.slides.ai/openaiwebclient/) ที่มาพร้อมกับโมเดล OpenAI ที่ระบุไว้
+ในตัวอย่างนี้ เราจะแปลงานนำเสนอ PowerPoint เป็นภาษาญี่ปุ่นโดยใช้ [OpenAIWebClient](https://reference.aspose.com/slides/th/net/aspose.slides.ai/openaiwebclient/) ที่มีในตัวพร้อมระบุ [โมเดล](https://platform.openai.com/docs/models) ของ OpenAI ที่ต้องการ
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.AI;
+using Aspose.Slides.Export;
+
 // โหลดงานนำเสนอเพื่อแปล.
 using var presentation = new Presentation("sample.pptx");
 
-// สร้างไคลเอนต์ AI ด้วย OpenAIWebClient, ระบุโมเดลและคีย์ API ของคุณ.
+// สร้างไคลเอนต์ AI ด้วย OpenAIWebClient พร้อมระบุโมเดลและคีย์ API ของคุณ.
 using var aiWebClient = new OpenAIWebClient(model: "gpt-4o-mini", apiKey: "apiKey", organizationId: null);
 
 // เริ่มต้น SlidesAIAgent ด้วยไคลเอนต์ AI.
@@ -61,16 +67,20 @@ await aiAgent.TranslateAsync(presentation, "japanese");
 presentation.Save("sample_jp.pdf", SaveFormat.Pdf);
 ```
 
-โดยค่าเริ่มต้น, [OpenAIWebClient](https://reference.aspose.com/slides/th/net/aspose.slides.ai/openaiwebclient/) ที่มาพร้อมสร้างและจัดการอินสแตนซ์ [HttpClient](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient) ภายในของมันเอง, ดูแลวงจรชีวิตและการทำลายโดยอัตโนมัติ อย่างไรก็ตาม หากคุณต้องการจัดการ [HttpClient](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient) ด้วยตนเอง - เช่น เมื่อใช้ [IHttpClientFactory](https://learn.microsoft.com/en-us/dotnet/core/extensions/httpclient-factory) เพื่อการจัดการทรัพยากรและประสิทธิภาพที่ดีกว่า - คุณสามารถให้อินสแตนซ์ `HttpClient` ของคุณเมื่อสร้าง [OpenAIWebClient](https://reference.aspose.com/slides/th/net/aspose.slides.ai/openaiwebclient/) ได้
+โดยค่าเริ่มต้น [OpenAIWebClient](https://reference.aspose.com/slides/th/net/aspose.slides.ai/openaiwebclient/) จะสร้างและจัดการอินสแตนซ์ของ [HttpClient](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient) ภายในตัวเองโดยอัตโนมัติ รวมถึงการจัดช่วงอายุและการยกเลิกการใช้ อย่างไรก็ตาม หากคุณต้องการจัดการ [HttpClient](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient) เอง — เช่น เมื่อใช้ [IHttpClientFactory](https://learn.microsoft.com/en-us/dotnet/core/extensions/httpclient-factory) เพื่อการจัดการทรัพยากรและประสิทธิภาพที่ดียิ่งขึ้น — คุณสามารถส่งอินสแตนซ์ `HttpClient` ของคุณเองเมื่อสร้าง [OpenAIWebClient](https://reference.aspose.com/slides/th/net/aspose.slides.ai/openaiwebclient/)
 
 ```csharp
-// สมมติว่าคุณมีอินสแตนซ์ของ IHttpClientFactory (เช่น ถูกฉีดเข้ามาผ่านการฉีดพึ่งพา).
-HttpClient httpClient = httpClientFactory.CreateClient();
+using System.Net.Http;
+using Aspose.Slides.AI;
+
+// ใช้ HttpClient ที่คุณจัดการด้วยตนเอง - ตัวอย่างเช่น ที่สร้างโดย IHttpClientFactory
+// ฉีดผ่านการฉีดพึ่งพา (dependency injection).
+HttpClient httpClient = new HttpClient();
 using var aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null, httpClient);
 ```
 
-Aspose.Slides มักถูกใช้ในสภาพแวดล้อมแบบประสานกัน (synchronous) เพื่อสนับสนุนสิ่งนี้ คลาส [SlidesAIAgent](https://reference.aspose.com/slides/th/net/aspose.slides.ai/slidesaiagent/) มีเมธอดทั้งแบบประสานและแบบอะซิงโครนัส ให้คุณเลือกวิธีที่เหมาะกับกระบวนการทำงานของแอปพลิเคชันของคุณ
+Aspose.Slides มักถูกใช้ในสภาพแวดล้อมที่ทำงานแบบซิงโครนัส เพื่อรองรับความต้องการนี้ คลาส [SlidesAIAgent](https://reference.aspose.com/slides/th/net/aspose.slides.ai/slidesaiagent/) มีทั้งเมธอดแบบซิงโครนัสและอะซิงโครนัส ให้คุณเลือกวิธีที่เหมาะกับกระบวนการทำงานของแอปพลิเคชันของคุณได้
 
 ## **ประโยชน์หลัก**
 
-Aspose.Slides [Presentation Translation API](https://reference.aspose.com/slides/th/net/aspose.slides.ai/) เสนอวิธีแก้ปัญหาที่ขับเคลื่อนด้วย AI สำหรับการส่งมอบงานนำเสนอ PowerPoint หลายภาษา ด้วยการทำแปลอัตโนมัติพร้อมคงรูปแบบและการออกแบบ มันช่วยประหยัดเวลาและลดข้อผิดพลาดเมื่อเทียบกับกระบวนการทำงานด้วยมือ ไม่ว่าคุณจะเป็นนักพัฒนา, นักการศึกษา, หรือผู้เชี่ยวชาญด้านธุรกิจ API นี้ทำให้คุณสร้างงานนำเสนอที่น่าสนใจและปรับให้เป็นท้องถิ่นสำหรับผู้ชมทั่วโลก - ขยายขอบเขตการเข้าถึงและปรับปรุงการสื่อสาร.
+[API การแปลงานนำเสนอ](https://reference.aspose.com/slides/th/net/aspose.slides.ai/) ของ Aspose.Slides เสนอวิธีแก้ปัญหาที่ใช้ AI เพื่อส่งมอบงานนำเสนอ PowerPoint หลายภาษา ด้วยการทำแปลอัตโนมัติพร้อมคงรูปแบบและการออกแบบเดิมไว้ ช่วยประหยัดเวลาและลดข้อผิดพลาดเมื่อเทียบกับกระบวนการทำงานด้วยมือ ไม่ว่าคุณจะเป็นนักพัฒนา ผู้สอน หรือมืออาชีพด้านธุรกิจ API นี้ช่วยให้คุณสร้างงานนำเสนอที่ดึงดูดและปรับให้เป็นท้องถิ่นสำหรับผู้ชมทั่วโลก — ขยายขอบเขตการเข้าถึงและปรับปรุงการสื่อสารของคุณ.

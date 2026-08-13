@@ -5,7 +5,7 @@ type: docs
 weight: 30
 url: /fr/net/format-text-using-vsto-and-aspose-slides-and-net/
 keywords:
-- mise en forme du texte
+- formater le texte
 - migration
 - VSTO
 - automatisation Office
@@ -16,14 +16,13 @@ keywords:
 - Aspose.Slides
 description: "Migrer de l'automatisation Microsoft Office vers Aspose.Slides pour .NET et formater le texte dans les présentations PowerPoint (PPT, PPTX) avec un contrôle précis."
 ---
+{{% alert color="info" %}}
 
-{{% alert color="primary" %}} 
-
-Parfois, vous devez formater le texte des diapositives de manière programmatique. Cet article montre comment lire une présentation d'exemple contenant du texte sur la première diapositive en utilisant soit [VSTO](/slides/fr/net/format-text-using-vsto-and-aspose-slides-and-net/) ou [Aspose.Slides for .NET](/slides/fr/net/format-text-using-vsto-and-aspose-slides-and-net/). Le code formate le texte dans la troisième zone de texte de la diapositive pour qu'il ressemble au texte de la dernière zone de texte.
+Parfois, vous devez formater le texte sur les diapositives de manière programmatique. Cet article montre comment lire une présentation d'exemple contenant du texte sur la première diapositive en utilisant soit [VSTO](/slides/fr/net/format-text-using-vsto-and-aspose-slides-and-net/) soit [Aspose.Slides for .NET](/slides/fr/net/format-text-using-vsto-and-aspose-slides-and-net/). Le code formate le texte dans la troisième zone de texte de la diapositive pour qu'il ressemble au texte de la dernière zone de texte.
 
 {{% /alert %}} 
 ## **Mise en forme du texte**
-Both the VSTO and Aspose.Slides methods take the following steps:
+Les méthodes VSTO et Aspose.Slides effectuent les étapes suivantes :
 
 1. Ouvrez la présentation source.
 1. Accédez à la première diapositive.
@@ -31,19 +30,22 @@ Both the VSTO and Aspose.Slides methods take the following steps:
 1. Modifiez la mise en forme du texte dans la troisième zone de texte.
 1. Enregistrez la présentation sur le disque.
 
-Les captures d'écran ci‑dessus montrent la diapositive d'exemple avant et après l'exécution du code VSTO et Aspose.Slides for .NET.
+Les captures d'écran ci-dessous montrent la diapositive d'exemple avant et après l'exécution du code VSTO et Aspose.Slides pour .NET.
 
 **La présentation d'entrée** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-and-net_1.png)
 ### **Exemple de code VSTO**
-Le code ci‑dessous montre comment reformater le texte d'une diapositive en utilisant VSTO.
+Le code ci‑dessous montre comment reformater le texte sur une diapositive à l'aide de VSTO.
 
 **Le texte reformatté avec VSTO** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-and-net_2.png)
+
+
+
 ```c#
-//Remarque : PowerPoint est un espace de noms qui a été défini ci‑dessus comme ceci
+//Note: PowerPoint est un espace de noms qui a été défini ci‑dessus comme ceci
 //using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 PowerPoint.Presentation pres = null;
 
@@ -85,19 +87,22 @@ pres.SaveAs("c:\\outVSTO.ppt",
 	Microsoft.Office.Core.MsoTriState.msoFalse);
 ```
 
-
-
-
-
-### **Exemple Aspose.Slides for .NET**
+### **Exemple Aspose.Slides pour .NET**
 Pour formater le texte avec Aspose.Slides, ajoutez la police avant de formater le texte.
 
 **La présentation de sortie créée avec Aspose.Slides** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-and-net_3.png)
+
+
+
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
  //Ouvrir la présentation
-Presentation pres = new Presentation("c:\\source.ppt");
+Presentation pres = new Presentation("source.ppt");
 
 //Accéder à la première diapositive
 ISlide slide = pres.Slides[0];
@@ -119,15 +124,15 @@ port.PortionFormat.FontBold = NullableBool.True;
 //Le mettre en italique
 port.PortionFormat.FontItalic = NullableBool.True;
 
-//Changer la couleur du texte
+//Modifier la couleur du texte
 //Définir la couleur de la police
 port.PortionFormat.FillFormat.FillType = FillType.Solid;
-port.PortionFormat.SolidFillColor.Color = Color.FromArgb(0x33, 0x33, 0xCC);
+port.PortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(0x33, 0x33, 0xCC);
 
-//Changer la couleur d'arrière-plan de la forme
+//Modifier la couleur d'arrière-plan de la forme
 shp.FillFormat.FillType = FillType.Solid;
 shp.FillFormat.SolidFillColor.Color = Color.FromArgb(0xCC, 0xCC, 0xFF);
 
 //Écrire la sortie sur le disque
-pres.Save("c:\\outAspose.ppt", SaveFormat.Ppt);
+pres.Save("outAspose.ppt", SaveFormat.Ppt);
 ```

@@ -1,54 +1,54 @@
----  
-title: Public API และการเปลี่ยนแปลงที่ไม่เข้ากันย้อนหลังใน Aspose.Slides for Java 14.9.0  
-linktitle: Aspose.Slides สำหรับ Java 14.9.0  
-type: docs  
-weight: 80  
-url: /th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/  
-keywords:  
-  - การย้าย  
-  - โค้ดเดิม  
-  - โค้ดสมัยใหม่  
-  - แนวทางเดิม  
-  - แนวทางสมัยใหม่  
-  - PowerPoint  
-  - OpenDocument  
-  - การนำเสนอ  
-  - Java  
-  - Aspose.Slides  
-description: "ตรวจสอบการอัปเดต Public API และการเปลี่ยนแปลงที่ทำให้เกิดการแตกหักใน Aspose.Slides for Java เพื่อย้ายโซลูชันการนำเสนอ PowerPoint PPT, PPTX และ ODP ของคุณอย่างราบรื่น."  
 ---
-{{% alert color="primary" %}} 
+title: API สาธารณะและการเปลี่ยนแปลงที่ไม่เข้ากันย้อนหลังใน Aspose.Slides สำหรับ Java 14.9.0
+linktitle: Aspose.Slides สำหรับ Java 14.9.0
+type: docs
+weight: 80
+url: /th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/
+keywords:
+- การย้าย
+- โค้ดเดิม
+- โค้ดใหม่
+- แนวทางเดิม
+- แนวทางสมัยใหม่
+- PowerPoint
+- OpenDocument
+- งานนำเสนอ
+- Java
+- Aspose.Slides
+description: "รีวิวการอัปเดต API สาธารณะและการเปลี่ยนแปลงที่ทำให้เกิดการหยุดทำงานใน Aspose.Slides สำหรับ Java เพื่อช่วยให้การย้ายโซลูชันการนำเสนอ PowerPoint PPT, PPTX และ ODP ของคุณเป็นไปอย่างราบรื่น"
+---
+{{% alert color="info" %}} 
 
-หน้านี้แสดงรายการทั้งหมดของคลาส, เมธอด, คุณสมบัติ ฯลฯ ที่ [added](/slides/th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/) , ข้อจำกัดใหม่ใด ๆ และ [changes](/slides/th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/) อื่น ๆ ที่นำมาใช้กับ Aspose.Slides for Java 14.9.0 API.
+หน้านี้แสดงรายการทั้งหมดของคลาส, เมธอด, คุณสมบัติ ฯลฯ, ข้อจำกัดใหม่ใด ๆ และ [การเปลี่ยนแปลง](/slides/th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/) ที่ถูกแนะนำใน Aspose.Slides for Java 14.9.0 API.
 
 {{% /alert %}} 
-## **Public API Changes**
-### **Added Methods for Replacing Image to PPImage, IPPImage**
-เมธอดใหม่ที่เพิ่มขึ้น:
+## **การเปลี่ยนแปลง Public API**
+### **เพิ่มเมธอดสำหรับการแทนที่รูปภาพเป็น PPImage, IPPImage**
+เมธอดใหม่ที่เพิ่มเข้ามา:
 
 - IPPImage.replaceImage(byte[] newImageData)
 - IPPImage.replaceImage(IPPImage newImage)
 
 ``` java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
- Presentation presentation = new Presentation("presentation.pptx");
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    // วิธีแรก
+    byte[] imageData = Files.readAllBytes(Paths.get("image.png"));
+    presentation.getImages().get_Item(0).replaceImage(imageData);
 
-//วิธีที่หนึ่ง
+    // วิธีที่สอง
+    presentation.getImages().get_Item(1).replaceImage(presentation.getImages().get_Item(0));
 
-byte[] imageData = // ...
-
-presentation.getImages().get_Item(0).replaceImage(imageData);
-
-//วิธีที่สอง
-
-presentation.getImages().get_Item(1).replaceImage(
-
-    presentation.getImages().get_Item(0));
-
-presentation.save("presentation_out.pptx", SaveFormat.Pptx);
-
+    presentation.save("presentation_out.pptx", SaveFormat.Pptx);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
-### **Added Methods for Saving Slides Keeping Page Numbers**
+### **เพิ่มเมธอดสำหรับการบันทึกสไลด์โดยเก็บหมายเลขหน้า**
 เมธอดต่อไปนี้ได้ถูกเพิ่ม:
 
 - void IPresentation.save(string fname, int[] slides, SaveFormat format);
@@ -56,40 +56,50 @@ presentation.save("presentation_out.pptx", SaveFormat.Pptx);
 - void IPresentation.save(Stream stream, int[] slides, SaveFormat format);
 - void IPresentation.save(Stream stream, int[] slides, SaveFormat format, ISaveOption options);
 
-เมธอดเหล่านี้อนุญาตให้บันทึกสไลด์ของการนำเสนอที่ระบุเป็นรูปแบบ PDF, XPS, TIFF, HTML. อาร์เรย์ 'slides' ใช้ระบุเลขหน้าโดยเริ่มจาก 1.
+เมธอดเหล่านี้อนุญาตให้บันทึกสไลด์การพรีเซนเทชันที่ระบุเป็นรูปแบบ PDF, XPS, TIFF, HTML. อาร์เรย์ 'slides' สามารถกำหนดหมายเลขหน้าได้ โดยเริ่มจาก 1.
 
 ``` java
-
- save(string fname, int\[\] slides, SaveFormat format);
-
+// เพิ่มเมธอดโอเวอร์โหลดให้กับ IPresentation (ค่าของ SaveFormat เป็นคอนสแตนต์ int ใน Java):
+//
+// void save(String fname, int[] slides, int format);
+// void save(String fname, int[] slides, int format, ISaveOptions options);
+// void save(OutputStream stream, int[] slides, int format);
+// void save(OutputStream stream, int[] slides, int format, ISaveOptions options);
 ```
 
 
 
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation presentation = new Presentation(presentationFileName);
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    int[] slides = new int[] { 2, 3, 5 }; // อาร์เรย์ของตำแหน่งสไลด์
 
-int[] slides = new int[] { 2, 3, 5 }; //อาร์เรย์ของตำแหน่งสไลด์
-
-presentation.save(outFileName, slides, SaveFormat.Pdf);
-
+    presentation.save("presentation_out.pdf", slides, SaveFormat.Pdf);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
-### **Added the SmartArtLayoutType.Custom Enum Value**
-ประเภทของ SmartArt layout นี้แสดงแผนภูมิที่ใช้เทมเพลตกำหนดเอง. แผนภูมิที่กำหนดเองสามารถโหลดได้จากไฟล์การนำเสนอเท่านั้นและไม่สามารถสร้างได้โดยใช้เมธอด ShapeCollection.addSmartArt(x, y, width, height, SmartArtLayoutType.Custom)
-### **Added the SmartArtShape Class and ISmartArtShape Interface**
-คลาส Aspose.Slides.SmartArt.SmartArtShape (และอินเทอร์เฟซ Aspose.Slides.SmartArt.ISmartArtShape) ให้การเข้าถึงรูปร่างแต่ละอันภายในแผนภูมิ SmartArt. SmartArtShape สามารถใช้เพื่อเปลี่ยน FillFormat, LineFormat, เพิ่ม Hyperlinks ฯลฯ
+### **เพิ่มค่า Enum ของ SmartArtLayoutType.Custom**
+ประเภทของการจัดวาง SmartArt นี้แสดงแผนภาพที่ใช้เทมเพลตแบบกำหนดเอง. แผนภาพแบบกำหนดเองสามารถโหลดได้เฉพาะจากไฟล์พรีเซนเทชันและไม่สามารถสร้างผ่านเมธอด ShapeCollection.addSmartArt(x, y, width, height, SmartArtLayoutType.Custom)
 
-{{% alert color="primary" %}} 
+### **เพิ่มคลาส SmartArtShape และอินเทอร์เฟซ ISmartArtShape**
+แคลาส Aspose.Slides.SmartArt.SmartArtShape (และอินเทอร์เฟซ Aspose.Slides.SmartArt.ISmartArtShape) เพิ่มการเข้าถึงรูปร่างแต่ละอันภายในแผนภาพ SmartArt. SmartArtShape สามารถใช้เพื่อเปลี่ยน FillFormat, LineFormat, เพิ่ม Hyperlinks เป็นต้น.
 
-SmartArtShape ไม่รองรับคุณสมบัติ IShape ได้แก่ RawFrame, Frame, Rotation, X, Y, Width, Height และจะขวาง System.NotSupportedException เมื่อพยายามเข้าถึง
+{{% alert color="info" %}} 
+
+SmartArtShape ไม่รองรับคุณสมบัติของ IShape ได้แก่ RawFrame, Frame, Rotation, X, Y, Width, Height และจะส่ง System.NotSupportedException เมื่อลองเข้าถึงมัน.
 
 {{% /alert %}} 
 
 ตัวอย่างการใช้งาน:
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 
  Presentation pres = new Presentation();
 
@@ -110,17 +120,20 @@ for (ISmartArtShape shape : node.getShapes())
 pres.save("out.pptx", SaveFormat.Pptx);
 
 ```
-### **SmartArtShapeCollection class, ISmartArtShapeCollection interface and ISmartArtNode.getShapes() method have been added**
-คลาส Aspose.Slides.SmartArt.SmartArtShapeCollection (และอินเทอร์เฟซ Aspose.Slides.SmartArt.ISmartArtShapeCollection) ให้การเข้าถึงรูปร่างแต่ละอันภายในแผนภูมิ SmartArt. คอลเลกชันนี้มีรูปร่างที่เชื่อมโยงกับ SmartArtNode. คุณสมบัติ SmartArtNode.Shapes จะคืนคอลเลกชันของรูปร่างทั้งหมดที่เชื่อมโยงกับโหนด
+### **เพิ่มคลาส SmartArtShapeCollection, อินเทอร์เฟซ ISmartArtShapeCollection และเมธอด ISmartArtNode.getShapes()**
+แคลาส Aspose.Slides.SmartArt.SmartArtShapeCollection (และอินเทอร์เฟซ Aspose.Slides.SmartArt.ISmartArtShapeCollection) เพิ่มการเข้าถึงรูปร่างแต่ละอันภายในแผนภาพ SmartArt. คอลเลกชันนี้มีรูปทรงที่เชื่อมโยงกับ SmartArtNode. คุณสมบัติ SmartArtNode.Shapes จะคืนคอลเลกชันของรูปทรงทั้งหมดที่เชื่อมโยงกับโหนดนั้น.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-ขึ้นอยู่กับ SmartArtLayoutType, SmartArtShape หนึ่งอาจถูกแชร์ระหว่างหลายโหนด
+ขึ้นอยู่กับ SmartArtLayoutType, SmartArtShape หนึ่งอาจถูกแชร์ระหว่างหลายโหนด.
 
 {{% /alert %}} 
 
  
 ``` java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 
  Presentation pres = new Presentation();
 

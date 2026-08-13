@@ -1,6 +1,6 @@
 ---
-title: Μετατροπή Παρουσιάσεων PowerPoint σε Βίντεο με Java
-linktitle: PowerPoint σε Βίντεο
+title: "Μετατροπή παρουσιάσεων PowerPoint σε βίντεο με Java"
+linktitle: "PowerPoint σε βίντεο"
 type: docs
 weight: 130
 url: /el/java/convert-powerpoint-to-video/
@@ -25,30 +25,28 @@ keywords:
 - PowerPoint
 - Java
 - Aspose.Slides
-description: "Μάθετε πώς να μετατρέπετε παρουσιάσεις PowerPoint σε βίντεο με Java. Ανακαλύψτε παραδείγματα κώδικα και τεχνικές αυτοματοποίησης για να βελτιώσετε τη ροή εργασίας σας."
+description: "Μάθετε πώς να μετατρέπετε παρουσιάσεις PowerPoint σε βίντεο με Java. Ανακαλύψτε δείγματα κώδικα και τεχνίκες αυτοματοποίησης για να βελτιώσετε τη ροή εργασίας σας."
 ---
 ## **Εισαγωγή**
 
-Με την μετατροπή της παρουσίασής σας PowerPoint ή OpenDocument σε βίντεο, κερδίζετε:
+Με τη μετατροπή της παρουσίασής σας PowerPoint ή OpenDocument σε βίντεο, κερδίζετε:
 
-**Αυξημένη προσβασιμότητα:** Όλες οι συσκευές, ανεξαρτήτως πλατφόρμας, διαθέτουν από προεπιλογή προγράμματα αναπαραγωγής βίντεο, καθιστώντας ευκολότερο για τους χρήστες το άνοιγμα ή την αναπαραγωγή βίντεο σε σχέση με τις παραδοσιακές εφαρμογές παρουσίασης.
+**Αυξημένη προσβασιμότητα:** Όλες οι συσκευές, ανεξάρτητα από την πλατφόρμα, διαθέτουν προεγκατεστημένους αναπαραγωγείς βίντεο, καθιστώντας ευκολότερο για τους χρήστες το άνοιγμα ή την αναπαραγωγή βίντεο σε σχέση με τις παραδοσιακές εφαρμογές παρουσίασης.
 
-**Περισσότερο εύρος:** Τα βίντεο σας επιτρέπουν να προσεγγίσετε μεγαλύτερο κοινό και να παρουσιάσετε πληροφορίες με πιο ελκυστική μορφή. Έρευνες και στατιστικά δείχνουν ότι οι άνθρωποι προτιμούν να βλέπουν και να καταναλώνουν περιεχόμενο βίντεο έναντι άλλων μορφών, κάνοντας το μήνυμά σας πιο επιδραστικό.
+**Μεγαλύτερο κοινό:** Τα βίντεο σας επιτρέπουν να φτάσετε σε μεγαλύτερο κοινό και να παρουσιάσετε πληροφορίες με πιο ελκυστικό τρόπο. Έρευνες και στατιστικά δείχνουν ότι οι άνθρωποι προτιμούν να παρακολουθούν και να καταναλώνουν περιεχόμενο βίντεο αντί για άλλες μορφές, καθιστώντας το μήνυμά σας πιο ισχυρό.
 
-{{% alert color="primary" %}} 
-
-Μπορείτε να ελέγξετε τον [**PowerPoint to Video Online Converter**](https://products.aspose.app/slides/el/conversion/ppt-to-word) επειδή είναι μια ζωντανή και αποτελεσματική υλοποίηση της διαδικασίας που περιγράφεται εδώ.
-
+{{% alert color="info" %}} 
+Μπορεί να θέλετε να ελέγξετε τον [**PowerPoint to Video Online Converter**](https://products.aspose.app/slides/el/video) επειδή αποτελεί μια ζωντανή και αποτελεσματική υλοποίηση της διαδικασίας που περιγράφεται εδώ.
 {{% /alert %}} 
 
-## **Μετατροπή PowerPoint σε Βίντεο στο Aspose.Slides**
+## **Μετατροπή PowerPoint σε Βίντεο με Aspose.Slides**
 
-Στο [Aspose.Slides 22.11](https://docs.aspose.com/slides/el/java/aspose-slides-for-java-22-11-release-notes/), υλοποιήσαμε υποστήριξη για μετατροπή παρουσίασης σε βίντεο. 
+Στην [Aspose.Slides 22.11](https://docs.aspose.com/slides/el/java/aspose-slides-for-java-22-11-release-notes/), υλοποιήσαμε υποστήριξη για τη μετατροπή παρουσίασης σε βίντεο. 
 
-* Χρησιμοποιήστε **Aspose.Slides** για να δημιουργήσετε ένα σύνολο καρέ (από τις διαφάνειες της παρουσίασης) που αντιστοιχούν σε συγκεκριμένα FPS (καρέ ανά δευτερόλεπτο)
-* Χρησιμοποιήστε ένα εξωτερικό εργαλείο όπως το **ffmpeg** ([for java](https://github.com/bramp/ffmpeg-cli-wrapper)) για να δημιουργήσετε ένα βίντεο βάσει των καρέ. 
+* Χρησιμοποιήστε **Aspose.Slides** για τη δημιουργία ενός συνόλου καρέ (από τις διαφάνειες παρουσίασης) που αντιστοιχούν σε συγκεκριμένο FPS (καρέ ανά δευτερόλεπτο)
+* Χρησιμοποιήστε ένα εργαλείο τρίτου μέρους όπως το **ffmpeg** ([για java](https://github.com/bramp/ffmpeg-cli-wrapper)) για τη δημιουργία βίντεο με βάση τα καρέ. 
 
-### **Μετατρέψτε το PowerPoint σε Βίντεο**
+### **Μετατροπή PowerPoint σε Βίντεο**
 
 1. Προσθέστε αυτό στο αρχείο POM σας:
 ```xml
@@ -59,15 +57,20 @@ description: "Μάθετε πώς να μετατρέπετε παρουσιάσ
    </dependency>
 ```
 
-2. Κατεβάστε το ffmpeg [here](https://ffmpeg.org/download.html).
+2. Κατεβάστε το ffmpeg [εδώ](https://ffmpeg.org/download.html).
 
 4. Εκτελέστε τον κώδικα Java για μετατροπή PowerPoint σε βίντεο.
 
 Αυτός ο κώδικας Java σας δείχνει πώς να μετατρέψετε μια παρουσίαση (που περιέχει ένα σχήμα και δύο εφέ κίνησης) σε βίντεο:
+
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation();
 try {
-    // Προσθέτει ένα σχήμα χαμόγελο και στη συνέχεια το ανιμαρίζει
+    // Προσθέτει ένα σχήμα χαμόγελου και στη συνέχεια το ανιματρίζει
     IAutoShape smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effectIn = mainSequence.addEffect(smile, EffectType.Fly, EffectSubtype.TopLeft, EffectTriggerType.AfterPrevious);
@@ -101,7 +104,7 @@ try {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
 
-    // Διαμορφώστε το φάκελο των εκτελέσιμων ffmpeg. Δείτε αυτή τη σελίδα: https://github.com/rosenbjerg/FFMpegCore#installation
+    // Ρυθμίστε το φάκελο των δυαδικών του ffmpeg. Δείτε αυτή τη σελίδα: https://github.com/rosenbjerg/FFMpegCore#installation
     FFmpeg ffmpeg = new FFmpeg("path/to/ffmpeg");
     FFprobe ffprobe = new FFprobe("path/to/ffprobe");
 
@@ -122,35 +125,47 @@ try {
 
 ## **Εφέ Βίντεο**
 
-Μπορείτε να εφαρμόσετε κινήσεις σε αντικείμενα στις διαφάνειες και να χρησιμοποιήσετε μεταβάσεις μεταξύ των διαφανειών. 
+Μπορείτε να εφαρμόσετε κινήσεις σε αντικείμενα στις διαφάνειες και να χρησιμοποιήσετε μεταβάσεις μεταξύ τους. 
 
-{{% alert color="primary" %}} 
-
-Μπορείτε να δείτε αυτά τα άρθρα: [PowerPoint Animation](https://docs.aspose.com/slides/el/java/powerpoint-animation/), [Shape Animation](https://docs.aspose.com/slides/el/java/shape-animation/), and [Shape Effect](https://docs.aspose.com/slides/el/java/shape-effect/).
-
+{{% alert color="info" %}} 
+Μπορεί να θέλετε να δείτε αυτά τα άρθρα: [PowerPoint Animation](https://docs.aspose.com/slides/el/java/powerpoint-animation/), [Shape Animation](https://docs.aspose.com/slides/el/java/shape-animation/), και [Shape Effect](https://docs.aspose.com/slides/el/java/shape-effect/).
 {{% /alert %}} 
 
-Οι κινήσεις και οι μεταβάσεις κάνουν τις παρουσιάσεις πιο ελκυστικές και ενδιαφέρουσες—και το ίδιο συμβαίνει με τα βίντεο. Ας προσθέσουμε μια ακόμη διαφάνεια και μετάβαση στον κώδικα για την προηγούμενη παρουσίαση:
+Οι κινήσεις και οι μεταβάσεις κάνουν τις παρουσιάσεις πιο ελκυστικές και ενδιαφέρουσες—και το ίδιο ισχύει για τα βίντεο. Ας προσθέσουμε μια ακόμη διαφάνεια και μεταβάση στον κώδικα της προηγούμενης παρουσίασης:
+
 ```java
-// Προσθέτει ένα σχήμα χαμόγελου και το ανιμαρίζει
+import com.aspose.slides.*;
+import java.awt.Color;
 
-// ...
+Presentation presentation = new Presentation();
+try {
+    // Προσθέτει ένα σχήμα χαμόγελου και το ανιματρίζει
 
-// Προσθέτει μια νέα διαφάνεια και κινούμενη μετάβαση
+    // ...
 
-ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
+    // Προσθέτει μια νέα διαφάνεια και ανιματισμένη μετάβαση
 
-newSlide.getBackground().setType(BackgroundType.OwnBackground);
+    ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
 
-newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    newSlide.getBackground().setType(BackgroundType.OwnBackground);
 
-newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
+    newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
 
-newSlide.getSlideShowTransition().setType(TransitionType.Push);
+    newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
+
+    newSlide.getSlideShowTransition().setType(TransitionType.Push);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 
-Το Aspose.Slides υποστηρίζει επίσης κίνηση για κείμενα. Έτσι κινούμε παραγράφους σε αντικείμενα, οι οποίες θα εμφανιστούν η μία μετά την άλλη (με καθυστέρηση ενός δευτερολέπτου):
+Το Aspose.Slides υποστηρίζει επίσης κίνηση κειμένου. Έτσι, κινουμε παραγράφους σε αντικείμενα, που θα εμφανίζονται η μία μετά την άλλη (με καθυστέρηση ενός δευτερολέπτο):
+
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation();
 try {
     // Προσθέτει κείμενο και κινήσεις
@@ -172,12 +187,10 @@ try {
     IEffect effect1 = mainSequence.addEffect(para1, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     IEffect effect2 = mainSequence.addEffect(para2, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     IEffect effect3 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-    IEffect effect4 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
     effect1.getTiming().setTriggerDelayTime(1f);
     effect2.getTiming().setTriggerDelayTime(1f);
     effect3.getTiming().setTriggerDelayTime(1f);
-    effect4.getTiming().setTriggerDelayTime(1f);
 
     final int fps = 33;
     ArrayList<String> frames = new ArrayList<String>();
@@ -205,7 +218,7 @@ try {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
 
-    // Διαμορφώστε το φάκελο των εκτελέσιμων ffmpeg. Δείτε αυτή τη σελίδα: https://github.com/rosenbjerg/FFMpegCore#installation
+    // Ρυθμίστε το φάκελο των δυαδικών του ffmpeg. Δείτε αυτή τη σελίδα: https://github.com/rosenbjerg/FFMpegCore#installation
     FFmpeg ffmpeg = new FFmpeg("path/to/ffmpeg");
     FFprobe ffprobe = new FFprobe("path/to/ffprobe");
 
@@ -226,17 +239,20 @@ try {
 
 ## **Κλάσεις Μετατροπής Βίντεο**
 
-Για να σας επιτρέψει να εκτελείτε εργασίες μετατροπής PowerPoint σε βίντεο, το Aspose.Slides παρέχει τις κλάσεις [PresentationAnimationsGenerator](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentationanimationsgenerator/) και [PresentationPlayer](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentationplayer/).
+Για να μπορείτε να εκτελείτε εργασίες μετατροπής PowerPoint σε βίντεο, το Aspose.Slides παρέχει τις κλάσεις [PresentationAnimationsGenerator](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentationanimationsgenerator/) και [PresentationPlayer](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentationplayer/).
 
-[PresentationAnimationsGenerator] σας επιτρέπει να ορίσετε το μέγεθος του καρέ για το βίντεο (που θα δημιουργηθεί αργότερα) μέσω του κατασκευαστή του. Εάν περάσετε ένα στιγμιότυπο της παρουσίασης, θα χρησιμοποιηθεί `Presentation.SlideSize` και παράγει κινήσεις που χρησιμοποιεί το [PresentationPlayer].
+[PresentationAnimationsGenerator](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentationanimationsgenerator/) σας επιτρέπει να ορίσετε το μέγεθος καρέ για το βίντεο (που θα δημιουργηθεί αργότερα) μέσω του κατασκευαστή του. Αν περάσετε μια παρουσίαση, θα χρησιμοποιηθεί το `Presentation.SlideSize` και θα παραχθούν κινήσεις που χρησιμοποιεί το [PresentationPlayer](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentationplayer/). 
 
-Όταν δημιουργούνται κινήσεις, δημιουργείται ένα γεγονός `NewAnimation` για κάθε επόμενη κίνηση, που έχει την παράμετρο [IPresentationAnimationPlayer]. Το τελευταίο είναι μια κλάση που αντιπροσωπεύει έναν player για ξεχωριστή κίνηση.
+Όταν δημιουργούνται κινήσεις, παράγεται ένα συμβάν `NewAnimation` για κάθε επόμενη κίνηση, το οποίο έχει την παράμετρο [IPresentationAnimationPlayer](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipresentationanimationplayer/). Η τελευταία είναι μια κλάση που αντιπροσωπεύει έναν αναπαραγωγέα για μια ξεχωριστή κίνηση.
 
-Για να εργαστείτε με το [IPresentationAnimationPlayer], χρησιμοποιούνται η ιδιότητα [Duration] (η συνολική διάρκεια της κίνησης) και η μέθοδος [SetTimePosition]. Κάθε θέση κίνησης ορίζεται εντός του εύρους *0 έως διάρκεια*, και στη συνέχεια η μέθοδος `GetFrame` επιστρέφει ένα BufferedImage που αντιστοιχεί στην κατάσταση της κίνησης εκείνη τη στιγμή:
+Για εργασία με το [IPresentationAnimationPlayer](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipresentationanimationplayer/), χρησιμοποιούνται η ιδιότητα [Duration](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipresentationanimationplayer/#getDuration--) (η συνολική διάρκεια της κίνησης) και η μέθοδος [SetTimePosition](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipresentationanimationplayer/#setTimePosition-double-). Κάθε θέση κίνησης ορίζεται εντός του εύρους *0 έως duration*, και τότε η μέθοδος `getFrame` θα επιστρέψει ένα [IImage](https://reference.aspose.com/slides/el/java/com.aspose.slides/iimage/) που αντιστοιχεί στην κατάσταση της κίνησης εκείνη τη στιγμή:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // Προσθέτει ένα σχήμα χαμόγελου και το ανιμαρίζει
+    // Προσθέτει ένα σχήμα χαμόγελου και το ανιματρίζει
     IAutoShape smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effectIn = mainSequence.addEffect(smile, EffectType.Fly, EffectSubtype.TopLeft, EffectTriggerType.AfterPrevious);
@@ -249,21 +265,18 @@ try {
         animationsGenerator.setNewAnimation(animationPlayer ->
         {
             System.out.println(String.format("Animation total duration: %f", animationPlayer.getDuration()));
+
             animationPlayer.setTimePosition(0); // αρχική κατάσταση κίνησης
-            try {
-                // αρχική bitmap κατάσταση κίνησης
-                animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            // bitmap αρχικής κατάστασης κίνησης
+            animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
+
             animationPlayer.setTimePosition(animationPlayer.getDuration()); // τελική κατάσταση της κίνησης
-            try {
-                // τελευταίο πλαίσιο της κίνησης
-                animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            // τελευταίο καρέ της κίνησης
+            animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
         });
+
+        // δημιουργεί τις κινήσεις - αυτό είναι που ενεργοποιεί τα παραπάνω γεγονότα
+        animationsGenerator.run(presentation.getSlides());
     } finally {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
@@ -272,8 +285,11 @@ try {
 }
 ```
 
-Για να κάνετε όλες τις κινήσεις σε μια παρουσίαση να παίζουν ταυτόχρονα, χρησιμοποιείται η κλάση [PresentationPlayer]. Αυτή η κλάση λαμβάνει ένα στιγμιότυπο του [PresentationAnimationsGenerator] και FPS για τα εφέ στον κατασκευαστή της και στη συνέχεια καλεί το γεγονός `FrameTick` για όλες τις κινήσεις ώστε να τις παίξει:
+Για να αναπαραχθούν όλες οι κινήσεις σε μια παρουσίαση ταυτόχρονα, χρησιμοποιείται η κλάση [PresentationPlayer](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentationplayer/). Αυτή η κλάση δέχεται μια παρουσίαση [PresentationAnimationsGenerator](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentationanimationsgenerator/) και FPS για τα εφέ στον κατασκευαστή της και, στη συνέχεια, καλεί το συμβάν `FrameTick` για όλες τις κινήσεις ώστε να παιχθούν:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("animated.pptx");
 try {
     PresentationAnimationsGenerator animationsGenerator = new PresentationAnimationsGenerator(presentation);
@@ -282,11 +298,7 @@ try {
         try {
             player.setFrameTick((sender, arguments) ->
             {
-                try {
-                    arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+                arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
             });
             animationsGenerator.run(presentation.getSlides());
         } finally {
@@ -300,84 +312,84 @@ try {
 }
 ```
 
-Στη συνέχεια τα παραγόμενα καρέ μπορούν να συνταχθούν για την παραγωγή βίντεο. Δείτε την ενότητα [Convert PowerPoint to Video](https://docs.aspose.com/slides/el/java/convert-powerpoint-to-video/#convert-powerpoint-to-video).
+Στη συνέχεια τα παραγόμενα καρέ μπορούν να συντεθούν για τη δημιουργία βίντεο. Δείτε την ενότητα [Convert PowerPoint to Video](https://docs.aspose.com/slides/el/java/convert-powerpoint-to-video/#convert-powerpoint-to-video).
 
 ## **Υποστηριζόμενες Κινήσεις και Εφέ**
 
-**Εισαγωγή**:
+**Είσοδος**:
 
 | Τύπος Κίνησης | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Εμφάνιση** | ![not supported](x.png) | ![supported](v.png) |
-| **Σβήσιμο** | ![supported](v.png) | ![supported](v.png) |
-| **Πτήση Εσωτερική** | ![supported](v.png) | ![supported](v.png) |
-| **Αιώρηση Εσωτερική** | ![supported](v.png) | ![supported](v.png) |
-| **Διαίρεση** | ![supported](v.png) | ![supported](v.png) |
-| **Σκούπισμα** | ![supported](v.png) | ![supported](v.png) |
-| **Σχήμα** | ![supported](v.png) | ![supported](v.png) |
-| **Τροχός** | ![supported](v.png) | ![supported](v.png) |
-| **Τυχαίες Μπάρες** | ![supported](v.png) | ![supported](v.png) |
-| **Ανάπτυξη & Περιστροφή** | ![not supported](x.png) | ![supported](v.png) |
-| **Ζουμ** | ![supported](v.png) | ![supported](v.png) |
-| **Περιστροφή** | ![supported](v.png) | ![supported](v.png) |
-| **Αναπήδηση** | ![supported](v.png) | ![supported](v.png) |
+| **Appear** | ![not supported](x.png) | ![supported](v.png) |
+| **Fade** | ![supported](v.png) | ![supported](v.png) |
+| **Fly In** | ![supported](v.png) | ![supported](v.png) |
+| **Float In** | ![supported](v.png) | ![supported](v.png) |
+| **Split** | ![supported](v.png) | ![supported](v.png) |
+| **Wipe** | ![supported](v.png) | ![supported](v.png) |
+| **Shape** | ![supported](v.png) | ![supported](v.png) |
+| **Wheel** | ![supported](v.png) | ![supported](v.png) |
+| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
+| **Grow & Turn** | ![not supported](x.png) | ![supported](v.png) |
+| **Zoom** | ![supported](v.png) | ![supported](v.png) |
+| **Swivel** | ![supported](v.png) | ![supported](v.png) |
+| **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
 **Έμφαση**:
 
 | Τύπος Κίνησης | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Παλμός** | ![not supported](x.png) | ![supported](v.png) |
-| **Παλμός Χρώματος** | ![not supported](x.png) | ![supported](v.png) |
-| **Κουνιστό** | ![supported](v.png) | ![supported](v.png) |
-| **Περιστροφή** | ![supported](v.png) | ![supported](v.png) |
-| **Ανάπτυξη/Σμίκρυνση** | ![not supported](x.png) | ![supported](v.png) |
-| **Αφυσωμάτωση** | ![not supported](x.png) | ![supported](v.png) |
-| **Σκοτείνιασμα** | ![not supported](x.png) | ![supported](v.png) |
-| **Φωτεινότητα** | ![not supported](x.png) | ![supported](v.png) |
-| **Διαφάνεια** | ![not supported](x.png) | ![supported](v.png) |
-| **Χρώμα Αντικειμένου** | ![not supported](x.png) | ![supported](v.png) |
-| **Συμπληρωματικό Χρώμα** | ![not supported](x.png) | ![supported](v.png) |
-| **Χρώμα Γραμμής** | ![not supported](x.png) | ![supported](v.png) |
-| **Χρώμα Γέμισης** | ![not supported](x.png) | ![supported](v.png) |
+| **Pulse** | ![not supported](x.png) | ![supported](v.png) |
+| **Color Pulse** | ![not supported](x.png) | ![supported](v.png) |
+| **Teeter** | ![supported](v.png) | ![supported](v.png) |
+| **Spin** | ![supported](v.png) | ![supported](v.png) |
+| **Grow/Shrink** | ![not supported](x.png) | ![supported](v.png) |
+| **Desaturate** | ![not supported](x.png) | ![supported](v.png) |
+| **Darken** | ![not supported](x.png) | ![supported](v.png) |
+| **Lighten** | ![not supported](x.png) | ![supported](v.png) |
+| **Transparency** | ![not supported](x.png) | ![supported](v.png) |
+| **Object Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Complementary Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Line Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
 
-**Εξοδος**:
+**Έξοδος**:
 
 | Τύπος Κίνησης | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Εξαφάνιση** | ![not supported](x.png) | ![supported](v.png) |
-| **Σβήσιμο** | ![supported](v.png) | ![supported](v.png) |
-| **Πτήση Εξωτερική** | ![supported](v.png) | ![supported](v.png) |
-| **Αιώρηση Εξωτερική** | ![supported](v.png) | ![supported](v.png) |
-| **Διαίρεση** | ![supported](v.png) | ![supported](v.png) |
-| **Σκούπισμα** | ![supported](v.png) | ![supported](v.png) |
-| **Σχήμα** | ![supported](v.png) | ![supported](v.png) |
-| **Τυχαίες Μπάρες** | ![supported](v.png) | ![supported](v.png) |
-| **Σμίκρυνση & Περιστροφή** | ![not supported](x.png) | ![supported](v.png) |
-| **Ζουμ** | ![supported](v.png) | ![supported](v.png) |
-| **Περιστροφή** | ![supported](v.png) | ![supported](v.png) |
-| **Αναπήδηση** | ![supported](v.png) | ![supported](v.png) |
+| **Disappear** | ![not supported](x.png) | ![supported](v.png) |
+| **Fade** | ![supported](v.png) | ![supported](v.png) |
+| **Fly Out** | ![supported](v.png) | ![supported](v.png) |
+| **Float Out** | ![supported](v.png) | ![supported](v.png) |
+| **Split** | ![supported](v.png) | ![supported](v.png) |
+| **Wipe** | ![supported](v.png) | ![supported](v.png) |
+| **Shape** | ![supported](v.png) | ![supported](v.png) |
+| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
+| **Shrink & Turn** | ![not supported](x.png) | ![supported](v.png) |
+| **Zoom** | ![supported](v.png) | ![supported](v.png) |
+| **Swivel** | ![supported](v.png) | ![supported](v.png) |
+| **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
 **Διαδρομές Κίνησης**:
 
 | Τύπος Κίνησης | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Γραμμές** | ![supported](v.png) | ![supported](v.png) |
-| **Τόξα** | ![supported](v.png) | ![supported](v.png) |
-| **Στροφές** | ![supported](v.png) | ![supported](v.png) |
-| **Σχήματα** | ![supported](v.png) | ![supported](v.png) |
-| **Βρόχοι** | ![supported](v.png) | ![supported](v.png) |
-| **Προσαρμοσμένη Διαδρομή** | ![supported](v.png) | ![supported](v.png) |
+| **Lines** | ![supported](v.png) | ![supported](v.png) |
+| **Arcs** | ![supported](v.png) | ![supported](v.png) |
+| **Turns** | ![supported](v.png) | ![supported](v.png) |
+| **Shapes** | ![supported](v.png) | ![supported](v.png) |
+| **Loops** | ![supported](v.png) | ![supported](v.png) |
+| **Custom Path** | ![supported](v.png) | ![supported](v.png) |
 
-## **Συχνές ερωτήσεις**
+## **Συχνές Ερωτήσεις**
 
-**Μπορεί να γίνει μετατροπή παρουσιάσεων που προστατεύονται με κωδικό;**
+### Είναι δυνατόν να μετατρέψετε παρουσιάσεις που είναι προστατευμένες με κωδικό;
 
-Ναι, το Aspose.Slides επιτρέπει την εργασία με [παρουσιάσεις με κωδικό πρόσβασης](/slides/el/java/password-protected-presentation/). Κατά την επεξεργασία τέτοιων αρχείων, πρέπει να παρέχετε τον σωστό κωδικό πρόσβασης ώστε η βιβλιοθήκη να μπορεί να έχει πρόσβαση στο περιεχόμενο της παρουσίασης.
+Ναι, το Aspose.Slides επιτρέπει εργασία με [παρουσιάσεις προστατευμένες με κωδικό](/slides/el/java/password-protected-presentation/). Κατά την επεξεργασία τέτοιων αρχείων, πρέπει να παρέχετε τον σωστό κωδικό ώστε η βιβλιοθήκη να έχει πρόσβαση στο περιεχόμενο της παρουσίασης.
 
-**Υποστηρίζει το Aspose.Slides τη χρήση σε λύσεις cloud;**
+### Υποστηρίζει το Aspose.Slides χρήση σε λύσεις cloud;
 
-Ναι, το Aspose.Slides μπορεί να ενσωματωθεί σε εφαρμογές και υπηρεσίες cloud. Η βιβλιοθήκη έχει σχεδιαστεί για να λειτουργεί σε περιβάλλοντα διακομιστών, εξασφαλίζοντας υψηλή απόδοση και κλιμάκωση για επεξεργασία μεγάλου αριθμού αρχείων.
+Ναι, το Aspose.Slides μπορεί να ενσωματωθεί σε εφαρμογές και υπηρεσίες cloud. Η βιβλιοθήκη έχει σχεδιαστεί για λειτουργία σε περιβάλλοντα διακομιστών, εξασφαλίζοντας υψηλή απόδοση και κλιμάκωση για μαζική επεξεργασία αρχείων.
 
-**Υπάρχουν περιορισμοί μεγέθους για τις παρουσιάσεις κατά τη μετατροπή;**
+### Υπάρχουν περιορισμοί μεγέθους για τις παρουσιάσεις κατά τη μετατροπή;
 
-Το Aspose.Slides μπορεί να διαχειριστεί παρουσιάσεις σχεδόν οποιουδήποτε μεγέθους. Ωστόσο, όταν εργάζεστε με πολύ μεγάλα αρχεία, μπορεί να απαιτηθούν επιπλέον πόροι συστήματος, και μερικές φορές συνιστάται η βελτιστοποίηση της παρουσίασης για βελτίωση της απόδοσης.
+Το Aspose.Slides μπορεί να διαχειριστεί παρουσιάσεις πρακτικά οποιουδήποτε μεγέθους. Ωστόσο, όταν εργάζεστε με πολύ μεγάλα αρχεία, μπορεί να απαιτούνται επιπλέον πόροι συστήματος, και μερικές φορές συνιστάται η βελτιστοποίηση της παρουσίασης για βελτίωση της απόδοσης.

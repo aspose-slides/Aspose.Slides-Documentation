@@ -1,30 +1,42 @@
 ---
-title: API public et changements incompatibles avec les versions précédentes dans Aspose.Slides pour Java 15.5.0
+title: API publique et changements incompatibles rétroactifs dans Aspose.Slides for Java 15.5.0
+linktitle: Aspose.Slides for Java 15.5.0
 type: docs
 weight: 130
 url: /fr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-5-0/
+keywords:
+- migration
+- code hérité
+- code moderne
+- approche héritée
+- approche moderne
+- PowerPoint
+- OpenDocument
+- présentation
+- Java
+- Aspose.Slides
+description: "Examinez les mises à jour de l'API publique et les changements majeurs dans Aspose.Slides for Java afin de migrer en douceur vos solutions de présentation PowerPoint PPT, PPTX et ODP."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-Cette page liste toutes les [ajouts](/slides/fr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-5-0/) de classes, méthodes, propriétés, etc., ainsi que toutes nouvelles restrictions et autres [changements](/slides/fr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-5-0/) introduits avec l'API Aspose.Slides pour Java 15.5.0.
+Cette page répertorie toutes les classes, méthodes, propriétés et ainsi de suite [ajoutées](/slides/fr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-5-0/), ainsi que les nouvelles restrictions et autres [modifications](/slides/fr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-5-0/) introduites avec l'API Aspose.Slides for Java 15.5.0.
 
 {{% /alert %}} 
-## **Changements de l'API publique**
+## **Modifications de l'API publique**
 ### **La classe CommonSlideViewProperties et l'interface ICommonSlideViewProperties ont été ajoutées**
-La classe com.aspose.slides.CommonSlideViewProperties (et son interface com.aspose.slides.ICommonSlideViewProperties) représente les propriétés communes de vue des diapositives (actuellement les options d'échelle de vue).
-### **Les méthodes IAxis.getLabelOffset(), setLabelOffset(int) ont été ajoutées**
-Les méthodes IAxis.getLabelOffset(), setLabelOffset(int) permettent d'obtenir et de spécifier la distance des étiquettes par rapport à l'axe. Appliqué à l'axe de catégorie ou de date.
-### **Les méthodes IChartTextBlockFormat.getAutofitType(), setAutofitType(byte) ont été ajoutées**
-Les méthodes getAutofitType(), setAutofitType(/**TextAutofitType**/byte) ont été ajoutées à l'interface com.aspose.slides.IChartTextBlockFormat.
-Le changement de cette valeur peut avoir une certaine influence uniquement sur ces parties du graphique : DataLabel et DataLabelFormat (support complet dans PowerPoint 2013 ; dans PowerPoint 2007, il n'y a pas d'effet pour le rendu).
-### **Les méthodes IChartTextBlockFormat.getWrapText(), setWrapText(byte) ont été ajoutées**
-Les méthodes getWrapText(), setWrapText(/**NullableBool**/byte) ont été ajoutées à l'interface com.aspose.slides.IChartTextBlockFormat.
-Le changement de cette valeur peut avoir une certaine influence uniquement sur ces parties du graphique : DataLabel et DataLabelFormat (support complet dans PowerPoint 2007/2013).
-### **Les méthodes pour gérer les marges ont été ajoutées à IChartTextBlockFormat**
+La classe com.aspose.slides.CommonSlideViewProperties (et son interface com.aspose.slides.ICommonSlideViewProperties) représente les propriétés communes de la vue des diapositives (actuellement les options d'échelle de vue).
+### **Les méthodes IAxis.getLabelOffset() et setLabelOffset(int) ont été ajoutées**
+Les méthodes IAxis.getLabelOffset() et setLabelOffset(int) permettent d'obtenir et de spécifier la distance des étiquettes par rapport à l'axe. Applicables aux axes de catégorie ou de date.
+### **Les méthodes IChartTextBlockFormat.getAutofitType() et setAutofitType(byte) ont été ajoutées**
+Les méthodes getAutofitType() et setAutofitType(/**TextAutofitType**/byte) ont été ajoutées à l'interface com.aspose.slides.IChartTextBlockFormat.
+La modification de cette valeur ne peut influencer que les éléments de graphique suivants : DataLabel et DataLabelFormat (prise en charge complète dans PowerPoint 2013 ; dans PowerPoint 2007 il n’y a aucun effet lors du rendu).
+### **Les méthodes IChartTextBlockFormat.getWrapText() et setWrapText(byte) ont été ajoutées**
+Les méthodes getWrapText() et setWrapText(/**NullableBool**/byte) ont été ajoutées à l'interface com.aspose.slides.IChartTextBlockFormat.
+La modification de cette valeur n’influe que sur les parties de graphique suivantes : DataLabel et DataLabelFormat (prise en charge complète dans PowerPoint 2007/2013).
+### **Les méthodes de gestion des marges ont été ajoutées à IChartTextBlockFormat**
 Les méthodes getMarginLeft(), setMarginLeft(double), getMarginRight(), setMarginRight(double), getMarginTop(), setMarginTop(double), getMarginBottom() et setMarginBottom(double) ont été ajoutées à l'interface com.aspose.slides.IChartTextBlockFormat.
-Le changement de ces valeurs peut avoir une certaine influence uniquement sur ces parties du graphique : DataLabel et DataLabelFormat (support complet dans PowerPoint 2013 ; dans PowerPoint 2007, il n'y a pas d'effet pour le rendu).
+La modification de ces valeurs n’influe que sur les parties de graphique suivantes : DataLabel et DataLabelFormat (prise en charge complète dans PowerPoint 2013 ; dans PowerPoint 2007 il n’y a aucun effet lors du rendu).
 ### **La méthode ViewProperties.getNotesViewProperties() a été ajoutée**
-La propriété com.aspose.slides.ViewProperties.getNotesViewProperties() a été ajoutée. Elle obtient les propriétés de vue communes associées au mode de vue de notes.
+La propriété com.aspose.slides.ViewProperties.getNotesViewProperties() a été ajoutée. Elle récupère les propriétés communes de la vue associées au mode notes.
 ### **La méthode ViewProperties.getSlideViewProperties() a été ajoutée**
-La méthode com.aspose.slides.ViewProperties.getSlideViewProperties() a été ajoutée. Elle obtient les propriétés de vue communes associées au mode de vue de diapositive.
+La méthode com.aspose.slides.ViewProperties.getSlideViewProperties() a été ajoutée. Elle récupère les propriétés communes de la vue associées au mode diapositive.

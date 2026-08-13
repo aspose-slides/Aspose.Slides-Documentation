@@ -1,5 +1,5 @@
 ---
-title: مدیریت قاب‌های تصویر در ارائه‌ها در اندروید
+title: مدیریت قاب‌های تصویر در ارائه‌ها بر روی Android
 linktitle: قاب تصویر
 type: docs
 weight: 10
@@ -11,16 +11,16 @@ keywords:
 - افزودن تصویر
 - ایجاد تصویر
 - استخراج تصویر
-- تصویر رستر
+- تصویر رستری
 - تصویر برداری
 - برش تصویر
-- ناحیه برش‌خورده
+- منطقه برش‌خورده
 - ویژگی StretchOff
 - قالب‌بندی قاب تصویر
 - ویژگی‌های قاب تصویر
 - مقیاس نسبی
 - اثر تصویر
-- نسبت عرض به ارتفاع
+- نسبت ابعاد
 - شفافیت تصویر
 - PowerPoint
 - OpenDocument
@@ -28,46 +28,48 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "قاب‌های تصویر را به ارائه‌های PowerPoint و OpenDocument با Aspose.Slides برای Android از طریق Java اضافه کنید. روند کاری خود را ساده‌سازی کنید و طراحی اسلایدها را بهبود بخشید."
+description: "قاب‌های تصویر را به ارائه‌های PowerPoint و OpenDocument با Aspose.Slides برای Android از طریق Java اضافه کنید. جریان کاری خود را ساده کنید و طراحی اسلایدها را بهبود بخشید."
 ---
 ## **مقدمه**
 
-قاب تصویر یک شکل است که یک تصویر را در خود دارد — همانند یک عکس در قاب.  
+یک قاب تصویر شکلی است که حاوی یک تصویر است—مانند یک تصویر در داخل یک قاب.  
 
-شما می‌توانید یک تصویر را از طریق قاب تصویر به اسلاید اضافه کنید. به این ترتیب می‌توانید تصویر را با قالب‌بندی قاب تصویر فرمت کنید.  
+شما می‌توانید یک تصویر را از طریق یک قاب تصویر به اسلاید اضافه کنید. به این ترتیب می‌توانید تصویر را با قالب‌بندی قاب تصویر فرمت کنید.  
 
-{{% alert  title="Tip" color="primary" %}} 
-
-Aspose مبدل‌های رایگانی ارائه می‌دهد — [JPEG به PowerPoint](https://products.aspose.app/slides/fa/import/jpg-to-ppt) و [PNG به PowerPoint](https://products.aspose.app/slides/fa/import/png-to-ppt) — که به کاربران امکان می‌دهد به سرعت از تصاویر ارائه‌ها را ایجاد کنند.  
-
+{{% alert title="نکته" color="info" %}} 
+Aspose مبدل‌های رایگانی ارائه می‌دهد—[JPEG به PowerPoint](https://products.aspose.app/slides/fa/import/jpg-to-ppt) و [PNG به PowerPoint](https://products.aspose.app/slides/fa/import/png-to-ppt)—که به افراد اجازه می‌دهد به سرعت از تصاویر ارائه‌ها را ایجاد کنند.  
 {{% /alert %}} 
 
-## **ایجاد قاب تصویر**
+## **ایجاد یک قاب تصویر**
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) ایجاد کنید.  
-2. مرجع یک اسلاید را از طریق اندیس آن دریافت کنید.  
-3. یک شیء [IPPImage]() ایجاد کنید با افزودن یک تصویر به [IImagescollection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IImageCollection) مرتبط با شیء ارائه که برای پر کردن شکل استفاده خواهد شد.  
-4. عرض و ارتفاع تصویر را مشخص کنید.  
+2. مرجع یک اسلاید را بر اساس ایندکس آن دریافت کنید.  
+3. یک شیء [IPPImage]() ایجاد کنید با افزودن یک تصویر به [IImagescollection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IImageCollection) مربوط به شیء ارائه که برای پر کردن شکل استفاده خواهد شد.  
+4. عرض و ارتفاع تصویر را تعیین کنید.  
 5. یک [PictureFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/PictureFrame) بر اساس عرض و ارتفاع تصویر از طریق متد `AddPictureFrame` که توسط شیء شکل مرتبط با اسلاید مرجع ارائه می‌شود، ایجاد کنید.  
-6. قاب تصویر (حاوی تصویر) را به اسلاید اضافه کنید.  
-7. ارائه اصلاح‌شده را به عنوان یک فایل PPTX بنویسید.  
+6. یک قاب تصویر (حاوی تصویر) را به اسلاید اضافه کنید.  
+7. ارائه اصلاح‌شده را به‌صورت فایل PPTX بنویسید.  
 
 این کد Java نشان می‌دهد چگونه یک قاب تصویر ایجاد کنید:  
 
 ```java
-// یک نمونه از کلاس Presentation که نمایانگر یک فایل PPTX است را ایجاد می‌کند
+import com.aspose.slides.*;
+import java.io.File;
+import java.io.IOException;
+
+// یک نمونه از کلاس Presentation که نمایانگر یک فایل PPTX است
 Presentation pres = new Presentation();
 try {
-    // اسلاید اول را دریافت می‌کند
+    // اولین اسلاید را دریافت می‌کند
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // یک نمونه از کلاس Image را ایجاد می‌کند
+    // یک نمونه از کلاس Image ایجاد می‌کند
     IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
     
-    // یک قاب تصویر با عرض و ارتفاع معادل تصویر اضافه می‌کند
+    // یک قاب تصویر با ارتفاع و عرض معادل تصویر اضافه می‌کند
     sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
     
-    // فایل PPTX را روی دیسک ذخیره می‌کند
+    // فایل PPTX را روی دیسک می‌نویسد
     pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -75,38 +77,43 @@ try {
 }
 ```
 
-## **ایجاد قاب تصویر با مقیاس نسبی**
+## **ایجاد یک قاب تصویر با مقیاس نسبی**
 
-با تغییر مقیاس نسبی تصویر، می‌توانید یک قاب تصویر پیچیده‌تر ایجاد کنید.  
+با تغییر مقیاس نسبی یک تصویر، می‌توانید یک قاب تصویر پیچیده‌تر ایجاد کنید.  
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) ایجاد کنید.  
-2. مرجع یک اسلاید را از طریق اندیس آن دریافت کنید.  
-3. یک تصویر به مجموعه تصاویر ارائه اضافه کنید.  
-4. یک شیء [IPPImage](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IPPImage) ایجاد کنید با افزودن یک تصویر به [IImagescollection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IImageCollection) مرتبط با شیء ارائه که برای پر کردن شکل استفاده خواهد شد.  
+2. مرجع یک اسلاید را بر اساس ایندکس آن دریافت کنید.  
+3. یک تصویر را به مجموعه تصاویر ارائه اضافه کنید.  
+4. یک شیء [IPPImage](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IPPImage) ایجاد کنید با افزودن یک تصویر به [IImagescollection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IImageCollection) مربوط به شیء ارائه که برای پر کردن شکل استفاده خواهد شد.  
 5. عرض و ارتفاع نسبی تصویر را در قاب تصویر مشخص کنید.  
-6. ارائه اصلاح‌شده را به عنوان یک فایل PPTX بنویسید.  
+6. ارائه اصلاح‌شده را به‌صورت فایل PPTX بنویسید.  
 
 این کد Java نشان می‌دهد چگونه یک قاب تصویر با مقیاس نسبی ایجاد کنید:  
 
 ```java
-// یک نمونه از کلاس Presentation که نمایانگر فایل PPTX است را ایجاد می‌کند
+import com.aspose.slides.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+// نمونه‌سازی کلاس Presentation که نمایانگر فایل PPTX است
 Presentation pres = new Presentation();
 try {
-    // اسلاید اول را دریافت می‌کند
+    // دریافت اولین اسلاید
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // یک نمونه از کلاس Image را ایجاد می‌کند
+    // نمونه‌سازی کلاس Image
     IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
     
     
-    // یک قاب تصویر با عرض و ارتفاع معادل تصویر اضافه می‌کند
+    // افزودن قاب تصویر با ارتفاع و عرض معادل تصویر
     IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
     
     // تنظیم مقیاس نسبی عرض و ارتفاع
     pf.setRelativeScaleHeight(0.8f);
     pf.setRelativeScaleWidth(1.35f);
     
-    // فایل PPTX را روی دیسک ذخیره می‌کند
+    // نوشتن فایل PPTX روی دیسک
     pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -114,11 +121,13 @@ try {
 }
 ```
 
-## **استخراج تصاویر رستر از قاب‌های تصویر**
+## **استخراج تصاویر رستری از قاب‌های تصویر**
 
-می‌توانید تصاویر رستر را از اشیاء [PictureFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/PictureFrame) استخراج کرده و در قالب‌های PNG، JPG و سایر فرمت‌ها ذخیره کنید. مثال کد زیر نحوه استخراج یک تصویر از سند «sample.pptx» و ذخیره آن در قالب PNG را نشان می‌دهد.  
+می‌توانید تصاویر رستری را از اشیاء [PictureFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/PictureFrame) استخراج کنید و در فرمت‌های PNG، JPG و سایر فرمت‌ها ذخیره نمایید. مثال کد زیر نشان می‌دهد چگونه یک تصویر را از سند "sample.pptx" استخراج کرده و در فرمت PNG ذخیره کنید.  
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 
 try {
@@ -127,14 +136,13 @@ try {
 
     if (firstShape instanceof IPictureFrame) {
         IPictureFrame pictureFrame = (IPictureFrame) firstShape;
+        IImage slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
         try {
-			IImage slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
-			slideImage.save("slide_1_shape_1.png", ImageFormat.Png);
-		} finally {
-			if (slideImage != null) slideImage.dispose();
-		}
+            slideImage.save("slide_1_shape_1.png", ImageFormat.Png);
+        } finally {
+            if (slideImage != null) slideImage.dispose();
+        }
     }
-} catch (IOException e) {
 } finally {
     presentation.dispose();
 }
@@ -142,11 +150,15 @@ try {
 
 ## **استخراج تصاویر SVG از قاب‌های تصویر**
 
-زمانی که یک ارائه شامل گرافیک‌های SVG باشد که داخل اشکال [PictureFrame] قرار گرفته‌اند، Aspose.Slides برای Android از طریق Java به شما امکان می‌دهد تا تصاویر برداری اصلی را با تمام صحت دریافت کنید. با پیمایش مجموعه اشکال اسلاید، می‌توانید هر [PictureFrame] را شناسایی کنید، بررسی کنید آیا [IPPImage] زیرین محتوای SVG دارد یا نه، و سپس آن تصویر را به‌صورت فایل یا جریان با فرمت SVG اصلی ذخیره کنید.  
+زمانی که یک ارائه شامل گرافیک‌های SVG باشد که داخل اشکال [PictureFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/pictureframe/) قرار گرفته‌اند، Aspose.Slides برای Android از طریق Java به شما امکان می‌دهد تصاویر برداری اصلی را با تمام دقت بازیابی کنید. هنگامی که یک [PictureFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/pictureframe/) داشته باشید که [IPPImage](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ippimage/) شامل محتوای SVG است، می‌توانید آن تصویر SVG را بخوانید و به‌صورت بومی در فرمت SVG بر روی دیسک یا جریان ذخیره کنید.  
 
-مثال کد زیر نحوه استخراج یک تصویر SVG از یک قاب تصویر را نشان می‌دهد:  
+مثال کد زیر نشان می‌دهد چگونه یک تصویر SVG را از یک قاب تصویر استخراج کنید:  
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 Presentation presentation = new Presentation("sample.pptx");
 
 try {
@@ -170,9 +182,11 @@ try {
 
 ## **دریافت شفافیت یک تصویر**
 
-Aspose.Slides به شما اجازه می‌دهد تا اثر شفافیت اعمال‌شده بر یک تصویر را دریافت کنید. این کد Java عمل را نشان می‌دهد:  
+Aspose.Slides به شما امکان می‌دهد افکت شفافیت اعمال‌شده به یک تصویر را به‌دست آورید. این کد Java این عملیات را نشان می‌دهد:  
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("Test.pptx");
 
 var pictureFrame = (IPictureFrame) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -186,13 +200,15 @@ for (var effect : imageTransform) {
 }
 ```
 
-## **دریافت روشنایی و کنتراست یک تصویر**
+## **دریافت روشنایی و کنتراست تصویر**
 
-Aspose.Slides به شما اجازه می‌دهد تا اثر روشنایی و کنتراست اعمال‌شده بر یک تصویر را دریافت کنید. رابط [ILuminance](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iluminance/) این اثر تبدیل تصویر را نمایش می‌دهد.  
+Aspose.Slides به شما امکان می‌دهد افکت روشنایی و کنتراست اعمال‌شده به یک تصویر را به‌دست آورید. اینترفیس [ILuminance](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iluminance/) نمایان‌گر این اثر تبدیل تصویر است.  
 
 این کد Java نشان می‌دهد چگونه تنظیمات روشنایی و کنتراست را از یک قاب تصویر دریافت کنید:  
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 
 try {
@@ -218,35 +234,41 @@ try {
 
 ## **قالب‌بندی قاب تصویر**
 
-Aspose.Slides گزینه‌های قالب‌بندی متعددی را که می‌توان بر روی یک قاب تصویر اعمال کرد، فراهم می‌کند. با استفاده از این گزینه‌ها می‌توانید یک قاب تصویر را تغییر دهید تا با نیازهای خاص مطابقت داشته باشد.  
+Aspose.Slides گزینه‌های قالب‌بندی متعددی ارائه می‌دهد که می‌توان بر یک قاب تصویر اعمال کرد. با استفاده از این گزینه‌ها، می‌توانید قاب تصویر را طوری تغییر دهید که متناسب با نیازهای خاص باشد.  
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) ایجاد کنید.  
-2. مرجع یک اسلاید را از طریق اندیس آن دریافت کنید.  
-3. یک شیء [IPPImage](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IPPImage) ایجاد کنید با افزودن یک تصویر به [IImagescollection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IImageCollection) مرتبط با شیء ارائه که برای پر کردن شکل استفاده خواهد شد.  
-4. عرض و ارتفاع تصویر را مشخص کنید.  
+2. مرجع یک اسلاید را بر اساس ایندکس آن دریافت کنید.  
+3. یک شیء [IPPImage](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IPPImage) ایجاد کنید با افزودن یک تصویر به [IImagescollection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IImageCollection) مربوط به شیء ارائه که برای پر کردن شکل استفاده خواهد شد.  
+4. عرض و ارتفاع تصویر را تعیین کنید.  
 5. یک `PictureFrame` بر اساس عرض و ارتفاع تصویر از طریق متد [AddPictureFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) که توسط شیء [IShapes](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IShapeCollection) مرتبط با اسلاید مرجع ارائه می‌شود، ایجاد کنید.  
-6. قاب تصویر (حاوی تصویر) را به اسلاید اضافه کنید.  
+6. یک قاب تصویر (حاوی تصویر) را به اسلاید اضافه کنید.  
 7. رنگ خط قاب تصویر را تنظیم کنید.  
-8. عرض خط قاب تصویر را تنظیم کنید.  
-9. قاب تصویر را با دادن یک مقدار مثبت یا منفی بچرخانید.  
-   * مقدار مثبت تصویر را به‌صورت ساعت‌گرد می‌چرخاند.  
-   * مقدار منفی تصویر را به‌صورت پاد ساعت‌گرد می‌چرخاند.  
+8. ضخامت خط قاب تصویر را تنظیم کنید.  
+9. قاب تصویر را با مقدار مثبت یا منفی چرخانده کنید.  
+   * یک مقدار مثبت تصویر را به‌صورت ساعتگرد می‌چرخاند.  
+   * یک مقدار منفی تصویر را به‌صورت پادساعتگرد می‌چرخاند.  
 10. قاب تصویر (حاوی تصویر) را به اسلاید اضافه کنید.  
-11. ارائه اصلاح‌شده را به عنوان یک فایل PPTX بنویسید.  
+11. ارائه اصلاح‌شده را به‌صورت فایل PPTX بنویسید.  
 
-این کد Java فرایند قالب‌بندی قاب تصویر را نشان می‌دهد:  
+این کد Java فرآیند قالب‌بندی قاب تصویر را نشان می‌دهد:  
 
 ```java
-// یک نمونه از کلاس Presentation که نمایانگر فایل PPTX است را ایجاد می‌کند
+import com.aspose.slides.*;
+import java.awt.Color;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+// یک نمونه از کلاس Presentation که نمایانگر فایل PPTX است ایجاد می‌کند
 Presentation pres = new Presentation();
 try {
-    // اسلاید اول را دریافت می‌کند
+    // اولین اسلاید را دریافت می‌کند
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // یک نمونه از کلاس Image را ایجاد می‌کند
+    // یک نمونه از کلاس Image ایجاد می‌کند
     IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
     
-    // یک قاب تصویر با عرض و ارتفاع معادل تصویر اضافه می‌کند
+    // یک قاب تصویر با ارتفاع و عرض معادل تصویر اضافه می‌کند
     IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
     
     // برخی قالب‌بندی‌ها را بر روی PictureFrameEx اعمال می‌کند
@@ -255,7 +277,7 @@ try {
     pf.getLineFormat().setWidth(20);
     pf.setRotation(45);
     
-    // فایل PPTX را روی دیسک ذخیره می‌کند
+    // فایل PPTX را بر روی دیسک می‌نویسد
     pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -263,17 +285,18 @@ try {
 }
 ```
 
-{{% alert title="Tip" color="primary" %}}
+{{% alert title="نکته" color="info" %}} 
+Aspose به‌تازگی یک [ابزار ساخت کولیج رایگان](https://products.aspose.app/slides/fa/collage) توسعه داده است. اگر نیاز به [ادغام JPG/JPEG](https://products.aspose.app/slides/fa/collage/jpg) یا تصاویر PNG، یا [ایجاد شبکه‌ها از عکس‌ها](https://products.aspose.app/slides/fa/collage/photo-grid) دارید، می‌توانید از این سرویس استفاده کنید.  
+{{% /alert %}} 
 
-Aspose به‌تازگی یک [ابزار ساخت کلاژ رایگان](https://products.aspose.app/slides/fa/collage) توسعه داده است. اگر نیاز به [ترکیب تصویرهای JPG/JPEG](https://products.aspose.app/slides/fa/collage/jpg) یا PNG داشته باشید، یا [ایجاد شبکه‌ای از عکس‌ها](https://products.aspose.app/slides/fa/collage/photo-grid) داشته باشید، می‌توانید از این سرویس استفاده کنید.  
+## **افزودن تصویر به‌عنوان لینک**
 
-{{% /alert %}}
-
-## **افزودن تصویر به‌عنوان پیوند**
-
-برای جلوگیری از بزرگ شدن اندازه ارائه، می‌توانید تصاویر (یا ویدیوها) را از طریق پیوند اضافه کنید به‌جای اینکه فایل‌ها را مستقیماً در ارائه جاسازی کنید. این کد Java نشان می‌دهد چگونه یک تصویر و ویدیو را به یک‌نگهدارنده (placeholder) اضافه کنید:  
+برای جلوگیری از بزرگ شدن اندازه ارائه، می‌توانید تصاویر (یا ویدئوها) را از طریق لینک‌ها اضافه کنید به‌جای اینکه فایل‌ها را مستقیماً در ارائه جاسازی کنید. این کد Java نشان می‌دهد چگونه یک تصویر و ویدئو را به یک محل‌نگهدارنده اضافه کنید:  
 
 ```java
+import com.aspose.slides.*;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation("input.pptx");
 try {
     ArrayList<IShape> shapesToRemove = new ArrayList<IShape>();
@@ -325,16 +348,18 @@ try {
 }
 ```
 
-## **قلم‌برداری (برش) تصاویر**
+## **برش تصاویر**
 
 این کد Java نشان می‌دهد چگونه یک تصویر موجود در اسلاید را برش دهید:  
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 // یک شیء تصویر جدید ایجاد می‌کند
 try {
     IPPImage picture;
-    IImage image = Images.fromFile(imagePath);
+    IImage image = Images.fromFile("image.png");
     try {
         picture = pres.getImages().addImage(image);
     } finally {
@@ -345,35 +370,36 @@ try {
     IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(
             ShapeType.Rectangle, 100, 100, 420, 250, picture);
 
-    // تصویر را برش می‌دهد (مقدارهای درصدی)
+    // تصویر را برش می‌دهد (مقادیر درصدی)
     picFrame.getPictureFormat().setCropLeft(23.6f);
     picFrame.getPictureFormat().setCropRight(21.5f);
     picFrame.getPictureFormat().setCropTop(3);
     picFrame.getPictureFormat().setCropBottom(31);
 
     // نتیجه را ذخیره می‌کند
-    pres.save(outPptxFile, SaveFormat.Pptx);
-} catch (IOException e) {
+    pres.save("cropped_image.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **حذف نواحی برش خورده یک تصویر**
+## **حذف نواحی برش داده شده یک تصویر**
 
-اگر می‌خواهید نواحی برش‌خورده یک تصویر موجود در یک قاب را حذف کنید، می‌توانید از متد [deletePictureCroppedAreas()](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) استفاده کنید. این متد تصویر برش‌خورده یا تصویر اصلی را در صورت عدم نیاز به برش برمی‌گرداند.  
+اگر می‌خواهید نواحی برش داده‌شده یک تصویر موجود در یک قاب را حذف کنید، می‌توانید از متد [deletePictureCroppedAreas()](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) استفاده کنید. این متد تصویر برش‌داده‌شده یا تصویر اصلی را در صورت عدم نیاز به برش باز می‌گرداند.  
 
 این کد Java عملیات را نشان می‌دهد:  
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("PictureFrameCrop.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // قاب تصویر را از اسلاید اول دریافت می‌کند
+    // قاب تصویر را از اولین اسلاید دریافت می‌کند
     IPictureFrame picFrame = (IPictureFrame)slide.getShapes().get_Item(0);
 
-    // ناحیه‌های برش‌خورده تصویر قاب تصویر را حذف می‌کند و تصویر برش‌خورده را بر می‌گرداند
+    // نواحی برش‌خورده تصویر قاب را حذف می‌کند و تصویر برش‌خورده را برمی‌گرداند
     IPPImage croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
 
     // نتیجه را ذخیره می‌کند
@@ -383,23 +409,24 @@ try {
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
+{{% alert title="توجه" color="warning" %}} 
+متد [deletePictureCroppedAreas()](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) تصویر برش‌داده‌شده را به مجموعه تصاویر ارائه اضافه می‌کند. اگر تصویر فقط در [PictureFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/pictureframe/) پردازش‌شده استفاده شود، این تنظیم می‌تواند اندازه ارائه را کاهش دهد. در غیر این صورت، تعداد تصاویر در ارائه نهایی افزایش خواهد یافت.  
 
-متد [deletePictureCroppedAreas()](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) تصویر برش‌خورده را به مجموعه تصاویر ارائه اضافه می‌کند. اگر تصویر فقط در [PictureFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/pictureframe/) پردازش‌شده استفاده شده باشد، این تنظیم می‌تواند اندازه ارائه را کاهش دهد. در غیر این صورت، تعداد تصاویر در ارائه نهایی افزایش خواهد یافت.
-
-این متد فایل‌های متا WMF/EMF را در عملیات برش به تصویر PNG رستر تبدیل می‌کند.  
-
-{{% /alert %}}
+این متد در عملیات برش، فایل‌های متافایل WMF/EMF را به تصویر رستری PNG تبدیل می‌کند.  
+{{% /alert %}} 
 
 ## **فشرده‌سازی تصاویر**
 
-می‌توانید یک تصویر در یک ارائه را با استفاده از متد [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) فشرده کنید. این متد تصویر را با کاهش اندازه بر اساس ابعاد شکل و وضوح مشخص‌شده فشرده می‌کند و امکان حذف نواحی برش‌خورده را نیز دارد.  
+می‌توانید یک تصویر در ارائه را با استفاده از متد [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) فشرده کنید.  
+این متد تصویر را با کاهش اندازه بر اساس اندازه شکل و وضوح تعیین‌شده، و با امکان حذف نواحی برش‌داده‌شده، فشرده می‌کند.  
 
 این کار اندازه و وضوح تصویر را مشابه ویژگی **Picture Format > Compress Pictures > Resolution** در PowerPoint تنظیم می‌کند.  
 
-مثال‌های Java زیر نشان می‌دهند چگونه یک تصویر را در یک ارائه با تعیین وضوح هدف فشرده کنید و در صورت نیاز نواحی برش‌خورده را حذف کنید:  
+مثال‌های Java زیر نشان می‌دهند چگونه یک تصویر را در یک ارائه با مشخص کردن وضوح هدف و به‌طور اختیاری حذف نواحی برش‌داده‌شده فشرده کنید:  
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("demo.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -408,7 +435,7 @@ try {
     // فشرده‌سازی تصویر با وضوح هدف 150 DPI (وضوح وب) و حذف نواحی برش‌خورده.
     boolean result = pictureFrame.getPictureFormat().compressImage(true, PicturesCompression.Dpi150);
 
-    // Check the result of the compression.
+    // بررسی نتیجه فشرده‌سازی.
     if (result) {
         System.out.println("Image successfully compressed.");
     } else {
@@ -421,15 +448,17 @@ try {
 }
 ```
 
-یا به‌صورت مستقیم با استفاده از مقدار DPI سفارشی:  
+یا به‌طور مستقیم با استفاده از مقدار DPI سفارشی:  
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("demo.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
     IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
 
-    // فشرده‌سازی تصویر به 150 DPI (وضوح وب)، حذف نواحی برش‌خورده.
+    // تصویر را به 150 DPI (وضوح وب) فشرده می‌کند و نواحی برش‌خورده را حذف می‌نماید.
     pictureFrame.getPictureFormat().compressImage(true, 150f);
 
     presentation.save("CompressedImage.pptx", SaveFormat.Pptx);
@@ -438,20 +467,20 @@ try {
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
+{{% alert title="توجه" color="warning" %}} 
+این متد تصویر را به وضوح پایین‌تری بر اساس اندازه شکل و DPI ارائه‌شده تبدیل می‌کند. نواحی برش‌داده‌شده نیز می‌توانند برای بهینه‌سازی حجم فایل حذف شوند.  
+اگر تصویر یک متافایل (WMF/EMF) یا SVG باشد، فشرده‌سازی اعمال نخواهد شد. همچنین، کیفیت JPEG بر اساس وضوح حفظ یا کمی کاهش می‌یابد، مشابه نحوه‌ی عملکرد PowerPoint با JPEGهای با وضوح بالا.  
+{{% /alert %}} 
 
-این متد تصویر را بر مبنای اندازه شکل و DPI ارائه‌شده به وضوح پایین‌تر تبدیل می‌کند. نواحی برش‌خورده نیز می‌توانند حذف شوند تا حجم فایل بهینه شود.  
-اگر تصویر یک متافایل (WMF/EMF) یا SVG باشد، فشرده‌سازی اعمال نمی‌شود. همچنین کیفیت JPEG بسته به وضوح حفظ یا کمی کاهش می‌یابد، مشابه نحوهٔ پردازش JPEGهای با وضوح بالا در PowerPoint.  
+## **قفل کردن نسبت ابعاد**
 
-{{% /alert %}}
+اگر می‌خواهید یک شکل حاوی تصویر نسبت ابعاد خود را حتی پس از تغییر ابعاد تصویر حفظ کند، می‌توانید از متد [setAspectRatioLocked](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) برای تنظیم گزینه *Lock Aspect Ratio* استفاده کنید.  
 
-## **قفل کردن نسبت عرض به ارتفاع**
-
-اگر می‌خواهید یک شکل حاوی تصویر نسبت عرض به ارتفاع خود را حتی پس از تغییر ابعاد تصویر حفظ کند، می‌توانید از متد [setAspectRatioLocked](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) برای تنظیم گزینه *Lock Aspect Ratio* استفاده کنید.  
-
-این کد Java نشان می‌دهد چگونه نسبت عرض به ارتفاع یک شکل را قفل کنید:  
+این کد Java نشان می‌دهد چگونه نسبت ابعاد یک شکل را قفل کنید:  
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     ILayoutSlide layout = pres.getLayoutSlides().getByType(SlideLayoutType.Custom);
@@ -464,48 +493,47 @@ try {
         if (image != null) image.dispose();
     }
     IPictureFrame pictureFrame = emptySlide.getShapes().addPictureFrame(
-            ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
+            ShapeType.Rectangle, 50, 150, picture.getWidth(), picture.getHeight(), picture);
 
-    // تنظیم شکل برای حفظ نسبت عرض به ارتفاع هنگام تغییر اندازه
+    // تنظیم شکل برای حفظ نسبت ابعاد هنگام تغییر اندازه
     pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
-} catch(IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
-
-این تنظیم *Lock Aspect Ratio* فقط نسبت عرض به ارتفاع شکل را حفظ می‌کند و نه تصویر داخل آن.  
-
-{{% /alert %}}
+{{% alert title="توجه" color="warning" %}} 
+این تنظیم *Lock Aspect Ratio* فقط نسبت ابعاد شکل را حفظ می‌کند و نه تصویر داخل آن.  
+{{% /alert %}} 
 
 ## **استفاده از ویژگی StretchOff**
 
-با استفاده از ویژگی‌های [StretchOffsetLeft](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-), [StretchOffsetTop](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetTop--), [StretchOffsetRight](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetRight--) و [StretchOffsetBottom](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) از رابط [IPictureFillFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IPictureFillFormat) و کلاس [PictureFillFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IPictureFillFormat) می‌توانید یک مستطیل پرکننده (fill rectangle) را مشخص کنید.  
+با استفاده از ویژگی‌های [StretchOffsetLeft](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-)، [StretchOffsetTop](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetTop--)، [StretchOffsetRight](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetRight--) و [StretchOffsetBottom](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) از اینترفیس [IPictureFillFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IPictureFillFormat) و کلاس [PictureFillFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IPictureFillFormat) می‌توانید یک مستطیل پرکننده تعیین کنید.  
 
-زمانی که کشش برای یک تصویر مشخص می‌شود، یک مستطیل منبع برای برازش به مستطیل پرکننده مشخص‌شده مقیاس‌بندی می‌شود. هر لبهٔ مستطیل پرکننده با درصدی از لبهٔ مربوطهٔ جعبه مرزی شکل تعریف می‌شود. درصد مثبت یک تو رفتگی (inset) و درصد منفی یک بیرون رفتگی (outset) را تعیین می‌کند.  
+وقتی کشیدگی برای یک تصویر مشخص می‌شود، یک مستطیل منبع برای تناسب با مستطیل پرکننده تعیین‌شده مقیاس می‌شود. هر لبه از مستطیل پرکننده با یک جابجایی درصدی از لبه متناظر جعبه محدوده شکل تعریف می‌شود. یک درصد مثبت نشان‌دهنده تو رفتگی داخلی و یک درصد منفی نشان‌دهنده بیرون‌زدگی است.  
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) ایجاد کنید.  
-2. مرجع یک اسلاید را از طریق اندیس آن دریافت کنید.  
-3. یک `AutoShape` مستطیل اضافه کنید.  
+2. مرجع یک اسلاید را بر اساس ایندکس آن دریافت کنید.  
+3. یک مستطیل `AutoShape` اضافه کنید.  
 4. یک تصویر ایجاد کنید.  
 5. نوع پر کردن شکل را تنظیم کنید.  
 6. حالت پر کردن تصویر شکل را تنظیم کنید.  
 7. یک تصویر تنظیم‌شده برای پر کردن شکل اضافه کنید.  
-8. افست‌های تصویر را نسبت به لبهٔ مربوطهٔ جعبه مرزی شکل مشخص کنید.  
-9. ارائه اصلاح‌شده را به عنوان یک فایل PPTX بنویسید.  
+8. جابه‌جایی‌های تصویر را از لبه متناظر جعبه محدوده شکل مشخص کنید.  
+9. ارائه اصلاح‌شده را به‌صورت فایل PPTX بنویسید.  
 
-این کد Java فرایندی را نشان می‌دهد که در آن از ویژگی StretchOff استفاده می‌شود:  
+این کد Java فرآیندی را نشان می‌دهد که در آن از ویژگی StretchOff استفاده می‌شود:  
 
 ```java
+import com.aspose.slides.*;
+
 // یک نمونه از کلاس Presentation که نمایانگر یک فایل PPTX است را ایجاد می‌کند
 Presentation pres = new Presentation();
 try {
-    // اسلاید اول را دریافت می‌کند
+    // اولین اسلاید را دریافت می‌کند
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // یک نمونه از کلاس ImageEx را ایجاد می‌کند
+    // یک نمونه از کلاس ImageEx ایجاد می‌کند
     IPPImage picture;
     IImage image = Images.fromFile("aspose-logo.jpg");
     try {
@@ -514,46 +542,45 @@ try {
         if (image != null) image.dispose();
     }
 
-    // یک AutoShape با نوع Rectangle اضافه می‌کند
+    // یک AutoShape به شکل Rectangle اضافه می‌کند
     IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
 
     // نوع پر کردن شکل را تنظیم می‌کند
     aShape.getFillFormat().setFillType(FillType.Picture);
 
-    // حالت پر کردن تصویر شکل را تنظیم می‌کند
+    // حالت پر کردن تصویر برای شکل را تنظیم می‌کند
     aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
 
-    // تصویر را برای پر کردن شکل تعیین می‌کند
+    // تصویر را برای پر کردن شکل تنظیم می‌کند
     aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
-    // افست‌های تصویر را نسبت به لبهٔ مربوطهٔ جعبه مرزی شکل مشخص می‌کند
+    // افست‌های تصویر را نسبت به لبه متناظر جعبه مرزی شکل مشخص می‌کند
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
-    
-    // فایل PPTX را روی دیسک ذخیره می‌کند
+
+    // فایل PPTX را بر روی دیسک می‌نویسد
     pres.save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **سوالات متداول**
+## **پرسش‌های متداول**
 
-**چگونه می‌توانم بفهمم چه فرمت‌های تصویری برای PictureFrame پشتیبانی می‌شوند؟**  
+### چگونه می‌توانم متوجه شوم که چه فرمت‌های تصویری برای PictureFrame پشتیبانی می‌شوند؟
 
-Aspose.Slides هم تصاویر رستر (مانند PNG، JPEG، BMP، GIF و غیره) و هم تصاویر برداری (مثلاً SVG) را از طریق شیء تصویری که به یک [PictureFrame] اختصاص داده می‌شود، پشتیبانی می‌کند. فهرست فرمت‌های پشتیبانی‌شده به طور کلی با قابلیت‌های موتور تبدیل اسلاید و تصویر همپوشانی دارد.  
+Aspose.Slides هم تصاویر رستری (PNG، JPEG، BMP، GIF و غیره) و هم تصاویر برداری (مثلاً SVG) را از طریق شیء تصویری که به یک [PictureFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/pictureframe/) اختصاص داده می‌شود، پشتیبانی می‌کند. فهرست فرمت‌های پشتیبانی‌شده عموماً با قابلیت‌های موتور تبدیل اسلاید و تصویر همپوشانی دارد.  
 
-**افزودن ده‌ها تصویر بزرگ چه تأثیری بر اندازه و عملکرد فایل PPTX دارد؟**  
+### افزودن ده‌ها تصویر بزرگ چطور بر اندازه و عملکرد فایل PPTX تأثیر می‌گذارد؟
 
-جاسازی مستقیم (embed) تصاویر بزرگ باعث افزایش حجم فایل و مصرف حافظه می‌شود؛ استفاده از پیوند تصاویر به حفظ کوچک‌بودن اندازه ارائه کمک می‌کند اما نیاز به دسترسی مداوم به فایل‌های خارجی دارد. Aspose.Slides امکان افزودن تصاویر به‌صورت پیوندی را برای کاهش حجم فایل فراهم می‌کند.  
+جاسازی تصویرهای بزرگ باعث افزایش حجم فایل و مصرف حافظه می‌شود؛ لینک‌کردن تصاویر به‌حفظ اندازهٔ ارائه کمک می‌کند اما نیاز دارد که فایل‌های خارجی در دسترس باقی بمانند. Aspose.Slides امکان افزودن تصویر به‌صورت لینک برای کاهش حجم فایل را فراهم می‌کند.  
 
-**چگونه می‌توانم یک شیء تصویر را از جابجایی/تغییر اندازه ناخواسته قفل کنم؟**  
+### چگونه می‌توانم یک شیء تصویر را از جابجایی/تغییر اندازهٔ تصادفی قفل کنم؟
 
-از [قفل‌های شکل] (shape locks) برای یک [PictureFrame] استفاده کنید (مثلاً حرکت یا تغییر اندازه را غیرفعال کنید). مکانیزم قفل‌گذاری برای انواع مختلف اشکال از جمله [PictureFrame] پشتیبانی می‌شود.  
+از [قفل‌های شکل](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/pictureframe/#getPictureFrameLock--) برای یک [PictureFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/pictureframe/) استفاده کنید (به‌عنوان مثال، غیرفعال کردن جابجایی یا تغییر اندازه). مکانیزم قفل‌گذاری برای انواع مختلف شکل‌ها پشتیبانی می‌شود، از جمله [PictureFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/pictureframe/).  
 
-**آیا صحت برداری SVG هنگام خروجی‌گیری ارائه به PDF/تصاویر حفظ می‌شود؟**  
+### آیا دقت برداری SVG هنگام خروجی گرفتن ارائه به PDF/تصاویر حفظ می‌شود؟
 
-Aspose.Slides امکان استخراج SVG از یک [PictureFrame] به صورت بردار اصلی را فراهم می‌کند. هنگام [خروجی به PDF](/slides/fa/androidjava/convert-powerpoint-to-pdf/) یا [فرمت‌های رستر](/slides/fa/androidjava/convert-powerpoint-to-png/)، نتیجه ممکن است بسته به تنظیمات خروجی به رستر تبدیل شود؛ این که SVG اصلی به صورت بردار ذخیره شده است، توسط رفتار استخراج تأیید می‌شود.
+Aspose.Slides امکان استخراج SVG از یک [PictureFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/pictureframe/) به‌صورت بردار اصلی را فراهم می‌کند. هنگام [خروجی به PDF](/slides/fa/androidjava/convert-powerpoint-to-pdf/) یا [فرمت‌های رستری](/slides/fa/androidjava/convert-powerpoint-to-png/)، نتیجه ممکن است بسته به تنظیمات خروجی به رستر تبدیل شود؛ این حقیقت که SVG اصلی به‌عنوان بردار ذخیره شده است، توسط رفتار استخراج تأیید می‌شود.

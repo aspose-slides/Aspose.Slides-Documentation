@@ -1,10 +1,12 @@
 ---
-title: Aspose.Slides for .NET 6 Cross-Platform (ZIP csomag)
+title: Aspose.Slides .NET 6 platformfüggetlen (ZIP csomag)
 type: docs
 weight: 237
 url: /hu/net/slides-for-net-6-cross-platform-zip-package/
+aliases:
+  - /net/slides-a-net-6-platformfuggetlen/
 keywords:
-- keresztplatformos
+- platformfüggetlen
 - .NET 6
 - GLIBC
 - csproj
@@ -21,25 +23,25 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Az Aspose.Slides for .NET 6 használatával olyan keresztplatformos C# alkalmazásokat építhet Windows, Linux és macOS rendszeren, amelyek PowerPoint PPT, PPTX és ODP fájlokat hoznak létre, szerkesztenek és konvertálnak."
+description: "Használja az Aspose.Slides for .NET 6-ot platformfüggetlen C# alkalmazások létrehozására Windows, Linux és macOS rendszereken, amelyek PowerPoint PPT, PPTX és ODP fájlok létrehozására, szerkesztésére és átalakítására képesek."
 ---
 ## **Áttekintés**
 
-Ez a cikk elmagyarázza, hogyan kell használni az Aspose.Slides for .NET 6 Cross-Platform verziót egy ZIP csomagból. Leírja, hogyan tölthető le a csomag, hogyan csomagolható ki a `net6.0/crossplatform` mappából, hogyan adható hozzá hivatkozás az `Aspose.Slides.dll`-hez, és hogyan konfigurálható a projektfájl annak érdekében, hogy a szükséges függő könyvtárak a program kimeneti könyvtárába másolódjanak.
+Ez a cikk bemutatja, hogyan használható az Aspose.Slides for .NET 6 Cross-Platform egy ZIP csomagból. Leírja, hogyan tölthető le a csomag, hogyan csomagolhatók ki a `net6.0/crossplatform` mappából a fájlok, hogyan adható hozzá hivatkozás az `Aspose.Slides.dll`-hez, és hogyan konfigurálható a projektfájl, hogy a szükséges függő könyvtárak az alkalmazás kimeneti könyvtárába legyenek másolva.
 
-A cikk továbbá ismerteti a cross‑platform csomag tartalmát, beleértve a fő Aspose.Slides .NET összeállítást és a platform‑specifikus grafikai alrendszer‑könyvtárakat Windows, Linux és macOS rendszerekhez.
+A cikk továbbá leírja a platformfüggetlen csomag tartalmát, beleértve a fő Aspose.Slides .NET összeállítást és a platformfüggő grafikus alrendszer könyvtárakat Windows, Linux és macOS számára.
 
-{{% alert title="Megjegyzés" color="primary" %}}
+{{% alert title="Note" color="info" %}}
 
-Az Aspose.Slides for .NET 6 Cross-Platform verzió elérhető a [NuGet](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform) oldaláról is.
+Aspose.Slides for .NET 6 Cross-Platform is also available from [NuGet](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform).
 
 {{% /alert %}}
 
-## **Az Aspose.Slides Cross‑Platform használata ZIP csomagból**
+## **Az platformfüggetlen Aspose.Slides használata ZIP csomagból**
 
-1. Töltse le a legújabb Aspose.Slides ZIP csomagját a [Release Page](https://releases.aspose.com/slides/hu/net/) oldalról. 
+1. Töltse le a legújabb Aspose.Slides ZIP csomagját a [Release Page](https://releases.aspose.com/slides/hu/net/)-ről. 
 
-2. Csomagolja ki a *Aspose.Slides.zip\Aspose.Slides\net6.0\crossplatform* mappából a fájlokat, és helyezze őket abba a mappába, amelyet a projekt függőségeihez fog használni.
+2. Csomagolja ki a fájlokat a *Aspose.Slides.zip\Aspose.Slides\net6.0\crossplatform* mappából, és helyezze őket abba a könyvtárba, amelyet a projekt függőségeihez fog használni.
 
 3. Adjon hozzá hivatkozást az Aspose.Slides.dll-hez.
 
@@ -49,7 +51,7 @@ Az Aspose.Slides for .NET 6 Cross-Platform verzió elérhető a [NuGet](https://
 
    ![browse-console-app](browse-console-app.jpg)
 
-4. Helyezze a fennmaradó fájlokat (amelyekre az Aspose.Slides-nek szüksége van) a kimeneti könyvtárba, a csproj projektfájlba a következő módon utasításokat adva:
+4. Helyezze a maradék fájlokat (amelyekre az Aspose.Slidesnek szüksége van) a kimeneti könyvtárba, úgy, hogy a csproj projektfájlba ezt az instrukciót adja hozzá:
 
 ```xml
 <ItemGroup>
@@ -87,29 +89,29 @@ Az Aspose.Slides for .NET 6 Cross-Platform verzió elérhető a [NuGet](https://
 </ItemGroup>
 ```
 
-5. Figyeljen a `TargetPath` beállításra. 
+5. Figyeljen a `TargetPath`-re. 
 
-   Alapértelmezés szerint a `<CopyToOutputDirectory>` másolja a fájlokat a relatív útvonaluk megtartásával, azonban szükségünk van arra, hogy a függő könyvtárak ugyanabba a mappába kerüljenek, ahol a kimenet keletkezik (az Aspose.Slides.dll helye).
+   Alapértelmezés szerint a `<CopyToOutputDirectory>` a fájlokat a relatív útvonal megtartásával másolja, de nekünk azt szeretnénk, hogy a függő könyvtárak ugyanabba a mappába kerüljenek, ahol a kimenet keletkezik (az Aspose.Slides.dll helye).
 
 ## **Megjegyzések**
 
-### **Proprietáris grafikai alrendszer**
+### **Tulajdonosi grafikus alrendszer**
 
-Az Aspose.Slides cross‑platform egy könyvtárgyűjtemény:
+Aspose.Slides cross-platform egy könyvtárgyűjtemény:
 
-| Aspose.Slides.dll                                          | A fő .NET összeállítás, amely minden Aspose.Slides logikáért felelős |
+| Aspose.Slides.dll                                          | Fő .NET összeállítás, amely az összes Aspose.Slides logikáért felel |
 | ---------------------------------------------------------- | ------------------------------------------------------------------- |
-| aspose.slides.drawing.capi_vc14x64.dll                     | Függőség: grafikai alrendszer‑implementáció Win x64 számára          |
-| aspose.slides.drawing.capi_vc14x86.dll                     | Függőség: grafikai alrendszer‑implementáció Win x86 számára          |
-| libaspose.slides.drawing.capi_x86_64_libstdcpp_libc2.23.so | Függőség: grafikai alrendszer‑implementáció Linux (x86/x64) számára |
-| libaspose.slides.drawing.capi_appleclang_x86_64.dylib      | Függőség: grafikai alrendszer‑implementáció macOS AMD64 (x86-64/x64) számára |
-| libaspose.slides.drawing.capi_appleclang_arm64.dylib       | Függőség: grafikai alrendszer‑implementáció macOS ARM64 (AArch64) számára |
+| aspose.slides.drawing.capi_vc14x64.dll                     | Függőség: grafikus alrendszer implementáció Windows x64-hez          |
+| aspose.slides.drawing.capi_vc14x86.dll                     | Függőség: grafikus alrendszer implementáció Windows x64-hez          |
+| libaspose.slides.drawing.capi_x86_64_libstdcpp_libc2.23.so | Függőség: grafikus alrendszer implementáció Linuxra (x86/x64)       |
+| libaspose.slides.drawing.capi_appleclang_x86_64.dylib      | Függőség: grafikus alrendszer implementáció macOS AMD64 (x86-64/x64) |
+| libaspose.slides.drawing.capi_appleclang_arm64.dylib       | Függőség: grafikus alrendszer implementáció macOS ARM64 (AArch64)   |
 
-Az Aspose.Slides.dll a rendszer által megkövetelt könyvtárat használja. A könyvtárak általában ugyanabban a helyen találhatók, mint az Aspose.Slides.dll bármely fájlrendszeren.
+Az Aspose.Slides.dll a rendszertől függő könyvtárat használja, amelyre a futtatási környezetnek szüksége van. A könyvtárak általában ugyanabban a helyen találhatók, mint az Aspose.Slides.dll bármely fájlrendszerben.
 
 ### **ZIP csomag felépítése**
 
-A ZIP csomag a következő mappaszerkezetet tartalmazza:
+A ZIP csomag a következő könyvtárstruktúrát tartalmazza:
 
   Aspose.Slides
 
@@ -125,7 +127,7 @@ A ZIP csomag a következő mappaszerkezetet tartalmazza:
 
   └─── netstandard2.0
 
-* Minden mappa a megfelelő .NET verzióhoz tartozó összeállításokat tartalmazza. A net6.0-hoz két verzió van: default és crossplatform. Az utóbbi a cross‑platform Aspose.Slides.dll‑t és minden függőségét tartalmazza. Ennek a mappának a kibontott tartalma függőségként hozzáadható egy projekthez a cross‑platform fejlesztéshez és egyéb Aspose.Slides használati esetekhez.
+* Minden mappa a megfelelő .NET verzióhoz tartozó összeállításokat tartalmazza. A net6.0 esetén két változat létezik: default és crossplatform. Az utóbbi a platformfüggetlen Aspose.Slides.dll-t és összes függőségét tartalmazza. Ennek a mappának a kibontott tartalma függőségként hozzáadható egy projekthez a platformfüggetlen fejlesztéshez és más Aspose.Slides használati esetekhez.
 
 ## **Lásd még**
 

@@ -1,5 +1,5 @@
 ---
-title: Veřejné API a nekompatibilní změny v Aspose.Slides pro Java 15.10.0
+title: Veřejné API a zpětně nekompatibilní změny v Aspose.Slides pro Java 15.10.0
 linktitle: Aspose.Slides pro Java 15.10.0
 type: docs
 weight: 180
@@ -15,16 +15,16 @@ keywords:
 - prezentace
 - Java
 - Aspose.Slides
-description: "Prohlédněte si aktualizace veřejného API a zásadní změny v Aspose.Slides pro Java, abyste mohli plynule migrovat své řešení pro prezentace PowerPoint PPT, PPTX a ODP."
+description: "Prozkoumejte aktualizace veřejného API a zásadní změny v Aspose.Slides pro Java, abyste hladce migrovali svá řešení pro prezentace PowerPoint PPT, PPTX a ODP."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Tato stránka uvádí všechny [přidané](/slides/cs/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) nebo [odstraněné](/slides/cs/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) třídy, metody, vlastnosti a další změny zavedené v API Aspose.Slides pro Java 15.10.0.
+Tato stránka uvádí všechny [přidané](/slides/cs/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) nebo [odstraněné](/slides/cs/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) třídy, metody, vlastnosti a podobně a další změny zavedené v API Aspose.Slides pro Java 15.10.0.
 
 {{% /alert %}} 
 ## **Změny veřejného API**
 #### **API animace řady grafu bylo přidáno do ISequence**
-Do rozhraní com.aspose.slides.ISequence byly přidány 2 nové metody.
+Do rozhraní com.aspose.slides.ISequence byly přidány dvě nové metody.
 
 ``` java
 
@@ -34,20 +34,24 @@ IEffect addEffect(IChart chart, int type, int seriesIndex, int categoriesIndex, 
 
 ```
 
-Tyto metody jsou určeny pro podporu animací prvků grafu:
+Tyto metody jsou určeny k podpoře animací prvků grafu:
 
-podle řad
-podle kategorií
-podle prvků řad
-podle prvků kategorií
+by series
+by categories
+by series elements
+by categories elements
 
 Byly zavedeny dva nové výčty EffectChartMajorGroupingType a EffectChartMinorGroupingType související s animací prvků grafu.
 
-Pro přidání animace řady do grafu lze použít následující kód:
+Pro přidání animace řady do grafu může být použit následující kód. Graf v ukázkovém souboru má tři řady, takže je přidán jeden efekt pro každý index od 0 do 2:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try {
 
@@ -79,12 +83,6 @@ try {
 
 		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMajorGroupingType.BySeries, 3,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
 	pres.save(outFileName, SaveFormat.Pptx);
 
 } finally {
@@ -98,8 +96,12 @@ try {
 Animace kategorií:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -149,11 +151,15 @@ try
 
 ```
 
-Animace prvků řad:
+Animace prvků řady:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -254,8 +260,12 @@ try
 Animace prvků kategorií:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -357,13 +367,15 @@ Byla přidána nová veřejná třída com.aspose.slides.VideoPlayerHtmlControll
 
 Konstruktory VideoPlayerHtmlController přijímají následující parametry:
 
-path: Cesta, kde budou vygenerovány video a audio soubory
-fileName: Název souboru HTML
+path: Cesta, kde budou generovány video a audio soubory (složka musí již existovat)
+fileName: Název HTML souboru
 baseUri: Základní URI, které bude použito pro generování odkazů
 
 Příklad použití:
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation("example.pptx");
 
@@ -371,7 +383,7 @@ try
 
 {
 
-	final String path = "path";
+	final String path = "path/";
 
 	final String fileName = "video.html";
 

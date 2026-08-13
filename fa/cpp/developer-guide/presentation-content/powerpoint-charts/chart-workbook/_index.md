@@ -1,5 +1,5 @@
 ---
-title: مدیریت کتاب‌کارهای نمودار در ارائه‌ها با C++
+title: مدیریت کتاب‌کارهای نمودار در ارائه‌ها با استفاده از C++
 linktitle: کتاب‌کار نمودار
 type: docs
 weight: 70
@@ -9,27 +9,42 @@ keywords:
 - داده‌های نمودار
 - سلول کتاب‌کار
 - برچسب داده
-- ورق کاری
+- برگه کاری
 - منبع داده
 - کتاب‌کار خارجی
 - داده خارجی
+- کش نمودار
+- بازگردانی کتاب‌کار
 - PowerPoint
 - ارائه
 - C++
 - Aspose.Slides
-description: "Aspose.Slides برای C++ را کشف کنید: به‌راحتی کتاب‌کارهای نمودار را در فرمت‌های PowerPoint و OpenDocument مدیریت کنید تا داده‌های ارائه خود را سهل‌سازی کنید."
+description: "Aspose.Slides برای C++ را کشف کنید: به راحتی کتاب‌کارهای نمودار را در فرمت‌های PowerPoint و OpenDocument مدیریت کنید تا داده‌های ارائه خود را بهینه‌سازی کنید."
 ---
-## **مروری کلی**
+## **بررسی کلی**
 
-این مقاله توضیح می‌دهد که چگونه با کتاب‌کارهای نمودار در Aspose.Slides کار کنید. این مقاله نشان می‌دهد چگونه داده‌های نمودار را از طریق جریان‌های کتاب‌کار بخوانید و بنویسید، از سلول‌های کتاب‌کار به‌عنوان برچسب‌های داده نمودار استفاده کنید، به مجموعه‌های ورق‌های کاری دسترسی داشته باشید و نوع منبع داده برای مقادیر نمودار را مشخص کنید.
+این مقاله نحوه کار با کتاب‌کارهای نمودار در Aspose.Slides را شرح می‌دهد. نشان می‌دهد چگونه می‌توان داده‌های نمودار را از طریق جریان‌های کتاب‌کار خواند و نوشت، از سلول‌های کتاب‌کار به عنوان برچسب‌های داده نمودار استفاده کرد، به مجموعه‌های برگه‌های کاری دسترسی یافت و نوع منبع داده برای مقادیر نمودار را تعیین کرد.
 
-همچنین کار با کتاب‌کارهای خارجی به‌عنوان منابع داده برای نمودارها را پوشش می‌دهد. مثال‌ها نشان می‌دهند چگونه یک کتاب‌کار خارجی ایجاد و انتساب دهید، مسیر کتاب‌کار خارجی مرتبط با یک نمودار را دریافت کنید و داده‌های نمودار را زمانی که کتاب‌کار در دسترس است، ویرایش کنید.
+همچنین کار با کتاب‌کارهای خارجی به عنوان منابع داده نمودار را پوشش می‌دهد. مثال‌ها نشان می‌دهند چگونه یک کتاب‌کار خارجی ایجاد و انتساب داده شود، مسیر یک کتاب‌کار خارجی که به نمودار پیوند شده است بازیابی شود و داده‌های نمودار هنگام در دسترس بودن کتاب‌کار ویرایش شود.
 
-## **خواندن و نوشتن داده‌های نمودار از یک کتاب‌کار**
+## **خواندن و نوشتن داده‌های نمودار از یک دفتر کار**
 
-Aspose.Slides متدهای [ReadWorkbookStream](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) و [WriteWorkbookStream](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) را فراهم می‌کند که به شما امکان می‌دهند کتاب‌کارهای داده نمودار (حاوی داده‌های نمودار ویرایش شده با Aspose.Cells) را بخوانید و بنویسید. **توجه** که داده‌های نمودار باید به همان شکل سازماندهی شوند یا ساختاری مشابه منبع داشته باشند.
+Aspose.Slides متدهای [ReadWorkbookStream](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) و [WriteWorkbookStream](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) را فراهم می‌کند که به شما امکان می‌دهد کتاب‌کارهای داده نمودار (شامل داده‌های ویرایش شده با Aspose.Cells) را بخوانید و بنویسید. **توجه** داشته باشید که داده‌های نمودار باید به همان شکل سازماندهی شوند یا ساختاری مشابه منبع داشته باشند.
 
 ``` cpp
+#include <DOM/Chart/Chart.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/io/memory_stream.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System::IO;
+
 auto pres = System::MakeObject<Presentation>(u"chart.pptx");
 
 auto chart = System::ExplicitCast<Chart>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
@@ -43,55 +58,84 @@ stream->set_Position(0);
 data->WriteWorkbookStream(stream);
 ```
 
-این کد C++ عملیاتی را که برای تنظیم یک کتاب‌کار داده نمودار انجام می‌شود نمایش می‌دهد:
+این کد C++ عملیاتی را برای تنظیم یک کتاب‌کار داده نمودار نشان می‌دهد:
 
 ``` cpp
-auto pres = System::MakeObject<Presentation>(u"Test.pptx");
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(Charts::ChartType::Pie, 50.0f, 50.0f, 500.0f, 400.0f);
+auto pres = MakeObject<Presentation>(u"Test.pptx");
+
+auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 500.0f, 400.0f);
 chart->get_ChartData()->get_ChartDataWorkbook()->Clear(0);
 
-intrusive_ptr<Aspose::Cells::IWorkbook> workbook;
-try
-{
-    workbook = Aspose::Cells::Factory::CreateIWorkbook(new String("a1.xlsx"));
-}
-catch (Aspose::Cells::Systems::Exception& ex)
-{
-    System::Console::Write(System::String::FromWCS(ex.GetMessageExp()->value()));
-}
+// دفتر کار آماده شده در Excel (یا Aspose.Cells) را بخوانید و به عنوان کتاب‌کار داده نمودار تنظیم کنید.
+auto workbookData = File::ReadAllBytes(u"a1.xlsx");
+auto workbookStream = MakeObject<MemoryStream>(workbookData);
 
-intrusive_ptr<MemoryStream> cellsOutputStream = new Aspose::Cells::Systems::IO::MemoryStream();
-workbook->Save(cellsOutputStream, Aspose::Cells::SaveFormat_Xlsx);
-
-cellsOutputStream->SetPosition(0);
-System::SharedPtr<System::IO::MemoryStream> msout = ToSlidesMemoryStream(cellsOutputStream);
-
-chart->get_ChartData()->WriteWorkbookStream(msout);
+chart->get_ChartData()->WriteWorkbookStream(workbookStream);
 
 chart->get_ChartData()->SetRange(u"Sheet1!$A$1:$B$9");
 auto series = chart->get_ChartData()->get_Series()->idx_get(0);
 series->get_ParentSeriesGroup()->set_IsColorVaried(true);
-pres->Save(u"response2.pptx", Export::SaveFormat::Pptx);
+pres->Save(u"response2.pptx", SaveFormat::Pptx);
 ```
 
-## **تنظیم یک سلول کتاب‌کار به‌عنوان برچسب داده نمودار**
+## **تنظیم یک سلول دفتر کار به عنوان برچسب داده نمودار**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید.
-1. مرجع یک اسلاید را از طریق اندیس آن دریافت کنید.
-1. یک نمودار حبابی (Bubble) با داده‌هایی اضافه کنید.
-1. به سری‌های نمودار دسترسی پیدا کنید.
-1. سلول کتاب‌کار را به عنوان برچسب داده تنظیم کنید.
-1. ارائه (Presentation) را ذخیره کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید.  
+2. مرجع یک اسلاید را از طریق ایندکس آن دریافت کنید.  
+3. یک نمودار حبابی با برخی داده‌ها اضافه کنید.  
+4. به سری‌های نمودار دسترسی پیدا کنید.  
+5. سلول دفتر کار را به عنوان برچسب داده تنظیم کنید.  
+6. ارائه (presentation) را ذخیره کنید.
 
-این کد C++ نشان می‌دهد چگونه یک سلول کتاب‌کار را به‌عنوان برچسب داده نمودار تنظیم کنید:
+این کد C++ نشان می‌دهد چگونه یک سلول دفتر کار را به عنوان برچسب داده نمودار تنظیم کنید:
 
 ``` cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 System::String lbl0 = u"Label 0 cell value";
 System::String lbl1 = u"Label 1 cell value";
 System::String lbl2 = u"Label 2 cell value";
 
-// یک شی از کلاس Presentation ایجاد می‌کند که نمایانگر یک فایل ارائه است
+// یک شیء از کلاس Presentation ایجاد می‌کند که نمایانگر یک فایل ارائه است
 auto pres = System::MakeObject<Presentation>(u"chart2.pptx");
 
 auto slide = pres->get_Slides()->idx_get(0);
@@ -111,11 +155,27 @@ series->idx_get(0)->get_Labels()->idx_get(2)->set_ValueFromCell(wb->GetCell(0, u
 pres->Save(u"resultchart.pptx", SaveFormat::Pptx);
 ```
 
-## **مدیریت ورق‌های کاری**
+## **مدیریت برگه‌های کاری**
 
-این کد C++ عملیاتی را نشان می‌دهد که در آن متد [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) برای دسترسی به مجموعه ورق‌های کاری استفاده می‌شود:
+این کد C++ عملیاتی را نشان می‌دهد که در آن متد [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) برای دسترسی به مجموعه برگه‌های کاری استفاده می‌شود:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataWorksheet.h>
+#include <DOM/Chart/IChartDataWorksheetCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
 auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 400.0f, 500.0f);
@@ -126,11 +186,29 @@ for (auto ws : System::IterateOver(worksheets))
     System::Console::WriteLine(ws->get_Name());
 ```
 
-## **مشخص‌کردن نوع منبع داده**
+## **مشخص کردن نوع منبع داده**
 
 این کد C++ نشان می‌دهد چگونه یک نوع برای منبع داده مشخص کنید:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/DataSourceType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IStringChartValue.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 
 auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Column3D, 50.0f, 50.0f, 600.0f, 400.0f, true);
@@ -145,15 +223,28 @@ val->set_Data(chartData->get_ChartDataWorkbook()->GetCell(0, u"B1", System::Obje
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-## **تشخیص فرمت‌های کتاب‌کار تعبیه‌شده پشتیبانی‌نشده**
+## **تشخیص فرمت‌های پشتیبانی نشده کتاب‌کار توکار**
 
-Aspose.Slides از فرمت کتاب‌کار باینری اکسل (.xlsb) که می‌تواند در برخی نمودارها تعبیه شود، پشتیبانی نمی‌کند. می‌توانید از متد `get_EmbeddedWorkbookType` روی [IChartData](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdata/) همراه با شمارش‌گر [WorkbookType](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/workbooktype/) برای تشخیص فرمت‌های پشتیبانی‌نشده استفاده کنید و آن نمودارها را نادیده بگیرید.
+Aspose.Slides از فرمت کتاب‌کار باینری اکسل (.xlsb) که می‌تواند در برخی نمودارها توکار شود پشتیبانی نمی‌کند. می‌توانید از متد `get_EmbeddedWorkbookType` در [IChartData](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdata/) همراه با شمارنده [WorkbookType](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/workbooktype/) برای تشخیص فرمت‌های پشتیبانی نشده و عبور از آن نمودارها استفاده کنید.
 
 ```cpp
+#include <DOM/Chart/ChartDataSourceType.h>
+#include <DOM/Chart/WorkbookType.h>
+#include <DOM/IChart.h>
+#include <DOM/ISlide.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Presentation.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 
-for (auto&& shape : slide->get_Shapes())
+for (auto&& shape : System::IterateOver(slide->get_Shapes()))
 {
     if (!System::ObjectExt::Is<IChart>(shape))
     {
@@ -166,27 +257,44 @@ for (auto&& shape : slide->get_Shapes())
     if (chartData->get_DataSourceType() == ChartDataSourceType::InternalWorkbook &&
         chartData->get_EmbeddedWorkbookType() == WorkbookType::WorkbookBinaryMacro)
     {
-        // کتاب‌کار تعبیه‌شده در قالب .xlsb است که پشتیبانی نمی‌شود.
+        // کتاب‌کار توکار در قالب .xlsb است که پشتیبانی نمی‌شود.
         continue;
     }
 
-    // داده‌های کتاب‌کار نمودار را در اینجا بخوانید یا ویرایش کنید.
+    // در اینجا داده‌های کتاب‌کار نمودار را بخوانید یا اصلاح کنید.
 }
 ```
 
-## **کتاب‌کار خارجی**
+## **دفتر کار خارجی**
 
-{{% alert color="primary" %}} 
-در [Aspose.Slides](https://releases.aspose.com/slides/fa/cpp/release-notes/2019/aspose-slides-for-cpp-19-4-release-notes/) نسخه 19.4، ما پشتیبانی از کتاب‌کارهای خارجی را به‌عنوان منبع داده برای نمودارها پیاده‌سازی کردیم.
+{{% alert color="info" %}} 
+در [Aspose.Slides](https://releases.aspose.com/slides/fa/cpp/release-notes/2019/aspose-slides-for-cpp-19-4-release-notes/) نسخه 19.4، ما پشتیبانی از کتاب‌کارهای خارجی را به عنوان منبع داده برای نمودارها پیاده‌سازی کردیم.
 {{% /alert %}} 
 
 ### **ایجاد یک کتاب‌کار خارجی**
 
-با استفاده از متدهای **`ReadWorkbookStream`** و **`SetExternalWorkbook`** می‌توانید یک کتاب‌کار خارجی را از ابتدا ایجاد کنید یا یک کتاب‌کار داخلی را به‌صورت خارجی درآورید.
+با استفاده از متدهای **`ReadWorkbookStream`** و **`SetExternalWorkbook`** می‌توانید یک کتاب‌کار خارجی را از ابتدا ایجاد کنید یا یک کتاب‌کار داخلی را خارجی کنید.
 
 این کد C++ فرآیند ایجاد کتاب‌کار خارجی را نشان می‌دهد:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file_mode.h>
+#include <system/io/file_stream.h>
+#include <system/io/memory_stream.h>
+#include <system/io/path.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto pres = System::MakeObject<Presentation>();
 
 const System::String workbookPath = u"externalWorkbook1.xlsx";
@@ -208,13 +316,32 @@ pres->Save(u"externalWorkbook.pptx", SaveFormat::Pptx);
 
 ### **تنظیم یک کتاب‌کار خارجی**
 
-با استفاده از متد **`IChartData::SetExternalWorkbook`** می‌توانید یک کتاب‌کار خارجی را به‌عنوان منبع داده یک نمودار انتساب دهید. این متد همچنین می‌تواند برای به‌روزرسانی مسیر کتاب‌کار خارجی استفاده شود (اگر کتاب‌کار جابجا شده باشد).
+با استفاده از متد **`IChartData::SetExternalWorkbook`** می‌توانید یک کتاب‌کار خارجی را به عنوان منبع داده یک نمودار انتساب دهید. این متد می‌تواند برای به‌روزرسانی مسیر کتاب‌کار خارجی (در صورتی که جابه‌جا شده باشد) نیز استفاده شود.
 
-در حالی که نمی‌توانید داده‌های موجود در کتاب‌کارهای ذخیره‌شده در مکان‌ها یا منابع دوردست را ویرایش کنید، هنوز می‌توانید از چنین کتاب‌کارهایی به‌عنوان منبع داده خارجی استفاده کنید. اگر مسیر نسبی برای یک کتاب‌کار خارجی ارائه شود، به‌طور خودکار به مسیر کامل تبدیل می‌شود.
+اگرچه نمی‌توانید داده‌های موجود در کتاب‌کارهای ذخیره شده در مکان‌های دور یا منابع را ویرایش کنید، اما همچنان می‌توانید از چنین کتاب‌کارهایی به عنوان منبع داده خارجی استفاده کنید. اگر مسیر نسبی برای یک کتاب‌کار خارجی ارائه شود، به‌طور خودکار به مسیر کامل تبدیل می‌شود.
 
 این کد C++ نشان می‌دهد چگونه یک کتاب‌کار خارجی تنظیم کنید:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/path.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto pres = System::MakeObject<Presentation>();
 
 auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 400.0f, 600.0f, false);
@@ -236,12 +363,24 @@ categories->Add(workbook->GetCell(0, u"A4"));
 pres->Save(u"Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-پارامتر `updateChartData` (در متد `SetExternalWorkbook`) برای تعیین اینکه آیا یک کتاب‌کار اکسل بارگذاری شود یا نه، استفاده می‌شود.
+پارامتر `updateChartData` (در زیر متد `SetExternalWorkbook`) برای مشخص کردن اینکه آیا کتاب‌کار اکسل بارگذاری شود یا نه، استفاده می‌شود.
 
-* زمانی که مقدار `updateChartData` روی `false` تنظیم شود، فقط مسیر کتاب‌کار به‌روز می‌شود—داده‌های نمودار از کتاب‌کار هدف بارگذاری یا به‌روز نمی‌شوند. ممکن است بخواهید این تنظیم را در موقعیتی که کتاب‌کار هدف وجود ندارد یا در دسترس نیست، استفاده کنید. 
-* زمانی که مقدار `updateChartData` روی `true` تنظیم شود، داده‌های نمودار از کتاب‌کار هدف به‌روز می‌شوند.
+* وقتی مقدار `updateChartData` به `false` تنظیم شود، فقط مسیر کتاب‌کار به‌روزرسانی می‌شود—داده‌های نمودار بارگذاری یا به‌روزرسانی نمی‌شوند. این تنظیم را می‌توانید زمانی استفاده کنید که کتاب‌کار هدف وجود نداشته یا در دسترس نباشد.  
+* وقتی مقدار `updateChartData` به `true` تنظیم شود، داده‌های نمودار از کتاب‌کار هدف به‌روزرسانی می‌شوند.
 
 ```c++
+#include <DOM/Chart/ChartData.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
 auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 400.0f, 600.0f, true);
@@ -255,15 +394,27 @@ pres->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
 
 ### **دریافت مسیر کتاب‌کار منبع داده خارجی یک نمودار**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید.
-1. مرجع یک اسلاید را از طریق اندیس آن دریافت کنید.
-1. یک شی برای شکل نمودار ایجاد کنید.
-1. یک شی برای نوع منبع (`ChartDataSourceType`) ایجاد کنید که منبع داده نمودار را نمایندگی می‌کند.
-1. شرط مربوطه را بر اساس این‌که نوع منبع با نوع منبع داده کتاب‌کار خارجی یکسان است، مشخص کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید.  
+2. مرجع یک اسلاید را از طریق ایندکس آن دریافت کنید.  
+3. شیء برای شکل نمودار ایجاد کنید.  
+4. شیء برای نوع منبع (`ChartDataSourceType`) که نمایانگر منبع داده نمودار است ایجاد کنید.  
+5. شرط مربوطه را بر اساس این که نوع منبع همان نوع کتاب‌کار داده خارجی باشد، مشخص کنید.
 
 این کد C++ عملیات را نشان می‌دهد:
 
 ```c++
+#include <DOM/Chart/ChartDataSourceType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 
 auto slide = pres->get_Slides()->idx_get(1);
@@ -274,17 +425,37 @@ if (sourceType == ChartDataSourceType::ExternalWorkbook)
     System::String path = chart->get_ChartData()->get_ExternalWorkbookPath();
 }
 
-// ارائه را ذخیره می‌کند
+// Saves the presentation
 pres->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
 ### **ویرایش داده‌های نمودار**
 
-می‌توانید داده‌های کتاب‌کارهای خارجی را همان‌طور که محتویات کتاب‌کارهای داخلی را ویرایش می‌کنید، تغییر دهید. هنگامی که یک کتاب‌کار خارجی قابل بارگذاری نباشد، استثنای مربوطه پرتاب می‌شود.
+می‌توانید داده‌های موجود در کتاب‌کارهای خارجی را به همان روشی که داده‌های کتاب‌کارهای داخلی را ویرایش می‌کنید، تغییر دهید. وقتی یک کتاب‌کار خارجی قابل بارگذاری نباشد، یک استثنا پرتاب می‌شود.
 
-این کد C++ پیاده‌سازی فرآیند شرح‌داده‌شده است:
+این کد C++ پیاده‌سازی فرآیند شرح‌داده‌شده را نشان می‌دهد:
 
 ```c++
+#include <DOM/Chart/Chart.h>
+#include <DOM/Chart/ChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 const String templatePath = u"../templates/presentation.pptx";
 	const String outPath = u"../out/presentation-out.pptx";
 	
@@ -298,28 +469,55 @@ const String templatePath = u"../templates/presentation.pptx";
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+### **بازیابی یک کتاب‌کار از کش نمودار**
+
+اگر یک نمودار از کتاب‌کار خارجی که مفقود یا غیرقابل دسترس است استفاده کند، Aspose.Slides می‌تواند کتاب‌کار نمودار را از داده‌های کش‌شده در ارائه بازسازی کند. یک شیء [LoadOptions](https://reference.aspose.com/slides/fa/cpp/aspose.slides/loadoptions/) ایجاد کنید، آن را با [set_SpreadsheetOptions](https://reference.aspose.com/slides/fa/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/) پیکربندی کنید و قبل از باز کردن ارائه، متد [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) را با مقدار `true` فراخوانی کنید.
+
+مثال C++ زیر ارائه‌ای را باز می‌کند که نمودار آن به یک کتاب‌کار خارجی در دسترس نیست پیوند دارد و داده‌های بازیابی‌شده را از طریق [IChart::get_ChartData](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichart/get_chartdata/) و [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) دسترسی می‌گیرد:
+
+```cpp
+auto spreadsheetOptions = MakeObject<SpreadsheetOptions>();
+spreadsheetOptions->set_RecoverWorkbookFromChartCache(true);
+
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_SpreadsheetOptions(spreadsheetOptions);
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx", loadOptions);
+
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+auto chart = System::ExplicitCast<IChart>(shape);
+
+auto recoveredWorkbook = chart->get_ChartData()->get_ChartDataWorkbook();
+
+// Read or modify the recovered workbook data here.
+
+presentation->Dispose();
+```
+
+اگر کتاب‌کار خارجی در دسترس نباشد و بازیابی غیرفعال باشد، Aspose.Slides یک `System::InvalidOperationException` پرتاب می‌کند. بازیابی را تنها زمانی فعال کنید که استفاده از داده‌های کش‌شده نمودار به‌عنوان یک گزینه جایگزین قابل قبول باشد، زیرا کش ممکن است شامل تغییراتی که پس از آخرین به‌روزرسانی ارائه در کتاب‌کار خارجی اعمال شده، نباشد.
+
 ## **سوالات متداول**
 
-**آیا می‌توانم تعیین کنم که یک نمودار خاص به یک کتاب‌کار خارجی یا تعبیه‌شده لینک دارد؟**
+**آیا می‌توانم تعیین کنم که یک نمودار مشخص به یک کتاب‌کار خارجی یا توکار پیوند دارد؟**
 
-بله. یک نمودار دارای یک [نوع منبع داده](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) و یک [مسیر به کتاب‌کار خارجی](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) است؛ اگر منبع یک کتاب‌کار خارجی باشد، می‌توانید مسیر کامل را بخوانید تا مطمئن شوید که از یک فایل خارجی استفاده می‌شود.
+بله. یک نمودار دارای [نوع منبع داده](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) و [مسیر به یک کتاب‌کار خارجی](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) است؛ اگر منبع یک کتاب‌کار خارجی باشد، می‌توانید مسیر کامل را بخوانید تا مطمئن شوید که یک فایل خارجی استفاده می‌شود.
 
-**آیا مسیرهای نسبی به کتاب‌کارهای خارجی پشتیبانی می‌شود و چگونه ذخیره می‌شوند؟**
+**آیا مسیرهای نسبی به کتاب‌کارهای خارجی پشتیبانی می‌شوند و چگونه ذخیره می‌شوند؟**
 
-بله. اگر مسیر نسبی را مشخص کنید، به‌طور خودکار به مسیر مطلق تبدیل می‌شود. این برای قابل‌انتقال بودن پروژه مفید است؛ اما توجه داشته باشید که ارائه مسیر مطلق را در فایل PPTX ذخیره می‌کند.
+بله. اگر مسیر نسبی را مشخص کنید، به‌طور خودکار به مسیر مطلق تبدیل می‌شود. این برای قابلیت حمل پروژه مفید است؛ با این حال، باید بدانید که ارائه مسیر مطلق را در فایل PPTX ذخیره می‌کند.
 
-**آیا می‌توانم از کتاب‌کارهای موجود در منابع/اشتراک‌های شبکه استفاده کنم؟**
+**آیا می‌توانم از کتاب‌کارهایی که در منابع/اشتراک‌های شبکه قرار دارند استفاده کنم؟**
 
-بله، چنین کتاب‌کارهایی می‌توانند به‌عنوان منبع داده خارجی استفاده شوند. با این حال، ویرایش مستقیم کتاب‌کارهای راه دور از طریق Aspose.Slides پشتیبانی نمی‌شود—آنها فقط می‌توانند به‌عنوان منبع استفاده شوند.
+بله، چنین کتاب‌کارهایی می‌توانند به عنوان منبع داده خارجی استفاده شوند. اما ویرایش مستقیم کتاب‌کارهای دور از طریق Aspose.Slides پشتیبانی نمی‌شود—آنها فقط می‌توانند به عنوان منبع استفاده شوند.
 
-**آیا Aspose.Slides هنگام ذخیره ارائه، فایل XLSX خارجی را بازنویسی می‌کند؟**
+**آیا Aspose.Slides هنگام ذخیره ارائه فایل XLSX خارجی را بازنویسی می‌کند؟**
 
-خیر. ارائه یک [لینک به فایل خارجی](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) را ذخیره می‌کند و برای خواندن داده‌ها از آن استفاده می‌کند. فایل خارجی به‌خاطر ذخیره‌سازی ارائه تغییر نمی‌کند.
+خیر. ارائه یک [پیوند به فایل خارجی](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) را ذخیره می‌کند و از آن برای خواندن داده‌ها استفاده می‌کند. فایل خارجی هنگام ذخیره ارائه تغییر نمی‌کند.
 
-**در صورت اینکه فایل خارجی دارای رمز عبور باشد، چه کاری باید انجام دهم؟**
+**اگر فایل خارجی با رمز عبور محافظت شده باشد چه باید کرد؟**
 
-Aspose.Slides هنگام لینک کردن رمز عبور را نمی‌پذیرد. یک روش معمول این است که پیش از آن حفاظت را حذف کنید یا یک نسخه بدون رمز (مثلاً با استفاده از [Aspose.Cells](/cells/cpp/)) تهیه کنید و به آن نسخه لینک دهید.
+Aspose.Slides هنگام پیونددهی رمز عبوری را نمی‌پذیرد. یک روش معمول این است که پیش از این حفاظت را حذف کنید یا یک نسخه رمزگشایی‌شده (مثلاً با استفاده از [Aspose.Cells](/cells/cpp/)) تهیه کنید و به آن نسخه پیوند دهید.
 
-**آیا چندین نمودار می‌توانند به یک کتاب‌کار خارجی ارجاع دهند؟**
+**آیا چندین نمودار می‌توانند به یک کتاب‌کار خارجی اشاره کنند؟**
 
-بله. هر نمودار لینک خود را ذخیره می‌کند. اگر همگی به یک فایل اشاره کنند، به‌روزرسانی آن فایل در بارگذاری بعدی داده‌ها در هر نمودار منعکس خواهد شد.
+بله. هر نمودار پیوند خود را ذخیره می‌کند. اگر همه به یک فایل اشاره کنند، به‌روزرسانی آن فایل در هر بار بارگذاری داده‌ها در همه نمودارها بازتاب خواهد یافت.

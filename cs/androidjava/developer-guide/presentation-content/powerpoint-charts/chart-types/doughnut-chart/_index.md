@@ -13,31 +13,31 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Objevte, jak vytvářet a přizpůsobovat prstencové grafy v Aspose.Slides pro Android via Java, podporující formáty PowerPoint pro dynamické prezentace."
+description: "Objevte, jak vytvářet a přizpůsobovat prstencové grafy v Aspose.Slides pro Android přes Java, podporující formáty PowerPoint pro dynamické prezentace."
 ---
 ## **Přehled**
 
-Tento článek ukazuje, jak pracovat s prstencovým (doughnut) grafem v Aspose.Slides přidáním grafu do snímku, nastavením velikosti jeho středové díry a uložením prezentace. Soustředí se na metodu `setDoughnutHoleSize` a demonstruje základní kroky potřebné k přizpůsobení tohoto typu grafu v kódu.
+Tento článek ukazuje, jak pracovat s prstencovým grafem v Aspose.Slides přidáním grafu na snímek, nastavením velikosti jeho středové díry a uložením prezentace. Soustředí se na metodu `setDoughnutHoleSize` a demonstruje základní kroky potřebné k přizpůsobení tohoto typu grafu v kódu.
 
-Obsahuje také krátkou sekci FAQ, která pokrývá související scénáře s prstencovými grafy, jako je použití více sérií k vytvoření více kruhů, práce s „exploded“ prstencovými grafy a export grafu jako rastru nebo SVG.
+Obsahuje také krátké FAQ pokrývající související scénáře prstencových grafů, jako je použití více sérií k vytvoření více kruhů, práce s explodovanými prstencovými grafy a export grafu jako rastrálního obrázku nebo SVG.
 
 ## **Určení středové mezery v prstencovém grafu**
-{{% alert color="primary" %}} 
-
-Aspose.Slides pro Android via Java nyní podporuje určení velikosti díry v prstencovém grafu. V tomto tématu si na příkladu ukážeme, jak velikost díry v prstencovém grafu nastavit.
-
+{{% alert color="info" %}} 
+Aspose.Slides pro Android přes Java nyní podporuje určení velikosti díry v prstencovém grafu. V tomto tématu si ukážeme na příkladu, jak nastavit velikost díry v prstencovém grafu.
 {{% /alert %}} 
 
 Pro určení velikosti díry v prstencovém grafu postupujte podle následujících kroků:
 
-1. Vytvořte objekt [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation).
-1. Přidejte prstencový graf na snímek.
-1. Určete velikost díry v prstencovém grafu.
-1. Zapište prezentaci na disk.
+1. Instantiate [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation) object.
+1. Add doughnut chart on the slide.
+1. Specify the size of the hole in a doughnut chart.
+1. Write presentation to disk.
 
 V níže uvedeném příkladu jsme nastavili velikost díry v prstencovém grafu.
 
 ```java
+import com.aspose.slides.*;
+
 // Vytvořte instanci třídy Presentation
 Presentation pres = new Presentation();
 try {
@@ -54,14 +54,18 @@ try {
 
 ## **FAQ**
 
-**Mohu vytvořit vícestupňový prstencový graf s více kruhy?**
+### Může
 
-Ano. Přidejte několik sérií do jednoho prstencového grafu — každá série se stane samostatným kruhem. Pořadí kruhů je určeno pořadím sérií v kolekci.
+​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
 
-**Je podporován „exploded“ prstencový graf (oddělené výseče)?**
+### Může vytvořit víceúrovňový prstenec s více kruhy?
 
-Ano. Existuje typ grafu Exploded Doughnut [chart type](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/charttype/) a vlastnost explozí u datových bodů; můžete oddělit jednotlivé výseče.
+Ano. Přidejte více sérií do jednoho prstencového grafu — každá série se stane samostatným kruhem. Pořadí kruhů je určeno pořadím sérií v kolekci.
 
-**Jak získám obrázek prstencového grafu (PNG/SVG) pro zprávu?**
+### Je podporován „explodovaný“ prstenec (oddělené výseče)?
 
-Graf je tvar; můžete jej vykreslit do [raster image](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/shape/#getImage-int-float-float-) nebo exportovat graf jako [SVG image](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-).
+Ano. Existuje typ grafu Exploded Doughnut [chart type](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/charttype/) a vlastnost exploze na datových bodech; můžete oddělit jednotlivé výseče.
+
+### Jak mohu získat obrázek prstencového grafu (PNG/SVG) pro zprávu?
+
+Graf je tvar; můžete jej vykreslit jako [raster image](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/shape/#getImage-int-float-float-) nebo exportovat graf do [SVG image](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-).

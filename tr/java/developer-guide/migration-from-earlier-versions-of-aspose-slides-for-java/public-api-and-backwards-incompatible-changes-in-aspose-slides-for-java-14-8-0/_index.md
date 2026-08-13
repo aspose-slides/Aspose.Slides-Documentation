@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides for Java 14.8.0'de Genel API ve Geriye Uyumsuz Değişiklikler
+title: Aspose.Slides for Java 14.8.0'da Genel API ve Geriye Uyumsuz Değişiklikler
 linktitle: Aspose.Slides for Java 14.8.0
 type: docs
 weight: 70
@@ -15,22 +15,23 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java'daki genel API güncellemelerini ve kırılma değişikliklerini inceleyerek PowerPoint PPT, PPTX ve ODP sunum çözümlerinizi sorunsuz bir şekilde taşıyın."
+description: "Aspose.Slides for Java'da genel API güncellemelerini ve kırılma değişikliklerini inceleyerek PowerPoint PPT, PPTX ve ODP sunum çözümlerinizi sorunsuz bir şekilde taşıyın."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Bu sayfa, Aspose.Slides for Java 14.8.0 API'si ile tanıtılan tüm [eklenen](/slides/tr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) sınıfları, metodları, özellikleri vb. ve yeni kısıtlamaları ile diğer [değişiklikleri](/slides/tr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) listeler.
+Bu sayfa, Aspose.Slides for Java 14.8.0 API'siyle tanıtılan tüm [eklenen](/slides/tr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) sınıfları, metotları, özellikleri ve benzeri, yeni kısıtlamaları ve diğer [değişiklikler](/slides/tr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) listeler.
 
 {{% /alert %}} 
 ## **Genel API Değişiklikleri**
-### **Aspose.Slides.Charts.IChartSeries.getOverlap(), IChartSeriesGroup.getOverlap() ve setOverlap(byte) Yöntemleri Eklendi**
-Aspose.Slides.Charts.IChartSeries.getOverlap() 2D grafiklerde çubukların ve sütunların ne kadar üst üste gelmesi gerektiğini (‑100 ile 100 arasında) alır.  
-Bu yöntem yalnızca belirli bir seri için değil, üst seri grubundaki tüm seriler için geçerlidir – bu, ilgili grup özelliğinin bir yansımasıdır.
+### **Aspose.Slides.Charts.IChartSeries.getOverlap(), IChartSeriesGroup.getOverlap() ve setOverlap(byte) Metodları Eklendi**
+Aspose.Slides.Charts.IChartSeries.getOverlap() metodu, çubuk ve sütunların 2D grafiklerde ne kadar üst üste gelmesi gerektiğini (-100 ile 100 arasında) elde eder. Bu metod yalnızca belirli bir seriye değil, üst seriler grubundaki tüm serilere uygulanır – bu, ilgili grup özelliğinin yansıtılmasıdır.
 
-- IChartSeries.getParentSeriesGroup() yöntemini kullanarak üst seri grubuna erişin.  
-- Değeri yönetmek için IChartSeriesGroup.getOverlap() ve setOverlap(byte) yöntemlerini kullanın.
+- Üst seriler grubuna erişmek için IChartSeries.getParentSeriesGroup() metodunu kullanın.
+- Değeri yönetmek için IChartSeriesGroup.getOverlap() ve setOverlap(byte) metodlarını kullanın.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -40,25 +41,29 @@ IChartSeriesCollection series = chart.getChartData().getSeries();
 
 if (series.get_Item(0).getOverlap() == 0) {
 
-  series.get_Item(0).getParentSeriesGroup().setOverlap(-30);
+  series.get_Item(0).getParentSeriesGroup().setOverlap((byte)-30);
 
 }
 
 ```
 ### **ShapeThumbnailBounds.Appearance Enum Değeri Eklendi**
-Bu şekil miniati oluşturma yöntemi, geliştiricilerin bir şeklin miniatiyi görünüm sınırları içinde üretmesine olanak tanır. Tüm şekil efektleri dikkate alınır. Oluşturulan şekil miniati slayt sınırlarıyla kısıtlanır.
+Bu şekil küçük resimleri oluşturma yöntemi, geliştiricilerin şeklin görünüm sınırları içinde bir küçük resim üretmesine izin verir. Tüm şekil efektlerini göz önünde bulundurur. Oluşturulan şekil küçük resmi slayt sınırlarıyla kısıtlanır.
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation();
 
-BufferedImage st = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThumbnail(ShapeThumbnailBounds.Appearance, 1, 1);
+ Presentation pres = new Presentation("Presentation.pptx");
+
+IImage st = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(ShapeThumbnailBounds.Appearance, 1, 1);
 
 ```
-### **VbaProject Sınıfı ve IVbaProject Arayüzü Eklendi, Presentation.getVbaProject() ve setVbaProject(VbaProject) Yöntemleri Değiştirildi**
-Yeni bir özellik, geliştiricilerin bir sunum içinde VBA projeleri oluşturup düzenlemesine olanak tanır.
+### **VbaProject Sınıfı ve IVbaProject Arayüzü Eklendi, Presentation.getVbaProject() ve setVbaProject(VbaProject) Metodları Değiştirildi**
+Yeni bir özellik, geliştiricilerin bir sunum içinde VBA projeleri oluşturmasına ve düzenlemesine olanak tanır.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -74,7 +79,7 @@ IVbaModule module = pres.getVbaProject().getModules().addEmptyModule("Module");
 
 module.setSourceCode("Sub Test(oShape As Shape)\r\n    MsgBox \"Test\"\r\nEnd Sub");
 
-// <stdole>'ye referans oluştur
+// <stdole> referansı oluştur
 
 VbaReferenceOleTypeLib stdoleReference =
 
@@ -82,7 +87,7 @@ VbaReferenceOleTypeLib stdoleReference =
 
     "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation");
 
-// Office'e referans oluştur
+// Office referansı oluştur
 
 VbaReferenceOleTypeLib officeReference =
 
@@ -96,6 +101,5 @@ pres.getVbaProject().getReferences().add(stdoleReference);
 
 pres.getVbaProject().getReferences().add(officeReference);
 
-pres.save("data\\test.pptm", SaveFormat.Pptm);
-
+pres.save("test.pptm", SaveFormat.Pptm);
 ```

@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides for Java 15.8.0'de Genel API ve Geriye Dönük Uyumlu Olmayan Değişiklikler
+title: Aspose.Slides for Java 15.8.0'de Genel API ve Geriye Uyumsuz Değişiklikler
 linktitle: Aspose.Slides for Java 15.8.0
 type: docs
 weight: 160
@@ -15,18 +15,17 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java'daki genel API güncellemelerini ve kırıcı değişiklikleri inceleyerek PowerPoint PPT, PPTX ve ODP sunum çözümlerinizi sorunsuz bir şekilde taşıyın."
+description: "Aspose.Slides for Java'da genel API güncellemelerini ve kırıcı değişiklikleri gözden geçirerek PowerPoint PPT, PPTX ve ODP sunum çözümlerinizi sorunsuz bir şekilde taşıyın."
 ---
-{{% alert color="primary" %}} 
-
-Bu sayfa, Aspose.Slides for Java 15.8.0 API'siyle tanıtılan [eklenen](/slides/tr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) veya [kaldırılan](/slides/tr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) sınıfları, metodları, özellikleri vb. ve diğer değişiklikleri listeler.
-
+{{% alert color="info" %}} 
+Bu sayfa, Aspose.Slides for Java 15.8.0 API'siyle tanıtılan eklenen [added](/slides/tr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) veya kaldırılan [removed](/slides/tr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) sınıfları, metodları, özellikleri ve benzeri diğer değişiklikleri listeler.
 {{% /alert %}} 
-## **Genel API Değişiklikleri**
-#### **IChartSeries ve ChartSeries'e getDoughnutHoleSize(), setDoughnutHoleSize(byte) metodları eklendi**
-Donut grafiğindeki deliğin boyutunu belirler.
-
+## **Public API Değişiklikleri**
+#### **getDoughnutHoleSize(), setDoughnutHoleSize(byte) metodları IChartSeries ve ChartSeries'e eklendi**
+Donut grafiğindeki deliğin boyutunu belirtir.
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 

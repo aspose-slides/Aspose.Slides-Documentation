@@ -1,27 +1,27 @@
 ---
-title: Chuyển đổi Bài thuyết trình PowerPoint sang Tài liệu Word trong .NET
+title: Chuyển đổi bản trình chiếu PowerPoint sang tài liệu Word trong .NET
 linktitle: PowerPoint sang Word
 type: docs
 weight: 110
 url: /vi/net/convert-powerpoint-to-word/
 keywords:
 - chuyển đổi PowerPoint
-- chuyển đổi bài thuyết trình
+- chuyển đổi bản trình chiếu
 - chuyển đổi slide
 - chuyển đổi PPT
 - chuyển đổi PPTX
 - PowerPoint sang Word
-- bài thuyết trình sang Word
+- bản trình chiếu sang Word
 - slide sang Word
 - PPT sang Word
 - PPTX sang Word
 - PowerPoint sang DOCX
-- bài thuyết trình sang DOCX
+- bản trình chiếu sang DOCX
 - slide sang DOCX
 - PPT sang DOCX
 - PPTX sang DOCX
 - PowerPoint sang DOC
-- bài thuyết trình sang DOC
+- bản trình chiếu sang DOC
 - slide sang DOC
 - PPT sang DOC
 - PPTX sang DOC
@@ -32,45 +32,46 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Chuyển đổi các slide PowerPoint PPT và PPTX sang tài liệu Word có thể chỉnh sửa trong C# bằng Aspose.Slides cho .NET với bố cục, hình ảnh và định dạng được bảo toàn chính xác."
+description: "Chuyển đổi các slide PowerPoint PPT và PPTX sang tài liệu Word có thể chỉnh sửa trong C# bằng Aspose.Slides cho .NET, giữ nguyên bố cục, hình ảnh và định dạng chính xác."
 ---
 ## **Tổng quan**
 
-Bài viết này cung cấp giải pháp cho các nhà phát triển về việc chuyển đổi bài thuyết trình PowerPoint và OpenDocument sang tài liệu Word bằng Aspose.Slides for .NET và Aspose.Words for .NET. Hướng dẫn từng bước sẽ dẫn bạn qua mọi giai đoạn của quá trình chuyển đổi.
+Bài viết này cung cấp giải pháp cho các nhà phát triển về việc chuyển đổi bản trình chiếu PowerPoint và OpenDocument sang tài liệu Word bằng Aspose.Slides for .NET và Aspose.Words for .NET. Hướng dẫn từng bước sẽ dẫn bạn qua mọi giai đoạn của quá trình chuyển đổi.
 
-## **Chuyển đổi một bài thuyết trình sang tài liệu Word**
+## **Chuyển đổi bản trình chiếu sang tài liệu Word**
 
-Thực hiện các hướng dẫn dưới đây để chuyển đổi một bài thuyết trình PowerPoint hoặc OpenDocument sang tài liệu Word:
+Thực hiện các bước dưới đây để chuyển đổi bản trình chiếu PowerPoint hoặc OpenDocument sang tài liệu Word:
 
-1. Khởi tạo lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) và tải một tệp bài thuyết trình.
+1. Khởi tạo lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) và tải tệp bản trình chiếu.
 2. Khởi tạo các lớp [Document](https://reference.aspose.com/words/net/aspose.words/document/) và [DocumentBuilder](https://reference.aspose.com/words/net/aspose.words/documentbuilder/) để tạo tài liệu Word.
-3. Đặt kích thước trang cho tài liệu Word sao cho khớp với bài thuyết trình bằng thuộc tính [DocumentBuilder.PageSetup](https://reference.aspose.com/words/net/aspose.words/documentbuilder/pagesetup/).
+3. Đặt kích thước trang cho tài liệu Word sao cho khớp với bản trình chiếu bằng thuộc tính [DocumentBuilder.PageSetup](https://reference.aspose.com/words/net/aspose.words/documentbuilder/pagesetup/).
 4. Đặt lề cho tài liệu Word bằng thuộc tính [DocumentBuilder.PageSetup](https://reference.aspose.com/words/net/aspose.words/documentbuilder/pagesetup/).
-5. Duyệt qua tất cả các slide của bài thuyết trình bằng thuộc tính [Presentation.Slides](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/slides/vi/).
-    - Tạo ảnh slide bằng phương thức `GetImage` từ giao diện [ISlide](https://reference.aspose.com/slides/vi/net/aspose.slides/islide/) và lưu vào một luồng bộ nhớ.
-    - Thêm ảnh slide vào tài liệu Word bằng phương thức `InsertImage` từ lớp [DocumentBuilder](https://reference.aspose.com/words/net/aspose.words/documentbuilder/).
+5. Duyệt qua tất cả các slide của bản trình chiếu bằng thuộc tính [Presentation.Slides](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/slides/vi/).
+    - Tạo hình ảnh slide bằng phương thức `GetImage` từ giao diện [ISlide](https://reference.aspose.com/slides/vi/net/aspose.slides/islide/) và lưu nó vào một stream bộ nhớ.
+    - Thêm hình ảnh slide vào tài liệu Word bằng phương thức `InsertImage` từ lớp [DocumentBuilder](https://reference.aspose.com/words/net/aspose.words/documentbuilder/).
 6. Lưu tài liệu Word vào tệp.
 
-Giả sử chúng ta có một bài thuyết trình “sample.pptx” như sau:
+Giả sử chúng ta có một bản trình chiếu "sample.pptx" trông như sau:
 
-![PowerPoint presentation](PowerPoint.png)
-
-Đoạn mã C# dưới đây minh họa cách chuyển đổi bài thuyết trình PowerPoint sang tài liệu Word:
+![Bản trình chiếu PowerPoint](PowerPoint.png)
 
 ```cs
-// Tải tệp bài thuyết trình.
+using Aspose.Slides;
+using Aspose.Words;
+
+// Tải tệp bản trình chiếu.
 using var presentation = new Presentation("sample.pptx");
 
 // Tạo các đối tượng Document và DocumentBuilder.
 var document = new Document();
 var builder = new DocumentBuilder(document);
 
-// Đặt kích thước trang trong tài liệu Word.
+// Đặt kích thước trang cho tài liệu Word.
 var slideSize = presentation.SlideSize.Size;
 builder.PageSetup.PageWidth = slideSize.Width;
 builder.PageSetup.PageHeight = slideSize.Height;
 
-// Đặt lề trong tài liệu Word.
+// Đặt lề cho tài liệu Word.
 builder.PageSetup.LeftMargin = 0;
 builder.PageSetup.RightMargin = 0;
 builder.PageSetup.TopMargin = 0;
@@ -78,41 +79,39 @@ builder.PageSetup.BottomMargin = 0;
 
 const float scaleX = 2, scaleY = 2;
 
-// Duyệt qua tất cả các slide của bài thuyết trình.
+// Duyệt qua tất cả các slide của bản trình chiếu.
 foreach (var slide in presentation.Slides)
 {
-    // Tạo ảnh slide và lưu vào một luồng bộ nhớ.
+    // Tạo hình ảnh slide và lưu nó vào một stream bộ nhớ.
     using var image = slide.GetImage(scaleX, scaleY);
     using var imageStream = new MemoryStream();
     image.Save(imageStream, ImageFormat.Png);
 
-    // Thêm ảnh slide vào tài liệu Word.
+    // Thêm hình ảnh slide vào tài liệu Word.
     imageStream.Seek(0, SeekOrigin.Begin);
     builder.InsertImage(imageStream.ToArray(), builder.PageSetup.PageWidth, builder.PageSetup.PageHeight);
 
     builder.InsertBreak(BreakType.PageBreak);
 }
 
-// Lưu tài liệu Word vào một tệp.
+// Lưu tài liệu Word vào tệp.
 document.Save("output.docx");
 ```
 
 Kết quả:
 
-![Word document](Word.png)
+![Tài liệu Word](Word.png)
 
-{{% alert color="primary" %}} 
-
-Hãy thử [**Trình chuyển đổi PPT sang Word trực tuyến**](https://products.aspose.app/slides/vi/conversion/ppt-to-word) để xem bạn có thể đạt được gì khi chuyển đổi các bài thuyết trình PowerPoint và OpenDocument sang tài liệu Word. 
-
+{{% alert color="info" %}} 
+Hãy thử [**Trình chuyển đổi PPT sang Word trực tuyến**](https://products.aspose.app/slides/vi/conversion/ppt-to-word) của chúng tôi để xem bạn có thể đạt được gì khi chuyển đổi bản trình chiếu PowerPoint và OpenDocument sang tài liệu Word. 
 {{% /alert %}}
 
 ## **Câu hỏi thường gặp**
 
-**Cần cài đặt những thành phần nào để chuyển đổi bài thuyết trình PowerPoint và OpenDocument sang tài liệu Word?**
+### Cần cài đặt những thành phần nào để chuyển đổi bản trình chiếu PowerPoint và OpenDocument sang tài liệu Word?
 
-Bạn chỉ cần thêm các gói NuGet tương ứng cho [Aspose.Slides for .NET](https://www.nuget.org/packages/Aspose.Slides.NET) và [Aspose.Words for .NET](https://www.nuget.org/packages/Aspose.Words/) vào dự án C# của mình. Cả hai thư viện hoạt động như các API độc lập, và không yêu cầu phải cài đặt Microsoft Office.
+Bạn chỉ cần thêm các gói NuGet tương ứng cho [Aspose.Slides for .NET](https://www.nuget.org/packages/Aspose.Slides.NET) và [Aspose.Words for .NET](https://www.nuget.org/packages/Aspose.Words/) vào dự án C# của mình. Cả hai thư viện hoạt động như các API độc lập và không yêu cầu cài đặt Microsoft Office.
 
-**Có hỗ trợ tất cả các định dạng bài thuyết trình PowerPoint và OpenDocument không?**
+### Có hỗ trợ tất cả các định dạng bản trình chiếu PowerPoint và OpenDocument không?
 
-Aspose.Slides for .NET [hỗ trợ tất cả các định dạng bài thuyết trình](/slides/vi/net/supported-file-formats/), bao gồm PPT, PPTX, ODP và các loại tệp phổ biến khác. Điều này đảm bảo bạn có thể làm việc với các bài thuyết trình được tạo bằng các phiên bản khác nhau của Microsoft PowerPoint.
+Aspose.Slides for .NET [hỗ trợ tất cả các định dạng bản trình chiếu](/slides/vi/net/supported-file-formats/), bao gồm PPT, PPTX, ODP và các loại tệp phổ biến khác. Điều này đảm bảo bạn có thể làm việc với các bản trình chiếu được tạo trong nhiều phiên bản khác nhau của Microsoft PowerPoint.

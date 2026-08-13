@@ -10,80 +10,83 @@ keywords:
 - použít licenci
 - ověřit licenci
 - licenční soubor
-- zkušební verze
+- hodnotící verze
 - PowerPoint
 - OpenDocument
 - prezentace
 - C++
 - Aspose.Slides
-description: "Použijte, spravujte a řešte problémy s licencemi v Aspose.Slides pro C++. Zajistěte nepřerušený přístup k plným funkcím pomocí našeho podrobného průvodce licencováním."
+description: "Aplikujte, spravujte a řešte problémy s licencemi v Aspose.Slides pro C++. Zajistěte nepřerušený přístup k plným funkcím pomocí našeho krok za krokem průvodce licencováním."
 ---
 ## **Přehled**
 
-Aspose.Slides lze používat v režimu zkušební verze nebo s platnou licencí. Zkušební verze poskytuje stejnou funkčnost jako licencovaná verze, ale přidává vodoznak pro hodnocení při otevírání nebo ukládání prezentací a omezuje extrakci textu na jeden snímek.
+Aspose.Slides lze používat v režimu hodnocení nebo s platnou licencí. Hodnotící verze poskytuje stejnou funkčnost jako licencovaná verze, ale při otevírání nebo ukládání prezentací přidává vodoznak hodnocení a omezuje extrakci textu na jeden snímek.
 
-Tento článek vysvětluje, jak funguje licencování v Aspose.Slides a jak aplikovat licenci před použitím knihovny. Licenci lze načíst ze souboru, proudu nebo vloženého zdroje pomocí třídy `License`. Článek také ukazuje, jak ověřit, zda byla licence použita správně.
+Tento článek vysvětluje, jak funguje licencování v Aspose.Slides a jak aplikovat licenci před použitím knihovny. Licenci lze načíst ze souboru, proudu nebo vloženého prostředku pomocí třídy `License`. Článek také ukazuje, jak ověřit, zda byla licence aplikována správně.
 
-## **Vyzkoušejte Aspose.Slides**
+## **Vyzkoušet Aspose.Slides**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Můžete si stáhnout zkušební verzi **Aspose.Slides for C++** z [její stránky ke stažení na NuGet](https://www.nuget.org/packages/Aspose.Slides.CPP/). Zkušební verze nabízí stejnou funkčnost jako licencovaný produkt. Ve skutečnosti je zkušební balíček identický s zakoupeným – stačí přidat několik řádků kódu pro aplikaci licence a stane se licencovaným.
+Můžete si stáhnout hodnotící verzi **Aspose.Slides for C++** z [její stránky ke stažení na NuGet](https://www.nuget.org/packages/Aspose.Slides.CPP/). Hodnotící verze nabízí stejnou funkčnost jako licencovaný produkt. Ve skutečnosti je hodnotící balíček identický s zakoupeným – stačí jen přidat několik řádků kódu pro aplikaci licence.
 
-Jakmile budete spokojeni se zkušební verzí **Aspose.Slides**, můžete [zakoupit licenci](https://purchase.aspose.com/buy). Doporučujeme si projít dostupné typy předplatného. Pokud máte jakékoli otázky, neváhejte kontaktovat prodejní tým Aspose.
+Jakmile budete s **Aspose.Slides** spokojeni, můžete [zakoupit licenci](https://purchase.aspose.com/buy). Doporučujeme si prohlédnout dostupné typy předplatného. Pokud máte jakékoli otázky, neváhejte kontaktovat prodejní tým Aspose.
 
-Každá licence Aspose zahrnuje roční předplatné na bezplatné aktualizace, včetně nových verzí a opravy chyb vydaných během tohoto období. Ať už používáte licencovanou nebo zkušební verzi, získáte bezplatnou a neomezenou technickou podporu.
+Každá licence Aspose obsahuje jednoletý odběr pro bezplatné aktualizace, včetně nových verzí a oprav chyb vydaných během tohoto období. Ať už používáte licencovanou nebo hodnotící verzi, získáte bezplatnou a neomezenou technickou podporu.
 
 {{% /alert %}} 
 
-**Omezení zkušební verze**
+**Omezení hodnotící verze**
 
-* Zatímco zkušební verze Aspose.Slides (když není licence použita) poskytuje plnou funkčnost produktu, během operací otevření a uložení vkládá vodoznak pro hodnocení v horní části dokumentu.
-* Extrakce textu je omezená na jeden snímek při použití zkušební verze.
+* Zatímco hodnotící verze Aspose.Slides (když není licence aplikována) poskytuje plnou funkčnost produktu, vkládá vodotisk hodnocení v horní části dokumentu během operací otevření a uložení.
+* Extrakce textu je omezena na jeden snímek při používání hodnotící verze.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Pro testování Aspose.Slides bez omezení můžete požádat o **30denní dočasnou licenci**. Další informace najdete na stránce [Jak získat dočasnou licenci](https://purchase.aspose.com/temporary-license).
+Pro testování Aspose.Slides bez omezení můžete požádat o **30denní dočasnou licenci**. Další informace naleznete na stránce [Jak získat dočasnou licenci](https://purchase.aspose.com/temporary-license).
 
 {{% /alert %}}
 
 ## **Licencování v Aspose.Slides**
 
-* Zkušební verze se po zakoupení licence a jejím použitím přidáním několika řádků kódu promění v licencovanou.
-* Licence je textový XML soubor, který obsahuje podrobnosti jako název produktu, počet vývojářů, pro které je licence určena, datum vypršení předplatného a další.
-* Licenční soubor je digitálně podepsaný, takže nesmí být upravován. I náhodná změna – například přidání nového řádku – soubor neplatní.
-* Aspose.Slides for C++ obvykle hledá licenční soubor na následujících místech:
-  * Cesta explicitně uvedená ve vašem kódu
+* Hodnotící verze se po zakoupení licence a jejím aplikování několika řádky kódu stane licencovanou.
+* Licence je prostý textový soubor XML, který obsahuje podrobnosti jako název produktu, počet vývojářů, pro které je licence udělena, datum vypršení předplatného a další.
+* Licenční soubor je digitálně podepsán, proto nesmí být upravován. I neúmyslná změna – například přidání konce řádku – soubor neplatí.
+* Aspose.Slides for C++ typicky hledá licenční soubor na následujících místech:
+  * Cesta výslovně zadána ve vašem kódu
   * Složka obsahující DLL komponenty (součást Aspose.Slides)
   * Složka obsahující sestavu, která volá DLL komponenty
-* Aby se zabránilo omezením zkušební verze, musíte licenci nastavit před použitím Aspose.Slides. Licence je potřeba nastavit jen jednou za aplikaci nebo proces.
+* Aby bylo možné obejít omezení hodnotící verze, musíte nastavit licenci před použitím Aspose.Slides. Licence se nastavuje jen jednou na aplikaci nebo proces.
 
-## **Použití licence**
+## **Aplikovat licenci**
 
-Licence může být načtena ze **souboru**, **proudu** nebo **vloženého zdroje**.
+Licence může být načtena ze **souboru**, **proudu** nebo **vloženého prostředku**.
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
-Aspose.Slides poskytuje třídu [License](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.license/) pro operace s licencemi.
+Aspose.Slides poskytuje třídu [License](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.license/) pro operace s licencí.
 
 {{% /alert %}} 
 
 {{% alert color="warning" %}}
 
-Nové licence mohou aktivovat Aspose.Slides pouze s verzí 21.4 nebo novější. Starší verze používají jiný licenční systém a tyto licence nepoznají.
+Nové licence mohou aktivovat Aspose.Slides pouze od verze 21.4 a novější. Starší verze používají jiný licenční systém a tyto licence nepoznají.
 
 {{% /alert %}}
 
-### **File**
+### **Soubor**
 
-Nejjednodušší způsob, jak nastavit licenci, je umístit licenční soubor do stejné složky jako DLL komponenty (součást Aspose.Slides) a uvést pouze název souboru bez cesty.
+Nejjednodušší způsob nastavení licence je umístit licenční soubor do stejné složky jako DLL komponenty (součást Aspose.Slides) a zadat pouze název souboru, bez cesty.
 
-Následující C++ kód ukazuje, jak nastavit licenční soubor:
+Následující kód C++ ukazuje, jak nastavit licenční soubor:
 
 ```c++
 #include <Util/License.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
 
 using namespace Aspose::Slides;
+using namespace System;
 
 int main()
 {
@@ -98,15 +101,22 @@ int main()
 
 Pokud umístíte licenční soubor do jiné složky, pak při volání metody [License::SetLicense](https://reference.aspose.com/slides/cs/cpp/aspose.slides/license/setlicense/) musí název souboru na konci zadané explicitní cesty přesně odpovídat názvu vašeho licenčního souboru.
 
-Například pokud přejmenujete licenční soubor na *Aspose.Slides.lic.xml*, musíte do metody [License::SetLicense](https://reference.aspose.com/slides/cs/cpp/aspose.slides/license/setlicense/) ve svém kódu předat úplnou cestu končící *Aspose.Slides.lic.xml*.
+Například pokud přejmenujete váš licenční soubor na *Aspose.Slides.lic.xml*, musíte do metody [License::SetLicense](https://reference.aspose.com/slides/cs/cpp/aspose.slides/license/setlicense/) ve svém kódu předat úplnou cestu končící na *Aspose.Slides.lic.xml*.
 
 {{% /alert %}}
 
-### **Stream**
+### **Proud**
 
-Můžete načíst licenci z proudu. Následující C++ kód ukazuje, jak aplikovat licenci z proudu:
+Licence může být načtena ze streamu. Následující kód C++ ukazuje, jak aplikovat licenci ze streamu:
 
 ```c++
+#include <Util/License.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto license = MakeObject<License>();
 
 auto stream = File::OpenRead(u"Aspose.Slides.lic");
@@ -114,11 +124,16 @@ auto stream = File::OpenRead(u"Aspose.Slides.lic");
 license->SetLicense(stream);
 ```
 
-## **Validate a License**
+## **Ověřit licenci**
 
-Pro kontrolu, zda byla licence nastavena správně, ji můžete ověřit. Následující C++ kód ukazuje, jak validovat licenci:
+Pro kontrolu, zda je licence nastavena správně, ji můžete ověřit. Následující kód C++ ukazuje, jak ověřit licenci:
 
 ```c++
+#include <Util/License.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto license = MakeObject<License>();
 
 license->SetLicense(u"Aspose.Slides.lic");
@@ -130,20 +145,20 @@ if (license->IsLicensed())
 }
 ```
 
-## **Thread Safety**
+## **Bezpečnost při práci ve vláknech**
 
 {{% alert title="Note" color="warning" %}} 
 
-Metoda [License::SetLicense](https://reference.aspose.com/slides/cs/cpp/aspose.slides/license/setlicense/) **není thread‑safe**. Pokud potřebujete tuto metodu volat současně z více vláken, je doporučeno použít synchronizační primitiva (například zamykání), aby se předešlo možným problémům.
+Metoda [License::SetLicense](https://reference.aspose.com/slides/cs/cpp/aspose.slides/license/setlicense/) **není bezpečná pro více vláken**. Pokud potřebujete tuto metodu volat současně z více vláken, doporučuje se použít synchronizační primitiva (například zámek), aby se předešlo možným problémům.
 
 {{% /alert %}}
 
-## **FAQ**
+## **Často kladené otázky**
 
-**Mohu licenci použít v zcela offline prostředí (bez přístupu k internetu)?**
+### Mohu aplikovat licenci v zcela offline prostředí (bez přístupu k internetu)?
 
-Ano. Ověření licence probíhá lokálně pomocí licenčního souboru; není vyžadováno žádné internetové připojení.
+Ano. Ověření licence probíhá lokálně pomocí licenčního souboru; není vyžadováno žádné připojení k internetu.
 
-**Co se stane po vypršení ročního předplatného? Přestane knihovna fungovat?**
+### Co se stane po vypršení jednoletého předplatného? Přestane knihovna fungovat?
 
-Ne. Licence je trvalá: můžete nadále používat verze vydané před datem vypršení předplatného; prostě nebudete mít nárok na novější vydání bez obnovení.
+Ne. Licence je trvalá: můžete nadále používat verze vydané před datem konce předplatného; jen nebudete mít nárok na novější vydání bez obnovení předplatného.

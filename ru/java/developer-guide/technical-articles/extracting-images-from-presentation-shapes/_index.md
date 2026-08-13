@@ -12,21 +12,21 @@ keywords:
 - презентация
 - Java
 - Aspose.Slides
-description: "Извлекайте изображения из фигур в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для Java — быстрое, удобное решение."
+description: "Извлечение изображений из фигур в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для Java - быстрое, удобное для кода решение."
 ---
 ## **Обзор**
 
-В презентации изображения могут встречаться в нескольких типах фигур: как обычные рамки картинок, как заливки картинками, применённые к фигурам, как изображения предварительного просмотра OLE‑объектов, как миниатюры видеокадров или аудио‑кадров, как изображения увеличения или как изображения, вложенные в таблицы, диаграммы и фигуры SmartArt. Aspose.Slides хранит эти изображения в коллекции изображений презентации, доступной через объекты [IImageCollection](https://reference.aspose.com/slides/ru/java/com.aspose.slides.iimagecollection/) и [IPPImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides.ippimage/) .
+Изображения в презентации могут появляться в нескольких типах фигур: как обычные рамки изображений, как заливка изображением, применяемая к фигурам, как изображения предварительного просмотра OLE‑объектов, как миниатюры видеo‑ или аудио‑кадров, как изображения масштабирования или как изображения, вложенные в таблицы, диаграммы и SmartArt‑фигуры. Aspose.Slides хранит эти изображения в коллекции изображений презентации, доступной через [IImageCollection](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iimagecollection/) и [IPPImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ippimage/) объекты.
 
-Если вам нужно только экспортировать каждый встроенный в презентацию ресурс изображения, пройдите по `presentation.getImages()`. Эта статья посвящена иной задаче: обходу фигур для поиска мест использования изображений на слайдах, чтобы сохраняемые файлы сохраняли полезный контекст, такой как номер слайда, позиция фигуры и тип источника (рамка картинки, заливка изображением, превью медиа, превью OLE или изображение увеличения).
+Если вам нужно только экспортировать каждый ресурс изображения, встроенный в презентацию, пройдитесь по `presentation.getImages()`. Эта статья посвящена другой задаче: обходу фигур для поиска мест использования изображений на слайдах, чтобы сохраняемые файлы сохраняли полезный контекст, такой как номер слайда, позиция фигуры и тип источника (рамка изображения, заливка изображением, предварительный просмотр медиа, предварительный просмотр OLE или изображение масштабирования).
 
-{{% alert title="Tip" color="primary" %}}
-Используйте [IPPImage.getBinaryData](https://reference.aspose.com/slides/ru/java/com.aspose.slides.ippimage/#getBinaryData--) чтобы сохранить оригинальные закодированные данные изображения и тип файла. Используйте [IPPImage.getImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides.ippimage/#getImage--) вместе с [IImage.save](https://reference.aspose.com/slides/ru/java/com.aspose.slides.iimage/#save-java.lang.String-int-) , когда необходимо нормализовать вывод в конкретный формат, например PNG.
+{{% alert title="Tip" color="info" %}}
+Используйте [IPPImage.getBinaryData](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ippimage/#getBinaryData--) для сохранения оригинальных закодированных данных изображения и типа файла. Используйте [IPPImage.getImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ippimage/#getImage--) вместе с [IImage.save](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iimage/#save-java.lang.String-int-) когда требуется нормализовать вывод в конкретный формат, например PNG.
 {{% /alert %}}
 
 ## **Общие вспомогательные методы**
 
-Ниже приведённые вспомогательные методы делают примеры короче. `saveOriginalImage` записывает оригинальные встроенные байты, выбирает безопасное расширение из MIME‑типа и пропускает дублирующие бинарные данные изображения, используя хеш SHA‑256.
+Ниже приведённые вспомогательные методы позволяют сократить примеры. `saveOriginalImage` записывает оригинальные вложенные байты, выбирает безопасное расширение из MIME‑типа и пропускает дублирующиеся бинарные изображения по хэшу SHA‑256.
 
 ```java
 import com.aspose.slides.*;
@@ -222,11 +222,16 @@ private static String makeSafeFileNamePart(String value)
 }
 ```
 
-## **Извлечение изображений из рамок картинок**
+## **Извлечение изображений из рамок изображений**
 
-Используйте этот подход для изображений, вставленных как отдельные объекты. [IPictureFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides.ipictureframe/) хранит свою картинку в `getPictureFormat().getPicture().getImage()`, который возвращает объект [IPPImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides.ippimage/) .
+Используйте этот подход для изображений, вставленных как отдельные объекты. [IPictureFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ipictureframe/) хранит свою картинку в `getPictureFormat().getPicture().getImage()`, что возвращает объект [IPPImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ippimage/).
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "extracted-images");
@@ -266,11 +271,15 @@ finally
 }
 ```
 
-## **Извлечение изображений из фигур, залитых картинкой**
+## **Извлечение изображений из фигур, залитых изображениями**
 
-Фигуры могут использовать изображение в качестве заливки. Сначала проверьте тип заливки фигуры: если он не [FillType.Picture](https://reference.aspose.com/slides/ru/java/com.aspose.slides/filltype/), то извлекать изображение из этой заливки нет смысла. Приведённый ниже пример работает с объектами [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides.iautoshape/) , сохраняет каждое изображение в PNG с помощью [IPPImage.getImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides.ippimage/#getImage--) .
+Фигуры могут использовать изображение в качестве заливки. Сначала проверьте тип заливки фигуры: если это не [FillType.Picture](https://reference.aspose.com/slides/ru/java/com.aspose.slides/filltype/), изображение извлекать нечего. Пример ниже обрабатывает объекты [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iautoshape/) и сохраняет каждое изображение как PNG через [IPPImage.getImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ippimage/#getImage--).
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "shape-fill-images");
@@ -312,11 +321,16 @@ finally
 }
 ```
 
-## **Извлечение изображений‑превью из OLE‑объектных рамок**
+## **Извлечение изображений‑превью из OLE‑рамок объектов**
 
-[IOleObjectFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides.ioleobjectframe/) может иметь заменяющую картинку, которую PowerPoint использует как предварительный просмотр объекта на слайде. Это изображение доступно через `getSubstitutePictureFormat().getPicture().getImage()` . Извлечение этой картинки даёт вам изображение‑превью, а не содержимое встроенного OLE‑пакета.
+[IOleObjectFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ioleobjectframe/) может иметь заменяющее изображение, которое PowerPoint использует в качестве превью объекта на слайде. Это изображение доступно через `getSubstitutePictureFormat().getPicture().getImage()`. Извлечение этой картинки даёт вам изображение превью, а не содержимое вложенного OLE‑пакета.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "ole-preview-images");
@@ -362,9 +376,14 @@ finally
 
 ## **Извлечение изображений‑превью из видеокадров**
 
-[IVideoFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides.ivideoframe/) также может хранить изображение‑превью в `getPictureFormat().getPicture().getImage()` . Это постер или миниатюра, отображаемая на слайде, а не кадр, декодированный из видеопотока.
+[IVideoFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ivideoframe/) также может хранить изображение‑превью в `getPictureFormat().getPicture().getImage()`. Это постер или миниатюра, отображаемая на слайде, а не кадр, декодированный из видеопотока.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "video-preview-images");
@@ -408,11 +427,16 @@ finally
 }
 ```
 
-## **Извлечение изображений‑превью из аудио‑кадров**
+## **Извлечение изображений‑превью из аудиокадров**
 
-[IAudioFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides.iaudioframe/) может хранить миниатюру в `getPictureFormat().getPicture().getImage()` . Это изображение, отображаемое для аудио‑объекта на слайде.
+[IAudioFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iaudioframe/) может хранить миниатюру в `getPictureFormat().getPicture().getImage()`. Это изображение, отображаемое для аудио‑объекта на слайде.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "audio-preview-images");
@@ -456,11 +480,16 @@ finally
 }
 ```
 
-## **Извлечение изображений из объектов увеличения**
+## **Извлечение изображений из объектов масштабирования**
 
-[IZoomFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides.izoomframe/) и [ISectionZoomFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides.isectionzoomframe/) могут использовать пользовательские изображения. Читайте `getZoomImage()` из рамки увеличения.
+[IZoomFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/izoomframe/) и [ISectionZoomFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/isectionzoomframe/) могут использовать пользовательские изображения. Читайте `getZoomImage()` из кадра масштабирования.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "zoom-images");
@@ -517,11 +546,16 @@ finally
 }
 ```
 
-## **Извлечение изображений из рамок суммарного увеличения**
+## **Извлечение изображений из рамок итогового масштабирования**
 
-[ISummaryZoomFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides.isummaryzoomframe/) также является фигурой. Его элементы разделов могут использовать пользовательские изображения, доступные через метод `getZoomImage()` каждого раздела суммарного увеличения.
+[ISummaryZoomFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/isummaryzoomframe/) также является фигурой. Ее секционные элементы могут использовать пользовательские изображения, доступные через метод `getZoomImage()` каждой секции итогового масштабирования.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "summary-zoom-images");
@@ -571,11 +605,16 @@ finally
 }
 ```
 
-## **Извлечение изображений из фигур таблиц**
+## **Извлечение изображений из таблиц**
 
-[ITable](https://reference.aspose.com/slides/ru/java/com.aspose.slides.itable/) — это фигура. Изображения в таблице обычно хранятся как заливки картинками в ячейках таблицы.
+[ITable](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itable/) — это фигура. Изображения в таблице обычно хранятся как заливка изображением в ячейках таблицы.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "table-images");
@@ -631,11 +670,16 @@ finally
 }
 ```
 
-## **Извлечение изображений из фигур диаграмм**
+## **Извлечение изображений из диаграмм**
 
-[IChart](https://reference.aspose.com/slides/ru/java/com.aspose.slides.ichart/) — это фигура. Приведённый ниже пример извлекает изображение из заливки картинкой области диаграммы.
+[IChart](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichart/) — это фигура. Пример ниже извлекает изображение из заливки области диаграммы.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "chart-images");
@@ -682,9 +726,14 @@ finally
 
 ## **Извлечение изображений из фигур SmartArt**
 
-[ISmartArt](https://reference.aspose.com/slides/ru/java/com.aspose.slides.ismartart/) является фигурой. В зависимости от макета SmartArt изображения могут храниться в заливках маркеров узлов или в форматах заливки фигур узлов.
+[ISmartArt](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ismartart/) — это фигура. В зависимости от макета SmartArt изображения могут храниться в заливках маркеров узлов или в форматах заливки фигур узлов.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "smartart-images");
@@ -750,11 +799,16 @@ finally
 }
 ```
 
-## **Включение изображений внутри объединённых фигур**
+## **Включение изображений внутри сгруппированных фигур**
 
-Объединённые фигуры содержат собственные коллекции фигур. Общий вспомогательный метод `enumerateShapes` имеет параметр `includeGroupedShapes`. Установите его в `true`, если необходимо просматривать фигуры внутри объектов [IGroupShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides.igroupshape/) . Приведённый ниже пример извлекает изображения из рамок картинок, фигур, залитых картинкой, превью OLE‑объектов, миниатюр видеокадров и миниатюр аудио‑кадров. Чтобы также включить изображения из таблиц, диаграмм, SmartArt и суммарных увеличений, переиспользуйте специализированную логику извлечения из предыдущих разделов, сохраняя ту же рекурсивную обходную схему.
+Сгруппированные фигуры содержат свои собственные коллекции фигур. Общий вспомогательный метод `enumerateShapes` имеет параметр `includeGroupedShapes`. Установите его в `true`, когда необходимо просматривать фигуры внутри объектов [IGroupShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/igroupshape/). Пример ниже извлекает изображения из рамок изображений, фигур, залитых изображениями, превью OLE‑объектов, миниатюр видеокадров и аудиокадров. Чтобы включить также изображения таблиц, диаграмм, SmartArt и итогового масштабирования, повторно используйте специализированную логику извлечения из предыдущих разделов, оставив тот же рекурсивный обход фигур.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "all-shape-images");
@@ -847,43 +901,43 @@ finally
 
 ## **Особые случаи и практические замечания**
 
-- **Дублирующие изображения:** Несколько фигур могут ссылаться на одно и то же изображение или на отдельные изображения с одинаковыми байтами. Вычисляйте хеш [IPPImage.getBinaryData](https://reference.aspose.com/slides/ru/java/com.aspose.slides.ippimage/#getBinaryData--) перед записью файлов, если нужен один файл вывода на каждое уникальное изображение.
-- **Оригинальные данные vs. преобразованный вывод:** Сохранение [IPPImage.getBinaryData](https://reference.aspose.com/slides/ru/java/com.aspose.slides.ippimage/#getBinaryData--) сохраняет встроенные данные JPEG, PNG, GIF, SVG, EMF или WMF. Сохранение [IPPImage.getImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides.ippimage/#getImage--) через [IImage.save](https://reference.aspose.com/slides/ru/java/com.aspose.slides.iimage/#save-java.lang.String-int-) полезно, когда нужен единый формат вывода.
-- **Неподдерживаемые типы заливки:** Фигуры с заливкой сплошного цвета, градиентом, узором или без заливки не содержат заливку картинкой. Проверьте [FillType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/filltype/) перед чтением `getPictureFillFormat()`.
-- **Объединённые фигуры:** Коллекция фигур верхнего уровня слайда не разворачивает группы. При необходимости рекурсивно проверяйте [IGroupShape.getShapes](https://reference.aspose.com/slides/ru/java/com.aspose.slides.igroupshape/#getShapes--) .
-- **Предпросмотр OLE‑объектов:** [IOleObjectFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides.ioleobjectframe/) может предоставлять изображение‑превью через `getSubstitutePictureFormat()`, но это изображение лишь превью на слайде. Это не вложенный файл внутри OLE‑объекта.
-- **Миниатюры видеокадров:** [IVideoFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides.ivideoframe/) может предоставлять изображение‑превью через `getPictureFormat()`, но это лишь постер, отображаемый на слайде. Оно не извлекается из видеопотока.
-- **Миниатюры аудио‑кадров:** [IAudioFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides.iaudioframe/) может предоставлять значок или миниатюру через `getPictureFormat()`; это не встроенные аудио‑данные.
-- **Изображения увеличения:** Фигуры slide zoom, section zoom и summary zoom могут использовать пользовательские объекты [IPPImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides.ippimage/) через `getZoomImage()` .
-- **Вложенные модели фигур:** Объекты таблиц, диаграмм и SmartArt реализуют [IShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides.ishape/) , но их изображения часто хранятся во вложенных объектах форматирования ячеек таблицы, элементов диаграммы или узлов SmartArt.
-- **Обрезанные или трансформированные картинки:** Доступ к [IPPImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides.ippimage/) предоставляет хранимый ресурс изображения. Он не учитывает обрезку, прозрачность, перекраску, вращение или другие визуальные эффекты, применённые фигурой.
+- **Дублирующиеся изображения:** Несколько фигур могут ссылаться на одно и то же изображение или на разные изображения с идентичными байтами. Хешируйте [IPPImage.getBinaryData](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ippimage/#getBinaryData--) перед записью файлов, если требуется один выходной файл на уникальное изображение.
+- **Исходные данные vs. преобразованный вывод:** Сохранение [IPPImage.getBinaryData](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ippimage/#getBinaryData--) сохраняет встроенные JPEG, PNG, GIF, SVG, EMF или WMF данные. Сохранение [IPPImage.getImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ippimage/#getImage--) через [IImage.save](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iimage/#save-java.lang.String-int-) полезно, когда нужен единый формат вывода.
+- **Неподдерживаемые типы заливки:** Сплошные, градиентные, шаблонные и беззаполнительные фигуры не содержат заливки изображением. Проверяйте [FillType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/filltype/) перед чтением `getPictureFillFormat()`.
+- **Сгруппированные фигуры:** Коллекция фигур верхнего уровня слайда не разворачивает группы. Рекурсивно проверяйте [IGroupShape.getShapes](https://reference.aspose.com/slides/ru/java/com.aspose.slides/igroupshape/#getShapes--) когда важен контент внутри групп.
+- **Превью OLE‑объектов:** [IOleObjectFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ioleobjectframe/) может предоставлять изображение превью через `getSubstitutePictureFormat()`, но это лишь превью на слайде, а не вложенный файл внутри OLE‑объекта.
+- **Миниатюры видеокадров:** [IVideoFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ivideoframe/) может предоставлять изображение превью через `getPictureFormat()`, но это лишь постер, отображаемый на слайде, а не кадр, извлечённый из видеопотока.
+- **Миниатюры аудиокадров:** [IAudioFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iaudioframe/) может предоставлять значок или миниатюру через `getPictureFormat()`; это не вложенные аудиоданные.
+- **Изображения масштабирования:** Фигуры масштабирования слайда, секции и итогового масштабирования могут использовать пользовательские объекты [IPPImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ippimage/) через `getZoomImage()`.
+- **Вложенные модели фигур:** Таблицы, диаграммы и SmartArt реализуют [IShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ishape/), но их изображения часто хранятся в вложенных объектах форматирования ячеек таблицы, элементов диаграммы или узлов SmartArt.
+- **Обрезанные или трансформированные изображения:** Доступ к [IPPImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ippimage/) даёт вам хранимый ресурс изображения. Он не учитывает обрезку, прозрачность, перекрас, вращение или другие визуальные эффекты, применённые фигурой.
 
 ## **FAQ**
 
-**Могу ли я извлечь оригинальное изображение без обрезки, эффектов или трансформаций фигуры?**
+### Могу ли я извлечь оригинальное изображение без обрезки, эффектов или трансформаций фигуры?
 
-Да. Получите объект [IPPImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides.ippimage/) , запишите [IPPImage.getBinaryData](https://reference.aspose.com/slides/ru/java/com.aspose.slides.ippimage/#getBinaryData--) на диск. Это сохраняет оригинальное закодированное изображение, хранящееся в презентации, а не способ его отображения на слайде.
+Да. Обратитесь к объекту [IPPImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ippimage/) и запишите [IPPImage.getBinaryData](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ippimage/#getBinaryData--) на диск. Это сохраняет оригинальное закодированное изображение, хранящееся в презентации, а не способ его отображения на слайде.
 
-**Могу ли я экспортировать каждое извлечённое изображение в PNG?**
+### Могу ли я экспортировать каждое извлечённое изображение как PNG?
 
-Да. Используйте [IPPImage.getImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides.ippimage/#getImage--) , чтобы получить объект [IImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides.iimage/) , затем вызовите [IImage.save](https://reference.aspose.com/slides/ru/java/com.aspose.slides.iimage/#save-java.lang.String-int-) с параметром [ImageFormat.Png](https://reference.aspose.com/slides/ru/java/com.aspose.slides.imageformat/) . Это преобразует вывод и может не сохранять исходный тип файла или векторные данные.
+Да. Используйте [IPPImage.getImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ippimage/#getImage--) для получения объекта [IImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iimage/) и затем вызовите [IImage.save](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iimage/#save-java.lang.String-int-) с [ImageFormat.Png](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imageformat/). Это преобразует вывод и может не сохранять оригинальный тип файла или векторные данные.
 
-**Как избежать многократного сохранения одного и того же изображения?**
+### Как избежать сохранения одного и того же изображения более одного раза?
 
-Вычисляйте хеш от [IPPImage.getBinaryData](https://reference.aspose.com/slides/ru/java/com.aspose.slides.ippimage/#getBinaryData--) , храните хеши в наборе. Если у нового изображения хеш уже существует, пропустите его или запишите ещё одну ссылку на уже существующий файл вывода.
+Используйте хеш от [IPPImage.getBinaryData](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ippimage/#getBinaryData--) и храните хеши в наборе. Если новое изображение имеет уже существующий хеш, пропустите его или запишите дополнительную ссылку на уже существующий выходной файл.
 
-**Почему некоторые фигуры не дают изображения?**
+### Почему некоторые фигуры не дают изображения?
 
-Рамки картинок, фигуры, залитые картинкой, OLE‑объекты, медиа‑рамки, рамки увеличения, таблицы, диаграммы и объекты SmartArt могут ссылаться на изображения. Некоторые типы фигур раскрывают изображения через вложенные объекты форматирования, поэтому простой проверкой `getPictureFormat()` или `getFillFormat()` фигуры иногда недостаточно.
+Рамки изображений, фигуры, залитые изображениями, OLE‑рамки, медиа‑рамки, рамки масштабирования, таблицы, диаграммы и объекты SmartArt могут ссылаться на изображения. Некоторые типы фигур раскрывают изображения через вложенные объекты форматирования, поэтому простой вызов `getPictureFormat()` или проверка `getFillFormat()` не всегда достаточны.
 
-**Могу ли я извлечь миниатюру, отображаемую для видеокадра?**
+### Могу ли я извлечь миниатюру, отображаемую для видеокадра?
 
-Да. Используйте [IVideoFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides.ivideoframe/) , прочитайте `getPictureFormat().getPicture().getImage()` . Это извлекает постер‑изображение, хранящееся с видеокадром, а не кадр, сгенерированный из видеофайла.
+Да. Используйте [IVideoFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ivideoframe/) и прочитайте `getPictureFormat().getPicture().getImage()`. Это извлекает постер‑изображение, хранящееся вместе с видеокадром, а не кадр, сгенерированный из видеофайла.
 
-**Как определить, какие фигуры используют конкретное изображение из коллекции изображений презентации?**
+### Как определить, какие фигуры используют конкретное изображение из коллекции изображений презентации?
 
-Aspose.Slides не хранит обратные ссылки от [IPPImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides.ippimage/) к фигурам. Постройте отображение во время обхода: каждый раз, когда находите ссылку на изображение, фиксируйте номер слайда, путь к фигуре и хеш изображения или элемент коллекции.
+Aspose.Slides не хранит обратные ссылки от [IPPImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ippimage/) к фигурам. Постройте отображение во время обхода: каждый раз, когда находите ссылку на изображение, фиксируйте номер слайда, путь к фигуре и хеш изображения или элемент коллекции.
 
-**Могу ли я извлечь изображения, встроенные в OLE‑объекты, например вложенные документы?**
+### Могу ли я извлечь изображения, вложенные в OLE‑объекты, например прикреплённые документы?
 
-Вы можете извлечь превью OLE‑объекта со слайда через [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides.ioleobjectframe/#getSubstitutePictureFormat--) . Однако это превью не является самим вложенным документом. Чтобы извлечь изображения из вложенного файла, извлеките данные OLE и проанализируйте их с помощью инструментов, подходящих для данного типа файлов.
+Вы можете извлечь превью OLE‑объекта с помощью [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--). Однако это превью, а не сам вложенный документ. Чтобы извлечь изображения изнутри вложенного файла, экспортируйте данные OLE и проанализируйте их специализированными инструментами для соответствующего типа файлов.

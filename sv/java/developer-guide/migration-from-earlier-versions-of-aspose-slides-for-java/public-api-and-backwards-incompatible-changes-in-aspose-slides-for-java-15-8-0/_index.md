@@ -15,15 +15,20 @@ keywords:
 - presentation
 - Java
 - Aspose.Slides
-description: "Granska offentliga API-uppdateringar och brytande förändringar i Aspose.Slides för Java för att smidigt migrera dina PowerPoint-PPT, PPTX- och ODP-presentationslösningar."
+description: "Granska uppdateringar av offentligt API och brytande förändringar i Aspose.Slides för Java för att smidigt migrera dina PowerPoint-PPT, PPTX- och ODP-presentationslösningar."
 ---
-{{% alert color="primary" %}} 
-Denna sida listar alla [tillagda](/slides/sv/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) eller [borttagna](/slides/sv/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) klasser, metoder, egenskaper med mera och andra förändringar som införts med Aspose.Slides för Java 15.8.0 API.
-{{% /alert %}} 
-## **Offentliga API-ändringar**
+{{% alert color="info" %}}
+
+Denna sida listar alla [tillagda](/slides/sv/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) eller [borttagna](/slides/sv/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) klasser, metoder, egenskaper med mera, samt andra förändringar som introducerats med Aspose.Slides för Java 15.8.0 API.
+
+{{% /alert %}}
+## **Offentliga API-förändringar**
 #### **Metoderna getDoughnutHoleSize(), setDoughnutHoleSize(byte) har lagts till i IChartSeries och ChartSeries**
 Anger storleken på hålet i ett munkdiagram.
+
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 

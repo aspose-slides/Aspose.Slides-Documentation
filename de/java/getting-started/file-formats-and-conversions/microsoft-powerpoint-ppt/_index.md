@@ -4,40 +4,39 @@ type: docs
 weight: 10
 url: /de/java/microsoft-powerpoint-ppt/
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-[PPT](https://de.wikipedia.org/wiki/Microsoft_PowerPoint) ist das Präsentationsdokument-Dateiformat, das von verschiedenen Versionen von Microsoft PowerPoint erstellt, gelesen, bearbeitet und geschrieben werden kann. Dies ist das binäre Format für Präsentationsdokumente, das von Microsoft entwickelt wurde.
+[PPT](https://en.wikipedia.org/wiki/Microsoft_PowerPoint) ist das Präsentationsdokument‑Dateiformat, das von verschiedenen Versionen von Microsoft PowerPoint erstellt, gelesen, bearbeitet und geschrieben werden kann. Es handelt sich um das von Microsoft entwickelte binäre Format für Präsentationsdokumente. 
 
 {{% /alert %}} 
 
 ## **PPT in Aspose.Slides für Java**
-Aspose.Slides für Java kann PPT-Dateien lesen, die von der unten aufgeführten Software erstellt wurden.
+Aspose.Slides for Java kann PPT‑Dateien lesen, die mit der nachfolgend aufgeführten Software erstellt wurden.
 
 - Microsoft PowerPoint 97
 - Microsoft PowerPoint 2000
 - Microsoft PowerPoint XP
 - Microsoft PowerPoint 2003
 
-Ebenso können von Aspose.Slides für Java erstellte PPT-Dateien von den oben genannten Softwareversionen gelesen werden.
+Ebenso können PPT‑Dateien, die von Aspose.Slides for Java erstellt wurden, von den oben genannten Programmen gelesen werden.
 
 ## **Umfassende Unterstützung für PPT**
-Aspose.Slides für Java bietet Unterstützung für nahezu alle Funktionen, die vom PPT-Dokumentdateiformat unterstützt werden. Es deckt nicht nur die grundlegenden und erweiterten Funktionen ab, die von verschiedenen Microsoft PowerPoint-Versionen für die Bearbeitung von PPT-Dokumenten bereitgestellt werden, sondern auch Funktionen, die nicht einmal von Microsoft PowerPoint unterstützt werden. Der Hauptvorteil der Verwendung der Aspose.Slides für Java API-Bibliothek ist die Benutzerfreundlichkeit bei der Handhabung solcher Funktionen.
+Aspose.Slides for Java bietet Unterstützung für fast alle Funktionen, die vom PPT‑Dokumentenformat unterstützt werden. Es deckt nicht nur die grundlegenden und erweiterten Funktionen verschiedener Microsoft PowerPoint‑Versionen für die Manipulation von PPT‑Dokumenten ab, sondern auch Funktionen, die von Microsoft PowerPoint nicht unterstützt werden. Der Hauptvorteil der Verwendung der Aspose.Slides for Java API‑Bibliothek liegt in der einfachen Handhabung solcher Funktionen.
 
-Neben den grundlegenden Aufgaben, die mit dem Erstellen, Lesen und Schreiben von PPT-Dokumentdateien verbunden sind, bietet Aspose.Slides für Java mehrere Funktionen:
+Zusätzlich zu den grundlegenden Aufgaben beim Erstellen, Lesen und Schreiben von PPT‑Dokumentdateien bietet Aspose.Slides for Java mehrere Funktionen:
 
-- Importieren anderer Microsoft Office-Dateiformate als [OLE-Objekte in PPT-Dokumente]().
-- [Exportieren von PPT-Dokumenten nach PDF](/slides/de/java/convert-powerpoint-ppt-and-pptx-to-pdf/).
-- Exportieren von Folien in den PPT-Dokumenten in SVG-Formate.
-- Rendern von Folien in jedes vom Java-Framework unterstützte Bildformat.
-- Festlegen der Größe von Folien in PPT-Dokumenten.
+- Importieren anderer Microsoft‑Office-Dateiformate als [OLE‑Objekte in PPT‑Dokumenten]().
+- [PPT‑Dokumente nach PDF exportieren](/slides/de/java/convert-powerpoint-ppt-and-pptx-to-pdf/).
+- Exportieren von Folien in den PPT‑Dokumenten in SVG‑Formate.
+- Rendern von Folien in jedes Bildformat, das vom Java‑Framework unterstützt wird.
+- Festlegen der Foliengröße in PPT‑Dokumenten.
 - Verwalten von Animationen auf Formen.
-- Verwalten von Diashows.
-- [Formatieren von Text auf Folien]().
-- Extrahieren von Text aus PPT-Dokumenten.
-- [Verwalten von Tabellen auf Folien]().
-- Automatisches Kopieren von Mastervorlagen mit [der Klonfunktion]().
-
-**Eine von Aspose.Slides für Java generierte PPT-Datei, die in Microsoft PowerPoint geöffnet ist** 
+- Verwalten von Folienpräsentationen.
+- [Text auf Folien formatieren]().
+- Text aus PPT‑Dokumenten extrahieren.
+- [Tabellen auf Folien verarbeiten]().
+- Automatisches Kopieren von Masterfolien mittels [der Klon‑Funktion]().
+ 
+**Eine PPT‑Datei, die von Aspose.Slides for Java erzeugt und in Microsoft PowerPoint geöffnet wurde** 
 
 ![todo:image_alt_text](microsoft-powerpoint-ppt_1.png)

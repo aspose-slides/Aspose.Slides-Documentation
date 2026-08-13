@@ -1,5 +1,5 @@
 ---
-title: Utwórz nowe prezentacje przy użyciu VSTO i Aspose.Slides dla .NET
+title: Tworzenie nowych prezentacji przy użyciu VSTO i Aspose.Slides dla .NET
 linktitle: Utwórz nową prezentację
 type: docs
 weight: 10
@@ -15,17 +15,17 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Migracja z automatyzacji Microsoft Office do Aspose.Slides dla .NET i tworzenie nowych prezentacji PowerPoint (PPT, PPTX) w C# przy użyciu czystego, niezawodnego kodu."
+description: "Migracja z automatyzacji Microsoft Office do Aspose.Slides dla .NET oraz tworzenie nowych prezentacji PowerPoint (PPT, PPTX) w C# przy użyciu czystego, niezawodnego kodu."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}}
 
-VSTO zostało opracowane, aby umożliwić programistom tworzenie aplikacji działających wewnątrz Microsoft Office. VSTO jest oparte na COM, ale jest opakowane w obiekt .NET, aby mogło być używane w aplikacjach .NET. VSTO wymaga wsparcia .NET Framework oraz środowiska uruchomieniowego Microsoft Office opartego na CLR. Chociaż może być używane do tworzenia dodatków Microsoft Office, prawie niemożliwe jest użycie go jako komponentu po stronie serwera. Ma też poważne problemy z wdrożeniem.
+VSTO zostało opracowane, aby umożliwić programistom tworzenie aplikacji działających wewnątrz Microsoft Office. VSTO jest oparte na COM, ale jest opakowane w obiekt .NET, dzięki czemu może być używane w aplikacjach .NET. VSTO wymaga wsparcia .NET Framework oraz środowiska uruchomieniowego CLR Microsoft Office. Chociaż może być używane do tworzenia dodatków do Microsoft Office, prawie niemożliwe jest jego użycie jako komponentu po stronie serwera. Ma również poważne problemy z wdrażaniem.
 
-Aspose.Slides for .NET jest komponentem, który może być używany do manipulacji prezentacjami Microsoft PowerPoint, podobnie jak VSTO, ale posiada kilka zalet:
+Aspose.Slides for .NET jest komponentem, który może służyć do manipulacji prezentacjami Microsoft PowerPoint, tak jak VSTO, ale posiada kilka zalet:
 
 - Aspose.Slides zawiera wyłącznie kod zarządzany i nie wymaga instalacji środowiska uruchomieniowego Microsoft Office.
 - Może być używany jako komponent po stronie klienta lub po stronie serwera.
-- Wdrożenie jest proste, ponieważ Aspose.Slides jest zawarte w jednym pliku DLL.
+- Wdrażanie jest proste, ponieważ Aspose.Slides jest zawarte w jednym pliku DLL.
 
 {{% /alert %}} 
 ## **Tworzenie prezentacji**
@@ -38,27 +38,27 @@ Poniżej znajdują się dwa przykłady kodu, które ilustrują, jak VSTO i Aspos
 
 
 ```c#
-//Uwaga: PowerPoint jest przestrzenią nazw, która została zdefiniowana powyżej w ten sposób
+//Uwaga: PowerPoint jest przestrzenią nazw, która została zdefiniowana powyżej w następujący sposób
 //using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 
 //Utwórz prezentację
 PowerPoint.Presentation pres = Globals.ThisAddIn.Application
 	.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 
-//Pobierz układ slajdu tytułowego
+//Get the title slide layout
 PowerPoint.CustomLayout layout = pres.SlideMaster.
 	CustomLayouts[PowerPoint.PpSlideLayout.ppLayoutTitle];
 
-//Dodaj slajd tytułowy.
+//Add a title slide.
 PowerPoint.Slide slide = pres.Slides.AddSlide(1, layout);
 
-//Ustaw tekst tytułu
+//Set the title text
 slide.Shapes.Title.TextFrame.TextRange.Text = "Slide Title Heading";
 
-//Ustaw tekst podtytułu
+//Set the sub title text
 slide.Shapes[2].TextFrame.TextRange.Text = "Slide Title Sub-Heading";
 
-//Zapisz wynik na dysku
+//Write the output to disk
 pres.SaveAs("c:\\outVSTO.ppt",
 	PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,
 	Microsoft.Office.Core.MsoTriState.msoFalse);
@@ -73,6 +73,9 @@ pres.SaveAs("c:\\outVSTO.ppt",
 
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 //Utwórz prezentację
 Presentation pres = new Presentation();
 
@@ -87,5 +90,5 @@ ISlide slide = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
 ((IAutoShape)slide.Shapes[1]).TextFrame.Text = "Slide Title Sub-Heading";
 
 //Zapisz wynik na dysku
-pres.Save("c:\\data\\outAsposeSlides.pptx", SaveFormat.Ppt);
+pres.Save("outAsposeSlides.pptx", SaveFormat.Ppt);
 ```

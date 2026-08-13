@@ -26,13 +26,19 @@ keywords:
 - presentación
 - Java
 - Aspose.Slides
-description: "Convierta fácilmente presentaciones de PowerPoint (PPT, PPTX) a GIF animados con Aspose.Slides para Java. Resultados rápidos y de alta calidad."
+description: "Convierte fácilmente presentaciones de PowerPoint (PPT, PPTX) a GIF animados con Aspose.Slides para Java. Resultados rápidos y de alta calidad."
 ---
+## **Visión general**
 
-## Convertir presentaciones a GIF animado usando la configuración predeterminada ##
+Aspose.Slides le permite convertir presentaciones de PowerPoint a archivos GIF animados con solo unas pocas líneas de código. Esto es útil cuando necesita compartir el contenido de las diapositivas en un formato animado ligero, ampliamente compatible, que puede incrustarse en páginas web, mensajeros o documentación. Este artículo explica cómo exportar una presentación a GIF usando la configuración predeterminada y cómo personalizar el resultado configurando opciones como el tamaño del fotograma, el retardo entre diapositivas y la tasa de frames de transición mediante [GifOptions](https://reference.aspose.com/slides/es/java/com.aspose.slides/gifoptions/).
+
+## **Convertir presentaciones a GIF animado usando la configuración predeterminada**
 
 Este código de ejemplo en Java muestra cómo convertir una presentación a GIF animado usando la configuración estándar:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
 	pres.save("pres.gif", SaveFormat.Gif);
@@ -41,34 +47,47 @@ try {
 }
 ```
 
+El GIF animado se creará con los parámetros predeterminados.
 
-El GIF animado se creará con los parámetros predeterminados. 
+{{% alert title="CONSEJO" color="info" %}} 
 
-{{% alert title="CONSEJO" color="primary" %}} 
-
-Si prefiere personalizar los parámetros del GIF, puede usar la clase [GifOptions](https://reference.aspose.com/slides/java/com.aspose.slides/GifOptions). Consulte el código de ejemplo a continuación. 
+Si prefiere personalizar los parámetros del GIF, puede usar la clase [GifOptions](https://reference.aspose.com/slides/es/java/com.aspose.slides/GifOptions). Consulte el código de ejemplo a continuación. 
 
 {{% /alert %}} 
 
-## Convertir presentaciones a GIF animado usando configuraciones personalizadas ##
-Este código de ejemplo muestra cómo convertir una presentación a GIF animado usando configuraciones personalizadas en Java:
+## **Convertir presentaciones a GIF animado usando configuración personalizada**
+
+Este código de ejemplo muestra cómo convertir una presentación a GIF animado usando configuración personalizada en Java:
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Dimension;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
 	GifOptions gifOptions = new GifOptions();
 	gifOptions.setFrameSize(new Dimension(960, 720)); // el tamaño del GIF resultante
 	gifOptions.setDefaultDelay(2000); // cuánto tiempo se mostrará cada diapositiva antes de cambiar a la siguiente
-	gifOptions.setTransitionFps(35); // incrementar FPS para una mejor calidad de animación de transición
-
+	gifOptions.setTransitionFps(35); // aumente los FPS para mejorar la calidad de la animación de transición
+	
 	pres.save("pres.gif", SaveFormat.Gif, gifOptions);
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
-
 {{% alert title="Información" color="info" %}}
 
-Es posible que desee probar un conversor GRATUITO [Text to GIF](https://products.aspose.app/slides/text-to-gif) desarrollado por Aspose. 
+Quizás quiera probar un conversor GRATUITO [Text to GIF](https://products.aspose.app/slides/es/text-to-gif) desarrollado por Aspose. 
 
 {{% /alert %}}
+
+## **Preguntas frecuentes**
+
+### ¿Qué ocurre si las fuentes utilizadas en la presentación no están instaladas en el sistema?
+
+Instale las fuentes que faltan o [configura fuentes de respaldo](/slides/es/java/powerpoint-fonts/). Aspose.Slides las sustituirá, pero la apariencia puede variar. Para la marca, siempre asegúrese de que los tipos de letra necesarios estén disponibles explícitamente.
+
+### ¿Puedo superponer una marca de agua en los fotogramas del GIF?
+
+Sí. [Añade un objeto/logo semitransparente](/slides/es/java/watermark/) a la diapositiva maestra o a diapositivas individuales antes de exportar — la marca de agua aparecerá en cada fotograma.

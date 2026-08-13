@@ -1,5 +1,5 @@
 ---
-title: Προσθήκη Πλαισίων Εικόνας με Κίνηση Χρησιμοποιώντας VSTO και Aspose.Slides για .NET
+title: Προσθήκη Πλαισίων Εικόνας με Κίνηση χρησιμοποιώντας VSTO και Aspose.Slides για .NET
 linktitle: Πλαίσια Εικόνας με Κίνηση
 type: docs
 weight: 60
@@ -7,10 +7,10 @@ url: /el/net/adding-picture-frame-with-animation/
 keywords:
 - πλαίσιο εικόνας
 - προσθήκη εικόνας
-- προσθήκη εικόνας
+- προσθήκη φωτογραφίας
 - εικόνα με κίνηση
-- εικόνα με κίνηση
-- μετεγκατάσταση
+- φωτογραφία με κίνηση
+- μεταφορά
 - VSTO
 - αυτοματοποίηση Office
 - PowerPoint
@@ -18,15 +18,15 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Μεταβείτε από την αυτοματοποίηση του Microsoft Office στο Aspose.Slides για .NET και κινήστε τα πλαίσια εικόνας στις διαφάνειες PowerPoint (PPT, PPTX) με καθαρό κώδικα C#."
+description: "Μεταφέρετε την αυτοματοποίηση του Microsoft Office σε Aspose.Slides για .NET και δημιουργήστε κίνηση σε πλαίσια εικόνας στις διαφάνειες PowerPoint (PPT, PPTX) με καθαρό κώδικα C#."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Τα πλαίσια εικόνας εφαρμόζονται σε σχήματα ή εικόνες στο Microsoft PowerPoint για να περιβάλλουν τις εικόνες σε μια παρουσίαση. Αυτό το άρθρο δείχνει πώς να δημιουργήσετε ένα πλαίσιο εικόνας και να εφαρμόσετε κίνηση σε αυτό προγραμματιστικά χρησιμοποιώντας πρώτα [VSTO 2008](/slides/el/net/adding-picture-frame-with-animation/) και μετά [Aspose.Slides for .NET](/slides/el/net/adding-picture-frame-with-animation/). Πρώτα, σας δείχνουμε πώς να εφαρμόσετε ένα πλαίσιο και κίνηση χρησιμοποιώντας το VSTO 2008. Στη συνέχεια, σας δείχνουμε πώς να εκτελέσετε τα ίδια βήματα χρησιμοποιώντας το Aspose.Slides for .NET.
+Τα πλαίσια εικόνας εφαρμόζονται σε σχήματα ή εικόνες στο Microsoft PowerPoint για να περιβάλλουν εικόνες σε μια παρουσίαση. Αυτό το άρθρο δείχνει πώς να δημιουργήσετε ένα πλαίσιο εικόνας και να εφαρμόσετε κίνηση σε αυτό προγραμματιστικά, χρησιμοποιώντας πρώτα [VSTO 2008](/slides/el/net/adding-picture-frame-with-animation/) και στη συνέχεια [Aspose.Slides for .NET](/slides/el/net/adding-picture-frame-with-animation/). Κατ' αρχήν, σας δείχνουμε πώς να εφαρμόσετε ένα πλαίσιο και κίνηση χρησιμοποιώντας το VSTO 2008. Στη συνέχεια, σας δείχνουμε πώς να εκτελέσετε τα ίδια βήματα χρησιμοποιώντας το Aspose.Slides for .NET.
 
 {{% /alert %}} 
 ## **Προσθήκη Πλαισίων Εικόνας με Κίνηση**
-Τα παρακάτω δείγματα κώδικα δημιουργούν μια παρουσίαση με μια διαφάνεια, προσθέτουν μια εικόνα με πλαίσιο εικόνας και εφαρμόζουν κίνηση σε αυτήν.
+Τα παρακάτω παραδείγματα κώδικα δημιουργούν μια παρουσίαση με μια διαφάνεια, προσθέτουν μια εικόνα με πλαίσιο εικόνας και εφαρμόζουν κίνηση σε αυτήν.
 ### **Παράδειγμα VSTO 2008**
 Χρησιμοποιώντας το VSTO 2008, ακολουθήστε τα παρακάτω βήματα:
 
@@ -67,7 +67,7 @@ Microsoft.Office.Core.MsoTriState.msoFalse);
 Χρησιμοποιώντας το Aspose.Slides for .NET, εκτελέστε τα παρακάτω βήματα:
 
 1. Δημιουργήστε μια παρουσίαση.
-1. Πρόσβαση στην πρώτη διαφάνεια.
+1. Προσπελάστε την πρώτη διαφάνεια.
 1. Προσθέστε μια εικόνα στη συλλογή εικόνων.
 1. Προσθέστε ένα σχήμα εικόνας στη διαφάνεια.
 1. Εφαρμόστε κίνηση στην εικόνα.
@@ -80,6 +80,10 @@ Microsoft.Office.Core.MsoTriState.msoFalse);
 
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
 // Δημιουργία κενής παρουσίασης
 using (Presentation pres = new Presentation())
 {
@@ -94,10 +98,10 @@ using (Presentation pres = new Presentation())
     // Προσθήκη πλαισίου εικόνας του οποίου το ύψος και το πλάτος ταιριάζουν με το ύψος και το πλάτος της εικόνας
     IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
 
-    // Λήψη της κύριας ακολουθίας κίνησης της διαφάνειας
+    // Λήψη της κύριας ακολουθίας κινήσεων της διαφάνειας
     ISequence sequence = pres.Slides[0].Timeline.MainSequence;
 
-    // Προσθήκη του εφέ Πτήση από αριστερά στο πλαίσιο εικόνας
+    // Προσθήκη του εφέ κίνησης "Πτήση από αριστερά" στο πλαίσιο εικόνας
     IEffect effect = sequence.AddEffect(pictureFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
 
     // Αποθήκευση της παρουσίασης

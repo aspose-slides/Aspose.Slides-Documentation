@@ -4,6 +4,8 @@ linktitle: Gérer les listes
 type: docs
 weight: 70
 url: /fr/net/manage-lists/
+aliases:
+  - /net/gerer-listes-a-puces-et-numerotees/
 keywords:
 - puce
 - liste à puces
@@ -23,19 +25,19 @@ keywords:
 - Aspose.Slides
 description: "Apprenez à créer et mettre en forme des listes à puces, image, à plusieurs niveaux et numérotées dans les présentations PowerPoint et OpenDocument à l’aide d’Aspose.Slides pour .NET."
 ---
-## **Vue d'ensemble**
+## **Vue d’ensemble**
 
-Aspose.Slides pour .NET vous permet de créer et de mettre en forme des listes à puces et des listes numérotées dans les présentations PowerPoint et OpenDocument. Un élément de liste est un paragraphe dont les paramètres de puce sont contrôlés via son format de paragraphe.
+Aspose.Slides for .NET vous permet de créer et de mettre en forme des listes à puces et numérotées dans les présentations PowerPoint et OpenDocument. Un élément de liste est un paragraphe dont les paramètres de puce sont contrôlés via le format du paragraphe.
 
 Utilisez la propriété [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/fr/net/aspose.slides/iparagraph/paragraphformat/) pour accéder aux paramètres de liste au niveau du paragraphe. Le point d’entrée principal est [IParagraphFormat.Bullet](https://reference.aspose.com/slides/fr/net/aspose.slides/iparagraphformat/bullet/), qui renvoie un objet [IBulletFormat](https://reference.aspose.com/slides/fr/net/aspose.slides/ibulletformat/). Avec cet objet, vous pouvez définir le type de puce, le symbole, l’image, la couleur, la taille, le style de numérotation et le numéro de départ.
 
 Cet article montre comment :
 
-- créer une liste à puces avec un symbole personnalisé
-- créer une puce image
-- créer une liste à plusieurs niveaux en définissant la profondeur du paragraphe
-- créer une liste numérotée
-- inspecter et modifier le format des listes dans une présentation existante
+- créer une liste à puces avec un symbole personnalisé  
+- créer une puce image  
+- créer une liste à plusieurs niveaux en définissant la profondeur du paragraphe  
+- créer une liste numérotée  
+- inspecter et modifier la mise en forme des listes dans une présentation existante  
 
 ## **Créer une liste à puces**
 
@@ -44,6 +46,10 @@ Pour créer une liste à puces, ajoutez des objets [IParagraph](https://referenc
 Le code C# suivant montre comment créer une liste à puces dans une diapositive :
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 static Paragraph CreateParagraph(string text)
 {
     var paragraph = new Paragraph();
@@ -76,15 +82,18 @@ presentation.Save("symbol_bullets.pptx", SaveFormat.Pptx);
 
 Le résultat :
 
-![The symbol bullets](symbol_bullets.png)
+![Les puces symboliques](symbol_bullets.png)
 
 ## **Créer une liste numérotée**
 
-Utilisez des listes numérotées lorsque l’ordre des éléments est important. Définissez [IBulletFormat.Type](https://reference.aspose.com/slides/fr/net/aspose.slides/ibulletformat/type/) sur [BulletType.Numbered](https://reference.aspose.com/slides/fr/net/aspose.slides/bullettype/). Vous pouvez également choisir un format de numérotation avec [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/fr/net/aspose.slides/ibulletformat/numberedbulletstyle/) ou définir [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/fr/net/aspose.slides/ibulletformat/numberedbulletstartwith/) lorsque la liste doit commencer à partir d’une valeur autre que 1.
+Utilisez des listes numérotées lorsque l’ordre des éléments est important. Définissez [IBulletFormat.Type](https://reference.aspose.com/slides/fr/net/aspose.slides/ibulletformat/type/) sur [BulletType.Numbered](https://reference.aspose.com/slides/fr/net/aspose.slides/bullettype/). Vous pouvez également choisir un format de numérotation avec [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/fr/net/aspose.slides/ibulletformat/numberedbulletstyle/) ou définir [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/fr/net/aspose.slides/ibulletformat/numberedbulletstartwith/) lorsque la liste doit commencer à partir d’une valeur différente de 1.
 
 Le code C# suivant montre comment créer une liste numérotée dans une diapositive :
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
@@ -113,29 +122,30 @@ presentation.Save("numbered_bullets.pptx", SaveFormat.Pptx);
 
 Le résultat :
 
-![The numbered bullets](numbered_bullets.png)
+![Les puces numérotées](numbered_bullets.png)
 
 ## **Créer une puce image**
 
 Aspose.Slides vous permet de remplacer un symbole de puce standard par une image. Les puces image fonctionnent mieux avec des images simples qui restent lisibles à petite taille, comme des icônes ou de petits fichiers PNG transparents.
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
+Idéalement, si vous prévoyez de remplacer le symbole de puce standard par une image, choisissez un graphique simple avec un fond transparent. De telles images fonctionnent bien comme symboles de puce personnalisés.
 
-Idéalement, si vous prévoyez de remplacer le symbole de puce standard par une image, choisissez un graphique simple avec un arrière‑plan transparent. De telles images conviennent bien comme symboles de puce personnalisés.
-
-Gardez à l’esprit que l’image sera réduite à une taille très petite. Pour cette raison, nous vous recommandons vivement de sélectionner une image qui reste claire et visuellement efficace lorsqu’elle est utilisée comme puce dans une liste.
-
+Gardez à l’esprit que l’image sera réduite à une taille très petite. Pour cette raison, nous vous recommandons fortement de sélectionner une image qui reste claire et visuellement efficace lorsqu’elle est utilisée comme puce dans une liste.
 {{% /alert %}}
 
 Pour créer une puce image, ajoutez une image à [Presentation.Images](https://reference.aspose.com/slides/fr/net/aspose.slides/presentation/images/) et affectez l’objet image retourné à [IBulletFormat.Picture](https://reference.aspose.com/slides/fr/net/aspose.slides/ibulletformat/picture/). Définissez [IBulletFormat.Type](https://reference.aspose.com/slides/fr/net/aspose.slides/ibulletformat/type/) sur [BulletType.Picture](https://reference.aspose.com/slides/fr/net/aspose.slides/bullettype/) avant d’affecter l’image.
 
 Supposons que nous ayons un « image.png » :
 
-![A picture for the bullets](picture_for_bullets.png)
+![Une image pour les puces](picture_for_bullets.png)
 
 Le code C# suivant montre comment créer des puces image dans une diapositive :
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 static Paragraph CreateParagraph(string text, IPPImage image)
 {
     var paragraph = new Paragraph();
@@ -169,7 +179,7 @@ presentation.Save("picture_bullets.pptx", SaveFormat.Pptx);
 
 Le résultat :
 
-![The picture bullets](picture_bullets.png)
+![Les puces image](picture_bullets.png)
 
 ## **Créer une liste à plusieurs niveaux**
 
@@ -178,6 +188,9 @@ Utilisez [IParagraphFormat.Depth](https://reference.aspose.com/slides/fr/net/asp
 Le code C# suivant montre comment créer une liste à puces à plusieurs niveaux :
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
@@ -211,15 +224,18 @@ presentation.Save("multilevel_bullets.pptx", SaveFormat.Pptx);
 
 Le résultat :
 
-![The multilevel list](multilevel_list.png)
+![La liste à plusieurs niveaux](multilevel_list.png)
 
 ## **Modifier une liste existante**
 
-Pour modifier le format d’une liste dans une présentation existante, accédez au paragraphe cible et mettez à jour ses paramètres [IParagraphFormat.Bullet](https://reference.aspose.com/slides/fr/net/aspose.slides/iparagraphformat/bullet/). Les mêmes propriétés utilisées pour créer des listes peuvent être employées pour inspecter ou modifier des listes chargées depuis un fichier PPT, PPTX ou ODP.
+Pour modifier la mise en forme d’une liste dans une présentation existante, accédez au paragraphe cible et mettez à jour ses paramètres [IParagraphFormat.Bullet](https://reference.aspose.com/slides/fr/net/aspose.slides/iparagraphformat/bullet/). Les mêmes propriétés utilisées pour créer des listes peuvent être employées pour inspecter ou modifier des listes chargées depuis un fichier PPT, PPTX ou ODP.
 
-Le code C# suivant modifie le premier paragraphe d’un cadre texte pour utiliser un style de liste numérotée :
+Le code C# suivant change le premier paragraphe d’un cadre de texte pour utiliser un style de liste numérotée :
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("input.pptx");
 
 var slide = presentation.Slides[0];
@@ -237,14 +253,14 @@ presentation.Save("updated_list.pptx", SaveFormat.Pptx);
 
 ## **FAQ**
 
-**Les listes à puces et numérotées peuvent‑elles être exportées en PDF ou en images ?**
+### Les listes à puces et numérotées peuvent‑elles être exportées en PDF ou en images ?
 
-Oui. Aspose.Slides conserve le format des listes lorsque le format cible prend en charge la mise en page du texte et les fonctionnalités de puce correspondantes.
+Oui. Aspose.Slides conserve la mise en forme des listes lorsque le format cible prend en charge la disposition du texte et les fonctionnalités de puce correspondantes.
 
-**Puis‑je modifier les listes dans des présentations existantes ?**
+### Puis‑je modifier les listes dans des présentations existantes ?
 
 Oui. Chargez la présentation, accédez au paragraphe cible, inspectez ou mettez à jour ses paramètres [IParagraphFormat.Bullet](https://reference.aspose.com/slides/fr/net/aspose.slides/iparagraphformat/bullet/), puis enregistrez la présentation.
 
-**Les listes peuvent‑elles contenir du texte non latin ?**
+### Les listes peuvent‑elles contenir du texte non latin ?
 
-Oui. Le texte des éléments de liste peut contenir des caractères Unicode, ce qui vous permet de créer des listes dans des présentations multilingues. Assurez‑vous que les polices utilisées dans la présentation supportent les caractères nécessaires.
+Oui. Le texte des éléments de liste peut contenir des caractères Unicode, vous permettant de créer des listes dans des présentations multilingues. Assurez‑vous que les polices utilisées dans la présentation prennent en charge les caractères dont vous avez besoin.

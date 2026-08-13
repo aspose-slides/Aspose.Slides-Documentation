@@ -1,14 +1,14 @@
 ---
-title: Az Aspose.Slides értékelése
+title: Értékelje az Aspose.Slides-t
 type: docs
 weight: 130
 url: /hu/java/evaluate-aspose-slides/
 keywords:
 - Aspose.Slides értékelése
 - Aspose.Slides értékelés
-- értékelési verzió
+- értékelő verzió
 - teljes funkcionalitás
-- értékelési vízjel
+- értékelő vízjel
 - Aspose.Slides vásárlása
 - korlátozás
 - PowerPoint
@@ -16,36 +16,36 @@ keywords:
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Értékelje az Aspose.Slides‑t Java‑ra, és fedezze fel az API funkciókat PowerPoint (PPT, PPTX) és OpenDocument (ODP) prezentációkhoz – kezdje el ingyenes próbaidőszakát."
+description: "Értékelje az Aspose.Slides for Java terméket, és fedezze fel az API funkciókat a PowerPoint (PPT, PPTX) és OpenDocument (ODP) prezentációkhoz – indítsa el ingyenes próbaidőszakát."
 ---
-## **Aspose.Slides értékelése**
+## **Aspose.Slides értékelés**
 
-Könnyen letöltheti az Aspose.Slides‑t értékelés céljából. Az értékelési letöltés ugyanaz, mint a megvásárolt változaté. Az értékelési verzió egyszerűen licencszerűvé válik, ha néhány sort hozzáad a licenc alkalmazásához.
+Könnyedén letöltheti az Aspose.Slides-t értékelés céljából. Az értékelő letöltés megegyezik a megvásárolt letöltéssel. Az értékelő verzió egyszerűen licencessé válik, ha néhány kódsort hozzáad a licenc alkalmazásához.
 
-Az Aspose.Slides (licenc nélkül) értékelési verziója teljes termékfunkcionalitást biztosít, de nyílt és mentett állapotban értékelési vízjelet helyez a dokumentum tetejére, és korlátozza a szöveg kinyerését a prezentációs diákból egy diára.
+Az Aspose.Slides értékelő verziója (licenc megadása nélkül) teljes termékfunkciókat biztosít, de a dokumentum tetejére értékelő vízjelet helyez be megnyitáskor és mentéskor, és a prezentációs diák szövegének kinyerésénél egy diára korlátozza.
 
 ![todo:image_alt_text](evaluate-aspose-slides_1.png)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Ha az értékelési verzió korlátozásai nélkül szeretné tesztelni az Aspose.Slides‑t, kérhet egy 30 napos ideiglenes licencet. Lásd a [Hogyan szerezhet ideiglenes licencet?](https://purchase.aspose.com/temporary-license) című oldalt.
+Ha az Aspose.Slides-t az értékelő verzió korlátai nélkül szeretné tesztelni, kérhet egy 30 napos ideiglenes licencet is. További információért lásd a [Hogyan kérhet ideiglenes licencet?](https://purchase.aspose.com/temporary-license)
 
 {{% /alert %}}
 
 ## **GYIK**
 
-**Tesztelhetek több prezentációt párhuzamosan különböző szálakon értékelési módban?**
+### Tesztelhetek több prezentációt párhuzamosan különböző szálakon értékelő módban?
 
-Igen. Különböző dokumentumokat párhuzamosan feldolgozhat; nem szabad ugyanazt a prezentációobjektumot [szálak között megosztani](/slides/hu/java/multithreading/). Az értékelési mód erre nem vonatkozik.
+Igen. Különböző dokumentumokat dolgozhat fel párhuzamosan; nem szabad ugyanazt a prezentációobjektumot megosztani a [szálak között](/slides/hu/java/multithreading/). Az értékelő mód nem befolyásolja ezt.
 
-**Szükséges-e a Microsoft PowerPoint telepítése a könyvtár szerveren vagy CI‑ben történő értékeléséhez?**
+### Szükséges-e a Microsoft PowerPoint telepítése a könyvtár értékeléséhez szerveren vagy CI-ben?
 
-Nem. Az Aspose.Slides egy önálló motor, és sem az értékelés, sem a termelés során nem igényel PowerPoint telepítést.
+Nem. Az Aspose.Slides egy önálló motor, és sem értékelés, sem termelés esetén nem igényel telepített PowerPointot.
 
-**Teljes mértékben tesztelhető a PPT/PPTX PDF‑re és képekre való konvertálása értékelési módban?**
+### Tesztelhetem teljes körűen a PPT/PPTX PDF- és képre konvertálását értékelő módban?
 
-Igen. A [konvertálók](/slides/hu/java/convert-presentation/) működnek; a kimenetben vízjel jelenik meg.
+Igen. A [konverterek](/slides/hu/java/convert-presentation/) működnek; a kimenet vízjelet fog tartalmazni.
 
-**Használhatok ideiglenes licencet terheléses teszteléshez vízjel nélkül?**
+### Használhatok ideiglenes licencet terheléses teszteléshez vízjel nélkül?
 
-Igen. Egy 30 napos ideiglenes licenc eltávolítja az értékelési mód korlátozásait, és lehetővé teszi a tesztelést vízjel nélkül.
+Igen. Egy 30 napos ideiglenes licenc eltávolítja az értékelő mód korlátait, és lehetővé teszi a tesztelést vízjel nélkül.

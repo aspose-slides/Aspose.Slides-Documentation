@@ -1,47 +1,46 @@
 ---
-title: "Aspose.Slides for C++: ตัวชี้วัดและการทดสอบเปรียบเทียบ"
+title: "Aspose.Slides for C++: ตัวชี้วัดประสิทธิภาพและการทดสอบเปรียบเทียบ"
 type: docs
 weight: 20
 url: /th/cpp/aspose-slides-for-c-performance-metrics-and-benchmarks/
 keywords:
-- ประสิทธิภาพ
-- ตัวชี้วัด
-- การทดสอบเปรียบเทียบ
-- VSTO
-- PowerPoint
-- OpenDocument
-- การนำเสนอ
-- C++
-- Aspose.Slides
-description: "เปรียบเทียบประสิทธิภาพของ Aspose.Slides for C++ กับ VSTO ด้วยการทดสอบเปรียบเทียบจริงและดูว่ามันช่วยเร่งการทำงานกับการนำเสนอ PPT, PPTX และ ODP อย่างไร."
+- "ประสิทธิภาพ"
+- "ตัวชี้วัด"
+- "การทดสอบเปรียบเทียบ"
+- "VSTO"
+- "PowerPoint"
+- "OpenDocument"
+- "การนำเสนอ"
+- "C++"
+- "Aspose.Slides"
+description: "เปรียบเทียบประสิทธิภาพของ Aspose.Slides for C++ กับ VSTO ด้วยการทดสอบเปรียบเทียบจริงและดูว่ามันช่วยเร่งการทำงานกับการนำเสนอ PPT, PPTX และ ODP ได้อย่างไร"
 ---
-## **Purpose**
-ประสิทธิภาพมักเป็นปัจจัยสำคัญอันดับแรกเมื่อเลือกคอมโพเนนต์. บทความนี้วัดประสิทธิภาพของ Aspose.Slides for C++ และ VSTO 2008. การทดสอบอย่างง่ายดำเนินการบนระบบปฏิบัติการ, ฮาร์ดแวร์, และการกำหนดค่าที่คล้ายคลึงกัน. 
+## **วัตถุประสงค์**
+Performance is often the first critical factor when choosing a component. This article measures the performance of Aspose.Slides for C++ and VSTO 2008. The simple tests are conducted across the similar operating system, hardware components, and configurations. 
 
+This article presents performance measurements for products including **Aspose.Slides for C++** and **VSTO 2008**. Performance estimates presented here are intended to help you understand what to expect from different components in some commonly used scenarios under similar configurations on commodity hardware running widely used operating systems. Naturally, your application performance depends on your data, data access patterns, cache size, other configuration parameters, operating system and hardware etc. The benchmark aims to illustrate how the components perform under minimum hardware conditions, the faster the hardware, the faster the tasks will be processed by the components. 
+## **ประกาศ**
+This document is provided for information purposes only and the contents hereof are subjected to change without notice. This document is not warranted to be error‑free, nor subject to any other warranties or conditions, whether expressed orally or implied in law including implied warranties and conditions of merchantability or fitness for a particular purpose. We specifically disclaim any liability with respect to this document and no contractual obligations are formed either directly or indirectly by this document. This document may not be reproduced or transmitted in any form or by any means, electronic or mechanical, for any purpose. 
 
-บทความนี้นำเสนอการวัดประสิทธิภาพของผลิตภัณฑ์รวมถึง **Aspose.Slides for C++** และ **VSTO 2008**. การประเมินประสิทธิภาพที่นำเสนอที่นี่มีวัตถุประสงค์เพื่อช่วยให้คุณเข้าใจว่าควรคาดหวังอะไรจากคอมโพเนนต์ต่าง ๆ ในสถานการณ์ที่ใช้บ่อยภายใต้การกำหนดค่าที่คล้ายคลึงกันบนฮาร์ดแวร์มาตรฐานที่ทำงานบนระบบปฏิบัติการที่แพร่หลาย. โดยธรรมชาติ ประสิทธิภาพของแอปพลิเคชันของคุณขึ้นอยู่กับข้อมูลของคุณ, รูปแบบการเข้าถึงข้อมูล, ขนาดแคช, พารามิเตอร์การกำหนดค่าอื่น ๆ, ระบบปฏิบัติการและฮาร์ดแวร์ เป็นต้น. การทดสอบเปรียบเทียบนี้มีเป้าหมายเพื่อแสดงให้เห็นว่าคอมโพเนนต์ทำงานอย่างไรภายใต้สภาพฮาร์ดแวร์ขั้นต่ำ, ฮาร์ดแวร์ที่เร็วขึ้นจะทำให้งานดำเนินการได้เร็วขึ้นโดยคอมโพเนนต์. 
-## **Declaration**
-เอกสารนี้จัดทำขึ้นเพื่อวัตถุประสงค์ในการให้ข้อมูลเท่านั้นและเนื้อหาภายในอาจมีการเปลี่ยนแปลงโดยไม่ต้องแจ้งล่วงหน้า. เอกสารนี้ไม่ได้รับประกันว่าจะปราศจากข้อบกพร่อง หรือจะอยู่ภายใต้การรับประกันหรือเงื่อนไขใด ๆ ไม่ว่าจะเป็นการแสดงออกด้วยวาจาหรือโดยนัยตามกฎหมาย รวมถึงการรับประกันโดยนัยและเงื่อนไขของความสามารถในการขายหรือความเหมาะสมสำหรับวัตถุประสงค์เฉพาะ. เราขอปฏิเสธความรับผิดชอบใด ๆ เกี่ยวกับเอกสารนี้และไม่มีพันธะสัญญาใด ๆ เกิดขึ้นโดยตรงหรือโดยอ้อมจากเอกสารนี้. ห้ามทำสำเนาหรือส่งต่อเอกสารนี้ในรูปแบบใด ๆ หรือด้วยวิธีการใด ๆ ไม่ว่าจะเป็นทางอิเล็กทรอนิกส์หรือเครื่องกล เพื่อวัตถุประสงค์ใด ๆ. 
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-การทดสอบเปรียบเทียบให้แนวทางและช่วยตั้งคาดการณ์การดำเนินงานพื้นฐาน. หัวข้อนี้แสดงการทดสอบเปรียบเทียบที่ได้ดำเนินการต่อ Aspose.Slides for C++ และ VSTO 2008. การวัดประสิทธิภาพ *{*} ช่วยให้ผู้ใช้ที่เป็นมือใหม่สามารถทดสอบประสิทธิภาพของคอมโพเนนต์ที่ใช้งานได้. การทดสอบจะ *{*} ช่วยให้คุณทดสอบคอมโพเนนต์อย่างเป็นวัตถุประสงค์โดยใช้การทดสอบความเร็วหลากหลายแบบ. งานทั้งหมดเป็นงานทั่วไปและเลือกอย่างระมัดระวังเพื่อสำรวจฟีเจอร์ที่เกี่ยวข้อง เพื่อให้แน่ใจว่าทั้งสองคอมโพเนนต์สามารถทำงานให้เสร็จได้อย่างง่ายดาย. นอกจากนี้ API ที่ใช้ทำการทดสอบสำหรับแต่ละคอมโพเนนต์ถูกเลือกอย่างระมัดระวังเพื่อให้ได้ผลลัพธ์ที่ดีที่สุดที่คอมโพเนนต์สามารถผลิตได้ขณะประเมินประสิทธิภาพ และงานทั้งหมดถูกดำเนินการสองถึงสามครั้งเพื่อประเมินตัวเลขอย่างแม่นยำ. 
-
-{{% /alert %}} 
-## **Testing Methodology**
-การทดสอบประสิทธิภาพทั้งหมดดำเนินการบนฮาร์ดแวร์และระบบปฏิบัติการที่ทั่วไปร่วมกัน โดยไม่มีการกำหนดค่าแบบกำหนดเอง การปรับจูน หรือเทคนิคการเพิ่มประสิทธิภาพอื่นใด. การทดสอบทั้งหมดทำงานกับการติดตั้งคอมโพเนนต์บนระบบเดียวกันที่โดยปกติไม่มีการทำงานอื่นใด. เพื่อให้ได้ผลลัพธ์ที่แม่นยำ เราได้ดำเนินการทุกงานสองถึงสามครั้งต่อเนื่องเพื่อประเมินคอมโพเนนต์อย่างละเอียดและให้ได้ค่าที่แม่นยำ. 
-## **Benchmark Setup**
-ตารางต่อไปนี้แสดงการตั้งค่าการทดสอบเปรียบเทียบ: 
-
-![todo:image_alt_text](/plugins/servlet/confluence/placeholder/unknown-attachment)
-### **Performance Results**
-ตารางต่อไปนี้แสดงผลการทดสอบประสิทธิภาพ: 
-
-![todo:image_alt_text](/plugins/servlet/confluence/placeholder/unknown-attachment)
-
-{{% alert color="primary" %}} 
-
-เวลาการทำงานจะวัดหลังจากทำการเผยแพร่แอปพลิเคชัน เนื่องจากเป็นการให้เวลาที่แม่นยำ มิฉะนั้นการคำนวณเวลาใน Visual Studio Debugger จะให้ผลลัพธ์ที่ไม่คาดคิดและไม่สมจริง. เช่น หากส่วนของโค้ดในซอร์สโค้ดที่แนบมาถูกดำเนินการใน Visual Studio Debugger 3 – 5 ครั้ง จะมีความแตกต่างของผลลัพธ์เพียงเล็กน้อยในแต่ละครั้ง ทำให้เกิดสถานการณ์ที่ไม่มีข้อสรุป. 
+Benchmarks provide guidelines and help to set basic operational expectations. The topic shows benchmark tes ts that have been performed against Aspose.Slides for C++ and VSTO 2008. The Performance Measures *{*} allow even novice users to benchmark the performance of the component they are using. The tests will *{*} allow you to objectively benchmark a component using a variety of different speed tests. All the tasks are common and carefully chosen exploring the relevant features to make sure that both the components may complete the tasks with ease. Moreover, the APIs to perform a test by each component are carefully chosen and selected to get the best possible results that a component can produce while evaluating its performance and all the tasks were implemented twice / thrice to better judge the figures. 
 
 {{% /alert %}} 
-## **Performance Results (Excel Chart)**
+## **วิธีการทดสอบ**
+All the performance tests were conducted on a common hardware and operating system combinations, without customized configuration, tuning or any other performance enhancing techniques. All tests were run with the component insta llations on the same system those were otherwise quiescent. To get accurate readings, we performed all the tasks twice / thrice at a time to better evaluate a component and to get accurate readings. 
+## **การตั้งค่า Benchmark**
+The following table enlists the Benchmark Setup: 
+
+![todo:image_alt_text](/plugins/servlet/confluence/placeholder/unknown-attachment)
+### **ผลลัพธ์ด้านประสิทธิภาพ**
+The following table enlists the performance results: 
+
+![todo:image_alt_text](/plugins/servlet/confluence/placeholder/unknown-attachment)
+
+{{% alert color="info" %}} 
+
+The execution time is taken after deploying the applications as it gives the exact time, otherwise time calculation in the Visual Studio Debugger results in unexpected and unrealistic results. For example, if the code snippets in the attached source code are executed in Visual Studio Debugger 3 – 5 times, there will be a marginal difference of the results in every attempt thus creating a situation with no conclusion. 
+
+{{% /alert %}} 
+## **ผลลัพธ์การทำงาน (แผนภูมิ Excel)**

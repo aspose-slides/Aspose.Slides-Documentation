@@ -1,5 +1,5 @@
 ---
-title: Xamarin용 Aspose.Slides
+title: Aspose.Slides for Xamarin
 type: docs
 weight: 150
 url: /ko/net/aspose-slides-for-xamarin/
@@ -13,47 +13,47 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides를 사용하여 C#로 Xamarin 모바일 앱을 구축하고, Android에서 PPT, PPTX 및 ODP에 대한 풍부한 기능을 지원하며 프레젠테이션을 보기, 편집 및 변환합니다."
+description: "Aspose.Slides를 사용하여 C#으로 Xamarin 모바일 앱을 구축하고 프레젠테이션을 보고, 편집하고, 변환합니다. Android에서 PPT, PPTX 및 ODP에 대한 풍부한 기능을 지원합니다."
 ---
 ## **소개**
 
-Xamarin은 .NET C#에서 모바일 개발에 사용되는 프레임워크입니다. Xamarin은 .NET 플랫폼의 기능을 확장하는 도구와 라이브러리를 제공합니다. 이를 통해 개발자는 **Android** 운영 체제용 애플리케이션을 빌드할 수 있습니다.
+Xamarin은 .NET C#에서 모바일 개발에 사용되는 프레임워크입니다. Xamarin은 .NET 플랫폼의 기능을 확장하는 도구와 라이브러리를 제공합니다. 개발자는 **Android** 운영 체제용 애플리케이션을 만들 수 있습니다.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Xamarin에서 개발할 때, 프로그래머는 기존 개발 환경(C#, Visual Studio, 및 서드 파티 라이브러리)을 그대로 사용할 수 있습니다.
+Xamarin 개발을 위해 프로그래머는 일반적인 개발 환경(C#, Visual Studio, 서드 파티 라이브러리)을 그대로 사용할 수 있습니다.
 
 {{% /alert %}}
 
-Aspose.Slides API는 Xamarin 플랫폼에서 작동합니다. 이를 위해 Aspose.Slides .NET 패키지는 Xamarin용 별도 DLL을 추가합니다. Aspose.Slides for Xamarin은 .NET 버전에서 제공되는 대부분의 기능을 지원합니다:
+Aspose.Slides API는 Xamarin 플랫폼에서 작동합니다. 이를 위해 Aspose.Slides .NET 패키지는 Xamarin용 별도의 DLL을 추가합니다. Aspose.Slides for Xamarin은 .NET 버전에서 제공되는 대부분의 기능을 지원합니다:
 
-- 프레젠테이션 변환 및 보기
-- 프레젠테이션 내용 편집: 텍스트, 도형, 차트, SmartArt, 오디오/비디오, 글꼴 등
-- 애니메이션, 2D 효과, WordArt 등 처리
-- 메타데이터 및 문서 속성 처리
-- 인쇄, 복제, 병합, 비교, 분할 등
+- 프레젠테이션 변환 및 보기.
+- 프레젠테이션 내용 편집: 텍스트, 도형, 차트, SmartArt, 오디오/비디오, 글꼴 등.
+- 애니메이션, 2D 효과, WordArt 등을 처리.
+- 메타데이터 및 문서 속성 처리.
+- 인쇄, 복제, 병합, 비교, 분할 등.
 
-전체 기능 비교는 이 페이지 하단의 별도 섹션에서 제공합니다.
+전체 기능 비교는 이 페이지 하단 근처의 다른 섹션에서 제공됩니다.
 
-Aspose.Slides for Xamarin API의 클래스, 네임스페이스, 로직 및 동작은 .NET 버전과 가능한 한 동일합니다. 최소한의 비용으로 Aspose.Slides .NET 애플리케이션을 Xamarin으로 마이그레이션할 수 있습니다.
+Aspose.Slides for Xamarin API에서는 클래스, 네임스페이스, 로직 및 동작이 .NET 버전과 가능한 한 유사하도록 설계되었습니다. 최소한의 비용으로 Aspose.Slides .NET 애플리케이션을 Xamarin으로 마이그레이션할 수 있습니다.
 
 
 ## **빠른 예제**
-Aspose.Slides for Xamarin을 사용하면 Slides for Android을 통해 C# 애플리케이션을 빌드하고 활용할 수 있습니다.
+Aspose.Slides for Xamarin을 이용해 Slides for Android를 통해 C# 애플리케이션을 구축하고 활용할 수 있습니다.
 
-우리는 Android용 Xamarin 애플리케이션 예제를 제공합니다. 이 예제는 Aspose.Slides를 사용해 프레젠테이션 슬라이드를 표시하고 터치 시 슬라이드에 새 도형을 추가합니다. 전체 예제 소스는 [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin)에서 확인할 수 있습니다.
+Aspose.Slides를 사용해 프레젠테이션 슬라이드를 표시하고 터치 시 새 도형을 슬라이드에 추가하는 Xamarin Android 애플리케이션 예제를 제공하고 있습니다. 예제 전체 소스는 [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin)에서 확인할 수 있습니다.
 
-Xamarin Android 앱을 생성해 보겠습니다:
+Xamarin Android 앱 만들기:
 
 ![todo:image_alt_text](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
 
-먼저 이미지 뷰, Prev 및 Next 버튼을 포함할 콘텐츠 레이아웃을 만듭니다:
+먼저 이미지 뷰와 Prev, Next 버튼을 포함하는 콘텐츠 레이아웃을 생성합니다:
 
 ![todo:image_alt_text](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
 
 
 
-**XML - content_main.xml - 콘텐츠 레이아웃 만들기**
+**XML - content_main.xml - 콘텐츠 레이아웃 생성**
 ``` 
  <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -99,11 +99,14 @@ Xamarin Android 앱을 생성해 보겠습니다:
 
 
 
-여기서는 Xamarin 애플리케이션 Assets에 샘플 프레젠테이션("HelloWorld.pptx")을 포함하고 "Aspose.Slides.Droid.dll" 라이브러리를 참조한 뒤 MainActivity에 초기화를 추가합니다:
+여기서는 샘플 프레젠테이션("HelloWorld.pptx")을 포함하는 "Aspose.Slides.Droid.dll" 라이브러리를 Xamarin 애플리케이션 Assets에 참조하고 MainActivity에 초기화를 추가합니다:
 
 **C# - MainActivity.cs - 초기화**
 
 ``` csharp
+using System.Diagnostics;
+using Aspose.Slides.Theme;
+
 [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
 public class MainActivity : AppCompatActivity
 {
@@ -137,11 +140,14 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-Prev 및 Next 버튼 클릭 시 슬라이드를 표시하는 함수를 추가해 보겠습니다:
+Prev 및 Next 버튼 클릭 시 해당 슬라이드를 표시하는 함수를 추가합니다:
 
 **C# - MainActivity.cs - Prev 및 Next 버튼 클릭 시 슬라이드 표시**
 
 ``` csharp
+using System.Diagnostics;
+using Aspose.Slides.Theme;
+
 [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
 public class MainActivity : AppCompatActivity
 {
@@ -273,9 +279,9 @@ public class MainActivity : AppCompatActivity
 
 
 
-마지막으로 슬라이드 터치 시 타원 도형을 추가하는 함수를 구현합니다:
+마지막으로 슬라이드 터치 시 타원형 도형을 추가하는 함수를 구현합니다:
 
-**C# - MainActivity.cs - 슬라이드 클릭 시 타원 추가**
+**C# - MainActivity.cs - 슬라이드 클릭 시 타원형 추가**
 
 ``` csharp
  private void ImageView_Touch(object sender, Android.Views.View.TouchEventArgs e)
@@ -306,18 +312,18 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-프레젠테이션 슬라이드를 클릭할 때마다 무작위 색상의 타원이 추가됩니다:
+프레젠테이션 슬라이드를 클릭할 때마다 임의 색상의 타원형이 추가됩니다:
 
 ![todo:image_alt_text](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
 
 
-## **지원 기능**
+## **지원되는 기능**
 
 |**기능**|**Aspose.Slides for .NET**|**Aspose.Slides for Xamarin**|
 | :- | :- | :- |
 |**프레젠테이션 기능:**| | |
 |새 프레젠테이션 만들기|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PowerPoint 97‑2003 형식 열기/저장|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PowerPoint 97-2003 형식 열기/저장|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |PowerPoint 2007 형식 열기/저장|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |PowerPoint 2010 확장 지원|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |PowerPoint 2013 확장 지원|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
@@ -325,15 +331,15 @@ public class MainActivity : AppCompatActivity
 |PowerPoint 2019 기능 지원|restricted|restricted|
 |PPT → PPTX 변환|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |PPTX → PPT 변환|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PPT 내 PPTX|restricted|restricted|
+|PPT에 PPTX 포함|restricted|restricted|
 |테마 처리|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |매크로 처리|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |문서 속성 처리|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |비밀번호 보호|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |빠른 텍스트 추출|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|폰트 포함|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|주석 렌더링|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|장기 실행 작업 중단|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|글꼴 포함|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|주석 표시|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|긴 작업 중단|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**내보내기 형식:**| | |
 |PDF|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |XPS|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
@@ -347,40 +353,40 @@ public class MainActivity : AppCompatActivity
 |ODP|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |THMX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**마스터 슬라이드 기능:**| | |
-|전체 기존 마스터 슬라이드 접근|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|기존 마스터 슬라이드 모두 액세스|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |마스터 슬라이드 생성/제거|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |마스터 슬라이드 복제|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**레이아웃 슬라이드 기능:**| | |
-|전체 기존 레이아웃 슬라이드 접근|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|기존 레이아웃 슬라이드 모두 액세스|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |레이아웃 슬라이드 생성/제거|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |레이아웃 슬라이드 복제|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**슬라이드 기능:**| | |
-|전체 기존 슬라이드 접근|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|기존 슬라이드 모두 액세스|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |슬라이드 생성/제거|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |슬라이드 복제|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |슬라이드 이미지로 내보내기|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |슬라이드 섹션 생성/편집/제거|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**노트 슬라이드 기능:**| | |
-|전체 기존 노트 슬라이드 접근|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|기존 노트 슬라이드 모두 액세스|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**도형 기능:**| | |
-|전체 슬라이드 도형 접근|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|슬라이드 도형 모두 액세스|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |새 도형 추가|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |도형 복제|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|도형을 별도 이미지로 내보내기|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**지원되는 도형 유형:**| | |
-|모든 사전 정의 도형 유형|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|도형을 개별 이미지로 내보내기|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**지원되는 도형 타입:**| | |
+|모든 사전 정의된 도형 타입|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |그림 프레임|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |표|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |차트|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |SmartArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |레거시 다이어그램|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |WordArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|OLE, ActiveX 개체|restricted|restricted|
+|OLE, ActiveX objects|restricted|restricted|
 |비디오 프레임|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |오디오 프레임|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |연결선|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**그룹 도형 기능:**| | |
-|그룹 도형 접근|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|그룹 도형 액세스|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |그룹 도형 생성|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |기존 그룹 도형 그룹 해제|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**도형 효과 기능:**| | |
@@ -388,7 +394,7 @@ public class MainActivity : AppCompatActivity
 |3D 효과|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |**텍스트 기능:**| | |
 |문단 서식|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|구간 서식|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|텍스트 구간 서식|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**애니메이션 기능:**| | |
 |애니메이션을 SWF로 내보내기|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |애니메이션을 HTML로 내보내기|{{< emoticons/cross >}}|{{< emoticons/cross >}}|

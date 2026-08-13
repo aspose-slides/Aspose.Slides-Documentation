@@ -1,6 +1,6 @@
 ---
-title: Aggiungere testo in modo dinamico usando VSTO e Aspose.Slides per .NET
-linktitle: Aggiungere testo in modo dinamico
+title: Aggiungere testo dinamicamente usando VSTO e Aspose.Slides per .NET
+linktitle: Aggiungere testo dinamicamente
 type: docs
 weight: 20
 url: /it/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/
@@ -14,10 +14,12 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Scopri come migrare dall'automazione Microsoft Office a Aspose.Slides per .NET e aggiungere testo dinamico alle presentazioni PowerPoint (PPT, PPTX) in C#."
+description: "Scopri come migrare dall'automazione di Microsoft Office a Aspose.Slides per .NET e aggiungere testo dinamico a presentazioni PowerPoint (PPT, PPTX) in C#."
 ---
-{{% alert color="primary" %}} 
-Un'attività comune che gli sviluppatori devono svolgere è aggiungere testo alle diapositive in modo dinamico. Questo articolo mostra esempi di codice per aggiungere testo dinamicamente utilizzando [VSTO](/slides/it/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/) e [Aspose.Slides for .NET](/slides/it/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/).
+{{% alert color="info" %}} 
+
+Un'operazione comune che gli sviluppatori devono svolgere è aggiungere testo alle diapositive in modo dinamico. Questo articolo mostra esempi di codice per aggiungere testo dinamicamente usando [VSTO](/slides/it/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/) e [Aspose.Slides for .NET](/slides/it/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/).
+
 {{% /alert %}} 
 ## **Aggiungere testo dinamicamente**
 Entrambi i metodi seguono questi passaggi:
@@ -28,7 +30,7 @@ Entrambi i metodi seguono questi passaggi:
 1. Impostare del testo.
 1. Scrivere la presentazione.
 ## **Esempio di codice VSTO**
-I frammenti di codice qui sotto producono una presentazione con una diapositiva semplice e una stringa di testo.
+Gli snippet di codice seguenti producono una presentazione con una diapositiva semplice e una stringa di testo.
 
 **La presentazione creata in VSTO** 
 
@@ -46,38 +48,43 @@ PowerPoint.Presentation pres = Globals.ThisAddIn.Application
 PowerPoint.CustomLayout layout = pres.SlideMaster.
 	CustomLayouts[7];
 
-//Aggiungi una diapositiva vuota
+//Add a blank slide
 PowerPoint.Slide sld = pres.Slides.AddSlide(1, layout);
 
-//Aggiungi un testo
+//Add a text
 PowerPoint.Shape shp = sld.Shapes.AddTextbox(Microsoft.Office.Core.MsoTextOrientation.msoTextOrientationHorizontal, 150, 100, 400, 100);
 
-//Imposta un testo
+//Set a text
 PowerPoint.TextRange txtRange = shp.TextFrame.TextRange;
 txtRange.Text = "Text added dynamically";
 txtRange.Font.Name = "Arial";
 txtRange.Font.Bold = Microsoft.Office.Core.MsoTriState.msoTrue;
 txtRange.Font.Size = 32;
 
-//Scrivi l'output su disco
+//Write the output to disk
 pres.SaveAs("c:\\outVSTO.ppt",
 	PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,
 	Microsoft.Office.Core.MsoTriState.msoFalse);
 ```
 
-## **Esempio di Aspose.Slides per .NET**
-I frammenti di codice qui sotto usano Aspose.Slides per creare una presentazione con una diapositiva semplice e una stringa di testo.
 
-**La presentazione creata utilizzando Aspose.Slides per .NET** 
+
+## **Esempio Aspose.Slides per .NET**
+Gli snippet di codice seguenti usano Aspose.Slides per creare una presentazione con una diapositiva semplice e una stringa di testo.
+
+**La presentazione creata usando Aspose.Slides per .NET** 
 
 ![todo:image_alt_text](adding-text-dynamically-using-vsto-and-aspose-slides-for-net_2.png)
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 //Crea una presentazione
 Presentation pres = new Presentation();
 
-//La diapositiva vuota viene aggiunta per impostazione predefinita, quando crei
-//una presentazione dal costruttore predefinito
+//La diapositiva vuota viene aggiunta per impostazione predefinita, quando si crea
+//la presentazione dal costruttore predefinito
 //Quindi, non è necessario aggiungere alcuna diapositiva vuota
 ISlide sld = pres.Slides[1];
 
@@ -99,5 +106,5 @@ port.PortionFormat.FontBold = NullableBool.True;
 port.PortionFormat.FontHeight = 32;
 
 //Scrivi l'output su disco
-pres.Save("c:\\outAspose.ppt", SaveFormat.Ppt);
+pres.Save("outAspose.ppt", SaveFormat.Ppt);
 ```

@@ -1,5 +1,5 @@
 ---
-title: Foliengröße in einer Präsentation in C++ ändern
+title: Foliengröße der Präsentation in C++ ändern
 linktitle: Foliengröße
 type: docs
 weight: 70
@@ -16,69 +16,76 @@ keywords:
 - Benutzerdefinierte Foliengröße
 - Spezielle Foliengröße
 - Einzigartige Foliengröße
-- Vollformat-Folie
+- Vollformatfolie
 - Bildschirmtyp
 - Nicht skalieren
-- Passend anpassen
+- Passend sicherstellen
 - Maximieren
 - PowerPoint
 - OpenDocument
 - Präsentation
 - C++
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Folien in PPT-, PPTX- und ODP-Dateien mit C++ und Aspose.Slides schnell ändern, Präsentationen für jeden Bildschirm optimieren und dabei die Qualität erhalten."
+description: "Erfahren Sie, wie Sie Folien in PPT-, PPTX- und ODP-Dateien mit C++ und Aspose.Slides schnell in der Größe ändern, um Präsentationen für jeden Bildschirm zu optimieren, ohne Qualitätsverlust."
 ---
+## **Einleitung**
 
-## **Foliengrößen in PowerPoint-Präsentationen**
+Aspose.Slides bietet umfassende Werkzeuge, um die Foliengröße und das Seitenverhältnis in PowerPoint‑Präsentationen anzupassen, was sowohl für den Druck als auch für die Anzeige auf dem Bildschirm entscheidend ist.
 
-Aspose.Slides für C++ ermöglicht das Ändern der Foliengröße oder des Seitenverhältnisses in PowerPoint‑Präsentationen. Wenn Sie Ihre Präsentation drucken oder die Folien auf einem Bildschirm anzeigen möchten, müssen Sie die Foliengröße bzw. das Seitenverhältnis berücksichtigen.
+Beliebte Foliengrößen und -verhältnisse:
 
-Dies sind die gängigsten Foliengrößen und Seitenverhältnisse:
+- **Standard (4:3‑Seitenverhältnis)**: Ideal für ältere Bildschirme und Geräte.
+- **Widescreen (16:9‑Seitenverhältnis)**: Empfohlen für moderne Projektoren und Anzeigen.
 
-- **Standard (4:3‑Seitenverhältnis)**
+Stellen Sie die Konsistenz Ihrer gesamten Präsentation sicher, da eine einzige Foliengröße und ein einziges Seitenverhältnis für alle Folien gelten. Für optimale Ergebnisse legen Sie die Folienabmessungen zu Beginn des Erstellungsprozesses Ihrer Präsentation fest, um Komplikationen zu vermeiden.
 
-  Wenn Ihre Präsentation auf relativ älteren Geräten oder Bildschirmen angezeigt werden soll, können Sie diese Einstellung verwenden.
-
-- **Breitbild (16:9‑Seitenverhältnis)**
-
-  Wenn Ihre Präsentation auf modernen Projektoren oder Displays gesehen werden soll, können Sie diese Einstellung verwenden.
-
-Sie können nicht mehrere Foliengrößeneinstellungen in einer einzelnen Präsentation verwenden. Wenn Sie eine Foliengröße für eine Präsentation auswählen, wird diese Einstellung auf alle Folien der Präsentation angewendet.
-
-Wenn Sie für Ihre Präsentationen eine spezielle Foliengröße verwenden möchten, empfehlen wir dringend, dies frühzeitig zu tun. Idealerweise sollten Sie Ihre bevorzugte Folie zu Beginn festlegen, d. h. bereits beim Einrichten der Präsentation – bevor Sie Inhalte hinzufügen. Auf diese Weise vermeiden Sie Komplikationen, die durch (zukünftige) Änderungen der Foliengröße entstehen können.
-
-{{% alert color="primary" %}} 
-Wenn Sie Aspose.Slides zum Erstellen einer Präsentation verwenden, erhalten alle Folien in der Präsentation automatisch die Standardgröße bzw. das 4:3‑Seitenverhältnis.
-{{% /alert %}} 
+{{% alert color="info" %}} 
+Standardmäßig verwenden mit Aspose.Slides erstellte Präsentationen das Standard‑Seitenverhältnis 4:3.
+{{% /alert %}}
 
 ## **Foliengröße in Präsentationen ändern**
 
-Dieses Beispiel zeigt, wie Sie die Foliengröße in einer Präsentation in C++ mit Aspose.Slides ändern:
+Dieser Beispielcode zeigt, wie Sie die Foliengröße in einer Präsentation in C++ mit Aspose.Slides ändern:
+
 ``` cpp
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/SlideSizeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>(u"pres-4x3-aspect-ratio.pptx");
 pres->get_SlideSize()->SetSize(SlideSizeType::OnScreen16x9, SlideSizeScaleType::DoNotScale);
 pres->Save(u"pres-4x3-aspect-ratio.pptx", SaveFormat::Pptx);
 ```
 
+## **Benutzerdefinierte Foliengrößen in Präsentationen festlegen**
 
-## **Benutzerdefinierte Foliengrößen in Präsentationen angeben**
+Wenn Ihnen die gängigen Foliengrößen (4:3 und 16:9) für Ihre Arbeit nicht geeignet erscheinen, können Sie eine bestimmte oder eindeutige Foliengröße verwenden. Beispielsweise, wenn Sie Vollformatfolien aus Ihrer Präsentation auf einem benutzerdefinierten Seitendesign drucken möchten oder wenn Sie Ihre Präsentation auf bestimmten Bildschirmtypen anzeigen wollen, profitieren Sie wahrscheinlich von einer benutzerdefinierten Größeneinstellung für Ihre Präsentation.
 
-Wenn Sie die gängigen Foliengrößen (4:3 und 16:9) für Ihre Arbeit als ungeeignet erachten, können Sie eine bestimmte oder eindeutige Foliengröße verwenden. Beispielsweise, wenn Sie Vollformat‑Folien aus Ihrer Präsentation auf einem benutzerdefinierten Seitendesign drucken möchten oder wenn Sie Ihre Präsentation auf bestimmten Bildschirmen anzeigen wollen, können Sie von einer benutzerdefinierten Einstellung profitieren.
+Dieser Beispielcode zeigt, wie Sie Aspose.Slides für C++ verwenden, um eine benutzerdefinierte Foliengröße für eine Präsentation in C++ festzulegen:
 
-Dieses Beispiel zeigt, wie Sie mit Aspose.Slides für C++ eine benutzerdefinierte Foliengröße für eine Präsentation in C++ festlegen:
 ``` cpp
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 // A4-Papiergröße
 pres->get_SlideSize()->SetSize(780.0f, 540.0f, SlideSizeScaleType::DoNotScale);
 pres->Save(u"pres-a4-slide-size.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **Folieninhalt nach Größenänderung behandeln**
 
-Nachdem Sie die Foliengröße einer Präsentation geändert haben, können die Inhalte der Folien (Bilder oder Objekte usw.) verzerrt werden. Standardmäßig werden die Objekte automatisch so skaliert, dass sie zur neuen Foliengröße passen. Beim Ändern der Foliengröße einer Präsentation können Sie jedoch eine Einstellung festlegen, die bestimmt, wie Aspose.Slides mit den Inhalten auf den Folien umgeht.
+Nachdem Sie die Foliengröße einer Präsentation geändert haben, können die Inhalte der Folien (z. B. Bilder oder Objekte) verzerrt werden. Standardmäßig werden die Objekte automatisch so skaliert, dass sie in die neue Foliengröße passen. Beim Ändern der Foliengröße einer Präsentation können Sie jedoch eine Einstellung festlegen, die bestimmt, wie Aspose.Slides mit den Inhalten auf den Folien umgeht.
 
-Je nach Ziel können Sie eine der folgenden Optionen verwenden:
+Je nach dem, was Sie erreichen möchten, können Sie eine dieser Einstellungen verwenden:
 
 - `DoNotScale`
 
@@ -86,33 +93,39 @@ Je nach Ziel können Sie eine der folgenden Optionen verwenden:
 
 - `EnsureFit`
 
-  Wenn Sie zu einer kleineren Foliengröße skalieren und Aspose.Slides die Objekte verkleinern soll, damit alles auf die Folien passt (und Sie somit Inhalte nicht verlieren), verwenden Sie diese Einstellung.
+  Wenn Sie auf eine kleinere Foliengröße skalieren möchten und Aspose.Slides die Folienobjekte verkleinern soll, damit sie alle auf die Folien passen (so vermeiden Sie Inhaltsverlust), verwenden Sie diese Einstellung.
 
 - `Maximize`
 
-  Wenn Sie zu einer größeren Foliengröße skalieren und Aspose.Slides die Objekte vergrößern soll, damit sie proportional zur neuen Foliengröße werden, verwenden Sie diese Einstellung.
+  Wenn Sie auf eine größere Foliengröße skalieren möchten und Aspose.Slides die Folienobjekte vergrößern soll, damit sie proportional zur neuen Foliengröße sind, verwenden Sie diese Einstellung.
 
-Dieses Beispiel zeigt, wie Sie die Einstellung `Maximize` beim Ändern der Foliengröße einer Präsentation verwenden:
+Dieser Beispielcode zeigt, wie Sie die Einstellung `Maximize` beim Ändern der Foliengröße einer Präsentation verwenden:
+
 ``` cpp
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/SlideSizeType.h>
+using namespace Aspose::Slides;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 pres->get_SlideSize()->SetSize(SlideSizeType::Ledger, SlideSizeScaleType::Maximize);
 ```
 
-
 ## **FAQ**
 
-**Kann ich eine benutzerdefinierte Foliengröße mit anderen Einheiten als Zoll festlegen (z. B. Punkte oder Millimeter)?**
+### Kann ich eine benutzerdefinierte Foliengröße mit anderen Einheiten als Zoll festlegen (z. B. Punkte oder Millimeter)?
 
-Ja. Aspose.Slides verwendet intern Punkte, wobei 1 Punkt 1/72 Zoll entspricht. Sie können jede Einheit (wie Millimeter oder Zentimeter) in Punkte umrechnen und die konvertierten Werte zur Definition von Folienbreite und -höhe verwenden.
+Ja. Aspose.Slides verwendet intern Punkte, wobei 1 Punkt 1/72 Zoll entspricht. Sie können jede Einheit (z. B. Millimeter oder Zentimeter) in Punkte umrechnen und die umgerechneten Werte zur Festlegung von Folienbreite und -höhe verwenden.
 
-**Beeinflusst eine sehr große benutzerdefinierte Foliengröße die Leistung und den Speicherverbrauch beim Rendern?**
+### Beeinflusst eine sehr große benutzerdefinierte Foliengröße die Leistung und den Speicherverbrauch während des Renderns?
 
-Ja. Größere Folienabmessungen (in Punkten) in Kombination mit einer höheren Render‑Skalierung führen zu erhöhtem Speicherverbrauch und längeren Verarbeitungszeiten. Streben Sie eine praktische Foliengröße an und passen Sie die Render‑Skalierung nur bei Bedarf an, um die gewünschte Ausgabequalität zu erreichen.
+Ja. Größere Folienabmessungen (in Punkten) in Kombination mit einer höheren Render‑Skala führen zu erhöhtem Speicherverbrauch und längeren Verarbeitungszeiten. Streben Sie eine praktische Foliengröße an und passen Sie die Render‑Skala nur bei Bedarf an, um die gewünschte Ausgabqualität zu erreichen.
 
-**Kann ich eine nicht standardmäßige Foliengröße definieren und dann Folien aus Präsentationen mit unterschiedlichen Größen zusammenführen?**
+### Kann ich eine nicht standardmäßige Foliengröße definieren und dann Folien aus Präsentationen zusammenführen, die unterschiedliche Größen haben?
 
-Sie können keine [merge presentations](/slides/de/cpp/merge-presentation/) durchführen, solange die Präsentationen unterschiedliche Foliengrößen haben – passen Sie zunächst eine Präsentation an die andere an. Beim Ändern der Foliengröße können Sie über die Option [SlideSizeScaleType](https://reference.aspose.com/slides/cpp/aspose.slides/slidesizescaletype/) festlegen, wie vorhandene Inhalte behandelt werden. Nach der Angleichung der Größen können Sie Folien zusammenführen, wobei das Format erhalten bleibt.
+Sie können nicht [Präsentationen zusammenführen](/slides/de/cpp/merge-presentation/), solange sie unterschiedliche Foliengrößen haben – zunächst müssen Sie eine Präsentation auf die Größe der anderen anpassen. Beim Ändern der Foliengröße können Sie auswählen, wie vorhandene Inhalte über die Option [SlideSizeScaleType](https://reference.aspose.com/slides/de/cpp/aspose.slides/slidesizescaletype/) behandelt werden. Nach dem Angleichen der Größen können Sie Folien zusammenführen und dabei die Formatierung beibehalten.
 
-**Kann ich Thumbnails für einzelne Formen oder bestimmte Bereiche einer Folie erzeugen, und werden sie die neue Foliengröße berücksichtigen?**
+### Kann ich Thumbnails für einzelne Formen oder bestimmte Bereiche einer Folie erstellen, und berücksichtigen diese die neue Foliengröße?
 
-Ja. Aspose.Slides kann Thumbnails für [entire slides](https://reference.aspose.com/slides/cpp/aspose.slides/slide/getimage/) sowie für [selected shapes](https://reference.aspose.com/slides/cpp/aspose.slides/shape/getimage/) rendern. Die resultierenden Bilder spiegeln die aktuelle Foliengröße und das Seitenverhältnis wider, wodurch ein konsistenter Bildausschnitt und die richtige Geometrie gewährleistet werden.
+Ja. Aspose.Slides kann Thumbnails für [gesamte Folien](https://reference.aspose.com/slides/de/cpp/aspose.slides/slide/getimage/) sowie für [ausgewählte Formen](https://reference.aspose.com/slides/de/cpp/aspose.slides/shape/getimage/) rendern. Die resultierenden Bilder spiegeln die aktuelle Foliengröße und das Seitenverhältnis wider und sorgen für konsistente Bildrahmung und Geometrie.

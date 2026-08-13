@@ -1,6 +1,6 @@
 ---
-title: Offentligt API och bakåtinkompatibla förändringar i Aspose.Slides för Java 15.10.0
-linktitle: Aspose.Slides för Java 15.10.0
+title: Offentliga API och bakåtinkompatibla förändringar i Aspose.Slides för Java 15.10.0
+linktitle: Aspose.Slides for Java 15.10.0
 type: docs
 weight: 180
 url: /sv/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/
@@ -8,22 +8,22 @@ keywords:
 - migration
 - äldre kod
 - modern kod
-- äldre metod
+- gammal metod
 - modern metod
 - PowerPoint
 - OpenDocument
 - presentation
 - Java
 - Aspose.Slides
-description: "Granska offentliga API-uppdateringar och brytande förändringar i Aspose.Slides för Java för att smidigt migrera dina PowerPoint PPT, PPTX och ODP presentationslösningar."
+description: "Granska offentliga API-uppdateringar och brytande förändringar i Aspose.Slides för Java för att smidigt migrera dina PowerPoint PPT-, PPTX- och ODP-presentationer."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Den här sidan listar alla [tillagda](/slides/sv/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) eller [borttagna](/slides/sv/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) klasser, metoder, egenskaper med mera, samt andra förändringar som införts med Aspose.Slides för Java 15.10.0 API.
+Den här sidan listar alla [tillagda](/slides/sv/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) eller [borttagna](/slides/sv/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) klasser, metoder, egenskaper och så vidare, samt andra förändringar som införts med Aspose.Slides for Java 15.10.0 API.
 
 {{% /alert %}} 
-## **Ändringar i offentligt API**
-#### **API för diagramserieanimation har lagts till i ISequence**
+## **Offentliga API-förändringar**
+#### **API för diagramserieanimering har lagts till i ISequence**
 De två nya metoderna har lagts till i gränssnittet com.aspose.slides.ISequence.
 
 ``` java
@@ -34,20 +34,24 @@ IEffect addEffect(IChart chart, int type, int seriesIndex, int categoriesIndex, 
 
 ```
 
-Dessa metoder är avsedda att stödja animationer av diagrammets element:
+Dessa metoder är avsedda att stödja diagrammets elementanimationer:
 
-per serie  
-per kategori  
-per serieelement  
-per kategorielement  
+by series
+by categories
+by series elements
+by categories elements
 
-De två nya uppräkningsvärdena EffectChartMajorGroupingType och EffectChartMinorGroupingType relaterade till diagrammets elementanimation introducerades.
+De två nya uppräkningarna EffectChartMajorGroupingType och EffectChartMinorGroupingType relaterade till diagrammets elementanimation introducerades.
 
-För att lägga till en serieanimation i diagrammet kan följande kod användas:
+För att lägga till en serieanimation i diagrammet kan följande kod användas. Diagrammet i exempelfilen har tre serier, så en effekt läggs till för varje index från 0 till 2:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try {
 
@@ -79,12 +83,6 @@ try {
 
 		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMajorGroupingType.BySeries, 3,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
 	pres.save(outFileName, SaveFormat.Pptx);
 
 } finally {
@@ -98,8 +96,12 @@ try {
 Kategorianimation:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -152,8 +154,12 @@ try
 Serieelementanimation:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -254,8 +260,12 @@ try
 Kategorielementanimation:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -352,18 +362,20 @@ try
 }
 
 ```
-#### **Ny com.aspose.slides.VideoPlayerHtmlController tillagd för att stödja export av mediafiler till HTML**
-Den nya offentliga klassen com.aspose.slides.VideoPlayerHtmlController har lagts till. Genom att använda en instans av denna klass kan användaren exportera video‑ och ljudfiler till HTML.
+#### **Ny com.aspose.slides.VideoPlayerHtmlController lagd till för att stödja export av mediafiler till HTML**
+Den nya offentliga klassen com.aspose.slides.VideoPlayerHtmlController har lagts till. Med en instans av denna klass kan användaren exportera video- och ljudfiler till HTML.
 
-VideoPlayerHtmlController‑konstruktörer accepterar följande parametrar:
+Konstruktörerna för VideoPlayerHtmlController accepterar följande parametrar:
 
-- path: Sökvägen där video‑ och ljudfiler ska genereras
-- fileName: Namnet på HTML‑filen
-- baseUri: Bas‑URI som ska användas för att generera länkar
+path: Sökvägen där video- och ljudfiler kommer att genereras (mappen måste redan finnas)
+fileName: Namnet på HTML-filen
+baseUri: Bas-URI som kommer att användas för att generera länkar
 
 Exempel på användning:
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation("example.pptx");
 
@@ -371,7 +383,7 @@ try
 
 {
 
-	final String path = "path";
+	final String path = "path/";
 
 	final String fileName = "video.html";
 

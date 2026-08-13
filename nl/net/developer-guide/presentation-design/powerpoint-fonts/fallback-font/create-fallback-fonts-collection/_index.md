@@ -1,13 +1,13 @@
 ---
-title: Configureer fallback-lettertypecollecties in .NET
-linktitle: Fallback-lettertypecollectie
+title: Configureer fallback-lettertype-collecties in .NET
+linktitle: Fallback-lettertype-collectie
 type: docs
 weight: 20
 url: /nl/net/create-fallback-fonts-collection/
 keywords:
 - fallback-lettertype
 - fallback-regel
-- lettertypecollectie
+- lettertype-collectie
 - lettertype configureren
 - lettertype instellen
 - PowerPoint
@@ -16,27 +16,29 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Stel een fallback-lettertypecollectie in Aspose.Slides voor .NET in om tekst consistent en scherp te houden in PowerPoint- en OpenDocument-presentaties."
+description: "Stel een fallback-lettertype-collectie in Aspose.Slides voor .NET in om tekst consistent en scherp te houden in PowerPoint- en OpenDocument-presentaties."
 ---
 ## **Overzicht**
 
-Aspose.Slides stelt u in staat om een collectie fallback‑lettertype‑regels voor een presentatie te configureren. Elke fallback‑regel wordt weergegeven door de `FontFallBackRule`‑klasse en kan worden toegevoegd aan een `FontFallBackRulesCollection`, die de `IFontFallBackRulesCollection`‑interface implementeert.
+Aspose.Slides stelt u in staat een collectie van fallback‑lettertype‑regels voor een presentatie te configureren. Elke fallback‑regel wordt vertegenwoordigd door de `FontFallBackRule`‑klasse en kan worden toegevoegd aan een `FontFallBackRulesCollection`, die de `IFontFallBackRulesCollection`‑interface implementeert.
 
-Na het aanmaken van de collectie kunt u deze toewijzen aan de `FontFallBackRulesCollection`‑eigenschap van de `FontsManager` van de presentatie. De `FontsManager` beheert lettertypen in de hele presentatie, en elke `Presentation`‑instantie heeft zijn eigen `FontsManager`.
+Nadat u de collectie hebt gemaakt, kunt u deze toewijzen aan de `FontFallBackRulesCollection`‑eigenschap van de `FontsManager` van de presentatie. De `FontsManager` beheert lettertypen in de gehele presentatie, en elke `Presentation`‑instantie heeft zijn eigen `FontsManager`.
 
 Zodra de `FontsManager` is geïnitialiseerd met de fallback‑lettertype‑collectie, worden de opgegeven fallback‑lettertypen toegepast tijdens het renderen van de presentatie.
 
 ## **Fallback‑regels toepassen**
 
-Instanties van de [FontFallBackRule](https://reference.aspose.com/slides/nl/net/aspose.slides/FontFallBackRule)‑klasse kunnen worden gegroepeerd in een [FontFallBackRulesCollection](https://reference.aspose.com/slides/nl/net/aspose.slides/fontfallbackrulescollection), die de [IFontFallBackRulesCollection](https://reference.aspose.com/slides/nl/net/aspose.slides/ifontfallbackrulescollection)‑interface implementeert. Het is mogelijk om regels toe te voegen aan of te verwijderen uit de collectie.
+Instanties van de [FontFallBackRule](https://reference.aspose.com/slides/nl/net/aspose.slides/FontFallBackRule)‑klasse kunnen worden georganiseerd in een [FontFallBackRulesCollection](https://reference.aspose.com/slides/nl/net/aspose.slides/fontfallbackrulescollection), die de [IFontFallBackRulesCollection](https://reference.aspose.com/slides/nl/net/aspose.slides/ifontfallbackrulescollection)‑interface implementeert. Het is mogelijk om regels aan de collectie toe te voegen of te verwijderen.
 
-Vervolgens kan deze collectie worden toegewezen aan de [FontFallBackRulesCollection](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection)‑eigenschap van de [FontsManager](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsmanager)‑klasse. De FontsManager beheert lettertypen in de hele presentatie.
+Vervolgens kan deze collectie worden toegewezen aan de [FontFallBackRulesCollection](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection)‑eigenschap van de [FontsManager](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsmanager)‑klasse. De FontsManager beheert lettertypen in de gehele presentatie.
 
-Elke [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) heeft een [FontsManager](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/properties/fontsmanager)‑eigenschap met zijn eigen instantie van de FontsManager‑klasse.
+Elke [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation)‑instantie heeft een [FontsManager](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/properties/fontsmanager)‑eigenschap met zijn eigen instantie van de FontsManager‑klasse.
 
-Hier volgt een voorbeeld hoe u een collectie fallback‑lettertype‑regels kunt maken en toewijzen aan de FontsManager van een bepaalde presentatie:  
+Hier volgt een voorbeeld hoe u een collectie van fallback‑lettertype‑regels kunt maken en deze kunt toewijzen aan de FontsManager van een bepaalde presentatie:  
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation())
 {
 	IFontFallBackRulesCollection userRulesList = new FontFallBackRulesCollection();
@@ -50,24 +52,24 @@ using (Presentation presentation = new Presentation())
 
 Nadat de FontsManager is geïnitialiseerd met de fallback‑lettertype‑collectie, worden de fallback‑lettertypen toegepast tijdens het renderen van de presentatie.
 
-{{% alert color="primary" %}} 
-Lees meer over hoe u [Render Presentation with Fallback Font](/slides/nl/net/render-presentation-with-fallback-font/) kunt renderen.
+{{% alert color="info" %}} 
+[Presentatie renderen met fallback‑lettertype](/slides/nl/net/render-presentation-with-fallback-font/) 
 {{% /alert %}}
 
 ## **FAQ**
 
-**Wordt mijn fallback‑regels ingebed in het PPTX‑bestand en zichtbaar in PowerPoint na het opslaan?**
+### Worden mijn fallback‑regels in het PPTX‑bestand ingebed en zichtbaar in PowerPoint na het opslaan?
 
-Nee. Fallback‑regels zijn runtime‑renderinstellingen; ze worden niet geserialiseerd naar PPTX en verschijnen niet in de gebruikersinterface van PowerPoint.
+Nee. Fallback‑regels zijn instellingen voor weergave tijdens uitvoering; ze worden niet geserialiseerd naar PPTX en verschijnen niet in de gebruikersinterface van PowerPoint.
 
-**Is fallback ook van toepassing op tekst in SmartArt, WordArt, grafieken en tabellen?**
+### Wordt fallback toegepast op tekst binnen SmartArt, WordArt, grafieken en tabellen?
 
-Ja. Hetzelfde glyph‑substitutiemechanisme wordt gebruikt voor alle tekst in deze objecten.
+Ja. Hetzelfde glyf‑substitutiemechanisme wordt gebruikt voor alle tekst in deze objecten.
 
-**Distribueert Aspose lettertypen met de bibliotheek?**
+### Distribueert Aspose enige lettertypen met de bibliotheek?
 
-Nee. U voegt lettertypen toe en gebruikt ze zelf, onder uw eigen verantwoordelijkheid.
+Nee. U voegt zelf lettertypen toe en gebruikt ze, onder uw eigen verantwoordelijkheid.
 
-**Kunnen vervanging/substitutie voor ontbrekende lettertypen en fallback voor ontbrekende glyphs samen worden gebruikt?**
+### Kunnen vervanging/substitutie voor ontbrekende lettertypen en fallback voor ontbrekende glyfen samen worden gebruikt?
 
-Ja. Ze zijn onafhankelijke stappen in dezelfde lettertype‑resolutiepijplijn: eerst lost de engine de beschikbaarheid van lettertypen op ([replacement](/slides/nl/net/font-replacement/)/[substitution](/slides/nl/net/font-substitution/)), daarna vult fallback de leemtes op voor ontbrekende glyphs in de beschikbare lettertypen.
+Ja. Ze zijn onafhankelijke fasen van dezelfde lettertype‑resolutie‑pipeline: eerst bepaalt de engine de beschikbaarheid van lettertypen ([vervanging](/slides/nl/net/font-replacement/)/[substitutie](/slides/nl/net/font-substitution/)), daarna vult fallback de leemtes voor ontbrekende glyfen in beschikbare lettertypen.

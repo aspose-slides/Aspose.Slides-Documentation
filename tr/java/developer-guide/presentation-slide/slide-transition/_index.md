@@ -1,5 +1,5 @@
 ---
-title: Java ile Sunularda Slayt Geçişlerini Yönetme
+title: Java Kullanarak Sunularda Slayt Geçişlerini Yönetme
 linktitle: Slayt Geçişi
 type: docs
 weight: 80
@@ -10,34 +10,36 @@ keywords:
 - slayt geçişi uygula
 - gelişmiş slayt geçişi
 - morph geçişi
-- geçiş tipi
+- geçiş türü
 - geçiş efekti
 - PowerPoint
 - OpenDocument
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java'da PowerPoint ve OpenDocument sunumları için adım adım rehberlik ile slayt geçişlerini nasıl özelleştireceğinizi keşfedin."
+description: "Aspose.Slides for Java'da slayt geçişlerini nasıl özelleştireceğinizi keşfedin, PowerPoint ve OpenDocument sunumları için adım adım rehberle."
 ---
-## **Overview**
+## **Genel Bakış**
 
-Bu makale, Aspose.Slides kullanarak sunularda slayt geçişlerini nasıl yöneteceğinizi açıklar. Slaytlara geçiş türleri uygulama, tıklama ile veya belirli bir süreden sonra ilerleme gibi geçiş davranışını yapılandırma, otomatik ilerlemeyi kontrol etme ve devre dışı bırakma, Morph geçişi ve tiplerini kullanma ve geçiş efekti seçeneklerini ayarlama konularını gösterir. Örnekler, bir sunumu yükleme veya oluşturma, seçili slaytlar için geçiş ayarlarını değiştirme ve sonucu PPTX dosyası olarak kaydetme konularını gösterir. Makale ayrıca geçiş hızı, geçiş sesleri, aynı geçişin birden çok slayta uygulanması ve bir slaytta şu anda ayarlanmış geçişin kontrol edilmesi gibi sık sorulan sorulara da yanıt verir.
+Bu makale, Aspose.Slides kullanarak sunularda slayt geçişlerini nasıl yöneteceğinizi açıklar. Slaytlara geçiş türleri uygulamayı, geçiş davranışını – tıklamayla ilerleme veya belirli bir süreden sonra ilerleme – yapılandırmayı, otomatik ilerlemeyi kontrol etmeyi ve devre dışı bırakmayı, Morph geçişini ve türlerini kullanmayı ve geçiş efekti seçeneklerini ayarlamayı gösterir. Örnekler, bir sunumu yüklemenin veya oluşturmanın, seçili slaytlar için geçiş ayarlarını değiştirmenin ve sonucu bir PPTX dosyası olarak kaydetmenin yollarını gösterir. Makale ayrıca geçiş hızı, geçiş sesleri, aynı geçişin birden çok slayta uygulanması ve bir slaytta şu anda ayarlanmış geçişin kontrol edilmesi gibi yaygın sorulara yanıt verir.
 
 ## **Slayt Geçişi Ekle**
-Basit bir slayt geçişi efekti oluşturmak için aşağıdaki adımları izleyin:
+Basit bir slayt geçiş efekti oluşturmak için aşağıdaki adımları izleyin:
 
-1. Aspose.Slides'in [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation) sınıfının bir örneğini oluşturun.
-2. Aspose.Slides for Java tarafından sunulan geçiş efektlerinden birini kullanarak slayta bir geçiş türü uygulayın.
-3. Değiştirilmiş sunum dosyasını yazın.
+1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation) sınıfının bir örneğini oluşturun.
+1. Aspose.Slides for Java tarafından sunulan geçiş efektlerinden birini TransitionType enum aracılığıyla slayta bir Slide Transition Type uygulayın
+1. Değiştirilmiş sunum dosyasını yazın.
 
 ```java
+import com.aspose.slides.*;
+
 // Kaynak sunum dosyasını yüklemek için Presentation sınıfını örnekleyin
 Presentation presentation = new Presentation("AccessSlides.pptx");
 try {
-    // 1. slayta daire tipi geçiş uygula
+    // Slayt 1 üzerinde daire tipi geçişi uygula
     presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
 
-    // 2. slayta comb tipi geçiş uygula
+    // Slayt 2 üzerinde tarak tipi geçişi uygula
     presentation.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
 
     // Sunumu diske kaydet
@@ -48,36 +50,38 @@ try {
 ```
 
 ## **Gelişmiş Slayt Geçişi Ekle**
-Yukarıdaki bölümde slayta basit bir geçiş efekti uygulamıştık. Şimdi bu basit geçiş efektini daha da iyileştirip kontrol edilebilir hâle getirmek için aşağıdaki adımları izleyin:
+Yukarıdaki bölümde yalnızca basit bir geçiş efekti uyguladık. Şimdi bu basit geçiş efektini daha iyi ve kontrol edilebilir hâle getirmek için aşağıdaki adımları izleyin:
 
-1. Aspose.Slides'in [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation) sınıfının bir örneğini oluşturun.
-2. Aspose.Slides for Java tarafından sunulan geçiş efektlerinden birini kullanarak slayta bir geçiş türü uygulayın.
-3. Geçişi Advance On Click, belirli bir süre sonrasında Advance After Time veya her ikisine de ayarlayabilirsiniz.
-4. Geçiş Advance On Click olarak etkinleştirildiyse, geçiş yalnızca fare tıklandığında ilerleyecektir. Ayrıca, Advance After Time özelliği ayarlandıysa, geçiş belirtilen sürenin geçmesinin ardından otomatik olarak ilerleyecektir.
-5. Değiştirilmiş sunumu bir sunum dosyası olarak yazın.
+1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation) sınıfının bir örneğini oluşturun.
+1. Aspose.Slides for Java tarafından sunulan geçiş efektlerinden birini slayta bir Slide Transition Type uygulayın
+1. Geçişi Tıklamayla İleri, belirli bir süre sonra veya her ikisi olarak ayarlayabilirsiniz.
+1. Slayt geçişi Tıklamayla İleri olarak etkinleştirilmişse, geçiş yalnızca birisi fareye tıkladığında ilerleyecektir. Ayrıca, Advance After Time özelliği ayarlanmışsa, geçiş belirtilen sürenin geçmesinin ardından otomatik olarak ilerleyecektir.
+1. Değiştirilmiş sunumu bir sunum dosyası olarak yazın.
 
 ```java
+import com.aspose.slides.*;
+
 // Sunum dosyasını temsil eden Presentation sınıfını örnekleyin
 Presentation pres = new Presentation("BetterSlideTransitions.pptx");
 try {
-    // 1. slayta daire tipi geçiş uygula
+    // Slayt 1 üzerinde daire tipi geçişi uygula
     pres.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
 
-    // Geçiş süresini 3 saniye olarak ayarla
+    // 3 saniyelik geçiş süresini ayarla
     pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceOnClick(true);
     pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceAfterTime(3000);
 
-    // 2. slayta comb tipi geçiş uygula
+    // Slayt 2 üzerinde tarak tipi geçişi uygula
     pres.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
     
-    // Geçiş süresini 5 saniye olarak ayarla
+    // 5 saniyelik geçiş süresini ayarla
     pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceOnClick(true);
     pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceAfterTime(5000);
 
-    // 3. slayta zoom tipi geçiş uygula
+    // Slayt 3 üzerinde yakınlaştırma tipi geçişi uygula
     pres.getSlides().get_Item(2).getSlideShowTransition().setType(TransitionType.Zoom);
     
-    // Geçiş süresini 7 saniye olarak ayarla
+    // 7 saniyelik geçiş süresini ayarla
     pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceOnClick(true);
     pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceAfterTime(7000);
 
@@ -89,17 +93,19 @@ try {
 ```
 
 ## **Morph Geçişi**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Aspose.Slides for Java artık [Morph Transition](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IMorphTransition) desteğine sahip. Bu, PowerPoint 2019'da tanıtılan yeni morph geçişini temsil eder.
+Aspose.Slides for Java artık [Morph Transition](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IMorphTransition) özelliğini destekliyor. Bu, PowerPoint 2019’da tanıtılan yeni morph geçişini temsil eder.
 
 {{% /alert %}} 
 
-Morph geçişi, bir slayttan sonraki slayta sorunsuz bir hareketi animasyonlu hâle getirmenizi sağlar. Bu makale, kavramı ve Morph geçişinin nasıl kullanılacağını açıklar. Morph geçişini etkili bir şekilde kullanmak için ortak en az bir nesneye sahip iki slaytınız olmalıdır. En kolay yol, slaytı kopyalamak ve ikinci slayttaki nesneyi farklı bir konuma taşımaktır.
+Morph geçişi, bir slayttan diğerine sorunsuz bir hareketi canlandırmanıza olanak tanır. Bu makale kavramı ve Morph geçişinin nasıl kullanılacağını açıklar. Morph geçişini etkili bir şekilde kullanmak için ortak en az bir nesneye sahip iki slayta ihtiyacınız olacak. En kolay yol, slaytı kopyalamak ve ikinci slayttaki nesneyi farklı bir konuma taşımaktır.
 
-Aşağıdaki kod parçacığı, slaytın bir klonunu bazı metinlerle sunuma eklemeyi ve ikinci slayta bir [morph type](https://reference.aspose.com/slides/tr/java/com.aspose.slides/TransitionType) geçişi ayarlamayı gösterir.
+Aşağıdaki kod parçacığı, sunuma biraz metin içeren bir slayt klonu eklemeyi ve ikinci slayta bir [morph type](https://reference.aspose.com/slides/tr/java/com.aspose.slides/TransitionType) geçişi ayarlamayı gösterir.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     AutoShape autoshape = (AutoShape)presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
@@ -122,18 +128,20 @@ finally {
 }
 ```
 
-## **Morph Geçişi Türleri**
-Yeni eklenen [TransitionMorphType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/TransitionMorphType) enum'ı, farklı Morph slayt geçişi türlerini temsil eder.
+## **Morph Geçiş Türleri**
+Yeni eklenen [TransitionMorphType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/TransitionMorphType) enum, Morph slayt geçişinin farklı türlerini temsil eder.
 
-TransitionMorphType enum'ı üç üyeye sahiptir:
+TransitionMorphType enum üç üyeye sahiptir:
 
 - ByObject: Morph geçişi, şekilleri bölünemez nesneler olarak ele alarak gerçekleştirilir.
 - ByWord: Morph geçişi, mümkün olduğunda metni kelimeler halinde aktararak gerçekleştirilir.
 - ByChar: Morph geçişi, mümkün olduğunda metni karakterler halinde aktararak gerçekleştirilir.
 
-Aşağıdaki kod parçacığı, slayta morph geçişi ayarlamayı ve morph tipini değiştirmeyi gösterir:
+Aşağıdaki kod parçacığı, slayta morph geçişi ayarlamayı ve morph türünü değiştirmeyi gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Morph);
@@ -145,17 +153,19 @@ try {
 ```
 
 ## **Geçiş Efektlerini Ayarla**
-Aspose.Slides for Java, siyah üzerinden, soldan, sağdan vb. gibi geçiş efektlerini ayarlamayı destekler. Geçiş Efektini ayarlamak için aşağıdaki adımları izleyin:
+Aspose.Slides for Java, siyahdan, soldan, sağdan vb. geçiş efektlerini ayarlamayı destekler. Geçiş Efektini ayarlamak için aşağıdaki adımları izleyin:
 
-- Aspose.Slides'in [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-- Slayt referansını alın.
+- [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
+- Slaytın referansını alın.
 - Geçiş efektini ayarlayın.
 - Sunumu bir [PPTX](https://docs.fileformat.com/presentation/pptx/) dosyası olarak yazın.
 
-Aşağıda verilen örnekte, geçiş efektlerini ayarladık.
+Aşağıdaki örnekte geçiş efektlerini ayarladık.
 
 ```java
-// Presentation sınıfının bir örneğini oluşturun
+import com.aspose.slides.*;
+
+// Presentation sınıfının bir örneğini oluştur
 Presentation presentation = new Presentation("AccessSlides.pptx");
 try {
     // Etkiyi ayarla
@@ -169,20 +179,20 @@ try {
 }
 ```
 
-## **FAQ**
+## **SSS**
 
-**Bir slayt geçişinin oynatma hızını kontrol edebilir miyim?**
+### Bir slayt geçişinin oynatma hızını kontrol edebilir miyim?
 
-Evet. Geçişin [speed](https://reference.aspose.com/slides/tr/java/com.aspose.slides/slideshowtransition/#setSpeed-int-) ayarını, [TransitionSpeed](https://reference.aspose.com/slides/tr/java/com.aspose.slides/transitionspeed/) ayarını (ör. slow/medium/fast) kullanarak belirleyin.
+Evet. Geçişin [speed](https://reference.aspose.com/slides/tr/java/com.aspose.slides/slideshowtransition/#setSpeed-int-) ayarını [TransitionSpeed](https://reference.aspose.com/slides/tr/java/com.aspose.slides/transitionspeed/) ayarını kullanarak belirleyin (örnek: yavaş/orta/hızlı).
 
-**Bir geçişe ses ekleyebilir ve döngüye alabilir miyim?**
+### Bir geçişe ses ekleyebilir ve döngüye alabilir miyim?
 
-Evet. Geçiş için ses gömebilir ve ses modu ve döngü gibi ayarlarla davranışı kontrol edebilirsiniz (ör. [setSound](https://reference.aspose.com/slides/tr/java/com.aspose.slides/slideshowtransition/#setSound-com.aspose.slides.IAudio-), [setSoundMode](https://reference.aspose.com/slides/tr/java/com.aspose.slides/slideshowtransition/#setSoundMode-int-), [setSoundLoop](https://reference.aspose.com/slides/tr/java/com.aspose.slides/slideshowtransition/#setSoundLoop-boolean-), ayrıca [setSoundIsBuiltIn](https://reference.aspose.com/slides/tr/java/com.aspose.slides/slideshowtransition/#setSoundIsBuiltIn-boolean-), [setSoundName](https://reference.aspose.com/slides/tr/java/com.aspose.slides/slideshowtransition/#setSoundName-java.lang.String-) gibi meta veriler).
+Evet. Geçiş için bir ses gömebilir ve ses modu ve döngü gibi ayarlarla davranışı kontrol edebilirsiniz (örnek: [setSound](https://reference.aspose.com/slides/tr/java/com.aspose.slides/slideshowtransition/#setSound-com.aspose.slides.IAudio-), [setSoundMode](https://reference.aspose.com/slides/tr/java/com.aspose.slides/slideshowtransition/#setSoundMode-int-), [setSoundLoop](https://reference.aspose.com/slides/tr/java/com.aspose.slides/slideshowtransition/#setSoundLoop-boolean-), ayrıca [setSoundIsBuiltIn](https://reference.aspose.com/slides/tr/java/com.aspose.slides/slideshowtransition/#setSoundIsBuiltIn-boolean-) ve [setSoundName](https://reference.aspose.com/slides/tr/java/com.aspose.slides/slideshowtransition/#setSoundName-java.lang.String-) gibi meta veriler).
 
-**Aynı geçişi her slayta uygulamanın en hızlı yolu nedir?**
+### Aynı geçişi her slayta uygulamanın en hızlı yolu nedir?
 
-İstenen geçiş tipini her slaytın geçiş ayarlarında yapılandırın; geçişler slayt başına saklanır, bu yüzden aynı tip tüm slaytlara uygulanarak tutarlı bir sonuç elde edilir.
+İstenen geçiş türünü her slaytın geçiş ayarları içinde yapılandırın; geçişler slayt başına depolandığı için aynı türü tüm slaytlara uygulamak tutarlı bir sonuç verir.
 
-**Bir slaytta şu anda hangi geçişin ayarlı olduğunu nasıl kontrol edebilirim?**
+### Bir slaytta şu anda hangi geçişin ayarlı olduğunu nasıl kontrol edebilirim?
 
-Slaytın [transition settings](https://reference.aspose.com/slides/tr/java/com.aspose.slides/baseslide/#getSlideShowTransition--) özelliğini inceleyin ve [transition type](https://reference.aspose.com/slides/tr/java/com.aspose.slides/slideshowtransition/#setType-int-) değerini okuyun; bu değer, hangi etkinin uygulandığını tam olarak gösterir.
+Slaytın [transition settings](https://reference.aspose.com/slides/tr/java/com.aspose.slides/baseslide/#getSlideShowTransition--) öğesini inceleyin ve [transition type](https://reference.aspose.com/slides/tr/java/com.aspose.slides/slideshowtransition/#setType-int-) değerini okuyun; bu değer hangi etkinin uygulandığını tam olarak gösterir.

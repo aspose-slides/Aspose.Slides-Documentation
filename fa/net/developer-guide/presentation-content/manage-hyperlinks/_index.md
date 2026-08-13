@@ -1,52 +1,55 @@
 ---
-title: مدیریت لینک‌های ارائه در .NET
-linktitle: مدیریت لینک
+title: مدیریت ابرلینک‌های ارائه در .NET
+linktitle: مدیریت ابرلینک
 type: docs
 weight: 20
 url: /fa/net/manage-hyperlinks/
 keywords:
-- افزودن URL
-- افزودن لینک
-- ایجاد لینک
-- قالب‌بندی لینک
-- حذف لینک
-- به‌روزرسانی لینک
-- لینک متن
-- لینک اسلاید
-- لینک شکل
-- لینک تصویر
-- لینک ویدئو
-- لینک قابل تغییر
-- PowerPoint
+- افزودن آدرس
+- افزودن ابرلینک
+- ایجاد ابرلینک
+- قالب‌بندی ابرلینک
+- حذف ابرلینک
+- به‌روزرسانی ابرلینک
+- ابرلینک متن
+- ابرلینک اسلاید
+- ابرلینک شکل
+- ابرلینک تصویر
+- ابرلینک ویدئو
+- ابرلینک قابل تغییر
+- پاورپوینت
 - OpenDocument
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "به‌راحتی لینک‌ها را در ارائه‌های PowerPoint و OpenDocument با Aspose.Slides برای .NET مدیریت کنید—در مدت چند دقیقه تعامل و جریان کار را ارتقا دهید."
+description: "به‌راحتی ابرلینک‌ها را در ارائه‌های PowerPoint و OpenDocument با Aspose.Slides برای .NET مدیریت کنید—تعامل و جریان کاری را در چند دقیقه ارتقا دهید."
 ---
-## **مقدمه**
+## **معرفی**
 
-هایپرلینک یک ارجاع به یک شیء یا داده یا مکانی در چیزی است. این‌ها نمونه‌های رایج هایپرلینک در ارائه‌های PowerPoint هستند:
+یک ابرلینک ارجاعی به یک شیء یا داده یا مکانی در یک محتوا است. این‌ها نمونه‌های رایج ابرلینک در ارائه‌های PowerPoint هستند:
 
-* لینک‌ها به وب‌سایت‌ها داخل متن‌ها، شکل‌ها یا رسانه‌ها
-* لینک‌ها به اسلایدها
+* لینک به وب‌سایت‌ها در متن‌ها، اشکال یا رسانه‌ها
+* لینک به اسلایدها
 
-Aspose.Slides برای .NET به شما امکان انجام کارهای متعددی مرتبط با هایپرلینک‌ها در ارائه‌ها را می‌دهد. 
+Aspose.Slides برای .NET امکان انجام بسیاری از کارهای مرتبط با ابرلینک‌ها در ارائه‌ها را فراهم می‌کند. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-ممکن است بخواهید ویرایشگر ساده و رایگان آنلاین PowerPoint Aspose را بررسی کنید، [ویرایشگر آنلاین رایگان PowerPoint.](https://products.aspose.app/slides/fa/editor)
+ممکن است بخواهید ویرایشگر ساده و **رایگان** آنلاین PowerPoint Aspose را امتحان کنید.[free online PowerPoint editor.](https://products.aspose.app/slides/fa/editor)
 
 {{% /alert %}} 
 
-## **افزودن هایپرلینک‌های URL**
+## **افزودن ابرلینک‌های URL**
 
-### **افزودن هایپرلینک‌های URL به متن**
+### **افزودن ابرلینک‌های URL به متن**
 
-این کد C# نشان می‌دهد چگونه یک هایپرلینک وب‌سایت را به یک متن اضافه کنید:
+این کد C# نشان می‌دهد چگونه به یک متن لینک وب‌سایت اضافه کنید:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
 	IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -59,11 +62,14 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **افزودن هایپرلینک‌های URL به اشکال یا فریم‌ها**
+### **افزودن ابرلینک‌های URL به اشکال یا فریم‌ها**
 
-این نمونه کد در C# نشان می‌دهد چگونه یک هایپرلینک وب‌سایت را به یک شکل اضافه کنید:
+این نمونه کد C# نشان می‌دهد چگونه به یک شکل لینک وب‌سایت اضافه کنید:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -75,18 +81,21 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **افزودن هایپرلینک‌های URL به رسانه‌ها**
+### **افزودن ابرلینک‌های URL به رسانه‌ها**
 
-Aspose.Slides به شما امکان افزودن هایپرلینک به تصاویر، فایل‌های صوتی و ویدئویی را می‌دهد. 
+Aspose.Slides به شما امکان افزودن ابرلینک به تصاویر، فایل‌های صوتی و ویدئویی را می‌دهد. 
 
-این نمونه کد نشان می‌دهد چگونه به یک **تصویر** هایپرلینک اضافه کنید:
+این نمونه کد نشان می‌دهد چگونه به یک **تصویر** ابرلینک اضافه کنید:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     // تصویر را به ارائه اضافه می‌کند
     IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    // فریم تصویر را در اسلاید 1 بر اساس تصویر اضافه‌شده قبلی ایجاد می‌کند
+    // یک قاب تصویر در اسلاید 1 بر پایه تصویری که قبلاً اضافه شده است ایجاد می‌کند
     IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
 
     pictureFrame.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
@@ -96,9 +105,12 @@ using (Presentation pres = new Presentation())
 }
 ```
 
- این نمونه کد نشان می‌دهد چگونه به یک **فایل صوتی** هایپرلینک اضافه کنید:
+ این نمونه کد نشان می‌دهد چگونه به یک **فایل صوتی** ابرلینک اضافه کنید:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IAudio audio = pres.Audios.AddAudio(File.ReadAllBytes("audio.mp3"));
@@ -111,9 +123,12 @@ using (Presentation pres = new Presentation())
 }
 ```
 
- این نمونه کد نشان می‌دهد چگونه به یک **ویدئو** هایپرلینک اضافه کنید:
+ این نمونه کد نشان می‌دهد چگونه به یک **ویدئو** ابرلینک اضافه کنید:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IVideo video = pres.Videos.AddVideo(File.ReadAllBytes("video.avi"));
@@ -126,20 +141,24 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-{{%  alert  title="Tip"  color="primary"  %}} 
+{{%  alert  title="Tip"  color="info"  %}} 
 
-ممکن است بخواهید *[مدیریت OLE](https://docs.aspose.com/slides/fa/net/manage-ole/)* را ببینید.
+ممکن است بخواهید *[Manage OLE](https://docs.aspose.com/slides/fa/net/manage-ole/)* را مشاهده کنید.
 
 {{% /alert %}}
 
 
-## **استفاده از هایپرلینک‌ها برای ایجاد فهرست مطالب**
+## **استفاده از ابرلینک‌ها برای ایجاد فهرست مطالب**
 
-از آنجا که هایپرلینک‌ها به شما امکان افزودن ارجاع به اشیاء یا مکان‌ها را می‌دهند، می‌توانید از آن‌ها برای ایجاد فهرست مطالب استفاده کنید. 
+از آنجا که ابرلینک‌ها امکان افزودن ارجاع به اشیا یا مکان‌ها را می‌دهند، می‌توانید از آن‌ها برای ایجاد فهرست مطالب استفاده کنید. 
 
-این نمونه کد نشان می‌دهد چگونه فهرست مطالبی با هایپرلینک‌ها ایجاد کنید:
+این نمونه کد نشان می‌دهد چگونه فهرست مطالبی با ابرلینک‌ها ایجاد کنید:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation())
 {
     var firstSlide = presentation.Slides[0];
@@ -166,15 +185,19 @@ using (var presentation = new Presentation())
 }
 ```
 
-## **قالب‌بندی هایپرلینک‌ها**
+## **قالب‌بندی ابرلینک‌ها**
 
 ### **رنگ**
 
-با ویژگی [ColorSource](https://reference.aspose.com/slides/fa/net/aspose.slides/ihyperlink/properties/colorsource) در رابط [IHyperlink](https://reference.aspose.com/slides/fa/net/aspose.slides/ihyperlink) می‌توانید رنگ برای هایپرلینک‌ها را تنظیم کنید و همچنین اطلاعات رنگ را از هایپرلینک‌ها دریافت کنید. این ویژگی اولین بار در PowerPoint 2019 معرفی شد، بنابراین تغییرات مربوط به این ویژگی در نسخه‌های قدیمی‌تر PowerPoint اعمال نمی‌شوند.
+با ویژگی [ColorSource](https://reference.aspose.com/slides/fa/net/aspose.slides/ihyperlink/properties/colorsource) در رابط [IHyperlink](https://reference.aspose.com/slides/fa/net/aspose.slides/ihyperlink) می‌توانید رنگ ابرلینک‌ها را تنظیم کرده و اطلاعات رنگ را از آن‌ها دریافت کنید. این ویژگی اولین بار در PowerPoint 2019 معرفی شد، بنابراین تغییرات مرتبط با این ویژگی در نسخه‌های قدیمی‌تر PowerPoint اعمال نمی‌شود.
 
-این نمونه کد عملیاتی را نشان می‌دهد که در آن هایپرلینک‌های با رنگ‌های مختلف به همان اسلاید اضافه شده‌اند:
+این نمونه کد عملیاتی را نشان می‌دهد که در آن ابرلینک‌های با رنگ‌های مختلف به همان اسلاید اضافه شده‌اند:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -193,74 +216,82 @@ using (Presentation presentation = new Presentation())
 ```
 ### **صدا**
 
-Aspose.Slides این ویژگی‌ها را فراهم می‌کند تا بتوانید با افزودن صدا به یک هایپرلینک تأکید کنید:
+Aspose.Slides این ویژگی‌ها را برای تأکید بر ابرلینک با صدا فراهم می‌کند:
 - [IHyperlink.Sound](https://reference.aspose.com/slides/fa/net/aspose.slides/ihyperlink/properties/sound) 
 - [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/fa/net/aspose.slides/ihyperlink/properties/stopsoundonclick)
 
-#### **افزودن صدای هایپرلینک**
+#### **افزودن صدا به ابرلینک**
 
-این کد C# نشان می‌دهد چگونه یک هایپرلینک را تنظیم کنید که صدا پخش کند و با هایپرلینک دیگری آن را متوقف کنید:
+این کد C# نشان می‌دهد چگونه ابرلینکی تنظیم کنید که صدا پخش کند و با ابرلینک دیگری صدا را متوقف کنید:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
-	// صوت جدید را به مجموعه صداهای ارائه اضافه می‌کند
+	// صدای جدید را به مجموعه صداهای ارائه اضافه می‌کند
 	IAudio playSound = pres.Audios.AddAudio(File.ReadAllBytes("sampleaudio.wav"));
 
 	ISlide firstSlide = pres.Slides[0];
 
-	// شکل جدیدی با هایپرلینک به اسلاید بعدی اضافه می‌کند
+	// شکل جدیدی با ابرلینک به اسلاید بعدی اضافه می‌کند
 	IShape firstShape = firstSlide.Shapes.AddAutoShape(ShapeType.SoundButton, 100, 100, 100, 50);
 	firstShape.HyperlinkClick = Hyperlink.NextSlide;
 
-	// هایپرلینک را برای «بدون صدا» بررسی می‌کند
+	// بررسی می‌کند که ابرلینک برای «بدون صدا» است یا خیر
 	if (!firstShape.HyperlinkClick.StopSoundOnClick && firstShape.HyperlinkClick.Sound == null)
 	{
-		// هایپرلینکی که صدا را اجرا می‌کند تنظیم می‌کند
+		// ابرلینکی را تنظیم می‌کند که صدا پخش کند
 		firstShape.HyperlinkClick.Sound = playSound;
 	}
 
-	// اسلاید خالی را اضافه می‌کند
+	// اسلاید خالی را اضافه می‌کند 
 	ISlide secondSlide = pres.Slides.AddEmptySlide(firstSlide.LayoutSlide);
 
-	// شکل جدیدی با هایپرلینک NoAction اضافه می‌کند
+	// شکل جدیدی با ابرلینک NoAction اضافه می‌کند
 	IShape secondShape = secondSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 100, 50);
 	secondShape.HyperlinkClick = Hyperlink.NoAction;
 
-	// پرچم توقف صدای قبلی هایپرلینک را تنظیم می‌کند
+	// پرچم «توقف صدا قبلی» را برای ابرلینک تنظیم می‌کند
 	secondShape.HyperlinkClick.StopSoundOnClick = true;
 
 	pres.Save("hyperlink-sound.pptx", SaveFormat.Pptx);
 }
 ```
 
-#### **استخراج صدای هایپرلینک**
+#### **استخراج صدا از ابرلینک**
 
-این کد C# نشان می‌دهد چگونه صدای استفاده‌شده در یک هایپرلینک را استخراج کنید:
+این کد C# نشان می‌دهد چگونه صدای استفاده شده در یک ابرلینک را استخراج کنید:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 {
 	ISlide firstSlide = pres.Slides[0];
 
-	// دریافت هایپرلینک اولین شکل
+	// دریافت ابرلینک اولین شکل
 	IHyperlink link = firstSlide.Shapes[0].HyperlinkClick;
 
 	if (link.Sound != null)
 	{
-		// استخراج صدای هایپرلینک به صورت آرایه بایت
+		// استخراج صدای ابرلینک به صورت آرایه بایت
 		byte[] audioData = link.Sound.BinaryData;
 	}
 }
 ```
 
-## **حذف هایپرلینک‌ها از ارائه‌ها**
+## **حذف ابرلینک‌ها از ارائه‌ها**
 
-### **حذف هایپرلینک‌ها از متن**
+### **حذف ابرلینک‌ها از متن**
 
-این کد C# نشان می‌دهد چگونه هایپرلینک را از یک متن در اسلاید ارائه حذف کنید:
+این کد C# نشان می‌دهد چگونه ابرلینک را از یک متن در اسلاید ارائه حذف کنید:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     ISlide slide = pres.Slides[0];
@@ -283,11 +314,14 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-### **حذف هایپرلینک‌ها از اشکال یا فریم‌ها**
+### **حذف ابرلینک‌ها از اشکال یا فریم‌ها**
 
-این کد C# نشان می‌دهد چگونه هایپرلینک را از یک شکل در اسلاید ارائه حذف کنید: 
+این کد C# نشان می‌دهد چگونه ابرلینک را از یک شکل در اسلاید ارائه حذف کنید: 
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("demo.pptx")) 
 { 
    ISlide slide = pres.Slides[0]; 
@@ -299,18 +333,21 @@ using (Presentation pres = new Presentation("demo.pptx"))
 }
 ```
 
-## **هایپرلینک قابل تغییر**
+## **ابرلینک قابل تغییر**
 
-کلاس [Hyperlink](https://reference.aspose.com/slides/fa/net/aspose.slides/hyperlink) قابلیت تغییر دارد. با استفاده از این کلاس می‌توانید مقادیر ویژگی‌های زیر را تغییر دهید:
+کلاس [Hyperlink](https://reference.aspose.com/slides/fa/net/aspose.slides/hyperlink) قابل تغییر است. با استفاده از این کلاس می‌توانید مقادیر ویژگی‌های زیر را تغییر دهید:
 
 - [IHyperlink.TargetFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/ihyperlink/properties/targetframe)
 - [IHyperlink.Tooltip](https://reference.aspose.com/slides/fa/net/aspose.slides/ihyperlink/properties/tooltip)
 - [IHyperlink.History](https://reference.aspose.com/slides/fa/net/aspose.slides/ihyperlink/properties/history)
 - [IHyperlink.HighlightClick](https://reference.aspose.com/slides/fa/net/aspose.slides/ihyperlink/properties/highlightclick)
 
-این قطعه کد نشان می‌دهد چگونه به یک اسلاید هایپرلینک اضافه کنید و پس از آن متن راهنمای آن را ویرایش کنید:
+این قطعه کد نشان می‌دهد چگونه یک ابرلینک به اسلاید اضافه کنید و پس از آن tooltip آن را ویرایش کنید:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {   
    IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);    
@@ -329,7 +366,7 @@ using (Presentation presentation = new Presentation())
 
 ## **ویژگی‌های پشتیبانی‌شده در IHyperlinkQueries**
 
-می‌توانید IHyperlinkQueries را از یک ارائه، اسلاید یا متنی که هایپرلینک برای آن تعریف شده است، دسترسی پیدا کنید. 
+می‌توانید IHyperlinkQueries را از یک ارائه، اسلاید یا متن که ابرلینک برای آن تعریف شده است، دسترسی پیدا کنید. 
 
 - [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/fa/net/aspose.slides/ipresentation/properties/hyperlinkqueries)
 - [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/fa/net/aspose.slides/ibaseslide/properties/hyperlinkqueries)
@@ -342,16 +379,16 @@ using (Presentation presentation = new Presentation())
 - [IHyperlinkQueries.GetAnyHyperlinks();](https://reference.aspose.com/slides/fa/net/aspose.slides/ihyperlinkqueries/methods/getanyhyperlinks)
 - [IHyperlinkQueries.RemoveAllHyperlinks();](https://reference.aspose.com/slides/fa/net/aspose.slides/ihyperlinkqueries/methods/removeallhyperlinks)
 
-## **سوالات متداول**
+## **پرسش‌های متداول**
 
-**چگونه می‌توانم ناوبری داخلی نه فقط به یک اسلاید، بلکه به یک «بخش» یا اولین اسلاید یک بخش ایجاد کنم؟**
+### چگونه می‌توان ناوبری داخلی را نه فقط به یک اسلاید، بلکه به «بخش» یا اولین اسلاید یک بخش ایجاد کرد؟
 
-بخش‌ها در PowerPoint گروه‌بندی‌ای از اسلایدها هستند؛ ناوبری به‌طور فنی به یک اسلاید خاص هدف می‌گیرد. برای «ناوبری به یک بخش»، معمولاً به اولین اسلاید آن بخش لینک می‌دهید.
+بخش‌ها در PowerPoint گروه‌بندی‌ای از اسلایدها هستند؛ ناوبری در واقع به یک اسلاید خاص ارجاع می‌دهد. برای «رفتن به یک بخش» معمولاً به اولین اسلاید آن بخش لینک می‌زنید.
 
-**آیا می‌توانم یک هایپرلینک را به عناصر اسلاید اصلی (master) متصل کنم تا در تمام اسلایدها کار کند؟**
+### آیا می‌توانم ابرلینک را به عناصر اسلاید مستر پیوست کنم تا در همه اسلایدها کار کند؟
 
-بله. عناصر اسلاید اصلی و طرح‌بندی‌ها از هایپرلینک پشتیبانی می‌کنند. چنین لینک‌هایی در اسلایدهای فرعی ظاهر می‌شوند و در حالت نمایش اسلاید قابل کلیک هستند.
+بله. عناصر اسلاید مستر و لایه‌گذاری‌ها از ابرلینک پشتیبانی می‌کنند. این لینک‌ها در اسلایدهای فرزند ظاهر می‌شوند و در طول نمایش اسلاید قابل کلیک هستند.
 
-**آیا هایپرلینک‌ها هنگام خروجی گرفتن به PDF، HTML، تصاویر یا ویدئو حفظ می‌شوند؟**
+### آیا ابرلینک‌ها هنگام خروجی گرفتن به PDF، HTML، تصاویر یا ویدئو حفظ می‌شوند؟
 
-در [PDF](/slides/fa/net/convert-powerpoint-to-pdf/) و [HTML](/slides/fa/net/convert-powerpoint-to-html/) بله—لینک‌ها به‌طور کلی حفظ می‌شوند. هنگام خروجی به [تصاویر](/slides/fa/net/convert-powerpoint-to-png/) و [ویدئو](/slides/fa/net/convert-powerpoint-to-video/)، کلیک‌پذیری به دلیل طبیعت آن قالب‌ها (فریم‌های رستر/ویدئوها از هایپرلینک پشتیبانی نمی‌کنند) منتقل نمی‌شود.
+در [PDF](/slides/fa/net/convert-powerpoint-to-pdf/) و [HTML](/slides/fa/net/convert-powerpoint-to-html/) بله—لینک‌ها عموماً حفظ می‌شوند. هنگام خروجی به [تصاویر](/slides/fa/net/convert-powerpoint-to-png/) و [ویدئو](/slides/fa/net/convert-powerpoint-to-video/)، کلیک‌پذیری به دلیل ماهیت این فرمت‌ها (فریم‌های رستر/ویدئو از ابرلینک پشتیبانی نمی‌کنند) منتقل نمی‌شود.

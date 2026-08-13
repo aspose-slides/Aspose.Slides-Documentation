@@ -4,14 +4,13 @@ type: docs
 weight: 45
 url: /es/jasperreports/integration-with-jasperserver/
 ---
-
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Para integrar Aspose.Slides para JasperReports con JasperServer, es necesario realizar varios pasos adicionales y actualizar los archivos de configuración de JasperServer. Este artículo explica cómo.
 
 {{% /alert %}} 
 
-1. Agrega nuevas propiedades del exportador al archivo de configuración **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml**.
+1. Agregue nuevas propiedades del exportador al archivo de configuración **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml**.
 
 ``` xml
 <bean id="reportPptExporter" class="com.aspose.slides.jasperreports.ASPptReportExporter" parent="baseReportExporter">
@@ -20,7 +19,7 @@ Para integrar Aspose.Slides para JasperReports con JasperServer, es necesario re
 </bean> 
 
 <bean id="pptExporterConfiguration" class="com.jaspersoft.jasperserver.war.action.ExporterConfigurationBean">
-    <property name="descriptionKey" value="Presentación de PowerPoint a través de Aspose.Slides"/>
+    <property name="descriptionKey" value="PowerPoint Presentation via Aspose.Slides"/>
     <property name="iconSrc" value="/images/ppt.png"/>
     <property name="parameterDialogName" value=""/>
     <property name="exportParameters" ref="pptExportParameters"/>
@@ -28,13 +27,13 @@ Para integrar Aspose.Slides para JasperReports con JasperServer, es necesario re
 </bean>
 
 <util:map id="exporterConfigMap">
-    <!-- agrega esta entrada a exporterConfigMap -->
+    <!-- agregue esta entrada a exporterConfigMap -->
     <entry key="ppt" value-ref="pptExporterConfiguration"/>
 </util:map>
 ```
 
-2. Copia **aspose.slides.jasperreports.jar** en **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\lib**.
-3. Para usar la función de mapeo de fuentes, actualiza **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** como se muestra a continuación.
+2. Copie **aspose.slides.jasperreports.jar** a **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\lib**.
+3. Para utilizar la función de asignación de fuentes, actualice **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** como se muestra a continuación.
 
 ``` xml
 <bean id="pptExportParameters" class="com.aspose.slides.jasperreports.ASExportParametersBean">

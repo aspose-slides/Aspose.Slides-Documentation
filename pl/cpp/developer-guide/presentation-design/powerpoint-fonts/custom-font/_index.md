@@ -1,5 +1,5 @@
 ---
-title: Dostosuj czcionki PowerPoint w C++
+title: Dostosowywanie czcionek PowerPoint w C++
 linktitle: Czcionka niestandardowa
 type: docs
 weight: 20
@@ -16,47 +16,57 @@ keywords:
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Dostosuj czcionki w slajdach PowerPoint przy użyciu Aspose.Slides dla C++, aby Twoje prezentacje były wyraźne i spójne na każdym urządzeniu."
+description: "Dostosuj czcionki w slajdach PowerPoint za pomocą Aspose.Slides dla C++, aby Twoje prezentacje były wyraźne i spójne na każdym urządzeniu."
 ---
 ## **Przegląd**
 
-Aspose.Slides pozwala używać niestandardowych czcionek w prezentacjach bez instalacji ich w systemie operacyjnym. Możesz ładować czcionki z własnych folderów, udostępniać czcionki dla konkretnej prezentacji poprzez źródła czcionek na poziomie dokumentu lub ładować zewnętrzne czcionki bezpośrednio z danych binarnych.
+Aspose.Slides umożliwia używanie własnych czcionek w prezentacjach bez ich instalowania w systemie operacyjnym. Możesz ładować czcionki z własnych folderów, udostępniać czcionki dla konkretnej prezentacji poprzez źródła czcionek na poziomie dokumentu lub ładować zewnętrzne czcionki bezpośrednio z danych binarnych.
 
-Załadowane czcionki są używane przy renderowaniu lub eksportowaniu prezentacji, np. do PDF, obrazów i innych obsługiwanych formatów. Pomaga to zachować spójność wyjścia prezentacji w różnych środowiskach. Artykuł wyjaśnia również, jak sprawdzić foldery czcionek używane przez Aspose.Slides i jak wyczyścić pamięć podręczną czcionek po pracy ze czcionkami zewnętrznymi.
+Załadowane czcionki są używane podczas renderowania lub eksportu prezentacji, np. do PDF, obrazów i innych obsługiwanych formatów. Dzięki temu wynik prezentacji jest spójny w różnych środowiskach. Artykuł wyjaśnia także, jak sprawdzić foldery czcionek używane przez Aspose.Slides oraz jak wyczyścić pamięć podręczną czcionek po pracy ze zewnętrznymi czcionkami.
 
-Rejestrowanie niestandardowych czcionek do renderowania jest oddzielne od osadzania czcionek w pliku PPTX. Jeśli czcionka ma być przechowywana wewnątrz samej prezentacji, użyj funkcji osadzania czcionek explicite.
+Rejestrowanie własnych czcionek do renderowania jest odrębne od osadzania czcionek w pliku PPTX. Jeśli czcionka ma być przechowywana wewnątrz prezentacji, użyj funkcji osadzania czcionek w sposób jawny.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Aspose Slides pozwala ładować te czcionki przy użyciu [FontsLoader::LoadExternalFonts](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fontsloader/loadexternalfonts/):
+Aspose Slides umożliwia ładowanie tych czcionek przy użyciu [FontsLoader::LoadExternalFonts](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fontsloader/loadexternalfonts/):
 
-* TrueType (.ttf) i kolekcje TrueType (.ttc). Zobacz [TrueType](https://en.wikipedia.org/wiki/TrueType).
+* Czcionki TrueType (.ttf) i TrueType Collection (.ttc). Zobacz [TrueType](https://en.wikipedia.org/wiki/TrueType).
 
-* OpenType (.otf). Zobacz [OpenType](https://en.wikipedia.org/wiki/OpenType).
+* Czcionki OpenType (.otf). Zobacz [OpenType](https://en.wikipedia.org/wiki/OpenType).
 
 {{% /alert %}}
 
-## **Ładowanie niestandardowych czcionek**
+## **Ładowanie własnych czcionek**
 
-Aspose.Slides pozwala ładować czcionki używane w prezentacji bez instalacji ich w systemie. Ma to wpływ na wynik eksportu — takiego jak PDF, obrazy i inne obsługiwane formaty — więc powstałe dokumenty wyglądają spójnie w różnych środowiskach. Czcionki są ładowane z własnych katalogów.
+Aspose.Slides pozwala ładować czcionki używane w prezentacji bez ich instalacji w systemie. Ma to wpływ na wynik eksportu — takiego jak PDF, obrazy i inne obsługiwane formaty — dzięki czemu powstałe dokumenty wyglądają konsekwentnie w różnych środowiskach. Czcionki są ładowane z własnych katalogów.
 
 1. Określ jeden lub więcej folderów zawierających pliki czcionek.  
 2. Wywołaj statyczną metodę [FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fontsloader/loadexternalfonts/), aby załadować czcionki z tych folderów.  
-3. Załaduj i renderuj/wyeksportuj prezentację.  
+3. Załaduj i renderuj/eksportuj prezentację.  
 4. Wywołaj [FontsLoader.clearCache](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fontsloader/clearcache/), aby wyczyścić pamięć podręczną czcionek.
 
 Poniższy przykład kodu demonstruje proces ładowania czcionek:
 
 ```cpp
-// Zdefiniuj foldery zawierające niestandardowe pliki czcionek.
+#include <DOM/Fonts/FontsLoader.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// Zdefiniuj foldery zawierające własne pliki czcionek.
+String externalFontFolder = u"assets/fonts";
 auto fontFolders = MakeObject<Array<String>>(1, externalFontFolder );
 
-// Load custom fonts from the specified folders.
+// Załaduj własne czcionki z określonych folderów.
 FontsLoader::LoadExternalFonts(fontFolders);
 
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// Renderuj/wyeksportuj prezentację (np. do PDF, obrazów lub innych formatów) używając załadowanych czcionek.
+// Renderuj/eksportuj prezentację (np. do PDF, obrazów lub innych formatów) używając załadowanych czcionek.
 presentation->Save(u"output.pdf", SaveFormat::Pdf);
 presentation->Dispose();
 
@@ -64,7 +74,7 @@ presentation->Dispose();
 FontsLoader::ClearCache();
 ```
 
-{{% alert color="info" title="Uwaga" %}}
+{{% alert color="info" title="Note" %}}
 
 [FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fontsloader/loadexternalfonts/) dodaje dodatkowe foldery do ścieżek wyszukiwania czcionek, ale nie zmienia kolejności inicjalizacji czcionek.  
 Czcionki są inicjalizowane w następującej kolejności:
@@ -74,25 +84,35 @@ Czcionki są inicjalizowane w następującej kolejności:
 
 {{%/alert %}}
 
-## **Pobieranie folderów czcionek niestandardowych**
-
-Aspose.Slides udostępnia [FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fontsloader/getfontfolders/), aby umożliwić odnalezienie folderów czcionek. Ta metoda zwraca foldery dodane poprzez metodę `LoadExternalFonts` oraz systemowe foldery czcionek.
+## **Uzyskiwanie własnych folderów czcionek**
+Aspose.Slides udostępnia [FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fontsloader/getfontfolders/), aby umożliwić odnalezienie folderów czcionek. Metoda ta zwraca foldery dodane poprzez metodę `LoadExternalFonts` oraz systemowe foldery czcionek.
 
 Ten kod C++ pokazuje, jak używać metody [FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fontsloader/getfontfolders/):
 
 ``` cpp
-// Ten wiersz wypisuje foldery sprawdzane pod kątem plików czcionek.
-// Są to foldery dodane metodą LoadExternalFonts oraz systemowe foldery czcionek.
+#include <DOM/Fonts/FontsLoader.h>
+using namespace Aspose::Slides;
+
+// Ta linia wyświetla foldery, które są sprawdzane pod kątem plików czcionek.
+// Są to foldery dodane metodą LoadExternalFonts oraz foldery systemowe czcionek.
 auto fontFolders = FontsLoader::GetFontFolders();
 ```
 
-## **Określanie niestandardowych czcionek używanych w prezentacji**
-
+## **Określanie własnych czcionek używanych w prezentacji**
 Aspose.Slides udostępnia właściwość [LoadOptions::set_DocumentLevelFontSources](https://reference.aspose.com/slides/pl/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/), aby umożliwić określenie zewnętrznych czcionek, które będą używane w prezentacji.
 
 Ten kod C++ pokazuje, jak używać właściwości [LoadOptions::set_DocumentLevelFontSources](https://reference.aspose.com/slides/pl/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/):
 
 ``` cpp
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <IFontSources.h>
+#include <system/io/file.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto memoryFont1 = File::ReadAllBytes(u"customfonts\\CustomFont1.ttf");
 auto memoryFont2 = File::ReadAllBytes(u"customfonts\\CustomFont2.ttf");
 
@@ -107,12 +127,20 @@ loadOptions->get_DocumentLevelFontSources()->set_MemoryFonts(System::MakeArray<A
 ```
 
 ## **Zarządzanie czcionkami zewnętrznie**
-
 Aspose.Slides udostępnia metodę [FontsLoader::LoadExternalFont](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fontsloader/loadexternalfont/), aby umożliwić ładowanie zewnętrznych czcionek do tablicy bajtów.
 
 Ten kod C++ demonstruje proces ładowania czcionki do tablicy bajtów:
 
 ```cpp
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <IFontSources.h>
+#include <system/io/file.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 // Ścieżka do katalogu dokumentów
 const String outPath = u"../out/SpecifyFontsUsedWithPresentation.pptx";
 const String templatePath = u"../templates/AccessSlides.pptx";
@@ -130,22 +158,22 @@ SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath, loadOption
 
 ## **FAQ**
 
-**Czy niestandardowe czcionki wpływają na eksport do wszystkich formatów (PDF, PNG, SVG, HTML)?**
+### Czy własne czcionki wpływają na eksport do wszystkich formatów (PDF, PNG, SVG, HTML)?
 
 Tak. Połączone czcionki są używane przez renderer we wszystkich formatach eksportu.
 
-**Czy niestandardowe czcionki są automatycznie osadzane w wynikowym PPTX?**
+### Czy własne czcionki są automatycznie osadzane w powstałym pliku PPTX?
 
-Nie. Rejestrowanie czcionki do renderowania nie jest tym samym co osadzanie jej w pliku PPTX. Jeśli potrzebujesz czcionki w obrębie pliku prezentacji, musisz użyć explicite [funkcji osadzania](/slides/pl/cpp/embedded-font/).
+Nie. Rejestrowanie czcionki do renderowania nie jest tym samym co osadzanie jej w pliku PPTX. Jeśli potrzebujesz, aby czcionka była zawarta w pliku prezentacji, musisz użyć wyraźnych [funkcji osadzania](/slides/pl/cpp/embedded-font/).
 
-**Czy mogę kontrolować zachowanie zastępcze, gdy niestandardowa czcionka nie zawiera niektórych glifów?**
+### Czy mogę kontrolować zachowanie fallbacku, gdy własna czcionka nie zawiera niektórych glifów?
 
-Tak. Skonfiguruj [zastępowanie czcionek](/slides/pl/cpp/font-substitution/), [reguły zamiany](/slides/pl/cpp/font-replacement/) oraz [zestawy zastępcze](/slides/pl/cpp/fallback-font/), aby dokładnie określić, która czcionka zostanie użyta, gdy żądany glif jest nieobecny.
+Tak. Skonfiguruj [zastępowanie czcionek](/slides/pl/cpp/font-substitution/), [zasady zamiany](/slides/pl/cpp/font-replacement/) i [zestawy fallback](/slides/pl/cpp/fallback-font/), aby dokładnie określić, która czcionka ma być użyta, gdy żądany glif jest brakujący.
 
-**Czy mogę używać czcionek w kontenerach Linux/Docker bez instalacji systemowej?**
+### Czy mogę używać czcionek w kontenerach Linux/Docker bez instalacji systemowej?
 
-Tak. Wskaż własne foldery czcionek lub ładować czcionki z tablic bajtów. Usuwa to zależność od systemowych katalogów czcionek w obrazie kontenera.
+Tak. Wskaż własne foldery czcionek lub ładuj czcionki z tablic bajtów. Dzięki temu nie ma zależności od systemowych katalogów czcionek w obrazie kontenera.
 
-**A co z licencjonowaniem—czy mogę osadzać dowolną czcionkę bez ograniczeń?**
+### A co z licencjonowaniem — czy mogę osadzać dowolną własną czcionkę bez ograniczeń?
 
-Jesteś odpowiedzialny za zgodność z licencją czcionki. Warunki różnią się; niektóre licencje zabraniają osadzania lub użycia komercyjnego. Zawsze sprawdzaj EULA czcionki przed rozpowszechnianiem wyników.
+Jesteś odpowiedzialny za zgodność z licencjami czcionek. Warunki różnią się; niektóre licencje zakazują osadzania lub komercyjnego użycia. Zawsze sprawdzaj umowę licencyjną czcionki przed dystrybucją wyników.

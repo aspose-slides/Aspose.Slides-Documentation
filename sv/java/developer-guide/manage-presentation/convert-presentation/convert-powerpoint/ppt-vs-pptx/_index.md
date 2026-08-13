@@ -15,58 +15,60 @@ keywords:
 - presentation
 - Java
 - Aspose.Slides
-description: "Jämför PPT vs PPTX för PowerPoint med Aspose.Slides för Java, utforskar formatskillnader, fördelar, kompatibilitet och konverteringstips."
+description: "Jämför PPT vs PPTX för PowerPoint med Aspose.Slides för Java, utforska formatskillnader, fördelar, kompatibilitet och konverteringstips."
 ---
 ## **Översikt**
 
-Denna artikel förklarar skillnaderna mellan PPT- och PPTX-formaten. Den beskriver PPT som det äldre binära formatet som används i PowerPoint 97–2003, medan PPTX presenteras som det moderna Office Open XML‑baserade formatet som erbjuder större flexibilitet och är bättre anpassat för att utöka presentationens funktioner. Artikeln beskriver även viktiga aspekter vid konvertering mellan dessa format, inklusive kompatibilitetshänsyn, och visar hur Aspose.Slides kan användas för att utföra sådana konverteringar. Generellt rekommenderas PPTX när det är möjligt.
+Denna artikel förklarar skillnaderna mellan PPT‑ och PPTX‑formaten. Den beskriver PPT som det äldre binära formatet som användes i PowerPoint 97–2003, medan PPTX presenteras som det moderna Office Open XML‑baserade formatet som erbjuder större flexibilitet och är bättre lämpat för att utöka presentationsmöjligheterna. Artikeln beskriver också viktiga aspekter av konvertering mellan dessa format, inklusive kompatibilitetsaspekter, och visar hur Aspose.Slides kan användas för att utföra sådana konverteringar. I allmänhet rekommenderas PPTX när det är möjligt.
 
 ## **Vad är PPT?**
-[**PPT**](https://docs.fileformat.com/presentation/ppt/) är ett binärt filformat, d.v.s. det är omöjligt att visa dess innehåll utan särskilda verktyg. De första PowerPoint‑versionerna 97‑2003 arbetade med PPT‑filformatet, men dess utbyggbarhet är begränsad.  
+[**PPT**](https://docs.fileformat.com/presentation/ppt/) är ett binärt filformat, dvs. det är omöjligt att visa dess innehåll utan speciella verktyg. De första PowerPoint‑versionerna 97‑2003 arbetade med PPT‑filformatet, men dess utbyggbarhet är begränsad.
 
 ## **Vad är PPTX?**
-[**PPTX**](https://docs.fileformat.com/presentation/pptx/) är ett nytt presentationsfilformat, baserat på Office Open XML‑standard (ISO 29500:2008‑2016, ECMA‑376). PPTX är en arkiverad samling av XML‑ och mediadata. PPTX‑formatet är lätt att utöka. Till exempel är det enkelt att lägga till stöd för en ny diagramtyp eller formtyp utan att ändra PPTX‑formatet i varje ny PowerPoint‑version. PPTX‑formatet har använts sedan PowerPoint 2007.
+[**PPTX**](https://docs.fileformat.com/presentation/pptx/) är ett nytt presentationsfilformat, baserat på Office Open XML‑standarden (ISO 29500:2008‑2016, ECMA‑376). PPTX är ett arkiverat set av XML‑ och medi‑filer. PPTX‑formatet är lätt utbyggbart. Till exempel är det enkelt att lägga till stöd för en ny diagramtyp eller formtyp utan att ändra PPTX‑formatet i varje ny PowerPoint‑version. PPTX‑formatet används från och med PowerPoint 2007.
 
 ## **PPT vs PPTX**
-Även om PPTX erbjuder mycket bredare funktionalitet är PPT fortfarande ganska populärt. Behovet av att konvertera från PPT till PPTX och vice versa är starkt efterfrågat.
+Även om PPTX erbjuder mycket bredare funktionalitet är PPT fortfarande ganska populärt. Behovet av att konvertera från PPT till PPTX och tvärtom efterfrågas starkt.
 
-Konvertering mellan det gamla PPT‑formatet och det nya PPTX‑formatet är dock den mest komplicerade utmaningen bland andra Microsoft‑Office‑format. Även om specifikationen för PPT‑formatet är öppen är det svårt att arbeta med det. PowerPoint kan skapa speciella delar (MetroBlob) i PPT‑filer för att lagra information från PPTX som inte stöds av PPT‑formatet och som inte kan visas i äldre PowerPoint‑versioner. Denna information kan återställas när en PPT‑fil öppnas i en modern PowerPoint‑version eller konverteras till PPTX‑format.
+Konvertering mellan det gamla PPT‑ och det nya PPTX‑formatet är den mest komplicerade utmaningen bland andra Microsoft Office‑format. Trots att specifikationen för PPT‑formatet är öppen är det svårt att arbeta med det. PowerPoint kan skapa speciella delar (MetroBlob) i PPT‑filer för att lagra information från PPTX som inte stöds av PPT‑formatet och som inte kan visas i äldre PowerPoint‑versioner. Denna information kan återställas när en PPT‑fil laddas i en modern PowerPoint‑version eller konverteras till PPTX‑format.
 
-Aspose.Slides tillhandahåller ett gemensamt gränssnitt för att arbeta med alla presentationsformat. Det möjliggör konvertering från PPT till PPTX och PPTX till PPT på ett mycket enkelt sätt. Aspose.Slides stöder fullt ut konvertering från PPT till PPTX och även konvertering från PPTX till PPT med vissa begränsningar. Vi rekommenderar att du använder PPTX‑formatet närhelst det är möjligt.
+Aspose.Slides tillhandahåller ett enhetligt gränssnitt för att arbeta med alla presentationsformat. Det möjliggör konvertering från PPT till PPTX och från PPTX till PPT på ett mycket enkelt sätt. Aspose.Slides stöder fullt ut konvertering från PPT till PPTX och stödjer även konvertering från PPTX till PPT med vissa begränsningar. Vi rekommenderar att du använder PPTX‑format där det är möjligt.
 
-{{% alert color="primary" %}} 
-Kontrollera kvaliteten på PPT‑till‑PPTX‑ och PPTX‑till‑PPT‑konverteringar med det on‑line [**Aspose.Slides Conversion app**](https://products.aspose.app/slides/sv/conversion/).
+{{% alert color="info" %}} 
+Kontrollera kvaliteten på PPT‑till‑PPTX‑ och PPTX‑till‑PPT‑konverteringar med den onlinetjänst [**Aspose.Slides Conversion app**](https://products.aspose.app/slides/sv/conversion/).
 {{% /alert %}} 
 
 ```java
+import com.aspose.slides.*;
+
 // Instansiera ett Presentation-objekt som representerar en PPT-fil
 Presentation pres = new Presentation("PPTtoPPTX.ppt");
 try {
-// Sparar PPT-presentationen i PPTX-format
+    // Sparar PPT-presentationen till PPTX-format
     pres.save("PPTtoPPTX_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-{{% alert color="primary" %}} 
-Läs mer [**How to Convert Presentations PPT to PPTX**.](/slides/sv/java/convert-ppt-to-pptx/)
+{{% alert color="info" %}} 
+Läs mer [**Hur man konverterar presentationer PPT till PPTX**.](/slides/sv/java/convert-ppt-to-pptx/)
 {{% /alert %}} 
 
-## **FAQ**
+## **Vanliga frågor**
 
-**Finns det någon anledning att behålla gamla presentationer i PPT om de öppnas utan fel?**
+### Finns det någon anledning att behålla gamla presentationer i PPT om de öppnas utan fel?
 
-Om en presentation öppnas pålitligt och inte behöver samarbete eller nyare funktioner kan du behålla den i PPT. Men för framtida kompatibilitet och utbyggbarhet är det bättre att [konvertera till PPTX](/slides/sv/java/convert-ppt-to-pptx/): formatet är baserat på den öppna OOXML‑standarden och stöds enklare av moderna verktyg.
+Om en presentation öppnas pålitligt och inte behöver samarbete eller nyare funktioner kan du behålla den i PPT. Men för framtida kompatibilitet och utbyggbarhet är det bättre att [konvertera till PPTX](/slides/sv/java/convert-ppt-to-pptx/): formatet bygger på den öppna OOXML‑standarden och är enklare att stödja med moderna verktyg.
 
-**Hur kan jag avgöra vilka filer som är viktigast att först konvertera till PPTX?**
+### Hur kan jag avgöra vilka filer som är kritiska att konvertera till PPTX först?
 
-Konvertera först de presentationer som: redigeras av flera personer; innehåller komplexa [diagram](/slides/sv/java/create-chart/)/[former](/slides/sv/java/shape-manipulations/); används i extern kommunikation; eller ger varningar när de [öppnas](/slides/sv/java/open-presentation/).
+Konvertera först de presentationer som redigeras av flera personer; innehåller komplexa [charts](/slides/sv/java/create-chart/)/[shapes](/slides/sv/java/shape-manipulations/); används i extern kommunikation; eller ger varningar när de [opened](/slides/sv/java/open-presentation/).
 
-**Kommer lösenordsskydd att bevaras vid konvertering från PPT till PPTX och tillbaka?**
+### Behålls lösenordsskyddet när man konverterar från PPT till PPTX och tillbaka?
 
-Lösenordet behålls bara med en korrekt konvertering och krypteringsstöd i det verktyg du använder. Det är mer pålitligt att [ta bort skyddet](/slides/sv/java/password-protected-presentation/), [konvertera](/slides/sv/java/convert-ppt-to-pptx/), och sedan återapplicera skyddet enligt din säkerhetspolicy.
+Lösenordet överförs endast om konverteringen och krypteringsstödet i verktyget är korrekta. Det är säkrare att [ta bort skyddet](/slides/sv/java/password-protected-presentation/), [konvertera](/slides/sv/java/convert-ppt-to-pptx/), och sedan återinföra skyddet enligt din säkerhetspolicy.
 
-**Varför försvinner vissa effekter eller förenklas när PPTX konverteras tillbaka till PPT?**
+### Varför försvinner vissa effekter eller förenklas när PPTX konverteras tillbaka till PPT?
 
-Eftersom PPT inte stödjer några av de nyare objekten/egenskaperna. PowerPoint och verktyg kan lagra “spår” av denna information i speciella block för senare återställning, men äldre versioner av PowerPoint kommer inte att rendera dem.
+Eftersom PPT inte stödjer vissa nyare objekt/egenskaper. PowerPoint och verktyg kan lagra “spår” av denna information i speciella block för senare återställning, men äldre versioner av PowerPoint kommer inte att rendera dem.

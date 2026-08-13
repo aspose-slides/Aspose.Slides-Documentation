@@ -1,6 +1,6 @@
 ---
-title: Applicare animazioni di forme nelle presentazioni con C++
-linktitle: Animazione Forma
+title: Applicare animazioni di forme nelle presentazioni usando C++
+linktitle: Animazione di forma
 type: docs
 weight: 60
 url: /it/cpp/shape-animation/
@@ -10,30 +10,30 @@ keywords:
 - effetto
 - forma animata
 - testo animato
-- aggiungi animazione
-- ottieni animazione
-- estrai animazione
-- aggiungi effetto
-- ottieni effetto
-- estrai effetto
+- aggiungere animazione
+- ottenere animazione
+- estrarre animazione
+- aggiungere effetto
+- ottenere effetto
+- estrarre effetto
 - suono effetto
-- applica animazione
+- applicare animazione
 - PowerPoint
 - presentazione
 - C++
 - Aspose.Slides
-description: "Scopri come creare e personalizzare animazioni di forme nelle presentazioni PowerPoint con Aspose.Slides per C++. Fatti notare!"
+description: "Scopri come creare e personalizzare le animazioni di forme nelle presentazioni PowerPoint con Aspose.Slides per C++. Distinguersi!"
 ---
 ## **Introduzione**
 
 Le animazioni sono effetti visivi che possono essere applicati a testi, immagini, forme o [grafici](/slides/it/cpp/animated-charts/). Danno vita alle presentazioni o ai loro componenti. 
 
-## **Perché usare le animazioni nelle presentazioni?**
+## **Perché utilizzare le animazioni nelle presentazioni?**
 
-Usando le animazioni, è possibile:
+Utilizzando le animazioni, puoi 
 
-* controllare il flusso di informazioni
-* evidenziare i punti importanti
+* controllare il flusso delle informazioni
+* enfatizzare i punti importanti
 * aumentare l'interesse o la partecipazione del pubblico
 * rendere il contenuto più facile da leggere, assimilare o elaborare
 * attirare l'attenzione dei lettori o spettatori verso le parti importanti di una presentazione
@@ -43,24 +43,44 @@ PowerPoint fornisce molte opzioni e strumenti per animazioni ed effetti di anima
 ## **Animazioni in Aspose.Slides**
 
 * Aspose.Slides fornisce le classi e i tipi necessari per lavorare con le animazioni nello spazio dei nomi [Aspose.Slides.Animation](https://reference.aspose.com/slides/it/cpp/namespace/aspose.slides.animation).
-* Aspose.Slides fornisce oltre **150 effetti di animazione** nello spazio dei nomi [EffectType](https://reference.aspose.com/slides/it/cpp/namespace/aspose.slides.animation#ae0da11508d382465aa4e7a011df1bf31). Questi effetti sono sostanzialmente gli stessi (o equivalenti) effetti utilizzati in PowerPoint.
+* Aspose.Slides offre più di **150 effetti di animazione** nell'enumerazione [EffectType](https://reference.aspose.com/slides/it/cpp/namespace/aspose.slides.animation#ae0da11508d382465aa4e7a011df1bf31). Questi effetti sono essenzialmente gli stessi (o equivalenti) utilizzati in PowerPoint.
 
 ## **Applicare un'animazione a una TextBox**
 
-Aspose.Slides per C++ consente di applicare animazioni al testo in una forma. 
+Aspose.Slides per C++ consente di applicare un'animazione al testo in una forma. 
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.presentation/).
-2. Ottieni il riferimento a una diapositiva tramite il suo indice.
-3. Aggiungi un `rectangle` [IAutoShape](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.i_auto_shape).
-4. Aggiungi testo a [IAutoShape.TextFrame](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.i_auto_shape#afb267108fea5ee5a213c162c004fcef3).
-5. Ottieni la sequenza principale di effetti.
-6. Aggiungi un effetto di animazione a [IAutoShape](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.i_auto_shape).
-7. Imposta la proprietà [TextAnimation.BuildType](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.animation.text_animation#afa90da088213f947baf64f8cdddd18b8) sul valore dell'[enumerazione BuildType](https://reference.aspose.com/slides/it/cpp/namespace/aspose.slides.animation#a1b0f1615881ac05b1a72c670a125b8e7).
-8. Scrivi la presentazione su disco come file PPTX.
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.presentation/).
+2. Ottenere il riferimento a una slide tramite il suo indice.
+3. Aggiungere una `rectangle` [IAutoShape](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.i_auto_shape). 
+4. Aggiungere testo a [IAutoShape.TextFrame](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.i_auto_shape#afb267108fea5ee5a213c162c004fcef3).
+5. Ottenere la sequenza principale di effetti.
+6. Aggiungere un effetto di animazione a [IAutoShape](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.i_auto_shape). 
+7. Impostare la proprietà [TextAnimation.BuildType](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.animation.text_animation#afa90da088213f947baf64f8cdddd18b8) al valore della [BuildType Enumeration](https://reference.aspose.com/slides/it/cpp/namespace/aspose.slides.animation#a1b0f1615881ac05b1a72c670a125b8e7).
+8. Scrivere la presentazione su disco come file PPTX.
 
-Questo codice C++ mostra come applicare l'effetto `Fade` a AutoShape e impostare l'animazione del testo al valore *By 1st Level Paragraphs*:
+Questo codice C++ mostra come applicare l'effetto `Fade` a AutoShape e impostare l'animazione del testo sul valore *Per paragrafi di primo livello*:
 
 ```c++
+#include <DOM/Animation/BuildType.h>
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITextAnimation.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+
 // Istanzia una classe Presentation che rappresenta un file di presentazione.
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -73,7 +93,7 @@ System::SharedPtr<IAutoShape> autoShape =
 System::SharedPtr<ITextFrame> textFrame = autoShape->get_TextFrame();
 textFrame->set_Text(u"First paragraph \nSecond paragraph \n Third paragraph");
 
-// Ottiene la sequenza principale della diapositiva.
+// Ottiene la sequenza principale della slide.
 System::SharedPtr<ISequence> sequence = sld->get_Timeline()->get_MainSequence();
 
 // Aggiunge l'effetto di animazione Fade alla forma
@@ -84,25 +104,48 @@ System::SharedPtr<IEffect> effect = sequence->AddEffect(autoShape, Aspose::Slide
 effect->get_TextAnimation()->set_BuildType(Aspose::Slides::Animation::BuildType::ByLevelParagraphs1);
 
 // Salva il file PPTX su disco
-pres->Save(path + u"AnimText_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+pres->Save(u"AnimText_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-{{%  alert color="primary"  %}} 
-Oltre ad applicare animazioni al testo, è possibile applicare animazioni a un singolo [Paragraph](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.i_paragraph). Vedi [**Animated Text**](/slides/it/cpp/animated-text/).
+{{%  alert color="info"  %}} 
+
+Oltre ad applicare animazioni al testo, è possibile applicare animazioni a un singolo [Paragraph](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.i_paragraph). Vedi [**Testo animato**](/slides/it/cpp/animated-text/).
+
 {{% /alert %}} 
 
 ## **Applicare un'animazione a un PictureFrame**
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.presentation/).
-2. Ottieni il riferimento a una diapositiva tramite il suo indice.
-3. Aggiungi o ottieni un [PictureFrame](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.i_picture_frame) sulla diapositiva. 
-4. Ottieni la sequenza principale di effetti.
-5. Aggiungi un effetto di animazione al [PictureFrame](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.i_picture_frame).
-6. Scrivi la presentazione su disco come file PPTX.
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.presentation/).
+2. Ottenere il riferimento a una slide tramite il suo indice.
+3. Aggiungere o ottenere un [PictureFrame](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.i_picture_frame) nella slide. 
+4. Ottenere la sequenza principale di effetti.
+5. Aggiungere un effetto di animazione al [PictureFrame](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.i_picture_frame).
+6. Scrivere la presentazione su disco come file PPTX.
 
 Questo codice C++ mostra come applicare l'effetto `Fly` a un picture frame:
 
 ```c++
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+
 // Istanzia una classe Presentation che rappresenta un file di presentazione.
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -110,11 +153,11 @@ System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 System::SharedPtr<IImage> img = Images::FromFile(u"aspose-logo.jpg");
 System::SharedPtr<IPPImage> image = pres->get_Images()->AddImage(img);
 
-// Aggiunge un frame immagine alla diapositiva
+// Aggiunge un frame immagine alla slide
 System::SharedPtr<IPictureFrame> picFrame =
     pres->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(Aspose::Slides::ShapeType::Rectangle, 50.0f, 50.0f, 100.0f, 100.0f, image);
 
-// Ottiene la sequenza principale della diapositiva.
+// Ottiene la sequenza principale della slide.
 System::SharedPtr<ISequence> sequence = pres->get_Slides()->idx_get(0)->get_Timeline()->get_MainSequence();
 
 // Aggiunge l'effetto di animazione Fly da sinistra al frame immagine
@@ -122,34 +165,61 @@ System::SharedPtr<IEffect> effect = sequence->AddEffect(picFrame, Aspose::Slides
     Aspose::Slides::Animation::EffectSubtype::Left, Aspose::Slides::Animation::EffectTriggerType::OnClick);
 
 // Salva il file PPTX su disco
-pres->Save(path + u"AnimImage_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+pres->Save(u"AnimImage_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ## **Applicare un'animazione a una Shape**
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.presentation/).
-2. Ottieni il riferimento a una diapositiva tramite il suo indice.
-3. Aggiungi un `rectangle` [IAutoShape](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.i_auto_shape). 
-4. Aggiungi un `Bevel` [IAutoShape](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.i_auto_shape) (quando questo oggetto viene cliccato, l'animazione viene riprodotta).
-5. Crea una sequenza di effetti sulla forma bevel.
-6. Crea un `UserPath` personalizzato.
-7. Aggiungi comandi per lo spostamento al `UserPath`.
-8. Scrivi la presentazione su disco come file PPTX.
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.presentation/).
+2. Ottenere il riferimento a una slide tramite il suo indice.
+3. Aggiungere una `rectangle` [IAutoShape](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.i_auto_shape). 
+4. Aggiungere un `Bevel` [IAutoShape](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.i_auto_shape) (quando questo oggetto viene cliccato, l'animazione viene eseguita).
+5. Creare una sequenza di effetti sulla forma bevel.
+6. Creare un `UserPath` personalizzato.
+7. Aggiungere comandi per il movimento al `UserPath`.
+8. Scrivere la presentazione su disco come file PPTX.
 
 Questo codice C++ mostra come applicare l'effetto `PathFootball` (percorso football) a una forma:
 
 ```c++
-	// Il percorso alla directory dei documenti.
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IBehaviorCollection.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/IMotionPath.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ISequenceCollection.h>
+#include <DOM/Animation/MotionCommandPathType.h>
+#include <DOM/Animation/MotionEffect.h>
+#include <DOM/Animation/MotionPathPointsType.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+	// Il percorso alla directory del documento.
 	const String outPath = u"../out/AnimationsOnShapes_out.pptx";
 	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
 
 	// Carica la presentazione
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Accede alla prima diapositiva
+	// Accede alla prima slide
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Accede alla raccolta di forme per la diapositiva selezionata
+	// Accede alla raccolta di forme per la slide selezionata
 	SharedPtr<IShapeCollection> shapes = slide->get_Shapes();
 
 	// Crea l'effetto PathFootball per la forma esistente da zero.
@@ -157,7 +227,7 @@ Questo codice C++ mostra come applicare l'effetto `PathFootball` (percorso footb
 
 	ashp->AddTextFrame(u"Animated TextBox");
 
-	// Aggiunge l'effetto di animazione PathFootball
+	// Aggiunge l'effetto di animazione PathFootBall
 	slide->get_Timeline()->get_MainSequence()->AddEffect(ashp, EffectType::PathFootball,
 		EffectSubtype::None, EffectTriggerType::AfterPrevious);
 
@@ -167,10 +237,10 @@ Questo codice C++ mostra come applicare l'effetto `PathFootball` (percorso footb
 	// Crea una sequenza di effetti per questo pulsante.
 	SharedPtr<ISequence> seqInter = slide->get_Timeline()->get_InteractiveSequences()->Add(shapeTrigger);
 	
-	 // Crea un percorso utente personalizzato. Il nostro oggetto verrà spostato solo dopo che il pulsante è stato cliccato.
+	 // Crea un percorso utente personalizzato. Il nostro oggetto verrà spostato solo dopo che il pulsante viene cliccato.
 	SharedPtr<IEffect> fxUserPath = seqInter->AddEffect(ashp, EffectType::PathUser, EffectSubtype::None, EffectTriggerType::OnClick);
 
-	// Aggiunge comandi di movimento poiché il percorso creato è vuoto.
+	// Aggiunge comandi per lo spostamento poiché il percorso creato è vuoto.
 	 SharedPtr<MotionEffect> motionBhv = ExplicitCast<MotionEffect>(fxUserPath->get_Behaviors()->idx_get(0));
 
 	// SharedPtr<PointF> point = MakeObject<PointF >(0.076, 0.59);
@@ -194,22 +264,33 @@ Questo codice C++ mostra come applicare l'effetto `PathFootball` (percorso footb
 
 Gli esempi seguenti mostrano come utilizzare il metodo `GetEffectsByShape` dell'interfaccia [ISequence](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/isequence/) per ottenere tutti gli effetti di animazione applicati a una forma.
 
-**Esempio 1: Ottenere gli effetti di animazione applicati a una forma su una diapositiva normale**
+**Esempio 1: Ottenere gli effetti di animazione applicati a una forma su una slide normale**
 
-In precedenza hai imparato come aggiungere effetti di animazione alle forme nelle presentazioni PowerPoint. Il codice di esempio seguente mostra come ottenere gli effetti applicati alla prima forma sulla prima diapositiva normale nella presentazione `AnimExample_out.pptx`.
+In precedenza, hai imparato come aggiungere effetti di animazione a forme nelle presentazioni PowerPoint. Il codice di esempio seguente mostra come ottenere gli effetti applicati alla prima forma sulla prima slide normale della presentazione `AnimExample_out.pptx`.
 
 ```c++
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace System;
+
 SharedPtr<Presentation> presentation = MakeObject<Presentation>(u"AnimExample_out.pptx");
 
 SharedPtr<ISlide> firstSlide = presentation->get_Slide(0);
 
-// Gets the main animation sequence of the slide.
+// Ottiene la sequenza principale di animazione della slide.
 SharedPtr<ISequence> sequence = firstSlide->get_Timeline()->get_MainSequence();
 
-// Gets the first shape on the first slide.
+// Ottiene la prima forma sulla prima slide.
 SharedPtr<IShape> shape = firstSlide->get_Shape(0);
 
-// Gets animation effects applied to the shape.
+// Ottiene gli effetti di animazione applicati alla forma.
 ArrayPtr<SharedPtr<IEffect>> shapeEffects = sequence->GetEffectsByShape(shape);
 
 if (shapeEffects->get_Length() > 0)
@@ -220,47 +301,77 @@ if (shapeEffects->get_Length() > 0)
 presentation->Dispose();
 ```
 
-**Esempio 2: Ottenere tutti gli effetti di animazione, inclusi quelli ereditati dai segnaposto**
+**Esempio 2: Ottenere tutti gli effetti di animazione, inclusi quelli ereditati da segnaposti**
 
-Se una forma su una diapositiva normale ha segnaposti che si trovano nella diapositiva layout e/o master, e a questi segnaposti sono stati aggiunti effetti di animazione, tutti gli effetti della forma verranno riprodotti durante la presentazione, inclusi quelli ereditati.
+Se una forma su una slide normale ha segnaposti presenti nella slide di layout e/o master, e a questi segnaposti sono stati aggiunti effetti di animazione, allora tutti gli effetti della forma verranno riprodotti durante la presentazione, inclusi quelli ereditati dai segnaposti.
 
-Supponiamo di avere un file PowerPoint `sample.pptx` con una diapositiva contenente solo una forma footer con il testo "Made with Aspose.Slides" e l'effetto **Random Bars** applicato alla forma.
+Supponiamo di avere un file di presentazione PowerPoint `sample.pptx` con una slide che contiene solo una forma di piè di pagina con il testo "Made with Aspose.Slides" e a cui è stato applicato l'effetto **Random Bars**.
 
-![Effetto di animazione della forma della diapositiva](slide-shape-animation.png)
+![Effetto di animazione della forma della slide](slide-shape-animation.png)
 
-Supponiamo inoltre che l'effetto **Split** sia applicato al segnaposto footer nella diapositiva **layout**.
+Supponiamo inoltre che l'effetto **Split** sia stato applicato al segnaposto del piè di pagina sulla slide di **layout**.
 
-![Effetto di animazione della forma layout](layout-shape-animation.png)
+![Effetto di animazione della forma del layout](layout-shape-animation.png)
 
-Infine, l'effetto **Fly In** è applicato al segnaposto footer nella diapositiva **master**.
+Infine, l'effetto **Fly In** è stato applicato al segnaposto del piè di pagina sulla slide di **master**.
 
 ![Effetto di animazione della forma master](master-shape-animation.png)
 
-Il codice di esempio seguente mostra come utilizzare il metodo `GetBasePlaceholder` dell'interfaccia [IShape](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/) per accedere ai segnaposto della forma e ottenere gli effetti di animazione applicati alla forma footer, inclusi quelli ereditati dai segnaposto situati su layout e master.
+Il codice di esempio seguente mostra come utilizzare il metodo `GetBasePlaceholder` dell'interfaccia [IShape](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/) per accedere ai segnaposti della forma e ottenere gli effetti di animazione applicati alla forma del piè di pagina, inclusi quelli ereditati dai segnaposti situati su slide di layout e master.
 
 ```cpp
-void PrintEffects(ArrayPtr<SharedPtr<IEffect>> effects)
+#include <DOM/Animation/IEffect.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+using namespace Aspose::Slides::Animation;
+using namespace System;
+
+auto PrintEffects = [](ArrayPtr<SharedPtr<IEffect>> effects)
 {
     for (SharedPtr<IEffect> effect : effects)
     {
         Console::WriteLine(String::Format(u"Type: {0}, subtype: {1}", effect->get_Type(), effect->get_Subtype()));
     }
-}
+};
 ```
 ```cpp
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace System;
+
+auto PrintEffects = [](ArrayPtr<SharedPtr<IEffect>> effects)
+{
+    for (SharedPtr<IEffect> effect : effects)
+    {
+        Console::WriteLine(String::Format(u"Type: {0}, subtype: {1}", effect->get_Type(), effect->get_Subtype()));
+    }
+};
+
 SharedPtr<Presentation> presentation = MakeObject<Presentation>(u"sample.pptx");
 
 SharedPtr<ISlide> slide = presentation->get_Slide(0);
 
-// Get animation effects of the shape on the normal slide.
+// Ottieni gli effetti di animazione della forma sulla slide normale.
 SharedPtr<IShape> shape = slide->get_Shape(0);
 ArrayPtr<SharedPtr<IEffect>> shapeEffects = slide->get_Timeline()->get_MainSequence()->GetEffectsByShape(shape);
 
-// Get animation effects of the placeholder on the layout slide.
+// Ottieni gli effetti di animazione del segnaposto sulla slide di layout.
 SharedPtr<IShape> layoutShape = shape->GetBasePlaceholder();
 ArrayPtr<SharedPtr<IEffect>> layoutShapeEffects = slide->get_LayoutSlide()->get_Timeline()->get_MainSequence()->GetEffectsByShape(layoutShape);
 
-// Get animation effects of the placeholder on the master slide.
+// Ottieni gli effetti di animazione del segnaposto sulla slide master.
 SharedPtr<IShape> masterShape = layoutShape->GetBasePlaceholder();
 ArrayPtr<SharedPtr<IEffect>> masterShapeEffects = slide->get_LayoutSlide()->get_MasterSlide()->get_Timeline()->get_MainSequence()->GetEffectsByShape(masterShape);
 
@@ -275,38 +386,51 @@ PrintEffects(shapeEffects);
 Output:
 ```text
 Main sequence of shape effects:
-Type: 47, subtype: 2              // Vola, Basso
-Type: 134, subtype: 45            // Dividi, Entrata verticale
-Type: 126, subtype: 22            // Barre casuali, Orizzontale
+Type: 47, subtype: 2              // Fly, Inferiore
+Type: 134, subtype: 45            // Split, VerticalIn
+Type: 126, subtype: 22            // RandomBars, Orizzontale
 ```
 
-## **Modificare le proprietà di timing dell'effetto di animazione**
+## **Modificare le proprietà di temporizzazione dell'effetto di animazione**
 
 Aspose.Slides per C++ consente di modificare le proprietà di Timing di un effetto di animazione.
 
-Questa è il pannello Timing dell'animazione in Microsoft PowerPoint:
+Questo è il pannello di temporizzazione dell'animazione in Microsoft PowerPoint:
 
-![example1_image](shape-animation.png)
+![Pannello di temporizzazione dell'animazione](shape-animation.png)
 
-Queste sono le corrispondenze tra il Timing di PowerPoint e le proprietà [Effect.Timing](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.animation.effect#a333640cbb8d32c413ccda11c1a7c3b4c):
+Queste sono le corrispondenze tra il Timing di PowerPoint e le proprietà di [Effect.Timing](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.animation.effect#a333640cbb8d32c413ccda11c1a7c3b4c):
 
-- Il menu a discesa **Start** del Timing di PowerPoint corrisponde alla proprietà [Effect.Timing.TriggerType](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.animation.i_timing#a9cec24d555c39e33f0b71dc2210daab3). 
-- **Duration** del Timing di PowerPoint corrisponde alla proprietà [Effect.Timing.Duration](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.animation.i_timing#a4f5eebdec3b0b2e6d57ee944b5a8a340). La durata di un'animazione (in secondi) è il tempo totale necessario per completare un ciclo. 
-- **Delay** del Timing di PowerPoint corrisponde alla proprietà [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.animation.i_timing#a947ac2f79c7310d0276ef17999b7214b). 
+- Il menu a discesa **Start** di PowerPoint corrisponde alla proprietà [Effect.Timing.TriggerType](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.animation.i_timing#a9cec24d555c39e33f0b71dc2210daab3). 
+- **Duration** di PowerPoint corrisponde alla proprietà [Effect.Timing.Duration](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.animation.i_timing#a4f5eebdec3b0b2e6d57ee944b5a8a340). La durata di un'animazione (in secondi) è il tempo totale necessario per completare un ciclo. 
+- **Delay** di PowerPoint corrisponde alla proprietà [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.animation.i_timing#a947ac2f79c7310d0276ef17999b7214b). 
 
 Ecco come modificare le proprietà di Timing dell'effetto:
 
 1. [Applica](#apply-animation-to-shape) o ottieni l'effetto di animazione.
-2. Imposta i nuovi valori per le proprietà [Effect.Timing](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.animation.effect#a333640cbb8d32c413ccda11c1a7c3b4c) necessarie. 
+2. Imposta nuovi valori per le proprietà [Effect.Timing](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.animation.effect#a333640cbb8d32c413ccda11c1a7c3b4c) necessarie. 
 3. Salva il file PPTX modificato.
 
 Questo codice C++ dimostra l'operazione:
 
 ```c++
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+
 // Istanzia una classe Presentation che rappresenta un file di presentazione.
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimExample_out.pptx");
 
-// Ottiene la sequenza principale della diapositiva.
+// Ottiene la sequenza principale della slide.
 System::SharedPtr<ISequence> sequence = pres->get_Slides()->idx_get(0)->get_Timeline()->get_MainSequence();
 
 // Ottiene il primo effetto della sequenza principale.
@@ -327,60 +451,83 @@ pres->Save(u"AnimExample_changed.pptx", Aspose::Slides::Export::SaveFormat::Pptx
 
 ## **Suono dell'effetto di animazione**
 
-Aspose.Slides fornisce queste proprietà per gestire i suoni negli effetti di animazione: 
+Aspose.Slides fornisce queste proprietà per consentire di lavorare con i suoni negli effetti di animazione: 
 
 - [set_Sound()](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/effect/set_sound/) 
 - [set_StopPreviousSound()](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/effect/set_stopprevioussound/) 
 
-### **Aggiungere un suono a un effetto di animazione**
+### **Aggiungere un suono all'effetto di animazione**
 
-Questo codice C++ mostra come aggiungere un suono a un effetto di animazione e fermarlo quando inizia il prossimo effetto:
+Questo codice C++ mostra come aggiungere un suono all'effetto di animazione e fermarlo quando inizia il successivo effetto:
 
 ```c++
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAudio.h>
+#include <DOM/IAudioCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimExample_out.pptx");
 
-// Aggiunge audio alla collezione audio della presentazione
+// Aggiunge audio alla raccolta audio della presentazione
 System::SharedPtr<IAudio> effectSound = pres->get_Audios()->AddAudio(System::IO::File::ReadAllBytes(u"sampleaudio.wav"));
 System::SharedPtr<ISlide> firstSlide = pres->get_Slide(0);
 
-// Ottiene la sequenza principale della diapositiva.
+// Ottiene la sequenza principale della slide.
 System::SharedPtr<ISequence> sequence = firstSlide->get_Timeline()->get_MainSequence();
 
 // Ottiene il primo effetto della sequenza principale
 System::SharedPtr<IEffect> firstEffect = sequence->idx_get(0);
 
-// Controlla l'effetto per "Nessun suono"
+// Verifica l'effetto per "No Sound"
 if (!firstEffect->get_StopPreviousSound() && firstEffect->get_Sound() == nullptr)
 {
-    // Aggiunge suono al primo effetto
+    // Aggiunge il suono per il primo effetto
     firstEffect->set_Sound(effectSound);
 }
 
-// Ottiene la prima sequenza interattiva della diapositiva.
+// Ottiene la prima sequenza interattiva della slide.
 System::SharedPtr<ISequence> interactiveSequence = firstSlide->get_Timeline()->get_InteractiveSequence(0);
 
-// Imposta il flag "Interrompi suono precedente" dell'effetto
+// Imposta il flag dell'effetto "Stop previous sound"
 interactiveSequence->idx_get(0)->set_StopPreviousSound(true);
 
 // Scrive il file PPTX su disco
 pres->Save(u"AnimExample_Sound_out.pptx", SaveFormat::Pptx);
 ```
 
-### **Estrarre un suono da un effetto di animazione**
+### **Estrarre un suono dall'effetto di animazione**
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/).
-2. Ottieni il riferimento a una diapositiva tramite il suo indice. 
-3. Ottieni la sequenza principale di effetti. 
-4. Estrai il metodo [set_Sound()](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/effect/set_sound/) incorporato in ciascun effetto di animazione. 
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/).
+2. Ottenere il riferimento a una slide tramite il suo indice. 
+3. Ottenere la sequenza principale di effetti. 
+4. Estrarre il suono [set_Sound()] incorporato in ogni effetto di animazione. 
 
 Questo codice C++ mostra come estrarre il suono incorporato in un effetto di animazione:
 
 ```c++
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAudio.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+
 // Istanzia una classe Presentation che rappresenta un file di presentazione.
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"EffectSound.pptx");
 System::SharedPtr<ISlide> slide = pres->get_Slide(0);
 
-// Ottiene la sequenza principale della diapositiva.
+// Ottiene la sequenza principale della slide.
 System::SharedPtr<ISequence> sequence = slide->get_Timeline()->get_MainSequence();
 
 for (auto&& effect : sequence)
@@ -394,26 +541,40 @@ for (auto&& effect : sequence)
 }
 ```
 
-## **After Animation**
+## **Dopo l'animazione**
 
 Aspose.Slides per C++ consente di modificare la proprietà After animation di un effetto di animazione.
 
-Questo è il pannello dell'effetto di animazione e il menu esteso in Microsoft PowerPoint:
+Questo è il pannello dell'effetto dopo l'animazione in Microsoft PowerPoint:
 
-![example1_image](shape-after-animation.png)
+![Pannello dell'effetto dopo l'animazione](shape-after-animation.png)
 
-L'elenco a discesa **After animation** del pannello Effetto di PowerPoint corrisponde a queste proprietà: 
+Il menu a discesa **After animation** di PowerPoint corrisponde a queste proprietà: 
 
-- La proprietà [set_AfterAnimationType()](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/ieffect/set_afteranimationtype/) che descrive il tipo di After animation:
-  * **More Colors** di PowerPoint corrisponde al tipo [AfterAnimationType.Color](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/afteranimationtype/);
-  * **Don't Dim** di PowerPoint corrisponde al tipo [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/afteranimationtype/) (tipo predefinito);
-  * **Hide After Animation** di PowerPoint corrisponde al tipo [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/afteranimationtype/);
-  * **Hide on Next Mouse Click** di PowerPoint corrisponde al tipo [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/afteranimationtype/);
-- La proprietà [set_AfterAnimationColor()](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/ieffect/set_afteranimationcolor/) che definisce il formato colore After animation. Questa proprietà funziona in combinazione con il tipo [AfterAnimationType.Color](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/afteranimationtype/). Se cambiate il tipo, il colore After animation verrà cancellato.
+- La proprietà [set_AfterAnimationType()](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/ieffect/set_afteranimationtype/) descrive il tipo di After animation:
+  * PowerPoint **More Colors** corrisponde al tipo [AfterAnimationType.Color](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/afteranimationtype/);
+  * PowerPoint **Don't Dim** corrisponde al tipo [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/afteranimationtype/) (tipo predefinito di after animation);
+  * PowerPoint **Hide After Animation** corrisponde al tipo [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/afteranimationtype/);
+  * PowerPoint **Hide on Next Mouse Click** corrisponde al tipo [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/afteranimationtype/);
+- La proprietà [set_AfterAnimationColor()](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/ieffect/set_afteranimationcolor/) definisce un formato di colore After animation. Questa proprietà funziona in congiunzione con il tipo [AfterAnimationType.Color](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/afteranimationtype/). Se cambi il tipo, il colore After animation verrà cancellato.
 
 Questo codice C++ mostra come modificare un effetto After animation:
 
 ```c++
+#include <DOM/Animation/AfterAnimationType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+
 // Istanzia una classe Presentation che rappresenta un file di presentazione
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimImage_out.pptx");
 System::SharedPtr<ISlide> firstSlide = pres->get_Slide(0);
@@ -424,7 +585,7 @@ System::SharedPtr<IEffect> firstEffect = firstSlide->get_Timeline()->get_MainSeq
 // Cambia il tipo di after animation a Color
 firstEffect->set_AfterAnimationType(AfterAnimationType::Color);
 
-// Imposta il colore di attenuazione after animation
+// Imposta il colore di after animation
 firstEffect->get_AfterAnimationColor()->set_Color(System::Drawing::Color::get_AliceBlue());
 
 // Scrive il file PPTX su disco
@@ -433,24 +594,38 @@ pres->Save(u"AnimImage_AfterAnimation.pptx", SaveFormat::Pptx);
 
 ## **Animare il testo**
 
-Aspose.Slides fornisce queste proprietà per gestire il blocco *Animate text* di un effetto di animazione:
+Aspose.Slides fornisce queste proprietà per lavorare con il blocco *Animate text* di un effetto di animazione:
 
-- [set_AnimateTextType()](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) che descrive il tipo di animazione del testo dell'effetto. Il testo della forma può essere animato:
-  - Tutto in una volta ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/animatetexttype/) type)
-  - Per parola ([AnimateTextType.ByWord](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/animatetexttype/) type)
-  - Per lettera ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/animatetexttype/) type)
-- [set_DelayBetweenTextParts()](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) imposta un ritardo tra le parti di testo animate (parole o lettere). Un valore positivo specifica la percentuale della durata dell'effetto. Un valore negativo specifica il ritardo in secondi.
+- La proprietà [set_AnimateTextType()](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) descrive il tipo di animazione del testo dell'effetto. Il testo della forma può essere animato:
+  - Tutto in una volta ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/animatetexttype/) tipo)
+  - Per parola ([AnimateTextType.ByWord](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/animatetexttype/) tipo)
+  - Per lettera ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/animatetexttype/) tipo)
+- La proprietà [set_DelayBetweenTextParts()](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) imposta un ritardo tra le parti del testo animate (parole o lettere). Un valore positivo specifica la percentuale della durata dell'effetto. Un valore negativo specifica il ritardo in secondi.
 
 Ecco come è possibile modificare le proprietà Animate text dell'effetto:
 
 1. [Applica](#apply-animation-to-shape) o ottieni l'effetto di animazione.
-2. Imposta la proprietà [set_BuildType()](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/itextanimation/set_buildtype/) su [BuildType.AsOneObject](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/buildtype/) per disattivare la modalità di animazione *By Paragraphs*.
-3. Imposta nuovi valori per le proprietà [set_AnimateTextType()](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) e [set_DelayBetweenTextParts()](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/).
+2. Impostare la proprietà [set_BuildType()](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation.itextanimation/set_buildtype/) al valore [BuildType.AsOneObject](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/buildtype/) per disattivare la modalità di animazione *Per paragrafi*.
+3. Impostare nuovi valori per le proprietà [set_AnimateTextType()](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) e [set_DelayBetweenTextParts()](https://reference.aspose.com/slides/it/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/).
 4. Salva il file PPTX modificato.
 
 Questo codice C++ dimostra l'operazione:
 
 ```c++
+#include <DOM/Animation/AnimateTextType.h>
+#include <DOM/Animation/BuildType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITextAnimation.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+
 // Istanzia una classe Presentation che rappresenta un file di presentazione.
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimTextBox_out.pptx");
 System::SharedPtr<ISlide> firstSlide = pres->get_Slide(0);
@@ -458,10 +633,10 @@ System::SharedPtr<ISlide> firstSlide = pres->get_Slide(0);
 // Ottiene il primo effetto della sequenza principale
 System::SharedPtr<IEffect> firstEffect = firstSlide->get_Timeline()->get_MainSequence()->idx_get(0);
 
-// Cambia il tipo di animazione del testo dell'effetto a "As One Object"
+// Modifica il tipo di animazione del testo dell'effetto a "As One Object"
 firstEffect->get_TextAnimation()->set_BuildType(BuildType::AsOneObject);
 
-// Cambia il tipo di animazione del testo a "By word"
+// Modifica il tipo di animazione del testo dell'effetto a "By word"
 firstEffect->set_AnimateTextType(AnimateTextType::ByWord);
 
 // Imposta il ritardo tra le parole al 20% della durata dell'effetto
@@ -473,14 +648,14 @@ pres->Save(u"AnimTextBox_AnimateText.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Come posso garantire che le animazioni siano preservate quando pubblico la presentazione sul web?**
+### Come posso assicurarmi che le animazioni vengano conservate quando pubblico la presentazione sul web?
 
-[Esporta in HTML5](/slides/it/cpp/export-to-html5/) e abilita le [opzioni](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/html5options/) responsabili delle animazioni di [shape](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/html5options/set_animateshapes/) e di [transition](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/html5options/set_animatetransitions/). L'HTML semplice non riproduce le animazioni delle diapositive, mentre l'HTML5 lo fa.
+[Esporta in HTML5](/slides/it/cpp/export-to-html5/) e abilita le [opzioni](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/html5options/) responsabili delle animazioni di [forma](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/html5options/set_animateshapes/) e [transizione](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/html5options/set_animatetransitions/). L'HTML semplice non riproduce le animazioni delle slide, mentre l'HTML5 lo fa.
 
-**In che modo la modifica dell'ordine Z (ordine dei livelli) delle forme influisce sull'animazione?**
+### Come influisce il cambiamento dell'ordine Z (ordine dei livelli) delle forme sull'animazione?
 
-L'ordine di animazione e l'ordine di disegno sono indipendenti: un effetto controlla il timing e il tipo di apparizione/scomparsa, mentre lo [z-order](https://reference.aspose.com/slides/it/cpp/aspose.slides/shape/get_zorderposition/) determina cosa copre cosa. Il risultato visivo è definito dalla loro combinazione. (Questo è il comportamento generale di PowerPoint; il modello effetti‑e‑forme di Aspose.Slides segue la stessa logica.)
+L'ordine Z determina cosa copre cosa, mentre le animazioni controllano il momento e il modo in cui gli oggetti appaiono o scompaiono. Il risultato visivo dipende dalla combinazione di entrambi. (Questo è il comportamento generale di PowerPoint; il modello di effetti e forme di Aspose.Slides segue la stessa logica.)
 
-**Ci sono limitazioni nella conversione delle animazioni in video per alcuni effetti?**
+### Ci sono limitazioni nella conversione delle animazioni in video per alcuni effetti?
 
-In generale, le [animazioni sono supportate](/slides/it/cpp/convert-powerpoint-to-video/), ma casi rari o effetti specifici potrebbero essere resa differenti. Si consiglia di testare con gli effetti utilizzati e con la versione della libreria.
+In generale, le [animazioni sono supportate](/slides/it/cpp/convert-powerpoint-to-video/), ma casi rari o effetti specifici potrebbero essere renderizzati in modo diverso. Si consiglia di testare con gli effetti effettivi e con la versione della libreria.

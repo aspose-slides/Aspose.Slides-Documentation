@@ -1,6 +1,6 @@
 ---
-title: Aspose.Slides for .NET 15.6.0 のパブリック API と後方互換性のない変更
-linktitle: Aspose.Slides for .NET 15.6.0
+title: "Aspose.Slides for .NET 15.6.0 のパブリック API と下位互換性のない変更"
+linktitle: "Aspose.Slides for .NET 15.6.0"
 type: docs
 weight: 170
 url: /ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-6-0/
@@ -18,70 +18,79 @@ keywords:
 - Aspose.Slides
 description: "Aspose.Slides for .NET のパブリック API の更新と破壊的変更を確認し、PowerPoint PPT、PPTX、ODP プレゼンテーション ソリューションをスムーズに移行できるようにします。"
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-このページは、Aspose.Slides for .NET 15.6.0 APIで導入された、すべての[added](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-6-0/)または[removed](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-6-0/)クラス、メソッド、プロパティ等、およびその他の変更を一覧表示します。
+このページでは、Aspose.Slides for .NET 15.6.0 APIで導入された、追加された[追加](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-6-0/)または[削除](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-6-0/)クラス、メソッド、プロパティ等、およびその他の変更を一覧表示します。
 
 {{% /alert %}} 
-## **Public API Changes**
-#### **DataLabel Constructor Signature Has Been Changed**
+## **パブリック API の変更**
+#### **DataLabel コンストラクタのシグネチャが変更されました**
 DataLabel のコンストラクタ シグネチャが変更されました:
 以前: DataLabel.#ctor(Aspose.Slides.Charts.IChartSeries);
 現在: DataLabel.#ctor(Aspose.Slides.Charts.IChartDataPoint).
-#### **Members IDocumentProperties.Count, .GetPropertyName(int index), .Remove(string name), .Contains(string name) Have Been Marked as Obsolete and Its Substitutions Have Been Introduced Instead.**
-プロパティ IDocumentProperties.Count とメソッド IDocumentProperties.GetPropertyName(int index)、.Remove(string name)、.Contains(string name) は Obsolete とマークされました。代わりに、プロパティ IDocumentProperties.CountOfCustomProperties とメソッド IDocumentProperties.GetCustomPropertyName(int index)、.RemoveCustomProperty(string name)、.ContainsCustomProperty(string name) が追加されました。
-#### **Method INotesSlideManager.RemoveNotesSlide() Has Been Added**
-メソッド INotesSlideManager.RemoveNotesSlide() が追加され、スライドのノート スライドを削除できるようになりました。
-#### **Method Remove Has Been Added to IComment**
-IComment にメソッド Remove が追加され、コレクションからコメントを削除できるようになりました。
-#### **Method Remove Has Been Added to ICommentAuthor**
-ICommentAuthor にメソッド Remove が追加され、コレクションからコメントの作成者を削除できるようになりました。
-#### **Methods ClearCustomProperties and ClearBuiltInProperties Have Been Added to IDocumentProperties**
-IDocumentProperties にメソッド ClearCustomProperties が追加され、すべてのカスタム ドキュメント プロパティを削除できます。
-IDocumentProperties にメソッド ClearBuiltInProperties が追加され、すべての組み込みドキュメント プロパティ（Company、Subject、Author など）を削除し、デフォルト値にリセットできます。
-#### **Methods RemoveAt, Remove and Clear Have Been Added to ICommentAuthorCollection**
-ICommentAuthorCollection にメソッド RemoveAt が追加され、指定したインデックスの作成者を削除できます。
-ICommentAuthorCollection にメソッド Remove が追加され、コレクションから指定した作成者を削除できます。
-ICommentAuthorCollection にメソッド Clear が追加され、コレクション内のすべての項目を削除できます。
-#### **Property AppVersion Has Been Added to IDocumentProperties**
-IDocumentProperties にプロパティ AppVersion が追加され、Microsoft が開発中に使用した内部バージョン番号を表す組み込みドキュメント プロパティを取得できます。
-#### **Property BlackWhiteMode Has Been Added to IShape and to Shape**
-IShape と Shape にプロパティ BlackWhiteMode が追加されました。
+
+#### **メンバー IDocumentProperties.Count、.GetPropertyName(int index)、.Remove(string name)、.Contains(string name) が非推奨としてマークされ、その代替が導入されました。**
+IDocumentProperties.Count プロパティと IDocumentProperties.GetPropertyName(int index)、.Remove(string name)、.Contains(string name) メソッドが非推奨としてマークされました。代わりに、IDocumentProperties.CountOfCustomProperties プロパティと IDocumentProperties.GetCustomPropertyName(int index)、.RemoveCustomProperty(string name)、.ContainsCustomProperty(string name) メソッドが追加されました。
+
+#### **メソッド INotesSlideManager.RemoveNotesSlide() が追加されました**
+スライドのノートスライドを削除するために、INotesSlideManager.RemoveNotesSlide() メソッドが追加されました。
+
+#### **メソッド Remove が IComment に追加されました**
+コレクションからコメントを削除するために、IComment.Remove メソッドが追加されました。
+
+#### **メソッド Remove が ICommentAuthor に追加されました**
+コレクションからコメントの作成者を削除するために、ICommentAuthor.Remove メソッドが追加されました。
+
+#### **メソッド ClearCustomProperties と ClearBuiltInProperties が IDocumentProperties に追加されました**
+IDocumentProperties.ClearCustomProperties メソッドが、すべてのカスタムドキュメントプロパティを削除するために追加されました。
+IDocumentProperties.ClearBuiltInProperties メソッドが、すべての組み込みドキュメントプロパティ（Company、Subject、Author など）を削除し、デフォルト値に設定するために追加されました。
+
+#### **メソッド RemoveAt、Remove、Clear が ICommentAuthorCollection に追加されました**
+ICommentAuthorCollection.RemoveAt メソッドが、指定したインデックスで作成者を削除するために追加されました。
+ICommentAuthorCollection.Remove メソッドが、コレクションから指定された作成者を削除するために追加されました。
+ICommentAuthorCollection.Clear メソッドが、コレクション内のすべての項目を削除するために追加されました。
+
+#### **プロパティ AppVersion が IDocumentProperties に追加されました**
+IDocumentProperties.AppVersion プロパティが、Microsoft が開発時に使用する内部バージョン番号を表す組み込みドキュメントプロパティを取得できるように追加されました。
+
+#### **プロパティ BlackWhiteMode が IShape と Shape に追加されました**
+BlackWhiteMode プロパティが IShape と Shape に追加されました。
 
 このプロパティは、形状が白黒表示モードでどのように描画されるかを指定します。
 
-|**Value**|**Meaning**|
+|**値** |**意味** |
 | :- | :- |
-|Color|通常のカラーで描画|
-|Automatic|自動カラーで描画|
-|Gray|グレーで描画|
-|LightGray|ライトグレーで描画|
-|InverseGray|逆グレーで描画|
-|GrayWhite|グレーとホワイトで描画|
-|BlackGray|ブラックとグレーで描画|
-|BlackWhite|ブラックとホワイトで描画|
-|Black|ブラックのみで描画|
-|White|ホワイトで描画|
-|Hidden|描画しない|
-|NotDefined|プロパティが設定されていないことを意味する|
-#### **Рroperty ISlide.NotesSlideManager Has Been Added. Property ISlide.NotesSlide and Method ISlide.AddNotesSlide() Have Been Marked as Obsolete.**
-ISlide.NotesSlide と ISlide.AddNotesSlide() のメンバーは Obsolete とマークされました。代わりに新しいプロパティ ISlide.NotesSlideManager を使用してください。
+|カラー|通常の色で描画|
+|自動|自動的に色付けして描画|
+|灰色|灰色で描画|
+|ライトグレー|淡い灰色で描画|
+|反転灰色|反転した灰色で描画|
+|灰白|灰色と白色で描画|
+|黒灰|黒色と灰色で描画|
+|黒白|黒色と白色で描画|
+|黒|黒色のみで描画|
+|白|白色で描画|
+|非表示|描画しない|
+|未定義|プロパティが設定されていないことを意味します|
+
+#### **プロパティ ISlide.NotesSlideManager が追加されました。プロパティ ISlide.NotesSlide とメソッド ISlide.AddNotesSlide() が非推奨としてマークされました。**
+ISlide.NotesSlide および ISlide.AddNotesSlide() メンバーが非推奨としてマークされました。代わりに新しいプロパティ ISlide.NotesSlideManager を使用してください。
 
 ``` csharp
+using Aspose.Slides;
 
- ISlide slide = ...;
+using (Presentation pres = new Presentation("sample.pptx"))
+{
+    ISlide slide = pres.Slides[0];
 
-INotesSlide notes;
+    INotesSlide notes;
 
-// notes = slide.AddNotesSlide(); - obsolete
+    // notes = slide.AddNotesSlide(); - 非推奨
+    // notes = slide.NotesSlide; - 非推奨
 
-// notes = slide.NotesSlide; - obsolete
+    notes = slide.NotesSlideManager.NotesSlide;
+    notes = slide.NotesSlideManager.AddNotesSlide();
 
-notes = slide.NotesSlideManager.NotesSlide;
-
-notes = slide.NotesSlideManager.AddNotesSlide();
-
-slide.NotesSlideManager.RemoveNotesSlide();
-
+    slide.NotesSlideManager.RemoveNotesSlide();
+}
 ```

@@ -17,37 +17,61 @@ keywords:
 - ارائه به MP4
 - PPT به MP4
 - PPTX به MP4
-- ذخیره PPT به عنوان MP4
-- ذخیره PPTX به عنوان MP4
+- ذخیره PPT به صورت MP4
+- ذخیره PPTX به صورت MP4
 - صدور PPT به MP4
 - صدور PPTX به MP4
 - تبدیل ویدیو
 - PowerPoint
 - C++
 - Aspose.Slides
-description: "نحوه تبدیل ارائه‌های PowerPoint به ویدیو در C++ را بیاموزید. نمونه کد و تکنیک‌های خودکارسازی را برای بهینه‌سازی گردش کار خود کشف کنید."
+description: "یاد بگیرید چگونه ارائه‌های PowerPoint را به ویدیو در C++ تبدیل کنید. کد نمونه و تکنیک‌های خودکارسازی را کشف کنید تا گردش کار خود را بهینه کنید."
 ---
-## **مقدمه**
+## **معرفی**
 
-با تبدیل ارائه PowerPoint خود به ویدیو، به دست می‌آورید 
+با تبدیل ارائهٔ PowerPoint خود به ویدیو، موارد زیر را به‌دست می‌آورید
 
-* **Increase in accessibility:** **افزایش دسترسی:** تمام دستگاه‌ها (بدون توجه به پلتفرم) به‌صورت پیش‌فرض دارای پخش‌کننده ویدیو هستند، در مقایسه با برنامه‌های باز کردن ارائه، بنابراین کاربران راحت‌تر می‌توانند ویدیوها را باز یا پخش کنند.
-* **More reach:** **دسترس بیشتر:** از طریق ویدیوها می‌توانید به مخاطبان گسترده‌ای دست پیدا کنید و آن‌ها را با اطلاعاتی هدف‌گیری کنید که در ارائه ممکن است خسته‌کننده به نظر برسد. اکثر نظرسنجی‌ها و آمارها نشان می‌دهند مردم ویدیوها را بیشتر از سایر انواع محتوا مشاهده و مصرف می‌کنند و معمولاً چنین محتوایی را ترجیح می‌دهند.
+* **افزایش دسترسی‌پذیری:** تمامی دستگاه‌ها (بدون توجه به پلتفرم) به‌طور پیش‌فرض دارای پخش‌کنندهٔ ویدیو هستند، در حالی که برنامه‌های باز کردن ارائه کمتر رایج‌اند، بنابراین کاربران راحت‌تر می‌توانند ویدیوها را باز یا پخش کنند.
+* **دسترس‌پذیری بیشتر:** از طریق ویدیوها می‌توانید به جمعیتی گسترده دسترسی پیدا کنید و اطلاعاتی را به آن‌ها ارائه دهید که در یک ارائه ممکن است خسته‌کننده به‌نظر برسد. اکثر نظرسنجی‌ها و آمارها نشان می‌دهند که مردم ویدیوها را بیشتر از سایر انواع محتوا تماشا و مصرف می‌کنند و به‌طور کلی چنین محتوایی را ترجیح می‌دهند.
 
-در [Aspose.Slides 22.11](https://docs.aspose.com/slides/fa/cpp/aspose-slides-for-cpp-22-11-release-notes/) ما پشتیبانی از تبدیل ارائه به ویدیو را پیاده‌سازی کردیم. 
+در [Aspose.Slides 22.11](https://docs.aspose.com/slides/fa/cpp/aspose-slides-for-cpp-22-11-release-notes/) ما پشتیبانی از تبدیل ارائه به ویدیو را پیاده‌سازی کرده‌ایم.
 
-* Use Aspose.Slides to generate a set of frames (from the presentation slides) that correspond to a certain FPS (frames per second)  
-* Use a third-party utility like `ffmpeg` to create a video based on the frames.
+* از Aspose.Slides برای تولید مجموعه‌ای از فریم‌ها (از اسلایدهای ارائه) که با یک FPS (فریم در ثانیه) معین مطابقت دارند، استفاده کنید
+* از ابزار شخص ثالثی مانند `ffmpeg` برای ایجاد ویدیو بر پایهٔ فریم‌ها استفاده کنید.
 
-## **تبدیل ارائه PowerPoint به ویدیو**
+## **تبدیل یک ارائهٔ PowerPoint به ویدیو**
 
 1. ffmpeg را از [اینجا](https://ffmpeg.org/download.html) دانلود کنید.
 2. مسیر `ffmpeg.exe` را به متغیر محیطی `PATH` اضافه کنید.
 3. کد تبدیل PowerPoint به ویدیو را اجرا کنید.
 
-این کد C++ نشان می‌دهد چگونه یک ارائه (شامل یک شکل و دو اثر انیمیشن) را به ویدیو تبدیل کنید:
+این کد C++ نشان می‌دهد که چگونه یک ارائه (شامل یک نمودار و دو اثر انیمیشن) را به ویدیو تبدیل کنید:
 
 ```c++
+#include <DOM/Animation/EffectPresetClassType.h>
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/FramesStream/FrameTickEventArgs.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
+#include <Export/FramesStream/PresentationPlayer.h>
+#include <IImage.h>
+#include <system/diagnostics/process.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+
 void OnFrameTick(System::SharedPtr<PresentationPlayer> sender, System::SharedPtr<FrameTickEventArgs> args)
 {
     System::String fileName = System::String::Format(u"frame_{0}.png", sender->get_FrameIndex());
@@ -76,7 +100,7 @@ void Run()
 
     const System::String ffmpegParameters = System::String::Format(
         u"-loglevel {0} -framerate {1} -i {2} -y -c:v {3} -pix_fmt {4} {5}",
-        u"warning", m_fps, "frame_%d.png", u"libx264", u"yuv420p", "video.mp4");
+        u"warning", fps, u"frame_%d.png", u"libx264", u"yuv420p", u"video.mp4");
     auto ffmpegProcess = System::Diagnostics::Process::Start(u"ffmpeg", ffmpegParameters);
     ffmpegProcess->WaitForExit();
 }
@@ -84,20 +108,34 @@ void Run()
 
 ## **افکت‌های ویدیو**
 
-می‌توانید انیمیشن‌ها را به اشیاء روی اسلایدها اعمال کنید و بین اسلایدها از انتقال‌ها استفاده کنید.
+می‌توانید به اشیاء روی اسلایدها انیمیشن اعمال کنید و از انتقال‌ها بین اسلایدها استفاده کنید.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-ممکن است بخواهید این مقالات را ببینید: [انیمیشن PowerPoint](https://docs.aspose.com/slides/fa/cpp/powerpoint-animation/)، [انیمیشن شکل](https://docs.aspose.com/slides/fa/cpp/shape-animation/)، و [افکت شکل](https://docs.aspose.com/slides/fa/cpp/shape-effect/).
+ممکن است مایل باشید این مقالات را ببینید: [PowerPoint Animation](https://docs.aspose.com/slides/fa/cpp/powerpoint-animation/)، [Shape Animation](https://docs.aspose.com/slides/fa/cpp/shape-animation/)، و [Shape Effect](https://docs.aspose.com/slides/fa/cpp/shape-effect/) .
 
 {{% /alert %}} 
 
-انیمیشن‌ها و انتقال‌ها ارائه اسلایدشو را جذاب‌تر و جالب‌تر می‌کنند—و برای ویدیوها نیز همین‌طور هستند. بیایید یک اسلاید دیگر و یک انتقال به کد ارائه قبلی اضافه کنیم:
+انیمیشن‌ها و انتقال‌ها اسلایدشوها را جذاب‌تر و جالب‌تر می‌سازند — و همین امر برای ویدیوها نیز صدق می‌کند. اجازه دهید یک اسلاید و یک انتقال دیگر به کد ارائهٔ قبلی اضافه کنیم:
 
 ```c++
-// یک شکل لبخند اضافه می‌کند و آن را انیمیشن می‌دهد
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideShowTransition.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideShowTransition/TransitionType.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::SlideShow;
 
-// ...
+// یک شکل لبخند اضافه می‌کند و همان‌طور که در بالا نشان داده شده است انیمیشن می‌دهد
+auto presentation = System::MakeObject<Presentation>();
 
 // یک اسلاید جدید اضافه می‌کند و انتقال انیمیشن‌شده
 
@@ -116,9 +154,37 @@ fillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Indigo()
 newSlide->get_SlideShowTransition()->set_Type(TransitionType::Push);
 ```
 
-Aspose.Slides همچنین از انیمیشن برای متون پشتیبانی می‌کند. بنابراین ما پاراگراف‌ها را روی اشیاء انیمیشن می‌کنیم که به‌صورت یکی پس از دیگری ظاهر می‌شوند (تاخیر تنظیم شده به یک ثانیه):
+Aspose.Slides همچنین از انیمیشن برای متن‌ها پشتیبانی می‌کند. بنابراین ما پاراگراف‌های روی اشیاء را انیمیشن می‌زنیم تا به‌صورت متوالی (با تاخیری برابر با یک ثانیه) ظاهر شوند:
 
 ```c++
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/FramesStream/FrameTickEventArgs.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
+#include <Export/FramesStream/PresentationPlayer.h>
+#include <IImage.h>
+#include <system/diagnostics/process.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+
 void OnFrameTick(System::SharedPtr<PresentationPlayer> sender, System::SharedPtr<FrameTickEventArgs> args)
 {
     System::String fileName = System::String::Format(u"frame_{0}.png", sender->get_FrameIndex());
@@ -164,13 +230,13 @@ void Run()
 
     auto animationsGenerator = System::MakeObject<PresentationAnimationsGenerator>(presentation);
     auto player = System::MakeObject<PresentationPlayer>(animationsGenerator, fps);
-    
+
     player->FrameTick += OnFrameTick;
     animationsGenerator->Run(presentation->get_Slides());
 
     const System::String ffmpegParameters = System::String::Format(
         u"-loglevel {0} -framerate {1} -i {2} -y -c:v {3} -pix_fmt {4} {5}",
-        u"warning", m_fps, "frame_%d.png", u"libx264", u"yuv420p", "video.mp4");
+        u"warning", fps, u"frame_%d.png", u"libx264", u"yuv420p", u"video.mp4");
     auto ffmpegProcess = System::Diagnostics::Process::Start(u"ffmpeg", ffmpegParameters);
     ffmpegProcess->WaitForExit();
 }
@@ -178,29 +244,50 @@ void Run()
 
 ## **کلاس‌های تبدیل ویدیو**
 
-برای انجام وظایف تبدیل PowerPoint به ویدیو، Aspose.Slides کلاس‌های [PresentationAnimationsGenerator](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.export.presentation_animations_generator/) و [PresentationPlayer](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.export.presentation_player/) را ارائه می‌دهد.
+برای اینکه بتوانید وظایف تبدیل PowerPoint به ویدیو را انجام دهید، Aspose.Slides کلاس‌های [PresentationAnimationsGenerator](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.export.presentation_animations_generator/) و [PresentationPlayer](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.export.presentation_player/) را فراهم می‌کند.
 
-PresentationAnimationsGenerator به شما اجازه می‌دهد اندازه فریم برای ویدیو (که سپس ایجاد می‌شود) را از طریق سازنده‌اش تنظیم کنید. اگر یک نمونه از ارائه را پاس کنید، `Presentation.SlideSize` استفاده خواهد شد و انیمیشن‌هایی را تولید می‌کند که [PresentationPlayer](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.export.presentation_player/) از آن‌ها استفاده می‌کند. 
+PresentationAnimationsGenerator به شما اجازه می‌دهد تا اندازهٔ فریم برای ویدیوی بعدی (که بعداً ساخته می‌شود) را از طریق سازنده‌اش تنظیم کنید. اگر یک نمونه از ارائه را پاس دهید، `Presentation.SlideSize` استفاده می‌شود و انیمیشن‌هایی که [PresentationPlayer](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.export.presentation_player/) استفاده می‌کند، تولید می‌شوند.
 
-هنگام تولید انیمیشن‌ها، برای هر انیمیشن بعدی یک رویداد `NewAnimation` تولید می‌شود که پارامتر [IPresentationAnimationPlayer](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.export.i_presentation_animation_player/) دارد. این پارامتر کلاسی است که پخش‌کننده‌ای برای یک انیمیشن جداگانه را نشان می‌دهد.
+هنگام تولید انیمیشن‌ها، برای هر انیمیشن بعدی یک رویداد `NewAnimation` ایجاد می‌شود که پارامتر [IPresentationAnimationPlayer](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.export.i_presentation_animation_player/) دارد. این کلاس نمایانگر یک پلیر برای یک انیمیشن جداگانه است.
 
-برای کار با [IPresentationAnimationPlayer](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.export.i_presentation_animation_player/)، از ویژگی [get_Duration](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.export.i_presentation_animation_player#a29881d28eb42f345ab130d52f05a2d91) (مدت کامل انیمیشن) و متد [SetTimePosition](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.export.i_presentation_animation_player#a29cb11a73e3ad5f645626fcee3bc4ea0) استفاده می‌شود. هر موقعیت انیمیشن در بازه *۰ تا مدت* تنظیم می‌شود و سپس متد `GetFrame` یک Bitmap بر می‌گرداند که به وضعیت انیمیشن در آن لحظه متناظر است.
+برای کار با [IPresentationAnimationPlayer](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.export.i_presentation_animation_player/)، از ویژگی [get_Duration](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.export.i_presentation_animation_player#a29881d28eb42f345ab130d52f05a2d91) (کل مدت زمان انیمیشن) و متد [SetTimePosition](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.export.i_presentation_animation_player#a29cb11a73e3ad5f645626fcee3bc4ea0) استفاده می‌شود. هر موقعیت انیمیشن در بازهٔ *0 تا duration* تنظیم می‌شود و سپس متد `GetFrame` یک Bitmap برمی‌گرداند که نشان‌دهندهٔ وضعیت انیمیشن در همان لحظه است.
 
 ```c++
+#include <DOM/Animation/EffectPresetClassType.h>
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/FramesStream/IPresentationAnimationPlayer.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
+#include <IImage.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+
 void OnNewAnimation(System::SharedPtr<IPresentationAnimationPlayer> animationPlayer)
 {
     System::Console::WriteLine(u"Total animation duration: {0}", animationPlayer->get_Duration());
 
     animationPlayer->SetTimePosition(0);
-    // حالت اولیه انیمیشن
-    System::SharedPtr<System::Drawing::Bitmap> bitmap = animationPlayer->GetFrame();
-    // بیت‌مپ حالت اولیه انیمیشن
+    // وضعیت اولیه انیمیشن
+    System::SharedPtr<IImage> image = animationPlayer->GetFrame();
+    // تصویر bitmap وضعیت اولیه انیمیشن
 
     animationPlayer->SetTimePosition(animationPlayer->get_Duration());
-    // حالت نهایی انیمیشن
-    System::SharedPtr<System::Drawing::Bitmap> lastBitmap = animationPlayer->GetFrame();
+    // وضعیت نهایی انیمیشن
+    System::SharedPtr<IImage> lastImage = animationPlayer->GetFrame();
     // فریم آخر انیمیشن
-    lastBitmap->Save(u"last.png");
+    lastImage->Save(u"last.png");
 }
 
 void Run()
@@ -221,9 +308,19 @@ void Run()
 }
 ```
 
-برای پخش همزمان تمام انیمیشن‌های یک ارائه، کلاس [PresentationPlayer](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.export.presentation_player/) استفاده می‌شود. این کلاس یک نمونه از [PresentationAnimationsGenerator](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.export.presentation_animations_generator/) و FPS اثرها را در سازنده‌اش گرفته و سپس برای همه انیمیشن‌ها رویداد `FrameTick` را فراخوانی می‌کند تا آن‌ها پخش شوند:
+برای پخش همزمان تمام انیمیشن‌های یک ارائه، از کلاس [PresentationPlayer](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.export.presentation_player/) استفاده می‌شود. این کلاس یک نمونهٔ [PresentationAnimationsGenerator](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.export.presentation_animations_generator/) و FPS برای اثرات را در سازنده می‌گیرد و سپس برای تمام انیمیشن‌ها رویداد `FrameTick` را فراخوانی می‌کند تا آن‌ها اجرا شوند:
 
 ```c++
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/FramesStream/FrameTickEventArgs.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
+#include <Export/FramesStream/PresentationPlayer.h>
+#include <IImage.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 void OnFrameTick(System::SharedPtr<PresentationPlayer> sender, System::SharedPtr<FrameTickEventArgs> args)
 {
     System::String fileName = System::String::Format(u"frame_{0}.png", sender->get_FrameIndex());
@@ -241,86 +338,86 @@ void Run()
 }
 ```
 
-سپس فریم‌های تولید شده می‌توانند برای تولید ویدیو ترکیب شوند. بخش [تبدیل PowerPoint به ویدیو](https://docs.aspose.com/slides/fa/cpp/convert-powerpoint-to-video/#convert-powerpoint-to-video) را ببینید.
+سپس فریم‌های تولید‑شده می‌توانند به‌منظور تولید ویدیو ترکیب شوند. بخش [Convert PowerPoint to Video](https://docs.aspose.com/slides/fa/cpp/convert-powerpoint-to-video/#convert-powerpoint-to-video) را ببینید.
 
-## **انیمیشن‌ها و افکت‌های پشتیبانی شده**
+## **انیمیشن‌ها و افکت‌های پشتیبانی‌شده**
 
 
 **ورودی**:
 
 | نوع انیمیشن | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Appear** | ![not supported](x.png) | ![supported](v.png) |
-| **Fade** | ![supported](v.png) | ![supported](v.png) |
-| **Fly In** | ![supported](v.png) | ![supported](v.png) |
-| **Float In** | ![supported](v.png) | ![supported](v.png) |
-| **Split** | ![supported](v.png) | ![supported](v.png) |
-| **Wipe** | ![supported](v.png) | ![supported](v.png) |
-| **Shape** | ![supported](v.png) | ![supported](v.png) |
-| **Wheel** | ![supported](v.png) | ![supported](v.png) |
-| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
-| **Grow & Turn** | ![not supported](x.png) | ![supported](v.png) |
-| **Zoom** | ![supported](v.png) | ![supported](v.png) |
-| **Swivel** | ![supported](v.png) | ![supported](v.png) |
-| **Bounce** | ![supported](v.png) | ![supported](v.png) |
+| **Appear** | ![پشتیبانی نمی‌شود](x.png) | ![پشتیبانی می‌شود](v.png) |
+| **Fade** | ![پشتیبانی می‌شود](v.png) | ![پشتیبانی می‌شود](v.png) |
+| **Fly In** | ![پشتیبانی می‌شود](v.png) | ![پشتیبانی می‌شود](v.png) |
+| **Float In** | ![پشتیبانی می‌شود](v.png) | ![پشتیبانی می‌شود](v.png) |
+| **Split** | ![پشتیبانی می‌شود](v.png) | ![پشتیبانی می‌شود](v.png) |
+| **Wipe** | ![پشتیبانی می‌شود](v.png) | ![پشتیبانی می‌شود](v.png) |
+| **Shape** | ![پشتیبانی می‌شود](v.png) | ![پشتیبانی می‌شود](v.png) |
+| **Wheel** | ![پشتیبانی می‌شود](v.png) | ![پشتیبانی می‌شود](v.png) |
+| **Random Bars** | ![پشتیبانی می‌شود](v.png) | ![پشتیبانی می‌شود](v.png) |
+| **Grow & Turn** | ![پشتیبانی نمی‌شود](x.png) | ![پشتیبانی می‌شود](v.png) |
+| **Zoom** | ![پشتیبانی می‌شود](v.png) | ![پشتیبانی می‌شود](v.png) |
+| **Swivel** | ![پشتیبانی می‌شود](v.png) | ![پشتیبانی می‌شود](v.png) |
+| **Bounce** | ![پشتیبانی می‌شود](v.png) | ![پشتیبانی می‌شود](v.png) |
 
 
 **تاکید**:
 
 | نوع انیمیشن | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Pulse** | ![not supported](x.png) | ![supported](v.png) |
-| **Color Pulse** | ![not supported](x.png) | ![supported](v.png) |
-| **Teeter** | ![supported](v.png) | ![supported](v.png) |
-| **Spin** | ![supported](v.png) | ![supported](v.png) |
-| **Grow/Shrink** | ![not supported](x.png) | ![supported](v.png) |
-| **Desaturate** | ![not supported](x.png) | ![supported](v.png) |
-| **Darken** | ![not supported](x.png) | ![supported](v.png) |
-| **Lighten** | ![not supported](x.png) | ![supported](v.png) |
-| **Transparency** | ![not supported](x.png) | ![supported](v.png) |
-| **Object Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Complementary Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Line Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Pulse** | ![پشتیبانی نمی‌شود](x.png) | ![پشتیبانی می‌شود](v.png) |
+| **Color Pulse** | ![پشتیبانی نمی‌شود](x.png) | ![پشتیبانی می‌شود](v.png) |
+| **Teeter** | ![پشتیبانی می‌شود](v.png) | ![پشتیبانی می‌شود](v.png) |
+| **Spin** | ![پشتیبانی می‌شود](v.png) | ![پشتیبانی می‌شود](v.png) |
+| **Grow/Shrink** | ![پشتیبانی نمی‌شود](x.png) | ![پشتیبانی می‌شود](v.png) |
+| **Desaturate** | ![پشتیبانی نمی‌شود](x.png) | ![پشتیبانی می‌شود](v.png) |
+| **Darken** | ![پشتیبانی نمی‌شود](x.png) | ![پشتیبانی می‌شود](v.png) |
+| **Lighten** | ![پشتیبانی نمی‌شود](x.png) | ![پشتیبانی می‌شود](v.png) |
+| **Transparency** | ![پشتیبانی نمی‌شود](x.png) | ![پشتیبانی می‌شود](v.png) |
+| **Object Color** | ![پشتیبانی نمی‌شود](x.png) | ![پشتیبانی می‌شود](v.png) |
+| **Complementary Color** | ![پشتیبانی نمی‌شود](x.png) | ![پشتیبانی می‌شود](v.png) |
+| **Line Color** | ![پشتیبانی نمی‌شود](x.png) | ![پشتیبانی می‌شود](v.png) |
+| **Fill Color** | ![پشتیبانی نمی‌شود](x.png) | ![پشتیبانی می‌شود](v.png) |
 
 **خروج**:
 
 | نوع انیمیشن | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Disappear** | ![not supported](x.png) | ![supported](v.png) |
-| **Fade** | ![supported](v.png) | ![supported](v.png) |
-| **Fly Out** | ![supported](v.png) | ![supported](v.png) |
-| **Float Out** | ![supported](v.png) | ![supported](v.png) |
-| **Split** | ![supported](v.png) | ![supported](v.png) |
-| **Wipe** | ![supported](v.png) | ![supported](v.png) |
-| **Shape** | ![supported](v.png) | ![supported](v.png) |
-| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
-| **Shrink & Turn** | ![not supported](x.png) | ![supported](v.png) |
-| **Zoom** | ![supported](v.png) | ![supported](v.png) |
-| **Swivel** | ![supported](v.png) | ![supported](v.png) |
-| **Bounce** | ![supported](v.png) | ![supported](v.png) |
+| **Disappear** | ![پشتیبانی نمی‌شود](x.png) | ![پشتیبانی می‌شود](v.png) |
+| **Fade** | ![پشتیبانی می‌شود](v.png) | ![پشتیبانی می‌شود](v.png) |
+| **Fly Out** | ![پشتیبانی می‌شود](v.png) | ![پشتیبانی می‌شود](v.png) |
+| **Float Out** | ![پشتیبانی می‌شود](v.png) | ![پشتیبانی می‌شود](v.png) |
+| **Split** | ![پشتیبانی می‌شود](v.png) | ![پشتیبانی می‌شود](v.png) |
+| **Wipe** | ![پشتیبانی می‌شود](v.png) | ![پشتیبانی می‌شود](v.png) |
+| **Shape** | ![پشتیبانی می‌شود](v.png) | ![پشتیبانی می‌شود](v.png) |
+| **Random Bars** | ![پشتیبانی می‌شود](v.png) | ![پشتیبانی می‌شود](v.png) |
+| **Shrink & Turn** | ![پشتیبانی نمی‌شود](x.png) | ![پشتیبانی می‌شود](v.png) |
+| **Zoom** | ![پشتیبانی می‌شود](v.png) | ![پشتیبانی می‌شود](v.png) |
+| **Swivel** | ![پشتیبانی می‌شود](v.png) | ![پشتیبانی می‌شود](v.png) |
+| **Bounce** | ![پشتیبانی می‌شود](v.png) | ![پشتیبانی می‌شود](v.png) |
 
 **مسیرهای حرکتی**:
 
 | نوع انیمیشن | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Lines** | ![supported](v.png) | ![supported](v.png) |
-| **Arcs** | ![supported](v.png) | ![supported](v.png) |
-| **Turns** | ![supported](v.png) | ![supported](v.png) |
-| **Shapes** | ![supported](v.png) | ![supported](v.png) |
-| **Loops** | ![supported](v.png) | ![supported](v.png) |
-| **Custom Path** | ![supported](v.png) | ![supported](v.png) |
+| **Lines** | ![پشتیبانی می‌شود](v.png) | ![پشتیبانی می‌شود](v.png) |
+| **Arcs** | ![پشتیبانی می‌شود](v.png) | ![پشتیبانی می‌شود](v.png) |
+| **Turns** | ![پشتیبانی می‌شود](v.png) | ![پشتیبانی می‌شود](v.png) |
+| **Shapes** | ![پشتیبانی می‌شود](v.png) | ![پشتیبانی می‌شود](v.png) |
+| **Loops** | ![پشتیبانی می‌شود](v.png) | ![پشتیبانی می‌شود](v.png) |
+| **Custom Path** | ![پشتیبانی می‌شود](v.png) | ![پشتیبانی می‌شود](v.png) |
 
-## **سوالات متداول**
+## **پرسش‌های متداول**
 
-**آیا می‌توان ارائه‌های محافظت‌شده با رمز عبور را تبدیل کرد؟**
+### آیا می‌توان ارائه‌هایی که با رمز عبور محافظت شده‌اند را تبدیل کرد؟
 
-بله، Aspose.Slides امکان کار با [ارائه‌های محافظت‌شده با رمز عبور](/slides/fa/cpp/password-protected-presentation/) را فراهم می‌کند. هنگام پردازش چنین فایل‌هایی، باید رمز عبور صحیح را ارائه دهید تا کتابخانه بتواند به محتوای ارائه دسترسی پیدا کند.
+بله، Aspose.Slides امکان کار با [ارائه‌های محافظت‌شده با رمز عبور](/slides/fa/cpp/password-protected-presentation/) را فراهم می‌کند. هنگام پردازش چنین فایل‌هایی، باید رمز عبور صحیح را ارائه دهید تا کتابخانه به محتوای ارائه دسترسی پیدا کند.
 
-**آیا Aspose.Slides از استفاده در راه‌حل‌های ابری پشتیبانی می‌کند؟**
+### آیا Aspose.Slides از استفاده در راه‌حل‌های ابری پشتیبانی می‌کند؟
 
-بله، Aspose.Slides می‌تواند در برنامه‌ها و سرویس‌های ابری یکپارچه شود. این کتابخانه برای کار در محیط‌های سروری طراحی شده است و عملکرد بالا و مقیاس‌پذیری را برای پردازش دسته‌ای فایل‌ها تضمین می‌کند.
+بله، Aspose.Slides می‌تواند در برنامه‌ها و سرویس‌های ابری یکپارچه شود. این کتابخانه برای کار در محیط‌های سرور طراحی شده و عملکرد بالا و مقیاس‌پذیری را برای پردازش دسته‌ای فایل‌ها تضمین می‌کند.
 
-**آیا محدودیت حجمی برای ارائه‌ها هنگام تبدیل وجود دارد؟**
+### آیا محدودیت‌های سایز برای ارائه‌ها هنگام تبدیل وجود دارد؟
 
-Aspose.Slides می‌تواند تقریباً هر اندازه‌ای از ارائه‌ها را مدیریت کند. با این حال، هنگام کار با فایل‌های بسیار بزرگ، ممکن است به منابع سیستم اضافی نیاز باشد و گاهی توصیه می‌شود ارائه را بهینه کنید تا عملکرد بهبود یابد.
+Aspose.Slides قادر به پردازش ارائه‌هایی با اندازهٔ تقریباً نامحدود است. اما هنگام کار با فایل‌های بسیار بزرگ، ممکن است به منابع سیستم بیشتری نیاز باشد و گاهی توصیه می‌شود تا برای بهبود عملکرد، ارائه را بهینه‌سازی کنید.

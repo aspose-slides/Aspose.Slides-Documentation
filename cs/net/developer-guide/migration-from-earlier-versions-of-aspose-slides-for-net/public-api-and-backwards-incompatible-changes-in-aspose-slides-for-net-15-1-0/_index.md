@@ -6,9 +6,9 @@ weight: 130
 url: /cs/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/
 keywords:
 - migrace
-- zastaralý kód
+- starší kód
 - moderní kód
-- zastaralý přístup
+- starší přístup
 - moderní přístup
 - PowerPoint
 - OpenDocument
@@ -16,34 +16,32 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Zkontrolujte aktualizace veřejného API a breaking changes v Aspose.Slides pro .NET, abyste hladce migrovali své řešení pro prezentace PowerPoint PPT, PPTX a ODP."
+description: "Prozkoumejte aktualizace veřejného API a rušivé změny v Aspose.Slides pro .NET, abyste hladce migrovali svá řešení prezentací PowerPoint PPT, PPTX a ODP."
 ---
-{{% alert color="primary" %}} 
-
-Tato stránka uvádí všechny [přidáno](/slides/cs/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) nebo [odebráno](/slides/cs/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) třídy, metody, vlastnosti a tak dále a další změny zavedené v API Aspose.Slides pro .NET 15.1.0.
-
+{{% alert color="info" %}} 
+Tato stránka uvádí všechny [přidané](/slides/cs/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) nebo [odebrané](/slides/cs/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) třídy, metody, vlastnosti a další položky a další změny zavedené v API Aspose.Slides pro .NET 15.1.0.
 {{% /alert %}} 
 ## **Veřejné změny API**
-#### **Funkčnost nahrazování písem byla přidána**
-Možnost nahradit písmo globálně v celé prezentaci i dočasně pro vykreslování byla přidána.
+#### **Byla přidána funkce Nahrazování fontů**
+Byla přidána možnost globálně nahradit font v celé prezentaci a dočasně pro vykreslování.
 
-Byla zavedena nová vlastnost "FontsManager" třídy Presentation. Třída FontsManager má následující členy:
+Byla představena nová vlastnost "FontsManager" třídy Presentation. Třída FontsManager má následující členy:
 
-**IFontSubstRuleCollection FontSubstRuleList** Property
+**IFontSubstRuleCollection FontSubstRuleList** Vlastnost
+Tato kolekce instancí IFontSubstRule se používá k nahrazování fontů během vykreslování. IFontSubstRule má vlastnosti SourceFont a DestFont implementující rozhraní IFontData a vlastnost ReplaceFontCondition, která umožňuje zvolit podmínku nahrazení ("WhenInaccessible" nebo "Always").
 
-Tato kolekce instancí IFontSubstRule se používá k nahrazování písem během vykreslování. IFontSubstRule má vlastnosti SourceFont a DestFont implementující rozhraní IFontData a vlastnost ReplaceFontCondition, která umožňuje zvolit podmínku nahrazení ("WhenInaccessible" nebo "Always").
+**IFontData[] GetFonts()** Metoda
+Používá se k získání všech fontů použitých v aktuální prezentaci.
 
-**IFontData[] GetFonts()** Method
+**ReplaceFont** Metody
+Používá se k trvalému nahrazení fontu v prezentaci. 
 
-Používá se k získání všech písem použitých v aktuální prezentaci.
-
-**ReplaceFont** Methods
-
-Používá se k trvalému nahrazení písma v prezentaci. 
-
-Následující příklad ukazuje, jak nahradit písmo v prezentaci:
+Následující příklad ukazuje, jak nahradit font v prezentaci:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
              Presentation pres = new Presentation("PresContainsArialFont.pptx");
 
@@ -58,9 +56,11 @@ Následující příklad ukazuje, jak nahradit písmo v prezentaci:
 
 ``` 
 
-Další příklad ukazuje nahrazení písma pro vykreslování, když je nedostupné:
+Další příklad ukazuje nahrazování fontu pro vykreslování, když je font nedostupný:
 
 ``` csharp
+using Aspose.Slides;
+
 
              Presentation pres = new Presentation("PresContainsSomeRareFontFont.pptx");
 
@@ -78,8 +78,8 @@ Další příklad ukazuje nahrazení písma pro vykreslování, když je nedostu
 
             pres.FontsManager.FontSubstRuleList = fontSubstRuleCollection;
 
-            // Písmo Arial bude použito místo SomeRareFont, když je nedostupné
+            // Písmo Arial bude použito místo SomeRareFont, když není přístupné
 
-            pres.Slides[0].GetThumbnail();
+            pres.Slides[0].GetImage();
 
 ```

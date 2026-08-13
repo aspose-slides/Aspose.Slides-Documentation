@@ -1,42 +1,54 @@
 ---
-title: Öffentliche API und nicht abwärtskompatible Änderungen in Aspose.Slides für Java 14.6.0
+title: Öffentliche API- und rückwärtsinkompatible Änderungen in Aspose.Slides für Java 14.6.0
+linktitle: Aspose.Slides for Java 14.6.0
 type: docs
 weight: 50
 url: /de/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/
+keywords:
+- Migration
+- Legacy-Code
+- moderner Code
+- Legacy-Ansatz
+- Moderner Ansatz
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Java
+- Aspose.Slides
+description: "Überprüfen Sie die Aktualisierungen der öffentlichen API und die breaking changes in Aspose.Slides für Java, um Ihre PowerPoint PPT, PPTX und ODP Präsentationslösungen reibungslos zu migrieren."
 ---
-
-{{% alert color="primary" %}} 
-
-Diese Seite listet alle [hinzugefügten](/slides/de/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/) Klassen, Methoden, Eigenschaften usw., alle neuen Einschränkungen und andere Änderungen auf, die mit der Aspose.Slides für Java 14.6.0 API eingeführt wurden.
-
+{{% alert color="info" %}} 
+Diese Seite listet alle [hinzugefügten](/slides/de/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/) Klassen, Methoden, Eigenschaften usw. sowie neue Einschränkungen und weitere Änderungen, die mit der Aspose.Slides for Java 14.6.0 API eingeführt wurden.
 {{% /alert %}} 
-## **Änderungen der öffentlichen API**
+## **Öffentliche API-Änderungen**
 ### **Hinzugefügte Klassen, Methoden, Schnittstellen und Aufzählungen**
-#### **Hinzugefügte ViewType-Aufzählung, IViewProperties-Schnittstelle, ViewProperties-Klasse und IPresentation.getViewProperties() Methode**
-Die IPresentation.getViewProperty() Methode ermöglicht den Zugriff auf IViewProperties und erlaubt es Ihnen, den Präsentationsansichtstyp und die Sichtbarkeit der Notizen zu ändern, wenn eine Präsentation in Microsoft PowerPoint geöffnet wird.
-
+#### **Hinzugefügte ViewType-Aufzählung, IViewProperties-Schnittstelle, ViewProperties-Klasse und IPresentation.getViewProperties()-Methode**
+Die Methode IPresentation.getViewProperties() bietet Zugriff auf IViewProperties und ermöglicht es, den Präsentationsansichtstyp und die Sichtbarkeit von Notizen zu ändern, wenn eine Präsentation in Microsoft PowerPoint geöffnet wird.
 ``` java
+import com.aspose.slides.*;
 
- Präsentation p = new Präsentation();
+
+ Presentation p = new Presentation();
 
 p.getViewProperties().setLastView(ViewType.SlideMasterView);
 
 ```
-#### **Hinzugefügt die Aspose.Slides.IShapeCollection.addClone(...) und .insertClone(...) Methoden**
+#### **Hinzugefügte Methoden Aspose.Slides.IShapeCollection.addClone(...) und .insertClone(...)**
 Die Methoden
 
 - Aspose.Slides.IShapeCollection.addClone(IShape sourceShape),
 - Aspose.Slides.IShapeCollection.addClone(IShape sourceShape, float x, float y),
 - Aspose.Slides.IShapeCollection.addClone(IShape sourceShape, float x, float y, float width, float height),
 - Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape),
-- Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape, float x, float y), und
+- Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape, float x, float y), and
 - Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape, float x, float y, float width, float height)
 
-fügt eine Kopie einer bestimmten Form in die Sammlung ein.
-
+fügt eine Kopie einer angegebenen Form in die Sammlung ein bzw. fügt sie ein. 
 ``` java
+import com.aspose.slides.*;
 
- Präsentation srcPres = new Präsentation("data/Source Frame.pptx");
+
+ Presentation srcPres = new Presentation("data/Source Frame.pptx");
 
 IShapeCollection sourceShapes = srcPres.getSlides().get_Item(0).getShapes();
 
@@ -59,12 +71,13 @@ destShapes.addClone(sourceShapes.get_Item(5), 300, 300, 50, 200);
 destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
 
 ```
-#### **Hinzugefügt die Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues Schnittstelle**
-Diese Schnittstelle spezifiziert die Typen von Werten in der Liste der ChartDataPoint.ErrorBarsCustomValues Eigenschaften.
-
+#### **Hinzugefügte Schnittstelle Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues**
+Diese Schnittstelle gibt die Typen der Werte in der Eigenschaftenliste ChartDataPoint.ErrorBarsCustomValues an.
 ``` java
+import com.aspose.slides.*;
 
- Präsentation pres = new Präsentation();
+
+ Presentation pres = new Presentation();
 
 IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Bubble, 50, 50, 400, 300, true);
 
@@ -109,12 +122,13 @@ for (int i = 0; i < points.size(); i++)
 pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 
 ```
-#### **Hinzugefügt die Aspose.Slides.Charts.IErrorBarsCustomValues Schnittstelle**
-Wenn die IErrorBarsFormat.ValueType Eigenschaft gleich Custom ist, verwenden Sie die ErrorBarCustomValues Eigenschaft des spezifischen Datenpunkts in der DataPoints Sammlung der Serie, um den Wert anzugeben.
-
+#### **Hinzugefügte Schnittstelle Aspose.Slides.Charts.IErrorBarsCustomValues**
+Wenn die Eigenschaft IErrorBarsFormat.ValueType auf Custom gesetzt ist, verwenden Sie die Eigenschaft ErrorBarCustomValues des jeweiligen Datenpunkts in der DataPoints‑Sammlung der Serie, um den Wert anzugeben.
 ``` java
+import com.aspose.slides.*;
 
- Präsentation pres = new Präsentation();
+
+ Presentation pres = new Presentation();
 
 IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Bubble, 50, 50, 400, 300, true);
 
@@ -159,13 +173,14 @@ for (int i = 0; i < points.size(); i++)
 pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 
 ```
-#### **Hinzugefügt die Aspose.Slides.Charts.IErrorBarsFormat Schnittstelle**
-Diese Schnittstelle repräsentiert Fehlerbalken von Diagrammserien.
-Im Falle eines benutzerdefinierten Werttyps verwenden Sie die ErrorBarCustomValues Eigenschaft eines bestimmten Datenpunkts in der DataPoins Sammlung der Serie, um den Wert anzugeben.
-
+#### **Hinzugefügte Schnittstelle Aspose.Slides.Charts.IErrorBarsFormat**
+Diese Schnittstelle stellt Fehlerbalken von Diagrammserien dar.
+Im Fall eines benutzerdefinierten Werttyps verwenden Sie die Eigenschaft ErrorBarCustomValues eines bestimmten Datenpunkts in der DataPoins‑Sammlung der Serie, um den Wert anzugeben.
 ``` java
+import com.aspose.slides.*;
 
- Präsentation pres = new Präsentation();
+
+ Presentation pres = new Presentation();
 
 IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Bubble, 50, 50, 400, 300, true);
 

@@ -10,12 +10,12 @@ keywords:
 - Vlastnosti dokumentu
 - Vestavěné vlastnosti
 - Vlastní vlastnosti
-- Pokročilé vlastnosti
+- Rozšířené vlastnosti
 - Správa vlastností
 - Úprava vlastností
 - Metadata dokumentu
 - Úprava metadat
-- Kontrolní jazyk
+- Jazyk korektury
 - Výchozí jazyk
 - PowerPoint
 - OpenDocument
@@ -23,43 +23,45 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Mistrovské ovládání vlastností prezentace v Aspose.Slides pro .NET a zefektivnění vyhledávání, značkování a pracovního postupu ve vašich souborech PowerPoint a OpenDocument."
+description: "Zvládněte vlastnosti prezentací v Aspose.Slides pro .NET a zjednodušte vyhledávání, značkování a pracovní postup ve svých souborech PowerPoint a OpenDocument."
 ---
 ## **Úvod**
 
-Aspose.Slides for .NET supports two types of document properties: **Built-in** and **Custom**. Both of these property types can easily be accessed and managed using the Aspose.Slides for .NET API.
+Aspose.Slides for .NET podporuje dva typy vlastností dokumentu: **Vestavěné** a **Vlastní**. Oba typy vlastností lze snadno získat a spravovat pomocí API Aspose.Slides for .NET.
 
-Aspose.Slides allows you to work with presentation document properties through the [IDocumentProperties](https://reference.aspose.com/slides/cs/net/aspose.slides/idocumentproperties/) interface. An instance of this interface is returned by the [Presentation.DocumentProperties](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/documentproperties/) property. The following examples show how to read, modify, and manage these properties.
+Aspose.Slides umožňuje pracovat s vlastnostmi prezentace prostřednictvím rozhraní [IDocumentProperties](https://reference.aspose.com/slides/cs/net/aspose.slides/idocumentproperties/). Instance tohoto rozhraní je vrácena vlastností [Presentation.DocumentProperties](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/documentproperties/). Následující příklady ukazují, jak tyto vlastnosti číst, měnit a spravovat.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Please note that the **Application** and **Producer** fields cannot be modified, as these fields will always display "Aspose Ltd." and "Aspose.Slides for .NET x.x.x".
+Všimněte si, že pole **Application** a **Producer** nelze upravit, protože tato pole vždy zobrazí „Aspose Ltd.“ a „Aspose.Slides for .NET x.x.x“.
 
 {{% /alert %}} 
 
 ## **Správa vlastností prezentace**
 
-Microsoft PowerPoint provides a feature for adding properties to presentation files. These document properties allow useful information to be stored along with the files. There are two types of document properties:
+Microsoft PowerPoint poskytuje funkci pro přidávání vlastností do souborů prezentací. Tyto vlastnosti dokumentu umožňují uložit užitečné informace spolu se soubory. Existují dva typy vlastností dokumentu:
 
-- System-defined (built-in) properties
-- User-defined (custom) properties
+- Systémově definované (vestavěné) vlastnosti
+- Uživatelem definované (vlastní) vlastnosti
 
-**Built-in** properties contain general information about the document, such as the document title, author's name, document statistics, and more.
+**Vestavěné** vlastnosti obsahují obecné informace o dokumentu, jako je název dokumentu, jméno autora, statistiky dokumentu a další.
 
-**Custom** properties are defined by users as **Name/Value** pairs, where both the name and the value are user-specified.
+**Vlastní** vlastnosti jsou definovány uživateli jako páry **Název/Hodnota**, kde jak název, tak hodnota jsou zadány uživatelem.
 
-Using Aspose.Slides for .NET, developers can access and modify both built-in and custom properties.
+Pomocí Aspose.Slides for .NET mohou vývojáři získat a upravit jak vestavěné, tak vlastní vlastnosti.
 
-Microsoft PowerPoint allows users to manage document properties by clicking the Office icon, then selecting **File → Info → Properties**. After choosing **Advanced Properties**, a dialog appears where you can manage all document properties of the presentation file.
+Microsoft PowerPoint umožňuje uživatelům spravovat vlastnosti dokumentu kliknutím na ikonu Office a následným výběrem **Soubor → Informace → Vlastnosti**. Po zvolení **Upřesněné vlastnosti** se zobrazí dialog, ve kterém můžete spravovat všechny vlastnosti dokumentu souboru prezentace.
 
-In the **Properties** dialog, there are several tabs, such as **General**, **Summary**, **Statistics**, **Contents**, and **Custom**.
-Each tab provides options for configuring specific types of information related to the PowerPoint file. The **Custom** tab is used to manage user-defined properties.
+V dialogu **Vlastnosti** jsou k dispozici různé záložky, například **Obecné**, **Shrnutí**, **Statistiky**, **Obsah** a **Vlastní**.  
+Každá záložka poskytuje možnosti konfigurace konkrétních typů informací souvisejících se souborem PowerPointu. Záložka **Vlastní** slouží k správě uživatelem definovaných vlastností.
 
 ## **Přístup k vestavěným vlastnostem**
 
-These properties, as exposed by the [IDocumentProperties](https://reference.aspose.com/slides/cs/net/aspose.slides/idocumentproperties/) interface, include: **Creator** (Author), **Description**, **Keywords**, **Created** (Creation Date), **Modified** (Modification Date), **Printed** (Last Print Date), **LastModifiedBy**, **SharedDoc** (indicates whether the document is shared between different producers), **PresentationFormat**, **Subject**,  **Title**, and more.
+Tyto vlastnosti, jak je vystavuje rozhraní [IDocumentProperties](https://reference.aspose.com/slides/cs/net/aspose.slides/idocumentproperties/), zahrnují: **Creator** (Autor), **Description**, **Keywords**, **Created** (Datum vytvoření), **Modified** (Datum úpravy), **Printed** (Datum posledního tisku), **LastModifiedBy**, **SharedDoc** (označuje, zda je dokument sdílen mezi různými producenty), **PresentationFormat**, **Subject**, **Title** a další.
 
 ```cs
+using Aspose.Slides;
+
 // Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
 using Presentation presentation = new Presentation("AccessBuiltInProperties.pptx");
 
@@ -85,13 +87,16 @@ Console.WriteLine("Title : " + documentProperties.Title);
 
 ## **Úprava vestavěných vlastností**
 
-Modifying the built-in properties of presentation files is just as easy as accessing them. You can simply assign a string value to any desired property, and the property's value will be updated. In the example below, we demonstrate how to modify the built-in document properties of a presentation file.
+Upravit vestavěné vlastnosti souborů prezentace je stejně snadné jako k nim přistupovat. Jednoduše přiřadíte řetězcovou hodnotu k libovolné požadované vlastnosti a hodnota vlastnosti bude aktualizována. V příkladu níže ukazujeme, jak upravit vestavěné vlastnosti dokumentu prezentace.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
 using Presentation presentation = new Presentation("ModifyBuiltInProperties.pptx");
 
-// Získejte referenci na objekt typu IDocumentProperties spojený s prezentací.
+// Získejte odkaz na objekt typu IDocumentProperties přidružený k prezentaci.
 IDocumentProperties documentProperties = presentation.DocumentProperties;
 
 // Nastavte vestavěné vlastnosti.
@@ -107,13 +112,16 @@ presentation.Save("DocumentProperties_output.pptx", SaveFormat.Pptx);
 
 ## **Přidání vlastních vlastností prezentace**
 
-Custom presentation properties enable developers to store additional metadata or specific information within a presentation file. Aspose.Slides makes it easy to create and manage these custom properties programmatically. The following examples demonstrate how to add custom properties to your presentations.
+Vlastní vlastnosti prezentace umožňují vývojářům uložit další metadata nebo specifické informace v souboru prezentace. Aspose.Slides to usnadňuje vytvořením a správou těchto vlastních vlastností programově. Následující příklady ukazují, jak přidat vlastní vlastnosti do vašich prezentací.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Vytvořte instanci třídy Presentation.
 using Presentation presentation = new Presentation();
 
-// Získejte referenci na objekt typu IDocumentProperties spojený s prezentací.
+// Získejte odkaz na objekt typu IDocumentProperties přidružený k prezentaci.
 IDocumentProperties documentProperties = presentation.DocumentProperties;
 
 // Přidejte vlastní vlastnosti.
@@ -125,18 +133,21 @@ documentProperties["Document version"] = 2;
 presentation.Save("CustomDocumentProperties_output.pptx", SaveFormat.Pptx);
 ```
 
-## **Přístup a úprava vlastních vlastností**
+## **Přístup k vlastním vlastnostem a jejich úprava**
 
-Aspose.Slides also allows developers to access existing custom properties and modify their values easily. This functionality helps maintain accurate metadata and supports dynamic updates based on user input or business logic. The examples below illustrate how to retrieve and update custom property values within a presentation.
+Aspose.Slides také umožňuje vývojářům přistupovat k existujícím vlastním vlastnostem a snadno měnit jejich hodnoty. Tato funkčnost pomáhá udržovat přesná metadata a podporuje dynamické aktualizace na základě vstupu uživatele nebo obchodní logiky. Níže uvedené příklady ilustrují, jak načíst a aktualizovat hodnoty vlastních vlastností v prezentaci.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Vytvořte instanci třídy Presentation, která představuje soubor PPTX.
 using Presentation presentation = new Presentation("AccessAndModifyProperties.pptx");
 
-// Get a reference to the object of type IDocumentProperties associated with the presentation.
+// Získejte odkaz na objekt typu IDocumentProperties přidružený k prezentaci.
 IDocumentProperties documentProperties = presentation.DocumentProperties;
 
-// Access and modify the custom properties.
+// Získejte přístup a upravte vlastní vlastnosti.
 for (int i = 0; i < documentProperties.CountOfCustomProperties; i++)
 {
     string propertyName = documentProperties.GetCustomPropertyName(i);
@@ -146,30 +157,30 @@ for (int i = 0; i < documentProperties.CountOfCustomProperties; i++)
     Console.WriteLine("Custom property name : " + propertyName);
     Console.WriteLine("Custom property value : " + propertyValue);
 
-    // Upravit hodnotu vlastní vlastnosti.
+    // Upravte hodnotu vlastní vlastnosti.
     documentProperties[propertyName] = "New Value " + (i + 1);
 }
 
-// Save the presentation to a file.
+// Uložte prezentaci do souboru.
 presentation.Save("CustomProperties_output.pptx", SaveFormat.Pptx);
 ```
 
 ## **Ukázkový příklad**
 
-Try the [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/cs/metadata) online app to see how to work with document properties using the Aspose.Slides API:
+Vyzkoušejte online aplikaci [**Zobrazit a upravit metadata PowerPointu**](https://products.aspose.app/slides/cs/metadata) a zjistěte, jak pracovat s vlastnostmi dokumentu pomocí API Aspose.Slides:
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/cs/metadata)
+[![Zobrazit a upravit metadata PowerPointu](slides-metadata.png)](https://products.aspose.app/slides/cs/metadata)
 
-## ***FAQ**
+## ***Často kladené otázky**
 
-**Jak mohu odstranit vestavěnou vlastnost z prezentace?**
+### Jak mohu odstranit vestavěnou vlastnost z prezentace?
 
-Built-in properties are an integral part of the presentation and cannot be removed entirely. However, you can either change their values or set them to empty if allowed by the specific property.
+Vestavěné vlastnosti jsou nedílnou součástí prezentace a nelze je zcela odstranit. Můžete však změnit jejich hodnoty nebo je nastavit na prázdné, pokud to daná vlastnost umožňuje.
 
-**Co se stane, pokud přidám vlastní vlastnost, která již existuje?**
+### Co se stane, když přidám vlastní vlastnost, která již existuje?
 
-If you add a custom property that already exists, its existing value will be overwritten with the new one. You do not need to remove or check the property beforehand, as Aspose.Slides automatically updates the property's value.
+Pokud přidáte vlastní vlastnost, která již existuje, její stávající hodnota bude přepsána novou. Nemusíte vlastnost předtím odstranit nebo kontrolovat, protože Aspose.Slides automaticky aktualizuje hodnotu vlastnosti.
 
-**Mohu přistupovat k vlastnostem prezentace bez úplného načtení prezentace?**
+### Mohu získat přístup k vlastnostem prezentace bez úplného načtení prezentace?
 
-Yes, you can access presentation properties without fully loading the presentation by using the `GetPresentationInfo` method from the [PresentationFactory](https://reference.aspose.com/slides/cs/net/aspose.slides/presentationfactory/) class. Then, utilize the `ReadDocumentProperties` method provided by the [IPresentationInfo](https://reference.aspose.com/slides/cs/net/aspose.slides/ipresentationinfo/) interface to read the properties efficiently, saving memory and improving performance.
+Ano, můžete získat přístup k vlastnostem prezentace bez úplného načtení pomocí metody `GetPresentationInfo` ze třídy [PresentationFactory](https://reference.aspose.com/slides/cs/net/aspose.slides/presentationfactory/). Poté využijte metodu `ReadDocumentProperties` rozhraní [IPresentationInfo](https://reference.aspose.com/slides/cs/net/aspose.slides/ipresentationinfo/) k efektivnímu načtení vlastností, čímž šetříte paměť a zvyšujete výkon.

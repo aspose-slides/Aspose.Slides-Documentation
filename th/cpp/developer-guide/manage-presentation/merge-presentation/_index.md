@@ -1,82 +1,82 @@
 ---
-title: "รวมพรีเซนเทชั่นอย่างมีประสิทธิภาพใน C++"
-linktitle: "รวมพรีเซนเทชั่น"
+title: ผสานการนำเสนออย่างมีประสิทธิภาพใน C++
+linktitle: ผสานการนำเสนอ
 type: docs
 weight: 40
 url: /th/cpp/merge-presentation/
 keywords:
-- "รวม PowerPoint"
-- "รวมพรีเซนเทชั่น"
-- "รวมสไลด์"
-- "รวม PPT"
-- "รวม PPTX"
-- "รวม ODP"
-- "ผสาน PowerPoint"
-- "ผสานพรีเซนเทชั่น"
-- "ผสานสไลด์"
-- "ผสาน PPT"
-- "ผสาน PPTX"
-- "ผสาน ODP"
-- "C++"
-- "Aspose.Slides"
-description: "ผสานพรีเซนเทชั่น PowerPoint (PPT, PPTX) และ OpenDocument (ODP) อย่างง่ายดายด้วย Aspose.Slides สำหรับ C++ เพื่อเพิ่มประสิทธิภาพการทำงานของคุณ"
+- ผสาน PowerPoint
+- ผสานการนำเสนอ
+- ผสานสไลด์
+- ผสาน PPT
+- ผสาน PPTX
+- ผสาน ODP
+- รวม PowerPoint
+- รวมการนำเสนอ
+- รวมสไลด์
+- รวม PPT
+- รวม PPTX
+- รวม ODP
+- C++
+- Aspose.Slides
+description: "ผสานการนำเสนอ PowerPoint (PPT, PPTX) และ OpenDocument (ODP) อย่างง่ายดายด้วย Aspose.Slides สำหรับ C++ เพื่อทำให้กระบวนการทำงานของคุณราบรื่นขึ้น"
 ---
-## **Overview**
+## **ภาพรวม**
 
-Aspose.Slides ช่วยให้คุณรวมพรีเซนเทชั่นโดยการคัดลอกสไลด์จากพรีเซนเทชั่นหนึ่งไปยังอีกพรีเซนเทชั่นหนึ่ง บทความนี้อธิบายวิธีการรวมพรีเซนเทชั่นทั้งหมดหรือสไลด์ที่เลือกใช้มาสเตอร์สไลด์หรือเค้าโครงเฉพาะในระหว่างการรวม วิธีจัดการพรีเซนเทชั่นที่มีขนาดสไลด์ต่างกัน และการเพิ่มสไลด์ที่รวมแล้วเข้าไปในส่วนของพรีเซนเทชั่น นอกจากนี้ยังครอบคลุมโน๊ตผู้พูด คอมเมนต์ ไฟล์ต้นทางที่ป้องกันด้วยรหัสผ่าน และการใช้งานเธรด
+Aspose.Slides ช่วยให้คุณผสานการนำเสนอโดยการคัดลอกสไลด์จากการนำเสนอหนึ่งไปยังอีกการนำเสนอหนึ่ง บทความนี้อธิบายวิธีการผสานการนำเสนอทั้งหมดหรือสไลด์ที่เลือก ใช้ slide master หรือ layout เฉพาะระหว่างการผสาน จัดการการนำเสนอที่มีขนาดสไลด์ต่างกัน และเพิ่มสไลด์ที่ผสานแล้วไปยังส่วนของการนำเสนอ นอกจากนี้ยังครอบคลุมโน้ตสำคัญที่เกี่ยวข้องกับเนื้อหาที่ผสานรวม ได้แก่ โน้ตผู้บรรยาย ความคิดเห็น ไฟล์ต้นทางที่ป้องกันด้วยรหัสผ่าน และการใช้เธรด
 
-## **Presentation Merging**
+## **การผสานการนำเสนอ**
 
-เมื่อคุณรวมพรีเซนเทชั่นหนึ่งกับอีกพรีเซนเทชั่นหนึ่ง คุณกำลังรวมสไลด์ของพวกมันให้เป็นพรีเซนเทชั่นเดียวเพื่อให้ได้ไฟล์เดียว
+เมื่อคุณผสานการนำเสนอหนึ่งไปยังอีกการนำเสนอหนึ่ง คุณกำลังรวมสไลด์ของทั้งสองเป็นไฟล์เดียว
 
 {{% alert title="Info" color="info" %}}
-
-โปรแกรมพรีเซนเทชั่นส่วนใหญ่ (PowerPoint หรือ OpenOffice) ขาดฟังก์ชันที่ให้ผู้ใช้รวมพรีเซนเทชั่นในลักษณะนี้ได้
-
-[**Aspose.Slides for C++**](https://products.aspose.com/slides/th/cpp/), อย่างไรก็ตาม ช่วยให้คุณรวมพรีเซนเทชั่นได้หลายวิธี คุณสามารถรวมพรีเซนเทชั่นพร้อมกับรูปทรง สไตล์ ข้อความ การฟอร์แมต คอมเมนต์ แอนิเมชัน ฯลฯ โดยไม่ต้องกังวลเรื่องการสูญเสียคุณภาพหรือข้อมูล
-
-**See also**
-
-[Clone Slides](https://docs.aspose.com/slides/th/cpp/clone-slides/)*.*
-
+โปรแกรมนำเสนอส่วนใหญ่ (PowerPoint หรือ OpenOffice) ไม่มีฟังก์ชันที่ให้ผู้ใช้ผสานการนำเสนอในลักษณะนี้
+[**Aspose.Slides for C++**](https://products.aspose.com/slides/th/cpp/) อย่างไรก็ตาม ช่วยให้คุณผสานการนำเสนอได้หลายวิธี คุณสามารถผสานการนำเสนอพร้อมกับรูปร่าง สไตล์ ข้อความ การจัดรูปแบบ ความคิดเห็น แอนิเมชัน ฯลฯ โดยไม่ต้องกังวลเรื่องคุณภาพหรือข้อมูลสูญหาย
+**ดูเพิ่มเติม**
+[Clone Slides](https://docs.aspose.com/slides/th/cpp/clone-slides/)*.* 
 {{% /alert %}}
 
-### **What Can Be Merged**
+### **สิ่งที่สามารถผสานได้**
 
-ด้วย Aspose.Slides คุณสามารถรวม
+ด้วย Aspose.Slides คุณสามารถผสาน
 
-* พรีเซนเทชั่นทั้งหมด ทั้งสไลด์จากพรีเซนเทชั่นทั้งหมดจะอยู่ในพรีเซนเทชั่นเดียว
-* สไลด์ที่เลือก สไลด์ที่เลือกจะอยู่ในพรีเซนเทชั่นเดียว
-* พรีเซนเทชั่นในรูปแบบเดียวกัน (PPT ไป PPT, PPTX ไป PPTX ฯลฯ) หรือรูปแบบต่างกัน (PPT ไป PPTX, PPTX ไป ODP ฯลฯ) ให้กันและกัน
+* การนำเสนอทั้งหมด ทุกสไลด์จากการนำเสนอจะอยู่ในไฟล์เดียว
+* สไลด์เฉพาะ สไลด์ที่เลือกจะอยู่ในไฟล์เดียว
+* การนำเสนอในรูปแบบเดียวกัน (PPT กับ PPT, PPTX กับ PPTX เป็นต้น) หรือในรูปแบบที่ต่างกัน (PPT กับ PPTX, PPTX กับ ODP เป็นต้น) ไปยังกันและกัน
 
-{{% alert title="Note" color="warning" %}}
-
-นอกจากพรีเซนเทชั่นแล้ว Aspose.Slides ยังอนุญาตให้คุณรวมไฟล์อื่นได้:
+{{% alert title="Note" color="warning" %}} 
+นอกเหนือจากการนำเสนอ Aspose.Slides ยังให้คุณผสานไฟล์อื่น ๆ:
 
 * [Images](https://products.aspose.com/slides/th/cpp/merger/image-to-image/), เช่น [JPG to JPG](https://products.aspose.com/slides/th/cpp/merger/jpg-to-jpg/) หรือ [PNG to PNG](https://products.aspose.com/slides/th/cpp/merger/png-to-png/)
-* เอกสาร เช่น [PDF to PDF](https://products.aspose.com/slides/th/cpp/merger/pdf-to-pdf/) หรือ [HTML to HTML](https://products.aspose.com/slides/th/cpp/merger/html-to-html/)
-* และไฟล์ประเภทต่างกัน เช่น [image to PDF](https://products.aspose.com/slides/th/cpp/merger/image-to-pdf/) หรือ [JPG to PDF](https://products.aspose.com/slides/th/cpp/merger/jpg-to-pdf/) หรือ [TIFF to PDF](https://products.aspose.com/slides/th/cpp/merger/tiff-to-pdf/)
+* เอกสาร, เช่น [PDF to PDF](https://products.aspose.com/slides/th/cpp/merger/pdf-to-pdf/) หรือ [HTML to HTML](https://products.aspose.com/slides/th/cpp/merger/html-to-html/)
+* ไฟล์สองประเภทที่แตกต่างกัน เช่น [image to PDF](https://products.aspose.com/slides/th/cpp/merger/image-to-pdf/) หรือ [JPG to PDF](https://products.aspose.com/slides/th/cpp/merger/jpg-to-pdf/) หรือ [TIFF to PDF](https://products.aspose.com/slides/th/cpp/merger/tiff-to-pdf/)
 
 {{% /alert %}}
 
-### **Merging Options**
+### **ตัวเลือกการผสาน**
 
-คุณสามารถกำหนดตัวเลือกที่ตัดสินว่า
+คุณสามารถกำหนดตัวเลือกที่ระบุว่า
 
-* แต่ละสไลด์ในพรีเซนเทชั่นผลลัพธ์จะคงสไตล์เฉพาะของมัน
-* หรือสไตล์เดียวกันจะใช้กับสไลด์ทั้งหมดในพรีเซนเทชั่นผลลัพธ์
+* สไลด์แต่ละสไลด์ในผลลัพธ์จะคงสไตล์เฉพาะของตน
+* หรือใช้สไตล์เดียวกันสำหรับสไลด์ทั้งหมดในผลลัพธ์
 
-เพื่อรวมพรีเซนเทชั่น Aspose.Slides ให้เมธอด [AddClone](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) (จากอินเทอร์เฟซ [ISlideCollection](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.i_slide_collection)) มีการทำงานหลายแบบที่กำหนดพารามิเตอร์ของกระบวนการรวมพรีเซนเทชั่น ทุกอ็อบเจกต์ Presentation มีคอลเลกชัน [Slides](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c) ดังนั้นคุณสามารถเรียกเมธอด `AddClone` จากพรีเซนเทชั่นที่ต้องการรวมสไลด์เข้าไปได้
+เพื่อผสานการนำเสนอ Aspose.Slides ให้บริการเมธอด [AddClone](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) (จากอินเทอร์เฟซ [ISlideCollection](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.i_slide_collection)) มีการนำไปใช้งานหลายรูปแบบของเมธอด `AddClone` ที่กำหนดพารามิเตอร์กระบวนการผสานการนำเสนอ ทุกวัตถุ Presentation มีคอลเลกชัน [Slides](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c) คุณจึงเรียกเมธอด `AddClone` จากการนำเสนอที่ต้องการผสานสไลด์เข้าไป
 
-เมธอด `AddClone` จะคืนค่าเป็นอ็อบเจกต์ `ISlide` ซึ่งเป็นสำเนาของสไลด์ต้นทาง สไลด์ในพรีเซนเทชั่นผลลัพธ์จึงเป็นสำเนาของสไลด์จากต้นทาง ดังนั้นคุณสามารถเปลี่ยนแปลงสไลด์ที่ได้ (เช่น ใช้สไตล์หรือตัวเลือกการฟอร์แมตหรือเค้าโครง) โดยไม่ต้องกังวลว่าจะทำให้พรีเซนเทชั่นต้นทางได้รับผลกระทบ
+เมธอด `AddClone` จะคืนค่าเป็นวัตถุ `ISlide` ซึ่งเป็นสำเนาของสไลด์ต้นฉบับ สไลด์ในผลลัพธ์จะแค่สำเนาของสไลด์จากต้นฉบับ ดังนั้นคุณสามารถแก้ไขสไลด์ที่ได้ (เช่น ใช้สไตล์หรือการจัดรูปแบบหรือเลเอาต์) โดยไม่กระทบต่อการนำเสนอเดิม
 
-## **Merge Presentations**
+## **ผสานการนำเสนอ**
 
-Aspose.Slides มีเมธอด [**AddClone (ISlide)**](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) ที่ให้คุณรวมสไลด์โดยสไลด์ยังคงรักษาเค้าโครงและสไตล์เดิม (พารามิเตอร์เริ่มต้น)
+Aspose.Slides มีเมธอด [**AddClone (ISlide)**](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) ที่ช่วยให้คุณรวมสไลด์ขณะสไลด์ยังคงรักษาเลเอาต์และสไตล์ไว้ (พารามิเตอร์เริ่มต้น)
 
-โค้ด C++ ด้านล่างแสดงวิธีการรวมพรีเซนเทชั่น:
+ตัวอย่างโค้ด C++ แสดงวิธีผสานการนำเสนอ:
 
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
 for (const auto& slide : pres2->get_Slides())
@@ -87,13 +87,20 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-## **Merge Presentations with a Slide Master**
+## **ผสานการนำเสนอด้วย Slide Master**
 
-Aspose.Slides มีเมธอด [**AddClone (ISlide, IMasterSlide, bool)**](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.i_slide_collection#a6b040e6b30f52ab4644fafdbc650b640) ที่ให้คุณรวมสไลด์พร้อมใช้แม่แบบสไลด์มาสเตอร์ของพรีเซนเทชั่น หากต้องการคุณสามารถเปลี่ยนสไตล์ของสไลด์ในพรีเซนเทชั่นผลลัพธ์ได้
+Aspose.Slides มีเมธอด [**AddClone (ISlide, IMasterSlide, bool)**](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.i_slide_collection#a6b040e6b30f52ab4644fafdbc650b640) ที่ช่วยให้คุณรวมสไลด์พร้อมประยุกต์เทมเพลต Slide Master วิธีนี้ทำให้คุณสามารถเปลี่ยนสไตล์ของสไลด์ในผลลัพธ์ได้หากต้องการ
 
-โค้ด C++ ต่อไปนี้สาธิตการทำงานดังกล่าว:
+โค้ด C++ แสดงการทำงานตามที่อธิบาย:
 
 ```cpp
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
 for (const auto& slide : pres2->get_Slides())
@@ -104,21 +111,28 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert title="Note" color="warning" %}}
-
-เค้าโครงสไลด์สำหรับมาสเตอร์สไลด์จะถูกกำหนดโดยอัตโนมัติ หากไม่สามารถกำหนดเค้าโครงที่เหมาะสมได้ และพารามิเตอร์ `allowCloneMissingLayout` ของเมธอด `AddClone` ถูกตั้งค่าเป็น true จะใช้เค้าโครงของสไลด์ต้นทาง มิฉะนั้นจะเกิดข้อผิดพลาด [PptxEditException](https://reference.aspose.com/slides/th/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d)
-
+{{% alert title="Note" color="warning" %}} 
+เลเอาต์ของ slide master จะกำหนดโดยอัตโนมัติ หากไม่สามารถกำหนดเลเอาต์ที่เหมาะสมได้และพารามิเตอร์ boolean `allowCloneMissingLayout` ของเมธอด `AddClone` ตั้งเป็น true จะใช้เลเอาต์ของสไลด์ต้นฉบับ มิฉะนั้นจะเกิดข้อยกเว้น [PptxEditException](https://reference.aspose.com/slides/th/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d) 
 {{% /alert %}}
 
-หากคุณต้องการให้สไลด์ในพรีเซนเทชั่นผลลัพธ์ใช้เค้าโครงสไลด์ที่แตกต่างกัน ให้ใช้เมธอด [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.i_slide_collection#a0ed5909b2d92555159007046760ff2f1) แทนเมื่อทำการรวม
+หากต้องการให้สไลด์ในผลลัพธ์มีเลเอาต์ที่แตกต่างกันให้ใช้เมธอด [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.i_slide_collection#a0ed5909b2d92555159007046760ff2f1) แทนเมื่อทำการผสาน
 
-## **Merge Specific Slides from Presentations**
+## **ผสานสไลด์เฉพาะจากการนำเสนอ**
 
-การรวมสไลด์เฉพาะจากหลายพรีเซนเทชั่นมีประโยชน์สำหรับการสร้างชุดสไลด์ที่กำหนดเอง Aspose.Slides C++ อนุญาตให้คุณเลือกและนำเข้าเฉพาะสไลด์ที่ต้องการ API จะคงรูปแบบ เค้าโครง และการออกแบบของสไลด์ต้นฉบับ
+การผสานสไลด์เฉพาะจากหลายการนำเสนอเป็นประโยชน์สำหรับการสร้างชุดสไลด์ตามต้องการ Aspose.Slides C++ ให้คุณเลือกและนำเข้าสไลด์ที่ต้องการเท่านั้น API จะรักษาการจัดรูปแบบ เลเอาต์ และการออกแบบของสไลด์ต้นฉบับ
 
-โค้ด C++ ด้านล่างสร้างพรีเซนเทชั่นใหม่ เพิ่มสไลด์หัวเรื่องจากพรีเซนเทชั่นอื่นสองไฟล์แล้วบันทึกผลลัพธ์ลงไฟล์:
+โค้ด C++ ตัวอย่างสร้างการนำเสนอใหม่ เพิ่มสไลด์หัวเรื่องจากสองการนำเสนออื่น ๆ และบันทึกผลลัพธ์เป็นไฟล์:
 
 ```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IPresentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/SlideLayoutType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation)
 {
     for (auto&& slide : presentation->get_Slides())
@@ -132,6 +146,19 @@ SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation)
 }
 ```
 ```cpp
+#include <DOM/IPresentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// ประกาศในโค้ดด้านบน.
+SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation);
+
 auto presentation = MakeObject<Presentation>();
 auto presentation1 = MakeObject<Presentation>(u"presentation1.pptx");
 auto presentation2 = MakeObject<Presentation>(u"presentation2.pptx");
@@ -155,11 +182,18 @@ presentation1->Dispose();
 presentation->Dispose();
 ```
 
-## **Merge Presentations with a Slide Layout**
+## **ผสานการนำเสนอด้วย Slide Layout**
 
-โค้ด C++ นี้แสดงวิธีการรวมสไลด์จากพรีเซนเทชั่นพร้อมประยุกต์ใช้เค้าโครงสไลด์ที่คุณต้องการเพื่อให้ได้พรีเซนเทชั่นผลลัพธ์เดียว:
+โค้ด C++ นี้แสดงวิธีรวมสไลด์จากการนำเสนอพร้อมประยุกต์เลเอาต์สไลด์ที่คุณต้องการให้ได้ผลลัพธ์เป็นการนำเสนอไฟล์เดียว:
 
 ```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
 for (const auto& slide : pres2->get_Slides())
@@ -170,19 +204,26 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-## **Merge Presentations with Different Slide Sizes**
+## **ผสานการนำเสนอที่มีขนาดสไลด์ต่างกัน**
 
-{{% alert title="Note" color="warning" %}}
-
-คุณไม่สามารถรวมพรีเซนเทชั่นที่มีขนาดสไลด์ต่างกันได้
-
+{{% alert title="Note" color="warning" %}} 
+คุณไม่สามารถผสานการนำเสนอที่มีขนาดสไลด์ต่างกันได้ 
 {{% /alert %}}
 
-เพื่อรวมพรีเซนเทชั่น 2 ตัวที่มีขนาดสไลด์แตกต่างกัน คุณต้องปรับขนาดของพรีเซนเทชั่นหนึ่งให้ตรงกับอีกพรีเซนเทชั่นหนึ่ง
+เพื่อผสานการนำเสนอ 2 รายการที่มีขนาดสไลด์ต่างกัน คุณต้องปรับขนาดหนึ่งการนำเสนอให้ตรงกับการนำเสนออื่น
 
-โค้ดตัวอย่างต่อไปนี้สาธิตวิธีการดังกล่าว:
+ตัวอย่างโค้ดแสดงการทำงานดังกล่าว:
 
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres1Size = pres1->get_SlideSize()->get_Size();
 
@@ -197,11 +238,18 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-## **Merge Slides to a Presentation Section**
+## **ผสานสไลด์ไปยังส่วนของการนำเสนอ**
 
-โค้ด C++ นี้แสดงวิธีการรวมสไลด์เฉพาะเข้ากับส่วนหนึ่งของพรีเซนเทชั่น:
+โค้ด C++ นี้แสดงวิธีผสานสไลด์เฉพาะไปยังส่วนในการนำเสนอ:
 
 ```cpp
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
 for (int32_t index = 0; index < pres2->get_Slides()->get_Count(); index++)
@@ -213,28 +261,26 @@ for (int32_t index = 0; index < pres2->get_Slides()->get_Count(); index++)
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-สไลด์จะถูกเพิ่มที่ส่วนท้ายของเซคชั่นนั้น
+สไลด์จะถูกเพิ่มที่ส่วนท้ายของเซคชัน
 
-{{% alert title="Tip" color="primary" %}}
-
-Aspose มีแอปเว็บ **FREE Collage** ([https://products.aspose.app/slides/th/collage](https://products.aspose.app/slides/th/collage)) ให้คุณรวมภาพ [JPG to JPG](https://products.aspose.app/slides/th/collage/jpg) หรือ PNG to PNG, สร้าง [photo grids](https://products.aspose.app/slides/th/collage/photo-grid) ฯลฯ
-
+{{% alert title="Tip" color="info" %}}
+Aspose มีแอปเว็บ [FREE Collage](https://products.aspose.app/slides/th/collage) ให้บริการออนไลน์ คุณสามารถผสาน [JPG to JPG](https://products.aspose.app/slides/th/collage/jpg) หรือ PNG to PNG, สร้าง [photo grids](https://products.aspose.app/slides/th/collage/photo-grid) ฯลฯ 
 {{% /alert %}}
 
 ## **FAQ**
 
-**Are speaker notes preserved during merge?**
+### มีการเก็บบันทึกพูดของผู้บรรยายไว้หลังการผสานหรือไม่?
 
-ใช่ เมื่อตัวคัดลอกสไลด์ Aspose.Slides จะคัดลอกองค์ประกอบสไลด์ทั้งหมดรวมถึงโน้ตผู้พูด ฟอร์แมต และแอนิเมชัน
+ใช่ เมื่อคัดลอกสไลด์ Aspose.Slides จะคัดลอกองค์ประกอบสไลด์ทั้งหมดรวมถึงโน้ต, การจัดรูปแบบและแอนิเมชันด้วย
 
-**Are comments and their authors transferred?**
+### ความคิดเห็นและผู้เขียนของความคิดเห็นถูกถ่ายโอนไปหรือไม่?
 
-คอมเมนต์เป็นส่วนของเนื้อหาสไลด์และจะถูกคัดลอกพร้อมสไลด์ ป้ายชื่อผู้เขียนคอมเมนต์จะถูกเก็บเป็นอ็อบเจกต์คอมเมนต์ในพรีเซนเทชั่นผลลัพธ์
+ความคิดเห็นเป็นส่วนหนึ่งของเนื้อหาสไลด์จะถูกคัดลอกพร้อมสไลด์ ป้ายชื่อผู้เขียนความคิดเห็นจะคงอยู่เป็นวัตถุความคิดเห็นในไฟล์ผลลัพธ์
 
-**What if the source presentation is password-protected?**
+### ถ้าการนำเสนอต้นทางถูกป้องกันด้วยรหัสผ่านจะทำอย่างไร?
 
-ต้อง **เปิดด้วยรหัสผ่าน** (/slides/th/cpp/password-protected-presentation/) ผ่านเมธอด [LoadOptions::set_Password](https://reference.aspose.com/slides/th/cpp/aspose.slides/loadoptions/set_password/) หลังจากโหลดแล้วสไลด์เหล่านั้นสามารถคัดลอกไปยังไฟล์เป้าหมายที่ไม่ได้ป้องกัน (หรือไฟล์ที่ป้องกันก็ได้)
+ต้อง [เปิดด้วยรหัสผ่าน](/slides/th/cpp/password-protected-presentation/) ผ่านเมธอด [LoadOptions::set_Password](https://reference.aspose.com/slides/th/cpp/aspose.slides/loadoptions/set_password/) หลังจากโหลดแล้ว สามารถคัดลอกสไลด์เหล่านั้นเข้าสู่ไฟล์เป้าหมายที่ไม่มีการป้องกัน (หรือไฟล์ที่มีการป้องกันได้เช่นกัน)
 
-**How thread-safe is the merge operation?**
+### การผสานนี้ปลอดภัยต่อการทำงานหลายเธรดแค่ไหน?
 
-ห้ามใช้อ็อบเจกต์ [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/) ตัวเดียวกันจากหลายเธรด (/slides/th/cpp/multithreading/) กฎแนะนำคือ “หนึ่งเอกสาร — หนึ่งเธรด” ไฟล์ต่าง ๆ สามารถประมวลผลพร้อมกันในเธรดแยกต่างหากได้.
+ห้ามใช้อินสแตนซ์ [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/) เดียวกันจากหลายเธรด คำแนะนำที่แนะนำคือ “เอกสารหนึ่ง—เธรดหนึ่ง”; สามารถประมวลผลไฟล์ต่าง ๆ ควบคู่กันได้ในเธรดแยกกัน

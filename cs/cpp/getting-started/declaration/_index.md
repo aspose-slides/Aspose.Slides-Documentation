@@ -14,10 +14,10 @@ keywords:
 - prezentace
 - C++
 - Aspose.Slides
-description: "Seznamte se s požadavky na důvěru, oprávněními a omezeními hostování Aspose.Slides pro C++, abyste mohli bezpečně nasazovat aplikace, které zpracovávají PPT, PPTX a ODP na serverech."
+description: "Zjistěte o požadavcích na důvěru, oprávněních a omezeních hostování Aspose.Slides pro C++, abyste mohli bezpečně nasazovat aplikace, které zpracovávají PPT, PPTX a ODP na serverech."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}}
 
-Všechny komponenty Aspose C++ vyžadují nastavení oprávnění Full Trust. Důvodem je, že komponenty Aspose C++ potřebují přístup k nastavením registru, systémovým souborům mimo virtuální adresář pro určité operace, jako je parsování fontů atd. Navíc jsou komponenty Aspose C++ založeny na základních C++ systémových třídách, které také v mnoha případech vyžadují nastavení oprávnění Full Trust. 
+Všechny komponenty Aspose C++ vyžadují nastavení oprávnění Full Trust. Důvod je, že komponenty Aspose C++ potřebují přístup k nastavením registru, systémovým souborům mimo virtuální adresář pro určité operace, jako je parsování fontů atd. Navíc jsou komponenty Aspose C++ založeny na základních C++ systémových třídách, které také v mnoha případech vyžadují nastavení oprávnění Full Trust.
 
 {{% /alert %}}

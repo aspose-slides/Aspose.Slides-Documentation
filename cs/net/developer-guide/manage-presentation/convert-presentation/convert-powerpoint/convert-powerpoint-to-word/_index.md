@@ -32,15 +32,15 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Převod snímků PowerPoint PPT a PPTX do editovatelných dokumentů Word v C# pomocí Aspose.Slides pro .NET se zachováním přesného rozvržení, obrázků a formátování."
+description: "Převod snímků PowerPoint PPT a PPTX do editovatelných dokumentů Word v C# pomocí Aspose.Slides pro .NET s přesným rozložením, obrázky a zachovaným formátováním."
 ---
 ## **Přehled**
 
-Tento článek poskytuje vývojářům řešení pro převod prezentací PowerPoint a OpenDocument do dokumentů Word pomocí Aspose.Slides pro .NET a Aspose.Words pro .NET. Podrobný návod vás provede každým krokem procesu převodu.
+Tento článek poskytuje vývojářům řešení pro převod prezentací PowerPoint a OpenDocument do dokumentů Word pomocí Aspose.Slides pro .NET a Aspose.Words pro .NET. Průvodce krok za krokem vás provede každou fází převodního procesu.
 
 ## **Převod prezentace do dokumentu Word**
 
-Postupujte podle níže uvedených pokynů pro převod prezentace PowerPoint nebo OpenDocument do dokumentu Word:
+Postupujte podle níže uvedených instrukcí pro převod prezentace PowerPoint nebo OpenDocument do dokumentu Word:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) a načtěte soubor prezentace.
 2. Vytvořte instance tříd [Document](https://reference.aspose.com/words/net/aspose.words/document/) a [DocumentBuilder](https://reference.aspose.com/words/net/aspose.words/documentbuilder/) pro vytvoření dokumentu Word.
@@ -58,19 +58,22 @@ Postupujte podle níže uvedených pokynů pro převod prezentace PowerPoint neb
 Následující příklad kódu v C# ukazuje, jak převést prezentaci PowerPoint do dokumentu Word:
 
 ```cs
-// Načtení souboru prezentace.
+using Aspose.Slides;
+using Aspose.Words;
+
+// Načíst soubor prezentace.
 using var presentation = new Presentation("sample.pptx");
 
-// Vytvoření objektů Document a DocumentBuilder.
+// Vytvořit objekty Document a DocumentBuilder.
 var document = new Document();
 var builder = new DocumentBuilder(document);
 
-// Nastavení velikosti stránky v dokumentu Word.
+// Nastavit velikost stránky v dokumentu Word.
 var slideSize = presentation.SlideSize.Size;
 builder.PageSetup.PageWidth = slideSize.Width;
 builder.PageSetup.PageHeight = slideSize.Height;
 
-// Nastavení okrajů v dokumentu Word.
+// Nastavit okraje v dokumentu Word.
 builder.PageSetup.LeftMargin = 0;
 builder.PageSetup.RightMargin = 0;
 builder.PageSetup.TopMargin = 0;
@@ -78,22 +81,22 @@ builder.PageSetup.BottomMargin = 0;
 
 const float scaleX = 2, scaleY = 2;
 
-// Procházení všech snímků prezentace.
+// Projít všechny snímky prezentace.
 foreach (var slide in presentation.Slides)
 {
-    // Vygenerování obrázku snímku a uložení do paměťového proudu.
+    // Vygenerovat obrázek snímku a uložit jej do paměťového proudu.
     using var image = slide.GetImage(scaleX, scaleY);
     using var imageStream = new MemoryStream();
     image.Save(imageStream, ImageFormat.Png);
 
-    // Přidání obrázku snímku do dokumentu Word.
+    // Přidat obrázek snímku do dokumentu Word.
     imageStream.Seek(0, SeekOrigin.Begin);
     builder.InsertImage(imageStream.ToArray(), builder.PageSetup.PageWidth, builder.PageSetup.PageHeight);
 
     builder.InsertBreak(BreakType.PageBreak);
 }
 
-// Uložení dokumentu Word do souboru.
+// Uložit dokument Word do souboru.
 document.Save("output.docx");
 ```
 
@@ -101,16 +104,16 @@ Výsledek:
 
 ![Dokument Word](Word.png)
 
-{{% alert color="primary" %}} 
-Vyzkoušejte náš [**Online PPT to Word Converter**](https://products.aspose.app/slides/cs/conversion/ppt-to-word) a zjistěte, co můžete získat převodem prezentací PowerPoint a OpenDocument do dokumentů Word. 
+{{% alert color="info" %}} 
+Vyzkoušejte náš [**Online PPT do Word převodník**](https://products.aspose.app/slides/cs/conversion/ppt-to-word), abyste zjistili, co můžete získat převodem prezentací PowerPoint a OpenDocument do dokumentů Word. 
 {{% /alert %}}
 
 ## **Často kladené otázky**
 
-**Jaké komponenty je potřeba nainstalovat pro převod prezentací PowerPoint a OpenDocument do dokumentů Word?**
+### Jaké komponenty je potřeba nainstalovat pro převod prezentací PowerPoint a OpenDocument do dokumentů Word?
 
-Stačí přidat odpovídající balíčky NuGet pro [Aspose.Slides for .NET](https://www.nuget.org/packages/Aspose.Slides.NET) a [Aspose.Words for .NET](https://www.nuget.org/packages/Aspose.Words/) do vašeho C# projektu. Obě knihovny fungují jako samostatná API a není nutné mít nainstalovaný Microsoft Office.
+Stačí přidat příslušné balíčky NuGet pro [Aspose.Slides for .NET](https://www.nuget.org/packages/Aspose.Slides.NET) a [Aspose.Words for .NET](https://www.nuget.org/packages/Aspose.Words/) do vašeho projektu C#. Obě knihovny fungují jako samostatná API a není nutné mít nainstalovaný Microsoft Office.
 
-**Jsou podporovány všechny formáty prezentací PowerPoint a OpenDocument?**
+### Jsou podporovány všechny formáty prezentací PowerPoint a OpenDocument?
 
-Aspose.Slides for .NET [supports all presentation formats](/slides/cs/net/supported-file-formats/), včetně PPT, PPTX, ODP a dalších běžných typů souborů. To zajišťuje, že můžete pracovat s prezentacemi vytvořenými v různých verzích Microsoft PowerPoint.
+Aspose.Slides for .NET [podporuje všechny formáty prezentací](/slides/cs/net/supported-file-formats/), včetně PPT, PPTX, ODP a dalších běžných typů souborů. To zajišťuje, že můžete pracovat s prezentacemi vytvořenými v různých verzích Microsoft PowerPoint.

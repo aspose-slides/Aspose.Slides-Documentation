@@ -8,8 +8,8 @@ keywords:
 - маркер
 - маркированный список
 - нумерованный список
-- символ маркера
-- маркер‑изображение
+- символьный маркер
+- изображение‑маркер
 - пользовательский маркер
 - многоуровневый список
 - создать маркер
@@ -20,29 +20,32 @@ keywords:
 - презентация
 - Java
 - Aspose.Slides
-description: "Узнайте, как создавать и форматировать маркированные, маркер‑изображения, многоуровневые и нумерованные списки в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides for Java."
+description: "Узнайте, как создавать и форматировать маркированные, изображение‑маркеры, многоуровневые и нумерованные списки в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для Java."
 ---
 ## **Обзор**
 
-Aspose.Slides for Java позволяет создавать и форматировать маркированные и нумерованные списки в презентациях PowerPoint и OpenDocument. Элемент списка представляет собой абзац, настройки маркеров которого управляются через формат абзаца.
+Aspose.Slides for Java позволяет создавать и форматировать маркированные и нумерованные списки в презентациях PowerPoint и OpenDocument. Элемент списка — это абзац, настройки маркера которого управляются через формат абзаца.
 
-Используйте метод [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraph/#getParagraphFormat--) для доступа к настройкам списка уровня абзаца. Основной точкой входа является [IParagraphFormat.getBullet](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraphformat/#getBullet--), который возвращает объект [IBulletFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibulletformat/). С помощью этого объекта можно задать тип маркера, символ, изображение, цвет, размер, стиль нумерации и начальное число.
+Используйте метод [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraph/#getParagraphFormat--) для доступа к настройкам списков уровня абзаца. Основной вход — [IParagraphFormat.getBullet](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraphformat/#getBullet--), который возвращает объект [IBulletFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibulletformat/). С помощью этого объекта вы можете установить тип маркера, символ, изображение, цвет, размер, стиль нумерации и начальное число.
 
-This article shows how to:
+В этой статье показано, как:
 
 - создать маркированный список с пользовательским символом
-- создать маркер‑изображение
+- создать изображение‑маркер
 - создать многоуровневый список, задав глубину абзаца
 - создать нумерованный список
 - просмотреть и изменить форматирование списка в существующей презентации
 
-## **Создание маркированного списка**
+## **Создать маркированный список**
 
 Чтобы создать маркированный список, добавьте объекты [IParagraph](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraph/) в [ITextFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/) и установите [IBulletFormat.setType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibulletformat/#setType-byte-) в значение [BulletType.Symbol](https://reference.aspose.com/slides/ru/java/com.aspose.slides/bullettype/#Symbol). Затем можно задать [IBulletFormat.setChar](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibulletformat/#setChar-char-), [IBulletFormat.getColor](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibulletformat/#getColor--) и [IBulletFormat.setHeight](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibulletformat/#setHeight-float-) для управления внешним видом маркера.
 
-Следующий код Java демонстрирует, как создать маркированный список на слайде:
+Следующий код на Java демонстрирует, как создать маркированный список на слайде:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -83,13 +86,15 @@ try {
 
 ![Символьные маркеры](symbol_bullets.png)
 
-## **Создание нумерованного списка**
+## **Создать нумерованный список**
 
-Используйте нумерованные списки, когда важен порядок элементов. Установите [IBulletFormat.setType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibulletformat/#setType-byte-) в значение [BulletType.Numbered](https://reference.aspose.com/slides/ru/java/com.aspose.slides/bullettype/#Numbered). Также можно выбрать формат нумерации с помощью [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) или задать [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-), если список должен начинаться с значения, отличного от 1.
+Используйте нумерованные списки, когда порядок элементов важен. Установите [IBulletFormat.setType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibulletformat/#setType-byte-) в значение [BulletType.Numbered](https://reference.aspose.com/slides/ru/java/com.aspose.slides/bullettype/#Numbered). Вы также можете выбрать формат нумерации с помощью [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) или задать [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-), если список должен начинаться с числа, отличного от 1.
 
-Следующий код Java показывает, как создать нумерованный список на слайде:
+Следующий код на Java показывает, как создать нумерованный список на слайде:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -123,25 +128,27 @@ try {
 
 ![Нумерованные маркеры](numbered_bullets.png)
 
-## **Создание маркера‑изображения**
+## **Создать изображение‑маркер**
 
-Aspose.Slides позволяет заменить обычный символ маркера изображением. Маркеры‑изображения лучше всего работают с простыми картинками, которые остаются разборчивыми при небольшом размере, например иконками или небольшими прозрачными PNG‑файлами.
+Aspose.Slides позволяет заменить обычный символ маркера изображением. Изображения‑маркеры лучше всего работают с простыми изображениями, которые остаются разборчивыми при небольшом размере, например, иконками или небольшими прозрачными PNG‑файлами.
 
-{{% alert color="primary" %}}
-Идеально, если вы планируете заменить обычный символ маркера изображением, выбрать простую графику с прозрачным фоном. Такие изображения хорошо подходят в качестве пользовательских символов маркеров.
+{{% alert color="info" %}}
+В идеале, если вы планируете заменить обычный символ маркера изображением, лучше выбрать простую графику с прозрачным фоном. Такие изображения хорошо подходят в качестве пользовательских символов маркеров.
 
-Имейте в виду, что изображение будет масштабировано до очень небольшого размера. По этой причине мы настоятельно рекомендуем выбирать изображение, которое остаётся чётким и визуально эффективным, когда используется в качестве маркера в списке.
+Имейте в виду, что изображение будет уменьшено до очень небольшого размера. По этой причине мы настоятельно рекомендуем выбирать изображение, которое остаётся чётким и визуально эффективным при использовании в качестве маркера в списке.
 {{% /alert %}}
 
-Для создания маркера‑изображения добавьте изображение в [Presentation.getImages](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#getImages--) и присвойте полученный объект изображения [IBulletFormat.getPicture](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibulletformat/#getPicture--). Установите [IBulletFormat.setType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibulletformat/#setType-byte-) в значение [BulletType.Picture](https://reference.aspose.com/slides/ru/java/com.aspose.slides/bullettype/#Picture) перед присвоением изображения.
+Чтобы создать изображение‑маркер, добавьте изображение в [Presentation.getImages](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#getImages--) и присвойте полученный объект изображения [IBulletFormat.getPicture](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibulletformat/#getPicture--). Установите [IBulletFormat.setType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibulletformat/#setType-byte-) в значение [BulletType.Picture](https://reference.aspose.com/slides/ru/java/com.aspose.slides/bullettype/#Picture) перед назначением изображения.
 
 Допустим, у нас есть файл "image.png":
 
 ![Изображение для маркеров](picture_for_bullets.png)
 
-Следующий код Java показывает, как создать маркеры‑изображения на слайде:
+Следующий код на Java показывает, как создать изображение‑маркеры на слайде:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -176,15 +183,17 @@ try {
 
 Результат:
 
-![Маркер‑изображения](picture_bullets.png)
+![Изображение‑маркеры](picture_bullets.png)
 
-## **Создание многоуровневого списка**
+## **Создать многоуровневый список**
 
-Используйте [IParagraphFormat.setDepth](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraphformat/#setDepth-short-) для размещения элементов списка на разных уровнях. Уровень 0 — верхний уровень, уровень 1 — вложенный под ним, и т.д.
+Для размещения элементов списка на разных уровнях используйте [IParagraphFormat.setDepth](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraphformat/#setDepth-short-). Уровень 0 — это верхний уровень, уровень 1 — вложенный под ним и так далее.
 
-Следующий код Java показывает, как создать многоуровневый маркированный список:
+Следующий код на Java показывает, как создать многоуровневый маркированный список:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -223,13 +232,15 @@ try {
 
 ![Многоуровневый список](multilevel_list.png)
 
-## **Изменение существующего списка**
+## **Изменить существующий список**
 
-Чтобы изменить форматирование списка в существующей презентации, получите доступ к целевому абзацу и обновите его настройки [IParagraphFormat.getBullet](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraphformat/#getBullet--). Те же свойства, которые использовались для создания списков, можно применять для проверки или изменения списков, загруженных из файлов PPT, PPTX или ODP.
+Чтобы изменить форматирование списка в существующей презентации, получите доступ к целевому абзацу и обновите его настройки [IParagraphFormat.getBullet](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraphformat/#getBullet--). Те же свойства, которые используются для создания списков, могут быть использованы для просмотра или изменения списков, загруженных из файлов PPT, PPTX или ODP.
 
-Следующий код Java изменяет первый абзац в текстовом фрейме, чтобы использовать стиль нумерованного списка:
+Следующий код на Java меняет первый абзац в текстовом фрейме, чтобы использовать стиль нумерованного списка:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -248,16 +259,16 @@ try {
 }
 ```
 
-## **Вопросы и ответы**
+## **FAQ**
 
-**Можно ли экспортировать маркированные и нумерованные списки в PDF или изображения?**
+### Можно ли экспортировать маркированные и нумерованные списки в PDF или изображения?
 
-Да. Aspose.Slides сохраняет форматирование списков, если целевой формат поддерживает соответствующее расположение текста и функции маркеров.
+Да. Aspose.Slides сохраняет форматирование списков, если целевой формат поддерживает соответствующее размещение текста и функции маркеров.
 
-**Могу ли я редактировать списки в существующих презентациях?**
+### Могу ли я редактировать списки в существующих презентациях?
 
-Да. Загрузите презентацию, получите доступ к целевому абзацу, проверьте или обновите его настройки [IParagraphFormat.getBullet](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraphformat/#getBullet--), и сохраните презентацию.
+Да. Загрузите презентацию, получите доступ к целевому абзацу, просмотрите или обновите его настройки [IParagraphFormat.getBullet](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraphformat/#getBullet--), и сохраните презентацию.
 
-**Могут ли списки содержать нелатинский текст?**
+### Может ли список содержать нелатинский текст?
 
 Да. Текст элементов списка может содержать символы Unicode, поэтому вы можете создавать списки в многоязычных презентациях. Убедитесь, что шрифты, используемые в презентации, поддерживают необходимые вам символы.

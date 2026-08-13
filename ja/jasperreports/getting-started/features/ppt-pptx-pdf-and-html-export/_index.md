@@ -1,29 +1,26 @@
 ---
-title: PPT, PPTX, PDF と HTML エクスポート
+title: PPT、PPTX、PDF および HTML エクスポート
 type: docs
 weight: 20
 url: /ja/jasperreports/ppt-pptx-pdf-and-html-export/
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
+JasperReports と JasperServer には、レポートを Microsoft PowerPoint プレゼンテーションとしてエクスポートする組み込み機能がありませんが、Aspose.Slides for JasperReports を使用すると、追加のエクスポート形式が利用できます:
 
-JasperReports および JasperServer には、レポートを Microsoft PowerPoint プレゼンテーションとしてエクスポートするための組み込み機能はありませんが、Aspose.Slides for JasperReports を使用することで、追加のエクスポート形式にアクセスできます：
-
-- Microsoft PowerPoint プレゼンテーション (PPT)
-- Microsoft PowerPoint プレゼンテーション (PPTX)
+- Microsoft PowerPoint Presentation (PPT)
+- Microsoft PowerPoint Presentation (PPTX)
 - HTML
 - PDF
 
 {{% /alert %}} 
 
-これらの形式で文書を作成するために、Aspose.Slides for JasperReports は、Aspose の市場をリードするプレゼンテーション処理ライブラリである [Aspose.Slides for Java](https://products.aspose.com/slides/java/) の組み込みバージョンに依存しています。文書を生成するために Microsoft PowerPoint は使用されません。
+これらの形式でドキュメントを作成するために、Aspose.Slides for JasperReports は Aspose の市場をリードするプレゼンテーション処理ライブラリである [Aspose.Slides for Java](https://products.aspose.com/slides/ja/java/) の組み込みバージョンに依存しています。Microsoft PowerPoint はドキュメントの生成には使用されません。
 
-
-
-**Microsoft PowerPoint (PPT) プレゼンテーションとしてエクスポートされたサンプルレポート** 
+**Microsoft PowerPoint（PPT）プレゼンテーションとしてエクスポートされたサンプルレポート** 
 
 ![todo:image_alt_text](ppt-pptx-pdf-and-html-export_1.png)
 
-**Microsoft PowerPoint プレゼンテーション (PPTX) としてエクスポートされたサンプルレポート** 
+**Microsoft PowerPoint プレゼンテーション（PPTX）としてエクスポートされたサンプルレポート** 
 
 ![todo:image_alt_text](ppt-pptx-pdf-and-html-export_2.png)

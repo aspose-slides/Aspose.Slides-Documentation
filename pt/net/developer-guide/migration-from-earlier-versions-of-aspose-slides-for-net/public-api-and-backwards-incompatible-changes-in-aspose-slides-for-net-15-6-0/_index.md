@@ -1,5 +1,5 @@
 ---
-title: API pública e alterações incompatíveis retroativas no Aspose.Slides para .NET 15.6.0
+title: Alterações da API Pública e Incompatíveis Retroativamente no Aspose.Slides para .NET 15.6.0
 linktitle: Aspose.Slides para .NET 15.6.0
 type: docs
 weight: 170
@@ -16,71 +16,72 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Revise as atualizações da API pública e as mudanças que quebram compatibilidade no Aspose.Slides para .NET para migrar suavemente suas soluções de apresentações PowerPoint PPT, PPTX e ODP."
+description: "Revise as atualizações da API pública e as mudanças incompatíveis no Aspose.Slides para .NET para migrar suavemente suas soluções de apresentação PowerPoint PPT, PPTX e ODP."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Esta página lista todos os [adicionados](/slides/pt/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-6-0/) ou [removidos](/slides/pt/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-6-0/) classes, métodos, propriedades e assim por diante, bem como outras alterações introduzidas na API do Aspose.Slides for .NET 15.6.0.
+Esta página lista todas as classes, métodos, propriedades etc. [adicionados](/slides/pt/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-6-0/) ou [removidos](/slides/pt/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-6-0/) e outras mudanças introduzidas com a API Aspose.Slides for .NET 15.6.0.
 
 {{% /alert %}} 
 ## **Alterações da API Pública**
-#### **A Assinatura do Construtor DataLabel Foi Alterada**
+#### **A assinatura do construtor DataLabel foi alterada**
 A assinatura do construtor DataLabel foi alterada:
 was: DataLabel.#ctor(Aspose.Slides.Charts.IChartSeries);
 now: DataLabel.#ctor(Aspose.Slides.Charts.IChartDataPoint).
-#### **Os Membros IDocumentProperties.Count, .GetPropertyName(int index), .Remove(string name), .Contains(string name) Foram Marcados como Obsoletos e Suas Substituições Foram Introduzidas**
-A propriedade IDocumentProperties.Count e os métodos IDocumentProperties.GetPropertyName(int index), .Remove(string name), .Contains(string name) foram marcados como Obsoletos. A propriedade IDocumentProperties.CountOfCustomProperties e os métodos IDocumentProperties.GetCustomPropertyName(int index), .RemoveCustomProperty(string name), .ContainsCustomProperty(string name) foram adicionados em seu lugar.
-#### **Método INotesSlideManager.RemoveNotesSlide() Foi Adicionado**
-O método INotesSlideManager.RemoveNotesSlide() foi adicionado para remover o slide de notas de algum slide.
-#### **Método Remove Foi Adicionado a IComment**
-O método IComment.Remove foi adicionado para remover o comentário da coleção.
-#### **Método Remove Foi Adicionado a ICommentAuthor**
-O método ICommentAuthor.Remove foi adicionado para remover o autor dos comentários da coleção.
-#### **Métodos ClearCustomProperties e ClearBuiltInProperties Foram Adicionados a IDocumentProperties**
-O método IDocumentProperties.ClearCustomProperties foi adicionado para remover todas as propriedades personalizadas do documento.
-O método IDocumentProperties.ClearBuiltInProperties foi adicionado para remover e definir valores padrão para todas as propriedades integradas do documento (Company, Subject, Author etc).
-#### **Métodos RemoveAt, Remove e Clear Foram Adicionados a ICommentAuthorCollection**
-O método ICommentAuthorCollection.RemoveAt foi adicionado para remover o autor por índice especificado.
-O método ICommentAuthorCollection.Remove foi adicionado para remover o autor especificado da coleção.
-O método ICommentAuthorCollection.Clear foi adicionado para remover todos os itens da coleção.
-#### **Propriedade AppVersion Foi Adicionada a IDocumentProperties**
-A propriedade IDocumentProperties.AppVersion foi adicionada para obter a propriedade integrada do documento que representa os números de versão internos usados pela Microsoft durante o desenvolvimento.
-#### **Propriedade BlackWhiteMode Foi Adicionada a IShape e a Shape**
-A propriedade BlackWhiteMode foi adicionada a IShape e a Shape.
+#### **Os membros IDocumentProperties.Count, .GetPropertyName(int index), .Remove(string name) e .Contains(string name) foram marcados como obsoletos e suas substituições foram introduzidas**
+Property IDocumentProperties.Count and methods IDocumentProperties.GetPropertyName(int index), .Remove(string name), .Contains(string name) have been marked as Obsolete. Property IDocumentProperties.CountOfCustomProperties and methods IDocumentProperties.GetCustomPropertyName(int index), .RemoveCustomProperty(string name), .ContainsCustomProperty(string name) have been added instead.
+#### **O método INotesSlideManager.RemoveNotesSlide() foi adicionado**
+O método INotesSlideManager.RemoveNotesSlide() foi adicionado para remover a nota de slide de algum slide.
+#### **O método Remove foi adicionado ao IComment**
+O método Remove foi adicionado ao IComment para remover o comentário da coleção.
+#### **O método Remove foi adicionado ao ICommentAuthor**
+O método Remove foi adicionado ao ICommentAuthor para remover o autor dos comentários da coleção.
+#### **Os métodos ClearCustomProperties e ClearBuiltInProperties foram adicionados ao IDocumentProperties**
+Method IDocumentProperties.ClearCustomProperties has been added for removing all custom document properties.
+Method IDocumentProperties.ClearBuiltInProperties has been added for removing and setting default values for all builtIn document properties (Company, Subject, Author etc).
+#### **Os métodos RemoveAt, Remove e Clear foram adicionados ao ICommentAuthorCollection**
+Method ICommentAuthorCollection.RemoveAt has added for removing author by specified index.
+Method ICommentAuthorCollection.Remove has added for removing specified author from collection.
+Method ICommentAuthorCollection.Clear has been added for removing all items from collection.
+#### **A propriedade AppVersion foi adicionada ao IDocumentProperties**
+Property IDocumentProperties.AppVersion has been added to get builtIn document property which representis internal version numbers used by Microsoft during development.
+#### **A propriedade BlackWhiteMode foi adicionada ao IShape e ao Shape**
+A propriedade BlackWhiteMode foi adicionada ao IShape e ao Shape.
 
-Esta propriedade especifica como uma forma será renderizada no modo de exibição em preto e branco.
+Esta propriedade especifica como uma forma será renderizada no modo de exibição preto‑e‑branco.
 
-|**Valor** |**Significado** |
+|**Valor**|**Significado**|
 | :- | :- |
-|Color |Renderiza com coloração normal |
-|Automatic |Renderiza com coloração automática |
-|Gray |Renderiza com coloração cinza |
-|LightGray |Renderiza com coloração cinza clara |
-|InverseGray |Renderiza com coloração cinza invertida |
-|GrayWhite |Renderiza com coloração cinza e branca |
-|BlackGray |Renderiza com coloração preta e cinza |
-|BlackWhite |Renderiza com coloração preta e branca |
-|Black |Renderiza somente com coloração preta |
-|White |Renderiza com coloração branca |
-|Hidden |Não renderiza |
+|Color|Renderizar com cores normais|
+|Automatic|Renderizar com coloração automática|
+|Gray|Renderizar com coloração cinza|
+|LightGray|Renderizar com coloração cinza clara|
+|InverseGray|Renderizar com coloração cinza invertida|
+|GrayWhite|Renderizar com coloração cinza e branca|
+|BlackGray|Renderizar com coloração preta e cinza|
+|BlackWhite|Renderizar com coloração preta e branca|
+|Black|Renderizar apenas com coloração preta|
+|White|Renderizar com coloração branca|
+|Hidden|Não renderizar|
 |NotDefined|significa que a propriedade não está definida|
-#### **Propriedade ISlide.NotesSlideManager Foi Adicionada. A Propriedade ISlide.NotesSlide e o Método ISlide.AddNotesSlide() Foram Marcados como Obsoletos**
-Os membros ISlide.NotesSlide e ISlide.AddNotesSlide() foram marcados como obsoletos. Use a nova propriedade ISlide.NotesSlideManager em seu lugar.
+#### **A propriedade ISlide.NotesSlideManager foi adicionada. A propriedade ISlide.NotesSlide e o método ISlide.AddNotesSlide() foram marcados como obsoletos.**
+Os membros ISlide.NotesSlide e ISlide.AddNotesSlide() foram marcados como Obsolete. Use a nova propriedade ISlide.NotesSlideManager em vez disso.
 
 ``` csharp
+using Aspose.Slides;
 
- ISlide slide = ...;
+using (Presentation pres = new Presentation("sample.pptx"))
+{
+    ISlide slide = pres.Slides[0];
 
-INotesSlide notes;
+    INotesSlide notes;
 
-// notes = slide.AddNotesSlide(); - obsoleto
+    // notes = slide.AddNotesSlide(); - obsoleto
+    // notes = slide.NotesSlide; - obsoleto
 
-// notes = slide.NotesSlide; - obsoleto
+    notes = slide.NotesSlideManager.NotesSlide;
+    notes = slide.NotesSlideManager.AddNotesSlide();
 
-notes = slide.NotesSlideManager.NotesSlide;
-
-notes = slide.NotesSlideManager.AddNotesSlide();
-
-slide.NotesSlideManager.RemoveNotesSlide();
-
+    slide.NotesSlideManager.RemoveNotesSlide();
+}
 ```

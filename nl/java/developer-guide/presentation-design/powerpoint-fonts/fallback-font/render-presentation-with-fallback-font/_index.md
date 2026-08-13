@@ -1,6 +1,6 @@
 ---
-title: Render Presentaties met Fallback-lettertypen in Java
-linktitle: Render Presentaties
+title: Presentaties renderen met fallback-lettertypen in Java
+linktitle: Presentaties renderen
 type: docs
 weight: 30
 url: /nl/java/render-presentation-with-fallback-font/
@@ -8,59 +8,60 @@ keywords:
 - fallback-lettertype
 - PowerPoint renderen
 - presentatie renderen
-- slide renderen
+- dia renderen
 - PowerPoint
 - OpenDocument
 - presentatie
 - Java
 - Aspose.Slides
-description: "Render presentaties met fallback-lettertypen in Aspose.Slides voor Java – houd de tekst consistent over PPT, PPTX en ODP met stapsgewijze Java-codevoorbeelden."
+description: "Render presentaties met fallback-lettertypen in Aspose.Slides voor Java – houd tekst consistent over PPT, PPTX en ODP met stapsgewijze Java-codevoorbeelden."
 ---
 ## **Overzicht**
 
-Aspose.Slides stelt u in staat presentaties te renderen met behulp van fallback-lettertype-regels. Dit artikel laat zien hoe u een collectie van fallback-lettertype‑regels maakt, de regels wijzigt door fallback-lettertypen te verwijderen of toe te voegen, en de collectie toewijst met de `FontsManager.setFontFallBackRulesCollection`‑methode.
+Aspose.Slides stelt u in staat presentaties te renderen met behulp van fallback‑lettertype‑regels. Dit artikel laat zien hoe u een collectie fallback‑lettertype‑regels maakt, de regels wijzigt door fallback‑lettertypen te verwijderen of toe te voegen, en de collectie toewijst met de `FontsManager.setFontFallBackRulesCollection`‑methode.
 
-Zodra de collectie van fallback-lettertype‑regels is toegewezen aan de `FontsManager` van de presentatie, worden de regels toegepast tijdens bewerkingen zoals opslaan, renderen en converteren van de presentatie. Het voorbeeld laat zien hoe de geconfigureerde regels te gebruiken bij het renderen van een slide‑miniatuur en deze op te slaan als PNG‑afbeelding.
+Zodra de collectie fallback‑lettertype‑regels is toegewezen aan de `FontsManager` van de presentatie, worden de regels toegepast tijdens bewerkingen zoals opslaan, renderen en converteren van de presentatie. Het voorbeeld laat zien hoe de geconfigureerde regels te gebruiken bij het renderen van een dia‑miniatuur en het opslaan ervan als JPEG‑afbeelding.
 
-## **Render een slide met fallback-lettertype‑regels**
+## **Een dia renderen met fallback‑lettertype‑regels**
 
-Het volgende voorbeeld omvat deze stappen:
-
-1. We [maken een collectie van fallback-lettertype‑regels](/slides/nl/java/create-fallback-fonts-collection/).
-1. [Verwijder](https://reference.aspose.com/slides/nl/java/com.aspose.slides/FontFallBackRule#remove-java.lang.String-) een fallback-lettertype‑regel en [addFallBackFonts](https://reference.aspose.com/slides/nl/java/com.aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) aan een andere regel.
-1. Stel de regels‑collectie in op [getFontsManager](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation#getFontsManager--).[getFontFallBackRulesCollection](https://reference.aspose.com/slides/nl/java/com.aspose.slides/FontsManager#getFontFallBackRulesCollection--) methode.
-1. Met de [Presentation.save](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation#save-java.lang.String-int-) methode kunnen we de presentatie opslaan in hetzelfde formaat, of in een ander formaat. Nadat de collectie van fallback-lettertype‑regels is ingesteld op [FontsManager](https://reference.aspose.com/slides/nl/java/com.aspose.slides/FontsManager), worden deze regels toegepast tijdens alle bewerkingen op de presentatie: opslaan, renderen, converteren, enz.
+1. We [maken een collectie fallback‑lettertype‑regels](/slides/nl/java/create-fallback-fonts-collection/).
+2. [Verwijder](https://reference.aspose.com/slides/nl/java/com.aspose.slides/FontFallBackRule#remove-java.lang.String-) een fallback‑lettertype‑regel en [addFallBackFonts](https://reference.aspose.com/slides/nl/java/com.aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) aan een andere regel.
+3. Stel de regels‑collectie in op [getFontsManager](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation#getFontsManager--).[getFontFallBackRulesCollection](https://reference.aspose.com/slides/nl/java/com.aspose.slides/FontsManager#getFontFallBackRulesCollection--) methode.
+4. Met de [Presentation.save](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation#save-java.lang.String-int-) methode kunnen we de presentatie opslaan in hetzelfde formaat, of in een ander formaat. Nadat de collectie fallback‑lettertype‑regels is ingesteld op [FontsManager](https://reference.aspose.com/slides/nl/java/com.aspose.slides/FontsManager), worden deze regels toegepast tijdens alle bewerkingen op de presentatie: opslaan, renderen, converteren, enz.
 
 ```java
+import com.aspose.slides.*;
+
 // Maak een nieuw exemplaar van een regelsverzameling
 IFontFallBackRulesCollection rulesList = new FontFallBackRulesCollection();
 
-// maak een aantal regels
+// create a number of rules
 rulesList.add(new FontFallBackRule(0x400, 0x4FF, "Times New Roman"));
+rulesList.add(new FontFallBackRule(0x600, 0x6FF, "Tahoma, Arial"));
 
 for (IFontFallBackRule fallBackRule : rulesList)
 {
-    // Probeer fallback-lettertype "Tahoma" te verwijderen uit de geladen regels
+    // Proberen om fallback-lettertype "Tahoma" te verwijderen uit geladen regels
     fallBackRule.remove("Tahoma");
 
-    // En om de regels bij te werken voor het opgegeven bereik
-    if ((fallBackRule.getRangeEndIndex() >= 0x4000) && (fallBackRule.getRangeStartIndex() < 0x5000))
+    // En de regels bijwerken voor het opgegeven bereik
+    if ((fallBackRule.getRangeEndIndex() >= 0x400) && (fallBackRule.getRangeStartIndex() < 0x500))
         fallBackRule.addFallBackFonts("Verdana");
 }
 
-// We kunnen ook alle bestaande regels uit de lijst verwijderen
-if (rulesList.size() > 0)
-    rulesList.remove(rulesList.get_Item(0));
+// We kunnen ook bestaande regels uit de lijst verwijderen, mits er minstens één regel overblijft om mee te renderen
+if (rulesList.size() > 1)
+    rulesList.remove(rulesList.get_Item(1));
 
 Presentation pres = new Presentation("input.pptx");
 try {
     // De voorbereide regelslijst toewijzen voor gebruik
     pres.getFontsManager().setFontFallBackRulesCollection(rulesList);
 
-    // Miniatuur renderen met de geïnitialiseerde regelsverzameling en opslaan als JPEG
+    // Een miniatuur renderen met behulp van de geïnitialiseerde regelscollectie en opslaan als JPEG
    IImage slideImage = pres.getSlides().get_Item(0).getImage(1f, 1f);
 
-   // Sla de afbeelding op schijf op in JPEG-formaat
+   // De afbeelding opslaan op schijf in JPEG-formaat
    try {
          slideImage.save("Slide_0.jpg", ImageFormat.Jpeg);
    } finally {
@@ -71,6 +72,6 @@ try {
 }
 ```
 
-{{% alert color="primary" %}} 
-Lees meer over hoe u [PPT en PPTX naar JPG converteert in Java](/slides/nl/java/convert-powerpoint-to-jpg/).
+{{% alert color="info" %}} 
+Lees meer over hoe u [PPT en PPTX naar JPG converteren in Java](/slides/nl/java/convert-powerpoint-to-jpg/).
 {{% /alert %}}

@@ -1,5 +1,5 @@
 ---
-title: API Pública e Mudanças Incompatíveis com Versões Anteriores no Aspose.Slides para .NET 14.2.0
+title: API Pública e Alterações Incompatíveis com Versões Anteriores no Aspose.Slides para .NET 14.2.0
 linktitle: Aspose.Slides para .NET 14.2.0
 type: docs
 weight: 40
@@ -16,11 +16,13 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Revise as atualizações da API pública e as mudanças incompatíveis no Aspose.Slides para .NET para migrar suavemente suas soluções de apresentação PowerPoint PPT, PPTX e ODP."
+description: "Revise as atualizações da API pública e as mudanças disruptivas no Aspose.Slides para .NET para migrar suavemente suas soluções de apresentação PowerPoint PPT, PPTX e ODP."
 ---
-## **API Pública e Mudanças Incompatíveis com Versões Anteriores**
-{{% alert color="primary" %}} 
+## **API Pública e Alterações Incompatíveis com Versões Anteriores**
+{{% alert color="info" %}} 
+
 Fizemos algumas alterações na API do Aspose.Slides para .NET 14.2.0. Algumas propriedades e métodos foram removidos e alguns foram movidos para outro namespace.
+
 {{% /alert %}} 
 ### **Métodos Aspose.Slides.IPresentation.Write(…) Removidos**
 Esses métodos gravavam objetos Presentation apenas em arquivos no formato PPTX. Na nova API, a classe Presentation serve para trabalhar com todos os formatos. É possível usar os métodos Presentation.Save(…) para salvar os objetos Presentation em todos os formatos suportados.

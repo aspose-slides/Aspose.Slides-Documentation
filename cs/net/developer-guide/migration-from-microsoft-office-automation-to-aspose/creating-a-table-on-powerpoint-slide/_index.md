@@ -14,12 +14,10 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Přechod z automatizace Microsoft Office na Aspose.Slides pro .NET a vytváření tabulek v PowerPoint (PPT, PPTX) snímcích v C# s flexibilním formátováním."
+description: "Přesuňte se z automatizace Microsoft Office na Aspose.Slides pro .NET a vytvořte tabulky v slidech PowerPointu (PPT, PPTX) v C# s flexibilním formátováním."
 ---
-{{% alert color="primary" %}} 
-
-Tabulky jsou široce používány k zobrazování dat na prezentačních slidích. Tento článek ukazuje, jak programově vytvořit tabulku 15 x 15 s velikostí písma 10, nejprve pomocí [VSTO 2008](/slides/cs/net/creating-a-table-on-powerpoint-slide/) a poté pomocí [Aspose.Slides for .NET](/slides/cs/net/creating-a-table-on-powerpoint-slide/).
-
+{{% alert color="info" %}} 
+Tabulky jsou široce používány k zobrazování dat na prezentačních slidech. Tento článek ukazuje, jak programově vytvořit tabulku 15 x 15 s velikostí písma 10 nejprve pomocí [VSTO 2008](/slides/cs/net/creating-a-table-on-powerpoint-slide/) a poté pomocí [Aspose.Slides for .NET](/slides/cs/net/creating-a-table-on-powerpoint-slide/).
 {{% /alert %}} 
 ## **Vytváření tabulek**
 #### **Příklad VSTO 2008**
@@ -28,7 +26,7 @@ Následující kroky přidají tabulku do snímku Microsoft PowerPoint pomocí V
 1. Vytvořte prezentaci.
 1. Přidejte prázdný snímek do prezentace.
 1. Přidejte na snímek tabulku 15 x 15.
-1. Přidejte do každé buňky tabulky text s velikostí písma 10.
+1. Přidejte text do každé buňky tabulky s velikostí písma 10.
 1. Uložte prezentaci na disk.
 
 ```c#
@@ -38,7 +36,7 @@ PowerPoint.Presentation pres = Globals.ThisAddIn.Application
 //Přidat prázdný snímek
 PowerPoint.Slide sld = pres.Slides.Add(1, PowerPoint.PpSlideLayout.ppLayoutBlank);
 
-//Přidat tabulku 15 x 15
+//Add a 15 x 15 table
 PowerPoint.Shape shp = sld.Shapes.AddTable(15, 15, 10, 10, pres.PageSetup.SlideWidth - 20, 300);
 PowerPoint.Table tbl = shp.Table;
 int i = -1;
@@ -71,21 +69,24 @@ pres.SaveAs("d:\\tblVSTO.ppt",
 
 
 
-### **Příklad Aspose.Slides pro .NET**
+### **Aspose.Slides for .NET Příklad**
 Následující kroky přidají tabulku do snímku Microsoft PowerPoint pomocí Aspose.Slides:
 
 1. Vytvořte prezentaci.
 1. Přidejte na první snímek tabulku 15 x 15.
-1. Přidejte do každé buňky tabulky text s velikostí písma 10.
-1. Zapište prezentaci na disk.
+1. Přidejte text do každé buňky tabulky s velikostí písma 10.
+1. Uložte prezentaci na disk.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 Presentation pres = new Presentation();
 
-//Přístup k prvnímu snímku
+//Získat první snímek
 ISlide sld = pres.Slides[0];
 
-//Definovat sloupce s šířkami a řádky s výškami
+//Definovat sloupce se šířkami a řádky s výškami
 double[] dblCols = { 50, 50, 50 };
 double[] dblRows = { 50, 30, 30, 30, 30 };
 
@@ -109,5 +110,5 @@ foreach (IRow row in tbl.Rows)
 }
 
 //Zapsat prezentaci na disk
-pres.Save("C:\\data\\tblSLD.ppt", SaveFormat.Ppt);
+pres.Save("tblSLD.ppt", SaveFormat.Ppt);
 ```

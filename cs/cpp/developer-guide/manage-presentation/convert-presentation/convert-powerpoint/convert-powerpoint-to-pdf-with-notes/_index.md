@@ -1,5 +1,5 @@
 ---
-title: Převést prezentace PowerPoint do PDF s poznámkami v C++
+title: Převod prezentací PowerPoint do PDF s poznámkami v C++
 linktitle: PowerPoint do PDF s poznámkami
 type: docs
 weight: 50
@@ -11,7 +11,7 @@ keywords:
 - převést PPT
 - převést PPTX
 - PowerPoint do PDF
-- prezentace do PDF
+- prezentaci do PDF
 - snímek do PDF
 - PPT do PDF
 - PPTX do PDF
@@ -24,33 +24,43 @@ keywords:
 - PDF s poznámkami
 - C++
 - Aspose.Slides
-description: "Převést formáty PPT a PPTX do PDF s poznámkami pomocí Aspose.Slides pro C++. Zachovat rozložení a poznámky přednášejícího pro profesionální prezentace."
+description: "Převod formátů PPT a PPTX do PDF s poznámkami pomocí Aspose.Slides pro C++. Zachovejte rozvržení a poznámky přednášejícího pro profesionální prezentace."
 ---
 ## **Přehled**
 
-V tomto článku se naučíte, jak pomocí Aspose.Slides převést prezentace PowerPoint do formátu PDF s poznámkami přednášejícího. Tento průvodce pokryje nezbytné kroky a poskytne příklady kódu, které vám pomohou úkol provést efektivně. Na konci tohoto článku budete schopni:
+V tomto článku se naučíte, jak převést prezentace PowerPoint do formátu PDF s poznámkami přednášejícího pomocí Aspose.Slides. Tento průvodce pokryje potřebné kroky a poskytne ukázky kódu, které vám pomohou úkol efektivně zvládnout. Na konci tohoto článku budete schopni:
 
-- Implementovat proces konverze, který převede snímky PowerPointu do PDF dokumentů a zachová poznámky přednášejícího.
+- Implementovat proces konverze, který převádí snímky PowerPointu do PDF dokumentů při zachování poznámek přednášejícího.
 - Přizpůsobit výstupní PDF tak, aby byly poznámky přednášejícího zahrnuty a formátovány podle vašich požadavků.
 
-## **Převést PowerPoint na PDF s poznámkami**
+## **Převod PowerPointu do PDF s poznámkami**
 
-Metoda `Save` ve třídě [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/) může být použita k převodu prezentace PPT nebo PPTX do PDF s poznámkami přednášejícího. S Aspose.Slides stačí načíst prezentaci, nakonfigurovat možnosti rozvržení pomocí třídy [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/notescommentslayoutingoptions/) tak, aby zahrnovaly poznámky přednášejícího, a potom soubor uložit jako PDF. Následující úryvek kódu ukazuje, jak převést ukázkovou prezentaci do PDF v zobrazení poznámek ke snímkům.
+`Save` metoda ve třídě [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/) může být použita k převodu prezentace PPT nebo PPTX do PDF s poznámkami přednášejícího. S Aspose.Slides stačí načíst prezentaci, nakonfigurovat možnosti rozvržení pomocí třídy [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/notescommentslayoutingoptions/) tak, aby zahrnovala poznámky přednášejícího, a poté soubor uložit jako PDF. Následující úryvek kódu ukazuje, jak převést ukázkovou prezentaci do PDF v zobrazení Poznámky ke snímkům.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/NotesPositions.h>
+#include <Export/PdfOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// Nastavte možnosti PDF pro vykreslení poznámek přednášejícího.
+// Configure PDF options for rendering speaker notes.
 auto notesOptions = MakeObject<NotesCommentsLayoutingOptions>();
-notesOptions->set_NotesPosition(NotesPositions::BottomFull); // Vykreslete poznámky přednášejícího pod snímek.
+notesOptions->set_NotesPosition(NotesPositions::BottomFull); // Vykreslit poznámky přednášejícího pod snímek.
     
 auto pdfOptions = MakeObject<PdfOptions>();
 pdfOptions->set_SlidesLayoutOptions(notesOptions);
 
-// Uložte prezentaci do PDF s poznámkami přednášejícího.
+// Save the presentation to PDF with speaker notes.
 presentation->Save(u"output.pdf", SaveFormat::Pdf, pdfOptions);
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 Možná budete chtít vyzkoušet online převodník Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/cs/conversion). 
 {{% /alert %}}

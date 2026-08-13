@@ -1,6 +1,6 @@
 ---
 title: Zarządzanie projektami VBA w prezentacjach w .NET
-linktitle: Prezentacja przy użyciu VBA
+linktitle: Prezentacja przez VBA
 type: docs
 weight: 250
 url: /pl/net/presentation-via-vba/
@@ -20,39 +20,43 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Dowiedz się, jak generować i manipulować prezentacjami PowerPoint i OpenDocument przy użyciu VBA z Aspose.Slides dla .NET, aby usprawnić swój przepływ pracy."
+description: "Dowiedz się, jak tworzyć i manipulować prezentacjami PowerPoint oraz OpenDocument przy użyciu VBA w Aspose.Slides dla .NET, aby usprawnić swój przepływ pracy."
 ---
 ## **Wprowadzenie**
 
-Przestrzeń nazw [Aspose.Slides.Vba](https://reference.aspose.com/slides/pl/net/aspose.slides.vba/) zawiera klasy i interfejsy umożliwiające pracę z makrami i kodem VBA.
+Przestrzeń nazw [Aspose.Slides.Vba](https://reference.aspose.com/slides/pl/net/aspose.slides.vba/) zawiera klasy i interfejsy służące do pracy z makrami i kodem VBA.
 
-{{% alert title="Uwaga" color="warning" %}} 
+{{% alert title="Note" color="warning" %}} 
 
-Gdy konwertujesz prezentację zawierającą makra do innego formatu pliku (PDF, HTML itp.), Aspose.Slides ignoruje wszystkie makra (makra nie są przenoszone do wynikowego pliku).
+Gdy konwertujesz prezentację zawierającą makra na inny format pliku (PDF, HTML itp.), Aspose.Slides ignoruje wszystkie makra (makra nie są przenoszone do powstałego pliku).
 
-Gdy dodajesz makra do prezentacji lub ponownie zapisujesz prezentację zawierającą makra, Aspose.Slides po prostu zapisuje bajty makr.
+Gdy dodajesz makra do prezentacji lub ponownie zapisujesz prezentację zawierającą makra, Aspose.Slides po prostu zapisuje ich bajty.
 
 Aspose.Slides **nigdy** nie uruchamia makr w prezentacji.
 
 {{% /alert %}}
 
-## **Dodaj makra VBA**
+## **Dodawanie makr VBA**
 
-Aspose.Slides udostępnia klasę [VbaProject](https://reference.aspose.com/slides/pl/net/aspose.slides.vba/vbaproject/) umożliwiającą tworzenie projektów VBA (i odwołań do projektów) oraz edycję istniejących modułów. Możesz użyć interfejsu [IVbaProject](https://reference.aspose.com/slides/pl/net/aspose.slides.vba/ivbaproject/) do zarządzania VBA osadzonym w prezentacji.
+Aspose.Slides udostępnia klasę [VbaProject](https://reference.aspose.com/slides/pl/net/aspose.slides.vba/vbaproject/) umożliwiającą tworzenie projektów VBA (i odwołań do projektów) oraz edytowanie istniejących modułów. Możesz użyć interfejsu [IVbaProject](https://reference.aspose.com/slides/pl/net/aspose.slides.vba/ivbaproject/) do zarządzania VBA osadzonym w prezentacji.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) .
-1. Użyj konstruktora [VbaProject](https://reference.aspose.com/slides/pl/net/aspose.slides.vba/vbaproject/vbaproject/#constructor), aby dodać nowy projekt VBA.
-1. Dodaj moduł do VbaProject.
-1. Ustaw kod źródłowy modułu.
-1. Dodaj odwołania do <stdole>.
-1. Dodaj odwołania do **Microsoft Office**.
-1. Powiąż odwołania z projektem VBA.
-1. Zapisz prezentację.
+2. Użyj konstruktora [VbaProject](https://reference.aspose.com/slides/pl/net/aspose.slides.vba/vbaproject/vbaproject/#constructor) aby dodać nowy projekt VBA.
+3. Dodaj moduł do VbaProject.
+4. Ustaw kod źródłowy modułu.
+5. Dodaj odwołania do <stdole>.
+6. Dodaj odwołania do **Microsoft Office**.
+7. Powiąż odwołania z projektem VBA.
+8. Zapisz prezentację.
 
-W tym kodzie C# pokazano, jak dodać makro VBA od podstaw do prezentacji:
+Ten kod C# pokazuje, jak od podstaw dodać makro VBA do prezentacji:
 
 ```c#
-    // Tworzy instancję klasy prezentacji
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Vba;
+
+// Tworzy instancję klasy prezentacji
 using (Presentation presentation = new Presentation())
 {
     // Tworzy nowy projekt VBA
@@ -60,7 +64,7 @@ using (Presentation presentation = new Presentation())
 
     // Dodaje pusty moduł do projektu VBA
     IVbaModule module = presentation.VbaProject.Modules.AddEmptyModule("Module");
-  
+
     // Ustawia kod źródłowy modułu
     module.SourceCode = @"Sub Test(oShape As Shape) MsgBox ""Test"" End Sub";
 
@@ -76,47 +80,52 @@ using (Presentation presentation = new Presentation())
     presentation.VbaProject.References.Add(stdoleReference);
     presentation.VbaProject.References.Add(officeReference);
 
-            
     // Zapisuje prezentację
-    presentation.Save(dataDir + "AddVBAMacros_out.pptm", SaveFormat.Pptm);
+    presentation.Save("AddVBAMacros_out.pptm", SaveFormat.Pptm);
 }
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Możesz zainteresować się **Aspose** [Macro Remover](https://products.aspose.app/slides/pl/remove-macros), który jest darmową aplikacją webową służącą do usuwania makr z dokumentów PowerPoint, Excel i Word. 
+Możesz zainteresować się **Aspose** [Macro Remover](https://products.aspose.app/slides/pl/remove-macros), który jest darmową aplikacją internetową służącą do usuwania makr z dokumentów PowerPoint, Excel i Word. 
 
 {{% /alert %}} 
 
-## **Usuń makra VBA**
-Używając właściwości [VbaProject](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/vbaproject/) w klasie [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/), możesz usunąć makro VBA.
+## **Usuwanie makr VBA**
+Korzystając z właściwości [VbaProject](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/vbaproject/) klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/), możesz usunąć makro VBA.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) i wczytaj prezentację zawierającą makro.
-1. Uzyskaj dostęp do modułu Macro i usuń go.
-1. Zapisz zmodyfikowaną prezentację.
+2. Uzyskaj dostęp do modułu makr i usuń go.
+3. Zapisz zmodyfikowaną prezentację.
 
-W tym kodzie C# pokazano, jak usunąć makro VBA:
+Ten kod C# pokazuje, jak usunąć makro VBA:
 
 ```c#
-    // Ładuje prezentację zawierającą makro
-using (Presentation presentation = new Presentation(dataDir + "VBA.pptm"))
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Ładuje prezentację zawierającą makro
+using (Presentation presentation = new Presentation("VBA.pptm"))
 {
-    // Uzyskuje dostęp do modułu Vba i usuwa go 
+    // Uzyskuje dostęp do modułu Vba i usuwa go
     presentation.VbaProject.Modules.Remove(presentation.VbaProject.Modules[0]);
 
     // Zapisuje prezentację
-    presentation.Save(dataDir + "RemovedVBAMacros_out.pptm", SaveFormat.Pptm);
+    presentation.Save("RemovedVBAMacros_out.pptm", SaveFormat.Pptm);
 }
 ```
 
-## **Wyodrębnij makra VBA**
+## **Wyodrębnianie makr VBA**
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) i wczytaj prezentację zawierającą makro.
 2. Sprawdź, czy prezentacja zawiera projekt VBA.
-3. Przejdź pętlą przez wszystkie moduły znajdujące się w projekcie VBA, aby wyświetlić makra.
+3. Iteruj przez wszystkie moduły zawarte w projekcie VBA, aby wyświetlić makra.
 
-W tym kodzie C# pokazano, jak wyodrębnić makra VBA z prezentacji zawierającej makra:
+Ten kod C# pokazuje, jak wyodrębnić makra VBA z prezentacji zawierającej makra:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Vba;
+
     // Ładuje prezentację zawierającą makro
 using (Presentation pres = new Presentation("VBA.pptm"))
 {
@@ -131,18 +140,20 @@ using (Presentation pres = new Presentation("VBA.pptm"))
 }
 ```
 
-## **Sprawdź, czy projekt VBA jest chroniony hasłem**
+## **Sprawdzanie, czy projekt VBA jest chroniony hasłem**
 
-Używając właściwości [IVbaProject.IsPasswordProtected](https://reference.aspose.com/slides/pl/net/aspose.slides.vba/ivbaproject/ispasswordprotected/), możesz określić, czy właściwości projektu są chronione hasłem.
+Korzystając z właściwości [IVbaProject.IsPasswordProtected](https://reference.aspose.com/slides/pl/net/asposeslides.vba/ivbaproject/ispasswordprotected/), możesz określić, czy właściwości projektu są chronione hasłem.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) i wczytaj prezentację, która zawiera makro.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) i wczytaj prezentację zawierającą makro.
 2. Sprawdź, czy prezentacja zawiera [projekt VBA](https://reference.aspose.com/slides/pl/net/aspose.slides.vba/vbaproject/).
-3. Sprawdź, czy projekt VBA jest chroniony hasłem, aby wyświetlić jego właściwości.
+3. Sprawdź, czy projekt VBA jest chroniony hasłem, aby przeglądać jego właściwości.
 
 ```cs
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("VBA.pptm"))
 {
-    if (presentation.VbaProject != null) // Sprawdza, czy prezentacja zawiera projekt VBA.
+    if (presentation.VbaProject != null) // Sprawdź, czy prezentacja zawiera projekt VBA.
     {
         if (presentation.VbaProject.IsPasswordProtected)
         {
@@ -154,14 +165,14 @@ using (Presentation presentation = new Presentation("VBA.pptm"))
 
 ## **FAQ**
 
-**Co się dzieje z makrami, jeśli zapisuję prezentację jako PPTX?**
+### Co się dzieje z makrami, jeśli zapisuję prezentację jako PPTX?
 
 Makra zostaną usunięte, ponieważ format PPTX nie obsługuje VBA. Aby zachować makra, wybierz PPTM, PPSM lub POTM.
 
-**Czy Aspose.Slides może uruchamiać makra w prezentacji, na przykład w celu odświeżenia danych?**
+### Czy Aspose.Slides może uruchamiać makra w prezentacji, na przykład w celu odświeżenia danych?
 
-Nie. Biblioteka nigdy nie wykonuje kodu VBA; wykonywanie jest możliwe wyłącznie w PowerPoint przy odpowiednich ustawieniach zabezpieczeń.
+Nie. Biblioteka nigdy nie wykonuje kodu VBA; uruchamianie jest możliwe wyłącznie w PowerPoint przy odpowiednich ustawieniach zabezpieczeń.
 
-**Czy obsługa kontrolek ActiveX powiązanych z kodem VBA jest wspierana?**
+### Czy obsługa kontrolek ActiveX powiązanych z kodem VBA jest wspierana?
 
-Tak, możesz uzyskać dostęp do istniejących [kontrolek ActiveX](/slides/pl/net/activex/), modyfikować ich właściwości i usuwać je. Jest to przydatne, gdy makra współdziałają z ActiveX.
+Tak, możesz uzyskać dostęp do istniejących [kontrolek ActiveX](/slides/pl/net/activex/), modyfikować ich właściwości oraz usuwać je. Jest to przydatne, gdy makra współpracują z ActiveX.

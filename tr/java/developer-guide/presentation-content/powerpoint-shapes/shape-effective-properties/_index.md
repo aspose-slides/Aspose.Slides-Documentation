@@ -1,14 +1,14 @@
 ---
-title: Java'da Sunumlardan Şekil Etkin Özelliklerini Al
-linktitle: Etkin Özellikler
+title: Java'da Sunumlardan Şekil Etkili Özelliklerini Alın
+linktitle: Etkili Özellikler
 type: docs
 weight: 50
 url: /tr/java/shape-effective-properties/
 keywords:
 - şekil özellikleri
 - kamera özellikleri
-- ışık sistemi
-- kiriş şekli
+- aydınlatma seti
+- kavisli şekil
 - metin çerçevesi
 - metin stili
 - yazı tipi yüksekliği
@@ -17,21 +17,23 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java'nın şekil etkin özelliklerini nasıl hesapladığını ve kesin PowerPoint renderlaması için nasıl uyguladığını keşfedin."
+description: "Aspose.Slides for Java'nın, PowerPoint'in hassas bir şekilde işlenmesi için şekil etkili özelliklerini nasıl hesapladığını ve uyguladığını keşfedin."
 ---
 ## **Genel Bakış**
 
-Bu konu **yerel** ve **etkin** özellikler arasındaki farkı açıklar. Yerel değerler, belirli bir biçimlendirme seviyesinde doğrudan ayarlanan değerlerdir; örneğin:
+Bu konu, **yerel** ve **etkili** özellikler arasındaki farkı açıklar. Yerel değerler, belirli bir biçimlendirme seviyesinde doğrudan ayarlanan değerlerdir, örneğin:
 
 1. Bir slayttaki bölüm (portion) özellikleri.
-1. Bir düzen ya da ana slayttaki prototip şekil metin stilleri, bölümün metin çerçevesi şekline bir tane varsa.
-1. Sunumdaki küresel metin ayarları.
+1. Bir düzen veya ana slaytta, bölümün metin çerçevesi şekli bir taneye sahipse, prototip şekil metin stilleri.
+1. Bir sunumdaki küresel metin ayarları.
 
-Yerel değerler herhangi bir seviyede tanımlanabilir veya atlanabilir. Aspose.Slides, nihai “görüntülendiği gibi” biçimlendirmeye ihtiyaç duyduğunda kalıtım zincirini çözer ve **etkin** (effective) değerleri döndürür. Bu değerlere, yerel format nesnesinde `getEffective` yöntemini çağırarak ulaşabilirsiniz.
+Yerel değerler herhangi bir seviyede tanımlanabilir veya atlanabilir. Aspose.Slides son “görünmüş” biçimlendirmeye ihtiyaç duyduğunda, kalıtım zincirini çözer ve **etkili** değerleri döndürür. Bu değerlere, yerel format nesnesinde `getEffective` yöntemini çağırarak ulaşabilirsiniz.
 
-Aşağıdaki örnek, etkin değerlerin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin bir [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IAutoShape) olduğunu ve bir metin çerçevesi ile en az bir bölüm (portion) içerdiğini varsayar.
+Aşağıdaki örnek, etkili değerlerin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin, bir metin çerçevesi ve en az bir bölüm içeren bir [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IAutoShape) olduğunu varsayar.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -49,19 +51,19 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-
-Etkin biçimlendirme verileri, kalıtım uygulandıktan sonra hesaplanan geçerli biçimlendirmeyi temsil eder. Mevcut uygulamada, [IPortionFormatEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IPortionFormatEffectiveData) gibi bazı etkin veri nesneleri dahili olarak önbelleğe alınabilir. Üst ya da kalıtılan biçimlendirme değiştirildikten sonra `getEffective` yeniden çağrıldığında önbellek yenilenir ve daha önce elde edilen nesne artık önceki durumu temsil etmeyebilir. Etkin değerleri daha sonraki kullanım için korumanız gerekiyorsa, yazı tipi yüksekliği, dolgu rengi, yazı tipi stili veya hizalama gibi gerekli özellikleri kendi veri nesnenize kopyalayın.
-
+{{% alert color="info" %}}
+Etkili biçimlendirme verileri, kalıtım uygulandıktan sonra hesaplanan mevcut biçimlendirmeyi temsil eder. Mevcut uygulamada, [IPortionFormatEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IPortionFormatEffectiveData) gibi bazı etkili veri nesneleri dahili olarak önbelleğe alınabilir. Üst veya miras alınan biçimlendirme değiştirildikten sonra `getEffective` metodunu tekrar çağırmak önbelleklenen verileri yenileyebilir ve daha önce elde edilen nesne artık önceki durumu temsil etmiyor olabilir. Etkili değerleri daha sonra tekrar kullanmak için saklamanız gerektiğinde, yazı tipi yüksekliği, dolgu rengi, yazı tipi stili veya hizalama gibi gerekli özellikleri kendi veri nesnenize kopyalayın.
 {{% /alert %}}
 
-## **Kamera'nın Etkin Özelliklerini Al**
+## **Kamera’nın Etkili Özelliklerini Alın**
 
-Aspose.Slides, bir kameranın etkin özelliklerini almanıza olanak tanır. [ICameraEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ICameraEffectiveData) arabirimi, etkin kamera özelliklerini içeren değiştirilemez bir nesneyi temsil eder. Bir [ICameraEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ICameraEffectiveData) örneği, [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IThreeDFormatEffectiveData) aracılığıyla sunulur ve [IThreeDFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IThreeDFormat) için etkin değerleri sağlar.
+Aspose.Slides size bir kameranın etkili özelliklerini almanıza izin verir. [ICameraEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ICameraEffectiveData) arayüzü, etkili kamera özelliklerini içeren değiştirilemez bir nesneyi temsil eder. Bir [ICameraEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ICameraEffectiveData) örneği, [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IThreeDFormatEffectiveData) aracılığıyla sunulur ve bu da [IThreeDFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IThreeDFormat) için etkili değerleri sağlar.
 
-Aşağıdaki kod örneği, kamera için etkin özelliklerin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin 3B (3D) biçimlendirmeye sahip olduğunu varsayar.
+Aşağıdaki kod örneği, kamera için etkili özelliklerin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin 3D biçimlendirmesi olduğunu varsayar.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -82,13 +84,15 @@ try {
 }
 ```
 
-## **Işık Sisteminin Etkin Özelliklerini Al**
+## **Aydınlatma Setinin Etkili Özelliklerini Alın**
 
-Aspose.Slides, bir ışık sisteminin (light rig) etkin özelliklerini almanıza olanak tanır. [ILightRigEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ILightRigEffectiveData) arabirimi, etkin ışık sistemi özelliklerini içeren değiştirilemez bir nesneyi temsil eder. Bir [ILightRigEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ILightRigEffectiveData) örneği, [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IThreeDFormatEffectiveData) aracılığıyla sunulur ve [IThreeDFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IThreeDFormat) için etkin değerleri sağlar.
+Aspose.Slides size bir aydınlatma setinin etkili özelliklerini almanıza izin verir. [ILightRigEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ILightRigEffectiveData) arayüzü, etkili aydınlatma seti özelliklerini içeren değiştirilemez bir nesneyi temsil eder. Bir [ILightRigEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ILightRigEffectiveData) örneği, [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IThreeDFormatEffectiveData) aracılığıyla sunulur ve bu da [IThreeDFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IThreeDFormat) için etkili değerleri sağlar.
 
-Aşağıdaki kod örneği, ışık sistemi için etkin özelliklerin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin 3B (3D) biçimlendirmeye sahip olduğunu varsayar.
+Aşağıdaki kod örneği, aydınlatma seti için etkili özelliklerin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin 3D biçimlendirmesi olduğunu varsayar.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -107,13 +111,15 @@ try {
 }
 ```
 
-## **Şekil Kirişinin Etkin Özelliklerini Al**
+## **Şekil Kavisinin Etkili Özelliklerini Alın**
 
-Aspose.Slides, bir şekil kıvrımının (bevel) etkin özelliklerini almanıza olanak tanır. [IShapeBevelEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IShapeBevelEffectiveData) arabirimi, bir şekil için etkin yüzey (face‑relief) özelliklerini içeren değiştirilemez bir nesneyi temsil eder. Bir [IShapeBevelEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IShapeBevelEffectiveData) örneği, [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IThreeDFormatEffectiveData) aracılığıyla sunulur ve [IThreeDFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IThreeDFormat) için etkin değerleri sağlar.
+Aspose.Slides size bir şekil kavisinin etkili özelliklerini almanıza izin verir. [IShapeBevelEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IShapeBevelEffectiveData) arayüzü, bir şeklin etkili yüzey kabartma özelliklerini içeren değiştirilemez bir nesneyi temsil eder. Bir [IShapeBevelEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IShapeBevelEffectiveData) örneği, [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IThreeDFormatEffectiveData) aracılığıyla sunulur ve bu da [IThreeDFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IThreeDFormat) için etkili değerleri sağlar.
 
-Aşağıdaki kod örneği, bir şeklin üst kıvrımı için etkin özelliklerin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin 3B (3D) biçimlendirmeye sahip olduğunu varsayar.
+Aşağıdaki kod örneği, bir şeklin üst kavisinin etkili özelliklerini nasıl alacağınızı gösterir. İlk slayttaki ilk şeklin 3D biçimlendirmesi olduğunu varsayar.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -134,13 +140,15 @@ try {
 }
 ```
 
-## **Metin Çerçevesinin Etkin Özelliklerini Al**
+## **Metin Çerçevesinin Etkili Özelliklerini Alın**
 
-Aspose.Slides kullanarak bir metin çerçevesinin etkin özelliklerini alabilirsiniz. [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ITextFrameFormatEffectiveData) arabirimi, etkin metin çerçevesi biçimlendirme özelliklerini içerir.
+Aspose.Slides kullanarak bir metin çerçevesinin etkili özelliklerini alabilirsiniz. [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ITextFrameFormatEffectiveData) arayüzü, etkili metin çerçevesi biçimlendirme özelliklerini içerir.
 
-Aşağıdaki kod örneği, etkin metin çerçevesi biçimlendirme özelliklerinin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin bir [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IAutoShape) olduğunu ve bir metin çerçevesi içerdiğini varsayar.
+Aşağıdaki kod örneği, etkili metin çerçevesi biçimlendirme özelliklerinin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin, bir metin çerçevesi içeren bir [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IAutoShape) olduğunu varsayar.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -169,13 +177,15 @@ try {
 }
 ```
 
-## **Metin Stiline Etkin Özellikleri Al**
+## **Metin Stilinin Etkili Özelliklerini Alın**
 
-Aspose.Slides kullanarak bir metin stilinin etkin özelliklerini alabilirsiniz. [ITextStyleEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ITextStyleEffectiveData) arabirimi, etkin metin stili özelliklerini içerir.
+Aspose.Slides kullanarak bir metin stilinin etkili özelliklerini alabilirsiniz. [ITextStyleEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ITextStyleEffectiveData) arayüzü, etkili metin stili özelliklerini içerir.
 
-Aşağıdaki kod örneği, etkin metin stili özelliklerinin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin bir [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IAutoShape) olduğunu ve bir metin çerçevesi içerdiğini varsayar.
+Aşağıdaki kod örneği, etkili metin stili özelliklerinin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin, bir metin çerçevesi içeren bir [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IAutoShape) olduğunu varsayar.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -203,11 +213,13 @@ try {
 }
 ```
 
-## **Etkin Yazı Tipi Yüksekliği Değerini Al**
+## **Etkili Yazı Tipi Yüksekliği Değerini Alın**
 
-Aspose.Slides kullanarak etkin yazı tipi yüksekliğini alabilirsiniz. Aşağıdaki kod, bir bölümün (portion) etkin yazı tipi yüksekliğinin, farklı sunum yapısı seviyelerinde yerel yazı tipi yüksekliği değerleri ayarlandığında nasıl değiştiğini gösterir.
+Aspose.Slides kullanarak etkili yazı tipi yüksekliğini alabilirsiniz. Aşağıdaki kod, bir bölümün etkili yazı tipi yüksekliğinin, farklı sunum yapısı seviyelerinde yerel yazı tipi yüksekliği değerleri ayarlandığında nasıl değiştiğini gösterir.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -278,13 +290,15 @@ try {
 }
 ```
 
-## **Tablo İçin Etkin Dolgu Biçimini Al**
+## **Bir Tablo İçin Etkili Dolgu Biçimini Alın**
 
-Aspose.Slides kullanarak farklı tablo bölümleri için etkin dolgu biçimlendirmesini alabilirsiniz. [IFillFormatEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IFillFormatEffectiveData) arabirimi, etkin dolgu biçimlendirme özelliklerini içerir. Hücre biçimlendirmesi, satır biçimlendirmesinden, satır biçimlendirmesi sütun biçimlendirmesinden ve sütun biçimlendirmesi bütün tablo biçimlendirmesinden daha yüksek önceliğe sahiptir.
+Aspose.Slides kullanarak farklı tablo bölümleri için etkili dolgu biçimlendirmesini alabilirsiniz. [IFillFormatEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IFillFormatEffectiveData) arayüzü, etkili dolgu biçimlendirme özelliklerini içerir. Hücre biçimlendirmesi, satır biçimlendirmesinden, satır biçimlendirmesi sütun biçimlendirmesinden ve sütun biçimlendirmesi tüm tablo biçimlendirmesinden daha yüksek önceliğe sahiptir.
 
-Sonuç olarak, tablo hücresini çizerken [ICellFormatEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ICellFormatEffectiveData) özellikleri kullanılır. Aşağıdaki kod örneği, farklı tablo bölümleri için etkin dolgu biçimlendirmesinin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin bir [ITable](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ITable) olduğunu varsayar.
+Sonuç olarak, tablo hücresini çizerken [ICellFormatEffectiveData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ICellFormatEffectiveData) özellikleri kullanılır. Aşağıdaki kod örneği, farklı tablo bölümleri için etkili dolgu biçimlendirmesinin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin bir [ITable](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ITable) olduğunu varsayar.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -306,34 +320,34 @@ try {
 
 ## **SSS**
 
-**`getEffective` bir anlık görüntü (snapshot) döndürür mü?**
+### `getEffective` bir anlık görüntü (snapshot) döndürür mü?
 
-Her zaman değildir. Etkin veri, kalıtım uygulandıktan sonra hesaplanan biçimlendirmeyi temsil eder, ancak bazı etkin veri nesneleri dahili olarak önbelleğe alınabilir. Sonraki bir `getEffective` çağrısı biçimlendirmeyi yeniden hesaplayabilir ve önbellek verisini yenileyebilir; bu nedenle daha önce elde edilen nesne kalıcı bir anlık görüntü olarak kabul edilmemelidir.
+Her zaman değil. Etkili veri, kalıtım uygulandıktan sonra hesaplanan biçimlendirmeyi temsil eder, ancak bazı etkili veri nesneleri dahili olarak önbelleğe alınabilir. Sonraki bir `getEffective` çağrısı biçimlendirmeyi yeniden hesaplayabilir ve önbelleklenen verileri yenileyebilir, bu yüzden daha önce elde edilen nesne dayanıklı bir anlık görüntü olarak kabul edilmemelidir.
 
-**Etkin özellikleri ne zaman tekrar okumalıyım?**
+### Etkili özellikleri tekrar ne zaman okumalıyım?
 
-Yerel biçimlendirme, üst stiller, düzen biçimlendirmesi, ana (master) biçimlendirme veya sunum düzeyindeki varsayılanlar değiştirildikten sonra `getEffective` yeniden çağrılmalıdır. Sonraki çağrı, biçimlendirme hiyerarşisini yeniden değerlendirir ve geçerli etkin sonucu döndürür.
+Yerel biçimlendirme, üst stiller, düzen biçimlendirmesi, ana biçimlendirme veya sunum düzeyindeki varsayılanlar değiştirildikten sonra `getEffective` metodunu tekrar çağırın. Bir sonraki çağrı biçimlendirme hiyerarşisini yeniden değerlendirir ve mevcut etkili sonucu döndürür.
 
-**Bir düzen/ana slayt değiştirildiğinde veya kaldırıldığında, zaten alınmış etkin özellikler etkilenir mi?**
+### Bir düzen/ana slayt değiştirildiğinde veya kaldırıldığında, zaten alınmış etkili özellikler etkilenir mi?
 
-Evet, ancak değişiklik bir sonraki `getEffective` çağrısında yansır. Üst bir biçimlendirme kaynağı değiştirildiğinde veya kaldırıldığında, daha önce elde edilen etkin veri eski olabilir. `getEffective` tekrar çağrıldığında Aspose.Slides biçimlendirme ağacını yeniden değerlendirir ve ortaya çıkan yazı tipleri, renkler, boyutlar veya diğer değerler değişebilir.
+Evet, ancak değişiklik bir sonraki `getEffective` çağrısında yansıtılır. Üst bir biçimlendirme kaynağı değiştirildiğinde veya kaldırıldığında, daha önce elde edilen etkili veri eski olabilir. `getEffective` tekrar çağrıldığında Aspose.Slides biçimlendirme ağacını yeniden değerlendirir ve ortaya çıkan yazı tipleri, renkler, boyutlar veya diğer değerler değişebilir.
 
-**Etkin veri nesneleri üzerinden değerleri değiştirebilir miyim?**
+### Etkili veri nesneleri üzerinden değerleri değiştirebilir miyim?
 
-Hayır. Etkin veri nesneleri sadece hesaplanmış değerleri sağlar. Değişiklikleri yerel biçimlendirme nesnelerinde yapın ve ardından etkin değerleri tekrar alın.
+Hayır. Etkili veri nesneleri sadece hesaplanmış değerleri sunar. Değişiklikleri yerel biçimlendirme nesnelerinde yapın ve ardından etkili değerleri tekrar alın.
 
-**Bir özellik şekil seviyesinde, düzen/ana slaytta ve küresel ayarlarda hiç ayarlanmamışsa ne olur?**
+### Bir özelliğin şekil seviyesinde, düzen/ana slaytta ve küresel ayarlarda hiç ayarlanmamış olması durumunda ne olur?
 
-Etkin değer, PowerPoint ve Aspose.Slides varsayılanlarını içeren varsayılan mekanizma tarafından belirlenir. Çözülen bu değer, geçerli etkin verinin bir parçası haline gelir.
+Etkili değer, PowerPoint ve Aspose.Slides varsayılanlarını içeren varsayılan mekanizma ile belirlenir. Çözülen değer, mevcut etkili verinin bir parçası haline gelir.
 
-**Etkin bir yazı tipi değerinden, boyutu veya yazı tipini hangi seviyenin sağladığını anlayabilir miyim?**
+### Etkili bir yazı tipi değerinden, boyutu ya da tipi hangi seviyenin sağladığını anlayabilir miyim?
 
-Doğrudan değil. Etkin veri nihai değeri döndürür. Kaynağı bulmak için bölüm, paragraf, metin çerçevesi ve düzen, ana ve sunum seviyelerindeki metin stillerindeki yerel değerleri kontrol ederek ilk açık tanımın nerede yapıldığını inceleyin.
+Doğrudan değil. Etkili veri son değeri döndürür. Kaynağı bulmak için bölüm, paragraf, metin çerçevesi ve düzen, ana ve sunum seviyelerindeki metin stillerindeki yerel değerleri kontrol edin; ilk açık tanımın nerede ortaya çıktığını görebilirsiniz.
 
-**Neden etkin değerler bazen yerel değerlerle aynı görünür?**
+### Neden etkili değerler bazen yerel değerlerle aynı görünüyor?
 
-Yerel değer son olarak kalır (daha üst seviyeden bir kalıtım gerekmez) ve bu yüzden etkin değer yerel değerle aynı olur.
+Çünkü yerel değer son değer haline gelmiş (daha üst seviyeden bir kalıtım gerektiği olmamış). Bu durumlarda etkili değer yerel değerle aynıdır.
 
-**Etkin özellikleri ne zaman, yerel özellikleri ne zaman kullanmalıyım?**
+### Etkili özellikleri ne zaman, yerel özellikleri ne zaman kullanmalıyım?
 
-Tüm kalıtım uygulandıktan sonra “görüntülendiği gibi” sonucu elde etmeniz gerektiğinde etkin verileri kullanın; örneğin renkleri, girintileri veya boyutları hizalamak gibi. Bu değerleri daha sonraki biçimlendirme değişikliklerinden bağımsız olarak korumanız gerekiyorsa, gerekli özellikleri kendi nesnenize kopyalayın. Belirli bir seviyede biçimlendirme değiştirmeniz gerektiğinde, yerel özellikleri değiştirin ve gerekirse sonucu doğrulamak için tekrar etkin verileri okuyun.
+Tüm kalıtım uygulandıktan sonra “görünmüş” sonuca ihtiyacınız olduğunda, renkleri, girintileri veya boyutları hizalamak gibi durumlarda etkili veriyi kullanın. Bu değerleri daha sonraki biçimlendirme değişikliklerinden bağımsız olarak saklamanız gerekiyorsa, gerekli özellikleri kendi nesnenize kopyalayın. Belirli bir seviyede biçimlendirme değiştirmek istiyorsanız, yerel özellikleri değiştirin ve gerekirse sonucu doğrulamak için etkili veriyi tekrar okuyun.

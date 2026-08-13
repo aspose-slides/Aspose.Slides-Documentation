@@ -1,37 +1,47 @@
 ---
-title: "C++ में प्रेज़ेंटेशन से शेप प्रभावी गुण प्राप्त करें"
-linktitle: "प्रभावी गुण"
+title: C++ में प्रस्तुतियों से आकार के प्रभावी गुण प्राप्त करें
+linktitle: प्रभावी गुण
 type: docs
 weight: 50
 url: /hi/cpp/shape-effective-properties/
 keywords:
-- शेप गुण
+- आकार गुण
 - कैमरा गुण
 - लाइट रिग
-- बिवेल शेप
+- बेवेल आकार
 - टेक्स्ट फ्रेम
 - टेक्स्ट स्टाइल
 - फ़ॉन्ट ऊँचाई
 - फ़िल फ़ॉर्मेट
 - PowerPoint
-- प्रेज़ेंटेशन
+- प्रस्तुति
 - C++
 - Aspose.Slides
-description: "जानेँ कि C++ के लिए Aspose.Slides कैसे सटीक PowerPoint रेंडरिंग के लिए प्रभावी शेप गुणों की गणना और लागू करता है।"
+description: "Aspose.Slides for C++ कैसे प्रभावी आकार गुणों की गणना और लागू करता है ताकि सटीक PowerPoint रेंडरिंग हो सके, यह जानें।"
 ---
-## **समीक्षा**
+## **अवलोकन**
 
-यह विषय **स्थानीय** और **प्रभावी** गुणों के बीच अंतर समझाता है। स्थानीय मान वे मान होते हैं जो किसी विशिष्ट फॉर्मेटिंग स्तर पर सीधे सेट किए जाते हैं, जैसे कि:
+यह विषय **स्थानीय** और **प्रभावी** गुणों के बीच अंतर को समझाता है। स्थानीय मान वह मान होते हैं जो किसी विशिष्ट स्वरूपण स्तर पर सीधे सेट किए जाते हैं, जैसे:
 
-1. स्लाइड पर भाग गुण।
-1. लेआउट या मास्टर स्लाइड पर प्रोटोटाइप शेप टेक्स्ट स्टाइल, जब भाग के टेक्स्ट फ्रेम शेप में एक हो।
-1. प्रेजेंटेशन में वैश्विक टेक्स्ट सेटिंग्स।
+1. स्लाइड पर पोर्शन गुण।
+1. लेआउट या मास्टर स्लाइड पर प्रोटोटाइप आकार के पाठ शैलियों, जब पोर्शन के टेक्स्ट फ्रेम आकार में एक हो।
+1. प्रस्तुति में ग्लोबल टेक्स्ट सेटिंग्स।
 
-स्थानीय मान किसी भी स्तर पर परिभाषित या छोड़े जा सकते हैं। जब Aspose.Slides को अंतिम "जैसा रेंडर किया गया" फॉर्मेटिंग चाहिए होती है, तो यह इनहेरिटेंस चेन को हल करता है और **प्रभावी** मान लौटाता है। आप इन्हें स्थानीय फॉर्मेट ऑब्जेक्ट पर `GetEffective` मेथड को कॉल करके प्राप्त कर सकते हैं।
+स्थानीय मान किसी भी स्तर पर परिभाषित या छोड़े जा सकते हैं। जब Aspose.Slides को अंतिम “जैसे रेंडर किया गया” स्वरूपण चाहिए, तो वह विरासत श्रृंखला को हल करता है और **प्रभावी** मान लौटाता है। आप इन्हें स्थानीय स्वरूप ऑब्जेक्ट पर `GetEffective` मेथड को कॉल करके प्राप्त कर सकते हैं।
 
-निम्न उदाहरण दिखाता है कि प्रभावी मान कैसे प्राप्त करें। यह मानता है कि पहली स्लाइड पर पहला शेप एक [IAutoShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iautoshape/) है जिसमें एक टेक्स्ट फ्रेम और कम से कम एक भाग हो।
+निम्न उदाहरण दिखाता है कि प्रभावी मान कैसे प्राप्त किए जाएँ। यह मानता है कि पहली स्लाइड पर पहला आकार एक [IAutoShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iautoshape/) है जिसमें टेक्स्ट फ्रेम और कम से कम एक पोर्शन है।
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -46,15 +56,28 @@ auto effectivePortionFormat = portion->get_PortionFormat()->GetEffective();
 presentation->Dispose();
 ```
 
-{{% alert color="primary" %}}
-प्रभावी फॉर्मेटिंग डेटा वह वर्तमान गणना किया गया फॉर्मेटिंग दर्शाता है जो इनहेरिटेंस लागू होने के बाद प्राप्त होता है। वर्तमान कार्यान्वयन में, कुछ प्रभावी डेटा ऑब्जेक्ट, जैसे कि [IPortionFormatEffectiveData](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iportionformateffectivedata/), आंतरिक रूप से कैश किए जा सकते हैं। पैरेंट या विरासत में मिली फॉर्मेटिंग बदलने के बाद `GetEffective` को फिर से कॉल करने से कैश किया गया डेटा रीफ़्रेश हो सकता है, और पहले प्राप्त ऑब्जेक्ट अब पहले की स्थिति को दर्शा नहीं सकता। यदि आपको बाद में पुन: उपयोग के लिए प्रभावी मानों को संरक्षित रखना है, तो आवश्यक गुणों जैसे फ़ॉन्ट ऊँचाई, फ़िल रंग, फ़ॉन्ट शैली या संरेखण को अपने स्वयं के डेटा ऑब्जेक्ट में कॉपी करें।
+{{% alert color="info" %}}
+प्रभावी स्वरूपण डेटा वह वर्तमान गणना किया गया स्वरूपण दर्शाता है जो विरासत लागू होने के बाद प्राप्त होता है। वर्तमान कार्यान्वयन में, कुछ प्रभावी डेटा ऑब्जेक्ट जैसे [IPortionFormatEffectiveData](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iportionformateffectivedata/) को आंतरिक रूप से कैश किया जा सकता है। पैरेंट या विरासतित स्वरूपण बदलने के बाद `GetEffective` को फिर से कॉल करने से कैशेड डेटा रीफ़्रेश हो सकता है, और पहले प्राप्त किया गया ऑब्जेक्ट अब पूर्व अवस्था का प्रतिनिधित्व नहीं कर सकता। यदि आपको बाद में पुनः उपयोग के लिए प्रभावी मान सुरक्षित रखने की आवश्यकता है, तो आवश्यक गुणों—जैसे फ़ॉन्ट ऊँचाई, भराव रंग, फ़ॉन्ट शैली या संरेखण—को अपने स्वयं के डेटा ऑब्जेक्ट में कॉपी करें।
 {{% /alert %}}
 
 ## **कैमरा के प्रभावी गुण प्राप्त करें**
 
-Aspose.Slides आपको कैमरा के प्रभावी गुण प्राप्त करने की अनुमति देता है। [ICameraEffectiveData](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icameraeffectivedata/) इंटरफ़ेस एक अपरिवर्तनीय ऑब्जेक्ट का प्रतिनिधित्व करता है जिसमें प्रभावी कैमरा गुण होते हैं। एक [ICameraEffectiveData](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icameraeffectivedata/) उदाहरण [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ithreedformateffectivedata/) के माध्यम से उजागर किया जाता है, जो [IThreeDFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ithreedformat/) के लिए प्रभावी मान प्रदान करता है।
+Aspose.Slides आपको कैमरा के प्रभावी गुण प्राप्त करने की अनुमति देता है। [ICameraEffectiveData](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icameraeffectivedata/) इंटरफ़ेस एक अपरिवर्तनीय ऑब्जेक्ट का प्रतिनिधित्व करता है जिसमें प्रभावी कैमरा गुण होते हैं। एक [ICameraEffectiveData](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icameraeffectivedata/) इंस्टेंस [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ithreedformateffectivedata/) के माध्यम से प्रदान किया जाता है, जो [IThreeDFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ithreedformat/) के लिए प्रभावी मान देता है।
+
+निम्न कोड नमूना दिखाता है कि कैमरा के प्रभावी गुण कैसे प्राप्त किए जाएँ। यह मानता है कि पहली स्लाइड पर पहला आकार 3D स्वरूपण रखता है।
 
 ```cpp
+#include <DOM/ICameraEffectiveData.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -78,9 +101,22 @@ presentation->Dispose();
 
 ## **लाइट रिग के प्रभावी गुण प्राप्त करें**
 
-Aspose.Slides आपको लाइट रिग के प्रभावी गुण प्राप्त करने की अनुमति देता है। [ILightRigEffectiveData](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilightrigeffectivedata/) इंटरफ़ेस एक अपरिवर्तनीय ऑब्जेक्ट का प्रतिनिधित्व करता है जिसमें प्रभावी लाइट रिग गुण होते हैं। एक [ILightRigEffectiveData](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilightrigeffectivedata/) उदाहरण [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ithreedformateffectivedata/) के माध्यम से उजागर किया जाता है, जो [IThreeDFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ithreedformat/) के लिए प्रभावी मान प्रदान करता है।
+Aspose.Slides आपको लाइट रिग के प्रभावी गुण प्राप्त करने की अनुमति देता है। [ILightRigEffectiveData](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilightrigeffectivedata/) इंटरफ़ेस एक अपरिवर्तनीय ऑब्जेक्ट का प्रतिनिधित्व करता है जिसमें प्रभावी लाइट रिग गुण होते हैं। एक [ILightRigEffectiveData](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilightrigeffectivedata/) इंस्टेंस [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ithreedformateffectivedata/) के माध्यम से प्रदान किया जाता है, जो [IThreeDFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ithreedformat/) के लिए प्रभावी मान देता है।
+
+निम्न कोड नमूना दिखाता है कि लाइट रिग के प्रभावी गुण कैसे प्राप्त किए जाएँ। यह मानता है कि पहली स्लाइड पर पहला आकार 3D स्वरूपण रखता है।
 
 ```cpp
+#include <DOM/ILightRigEffectiveData.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 auto shape = presentation->get_Slide(0)->get_Shape(0);
 
@@ -97,11 +133,24 @@ System::Console::WriteLine(System::String(u"Direction: ") + lightDirection);
 presentation->Dispose();
 ```
 
-## **शेप बिवेल के प्रभावी गुण प्राप्त करें**
+## **आकारीय बेवेल के प्रभावी गुण प्राप्त करें**
 
-Aspose.Slides आपको शेप बिवेल के प्रभावी गुण प्राप्त करने की अनुमति देता है। [IShapeBevelEffectiveData](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishapebeveleffectivedata/) इंटरफ़ेस एक अपरिवर्तनीय ऑब्जेक्ट का प्रतिनिधित्व करता है जिसमें शेप के लिए प्रभावी फेस‑रिलिफ़ गुण होते हैं। एक [IShapeBevelEffectiveData](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishapebeveleffectivedata/) उदाहरण [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ithreedformateffectivedata/) के माध्यम से उजागर किया जाता है, जो [IThreeDFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ithreedformat/) के लिए प्रभावी मान प्रदान करता है।
+Aspose.Slides आपको शेप बेवेल के प्रभावी गुण प्राप्त करने की अनुमति देता है। [IShapeBevelEffectiveData](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishapebeveleffectivedata/) इंटरफ़ेस एक अपरिवर्तनीय ऑब्जेक्ट का प्रतिनिधित्व करता है जिसमें आकार के लिए प्रभावी फेस‑रिलीफ़ गुण होते हैं। एक [IShapeBevelEffectiveData](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishapebeveleffectivedata/) इंस्टेंस [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ithreedformateffectivedata/) के माध्यम से प्रदान किया जाता है, जो [IThreeDFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ithreedformat/) के लिए प्रभावी मान देता है।
+
+निम्न कोड नमूना दिखाता है कि आकार के शीर्ष बेवेल के प्रभावी गुण कैसे प्राप्त किए जाएँ। यह मानता है कि पहली स्लाइड पर पहला आकार 3D स्वरूपण रखता है।
 
 ```cpp
+#include <DOM/IShape.h>
+#include <DOM/IShapeBevelEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 auto shape = presentation->get_Slide(0)->get_Shape(0);
 
@@ -123,9 +172,22 @@ presentation->Dispose();
 
 ## **टेक्स्ट फ्रेम के प्रभावी गुण प्राप्त करें**
 
-Aspose.Slides का उपयोग करके आप टेक्स्ट फ्रेम के प्रभावी गुण प्राप्त कर सकते हैं। [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframeformateffectivedata/) इंटरफ़ेस में प्रभावी टेक्स्ट फ्रेम फॉर्मेटिंग गुण होते हैं।
+Aspose.Slides का उपयोग करके आप टेक्स्ट फ्रेम के प्रभावी गुण प्राप्त कर सकते हैं। [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframeformateffectivedata/) इंटरफ़ेस प्रभावी टेक्स्ट फ्रेम स्वरूपण गुणों को रखता है।
+
+निम्न कोड नमूना दिखाता है कि प्रभावी टेक्स्ट फ्रेम स्वरूपण गुण कैसे प्राप्त किए जाएँ। यह मानता है कि पहली स्लाइड पर पहला आकार एक [IAutoShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iautoshape/) है जिसमें टेक्स्ट फ्रेम है।
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/ITextFrameFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -160,9 +222,24 @@ presentation->Dispose();
 
 ## **टेक्स्ट स्टाइल के प्रभावी गुण प्राप्त करें**
 
-Aspose.Slides का उपयोग करके आप टेक्स्ट स्टाइल के प्रभावी गुण प्राप्त कर सकते हैं। [ITextStyleEffectiveData](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextstyleeffectivedata/) इंटरफ़ेस में प्रभावी टेक्स्ट स्टाइल गुण होते हैं।
+Aspose.Slides का उपयोग करके आप टेक्स्ट स्टाइल के प्रभावी गुण प्राप्त कर सकते हैं। [ITextStyleEffectiveData](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextstyleeffectivedata/) इंटरफ़ेस प्रभावी टेक्स्ट स्टाइल गुणों को रखता है।
+
+निम्न कोड नमूना दिखाता है कि प्रभावी टेक्स्ट स्टाइल गुण कैसे प्राप्त किए जाएँ। यह मानता है कि पहली स्लाइड पर पहला आकार एक [IAutoShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iautoshape/) है जिसमें टेक्स्ट फ्रेम है।
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphFormatEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/ITextStyleEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -191,9 +268,28 @@ presentation->Dispose();
 
 ## **प्रभावी फ़ॉन्ट ऊँचाई मान प्राप्त करें**
 
-Aspose.Slides का उपयोग करके आप प्रभावी फ़ॉन्ट ऊँचाई प्राप्त कर सकते हैं। निम्न कोड दर्शाता है कि विभिन्न प्रेजेंटेशन स्ट्रक्चर स्तरों पर स्थानीय फ़ॉन्ट ऊँचाई मान सेट करने के बाद भाग की प्रभावी फ़ॉन्ट ऊँचाई कैसे बदलती है।
+Aspose.Slides का उपयोग करके आप प्रभावी फ़ॉन्ट ऊँचाई प्राप्त कर सकते हैं। निम्न कोड दर्शाता है कि विभिन्न प्रस्तुति संरचना स्तरों पर स्थानीय फ़ॉन्ट ऊँचाई मान सेट करने के बाद पोर्शन की प्रभावी फ़ॉन्ट ऊँचाई कैसे बदलती है।
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
@@ -252,11 +348,27 @@ presentation->Dispose();
 
 ## **टेबल के लिए प्रभावी फ़िल फ़ॉर्मेट प्राप्त करें**
 
-Aspose.Slides का उपयोग करके आप विभिन्न टेबल भागों के लिए प्रभावी फ़िल फॉर्मेटिंग प्राप्त कर सकते हैं। [IFillFormatEffectiveData](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ifillformateffectivedata/) इंटरफ़ेस में प्रभावी फ़िल फॉर्मेटिंग गुण होते हैं। सेल फ़ॉर्मेटिंग की प्राथमिकता पंक्ति फ़ॉर्मेटिंग से अधिक होती है, पंक्ति फ़ॉर्मेटिंग की प्राथमिकता कॉलम फ़ॉर्मेटिंग से अधिक होती है, और कॉलम फ़ॉर्मेटिंग की प्राथमिकता पूरी टेबल फ़ॉर्मेटिंग से अधिक होती है।
+Aspose.Slides का उपयोग करके आप विभिन्न टेबल भागों के लिए प्रभावी फ़िल स्वरूपण प्राप्त कर सकते हैं। [IFillFormatEffectiveData](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ifillformateffectivedata/) इंटरफ़ेस प्रभावी फ़िल स्वरूपण गुणों को रखता है। सेल स्वरूपण की प्राथमिकता पंक्ति स्वरूपण से अधिक होती है, पंक्ति स्वरूपण की प्राथमिकता कॉलम स्वरूपण से अधिक होती है, और कॉलम स्वरूपण की प्राथमिकता पूर्ण‑टेबल स्वरूपण से अधिक होती है।
 
-परिणामस्वरूप, [ICellFormatEffectiveData](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icellformateffectivedata/) गुणों का उपयोग टेबल सेल को ड्रॉ करने के लिए किया जाता है। निम्न कोड नमूना विभिन्न टेबल भागों के लिए प्रभावी फ़िल फॉर्मेटिंग प्राप्त करने को दर्शाता है। यह मानता है कि पहली स्लाइड पर पहला शेप एक [ITable](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itable/) है।
+परिणामस्वरूप, [ICellFormatEffectiveData](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icellformateffectivedata/) गुण टेबल सेल को ड्रॉ करने के लिए उपयोग होते हैं। निम्न कोड नमूना दिखाता है कि विभिन्न टेबल भागों के लिए प्रभावी फ़िल स्वरूपण कैसे प्राप्त किया जाए। यह मानता है कि पहली स्लाइड पर पहला आकार एक [ITable](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itable/) है।
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/ICellFormatEffectiveData.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/IColumnFormat.h>
+#include <DOM/Table/IColumnFormatEffectiveData.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowFormat.h>
+#include <DOM/Table/IRowFormatEffectiveData.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ITableFormat.h>
+#include <DOM/Table/ITableFormatEffectiveData.h>
+using namespace Aspose::Slides;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -272,34 +384,34 @@ presentation->Dispose();
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या `GetEffective` एक स्नैपशॉट लौटाता है?**
+### क्या `GetEffective` एक स्नैपशॉट लौटाता है?
 
-हमेशा नहीं। प्रभावी डेटा इनहेरिटेंस लागू होने के बाद गणना किया गया फॉर्मेटिंग दर्शाता है, लेकिन कुछ प्रभावी डेटा ऑब्जेक्ट आंतरिक रूप से कैश किए जा सकते हैं। अगला `GetEffective` कॉल फॉर्मेटिंग को पुनः गणना कर सकता है और कैश किया गया डेटा रीफ़्रेश कर सकता है, इसलिए पहले प्राप्त ऑब्जेक्ट को टिकाऊ स्नैपशॉट के रूप में नहीं माना जाना चाहिए।
+हमेशा नहीं। प्रभावी डेटा विरासत लागू होने के बाद गणना किया गया स्वरूपण दर्शाता है, लेकिन कुछ प्रभावी डेटा ऑब्जेक्ट आंतरिक रूप से कैश किए जा सकते हैं। बाद में `GetEffective` कॉल स्वरूपण को पुन: गणना कर सकता है और कैशेड डेटा को रीफ़्रेश कर सकता है, इसलिए पहले प्राप्त किया गया ऑब्जेक्ट स्थायी स्नैपशॉट नहीं माना जाना चाहिए।
 
-**मुझे प्रभावी गुण फिर से कब पढ़ने चाहिए?**
+### कब मुझे प्रभावी गुणों को फिर से पढ़ना चाहिए?
 
-स्थानीय फॉर्मेटिंग, पैरेंट स्टाइल, लेआउट फॉर्मेटिंग, मास्टर फॉर्मेटिंग या प्रेजेंटेशन‑स्तर के डिफ़ॉल्ट बदलने के बाद `GetEffective` को फिर से कॉल करें। अगला कॉल फॉर्मेटिंग पदानुक्रम का पुनर्मूल्यांकन करता है और वर्तमान प्रभावी परिणाम लौटाता है।
+स्थानीय स्वरूपण, पैरेंट शैलियों, लेआउट स्वरूपण, मास्टर स्वरूपण या प्रस्तुति‑स्तर डिफ़ॉल्ट बदलने के बाद `GetEffective` को फिर से कॉल करें। अगला कॉल स्वरूपण पदानुक्रम का पुन: मूल्यांकन करता है और वर्तमान प्रभावी परिणाम लौटाता है।
 
-**क्या लेआउट/मास्टर स्लाइड बदलने या हटाने से पहले प्राप्त प्रभावी गुण प्रभावित होते हैं?**
+### क्या लेआउट/मास्टर स्लाइड बदलने या हटाने से पहले प्राप्त प्रभावी गुण प्रभावित होते हैं?
 
-हां, लेकिन परिवर्तन अगली `GetEffective` कॉल पर प्रतिबिंबित होता है। यदि पैरेंट फॉर्मेटिंग स्रोत बदलता या हटाया जाता है, तो पहले प्राप्त प्रभावी डेटा पुराना हो सकता है। जब `GetEffective` फिर से कॉल किया जाता है, तो Aspose.Slides फॉर्मेटिंग ट्री को पुनः मूल्यांकित करता है और resulting फ़ॉन्ट, रंग, आकार या अन्य मान बदल सकते हैं।
+हां, लेकिन परिवर्तन अगले `GetEffective` कॉल पर परिलक्षित होगा। यदि पैरेंट स्वरूपण स्रोत बदलता या हटाया जाता है, तो पहले प्राप्त प्रभावी डेटा पुराना हो सकता है। एक बार `GetEffective` फिर से बुलाने पर, Aspose.Slides स्वरूपण वृक्ष का पुन: मूल्यांकन करता है और resulting फ़ॉन्ट, रंग, आकार या अन्य मान बदल सकते हैं।
 
-**क्या मैं प्रभावी डेटा ऑब्जेक्ट्स के माध्यम से मानों को संशोधित कर सकता हूं?**
+### क्या मैं प्रभावी डेटा ऑब्जेक्ट्स के माध्यम से मान बदल सकता हूँ?
 
-नहीं। प्रभावी डेटा ऑब्जेक्ट गणना किए गए मानों को उजागर करते हैं। स्थानीय फॉर्मेटिंग ऑब्जेक्ट्स में परिवर्तन करें, फिर प्रभावी मान फिर से प्राप्त करें।
+नहीं। प्रभावी डेटा ऑब्जेक्ट्स गणना किए गए मान ही दर्शाते हैं। स्थानीय स्वरूपण ऑब्जेक्ट्स में परिवर्तन करें, और फिर प्रभावी मानों को पुनः प्राप्त करें।
 
-**यदि गुण शैप स्तर पर, न लेआउट/मास्टर पर, न ही वैश्विक सेटिंग्स में सेट नहीं है तो क्या होता है?**
+### यदि कोई गुण आकार स्तर पर, न लेआउट/मास्टर पर, न ही ग्लोबल सेटिंग्स में निर्धारित नहीं है, तो क्या होता है?
 
-प्रभावी मान डिफ़ॉल्ट तंत्र द्वारा निर्धारित किया जाता है, जिसमें PowerPoint और Aspose.Slides के डिफ़ॉल्ट शामिल हैं। वह हल किया गया मान वर्तमान प्रभावी डेटा का हिस्सा बन जाता है।
+प्रभावी मान डिफ़ॉल्ट तंत्र द्वारा निर्धारित किया जाता है, जिसमें PowerPoint और Aspose.Slides के डिफ़ॉल्ट शामिल हैं। वह निर्धारित मान वर्तमान प्रभावी डेटा का हिस्सा बन जाता है।
 
-**एक प्रभावी फ़ॉन्ट मान से क्या मैं बता सकता हूं कि कौनसे स्तर ने आकार या फ़ॉन्ट प्रदान किया?**
+### प्रभावी फ़ॉन्ट मान से क्या मैं बता सकता हूँ कि किस स्तर ने आकार या फ़ॉन्ट प्रदान किया?
 
-सीधे नहीं। प्रभावी डेटा अंतिम मान लौटाता है। स्रोत पता लगाने के लिए भाग, पैराग्राफ, टेक्स्ट फ्रेम पर स्थानीय मान और लेआउट, मास्टर और प्रेजेंटेशन स्तर पर टेक्स्ट स्टाइल देखें ताकि पहली स्पष्ट परिभाषा कहाँ है पता चल सके।
+सीधे नहीं। प्रभावी डेटा अंतिम मान लौटाता है। स्रोत पता करने के लिए पोर्शन, पैराग्राफ, टेक्स्ट फ्रेम और लेआउट, मास्टर एवं प्रस्तुति स्तर पर स्थानीय मानों की जाँच करें ताकि पहली स्पष्ट परिभाषा का स्तर देख सकें।
 
-**क्यों प्रभावी मान कभी‑कभी स्थानीय मानों के समान दिखते हैं?**
+### कभी‑कभी प्रभावी मान स्थानीय मानों जैसे क्यों दिखते हैं?
 
-क्योंकि स्थानीय मान अंतिम बन गया था (उच्च‑स्तर की इनहेरिटेंस की आवश्यकता नहीं थी)। ऐसे मामलों में प्रभावी मान स्थानीय मान से मेल खाता है।
+क्योंकि स्थानीय मान अंततः अंतिम हो गया (ऊँचा‑स्तर विरासत की आवश्यकता नहीं रही)। ऐसे मामलों में प्रभावी मान स्थानीय मान से मेल खाता है।
 
-**कब मुझे प्रभावी गुणों का उपयोग करना चाहिए, और कब केवल स्थानीय गुणों के साथ काम करना चाहिए?**
+### मुझे कब प्रभावी गुणों का उपयोग करना चाहिए, और कब केवल स्थानीय गुणों के साथ काम करना चाहिए?
 
-जब आपको सभी इनहेरिटेंस लागू होने के बाद "जैसा रेंडर किया गया" परिणाम चाहिए, जैसे रंग, इंडेंट या आकार संरेखित करने के लिए, तब प्रभावी डेटा उपयोग करें। यदि आपको बाद में फॉर्मेटिंग बदलने के बावजूद इन मानों को संरक्षित रखना है, तो आवश्यक गुणों को अपने स्वयं के ऑब्जेक्ट में कॉपी करें। यदि आपको किसी विशिष्ट स्तर पर फॉर्मेटिंग बदलनी है, तो स्थानीय गुणों को संशोधित करें और आवश्यक होने पर प्रभावी डेटा फिर से पढ़ें ताकि परिणाम की पुष्टि हो सके।
+जब आपको सभी विरासत लागू होने के बाद “जैसे रेंडर किया गया” परिणाम चाहिए, जैसे रंग, इंडेंट या आकार संरेखित करने के लिए, तो प्रभावी डेटा उपयोग करें। यदि आप उन मानों को बाद में स्वरूपण परिवर्तन के बावजूद संरक्षित रखना चाहते हैं, तो आवश्यक गुणों को अपने स्वयं के ऑब्जेक्ट में कॉपी करें। यदि आप किसी विशिष्ट स्तर पर स्वरूपण बदलना चाहते हैं, तो स्थानीय गुणों को संशोधित करें और फिर आवश्यक होने पर प्रभावी डेटा को पुनः पढ़कर परिणाम सत्यापित करें।

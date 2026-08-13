@@ -1,38 +1,40 @@
 ---
-title: รับคุณสมบัติรูปร่างที่มีประสิทธิภาพจากพรีเซนเทชันใน .NET
-linktitle: คุณสมบัติมีประสิทธิภาพ
+title: รับคุณสมบัติรูปทรงที่มีผลจากงานนำเสนอใน .NET
+linktitle: คุณสมบัติที่มีผล
 type: docs
 weight: 50
 url: /th/net/shape-effective-properties/
 keywords:
-- คุณสมบัติรูปร่าง
+- คุณสมบัติรูปทรง
 - คุณสมบัติกล้อง
-- ระบบแสง
-- รูปร่างบีเวล
+- อุปกรณ์กำหนดแสง
+- รูปทรง bevel
 - กรอบข้อความ
 - สไตล์ข้อความ
-- ความสูงของฟอนต์
+- ความสูงฟอนต์
 - รูปแบบการเติม
 - PowerPoint
-- พรีเซนเทชัน
+- งานนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "ค้นพบว่า Aspose.Slides for .NET คำนวณและประยุกต์ใช้คุณสมบัติรูปร่างที่มีประสิทธิภาพอย่างไรเพื่อการเรนเดอร์ PowerPoint ที่แม่นยำ."
+description: "ค้นพบวิธีที่ Aspose.Slides สำหรับ .NET คำนวณและนำคุณสมบัติรูปทรงที่มีผลไปใช้เพื่อการเรนเดอร์ PowerPoint อย่างแม่นยำ"
 ---
 ## **ภาพรวม**
 
-หัวข้อนี้อธิบายความแตกต่างระหว่างคุณสมบัติ **local** และ **effective** ค่า Local คือค่าที่ตั้งโดยตรงที่ระดับการจัดรูปแบบเฉพาะ เช่น:
+หัวข้อนี้อธิบายความแตกต่างระหว่างคุณสมบัติ **ท้องถิ่น** และ **ที่มีผล** ค่าท้องถิ่นคือค่าที่ตั้งโดยตรงในระดับการจัดรูปแบบเฉพาะ เช่น  
 
-1. คุณสมบัติส่วนของข้อความบนสไลด์
-1. สไตล์ข้อความของรูปร่างต้นแบบบนเลย์เอาต์หรือสไลด์มาสเตอร์เมื่อรูปแบบกรอบข้อความของส่วนนั้นมีอยู่
-1. การตั้งค่าข้อความทั่วโลกในพรีเซนเทชัน
+1. คุณสมบัติส่วนของบนสไลด์.  
+1. สไตล์ข้อความของรูปร่างต้นแบบบนเลย์เอาต์หรือสไลด์แม่, เมื่อรูปแบบกรอบข้อความของส่วนมีอยู่.  
+1. การตั้งค่าข้อความระดับโลกในงานนำเสนอ.  
 
-ค่าท้องถิ่นสามารถกำหนดหรือละเว้นได้ที่ระดับใดก็ได้ เมื่อ Aspose.Slides ต้องการรูปแบบ “as rendered” สุดท้าย มันจะทำการแก้ไขสายการสืบทอดและคืนค่า **effective** คุณสามารถดึงค่าเหล่านี้ได้โดยเรียกเมธอด `GetEffective` บนวัตถุรูปแบบท้องถิ่น
+ค่าท้องถิ่นสามารถกำหนดหรือละเว้นได้ในระดับใดก็ได้ เมื่อต้องการฟอร์แมตขั้นสุดท้าย “ตามที่แสดงผล” Aspose.Slides จะทำการแก้ไขห่วงโซ่การสืบทอดและคืนค่า **ที่มีผล** คุณสามารถรับค่าเหล่านี้ได้โดยเรียกเมธอด `GetEffective` บนวัตถุรูปแบบท้องถิ่น  
 
-ตัวอย่างต่อไปนี้แสดงวิธีดึงค่า effective โดยสมมติว่ารูปร่างแรกบนสไลด์แรกเป็น [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) ที่มีกรอบข้อความและมีอย่างน้อยหนึ่งส่วน
+ตัวอย่างต่อไปนี้แสดงวิธีรับค่า ที่มีผล โดยสมมติว่ารูปร่างแรกบนสไลด์แรกเป็น [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) ที่มีกรอบข้อความและมีอย่างน้อยหนึ่งส่วน
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -46,17 +48,19 @@ var localPortionFormat = portion.PortionFormat;
 var effectivePortionFormat = localPortionFormat.GetEffective();
 ```
 
-{{% alert color="primary" %}}
-ข้อมูลการจัดรูปแบบที่ effective แสดงถึงการคำนวณรูปแบบปัจจุบันหลังจากนำการสืบทอดมาใช้ ในการนำไปใช้ปัจจุบันบางวัตถุข้อมูล effective เช่น [IPortionFormatEffectiveData](https://reference.aspose.com/slides/th/net/aspose.slides/iportionformateffectivedata/) อาจถูกแคชไว้ภายใน การเรียก `GetEffective` อีกครั้งหลังจากเปลี่ยนรูปแบบจากพาเรนต์หรือจากการสืบทอดสามารถรีเฟรชข้อมูลแคชได้ และวัตถุที่เคยได้รับอาจไม่สอดคล้องกับสถานะก่อนหน้า หากต้องการเก็บค่าที่ effective ไว้ใช้ในภายหลัง ให้คัดลอกคุณสมบัติที่ต้องการ เช่น ความสูงของฟอนต์ สีเติม แบบอักษร หรือการจัดแนว ไปยังวัตถุข้อมูลของคุณเอง
+{{% alert color="info" %}}
+ข้อมูลการจัดรูปแบบที่มีผลแสดงถึงการคำนวณรูปแบบปัจจุบันหลังจากการสืบทอดถูกนำไปใช้ ในการทำงานปัจจุบันบางวัตถุข้อมูลที่มีผล เช่น [IPortionFormatEffectiveData](https://reference.aspose.com/slides/th/net/aspose.slides/iportionformateffectivedata/) อาจถูกแคชภายใน การเรียก `GetEffective` อีกครั้งหลังจากเปลี่ยนรูปแบบพ่อหรือรูปแบบที่สืบทอดสามารถรีเฟรชข้อมูลที่แคชได้ และวัตถุที่ได้ก่อนหน้านี้อาจไม่แสดงถึงสถานะก่อนหน้าอีกต่อไป หากคุณต้องการเก็บค่าที่มีผลไว้ใช้ในภายหลัง ให้คัดลอกคุณสมบัติที่จำเป็น เช่น ความสูงของฟอนต์ สีเติม สไตล์ฟอนต์ หรือการจัดแนว ไปยังออบเจ็กต์ข้อมูลของคุณเอง
 {{% /alert %}}
 
-## **ดึงคุณสมบัติ Effective ของกล้อง**
+## **รับคุณสมบัติที่มีผลของกล้อง**
 
-Aspose.Slides อนุญาตให้คุณดึงคุณสมบัติ effective ของกล้องได้ ส่วนต่อประสาน [ICameraEffectiveData](https://reference.aspose.com/slides/th/net/aspose.slides/icameraeffectivedata/) แสดงวัตถุที่ไม่สามารถแก้ไขได้ซึ่งมีคุณสมบัติกล้องที่ effective ตัวอย่างของ [ICameraEffectiveData](https://reference.aspose.com/slides/th/net/aspose.slides/icameraeffectivedata/) จะถูกเปิดเผยผ่าน [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/th/net/aspose.slides/ithreedformateffectivedata/) ซึ่งให้ค่าที่ effective สำหรับ [IThreeDFormat](https://reference.aspose.com/slides/th/net/aspose.slides/ithreedformat/)
+Aspose.Slides ให้คุณรับคุณสมบัติที่มีผลของกล้อง อินเตอร์เฟซ [ICameraEffectiveData](https://reference.aspose.com/slides/th/net/aspose.slides/icameraeffectivedata/) แทนวัตถุไม่เปลี่ยนแปลงที่บรรจุคุณสมบัติกล้องที่มีผล อินสแตนซ์ของ [ICameraEffectiveData](https://reference.aspose.com/slides/th/net/aspose.slides/icameraeffectivedata/) ถูกเปิดเผยผ่าน [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/th/net/aspose.slides/ithreedformateffectivedata/) ซึ่งให้ค่าที่มีผลสำหรับ [IThreeDFormat](https://reference.aspose.com/slides/th/net/aspose.slides/ithreedformat/)
 
-โค้ดตัวอย่างต่อไปนี้แสดงวิธีดึงคุณสมบัติ effective ของกล้อง โดยสมมติว่ารูปร่างแรกบนสไลด์แรกมีการจัดรูปแบบ 3 มิติ
+โค้ดตัวอย่างต่อไปนี้แสดงวิธีรับคุณสมบัติที่มีผลของกล้อง โดยสมมติว่ารูปร่างแรกบนสไลด์แรกมีการจัดรูปแบบ 3 มิติ
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -70,13 +74,15 @@ Console.WriteLine("Field of view: " + threeDEffectiveData.Camera.FieldOfViewAngl
 Console.WriteLine("Zoom: " + threeDEffectiveData.Camera.Zoom);
 ```
 
-## **ดึงคุณสมบัติ Effective ของ Light Rig**
+## **รับคุณสมบัติที่มีผลของ Light Rig**
 
-Aspose.Slides อนุญาตให้คุณดึงคุณสมบัติ effective ของ Light Rig ได้ ส่วนต่อประสาน [ILightRigEffectiveData](https://reference.aspose.com/slides/th/net/aspose.slides/ilightrigeffectivedata/) แสดงวัตถุที่ไม่สามารถแก้ไขได้ซึ่งมีคุณสมบัติ Light Rig ที่ effective ตัวอย่างของ [ILightRigEffectiveData](https://reference.aspose.com/slides/th/net/aspose.slides/ilightrigeffectivedata/) จะถูกเปิดเผยผ่าน [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/th/net/aspose.slides/ithreedformateffectivedata/) ซึ่งให้ค่าที่ effective สำหรับ [IThreeDFormat](https://reference.aspose.com/slides/th/net/aspose.slides/ithreedformat/)
+Aspose.Slides ให้คุณรับคุณสมบัติที่มีผลของ Light Rig อินเตอร์เฟซ [ILightRigEffectiveData](https://reference.aspose.com/slides/th/net/aspose.slides/ilightrigeffectivedata/) แทนวัตถุไม่เปลี่ยนแปลงที่บรรจุคุณสมบัติ Light Rig ที่มีผล อินสแตนซ์ของ [ILightRigEffectiveData](https://reference.aspose.com/slides/th/net/aspose.slides/ilightrigeffectivedata/) ถูกเปิดเผยผ่าน [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/th/net/aspose.slides/ithreedformateffectivedata/) ซึ่งให้ค่าที่มีผลสำหรับ [IThreeDFormat](https://reference.aspose.com/slides/th/net/aspose.slides/ithreedformat/)
 
-โค้ดตัวอย่างต่อไปนี้แสดงวิธีดึงคุณสมบัติ effective ของ Light Rig โดยสมมติว่ารูปร่างแรกบนสไลด์แรกมีการจัดรูปแบบ 3 มิติ
+โค้ดตัวอย่างต่อไปนี้แสดงวิธีรับคุณสมบัติที่มีผลของ Light Rig โดยสมมติว่ารูปร่างแรกบนสไลด์แรกมีการจัดรูปแบบ 3 มิติ
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -89,13 +95,15 @@ Console.WriteLine("Type: " + threeDEffectiveData.LightRig.LightType);
 Console.WriteLine("Direction: " + threeDEffectiveData.LightRig.Direction);
 ```
 
-## **ดึงคุณสมบัติ Effective ของ Bevel Shape**
+## **รับคุณสมบัติที่มีผลของขอบรูปทรง (Bevel Shape)**
 
-Aspose.Slides อนุญาตให้คุณดึงคุณสมบัติ effective ของ bevel รูปร่างได้ ส่วนต่อประสาน [IShapeBevelEffectiveData](https://reference.aspose.com/slides/th/net/aspose.slides/ishapebeveleffectivedata/) แสดงวัตถุที่ไม่สามารถแก้ไขได้ซึ่งมีคุณสมบัติ relief ของหน้าแบบ effective สำหรับรูปร่าง ตัวอย่างของ [IShapeBevelEffectiveData](https://reference.aspose.com/slides/th/net/aspose.slides/ishapebeveleffectivedata/) จะถูกเปิดเผยผ่าน [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/th/net/aspose.slides/ithreedformateffectivedata/) ซึ่งให้ค่าที่ effective สำหรับ [IThreeDFormat](https://reference.aspose.com/slides/th/net/aspose.slides/ithreedformat/)
+Aspose.Slides ให้คุณรับคุณสมบัติที่มีผลของขอบรูปทรง อินเตอร์เฟซ [IShapeBevelEffectiveData](https://reference.aspose.com/slides/th/net/aspose.slides/ishapebeveleffectivedata/) แทนวัตถุไม่เปลี่ยนแปลงที่บรรจุคุณสมบัติการรีลีฟของรูปทรง อินสแตนซ์ของ [IShapeBevelEffectiveData](https://reference.aspose.com/slides/th/net/aspose.slides/ishapebeveleffectivedata/) ถูกเปิดเผยผ่าน [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/th/net/aspose.slides/ithreedformateffectivedata/) ซึ่งให้ค่าที่มีผลสำหรับ [IThreeDFormat](https://reference.aspose.com/slides/th/net/aspose.slides/ithreedformat/)
 
-โค้ดตัวอย่างต่อไปนี้แสดงวิธีดึงคุณสมบัติ effective ของ bevel ด้านบนของรูปร่าง โดยสมมติว่ารูปร่างแรกบนสไลด์แรกมีการจัดรูปแบบ 3 มิติ
+โค้ดตัวอย่างต่อไปนี้แสดงวิธีรับคุณสมบัติที่มีผลของขอบด้านบนของรูปทรง โดยสมมติว่ารูปร่างแรกบนสไลด์แรกมีการจัดรูปแบบ 3 มิติ
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -109,13 +117,15 @@ Console.WriteLine("Width: " + threeDEffectiveData.BevelTop.Width);
 Console.WriteLine("Height: " + threeDEffectiveData.BevelTop.Height);
 ```
 
-## **ดึงคุณสมบัติ Effective ของ Text Frame**
+## **รับคุณสมบัติที่มีผลของกรอบข้อความ (Text Frame)**
 
-ด้วย Aspose.Slides คุณสามารถดึงคุณสมบัติ effective ของกรอบข้อความได้ ส่วนต่อประสาน [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/th/net/aspose.slides/itextframeformateffectivedata/) มีคุณสมบัติการจัดรูปแบบกรอบข้อความที่ effective
+ด้วย Aspose.Slides คุณสามารถรับคุณสมบัติที่มีผลของกรอบข้อความ อินเตอร์เฟซ [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/th/net/aspose.slides/itextframeformateffectivedata/) มีคุณสมบัติการจัดรูปแบบกรอบข้อความที่มีผล  
 
-โค้ดตัวอย่างต่อไปนี้แสดงวิธีดึงคุณสมบัติการจัดรูปแบบกรอบข้อความที่ effective โดยสมมติว่ารูปร่างแรกบนสไลด์แรกเป็น [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) ที่มีกรอบข้อความ
+โค้ดตัวอย่างต่อไปนี้แสดงวิธีรับคุณสมบัติการจัดรูปแบบกรอบข้อความที่มีผล โดยสมมติว่ารูปร่างแรกบนสไลด์แรกเป็น [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) ที่มีกรอบข้อความ
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -134,13 +144,15 @@ Console.WriteLine("   Right: " + effectiveTextFrameFormat.MarginRight);
 Console.WriteLine("   Bottom: " + effectiveTextFrameFormat.MarginBottom);
 ```
 
-## **ดึงคุณสมบัติ Effective ของ Text Style**
+## **รับคุณสมบัติที่มีผลของสไตล์ข้อความ (Text Style)**
 
-ด้วย Aspose.Slides คุณสามารถดึงคุณสมบัติ effective ของสไตล์ข้อความได้ ส่วนต่อประสาน [ITextStyleEffectiveData](https://reference.aspose.com/slides/th/net/aspose.slides/itextstyleeffectivedata/) มีคุณสมบัติสไตล์ข้อความที่ effective
+ด้วย Aspose.Slides คุณสามารถรับคุณสมบัติที่มีผลของสไตล์ข้อความ อินเตอร์เฟซ [ITextStyleEffectiveData](https://reference.aspose.com/slides/th/net/aspose.slides/itextstyleeffectivedata/) มีคุณสมบัติสไตล์ข้อความที่มีผล  
 
-โค้ดตัวอย่างต่อไปนี้แสดงวิธีดึงคุณสมบัติสไตล์ข้อความที่ effective โดยสมมติว่ารูปร่างแรกบนสไลด์แรกเป็น [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) ที่มีกรอบข้อความ
+โค้ดตัวอย่างต่อไปนี้แสดงวิธีรับคุณสมบัติสไตล์ข้อความที่มีผล โดยสมมติว่ารูปร่างแรกบนสไลด์แรกเป็น [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) ที่มีกรอบข้อความ
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -161,11 +173,14 @@ for (var levelIndex = 0; levelIndex < levelCount; levelIndex++)
 }
 ```
 
-## **ดึงค่าความสูงฟอนต์ Effective**
+## **รับค่า ความสูงของฟอนต์ ที่มีผล**
 
-ด้วย Aspose.Slides คุณสามารถดึงความสูงฟอนต์ที่ effective ได้ โค้ดต่อไปนี้สาธิตว่าความสูงฟอนต์ของส่วน (portion) ที่ effective จะเปลี่ยนแปลงอย่างไรเมื่อกำหนดค่าความสูงฟอนต์ท้องถิ่นที่ระดับโครงสร้างพรีเซนเทชันต่าง ๆ
+ด้วย Aspose.Slides คุณสามารถรับความสูงของฟอนต์ที่มีผล ตัวอย่างโค้ดต่อไปนี้สาธิตการเปลี่ยนแปลงความสูงฟอนต์ที่มีผลของส่วนหลังจากตั้งค่าความสูงฟอนต์ท้องถิ่นในระดับโครงสร้างงานนำเสนอที่ต่างกัน
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
@@ -223,13 +238,15 @@ Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
 presentation.Save("SetLocalFontHeightValues.pptx", SaveFormat.Pptx);
 ```
 
-## **ดึงรูปแบบเติม (Fill) Effective สำหรับตาราง**
+## **รับการเติมรูปแบบที่มีผลสำหรับตาราง**
 
-ด้วย Aspose.Slides คุณสามารถดึงการจัดรูปแบบเติมที่ effective สำหรับส่วนต่าง ๆ ของตารางได้ ส่วนต่อประสาน [IFillFormatEffectiveData](https://reference.aspose.com/slides/th/net/aspose.slides/ifillformateffectivedata/) มีคุณสมบัติการจัดรูปแบบเติมที่ effective การจัดรูปแบบเซลล์มีลำดับความสำคัญสูงกว่าการจัดรูปแบบแถว, แถวสูงกว่าคอลัมน์, คอลัมน์สูงกว่าการจัดรูปแบบตารางทั้งหมด
+ด้วย Aspose.Slides คุณสามารถรับการเติมรูปแบบที่มีผลสำหรับส่วนต่าง ๆ ของตาราง อินเตอร์เฟซ [IFillFormatEffectiveData](https://reference.aspose.com/slides/th/net/aspose.slides/ifillformateffectivedata/) มีคุณสมบัติการเติมรูปแบบที่มีผล การจัดรูปแบบเซลล์มีลำดับความสำคัญสูงกว่าการจัดรูปแบบแถว, การจัดรูปแบบแถวสูงกว่าการจัดรูปแบบคอลัมน์, และการจัดรูปแบบคอลัมน์สูงกว่าการจัดรูปแบบตารางทั้งหมด  
 
-ผลคือ คุณสมบัติของ [ICellFormatEffectiveData](https://reference.aspose.com/slides/th/net/aspose.slides/icellformateffectivedata/) จะถูกใช้ในการวาดเซลล์ตาราง โค้ดตัวอย่างต่อไปนี้แสดงวิธีดึงการจัดรูปแบบเติมที่ effective สำหรับส่วนต่าง ๆ ของตาราง โดยสมมติว่ารูปร่างแรกบนสไลด์แรกเป็น [ITable](https://reference.aspose.com/slides/th/net/aspose.slides/itable/)
+ดังนั้นคุณสมบัติของ [ICellFormatEffectiveData](https://reference.aspose.com/slides/th/net/aspose.slides/icellformateffectivedata/) จะถูกใช้ในการวาดเซลล์ตาราง โค้ดตัวอย่างต่อไปนี้แสดงวิธีรับการเติมรูปแบบที่มีผลสำหรับส่วนต่าง ๆ ของตาราง โดยสมมติว่ารูปร่างแรกบนสไลด์แรกเป็น [ITable](https://reference.aspose.com/slides/th/net/aspose.slides/itable/)
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -246,36 +263,36 @@ var columnFillFormatEffective = columnFormatEffective.FillFormat;
 var cellFillFormatEffective = cellFormatEffective.FillFormat;
 ```
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**`GetEffective` คืนค่าภาพรวมหรือไม่?**
+### `GetEffective` คืนค่าภาพสแนปช็อตหรือไม่?
 
-ไม่เสมอไป ข้อมูลที่ effective แสดงถึงการจัดรูปแบบที่คำนวณแล้วหลังจากการสืบทอด แต่บางวัตถุข้อมูล effective อาจถูกแคชภายใน การเรียก `GetEffective` ครั้งต่อมาหลังจากเปลี่ยนการจัดรูปแบบพาเรนต์หรือการสืบทอดอาจทำการคำนวณใหม่และรีเฟรชข้อมูลแคช ดังนั้นวัตถุที่เคยได้มาก่อนหน้านี้ไม่ควรถูกพิจารณาเป็นภาพสแนปช็อตที่คงที่
+ไม่เสมอไป ข้อมูลที่มีผลแสดงถึงการจัดรูปแบบที่คำนวณหลังการสืบทอด แต่บางวัตถุข้อมูลที่มีผลอาจถูกแคชภายใน การเรียก `GetEffective` อีกครั้งอาจทำให้คำนวณใหม่และรีเฟรชข้อมูลที่แคช ดังนั้นวัตถุที่ได้ก่อนหน้านี้ไม่ควรถือว่าเป็นภาพสแนปช็อตที่คงที่
 
-**ควรอ่านคุณสมบัติ effective อีกครั้งเมื่อใด?**
+### ควรอ่านคุณสมบัติที่มีผลใหม่เมื่อใด?
 
-ให้เรียก `GetEffective` อีกครั้งหลังจากเปลี่ยนการจัดรูปแบบท้องถิ่น, สไตล์พาเรนต์, การจัดรูปแบบเลย์เอาต์, การจัดรูปแบบมาสเตอร์ หรือค่าเริ่มต้นระดับพรีเซนเทชัน การเรียกครั้งต่อไปจะประเมินลำดับการจัดรูปแบบใหม่และคืนค่าที่ effective ปัจจุบัน
+เรียก `GetEffective` อีกครั้งหลังจากเปลี่ยนการจัดรูปแบบท้องถิ่น, สไตล์พาเรนต์, การจัดรูปแบบเลย์เอาต์, การจัดรูปแบบมาสเตอร์ หรือค่าเริ่มต้นระดับงานนำเสนอ การเรียกครั้งต่อไปจะประเมินลำดับชั้นการจัดรูปแบบใหม่และคืนค่าที่มีผลปัจจุบัน
 
-**การเปลี่ยนหรือเอาออกสไลด์เลย์เอาต์/มาสเตอร์ส่งผลต่อคุณสมบัติ effective ที่ดึงไว้แล้วหรือไม่?**
+### การเปลี่ยนหรือการลบสไลด์เลย์เอาต์/มาสเตอร์มีผลต่อคุณสมบัติที่มีผลที่ได้แล้วหรือไม่?
 
-ใช่ แต่การเปลี่ยนแปลงจะแสดงผลในครั้งเรียก `GetEffective` ถัดไป หากแหล่งข้อมูลการจัดรูปแบบพาเรนต์ถูกเปลี่ยนหรือเอาออก ข้อมูล effective ที่ได้มาก่อนหน้าอาจล้าสมัย เมื่อเรียก `GetEffective` อีกครั้ง Aspose.Slides จะประเมินต้นไม้การจัดรูปแบบใหม่และฟอนต์, สี, ขนาด หรือค่าต่าง ๆ อาจเปลี่ยนแปลง
+มีผล แต่การเปลี่ยนแปลงจะสะท้อนในการเรียก `GetEffective` ครั้งต่อไป หากแหล่งข้อมูลการจัดรูปแบบพาเรนต์ถูกเปลี่ยนหรือถูกลบ ข้อมูลที่มีผลที่ได้ก่อนหน้านี้อาจล้าสมัย เมื่อเรียก `GetEffective` อีกครั้ง Aspose.Slides จะประเมินต้นไม้การจัดรูปแบบใหม่และฟอนต์, สี, ขนาด หรือค่าที่อื่นอาจเปลี่ยนแปลง
 
-**สามารถแก้ไขค่าผ่านวัตถุข้อมูล effective ได้หรือไม่?**
+### สามารถแก้ไขค่าผ่านวัตถุข้อมูลที่มีผลได้หรือไม่?
 
-ไม่ได้ วัตถุข้อมูล effective เปิดเผยค่าที่คำนวณแล้ว ให้ทำการเปลี่ยนแปลงในวัตถุการจัดรูปแบบท้องถิ่นแล้วจึงดึงค่าที่ effective ใหม่อีกครั้ง
+ไม่ได้ วัตถุข้อมูลที่มีผลเปิดเผยค่าที่คำนวณแล้ว ให้ทำการเปลี่ยนแปลงในวัตถุการจัดรูปแบบท้องถิ่นและจากนั้นรับค่าที่มีผลอีกครั้ง
 
-**ถ้าคุณสมบัติไม่ได้ตั้งค่าที่ระดับรูปร่าง ไม่ได้ตั้งค่าในเลย์เอาต์/มาสเตอร์ หรือไม่ในการตั้งค่าทั่วโลก จะเกิดอะไรขึ้น?**
+### หากคุณสมบัติไม่ได้ถูกตั้งค่าที่ระดับรูปร่าง, เลย์เอาต์/มาสเตอร์ หรือการตั้งค่าทั่วไป จะเกิดอะไรขึ้น?
 
-ค่าที่ effective จะถูกกำหนดโดยกลไกค่าเริ่มต้น ซึ่งรวมถึงค่าเริ่มต้นของ PowerPoint และ Aspose.Slides ค่าที่แก้ไขแล้วจะเป็นส่วนหนึ่งของข้อมูลที่ effective ปัจจุบัน
+ค่าที่มีผลจะถูกกำหนดโดยกลไกค่าเริ่มต้น ซึ่งรวมถึงค่าเริ่มต้นของ PowerPoint และ Aspose.Slides ค่าที่ได้จะกลายเป็นส่วนหนึ่งของข้อมูลที่มีผลปัจจุบัน
 
-**จากค่าฟอนต์ที่ effective ฉันสามารถบอกได้หรือไม่ว่าระดับใดให้ค่าขนาดหรือฟอนต์?**
+### จากค่าฟอนต์ที่มีผล สามารถบอกได้ระดับใดที่ให้ขนาดหรือฟอนต์หรือไม่?
 
-โดยตรงไม่ได้ ข้อมูลที่ effective คืนค่าผลลัพธ์สุดท้าย เพื่อตรวจสอบแหล่งที่มาควรตรวจสอบค่าท้องถิ่นที่ส่วน, ย่อหน้า, กรอบข้อความ, และสไตล์ข้อความที่เลย์เอาต์, มาสเตอร์, และระดับพรีเซนเทชันเพื่อค้นหาการกำหนดที่ชัดเจนเป็นครั้งแรก
+ไม่โดยตรง ข้อมูลที่มีผลให้ค่าขั้นสุดท้าย เพื่อหาต้นทางให้ตรวจสอบค่าท้องถิ่นที่ส่วน, ย่อหน้า, กรอบข้อความ, และสไตล์ข้อความที่เลย์เอาต์, มาสเตอร์, และระดับงานนำเสนอเพื่อดูว่าการกำหนดที่ชัดเจนแรกปรากฏที่ไหน
 
-**ทำไมค่าที่ effective บางครั้งดูเหมือนกับค่าท้องถิ่น?**
+### ทำไมค่าที่มีผลบางครั้งดูเหมือนกับค่าท้องถิ่น?
 
-เพราะค่าท้องถิ่นกลายเป็นค่าที่สุดท้าย (ไม่มีการสืบทอดจากระดับที่สูงกว่า) ในกรณีนี้ค่าที่ effective จึงตรงกับค่าท้องถิ่น
+เพราะค่าท้องถิ่นนั้นกลายเป็นค่าขั้นสุดท้าย (ไม่มีการสืบทอดระดับสูงกว่า) ในกรณีเช่นนั้นค่าที่มีผลจะแมทช์ค่าท้องถิ่น
 
-**ควรใช้คุณสมบัติ effective เมื่อใด และเมื่อใดควรทำงานเฉพาะกับค่าท้องถิ่น?**
+### ควรใช้คุณสมบัติที่มีผลเมื่อไรและควรใช้เฉพาะคุณสมบัติท้องถิ่นเมื่อไร?
 
-ใช้ข้อมูลที่ effective เมื่อคุณต้องการผลลัพธ์ “as rendered” หลังจากการสืบทอดทั้งหมด เช่น การจัดสี, ระยะเยื้อง หรือขนาด หากต้องการเก็บค่าดังกล่าวไว้โดยไม่ต้องกังวลกับการเปลี่ยนแปลงรูปแบบในภายหลัง ให้วางค่าที่ต้องการลงในวัตถุของคุณเอง หากต้องการเปลี่ยนรูปแบบที่ระดับใดระดับหนึ่ง ให้แก้ไขคุณสมบัติท้องถิ่นและจากนั้น (หากจำเป็น) อ่านข้อมูลที่ effective อีกครั้งเพื่อยืนยันผลลัพธ์
+ใช้ข้อมูลที่มีผลเมื่อคุณต้องการผลลัพธ์ “ตามที่แสดงผล” หลังจากการสืบทอดทั้งหมด เช่น การจัดแนวสี, ระยะเยื้อง, หรือขนาด หากคุณต้องการเก็บค่าต่าง ๆ ไว้โดยไม่สนใจการเปลี่ยนแปลงการจัดรูปแบบต่อไป ให้คัดลอกคุณสมบัติที่จำเป็นไปยังออบเจ็กต์ของคุณเอง หากต้องการเปลี่ยนการจัดรูปแบบที่ระดับเฉพาะให้แก้ไขคุณสมบัติท้องถิ่นและจากนั้น (หากจำเป็น) อ่านข้อมูลที่มีผลอีกครั้งเพื่อยืนยันผลลัพธ์.

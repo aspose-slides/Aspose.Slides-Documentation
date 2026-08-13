@@ -1,32 +1,30 @@
 ---
-title: API công khai và các thay đổi không tương thích ngược trong Aspose.Slides cho .NET 15.11.0
+title: API công khai và thay đổi không tương thích ngược trong Aspose.Slides cho .NET 15.11.0
 linktitle: Aspose.Slides cho .NET 15.11.0
 type: docs
 weight: 210
 url: /vi/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/
 keywords:
 - di chuyển
-- mã cũ
+- mã kế thừa
 - mã hiện đại
-- cách tiếp cận cổ điển
-- cách tiếp cận hiện đại
+- phương pháp kế thừa
+- phương pháp hiện đại
 - PowerPoint
 - OpenDocument
 - bài thuyết trình
 - .NET
 - C#
 - Aspose.Slides
-description: "Xem lại các cập nhật API công khai và các thay đổi gây lỗi trong Aspose.Slides cho .NET để di chuyển mượt mà các giải pháp bài thuyết trình PowerPoint PPT, PPTX và ODP của bạn."
+description: Xem xét các cập nhật API công khai và các thay đổi gây gián đoạn trong Aspose.Slides cho .NET để di chuyển mượt mà các giải pháp bài thuyết trình PowerPoint PPT, PPTX và ODP của bạn.
 ---
-{{% alert color="primary" %}} 
-
-Trang này liệt kê tất cả các lớp, phương thức, thuộc tính và các thành phần khác [được thêm](/slides/vi/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) hoặc [được loại bỏ](/slides/vi/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) và các thay đổi khác được giới thiệu trong API Aspose.Slides for .NET 15.11.0.
-
+{{% alert color="info" %}} 
+Trang này liệt kê tất cả các lớp, phương thức, thuộc tính và các mục khác đã [added](/slides/vi/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) hoặc [removed](/slides/vi/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) được giới thiệu trong API Aspose.Slides cho .NET 15.11.0.
 {{% /alert %}} 
 ## **Thay đổi API công khai**
 
 #### **Các thuộc tính lỗi thời trong lớp DataLabelCollection đã bị xóa**
-Obsolete properties in DataLabelCollection class have been deleted:
+Các thuộc tính lỗi thời trong lớp DataLabelCollection đã bị xóa:
 Aspose.Slides.Charts.DataLabelCollection.Delete
 Aspose.Slides.Charts.DataLabelCollection.Format
 Aspose.Slides.Charts.DataLabelCollection.LinkedSource
@@ -42,22 +40,23 @@ Aspose.Slides.Charts.DataLabelCollection.ShowSeriesName
 Aspose.Slides.Charts.DataLabelCollection.ShowValue
 
 #### **Thuộc tính mới FirstSlideNumber đã được thêm vào lớp Presentation**
-Thuộc tính mới FirstSlideNumber được thêm vào Presentation cho phép lấy hoặc đặt số slide đầu tiên trong một bài thuyết trình.
+Thuộc tính mới FirstSlideNumber được thêm vào Presentation cho phép lấy hoặc thiết lập số thứ tự của slide đầu tiên trong một bài thuyết trình.
 
 Khi giá trị FirstSlideNumber mới được chỉ định, tất cả các số slide sẽ được tính lại.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- using(var pres = new Presenation(path))
+string path = "sample.pptx";
+string newPath = "output.pptx";
 
+using (var pres = new Presentation(path))
 {
+    int firstSlideNumber = pres.FirstSlideNumber;
 
-  int firstSlideNumber = pres.FirstSlideNumber;
+    pres.FirstSlideNumber = 10;
 
-  pres.FirstSlideNumber = 10;
-
-  pres.Save(newPath, SaveFormat.Pptx);
-
+    pres.Save(newPath, SaveFormat.Pptx);
 }
-
 ```

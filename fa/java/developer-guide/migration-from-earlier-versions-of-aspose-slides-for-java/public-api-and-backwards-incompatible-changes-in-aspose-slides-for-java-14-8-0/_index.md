@@ -1,5 +1,5 @@
 ---
-title: API عمومی و تغییرات ناسازگار به عقب در Aspose.Slides برای Java 14.8.0
+title: API عمومی و تغییرات ناسازگار با نسخه‌های قبلی در Aspose.Slides برای Java 14.8.0
 linktitle: Aspose.Slides برای Java 14.8.0
 type: docs
 weight: 70
@@ -15,19 +15,21 @@ keywords:
 - ارائه
 - Java
 - Aspose.Slides
-description: "به‌روزرسانی‌های API عمومی و تغییرات ناسازگار به عقب در Aspose.Slides برای Java را مرور کنید تا به‌صورت روان ارائه‌های PowerPoint (PPT، PPTX) و ODP خود را مهاجرت دهید."
+description: "به‌روزرسانی‌های API عمومی و تغییرات ناسازگار در Aspose.Slides برای Java را بررسی کنید تا بتوانید راه‌حل‌های ارائه PowerPoint (PPT, PPTX) و ODP خود را به‌سلاست منتقل کنید."
 ---
-{{% alert color="primary" %}} 
-این صفحه تمام کلاس‌ها، متدها، خصوصیات و غیره‌ٔ {{added}}(/slides/fa/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) را فهرست می‌کند، هر محدودیت جدید و سایر {{changes}}(/slides/fa/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) معرفی‌شده با API Aspose.Slides for Java 14.8.0.
+{{% alert color="info" %}} 
+این صفحه تمام کلاس‌های [اضافه شده](/slides/fa/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/)، متدها، خصوصیات و غیره، هر محدودیت جدید و سایر [تغییرات](/slides/fa/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) معرفی‌شده با API Aspose.Slides for Java 14.8.0 را فهرست می‌کند.
 {{% /alert %}} 
 ## **تغییرات API عمومی**
-### **اضافه شد Aspose.Slides.Charts.IChartSeries.getOverlap()، IChartSeriesGroup.getOverlap() و setOverlap(byte) متدها**
-متد Aspose.Slides.Charts.IChartSeries.getOverlap() مقدار همپوشانی میله‌ها و ستون‌ها را در نمودارهای دو‑بعدی (در بازه ‑100 تا 100) به دست می‌آورد. این متد نه فقط برای سری خاصی بلکه برای تمام سری‌های گروه سری والد است – این یک انتساب از خصوصیت مناسب گروه است.
+### **متدهای Aspose.Slides.Charts.IChartSeries.getOverlap()، IChartSeriesGroup.getOverlap() و setOverlap(byte) اضافه شد**
+متد Aspose.Slides.Charts.IChartSeries.getOverlap() مقدار همپوشانی نوارها و ستون‌ها در نمودارهای 2D را (در بازه‌ای از -100 تا 100) بر می‌گرداند. این متد نه تنها برای سری خاص بلکه برای تمام سری‌های گروه سری والد است - این یک نمایش از خصوصیت گروه مناسب است.
 
 - از متد IChartSeries.getParentSeriesGroup() برای دسترسی به گروه سری والد استفاده کنید.
 - از متدهای IChartSeriesGroup.getOverlap() و setOverlap(byte) برای مدیریت مقدار استفاده کنید.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -37,25 +39,29 @@ IChartSeriesCollection series = chart.getChartData().getSeries();
 
 if (series.get_Item(0).getOverlap() == 0) {
 
-  series.get_Item(0).getParentSeriesGroup().setOverlap(-30);
+  series.get_Item(0).getParentSeriesGroup().setOverlap((byte)-30);
 
 }
 
 ```
-### **اضافه شد مقدار Enum ShapeThumbnailBounds.Appearance**
-این روش ایجاد تصویرهای بندانگشتی شکل به توسعه‌دهندگان اجازه می‌دهد تا تصویر بندانگشتی یک شکل را در محدوده ظاهر آن تولید کنند. تمام اثرات شکل در نظر گرفته می‌شوند. تصویر بندانگشتی تولید شده توسط محدوده اسلاید محدود می‌شود.
+### **مقدار Enum ShapeThumbnailBounds.Appearance اضافه شد**
+این روش ایجاد تصویرک‌های شکل به توسعه‌دهندگان امکان می‌دهد تصویرک شکلی را در محدوده ظاهر آن تولید کنند. تمام افکت‌های شکل در نظر گرفته می‌شود. تصویرک تولیدشده توسط محدودهٔ اسلاید محدود می‌شود.
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation();
 
-BufferedImage st = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThumbnail(ShapeThumbnailBounds.Appearance, 1, 1);
+ Presentation pres = new Presentation("Presentation.pptx");
+
+IImage st = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(ShapeThumbnailBounds.Appearance, 1, 1);
 
 ```
-### **اضافه شد کلاس VbaProject و اینترفیس IVbaProject، متدهای Presentation.getVbaProject() و setVbaProject(VbaProject) تغییر یافتند**
-یک ویژگی جدید به توسعه‌دهندگان اجازه می‌دهد تا پروژه‌های VBA را در یک ارائه ایجاد و ویرایش کنند.
+### **کلاس VbaProject و اینترفیس IVbaProject اضافه شد، متدهای Presentation.getVbaProject() و setVbaProject(VbaProject) تغییر یافت**
+یک ویژگی جدید به توسعه‌دهندگان اجازه می‌دهد پروژه‌های VBA را در یک ارائه ایجاد و ویرایش کنند.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -63,7 +69,7 @@ BufferedImage st = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThumb
 
 pres.setVbaProject(new VbaProject());
 
-// افزودن ماژول خالی به پروژه VBA
+// اضافه کردن ماژول خالی به پروژه VBA
 
 IVbaModule module = pres.getVbaProject().getModules().addEmptyModule("Module");
 
@@ -87,12 +93,11 @@ VbaReferenceOleTypeLib officeReference =
 
     "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
 
-// افزودن مراجعات به پروژه VBA
+// اضافه کردن مراجع به پروژه VBA
 
 pres.getVbaProject().getReferences().add(stdoleReference);
 
 pres.getVbaProject().getReferences().add(officeReference);
 
-pres.save("data\\test.pptm", SaveFormat.Pptm);
-
+pres.save("test.pptm", SaveFormat.Pptm);
 ```

@@ -5,7 +5,7 @@ type: docs
 weight: 60
 url: /pl/androidjava/manage-lists/
 keywords:
-- punkt
+- wypunktowanie
 - lista wypunktowana
 - lista numerowana
 - symbol wypunktowania
@@ -21,21 +21,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Dowiedz się, jak tworzyć i formatować listy wypunktowane, obrazkowe, wielopoziomowe i numerowane w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Androida w języku Java."
+description: "Dowiedz się, jak tworzyć i formatować listy wypunktowane, obrazkowe, wielopoziomowe i numerowane w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Androida w Javie."
 ---
 ## **Przegląd**
 
-Aspose.Slides for Android via Java umożliwia tworzenie i formatowanie list wypunktowanych i numerowanych w prezentacjach PowerPoint i OpenDocument. Element listy to akapit, którego ustawienia wypunktowania są kontrolowane przez format akapitu.
+Aspose.Slides for Android via Java umożliwia tworzenie i formatowanie list wypunktowanych oraz numerowanych w prezentacjach PowerPoint i OpenDocument. Element listy jest akapitem, którego ustawienia wypunktowania są kontrolowane przez jego format akapitu.
 
-Użyj metody [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraph/#getParagraphFormat--) aby uzyskać dostęp do ustawień listy na poziomie akapitu. Głównym punktem wejścia jest [IParagraphFormat.getBullet](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraphformat/#getBullet--), który zwraca obiekt [IBulletFormat](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ibulletformat/). Dzięki temu obiektowi możesz ustawić typ wypunktowania, symbol, obraz, kolor, rozmiar, styl numeracji oraz początkowy numer.
+Użyj metody [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraph/#getParagraphFormat--) aby uzyskać dostęp do ustawień list na poziomie akapitu. Głównym punktem wejścia jest [IParagraphFormat.getBullet](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraphformat/#getBullet--), które zwraca obiekt [IBulletFormat](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ibulletformat/). Dzięki temu obiektowi możesz ustawić typ wypunktowania, symbol, obraz, kolor, rozmiar, styl numeracji oraz początkowy numer.
 
 Ten artykuł pokazuje, jak:
 
 - utworzyć listę wypunktowaną z niestandardowym symbolem
 - utworzyć wypunktowanie obrazkowe
-- utworzyć listę wielopoziomową ustawiając głębokość akapitu
+- utworzyć listę wielopoziomową poprzez ustawienie głębokości akapitu
 - utworzyć listę numerowaną
-- przejrzeć i zmienić formatowanie listy w istniejącej prezentacji
+- przeglądać i zmieniać formatowanie listy w istniejącej prezentacji
 
 ## **Utworzenie listy wypunktowanej**
 
@@ -44,6 +44,9 @@ Aby utworzyć listę wypunktowaną, dodaj akapity do [ITextFrame](https://refere
 Poniższy kod Java demonstruje, jak utworzyć listę wypunktowaną na slajdzie:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -52,12 +55,14 @@ try {
     ITextFrame textFrame = autoShape.getTextFrame();
     textFrame.getParagraphs().clear();
 
+    Color bulletColor = new Color(205, 92, 92);
+
     Paragraph paragraph1 = new Paragraph();
     paragraph1.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     paragraph1.getParagraphFormat().getBullet().setChar('*');
     paragraph1.getParagraphFormat().setIndent(15);
     paragraph1.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True);
-    paragraph1.getParagraphFormat().getBullet().getColor().setColor(Color.RED);
+    paragraph1.getParagraphFormat().getBullet().getColor().setColor(bulletColor);
     paragraph1.getParagraphFormat().getBullet().setHeight(100);
     paragraph1.setText("The first paragraph");
     textFrame.getParagraphs().add(paragraph1);
@@ -67,7 +72,7 @@ try {
     paragraph2.getParagraphFormat().getBullet().setChar('*');
     paragraph2.getParagraphFormat().setIndent(15);
     paragraph2.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True);
-    paragraph2.getParagraphFormat().getBullet().getColor().setColor(Color.RED);
+    paragraph2.getParagraphFormat().getBullet().getColor().setColor(bulletColor);
     paragraph2.getParagraphFormat().getBullet().setHeight(100);
     paragraph2.setText("The second paragraph");
     textFrame.getParagraphs().add(paragraph2);
@@ -80,15 +85,17 @@ try {
 
 Wynik:
 
-![Symboliczne wypunktowanie](symbol_bullets.png)
+![Symbole wypunktowania](symbol_bullets.png)
 
 ## **Utworzenie listy numerowanej**
 
-Używaj list numerowanych, gdy kolejność elementów ma znaczenie. Ustaw [IBulletFormat.setType](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) na [BulletType.Numbered](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/bullettype/). Możesz również wybrać format numeracji przy pomocy [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) lub ustawić [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-), gdy lista ma zaczynać się od wartości innej niż 1.
+Używaj list numerowanych, gdy kolejność elementów ma znaczenie. Ustaw [IBulletFormat.setType](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) na [BulletType.Numbered](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/bullettype/). Możesz także wybrać format numeracji za pomocą [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) lub ustawić [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-), gdy lista ma rozpocząć się od wartości innej niż 1.
 
 Poniższy kod Java pokazuje, jak utworzyć listę numerowaną na slajdzie:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -120,25 +127,28 @@ try {
 
 Wynik:
 
-![Numerowane wypunktowanie](numbered_bullets.png)
+![Numerowane wypunktowania](numbered_bullets.png)
 
 ## **Utworzenie wypunktowania obrazkowego**
 
-Aspose.Slides umożliwia zastąpienie standardowego symbolu wypunktowania obrazem. Wypunktowanie obrazkowe działa najlepiej z prostymi obrazami, które pozostają czytelne w małym rozmiarze, takimi jak ikony lub małe przezroczyste pliki PNG.
+Aspose.Slides pozwala zastąpić standardowy symbol wypunktowania obrazem. Wypunktowanie obrazkowe najlepiej sprawdza się przy prostych obrazach, które pozostają czytelne w małym rozmiarze, takich jak ikony lub małe przezroczyste pliki PNG.
 
-{{% alert color="primary" %}}
-Idealnie, jeśli planujesz zastąpić zwykły symbol wypunktowania obrazem, najlepiej wybrać prostą grafikę z przezroczystym tłem. Takie obrazy dobrze sprawdzają się jako niestandardowe symbole wypunktowania.
+{{% alert color="info" %}}
+Idealnie, jeśli planujesz zastąpić standardowy symbol wypunktowania obrazem, najlepiej wybrać prostą grafikę z przezroczystym tłem. Takie obrazy dobrze sprawdzają się jako niestandardowe symbole wypunktowania.
+Pamiętaj, że obraz zostanie skalowany do bardzo małego rozmiaru. Z tego powodu zdecydowanie zalecamy wybranie obrazu, który pozostaje wyraźny i wizualnie skuteczny, gdy jest używany jako wypunktowanie w liście.
 {{% /alert %}}
 
-Aby utworzyć wypunktowanie obrazkowe, dodaj obraz do [Presentation.getImages](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/#getImages--) i przypisz zwrócony obiekt [IPPImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/) do [IBulletFormat.getPicture](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ibulletformat/#getPicture--). Przed przypisaniem obrazu ustaw [IBulletFormat.setType](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) na [BulletType.Picture](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/bullettype/).
+Aby utworzyć wypunktowanie obrazkowe, dodaj obraz do [Presentation.getImages](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/#getImages--) i przypisz zwrócony obiekt [IPPImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/) do [IBulletFormat.getPicture](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ibulletformat/#getPicture--). Ustaw [IBulletFormat.setType](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) na [BulletType.Picture](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/bullettype/) przed przypisaniem obrazu.
 
 Załóżmy, że mamy plik "image.png":
 
-![Obraz dla wypunktowania](picture_for_bullets.png)
+![Obraz dla wypunktowań](picture_for_bullets.png)
 
 Poniższy kod Java pokazuje, jak utworzyć wypunktowanie obrazkowe na slajdzie:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -177,11 +187,13 @@ Wynik:
 
 ## **Utworzenie listy wielopoziomowej**
 
-Użyj [IParagraphFormat.setDepth](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-), aby umieścić elementy listy na różnych poziomach. Poziom 0 to najwyższy poziom, poziom 1 jest zagnieżdżony pod nim i tak dalej.
+Użyj [IParagraphFormat.setDepth](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) aby umieścić elementy listy na różnych poziomach. Poziom 0 to najgórny poziom, poziom 1 jest zagnieżdżony pod nim itd.
 
-Poniższy kod Java pokazuje, jak utworzyć wielopoziomową listę wypunktowaną:
+Poniższy kod Java pokazuje, jak utworzyć listę wielopoziomową:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -218,15 +230,17 @@ try {
 
 Wynik:
 
-![Wielopoziomowa lista](multilevel_list.png)
+![Lista wielopoziomowa](multilevel_list.png)
 
 ## **Zmiana istniejącej listy**
 
-Aby zmienić formatowanie listy w istniejącej prezentacji, uzyskaj dostęp do docelowego akapitu i zaktualizuj jego ustawienia [IParagraphFormat.getBullet](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraphformat/#getBullet--). Te same metody używane do tworzenia list mogą być użyte do przeglądania lub modyfikowania list załadowanych z pliku PPT, PPTX lub ODP.
+Aby zmienić formatowanie listy w istniejącej prezentacji, uzyskaj dostęp do docelowego akapitu i zaktualizuj jego ustawienia [IParagraphFormat.getBullet](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraphformat/#getBullet--). Te same metody używane do tworzenia list mogą być użyte do przeglądania lub modyfikacji list załadowanych z pliku PPT, PPTX lub ODP.
 
 Poniższy kod Java zmienia pierwszy akapit w ramce tekstowej, aby używał stylu listy numerowanej:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -245,16 +259,16 @@ try {
 }
 ```
 
-## **FAQ**
+## **Najczęściej zadawane pytania**
 
-**Czy listy wypunktowane i numerowane mogą być eksportowane do PDF lub obrazów?**
+### Czy listy wypunktowane i numerowane mogą być eksportowane do PDF lub obrazów?
 
 Tak. Aspose.Slides zachowuje formatowanie list, gdy format docelowy obsługuje odpowiednie układy tekstu i funkcje wypunktowania.
 
-**Czy mogę edytować listy w istniejących prezentacjach?**
+### Czy mogę edytować listy w istniejących prezentacjach?
 
-Tak. Wczytaj prezentację, uzyskaj dostęp do docelowego akapitu, przejrzyj lub zaktualizuj jego ustawienia [IParagraphFormat.getBullet](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraphformat/#getBullet--), a następnie zapisz prezentację.
+Tak. Załaduj prezentację, uzyskaj dostęp do docelowego akapitu, przeglądnij lub zaktualizuj jego ustawienia [IParagraphFormat.getBullet](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iparagraphformat/#getBullet--), a następnie zapisz prezentację.
 
-**Czy listy mogą zawierać tekst niełaciński?**
+### Czy listy mogą zawierać tekst niełaciński?
 
-Tak. Tekst elementów listy może zawierać znaki Unicode, więc możesz tworzyć listy w wielojęzycznych prezentacjach. Upewnij się, że czcionki użyte w prezentacji obsługują potrzebne znaki.
+Tak. Tekst elementów listy może zawierać znaki Unicode, dzięki czemu możesz tworzyć listy w wielojęzycznych prezentacjach. Upewnij się, że czcionki użyte w prezentacji obsługują potrzebne znaki.

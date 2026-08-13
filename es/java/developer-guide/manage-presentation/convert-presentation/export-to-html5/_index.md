@@ -1,34 +1,38 @@
 ---
-title: Exportar a HTML5
+title: Convertir presentaciones a HTML5 en Java
+linktitle: Presentación a HTML5
 type: docs
 weight: 40
 url: /es/java/export-to-html5/
 keywords:
-- PowerPoint a HTML
-- diapositivas a HTML
-- HTML5
-- exportación a HTML
-- exportar presentación
-- convertir presentación
-- convertir diapositivas
+- PowerPoint a HTML5
+- OpenDocument a HTML5
+- presentación a HTML5
+- diapositiva a HTML5
+- PPT a HTML5
+- PPTX a HTML5
+- ODP a HTML5
+- guardar PPT como HTML5
+- guardar PPTX como HTML5
+- guardar ODP como HTML5
+- exportar PPT a HTML5
+- exportar PPTX a HTML5
+- exportar ODP a HTML5
 - Java
-- Aspose.Slides para Java
-description: "Exportar PowerPoint a HTML5 en Java"
+- Aspose.Slides
+description: "Exportar presentaciones PowerPoint y OpenDocument a HTML5 adaptativo con Aspose.Slides para Java. Conservar formato, animaciones e interactividad."
 ---
+## **Visión general**
 
-{{% alert title="Info" color="info" %}}
-
-En [Aspose.Slides 21.9](/slides/es/java/aspose-slides-for-java-21-9-release-notes/), implementamos soporte para la exportación a HTML5.
-
-{{% /alert %}} 
-
-El proceso de exportación a HTML5 aquí permite convertir PowerPoint a HTML sin extensiones web ni dependencias. De esta manera, utilizando tus propias plantillas, puedes aplicar opciones muy flexibles que definen el proceso de exportación y los atributos resultantes de HTML, CSS, JavaScript y animación. 
+Este artículo explica cómo convertir presentaciones de PowerPoint a HTML5 usando Aspose.Slides. Cubre la exportación básica a HTML5 sin extensiones web ni dependencias adicionales, así como opciones para controlar las animaciones de formas y las transiciones de diapositivas. El artículo también muestra el proceso estándar de exportación de PowerPoint a HTML, explica cómo generar salida HTML5 en modo vista de diapositivas y demuestra cómo incluir comentarios en el documento exportado configurando su diseño.
 
 ## **Exportar PowerPoint a HTML5**
 
 Este código Java muestra cómo exportar una presentación a HTML5 sin extensiones web ni dependencias:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.save("pres.html", SaveFormat.Html5);
@@ -37,15 +41,13 @@ try {
 }
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}}En este caso, obtienes HTML limpio.{{% /alert %}}
 
-En este caso, obtienes HTML limpio. 
-
-{{% /alert %}}
-
-Es posible que desees especificar configuraciones para animaciones de formas y transiciones de diapositivas de esta manera:
+Puedes especificar ajustes para las animaciones de formas y las transiciones de diapositivas de esta manera:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     Html5Options html5Options = new Html5Options();
@@ -63,6 +65,8 @@ try {
 Este Java demuestra el proceso estándar de PowerPoint a HTML:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.save("pres.html", SaveFormat.Html);
@@ -71,31 +75,29 @@ try {
 }
 ```
 
-En este caso, el contenido de la presentación se representa a través de SVG de la siguiente manera:
+En este caso, el contenido de la presentación se renderiza mediante SVG en un formato como este:
 
 ```html
 <body>
 <div class="slide" name="slide" id="slideslideIface1">
      <svg version="1.1">
-         <g> EL CONTENIDO DE LA DIAPOSITIVA VA AQUÍ </g>
+         <g> THE SLIDE CONTENT GOES HERE </g>
      </svg>
 </div>
 </body>
 ```
 
-{{% alert title="Nota" color="warning" %}} 
+{{% alert title="Note" color="warning" %}}Al usar este método para exportar PowerPoint a HTML, debido a la renderización SVG, no podrás aplicar estilos ni animar elementos específicos.{{% /alert %}}
 
-Cuando utilizas este método para exportar PowerPoint a HTML, debido a la representación SVG, no podrás aplicar estilos o animar elementos específicos. 
+## **Exportar PowerPoint a Vista de diapositivas HTML5**
 
-{{% /alert %}}
+**Aspose.Slides** permite convertir una presentación de PowerPoint a un documento HTML5 en el que las diapositivas se presentan en modo vista de diapositivas. En este caso, al abrir el archivo HTML5 resultante en un navegador, verás la presentación en modo vista de diapositivas en una página web.
 
-## **Exportar PowerPoint a HTML5 Vista de Diapositiva**
-
-**Aspose.Slides** te permite convertir una presentación de PowerPoint a un documento HTML5 en el que las diapositivas se presentan en un modo de vista de diapositiva. En este caso, cuando abres el archivo HTML5 resultante en un navegador, ves la presentación en modo de vista de diapositiva en una página web. 
-
-Este código Java demuestra el proceso de exportación de PowerPoint a HTML5 Vista de Diapositiva:
+Este código Java demuestra el proceso de exportación de PowerPoint a Vista de diapositivas HTML5:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     Html5Options html5Options = new Html5Options();
@@ -108,26 +110,45 @@ try {
 }
 ```
 
-## Convertir una Presentación a un Documento HTML5 con Comentarios
+## **Convertir presentaciones a documentos HTML5 con comentarios**
 
-Los comentarios en PowerPoint son una herramienta que permite a los usuarios dejar notas o retroalimentación en las diapositivas de la presentación. Son especialmente útiles en proyectos colaborativos, donde varias personas pueden agregar sus sugerencias o comentarios a elementos específicos de las diapositivas sin alterar el contenido principal. Cada comentario muestra el nombre del autor, lo que facilita rastrear quién dejó la observación.
+Los comentarios en PowerPoint son una herramienta que permite a los usuarios dejar notas o retroalimentación en las diapositivas de la presentación. Son especialmente útiles en proyectos colaborativos, donde varias personas pueden añadir sus sugerencias o observaciones a elementos específicos de la diapositiva sin modificar el contenido principal. Cada comentario muestra el nombre del autor, lo que facilita rastrear quién dejó la observación.
 
-Supongamos que tenemos la siguiente presentación de PowerPoint guardada en el archivo "sample.pptx".
+Supongamos que tenemos la siguiente presentación de PowerPoint guardada en el archivo **"sample.pptx"**.
 
 ![Dos comentarios en la diapositiva de la presentación](two_comments_pptx.png)
 
-Cuando conviertes una presentación de PowerPoint a un documento HTML5, puedes especificar fácilmente si incluir comentarios de la presentación en el documento de salida. Para hacer esto, necesitas especificar los parámetros de visualización para comentarios en el método `getNotesCommentsLayouting` de la clase [Html5Options](https://reference.aspose.com/slides/java/com.aspose.slides/html5options/).
+Al convertir una presentación de PowerPoint a un documento HTML5, puedes especificar fácilmente si incluir los comentarios de la presentación en el documento de salida. Para ello, pasa los parámetros de visualización de comentarios al método `setSlidesLayoutOptions` de la clase [Html5Options](https://reference.aspose.com/slides/es/java/com.aspose.slides/html5options/).
 
-El siguiente ejemplo de código convierte una presentación a un documento HTML5 con comentarios mostrados a la derecha de las diapositivas.
+El siguiente ejemplo de código convierte una presentación a un documento HTML5 con los comentarios mostrados a la derecha de las diapositivas.
 ```java
+import com.aspose.slides.*;
+
 Html5Options html5Options = new Html5Options();
-html5Options.getNotesCommentsLayouting().setCommentsPosition(CommentsPositions.Right);
+
+NotesCommentsLayoutingOptions layoutingOptions = new NotesCommentsLayoutingOptions();
+layoutingOptions.setCommentsPosition(CommentsPositions.Right);
+html5Options.setSlidesLayoutOptions(layoutingOptions);
 
 Presentation presentation = new Presentation("sample.pptx");
 presentation.save("output.html", SaveFormat.Html5, html5Options);
 presentation.dispose();
 ```
 
-El documento "output.html" se muestra en la imagen a continuación.
+El documento **"output.html"** se muestra en la imagen siguiente.
 
 ![Los comentarios en el documento HTML5 de salida](two_comments_html5.png)
+
+## **FAQ**
+
+### ¿Puedo controlar si las animaciones de objetos y las transiciones de diapositivas se reproducirán en HTML5?
+
+Sí, HTML5 ofrece opciones independientes para habilitar o deshabilitar las [animaciones de formas](https://reference.aspose.com/slides/es/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-) y las [transiciones de diapositivas](https://reference.aspose.com/slides/es/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).
+
+### ¿Se admiten los comentarios en la salida y dónde pueden situarse respecto a la diapositiva?
+
+Sí, los comentarios pueden añadirse en HTML5 y posicionarse (por ejemplo, a la derecha de la diapositiva) mediante las [configuraciones de diseño](https://reference.aspose.com/slides/es/java/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) para notas y comentarios.
+
+### ¿Puedo omitir enlaces que invoquen JavaScript por razones de seguridad o CSP?
+
+Sí, existe una [configuración](https://reference.aspose.com/slides/es/java/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-) que permite omitir hipervínculos con llamadas a JavaScript durante el guardado. Esto ayuda a cumplir con políticas de seguridad estrictas.

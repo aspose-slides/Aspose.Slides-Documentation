@@ -1,6 +1,6 @@
 ---
-title: Tworzenie lub aktualizacja wykresów w prezentacjach PowerPoint w Javie
-linktitle: Tworzenie lub aktualizacja wykresów
+title: Utwórz lub zaktualizuj wykresy prezentacji PowerPoint w Javie
+linktitle: Utwórz lub zaktualizuj wykresy
 type: docs
 weight: 10
 url: /pl/java/create-chart/
@@ -15,9 +15,9 @@ keywords:
 - wykres liniowy
 - wykres mapy drzewa
 - wykres giełdowy
-- wykres pudełkowo-wąsowy
+- wykres pudełkowy i wąsowy
 - wykres lejkowy
-- wykres kołowy-promienisty
+- wykres promieniowy
 - wykres histogramu
 - wykres radarowy
 - wykres wielokategorii
@@ -29,42 +29,42 @@ description: "Twórz i dostosowuj wykresy w prezentacjach PowerPoint przy użyci
 ---
 ## **Przegląd**
 
-Ten artykuł zawiera kompleksowy przewodnik, jak tworzyć i dostosowywać wykresy przy użyciu Aspose.Slides. Nauczysz się, jak programowo dodać wykres do slajdu, wypełnić go danymi oraz zastosować różne opcje formatowania, aby spełnić konkretne wymagania projektowe. W całym artykule szczegółowe przykłady kodu ilustrują każdy krok, od inicjalizacji prezentacji i obiektu wykresu po konfigurację serii, osi i legend. Postępując zgodnie z tym przewodnikiem, zdobędziesz solidną wiedzę na temat integracji dynamicznego generowania wykresów w aplikacjach, usprawniając proces tworzenia prezentacji opartych na danych.
+Ten artykuł zawiera kompleksowy przewodnik, jak tworzyć i dostosowywać wykresy przy użyciu Aspose.Slides. Dowiesz się, jak programowo dodać wykres do slajdu, wypełnić go danymi i zastosować różne opcje formatowania, aby spełnić określone wymagania projektowe. W całym artykule szczegółowe przykłady kodu ilustrują każdy krok, od inicjalizacji prezentacji i obiektu wykresu po konfigurowanie serii, osi i legend. Postępując zgodnie z tym przewodnikiem, zdobędziesz solidną wiedzę na temat integracji dynamicznego generowania wykresów w swoich aplikacjach, usprawniając proces tworzenia prezentacji opartych na danych.
 
 ## **Utwórz wykres**
-Wykresy pomagają szybko zwizualizować dane i uzyskać wnioski, które nie są od razu widoczne w tabeli lub arkuszu kalkulacyjnym. 
+Wykresy pomagają szybko wizualizować dane i uzyskać wnioski, które nie są od razu oczywiste w tabeli lub arkuszu kalkulacyjnym. 
 
 
 **Dlaczego tworzyć wykresy?**
 
 Korzystając z wykresów, możesz
 
-* agregować, zagęszczać lub podsumowywać duże ilości danych na jednym slajdzie prezentacji
-* uwidocznić wzorce i trendy w danych
-* określić kierunek i dynamikę danych w czasie lub w odniesieniu do konkretnej jednostki miary 
-* wykrywać odstające wartości, aberracje, odchylenia, błędy, nielogiczne dane itp. 
-* komunikować lub prezentować złożone dane
+* zagregować, skondensować lub podsumować duże ilości danych na jednym slajdzie prezentacji
+* ujawnić wzorce i trendy w danych
+* wywnioskować kierunek i dynamikę danych w czasie lub względem określonej jednostki miary 
+* wykryć wartości odstające, aberracje, odchylenia, błędy, dane bez sensu itp. 
+* komunikować lub prezentować skomplikowane dane
 
-W programie PowerPoint możesz tworzyć wykresy za pomocą funkcji wstawiania, która udostępnia szablony służące do projektowania wielu typów wykresów. Korzystając z Aspose.Slides, możesz tworzyć zwykłe wykresy (oparte na popularnych typach) oraz wykresy niestandardowe. 
+W programie PowerPoint możesz tworzyć wykresy za pomocą funkcji wstawiania, która udostępnia szablony do projektowania wielu typów wykresów. Korzystając z Aspose.Slides, możesz tworzyć zwykłe wykresy (oparte na popularnych typach) oraz wykresy niestandardowe. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Aby umożliwić tworzenie wykresów, Aspose.Slides udostępnia klasę [ChartType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ChartType). Pola w tej klasie odpowiadają różnym typom wykresów. 
+Aby umożliwić tworzenie wykresów, Aspose.Slides udostępnia klasę [ChartType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ChartType). Pól tej klasy odpowiadają różnym typom wykresów. 
 
 {{% /alert %}} 
 
 ### **Utwórz zwykłe wykresy**
 
 _Kroki: Utwórz wykres_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Kroki:</em> Create PowerPoint Chart in Java</strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Kroki:</em> Create Presentation Chart in Java</strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Kroki:</em> Create PowerPoint Presentation Chart in Java</strong></a>
+- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Kroki:</em> Utwórz wykres PowerPoint w Javie</strong></a>
+- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Kroki:</em> Utwórz wykres prezentacji w Javie</strong></a>
+- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Kroki:</em> Utwórz wykres prezentacji PowerPoint w Javie</strong></a>
 
 _Kroki kodu:_
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation).
-2. Pobierz odwołanie do slajdu przez jego indeks.
-3. Dodaj wykres z pewnymi danymi i określ preferowany typ wykresu. 
+2. Pobierz odniesienie do slajdu za pomocą jego indeksu.
+3. Dodaj wykres z danymi i określ preferowany typ wykresu. 
 4. Dodaj tytuł wykresu. 
 5. Uzyskaj dostęp do arkusza danych wykresu. 
 6. Wyczyść wszystkie domyślne serie i kategorie. 
@@ -74,10 +74,13 @@ _Kroki kodu:_
 10. Dodaj etykiety dla serii wykresu. 
 11. Zapisz zmodyfikowaną prezentację jako plik PPTX. 
 
-Ten kod Java pokazuje, jak utworzyć zwykły wykres:
+Ten kod w Javie pokazuje, jak utworzyć zwykły wykres:
 
 ```java
-// Tworzy klasę prezentacji reprezentującą plik PPTX
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// Tworzy instancję klasy prezentacji, która reprezentuje plik PPTX
 Presentation pres = new Presentation();
 try {
     // Uzyskuje dostęp do pierwszego slajdu
@@ -90,10 +93,7 @@ try {
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
-    chart.hasTitle();
-    
-    // Ustawia pierwszą serię, aby wyświetlała wartości
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    chart.setTitle(true);
     
     // Ustawia indeks arkusza danych wykresu
     int defaultWorksheetIndex = 0;
@@ -119,7 +119,7 @@ try {
     // Pobiera pierwszą serię wykresu
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
-    // Wypełnia dane serii
+    // Teraz wypełnia dane serii
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
@@ -140,7 +140,7 @@ try {
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN);
     
-    // Tworzy niestandardowe etykiety dla każdej kategorii nowej serii
+    // Tworzy niestandardowe etykiety dla każdej kategorii w nowej serii
     // Ustawia pierwszą etykietę, aby wyświetlała nazwę kategorii
     IDataLabel lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
@@ -162,30 +162,32 @@ try {
 ```
 
 ### **Utwórz wykresy rozproszone**
-Wykresy rozproszone (znane również jako wykresy punktowe lub wykresy x‑y) są często używane do sprawdzania wzorców lub wykazywania korelacji między dwoma zmiennymi. 
+Wykresy rozproszone (znane także jako wykresy punktowe lub wykresy x‑y) są często używane do sprawdzania wzorców lub wykazywania korelacji między dwoma zmiennymi. 
 
 Możesz chcieć użyć wykresu rozproszonego, gdy 
 
-* posiadasz sparowane dane liczbowe
+* masz sparowane dane liczbowe
 * masz 2 zmienne, które dobrze ze sobą współgrają
 * chcesz określić, czy 2 zmienne są ze sobą powiązane
 * masz zmienną niezależną, która ma wiele wartości dla zmiennej zależnej
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Kroki:</em> Create Scattered Chart in Java</strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Kroki:</em> Create PowerPoint Scattered Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Kroki:</em> Create PowerPoint Presentation Scattered Chart in Java</strong></a>
+<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Kroki:</em> Utwórz wykres rozproszony w Javie</strong></a> |
+<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Kroki:</em> Utwórz rozproszony wykres PowerPoint w Javie</strong></a> |
+<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Kroki:</em> Utwórz rozproszony wykres prezentacji PowerPoint w Javie</strong></a>
 
-1. Postępuj zgodnie z krokami opisanymi powyżej w [Creating Normal Charts](#creating-normal-charts)
-2. W trzecim kroku dodaj wykres z pewnymi danymi i określ typ wykresu jako jeden z następujących
+1. Postępuj zgodnie z krokami opisanymi w sekcji [Utwórz zwykłe wykresy](#creating-normal-charts)
+2. Dla trzeciego kroku, Dodaj wykres z danymi i określ typ wykresu jako jeden z następujących  
    1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/pl/java/com.aspose.slides/charttype/#ScatterWithMarkers) - _Reprezentuje wykres rozproszony z markerami._
    2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/pl/java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Reprezentuje wykres rozproszony połączony krzywymi, z markerami danych._
    3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/pl/java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Reprezentuje wykres rozproszony połączony krzywymi, bez markerów danych._
    4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/pl/java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Reprezentuje wykres rozproszony połączony prostymi liniami, z markerami danych._
    5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/pl/java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Reprezentuje wykres rozproszony połączony prostymi liniami, bez markerów danych._
 
-Ten kod Java pokazuje, jak utworzyć wykresy rozproszone z różnymi seriami markerów: 
+Ten kod w Javie pokazuje, jak utworzyć wykresy rozproszone z różnymi seriami markerów: 
 
 ```java
+import com.aspose.slides.*;
+
 // Tworzy instancję klasy prezentacji, która reprezentuje plik PPTX
 Presentation pres = new Presentation();
 try {
@@ -220,14 +222,14 @@ try {
     // Zmienia typ serii
     series.setType(ChartType.ScatterWithStraightLinesAndMarkers);
     
-    // Zmienia marker serii wykresu
+    // Zmienia znacznik serii wykresu
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Star);
     
     // Pobiera drugą serię wykresu
     series = chart.getChartData().getSeries().get_Item(1);
     
-    // Dodaje nowy punkt (5:2) tam
+    // Dodaje nowy punkt (5:2) w tej serii
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 5), fact.getCell(defaultWorksheetIndex, 2, 4, 2));
     
     // Dodaje nowy punkt (3:1)
@@ -239,7 +241,7 @@ try {
     // Dodaje nowy punkt (5:1)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 5, 3, 5), fact.getCell(defaultWorksheetIndex, 5, 4, 1));
     
-    // Zmienia marker serii wykresu
+    // Zmienia znacznik serii wykresu
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Circle);
     
@@ -251,28 +253,31 @@ try {
 
 ### **Utwórz wykresy kołowe**
 
-Wykresy kołowe najlepiej służą do prezentacji zależności części‑cały w danych, szczególnie gdy dane zawierają etykiety kategoryczne z wartościami liczbowymi. Jeśli jednak Twoje dane zawierają wiele części lub etykiet, rozważ użycie wykresu słupkowego.
+Wykresy kołowe najlepiej służą do przedstawiania zależności części‑całek w danych, zwłaszcza gdy dane zawierają etykiety kategoryczne z wartościami liczbowymi. Jeśli jednak Twoje dane zawierają wiele części lub etykiet, rozważ użycie wykresu słupkowego.
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Kroki:</em> Create Pie Chart in Java</strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Kroki:</em> Create PowerPoint Pie Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Kroki:</em> Create PowerPoint Presentation Pie Chart in Java</strong></a>
+<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Kroki:</em> Utwórz wykres kołowy w Javie</strong></a> |
+<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Kroki:</em> Utwórz kołowy wykres PowerPoint w Javie</strong></a> |
+<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Kroki:</em> Utwórz kołowy wykres prezentacji PowerPoint w Javie</strong></a>
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation).
-2. Uzyskaj odwołanie do slajdu przez jego indeks.
-3. Dodaj wykres z domyślnymi danymi oraz żądanym typem (w tym przypadku [ChartType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ChartType).Pie).
-4. Uzyskaj dostęp do arkusza danych wykresu [IChartDataWorkbook](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IChartDataWorkbook).
-5. Wyczyść domyślne serie i kategorie.
-6. Dodaj nowe serie i kategorie.
-7. Dodaj nowe dane wykresu dla serii.
-8. Dodaj nowe punkty oraz niestandardowe kolory dla sektorów wykresu kołowego.
-9. Ustaw etykiety dla serii.
-10. Ustaw linie prowadzące dla etykiet serii.
-11. Ustaw kąt obrotu wykresu kołowego.
-12. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation). 
+2. Uzyskaj odniesienie do slajdu za jego indeksem. 
+3. Dodaj wykres z danymi domyślnymi oraz żądanym typem (w tym przypadku [ChartType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ChartType).Pie). 
+4. Uzyskaj dostęp do danych wykresu [IChartDataWorkbook](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IChartDataWorkbook). 
+5. Wyczyść domyślne serie i kategorie. 
+6. Dodaj nowe serie i kategorie. 
+7. Dodaj nowe dane wykresu dla serii. 
+8. Dodaj nowe punkty do wykresu i niestandardowe kolory dla sektorów wykresu kołowego. 
+9. Ustaw etykiety dla serii. 
+10. Ustaw linie prowadzące dla etykiet serii. 
+11. Ustaw kąt obrotu dla slajdów z wykresem kołowym. 
+12. Zapisz zmodyfikowaną prezentację jako plik PPTX. 
 
-Ten kod Java pokazuje, jak utworzyć wykres kołowy:
+Ten kod w Javie pokazuje, jak utworzyć wykres kołowy:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Tworzy instancję klasy prezentacji, która reprezentuje plik PPTX
 Presentation pres = new Presentation();
 try {
@@ -287,9 +292,6 @@ try {
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
-    
-    // Ustawia pierwszą serię, aby wyświetlała wartości
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
     
     // Ustawia indeks arkusza danych wykresu
     int defaultWorksheetIndex = 0;
@@ -306,24 +308,24 @@ try {
     chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
     chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
     
-    // Dodaje nową serię
+    // Dodaje nowe serie
     IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
     
-    //Wypełnia dane serii
+    // Wypełnia dane serii
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     
     // Nie działa w nowej wersji
-    // Dodawanie nowych punktów i ustawianie koloru sekcji
+    // Dodawanie nowych punktów i ustawianie koloru sektora
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
     
     IChartDataPoint point = series.getDataPoints().get_Item(0);
     point.getFormat().getFill().setFillType(FillType.Solid);
     point.getFormat().getFill().getSolidFillColor().setColor(Color.CYAN);
-    
-    // Ustawia obramowanie sekcji
+	
+    // Ustawia krawędź sektora
     point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
     point.getFormat().getLine().setWidth(3.0);
@@ -334,7 +336,7 @@ try {
     point1.getFormat().getFill().setFillType(FillType.Solid);
     point1.getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE);
     
-    // Ustawia obramowanie sekcji
+    // Ustawia krawędź sektora
     point1.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     point1.getFormat().getLine().setWidth(3.0);
@@ -345,14 +347,14 @@ try {
     point2.getFormat().getFill().setFillType(FillType.Solid);
     point2.getFormat().getFill().getSolidFillColor().setColor(Color.YELLOW);
     
-    // Ustawia obramowanie sekcji
+    // Ustawia krawędź sektora
     point2.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
     point2.getFormat().getLine().setWidth(2.0);
     point2.getFormat().getLine().setStyle(LineStyle.ThinThin);
     point2.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDotDot);
     
-    // Tworzy niestandardowe etykiety dla każdej kategorii nowej serii
+    // Tworzy własne etykiety dla każdej kategorii nowej serii
     IDataLabel lbl1 = series.getDataPoints().get_Item(0).getLabel();
     
     // lbl.ShowCategoryName = true;
@@ -370,7 +372,7 @@ try {
     // Wyświetla linie prowadzące dla wykresu
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
     
-    // Ustawia kąt obrotu dla sekcji wykresu kołowego
+    // Ustawia kąt obrotu sektorów wykresu kołowego
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
     
     // Zapisuje prezentację z wykresem
@@ -382,20 +384,18 @@ try {
 
 ### **Utwórz wykresy liniowe**
 
-Wykresy liniowe (znane również jako wykresy liniowe) są najlepsze w sytuacjach, gdy chcesz przedstawić zmiany wartości w czasie. Korzystając z wykresu liniowego, możesz jednocześnie porównać wiele danych, śledzić zmiany i trendy w czasie, podkreślić anomalie w seriach danych itd.
+Wykresy liniowe (znane także jako wykresy liniowe) są najlepsze w sytuacjach, gdy chcesz pokazać zmiany wartości w czasie. Dzięki wykresowi liniowemu możesz jednocześnie porównać wiele danych, śledzić zmiany i trendy w czasie, uwidocznić anomalie w seriach danych itp.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation).
-1. Pobierz odwołanie do slajdu przez jego indeks.
-1. Dodaj wykres z domyślnymi danymi oraz żądanym typem (w tym przypadku `ChartType.Line`).
-1. Uzyskaj dostęp do arkusza danych IChartDataWorkbook.
-1. Wyczyść domyślne serie i kategorie.
-1. Dodaj nowe serie i kategorie.
-1. Dodaj nowe dane wykresu dla serii.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation). 
+1. Pobierz odniesienie do slajdu za jego indeksem. 
+1. Dodaj wykres z danymi domyślnymi oraz żądanym typem (w tym przypadku `ChartType.Line`). 
+1. Zapisz zmodyfikowaną prezentację jako plik PPTX. 
 
-Ten kod Java pokazuje, jak utworzyć wykres liniowy:
+Ten kod w Javie pokazuje, jak utworzyć wykres liniowy:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
@@ -409,34 +409,45 @@ try {
 Domyślnie punkty na wykresie liniowym są łączone prostymi ciągłymi liniami. Jeśli chcesz, aby punkty były łączone kreskami, możesz określić preferowany typ kreski w następujący sposób:
 
 ```java
-IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
+import com.aspose.slides.*;
 
-for (IChartSeries series : lineChart.getChartData().getSeries())
-{
-    series.getFormat().getLine().setDashStyle(LineDashStyle.Dash);
+Presentation pres = new Presentation();
+try {
+    IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
+
+    for (IChartSeries series : lineChart.getChartData().getSeries())
+    {
+        series.getFormat().getLine().setDashStyle(LineDashStyle.Dash);
+    }
+
+    pres.save("lineChart.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
 }
 ```
 
 ### **Utwórz wykresy mapy drzewa**
 
-Wykresy mapy drzewa są najlepsze dla danych sprzedażowych, gdy chcesz pokazać względny rozmiar kategorii danych i jednocześnie szybko zwrócić uwagę na elementy, które są dużymi kontribucjami w każdej kategorii. 
+Wykresy mapy drzewa są najlepsze dla danych sprzedażowych, gdy chcesz pokazać względny rozmiar kategorii danych i jednocześnie szybko zwrócić uwagę na elementy, które są dużymi wkładami w każdą kategorię. 
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Kroki:</em> Create Tree Map Chart in Java</strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Kroki:</em> Create PowerPoint Tree Map Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Kroki:</em> Create PowerPoint Presentation Tree Map Chart in Java</strong></a>
+<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Kroki:</em> Utwórz wykres mapy drzewa w Javie</strong></a> |
+<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Kroki:</em> Utwórz wykres mapy drzewa PowerPoint w Javie</strong></a> |
+<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Kroki:</em> Utwórz wykres mapy drzewa prezentacji PowerPoint w Javie</strong></a>
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation) .
-2. Pobierz odwołanie do slajdu przez jego indeks.
-3. Dodaj wykres z domyślnymi danymi oraz żądanym typem (w tym przypadku [ChartType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ChartType).TreeMap).
-4. Uzyskaj dostęp do arkusza danych [IChartDataWorkbook](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IChartDataWorkbook).
-5. Wyczyść domyślne serie i kategorie.
-6. Dodaj nowe serie i kategorie.
-7. Dodaj nowe dane wykresu dla serii.
-8. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation) . 
+2. Pobierz odniesienie do slajdu za jego indeksem. 
+3. Dodaj wykres z danymi domyślnymi oraz żądanym typem (w tym przypadku [ChartType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ChartType).TreeMap). 
+4. Uzyskaj dostęp do danych wykresu [IChartDataWorkbook](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IChartDataWorkbook). 
+5. Wyczyść domyślne serie i kategorie. 
+6. Dodaj nowe serie i kategorie. 
+7. Dodaj nowe dane wykresu dla serii. 
+8. Zapisz zmodyfikowaną prezentację jako plik PPTX. 
 
-Ten kod Java pokazuje, jak utworzyć wykres mapy drzewa:
+Ten kod w Javie pokazuje, jak utworzyć wykres mapy drzewa:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Treemap, 50, 50, 500, 400);
@@ -446,7 +457,7 @@ try {
     IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
     wb.clear(0);
 
-    //gałąź 1
+    // gałąź 1
     IChartCategory leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C1", "Leaf1"));
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch1");
@@ -458,7 +469,7 @@ try {
 
     chart.getChartData().getCategories().add(wb.getCell(0, "C4", "Leaf4"));
 
-    //gałąź 2
+    // gałąź 2
     leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C5", "Leaf5"));
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch2");
@@ -489,25 +500,27 @@ try {
 }
 ```
 
-### **Utwórz wykresy giełdowe**
+### **Utwórz wykresy GPW (Stock)**
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Kroki:</em> Create Stock Chart in Java</strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Kroki:</em> Create PowerPoint Stock Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Kroki:</em> Create PowerPoint Presentation Stock Chart in Java</strong></a>
+<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Kroki:</em> Utwórz wykres GPW w Javie</strong></a> |
+<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Kroki:</em> Utwórz wykres GPW PowerPoint w Javie</strong></a> |
+<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Kroki:</em> Utwórz wykres GPW prezentacji PowerPoint w Javie</strong></a>
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation) .
-2. Uzyskaj odwołanie do slajdu przez jego indeks.
-3. Dodaj wykres z domyślnymi danymi oraz żądanym typem ([ChartType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ChartType).OpenHighLowClose).
-4. Uzyskaj dostęp do arkusza danych [IChartDataWorkbook](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IChartDataWorkbook).
-5. Wyczyść domyślne serie i kategorie.
-6. Dodaj nowe serie i kategorie.
-7. Dodaj nowe dane wykresu dla serii.
-8. Określ format HiLowLines.
-9. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation) . 
+2. Uzyskaj odniesienie do slajdu za jego indeksem. 
+3. Dodaj wykres z danymi domyślnymi oraz żądanym typem ([ChartType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ChartType).OpenHighLowClose). 
+4. Uzyskaj dostęp do danych wykresu [IChartDataWorkbook](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IChartDataWorkbook). 
+5. Wyczyść domyślne serie i kategorie. 
+6. Dodaj nowe serie i kategorie. 
+7. Dodaj nowe dane wykresu dla serii. 
+8. Określ format linii HiLowLines. 
+9. Zapisz zmodyfikowaną prezentację jako plik PPTX. 
 
-Przykładowy kod Java używany do tworzenia wykresu giełdowego:
+Przykładowy kod w Javie używany do stworzenia wykresu GPW:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.OpenHighLowClose, 50, 50, 600, 400, false);
@@ -561,24 +574,26 @@ try {
 }
 ```
 
-### **Utwórz wykresy pudełkowo‑wąsowe**
+### **Utwórz wykresy pudełkowe i wąsowe**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Kroki:</em> Create Box and Whisker Chart in Java</strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Kroki:</em> Create PowerPoint Box and Whisker Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Kroki:</em> Create PowerPoint Presentation Box and Whisker Chart in Java</strong></a>
+<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Kroki:</em> Utwórz wykres pudełkowy i wąsowy w Javie</strong></a> |
+<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Kroki:</em> Utwórz wykres pudełkowy i wąsowy PowerPoint w Javie</strong></a> |
+<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Kroki:</em> Utwórz wykres pudełkowy i wąsowy prezentacji PowerPoint w Javie</strong></a>
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation) .
-2. Pobierz odwołanie do slajdu przez jego indeks.
-3. Dodaj wykres z domyślnymi danymi oraz żądanym typem ([ChartType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ChartType).BoxAndWhisker).
-4. Uzyskaj dostęp do arkusza danych [IChartDataWorkbook](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IChartDataWorkbook).
-5. Wyczyść domyślne serie i kategorie.
-6. Dodaj nowe serie i kategorie.
-7. Dodaj nowe dane wykresu dla serii.
-8. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation) . 
+2. Pobierz odniesienie do slajdu za jego indeksem. 
+3. Dodaj wykres z danymi domyślnymi oraz żądanym typem ([ChartType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ChartType).BoxAndWhisker). 
+4. Uzyskaj dostęp do danych wykresu [IChartDataWorkbook](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IChartDataWorkbook). 
+5. Wyczyść domyślne serie i kategorie. 
+6. Dodaj nowe serie i kategorie. 
+7. Dodaj nowe dane wykresu dla serii. 
+8. Zapisz zmodyfikowaną prezentację jako plik PPTX. 
 
-Ten kod Java pokazuje, jak utworzyć wykres pudełkowo‑wąsowy:
+Ten kod w Javie pokazuje, jak utworzyć wykres pudełkowy i wąsowy:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.BoxAndWhisker, 50, 50, 500, 400);
@@ -618,19 +633,21 @@ try {
 
 ### **Utwórz wykresy lejkowe**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Kroki:</em> Create Funnel Chart in Java</strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Kroki:</em> Create PowerPoint Funnel Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Kroki:</em> Create PowerPoint Presentation Funnel Chart in Java</strong></a>
+<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Kroki:</em> Utwórz wykres lejkowy w Javie</strong></a> |
+<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Kroki:</em> Utwórz wykres lejkowy PowerPoint w Javie</strong></a> |
+<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Kroki:</em> Utwórz wykres lejkowy prezentacji PowerPoint w Javie</strong></a>
 
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation) .
-2. Pobierz odwołanie do slajdu przez jego indeks.
-3. Dodaj wykres z domyślnymi danymi oraz żądanym typem ([ChartType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ChartType).Funnel).
-4. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation) . 
+2. Pobierz odniesienie do slajdu za jego indeksem. 
+3. Dodaj wykres z danymi domyślnymi oraz żądanym typem ([ChartType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ChartType).Funnel). 
+4. Zapisz zmodyfikowaną prezentację jako plik PPTX. 
 
-Kod Java pokazuje, jak utworzyć wykres lejkowy:
+Kod w Javie pokazuje, jak utworzyć wykres lejkowy:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Funnel, 50, 50, 500, 400);
@@ -663,20 +680,22 @@ try {
 }
 ```
 
-### **Utwórz wykresy kołowe‑promieniste (Sunburst)**
+### **Utwórz wykresy promieniowe (Sunburst)**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Kroki:</em> Create Sunburst Chart in Java</strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Kroki:</em> Create PowerPoint Sunburst Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Kroki:</em> Create PowerPoint Presentation Sunburst Chart in Java</strong></a>
+<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Kroki:</em> Utwórz wykres promieniowy w Javie</strong></a> |
+<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Kroki:</em> Utwórz wykres promieniowy PowerPoint w Javie</strong></a> |
+<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Kroki:</em> Utwórz wykres promieniowy prezentacji PowerPoint w Javie</strong></a>
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation) .
-2. Pobierz odwołanie do slajdu przez jego indeks.
-3. Dodaj wykres z domyślnymi danymi oraz żądanym typem (w tym przypadku[ChartType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ChartType).sunburst).
-4. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation) . 
+2. Pobierz odniesienie do slajdu za jego indeksem. 
+3. Dodaj wykres z danymi domyślnymi oraz żądanym typem (w tym przypadku [ChartType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ChartType).sunburst). 
+4. Zapisz zmodyfikowaną prezentację jako plik PPTX. 
 
-Ten kod Java pokazuje, jak utworzyć wykres kołowy‑promienisty:
+Ten kod w Javie pokazuje, jak utworzyć wykres promieniowy:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 50, 50, 500, 400);
@@ -729,21 +748,23 @@ try {
 
 ### **Utwórz wykresy histogramu**
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Kroki:</em> Create Histogram Chart in Java</strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Kroki:</em> Create PowerPoint Histogram Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Kroki:</em> Create PowerPoint Presentation Histogram Chart in Java</strong></a>
+<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Kroki:</em> Utwórz wykres histogramu w Javie</strong></a> |
+<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Kroki:</em> Utwórz wykres histogramu PowerPoint w Javie</strong></a> |
+<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Kroki:</em> Utwórz wykres histogramu prezentacji PowerPoint w Javie</strong></a>
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation) .
-2. Pobierz odwołanie do slajdu przez jego indeks.
-3. Dodaj wykres z domyślnymi danymi oraz żądanym typem ([ChartType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ChartType).Histogram).
-4. Uzyskaj dostęp do arkusza danych [IChartDataWorkbook](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IChartDataWorkbook).
-5. Wyczyść domyślne serie i kategorie.
-6. Dodaj nowe serie i kategorie.
-7. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation) . 
+2. Pobierz odniesienie do slajdu za jego indeksem. 
+3. Dodaj wykres z danymi domyślnymi oraz żądanym typem ([ChartType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ChartType).Histogram). 
+4. Uzyskaj dostęp do danych wykresu [IChartDataWorkbook](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IChartDataWorkbook). 
+5. Wyczyść domyślne serie i kategorie. 
+6. Dodaj nowe serie i kategorie. 
+7. Zapisz zmodyfikowaną prezentację jako plik PPTX. 
 
-Ten kod Java pokazuje, jak utworzyć wykres histogramu:
+Ten kod w Javie pokazuje, jak utworzyć wykres histogramu:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Histogram, 50, 50, 500, 400);
@@ -761,7 +782,7 @@ try {
     series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A5", -23));
     series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
 
-    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic;)
+    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic);
 
     pres.save("Histogram.pptx", SaveFormat.Pptx);
 } finally {
@@ -771,18 +792,20 @@ try {
 
 ### **Utwórz wykresy radarowe**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Kroki:</em> Create Radar Chart in Java</strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Kroki:</em> Create PowerPoint Radar Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Kroki:</em> Create PowerPoint Presentation Radar Chart in Java</strong></a>
+<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Kroki:</em> Utwórz wykres radarowy w Javie</strong></a> |
+<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Kroki:</em> Utwórz wykres radarowy PowerPoint w Javie</strong></a> |
+<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Kroki:</em> Utwórz wykres radarowy prezentacji PowerPoint w Javie</strong></a>
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation) .
-2. Pobierz odwołanie do slajdu przez jego indeks. 
-3. Dodaj wykres z pewnymi danymi i określ preferowany typ wykresu (`ChartType.Radar` w tym przypadku).
-4. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation) . 
+2. Pobierz odniesienie do slajdu za jego indeksem. 
+3. Dodaj wykres z danymi i określ preferowany typ wykresu (`ChartType.Radar` w tym przypadku). 
+4. Zapisz zmodyfikowaną prezentację jako plik PPTX. 
 
-Ten kod Java pokazuje, jak utworzyć wykres radarowy:
+Ten kod w Javie pokazuje, jak utworzyć wykres radarowy:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Radar, 20, 20, 400, 300);
@@ -794,22 +817,24 @@ try {
 
 ### **Utwórz wykresy wielokategorii**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Kroki:</em> Create Multi Category Chart in Java</strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Kroki:</em> Create PowerPoint Multi Category Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Kroki:</em> Create PowerPoint Presentation Multi Category Chart in Java</strong></a>
+<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Kroki:</em> Utwórz wykres wielokategorii w Javie</strong></a> |
+<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Kroki:</em> Utwórz wykres wielokategorii PowerPoint w Javie</strong></a> |
+<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Kroki:</em> Utwórz wykres wielokategorii prezentacji PowerPoint w Javie</strong></a>
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation) .
-2. Pobierz odwołanie do slajdu przez jego indeks. 
-3. Dodaj wykres z domyślnymi danymi oraz żądanym typem ([ChartType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ChartType).ClusteredColumn).
-4. Uzyskaj dostęp do arkusza danych [IChartDataWorkbook](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IChartDataWorkbook).
-5. Wyczyść domyślne serie i kategorie.
-6. Dodaj nowe serie i kategorie.
-7. Dodaj nowe dane wykresu dla serii.
-8. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation) . 
+2. Pobierz odniesienie do slajdu za jego indeksem. 
+3. Dodaj wykres z danymi domyślnymi oraz żądanym typem ([ChartType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ChartType).ClusteredColumn). 
+4. Uzyskaj dostęp do danych wykresu [IChartDataWorkbook](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IChartDataWorkbook). 
+5. Wyczyść domyślne serie i kategorie. 
+6. Dodaj nowe serie i kategorie. 
+7. Dodaj nowe dane wykresu dla serii. 
+8. Zapisz zmodyfikowaną prezentację jako plik PPTX. 
 
-Ten kod Java pokazuje, jak utworzyć wykres wielokategorii:
+Ten kod w Javie pokazuje, jak utworzyć wykres wielokategorii:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart ch = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 600, 450);
@@ -856,17 +881,19 @@ try {
 }
 ```
 
-### **Utwórz wykresy map**
+### **Utwórz wykresy mapowe**
 
-Wykres mapy to wizualizacja obszaru zawierającego dane. Wykresy map są najlepsze do porównywania danych lub wartości w różnych regionach geograficznych.
+Wykres mapowy jest wizualizacją obszaru zawierającego dane. Wykresy mapowe są najlepsze do porównywania danych lub wartości w różnych regionach geograficznych.
 
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Kroki:</em> Create Map Chart in Java</strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Kroki:</em> Create PowerPoint Map Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Kroki:</em> Create PowerPoint Presentation Map Chart in Java</strong></a>
+<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Kroki:</em> Utwórz wykres mapowy w Javie</strong></a> |
+<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Kroki:</em> Utwórz wykres mapowy PowerPoint w Javie</strong></a> |
+<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Kroki:</em> Utwórz wykres mapowy prezentacji PowerPoint w Javie</strong></a>
 
-Ten kod Java pokazuje, jak utworzyć wykres mapy:
+Ten kod w Javie pokazuje, jak utworzyć wykres mapowy:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Map, 50, 50, 500, 400);
@@ -878,13 +905,16 @@ try {
 
 ### **Utwórz wykresy kombinowane**
 
-Wykres kombinowany (lub wykres combo) łączy dwa lub więcej typów wykresów w jednym diagramie. Ten wykres umożliwia podkreślenie, porównanie lub zbadanie różnic między dwoma lub więcej zestawami danych, pomagając zidentyfikować relacje między nimi.
+Wykres kombinowany (lub wykres combo) łączy dwa lub więcej typów wykresów w jednym diagramie. Ten wykres pozwala wyróżnić, porównać lub zbadać różnice między dwoma lub więcej zestawami danych, pomagając zidentyfikować zależności między nimi.
 
-![The combination chart](combination_chart.png)
+![Wykres kombinowany](combination_chart.png)
 
-Poniższy kod Java pokazuje, jak utworzyć powyższy wykres kombinowany w prezentacji PowerPoint:
+Poniższy kod w Javie pokazuje, jak utworzyć wykres kombinowany przedstawiony powyżej w prezentacji PowerPoint:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 static void createComboChart() {
     Presentation presentation = new Presentation();
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -993,14 +1023,14 @@ static void setPrimaryAxesFormat(IChart chart) {
 
     setAxisTitle(verticalAxis, "Y Axis 1");
 
-    // Ustaw kolor głównych linii siatki pionowej.
+    // Ustaw kolor głównych linii siatki wertykalnej.
     ILineFillFormat majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
     majorGridLinesFormat.setFillType(FillType.Solid);
     majorGridLinesFormat.getSolidFillColor().setColor(new Color(217, 217, 217));
 }
 
 static void setSecondaryAxesFormat(IChart chart) {
-    // Ustaw dodatkową oś poziomą.
+    // Ustaw pomocniczą oś poziomą.
     IAxis secondaryHorizontalAxis = chart.getAxes().getSecondaryHorizontalAxis();
     secondaryHorizontalAxis.setPosition(AxisPositionType.Bottom);
     secondaryHorizontalAxis.setCrossType(CrossesType.Maximum);
@@ -1008,7 +1038,7 @@ static void setSecondaryAxesFormat(IChart chart) {
     secondaryHorizontalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
     secondaryHorizontalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
-    // Ustaw dodatkową oś pionową.
+    // Ustaw pomocniczą oś pionową.
     IAxis secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
     secondaryVerticalAxis.setPosition(AxisPositionType.Right);
     secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
@@ -1031,27 +1061,30 @@ static void setAxisTitle(IAxis axis, String axisTitle) {
 
 ## **Aktualizuj wykresy**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Kroki:</em> Update PowerPoint Chart in Java</strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Kroki:</em> Update Presentation Chart in Java</strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Kroki:</em> Update PowerPoint Presentation Chart in Java</strong></a>
+<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Kroki:</em> Zaktualizuj wykres PowerPoint w Javie</strong></a> |
+<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Kroki:</em> Zaktualizuj wykres prezentacji w Javie</strong></a> |
+<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Kroki:</em> Zaktualizuj wykres prezentacji PowerPoint w Javie</strong></a>
 
-1. Zainicjuj klasę [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation), reprezentującą prezentację zawierającą wykres, który chcesz zaktualizować. 
-2. Uzyskaj odwołanie do slajdu, używając jego indeksu.
-3. Przejrzyj wszystkie kształty, aby znaleźć żądany wykres.
-4. Uzyskaj dostęp do arkusza danych wykresu.
-5. Zmodyfikuj dane serii wykresu, zmieniając wartości serii.
-6. Dodaj nową serię i wypełnij ją danymi.
-7. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation) reprezentującej prezentację zawierającą wykres, który chcesz zaktualizować. 
+2. Uzyskaj odniesienie do slajdu, używając jego indeksu. 
+3. Przeglądaj wszystkie kształty, aby znaleźć żądany wykres. 
+4. Uzyskaj dostęp do arkusza danych wykresu. 
+5. Zmodyfikuj dane serii wykresu, zmieniając wartości serii. 
+6. Dodaj nową serię i wypełnij ją danymi. 
+7. Zapisz zmodyfikowaną prezentację jako plik PPTX. 
 
-Ten kod Java pokazuje, jak zaktualizować wykres:
+Ten kod w Javie pokazuje, jak zaktualizować wykres:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+// Otwiera prezentację zawierającą wykres do aktualizacji
+Presentation pres = new Presentation("ExistingChart.pptx");
 try {
-    // Uzyskaj dostęp do pierwszego znacznika slajdu
+    // Dostęp do pierwszego slajdu
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Pobierz wykres z domyślnymi danymi
+    // Pobranie wykresu ze slajdu
     IChart chart = (IChart)sld.getShapes().get_Item(0);
 
     // Ustawianie indeksu arkusza danych wykresu
@@ -1064,31 +1097,31 @@ try {
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
 
-    // Pobierz pierwszą serię wykresu
+    // Pobranie pierwszej serii wykresu
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
-    // Teraz aktualizowanie danych serii
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // Modyfikacja nazwy serii
+    // Aktualizacja danych serii
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// Modyfikacja nazwy serii
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
 
-    // Pobierz drugą serię wykresu
+    // Pobranie drugiej serii wykresu
     series = chart.getChartData().getSeries().get_Item(1);
 
-    // Teraz aktualizowanie danych serii
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // Modyfikacja nazwy serii
+    // Aktualizacja danych serii
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// Modyfikacja nazwy serii
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
 
-    // Teraz dodawanie nowej serii
+    // Dodawanie nowej serii
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
 
-    // Pobierz trzecią serię wykresu
+    // Pobranie trzeciej serii wykresu
     series = chart.getChartData().getSeries().get_Item(2);
 
-    // Teraz wypełnianie danych serii
+    // Wypełnianie danych serii
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
@@ -1104,18 +1137,21 @@ try {
 
 ## **Ustaw zakres danych dla wykresu**
 
-Aby ustawić zakres danych dla wykresu, wykonaj następujące kroki:
+Aby ustawić zakres danych dla wykresu, wykonaj następujące czynności:
 
-1. Zainicjuj klasę [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation) reprezentującą prezentację zawierającą wykres.
-2. Pobierz odwołanie do slajdu przez jego indeks.
-3. Przejrzyj wszystkie kształty, aby znaleźć żądany wykres.
-4. Uzyskaj dostęp do danych wykresu i ustaw zakres.
-5. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation) reprezentującej prezentację zawierającą wykres. 
+2. Pobierz odniesienie do slajdu za jego indeksem. 
+3. Przeglądaj wszystkie kształty, aby znaleźć żądany wykres. 
+4. Uzyskaj dostęp do danych wykresu i ustaw zakres. 
+5. Zapisz zmodyfikowaną prezentację jako plik PPTX. 
 
-Ten kod Java pokazuje, jak ustawić zakres danych dla wykresu:
+Ten kod w Javie pokazuje, jak ustawić zakres danych dla wykresu:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+// Otwiera prezentację, która zawiera wykres
+Presentation pres = new Presentation("ExistingChart.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
     IChart chart = (IChart)slide.getShapes().get_Item(0);
@@ -1128,12 +1164,14 @@ try {
 }
 ```
 
-## **Użyj domyślnych markerów w wykresach**
-Gdy używasz domyślnego markera w wykresach, każda seria wykresu automatycznie otrzymuje inny domyślny symbol markera.
+## **Użyj domyślnych znaczników w wykresach**
+Gdy używasz domyślnego znacznika w wykresach, każda seria wykresu automatycznie otrzymuje inny domyślny symbol znacznika.
 
-Ten kod Java pokazuje, jak automatycznie ustawić marker serii wykresu:
+Ten kod w Javie pokazuje, jak automatycznie ustawić znacznik serii wykresu:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -1159,7 +1197,7 @@ try {
     // Pobierz drugą serię wykresu
     IChartSeries series2 = chart.getChartData().getSeries().get_Item(1);
 
-    // Teraz wypełniamy dane serii
+    // Teraz wypełniam dane serii
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1176,18 +1214,18 @@ try {
 
 ## **FAQ**
 
-**Jakie typy wykresów są obsługiwane przez Aspose.Slides?**
+### Jakie typy wykresów są obsługiwane przez Aspose.Slides?
 
-Aspose.Slides obsługuje szeroką gamę [chart types](https://reference.aspose.com/slides/pl/java/com.aspose.slides/charttype/), w tym słupkowe, liniowe, kołowe, obszarowe, rozproszone, histogramy, radarowe i wiele innych. Ta elastyczność pozwala wybrać najbardziej odpowiedni typ wykresu do potrzeb wizualizacji danych.
+Aspose.Slides obsługuje szeroką gamę [typów wykresów](https://reference.aspose.com/slides/pl/java/com.aspose.slides/charttype/), w tym słupkowe, liniowe, kołowe, powierzchniowe, rozproszone, histogram, radarowe i wiele innych. Ta elastyczność pozwala wybrać najbardziej odpowiedni typ wykresu do wizualizacji danych.
 
-**Jak dodać nowy wykres do slajdu?**
+### Jak dodać nowy wykres do slajdu?
 
-Aby dodać wykres, najpierw tworzysz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/) , pobierasz żądany slajd przy użyciu jego indeksu, a następnie wywołujesz metodę dodającą wykres, określając typ wykresu i początkowe dane. Proces ten integruje wykres bezpośrednio w prezentacji.
+Aby dodać wykres, najpierw tworzysz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/) , pobierasz żądany slajd za pomocą jego indeksu, a następnie wywołujesz metodę dodającą wykres, określając typ wykresu i początkowe dane. Proces ten wstawia wykres bezpośrednio do prezentacji.
 
-**Jak zaktualizować dane wyświetlane w wykresie?**
+### Jak mogę zaktualizować dane wyświetlane na wykresie?
 
-Możesz zaktualizować dane wykresu, uzyskując dostęp do jego arkusza danych ([IChartDataWorkbook](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartdataworkbook/)), usuwając domyślne serie i kategorie, a następnie dodając własne dane. Pozwala to odświeżyć wykres, aby odzwierciedlał najnowsze informacje.
+Możesz zaktualizować dane wykresu, uzyskując dostęp do jego skoroszytu danych ([IChartDataWorkbook](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartdataworkbook/)), usuwając domyślne serie i kategorie, a następnie dodając własne dane. Dzięki temu odświeżysz wykres, aby odzwierciedlał najnowsze informacje.
 
-**Czy można dostosować wygląd wykresu?**
+### Czy można dostosować wygląd wykresu?
 
-Tak, Aspose.Slides oferuje rozbudowane opcje dostosowywania. Możesz modyfikować kolory, czcionki, etykiety, legendy i inne [formatting elements](/slides/pl/java/chart-entities/), aby dopasować wygląd wykresu do konkretnych wymagań projektowych.
+Tak, Aspose.Slides oferuje rozbudowane opcje personalizacji. Możesz modyfikować kolory, czcionki, etykiety, legendy i inne [elementy formatowania](/slides/pl/java/chart-entities/), aby dopasować wygląd wykresu do konkretnych wymagań projektowych.

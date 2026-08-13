@@ -4,15 +4,11 @@ type: docs
 weight: 45
 url: /ar/jasperreports/integration-with-jasperserver/
 ---
-
-{{% alert color="primary" %}} 
-
-لتكامل Aspose.Slides لـ JasperReports مع JasperServer، من الضروري اتخاذ عدة خطوات إضافية وتحديث ملفات تكوين JasperServer. يشرح هذا المقال كيفية القيام بذلك.
-
+{{% alert color="info" %}} 
+لدمج Aspose.Slides for JasperReports مع JasperServer، يلزم اتخاذ عدة خطوات إضافية وتحديث ملفات تكوين JasperServer. توضح هذه المقالة كيفية ذلك.
 {{% /alert %}} 
 
-1. أضف خصائص جديدة للمصدر إلى ملف التكوين **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml**.
-
+1. أضف خصائص المصدر الجديدة إلى ملف التكوين **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml**.
 ``` xml
 <bean id="reportPptExporter" class="com.aspose.slides.jasperreports.ASPptReportExporter" parent="baseReportExporter">
     <property name="exportParameters" ref="pptExportParameters"/>
@@ -20,7 +16,7 @@ url: /ar/jasperreports/integration-with-jasperserver/
 </bean> 
 
 <bean id="pptExporterConfiguration" class="com.jaspersoft.jasperserver.war.action.ExporterConfigurationBean">
-    <property name="descriptionKey" value="عرض تقديمي PowerPoint عبر Aspose.Slides"/>
+    <property name="descriptionKey" value="PowerPoint Presentation via Aspose.Slides"/>
     <property name="iconSrc" value="/images/ppt.png"/>
     <property name="parameterDialogName" value=""/>
     <property name="exportParameters" ref="pptExportParameters"/>
@@ -28,14 +24,13 @@ url: /ar/jasperreports/integration-with-jasperserver/
 </bean>
 
 <util:map id="exporterConfigMap">
-    <!-- أضف هذه الإدخالات إلى exporterConfigMap -->
+    <!-- أضف هذا الإدخال إلى exporterConfigMap -->
     <entry key="ppt" value-ref="pptExporterConfiguration"/>
 </util:map>
 ```
 
 2. انسخ **aspose.slides.jasperreports.jar** إلى **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\lib**.
-3. لاستخدام ميزة تعيين الخطوط، قم بتحديث **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** كما يلي.
-
+3. لاستخدام ميزة تعيين الخطوط، قم بتحديث **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** كما هو موضح أدناه.
 ``` xml
 <bean id="pptExportParameters" class="com.aspose.slides.jasperreports.ASExportParametersBean">
     <property name="fontMap">

@@ -1,38 +1,40 @@
 ---
-title: Określenie czcionek zastępczych dla prezentacji w .NET
-linktitle: Czcionka zastępcza
+title: Określ czcionki awaryjne dla prezentacji w .NET
+linktitle: Czcionka awaryjna
 type: docs
 weight: 10
 url: /pl/net/create-fallback-font/
 keywords:
-- czcionka zastępcza
-- reguła zastępowania
-- zastosować czcionkę
-- zamienić czcionkę
+- czcionka awaryjna
+- reguła awaryjna
+- zastosowanie czcionki
+- zastąpienie czcionki
 - zakres Unicode
 - brakujący glif
-- właściwy glif
+- odpowiedni glif
 - PowerPoint
 - OpenDocument
 - prezentacja
 - .NET
 - C#
 - Aspose.Slides
-description: "Opanuj Aspose.Slides dla .NET, aby ustawić czcionki zastępcze w plikach PPT, PPTX i ODP, zapewniając spójne wyświetlanie tekstu na każdym urządzeniu lub systemie operacyjnym."
+description: "Opanuj Aspose.Slides dla .NET, aby ustawić czcionki awaryjne w plikach PPT, PPTX i ODP, zapewniając spójne wyświetlanie tekstu na każdym urządzeniu lub systemie operacyjnym."
 ---
 ## **Przegląd**
 
-Aspose.Slides umożliwia określenie czcionek zastępczych dla renderowania prezentacji i operacji eksportu. Czcionki zastępcze są używane, gdy podstawowa czcionka nie zawiera glifów dla określonych znaków.
+Aspose.Slides umożliwia określenie czcionek awaryjnych (fallback) dla renderowania prezentacji i operacji eksportu. Czcionki awaryjne są używane, gdy podstawowa czcionka nie zawiera glifów dla konkretnych znaków.
 
-Zachowanie zastępcze konfigurowane jest za pomocą reguł zastępowania. Każda reguła łączy zakres Unicode z jedną lub większą liczbą czcionek, które mogą zawierać wymagane glify. Można definiować reguły dla różnych zakresów znaków, dodawać lub usuwać czcionki zastępcze w istniejących regułach oraz organizować wiele reguł w kolekcji reguł czcionek zastępczych.
+Zachowanie awaryjne konfiguruje się za pomocą reguł awaryjnych. Każda reguła wiąże zakres Unicode z jedną lub większą liczbą czcionek, które mogą zawierać wymagane glify. Można definiować reguły dla różnych zakresów znaków, dodawać lub usuwać czcionki awaryjne w istniejących regułach oraz organizować wiele reguł w kolekcji reguł czcionek awaryjnych.
 
-Reguły zastępowania są ustawieniami renderowania w czasie wykonywania. Nie modyfikują samego pliku prezentacji i nie są przechowywane wewnątrz pliku PPTX.
+Reguły awaryjne są ustawieniami renderowania w czasie wykonywania. Nie modyfikują samego pliku prezentacji i nie są przechowywane wewnątrz pliku PPTX.
 
-## **Reguły zastępowania**
+## **Reguły awaryjne**
 
-Aspose.Slides obsługuje interfejs [IFontFallBackRule](https://reference.aspose.com/slides/pl/net/aspose.slides/iFontFallBackRule) oraz klasę [FontFallBackRule](https://reference.aspose.com/slides/pl/net/aspose.slides/FontFallBackRule), aby określić reguły stosowania czcionki zastępczej. Klasa [FontFallBackRule](https://reference.aspose.com/slides/pl/net/aspose.slides/FontFallBackRule) reprezentuje powiązanie określonego zakresu Unicode, używanego do wyszukiwania brakujących glifów, oraz listy czcionek, które mogą zawierać odpowiednie glify:
+Aspose.Slides obsługuje interfejs [IFontFallBackRule](https://reference.aspose.com/slides/pl/net/aspose.slides/iFontFallBackRule) oraz klasę [FontFallBackRule](https://reference.aspose.com/slides/pl/net/aspose.slides/FontFallBackRule), aby określić reguły stosowania czcionki awaryjnej. Klasa [FontFallBackRule](https://reference.aspose.com/slides/pl/net/aspose.slides/FontFallBackRule) reprezentuje powiązanie określonego zakresu Unicode, używanego do wyszukiwania brakujących glifów, oraz listy czcionek, które mogą zawierać właściwe glify:
 
 ```c#
+using Aspose.Slides;
+
 uint startUnicodeIndex = 0x0B80;
 uint endUnicodeIndex = 0x0BFF;
 
@@ -46,32 +48,32 @@ string[] fontNames = new string[] { "Segoe UI Emoji, Segoe UI Symbol", "Arial" }
 IFontFallBackRule thirdRule = new FontFallBackRule(0x1F300, 0x1F64F, fontNames);
 ```
 
-Możliwe jest również [Remove()](https://reference.aspose.com/slides/pl/net/aspose.slides/ifontfallbackrule/methods/remove) czcionki zastępczej lub [AddFallBackFonts()](https://reference.aspose.com/slides/pl/net/aspose.slides/fontfallbackrule/methods/addfallbackfonts) w istniejącym obiekcie [FontFallBackRule](https://reference.aspose.com/slides/pl/net/aspose.slides/FontFallBackRule).
+Możliwe jest również [Remove()](https://reference.aspose.com/slides/pl/net/aspose.slides/ifontfallbackrule/methods/remove) czcionkę awaryjną lub [AddFallBackFonts()](https://reference.aspose.com/slides/pl/net/aspose.slides/fontfallbackrule/methods/addfallbackfonts) w istniejącym obiekcie [FontFallBackRule](https://reference.aspose.com/slides/pl/net/aspose.slides/FontFallBackRule).
 
-[FontFallBackRulesCollection](https://reference.aspose.com/slides/pl/net/aspose.slides/fontfallbackrulescollection)[ ](https://reference.aspose.com/slides/pl/net/aspose.slides/fontfallbackrulescollection) może być używana do organizowania listy obiektów [FontFallBackRule](https://reference.aspose.com/slides/pl/net/aspose.slides/FontFallBackRule), gdy zachodzi potrzeba określenia reguł zastępowania czcionek dla wielu zakresów Unicode.
+Kolekcję [FontFallBackRulesCollection](https://reference.aspose.com/slides/pl/net/aspose.slides/fontfallbackrulescollection) można użyć do organizowania listy obiektów [FontFallBackRule](https://reference.aspose.com/slides/pl/net/aspose.slides/FontFallBackRule), gdy istnieje potrzeba określenia reguł zastępowania czcionek awaryjnych dla wielu zakresów Unicode.
 
-{{% alert color="primary" title="See also" %}} 
-- [Create Fallback Fonts Collection](/slides/pl/net/create-fallback-fonts-collection/)
+{{% alert color="info" title="Zobacz także" %}} 
+- [Utwórz kolekcję czcionek awaryjnych](/slides/pl/net/create-fallback-fonts-collection/)
 {{% /alert %}}
 
 ## **FAQ**
 
-**Jaka jest różnica między czcionką zastępczą, podstawianiem czcionki a osadzaniem czcionki?**
+### Jaka jest różnica między czcionką awaryjną, substytucją czcionki a osadzaniem czcionki?
 
-Czcionka zastępcza jest używana wyłącznie dla znaków brakujących w podstawowej czcionce. [Podstawianie czcionki](/slides/pl/net/font-substitution/) zastępuje całą określoną czcionkę inną czcionką. [Osadzanie czcionki](/slides/pl/net/embedded-font/) umieszcza czcionki wewnątrz pliku wyjściowego, aby odbiorcy mogli zobaczyć tekst zgodnie z zamierzeniem.
+Czcionka awaryjna jest używana tylko dla znaków brakujących w podstawowej czcionce. [Font substitution](/slides/pl/net/font-substitution/) zastępuje całą określoną czcionkę inną czcionką. [Font embedding](/slides/pl/net/embedded-font/) pakuje czcionki wewnątrz pliku wyjściowego, aby odbiorcy mogli zobaczyć tekst zgodnie z zamierzeniem.
 
-**Czy czcionki zastępcze są stosowane podczas eksportu, takiego jak PDF, PNG lub SVG, czy tylko podczas renderowania na ekranie?**
+### Czy czcionki awaryjne są stosowane podczas eksportu, takiego jak PDF, PNG lub SVG, czy tylko podczas renderowania na ekranie?
 
-Tak. Zastępowanie wpływa na wszystkie [operacje renderowania i eksportu](/slides/pl/net/convert-presentation/), w których znaki muszą być narysowane, ale nie są obecne w źródłowej czcionce.
+Tak. Czcionki awaryjne wpływają na wszystkie [operacje renderowania i eksportu](/slides/pl/net/convert-presentation/), w których znaki muszą być rysowane, a w źródłowej czcionce ich brakuje.
 
-**Czy konfigurowanie zastępowania zmienia sam plik prezentacji i czy ustawienie będzie trwałe przy kolejnych otwarciach?**
+### Czy konfigurowanie czcionek awaryjnych zmienia sam plik prezentacji i czy ustawienie będzie utrzymywane przy kolejnych otwarciach?
 
-Nie. Reguły zastępowania są ustawieniami renderowania w czasie wykonywania w kodzie; nie są przechowywane wewnątrz pliku .pptx i nie pojawią się w programie PowerPoint.
+Nie. Reguły awaryjne są ustawieniami renderowania w czasie wykonywania w Twoim kodzie; nie są przechowywane w pliku .pptx i nie pojawią się w programie PowerPoint.
 
-**Czy system operacyjny (Windows/Linux/macOS) i zestaw katalogów czcionek wpływają na wybór czcionek zastępczych?**
+### Czy system operacyjny (Windows/Linux/macOS) oraz zestaw katalogów czcionek wpływają na wybór czcionki awaryjnej?
 
-Tak. Silnik rozwiązuje czcionki z dostępnych folderów systemowych oraz z [dodatkowych ścieżek](/slides/pl/net/custom-font/), które podasz. Jeśli czcionka nie jest fizycznie dostępna, reguła odwołująca się do niej nie może zostać zastosowana.
+Tak. Silnik wyszukuje czcionki w dostępnych folderach systemowych oraz we wszelkich [dodatkowych ścieżkach](/slides/pl/net/custom-font/), które podasz. Jeśli czcionka nie jest fizycznie dostępna, reguła odwołująca się do niej nie może zostać zastosowana.
 
-**Czy zastępowanie działa dla WordArt, SmartArt i wykresów?**
+### Czy czcionki awaryjne działają dla WordArt, SmartArt i wykresów?
 
-Tak. Gdy te obiekty zawierają tekst, stosowany jest ten sam mechanizm podstawiania glifów w celu renderowania brakujących znaków.
+Tak. Gdy te obiekty zawierają tekst, stosowany jest ten sam mechanizm podmiany glifów do renderowania brakujących znaków.

@@ -1,6 +1,6 @@
 ---
-title: Μετατροπή παρουσιάσεων PowerPoint σε βίντεο στο .NET
-linktitle: PowerPoint σε βίντεο
+title: Μετατροπή Παρουσιών PowerPoint σε Βίντεο με .NET
+linktitle: PowerPoint σε Βίντεο
 type: docs
 weight: 130
 url: /el/net/convert-powerpoint-to-video/
@@ -26,52 +26,49 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Μάθετε πώς να μετατρέπετε παρουσιάσεις PowerPoint σε βίντεο στο .NET. Ανακαλύψτε δείγματα κώδικα C# και τεχνικές αυτοματοποίησης για να βελτιώσετε τη ροή εργασίας σας."
+description: "Μάθετε πώς να μετατρέψετε παρουσιάσεις PowerPoint σε βίντεο με .NET. Ανακαλύψτε δείγμα κώδικα C# και τεχνικές αυτοματοποίησης για την απλοποίηση της ροής εργασίας σας."
 ---
 ## **Εισαγωγή**
 
-Με τη μετατροπή της παρουσίασής σας PowerPoint ή OpenDocument σε βίντεο, κερδίζετε:
+Με τη μετατροπή της παρουσίασης PowerPoint ή OpenDocument σε βίντεο, κερδίζετε:
 
-**Αυξημένη προσβασιμότητα:** Όλες οι συσκευές, ανεξαρτήτως πλατφόρμας, διαθέτουν προεγκατεστημένους αναπαραγωγείς βίντεο, καθιστώντας πιο εύκολο για τους χρήστες το άνοιγμα ή την αναπαραγωγή βίντεο σε σύγκριση με τις παραδοσιακές εφαρμογές παρουσίασης.
+**Αυξημένη προσβασιμότητα:** Όλες οι συσκευές, ανεξαρτήτως πλατφόρμας, είναι εξοπλισμένες με προβολείς βίντεο από προεπιλογή, καθιστώντας πιο εύκολο για τους χρήστες το άνοιγμα ή την αναπαραγωγή βίντεο σε σύγκριση με τις παραδοσιακές εφαρμογές παρουσίασης.
 
-**Μεγαλύτερη εμβέλεια:** Τα βίντεο σας επιτρέπουν να προσεγγίσετε ένα ευρύτερο κοινό και να παρουσιάσετε πληροφορίες με πιο ελκυστικό τρόπο. Έρευνες και στατιστικά δείχνουν ότι οι άνθρωποι προτιμούν την παρακολούθηση και κατανάλωση βίντεο σε σχέση με άλλες μορφές, καθιστώντας το μήνυμά σας πιο αποτελεσματικό.
+**Μεγαλύτερη εμβέλεια:** Τα βίντεο σας επιτρέπουν να προσεγγίσετε ένα μεγαλύτερο κοινό και να παρουσιάσετε τις πληροφορίες με πιο ελκυστική μορφή. Έρευνες και στατιστικά δείχνουν ότι οι άνθρωποι προτιμούν να παρακολουθούν και να καταναλώνουν περιεχόμενο βίντεο παρά άλλες μορφές, καθιστώντας το μήνυμά σας πιο επιδραστικό.
 
-{{% alert color="primary" %}} 
-
+{{% alert color="info" %}} 
 Δείτε τον [**Μετατροπέα PowerPoint σε Βίντεο Online**](https://products.aspose.app/slides/el/video) επειδή προσφέρει μια ζωντανή και αποτελεσματική υλοποίηση της διαδικασίας που περιγράφεται εδώ.
-
 {{% /alert %}} 
 
 Στο Aspose.Slides for .NET, υλοποιήσαμε υποστήριξη για τη μετατροπή παρουσιάσεων σε βίντεο.
 
-* Χρησιμοποιήστε το Aspose.Slides for .NET για να δημιουργήσετε καρέ από τις διαφάνειες της παρουσίασης με καθορισμένο ρυθμό καρέ (FPS).
-* Στη συνέχεια, χρησιμοποιήστε ένα εργαλείο τρίτου μέρους όπως το ffmpeg για να συναρμολογήσετε αυτά τα καρέ σε βίντεο.
+* Χρησιμοποιήστε το Aspose.Slides for .NET για τη δημιουργία πλαισίων από τις διαφάνειες παρουσίασης με καθορισμένο ρυθμό καρέ (FPS).
+* Στη συνέχεια, χρησιμοποιήστε ένα εργαλείο τρίτου μέρους όπως το ffmpeg για τη συναρμολόγηση αυτών των πλαισίων σε ένα βίντεο.
 
 ## **Μετατροπή Παρουσίασης PowerPoint σε Βίντεο**
 
-1. Χρησιμοποιήστε την εντολή `dotnet add package` για να προσθέσετε το Aspose.Slides και τη βιβλιοθήκη FFMpegCore στην εφαρμογή σας:
+1. Χρησιμοποιήστε την εντολή `dotnet add package` για την προσθήκη του Aspose.Slides και της βιβλιοθήκης FFMpegCore στο έργο σας:
    * εκτελέστε `dotnet add package Aspose.Slides.NET --version 22.11.0`
    * εκτελέστε `dotnet add package FFMpegCore --version 4.8.0`
 2. Κατεβάστε το ffmpeg από [εδώ](https://ffmpeg.org/download.html).
-3. Το FFMpegCore απαιτεί να καθορίσετε τη διαδρομή προς το ληφθέν ffmpeg (π.χ., εξαγμένο στο "C:\tools\ffmpeg"):  
+3. Το FFMpegCore απαιτεί να καθορίσετε τη διαδρομή προς το ληφθέν ffmpeg (π.χ., εξαγόμενο στο "C:\tools\ffmpeg"):  
 ```cs
     GlobalFFOptions.Configure(new FFOptions { BinaryFolder = @"c:\tools\ffmpeg\bin" });
 ```
-4. Εκτελέστε τον κώδικα μετατροπής PowerPoint‑σε‑βίντεο.
+4. Εκτελέστε τον κώδικα μετατροπής PowerPoint σε βίντεο.
 
-Αυτός ο κώδικας C# δείχνει πώς να μετατρέψετε μια παρουσίαση (με ένα σχήμα και δύο εφέ κίνησης) σε βίντεο:
-
+Αυτός ο κώδικας C# δείχνει πώς να μετατρέψετε μια παρουσίαση (που περιέχει σχήμα και δύο εφέ κίνησης) σε βίντεο:
 ```c#
 using System.Collections.Generic;
 using Aspose.Slides;
-using FFMpegCore; // θα χρησιμοποιήσει τα εκτελέσιμα του FFmpeg που εξάγαμε στο C:\tools\ffmpeg νωρίτερα.
+using FFMpegCore; // θα χρησιμοποιήσει τα δυαδικά αρχεία FFmpeg που εξαγάγαμε στο C:\tools\ffmpeg νωρίτερα.
 using Aspose.Slides.Animation;
 
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // Προσθέστε ένα σχήμα χαμόγελου και στη συνέχεια το κινήστε.
+    // Προσθέστε ένα σχήμα χαμόγελου και στη συνέχεια τοποθετήστε κίνηση.
     IAutoShape smile = slide.Shapes.AddAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
 
     IEffect effectIn = slide.Timeline.MainSequence.AddEffect(
@@ -98,43 +95,47 @@ using (Presentation presentation = new Presentation())
         animationsGenerator.Run(presentation.Slides);
     }
 
-    // Ρυθμίστε το φάκελο των εκτελέσιμων ffmpeg. Δείτε αυτή τη σελίδα: https://github.com/rosenbjerg/FFMpegCore#installation
+    // Διαμορφώστε το φάκελο των δυαδικών αρχείων ffmpeg. Δείτε αυτή τη σελίδα: https://github.com/rosenbjerg/FFMpegCore#installation
     GlobalFFOptions.Configure(new FFOptions { BinaryFolder = @"c:\tools\ffmpeg\bin" });
 
-    // Μετατρέψτε τα καρέ σε βίντεο webm.
+    // Μεταφέ
+
+ρα τα πλαίσια σε βίντεο webm.
     FFMpeg.JoinImageSequence("smile.webm", Fps, frames.Select(frame => ImageInfo.FromPath(frame)).ToArray());
 }
 ```
 
 ## **Εφέ Βίντεο**
 
-Κατά τη μετατροπή μιας παρουσίασης PowerPoint σε βίντεο με το Aspose.Slides for .NET, μπορείτε να εφαρμόσετε διάφορα εφέ βίντεο για να ενισχύσετε την οπτική ποιότητα του αποτελέσματος. Αυτά τα εφέ σας επιτρέπουν να ελέγξετε την εμφάνιση των διαφανειών στο τελικό βίντεο προσθέτοντας ομαλές μεταβάσεις, κινήσεις και άλλα οπτικά στοιχεία. Αυτή η ενότητα εξηγεί τις διαθέσιμες επιλογές εφέ βίντεο και δείχνει πώς να τις εφαρμόσετε.
+Κατά τη μετατροπή μιας παρουσίασης PowerPoint σε βίντεο χρησιμοποιώντας το Aspose.Slides for .NET, μπορείτε να εφαρμόσετε διάφορα εφέ βίντεο για να βελτιώσετε την οπτική ποιότητα του αποτελέσματος. Αυτά τα εφέ σας επιτρέπουν να ελέγχετε την εμφάνιση των διαφανειών στο τελικό βίντεο προσθέτοντας ομαλές μεταβάσεις, κινήσεις και άλλα οπτικά στοιχεία. Αυτή η ενότητα εξηγεί τις διαθέσιμες επιλογές εφέ βίντεο και δείχνει πώς να τις εφαρμόσετε.
 
-{{% alert color="primary" %}} 
-
+{{% alert color="info" %}} 
 Δείτε:
-- [Βελτιώνοντας Παρουσιάσεις PowerPoint με Κινήσεις σε C#](https://docs.aspose.com/slides/el/net/powerpoint-animation/)
+- [Βελτίωση Παρουσιάσεων PowerPoint με Κινήσεις σε C#](https://docs.aspose.com/slides/el/net/powerpoint-animation/)
 - [Κίνηση Σχήματος](https://docs.aspose.com/slides/el/net/shape-animation/)
-- [Εφαρμογή Εφέ Σχήματος σε PowerPoint με C#](https://docs.aspose.com/slides/el/net/shape-effect/)
-
+- [Εφαρμογή Εφέ Σχήματος στο PowerPoint με C#](https://docs.aspose.com/slides/el/net/shape-effect/)
 {{% /alert %}} 
 
-Οι κινήσεις και οι μεταβάσεις κάνουν τις διαφάνειες πιο δελεαστικές· το ίδιο ισχύει και για τα βίντεο. Ας προσθέσουμε μια ακόμη διαφάνεια και μια μετάβαση στον κώδικα της προηγούμενης παρουσίασης:
-
+Οι κινήσεις και οι μεταβάσεις κάνουν τις παρουσιάσεις πιο ελκυστικές και ενδιαφέρουσες — και κάνουν το ίδιο και τα βίντεο. Ας προσθέσουμε μία επιπλέον διαφάνεια και μια μετάβαση στον κώδικα για την προηγούμενη παρουσίαση:
 ```c#
- // Προσθέστε ένα σχήμα χαμόγελου και το κινήστε.
- // ...
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.SlideShow;
 
- // Προσθέστε μια νέα διαφάνεια και μια κινητική μετάβαση.
- ISlide newSlide = presentation.Slides.AddEmptySlide(presentation.Slides[0].LayoutSlide);
- newSlide.Background.Type = BackgroundType.OwnBackground;
- newSlide.Background.FillFormat.FillType = FillType.Solid;
- newSlide.Background.FillFormat.SolidFillColor.Color = Color.Indigo;
- newSlide.SlideShowTransition.Type = TransitionType.Push;
+using (Presentation presentation = new Presentation())
+{
+    // Προσθέστε ένα σχήμα χαμόγελου και τοποθετήστε του κίνηση (δείτε τον κώδικα παραπάνω).
+
+    // Προσθέστε μια νέα διαφάνεια και μια κινούμενη μετάβαση.
+    ISlide newSlide = presentation.Slides.AddEmptySlide(presentation.Slides[0].LayoutSlide);
+    newSlide.Background.Type = BackgroundType.OwnBackground;
+    newSlide.Background.FillFormat.FillType = FillType.Solid;
+    newSlide.Background.FillFormat.SolidFillColor.Color = Color.Indigo;
+    newSlide.SlideShowTransition.Type = TransitionType.Push;
+}
 ```
 
-Το Aspose.Slides υποστηρίζει επίσης κινήσεις κειμένου. Σε αυτό το παράδειγμα, κινουμε παραγράφους σε αντικείμενα ώστε να εμφανίζονται η μία μετά την άλλη, με καθυστέρηση ενός δευτερολέπτου μεταξύ τους:
-
+Το Aspose.Slides υποστηρίζει επίσης κίνησεις κειμένου. Σε αυτό το παράδειγμα, κινούμε παραγράφους σε αντικείμενα ώστε να εμφανίζονται μία προς μία, με καθυστέρηση ενός δευτερολέπτου μεταξύ τους:
 ```c#
 using System.Collections.Generic;
 using Aspose.Slides.Export;
@@ -193,30 +194,33 @@ using (Presentation presentation = new Presentation())
         animationsGenerator.Run(presentation.Slides);
     }
 
-    // Ρυθμίστε το φάκελο των εκτελέσιμων ffmpeg. Δείτε αυτή τη σελίδα: https://github.com/rosenbjerg/FFMpegCore#installation
+    // Διαμορφώστε το φάκελο των δυαδικών αρχείων ffmpeg. Δείτε αυτή τη σελίδα: https://github.com/rosenbjerg/FFMpegCore#installation
     GlobalFFOptions.Configure(new FFOptions { BinaryFolder = @"c:\tools\ffmpeg\bin" });
 
-    // Μετατρέψτε τα καρέ σε βίντεο webm.
-    FFMpeg.JoinImageSequence("text_animation.webv", Fps, frames.Select(frame => ImageInfo.FromPath(frame)).ToArray());
+    // Μετατρέψτε τα πλαίσια σε βίντεο webm.
+    FFMpeg.JoinImageSequence("text_animation.webm", Fps, frames.Select(frame => ImageInfo.FromPath(frame)).ToArray());
 }
 ```
 
 ## **Κλάσεις Μετατροπής Βίντεο**
 
-Για να εκτελέσετε εργασίες μετατροπής PowerPoint σε βίντεο, το Aspose.Slides for .NET παρέχει τις κλάσεις [PresentationAnimationsGenerator](https://reference.aspose.com/slides/el/net/aspose.slides.export/presentationanimationsgenerator/) και [PresentationPlayer](https://reference.aspose.com/slides/el/net/aspose.slides.export/presentationplayer/).
+Για να ενεργοποιήσετε εργασίες μετατροπής PowerPoint σε βίντεο, το Aspose.Slides for .NET παρέχει τις κλάσεις [PresentationAnimationsGenerator](https://reference.aspose.com/slides/el/net/aspose.slides.export/presentationanimationsgenerator/) και [PresentationPlayer](https://reference.aspose.com/slides/el/net/aspose.slides.export/presentationplayer/).
 
-`PresentationAnimationsGenerator` σας επιτρέπει να ορίσετε το μέγεθος του καρέ για το βίντεο (που θα δημιουργηθεί αργότερα) και την τιμή FPS (καρέ ανά δευτερόλεπτο) μέσω του κατασκευαστή του. Αν περάσετε μια παρουσίαση, θα χρησιμοποιηθεί το `Presentation.SlideSize` της και θα δημιουργήσει κινήσεις που χρησιμοποιεί η [PresentationPlayer](https://reference.aspose.com/slides/el/net/aspose.slides.export/presentationplayer/).
+`PresentationAnimationsGenerator` σας επιτρέπει να ορίσετε το μέγεθος πλαισίου για το βίντεο (που θα δημιουργηθεί αργότερα) και την τιμή FPS (καρέ ανά δευτερόλεπτο) μέσω του κατασκευαστή του. Εάν περάσετε μια παρουσίαση, θα χρησιμοποιηθεί το `Presentation.SlideSize` της και δημιουργεί κινήσεις που χρησιμοποιεί το [PresentationPlayer](https://reference.aspose.com/slides/el/net/aspose.slides.export/presentationplayer/).
 
-Όταν δημιουργούνται κινήσεις, προκαλείται το συμβάν `NewAnimation` για κάθε επόμενη κίνηση, το οποίο περιλαμβάνει μια παράμετρο τύπου [IPresentationAnimationPlayer](https://reference.aspose.com/slides/el/net/aspose.slides.export/ipresentationanimationplayer/). Αυτή η κλάση αντιπροσωπεύει έναν παίκτη για μια μεμονωμένη κίνηση.
+Όταν δημιουργούνται κινήσεις, ένα συμβάν `NewAnimation` ενεργοποιείται για κάθε επόμενη κίνηση, το οποίο περιλαμβάνει μια παράμετρο [IPresentationAnimationPlayer](https://reference.aspose.com/slides/el/net/aspose.slides.export/ipresentationanimationplayer/). Αυτή η κλάση αντιπροσωπεύει έναν προγυμναστή για μια μεμονωμένη κίνηση.
 
-Για να εργαστείτε με το [IPresentationAnimationPlayer](https://reference.aspose.com/slides/el/net/aspose.slides.export/ipresentationanimationplayer/), χρησιμοποιείτε την ιδιότητα [Duration](https://reference.aspose.com/slides/el/net/aspose.slides.export/ipresentationanimationplayer/duration/) (που δίνει τη συνολική διάρκεια της κίνησης) και τη μέθοδο [SetTimePosition](https://reference.aspose.com/slides/el/net/aspose.slides.export/ipresentationanimationplayer/settimeposition/). Κάθε θέση κίνησης ορίζεται μέσα στο εύρος *0 έως duration*, και η μέθοδος `GetFrame` επιστρέφει ένα Bitmap που αντιπροσωπεύει την κατάσταση της κίνησης εκείνη τη στιγμή.
-
+Για να εργαστείτε με το [IPresentationAnimationPlayer](https://reference.aspose.com/slides/el/net/aspose.slides.export/ipresentationanimationplayer/), χρησιμοποιείτε την ιδιότητα [Duration](https://reference.aspose.com/slides/el/net/aspose.slides.export/ipresentationanimationplayer/duration/) (που δίνει τη συνολική διάρκεια της κίνησης) και τη μέθοδο [SetTimePosition](https://reference.aspose.com/slides/el/net/aspose.slides.export/ipresentationanimationplayer/settimeposition/). Κάθε θέση κίνησης ορίζεται εντός του εύρους *0 έως διάρκεια*, και η μέθοδος `GetFrame` επιστρέφει ένα Bitmap που αντιπροσωπεύει την κατάσταση της κίνησης σε εκείνο το χρονικό σημείο.
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // Προσθέστε ένα σχήμα χαμόγελου και το κινήστε.
+    // Προσθέστε ένα σχήμα χαμόγελου και τοποθετήστε κίνηση.
     IAutoShape smile = slide.Shapes.AddAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
 
     IEffect effectIn = slide.Timeline.MainSequence.AddEffect(
@@ -234,20 +238,22 @@ using (Presentation presentation = new Presentation())
         {
             Console.WriteLine($"Total animation duration: {animationPlayer.Duration}");
 
-            animationPlayer.SetTimePosition(0);          // Η αρχική κατάσταση της κίνησης.
-            Bitmap bitmap = animationPlayer.GetFrame();  // Το bitmap της αρχικής κατάστασης της κίνησης.
+            animationPlayer.SetTimePosition(0);        // Η αρχική κατάσταση της κίνησης.
+            IImage image = animationPlayer.GetFrame(); // Η εικόνα της αρχικής κατάστασης της κίνησης.
 
-            animationPlayer.SetTimePosition(animationPlayer.Duration);  // Η τελική κατάσταση της κίνησης.
-            Bitmap lastBitmap = animationPlayer.GetFrame();             // Το τελευταίο καρέ της κίνησης.
-            lastBitmap.Save("last.png");
+            animationPlayer.SetTimePosition(animationPlayer.Duration); // Η τελική κατάσταση της κίνησης.
+            IImage lastImage = animationPlayer.GetFrame();             // Το τελευταίο πλαίσιο της κίνησης.
+            lastImage.Save("last.png");
         };
     }
 }
 ```
 
-Για να παίζονται όλες οι κινήσεις μιας παρουσίασης ταυτόχρονα, χρησιμοποιείται η κλάση [PresentationPlayer](https://reference.aspose.com/slides/el/net/aspose.slides.export/presentationplayer/). Αυτή η κλάση δέχεται μια παρουσίαση [PresentationAnimationsGenerator](https://reference.aspose.com/slides/el/net/aspose.slides.export/presentationanimationsgenerator/) και μια τιμή FPS για τα εφέ στον κατασκευαστή της, και στη συνέχεια καλεί το συμβάν `FrameTick` για όλες τις κινήσεις ώστε να τις παίξει:
-
+Για να κάνετε όλες τις κινήσεις σε μια παρουσίαση να αναπαράγονται ταυτόχρονα, χρησιμοποιείται η κλάση [PresentationPlayer](https://reference.aspose.com/slides/el/net/aspose.slides.export/presentationplayer/). Αυτή η κλάση λαμβάνει μια παρουσίαση [PresentationAnimationsGenerator](https://reference.aspose.com/slides/el/net/aspose.slides.export/presentationanimationsgenerator/) και μια τιμή FPS για τα εφέ στον κατασκευαστή της, και στη συνέχεια καλεί το συμβάν `FrameTick` για όλες τις κινήσεις ώστε να τις αναπαράγει:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("animated.pptx"))
 {
     using (var animationsGenerator = new PresentationAnimationsGenerator(presentation))
@@ -262,149 +268,153 @@ using (Presentation presentation = new Presentation("animated.pptx"))
 }
 ```
 
-Στη συνέχεια τα παραγόμενα καρέ μπορούν να συναρμολογηθούν για να παραχθεί ένα βίντεο. Δείτε την ενότητα [Μετατροπή Παρουσίασης PowerPoint σε Βίντεο](/slides/el/net/convert-powerpoint-to-video/#convert-a-powerpoint-presentation-to-video).
+Στη συνέχεια τα παραγόμενα πλαίσια μπορούν να συναρμολογηθούν για την παραγωγή ενός βίντεο. Δείτε την ενότητα [Μετατροπή Παρουσίασης PowerPoint σε Βίντεο](/slides/el/net/convert-powerpoint-to-video/#convert-a-powerpoint-presentation-to-video).
 
 ## **Υποστηριζόμενες Κινήσεις και Εφέ**
 
-Κατά τη μετατροπή μιας παρουσίασης PowerPoint σε βίντεο με το Aspose.Slides for .NET, είναι σημαντικό να γνωρίζετε ποιες κινήσεις και ποια εφέ υποστηρίζονται στο τελικό αποτέλεσμα. Το Aspose.Slides υποστηρίζει μια ευρεία γκάμα κοινών εφέ εισόδου, εξόδου και έμφασης όπως ξεθώριασμα, «πτήση», ζουμ και περιστροφή. Ωστόσο, ορισμένες προχωρημένες ή προσαρμοσμένες κινήσεις μπορεί να μην διατηρηθούν πλήρως ή να εμφανιστούν διαφορετικά στο τελικό βίντεο. Η παρακάτω ενότητα παραθέτει τις υποστηριζόμενες κινήσεις και εφέ.
+Κατά τη μετατροπή μιας παρουσίασης PowerPoint σε βίντεο χρησιμοποιώντας το Aspose.Slides for .NET, είναι σημαντικό να κατανοήσετε ποιες κινήσεις και εφέ υποστηρίζονται στο παραγόμενο αρχείο. Το Aspose.Slides υποστηρίζει μια ευρεία γκάμα κοινών εφέ εισόδου, εξόδου και έμφασης όπως η εξαπλωση (fade), η πτήση (fly in), το ζουμ και η περιστροφή. Ωστόσο, ορισμένες προχωρημένες ή προσαρμοσμένες κινήσεις ενδέχεται να μην διατηρηθούν πλήρως ή να εμφανιστούν διαφορετικά στο τελικό βίντεο. Αυτή η ενότητα περιγράφει τις υποστηριζόμενες κινήσεις και εφέ.
 
-**Είσοδος**:
-
-| Τύπος Κίνησης | Aspose.Slides | PowerPoint |
-|---|---|---|
-| **Εμφάνιση** | ![not supported](x.png) | ![supported](v.png) |
-| **Ξεθώριασμα** | ![supported](v.png) | ![supported](v.png) |
-| **Πτήση μέσα** | ![supported](v.png) | ![supported](v.png) |
-| **Πλεύση μέσα** | ![supported](v.png) | ![supported](v.png) |
-| **Διαίρεση** | ![supported](v.png) | ![supported](v.png) |
-| **Σκούρτ** | ![supported](v.png) | ![supported](v.png) |
-| **Σχήμα** | ![supported](v.png) | ![supported](v.png) |
-| **Τροχός** | ![supported](v.png) | ![supported](v.png) |
-| **Τυχαίες Γραμμές** | ![supported](v.png) | ![supported](v.png) |
-| **Αύξηση & Περιστροφή** | ![not supported](x.png) | ![supported](v.png) |
-| **Ζουμ** | ![supported](v.png) | ![supported](v.png) |
-| **Αναστροφή** | ![supported](v.png) | ![supported](v.png) |
-| **Αναπήδηση** | ![supported](v.png) | ![supported](v.png) |
-
-**Έμφαση**:
+**Entrance**:
 
 | Τύπος Κίνησης | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Παλμός** | ![not supported](x.png) | ![supported](v.png) |
-| **Παλμός Χρώματος** | ![not supported](x.png) | ![supported](v.png) |
-| **Κολάσιμο** | ![supported](v.png) | ![supported](v.png) |
-| **Περιστροφή** | ![supported](v.png) | ![supported](v.png) |
-| **Αύξηση/Σμίκρυνση** | ![not supported](x.png) | ![supported](v.png) |
-| **Αποκορεσμός** | ![not supported](x.png) | ![supported](v.png) |
-| **Σκοτείνιασμα** | ![not supported](x.png) | ![supported](v.png) |
-| **Φωτισμός** | ![not supported](x.png) | ![supported](v.png) |
-| **Διαφάνεια** | ![not supported](x.png) | ![supported](v.png) |
-| **Χρώμα Αντικειμένου** | ![not supported](x.png) | ![supported](v.png) |
-| **Συμπληρωματικό Χρώμα** | ![not supported](x.png) | ![supported](v.png) |
-| **Χρώμα Γραμμής** | ![not supported](x.png) | ![supported](v.png) |
-| **Χρώμα Γέμισματος** | ![not supported](x.png) | ![supported](v.png) |
+| **Appear** | ![not supported](x.png) | ![supported](v.png) |
+| **Fade** | ![supported](v.png) | ![supported](v.png) |
+| **Fly In** | ![supported](v.png) | ![supported](v.png) |
+| **Float In** | ![supported](v.png) | ![supported](v.png) |
+| **Split** | ![supported](v.png) | ![supported](v.png) |
+| **Wipe** | ![supported](v.png) | ![supported](v.png) |
+| **Shape** | ![supported](v.png) | ![supported](v.png) |
+| **Wheel** | ![supported](v.png) | ![supported](v.png) |
+| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
+| **Grow & Turn** | ![not supported](x.png) | ![supported](v.png) |
+| **Zoom** | ![supported](v.png) | ![supported](v.png) |
+| **Swivel** | ![supported](v.png) | ![supported](v.png) |
+| **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
-**Έξοδος**:
-
-| Τύπος Κίνησης | Aspose.Slides | PowerPoint |
-|---|---|---|
-| **Ανεμφανισία** | ![not supported](x.png) | ![supported](v.png) |
-| **Ξεθώριασμα** | ![supported](v.png) | ![supported](v.png) |
-| **Πτήση έξω** | ![supported](v.png) | ![supported](v.png) |
-| **Πλεύση έξω** | ![supported](v.png) | ![supported](v.png) |
-| **Διαίρεση** | ![supported](v.png) | ![supported](v.png) |
-| **Σκούρτ** | ![supported](v.png) | ![supported](v.png) |
-| **Σχήμα** | ![supported](v.png) | ![supported](v.png) |
-| **Τυχαίες Γραμμές** | ![supported](v.png) | ![supported](v.png) |
-| **Σμίκρυνση & Περιστροφή** | ![not supported](x.png) | ![supported](v.png) |
-| **Ζουμ** | ![supported](v.png) | ![supported](v.png) |
-| **Αναστροφή** | ![supported](v.png) | ![supported](v.png) |
-| **Αναπήδηση** | ![supported](v.png) | ![supported](v.png) |
-
-**Διαδρομές Κίνησης**:
+**Emphasis**:
 
 | Τύπος Κίνησης | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Γραμμές** | ![supported](v.png) | ![supported](v.png) |
-| **Τόξα** | ![supported](v.png) | ![supported](v.png) |
-| **Στροφές** | ![supported](v.png) | ![supported](v.png) |
-| **Σχήματα** | ![supported](v.png) | ![supported](v.png) |
-| **Βρόχοι** | ![supported](v.png) | ![supported](v.png) |
-| **Προσαρμοσμένη Διαδρομή** | ![supported](v.png) | ![supported](v.png) |
+| **Pulse** | ![not supported](x.png) | ![supported](v.png) |
+| **Color Pulse** | ![not supported](x.png) | ![supported](v.png) |
+| **Teeter** | ![supported](v.png) | ![supported](v.png) |
+| **Spin** | ![supported](v.png) | ![supported](v.png) |
+| **Grow/Shrink** | ![not supported](x.png) | ![supported](v.png) |
+| **Desaturate** | ![not supported](x.png) | ![supported](v.png) |
+| **Darken** | ![not supported](x.png) | ![supported](v.png) |
+| **Lighten** | ![not supported](x.png) | ![supported](v.png) |
+| **Transparency** | ![not supported](x.png) | ![supported](v.png) |
+| **Object Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Complementary Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Line Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
 
-## **Υποστηριζόμενα Εφέ Μετάβασης Διαφάνειας**
+**Exit**:
 
-Τα εφέ μετάβασης διαφάνειας διαδραματίζουν σημαντικό ρόλο στη δημιουργία ομαλών και οπτικά ελκυστικών αλλαγών μεταξύ των διαφανειών σε ένα βίντεο. Το Aspose.Slides for .NET υποστηρίζει μια ποικιλία κοινών εφέ μετάβασης για να διασφαλίσει τη συνέπεια της ροής και του στυλ της αρχικής παρουσίασής σας. Η ενότητα αυτή επισημαίνει ποια εφέ μετάβασης υποστηρίζονται κατά τη διαδικασία μετατροπής.
-
-**Υποτονικά**:
-
-| Τύπος Εφέ | Aspose.Slides | PowerPoint |
+| Τύπος Κίνησης | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Μορφοποίηση** | ![not supported](x.png) | ![supported](v.png) |
-| **Ξεθώριασμα** | ![supported](v.png) | ![supported](v.png) |
-| **Σπρώξιμο** | ![supported](v.png) | ![supported](v.png) |
-| **Τράβηγμα** | ![supported](v.png) | ![supported](v.png) |
-| **Σκούρτ** | ![supported](v.png) | ![supported](v.png) |
-| **Διαίρεση** | ![supported](v.png) | ![supported](v.png) |
-| **Αποκάλυψη** | ![not supported](x.png) | ![supported](v.png) |
-| **Τυχαίες Γραμμές** | ![supported](v.png) | ![supported](v.png) |
-| **Σχήμα** | ![not supported](x.png) | ![supported](v.png) |
-| **Αποκάλυψη** | ![not supported](x.png) | ![supported](v.png) |
-| **Κάλυψη** | ![supported](v.png) | ![supported](v.png) |
-| **Αναλαμπή** | ![supported](v.png) | ![supported](v.png) |
-| **Λωρίδες** | ![supported](v.png) | ![supported](v.png) |
+| **Disappear** | ![not supported](x.png) | ![supported](v.png) |
+| **Fade** | ![supported](v.png) | ![supported](v.png) |
+| **Fly Out** | ![supported](v.png) | ![supported](v.png) |
+| **Float Out** | ![supported](v.png) | ![supported](v.png) |
+| **Split** | ![supported](v.png) | ![supported](v.png) |
+| **Wipe** | ![supported](v.png) | ![supported](v.png) |
+| **Shape** | ![supported](v.png) | ![supported](v.png) |
+| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
+| **Shrink & Turn** | ![not supported](x.png) | ![supported](v.png) |
+| **Zoom** | ![supported](v.png) | ![supported](v.png) |
+| **Swivel** | ![supported](v.png) | ![supported](v.png) |
+| **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
-**Συναρπαστικά**:
+**Motion Paths**:
 
-| Τύπος Εφέ | Aspose.Slides | PowerPoint |
+| Τύπος Κίνησης | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Πτώση** | ![not supported](x.png) | ![supported](v.png) |
-| **Κάλυμμα** | ![not supported](x.png) | ![supported](v.png) |
-| **Κουρτίνες** | ![not supported](x.png) | ![supported](v.png) |
-| **Άνεμος** | ![not supported](x.png) | ![supported](v.png) |
-| **Πρεστίζ** | ![not supported](x.png) | ![supported](v.png) |
-| **Ρήξη** | ![not supported](x.png) | ![supported](v.png) |
-| **Συντριβή** | ![not supported](x.png) | ![supported](v.png) |
-| **Αποξένωση** | ![not supported](x.png) | ![supported](v.png) |
-| **Τσουβάλι Σελίδας** | ![not supported](x.png) | ![supported](v.png) |
-| **Αεροπλάνο** | ![not supported](x.png) | ![supported](v.png) |
-| **Οριγκάμι** | ![not supported](x.png) | ![supported](v.png) |
-| **Διαλύση** | ![supported](v.png) | ![supported](v.png) |
-| **Σκακιέρα** | ![not supported](x.png) | ![supported](v.png) |
-| **Παράθυρα** | ![not supported](x.png) | ![supported](v.png) |
-| **Ρολόι** | ![supported](v.png) | ![supported](v.png) |
-| **Κυματισμός** | ![not supported](x.png) | ![supported](v.png) |
-| **Κηρήθρα** | ![not supported](x.png) | ![supported](v.png) |
-| **Λαμπερός** | ![not supported](x.png) | ![supported](v.png) |
-| **Ανεστραμμένο** | ![not supported](x.png) | ![supported](v.png) |
-| **Θραύση** | ![not supported](x.png) | ![supported](v.png) |
-| **Αλλαγή** | ![not supported](x.png) | ![supported](v.png) |
-| **Αναστροφή** | ![not supported](x.png) | ![supported](v.png) |
-| **Γκαλερί** | ![not supported](x.png) | ![supported](v.png) |
-| **Κύβος** | ![not supported](x.png) | ![supported](v.png) |
-| **Πόρτες** | ![not supported](x.png) | ![supported](v.png) |
-| **Κουτί** | ![not supported](x.png) | ![supported](v.png) |
-| **Χτένα** | ![not supported](x.png) | ![supported](v.png) |
-| **Ζουμ** | ![supported](v.png) | ![supported](v.png) |
-| **Τυχαίο** | ![not supported](x.png) | ![supported](v.png) |
+| **Lines** | ![supported](v.png) | ![supported](v.png) |
+| **Arcs** | ![supported](v.png) | ![supported](v.png) |
+| **Turns** | ![supported](v.png) | ![supported](v.png) |
+| **Shapes** | ![supported](v.png) | ![supported](v.png) |
+| **Loops** | ![supported](v.png) | ![supported](v.png) |
+| **Custom Path** | ![supported](v.png) | ![supported](v.png) |
 
-**Δυναμικό Περιεχόμενο**:
+## **Υποστηριζόμενα Εφέ Μετάβασης Διαφανειών**
 
-| Τύπος Εφέ | Aspose.Slides | PowerPoint |
+Τα εφέ μετάβασης διαφανειών παίζουν σημαντικό ρόλο στη δημιουργία ομαλών και οπτικά ελκυστικών αλλαγών μεταξύ των διαφανειών σε ένα βίντεο. Το Aspose.Slides for .NET υποστηρίζει μια ποικιλία κοινώς χρησιμοποιούμενων εφέ μετάβασης για να διατηρήσει τη ροή και το στυλ της αρχικής παρουσίασής σας. Αυτή η ενότητα επισημαίνει ποια εφέ μετάβασης υποστηρίζονται κατά τη διαδικασία μετατροπής.
+
+**Subtle**:
+
+| Τύπος Κίνησης | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Πανοραμική** | ![not supported](x.png) | ![supported](v.png) |
-| **Τροχός Φέρις** | ![supported](v.png) | ![supported](v.png) |
-| **Μεταφορικό** | ![not supported](x.png) | ![supported](v.png) |
-| **Περιστροφή** | ![not supported](x.png) | ![supported](v.png) |
-| **Τροχιά** | ![not supported](x.png) | ![supported](v.png) |
-| **Πτήση Διέλευσης** | ![supported](v.png) | ![supported](v.png) |
+| **Morph** | ![not supported](x.png) | ![supported](v.png) |
+| **Fade** | ![supported](v.png) | ![supported](v.png) |
+| **Push** | ![supported](v.png) | ![supported](v.png) |
+| **Pull** | ![supported](v.png) | ![supported](v.png) |
+| **Wipe** | ![supported](v.png) | ![supported](v.png) |
+| **Split** | ![supported](v.png) | ![supported](v.png) |
+| **Reveal** | ![not supported](x.png) | ![supported](v.png) |
+| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
+| **Shape** | ![not supported](x.png) | ![supported](v.png) |
+| **Uncover** | ![not supported](x.png) | ![supported](v.png) |
+| **Cover** | ![supported](v.png) | ![supported](v.png) |
+| **Flash** | ![supported](v.png) | ![supported](v.png) |
+| **Strips** | ![supported](v.png) | ![supported](v.png) |
+
+**Exciting**:
+
+| Τύπος Κίνησης | Aspose.Slides | PowerPoint |
+|---|---|---|
+| **Fall Over** | ![not supported](x.png) | ![supported](v.png) |
+| **Drape** | ![not supported](x.png) | ![supported](v.png) |
+| **Curtains** | ![not supported](x.png) | ![supported](v.png) |
+| **Wind** | ![not supported](x.png) | ![supported](v.png) |
+| **Prestige** | ![not supported](x.png) | ![supported](v.png) |
+| **Fracture** | ![not supported](x.png) | ![supported](v.png) |
+| **Crush** | ![not supported](x.png) | ![supported](v.png) |
+| **Peel Off** | ![not supported](x.png) | ![supported](v.png) |
+| **Page Curl** | ![not supported](x.png) | ![supported](v.png) |
+| **Airplane** | ![not supported](x.png) | ![supported](v.png) |
+| **Origami** | ![not supported](x.png) | ![supported](v.png) |
+| **Dissolve** | ![supported](v.png) | ![supported](v.png) |
+| **Checkerboard** | ![not supported](x.png) | ![supported](v.png) |
+| **Blinds** | ![not supported](x.png) | ![supported](v.png) |
+| **Clock** | ![supported](v.png) | ![supported](v.png) |
+| **Ripple** | ![not supported](x.png) | ![supported](v.png) |
+| **Honeycomb** | ![not supported](x.png) | ![supported](v.png) |
+| **Glitter** | ![not supported](x.png) | ![supported](v.png) |
+| **Vortex** | ![not supported](x.png) | ![supported](v.png) |
+| **Shred** | ![not supported](x.png) | ![supported](v.png) |
+| **Switch** | ![not supported](x.png) | ![supported](v.png) |
+| **Flip** | ![not supported](x.png) | ![supported](v.png) |
+| **Gallery** | ![not supported](x.png) | ![supported](v.png) |
+| **Cube** | ![not supported](x.png) | ![supported](v.png) |
+| **Doors** | ![not supported](x.png) | ![supported](v.png) |
+| **Box** | ![not supported](x.png) | ![supported](v.png) |
+| **Comb** | ![not supported](x.png) | ![supported](v.png) |
+| **Zoom** | ![supported](v.png) | ![supported](v/png) |
+| **Random** | ![not supported](x.png) | ![supported](v.png) |
+
+**Dynamic Content**:
+
+| Τύπος Κίνησης | Aspose.Slides | PowerPoint |
+|---|---|---|
+| **Pan** | ![not supported](x.png) | ![supported](v.png) |
+| **Ferris Wheel** | ![supported](v.png) | ![supported](v.png) |
+| **Conveyor** | ![not supported](x.png) | ![supported](v.png) |
+| **Rotate** | ![not supported](x.png) | ![supported](v.png) |
+| **Orbit** | ![not supported](x.png) | ![supported](v.png) |
+| **Fly Through** | ![supported](v.png) | ![supported](v.png) |
 
 ## **Συχνές Ερωτήσεις**
 
-**Μπορεί να γίνει μετατροπή παρουσιάσεων που προστατεύονται με κωδικό;**
+### Είναι δυνατόν να μετατραπούν παρουσιάσεις που προστατεύονται με κωδικό;
 
-Ναι, το Aspose.Slides for .NET υποστηρίζει την εργασία με παρουσιάσεις που προστατεύονται με κωδικό πρόσβασης. Κατά την επεξεργασία τέτοιων αρχείων, πρέπει να παρέχετε τον σωστό κωδικό ώστε η βιβλιοθήκη να έχει πρόσβαση στο περιεχόμενο της παρουσίασης.
+Ναι, το Aspose.Slides for .NET επιτρέπει την εργασία με παρουσιάσεις προστατευμένες με κωδικό. Κατά την επεξεργασία τέτοιων αρχείων, πρέπει να παραχωρήσετε τον σωστό κωδικό ώστε η βιβλιοθήκη να μπορεί να έχει πρόσβαση στο περιεχόμενο της παρουσίασης.
 
-**Υποστηρίζει το Aspose.Slides for .NET χρήση σε λύσεις cloud;**
+### Υποστηρίζει το Aspose.Slides for .NET τη χρήση του σε λύσεις cloud;
 
-Ναι, το Aspose.Slides for .NET μπορεί να ενσωματωθεί σε εφαρμογές και υπηρεσίες cloud. Η βιβλιοθήκη έχει σχεδιαστεί για λειτουργία σε περιβάλλοντα διακομιστών, διασφαλίζοντας υψηλή απόδοση και κλιμακωσιμότητα για επεξεργασία αρχείων κατά παρτίδες.
+Ναι, το Aspose.Slides for .NET μπορεί να ενσωματωθεί σε εφαρμογές και υπηρεσίες cloud. Η βιβλιοθήκη σχεδιάστηκε για λειτουργία σε περιβάλλοντα εξυπηρετητών, εξασφαλίζοντας υψηλή απόδοση και κλιμακωσιμότητα για μαζική επεξεργασία αρχείων.
+
+### Υπάρχουν περιορισμοί μεγέθους για τις παρουσιάσεις κατά τη μετατροπή;
+
+Το Aspose.Slides for .NET είναι ικανό να διαχειριστεί παρουσιάσεις σχεδόν οποιουδήποτε μεγέθους. Ωστόσο, όταν εργάζεστε με πολύ μεγάλα αρχεία, ενδέχεται να απαιτηθούν επιπλέον συστημικοί πόροι, και συχνά συνιστάται η βελτιστοποίηση της παρουσίασης για τη βελτίωση της απόδοσης.

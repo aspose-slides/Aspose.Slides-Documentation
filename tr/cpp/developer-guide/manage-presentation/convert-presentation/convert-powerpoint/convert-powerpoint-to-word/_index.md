@@ -1,6 +1,6 @@
 ---
-title: PowerPoint Sunumlarını C++'ta Word Belgelerine Dönüştürme
-linktitle: PowerPoint'tan Word'e
+title: C++ ile PowerPoint Sunumlarını Word Belgelerine Dönüştürme
+linktitle: PowerPoint'ten Word'e
 type: docs
 weight: 110
 url: /tr/cpp/convert-powerpoint-to-word/
@@ -8,19 +8,19 @@ keywords:
 - PowerPoint dönüştür
 - sunumu dönüştür
 - slaytı dönüştür
-- PPT dönüştür
-- PPTX dönüştür
-- PowerPoint'tan Word'e
+- PPT'yi dönüştür
+- PPTX'i dönüştür
+- PowerPoint'ten Word'e
 - sunumu Word'e
 - slaytı Word'e
 - PPT'yi Word'e
 - PPTX'i Word'e
-- PowerPoint'tan DOCX'e
+- PowerPoint'ten DOCX'e
 - sunumu DOCX'e
 - slaytı DOCX'e
 - PPT'yi DOCX'e
 - PPTX'i DOCX'e
-- PowerPoint'tan DOC'a
+- PowerPoint'ten DOC'a
 - sunumu DOC'a
 - slaytı DOC'a
 - PPT'yi DOC'a
@@ -31,45 +31,67 @@ keywords:
 - PPTX'i DOCX'e aktar
 - C++
 - Aspose.Slides
-description: Aspose.Slides kullanarak, PowerPoint PPT ve PPTX slaytlarını C++'ta düzenlenebilir Word belgelerine, kesin düzen, görseller ve biçimlendirme korunarak dönüştürün.
+description: "Aspose.Slides kullanarak C++ içinde PowerPoint PPT ve PPTX slaytlarını düzenlenebilir Word belgelerine, kesin düzen, görseller ve biçimlendirme korunarak dönüştürün."
 ---
 ## **Giriş**
 
-Bir sunumdan (PPT veya PPTX) metin içeriği veya bilgi kullanmayı yeni şekillerde planlıyorsanız, sunumu Word'e (DOC veya DOCX) dönüştürmekten fayda sağlayabilirsiniz.
+Sunum (PPT veya PPTX) içindeki metinsel içeriği veya bilgiyi yeni şekillerde kullanmayı planlıyorsanız, sunumu Word (DOC veya DOCX) formatına dönüştürmek size fayda sağlayabilir. 
 
-* Microsoft PowerPoint ile karşılaştırıldığında, Microsoft Word uygulaması içerik için daha fazla araç ve işlevselliğe sahiptir.
-* Word'deki düzenleme işlevlerinin yanı sıra, geliştirilmiş işbirliği, yazdırma ve paylaşım özelliklerinden de faydalanabilirsiniz.
+* Microsoft PowerPoint'e kıyasla, Microsoft Word uygulaması içerik için daha fazla araç ve işlevselliğe sahiptir. 
+* Word'deki düzenleme işlevlerinin yanı sıra, geliştirilmiş işbirliği, baskı ve paylaşım özelliklerinden de yararlanabilirsiniz. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Kaydıraklardaki metin içeriğiyle çalışmaktan neler elde edebileceğinizi görmek için [**Sunumu Word'e Çeviren Çevrimiçi Dönüştürücü**](https://products.aspose.app/slides/tr/conversion/ppt-to-word) denemek isteyebilirsiniz.
+Kaydıraklardaki metinsel içerikle çalışarak neler kazanabileceğinizi görmek için [**Sunumu Word'e Çevrimiçi Dönüştürücü**](https://products.aspose.app/slides/tr/conversion/ppt-to-word) deneyebilirsiniz. 
 
 {{% /alert %}} 
 
 ## **Aspose.Slides ve Aspose.Words**
 
-Bir PowerPoint dosyasını (PPTX veya PPT) Word (DOCX veya DOC) formatına dönüştürmek için hem [Aspose.Slides for C++](https://products.aspose.com/slides/tr/cpp/) hem de [Aspose.Words for C++](https://products.aspose.com/words/cpp/) gerekir.
+PowerPoint dosyasını (PPTX veya PPT) Word (DOCX veya DOC) formatına dönüştürmek için hem [Aspose.Slides for C++](https://products.aspose.com/slides/tr/cpp/) hem de [Aspose.Words for C++](https://products.aspose.com/words/cpp/) gerekir. 
 
-Bağımsız bir API olarak, C++ için [Aspose.Slides](https://products.aspose.app/slides) sunumlardan metin çıkarmanıza izin veren işlevler sunar.
+Bağımsız bir API olarak, C++ için [Aspose.Slides](https://products.aspose.app/slides) sunumlardan metin çıkarmanıza olanak tanıyan işlevler sunar. 
 
-[Aspose.Words](https://docs.aspose.com/words/cpp/) gelişmiş bir belge işleme API'sıdır ve uygulamaların Microsoft Word kullanmadan dosyalar oluşturmasına, değiştirmesine, dönüştürmesine, görüntülemesine, yazdırmasına ve belgeyle ilgili diğer görevleri yerine getirmesine olanak tanır.
+[Aspose.Words](https://docs.aspose.com/words/cpp/) gelişmiş bir belge işleme API'sidir ve uygulamaların Microsoft Word kullanmadan dosyaları oluşturmasını, değiştirmesini, dönüştürmesini, render etmesini, yazdırmasını ve belgelerle ilgili diğer görevleri yerine getirmesini sağlar. 
 
 ## **PowerPoint Sunumunu Word Belgesine Dönüştürme**
 
-PowerPoint'i Word'e dönüştürmek için bu kod parçacığını kullanın:
+PowerPoint'i Word'e dönüştürmek için bu kod snippet'ini kullanın: 
 
 ```cpp
-auto presentation = MakeObject<Presentation>();
+#include <Aspose.Words.Cpp/BreakType.h>
+#include <Aspose.Words.Cpp/Document.h>
+#include <Aspose.Words.Cpp/DocumentBuilder.h>
+#include <DOM/AutoShape.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/io/memory_stream.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+
 auto doc = MakeObject<Aspose::Words::Document>();
 auto builder = MakeObject<Aspose::Words::DocumentBuilder>(doc);
 
 for (const auto& slide : presentation->get_Slides())
 {
-    // slayt görüntüsü oluşturur ve ekler
+    // slayt görüntüsünü bayt dizisi akışı olarak oluşturur
     auto image = slide->GetImage(1.0f, 1.0f);
-    builder->InsertImage(image);
+    auto imageStream = MakeObject<System::IO::MemoryStream>();
+    image->Save(imageStream, Aspose::Slides::ImageFormat::Png);
+    image->Dispose();
 
-    // slayt metinlerini ekler
+    builder->InsertImage(imageStream->ToArray());
+
+    // slaytın metinlerini ekler
     for (const auto& shape : slide->get_Shapes())
     {
         if (ObjectExt::Is<AutoShape>(shape))
@@ -81,14 +103,17 @@ for (const auto& slide : presentation->get_Slides())
 
     builder->InsertBreak(Aspose::Words::BreakType::PageBreak);
 }
+
+doc->Save(u"output.docx");
+presentation->Dispose();
 ```
 
-## **SSS**
+## **FAQ**
 
-**PowerPoint ve OpenDocument sunumlarını Word belgelerine dönüştürmek için hangi bileşenler kurulmalıdır?**
+### PowerPoint ve OpenDocument sunumlarını Word belgelerine dönüştürmek için hangi bileşenlerin kurulması gerekir?
 
-Projenize yalnızca [Aspose.Slides for C++](https://releases.aspose.com/slides/tr/cpp/) ve [Aspose.Words for C++](https://releases.aspose.com/words/cpp/) ilgili paketlerini eklemeniz yeterlidir. Her iki kütüphane de bağımsız API'lar olarak çalışır ve Microsoft Office'in kurulu olmasına gerek yoktur.
+Projenize sadece [Aspose.Slides for C++](https://releases.aspose.com/slides/tr/cpp/) ve [Aspose.Words for C++](https://releases.aspose.com/words/cpp/) ilgili paketlerini eklemeniz yeterlidir. Her iki kütüphane de bağımsız API'lar olarak çalışır ve Microsoft Office'in kurulmuş olmasına gerek yoktur.
 
-**Tüm PowerPoint ve OpenDocument sunum formatları destekleniyor mu?**
+### Tüm PowerPoint ve OpenDocument sunum formatları destekleniyor mu?
 
-Aspose.Slides [tüm sunum formatlarını destekler](/slides/tr/cpp/supported-file-formats/), bunlar arasında PPT, PPTX, ODP ve diğer yaygın dosya türleri bulunmaktadır. Bu, çeşitli Microsoft PowerPoint sürümlerinde oluşturulmuş sunumlarla çalışabileceğiniz anlamına gelir.
+Aspose.Slides [tüm sunum formatlarını destekler](/slides/tr/cpp/supported-file-formats/), PPT, PPTX, ODP ve diğer yaygın dosya türleri dahil. Bu, Microsoft PowerPoint'in çeşitli sürümlerinde oluşturulmuş sunumlarla çalışabileceğiniz anlamına gelir.

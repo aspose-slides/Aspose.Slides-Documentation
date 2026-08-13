@@ -1,19 +1,21 @@
 ---
-title: Quản lý danh sách có dấu đầu mục và danh sách đánh số trong bản trình bày bằng .NET
+title: Quản lý danh sách có dấu đầu dòng và có số trong bản trình bày bằng .NET
 linktitle: Quản lý danh sách
 type: docs
 weight: 70
 url: /vi/net/manage-lists/
+aliases:
+  - /net/manage-bullet-and-numbered-lists/
 keywords:
-- dấu đầu mục
-- danh sách có dấu đầu mục
-- danh sách đánh số
-- dấu đầu mục biểu tượng
-- dấu đầu mục hình ảnh
-- dấu đầu mục tùy chỉnh
+- dấu đầu dòng
+- danh sách có dấu đầu dòng
+- danh sách có số
+- dấu đầu dòng ký hiệu
+- dấu đầu dòng hình ảnh
+- dấu đầu dòng tùy chỉnh
 - danh sách đa cấp
-- tạo dấu đầu mục
-- thêm dấu đầu mục
+- tạo dấu đầu dòng
+- thêm dấu đầu dòng
 - thêm danh sách
 - PowerPoint
 - OpenDocument
@@ -21,29 +23,31 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Tìm hiểu cách tạo và định dạng danh sách có dấu đầu mục, danh sách hình ảnh, danh sách đa cấp và danh sách đánh số trong các bản trình bày PowerPoint và OpenDocument bằng Aspose.Slides cho .NET."
+description: "Tìm hiểu cách tạo và định dạng danh sách có dấu đầu dòng, danh sách hình ảnh, danh sách đa cấp và danh sách có số trong các bản trình bày PowerPoint và OpenDocument bằng cách sử dụng Aspose.Slides cho .NET."
 ---
 ## **Tổng quan**
 
-Aspose.Slides for .NET cho phép bạn tạo và định dạng danh sách có dấu đầu mục và danh sách đánh số trong các bản trình bày PowerPoint và OpenDocument. Một mục danh sách là một đoạn văn mà cài đặt dấu đầu mục được kiểm soát thông qua định dạng đoạn văn của nó.
+Aspose.Slides for .NET cho phép bạn tạo và định dạng danh sách có dấu đầu dòng và có số trong các bản trình bày PowerPoint và OpenDocument. Một mục danh sách là một đoạn văn mà các cài đặt dấu đầu dòng được kiểm soát thông qua định dạng đoạn văn của nó.
 
-Sử dụng thuộc tính [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraph/paragraphformat/) để truy cập cài đặt danh sách ở mức đoạn văn. Điểm vào chính là [IParagraphFormat.Bullet](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraphformat/bullet/), trả về một đối tượng [IBulletFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/). Với đối tượng này, bạn có thể đặt loại dấu đầu mục, ký hiệu, hình ảnh, màu, kích thước, kiểu đánh số và số bắt đầu.
+Sử dụng thuộc tính [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraph/paragraphformat/) để truy cập các cài đặt danh sách ở mức đoạn văn. Điểm vào chính là [IParagraphFormat.Bullet](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraphformat/bullet/), nó trả về một đối tượng [IBulletFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/). Với đối tượng này, bạn có thể đặt loại dấu đầu dòng, ký hiệu, hình ảnh, màu sắc, kích thước, kiểu đánh số và số bắt đầu.
 
-Bài viết này minh họa cách:
+Bài viết này hướng dẫn:
 
-- tạo danh sách có dấu đầu mục với biểu tượng tùy chỉnh
-- tạo dấu đầu mục bằng hình ảnh
+- tạo danh sách có dấu đầu dòng với ký hiệu tùy chỉnh
+- tạo dấu đầu dòng hình ảnh
 - tạo danh sách đa cấp bằng cách đặt độ sâu đoạn văn
-- tạo danh sách đánh số
+- tạo danh sách có số
 - kiểm tra và thay đổi định dạng danh sách trong một bản trình bày hiện có
 
-## **Tạo danh sách có dấu đầu mục**
+## **Tạo danh sách có dấu đầu dòng**
 
-Để tạo danh sách có dấu đầu mục, thêm các đối tượng [IParagraph](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraph/) vào một [ITextFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframe/) và đặt [IBulletFormat.Type](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/type/) thành [BulletType.Symbol](https://reference.aspose.com/slides/vi/net/aspose.slides/bullettype/). Sau đó bạn có thể đặt [IBulletFormat.Char](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/char/), [IBulletFormat.Color](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/color/) và [IBulletFormat.Height](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/height/) để kiểm soát giao diện dấu đầu mục.
-
-Mã C# sau đây minh họa cách tạo danh sách có dấu đầu mục trong một slide:
+Để tạo danh sách có dấu đầu dòng, thêm các đối tượng [IParagraph](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraph/) vào một [ITextFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframe/) và đặt [IBulletFormat.Type](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/type/) thành [BulletType.Symbol](https://reference.aspose.com/slides/vi/net/aspose.slides/bullettype/). Sau đó bạn có thể đặt [IBulletFormat.Char](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/char/), [IBulletFormat.Color](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/color/), và [IBulletFormat.Height](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/height/) để điều khiển giao diện dấu đầu dòng.
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 static Paragraph CreateParagraph(string text)
 {
     var paragraph = new Paragraph();
@@ -76,15 +80,16 @@ presentation.Save("symbol_bullets.pptx", SaveFormat.Pptx);
 
 Kết quả:
 
-![Các dấu đầu mục biểu tượng](symbol_bullets.png)
+![Các dấu đầu dòng ký hiệu](symbol_bullets.png)
 
-## **Tạo danh sách đánh số**
+## **Tạo danh sách có số**
 
-Sử dụng danh sách đánh số khi thứ tự của các mục quan trọng. Đặt [IBulletFormat.Type](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/type/) thành [BulletType.Numbered](https://reference.aspose.com/slides/vi/net/aspose.slides/bullettype/). Bạn cũng có thể chọn định dạng đánh số bằng [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/numberedbulletstyle/) hoặc đặt [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/numberedbulletstartwith/) khi danh sách nên bắt đầu từ giá trị khác 1.
-
-Mã C# sau đây cho thấy cách tạo danh sách đánh số trong một slide:
+Sử dụng danh sách có số khi thứ tự các mục quan trọng. Đặt [IBulletFormat.Type](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/type/) thành [BulletType.Numbered](https://reference.aspose.com/slides/vi/net/aspose.slides/bullettype/). Bạn cũng có thể chọn định dạng đánh số bằng [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/numberedbulletstyle/) hoặc đặt [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/numberedbulletstartwith/) khi danh sách nên bắt đầu từ một giá trị khác 1.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
@@ -113,27 +118,28 @@ presentation.Save("numbered_bullets.pptx", SaveFormat.Pptx);
 
 Kết quả:
 
-![Các dấu đầu mục đánh số](numbered_bullets.png)
+![Các dấu đầu dòng có số](numbered_bullets.png)
 
-## **Tạo dấu đầu mục bằng hình ảnh**
+## **Tạo dấu đầu dòng hình ảnh**
 
-Aspose.Slides cho phép bạn thay thế ký hiệu dấu đầu mục thông thường bằng một hình ảnh. Dấu đầu mục bằng hình ảnh hoạt động tốt nhất với những hình ảnh đơn giản vẫn có thể đọc được ở kích thước nhỏ, chẳng hạn như biểu tượng hoặc các tệp PNG trong suốt nhỏ.
+Aspose.Slides cho phép bạn thay thế ký hiệu dấu đầu dòng thông thường bằng một hình ảnh. Dấu đầu dòng hình ảnh hoạt động tốt nhất với các hình ảnh đơn giản vẫn có thể đọc được ở kích thước nhỏ, chẳng hạn như biểu tượng hoặc tệp PNG trong suốt nhỏ.
 
-{{% alert color="primary" %}}
-Lý tưởng nhất, nếu bạn dự định thay thế ký hiệu dấu đầu mục thông thường bằng một hình ảnh, bạn nên chọn một đồ họa đơn giản có nền trong suốt. Những hình ảnh như vậy hoạt động tốt như các ký hiệu dấu đầu mục tùy chỉnh.
+{{% alert color="info" %}}
+Ideally, nếu bạn dự định thay thế ký hiệu dấu đầu dòng thông thường bằng hình ảnh, tốt nhất là chọn một đồ họa đơn giản với nền trong suốt. Những hình ảnh như vậy hoạt động tốt như các ký hiệu dấu đầu dòng tùy chỉnh.
 
-Hãy nhớ rằng hình ảnh sẽ được thu nhỏ xuống kích thước rất nhỏ. Vì lý do này, chúng tôi khuyến nghị mạnh mẽ bạn chọn một hình ảnh vẫn rõ ràng và hiệu quả về mặt hình ảnh khi được sử dụng làm dấu đầu mục trong danh sách.
+Keep in mind that the image will be scaled down to a very small size. For that reason, we strongly recommend selecting an image that remains clear and visually effective when used as a bullet in a list.
 {{% /alert %}}
 
-Để tạo dấu đầu mục bằng hình ảnh, thêm một hình ảnh vào [Presentation.Images](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/images/) và gán đối tượng hình ảnh trả về cho [IBulletFormat.Picture](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/picture/). Đặt [IBulletFormat.Type](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/type/) thành [BulletType.Picture](https://reference.aspose.com/slides/vi/net/aspose.slides/bullettype/) trước khi gán hình ảnh.
+Để tạo dấu đầu dòng hình ảnh, thêm một hình ảnh vào [Presentation.Images](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/images/) và gán đối tượng hình ảnh trả về cho [IBulletFormat.Picture](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/picture/). Đặt [IBulletFormat.Type](https://reference.aspose.com/slides/vi/net/aspose.slides/ibulletformat/type/) thành [BulletType.Picture](https://reference.aspose.com/slides/vi/net/aspose.slides/bullettype/) trước khi gán hình ảnh.
 
 Giả sử chúng ta có một "image.png":
 
-![Một hình ảnh cho các dấu đầu mục](picture_for_bullets.png)
-
-Mã C# sau đây cho thấy cách tạo dấu đầu mục bằng hình ảnh trong một slide:
+![Hình ảnh cho các dấu đầu dòng](picture_for_bullets.png)
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 static Paragraph CreateParagraph(string text, IPPImage image)
 {
     var paragraph = new Paragraph();
@@ -167,15 +173,16 @@ presentation.Save("picture_bullets.pptx", SaveFormat.Pptx);
 
 Kết quả:
 
-![Các dấu đầu mục hình ảnh](picture_bullets.png)
+![Các dấu đầu dòng hình ảnh](picture_bullets.png)
 
 ## **Tạo danh sách đa cấp**
 
-Sử dụng [IParagraphFormat.Depth](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraphformat/depth/) để đặt các mục danh sách ở các cấp độ khác nhau. Cấp 0 là cấp trên cùng, cấp 1 nằm lồng dưới nó, và cứ tiếp tục như vậy.
-
-Mã C# sau đây cho thấy cách tạo danh sách có dấu đầu mục đa cấp:
+Sử dụng [IParagraphFormat.Depth](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraphformat/depth/) để đặt các mục danh sách ở các cấp độ khác nhau. Cấp độ 0 là cấp cao nhất, cấp độ 1 nằm bên dưới nó, và cứ như vậy.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
@@ -213,11 +220,12 @@ Kết quả:
 
 ## **Thay đổi danh sách hiện có**
 
-Để thay đổi định dạng danh sách trong một bản trình bày hiện có, truy cập đoạn văn mục tiêu và cập nhật cài đặt [IParagraphFormat.Bullet](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraphformat/bullet/) của nó. Các thuộc tính giống như khi tạo danh sách có thể được dùng để kiểm tra hoặc sửa đổi danh sách được tải từ tệp PPT, PPTX hoặc ODP.
-
-Mã C# sau đây thay đổi đoạn văn đầu tiên trong một khung văn bản để sử dụng kiểu danh sách đánh số:
+Để thay đổi định dạng danh sách trong một bản trình bày hiện có, truy cập đoạn văn mục tiêu và cập nhật các cài đặt [IParagraphFormat.Bullet](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraphformat/bullet/) của nó. Các thuộc tính tương tự được sử dụng để tạo danh sách có thể được dùng để kiểm tra hoặc sửa đổi danh sách được tải từ tệp PPT, PPTX hoặc ODP.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("input.pptx");
 
 var slide = presentation.Slides[0];
@@ -235,14 +243,14 @@ presentation.Save("updated_list.pptx", SaveFormat.Pptx);
 
 ## **Câu hỏi thường gặp**
 
-**Liệu các danh sách có dấu đầu mục và danh sách đánh số có thể xuất ra PDF hoặc hình ảnh không?**
+### Có thể xuất danh sách có dấu đầu dòng và có số sang PDF hoặc hình ảnh không?
 
-Có. Aspose.Slides bảo tồn định dạng danh sách khi định dạng đích hỗ trợ bố cục văn bản và các tính năng dấu đầu mục tương ứng.
+Đúng. Aspose.Slides giữ nguyên định dạng danh sách khi định dạng đích hỗ trợ bố cục văn bản và các tính năng dấu đầu dòng tương ứng.
 
-**Tôi có thể chỉnh sửa danh sách trong các bản trình bày hiện có không?**
+### Tôi có thể chỉnh sửa danh sách trong các bản trình bày hiện có không?
 
-Có. Tải bản trình bày, truy cập đoạn văn mục tiêu, kiểm tra hoặc cập nhật cài đặt [IParagraphFormat.Bullet](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraphformat/bullet/) của nó và lưu bản trình bày.
+Đúng. Tải bản trình bày, truy cập đoạn văn mục tiêu, kiểm tra hoặc cập nhật các cài đặt [IParagraphFormat.Bullet](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraphformat/bullet/) của nó, và lưu bản trình bày.
 
-**Liệu danh sách có thể chứa văn bản không phải chữ Latinh không?**
+### Danh sách có thể chứa văn bản không phải La tinh không?
 
-Có. Văn bản của mục danh sách có thể chứa ký tự Unicode, vì vậy bạn có thể tạo danh sách trong các bản trình bày đa ngôn ngữ. Đảm bảo các phông chữ được sử dụng trong bản trình bày hỗ trợ các ký tự bạn cần.
+Đúng. Văn bản của mục danh sách có thể chứa ký tự Unicode, vì vậy bạn có thể tạo danh sách trong các bản trình bày đa ngôn ngữ. Đảm bảo các phông chữ được sử dụng trong bản trình bày hỗ trợ các ký tự bạn cần.

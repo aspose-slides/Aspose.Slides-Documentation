@@ -4,7 +4,7 @@ type: docs
 weight: 45
 url: /id/jasperreports/integration-with-jasperserver/
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Untuk mengintegrasikan Aspose.Slides for JasperReports dengan JasperServer, diperlukan beberapa langkah tambahan dan memperbarui file konfigurasi JasperServer. Artikel ini menjelaskan caranya.
 

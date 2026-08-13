@@ -11,11 +11,11 @@ keywords:
 - převést snímek
 - převést PPT
 - převést PPTX
-- PowerPoint do GIF
-- prezentace do GIF
-- snímek do GIF
-- PPT do GIF
-- PPTX do GIF
+- PowerPoint na GIF
+- prezentace na GIF
+- snímek na GIF
+- PPT na GIF
+- PPTX na GIF
 - uložit PPT jako GIF
 - uložit PPTX jako GIF
 - exportovat PPT jako GIF
@@ -26,17 +26,19 @@ keywords:
 - prezentace
 - Java
 - Aspose.Slides
-description: "Jednoduše převádějte prezentace PowerPoint (PPT, PPTX) na animované GIFy pomocí Aspose.Slides pro Java. Rychlé a vysoce kvalitní výsledky."
+description: "Jednoduše převádějte prezentace PowerPoint (PPT, PPTX) na animované GIFy pomocí Aspose.Slides pro Javu. Rychlé, vysoce kvalitní výsledky."
 ---
 ## **Přehled**
 
-Aspose.Slides vám umožňuje převádět prezentace PowerPoint na animované soubory GIF pomocí několika řádků kódu. To je užitečné, když potřebujete sdílet obsah snímků v lehkém, široce podporovaném animovaném formátu, který lze vložit do webových stránek, messengerů nebo dokumentace. Tento článek vysvětluje, jak exportovat prezentaci do GIFu s výchozími nastaveními a jak přizpůsobit výstup konfigurací možností, jako je velikost snímku, prodleva mezi snímky a frekvence přechodových snímků prostřednictvím [GifOptions](https://reference.aspose.com/slides/cs/java/com.aspose.slides/gifoptions/).
+Aspose.Slides vám umožňuje převést prezentace PowerPoint na animované soubory GIF pomocí několika řádků kódu. To je užitečné, když potřebujete sdílet obsah snímků v lehkém, široce podporovaném animovaném formátu, který lze vložit do webových stránek, messengerů nebo dokumentace. Tento článek popisuje, jak exportovat prezentaci do GIFu s výchozími nastaveními a jak přizpůsobit výstup konfigurací možností, jako je velikost snímku, prodleva mezi snímky a frekvence přechodových snímků pomocí [GifOptions](https://reference.aspose.com/slides/cs/java/com.aspose.slides/gifoptions/).
 
 ## **Převod prezentací na animovaný GIF pomocí výchozích nastavení**
 
-Tento ukázkový kód v Javě vám ukazuje, jak převést prezentaci na animovaný GIF pomocí standardních nastavení:
+Tento ukázkový kód v jazyce Java ukazuje, jak převést prezentaci na animovaný GIF pomocí standardních nastavení:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
 	pres.save("pres.gif", SaveFormat.Gif);
@@ -45,25 +47,26 @@ try {
 }
 ```
 
-Animovaný GIF bude vytvořen s výchozími parametry. 
+Animovaný GIF bude vytvořen s výchozími parametry.
 
-{{%  alert  title="TIP"  color="primary"  %}} 
-
-Pokud chcete přizpůsobit parametry GIFu, můžete použít třídu [GifOptions](https://reference.aspose.com/slides/cs/java/com.aspose.slides/GifOptions). Viz níže uvedený ukázkový kód. 
-
+{{%  alert  title="TIP"  color="info"  %}} 
+Pokud chcete přizpůsobit parametry GIFu, můžete použít třídu [GifOptions](https://reference.aspose.com/slides/cs/java/com.aspose.slides/GifOptions). Viz ukázkový kód níže. 
 {{% /alert %}} 
 
 ## **Převod prezentací na animovaný GIF pomocí vlastních nastavení**
 
-Tento ukázkový kód vám ukazuje, jak převést prezentaci na animovaný GIF pomocí vlastních nastavení v Javě:
+Tento ukázkový kód ukazuje, jak převést prezentaci na animovaný GIF pomocí vlastních nastavení v jazyce Java:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Dimension;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
 	GifOptions gifOptions = new GifOptions();
 	gifOptions.setFrameSize(new Dimension(960, 720)); // velikost výsledného GIFu  
-	gifOptions.setDefaultDelay(2000); // jak dlouho bude každý snímek zobrazen, dokud nebude nahrazen dalším
-	gifOptions.setTransitionFps(35); // zvýšit FPS pro lepší kvalitu přechodové animace
+	gifOptions.setDefaultDelay(2000); // jak dlouho bude každý snímek zobrazen, než bude nahrazen dalším
+	gifOptions.setTransitionFps(35); // zvýšit FPS pro lepší kvalitu animačních přechodů
 	
 	pres.save("pres.gif", SaveFormat.Gif, gifOptions);
 } finally {
@@ -72,17 +75,15 @@ try {
 ```
 
 {{% alert title="Info" color="info" %}}
-
-Můžete si také vyzkoušet ZDARMA převodník [Text to GIF](https://products.aspose.app/slides/cs/text-to-gif) vyvinutý společností Aspose. 
-
+Možná budete chtít vyzkoušet ZDARMA převaděč [Text to GIF](https://products.aspose.app/slides/cs/text-to-gif) vytvořený společností Aspose. 
 {{% /alert %}}
 
-## **FAQ**
+## **Často kladené otázky**
 
-**Co když fonty použité v prezentaci nejsou nainstalovány v systému?**
+### Co když fonty použité v prezentaci nejsou v systému nainstalovány?
 
-Nainstalujte chybějící fonty nebo [nastavte náhradní fonty](/slides/cs/java/powerpoint-fonts/). Aspose.Slides provede náhradu, ale vzhled se může lišit. Pro značku vždy zajistěte, aby požadované typy písma byly explicitně k dispozici.
+Nainstalujte chybějící fonty nebo [nastavit náhradní fonty](/slides/cs/java/powerpoint-fonts/). Aspose.Slides je nahradí, ale vzhled se může lišit. Pro značku vždy zajistěte, aby požadované typy písma byly explicitně k dispozici.
 
-**Mohu překrýt vodotisk na snímcích GIFu?**
+### Můžu přidat vodotisk na snímky GIFu?
 
-Ano. [Přidejte poloprůhledný objekt/logo](/slides/cs/java/watermark/) na hlavní snímek nebo na jednotlivé snímky před exportem — vodotisk se objeví na každém snímku.
+Ano. [Přidejte poloprůhledný objekt/logo](/slides/cs/java/watermark/) do hlavního snímku nebo do jednotlivých snímků před exportem – vodotisk se objeví na každém rámci.

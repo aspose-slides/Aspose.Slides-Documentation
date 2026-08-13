@@ -5,7 +5,7 @@ type: docs
 weight: 20
 url: /tr/net/how-to-add-header-footer-in-a-presentation/
 keywords:
-- göç
+- taşıma
 - üstbilgi ekle
 - altbilgi ekle
 - eski kod
@@ -20,80 +20,89 @@ keywords:
 - Aspose.Slides
 description: "Hem eski hem de modern Aspose.Slides API'lerini kullanarak .NET'te PowerPoint PPT, PPTX ve ODP sunumlarına üstbilgi ve altbilgi eklemeyi öğrenin."
 ---
-{{% alert color="primary" %}} 
-Yeni bir [Aspose.Slides for .NET API](/slides/tr/net/) yayınlandı ve artık bu tek ürün, sıfırdan PowerPoint belgeleri oluşturma ve mevcut belgeleri düzenleme yeteneğini destekliyor.
+{{% alert color="info" %}} 
+
+Yeni bir [Aspose.Slides for .NET API](/slides/tr/net/) yayınlandı ve artık bu tek ürün, PowerPoint belgelerini sıfırdan oluşturma ve mevcut belgeleri düzenleme yeteneğini destekliyor.
+
 {{% /alert %}} 
-## **Legacy Kod Desteği**
-13.x öncesi Aspose.Slides for .NET sürümleriyle geliştirilen eski kodu kullanmak için kodunuzda bazı küçük değişiklikler yapmanız gerekir ve kod önceki gibi çalışacaktır. Eski Aspose.Slides for .NET içinde Aspose.Slide ve Aspose.Slides.Pptx ad alanları altında bulunan tüm sınıflar artık tek bir Aspose.Slides ad alanında birleştirildi. Lütfen aşağıdaki basit kod örneğine bir göz atın; bu örnek, eski Aspose.Slides API'sinde sunuma başlık ve altbilgi eklemeyi gösterir ve yeni birleştirilmiş API'ye nasıl geçileceğini açıklayan adımları izleyin.
+## **Eski Kod Desteği**
+13.x öncesi Aspose.Slides for .NET sürümleriyle geliştirilen eski kodu kullanmak için kodunuzda birkaç küçük değişiklik yapmanız gerekir ve kod önceki gibi çalışacaktır. Eski Aspose.Slides for .NET içinde Aspose.Slide ve Aspose.Slides.Pptx ad alanlarında bulunan tüm sınıflar artık tek bir Aspose.Slides ad alanında birleştirildi. Aşağıdaki basit kod parçacığını, legacy Aspose.Slides API'sinde sunumda başlık ve altbilgi eklemek için inceleyin ve yeni birleştirilmiş API'ye nasıl geçileceğini açıklayan adımları izleyin.
 ## **Legacy Aspose.Slides for .NET Yaklaşımı**
 ```c#
 PresentationEx sourcePres = new PresentationEx();
 
-//Setting Header Footer visibility properties
+//Üst Bilgi ve Alt Bilgi görünürlük özelliklerini ayarlama
 sourcePres.UpdateSlideNumberFields = true;
 
-//Update the Date Time Fields
+//Tarih Saat Alanlarını Güncelle
 sourcePres.UpdateDateTimeFields = true;
 
-//Show date time placeholder
+//Tarih saat yer tutucusunu göster
 sourcePres.HeaderFooterManager.IsDateTimeVisible = true;
 
-//Show the footer place holder
+//Altbilgi yer tutucusunu göster
 sourcePres.HeaderFooterManager.IsFooterVisible = true;
 
-//Show Slide Number
+//Slayt Numarasını göster
 sourcePres.HeaderFooterManager.IsSlideNumberVisible = true;
 
-//Set the  header footer visibility on Title Slide
+//Başlık Slaytında üst ve alt bilgi görünürlüğünü ayarla
 sourcePres.HeaderFooterManager.SetVisibilityOnTitleSlide(true);
 
-//Write the presentation to the disk
+//Sunumu diske yaz
 sourcePres.Write("NewSource.pptx");
 ```
 
 ```c#
+using Aspose.Slides;
+
 //Sunumu oluştur
 Presentation pres = new Presentation();
 
 //İlk slaytı al
 Slide sld = pres.GetSlideByPosition(1);
 
-//Slaytın Üstbilgi / Altbilgi'sine eriş
+//Slaytın Üst Bilgi / Alt Bilgi'sine eriş
 HeaderFooter hf = sld.HeaderFooter;
 
-//Sayfa Numarası Görünürlüğünü ayarla
+//Sayfa Numarası Görünürlüğünü Ayarla
 hf.PageNumberVisible = true;
 
-//Altbilgi Görünürlüğünü ayarla
+//Alt Bilgi Görünürlüğünü Ayarla
 hf.FooterVisible = true;
 
-//Üstbilgi Görünürlüğünü ayarla
+//Üst Bilgi Görünürlüğünü Ayarla
 hf.HeaderVisible = true;
 
-//Tarih Saat Görünürlüğünü ayarla
+//Tarih Saat Görünürlüğünü Ayarla
 hf.DateTimeVisible = true;
 
 //Tarih Saat formatını ayarla
 hf.DateTimeFormat = DateTimeFormat.DateTime_dMMMMyyyy;
 
-//Üstbilgi Metnini ayarla
+//Üst Bilgi Metnini ayarla
 hf.HeaderText = "Header Text";
 
-//Altbilgi Metnini ayarla
+//Alt Bilgi Metnini ayarla
 hf.FooterText = "Footer Text";
 
 //Sunumu diske yaz
 pres.Write("HeadFoot.ppt");
 ```
 
+
+
 ## **Yeni Aspose.Slides for .NET 13.x Yaklaşımı**
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation sourcePres = new Presentation())
 {
-    //Üstbilgi Altbilgi görünürlük özelliklerini ayarlama
+    //Üst Bilgi ve Alt Bilgi görünürlük özelliklerini ayarlama
     sourcePres.HeaderFooterManager.SetAllSlideNumbersVisibility(true);
 
-    //Tarih Saat alanlarını güncelle
+    //Tarih Saat Alanlarını Güncelle
     sourcePres.HeaderFooterManager.SetAllDateTimesVisibility(true);
 
     //Tarih saat yer tutucusunu göster
@@ -102,7 +111,7 @@ using (Presentation sourcePres = new Presentation())
     //Altbilgi yer tutucusunu göster
     sourcePres.HeaderFooterManager.SetAllFootersVisibility(true);
     
-    //Başlık slaytında üstbilgi altbilgi görünürlüğünü ayarla
+    //Başlık Slaytındaki üst ve alt bilgi görünürlüğünü ayarla
     sourcePres.HeaderFooterManager.SetVisibilityOnAllTitleSlides(true);
 
     //Sunumu diske kaydet

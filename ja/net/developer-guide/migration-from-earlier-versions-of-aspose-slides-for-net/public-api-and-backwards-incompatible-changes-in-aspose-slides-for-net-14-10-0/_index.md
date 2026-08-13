@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides for .NET 14.10.0 のパブリック API と後方互換性のない変更
+title: Aspose.Slides for .NET 14.10.0 におけるパブリック API と後方互換性のない変更
 linktitle: Aspose.Slides for .NET 14.10.0
 type: docs
 weight: 120
@@ -16,60 +16,55 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET のパブリック API 更新と破壊的変更を確認し、PowerPoint の PPT、PPTX、ODP プレゼンテーション ソリューションを円滑に移行できるようにします。"
+description: "Aspose.Slides for .NET のパブリック API の更新と破壊的変更を確認し、PowerPoint の PPT、PPTX、ODP プレゼンテーション ソリューションをスムーズに移行できるようにします。"
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-このページでは、Aspose.Slides for .NET 14.10.0 APIで導入された、[added](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/)または[removed](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/)されたクラス、メソッド、プロパティなど、その他の変更を一覧表示します。
+このページでは、すべての[added](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/)または[removed](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/)クラス、メソッド、プロパティ等、およびAspose.Slides for .NET 14.10.0 APIで導入されたその他の変更を一覧表示します。
 
 {{% /alert %}} 
-## **Public API 変更**
-#### **Aspose.Slides.FieldType.Footer フィールド型が追加されました**
-このフィールド型は、このタイプのフィールドを作成できるようにする実装と、正しいプレゼンテーションのシリアライズのために追加されました。
-#### **Enum 要素 ShapeElementFillSource.Own が削除されました**
-重複しているため、Enum 要素 ShapeElementFillSource.Own は削除されました。ShapeElementFillSource.Own の代わりに ShapeElementFillSource.Shape を使用してください。
-#### **チャート データポイントおよびカテゴリの削除に関するメソッドが追加されました**
-チャート データポイント コレクションからデータポイントを削除できる次のメソッドが追加されました:
+## **パブリック API の変更**
+#### **Aspose.Slides.FieldType.Footer フィールドタイプが追加されました**
+Footer フィールドタイプが追加され、該当タイプのフィールド作成および有効なプレゼンテーションのシリアライズが可能になりました。
+#### **列挙体要素 ShapeElementFillSource.Own が削除されました**
+ShapeElementFillSource.Own 列挙体要素は重複していたため削除されました。代わりに ShapeElementFillSource.Shape を使用してください。
+#### **チャート データポイントおよびカテゴリの削除用メソッドが追加されました**
+以下のメソッドが追加され、チャート データポイント コレクションからデータポイントを削除できるようになりました:
 
 IChartDataPointCollection.Remove(IChartDataPoint)
 IChartDataPoint.Report()
 
-含むコレクションからチャート カテゴリを削除できる次のメソッドが追加されました:
+以下のメソッドが追加され、含まれるコレクションからチャート カテゴリを削除できるようになりました:
 
 IChartCategory.Remove()
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
- using (Presentation pres = new Presentation())
-
+using (Presentation pres = new Presentation())
 {
-
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 400, true);
 
-    chart.ChartData.Categories[0].Remove(); //remove with ChartCategory.Remove()
+    chart.ChartData.Categories[0].Remove(); //ChartCategory.Remove() で削除
 
-    chart.ChartData.Categories.Remove(chart.ChartData.Categories[0]); //remove with ChartCategoryCollection.Remove()
+    chart.ChartData.Categories.Remove(chart.ChartData.Categories[0]); //ChartCategoryCollection.Remove() で削除
 
     foreach (var ser in chart.ChartData.Series)
-
     {
-
-        ser.DataPoints[0].Remove();//remove with ChartDataPoint.Remove()
+        ser.DataPoints[0].Remove();//ChartDataPoint.Remove() で削除
 
         ser.DataPoints.Remove(ser.DataPoints[0]);//ChartDataPointCollection.Remove()
-
     }
 
-    pres.Save(outPath, SaveFormat.Pptx);
-
+    pres.Save("chart.pptx", SaveFormat.Pptx);
 }
-
 ``` 
-#### **非推奨の Aspose.Slides.ParagraphFormat プロパティが削除されました**
-プロパティ BulletChar、BulletColor、BulletColorFormat、BulletFont、BulletHeight、BulletType、IsBulletHardColor、IsBulletHardFont、NumberedBulletStartWith、NumberedBulletStyle が削除されました。これらは以前から非推奨とされていました。
-#### **不要かつ非推奨のコンストラクタが削除されました**
-次のコンストラクタが削除されました:
+#### **廃止予定の Aspose.Slides.ParagraphFormat プロパティが削除されました**
+BulletChar、BulletColor、BulletColorFormat、BulletFont、BulletHeight、BulletType、IsBulletHardColor、IsBulletHardFont、NumberedBulletStartWith、NumberedBulletStyle のプロパティが削除されました。これらのプロパティはかなり前に廃止予定とマークされていました。
+#### **不要かつ廃止予定のコンストラクタが削除されました**
+以下のコンストラクタが削除されました:
 
 - Aspose.Slides.Effects.AlphaBiLevel(System.Single)
 - Aspose.Slides.Effects.AlphaModulateFixed(System.Single)

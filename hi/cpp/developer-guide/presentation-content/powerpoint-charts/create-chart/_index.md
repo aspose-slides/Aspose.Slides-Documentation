@@ -1,12 +1,14 @@
 ---
-title: PowerPoint प्रस्तुति चार्ट बनाएँ या अपडेट करें C++
-linktitle: चार्ट बनाएँ या अपडेट करें
+title: C++ में PowerPoint प्रस्तुति चार्ट बनाएं या अपडेट करें
+linktitle: चार्ट बनाएं या अपडेट करें
 type: docs
 weight: 10
 url: /hi/cpp/create-chart/
+aliases:
+  - /cpp/update-chart/
 keywords:
 - चार्ट जोड़ें
-- चार्ट बनाएँ
+- चार्ट बनाएं
 - चार्ट संपादित करें
 - चार्ट बदलें
 - चार्ट अपडेट करें
@@ -19,73 +21,103 @@ keywords:
 - फ़नल चार्ट
 - सनबर्स्ट चार्ट
 - हिस्टोग्राम चार्ट
-- रडार चार्ट
+- रेडार चार्ट
 - मल्टीकैटेगरी चार्ट
 - PowerPoint
 - प्रस्तुति
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट बनाएं और अनुकूलित करें। व्यावहारिक C++ कोड उदाहरणों के साथ चार्ट जोड़ें, स्वरूपित करें और संपादित करें।"
+description: "Aspose.Slides for C++ का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट बनाएं और अनुकूलित करें। C++ में व्यावहारिक कोड उदाहरणों के साथ चार्ट जोड़ें, फ़ॉर्मेट करें और संपादित करें।"
 ---
-## **अवलोकन**
+## **सारांश**
 
-यह लेख Aspose.Slides का उपयोग करके चार्ट बनाने और अनुकूलित करने के लिए एक व्यापक मार्गदर्शिका प्रदान करता है। आप सीखेंगे कि प्रोग्रामेटिक तौर पर स्लाइड में चार्ट कैसे जोड़ें, डेटा से भरें, और विभिन्न फ़ॉर्मेटिंग विकल्प लागू करके अपनी विशिष्ट डिज़ाइन आवश्यकताओं को पूरा करें। पूरे लेख में विस्तृत कोड उदाहरण प्रत्येक चरण को दर्शाते हैं, प्रस्तुति और चार्ट ऑब्जेक्ट को इनिशियलाइज़ करने से लेकर सीरीज़, अक्ष और लेजेंड को कॉन्फ़िगर करने तक। इस मार्गदर्शिका का पालन करके आप अपने अनुप्रयोगों में डायनेमिक चार्ट जनरेशन को एकीकृत करने की ठोस समझ प्राप्त करेंगे, जिससे डेटा‑चालित प्रस्तुतियों को बनाना आसान हो जाएगा।
+यह लेख Aspose.Slides का उपयोग करके चार्ट बनाने और अनुकूलित करने पर एक व्यापक मार्गदर्शिका प्रदान करता है। आप सीखेंगे कि कैसे प्रोग्रामmatically एक स्लाइड में चार्ट जोड़ें, डेटा से भरें, और अपनी विशिष्ट डिज़ाइन आवश्यकताओं के अनुसार विभिन्न फ़ॉर्मेटिंग विकल्प लागू करें। लेख में विस्तृत कोड उदाहरण प्रत्येक चरण को दिखाते हैं, प्रस्तुति और चार्ट ऑब्जेक्ट को आरंभ करने से लेकर सीरीज़, एक्सिस और लेजेंड को कॉन्फ़िगर करने तक। इस मार्गदर्शिका का पालन करके, आप गतिशील चार्ट निर्माण को अपने अनुप्रयोगों में एकीकृत करने की ठोस समझ प्राप्त करेंगे, जिससे डेटा‑चालित प्रस्तुतियों का निर्माण सरल हो जाएगा।
 
 ## **चार्ट बनाना**
 
-चार्ट डेटा को जल्दी से विज़ुअलाइज़ करने और ऐसे अंतर्दृष्टि निकालने में मदद करते हैं, जो तालिका या स्प्रेडशीट से तुरंत स्पष्ट नहीं होते।
+चार्ट डेटा को तेज़ी से दृश्यात्मक बनाने और अंतर्दृष्टि प्राप्त करने में मदद करते हैं, जो तालिका या स्प्रेडशीट से तुरंत स्पष्ट नहीं हो सकते।
 
 **चार्ट क्यों बनाएं?**
 
 चार्ट का उपयोग करके आप
 
-* बड़ी मात्रा में डेटा को एक ही स्लाइड में समेकित, संक्षिप्त या सारांशित कर सकते हैं
-* डेटा में पैटर्न और ट्रेंड को उजागर कर सकते हैं
-* समय के साथ या किसी विशिष्ट माप इकाई के सापेक्ष डेटा की दिशा और गति का अनुमान लगा सकते हैं
-* अपवाद, विचलन, त्रुटियां, असंगत डेटा आदि की पहचान कर सकते हैं
-* जटिल डेटा को प्रभावी ढंग से संप्रेषित या प्रस्तुत कर सकते हैं
+* एक स्लाइड में बड़ी मात्रा में डेटा को संक्षिप्त या सारांशित कर सकते हैं
+* डेटा में पैटर्न और प्रवृत्तियों को उजागर कर सकते हैं
+* समय के साथ या किसी विशिष्ट माप इकाई के सापेक्ष डेटा की दिशा और गति का निर्धारण कर सकते हैं
+* अपवर्जन, विसंगतियों, त्रुटियों, असंगत डेटा आदि को पहचान सकते हैं
+* जटिल डेटा को प्रभावी रूप से संप्रेषित या प्रस्तुत कर सकते हैं
 
-PowerPoint में, आप इंसर्ट फ़ंक्शन के माध्यम से विभिन्न प्रकार के चार्ट टेम्प्लेट चुनकर चार्ट बना सकते हैं। Aspose.Slides का उपयोग करके आप सामान्य चार्ट (लोकप्रिय चार्ट प्रकारों पर आधारित) और कस्टम चार्ट दोनों बना सकते हैं।
+PowerPoint में, आप Insert फ़ंक्शन का उपयोग करके कई प्रकार के चार्ट टेम्पलेट चुन सकते हैं। Aspose.Slides का उपयोग करके आप सामान्य चार्ट (प्रचलित चार्ट प्रकारों पर आधारित) और कस्टम चार्ट दोनों बना सकते हैं।
 
-{{% alert color="primary" %}} 
-
-आपको चार्ट बनाने की अनुमति देने के लिए, Aspose.Slides [Aspose::Slides::Charts](https://reference.aspose.com/slides/hi/cpp/namespace/aspose.slides.charts/) नामस्पेस के तहत [ChartType](https://reference.aspose.com/slides/hi/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) enum क्लास प्रदान करता है। इस enum क्लास के मान विभिन्न चार्ट प्रकारों से मेल खाते हैं।
-
-{{% /alert %}} 
+{{% alert color="info" %}} 
+चार्ट बनाने के लिए, Aspose.Slides [Aspose::Slides::Charts](https://reference.aspose.com/slides/hi/cpp/namespace/aspose.slides.charts/) नेमस्पेस के तहत [ChartType](https://reference.aspose.com/slides/hi/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) enum क्लास प्रदान करता है। इस enum क्लास के मान विभिन्न चार्ट प्रकारों से मेल खाते हैं। 
+{{% /alert %}}
 
 ### **सामान्य चार्ट बनाएं**
-1. [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास का एक इंस्टेन्स बनाएं।
-1. स्लाइड का संदर्भ उसके इंडेक्स से प्राप्त करें।
-1. डेटा के साथ एक चार्ट जोड़ें और अपनी वांछित चार्ट प्रकार निर्दिष्ट करें। 
+1. [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास का एक इंस्टेंस बनायें।
+1. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंस प्राप्त करें।
+1. कुछ डेटा के साथ एक चार्ट जोड़ें और वांछित चार्ट प्रकार निर्दिष्ट करें। 
 1. चार्ट के लिए एक शीर्षक जोड़ें। 
-1. चार्ट डेटा कार्यपत्रक तक पहुँचें। 
+1. चार्ट डेटा वर्कशीट तक पहुंचें। 
 1. सभी डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें। 
-1. नई सीरीज़ और श्रेणियों को जोड़ें। 
-1. चार्ट सीरीज़ के लिए नई डेटा जोड़ें। 
-1. चार्ट सीरीज़ के लिए भराव रंग जोड़ें। 
+1. नई सीरीज़ और श्रेणियाँ जोड़ें। 
+1. चार्ट सीरीज़ के लिए नया डेटा जोड़ें। 
+1. चार्ट सीरीज़ के लिए फ़िल रंग जोड़ें। 
 1. चार्ट सीरीज़ के लिए लेबल जोड़ें। 
 1. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
 
-यह C++ कोड दिखाता है कि सामान्य चार्ट कैसे बनाया जाता है:
+यह C++ कोड दिखाता है कि सामान्य चार्ट कैसे बनाएं:
 
 ```c++
-// दस्तावेज़ निर्देशिका का पथ।
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+// डॉक्यूमेंट्स डायरेक्टरी का पथ।
 	const String outPath = u"../out/NormalCharts_out.pptx";
 
-	// PPTX फ़ाइल का प्रतिनिधित्व करने वाली प्रस्तुति क्लास का इंस्टैंस बनाता है
+	// PPTX फ़ाइल का प्रतिनिधित्व करने वाला प्रस्तुति क्लास इंस्टैंसिएट करता है
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// पहली स्लाइड तक पहुँचता है
+	// पहले स्लाइड तक पहुंचता है
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// डिफ़ॉल्ट डेटा के साथ चार्ट जोड़ता है
+	// डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ता है
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
 
 	// चार्ट डेटा शीट का इंडेक्स सेट करता है
 	int defaultWorksheetIndex = 0;
 
-	// चार्ट डेटा कार्यपत्रक प्राप्त करता है
+	// चार्ट डेटा वर्कशीट प्राप्त करता है
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 	// चार्ट शीर्षक सेट करता है
@@ -94,7 +126,7 @@ PowerPoint में, आप इंसर्ट फ़ंक्शन के म
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle( true);
 
-	// डिफ़ॉल्ट जनरेटेड सीरीज़ और श्रेणियों को हटाता है
+	// डिफ़ॉल्ट जेनरेटेड सीरीज़ और श्रेणियों को हटाता है
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 	int s = chart->get_ChartData()->get_Series()->get_Count();
@@ -105,7 +137,7 @@ PowerPoint में, आप इंसर्ट फ़ंक्शन के म
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
 
-	// श्रेणियाँ जोड़ता है
+	// श्रेणियां जोड़ता है
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"Caetegoty 1")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"Caetegoty 2")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"Caetegoty 3")));
@@ -114,7 +146,7 @@ PowerPoint में, आप इंसर्ट फ़ंक्शन के म
 	// पहली चार्ट सीरीज़ लेता है
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-	// सीरीज़ डेटा भरता है
+	// सीरीज़ डेटा को भरता है
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(20)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(50)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(30)));
@@ -127,7 +159,7 @@ PowerPoint में, आप इंसर्ट फ़ंक्शन के म
 	// दूसरी चार्ट सीरीज़ लेता है
 	 series = chart->get_ChartData()->get_Series()->idx_get(1);
 
-	// सीरीज़ डेटा भरता है
+	// सीरीज़ डेटा को भरता है
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(30)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(10)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(60)));
@@ -137,46 +169,84 @@ PowerPoint में, आप इंसर्ट फ़ंक्शन के म
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Green());
 
 
-	// पहली लेबल को श्रेणी नाम दिखाने के लिए सेट करता है
+	// पहला लेबल श्रेणी नाम दिखाने के लिए सेट किया गया है
 	SharedPtr<IDataLabel> lbl = series->get_DataPoints()->idx_get(0)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowCategoryName(true);
 
 	lbl = series->get_DataPoints()->idx_get(1)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowSeriesName (true);
 
-	// तीसरी लेबल के लिए मान दिखाता है
+	// तीसरे लेबल के लिए मान दिखाता है
 	lbl = series->get_DataPoints()->idx_get(2)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowValue (true);
 	lbl->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl->get_DataLabelFormat()->set_Separator (u"/");
 
-	// प्रस्तुति सहेजता है
+	// प्रस्तुति को सहेजता है
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ### **स्कैटर्ड चार्ट बनाएं**
-स्कैटर्ड चार्ट (जिसे स्कैटर प्लॉट या x‑y ग्राफ़ भी कहा जाता है) अक्सर दो वेरिएबल के बीच पैटर्न या सहसंबंध की जाँच करने के लिए उपयोग किए जाते हैं।
+स्कैटर्ड चार्ट (जिसे स्कैटर प्लॉट या x‑y ग्राफ़ भी कहा जाता है) दो चर के बीच पैटर्न या सहसंबंध जांचने के लिए अक्सर उपयोग किए जाते हैं।
 
-आप स्कैटर्ड चार्ट तब उपयोग करना चाह सकते हैं जब
+आप स्कैटर्ड चार्ट का उपयोग तब करना चाह सकते हैं जब
 
-* आपके पास युग्मित संख्यात्मक डेटा हो
-* दो वेरिएबल एक साथ अच्छी तरह से जुड़ते हों
-* आप यह निर्धारित करना चाहें कि दो वेरिएबल संबंधित हैं या नहीं
-* एक स्वतंत्र वेरिएबल के कई मान हों जो निर्भर वेरिएबल के लिए हों
+* आपके पास जोड़ी गई संख्यात्मक डेटा हो
+* दो चर एक साथ अच्छी तरह फिट हों
+* आप निर्धारित करना चाहते हों कि दो चर संबंधित हैं या नहीं
+* आपके पास एक स्वतंत्र चर हो जिसके कई मान एक आश्रित चर के लिए हों
 
-यह C++ कोड दिखाता है कि विभिन्न मार्कर सीरीज़ के साथ स्कैटर्ड चार्ट कैसे बनाया जाए:
+यह C++ कोड दिखाता है कि विभिन्न मार्कर सीरीज़ के साथ स्कैटर्ड चार्ट कैसे बनाएं:
 
 ```c++
-// दस्तावेज़ निर्देशिका का पथ।
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IChartSeriesGroupCollection.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/Chart/IMarker.h>
+#include <DOM/Chart/MarkerStyleType.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/LineDashStyle.h>
+#include <DOM/LineStyle.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+// डॉक्यूमेंट्स डायरेक्टरी का पथ।
 	const String outPath = u"../out/ScatteredChart_out.pptx";
 
-	// PPTX फ़ाइल का प्रतिनिधित्व करने वाली प्रस्तुति क्लास का इंस्टैंस बनाता है
+	//PPTX फ़ाइल का प्रतिनिधित्व करने वाला प्रस्तुति क्लास इंस्टैंसिएट करता है
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// पहली स्लाइड तक पहुँचता है
+	//पहले स्लाइड तक पहुंचता है
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// डिफ़ॉल्ट डेटा के साथ चार्ट जोड़ता है
+	// डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ता है
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ScatterWithSmoothLines, 0, 0, 500, 500);
 
 	// चार्ट शीर्षक सेट करता है
@@ -185,13 +255,13 @@ PowerPoint में, आप इंसर्ट फ़ंक्शन के म
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle(true);
 
-	// डिफ़ॉल्ट जनरेटेड सीरीज़ को हटाता है 
+	// डिफ़ॉल्ट जेनरेटेड सीरीज़ को हटाता है 
 	chart->get_ChartData()->get_Series()->Clear();
 	
 	// चार्ट डेटा शीट के लिए इंडेक्स सेट करता है
 	int defaultWorksheetIndex = 0;
 
-	// चार्ट डेटा कार्यपत्रक प्राप्त करता है
+	// चार्ट डेटा वर्कशीट प्राप्त करता है
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
@@ -263,7 +333,7 @@ PowerPoint में, आप इंसर्ट फ़ंक्शन के म
 
 
 	SharedPtr<IChartDataPoint> point2 = series->get_DataPoints()->idx_get(2);
-	point2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
+	point2->get_Format()->set_Fill()->set_FillType(FillType::Solid);
 	point2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Coral());
 
 	// सेक्टर बॉर्डर सेट करता है
@@ -294,43 +364,80 @@ PowerPoint में, आप इंसर्ट फ़ंक्शन के म
 	// चार्ट के लिए लीडर लाइन्स दिखाता है
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLeaderLines(true);
 
-	// पाई चार्ट सेक्टर का घूर्णन कोण सेट करता है
+	// पाई चार्ट सेक्टर के लिए घूर्णन कोण सेट करता है
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->set_FirstSliceAngle(180);
 
 
-	// प्रस्तुति सहेजता है
+	// प्रस्तुति को सहेजता है
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ### **पाई चार्ट बनाएं**
-पाई चार्ट डेटा में भाग‑से‑पूरा संबंध दिखाने के लिए उपयुक्त होते हैं, विशेषकर जब डेटा में श्रेणीबद्ध लैबल के साथ संख्यात्मक मान हों। यदि आपके डेटा में बहुत सारी भाग या लैबल हों, तो आप बार चार्ट का उपयोग करने पर विचार कर सकते हैं।
+पाई चार्ट डेटा में भाग‑से‑सम्पूर्ण संबंध दिखाने के लिए उपयुक्त होते हैं, विशेषकर जब डेटा में श्रेणीबद्ध लेबल और संख्यात्मक मान हों। हालांकि, यदि आपके डेटा में कई भाग या लेबल हों, तो आप बार चार्ट पर विचार कर सकते हैं।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास का एक इंस्टेन्स बनाएं।
-1. स्लाइड का संदर्भ उसके इंडेक्स से प्राप्त करें।
-1. डिफ़ॉल्ट डेटा के साथ वांछित प्रकार (`ChartType.Pie`) जोड़ें।
-1. चार्ट डेटा `IChartDataWorkbook` तक पहुँचें।
+1. [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास का एक इंस्टेंस बनायें।
+1. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंस प्राप्त करें।
+1. डिफ़ॉल्ट डेटा के साथ वांछित प्रकार (`ChartType.Pie`) का चार्ट जोड़ें।
+1. चार्ट डेटा `IChartDataWorkbook` तक पहुंचें।
 1. डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
 1. नई सीरीज़ और श्रेणियों को जोड़ें।
-1. चार्ट सीरीज़ के लिए नई डेटा जोड़ें।
+1. चार्ट सीरीज़ के लिए नया डेटा जोड़ें।
 1. पाई चार्ट के सेक्टर के लिए कस्टम रंग जोड़ें।
 1. सीरीज़ के लिए लेबल सेट करें।
 1. सीरीज़ लेबल के लिए लीडर लाइन्स सेट करें।
-1. पाई चार्ट स्लाइड की घूर्णन कोण सेट करें।
+1. पाई चार्ट स्लाइड के लिए घूर्णन कोण सेट करें।
 1. संशोधित प्रस्तुति को PPTX फ़ाइल में लिखें।
 
-यह C++ कोड दिखाता है कि पाई चार्ट कैसे बनाया जाता है:
+यह C++ कोड दिखाता है कि पाई चार्ट कैसे बनाएं:
 
 ```c++
-	// दस्तावेज़ निर्देशिका का पथ.
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IChartSeriesGroupCollection.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/LineDashStyle.h>
+#include <DOM/LineStyle.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+	// डॉक्यूमेंट्स डायरेक्टरी का पथ।
 	const String outPath = u"../out/PieChart_out.pptx";
 
-	//PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टैंस बनाता है
+	// PPTX फ़ाइल का प्रतिनिधित्व करने वाला Presentation क्लास इंस्टैंसिएट करता है
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//पहली स्लाइड तक पहुँचता है
+	// पहले स्लाइड तक पहुंचता है
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// डिफ़ॉल्ट डेटा के साथ चार्ट जोड़ता है
+	// डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ता है
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Pie, 0, 0, 500, 500);
 
 	// चार्ट शीर्षक सेट करता है
@@ -339,17 +446,17 @@ PowerPoint में, आप इंसर्ट फ़ंक्शन के म
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle(true);
 
-	// डिफ़ॉल्ट जनरेटेड सीरीज़ और श्रेणियों को हटाता है
+	// डिफ़ॉल्ट जेनरेटेड सीरीज़ और श्रेणियों को हटाता है
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 
 	// चार्ट डेटा शीट का इंडेक्स सेट करता है
 	int defaultWorksheetIndex = 0;
 
-	// चार्ट डेटा कार्यपत्रक प्राप्त करता है
+	// चार्ट डेटा वर्कशीट प्राप्त करता है
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-	// श्रेणियाँ जोड़ता है
+	// श्रेणियां जोड़ता है
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"First Qtr")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"2nd Qtr")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"3ed Qtr")));
@@ -360,7 +467,7 @@ PowerPoint में, आप इंसर्ट फ़ंक्शन के म
 	// पहली चार्ट सीरीज़ लेता है
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-	// सीरीज़ डेटा भरता है
+	// सीरीज़ डेटा को भरता है
 	series->get_DataPoints()->AddDataPointForPieSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(20)));
 	series->get_DataPoints()->AddDataPointForPieSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(50)));
 	series->get_DataPoints()->AddDataPointForPieSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(30)));
@@ -425,35 +532,63 @@ PowerPoint में, आप इंसर्ट फ़ंक्शन के म
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->set_FirstSliceAngle ( 180);
 
 
-	// प्रस्तुति सहेजता है
+	// प्रस्तुति को सहेजता है
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ### **लाइन चार्ट बनाएं**
 
-लाइन चार्ट (जिसे लाइन ग्राफ़ भी कहा जाता है) उन स्थितियों में सबसे उपयुक्त होते हैं जहाँ आप समय के साथ मूल्य परिवर्तन दिखाना चाहते हैं। लाइन चार्ट का उपयोग करके आप एक साथ कई डेटा की तुलना कर सकते हैं, समय के साथ परिवर्तन और ट्रेंड को ट्रैक कर सकते हैं, डेटा सीरीज़ में अनियमितताओं को उजागर कर सकते हैं, आदि।
+लाइन चार्ट (जिसे लाइन ग्राफ़ भी कहा जाता है) उन स्थितियों में सबसे उपयुक्त हैं जहाँ आप समय के साथ मान में परिवर्तन दिखाना चाहते हैं। लाइन चार्ट के साथ आप एक साथ कई डेटा सेट तुलना कर सकते हैं, समय के साथ परिवर्तन और प्रवृत्तियों को ट्रैक कर सकते हैं, डेटा सीरीज़ में विसंगतियों को उजागर कर सकते हैं आदि।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास का एक इंस्टेन्स बनाएं।
-1. स्लाइड का संदर्भ उसके इंडेक्स से प्राप्त करें।
-1. डिफ़ॉल्ट डेटा के साथ वांछित प्रकार (`ChartType::Line`) जोड़ें।
-1. चार्ट डेटा `IChartDataWorkbook` तक पहुँचें।
+1. [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास का एक इंस्टेंस बनायें।
+1. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंस प्राप्त करें।
+1. डिफ़ॉल्ट डेटा के साथ वांछित प्रकार (`ChartType::Line`) का चार्ट जोड़ें।
+1. चार्ट डेटा `IChartDataWorkbook` तक पहुंचें।
 1. डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
 1. नई सीरीज़ और श्रेणियों को जोड़ें।
-1. चार्ट सीरीज़ के लिए नई डेटा जोड़ें।
+1. चार्ट सीरीज़ के लिए नया डेटा जोड़ें।
 1. संशोधित प्रस्तुति को PPTX फ़ाइल में लिखें।
 
-यह C++ कोड दिखाता है कि लाइन चार्ट कैसे बनाया जाता है:
+यह C++ कोड दिखाता है कि लाइन चार्ट कैसे बनाएं:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 
 System::SharedPtr<IChart> lineChart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Line, 10.0f, 50.0f, 600.0f, 350.0f);
 pres->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
-डिफ़ॉल्ट रूप से, लाइन चार्ट पर बिंदु सीधे निरंतर रेखाओं से जुड़े होते हैं। यदि आप बिंदुओं को डैश रेखाओं से जोड़ना चाहते हैं, तो आप अपनी वांछित डैश प्रकार इस प्रकार निर्दिष्ट कर सकते हैं:
+डिफ़ॉल्ट रूप से, लाइन चार्ट के बिंदु सीधे निरंतर रेखाओं द्वारा जुड़े होते हैं। यदि आप बिंदुओं को डैश द्वारा जोड़ना चाहते हैं, तो आप अपनी पसंद का डैश प्रकार इस तरह निर्दिष्ट कर सकते हैं:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/LineDashStyle.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+
+auto pres = System::MakeObject<Presentation>();
+
 System::SharedPtr<IChart> lineChart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Line, 10.0f, 50.0f, 600.0f, 350.0f);
 for (auto&& series : lineChart->get_ChartData()->get_Series())
 {
@@ -463,27 +598,51 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 
 ### **ट्री मैप चार्ट बनाएं**
 
-ट्री मैप चार्ट बिक्री डेटा के लिए उपयुक्त होते हैं जब आप डेटा श्रेणियों के सापेक्ष आकार दिखाना चाहते हैं और साथ ही प्रत्येक श्रेणी में बड़े योगदान करने वाले आइटमों पर जल्दी से ध्यान आकर्षित करना चाहते हैं।
+ट्री मैप चार्ट बिक्री डेटा के लिए उपयुक्त होते हैं जब आप डेटा श्रेणियों के सापेक्ष आकार दिखाना चाहते हैं और साथ ही प्रत्येक श्रेणी में बड़े योगदानकर्ता आइटम्स पर जल्दी ध्यान आकर्षित करना चाहते हैं।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास का एक इंस्टेन्स बनाएं।
-1. स्लाइड का संदर्भ उसके इंडेक्स से प्राप्त करें।
-1. डिफ़ॉल्ट डेटा के साथ वांछित प्रकार (`ChartType.TreeMap`) जोड़ें।
-1. चार्ट डेटा `IChartDataWorkbook` तक पहुँचें।
+1. [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास का एक इंस्टेंस बनायें।
+1. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंस प्राप्त करें।
+1. डिफ़ॉल्ट डेटा के साथ वांछित प्रकार (`ChartType.TreeMap`) का चार्ट जोड़ें।
+1. चार्ट डेटा `IChartDataWorkbook` तक पहुंचें।
 1. डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
 1. नई सीरीज़ और श्रेणियों को जोड़ें।
-1. चार्ट सीरीज़ के लिए नई डेटा जोड़ें।
+1. चार्ट सीरीज़ के लिए नया डेटा जोड़ें।
 1. संशोधित प्रस्तुति को PPTX फ़ाइल में लिखें।
 
-यह C++ कोड दिखाता है कि ट्री मैप चार्ट कैसे बनाया जाता है:
+यह C++ कोड दिखाता है कि ट्री मैप चार्ट कैसे बनाएं:
 
 ```c++
-// दस्तावेज़ निर्देशिका का पथ।
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategory.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartCategoryLevelsManager.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/ParentLabelLayoutType.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// डॉक्यूमेंट्स डायरेक्टरी का पथ।
 	const String outPath = u"../out/TreemapChart_out.pptx";
 
-	// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टैंस बनाता है
+	// PPTX फ़ाइल का प्रतिनिधित्व करने वाला Presentation क्लास इंस्टैंसिएट करता है
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// पहली स्लाइड तक पहुँचता है
+	// पहली स्लाइड तक पहुंचता है
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Treemap, 50, 50, 500, 400);
@@ -537,44 +696,71 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 ```
 
 ### **स्टॉक चार्ट बनाएं**
-1. [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास का एक इंस्टेन्स बनाएं।
-1. स्लाइड का संदर्भ उसके इंडेक्स से प्राप्त करें।
-1. डिफ़ॉल्ट डेटा के साथ वांछित प्रकार (`ChartType.OpenHighLowClose`) जोड़ें।
-1. चार्ट डेटा `IChartDataWorkbook` तक पहुँचें।
+1. [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास का एक इंस्टेंस बनायें।
+1. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंस प्राप्त करें।
+1. डिफ़ॉल्ट डेटा के साथ वांछित प्रकार (`ChartType.OpenHighLowClose`) का चार्ट जोड़ें।
+1. चार्ट डेटा `IChartDataWorkbook` तक पहुंचें।
 1. डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
 1. नई सीरीज़ और श्रेणियों को जोड़ें।
-1. चार्ट सीरीज़ के लिए नई डेटा जोड़ें।
+1. चार्ट सीरीज़ के लिए नया डेटा जोड़ें।
 1. HiLowLines फ़ॉर्मेट निर्दिष्ट करें।
 1. संशोधित प्रस्तुति को PPTX फ़ाइल में लिखें।
 
-स्टॉक चार्ट बनाने के लिए प्रयुक्त नमूना C++ कोड:
+स्टॉक चार्ट बनाने के लिए उपयोग किया गया नमूना C++ कोड:
 
 ```c++
-// दस्तावेज़ निर्देशिका का पथ.
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartLinesFormat.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IChartSeriesGroupCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/Chart/IUpDownBarsManager.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+	// डॉक्यूमेंट्स डायरेक्टरी का पथ।
 	const String outPath = u"../out/AddStockChart_out.pptx";
 
-	// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टैंस बनाता है
+	//Presentation क्लास को इंस्टैंसिएट करता है जो PPTX फ़ाइल का प्रतिनिधित्व करता है
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// पहली स्लाइड तक पहुँचता है
+	// पहली स्लाइड तक पहुंचता है
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// डिफ़ॉल्ट डेटा के साथ चार्ट जोड़ता है
+	// डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ता है
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::OpenHighLowClose, 0, 0, 500, 500);
 
 
-	// चार्ट डेटा शीट का इंडेक्स सेट करता है
+	// चार्ट डेटा शीट के लिए इंडेक्स सेट करता है
 	int defaultWorksheetIndex = 0;
 
-	// चार्ट डेटा कार्यपत्रक प्राप्त करता है
+	// चार्ट डेटा वर्कशीट प्राप्त करता है
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-	// डिफ़ॉल्ट जनरेटेड सीरीज़ और श्रेणियों को हटाता है
+	// डिफ़ॉल्ट जेनरेटेड सीरीज़ और श्रेणियों को हटाता है
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 
-	// श्रेणियाँ जोड़ता है
+	// श्रेणियां जोड़ता है
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"A")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"B")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"C")));
@@ -588,27 +774,27 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 
 	// पहली चार्ट सीरीज़ लेता है
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
-	// पहली सीरीज़ डेटा भरता है
+	// पहली सीरीज़ का डेटा भरता है
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(72)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(25)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(38)));
 
 
 	series = chart->get_ChartData()->get_Series()->idx_get(1);
-	// दूसरी सीरीज़ डेटा भरता है
+	// दूसरी सीरीज़ का डेटा भरता है
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(172)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(57)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(57)));
 
 	series = chart->get_ChartData()->get_Series()->idx_get(2);
-	// दूसरी सीरीज़ डेटा भरता है
+	// तीसरी सीरीज़ का डेटा भरता है
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 3, ObjectExt::Box<double>(12)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 3, ObjectExt::Box<double>(12)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 3, ObjectExt::Box<double>(13)));
 
 
 	series = chart->get_ChartData()->get_Series()->idx_get(3);
-	// दूसरी सीरीज़ डेटा भरता है
+	// चौथी सीरीज़ का डेटा भरता है
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 4, ObjectExt::Box<double>(25)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 4, ObjectExt::Box<double>(38)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 4, ObjectExt::Box<double>(50)));
@@ -624,30 +810,50 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 		series->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
 	}
 
-	// प्रस्तुति सहेजता है
+	// प्रस्तुति को सहेजता है
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ### **बॉक्स एंड व्हिस्कर चार्ट बनाएं**
-1. [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास का एक इंस्टेन्स बनाएं।
-1. स्लाइड का संदर्भ उसके इंडेक्स से प्राप्त करें।
-1. डिफ़ॉल्ट डेटा के साथ वांछित प्रकार (`ChartType.BoxAndWhisker`) जोड़ें।
-1. चार्ट डेटा `IChartDataWorkbook` तक पहुँचें।
+1. [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास का एक इंस्टेंस बनायें।
+1. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंस प्राप्त करें।
+1. डिफ़ॉल्ट डेटा के साथ वांछित प्रकार (`ChartType.BoxAndWhisker`) का चार्ट जोड़ें।
+1. चार्ट डेटा `IChartDataWorkbook` तक पहुंचें।
 1. डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
 1. नई सीरीज़ और श्रेणियों को जोड़ें।
-1. चार्ट सीरीज़ के लिए नई डेटा जोड़ें।
+1. चार्ट सीरीज़ के लिए नया डेटा जोड़ें।
 1. संशोधित प्रस्तुति को PPTX फ़ाइल में लिखें।
 
-यह C++ कोड दिखाता है कि बॉक्स एंड व्हिस्कर चार्ट कैसे बनाया जाता है:
+यह C++ कोड दिखाता है कि बॉक्स एंड व्हिस्कर चार्ट कैसे बनाएं:
 
 ```c++
-	// दस्तावेज़ निर्देशिका का पथ।
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/QuartileMethodType.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+	// डॉक्यूमेंट्स डायरेक्टरी का पथ।
 	const String outPath = u"../out/BoxAndWhisker_out.pptx";
 
-	// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टैंस बनाता है
+	//PPTX फ़ाइल का प्रतिनिधित्व करने वाला Presentation क्लास इंस्टैंसिएट करता है
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// पहली स्लाइड तक पहुँचता है
+	//पहली स्लाइड तक पहुंचता है
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::BoxAndWhisker, 50, 50, 500, 400);
@@ -686,21 +892,40 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 ```
 
 ### **फ़नल चार्ट बनाएं**
-1. [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास का एक इंस्टेन्स बनाएं।
-1. स्लाइड का संदर्भ उसके इंडेक्स से प्राप्त करें।
-1. डिफ़ॉल्ट डेटा के साथ वांछित प्रकार (`ChartType.Funnel`) जोड़ें।
+1. [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास का एक इंस्टेंस बनायें।
+1. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंस प्राप्त करें।
+1. डिफ़ॉल्ट डेटा के साथ वांछित प्रकार (`ChartType.Funnel`) का चार्ट जोड़ें।
 1. संशोधित प्रस्तुति को PPTX फ़ाइल में लिखें।
 
-यह C++ कोड दिखाता है कि फ़नल चार्ट कैसे बनाया जाता है:
+यह C++ कोड दिखाता है कि फ़नल चार्ट कैसे बनाएं:
 
 ```c++
-	// दस्तावेज़ निर्देशिका का पथ.
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+	// डॉक्यूमेंट्स डायरेक्टरी का पथ।
 	const String outPath = u"../out/FunnelChart_out.pptx";
 
-	//PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टैंस बनाता है
+	// PPTX फ़ाइल का प्रतिनिधित्व करने वाला Presentation क्लास इंस्टैंसिएट करता है
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//पहली स्लाइड तक पहुँचता है
+	// पहली स्लाइड तक पहुंचता है
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Funnel, 50, 50, 500, 400);
@@ -728,26 +953,49 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 	series->get_DataPoints()->AddDataPointForFunnelSeries(wb->GetCell(0, u"B6", System::ObjectExt::Box<int32_t>(500)));
 
 
-	//प्रस्तुति को सहेजता है
+	// प्रस्तुति को सहेजता है
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ### **सनबर्स्ट चार्ट बनाएं**
-1. [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास का एक इंस्टेन्स बनाएं।
-1. स्लाइड का संदर्भ उसके इंडेक्स से प्राप्त करें।
-1. डिफ़ॉल्ट डेटा के साथ वांछित प्रकार (`ChartType.sunburst`) जोड़ें।
+1. [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास का एक इंस्टेंस बनायें।
+1. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंस प्राप्त करें।
+1. डिफ़ॉल्ट डेटा के साथ वांछित प्रकार (इस मामले में `ChartType.sunburst`) का चार्ट जोड़ें।
 1. संशोधित प्रस्तुति को PPTX फ़ाइल में लिखें।
 
-यह C++ कोड दिखाता है कि सनबर्स्ट चार्ट कैसे बनाया जाता है:
+यह C++ कोड दिखाता है कि सनबर्स्ट चार्ट कैसे बनाएं:
 
 ```c++
-	// दस्तावेज़ निर्देशिका का पथ.
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategory.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartCategoryLevelsManager.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+	// दस्तावेज़ निर्देशिका का पथ।
 	const String outPath = u"../out/SunburstChart_out.pptx";
 
-	// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टैंस बनाता है
+	// PPTX फ़ाइल का प्रतिनिधित्व करने वाला Presentation क्लास इंस्टैंसिएट करता है
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// पहली स्लाइड तक पहुँचता है
+	// पहली स्लाइड तक पहुंचता है
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart=slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Sunburst, 50, 50, 500, 400);
@@ -793,29 +1041,51 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 	series->get_DataPoints()->AddDataPointForSunburstSeries(wb->GetCell(0, u"D7", System::ObjectExt::Box<int32_t>(4)));
 	series->get_DataPoints()->AddDataPointForSunburstSeries(wb->GetCell(0, u"D8", System::ObjectExt::Box<int32_t>(3)));
 
-	// प्रस्तुति फ़ाइल को डिस्क पर लिखता है
+	// प्रस्तुति फ़ाइल को डिस्क पर लिखें
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ### **हिस्टोग्राम चार्ट बनाएं**
-1. [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास का एक इंस्टेन्स बनाएं।
-1. स्लाइड का संदर्भ उसके इंडेक्स से प्राप्त करें। 
-1. डेटा के साथ चार्ट जोड़ें और वांछित प्रकार (`ChartType.Histogram`) निर्दिष्ट करें।
-1. चार्ट डेटा `IChartDataWorkbook` तक पहुँचें।
+1. [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास का एक इंस्टेंस बनायें।
+1. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंस प्राप्त करें। 
+1. कुछ डेटा के साथ एक चार्ट जोड़ें और वांछित प्रकार (`ChartType.Histogram`) निर्दिष्ट करें।
+1. चार्ट डेटा `IChartDataWorkbook` तक पहुंचें।
 1. डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
 1. नई सीरीज़ और श्रेणियों को जोड़ें।
 1. संशोधित प्रस्तुति को PPTX फ़ाइल में लिखें।
 
-यह C++ कोड दिखाता है कि हिस्टोग्राम चार्ट कैसे बनाया जाता है:
+यह C++ कोड दिखाता है कि हिस्टोग्राम चार्ट कैसे बनाएं:
 
 ```c++
-	// दस्तावेज़ निर्देशिका का पथ।
+#include <DOM/Chart/AxisAggregationType.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+	// डॉक्यूमेंट्स डायरेक्टरी का पथ।
 	const String outPath = u"../out/HistogramChart_out.pptx";
 
-	// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टैंस बनाता है
+	// PPTX फ़ाइल का प्रतिनिधित्व करने वाला Presentation क्लास इंस्टैंसिएट करता है
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// पहली स्लाइड तक पहुँचता है
+	// पहली स्लाइड तक पहुंचता है
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Histogram, 50, 50, 500, 400);
@@ -840,16 +1110,24 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **रडार चार्ट बनाएं**
+### **रेडार चार्ट बनाएं**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास का एक इंस्टेन्स बनाएं।
-1. स्लाइड का संदर्भ उसके इंडेक्स से प्राप्त करें। 
-1. डेटा के साथ चार्ट जोड़ें और वांछित प्रकार (`ChartType.Radar`) निर्दिष्ट करें।
+1. [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास का एक इंस्टेंस बनायें।
+1. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंस प्राप्त करें। 
+1. कुछ डेटा के साथ एक चार्ट जोड़ें और वांछित प्रकार (`ChartType.Radar`) निर्दिष्ट करें।
 1. संशोधित प्रस्तुति को PPTX फ़ाइल में लिखें।
 
-यह C++ कोड दिखाता है कि रडार चार्ट कैसे बनाया जाता है:
+यह C++ कोड दिखाता है कि रेडार चार्ट कैसे बनाएं:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+
 System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
 
 presentation->get_Slides()->idx_get(0)->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Radar, 20.0f, 20.0f, 400.0f, 300.0f);
@@ -858,44 +1136,55 @@ presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx
 
 ### **मल्टी‑कैटेगरी चार्ट बनाएं**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास का एक इंस्टेन्स बनाएं।
-1. स्लाइड का संदर्भ उसके इंडेक्स से प्राप्त करें।
-1. डिफ़ॉल्ट डेटा के साथ वांछित प्रकार (ChartType.ClusteredColumn) जोड़ें।
-1. चार्ट डेटा `IChartDataWorkbook` तक पहुँचें।
+1. [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास का एक इंस्टेंस बनायें।
+1. इंडेक्स द्वारा स्लाइड का रेफ़रेंस प्राप्त करें।
+1. डिफ़ॉल्ट डेटा के साथ वांछित प्रकार (`ChartType.ClusteredColumn`) का चार्ट जोड़ें।
+1. चार्ट डेटा `IChartDataWorkbook` तक पहुंचें।
 1. डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करें।
 1. नई सीरीज़ और श्रेणियों को जोड़ें।
-1. चार्ट सीरीज़ के लिए नई डेटा जोड़ें।
+1. चार्ट सीरीज़ के लिए नया डेटा जोड़ें।
 1. संशोधित प्रस्तुति को PPTX फ़ाइल में लिखें।
 
-यह C++ कोड दिखाता है कि मल्टी‑कैटेगरी चार्ट कैसे बनाया जाता है:
+यह C++ कोड दिखाता है कि मल्टी‑कैटेगरी चार्ट कैसे बनाएं:
 
 ```c++
-	// दस्तावेज़ निर्देशिका का पथ.
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+	// डॉक्यूमेंट्स डायरेक्टरी का पथ।
 	const String outPath = u"../out/MultiCategoryChart_out.pptx";
 
-	// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टैंस बनाता है
+	// PPTX फ़ाइल का प्रतिनिधित्व करने वाला Presentation क्लास इंस्टैंसिएट करता है
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// पहली स्लाइड तक पहुँचता है
+	// पहली स्लाइड तक पहुंचता है
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// डिफ़ॉल्ट डेटा के साथ चार्ट जोड़ता है
+	// डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ता है
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
 	// चार्ट डेटा शीट के लिए इंडेक्स सेट करता है
 	int defaultWorksheetIndex = 0;
 
-	// चार्ट डेटा कार्यपत्रक प्राप्त करता है
+	// चार्ट डेटा वर्कशीट प्राप्त करता है
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-	// कार्यपत्रक को साफ़ करता है
+	// वर्कबुक को साफ़ करता है
 	fact->Clear(defaultWorksheetIndex);
 
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 
 
-	// श्रेणियाँ जोड़ता है
+	// श्रेणियां जोड़ता है
 	SharedPtr<IChartCategory> category = chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c2", ObjectExt::Box<System::String>(u"A")));
 	category->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box<System::String>(u"Group1"));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c3", ObjectExt::Box<System::String>(u"B")));
@@ -932,26 +1221,77 @@ presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx
 
 ### **मैप चार्ट बनाएं**
 
-मैप चार्ट वह विज़ुअलाइज़ेशन है जिसमें डेटा के साथ क्षेत्र दिखाया जाता है। मैप चार्ट भूगोलिक क्षेत्रों के बीच डेटा या मानों की तुलना करने के लिए सबसे उपयुक्त होते हैं।
+मैप चार्ट डेटा वाले क्षेत्र का विज़ुअलाइज़ेशन है। मैप चार्ट भौगोलिक क्षेत्रों में डेटा या मानों की तुलना करने के लिए सबसे उपयुक्त होते हैं।
 
-यह C++ कोड दिखाता है कि मैप चार्ट कैसे बनाया जाता है:
+यह C++ कोड दिखाता है कि मैप चार्ट कैसे बनाएं:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
 auto chart = slide->get_Shapes()->AddChart(ChartType::Map, 50.0f, 50.0f, 500.0f, 400.0f);
 pres->Save(u"mapChart.pptx", SaveFormat::Pptx);
 ```
 
-### **कॉंबिनेशन चार्ट बनाएं**
+### **कॉम्पिनेशन चार्ट बनाएं**
 
-एक कॉंबिनेशन चार्ट (या कॉम्बो चार्ट) एक ही ग्राफ़ में दो या अधिक चार्ट प्रकारों को मिलाता है। यह चार्ट आपको कई डेटा सेटों के बीच अंतर को उजागर, तुलना या जांचने की सुविधा देता है, जिससे आप उनके बीच के संबंधों की पहचान कर सकते हैं।
+कॉम्बिनेशन चार्ट (या कॉम्बो चार्ट) एक ही ग्राफ़ में दो या अधिक चार्ट प्रकारों को जोड़ता है। यह चार्ट आपको कई डेटा सेटों के बीच अंतर को उजागर, तुलना या जांचने की अनुमति देता है, जिससे आप उनके बीच संबंध पहचान सकते हैं।
 
 ![The combination chart](combination_chart.png)
 
-निम्नलिखित C++ कोड उपरोक्त कॉंबिनेशन चार्ट को PowerPoint प्रस्तुति में बनाने का तरीका दर्शाता है:
+निम्न C++ कोड दिखाता है कि ऊपर दिखाए गए कॉम्बिनेशन चार्ट को PowerPoint प्रस्तुति में कैसे बनाएं:
 
 ```cpp
+#include <DOM/Chart/AxisPositionType.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/CrossesType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IAxisFormat.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartLinesFormat.h>
+#include <DOM/Chart/IChartPortionFormat.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/Chart/ILegend.h>
+#include <DOM/Chart/LegendPositionType.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 static SharedPtr<IChart> CreateChartWithFirstSeries(SharedPtr<ISlide> slide)
 {
     auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
@@ -969,7 +1309,7 @@ static SharedPtr<IChart> CreateChartWithFirstSeries(SharedPtr<ISlide> slide)
     chart->get_Legend()->set_Position(LegendPositionType::Bottom);
     chart->get_Legend()->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
 
-    // डिफ़ॉल्ट जनरेटेड सीरीज़ और श्रेणियों को हटाएँ।
+    // डिफ़ॉल्ट जेनरेटेड सीरीज़ और श्रेणियों को हटाएँ।
     chart->get_ChartData()->get_Series()->Clear();
     chart->get_ChartData()->get_Categories()->Clear();
 
@@ -1042,21 +1382,21 @@ static void SetAxisTitle(SharedPtr<IAxis> axis, String axisTitle)
 
 static void SetPrimaryAxesFormat(SharedPtr<IChart> chart)
 {
-    // हॉरिज़ॉन्टल अक्ष सेट करें।
+    // क्षैतिज अक्ष सेट करें।
     auto horizontalAxis = chart->get_Axes()->get_HorizontalAxis();
     horizontalAxis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
     horizontalAxis->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
 
     SetAxisTitle(horizontalAxis, u"X Axis");
 
-    // वर्टिकल अक्ष सेट करें।
+    // ऊर्ध्वाधर अक्ष सेट करें।
     auto verticalAxis = chart->get_Axes()->get_VerticalAxis();
     verticalAxis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
     verticalAxis->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
 
     SetAxisTitle(verticalAxis, u"Y Axis 1");
 
-    // वर्टिकल प्रमुख ग्रिडलाइन का रंग सेट करें।
+    // ऊर्ध्वाधर प्रमुख ग्रिडलाइन का रंग सेट करें।
     auto majorGridLinesFormat = verticalAxis->get_MajorGridLinesFormat()->get_Line()->get_FillFormat();
     majorGridLinesFormat->set_FillType(FillType::Solid);
     majorGridLinesFormat->get_SolidFillColor()->set_Color(Color::FromArgb(217, 217, 217));
@@ -1064,7 +1404,7 @@ static void SetPrimaryAxesFormat(SharedPtr<IChart> chart)
 
 static void SetSecondaryAxesFormat(SharedPtr<IChart> chart)
 {
-    // द्वितीयक हॉरिज़ॉन्टल अक्ष सेट करें।
+    // द्वितीयक क्षैतिज अक्ष सेट करें।
     auto secondaryHorizontalAxis = chart->get_Axes()->get_SecondaryHorizontalAxis();
     secondaryHorizontalAxis->set_Position(AxisPositionType::Bottom);
     secondaryHorizontalAxis->set_CrossType(CrossesType::Maximum);
@@ -1072,7 +1412,7 @@ static void SetSecondaryAxesFormat(SharedPtr<IChart> chart)
     secondaryHorizontalAxis->get_MajorGridLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
     secondaryHorizontalAxis->get_MinorGridLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
 
-    // द्वितीयक वर्टिकल अक्ष सेट करें।
+    // द्वितीयक ऊर्ध्वाधर अक्ष सेट करें।
     auto secondaryVerticalAxis = chart->get_Axes()->get_SecondaryVerticalAxis();
     secondaryVerticalAxis->set_Position(AxisPositionType::Right);
     secondaryVerticalAxis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
@@ -1103,34 +1443,51 @@ static void CreateComboChart()
 
 ## **चार्ट अपडेट करें**
 
-1. उस प्रस्तुति को दर्शाने वाला एक [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास का इंस्टेन्स बनाएं जिसमें चार्ट मौजूद है।
-2. स्लाइड का संदर्भ उसके इंडेक्स से प्राप्त करें।
-3. सभी शैप्स को पार करके वांछित चार्ट खोजें।
-4. चार्ट डेटा कार्यपत्रक तक पहुँचें।
-5. सीरीज़ मूल्यों को बदलकर चार्ट डेटा सीरीज़ को संशोधित करें।
-6. नई सीरीज़ जोड़ें और उसमें डेटा भरें।
+1. वह [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास इंस्टैंस बनायें जो चार्ट वाली प्रस्तुति को दर्शाता है।  
+2. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंस प्राप्त करें।  
+3. सभी शैप्स को पार करके वांछित चार्ट खोजें।  
+4. चार्ट डेटा वर्कशीट तक पहुंचें।  
+5. सीरीज़ मान बदलकर चार्ट डेटा सीरीज़ को संशोधित करें।  
+6. नई सीरीज़ जोड़ें और उसमें डेटा भरें।  
 7. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
 
-यह C++ कोड दिखाता है कि चार्ट को कैसे अपडेट किया जाता है:
+यह C++ कोड दिखाता है कि चार्ट कैसे अपडेट करें:
 
 ```c++
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टैंस बनाता है
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+
+// PPTX फ़ाइल का प्रतिनिधित्व करने वाले Presentation क्लास को इंस्टैंसिएट करता है
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"ExistingChart.pptx");
 
-// पहली स्लाइडमार्कर तक पहुँचता है
+// पहली स्लाइड तक पहुंचता है
 System::SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
 
-// डिफ़ॉल्ट डेटा के साथ चार्ट जोड़ता है
+// डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ता है
 System::SharedPtr<IChart> chart = System::ExplicitCast<Aspose::Slides::Charts::IChart>(sld->get_Shapes()->idx_get(0));
 
 // चार्ट डेटा शीट के लिए इंडेक्स सेट करता है
 int32_t defaultWorksheetIndex = 0;
 
-// चार्ट डेटा कार्यपत्रक प्राप्त करता है
+// चार्ट डेटा वर्कशीट प्राप्त करता है
 System::SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-// चार्ट श्रेणी का नाम बदलता है
+// चार्ट श्रेणी नाम बदलता है
 fact->GetCell(defaultWorksheetIndex, 1, 0, System::ObjectExt::Box<System::String>(u"Modified Category 1"));
 fact->GetCell(defaultWorksheetIndex, 2, 0, System::ObjectExt::Box<System::String>(u"Modified Category 2"));
 
@@ -1147,7 +1504,7 @@ series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::B
 // दूसरी चार्ट सीरीज़ लेता है
 series = chart->get_ChartData()->get_Series()->idx_get(1);
 
-// अब सीरीज़ डेटा अपडेट कर रहा है
+// अब सीरीज़ डेटा अपडेट करता है
 fact->GetCell(defaultWorksheetIndex, 0, 2, System::ObjectExt::Box<System::String>(u"New_Series2"));
 // सीरीज़ नाम संशोधित करता है
 series->get_DataPoints()->idx_get(0)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(23));
@@ -1155,13 +1512,13 @@ series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::B
 series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(99));
 
 
-// अब, नई सीरीज़ जोड़ रहा है
+// अब एक नई सीरीज़ जोड़ता है
 chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 3, System::ObjectExt::Box<System::String>(u"Series 3")), chart->get_Type());
 
-// 3rd चार्ट सीरीज़ लेता है
+// तीसरी चार्ट सीरीज़ लेता है
 series = chart->get_ChartData()->get_Series()->idx_get(2);
 
-// अब सीरीज़ डेटा भर रहा है
+// अब सीरीज़ डेटा भरता है
 series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 3, System::ObjectExt::Box<int32_t>(20)));
 series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 3, System::ObjectExt::Box<int32_t>(50)));
 series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 3, System::ObjectExt::Box<int32_t>(30)));
@@ -1172,39 +1529,72 @@ chart->set_Type(Aspose::Slides::Charts::ChartType::ClusteredCylinder);
 pres->Save(u"AsposeChartModified_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+## **चार्ट के लिए डेटा रेंज सेट करें**
 
-## **चार्ट के डेटा रेंज को सेट करें**
-
-1. उस [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास की एक इंस्टेन्स खोलें जिसमें चार्ट मौजूद है।
-2. स्लाइड का संदर्भ उसके इंडेक्स से प्राप्त करें।
-3. सभी शैप्स को पार करके वांछित चार्ट खोजें।
-4. चार्ट डेटा तक पहुँचें और रेंज सेट करें।
+1. वह [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) इंस्टैंस खोलें जिसमें चार्ट हो।  
+2. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंस प्राप्त करें।  
+3. सभी शैप्स को पार करके वांछित चार्ट खोजें।  
+4. चार्ट डेटा तक पहुंचें और रेंज सेट करें।  
 5. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
 
-यह C++ कोड दिखाता है कि चार्ट के डेटा रेंज को कैसे सेट किया जाता है:
+यह C++ कोड दिखाता है कि चार्ट के लिए डेटा रेंज कैसे सेट करें:
 
 ```cpp
-// दस्तावेज़ निर्देशिका का पथ.
-String dataDir = GetDataPath();
+#include <DOM/Chart/IChartData.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टैंस बनाता है
+// डॉक्यूमेंट्स डायरेक्टरी का पथ।
+String dataDir = u"../documents/";
+
+// PPTX फ़ाइल का प्रतिनिधित्व करने वाला Presentation क्लास इंस्टैंसिएट करता है
 auto presentation = System::MakeObject<Presentation>(dataDir + u"ExistingChart.pptx");
 
-// पहली स्लाइडमार्कर तक पहुँचता है और डिफ़ॉल्ट डेटा के साथ चार्ट जोड़ता है
+// पहली slideMarker तक पहुंचता है और डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ता है
 auto slide = presentation->get_Slides()->idx_get(0);
 auto chart = System::ExplicitCast<IChart>(slide->get_Shapes()->idx_get(0));
 chart->get_ChartData()->SetRange(u"Sheet1!A1:B4");
 presentation->Save(dataDir + u"SetDataRange_out.pptx", SaveFormat::Pptx);
 ```
 
-## **चार्ट में डिफ़ॉल्ट मार्कर का उपयोग करें**
-जब आप चार्ट में डिफ़ॉल्ट मार्कर का उपयोग करते हैं, तो प्रत्येक चार्ट सीरीज़ को स्वचालित रूप से अलग‑अलग डिफ़ॉल्ट मार्कर प्रतीक मिलते हैं।
+## **चार्ट में डिफ़ॉल्ट मार्कर उपयोग करें**
+जब आप चार्ट में डिफ़ॉल्ट मार्कर उपयोग करते हैं, तो प्रत्येक चार्ट सीरीज़ को स्वतः अलग‑अलग डिफ़ॉल्ट मार्कर प्रतीक मिलते हैं।
 
-यह C++ कोड दर्शाता है कि चार्ट सीरीज़ मार्कर को स्वचालित रूप से कैसे सेट करें:
+यह C++ कोड दिखाता है कि चार्ट सीरीज़ मार्कर को स्वतः कैसे सेट करें:
 
-```cpp
-// दस्तावेज़ निर्देशिका का पथ.
-String dataDir = GetDataPath();
+``` cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/ILegend.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// डॉक्यूमेंट्स डायरेक्टरी का पथ।
+String dataDir = u"../documents/";
 
 auto pres = System::MakeObject<Presentation>();
 
@@ -1229,10 +1619,10 @@ series->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 4, 1, nullptr
 
 chart->get_ChartData()->get_Series()->Add(wb->GetCell(0, 0, 2, ObjectExt::Box<String>(u"Series 2")), chart->get_Type());
 
-// दूसरी चार्ट सीरीज़ लेता है
+// दूसरे चार्ट सीरीज़ को लेता है
 auto series2 = chart->get_ChartData()->get_Series()->idx_get(1);
 
-// सीरीज़ डेटा भरता है
+// सीरीज़ डेटा को भरता है
 series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 1, 2, ObjectExt::Box<int32_t>(30)));
 series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 2, 2, ObjectExt::Box<int32_t>(10)));
 series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 3, 2, ObjectExt::Box<int32_t>(60)));
@@ -1246,18 +1636,14 @@ pres->Save(dataDir + u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**Aspose.Slides किन चार्ट प्रकारों का समर्थन करता है?**
+### Aspose.Slides किन चार्ट प्रकारों का समर्थन करता है?
+Aspose.Slides कई प्रकार के चार्टों का समर्थन करता है, जिसमें बार, लाइन, पाई, एरिया, स्कैटर, हिस्टोग्राम, रेडार और कई अन्य शामिल हैं। यह लचीलापन आपको अपने डेटा विज़ुअलाइज़ेशन आवश्यकताओं के लिए सबसे उपयुक्त चार्ट प्रकार चुनने की अनुमति देता है।
 
-Aspose.Slides कई प्रकार के चार्ट सपोर्ट करता है, जिनमें बार, लाइन, पाई, एरिया, स्कैटर, हिस्टोग्राम, रडार और कई अन्य शामिल हैं। यह लचीलापन आपको अपने डेटा विज़ुअलाइज़ेशन की आवश्यकताओं के लिए सबसे उपयुक्त चार्ट प्रकार चुनने की अनुमति देता है।
+### स्लाइड में नया चार्ट कैसे जोड़ें?
+चार्ट जोड़ने के लिए, पहले आप [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाते हैं, उसका इच्छित स्लाइड इंडेक्स से प्राप्त करते हैं, और फिर चार्ट जोड़ने की मेथड को कॉल करते हैं, जिसमें चार्ट प्रकार और प्रारंभिक डेटा निर्दिष्ट करते हैं। यह प्रक्रिया चार्ट को सीधे आपके प्रस्तुति में एकीकृत करती है।
 
-**मैं स्लाइड में नया चार्ट कैसे जोड़ूं?**
+### चार्ट में प्रदर्शित डेटा को कैसे अपडेट करें?
+आप चार्ट की डेटा workbook (`IChartDataWorkbook`) तक पहुंचकर, डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करके, और अपनी कस्टम डेटा जोड़कर चार्ट डेटा को अपडेट कर सकते हैं। इससे आप प्रोग्रामmatically चार्ट को नवीनतम डेटा के साथ रीफ़्रेश कर सकते हैं।
 
-एक चार्ट जोड़ने के लिए, सबसे पहले आप [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) क्लास की एक इंस्टेन्स बनाते हैं, फिर उसके इंडेक्स से वांछित स्लाइड प्राप्त करते हैं, और अंत में चार्ट जोड़ने की मेथड को कॉल करके चार्ट प्रकार और प्रारंभिक डेटा निर्दिष्ट करते हैं। यह प्रक्रिया चार्ट को सीधे आपकी प्रस्तुति में एकीकृत कर देती है।
-
-**मैं चार्ट में प्रदर्शित डेटा कैसे अपडेट करूँ?**
-
-आप चार्ट का डेटा अपडेट कर सकते हैं जब आप उसके डेटा वर्कबुक ([IChartDataWorkbook](https://reference.aspose.com/slides/hi/cpp/aspose.slides.charts/ichartdataworkbook/)) तक पहुँचते हैं, किसी भी डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करते हैं, और फिर अपनी कस्टम डेटा जोड़ते हैं। इससे आप प्रोग्रामेटिक रूप से चार्ट को नवीनतम डेटा के साथ रिफ़्रेश कर सकते हैं।
-
-**क्या चार्ट की उपस्थिति को अनुकूलित करना संभव है?**
-
+### क्या चार्ट की उपस्थिति को अनुकूलित करना संभव है?
 हाँ, Aspose.Slides व्यापक अनुकूलन विकल्प प्रदान करता है। आप रंग, फ़ॉन्ट, लेबल, लेजेंड और अन्य फ़ॉर्मेटिंग तत्वों को संशोधित करके चार्ट की उपस्थिति को अपनी विशिष्ट डिज़ाइन आवश्यकताओं के अनुसार ढाल सकते हैं।

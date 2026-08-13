@@ -1,5 +1,5 @@
 ---
-title: C++でPPTおよびPPTXをJPGに変換
+title: C++ で PPT と PPTX を JPG に変換
 linktitle: PowerPoint を JPG に変換
 type: docs
 weight: 60
@@ -24,28 +24,38 @@ keywords:
 - PPTX を JPG にエクスポート
 - C++
 - Aspose.Slides
-description: "Aspose.Slides を使用し、迅速で信頼性の高いコード例で、C++ で PowerPoint (PPT、PPTX) スライドを高品質な JPG 画像に変換します。"
+description: "Aspose.Slides を使用し、速く信頼性の高いコード例で C++ において PowerPoint (PPT、PPTX) スライドを高品質な JPG 画像に変換します。"
 ---
+## **Introduction**
 
-## **概要**
+PowerPoint および OpenDocument プレゼンテーションを JPG 画像に変換すると、スライドの共有、パフォーマンスの最適化、Web サイトやアプリケーションへのコンテンツ埋め込みが容易になります。Aspose.Slides for C++ を使用すると、PPTX、PPT、ODP ファイルを高品質な JPEG 画像に変換できます。このガイドでは、さまざまな変換方法について説明します。
 
-PowerPoint および OpenDocument のプレゼンテーションを JPG 画像に変換すると、スライドの共有、パフォーマンスの最適化、Web サイトやアプリケーションへのコンテンツ埋め込みが容易になります。Aspose.Slides for C++ を使用すると、PPTX、PPT、ODP ファイルを高品質な JPEG 画像に変換できます。本ガイドでは、さまざまな変換方法について説明します。
+これらの機能により、独自のプレゼンテーションビューアを実装したり、各スライドのサムネイルを作成したりすることが簡単になります。スライドのコピーから保護したい場合や、読み取り専用モードでプレゼンテーションをデモンストレーションしたい場合に便利です。Aspose.Slides を使用すると、プレゼンテーション全体または特定のスライドを画像形式に変換できます。
 
-これらの機能により、独自のプレゼンテーションビューアを実装し、各スライドのサムネイルを作成することが簡単になります。これにより、スライドのコピー防止や読み取り専用モードでのプレゼンテーションのデモなどに役立ちます。Aspose.Slides を使用すると、プレゼンテーション全体または特定のスライドを画像形式に変換できます。
+## **Convert Presentation Slides to JPG Images**
 
-## **プレゼンテーション スライドを JPG 画像に変換する**
+PPT、PPTX、または ODP ファイルを JPG に変換する手順は次のとおりです：
 
-1. [プレゼンテーション](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. プレゼンテーションのスライドコレクションから [ISlide](https://reference.aspose.com/slides/cpp/aspose.slides/islide/) タイプのスライドオブジェクトを取得します。
-1. [ISlide.GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/) メソッドを使用して、スライドの画像を作成します。
-1. 画像オブジェクトに対して [IImage.Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/) メソッドを呼び出します。出力ファイル名と画像フォーマットを引数として渡します。
+1. [Presentation](https://reference.aspose.com/slides/ja/cpp/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. プレゼンテーションのスライドコレクションから [ISlide](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islide/) 型のスライドオブジェクトを取得します。
+1. [ISlide.GetImage](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islide/getimage/) メソッドを使用してスライドの画像を作成します。
+1. 画像オブジェクトで [IImage.Save](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iimage/save/) メソッドを呼び出します。出力ファイル名と画像フォーマットを引数として渡します。
 
-{{% alert color="primary" %}} 
-
-**注:** PPT、PPTX、ODP を JPG に変換する方法は、Aspose.Slides for C++ API における他の形式への変換とは異なります。通常、他の形式には [IPresentation.Save](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/save/) メソッドを使用します。ただし、JPG 変換の場合は [IImage.Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/) メソッドを使用する必要があります。
-
+{{% alert color="info" %}} 
+**Note:** PPT、PPTX、または ODP から JPG への変換は、Aspose.Slides for C++ API における他の形式への変換とは異なります。他の形式では通常、[IPresentation.Save](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ipresentation/save/) メソッドを使用します。ただし、JPG 変換の場合は、[IImage.Save](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iimage/save/) メソッドを使用する必要があります。
 {{% /alert %}} 
+
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/enumerator_adapter.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 float scaleX = 1.0f;
 float scaleY = scaleX;
 
@@ -66,12 +76,23 @@ for (auto&& slide : presentation->get_Slides())
 presentation->Dispose();
 ```
 
+## **Convert Slides to JPG with Customized Dimensions**
 
-## **カスタマイズされたサイズでスライドを JPG に変換する**
+生成される JPG 画像のサイズを変更するには、[ISlide.GetImage(Size)](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islide/getimage/#islidegetimagesystemdrawingsize-method) メソッドにサイズを渡して画像サイズを設定できます。これにより、特定の幅と高さの値を持つ画像を生成でき、解像度やアスペクト比に対する要件を満たす出力が得られます。この柔軟性は、Web アプリケーション、レポート、ドキュメント用に画像を生成する際に、正確な画像サイズが必要な場合に特に有用です。
 
-結果の JPG 画像のサイズを変更するには、[ISlide.GetImage(Size)](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/#islidegetimagesystemdrawingsize-method) メソッドにサイズを渡して画像サイズを指定できます。これにより、特定の幅と高さの値で画像を生成でき、解像度やアスペクト比の要件を満たす出力が得られます。この柔軟性は、Web アプリケーション、レポート、ドキュメント向けに正確な画像サイズが必要な場合に特に有用です。
 ```cpp
-Size imageSize(1200, 800);
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/size.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+System::Drawing::Size imageSize(1200, 800);
 
 auto presentation = MakeObject<Presentation>(u"PowerPoint-Presentation.pptx");
 
@@ -90,18 +111,31 @@ for (auto&& slide : presentation->get_Slides())
 presentation->Dispose();
 ```
 
+## **Render Comments When Saving Slides as Images**
 
-## **スライドを画像として保存するときにコメントを描画する**
+Aspose.Slides for C++ は、プレゼンテーションのスライドを JPG 画像に変換する際にコメントを描画できる機能を提供します。この機能は、PowerPoint プレゼンテーションに共同作業者が追加した注釈、フィードバック、ディスカッションを保持するのに特に有用です。このオプションを有効にすると、生成された画像にコメントが表示されるため、元のプレゼンテーションファイルを開くことなくフィードバックの確認や共有が容易になります。
 
-Aspose.Slides for C++ は、プレゼンテーションのスライドを JPG 画像に変換する際にコメントを描画できる機能を提供します。この機能は、PowerPoint プレゼンテーションに共同作業者が追加した注釈、フィードバック、ディスカッションを保持するのに特に有用です。このオプションを有効にすると、生成された画像にコメントが表示され、元のプレゼンテーションファイルを開くことなくフィードバックを確認・共有しやすくなります。
-
-例として、コメントを含むスライドがあるプレゼンテーションファイル「sample.pptx」を考えてみます：
+例として、コメントを含むスライドがあるプレゼンテーション ファイル「sample.pptx」があるとします：
 
 ![コメント付きスライド](slide_with_comments.png)
 
-次の C++ コードは、コメントを保持したままスライドを JPG 画像に変換します：
+以下の C++ コードは、スライドをコメントを保持したまま JPG 画像に変換します：
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/CommentsPositions.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/RenderingOptions.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 float scaleX = 2.0f;
 float scaleY = scaleX;
 
@@ -118,7 +152,7 @@ auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
     // 最初のスライドを画像に変換します。
     auto image = presentation->get_Slide(0)->GetImage(options, scaleX, scaleY);
-        
+
     image->Save(u"Slide_1.jpg", ImageFormat::Jpeg);
     image->Dispose();
 }
@@ -126,38 +160,43 @@ auto presentation = MakeObject<Presentation>(u"sample.pptx");
 presentation->Dispose();
 ```
 
-
 結果：
 
 ![コメント付き JPG 画像](image_with_comments.png)
 
-## **関連項目**
+## **See Also**
 
-PPT、PPTX、ODP を画像に変換する他のオプションとして、以下をご覧ください：
+PPT、PPTX、または ODP を画像に変換する他のオプションとして、次のものがあります：
 
-- [PowerPoint を GIF に変換](/slides/ja/cpp/convert-powerpoint-to-animated-gif/)
-- [PowerPoint を PNG に変換](/slides/ja/cpp/convert-powerpoint-to-png/)
-- [PowerPoint を TIFF に変換](/slides/ja/cpp/convert-powerpoint-to-tiff/)
-- [PowerPoint を SVG に変換](/slides/ja/cpp/render-a-slide-as-an-svg-image/)
+- [Convert PowerPoint to GIF](/slides/ja/cpp/convert-powerpoint-to-animated-gif/)
+- [Convert PowerPoint to PNG](/slides/ja/cpp/convert-powerpoint-to-png/)
+- [Convert PowerPoint to TIFF](/slides/ja/cpp/convert-powerpoint-to-tiff/)
+- [Convert PowerPoint to SVG](/slides/ja/cpp/render-a-slide-as-an-svg-image/)
 
-{{% alert color="primary" %}} 
-
-Aspose.Slides が PowerPoint を JPG 画像に変換する方法を確認するには、以下の無料オンラインコンバータを試してください: PowerPoint [PPTX を JPG に変換](https://products.aspose.app/slides/conversion/pptx-to-jpg) と [PPT を JPG に変換](https://products.aspose.app/slides/conversion/ppt-to-jpg)。 
-
+{{% alert color="info" %}} 
+Aspose.Slides が PowerPoint を JPG 画像に変換する方法を確認するには、以下の無料オンラインコンバータを試してください：PowerPoint [PPTX to JPG](https://products.aspose.app/slides/ja/conversion/pptx-to-jpg) と [PPT to JPG](https://products.aspose.app/slides/ja/conversion/ppt-to-jpg)。 
 {{% /alert %}}
 
-![無料オンライン PPTX to JPG コンバータ](ppt-to-jpg.png)
+![無料オンライン PPTX から JPG へのコンバータ](ppt-to-jpg.png)
 
-{{% alert title="Tip" color="primary" %}}
+{{% alert title="Tip" color="info" %}}
 
-Aspose は [無料の Collage Web アプリ](https://products.aspose.app/slides/collage) を提供しています。このオンラインサービスを使用すると、[JPG から JPG](https://products.aspose.app/slides/collage/jpg) や PNG から PNG の画像を結合したり、[フォトグリッド](https://products.aspose.app/slides/collage/photo-grid) を作成したりできます。  
+Aspose は、[FREE Collage web app](https://products.aspose.app/slides/ja/collage) を提供しています。このオンラインサービスを使用すると、[JPG to JPG](https://products.aspose.app/slides/ja/collage/jpg) や PNG to PNG 画像を結合したり、[photo grids](https://products.aspose.app/slides/ja/collage/photo-grid) を作成したりすることができます。
 
-この記事で説明した原理を使用すれば、画像を別の形式に変換できます。詳細は以下のページをご参照ください: [画像を JPG に変換](https://products.aspose.com/slides/cpp/conversion/image-to-jpg/); [JPG を画像に変換](https://products.aspose.com/slides/cpp/conversion/jpg-to-image/); [JPG を PNG に変換](https://products.aspose.com/slides/cpp/conversion/jpg-to-png/); [PNG を JPG に変換](https://products.aspose.com/slides/cpp/conversion/png-to-jpg/); [PNG を SVG に変換](https://products.aspose.com/slides/cpp/conversion/png-to-svg/); [SVG を PNG に変換](https://products.aspose.com/slides/cpp/conversion/svg-to-png/)。
+本記事で説明したのと同じ原理を使って、画像を別の形式に変換できます。詳細については、次のページをご覧ください：convert [image to JPG](https://products.aspose.com/slides/ja/cpp/conversion/image-to-jpg/); convert [JPG to image](https://products.aspose.com/slides/ja/cpp/conversion/jpg-to-image/); convert [JPG to PNG](https://products.aspose.com/slides/ja/cpp/conversion/jpg-to-png/), convert [PNG to JPG](https://products.aspose.com/slides/ja/cpp/conversion/png-to-jpg/); convert [PNG to SVG](https://products.aspose.com/slides/ja/cpp/conversion/png-to-svg/), convert [SVG to PNG](https://products.aspose.com/slides/ja/cpp/conversion/svg-to-png/)。
 
 {{% /alert %}}
 
 ## **FAQ**
 
-**この方法はバッチ変換をサポートしていますか？**
+### この方法はバッチ変換をサポートしていますか？
 
-はい、Aspose.Slides は単一の操作で
+はい、Aspose.Slides は�数のスライドを単一の操作で JPG にバッチ変換できます。
+
+### 変換は SmartArt、チャート、その他の複雑なオブジェクトをサポートしていますか？
+
+はい、Aspose.Slides は SmartArt、チャート、テーブル、シェイプなどを含むすべてのコンテンツをレンダリングします。ただし、カスタムフォントや不足しているフォントを使用した場合、PowerPoint と比較して若干精度が異なることがあります。
+
+### 処理できるスライド数に制限はありますか？
+
+Aspose.Slides 自体は処理できるスライド数に厳密な制限を課していません。ただし、大規模なプレゼンテーションや高解像度画像を扱う場合、メモリ不足エラーが発生する可能性があります。

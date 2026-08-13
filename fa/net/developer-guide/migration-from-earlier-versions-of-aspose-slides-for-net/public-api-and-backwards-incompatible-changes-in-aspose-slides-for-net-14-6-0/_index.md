@@ -1,5 +1,5 @@
 ---
-title: API عمومی و تغییرات ناسازگار با عقب‌گرد در Aspose.Slides برای .NET 14.6.0
+title: تغییرات API عمومی و ناسازگاری‌های عقب‌گرد در Aspose.Slides برای .NET 14.6.0
 linktitle: Aspose.Slides برای .NET 14.6.0
 type: docs
 weight: 80
@@ -10,27 +10,31 @@ keywords:
 - کد مدرن
 - رویکرد قدیمی
 - رویکرد مدرن
-- PowerPoint
-- OpenDocument
+- پاورپوینت
+- سند باز
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "به‌روزرسانی‌های API عمومی و تغییرات شکست‌پذیر در Aspose.Slides برای .NET را بررسی کنید تا راه‌حل‌های ارائه PowerPoint (PPT، PPTX) و ODP خود را به‌صورت روان مهاجرت دهید."
+description: "مرور به‌روزرسانی‌های API عمومی و تغییرات شکسته‌کننده در Aspose.Slides برای .NET برای مهاجرت روان راه‌حل‌های ارائه PowerPoint PPT، PPTX و ODP شما."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-این صفحه تمام کلاس‌ها، متدها، ویژگی‌ها و موارد مشابهی که [اضافه](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) شده‌اند، هرگونه [محدودیت](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) جدید و سایر [تغییرات](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) معرفی‌شده با API Aspose.Slides برای .NET 14.6.0 را فهرست می‌کند.
+این صفحه تمام کلاس‌ها، متدها، ویژگی‌ها و غیرهٔ [اضافه‌شده](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) ، هر [محدودیت](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) جدید و سایر [تغییرات](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) معرفی‌شده با API Aspose.Slides for .NET 14.6.0 را فهرست می‌کند.
 
 {{% /alert %}} 
 ## **تغییرات API عمومی**
 ### **رابط‌ها، متدها و ویژگی‌های اضافه‌شده**
 #### **رابط Aspose.Slides.Charts.IErrorBarsFormat اضافه شد**
-این نمایانگر نوارهای خطا در سری‌های نمودار است.
+این نمایانگر نوارهای خطای سری‌های نمودار است.
 
-در صورت نوع مقدار سفارشی، برای مشخص کردن مقدار، از ویژگی ErrorBarCustomValues نقطه داده خاص در مجموعه DataPoints سری استفاده کنید.
+در صورت استفاده از نوع مقدار سفارشی، برای تعیین مقدار، از ویژگی ErrorBarCustomValues نقطه دادهٔ خاص در مجموعه DataPoints سری استفاده کنید.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -63,12 +67,15 @@ description: "به‌روزرسانی‌های API عمومی و تغییرات 
     pres.Save("ErrorBars.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
 #### **رابط Aspose.Slides.Charts.IErrorBarsCustomValues اضافه شد**
-زمانی که ویژگی IErrorBarsFormat.ValueType برابر با Custom باشد، برای مشخص کردن مقدار، از ویژگی ErrorBarCustomValues نقطه داده خاص در مجموعه DataPoints استفاده کنید.
+زمانی که ویژگی ValueType رابط IErrorBarsFormat برابر Custom باشد، برای تعیین مقدار، از ویژگی ErrorBarCustomValues نقطه دادهٔ خاص در مجموعه DataPoints استفاده کنید.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -117,12 +124,15 @@ description: "به‌روزرسانی‌های API عمومی و تغییرات 
     pres.Save("ErrorBarsCustomValues", SaveFormat.Pptx);
 
 }
-
 ``` 
 #### **رابط Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues اضافه شد**
-انواع مقادیر را در لیست ویژگی‌های ChartDataPoint.ErrorBarsCustomValues مشخص می‌کند.
+انواع مقادیر را در فهرست ویژگی‌های ChartDataPoint.ErrorBarsCustomValues مشخص می‌کند.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -171,10 +181,9 @@ description: "به‌روزرسانی‌های API عمومی و تغییرات 
     pres.Save("ErrorBarsCustomValues", SaveFormat.Pptx);
 
 }
-
 ``` 
 #### **متدهای Aspose.Slides.IShapeCollection.AddClone(... ) و .InsertClone(... ) اضافه شدند**
-متدهای زیر یک کپی از شکل مشخص‌شده را به مجموعه اضافه/درج می‌کنند. 
+متدهای زیر یک نسخه از شکل مشخص‌شده را به مجموعه اضافه/درج می‌کنند. 
 
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape)
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape, float x, float y)
@@ -184,8 +193,10 @@ description: "به‌روزرسانی‌های API عمومی و تغییرات 
 - Aspose.Slides.IShapeCollection.InsertClone(int index, IShape sourceShape, float x, float y, float width, float height)
 
 ``` csharp
+using Aspose.Slides;
 
- using (Presentation srcPres = new Presentation(dataPath_ShapeCloning + "Source Frame.pptx"))
+
+ using (Presentation srcPres = new Presentation("Source Frame.pptx"))
 
 {
 
@@ -210,12 +221,13 @@ description: "به‌روزرسانی‌های API عمومی و تغییرات 
     destShapes.InsertClone(0, sourceShapes[0], 50, 150);
 
 }
-
 ``` 
 #### **Enum ViewType، رابط IViewProperties، کلاس ViewProperties و ویژگی‌های IPresentation.ViewProperties اضافه شدند**
-ویژگی IPresentation.ViewProperty به توسعه‌دهندگان امکان می‌دهد نوع نمایش ارائه و نمایش یادداشت‌ها را زمانی که ارائه در PowerPoint باز می‌شود، تغییر دهند.
+ویژگی IPresentation.ViewProperty به توسعه‌دهندگان امکان تغییر نوع نمای ارائه و قابلیت نمایش یادداشت‌ها را زمانی که ارائه در PowerPoint باز می‌شود، می‌دهد.
 
 ``` csharp
+using Aspose.Slides;
+
 
  using(Presentation p = new Presentation())
 
@@ -224,5 +236,4 @@ description: "به‌روزرسانی‌های API عمومی و تغییرات 
     p.ViewProperties.LastView = ViewType.SlideMasterView;
 
 }
-
 ```

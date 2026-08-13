@@ -1,34 +1,34 @@
 ---
-title: แปลง PPT และ PPTX เป็น PDF ใน .NET [รวมฟีเจอร์ขั้นสูง]
-linktitle: PowerPoint เป็น PDF
+title: "แปลง PPT และ PPTX เป็น PDF ใน .NET [รวมคุณสมบัติเพิ่มเติม]"
+linktitle: "PowerPoint เป็น PDF"
 type: docs
 weight: 40
 url: /th/net/convert-powerpoint-to-pdf/
 keywords:
-- แปลง PowerPoint
-- แปลงงานนำเสนอ
-- PowerPoint เป็น PDF
-- งานนำเสนอเป็น PDF
-- PPT เป็น PDF
-- แปลง PPT เป็น PDF
-- PPTX เป็น PDF
-- แปลง PPTX เป็น PDF
-- บันทึก PowerPoint เป็น PDF
-- บันทึก PPT เป็น PDF
-- บันทึก PPTX เป็น PDF
-- ส่งออก PPT เป็น PDF
-- ส่งออก PPTX เป็น PDF
-- PDF/A1a
-- PDF/A1b
-- PDF/UA
-- .NET
-- C#
-- Aspose.Slides
-description: "แปลง PowerPoint PPT/PPTX เป็น PDF คุณภาพสูงและค้นหาได้ใน .NET ด้วย Aspose.Slides โดยมีตัวอย่างโค้ด C# ที่เร็วและตัวเลือกการแปลงขั้นสูง"
+- "แปลง PowerPoint"
+- "แปลงงานนำเสนอ"
+- "PowerPoint เป็น PDF"
+- "งานนำเสนอเป็น PDF"
+- "PPT เป็น PDF"
+- "แปลง PPT เป็น PDF"
+- "PPTX เป็น PDF"
+- "แปลง PPTX เป็น PDF"
+- "บันทึก PowerPoint เป็น PDF"
+- "บันทึก PPT เป็น PDF"
+- "บันทึก PPTX เป็น PDF"
+- "ส่งออก PPT เป็น PDF"
+- "ส่งออก PPTX เป็น PDF"
+- "PDF/A1a"
+- "PDF/A1b"
+- "PDF/UA"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "แปลง PowerPoint PPT/PPTX เป็น PDF ที่มีคุณภาพสูงและสามารถค้นหาได้ใน .NET ด้วย Aspose.Slides พร้อมตัวอย่างโค้ด C# อย่างรวดเร็วและตัวเลือกการแปลงขั้นสูง"
 ---
 ## **ภาพรวม**
 
-การแปลงงานนำเสนอ PowerPoint (PPT, PPTX, ODP ฯลฯ) เป็นรูปแบบ PDF ด้วย C# มีข้อได้เปรียบหลายประการ รวมถึงความเข้ากันได้กับอุปกรณ์ต่าง ๆ และการคงรักษาเลย์เอาต์และการจัดรูปแบบของงานนำเสนอของคุณ คู่มือนี้จะแสดงวิธีแปลงงานนำเสนอเป็นเอกสาร PDF ใช้ตัวเลือกต่าง ๆ เพื่อควบคุมคุณภาพของภาพ รวมถึงการใส่สไลด์ที่ซ่อนอยู่ การตั้งรหัสผ่านให้ไฟล์ PDF การตรวจจับการแทนที่แบบอักษร การเลือกสไลด์เฉพาะสำหรับการแปลง และการใช้มาตรฐานการปฏิบัติตามในเอกสารผลลัพธ์
+การแปลงงานนำเสนอ PowerPoint (PPT, PPTX, ODP ฯลฯ) เป็นรูปแบบ PDF ใน C# มีประโยชน์หลายประการ รวมถึงความเข้ากันได้กับอุปกรณ์ต่าง ๆ และการคงรูปแบบการจัดวางและการจัดรูปแบบของงานนำเสนอ คู่มือฉบับนี้แสดงวิธีแปลงงานนำเสนอเป็นเอกสาร PDF, ใช้ตัวเลือกต่าง ๆ เพื่อควบคุมคุณภาพของภาพ, รวมสไลด์ที่ซ่อนอยู่, รหัสผ่านป้องกันไฟล์ PDF, ตรวจจับการแทนที่แบบอักษร, เลือกสไลด์เฉพาะสำหรับการแปลง, และใช้มาตรฐานการปฏิบัติตามเพื่อเอกสารผลลัพธ์
 
 ## **การแปลง PowerPoint เป็น PDF**
 
@@ -38,65 +38,77 @@ description: "แปลง PowerPoint PPT/PPTX เป็น PDF คุณภา�
 * **PPTX**
 * **ODP**
 
-เพื่อแปลงงานนำเสนอเป็น PDF ให้ส่งชื่อไฟล์เป็นอากิวเมนต์ให้กับคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) แล้วบันทึกงานนำเสนอเป็น PDF โดยใช้เมธอด [Save](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/save/). คลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) เปิดให้ใช้เมธอด [Save](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/save/) ซึ่งโดยทั่วไปใช้สำหรับแปลงงานนำเสนอเป็น PDF.
+เพื่อแปลงงานนำเสนอเป็น PDF ให้ส่งชื่อไฟล์เป็นอาร์กิวเมนต์ให้คลาส[Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/)แล้วบันทึกงานนำเสนอเป็น PDF ด้วยเมธอด[Save](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/save/). คลาส[Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/)เปิดเผยเมธอด[Save](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/save/)ซึ่งมักใช้เพื่อแปลงงานนำเสนอเป็น PDF
 
 {{%  alert title="NOTE"  color="warning"   %}} 
-Aspose.Slides for .NET จะใส่ข้อมูล API และหมายเลขเวอร์ชันของมันลงในเอกสารผลลัพธ์ ตัวอย่างเช่น เมื่อแปลงงานนำเสนอเป็น PDF Aspose.Slides จะเติมค่าในฟิลด์ Application ด้วย "*Aspose.Slides*" และฟิลด์ PDF Producer ด้วยค่าในรูปแบบ "*Aspose.Slides v XX.XX*". **หมายเหตุ** คุณไม่สามารถบังคับให้ Aspose.Slides เปลี่ยนหรือเอาข้อมูลนี้ออกจากเอกสารผลลัพธ์ได้.
+
+Aspose.Slides สำหรับ .NET จะใส่ข้อมูล API และหมายเลขเวอร์ชันลงในเอกสารผลลัพธ์ ตัวอย่างเช่นเมื่อแปลงงานนำเสนอเป็น PDF, Aspose.Slides จะใส่ค่าในฟิลด์ Application เป็น "*Aspose.Slides*" และฟิลด์ PDF Producer เป็นค่าในรูปแบบ "*Aspose.Slides v XX.XX*". **หมายเหตุ** คุณไม่สามารถสั่ง Aspose.Slides ให้เปลี่ยนหรือลบข้อมูลนี้ออกจากเอกสารผลลัพธ์ได้
+
 {{% /alert %}}
 
-Aspose.Slides ช่วยให้คุณสามารถแปลง:
+Aspose.Slides อนุญาตให้คุณแปลง:
 
 * งานนำเสนอทั้งหมดเป็น PDF
 * สไลด์เฉพาะจากงานนำเสนอเป็น PDF
 
-Aspose.Slides ส่งออกงานนำเสนอเป็น PDF เพื่อให้ PDF ที่ได้ตรงกับงานนำเสนอเดิมอย่างใกล้เคียง ส่วนประกอบและแอตทริบิวต์จะถูกแสดงอย่างแม่นยำในการแปลง รวมถึง:
+Aspose.Slides ส่งออกงานนำเสนอเป็น PDF อย่างแม่นยำ ทำให้ PDF ที่ได้ตรงกับงานนำเสนอเดิมเป็นอย่างดี รายการและแอตทริบิวต์ต่าง ๆ จะถูกเรนเดอร์อย่างถูกต้องในการแปลง รวมถึง:
 
 * รูปภาพ
-* กล่องข้อความและรูปทรง
+* กล่องข้อความและรูปร่าง
 * การจัดรูปแบบข้อความ
 * การจัดรูปแบบย่อหน้า
-* ไฮเปอร์ลิงก์
+* ลิงก์ไฮเปอร์ลิงก์
 * ส่วนหัวและส่วนท้าย
-* จุดรายการ
+* รายการหัวข้อสัญลักษณ์
 * ตาราง
 
 ## **แปลง PowerPoint เป็น PDF**
 
-กระบวนการแปลง PowerPoint เป็น PDF มาตรฐานใช้ตัวเลือกเริ่มต้น ในกรณีนี้ Aspose.Slides จะพยายามแปลงงานนำเสนอที่ให้เป็น PDF ด้วยการตั้งค่าที่เหมาะสมที่สุดในระดับคุณภาพสูงสุด
+กระบวนการแปลง PowerPoint ไปเป็น PDF แบบมาตรฐานใช้ตัวเลือกเริ่มต้น ในกรณีนี้ Aspose.Slides จะพยายามแปลงงานนำเสนอที่ให้มาเป็น PDF ด้วยการตั้งค่าที่เหมาะสมที่สุดในระดับคุณภาพสูงสุด
 
-โค้ด C# นี้แสดงวิธีการแปลงงานนำเสนอ (PPT, PPTX, ODP ฯลฯ) เป็น PDF:
+โค้ด C# นี้แสดงวิธีแปลงงานนำเสนอ (PPT, PPTX, ODP ฯลฯ) ไปเป็น PDF:
+
 ```c#
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนของไฟล์ PowerPoint หรือ OpenDocument.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PowerPoint หรือ OpenDocument
 using var presentation = new Presentation("PowerPoint.ppt");
 
 // บันทึกงานนำเสนอเป็น PDF.
 presentation.Save("PDF-result.pdf", SaveFormat.Pdf);
 ```
 
-{{%  alert  color="primary"  %}} 
-Aspose มีตัวแปลง [**PowerPoint to PDF converter**](https://products.aspose.app/slides/th/conversion/ppt-to-pdf) ออนไลน์ฟรีที่แสดงกระบวนการแปลงงานนำเสนอเป็น PDF คุณสามารถทดสอบด้วยตัวแปลงนี้เพื่อดูการทำงานจริงของขั้นตอนที่อธิบายไว้ที่นี่.
+{{%  alert  color="info"  %}} 
+
+Aspose มีเครื่องมือออนไลน์ฟรี[**PowerPoint to PDF converter**](https://products.aspose.app/slides/th/conversion/ppt-to-pdf)ที่แสดงกระบวนการแปลงงานนำเสนอเป็น PDF คุณสามารถทดลองใช้เครื่องมือนี้เพื่อดูการทำงานจริงของขั้นตอนที่อธิบายในที่นี่
+
 {{% /alert %}}
 
 ## **แปลง PowerPoint เป็น PDF ด้วยตัวเลือก**
 
-Aspose.Slides มีตัวเลือกกำหนดเอง—พรอพर्टีภายใต้คลาส [PdfOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/pdfoptions/)—ที่ช่วยให้คุณปรับแต่ง PDF ที่ได้, ตั้งรหัสผ่านให้ PDF, หรือระบุวิธีการดำเนินการแปลง
+Aspose.Slides มีตัวเลือกกำหนดเอง—properties ภายใต้คลาส[PdfOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/pdfoptions/)—ที่ช่วยให้คุณปรับแต่ง PDF ที่ได้, ล็อก PDF ด้วยรหัสผ่าน, หรือระบุวิธีการดำเนินกระบวนการแปลง
 
-### **แปลง PowerPoint เป็น PDF ด้วยตัวเลือกที่กำหนดเอง**
+### **แปลง PowerPoint เป็น PDF ด้วยตัวเลือกกำหนดเอง**
 
-โดยใช้ตัวเลือกการแปลงที่กำหนดเอง คุณสามารถตั้งค่าคุณภาพที่ต้องการสำหรับภาพแรสเตอร์, ระบุวิธีการจัดการเมตาไฟล์, ตั้งระดับการบีบอัดสำหรับข้อความ, กำหนด DPI สำหรับภาพ, และอื่น ๆ
+ด้วยตัวเลือกการแปลงที่กำหนดเอง คุณสามารถกำหนดการตั้งค่าคุณภาพที่ต้องการสำหรับภาพเรสเตอร์, ระบุวิธีการจัดการ metafiles, ตั้งค่าระดับการบีบอัดสำหรับข้อความ, กำหนด DPI สำหรับภาพ, และอื่น ๆ
 
-ตัวอย่างโค้ดด้านล่างแสดงวิธีการแปลงงานนำเสนอ PowerPoint เป็น PDF พร้อมตัวเลือกกำหนดเองหลายตัว
+โค้ดตัวอย่างด้านล่างแสดงวิธีแปลงงานนำเสนอ PowerPoint ไปเป็น PDF พร้อมตัวเลือกกำหนดเองหลายอย่าง:
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // สร้างอินสแตนซ์ของคลาส PdfOptions.
 var pdfOptions = new PdfOptions
 {
-    // ตั้งค่าคุณภาพสำหรับรูปภาพ JPG.
+    // ตั้งค่าคุณภาพสำหรับภาพ JPG.
     JpegQuality = 90,
 
-    // ตั้งค่า DPI สำหรับรูปภาพ.
+    // ตั้งค่า DPI สำหรับภาพ.
     SufficientResolution = 300,
 
-    // ตั้งค่าการทำงานสำหรับเมตาไฟล์.
+    // ตั้งค่าพฤติกรรมสำหรับเมตาฟายล์.
     SaveMetafilesAsPng = true,
 
     // ตั้งค่าระดับการบีบอัดข้อความสำหรับเนื้อหาข้อความ.
@@ -106,20 +118,24 @@ var pdfOptions = new PdfOptions
     Compliance = PdfCompliance.Pdf15
 };
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงถึงไฟล์ PowerPoint หรือ OpenDocument file.
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PowerPoint หรือ OpenDocument file.
 using var presentation = new Presentation("PowerPoint.pptx");
 
 // บันทึกงานนำเสนอเป็นเอกสาร PDF.
 presentation.Save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-### **แปลง PowerPoint เป็น PDF พร้อมสไลด์ที่ซ่อน**
+### **แปลง PowerPoint เป็น PDF พร้อมสไลด์ที่ซ่อนอยู่**
 
-หากงานนำเสนอมีสไลด์ที่ซ่อนอยู่ คุณสามารถใช้คุณสมบัติ [ShowHiddenSlides](https://reference.aspose.com/slides/th/net/aspose.slides.export/pdfoptions/showhiddenslides/) จากคลาส [PdfOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/pdfoptions/) เพื่อรวมสไลด์ที่ซ่อนเป็นหน้าใน PDF ที่ได้
+หากงานนำเสนอมีสไลด์ที่ซ่อนอยู่ คุณสามารถใช้ property[ShowHiddenSlides](https://reference.aspose.com/slides/th/net/aspose.slides.export/pdfoptions/showhiddenslides/)จากคลาส[PdfOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/pdfoptions/)เพื่อรวมสไลด์ที่ซ่อนเป็นหน้าใน PDF ผลลัพธ์
 
-โค้ด C# นี้แสดงวิธีการแปลงงานนำเสนอ PowerPoint เป็น PDF พร้อมสไลด์ที่ซ่อนรวมอยู่:
+โค้ด C# นี้แสดงวิธีแปลงงานนำเสนอ PowerPoint ไปเป็น PDF โดยรวมสไลด์ที่ซ่อนอยู่ด้วย:
+
 ```c#
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนของไฟล์ PowerPoint หรือ OpenDocument file.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PowerPoint หรือ OpenDocument file.
 using var presentation = new Presentation("PowerPoint.pptx");
 
 // สร้างอินสแตนซ์ของคลาส PdfOptions.
@@ -132,36 +148,45 @@ pdfOptions.ShowHiddenSlides = true;
 presentation.Save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-### **แปลง PowerPoint เป็น PDF ป้องกันด้วยรหัสผ่าน**
+### **แปลง PowerPoint เป็น PDF ที่มีการป้องกันด้วยรหัสผ่าน**
 
-โค้ด C# นี้แสดงวิธีการแปลงงานนำเสนอ PowerPoint ให้เป็น PDF ที่มีการตั้งรหัสผ่านโดยใช้พารามิเตอร์การปกป้องจากคลาส [PdfOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/pdfoptions/):
+โค้ด C# นี้สาธิตวิธีแปลงงานนำเสนอ PowerPoint ให้เป็น PDF ที่มีการป้องกันด้วยรหัสผ่านโดยใช้พารามิเตอร์การป้องกันจากคลาส[PdfOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/pdfoptions/):
+
 ```c#
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนของไฟล์ PowerPoint หรือ OpenDocument
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PowerPoint หรือ OpenDocument
 using var presentation = new Presentation("PowerPoint.pptx");
 
-// สร้างอินสแตนซ์ของคลาส PdfOptions.
+// สร้างอินสแตนซ์ของคลาส PdfOptions
 var pdfOptions = new PdfOptions();
 
-// ตั้งรหัสผ่าน PDF และสิทธิ์การเข้าถึง.
+// ตั้งรหัสผ่าน PDF และสิทธิ์การเข้าถึง
 pdfOptions.Password = "password";
 pdfOptions.AccessPermissions = PdfAccessPermissions.PrintDocument | PdfAccessPermissions.HighQualityPrint;
 
-// บันทึกงานนำเสนอเป็น PDF.
+// บันทึกงานนำเสนอเป็น PDF
 presentation.Save("PPTX-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-### **ตรวจจับการแทนที่แบบอักษร**
+### **ตรวจจับการแทนที่ฟอนต์**
 
-Aspose.Slides มีคุณสมบัติ [WarningCallback](https://reference.aspose.com/slides/th/net/aspose.slides.export/saveoptions/warningcallback/) ใต้คลาส [PdfOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/pdfoptions/) ที่ช่วยให้คุณตรวจจับการแทนที่แบบอักษรในระหว่างกระบวนการแปลงงานนำเสนอเป็น PDF
+Aspose.Slides มี property[WarningCallback](https://reference.aspose.com/slides/th/net/aspose.slides.export/saveoptions/warningcallback/) ภายใต้คลาส[PdfOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/pdfoptions/) ที่ช่วยให้คุณตรวจจับการแทนที่ฟอนต์ระหว่างกระบวนการแปลงงานนำเสนอเป็น PDF
 
-โค้ด C# นี้แสดงวิธีตรวจจับการแทนที่แบบอักษร:
+โค้ด C# นี้แสดงวิธีตรวจจับการแทนที่ฟอนต์:
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Warnings;
+
 public static void Main()
 {
-    // สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนของไฟล์ PowerPoint หรือ OpenDocument file. 
+    // สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PowerPoint หรือ OpenDocument 
     using var presentation = new Presentation("sample.pptx");
 
-    // ตั้งค่าคอลแบ็คการเตือนในตัวเลือก PDF.
+    // ตั้งค่า callback คำเตือนในตัวเลือก PDF.
     var pdfOptions = new PdfOptions();
     pdfOptions.WarningCallback = new FontSubstitutionHandler();
 
@@ -169,7 +194,7 @@ public static void Main()
     presentation.Save("output.pdf", SaveFormat.Pdf, pdfOptions);
 }
 
-// การทำงานของคอลแบ็คการเตือน.
+// การทำงานของ callback คำเตือน.
 private class FontSubstitutionHandler : IWarningCallback
 {
     public ReturnAction Warning(IWarningInfo warning)
@@ -185,58 +210,75 @@ private class FontSubstitutionHandler : IWarningCallback
 }
 ```
 
-{{%  alert color="primary"  %}} 
-สำหรับข้อมูลเพิ่มเติมเกี่ยวกับการรับคอลแบ็คสำหรับการแทนที่แบบอักษรในกระบวนการเรนเดอร์ ดูที่ [Getting Warning Callbacks for Fonts Substitution](/slides/th/net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/)
+{{%  alert color="info"  %}} 
 
-สำหรับข้อมูลเพิ่มเติมเกี่ยวกับการแทนที่แบบอักษร ดูบทความ [Font Substitution](/slides/th/net/font-substitution/)
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับการรับ callback สำหรับการแทนที่ฟอนต์ระหว่างการเรนเดอร์ โปรดดู[Getting Warning Callbacks for Fonts Substitution](/slides/th/net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/)
+
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับการแทนที่ฟอนต์ โปรดดูบทความ[Font Substitution](/slides/th/net/font-substitution/)
+
 {{% /alert %}} 
 
 ## **แปลงสไลด์ที่เลือกจาก PowerPoint เป็น PDF**
 
-โค้ด C# นี้แสดงวิธีการแปลงสไลด์เฉพาะจากงานนำเสนอ PowerPoint เป็น PDF:
+โค้ด C# นี้สาธิตวิธีแปลงเฉพาะสไลด์ที่เลือกจากงานนำเสนอ PowerPoint ไปเป็น PDF:
+
 ```c#
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนของไฟล์ PowerPoint หรือ OpenDocument file.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PowerPoint หรือ OpenDocument
 using var presentation = new Presentation("PowerPoint.pptx");
 
-// กำหนดอาร์เรย์ของหมายเลขสไลด์.
+// ตั้งค่าอาเรย์ของหมายเลขสไลด์
 int[] slides = { 1, 3 };
 
-// บันทึกงานนำเสนอเป็น PDF.
+// บันทึกงานนำเสนอเป็น PDF
 presentation.Save("PPTX-to-PDF.pdf", slides, SaveFormat.Pdf);
 ```
 
-## **แปลง PowerPoint เป็น PDF ด้วยขนาดสไลด์ที่กำหนดเอง**
+## **แปลง PowerPoint เป็น PDF ด้วยขนาดสไลด์กำหนดเอง**
 
-โค้ด C# นี้แสดงวิธีการแปลงงานนำเสนอ PowerPoint เป็น PDF พร้อมขนาดสไลด์ที่กำหนด:
+โค้ด C# นี้สาธิตวิธีแปลงงานนำเสนอ PowerPoint ไปเป็น PDF ด้วยขนาดสไลด์ที่ระบุ:
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 var slideWidth = 612;
 var slideHeight = 792;
 
-// โหลดงานนำเสนอ PowerPoint.
+// Load a PowerPoint presentation.
 using var presentation = new Presentation("SelectedSlides.pptx");
 
-// สร้างงานนำเสนอใหม่ด้วยขนาดสไลด์ที่ปรับแล้ว.
+// Create a new presentation with an adjusted slide size.
 using var resizedPresentation = new Presentation();
 
-// ตั้งค่าขนาดสไลด์ที่กำหนดเอง.
+// Set the custom slide size.
 resizedPresentation.SlideSize.SetSize(slideWidth, slideHeight, SlideSizeScaleType.EnsureFit);
 
-// คัดลอกสไลด์แรกจากงานนำเสนอเดิม.
+// Clone the first slide from the original presentation.
 var slide = presentation.Slides[0];
 resizedPresentation.Slides.InsertClone(0, slide);
 
-// บันทึกงานนำเสนอที่ปรับขนาดเป็น PDF พร้อมบันทึกย่อ.
-resizedPresentation.Save("PDF_with_notes.pdf", SaveFormat.Pdf);
+// Remove the blank slide that the new presentation was created with.
+resizedPresentation.Slides.RemoveAt(1);
+
+// Save the resized presentation as a PDF.
+resizedPresentation.Save("PDF_with_custom_slide_size.pdf", SaveFormat.Pdf);
 ```
 
-## **แปลง PowerPoint เป็น PDF ในมุมมองสไลด์บันทึกย่อ**
+## **แปลง PowerPoint เป็น PDF ในมุมมองบันทึกสไลด์**
 
-โค้ด C# นี้แสดงวิธีการแปลงงานนำเสนอ PowerPoint เป็น PDF ที่รวมบันทึกย่อ:
+โค้ด C# นี้สาธิตวิธีแปลงงานนำเสนอ PowerPoint ให้เป็น PDF ที่รวมบันทึกสไลด์ไว้ด้วย:
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // โหลดงานนำเสนอ PowerPoint.
 using var presentation = new Presentation("NotesFile.pptx");
 
-// กำหนดค่าตัวเลือก PDF ด้วยการจัดหน้าบันทึกย่อ.
+// กำหนดค่าตัวเลือก PDF ด้วยการจัดเค้าโครงบันทึก.
 var pdfOptions = new PdfOptions
 {
     SlidesLayoutOptions = new NotesCommentsLayoutingOptions
@@ -245,16 +287,20 @@ var pdfOptions = new PdfOptions
     }
 };
 
-// บันทึกงานนำเสนอเป็น PDF พร้อมบันทึกย่อ.
+// บันทึกงานนำเสนอเป็น PDF พร้อมบันทึก.
 presentation.Save("PDF_with_notes.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
 ## **มาตรฐานการเข้าถึงและการปฏิบัติตามสำหรับ PDF**
 
-Aspose.Slides ให้คุณใช้กระบวนการแปลงที่สอดคล้องกับ [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). คุณสามารถส่งออกเอกสาร PowerPoint เป็น PDF ด้วยมาตรฐานการปฏิบัติตามเหล่านี้: **PDF/A1a**, **PDF/A1b**, และ **PDF/UA**.
+Aspose.Slides อนุญาตให้คุณใช้กระบวนการแปลงที่สอดคล้องกับ[Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). คุณสามารถส่งออกเอกสาร PowerPoint ไปเป็น PDF โดยใช้มาตรฐานการปฏิบัติตามใดก็ได้: **PDF/A1a**, **PDF/A1b**, และ **PDF/UA**.
 
-โค้ด C# นี้แสดงกระบวนการแปลง PowerPoint เป็น PDF ที่สร้าง PDF หลายไฟล์ตามมาตรฐานการปฏิบัติตามที่แตกต่างกัน:
+โค้ด C# นี้สาธิตกระบวนการแปลง PowerPoint เป็น PDF ที่สร้าง PDF หลายไฟล์ตามมาตรฐานการปฏิบัติตามที่ต่างกัน:
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("pres.pptx");
 
 presentation.Save("pres-a1a-compliance.pdf", SaveFormat.Pdf, new PdfOptions
@@ -274,30 +320,37 @@ presentation.Save("pres-ua-compliance.pdf", SaveFormat.Pdf, new PdfOptions
 ```
 
 {{% alert title="Note" color="warning" %}} 
-Aspose.Slides รองรับการแปลง PDF, ช่วยให้คุณแปลงไฟล์ PDF ไปเป็นรูปแบบไฟล์ยอดนิยมต่าง ๆ คุณสามารถทำการแปลง [PDF to HTML](https://products.aspose.com/slides/th/net/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/th/net/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/th/net/conversion/pdf-to-jpg/), และ [PDF to PNG](https://products.aspose.com/slides/th/net/conversion/pdf-to-png/) ได้ อีกทั้งยังรองรับการแปลง PDF ไปเป็นรูปแบบเฉพาะทางอื่น ๆ ได้แก่ [PDF to SVG](https://products.aspose.com/slides/th/net/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/th/net/conversion/pdf-to-tiff/), และ [PDF to XML](https://products.aspose.com/slides/th/net/conversion/pdf-to-xml/) 
+
+Aspose.Slides รองรับการแปลง PDF ให้เป็นรูปแบบไฟล์ยอดนิยมต่าง ๆ คุณสามารถทำการแปลง[PDF to HTML](https://products.aspose.com/slides/th/net/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/th/net/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/th/net/conversion/pdf-to-jpg/), และ[PDF to PNG](https://products.aspose.com/slides/th/net/conversion/pdf-to-png/)ได้ อีกทั้งยังรองรับการแปลง PDF ไปเป็นรูปแบบพิเศษเช่น[PDF to SVG](https://products.aspose.com/slides/th/net/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/th/net/conversion/pdf-to-tiff/), และ[PDF to XML](https://products.aspose.com/slides/th/net/conversion/pdf-to-xml/)ด้วย
+
 {{% /alert %}}
 
-> **หมายเหตุ:** เมื่อส่งออกเป็น PDF/UA, Aspose.Slides จะถือกราฟิกซับซ้อนเช่น SmartArt, แผนภูมิ, และสูตรว่าเป็นรูปภาพเดียว ส่วนองค์ประกอบเส้นทางแยกแต่ละส่วนจะไม่ถูกเก็บไว้เป็นเนื้อหาแยกและอาจถูกระบุเป็นสิ่งที่เหลืออยู่; ข้อความแทนที่ให้เฉพาะกับรูปภาพทั้งหมดเท่านั้น.
+> **หมายเหตุ:** เมื่อส่งออกเป็น PDF/UA, Aspose.Slides จะถือกราฟิกที่ซับซ้อนเช่น SmartArt, แผนภูมิ, และสูตรเป็นรูปทรงเดียว ไม่เก็บส่วนประกอบของเส้นทางเป็นเนื้อหาแยกและอาจถูกทำเครื่องหมายเป็น artefact; ข้อความแทนที่จะถูกจัดให้เฉพาะรูปทรงทั้งหมดเท่านั้น
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถแปลงไฟล์ PowerPoint หลายไฟล์เป็น PDF แบบกลุ่มได้หรือไม่?**  
-ได้, Aspose.Slides รองรับการแปลงเป็นกลุ่มของไฟล์ PPT หรือ PPTX หลายไฟล์เป็น PDF คุณสามารถวนซ้ำไฟล์ของคุณและดำเนินการแปลงโดยใช้โปรแกรมได้.
+### สามารถแปลงไฟล์ PowerPoint หลายไฟล์เป็น PDF แบบกลุ่มได้หรือไม่?
 
-**สามารถตั้งรหัสผ่านให้ PDF ที่แปลงแล้วได้หรือไม่?**  
-แน่นอน. ใช้คลาส [PdfOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/pdfoptions/) เพื่อตั้งรหัสผ่านและกำหนดสิทธิ์การเข้าถึงในระหว่างกระบวนการแปลง.
+ได้, Aspose.Slides รองรับการแปลงหลายไฟล์ PPT หรือ PPTX เป็น PDF ทีละหลายไฟล์ คุณสามารถวนลูปไฟล์ของคุณและเรียกใช้กระบวนการแปลงโปรแกรมได้
 
-**ฉันจะรวมสไลด์ที่ซ่อนใน PDF อย่างไร?**  
-ตั้งค่า `ShowHiddenSlides` ในคลาส [PdfOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/pdfoptions/) เป็น `true` เพื่อรวมสไลด์ที่ซ่อนใน PDF ที่ได้.
+### สามารถตั้งค่าการป้องกันด้วยรหัสผ่านให้กับไฟล์ PDF ที่แปลงแล้วได้หรือไม่?
 
-**Aspose.Slides สามารถรักษาคุณภาพภาพสูงใน PDF ได้หรือไม่?**  
-ได้, คุณสามารถควบคุมคุณภาพภาพโดยตั้งค่าพรอพต์เช่น `JpegQuality` และ `SufficientResolution` ในคลาส [PdfOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/pdfoptions/) เพื่อให้ได้ภาพคุณภาพสูงใน PDF ของคุณ.
+แน่นอน ใช้คลาส[PdfOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/pdfoptions/)เพื่อกำหนดรหัสผ่านและสิทธิ์การเข้าถึงในกระบวนการแปลง
 
-**Aspose.Slides รองรับมาตรฐานการปฏิบัติตาม PDF/A หรือไม่?**  
-ได้, Aspose.Slides ให้คุณส่งออก PDF ที่สอดคล้องกับมาตรฐานต่าง ๆ รวมถึง PDF/A1a, PDF/A1b, และ PDF/UA เพื่อให้เอกสารของคุณตรงตามข้อกำหนดด้านการเข้าถึงและการเก็บรักษา.
+### จะใส่สไลด์ที่ซ่อนอยู่ใน PDF อย่างไร?
+
+ตั้งค่า property`ShowHiddenSlides`ในคลาส[PdfOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/pdfoptions/)เป็น`true`เพื่อรวมสไลด์ที่ซ่อนอยู่ใน PDF ที่สร้างขึ้น
+
+### Aspose.Slides สามารถรักษาคุณภาพภาพสูงใน PDF ได้หรือไม่?
+
+ได้, คุณสามารถควบคุมคุณภาพภาพโดยตั้งค่า propertyเช่น`JpegQuality`และ`SufficientResolution`ในคลาส[PdfOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/pdfoptions/)เพื่อให้ได้ภาพคุณภาพสูงใน PDF ของคุณ
+
+### Aspose.Slides รองรับมาตรฐานการปฏิบัติตาม PDF/A หรือไม่?
+
+ใช่, Aspose.Slides อนุญาตให้คุณส่งออก PDF ที่สอดคล้องกับมาตรฐานต่าง ๆ รวมถึง PDF/A1a, PDF/A1b, และ PDF/UA เพื่อให้เอกสารของคุณตอบสนองต่อข้อกำหนดการเข้าถึงและการเก็บรักษา
 
 ## **แหล่งข้อมูลเพิ่มเติม**
 
-- [เอกสาร Aspose.Slides for .NET](/slides/th/net/)
-- [อ้างอิง API Aspose.Slides for .NET](https://reference.aspose.com/slides/th/net/)
-- [ตัวแปลงออนไลน์ฟรีของ Aspose](https://products.aspose.app/slides/th/conversion)
+- [Aspose.Slides for .NET Documentation](/slides/th/net/)
+- [Aspose.Slides for .NET API Reference](https://reference.aspose.com/slides/th/net/)
+- [Aspose Free Online Converters](https://products.aspose.app/slides/th/conversion)

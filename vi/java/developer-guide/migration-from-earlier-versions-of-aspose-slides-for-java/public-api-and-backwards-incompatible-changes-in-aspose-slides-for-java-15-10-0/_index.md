@@ -1,30 +1,28 @@
 ---
-title: API công khai và các thay đổi không tương thích ngược trong Aspose.Slides cho Java 15.10.0
+title: API công khai và các thay đổi không tương thích ngược trong Aspose.Slides for Java 15.10.0
 linktitle: Aspose.Slides cho Java 15.10.0
 type: docs
 weight: 180
 url: /vi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/
 keywords:
 - di chuyển
-- mã kế thừa
+- mã di sản
 - mã hiện đại
-- phương pháp kế thừa
-- phương pháp hiện đại
+- cách tiếp cận di sản
+- cách tiếp cận hiện đại
 - PowerPoint
 - OpenDocument
 - bài thuyết trình
 - Java
 - Aspose.Slides
-description: "Xem lại các cập nhật API công khai và các thay đổi gây phá vỡ trong Aspose.Slides cho Java để chuyển đổi mượt mà các giải pháp bài thuyết trình PowerPoint PPT, PPTX và ODP của bạn."
+description: "Xem xét các cập nhật API công khai và các thay đổi gây phá vỡ trong Aspose.Slides for Java để di chuyển mượt mà các giải pháp bài thuyết trình PowerPoint PPT, PPTX và ODP của bạn."
 ---
-{{% alert color="primary" %}} 
-
-Trang này liệt kê tất cả các lớp, phương thức, thuộc tính và các thành phần khác [được thêm](/slides/vi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) hoặc [bị xóa](/slides/vi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) và các thay đổi khác được giới thiệu trong API Aspose.Slides for Java 15.10.0.
-
+{{% alert color="info" %}} 
+Trang này liệt kê tất cả các lớp, phương thức, thuộc tính và các mục khác đã [đã thêm](/slides/vi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) hoặc [đã loại bỏ](/slides/vi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/), cũng như các thay đổi khác được giới thiệu trong API Aspose.Slides for Java 15.10.0.
 {{% /alert %}} 
 ## **Thay đổi API công khai**
-#### **API hoạt hình chuỗi biểu đồ đã được thêm vào ISequence**
-Đã thêm 2 phương thức mới vào giao diện com.aspose.slides.ISequence.
+#### **API hoạt họa chuỗi biểu đồ đã được thêm vào ISequence**
+Hai phương thức mới đã được thêm vào giao diện com.aspose.slides.ISequence.
 
 ``` java
 
@@ -34,20 +32,24 @@ IEffect addEffect(IChart chart, int type, int seriesIndex, int categoriesIndex, 
 
 ```
 
-Các phương thức này nhằm hỗ trợ hoạt hình các phần tử của biểu đồ:
+Các phương thức này nhằm hỗ trợ hoạt họa các phần tử của biểu đồ:
 
-theo chuỗi  
-theo danh mục  
-theo phần tử chuỗi  
-theo phần tử danh mục  
+by series
+by categories
+by series elements
+by categories elements
 
-Hai enum mới EffectChartMajorGroupingType và EffectChartMinorGroupingType liên quan đến hoạt hình các phần tử của biểu đồ đã được giới thiệu.
+Hai enum mới EffectChartMajorGroupingType và EffectChartMinorGroupingType liên quan đến hoạt họa các phần tử của biểu đồ đã được giới thiệu.
 
-Để thêm hoạt hình chuỗi vào biểu đồ, có thể sử dụng đoạn mã sau:
+Để thêm hoạt họa chuỗi vào biểu đồ, có thể sử dụng đoạn mã sau. Biểu đồ trong tệp mẫu có ba chuỗi, vì vậy một hiệu ứng được thêm cho mỗi chỉ số từ 0 đến 2:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try {
 
@@ -79,12 +81,6 @@ try {
 
 		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMajorGroupingType.BySeries, 3,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
 	pres.save(outFileName, SaveFormat.Pptx);
 
 } finally {
@@ -95,11 +91,15 @@ try {
 
 ```
 
-Hoạt hình danh mục:
+Hoạt họa danh mục:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -146,14 +146,17 @@ try
 	if(pres != null) pres.dispose();
 
 }
-
 ```
 
-Hoạt hình phần tử chuỗi:
+Hoạt họa phần tử chuỗi:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -251,11 +254,15 @@ try
 
 ```
 
-Hoạt hình phần tử danh mục:
+Hoạt họa phần tử danh mục:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -350,20 +357,21 @@ try
 	if(pres != null) pres.dispose();
 
 }
-
 ```
-#### **com.aspose.slides.VideoPlayerHtmlController mới được thêm để hỗ trợ xuất tệp phương tiện sang HTML**
-Lớp công khai mới com.aspose.slides.VideoPlayerHtmlController đã được thêm. Bằng cách sử dụng thể hiện của lớp này, người dùng có thể xuất tệp video và âm thanh sang HTML.
+#### **com.aspose.slides.VideoPlayerHtmlController mới được thêm để hỗ trợ xuất các tệp media sang HTML**
+Lớp công khai mới com.aspose.slides.VideoPlayerHtmlController đã được thêm. Bằng cách sử dụng một thể hiện của lớp này, người dùng có thể xuất các tệp video và âm thanh sang HTML.
 
-Các hàm khởi tạo VideoPlayerHtmlController chấp nhận các tham số sau:
+Các hàm tạo VideoPlayerHtmlController chấp nhận các tham số sau:
 
-- path: Đường dẫn nơi các tệp video và âm thanh sẽ được tạo ra  
-- fileName: Tên của tệp HTML  
-- baseUri: URI cơ sở sẽ được sử dụng để tạo liên kết  
+path: Đường dẫn nơi các tệp video và âm thanh sẽ được tạo (thư mục phải tồn tại trước)
+fileName: Tên của tệp HTML
+baseUri: URI cơ sở sẽ được sử dụng để tạo liên kết
 
 Ví dụ sử dụng:
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation("example.pptx");
 
@@ -371,7 +379,7 @@ try
 
 {
 
-	final String path = "path";
+	final String path = "path/";
 
 	final String fileName = "video.html";
 

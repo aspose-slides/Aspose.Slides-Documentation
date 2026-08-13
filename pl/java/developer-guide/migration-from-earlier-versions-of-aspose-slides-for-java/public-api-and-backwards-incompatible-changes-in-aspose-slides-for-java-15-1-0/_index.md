@@ -1,12 +1,12 @@
 ---
-title: Publiczne API oraz niekompatybilne wstecz zmiany w Aspose.Slides for Java 15.1.0
+title: Publiczne API i zmiany niekompatybilne wstecz w Aspose.Slides for Java 15.1.0
 linktitle: Aspose.Slides for Java 15.1.0
 type: docs
 weight: 100
 url: /pl/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-1-0/
 keywords:
 - migracja
-- starszy kod
+- kod starszy
 - nowoczesny kod
 - starsze podejście
 - nowoczesne podejście
@@ -15,34 +15,36 @@ keywords:
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Przeglądaj aktualizacje publicznego API oraz zmiany łamiące w Aspose.Slides for Java, aby płynnie migrować rozwiązania prezentacji PowerPoint PPT, PPTX i ODP."
+description: "Przejrzyj aktualizacje publicznego API oraz zmiany łamiące w Aspose.Slides for Java, aby płynnie migrować rozwiązania prezentacji PowerPoint PPT, PPTX i ODP."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Ta strona wymienia wszystkie dodane klasy, metody, właściwości itp., wszelkie nowe ograniczenia oraz inne zmiany wprowadzone w API Aspose.Slides for Java 15.1.0.
+Ta strona wymienia wszystkie [dodane](/slides/pl/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-1-0/) klasy, metody, właściwości itd., wszelkie nowe ograniczenia oraz inne [zmiany](/slides/pl/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-1-0/) wprowadzone w API Aspose.Slides for Java 15.1.0.
 
-{{% /alert %}} {{% alert color="primary" %}} 
+{{% /alert %}} {{% alert color="info" %}} 
 
-Istnieją znane problemy z niektórymi punktami graficznymi i obiektami WordArt, które zostaną naprawione w Aspose.Slides for Java 15.2.0.
+Istnieją znane problemy z niektórymi punktorami‑obrazami i obiektami WordArt, które zostaną naprawione w Aspose.Slides for Java 15.2.0.
 
 {{% /alert %}} 
-## **Zmiany API publicznego**
+## **Zmiany publicznego API**
 ### **Dodano funkcjonalność podstawiania czcionek**
-Dodano możliwość zastępowania czcionek globalnie w całej prezentacji oraz tymczasowo podczas renderowania.
+Dodano możliwość globalnej wymiany czcionek w całej prezentacji oraz tymczasowej wymiany podczas renderowania.
 
 Wprowadzono nową metodę getFontsManager() klasy Presentation. Klasa FontsManager posiada następujące elementy:
 
-**IFontSubstRuleCollection getFontSubstRuleList()** metoda
+metoda **IFontSubstRuleCollection getFontSubstRuleList**()
 
-Jest to kolekcja instancji IFontSubstRule używanych do podstawiania czcionek podczas renderowania. IFontSubstRule posiada metody getSourceFont() i getDestFont() implementujące interfejs IFontData oraz metodę getReplaceFontCondition() umożliwiającą wybór warunku zastąpienia („WhenInaccessible” lub „Always”).
+Jest to kolekcja obiektów IFontSubstRule używanych do podstawiania czcionek podczas renderowania. IFontSubstRule posiada metody getSourceFont() i getDestFont() implementujące interfejs IFontData oraz metodę getReplaceFontCondition(), umożliwiającą wybór warunku zastąpienia ("WhenInaccessible" lub "Always").
 
-**IFontData[] getFonts()** metoda może być użyta do pobrania wszystkich czcionek użytych w bieżącej prezentacji.
+metodę **IFontData[] getFonts()** można użyć do pobrania wszystkich czcionek użytych w bieżącej prezentacji.
 
-**replaceFont(...)** metody mogą być użyte do trwałego zastąpienia czcionki w prezentacji.  
+metod **replaceFont(...)** można użyć do trwałej wymiany czcionki w prezentacji. 
 
-Poniższy przykład pokazuje, jak zastąpić czcionkę w prezentacji:
+Poniższy przykład pokazuje, jak wymienić czcionkę w prezentacji:
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation("PresContainsArialFont.pptx");
 
@@ -56,30 +58,27 @@ pres.save("PresContainsTimesNoewRomanFont.pptx", SaveFormat.Pptx);
 
 ```
 
-Inny przykład pokazuje podstawianie czcionki podczas renderowania, gdy jest niedostępna:
+Kolejny przykład pokazuje podstawianie czcionki podczas renderowania, gdy jest ona niedostępna:
 
 ``` java
-
-
+import com.aspose.slides.*;
 
 Presentation pres = new Presentation("PresContainsSomeRareFontFont.pptx");
+try {
+    IFontData sourceFont = new FontData("SomeRareFont");
+    IFontData destFont = new FontData("Arial");
 
-IFontData sourceFont = new FontData("SomeRareFont");
+    IFontSubstRule fontSubstRule = new FontSubstRule(sourceFont, destFont, FontSubstCondition.WhenInaccessible);
 
-IFontData destFont = new FontData("Arial");
+    IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
+    fontSubstRuleCollection.add(fontSubstRule);
 
-IFontSubstRule fontSubstRule = new FontSubstRule(
+    pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
 
-sourceFont, destFont, FontSubstCondition.WhenInaccessible);
-
-IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
-
-fontSubstRuleCollection.add(fontSubstRule);
-
-pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
-
-// Czcionka Arial będzie użyta zamiast SomeRareFont, gdy będzie niedostępna
-
-pres.getSlides().get_Item(0).getThumbnail(1, 1);
-
+    // Czcionka Arial zostanie użyta zamiast SomeRareFont, gdy będzie niedostępna.
+    IImage slideImage = pres.getSlides().get_Item(0).getImage(1, 1);
+    slideImage.dispose();
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```

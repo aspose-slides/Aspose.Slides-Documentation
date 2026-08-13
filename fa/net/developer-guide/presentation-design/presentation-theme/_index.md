@@ -14,7 +14,7 @@ keywords:
 - رنگ تم
 - پالت اضافی
 - فونت تم
-- استایل تم
+- سبک تم
 - اثر تم
 - PowerPoint
 - OpenDocument
@@ -22,23 +22,25 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "تم‌های ارائه اصلی را در Aspose.Slides برای .NET مدیریت کنید تا فایل‌های PowerPoint را با برندسازی یکسان ایجاد، سفارشی‌سازی و تبدیل کنید."
+description: "تم‌های اصلی ارائه در Aspose.Slides برای .NET برای ایجاد، سفارشی‌سازی و تبدیل فایل‌های PowerPoint با برندینگ ثابت."
 ---
 ## **معرفی**
 
-یک تم ارائه ویژگی‌های عناصر طراحی را تعریف می‌کند. وقتی تم ارائه‌ای را انتخاب می‌کنید، در واقع مجموعه‌ای خاص از عناصر بصری و ویژگی‌های آن‌ها را برمی‌گزینید.
+یک طرح ارائه ویژگی‌های عناصر طراحی را تعریف می‌کند. هنگامی که یک طرح ارائه را انتخاب می‌کنید، در واقع مجموعه‌ای خاص از عناصر بصری و ویژگی‌های آن‌ها را برمی‌گزینید.
 
-در PowerPoint، یک تم شامل رنگ‌ها، [فونت‌ها](/slides/fa/net/powerpoint-fonts/)، [سبک‌های پس‌زمینه](/slides/fa/net/presentation-background/)، و افکت‌ها است.
+در PowerPoint، یک طرح شامل رنگ‌ها، [فونت‌ها](/slides/fa/net/powerpoint-fonts/)، [سبک‌های پس‌زمینه](/slides/fa/net/presentation-background/) و افکت‌ها است.
 
-![تم-اجزای]{{theme-constituents.png}}
+![theme-constituents](theme-constituents.png)
 
-## **تغییر رنگ تم**
+## **تغییر رنگ طرح**
 
-یک تم PowerPoint برای عناصر مختلف یک اسلاید از مجموعه‌ای خاص رنگ استفاده می‌کند. اگر رنگ‌ها را دوست ندارید، می‌توانید با اعمال رنگ‌های جدید برای تم، آن‌ها را تغییر دهید. برای اینکه بتوانید رنگ تم جدیدی را انتخاب کنید، Aspose.Slides مقادیر زیر را تحت enumeration [SchemeColor](https://reference.aspose.com/slides/fa/net/aspose.slides/schemecolor/) ارائه می‌دهد.
+یک طرح PowerPoint از مجموعه‌ای خاص از رنگ‌ها برای عناصر مختلف یک اسلاید استفاده می‌کند. اگر رنگ‌ها را دوست ندارید، می‌توانید با اعمال رنگ‌های جدید برای طرح، آن‌ها را تغییر دهید. برای انتخاب رنگ جدید طرح، Aspose.Slides مقادیر را تحت شمارش‌گر [SchemeColor](https://reference.aspose.com/slides/fa/net/aspose.slides/schemecolor/) ارائه می‌دهد.
 
-این کد C# نحوه تغییر رنگ Accent برای یک تم را نشان می‌دهد:
+این کد C# نشان می‌دهد چگونه رنگ تأکید یک طرح را تغییر دهید:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation())
     
 {
@@ -50,41 +52,61 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-می‌توانید مقدار موثر رنگ حاصل را به این شکل تعیین کنید:
+به این روش می‌توانید مقدار مؤثر رنگ حاصل را تعیین کنید:
 
 ```c#
-var fillEffective = shape.FillFormat.GetEffective();
+using Aspose.Slides;
 
-Console.WriteLine($"{fillEffective.SolidFillColor.Name} ({fillEffective.SolidFillColor})"); // ff8064a2 (رنگ [A=255, R=128, G=100, B=162])
+using (Presentation pres = new Presentation())
+{
+    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+
+    shape.FillFormat.FillType = FillType.Solid;
+
+    shape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+
+    var fillEffective = shape.FillFormat.GetEffective();
+
+    Console.WriteLine($"{fillEffective.SolidFillColor.Name} ({fillEffective.SolidFillColor})"); // ff8064a2 (رنگ [A=255, R=128, G=100, B=162])
+}
 ```
 
-برای نمایش بهتر عملیات تغییر رنگ، عنصر دیگری ایجاد می‌کنیم و رنگ Accent (از عملیات اولیه) را به آن اختصاص می‌دهیم. سپس رنگ تم را تغییر می‌دهیم:
+برای نشان دادن بیشتر عملیات تغییر رنگ، یک عنصر دیگر ایجاد می‌کنیم و رنگ تأکید (از عملیات اولیه) را به آن اختصاص می‌دهیم. سپس رنگ را در طرح تغییر می‌دهیم:
 
 ```c#
-IAutoShape otherShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
+using System.Drawing;
+using Aspose.Slides;
 
-otherShape.FillFormat.FillType = FillType.Solid;
+using (Presentation pres = new Presentation())
+{
+    IAutoShape otherShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
 
-otherShape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+    otherShape.FillFormat.FillType = FillType.Solid;
 
-pres.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
+    otherShape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+
+    pres.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
+}
 ```
 
 رنگ جدید به‌صورت خودکار بر روی هر دو عنصر اعمال می‌شود.
 
-### **تنظیم رنگ تم از یک پالت اضافی**
+### **تنظیم رنگ طرح از پالت افزودنی**
 
-وقتی تبدیل‌های روشنایی را بر رنگ اصلی تم (1) اعمال می‌کنید، رنگ‌هایی از پالت اضافی (2) تشکیل می‌شود. سپس می‌توانید این رنگ‌های تم را تنظیم و دریافت کنید.
+هنگامی که تبدیل‌های روشنی را بر رنگ اصلی طرح (1) اعمال می‌کنید، رنگ‌هایی از پالت افزودنی (2) تشکیل می‌شود. سپس می‌توانید آن رنگ‌های طرح را تنظیم و دریافت کنید.
 
-![رنگ‌های‑پالت‑اضافی]{{additional-palette-colors.png}}
+![additional-palette-colors](additional-palette-colors.png)
 
-**1** - رنگ‌های اصلی تم
+**1** - رنگ‌های اصلی طرح
 
-**2** - رنگ‌های پالت اضافی.
+**2** - رنگ‌های پالت افزودنی.
 
-این کد C# عملیاتی را نشان می‌دهد که در آن رنگ‌های پالت اضافی از رنگ اصلی تم استخراج شده و سپس در شکل‌ها استفاده می‌شوند:
+این کد C# عملیاتی را نشان می‌دهد که در آن رنگ‌های پالت افزودنی از رنگ اصلی طرح به دست می‌آیند و سپس در شکل‌ها استفاده می‌شوند:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -95,7 +117,7 @@ using (Presentation presentation = new Presentation())
     shape1.FillFormat.FillType = FillType.Solid;
     shape1.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
 
-    // اکسنت 4، روشن‌تر 80%
+    // اکسنت 4، روشن تر 80%
     IShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 70, 50, 50);
 
     shape2.FillFormat.FillType = FillType.Solid;
@@ -103,7 +125,7 @@ using (Presentation presentation = new Presentation())
     shape2.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.2f);
     shape2.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.8f);
 
-    // اکسنت 4، روشن‌تر 60%
+    // اکسنت 4، روشن تر 60%
     IShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 130, 50, 50);
 
     shape3.FillFormat.FillType = FillType.Solid;
@@ -111,7 +133,7 @@ using (Presentation presentation = new Presentation())
     shape3.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.4f);
     shape3.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.6f);
 
-    // اکسنت 4، روشن‌تر 40%
+    // اکسنت 4، روشن تر 40%
     IShape shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 190, 50, 50);
 
     shape4.FillFormat.FillType = FillType.Solid;
@@ -119,14 +141,14 @@ using (Presentation presentation = new Presentation())
     shape4.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.6f);
     shape4.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.4f);
 
-    // اکسنت 4، تیره‌تر 25%
+    // اکسنت 4، تیره تر 25%
     IShape shape5 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 250, 50, 50);
 
     shape5.FillFormat.FillType = FillType.Solid;
     shape5.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
     shape5.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.75f);
 
-    // اکسنت 4، تیره‌تر 50%
+    // اکسنت 4، تیره تر 50%
     IShape shape6 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 310, 50, 50);
 
     shape6.FillFormat.FillType = FillType.Solid;
@@ -137,73 +159,81 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **نقش‌گذاری `SchemeColor` به رنگ‌های `IColorScheme`**
+### **نقشه‌برداری `SchemeColor` به رنگ‌های `IColorScheme`**
 
-هنگام کار با [SchemeColor](https://reference.aspose.com/slides/fa/net/aspose.slides/schemecolor/)، ممکن است متوجه شوید که مقادیر رنگ تم زیر را شامل می‌شود:
+وقتی با [SchemeColor](https://reference.aspose.com/slides/fa/net/aspose.slides/schemecolor/) کار می‌کنید، ممکن است متوجه شوید که شامل مقادیر رنگی زیر برای طرح است: `Background1`, `Background2`, `Text1` و `Text2`.
 
-`Background1`، `Background2`، `Text1` و `Text2`.
+اما `Presentation.MasterTheme.ColorScheme` یک [IColorScheme](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/icolorscheme/) باز می‌گرداند که رنگ‌های متناظر را به شکل زیر فراهم می‌کند: `Dark1`, `Dark2`, `Light1` و `Light2`.
 
-اما `Presentation.MasterTheme.ColorScheme` یک [IColorScheme](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/icolorscheme/) برمی‌گرداند که رنگ‌های متناظر را به این شکل نشان می‌دهد:
-
-`Dark1`، `Dark2`، `Light1` و `Light2`.
-
-این تفاوت فقط در نام‌گذاری است. این مقادیر به همان اسلات‌های رنگ تم ارجاع می‌دهند و نقش‌گذاری ثابت است:
+این تفاوت فقط در نام‌گذاری است. این مقادیر به همان اسلات‌های رنگی طرح اشاره دارند و نقشه‌برداری ثابت است:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-هیچ تبدیل داینامیکی بین `Text`/`Background` و `Dark`/`Light` وجود ندارد. آن‌ها صرفاً نام‌های جایگزین برای همان رنگ‌های تم هستند.
+هیچ تبدیل دینامیکی بین `Text`/`Background` و `Dark`/`Light` وجود ندارد. آن‌ها صرفاً نام‌های جایگزین برای همان رنگ‌های طرح هستند.
 
-این تفاوت نام‌گذاری از اصطلاحات Microsoft Office نشأت می‌گیرد. نسخه‌های قدیمی Office از `Dark 1`، `Light 1`، `Dark 2` و `Light 2` استفاده می‌کردند، در حالی که نسخه‌های جدید UI همان اسلات‌ها را به صورت `Text 1`، `Background 1`، `Text 2` و `Background 2` نمایش می‌دهند.
+این تفاوت نام‌گذاری از اصطلاحات Microsoft Office ناشی می‌شود. نسخه‌های قدیمی Office از `Dark 1`، `Light 1`، `Dark 2` و `Light 2` استفاده می‌کردند، در حالی که نسخه‌های جدید UI همان اسلات‌ها را به صورت `Text 1`، `Background 1`، `Text 2` و `Background 2` نمایش می‌دهند.
 
-## **تغییر فونت تم**
+## **تغییر فونت طرح**
 
-برای اینکه بتوانید فونت‌ها را برای تم‌ها و مقاصد دیگر انتخاب کنید، Aspose.Slides از این شناسه‌های ویژه (مشابه آن‌هایی که در PowerPoint استفاده می‌شود) بهره می‌برد:
+برای این که بتوانید فونت‌ها را برای طرح‌ها و مقاصد دیگر انتخاب کنید، Aspose.Slides از این شناسه‌های خاص (مشابه آنچه در PowerPoint استفاده می‌شود) استفاده می‌کند:
 
-* **+mn‑lt** - فونت بدنه لاتین (Minor Latin Font)
-* **+mj‑lt** - فونت سرعنوان لاتین (Major Latin Font)
-* **+mn‑ea** - فونت بدنه آسیای شرقی (Minor East Asian Font)
-* **+mj‑ea** - فونت سرعنوان آسیای شرقی (Major East Asian Font)
+* **+mn-lt** - فونت متن اصلی لاتین (فونت لاتین جزئی)
+* **+mj-lt** - فونت عنوان لاتین (فونت لاتین اصلی)
+* **+mn-ea** - فونت متن اصلی آسیای شرقی (فونت آسیای شرقی جزئی)
+* **+mj-ea** - فونت متن اصلی آسیای شرقی (فونت آسیای شرقی جزئی)
 
-این کد C# نشان می‌دهد چگونه فونت لاتین را به یک عنصر تم اختصاص دهید:
-
-```c#
-IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
-
-Paragraph paragraph = new Paragraph();
-
-Portion portion = new Portion("Theme text format");
-
-paragraph.Portions.Add(portion);
-
-shape.TextFrame.Paragraphs.Add(paragraph);
-
-portion.PortionFormat.LatinFont = new FontData("+mn-lt");
-```
-
-این کد C# نحوه تغییر فونت تم ارائه را نشان می‌دهد:
+این کد C# نشان می‌دهد چگونه فونت لاتین را به یک عنصر طرح اختصاص دهید:
 
 ```c#
-pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
+using Aspose.Slides;
+
+using (Presentation pres = new Presentation())
+{
+    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+
+    Paragraph paragraph = new Paragraph();
+
+    Portion portion = new Portion("Theme text format");
+
+    paragraph.Portions.Add(portion);
+
+    shape.TextFrame.Paragraphs.Add(paragraph);
+
+    portion.PortionFormat.LatinFont = new FontData("+mn-lt");
+}
 ```
 
-فونت تمام جعبه‌های متن به‌روز خواهد شد.
+این کد C# نشان می‌دهد چگونه فونت طرح ارائه را تغییر دهید:
 
-{{% alert color="primary" title="TIP" %}} 
-ممکن است بخواهید به [فونت‌های PowerPoint](/slides/fa/net/powerpoint-fonts/) نگاهی بیندازید.
+```c#
+using Aspose.Slides;
+
+using (Presentation pres = new Presentation())
+{
+    pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
+}
+```
+
+فونت در تمام جعبه‌های متن به‌روز خواهد شد.
+
+{{% alert color="info" title="TIP" %}} 
+ممکن است بخواهید [فونت‌های PowerPoint](/slides/fa/net/powerpoint-fonts/) را ببینید.
 {{% /alert %}}
 
-## **تغییر سبک پس‌زمینه تم**
+## **تغییر سبک پس‌زمینه طرح**
 
-به‌صورت پیش‌فرض، برنامه PowerPoint 12 پس‌زمینه از پیش تعریف‌شده ارائه می‌دهد اما فقط 3 مورد از این 12 پس‌زمینه در یک ارائه معمولی ذخیره می‌شوند.
+به‌طور پیش‌فرض، برنامه PowerPoint 12 پس‌زمینه پیش‌تعریف شده ارائه می‌دهد اما تنها 3 تا از این 12 پس‌زمینه در یک ارائه معمولی ذخیره می‌شوند. 
 
-![todo:image_alt_text]{{presentation-design_8.png}}
+![todo:image_alt_text](presentation-design_8.png)
 
-به عنوان مثال، پس از ذخیره یک ارائه در برنامه PowerPoint، می‌توانید این کد C# را اجرا کنید تا تعداد پس‌زمینه‌های پیش‌تعریف‌شده در ارائه را بیابید:
+به‌عنوان مثال، پس از ذخیره یک ارائه در برنامه PowerPoint، می‌توانید این کد C# را اجرا کنید تا تعداد پس‌زمینه‌های پیش‌تعریف شده در ارائه را بیابید:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 
 {
@@ -214,32 +244,39 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 {{% alert color="warning" %}} 
-با استفاده از ویژگی [BackgroundFillStyles](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/formatscheme/backgroundfillstyles/) از کلاس [FormatScheme](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/formatscheme/) می‌توانید سبک پس‌زمینه را در یک تم PowerPoint اضافه یا دسترسی پیدا کنید. 
+با استفاده از ویژگی [BackgroundFillStyles](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/formatscheme/backgroundfillstyles/) از کلاس [FormatScheme](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/formatscheme/)، می‌توانید سبک پس‌زمینه را در یک طرح PowerPoint اضافه یا دسترسی داشته باشید. 
 {{% /alert %}}
 
 این کد C# نشان می‌دهد چگونه پس‌زمینه یک ارائه را تنظیم کنید:
 
 ```c#
-pres.Masters[0].Background.StyleIndex = 2;
+using Aspose.Slides;
+
+using (Presentation pres = new Presentation("pres.pptx"))
+{
+    pres.Masters[0].Background.StyleIndex = 2;
+}
 ```
 
-**راهنمای ایندکس**: 0 برای بدون پر استفاده می‌شود. ایندکس از 1 شروع می‌شود.
+**راهنمای شاخص**: مقدار 0 برای بدون پر کردن استفاده می‌شود. شاخص از 1 شروع می‌شود.
 
-{{% alert color="primary" title="TIP" %}} 
-ممکن است بخواهید به [پس‌زمینه PowerPoint](/slides/fa/net/presentation-background/) نگاهی بیندازید.
+{{% alert color="info" title="TIP" %}} 
+ممکن است بخواهید [پس‌زمینه PowerPoint](/slides/fa/net/presentation-background/) را ببینید.
 {{% /alert %}}
 
-## **تغییر افکت تم**
+## **تغییر اثر طرح**
 
-یک تم PowerPoint معمولاً برای هر آرایه سبک 3 مقدار دارد. این آرایه‌ها به 3 افکت زیر ترکیب می‌شوند: Subtle، Moderate و Intense. به عنوان مثال، این نتیجه زمانی است که افکت‌ها بر یک شکل خاص اعمال شوند:
+یک طرح PowerPoint معمولاً شامل 3 مقدار برای هر آرایه سبک است. این آرایه‌ها به 3 اثر ترکیب می‌شوند: ظریف، متوسط و شدید. به عنوان مثال، این نتیجه است وقتی که این اثرها بر روی یک شکل خاص اعمال می‌شوند:
 
-![todo:image_alt_text]{{presentation-design_10.png}}
+![todo:image_alt_text](presentation-design_10.png)
 
-با استفاده از 3 ویژگی ([FillStyles](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/formatscheme/fillstyles)، [LineStyles](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/formatscheme/linestyles)، [EffectStyles](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/formatscheme/effectstyles)) از کلاس [FormatScheme](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/formatscheme) می‌توانید عناصر یک تم را (به‌مراتب انعطاف‌پذیرتر از گزینه‌های موجود در PowerPoint) تغییر دهید.
-
-این کد C# نشان می‌دهد چگونه یک افکت تم را با تغییر بخش‌های مختلف عناصر تغییر دهید:
+با استفاده از 3 ویژگی ([FillStyles](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/formatscheme/fillstyles)، [LineStyles](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/formatscheme/linestyles)، [EffectStyles](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/formatscheme/effectstyles)) از کلاس [FormatScheme](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/formatscheme) می‌توانید عناصر یک طرح را تغییر دهید (حتی انعطاف‌پذیرتر از گزینه‌های PowerPoint).
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx"))
 {
     pres.MasterTheme.FormatScheme.LineStyles[0].FillFormat.SolidFillColor.Color = Color.Red;
@@ -254,20 +291,20 @@ using (Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx"))
 }
 ```
 
-تغییرات حاصل در رنگ پر، نوع پر، افکت سایه و غیره:
+تغییرات حاصل در رنگ پرکننده، نوع پرکننده، افکت سایه و غیره:
 
-![todo:image_alt_text]{{presentation-design_11.png}}
+![todo:image_alt_text](presentation-design_11.png)
 
-## **سؤالات متداول**
+## **پرسش‌های متداول**
 
-**آیا می‌توانم تم را فقط بر یک اسلاید اعمال کنم بدون اینکه مستر را تغییر دهم؟**
+### آیا می‌توانم یک طرح را بر روی یک اسلاید واحد اعمال کنم بدون اینکه مستر را تغییر دهم؟
 
-بله. Aspose.Slides از بازنویسی تم در سطح اسلاید پشتیبانی می‌کند، بنابراین می‌توانید تم محلی را تنها بر آن اسلاید اعمال کنید در حالی که تم مستر دست نخورده باقی می‌ماند (از طریق [SlideThemeManager](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/slidethememanager/)).
+بله. Aspose.Slides از نادیده‌گیری‌های طرح در سطح اسلاید پشتیبانی می‌کند، بنابراین می‌توانید یک طرح محلی را فقط برای آن اسلاید اعمال کنید در حالی که طرح مستر دست‌نخورده باقی می‌ماند (از طریق [SlideThemeManager](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/slidethememanager/)).
 
-**ایمن‌ترین روش برای انتقال یک تم از یک ارائه به ارائه دیگر چیست؟**
+### ایمن‌ترین روش برای انتقال یک طرح از یک ارائه به ارائه دیگر چیست؟
 
-[کلون کردن اسلایدها](/slides/fa/net/clone-slides/) همراه با مستر آن‌ها به ارائه هدف. این کار مستر، چیدمان‌ها و تم مرتبط را حفظ می‌کند تا ظاهر یکسان بماند.
+[کلون اسلایدها](/slides/fa/net/clone-slides/) همراه با مسترشان به ارائه مقصد منتقل کنید. این کار مستر اصلی، چیدمان‌ها و طرح مرتبط را حفظ می‌کند تا ظاهر یکسان باقی بماند.
 
-**چگونه می‌توانم مقادیر «موثر» پس از تمام وراثت و بازنویسی‌ها را مشاهده کنم؟**
+### چگونه می‌توانم مقادیر "موثر" را پس از تمام وراثت و نادیده‌گیری‌ها ببیند؟
 
-از نماهای «effective» API برای تم/رنگ/فونت/افکت استفاده کنید. این نماها ویژگی‌های نهایی حل‌شده پس از اعمال مستر به‌علاوه هر بازنویسی محلی را برمی‌گردانند.
+از نمای ["effective"](/slides/fa/net/shape-effective-properties/) API برای طرح/رنگ/فونت/اثر استفاده کنید. این نماها ویژگی‌های نهایی و حل‌شده را پس از اعمال مستر به علاوه هرگونه نادیده‌گیری محلی برمی‌گردانند.

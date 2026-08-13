@@ -24,13 +24,15 @@ description: "Exporteer PowerPoint- en OpenDocument-presentaties naar responsiev
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe u PowerPoint‑presentaties converteert naar HTML5 met Aspose.Slides. Het behandelt de basis‑HTML5‑export zonder web‑extensies of extra afhankelijkheden, evenals opties voor het beheersen van vormanimaties en dia‑overgangen. Het artikel toont tevens het standaard PowerPoint‑naar‑HTML‑exportproces, legt uit hoe u HTML5‑output genereert in slide‑view‑modus, en demonstreert hoe u opmerkingen in het geëxporteerde document kunt opnemen door hun lay‑out te configureren.
+Dit artikel legt uit hoe u PowerPoint‑presentaties naar HTML5 converteert met Aspose.Slides. Het behandelt basis‑HTML5‑export zonder webextensies of extra afhankelijkheden, evenals opties voor het beheersen van vormanimaties en diaovergangen. Het artikel toont ook het standaard PowerPoint‑naar‑HTML‑exportproces, legt uit hoe u HTML5‑output in diaweergavemodus genereert, en demonstreert hoe u opmerkingen in het geëxporteerde document kunt opnemen door hun lay‑out te configureren.
 
 ## **PowerPoint exporteren naar HTML5**
 
-Deze Java‑code laat zien hoe u een presentatie exporteert naar HTML5 zonder web‑extensies en afhankelijkheden:
+Deze Java‑code laat zien hoe u een presentatie naar HTML5 exporteert zonder webextensies en afhankelijkheden:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.save("pres.html", SaveFormat.Html5);
@@ -39,13 +41,13 @@ try {
 }
 ```
 
-{{% alert color="primary" %}} 
-In dit geval krijgt u schone HTML. 
-{{% /alert %}}
+{{% alert color="info" %}}In dit geval krijgt u schone HTML.{{% /alert %}}
 
-U kunt op deze manier instellingen voor vormanimaties en dia‑overgangen opgeven:
+U kunt instellingen voor vormanimaties en diaovergangen op deze manier opgeven:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     Html5Options html5Options = new Html5Options();
@@ -63,6 +65,8 @@ try {
 Deze Java‑code demonstreert het standaard PowerPoint‑naar‑HTML‑proces:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.save("pres.html", SaveFormat.Html);
@@ -71,7 +75,7 @@ try {
 }
 ```
 
-In dit geval wordt de inhoud van de presentatie weergegeven via SVG in een vorm als deze:
+In dit geval wordt de inhoud van de presentatie gerenderd via SVG in een vorm als deze:
 
 ```html
 <body>
@@ -83,17 +87,17 @@ In dit geval wordt de inhoud van de presentatie weergegeven via SVG in een vorm 
 </body>
 ```
 
-{{% alert title="Opmerking" color="warning" %}} 
-Wanneer u deze methode gebruikt om PowerPoint te exporteren naar HTML, kunt u vanwege de SVG‑weergave geen stijlen toepassen of specifieke elementen animeren. 
-{{% /alert %}}
+{{% alert title="Opmerking" color="warning" %}}Wanneer u deze methode gebruikt om PowerPoint naar HTML te exporteren, zult u door de SVG‑rendering geen stijlen kunnen toepassen of specifieke elementen animeren.{{% /alert %}}
 
-## **PowerPoint exporteren naar HTML5 slide‑view**
+## **PowerPoint exporteren naar HTML5‑diaweergave**
 
-**Aspose.Slides** maakt het mogelijk om een PowerPoint‑presentatie te converteren naar een HTML5‑document waarin de dia's worden weergegeven in een slide‑view‑modus. In dit geval, wanneer u het resulterende HTML5‑bestand in een browser opent, ziet u de presentatie in slide‑view‑modus op een webpagina. 
+**Aspose.Slides** stelt u in staat een PowerPoint‑presentatie te converteren naar een HTML5‑document waarin de dia's worden gepresenteerd in diaweergavemodus. In dit geval, wanneer u het resulterende HTML5‑bestand in een browser opent, ziet u de presentatie in diaweergavemodus op een webpagina.
 
-Deze Java‑code demonstreert het PowerPoint‑naar‑HTML5‑slide‑view‑exportproces:
+Deze Java‑code demonstreert het PowerPoint‑naar‑HTML5‑diaweergave‑exportproces:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     Html5Options html5Options = new Html5Options();
@@ -108,38 +112,43 @@ try {
 
 ## **Presentaties converteren naar HTML5‑documenten met opmerkingen**
 
-Opmerkingen in PowerPoint zijn een hulpmiddel waarmee gebruikers notities of feedback kunnen achterlaten op presentatiedia's. Ze zijn vooral nuttig in samenwerkingsprojecten, waarbij meerdere personen hun suggesties of opmerkingen bij specifieke dia‑elementen kunnen toevoegen zonder de hoofdinhoud te wijzigen. Elke opmerking toont de naam van de auteur, waardoor het eenvoudig is te zien wie de opmerking heeft geplaatst.
+Opmerkingen in PowerPoint zijn een hulpmiddel waarmee gebruikers notities of feedback op presentatiedia’s kunnen achterlaten. Ze zijn vooral nuttig in samenwerkingsprojecten, waarbij meerdere personen hun suggesties of aantekeningen bij specifieke diavermeldingen kunnen toevoegen zonder de hoofdinhoud te wijzigen. Elke opmerking toont de naam van de auteur, zodat u gemakkelijk kunt zien wie de opmerking heeft geplaatst.
 
-Stel dat we de volgende PowerPoint‑presentatie hebben opgeslagen in het bestand "sample.pptx".
+Stel dat we de volgende PowerPoint‑presentatie hebben opgeslagen in het bestand “sample.pptx”.
 
 ![Twee opmerkingen op de presentatiedia](two_comments_pptx.png)
 
-Wanneer u een PowerPoint‑presentatie converteert naar een HTML5‑document, kunt u eenvoudig opgeven of u opmerkingen uit de presentatie in het uitvoerdocument wilt opnemen. Hiervoor moet u de weergave‑parameters voor opmerkingen opgeven in de `getNotesCommentsLayouting`‑methode van de [Html5Options](https://reference.aspose.com/slides/nl/java/com.aspose.slides/html5options/)‑klasse.
+Wanneer u een PowerPoint‑presentatie naar een HTML5‑document converteert, kunt u eenvoudig aangeven of de opmerkingen uit de presentatie in het uitvoerdocument moeten worden meegenomen. Geef hiervoor de weergave‑parameters voor opmerkingen door aan de `setSlidesLayoutOptions`‑methode van de [Html5Options](https://reference.aspose.com/slides/nl/java/com.aspose.slides/html5options/)‑klasse.
 
-Het volgende code‑voorbeeld converteert een presentatie naar een HTML5‑document met opmerkingen die rechts van de dia's worden weergegeven.
+De volgende codevoorbeelden converteren een presentatie naar een HTML5‑document met opmerkingen weergegeven rechts van de dia’s.
 ```java
+import com.aspose.slides.*;
+
 Html5Options html5Options = new Html5Options();
-html5Options.getNotesCommentsLayouting().setCommentsPosition(CommentsPositions.Right);
+
+NotesCommentsLayoutingOptions layoutingOptions = new NotesCommentsLayoutingOptions();
+layoutingOptions.setCommentsPosition(CommentsPositions.Right);
+html5Options.setSlidesLayoutOptions(layoutingOptions);
 
 Presentation presentation = new Presentation("sample.pptx");
 presentation.save("output.html", SaveFormat.Html5, html5Options);
 presentation.dispose();
 ```
 
-Het document "output.html" wordt hieronder weergegeven.
+Het “output.html”‑document wordt getoond in de afbeelding hieronder.
 
-![De opmerkingen in het uitvoer‑HTML5‑document](two_comments_html5.png)
+![De opmerkingen in het HTML5‑uitvoerdocument](two_comments_html5.png)
 
-## **Veelgestelde vragen**
+## **FAQ**
 
-**Kan ik regelen of object‑animaties en dia‑overgangen worden afgespeeld in HTML5?**
+### Kan ik regelen of objectanimaties en diaovergangen worden afgespeeld in HTML5?
 
 Ja, HTML5 biedt afzonderlijke opties om [shape animations](https://reference.aspose.com/slides/nl/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-) en [slide transitions](https://reference.aspose.com/slides/nl/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) in of uit te schakelen.
 
-**Wordt de uitvoer van opmerkingen ondersteund, en waar kunnen ze ten opzichte van de dia geplaatst worden?**
+### Wordt de uitvoer van opmerkingen ondersteund, en waar kunnen ze ten opzichte van de dia worden geplaatst?
 
-Ja, opmerkingen kunnen in HTML5 worden toegevoegd en via [layout settings](https://reference.aspose.com/slides/nl/java/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) voor notities en opmerkingen worden gepositioneerd (bijvoorbeeld rechts van de dia).
+Ja, opmerkingen kunnen in HTML5 worden toegevoegd en gepositioneerd (bijvoorbeeld rechts van de dia) via [layout settings](https://reference.aspose.com/slides/nl/java/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) voor notities en opmerkingen.
 
-**Kan ik koppelingen die JavaScript aanroepen overslaan om veiligheids‑ of CSP‑redenen?**
+### Kan ik koppelingen die JavaScript aanroepen overslaan om veiligheids‑ of CSP‑redenen?
 
-Ja, er is een [setting](https://reference.aspose.com/slides/nl/java/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-) die u in staat stelt hyperkoppelingen met JavaScript‑oproepen over te slaan tijdens het opslaan. Dit helpt te voldoen aan strenge beveiligingsbeleid.
+Ja, er is een [setting](https://reference.aspose.com/slides/nl/java/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-) die het mogelijk maakt hyperlinks met JavaScript‑aanroepen over te slaan tijdens het opslaan. Dit helpt te voldoen aan strikte beveiligings‑beleid.

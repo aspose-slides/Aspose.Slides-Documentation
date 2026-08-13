@@ -1,33 +1,54 @@
 ---
-title: PowerPoint in Video umwandeln
+title: PowerPoint-Präsentationen in Java zu Video konvertieren
+linktitle: PowerPoint zu Video
 type: docs
 weight: 130
 url: /de/java/convert-powerpoint-to-video/
-keywords: "PowerPoint umwandeln, PPT, PPTX, Präsentation, Video, MP4, PPT in Video, PPT in MP4, Java, Aspose.Slides"
-description: "PowerPoint in Video in Java umwandeln"
+keywords:
+- PowerPoint konvertieren
+- Präsentation konvertieren
+- PPT konvertieren
+- PPTX konvertieren
+- PowerPoint zu Video
+- Präsentation zu Video
+- PPT zu Video
+- PPTX zu Video
+- PowerPoint zu MP4
+- Präsentation zu MP4
+- PPT zu MP4
+- PPTX zu MP4
+- PPT als MP4 speichern
+- PPTX als MP4 speichern
+- PPT nach MP4 exportieren
+- PPTX nach MP4 exportieren
+- Videokonvertierung
+- PowerPoint
+- Java
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie PowerPoint-Präsentationen in Java zu Video konvertieren. Entdecken Sie Beispielcode und Automatisierungstechniken, um Ihren Arbeitsablauf zu optimieren."
 ---
+## **Einleitung**
 
-Durch die Umwandlung Ihrer PowerPoint-Präsentation in ein Video erhalten Sie 
+Durch die Konvertierung Ihrer PowerPoint‑ oder OpenDocument‑Präsentation in ein Video erhalten Sie:
 
-* **Erhöhung der Zugänglichkeit:** Alle Geräte (unabhängig von der Plattform) sind standardmäßig mit Videoplayern ausgestattet im Vergleich zu Präsentations-Anwendungsprogrammen, sodass es den Nutzern leichter fällt, Videos zu öffnen oder abzuspielen.
-* **Größere Reichweite:** Durch Videos können Sie ein großes Publikum erreichen und sie mit Informationen ansprechen, die in einer Präsentation möglicherweise als langwierig erscheinen. Die meisten Umfragen und Statistiken deuten darauf hin, dass Menschen Videos mehr anschauen und konsumieren als andere Formen von Inhalten, und dass sie im Allgemeinen solche Inhalte bevorzugen.
+**Erhöhte Barrierefreiheit:** Alle Geräte, unabhängig vom Betriebssystem, verfügen standardmäßig über Videoplayer, sodass es für Nutzer einfacher ist, Videos zu öffnen oder abzuspielen als herkömmliche Präsentations‑Apps.
 
-{{% alert color="primary" %}} 
+**Größere Reichweite:** Videos ermöglichen es Ihnen, ein größeres Publikum zu erreichen und Informationen ansprechender zu präsentieren. Umfragen und Statistiken zeigen, dass Menschen Video‑Inhalte gegenüber anderen Formaten bevorzugen, wodurch Ihre Botschaft wirkungsvoller wird.
 
-Sie sollten unseren [**Online-Konverter für PowerPoint in Video**](https://products.aspose.app/slides/conversion/ppt-to-word) überprüfen, da es sich um eine live und effektive Implementierung des hier beschriebenen Prozesses handelt.
-
+{{% alert color="info" %}} 
+Möglicherweise möchten Sie unseren [**PowerPoint zu Video Online‑Konverter**](https://products.aspose.app/slides/de/video) prüfen, da er eine live und effektive Umsetzung des hier beschriebenen Prozesses darstellt.
 {{% /alert %}} 
 
-## **PowerPoint in Video Umwandlung in Aspose.Slides**
+## **PowerPoint‑zu‑Video‑Konvertierung in Aspose.Slides**
 
-In [Aspose.Slides 22.11](https://docs.aspose.com/slides/java/aspose-slides-for-java-22-11-release-notes/) haben wir die Unterstützung für die Umwandlung von Präsentationen in Videos implementiert. 
+In [Aspose.Slides 22.11](https://docs.aspose.com/slides/de/java/aspose-slides-for-java-22-11-release-notes/) haben wir die Unterstützung für die Konvertierung von Präsentationen zu Video implementiert. 
 
-* Verwenden Sie **Aspose.Slides**, um eine Reihe von Frames (aus den Präsentationsfolien) zu erzeugen, die einer bestimmten FPS (Frames pro Sekunde) entsprechen.
-* Verwenden Sie ein Drittanbieter-Tool wie **ffmpeg** ([für Java](https://github.com/bramp/ffmpeg-cli-wrapper)), um ein Video basierend auf den Frames zu erstellen. 
+* Verwenden Sie **Aspose.Slides**, um einen Satz von Frames (aus den Präsentationsfolien) zu erzeugen, die einer bestimmten FPS (Frames pro Sekunde) entsprechen.  
+* Nutzen Sie ein Drittanbieter‑Tool wie **ffmpeg** ([für java](https://github.com/bramp/ffmpeg-cli-wrapper)), um basierend auf den Frames ein Video zu erstellen. 
 
-### **PowerPoint in Video umwandeln**
+### **PowerPoint zu Video konvertieren**
 
-1. Fügen Sie dies in Ihre POM-Datei ein:
+1. Fügen Sie Folgendes zu Ihrer POM‑Datei hinzu:
 ```xml
    <dependency>
      <groupId>net.bramp.ffmpeg</groupId>
@@ -38,14 +59,17 @@ In [Aspose.Slides 22.11](https://docs.aspose.com/slides/java/aspose-slides-for-j
 
 2. Laden Sie ffmpeg [hier](https://ffmpeg.org/download.html) herunter.
 
-4. Führen Sie den Java-Code zur Umwandlung von PowerPoint in Video aus.
+4. Führen Sie den PowerPoint‑zu‑Video‑Java‑Code aus.
 
-Dieser Java-Code zeigt Ihnen, wie Sie eine Präsentation (die eine Figur und zwei Animationseffekte enthält) in ein Video umwandeln:
-
+Dieser Java‑Code zeigt Ihnen, wie Sie eine Präsentation (mit einer Figur und zwei Animationseffekten) in ein Video konvertieren:
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation();
 try {
-    // Fügt eine Smiley-Form hinzu und animiert sie
+    // Fügt eine Smiley-Form hinzu und animiert sie anschließend
     IAutoShape smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effectIn = mainSequence.addEffect(smile, EffectType.Fly, EffectSubtype.TopLeft, EffectTriggerType.AfterPrevious);
@@ -79,7 +103,7 @@ try {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
 
-    // Konfigurieren Sie den ffmpeg-Binarienordner. Siehe diese Seite: https://github.com/rosenbjerg/FFMpegCore#installation
+    // Konfiguriert den ffmpeg-Binärordner. Siehe diese Seite: https://github.com/rosenbjerg/FFMpegCore#installation
     FFmpeg ffmpeg = new FFmpeg("path/to/ffmpeg");
     FFprobe ffprobe = new FFprobe("path/to/ffprobe");
 
@@ -100,48 +124,56 @@ try {
 
 ## **Videoeffekte**
 
-Sie können Animationen auf Objekten auf Folien anwenden und Übergänge zwischen Folien verwenden. 
+Sie können Animationen auf Objekte in Folien anwenden und Übergänge zwischen Folien verwenden. 
 
-{{% alert color="primary" %}} 
-
-Sie sollten sich diese Artikel ansehen: [PowerPoint-Animation](https://docs.aspose.com/slides/java/powerpoint-animation/), [Form-Animation](https://docs.aspose.com/slides/java/shape-animation/), und [Form-Effekt](https://docs.aspose.com/slides/java/shape-effect/).
-
+{{% alert color="info" %}} 
+Vielleicht möchten Sie diese Artikel sehen: [PowerPoint‑Animation](https://docs.aspose.com/slides/de/java/powerpoint-animation/), [Shape‑Animation](https://docs.aspose.com/slides/de/java/shape-animation/), und [Shape‑Effekt](https://docs.aspose.com/slides/de/java/shape-effect/).
 {{% /alert %}} 
 
-Animationen und Übergänge machen Diashows fesselnder und interessanter – und sie tun dasselbe für Videos. Fügen wir dem Code der vorherigen Präsentation eine weitere Folie und einen Übergang hinzu:
-
+Animationen und Übergänge machen Diashows ansprechender und interessanter — und dasselbe gilt für Videos. Fügen wir eine weitere Folie und einen Übergang zum Code der vorherigen Präsentation hinzu:
 ```java
-// Fügt eine Smiley-Form hinzu und animiert sie
+import com.aspose.slides.*;
+import java.awt.Color;
 
-// ...
+Presentation presentation = new Presentation();
+try {
+    // Fügt eine Smiley-Form hinzu und animiert sie
 
-// Fügt eine neue Folie und einen animierten Übergang hinzu
+    // ...
 
-ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
+    // Fügt eine neue Folie und animierten Übergang hinzu
 
-newSlide.getBackground().setType(BackgroundType.OwnBackground);
+    ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
 
-newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    newSlide.getBackground().setType(BackgroundType.OwnBackground);
 
-newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
+    newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
 
-newSlide.getSlideShowTransition().setType(TransitionType.Push);
+    newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
+
+    newSlide.getSlideShowTransition().setType(TransitionType.Push);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 
-Aspose.Slides unterstützt auch Animationen für Texte. Wir animieren also Absätze auf Objekten, die nacheinander erscheinen (mit einer Verzögerung von einer Sekunde):
-
+Aspose.Slides unterstützt zudem Animationen für Texte. So animieren wir Absätze auf Objekten, die nacheinander erscheinen (mit einer Verzögerung von einer Sekunde):
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation();
 try {
     // Fügt Text und Animationen hinzu
     IAutoShape autoShape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 210, 120, 300, 300);
     Paragraph para1 = new Paragraph();
-    para1.getPortions().add(new Portion("Aspose Slides für Java"));
+    para1.getPortions().add(new Portion("Aspose Slides for Java"));
     Paragraph para2 = new Paragraph();
-    para2.getPortions().add(new Portion("konvertiere PowerPoint-Präsentation mit Text in Video"));
+    para2.getPortions().add(new Portion("convert PowerPoint Presentation with text to video"));
 
     Paragraph para3 = new Paragraph();
-    para3.getPortions().add(new Portion("Absatz für Absatz"));
+    para3.getPortions().add(new Portion("paragraph by paragraph"));
     IParagraphCollection paragraphCollection = autoShape.getTextFrame().getParagraphs();
     paragraphCollection.add(para1);
     paragraphCollection.add(para2);
@@ -152,12 +184,10 @@ try {
     IEffect effect1 = mainSequence.addEffect(para1, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     IEffect effect2 = mainSequence.addEffect(para2, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     IEffect effect3 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-    IEffect effect4 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
     effect1.getTiming().setTriggerDelayTime(1f);
     effect2.getTiming().setTriggerDelayTime(1f);
     effect3.getTiming().setTriggerDelayTime(1f);
-    effect4.getTiming().setTriggerDelayTime(1f);
 
     final int fps = 33;
     ArrayList<String> frames = new ArrayList<String>();
@@ -185,7 +215,7 @@ try {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
 
-    // Konfigurieren Sie den ffmpeg-Binarienordner. Siehe diese Seite: https://github.com/rosenbjerg/FFMpegCore#installation
+    // Konfiguriert den ffmpeg-Binärordner. Siehe diese Seite: https://github.com/rosenbjerg/FFMpegCore#installation
     FFmpeg ffmpeg = new FFmpeg("path/to/ffmpeg");
     FFprobe ffprobe = new FFprobe("path/to/ffprobe");
 
@@ -204,17 +234,18 @@ try {
 }
 ```
 
-## **Klassen zur Video Umwandlung**
+## **Video‑Konvertierungsklassen**
 
-Um Ihnen die Durchführung von PowerPoint zu Video Umwandlungsaufgaben zu ermöglichen, bietet Aspose.Slides die Klassen [PresentationAnimationsGenerator](https://reference.aspose.com/slides/java/com.aspose.slides/presentationanimationsgenerator/) und [PresentationPlayer](https://reference.aspose.com/slides/java/com.aspose.slides/presentationplayer/) an.
+Um Ihnen das Durchführen von PowerPoint‑zu‑Video‑Konvertierungsaufgaben zu ermöglichen, stellt Aspose.Slides die Klassen [PresentationAnimationsGenerator](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentationanimationsgenerator/) und [PresentationPlayer](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentationplayer/) zur Verfügung.
 
-[PresentationAnimationsGenerator](https://reference.aspose.com/slides/java/com.aspose.slides/presentationanimationsgenerator/) ermöglicht es Ihnen, die Frame-Größe für das Video (das später erstellt wird) über seinen Konstruktor festzulegen. Wenn Sie eine Instanz der Präsentation übergeben, wird `Presentation.SlideSize` verwendet und es generiert Animationen, die [PresentationPlayer](https://reference.aspose.com/slides/java/com.aspose.slides/presentationplayer/) verwendet. 
+[PresentationAnimationsGenerator](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentationanimationsgenerator/) ermöglicht das Festlegen der Frame‑Größe für das später zu erstellende Video über den Konstruktor. Wird eine Instanz der Präsentation übergeben, wird `Presentation.SlideSize` verwendet und es werden Animationen erzeugt, die von [PresentationPlayer](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentationplayer/) genutzt werden. 
 
-Wenn die Animationen generiert werden, wird ein `NewAnimation`-Ereignis für jede nachfolgende Animation erzeugt, das den Parameter [IPresentationAnimationPlayer](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationanimationplayer/) enthält. Letzteres ist eine Klasse, die einen Player für eine separate Animation darstellt.
+Beim Generieren von Animationen wird für jede nachfolgende Animation ein `NewAnimation`‑Ereignis mit dem Parameter [IPresentationAnimationPlayer](https://reference.aspose.com/slides/de/java/com.aspose.slides/ipresentationanimationplayer/) ausgelöst. Letzterer ist eine Klasse, die einen Player für eine separate Animation repräsentiert.
 
-Um mit [IPresentationAnimationPlayer](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationanimationplayer/) zu arbeiten, werden die Eigenschaften [Duration](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationanimationplayer/#getDuration--) (die Gesamtdauer der Animation) und die Methode [SetTimePosition](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationanimationplayer/#setTimePosition-double-) verwendet. Jede Animationsposition wird im Bereich von *0 bis Dauer* festgelegt, und dann wird die Methode `GetFrame` ein BufferedImage zurückgeben, das dem Animationsstatus zu diesem Zeitpunkt entspricht:
-
+Zur Arbeit mit [IPresentationAnimationPlayer](https://reference.aspose.com/slides/de/java/com.aspose.slides/ipresentationanimationplayer/) werden die Eigenschaft [Duration](https://reference.aspose.com/slides/de/java/com.aspose.slides/ipresentationanimationplayer/#getDuration--) (die Gesamtdauer der Animation) und die Methode [SetTimePosition](https://reference.aspose.com/slides/de/java/com.aspose.slides/ipresentationanimationplayer/#setTimePosition-double-) verwendet. Jede Animationsposition wird innerhalb des Bereichs *0 bis Dauer* gesetzt, und die Methode `getFrame` liefert ein [IImage](https://reference.aspose.com/slides/de/java/com.aspose.slides/iimage/), das dem Animationszustand zu diesem Zeitpunkt entspricht:
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     // Fügt eine Smiley-Form hinzu und animiert sie
@@ -229,22 +260,19 @@ try {
     try {
         animationsGenerator.setNewAnimation(animationPlayer ->
         {
-            System.out.println(String.format("Gesamtdauer der Animation: %f", animationPlayer.getDuration()));
-            animationPlayer.setTimePosition(0); // initialer Animationsstatus
-            try {
-                // initialer Animationsstatus Bitmap
-                animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            animationPlayer.setTimePosition(animationPlayer.getDuration()); // finaler Zustand der Animation
-            try {
-                // letzter Frame der Animation
-                animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            System.out.println(String.format("Animation total duration: %f", animationPlayer.getDuration()));
+
+            animationPlayer.setTimePosition(0); // Anfangszustand der Animation
+            // Bitmap des Anfangszustands der Animation
+            animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
+
+            animationPlayer.setTimePosition(animationPlayer.getDuration()); // Endzustand der Animation
+            // Letztes Bild der Animation
+            animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
         });
+
+        // Animationen erzeugen - das löst die oben behandelten Ereignisse aus
+        animationsGenerator.run(presentation.getSlides());
     } finally {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
@@ -253,9 +281,10 @@ try {
 }
 ```
 
-Um alle Animationen in einer Präsentation gleichzeitig abzuspielen, wird die Klasse [PresentationPlayer](https://reference.aspose.com/slides/java/com.aspose.slides/presentationplayer/) verwendet. Diese Klasse nimmt eine Instanz von [PresentationAnimationsGenerator](https://reference.aspose.com/slides/java/com.aspose.slides/presentationanimationsgenerator/) und FPS für Effekte in ihrem Konstruktor und ruft dann das Ereignis `FrameTick` für alle Animationen auf, um sie abzuspielen:
-
+Damit alle Animationen einer Präsentation gleichzeitig abgespielt werden, wird die Klasse [PresentationPlayer](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentationplayer/) verwendet. Diese Klasse nimmt im Konstruktor eine Instanz von [PresentationAnimationsGenerator](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentationanimationsgenerator/) sowie FPS für Effekte entgegen und ruft dann das `FrameTick`‑Ereignis für alle Animationen auf, um sie abzuspielen:
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("animated.pptx");
 try {
     PresentationAnimationsGenerator animationsGenerator = new PresentationAnimationsGenerator(presentation);
@@ -264,11 +293,7 @@ try {
         try {
             player.setFrameTick((sender, arguments) ->
             {
-                try {
-                    arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+                arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
             });
             animationsGenerator.run(presentation.getSlides());
         } finally {
@@ -282,18 +307,18 @@ try {
 }
 ```
 
-Die erzeugten Frames können dann zusammengestellt werden, um ein Video zu produzieren. Siehe den Abschnitt [PowerPoint in Video umwandeln](https://docs.aspose.com/slides/java/convert-powerpoint-to-video/#convert-powerpoint-to-video).
+Anschließend können die erzeugten Frames zu einem Video zusammengefügt werden. Siehe den Abschnitt [PowerPoint zu Video konvertieren](https://docs.aspose.com/slides/de/java/convert-powerpoint-to-video/#convert-powerpoint-to-video).
 
 ## **Unterstützte Animationen und Effekte**
 
-**Eingang**:
+**Eintritt**:
 
-| Animationstyp | Aspose.Slides | PowerPoint |
+| Animationsart | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Erscheinen** | ![nicht unterstützt](x.png) | ![unterstützt](v.png) |
 | **Verblassen** | ![unterstützt](v.png) | ![unterstützt](v.png) |
-| **Einschweben** | ![unterstützt](v.png) | ![unterstützt](v.png) |
-| **Schweben** | ![unterstützt](v.png) | ![unterstützt](v.png) |
+| **Hereinfliegen** | ![unterstützt](v.png) | ![unterstützt](v.png) |
+| **Aufsteigen** | ![unterstützt](v.png) | ![unterstützt](v.png) |
 | **Teilen** | ![unterstützt](v.png) | ![unterstützt](v.png) |
 | **Wischen** | ![unterstützt](v.png) | ![unterstützt](v.png) |
 | **Form** | ![unterstützt](v.png) | ![unterstützt](v.png) |
@@ -302,18 +327,18 @@ Die erzeugten Frames können dann zusammengestellt werden, um ein Video zu produ
 | **Wachsen & Drehen** | ![nicht unterstützt](x.png) | ![unterstützt](v.png) |
 | **Zoomen** | ![unterstützt](v.png) | ![unterstützt](v.png) |
 | **Schwenken** | ![unterstützt](v.png) | ![unterstützt](v.png) |
-| **Hüpfen** | ![unterstützt](v.png) | ![unterstützt](v.png) |
+| **Abprallen** | ![unterstützt](v.png) | ![unterstützt](v.png) |
 
 **Betonung**:
 
-| Animationstyp | Aspose.Slides | PowerPoint |
+| Animationsart | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Puls** | ![nicht unterstützt](x.png) | ![unterstützt](v.png) |
-| **Farbe Puls** | ![nicht unterstützt](x.png) | ![unterstützt](v.png) |
-| **Wippen** | ![unterstützt](v.png) | ![unterstützt](v.png) |
+| **Farbpuls** | ![nicht unterstützt](x.png) | ![unterstützt](v.png) |
+| **Wackeln** | ![unterstützt](v.png) | ![unterstützt](v.png) |
 | **Drehen** | ![unterstützt](v.png) | ![unterstützt](v.png) |
 | **Wachsen/Schrumpfen** | ![nicht unterstützt](x.png) | ![unterstützt](v.png) |
-| **Entsaturieren** | ![nicht unterstützt](x.png) | ![unterstützt](v.png) |
+| **Entsättigen** | ![nicht unterstützt](x.png) | ![unterstützt](v.png) |
 | **Verdunkeln** | ![nicht unterstützt](x.png) | ![unterstützt](v.png) |
 | **Aufhellen** | ![nicht unterstützt](x.png) | ![unterstützt](v.png) |
 | **Transparenz** | ![nicht unterstützt](x.png) | ![unterstützt](v.png) |
@@ -324,12 +349,12 @@ Die erzeugten Frames können dann zusammengestellt werden, um ein Video zu produ
 
 **Ausgang**:
 
-| Animationstyp | Aspose.Slides | PowerPoint |
+| Animationsart | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Verschwinden** | ![nicht unterstützt](x.png) | ![unterstützt](v.png) |
 | **Verblassen** | ![unterstützt](v.png) | ![unterstützt](v.png) |
-| **Hinausschweben** | ![unterstützt](v.png) | ![unterstützt](v.png) |
-| **Hinauschweben** | ![unterstützt](v.png) | ![unterstützt](v.png) |
+| **Herausfliegen** | ![unterstützt](v.png) | ![unterstützt](v.png) |
+| **Ausgleiten** | ![unterstützt](v.png) | ![unterstützt](v.png) |
 | **Teilen** | ![unterstützt](v.png) | ![unterstützt](v.png) |
 | **Wischen** | ![unterstützt](v.png) | ![unterstützt](v.png) |
 | **Form** | ![unterstützt](v.png) | ![unterstützt](v.png) |
@@ -337,15 +362,29 @@ Die erzeugten Frames können dann zusammengestellt werden, um ein Video zu produ
 | **Schrumpfen & Drehen** | ![nicht unterstützt](x.png) | ![unterstützt](v.png) |
 | **Zoomen** | ![unterstützt](v.png) | ![unterstützt](v.png) |
 | **Schwenken** | ![unterstützt](v.png) | ![unterstützt](v.png) |
-| **Hüpfen** | ![unterstützt](v.png) | ![unterstützt](v.png) |
+| **Abprallen** | ![unterstützt](v.png) | ![unterstützt](v.png) |
 
-**Bewegungspfad:**
+**Bewegungspfade**:
 
-| Animationstyp | Aspose.Slides | PowerPoint |
+| Animationsart | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Linien** | ![unterstützt](v.png) | ![unterstützt](v.png) |
 | **Bögen** | ![unterstützt](v.png) | ![unterstützt](v.png) |
-| **Drehen** | ![unterstützt](v.png) | ![unterstützt](v.png) |
+| **Drehungen** | ![unterstützt](v.png) | ![unterstützt](v.png) |
 | **Formen** | ![unterstützt](v.png) | ![unterstützt](v.png) |
 | **Schleifen** | ![unterstützt](v.png) | ![unterstützt](v.png) |
 | **Benutzerdefinierter Pfad** | ![unterstützt](v.png) | ![unterstützt](v.png) |
+
+## **FAQ**
+
+### Ist es möglich, Präsentationen zu konvertieren, die passwortgeschützt sind?
+
+Ja, Aspose.Slides unterstützt die Arbeit mit [passwortgeschützten Präsentationen](/slides/de/java/password-protected-presentation/). Beim Verarbeiten solcher Dateien muss das korrekte Passwort angegeben werden, damit die Bibliothek auf den Inhalt der Präsentation zugreifen kann.
+
+### Unterstützt Aspose.Slides die Verwendung in Cloud‑Lösungen?
+
+Ja, Aspose.Slides kann in Cloud‑Anwendungen und -Diensten integriert werden. Die Bibliothek ist für den Betrieb in Serverumgebungen ausgelegt und gewährleistet hohe Leistung sowie Skalierbarkeit für die Batch‑Verarbeitung von Dateien.
+
+### Gibt es Größenbeschränkungen für Präsentationen während der Konvertierung?
+
+Aspose.Slides kann Präsentationen praktisch jeder Größe verarbeiten. Bei sehr großen Dateien können jedoch zusätzliche Systemressourcen erforderlich sein, und es wird häufig empfohlen, die Präsentation zu optimieren, um die Leistung zu verbessern.

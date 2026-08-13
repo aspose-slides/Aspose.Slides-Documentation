@@ -1,43 +1,45 @@
 ---
-title: Správa témat prezentací v Javě
-linktitle: Téma prezentace
+title: Správa motivů prezentací v Javě
+linktitle: Motiv prezentace
 type: docs
 weight: 10
 url: /cs/java/presentation-theme/
 keywords:
-- Téma PowerPoint
-- téma prezentace
-- téma snímku
-- nastavit téma
-- změnit téma
-- spravovat téma
-- barva tématu
-- dodatečná paleta
-- písmo tématu
-- styl tématu
-- efekt tématu
+- Motiv PowerPoint
+- Motiv prezentace
+- Motiv snímku
+- Nastavit motiv
+- Změnit motiv
+- Spravovat motiv
+- Barva motivu
+- Další paleta
+- Písmo motivu
+- Styl motivu
+- Efekt motivu
 - PowerPoint
 - OpenDocument
 - prezentace
 - Java
 - Aspose.Slides
-description: "Spravujte témata prezentací v Aspose.Slides pro Javu, abyste vytvořili, upravili a převáděli soubory PowerPoint s jednotným značkováním."
+description: "Spravujte motivy prezentací v Aspose.Slides pro Javu pro vytváření, přizpůsobování a konverzi souborů PowerPoint s jednotnou vizuální identitou."
 ---
 ## **Úvod**
 
-Téma prezentace definuje vlastnosti designových prvků. Když vyberete téma prezentace, v podstatě volíte konkrétní sadu vizuálních prvků a jejich vlastnosti.
+Prezentační motiv určuje vlastnosti návrhových prvků. Když vyberete prezentační motiv, v podstatě volíte konkrétní sadu vizuálních prvků a jejich vlastností.
 
-V PowerPointu téma zahrnuje barvy, [písma](/slides/cs/java/powerpoint-fonts/), [styly pozadí](/slides/cs/java/presentation-background/) a efekty.
+V PowerPointu motiv zahrnuje barvy, [fonts](/slides/cs/java/powerpoint-fonts/), [background styles](/slides/cs/java/presentation-background/) a efekty.
 
-![theme-constituents](theme-constituents.png)
+![složky motivu](theme-constituents.png)
 
-## **Změna barvy tématu**
+## **Změna barvy motivu**
 
-Téma PowerPointu používá specifickou sadu barev pro různé prvky na snímku. Pokud se vám barvy nelíbí, můžete je změnit aplikací nových barev pro téma. Aby bylo možné vybrat novou barvu tématu, Aspose.Slides poskytuje hodnoty v enumeraci [SchemeColor](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SchemeColor).
+Motiv PowerPointu používá konkrétní sadu barev pro různé prvky na snímku. Pokud se vám barvy nelíbí, můžete je změnit použitím nových barev pro motiv. Pro výběr nové barvy motivu poskytuje Aspose.Slides hodnoty ze výčtu [SchemeColor](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SchemeColor).
 
-Tento Java kód ukazuje, jak změnit akcentní barvu pro téma:
+Tento Java kód ukazuje, jak změnit akcentní barvu motivu:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
@@ -50,43 +52,72 @@ try {
 }
 ```
 
-Takto můžete určit efektivní hodnotu výsledné barvy:
+Efektivní hodnotu výsledné barvy můžete zjistit takto:
 
 ```java
-IFillFormatEffectiveData fillEffective = shape.getFillFormat().getEffective();
+import com.aspose.slides.*;
+import java.awt.Color;
 
-Color effectiveColor = fillEffective.getSolidFillColor();
+Presentation pres = new Presentation();
+try {
+    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
-System.out.println(String.format("Color [A=%d, R=%d, G=%d, B=%d]", 
-        effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
+    shape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+
+    IFillFormatEffectiveData fillEffective = shape.getFillFormat().getEffective();
+
+    Color effectiveColor = fillEffective.getSolidFillColor();
+
+    System.out.println(String.format("Color [A=%d, R=%d, G=%d, B=%d]",
+            effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
-Pro další demonstraci operace změny barvy vytvoříme další prvek a přiřadíme mu akcentní barvu (z počáteční operace). Pak změníme barvu v tématu:
+Pro další demonstraci operace změny barvy vytvoříme další prvek a přiřadíme mu akcentní barvu (z počáteční operace). Pak změníme barvu v motivu:
 
 ```java
-IAutoShape otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
+import com.aspose.slides.*;
+import java.awt.Color;
 
-otherShape.getFillFormat().setFillType(FillType.Solid);
+Presentation pres = new Presentation();
+try {
+    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
-otherShape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+    shape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
 
-pres.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED);
+    IAutoShape otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
+
+    otherShape.getFillFormat().setFillType(FillType.Solid);
+
+    otherShape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+
+    pres.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
-Nová barva se automaticky aplikuje na oba prvky.
+Nová barva se automaticky použije na oba prvky.
 
-### **Nastavení barvy tématu z další palety**
+### **Nastavení barvy motivu z další palety**
 
-Při aplikaci transformací jasu na hlavní barvu tématu (1) se vytvoří barvy z další palety (2). Pak můžete tyto barvy tématu nastavit a získat.
+Když na hlavní barvu motivu (1) použijete transformace jasu, vytvoří se barvy z další palety (2). Tyto barvy motivu můžete následně nastavit a získat.
 
-![additional-palette-colors](additional-palette-colors.png)
+![další barvy palety](additional-palette-colors.png)
 
-**1** - Hlavní barvy tématu  
-**2** - Barvy z další palety.
+**1** – Hlavní barvy motivu  
 
-Tento Java kód demonstruje operaci, kde jsou barvy z další palety získány z hlavní barvy tématu a následně použity ve tvarech:
+**2** – Barvy z další palety.
+
+Tento Java kód ukazuje operaci, při které jsou barvy další palety získány z hlavní barvy motivu a poté použity ve tvarech:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -135,7 +166,7 @@ try {
     shape6.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape6.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.5f);
 
-    presentation.save(path + "example_accent4.pptx", SaveFormat.Pptx);
+    presentation.save("example_accent4.pptx", SaveFormat.Pptx);
 } finally {
     if (presentation != null) presentation.dispose();
 }
@@ -143,71 +174,87 @@ try {
 
 ### **Mapování `SchemeColor` na barvy `IColorScheme`**
 
-Když pracujete s [SchemeColor](https://reference.aspose.com/slides/cs/java/com.aspose.slides/schemecolor/), můžete si všimnout, že obsahuje následující hodnoty barev tématu:
+Při práci s [SchemeColor](https://reference.aspose.com/slides/cs/java/com.aspose.slides/schemecolor/) můžete zaznamenat, že obsahuje následující hodnoty barvy motivu:
 
-`Background1`, `Background2`, `Text1`, and `Text2`.
+`Background1`, `Background2`, `Text1` a `Text2`.
 
-Nicméně `Presentation.getMasterTheme().getColorScheme()` vrací [IColorScheme](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icolorscheme/), který zpřístupňuje odpovídající barvy jako:
+Nicméně `Presentation.getMasterTheme().getColorScheme()` vrací [IColorScheme](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icolorscheme/), který poskytuje odpovídající barvy jako:
 
-`Dark1`, `Dark2`, `Light1`, and `Light2`.
+`Dark1`, `Dark2`, `Light1` a `Light2`.
 
-Tento rozdíl je pouze v pojmenování. Tyto hodnoty odkazují na stejné sloty barev tématu a mapování je pevné:
+Tento rozdíl je jen v pojmenování. Hodnoty odkazují na stejné sloty motivu a mapování je pevné:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Není žádná dynamická konverze mezi `Text`/`Background` a `Dark`/`Light`. Jedná se jen o alternativní názvy pro stejné barvy tématu.
+Mezi `Text`/`Background` a `Dark`/`Light` neexistuje dynamická konverze. Jedná se jen o alternativní názvy stejných barev motivu.
 
-Tento rozdíl v pojmenování pochází z terminologie Microsoft Office. Starší verze Office používaly `Dark 1`, `Light 1`, `Dark 2` a `Light 2`, zatímco novější UI verze zobrazují stejné sloty jako `Text 1`, `Background 1`, `Text 2` a `Background 2`.
+Toto pojmenování pochází z terminologie Microsoft Office. Starší verze Office používaly `Dark 1`, `Light 1`, `Dark 2` a `Light 2`, zatímco novější UI verze zobrazují stejné sloty jako `Text 1`, `Background 1`, `Text 2` a `Background 2`.
 
-## **Změna písma tématu**
+## **Změna písma motivu**
 
-Aby bylo možné vybrat písma pro témata a další účely, Aspose.Slides používá tyto speciální identifikátory (podobné těm používaným v PowerPointu):
+Pro výběr písem pro motivy a další účely používá Aspose.Slides tyto speciální identifikátory (podobně jako v PowerPointu):
 
-* **+mn-lt** - tělové písmo Latin (Minor Latin Font)
-* **+mj-lt** - nadpisové písmo Latin (Major Latin Font)
-* **+mn-ea** - tělové písmo East Asian (Minor East Asian Font)
-* **+mj-ea** - tělové písmo East Asian (Major East Asian Font)
+* **+mn-lt** – Tělo písma Latin (Minor Latin Font)
+* **+mj-lt** – Nadpis písma Latin (Major Latin Font)
+* **+mn-ea** – Tělo písma Východní Asie (Minor East Asian Font)
+* **+mj-ea** – Tělo písma Východní Asie (Major East Asian Font)
 
-Tento Java kód ukazuje, jak přiřadit latinské písmo k prvku tématu:
+Tento Java kód ukazuje, jak přiřadit latinské písmo k prvku motivu:
 
 ```java
-IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+import com.aspose.slides.*;
 
-Paragraph paragraph = new Paragraph();
+Presentation pres = new Presentation();
+try {
+    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
-Portion portion = new Portion("Theme text format");
+    Paragraph paragraph = new Paragraph();
 
-paragraph.getPortions().add(portion);
+    Portion portion = new Portion("Theme text format");
 
-shape.getTextFrame().getParagraphs().add(paragraph);
+    paragraph.getPortions().add(portion);
 
-portion.getPortionFormat().setLatinFont(new FontData("+mn-lt"));
+    shape.getTextFrame().getParagraphs().add(paragraph);
+
+    portion.getPortionFormat().setLatinFont(new FontData("+mn-lt"));
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
-Tento Java kód ukazuje, jak změnit písmo tématu prezentace:
+Tento Java kód ukazuje, jak změnit písmo motivu prezentace:
 
 ```java
-pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation();
+try {
+    pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 Písmo ve všech textových polích bude aktualizováno.
 
-{{% alert color="primary" title="TIP" %}} 
-Můžete se podívat na [písma PowerPointu](/slides/cs/java/powerpoint-fonts/).
+{{% alert color="info" title="TIP" %}} 
+Možná budete chtít zobrazit [PowerPoint fonts](/slides/cs/java/powerpoint-fonts/).
 {{% /alert %}}
 
-## **Změna stylu pozadí tématu**
+## **Změna stylu pozadí motivu**
 
-Ve výchozím nastavení aplikace PowerPoint poskytuje 12 předdefinovaných pozadí, ale v typické prezentaci jsou uložena pouze 3 z těchto 12 pozadí.
+Ve výchozím nastavení aplikace PowerPoint poskytuje 12 předdefinovaných pozadí, ale v typické prezentaci jsou uložena jen 3 z těchto 12 pozadí.
 
-![todo:image_alt_text](presentation-design_8.png)
+![prezentace‑design_8](presentation-design_8.png)
 
 Například po uložení prezentace v aplikaci PowerPoint můžete spustit tento Java kód a zjistit počet předdefinovaných pozadí v prezentaci:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     int numberOfBackgroundFills = pres.getMasterTheme().getFormatScheme().getBackgroundFillStyles().size();
@@ -219,32 +266,42 @@ try {
 ```
 
 {{% alert color="warning" %}} 
-Pomocí vlastnosti [BackgroundFillStyles](https://reference.aspose.com/slides/cs/java/com.aspose.slides/FormatScheme#getBackgroundFillStyles--) třídy [FormatScheme](https://reference.aspose.com/slides/cs/java/com.aspose.slides/FormatScheme) můžete přidat nebo získat styl pozadí v tématu PowerPoint.
+Pomocí vlastnosti [BackgroundFillStyles](https://reference.aspose.com/slides/cs/java/com.aspose.slides/FormatScheme#getBackgroundFillStyles--) ze třídy [FormatScheme](https://reference.aspose.com/slides/cs/java/com.aspose.slides/FormatScheme) můžete přidat nebo získat styl pozadí v motivu PowerPointu.
 {{% /alert %}} 
 
 Tento Java kód ukazuje, jak nastavit pozadí pro prezentaci:
 
 ```java
-pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("pres.pptx");
+try {
+    pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
-**Průvodce indexem**: 0 se používá pro žádné výplň. Index začíná od 1.
+**Průvodce indexem**: 0 značí žádné vyplnění. Index začíná od 1.
 
-{{% alert color="primary" title="TIP" %}} 
-Můžete se podívat na [Pozadí PowerPointu](/slides/cs/java/presentation-background/).
+{{% alert color="info" title="TIP" %}} 
+Možná budete chtít zobrazit [PowerPoint Background](/slides/cs/java/presentation-background/).
 {{% /alert %}}
 
-## **Změna efektu tématu**
+## **Změna efektu motivu**
 
-Téma PowerPointu obvykle obsahuje 3 hodnoty pro každé pole stylu. Tato pole jsou kombinována do těchto 3 efektů: jemný, střední a intenzivní. Například toto je výsledek, když jsou efekty aplikovány na konkrétní tvar:
+Motiv PowerPointu obvykle obsahuje 3 hodnoty pro každé pole stylu. Tato pole jsou kombinována do 3 efektů: jemný, střední a intenzivní. Například takto vypadá výsledek, když jsou efekty aplikovány na konkrétní tvar:
 
-![todo:image_alt_text](presentation-design_10.png)
+![prezentace‑design_10](presentation-design_10.png)
 
-Pomocí 3 vlastností ([FillStyles](https://reference.aspose.com/slides/cs/java/com.aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/cs/java/com.aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/cs/java/com.aspose.slides/FormatScheme#getEffectStyles--)) ze třídy [FormatScheme](https://reference.aspose.com/slides/cs/java/com.aspose.slides/FormatScheme) můžete měnit prvky v tématu (ještě flexibilněji než možnosti v PowerPointu).
+Použitím 3 vlastností ([FillStyles](https://reference.aspose.com/slides/cs/java/com.aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/cs/java/com.aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/cs/java/com.aspose.slides/FormatScheme#getEffectStyles--)) ze třídy [FormatScheme](https://reference.aspose.com/slides/cs/java/com.aspose.slides/FormatScheme) můžete měnit prvky v motivu (dokonce flexibilněji než možnosti v PowerPointu).
 
-Tento Java kód ukazuje, jak změnit efekt tématu úpravou částí prvků:
+Tento Java kód ukazuje, jak změnit efekt motivu úpravou částí prvků:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx");
 try {
     pres.getMasterTheme().getFormatScheme().getLineStyles().get_Item(0).getFillFormat().getSolidFillColor().setColor(Color.RED);
@@ -261,20 +318,20 @@ try {
 }
 ```
 
-Následující změny ve výplni barvy, typu výplně, stínu atd.:
+Výsledné změny ve výplňové barvě, typu výplně, stínu atd.:
 
-![todo:image_alt_text](presentation-design_11.png)
+![prezentace‑design_11](presentation-design_11.png)
 
 ## **Často kladené otázky**
 
-**Mohu použít téma na jediný snímek bez změny masteru?**
+### Mohu aplikovat motiv na jeden snímek bez změny masteru?
 
-Ano. Aspose.Slides podporuje přepsání tématu na úrovni snímku, takže můžete použít lokální téma pouze na tento snímek, přičemž zachováte hlavní téma beze změny (pomocí [SlideThemeManager](https://reference.aspose.com/slides/cs/java/com.aspose.slides/slidethememanager/)).
+Ano. Aspose.Slides podporuje přepsání motivu na úrovni snímku, takže můžete na konkrétní snímek použít místní motiv a přitom zachovat master motiv (prostřednictvím [SlideThemeManager](https://reference.aspose.com/slides/cs/java/com.aspose.slides/slidethememanager/)).
 
-**Jaký je nejbezpečnější způsob, jak přenést téma z jedné prezentace do druhé?**
+### Jaký je nejbezpečnější způsob, jak přenést motiv z jedné prezentace do druhé?
 
-[Klonovat snímky](/slides/cs/java/clone-slides/) spolu s jejich masterem do cílové prezentace. To zachová původní master, rozvržení a přidružené téma, takže vzhled zůstane konzistentní.
+[Clone slides](/slides/cs/java/clone-slides/) spolu s jejich masterem do cílové prezentace. Tím se zachová původní master, rozvržení a související motiv, takže vzhled zůstane konzistentní.
 
-**Jak mohu zobrazit „efektivní“ hodnoty po veškerém dědictví a přepsání?**
+### Jak mohu zobrazit „efektivní“ hodnoty po veškerém dědění a přepsání?
 
-Použijte [efektivní zobrazení](/slides/cs/java/shape-effective-properties/) pro téma/barvu/písmo/efekt. Tato vrací vyřešené, konečné vlastnosti po aplikaci masteru a jakýchkoli lokálních přepisů.
+Použijte API „effective“ zobrazení (/slides/cs/java/shape-effective-properties/) pro motiv/barvu/písmo/efekt. Tato zobrazení vrací rozebrané finální vlastnosti po aplikaci masteru a všech místních přepsání.

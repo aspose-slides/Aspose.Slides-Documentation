@@ -27,29 +27,31 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Spravujte textové a obrázkové vodoznaky v prezentacích PowerPoint a OpenDocument v .NET, abyste označili koncept, důvěrné informace, autorská práva a další."
+description: "Spravujte textové a obrázkové vodoznaky v prezentacích PowerPoint a OpenDocument v .NET, abyste označili návrh, důvěrné informace, autorská práva a další."
 ---
 ## **Úvod**
 
-**Vodoznak** v prezentaci je textová nebo obrázková značka použitá na snímku nebo na všech snímcích prezentace. Vodoznak se obvykle používá k označení, že prezentace je koncept (např. vodoznak „Draft“), že obsahuje důvěrné informace (např. vodoznak „Confidential“), k určení, které společnosti přísluší (např. vodoznak „Company Name“), k identifikaci autora prezentace atd. Vodoznak pomáhá předcházet porušování autorských práv tím, že naznačuje, že prezentaci nelze kopírovat. Vodoznaky se používají jak ve formátech PowerPoint, tak OpenDocument. V Aspose.Slides můžete přidat vodoznak do souborových formátů PowerPoint PPT, PPTX a OpenDocument ODP.
+**Vodoznak** v prezentaci je textová nebo obrázková razítko používané na snímku nebo na všech snímcích prezentace. Obvykle se vodoznak používá k označení, že prezentace je návrh (např. vodoznak „Draft“), že obsahuje důvěrné informace (např. vodoznak „Confidential“), k určení, které společnosti patří (např. vodoznak „Company Name“), k identifikaci autora prezentace atd. Vodoznak pomáhá předcházet porušení autorských práv tím, že naznačuje, že prezentaci by nemělo být kopírováno. Vodoznaky se používají jak v formátech PowerPoint, tak OpenDocument. V Aspose.Slides můžete přidat vodoznak do souborových formátů PowerPoint PPT, PPTX a OpenDocument ODP.
 
-V [**Aspose.Slides**](https://products.aspose.com/slides/cs/net/), existuje několik způsobů, jak vytvořit vodoznaky v dokumentech PowerPoint nebo OpenDocument a upravit jejich vzhled a chování. Společné je, že pro přidání textových vodoznaků byste měli použít rozhraní [ITextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/), a pro přidání obrázkových vodoznaků použít třídu [PictureFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/pictureframe/) nebo vyplnit tvar vodoznaku obrázkem. `PictureFrame` implementuje rozhraní [IShape](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape), což vám umožňuje využít všech flexibilních nastavení objektu tvaru. Protože `ITextFrame` není tvarem a jeho nastavení jsou omezená, je zabalen do objektu [IShape](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape).
+V [**Aspose.Slides**](https://products.aspose.com/slides/cs/net/) existuje několik způsobů, jak vytvořit vodoznaky v dokumentech PowerPoint nebo OpenDocument a upravit jejich vzhled i chování. Společným prvkem je, že pro přidání textových vodoznaků byste měli použít rozhraní [ITextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/), a pro přidání obrázkových vodoznaků použít třídu [PictureFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/pictureframe/) nebo vyplnit tvar vodoznaku obrázkem. `PictureFrame` implementuje rozhraní [IShape](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape), což vám umožní použít veškerá flexibilní nastavení objektu tvaru. Protože `ITextFrame` není tvar a jeho nastavení jsou omezená, je zabalen do objektu [IShape](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape).
 
-Existují dva způsoby, jak lze vodoznak použít: na jediný snímek nebo na všechny snímky prezentace. Pro použití vodoznaku na všechny snímky se používá Slide Master – vodoznak se přidá do Slide Masteru, je zde plně navržen a poté se aplikuje na všechny snímky, aniž by to ovlivnilo oprávnění upravovat vodoznak na jednotlivých snímcích.
+Existují dva způsoby, jak aplikovat vodoznak: na jeden snímek nebo na všechny snímky prezentace. Pro aplikaci vodoznaku na všechny snímky se používá Slide Master — vodoznak je přidán do Slide Master, kompletně tam navržen a aplikován na všechny snímky, aniž by to ovlivnilo možnost upravovat vodoznak na jednotlivých snímcích.
 
-Vodoznak se obvykle považuje za nepřístupný pro úpravy ostatními uživateli. Pro zamezení úprav vodoznaku (nebo spíše jeho nadřazeného tvaru) poskytuje Aspose.Slides funkci zamykání tvarů. konkrétní tvar lze zamknout na běžném snímku nebo na Slide Masteru. Když je tvar vodoznaku zamčen na Slide Masteru, bude zamčen na všech snímcích prezentace.
+Vodoznak je obvykle považován za needitovatelný ostatními uživateli. Aby se zabránilo úpravám vodoznaku (nebo spíše jeho nadřazeného tvaru), Aspose.Slides poskytuje funkci zamykání tvarů. Konkrétní tvar může být uzamčen na běžném snímku nebo na Slide Master. Když je tvar vodoznaku uzamčen na Slide Master, bude uzamčen na všech snímcích prezentace.
 
-Můžete nastavit název vodoznaku, aby jej v budoucnu bylo možné snadno najít a odstranit v seznamu tvarů snímku.
+Můžete nastavit název pro vodoznak, aby jej bylo možné v budoucnu, když budete chtít odstranit, najít mezi tvary snímku podle názvu.
 
-Vodoznak můžete navrhnout libovolně; typicky však vodoznaky mají společné rysy, jako je centrování, rotace, umístění v popředí atd. V následujících příkladech si ukážeme, jak tyto vlastnosti použít.
+Vodoznak můžete navrhnout libovolně; obvykle však vodoznaky mají společné vlastnosti, jako je zarovnání na střed, otočení, umístění v popředí atd. V níže uvedených příkladech si ukážeme, jak tyto vlastnosti použít.
 
 ## **Textový vodoznak**
 
 ### **Přidání textového vodoznaku na snímek**
 
-Pro přidání textového vodoznaku v PPT, PPTX nebo ODP nejprve přidejte na snímek tvar a poté k tomuto tvaru přidejte textový rámec. Textový rámec představuje rozhraní [ITextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe). Tento typ není odvozen od [IShape](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/), který nabízí širokou škálu vlastností pro flexibilní umístění vodoznaku. Proto je objekt [ITextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe) zabalen do objektu [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/). Pro přidání textu vodoznaku do tvaru použijte metodu [AddTextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/methods/addtextframe) dle níže uvedeného příkladu.
+Pro přidání textového vodoznaku v PPT, PPTX nebo ODP nejprve přidejte tvar na snímek a poté do tohoto tvaru přidejte textový rámec. Textový rámec je reprezentován rozhraním [ITextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe). Tento typ není děděn z [IShape](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/), který má širokou sadu vlastností pro flexibilní umístění vodoznaku. Proto je objekt [ITextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe) zabalen do objektu [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/). Pro přidání textu vodoznaku do tvaru použijte metodu [AddTextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/methods/addtextframe), jak je ukázáno níže.
 
 ```cs
+using Aspose.Slides;
+
 string watermarkText = "CONFIDENTIAL";
 
 using Presentation presentation = new Presentation();
@@ -60,15 +62,17 @@ IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 
 ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
-{{% alert color="primary" title="Viz také" %}} 
-- [Jak použít třídu TextFrame?](/slides/cs/net/text-formatting/)
+{{% alert color="info" title="Viz také" %}} 
+- [Jak používat třídu TextFrame?](/slides/cs/net/text-formatting/)
 {{% /alert %}}
 
-### **Přidání textového vodoznaku do celé prezentace**
+### **Přidání textového vodoznaku do prezentace**
 
-Pokud chcete přidat textový vodoznak do celé prezentace (tj. na všechny snímky najednou), přidejte jej do [MasterSlide](https://reference.aspose.com/slides/cs/net/aspose.slides/masterslide/). Zbytek logiky je stejný jako při přidávání vodoznaku na jediný snímek – vytvořte objekt [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/) a poté použijte metodu [AddTextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/methods/addtextframe).
+Pokud chcete přidat textový vodoznak do celé prezentace (tj. na všechny snímky najednou), přidejte jej do [MasterSlide](https://reference.aspose.com/slides/cs/net/aspose.slides/masterslide/). Zbytek logiky je stejný jako při přidávání vodoznaku na jeden snímek — vytvořte objekt [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/) a poté přidejte vodoznak pomocí metody [AddTextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/methods/addtextframe).
 
 ```cs
+using Aspose.Slides;
+
 string watermarkText = "CONFIDENTIAL";
 
 using Presentation presentation = new Presentation();
@@ -79,28 +83,41 @@ IAutoShape watermarkShape = masterSlide.Shapes.AddAutoShape(ShapeType.Rectangle,
 ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
-{{% alert color="primary" title="Viz také" %}} 
-- [Jak použít Slide Master?](/slides/cs/net/slide-master/)
+{{% alert color="info" title="Viz také" %}} 
+- [Jak používat Slide Master?](/slides/cs/net/slide-master/)
 {{% /alert %}}
 
 ### **Nastavení průhlednosti tvaru vodoznaku**
 
-Ve výchozím nastavení je obdélníkový tvar stylizován výplní a barvou čáry. To znamená, že po přidání vodoznaku se může zobrazit s plným pozadím nebo okrajem, který může odvádět pozornost od obsahu snímku. Pro zajištění jemnosti vodoznaku a nepřekrývání vizuálního designu prezentace můžete tvar učinit zcela průhledným.
+Ve výchozím nastavení je obdélníkový tvar stylizován výplní a barvou čáry. To znamená, že po přidání vodoznaku se může zobrazit se solidním pozadím nebo okrajem, což může odvádět pozornost od obsahu snímku. Aby vodoznak zůstal nenápadný a neovlivňoval vizuální design prezentace, můžete tvar učinit zcela průhledným.
 
 Následující řádky kódu učiní tvar průhledným odstraněním jak výplně, tak barvy okraje:
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 watermarkShape.FillFormat.FillType = FillType.NoFill;
 watermarkShape.LineFormat.FillFormat.FillType = FillType.NoFill;
 ```
 
 ### **Nastavení písma pro textový vodoznak**
 
-Před aplikací textového vodoznaku na snímek je důležité upravit jeho vzhled tak, aby ladil s celkovým designem. Můžete změnit typ a velikost písma, aby byl vodoznak čitelný i esteticky příjemný. Přizpůsobení písma může také pomoci posílit identitu značky nebo jednoduše odpovídat stylu prezentace.
+Před aplikací textového vodoznaku na snímek je důležité přizpůsobit jeho vzhled tak, aby ladil s celkovým designem. Můžete změnit typ a velikost písma, aby byl vodoznak čitelný a esteticky příjemný. Přizpůsobení písma může také pomoci posílit identitu značky nebo jednoduše odpovídat stylu prezentace.
 
-Ukázkový fragment kódu níže ukazuje, jak nastavit písmo vodoznaku výběrem konkrétního latinského písma a nastavením vhodné výšky písma:
+Následující úryvek kódu ukazuje, jak upravit nastavení písma vodoznaku výběrem konkrétního latinského písma a nastavením vhodné výšky písma:
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+ITextFrame watermarkFrame = watermarkShape.AddTextFrame("CONFIDENTIAL");
+
 IPortionFormat textFormat = watermarkFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
 textFormat.LatinFont = new FontData("Arial");
 textFormat.FontHeight = 50;
@@ -108,11 +125,19 @@ textFormat.FontHeight = 50;
 
 ### **Nastavení barvy textu vodoznaku**
 
-Než použijete vodoznak, je nutné nastavit barvu textu tak, aby dobře zapadala do obsahu snímku, aniž by ho přehlušila. Úprava průhlednosti (alfa) spolu s červenou, zelenou a modrou složkou vám umožní vytvořit jemný, poloprůhledný vodoznak, který je viditelný, ale nerušivý. Tento přístup pomáhá udržet pozornost na hlavní prezentaci a zároveň chrání váš obsah.
+Před aplikací vodoznaku je nutné zajistit, že barva textu je nastavena vhodně, aby se dobře sloučila s obsahem snímku a nepřehlušila jej. Úprava průhlednosti barvy (alpha) spolu s červenou, zelenou a modrou složkou vám umožní vytvořit nenápadný, poloprůhledný vodoznak, který je viditelný, ale neruší. Tento přístup pomáhá udržet pozornost na hlavní prezentaci a zároveň chrání váš obsah.
 
-Pro nastavení barvy textu vodoznaku použijte následující kód:
+Chcete-li nastavit barvu textu vodoznaku, použijte následující kód:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+ITextFrame watermarkFrame = watermarkShape.AddTextFrame("CONFIDENTIAL");
+
 int alpha = 150, red = 200, green = 200, blue = 200;
 
 IFillFormat fillFormat = watermarkFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FillFormat;
@@ -120,13 +145,21 @@ fillFormat.FillType = FillType.Solid;
 fillFormat.SolidFillColor.Color = Color.FromArgb(alpha, red, green, blue);
 ```
 
-### **Centrovaný textový vodoznak**
+### **Vystředění textového vodoznaku**
 
-Správné vycentrování textového vodoznaku může výrazně zlepšit celkovou estetiku prezentace tím, že zajistí symetrické umístění vodoznaku bez ohledu na rozměry snímku. Tento přístup nejen dodá snímkům profesionální vzhled, ale také zajistí, že vodoznak nebude rušit hlavní obsah snímku.
+Správné vystředění textového vodoznaku může výrazně zlepšit celkovou estetiku vaší prezentace tím, že zajistí symetrické umístění vodoznaku bez ohledu na rozměry snímku. Tento přístup nejenže dodává snímkům profesionální vzhled, ale také zajišťuje, že vodoznak nezasahuje do hlavního obsahu snímku.
 
-Ukázkový fragment kódu níže ukazuje, jak vypočítat středovou pozici snímku a umístit textový vodoznak podle toho:
+Následující úryvek kódu ukazuje, jak vypočítat středovou pozici snímku a umístit textový vodoznak podle toho:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+
+string watermarkText = "CONFIDENTIAL";
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+
 SizeF slideSize = presentation.SlideSize.Size;
 
 float watermarkWidth = 400;
@@ -140,7 +173,7 @@ IAutoShape watermarkShape = slide.Shapes.AddAutoShape(
 ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
-Obrázek níže ukazuje finální výsledek.
+Obrázek níže zobrazuje konečný výsledek.
 
 ![Textový vodoznak](text_watermark.png)
 
@@ -148,9 +181,15 @@ Obrázek níže ukazuje finální výsledek.
 
 ### **Přidání obrázkového vodoznaku do prezentace**
 
-V mnoha případech může obrázkový vodoznak poskytnout jedinečný prvek značky nebo vizuálně atraktivnější alternativu k textovému vodoznaku. Před přidáním vodoznaku se ujistěte, že máte k dispozici soubor obrázku (např. PNG pro průhlednost). Následující příklad ukazuje, jak načíst obrázek ze souborového systému, přidat jej do prezentace a poté jej použít jako vodoznak pomocí vlastností výplně tvaru.
+V mnoha případech může obrázkový vodoznak poskytnout jedinečný prvek značky nebo vizuálně atraktivnější alternativu k textovému vodoznaku. Před přidáním vodoznaku se ujistěte, že soubor s obrázkem je dostupný (např. PNG pro průhlednost). Následující příklad ukazuje, jak načíst obrázek ze souborového systému, přidat jej do prezentace a poté jej použít jako vodoznak pomocí výplně tvaru.
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 using FileStream imageStream = File.OpenRead("watermark.png");
 IPPImage image = presentation.Images.AddImage(imageStream);
 
@@ -159,12 +198,18 @@ watermarkShape.FillFormat.PictureFillFormat.Picture.Image = image;
 watermarkShape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
 ```
 
-## **Zamknutí vodoznaku před úpravou**
+## **Zamknutí vodoznaku proti úpravám**
 
-Pokud je potřeba zabránit úpravám vodoznaku, použijte vlastnost [IAutoShape.ShapeLock](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/properties/shapelock) na tvaru. Touto vlastností můžete chránit tvar před výběrem, změnou velikosti, přesunem, seskupením s jinými prvky, zamknutím textu před úpravou a dalšími akcemi:
+Pokud je nutné zabránit úpravám vodoznaku, použijte vlastnost [IAutoShape.ShapeLock](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/properties/shapelock) na tvaru. Touto vlastností můžete chránit tvar před výběrem, změnou velikosti, přemístěním, seskupením s jinými prvky, uzamknout jeho text proti úpravám a dalšími možnostmi:
 
 ```cs
-// Zamkněte tvar vodoznaku před úpravou.
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+// Zamkněte tvar vodoznaku před úpravami.
 watermarkShape.ShapeLock.SelectLocked = true;
 watermarkShape.ShapeLock.SizeLocked = true;
 watermarkShape.ShapeLock.TextLocked = true;
@@ -172,76 +217,102 @@ watermarkShape.ShapeLock.PositionLocked = true;
 watermarkShape.ShapeLock.GroupingLocked = true;
 ```
 
-## **Umístění vodoznaku do popředí**
+## **Přesunutí vodoznaku do popředí**
 
-V Aspose.Slides lze pořadí vrstev (Z-order) tvarů nastavit pomocí metody [IShapeCollection.Reorder](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/reorder/#reorder). K tomu je potřeba zavolat tuto metodu z kolekce snímků prezentace a předat referenci na tvar a požadované pořadové číslo. Tím je možné umístit tvar do popředí nebo jej poslat dozadu. Tato funkce je užitečná, pokud chcete umístit vodoznak před ostatní obsah prezentace:
+V Aspose.Slides lze Z-řazení tvarů nastavit pomocí metody [IShapeCollection.Reorder](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/reorder/#reorder). K tomu je třeba volat tuto metodu ze seznamu snímků prezentace a předat do ní odkaz na tvar a jeho pořadové číslo. Tímto způsobem je možné převést tvar do popředí nebo ho poslat do pozadí snímku. Tato funkce je obzvláště užitečná, pokud potřebujete umístit vodoznak před obsah prezentace:
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 int shapeCount = slide.Shapes.Count;
 slide.Shapes.Reorder(shapeCount - 1, watermarkShape);
 ```
 
-## **Nastavení rotace vodoznaku**
+## **Nastavení otočení vodoznaku**
 
-Úprava rotace vodoznaku může významně zlepšit vizuální dopad a nenápadnost vaší prezentace. Diagonální vodoznak je méně rušivý, ale stále poskytuje silnou ochranu proti neoprávněnému použití. Následující příklad vypočítá vhodný úhel na základě rozměrů snímku, takže vodoznak bude umístěn úhlopříčně napříč snímkem. Tento dynamický výpočet zajišťuje, že vodoznak zůstane efektivní bez ohledu na různé velikosti snímků.
+Úprava natočení vodoznaku může výrazně zvýšit vizuální dopad a nenápadnost vaší prezentace. Diagonální vodoznak může být méně rušivý a zároveň poskytovat silnou ochranu proti neoprávněnému použití. Následující příklad vypočítá vhodný úhel na základě rozměrů snímku, aby byl vodoznak umístěn diagonálně přes snímek. Tento dynamický výpočet zajišťuje, že vodoznak zůstane efektivní bez ohledu na různé velikosti snímků.
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+SizeF slideSize = presentation.SlideSize.Size;
+
 double diagonalAngle = Math.Atan((slideSize.Height / slideSize.Width)) * 180 / Math.PI;
 
 watermarkShape.Rotation = (float)diagonalAngle;
 ```
 
-## **Nastavení názvu vodoznaku**
+## **Nastavení názvu pro vodoznak**
 
-Aspose.Slides umožňuje nastavit název tvaru. Pomocí názvu tvaru můžete v budoucnu snadno získat přístup k jeho úpravě nebo smazání. Pro nastavení názvu tvaru vodoznaku přiřaďte hodnotu do vlastnosti [IAutoShape.Name](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/properties/name):
+Aspose.Slides umožňuje nastavit název tvaru. Pomocí názvu tvaru můžete v budoucnu k tvaru přistupovat, upravovat jej nebo jej odstranit. Pro nastavení názvu tvaru vodoznaku přiřaďte ho vlastnosti [IAutoShape.Name](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/properties/name):
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 watermarkShape.Name = "watermark";
 ```
 
 ## **Odstranění vodoznaku**
 
-Pro odstranění tvaru vodoznaku použijte vlastnost [IAutoShape.Name](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/properties/name) k jeho vyhledání v seznamech tvarů snímku. Poté předávejte tvar vodoznaku metodě [IShapeCollection.Remove](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/remove/):
+Pro odstranění tvaru vodoznaku použijte vlastnost [IAutoShape.Name](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/properties/name) k jeho vyhledání mezi tvary snímku. Poté předajte tvar vodoznaku metodě [IShapeCollection.Remove](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/remove/):
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+
 List<IShape> slideShapes = slide.Shapes.ToList();
 foreach (IShape shape in slideShapes)
 {
     if (string.Compare(shape.Name, "watermark", StringComparison.Ordinal) == 0)
     {
-        slide.Shapes.Remove(watermarkShape);
+        slide.Shapes.Remove(shape);
     }
 }
 ```
 
-## **Živý příklad**
+## **Ukázkový příklad**
 
-Můžete si vyzkoušet **bezplatné** online nástroje Aspose.Slides [Přidat vodoznak](https://products.aspose.app/slides/cs/watermark) a [Odstranit vodoznak](https://products.aspose.app/slides/cs/watermark/remove-watermark).
+Možná si chcete vyzkoušet **Aspose.Slides free** online nástroje [Add Watermark](https://products.aspose.app/slides/cs/watermark) a [Remove Watermark](https://products.aspose.app/slides/cs/watermark/remove-watermark).
 
 ![Online nástroje pro přidání a odstranění vodoznaků](online_tools.png)
 
 ## **Často kladené otázky**
 
-**Co je vodoznak a proč jej používat?**
+### **Co je vodoznak a proč jej používat?**
 
-Vodoznak je textová nebo obrázková vrstva aplikovaná na snímky, která pomáhá chránit duševní vlastnictví, posilovat povědomí o značce nebo předcházet neoprávněnému použití prezentací.
+Vodoznak je textová nebo obrázková překrytí aplikovaná na snímky, která pomáhá chránit duševní vlastnictví, posílit rozpoznatelnost značky nebo zabránit neautorizovanému použití prezentací.
 
-**Mohu přidat vodoznak na všechny snímky v prezentaci?**
+### **Mohu přidat vodoznak na všechny snímky v prezentaci?**
 
-Ano, Aspose.Slides umožňuje programově přidat vodoznak na každý snímek v prezentaci. Můžete iterovat přes všechny snímky a aplikovat nastavení vodoznaku jednotlivě.
+Ano, Aspose.Slides vám umožňuje programově přidat vodoznak na každý snímek v prezentaci. Můžete projít všechny snímky a nastavení vodoznaku aplikovat jednotlivě.
 
-**Jak mohu upravit průhlednost vodoznaku?**
+### **Jak mohu upravit průhlednost vodoznaku?**
 
-Průhlednost vodoznaku můžete upravit úpravou nastavení výplně ([FillFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/shape/fillformat/)) tvaru. Tím zajistíte, že vodoznak bude jemný a nebude odvádět pozornost od obsahu snímku.
+Průhlednost vodoznaku můžete upravit úpravou nastavení výplně ([FillFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/shape/fillformat/)) tvaru. Tím zajistíte, že vodoznak bude nenápadný a nebude odvádět pozornost od obsahu snímku.
 
-**Jaké formáty obrázků jsou podporovány pro vodoznaky?**
+### **Jaké formáty obrázků jsou pro vodoznaky podporovány?**
 
 Aspose.Slides podporuje různé formáty obrázků, jako jsou PNG, JPEG, GIF, BMP, SVG a další.
 
-**Mohu přizpůsobit písmo a styl textového vodoznaku?**
+### **Mohu přizpůsobit písmo a styl textového vodoznaku?**
 
-Ano, můžete zvolit libovolné písmo, velikost a styl, aby odpovídaly designu vaší prezentace a zachovávaly konzistenci značky.
+Ano, můžete zvolit libovolné písmo, velikost a styl tak, aby odpovídaly designu vaší prezentace a zachovaly konzistenci značky.
 
-**Jak změnit pozici nebo orientaci vodoznaku?**
+### **Jak změním umístění nebo orientaci vodoznaku?**
 
-Pozici a orientaci vodoznaku můžete programově upravit změnou souřadnic, velikosti a rotačních vlastností tvaru.
+Umístění a orientaci vodoznaku můžete programově upravit úpravou souřadnic, velikosti a natočení tvaru.

@@ -12,9 +12,9 @@ keywords:
 - เปลี่ยนลายน้ำ
 - ลบลายน้ำ
 - ลบลายน้ำ
-- เพิ่มลายน้ำใน PPT
-- เพิ่มลายน้ำใน PPTX
-- เพิ่มลายน้ำใน ODP
+- เพิ่มลายน้ำลงใน PPT
+- เพิ่มลายน้ำลงใน PPTX
+- เพิ่มลายน้ำลงใน ODP
 - ลบลายน้ำจาก PPT
 - ลบลายน้ำจาก PPTX
 - ลบลายน้ำจาก ODP
@@ -27,80 +27,97 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "จัดการลายน้ำข้อความและลายน้ำรูปภาพในงานนำเสนอ PowerPoint และ OpenDocument ด้วย .NET เพื่อบ่งบอกว่าเป็นร่าง ข้อมูลลับ ลิขสิทธิ์ และอื่น ๆ"
+description: "จัดการลายน้ำข้อความและรูปภาพในงานนำเสนอ PowerPoint และ OpenDocument ด้วย .NET เพื่อระบุว่าเป็นร่าง ข้อมูลลับ ลิขสิทธิ์ และอื่น ๆ"
 ---
 ## **บทนำ**
 
-**ลายน้ำ** ในการนำเสนอคือสตั๊มข้อความหรือรูปภาพที่ใช้ในสไลด์หนึ่งหรือทั่วทั้งสไลด์ของการนำเสนอ โดยทั่วไปลายน้ำจะใช้เพื่อบ่งชี้ว่าการนำเสนอนี้เป็นร่าง (เช่น ลายน้ำ “Draft”) มีข้อมูลลับ (เช่น ลายน้ำ “Confidential”) ระบุว่าเป็นของบริษัทใด (เช่น ลายน้ำ “Company Name”) หรือระบุผู้เขียนการนำเสนอ ฯลฯ ลายน้ำช่วยป้องกันการละเมิดลิขสิทธิ์โดยบ่งบอกว่าการนำเสนอไม่ควรคัดลอก ลายน้ำใช้ได้ทั้งในรูปแบบ PowerPoint และ OpenDocument ใน Aspose.Slides คุณสามารถเพิ่มลายน้ำในไฟล์ PowerPoint PPT, PPTX และ OpenDocument ODP ได้
+**ลายน้ำ** ในการนำเสนอคือสติ๊กเกอร์ข้อความหรือรูปภาพที่ใช้บนสไลด์หรือทั่วทั้งสไลด์ของการนำเสนอทั่วไป โดยปกติแล้วลายน้ำจะใช้เพื่อบ่งบอกว่าการนำเสนอเป็นร่าง (เช่นลายน้ำ “Draft”) หรือมีข้อมูลลับ (เช่นลายน้ำ “Confidential”) หรือระบุว่าติดกับบริษัทใด (เช่นลายน้ำ “Company Name”) เพื่อระบุตัวผู้สร้างการนำเสนอ ฯลฯ ลายน้ำช่วยป้องกันการละเมิดลิขสิทธิ์โดยบ่งบอกว่าการนำเสนอไม่ควรคัดลอก ลายน้ำถูกใช้ทั้งในรูปแบบ PowerPoint และ OpenDocument ใน [**Aspose.Slides**](https://products.aspose.com/slides/th/net/) คุณสามารถเพิ่มลายน้ำให้กับไฟล์ PowerPoint PPT, PPTX และ OpenDocument ODP ได้
 
-ใน [**Aspose.Slides**](https://products.aspose.com/slides/th/net/) มีวิธีต่าง ๆ ที่คุณสามารถสร้างลายน้ำในเอกสาร PowerPoint หรือ OpenDocument และปรับการออกแบบและพฤติกรรมของลายน้ำได้ ด้านร่วมคือการเพิ่มลายน้ำข้อความต้องใช้ interface [ITextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/itextframe/) ส่วนการเพิ่มลายน้ำรูปภาพใช้คลาส [PictureFrame](https://reference.aspose.com/slides/th/net/aspose.slides/pictureframe/) หรือเติมรูปภาพลงในรูปทรงของลายน้ำ `PictureFrame` implements interface [IShape](https://reference.aspose.com/slides/th/net/aspose.slides/ishape) ทำให้คุณใช้การตั้งค่าที่ยืดหยุ่นทั้งหมดของวัตถุ shape ได้ เนื่องจาก `ITextFrame` ไม่ใช่ shape และการตั้งค่ามีข้อจำกัด จึงถูกห่อหุ้มไว้ในอ็อบเจ็กต์ [IShape](https://reference.aspose.com/slides/th/net/aspose.slides/ishape)
+ใน [**Aspose.Slides**](https://products.aspose.com/slides/th/net/) มีวิธีต่าง ๆ มากมายที่คุณสามารถสร้างลายน้ำในเอกสาร PowerPoint หรือ OpenDocument และปรับแต่งการออกแบบและพฤติกรรมของลายน้ำได้ ส่วนที่สำคัญคือเมื่อต้องการเพิ่มลายน้ำข้อความคุณควรใช้อินเทอร์เฟซ [ITextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/itextframe/) และเมื่อต้องการเพิ่มลายน้ำรูปภาพให้ใช้คลาส [PictureFrame](https://reference.aspose.com/slides/th/net/aspose.slides/pictureframe/) หรือเติมรูปภาพให้กับรูปทรงลายน้ำ `PictureFrame` implements the [IShape](https://reference.aspose.com/slides/th/net/aspose.slides/ishape) interface, allowing you to use all the flexible settings of the shape object. Since `ITextFrame` is not a shape and its settings are limited, it is wrapped into an [IShape](https://reference.aspose.com/slides/th/net/aspose.slides/ishape) object.
 
-ลายน้ำสามารถนำไปใช้ได้สองวิธี: กับสไลด์เดียวหรือกับสไลด์ทั้งหมด Slide Master ใช้เพื่อเพิ่มลายน้ำให้กับสไลด์ทั้งหมด — ลายน้ำจะถูกเพิ่มใน Slide Master ออกแบบที่นั่นอย่างเต็มที่ และนำไปใช้กับสไลด์ทั้งหมดโดยไม่กระทบต่อสิทธิ์การแก้ไขลายน้ำบนสไลด์แต่ละสไลด์
+มีสองวิธีที่สามารถใช้ลายน้ำได้: ใส่บนสไลด์เดียวหรือใส่บนสไลด์ทั้งหมดของการนำเสนอ Slide Master จะถูกใช้เพื่อใส่ลายน้ำบนสไลด์ทั้งหมด — ลายน้ำจะถูกเพิ่มใน Slide Master ออกแบบเต็มรูปแบบที่นั่นและจะถูกนำไปใช้กับสไลด์ทั้งหมดโดยไม่กระทบต่อสิทธิ์ในการแก้ไขลายน้ำบนสไลด์แต่ละอัน
 
-ลายน้ำมักถือว่าไม่สามารถแก้ไขได้โดยผู้ใช้คนอื่น ๆ เพื่อป้องกันไม่ให้ลายน้ำ (หรือรูปทรงพาเรนท์ของลายน้ำ) ถูกแก้ไข Aspose.Slides มีฟังก์ชันการล็อกรูปทรง รูปทรงเฉพาะสามารถล็อกบนสไลด์ปกติหรือบน Slide Master ได้ เมื่อรูปทรงลายน้ำถูกล็อกบน Slide Master จะถูกล็อกบนสไลด์ทั้งหมด
+ลายน้ำโดยทั่วไปถือว่าไม่ควรให้ผู้ใช้อื่นแก้ไข เพื่อป้องกันไม่ให้รูปทรงของลายน้ำ (หรือที่จริงคือรูปทรงแม่ของลายน้ำ) ถูกแก้ไข Aspose.Slides ให้ความสามารถในการล็อครูปทรง สามารถล็อครูปทรงเฉพาะบนสไลด์ปกติหรือบน Slide Master เมื่อรูปทรงลายน้ำถูกล็อคบน Slide Master มันจะถูกล็อคบนสไลด์ทั้งหมดของการนำเสนอ
 
-คุณสามารถตั้งชื่อให้ลายน้ำได้ เพื่อให้ในอนาคตเมื่อคุณต้องการลบ สามารถค้นหารูปทรงตามชื่อนั้นในสไลด์ได้
+คุณสามารถตั้งชื่อให้กับลายน้ำเพื่อว่าในอนาคตหากต้องการลบคุณจะสามารถค้นหาได้โดยใช้ชื่อของรูปทรงในสไลด์
 
-คุณสามารถออกแบบลายน้ำได้ทุกแบบ; อย่างไรก็ตามโดยทั่วไปลายน้ำมักมีลักษณะร่วมเช่น การจัดกึ่งกลาง การหมุน การวางอยู่ด้านหน้า ฯลฯ เราจะพิจารณา วิธีการใช้งานเหล่านี้ในตัวอย่างต่อไป
+คุณสามารถออกแบบลายน้ำได้ตามต้องการ อย่างไรก็ตามลักษณะทั่วไปของลายน้ำมักจะเป็นการจัดกึ่งกลาง การหมุน การอยู่ด้านหน้า ฯลฯ เราจะพิจารณาวิธีการใช้สิ่งเหล่านี้ในตัวอย่างต่อไป
 
 ## **ลายน้ำข้อความ**
 
 ### **เพิ่มลายน้ำข้อความในสไลด์**
 
-เพื่อเพิ่มลายน้ำข้อความใน PPT, PPTX หรือ ODP คุณสามารถเพิ่มรูปทรงลงบนสไลด์ก่อน แล้วเพิ่ม text frame ให้กับรูปทรงนั้น Text frame แทนด้วย interface [ITextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/itextframe) ประเภทนี้ไม่ได้สืบทอดจาก [IShape](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/) ซึ่งมีชุดคุณสมบัติที่กว้างขวางสำหรับการกำหนดตำแหน่งลายน้ำอย่างยืดหยุ่น ดังนั้นอ็อบเจ็กต์ [ITextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/itextframe) จะถูกห่อหุ้มในอ็อบเจ็กต์ [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) เพื่อเพิ่มข้อความลายน้ำลงในรูปทรง ให้ใช้เมธอด [AddTextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/methods/addtextframe) ตามตัวอย่างด้านล่าง
+เพื่อเพิ่มลายน้ำข้อความใน PPT, PPTX หรือ ODP คุณสามารถเพิ่มรูปทรงลงในสไลด์ก่อน แล้วจึงเพิ่มเฟรมข้อความลงในรูปทรงนั้น ฟรมข้อความจะถูกแทนด้วยอินเทอร์เฟซ [ITextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/itextframe) ประเภทนี้ไม่ได้สืบทอดจาก [IShape](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/) ซึ่งมีชุดคุณสมบัติที่กว้างขวางสำหรับการกำหนดตำแหน่งลายน้ำอย่างยืดหยุ่น ดังนั้นวัตถุ [ITextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/itextframe) จะถูกห่อหุ้มไว้ในวัตถุ [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) เพื่อเพิ่มข้อความลายน้ำลงในรูปทรง ให้ใช้เมธอด [AddTextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/methods/addtextframe) ตามตัวอย่างด้านล่าง
 
 ```cs
+using Aspose.Slides;
+
 string watermarkText = "CONFIDENTIAL";
 
 using Presentation presentation = new Presentation();
 ISlide slide = presentation.Slides[0];
 
-// เพิ่มลายน้ำลงบนสไลด์.
+// เพิ่มลายน้ำลงในสไลด์.
 IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
 ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
-{{% alert color="primary" title="See also" %}} 
-- [How to Use the TextFrame Class?](/slides/th/net/text-formatting/)
+{{% alert color="info" title="ดูเพิ่มเติม" %}} 
+- [วิธีใช้คลาส TextFrame?](/slides/th/net/text-formatting/)
 {{% /alert %}}
 
 ### **เพิ่มลายน้ำข้อความในงานนำเสนอ**
 
-หากต้องการเพิ่มลายน้ำข้อความให้กับงานนำเสนอทั้งหมด (คือทุกสไลด์พร้อมกัน) ให้เพิ่มลงใน [MasterSlide](https://reference.aspose.com/slides/th/net/aspose.slides/masterslide/) ส่วนตรรกะที่เหลือเหมือนกับการเพิ่มลายน้ำในสไลด์เดียว — สร้างอ็อบเจ็กต์ [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) แล้วเพิ่มลายน้ำด้วยเมธอด [AddTextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/methods/addtextframe)
+หากคุณต้องการเพิ่มลายน้ำข้อความให้กับงานนำเสนอทั้งหมด (คือทุกสไลด์พร้อมกัน) ให้เพิ่มลงใน [MasterSlide](https://reference.aspose.com/slides/th/net/aspose.slides/masterslide/) ส่วนตรรกะที่เหลือเหมือนกับการเพิ่มลายน้ำลงในสไลด์เดียว — สร้างวัตถุ [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) แล้วจึงเพิ่มลายน้ำโดยใช้เมธอด [AddTextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/methods/addtextframe)
 
 ```cs
+using Aspose.Slides;
+
 string watermarkText = "CONFIDENTIAL";
 
 using Presentation presentation = new Presentation();
 IMasterSlide masterSlide = presentation.Masters[0];
 
-// เพิ่มลายน้ำลงบนสไลด์มาสเตอร์.
+// เพิ่มลายน้ำลงในมาสเตอร์สไลด์.
 IAutoShape watermarkShape = masterSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
 ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
-{{% alert color="primary" title="See also" %}} 
-- [How to Use the Slide Master?](/slides/th/net/slide-master/)
+{{% alert color="info" title="ดูเพิ่มเติม" %}} 
+- [วิธีใช้ Slide Master?](/slides/th/net/slide-master/)
 {{% /alert %}}
 
 ### **ตั้งค่าความโปร่งใสของรูปทรงลายน้ำ**
 
-โดยค่าเริ่มต้น รูปร่างสี่เหลี่ยมจะมีสีเติมและสีเส้น ซึ่งหมายความว่าลายน้ำอาจปรากฏพร้อมพื้นหลังหรือเส้นขอบที่หนาแน่น และอาจทำให้ผู้ชมเสียสมาธิจากเนื้อหา เพื่อให้ลายน้ำดูบางเบาและไม่รบกวนการออกแบบของสไลด์ คุณสามารถทำให้รูปทรงโปร่งใสอย่างสมบูรณ์ได้
+โดยค่าเริ่มต้น รูปสี่เหลี่ยมจะถูกจัดสไตล์ด้วยสีเติมและสีเส้น ซึ่งหมายความว่าลายน้ำอาจปรากฏด้วยพื้นหลังหรือเส้นขอบที่ทึบและอาจทำให้ผู้ชมละความสนใจจากเนื้อหาในสไลด์ เพื่อให้ลายน้ำดูเบาบางและไม่รบกวนการออกแบบภาพของการนำเสนอ คุณสามารถทำให้รูปทรงเป็นโปร่งใสอย่างเต็มที่ได้
 
-บรรทัดโค้ดต่อไปนี้ทำให้รูปทรงโปร่งใสโดยลบสีเติมและสีเส้นทั้งสอง
+บรรทัดโค้ดต่อไปนี้ทำให้รูปทรงโปร่งใสโดยลบสีเติมและสีเส้นออกทั้งสองอย่าง
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 watermarkShape.FillFormat.FillType = FillType.NoFill;
 watermarkShape.LineFormat.FillFormat.FillType = FillType.NoFill;
 ```
 
 ### **ตั้งค่าแบบอักษรสำหรับลายน้ำข้อความ**
 
-ก่อนที่จะใส่ลายน้ำข้อความลงสไลด์ ควรปรับแต่งลักษณะการแสดงผลเพื่อให้สอดคล้องกับการออกแบบโดยรวม คุณสามารถเปลี่ยนประเภทและขนาดของแบบอักษรเพื่อให้ลายน้ำอ่านง่ายและสวยงาม การปรับแบบอักษรยังช่วยเสริมสร้างเอกลักษณ์ของแบรนด์หรือให้สไลด์ดูสอดคล้องกับสไตล์ของการนำเสนอ
+ก่อนนำลายน้ำข้อความไปใช้ในสไลด์ของคุณ ควรปรับแต่งลักษณะการแสดงผลเพื่อให้สอดคล้องกับการออกแบบโดยรวม คุณสามารถเปลี่ยนแบบอักษรและขนาดเพื่อให้ลายน้ำอ่านง่ายและสวยงาม การปรับแบบอักษรยังช่วยเสริมความแข็งแรงของแบรนด์หรือให้เข้ากับสไตล์การนำเสนอได้ง่ายขึ้น
 
-โค้ดตัวอย่างด้านล่างแสดงวิธีปรับตั้งค่าแบบอักษรของลายน้ำโดยเลือกแบบอักษร Latin เฉพาะและกำหนดความสูงของแบบอักษรที่เหมาะสม
+โค้ดตัวอย่างด้านล่างแสดงวิธีปรับตั้งค่าฟอนต์ของลายน้ำโดยเลือกฟอนต์ Latin เฉพาะและกำหนดความสูงของฟอนต์ที่เหมาะสม
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+ITextFrame watermarkFrame = watermarkShape.AddTextFrame("CONFIDENTIAL");
+
 IPortionFormat textFormat = watermarkFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
 textFormat.LatinFont = new FontData("Arial");
 textFormat.FontHeight = 50;
@@ -108,11 +125,19 @@ textFormat.FontHeight = 50;
 
 ### **ตั้งค่าสีข้อความลายน้ำ**
 
-ก่อนใส่ลายน้ำ ต้องตรวจสอบให้แน่ใจว่าสีข้อความถูกตั้งค่าอย่างเหมาะสมเพื่อให้ผสมผสานกับเนื้อหาสไลด์โดยไม่ทำให้เกิดความรบกวน การปรับค่า transparency (alpha) พร้อมกับค่าเเดง, เขียว, น้ำเงิน ทำให้คุณสร้างลายน้ำที่บางเบา กึ่งโปร่งใส ที่มองเห็นได้แต่ไม่ทำให้สไลด์ดูรก
+ก่อนนำลายน้ำของคุณไปใช้ สิ่งสำคัญคือต้องตั้งค่าสีข้อความให้เหมาะสมเพื่อให้สอดคล้องกับเนื้อหาสไลด์โดยไม่ทำให้เด่นเกินไป การปรับค่าความโปร่งใส (alpha) ของสีพร้อมกับส่วนประกอบสีแดง เขียว น้ำเงิน จะช่วยสร้างลายน้ำที่เบาบางกึ่งโปร่งใส ซึ่งมองเห็นได้แต่ไม่รบกวนการนำเสนอหลัก วิธีนี้ช่วยให้ผู้ชมโฟกัสที่เนื้อหาหลักของการนำเสนอขณะเดียวกันยังคงปกป้องเนื้อหาไว้
 
-เพื่อกำหนดสีของข้อความลายน้ำ ให้ใช้โค้ดต่อไปนี้
+เพื่อกำหนดสีของข้อความลายน้ำ ใช้โค้ดต่อไปนี้
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+ITextFrame watermarkFrame = watermarkShape.AddTextFrame("CONFIDENTIAL");
+
 int alpha = 150, red = 200, green = 200, blue = 200;
 
 IFillFormat fillFormat = watermarkFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FillFormat;
@@ -122,11 +147,19 @@ fillFormat.SolidFillColor.Color = Color.FromArgb(alpha, red, green, blue);
 
 ### **จัดกึ่งกลางลายน้ำข้อความ**
 
-การจัดกึ่งกลางลายน้ำข้อความอย่างเหมาะสมสามารถเพิ่มความสวยงามของการนำเสนอได้อย่างมาก โดยทำให้ลายน้ำอยู่ในตำแหน่งสมมาตร ไม่ว่าขนาดสไลด์จะเป็นเท่าใด วิธีนี้ช่วยให้สไลด์ดูเป็นมืออาชีพและลายน้ำไม่กีดขวางเนื้อหาหลัก
+การจัดกึ่งกลางลายน้ำข้อความอย่างเหมาะสมสามารถยกระดับความสวยงามโดยรวมของการนำเสนอได้อย่างมาก โดยทำให้ลายน้ำอยู่ในตำแหน่งสมมาตรไม่ว่าจะมีขนาดสไลด์เท่าใด วิธีนี้ไม่เพียงทำให้สไลด์ดูเป็นมืออาชีพเท่านั้น แต่ยังทำให้ลายน้ำไม่ขัดขวางเนื้อหาหลักของสไลด์ด้วย
 
 โค้ดตัวอย่างด้านล่างแสดงวิธีคำนวณตำแหน่งกึ่งกลางของสไลด์และวางลายน้ำข้อความตามนั้น
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+
+string watermarkText = "CONFIDENTIAL";
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+
 SizeF slideSize = presentation.SlideSize.Size;
 
 float watermarkWidth = 400;
@@ -140,17 +173,23 @@ IAutoShape watermarkShape = slide.Shapes.AddAutoShape(
 ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
-รูปด้านล่างแสดงผลลัพธ์สุดท้าย
+ภาพด้านล่างแสดงผลลัพธ์สุดท้าย
 
-![The text watermark](text_watermark.png)
+![ลายน้ำข้อความ](text_watermark.png)
 
 ## **ลายน้ำรูปภาพ**
 
 ### **เพิ่มลายน้ำรูปภาพในงานนำเสนอ**
 
-ในหลายกรณี ลายน้ำรูปภาพสามารถให้เอกลักษณ์ของแบรนด์หรือเป็นตัวเลือกที่สวยงามกว่าลายน้ำข้อความ ก่อนเพิ่มลายน้ำ ให้ตรวจสอบว่าไฟล์ภาพพร้อมใช้งาน (เช่น PNG สำหรับความโปร่งใส) ตัวอย่างต่อไปนี้แสดงวิธีโหลดภาพจากระบบไฟล์ของคุณ เพิ่มลงในงานนำเสนอ และใช้เป็นลายน้ำผ่านคุณลักษณะการเติมรูปของรูปทรง
+ในหลายกรณี ลายน้ำรูปภาพสามารถเป็นองค์ประกอบการสร้างแบรนด์ที่เป็นเอกลักษณ์ หรือเป็นทางเลือกที่น่าสนใจต่อการใช้ลายน้ำข้อความ ก่อนเพิ่มลายน้ำให้ตรวจสอบให้แน่ใจว่าไฟล์รูปภาพพร้อมใช้งาน (เช่น PNG สำหรับความโปร่งใส) ตัวอย่างต่อไปนี้แสดงวิธีโหลดรูปภาพจากระบบไฟล์ของคุณ เพิ่มลงในงานนำเสนอ แล้วใช้คุณสมบัติเพิ่มเติมของรูปทรงเพื่อกำหนดเป็นลายน้ำ
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 using FileStream imageStream = File.OpenRead("watermark.png");
 IPPImage image = presentation.Images.AddImage(imageStream);
 
@@ -159,11 +198,17 @@ watermarkShape.FillFormat.PictureFillFormat.Picture.Image = image;
 watermarkShape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
 ```
 
-## **ล็อกลายน้ำจากการแก้ไข**
+## **ล็อคลายน้ำไม่ให้แก้ไข**
 
-หากต้องการป้องกันไม่ให้ลายน้ำถูกแก้ไข ให้ใช้ property [IAutoShape.ShapeLock](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/properties/shapelock) บนรูปทรง ด้วย property นี้คุณสามารถป้องกันไม่ให้รูปทรงถูกเลือก, ปรับขนาด, ย้ายตำแหน่ง, รวมกลุ่มกับองค์ประกอบอื่น, ล็อกข้อความจากการแก้ไข, และอื่น ๆ อีกมาก
+หากต้องการป้องกันไม่ให้ลายน้ำถูกแก้ไข ให้ใช้คุณสมบัติ [IAutoShape.ShapeLock](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/properties/shapelock) บนรูปทรง โดยคุณสมบัตินี้คุณสามารถป้องกันไม่ให้รูปทรงถูกเลือก ปรับขนาด ย้ายตำแหน่ง กลุ่มกับองค์ประกอบอื่น ๆ ล็อกข้อความจากการแก้ไข ฯลฯ
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 // ล็อกรูปทรงลายน้ำจากการแก้ไข.
 watermarkShape.ShapeLock.SelectLocked = true;
 watermarkShape.ShapeLock.SizeLocked = true;
@@ -172,20 +217,35 @@ watermarkShape.ShapeLock.PositionLocked = true;
 watermarkShape.ShapeLock.GroupingLocked = true;
 ```
 
-## **นำลายน้ำขึ้นหน้า**
+## **นำลายน้ำไปอยู่ด้านหน้า**
 
-ใน Aspose.Slides การจัดลำดับ Z‑order ของรูปทรงสามารถตั้งค่าได้ผ่านเมธอด [IShapeCollection.Reorder](https://reference.aspose.com/slides/th/net/aspose.slides/ishapecollection/reorder/#reorder) เพื่อทำเช่นนี้ คุณต้องเรียกเมธอดจากรายการสไลด์ของงานนำเสนอและส่งผ่านอ้างอิงรูปทรงและหมายเลขลำดับเข้าเมธอด วิธีนี้ทำให้คุณสามารถนำรูปทรงขึ้นหน้าหรือส่งลงด้านหลังของสไลด์ได้ ฟีเจอร์นี้มีประโยชน์อย่างยิ่งหากต้องการวางลายน้ำไว้ด้านหน้าของงานนำเสนอ
+ใน Aspose.Slides สามารถตั้งค่าลำดับ Z ของรูปทรงได้ผ่านเมธอด [IShapeCollection.Reorder](https://reference.aspose.com/slides/th/net/aspose.slides/ishapecollection/reorder/#reorder) เพื่อทำเช่นนี้ให้เรียกเมธอดจากรายการสไลด์ของงานนำเสนอและส่งอ้างอิงรูปทรงพร้อมหมายเลขลำดับเข้าไป ด้วยวิธีนี้คุณสามารถนำรูปทรงไปอยู่ด้านหน้า หรือส่งไปอยู่ด้านหลังของสไลด์ได้ ฟีเจอร์นี้มีประโยชน์เป็นพิเศษเมื่อคุณต้องการวางลายน้ำอยู่ด้านหน้าของการนำเสนอ
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 int shapeCount = slide.Shapes.Count;
 slide.Shapes.Reorder(shapeCount - 1, watermarkShape);
 ```
 
 ## **ตั้งค่าการหมุนของลายน้ำ**
 
-การปรับการหมุนของลายน้ำสามารถเพิ่มผลกระทบด้านภาพและความละเอียดอ่อนของการนำเสนอได้อย่างมาก ลายน้ำแนวทแยงมุมเช่นนี้อาจก่อความรบกวนน้อยลง แต่ยังคงให้การปกป้องที่แข็งแกร่ง ตัวอย่างต่อไปนี้คำนวณมุมที่เหมาะสมตามขนาดสไลด์เพื่อให้ลายน้ำวางเป็นแนวทแยงมุมทั่วสไลด์ การคำนวณแบบไดนามิกนี้ทำให้ลายน้ำยังคงมีประสิทธิภาพไม่ว่าจะขนาดสไลด์เปลี่ยนแปลงอย่างไร
+การปรับการหมุนของลายน้ำสามารถเพิ่มผลกระทบทางภาพและความละเอียดอ่อนของการนำเสนอได้อย่างมาก ตัวอย่างเช่น ลายน้ำแนวทแยงมุมอาจรบกวนน้อยลงในขณะที่ยังคงให้การป้องกันที่แข็งแรง ตัวอย่างต่อไปนี้คำนวณมุมที่เหมาะสมตามขนาดสไลด์เพื่อให้ลายน้ำวางเป็นแนวทแยงมุมทั่วสไลด์ การคำนวณแบบไดนามิกนี้ทำให้ลายน้ำยังคงมีประสิทธิภาพไม่ว่าขนาดสไลด์จะเปลี่ยนแปลงอย่างไร
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+SizeF slideSize = presentation.SlideSize.Size;
+
 double diagonalAngle = Math.Atan((slideSize.Height / slideSize.Width)) * 180 / Math.PI;
 
 watermarkShape.Rotation = (float)diagonalAngle;
@@ -193,55 +253,66 @@ watermarkShape.Rotation = (float)diagonalAngle;
 
 ## **ตั้งชื่อลายน้ำ**
 
-Aspose.Slides อนุญาตให้คุณตั้งชื่อให้กับรูปทรงได้ โดยใช้ชื่อรูปทรงคุณสามารถเข้าถึงมันในอนาคตเพื่อแก้ไขหรือทำการลบได้ เพื่อกำหนดชื่อลายน้ำ ให้กำหนดค่าที่ property [IAutoShape.Name](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/properties/name)
+Aspose.Slides อนุญาตให้คุณตั้งชื่อให้กับรูปทรงได้ โดยใช้ชื่อรูปทรงคุณสามารถเข้าถึงในอนาคตเพื่อแก้ไขหรือทำลบได้ เพื่อกำหนดชื่อให้กับรูปทรงลายน้ำ ให้กำหนดค่าให้กับคุณสมบัติ [IAutoShape.Name](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/properties/name)
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 watermarkShape.Name = "watermark";
 ```
 
 ## **ลบลายน้ำ**
 
-เพื่อทำการลบรูปทรงลายน้ำ ให้ใช้ property [IAutoShape.Name](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/properties/name) ค้นหารูปทรงในสไลด์ แล้วส่งรูปทรงลายน้ำเข้าเมธอด [IShapeCollection.Remove](https://reference.aspose.com/slides/th/net/aspose.slides/ishapecollection/remove/)
+เพื่อทำลบรูปทรงลายน้ำ ให้ใช้คุณสมบัติ [IAutoShape.Name](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/properties/name) เพื่อค้นหาในรูปทรงของสไลด์ จากนั้นส่งรูปทรงลายน้ำเข้าเมธอด [IShapeCollection.Remove](https://reference.aspose.com/slides/th/net/aspose.slides/ishapecollection/remove/)  
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+
 List<IShape> slideShapes = slide.Shapes.ToList();
 foreach (IShape shape in slideShapes)
 {
     if (string.Compare(shape.Name, "watermark", StringComparison.Ordinal) == 0)
     {
-        slide.Shapes.Remove(watermarkShape);
+        slide.Shapes.Remove(shape);
     }
 }
 ```
 
-## **ตัวอย่างสด**
+## **ตัวอย่างจริง**
 
-คุณอาจต้องการลองใช้ **Aspose.Slides ฟรี** เครื่องมือออนไลน์ [Add Watermark](https://products.aspose.app/slides/th/watermark) และ [Remove Watermark](https://products.aspose.app/slides/th/watermark/remove-watermark)
+คุณอาจอยากลองใช้เครื่องมือออนไลน์ **Aspose.Slides free** [Add Watermark](https://products.aspose.app/slides/th/watermark) และ [Remove Watermark](https://products.aspose.app/slides/th/watermark/remove-watermark)
 
-![Online tools to add and remove watermarks](online_tools.png)
+![เครื่องมือออนไลน์สำหรับเพิ่มและลบลายน้ำ](online_tools.png)
 
 ## **คำถามที่พบบ่อย**
 
-**ลายน้ำคืออะไรและทำไมต้องใช้งาน?**
+### ลายน้ำคืออะไรและทำไมต้องใช้?
 
-ลายน้ำคือการทับข้อความหรือรูปภาพบนสไลด์ที่ช่วยปกป้องทรัพย์สินทางปัญญา เสริมการรับรู้แบรนด์ หรือป้องกันการใช้งานงานนำเสนอโดยไม่ได้รับอนุญาต
+ลายน้ำคือการวางข้อความหรือรูปภาพทับบนสไลด์ที่ช่วยปกป้องทรัพย์สินทางปัญญา เพิ่มการรับรู้แบรนด์ หรือป้องกันการใช้งานเอกสารโดยไม่ได้รับอนุญาต
 
-**ฉันสามารถเพิ่มลายน้ำให้กับทุกสไลด์ในงานนำเสนอได้หรือไม่?**
+### ฉันสามารถใส่ลายน้ำลงในทุกสไลด์ของงานนำเสนอได้หรือไม่?
 
-ได้, Aspose.Slides ให้คุณเพิ่มลายน้ำให้กับสไลด์ทั้งหมดได้โดยโปรแกรมmatically โดยคุณสามารถวนลูปผ่านทุกสไลด์และตั้งค่าลายน้ำแต่ละสไลด์ได้
+ใช่ Aspose.Slides อนุญาตให้คุณเพิ่มลายน้ำลงในทุกสไลด์ของงานนำเสนอได้โดยอัตโนมัติ คุณสามารถวนลูปผ่านสไลด์ทั้งหมดและกำหนดค่าลายน้ำให้แต่ละสไลด์ได้
 
-**ฉันจะปรับความโปร่งใสของลายน้ำได้อย่างไร?**
+### ฉันจะปรับความโปร่งใสของลายน้ำได้อย่างไร?
 
-คุณสามารถปรับความโปร่งใสของลายน้ำได้โดยแก้ไขการตั้งค่าการเติม ([FillFormat](https://reference.aspose.com/slides/th/net/aspose.slides/shape/fillformat/)) ของรูปทรง ทำให้ลายน้ำดูเบาบางและไม่รบกวนเนื้อหาสไลด์
+คุณสามารถปรับความโปร่งใสของลายน้ำได้โดยแก้ไขการตั้งค่าเติมของรูปทรง ([FillFormat](https://reference.aspose.com/slides/th/net/aspose.slides/shape/fillformat/)) ซึ่งทำให้ลายน้ำดูเบาบางและไม่ดึงความสนใจจากเนื้อหาสไลด์
 
-**รูปแบบภาพใดบ้างที่สนับสนุนสำหรับลายน้ำ?**
+### รูปแบบภาพใดบ้างที่รองรับสำหรับลายน้ำ?
 
-Aspose.Slides รองรับรูปแบบภาพหลายแบบ เช่น PNG, JPEG, GIF, BMP, SVG ฯลฯ
+Aspose.Slides รองรับรูปแบบภาพหลายชนิด เช่น PNG, JPEG, GIF, BMP, SVG และอื่น ๆ
 
-**ฉันสามารถปรับแต่งแบบอักษรและสไตล์ของลายน้ำข้อความได้หรือไม่?**
+### ฉันสามารถปรับแต่งฟอนต์และสไตล์ของลายน้ำข้อความได้หรือไม่?
 
-ได้, คุณสามารถเลือกแบบอักษร, ขนาด, และสไตล์ใดก็ได้เพื่อให้สอดคล้องกับการออกแบบงานนำเสนอและรักษาความสอดคล้องของแบรนด์
+ได้ คุณสามารถเลือกฟอนต์ ขนาด และสไตล์ใด ๆ ที่ต้องการเพื่อให้สอดคล้องกับการออกแบบของงานนำเสนอและคงความสมดุลของแบรนด์
 
-**ฉันจะเปลี่ยนตำแหน่งหรือทิศทางของลายน้ำอย่างไร?**
+### ฉันจะเปลี่ยนตำแหน่งหรือการวางแนวของลายน้ำได้อย่างไร?
 
-คุณสามารถปรับตำแหน่งและทิศทางของลายน้ำโดยโปรแกรมโดยการแก้ไขพิกัด, ขนาด, และคุณสมบัติการหมุนของรูปทรงได้
+คุณสามารถปรับตำแหน่งและการวางแนวของลายน้ำโดยโปรแกรมโดยแก้ไขค่าพิกัด ขนาด และการหมุนของรูปทรงได้

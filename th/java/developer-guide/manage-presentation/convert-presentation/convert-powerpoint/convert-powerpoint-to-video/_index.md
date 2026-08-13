@@ -1,20 +1,20 @@
 ---
-title: แปลงการนำเสนอ PowerPoint เป็นวิดีโอใน Java
+title: แปลงงานนำเสนอ PowerPoint เป็นวิดีโอใน Java
 linktitle: PowerPoint เป็นวิดีโอ
 type: docs
 weight: 130
 url: /th/java/convert-powerpoint-to-video/
 keywords:
 - แปลง PowerPoint
-- แปลงการนำเสนอ
+- แปลงงานนำเสนอ
 - แปลง PPT
 - แปลง PPTX
 - PowerPoint เป็นวิดีโอ
-- การนำเสนอเป็นวิดีโอ
+- งานนำเสนอเป็นวิดีโอ
 - PPT เป็นวิดีโอ
 - PPTX เป็นวิดีโอ
 - PowerPoint เป็น MP4
-- การนำเสนอเป็น MP4
+- งานนำเสนอเป็น MP4
 - PPT เป็น MP4
 - PPTX เป็น MP4
 - บันทึก PPT เป็น MP4
@@ -25,32 +25,32 @@ keywords:
 - PowerPoint
 - Java
 - Aspose.Slides
-description: "เรียนรู้วิธีแปลงการนำเสนอ PowerPoint เป็นวิดีโอใน Java. ค้นหาโค้ดตัวอย่างและเทคนิคการอัตโนมัติเพื่อทำให้กระบวนการทำงานของคุณเป็นระบบง่ายขึ้น."
+description: "เรียนรู้วิธีแปลงงานนำเสนอ PowerPoint เป็นวิดีโอใน Java ค้นพบโค้ดตัวอย่างและเทคนิคการทำอัตโนมัติเพื่อทำให้กระบวนการทำงานของคุณเป็นระบบมากขึ้น"
 ---
-## **คำนำ**
+## **บทนำ**
 
-โดยการแปลง PowerPoint หรือการนำเสนอ OpenDocument ของคุณเป็นวิดีโอ คุณจะได้:
+โดยการแปลงงานนำเสนอ PowerPoint หรือ OpenDocument ของคุณเป็นวิดีโอ คุณจะได้:
 
-**การเข้าถึงที่เพิ่มขึ้น:** อุปกรณ์ทั้งหมด ไม่ว่าจะเป็นแพลตฟอร์มใด，都มีโปรแกรมเล่นวิดีโอเป็นค่าเริ่มต้น ทำให้ผู้ใช้เปิดหรือเล่นวิดีโอได้ง่ายกว่าการใช้แอปพลิเคชันการนำเสนอแบบดั้งเดิม
+**การเข้าถึงที่เพิ่มขึ้น:** ทุกอุปกรณ์ ไม่ว่าระบบปฏิบัติการใด，都配備了預設的影片播放器，使使用者比起傳統簡報應用程式更容易開啟或播放影片。
 
-**การเข้าถึงที่กว้างขึ้น:** วิดีโอช่วยให้คุณเข้าถึงผู้ชมจำนวนมากขึ้นและนำเสนอข้อมูลในรูปแบบที่น่าสนใจ สถิติและแบบสำรวจแสดงว่าผู้คนชอบดูและบริโภคเนื้อหาวิดีโอมากกว่าชนิดอื่น ทำให้ข้อความของคุณมีผลกระทบมากยิ่งขึ้น
+**การเข้าถึงที่กว้างขึ้น:** วิดีโอทำให้คุณเข้าถึงผู้ชมได้มากขึ้นและนำเสนอข้อมูลในรูปแบบที่น่าสนใจมากขึ้น การสำรวจและสถิติชี้ว่าวิดีโอเป็นสื่อที่ผู้คนชอบดูและบริโภคมากกว่าสื่อรูปแบบอื่น ทำให้ข้อความของคุณมีผลกระทบมากกว่า。
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-คุณอาจต้องการตรวจสอบ [**ตัวแปลง PowerPoint เป็นวิดีโอออนไลน์**](https://products.aspose.app/slides/th/conversion/ppt-to-word) เพราะนี่เป็นการใช้งานจริงและมีประสิทธิภาพของกระบวนการที่อธิบายไว้ที่นี่
+คุณอาจต้องการตรวจสอบ [**เครื่องมือแปลง PowerPoint เป็นวิดีโอออนไลน์**](https://products.aspose.app/slides/th/video) เพราะเป็นการทำงานแบบเรียลไทม์และมีประสิทธิภาพของกระบวนการที่อธิบายไว้ที่นี่
 
 {{% /alert %}} 
 
 ## **การแปลง PowerPoint เป็นวิดีโอใน Aspose.Slides**
 
-ใน [Aspose.Slides 22.11](https://docs.aspose.com/slides/th/java/aspose-slides-for-java-22-11-release-notes/) เราได้เพิ่มการสนับสนุนการแปลงการนำเสนอเป็นวิดีโอ  
+ใน [Aspose.Slides 22.11](https://docs.aspose.com/slides/th/java/aspose-slides-for-java-22-11-release-notes/) เราได้เพิ่มการรองรับการแปลงงานนำเสนอเป็นวิดีโอ
 
-* ใช้ **Aspose.Slides** เพื่อสร้างชุดเฟรม (จากสไลด์การนำเสนอ) ที่สอดคล้องกับ FPS ที่กำหนด  
-* ใช้ยูทิลิตี้ของบุคคลที่สามอย่าง **ffmpeg** ([for java](https://github.com/bramp/ffmpeg-cli-wrapper)) เพื่อสร้างวิดีโอตามเฟรมเหล่านั้น  
+* ใช้ **Aspose.Slides** เพื่อสร้างชุดเฟรม (จากสไลด์งานนำเสนอ) ที่สอดคล้องกับ FPS (เฟรมต่อวินาที) ที่กำหนด
+* ใช้เครื่องมือของบุคคลที่สามอย่าง **ffmpeg** ([for java](https://github.com/bramp/ffmpeg-cli-wrapper)) เพื่อสร้างวิดีโอตามเฟรมที่สร้างขึ้น
 
 ### **แปลง PowerPoint เป็นวิดีโอ**
 
-1. เพิ่มส่วนนี้ลงในไฟล์ POM ของคุณ:
+1. เพิ่มโค้ดต่อไปนี้ในไฟล์ POM ของคุณ:
 ```xml
    <dependency>
      <groupId>net.bramp.ffmpeg</groupId>
@@ -61,14 +61,18 @@ description: "เรียนรู้วิธีแปลงการนำเ
 
 2. ดาวน์โหลด ffmpeg [ที่นี่](https://ffmpeg.org/download.html)
 
-4. รันโค้ด Java สำหรับแปลง PowerPoint เป็นวิดีโอ
+4. เรียกใช้โค้ด Java แปลง PowerPoint เป็นวิดีโอ
 
-โค้ด Java นี้แสดงวิธีแปลงการนำเสนอ (ที่มีรูปภาพและเอฟเฟกต์แอนิเมชันสองแบบ) เป็นวิดีโอ:
+โค้ด Java นี้จะแสดงวิธีการแปลงงานนำเสนอ (ที่มีรูปภาพและเอฟเฟกต์การเคลื่อนไหวสองแบบ) เป็นวิดีโอ:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation();
 try {
-    // เพิ่มรูปร่าง Smiley แล้วทำแอนิเมชันให้
+    // เพิ่มรูปร่างรอยยิ้มและจากนั้นทำให้เคลื่อนไหว
     IAutoShape smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effectIn = mainSequence.addEffect(smile, EffectType.Fly, EffectSubtype.TopLeft, EffectTriggerType.AfterPrevious);
@@ -102,7 +106,7 @@ try {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
 
-    // กำหนดโฟลเดอร์ไบนารีของ ffmpeg ดูหน้านี้: https://github.com/rosenbjerg/FFMpegCore#installation
+    // กำหนดค่าโฟลเดอร์ไบนารีของ ffmpeg ดูหน้านี้: https://github.com/rosenbjerg/FFMpegCore#installation
     FFmpeg ffmpeg = new FFmpeg("path/to/ffmpeg");
     FFprobe ffprobe = new FFprobe("path/to/ffprobe");
 
@@ -123,40 +127,52 @@ try {
 
 ## **เอฟเฟกต์วิดีโอ**
 
-คุณสามารถใส่แอนิเมชันให้กับวัตถุบนสไลด์และใช้การเปลี่ยนระหว่างสไลด์ได้
+คุณสามารถใช้การเคลื่อนไหวกับออบเจ็กต์บนสไลด์และใช้การเปลี่ยนสไลด์ระหว่างสไลด์ได้
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-คุณอาจต้องการดูบทความเหล่านี้: [PowerPoint Animation](https://docs.aspose.com/slides/th/java/powerpoint-animation/), [Shape Animation](https://docs.aspose.com/slides/th/java/shape-animation/), และ [Shape Effect](https://docs.aspose.com/slides/th/java/shape-effect/)
+คุณอาจต้องการดูบทความเหล่านี้: [การเคลื่อนไหว PowerPoint](https://docs.aspose.com/slides/th/java/powerpoint-animation/), [การเคลื่อนไหว Shape](https://docs.aspose.com/slides/th/java/shape-animation/), และ [เอฟเฟกต์ Shape](https://docs.aspose.com/slides/th/java/shape-effect/)
 
 {{% /alert %}} 
 
-แอนิเมชันและการเปลี่ยนทำให้การจัดแสดงสไลด์ดึงดูดและน่าสนใจ—และทำให้วิดีโอเช่นกัน มาเพิ่มสไลด์และการเปลี่ยนอีกหนึ่งสไลด์ในโค้ดสำหรับการนำเสนอก่อนหน้า:
+การเคลื่อนไหวและการเปลี่ยนสไลด์ทำให้การนำเสนอมีความน่าสนใจและดึงดูด—และทำให้วิดีโอเช่นกัน ให้เพิ่มสไลด์และการเปลี่ยนสไลด์อีกหนึ่งรายการลงในโค้ดของการนำเสนอก่อนหน้า:
 
 ```java
-// เพิ่มรูปร่าง Smiley แล้วทำแอนิเมชันให้
+import com.aspose.slides.*;
+import java.awt.Color;
 
-// ...
-
-// เพิ่มสไลด์ใหม่และการเปลี่ยนที่มีแอนิเมชัน
-
-ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
-
-newSlide.getBackground().setType(BackgroundType.OwnBackground);
-
-newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
-
-newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
-
-newSlide.getSlideShowTransition().setType(TransitionType.Push);
-```
-
-Aspose.Slides ยังรองรับแอนิเมชันสำหรับข้อความด้วย เราจึงทำให้ย่อหน้าบนวัตถุแอนิเมชันโดยจะแสดงทีละหนึ่ง (โดยตั้งค่าการหน่วงเวลาเป็นหนึ่งวินาที):
-
-```java
 Presentation presentation = new Presentation();
 try {
-    // เพิ่มข้อความและแอนิเมชัน
+    // เพิ่มรูปร่างรอยยิ้มและทำให้เคลื่อนไหว
+
+    // ...
+
+    // เพิ่มสไลด์ใหม่และการเปลี่ยนสไลด์แบบเคลื่อนไหว
+
+    ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
+
+    newSlide.getBackground().setType(BackgroundType.OwnBackground);
+
+    newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+
+    newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
+
+    newSlide.getSlideShowTransition().setType(TransitionType.Push);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
+```
+
+Aspose.Slides ยังรองรับการเคลื่อนไหวสำหรับข้อความด้วย เราจึงเคลื่อนไหวย่อหน้าบนวัตถุ ซึ่งจะปรากฏต่อกันทีละบรรทัด (โดยตั้งค่าหน่วงเวลาเป็นหนึ่งวินาที):
+
+```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
+Presentation presentation = new Presentation();
+try {
+    // เพิ่มข้อความและการเคลื่อนไหว
     IAutoShape autoShape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 210, 120, 300, 300);
     Paragraph para1 = new Paragraph();
     para1.getPortions().add(new Portion("Aspose Slides for Java"));
@@ -175,12 +191,10 @@ try {
     IEffect effect1 = mainSequence.addEffect(para1, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     IEffect effect2 = mainSequence.addEffect(para2, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     IEffect effect3 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-    IEffect effect4 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
     effect1.getTiming().setTriggerDelayTime(1f);
     effect2.getTiming().setTriggerDelayTime(1f);
     effect3.getTiming().setTriggerDelayTime(1f);
-    effect4.getTiming().setTriggerDelayTime(1f);
 
     final int fps = 33;
     ArrayList<String> frames = new ArrayList<String>();
@@ -208,7 +222,7 @@ try {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
 
-    // กำหนดโฟลเดอร์ไบนารีของ ffmpeg ดูหน้านี้: https://github.com/rosenbjerg/FFMpegCore#installation
+    // กำหนดค่าโฟลเดอร์ไบนารีของ ffmpeg ดูหน้านี้: https://github.com/rosenbjerg/FFMpegCore#installation
     FFmpeg ffmpeg = new FFmpeg("path/to/ffmpeg");
     FFprobe ffprobe = new FFprobe("path/to/ffprobe");
 
@@ -227,20 +241,22 @@ try {
 }
 ```
 
-## **คลาสสำหรับแปลงวิดีโอ**
+## **คลาสสำหรับการแปลงวิดีโอ**
 
-เพื่อให้คุณสามารถทำงานแปลง PowerPoint เป็นวิดีโอได้ Aspose.Slides มีคลาส [PresentationAnimationsGenerator](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentationanimationsgenerator/) และ [PresentationPlayer](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentationplayer/)  
+เพื่อให้คุณสามารถทำงานแปลง PowerPoint เป็นวิดีโอได้ Aspose.Slides มีคลาส [PresentationAnimationsGenerator](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentationanimationsgenerator/) และ [PresentationPlayer](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentationplayer/)
 
-[PresentationAnimationsGenerator](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentationanimationsgenerator/) ให้คุณตั้งขนาดเฟรมสำหรับวิดีโอ (ที่จะสร้างต่อไป) ผ่านคอนสตรัคเตอร์ หากคุณส่งอินสแตนซ์ของการนำเสนอ `Presentation.SlideSize` จะถูกใช้และคลาสนี้จะสร้างแอนิเมชันที่ [PresentationPlayer](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentationplayer/) ใช้  
+[PresentationAnimationsGenerator](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentationanimationsgenerator/) ช่วยให้คุณกำหนดขนาดเฟรมสำหรับวิดีโอ (ที่สร้างในภายหลัง) ผ่านคอนสตรัคเตอร์ของมัน หากคุณส่งอ็อบเจกต์ Presentationinstance, `Presentation.SlideSize` จะถูกใช้และมันจะสร้างการเคลื่อนไหวที่ [PresentationPlayer](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentationplayer/) ใช้
 
-เมื่อแอนิเมชันถูกสร้าง จะเกิดเหตุการณ์ `NewAnimation` สำหรับแต่ละแอนิเมชันต่อเนื่อง ซึ่งรับพารามิเตอร์ประเภท [IPresentationAnimationPlayer](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipresentationanimationplayer/) คลาสนี้เป็นตัวแทนของผู้เล่นสำหรับแอนิเมชันแยกต่างหาก  
+เมื่อการเคลื่อนไหวถูกสร้าง จะมีเหตุการณ์ `NewAnimation` ถูกสร้างสำหรับการเคลื่อนไหวแต่ละรายการ ซึ่งมีพารามิเตอร์ [IPresentationAnimationPlayer](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipresentationanimationplayer/) ตัวหลังเป็นคลาสที่แทนผู้เล่นสำหรับการเคลื่อนไหวแยกต่างหาก
 
-ในการทำงานกับ [IPresentationAnimationPlayer](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipresentationanimationplayer/) จะใช้คุณสมบัติ [Duration](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipresentationanimationplayer/#getDuration--) (ระยะเวลาครบของแอนิเมชัน) และเมธอด [SetTimePosition](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipresentationanimationplayer/#setTimePosition-double-) แต่ละตำแหน่งของแอนิเมชันจะถูกกำหนดในช่วง *0 ถึง duration* จากนั้นเมธอด `GetFrame` จะคืนค่า BufferedImage ที่สอดคล้องกับสถานะของแอนิเมชันในขณะนั้น:
+ในการทำงานกับ [IPresentationAnimationPlayer](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipresentationanimationplayer/) จะใช้คุณสมบัติ [Duration](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipresentationanimationplayer/#getDuration--) (ระยะเวลาการเคลื่อนไหวทั้งหมด) และเมธอด [SetTimePosition](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipresentationanimationplayer/#setTimePosition-double-) แต่ละตำแหน่งการเคลื่อนไหวนั้นจะตั้งค่าในช่วง *0 ถึง duration* แล้วเมธอด `getFrame` จะคืนค่า [IImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/iimage/) ที่สอดคล้องกับสถานะของการเคลื่อนไหวในขณะนั้น:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // เพิ่มรูปร่าง Smiley แล้วทำแอนิเมชันให้
+    // เพิ่มรูปร่างรอยยิ้มและทำให้เคลื่อนไหว
     IAutoShape smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effectIn = mainSequence.addEffect(smile, EffectType.Fly, EffectSubtype.TopLeft, EffectTriggerType.AfterPrevious);
@@ -253,21 +269,18 @@ try {
         animationsGenerator.setNewAnimation(animationPlayer ->
         {
             System.out.println(String.format("Animation total duration: %f", animationPlayer.getDuration()));
-            animationPlayer.setTimePosition(0); // สถานะเริ่มต้นของแอนิเมชัน
-            try {
-                // บิตแมพของสถานะเริ่มต้นของแอนิเมชัน
-                animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            animationPlayer.setTimePosition(animationPlayer.getDuration()); // สถานะสุดท้ายของแอนิเมชัน
-            try {
-                // เฟรมสุดท้ายของแอนิเมชัน
-                animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+
+            animationPlayer.setTimePosition(0); // สถานะการเคลื่อนไหวเริ่มต้น
+            // บิทแมพของสถานะการเคลื่อนไหวเริ่มต้น
+            animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
+
+            animationPlayer.setTimePosition(animationPlayer.getDuration()); // สถานะสุดท้ายของการเคลื่อนไหว
+            // เฟรมสุดท้ายของการเคลื่อนไหว
+            animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
         });
+
+        // สร้างการเคลื่อนไหว - นี่คือสิ่งที่กระตุ้นเหตุการณ์ที่จัดการข้างต้น
+        animationsGenerator.run(presentation.getSlides());
     } finally {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
@@ -276,9 +289,11 @@ try {
 }
 ```
 
-เพื่อให้แอนิเมชันทั้งหมดในการนำเสนอเล่นพร้อมกัน ใช้คลาส [PresentationPlayer](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentationplayer/) คลาสนี้รับอินสแตนซ์ของ [PresentationAnimationsGenerator](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentationanimationsgenerator/) และ FPS สำหรับเอฟเฟกต์ในคอนสตรัคเตอร์ แล้วเรียกเหตุการณ์ `FrameTick` สำหรับทุกแอนิเมชันเพื่อให้เล่น:
+เพื่อให้การเคลื่อนไหวทั้งหมดในงานนำเสนอเล่นพร้อมกัน จะใช้คลาส [PresentationPlayer](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentationplayer/) คลาสนี้รับอินสแตนซ์ของ [PresentationAnimationsGenerator](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentationanimationsgenerator/) และ FPS สำหรับเอฟเฟกต์ในคอนสตรัคเตอร์และจากนั้นเรียกเหตุการณ์ `FrameTick` สำหรับการเคลื่อนไหวทั้งหมดเพื่อให้เล่น:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("animated.pptx");
 try {
     PresentationAnimationsGenerator animationsGenerator = new PresentationAnimationsGenerator(presentation);
@@ -287,11 +302,7 @@ try {
         try {
             player.setFrameTick((sender, arguments) ->
             {
-                try {
-                    arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+                arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
             });
             animationsGenerator.run(presentation.getSlides());
         } finally {
@@ -305,84 +316,84 @@ try {
 }
 ```
 
-จากนั้นเฟรมที่สร้างขึ้นสามารถคอมไพล์เป็นวิดีโอได้ ดูส่วน [Convert PowerPoint to Video](https://docs.aspose.com/slides/th/java/convert-powerpoint-to-video/#convert-powerpoint-to-video)
+จากนั้นเฟรมที่สร้างขึ้นสามารถคอมไพล์เพื่อผลิตวิดีโอได้ ดูส่วน [แปลง PowerPoint เป็นวิดีโอ](https://docs.aspose.com/slides/th/java/convert-powerpoint-to-video/#convert-powerpoint-to-video)
 
-## **การสนับสนุนแอนิเมชันและเอฟเฟกต์**
+## **การสนับสนุนการเคลื่อนไหวและเอฟเฟกต์**
 
-**Entrance**:
+**การเข้า**
 
-| Animation Type | Aspose.Slides | PowerPoint |
+| ประเภทการเคลื่อนไหว | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Appear** | ![not supported](x.png) | ![supported](v.png) |
-| **Fade** | ![supported](v.png) | ![supported](v.png) |
-| **Fly In** | ![supported](v.png) | ![supported](v.png) |
-| **Float In** | ![supported](v.png) | ![supported](v.png) |
-| **Split** | ![supported](v.png) | ![supported](v.png) |
-| **Wipe** | ![supported](v.png) | ![supported](v.png) |
-| **Shape** | ![supported](v.png) | ![supported](v.png) |
-| **Wheel** | ![supported](v.png) | ![supported](v.png) |
-| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
-| **Grow & Turn** | ![not supported](x.png) | ![supported](v.png) |
-| **Zoom** | ![supported](v.png) | ![supported](v.png) |
-| **Swivel** | ![supported](v.png) | ![supported](v.png) |
-| **Bounce** | ![supported](v.png) | ![supported](v.png) |
+| **ปรากฏ** | ![ไม่สนับสนุน](x.png) | ![สนับสนุน](v.png) |
+| **จางหาย** | ![สนับสนุน](v.png) | ![สนับสนุน](v.png) |
+| **บินเข้า** | ![สนับสนุน](v.png) | ![สนับสนุน](v.png) |
+| **ลอยเข้ามา** | ![สนับสนุน](v.png) | ![สนับสนุน](v.png) |
+| **แยก** | ![สนับสนุน](v.png) | ![สนับสนุน](v.png) |
+| **ปัด** | ![สนับสนุน](v.png) | ![สนับสนุน](v.png) |
+| **รูปร่าง** | ![สนับสนุน](v.png) | ![สนับสนุน](v.png) |
+| **ล้อ** | ![สนับสนุน](v.png) | ![สนับสนุน](v.png) |
+| **แถบสุ่ม** | ![สนับสนุน](v.png) | ![สนับสนุน](v.png) |
+| **เติบโตและหมุน** | ![ไม่สนับสนุน](x.png) | ![สนับสนุน](v.png) |
+| **ซูม** | ![สนับสนุน](v.png) | ![สนับสนุน](v.png) |
+| **หมุน** | ![สนับสนุน](v.png) | ![สนับสนุน](v.png) |
+| **กระเด้ง** | ![สนับสนุน](v.png) | ![สนับสนุน](v.png) |
 
-**Emphasis**:
+**การเน้น**
 
-| Animation Type | Aspose.Slides | PowerPoint |
+| ประเภทการเคลื่อนไหว | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Pulse** | ![not supported](x.png) | ![supported](v.png) |
-| **Color Pulse** | ![not supported](x.png) | ![supported](v.png) |
-| **Teeter** | ![supported](v.png) | ![supported](v.png) |
-| **Spin** | ![supported](v.png) | ![supported](v.png) |
-| **Grow/Shrink** | ![not supported](x.png) | ![supported](v.png) |
-| **Desaturate** | ![not supported](x.png) | ![supported](v.png) |
-| **Darken** | ![not supported](x.png) | ![supported](v.png) |
-| **Lighten** | ![not supported](x.png) | ![supported](v.png) |
-| **Transparency** | ![not supported](x.png) | ![supported](v.png) |
-| **Object Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Complementary Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Line Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
+| **พัลส์** | ![ไม่สนับสนุน](x.png) | ![สนับสนุน](v.png) |
+| **พัลส์สี** | ![ไม่สนับสนุน](x.png) | ![สนับสนุน](v.png) |
+| **สั่น** | ![สนับสนุน](v.png) | ![สนับสนุน](v.png) |
+| **หมุน** | ![สนับสนุน](v.png) | ![สนับสนุน](v.png) |
+| **ขยาย/หด** | ![ไม่สนับสนุน](x.png) | ![สนับสนุน](v.png) |
+| **ลดความอิ่มสี** | ![ไม่สนับสนุน](x.png) | ![สนับสนุน](v.png) |
+| **ทำให้มืดลง** | ![ไม่สนับสนุน](x.png) | ![สนับสนุน](v.png) |
+| **ทำให้สว่างขึ้น** | ![ไม่สนับสนุน](x.png) | ![สนับสนุน](v.png) |
+| **ความโปร่งใส** | ![ไม่สนับสนุน](x.png) | ![สนับสนุน](v.png) |
+| **สีวัตถุ** | ![ไม่สนับสนุน](x.png) | ![สนับสนุน](v.png) |
+| **สีตรงข้าม** | ![ไม่สนับสนุน](x.png) | ![สนับสนุน](v.png) |
+| **สีเส้น** | ![ไม่สนับสนุน](x.png) | ![สนับสนุน](v.png) |
+| **สีเติม** | ![ไม่สนับสนุน](x.png) | ![สนับสนุน](v.png) |
 
-**Exit**:
+**การออก**
 
-| Animation Type | Aspose.Slides | PowerPoint |
+| ประเภทการเคลื่อนไหว | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Disappear** | ![not supported](x.png) | ![supported](v.png) |
-| **Fade** | ![supported](v.png) | ![supported](v.png) |
-| **Fly Out** | ![supported](v.png) | ![supported](v.png) |
-| **Float Out** | ![supported](v.png) | ![supported](v.png) |
-| **Split** | ![supported](v.png) | ![supported](v.png) |
-| **Wipe** | ![supported](v.png) | ![supported](v.png) |
-| **Shape** | ![supported](v.png) | ![supported](v.png) |
-| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
-| **Shrink & Turn** | ![not supported](x.png) | ![supported](v.png) |
-| **Zoom** | ![supported](v.png) | ![supported](v.png) |
-| **Swivel** | ![supported](v.png) | ![supported](v.png) |
-| **Bounce** | ![supported](v.png) | ![supported](v.png) |
+| **หายไป** | ![ไม่สนับสนุน](x.png) | ![สนับสนุน](v.png) |
+| **จางหาย** | ![สนับสนุน](v.png) | ![สนับสนุน](v.png) |
+| **บินออก** | ![สนับสนุน](v.png) | ![สนับสนุน](v.png) |
+| **ลอยออก** | ![สนับสนุน](v.png) | ![สนับสนุน](v.png) |
+| **แยก** | ![สนับสนุน](v.png) | ![สนับสนุน](v.png) |
+| **ปัด** | ![สนับสนุน](v.png) | ![สนับสนุน](v.png) |
+| **รูปร่าง** | ![สนับสนุน](v.png) | ![สนับสนุน](v.png) |
+| **แถบสุ่ม** | ![สนับสนุน](v.png) | ![สนับสนุน](v.png) |
+| **หดและหมุน** | ![ไม่สนับสนุน](x.png) | ![สนับสนุน](v.png) |
+| **ซูม** | ![สนับสนุน](v.png) | ![สนับสนุน](v.png) |
+| **หมุน** | ![สนับสนุน](v.png) | ![สนับสนุน](v.png) |
+| **กระเด้ง** | ![สนับสนุน](v.png) | ![สนับสนุน](v.png) |
 
-**Motion Paths**:
+**เส้นทางการเคลื่อนไหว**
 
-| Animation Type | Aspose.Slides | PowerPoint |
+| ประเภทการเคลื่อนไหว | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Lines** | ![supported](v.png) | ![supported](v.png) |
-| **Arcs** | ![supported](v.png) | ![supported](v.png) |
-| **Turns** | ![supported](v.png) | ![supported](v.png) |
-| **Shapes** | ![supported](v.png) | ![supported](v.png) |
-| **Loops** | ![supported](v.png) | ![supported](v.png) |
-| **Custom Path** | ![supported](v.png) | ![supported](v.png) |
+| **เส้น** | ![สนับสนุน](v.png) | ![สนับสนุน](v.png) |
+| **โค้ง** | ![สนับสนุน](v.png) | ![สนับสนุน](v.png) |
+| **การเปลี่ยนทิศ** | ![สนับสนุน](v.png) | ![สนับสนุน](v.png) |
+| **รูปร่าง** | ![สนับสนุน](v.png) | ![สนับสนุน](v.png) |
+| **ลูป** | ![สนับสนุน](v.png) | ![สนับสนุน](v.png) |
+| **เส้นทางกำหนดเอง** | ![สนับสนุน](v.png) | ![สนับสนุน](v.png) |
 
 ## **คำถามที่พบบ่อย**
 
-**สามารถแปลงการนำเสนอที่มีการป้องกันด้วยรหัสผ่านได้หรือไม่?**
+### สามารถแปลงงานนำเสนอที่มีการป้องกันด้วยรหัสผ่านได้หรือไม่?
 
-ได้, Aspose.Slides รองรับการทำงานกับ [การนำเสนอที่ป้องกันด้วยรหัสผ่าน](/slides/th/java/password-protected-presentation/) เมื่อประมวลผลไฟล์ดังกล่าว คุณต้องระบุรหัสผ่านที่ถูกต้องเพื่อให้ไลบรารีเข้าถึงเนื้อหาของการนำเสนอได้
+ใช่, Aspose.Slides รองรับการทำงานกับ [การนำเสนอที่มีการป้องกันด้วยรหัสผ่าน](/slides/th/java/password-protected-presentation/) เมื่อประมวลผลไฟล์ดังกล่าว คุณต้องระบุรหัสผ่านที่ถูกต้องเพื่อให้ไลบรารีเข้าถึงเนื้อหาของงานนำเสนอได้
 
-**Aspose.Slides รองรับการใช้งานในโซลูชันคลาวด์หรือไม่?**
+### Aspose.Slides รองรับการใช้งานในโซลูชันคลาวด์หรือไม่?
 
-ได้, Aspose.Slides สามารถบูรณาการเข้ากับแอปพลิเคชันและบริการคลาวด์ได้ ไลบรารีออกแบบมาให้ทำงานในสภาพแวดล้อมเซิร์ฟเวอร์ เพื่อให้ได้ประสิทธิภาพสูงและสามารถขยายตัวสำหรับการประมวลผลไฟล์เป็นแบตช์
+ใช่, Aspose.Slides สามารถรวมเข้ากับแอปพลิเคชันและบริการคลาวด์ได้ ไลบรารีออกแบบมาเพื่อทำงานในสภาพแวดล้อมเซิร์ฟเวอร์ ให้ประสิทธิภาพสูงและสามารถขยายตัวสำหรับการประมวลผลไฟล์เป็นชุดได้
 
-**มีข้อจำกัดด้านขนาดของการนำเสนอเมื่อทำการแปลงหรือไม่?**
+### มีข้อจำกัดขนาดของงานนำเสนอเมื่อทำการแปลงหรือไม่?
 
-Aspose.Slides สามารถจัดการกับการนำเสนอที่มีขนาดเกือบทุกขนาดได้ อย่างไรก็ตาม เมื่อทำงานกับไฟล์ขนาดใหญ่มาก อาจต้องใช้ทรัพยากรระบบเพิ่มเติม และบางครั้งอาจแนะนำให้ทำการปรับขนาดหรือเพิ่มประสิทธิภาพของการนำเสนอเพื่อให้การทำงานเร็วขึ้น
+Aspose.Slides สามารถจัดการกับงานนำเสนอที่มีขนาดใด ๆ ก็ตาม อย่างไรก็ตาม เมื่อทำงานกับไฟล์ขนาดใหญ่มาก อาจต้องใช้ทรัพยากรระบบเพิ่มเติม และบางครั้งอาจแนะนำให้ปรับขนาดหรือลดความซับซ้อนของงานนำเสนอเพื่อเพิ่มประสิทธิภาพการทำงาน

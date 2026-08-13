@@ -14,36 +14,36 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Перейдите с автоматизации Microsoft Office на Aspose.Slides для .NET и отформатируйте текст в презентациях PowerPoint (PPT, PPTX) с точным контролем."
+description: "Перейдите от автоматизации Microsoft Office к Aspose.Slides для .NET и форматируйте текст в презентациях PowerPoint (PPT, PPTX) с точным контролем."
 ---
-
-{{% alert color="primary" %}} 
-
-Иногда необходимо программно форматировать текст на слайдах. В этой статье показано, как открыть пример презентации с некоторым текстом на первом слайде, используя либо [VSTO](/slides/ru/net/format-text-using-vsto-and-aspose-slides-and-net/) либо [Aspose.Slides for .NET](/slides/ru/net/format-text-using-vsto-and-aspose-slides-and-net/). Код форматирует текст в третьем текстовом поле на слайде, делая его похожим на текст в последнем текстовом поле.
-
+{{% alert color="info" %}} 
+Иногда необходимо программно форматировать текст на слайдах. В этой статье показано, как прочитать пример презентации с некоторым текстом на первом слайде, используя либо [VSTO](/slides/ru/net/format-text-using-vsto-and-aspose-slides-and-net/) и [Aspose.Slides for .NET](/slides/ru/net/format-text-using-vsto-and-aspose-slides-and-net/). Код форматирует текст в третьем текстовом поле на слайде, чтобы он выглядел как текст в последнем текстовом поле.
 {{% /alert %}} 
 ## **Форматирование текста**
-Методы VSTO и Aspose.Slides выполняют следующие шаги:
+Both the VSTO and Aspose.Slides methods take the following steps:
 
-1. Откройте исходную презентацию.
-1. Получите доступ к первому слайду.
-1. Получите доступ к третьему текстовому полю.
-1. Измените форматирование текста в третьем текстовом поле.
-1. Сохраните презентацию на диск.
+1. Open the source presentation.
+1. Access the first slide.
+1. Access the third text box.
+1. Change the formatting of the text in the third text box.
+1. Save the presentation to disk.
 
 Скриншоты ниже показывают пример слайда до и после выполнения кода VSTO и Aspose.Slides for .NET.
 
-**Исходная презентация** 
+**Входная презентация** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-and-net_1.png)
 ### **Пример кода VSTO**
-Код ниже демонстрирует, как переоформить текст на слайде с помощью VSTO.
+Код ниже показывает, как переоформить текст на слайде с использованием VSTO.
 
 **Текст, переоформленный с помощью VSTO** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-and-net_2.png)
+
+
+
 ```c#
-//Примечание: PowerPoint — это пространство имён, которое было определено выше следующим образом
+//Примечание: PowerPoint — это пространство имён, которое было определено выше таким образом
 //using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 PowerPoint.Presentation pres = null;
 
@@ -86,26 +86,30 @@ pres.SaveAs("c:\\outVSTO.ppt",
 ```
 
 
-
-
-
 ### **Пример Aspose.Slides for .NET**
 Чтобы отформатировать текст с помощью Aspose.Slides, добавьте шрифт перед форматированием текста.
 
 **Выходная презентация, созданная с помощью Aspose.Slides** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-and-net_3.png)
-```c#
- //Открыть презентацию
-Presentation pres = new Presentation("c:\\source.ppt");
 
-//Получить первый слайд
+
+
+```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+ //Открыть презентацию
+Presentation pres = new Presentation("source.ppt");
+
+//Access the first slide
 ISlide slide = pres.Slides[0];
 
-//Получить третий объект
+//Access the third shape
 IShape shp = slide.Shapes[2];
 
-//Изменить шрифт текста на Verdana и высоту на 32
+//Change its text's font to Verdana and height to 32
 ITextFrame tf = ((IAutoShape)shp).TextFrame;
 IParagraph para = tf.Paragraphs[0];
 IPortion port = para.Portions[0];
@@ -113,21 +117,21 @@ port.PortionFormat.LatinFont = new FontData("Verdana");
 
 port.PortionFormat.FontHeight = 32;
 
-//Сделать полужирным
+//Bolden it
 port.PortionFormat.FontBold = NullableBool.True;
 
-//Сделать курсивом
+//Italicize it
 port.PortionFormat.FontItalic = NullableBool.True;
 
-//Изменить цвет текста
-//Установить цвет шрифта
+//Change text color
+//Set font color
 port.PortionFormat.FillFormat.FillType = FillType.Solid;
 port.PortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(0x33, 0x33, 0xCC);
 
-//Изменить цвет фона формы
+//Change shape background color
 shp.FillFormat.FillType = FillType.Solid;
 shp.FillFormat.SolidFillColor.Color = Color.FromArgb(0xCC, 0xCC, 0xFF);
 
-//Записать результат на диск
-pres.Save("c:\\outAspose.ppt", SaveFormat.Ppt);
+//Write the output to disk
+pres.Save("outAspose.ppt", SaveFormat.Ppt);
 ```

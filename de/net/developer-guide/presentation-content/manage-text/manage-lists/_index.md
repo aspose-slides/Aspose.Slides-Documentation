@@ -1,49 +1,55 @@
 ---
-title: Aufzählungs‑ und nummerierte Listen in Präsentationen in .NET verwalten
+title: Verwalten von Aufzählungs‑ und Nummerierungslisten in Präsentationen in .NET
 linktitle: Listen verwalten
 type: docs
 weight: 70
 url: /de/net/manage-lists/
+aliases:
+  - /net/manage-bullet-and-numbered-lists/
 keywords:
-- Aufzählungszeichen
-- Aufzählungsliste
-- Nummerierte Liste
-- Symbol‑Aufzählungszeichen
-- Bild‑Aufzählungszeichen
-- Benutzerdefiniertes Aufzählungszeichen
-- Mehrstufige Liste
-- Aufzählungszeichen erstellen
-- Aufzählungszeichen hinzufügen
-- Liste hinzufügen
-- PowerPoint
-- OpenDocument
-- Präsentation
-- .NET
-- C#
-- Aspose.Slides
-description: "Erfahren Sie, wie Sie mit Aspose.Slides für .NET Aufzählungs‑, Bild‑, mehrstufige und nummerierte Listen in PowerPoint‑ und OpenDocument‑Präsentationen erstellen und formatieren."
+  - Aufzählungszeichen
+  - Aufzählungsliste
+  - Nummerierte Liste
+  - Symbol‑Aufzählungszeichen
+  - Bild‑Aufzählungszeichen
+  - Benutzerdefiniertes Aufzählungszeichen
+  - Mehrstufige Liste
+  - Aufzählungszeichen erstellen
+  - Aufzählungszeichen hinzufügen
+  - Liste hinzufügen
+  - PowerPoint
+  - OpenDocument
+  - Präsentation
+  - .NET
+  - C#
+  - Aspose.Slides
+description: "Erfahren Sie, wie Sie in PowerPoint‑ und OpenDocument‑Präsentationen mit Aspose.Slides für .NET Aufzählungs‑, Bild‑, mehrstufige und nummerierte Listen erstellen und formatieren."
 ---
-## **Übersicht**
+## **Overview**
 
 Aspose.Slides für .NET ermöglicht das Erstellen und Formatieren von Aufzählungs‑ und Nummerierungslisten in PowerPoint‑ und OpenDocument‑Präsentationen. Ein Listenelement ist ein Absatz, dessen Aufzählungseinstellungen über das Absatzformat gesteuert werden.
 
-Verwenden Sie die [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraph/paragraphformat/) Eigenschaft, um Listeneinstellungen auf Absatzebene zuzugreifen. Der Haupteinstiegspunkt ist [IParagraphFormat.Bullet](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraphformat/bullet/), der ein [IBulletFormat](https://reference.aspose.com/slides/de/net/aspose.slides/ibulletformat/) Objekt zurückgibt. Mit diesem Objekt können Sie den Aufzählungstyp, das Symbol, das Bild, die Farbe, die Größe, den Nummerierungsstil und die Startnummer festlegen.
+Verwenden Sie die [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraph/paragraphformat/)‑Eigenschaft, um Listeneinstellungen auf Absatz‑Ebene zu erhalten. Der Haupteinstiegspunkt ist [IParagraphFormat.Bullet](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraphformat/bullet/), der ein [IBulletFormat](https://reference.aspose.com/slides/de/net/aspose.slides/ibulletformat/)‑Objekt zurückgibt. Mit diesem Objekt können Sie den Aufzählungstyp, das Symbol, das Bild, die Farbe, die Größe, den Nummerierungsstil und die Startnummer festlegen.
 
 Dieser Artikel zeigt, wie man:
 
-- eine Aufzählungsliste mit einem benutzerdefinierten Symbol erstellt
-- eine Bildaufzählung erstellt
-- eine mehrstufige Liste erstellt, indem die Absatztiefe festgelegt wird
-- eine nummerierte Liste erstellt
-- Listformatierung in einer vorhandenen Präsentation überprüft und ändert
+- eine Aufzählungsliste mit einem benutzerdefinierten Symbol erstellen
+- eine Bild‑Aufzählung erstellen
+- eine mehrstufige Liste durch Festlegen der Absatz‑Tiefe erstellen
+- eine nummerierte Liste erstellen
+- die Listendarstellung in einer vorhandenen Präsentation prüfen und ändern
 
-## **Eine Aufzählungsliste erstellen**
+## **Create a Bulleted List**
 
-Um eine Aufzählungsliste zu erstellen, fügen Sie [IParagraph](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraph/)‑Objekte zu einem [ITextFrame](https://reference.aspose.com/slides/de/net/aspose.slides/itextframe/) hinzu und setzen Sie [IBulletFormat.Type](https://reference.aspose.com/slides/de/net/aspose.slides/ibulletformat/type/) auf [BulletType.Symbol](https://reference.aspose.com/slides/de/net/aspose.slides/bullettype/). Anschließend können Sie [IBulletFormat.Char](https://reference.aspose.com/slides/de/net/aspose.slides/ibulletformat/char/), [IBulletFormat.Color](https://reference.aspose.com/slides/de/net/aspose.slides/ibulletformat/color/) und [IBulletFormat.Height](https://reference.aspose.com/slides/de/net/aspose.slides/ibulletformat/height/) festlegen, um das Erscheinungsbild der Aufzählungszeichen zu steuern.
+Um eine Aufzählungsliste zu erstellen, fügen Sie [IParagraph](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraph/)‑Objekte zu einem [ITextFrame](https://reference.aspose.com/slides/de/net/aspose.slides/itextframe/) hinzu und setzen Sie [IBulletFormat.Type](https://reference.aspose.com/slides/de/net/aspose.slides/ibulletformat/type/) auf [BulletType.Symbol](https://reference.aspose.com/slides/de/net/aspose.slides/bullettype/). Anschließend können Sie [IBulletFormat.Char](https://reference.aspose.com/slides/de/net/aspose.slides/ibulletformat/char/), [IBulletFormat.Color](https://reference.aspose.com/slides/de/net/aspose.slides/ibulletformat/color/) und [IBulletFormat.Height](https://reference.aspose.com/slides/de/net/aspose.slides/ibulletformat/height/) festlegen, um das Aussehen der Aufzählungszeichen zu steuern.
 
-Der folgende C#‑Code demonstriert, wie man in einer Folie eine Aufzählungsliste erstellt:
+Der folgende C#‑Code zeigt, wie man in einer Folie eine Aufzählungsliste erstellt:
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 static Paragraph CreateParagraph(string text)
 {
     var paragraph = new Paragraph();
@@ -78,13 +84,16 @@ Das Ergebnis:
 
 ![Die Symbol‑Aufzählungen](symbol_bullets.png)
 
-## **Eine nummerierte Liste erstellen**
+## **Create a Numbered List**
 
-Verwenden Sie nummerierte Listen, wenn die Reihenfolge der Elemente wichtig ist. Setzen Sie [IBulletFormat.Type](https://reference.aspose.com/slides/de/net/aspose.slides/ibulletformat/type/) auf [BulletType.Numbered](https://reference.aspose.com/slides/de/net/aspose.slides/bullettype/). Sie können außerdem ein Nummerierungsformat mit [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/de/net/aspose.slides/ibulletformat/numberedbulletstyle/) wählen oder [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/de/net/aspose.slides/ibulletformat/numberedbulletstartwith/) festlegen, wenn die Liste mit einem anderen Wert als 1 beginnen soll.
+Verwenden Sie nummerierte Listen, wenn die Reihenfolge der Elemente wichtig ist. Setzen Sie [IBulletFormat.Type](https://reference.aspose.com/slides/de/net/aspose.slides/ibulletformat/type/) auf [BulletType.Numbered](https://reference.aspose.com/slides/de/net/aspose.slides/bullettype/). Sie können außerdem ein Nummerierungsformat mit [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/de/net/aspose.slides/ibulletformat/numberedbulletstyle/) wählen oder [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/de/net/aspose.slides/ibulletformat/numberedbulletstartwith/) festlegen, wenn die Liste nicht bei 1 beginnen soll.
 
 Der folgende C#‑Code zeigt, wie man in einer Folie eine nummerierte Liste erstellt:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
@@ -115,23 +124,28 @@ Das Ergebnis:
 
 ![Die nummerierten Aufzählungen](numbered_bullets.png)
 
-## **Eine Bildaufzählung erstellen**
+## **Create a Picture Bullet**
 
-Aspose.Slides ermöglicht es, ein reguläres Aufzählungszeichen durch ein Bild zu ersetzen. Bildaufzählungen funktionieren am besten mit einfachen Bildern, die auch in kleiner Größe lesbar bleiben, z. B. Icons oder kleine transparente PNG‑Dateien.
+Aspose.Slides ermöglicht das Ersetzen eines regulären Aufzählungszeichens durch ein Bild. Bild‑Aufzählungen funktionieren am besten mit einfachen Bildern, die in kleiner Größe lesbar bleiben, etwa Icons oder kleine transparente PNG‑Dateien.
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 Idealerweise wählen Sie, wenn Sie das reguläre Aufzählungszeichen durch ein Bild ersetzen möchten, eine einfache Grafik mit transparentem Hintergrund. Solche Bilder eignen sich gut als benutzerdefinierte Aufzählungszeichen.
 {{% /alert %}}
 
-Um eine Bildaufzählung zu erstellen, fügen Sie ein Bild zu [Presentation.Images](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/images/) hinzu und weisen Sie das zurückgegebene Bildobjekt [IBulletFormat.Picture](https://reference.aspose.com/slides/de/net/aspose.slides/ibulletformat/picture/) zu. Setzen Sie [IBulletFormat.Type](https://reference.aspose.com/slides/de/net/aspose.slides/ibulletformat/type/) auf [BulletType.Picture](https://reference.aspose.com/slides/de/net/aspose.slides/bullettype/), bevor Sie das Bild zuweisen.
+Beachten Sie, dass das Bild auf eine sehr kleine Größe verkleinert wird. Aus diesem Grund empfehlen wir dringend, ein Bild auszuwählen, das auch in kleiner Darstellung klar und optisch wirksam bleibt, wenn es als Aufzählungszeichen in einer Liste verwendet wird.
+
+Um eine Bild‑Aufzählung zu erstellen, fügen Sie ein Bild zu [Presentation.Images](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/images/) hinzu und weisen Sie das zurückgegebene Bildobjekt [IBulletFormat.Picture](https://reference.aspose.com/slides/de/net/aspose.slides/ibulletformat/picture/) zu. Setzen Sie [IBulletFormat.Type](https://reference.aspose.com/slides/de/net/aspose.slides/ibulletformat/type/) auf [BulletType.Picture](https://reference.aspose.com/slides/de/net/aspose.slides/bullettype/) bevor Sie das Bild zuweisen.
 
 Angenommen, wir haben eine „image.png“:
 
 ![Ein Bild für die Aufzählungen](picture_for_bullets.png)
 
-Der folgende C#‑Code zeigt, wie man Bildaufzählungen in einer Folie erstellt:
+Der folgende C#‑Code zeigt, wie man in einer Folie Bild‑Aufzählungen erstellt:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 static Paragraph CreateParagraph(string text, IPPImage image)
 {
     var paragraph = new Paragraph();
@@ -167,13 +181,16 @@ Das Ergebnis:
 
 ![Die Bild‑Aufzählungen](picture_bullets.png)
 
-## **Eine mehrstufige Liste erstellen**
+## **Create a Multilevel List**
 
 Verwenden Sie [IParagraphFormat.Depth](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraphformat/depth/), um Listenelemente auf verschiedenen Ebenen zu platzieren. Ebene 0 ist die oberste Ebene, Ebene 1 ist darunter verschachtelt usw.
 
 Der folgende C#‑Code zeigt, wie man eine mehrstufige Aufzählungsliste erstellt:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
@@ -209,13 +226,14 @@ Das Ergebnis:
 
 ![Die mehrstufige Liste](multilevel_list.png)
 
-## **Eine vorhandene Liste ändern**
+## **Change an Existing List**
 
-Um die Listformatierung in einer vorhandenen Präsentation zu ändern, greifen Sie auf den Zielabsatz zu und aktualisieren dessen [IParagraphFormat.Bullet](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraphformat/bullet/)‑Einstellungen. Die gleichen Eigenschaften, die zum Erstellen von Listen verwendet werden, können zum Prüfen oder Ändern von Listen verwendet werden, die aus einer PPT‑, PPTX‑ oder ODP‑Datei geladen wurden.
-
-Der folgende C#‑Code ändert den ersten Absatz in einem Textfeld, sodass er einen nummerierten Listenstil verwendet:
+Um die Listendarstellung in einer bestehenden Präsentation zu ändern, greifen Sie auf den gewünschten Absatz zu und aktualisieren dessen [IParagraphFormat.Bullet](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraphformat/bullet/)‑Einstellungen. Die gleichen Eigenschaften, die beim Erstellen von Listen verwendet werden, können auch zum Prüfen oder Ändern von Listen verwendet werden, die aus einer PPT‑, PPTX‑ oder ODP‑Datei geladen wurden.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("input.pptx");
 
 var slide = presentation.Slides[0];
@@ -233,14 +251,14 @@ presentation.Save("updated_list.pptx", SaveFormat.Pptx);
 
 ## **FAQ**
 
-**Können Aufzählungs‑ und nummerierte Listen in PDF oder Bilder exportiert werden?**
+### Can bulleted and numbered lists be exported to PDF or images?
 
-Ja. Aspose.Slides erhält die Listformatierung, wenn das Zielformat die entsprechenden Textlayout‑ und Aufzählungs‑Features unterstützt.
+Ja. Aspose.Slides bewahrt die Listendarstellung, wenn das Zielformat die entsprechenden Text‑Layout‑ und Aufzählungsfunktionen unterstützt.
 
-**Kann ich Listen in vorhandenen Präsentationen bearbeiten?**
+### Can I edit lists in existing presentations?
 
-Ja. Laden Sie die Präsentation, greifen Sie auf den Zielabsatz zu, prüfen oder aktualisieren Sie dessen [IParagraphFormat.Bullet](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraphformat/bullet/)‑Einstellungen und speichern Sie die Präsentation.
+Ja. Laden Sie die Präsentation, greifen Sie auf den gewünschten Absatz zu, prüfen oder aktualisieren Sie dessen [IParagraphFormat.Bullet](https://reference.aspose.com/slides/de/net/aspose.slides/iparagraphformat/bullet/)‑Einstellungen und speichern Sie die Präsentation.
 
-**Können Listen nicht‑lateinischen Text enthalten?**
+### Can lists contain non-Latin text?
 
-Ja. Der Text von Listenelementen kann Unicode‑Zeichen enthalten, sodass Sie Listen in mehrsprachigen Präsentationen erstellen können. Stellen Sie sicher, dass die in der Präsentation verwendeten Schriften die benötigten Zeichen unterstützen.
+Ja. Der Text von Listenelementen kann Unicode‑Zeichen enthalten, sodass Sie Listen in mehrsprachigen Präsentationen erstellen können. Stellen Sie sicher, dass die in der Präsentation verwendeten Schriftarten die benötigten Zeichen unterstützen.

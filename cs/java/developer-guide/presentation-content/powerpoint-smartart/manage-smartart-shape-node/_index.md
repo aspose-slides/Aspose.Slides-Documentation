@@ -1,6 +1,6 @@
 ---
 title: Správa uzlů tvaru SmartArt v prezentacích pomocí Javy
-linktitle: Uzly tvaru SmartArt
+linktitle: Uzel tvaru SmartArt
 type: docs
 weight: 30
 url: /cs/java/manage-smartart-shape-node/
@@ -10,7 +10,7 @@ keywords:
 - přidat uzel
 - pozice uzlu
 - přístup k uzlu
-- odebrat uzel
+- odstranit uzel
 - vlastní pozice
 - asistenční uzel
 - formát výplně
@@ -19,30 +19,32 @@ keywords:
 - prezentace
 - Java
 - Aspose.Slides
-description: "Spravujte uzly tvaru SmartArt v PPT a PPTX pomocí Aspose.Slides pro Javu. Získejte přehledné ukázky kódu a tipy, jak zefektivnit své prezentace."
+description: "Spravujte uzly tvaru SmartArt v PPT a PPTX pomocí Aspose.Slides pro Javu. Získejte jasné ukázky kódu a tipy pro zefektivnění vašich prezentací."
 ---
 ## **Přehled**
 
-Grafika SmartArt v prezentacích PowerPoint je organizována pomocí uzlů, které obsahují text a definují strukturu diagramu. Aspose.Slides vám umožňuje pracovat s těmito uzly SmartArt programově: přidávat nové uzly a poduzly, vkládat poduzly na konkrétní pozici, přistupovat k existujícím uzlům a číst jejich text, úroveň a pozici.
+Grafika SmartArt v prezentacích PowerPoint je uspořádána pomocí uzlů, které obsahují text a definují strukturu diagramu. Aspose.Slides vám umožňuje pracovat s těmito uzly SmartArt programově: přidávat nové uzly a poduzly, vkládat poduzly na konkrétní pozici, přistupovat k existujícím uzlům a číst jejich text, úroveň a pozici.
 
-Tento článek vysvětluje, jak spravovat uzly tvarů SmartArt. Ukazuje, jak odstranit uzly, pracovat s poduzly podle indexu nebo pozice, změnit asistenční uzel na běžný uzel, upravit pozici, velikost a otočení tvarů uzlů SmartArt, nastavit výplňové formáty uzlů a vygenerovat miniaturu obrázku pro poduzel SmartArt.
+Tento článek vysvětluje, jak spravovat uzly tvaru SmartArt. Ukazuje, jak odstranit uzly, pracovat s poduzly podle indexu nebo pozice, změnit asistenční uzel na běžný uzel, upravit pozici, velikost a otáčení tvarů uzlů SmartArt, nastavit formáty výplně uzlů a vygenerovat miniaturu obrázku pro poduzel SmartArt.
 
 ## **Přidání uzlu SmartArt**
-Aspose.Slides pro Java poskytuje nejjednodušší rozhraní API pro správu tvarů SmartArt nejjednodušším způsobem. Následující ukázkový kód vám pomůže přidat uzel a poduzel uvnitř tvaru SmartArt.
+Aspose.Slides for Java poskytuje nejjednodušší API pro správu tvarů SmartArt nejjednodušším způsobem. Níže uvedený ukázkový kód pomůže přidat uzel a poduzel do tvaru SmartArt.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/Presentation) a načtěte prezentaci s tvarem SmartArt.
-1. Získejte odkaz na první snímek pomocí jeho indexu.
-1. Projděte všechny tvary na prvním snímku.
-1. Zkontrolujte, zda je tvar typu [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt) a pokud ano, přetypujte vybraný tvar na [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt).
-1. [Přidejte nový uzel](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArtNodeCollection#addNode--) v tvaru SmartArt [**NodeCollection**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt#getAllNodes--) a nastavte text v TextFrame.
-1. Nyní [Přidejte](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArtNodeCollection#addNode--) [**poduzel**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArtNode#getChildNodes--) do nově přidaného uzlu [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt) a nastavte text v TextFrame
-1. Uložte prezentaci.
+2. Získejte referenci na první snímek pomocí jeho indexu.
+3. Projděte všechny tvary v první snímku.
+4. Zkontrolujte, zda je tvar typu [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt) a přetypujte vybraný tvar na [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt), pokud se jedná o SmartArt.
+5. [Přidejte nový uzel](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArtNodeCollection#addNode--) do tvaru SmartArt [**NodeCollection**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt#getAllNodes--) a nastavte text v TextFrame.
+6. Nyní [přidejte](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArtNodeCollection#addNode--) [**poduzel**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArtNode#getChildNodes--) do nově přidaného [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt) uzlu a nastavte text v TextFrame.
+7. Uložte prezentaci.
 
 ```java
+import com.aspose.slides.*;
+
 // Načtěte požadovanou prezentaci
 Presentation pres = new Presentation("SimpleSmartArt.pptx");
 try {
-    // Projděte všechny tvary na prvním snímku
+    // Projděte všechny tvary v prvním snímku
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
         // Zkontrolujte, zda je tvar typu SmartArt
@@ -57,7 +59,7 @@ try {
             // Přidání textu
             TemNode.getTextFrame().setText("Test");
     
-            // Přidání nového poduzlu do nadřazeného uzlu. Bude přidán na konec kolekce
+            // Přidání nového poduzlu do nadřazeného uzlu. Bude přidán na konci kolekce
             SmartArtNode newNode = (SmartArtNode) TemNode.getChildNodes().addNode();
     
             // Přidání textu
@@ -73,16 +75,18 @@ try {
 ```
 
 ## **Přidání uzlu SmartArt na konkrétní pozici**
-V následujícím ukázkovém kódu jsme vysvětlili, jak přidat poduzly patřící k jednotlivým uzlům tvaru SmartArt na konkrétní pozici.
+V následujícím ukázkovém kódu vysvětlujeme, jak přidat poduzly patřící k příslušným uzlům tvaru SmartArt na konkrétní pozici.
 
 1. Vytvořte instanci třídy Presentation.
-1. Získejte odkaz na první snímek pomocí jeho indexu.
-1. Přidejte tvar [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SmartArt) typu [**StackedList**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SmartArtLayoutType#StackedList) na přístupný snímek.
-1. Získejte první uzel v přidaném tvaru SmartArt
-1. Nyní přidejte [**poduzel**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArtNode#getChildNodes--) pro vybraný [**uzel**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SmartArtNode) na pozici 2 a nastavte jeho text.
-1. Uložte prezentaci
+2. Získejte referenci na první snímek pomocí jeho indexu.
+3. Přidejte tvar [**StackedList**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SmartArtLayoutType#StackedList) typu [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SmartArt) do přístupového snímku.
+4. Přistupte k prvnímu uzlu v přidaném tvaru SmartArt.
+5. Nyní přidejte [**poduzel**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArtNode#getChildNodes--) pro vybraný [**uzel**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SmartArtNode) na pozici 2 a nastavte jeho text.
+6. Uložte prezentaci.
 
 ```java
+import com.aspose.slides.*;
+
 // Vytvoření instance prezentace
 Presentation pres = new Presentation();
 try {
@@ -92,13 +96,13 @@ try {
     // Přidání Smart Art IShape
     ISmartArt smart = slide.getShapes().addSmartArt(0, 0, 400, 400, SmartArtLayoutType.StackedList);
 
-    // Přístup k uzlu SmartArt s indexem 0
+    // Přístup k uzlu SmartArt na indexu 0
     ISmartArtNode node = smart.getAllNodes().get_Item(0);
 
-    // Přidání nového poduzlu na pozici 2 do nadřazeného uzlu
+    // Přidání nového poduzlu na pozici 2 v nadřazeném uzlu
     SmartArtNode chNode = (SmartArtNode) ((SmartArtNodeCollection) node.getChildNodes()).addNodeByPosition(2);
 
-    // Přidání textu
+    // Přidat text
     chNode.getTextFrame().setText("Sample Text Added");
 
     // Uložení prezentace
@@ -109,35 +113,37 @@ try {
 ```
 
 ## **Přístup k uzlu SmartArt**
-Následující ukázkový kód vám pomůže přistupovat k uzlům uvnitř tvaru SmartArt. Vezměte prosím na vědomí, že nemůžete měnit LayoutType SmartArt, protože je pouze pro čtení a je nastaven pouze při přidání tvaru SmartArt.
+Níže uvedený ukázkový kód pomůže přistupovat k uzlům uvnitř tvaru SmartArt. Všimněte si, že nelze změnit LayoutType SmartArt, protože je pouze pro čtení a nastavuje se pouze při přidání tvaru SmartArt.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation) a načtěte prezentaci s tvarem SmartArt.
-1. Získejte odkaz na první snímek pomocí jeho indexu.
-1. Projděte všechny tvary na prvním snímku.
-1. Zkontrolujte, zda je tvar typu [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt) a pokud ano, přetypujte vybraný tvar na [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt).
-1. Projděte všechny [**uzly**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SmartArt#getAllNodes--) uvnitř tvaru SmartArt.
-1. Získejte a zobrazte informace, jako jsou pozice uzlu SmartArt, úroveň a text.
+2. Získejte referenci na první snímek pomocí jeho indexu.
+3. Projděte všechny tvary v první snímku.
+4. Zkontrolujte, zda je tvar typu [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt) a přetypujte vybraný tvar na [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt), pokud se jedná o SmartArt.
+5. Projděte všechny [**uzly**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SmartArt#getAllNodes--) uvnitř tvaru SmartArt.
+6. Přistupte a zobrazte informace jako pozice uzlu SmartArt, úroveň a text.
 
 ```java
+import com.aspose.slides.*;
+
 // Vytvoření instance třídy Presentation
 Presentation pres = new Presentation("SmartArtShape.pptx");
 try {
     // Získání prvního snímku
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Procházet všechny tvary na prvním snímku
+    // Procházení všech tvarů v prvním snímku
     for (IShape shape : slide.getShapes()) 
     {
-        // Zkontrolujte, zda je tvar typu SmartArt
+        // Kontrola, zda je tvar typu SmartArt
         if (shape instanceof ISmartArt) 
         {
-            // Přetypujte tvar na SmartArt
+            // Přetypování tvaru na SmartArt
             ISmartArt smart = (ISmartArt) shape;
     
-            // Procházet všechny uzly uvnitř SmartArt
+            // Procházení všech uzlů uvnitř SmartArt
             for (int i = 0; i < smart.getAllNodes().size(); i++) 
             {
-                // Přístup k uzlu SmartArt s indexem i
+                // Přístup k uzlu SmartArt na indexu i
                 SmartArtNode node = (SmartArtNode) smart.getAllNodes().get_Item(i);
     
                 // Výpis parametrů uzlu SmartArt
@@ -151,39 +157,41 @@ try {
 ```
 
 ## **Přístup k poduzlu SmartArt**
-Následující ukázkový kód vám pomůže přistupovat k poduzlům patřícím jednotlivým uzlům tvaru SmartArt.
+Níže uvedený ukázkový kód pomůže přistupovat k poduzlům patřícím k příslušným uzlům tvaru SmartArt.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation) a načtěte prezentaci s tvarem SmartArt.
-1. Získejte odkaz na první snímek pomocí jeho indexu.
-1. Projděte všechny tvary na prvním snímku.
-1. Zkontrolujte, zda je tvar typu [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt) a pokud ano, přetypujte vybraný tvar na [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt).
-1. Projděte všechny [**uzly**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SmartArt#getAllNodes--) uvnitř tvaru SmartArt.
-1. Pro každý vybraný [**uzel**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SmartArtNode) tvaru SmartArt projděte všechny [**poduzly**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SmartArtNode#getChildNodes--) v konkrétním uzlu.
-1. Získejte a zobrazte informace, jako jsou pozice [**poduzlu**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArtNode#getChildNodes--) , úroveň a text.
+2. Získejte referenci na první snímek pomocí jeho indexu.
+3. Projděte všechny tvary v první snímku.
+4. Zkontrolujte, zda je tvar typu [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt) a přetypujte vybraný tvar na [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt), pokud se jedná o SmartArt.
+5. Projděte všechny [**uzly**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SmartArt#getAllNodes--) uvnitř tvaru SmartArt.
+6. Pro každý vybraný uzel tvaru SmartArt [**Node**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SmartArtNode) projděte všechny [**poduzly**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SmartArtNode#getChildNodes--) uvnitř konkrétního uzlu.
+7. Přistupte a zobrazte informace jako pozice [**poduzlu**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArtNode#getChildNodes--) , úroveň a text.
 
 ```java
+import com.aspose.slides.*;
+
 // Vytvoření instance třídy Presentation
 Presentation pres = new Presentation("AccessChildNodes.pptx");
 try {
     // Získání prvního snímku
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Procházet všechny tvary na prvním snímku
+    // Procházení všech tvarů v prvním snímku
     for (IShape shape : slide.getShapes()) 
     {
-        // Zkontrolujte, zda je tvar typu SmartArt
+        // Kontrola, zda je tvar typu SmartArt
         if (shape instanceof ISmartArt) 
         {
-            // Přetypujte tvar na SmartArt
+            // Přetypování tvaru na SmartArt
             ISmartArt smart = (ISmartArt) shape;
     
-            // Procházet všechny uzly uvnitř SmartArt
+            // Procházení všech uzlů uvnitř SmartArt
             for (int i = 0; i < smart.getAllNodes().size(); i++) 
             {
-                // Přístup k uzlu SmartArt s indexem i
+                // Přístup k uzlu SmartArt na indexu i
                 SmartArtNode node0 = (SmartArtNode) smart.getAllNodes().get_Item(i);
                 
-                // Procházet poduzly v uzlu SmartArt s indexem i
+                // Procházení poduzlů v uzlu SmartArt na indexu i
                 for (int j = 0; j < node0.getChildNodes().size(); j++) 
                 {
                     // Přístup k poduzlu v uzlu SmartArt
@@ -201,27 +209,29 @@ try {
 ```
 
 ## **Přístup k poduzlu SmartArt na konkrétní pozici**
-V tomto příkladu se naučíme přistupovat k poduzlům na konkrétní pozici, které patří jednotlivým uzlům tvaru SmartArt.
+V tomto příkladu se naučíte přistupovat k poduzlům na konkrétní pozici, patřícím k příslušným uzlům tvaru SmartArt.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation).
-1. Získejte odkaz na první snímek pomocí jeho indexu.
-1. Přidejte tvar SmartArt typu [**StackedList**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SmartArtLayoutType#StackedList).
-1. Získejte přidaný tvar SmartArt.
-1. Získejte uzel s indexem 0 pro přístupný tvar SmartArt.
-1. Nyní přistupte k [**poduzlu**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArtNode#getChildNodes--) na pozici 1 pro přístupný uzel SmartArt pomocí **get_Item()** method.
-1. Získejte a zobrazte informace, jako jsou pozice [**poduzlu**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArtNode#getChildNodes--) , úroveň a text.
+2. Získejte referenci na první snímek pomocí jeho indexu.
+3. Přidejte tvar SmartArt typu [**StackedList**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SmartArtLayoutType#StackedList).
+4. Přistupte k přidanému tvaru SmartArt.
+5. Přistupte k uzlu s indexem 0 ve získaném tvaru SmartArt.
+6. Nyní přistupte k [**poduzlu**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArtNode#getChildNodes--) na pozici 1 pro přístupový uzel SmartArt pomocí metody **get_Item()**.
+7. Přistupte a zobrazte informace jako pozice [**poduzlu**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArtNode#getChildNodes--) , úroveň a text.
 
 ```java
+import com.aspose.slides.*;
+
 // Vytvoření instance prezentace
 Presentation pres = new Presentation();
 try {
     // Přístup k prvnímu snímku
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Přidání tvaru SmartArt na první snímek
+    // Přidání tvaru SmartArt do prvního snímku
     ISmartArt smart = slide.getShapes().addSmartArt(0, 0, 400, 400, SmartArtLayoutType.StackedList);
     
-    // Přístup k uzlu SmartArt s indexem 0
+    // Přístup k uzlu SmartArt na indexu 0
     ISmartArtNode node = smart.getAllNodes().get_Item(0);
     
     // Přístup k poduzlu na pozici 1 v nadřazeném uzlu
@@ -236,22 +246,24 @@ try {
 ```
 
 ## **Odstranění uzlu SmartArt**
-V tomto příkladu se naučíme odstranit uzly uvnitř tvaru SmartArt.
+V tomto příkladu se naučíte odstraňovat uzly uvnitř tvaru SmartArt.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation) a načtěte prezentaci s tvarem SmartArt.
-1. Získejte odkaz na první snímek pomocí jeho indexu.
-1. Projděte všechny tvary na prvním snímku.
-1. Zkontrolujte, zda je tvar typu [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt) a pokud ano, přetypujte vybraný tvar na [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt).
-1. Zkontrolujte, zda má [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt) více než 0 uzlů.
-1. Vyberte uzel SmartArt, který má být odstraněn.
-1. Nyní odstraňte vybraný uzel pomocí metody [**RemoveNode**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArtNodeCollection#removeNode-com.aspose.slides.ISmartArtNode-) .
-1. Uložte prezentaci.
+2. Získejte referenci na první snímek pomocí jeho indexu.
+3. Projděte všechny tvary v první snímku.
+4. Zkontrolujte, zda je tvar typu [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt) a přetypujte vybraný tvar na [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt), pokud se jedná o SmartArt.
+5. Zkontrolujte, zda má [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt) více než 0 uzlů.
+6. Vyberte uzel SmartArt, který má být smazán.
+7. Nyní odstraňte vybraný uzel pomocí metody [**RemoveNode**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArtNodeCollection#removeNode-com.aspose.slides.ISmartArtNode-) .
+8. Uložte prezentaci.
 
 ```java
+import com.aspose.slides.*;
+
 // Načtěte požadovanou prezentaci
 Presentation pres = new Presentation("AddSmartArtNode.pptx");
 try {
-    // Projděte všechny tvary na prvním snímku
+    // Projděte všechny tvary v prvním snímku
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
         // Zkontrolujte, zda je tvar typu SmartArt
@@ -262,7 +274,7 @@ try {
     
             if (smart.getAllNodes().size() > 0) 
             {
-                // Přístup k uzlu SmartArt s indexem 0
+                // Přístup k uzlu SmartArt na indexu 0
                 ISmartArtNode node = smart.getAllNodes().get_Item(0);
     
                 // Odstranění vybraného uzlu
@@ -278,23 +290,25 @@ try {
 }
 ```
 
-## **Odstranění uzlu SmartArt na konkrétní pozici**
-V tomto příkladu se naučíme odstranit uzly uvnitř tvaru SmartArt na konkrétní pozici.
+## **Odstranění uzlu SmartArt z konkrétní pozice**
+V tomto příkladu se naučíte odstraňovat uzly uvnitř tvaru SmartArt na konkrétní pozici.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation) a načtěte prezentaci s tvarem SmartArt.
-1. Získejte odkaz na první snímek pomocí jeho indexu.
-1. Projděte všechny tvary na prvním snímku.
-1. Zkontrolujte, zda je tvar typu [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt) a pokud ano, přetypujte vybraný tvar na [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt).
-1. Vyberte uzel tvaru SmartArt s indexem 0.
-1. Nyní zkontrolujte, zda vybraný uzel SmartArt má více než 2 poduzly.
-1. Nyní odstraňte uzel na **pozici 1** pomocí metody [**RemoveNode**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArtNodeCollection#removeNode-int-) .
-1. Uložte prezentaci.
+2. Získejte referenci na první snímek pomocí jeho indexu.
+3. Projděte všechny tvary v první snímku.
+4. Zkontrolujte, zda je tvar typu [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt) a přetypujte vybraný tvar na [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt), pokud se jedná o SmartArt.
+5. Vyberte uzel tvaru SmartArt s indexem 0.
+6. Nyní zkontrolujte, zda má vybraný uzel SmartArt více než 2 poduzly.
+7. Nyní odstraňte uzel na **pozici 1** pomocí metody [**RemoveNode**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArtNodeCollection#removeNode-int-) .
+8. Uložte prezentaci.
 
 ```java
+import com.aspose.slides.*;
+
 // Načtěte požadovanou prezentaci
 Presentation pres = new Presentation("AddSmartArtNode.pptx");
 try {
-    // Projděte všechny tvary na prvním snímku
+    // Projděte všechny tvary v prvním snímku
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
         // Zkontrolujte, zda je tvar typu SmartArt
@@ -305,7 +319,7 @@ try {
     
             if (smart.getAllNodes().size() > 0) 
             {
-                // Přístup k uzlu SmartArt s indexem 0
+                // Přístup k uzlu SmartArt na indexu 0
                 ISmartArtNode node = smart.getAllNodes().get_Item(0);
     
                 if (node.getChildNodes().size() >= 2) 
@@ -325,9 +339,11 @@ try {
 ```
 
 ## **Nastavení vlastní pozice pro poduzel v objektu SmartArt**
-Nyní Aspose.Slides pro Java podporuje nastavení vlastností [SmartArtShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SmartArtShape) [X](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IShape#setX-float-) a [Y](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IShape#setY-float-). Níže uvedený úryvek kódu ukazuje, jak nastavit vlastní pozici, velikost a otočení tvaru SmartArtShape; také vezměte prosím na vědomí, že přidávání nových uzlů způsobuje přepočet pozic a velikostí všech uzlů. S nastavením vlastní pozice může uživatel nastavit uzly podle požadavků.
+Nyní Aspose.Slides pro Java podporuje nastavení vlastností [SmartArtShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SmartArtShape) [X](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IShape#setX-float-) a [Y](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IShape#setY-float-). Níže uvedený úryvek kódu ukazuje, jak nastavit vlastní pozici, velikost a otáčení SmartArtShape; také si všimněte, že přidání nových uzlů způsobí přepočet pozic a velikostí všech uzlů. S nastavením vlastní pozice může uživatel uzly nastavit dle požadavků.
 
 ```java
+import com.aspose.slides.*;
+
 // Vytvoření instance třídy Presentation
 Presentation pres = new Presentation("SimpleSmartArt.pptx");
 try{
@@ -361,50 +377,52 @@ try{
 ```
 
 ## **Kontrola asistenčního uzlu**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-V tomto článku budeme dále zkoumat funkce tvarů SmartArt přidaných do snímků prezentace programově pomocí Aspose.Slides pro Java.
+V tomto článku dále prozkoumáme funkce tvarů SmartArt přidaných do snímků prezentace programově pomocí Aspose.Slides pro Java.
 
 {{% /alert %}} 
 
-Pro naše zkoumání v různých částech tohoto článku použijeme následující zdrojový tvar SmartArt.
+Pro naše vyšetřování v různých částech tohoto článku použijeme následující zdrojový tvar SmartArt.
 
 |![todo:image_alt_text](https://i.imgur.com/FItwczY.png)|
 | :- |
 |**Obrázek: Zdrojový tvar SmartArt na snímku**|
 
-V následujícím ukázkovém kódu budeme zkoumat, jak identifikovat **asistenční uzly** ve sbírce uzlů SmartArt a jak je měnit.
+V následujícím ukázkovém kódu prozkoumáme, jak identifikovat **asistenční uzly** v kolekci uzlů SmartArt a jak je měnit.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation) a načtěte prezentaci s tvarem SmartArt.
-1. Získejte odkaz na druhý snímek pomocí jeho indexu.
-1. Projděte všechny tvary uvnitř prvního snímku.
-1. Zkontrolujte, zda je tvar typu [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt) a pokud ano, přetypujte vybraný tvar na [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt).
-1. Projděte všechny uzly uvnitř tvaru SmartArt a zkontrolujte, zda jsou [**asistenční uzly**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SmartArtNode#isAssistant--).
-1. Změňte stav asistenčního uzlu na běžný uzel.
-1. Uložte prezentaci.
+2. Získejte referenci na druhý snímek pomocí jeho indexu.
+3. Projděte všechny tvary v první snímku.
+4. Zkontrolujte, zda je tvar typu [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt) a přetypujte vybraný tvar na [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt), pokud se jedná o SmartArt.
+5. Projděte všechny uzly uvnitř tvaru SmartArt a zkontrolujte, zda jsou [**asistenční uzly**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SmartArtNode#isAssistant--).
+6. Změňte stav asistenčního uzlu na normální uzel.
+7. Uložte prezentaci.
 
 ```java
+import com.aspose.slides.*;
+
 // Vytvoření instance prezentace
 Presentation pres = new Presentation("AddNodes.pptx");
 try {
-    // Procházet všechny tvary na prvním snímku
+    // Procházení všech tvarů v prvním snímku
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
-        // Zkontrolujte, zda je tvar typu SmartArt
+        // Kontrola, zda je tvar typu SmartArt
         if (shape instanceof ISmartArt) 
         {
-            // Přetypujte tvar na SmartArt
+            // Přetypování tvaru na SmartArt
             ISmartArt smart = (SmartArt) shape;
     
             // Procházení všech uzlů tvaru SmartArt
             for (int i = 0; i < smart.getAllNodes().size(); i++) 
             {
                 ISmartArtNode node = smart.getAllNodes().get_Item(i);
-                // Zkontrolujte, zda je uzel asistenční
+                // Kontrola, zda je uzel asistenční
                 if (node.isAssistant()) 
                 {
-                    // Nastavení asistenčního uzlu na false a převedení na běžný uzel
-                    node.isAssistant();
+                    // Nastavení asistenčního uzlu na false a převod na běžný uzel
+                    node.setAssistant(false);
                 }
             }
         }
@@ -419,20 +437,23 @@ try {
 
 |![todo:image_alt_text](https://i.imgur.com/qpAl4rN.png)|
 | :- |
-|**Obrázek: Asistenční uzly změněny v tvaru SmartArt ve snímku**|
+|**Obrázek: Asistenční uzly změněny v tvaru SmartArt na snímku**|
 
-## **Nastavení výplňového formátu uzlu**
-Aspose.Slides pro Java umožňuje přidávat vlastní tvary SmartArt a nastavit jejich výplňový formát. Tento článek vysvětluje, jak vytvořit a přistupovat k tvarům SmartArt a nastavit jejich výplň pomocí Aspose.Slides pro Java.
+## **Nastavení výplně uzlu**
+Aspose.Slides pro Java umožňuje přidávat vlastní tvary SmartArt a nastavit jejich výplň. Tento článek vysvětluje, jak vytvářet a přistupovat k tvarům SmartArt a nastavit jejich výplň pomocí Aspose.Slides pro Java.
 
 Postupujte podle následujících kroků:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation).
-1. Získejte odkaz na snímek pomocí jeho indexu.
-1. Přidejte tvar [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt) nastavením jeho [**LayoutType**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SmartArtLayoutType#ClosedChevronProcess).
-1. Nastavte [**FillFormat**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IShape#getFillFormat--) pro uzly tvaru SmartArt.
-1. Uložte upravenou prezentaci jako soubor PPTX.
+2. Získejte referenci na snímek pomocí jeho indexu.
+3. Přidejte tvar [SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArt) nastavením jeho [**LayoutType**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SmartArtLayoutType#ClosedChevronProcess).
+4. Nastavte [**FillFormat**](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IShape#getFillFormat--) pro uzly tvaru SmartArt.
+5. Uložte upravenou prezentaci jako soubor PPTX.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Vytvoření instance prezentace
 Presentation pres = new Presentation();
 try {
@@ -458,23 +479,25 @@ try {
 }
 ```
 
-## **Generování miniatury poduzlu SmartArt**
-Vývojáři mohou vygenerovat miniaturu poduzlu SmartArt podle následujících kroků:
+## **Vytvoření miniatury poduzlu SmartArt**
+Vývojáři mohou vytvořit miniaturu poduzlu SmartArt pomocí následujících kroků:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation).
-1. [Přidejte SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArtNodeCollection#addNode--).
-1. Získejte odkaz na uzel pomocí jeho indexu
-1. Získejte obrázek miniatury.
-1. Uložte obrázek miniatury v libovolném požadovaném formátu obrázku.
+2. [Přidejte SmartArt](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISmartArtNodeCollection#addNode--).
+3. Získejte referenci na uzel pomocí jeho indexu.
+4. Získejte obrázek miniatury.
+5. Uložte obrázek miniatury v libovolném požadovaném formátu obrázku.
 
 ```java
-// Vytvoření instance třídy Presentation, která představuje soubor PPTX
+import com.aspose.slides.*;
+
+// Vytvoření instance třídy Presentation, která představuje soubor PPTX 
 Presentation pres = new Presentation();
 try {
-    // Přidání SmartArt
+    // Přidání SmartArt 
     ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicCycle);
 
-    // Získání odkazu na uzel pomocí jeho indexu
+    // Získání reference na uzel pomocí jeho indexu  
     ISmartArtNode node = smart.getNodes().get_Item(1);
 
     // Získání miniatury
@@ -493,18 +516,14 @@ try {
 
 ## **FAQ**
 
-**Je podpora animací SmartArt?**
+### Je podpora animace SmartArt?
+Ano. SmartArt je považován za běžný tvar, takže můžete [použít standardní animace](/slides/cs/java/shape-animation/) (vstupní, výstupní, zdůrazňovací, pohybové cesty) a upravit načasování. V případě potřeby můžete také animovat tvary uvnitř uzlů SmartArt.
 
-Ano. SmartArt je považován za běžný tvar, takže můžete [aplikovat standardní animace](/slides/cs/java/shape-animation/) (vstup, odchod, zdůraznění, pohybové cesty) a upravit časování. V případě potřeby můžete animovat také tvary uvnitř uzlů SmartArt.
+### Jak mohu spolehlivě najít konkrétní SmartArt na snímku, pokud je jeho interní ID neznámé?
+Přiřaďte a hledejte podle [alternativního textu](https://reference.aspose.com/slides/cs/java/com.aspose.slides/shape/#getAlternativeText--). Nastavení výrazného AltTextu na SmartArt vám umožní jej programově najít bez spoléhání se na interní identifikátory.
 
-**Jak mohu spolehlivě najít konkrétní SmartArt na snímku, pokud je jeho interní ID neznámé?**
+### Zůstane vzhled SmartArt zachován při převodu prezentace do PDF?
+Ano. Aspose.Slides vykresluje SmartArt s vysokou vizuální věrností během [exportu do PDF](/slides/cs/java/convert-powerpoint-to-pdf/), zachovává rozvržení, barvy i efekty.
 
-Přiřaďte a vyhledejte pomocí [alternativního textu](https://reference.aspose.com/slides/cs/java/com.aspose.slides/shape/#getAlternativeText--). Nastavení výrazného AltTextu na SmartArt vám umožní najít jej programově, aniž byste se spolehli na interní identifikátory.
-
-**Zůstane vzhled SmartArt zachován při konverzi prezentace do PDF?**
-
-Ano. Aspose.Slides vykresluje SmartArt s vysokou vizuální věrností během [exportu do PDF](/slides/cs/java/convert-powerpoint-to-pdf/), zachovává rozvržení, barvy a efekty.
-
-**Mohu extrahovat obrázek celého SmartArt (pro náhledy nebo zprávy)?**
-
-Ano. Můžete vykreslit tvar SmartArt do [rasterových formátů](https://reference.aspose.com/slides/cs/java/com.aspose.slides/shape/#getImage-int-float-float-) nebo do [SVG](https://reference.aspose.com/slides/cs/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) pro škálovatelný vektorový výstup, což je vhodné pro miniatury, zprávy nebo webové použití.
+### Můžu získat obrázek celého SmartArt (pro náhledy nebo zprávy)?
+Ano. Můžete vykreslit tvar SmartArt do [rasterových formátů](https://reference.aspose.com/slides/cs/java/com.aspose.slides/shape/#getImage-int-float-float-) nebo do [SVG](https://reference.aspose.com/slides/cs/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-), což poskytuje škálovatelný vektorový výstup vhodný pro miniatury, zprávy nebo použití na webu.

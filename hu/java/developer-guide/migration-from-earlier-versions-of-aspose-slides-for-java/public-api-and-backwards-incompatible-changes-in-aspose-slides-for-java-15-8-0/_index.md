@@ -6,27 +6,29 @@ weight: 160
 url: /hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/
 keywords:
 - migráció
-- örökölt kód
+- régi kód
 - modern kód
-- örökölt megközelítés
+- régi megközelítés
 - modern megközelítés
 - PowerPoint
 - OpenDocument
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Tekintse át az Aspose.Slides for Java nyilvános API frissítéseit és töréspontjait, hogy zökkenőmentesen migreálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
+description: "Tekintse át a nyilvános API frissítéseket és a töréspontokat az Aspose.Slides for Java-ban, hogy zökkenőmentesen migrálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Ez az oldal felsorolja az összes [hozzáadott](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) vagy [eltávolított](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) osztályt, metódust, tulajdonságot stb., valamint az Aspose.Slides for Java 15.8.0 API‑val bevezetett egyéb változásokat.
+Ez az oldal felsorolja az összes [hozzáadott](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) vagy [eltávolított](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) osztályt, metódust, tulajdonságot stb., valamint az Aspose.Slides for Java 15.8.0 API-val bevezetett egyéb változásokat.
 
 {{% /alert %}} 
 ## **Nyilvános API változások**
-#### **A getDoughnutHoleSize(), setDoughnutHoleSize(byte) metódusok hozzáadva lettek az IChartSeries és ChartSeries típusokhoz**
-Meghatározza a lyuk méretét egy gyűrűdiagramon.
+#### **A getDoughnutHoleSize(), setDoughnutHoleSize(byte) metódusok hozzá lettek adva az IChartSeries és a ChartSeries osztályokhoz**
+Megadja a lyuk méretét egy gyűrűdiagramon.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 

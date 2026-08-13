@@ -4,14 +4,11 @@ type: docs
 weight: 45
 url: /th/jasperreports/integration-with-jasperserver/
 ---
-{{% alert color="primary" %}} 
-
-เพื่อผสานรวม Aspose.Slides for JasperReports กับ JasperServer จำเป็นต้องดำเนินการขั้นตอนเพิ่มเติมหลายขั้นตอนและอัปเดตไฟล์กำหนดค่า JasperServer บทความนี้อธิบายวิธีการทำ
-
+{{% alert color="info" %}} 
+เพื่อบูรณาการ Aspose.Slides สำหรับ JasperReports กับ JasperServer จำเป็นต้องดำเนินการเพิ่มเติมหลายขั้นตอนและอัปเดตไฟล์กำหนดค่า JasperServer บทความนี้อธิบายวิธีทำ
 {{% /alert %}} 
 
-1. เพิ่มคุณสมบัติของ exporter ใหม่ในไฟล์กำหนดค่า **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml** 
-
+1. เพิ่มคุณสมบัติตัวส่งออกใหม่ในไฟล์กำหนดค่า **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml**.
 ``` xml
 <bean id="reportPptExporter" class="com.aspose.slides.jasperreports.ASPptReportExporter" parent="baseReportExporter">
     <property name="exportParameters" ref="pptExportParameters"/>
@@ -31,11 +28,8 @@ url: /th/jasperreports/integration-with-jasperserver/
     <entry key="ppt" value-ref="pptExporterConfiguration"/>
 </util:map>
 ```
-
 2. คัดลอก **aspose.slides.jasperreports.jar** ไปยัง **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\lib**.
-
-3. หากต้องการใช้คุณลักษณะการแมปฟอนต์ ให้ปรับปรุง **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** ตามด้านล่าง
-
+3. หากต้องการใช้คุณลักษณะการแมปฟอนต์ ให้ปรับปรุง **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** ตามด้านล่าง.
 ``` xml
 <bean id="pptExportParameters" class="com.aspose.slides.jasperreports.ASExportParametersBean">
     <property name="fontMap">

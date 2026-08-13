@@ -18,27 +18,31 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Naučte se, jak nastavit dynamická pozadí v souborech PowerPoint a OpenDocument pomocí Aspose.Slides pro .NET, s tipy na kód, které vylepší vaše prezentace."
+description: "Naučte se nastavit dynamická pozadí v souborech PowerPoint a OpenDocument pomocí Aspose.Slides pro .NET, s tipy v kódu, které posílí vaše prezentace."
 ---
 ## **Úvod**
 
-Jednobarevné barvy, přechody a obrázky se běžně používají jako pozadí snímků. Můžete nastavit pozadí pro **normální snímek** (jednotlivý snímek) nebo pro **hlavní snímek** (platí pro více snímků najednou).
+Jednobarevné barvy, přechody a obrázky se běžně používají jako pozadí snímků. Můžete nastavit pozadí pro **normální snímek** (jediný snímek) nebo **master snímek** (platí pro více snímků najednou).
 
-![Pozadí PowerPointu](powerpoint-background.png)
+![Pozadí PowerPoint](powerpoint-background.png)
 
 ## **Nastavení jednobarevného pozadí pro normální snímek**
 
-Aspose.Slides vám umožňuje nastavit jednobarevnou barvu jako pozadí konkrétního snímku v prezentaci — i když prezentace používá hlavní snímek. Změna se vztahuje pouze na vybraný snímek.
+Aspose.Slides umožňuje nastavit jednobarevnou barvu jako pozadí konkrétního snímku v prezentaci — i když prezentace používá master snímek. Změna se vztahuje pouze na vybraný snímek.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/).
-2. Nastavte snímku vlastnost [BackgroundType](https://reference.aspose.com/slides/cs/net/aspose.slides/backgroundtype/) na `OwnBackground`.
-3. Nastavte pozadí snímku [FillType](https://reference.aspose.com/slides/cs/net/aspose.slides/filltype/) na `Solid`.
-4. Použijte vlastnost [SolidFillColor](https://reference.aspose.com/slides/cs/net/aspose.slides/fillformat/solidfillcolor/) na [FillFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/fillformat/) a určete jednobarevnou barvu pozadí.
+2. Nastavte [BackgroundType](https://reference.aspose.com/slides/cs/net/aspose.slides/backgroundtype/) snímku na `OwnBackground`.
+3. Nastavte [FillType](https://reference.aspose.com/slides/cs/net/aspose.slides/filltype/) pozadí snímku na `Solid`.
+4. Použijte vlastnost [SolidFillColor](https://reference.aspose.com/slides/cs/net/aspose.slides/fillformat/solidfillcolor/) na [FillFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/fillformat/) k určení jednobarevné barvy pozadí.
 5. Uložte upravenou prezentaci.
 
 Následující příklad v C# ukazuje, jak nastavit modrou jednobarevnou barvu jako pozadí pro normální snímek:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Vytvořte instanci třídy Presentation.
 using (Presentation presentation = new Presentation())
 {
@@ -54,25 +58,29 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Nastavení jednobarevného pozadí pro hlavní snímek**
+## **Nastavení jednobarevného pozadí pro master snímek**
 
-Aspose.Slides vám umožňuje nastavit jednobarevnou barvu jako pozadí pro hlavní snímek v prezentaci. Hlavní snímek funguje jako šablona, která řídí formátování všech snímků, takže když zvolíte jednobarevné pozadí hlavního snímku, použije se na každý snímek.
+Aspose.Slides umožňuje nastavit jednobarevnou barvu jako pozadí master snímku v prezentaci. Master snímek funguje jako šablona, která řídí formátování všech snímků, takže když zvolíte jednobarevnou barvu pro pozadí master snímku, použije se na každý snímek.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/).
-2. Nastavte hlavnímu snímku vlastnost [BackgroundType](https://reference.aspose.com/slides/cs/net/aspose.slides/backgroundtype/) (prostřednictvím `masters`) na `OwnBackground`.
-3. Nastavte pozadí hlavního snímku [FillType](https://reference.aspose.com/slides/cs/net/aspose.slides/filltype/) na `Solid`.
+2. Nastavte [BackgroundType](https://reference.aspose.com/slides/cs/net/aspose.slides/backgroundtype/) master snímku (pomocí `masters`) na `OwnBackground`.
+3. Nastavte [FillType](https://reference.aspose.com/slides/cs/net/aspose.slides/filltype/) pozadí master snímku na `Solid`.
 4. Použijte [SolidFillColor](https://reference.aspose.com/slides/cs/net/aspose.slides/fillformat/solidfillcolor/) k určení jednobarevné barvy pozadí.
 5. Uložte upravenou prezentaci.
 
-Následující příklad v C# ukazuje, jak nastavit jednobarevnou barvu (lesní zelená) jako pozadí pro hlavní snímek:
+Následující příklad v C# ukazuje, jak nastavit jednobarevnou barvu (lesní zelená) jako pozadí pro master snímek:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Vytvořte instanci třídy Presentation.
 using (Presentation presentation = new Presentation())
 {
     IMasterSlide masterSlide = presentation.Masters[0];
 
-    // Nastavte barvu pozadí hlavního snímku na lesní zelenou.
+    // Nastavte barvu pozadí master snímku na lesní zelenou.
     masterSlide.Background.Type = BackgroundType.OwnBackground;
     masterSlide.Background.FillFormat.FillType = FillType.Solid;
     masterSlide.Background.FillFormat.SolidFillColor.Color = Color.ForestGreen;
@@ -82,25 +90,28 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Nastavení přechodu jako pozadí snímku**
+## **Nastavení přechodového pozadí pro snímek**
 
-Přechod je grafický efekt vytvořený postupnou změnou barvy. Použitý jako pozadí snímku může přechod dodat prezentaci umělecký a profesionální vzhled. Aspose.Slides vám umožňuje nastavit barvu přechodu jako pozadí snímků.
+Přechod je grafický efekt vytvořený postupnou změnou barvy. Použitý jako pozadí snímku, může přechod učinit prezentaci umělečtější a profesionálnější. Aspose.Slides umožňuje nastavit barvu přechodu jako pozadí pro snímky.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/).
-2. Nastavte snímku vlastnost [BackgroundType](https://reference.aspose.com/slides/cs/net/aspose.slides/backgroundtype/) na `OwnBackground`.
-3. Nastavte pozadí snímku [FillType](https://reference.aspose.com/slides/cs/net/aspose.slides/filltype/) na `Gradient`.
-4. Použijte vlastnost [GradientFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/fillformat/gradientformat/) na [FillFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/fillformat/) a nakonfigurujte požadované nastavení přechodu.
+2. Nastavte [BackgroundType](https://reference.aspose.com/slides/cs/net/aspose.slides/backgroundtype/) snímku na `OwnBackground`.
+3. Nastavte [FillType](https://reference.aspose.com/slides/cs/net/aspose.slides/filltype/) pozadí snímku na `Gradient`.
+4. Použijte vlastnost [GradientFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/fillformat/gradientformat/) na [FillFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/fillformat/) k nastavení požadovaných parametrů přechodu.
 5. Uložte upravenou prezentaci.
 
-Následující příklad v C# ukazuje, jak nastavit barvu přechodu jako pozadí snímku:
+Následující příklad v C# ukazuje, jak nastavit barvu přechodu jako pozadí pro snímek:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Vytvořte instanci třídy Presentation.
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // Použijte gradientový efekt na pozadí.
+    // Použijte přechodový efekt na pozadí.
     slide.Background.Type = BackgroundType.OwnBackground;
     slide.Background.FillFormat.FillType = FillType.Gradient;
     slide.Background.FillFormat.GradientFormat.TileFlip = TileFlip.FlipBoth;
@@ -112,20 +123,23 @@ using (Presentation presentation = new Presentation())
 
 ## **Nastavení obrázku jako pozadí snímku**
 
-Kromě jednobarevných a přechodových výplní vám Aspose.Slides umožňuje použít obrázky jako pozadí snímků.
+Kromě jednobarevných a přechodových výplní umožňuje Aspose.Slides použít obrázky jako pozadí snímků.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/).
-2. Nastavte snímku vlastnost [BackgroundType](https://reference.aspose.com/slides/cs/net/aspose.slides/backgroundtype/) na `OwnBackground`.
-3. Nastavte pozadí snímku [FillType](https://reference.aspose.com/slides/cs/net/aspose.slides/filltype/) na `Picture`.
+2. Nastavte [BackgroundType](https://reference.aspose.com/slides/cs/net/aspose.slides/backgroundtype/) snímku na `OwnBackground`.
+3. Nastavte [FillType](https://reference.aspose.com/slides/cs/net/aspose.slides/filltype/) pozadí snímku na `Picture`.
 4. Načtěte obrázek, který chcete použít jako pozadí snímku.
 5. Přidejte obrázek do kolekce obrázků prezentace.
-6. Použijte vlastnost [PictureFillFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/fillformat/picturefillformat/) na [FillFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/fillformat/) a přiřaďte obrázek jako pozadí.
+6. Použijte vlastnost [PictureFillFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/fillformat/picturefillformat/) na [FillFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/fillformat/) k přiřazení obrázku jako pozadí.
 7. Uložte upravenou prezentaci.
 
-Následující příklad v C# ukazuje, jak nastavit obrázek jako pozadí snímku:
+Následující příklad v C# ukazuje, jak nastavit obrázek jako pozadí pro snímek:
 
 ```c#
- // Vytvořte instanci třídy Presentation.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Vytvořte instanci třídy Presentation.
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -148,9 +162,12 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-Následující ukázka kódu ukazuje, jak nastavit typ výplně pozadí na dlaždicový obrázek a upravit vlastnosti dláždění:
+Následující ukázka kódu ukazuje, jak nastavit typ výplně pozadí na dlaždicový obrázek a upravit vlastnosti dlaždicování:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide firstSlide = presentation.Slides[0];
@@ -181,57 +198,72 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
+
 Přečtěte si více: [**Tile Picture As Texture**](/slides/cs/net/shape-formatting/#tile-picture-as-texture).
+
 {{% /alert %}}
 
 ### **Změna průhlednosti obrázku pozadí**
 
-Možná budete chtít upravit průhlednost obrázku pozadí snímku, aby se obsah snímku lépe vyjímal. Následující kód v C# ukazuje, jak změnit průhlednost obrázku pozadí snímku:
+Můžete chtít upravit průhlednost obrázku pozadí snímku, aby se obsah snímku více vynikl. Následující kód v C# ukazuje, jak změnit průhlednost obrázku pozadí snímku:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Effects;
+using Aspose.Slides.Export;
+
 var transparencyValue = 30; // Například.
 
-// Získejte kolekci operací transformace obrázku.
-var imageTransform = slide.Background.FillFormat.PictureFillFormat.Picture.ImageTransform;
-
-// Najděte existující efekt pevné procentuální průhlednosti.
-var transparencyOperation = null as IAlphaModulateFixed;
-foreach (var operation in imageTransform)
+using (Presentation presentation = new Presentation("ImageAsBackground.pptx"))
 {
-    if (operation is IAlphaModulateFixed alphaModulateFixed)
+    ISlide slide = presentation.Slides[0];
+
+    // Získejte kolekci operací transformace obrázku.
+    var imageTransform = slide.Background.FillFormat.PictureFillFormat.Picture.ImageTransform;
+
+    // Najděte existující efekt průhlednosti s pevnou procentuální hodnotou.
+    var transparencyOperation = null as IAlphaModulateFixed;
+    foreach (var operation in imageTransform)
     {
-        transparencyOperation = alphaModulateFixed;
-        break;
+        if (operation is IAlphaModulateFixed alphaModulateFixed)
+        {
+            transparencyOperation = alphaModulateFixed;
+            break;
+        }
     }
-}
 
-// Nastavte novou hodnotu průhlednosti.
-if (transparencyOperation == null)
-{
-    imageTransform.AddAlphaModulateFixedEffect(100 - transparencyValue);
-}
-else
-{
-    transparencyOperation.Amount = (100 - transparencyValue);
+    // Nastavte novou hodnotu průhlednosti.
+    if (transparencyOperation == null)
+    {
+        imageTransform.AddAlphaModulateFixedEffect(100 - transparencyValue);
+    }
+    else
+    {
+        transparencyOperation.Amount = (100 - transparencyValue);
+    }
+
+    presentation.Save("ImageBackgroundTransparency.pptx", SaveFormat.Pptx);
 }
 ```
 
 ## **Získání hodnoty pozadí snímku**
 
-Aspose.Slides poskytuje rozhraní [IBackgroundEffectiveData](https://reference.aspose.com/slides/cs/net/aspose.slides/ibackgroundeffectivedata/) pro získání efektivních hodnot pozadí snímku. Toto rozhraní vystavuje efektivní [FillFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/ibackgroundeffectivedata/fillformat/) a [EffectFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/ibackgroundeffectivedata/effectformat/).
+Aspose.Slides poskytuje rozhraní [IBackgroundEffectiveData](https://reference.aspose.com/slides/cs/net/aspose.slides/ibackgroundeffectivedata/) pro získání efektivních hodnot pozadí snímku. Toto rozhraní zpřístupňuje efektivní [FillFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/ibackgroundeffectivedata/fillformat/) a [EffectFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/ibackgroundeffectivedata/effectformat/).
 
-Pomocí vlastnosti `background` třídy [BaseSlide](https://reference.aspose.com/slides/cs/net/aspose.slides/baseslide/) můžete získat efektivní pozadí snímku.
+Při použití vlastnosti `background` třídy [BaseSlide](https://reference.aspose.com/slides/cs/net/aspose.slides/baseslide/) můžete získat efektivní pozadí pro snímek.
 
 Následující příklad v C# ukazuje, jak získat efektivní hodnotu pozadí snímku:
 
 ```cs
+using Aspose.Slides;
+
 // Vytvořte instanci třídy Presentation.
 using (Presentation presentation = new Presentation("Sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];  
 
-    // Získejte efektivní pozadí, s ohledem na hlavní snímek, rozvržení a motiv.
+    // Získejte efektivní pozadí s ohledem na master, rozvržení a motiv.
     IBackgroundEffectiveData effBackground = slide.Background.GetEffective();
 
     if (effBackground.FillFormat.FillType == FillType.Solid)
@@ -241,12 +273,12 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
 }
 ```
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Mohu resetovat vlastní pozadí a obnovit pozadí motivu/layoutu?**
+### Can I reset a custom background and restore the theme/layout background?
 
-Ano. Odstraňte vlastní výplň snímku a pozadí bude znovu zděděno z odpovídajícího [layoutu](/slides/cs/net/slide-layout/)/[masteru](/slides/cs/net/slide-master/) (tzn. z [pozadí motivu](/slides/cs/net/presentation-theme/)).
+Ano. Odstraňte vlastní výplň snímku a pozadí bude znovu zděděno z odpovídajícího [layout](/slides/cs/net/slide-layout/)/[master](/slides/cs/net/slide-master/) (tj. [theme background](/slides/cs/net/presentation-theme/)).
 
-**Co se stane s pozadím, pokud později změníme motiv prezentace?**
+### What happens to the background if I change the presentation’s theme later?
 
-Pokud má snímek vlastní výplň, zůstane nezměněna. Pokud je pozadí zděděno z [layoutu](/slides/cs/net/slide-layout/)/[masteru](/slides/cs/net/slide-master/), aktualizuje se podle [nového motivu](/slides/cs/net/presentation-theme/).
+Pokud má snímek vlastní výplň, zůstane nezměněna. Pokud je pozadí zděděno z [layout](/slides/cs/net/slide-layout/)/[master](/slides/cs/net/slide-master/), bude aktualizováno tak, aby odpovídalo [new theme](/slides/cs/net/presentation-theme/).

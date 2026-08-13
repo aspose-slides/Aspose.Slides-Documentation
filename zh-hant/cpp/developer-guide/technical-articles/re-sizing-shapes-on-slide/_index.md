@@ -1,27 +1,42 @@
 ---
-title: 在簡報投影片上調整形狀大小
+title: 調整投影片上的圖形大小
 type: docs
 weight: 100
 url: /zh-hant/cpp/re-sizing-shapes-on-slide/
 keywords:
-- 調整形狀大小
-- 變更形狀尺寸
+- 調整圖形大小
+- 變更圖形尺寸
 - PowerPoint
 - OpenDocument
 - 簡報
 - C++
 - Aspose.Slides
-description: "使用 Aspose.Slides for C++ 輕鬆調整 PowerPoint 與 OpenDocument 投影片上的形狀大小——自動化投影片版面調整並提升工作效率。"
+description: "使用 Aspose.Slides for C++ 輕鬆調整 PowerPoint 與 OpenDocument 投影片上的圖形大小——自動化投影片版面配置的調整，提高工作效率。"
 ---
-## **概覽**
+## **概觀**
 
-Aspose.Slides for C++ 客戶最常問的問題之一是如何調整形狀大小，使得在投影片尺寸變更時，內容不會被裁剪。本文簡短的技術說明展示了如何做到這一點。
+Aspose.Slides for C++ 的客戶最常提出的問題之一是如何調整圖形大小，以免在投影片尺寸變更時資料被截斷。這篇簡短的技術文章說明了如何做到這一點。
 
-## **調整形狀大小**
+## **調整圖形大小**
 
-為了防止投影片尺寸變更時形狀錯位，請更新每個形狀的位置和尺寸，使其符合新的投影片版面配置。
+為防止投影片尺寸變更時圖形錯位，請更新每個圖形的位置與尺寸，使其符合新的投影片版面配置。
 
 ```cpp
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/SlideSizeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // 載入簡報檔案。
 auto presentation = MakeObject<Presentation>(u"sample.ppt");
 
@@ -29,7 +44,7 @@ auto presentation = MakeObject<Presentation>(u"sample.ppt");
 float currentHeight = presentation->get_SlideSize()->get_Size().get_Height();
 float currentWidth = presentation->get_SlideSize()->get_Size().get_Width();
 
-// 在不縮放現有形狀的情況下變更投影片尺寸。
+// 在不縮放現有圖形的情況下變更投影片尺寸。
 presentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::DoNotScale);
 
 // 取得新的投影片尺寸。
@@ -39,16 +54,16 @@ float newWidth = presentation->get_SlideSize()->get_Size().get_Width();
 float heightRatio = newHeight / currentHeight;
 float widthRatio = newWidth / currentWidth;
 
-// 縮放形狀尺寸。
+// Resize and reposition shapes on every slide.
 for (auto&& slide : presentation->get_Slides())
 {
     for (auto&& shape : slide->get_Shapes())
     {
-        // 縮放形狀尺寸。
+        // 縮放圖形大小。
         shape->set_Height(shape->get_Height() * heightRatio);
         shape->set_Width(shape->get_Width() * widthRatio);
 
-        // 縮放形狀位置。
+        // 縮放圖形位置。
         shape->set_Y(shape->get_Y() * heightRatio);
         shape->set_X(shape->get_X() * widthRatio);
     }
@@ -58,22 +73,47 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert color="primary" %}} 
-如果投影片包含表格，上述程式碼將無法正確工作。在此情況下，必須調整表格中每個儲存格的大小。
+{{% alert color="info" %}} 
+如果投影片中包含表格，上述程式碼將無法正確運作。在此情況下，必須調整表格中每個儲存格的大小。 
 {{% /alert %}} 
 
-使用以下程式碼來調整包含表格的投影片。對於表格，設定寬度或高度是一個特例：必須調整各列高度與欄寬，以改變表格的整體大小。
+在您的端使用以下程式碼以調整包含表格的投影片大小。對於表格而言，設定寬度或高度是特殊情況：必須調整各列高度與欄寬以變更表格的整體尺寸。
 
 ```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILayoutSlideCollection.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/SlideSizeType.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
 // 取得原始投影片尺寸。
 float currentHeight = presentation->get_SlideSize()->get_Size().get_Height();
 float currentWidth = presentation->get_SlideSize()->get_Size().get_Width();
 
-// 在不縮放現有形狀的情況下變更投影片尺寸。
+// 在不縮放現有圖形的情況下變更投影片尺寸。
 presentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::DoNotScale);
-//presentation.SlideSize.Orientation = SlideOrienation.Portrait;
+// 設定投影片方向為直向
 
 // 取得新的投影片尺寸。
 float newHeight = presentation->get_SlideSize()->get_Size().get_Height();
@@ -86,11 +126,11 @@ for (auto&& master : presentation->get_Masters())
 {
     for (auto&& shape : master->get_Shapes())
     {
-        // 縮放形狀尺寸。
+        // 縮放圖形大小。
         shape->set_Height(shape->get_Height() * heightRatio);
         shape->set_Width(shape->get_Width() * widthRatio);
 
-        // 縮放形狀位置。
+        // 縮放圖形位置。
         shape->set_Y(shape->get_Y() * heightRatio);
         shape->set_X(shape->get_X() * widthRatio);
     }
@@ -99,11 +139,11 @@ for (auto&& master : presentation->get_Masters())
     {
         for (auto&& shape : layoutSlide->get_Shapes())
         {
-            // 縮放形狀尺寸。
+            // 縮放圖形大小。
             shape->set_Height(shape->get_Height() * heightRatio);
             shape->set_Width(shape->get_Width() * widthRatio);
 
-            // 縮放形狀位置。
+            // 縮放圖形位置。
             shape->set_Y(shape->get_Y() * heightRatio);
             shape->set_X(shape->get_X() * widthRatio);
         }
@@ -114,11 +154,11 @@ for (auto&& slide : presentation->get_Slides())
 {
     for (auto&& shape : slide->get_Shapes())
     {
-        // 縮放形狀尺寸。
+        // 縮放圖形大小。
         shape->set_Height(shape->get_Height() * heightRatio);
         shape->set_Width(shape->get_Width() * widthRatio);
 
-        // 縮放形狀位置。
+        // 縮放圖形位置。
         shape->set_Y(shape->get_Y() * heightRatio);
         shape->set_X(shape->get_X() * widthRatio);
 
@@ -143,30 +183,30 @@ presentation->Dispose();
 
 ## **常見問題**
 
-**為什麼在調整投影片大小後形狀會變形或被裁切？**
+### 為何在調整投影片大小後圖形會變形或被截斷？
 
-在調整投影片時，形狀會保留其原始位置和尺寸，除非明確變更比例。這可能導致內容被裁剪或形狀錯位。
+在調整投影片大小時，圖形會保留原始位置和尺寸，除非明確更改比例。這可能導致內容被裁剪或圖形錯位。
 
-**提供的程式碼適用於所有形狀類型嗎？**
+### 提供的程式碼是否適用於所有圖形類型？
 
-基本範例適用於大多數形狀類型（文字方塊、圖片、圖表等）。然而，對於表格，需要分別處理列與欄，因為表格的高度與寬度由各儲存格的尺寸決定。
+基本範例適用於大多數圖形類型（文字方塊、影像、圖表等）。然而，對於表格，必須分別處理列與欄，因為表格的高度與寬度是由各儲存格的尺寸決定的。
 
-**在調整投影片時如何調整表格大小？**
+### 在調整投影片大小時，該如何調整表格？
 
-需要遍歷表格的所有列與欄，按比例調整它們的高度與寬度，如第二個程式碼範例所示。
+必須遍歷表格的所有列與欄，並按比例調整其高度與寬度，如第二個程式碼範例所示。
 
-**此調整方式適用於母投影片與版面投影片嗎？**
+### 此調整方式是否適用於母片與版面投影片？
 
-是的，但也應該遍歷[母投影片](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/get_masters/)與[版面投影片](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/get_layoutslides/)，對它們的形狀套用相同的縮放邏輯，以確保整個簡報的一致性。
+是的，但您也應該遍歷[母片](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/get_masters/)和[版面投影片](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/get_layoutslides/)並對其圖形套用相同的縮放邏輯，以確保整個簡報的一致性。
 
-**我可以在調整大小的同時變更投影片方向（直式/橫式）嗎？**
+### 我能在調整大小的同時改變投影片的方向（直向/橫向）嗎？
 
-可以。您可以使用[presentation->get_SlideSize()->set_Orientation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/islidesize/set_orientation/) 變更方向。請確保相應調整縮放邏輯以維持版面配置。
+可以。您可以使用[presentation->get_SlideSize()->set_Orientation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/islidesize/set_orientation/)來變更方向。請確保相應設定縮放邏輯以保留版面配置。
 
-**我可以設定的投影片大小有上限嗎？**
+### 我能設定的投影片尺寸有上限嗎？
 
-Aspose.Slides 支援自訂尺寸，但過大的尺寸可能影響效能或與某些 PowerPoint 版本的相容性。
+Aspose.Slides 支援自訂尺寸，但過大的尺寸可能會影響效能或與某些 PowerPoint 版本的相容性。
 
-**如何防止具有固定長寬比的形狀被扭曲？**
+### 如何防止固定長寬比的圖形變形？
 
-在縮放之前，可檢查形狀的 `get_AspectRatioLocked` 方法。如果已鎖定，請按比例調整寬度或高度，而非分別縮放。
+您可以在縮放前檢查圖形的 `get_AspectRatioLocked` 方法。若已鎖定，請按比例調整寬度或高度，而非分別縮放它們。

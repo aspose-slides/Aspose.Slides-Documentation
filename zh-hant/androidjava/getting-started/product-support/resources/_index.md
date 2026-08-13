@@ -16,18 +16,16 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "探索 Aspose.Slides for Android via Java 的關鍵資源——從下載與文件到論壇與部落格更新——以提升 PPT、PPTX 與 ODP 的使用體驗。"
+description: "探索關鍵的 Aspose.Slides for Android via Java 資源——從下載、文件到論壇與部落格更新——以提升 PPT、PPTX 與 ODP 的使用體驗。"
 ---
-{{% alert color="primary" %}} 
-
-此表列出了 Aspose.Slides for Android via Java 的重要技術資源。 
-
+{{% alert color="info" %}} 
+此表列出了重要的 Aspose.Slides for Android via Java 技術資源。 
 {{% /alert %}} 
 
 |**資源**|**說明**|
 | :- | :- |
-|[Aspose.Slides for Android via Java home page](/slides/zh-hant/androidjava/)|產品首頁。|
-|[Aspose.Slides blog](https://blog.aspose.com/category/slides/zh-hant/)|請定期檢視此節，以獲取新版本資訊與 Aspose.Slides 的實用提示。|
-|[Aspose.Slides for Android via Java download](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)|從此處下載最新版本的 Aspose.Slides。我們經常發布新版本。|
-|[Aspose.Slides support forum](https://forum.aspose.com/c/slides/zh-hant/11)|在此發佈您的問題與疑慮，以快速獲得解決。|
-|[Aspose.Slides for Android via Java product documentation](/slides/zh-hant/java/)|完整的線上文件，包含本文件與 Aspose.Slides API 參考手冊。|
+|[Aspose.Slides for Android via Java 首頁](/slides/zh-hant/androidjava/)|產品首頁。|
+|[Aspose.Slides 部落格](https://blog.aspose.com/category/slides/zh-hant/)|請定期檢查此區段，以取得新版本資訊與有用的 Aspose.Slides 提示。|
+|[Aspose.Slides for Android via Java 下載](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)|從此處下載最新版本的 Aspose.Slides。我們經常發布新版本。|
+|[Aspose.Slides 支援論壇](https://forum.aspose.com/c/slides/zh-hant/11)|在此發佈您的問題與疑慮，以快速解決。|
+|[Aspose.Slides for Android via Java 產品文件](/slides/zh-hant/java/)|完整的線上文件，包含本文件與 Aspose.Slides API 參考。|

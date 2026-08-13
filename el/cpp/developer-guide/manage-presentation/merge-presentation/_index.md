@@ -1,5 +1,5 @@
 ---
-title: Αποτελεσματική Συγχώνευση Παρουσιάσεων σε C++
+title: Αποδοτική Συγχώνευση Παρουσιάσεων σε C++
 linktitle: Συγχώνευση Παρουσιάσεων
 type: docs
 weight: 40
@@ -19,64 +19,66 @@ keywords:
 - συνδυασμός ODP
 - C++
 - Aspose.Slides
-description: "Χωρίς κόπο συγχωνεύστε παρουσιάσεις PowerPoint (PPT, PPTX) και OpenDocument (ODP) με το Aspose.Slides για C++, βελτιώνοντας τη ροή εργασίας σας."
+description: "Συγχωνεύστε αβίαστα παρουσιάσεις PowerPoint (PPT, PPTX) και OpenDocument (ODP) με το Aspose.Slides για C++, βελτιώνοντας τη ροή εργασίας σας."
 ---
 ## **Επισκόπηση**
 
-Aspose.Slides σας επιτρέπει να συγχωνεύετε παρουσιάσεις κλωνοποιώντας διαφάνειες από μία παρουσίαση σε άλλη. Αυτό το άρθρο εξηγεί πώς να συγχωνεύσετε ολόκληρες παρουσιάσεις ή επιλεγμένες διαφάνειες, να χρησιμοποιήσετε κύριο πρότυπο διαφάνειας ή συγκεκριμένη διάταξη κατά τη συγχώνευση, να αντιμετωπίσετε παρουσιάσεις με διαφορετικά μεγέθη διαφανειών και να προσθέσετε τις συγχωνευμένες διαφάνειες σε ενότητα παρουσίασης. Περιλαμβάνει επίσης πρακτικές σημειώσεις σχετικά με το συγχωνευμένο περιεχόμενο, όπως σημειώσεις ομιλητή, σχόλια, αρχεία πηγής με κωδικό πρόσβασης και χρήση νημάτων.
+Το Aspose.Slides σας επιτρέπει να συγχωνεύετε παρουσιάσεις κλωνοποιώντας διαφάνειες από μια παρουσίαση σε άλλη. Αυτό το άρθρο εξηγεί πώς να συγχωνεύετε ολόκληρες παρουσιάσεις ή επιλεγμένες διαφάνειες, πώς να χρησιμοποιείτε ένα κύριο πρότυπο διαφάνειας ή μια συγκεκριμένη διάταξη κατά τη συγχώνευση, πώς να διαχειρίζεστε παρουσιάσεις με διαφορετικά μεγέθη διαφάνειας και πώς να προσθέτετε τις συγχωνευμένες διαφάνειες σε ενότητα παρουσίασης. Καλύπτει επίσης πρακτικές σημειώσεις που σχετίζονται με το συγχωνευμένο περιεχόμενο, συμπεριλαμβανομένων των σημειώσεων ομιλητή, των σχολίων, των αρχείων πηγής που είναι προστατευμένα με κωδικό πρόσβασης και της χρήσης νημάτων.
 
 ## **Συγχώνευση Παρουσιάσεων**
 
-Όταν συγχωνεύετε μία παρουσίαση σε άλλη, συνδυάζετε ουσιαστικά τις διαφάνειές τους σε μία παρουσίαση για να αποκτήσετε ένα αρχείο.
+Όταν συγχωνεύετε μια παρουσίαση με άλλη, ουσιαστικά συνδυάζετε τις διαφάνειές τους σε μια ενιαία παρουσίαση για να λάβετε ένα αρχείο.
 
-{{% alert title="Πληροφορίες" color="info" %}}
+{{% alert title="Info" color="info" %}}
+Τα περισσότερα προγράμματα παρουσίασης (PowerPoint ή OpenOffice) δεν διαθέτουν λειτουργίες που επιτρέπουν στους χρήστες να συνδυάζουν παρουσιάσεις με αυτόν τον τρόπο.
+{{% /alert %}}
 
-Οι περισσότερες προγράμματα παρουσίασης (PowerPoint ή OpenOffice) δεν διαθέτουν λειτουργίες που επιτρέπουν στους χρήστες να συνδυάζουν παρουσιάσεις με αυτόν τον τρόπο.
-
-[**Aspose.Slides for C++**](https://products.aspose.com/slides/el/cpp/), όμως, επιτρέπει τη συγχώνευση παρουσιάσεων με διάφορους τρόπους. Μπορείτε να συγχωνεύσετε παρουσιάσεις με όλα τα σχήματα, τα στυλ, τα κείμενα, τη μορφοποίηση, τα σχόλια, τις κινήσεις κ.λπ. χωρίς να ανησυχείτε για απώλεια ποιότητας ή δεδομένων.
+[**Aspose.Slides for C++**](https://products.aspose.com/slides/el/cpp/) , ωστόσο, επιτρέπει τη συγχώνευση παρουσιάσεων με διαφορετικούς τρόπους. Μπορείτε να συγχωνεύετε παρουσιάσεις με όλα τα σχήματά τους, τα στυλ, τα κείμενα, τη μορφοποίηση, τα σχόλια, τις κινήσεις κ.λπ., χωρίς να ανησυχείτε για απώλεια ποιότητας ή δεδομένων.
 
 **Δείτε επίσης**
 
-[Clone Slides](https://docs.aspose.com/slides/el/cpp/clone-slides/)*.*
+[Κλωνοποίηση Διαφανειών](https://docs.aspose.com/slides/el/cpp/clone-slides/)*.*
 
-{{% /alert %}}
+### **Τι μπορεί να συγχωνευθεί**
 
-### **Τι Μπορεί να Συγχωνευτεί**
+Με το Aspose.Slides, μπορείτε να συγχωνεύετε  
 
-Με την Aspose.Slides, μπορείτε να συγχωνεύσετε
+* ολόκληρες παρουσιάσεις. Όλες οι διαφάνειες από τις παρουσιάσεις καταλήγουν σε μία παρουσίαση  
+* συγκεκριμένες διαφάνειες. Οι επιλεγμένες διαφάνειες καταλήγουν σε μία παρουσίαση  
+* παρουσιάσεις σε μία μορφή (PPT σε PPT, PPTX σε PPTX, κλπ.) και σε διαφορετικές μορφές (PPT σε PPTX, PPTX σε ODP, κλπ.) μεταξύ τους.  
 
-* ολόκληρες παρουσιάσεις. Όλες οι διαφάνειες από τις παρουσιάσεις καταλήγουν σε μία παρουσίαση
-* συγκεκριμένες διαφάνειες. Οι επιλεγμένες διαφάνειες καταλήγουν σε μία παρουσίαση
-* παρουσιάσεις σε μία μορφή (PPT σε PPT, PPTX σε PPTX, κλπ.) και σε διαφορετικές μορφές (PPT σε PPTX, PPTX σε ODP, κλπ.) μεταξύ τους.
+{{% alert title="Note" color="warning" %}}  
 
-{{% alert title="Σημείωση" color="warning" %}}
+Εκτός από παρουσιάσεις, το Aspose.Slides επιτρέπει τη συγχώνευση άλλων αρχείων:
 
-Εκτός από παρουσιάσεις, η Aspose.Slides επιτρέπει τη συγχώνευση άλλων αρχείων:
-
-* [Images](https://products.aspose.com/slides/el/cpp/merger/image-to-image/), όπως [JPG to JPG](https://products.aspose.com/slides/el/cpp/merger/jpg-to-jpg/) ή [PNG to PNG](https://products.aspose.com/slides/el/cpp/merger/png-to-png/)
-* Documents, όπως [PDF to PDF](https://products.aspose.com/slides/el/cpp/merger/pdf-to-pdf/) ή [HTML to HTML](https://products.aspose.com/slides/el/cpp/merger/html-to-html/)
-* Και δύο διαφορετικά αρχεία όπως [image to PDF](https://products.aspose.com/slides/el/cpp/merger/image-to-pdf/) ή [JPG to PDF](https://products.aspose.com/slides/el/cpp/merger/jpg-to-pdf/) ή [TIFF to PDF](https://products.aspose.com/slides/el/cpp/merger/tiff-to-pdf/).
+* [Εικόνες](https://products.aspose.com/slides/el/cpp/merger/image-to-image/), όπως [JPG to JPG](https://products.aspose.com/slides/el/cpp/merger/jpg-to-jpg/) ή [PNG to PNG](https://products.aspose.com/slides/el/cpp/merger/png-to-png/)  
+* Έγγραφα, όπως [PDF to PDF](https://products.aspose.com/slides/el/cpp/merger/pdf-to-pdf/) ή [HTML to HTML](https://products.aspose.com/slides/el/cpp/merger/html-to-html/)  
+* Και δύο διαφορετικά αρχεία, όπως [image to PDF](https://products.aspose.com/slides/el/cpp/merger/image-to-pdf/) ή [JPG to PDF](https://products.aspose.com/slides/el/cpp/merger/jpg-to-pdf/) ή [TIFF to PDF](https://products.aspose.com/slides/el/cpp/merger/tiff-to-pdf/).  
 
 {{% /alert %}}
 
 ### **Επιλογές Συγχώνευσης**
 
-Μπορείτε να εφαρμόσετε επιλογές που καθορίζουν αν
+Μπορείτε να εφαρμόσετε επιλογές που καθορίζουν εάν  
 
-* κάθε διαφάνεια στην τελική παρουσίαση διατηρεί ένα μοναδικό στυλ
-* ένα συγκεκριμένο στυλ χρησιμοποιείται για όλες τις διαφάνειες στην τελική παρουσίαση.
+* κάθε διαφάνεια στην τελική παρουσίαση διατηρεί ένα μοναδικό στυλ  
+* χρησιμοποιείται ένα συγκεκριμένο στυλ για όλες τις διαφάνειες στην τελική παρουσίαση.  
 
-Για να συγχωνεύσετε παρουσιάσεις, η Aspose.Slides παρέχει μεθόδους [AddClone](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) (από το interface [ISlideCollection](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.i_slide_collection)). Υπάρχουν αρκετές υλοποιήσεις των μεθόδων `AddClone` που ορίζουν τις παραμέτρους της διαδικασίας συγχώνευσης. Κάθε αντικείμενο Presentation έχει μια συλλογή [Slides](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c), έτσι μπορείτε να καλέσετε μια μέθοδο `AddClone` από την παρουσίαση στην οποία θέλετε να συγχωνεύσετε διαφάνειες.
+Για τη συγχώνευση παρουσιάσεων, το Aspose.Slides παρέχει μεθόδους [AddClone](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) (από τη διεπαφή [ISlideCollection](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.i_slide_collection)). Υπάρχουν πολλές υλοποιήσεις των μεθόδων `AddClone` που ορίζουν τις παραμέτρους της διαδικασίας συγχώνευσης παρουσίασης. Κάθε αντικείμενο Presentation έχει μια συλλογή [Slides](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c), ώστε να μπορείτε να καλέσετε μια μέθοδο `AddClone` από την παρουσίαση στην οποία θέλετε να συγχωνεύσετε διαφάνειες.  
 
-Η μέθοδος `AddClone` επιστρέφει ένα αντικείμενο `ISlide`, το οποίο είναι κλώνος της πηγής. Οι διαφάνειες στην τελική παρουσίαση είναι απλώς αντίγραφα των διαφανειών από την πηγή. Συνεπώς, μπορείτε να κάνετε αλλαγές στις προκύπτουσες διαφάνειες (π.χ. να εφαρμόσετε στυλ, επιλογές μορφοποίησης ή διατάξεις) χωρίς να επηρεαστεί η πηγή.
+Η μέθοδος `AddClone` επιστρέφει ένα αντικείμενο `ISlide`, το οποίο είναι κλώνος της πηγής διαφάνειας. Οι διαφάνειες στην έξοδο είναι απλώς αντίγραφα των διαφανειών της πηγής. Συνεπώς, μπορείτε να κάνετε αλλαγές στις προκύπτουσες διαφάνειες (π.χ. να εφαρμόσετε στυλ, επιλογές μορφοποίησης ή διατάξεις) χωρίς να επηρεαστούν οι πηγές.  
 
-## **Συγχώνευση Παρουσιάσεων**
+## **Συγχώνευση Παρουσιάσεων** 
 
-Η Aspose.Slides παρέχει τη μέθοδο [**AddClone (ISlide)**](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) που επιτρέπει τον συνδυασμό διαφανειών ενώ οι διαφάνειες διατηρούν τις διατάξεις και τα στυλ τους (προεπιλεγμένες παράμετροι).
-
-Αυτός ο κώδικας C++ σας δείχνει πώς να συγχωνεύσετε παρουσιάσεις:
+Το Aspose.Slides παρέχει τη μέθοδο [**AddClone (ISlide)**](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) που επιτρέπει τον συνδυασμό διαφανειών διατηρώντας τις διατάξεις και τα στυλ τους (προεπιλεγμένες παράμετροι).  
 
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
 for (const auto& slide : pres2->get_Slides())
@@ -87,13 +89,18 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-## **Συγχώνευση Παρουσιάσεων με Κύριο Πρότυπο Διαφάνειας**
+## **Συγχώνευση Παρουσιάσεων με Κύριο Πρότυπο Διαφάνειας**  
 
-Η Aspose.Slides παρέχει τη μέθοδο [**AddClone (ISlide, IMasterSlide, bool)**](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.i_slide_collection#a6b040e6b30f52ab4644fafdbc650b640) που επιτρέπει τον συνδυασμό διαφανειών εφαρμόζοντας ένα κύριο πρότυπο παρουσίασης. Με αυτόν τον τρόπο, αν χρειαστεί, μπορείτε να αλλάξετε το στυλ για τις διαφάνειες στην τελική παρουσίαση.
-
-Αυτός ο κώδικας C++ παρουσιάζει τη λειτουργία:
+Το Aspose.Slides παρέχει τη μέθοδο [**AddClone (ISlide, IMasterSlide, bool)**](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.i_slide_collection#a6b040e6b30f52ab4644fafdbc650b640) που επιτρέπει τον συνδυασμό διαφανειών εφαρμόζοντας ένα πρότυπο κύριου διαφάνειας. Με αυτόν τον τρόπο, εάν χρειαστεί, μπορείτε να αλλάξετε το στυλ των διαφανειών στην τελική παρουσίαση.  
 
 ```cpp
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
 for (const auto& slide : pres2->get_Slides())
@@ -104,21 +111,27 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert title="Σημείωση" color="warning" %}}
+{{% alert title="Note" color="warning" %}}  
 
-Η διάταξη διαφάνειας για το κύριο πρότυπο καθορίζεται αυτόματα. Όταν δεν μπορεί να προσδιοριστεί κατάλληλη διάταξη, εάν η λογική παράμετρος `allowCloneMissingLayout` της μεθόδου `AddClone` είναι αληθής, χρησιμοποιείται η διάταξη της πηγής. Διαφορετικά, θα εξαπολυθεί [PptxEditException](https://reference.aspose.com/slides/el/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d).
+Η διάταξη της διαφάνειας για το κύριο πρότυπο προσδιορίζεται αυτόματα. Όταν δεν μπορεί να προσδιοριστεί κατάλληλη διάταξη, αν η παράμετρος boolean `allowCloneMissingLayout` της μεθόδου `AddClone` είναι ορισμένη σε true, χρησιμοποιείται η διάταξη της πηγής διαφάνειας. Διαφορετικά, θα ριχτεί μια εξαίρεση [PptxEditException](https://reference.aspose.com/slides/el/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d).  
+{{% /alert %}}  
 
-{{% /alert %}}
+Αν θέλετε οι διαφάνειες στην έξοδο να έχουν διαφορετική διάταξη, χρησιμοποιήστε τη μέθοδο [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.i_slide_collection#a0ed5909b2d92555159007046760ff2f1) κατά τη συγχώνευση.  
 
-Εάν θέλετε οι διαφάνειες στην τελική παρουσίαση να έχουν διαφορετική διάταξη, χρησιμοποιήστε τη μέθοδο [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.i_slide_collection#a0ed5909b2d92555159007046760ff2f1) αντί για την προηγούμενη κατά τη συγχώνευση.
+## **Συγχώνευση Συγκεκριμένων Διαφανειών από Παρουσιάσεις**  
 
-## **Συγχώνευση Συγκεκριμένων Διαφανειών από Παρουσιάσεις**
-
-Η συγχώνευση συγκεκριμένων διαφανειών από πολλαπλές παρουσιάσεις είναι χρήσιμη για τη δημιουργία προσαρμοσμένων δεσμών διαφανειών. Η Aspose.Slides C++ σας επιτρέπει να επιλέξετε και να εισάγετε μόνο τις διαφάνειες που χρειάζεστε. Το API διατηρεί τη μορφοποίηση, τη διάταξη και το σχεδιασμό των αρχικών διαφανειών.
-
-Ο παρακάτω κώδικας C++ δημιουργεί μια νέα παρουσίαση, προσθέτει διαφάνειες τίτλου από δύο άλλες παρουσιάσεις και αποθηκεύει το αποτέλεσμα σε αρχείο:
+Η συγχώνευση συγκεκριμένων διαφανειών από πολλαπλές παρουσιάσεις είναι χρήσιμη για τη δημιουργία προσαρμοσμένων συνόλων διαφανειών. Το Aspose.Slides C++ σάς επιτρέπει να επιλέγετε και να εισάγετε μόνο τις διαφάνειες που χρειάζεστε. Το API διατηρεί τη μορφοποίηση, τη διάταξη και το σχέδιο των αρχικών διαφανειών.  
 
 ```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IPresentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/SlideLayoutType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation)
 {
     for (auto&& slide : presentation->get_Slides())
@@ -132,6 +145,19 @@ SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation)
 }
 ```
 ```cpp
+#include <DOM/IPresentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// Δήλωση στον κώδικα παραπάνω.
+SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation);
+
 auto presentation = MakeObject<Presentation>();
 auto presentation1 = MakeObject<Presentation>(u"presentation1.pptx");
 auto presentation2 = MakeObject<Presentation>(u"presentation2.pptx");
@@ -155,11 +181,18 @@ presentation1->Dispose();
 presentation->Dispose();
 ```
 
-## **Συγχώνευση Παρουσιάσεων με Διάταξη Διαφάνειας**
+## **Συγχώνευση Παρουσιάσεων με Διάταξη Διαφάνειας**  
 
-Αυτός ο κώδικας C++ σας δείχνει πώς να συνδυάσετε διαφάνειες από παρουσιάσεις εφαρμόζοντας την επιθυμητή διάταξη διαφάνειας για να παραχθεί μία τελική παρουσίαση:
+Αυτός ο κώδικας C++ σας δείχνει πώς να συνδυάσετε διαφάνειες από παρουσιάσεις εφαρμόζοντας την προτιμώμενη διάταξή τους, ώστε να δημιουργηθεί μια ενιαία έξοδος:  
 
 ```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
 for (const auto& slide : pres2->get_Slides())
@@ -170,19 +203,25 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-## **Συγχώνευση Παρουσιάσεων με Διαφορετικά Μεγέθη Διαφανειών**
+## **Συγχώνευση Παρουσιάσεων με Διαφορετικά Μεγέθη Διαφάνειας**  
 
-{{% alert title="Σημείωση" color="warning" %}}
+{{% alert title="Note" color="warning" %}}  
 
-Δεν μπορείτε να συγχωνεύσετε παρουσιάσεις με διαφορετικά μεγέθη διαφανειών.
+Δεν μπορείτε να συγχωνεύσετε παρουσιάσεις με διαφορετικά μεγέθη διαφάνειας.  
+{{% /alert %}}  
 
-{{% /alert %}}
-
-Για να συγχωνεύσετε 2 παρουσιάσεις με διαφορετικά μεγέθη διαφανειών, πρέπει να αλλάξετε το μέγεθος μιας από τις παρουσιάσεις ώστε να ταιριάζει με το μέγεθος της άλλης.
-
-Αυτό το παράδειγμα κώδικα δείχνει τη λειτουργία:
+Για να συγχωνεύσετε 2 παρουσιάσεις με διαφορετικά μεγέθη διαφάνειας, πρέπει να αλλάξετε το μέγεθος μιας από τις παρουσιάσεις ώστε να ταιριάζει με το μέγεθος της άλλης.  
 
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres1Size = pres1->get_SlideSize()->get_Size();
 
@@ -197,11 +236,18 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-## **Συγχώνευση Διαφανειών σε Ενότητα Παρουσίασης**
+## **Συγχώνευση Διαφανειών σε Ενότητα Παρουσίασης**  
 
-Αυτός ο κώδικας C++ δείχνει πώς να συγχωνεύσετε μια συγκεκριμένη διαφάνεια σε μια ενότητα μιας παρουσίασης:
+Αυτός ο κώδικας C++ δείχνει πώς να συγχωνεύσετε μια συγκεκριμένη διαφάνεια σε ενότητα μιας παρουσίασης:  
 
 ```cpp
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
 for (int32_t index = 0; index < pres2->get_Slides()->get_Count(); index++)
@@ -213,28 +259,27 @@ for (int32_t index = 0; index < pres2->get_Slides()->get_Count(); index++)
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-Η διαφάνεια προστίθεται στο τέλος της ενότητας.
+Η διαφάνεια προστίθεται στο τέλος της ενότητας.  
 
-{{% alert title="Συμβουλή" color="primary" %}}
+{{% alert title="Tip" color="info" %}}  
 
-Η Aspose παρέχει μια [FREE Collage web app](https://products.aspose.app/slides/el/collage). Χρησιμοποιώντας αυτήν την online υπηρεσία, μπορείτε να συγχωνεύσετε [JPG to JPG](https://products.aspose.app/slides/el/collage/jpg) ή PNG σε PNG εικόνες, να δημιουργήσετε [photo grids](https://products.aspose.app/slides/el/collage/photo-grid) κ.λπ.
-
+Η Aspose παρέχει μια [ΔΩΡΕΑΝ εφαρμογή Collage στο web](https://products.aspose.app/slides/el/collage). Χρησιμοποιώντας αυτήν την online υπηρεσία, μπορείτε να συγχωνεύετε εικόνες [JPG σε JPG](https://products.aspose.app/slides/el/collage/jpg) ή PNG σε PNG, να δημιουργείτε [πλέγματα φωτογραφιών](https://products.aspose.app/slides/el/collage/photo-grid) κ.λπ.  
 {{% /alert %}}
 
-## **Συχνές Ερωτήσεις**
+## **FAQ**
 
-**Διατηρούνται οι σημειώσεις ομιλητή κατά τη συγχώνευση;**
+### Διατηρούνται οι σημειώσεις ομιλητή κατά τη συγχώνευση;
 
-Ναι. Κατά την κλονοποίηση διαφανειών, η Aspose.Slides μεταφέρει όλα τα στοιχεία της διαφάνειας, συμπεριλαμβανομένων των σημειώσεων, της μορφοποίησης και των κινήσεων.
+Ναι. Όταν κλωνοποιείτε διαφάνειες, το Aspose.Slides μεταφέρει όλα τα στοιχεία της διαφάνειας, συμπεριλαμβανομένων των σημειώσεων, της μορφοποίησης και των κινήσεων.
 
-**Μεταφέρονται τα σχόλια και οι συγγραφείς τους;**
+### Μεταφέρονται τα σχόλια και οι συγγραφείς τους;
 
-Τα σχόλια, ως μέρος του περιεχομένου της διαφάνειας, αντιγράφονται μαζί με τη διαφάνεια. Οι ετικέτες συγγραφέα σχολίων διατηρούνται ως αντικείμενα σχολίου στην προκύπτουσα παρουσίαση.
+Τα σχόλια, ως μέρος του περιεχομένου της διαφάνειας, αντιγράφονται μαζί με τη διαφάνεια. Οι ετικέτες των συντελεστών των σχολίων διατηρούνται ως αντικείμενα σχολίου στην προκύπτουσα παρουσίαση.
 
-**Τι γίνεται αν η πηγή παρουσίασης είναι κωδικοποιημένη με κωδικό πρόσβασης;**
+### Τι γίνεται αν η πηγαία παρουσίαση είναι προστατευμένη με κωδικό;
 
-Πρέπει να [ανοίξει με τον κωδικό πρόσβασης](/slides/el/cpp/password-protected-presentation/) μέσω του [LoadOptions::set_Password](https://reference.aspose.com/slides/el/cpp/aspose.slides/loadoptions/set_password/); μετά τη φόρτωση, αυτές οι διαφάνειες μπορούν να κλωνοποιηθούν με ασφάλεια σε αρχείο προορισμού χωρίς προστασία (ή επίσης με προστασία).
+Πρέπει να [ανοίξει με τον κωδικό](/slides/el/cpp/password-protected-presentation/) μέσω της μεθόδου [LoadOptions::set_Password](https://reference.aspose.com/slides/el/cpp/aspose.slides/loadoptions/set_password/); μετά τη φόρτωση, οι διαφάνειες μπορούν να κλωνοποιηθούν με ασφάλεια σε ένα απροστάτευτο αρχείο-στόχο (ή ακόμη και σε ένα προστατευμένο).
 
-**Πόσο ασφαλής είναι η λειτουργία συγχώνευσης ως προς τα νήματα;**
+### Πόσο ασφαλής ως προς τα νήματα είναι η λειτουργία συγχώνευσης;
 
-Μην χρησιμοποιείτε την ίδια [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/) παρουσίαση από [πολλαπλά νήματα](/slides/el/cpp/multithreading/). Ο συνιστώμενος κανόνας είναι «ένα έγγραφο — ένα νήμα»· διαφορετικά αρχεία μπορούν να επεξεργαστούν παράλληλα σε ξεχωριστά νήματα.
+Μην χρησιμοποιείτε την ίδια παρουσίαση [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/) από [πολλαπλά νήματα](/slides/el/cpp/multithreading/). Ο συνιστωμένος κανόνας είναι «ένα έγγραφο — ένα νήμα»· διαφορετικά αρχεία μπορούν να επεξεργαστούν παράλληλα σε ξεχωριστά νήματα.

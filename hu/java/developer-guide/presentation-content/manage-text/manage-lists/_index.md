@@ -1,48 +1,51 @@
 ---
-title: Felsorolás- és számozott listák kezelése prezentációkban Java-ban
+title: Felsorolási és számozott listák kezelése prezentációkban Java-ban
 linktitle: Listák kezelése
 type: docs
 weight: 60
 url: /hu/java/manage-lists/
 keywords:
-- felsorolásjel
+- pont
 - felsoroláslista
 - számozott lista
-- szimbólum felsorolásjel
-- képes felsorolásjel
-- egyéni felsorolásjel
+- szimbólum pont
+- kép pont
+- egyéni pont
 - többszintű lista
-- felsorolásjel létrehozása
-- felsorolásjel hozzáadása
+- pont létrehozása
+- pont hozzáadása
 - lista hozzáadása
 - PowerPoint
 - OpenDocument
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Ismerje meg, hogyan hozhat létre és formázhat felsorolás, képes, többszintű és számozott listákat PowerPoint és OpenDocument prezentációkban az Aspose.Slides for Java segítségével."
+description: "Ismerje meg, hogyan hozhat létre és formázhat felsorolás-, kép-, többszintű és számozott listákat PowerPoint és OpenDocument prezentációkban az Aspose.Slides for Java használatával."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides for Java lehetővé teszi, hogy felsorolásjelekkel és számozott listákkal készült PowerPoint és OpenDocument bemutatókat hozzon létre és formázzon. Egy listaelem egy bekezdés, amelynek a felsorolásjellel kapcsolatos beállításait a bekezdés formátuma vezérli.
+Az Aspose.Slides for Java lehetővé teszi felsorolás- és számozott listák létrehozását és formázását PowerPoint és OpenDocument prezentációkban. A listaelem egy bekezdés, amelynek felpontozási beállításait a bekezdés formátuma szabályozza.
 
-Használja az [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iparagraph/#getParagraphFormat--) metódust a bekezdés szintű lista beállítások eléréséhez. A fő belépési pont az [IParagraphFormat.getBullet](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iparagraphformat/#getBullet--) , amely egy [IBulletFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ibulletformat/) objektumot ad vissza. Ezzel az objektummal beállíthatja a felsorolásjel típusát, szimbólumát, képét, színét, méretét, számozási stílusát és a kezdő számot.
+Használja a [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iparagraph/#getParagraphFormat--) metódust a bekezdés-szintű lista beállítások eléréséhez. A fő belépési pont a [IParagraphFormat.getBullet](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iparagraphformat/#getBullet--) metódus, amely egy [IBulletFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ibulletformat/) objektumot ad vissza. Ezzel az objektummal beállíthatja a felpontozás típusát, szimbólumát, képét, színét, méretét, számozási stílusát és kezdőszámát.
 
 Ez a cikk bemutatja, hogyan:
 
-- egy egyéni szimbólummal ellátott felsoroláslista létrehozása
-- képes felsorolásjel létrehozása
-- többszintű lista létrehozása a bekezdés mélységének beállításával
-- számozott lista létrehozása
-- listaformátum ellenőrzése és módosítása egy létező bemutatóban
+- hozhat létre egy egyéni szimbólummal ellátott felsorolást
+- hozhat létre képjeles felpontozást
+- hozhat létre többszintű listát a bekezdés mélységének beállításával
+- hozhat létre számozott listát
+- vizsgálja és módosítsa a lista formázását egy meglévő prezentációban
 
 ## **Felsoroláslista létrehozása**
 
-Felsoroláslista létrehozásához adjon [IParagraph](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iparagraph/) objektumokat egy [ITextFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframe/)‑hez, és állítsa be az [IBulletFormat.setType](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ibulletformat/#setType-byte-) értékét [BulletType.Symbol](https://reference.aspose.com/slides/hu/java/com.aspose.slides/bullettype/#Symbol)-ra. Ezután beállíthatja az [IBulletFormat.setChar](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ibulletformat/#setChar-char-), az [IBulletFormat.getColor](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ibulletformat/#getColor--) és az [IBulletFormat.setHeight](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ibulletformat/#setHeight-float-) értékeket a felsorolásjel megjelenésének vezérléséhez.
+A felsoroláslista létrehozásához adjon [IParagraph](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iparagraph/) objektumokat egy [ITextFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframe/)‑hez, és állítsa be az [IBulletFormat.setType](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ibulletformat/#setType-byte-) értékét a [BulletType.Symbol](https://reference.aspose.com/slides/hu/java/com.aspose.slides/bullettype/#Symbol) típusra. Ezután beállíthatja az [IBulletFormat.setChar](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ibulletformat/#setChar-char-), [IBulletFormat.getColor](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ibulletformat/#getColor--) és [IBulletFormat.setHeight](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ibulletformat/#setHeight-float-) értékeket a felpontozás megjelenésének szabályozásához.
 
-Az alábbi Java kód bemutatja, hogyan hozhat létre felsoroláslistát egy dián:
+Az alábbi Java‑kód bemutatja, hogyan hozhat létre felsoroláslistát egy dián:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -81,15 +84,17 @@ try {
 
 Az eredmény:
 
-![A szimbólum felsorolásjelek](symbol_bullets.png)
+![A szimbólumú felsorolások](symbol_bullets.png)
 
 ## **Számozott lista létrehozása**
 
-Használjon számozott listákat, ha az elemek sorrendje fontos. Állítsa be az [IBulletFormat.setType](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ibulletformat/#setType-byte-) értékét [BulletType.Numbered](https://reference.aspose.com/slides/hu/java/com.aspose.slides/bullettype/#Numbered)-ra. Választhat egy számozási formátumot az [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) segítségével, vagy beállíthatja az [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) értéket, ha a lista 1‑nél eltérő értékkel kezdődik.
+Használjon számozott listákat, ha az elemek sorrendje fontos. Állítsa az [IBulletFormat.setType](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ibulletformat/#setType-byte-) értékét a [BulletType.Numbered](https://reference.aspose.com/slides/hu/java/com.aspose.slides/bullettype/#Numbered) típusra. A számozási formátumot a [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) segítségével választhatja ki, vagy beállíthatja a [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) értékét, ha a lista nem 1‑től kell, hogy induljon.
 
-Az alábbi Java kód megmutatja, hogyan hozhat létre számozott listát egy dián:
+Az alábbi Java‑kód megmutatja, hogyan hozhat létre számozott listát egy dián:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -121,25 +126,29 @@ try {
 
 Az eredmény:
 
-![A számozott felsorolásjelek](numbered_bullets.png)
+![A számozott felsorolások](numbered_bullets.png)
 
-## **Képes felsorolásjel létrehozása**
+## **Képjeles felsorolás létrehozása**
 
-Az Aspose.Slides lehetővé teszi, hogy a szokásos felsorolásjel szimbólumát egy képpel helyettesítse. A képes felsorolásjelek leginkább egyszerű képekkel működnek jól, amelyek kis méretben is olvashatóak, például ikonok vagy kicsi átlátszó PNG fájlok.
+Az Aspose.Slides lehetővé teszi, hogy a szabályos felpontozási szimbólumot egy képpel helyettesítse. A képjeles felpontozás leginkább egyszerű, kis méretben is olvasható képekkel működik, például ikonokkal vagy kis áttetsző PNG‑fájlokkal.
 
-{{% alert color="primary" %}}
-Ideális esetben, ha a szokásos felsorolásjel szimbólumát képpel kívánja helyettesíteni, a legjobb egy egyszerű, átlátszó háttérrel rendelkező grafika kiválasztása. Az ilyen képek jól működnek egyéni felsorolásjelszimbólumokként.
+{{% alert color="info" %}}
+Ideális esetben, ha a szabályos felpontozási szimbólumot képpel szeretné helyettesíteni, érdemes egyszerű grafikát választani átlátszó háttérrel. Az ilyen képek jól használhatók egyéni felpontozási szimbólumként.
+
+Ne feledje, hogy a képet nagyon kis méretre lesz átméretezve. Emiatt erősen ajánljuk, hogy olyan képet válasszon, amely a felpontozásként való használat során is tiszta és vizuálisan hatásos marad.
 {{% /alert %}}
 
-Képes felsorolásjel létrehozásához adjon egy képet a [Presentation.getImages](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#getImages--) metódushoz, és rendelje hozzá a visszakapott képobjektumot az [IBulletFormat.getPicture](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ibulletformat/#getPicture--)-hez. Állítsa be az [IBulletFormat.setType](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ibulletformat/#setType-byte-) értékét [BulletType.Picture](https://reference.aspose.com/slides/hu/java/com.aspose.slides/bullettype/#Picture)-ra, mielőtt a képet hozzárendeli.
+A képjeles felpontozás létrehozásához adjon képet a [Presentation.getImages](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#getImages--) metódushoz, és rendelje hozzá a visszakapott képtárgyat az [IBulletFormat.getPicture](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ibulletformat/#getPicture--) metódushoz. Állítsa az [IBulletFormat.setType](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ibulletformat/#setType-byte-) értékét a [BulletType.Picture](https://reference.aspose.com/slides/hu/java/com.aspose.slides/bullettype/#Picture) típusra, mielőtt a képet hozzárendeli.
 
-Tegyük fel, hogy van egy "image.png" fájlunk:
+Tegyük fel, hogy van egy „image.png” fájlunk:
 
-![Kép a felsorolásjelekhez](picture_for_bullets.png)
+![Kép a felsoroláshoz](picture_for_bullets.png)
 
-Az alábbi Java kód megmutatja, hogyan hozhat létre képes felsorolásjeleket egy dián:
+Az alábbi Java‑kód bemutatja, hogyan hozhat létre képjeles felpontozást egy dián:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -174,15 +183,17 @@ try {
 
 Az eredmény:
 
-![A képes felsorolásjelek](picture_bullets.png)
+![A képjeles felsorolások](picture_bullets.png)
 
 ## **Többszintű lista létrehozása**
 
-Használja az [IParagraphFormat.setDepth](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iparagraphformat/#setDepth-short-) metódust a listaelemek különböző szintekre helyezéséhez. A 0‑szint a legfelső szint, az 1‑szint alá van ágyazva, stb.
+Használja az [IParagraphFormat.setDepth](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iparagraphformat/#setDepth-short-) metódust a listaelemek különböző szintekre helyezéséhez. A 0‑szint a legfelső, az 1‑szint alatta van, és így tovább.
 
-Az alábbi Java kód mutatja, hogyan hozhat létre többszintű felsoroláslistát:
+Az alábbi Java‑kód mutatja, hogyan hozhat létre többszintű felsoroláslistát:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -223,11 +234,13 @@ Az eredmény:
 
 ## **Meglévő lista módosítása**
 
-A listaformátum módosításához egy meglévő bemutatóban, érje el a célbekezdést, és frissítse annak [IParagraphFormat.getBullet](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iparagraphformat/#getBullet--) beállításait. A listák létrehozásához használt ugyanazok a tulajdonságok használhatók a PPT, PPTX vagy ODP fájlból betöltött listák ellenőrzésére vagy módosítására.
+A lista formázásának módosításához egy meglévő prezentációban érje el a célbekezdést, és frissítse annak [IParagraphFormat.getBullet](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iparagraphformat/#getBullet--) beállításait. A listák létrehozásához használt ugyanazok a tulajdonságok használhatók a PPT, PPTX vagy ODP fájlból betöltött listák vizsgálatára vagy módosítására.
 
-Az alábbi Java kód módosítja egy szövegkeret első bekezdését, hogy számozott lista stílust használjon:
+Az alábbi Java‑kód a szövegkeret első bekezdését számozott lista stílusra állítja:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -248,14 +261,14 @@ try {
 
 ## **GYIK**
 
-**Exportálhatók a felsorolás- és számozott listák PDF‑be vagy képekbe?**
+### Exportálhatók a felsorolás- és számozott listák PDF‑re vagy képekre?
 
-Igen. Az Aspose.Slides megőrzi a listaformátumot, ha a célformátum támogatja a megfelelő szövegelrendezést és felsorolásjellel kapcsolatos funkciókat.
+Igen. Az Aspose.Slides megőrzi a lista formázását, ha a célformátum támogatja a megfelelő szövegelrendezést és felpontozási funkciókat.
 
-**Szerkeszthetek listákat meglévő bemutatókban?**
+### Szerkeszthetek listákat meglévő prezentációkban?
 
-Igen. Töltse be a bemutatót, érje el a célbekezdést, ellenőrizze vagy frissítse annak [IParagraphFormat.getBullet](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iparagraphformat/#getBullet--) beállításait, majd mentse a bemutatót.
+Igen. Töltse be a prezentációt, érje el a célbekezdést, vizsgálja vagy frissítse annak [IParagraphFormat.getBullet](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iparagraphformat/#getBullet--) beállításait, majd mentse a prezentációt.
 
-**Tartalmazhatnak a listák nem latin szöveget?**
+### Tartalmazhatnak a listák nem latin betűket?
 
-Igen. A listaelemek szövege tartalmazhat Unicode karaktereket, így többnyelvű bemutatókban is létrehozhat listákat. Győződjön meg róla, hogy a bemutatóban használt betűtípusok támogatják a szükséges karaktereket.
+Igen. A listaelemek szövege tartalmazhat Unicode karaktereket, így többnyelvű prezentációkban is létrehozhat listákat. Győződjön meg arról, hogy a prezentációban használt betűtípusok támogatják a szükséges karaktereket.

@@ -6,28 +6,33 @@ weight: 120
 url: /id/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/
 keywords:
 - migrasi
-- kode warisan
+- kode legacy
 - kode modern
-- pendekatan warisan
+- pendekatan legacy
 - pendekatan modern
 - PowerPoint
 - OpenDocument
 - presentasi
 - Java
 - Aspose.Slides
-description: "Tinjau pembaruan API publik dan perubahan yang memutuskan dalam Aspose.Slides untuk Java untuk memigrasikan solusi presentasi PowerPoint PPT, PPTX, dan ODP Anda dengan mulus."
+description: "Tinjau pembaruan API publik dan perubahan yang memecah di Aspose.Slides untuk Java untuk memigrasikan solusi presentasi PowerPoint PPT, PPTX, dan ODP Anda dengan mulus."
 ---
-{{% alert color="primary" %}} 
-Halaman ini mencantumkan semua kelas, metode, properti, dan sebagainya yang [ditambahkan](/slides/id/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/) serta semua pembatasan baru, dan [perubahan](/slides/id/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/) yang diperkenalkan dengan API Aspose.Slides for Java 15.4.0.
+{{% alert color="info" %}} 
+
+Halaman ini mencantumkan semua kelas, metode, properti, dan sebagainya yang [added](/slides/id/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/) , serta pembatasan baru dan [changes](/slides/id/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/) lainnya yang diperkenalkan dengan API Aspose.Slides untuk Java 15.4.0.
+
 {{% /alert %}} 
 ## **Perubahan API Publik**
 ### **Enum OrganizationChartLayoutType telah ditambahkan**
-Enum com.aspose.slides.OrganizationChartLayoutType mewakili jenis format untuk node anak dalam diagram organisasi.
+Enum com.aspose.slides.OrganizationChartLayoutType mewakili jenis pemformatan node anak dalam bagan organisasi.
 ### **Metode IBulletFormat.applyDefaultParagraphIndentsShifts() telah ditambahkan**
-Metode com.aspose.slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts menetapkan pergeseran default non-zero untuk Indent paragraf dan MarginLeft yang efektif ketika bullet diaktifkan (seperti yang dilakukan PowerPoint bila mengaktifkan bullet/penomoran paragraf). Jika bullet dinonaktifkan, maka hanya mengatur ulang Indent paragraf dan MarginLeft (seperti yang dilakukan PowerPoint bila menonaktifkan bullet/penomoran paragraf).
+Metode com.aspose.slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts menetapkan pergeseran default non-zero untuk Indent paragraf dan MarginLeft yang efektif ketika bullet diaktifkan (seperti yang dilakukan PowerPoint jika mengaktifkan bullet/penomoran paragraf). Jika bullet dinonaktifkan maka hanya mengatur ulang Indent paragraf dan MarginLeft (seperti yang dilakukan PowerPoint jika menonaktifkan bullet/penomoran paragraf).
 ### **Metode IConnector.reroute() telah ditambahkan**
 Metode com.aspose.slides.IConnector.reroute() mengarahkan ulang konektor sehingga mengambil jalur terpendek antara bentuk yang dihubungkannya. Untuk melakukan ini, metode reroute() dapat mengubah StartShapeConnectionSiteIndex dan EndShapeConnectionSiteIndex.
+
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation input = new Presentation();
 
@@ -49,8 +54,11 @@ input.save("output.pptx", SaveFormat.Pptx);
 
 ```
 ### **Metode IPresentation.getSlideById(long) telah ditambahkan**
-Metode Aspose.Slides.IPresentation.getSlideById(int) mengembalikan Slide, MasterSlide, atau LayoutSlide berdasarkan Id slide.
+Metode Aspose.Slides.IPresentation.getSlideById(long) mengembalikan Slide, MasterSlide, atau LayoutSlide berdasarkan Id slide.
+
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation presentation = new Presentation();
 
@@ -61,7 +69,10 @@ IBaseSlide slide = presentation.getSlideById(id);
 ```
 ### **Metode ISmartArt.getNodes() telah ditambahkan**
 Metode com.aspose.slides.ISmartArt.getNodes() mengembalikan koleksi node akar dalam objek SmartArt.
+
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -75,8 +86,11 @@ pres.save("out.pptx", SaveFormat.Pptx);
 
 ```
 ### **Metode ISmartArt.setLayout(int) telah ditambahkan**
-Metode untuk properti com.aspose.slides.ISmartArt.setLayout(int) telah ditambahkan. Ini memungkinkan mengubah tipe tata letak diagram yang ada.
+Metode untuk properti com.aspose.slides.ISmartArt.setLayout(int) telah ditambahkan. Metode ini memungkinkan mengubah tipe tata letak diagram yang ada.
+
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -89,7 +103,10 @@ pres.save("out.pptx", SaveFormat.Pptx);
 ```
 ### **Metode ISmartArtNode.isHidden() telah ditambahkan**
 Metode com.aspose.slides.ISmartArtNode.isHidden() mengembalikan true jika node ini adalah node tersembunyi dalam model data.
+
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -105,12 +122,14 @@ if(hidden) {
 
 }
 
-pres.Save("out.pptx", SaveFormat.Pptx);
-
+pres.save("out.pptx", SaveFormat.Pptx);
 ```
-### **Metode ISmartArt.isReversed() dan setReserved() telah ditambahkan**
-Properti com.aspose.slides.ISmartArt.IsReversed memungkinkan mendapatkan atau mengatur keadaan diagram SmartArt terkait arah (kiri-ke-kanan) LTR atau (kanan-ke-kiri) RTL, jika diagram mendukung pembalikan.
+### **Metode ISmartArt.isReversed(), setReversed() telah ditambahkan**
+Properti com.aspose.slides.ISmartArt.IsReversed memungkinkan mendapatkan atau mengatur status diagram SmartArt terkait (kiri-ke-kanan) LTR atau (kanan-ke-kiri) RTL, jika diagram mendukung pembalikan.
+
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation presentation = new Presentation();
 
@@ -121,9 +140,12 @@ smart.setReversed(true);
 presentation.save("out.pptx", SaveFormat.Pptx);
 
 ```
-### **Metode ISmartArtNode.getOrganizationChartLayout() dan setOrganizationChartLayout(int) telah ditambahkan**
-Metode com.aspose.slides.ISmartArtNode.getOrganizationChartLayout() dan setOrganizationChartLayout(int) memungkinkan mendapatkan atau mengatur tipe diagram organisasi yang terkait dengan node saat ini.
+### **Metode ISmartArtNode.getOrganizationChartLayout(), setOrganizationChartLayout(int) telah ditambahkan**
+Metode com.aspose.slides.ISmartArtNode.getOrganizationChartLayout() dan setOrganizationChartLayout(int) memungkinkan mendapatkan atau mengatur tipe bagan organisasi yang terkait dengan node saat ini.
+
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -135,8 +157,11 @@ pres.save("out.pptx", SaveFormat.Pptx);
 
 ```
 ### **Properti IShape.getConnectionSiteCount() telah ditambahkan**
-Properti com.aspose.slides.getConnectionSiteCount() mengembalikan jumlah situs koneksi pada shape.
+Properti com.aspose.slides.getConnectionSiteCount() mengembalikan jumlah situs koneksi pada bentuk.
+
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation input = new Presentation();
 
@@ -161,14 +186,13 @@ if (ellipse.getConnectionSiteCount() > wantedIndex) {
 }
 
 input.save("output.pptx", SaveFormat.Pptx);
-
 ```
 ### **Perubahan Minor**
-Berikut ini daftar perubahan API minor:
+Berikut adalah daftar perubahan API minor:
 
-|Enum com.aspose.slides.BevelColorMode |dihapus, enum tidak digunakan |
+|Enum com.aspose.slides.BevelColorMode |dihapus, enum tidak terpakai |
 | :- | :- |
-|Method ThreeDFormatEffectiveData.getBevelColorMode() |dihapus, properti tidak digunakan |
+|Method ThreeDFormatEffectiveData.getBevelColorMode() |dihapus, properti tidak terpakai |
 |Method com.aspose.slides.ChartSeriesGroup.getChart() |ditambahkan |
 |Inheritance of IParagraphFormatEffectiveData from ISlideComponent <br>Inheritance of IThreeDFormat from ISlideComponent |dihapus |
 |Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletChar() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletFont() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletHeight() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletType() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getNumberedBulletStartWith() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getNumberedBulletStyle() |dihapus karena usang |

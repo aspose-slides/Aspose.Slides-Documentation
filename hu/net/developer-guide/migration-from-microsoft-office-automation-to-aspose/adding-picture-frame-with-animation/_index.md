@@ -1,15 +1,15 @@
 ---
-title: Képkockák hozzáadása animációval VSTO és Aspose.Slides for .NET használatával
-linktitle: Képkockák animációval
+title: Képkeretek hozzáadása animációval VSTO és Aspose.Slides for .NET használatával
+linktitle: Képkeretek animációval
 type: docs
 weight: 60
 url: /hu/net/adding-picture-frame-with-animation/
 keywords:
-- képkocka
+- képkeret
 - kép hozzáadása
 - kép beszúrása
 - animált kép
-- animált kép
+- kép animációval
 - migráció
 - VSTO
 - Office automatizálás
@@ -18,23 +18,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Migráljon a Microsoft Office automatizálásból az Aspose.Slides for .NET-re, és animálja a képkockákat a PowerPoint (PPT, PPTX) diákon tiszta C# kóddal."
+description: "Válts Microsoft Office automatizálásról Aspose.Slides for .NET-re, és animáld a képkereteket a PowerPoint (PPT, PPTX) diákon tiszta C# kóddal."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-A képkockákat a Microsoft PowerPoint alakzataira vagy képeire alkalmazzák, hogy a prezentációban képeket keretezzék. Ez a cikk bemutatja, hogyan lehet programozott módon képkockát létrehozni és animációt alkalmazni rá, először a [VSTO 2008](/slides/hu/net/adding-picture-frame-with-animation/) és aztán a [Aspose.Slides for .NET](/slides/hu/net/adding-picture-frame-with-animation/) segítségével. Először megmutatjuk, hogyan kell keretet és animációt alkalmazni a VSTO 2008 használatával. Ezután bemutatjuk, hogyan hajthatók végre ugyanazok a lépések az Aspose.Slides for .NET használatával.
+A képkereteket alakzatokra vagy képekre alkalmazzák a Microsoft PowerPoint programban, hogy keretet adjanak a bemutatóban lévő képeknek. Ez a cikk bemutatja, hogyan hozhatsz létre képkeretet, és hogyan alkalmazhatsz animációt programozottan először a [VSTO 2008](/slides/hu/net/adding-picture-frame-with-animation/), majd az [Aspose.Slides for .NET](/slides/hu/net/adding-picture-frame-with-animation/) használatával. Először megmutatjuk, hogyan alkalmazz keretet és animációt a VSTO 2008 segítségével. Ezután bemutatjuk, hogyan végezheted el ugyanazokat a lépéseket az Aspose.Slides for .NET használatával.
 
 {{% /alert %}} 
-## **Képkockák hozzáadása animációval**
-Az alábbi kódrészletek egy prezentációt hoznak létre egy diával, egy képet képkockával adnak hozzá, és animációt alkalmaznak rá.
+## **Képkeretek hozzáadása animációval**
+Az alábbi kópminták egy diát tartalmazó prezentációt hoznak létre, képet adnak hozzá képkeretben, és animációt alkalmaznak rá.
 ### **VSTO 2008 példa**
-A VSTO 2008 használatával kövesse az alábbi lépéseket:
+A VSTO 2008 használatához kövesd az alábbi lépéseket:
 
-1. Hozzon létre egy prezentációt.
-1. Adjon hozzá egy üres diát.
-1. Adjon egy képalakzatot a diához.
-1. Alkalmazzon animációt a képre.
-1. Írja a prezentációt a lemezre.
+1. Hozz létre egy prezentációt.
+1. Adj hozzá egy üres diát.
+1. Adj egy kép alakzatot a diához.
+1. Alkalmazz animációt a képre.
+1. Írd a prezentációt a lemezre.
 
 **A VSTO-val létrehozott kimeneti prezentáció** 
 
@@ -49,12 +49,12 @@ PowerPoint.Presentation pres = Globals.ThisAddIn.Application.Presentations.Add(M
 //Üres dia hozzáadása
 PowerPoint.Slide sld = pres.Slides.Add(1, PowerPoint.PpSlideLayout.ppLayoutBlank);
 
-//Képkocka hozzáadása
+//Képkeret hozzáadása
 PowerPoint.Shape PicFrame = sld.Shapes.AddPicture(@"D:\Aspose Data\Desert.jpg",
 Microsoft.Office.Core.MsoTriState.msoTriStateMixed,
 Microsoft.Office.Core.MsoTriState.msoTriStateMixed, 150, 100, 400, 300);
 
-//Animáció alkalmazása a képkockán
+//Animáció alkalmazása a képkeretre
 PicFrame.AnimationSettings.EntryEffect = Microsoft.Office.Interop.PowerPoint.PpEntryEffect.ppEffectBoxIn;
 
 //Prezentáció mentése
@@ -64,14 +64,14 @@ Microsoft.Office.Core.MsoTriState.msoFalse);
 
 
 ### **Aspose.Slides for .NET példa**
-Az Aspose.Slides for .NET használatával hajtsa végre a következő lépéseket:
+Az Aspose.Slides for .NET használatához hajtsd végre a következő lépéseket:
 
-1. Hozzon létre egy prezentációt.
-1. Lépjen az első diára.
-1. Adjon egy képet a picture collection-hez.
-1. Adjon egy képalakzatot a diához.
-1. Alkalmazzon animációt a képre.
-1. Írja a prezentációt a lemezre.
+1. Hozz létre egy prezentációt.
+1. Érj el az első diát.
+1. Adj egy képet a PictureCollection-hez.
+1. Adj egy kép alakzatot a diához.
+1. Alkalmazz animációt a képre.
+1. Írd a prezentációt a lemezre.
 
 **Az Aspose.Slides-szel létrehozott kimeneti prezentáció** 
 
@@ -80,10 +80,14 @@ Az Aspose.Slides for .NET használatával hajtsa végre a következő lépéseke
 
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
 // Üres prezentáció létrehozása
 using (Presentation pres = new Presentation())
 {
-    // Első dia elérése
+    // Az első dia elérése
     ISlide slide = pres.Slides[0];
 
     // Kép hozzáadása a prezentáció képgyűjteményéhez
@@ -91,16 +95,16 @@ using (Presentation pres = new Presentation())
     IPPImage ppImage = pres.Images.AddImage(image);
     image.Dispose();
 
-    // Képkocka hozzáadása, amelynek magassága és szélessége megegyezik a kép magasságával és szélességével
+    // Képkeret hozzáadása, amelynek magassága és szélessége megegyezik a kép magasságával és szélességével
     IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
 
-    // A dia fő animációs szekvenciájának lekérése
+    // A dia fő animációs sorozatának lekérése
     ISequence sequence = pres.Slides[0].Timeline.MainSequence;
 
-    // Balról repülés animációs effektus hozzáadása a képkockához
+    // A 'Fly from Left' animációs effektus hozzáadása a képkerethez
     IEffect effect = sequence.AddEffect(pictureFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
 
-    // Prezentáció mentése
+    // A prezentáció mentése
     pres.Save("AsposeAnim.ppt", SaveFormat.Ppt);
 }
 ```

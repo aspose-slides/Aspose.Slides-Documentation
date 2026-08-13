@@ -1,13 +1,13 @@
 ---
-title: تغييرات API العامة والتغييرات غير المتوافقة للخلف في Aspose.Slides ل .NET 16.1.0
-linktitle: Aspose.Slides ل .NET 16.1.0
+title: "واجهة برمجة تطبيقات عامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides لـ .NET 16.1.0"
+linktitle: "Aspose.Slides لـ .NET 16.1.0"
 type: docs
 weight: 220
 url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/
 keywords:
-- ترحيل
-- شفرة قديمة
-- شفرة حديثة
+- الهجرة
+- كود قديم
+- كود حديث
 - نهج قديم
 - نهج حديث
 - PowerPoint
@@ -16,21 +16,24 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "استعراض تحديثات API العامة والتغييرات المتعارضة في Aspose.Slides ل .NET لتسهيل ترحيل حلول عروض PowerPoint PPT و PPTX و ODP."
+description: "راجع تحديثات واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة في Aspose.Slides لـ .NET لتسهيل ترحيل حلول العروض التقديمية PowerPoint PPT و PPTX و ODP الخاصة بك."
 ---
+{{% alert color="info" %}}
 
-{{% alert color="primary" %}} 
+هذه الصفحة تسرد جميع الفئات أو الأساليب أو الخصائص التي تم [added](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) أو [removed](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) وإلخ، بالإضافة إلى التغييرات الأخرى التي تم تقديمها مع Aspose.Slides for .NET 16.1.0 API.
 
-هذه الصفحة تسرد جميع الفئات والطرق والخصائص وما إلى ذلك التي تم [إضافتها](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) أو [إزالتها](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/)، والتغييرات الأخرى التي تم تقديمها مع Aspose.Slides for .NET 16.1.0 API.
-
-{{% /alert %}} 
+{{% /alert %}}
 ## **تغييرات API العامة**
 
-
-#### **تم إضافة خاصية RotationAngle إلى واجهات IChartTextBlockFormat و ITextFrameFormat**
-تم إضافة خاصية RotationAngle إلى الواجهات Aspose.Slides.Charts.IChartTextBlockFormat و Aspose.Slides.ITextFrameFormat. تحدد هذه الخاصية الدوران المخصص الذي يُطبق على النص داخل مربع الحدود.
+#### **تمت إضافة خاصية RotationAngle إلى واجهتي IChartTextBlockFormat و ITextFrameFormat**
+تمت إضافة خاصية RotationAngle إلى الواجهات Aspose.Slides.Charts.IChartTextBlockFormat و Aspose.Slides.ITextFrameFormat.  
+تحدد هذه الخاصية الدوران المخصص الذي يتم تطبيقه على النص داخل الصندوق الحدودي.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -53,5 +56,5 @@ pres.Save("out.pptx", SaveFormat.Pptx);
 }
 
 
-``` 
-#### **تم نقل OdpException من Aspose.Slides.Odp إلى مساحة الاسم Aspose.Slides**
+```
+#### **تم نقل OdpException من Aspose.Slides.Odp إلى مساحة الأسماء Aspose.Slides**

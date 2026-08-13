@@ -1,5 +1,5 @@
 ---
-title: 在 Android 上将 PowerPoint 演示文稿转换为视频
+title: 将 PowerPoint 演示文稿转换为 Android 视频
 linktitle: PowerPoint 转视频
 type: docs
 weight: 130
@@ -26,24 +26,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "了解如何在 Java 中将 PowerPoint 演示文稿转换为视频。探索示例代码和自动化技术，以简化您的工作流程。"
+description: "了解如何在 Java 中将 PowerPoint 演示文稿转换为视频。探索示例代码和自动化技术，以简化工作流程。"
 ---
+## **简介**
 
-通过将 PowerPoint 演示文稿转换为视频，您可以获得
+通过将 PowerPoint 演示文稿转换为视频，您可以获得 
 
-* **提升可访问性：** 所有设备（无论平台）默认都配备视频播放器，相较于演示文稿打开应用，用户更容易打开或播放视频。
-* **更广的覆盖面：** 通过视频，你可以触及更大的受众，并向他们传递在演示中可能显得枯燥的信息。大多数调查和统计表明，人们观看和消费视频的比例高于其他内容形式，且普遍更偏好此类内容。
-
-{{% alert color="primary" %}} 
-您可能想查看我们的[**PowerPoint to Video Online Converter**](https://products.aspose.app/slides/conversion/ppt-to-word)，因为它是本文所述过程的实时且有效的实现。
-{{% /alert %}} 
+* **提升可访问性：** 所有设备（无论平台）默认都配备视频播放器，而不是演示文稿打开应用程序，因此用户更容易打开或播放视频。
+* **更广的受众：** 通过视频，您可以覆盖更大的受众，并向他们传递在演示文稿中可能显得枯燥的信息。大多数调查和统计数据显示，人们观看和消费视频的比例高于其他内容形式，而且他们普遍更喜欢此类内容。
 
 ## **Aspose.Slides 中的 PowerPoint 转视频转换**
 
-Aspose.Slides 支持将演示文稿转换为视频。
+Aspose.Slides 支持演示文稿转视频的转换。
 
-* 使用 **Aspose.Slides** 生成一组帧（来自演示文稿幻灯片），对应特定的 FPS（每秒帧数）
-* 使用诸如 **ffmpeg**（[for java](https://github.com/bramp/ffmpeg-cli-wrapper)）的第三方工具，根据这些帧创建视频。
+* 使用 **Aspose.Slides** 生成一组帧（来自演示文稿的幻灯片），这些帧对应特定的 FPS（每秒帧数）
+* 使用第三方工具，例如 **ffmpeg**（[for java](https://github.com/bramp/ffmpeg-cli-wrapper)），基于这些帧创建视频。 
 
 ### **将 PowerPoint 转换为视频**
 
@@ -56,16 +53,20 @@ Aspose.Slides 支持将演示文稿转换为视频。
    </dependency>
 ```
 
+2. 在[此处](https://ffmpeg.org/download.html)下载 ffmpeg。
 
-2. 从[此处](https://ffmpeg.org/download.html)下载 ffmpeg。
+3. 运行 PowerPoint 转视频的 Java 代码。
 
-4. 运行 PowerPoint 转视频的 Java 代码。
+此 Java 代码演示如何将包含图形和两个动画效果的演示文稿转换为视频：
 
-以下 Java 代码展示了如何将包含图形和两个动画效果的演示文稿转换为视频：
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation();
 try {
-    // 添加笑脸形状并进行动画处理
+    // 添加一个笑脸形状，然后对其进行动画处理
     IAutoShape smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effectIn = mainSequence.addEffect(smile, EffectType.Fly, EffectSubtype.TopLeft, EffectTriggerType.AfterPrevious);
@@ -99,7 +100,7 @@ try {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
 
-    // 配置 ffmpeg 二进制文件夹。参见此页面: https://github.com/rosenbjerg/FFMpegCore#installation
+    // 配置 ffmpeg 二进制文件夹。参见此页面：https://github.com/bramp/ffmpeg-cli-wrapper
     FFmpeg ffmpeg = new FFmpeg("path/to/ffmpeg");
     FFprobe ffprobe = new FFprobe("path/to/ffprobe");
 
@@ -118,37 +119,48 @@ try {
 }
 ```
 
-
 ## **视频效果**
 
-您可以对幻灯片上的对象应用动画，并在幻灯片之间使用切换效果。
+您可以对幻灯片上的对象应用动画，并使用幻灯片之间的切换效果。
 
-{{% alert color="primary" %}} 
-您可能想查看以下文章：[PowerPoint Animation](https://docs.aspose.com/slides/androidjava/powerpoint-animation/)，[Shape Animation](https://docs.aspose.com/slides/androidjava/shape-animation/)，以及[Shape Effect](https://docs.aspose.com/slides/androidjava/shape-effect/)。
+{{% alert color="info" %}} 
+
+您可能想查看以下文章：[PowerPoint Animation](https://docs.aspose.com/slides/zh/androidjava/powerpoint-animation/)、[Shape Animation](https://docs.aspose.com/slides/zh/androidjava/shape-animation/) 和 [Shape Effect](https://docs.aspose.com/slides/zh/androidjava/shape-effect/)。
+
 {{% /alert %}} 
 
-动画和切换使幻灯片放映更具吸引力和趣味性——视频亦如此。让我们在前一个演示的代码中添加另一张幻灯片和切换效果：
+动画和切换使幻灯片放映更具吸引力和趣味性——它们对视频也有同样的作用。让我们为之前的演示文稿的代码添加另一张幻灯片和切换效果：
+
 ```java
-// 添加笑脸形状并进行动画处理
+import com.aspose.slides.*;
+import java.awt.Color;
 
-// ...
+// 具有上述动画笑脸形状的演示文稿。
+Presentation presentation = new Presentation();
+try {
+    // 添加一个新幻灯片并设置动画切换
 
-// 添加新幻灯片并设置动画切换
+    ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
 
-ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
+    newSlide.getBackground().setType(BackgroundType.OwnBackground);
 
-newSlide.getBackground().setType(BackgroundType.OwnBackground);
+    newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
 
-newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
 
-newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
-
-newSlide.getSlideShowTransition().setType(TransitionType.Push);
+    newSlide.getSlideShowTransition().setType(TransitionType.Push);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 
+Aspose.Slides 也支持文本动画。因此我们对对象上的段落进行动画处理，它们将一个接一个出现（延迟设置为一秒）：
 
-Aspose.Slides 还支持文本动画。因此我们对对象上的段落进行动画，使其依次出现（延迟设为一秒）：
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation();
 try {
     // 添加文本和动画
@@ -164,18 +176,15 @@ try {
     paragraphCollection.add(para1);
     paragraphCollection.add(para2);
     paragraphCollection.add(para3);
-    paragraphCollection.add(new Paragraph());
 
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effect1 = mainSequence.addEffect(para1, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     IEffect effect2 = mainSequence.addEffect(para2, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     IEffect effect3 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-    IEffect effect4 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
     effect1.getTiming().setTriggerDelayTime(1f);
     effect2.getTiming().setTriggerDelayTime(1f);
     effect3.getTiming().setTriggerDelayTime(1f);
-    effect4.getTiming().setTriggerDelayTime(1f);
 
     final int fps = 33;
     ArrayList<String> frames = new ArrayList<String>();
@@ -203,7 +212,7 @@ try {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
 
-    // 配置 ffmpeg 二进制文件夹。参见此页面: https://github.com/rosenbjerg/FFMpegCore#installation
+    // 配置 ffmpeg 二进制文件夹。参见此页面：https://github.com/bramp/ffmpeg-cli-wrapper
     FFmpeg ffmpeg = new FFmpeg("path/to/ffmpeg");
     FFprobe ffprobe = new FFprobe("path/to/ffprobe");
 
@@ -222,20 +231,22 @@ try {
 }
 ```
 
-
 ## **视频转换类**
 
-为了让您执行 PowerPoint 转视频的任务，Aspose.Slides 提供了 [PresentationAnimationsGenerator](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationanimationsgenerator/) 和 [PresentationPlayer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationplayer/) 类。
+为了让您执行 PowerPoint 转视频的任务，Aspose.Slides 提供了 [PresentationAnimationsGenerator](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentationanimationsgenerator/) 和 [PresentationPlayer](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentationplayer/) 类。
 
-[PresentationAnimationsGenerator](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationanimationsgenerator/) 允许您通过构造函数设置视频（稍后将创建）的帧大小。如果传入演示文稿实例，则会使用 `Presentation.SlideSize`，并生成供 [PresentationPlayer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationplayer/) 使用的动画。
+[PresentationAnimationsGenerator](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentationanimationsgenerator/) 允许您通过其构造函数设置视频（稍后将创建）的帧大小。如果传入演示文稿的实例，将使用 `Presentation.SlideSize`，并生成供 [PresentationPlayer](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentationplayer/) 使用的动画。
 
-生成动画时，会为每个后续动画触发 `NewAnimation` 事件，该事件携带 [IPresentationAnimationPlayer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationanimationplayer/) 参数。后者是表示单独动画播放器的类。
+当生成动画时，每个后续动画都会触发一个 `NewAnimation` 事件，该事件带有 [IPresentationAnimationPlayer](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ipresentationanimationplayer/) 参数。后者是表示单独动画播放器的类。
 
-要使用 [IPresentationAnimationPlayer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationanimationplayer/)，会使用 [Duration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationanimationplayer/#getDuration--)（动画的完整时长）属性和 [SetTimePosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationanimationplayer/#setTimePosition-double-) 方法。每个动画位置在 *0 到 duration* 范围内设定，然后 `GetFrame` 方法将返回对应该时刻动画状态的 BufferedImage：
+要使用 [IPresentationAnimationPlayer](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ipresentationanimationplayer/)，需要使用 [Duration](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ipresentationanimationplayer/#getDuration--)（动画的完整持续时间）属性和 [SetTimePosition](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ipresentationanimationplayer/#setTimePosition-double-) 方法。每个动画位置都设置在 *0 到 duration* 范围内，然后 `getFrame` 方法将返回对应于该时刻动画状态的 [IImage](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimage/)。
+
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // 添加笑脸形状并进行动画处理
+    // 添加一个笑脸形状并对其进行动画处理
     IAutoShape smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effectIn = mainSequence.addEffect(smile, EffectType.Fly, EffectSubtype.TopLeft, EffectTriggerType.AfterPrevious);
@@ -248,21 +259,18 @@ try {
         animationsGenerator.setNewAnimation(animationPlayer ->
         {
             System.out.println(String.format("Animation total duration: %f", animationPlayer.getDuration()));
+
             animationPlayer.setTimePosition(0); // 初始动画状态
-            try {
-                // 初始动画状态位图
-                animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            // 初始动画状态位图
+            animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
+
             animationPlayer.setTimePosition(animationPlayer.getDuration()); // 动画的最终状态
-            try {
-                // 动画的最后一帧
-                animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            // 动画的最后一帧
+            animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
         });
+
+        // 生成动画。上面的回调会为每个动画运行一次。
+        animationsGenerator.run(presentation.getSlides());
     } finally {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
@@ -271,9 +279,11 @@ try {
 }
 ```
 
+要让演示文稿中的所有动画一次性播放，使用 [PresentationPlayer](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentationplayer/) 类。该类在构造函数中接受一个 [PresentationAnimationsGenerator](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentationanimationsgenerator/) 实例和用于效果的 FPS，然后调用 `FrameTick` 事件以播放所有动画：
 
-要让演示文稿中的所有动画一次性播放，使用 [PresentationPlayer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationplayer/) 类。该类在构造函数中接收一个 [PresentationAnimationsGenerator](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationanimationsgenerator/) 实例和效果的 FPS，然后调用 `FrameTick` 事件以播放所有动画：
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("animated.pptx");
 try {
     PresentationAnimationsGenerator animationsGenerator = new PresentationAnimationsGenerator(presentation);
@@ -282,11 +292,7 @@ try {
         try {
             player.setFrameTick((sender, arguments) ->
             {
-                try {
-                    arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+                arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
             });
             animationsGenerator.run(presentation.getSlides());
         } finally {
@@ -300,8 +306,7 @@ try {
 }
 ```
 
-
-随后可以将生成的帧编译为视频。请参阅 [Convert PowerPoint to Video](https://docs.aspose.com/slides/androidjava/convert-powerpoint-to-video/#convert-powerpoint-to-video) 部分。
+然后将生成的帧编译即可生成视频。参见 [Convert PowerPoint to Video](https://docs.aspose.com/slides/zh/androidjava/convert-powerpoint-to-video/#convert-powerpoint-to-video) 部分。
 
 ## **支持的动画和效果**
 
@@ -371,14 +376,14 @@ try {
 
 ## **常见问题**
 
-**是否可以转换受密码保护的演示文稿？**
+### 是否可以转换受密码保护的演示文稿？
 
 是的，Aspose.Slides 支持处理[受密码保护的演示文稿](/slides/zh/androidjava/password-protected-presentation/)。在处理此类文件时，需要提供正确的密码，以便库能够访问演示文稿的内容。
 
-**Aspose.Slides 是否支持在云解决方案中使用？**
+### Aspose.Slides 是否支持在云解决方案中使用？
 
-是的，Aspose.Slides 可以集成到云应用和服务中。该库专为服务器环境设计，能够在批量处理文件时提供高性能和可扩展性。
+是的，Aspose.Slides 可以集成到云应用程序和服务中。该库专为服务器环境设计，确保在批量处理文件时具备高性能和可扩展性。
 
-**转换过程中对演示文稿的大小有任何限制吗？**
+### 转换期间对演示文稿的大小是否有限制？
 
-Aspose.Slides 能够处理几乎任何大小的演示文稿。但在处理非常大的文件时，可能需要额外的系统资源，有时建议优化演示文稿以提升性能。
+Aspose.Slides 能够处理几乎任何大小的演示文稿。然而，在处理特别大的文件时，可能需要额外的系统资源，通常建议对演示文稿进行优化以提升性能。

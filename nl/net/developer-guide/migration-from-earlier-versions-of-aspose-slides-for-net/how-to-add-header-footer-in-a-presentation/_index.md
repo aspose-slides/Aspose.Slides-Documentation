@@ -1,16 +1,16 @@
 ---
-title: Hoe kop‑ en voetteksten toe te voegen aan presentaties in .NET
-linktitle: Kop‑ en voettekst toevoegen
+title: Hoe je koppen en voetteksten toevoegt aan presentaties in .NET
+linktitle: Kop en voettekst toevoegen
 type: docs
 weight: 20
 url: /nl/net/how-to-add-header-footer-in-a-presentation/
 keywords:
 - migratie
-- koptekst toevoegen
+- kop toevoegen
 - voettekst toevoegen
-- legacy-code
+- legacy code
 - moderne code
-- legacy-benadering
+- legacy aanpak
 - moderne aanpak
 - PowerPoint
 - OpenDocument
@@ -18,40 +18,44 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Leer hoe u kop‑ en voetteksten kunt toevoegen aan PowerPoint‑PPT, PPTX‑ en ODP‑presentaties in .NET met zowel legacy‑ als moderne Aspose.Slides‑API’s."
+description: "Leer hoe u koppen en voetteksten toevoegt aan PowerPoint PPT, PPTX en ODP‑presentaties in .NET met zowel de legacy‑ als de moderne Aspose.Slides‑API’s."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
+
 Er is een nieuwe [Aspose.Slides for .NET API](/slides/nl/net/) uitgebracht en nu ondersteunt dit enkele product de mogelijkheid om PowerPoint‑documenten vanaf nul te genereren en bestaande documenten te bewerken.
+
 {{% /alert %}} 
 ## **Ondersteuning voor legacy‑code**
-Om de legacy‑code die ontwikkeld is met Aspose.Slides for .NET versies ouder dan 13.x te gebruiken, moet u enkele kleine aanpassingen in uw code doen zodat de code weer functioneert zoals voorheen. Alle klassen die aanwezig waren in de oude Aspose.Slides for .NET onder de namespaces Aspose.Slide en Aspose.Slides.Pptx zijn nu samengevoegd in één enkele Aspose.Slides‑namespace. Bekijk de volgende eenvoudige code‑snippet voor het toevoegen van een kop‑ en voettekst aan een presentatie in de legacy Aspose.Slides‑API en volg de stappen die beschrijven hoe u migreert naar de nieuwe samengevoegde API.
-## **Legacy‑benadering van Aspose.Slides for .NET**
+Om de legacy‑code te kunnen gebruiken die ontwikkeld is met Aspose.Slides for .NET versies ouder dan 13.x, moet u enkele kleine aanpassingen in uw code doen, waarna de code weer werkt zoals voorheen. Alle klassen die aanwezig waren in de oude Aspose.Slides for .NET onder de Aspose.Slide‑ en Aspose.Slides.Pptx‑namespaces zijn nu samengevoegd in één Aspose.Slides‑namespace. Bekijk alstublieft het volgende eenvoudige code‑fragment voor het toevoegen van een kop‑en‑voettekst aan een presentatie in de legacy Aspose.Slides‑API en volg de stappen die beschrijven hoe u naar de nieuwe samengestelde API migreert.
+## **Legacy Aspose.Slides for .NET aanpak**
 ```c#
 PresentationEx sourcePres = new PresentationEx();
 
-//Instellen van de zichtbaarheid van kop- en voettekst
+//Instellen van zichtbaarheid van kop‑ en voettekst‑eigenschappen
 sourcePres.UpdateSlideNumberFields = true;
 
-//Datum- en tijdvelden bijwerken
+//Werk de datum‑tijdvelden bij
 sourcePres.UpdateDateTimeFields = true;
 
-//Datum- en tijd-placeholder weergeven
+//Toon datum‑tijd‑placeholder
 sourcePres.HeaderFooterManager.IsDateTimeVisible = true;
 
-//Voettekst-placeholder weergeven
+//Toon de voettekst‑placeholder
 sourcePres.HeaderFooterManager.IsFooterVisible = true;
 
-//Dia-nummer weergeven
+//Toon dia‑nummer
 sourcePres.HeaderFooterManager.IsSlideNumberVisible = true;
 
-//Zichtbaarheid van kop- en voettekst op titelpagina instellen
+//Stel de zichtbaarheid van kop‑ en voettekst in op titeldia
 sourcePres.HeaderFooterManager.SetVisibilityOnTitleSlide(true);
 
-//Presentatie naar schijf schrijven
+//Schrijf de presentatie naar de schijf
 sourcePres.Write("NewSource.pptx");
 ```
 
 ```c#
+using Aspose.Slides;
+
 //Maak de presentatie
 Presentation pres = new Presentation();
 
@@ -61,51 +65,56 @@ Slide sld = pres.GetSlideByPosition(1);
 //Toegang tot de kop-/voettekst van de dia
 HeaderFooter hf = sld.HeaderFooter;
 
-//Stel zichtbaarheid van paginanummer in
+//Stel de zichtbaarheid van paginanummer in
 hf.PageNumberVisible = true;
 
-//Stel zichtbaarheid van voettekst in
+//Stel de zichtbaarheid van voettekst in
 hf.FooterVisible = true;
 
-//Stel zichtbaarheid van koptekst in
+//Stel de zichtbaarheid van koptekst in
 hf.HeaderVisible = true;
 
-//Stel zichtbaarheid van datum-tijd in
+//Stel de zichtbaarheid van datum-tijd in
 hf.DateTimeVisible = true;
 
-//Stel datum-tijdformaat in
+//Stel het datum-tijdformaat in
 hf.DateTimeFormat = DateTimeFormat.DateTime_dMMMMyyyy;
 
-//Stel koptekst in
+//Stel de koptekst in
 hf.HeaderText = "Header Text";
 
-//Stel voettekst in
+//Stel de voettekst in
 hf.FooterText = "Footer Text";
 
 //Schrijf de presentatie naar de schijf
 pres.Write("HeadFoot.ppt");
 ```
 
-## **Nieuwe benadering van Aspose.Slides for .NET 13.x**
+
+
+## **Nieuwe Aspose.Slides for .NET 13.x aanpak**
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation sourcePres = new Presentation())
 {
-    //Instellen van de zichtbaarheid van kop- en voetteksten
+    //Instellen van de zichtbaarheid van kop‑ en voettekst‑eigenschappen
     sourcePres.HeaderFooterManager.SetAllSlideNumbersVisibility(true);
 
-    //Datum- en tijdvelden bijwerken
+    //Werk de datum‑tijdvelden bij
     sourcePres.HeaderFooterManager.SetAllDateTimesVisibility(true);
 
-    //Datum- en tijd-placeholder weergeven
+    //Toon datum‑tijd‑placeholder
     sourcePres.HeaderFooterManager.SetAllDateTimesVisibility(true);
 
-    //Voettekst-placeholder weergeven
+    //Toon de voettekst‑placeholder
     sourcePres.HeaderFooterManager.SetAllFootersVisibility(true);
     
-    //Zichtbaarheid van kop- en voettekst op titelpagina instellen
+    //Stel de zichtbaarheid van kop‑ en voettekst in op de titeldia
     sourcePres.HeaderFooterManager.SetVisibilityOnAllTitleSlides(true);
 
-    //Presentatie naar schijf schrijven
+    //Schrijf de presentatie naar de schijf
     sourcePres.Save("NewSource.pptx", SaveFormat.Pptx);
 }
 ```

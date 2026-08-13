@@ -4,7 +4,7 @@ type: docs
 weight: 60
 url: /it/cpp/work-with-powerpoint-documents-in-qt/
 keywords:
-- Qt Creator
+- Qt creator
 - Applicazione Qt
 - multipiattaforma
 - PowerPoint
@@ -16,13 +16,13 @@ description: "Usa Aspose.Slides per C++ con Qt Creator e Visual Studio per crear
 ---
 ## **Introduzione**
 
-Qt è un framework di sviluppo applicazioni cross‑platform basato su C++ ampiamente utilizzato per sviluppare una varietà di applicazioni desktop, mobile e per sistemi embedded. Aspose.Slides per C++ può essere integrato in Qt per creare e manipolare documenti PowerPoint nelle tue applicazioni Qt.
+Qt è un framework di sviluppo applicazioni multipiattaforma basato su C++ ampiamente usato per sviluppare una varietà di applicazioni desktop, mobile e sistemi embedded. Aspose.Slides per C++ può essere integrato in Qt per creare e manipolare documenti PowerPoint nelle tue applicazioni Qt.
 
 ## **Utilizzare Aspose.Slides per C++ in Qt Creator**
 
 Per utilizzare Aspose.Slides per C++ nella tua applicazione Qt scarica l'ultima versione dell'API dalla sezione [downloads](https://downloads.aspose.com/slides/it/cpp). Una volta scaricata l'API, puoi integrare la libreria C++ in Qt Creator o Visual Studio.
 
-Per integrare e utilizzare la libreria Aspose.Slides per C++ all'interno di un'Applicazione Console Qt sviluppata in Qt Creator, segui i passaggi indicati di seguito:
+Per integrare e utilizzare la libreria Aspose.Slides per C++ in un'applicazione console Qt sviluppata in Qt Creator, segui i passaggi seguenti:
 
 - Apri Qt Creator e crea una nuova *Qt Console Application*.
 
@@ -33,42 +33,40 @@ Per integrare e utilizzare la libreria Aspose.Slides per C++ all'interno di un'A
 ![qt_console_application_qmake](qt-console-application-qmake.png)
 
 - Seleziona il kit appropriato e completa la procedura guidata.
-
-- Copia la cartella aspose-slides-cpp-21.02 dal pacchetto estratto di Aspose.Slides per C++ nella radice del progetto.
+- Copia la cartella **aspose‑slides‑cpp‑21.02** dal pacchetto estratto di Aspose.Slides per C++ nella radice del progetto.
 
 ![lib_files](aspose.slides-lib-files.png)
 
-- Per aggiungere i percorsi alle cartelle lib e include, fai clic con il tasto destro sul progetto nel pannello sinistro e seleziona *Add Library*.
+- Per aggiungere i percorsi alle cartelle lib e include, fai clic con il pulsante destro sul progetto nel pannello sinistro e scegli *Add Library*.
 
 ![qt_add_library](qt_add_library.png)
 
-- Seleziona l'opzione External Library e sfoglia i percorsi per includere le cartelle lib una per una.
+- Seleziona l'opzione **External Library** e sfoglia i percorsi delle cartelle lib uno per uno.
 
 ![todo:image_alt_text](qt-add-external-library.png)
 
-- Una volta completato, il file di progetto .pro conterrà le seguenti voci:
+- Al termine, il file *.pro* del progetto conterrà le seguenti voci:
 
 ![qt_pro_file.png](qt-pro-file.png)
 
-- Compila l'applicazione e l'integrazione è completata.  
+- Compila l'applicazione ed il processo di integrazione è completo.  
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
-Nota: consulta il [progetto demo completo](https://github.com/aspose-slides/Aspose.Slides-for-C/tree/master/QtDemos/QtCreator/Qt_AsposeSlides_QMake) per ulteriori informazioni.
+Nota: vedi il [full demo project](https://github.com/aspose-slides/Aspose.Slides-for-C/tree/master/QtDemos/QtCreator/Qt_AsposeSlides_QMake) per ulteriori informazioni.
 
 {{% /alert %}}
 
-## **Utilizzare Aspose.Slides per C++ nelle Applicazioni Qt con Visual Studio**
+## **Utilizzare Aspose.Slides per C++ in applicazioni Qt con Visual Studio**
 
-Per sviluppare un'applicazione Qt usando Visual Studio, è necessario installare [Qt Visual Studio Tools](https://marketplace.visualstudio.com/items?itemName=TheQtCompany.QtVisualStudioTools-19123). Una volta completata l'installazione, scarica l'ultima versione dell'API dalla sezione [downloads](https://downloads.aspose.com/slides/it/cpp) e segui i passaggi indicati di seguito:
+Per sviluppare un'applicazione Qt usando Visual Studio, devi installare [Qt Visual Studio Tools](https://marketplace.visualstudio.com/items?itemName=TheQtCompany.QtVisualStudioTools-19123). Dopo l'installazione, scarica l'ultima versione dell'API dalla sezione [downloads](https://downloads.aspose.com/slides/it/cpp) e segui i passaggi seguenti:
 
 - Apri Microsoft Visual Studio e crea una nuova *Qt Console Application*.
 
 ![VS_Console_Application.png](vs-console-application.png)
 
 - Seleziona il kit appropriato e completa la procedura guidata.
-
-- Per integrare e utilizzare la libreria Aspose.Slides per C++, fai clic con il tasto destro sul progetto e seleziona *Manage NuGet Packages...*.
+- Per integrare e utilizzare la libreria Aspose.Slides per C++, fai clic con il pulsante destro sul progetto e scegli *Manage NuGet Packages…*.
 
 ![VS_Manage_NuGet_Package.png](vs-manage-nuget-package.png)
 
@@ -78,8 +76,8 @@ Per sviluppare un'applicazione Qt usando Visual Studio, è necessario installare
 
 - Compila il progetto e l'integrazione è completata.  
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
-Nota: consulta il [progetto demo completo](https://github.com/aspose-slides/Aspose.Slides-for-C/tree/master/QtDemos/Visual%20Studio/Qt_AsposeSlides_VS) per ulteriori informazioni.
+Nota: vedi il [full demo project](https://github.com/aspose-slides/Aspose.Slides-for-C/tree/master/QtDemos/Visual%20Studio/Qt_AsposeSlides_VS) per ulteriori informazioni.
 
 {{% /alert %}}

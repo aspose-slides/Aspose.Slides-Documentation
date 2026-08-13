@@ -1,11 +1,11 @@
 ---
-title: Gestionar fuentes en presentaciones en Android
-linktitle: Gestionar fuentes
+title: Administrar fuentes en presentaciones en Android
+linktitle: Administrar fuentes
 type: docs
 weight: 10
 url: /es/androidjava/manage-fonts/
 keywords:
-- gestionar fuentes
+- administrar fuentes
 - propiedades de fuente
 - párrafo
 - formato de texto
@@ -15,31 +15,36 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Controla fuentes en Java con Aspose.Slides para Android: incrusta, sustituye y carga fuentes personalizadas para mantener las presentaciones PPT, PPTX y ODP claras, seguras para la marca y coherentes."
+description: "Controla las fuentes en Java con Aspose.Slides para Android: incrusta, sustituye y carga fuentes personalizadas para que las presentaciones PPT, PPTX y ODP sean claras, seguras para la marca y consistentes."
 ---
+## **Visión general**
 
-## **Administrar propiedades relacionadas con la fuente**
-{{% alert color="primary" %}} 
+Aspose.Slides le permite gestionar las propiedades de la fuente en el texto de una presentación directamente desde su código. Puede acceder al texto de las diapositivas a través de formas, marcos de texto, párrafos y porciones, y luego aplicar formato al texto seleccionado.
 
-Las presentaciones suelen contener tanto texto como imágenes. El texto puede formatearse de diversas maneras, ya sea para resaltar secciones y palabras específicas o para ajustarse a los estilos corporativos. El formato de texto ayuda a los usuarios a variar el aspecto y la sensación del contenido de la presentación. Este artículo muestra cómo usar Aspose.Slides for Android via Java para configurar las propiedades de fuente de los párrafos de texto en diapositivas.
+Este artículo explica cómo configurar propiedades relacionadas con la fuente para texto existente en una presentación, incluidos la familia tipográfica, los estilos negrita e itálica, la alineación de párrafo y el color de la fuente. También muestra cómo crear un cuadro de texto, añadir texto a él y establecer propiedades tipográficas como familia, negrita, itálica, subrayado, tamaño y color antes de guardar el resultado como archivo PPTX.
+
+## **Gestionar propiedades de fuente**
+{{% alert color="info" %}} 
+
+Las presentaciones suelen contener tanto texto como imágenes. El texto puede formatearse de diversas maneras, ya sea para resaltar secciones y palabras específicas o para cumplir con estilos corporativos. El formato del texto ayuda a los usuarios a variar el aspecto del contenido de la presentación. Este artículo muestra cómo usar Aspose.Slides para Android mediante Java para configurar las propiedades tipográficas de los párrafos de texto en las diapositivas.
 
 {{% /alert %}} 
 
-Para gestionar las propiedades de fuente de un párrafo usando Aspose.Slides for Android via Java:
+Para gestionar las propiedades de fuente de un párrafo con Aspose.Slides para Android mediante Java:
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
+1. Crear una instancia de la clase [Presentación](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation).
 1. Obtener la referencia de una diapositiva usando su índice.
-1. Acceder a las formas [Placeholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/) en la diapositiva y convertirlas a [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/autoshape/).
-1. Obtener el [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/) del [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/) expuesto por [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/autoshape/).
+1. Acceder a las formas [MarcadorDe posición](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/placeholder/) en la diapositiva y convertirlas a [AutoShape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/autoshape/).
+1. Obtener el [Párrafo](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/paragraph/) del [MarcoDeTexto](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/textframe/) expuesto por [AutoShape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/autoshape/).
 1. Justificar el párrafo.
-1. Acceder al [Portion] de texto de un [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/).
-1. Definir la fuente usando [FontData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontdata/) y establecer la **Font** del [Portion] de texto en consecuencia.
+1. Acceder al [Texto](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/paragraph/) de una [Porción](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/portion/).
+1. Definir la fuente mediante [FontData](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/fontdata/) y establecer la **Fuente** de la [Porción](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/portion/) correspondiente.
    1. Establecer la fuente en negrita.
-   1. Establecer la fuente en cursiva.
-1. Establecer el color de la fuente usando el [FillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fillformat/) expuesto por el objeto [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/).
+   1. Establecer la fuente en itálica.
+1. Establecer el color de la fuente mediante [FillFormat](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/fillformat/) expuesto por el objeto [Porción](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/portion/).
 1. Guardar la presentación modificada en un archivo PPTX.
 
-Se muestra a continuación la implementación de los pasos anteriores. Toma una presentación sin adornos y formatea las fuentes en una de las diapositivas. Las capturas de pantalla que siguen muestran el archivo de entrada y cómo los fragmentos de código lo modifican. El código cambia la fuente, el color y el estilo de la fuente.
+La implementación de los pasos anteriores se muestra a continuación. Toma una presentación sin adornos y formatea las fuentes en una de las diapositivas. Las capturas de pantalla que siguen muestran el archivo de entrada y cómo los fragmentos de código lo modifican. El código cambia la fuente, el color y el estilo tipográfico.
 
 |![todo:image_alt_text](http://i.imgur.com/rqpPgJn.jpg)|
 | :- |
@@ -48,7 +53,11 @@ Se muestra a continuación la implementación de los pasos anteriores. Toma una 
 |![todo:image_alt_text](http://i.imgur.com/rY27Lt9.png)|
 | :- |
 |**Figura: El mismo texto con formato actualizado**|
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instanciar un objeto Presentation que representa un archivo PPTX
 Presentation pres = new Presentation("FontProperties.pptx");
 try {
@@ -70,11 +79,11 @@ try {
 	IPortion port1 = para1.getPortions().get_Item(0);
 	IPortion port2 = para2.getPortions().get_Item(0);
 
-	// Definir nuevas fuentes
+	// Definir fuentes nuevas
 	FontData fd1 = new FontData("Elephant");
 	FontData fd2 = new FontData("Castellar");
 
-	// Asignar nuevas fuentes a la porción
+	// Asignar fuentes nuevas a la porción
 	port1.getPortionFormat().setLatinFont(fd1);
 	port2.getPortionFormat().setLatinFont(fd2);
 
@@ -99,40 +108,43 @@ try {
 }
 ```
 
-
 ## **Establecer propiedades de fuente del texto**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Como se menciona en **Administrar propiedades relacionadas con la fuente**, un [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/) se usa para contener texto con un estilo de formato similar en un párrafo. Este artículo muestra cómo usar Aspose.Slides for Android via Java para crear un cuadro de texto con algún texto y luego definir una fuente concreta, así como varias otras propiedades de la categoría de familia tipográfica.
+Como se mencionó en **Gestionar propiedades de fuente**, una [Porción](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/portion/) se utiliza para contener texto con un estilo de formato similar dentro de un párrafo. Este artículo muestra cómo usar Aspose.Slides para Android mediante Java para crear un cuadro de texto con algún contenido y luego definir una fuente concreta, así como varias propiedades adicionales de la categoría de familia tipográfica.
 
 {{% /alert %}} 
 
-Para crear un cuadro de texto y establecer las propiedades de fuente del texto en él:
+Para crear un cuadro de texto y establecer propiedades tipográficas del texto que contiene:
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
+1. Crear una instancia de la clase [Presentación](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation).
 1. Obtener la referencia de una diapositiva usando su índice.
-1. Añadir un [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/autoshape/) de tipo **Rectangle** a la diapositiva.
-1. Eliminar el estilo de relleno asociado al [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/autoshape/).
-1. Acceder al [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/) del [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/autoshape/).
-1. Añadir texto al [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/).
-1. Acceder al objeto [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/) asociado al [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/).
-1. Definir la fuente a usar para el [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/).
-1. Establecer otras propiedades de la fuente como negrita, cursiva, subrayado, color y altura usando las propiedades correspondientes expuestas por el objeto [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/).
-1. Escribir la presentación modificada como un archivo PPTX.
+1. Añadir a la diapositiva una [AutoShape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/autoshape/) del tipo **Rectángulo**.
+1. Eliminar el estilo de relleno asociado a la [AutoShape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/autoshape/).
+1. Acceder al [MarcoDeTexto](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/textframe/) de la [AutoShape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/autoshape/).
+1. Añadir texto al [MarcoDeTexto](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/textframe/).
+1. Acceder al objeto [Porción](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/portion/) asociado al [MarcoDeTexto](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/textframe/).
+1. Definir la fuente que se usará para la [Porción](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/portion/).
+1. Establecer otras propiedades tipográficas como negrita, itálica, subrayado, color y altura mediante las propiedades correspondientes del objeto [Porción](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/portion/).
+1. Guardar la presentación modificada como archivo PPTX.
 
-A continuación se muestra la implementación de los pasos anteriores.
+La implementación de los pasos anteriores se muestra a continuación.
 
 |![todo:image_alt_text](http://i.imgur.com/n5r12dS.jpg)|
 | :- |
-|**Figura: Texto con algunas propiedades de fuente establecidas por Aspose.Slides for Android via Java**|
+|**Figura: Texto con algunas propiedades de fuente establecidas por Aspose.Slides para Android mediante Java**|
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instanciar un objeto Presentation que representa un archivo PPTX
 Presentation pres = new Presentation();
 try {
 	// Obtener la primera diapositiva
 	ISlide sld = pres.getSlides().get_Item(0);
 	
-	// Añadir un AutoShape de tipo Rectangle
+	// Añadir un AutoShape de tipo Rectángulo
 	IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 50);
 	
 	// Eliminar cualquier estilo de relleno asociado al AutoShape
@@ -142,19 +154,19 @@ try {
 	ITextFrame tf = ashp.getTextFrame();
 	tf.setText("Aspose TextBox");
 	
-	// Acceder a la Portion asociada al TextFrame
+	// Acceder a la Porción asociada al TextFrame
 	IPortion port = tf.getParagraphs().get_Item(0).getPortions().get_Item(0);
 	
-	// Establecer la fuente para la Portion
+	// Establecer la fuente para la Porción
 	port.getPortionFormat().setLatinFont(new FontData("Times New Roman"));
 	
-	// Establecer la propiedad negrita de la fuente
+	// Establecer la propiedad Negrita de la fuente
 	port.getPortionFormat().setFontBold(NullableBool.True);
 	
-	// Establecer la propiedad cursiva de la fuente
+	// Establecer la propiedad Cursiva de la fuente
 	port.getPortionFormat().setFontItalic(NullableBool.True);
 	
-	// Establecer la propiedad subrayado de la fuente
+	// Establecer la propiedad Subrayado de la fuente
 	port.getPortionFormat().setFontUnderline(TextUnderlineType.Single);
 	
 	// Establecer la altura de la fuente

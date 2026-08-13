@@ -4,32 +4,32 @@ type: docs
 weight: 40
 url: /th/java/portable-document-format-pdf/
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-The [รูปแบบเอกสารแบบพกพา](https://en.wikipedia.org/wiki/PDF) is a file format created by Adobe Systems for exchanging documents between organizations. The purpose of the format was to keep content and layout the same, regardless of the platform it was viewed on. Aspose.Slides for Java lets you convert presentation files to PDF.
+[รูปแบบเอกสารแบบพกพา](https://en.wikipedia.org/wiki/PDF) คือรูปแบบไฟล์ที่สร้างโดย Adobe Systems เพื่อแลกเปลี่ยนเอกสารระหว่างองค์กร จุดประสงค์ของรูปแบบนี้คือการรักษาเนื้อหาและการจัดรูปแบบให้คงที่ไม่ว่าจะแสดงบนแพลตฟอร์มใด Aspose.Slides for Java ให้คุณแปลงไฟล์พรีเซนเทชันเป็น PDF.
 
 {{% /alert %}} 
 
 ## **PDF ใน Aspose.Slides for Java**
-Any presentation that can be loaded into Aspose.Slides for Java can be converted to a PDF that conforms to [PDF 1.5](https://en.wikipedia.org/wiki/PDF/A), [PDF/A-1a](https://en.wikipedia.org/wiki/PDF/A), [PDF/A-1b](https://en.wikipedia.org/wiki/PDF/A) or [PDF/UA](https://en.wikipedia.org/wiki/PDF/UA) depending on your choice. Aspose.Slides for Java exports presentations to PDF and in most cases, the output PDF looks exactly like the original presentation.
+พรีเซนเทชันใด ๆ ที่สามารถโหลดเข้า Aspose.Slides for Java ได้สามารถแปลงเป็น PDF ที่สอดคล้องกับ [PDF 1.5](https://en.wikipedia.org/wiki/PDF/A), [PDF/A-1a](https://en.wikipedia.org/wiki/PDF/A), [PDF/A-1b](https://en.wikipedia.org/wiki/PDF/A) หรือ [PDF/UA](https://en.wikipedia.org/wiki/PDF/UA) ขึ้นอยู่กับการเลือกของคุณ Aspose.Slides for Java ส่งออกพรีเซนเทชันเป็น PDF และในส่วนใหญ่ ผลลัพธ์ PDF จะดูเหมือนกับพรีเซนเทชันต้นฉบับอย่างแท้จริง.
 
-Aspose.Slides supports the following presentation features when converting to PDF:
+Aspose.Slides รองรับคุณลักษณะของพรีเซนเทชันต่อไปนี้เมื่อตรวจสอบเป็น PDF:
 
-- รูปภาพ, กล่องข้อความและรูปร่างอื่นๆ.
-- ข้อความและรูปแบบ.
-- ย่อหน้าและรูปแบบ.
+- ภาพ, กล่องข้อความและรูปร่างอื่น ๆ.
+- ข้อความและการจัดรูปแบบ.
+- ย่อหน้าและการจัดรูปแบบ.
 - ไฮเปอร์ลิงก์.
-- หัวเรื่องและส่วนท้าย.
-- จุดสัญลักษณ์.
+- ส่วนหัวและส่วนท้าย.
+- สัญลักษณ์หัวข้อย่อย.
 - ตาราง.
 
-You can export presentations to PDFs directly using Aspose.Slides for Java: you do not need any other component. Further, you can customize the presentation to PDF export with various options as explained in [การแปลงเป็น PDF](/slides/th/java/converting-a-presentation/).
+คุณสามารถส่งออกพรีเซนเทชันเป็น PDF โดยตรงด้วย Aspose.Slides for Java: คุณไม่ต้องการส่วนประกอบอื่นใด อีกทั้งคุณสามารถปรับแต่งการส่งออกพรีเซนเทชันเป็น PDF ด้วยตัวเลือกต่าง ๆ ตามที่อธิบายใน [การแปลงเป็น PDF](/slides/th/java/converting-a-presentation/).
 
-**การนำเสนออินพุต** 
+**พรีเซนเทชันต้นฉบับ** 
 
 ![todo:image_alt_text](portable-document-format-pdf_1.png)
 
 
-**การนำเสนอที่แปลงเป็น PDF ด้วย Aspose.Slides for Java** 
+**พรีเซนเทชันที่แปลงเป็น PDF ด้วย Aspose.Slides for Java** 
 
 ![todo:image_alt_text](portable-document-format-pdf_2.png)

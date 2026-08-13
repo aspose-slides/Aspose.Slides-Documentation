@@ -1,5 +1,5 @@
 ---
-title: Converter apresentações PowerPoint para PDF com notas em .NET
+title: Converter apresentações do PowerPoint para PDF com notas em .NET
 linktitle: PowerPoint para PDF com notas
 type: docs
 weight: 50
@@ -29,32 +29,37 @@ description: "Converter formatos PPT e PPTX para PDF com notas usando Aspose.Sli
 ---
 ## **Visão geral**
 
-Neste artigo, você aprenderá a converter apresentações PowerPoint para formato PDF com notas do apresentador usando Aspose.Slides. Este guia abordará as etapas necessárias e fornecerá exemplos de código para ajudá‑lo a concluir essa tarefa de forma eficiente. Ao final deste artigo, você será capaz de:
+Neste artigo, você aprenderá como converter apresentações do PowerPoint para o formato PDF com anotações do apresentador usando Aspose.Slides. Este guia abordará as etapas necessárias e fornecerá exemplos de código para ajudá‑lo a concluir essa tarefa de forma eficiente. Ao final deste artigo, você será capaz de:
 
-- Implementar o processo de conversão para transformar slides do PowerPoint em documentos PDF preservando as notas do apresentador.
-- Personalizar o PDF de saída para garantir que as notas do apresentador sejam incluídas e formatadas de acordo com seus requisitos.
+- Implementar o processo de conversão para transformar slides do PowerPoint em documentos PDF preservando as anotações do apresentador.  
+- Personalizar o PDF de saída para garantir que as anotações do apresentador sejam incluídas e formatadas de acordo com seus requisitos.
 
 ## **Converter PowerPoint para PDF com Notas**
 
-O método `Save` na classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/) pode ser usado para converter uma apresentação PPT ou PPTX para PDF com notas do apresentador. Com Aspose.Slides, você simplesmente carrega a apresentação, configura as opções de layout usando a classe [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/pt/net/aspose.slides.export/notescommentslayoutingoptions/) para incluir as notas do apresentador e, em seguida, salva o arquivo como PDF. O trecho de código a seguir demonstra como converter uma apresentação de exemplo para PDF na visualização de Slides de Notas.
+O método `Save` na classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/) pode ser usado para converter uma apresentação PPT ou PPTX em PDF com notas do apresentador. Com Aspose.Slides, basta carregar a apresentação, configurar as opções de layout usando a classe [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/pt/net/aspose.slides.export/notescommentslayoutingoptions/) para incluir as notas, e então salvar o arquivo como PDF. O trecho de código a seguir demonstra como converter uma apresentação de exemplo para PDF na visualização de Slides com Notas.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
-    // Configurar opções de PDF para renderizar notas do apresentador.
+    // Configure as opções de PDF para renderizar notas do apresentador.
     PdfOptions pdfOptions = new PdfOptions
     {
         SlidesLayoutOptions = new NotesCommentsLayoutingOptions
         {
-            NotesPosition = NotesPositions.BottomFull // Renderizar notas do apresentador abaixo do slide.
+            NotesPosition = NotesPositions.BottomFull // Renderize as notas do apresentador abaixo do slide.
         }
     };
 
-    // Salvar a apresentação em PDF com notas do apresentador.
+    // Salve a apresentação em PDF com notas do apresentador.
     presentation.Save("output.pdf", SaveFormat.Pdf, pdfOptions);
 }
 ```
 
-{{% alert color="primary" %}} 
-Você pode querer conferir o [Conversor Online de PowerPoint para PDF da Aspose](https://products.aspose.app/slides/pt/conversion). 
+{{% alert color="info" %}} 
+
+Você pode querer conferir o Conversor online de PowerPoint para PDF da Aspose[https://products.aspose.app/slides/pt/conversion](https://products.aspose.app/slides/pt/conversion). 
+
 {{% /alert %}}

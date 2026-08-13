@@ -8,10 +8,10 @@ keywords:
 - makro
 - VBA
 - VBA-makro
-- lägga till makro
+- lägg till makro
 - ta bort makro
 - extrahera makro
-- lägga till VBA
+- lägg till VBA
 - ta bort VBA
 - extrahera VBA
 - PowerPoint
@@ -24,35 +24,39 @@ description: "Upptäck hur du skapar och manipulerar PowerPoint- och OpenDocumen
 ---
 ## **Introduktion**
 
-The [Aspose.Slides.Vba](https://reference.aspose.com/slides/sv/net/aspose.slides.vba/) namespace contains classes and interfaces for working with macros and VBA code.
+Namnutrymmet [Aspose.Slides.Vba](https://reference.aspose.com/slides/sv/net/aspose.slides.vba/) innehåller klasser och gränssnitt för att arbeta med makron och VBA-kod.
 
 {{% alert title="Obs" color="warning" %}} 
 
-När du konverterar en presentation som innehåller makron till ett annat filformat (PDF, HTML osv.) ignorerar Aspose.Slides alla makron (makron förs inte över till den resulterande filen).
+När du konverterar en presentation som innehåller makron till ett annat filformat (PDF, HTML etc.) ignorerar Aspose.Slides alla makron (makron överförs inte till den resulterande filen).
 
-När du lägger till makron i en presentation eller sparar om en presentation som innehåller makron skriver Aspose.Slides bara bytes för makron.
+När du lägger till makron i en presentation eller sparar om en presentation som innehåller makron skriver Aspose.Slides helt enkelt bytes för makron.
 
-Aspose.Slides **kör aldrig** makron i en presentation.
+Aspose.Slides **aldrig** kör makron i en presentation.
 
 {{% /alert %}}
 
 ## **Lägg till VBA-makron**
 
-Aspose.Slides tillhandahåller klassen [VbaProject](https://reference.aspose.com/slides/sv/net/aspose.slides.vba/vbaproject/) för att låta dig skapa VBA‑projekt (och projektreferenser) och redigera befintliga moduler. Du kan använda gränssnittet [IVbaProject](https://reference.aspose.com/slides/sv/net/aspose.slides.vba/ivbaproject/) för att hantera VBA som är inbäddad i en presentation.
+Aspose.Slides tillhandahåller klassen [VbaProject](https://reference.aspose.com/slides/sv/net/aspose.slides.vba/vbaproject/) för att du ska kunna skapa VBA-projekt (och projektreferenser) och redigera befintliga moduler. Du kan använda gränssnittet [IVbaProject](https://reference.aspose.com/slides/sv/net/aspose.slides.vba/ivbaproject/) för att hantera VBA som är inbäddad i en presentation.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/) .
-1. Använd konstruktorn för [VbaProject](https://reference.aspose.com/slides/sv/net/aspose.slides.vba/vbaproject/vbaproject/#constructor) för att lägga till ett nytt VBA‑projekt.
-1. Lägg till en modul i VbaProject.
-1. Ange modulens källkod.
-1. Lägg till referenser till <stdole>.
-1. Lägg till referenser till **Microsoft Office**.
-1. Koppla referenserna till VBA‑projektet.
-1. Spara presentationen.
+2. Använd konstruktorn för [VbaProject](https://reference.aspose.com/slides/sv/net/aspose.slides.vba/vbaproject/vbaproject/#constructor) för att lägga till ett nytt VBA-projekt.
+3. Lägg till en modul i VbaProject.
+4. Ange modulens källkod.
+5. Lägg till referenser till <stdole>.
+6. Lägg till referenser till **Microsoft Office**.
+7. Associera referenserna med VBA-projektet.
+8. Spara presentationen.
 
-Denna C#‑kod visar hur du lägger till ett VBA‑makro från början till en presentation:
+Den här C#-koden visar hur du lägger till ett VBA-makro från början i en presentation:
 
 ```c#
-    // Skapar en instans av presentationsklassen
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Vba;
+
+// Skapar en instans av presentationsklassen
 using (Presentation presentation = new Presentation())
 {
     // Skapar ett nytt VBA-projekt
@@ -60,8 +64,8 @@ using (Presentation presentation = new Presentation())
 
     // Lägger till en tom modul i VBA-projektet
     IVbaModule module = presentation.VbaProject.Modules.AddEmptyModule("Module");
-  
-    // Ställer in modulens källkod
+
+    // Anger modulens källkod
     module.SourceCode = @"Sub Test(oShape As Shape) MsgBox ""Test"" End Sub";
 
     // Skapar en referens till <stdole>
@@ -76,47 +80,52 @@ using (Presentation presentation = new Presentation())
     presentation.VbaProject.References.Add(stdoleReference);
     presentation.VbaProject.References.Add(officeReference);
 
-            
     // Sparar presentationen
-    presentation.Save(dataDir + "AddVBAMacros_out.pptm", SaveFormat.Pptm);
+    presentation.Save("AddVBAMacros_out.pptm", SaveFormat.Pptm);
 }
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Du kanske vill prova **Aspose** [Macro Remover](https://products.aspose.app/slides/sv/remove-macros), en gratis webbapp för att ta bort makron från PowerPoint-, Excel- och Word-dokument. 
+Du kanske vill kolla in **Aspose** [Macro Remover](https://products.aspose.app/slides/sv/remove-macros), som är en gratis webbapp för att ta bort makron från PowerPoint-, Excel- och Word-dokument. 
 
 {{% /alert %}} 
 
 ## **Ta bort VBA-makron**
-Genom egenskapen [VbaProject](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/vbaproject/) under klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/) kan du ta bort ett VBA‑makro.
+Genom att använda egenskapen [VbaProject](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/vbaproject/) under klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/) kan du ta bort ett VBA-makro.
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/) klassen och läs in presentationen som innehåller makrot.
-1. Få åtkomst till makromodulen och ta bort den.
-1. Spara den ändrade presentationen.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/) och läs in presentationen som innehåller makrot.
+2. Öppna makro-modulen och ta bort den.
+3. Spara den ändrade presentationen.
 
-Denna C#‑kod visar hur du tar bort ett VBA‑makro:
+Den här C#-koden visar hur du tar bort ett VBA-makro:
 
 ```c#
-    // Läser in presentationen som innehåller makrot
-using (Presentation presentation = new Presentation(dataDir + "VBA.pptm"))
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Laddar presentationen som innehåller makrot
+using (Presentation presentation = new Presentation("VBA.pptm"))
 {
-    // Kommer åt Vba-modulen och tar bort den 
+    // Åtkomst till Vba-modulen och tar bort den
     presentation.VbaProject.Modules.Remove(presentation.VbaProject.Modules[0]);
 
     // Sparar presentationen
-    presentation.Save(dataDir + "RemovedVBAMacros_out.pptm", SaveFormat.Pptm);
+    presentation.Save("RemovedVBAMacros_out.pptm", SaveFormat.Pptm);
 }
 ```
 
 ## **Extrahera VBA-makron**
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/)‑klassen och läs in presentationen som innehåller makrot.
-2. Kontrollera om presentationen innehåller ett VBA‑projekt.
-3. Loopa igenom alla moduler i VBA‑projektet för att visa makrona.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/) och läs in presentationen som innehåller makrot.
+2. Kontrollera om presentationen innehåller ett VBA-projekt.
+3. Loopa igenom alla moduler i VBA-projektet för att visa makron.
 
-Denna C#‑kod visar hur du extraherar VBA‑makron från en presentation som innehåller makron:
+Den här C#-koden visar hur du extraherar VBA-makron från en presentation som innehåller makron:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Vba;
+
     // Laddar presentationen som innehåller makrot
 using (Presentation pres = new Presentation("VBA.pptm"))
 {
@@ -133,13 +142,15 @@ using (Presentation pres = new Presentation("VBA.pptm"))
 
 ## **Kontrollera om ett VBA-projekt är lösenordsskyddat**
 
-Med egenskapen [IVbaProject.IsPasswordProtected](https://reference.aspose.com/slides/sv/net/aspose.slides.vba/ivbaproject/ispasswordprotected/) kan du avgöra om ett projekts egenskaper är lösenordsskyddade.
+Genom att använda egenskapen [IVbaProject.IsPasswordProtected](https://reference.aspose.com/slides/sv/net/aspose.slides.vba/ivbaproject/ispasswordprotected/) kan du avgöra om ett projekts egenskaper är lösenordsskyddade.
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/)‑klassen och läs in en presentation som innehåller ett makro.
-2. Kontrollera om presentationen innehåller ett [VBA‑projekt](https://reference.aspose.com/slides/sv/net/aspose.slides.vba/vbaproject/).
-3. Kontrollera om VBA‑projektet är lösenordsskyddat för att visa dess egenskaper.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/) och läs in en presentation som innehåller ett makro.
+2. Kontrollera om presentationen innehåller ett [VBA-projekt](https://reference.aspose.com/slides/sv/net/aspose.slides.vba/vbaproject/).
+3. Kontrollera om VBA-projektet är lösenordsskyddat för att visa dess egenskaper.
 
 ```cs
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("VBA.pptm"))
 {
     if (presentation.VbaProject != null) // Kontrollera om presentationen innehåller ett VBA-projekt.
@@ -154,14 +165,14 @@ using (Presentation presentation = new Presentation("VBA.pptm"))
 
 ## **FAQ**
 
-**Vad händer med makron om jag sparar presentationen som PPTX?**
+### Vad händer med makron om jag sparar presentationen som PPTX?
 
-Makron tas bort eftersom PPTX inte stödjer VBA. För att behålla makron, välj PPTM, PPSM eller POTM.
+Makron kommer att tas bort eftersom PPTX inte stödjer VBA. För att behålla makron, välj PPTM, PPSM eller POTM.
 
-**Kan Aspose.Slides köra makron i en presentation för att exempelvis uppdatera data?**
+### Kan Aspose.Slides köra makron i en presentation för att till exempel uppdatera data?
 
-Nej. Biblioteket kör aldrig VBA‑kod; körning är endast möjlig i PowerPoint med rätt säkerhetsinställningar.
+Nej. Biblioteket kör aldrig VBA-kod; körning är endast möjlig i PowerPoint med lämpliga säkerhetsinställningar.
 
-**Stöds arbete med ActiveX‑kontroller som är länkade till VBA‑kod?**
+### Stöds arbete med ActiveX-kontroller som är länkade till VBA-kod?
 
-Ja, du kan komma åt befintliga [ActiveX controls](/slides/sv/net/activex/), ändra deras egenskaper och ta bort dem. Detta är användbart när makron interagerar med ActiveX.
+Ja, du kan komma åt befintliga [ActiveX-kontroller](/slides/sv/net/activex/), ändra deras egenskaper och ta bort dem. Detta är användbart när makron interagerar med ActiveX.

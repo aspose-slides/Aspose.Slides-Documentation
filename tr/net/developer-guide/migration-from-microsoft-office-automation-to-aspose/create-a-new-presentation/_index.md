@@ -7,7 +7,7 @@ url: /tr/net/create-a-new-presentation/
 keywords:
 - sunum oluştur
 - yeni sunum
-- göç
+- geçiş
 - VSTO
 - Office otomasyonu
 - PowerPoint
@@ -17,29 +17,31 @@ keywords:
 - Aspose.Slides
 description: "Microsoft Office otomasyonundan Aspose.Slides for .NET'e geçiş yapın ve C# ile temiz, güvenilir kod kullanarak yeni PowerPoint (PPT, PPTX) sunumları oluşturun."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-VSTO, geliştiricilerin Microsoft Office içinde çalışabilen uygulamalar oluşturmasına olanak sağlamak için geliştirildi. VSTO, COM tabanlıdır ancak .NET uygulamalarında kullanılabilmesi için bir .NET nesnesi içinde sarılmıştır. VSTO, .NET Framework desteğinin yanı sıra Microsoft Office CLR tabanlı çalışma zamanına da ihtiyac duyar. Microsoft Office eklentileri oluşturmak için kullanılabilmesine rağmen, sunucu tarafı bileşen olarak kullanılması neredeyse imkansızdır. Ayrıca ciddi dağıtım sorunları vardır.
+VSTO, geliştiricilerin Microsoft Office içinde çalışabilen uygulamalar oluşturmasına olanak sağlamak için geliştirildi. VSTO, COM tabanlıdır ancak .NET uygulamalarında kullanılabilmesi için bir .NET nesnesi içinde paketlenmiştir. VSTO, .NET framework desteği ve Microsoft Office CLR tabanlı çalışma zamanına ihtiyaç duyar. Microsoft Office eklentileri oluşturmak için kullanılabilmesine rağmen sunucu tarafı bir bileşen olarak kullanılması neredeyse imkansızdır. Ayrıca ciddi dağıtım sorunları vardır.
 
-- Aspose.Slides yalnızca yönetilen kod içerir ve Microsoft Office çalışma zamanının kurulmasını gerektirmez.
-- İstemci tarafı bileşen veya sunucu tarafı bileşen olarak kullanılabilir.
-- Aspose.Slides tek bir DLL içinde bulunduğu için dağıtım kolaydır.
+Aspose.Slides for .NET, Microsoft PowerPoint sunumlarını manipüle etmek için kullanılabilen bir bileşen olup, VSTO gibi, ancak birkaç avantajı vardır:
+
+- Aspose.Slides yalnızca yönetilen kod içerir ve Microsoft Office çalışma zamanının yüklü olmasını gerektirmez.
+- İstemci tarafı bir bileşen veya sunucu tarafı bir bileşen olarak kullanılabilir.
+- Dağıtım kolaydır, çünkü Aspose.Slides tek bir DLL içinde bulunur.
 
 {{% /alert %}} 
 ## **Sunum Oluşturma**
-Aşağıda, VSTO ve Aspose.Slides for .NET'in aynı hedefe nasıl ulaşabileceğini gösteren iki kod örneği bulunmaktadır. İlk örnek [VSTO](/slides/tr/net/create-a-new-presentation/); [ikinci örnek](/slides/tr/net/create-a-new-presentation/) Aspose.Slides kullanır.
+Aşağıda, VSTO ve Aspose.Slides for .NET'in aynı hedefe nasıl ulaşılabileceğini gösteren iki kod örneği bulunmaktadır. İlk örnek [VSTO](/slides/tr/net/create-a-new-presentation/); [ikinci örnek](/slides/tr/net/create-a-new-presentation/) Aspose.Slides kullanmaktadır.
 ### **VSTO Örneği**
-**VSTO Çıktısı** 
+**VSTO çıktısı** 
 
 ![todo:image_alt_text](create-a-new-presentation_1.png)
 
 
 
 ```c#
-//Not: PowerPoint, yukarıda şu şekilde tanımlanmış bir ad alanıdır
+//Not: PowerPoint, yukarıda bu şekilde tanımlanmış bir ad alanıdır
 //using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 
-//Sunum Oluştur
+//Yeni bir sunum oluştur
 PowerPoint.Presentation pres = Globals.ThisAddIn.Application
 	.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 
@@ -71,7 +73,10 @@ pres.SaveAs("c:\\outVSTO.ppt",
 
 
 ```c#
-//Sunum Oluştur
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+//Bir sunum oluştur
 Presentation pres = new Presentation();
 
 //Başlık slaytını ekle
@@ -85,5 +90,5 @@ ISlide slide = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
 ((IAutoShape)slide.Shapes[1]).TextFrame.Text = "Slide Title Sub-Heading";
 
 //Çıktıyı diske yaz
-pres.Save("c:\\data\\outAsposeSlides.pptx", SaveFormat.Ppt);
+pres.Save("outAsposeSlides.pptx", SaveFormat.Ppt);
 ```

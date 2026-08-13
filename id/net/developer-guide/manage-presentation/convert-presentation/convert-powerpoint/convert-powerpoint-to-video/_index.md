@@ -26,38 +26,41 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Pelajari cara mengonversi presentasi PowerPoint ke video di .NET. Temukan contoh kode C# dan teknik otomasi untuk menyederhanakan alur kerja Anda."
+description: "Pelajari cara mengonversi presentasi PowerPoint ke video di .NET. Temukan contoh kode C# dan teknik otomatisasi untuk menyederhanakan alur kerja Anda."
 ---
-## **Pendahuluan**
+## **Pengantar**
 
-Dengan mengonversi presentasi PowerPoint atau OpenDocument Anda ke video, Anda mendapatkan:
+Dengan mengonversi presentasi PowerPoint atau OpenDocument Anda menjadi video, Anda mendapatkan:
 
-**Aksesibilitas yang meningkat:** Semua perangkat, tanpa memandang platform, dilengkapi dengan pemutar video secara bawaan, sehingga memudahkan pengguna untuk membuka atau memutar video dibandingkan dengan aplikasi presentasi tradisional.
+**Aksesibilitas yang meningkat:** Semua perangkat, terlepas dari platform, dilengkapi pemutar video secara default, sehingga lebih mudah bagi pengguna untuk membuka atau memutar video dibandingkan aplikasi presentasi tradisional.
 
-**Jangkauan yang lebih luas:** Video memungkinkan Anda menjangkau audiens yang lebih besar dan menyajikan informasi dalam format yang lebih menarik. Survei dan statistik menunjukkan bahwa orang lebih suka menonton dan mengonsumsi konten video dibandingkan bentuk lain, sehingga pesan Anda menjadi lebih berdampak.
+**Jangkauan lebih luas:** Video memungkinkan Anda menjangkau audiens yang lebih besar dan menyajikan informasi dalam format yang lebih menarik. Survei dan statistik menunjukkan bahwa orang lebih suka menonton dan mengonsumsi konten video dibandingkan bentuk lain, menjadikan pesan Anda lebih berdampak.
 
-{{% alert color="primary" %}} 
-Lihat [**PowerPoint to Video Online Converter**](https://products.aspose.app/slides/id/video) kami karena menyediakan implementasi langsung dan efektif dari proses yang dijelaskan di sini.
+{{% alert color="info" %}} 
+
+Lihat [**PowerPoint to Video Online Converter**](https://products.aspose.app/slides/id/video) karena konverter ini menawarkan implementasi langsung dan efektif dari proses yang dijelaskan di sini.
+
 {{% /alert %}} 
 
-Di Aspose.Slides untuk .NET, kami telah menambahkan dukungan untuk mengonversi presentasi ke video.
+Di Aspose.Slides for .NET, kami menambahkan dukungan untuk mengonversi presentasi menjadi video.
 
-* Gunakan Aspose.Slides untuk .NET untuk menghasilkan frame dari slide presentasi dengan laju frame tertentu (FPS).
-* Kemudian, gunakan utilitas pihak ketiga seperti ffmpeg untuk mengompilasi frame-frame tersebut menjadi video.
+* Gunakan Aspose.Slides for .NET untuk menghasilkan frame dari slide presentasi dengan kecepatan frame (FPS) yang ditentukan.
+* Kemudian, gunakan utilitas pihak ketiga seperti ffmpeg untuk menggabungkan frame‑frame tersebut menjadi sebuah video.
 
 ## **Mengonversi Presentasi PowerPoint ke Video**
 
 1. Gunakan perintah `dotnet add package` untuk menambahkan Aspose.Slides dan pustaka FFMpegCore ke proyek Anda:
-   * jalankan `dotnet add package Aspose.Slides.NET --version 22.11.0`
-   * jalankan `dotnet add package FFMpegCore --version 4.8.0`
+   * run `dotnet add package Aspose.Slides.NET --version 22.11.0`
+   * run `dotnet add package FFMpegCore --version 4.8.0`
 2. Unduh ffmpeg dari [sini](https://ffmpeg.org/download.html).
 3. FFMpegCore mengharuskan Anda menentukan path ke ffmpeg yang diunduh (misalnya, diekstrak ke "C:\tools\ffmpeg"):  
 ```cs
     GlobalFFOptions.Configure(new FFOptions { BinaryFolder = @"c:\tools\ffmpeg\bin" });
 ```
-4. Jalankan kode konversi PowerPoint-ke-video.
+4. Jalankan kode konversi PowerPoint‑to‑video.
 
-Kode C# ini menunjukkan cara mengonversi presentasi (yang berisi sebuah shape dan dua efek animasi) menjadi video:
+Kode C# berikut mendemonstrasikan cara mengonversi presentasi (yang berisi sebuah shape dan dua efek animasi) menjadi video:
+
 ```c#
 using System.Collections.Generic;
 using Aspose.Slides;
@@ -68,7 +71,7 @@ using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // Tambahkan bentuk smile dan kemudian animasikan.
+    // Tambahkan bentuk senyum lalu beri animasi.
     IAutoShape smile = slide.Shapes.AddAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
 
     IEffect effectIn = slide.Timeline.MainSequence.AddEffect(
@@ -105,29 +108,39 @@ using (Presentation presentation = new Presentation())
 
 ## **Efek Video**
 
-Ketika mengonversi presentasi PowerPoint ke video menggunakan Aspose.Slides untuk .NET, Anda dapat menerapkan berbagai efek video untuk meningkatkan kualitas visual output. Efek-efek ini memungkinkan Anda mengontrol tampilan slide dalam video akhir dengan menambahkan transisi halus, animasi, dan elemen visual lainnya. Bagian ini menjelaskan opsi efek video yang tersedia dan menunjukkan cara menerapkannya.
+Saat mengonversi presentasi PowerPoint ke video menggunakan Aspose.Slides for .NET, Anda dapat menerapkan berbagai efek video untuk meningkatkan kualitas visual output. Efek‑efek ini memungkinkan Anda mengontrol tampilan slide dalam video akhir dengan menambahkan transisi halus, animasi, dan elemen visual lainnya. Bagian ini menjelaskan opsi efek video yang tersedia dan cara menerapkannya.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
+
 Lihat:
 - [Enhancing PowerPoint Presentations with Animations in C#](https://docs.aspose.com/slides/id/net/powerpoint-animation/)
 - [Shape Animation](https://docs.aspose.com/slides/id/net/shape-animation/)
 - [Apply Shape Effects in PowerPoint Using C#](https://docs.aspose.com/slides/id/net/shape-effect/)
+
 {{% /alert %}} 
 
-Animasi dan transisi membuat slideshow lebih menarik dan menarik — dan hal yang sama berlaku untuk video. Mari tambahkan slide lain dan transisi ke kode untuk presentasi sebelumnya:
-```c#
-// Tambahkan bentuk smile dan animasikan.
-// ...
+Animasi dan transisi membuat slideshow lebih menarik dan menarik — begitu pula untuk video. Mari tambahkan slide lain dan transisi ke kode untuk presentasi sebelumnya:
 
-// Tambahkan slide baru dan transisi animasi.
-ISlide newSlide = presentation.Slides.AddEmptySlide(presentation.Slides[0].LayoutSlide);
-newSlide.Background.Type = BackgroundType.OwnBackground;
-newSlide.Background.FillFormat.FillType = FillType.Solid;
-newSlide.Background.FillFormat.SolidFillColor.Color = Color.Indigo;
-newSlide.SlideShowTransition.Type = TransitionType.Push;
+```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.SlideShow;
+
+using (Presentation presentation = new Presentation())
+{
+    // Tambahkan bentuk senyum dan beri animasi (lihat kode di atas).
+
+    // Tambahkan slide baru dan transisi animasi.
+    ISlide newSlide = presentation.Slides.AddEmptySlide(presentation.Slides[0].LayoutSlide);
+    newSlide.Background.Type = BackgroundType.OwnBackground;
+    newSlide.Background.FillFormat.FillType = FillType.Solid;
+    newSlide.Background.FillFormat.SolidFillColor.Color = Color.Indigo;
+    newSlide.SlideShowTransition.Type = TransitionType.Push;
+}
 ```
 
-Aspose.Slides juga mendukung animasi teks. Dalam contoh ini, kami menganimasikan paragraf pada objek sehingga mereka muncul satu per satu, dengan jeda satu detik di antara mereka:
+Aspose.Slides juga mendukung animasi teks. Pada contoh ini, kami menganimasikan paragraf pada objek sehingga muncul satu per satu, dengan jeda satu detik di antara mereka:
+
 ```c#
 using System.Collections.Generic;
 using Aspose.Slides.Export;
@@ -196,19 +209,24 @@ using (Presentation presentation = new Presentation())
 
 ## **Kelas Konversi Video**
 
-Untuk memungkinkan tugas konversi PowerPoint ke video, Aspose.Slides untuk .NET menyediakan kelas [PresentationAnimationsGenerator](https://reference.aspose.com/slides/id/net/aspose.slides.export/presentationanimationsgenerator/) dan [PresentationPlayer](https://reference.aspose.com/slides/id/net/aspose.slides.export/presentationplayer/).
+Untuk memungkinkan tugas konversi PowerPoint ke video, Aspose.Slides for .NET menyediakan kelas [PresentationAnimationsGenerator](https://reference.aspose.com/slides/id/net/aspose.slides.export/presentationanimationsgenerator/) dan [PresentationPlayer](https://reference.aspose.com/slides/id/net/aspose.slides.export/presentationplayer/).
 
-`PresentationAnimationsGenerator` memungkinkan Anda mengatur ukuran frame untuk video (yang akan dibuat nanti) dan nilai FPS (frame per detik) melalui konstruktornya. Jika Anda memberikan instance presentasi, `Presentation.SlideSize`‑nya akan digunakan dan ia menghasilkan animasi yang digunakan oleh [PresentationPlayer](https://reference.aspose.com/slides/id/net/aspose.slides.export/presentationplayer/).
+`PresentationAnimationsGenerator` memungkinkan Anda mengatur ukuran frame untuk video (yang akan dibuat nanti) dan nilai FPS (frame per detik) melalui konstruktor-nya. Jika Anda melewatkan sebuah instance presentasi, `Presentation.SlideSize`‑nya akan digunakan dan ia menghasilkan animasi yang dipakai oleh [PresentationPlayer](https://reference.aspose.com/slides/id/net/aspose.slides.export/presentationplayer/).
 
-Ketika animasi dihasilkan, peristiwa `NewAnimation` dipicu untuk setiap animasi berikutnya, yang menyertakan parameter [IPresentationAnimationPlayer](https://reference.aspose.com/slides/id/net/aspose.slides.export/ipresentationanimationplayer/). Kelas ini mewakili pemutar untuk satu animasi.
+Saat animasi dihasilkan, sebuah event `NewAnimation` dipicu untuk setiap animasi berikutnya, yang mencakup parameter [IPresentationAnimationPlayer](https://reference.aspose.com/slides/id/net/aspose.slides.export/ipresentationanimationplayer/). Kelas ini mewakili pemutar untuk satu animasi individual.
 
 Untuk bekerja dengan [IPresentationAnimationPlayer](https://reference.aspose.com/slides/id/net/aspose.slides.export/ipresentationanimationplayer/), Anda menggunakan properti [Duration](https://reference.aspose.com/slides/id/net/aspose.slides.export/ipresentationanimationplayer/duration/) (yang memberikan durasi penuh animasi) dan metode [SetTimePosition](https://reference.aspose.com/slides/id/net/aspose.slides.export/ipresentationanimationplayer/settimeposition/). Setiap posisi animasi diatur dalam rentang *0 sampai duration*, dan metode `GetFrame` kemudian mengembalikan Bitmap yang mewakili keadaan animasi pada titik waktu tersebut.
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // Tambahkan bentuk smile dan animasikan.
+    // Tambahkan bentuk senyum dan beri animasi.
     IAutoShape smile = slide.Shapes.AddAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
 
     IEffect effectIn = slide.Timeline.MainSequence.AddEffect(
@@ -226,19 +244,23 @@ using (Presentation presentation = new Presentation())
         {
             Console.WriteLine($"Total animation duration: {animationPlayer.Duration}");
 
-            animationPlayer.SetTimePosition(0);          // Keadaan animasi awal.
-            Bitmap bitmap = animationPlayer.GetFrame();  // Bitmap keadaan animasi awal.
+            animationPlayer.SetTimePosition(0);        // Status animasi awal.
+            IImage image = animationPlayer.GetFrame(); // Gambar status animasi awal.
 
-            animationPlayer.SetTimePosition(animationPlayer.Duration);  // Keadaan akhir animasi.
-            Bitmap lastBitmap = animationPlayer.GetFrame();             // Frame terakhir animasi.
-            lastBitmap.Save("last.png");
+            animationPlayer.SetTimePosition(animationPlayer.Duration); // Status akhir animasi.
+            IImage lastImage = animationPlayer.GetFrame();             // Frame terakhir animasi.
+            lastImage.Save("last.png");
         };
     }
 }
 ```
 
-Untuk membuat semua animasi dalam sebuah presentasi diputar sekaligus, kelas [PresentationPlayer](https://reference.aspose.com/slides/id/net/aspose.slides.export/presentationplayer/) digunakan. Kelas ini menerima instance [PresentationAnimationsGenerator](https://reference.aspose.com/slides/id/net/aspose.slides.export/presentationanimationsgenerator/) dan nilai FPS untuk efek dalam konstruktornya, lalu memanggil peristiwa `FrameTick` untuk semua animasi agar diputar:
+Agar semua animasi dalam sebuah presentasi diputar sekaligus, kelas [PresentationPlayer](https://reference.aspose.com/slides/id/net/aspose.slides.export/presentationplayer/) digunakan. Kelas ini menerima sebuah instance [PresentationAnimationsGenerator](https://reference.aspose.com/slides/id/net/aspose.slides.export/presentationanimationsgenerator/) dan nilai FPS untuk efek dalam konstruktor‑nya, kemudian memanggil event `FrameTick` untuk semua animasi agar diputar:
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("animated.pptx"))
 {
     using (var animationsGenerator = new PresentationAnimationsGenerator(presentation))
@@ -253,15 +275,15 @@ using (Presentation presentation = new Presentation("animated.pptx"))
 }
 ```
 
-Kemudian frame yang dihasilkan dapat dikompilasi menjadi video. Lihat bagian [Convert a PowerPoint Presentation to Video](/slides/id/net/convert-powerpoint-to-video/#convert-a-powerpoint-presentation-to-video).
+Kemudian frame yang dihasilkan dapat digabungkan untuk menghasilkan sebuah video. Lihat bagian [Convert a PowerPoint Presentation to Video](/slides/id/net/convert-powerpoint-to-video/#convert-a-powerpoint-presentation-to-video).
 
 ## **Animasi dan Efek yang Didukung**
 
-Ketika mengonversi presentasi PowerPoint ke video menggunakan Aspose.Slides untuk .NET, penting untuk memahami animasi dan efek mana yang didukung dalam output. Aspose.Slides mendukung berbagai efek masuk, keluar, dan penekanan umum seperti fade, fly in, zoom, dan spin. Namun, beberapa animasi lanjutan atau kustom mungkin tidak sepenuhnya dipertahankan atau muncul berbeda dalam video akhir. Bagian ini merangkum animasi dan efek yang didukung.
+Saat mengonversi presentasi PowerPoint ke video menggunakan Aspose.Slides for .NET, penting untuk memahami animasi dan efek apa saja yang didukung dalam output. Aspose.Slides mendukung beragam efek masuk, keluar, dan penekanan umum seperti fade, fly in, zoom, dan spin. Namun, beberapa animasi lanjutan atau kustom mungkin tidak sepenuhnya dipertahankan atau dapat muncul berbeda dalam video akhir. Bagian ini menjelaskan animasi dan efek yang didukung.
 
-**Entrance**:
+**Masuk**:
 
-| Jenis Animasi | Aspose.Slides | PowerPoint |
+| Tipe Animasi | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Appear** | ![not supported](x.png) | ![supported](v.png) |
 | **Fade** | ![supported](v.png) | ![supported](v.png) |
@@ -277,9 +299,9 @@ Ketika mengonversi presentasi PowerPoint ke video menggunakan Aspose.Slides untu
 | **Swivel** | ![supported](v.png) | ![supported](v.png) |
 | **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
-**Emphasis**:
+**Penekanan**:
 
-| Jenis Animasi | Aspose.Slides | PowerPoint |
+| Tipe Animasi | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Pulse** | ![not supported](x.png) | ![supported](v.png) |
 | **Color Pulse** | ![not supported](x.png) | ![supported](v.png) |
@@ -295,9 +317,9 @@ Ketika mengonversi presentasi PowerPoint ke video menggunakan Aspose.Slides untu
 | **Line Color** | ![not supported](x.png) | ![supported](v.png) |
 | **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
 
-**Exit**:
+**Keluar**:
 
-| Jenis Animasi | Aspose.Slides | PowerPoint |
+| Tipe Animasi | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Disappear** | ![not supported](x.png) | ![supported](v.png) |
 | **Fade** | ![supported](v.png) | ![supported](v.png) |
@@ -312,9 +334,9 @@ Ketika mengonversi presentasi PowerPoint ke video menggunakan Aspose.Slides untu
 | **Swivel** | ![supported](v.png) | ![supported](v.png) |
 | **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
-**Motion Paths**:
+**Jalur Gerak**:
 
-| Jenis Animasi | Aspose.Slides | PowerPoint |
+| Tipe Animasi | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Lines** | ![supported](v.png) | ![supported](v.png) |
 | **Arcs** | ![supported](v.png) | ![supported](v.png) |
@@ -325,11 +347,11 @@ Ketika mengonversi presentasi PowerPoint ke video menggunakan Aspose.Slides untu
 
 ## **Efek Transisi Slide yang Didukung**
 
-Efek transisi slide berperan penting dalam menciptakan perubahan yang halus dan menarik secara visual antara slide dalam video. Aspose.Slides untuk .NET mendukung berbagai efek transisi yang umum digunakan untuk membantu mempertahankan alur dan gaya presentasi asli Anda. Bagian ini menyoroti efek transisi mana yang didukung selama proses konversi.
+Efek transisi slide berperan penting dalam menciptakan perubahan yang mulus dan menarik secara visual antar slide dalam video. Aspose.Slides for .NET mendukung berbagai efek transisi yang umum digunakan untuk membantu mempertahankan alur dan gaya presentasi asli Anda. Bagian ini menyoroti efek transisi mana yang didukung selama proses konversi.
 
 **Halus**:
 
-| Jenis Animasi | Aspose.Slides | PowerPoint |
+| Tipe Animasi | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Morph** | ![not supported](x.png) | ![supported](v.png) |
 | **Fade** | ![supported](v.png) | ![supported](v.png) |
@@ -345,9 +367,9 @@ Efek transisi slide berperan penting dalam menciptakan perubahan yang halus dan 
 | **Flash** | ![supported](v.png) | ![supported](v.png) |
 | **Strips** | ![supported](v.png) | ![supported](v.png) |
 
-**Menarik**:
+**Menyenangkan**:
 
-| Jenis Animasi | Aspose.Slides | PowerPoint |
+| Tipe Animasi | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Fall Over** | ![not supported](x.png) | ![supported](v.png) |
 | **Drape** | ![not supported](x.png) | ![supported](v.png) |
@@ -381,7 +403,7 @@ Efek transisi slide berperan penting dalam menciptakan perubahan yang halus dan 
 
 **Konten Dinamis**:
 
-| Jenis Animasi | Aspose.Slides | PowerPoint |
+| Tipe Animasi | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Pan** | ![not supported](x.png) | ![supported](v.png) |
 | **Ferris Wheel** | ![supported](v.png) | ![supported](v.png) |
@@ -392,14 +414,14 @@ Efek transisi slide berperan penting dalam menciptakan perubahan yang halus dan 
 
 ## **FAQ**
 
-**Apakah memungkinkan mengonversi presentasi yang dilindungi kata sandi?**
+### Apakah memungkinkan mengonversi presentasi yang dilindungi kata sandi?
 
-Ya, Aspose.Slides untuk .NET memungkinkan bekerja dengan presentasi yang dilindungi kata sandi. Saat memproses file semacam itu, Anda perlu menyediakan kata sandi yang benar agar perpustakaan dapat mengakses konten presentasi.
+Ya, Aspose.Slides for .NET memungkinkan bekerja dengan presentasi yang dilindungi kata sandi. Saat memproses file semacam itu, Anda perlu menyediakan kata sandi yang benar agar pustaka dapat mengakses konten presentasi.
 
-**Apakah Aspose.Slides untuk .NET mendukung penggunaan dalam solusi cloud?**
+### Apakah Aspose.Slides for .NET mendukung penggunaan dalam solusi cloud?
 
-Ya, Aspose.Slides untuk .NET dapat diintegrasikan ke dalam aplikasi dan layanan cloud. Perpustakaan ini dirancang untuk bekerja di lingkungan server, memastikan kinerja tinggi dan skalabilitas untuk pemrosesan batch file.
+Ya, Aspose.Slides for .NET dapat diintegrasikan ke dalam aplikasi dan layanan cloud. Pustaka ini dirancang untuk bekerja di lingkungan server, memastikan kinerja tinggi dan skalabilitas untuk pemrosesan batch file.
 
-**Apakah ada batasan ukuran untuk presentasi selama konversi?**
+### Apakah ada batasan ukuran untuk presentasi selama konversi?
 
-Aspose.Slides untuk .NET mampu menangani presentasi dengan ukuran apa pun secara praktis. Namun, saat bekerja dengan file yang sangat besar, sumber daya sistem tambahan mungkin diperlukan, dan seringkali disarankan untuk mengoptimalkan presentasi guna meningkatkan kinerja.
+Aspose.Slides for .NET mampu menangani presentasi dengan ukuran apa pun secara praktis. Namun, ketika bekerja dengan file yang sangat besar, mungkin diperlukan sumber daya sistem tambahan, dan terkadang disarankan untuk mengoptimalkan presentasi guna meningkatkan kinerja.

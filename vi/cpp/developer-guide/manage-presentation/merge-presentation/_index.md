@@ -1,82 +1,83 @@
 ---
-title: Kết hợp hiệu quả các bản trình bày trong C++
-linktitle: Kết hợp các bản trình bày
+title: Kết hợp các bài thuyết trình một cách hiệu quả trong C++
+linktitle: Kết hợp các bài thuyết trình
 type: docs
 weight: 40
 url: /vi/cpp/merge-presentation/
 keywords:
+- hợp nhất PowerPoint
+- hợp nhất bài thuyết trình
+- hợp nhất slide
+- hợp nhất PPT
+- hợp nhất PPTX
+- hợp nhất ODP
 - kết hợp PowerPoint
-- kết hợp bản trình bày
+- kết hợp bài thuyết trình
 - kết hợp slide
 - kết hợp PPT
 - kết hợp PPTX
 - kết hợp ODP
-- gộp PowerPoint
-- gộp bản trình bày
-- gộp slide
-- gộp PPT
-- gộp PPTX
-- gộp ODP
 - C++
 - Aspose.Slides
-description: "Dễ dàng kết hợp các bản trình bày PowerPoint (PPT, PPTX) và OpenDocument (ODP) với Aspose.Slides cho C++, giúp tối ưu quy trình làm việc của bạn."
+description: "Dễ dàng hợp nhất các bài thuyết trình PowerPoint (PPT, PPTX) và OpenDocument (ODP) bằng Aspose.Slides cho C++, giúp tối ưu hoá quy trình làm việc của bạn."
 ---
 ## **Tổng quan**
 
-Aspose.Slides cho phép bạn hợp nhất các bản trình bày bằng cách sao chép các slide từ một bản trình bày sang bản khác. Bài viết này giải thích cách hợp nhất toàn bộ bản trình bày hoặc các slide được chọn, sử dụng slide master hoặc bố cục cụ thể trong quá trình hợp nhất, xử lý các bản trình bày có kích thước slide khác nhau, và thêm các slide đã hợp nhất vào một phần của bản trình bày. Nó cũng đề cập đến các lưu ý thực tiễn liên quan đến nội dung đã hợp nhất, bao gồm ghi chú người thuyết trình, bình luận, tệp nguồn được bảo vệ bằng mật khẩu và việc sử dụng luồng.
+Aspose.Slides cho phép bạn hợp nhất các bài thuyết trình bằng cách sao chép các slide từ một bài thuyết trình sang bài thuyết trình khác. Bài viết này giải thích cách hợp nhất toàn bộ bài thuyết trình hoặc các slide được chọn, sử dụng slide master hoặc bố cục cụ thể trong quá trình hợp nhất, xử lý các bài thuyết trình có kích thước slide khác nhau, và thêm các slide đã hợp nhất vào một phần của bài thuyết trình. Nó cũng đề cập đến các lưu ý thực tiễn liên quan đến nội dung đã hợp nhất, bao gồm ghi chú người thuyết trình, bình luận, tệp nguồn được bảo vệ bằng mật khẩu và việc sử dụng luồng.
 
-## **Hợp nhất bản trình bày**
+## **Hợp nhất Bài thuyết trình**
 
-Khi bạn hợp nhất một bản trình bày vào bản khác, bạn thực tế đang kết hợp các slide của chúng thành một bản trình bày duy nhất để có được một tệp.
+Khi bạn hợp nhất một bài thuyết trình vào bài thuyết trình khác, bạn thực chất đang kết hợp các slide của chúng trong một bài thuyết trình duy nhất để có được một tệp.
 
 {{% alert title="Info" color="info" %}}
+Hầu hết các chương trình trình chiếu (PowerPoint hoặc OpenOffice) thiếu các chức năng cho phép người dùng kết hợp các bài thuyết trình theo cách này.
 
-Hầu hết các chương trình trình bày (PowerPoint hoặc OpenOffice) không có chức năng cho phép người dùng kết hợp các bản trình bày theo cách này.
-
-[**Aspose.Slides for C++**](https://products.aspose.com/slides/vi/cpp/) , tuy nhiên, cho phép bạn hợp nhất các bản trình bày theo nhiều cách khác nhau. Bạn có thể hợp nhất các bản trình bày cùng với mọi hình dạng, kiểu, văn bản, định dạng, bình luận, hoạt ảnh, v.v. mà không lo mất chất lượng hay dữ liệu.
+[**Aspose.Slides for C++**](https://products.aspose.com/slides/vi/cpp/), tuy nhiên, cho phép bạn hợp nhất các bài thuyết trình theo nhiều cách khác nhau. Bạn có thể hợp nhất các bài thuyết trình với tất cả các hình dạng, kiểu dáng, văn bản, định dạng, bình luận, hoạt ảnh, v.v. mà không cần lo lắng về việc mất chất lượng hoặc dữ liệu.
 
 **Xem thêm**
-
-[Clone Slides](https://docs.aspose.com/slides/vi/cpp/clone-slides/)*.*
-
+[Sao chép Slide](https://docs.aspose.com/slides/vi/cpp/clone-slides/)*.*
 {{% /alert %}}
 
 ### **Những gì có thể hợp nhất**
 
 Với Aspose.Slides, bạn có thể hợp nhất
 
-* toàn bộ các bản trình bày. Tất cả các slide từ các bản trình bày sẽ nằm trong một bản trình bày
-* các slide cụ thể. Các slide đã chọn sẽ nằm trong một bản trình bày
-* các bản trình bày ở cùng một định dạng (PPT sang PPT, PPTX sang PPTX, v.v.) và ở các định dạng khác nhau (PPT sang PPTX, PPTX sang ODP, v.v.) với nhau.
+* toàn bộ bài thuyết trình. Tất cả các slide từ các bài thuyết trình sẽ được đưa vào một bài thuyết trình
+* các slide cụ thể. Các slide được chọn sẽ được đưa vào một bài thuyết trình
+* các bài thuyết trình cùng định dạng (PPT sang PPT, PPTX sang PPTX, v.v.) và các định dạng khác nhau (PPT sang PPTX, PPTX sang ODP, v.v.) với nhau.
 
-{{% alert title="Note" color="warning" %}}
+{{% alert title="Note" color="warning" %}} 
+Ngoài các bài thuyết trình, Aspose.Slides cho phép bạn hợp nhất các tệp khác:
 
-Ngoài các bản trình bày, Aspose.Slides cho phép bạn hợp nhất các tệp khác:
-
-* [Images](https://products.aspose.com/slides/vi/cpp/merger/image-to-image/), chẳng hạn như [JPG to JPG](https://products.aspose.com/slides/vi/cpp/merger/jpg-to-jpg/) hoặc [PNG to PNG](https://products.aspose.com/slides/vi/cpp/merger/png-to-png/)
-* Documents, chẳng hạn như [PDF to PDF](https://products.aspose.com/slides/vi/cpp/merger/pdf-to-pdf/) hoặc [HTML to HTML](https://products.aspose.com/slides/vi/cpp/merger/html-to-html/)
-* Và hai loại tệp khác nhau như [image to PDF](https://products.aspose.com/slides/vi/cpp/merger/image-to-pdf/) hoặc [JPG to PDF](https://products.aspose.com/slides/vi/cpp/merger/jpg-to-pdf/) hoặc [TIFF to PDF](https://products.aspose.com/slides/vi/cpp/merger/tiff-to-pdf/).
-
+* [Hình ảnh](https://products.aspose.com/slides/vi/cpp/merger/image-to-image/), chẳng hạn như [JPG sang JPG](https://products.aspose.com/slides/vi/cpp/merger/jpg-to-jpg/) hoặc [PNG sang PNG](https://products.aspose.com/slides/vi/cpp/merger/png-to-png/)
+* Tài liệu, chẳng hạn như [PDF sang PDF](https://products.aspose.com/slides/vi/cpp/merger/pdf-to-pdf/) hoặc [HTML sang HTML](https://products.aspose.com/slides/vi/cpp/merger/html-to-html/)
+* Và hai loại tệp khác nhau như [hình ảnh sang PDF](https://products.aspose.com/slides/vi/cpp/merger/image-to-pdf/) hoặc [JPG sang PDF](https://products.aspose.com/slides/vi/cpp/merger/jpg-to-pdf/) hoặc [TIFF sang PDF](https://products.aspose.com/slides/vi/cpp/merger/tiff-to-pdf/).
 {{% /alert %}}
 
-### **Các tùy chọn hợp nhất**
+### **Tùy chọn Hợp nhất**
 
-Bạn có thể áp dụng các tùy chọn xác định:
+Bạn có thể áp dụng các tùy chọn để xác định:
 
-* mỗi slide trong bản trình bày đầu ra giữ một kiểu duy nhất
-* một kiểu cụ thể được sử dụng cho tất cả các slide trong bản trình bày đầu ra.
+* mỗi slide trong bài thuyết trình đầu ra giữ một kiểu riêng biệt
+* một kiểu cụ thể được sử dụng cho tất cả các slide trong bài thuyết trình đầu ra.
 
-Để hợp nhất các bản trình bày, Aspose.Slides cung cấp các phương pháp [AddClone](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) (từ giao diện [ISlideCollection](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_slide_collection)). Có một số triển khai của các phương pháp `AddClone` xác định các tham số quá trình hợp nhất bản trình bày. Mỗi đối tượng Presentation có một bộ sưu tập [Slides](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c), vì vậy bạn có thể gọi một phương pháp `AddClone` từ bản trình bày mà bạn muốn hợp nhất các slide vào.
+Để hợp nhất các bài thuyết trình, Aspose.Slides cung cấp các phương thức [AddClone](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) (từ giao diện [ISlideCollection](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_slide_collection)). Có một số triển khai của các phương thức `AddClone` xác định các tham số quá trình hợp nhất bài thuyết trình. Mỗi đối tượng Presentation có một bộ sưu tập [Slides](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c), vì vậy bạn có thể gọi phương thức `AddClone` từ bài thuyết trình mà bạn muốn hợp nhất các slide.
 
-Phương pháp `AddClone` trả về một đối tượng `ISlide`, là bản sao của slide nguồn. Các slide trong bản trình bày đầu ra chỉ là bản sao của các slide từ nguồn. Do đó, bạn có thể thay đổi các slide kết quả (ví dụ, áp dụng kiểu hoặc tùy chọn định dạng hoặc bố cục) mà không lo ảnh hưởng tới các bản trình bày nguồn.
+Phương thức `AddClone` trả về một đối tượng `ISlide`, là bản sao của slide nguồn. Các slide trong bài thuyết trình đầu ra chỉ là bản sao của các slide từ nguồn. Do đó, bạn có thể thay đổi các slide kết quả (ví dụ, áp dụng kiểu, tùy chọn định dạng hoặc bố cục) mà không lo các bài thuyết trình nguồn bị ảnh hưởng.
 
-## **Hợp nhất bản trình bày**
+## **Hợp nhất Bài thuyết trình**
 
-Aspose.Slides cung cấp phương pháp [**AddClone (ISlide)**](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) cho phép bạn kết hợp các slide trong khi các slide vẫn giữ nguyên bố cục và kiểu (các tham số mặc định).
+Aspose.Slides cung cấp phương thức [**AddClone (ISlide)**](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) cho phép bạn kết hợp các slide trong khi chúng giữ nguyên bố cục và kiểu (các tham số mặc định).
 
-Đoạn mã C++ dưới đây cho bạn thấy cách hợp nhất các bản trình bày:
+This C++ code shows you how to merge presentations:
 
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
 for (const auto& slide : pres2->get_Slides())
@@ -87,13 +88,20 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-## **Hợp nhất bản trình bày với Slide Master**
+## **Hợp nhất Bài thuyết trình với Slide Master**
 
-Aspose.Slides cung cấp phương pháp [**AddClone (ISlide, IMasterSlide, bool)**](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_slide_collection#a6b040e6b30f52ab4644fafdbc650b640) cho phép bạn kết hợp các slide đồng thời áp dụng mẫu slide master. Bằng cách này, nếu cần, bạn có thể thay đổi kiểu cho các slide trong bản trình bày đầu ra.
+Aspose.Slides cung cấp phương thức [**AddClone (ISlide, IMasterSlide, bool)**](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_slide_collection#a6b040e6b30f52ab4644fafdbc650b640) cho phép bạn kết hợp các slide đồng thời áp dụng mẫu slide master. Theo cách này, nếu cần, bạn có thể thay đổi kiểu cho các slide trong bài thuyết trình đầu ra.
 
-Đoạn mã C++ dưới đây minh họa thao tác đã mô tả:
+This code in C++ demonstrates the described operation:
 
 ```cpp
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
 for (const auto& slide : pres2->get_Slides())
@@ -104,21 +112,28 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert title="Note" color="warning" %}}
-
-Bố cục slide cho slide master được xác định tự động. Khi không thể xác định được bố cục phù hợp, nếu tham số boolean `allowCloneMissingLayout` của phương pháp `AddClone` được đặt thành true, sẽ sử dụng bố cục của slide nguồn. Ngược lại, sẽ ném ra ngoại lệ [PptxEditException](https://reference.aspose.com/slides/vi/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d).
-
+{{% alert title="Note" color="warning" %}} 
+Bố cục slide cho slide master được xác định tự động. Khi không thể xác định được bố cục phù hợp, nếu tham số boolean `allowCloneMissingLayout` của phương thức `AddClone` được đặt là true, sẽ sử dụng bố cục của slide nguồn. Ngược lại, sẽ ném ra ngoại lệ [PptxEditException](https://reference.aspose.com/slides/vi/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d).
 {{% /alert %}}
 
-Nếu bạn muốn các slide trong bản trình bày đầu ra có bố cục slide khác, hãy sử dụng phương pháp [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_slide_collection#a0ed5909b2d92555159007046760ff2f1) khi hợp nhất.
+Nếu bạn muốn các slide trong bài thuyết trình đầu ra có một bố cục slide khác, hãy sử dụng phương thức [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_slide_collection#a0ed5909b2d92555159007046760ff2f1) thay thế khi hợp nhất.
 
-## **Hợp nhất các slide cụ thể từ bản trình bày**
+## **Hợp nhất Các Slide Cụ Thể Từ Các Bài Thuyết Trình**
 
-Hợp nhất các slide cụ thể từ nhiều bản trình bày hữu ích cho việc tạo các bộ slide tùy chỉnh. Aspose.Slides C++ cho phép bạn chọn và nhập chỉ những slide cần thiết. API bảo tồn định dạng, bố cục và thiết kế của các slide gốc.
+Hợp nhất các slide cụ thể từ nhiều bài thuyết trình hữu ích cho việc tạo các bộ slide tùy chỉnh. Aspose.Slides C++ cho phép bạn chọn và nhập chỉ những slide cần thiết. API giữ nguyên định dạng, bố cục và thiết kế của các slide gốc.
 
-Đoạn mã C++ dưới đây tạo một bản trình bày mới, thêm các slide tiêu đề từ hai bản trình bày khác, và lưu kết quả vào một tệp:
+The following C++ code creates a new presentation, adds title slides from two other presentations, and saves the result to a file:
 
 ```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IPresentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/SlideLayoutType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation)
 {
     for (auto&& slide : presentation->get_Slides())
@@ -132,6 +147,19 @@ SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation)
 }
 ```
 ```cpp
+#include <DOM/IPresentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// Được khai báo ở trên trong mã.
+SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation);
+
 auto presentation = MakeObject<Presentation>();
 auto presentation1 = MakeObject<Presentation>(u"presentation1.pptx");
 auto presentation2 = MakeObject<Presentation>(u"presentation2.pptx");
@@ -155,11 +183,18 @@ presentation1->Dispose();
 presentation->Dispose();
 ```
 
-## **Hợp nhất bản trình bày với một Layout Slide**
+## **Hợp nhất Bài thuyết trình với Bố cục Slide**
 
-Đoạn mã C++ này cho bạn thấy cách kết hợp các slide từ các bản trình bày đồng thời áp dụng bố cục slide mà bạn muốn để có một bản trình bày đầu ra duy nhất:
+This C++ code shows you how to combine slides from presentations while applying your preferred slide layout to them to get one output presentation:
 
 ```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
 for (const auto& slide : pres2->get_Slides())
@@ -170,19 +205,26 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-## **Hợp nhất bản trình bày với các kích thước slide khác nhau**
+## **Hợp nhất Bài thuyết trình với Kích thước Slide Khác nhau**
 
-{{% alert title="Note" color="warning" %}}
-
-Bạn không thể hợp nhất các bản trình bày có kích thước slide khác nhau.
-
+{{% alert title="Note" color="warning" %}} 
+Bạn không thể hợp nhất các bài thuyết trình có kích thước slide khác nhau.
 {{% /alert %}}
 
-Để hợp nhất 2 bản trình bày có kích thước slide khác nhau, bạn phải thay đổi kích thước của một trong các bản trình bày để kích thước khớp với bản trình bày còn lại.
+Để hợp nhất 2 bài thuyết trình có kích thước slide khác nhau, bạn phải thay đổi kích thước của một trong các bài thuyết trình để kích thước của nó khớp với bài thuyết trình còn lại.
 
-Đoạn mã mẫu dưới đây thực hiện thao tác đã mô tả:
+This sample code demonstrates the described operation:
 
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres1Size = pres1->get_SlideSize()->get_Size();
 
@@ -197,11 +239,18 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-## **Hợp nhất slide vào một phần của bản trình bày**
+## **Hợp nhất Slide vào Phần của Bài Thuyết Trình**
 
-Đoạn mã C++ này cho bạn thấy cách hợp nhất một slide cụ thể vào một phần trong bản trình bày:
+This C++ code shows you how to merge a specific slide to a section in a presentation:
 
 ```cpp
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
 for (int32_t index = 0; index < pres2->get_Slides()->get_Count(); index++)
@@ -215,26 +264,24 @@ pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 
 Slide được thêm vào cuối phần.
 
-{{% alert title="Tip" color="primary" %}}
-
-Aspose cung cấp một [ứng dụng web Collage MIỄN PHÍ](https://products.aspose.app/slides/vi/collage). Sử dụng dịch vụ trực tuyến này, bạn có thể hợp nhất [JPG to JPG](https://products.aspose.app/slides/vi/collage/jpg) hoặc PNG to PNG, tạo [lưới ảnh](https://products.aspose.app/slides/vi/collage/photo-grid), v.v.
-
+{{% alert title="Tip" color="info" %}} 
+Aspose cung cấp một [ứng dụng web Collage MIỄN PHÍ](https://products.aspose.app/slides/vi/collage). Sử dụng dịch vụ trực tuyến này, bạn có thể hợp nhất các hình ảnh [JPG sang JPG](https://products.aspose.app/slides/vi/collage/jpg) hoặc PNG sang PNG, tạo [lưới ảnh](https://products.aspose.app/slides/vi/collage/photo-grid), v.v.
 {{% /alert %}}
 
 ## **Câu hỏi thường gặp**
 
-**Ghi chú người thuyết trình có được bảo tồn khi hợp nhất không?**
+### Ghi chú người thuyết trình có được giữ lại khi hợp nhất không?
 
-Có. Khi sao chép slide, Aspose.Slides chuyển toàn bộ các thành phần slide, bao gồm ghi chú, định dạng và hoạt ảnh.
+Có. Khi sao chép slide, Aspose.Slides chuyển giao tất cả các yếu tố của slide, bao gồm ghi chú, định dạng và hoạt ảnh.
 
-**Bình luận và tác giả của chúng có được chuyển không?**
+### Bình luận và tác giả của chúng có được chuyển không?
 
-Bình luận, như một phần của nội dung slide, được sao chép cùng slide. Nhãn tác giả bình luận được bảo tồn dưới dạng đối tượng bình luận trong bản trình bày kết quả.
+Bình luận, là một phần của nội dung slide, được sao chép cùng slide. Nhãn tác giả của bình luận được giữ lại dưới dạng các đối tượng comment trong bài thuyết trình kết quả.
 
-**Nếu bản trình bày nguồn được bảo vệ bằng mật khẩu thì sao?**
+### Nếu bài thuyết trình nguồn được bảo vệ bằng mật khẩu thì sao?
 
-Phải [mở bằng mật khẩu](/slides/vi/cpp/password-protected-presentation/) qua [LoadOptions::set_Password](https://reference.aspose.com/slides/vi/cpp/aspose.slides/loadoptions/set_password/); sau khi tải, các slide đó có thể được sao chép an toàn vào tệp đích không bảo vệ (hoặc cũng có thể bảo vệ).
+Bạn phải [mở bằng mật khẩu](/slides/vi/cpp/password-protected-presentation/) thông qua [LoadOptions::set_Password](https://reference.aspose.com/slides/vi/cpp/aspose.slides/loadoptions/set_password/); sau khi tải, các slide đó có thể được sao chép an toàn vào tệp đích không bảo vệ (hoặc cũng có thể vào tệp được bảo vệ).
 
-**Quá trình hợp nhất có an toàn với đa luồng không?**
+### Hoạt động hợp nhất có an toàn với đa luồng không?
 
-Không sử dụng cùng một thể hiện [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) từ [nhiều luồng](/slides/vi/cpp/multithreading/). Quy tắc được khuyến nghị là “một tài liệu — một luồng”; các tệp khác nhau có thể được xử lý song song trong các luồng riêng biệt.
+Không nên sử dụng cùng một thể hiện [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) từ [nhiều luồng](/slides/vi/cpp/multithreading/). Quy tắc được khuyên dùng là “một tài liệu — một luồng”; các tệp khác nhau có thể được xử lý song song trong các luồng riêng biệt.

@@ -1,5 +1,5 @@
 ---
-title: Конвертировать презентации PowerPoint в видео на C++
+title: Преобразование презентаций PowerPoint в видео на C++
 linktitle: PowerPoint в видео
 type: docs
 weight: 130
@@ -21,33 +21,57 @@ keywords:
 - сохранить PPTX как MP4
 - экспортировать PPT в MP4
 - экспортировать PPTX в MP4
-- конвертация видео
+- преобразование видео
 - PowerPoint
 - C++
 - Aspose.Slides
-description: "Узнайте, как преобразовать презентации PowerPoint в видео на C++. Откройте примеры кода и техники автоматизации для оптимизации вашего рабочего процесса."
+description: "Узнайте, как преобразовать презентации PowerPoint в видео на C++. Ознакомьтесь с примером кода и методами автоматизации для упрощения вашего рабочего процесса."
 ---
-
-## **Обзор**
+## **Введение**
 
 Преобразуя вашу презентацию PowerPoint в видео, вы получаете 
 
 * **Повышение доступности:** Все устройства (независимо от платформы) по умолчанию оснащены видеоплеерами, в отличие от приложений для открытия презентаций, поэтому пользователям проще открывать или воспроизводить видео.
-* **Больший охват:** С помощью видео вы можете достичь широкой аудитории и предоставить им информацию, которая иначе могла бы показаться скучной в презентации. Большинство опросов и статистических данных свидетельствуют о том, что люди смотрят и потребляют видео больше, чем другой контент, и обычно предпочитают именно его.
+* **Больший охват:** С помощью видео вы можете достичь широкой аудитории и донести до неё информацию, которая в презентации могла бы показаться скучной. Большинство опросов и статистических данных свидетельствуют, что люди смотрят и потребляют видео больше, чем другие формы контента, и в целом предпочитают такой контент.
 
-В [Aspose.Slides 22.11](https://docs.aspose.com/slides/cpp/aspose-slides-for-cpp-22-11-release-notes/) мы реализовали поддержку конвертации презентаций в видео. 
+В [Aspose.Slides 22.11](https://docs.aspose.com/slides/ru/cpp/aspose-slides-for-cpp-22-11-release-notes/) мы реализовали поддержку преобразования презентаций в видео. 
 
-* Используйте Aspose.Slides для генерации набора кадров (из слайдов презентации), соответствующего определённому FPS (кадрам в секунду).
-* Используйте стороннюю утилиту, например `ffmpeg`, для создания видео на основе этих кадров.
+* Использовать Aspose.Slides для генерации набора кадров (из слайдов презентации), соответствующего определённому FPS (кадров в секунду)
+* Использовать стороннюю утилиту, например `ffmpeg`, для создания видео на основе кадров.
 
-## **Преобразовать презентацию PowerPoint в видео**
+## **Конвертировать презентацию PowerPoint в видео**
 
-1. Скачайте ffmpeg [здесь](https://ffmpeg.org/download.html).
-2. Добавьте путь к `ffmpeg.exe` в переменную окружения `PATH`.
-3. Запустите код преобразования PowerPoint в видео.
+1. Скачать ffmpeg [здесь](https://ffmpeg.org/download.html).
+2. Добавить путь к `ffmpeg.exe` в переменную окружения `PATH`.
+3. Запустить код преобразования PowerPoint в видео.
 
-Этот C++ код показывает, как преобразовать презентацию (с фигурой и двумя эффектами анимации) в видео:
+Этот код на C++ показывает, как преобразовать презентацию (содержащую рисунок и два эффекта анимации) в видео:
+
 ```c++
+#include <DOM/Animation/EffectPresetClassType.h>
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/FramesStream/FrameTickEventArgs.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
+#include <Export/FramesStream/PresentationPlayer.h>
+#include <IImage.h>
+#include <system/diagnostics/process.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+
 void OnFrameTick(System::SharedPtr<PresentationPlayer> sender, System::SharedPtr<FrameTickEventArgs> args)
 {
     System::String fileName = System::String::Format(u"frame_{0}.png", sender->get_FrameIndex());
@@ -59,7 +83,7 @@ void Run()
     auto presentation = System::MakeObject<Presentation>();
     auto slide = presentation->get_Slide(0);
 
-    // Добавляет форму улыбки, а затем анимирует её
+    // Добавляет форму смайлика и затем анимирует её
     System::SharedPtr<IAutoShape> smile = slide->get_Shapes()->AddAutoShape(ShapeType::SmileyFace, 110.0f, 20.0f, 500.0f, 500.0f);
     auto sequence = slide->get_Timeline()->get_MainSequence();
     System::SharedPtr<IEffect> effectIn = sequence->AddEffect(smile, EffectType::Fly, EffectSubtype::TopLeft, EffectTriggerType::AfterPrevious);
@@ -76,28 +100,42 @@ void Run()
 
     const System::String ffmpegParameters = System::String::Format(
         u"-loglevel {0} -framerate {1} -i {2} -y -c:v {3} -pix_fmt {4} {5}",
-        u"warning", m_fps, "frame_%d.png", u"libx264", u"yuv420p", "video.mp4");
+        u"warning", fps, u"frame_%d.png", u"libx264", u"yuv420p", u"video.mp4");
     auto ffmpegProcess = System::Diagnostics::Process::Start(u"ffmpeg", ffmpegParameters);
     ffmpegProcess->WaitForExit();
 }
 ```
 
-
 ## **Эффекты видео**
 
 Вы можете применять анимацию к объектам на слайдах и использовать переходы между слайдами.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Возможно, вам будет интересно ознакомиться со следующими статьями: [PowerPoint Animation](https://docs.aspose.com/slides/cpp/powerpoint-animation/), [Shape Animation](https://docs.aspose.com/slides/cpp/shape-animation/), и [Shape Effect](https://docs.aspose.com/slides/cpp/shape-effect/).
+Возможно, вам будет интересен эти статьи: [PowerPoint Animation](https://docs.aspose.com/slides/ru/cpp/powerpoint-animation/), [Shape Animation](https://docs.aspose.com/slides/ru/cpp/shape-animation/), и [Shape Effect](https://docs.aspose.com/slides/ru/cpp/shape-effect/).
 
 {{% /alert %}} 
 
-Анимации и переходы делают слайд-шоу более увлекательными и интересными — то же самое касается и видео. Добавим ещё один слайд и переход в код предыдущей презентации:
-```c++
-// Добавляет форму улыбки и анимирует её
+Анимация и переходы делают слайд‑шоу более увлекательными и интересными — и то же самое они делают для видео. Добавим ещё один слайд и переход в код предыдущей презентации:
 
-// ...
+```c++
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideShowTransition.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideShowTransition/TransitionType.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::SlideShow;
+
+// Добавляет форму смайлика и анимирует её, как показано выше
+auto presentation = System::MakeObject<Presentation>();
 
 // Добавляет новый слайд и анимированный переход
 
@@ -116,9 +154,37 @@ fillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Indigo()
 newSlide->get_SlideShowTransition()->set_Type(TransitionType::Push);
 ```
 
+Aspose.Slides также поддерживает анимацию текста. Поэтому мы анимируем абзацы на объектах, которые будут появляться один за другим (задержка установлена в одну секунду):
 
-Aspose.Slides также поддерживает анимацию текста. Мы анимируем абзацы на объектах, которые будут появляться один за другим (с задержкой в одну секунду):
 ```c++
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/FramesStream/FrameTickEventArgs.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
+#include <Export/FramesStream/PresentationPlayer.h>
+#include <IImage.h>
+#include <system/diagnostics/process.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+
 void OnFrameTick(System::SharedPtr<PresentationPlayer> sender, System::SharedPtr<FrameTickEventArgs> args)
 {
     System::String fileName = System::String::Format(u"frame_{0}.png", sender->get_FrameIndex());
@@ -130,7 +196,7 @@ void Run()
     auto presentation = System::MakeObject<Presentation>();
     auto slide = presentation->get_Slide(0);
 
-    // Adds text and animations
+    // Добавляет текст и анимацию
     System::SharedPtr<IAutoShape> autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 210.0f, 120.0f, 300.0f, 300.0f);
     System::SharedPtr<Paragraph> para1 = System::MakeObject<Paragraph>();
     para1->get_Portions()->Add(System::MakeObject<Portion>(u"Aspose Slides for C++"));
@@ -159,48 +225,69 @@ void Run()
     effect3->get_Timing()->set_TriggerDelayTime(1.0f);
     effect4->get_Timing()->set_TriggerDelayTime(1.0f);
 
-    // Converts frames to video
+    // Преобразует кадры в видео
     const int32_t fps = 33;
 
     auto animationsGenerator = System::MakeObject<PresentationAnimationsGenerator>(presentation);
     auto player = System::MakeObject<PresentationPlayer>(animationsGenerator, fps);
-    
+
     player->FrameTick += OnFrameTick;
     animationsGenerator->Run(presentation->get_Slides());
 
     const System::String ffmpegParameters = System::String::Format(
         u"-loglevel {0} -framerate {1} -i {2} -y -c:v {3} -pix_fmt {4} {5}",
-        u"warning", m_fps, "frame_%d.png", u"libx264", u"yuv420p", "video.mp4");
+        u"warning", fps, u"frame_%d.png", u"libx264", u"yuv420p", u"video.mp4");
     auto ffmpegProcess = System::Diagnostics::Process::Start(u"ffmpeg", ffmpegParameters);
     ffmpegProcess->WaitForExit();
 }
 ```
 
-
 ## **Классы конвертации видео**
 
-Чтобы вы могли выполнять задачи по конвертации PowerPoint в видео, Aspose.Slides предоставляет классы [PresentationAnimationsGenerator](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.presentation_animations_generator/) и [PresentationPlayer](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.presentation_player/).
+Чтобы вы могли выполнять задачи преобразования PowerPoint в видео, Aspose.Slides предоставляет классы [PresentationAnimationsGenerator](https://reference.aspose.com/slides/ru/cpp/class/aspose.slides.export.presentation_animations_generator/) и [PresentationPlayer](https://reference.aspose.com/slides/ru/cpp/class/aspose.slides.export.presentation_player/).
 
-PresentationAnimationsGenerator позволяет установить размер кадра для будущего видео через конструктор. Если передать экземпляр презентации, будет использовано `Presentation.SlideSize`, и он генерирует анимацию, которую использует [PresentationPlayer](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.presentation_player/). 
+PresentationAnimationsGenerator позволяет задать размер кадра для будущего видео через конструктор. Если передать экземпляр презентации, будет использовано `Presentation.SlideSize`, и он генерирует анимацию, которую использует [PresentationPlayer](https://reference.aspose.com/slides/ru/cpp/class/aspose.slides.export.presentation_player/).
 
-При генерации анимаций для каждой последующей анимации генерируется событие `NewAnimation` с параметром [IPresentationAnimationPlayer](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_presentation_animation_player/). Последний представляет собой плеер для отдельной анимации.
+При генерации анимаций для каждой последующей анимации генерируется событие `NewAnimation`, которое имеет параметр [IPresentationAnimationPlayer](https://reference.aspose.com/slides/ru/cpp/class/aspose.slides.export.i_presentation_animation_player/), представляющий плеер отдельной анимации.
 
-Для работы с [IPresentationAnimationPlayer](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_presentation_animation_player/) используются свойство [get_Duration](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_presentation_animation_player#a29881d28eb42f345ab130d52f05a2d91) (полная длительность анимации) и метод [SetTimePosition](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_presentation_animation_player#a29cb11a73e3ad5f645626fcee3bc4ea0). Каждая позиция анимации задаётся в диапазоне от *0 до duration*, после чего метод `GetFrame` возвращает Bitmap, соответствующий состоянию анимации в данный момент.
+Для работы с [IPresentationAnimationPlayer](https://reference.aspose.com/slides/ru/cpp/class/aspose.slides.export.i_presentation_animation_player/), используются свойство [get_Duration](https://reference.aspose.com/slides/ru/cpp/class/aspose.slides.export.i_presentation_animation_player#a29881d28eb42f345ab130d52f05a2d91) (полная длительность анимации) и метод [SetTimePosition](https://reference.aspose.com/slides/ru/cpp/class/aspose.slides.export.i_presentation_animation_player#a29cb11a73e3ad5f645626fcee3bc4ea0). Позиция каждой анимации задаётся в диапазоне *0 до длительности*, после чего метод `GetFrame` возвращает Bitmap, соответствующий состоянию анимации в этот момент.
+
 ```c++
+#include <DOM/Animation/EffectPresetClassType.h>
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/FramesStream/IPresentationAnimationPlayer.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
+#include <IImage.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+
 void OnNewAnimation(System::SharedPtr<IPresentationAnimationPlayer> animationPlayer)
 {
     System::Console::WriteLine(u"Total animation duration: {0}", animationPlayer->get_Duration());
 
     animationPlayer->SetTimePosition(0);
     // начальное состояние анимации
-    System::SharedPtr<System::Drawing::Bitmap> bitmap = animationPlayer->GetFrame();
+    System::SharedPtr<IImage> image = animationPlayer->GetFrame();
     // битмап начального состояния анимации
 
     animationPlayer->SetTimePosition(animationPlayer->get_Duration());
     // конечное состояние анимации
-    System::SharedPtr<System::Drawing::Bitmap> lastBitmap = animationPlayer->GetFrame();
+    System::SharedPtr<IImage> lastImage = animationPlayer->GetFrame();
     // последний кадр анимации
-    lastBitmap->Save(u"last.png");
+    lastImage->Save(u"last.png");
 }
 
 void Run()
@@ -208,7 +295,7 @@ void Run()
     auto presentation = System::MakeObject<Presentation>();
     auto slide = presentation->get_Slide(0);
 
-    // Добавляет форму улыбки и анимирует её
+    // Добавляет форму смайлика и анимирует её
     System::SharedPtr<IAutoShape> smile = slide->get_Shapes()->AddAutoShape(ShapeType::SmileyFace, 110.0f, 20.0f, 500.0f, 500.0f);
     auto sequence = slide->get_Timeline()->get_MainSequence();
     System::SharedPtr<IEffect> effectIn = sequence->AddEffect(smile, EffectType::Fly, EffectSubtype::TopLeft, EffectTriggerType::AfterPrevious);
@@ -221,9 +308,19 @@ void Run()
 }
 ```
 
+Чтобы все анимации в презентации воспроизводились одновременно, используется класс [PresentationPlayer](https://reference.aspose.com/slides/ru/cpp/class/aspose.slides.export.presentation_player/). Этот класс принимает экземпляр [PresentationAnimationsGenerator](https://reference.aspose.com/slides/ru/cpp/class/aspose.slides.export.presentation_animations_generator/), а также FPS для эффектов в конструкторе и затем вызывает событие `FrameTick` для всех анимаций, чтобы они воспроизводились:
 
-Чтобы все анимации в презентации воспроизводились одновременно, используется класс [PresentationPlayer](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.presentation_player/). Этот класс принимает экземпляр [PresentationAnimationsGenerator](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.presentation_animations_generator/) и FPS для эффектов в своём конструкторе, а затем вызывает событие `FrameTick` для всех анимаций, чтобы они воспроизводились:
 ```c++
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/FramesStream/FrameTickEventArgs.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
+#include <Export/FramesStream/PresentationPlayer.h>
+#include <IImage.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 void OnFrameTick(System::SharedPtr<PresentationPlayer> sender, System::SharedPtr<FrameTickEventArgs> args)
 {
     System::String fileName = System::String::Format(u"frame_{0}.png", sender->get_FrameIndex());
@@ -241,15 +338,13 @@ void Run()
 }
 ```
 
-
-Затем сгенерированные кадры можно собрать в видео. См. раздел [Convert PowerPoint to Video](https://docs.aspose.com/slides/cpp/convert-powerpoint-to-video/#convert-powerpoint-to-video).
+Затем сгенерированные кадры можно собрать в видео. См. раздел [Convert PowerPoint to Video](https://docs.aspose.com/slides/ru/cpp/convert-powerpoint-to-video/#convert-powerpoint-to-video).
 
 ## **Поддерживаемые анимации и эффекты**
 
+**Вход**:
 
-**Entrance**:
-
-| Animation Type | Aspose.Slides | PowerPoint |
+| Тип анимации | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Appear** | ![not supported](x.png) | ![supported](v.png) |
 | **Fade** | ![supported](v.png) | ![supported](v.png) |
@@ -265,10 +360,9 @@ void Run()
 | **Swivel** | ![supported](v.png) | ![supported](v.png) |
 | **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
+**Эффекты**
 
-**Emphasis**:
-
-| Animation Type | Aspose.Slides | PowerPoint |
+| Тип анимации | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Pulse** | ![not supported](x.png) | ![supported](v.png) |
 | **Color Pulse** | ![not supported](x.png) | ![supported](v.png) |
@@ -284,9 +378,9 @@ void Run()
 | **Line Color** | ![not supported](x.png) | ![supported](v.png) |
 | **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
 
-**Exit**:
+**Выход**:
 
-| Animation Type | Aspose.Slides | PowerPoint |
+| Тип анимации | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Disappear** | ![not supported](x.png) | ![supported](v.png) |
 | **Fade** | ![supported](v.png) | ![supported](v.png) |
@@ -301,9 +395,9 @@ void Run()
 | **Swivel** | ![supported](v.png) | ![supported](v.png) |
 | **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
-**Motion Paths**:
+**Траектории движения**
 
-| Animation Type | Aspose.Slides | PowerPoint |
+| Тип анимации | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Lines** | ![supported](v.png) | ![supported](v.png) |
 | **Arcs** | ![supported](v.png) | ![supported](v.png) |
@@ -314,14 +408,14 @@ void Run()
 
 ## **FAQ**
 
-**Можно ли конвертировать презентации, защищённые паролем?**
+### Можно ли конвертировать презентации, защищённые паролем?
 
 Да, Aspose.Slides позволяет работать с [презентациями, защищёнными паролем](/slides/ru/cpp/password-protected-presentation/). При обработке таких файлов необходимо предоставить правильный пароль, чтобы библиотека могла получить доступ к содержимому презентации.
 
-**Поддерживает ли Aspose.Slides использование в облачных решениях?**
+### Поддерживает ли Aspose.Slides использование в облачных решениях?
 
-Да, Aspose.Slides может быть интегрирован в облачные приложения и сервисы. Библиотека разработана для работы в серверных средах, обеспечивая высокую производительность и масштабируемость при пакетной обработке файлов.
+Да, Aspose.Slides можно интегрировать в облачные приложения и сервисы. Библиотека разработана для работы в серверных средах, обеспечивая высокую производительность и масштабируемость при пакетной обработке файлов.
 
-**Есть ли ограничения по размеру презентаций при конвертации?**
+### Есть ли ограничения по размеру презентаций при конвертации?
 
-Aspose.Slides способен обрабатывать презентации практически любого размера. Однако при работе с очень большими файлами могут потребоваться дополнительные системные ресурсы, и иногда рекомендуется оптимизировать презентацию для повышения производительности.
+Aspose.Slides способен обрабатывать презентации практически любого размера. Однако при работе с очень большими файлами может потребоваться больше системных ресурсов, и иногда рекомендуется оптимизировать презентацию для повышения производительности.

@@ -1,23 +1,34 @@
 ---
-title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides لجافا 16.1.0
+title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides لـ Java 16.1.0
+linktitle: Aspose.Slides لـ Java 16.1.0
 type: docs
 weight: 200
 url: /ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/
+keywords:
+- الهجرة
+- كود قديم
+- كود حديث
+- نهج قديم
+- نهج حديث
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Java
+- Aspose.Slides
+description: "استعراض تحديثات واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة في Aspose.Slides لـ Java لتسهيل ترحيل حلول عروض PowerPoint (PPT, PPTX) و ODP الخاصة بك."
 ---
-
-{{% alert color="primary" %}} 
-
-تقوم هذه الصفحة بإدراج جميع [الإضافات](/slides/ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) أو [العمليات المحذوفة](/slides/ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) من الفصول، والطرق، والخصائص، وما إلى ذلك، وأي تغييرات أخرى تم تقديمها مع واجهة برمجة التطبيقات Aspose.Slides لجافا 16.1.0.
-
+{{% alert color="info" %}} 
+تُدرج هذه الصفحة جميع الفئات، والطرق، والخصائص، وما إلى ذلك، التي تم [المضافة](/slides/ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) أو [المزالة](/slides/ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/)، وغيرها من التغييرات التي تم تقديمها مع واجهة برمجة تطبيقات Aspose.Slides for Java 16.1.0 API.
 {{% /alert %}} 
-## **تغييرات واجهة برمجة التطبيقات العامة**
+## **تغييرات API العامة**
 
-
-#### **تم إضافة الطرق getRotationAngle() و setRotationAngle() إلى واجهتي IChartTextBlockFormat و ITextFrameFormat**
-تمت إضافة الطرق getRotationAngle() و setRotationAngle() إلى الواجهتين com.aspose.slides.IChartTextBlockFormat و com.aspose.slides.ITextFrameFormat.
-توفر هذه الطرق الوصول إلى التدوير المخصص الذي يتم تطبيقه على النص داخل صندوق الحدود.
+#### **تم إضافة طرق getRotationAngle() و setRotationAngle() إلى واجهات IChartTextBlockFormat و ITextFrameFormat**
+تم إضافة طرق getRotationAngle() و setRotationAngle() إلى الواجهات com.aspose.slides.IChartTextBlockFormat و com.aspose.slides.ITextFrameFormat.
+توفر هذه الطرق إمكانية الوصول إلى الدوران المخصص الذي يُطبق على النص داخل الصندوق المحدد.
 
 ``` java
+import com.aspose.slides.*;
+
 
 
 
@@ -33,7 +44,7 @@ series.getLabels().getDefaultDataLabelFormat().getTextFormat ().getTextBlockForm
 
 chart.setTitle(true);
 
-chart.getChartTitle().addTextFrameForOverriding("عنوان مخصص").getTextFrameFormat().setRotationAngle(-30);
+chart.getChartTitle().addTextFrameForOverriding("Custom title").getTextFrameFormat().setRotationAngle(-30);
 
 pres.save("out.pptx", SaveFormat.Pptx);
 

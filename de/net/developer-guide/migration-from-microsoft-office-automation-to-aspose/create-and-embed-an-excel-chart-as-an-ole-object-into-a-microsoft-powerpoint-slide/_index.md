@@ -1,6 +1,6 @@
 ---
-title: Excel-Diagramme als OLE-Objekte mit VSTO und Aspose.Slides für .NET erstellen und einbetten
-linktitle: Excel-Diagramme als OLE-Objekte erstellen und einbetten
+title: Excel-Diagramme erstellen und als OLE-Objekte mit VSTO und Aspose.Slides für .NET einbetten
+linktitle: Excel-Diagramme erstellen und einbetten
 type: docs
 weight: 70
 url: /de/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
@@ -16,32 +16,32 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Von der Microsoft Office-Automatisierung zu Aspose.Slides für .NET migrieren und Excel-Diagramme als OLE-Objekte in PowerPoint‑Folien (PPT, PPTX) in C# einbetten."
+description: "Von der Microsoft Office-Automatisierung zu Aspose.Slides für .NET migrieren und Excel-Diagramme als OLE-Objekte in PowerPoint (PPT, PPTX)-Folien in C# einbetten."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-Diagramme sind visuelle Darstellungen Ihrer Daten und werden häufig in Präsentationsfolien verwendet. In diesem Artikel wird Ihnen der Code gezeigt, um ein Excel-Diagramm programmgesteuert als OLE-Objekt in eine PowerPoint‑Folien einzufügen, indem Sie [VSTO](/slides/de/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) und [Aspose.Slides for .NET](/slides/de/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) verwenden.
+Diagramme sind visuelle Darstellungen Ihrer Daten und werden häufig in Präsentationsfolien verwendet. Dieser Artikel zeigt Ihnen den Code, um ein Excel-Diagramm programmgesteuert als OLE-Objekt in eine PowerPoint‑Folie einzufügen, indem Sie [VSTO](/slides/de/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) und [Aspose.Slides for .NET](/slides/de/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) verwenden.
 
 {{% /alert %}} 
 ## **Erstellen und Einbetten eines Excel-Diagramms**
-Die beiden Codebeispiele unten sind lang und detailliert, weil die beschriebene Aufgabe komplex ist. Sie erstellen eine Microsoft Excel-Arbeitsmappe, erstellen ein Diagramm und dann die Microsoft PowerPoint-Präsentation, in die Sie das Diagramm einbetten. OLE‑Objekte enthalten Verknüpfungen zum Originaldokument, sodass ein Benutzer, der die eingebettete Datei doppelklickt, die Datei und deren Anwendung startet.
+Die beiden unten stehenden Codebeispiele sind lang und detailliert, weil die beschriebene Aufgabe komplex ist. Sie erstellen eine Microsoft Excel-Arbeitsmappe, erzeugen ein Diagramm und anschließend die Microsoft PowerPoint‑Präsentation, in die Sie das Diagramm einbetten. OLE‑Objekte enthalten Verknüpfungen zum Originaldokument, sodass ein Benutzer, der die eingebettete Datei doppelklickt, die Datei und deren Anwendung startet.
 ## **VSTO‑Beispiel**
 Mit VSTO werden die folgenden Schritte ausgeführt:
 
-1. Erstellen Sie eine Instanz des Microsoft Excel ApplicationClass‑Objekts.
-1. Erstellen Sie eine neue Arbeitsmappe mit einem Arbeitsblatt.
-1. Fügen Sie dem Arbeitsblatt ein Diagramm hinzu.
-1. Speichern Sie die Arbeitsmappe.
-1. Öffnen Sie die Excel‑Arbeitsmappe, die das Arbeitsblatt mit den Diagrammdaten enthält.
-1. Rufen Sie die ChartObjects‑Sammlung für das Arbeitsblatt ab.
-1. Holen Sie das zu kopierende Diagramm.
-1. Erstellen Sie eine Microsoft PowerPoint‑Präsentation.
-1. Fügen Sie der Präsentation eine leere Folie hinzu.
-1. Kopieren Sie das Diagramm vom Excel‑Arbeitsblatt in die Zwischenablage.
-1. Fügen Sie das Diagramm in die PowerPoint‑Präsentation ein.
-1. Positionieren Sie das Diagramm auf der Folie.
-1. Speichern Sie die Präsentation.
+1. Erstellen Sie eine Instanz des Microsoft Excel ApplicationClass‑Objekts.  
+1. Erstellen Sie eine neue Arbeitsmappe mit einem Arbeitsblatt.  
+1. Fügen Sie dem Blatt ein Diagramm hinzu.  
+1. Speichern Sie die Arbeitsmappe.  
+1. Öffnen Sie die Excel‑Arbeitsmappe, die das Arbeitsblatt mit den Diagrammdaten enthält.  
+1. Rufen Sie die ChartObjects‑Sammlung für das Blatt ab.  
+1. Holen Sie das zu kopierende Diagramm.  
+1. Erstellen Sie eine Microsoft PowerPoint‑Präsentation.  
+1. Fügen Sie der Präsentation eine leere Folie hinzu.  
+1. Kopieren Sie das Diagramm vom Excel‑Arbeitsblatt in die Zwischenablage.  
+1. Fügen Sie das Diagramm in die PowerPoint‑Präsentation ein.  
+1. Positionieren Sie das Diagramm auf der Folie.  
+1. Speichern Sie die Präsentation.  
+
 ```c#
 CreateNewChartInExcel();
 UseCopyPaste();
@@ -81,17 +81,17 @@ static void CreateNewChartInExcel()
         // Erstelle eine neue Arbeitsmappe mit 1 Blatt.
         xlNS.Workbook newWorkbook = excelApplication.Workbooks.Add(xlNS.XlWBATemplate.xlWBATWorksheet);
 
-        // Ändere den Namen des Blattes.
+        // Ändere den Namen des Blatts.
         xlNS.Worksheet targetSheet = (xlNS.Worksheet)(newWorkbook.Worksheets[1]);
         targetSheet.Name = "Quarterly Sales";
 
         // Füge einige Daten für das Diagramm in das Blatt ein.
         //              A       B       C       D       E
         //     1                Q1      Q2      Q3      Q4
-        //     2    Nordamerika  1.5     2       1.5     2.5
-        //     3    Südamerika    2       1.75    2       2
-        //     4    Europa        2.25    2       2.5     2
-        //     5    Asien         2.5     2.5     2       2.75
+        //     2    N. America  1.5     2       1.5     2.5
+        //     3    S. America  2       1.75    2       2
+        //     4    Europe      2.25    2       2.5     2
+        //     5    Asia        2.5     2.5     2       2.75
 
         SetCellValue(targetSheet, "A2", "N. America");
         SetCellValue(targetSheet, "A3", "S. America");
@@ -122,13 +122,13 @@ static void CreateNewChartInExcel()
         SetCellValue(targetSheet, "E4", 2);
         SetCellValue(targetSheet, "E5", 2.75);
 
-        // Erhalte den Bereich, der die Diagrammdaten enthält.
+        // Hole den Bereich, der die Diagrammdaten enthält.
         xlNS.Range dataRange = targetSheet.get_Range("A1", "E5");
 
-        // Erhalte die ChartObjects-Sammlung für das Blatt.
+        // Hole die ChartObjects-Sammlung für das Blatt.
         xlNS.ChartObjects chartObjects = (xlNS.ChartObjects)(targetSheet.ChartObjects(paramMissing));
 
-        // Füge ein Diagramm zur Sammlung hinzu.
+        // Füge der Sammlung ein Diagramm hinzu.
         xlNS.ChartObject newChartObject = chartObjects.Add(0, 100, 600, 300);
         newChartObject.Name = "Sales Chart";
 
@@ -158,13 +158,13 @@ static void CreateNewChartInExcel()
 ```c#
 static void UseCopyPaste()
 {
-    // Deklariere Variablen, um Referenzen auf PowerPoint-Objekte zu halten.
+    // Deklariere Variablen, die Referenzen auf PowerPoint-Objekte halten.
     pptNS.ApplicationClass powerpointApplication = null;
     pptNS.Presentation pptPresentation = null;
     pptNS.Slide pptSlide = null;
     pptNS.ShapeRange shapeRange = null;
 
-    // Deklariere Variablen, um Referenzen auf Excel-Objekte zu halten.
+    // Deklariere Variablen, die Referenzen auf Excel-Objekte halten.
     xlNS.ApplicationClass excelApplication = null;
     xlNS.Workbook excelWorkBook = null;
     xlNS.Worksheet targetSheet = null;
@@ -193,7 +193,7 @@ static void UseCopyPaste()
         targetSheet =
             (xlNS.Worksheet)(excelWorkBook.Worksheets["Quarterly Sales"]);
 
-        // Hole die ChartObjects‑Sammlung für das Blatt.
+        // Hole die ChartObjects-Sammlung für das Blatt.
         chartObjects =
             (xlNS.ChartObjects)(targetSheet.ChartObjects(paramMissing));
 
@@ -201,19 +201,19 @@ static void UseCopyPaste()
         existingChartObject =
             (xlNS.ChartObject)(chartObjects.Item("Sales Chart"));
 
-        // Erstelle eine PowerPoint‑Präsentation.
+        // Erstelle eine PowerPoint-Präsentation.
         pptPresentation =
             powerpointApplication.Presentations.Add(
             Microsoft.Office.Core.MsoTriState.msoTrue);
 
-        // Füge eine leere Folie zur Präsentation hinzu.
+        // Füge der Präsentation eine leere Folie hinzu.
         pptSlide =
             pptPresentation.Slides.Add(1, pptNS.PpSlideLayout.ppLayoutBlank);
 
-        // Kopiere das Diagramm vom Excel‑Arbeitsblatt in die Zwischenablage.
+        // Kopiere das Diagramm vom Excel-Arbeitsblatt in die Zwischenablage.
         existingChartObject.Copy();
 
-        // Füge das Diagramm in die PowerPoint‑Präsentation ein.
+        // Füge das Diagramm in die PowerPoint-Präsentation ein.
         shapeRange = pptSlide.Shapes.Paste();
 
         // Positioniere das Diagramm auf der Folie.
@@ -229,7 +229,7 @@ static void UseCopyPaste()
     }
     finally
     {
-        // Freigeben des PowerPoint-Folienobjekts.
+        // Gib das PowerPoint-Folienobjekt frei.
         shapeRange = null;
         pptSlide = null;
 
@@ -240,26 +240,26 @@ static void UseCopyPaste()
             pptPresentation = null;
         }
 
-        // Beende PowerPoint und gib das ApplicationClass‑Objekt frei.
+        // Beende PowerPoint und gib das ApplicationClass-Objekt frei.
         if (powerpointApplication != null)
         {
             powerpointApplication.Quit();
             powerpointApplication = null;
         }
 
-        // Freigeben der Excel-Objekte.
+        // Gib die Excel-Objekte frei.
         targetSheet = null;
         chartObjects = null;
         existingChartObject = null;
 
-        // Schließe und gib das Excel‑Workbook‑Objekt frei.
+        // Schließe und gib das Excel-Workbook-Objekt frei.
         if (excelWorkBook != null)
         {
             excelWorkBook.Close(false, paramMissing, paramMissing);
             excelWorkBook = null;
         }
 
-        // Beende Excel und gib das ApplicationClass‑Objekt frei.
+        // Beende Excel und gib das ApplicationClass-Objekt frei.
         if (excelApplication != null)
         {
             excelApplication.Quit();
@@ -274,21 +274,21 @@ static void UseCopyPaste()
 }
 ```
 
-
-
-
-
 ## **Aspose.Slides für .NET‑Beispiel**
 Mit Aspose.Slides für .NET werden die folgenden Schritte ausgeführt:
 
-1. Erstellen Sie eine Arbeitsmappe mit Aspose.Cells für .NET.
-1. Erstellen Sie ein Microsoft Excel‑Diagramm.
-1. Legen Sie die OLE‑Größe des Excel‑Diagramms fest.
-1. Erzeugen Sie ein Bild des Diagramms.
-1. Betten Sie das Excel‑Diagramm als OLE‑Objekt in eine PPTX‑Präsentation ein, wobei Sie Aspose.Slides für .NET verwenden.
-1. Ersetzen Sie das Bild des geänderten Objekts durch das in Schritt 3 erhaltene Bild, um das Problem des geänderten Objekts zu beheben.
-1. Schreiben Sie die Ausgabepäsentation im PPTX‑Format auf die Festplatte.
+1. Erstellen Sie eine Arbeitsmappe mit Aspose.Cells für .NET.  
+1. Erstellen Sie ein Microsoft Excel‑Diagramm.  
+1. Legen Sie die OLE‑Größe des Excel‑Diagramms fest.  
+1. Erzeugen Sie ein Bild des Diagramms.  
+1. Betten Sie das Excel‑Diagramm als OLE‑Objekt in eine PPTX‑Präsentation ein, indem Sie Aspose.Slides für .NET verwenden.  
+1. Ersetzen Sie das Bild des geänderten Objekts durch das in Schritt 3 erhaltene Bild, um das Problem des geänderten Objekts zu beheben.  
+1. Schreiben Sie die Ausgabepäsentation im PPTX‑Format auf die Festplatte.  
+
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+
 //Schritt - 1: Erstelle ein Excel-Diagramm mit Aspose.Cells
 //--------------------------------------------------
 //Erstelle eine Arbeitsmappe
@@ -302,19 +302,22 @@ int chartSheetIndex = AddExcelChartInWorkbook(wb, chartRows, chartCols);
 wb.Worksheets.SetOleSize(0, chartRows, 0, chartCols);
 //Schritt - 3: Hole das Bild des Diagramms mit Aspose.Cells
 //-----------------------------------------------------------
-Bitmap imgChart = wb.Worksheets[chartSheetIndex].Charts[0].ToImage();
+MemoryStream chartImageStream = new MemoryStream();
+wb.Worksheets[chartSheetIndex].Charts[0].ToImage(chartImageStream, Aspose.Cells.Drawing.ImageType.Png);
+chartImageStream.Position = 0;
+Bitmap imgChart = new Bitmap(chartImageStream);
 //Speichere die Arbeitsmappe in einen Stream
 MemoryStream wbStream = wb.SaveToStream();
 //Schritt - 4  UND 5
 //-----------------------------------------------------------
-//Schritt - 4: Betten Sie das Diagramm als OLE-Objekt in eine .ppt-Präsentation ein mit Aspose.Slides
+//Schritt - 4: Betten das Diagramm als OLE-Objekt in eine .ppt-Präsentation ein mit Aspose.Slides
 //-----------------------------------------------------------
-//Schritt - 5: Ersetzen Sie das Bild des geänderten Objekts durch das in Schritt 3 erhaltene Bild, um das Problem „Object Changed“ zu beheben
+//Schritt - 5: Ersetze das Bild des geänderten Objekts durch das in Schritt 3 erhaltene Bild, um das Problem 'Object Changed' zu beheben
 //-----------------------------------------------------------
 //Erstelle eine Präsentation
 Presentation pres = new Presentation();
 ISlide sld = pres.Slides[0];
-//Füge die Arbeitsmappe auf der Folie hinzu
+//Füge die Arbeitsmappe zur Folie hinzu
 AddExcelChartInPresentation(pres, sld, wbStream, imgChart);
 //Schritt - 6: Schreibe die Ausgabepäsentation auf die Festplatte
 //-----------------------------------------------------------
@@ -322,6 +325,10 @@ pres.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
 static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, Stream workbookStream, Bitmap chartImage)
 {
     float oleWidth = presentation.SlideSize.Size.Width;
@@ -338,7 +345,7 @@ static void AddExcelChartInPresentation(Presentation presentation, ISlide slide,
     {
         chartImage.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
 
-	imageStream.Position = 0;
+        imageStream.Position = 0;
         IPPImage image = presentation.Images.AddImage(imageStream);
 
         oleFrame.SubstitutePictureFormat.Picture.Image = image;
@@ -368,30 +375,30 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int 
  43,29,69,26,
  24,40,38,25
       };
-    //Ein neues Arbeitsblatt hinzufügen, um Zellen mit Daten zu füllen
+    //Füge ein neues Arbeitsblatt hinzu, um Zellen mit Daten zu füllen
     int dataSheetIdx = wb.Worksheets.Add();
     Aspose.Cells.Worksheet dataSheet = wb.Worksheets[dataSheetIdx];
     string sheetName = "DataSheet";
     dataSheet.Name = sheetName;
-    //Datenblatt mit Daten füllen
+    //Befülle DataSheet mit Daten
     for (int i = 0; i < cellsName.Length; i++)
     {
         string cellName = cellsName[i];
         int cellValue = cellsValue[i];
         dataSheet.Cells[cellName].PutValue(cellValue);
     }
-    //Ein Diagrammblatt hinzufügen
+    //Füge ein Diagrammblatt hinzu
     int chartSheetIdx = wb.Worksheets.Add(Aspose.Cells.SheetType.Chart);
     Aspose.Cells.Worksheet chartSheet = wb.Worksheets[chartSheetIdx];
     chartSheet.Name = "ChartSheet";
-    //Ein Diagramm im Diagrammblatt hinzufügen, basierend auf Datenreihen aus dem Datenblatt
+    //Füge ein Diagramm im ChartSheet hinzu mit Datenreihen aus DataSheet
     int chartIdx = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, chartRows, 0, chartCols);
     Aspose.Cells.Charts.Chart chart = chartSheet.Charts[chartIdx];
     chart.NSeries.Add(sheetName + "!A1:E1", false);
     chart.NSeries.Add(sheetName + "!A2:E2", false);
     chart.NSeries.Add(sheetName + "!A3:E3", false);
     chart.NSeries.Add(sheetName + "!A4:E4", false);
-    //Diagrammblatt als aktives Blatt festlegen
+    //Setze ChartSheet als aktives Blatt
     wb.Worksheets.ActiveSheetIndex = chartSheetIdx;
     return chartSheetIdx;
 }

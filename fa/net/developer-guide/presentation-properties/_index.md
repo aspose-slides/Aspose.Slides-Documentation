@@ -1,14 +1,14 @@
 ---
-title: مدیریت ویژگی‌های ارائه‌نامه در .NET
-linktitle: ویژگی‌های ارائه‌نامه
+title: مدیریت ویژگی‌های ارائه در .NET
+linktitle: ویژگی‌های ارائه
 type: docs
 weight: 70
 url: /fa/net/presentation-properties/
 keywords:
-- ویژگی‌های پاورپوینت
-- ویژگی‌های ارائه‌نامه
+- ویژگی‌های PowerPoint
+- ویژگی‌های ارائه
 - ویژگی‌های سند
-- ویژگی‌های ساختاری
+- ویژگی‌های داخلی
 - ویژگی‌های سفارشی
 - ویژگی‌های پیشرفته
 - مدیریت ویژگی‌ها
@@ -17,56 +17,55 @@ keywords:
 - ویرایش متادیتا
 - زبان تصحیح
 - زبان پیش‌فرض
-- پاورپوینت
+- PowerPoint
 - OpenDocument
-- ارائه‌نامه
+- ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "ویژگی‌های ارائه‌نامه را در Aspose.Slides برای .NET بهینه کنید و جستجو، برندینگ و جریان کار را در فایل‌های پاورپوینت و OpenDocument خود ساده‌سازی کنید."
+description: "درک کامل ویژگی‌های ارائه در Aspose.Slides برای .NET و بهینه‌سازی جستجو، برندینگ و جریان کار در فایل‌های PowerPoint و OpenDocument شما."
 ---
-## **مقدمه**
+## **معرفی**
 
-Aspose.Slides for .NET دو نوع ویژگی سند را پشتیبانی می‌کند: **ساختاری** و **سفارشی**. هر دو نوع ویژگی به‌راحتی می‌توانند با استفاده از API Aspose.Slides for .NET دسترسی پیدا کرده و مدیریت شوند.
+Aspose.Slides for .NET دو نوع ویژگی سند را پشتیبانی می‌کند: **Built-in** و **Custom**. هر دو نوع این ویژگی‌ها به راحتی می‌توانند با استفاده از API Aspose.Slides for .NET دسترسی و مدیریت شوند.
 
-Aspose.Slides به شما امکان کار با ویژگی‌های سند ارائه‌نامه را از طریق رابط کاربری [IDocumentProperties](https://reference.aspose.com/slides/fa/net/aspose.slides/idocumentproperties/) می‌دهد. یک نمونه از این رابط از طریق ویژگی [Presentation.DocumentProperties](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/documentproperties/) بازگردانده می‌شود. مثال‌های زیر نشان می‌دهند چگونه این ویژگی‌ها را بخوانید، تغییر دهید و مدیریت کنید.
+Aspose.Slides به شما امکان می‌دهد تا با ویژگی‌های سند ارائه از طریق رابط [IDocumentProperties](https://reference.aspose.com/slides/fa/net/aspose.slides/idocumentproperties/) کار کنید. نمونه‌ای از این رابط توسط ویژگی [Presentation.DocumentProperties](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/documentproperties/) بازگردانده می‌شود. مثال‌های زیر نشان می‌دهند چگونه این ویژگی‌ها را بخوانید، تغییر دهید و مدیریت کنید.
 
-{{% alert color="primary" %}} 
-
-لطفاً توجه داشته باشید که فیلدهای **Application** و **Producer** قابل تغییر نیستند، زیرا این فیلدها همیشه مقدار “Aspose Ltd.” و “Aspose.Slides for .NET x.x.x” را نمایش می‌دهند.
-
+{{% alert color="info" %}} 
+لطفاً توجه داشته باشید که فیلدهای **Application** و **Producer** نمی‌توانند تغییر کنند، زیرا این فیلدها همیشه «Aspose Ltd.» و «Aspose.Slides for .NET x.x.x» را نشان می‌دهند.
 {{% /alert %}} 
 
-## **مدیریت ویژگی‌های ارائه‌نامه**
+## **مدیریت ویژگی‌های ارائه**
 
-Microsoft PowerPoint امکان افزودن ویژگی‌ها به فایل‌های ارائه‌نامه را فراهم می‌کند. این ویژگی‌های سند اطلاعات مفیدی را همراه با فایل‌ها ذخیره می‌کنند. دو نوع ویژگی سند وجود دارد:
+Microsoft PowerPoint ویژگی‌ای برای افزودن ویژگی‌ها به فایل‌های ارائه فراهم می‌کند. این ویژگی‌های سند امکان ذخیره اطلاعات مفید همراه با فایل‌ها را می‌دهند. دو نوع ویژگی سند وجود دارد:
 
-- ویژگی‌های تعریف‌شده توسط سیستم (ساختاری)
-- ویژگی‌های تعریف‌شده توسط کاربر (سفارشی)
+- ویژگی‌های تعریف‌شده توسط سیستم (built-in)
+- ویژگی‌های تعریف‌شده توسط کاربر (custom)
 
-ویژگی‌های **ساختاری** شامل اطلاعات کلی درباره سند هستند، مانند عنوان سند، نام نویسنده، آمار سند و غیره.
+ویژگی‌های **Built-in** اطلاعات کلی درباره سند را شامل می‌شوند، مانند عنوان سند، نام نویسنده، آمار سند، و غیره.
 
-ویژگی‌های **سفارشی** به‌صورت جفت **نام/مقدار** تعریف می‌شوند که هر دو توسط کاربر مشخص می‌شوند.
+ویژگی‌های **Custom** توسط کاربران به صورت جفت‌های **Name/Value** تعریف می‌شوند که هر دو نام و مقدار توسط کاربر مشخص می‌شود.
 
-با استفاده از Aspose.Slides for .NET، توسعه‌دهندگان می‌توانند هم ویژگی‌های ساختاری و هم سفارشی را دسترسی و تغییر دهند.
+با استفاده از Aspose.Slides for .NET، توسعه‌دهندگان می‌توانند به هر دو ویژگی built-in و custom دسترسی پیدا کرده و آن‌ها را تغییر دهند.
 
-Microsoft PowerPoint به کاربران اجازه می‌دهد ویژگی‌های سند را با کلیک بر آیکون Office، سپس انتخاب **File → Info → Properties** مدیریت کنند. پس از انتخاب **Advanced Properties**، دیالوگی ظاهر می‌شود که می‌توانید تمام ویژگی‌های سند فایل ارائه‌نامه را مدیریت کنید.
+Microsoft PowerPoint به کاربران امکان مدیریت ویژگی‌های سند را با کلیک بر روی آیکن Office و سپس انتخاب **File → Info → Properties** می‌دهد. پس از انتخاب **Advanced Properties**، دیالوگی ظاهر می‌شود که در آن می‌توانید همه ویژگی‌های سند فایل ارائه را مدیریت کنید.
 
-در دیالوگ **Properties**، چندین برگه وجود دارد، از جمله **عمومی**, **خلاصه**, **آمار**, **محتوا**, و **سفارشی**.
-هر برگه گزینه‌هایی برای پیکربندی انواع خاصی از اطلاعات مرتبط با فایل PowerPoint فراهم می‌کند. برگه **سفارشی** برای مدیریت ویژگی‌های تعریف‌شده توسط کاربر استفاده می‌شود.
+در دیالوگ **Properties**، چندین برگه وجود دارد، مانند **General**، **Summary**، **Statistics**، **Contents** و **Custom**. هر برگه گزینه‌هایی برای پیکربندی انواع خاصی از اطلاعات مربوط به فایل PowerPoint فراهم می‌کند. برگه **Custom** برای مدیریت ویژگی‌های تعریف‌شده توسط کاربر استفاده می‌شود.
 
-## **دسترسی به ویژگی‌های ساختاری**
+## **دسترسی به ویژگی‌های Built-in**
 
-این ویژگی‌ها که توسط رابط کاربری [IDocumentProperties](https://reference.aspose.com/slides/fa/net/aspose.slides/idocumentproperties/) در دسترس هستند، شامل: **Creator** (نویسنده), **Description**, **Keywords**, **Created** (تاریخ ایجاد), **Modified** (تاریخ تغییر), **Printed** (آخرین تاریخ چاپ), **LastModifiedBy**, **SharedDoc** (نشان می‌دهد آیا سند بین تولیدکنندگان مختلف به اشتراک گذاشته شده است)، **PresentationFormat**, **Subject**, **Title** و موارد دیگر می‌باشند.
+این ویژگی‌ها، که توسط رابط [IDocumentProperties](https://reference.aspose.com/slides/fa/net/aspose.slides/idocumentproperties/) در دسترس قرار می‌گیرند، شامل: **Creator** (نویسنده)، **Description**، **Keywords**، **Created** (تاریخ ایجاد)، **Modified** (تاریخ تغییر)، **Printed** (تاریخ آخرین چاپ)، **LastModifiedBy**، **SharedDoc** (نشان می‌دهد آیا سند بین تولیدکنندگان مختلف به اشتراک گذاشته شده است)، **PresentationFormat**، **Subject**، **Title** و موارد دیگر می‌باشند.
 
 ```cs
-// نمونه‌سازی کلاس Presentation که نمایانگر یک فایل ارائه‌نامه است.
+using Aspose.Slides;
+
+// نمونه‌سازی کلاس Presentation که نمایانگر یک فایل ارائه است.
 using Presentation presentation = new Presentation("AccessBuiltInProperties.pptx");
 
-// Get a reference to the object of type IDocumentProperties associated with the presentation.
+// دریافت یک ارجاع به شیء از نوع IDocumentProperties مرتبط با ارائه.
 IDocumentProperties documentProperties = presentation.DocumentProperties;
 
-// Display the Built-in properties.
+// نمایش ویژگی‌های داخلی.
 Console.WriteLine("Category : " + documentProperties.Category);
 Console.WriteLine("Content status : " + documentProperties.ContentStatus);
 Console.WriteLine("Creation date : " + documentProperties.CreatedTime);
@@ -83,37 +82,43 @@ Console.WriteLine("Subject : " + documentProperties.Subject);
 Console.WriteLine("Title : " + documentProperties.Title);
 ```
 
-## **تغییر ویژگی‌های ساختاری**
+## **تغییر ویژگی‌های Built-in**
 
-تغییر ویژگی‌های ساختاری فایل‌های ارائه‌نامه به همان سادگی دسترسی به آن‌هاست. می‌توانید به سادگی یک مقدار متنی به هر ویژگی دلخواه اختصاص دهید و مقدار ویژگی به‌روزرسانی می‌شود. در مثال زیر نحوه تغییر ویژگی‌های ساختاری سند یک فایل ارائه‌نامه را نشان می‌دهیم.
+تغییر ویژگی‌های built-in فایل‌های ارائه به همان آسانی که به آن‌ها دسترسی دارید امکان‌پذیر است. شما می‌توانید به سادگی یک مقدار رشته‌ای به هر ویژگی دلخواه اختصاص دهید و مقدار ویژگی به‌روزرسانی می‌شود. در مثال زیر، نحوه تغییر ویژگی‌های سند built-in یک فایل ارائه را نشان می‌دهیم.
 
 ```cs
-// نمونه‌سازی کلاس Presentation که نمایانگر یک فایل ارائه‌نامه است.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// نمونه‌سازی کلاس Presentation که نمایانگر یک فایل ارائه است.
 using Presentation presentation = new Presentation("ModifyBuiltInProperties.pptx");
 
-// دریافت یک مرجع به شیء نوع IDocumentProperties مرتبط با ارائه‌نامه.
+// دریافت یک ارجاع به شیء از نوع IDocumentProperties مرتبط با ارائه.
 IDocumentProperties documentProperties = presentation.DocumentProperties;
 
-// تنظیم ویژگی‌های ساختاری.
+// تنظیم ویژگی‌های داخلی.
 documentProperties.Author = "Aspose.Slides for .NET";
 documentProperties.Title = "Manage PowerPoint Presentation Properties";
 documentProperties.Subject = "Modify Built-in Properties";
 documentProperties.Comments = "Aspose description";
 documentProperties.Manager = "Aspose manager";
 
-// ذخیره ارائه‌نامه در یک فایل.
+// Save the presentation to a file.
 presentation.Save("DocumentProperties_output.pptx", SaveFormat.Pptx);
 ```
 
-## **افزودن ویژگی‌های سفارشی به ارائه‌نامه**
+## **افزودن ویژگی‌های سفارشی به ارائه**
 
-ویژگی‌های سفارشی ارائه‌نامه به توسعه‌دهندگان امکان ذخیره‌سازی داده‌های متادیتای اضافی یا اطلاعات خاص داخل فایل ارائه‌نامه را می‌دهد. Aspose.Slides ایجاد و مدیریت این ویژگی‌های سفارشی را به‌صورت برنامه‌نویسی ساده می‌کند. مثال‌های زیر نشان می‌دهند چگونه ویژگی‌های سفارشی را به ارائه‌نامه‌های خود اضافه کنید.
+ویژگی‌های سفارشی ارائه به توسعه‌دهندگان امکان می‌دهد تا متادیتای اضافی یا اطلاعات خاصی را درون فایل ارائه ذخیره کنند. Aspose.Slides ایجاد و مدیریت این ویژگی‌های سفارشی را به‌صورت برنامه‌نویسی ساده می‌کند. مثال‌های زیر نشان می‌دهند چگونه ویژگی‌های سفارشی را به ارائه‌های خود اضافه کنید.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // نمونه‌سازی کلاس Presentation.
 using Presentation presentation = new Presentation();
 
-// دریافت مرجع به شیء نوع IDocumentProperties مرتبط با ارائه‌نامه.
+// دریافت یک ارجاع به شیء از نوع IDocumentProperties مرتبط با ارائه.
 IDocumentProperties documentProperties = presentation.DocumentProperties;
 
 // افزودن ویژگی‌های سفارشی.
@@ -121,19 +126,22 @@ documentProperties["Reviewed by"] = "John Smith";
 documentProperties["Confidentiality level"] = "Internal";
 documentProperties["Document version"] = 2;
 
-// ذخیره ارائه‌نامه در یک فایل.
+// ذخیره ارائه در یک فایل.
 presentation.Save("CustomDocumentProperties_output.pptx", SaveFormat.Pptx);
 ```
 
 ## **دسترسی و تغییر ویژگی‌های سفارشی**
 
-Aspose.Slides همچنین به توسعه‌دهندگان اجازه می‌دهد ویژگی‌های سفارشی موجود را دسترسی داشته و مقادیر آن‌ها را به‌راحتی تغییر دهند. این قابلیت به حفظ متادیتای دقیق کمک کرده و به‌روزرسانی‌های پویا بر اساس ورودی کاربر یا منطق کسب‌وکار را پشتیبانی می‌کند. مثال‌های زیر نشان می‌دهند چگونه مقادیر ویژگی سفارشی را داخل یک ارائه‌نامه بازیابی و به‌روزرسانی کنید.
+Aspose.Slides همچنین به توسعه‌دهندگان اجازه می‌دهد تا به ویژگی‌های سفارشی موجود دسترسی پیدا کرده و مقادیر آن‌ها را به راحتی تغییر دهند. این قابلیت به حفظ متادیتای دقیق کمک می‌کند و به‌روزرسانی‌های پویا بر اساس ورودی کاربر یا منطق کسب‌وکار را پشتیبانی می‌کند. مثال‌های زیر نشان می‌دهند چگونه مقادیر ویژگی سفارشی را درون یک ارائه بازیابی و به‌روزرسانی کنید.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // نمونه‌سازی کلاس Presentation که نمایانگر یک فایل PPTX است.
 using Presentation presentation = new Presentation("AccessAndModifyProperties.pptx");
 
-// Get a reference to the object of type IDocumentProperties associated with the presentation.
+// دریافت یک ارجاع به شیء از نوع IDocumentProperties مرتبط با ارائه.
 IDocumentProperties documentProperties = presentation.DocumentProperties;
 
 // دسترسی و تغییر ویژگی‌های سفارشی.
@@ -150,26 +158,26 @@ for (int i = 0; i < documentProperties.CountOfCustomProperties; i++)
     documentProperties[propertyName] = "New Value " + (i + 1);
 }
 
-// ذخیره ارائه‌نامه در یک فایل.
+// ذخیره ارائه در یک فایل.
 presentation.Save("CustomProperties_output.pptx", SaveFormat.Pptx);
 ```
 
 ## **مثال زنده**
 
-برنامه آنلاین [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/fa/metadata) را امتحان کنید تا ببینید چگونه می‌توانید با استفاده از API Aspose.Slides با ویژگی‌های سند کار کنید:
+سعی کنید برنامه آنلاین [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/fa/metadata) را امتحان کنید تا ببینید چگونه با استفاده از API Aspose.Slides با ویژگی‌های سند کار می‌کنید:
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/fa/metadata)
+[![نمایش و ویرایش متادیتای PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/fa/metadata)
 
-## ***سؤالات متداول**
+## ***FAQ**
 
-**چگونه می‌توان یک ویژگی ساختاری را از یک ارائه‌نامه حذف کرد؟**
+### چگونه می‌توان یک ویژگی built-in را از یک ارائه حذف کرد؟
 
-ویژگی‌های ساختاری بخش جدایی‌ناپذیر ارائه‌نامه هستند و نمی‌توان آن‌ها را کاملاً حذف کرد. با این حال می‌توانید مقدار آن‌ها را تغییر دهید یا در صورتی که ویژگی اجازه دهد، به مقدار خالی تنظیم کنید.
+ویژگی‌های built-in جزئی اساسی از ارائه هستند و نمی‌توان آن‌ها را به‌ طور کامل حذف کرد. اما می‌توانید مقادیر آن‌ها را تغییر دهید یا در صورتی که ویژگی خاص اجازه دهد، به مقدار خالی تنظیم کنید.
 
-**اگر یک ویژگی سفارشی که از قبل وجود دارد را اضافه کنم چه اتفاقی می‌افتد؟**
+### چه اتفاقی می‌افتد اگر یک ویژگی سفارشی که پیش از این موجود است را اضافه کنم؟
 
-اگر یک ویژگی سفارشی که از قبل وجود دارد را اضافه کنید، مقدار موجود آن با مقدار جدید بازنویسی می‌شود. نیازی به حذف یا بررسی ویژگی پیش از اضافه کردن ندارید، زیرا Aspose.Slides به‌صورت خودکار مقدار ویژگی را به‌روزرسانی می‌کند.
+اگر یک ویژگی سفارشی که پیش از این موجود است را اضافه کنید، مقدار موجود آن با مقدار جدید جایگزین می‌شود. نیازی به حذف یا بررسی قبلی ویژگی ندارید، زیرا Aspose.Slides به‌طور خودکار مقدار ویژگی را به‌روزرسانی می‌کند.
 
-**آیا می‌توان ویژگی‌های ارائه‌نامه را بدون بارگذاری کامل ارائه‌نامه دسترسی داشت؟**
+### آیا می‌توانم بدون بارگذاری کامل ارائه، به ویژگی‌های ارائه دسترسی داشته باشم؟
 
-بله، می‌توانید ویژگی‌های ارائه‌نامه را بدون بارگذاری کامل با استفاده از متد `GetPresentationInfo` از کلاس [PresentationFactory](https://reference.aspose.com/slides/fa/net/aspose.slides/presentationfactory/) دسترسی داشته باشید. سپس با استفاده از متد `ReadDocumentProperties` ارائه‌شده توسط رابط کاربری [IPresentationInfo](https://reference.aspose.com/slides/fa/net/aspose.slides/ipresentationinfo/) ویژگی‌ها را به‌صورت کارآمد بخوانید و حافظه و عملکرد را بهبود بخشید.
+بله، می‌توانید بدون بارگذاری کامل ارائه، به ویژگی‌های ارائه دسترسی پیدا کنید با استفاده از متد `GetPresentationInfo` از کلاس [PresentationFactory](https://reference.aspose.com/slides/fa/net/aspose.slides/presentationfactory/). سپس، متد `ReadDocumentProperties` ارائه‌شده توسط رابط [IPresentationInfo](https://reference.aspose.com/slides/fa/net/aspose.slides/ipresentationinfo/) را به‌کار ببرید تا ویژگی‌ها را به‌صورت کارآمد بخوانید، حافظه را ذخیره کرده و عملکرد را بهبود بخشید.

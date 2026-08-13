@@ -1,43 +1,43 @@
 ---
-title: "Các ngoại lệ và lỗi liên quan đến phông chữ trên Linux"
+title: Các ngoại lệ và lỗi thường gặp liên quan đến phông chữ trên Linux
 type: docs
 weight: 200
 url: /vi/java/common-errors-involving-fonts/
-keywords: "ngoại lệ phông chữ, lỗi phông chữ, Linux, Java, Aspose.Slides for Java"
+aliases:
+  - /java/technical-articles/common-errors-involving-fonts/
+keywords: "Ngoại lệ phông chữ, Lỗi phông chữ, Linux, Java, Aspose.Slides for Java"
 description: "Các ngoại lệ và lỗi phông chữ trên Linux"
 ---
 ## **Tổng quan**
 
-Khi sử dụng Aspose.Slides trên Linux, có thể xuất hiện các vấn đề liên quan đến phông chữ nếu quá trình Java không thể truy cập vào các thư mục phông chữ cần thiết hoặc thư mục tạm, nếu hệ thống không cài đặt phông chữ, hoặc nếu các thư viện hệ thống cần thiết như fontconfig hoặc libfreetype bị thiếu.
+Khi sử dụng Aspose.Slides trên Linux, các vấn đề liên quan đến phông chữ có thể xảy ra nếu tiến trình Java không thể truy cập các thư mục phông chữ cần thiết hoặc thư mục tạm thời, nếu không có phông chữ nào được cài đặt trên hệ thống, hoặc nếu các thư viện hệ thống cần thiết như fontconfig hoặc libfreetype bị thiếu.
 
-Bài viết này mô tả các lỗi và ngoại lệ thường gặp liên quan đến phông chữ trên Linux và cung cấp các giải pháp để khắc phục. Nó giải thích cách kiểm tra quyền truy cập vào các thư mục phông chữ và TEMP, cách cài đặt các phông chữ và thư viện cần thiết, và cách sử dụng `FontsLoader` để tải phông chữ mà không cần cài đặt chúng trên toàn hệ thống.
+Bài viết này mô tả các lỗi và ngoại lệ thường gặp liên quan đến phông chữ trên Linux và cung cấp các giải pháp để khắc phục chúng. Nó giải thích cách kiểm tra quyền truy cập vào các thư mục phông chữ và TEMP, cài đặt các phông chữ và thư viện cần thiết, và sử dụng `FontsLoader` để tải phông chữ mà không cần cài đặt chúng trên toàn hệ thống.
 
-## **Thiếu văn bản hoặc hình ảnh (EMF hoặc WMF) Khi mã được thực thi trên Linux**
+## **Thiếu Văn bản hoặc Hình ảnh (EMF hoặc WMF) Khi Mã được Thực thi trên Linux**
 
 Vấn đề này xảy ra trong các hệ thống có hạn chế trong các trường hợp sau:
 
-1. Khi không có phông chữ nào được cài đặt hoặc khi thư mục phông chữ cho quá trình java không thể truy cập
-2. Khi không thể truy cập vào thư mục TEMP.
+1. Khi không có phông chữ nào được cài đặt hoặc khi thư mục phông chữ cho tiến trình Java không thể truy cập
+2. Khi thư mục TEMP không thể truy cập.
 
 ### **Giải pháp**
 
-Kiểm tra và xác nhận rằng đã được cấp quyền truy cập vào thư mục TEMP và thư mục phông chữ.
+Kiểm tra và xác nhận rằng quyền truy cập vào thư mục TEMP và thư mục phông chữ đã được cấp. 
 
 {{% alert color="warning" %}}
-
-Trong một số trường hợp, bạn có thể không thể cấp quyền truy cập vào các thư mục do hạn chế của môi trường hoặc chính sách bảo mật. Hãy thử các cách khắc phục sau: 
-
+Trong một số trường hợp, bạn có thể không thể cấp quyền truy cập vào các thư mục do các hạn chế do môi trường hoặc chính sách bảo mật áp đặt. Hãy thử các giải pháp thay thế sau: 
 {{% /alert %}}
 
-**Cách khắc phục**
+**Giải pháp thay thế**
 
-Sử dụng [FontsLoader](https://reference.aspose.com/slides/vi/java/com.aspose.slides/FontsLoader) để tải các phông chữ cần thiết mà không cần cài đặt chúng:
+Sử dụng [FontsLoader](https://reference.aspose.com/slides/vi/java/com.aspose.slides/FontsLoader) để tải các phông chữ cần thiết mà không phải cài đặt chúng:
 
 ```
 FontsLoader.loadExternalFonts(pathToFontsFolders);
 ```
 
-Nếu không thể truy cập vào thư mục TEMP, sử dụng đoạn mã sau để chỉ định một thư mục khác làm TEMP cho Java:
+Nếu không thể truy cập thư mục TEMP, hãy sử dụng đoạn mã này để chỉ định một thư mục khác làm TEMP cho Java:
 ```
 String newTempFolder = "pathToTmpFolder";
 String oldValue = System.getProperty("java.io.tmpdir");
@@ -59,14 +59,14 @@ try {
 
 ## **Ngoại lệ: InvalidOperationException: Không thể tìm thấy bất kỳ phông chữ nào được cài đặt trên hệ thống**
 
-Ngoại lệ này xảy ra khi
+Người ngoại lệ này xảy ra khi
 
-1) quá trình Java không thể truy cập vào thư mục phông chữ
+1) tiến trình Java không thể truy cập thư mục phông chữ
 2) không có phông chữ nào được cài đặt.
 
 ### **Giải pháp**
 
-1. Kiểm tra và xác nhận rằng đã được cấp quyền truy cập vào thư mục phông chữ cho quá trình Java.
+1. Kiểm tra và xác nhận rằng quyền truy cập vào thư mục phông chữ cho tiến trình Java đã được cấp.
 
 2. Cài đặt một số phông chữ hoặc sử dụng [FontsLoader](https://reference.aspose.com/slides/vi/java/com.aspose.slides/FontsLoader).
 
@@ -78,7 +78,7 @@ Ngoại lệ này xảy ra khi
      sudo apt-get update
      sudo apt-get install -y fonts-dejavu-core
      fc-cache -fv
-     ```
+```
 
    * CentOS: 
 
@@ -86,17 +86,17 @@ Ngoại lệ này xảy ra khi
      sudo yum makecache
      sudo yum -y install dejavu-sans-fonts
      fc-cache -fv
-     ```
+```
 
    * Sử dụng [FontsLoader](https://reference.aspose.com/slides/vi/java/com.aspose.slides/FontsLoader): 
 
      ```
      FontsLoader.loadExternalFonts(pathToFontsFolders);
-     ```
+```
 
 ## **Ngoại lệ: NoClassDefFoundError: Không thể khởi tạo lớp com.aspose.slides.internal.ey.this**
 
-Ngoại lệ này xảy ra trên hệ thống Linux thiếu fontconfig và phông chữ.
+Ngoại lệ này xảy ra trên hệ thống Linux thiếu fontconfig và phông chữ. 
 
 ### **Giải pháp**
 
@@ -107,14 +107,14 @@ Cài đặt fontconfig:
   ```
   sudo apt-get update
   sudo apt-get -y install fontconfig
-  ```
+```
 
 * CentOS:
 
   ```
   sudo yum makecache
   sudo yum -y install fontconfig
-  ```
+```
 
 Ngoài ra, một số phiên bản open-jdk (ví dụ, **alpine JDK**) cũng **yêu cầu cài đặt phông chữ**.
 
@@ -123,18 +123,18 @@ Ngoài ra, một số phiên bản open-jdk (ví dụ, **alpine JDK**) cũng **y
   ```
   sudo apt-get install -y fonts-dejavu-core
   fc-cache -fv
-  ```
+```
 
 * CentOS:
 
   ```
   sudo yum -y install dejavu-sans-fonts
   fc-cache -fv
-  ```
+```
 
 ## **Ngoại lệ: UnsatisfiedLinkError: libfreetype.so.6: Không thể mở tệp đối tượng chia sẻ: Không tồn tại tệp hoặc thư mục**
 
-Ngoại lệ này xảy ra trên hệ thống Linux thiếu thư viện libfreetype.
+Ngoại lệ này xảy ra trên hệ thống Linux thiếu thư viện libfreetype. 
 
 ### **Giải pháp**
 
@@ -146,7 +146,7 @@ Cài đặt libfreetype và fontconfig:
   sudo apt-get update
   sudo apt-get install libfreetype6
   sudo apt-get -y install fontconfig
-  ```
+```
 
 * CentOS: 
 
@@ -156,8 +156,6 @@ Cài đặt libfreetype và fontconfig:
   sudo yum -y install fontconfig
   ```
 
-{{% alert title="TIP" color="primary" %}} 
-
+{{% alert title="TIP" color="info" %}} 
 Đừng quên cài đặt phông chữ hoặc sử dụng FontsLoader.
-
 {{% /alert %}}

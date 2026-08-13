@@ -1,6 +1,6 @@
 ---
-title: تغييرات واجهة برمجة التطبيقات العامة وغير المتوافقة مع الإصدارات السابقة في Aspose.Slides for .NET 15.11.0
-linktitle: Aspose.Slides for .NET 15.11.0
+title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة مع النسخ السابقة في Aspose.Slides for .NET 15.11.0
+linktitle: Aspose.Slides لـ .NET 15.11.0
 type: docs
 weight: 210
 url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/
@@ -10,24 +10,21 @@ keywords:
 - كود حديث
 - نهج قديم
 - نهج حديث
-- باوربوينت
-- مستند مفتوح
+- PowerPoint
+- OpenDocument
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "مراجعة تحديثات واجهة برمجة التطبيقات العامة والتغييرات المتكسرة في Aspose.Slides for .NET لتسهيل ترحيل حلول عروض PowerPoint PPT و PPTX و ODP."
+description: "استعرض تحديثات واجهة برمجة التطبيقات العامة والتغييرات المتعارضة في Aspose.Slides for .NET لترحيل عروض PowerPoint PPT و PPTX و ODP بسلاسة."
 ---
-
-{{% alert color="primary" %}} 
-
-تُدرج هذه الصفحة جميع الفئات أو الأساليب أو الخصائص أو غيرها التي تم [إضافتها](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) أو [إزالتها](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/)، وكذلك التغييرات الأخرى التي تم تقديمها في واجهة برمجة تطبيقات Aspose.Slides for .NET الإصدار 15.11.0.
-
+{{% alert color="info" %}} 
+هذه الصفحة تسرد جميع الفئات، الطرق، الخصائص وما إلى ذلك التي تم [إضافتها](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) أو [إزالتها](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) وغيرها من التغييرات التي تم تقديمها مع Aspose.Slides for .NET 15.11.0 API.
 {{% /alert %}} 
-## **التغييرات العامة في واجهة البرمجة**
+## **التغييرات العامة لواجهة برمجة التطبيقات**
 
-#### **تم حذف الخصائص القديمة في فئة DataLabelCollection**
-تم حذف الخصائص القديمة في فئة DataLabelCollection:
+#### **تم حذف الخصائص المهملة في فئة DataLabelCollection**
+تم حذف الخصائص المهملة في فئة DataLabelCollection:
 Aspose.Slides.Charts.DataLabelCollection.Delete
 Aspose.Slides.Charts.DataLabelCollection.Format
 Aspose.Slides.Charts.DataLabelCollection.LinkedSource
@@ -43,22 +40,23 @@ Aspose.Slides.Charts.DataLabelCollection.ShowSeriesName
 Aspose.Slides.Charts.DataLabelCollection.ShowValue
 
 #### **تمت إضافة الخاصية الجديدة FirstSlideNumber إلى فئة Presentation**
-تسمح الخاصية الجديدة FirstSlideNumber المضافة إلى فئة Presentation بالحصول على رقم الشريحة الأولى في العرض أو تعيينه.
+تسمح الخاصية الجديدة FirstSlideNumber المضافة إلى Presentation بالحصول على رقم الشريحة الأولى أو تعيينه في العرض التقديمي.
 
-عند تحديد قيمة جديدة لـ FirstSlideNumber يتم إعادة حساب أرقام جميع الشرائح.
+عند تحديد قيمة جديدة لـ FirstSlideNumber يتم إعادة حساب جميع أرقام الشرائح.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- using(var pres = new Presenation(path))
+string path = "sample.pptx";
+string newPath = "output.pptx";
 
+using (var pres = new Presentation(path))
 {
+    int firstSlideNumber = pres.FirstSlideNumber;
 
-  int firstSlideNumber = pres.FirstSlideNumber;
+    pres.FirstSlideNumber = 10;
 
-  pres.FirstSlideNumber = 10;
-
-  pres.Save(newPath, SaveFormat.Pptx);
-
+    pres.Save(newPath, SaveFormat.Pptx);
 }
-
 ```

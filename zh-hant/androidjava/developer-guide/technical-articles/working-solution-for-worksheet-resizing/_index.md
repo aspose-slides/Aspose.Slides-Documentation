@@ -1,12 +1,12 @@
 ---
-title: 工作表調整大小的實作解決方案
+title: 工作表調整大小的可行解決方案
 type: docs
 weight: 20
 url: /zh-hant/androidjava/working-solution-for-worksheet-resizing/
 keywords:
 - OLE
 - 預覽圖像
-- 圖像調整大小
+- 影像調整大小
 - Excel
 - 工作表
 - PowerPoint
@@ -14,36 +14,40 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "在簡報中修復 Excel 工作表 OLE 調整大小問題：提供兩種方法保持物件框一致——縮放框架或工作表——適用於 PPT 與 PPTX 格式。"
+description: "在簡報中修復 Excel 工作表 OLE 大小調整：提供兩種方法保持物件框一致——縮放框架或工作表——適用於 PPT 和 PPTX 格式。"
 ---
-{{% alert color="primary" %}}
-
-已觀察到，透過 Aspose 元件將 Excel 工作表以 OLE 物件嵌入 PowerPoint 簡報時，首次啟動後會被調整為未知的比例。此行為在 OLE 物件的啟動前後造成明顯的視覺差異。我們已深入調查此問題並提供了解決方案，詳情請見本文。
-
+{{% alert color="info" %}}
+已觀察到透過 Aspose 元件將 Excel 工作表作為 OLE 物件嵌入 PowerPoint 簡報時，第一次啟用後會被重新調整為未知的比例。此行為會在 OLE 物件的啟用前後在簡報中產生明顯的視覺差異。我們已深入調查此問題並提供了解決方案，詳見本文。
 {{% /alert %}}
 
-## **Background**
+## **背景**
 
-在文章 [Manage OLE](/slides/zh-hant/androidjava/manage-ole/) 中，我們說明了如何使用 Aspose.Slides for Android via Java 為 PowerPoint 簡報加入 OLE 框。為了解決 [object preview issue](/slides/zh-hant/androidjava/object-preview-issue-when-adding-oleobjectframe/)，我們將選取的工作表區域圖像指派給 OLE 物件框。於輸出簡報中，當雙擊顯示工作表圖像的 OLE 物件框時，Excel 活頁簿會被啟動。最終使用者可以對實際的 Excel 活頁簿進行任意變更，然後點擊已啟動的 Excel 活頁簿外部返回投影片。返回時 OLE 物件框的大小會發生變化，調整係數會依 OLE 物件框與嵌入的 Excel 活頁簿的大小而異。
+在文章 [Manage OLE](/slides/zh-hant/androidjava/manage-ole/) 中，我們說明了如何使用 Aspose.Slides for Android via Java 為 PowerPoint 簡報新增 OLE 框。為了解決 [object preview issue](/slides/zh-hant/androidjava/object-preview-issue-when-adding-oleobjectframe/) ，我們將選取的工作表區域圖像指派給 OLE 物件框。在輸出簡報中，當您雙擊顯示工作表圖像的 OLE 物件框時，Excel 活頁簿會被啟動。最終使用者可以對實際的 Excel 活頁簿進行任何想要的變更，然後點擊已啟動的 Excel 活頁簿之外的區域返回投影片。使用者返回投影片時，OLE 物件框的大小會改變。調整比例會依 OLE 物件框的大小以及嵌入的 Excel 活頁簿的大小而有所不同。
 
-## **Cause of Resizing**
+## **調整大小的原因**
 
-由於 Excel 活頁簿有自己的視窗大小，它會嘗試在首次啟動時保留原始尺寸。另一方面，OLE 物件框也有自己的尺寸。根據微軟的說法，當 Excel 活頁簿被啟動時，Excel 與 PowerPoint 會協商尺寸，以確保在嵌入過程中保持正確的比例。調整發生於 Excel 視窗尺寸與 OLE 物件框的尺寸與位置之間的差異。
+由於 Excel 活頁簿有自己的視窗大小，它會在首次啟用時嘗試保留原始大小。另一方面，OLE 物件框也有自己的尺寸。根據 Microsoft 的說法，當 Excel 活頁簿被啟用時，Excel 與 PowerPoint 會協商尺寸，以確保在嵌入過程中保持正確的比例。調整大小是根據 Excel 視窗尺寸與 OLE 物件框的尺寸與位置之差異而發生的。
 
-## **Working Solution**
+## **可行的解決方案**
 
-有兩種可能的解決方案可以避免此調整效果。
+有兩種可能的解決方案可以避免調整效果。
 
-- 在 PowerPoint 簡報中將 OLE 框尺寸縮放至與 OLE 框內所需的列數與欄數的高度與寬度相匹配。
-- 保持 OLE 框尺寸不變，將參與的列與欄的大小縮放至適合選定的 OLE 框尺寸。
+- 將 PowerPoint 簡報中的 OLE 框大小按比例調整，使其符合 OLE 框中所需的列數和欄數的高度與寬度。
+- 保持 OLE 框大小不變，並將參與的列和欄的大小按比例調整，以適應選定的 OLE 框大小。
 
-### **Scale the OLE Frame Size**
+### **調整 OLE 框大小的比例**
 
-在此方法中，我們將學習如何設定嵌入的 Excel 活頁簿的 OLE 框尺寸，使之符合 Excel 工作表中參與列與欄的累計大小。
+在此方法中，我們將學習如何設定嵌入的 Excel 活頁簿的 OLE 框大小，使其匹配 Excel 工作表中參與列與欄的累積尺寸。
 
-假設我們有一個範本 Excel 工作表，並希望將其作為 OLE 框加入簡報。此情況下，OLE 物件框的尺寸將先根據工作簿中參與列的高度總和與欄的寬度總和計算。然後，我們會將 OLE 框的尺寸設定為此計算值。為了避免 PowerPoint 中 OLE 框顯示紅色「EMBEDDED OLE OBJECT」訊息，我們還會擷取工作簿中所需列與欄的圖像，並將其設定為 OLE 框的圖像。
+假設我們有一個範本 Excel 工作表，並希望將它以 OLE 框的形式加入簡報。在此情境下，OLE 物件框的大小將首先根據工作簿中參與列的列高與參與欄的欄寬的累積值計算。接著，我們會將 OLE 框的大小設定為此計算值。為了避免 PowerPoint 中 OLE 框出現紅色的「EMBEDDED OLE OBJECT」訊息，我們也會擷取工作簿中欲顯示的列與欄的影像，並將其設為 OLE 框的影像。
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -53,7 +57,7 @@ int imageResolution = 96;
 com.aspose.cells.Workbook workbook = new com.aspose.cells.Workbook( "sample.xlsx");
 com.aspose.cells.Worksheet worksheet = workbook.getWorksheets().get(worksheetIndex);
 
-// 設定工作簿檔案作為 PowerPoint 中 OLE 物件時的顯示大小。
+// 設定工作簿檔案作為 PowerPoint 中 OLE 物件使用時的顯示尺寸。
 int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -61,12 +65,12 @@ workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
 com.aspose.cells.Range cellRange = worksheet.getCells().createRange(startRow, startColumn, rowCount, columnCount);
 InputStream imageStream = CreateOleImage(cellRange, imageResolution);
 
-// Get the width and height of the OLE image in points.
+// 取得 OLE 圖像的寬度與高度（以點為單位）。
 Bitmap image = BitmapFactory.decodeStream(imageStream);
-float imageWidth = image.getWidth(null) * 72f / imageResolution;
-float imageHeight = image.getHeight(null) * 72f / imageResolution;
+float imageWidth = image.getWidth() * 72f / imageResolution;
+float imageHeight = image.getHeight() * 72f / imageResolution;
 
-// We need to use the modified workbook.
+// 我們需要使用已修改的工作簿。
 ByteArrayOutputStream oleStream = new ByteArrayOutputStream();
 workbook.save(oleStream, com.aspose.cells.SaveFormat.XLSX);
 workbook.dispose();
@@ -74,12 +78,12 @@ workbook.dispose();
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
-// Add the OLE image to the presentation resources.
+// 將 OLE 圖像加入簡報資源中。
 imageStream.reset();
 IPPImage oleImage = presentation.getImages().addImage(imageStream);
 imageStream.close();
 
-// Create the OLE object frame.
+// 建立 OLE 物件框。
 IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleStream.toByteArray(), "xlsx");
 IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(10, 10, imageWidth, imageHeight, dataInfo);
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
@@ -91,6 +95,10 @@ presentation.dispose();
 ```
 
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -115,13 +123,17 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 }
 ```
 
-### **Scale the Cell Range Size**
+### **調整儲存格範圍大小的比例**
 
-在此方法中，我們將學習如何將參與列的高度與參與欄的寬度縮放，以符合自訂的 OLE 框尺寸。
+在此方法中，我們將學習如何將參與列的高度與參與欄的寬度按比例縮放，使其符合自訂的 OLE 框大小。
 
-假設我們有一個範本 Excel 工作表，並希望將其作為 OLE 框加入簡報。此情況下，我們會設定 OLE 框的尺寸，並將參與 OLE 框區域的列與欄的大小縮放至該尺寸。接著，我們將工作簿儲存至串流以套用變更，並轉換為位元組陣列以加入 OLE 框。為了避免 PowerPoint 中 OLE 框顯示紅色「EMBEDDED OLE OBJECT」訊息，我們同樣會擷取工作簿中所需列與欄的圖像，並將其設定為 OLE 框的圖像。
+假設我們有一個範本 Excel 工作表，並希望將它以 OLE 框的形式加入簡報。在此情境下，我們會先設定 OLE 框的大小，然後將參與 OLE 框區域的列與欄的大小按比例縮放。我們隨後會將工作簿儲存到串流中以套用變更，並將其轉換為位元組陣列以加入 OLE 框。為了避免 PowerPoint 中 OLE 框出現紅色的「EMBEDDED OLE OBJECT」訊息，我們也會擷取工作簿中欲顯示的列與欄的影像，並將其設為 OLE 框的影像。
 
 ```java
+import com.aspose.slides.*;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -132,12 +144,12 @@ float frameWidth = 400, frameHeight = 100;
 com.aspose.cells.Workbook workbook = new com.aspose.cells.Workbook("sample.xlsx");
 com.aspose.cells.Worksheet worksheet = workbook.getWorksheets().get(worksheetIndex);
 
-// 設定工作簿檔案作為 PowerPoint 中 OLE 物件時的顯示大小。
+// 設定工作簿檔案作為 PowerPoint 中 OLE 物件使用時的顯示尺寸。
 int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
 
-// 縮放儲存格範圍以符合框架尺寸。
+// 將儲存格範圍縮放以符合框架尺寸。
 com.aspose.cells.Range cellRange = worksheet.getCells().createRange(startRow, startColumn, rowCount, columnCount);
 ScaleCellRange(cellRange, frameWidth, frameHeight);
 
@@ -151,11 +163,11 @@ workbook.dispose();
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
-// 將 OLE 圖像加入簡報資源。
+// 將 OLE 圖像加入簡報資源中。
 IPPImage oleImage = presentation.getImages().addImage(imageStream);
 imageStream.close();
 
-// 建立 OLE 物件框架。
+// 建立 OLE 物件框。
 IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleStream.toByteArray(), "xlsx");
 IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(10, 10, frameWidth, frameHeight, dataInfo);
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
@@ -204,6 +216,10 @@ static void ScaleCellRange(com.aspose.cells.Range cellRange, float width, float 
 ```
 
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -228,36 +244,34 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 }
 ```
 
-## **Conclusion**
+## **結論**
 
-{{% alert color="primary" %}} 
-
-有兩種方法可解決工作表調整大小的問題。選擇哪種方法取決於具體需求與使用情境。無論簡報是從範本建立還是從頭開始，兩種方法皆可運作。此外，此解決方案對 OLE 物件框的大小沒有任何限制。
-
+{{% alert color="info" %}} 
+有兩種方法可解決工作表調整大小的問題。選擇適當的方法取決於具體需求與使用情境。無論是從範本建立簡報或是從頭開始，兩種方法均可同等運作。此外，此解決方案對 OLE 物件框的大小沒有任何限制。
 {{% /alert %}}
 
 ## **FAQ**
 
-**Why does an embedded Excel worksheet change size when first activated in PowerPoint?**
+### 為什麼嵌入的 Excel 工作表在 PowerPoint 中首次啟用時會改變大小？
 
-這是因為 Excel 在啟動時會嘗試保留原始視窗大小，而 PowerPoint 中的 OLE 物件框則有自己的尺寸。PowerPoint 與 Excel 會協商尺寸以維持長寬比，從而產生調整。
+這是因為 Excel 在啟用時會嘗試維持原始視窗大小，而 PowerPoint 中的 OLE 物件框則有自己的尺寸。PowerPoint 與 Excel 會協商尺寸以維持長寬比，從而導致大小變更。
 
-**Is it possible to prevent this resizing issue entirely?**
+### 是否可以完全防止此調整問題？
 
-可以。透過將 OLE 框縮放至符合 Excel 儲存格範圍大小，或將儲存格範圍縮放至符合目標 OLE 框尺寸，即可防止不必要的調整。
+可以。透過將 OLE 框縮放至符合 Excel 儲存格範圍大小，或將儲存格範圍縮放至符合目標 OLE 框大小，皆可避免不必要的調整。
 
-**Which scaling method should I use, OLE frame scaling or cell range scaling?**
+### 應該使用哪種縮放方式，OLE 框縮放還是儲存格範圍縮放？
 
-若希望保留原始 Excel 列與欄的大小，請選擇 **OLE frame scaling**。若希望在簡報中固定 OLE 框的尺寸，請選擇 **cell range scaling**。
+如果您希望保留原始 Excel 列與欄的大小，請選擇 **OLE 框縮放**。如果您希望在簡報中維持固定的 OLE 框大小，請選擇 **儲存格範圍縮放**。
 
-**Will these solutions work if my presentation is based on a template?**
+### 若我的簡報是基於範本建立的，這些解決方案仍然適用嗎？
 
-會。兩種解決方案皆適用於由範本建立或全新建立的簡報。
+適用。兩種解決方案皆可在基於範本或全新建立的簡報中使用。
 
-**Is there a limit to the size of the OLE frame when using these methods?**
+### 使用這些方法時，OLE 框的大小是否有限制？
 
-沒有。只要適當設定縮放比例，OLE 物件框可以任意大小。
+沒有。只要適當設定縮放比例，OLE 物件框可以調整為任何大小。
 
-**Is there a way to avoid the "EMBEDDED OLE OBJECT" placeholder text in PowerPoint?**
+### 有辦法避免 PowerPoint 中出現「EMBEDDED OLE OBJECT」佔位文字嗎？
 
-可以。只要擷取目標 Excel 儲存格範圍的快照，並將其設定為 OLE 框的佔位圖像，即可以自訂預覽圖取代預設的佔位文字。
+有。透過擷取目標 Excel 儲存格範圍的快照，並將其設定為 OLE 框的佔位影像，即可以自訂的預覽圖取代預設的佔位文字。

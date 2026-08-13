@@ -6,7 +6,7 @@ weight: 70
 url: /tr/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
 keywords:
 - grafik oluştur
-- Excel grafiği gömme
+- Excel grafiği göm
 - OLE nesnesi
 - göç
 - VSTO
@@ -16,31 +16,27 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Microsoft Office otomasyonundan Aspose.Slides for .NET'e geçiş yapın ve Excel grafiklerini C#'ta PowerPoint (PPT, PPTX) slaytlarına OLE nesneleri olarak gömün."
+description: "Microsoft Office otomasyonundan Aspose.Slides for .NET'e geçiş yapın ve Excel grafiklerini C# ile PowerPoint (PPT, PPTX) slaytlarına OLE nesneleri olarak gömün."
 ---
-{{% alert color="primary" %}} 
-
-Grafikler, verilerinizin görsel temsilleridir ve sunum slaytlarında yaygın olarak kullanılır. Bu makale, [VSTO](/slides/tr/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) ve [Aspose.Slides for .NET](/slides/tr/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) kullanarak bir Excel Grafiğini OLE Nesnesi olarak PowerPoint Slaytına programlı bir şekilde oluşturma ve gömme kodunu gösterecektir.
-
+{{% alert color="info" %}} 
+Grafikler, verilerinizin görsel temsilleridir ve sunum slaytlarında yaygın olarak kullanılır. Bu makale, [VSTO](/slides/tr/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) ve [Aspose.Slides for .NET](/slides/tr/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) kullanarak bir Excel Grafikini OLE Nesnesi olarak PowerPoint Slaytına programlı bir şekilde oluşturma ve gömme kodunu gösterecek.
 {{% /alert %}} 
 ## **Excel Grafiği Oluşturma ve Gömme**
-Aşağıdaki iki kod örneği uzun ve detaylıdır çünkü açıklanan görev karmaşıktır. Bir Microsoft Excel çalışma kitabı oluşturur, bir grafik oluşturur ve ardından grafiği gömeceğiniz Microsoft PowerPoint sunumunu oluşturursunuz. OLE nesneleri orijinal belgeye bağlantılar içerir, bu yüzden gömülü dosyaya çift tıklayan bir kullanıcı dosyayı ve uygulamasını başlatır.
+Aşağıdaki iki kod örneği uzun ve ayrıntılıdır çünkü anlatılan görev karmaşıktır. Bir Microsoft Excel çalışma kitabı oluşturur, bir grafik oluşturur ve ardından grafiği gömeceğiniz Microsoft PowerPoint sunumunu oluşturursunuz. OLE nesneleri, orijinal belgeye bağlantılar içerir, bu nedenle gömülü dosyaya çift tıklayan bir kullanıcı dosyayı ve uygulamasını başlatır.
 ## **VSTO Örneği**
-Using VSTO, the following steps are performed:
-
 1. Microsoft Excel ApplicationClass nesnesinin bir örneğini oluşturun.
-2. Bir sayfa içeren yeni bir çalışma kitabı oluşturun.
-3. Sayfaya bir grafik ekleyin.
-4. Çalışma kitabını kaydedin.
-5. Grafik verilerini içeren çalışma sayfasını içeren Excel çalışma kitabını açın.
-6. Sayfa için ChartObjects koleksiyonunu alın.
-7. Kopyalanacak grafiği alın.
-8. Microsoft PowerPoint sunumu oluşturun.
-9. Sunuma boş bir slayt ekleyin.
-10. Grafiği Excel çalışma sayfasından panoya kopyalayın.
-11. Grafiği PowerPoint sunumuna yapıştırın.
-12. Grafiği slayt üzerinde konumlandırın.
-13. Sunumu kaydedin.
+1. Bir sayfa içeren yeni bir çalışma kitabı oluşturun.
+1. Sayfaya bir grafik ekleyin.
+1. Çalışma kitabını kaydedin.
+1. Grafik verilerini içeren çalışma sayfasını içeren Excel çalışma kitabını açın.
+1. Sayfa için ChartObjects koleksiyonunu alın.
+1. Kopyalanacak grafiği alın.
+1. Microsoft PowerPoint sunumu oluşturun.
+1. Sunuma boş bir slayt ekleyin.
+1. Grafiği Excel çalışma sayfasından panoya kopyalayın.
+1. Grafiği PowerPoint sunumuna yapıştırın.
+1. Grafiği slayt üzerinde konumlandırın.
+1. Sunumu kaydedin.
 
 ```c#
 CreateNewChartInExcel();
@@ -78,14 +74,14 @@ static void CreateNewChartInExcel()
         // Excel ApplicationClass nesnesinin bir örneğini oluştur.
         excelApplication = new Microsoft.Office.Interop.Excel.ApplicationClass();
 
-        // İçinde 1 sayfa olan yeni bir çalışma kitabı oluştur.
+        // 1 sayfa içeren yeni bir çalışma kitabı oluştur.
         xlNS.Workbook newWorkbook = excelApplication.Workbooks.Add(xlNS.XlWBATemplate.xlWBATWorksheet);
 
         // Sayfanın adını değiştir.
         xlNS.Worksheet targetSheet = (xlNS.Worksheet)(newWorkbook.Worksheets[1]);
         targetSheet.Name = "Quarterly Sales";
 
-        // Insert some data for the chart into the sheet.
+        // Grafik için bazı verileri sayfaya ekle.
         //              A       B       C       D       E
         //     1                Q1      Q2      Q3      Q4
         //     2    N. America  1.5     2       1.5     2.5
@@ -122,7 +118,7 @@ static void CreateNewChartInExcel()
         SetCellValue(targetSheet, "E4", 2);
         SetCellValue(targetSheet, "E5", 2.75);
 
-        // Grafik verilerini içeren aralığı al.
+        // Grafik verilerini tutan aralığı al.
         xlNS.Range dataRange = targetSheet.get_Range("A1", "E5");
 
         // Sayfa için ChartObjects koleksiyonunu al.
@@ -183,7 +179,7 @@ static void UseCopyPaste()
         // Excel'in bir örneğini oluştur.
         excelApplication = new xlNS.ApplicationClass();
 
-        // Grafik verilerini içeren çalışma sayfasına sahip Excel çalışma kitabını aç.
+        // Grafik verilerini içeren çalışma sayfasını içeren Excel çalışma kitabını aç.
         excelWorkBook = excelApplication.Workbooks.Open(paramWorkbookPath,
             paramMissing, paramMissing, paramMissing, paramMissing, paramMissing,
             paramMissing, paramMissing, paramMissing, paramMissing, paramMissing,
@@ -201,7 +197,7 @@ static void UseCopyPaste()
         existingChartObject =
             (xlNS.ChartObject)(chartObjects.Item("Sales Chart"));
 
-        // Bir PowerPoint sunumu oluştur.
+        // PowerPoint sunumu oluştur.
         pptPresentation =
             powerpointApplication.Presentations.Add(
             Microsoft.Office.Core.MsoTriState.msoTrue);
@@ -210,13 +206,13 @@ static void UseCopyPaste()
         pptSlide =
             pptPresentation.Slides.Add(1, pptNS.PpSlideLayout.ppLayoutBlank);
 
-        // Excel çalışma sayfasından grafiği panoya kopyala.
+        // Grafiği Excel çalışma sayfasından panoya kopyala.
         existingChartObject.Copy();
 
         // Grafiği PowerPoint sunumuna yapıştır.
         shapeRange = pptSlide.Shapes.Paste();
 
-        // Grafiği slaytta konumlandır.
+        // Grafiği slayt üzerinde konumlandır.
         shapeRange.Left = 60;
         shapeRange.Top = 100;
 
@@ -233,7 +229,7 @@ static void UseCopyPaste()
         shapeRange = null;
         pptSlide = null;
 
-        // Sunum nesnesini kapat ve serbest bırak.
+        // Presentation nesnesini kapat ve serbest bırak.
         if (pptPresentation != null)
         {
             pptPresentation.Close();
@@ -252,7 +248,7 @@ static void UseCopyPaste()
         chartObjects = null;
         existingChartObject = null;
 
-        // Excel Çalışma Kitabı nesnesini kapat ve serbest bırak.
+        // Excel Workbook nesnesini kapat ve serbest bırak.
         if (excelWorkBook != null)
         {
             excelWorkBook.Close(false, paramMissing, paramMissing);
@@ -274,56 +270,64 @@ static void UseCopyPaste()
 }
 ```
 
-
-
-
 ## **Aspose.Slides for .NET Örneği**
-Aspose.Slides for .NET kullanarak aşağıdaki adımlar yürütülür:
-
 1. Aspose.Cells for .NET kullanarak bir çalışma kitabı oluşturun.
-2. Microsoft Excel grafiği oluşturun.
-3. Excel Grafiğinin OLE boyutunu ayarlayın.
-4. Grafiğin bir görüntüsünü alın.
-5. Excel grafiğini Aspose.Slides for .NET kullanarak PPTX sunumu içinde OLE Nesnesi olarak gömün.
-6. Nesne değişikliği sorununu gidermek için adım 3'te elde edilen görüntü ile nesne değiştirilen görüntüyü değiştirin.
-7. Çıktı sunumunu PPTX formatında diske yazın.
-
-
+1. Microsoft Excel grafiği oluşturun.
+1. Excel Grafiğinin OLE boyutunu ayarlayın.
+1. Grafiğin bir görüntüsünü alın.
+1. Aspose.Slides for .NET kullanarak Excel grafiğini PPTX sunumuna OLE Nesnesi olarak gömün.
+1. Nesne değişikliği sorununu gidermek için 3. adımda elde edilen görüntü ile nesne değişikliği görüntüsünü değiştirin.
+1. Çıktı sunumunu PPTX formatında diske yazın.
 
 ```c#
-//Adım - 1: Aspose.Cells kullanarak bir Excel grafiği oluştur
+using System.Drawing;
+using Aspose.Slides;
+
+//Step - 1: Aspose.Cells kullanarak bir Excel grafiği oluştur
 //--------------------------------------------------
+//Create a workbook
 //Bir çalışma kitabı oluştur
 Aspose.Cells.Workbook wb = new Aspose.Cells.Workbook();
+//Add an excel chart
 //Bir Excel grafiği ekle
 int chartRows = 55;
 int chartCols = 25;
 int chartSheetIndex = AddExcelChartInWorkbook(wb, chartRows, chartCols);
-//Adım - 2: Grafiğin OLE boyutunu ayarla. Aspose.Cells kullanarak
+//Step - 2: Grafiğin OLE boyutunu Aspose.Cells ile ayarla
 //-----------------------------------------------------------
 wb.Worksheets.SetOleSize(0, chartRows, 0, chartCols);
-//Adım - 3: Grafiğin görüntüsünü Aspose.Cells ile al
+//Step - 3: Grafiğin görüntüsünü Aspose.Cells ile al
 //-----------------------------------------------------------
-Bitmap imgChart = wb.Worksheets[chartSheetIndex].Charts[0].ToImage();
-//Çalışma kitabını akışa kaydet
+MemoryStream chartImageStream = new MemoryStream();
+wb.Worksheets[chartSheetIndex].Charts[0].ToImage(chartImageStream, Aspose.Cells.Drawing.ImageType.Png);
+chartImageStream.Position = 0;
+Bitmap imgChart = new Bitmap(chartImageStream);
+//Save the workbook to stream
+//Çalışma kitabını akıma kaydet
 MemoryStream wbStream = wb.SaveToStream();
-//Adım - 4  AND 5
+//Step - 4  AND 5
 //-----------------------------------------------------------
-//Adım - 4: Grafiği Aspose.Slides kullanarak .ppt sunumuna OLE nesnesi olarak göm
+//Step - 4: Grafiği Aspose.Slides kullanarak .ppt sunumuna OLE nesnesi olarak göm
 //-----------------------------------------------------------
-//Adım - 5: Nesne değişikliği sorununu gidermek için adım 3'te elde edilen görüntüyle nesne değiştirilen görüntüyü değiştir
+//Step - 5: Nesne değişikliği sorununu çözmek için adım 3'te elde edilen görüntüyü nesne değişikliği görüntüsüyle değiştir
 //-----------------------------------------------------------
+//Create a presentation
 //Bir sunum oluştur
 Presentation pres = new Presentation();
 ISlide sld = pres.Slides[0];
+//Add the workbook on slide
 //Çalışma kitabını slayta ekle
 AddExcelChartInPresentation(pres, sld, wbStream, imgChart);
-//Adım - 6: Çıktı sunumunu diske kaydet
+//Step - 6: Çıktı sunumunu diske yaz
 //-----------------------------------------------------------
 pres.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
 static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, Stream workbookStream, Bitmap chartImage)
 {
     float oleWidth = presentation.SlideSize.Size.Width;
@@ -351,7 +355,7 @@ static void AddExcelChartInPresentation(Presentation presentation, ISlide slide,
 ```c#
 static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int chartCols)
 {
-    //Hücre adlarının dizisi
+    //Hücre isimlerinin dizisi
     string[] cellsName = new string[]
       {
   "A1", "A2", "A3", "A4",
@@ -370,12 +374,12 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int 
  43,29,69,26,
  24,40,38,25
       };
-    //Verilerle hücreleri doldurmak için yeni bir çalışma sayfası ekle
+    //Verileri hücrelere doldurmak için yeni bir çalışma sayfası ekle
     int dataSheetIdx = wb.Worksheets.Add();
     Aspose.Cells.Worksheet dataSheet = wb.Worksheets[dataSheetIdx];
     string sheetName = "DataSheet";
     dataSheet.Name = sheetName;
-    //DataSheet'i verilerle doldur
+    //DataSheet'i veriyle doldur
     for (int i = 0; i < cellsName.Length; i++)
     {
         string cellName = cellsName[i];
@@ -386,7 +390,7 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int 
     int chartSheetIdx = wb.Worksheets.Add(Aspose.Cells.SheetType.Chart);
     Aspose.Cells.Worksheet chartSheet = wb.Worksheets[chartSheetIdx];
     chartSheet.Name = "ChartSheet";
-    //DataSheet'ten veri serileriyle ChartSheet içinde bir grafik ekle
+    //DataSheet'ten veri serileriyle ChartSheet'e bir grafik ekle
     int chartIdx = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, chartRows, 0, chartCols);
     Aspose.Cells.Charts.Chart chart = chartSheet.Charts[chartIdx];
     chart.NSeries.Add(sheetName + "!A1:E1", false);

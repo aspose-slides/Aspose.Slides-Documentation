@@ -6,12 +6,12 @@ weight: 232
 url: /pt/androidjava/3d-presentation/
 keywords:
 - PowerPoint 3D
-- apresentação 3D
-- rotação 3D
-- profundidade 3D
-- extrusão 3D
-- gradiente 3D
-- texto 3D
+- Apresentação 3D
+- Rotação 3D
+- Profundidade 3D
+- Extrusão 3D
+- Gradiente 3D
+- Texto 3D
 - PowerPoint
 - apresentação
 - Android
@@ -21,45 +21,46 @@ description: "Aplique e renderize efeitos 3D para formas e texto do PowerPoint n
 ---
 ## **Visão geral**
 
-Aspose.Slides for Android via Java pode criar, editar, preservar e renderizar a formatação 3D no estilo PowerPoint para formas e texto. Este artigo aborda efeitos 3D como rotação, extrusão, chanfrados, iluminação, material, preenchimentos em gradiente ou imagem e texto 3D.
+Aspose.Slides for Android via Java pode criar, editar, preservar e renderizar formatação 3D estilo PowerPoint para formas e texto. Este artigo aborda efeitos 3D como rotação, extrusão, chanfrados, iluminação, material, preenchimentos em gradiente ou imagem e texto 3D.
 
-{{% alert color="primary" %}}
-
-Este artigo trata de efeitos de formatação 3D em formas e texto do PowerPoint. Não se trata de inserção ou edição de arquivos de modelo 3D independentes. Ao exportar um slide para imagem, PDF ou HTML, o Aspose.Slides renderiza esses efeitos 3D na saída 2D exportada.
-
+{{% alert color="info" %}}
+Este artigo trata de efeitos de formatação 3D em formas e texto do PowerPoint. Não se trata da inserção ou edição de arquivos de modelo 3D autônomos. Quando você exporta um slide para imagem, PDF ou HTML, o Aspose.Slides renderiza esses efeitos 3D na saída 2D exportada.
 {{% /alert %}}
 
 ## **Conceitos de Formatação 3D**
 
-Use o método [IShape.getThreeDFormat](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) para aplicar formatação 3D a uma forma. O método devolve um [IThreeDFormat](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/), que controla a cena 3D para aquela forma.
+Use o método [IShape.getThreeDFormat](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) para aplicar formatação 3D a uma forma. O método devolve [IThreeDFormat](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/), que controla a cena 3D para essa forma.
 
-Para texto, use o método [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/itextframeformat/#getThreeDFormat--) . Ele aplica formatação 3D ao quadro de texto em vez do corpo da forma.
+Para texto, use o método [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/itextframeformat/#getThreeDFormat--) . Isso aplica formatação 3D ao quadro de texto em vez do corpo da forma.
 
 Os membros de API mais importantes são:
 
 | Membro da API | O que controla | Quando usar |
 |---|---|---|
-| [getCamera](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#getCamera--) | Ponto de vista, tipo de câmera predefinido, rotação, zoom e perspectiva. | Rotacionar o objeto no espaço 3D ou combinar com um predefinido de rotação 3D do PowerPoint. |
-| [getLightRig](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#getLightRig--) | Predefinição de luz, direção e rotação da luz. | Alterar como realces e sombras aparecem na superfície 3D. |
-| [getMaterial](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#getMaterial--) e [setMaterial](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#setMaterial-int-) | Material da superfície, como liso, fosco, plástico ou metal. | Fazer a mesma geometria parecer mais lisa, suave, brilhante ou metálica. |
-| [getExtrusionHeight](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#getExtrusionHeight--) e [setExtrusionHeight](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) | Distância que a forma se estende para trás a partir de sua face frontal. | Transformar uma forma plana em um objeto 3D visivelmente espesso. |
-| [getExtrusionColor](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#getExtrusionColor--) | Cor das faces laterais extrudidas. | Tornar a profundidade visível ou coordenar a cor lateral com o preenchimento frontal. |
-| [getDepth](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#getDepth--) e [setDepth](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-) | Profundidade 3D adicional usada pela formatação 3D do PowerPoint. | Ajustar finamente a profundidade para formas ou texto, especialmente junto com configurações de chanfrado e material. |
-| [getBevelTop](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#getBevelTop--) e [getBevelBottom](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#getBevelBottom--) | Bordas elevadas ou arredondadas nas faces frontal e traseira. | Adicionar um contorno suavizado ou moldado em vez de uma face plana e afiada. |
-| [getContourColor](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#getContourColor--), [getContourWidth](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#getContourWidth--), e [setContourWidth](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#setContourWidth-double-) | Contorno ao redor do objeto 3D. | Evidenciar o limite do objeto na saída renderizada. |
+| [getCamera](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#getCamera--) | Ponto de vista, tipo de câmera predefinido, rotação, zoom e perspectiva. | Rotacionar o objeto no espaço 3D ou corresponder a um preset de rotação 3D do PowerPoint. |
+| [getLightRig](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#getLightRig--) | Preset de luz, direção e rotação da luz. | Alterar como realces e sombras aparecem na superfície 3D. |
+| [getMaterial](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#getMaterial--) e [setMaterial](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#setMaterial-int-) | Material da superfície, como plano, fosco, plástico ou metal. | Fazer a mesma geometria parecer mais plana, macia, brilhante ou metálica. |
+| [getExtrusionHeight](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#getExtrusionHeight--) e [setExtrusionHeight](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) | Quão distante a forma se estende para trás a partir de sua face frontal. | Transformar uma forma plana em um objeto 3D visivelmente espesso. |
+| [getExtrusionColor](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#getExtrusionColor--) | Cor das faces extrudadas. | Tornar a profundidade visível ou coordenar a cor lateral com o preenchimento frontal. |
+| [getDepth](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#getDepth--) e [setDepth](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-) | Profundidade 3D adicional usada pela formatação 3D do PowerPoint. | Ajustar finamente a profundidade de formas ou texto, especialmente junto com configurações de chanfrado e material. |
+| [getBevelTop](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#getBevelTop--) e [getBevelBottom](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#getBevelBottom--) | Bordas levantadas ou arredondadas nas faces frontal e traseira. | Adicionar uma borda suavizada ou moldada em vez de uma face plana e pontiaguda. |
+| [getContourColor](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#getContourColor--), [getContourWidth](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#getContourWidth--), e [setContourWidth](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#setContourWidth-double-) | Contorno ao redor do objeto 3D. | Enfatizar o limite do objeto na saída renderizada. |
 
 ## **Criar uma Forma 3D**
 
-Uma forma normalmente precisa de quatro tipos de configurações antes de parecer convincentemente 3D:
+Uma forma geralmente precisa de quatro tipos de configurações antes de parecer convincentemente 3D:
 
-- Configurações de câmera, pois a vista frontal padrão pode ocultar a extrusão.
-- Configurações de luz, pois a iluminação torna as faces e laterais legíveis.
+- Configurações de câmera, pois a visualização frontal padrão pode ocultar a extrusão.
+- Configurações de luz, pois a iluminação torna as faces e lados legíveis.
 - Configurações de material, pois a superfície afeta como a luz é renderizada.
 - Configurações de extrusão ou profundidade, pois uma forma plana precisa de espessura.
 
-O exemplo a seguir cria um retângulo, adiciona texto à sua face frontal, aplica formatação 3D, salva a apresentação como PPTX e renderiza o slide para uma imagem PNG.
+O exemplo a seguir cria um retângulo, adiciona texto à sua face frontal, aplica formatação 3D, salva a apresentação como PPTX e renderiza o slide em uma imagem PNG.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 final float imageScale = 2;
 
 Presentation presentation = new Presentation();
@@ -70,7 +71,7 @@ try {
     shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(64);
 
     shape.getFillFormat().setFillType(FillType.Solid);
-    shape.getFillFormat().getSolidFillColor().setColor(Color.rgb(100, 149, 237));
+    shape.getFillFormat().getSolidFillColor().setColor(new Color(100, 149, 237));
 
     shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
     shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
@@ -95,19 +96,29 @@ try {
 
 A imagem do slide renderizado mostra o retângulo como um bloco 3D espesso:
 
-![Retângulo azul 3D renderizado com texto 3D branco na face frontal](img_01_01.png)
+![Retângulo 3D azul renderizado com texto 3D branco na face frontal](img_01_01.png)
 
 ## **Girar uma Forma com a Câmera**
 
-No PowerPoint, a rotação 3D é configurada no painel de Rotação 3-D. Os valores de rotação X, Y e Z correspondem à rotação que você define através da API de câmera.
+No PowerPoint, a rotação 3D é configurada no painel de Rotação 3‑D. Os valores de rotação X, Y e Z correspondem à rotação que você define através da API de câmera.
 
-![Painel de Rotação 3-D do PowerPoint com valores de rotação X, Y e Z destacados](img_02_01.png)
+![Painel de Rotação 3‑D do PowerPoint com valores de rotação X, Y e Z destacados](img_02_01.png)
 
 No Aspose.Slides, defina o tipo de câmera e a rotação através de [IThreeDFormat.getCamera](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#getCamera--):
 
 ```java
-shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
-shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+
+    shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
+    shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
+} finally {
+    presentation.dispose();
+}
 ```
 
 Use a câmera quando precisar mudar como o visualizador vê o objeto. Ela não altera a geometria 2D da forma no slide. Ela altera o ponto de vista 3D usado pelo PowerPoint e pelo Aspose.Slides ao renderizar.
@@ -116,25 +127,39 @@ Use a câmera quando precisar mudar como o visualizador vê o objeto. Ela não a
 
 A extrusão faz uma forma parecer espessa ao estendê‑la atrás da face frontal. No PowerPoint, o controle de profundidade define essa espessura visível, e o controle de cor define a cor das faces laterais.
 
-![Controles de profundidade do PowerPoint mapeados para propriedades de cor de extrusão e altura de extrusão](img_02_02.png)
+![Controles de profundidade do PowerPoint mapeados para as propriedades de cor da extrusão e altura da extrusão](img_02_02.png)
 
 Defina [IThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) para a espessura e [IThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#getExtrusionColor--) para a cor lateral:
 
 ```java
-shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
-shape.getThreeDFormat().setExtrusionHeight(100);
-shape.getThreeDFormat().getExtrusionColor().setColor(Color.rgb(128, 0, 128));
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+
+    shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
+    shape.getThreeDFormat().setExtrusionHeight(100);
+    shape.getThreeDFormat().getExtrusionColor().setColor(new Color(128, 0, 128));
+} finally {
+    presentation.dispose();
+}
 ```
 
 Use [IThreeDFormat.setDepth](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-) quando precisar trabalhar diretamente com o valor de profundidade do PowerPoint ou combinar profundidade com chanfrado, material e efeitos de texto. Em muitos cenários de forma, `setExtrusionHeight` é a configuração mais clara porque expressa diretamente a extrusão visível.
 
-## **Usar Preenchimentos em Gradiente ou Imagem com Efeitos 3D**
+## **Usar Preenchimentos de Gradiente ou Imagem com Efeitos 3D**
 
 A formatação 3D é independente do preenchimento da forma. Você pode aplicar uma cor sólida, gradiente, padrão ou preenchimento de imagem à face frontal e ainda usar as mesmas configurações de câmera, luz, material e extrusão.
 
-Este exemplo aplica um preenchimento em gradiente à forma e uma cor de extrusão mais escura às laterais:
+Este exemplo aplica um preenchimento em gradiente à forma e uma cor de extrusão mais escura aos lados:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 final float imageScale = 2;
 
 Presentation presentation = new Presentation();
@@ -146,7 +171,7 @@ try {
 
     shape.getFillFormat().setFillType(FillType.Gradient);
     shape.getFillFormat().getGradientFormat().getGradientStops().add(0, Color.BLUE);
-    shape.getFillFormat().getGradientFormat().getGradientStops().add(100, Color.rgb(255, 165, 0));
+    shape.getFillFormat().getGradientFormat().getGradientStops().add(100, new Color(255, 165, 0));
 
     shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
     shape.getThreeDFormat().getCamera().setRotation(10, 20, 30);
@@ -154,7 +179,7 @@ try {
     shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
     shape.getThreeDFormat().setMaterial(MaterialPresetType.Flat);
     shape.getThreeDFormat().setExtrusionHeight(150);
-    shape.getThreeDFormat().getExtrusionColor().setColor(Color.rgb(255, 140, 0));
+    shape.getThreeDFormat().getExtrusionColor().setColor(new Color(255, 140, 0));
 
     IImage thumbnail = slide.getImage(imageScale, imageScale);
     try {
@@ -174,31 +199,47 @@ A saída renderizada mantém o gradiente na face frontal e renderiza a extrusão
 Para usar um preenchimento de imagem, adicione a imagem à apresentação e atribua‑a ao preenchimento da forma:
 
 ```java
-IPPImage image;
-try (FileInputStream imageStream = new FileInputStream("image.png")) {
-    image = presentation.getImages().addImage(imageStream);
+import com.aspose.slides.*;
+import java.awt.Color;
+import java.io.FileInputStream;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
+
+    IPPImage image;
+    try (FileInputStream imageStream = new FileInputStream("image.png")) {
+        image = presentation.getImages().addImage(imageStream);
+    }
+
+    shape.getFillFormat().setFillType(FillType.Picture);
+    shape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+    shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+
+    shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
+    shape.getThreeDFormat().getCamera().setRotation(10, 20, 30);
+    shape.getThreeDFormat().setExtrusionHeight(150);
+    shape.getThreeDFormat().getExtrusionColor().setColor(new Color(255, 140, 0));
+} finally {
+    presentation.dispose();
 }
-
-shape.getFillFormat().setFillType(FillType.Picture);
-shape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
-shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
-
-shape.getThreeDFormat().getCamera().setRotation(10, 20, 30);
-shape.getThreeDFormat().setExtrusionHeight(150);
-shape.getThreeDFormat().getExtrusionColor().setColor(Color.rgb(255, 140, 0));
 ```
 
-A imagem é renderizada na face frontal, enquanto a extrusão é renderizada como a superfície lateral 3D:
+A imagem é renderizada na face frontal, enquanto a extrusão é renderizada como superfície lateral 3D:
 
 ![Retângulo 3D renderizado com preenchimento fotográfico na face frontal e extrusão laranja](img_02_04.png)
 
 ## **Aplicar Formatação 3D ao Texto**
 
-A formatação 3D da forma afeta o corpo da forma. A formatação 3D do texto afeta o quadro de texto. Isso é útil para efeitos tipo WordArt, onde as próprias letras precisam de extrusão, material, iluminação e configurações de câmera.
+A formatação 3D da forma afeta o corpo da forma. A formatação 3D do texto afeta o quadro de texto. Isso é útil para efeitos semelhantes ao WordArt, onde as próprias letras precisam de extrusão, material, iluminação e configurações de câmera.
 
-O exemplo a seguir cria texto com preenchimento de padrão, aplica uma transformação WordArt e configurações 3D em [ITextFrameFormat](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/itextframeformat/):
+O exemplo a seguir cria texto com preenchimento de padrão, aplica uma transformação WordArt e configura as configurações 3D em [ITextFrameFormat](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/itextframeformat/):
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 final float imageScale = 2;
 
 Presentation presentation = new Presentation();
@@ -211,7 +252,7 @@ try {
 
     IPortion portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
-    portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(Color.rgb(255, 140, 0));
+    portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(new Color(255, 140, 0));
     portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(Color.WHITE);
     portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.LargeGrid);
 
@@ -247,37 +288,37 @@ O texto é renderizado como letras 3D curvas e extrudidas:
 
 ## **Comportamento de Exportação e Renderização**
 
-O Aspose.Slides preserva a formatação 3D ao salvar em formatos PowerPoint como PPTX. Ao renderizar ou exportar para formatos de layout fixo, a cena 3D é rasterizada ou desenhada na saída como um resultado 2D. Isso ocorre ao renderizar slides para [PNG](/slides/pt/androidjava/convert-powerpoint-to-png/), exportar para [PDF](/slides/pt/androidjava/convert-powerpoint-to-pdf/), exportar para [HTML](/slides/pt/androidjava/convert-powerpoint-to-html/) ou gerar quadros para [conversão de vídeo](/slides/pt/androidjava/convert-powerpoint-to-video/).
+O Aspose.Slides preserva a formatação 3D ao salvar em formatos PowerPoint como PPTX. Ao renderizar ou exportar para formatos de layout fixo, a cena 3D é rasterizada ou desenhada na saída como um resultado 2D. Isso se aplica quando você renderiza slides para [PNG](/slides/pt/androidjava/convert-powerpoint-to-png/), exporta para [PDF](/slides/pt/androidjava/convert-powerpoint-to-pdf/), exporta para [HTML](/slides/pt/androidjava/convert-powerpoint-to-html/), ou gera quadros para [conversão de vídeo](/slides/pt/androidjava/convert-powerpoint-to-video/).
 
 Tenha em mente os seguintes pontos:
 
-- Imagens e PDFs exportados não são interativos. O objeto não pode ser girado pelo visualizador após a exportação.
-- A aparência final depende da combinação de câmera, sistema de luz, material, extrusão, preenchimento e dimensionamento do slide.
+- Imagens e PDFs exportados não são interativos. O objeto não pode ser rotacionado pelo visualizador após a exportação.
+- A aparência final depende da combinação de câmera, rig de luz, material, extrusão, preenchimento e escala do slide.
 - Se precisar inspecionar valores de formatação herdados ou baseados em tema, leia as [propriedades efetivas da forma](/slides/pt/androidjava/shape-effective-properties/).
-- Alguns formatos de saída não podem armazenar formatação 3D editável do PowerPoint. Nesses formatos, o resultado visual é renderizado em vez de preservado como configurações 3D editáveis.
+- Alguns formatos de saída não podem armazenar a formatação 3D editável do PowerPoint. Nesses formatos, o resultado visual é renderizado em vez de preservado como configurações 3D editáveis.
 
 ## **Perguntas Frequentes**
 
-**O Aspose.Slides pode criar apresentações 3D interativas?**
+### O Aspose.Slides pode criar apresentações 3D interativas?
 
-O Aspose.Slides cria e renderiza efeitos 3D do PowerPoint para formas e texto. Não torna imagens, PDFs ou páginas HTML exportadas em cenários 3D interativos que um visualizador possa girar. No PPTX, a formatação 3D permanece editável no PowerPoint onde o formato a suporta.
+O Aspose.Slides cria e renderiza efeitos 3D do PowerPoint para formas e texto. Ele não torna imagens, PDFs ou páginas HTML exportadas em cenas 3D interativas que um visualizador possa rotacionar. No PPTX, a formatação 3D permanece editável no PowerPoint onde o formato a suporta.
 
-**Qual a diferença entre um modelo 3D e um efeito 3D?**
+### Qual a diferença entre um modelo 3D e um efeito 3D?
 
-Um modelo 3D é um objeto 3D separado inserido em uma apresentação. Um efeito 3D é formatação aplicada a uma forma ou texto PowerPoint regular, como rotação, extrusão, chanfrado, iluminação e material. Este artigo cobre efeitos 3D.
+Um modelo 3D é um objeto 3D separado inserido em uma apresentação. Um efeito 3D é formatação aplicada a uma forma ou texto PowerPoint padrão, como rotação, extrusão, chanfrado, iluminação e material. Este artigo cobre efeitos 3D.
 
-**Quais configurações são necessárias para que uma forma 3D seja visível?**
+### Quais configurações são necessárias para que uma forma 3D seja visível?
 
-No mínimo, defina uma rotação de câmera e extrusão ou profundidade. Na prática, também configure um sistema de luz e material para que as faces renderizadas tenham realces e sombras claros.
+No mínimo, defina uma rotação de câmera e either extrusão ou profundidade. Na prática, também configure um rig de luz e material para que as faces renderizadas tenham realces e sombras claros.
 
-**Posso aplicar efeitos 3D tanto a formas quanto a texto?**
+### Posso aplicar efeitos 3D tanto a formas quanto a texto?
 
 Sim. Use [IShape.getThreeDFormat](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) para o corpo da forma e [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/itextframeformat/#getThreeDFormat--) para o texto.
 
-**Os efeitos 3D aparecerão ao exportar para imagens, PDF, HTML ou quadros de vídeo?**
+### Os efeitos 3D aparecerão ao exportar para imagens, PDF, HTML ou quadros de vídeo?
 
-Sim. O Aspose.Slides renderiza os efeitos 3D ao gerar imagens de slides, saída PDF, saída HTML e quadros usados na conversão para vídeo. A saída exportada contém a aparência renderizada, não um objeto 3D editável.
+Sim. O Aspose.Slides renderiza os efeitos 3D ao produzir imagens de slide, saída PDF, saída HTML e quadros usados para conversão de vídeo. A saída exportada contém a aparência renderizada, não um objeto 3D editável.
 
-**Posso ler os valores finais 3D após a aplicação de herança e definições de tema?**
+### Posso ler os valores finais de 3D após a herança e as configurações de tema serem aplicadas?
 
-Sim. Use as APIs de formatação efetiva descritas em [Propriedades Efetivas da Forma](/slides/pt/androidjava/shape-effective-properties/) para ler a câmera final, sistema de luz, chanfrado e valores 3D relacionados.
+Sim. Use as APIs de formatação efetiva descritas em [Propriedades Efetivas da Forma](/slides/pt/androidjava/shape-effective-properties/) para ler a câmera final, rig de luz, chanfrado e valores 3D relacionados.

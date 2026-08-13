@@ -1,33 +1,35 @@
 ---
-title: API công cộng và các thay đổi không tương thích ngược trong Aspose.Slides cho Java 14.6.0
-linktitle: Aspose.Slides cho Java 14.6.0
+title: "API công khai và các thay đổi không tương thích ngược trong Aspose.Slides for Java 14.6.0"
+linktitle: "Aspose.Slides for Java 14.6.0"
 type: docs
 weight: 50
 url: /vi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/
 keywords:
-- di chuyển
-- mã di sản
-- mã hiện đại
-- phương pháp di sản
-- phương pháp hiện đại
-- PowerPoint
-- OpenDocument
-- bài thuyết trình
-- Java
-- Aspose.Slides
-description: "Xem lại các cập nhật API công cộng và những thay đổi gây phá vỡ trong Aspose.Slides cho Java để di chuyển suôn sẻ các giải pháp bài thuyết trình PowerPoint PPT, PPTX và ODP của bạn."
+- "di chuyển"
+- "mã kế thừa"
+- "mã hiện đại"
+- "cách tiếp cận kế thừa"
+- "cách tiếp cận hiện đại"
+- "PowerPoint"
+- "OpenDocument"
+- "bản trình chiếu"
+- "Java"
+- "Aspose.Slides"
+description: "Xem xét các cập nhật API công khai và các thay đổi gây phá vỡ trong Aspose.Slides for Java để di chuyển suôn sẻ các giải pháp bản trình chiếu PowerPoint PPT, PPTX và ODP của bạn."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Trang này liệt kê tất cả các lớp, phương thức, thuộc tính [được thêm](/slides/vi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/) và các yếu tố khác, bất kỳ hạn chế mới nào và các thay đổi khác được giới thiệu trong API Aspose.Slides for Java 14.6.0.
+Trang này liệt kê tất cả các lớp, phương thức, thuộc tính và các mục tương tự đã được thêm vào, bất kỳ hạn chế mới nào và các thay đổi khác được giới thiệu trong API Aspose.Slides for Java 14.6.0.
 
 {{% /alert %}} 
-## **Thay đổi API công cộng**
-### **Các lớp, phương thức, giao diện và liệt kê được thêm**
-#### **Đã thêm Enumeration ViewType, Interface IViewProperties, Class ViewProperties và Method IPresentation.getViewProperties()**
-Phương thức IPresentation.getViewProperty() cung cấp quyền truy cập vào IViewProperties và cho phép bạn thay đổi loại chế độ xem bài thuyết trình và hiển thị ghi chú khi một bài thuyết trình được mở trong Microsoft PowerPoint.
+## **Các thay đổi API công khai**
+### **Các lớp, phương thức, giao diện và kiểu liệt kê đã được thêm**
+#### **Đã thêm kiểu liệt kê ViewType, giao diện IViewProperties, lớp ViewProperties và phương thức IPresentation.getViewProperties()**
+Phương thức IPresentation.getViewProperties() cung cấp quyền truy cập vào IViewProperties và cho phép bạn thay đổi kiểu hiển thị bản trình chiếu và khả năng hiển thị ghi chú khi bản trình chiếu được mở trong Microsoft PowerPoint.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation p = new Presentation();
 
@@ -44,9 +46,11 @@ Các phương thức
 - Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape, float x, float y), and
 - Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape, float x, float y, float width, float height)
 
-thêm/chèn một bản sao của hình dạng được chỉ định vào bộ sưu tập. 
+thêm/chèn một bản sao của hình dạng đã chỉ định vào bộ sưu tập. 
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation srcPres = new Presentation("data/Source Frame.pptx");
 
@@ -71,10 +75,12 @@ destShapes.addClone(sourceShapes.get_Item(5), 300, 300, 50, 200);
 destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
 
 ```
-#### **Đã thêm Interface Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues**
+#### **Đã thêm giao diện Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues**
 Giao diện này xác định các loại giá trị trong danh sách thuộc tính ChartDataPoint.ErrorBarsCustomValues.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -121,10 +127,12 @@ for (int i = 0; i < points.size(); i++)
 pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 
 ```
-#### **Đã thêm Interface Aspose.Slides.Charts.IErrorBarsCustomValues**
-Khi thuộc tính IErrorBarsFormat.ValueType bằng Custom, để chỉ định giá trị hãy sử dụng thuộc tính ErrorBarCustomValues của điểm dữ liệu cụ thể trong bộ sưu tập DataPoints của chuỗi.
+#### **Đã thêm giao diện Aspose.Slides.Charts.IErrorBarsCustomValues**
+Khi thuộc tính IErrorBarsFormat.ValueType bằng Custom, để chỉ định giá trị, hãy sử dụng thuộc tính ErrorBarCustomValues của điểm dữ liệu cụ thể trong bộ sưu tập DataPoints của chuỗi.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -171,11 +179,13 @@ for (int i = 0; i < points.size(); i++)
 pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 
 ```
-#### **Đã thêm Interface Aspose.Slides.Charts.IErrorBarsFormat**
+#### **Đã thêm giao diện Aspose.Slides.Charts.IErrorBarsFormat**
 Giao diện này đại diện cho các thanh lỗi của chuỗi biểu đồ.
-Trong trường hợp loại giá trị tùy chỉnh, để chỉ định giá trị hãy sử dụng thuộc tính ErrorBarCustomValues của một điểm dữ liệu cụ thể trong bộ sưu tập DataPoins của chuỗi.
+Trong trường hợp kiểu giá trị tùy chỉnh, để chỉ định giá trị, hãy sử dụng thuộc tính ErrorBarCustomValues của một điểm dữ liệu cụ thể trong bộ sưu tập DataPoints của chuỗi.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 

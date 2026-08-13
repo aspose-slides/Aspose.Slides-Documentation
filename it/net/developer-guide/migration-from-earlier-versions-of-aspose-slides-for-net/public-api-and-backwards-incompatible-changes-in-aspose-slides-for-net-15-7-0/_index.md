@@ -16,18 +16,20 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Esamina gli aggiornamenti dell'API pubblica e le modifiche di rottura in Aspose.Slides per .NET per migrare senza problemi le tue soluzioni di presentazione PowerPoint PPT, PPTX e ODP."
+description: "Esamina gli aggiornamenti delle API pubbliche e le modifiche incompatibili in Aspose.Slides per .NET per migrare agevolmente le tue soluzioni di presentazione PowerPoint PPT, PPTX e ODP."
 ---
-{{% alert color="primary" %}} 
-Questa pagina elenca tutte le classi, i metodi, le proprietà e così via [added](/slides/it/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-7-0/) o [removed](/slides/it/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-7-0/) introdotte con l'API di Aspose.Slides per .NET 15.7.0.
-{{% /alert %}} 
-## **Modifiche all'API pubblica**
+{{% alert color="info" %}}
+
+Questa pagina elenca tutte le classi, i metodi, le proprietà e così via [aggiunte](/slides/it/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-7-0/) o [rimosse](/slides/it/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-7-0/) e le altre modifiche introdotte con l'API Aspose.Slides per .NET 15.7.0.
+
+{{% /alert %}}
+## **Modifiche API Pubbliche**
 #### **Enum ImagePixelFormat è stato aggiunto**
-L'enumeratore Aspose.Slides.Export.ImagePixelFormat è stato aggiunto per specificare il formato dei pixel per le immagini generate.
+L'enumerazione Aspose.Slides.Export.ImagePixelFormat è stata aggiunta per specificare il formato pixel delle immagini generate.
 #### **Metodo IChartDataPoint.GetAutomaticDataPointColor() è stato aggiunto**
-Restituisce un colore automatico del punto dati basato sull'indice della serie, sull'indice del punto dati, su ParentSeriesGroup, sulla proprietà IsColorVaried e sullo stile del grafico.
+Restituisce un colore automatico del punto dati basato su indice della serie, indice del punto dati, ParentSeriesGroup, proprietà IsColorVaried e stile del grafico.
 Questo colore è usato per impostazione predefinita se FillType è uguale a NotDefined.
 #### **Metodo RenderToGraphics è stato aggiunto a Slide**
-Il metodo RenderToGraphics (e le sue overload) è stato aggiunto a Aspose.Slides.Slide per il rendering di una slide su un oggetto Graphics.
+Il metodo RenderToGraphics (e le sue overload) è stato aggiunto a Aspose.Slides.Slide per renderizzare una diapositiva in un oggetto Graphics.
 #### **Proprietà PixelFormat è stata aggiunta a ITiffOptions e TiffOptions**
-La proprietà PixelFormat è stata aggiunta a Aspose.Slides.Export.ITiffOptions e Aspose.Slides.Export.TiffOptions per specificare il formato dei pixel per le immagini TIFF generate.
+La proprietà PixelFormat è stata aggiunta a Aspose.Slides.Export.ITiffOptions e Aspose.Slides.Export.TiffOptions per specificare il formato pixel delle immagini TIFF generate.

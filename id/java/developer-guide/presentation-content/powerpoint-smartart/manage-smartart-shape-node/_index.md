@@ -7,7 +7,7 @@ url: /id/java/manage-smartart-shape-node/
 keywords:
 - node SmartArt
 - node anak
-- tambahkan node
+- menambahkan node
 - posisi node
 - akses node
 - hapus node
@@ -19,36 +19,27 @@ keywords:
 - presentasi
 - Java
 - Aspose.Slides
-description: "Kelola node bentuk SmartArt dalam PPT dan PPTX dengan Aspose.Slides untuk Java. Dapatkan contoh kode yang jelas dan tips untuk menyederhanakan presentasi Anda."
+description: "Kelola node bentuk SmartArt dalam PPT dan PPTX dengan Aspose.Slides untuk Java. Dapatkan contoh kode yang jelas dan tip untuk menyederhanakan presentasi Anda."
 ---
-## **Gambaran Umum**
+## **Ringkasan**
 
-Grafik SmartArt dalam presentasi PowerPoint diatur melalui node yang berisi teks dan menentukan struktur diagram. Aspose.Slides memungkinkan Anda bekerja dengan node SmartArt ini secara programatis: menambahkan node dan node anak baru, menyisipkan node anak pada posisi tertentu, mengakses node yang ada, dan membaca teks, level, serta posisi mereka.
+Grafik SmartArt dalam presentasi PowerPoint diatur melalui node yang berisi teks dan menentukan struktur diagram. Aspose.Slides memungkinkan Anda bekerja dengan node SmartArt ini secara programatik: menambahkan node baru dan node anak, menyisipkan node anak pada posisi tertentu, mengakses node yang ada, serta membaca teks, level, dan posisi mereka.
 
 Artikel ini menjelaskan cara mengelola node bentuk SmartArt. Artikel ini menunjukkan cara menghapus node, bekerja dengan node anak berdasarkan indeks atau posisi, mengubah node asisten menjadi node normal, menyesuaikan posisi, ukuran, dan rotasi bentuk node SmartArt, mengatur format isi node, serta menghasilkan gambar thumbnail untuk node anak SmartArt.
 
-## **Menambahkan Node SmartArt**
-Aspose.Slides for Java telah menyediakan API paling sederhana untuk mengelola bentuk SmartArt dengan cara termudah. Kode contoh berikut akan membantu menambahkan node dan node anak di dalam bentuk SmartArt.
-
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/Presentation) dan muat presentasi dengan bentuk SmartArt.
-1. Dapatkan referensi slide pertama dengan menggunakan indeksnya.
-1. Iterasi setiap bentuk di dalam slide pertama.
-1. Periksa apakah bentuk bertipe [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArt) dan lakukan typecast pada bentuk yang dipilih menjadi [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArt) bila memang SmartArt.
-1. Tambahkan [Node baru](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArtNodeCollection#addNode--) ke dalam bentuk SmartArt [**NodeCollection**](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArt#getAllNodes--) dan atur teksnya di TextFrame.
-1. Sekarang, [Tambahkan](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArtNodeCollection#addNode--) sebuah [**Child Node**](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArtNode#getChildNodes--) ke dalam Node [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArt) yang baru ditambahkan dan atur teksnya di TextFrame.
-1. Simpan Presentasi.
-
 ```java
+import com.aspose.slides.*;
+
 // Muat presentasi yang diinginkan
 Presentation pres = new Presentation("SimpleSmartArt.pptx");
 try {
-    // Iterasi setiap bentuk di dalam slide pertama
+    // Telusuri setiap shape di dalam slide pertama
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
-        // Periksa apakah bentuk bertipe SmartArt
+        // Periksa apakah shape bertipe SmartArt
         if (shape instanceof SmartArt) 
         {
-            // Lakukan typecast bentuk ke SmartArt
+            // Lakukan typecast shape menjadi SmartArt
             SmartArt smart = (SmartArt) shape;
     
             // Menambahkan Node SmartArt baru
@@ -57,7 +48,7 @@ try {
             // Menambahkan teks
             TemNode.getTextFrame().setText("Test");
     
-            // Menambahkan node anak baru pada node induk. Node ini akan ditambahkan di akhir koleksi
+            // Menambahkan node anak baru dalam node induk. Node ini akan ditambahkan di akhir koleksi
             SmartArtNode newNode = (SmartArtNode) TemNode.getChildNodes().addNode();
     
             // Menambahkan teks
@@ -72,17 +63,20 @@ try {
 }
 ```
 
-## **Menambahkan Node SmartArt pada Posisi Tertentu**
-Dalam kode contoh berikut kami menjelaskan cara menambahkan node anak yang termasuk dalam masing‑masing node bentuk SmartArt pada posisi tertentu.
+## **Menambahkan Node SmartArt**
+Aspose.Slides for Java telah menyediakan API paling sederhana untuk mengelola bentuk SmartArt dengan cara termudah. Kode contoh berikut akan membantu menambahkan node dan node anak di dalam bentuk SmartArt.
 
-1. Buat sebuah instance dari kelas Presentation.
-1. Dapatkan referensi slide pertama dengan menggunakan indeksnya.
-1. Tambahkan bentuk [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/SmartArt) bertipe [**StackedList**](https://reference.aspose.com/slides/id/java/com.aspose.slides/SmartArtLayoutType#StackedList) pada slide yang diakses.
-1. Akses node pertama dalam bentuk SmartArt yang ditambahkan.
-1. Sekarang, tambahkan [**Child Node**](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArtNode#getChildNodes--) untuk [**Node**](https://reference.aspose.com/slides/id/java/com.aspose.slides/SmartArtNode) yang dipilih pada posisi 2 dan atur teksnya.
-1. Simpan Presentasi.
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/Presentation) dan muat presentasi yang berisi Shape SmartArt.  
+2. Dapatkan referensi slide pertama dengan menggunakan indeksnya.  
+3. Telusuri setiap shape di dalam slide pertama.  
+4. Periksa apakah shape bertipe [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArt) dan lakukan typecast pada shape yang dipilih menjadi [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArt) jika memang SmartArt.  
+5. [Tambahkan Node baru](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArtNodeCollection#addNode--) pada shape SmartArt [**NodeCollection**](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArt#getAllNodes--) dan atur teks di TextFrame.  
+6. Sekarang, [Tambahkan](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArtNodeCollection#addNode--) sebuah [**Child Node**](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArtNode#getChildNodes--) pada Node [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArt) yang baru ditambahkan dan atur teks di TextFrame.  
+7. Simpan Presentasi.
 
 ```java
+import com.aspose.slides.*;
+
 // Membuat instance presentasi
 Presentation pres = new Presentation();
 try {
@@ -108,33 +102,35 @@ try {
 }
 ```
 
-## **Mengakses Node SmartArt**
-Kode contoh berikut akan membantu mengakses node di dalam bentuk SmartArt. Harap dicatat bahwa Anda tidak dapat mengubah LayoutType SmartArt karena bersifat read‑only dan hanya ditetapkan saat bentuk SmartArt ditambahkan.
+## **Menambahkan Node SmartArt pada Posisi Tertentu**
+Pada kode contoh berikut kami menjelaskan cara menambahkan node anak yang termasuk dalam masing‑masing node bentuk SmartArt pada posisi tertentu.
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation) dan muat presentasi dengan bentuk SmartArt.
-1. Dapatkan referensi slide pertama dengan menggunakan indeksnya.
-1. Iterasi setiap bentuk di dalam slide pertama.
-1. Periksa apakah bentuk bertipe [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArt) dan lakukan typecast pada bentuk yang dipilih menjadi [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArt) bila memang SmartArt.
-1. Iterasi semua [**Nodes**](https://reference.aspose.com/slides/id/java/com.aspose.slides/SmartArt#getAllNodes--) di dalam bentuk SmartArt.
-1. Akses dan tampilkan informasi seperti posisi Node SmartArt, level, dan Teks.
+1. Buat instance kelas Presentation.  
+2. Dapatkan referensi slide pertama dengan menggunakan indeksnya.  
+3. Tambahkan shape [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/SmartArt) tipe [**StackedList**](https://reference.aspose.com/slides/id/java/com.aspose.slides/SmartArtLayoutType#StackedList) pada slide yang diakses.  
+4. Akses node pertama pada shape SmartArt yang ditambahkan.  
+5. Sekarang, tambahkan [**Child Node**](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArtNode#getChildNodes--) untuk [**Node**](https://reference.aspose.com/slides/id/java/com.aspose.slides/SmartArtNode) yang dipilih pada posisi 2 dan atur teksnya.  
+6. Simpan Presentasi.
 
 ```java
-// Menginstansiasi Kelas Presentation
+import com.aspose.slides.*;
+
+// Membuat Instance Kelas Presentation
 Presentation pres = new Presentation("SmartArtShape.pptx");
 try {
     // Dapatkan slide pertama
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Menelusuri setiap bentuk di dalam slide pertama
+    // Telusuri setiap shape di dalam slide pertama
     for (IShape shape : slide.getShapes()) 
     {
-        // Periksa apakah bentuk bertipe SmartArt
+        // Periksa apakah shape bertipe SmartArt
         if (shape instanceof ISmartArt) 
         {
-            // Lakukan typecast bentuk ke SmartArt
+            // Lakukan typecast shape menjadi SmartArt
             ISmartArt smart = (ISmartArt) shape;
     
-            // Menelusuri semua node di dalam SmartArt
+            // Telusuri semua node di dalam SmartArt
             for (int i = 0; i < smart.getAllNodes().size(); i++) 
             {
                 // Mengakses node SmartArt pada indeks i
@@ -150,34 +146,35 @@ try {
 }
 ```
 
-## **Mengakses Node Anak SmartArt**
-Kode contoh berikut akan membantu mengakses node anak yang termasuk dalam masing‑masing node bentuk SmartArt.
+## **Mengakses Node SmartArt**
+Kode contoh berikut akan membantu mengakses node di dalam shape SmartArt. Harap dicatat bahwa Anda tidak dapat mengubah LayoutType SmartArt karena bersifat read‑only dan hanya diatur ketika shape SmartArt ditambahkan.
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation) dan muat presentasi dengan bentuk SmartArt.
-1. Dapatkan referensi slide pertama dengan menggunakan indeksnya.
-1. Iterasi setiap bentuk di dalam slide pertama.
-1. Periksa apakah bentuk bertipe [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArt) dan lakukan typecast pada bentuk yang dipilih menjadi [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArt) bila memang SmartArt.
-1. Iterasi semua [**Nodes**](https://reference.aspose.com/slides/id/java/com.aspose.slides/SmartArt#getAllNodes--) di dalam bentuk SmartArt.
-1. Untuk setiap [**Node**] bentuk SmartArt yang dipilih, iterasi semua [**Child Nodes**](https://reference.aspose.com/slides/id/java/com.aspose.slides/SmartArtNode#getChildNodes--) di dalam node tertentu.
-1. Akses dan tampilkan informasi seperti posisi, level, dan Teks [**Child Node**].
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation) dan muat presentasi dengan Shape SmartArt.  
+2. Dapatkan referensi slide pertama dengan menggunakan indeksnya.  
+3. Telusuri setiap shape di dalam slide pertama.  
+4. Periksa apakah shape bertipe [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArt) dan lakukan typecast pada shape yang dipilih menjadi [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArt) jika memang SmartArt.  
+5. Telusuri semua [**Nodes**](https://reference.aspose.com/slides/id/java/com.aspose.slides/SmartArt#getAllNodes--) di dalam Shape SmartArt.  
+6. Akses dan tampilkan informasi seperti posisi, level, dan Teks Node SmartArt.
 
 ```java
-// Menginstansiasi Kelas Presentation
+import com.aspose.slides.*;
+
+// Membuat Instance Kelas Presentation
 Presentation pres = new Presentation("AccessChildNodes.pptx");
 try {
     // Dapatkan slide pertama
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Menelusuri setiap bentuk di dalam slide pertama
+    // Telusuri setiap shape di dalam slide pertama
     for (IShape shape : slide.getShapes()) 
     {
-        // Periksa apakah bentuk bertipe SmartArt
+        // Periksa apakah shape bertipe SmartArt
         if (shape instanceof ISmartArt) 
         {
-            // Lakukan typecast bentuk ke SmartArt
+            // Lakukan typecast shape menjadi SmartArt
             ISmartArt smart = (ISmartArt) shape;
     
-            // Menelusuri semua node di dalam SmartArt
+            // Telusuri semua node di dalam SmartArt
             for (int i = 0; i < smart.getAllNodes().size(); i++) 
             {
                 // Mengakses node SmartArt pada indeks i
@@ -200,25 +197,27 @@ try {
 }
 ```
 
-## **Mengakses Node Anak SmartArt pada Posisi Tertentu**
-Dalam contoh ini, kita akan mempelajari cara mengakses node anak pada posisi tertentu yang termasuk dalam masing‑masing node bentuk SmartArt.
+## **Mengakses Node Anak SmartArt**
+Kode contoh berikut akan membantu mengakses node anak yang termasuk dalam masing‑masing node shape SmartArt.
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation) class.
-1. Dapatkan referensi slide pertama dengan menggunakan indeksnya.
-1. Tambahkan bentuk SmartArt bertipe [**StackedList**](https://reference.aspose.com/slides/id/java/com.aspose.slides/SmartArtLayoutType#StackedList).
-1. Akses bentuk SmartArt yang ditambahkan.
-1. Akses node pada indeks 0 untuk bentuk SmartArt yang diakses.
-1. Sekarang, akses [**Child Node**] pada posisi 1 untuk node SmartArt yang diakses menggunakan metode **get_Item()**.
-1. Akses dan tampilkan informasi seperti posisi, level, dan Teks [**Child Node**].
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation) dan muat presentasi dengan Shape SmartArt.  
+2. Dapatkan referensi slide pertama dengan menggunakan indeksnya.  
+3. Telusuri setiap shape di dalam slide pertama.  
+4. Periksa apakah shape bertipe [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArt) dan lakukan typecast pada shape yang dipilih menjadi [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArt) jika memang SmartArt.  
+5. Telusuri semua [**Nodes**](https://reference.aspose.com/slides/id/java/com.aspose.slides/SmartArt#getAllNodes--) di dalam Shape SmartArt.  
+6. Untuk setiap [**Node**](https://reference.aspose.com/slides/id/java/com.aspose.slides/SmartArtNode) shape SmartArt yang dipilih, telusuri semua [**Child Nodes**](https://reference.aspose.com/slides/id/java/com.aspose.slides/SmartArtNode#getChildNodes--) di dalam node tertentu.  
+7. Akses dan tampilkan informasi seperti posisi, level, dan Teks [**Child Node**](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArtNode#getChildNodes--).
 
 ```java
-// Menginstansiasi presentasi
+import com.aspose.slides.*;
+
+// Membuat instance presentasi
 Presentation pres = new Presentation();
 try {
     // Mengakses slide pertama
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Menambahkan bentuk SmartArt di slide pertama
+    // Menambahkan shape SmartArt di slide pertama
     ISmartArt smart = slide.getShapes().addSmartArt(0, 0, 400, 400, SmartArtLayoutType.StackedList);
     
     // Mengakses node SmartArt pada indeks 0
@@ -235,29 +234,30 @@ try {
 }
 ```
 
-## **Menghapus Node SmartArt**
-Dalam contoh ini, kita akan belajar menghapus node di dalam bentuk SmartArt.
+## **Mengakses Node Anak SmartArt pada Posisi Tertentu**
+Pada contoh ini, kami akan belajar mengakses node anak pada posisi tertentu yang termasuk dalam masing‑masing node shape SmartArt.
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation) dan muat presentasi dengan bentuk SmartArt.
-1. Dapatkan referensi slide pertama dengan menggunakan indeksnya.
-1. Iterasi setiap bentuk di dalam slide pertama.
-1. Periksa apakah bentuk bertipe [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArt) dan lakukan typecast pada bentuk yang dipilih menjadi [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArt) bila memang SmartArt.
-1. Periksa apakah [SmartArt] memiliki lebih dari 0 node.
-1. Pilih node SmartArt yang akan dihapus.
-1. Sekarang, hapus node yang dipilih menggunakan metode [**RemoveNode**](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArtNodeCollection#removeNode-com.aspose.slides.ISmartArtNode-).
-1. Simpan Presentasi.
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation).  
+2. Dapatkan referensi slide pertama dengan menggunakan indeksnya.  
+3. Tambahkan shape SmartArt tipe [**StackedList**](https://reference.aspose.com/slides/id/java/com.aspose.slides/SmartArtLayoutType#StackedList).  
+4. Akses shape SmartArt yang ditambahkan.  
+5. Akses node pada indeks 0 untuk shape SmartArt yang diakses.  
+6. Sekarang, akses [**Child Node**](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArtNode#getChildNodes--) pada posisi 1 untuk node SmartArt yang diakses menggunakan metode **get_Item()**.  
+7. Akses dan tampilkan informasi seperti posisi, level, dan Teks [**Child Node**](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArtNode#getChildNodes--).
 
 ```java
+import com.aspose.slides.*;
+
 // Muat presentasi yang diinginkan
 Presentation pres = new Presentation("AddSmartArtNode.pptx");
 try {
-    // Menelusuri setiap bentuk di dalam slide pertama
+    // Telusuri setiap shape di dalam slide pertama
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
-        // Periksa apakah bentuk bertipe SmartArt
+        // Periksa apakah shape bertipe SmartArt
         if (shape instanceof ISmartArt) 
         {
-            // Lakukan typecast bentuk ke SmartArt
+            // Lakukan typecast shape menjadi SmartArt
             ISmartArt smart = (ISmartArt) shape;
     
             if (smart.getAllNodes().size() > 0) 
@@ -271,36 +271,38 @@ try {
         }
     }
     
-    // Menyimpan Presentasi
+    // Simpan Presentasi
     pres.save("RemoveSmartArtNode.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Menghapus Node SmartArt dari Posisi Tertentu**
-Dalam contoh ini, kita akan belajar menghapus node di dalam bentuk SmartArt pada posisi tertentu.
+## **Menghapus Node SmartArt**
+Dalam contoh ini, kami akan belajar menghapus node di dalam shape SmartArt.
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation) dan muat presentasi dengan bentuk SmartArt.
-1. Dapatkan referensi slide pertama dengan menggunakan indeksnya.
-1. Iterasi setiap bentuk di dalam slide pertama.
-1. Periksa apakah bentuk bertipe [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArt) dan lakukan typecast pada bentuk yang dipilih menjadi [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArt) bila memang SmartArt.
-1. Pilih node bentuk SmartArt pada indeks 0.
-1. Sekarang, periksa apakah node SmartArt yang dipilih memiliki lebih dari 2 node anak.
-1. Sekarang, hapus node pada **Position 1** menggunakan metode [**RemoveNode**](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArtNodeCollection#removeNode-int-).
-1. Simpan Presentasi.
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation) dan muat presentasi dengan Shape SmartArt.  
+2. Dapatkan referensi slide pertama dengan menggunakan indeksnya.  
+3. Telusuri setiap shape di dalam slide pertama.  
+4. Periksa apakah shape bertipe [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArt) dan lakukan typecast pada shape yang dipilih menjadi [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArt) jika memang SmartArt.  
+5. Periksa apakah [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArt) memiliki lebih dari 0 node.  
+6. Pilih node SmartArt yang akan dihapus.  
+7. Sekarang, hapus node yang dipilih menggunakan metode [**RemoveNode**](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArtNodeCollection#removeNode-com.aspose.slides.ISmartArtNode-).  
+8. Simpan Presentasi.
 
 ```java
+import com.aspose.slides.*;
+
 // Muat presentasi yang diinginkan
 Presentation pres = new Presentation("AddSmartArtNode.pptx");
 try {
-    // Menelusuri setiap bentuk di dalam slide pertama
+    // Telusuri setiap shape di dalam slide pertama
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
-        // Periksa apakah bentuk bertipe SmartArt
+        // Periksa apakah shape bertipe SmartArt
         if (shape instanceof SmartArt) 
         {
-            // Lakukan typecast bentuk ke SmartArt
+            // Lakukan typecast shape menjadi SmartArt
             SmartArt smart = (SmartArt) shape;
     
             if (smart.getAllNodes().size() > 0) 
@@ -317,39 +319,50 @@ try {
         }
     }
     
-    // Menyimpan Presentasi
+    // Simpan Presentasi
     pres.save("RemoveSmartArtNodeByPosition.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Menetapkan Posisi Kustom untuk Node Anak dalam Objek SmartArt**
-Sekarang Aspose.Slides for Java mendukung pengaturan properti [SmartArtShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/SmartArtShape) [X](https://reference.aspose.com/slides/id/java/com.aspose.slides/IShape#setX-float-) dan [Y](https://reference.aspose.com/slides/id/java/com.aspose.slides/IShape#setY-float-). Potongan kode di bawah menunjukkan cara mengatur posisi, ukuran, dan rotasi kustom SmartArtShape; juga harap dicatat bahwa menambahkan node baru menyebabkan perhitungan ulang posisi dan ukuran semua node. Dengan pengaturan posisi kustom, pengguna dapat menempatkan node sesuai kebutuhan.
+## **Menghapus Node SmartArt dari Posisi Tertentu**
+Dalam contoh ini, kami akan belajar menghapus node di dalam shape SmartArt pada posisi tertentu.
+
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation) dan muat presentasi dengan Shape SmartArt.  
+2. Dapatkan referensi slide pertama dengan menggunakan indeksnya.  
+3. Telusuri setiap shape di dalam slide pertama.  
+4. Periksa apakah shape bertipe [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArt) dan lakukan typecast pada shape yang dipilih menjadi [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArt) jika memang SmartArt.  
+5. Pilih node shape SmartArt pada indeks 0.  
+6. Sekarang, periksa apakah node SmartArt yang dipilih memiliki lebih dari 2 node anak.  
+7. Sekarang, hapus node pada **Posisi 1** menggunakan metode [**RemoveNode**](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArtNodeCollection#removeNode-int-).  
+8. Simpan Presentasi.
 
 ```java
-// Instansiasi Kelas Presentation
+import com.aspose.slides.*;
+
+// Membuat Instance Kelas Presentation
 Presentation pres = new Presentation("SimpleSmartArt.pptx");
 try{
     ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(20, 20, 600, 500, SmartArtLayoutType.OrganizationChart);
 
-    // Pindahkan bentuk SmartArt ke posisi baru
+    // Pindahkan shape SmartArt ke posisi baru
     ISmartArtNode node = smart.getAllNodes().get_Item(1);
     ISmartArtShape shape = node.getShapes().get_Item(1);
     shape.setX(shape.getX() + shape.getWidth() * 2);
     shape.setY(shape.getY() - shape.getHeight() * 2);
 
-    // Ubah lebar bentuk SmartArt
+    // Ubah lebar shape SmartArt
     node = smart.getAllNodes().get_Item(2);
     shape = node.getShapes().get_Item(1);
     shape.setWidth(shape.getWidth() + shape.getWidth() * 2);
 
-    // Ubah tinggi bentuk SmartArt
+    // Ubah tinggi shape SmartArt
     node = smart.getAllNodes().get_Item(3);
     shape = node.getShapes().get_Item(1);
     shape.setHeight(shape.getHeight() + shape.getHeight() * 2);
 
-    // Ubah rotasi bentuk SmartArt
+    // Ubah rotasi shape SmartArt
     node = smart.getAllNodes().get_Item(4);
     shape = node.getShapes().get_Item(1);
     shape.setRotation(90);
@@ -360,113 +373,122 @@ try{
 }
 ```
 
-## **Memeriksa Node Asisten**
-{{% alert color="primary" %}} 
-Dalam artikel ini kami akan menyelidiki lebih lanjut fitur-fitur bentuk SmartArt yang ditambahkan dalam slide presentasi secara programatis menggunakan Aspose.Slides for Java.
-{{% /alert %}} 
-
-Kami akan menggunakan bentuk SmartArt sumber berikut untuk penyelidikan kami pada berbagai bagian artikel ini.
-
-|![todo:image_alt_text](https://i.imgur.com/FItwczY.png)|
-| :- |
-|**Gambar: Bentuk SmartArt sumber dalam slide**|
-
-Dalam kode contoh berikut kami akan menyelidiki cara mengidentifikasi **Assistant Nodes** dalam koleksi node SmartArt dan mengubahnya.
-
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation) dan muat presentasi dengan bentuk SmartArt.
-1. Dapatkan referensi slide kedua dengan menggunakan indeksnya.
-1. Iterasi setiap bentuk di dalam slide pertama.
-1. Periksa apakah bentuk bertipe [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArt) dan lakukan typecast pada bentuk yang dipilih menjadi [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArt) bila memang SmartArt.
-1. Iterasi semua node di dalam bentuk SmartArt dan periksa apakah mereka merupakan [**Assistant Nodes**](https://reference.aspose.com/slides/id/java/com.aspose.slides/SmartArtNode#isAssistant--).
-1. Ubah status Assistant Node menjadi node normal.
-1. Simpan Presentasi.
+## **Mengatur Posisi Kustom untuk Node Anak dalam Objek SmartArt**
+Sekarang Aspose.Slides for Java mendukung penetapan properti [SmartArtShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/SmartArtShape) [X](https://reference.aspose.com/slides/id/java/com.aspose.slides/IShape#setX-float-) dan [Y](https://reference.aspose.com/slides/id/java/com.aspose.slides/IShape#setY-float-). Potongan kode di bawah menunjukkan cara mengatur posisi, ukuran, dan rotasi SmartArtShape secara kustom, serta perlu dicatat bahwa menambahkan node baru menyebabkan perhitungan ulang posisi dan ukuran semua node. Dengan pengaturan posisi kustom, pengguna dapat menyesuaikan node sesuai kebutuhan.
 
 ```java
+import com.aspose.slides.*;
+
 // Membuat instance presentasi
 Presentation pres = new Presentation("AddNodes.pptx");
 try {
-    // Menelusuri setiap bentuk di dalam slide pertama
+    // Telusuri setiap shape di dalam slide pertama
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
-        // Memeriksa apakah bentuk bertipe SmartArt
+        // Periksa apakah shape bertipe SmartArt
         if (shape instanceof ISmartArt) 
         {
-            // Lakukan typecast bentuk ke SmartArt
+            // Lakukan typecast shape menjadi SmartArt
             ISmartArt smart = (SmartArt) shape;
     
-            // Menelusuri semua node dari bentuk SmartArt
+            // Menelusuri semua node pada shape SmartArt
             for (int i = 0; i < smart.getAllNodes().size(); i++) 
             {
                 ISmartArtNode node = smart.getAllNodes().get_Item(i);
-                // Memeriksa apakah node adalah node Asisten
+                // Periksa apakah node merupakan node Asisten
                 if (node.isAssistant()) 
                 {
                     // Mengatur node Asisten menjadi false dan menjadikannya node normal
-                    node.isAssistant();
+                    node.setAssistant(false);
                 }
             }
         }
     }
     
-    // Menyimpan Presentasi
+    // Simpan Presentasi
     pres.save("ChangeAssitantNode.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+{{% alert color="info" %}} 
+Dalam artikel ini kami akan menyelidiki lebih lanjut fitur-fitur shape SmartArt yang ditambahkan pada slide presentasi secara programatis menggunakan Aspose.Slides for Java.
+{{% /alert %}} 
+
+Kami akan menggunakan shape SmartArt sumber berikut untuk penyelidikan kami di bagian‑bagian artikel ini.
+
+|![todo:image_alt_text](https://i.imgur.com/FItwczY.png)|
+| :- |
+|**Gambar: Shape SmartArt sumber dalam slide**|
+
+Pada kode contoh berikut kami akan menyelidiki cara mengidentifikasi **Assistant Nodes** dalam koleksi node SmartArt dan mengubahnya.
+
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation) dan muat presentasi dengan Shape SmartArt.  
+2. Dapatkan referensi slide kedua dengan menggunakan indeksnya.  
+3. Telusuri setiap shape di dalam slide pertama.  
+4. Periksa apakah shape bertipe [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArt) dan lakukan typecast pada shape yang dipilih menjadi [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArt) jika memang SmartArt.  
+5. Telusuri semua node di dalam shape SmartArt dan periksa apakah mereka adalah [**Assistant Nodes**](https://reference.aspose.com/slides/id/java/com.aspose.slides/SmartArtNode#isAssistant--).  
+6. Ubah status Assistant Node menjadi node normal.  
+7. Simpan Presentasi.
+
 |![todo:image_alt_text](https://i.imgur.com/qpAl4rN.png)|
 | :- |
-|**Gambar: Assistant Nodes Diubah dalam bentuk SmartArt di dalam slide**|
+|**Gambar: Assistant Nodes Diubah dalam shape SmartArt di dalam slide**|
 
 ## **Mengatur Format Isi Node**
-Aspose.Slides for Java memungkinkan penambahan bentuk SmartArt kustom dan mengatur format isinya. Artikel ini menjelaskan cara membuat dan mengakses bentuk SmartArt serta mengatur format isi mereka menggunakan Aspose.Slides for Java.
+Aspose.Slides for Java memungkinkan penambahan shape SmartArt kustom dan pengaturan format isi mereka. Artikel ini menjelaskan cara membuat dan mengakses shape SmartArt serta mengatur format isi mereka menggunakan Aspose.Slides for Java.
 
 Silakan ikuti langkah‑langkah di bawah ini:
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation).
-1. Dapatkan referensi slide dengan menggunakan indeksnya.
-1. Tambahkan bentuk [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArt) dengan mengatur [**LayoutType**](https://reference.aspose.com/slides/id/java/com.aspose.slides/SmartArtLayoutType#ClosedChevronProcess)‑nya.
-1. Atur [**FillFormat**](https://reference.aspose.com/slides/id/java/com.aspose.slides/IShape#getFillFormat--) untuk node bentuk SmartArt.
-1. Tuliskan presentasi yang telah dimodifikasi sebagai file PPTX.
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation).  
+2. Dapatkan referensi slide menggunakan indeksnya.  
+3. Tambahkan shape [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArt) dengan mengatur [**LayoutType**](https://reference.aspose.com/slides/id/java/com.aspose.slides/SmartArtLayoutType#ClosedChevronProcess).  
+4. Atur [**FillFormat**](https://reference.aspose.com/slides/id/java/com.aspose.slides/IShape#getFillFormat--) untuk node shape SmartArt.  
+5. Tulis presentasi yang telah dimodifikasi sebagai file PPTX.
 
 ```java
-// Menginstansiasi presentasi
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// Membuat instance presentasi
 Presentation pres = new Presentation();
 try {
     // Mengakses slide
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Menambahkan bentuk SmartArt dan node
+    // Menambahkan shape SmartArt dan node
     ISmartArt chevron = slide.getShapes().addSmartArt(10, 10, 800, 60, SmartArtLayoutType.ClosedChevronProcess);
     ISmartArtNode node = chevron.getAllNodes().addNode();
     node.getTextFrame().setText("Some text");
     
-    // Mengatur warna isi node
+    // Menetapkan warna isi node
     for (IShape item : node.getShapes()) 
     {
         item.getFillFormat().setFillType(FillType.Solid);
         item.getFillFormat().getSolidFillColor().setColor(Color.RED);
     }
     
-    // Menyimpan presentasi
+    // Simpan presentasi
     pres.save("TestSmart.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Menghasilkan Thumbnail Node Anak SmartArt**
-Pengembang dapat menghasilkan thumbnail dari node Anak SmartArt dengan mengikuti langkah‑langkah di bawah ini:
+## **Menghasilkan Thumbnail untuk Node Anak SmartArt**
+Pengembang dapat menghasilkan thumbnail untuk node anak SmartArt dengan mengikuti langkah‑langkah berikut:
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation).
-1. Tambahkan [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/ISmartArtNodeCollection#addNode--).
-1. Dapatkan referensi sebuah node dengan menggunakan indeksnya.
-1. Dapatkan gambar thumbnail.
-1. Simpan gambar thumbnail dalam format gambar apa pun yang diinginkan.
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation).  
+2. Tambahkan SmartArt.  
+3. Dapatkan referensi sebuah node dengan menggunakan indeksnya.  
+4. Dapatkan gambar thumbnail.  
+5. Simpan gambar thumbnail dalam format gambar yang diinginkan.
 
 ```java
-// Membuat instance kelas Presentation yang mewakili file PPTX 
+import com.aspose.slides.*;
+
+// Membuat instance kelas Presentation yang merepresentasikan file PPTX
 Presentation pres = new Presentation();
 try {
     // Tambahkan SmartArt 
@@ -491,18 +513,14 @@ try {
 
 ## **FAQ**
 
-**Apakah animasi SmartArt didukung?**
+### Apakah animasi SmartArt didukung?
+Ya. SmartArt diperlakukan sebagai shape biasa, sehingga Anda dapat [menerapkan animasi standar](/slides/id/java/shape-animation/) (masuk, keluar, penekanan, jalur gerak) dan menyesuaikan timing. Anda juga dapat menganimasikan shape di dalam node SmartArt bila diperlukan.
 
-Ya. SmartArt diperlakukan sebagai bentuk biasa, sehingga Anda dapat [menerapkan animasi standar](/slides/id/java/shape-animation/) (masuk, keluar, penekanan, jalur gerak) dan menyesuaikan waktu. Anda juga dapat menganimasikan bentuk di dalam node SmartArt bila diperlukan.
+### Bagaimana cara saya dapat menemukan SmartArt tertentu pada slide secara andal jika ID internalnya tidak diketahui?
+Berikan dan cari berdasarkan [teks alternatif](https://reference.aspose.com/slides/id/java/com.aspose.slides/shape/#getAlternativeText--). Menetapkan AltText yang khas pada SmartArt memungkinkan Anda menemukannya secara programatik tanpa bergantung pada identifier internal.
 
-**Bagaimana saya dapat menemukan SmartArt tertentu pada slide secara andal jika ID internalnya tidak diketahui?**
-
-Berikan dan cari berdasarkan [teks alternatif](https://reference.aspose.com/slides/id/java/com.aspose.slides/shape/#getAlternativeText--). Menetapkan AltText yang khas pada SmartArt memungkinkan Anda menemukannya secara programatis tanpa bergantung pada pengidentifikasi internal.
-
-**Apakah tampilan SmartArt akan dipertahankan saat mengonversi presentasi ke PDF?**
-
+### Apakah tampilan SmartArt akan dipertahankan saat mengonversi presentasi ke PDF?
 Ya. Aspose.Slides merender SmartArt dengan fidelitas visual tinggi selama [ekspor PDF](/slides/id/java/convert-powerpoint-to-pdf/), mempertahankan tata letak, warna, dan efek.
 
-**Apakah saya dapat mengekstrak gambar seluruh SmartArt (untuk pratinjau atau laporan)?**
-
-Ya. Anda dapat merender bentuk SmartArt ke [format raster](https://reference.aspose.com/slides/id/java/com.aspose.slides/shape/#getImage-int-float-float-) atau ke [SVG](https://reference.aspose.com/slides/id/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) untuk output vektor yang dapat diskalakan, sehingga cocok untuk thumbnail, laporan, atau penggunaan web.
+### Bisakah saya mengekstrak gambar seluruh SmartArt (untuk preview atau laporan)?
+Ya. Anda dapat merender shape SmartArt ke [format raster](https://reference.aspose.com/slides/id/java/com.aspose.slides/shape/#getImage-int-float-float-) atau ke [SVG](https://reference.aspose.com/slides/id/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) untuk output vektor skalabel, menjadikannya cocok untuk thumbnail, laporan, atau penggunaan web.

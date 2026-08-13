@@ -20,62 +20,73 @@ description: "Aplique, gerencie e solucione problemas de licenças no Aspose.Sli
 ---
 ## **Visão geral**
 
-Aspose.Slides pode ser usado em modo de avaliação ou com uma licença válida. A versão de avaliação fornece a mesma funcionalidade da versão licenciada, mas adiciona uma marca d'água de avaliação quando as apresentações são abertas ou salvas e limita a extração de texto a um slide.
+Aspose.Slides pode ser usado em modo de avaliação ou com uma licença válida. A versão de avaliação fornece a mesma funcionalidade da versão licenciada, mas adiciona uma marca d'agua de avaliação quando as apresentações são abertas ou salvas e limita a extração de texto a um slide.
 
-Este artigo explica como o licenciamento funciona no Aspose.Slides e como aplicar uma licença antes de usar a biblioteca. Uma licença pode ser carregada a partir de um arquivo, fluxo ou recurso incorporado usando a classe `License`. O artigo também mostra como validar se uma licença foi aplicada corretamente.
+Este artigo explica como funciona o licenciamento no Aspose.Slides e como aplicar uma licença antes de usar a biblioteca. Uma licença pode ser carregada a partir de um arquivo, fluxo ou recurso incorporado usando a classe `License`. O artigo também mostra como validar se uma licença foi aplicada corretamente.
 
 ## **Avaliar Aspose.Slides**
 
-{{% alert color="primary" %}} 
-Você pode baixar uma versão de avaliação do **Aspose.Slides for C++** a partir da sua [página de download no NuGet](https://www.nuget.org/packages/Aspose.Slides.CPP/). A versão de avaliação oferece a mesma funcionalidade do produto licenciado. Na verdade, o pacote de avaliação é idêntico ao adquirido — simplesmente passa a estar licenciado quando você adiciona algumas linhas de código para aplicar a licença.
+{{% alert color="info" %}} 
 
-Depois de ficar satisfeito com a sua avaliação do **Aspose.Slides**, você pode [comprar uma licença](https://purchase.aspose.com/buy). Recomendamos revisar os tipos de assinatura disponíveis. Se tiver alguma dúvida, fique à vontade para contatar a equipe de vendas da Aspose.
+Você pode baixar uma versão de avaliação do **Aspose.Slides for C++** a partir da [sua página de download no NuGet](https://www.nuget.org/packages/Aspose.Slides.CPP/). A versão de avaliação oferece a mesma funcionalidade do produto licenciado. Na verdade, o pacote de avaliação é idêntico ao adquirido — ele simplesmente se torna licenciado quando você adiciona algumas linhas de código para aplicar a licença.
 
-Toda licença Aspose inclui uma assinatura de um ano para atualizações gratuitas, incluindo novas versões e correções de bugs lançadas durante esse período. Seja você um usuário licenciado ou em avaliação, recebe suporte técnico gratuito e ilimitado.
+Depois de ficar satisfeito com a avaliação do **Aspose.Slides**, você pode [adquirir uma licença](https://purchase.aspose.com/buy). Recomendamos revisar os tipos de assinatura disponíveis. Se tiver alguma dúvida, sinta-se à vontade para entrar em contato com a equipe de vendas da Aspose.
+
+Toda licença Aspose inclui uma assinatura de um ano para atualizações gratuitas, incluindo novas versões e correções de bugs lançadas durante esse período. Seja usando a versão licenciada ou de avaliação, você recebe suporte técnico gratuito e ilimitado.
+
 {{% /alert %}} 
 
-**Limitações da Versão de Avaliação**
+**Limitações da versão de avaliação**
 
-* Embora a versão de avaliação do Aspose.Slides (quando nenhuma licença é aplicada) forneça funcionalidade total do produto, ela insere uma marca d'água de avaliação no topo do documento durante as operações de abertura e gravação.
-* A extração de texto é limitada a um slide ao usar a versão de avaliação.
+* Embora a versão de avaliação do Aspose.Slides (quando nenhuma licença está aplicada) forneça toda a funcionalidade do produto, ela insere uma marca d'agua de avaliação no topo do documento durante as operações de abertura e gravacao.
+* A extracao de texto é limitada a um slide ao usar a versão de avaliação.
 
-{{% alert color="primary" %}} 
-Para testar o Aspose.Slides sem limitações, você pode solicitar uma **Licença Temporária de 30 dias**. Para mais informações, consulte a página [Como obter uma licença temporária](https://purchase.aspose.com/temporary-license).
+{{% alert color="info" %}} 
+
+Para testar o Aspose.Slides sem limitacoes, voce pode solicitar uma **Licenca Temporaria de 30 dias**. Para mais informacoes, consulte a pagina [Como obter uma licenca temporaria](https://purchase.aspose.com/temporary-license).
+
 {{% /alert %}}
 
 ## **Licenciamento no Aspose.Slides**
 
-* Uma versão de avaliação torna‑se licenciada após você comprar uma licença e aplicá‑la adicionando algumas linhas de código.
-* A licença é um arquivo XML de texto simples que contém detalhes como o nome do produto, o número de desenvolvedores a que está licenciada, a data de expiração da assinatura e mais.
-* O arquivo de licença é assinado digitalmente, portanto não deve ser modificado. Mesmo uma alteração acidental — como adicionar uma quebra de linha — invalidará o arquivo.
-* O Aspose.Slides for C++ normalmente procura o arquivo de licença nos seguintes locais:
-  * Um caminho explicitamente especificado no seu código
-  * A pasta que contém a DLL do componente (incluída no Aspose.Slides)
-  * A pasta que contém o assembly que chama a DLL do componente
-* Para evitar as limitações da versão de avaliação, você deve definir a licença antes de usar o Aspose.Slides. A licença precisa ser definida apenas uma vez por aplicação ou processo.
+* Uma versão de avaliacao se torna licenciada apos voce adquirir uma licenca e aplicá-la adicionando algumas linhas de codigo.
+* A licenca e um arquivo XML de texto simples que contem detalhes como o nome do produto, o numero de desenvolvedores licenciados, a data de vencimento da assinatura e mais.
+* O arquivo de licenca e assinado digitalmente, portanto nao deve ser modificado. Mesmo uma alteracao acidental - como a insercao de uma quebra de linha - invalidara o arquivo.
+* O Aspose.Slides for C++ normalmente procura o arquivo de licenca nos seguintes locais:
+  * Um caminho especificado explicitamente no seu codigo
+  * A pasta que contem o DLL do componente (incluido no Aspose.Slides)
+  * A pasta que contem o assembly que chama o DLL do componente
+* Para evitar as limitacoes da versao de avaliacao, voce deve definir a licenca antes de usar o Aspose.Slides. A licenca precisa ser definida apenas uma vez por aplicacao ou processo.
 
-## **Aplicar uma Licença**
+## **Aplicar uma Licenca**
 
-Uma licença pode ser carregada a partir de um **arquivo**, um **fluxo** ou um **recurso incorporado**.
+Uma licenca pode ser carregada a partir de um **arquivo**, um **fluxo** ou um **recurso incorporado**.
 
-{{% alert color="primary" %}}
-O Aspose.Slides fornece a classe [License](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.license/) para operações de licenciamento.
+{{% alert color="info" %}}
+
+O Aspose.Slides fornece a classe [License](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.license/) para operacoes de licenciamento.
+
 {{% /alert %}} 
 
 {{% alert color="warning" %}}
-Novas licenças podem ativar o Aspose.Slides apenas a partir da versão 21.4 ou posterior. Versões anteriores usam um sistema de licenciamento diferente e não reconhecerão essas licenças.
+
+Novas licencas podem ativar o Aspose.Slides somente nas versoes 21.4 ou posteriores. Versoes anteriores usam um sistema de licenciamento diferente e nao reconhecerao essas licencas.
+
 {{% /alert %}}
 
 ### **Arquivo**
 
-A maneira mais simples de definir uma licença é colocar o arquivo de licença na mesma pasta da DLL do componente (incluída no Aspose.Slides) e especificar apenas o nome do arquivo, sem o caminho.
+A maneira mais simples de definir uma licenca e colocar o arquivo de licenca na mesma pasta que o DLL do componente (incluido no Aspose.Slides) e especificar apenas o nome do arquivo, sem o caminho.
 
-O código C++ a seguir mostra como definir um arquivo de licença:
+O codigo C++ a seguir mostra como definir um arquivo de licenca:
 
 ```c++
 #include <Util/License.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
 
 using namespace Aspose::Slides;
+using namespace System;
 
 int main()
 {
@@ -87,16 +98,25 @@ int main()
 ```
 
 {{% alert color="warning" %}} 
-Se você colocar o arquivo de licença em um diretório diferente, ao chamar o método [License::SetLicense](https://reference.aspose.com/slides/pt/cpp/aspose.slides/license/setlicense/), o nome do arquivo ao final do caminho explícito especificado deve corresponder exatamente ao nome do seu arquivo de licença.
 
-Por exemplo, se você renomear seu arquivo de licença para *Aspose.Slides.lic.xml*, deve passar o caminho completo terminando em *Aspose.Slides.lic.xml* ao método [License::SetLicense](https://reference.aspose.com/slides/pt/cpp/aspose.slides/license/setlicense/) no seu código.
+Se voce colocar o arquivo de licenca em um diretorio diferente, entao ao chamar o metodo [License::SetLicense](https://reference.aspose.com/slides/pt/cpp/aspose.slides/license/setlicense/) o nome do arquivo ao final do caminho explicito especificado deve coincidir exatamente com o nome do seu arquivo de licenca.
+
+Por exemplo, se voce renomear seu arquivo de licenca para *Aspose.Slides.lic.xml*, deve passar o caminho completo terminando em *Aspose.Slides.lic.xml* ao metodo [License::SetLicense](https://reference.aspose.com/slides/pt/cpp/aspose.slides/license/setlicense/) no seu codigo.
+
 {{% /alert %}}
 
 ### **Fluxo**
 
-Você pode carregar uma licença a partir de um fluxo. O código C++ a seguir mostra como aplicar uma licença a partir de um fluxo:
+Voce pode carregar uma licenca a partir de um fluxo. O codigo C++ a seguir mostra como aplicar uma licenca a partir de um fluxo:
 
 ```c++
+#include <Util/License.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto license = MakeObject<License>();
 
 auto stream = File::OpenRead(u"Aspose.Slides.lic");
@@ -104,11 +124,16 @@ auto stream = File::OpenRead(u"Aspose.Slides.lic");
 license->SetLicense(stream);
 ```
 
-## **Validar uma Licença**
+## **Validar uma Licenca**
 
-Para verificar se uma licença foi definida corretamente, você pode validá‑la. O código C++ a seguir mostra como validar uma licença:
+Para verificar se uma licenca foi definida corretamente, voce pode valida-la. O codigo C++ a seguir mostra como validar uma licenca:
 
 ```c++
+#include <Util/License.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto license = MakeObject<License>();
 
 license->SetLicense(u"Aspose.Slides.lic");
@@ -120,18 +145,20 @@ if (license->IsLicensed())
 }
 ```
 
-## **Segurança de Thread**
+## **Seguranca de Threads**
 
 {{% alert title="Note" color="warning" %}} 
-O método [License::SetLicense](https://reference.aspose.com/slides/pt/cpp/aspose.slides/license/setlicense/) **não é thread‑safe**. Se precisar chamar esse método simultaneamente a partir de várias threads, recomenda‑se usar primitivas de sincronização (como um lock) para evitar possíveis problemas.
+
+O metodo [License::SetLicense](https://reference.aspose.com/slides/pt/cpp/aspose.slides/license/setlicense/) **nao e thread-safe**. Se precisar chamar esse metodo a partir de multiplas threads simultaneamente, recomenda-se usar primitivas de sincronizacao (como um lock) para evitar possiveis problemas.
+
 {{% /alert %}}
 
 ## **FAQ**
 
-**Posso aplicar a licença em um ambiente completamente offline (sem acesso à internet)?**
+### Posso aplicar a licenca em um ambiente totalmente offline (sem acesso à internet)?
 
-Sim. A validação da licença é realizada localmente usando o arquivo de licença; não é necessária conexão à internet.
+Sim. A validacao da licenca e realizada localmente usando o arquivo de licenca; nao e necessario conexao com a internet.
 
-**O que acontece após o término da assinatura de um ano? A biblioteca deixa de funcionar?**
+### O que acontece apos o termino da assinatura de um ano? A biblioteca deixara de funcionar?
 
-Não. A licença é perpétua: você pode continuar usando as versões lançadas antes da data de término da sua assinatura; apenas não terá direito a usar versões mais recentes sem renovação.
+Nao. A licenca e perpetua: voce pode continuar usando as versoes lancadas antes da data de termino da sua assinatura; apenas nao sera elegivel a usar versoes mais recentes sem renovacao.

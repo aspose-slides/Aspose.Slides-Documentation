@@ -1,14 +1,14 @@
 ---
-title: Openbare API en achterwaarts incompatibele wijzigingen in Aspose.Slides voor .NET 16.1.0
+title: Openbare API en terugwaartse incompatibele wijzigingen in Aspose.Slides voor .NET 16.1.0
 linktitle: Aspose.Slides voor .NET 16.1.0
 type: docs
 weight: 220
 url: /nl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/
 keywords:
 - migratie
-- oude code
+- legacy-code
 - moderne code
-- oude aanpak
+- legacy-aanpak
 - moderne aanpak
 - PowerPoint
 - OpenDocument
@@ -16,18 +16,22 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Bekijk de updates van de openbare API en brekende wijzigingen in Aspose.Slides voor .NET om uw PowerPoint PPT, PPTX en ODP-presentatieoplossingen soepel te migreren."
+description: "Bekijk de openbare API-updates en brekende wijzigingen in Aspose.Slides voor .NET om uw PowerPoint PPT-, PPTX- en ODP-presentatieoplossingen soepel te migreren."
 ---
-{{% alert color="primary" %}} 
-Deze pagina toont alle [toegevoegd](/slides/nl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) of [verwijderd](/slides/nl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) klassen, methoden, eigenschappen enzovoort, en andere wijzigingen die geïntroduceerd zijn met de Aspose.Slides for .NET 16.1.0 API.
+{{% alert color="info" %}} 
+Deze pagina geeft een overzicht van alle [toegevoegde](/slides/nl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) of [verwijderde](/slides/nl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) klassen, methoden, eigenschappen enzovoort, en andere wijzigingen die geïntroduceerd zijn met de Aspose.Slides voor .NET 16.1.0 API.
 {{% /alert %}} 
 ## **Wijzigingen in de openbare API**
 
-#### **Eigenschap RotationAngle is toegevoegd aan de interfaces IChartTextBlockFormat en ITextFrameFormat**
-Eigenschap RotationAngle is toegevoegd aan de interfaces Aspose.Slides.Charts.IChartTextBlockFormat en Aspose.Slides.ITextFrameFormat.  
-Het specificeert de aangepaste rotatie die wordt toegepast op de tekst binnen het omgrenzende vak.
+#### **Eigenschap RotationAngle is toegevoegd aan de IChartTextBlockFormat- en ITextFrameFormat-interfaces**
+Eigenschap RotationAngle is toegevoegd aan de interfaces Aspose.Slides.Charts.IChartTextBlockFormat en Aspose.Slides.ITextFrameFormat.
+Het specificeert de aangepaste rotatie die wordt toegepast op de tekst binnen de omhullende box.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -48,7 +52,5 @@ chart.ChartTitle.AddTextFrameForOverriding("Custom title").TextFrameFormat.Rotat
 pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
-
-
 ``` 
 #### **OdpException verplaatst van Aspose.Slides.Odp naar de Aspose.Slides-namespace**

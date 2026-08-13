@@ -14,26 +14,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Microsoft Office otomasyonundan Aspose.Slides for .NET'e nasıl geçileceğini ve C# ile PowerPoint (PPT, PPTX) sunumlarına dinamik metin nasıl ekleneceğini görün."
+description: "Microsoft Office otomasyonundan Aspose.Slides for .NET'e nasıl geçileceğini ve C# içinde PowerPoint (PPT, PPTX) sunularına dinamik metin nasıl ekleneceğini görün."
 ---
-{{% alert color="primary" %}} 
-
-Geliştiricilerin sıkça gerçekleştirdiği bir görev, slaytlara dinamik olarak metin eklemektir. Bu makale, [VSTO](/slides/tr/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/) ve [Aspose.Slides for .NET](/slides/tr/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/) kullanarak dinamik metin ekleme için kod örneklerini gösterir.
-
+{{% alert color="info" %}} 
+Geliştiricilerin sıkça gerçekleştirdiği bir görev, slaytlara dinamik olarak metin eklemektir. Bu makale, [VSTO](/slides/tr/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/) ve [Aspose.Slides for .NET](/slides/tr/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/) kullanarak dinamik olarak metin eklemek için kod örneklerini gösterir.
 {{% /alert %}} 
-## **Dinamik Olarak Metin Ekleme**
-Her iki yöntem de şu adımları izler:
+## **Metni Dinamik Olarak Ekleme**
+Her iki yöntem de aşağıdaki adımları izler:
 
 1. Bir sunum oluşturun.
 1. Boş bir slayt ekleyin.
 1. Bir metin kutusu ekleyin.
 1. Metin ayarlayın.
 1. Sunumu kaydedin.
-
 ## **VSTO Kod Örneği**
-Aşağıdaki kod parçacıkları, düz bir slayt ve üzerinde bir metin satırı olan bir sunum oluşturur.
+Aşağıdaki kod parçacıkları, sade bir slayt ve üzerine bir metin dizesi içeren bir sunum oluşturur.
 
-**VSTO'da oluşturulan sunum** 
+**VSTO ile oluşturulan sunum** 
 
 ![todo:image_alt_text](adding-text-dynamically-using-vsto-and-aspose-slides-for-net_1.png)
 
@@ -41,7 +38,7 @@ Aşağıdaki kod parçacıkları, düz bir slayt ve üzerinde bir metin satırı
 //Not: PowerPoint, yukarıda şu şekilde tanımlanmış bir ad alanıdır
 //using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 
-//Sunum oluştur
+//Bir sunum oluştur
 PowerPoint.Presentation pres = Globals.ThisAddIn.Application
 	.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 
@@ -52,7 +49,7 @@ PowerPoint.CustomLayout layout = pres.SlideMaster.
 //Boş bir slayt ekle
 PowerPoint.Slide sld = pres.Slides.AddSlide(1, layout);
 
-//Metin ekle
+//Bir metin ekle
 PowerPoint.Shape shp = sld.Shapes.AddTextbox(Microsoft.Office.Core.MsoTextOrientation.msoTextOrientationHorizontal, 150, 100, 400, 100);
 
 //Metni ayarla
@@ -69,19 +66,24 @@ pres.SaveAs("c:\\outVSTO.ppt",
 
 ```
 
-## **Aspose.Slides for .NET Örneği**
-Aşağıdaki kod parçacıkları, Aspose.Slides kullanarak düz bir slayt ve üzerinde bir metin satırı bulunan bir sunum oluşturur.
 
-**Aspose.Slides for .NET kullanılarak oluşturulan sunum** 
+
+## **Aspose.Slides for .NET Örneği**
+Aşağıdaki kod parçacıkları, Aspose.Slides kullanarak sade bir slayt ve üzerine bir metin dizesi içeren bir sunum oluşturur.
+
+**Aspose.Slides for .NET ile oluşturulan sunum** 
 
 ![todo:image_alt_text](adding-text-dynamically-using-vsto-and-aspose-slides-for-net_2.png)
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 //Bir sunum oluştur
 Presentation pres = new Presentation();
 
 //Boş slayt varsayılan olarak eklenir, oluşturduğunuzda
-//varsayılan kurucudan sunum
+//sunumu varsayılan kurucu ile
 //Bu yüzden herhangi bir boş slayt eklememize gerek yok
 ISlide sld = pres.Slides[1];
 
@@ -92,10 +94,10 @@ IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 1200, 800, 3200, 370);
 //Çizgisini gizle
 shp.LineFormat.Style = LineStyle.NotDefined;
 
-//Ardından içine bir metin çerçevesi ekle
+//Ardından içinde bir metin çerçevesi ekle
 ITextFrame tf = ((IAutoShape)shp).TextFrame;
 
-//Metin ayarla
+//Metni ayarla
 tf.Text = "Text added dynamically";
 IPortion port = tf.Paragraphs[0].Portions[0];
 
@@ -103,5 +105,5 @@ port.PortionFormat.FontBold = NullableBool.True;
 port.PortionFormat.FontHeight = 32;
 
 //Çıktıyı diske kaydet
-pres.Save("c:\\outAspose.ppt", SaveFormat.Ppt);
+pres.Save("outAspose.ppt", SaveFormat.Ppt);
 ```

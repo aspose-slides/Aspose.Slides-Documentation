@@ -1,5 +1,5 @@
 ---
-title: تأمين العروض التقديمية بكلمات المرور في C++
+title: تأمين العروض التقديمية بكلمات مرور في C++
 linktitle: حماية كلمة المرور
 type: docs
 weight: 20
@@ -7,8 +7,8 @@ url: /ar/cpp/password-protected-presentation/
 keywords:
 - قفل PowerPoint
 - قفل العرض التقديمي
-- إلغاء قفل PowerPoint
-- إلغاء قفل العرض التقديمي
+- فتح قفل PowerPoint
+- فتح قفل العرض التقديمي
 - حماية PowerPoint
 - حماية العرض التقديمي
 - تعيين كلمة مرور
@@ -17,7 +17,7 @@ keywords:
 - تشفير العرض التقديمي
 - فك تشفير PowerPoint
 - فك تشفير العرض التقديمي
-- حماية كتابة
+- حماية الكتابة
 - أمان PowerPoint
 - أمان العرض التقديمي
 - إزالة كلمة المرور
@@ -31,125 +31,147 @@ keywords:
 - عرض تقديمي
 - C++
 - Aspose.Slides
-description: "تعلم كيفية قفل وإلغاء قفل عروض PowerPoint وOpenDocument المحمية بكلمة مرور بسهولة باستخدام Aspose.Slides للغة C++. احمِ عروضك التقديمية."
+description: "تعرّف على كيفية قفل وفتح عروض PowerPoint وOpenDocument المحمية بكلمة مرور بسهولة باستخدام Aspose.Slides للغات C++. احمِ عروضك التقديمية."
 ---
+## **المقدمة**
 
-## **حول حماية كلمة المرور**
-### **كيف تعمل حماية كلمة المرور للعرض التقديمي؟**
-عند حماية عرض تقديمي بكلمة مرور، فإنك تقوم بتعيين كلمة مرور تفرض بعض القيود على العرض. لإزالة هذه القيود، يجب إدخال كلمة المرور. يُعتبر العرض المحمي بكلمة مرور عرضًا مقفلًا.
+عندما تقوم بحماية عرض تقديمي بكلمة مرور، يعني ذلك أنك تُحدد كلمة مرور تُفرض بها قيود معينة على العرض التقديمي. لإزالة هذه القيود، يجب إدخال كلمة المرور. يُعتبر العرض التقديمي المحمي بكلمة مرور عرضًا مقفلًا.
 
 عادةً، يمكنك تعيين كلمة مرور لفرض هذه القيود على العرض التقديمي:
 
 - **التعديل**
 
-  إذا كنت تريد فقط لمستخدمين معينين تعديل العرض التقديمي الخاص بك، يمكنك تعيين قيد تعديل. يمنع هذا القيد الأشخاص من تعديل أو تغيير أو نسخ محتويات العرض (إلا إذا قدموا كلمة المرور). 
+  إذا كنت تريد أن يتمكن بعض المستخدمين فقط من تعديل عرضك التقديمي، يمكنك ضبط قيد تعديل. يمنع هذا القيد الأشخاص من تعديل أو تغيير أو نسخ المحتويات في العرض التقديمي (إلا إذا قدموا كلمة المرور). 
 
-  مع ذلك، في هذه الحالة، حتى بدون كلمة المرور، يستطيع المستخدم الوصول إلى المستند وفتحها. في وضع القراءة فقط، يمكن للمستخدم عرض المحتويات أو العناصر—الروابط التشعبية، الرسوم المتحركة، التأثيرات، وغيرها—داخل العرض التقديمي، لكنه لا يستطيع نسخ العناصر أو حفظ العرض. 
+  مع ذلك، في هذه الحالة، حتى بدون كلمة المرور، سيكون بإمكان المستخدم الوصول إلى المستند وفتحه. في وضع القراءة فقط، يمكن للمستخدم عرض المحتويات أو العناصر—الروابط التشعبية، والرسوم المتحركة، والمؤثرات، وغيرها— داخل العرض التقديمي، لكنه لا يستطيع نسخ العناصر أو حفظ العرض.
 
 - **الفتح**
 
-  إذا كنت تريد فقط لمستخدمين معينين فتح العرض التقديمي، يمكنك تعيين قيد فتح. يمنع هذا القيد الأشخاص من حتى مشاهدة محتويات العرض (إلا إذا قدموا كلمة المرور).
+  إذا كنت تريد أن يتمكن بعض المستخدمين فقط من فتح عرضك التقديمي، يمكنك ضبط قيد فتح. يمنع هذا القيد الأشخاص من حتى مشاهدة محتويات العرض التقديمي (إلا إذا قدموا كلمة المرور).
 
-  تقنياً، قيد الفتح يمنع أيضاً المستخدمين من تعديل عروضك: عندما لا يستطيع الأشخاص فتح عرض تقديمي، لا يمكنهم تعديل أو إجراء تغييرات عليه. 
-
+  تقنيًا، يمنع قيد الفتح أيضًا المستخدمين من تعديل عروضك التقديمية: عندما لا يستطيع الأشخاص فتح العرض، لا يمكنهم تعديل أو إجراء أي تغييرات عليه. 
+  
   **ملاحظة** أنه عندما تحمي عرضًا تقديميًا بكلمة مرور لمنع الفتح، يصبح ملف العرض مشفرًا.
 
 ## **كيفية حماية عرض تقديمي بكلمة مرور عبر الإنترنت**
 
-1. انتقل إلى صفحتنا [**قفل Aspose.Slides**](https://products.aspose.app/slides/lock).
+1. انتقل إلى صفحة [**Aspose.Slides Lock**](https://products.aspose.app/slides/ar/lock) الخاصة بنا. 
 
    ![todo:image_alt_text](slides-lock.png)
 
-2. انقر **إسحب أو حمّل ملفاتك**.
+2. انقر على **إسقاط أو تحميل ملفاتك**.
 
-3. حدد الملف الذي تريد حمايته بكلمة مرور على جهاز الكمبيوتر الخاص بك. 
+3. حدّد الملف الذي تريد حماية كلمة مروره على جهازك. 
 
-4. أدخل كلمة المرور المفضلة لديك لحماية التعديل؛ أدخل كلمة المرور المفضلة لديك لحماية العرض. 
+4. أدخل كلمة المرور المفضلة للحماية من التعديل؛ أدخل كلمة المرور المفضلة للحماية من العرض. 
 
-5. إذا أردت أن يرى المستخدمون عرضك التقديمي كنسخة نهائية، ضع علامة على خانة الاختيار **علامة كنهائي**.
+5. إذا كنت تريد أن يرى المستخدمون عرضك التقديمي كنسخة نهائية، ضع علامة على صندوق الاختيار **Mark as final**.
 
-6. انقر **احمِ الآن**. 
+6. انقر على **PROTECT NOW.** 
 
-7. انقر **نزّل الآن**.
+7. انقر على **DOWNLOAD NOW.**
 
-## **حماية كلمة المرور للعرض التقديمي في Aspose.Slides**
-**التنسيقات المدعومة**
+## **حماية كلمة مرور للعروض التقديمية في Aspose.Slides**
+**الصيغ المدعومة**
 
-يدعم Aspose.Slides حماية كلمة المرور، والتشفير، والعمليات المشابهة للعرض التقديمي بهذه التنسيقات:
+يدعم Aspose.Slides حماية كلمة المرور، التشفير، والعمليات المشابهة للعروض التقديمية بهذه الصيغ: 
 
-- PPTX و PPT - عرض Microsoft PowerPoint  
-- ODP - عرض OpenDocument  
-- OTP - قالب عرض OpenDocument  
+- PPTX و PPT - عرض Microsoft PowerPoint
+- ODP - عرض OpenDocument
+- OTP - قالب عرض OpenDocument
 
 **العمليات المدعومة**
 
-يسمح Aspose.Slides لك باستخدام حماية كلمة المرور على العروض لمنع التعديلات بالطرق التالية:
+يمكّنك Aspose.Slides من استخدام حماية كلمة المرور للعروض التقديمية لمنع التعديلات بهذه الطرق:
 
-- تشفير العرض التقديمي  
-- تعيين حماية كتابة للعرض التقديمي  
+- تشفير عرض تقديمي
+- تعيين حماية كتابة للعرض التقديمي
 
 **عمليات أخرى**
 
-يتيح Aspose.Slides لك القيام بمهام أخرى تتعلق بحماية كلمة المرور والتشفير بهذه الطرق:
+يمكّنك Aspose.Slides من تنفيذ مهام أخرى تتعلق بحماية كلمة المرور والتشفير بهذه الطرق:
 
-- فك تشفير عرض تقديمي؛ فتح عرض مشفر  
-- إزالة التشفير؛ إلغاء حماية كلمة المرور  
-- إزالة حماية الكتابة من العرض التقديمي  
-- الحصول على خصائص عرض مشفر  
-- التحقق ما إذا كان العرض مشفرًا  
-- التحقق ما إذا كان العرض محمياً بكلمة مرور.  
+- فك تشفير عرض تقديمي؛ فتح عرض مشفر
+- إزالة التشفير؛ تعطيل حماية كلمة المرور
+- إزالة حماية الكتابة من عرض تقديمي
+- الحصول على خصائص عرض تقديمي مشفر
+- التحقق مما إذا كان العرض مشفرًا
+- التحقق مما إذا كان العرض محميًا بكلمة مرور.
 
 ## **تشفير عرض تقديمي**
 
-يمكنك تشفير عرض تقديمي بتعيين كلمة مرور. ثم، لتعديل العرض المقفل، يجب على المستخدم تقديم كلمة المرور. 
+يمكنك تشفير عرض تقديمي عن طريق تعيين كلمة مرور. ثم، لتعديل العرض المقفل، يجب على المستخدم تقديم كلمة المرور. 
 
-لتشفير أو حماية عرض تقديمي بكلمة مرور، عليك استخدام طريقة `encrypt` (من [ProtectionManager](https://reference.aspose.com/slides/cpp/class/aspose.slides.protection_manager)) لتعيين كلمة مرور للعرض. تقوم بتمرير كلمة المرور إلى طريقة `encrypt` وتستخدم طريقة `save` لحفظ العرض المشفر الآن. 
+لتشفير أو حماية عرض تقديمي بكلمة مرور، عليك استخدام طريقة encrypt (من [ProtectionManager](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.protection_manager)) لتعيين كلمة مرور للعرض. تقوم بتمرير كلمة المرور إلى طريقة encrypt وتستخدم طريقة save لحفظ العرض المشفر الآن. 
 
-يظهر هذا الكود المثال كيفية تشفير عرض تقديمي:
+يُظهر لك هذا المثال البرمجي كيفية تشفير عرض تقديمي:
+
 ``` cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
 
 presentation->get_ProtectionManager()->Encrypt(u"123123");
 presentation->Save(u"encrypted-pres.pptx", SaveFormat::Pptx);
 ```
 
+## **تعيين حماية كتابة للعرض التقديمي** 
 
-## **تعيين حماية كتابة لعرض تقديمي** 
+يمكنك إضافة علامة تقول “Do not modify” إلى العرض التقديمي. بهذه الطريقة، تخبر المستخدمين أنك لا تريدهم أن يُجروا تغييرات على العرض.  
 
-يمكنك إضافة علامة “لا تعدّل” إلى عرض تقديمي. بهذه الطريقة، تخبر المستخدمين أنك لا تريدهم أن يجريوا تغييرات على العرض.  
+**ملاحظة** أن عملية حماية الكتابة لا تقوم بتشفير العرض التقديمي. لذلك، يمكن للمستخدمين—إذا رغبوا فعلاً—تعديل العرض، ولكن لحفظ التغييرات، سيتعين عليهم إنشاء عرض باسم مختلف. 
 
-**ملاحظة** أن عملية حماية الكتابة لا تقوم بتشفير العرض. لذلك، يمكن للمستخدمين—إذا رغبوا فعلاً—تعديل العرض، ولكن لحفظ التغييرات، سيتوجب عليهم إنشاء عرض باسم مختلف. 
+لتعيين حماية كتابة، عليك استخدام طريقة setWriteProtection. يُظهر لك هذا المثال البرمجي كيفية تعيين حماية كتابة للعرض التقديمي:
 
-لتعيين حماية كتابة، عليك استخدام طريقة `setWriteProtection`. يوضح هذا الكود المثال كيفية تعيين حماية كتابة لعرض تقديمي:
 ``` cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
 
 presentation->get_ProtectionManager()->SetWriteProtection(u"123123");
 presentation->Save(u"write-protected-pres.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **تحميل عرض مشفر**
 
-يتيح Aspose.Slides لك تحميل ملف مشفر بتمرير كلمة مروره. لفك تشفير عرض تقديمي، عليك استدعاء طريقة [RemoveEncryption](https://reference.aspose.com/slides/cpp/class/aspose.slides.protection_manager#a422059278b430a0493680252aa975d4d) بدون معايير. سيتعين عليك بعدها إدخال كلمة المرور الصحيحة لتحميل العرض. 
+يتيح لك Aspose.Slides تحميل ملف مشفر بتمرير كلمة مروره. لفك تشفير عرض تقديمي، عليك استدعاء طريقة [RemoveEncryption](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.protection_manager#a422059278b430a0493680252aa975d4d) دون أي معاملات. ثم سيتعين عليك إدخال كلمة المرور الصحيحة لتحميل العرض. 
 
-يظهر هذا الكود المثال كيفية فك تشفير عرض تقديمي: 
+يُظهر لك هذا المثال البرمجي كيفية فك تشفير عرض تقديمي: 
+
 ``` cpp
+#include <DOM/LoadOptions.h>
+using namespace Aspose::Slides;
+
 auto loadOptions = System::MakeObject<LoadOptions>();
 loadOptions->set_Password(u"123123");
     
 System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(u"pres.pptx", loadOptions);
 
-// العمل مع العرض المفكوك
+// العمل مع عرض تقديمي مفكوك التشفير
 ```
-
 
 ## **إزالة التشفير من عرض تقديمي**
 
-يمكنك إزالة التشفير أو حماية كلمة المرور من عرض تقديمي. بهذه الطريقة، يصبح المستخدمون قادرين على الوصول إلى العرض أو تعديله دون قيود. 
+يمكنك إزالة التشفير أو حماية كلمة المرور من عرض تقديمي. بهذه الطريقة، يصبح بإمكان المستخدمين الوصول إلى العرض أو تعديله بدون قيود. 
 
-لإزالة التشفير أو حماية كلمة المرور، عليك استدعاء طريقة [RemoveEncryption](https://reference.aspose.com/slides/cpp/class/aspose.slides.protection_manager#a422059278b430a0493680252aa975d4d). يوضح هذا الكود المثال كيفية إزالة التشفير من عرض تقديمي:
+لإزالة التشفير أو حماية كلمة المرور، عليك استدعاء طريقة [RemoveEncryption](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.protection_manager#a422059278b430a0493680252aa975d4d). يُظهر لك هذا المثال البرمجي كيفية إزالة التشفير من عرض تقديمي:
+
 ``` cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto loadOptions = System::MakeObject<LoadOptions>();
 loadOptions->set_Password(u"123123");
     
@@ -159,100 +181,165 @@ presentation->get_ProtectionManager()->RemoveEncryption();
 presentation->Save(u"encryption-removed.pptx", SaveFormat::Pptx);
 ```
 
+## **إزالة حماية الكتابة من عرض تقديمي**
 
-## **إزالة حماية كتابة من عرض تقديمي**
+يمكنك استخدام Aspose.Slides لإزالة حماية الكتابة المستخدمة على ملف عرض تقديمي. بهذه الطريقة، يمكن للمستخدمين التعديل كما يشاؤون—بدون أي تحذيرات عند القيام بهذه المهام.
 
-يمكنك باستخدام Aspose.Slides إزالة حماية الكتابة المستخدمة على ملف عرض تقديمي. بهذه الطريقة، يستطيع المستخدمون التعديل بحرية ولا يحصلون على أي تحذيرات عند القيام بذلك.
+يمكنك إزالة حماية الكتابة من عرض تقديمي باستخدام طريقة [RemoveWriteProtection](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.protection_manager#a9f9e6de5983965157dac0f270a0a9e50). يُظهر لك هذا المثال البرمجي كيفية إزالة حماية الكتابة من عرض تقديمي:
 
-يمكنك إزالة حماية الكتابة من عرض تقديمي باستخدام طريقة [RemoveWriteProtection](https://reference.aspose.com/slides/cpp/class/aspose.slides.protection_manager#a9f9e6de5983965157dac0f270a0a9e50). يوضح هذا الكود المثال كيفية إزالة حماية الكتابة من عرض تقديمي:
 ``` cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
 
 presentation->get_ProtectionManager()->RemoveWriteProtection();
 presentation->Save(u"write-protection-removed.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **الحصول على خصائص عرض مشفر**
 
-عادةً ما يواجه المستخدمون صعوبة في الحصول على خصائص مستند عرض مشفر أو محمي بكلمة مرور. ومع ذلك، يوفر Aspose.Slides آلية تسمح لك بحماية عرض تقديمي بكلمة مرور مع الحفاظ على إمكانية وصول المستخدمين إلى خصائص ذلك العرض.
+عادةً، يواجه المستخدمون صعوبة في استرجاع خصائص المستند لعرض مشفر أو محمي بكلمة مرور. ومع ذلك، يوفر Aspose.Slides آلية تتيح لك حماية عرض تقديمي بكلمة مرور مع الحفاظ على إمكانية الوصول إلى خصائص المستند الخاصة به.
 
-**ملاحظة** أنه عندما يقوم Aspose.Slides بتشفير عرض تقديمي، تصبح خصائص وثيقة العرض محمية بكلمة مرور افتراضياً. ولكن إذا رغبت في جعل خصائص العرض متاحة (حتى بعد تشفير العرض)، يتيح لك Aspose.Slides فعل ذلك بالضبط. 
+**ملاحظة:** بشكل افتراضي، عندما يقوم Aspose.Slides بتشفير عرض تقديمي، تكون خصائص مستند العرض محمية أيضًا بكلمة مرور. إذا كنت بحاجة إلى جعل خصائص المستند متاحة حتى بعد التشفير، يتيح لك Aspose.Slides القيام بذلك بالضبط.
 
-إذا أردت أن يحتفظ المستخدمون بإمكانيتهم على الوصول إلى خصائص عرض قمت بتشفيره، يمكنك تمرير `true` إلى طريقة [set_EncryptDocumentProperties()](https://reference.aspose.com/slides/cpp/class/aspose.slides.protection_manager#a67e041b432552969d106f72fa7fe5a1d). يوضح هذا الكود المثال كيفية تشفير عرض تقديمي مع إتاحة الوصول إلى خصائصه للمستخدمين:
+إذا كنت تريد أن يحتفظ المستخدمون بإمكانية الوصول إلى خصائص عرض مشفر، مرّر `false` إلى طريقة `set_EncryptDocumentProperties` في [IProtectionManager](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iprotectionmanager/). يُظهر لك هذا المثال البرمجي كيفية تشفير عرض تقديمي مع الاستمرار في توفير إمكانية وصول المستخدمين إلى خصائص مستنده:
+
 ``` cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
 auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
 
-presentation->get_ProtectionManager()->set_EncryptDocumentProperties(true);
+presentation->get_ProtectionManager()->set_EncryptDocumentProperties(false);
 presentation->get_ProtectionManager()->Encrypt(u"123123");
+presentation->Save(u"encrypted-pres.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+## **تحميل خصائص المستند فقط من عرض مشفر**
 
-## **التحقق ما إذا كان العرض محمياً بكلمة مرور**
+لفحص بيانات التعريف لعرض مشفر دون تحميل شريحاته أو محتوياته الأخرى، أنشئ كائنًا من نوع [LoadOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides/loadoptions/) واضبط [set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/ar/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) على `true`. في هذا الوضع، يتجاهل Aspose.Slides كلمة المرور ويحمل فقط خصائص المستند المتاحة للجمهور.
 
-قبل تحميل عرض تقديمي، قد ترغب في التحقق والتأكد من أن العرض لم يُحمّى بكلمة مرور. بهذه الطريقة، تتجنب الأخطاء والمشكلات المشابهة التي تحدث عند تحميل عرض محمٍ دون كلمة المرور.
+الكود التالي يقرأ خصائص المستند المدمجة والمخصصة عبر [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentation/get_documentproperties/):
 
-يظهر هذا الكود C++ كيفية فحص عرض لتحديد ما إذا كان محمياً بكلمة مرور (بدون تحميل العرض نفسه):
+``` cpp
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_OnlyLoadDocumentProperties(true);
+
+auto presentation = MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
+auto documentProperties = presentation->get_DocumentProperties();
+
+// Read built-in document properties.
+auto title = documentProperties->get_Title();
+auto author = documentProperties->get_Author();
+Console::WriteLine(String(u"Title: ") + title);
+Console::WriteLine(String(u"Author: ") + author);
+
+// Read custom document properties.
+int customPropertyCount = documentProperties->get_CountOfCustomProperties();
+
+for (int propertyIndex = 0; propertyIndex < customPropertyCount; propertyIndex++)
+{
+    auto propertyName = documentProperties->GetCustomPropertyName(propertyIndex);
+    auto propertyValue = documentProperties->idx_get(propertyName);
+    auto propertyValueText = ObjectExt::ToString(propertyValue);
+
+    Console::WriteLine(propertyName + u": " + propertyValueText);
+}
+
+presentation->Dispose();
+```
+
+يعمل هذا التدفق فقط عندما تُركت خصائص المستند غير مشفرة (عامة) عند تشفير العرض. إذا كانت خصائص المستند مشفرة، فإن ضبط `LoadOptions::set_OnlyLoadDocumentProperties` على `true` يسبب استثناءً لأن كلمة المرور تُتجاهل في هذا الوضع. للوصول إلى خصائص المستند المشفرة أو تحميل العرض الكامل، بما في ذلك شريحاته ومحتوياته الأخرى، قدّم كلمة المرور الصحيحة باستخدام `LoadOptions::set_Password` في [LoadOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides/loadoptions/).
+
+## **التحقق مما إذا كان العرض محميًا بكلمة مرور**
+
+قبل تحميل عرض تقديمي، قد ترغب في التحقق والتأكد من أن العرض لم يُحمََّى بكلمة مرور. بهذه الطريقة، يمكنك تجنب الأخطاء والمشكلات المشابهة التي تحدث عندما يُحمَّى عرض بكلمة مرور ويتم تحميله دون كلمة المرور.
+
+يعرض لك هذا الكود بلغة C++ كيفية فحص عرض تقديمي لمعرفة ما إذا كان محميًا بكلمة مرور (بدون تحميل العرض نفسه):
+
 ```c++
+#include <DOM/IPresentationInfo.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(u"example.pptx");
 System::Console::WriteLine(System::String(u"The presentation is password protected: ") +
                            presentationInfo->get_IsPasswordProtected());
 ```
 
+## **التحقق مما إذا كان العرض مشفرًا**
 
-## **التحقق ما إذا كان العرض مشفرًا**
+يتيح لك Aspose.Slides التحقق مما إذا كان العرض مشفرًا. للقيام بهذه المهمة، يمكنك استخدام طريقة [get_IsEncrypted()](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.protection_manager#ad88b984e44b378f335317ded49b34e68)، التي تُرجع `true` إذا كان العرض مشفرًا أو `false` إذا لم يكن مشفرًا.
 
-يسمح Aspose.Slides لك بالتحقق ما إذا كان العرض مشفرًا. للقيام بذلك، يمكنك استخدام طريقة [get_IsEncrypted()](https://reference.aspose.com/slides/cpp/class/aspose.slides.protection_manager#ad88b984e44b378f335317ded49b34e68) التي تُرجع `true` إذا كان العرض مشفرًا أو `false` إذا لم يكن مشفرًا. 
+يُظهر لك هذا المثال البرمجي كيفية التحقق مما إذا كان العرض مشفرًا:
 
-يظهر هذا الكود المثال كيفية التحقق ما إذا كان العرض مشفرًا:
 ``` cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
 auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
 
 bool isEncrypted = presentation->get_ProtectionManager()->get_IsEncrypted();
 ```
 
+## **التحقق مما إذا كان العرض محميًا من الكتابة**
 
-## **التحقق ما إذا كان العرض محمياً بحماية كتابة**
+يتيح لك Aspose.Slides التحقق مما إذا كان العرض محميًا من الكتابة. للقيام بهذه المهمة، يمكنك استخدام طريقة [get_IsWriteProtected()](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.protection_manager#a0b4a82c0f7b3a32ca5762c5fcc8844a2)، التي تُرجع `true` إذا كان العرض محميًا من الكتابة أو `false` إذا لم يكن كذلك.
 
-يسمح Aspose.Slides لك بالتحقق ما إذا كان العرض محمياً بحماية كتابة. للقيام بذلك، يمكنك استخدام طريقة [get_IsWriteProtected()](https://reference.aspose.com/slides/cpp/class/aspose.slides.protection_manager#a0b4a82c0f7b3a32ca5762c5fcc8844a2) التي تُرجع `true` إذا كان العرض محمياً بحماية كتابة أو `false` إذا لم يكن كذلك. 
+يُظهر لك هذا المثال البرمجي كيفية التحقق مما إذا كان العرض محميًا من الكتابة:
 
-يظهر هذا الكود المثال كيفية التحقق ما إذا كان العرض محمياً بحماية كتابة:
 ``` cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
 auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
 
 bool isEncrypted = presentation->get_ProtectionManager()->get_IsWriteProtected();
 ```
 
+## **التحقق من استخدام كلمة مرور العرض**
 
-## **التحقق من استخدام كلمة مرور للعرض**
+قد ترغب في التحقق والتأكد من أن كلمة مرور معينة تم استخدامها لحماية مستند العرض. يوفر لك Aspose.Slides الوسيلة للتحقق من صحة كلمة المرور.
 
-قد ترغب في التحقق والتأكد من أن كلمة مرور معينة تم استخدامها لحماية مستند عرض تقديمي. يوفر Aspose.Slides الوسائل للتحقق من صحة كلمة المرور. 
+يُظهر لك هذا المثال البرمجي كيفية التحقق من كلمة المرور:
 
-يظهر هذا الكود المثال كيفية التحقق من كلمة مرور:
 ``` cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 
-// تحقق مما إذا كانت كلمة المرور "pass" مطابقة
+// تحقق مما إذا كان "pass" متطابقًا
 bool isWriteProtected = pres->get_ProtectionManager()->CheckWriteProtection(u"my_password");
 ```
 
+تُعيد `true` إذا تم تشفير العرض باستخدام كلمة المرور المحددة. وإلا، تُعيد `false`.
 
-يُعيد `true` إذا كان العرض مشفرًا باستخدام كلمة المرور المحددة. وإلا، يُعيد `false`. 
-
-{{% alert color="primary" title="انظر أيضًا" %}} 
+{{% alert color="info" title="انظر أيضًا" %}} 
 - [التوقيع الرقمي في PowerPoint](/slides/ar/cpp/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **الأسئلة الشائعة**
 
-**ما هي أساليب التشفير المدعومة من Aspose.Slides؟**
+**ما هي طرق التشفير التي يدعمها Aspose.Slides؟**
 
 يدعم Aspose.Slides أساليب تشفير حديثة، بما في ذلك الخوارزميات القائمة على AES، مما يضمن مستوى عالٍ من أمان البيانات لعروضك التقديمية.
 
 **ماذا يحدث إذا تم إدخال كلمة مرور غير صحيحة عند محاولة فتح عرض تقديمي؟**
 
-يتم طرح استثناء إذا استخدمت كلمة مرور غير صحيحة، مما يُظهر أن الوصول إلى العرض مرفوض. يساعد هذا على منع الوصول غير المصرح به وحماية محتوى العرض.
+يُرفع استثناء إذا تم استخدام كلمة مرور غير صحيحة، مما يُنبهك بأن الوصول إلى العرض مرفوض. يساعد ذلك على منع الوصول غير المصرح به وحماية محتوى العرض.
 
-**هل هناك أي تأثيرات على الأداء عند العمل مع عروض محمية بكلمة مرور؟**
+**هل هناك أي تبعات على الأداء عند التعامل مع عروض محمية بكلمة مرور؟**
 
-قد يؤدي عملية التشفير وفك التشفير إلى إدخال تحميل بسيط أثناء عمليات الفتح والحفظ. في معظم الحالات، يكون هذا التأثير على الأداء ضئيلًا ولا يؤثر بشكل كبير على الوقت الكلي لمعالجة مهام العرض.
+قد يتسبب عملية التشفير وفك التشفير في إضافة عبء بسيط أثناء عمليات الفتح والحفظ. في معظم الحالات، يكون لهذا التأثير على الأداء ضئيلًا ولا يؤثر بشكل كبير على الوقت الكلي لمعالجة مهام العرض التقديمي.

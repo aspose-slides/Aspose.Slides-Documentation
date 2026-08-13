@@ -1,5 +1,5 @@
 ---
-title: Hantera VBA‑projekt i presentationer med Java
+title: Hantera VBA-projekt i presentationer med Java
 linktitle: Presentation via VBA
 type: docs
 weight: 250
@@ -19,17 +19,17 @@ keywords:
 - presentation
 - Java
 - Aspose.Slides
-description: "Upptäck hur du skapar och manipulerar PowerPoint‑ och OpenDocument‑presentationer via VBA med Aspose.Slides för Java för att effektivisera ditt arbetsflöde."
+description: "Upptäck hur du skapar och manipulerar PowerPoint- och OpenDocument-presentationer via VBA med Aspose.Slides för Java för att effektivisera ditt arbetsflöde."
 ---
 ## **Introduktion**
 
 Aspose.Slides tillhandahåller klasser och gränssnitt för att arbeta med makron och VBA‑kod.
 
-{{% alert title="Note" color="warning" %}} 
+{{% alert title="Obs" color="warning" %}} 
 
 När du konverterar en presentation som innehåller makron till ett annat filformat (PDF, HTML osv.) ignorerar Aspose.Slides alla makron (makron överförs inte till den resulterande filen).
 
-När du lägger till makron i en presentation eller sparar om en presentation som innehåller makron, skriver Aspose.Slides helt enkelt ut bytes för makrona.
+När du lägger till makron i en presentation eller sparar om en presentation som innehåller makron skriver Aspose.Slides helt enkelt bytes för makrona.
 
 Aspose.Slides **aldrig** kör makron i en presentation.
 
@@ -40,15 +40,17 @@ Aspose.Slides **aldrig** kör makron i en presentation.
 Aspose.Slides tillhandahåller klassen [VbaProject](https://reference.aspose.com/slides/sv/java/com.aspose.slides/vbaproject/) för att låta dig skapa VBA‑projekt (och projektreferenser) och redigera befintliga moduler. Du kan använda gränssnittet [IVbaProject](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ivbaproject/) för att hantera VBA som är inbäddat i en presentation.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation).
-1. Använd [VbaProject](https://reference.aspose.com/slides/sv/java/com.aspose.slides/vbaproject/#VbaProject--)‑konstruktorn för att lägga till ett nytt VBA‑projekt.
-1. Lägg till en modul i VbaProject.
-1. Ange modulens källkod.
-1. Lägg till referenser till <stdole>.
-1. Lägg till referenser till **Microsoft Office**.
-1. Associera referenserna med VBA‑projektet.
-1. Spara presentationen.
+2. Använd konstruktorn för [VbaProject](https://reference.aspose.com/slides/sv/java/com.aspose.slides/vbaproject/#VbaProject--) för att lägga till ett nytt VBA‑projekt.
+3. Lägg till en modul i VbaProject.
+4. Ange modulkällkoden.
+5. Lägg till referenser till <stdole>.
+6. Lägg till referenser till **Microsoft Office**.
+7. Associera referenserna med VBA‑projektet.
+8. Spara presentationen.
 
 ```java
+import com.aspose.slides.*;
+
 // Skapar en instans av presentationsklassen
 Presentation pres = new Presentation();
 try {
@@ -79,25 +81,27 @@ try {
 }
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Du kanske vill kolla in **Aspose** [Macro Remover](https://products.aspose.app/slides/sv/remove-macros), som är en gratis webbapp för att ta bort makron från PowerPoint-, Excel- och Word-dokument. 
+Du kanske vill titta på **Aspose** [Macro Remover](https://products.aspose.app/slides/sv/remove-macros), som är en gratis webbapp som används för att ta bort makron från PowerPoint-, Excel- och Word‑dokument. 
 
 {{% /alert %}} 
 
 ## **Ta bort VBA‑makron**
 
-Genom att använda egenskapen [VbaProject](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/#getVbaProject--) under klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation), kan du ta bort ett VBA‑makro.
+Genom att använda egenskapen [VbaProject](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/#getVbaProject--) under klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation) kan du ta bort ett VBA‑makro.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation) och läs in presentationen som innehåller makrot.
-1. Kom åt makromodulen och ta bort den.
-1. Spara den ändrade presentationen.
+2. Kom åt makro‑modulen och ta bort den.
+3. Spara den modifierade presentationen.
 
 ```java
+import com.aspose.slides.*;
+
 // Laddar presentationen som innehåller makrot
 Presentation pres = new Presentation("VBA.pptm");
 try {
-    // Åtkomst till Vba‑modulen och tar bort den 
+    // Kommer åt Vba-modulen och tar bort den 
     pres.getVbaProject().getModules().remove(pres.getVbaProject().getModules().get_Item(0));
     
     // Sparar presentationen
@@ -111,9 +115,11 @@ try {
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation) och läs in presentationen som innehåller makrot.
 2. Kontrollera om presentationen innehåller ett VBA‑projekt.
-3. Iterera genom alla moduler som ingår i VBA‑projektet för att visa makrona.
+3. Iterera genom alla moduler i VBA‑projektet för att visa makron.
 
 ```java
+import com.aspose.slides.*;
+
 // Laddar presentationen som innehåller makrot
 Presentation pres = new Presentation("VBA.pptm");
 try {
@@ -136,9 +142,11 @@ Genom att använda metoden [IVbaProject.isPasswordProtected](https://reference.a
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/) och läs in en presentation som innehåller ett makro.
 2. Kontrollera om presentationen innehåller ett [VBA‑projekt](https://reference.aspose.com/slides/sv/java/com.aspose.slides/vbaproject/).
-3. Kontrollera om VBA‑projektet är lösenordsskyddat för att visa dess egenskaper.
+3. Kontrollera om VBA‑projektet är lösenordsskyddat för att kunna se dess egenskaper.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("VBA.pptm");
 try {
     if (presentation.getVbaProject() != null) { // Kontrollera om presentationen innehåller ett VBA‑projekt.
@@ -154,14 +162,14 @@ try {
 
 ## **FAQ**
 
-**Vad händer med makron om jag sparar presentationen som PPTX?**
+### Vad händer med makron om jag sparar presentationen som PPTX?
 
-Makron kommer att tas bort eftersom PPTX inte stöder VBA. För att behålla makron, välj PPTM, PPSM eller POTM.
+Makron tas bort eftersom PPTX inte stöder VBA. För att behålla makron, välj PPTM, PPSM eller POTM.
 
-**Kan Aspose.Slides köra makron i en presentation för att exempelvis uppdatera data?**
+### Kan Aspose.Slides köra makron i en presentation för att exempelvis uppdatera data?
 
-Nej. Biblioteket kör aldrig VBA‑kod; körning är endast möjlig i PowerPoint med rätt säkerhetsinställningar.
+Nej. Biblioteket kör aldrig VBA‑kod; exekvering är endast möjlig i PowerPoint med lämpliga säkerhetsinställningar.
 
-**Stöds arbete med ActiveX‑kontroller som är länkade till VBA‑kod?**
+### Stöds arbete med ActiveX‑kontroller som är länkade till VBA‑kod?
 
-Ja, du kan komma åt befintliga [ActiveX controls](/slides/sv/java/activex/), ändra deras egenskaper och ta bort dem. Detta är användbart när makron interagerar med ActiveX.
+Ja, du kan komma åt befintliga [ActiveX‑kontroller](/slides/sv/java/activex/), ändra deras egenskaper och ta bort dem. Detta är användbart när makron interagerar med ActiveX.

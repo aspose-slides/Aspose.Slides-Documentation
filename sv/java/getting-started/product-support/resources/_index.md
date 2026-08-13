@@ -15,16 +15,18 @@ keywords:
 - presentation
 - Java
 - Aspose.Slides
-description: "Upptäck viktiga Aspose.Slides for Java-resurser—från nedladdningar och dokumentation till forum och blogguppdateringar—för att förbättra arbetet med PPT, PPTX och ODP."
+description: "Upptäck viktiga Aspose.Slides för Java-resurser - från nedladdningar och dokumentation till forum och blogguppdateringar - för att förbättra arbetet med PPT, PPTX och ODP."
 ---
-{{% alert color="primary" %}} 
-Den här tabellen listar viktiga tekniska resurser för Aspose.Slides for Java. 
+{{% alert color="info" %}} 
+
+Den här tabellen listar viktiga tekniska resurser för Aspose.Slides för Java. 
+
 {{% /alert %}} 
 
 |**Resurs**|**Beskrivning**|
 | :- | :- |
-|[Aspose.Slides för Java hemsida](https://products.aspose.com/slides/sv/java/)|Produktens startsida.|
-|[Aspose.Slides blogg](https://blog.aspose.com/category/slides/sv/)|Kolla ofta här för information om nya releaser och användbara tips om Aspose.Slides.|
-|[Aspose.Slides för Java nedladdning](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)|Ladda ner den senaste versionen av Aspose.Slides här. Vi släpper ofta nya versioner.|
+|[Aspose.Slides för Java hemsida](https://products.aspose.com/slides/sv/java/)|Produktsida.|
+|[Aspose.Slides‑blogg](https://blog.aspose.com/category/slides/sv/)|Kontrollera den här ofta för information om nya releaser och användbara tips om Aspose.Slides.|
+|[Aspose.Slides för Java nedladdning](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)|Ladda ner den senaste versionen av Aspose.Slides här. Vi släpper ofta.|
 |[Aspose.Slides supportforum](https://forum.aspose.com/c/slides/sv/11)|Posta dina frågor och problem här för en snabb lösning.|
-|[Aspose.Slides för Java produktdokumentation](/slides/sv/java/)|Fullständig online-dokumentation som inkluderar denna dokumentation samt Aspose.Slides API-referens.|
+|[Aspose.Slides för Java produktdokumentation](/slides/sv/java/)|Fullständig online‑dokumentation som inkluderar denna dokumentation samt Aspose.Slides API‑referens.|

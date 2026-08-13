@@ -5,58 +5,51 @@ type: docs
 weight: 90
 url: /th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-7-0/
 keywords:
-- การย้าย
+- การย้ายข้อมูล
 - โค้ดเก่า
 - โค้ดสมัยใหม่
-- แนวทางเก่า
-- แนวทางสมัยใหม่
+- วิธีการเก่า
+- วิธีการสมัยใหม่
 - PowerPoint
 - OpenDocument
-- งานนำเสนอ
+- การนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "ตรวจสอบการอัปเดต API สาธารณะและการเปลี่ยนแปลงที่ทำให้ระบบเสียหายใน Aspose.Slides สำหรับ .NET เพื่อการย้ายโซลูชันงานนำเสนอ PowerPoint PPT, PPTX และ ODP ของคุณอย่างราบรื่น."
+description: "ตรวจสอบการอัปเดต API สาธารณะและการเปลี่ยนแปลงที่ทำให้เกิดการหยุดทำงานใน Aspose.Slides สำหรับ .NET เพื่อย้ายโซลูชันการนำเสนอ PowerPoint PPT, PPTX และ ODP ของคุณอย่างราบรื่น"
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}}
 
-หน้านี้แสดงรายการทั้งหมดของคลาส, เมธอด, คุณสมบัติ ฯลฯ ที่[added](/slides/th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-7-0/) หรือ[removed](/slides/th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-7-0/) รวมถึงการเปลี่ยนแปลงอื่น ๆ ที่แนะนำมาพร้อมกับ Aspose.Slides for .NET 14.7.0 API.
+หน้านี้แสดงรายการทั้งหมดของคลาส, เมธอด, คุณสมบัติ ฯลฯ ที่[เพิ่ม](/slides/th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-7-0/)หรือ[ลบ](/slides/th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-7-0/)และการเปลี่ยนแปลงอื่น ๆ ที่แนะนำใน Aspose.Slides for .NET 14.7.0 API.
 
 {{% /alert %}} 
 ## **การเปลี่ยนแปลง Public API**
-### **ลบคอนสตรัคเตอร์และองค์ประกอบ**
-#### **ลบคอนสตรัคเตอร์ของบาง Subtype ของ TransitionValueBase และ TransitionValueFactory**
-คอนสตรัคเตอร์ของบาง Subtype ของ TransitionValueBase (โดยเฉพาะ CornerDirectionTransition, EightDirectionTransition, EmptyTransition, InOutTransition, OptionalBlackTransition, OrientationTransition, SideDirectionTransition, SplitTransition, WheelTransition) ไม่มีประโยชน์ใน Public API ดังนั้นจึงถูกลบออก
+### **ตัวสร้างและองค์ประกอบที่ถูกลบ**
+#### **ลบตัวสร้างบางชนิดของ TransitionValueBase Subtype และ TransitionValueFactory**
+ตัวสร้างของบางชนิดย่อยของ TransitionValueBase (โดยเฉพาะ CornerDirectionTransition, EightDirectionTransition, EmptyTransition, InOutTransition, OptionalBlackTransition, OrientationTransition, SideDirectionTransition, SplitTransition, WheelTransition) ไม่มีประโยชน์ใน Public API จึงถูกลบออก
 
 คลาสที่เกี่ยวข้อง TransitionValueFactory และอินเทอร์เฟซ ITransitionValueFactory ถูกลบออกด้วยเหตุผลเดียวกัน
-
-#### **ลบองค์ประกอบ SoundAction จากการนับจำนวน Aspose.Slides.SlideShow.TransitionType**
-องค์ประกอบ SoundAction ไม่ถูกต้องและไม่ได้ใช้ การตั้งค่าเสียงถูกกำหนดโดยคุณสมบัติ SlideShowTransition.SoundMode, .Sound, .SoundLoop, .SoundIsBuiltIn, .SoundName
-
+#### **ลบองค์ประกอบ SoundAction จาก enumeration Aspose.Slides.SlideShow.TransitionType**
+องค์ประกอบ SoundAction ไม่ถูกต้องและไม่ได้ใช้ การตั้งค่าเสียงกำหนดโดยคุณสมบัติ SlideShowTransition.SoundMode, .Sound, .SoundLoop, .SoundIsBuiltIn, .SoundName
 ### **เพิ่มคลาสและอินเทอร์เฟซ**
 #### **เพิ่มคลาส FlyThroughTransition และอินเทอร์เฟซ IFlyThroughTransition**
-คลาส Aspose.Slides.SlideShow.FlyThroughTransition (และอินเทอร์เฟซ Aspose.Slides.SlideShow.IFlyThroughTransition) เกี่ยวข้องกับประเภทการเปลี่ยนผ่าน Flythrough ที่สนับสนุนตั้งแต่รุ่นนี้
+คลาส Aspose.Slides.SlideShow.FlyThroughTransition (และอินเทอร์เฟซ Aspose.Slides.SlideShow.IFlyThroughTransition) เกี่ยวกับประเภทการเปลี่ยนแปลง Flythrough ที่รองรับตั้งแต่รุ่นนี้
+#### **เพิ่มคลาส GlitterTransition, อินเทอร์เฟซ IGlitterTransition และ enumeration TransitionPattern**
+คลาส Aspose.Slides.SlideShow.GlitterTransition (และอินเทอร์เฟซ Aspose.Slides.SlideShow.IGlitterTransition) เกี่ยวกับประเภทการเปลี่ยนแปลง Glitter ที่รองรับตั้งแต่รุ่นนี้
 
-#### **เพิ่มคลาส GlitterTransition, อินเทอร์เฟซ IGlitterTransition และการนับจำนวน TransitionPattern**
-คลาส Aspose.Slides.SlideShow.GlitterTransition (และอินเทอร์เฟซ Aspose.Slides.SlideShow.IGlitterTransition) เกี่ยวข้องกับประเภทการเปลี่ยนผ่าน Glitter ที่สนับสนุนตั้งแต่รุ่นนี้
+enumeration Aspose.Slides.SlideShow.TransitionPattern ถูกใช้ในคลาสนี้และระบุรูปแบบเรขาคณิตที่นำมาประกอบกันเพื่อเติมพื้นที่ที่ใหญ่กว่า
+#### **เพิ่มคลาส LeftRightDirectionTransition, อินเทอร์เฟซ ILeftRightDirectionTransition และ enumeration TransitionLeftRightDirectionType**
+คลาส Aspose.Slides.SlideShow.LeftRightDirectionTransition (และอินเทอร์เฟซ Aspose.Slides.SlideShow.ILeftRightDirectionTransition) เกี่ยวกับประเภทการเปลี่ยนแปลง Conveyor, Ferris, Flip, Gallery และ Switch ทั้งหมดรองรับตั้งแต่รุ่นนี้
 
-การนับจำนวน Aspose.Slides.SlideShow.TransitionPattern ถูกใช้ในคลาสนี้และระบุรูปแบบเรขาคณิตที่ต่อกันเพื่อเติมพื้นที่ขนาดใหญ่
+enumeration Aspose.Slides.SlideShow.TransitionLeftRightDirectionType ถูกใช้ในคลาสนี้และระบุทิศทางที่จำกัดให้เป็นค่า left และ right
+#### **เพิ่มองค์ประกอบใหม่ใน enumeration Aspose.Slides.SlideShow.TransitionType**
+enumeration Aspose.Slides.SlideShow.TransitionType ได้รับการขยายด้วยองค์ประกอบใหม่
 
-#### **เพิ่มคลาส LeftRightDirectionTransition, อินเทอร์เฟซ ILeftRightDirectionTransition และการนับจำนวน TransitionLeftRightDirectionType**
-คลาส Aspose.Slides.SlideShow.LeftRightDirectionTransition (และอินเทอร์เฟซ Aspose.Slides.SlideShow.ILeftRightDirectionTransition) เกี่ยวข้องกับประเภทการเปลี่ยนผ่าน Conveyor, Ferris, Flip, Gallery และ Switch ทั้งหมดรองรับตั้งแต่รุ่นนี้
-
-การนับจำนวน Aspose.Slides.SlideShow.TransitionLeftRightDirectionType ถูกใช้ในคลาสนี้และระบุทิศทางที่จำกัดไว้ที่ค่าซ้ายและขวา
-
-#### **เพิ่มองค์ประกอบใหม่ในการนับจำนวน Aspose.Slides.SlideShow.TransitionType**
-การนับจำนวน Aspose.Slides.SlideShow.TransitionType ได้รับการขยายด้วยองค์ประกอบใหม่
-
-- องค์ประกอบใหม่ที่เกี่ยวข้องกับการเปลี่ยนผ่านของ PowerPoint 2010: Box, Conveyor, Cube, Doors, Ferris, Flash, Flip, Flythrough, Gallery, Glitter, Honeycomb, Orbit, Pan, Reveal, Ripple, Rotate, Shred, Switch, Vortex, Warp, WheelReverse, Window
-- องค์ประกอบใหม่ที่เกี่ยวข้องกับการเปลี่ยนผ่านของ PowerPoint 2013: Airplane, Crush, Curtains, Drape, FallOver, Fracture, Origami, PageCurlDouble, PageCurlSingle, PeelOff, Prestige, Wind
-
+- องค์ประกอบใหม่ที่เกี่ยวข้องกับการเปลี่ยนแปลง PowerPoint 2010: Box, Conveyor, Cube, Doors, Ferris, Flash, Flip, Flythrough, Gallery, Glitter, Honeycomb, Orbit, Pan, Reveal, Ripple, Rotate, Shred, Switch, Vortex, Warp, WheelReverse, Window.
+- องค์ประกอบใหม่ที่เกี่ยวข้องกับการเปลี่ยนแปลง PowerPoint 2013: Airplane, Crush, Curtains, Drape, FallOver, Fracture, Origami, PageCurlDouble, PageCurlSingle, PeelOff, Prestige, Wind.
 #### **เพิ่มคลาส RevealTransition และอินเทอร์เฟซ IRevealTransition**
-คลาส Aspose.Slides.SlideShow.RevealTransition (และอินเทอร์เฟซ Aspose.Slides.SlideShow.IRevealTransition) เกี่ยวข้องกับประเภทการเปลี่ยนผ่าน Reveal ที่สนับสนุนตั้งแต่รุ่นนี้
+คลาส Aspose.Slides.SlideShow.RevealTransition (และอินเทอร์เฟซ Aspose.Slides.SlideShow.IRevealTransition) เกี่ยวกับประเภทการเปลี่ยนแปลง Reveal ที่รองรับตั้งแต่รุ่นนี้
+#### **เพิ่มคลาส RippleTransition, อินเทอร์เฟซ IRippleTransition และ enumeration TransitionCornerAndCenterDirectionType**
+คลาส Aspose.Slides.SlideShow.RippleTransition (และอินเทอร์เฟซ Aspose.Slides.SlideShow.IRippleTransition) เกี่ยวกับประเภทการเปลี่ยนแปลง Ripple ที่รองรับตั้งแต่รุ่นนี้
 
-#### **เพิ่มคลาส RippleTransition, อินเทอร์เฟซ IRippleTransition และการนับจำนวน TransitionCornerAndCenterDirectionType**
-คลาส Aspose.Slides.SlideShow.RippleTransition (และอินเทอร์เฟซ Aspose.Slides.SlideShow.IRippleTransition) เกี่ยวข้องกับประเภทการเปลี่ยนผ่าน Ripple ที่สนับสนุนตั้งแต่รุ่นนี้
-
-การนับจำนวน Aspose.Slides.SlideShow.TransitionCornerAndCenterDirectionType ถูกใช้ในคลาสนี้และระบุทิศทางที่จำกัดไว้ที่มุมและศูนย์กลาง
+enumeration Aspose.Slides.SlideShow.TransitionCornerAndCenterDirectionType ถูกใช้ในคลาสนี้และระบุทิศทางที่จำกัดให้เป็นมุมและศูนย์กลาง

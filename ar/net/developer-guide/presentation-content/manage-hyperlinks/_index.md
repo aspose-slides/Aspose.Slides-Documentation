@@ -1,6 +1,6 @@
 ---
-title: إدارة الروابط التشعبية للعرض التقديمي في .NET
-linktitle: إدارة الرابط التشعبي
+title: إدارة ارتباطات العرض التقديمي في .NET
+linktitle: إدارة الارتباط التشعبي
 type: docs
 weight: 20
 url: /ar/net/manage-hyperlinks/
@@ -11,11 +11,11 @@ keywords:
 - تنسيق ارتباط تشعبي
 - إزالة ارتباط تشعبي
 - تحديث ارتباط تشعبي
-- ارتباط تشعبي نصي
-- ارتباط تشعبي شريحة
-- ارتباط تشعبي شكل
-- ارتباط تشعبي صورة
-- ارتباط تشعبي فيديو
+- ارتباط تشعبي للنص
+- ارتباط تشعبي للشرائح
+- ارتباط تشعبي للشكل
+- ارتباط تشعبي للصورة
+- ارتباط تشعبي للفيديو
 - ارتباط تشعبي قابل للتعديل
 - PowerPoint
 - OpenDocument
@@ -23,28 +23,31 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "إدارة الروابط التشعبية بسهولة في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides for .NET—عزز التفاعل وسير العمل في دقائق."
+description: "إدارة الارتباطات التشعبية بسهولة في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides for .NET—حسّن التفاعل وسير العمل خلال دقائق."
 ---
+## **المقدمة**
 
-الارتباط التشعبي هو إشارة إلى كائن أو بيانات أو موقع في شيء ما. هذه بعض الروابط التشعبية الشائعة في عروض PowerPoint:
+الارتباط التشعبي هو إشارة إلى كائن أو بيانات أو موقع في شيء ما. هذه أمثلة شائعة للارتباطات التشعبية في عروض PowerPoint:
 
-* روابط إلى مواقع ويب داخل النصوص أو الأشكال أو الوسائط
+* روابط إلى مواقع الويب داخل النصوص أو الأشكال أو الوسائط
 * روابط إلى الشرائح
 
-تتيح لك Aspose.Slides for .NET تنفيذ العديد من المهام المتعلقة بالروابط التشعبية في العروض التقديمية. 
+تتيح لك Aspose.Slides for .NET تنفيذ العديد من المهام المتعلقة بالارتباطات التشعبية في العروض التقديمية.
 
-{{% alert color="primary" %}} 
-
-قد ترغب في تجربة محرر PowerPoint المجاني على الإنترنت من Aspose، [محرر PowerPoint المجاني على الإنترنت.](https://products.aspose.app/slides/editor)
-
+{{% alert color="info" %}} 
+قد ترغب في تجربة محرر PowerPoint البسيط المجاني من Aspose، [محرر PowerPoint عبر الإنترنت مجاني.](https://products.aspose.app/slides/ar/editor)
 {{% /alert %}} 
 
-## **إضافة روابط تشعبية URL**
+## **إضافة روابط URL**
 
-### **إضافة روابط تشعبية URL إلى النص**
+### **إضافة روابط URL إلى النص**
 
-يعرض لك هذا الكود C# كيفية إضافة رابط تشعبي لموقع ويب إلى نص:
+يوضح لك هذا الكود C# كيفية إضافة ارتباط تشعبي لموقع ويب إلى نص:
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
 	IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -57,11 +60,14 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+### **إضافة روابط URL إلى الأشكال أو الإطارات**
 
-### **إضافة روابط تشعبية URL إلى الأشكال أو الإطارات**
+يوضح لك هذا المثال في C# كيفية إضافة ارتباط تشعبي لموقع ويب إلى شكل:
 
-يعرض لك هذا المثال بلغة C# كيفية إضافة رابط تشعبي لموقع ويب إلى شكل:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -73,18 +79,21 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+### **إضافة روابط URL إلى الوسائط**
 
-### **إضافة روابط تشعبية URL إلى الوسائط**
+تتيح لك Aspose.Slides إضافة ارتباطات تشعبية إلى الصور وملفات الصوت والفيديو. 
 
-تسمح لك Aspose.Slides بإضافة روابط تشعبية إلى الصور، والصوتيات، وملفات الفيديو. 
+يوضح لك هذا المثال كيفية إضافة ارتباط تشعبي إلى **صورة**:
 
-هذا المثال يوضح كيفية إضافة رابط تشعبي إلى **صورة**:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     // يضيف صورة إلى العرض التقديمي
     IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    // ينشئ إطار صورة على الشريحة 1 بناءً على الصورة المضافة مسبقًا
+    // ينشئ إطار صورة على الشريحة 1 استنادًا إلى الصورة المضافة مسبقًا
     IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
 
     pictureFrame.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
@@ -94,9 +103,12 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+يوضح لك هذا المثال كيفية إضافة ارتباط تشعبي إلى **ملف صوت**:
 
- هذا المثال يوضح كيفية إضافة رابط تشعبي إلى **ملف صوتي**:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IAudio audio = pres.Audios.AddAudio(File.ReadAllBytes("audio.mp3"));
@@ -109,9 +121,12 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+يوضح لك هذا المثال كيفية إضافة ارتباط تشعبي إلى **فيديو**:
 
- هذا المثال يوضح كيفية إضافة رابط تشعبي إلى **فيديو**:
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IVideo video = pres.Videos.AddVideo(File.ReadAllBytes("video.avi"));
@@ -124,20 +139,21 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-
-{{%  alert  title="Tip"  color="primary"  %}} 
-
-قد ترغب في الاطلاع على *[إدارة OLE](https://docs.aspose.com/slides/net/manage-ole/)*.
-
+{{%  alert  title="Tip"  color="info"  %}} 
+قد ترغب في مراجعة *[إدارة OLE](https://docs.aspose.com/slides/ar/net/manage-ole/)*.
 {{% /alert %}}
 
+## **استخدام الارتباطات التشعبية لإنشاء جدول المحتويات**
 
-## **استخدام الروابط التشعبية لإنشاء جدول محتويات**
+نظرًا لأن الارتباطات التشعبية تتيح لك إضافة إشارات إلى كائنات أو مواقع، يمكنك استخدامها لإنشاء جدول محتويات.
 
-نظرًا لأن الروابط التشعبية تسمح لك بإضافة إشارات إلى كائنات أو مواقع، يمكنك استخدامها لإنشاء جدول محتويات. 
+يوضح لك هذا المثال كيفية إنشاء جدول محتويات باستخدام الارتباطات التشعبية:
 
-هذا المثال يوضح كيفية إنشاء جدول محتويات باستخدام الروابط التشعبية:
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation())
 {
     var firstSlide = presentation.Slides[0];
@@ -164,15 +180,19 @@ using (var presentation = new Presentation())
 }
 ```
 
-
-## **تنسيق الروابط التشعبية**
+## **تنسيق الارتباطات التشعبية**
 
 ### **اللون**
 
-باستخدام خاصية [ColorSource](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/colorsource) في واجهة [IHyperlink](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink)، يمكنك تعيين اللون للروابط التشعبية والحصول أيضًا على معلومات اللون منها. تم تقديم هذه الميزة لأول مرة في PowerPoint 2019، لذا فإن التغييرات المتعلقة بهذه الخاصية لا تنطبق على إصدارات PowerPoint القديمة.
+باستخدام خاصية [ColorSource](https://reference.aspose.com/slides/ar/net/aspose.slides/ihyperlink/properties/colorsource) في واجهة [IHyperlink](https://reference.aspose.com/slides/ar/net/aspose.slides/ihyperlink)، يمكنك تعيين اللون للارتباطات التشعبية وكذلك الحصول على معلومات اللون منها. تم تقديم هذه الميزة لأول مرة في PowerPoint 2019، لذا لا تنطبق التغييرات المتعلقة بهذه الخاصية على إصدارات PowerPoint الأقدم.
 
-هذا المثال يوضح عملية إضافة روابط تشعبية بألوان مختلفة إلى نفس الشريحة:
+يوضح هذا المثال كيفية إضافة ارتباطات تشعبية بألوان مختلفة إلى نفس الشريحة:
+
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -189,17 +209,20 @@ using (Presentation presentation = new Presentation())
     presentation.Save("presentation-out-hyperlink.pptx", SaveFormat.Pptx);
 }
 ```
-
 ### **الصوت**
 
-توفر Aspose.Slides الخصائص التالية لتتمكن من تعزيز رابط تشعبي بصوت:
-- [IHyperlink.Sound](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/sound) 
-- [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/stopsoundonclick)
+توفر لك Aspose.Slides هذه الخصائص لتمكينك من التأكيد على ارتباط تشعبي بصوت:
+- [IHyperlink.Sound](https://reference.aspose.com/slides/ar/net/aspose.slides/ihyperlink/properties/sound) 
+- [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/ar/net/aspose.slides/ihyperlink/properties/stopsoundonclick)
 
-#### **إضافة صوت إلى رابط تشعبي**
+#### **إضافة صوت للارتباط التشعبي**
 
-يعرض لك هذا الكود C# كيفية تعيين رابط تشعبي يشغل صوتًا وإيقافه برابط تشعبي آخر:
+يوضح لك هذا الكود C# كيفية تعيين ارتباط تشعبي يشغل صوتًا وإيقافه باستخدام ارتباط تشعبي آخر:
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
 	// يضيف صوتًا جديدًا إلى مجموعة الأصوات في العرض التقديمي
@@ -211,17 +234,17 @@ using (Presentation pres = new Presentation())
 	IShape firstShape = firstSlide.Shapes.AddAutoShape(ShapeType.SoundButton, 100, 100, 100, 50);
 	firstShape.HyperlinkClick = Hyperlink.NextSlide;
 
-	// يتحقق من الارتباط التشعبي "بدون صوت"
+	// يفحص الارتباط التشعبي لـ "بدون صوت"
 	if (!firstShape.HyperlinkClick.StopSoundOnClick && firstShape.HyperlinkClick.Sound == null)
 	{
-		// يضبط الارتباط التشعبي الذي يعزف الصوت
+		// يضبط الارتباط التشعبي الذي يشغل الصوت
 		firstShape.HyperlinkClick.Sound = playSound;
 	}
 
 	// يضيف شريحة فارغة 
 	ISlide secondSlide = pres.Slides.AddEmptySlide(firstSlide.LayoutSlide);
 
-	// يضيف شكلًا جديدًا مع ارتباط تشعبي NoAction
+	// يضيف شكلًا جديدًا مع ارتباط NoAction
 	IShape secondShape = secondSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 100, 50);
 	secondShape.HyperlinkClick = Hyperlink.NoAction;
 
@@ -232,16 +255,18 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+#### **استخراج صوت الارتباط التشعبي**
 
-#### **استخراج صوت من رابط تشعبي**
+يوضح لك هذا الكود C# كيفية استخراج الصوت المستخدم في ارتباط تشعبي:
 
-يعرض لك هذا الكود C# كيفية استخراج الصوت المستخدم في رابط تشعبي:
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 {
 	ISlide firstSlide = pres.Slides[0];
 
-	// يحصل على ارتباط التشعبي للشكل الأول
+	// يحصل على ارتباط الشكل الأول
 	IHyperlink link = firstSlide.Shapes[0].HyperlinkClick;
 
 	if (link.Sound != null)
@@ -252,13 +277,16 @@ using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 }
 ```
 
+## **إزالة الارتباطات التشعبية من العروض التقديمية**
 
-## **إزالة الروابط التشعبية من العروض التقديمية**
+### **إزالة الارتباطات التشعبية من النص**
 
-### **إزالة الروابط التشعبية من النص**
+يوضح لك هذا الكود C# كيفية إزالة الارتباط التشعبي من نص في شريحة عرض تقديمي:
 
-يعرض لك هذا الكود C# كيفية إزالة الرابط التشعبي من نص في شريحة عرض تقديمي:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     ISlide slide = pres.Slides[0];
@@ -281,11 +309,14 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
+### **إزالة الارتباطات التشعبية من الأشكال أو الإطارات**
 
-### **إزالة الروابط التشعبية من الأشكال أو الإطارات**
+يوضح لك هذا الكود C# كيفية إزالة الارتباط التشعبي من شكل في شريحة عرض تقديمي: 
 
-يعرض لك هذا الكود C# كيفية إزالة الرابط التشعبي من شكل في شريحة عرض تقديمي: 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("demo.pptx")) 
 { 
    ISlide slide = pres.Slides[0]; 
@@ -297,18 +328,20 @@ using (Presentation pres = new Presentation("demo.pptx"))
 }
 ```
 
+## **الارتباط التشعبي القابل للتعديل**
 
-## **رابط تشعبي قابل للتعديل**
+الفئة [Hyperlink](https://reference.aspose.com/slides/ar/net/aspose.slides/hyperlink) قابلة للتعديل. باستخدام هذه الفئة، يمكنك تغيير قيم الخصائص التالية:
+- [IHyperlink.TargetFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/ihyperlink/properties/targetframe)
+- [IHyperlink.Tooltip](https://reference.aspose.com/slides/ar/net/aspose.slides/ihyperlink/properties/tooltip)
+- [IHyperlink.History](https://reference.aspose.com/slides/ar/net/aspose.slides/ihyperlink/properties/history)
+- [IHyperlink.HighlightClick](https://reference.aspose.com/slides/ar/net/aspose.slides/ihyperlink/properties/highlightclick)
 
-تُعد فئة [Hyperlink](https://reference.aspose.com/slides/net/aspose.slides/hyperlink) قابلة للتعديل. باستخدام هذه الفئة، يمكنك تغيير القيم للخصائص التالية:
+يوضح لك مقطع الشيفرة كيفية إضافة ارتباط تشعبي إلى شريحة وتعديل تلميحه لاحقًا:
 
-- [IHyperlink.TargetFrame](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/targetframe)
-- [IHyperlink.Tooltip](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/tooltip)
-- [IHyperlink.History](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/history)
-- [IHyperlink.HighlightClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/highlightclick)
-
-يظهر المقتطف البرمجي كيفية إضافة رابط تشعبي إلى شريحة وتعديل معلومات الأداة Tooltip لاحقًا:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {   
    IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);    
@@ -325,32 +358,31 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-
 ## **الخصائص المدعومة في IHyperlinkQueries**
 
-يمكنك الوصول إلى IHyperlinkQueries من عرض تقديمي أو شريحة أو نص تم تعريف الرابط التشعبي له. 
+يمكنك الوصول إلى IHyperlinkQueries من عرض تقديمي أو شريحة أو نص تم تعريف الارتباط التشعبي له. 
 
-- [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/properties/hyperlinkqueries)
-- [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/properties/hyperlinkqueries)
-- [ITextFrame.HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/itextframe/properties/hyperlinkqueries)
+- [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/ar/net/aspose.slides/ipresentation/properties/hyperlinkqueries)
+- [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/ar/net/aspose.slides/ibaseslide/properties/hyperlinkqueries)
+- [ITextFrame.HyperlinkQueries](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/properties/hyperlinkqueries)
 
-تدعم فئة IHyperlinkQueries الطرق والخصائص التالية: 
+تدعم الفئة IHyperlinkQueries هذه الأساليب والخصائص: 
 
-- [IHyperlinkQueries.GetHyperlinkClicks();](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/methods/gethyperlinkclicks)
-- [IHyperlinkQueries.GetHyperlinkMouseOvers();](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/methods/gethyperlinkmouseovers)
-- [IHyperlinkQueries.GetAnyHyperlinks();](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/methods/getanyhyperlinks)
-- [IHyperlinkQueries.RemoveAllHyperlinks();](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/methods/removeallhyperlinks)
+- [IHyperlinkQueries.GetHyperlinkClicks();](https://reference.aspose.com/slides/ar/net/aspose.slides/ihyperlinkqueries/methods/gethyperlinkclicks)
+- [IHyperlinkQueries.GetHyperlinkMouseOvers();](https://reference.aspose.com/slides/ar/net/aspose.slides/ihyperlinkqueries/methods/gethyperlinkmouseovers)
+- [IHyperlinkQueries.GetAnyHyperlinks();](https://reference.aspose.com/slides/ar/net/aspose.slides/ihyperlinkqueries/methods/getanyhyperlinks)
+- [IHyperlinkQueries.RemoveAllHyperlinks();](https://reference.aspose.com/slides/ar/net/aspose.slides/ihyperlinkqueries/methods/removeallhyperlinks)
 
-## **الأسئلة المتكررة**
+## **التعليمات المتكررة**
 
-**كيف يمكنني إنشاء تنقل داخلي لا يقتصر على شريحة واحدة فقط، بل إلى "قسم" أو الشريحة الأولى في قسم؟**
+### كيف يمكنني إنشاء تنقل داخلي ليس فقط إلى شريحة، بل إلى "قسم" أو أول شريحة في قسم؟
 
-الأقسام في PowerPoint هي مجموعات من الشرائح؛ التقنية تستهدف شريحة معينة. للـ "تنقل إلى قسم"، عادةً ما يتم الربط بالشريحة الأولى لذلك القسم.
+الأقسام في PowerPoint هي مجموعات من الشرائح؛ التنقل يستهدف عادةً شريحة محددة. لت "التنقل إلى قسم"، عادةً ما تقوم بربط إلى أول شريحة في ذلك القسم.
 
-**هل يمكنني إرفاق رابط تشعبي بعناصر الشريحة الرئيسية بحيث يعمل على جميع الشرائح؟**
+### هل يمكنني إرفاق ارتباط تشعبي بعناصر الشريحة الرئيسية ليعمل على جميع الشرائح؟
 
-نعم. تدعم عناصر الشريحة الرئيسية والقوالب الروابط التشعبية. تظهر هذه الروابط على الشرائح التابعة وتكون قابلة للنقر أثناء عرض الشرائح.
+نعم. تدعم عناصر الشريحة الرئيسية وتخطيطها الارتباطات التشعبية. تظهر هذه الروابط على الشرائح التابعة وتكون قابلة للنقر أثناء عرض الشرائح.
 
-**هل سيتم الحفاظ على الروابط التشعبية عند التصدير إلى PDF أو HTML أو صور أو فيديو؟**
+### هل سيتم الحفاظ على الارتباطات التشعبية عند التصدير إلى PDF أو HTML أو صور أو فيديو؟
 
-في [PDF](/slides/ar/net/convert-powerpoint-to-pdf/) و[HTML](/slides/ar/net/convert-powerpoint-to-html/)، نعم—عادة ما يتم الحفاظ على الروابط. عند التصدير إلى [الصور](/slides/ar/net/convert-powerpoint-to-png/) و[الفيديو](/slides/ar/net/convert-powerpoint-to-video/)، لن يتم نقل قابلية النقر بسبب طبيعة هذه التنسيقات (الإطارات النقطية أو الفيديو لا تدعم الروابط التشعبية).
+In [PDF](/slides/ar/net/convert-powerpoint-to-pdf/) و [HTML](/slides/ar/net/convert-powerpoint-to-html/)، نعم — عادةً ما تُحافظ الروابط. عند التصدير إلى [images](/slides/ar/net/convert-powerpoint-to-png/) و [video](/slides/ar/net/convert-powerpoint-to-video/)، لن تُنقل قابلية النقر بسبب طبيعة تلك الصيغ (إطارات نقطية/فيديو لا تدعم الارتباطات التشعبية).

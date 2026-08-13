@@ -10,11 +10,11 @@ keywords:
 - إضافة عقدة
 - موضع العقدة
 - الوصول إلى العقدة
-- إزالة عقدة
+- إزالة العقدة
 - موضع مخصص
 - عقدة مساعد
 - تنسيق التعبئة
-- تصيير العقدة
+- عرض العقدة
 - PowerPoint
 - عرض تقديمي
 - Android
@@ -22,22 +22,29 @@ keywords:
 - Aspose.Slides
 description: "إدارة عقد شكل SmartArt في ملفات PPT و PPTX باستخدام Aspose.Slides لنظام Android. احصل على أمثلة شفرة Java واضحة ونصائح لتبسيط عروضك التقديمية."
 ---
+## **نظرة عامة**
+
+يتم تنظيم رسومات SmartArt في عروض PowerPoint من خلال عقد تحتوي على نص وتحدد بنية المخطط. يتيح Aspose.Slides لك العمل مع هذه العقد الخاصة بـ SmartArt برمجيًا: إضافة عقد جديدة وعُقَد فرعية، وإدراج عُقَد فرعية في موقع محدد، والوصول إلى العقد الموجودة، وقراءة نصها ومستواها وموقعها.
+
+تشرح هذه المقالة كيفية إدارة عقد الأشكال SmartArt. وتوضح طريقة إزالة العقد، والعمل مع العُقَد الفرعية حسب الفهرس أو الموقع، وتحويل عقدة المساعد إلى عقدة عادية، وضبط موقع وحجم ودوران أشكال عقد SmartArt، وتعيين تنسيقات ملء العقد، وإنشاء صورة مصغرة لعقدة SmartArt.
 
 ## **إضافة عقدة SmartArt**
-Aspose.Slides for Android via Java يوفر أبسط واجهة برمجية لإدارة أشكال SmartArt بأبسط طريقة. سيساعدك الكود النموذجي التالي على إضافة عقدة وعقدة فرعية داخل شكل SmartArt.
+قدمت Aspose.Slides for Android عبر Java أبسط واجهة برمجة تطبيقات لإدارة أشكال SmartArt بأبسط طريقة. سيساعدك الكود المثال التالي على إضافة عقدة وعقدة فرعية داخل شكل SmartArt.
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) وتحميل العرض التقديمي الذي يحتوي على شكل SmartArt.  
-1. الحصول على مرجع الشريحة الأولى باستخدام الفهرس الخاص بها.  
-1. استعراض كل شكل داخل الشريحة الأولى.  
-1. التحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) وتحويله إلى [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) إذا كان كذلك.  
-1. [إضافة عقدة جديدة](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNodeCollection#addNode--) إلى مجموعة العقد **NodeCollection** داخل شكل SmartArt وتعيين النص في TextFrame.  
-1. الآن، [إضافة](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNodeCollection#addNode--) **عقدة فرعية** إلى عقدة SmartArt التي أضيفت حديثًا وتعيين النص في TextFrame.  
-1. حفظ العرض التقديمي.  
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/Presentation) وتحميل العرض مع شكل SmartArt.
+2. الحصول على مرجع الشريحة الأولى باستخدام فهرسها.
+3. التنقل عبر كل شكل داخل الشريحة الأولى.
+4. التحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ISmartArt) وتحويل الشكل المحدد إلى [SmartArt](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ISmartArt) إذا كان SmartArt.
+5. [إضافة عقدة جديدة](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ISmartArtNodeCollection#addNode--) في شكل SmartArt [**NodeCollection**](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ISmartArt#getAllNodes--) وتعيين النص في TextFrame.
+6. الآن، [إضافة](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ISmartArtNodeCollection#addNode--) [**Child Node**](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--) في العقدة [SmartArt](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ISmartArt) المضافة حديثًا وتعيين النص في TextFrame.
+7. حفظ العرض.
+
 ```java
+import com.aspose.slides.*;
+
 // تحميل العرض التقديمي المطلوب
-Presentation pres = new Presentation("SimpleSmartArt.pptx");
 try {
-    // استعراض كل شكل داخل الشريحة الأولى
+    // التنقل عبر كل شكل داخل الشريحة الأولى
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
         // التحقق مما إذا كان الشكل من نوع SmartArt
@@ -52,7 +59,7 @@ try {
             // إضافة نص
             TemNode.getTextFrame().setText("Test");
     
-            // إضافة عقدة فرعية جديدة إلى العقدة الأصلية. سيتم إضافتها في نهاية المجموعة
+            // إضافة عقدة فرعية جديدة في العقدة الأصلية. سيتم إضافتها في نهاية المجموعة
             SmartArtNode newNode = (SmartArtNode) TemNode.getChildNodes().addNode();
     
             // إضافة نص
@@ -67,19 +74,20 @@ try {
 }
 ```
 
+## **إضافة عقدة SmartArt في موقع محدد**
+في الكود المثال التالي شرحنا كيفية إضافة العُقَد الفرعية التابعة للعقد المختلفة لشكل SmartArt في موقع معين.
 
-## **إضافة عقدة SmartArt في موضع محدد**
-في الكود النموذجي التالي شرحنا كيفية إضافة العقد الفرعية التي تنتمي إلى العقد المختلفة لشكل SmartArt في موضع معين.
+1. إنشاء مثيل من الفئة Presentation.
+2. الحصول على مرجع الشريحة الأولى باستخدام فهرسها.
+3. إضافة شكل [**StackedList**](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/SmartArtLayoutType#StackedList) من نوع [SmartArt](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/SmartArt) في الشريحة التي تم الوصول إليها.
+4. الوصول إلى العقدة الأولى في شكل SmartArt المضاف.
+5. الآن، أضف [**Child Node**](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--) للعقدة [**Node**](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/SmartArtNode) المختارة في الموقع 2 وتعيين نصها.
+6. حفظ العرض.
 
-1. إنشاء نسخة من فئة Presentation.  
-1. الحصول على مرجع الشريحة الأولى باستخدام الفهرس الخاص بها.  
-1. إضافة شكل [**StackedList**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtLayoutType#StackedList) من نوع [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) إلى الشريحة التي تم الوصول إليها.  
-1. الوصول إلى العقدة الأولى في شكل SmartArt المضاف.  
-1. الآن، إضافة **العقدة الفرعية** للـ **Node** المحدد في الموضع 2 وتعيين نصها.  
-1. حفظ العرض التقديمي.  
 ```java
-// إنشاء نسخة من العرض التقديمي
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+// إنشاء مثال عرض تقديمي
 try {
     // الوصول إلى شريحة العرض التقديمي
     ISlide slide = pres.getSlides().get_Item(0);
@@ -87,7 +95,7 @@ try {
     // إضافة Smart Art IShape
     ISmartArt smart = slide.getShapes().addSmartArt(0, 0, 400, 400, SmartArtLayoutType.StackedList);
 
-    // الوصول إلى عقدة SmartArt عند الفهرس 0
+    // الوصول إلى عقدة SmartArt في الفهرس 0
     ISmartArtNode node = smart.getAllNodes().get_Item(0);
 
     // إضافة عقدة فرعية جديدة في الموضع 2 داخل العقدة الأصلية
@@ -103,36 +111,38 @@ try {
 }
 ```
 
-
 ## **الوصول إلى عقدة SmartArt**
-الكود التالي سيساعدك على الوصول إلى العقد داخل شكل SmartArt. يرجى ملاحظة أنه لا يمكنك تغيير LayoutType الخاص بـ SmartArt لأنه للقراءة فقط ويتم تعيينه فقط عند إضافة شكل SmartArt.
+سيساعدك الكود المثال التالي على الوصول إلى العقد داخل شكل SmartArt. يرجى ملاحظة أن LayoutType الخاص بـ SmartArt يتم اختياره عند إضافة الشكل؛ تعديل ذلك لاحقًا باستخدام **setLayout** يعيد بناء المخطط بالكامل، لذا يتم إعادة حساب مواقع وأحجام العقد التي قد تكون قد ضبطتها.
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) وتحميل العرض التقديمي الذي يحتوي على شكل SmartArt.  
-1. الحصول على مرجع الشريحة الأولى باستخدام الفهرس الخاص بها.  
-1. استعراض كل شكل داخل الشريحة الأولى.  
-1. التحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) وتحويله إلى [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) إذا كان كذلك.  
-1. استعراض جميع **العقد** داخل شكل SmartArt.  
-1. الوصول وعرض معلومات مثل موضع عقدة SmartArt، المستوى والنص.  
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation) وتحميل العرض مع شكل SmartArt.
+2. الحصول على مرجع الشريحة الأولى باستخدام فهرسها.
+3. التنقل عبر كل شكل داخل الشريحة الأولى.
+4. التحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ISmartArt) وتحويل الشكل المحدد إلى [SmartArt](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ISmartArt) إذا كان SmartArt.
+5. التنقل عبر جميع [**Nodes**](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/SmartArt#getAllNodes--) داخل شكل SmartArt.
+6. الوصول إلى وعرض معلومات مثل موقع عقدة SmartArt، المستوى والنص.
+
 ```java
-// إنشاء مثيل لفئة Presentation
+import com.aspose.slides.*;
+
+// إنشاء كائن من فئة Presentation
 Presentation pres = new Presentation("SmartArtShape.pptx");
 try {
     // الحصول على الشريحة الأولى
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // المرور عبر كل شكل داخل الشريحة الأولى
+    // التنقل عبر كل شكل داخل الشريحة الأولى
     for (IShape shape : slide.getShapes()) 
     {
         // التحقق مما إذا كان الشكل من نوع SmartArt
         if (shape instanceof ISmartArt) 
         {
-            // تحويل النوع إلى SmartArt
+            // تحويل الشكل إلى SmartArt
             ISmartArt smart = (ISmartArt) shape;
     
-            // المرور عبر جميع العقد داخل SmartArt
+            // التنقل عبر جميع العقد داخل SmartArt
             for (int i = 0; i < smart.getAllNodes().size(); i++) 
             {
-                // الوصول إلى عقدة SmartArt عند الفهرس i
+                // الوصول إلى عقدة SmartArt في الفهرس i
                 SmartArtNode node = (SmartArtNode) smart.getAllNodes().get_Item(i);
     
                 // طباعة معلمات عقدة SmartArt
@@ -145,25 +155,27 @@ try {
 }
 ```
 
+## **الوصول إلى عقدة SmartArt الفرعية**
+سيساعدك الكود المثال التالي على الوصول إلى العُقَد الفرعية التابعة للعقد المختلفة لشكل SmartArt.
 
-## **الوصول إلى عقدة فرعية في SmartArt**
-الكود التالي سيساعدك على الوصول إلى العقد الفرعية التي تنتمي إلى العقد المختلفة لشكل SmartArt.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation) وتحميل العرض مع شكل SmartArt.
+2. الحصول على مرجع الشريحة الأولى باستخدام فهرسها.
+3. التنقل عبر كل شكل داخل الشريحة الأولى.
+4. التحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ISmartArt) وتحويل الشكل المحدد إلى [SmartArt](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ISmartArt) إذا كان SmartArt.
+5. التنقل عبر جميع [**Nodes**](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/SmartArt#getAllNodes--) داخل شكل SmartArt.
+6. لكل عقدة [**Node**](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/SmartArtNode) مختارة، التنقل عبر جميع [**Child Nodes**](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/SmartArtNode#getChildNodes--) داخل العقدة المحددة.
+7. الوصول إلى وعرض معلومات مثل موقع العقدة الفرعية، المستوى والنص.
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) وتحميل العرض التقديمي الذي يحتوي على شكل SmartArt.  
-1. الحصول على مرجع الشريحة الأولى باستخدام الفهرس الخاص بها.  
-1. استعراض كل شكل داخل الشريحة الأولى.  
-1. التحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) وتحويله إلى [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) إذا كان كذلك.  
-1. استعراض جميع **العقد** داخل شكل SmartArt.  
-1. لكل **Node** مختار في شكل SmartArt، استعراض جميع **العقد الفرعية** داخل العقدة المحددة.  
-1. الوصول وعرض معلومات مثل موضع **العقدة الفرعية**، المستوى والنص.  
 ```java
-// إنشاء مثيل لفئة Presentation
+import com.aspose.slides.*;
+
+// إنشاء كائن من فئة Presentation
 Presentation pres = new Presentation("AccessChildNodes.pptx");
 try {
     // الحصول على الشريحة الأولى
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // المرور عبر كل شكل داخل الشريحة الأولى
+    // التنقل عبر كل شكل داخل الشريحة الأولى
     for (IShape shape : slide.getShapes()) 
     {
         // التحقق مما إذا كان الشكل من نوع SmartArt
@@ -172,19 +184,19 @@ try {
             // تحويل الشكل إلى SmartArt
             ISmartArt smart = (ISmartArt) shape;
     
-            // المرور عبر جميع العقد داخل SmartArt
+            // التنقل عبر جميع العقد داخل SmartArt
             for (int i = 0; i < smart.getAllNodes().size(); i++) 
             {
-                // الوصول إلى عقدة SmartArt عند الفهرس i
+                // الوصول إلى عقدة SmartArt في الفهرس i
                 SmartArtNode node0 = (SmartArtNode) smart.getAllNodes().get_Item(i);
                 
-                // المرور عبر العقد الفرعية في عقدة SmartArt عند الفهرس i
+                // التنقل عبر العقد الفرعية في عقدة SmartArt الفهرس i
                 for (int j = 0; j < node0.getChildNodes().size(); j++) 
                 {
                     // الوصول إلى العقدة الفرعية في عقدة SmartArt
                     SmartArtNode node = (SmartArtNode) node0.getChildNodes().get_Item(j);
     
-                    // طباعة معلمات العقدة الفرعية في SmartArt
+                    // طباعة معلمات العقدة الفرعية لـ SmartArt
                     System.out.print("j = " + j + ", Text = " + node.getTextFrame().getText() + ",  Level = " + node.getLevel() + ", Position = " + node.getPosition());
                 }
             }
@@ -195,19 +207,21 @@ try {
 }
 ```
 
+## **الوصول إلى عقدة SmartArt الفرعية في موقع محدد**
+سنستعرض في هذا المثال كيفية الوصول إلى العُقَد الفرعية في موقع معين تتبع للعقد المختلفة لشكل SmartArt.
 
-## **الوصول إلى عقدة فرعية في SmartArt في موضع محدد**
-في هذا المثال سنتعلم كيفية الوصول إلى العقد الفرعية في موضع معين تنتمي إلى العقد المختلفة لشكل SmartArt.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation) .
+2. الحصول على مرجع الشريحة الأولى باستخدام فهرسها.
+3. إضافة شكل [**StackedList**](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/SmartArtLayoutType#StackedList) من نوع SmartArt.
+4. الوصول إلى شكل SmartArt المضاف.
+5. الوصول إلى العقدة ذات الفهرس 0 لشكل SmartArt الذي تم الوصول إليه.
+6. الآن، الوصول إلى [**Child Node**](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--) في الموقع 1 للعقدة المختارة باستخدام طريقة **get_Item()**.
+7. الوصول إلى وعرض معلومات مثل موقع العقدة الفرعية، المستوى والنص.
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).  
-1. الحصول على مرجع الشريحة الأولى باستخدام الفهرس الخاص بها.  
-1. إضافة شكل SmartArt من نوع [**StackedList**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtLayoutType#StackedList).  
-1. الوصول إلى شكل SmartArt المضاف.  
-1. الوصول إلى العقدة ذات الفهرس 0 لشكل SmartArt الذي تم الوصول إليه.  
-1. الآن، الوصول إلى **العقدة الفرعية** في الموضع 1 للعقدة المستهدفة باستخدام طريقة **get_Item()**.  
-1. الوصول وعرض معلومات مثل موضع **العقدة الفرعية**، المستوى والنص.  
 ```java
-// إنشاء نسخة من العرض التقديمي
+import com.aspose.slides.*;
+
+// إنشاء العرض التقديمي
 Presentation pres = new Presentation();
 try {
     // الوصول إلى الشريحة الأولى
@@ -216,37 +230,39 @@ try {
     // إضافة شكل SmartArt في الشريحة الأولى
     ISmartArt smart = slide.getShapes().addSmartArt(0, 0, 400, 400, SmartArtLayoutType.StackedList);
     
-    // الوصول إلى عقدة SmartArt عند الفهرس 0
+    // الوصول إلى عقدة SmartArt في الفهرس 0
     ISmartArtNode node = smart.getAllNodes().get_Item(0);
     
     // الوصول إلى العقدة الفرعية في الموضع 1 داخل العقدة الأصلية
     int position = 1;
     SmartArtNode chNode = (SmartArtNode) ((SmartArtNodeCollection) node.getChildNodes()).get_Item(position);
     
-    // طباعة معلمات العقدة الفرعية في SmartArt
+    // طباعة معلمات العقدة الفرعية لـ SmartArt
     System.out.print("Text = " + chNode.getTextFrame().getText() + ",  Level = " + chNode.getLevel() + ", Position = " + chNode.getPosition());
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-
 ## **إزالة عقدة SmartArt**
-في هذا المثال سنتعلم كيفية إزالة العقد داخل شكل SmartArt.
+في هذا المثال، سنتعلم كيفية إزالة العقد داخل شكل SmartArt.
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) وتحميل العرض التقديمي الذي يحتوي على شكل SmartArt.  
-1. الحصول على مرجع الشريحة الأولى باستخدام الفهرس الخاص بها.  
-1. استعراض كل شكل داخل الشريحة الأولى.  
-1. التحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) وتحويله إلى [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) إذا كان كذلك.  
-1. التحقق مما إذا كان لدى SmartArt أكثر من 0 عقد.  
-1. اختيار عقدة SmartArt التي سيتم حذفها.  
-1. الآن، إزالة العقدة المحددة باستخدام طريقة [**RemoveNode**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNodeCollection#removeNode-com.aspose.slides.ISmartArtNode-).  
-1. حفظ العرض التقديمي.  
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation) وتحميل العرض مع شكل SmartArt.
+2. الحصول على مرجع الشريحة الأولى باستخدام فهرسها.
+3. التنقل عبر كل شكل داخل الشريحة الأولى.
+4. التحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ISmartArt) وتحويل الشكل المحدد إلى [SmartArt](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ISmartArt) إذا كان SmartArt.
+5. التحقق مما إذا كان SmartArt يحتوي على أكثر من 0 عقد.
+6. تحديد عقدة SmartArt المراد حذفها.
+7. الآن، إزالة العقدة المحددة باستخدام طريقة [**RemoveNode**](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ISmartArtNodeCollection#removeNode-com.aspose.slides.ISmartArtNode-).
+8. حفظ العرض.
+
 ```java
+import com.aspose.slides.*;
+
 // تحميل العرض التقديمي المطلوب
 Presentation pres = new Presentation("AddSmartArtNode.pptx");
 try {
-    // استعراض كل شكل داخل الشريحة الأولى
+    // التنقل عبر كل شكل داخل الشريحة الأولى
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
         // التحقق مما إذا كان الشكل من نوع SmartArt
@@ -257,10 +273,10 @@ try {
     
             if (smart.getAllNodes().size() > 0) 
             {
-                // الوصول إلى عقدة SmartArt عند الفهرس 0
+                // الوصول إلى عقدة SmartArt في الفهرس 0
                 ISmartArtNode node = smart.getAllNodes().get_Item(0);
     
-                // إزالة العقدة المختارة
+                // إزالة العقدة المحددة
                 smart.getAllNodes().removeNode(node);
             }
         }
@@ -273,23 +289,25 @@ try {
 }
 ```
 
+## **إزالة عقدة SmartArt من موقع محدد**
+في هذا المثال، سنتعلم كيفية إزالة العقد داخل شكل SmartArt في موقع معين.
 
-## **إزالة عقدة SmartArt من موضع محدد**
-في هذا المثال سنتعلم كيفية إزالة العقد داخل شكل SmartArt في موضع معين.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation) وتحميل العرض مع شكل SmartArt.
+2. الحصول على مرجع الشريحة الأولى باستخدام فهرسها.
+3. التنقل عبر كل شكل داخل الشريحة الأولى.
+4. التحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ISmartArt) وتحويل الشكل المحدد إلى [SmartArt](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ISmartArt) إذا كان SmartArt.
+5. تحديد عقدة شكل SmartArt في الفهرس 0.
+6. الآن، التحقق مما إذا كانت العقدة المختارة تحتوي على أكثر من عقدتين فرعيتين.
+7. الآن، إزالة العقدة في **الموقع 1** باستخدام طريقة [**RemoveNode**](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ISmartArtNodeCollection#removeNode-int-).
+8. حفظ العرض.
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) وتحميل العرض التقديمي الذي يحتوي على شكل SmartArt.  
-1. الحصول على مرجع الشريحة الأولى باستخدام الفهرس الخاص بها.  
-1. استعراض كل شكل داخل الشريحة الأولى.  
-1. التحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) وتحويله إلى [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) إذا كان كذلك.  
-1. اختيار عقدة شكل SmartArt في الفهرس 0.  
-1. الآن، التحقق مما إذا كانت العقدة المختارة تحتوي على أكثر من عقدتين فرعيتين.  
-1. الآن، إزالة العقدة في **الموضع 1** باستخدام طريقة [**RemoveNode**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNodeCollection#removeNode-int-).  
-1. حفظ العرض التقديمي.  
 ```java
+import com.aspose.slides.*;
+
 // تحميل العرض التقديمي المطلوب
 Presentation pres = new Presentation("AddSmartArtNode.pptx");
 try {
-    // استعراض كل شكل داخل الشريحة الأولى
+    // التنقل عبر كل شكل داخل الشريحة الأولى
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
         // التحقق مما إذا كان الشكل من نوع SmartArt
@@ -300,7 +318,7 @@ try {
     
             if (smart.getAllNodes().size() > 0) 
             {
-                // الوصول إلى عقدة SmartArt عند الفهرس 0
+                // الوصول إلى عقدة SmartArt في الفهرس 0
                 ISmartArtNode node = smart.getAllNodes().get_Item(0);
     
                 if (node.getChildNodes().size() >= 2) 
@@ -319,16 +337,18 @@ try {
 }
 ```
 
-
 ## **تعيين موضع مخصص لعقدة فرعية في كائن SmartArt**
-الآن يدعم Aspose.Slides for Android via Java تعيين خصائص [SmartArtShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtShape) لـ [X](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setX-float-) و [Y](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setY-float-). يوضح المقتطف التالي كيفية تعيين موضع SmartArtShape مخصص، وحجمه، وتدويره. يرجى ملاحظة أن إضافة عقد جديدة يتسبب في إعادة حساب المواضع والأحجام لجميع العقد. كما يمكن للمستخدم ضبط مواضع العقد وفق المتطلبات.  
+الآن يدعم Aspose.Slides for Android عبر Java تعيين خصائص [SmartArtShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/SmartArtShape) [X](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IShape#setX-float-) و [Y](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IShape#setY-float-). يوضح المقتطف التالي كيفية تعيين موضع وشكل ودوران مخصصين لـ SmartArtShape؛ يرجى ملاحظة أن إضافة عقد جديدة يتسبب في إعادة حساب مواضع وأحجام جميع العقد. كما يمكن للمستخدم ضبط المواقع وفق المتطلبات باستخدام إعدادات الموقع المخصصة.
+
 ```java
-// إنشاء فئة Presentation
+import com.aspose.slides.*;
+
+// إنشاء كائن من فئة Presentation
 Presentation pres = new Presentation("SimpleSmartArt.pptx");
 try{
     ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(20, 20, 600, 500, SmartArtLayoutType.OrganizationChart);
 
-    // نقل شكل SmartArt إلى موقع جديد
+    // نقل شكل SmartArt إلى موضع جديد
     ISmartArtNode node = smart.getAllNodes().get_Item(1);
     ISmartArtShape shape = node.getShapes().get_Item(1);
     shape.setX(shape.getX() + shape.getWidth() * 2);
@@ -344,7 +364,7 @@ try{
     shape = node.getShapes().get_Item(1);
     shape.setHeight(shape.getHeight() + shape.getHeight() * 2);
 
-    // تغيير تدوير شكل SmartArt
+    // تغيير دوران شكل SmartArt
     node = smart.getAllNodes().get_Item(4);
     shape = node.getShapes().get_Item(1);
     shape.setRotation(90);
@@ -355,34 +375,36 @@ try{
 }
 ```
 
-
 ## **التحقق من عقدة المساعد**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-في هذه المقالة سنستكشف المزيد من ميزات أشكال SmartArt المضافة إلى شرائح العرض برمجياً باستخدام Aspose.Slides for Android via Java.
+في هذه المقالة سنستكشف المزيد من ميزات أشكال SmartArt المضافة إلى شرائح العرض برمجيًا باستخدام Aspose.Slides for Android عبر Java.
 
 {{% /alert %}} 
 
-سنستخدم شكل SmartArt المصدر التالي في تحقيقاتنا في أقسام مختلفة من هذه المقالة.
+سنستخدم شكل SmartArt المصدر التالي لتحقيقاتنا في أقسام مختلفة من هذه المقالة.
 
 |![todo:image_alt_text](https://i.imgur.com/FItwczY.png)|
 | :- |
 |**الشكل: شكل SmartArt المصدر في الشريحة**|
 
-في الكود التالي سنستكشف كيفية تحديد **العقد المساعدة** في مجموعة عقد SmartArt وتغييرها.
+في الكود المثال التالي سنستكشف كيفية تحديد **Assistant Nodes** في مجموعة عقد SmartArt وتغييرها.
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) وتحميل العرض التقديمي الذي يحتوي على شكل SmartArt.  
-1. الحصول على مرجع الشريحة الثانية باستخدام الفهرس الخاص بها.  
-1. استعراض كل شكل داخل الشريحة الأولى.  
-1. التحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) وتحويله إلى [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) إذا كان كذلك.  
-1. استعراض جميع العقد داخل شكل SmartArt والتحقق مما إذا كانت **عقد مساعد** من خلال [**Assistant Nodes**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtNode#isAssistant--).  
-1. تغيير حالة عقدة المساعد إلى عقدة عادية.  
-1. حفظ العرض التقديمي.  
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation) وتحميل العرض مع شكل SmartArt.
+2. الحصول على مرجع الشريحة الأولى باستخدام فهرسها.
+3. التنقل عبر كل شكل داخل الشريحة الأولى.
+4. التحقق مما إذا كان الشكل من نوع [SmartArt](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ISmartArt) وتحويل الشكل المحدد إلى [SmartArt](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ISmartArt) إذا كان SmartArt.
+5. التنقل عبر جميع العقد داخل شكل SmartArt والتحقق مما إذا كانت **Assistant Nodes** باستخدام [**Assistant Nodes**](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/SmartArtNode#isAssistant--).
+6. تغيير حالة عقدة المساعد إلى عقدة عادية.
+7. حفظ العرض.
+
 ```java
-// إنشاء نسخة من العرض التقديمي
+import com.aspose.slides.*;
+
+// إنشاء كائن من فئة Presentation
 Presentation pres = new Presentation("AddNodes.pptx");
 try {
-    // المرور عبر كل شكل داخل الشريحة الأولى
+    // التنقل عبر كل شكل داخل الشريحة الأولى
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
         // التحقق مما إذا كان الشكل من نوع SmartArt
@@ -391,15 +413,15 @@ try {
             // تحويل الشكل إلى SmartArt
             ISmartArt smart = (SmartArt) shape;
     
-            // المرور عبر جميع العقد داخل SmartArt
+            // التنقل عبر جميع عقد شكل SmartArt
             for (int i = 0; i < smart.getAllNodes().size(); i++) 
             {
-                ISmartArtNode node = smart.getAllNodes().get_Item(i);
+                ISSmartArtNode node = smart.getAllNodes().get_Item(i);
                 // التحقق مما إذا كانت العقدة عقدة مساعد
                 if (node.isAssistant()) 
                 {
                     // تعيين عقدة المساعد إلى false وجعلها عقدة عادية
-                    node.isAssistant();
+                    node.setAssistant(false);
                 }
             }
         }
@@ -412,23 +434,26 @@ try {
 }
 ```
 
-
 |![todo:image_alt_text](https://i.imgur.com/qpAl4rN.png)|
 | :- |
 |**الشكل: تم تغيير عقد المساعد في شكل SmartArt داخل الشريحة**|
 
 ## **تعيين تنسيق ملء العقدة**
-Aspose.Slides for Android via Java يجعل من الممكن إضافة أشكال SmartArt مخصصة وتعيين تنسيق ملئها. تشرح هذه المقالة كيفية إنشاء والوصول إلى أشكال SmartArt وتعيين تنسيق ملئها باستخدام Aspose.Slides for Android عبر Java.
+يتيح Aspose.Slides for Android عبر Java إمكانية إضافة أشكال SmartArt مخصصة وتعيين تنسيق ملئها. تشرح هذه المقالة كيفية إنشاء أو الوصول إلى أشكال SmartArt وتعيين تنسيق ملئها باستخدام Aspose.Slides for Android عبر Java.
 
-يرجى اتباع الخطوات التالية:
+يرجى اتباع الخطوات أدناه:
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).  
-1. الحصول على مرجع شريحة باستخدام الفهرس الخاص بها.  
-1. إضافة شكل [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArt) عن طريق تعيين **LayoutType** الخاص به.  
-1. تعيين **FillFormat** لعقد شكل SmartArt.  
-1. كتابة العرض التقديمي المعدل كملف PPTX.  
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation).
+2. الحصول على مرجع شريحة باستخدام فهرستها.
+3. إضافة شكل [SmartArt](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ISmartArt) بتحديد [**LayoutType**](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/SmartArtLayoutType#ClosedChevronProcess) الخاص به.
+4. تعيين [**FillFormat**](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IShape#getFillFormat--) لعقد شكل SmartArt.
+5. كتابة العرض المعدل كملف PPTX.
+
 ```java
-// إنشاء العرض التقديمي
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// إنشاء عرض تقديمي
 Presentation pres = new Presentation();
 try {
     // الوصول إلى الشريحة
@@ -453,26 +478,28 @@ try {
 }
 ```
 
+## **إنشاء صورة مصغرة لعقدة SmartArt**
+يمكن للمطورين إنشاء صورة مصغرة لعقدة من SmartArt باتباع الخطوات أدناه:
 
-## **إنشاء صورة مصغرة لعقدة فرعية في SmartArt**
-يمكن للمطورين إنشاء صورة مصغرة لعقدة فرعية من SmartArt باتباع الخطوات التالية:
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation).
+2. [إضافة SmartArt](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ISmartArtNodeCollection#addNode--).
+3. الحصول على مرجع العقدة باستخدام فهرستها.
+4. الحصول على صورة المصغرة.
+5. حفظ صورة المصغرة بأي تنسيق صورة مطلوب.
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).  
-1. [إضافة SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISmartArtNodeCollection#addNode--).  
-1. الحصول على مرجع عقدة باستخدام الفهرس الخاص بها.  
-1. الحصول على صورة المصغرة.  
-1. حفظ صورة المصغرة بأي تنسيق صورة مطلوب.  
 ```java
-// إنشاء كائن من فئة Presentation الذي يمثل ملف PPTX 
+import com.aspose.slides.*;
+
+// إنشاء فئة Presentation التي تمثل ملف PPTX
 Presentation pres = new Presentation();
 try {
-    // إضافة SmartArt 
+    // إضافة SmartArt
     ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicCycle);
 
-    // الحصول على مرجع عقدة باستخدام الفهرس الخاص بها  
+    // الحصول على مرجع العقدة باستخدام فهرستها
     ISmartArtNode node = smart.getNodes().get_Item(1);
 
-    // استخراج الصورة المصغرة
+    // الحصول على صورة مصغرة
     IImage slideImage = node.getShapes().get_Item(0).getImage();
 
     // حفظ الصورة المصغرة
@@ -486,22 +513,20 @@ try {
 }
 ```
 
+## **الأسئلة الشائعة**
 
-## **الأسئلة المتكررة**
+### هل يتم دعم الرسوم المتحركة لـ SmartArt؟
 
-**هل تدعم رسوميات SmartArt المتحركة؟**
+نعم. يُعامل SmartArt كشكل عادي، لذا يمكنك [تطبيق الرسوم المتحركة القياسية](/slides/ar/androidjava/shape-animation/) (دخول، خروج، تركيز، مسارات الحركة) وضبط التوقيت. يمكنك أيضًا تحريك الأشكال داخل عقد SmartArt عند الضرورة.
 
-نعم. يُعامل SmartArt كشكل عادي، لذا يمكنك [تطبيق الرسوميات القياسية](/slides/ar/androidjava/shape-animation/) (دخول، خروج، تأكيد، مسارات الحركة) وضبط التوقيت. يمكنك أيضًا تحريك الأشكال داخل عقد SmartArt عند الحاجة.
+### كيف يمكنني تحديد موقع SmartArt معين على شريحة إذا كان المعرف الداخلي غير معروف؟
 
-**كيف يمكنني تحديد موقع SmartArt معين على الشريحة إذا كان معرفه الداخلي غير معروف؟**
+استخدم وابحث بواسطة [النص البديل](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/shape/#getAlternativeText--). يتيح تعيين AltText مميز على SmartArt العثور عليه برمجيًا دون الاعتماد على المعرفات الداخلية.
 
-قم بتعيين والبحث باستخدام [النص البديل](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getAlternativeText--). ضبط AltText مميز على SmartArt يتيح لك العثور عليه برمجياً دون الاعتماد على المعرفات الداخلية.
+### هل سيظل مظهر SmartArt محفوظًا عند تحويل العرض إلى PDF؟
 
-**هل سيُحافظ على مظهر SmartArt عند تحويل العرض التقديمي إلى PDF؟**
+نعم. يقوم Aspose.Slides بتصوير SmartArt بدقة بصرية عالية أثناء [تصدير PDF](/slides/ar/androidjava/convert-powerpoint-to-pdf/)، مع الحفاظ على التخطيط والألوان وال Effects.
 
-نعم. يقوم Aspose.Slides بتصدير SmartArt بجودة بصرية عالية أثناء [تصدير PDF](/slides/ar/androidjava/convert-powerpoint-to-pdf/)، مع الحفاظ على التخطيط والألوان والتأثيرات.
+### هل يمكنني استخراج صورة كاملة لـ SmartArt (للمعاينات أو التقارير)?
 
-**هل يمكن استخراج صورة لكامل SmartArt (للمعاينات أو التقارير)؟**
-
-نعم. يمكنك تصيير شكل SmartArt إلى [صيغ نقطية](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getImage-int-float-float-) أو إلى [SVG](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) لإخراج متجه قابل للتحجيم، مما يجعله مناسبًا للمصغرات، التقارير أو الاستخدام على الويب.  
-{{95c463e2-d38f-49df-9366-c47435d38093}}
+نعم. يمكنك تحويل شكل SmartArt إلى [تنسيقات نقطية](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/shape/#getImage-int-float-float-) أو إلى [SVG](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) لإخراج متجه قابل للتوسيع، مما يجعله مناسبًا للصور المصغرة أو التقارير أو الاستخدام على الويب.

@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides for .NET 16.1.0'de Genel API ve Geriye Yönelik Uyumsuz Değişiklikler
+title: Aspose.Slides for .NET 16.1.0'de Genel API ve Geriye Uyumsuz Değişiklikler
 linktitle: Aspose.Slides for .NET 16.1.0
 type: docs
 weight: 220
@@ -16,17 +16,22 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET'teki genel API güncellemelerini ve kırılma değişikliklerini inceleyerek PowerPoint PPT, PPTX ve ODP sunum çözümlerinizi sorunsuz bir şekilde taşıyın."
+description: "Aspose.Slides for .NET'teki genel API güncellemelerini ve kırıcı değişiklikleri inceleyerek PowerPoint PPT, PPTX ve ODP sunum çözümlerinizi sorunsuz bir şekilde taşıyabilirsiniz."
 ---
-{{% alert color="primary" %}} 
-Bu sayfa, Aspose.Slides for .NET 16.1.0 API'siyle tanıtılan eklenen veya kaldırılan sınıfları, metodları, özellikleri vb. ve diğer değişiklikleri listeler.
+{{% alert color="info" %}} 
+Bu sayfa, Aspose.Slides for .NET 16.1.0 API'siyle tanıtılan [eklenen](/slides/tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) veya [kaldırılan](/slides/tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) sınıfları, metodları, özellikleri vb. ve diğer değişiklikleri listeler.
 {{% /alert %}} 
 ## **Genel API Değişiklikleri**
 
 #### **RotationAngle Özelliği IChartTextBlockFormat ve ITextFrameFormat Arayüzlerine Eklendi**
-RotationAngle özelliği Aspose.Slides.Charts.IChartTextBlockFormat ve Aspose.Slides.ITextFrameFormat arayüzlerine eklenmiştir. Bu özellik, sınırlayıcı kutu içinde metne uygulanan özel dönüşü belirtir.
+RotationAngle özelliği Aspose.Slides.Charts.IChartTextBlockFormat ve Aspose.Slides.ITextFrameFormat arayüzlerine eklendi.  
+Bu, sınırlayıcı kutu içinde metne uygulanan özel dönüşü belirtir.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -47,7 +52,5 @@ chart.ChartTitle.AddTextFrameForOverriding("Custom title").TextFrameFormat.Rotat
 pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
-
-
 ``` 
-#### **OdpException Aspose.Slides.Odp'dan Aspose.Slides Ad alanına Taşındı**
+#### **OdpException Aspose.Slides.Odp'dan Aspose.Slides Ad Alanına Taşındı**

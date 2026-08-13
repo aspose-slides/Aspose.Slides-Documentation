@@ -1,36 +1,43 @@
 ---
-title: Aspose.Slides لجافا
+title: Aspose.Slides for Java
 second_title: Aspose.Slides for Java
-description: Aspose.Slides لجافا هو المكون الأول والوحيد الذي يقدم الوظائف اللازمة لإدارة مستندات PowerPoint®. يقدم Aspose.Slides لجافا العديد من الميزات الرئيسية مثل إدارة النصوص والأشكال، وتصدير الشرائح إلى SVG و PDF وصيغ أخرى.
 type: docs
 weight: 20
 url: /ar/java/
+keywords:
+- توثيق
+- معالجة العروض التقديمية
+- تحويل العروض التقديمية
+- PowerPoint
+- OpenDocument
+- Java
+- Aspose.Slides
+description: Aspose.Slides for Java هو واجهة برمجة تطبيقات لإدارة Microsoft PowerPoint® تمكن تطبيقات Java من قراءة وكتابة مستندات PowerPoint® دون الحاجة إلى Microsoft PowerPoint®.
 is_root: true
 ---
+{{% alert color="info" %}}
 
-{{% alert color="primary" %}}
+![شعار منتج Aspose.Slides for Java](home_1.png)
 
-![شعار منتج Aspose.Slides لجافا](home_1.png)
+**مرحبًا بكم في Aspose.Slides for Java!**
 
-**مرحبًا بك في Aspose.Slides لجافا!**
-
-Aspose.Slides لجافا هي واجهة برمجة تطبيقات إدارة Microsoft PowerPoint® التي تمكن تطبيقات جافا من قراءة وكتابة مستندات PowerPoint® بدون Microsoft PowerPoint®. Aspose.Slides لجافا هو المكون الأول والوحيد الذي يقدم الوظائف اللازمة لإدارة مستندات PowerPoint®. يوفر Aspose.Slides لجافا العديد من الميزات الرئيسية مثل إدارة النصوص والأشكال والجداول والرسوم المتحركة، وإضافة الصوت والفيديو إلى الشرائح، ومعاينة الشرائح، وتصدير الشرائح إلى SVG و PDF وصيغ أخرى.
+Aspose.Slides for Java هو واجهة برمجة تطبيقات لإدارة Microsoft PowerPoint® تمكن تطبيقات Java من قراءة وكتابة مستندات PowerPoint® دون الحاجة إلى Microsoft PowerPoint®. Aspose.Slides for Java هو المكوّن الأول والوحيد الذي يوفّر وظيفة إدارة مستندات PowerPoint®. يوفر Aspose.Slides for Java العديد من الميزات الأساسية مثل إدارة النصوص والأشكال والجداول والرسوم المتحركة، وإضافة الصوت والفيديو إلى الشرائح، ومعاينة الشرائح، وتصدير الشرائح إلى SVG وPDF وصيغ أخرى.
 
 {{% /alert %}}
 
-## **موارد Aspose.Slides لجافا**
+## **موارد Aspose.Slides for Java**
 
-هذه روابط لموارد مفيدة:
+فيما يلي روابط لموارد مفيدة:
 
-- [وثائق Aspose.Slides لجافا على الإنترنت](/slides/ar/java/)
-- [ميزات Aspose.Slides لجافا](/slides/ar/java/features-overview/)
-- [قيود Aspose.Slides لجافا](/slides/ar/java/known-issues/)
-- [ملاحظات إصدار Aspose.Slides لجافا](https://releases.aspose.com/slides/java/release-notes/)
-- [صفحة منتج Aspose.Slides لجافا](https://products.aspose.com/slides/java/)
-- [تنزيل Aspose.Slides لجافا](https://releases.aspose.com/slides/java/)
-- [مستودع Maven لـ Aspose.Slides لجافا](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)
-- [تثبيت Aspose.Slides لجافا من مستودع Maven](/slides/ar/java/installation/)
-- [دليل مرجع واجهة برمجة تطبيقات Aspose.Slides لجافا](https://reference.aspose.com/slides/java)
+- [توثيق Aspose.Slides for Java عبر الإنترنت](/slides/ar/java/)
+- [ميزات Aspose.Slides for Java](/slides/ar/java/features-overview/)
+- [قيود Aspose.Slides for Java](/slides/ar/java/known-issues/)
+- [ملاحظات إصدار Aspose.Slides for Java](https://releases.aspose.com/slides/ar/java/release-notes/)
+- [صفحة منتج Aspose.Slides for Java](https://products.aspose.com/slides/ar/java/)
+- [تنزيل Aspose.Slides for Java](https://releases.aspose.com/slides/ar/java/)
+- [مستودع Maven لـ Aspose.Slides for Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)
+- [تثبيت Aspose.Slides for Java من مستودع Maven](/slides/ar/java/installation/)
+- [دليل مرجع API لـ Aspose.Slides for Java](https://reference.aspose.com/slides/ar/java)
 - [تنزيل أمثلة من مستودع GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java)
-- [منتدى الدعم المجاني لـ Aspose.Slides لجافا](https://forum.aspose.com/c/slides/11)
-- [مكتب دعم الدفع لـ Aspose.Slides لجافا](https://helpdesk.aspose.com/)
+- [منتدى الدعم المجاني لـ Aspose.Slides for Java](https://forum.aspose.com/c/slides/ar/11)
+- [مكتب المساعدة للدعم المدفوع لـ Aspose.Slides for Java](https://helpdesk.aspose.com/)

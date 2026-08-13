@@ -10,39 +10,41 @@ keywords:
 - správa ActiveX
 - přidání ActiveX
 - úprava ActiveX
-- multimediální přehrávač
+- přehrávač médií
 - PowerPoint
 - prezentace
 - Java
 - Aspose.Slides
-description: "Naučte se, jak Aspose.Slides for Java využívá ActiveX k automatizaci a vylepšení PowerPoint prezentací, což vývojářům poskytuje silnou kontrolu nad snímky."
+description: "Zjistěte, jak Aspose.Slides pro Javu využívá ActiveX k automatizaci a vylepšení PowerPoint prezentací, a poskytuje vývojářům silnou kontrolu nad snímky."
 ---
 ## **Úvod**
 
-ActiveX ovládací prvky se používají v prezentacích. Aspose.Slides for Java vám umožňuje přidávat a spravovat ActiveX ovládací prvky, ale jsou o něco obtížnější na správu ve srovnání s běžnými tvary prezentace. Implementovali jsme podporu pro přidání ActiveX ovládacího prvku Media Player v Aspose.Slides. Všimněte si, že ActiveX ovládací prvky nejsou tvary; nejsou součástí [IShapeCollection](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishapecollection/) prezentace. Patří místo toho do samostatné [IControlCollection](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icontrolcollection/). V tomto tématu vám ukážeme, jak s nimi pracovat. 
+ActiveX ovládací prvky jsou používány v prezentacích. Aspose.Slides for Java umožňuje přidávat a spravovat ActiveX ovládací prvky, ale jsou o něco obtížnější na správu ve srovnání s běžnými tvary prezentace. Implementovali jsme podporu pro přidání ActiveX ovládacího prvku Media Player v Aspose.Slides. Všimněte si, že ActiveX ovládací prvky nejsou tvary; nejsou součástí [IShapeCollection](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishapecollection/). Patří do samostatné [IControlCollection](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icontrolcollection/) místo toho. V tomto tématu vám ukážeme, jak s nimi pracovat.
 
-## **Přidání ActiveX ovládacího prvku Media Player na snímek**
-Chcete‑li přidat ActiveX ovládací prvek Media Player, postupujte takto:
+## **Přidání ActiveX Media Player ovládacího prvku do snímku**
+Pro přidání ActiveX Media Player ovládacího prvku proveďte následující:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation) a vygenerujte prázdnou prezentaci.  
-2. Získejte cílový snímek v [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation).  
-3. Přidejte ActiveX ovládací prvek Media Player pomocí metody [addControl](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) vystavené rozhraním [IControlCollection](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icontrolcollection/).  
-4. Získejte přístup k ovládacímu prvku Media Player a nastavte cestu k videu pomocí jeho vlastností.  
-5. Uložte prezentaci jako soubor PPTX.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation) a vygenerujte prázdnou prezentaci.
+1. Získejte cílový snímek v [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation).
+1. Přidejte Media Player ActiveX ovládací prvek pomocí metody [addControl](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) vystavené rozhraním [IControlCollection](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icontrolcollection/).
+1. Získejte Media Player ActiveX ovládací prvek a nastavte cestu k videu pomocí jeho vlastností.
+1. Uložte prezentaci jako soubor PPTX.
 
-Tento ukázkový kód, založený na výše uvedených krocích, ukazuje, jak přidat ActiveX ovládací prvek Media Player na snímek:
+Tento ukázkový kód, založený na výše uvedených krocích, ukazuje, jak přidat Media Player ActiveX ovládací prvek do snímku:
 
 ```java
+import com.aspose.slides.*;
+
 // Vytvořte prázdnou instanci prezentace
 Presentation pres = new Presentation();
 try {
     // Přidání ActiveX ovládacího prvku Media Player
     pres.getSlides().get_Item(0).getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
 
-    // Získání přístupu k ActiveX ovládacímu prvku Media Player a nastavení cesty k videu
+    // Získejte přístup k ActiveX ovládacímu prvku Media Player a nastavte cestu k videu
     pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("URL", "Wildlife.wmv");
 
-    // Uložení prezentace
+    // Uložte prezentaci
     pres.save("Output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -50,34 +52,40 @@ try {
 ```
 
 ## **Úprava ActiveX ovládacího prvku**
-{{% alert color="primary" %}} 
-
-Aspose.Slides for Java 7.1.0 a novější verze jsou vybaveny komponentami pro správu ActiveX ovládacích prvků. Můžete získat přístup k již přidanému ActiveX ovládacímu prvku ve své prezentaci a upravit jej nebo smazat pomocí jeho vlastností.
-
+{{% alert color="info" %}} 
+Aspose.Slides for Java 7.1.0 a novější verze jsou vybaveny komponentami pro správu ActiveX ovládacích prvků. Můžete získat již přidaný ActiveX ovládací prvek v prezentaci a upravit jej nebo smazat pomocí jeho vlastností.
 {{% /alert %}} 
 
-Chcete‑li spravovat jednoduchý ActiveX ovládací prvek, například textové pole a jednoduché tlačítko příkazu na snímku, postupujte takto:
+Pro správu jednoduchého ActiveX ovládacího prvku, jako je textové pole a jednoduché tlačítko příkazu na snímku, proveďte následující:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation) a načtěte prezentaci s ActiveX ovládacími prvky.  
-2. Získejte referenci na snímek podle jeho indexu.  
-3. Přístup k ActiveX ovládacím prvkům na snímku získáte přes [IControlCollection](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icontrolcollection/).  
-4. Získejte ActiveX ovládací prvek TextBox1 pomocí objektu [IControl](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icontrol/).  
-5. Změňte vlastnosti ActiveX ovládacího prvku TextBox1, které zahrnují text, písmo, velikost písma a pozici rámce.  
-6. Přístup k druhému ovládacímu prvku nazvanému CommandButton1.  
-7. Změňte popisek tlačítka, písmo a pozici.  
-8. Posuňte pozice rámců ActiveX ovládacích prvků.  
-9. Zapište upravenou prezentaci do souboru PPTX.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation) a načtěte prezentaci s ActiveX ovládacími prvky.
+1. Získejte odkaz na snímek podle jeho indexu.
+1. Přistupujte k ActiveX ovládacím prvkům na snímku přes [IControlCollection](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icontrolcollection/).
+1. Získejte ActiveX ovládací prvek TextBox1 pomocí objektu [IControl](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icontrol/).
+1. Změňte vlastnosti ActiveX ovládacího prvku TextBox1, které zahrnují text, písmo, výšku písma a umístění rámce.
+1. Přistupte k druhému ovládacímu prvku nazvanému CommandButton1.
+1. Změňte popisek tlačítka, písmo a umístění.
+1. Posuňte umístění rámců ActiveX ovládacích prvků.
+1. Zapište upravenou prezentaci do souboru PPTX.
 
-Tento ukázkový kód, založený na výše uvedených krocích, ukazuje, jak spravovat jednoduchý ActiveX ovládací prvek: 
+Tento ukázkový kód, založený na výše uvedených krocích, ukazuje, jak spravovat jednoduchý ActiveX ovládací prvek:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.FontMetrics;
+import java.awt.SystemColor;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+
 // Přístup k prezentaci s ActiveX ovládacími prvky
 Presentation pres = new Presentation("ActiveX.pptm");
 try {
     // Přístup k prvnímu snímku v prezentaci
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // změna textu TextBoxu
+    // mění se text TextBoxu
     IControl control = slide.getControls().get_Item(0);
 
     if (control.getName().equalsIgnoreCase("TextBox1") && control.getProperties() != null) {
@@ -85,7 +93,7 @@ try {
         control.getProperties().set_Item("Value", newText);
 
         // Změna náhradního obrázku. PowerPoint tento obrázek nahradí během aktivace ActiveX,
-        // takže někdy je v pořádku nechat obrázek beze změny.
+        // takže je někdy v pořádku nechat obrázek beze změny.
         BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
                 BufferedImage.TYPE_INT_ARGB);
 
@@ -173,7 +181,7 @@ try {
             }
             pres.save("withActiveX-edited_java.pptm", SaveFormat.Pptm);
 
-            // odstranění ovládacích prvků
+            // odstraňování ovládacích prvků
             pres.getSlides().get_Item(0).getControls().clear();
             pres.save("withActiveX-cleared_java.pptm", SaveFormat.Pptm);
         } catch(IOException e) {
@@ -184,14 +192,14 @@ try {
 
 ## **Často kladené otázky**
 
-**Zachovává Aspose.Slides ActiveX ovládací prvky při čtení a opětovném uložení, pokud nemohou být spuštěny v Java runtime?**
+### Zachovává Aspose.Slides ActiveX ovládací prvky při čtení a opětovném uložení, pokud nelze spustit v Java runtime?
 
-Ano. Aspose.Slides s nimi zachází jako s částí prezentace a může číst/upravovat jejich vlastnosti a rámce; není nutné samotné ovládací prvky spouštět, aby byly zachovány.
+Ano. Aspose.Slides s nimi zachází jako s částí prezentace a může číst/upravovat jejich vlastnosti a rámce; spuštění samotných ovládacích prvků není vyžadováno pro jejich zachování.
 
-**Jak se ActiveX ovládací prvky liší od OLE objektů v prezentaci?**
+### Jak se ActiveX ovládací prvky liší od OLE objektů v prezentaci?
 
-ActiveX ovládací prvky jsou interaktivní řízené prvky (tlačítka, textová pole, přehrávač médií), zatímco [OLE](/slides/cs/java/manage-ole/) odkazuje na vložené aplikační objekty (například list Excelu). Jsou ukládány a zpracovávány odlišně a mají odlišné modely vlastností.
+ActiveX ovládací prvky jsou interaktivní řízené ovládací prvky (tlačítka, textová pole, přehrávač médií), zatímco [OLE](/slides/cs/java/manage-ole/) odkazuje na vložené aplikační objekty (například list Excelu). Jsou uloženy a zpracovávány odlišně a mají odlišné modely vlastností.
 
-**Fungují události ActiveX a VBA makra, pokud byl soubor upraven pomocí Aspose.Slides?**
+### Fungují události ActiveX a VBA makra, pokud byl soubor upraven pomocí Aspose.Slides?
 
-Aspose.Slides zachovává existující značky a metadata; události a makra však běží pouze v PowerPointu na Windows, pokud to bezpečnostní nastavení dovolí. Knihovna neprovádí VBA.
+Aspose.Slides zachovává existující značky a metadata; nicméně události a makra se spouštějí pouze v PowerPointu na Windows, pokud to bezpečnost umožňuje. Knihovna nespouští VBA.

@@ -1,5 +1,5 @@
 ---
-title: การเปลี่ยนแปลง Public API และการไม่เข้ากันถอยหลังใน Aspose.Slides for Java 15.10.0
+title: API สาธารณะและการเปลี่ยนแปลงที่ไม่เข้ากันย้อนหลังใน Aspose.Slides for Java 15.10.0
 linktitle: Aspose.Slides for Java 15.10.0
 type: docs
 weight: 180
@@ -8,23 +8,21 @@ keywords:
 - การย้ายข้อมูล
 - โค้ดเดิม
 - โค้ดสมัยใหม่
-- วิธีการเดิม
-- วิธีการสมัยใหม่
+- แนวทางเดิม
+- แนวทางสมัยใหม่
 - PowerPoint
 - OpenDocument
 - การนำเสนอ
 - Java
 - Aspose.Slides
-description: "ทบทวนการอัปเดต Public API และการเปลี่ยนแปลงที่ทำให้เกิดการแตกหักใน Aspose.Slides for Java เพื่อให้การย้ายโซลูชันการนำเสนอ PowerPoint PPT, PPTX และ ODP ของคุณเป็นไปอย่างราบรื่น"
+description: "รีวิวการอัปเดต API สาธารณะและการเปลี่ยนแปลงที่ทำให้เกิดการแตกหักใน Aspose.Slides for Java เพื่อช่วยให้การย้ายโซลูชันการนำเสนอ PowerPoint PPT, PPTX และ ODP ของคุณเป็นไปอย่างราบรื่น"
 ---
-{{% alert color="primary" %}} 
-
-หน้านี้แสดงรายการทั้งหมดของคลาส, เมธอด, คุณสมบัติ และอื่น ๆ ที่ [เพิ่ม](/slides/th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) หรือ [ลบ](/slides/th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) ที่ถูกแนะนำใน API Aspose.Slides for Java 15.10.0
-
+{{% alert color="info" %}} 
+หน้านี้แสดงรายการทั้งหมดที่ [เพิ่ม](/slides/th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) หรือ [ลบ](/slides/th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) ของคลาส, เมธอด, คุณสมบัติ ฯลฯ และการเปลี่ยนแปลงอื่น ๆ ที่แนะนำใน API ของ Aspose.Slides for Java 15.10.0
 {{% /alert %}} 
 ## **การเปลี่ยนแปลง Public API**
-#### **ได้เพิ่ม Chart series animation API ไปยัง ISequence**
-เมธอดใหม่ 2 รายการได้ถูกเพิ่มไปยังอินเทอร์เฟซ com.aspose.slides.ISequence interface.
+#### **API การทำแอนิเมชันซีรีส์ของแผนภูมิได้ถูกเพิ่มเข้าใน ISequence**
+เมธอดใหม่ 2 เมธอดได้ถูกเพิ่มเข้าไปในอินเทอร์เฟซ com.aspose.slides.ISequence interface.
 
 ``` java
 
@@ -34,20 +32,23 @@ IEffect addEffect(IChart chart, int type, int seriesIndex, int categoriesIndex, 
 
 ```
 
-เมธอดเหล่านี้มีวัตถุประสงค์เพื่อสนับสนุนการเคลื่อนไหวขององค์ประกอบในแผนภูมิ:
+เมธอดเหล่านี้มีจุดประสงค์เพื่อรองรับการทำแอนิเมชันขององค์ประกอบแผนภูมิ:
+by series
+by categories
+by series elements
+by categories elements
 
-โดยซีรีส์
-โดยหมวดหมู่
-โดยองค์ประกอบซีรีส์
-โดยองค์ประกอบหมวดหมู่
+ได้แนะนำ enum ใหม่สองตัว EffectChartMajorGroupingType และ EffectChartMinorGroupingType ที่เกี่ยวข้องกับการทำแอนิเมชันขององค์ประกอบแผนภูมิ
 
-ได้แนะนำ enum ใหม่สองตัวคือ EffectChartMajorGroupingType และ EffectChartMinorGroupingType ที่เกี่ยวข้องกับการเคลื่อนไหวขององค์ประกอบในแผนภูมิ.
-
-เพื่อเพิ่มการเคลื่อนไหวของซีรีส์ลงในแผนภูมิ สามารถใช้โค้ดต่อไปนี้:
+เพื่อเพิ่มแอนิเมชันซีรีส์ให้กับแผนภูมิ สามารถใช้โค้ดต่อไปนี้ได้ แผนภูมิในไฟล์ตัวอย่างมีสามซีรีส์ ดังนั้นจะเพิ่มเอฟเฟกต์หนึ่งอันสำหรับแต่ละดัชนีตั้งแต่ 0 ถึง 2:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try {
 
@@ -79,12 +80,6 @@ try {
 
 		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMajorGroupingType.BySeries, 3,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
 	pres.save(outFileName, SaveFormat.Pptx);
 
 } finally {
@@ -95,11 +90,15 @@ try {
 
 ```
 
-การเคลื่อนไหวของหมวดหมู่:
+การทำแอนิเมชันประเภท:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -149,11 +148,15 @@ try
 
 ```
 
-การเคลื่อนไหวขององค์ประกอบซีรีส์:
+การทำแอนิเมชันองค์ประกอบซีรีส์:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -251,11 +254,15 @@ try
 
 ```
 
-การเคลื่อนไหวขององค์ประกอบหมวดหมู่:
+การทำแอนิเมชันองค์ประกอบประเภท:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -352,18 +359,19 @@ try
 }
 
 ```
-#### **เพิ่ม com.aspose.slides.VideoPlayerHtmlController ใหม่เพื่อสนับสนุนการส่งออกไฟล์สื่อไปยัง HTML**
-คลาสสาธารณะใหม่ com.aspose.slides.VideoPlayerHtmlController ได้ถูกเพิ่มเข้ามา ผู้ใช้สามารถใช้ตัวอย่างของคลาสนี้เพื่อส่งออกไฟล์วิดีโอและเสียงไปยัง HTML.
+#### **เพิ่ม com.aspose.slides.VideoPlayerHtmlController ใหม่เพื่อสนับสนุนการส่งออกไฟล์สื่อเป็น HTML**
+คลาสสาธารณะใหม่ com.aspose.slides.VideoPlayerHtmlController ได้ถูกเพิ่มเข้าไป ผู้ใช้สามารถใช้ตัวอย่างของคลาสนี้ส่งออกไฟล์วีดีโอและไฟล์เสียงเป็น HTML
 
-คอนสตรักเตอร์ VideoPlayerHtmlController รับพารามิเตอร์ต่อไปนี้:
+คอนสตรัคเตอร์ของ VideoPlayerHtmlController รับพารามิเตอร์ต่อไปนี้:
+path: เส้นทางที่ไฟล์วีดีโอและไฟล์เสียงจะถูกสร้าง (โฟลเดอร์ต้องมีอยู่แล้ว)
+fileName: ชื่อของไฟล์ HTML
+baseUri: URI ฐานที่จะใช้เพื่อสร้างลิงก์
 
-path: เส้นทางที่ไฟล์วิดีโอและเสียงจะถูกสร้างขึ้น  
-fileName: ชื่อของไฟล์ HTML  
-baseUri: URI พื้นฐานที่จะใช้ในการสร้างลิงก์
-
-ตัวอย่างการใช้:
+ตัวอย่างการใช้งาน:
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation("example.pptx");
 
@@ -371,7 +379,7 @@ try
 
 {
 
-	final String path = "path";
+	final String path = "path/";
 
 	final String fileName = "video.html";
 

@@ -4,6 +4,8 @@ linktitle: Buat atau Perbarui Diagram
 type: docs
 weight: 10
 url: /id/cpp/create-chart/
+aliases:
+  - /cpp/update-chart/
 keywords:
 - tambahkan diagram
 - buat diagram
@@ -15,12 +17,12 @@ keywords:
 - diagram garis
 - diagram peta pohon
 - diagram saham
-- diagram kotak dan whisker
+- diagram box and whisker
 - diagram corong
 - diagram sunburst
 - diagram histogram
 - diagram radar
-- diagram multi kategori
+- diagram multi-kategori
 - PowerPoint
 - presentasi
 - C++
@@ -29,46 +31,78 @@ description: "Buat dan sesuaikan diagram dalam presentasi PowerPoint menggunakan
 ---
 ## **Gambaran Umum**
 
-Artikel ini memberikan panduan komprehensif tentang cara membuat dan menyesuaikan diagram menggunakan Aspose.Slides. Anda akan belajar cara menambahkan diagram secara programatis ke slide, mengisinya dengan data, dan menerapkan berbagai opsi pemformatan untuk memenuhi kebutuhan desain spesifik Anda. Sepanjang artikel, contoh kode terperinci menggambarkan setiap langkah, mulai dari inisialisasi objek presentasi dan diagram hingga konfigurasi seri, sumbu, dan legenda. Dengan mengikuti panduan ini, Anda akan memperoleh pemahaman yang kuat tentang cara mengintegrasikan pembuatan diagram dinamis ke dalam aplikasi Anda, mempermudah proses pembuatan presentasi berbasis data.
+Artikel ini memberikan panduan komprehensif tentang cara membuat dan menyesuaikan diagram menggunakan Aspose.Slides. Anda akan belajar cara menambahkan diagram secara programatis ke slide, mengisinya dengan data, dan menerapkan berbagai opsi pemformatan untuk memenuhi kebutuhan desain spesifik Anda. Sepanjang artikel, contoh kode yang detail menggambarkan setiap langkah, mulai dari inisialisasi objek presentasi dan diagram hingga konfigurasi seri, sumbu, dan legenda. Dengan mengikuti panduan ini, Anda akan mendapatkan pemahaman yang kuat tentang cara mengintegrasikan pembuatan diagram dinamis ke dalam aplikasi Anda, mempermudah proses pembuatan presentasi berbasis data.
 
-## **Membuat Diagram**
+## **Buat Diagram**
 
-Diagram membantu orang dengan cepat memvisualisasikan data dan mendapatkan wawasan, yang mungkin tidak langsung terlihat dari tabel atau spreadsheet. 
+Diagram membantu orang untuk dengan cepat memvisualisasikan data dan mendapatkan wawasan, yang mungkin tidak langsung jelas dari tabel atau spreadsheet. 
 
 **Mengapa Membuat Diagram?**
 
-Dengan diagram, Anda dapat
+Menggunakan diagram, Anda dapat
 
-* menggabungkan, merangkum, atau menyimpulkan sejumlah besar data pada satu slide dalam presentasi
+* menggabungkan, memadatkan, atau merangkum sejumlah besar data pada satu slide dalam presentasi
 * menampilkan pola dan tren dalam data
-* menilai arah dan momentum data seiring waktu atau terhadap satuan pengukuran tertentu 
+* menyimpulkan arah dan momentum data seiring waktu atau terhadap unit pengukuran tertentu 
 * mengidentifikasi outlier, penyimpangan, deviasi, kesalahan, data yang tidak masuk akal, dll. 
-* mengomunikasikan atau menyajikan data kompleks
+* mengkomunikasikan atau menyajikan data kompleks
 
-Di PowerPoint, Anda dapat membuat diagram melalui fungsi sisip, yang menyediakan templat untuk merancang berbagai jenis diagram. Menggunakan Aspose.Slides, Anda dapat membuat diagram standar (berdasarkan tipe diagram populer) dan diagram khusus. 
+Di PowerPoint, Anda dapat membuat diagram melalui fungsi sisipkan, yang menyediakan templat untuk merancang banyak jenis diagram. Dengan menggunakan Aspose.Slides, Anda dapat membuat diagram reguler (berdasarkan jenis diagram populer) dan diagram khusus. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Agar Anda dapat membuat diagram, Aspose.Slides menyediakan enum class [ChartType](https://reference.aspose.com/slides/id/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) di dalam namespace [Aspose::Slides::Charts](https://reference.aspose.com/slides/id/cpp/namespace/aspose.slides.charts/). Nilai‑nilai pada enum class ini sesuai dengan berbagai tipe diagram. 
+Untuk memungkinkan Anda membuat diagram, Aspose.Slides menyediakan kelas enum [ChartType](https://reference.aspose.com/slides/id/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) di bawah namespace [Aspose::Slides::Charts](https://reference.aspose.com/slides/id/cpp/namespace/aspose.slides.charts/). Nilai-nilai dalam enum ini sesuai dengan berbagai jenis diagram. 
 
 {{% /alert %}} 
 
-### **Membuat Diagram Normal**
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).  
-1. Dapatkan referensi slide melalui indeksnya.  
-1. Tambahkan diagram dengan beberapa data dan tentukan tipe diagram yang Anda inginkan.  
-1. Tambahkan judul untuk diagram.  
-1. Akses worksheet data diagram.  
-1. Hapus semua seri dan kategori default.  
-1. Tambahkan seri dan kategori baru.  
-1. Tambahkan data diagram baru untuk seri diagram.  
-1. Tambahkan warna isi untuk seri diagram.  
-1. Tambahkan label untuk seri diagram.  
-1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.  
+### **Buat Diagram Normal**
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
+2. Dapatkan referensi slide melalui indeksnya.
+3. Tambahkan diagram dengan beberapa data dan tentukan jenis diagram yang Anda inginkan. 
+4. Tambahkan judul untuk diagram. 
+5. Akses lembar kerja data diagram. 
+6. Hapus semua seri dan kategori default. 
+7. Tambahkan seri dan kategori baru. 
+8. Tambahkan beberapa data diagram baru untuk seri diagram. 
+9. Tambahkan warna isi untuk seri diagram. 
+10. Tambahkan label untuk seri diagram. 
+11. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode C++ ini menunjukkan cara membuat diagram normal:
+Kode C++ berikut menunjukkan cara membuat diagram normal:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 // Jalur ke direktori dokumen.
 	const String outPath = u"../out/NormalCharts_out.pptx";
 
@@ -85,7 +119,7 @@ Kode C++ ini menunjukkan cara membuat diagram normal:
 	// Menetapkan indeks lembar data diagram
 	int defaultWorksheetIndex = 0;
 
-	// Mendapatkan worksheet data diagram
+	// Mendapatkan lembar kerja data diagram
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 	// Menetapkan Judul diagram
@@ -154,26 +188,64 @@ Kode C++ ini menunjukkan cara membuat diagram normal:
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Membuat Diagram Sebar**
-Diagram sebar (juga dikenal sebagai scatter plot atau grafik x‑y) sering digunakan untuk memeriksa pola atau menunjukkan korelasi antara dua variabel. 
+### **Buat Diagram Sebar**
+Diagram sebar (juga dikenal sebagai plot sebar atau grafik x-y) sering digunakan untuk memeriksa pola atau menunjukkan korelasi antara dua variabel. 
 
-Anda mungkin ingin menggunakan diagram sebar ketika  
+Anda mungkin ingin menggunakan diagram sebar ketika 
 
-* Anda memiliki data numerik berpasangan  
-* Anda memiliki 2 variabel yang saling berhubungan dengan baik  
-* Anda ingin menentukan apakah 2 variabel tersebut terkait  
-* Anda memiliki variabel independen yang memiliki banyak nilai untuk variabel dependen  
+* Anda memiliki data numerik berpasangan
+* Anda memiliki 2 variabel yang cocok satu sama lain
+* Anda ingin menentukan apakah 2 variabel saling terkait
+* Anda memiliki variabel independen yang memiliki banyak nilai untuk variabel dependen 
 
-Kode C++ ini menunjukkan cara membuat diagram sebar dengan serangkaian penanda yang berbeda: 
+Kode C++ berikut menunjukkan cara membuat diagram sebar dengan seri penanda yang berbeda: 
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IChartSeriesGroupCollection.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/Chart/IMarker.h>
+#include <DOM/Chart/MarkerStyleType.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/LineDashStyle.h>
+#include <DOM/LineStyle.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
 // Jalur ke direktori dokumen.
 	const String outPath = u"../out/ScatteredChart_out.pptx";
 
-	//Membuat instance kelas presentasi yang mewakili file PPTX
+	// Membuat instance kelas presentasi yang mewakili file PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//Mengakses slide pertama
+	// Mengakses slide pertama
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// Menambahkan diagram dengan data default
@@ -191,7 +263,7 @@ Kode C++ ini menunjukkan cara membuat diagram sebar dengan serangkaian penanda y
 	// Menetapkan indeks untuk lembar data diagram
 	int defaultWorksheetIndex = 0;
 
-	// Mendapatkan worksheet data diagram
+	// Mengambil lembar kerja data diagram
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
@@ -274,7 +346,7 @@ Kode C++ ini menunjukkan cara membuat diagram sebar dengan serangkaian penanda y
 	point2->get_Format()->get_Line()->set_DashStyle(LineDashStyle::LargeDashDotDot);
 
 
-	// Membuat label khusus untuk tiap kategori seri baru
+	// Membuat label khusus untuk setiap kategori seri baru
 	SharedPtr<IDataLabel> lbl1 = series->get_DataPoints()->idx_get(0)->get_Label();
 
 	// lbl.ShowCategoryName = true;
@@ -302,25 +374,62 @@ Kode C++ ini menunjukkan cara membuat diagram sebar dengan serangkaian penanda y
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Membuat Diagram Pai**
-Diagram pai paling cocok untuk menunjukkan hubungan bagian‑ke‑keseluruhan dalam data, terutama ketika data berisi label kategori dengan nilai numerik. Namun, jika data Anda memiliki banyak bagian atau label, pertimbangkan menggunakan diagram batang sebagai gantinya. 
+### **Buat Diagram Pai**
+Diagram pai paling cocok untuk menampilkan hubungan bagian-dengan-seluruh dalam data, terutama ketika data berisi label kategori dengan nilai numerik. Namun, jika data Anda memiliki banyak bagian atau label, Anda mungkin ingin mempertimbangkan menggunakan diagram batang sebagai gantinya. 
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).  
-1. Dapatkan referensi slide melalui indeksnya.  
-1. Tambahkan diagram dengan data default beserta tipe yang diinginkan (dalam hal ini, `ChartType.Pie`).  
-1. Akses data diagram melalui `IChartDataWorkbook`.  
-1. Hapus seri dan kategori default.  
-1. Tambahkan seri dan kategori baru.  
-1. Tambahkan data diagram baru untuk seri diagram.  
-1. Tambahkan titik baru untuk diagram dan tambahkan warna khusus untuk sektor diagram pai.  
-1. Atur label untuk seri.  
-1. Atur garis penunjuk (leader lines) untuk label seri.  
-1. Atur sudut rotasi untuk slide diagram pai.  
-1. Simpan presentasi yang telah dimodifikasi ke file PPTX.  
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
+2. Dapatkan referensi slide melalui indeksnya.
+3. Tambahkan diagram dengan data default beserta jenis yang diinginkan (dalam hal ini, `ChartType.Pie`).
+4. Akses data diagram IChartDataWorkbook.
+5. Hapus seri dan kategori default.
+6. Tambahkan seri dan kategori baru.
+7. Tambahkan data diagram baru untuk seri diagram.
+8. Tambahkan titik baru untuk diagram dan tambahkan warna khusus untuk sektor diagram pai.
+9. Atur label untuk seri.
+10. Atur garis pemimpin untuk label seri.
+11. Atur sudut rotasi untuk slide diagram pai.
+12. Simpan presentasi yang telah dimodifikasi ke file PPTX.
 
-Kode C++ ini menunjukkan cara membuat diagram pai:
+Kode C++ berikut menunjukkan cara membuat diagram pai:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IChartSeriesGroupCollection.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/LineDashStyle.h>
+#include <DOM/LineStyle.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
 	// Jalur ke direktori dokumen.
 	const String outPath = u"../out/PieChart_out.pptx";
 
@@ -346,7 +455,7 @@ Kode C++ ini menunjukkan cara membuat diagram pai:
 	// Menetapkan indeks lembar data diagram
 	int defaultWorksheetIndex = 0;
 
-	// Mendapatkan worksheet data diagram
+	// Mengambil lembar kerja data diagram
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 	// Menambahkan Kategori
@@ -429,31 +538,60 @@ Kode C++ ini menunjukkan cara membuat diagram pai:
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Membuat Diagram Garis**
 
-Diagram garis (juga dikenal sebagai grafik garis) paling cocok untuk situasi di mana Anda ingin menunjukkan perubahan nilai seiring waktu. Menggunakan diagram garis, Anda dapat membandingkan banyak data sekaligus, melacak perubahan dan tren seiring waktu, menyoroti anomali dalam rangkaian data, dll.
+### **Buat Diagram Garis**
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).  
-1. Dapatkan referensi slide melalui indeksnya.  
-1. Tambahkan diagram dengan data default beserta tipe yang diinginkan (dalam hal ini, `ChartType::Line`).  
-1. Akses data diagram melalui `IChartDataWorkbook`.  
-1. Hapus seri dan kategori default.  
-1. Tambahkan seri dan kategori baru.  
-1. Tambahkan data diagram baru untuk seri diagram.  
-1. Simpan presentasi yang telah dimodifikasi ke file PPTX.  
+Diagram garis (juga dikenal sebagai grafik garis) paling cocok untuk situasi di mana Anda ingin menunjukkan perubahan nilai seiring waktu. Dengan diagram garis, Anda dapat membandingkan banyak data sekaligus, melacak perubahan dan tren seiring waktu, menyoroti anomali dalam seri data, dll.
 
-Kode C++ ini menunjukkan cara membuat diagram garis:
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
+2. Dapatkan referensi slide melalui indeksnya.
+3. Tambahkan diagram dengan data default beserta jenis yang diinginkan (dalam hal ini, `ChartType::Line`).
+4. Akses data diagram IChartDataWorkbook.
+5. Hapus seri dan kategori default.
+6. Tambahkan seri dan kategori baru.
+7. Tambahkan data diagram baru untuk seri diagram.
+8. Simpan presentasi yang telah dimodifikasi ke file PPTX.
+
+Kode C++ berikut menunjukkan cara membuat diagram garis:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 
 System::SharedPtr<IChart> lineChart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Line, 10.0f, 50.0f, 600.0f, 350.0f);
 pres->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
-Secara default, titik‑titik pada diagram garis dihubungkan oleh garis lurus berkelanjutan. Jika Anda ingin titik‑titik tersebut dihubungkan oleh garis putus‑putus, Anda dapat menentukan tipe dash yang diinginkan sebagai berikut:
+Secara default, titik pada diagram garis dihubungkan oleh garis lurus kontinu. Jika Anda ingin titik-titik tersebut dihubungkan oleh garis putus-putus, Anda dapat menentukan jenis dash yang diinginkan dengan cara berikut:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/LineDashStyle.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+
+auto pres = System::MakeObject<Presentation>();
+
 System::SharedPtr<IChart> lineChart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Line, 10.0f, 50.0f, 600.0f, 350.0f);
 for (auto&& series : lineChart->get_ChartData()->get_Series())
 {
@@ -461,23 +599,47 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 }
 ```
 
-### **Membuat Diagram Peta Pohon**
+### **Buat Diagram Peta Pohon**
 
-Diagram peta pohon paling cocok untuk data penjualan ketika Anda ingin menunjukkan ukuran relatif kategori data dan (pada saat yang sama) dengan cepat menarik perhatian ke item yang menjadi kontributor besar bagi setiap kategori. 
+Diagram peta pohon paling cocok untuk data penjualan ketika Anda ingin menampilkan ukuran relatif kategori data dan (pada saat yang sama) dengan cepat menarik perhatian pada item yang memberikan kontribusi besar pada setiap kategori. 
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).  
-1. Dapatkan referensi slide melalui indeksnya.  
-1. Tambahkan diagram dengan data default beserta tipe yang diinginkan (dalam hal ini, `ChartType.TreeMap`).  
-1. Akses data diagram melalui `IChartDataWorkbook`.  
-1. Hapus seri dan kategori default.  
-1. Tambahkan seri dan kategori baru.  
-1. Tambahkan data diagram baru untuk seri diagram.  
-1. Simpan presentasi yang telah dimodifikasi ke file PPTX.  
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
+2. Dapatkan referensi slide melalui indeksnya.
+3. Tambahkan diagram dengan data default beserta jenis yang diinginkan (dalam hal ini, `ChartType.TreeMap`).
+4. Akses data diagram IChartDataWorkbook.
+5. Hapus seri dan kategori default.
+6. Tambahkan seri dan kategori baru.
+7. Tambahkan data diagram baru untuk seri diagram.
+8. Simpan presentasi yang telah dimodifikasi ke file PPTX.
 
-Kode C++ ini menunjukkan cara membuat diagram peta pohon:
+Kode C++ berikut menunjukkan cara membuat diagram peta pohon:
 
 ```c++
-	// Jalur ke direktori dokumen.
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategory.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartCategoryLevelsManager.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/ParentLabelLayoutType.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// Jalur ke direktori dokumen.
 	const String outPath = u"../out/TreemapChart_out.pptx";
 
 	//Membuat instance kelas Presentation yang mewakili file PPTX
@@ -536,27 +698,54 @@ Kode C++ ini menunjukkan cara membuat diagram peta pohon:
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Membuat Diagram Saham**
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).  
-1. Dapatkan referensi slide melalui indeksnya.  
-1. Tambahkan diagram dengan data default beserta tipe yang diinginkan (`ChartType.OpenHighLowClose`).  
-1. Akses data diagram melalui `IChartDataWorkbook`.  
-1. Hapus seri dan kategori default.  
-1. Tambahkan seri dan kategori baru.  
-1. Tambahkan data diagram baru untuk seri diagram.  
-1. Tentukan format HiLowLines.  
-1. Simpan presentasi yang telah dimodifikasi ke file PPTX.  
+### **Buat Diagram Saham**
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
+2. Dapatkan referensi slide melalui indeksnya.
+3. Tambahkan diagram dengan data default beserta jenis yang diinginkan (ChartType.OpenHighLowClose).
+4. Akses data diagram IChartDataWorkbook.
+5. Hapus seri dan kategori default.
+6. Tambahkan seri dan kategori baru.
+7. Tambahkan data diagram baru untuk seri diagram.
+8. Tentukan format HiLowLines.
+9. Simpan presentasi yang telah dimodifikasi ke file PPTX.
 
 Contoh kode C++ yang digunakan untuk membuat diagram saham:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartLinesFormat.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IChartSeriesGroupCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/Chart/IUpDownBarsManager.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 	// Jalur ke direktori dokumen.
 	const String outPath = u"../out/AddStockChart_out.pptx";
 
 	//Membuat instance kelas Presentation yang mewakili file PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Mengakses slide pertama
+	//Mengakses slide pertama
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// Menambahkan diagram dengan data default
@@ -566,7 +755,7 @@ Contoh kode C++ yang digunakan untuk membuat diagram saham:
 	// Menetapkan indeks untuk lembar data diagram
 	int defaultWorksheetIndex = 0;
 
-	// Mendapatkan worksheet data diagram
+	// Mengambil lembar kerja data diagram
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
@@ -628,23 +817,43 @@ Contoh kode C++ yang digunakan untuk membuat diagram saham:
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Membuat Diagram Kotak‑dan‑Whisker**
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).  
-1. Dapatkan referensi slide melalui indeksnya.  
-1. Tambahkan diagram dengan data default beserta tipe yang diinginkan (`ChartType.BoxAndWhisker`).  
-1. Akses data diagram melalui `IChartDataWorkbook`.  
-1. Hapus seri dan kategori default.  
-1. Tambahkan seri dan kategori baru.  
-1. Tambahkan data diagram baru untuk seri diagram.  
-1. Simpan presentasi yang telah dimodifikasi ke file PPTX.  
+### **Buat Diagram Box and Whisker**
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
+2. Dapatkan referensi slide melalui indeksnya.
+3. Tambahkan diagram dengan data default beserta jenis yang diinginkan (ChartType.BoxAndWhisker).
+4. Akses data diagram IChartDataWorkbook.
+5. Hapus seri dan kategori default.
+6. Tambahkan seri dan kategori baru.
+7. Tambahkan data diagram baru untuk seri diagram.
+8. Simpan presentasi yang telah dimodifikasi ke file PPTX.
 
-Kode C++ ini menunjukkan cara membuat diagram kotak‑dan‑whisker:
+Kode C++ berikut menunjukkan cara membuat diagram box and whisker:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/QuartileMethodType.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 	// Jalur ke direktori dokumen.
 	const String outPath = u"../out/BoxAndWhisker_out.pptx";
 
-	//Membuat instance kelas Presentation yang mewakili file PPTX
+	// Membuat instance kelas Presentation yang mewakili file PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// Mengakses slide pertama
@@ -685,19 +894,38 @@ Kode C++ ini menunjukkan cara membuat diagram kotak‑dan‑whisker:
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Membuat Diagram Corong**
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).  
-1. Dapatkan referensi slide melalui indeksnya.  
-1. Tambahkan diagram dengan data default beserta tipe yang diinginkan (`ChartType.Funnel`).  
-1. Simpan presentasi yang telah dimodifikasi ke file PPTX.  
+### **Buat Diagram Corong**
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
+2. Dapatkan referensi slide melalui indeksnya.
+3. Tambahkan diagram dengan data default beserta jenis yang diinginkan (ChartType.Funnel).
+4. Simpan presentasi yang telah dimodifikasi ke file PPTX.
 
-Kode C++ ini menunjukkan cara membuat diagram corong:
+Kode C++ berikut menunjukkan cara membuat diagram corong:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 	// Jalur ke direktori dokumen.
 	const String outPath = u"../out/FunnelChart_out.pptx";
 
-	//Membuat instance kelas Presentation yang mewakili file PPTX
+	// Membuat instance kelas Presentation yang mewakili file PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// Mengakses slide pertama
@@ -732,15 +960,38 @@ Kode C++ ini menunjukkan cara membuat diagram corong:
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Membuat Diagram Sunburst**
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).  
-1. Dapatkan referensi slide melalui indeksnya.  
-1. Tambahkan diagram dengan data default beserta tipe yang diinginkan (dalam hal ini, `ChartType.sunburst`).  
-1. Simpan presentasi yang telah dimodifikasi ke file PPTX.  
+### **Buat Diagram Sunburst**
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
+2. Dapatkan referensi slide melalui indeksnya.
+3. Tambahkan diagram dengan data default beserta jenis yang diinginkan (dalam hal ini, `ChartType.sunburst`).
+4. Simpan presentasi yang telah dimodifikasi ke file PPTX.
 
-Kode C++ ini menunjukkan cara membuat diagram sunburst:
+Kode C++ berikut menunjukkan cara membuat diagram sunburst:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategory.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartCategoryLevelsManager.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 	// Jalur ke direktori dokumen.
 	const String outPath = u"../out/SunburstChart_out.pptx";
 
@@ -798,18 +1049,40 @@ Kode C++ ini menunjukkan cara membuat diagram sunburst:
 
 ```
 
-### **Membuat Diagram Histogram**
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).  
-1. Dapatkan referensi slide melalui indeksnya.  
-1. Tambahkan diagram dengan beberapa data dan tentukan tipe diagram yang Anda inginkan (`ChartType.Histogram` dalam kasus ini).  
-1. Akses data diagram melalui `IChartDataWorkbook`.  
-1. Hapus seri dan kategori default.  
-1. Tambahkan seri dan kategori baru.  
-1. Simpan presentasi yang telah dimodifikasi ke file PPTX.  
+### **Buat Diagram Histogram**
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
+2. Dapatkan referensi slide melalui indeksnya. 
+3. Tambahkan diagram dengan beberapa data dan tentukan jenis diagram yang Anda inginkan (`ChartType.Histogram` dalam kasus ini).
+4. Akses data diagram `IChartDataWorkbook`.
+5. Hapus seri dan kategori default.
+6. Tambahkan seri dan kategori baru.
+7. Simpan presentasi yang telah dimodifikasi ke file PPTX.
 
-Kode C++ ini menunjukkan cara membuat diagram histogram:
+Kode C++ berikut menunjukkan cara membuat diagram histogram:
 
 ```c++
+#include <DOM/Chart/AxisAggregationType.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 	// Jalur ke direktori dokumen.
 	const String outPath = u"../out/HistogramChart_out.pptx";
 
@@ -841,43 +1114,73 @@ Kode C++ ini menunjukkan cara membuat diagram histogram:
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Membuat Diagram Radar**
+### **Buat Diagram Radar**
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).  
-1. Dapatkan referensi slide melalui indeksnya.  
-1. Tambahkan diagram dengan beberapa data dan tentukan tipe diagram yang Anda inginkan (`ChartType.Radar` dalam kasus ini).  
-1. Simpan presentasi yang telah dimodifikasi ke file PPTX.  
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
+2. Dapatkan referensi slide melalui indeksnya. 
+3. Tambahkan diagram dengan beberapa data dan tentukan jenis diagram yang Anda inginkan (`ChartType.Radar` dalam kasus ini).
+4. Simpan presentasi yang telah dimodifikasi ke file PPTX.
 
-Kode C++ ini menunjukkan cara membuat diagram radar:
+Kode C++ berikut menunjukkan cara membuat diagram radar:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+
 System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
 
 presentation->get_Slides()->idx_get(0)->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Radar, 20.0f, 20.0f, 400.0f, 300.0f);
 presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Membuat Diagram Multi‑Kategori**
+### **Buat Diagram Multi-Kategori**
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).  
-1. Dapatkan referensi slide melalui indeksnya.  
-1. Tambahkan diagram dengan data default beserta tipe yang diinginkan (`ChartType.ClusteredColumn`).  
-1. Akses data diagram melalui `IChartDataWorkbook`.  
-1. Hapus seri dan kategori default.  
-1. Tambahkan seri dan kategori baru.  
-1. Tambahkan data diagram baru untuk seri diagram.  
-1. Simpan presentasi yang telah dimodifikasi ke file PPTX.  
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
+2. Ambil referensi slide dengan indeksnya.
+3. Tambahkan diagram dengan data default beserta jenis yang diinginkan (ChartType.ClusteredColumn).
+4. Akses data diagram IChartDataWorkbook.
+5. Hapus seri dan kategori default.
+6. Tambahkan seri dan kategori baru.
+7. Tambahkan data diagram baru untuk seri diagram.
+8. Simpan presentasi yang telah dimodifikasi ke file PPTX.
 
-Kode C++ ini menunjukkan cara membuat diagram multi‑kategori:
+Kode C++ berikut menunjukkan cara membuat diagram multi-kategori:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategory.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartCategoryLevelsManager.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 	// Jalur ke direktori dokumen.
 	const String outPath = u"../out/MultiCategoryChart_out.pptx";
 
-	//Membuat instance kelas Presentation yang mewakili file PPTX
+	// Membuat instance kelas Presentation yang mewakili file PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//Mengakses slide pertama
+	// Mengakses slide pertama
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	// Menambahkan diagram dengan data default
@@ -886,7 +1189,7 @@ Kode C++ ini menunjukkan cara membuat diagram multi‑kategori:
 	// Menetapkan indeks untuk lembar data diagram
 	int defaultWorksheetIndex = 0;
 
-	// Mendapatkan worksheet data diagram
+	// Mengambil lembar kerja data diagram
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 	// Menghapus isi workbook
@@ -931,28 +1234,79 @@ Kode C++ ini menunjukkan cara membuat diagram multi‑kategori:
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Membuat Diagram Peta**
+### **Buat Diagram Peta**
 
-Diagram peta adalah visualisasi area yang berisi data. Diagram peta paling cocok untuk membandingkan data atau nilai di seluruh wilayah geografis.
+Diagram peta adalah visualisasi suatu area yang berisi data. Diagram peta paling cocok untuk membandingkan data atau nilai di seluruh wilayah geografis.
 
-Kode C++ ini menunjukkan cara membuat diagram peta:
+Kode C++ berikut menunjukkan cara membuat diagram peta:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
 auto chart = slide->get_Shapes()->AddChart(ChartType::Map, 50.0f, 50.0f, 500.0f, 400.0f);
 pres->Save(u"mapChart.pptx", SaveFormat::Pptx);
 ```
 
-### **Membuat Diagram Kombinasi**
+### **Buat Diagram Kombinasi**
 
-Diagram kombinasi (atau combo chart) menggabungkan dua atau lebih tipe diagram dalam satu grafik. Diagram ini memungkinkan Anda menyoroti, membandingkan, atau memeriksa perbedaan antara dua atau lebih set data, membantu mengidentifikasi hubungan di antaranya.
+Diagram kombinasi (atau combo chart) menggabungkan dua atau lebih jenis diagram dalam satu grafik. Diagram ini memungkinkan Anda menyoroti, membandingkan, atau memeriksa perbedaan antara dua atau lebih set data, membantu Anda mengidentifikasi hubungan di antara mereka.
 
 ![The combination chart](combination_chart.png)
 
 Kode C++ berikut menunjukkan cara membuat diagram kombinasi yang ditampilkan di atas dalam presentasi PowerPoint:
 
 ```cpp
+#include <DOM/Chart/AxisPositionType.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/CrossesType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IAxisFormat.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartLinesFormat.h>
+#include <DOM/Chart/IChartPortionFormat.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/Chart/ILegend.h>
+#include <DOM/Chart/LegendPositionType.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 static SharedPtr<IChart> CreateChartWithFirstSeries(SharedPtr<ISlide> slide)
 {
     auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
@@ -1102,19 +1456,36 @@ static void CreateComboChart()
 }
 ```
 
-## **Memperbarui Diagram**
+## **Perbarui Diagram**
 
-1. Instansiasikan kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation) yang mewakili presentasi yang berisi diagram.  
-2. Dapatkan referensi slide melalui indeksnya.  
-3. Telusuri semua shape untuk menemukan diagram yang diinginkan.  
-4. Akses worksheet data diagram.  
-5. Modifikasi data seri diagram dengan mengubah nilai‑nilai seri.  
-6. Tambahkan seri baru dan isi data di dalamnya.  
-7. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.  
+1. Instansiasi kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation) yang mewakili presentasi yang berisi diagram.
+2. Dapatkan referensi slide melalui indeksnya.
+3. Jelajahi semua bentuk untuk menemukan diagram yang diinginkan.
+4. Akses lembar kerja data diagram.
+5. Modifikasi data seri diagram dengan mengubah nilai seri.
+6. Tambahkan seri baru dan isi data di dalamnya.
+7. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode C++ ini menunjukkan cara memperbarui diagram:
+Kode C++ berikut menunjukkan cara memperbarui diagram:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+
 // Membuat instance kelas Presentation yang mewakili file PPTX
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"ExistingChart.pptx");
 
@@ -1127,7 +1498,7 @@ System::SharedPtr<IChart> chart = System::ExplicitCast<Aspose::Slides::Charts::I
 // Menetapkan indeks untuk lembar data diagram
 int32_t defaultWorksheetIndex = 0;
 
-// Mendapatkan worksheet data diagram
+// Mengambil lembar kerja data diagram
 System::SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
@@ -1140,7 +1511,7 @@ System::SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->i
 
 // Memperbarui data seri
 fact->GetCell(defaultWorksheetIndex, 0, 1, System::ObjectExt::Box<System::String>(u"New_Series1"));
-// Mengubah nama seri
+// Memodifikasi nama seri
 series->get_DataPoints()->idx_get(0)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(90));
 series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(123));
 series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(44));
@@ -1150,16 +1521,16 @@ series = chart->get_ChartData()->get_Series()->idx_get(1);
 
 // Sekarang memperbarui data seri
 fact->GetCell(defaultWorksheetIndex, 0, 2, System::ObjectExt::Box<System::String>(u"New_Series2"));
-// Mengubah nama seri
+// Memodifikasi nama seri
 series->get_DataPoints()->idx_get(0)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(23));
 series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(67));
 series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(99));
 
 
-// Sekarang, Menambahkan seri baru
+// Sekarang menambahkan seri baru
 chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 3, System::ObjectExt::Box<System::String>(u"Series 3")), chart->get_Type());
 
-// Mengambil seri diagram ke-3
+// Mengambil seri diagram ketiga
 series = chart->get_ChartData()->get_Series()->idx_get(2);
 
 // Sekarang mengisi data seri
@@ -1169,23 +1540,36 @@ series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorkshee
 
 chart->set_Type(Aspose::Slides::Charts::ChartType::ClusteredCylinder);
 
-// Simpan presentasi dengan diagram
+// Menyimpan presentasi dengan diagram
 pres->Save(u"AsposeChartModified_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Menetapkan Rentang Data untuk Diagram**
+## **Atur Rentang Data untuk Diagram**
 
-1. Buka instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation) yang berisi diagram.  
-2. Dapatkan referensi slide melalui indeksnya.  
-3. Telusuri semua shape untuk menemukan diagram yang diinginkan.  
-4. Akses data diagram dan tetapkan rentangnya.  
-5. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.  
+1. Buka sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation) yang berisi diagram.
+2. Dapatkan referensi slide melalui indeksnya.
+3. Jelajahi semua bentuk untuk menemukan diagram yang diinginkan.
+4. Akses data diagram dan atur rentangnya.
+5. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode C++ ini menunjukkan cara menetapkan rentang data untuk diagram:
+Kode C++ berikut menunjukkan cara mengatur rentang data untuk sebuah diagram:
 
-```cpp
+``` cpp
+#include <DOM/Chart/IChartData.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Jalur ke direktori dokumen.
-String dataDir = GetDataPath();
+String dataDir = u"../documents/";
 
 // Membuat instance kelas Presentation yang mewakili file PPTX
 auto presentation = System::MakeObject<Presentation>(dataDir + u"ExistingChart.pptx");
@@ -1197,14 +1581,35 @@ chart->get_ChartData()->SetRange(u"Sheet1!A1:B4");
 presentation->Save(dataDir + u"SetDataRange_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Gunakan Penanda Default dalam Diagram**
-Saat Anda menggunakan penanda default dalam diagram, setiap seri diagram akan secara otomatis mendapatkan simbol penanda default yang berbeda.
+## **Gunakan Penanda Default di Diagram**
+Saat Anda menggunakan penanda default di diagram, masing-masing seri diagram secara otomatis mendapatkan simbol penanda default yang berbeda.
 
-Kode C++ ini menunjukkan cara mengatur penanda seri diagram secara otomatis:
+Kode C++ berikut menunjukkan cara mengatur penanda seri diagram secara otomatis:
 
-```cpp
+``` cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/ILegend.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Jalur ke direktori dokumen.
-String dataDir = GetDataPath();
+String dataDir = u"../documents/";
 
 auto pres = System::MakeObject<Presentation>();
 
@@ -1229,10 +1634,10 @@ series->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 4, 1, nullptr
 
 chart->get_ChartData()->get_Series()->Add(wb->GetCell(0, 0, 2, ObjectExt::Box<String>(u"Series 2")), chart->get_Type());
 
-// Mengambil seri diagram kedua
+// Takes the second chart series
 auto series2 = chart->get_ChartData()->get_Series()->idx_get(1);
 
-// Mengisi data seri
+// Populates the series data
 series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 1, 2, ObjectExt::Box<int32_t>(30)));
 series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 2, 2, ObjectExt::Box<int32_t>(10)));
 series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 3, 2, ObjectExt::Box<int32_t>(60)));
@@ -1246,18 +1651,18 @@ pres->Save(dataDir + u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Tipe diagram apa saja yang didukung oleh Aspose.Slides?**
+### **Jenis diagram apa yang didukung oleh Aspose.Slides?**
 
-Aspose.Slides mendukung berbagai tipe diagram, termasuk batang, garis, pai, area, sebar, histogram, radar, dan banyak lagi. Fleksibilitas ini memungkinkan Anda memilih tipe diagram yang paling tepat untuk kebutuhan visualisasi data Anda.
+Aspose.Slides mendukung beragam jenis diagram, termasuk batang, garis, pai, area, sebar, histogram, radar, dan banyak lagi. Fleksibilitas ini memungkinkan Anda memilih jenis diagram yang paling tepat untuk kebutuhan visualisasi data Anda.
 
-**Bagaimana cara menambahkan diagram baru ke slide?**
+### **Bagaimana cara menambahkan diagram baru ke slide?**
 
-Untuk menambahkan diagram, pertama buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/), ambil slide yang diinginkan menggunakan indeksnya, lalu panggil metode untuk menambahkan diagram, dengan menentukan tipe diagram dan data awal. Proses ini mengintegrasikan diagram langsung ke dalam presentasi Anda.
+Untuk menambahkan diagram, pertama-tama buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/) , ambil slide yang diinginkan menggunakan indeksnya, lalu panggil metode untuk menambahkan diagram, dengan menentukan jenis diagram dan data awal. Proses ini mengintegrasikan diagram langsung ke dalam presentasi Anda.
 
-**Bagaimana saya dapat memperbarui data yang ditampilkan dalam diagram?**
+### **Bagaimana saya dapat memperbarui data yang ditampilkan dalam sebuah diagram?**
 
-Anda dapat memperbarui data diagram dengan mengakses workbook datanya ([IChartDataWorkbook](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdataworkbook/)), menghapus semua seri dan kategori default, kemudian menambahkan data khusus Anda. Ini memungkinkan Anda memperbarui diagram secara programatis agar mencerminkan data terkini.
+Anda dapat memperbarui data diagram dengan mengakses workbook datanya ([IChartDataWorkbook](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdataworkbook/)), menghapus semua seri dan kategori default, lalu menambahkan data khusus Anda. Ini memungkinkan Anda memperbarui diagram secara programatis agar mencerminkan data terbaru.
 
-**Apakah memungkinkan untuk menyesuaikan tampilan diagram?**
+### **Apakah memungkinkan untuk menyesuaikan tampilan diagram?**
 
 Ya, Aspose.Slides menyediakan opsi kustomisasi yang luas. Anda dapat mengubah warna, font, label, legenda, dan elemen pemformatan lainnya untuk menyesuaikan tampilan diagram sesuai dengan kebutuhan desain spesifik Anda.

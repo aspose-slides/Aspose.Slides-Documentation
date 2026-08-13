@@ -1,15 +1,15 @@
 ---
-title: Alakzat effektív tulajdonságainak lekérése bemutatókból .NET-ben
-linktitle: Effektív tulajdonságok
+title: Alakzat hatékony tulajdonságainak lekérése bemutatókból .NET-ben
+linktitle: Hatékony tulajdonságok
 type: docs
 weight: 50
 url: /hu/net/shape-effective-properties/
 keywords:
-- alakzat tulajdonságai
-- kamera tulajdonságai
-- fény rig
-- perem alakzat
-- szövegdoboz
+- alakzat tulajdonságok
+- kamera tulajdonságok
+- világítási rig
+- ferde alakzat
+- szövegkeret
 - szövegstílus
 - betűmagasság
 - kitöltési formátum
@@ -18,21 +18,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Fedezze fel, hogyan számítja és alkalmazza az Aspose.Slides for .NET az effektív alakzattulajdonságokat a pontos PowerPoint rendereléshez."
+description: "Fedezze fel, hogyan számítja és alkalmazza az Aspose.Slides for .NET a hatékony alakzat tulajdonságokat a pontos PowerPoint rendereléshez."
 ---
 ## **Áttekintés**
 
-Ez a téma elmagyarázza a **helyi** és **effektív** tulajdonságok közötti különbséget. A helyi értékek azok, amelyeket közvetlenül egy adott formázási szinten állítanak be, például:
+Ez a téma elmagyarázza a **helyi** és a **hatékony** (effective) tulajdonságok közötti különbséget. A helyi értékek olyan értékek, amelyeket közvetlenül egy adott formázási szinten állítanak be, például:
 
-1. Rész tulajdonságai egy dián.  
-1. Prototípus alakzat szövegstílusai egy elrendezésen vagy mester dián, ha a rész szövegdoboz alakzata rendelkezik ilyennel.  
-1. Globális szövegbeállítások egy bemutatóban.
+1. Rész tulajdonságai egy dián.
+2. Prototípus alakzat szövegstílusai egy elrendezésen vagy mesterdián, ha a rész szövegkeret alakzatának van ilyen.
+3. Globális szövegbeállítások egy bemutatóban.
 
-A helyi értékek meghatározhatók vagy elhagyhatók bármely szinten. Amikor az Aspose.Slides a végső „renderelt” formázásra van szüksége, feloldja az öröklődési láncot és visszaadja a **effektív** értékeket. Azokat a helyi formátumobjektum `GetEffective` metódusának meghívásával kaphatja meg.
+A helyi értékek meghatározhatók vagy elhagyhatók bármely szinten. Amikor az Aspose.Slides-nek szüksége van a végső „renderelt” formázásra, feloldja az öröklődési láncot, és **hatékony** értékeket ad vissza. Ezeket a `GetEffective` metódus helyi formátumobjektumra hívásával kérheted le.
 
-Az alábbi példa bemutatja, hogyan lehet hatékony értékeket lekérni. Feltételezzük, hogy az első dián az első alakzat egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) szövegdobozszal és legalább egy résszel rendelkezik.
+Az alábbi példa bemutatja, hogyan lehet hatékony értékeket lekérni. Feltételezi, hogy az első dián lévő első alakzat egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) szövegkerettel és legalább egy részzel rendelkezik.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -46,17 +48,19 @@ var localPortionFormat = portion.PortionFormat;
 var effectivePortionFormat = localPortionFormat.GetEffective();
 ```
 
-{{% alert color="primary" %}}
-Az effektív formázási adatok a jelenlegi, öröklődés után kiszámított formázást képviselik. A jelenlegi megvalósításban egyes effektív adatobjektumok, például az [IPortionFormatEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/iportionformateffectivedata/), lehetnek belsőleg gyorsítótárazva. A `GetEffective` újbóli meghívása a szülő‑ vagy örökölt formázás módosítása után frissítheti a gyorsítótárazott adatokat, és a korábban lekért objektum már nem feltétlenül tükrözi a korábbi állapotot. Ha az effektív értékeket későbbi felhasználásra meg kell őrizni, másolja a szükséges tulajdonságokat, például betűmagasságot, kitöltőszínt, betűstílust vagy igazítást a saját adatobjektumába.
+{{% alert color="info" %}}
+A hatékony formázási adatok az öröklődés alkalmazása után a jelenlegi számított formázást képviselik. A jelenlegi megvalósításban egyes hatékony adatobjektumok, például az [IPortionFormatEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/iportionformateffectivedata/), belsőleg gyorsítótárban is tárolhatók. A szülő- vagy örökölt formázás módosítása után a `GetEffective` újrahívása frissítheti a gyorsítótárat, és egy korábban lekért objektum már nem feltétlenül tükrözi a korábbi állapotot. Ha a hatékony értékeket későbbi újrahasználatra kell megőrizned, másold át a szükséges tulajdonságokat, például a betűmagasságot, kitöltőszínt, betűstílust vagy igazítást a saját adatobjektumodba.
 {{% /alert %}}
 
-## **Kamera effektív tulajdonságainak lekérése**
+## **A kamera hatékony tulajdonságainak lekérése**
 
-Az Aspose.Slides lehetővé teszi, hogy lekérje egy kamera effektív tulajdonságait. Az [ICameraEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/icameraeffectivedata/) interfész egy immutable (változtathatatlan) objektumot képvisel, amely a kamera effektív tulajdonságait tartalmazza. Egy [ICameraEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/icameraeffectivedata/) példány a [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/ithreedformateffectivedata/) révén érhető el, amely effektív értékeket ad a [IThreeDFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/ithreedformat/) számára.
+Az Aspose.Slides lehetővé teszi a kamera hatékony tulajdonságainak lekérését. Az [ICameraEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/icameraeffectivedata/) interfész egy immutable objektumot képvisel, amely a hatékony kamera tulajdonságokat tartalmazza. Egy [ICameraEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/icameraeffectivedata/) példány a [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/ithreedformateffectivedata/) révén érhető el, amely a [IThreeDFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/ithreedformat/) számára biztosítja a hatékony értékeket.
 
-Az alábbi kódminta bemutatja, hogyan lehet lekérni a kamera effektív tulajdonságait. Feltételezzük, hogy az első dián az első alakzat 3D formázással rendelkezik.
+Az alábbi kódrészlet bemutatja, hogyan lehet a kamera hatékony tulajdonságait lekérni. Feltételezi, hogy az első dián lévő első alakzat 3D formázással rendelkezik.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -70,13 +74,15 @@ Console.WriteLine("Field of view: " + threeDEffectiveData.Camera.FieldOfViewAngl
 Console.WriteLine("Zoom: " + threeDEffectiveData.Camera.Zoom);
 ```
 
-## **Világítási rig effektív tulajdonságainak lekérése**
+## **A világítási rig hatékony tulajdonságainak lekérése**
 
-Az Aspose.Slides lehetővé teszi, hogy lekérje egy világítási rig (light rig) effektív tulajdonságait. Az [ILightRigEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/ilightrigeffectivedata/) interfész egy immutable objektumot képvisel, amely a rig effektív tulajdonságait tartalmazza. Egy [ILightRigEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/ilightrigeffectivedata/) példány a [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/ithreedformateffectivedata/) révén érhető el, amely effektív értékeket ad a [IThreeDFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/ithreedformat/) számára.
+Az Aspose.Slides lehetővé teszi a világítási rig hatékony tulajdonságainak lekérését. Az [ILightRigEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/ilightrigeffectivedata/) interfész egy immutable objektumot képvisel, amely a hatékony világítási rig tulajdonságokat tartalmazza. Egy [ILightRigEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/ilightrigeffectivedata/) példány a [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/ithreedformateffectivedata/) révén érhető el, amely a [IThreeDFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/ithreedformat/) számára biztosítja a hatékony értékeket.
 
-Az alábbi kódminta bemutatja, hogyan lehet lekérni a világítási rig effektív tulajdonságait. Feltételezzük, hogy az első dián az első alakzat 3D formázással rendelkezik.
+Az alábbi kódrészlet bemutatja, hogyan lehet a világítási rig hatékony tulajdonságait lekérni. Feltételezi, hogy az első dián lévő első alakzat 3D formázással rendelkezik.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -89,13 +95,15 @@ Console.WriteLine("Type: " + threeDEffectiveData.LightRig.LightType);
 Console.WriteLine("Direction: " + threeDEffectiveData.LightRig.Direction);
 ```
 
-## **Alakzat perem (bevel) effektív tulajdonságainak lekérése**
+## **A bevel alakzat hatékony tulajdonságainak lekérése**
 
-Az Aspose.Slides lehetővé teszi, hogy lekérje egy alakzat peremének (bevel) effektív tulajdonságait. Az [IShapeBevelEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/ishapebeveleffectivedata/) interfész egy immutable objektumot képvisel, amely a forma effektív felszínbeli (face‑relief) tulajdonságait tartalmazza. Egy [IShapeBevelEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/ishapebeveleffectivedata/) példány a [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/ithreedformateffectivedata/) révén érhető el, amely effektív értékeket ad a [IThreeDFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/ithreedformat/) számára.
+Az Aspose.Slides lehetővé teszi a bevel (ferde) alakzat hatékony tulajdonságainak lekérését. Az [IShapeBevelEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/ishapebeveleffectivedata/) interfész egy immutable objektumot képvisel, amely a alakzat hatékony felület-relief tulajdonságait tartalmazza. Egy [IShapeBevelEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/ishapebeveleffectivedata/) példány a [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/ithreedformateffectivedata/) révén érhető el, amely a [IThreeDFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/ithreedformat/) számára biztosítja a hatékony értékeket.
 
-Az alábbi kódminta bemutatja, hogyan lehet lekérni egy forma felső peremének (top bevel) effektív tulajdonságait. Feltételezzük, hogy az első dián az első alakzat 3D formázással rendelkezik.
+Az alábbi kódrészlet bemutatja, hogyan lehet egy alakzat felső bevelének hatékony tulajdonságait lekérni. Feltételezi, hogy az első dián lévő első alakzat 3D formázással rendelkezik.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -109,13 +117,15 @@ Console.WriteLine("Width: " + threeDEffectiveData.BevelTop.Width);
 Console.WriteLine("Height: " + threeDEffectiveData.BevelTop.Height);
 ```
 
-## **Szövegdoboz effektív tulajdonságainak lekérése**
+## **Szövegkeret hatékony tulajdonságainak lekérése**
 
-Az Aspose.Slides segítségével lekérheti egy szövegdoboz effektív tulajdonságait. Az [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframeformateffectivedata/) interfész tartalmazza a szövegdoboz effektív formázási tulajdonságait.
+Az Aspose.Slides segítségével lekérheted egy szövegkeret hatékony tulajdonságait. Az [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframeformateffectivedata/) interfész a hatékony szövegkeret formázási tulajdonságokat tartalmazza.
 
-Az alábbi kódminta bemutatja, hogyan lehet lekérni a szövegdoboz effektív formázási tulajdonságait. Feltételezzük, hogy az első dián az első alakzat egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) szövegdobozszal.
+Az alábbi kódrészlet bemutatja, hogyan lehet a szövegkeret hatékony formázási tulajdonságait lekérni. Feltételezi, hogy az első dián lévő első alakzat egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) szövegkerettel rendelkezik.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -134,13 +144,15 @@ Console.WriteLine("   Right: " + effectiveTextFrameFormat.MarginRight);
 Console.WriteLine("   Bottom: " + effectiveTextFrameFormat.MarginBottom);
 ```
 
-## **Szövegstílus effektív tulajdonságainak lekérése**
+## **Szövegstílus hatékony tulajdonságainak lekérése**
 
-Az Aspose.Slides segítségével lekérheti egy szövegstílus effektív tulajdonságait. Az [ITextStyleEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/itextstyleeffectivedata/) interfész tartalmazza a szövegstílus effektív tulajdonságait.
+Az Aspose.Slides segítségével lekérheted egy szövegstílus hatékony tulajdonságait. Az [ITextStyleEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/itextstyleeffectivedata/) interfész a hatékony szövegstílus tulajdonságokat tartalmazza.
 
-Az alábbi kódminta bemutatja, hogyan lehet lekérni a szövegstílus effektív tulajdonságait. Feltételezzük, hogy az első dián az első alakzat egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) szövegdobozszal.
+Az alábbi kódrészlet bemutatja, hogyan lehet a szövegstílus hatékony tulajdonságait lekérni. Feltételezi, hogy az első dián lévő első alakzat egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) szövegkerettel rendelkezik.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -161,11 +173,14 @@ for (var levelIndex = 0; levelIndex < levelCount; levelIndex++)
 }
 ```
 
-## **Az effektív betűmagasság értékének lekérése**
+## **A hatékony betűmagasság értékének lekérése**
 
-Az Aspose.Slides segítségével lekérheti az effektív betűmagasságot. Az alábbi kód bemutatja, hogyan változik egy rész effektív betűmagassága, miután helyi betűmagasság‑értékeket állítanak be a bemutató különböző szerkezeti szintjein.
+Az Aspose.Slides segítségével lekérheted a hatékony betűmagasságot. Az alábbi kód bemutatja, hogyan változik egy rész hatékony betűmagassága, amikor a helyi betűmagasság-értékeket különböző bemutató-szerkezet szinteken állítják be.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
@@ -223,13 +238,15 @@ Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
 presentation.Save("SetLocalFontHeightValues.pptx", SaveFormat.Pptx);
 ```
 
-## **A táblázat effektív kitöltési formátumának lekérése**
+## **A táblázat hatékony kitöltési formátumának lekérése**
 
-Az Aspose.Slides segítségével lekérheti a táblázat különböző részeinek effektív kitöltési formázását. Az [IFillFormatEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/ifillformateffectivedata/) interfész tartalmazza a kitöltés effektív formázási tulajdonságait. A cella formázásának magasabb prioritása van, mint a sor formázásának, a sor formázásnak magasabb prioritása van, mint az oszlop formázásának, és az oszlop formázásnak magasabb prioritása van, mint a teljes táblázat formázásának.
+Az Aspose.Slides segítségével lekérheted a különböző táblázatrészek hatékony kitöltési formátumát. Az [IFillFormatEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/ifillformateffectivedata/) interfész a hatékony kitöltési formázási tulajdonságokat tartalmazza. A cella formázás magasabb prioritással bír, mint a sor formázás, a sor formázás magasabb prioritással bír, mint az oszlop formázás, és az oszlop formázás magasabb prioritással bír, mint a teljes táblázat formázása.
 
-Ennek eredményeként az [ICellFormatEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/icellformateffectivedata/) tulajdonságait használják a táblázatcella megjelenítéséhez. Az alábbi kódminta bemutatja, hogyan lehet lekérni a táblázat különböző részeinek effektív kitöltési formázását. Feltételezzük, hogy az első dián az első alakzat egy [ITable](https://reference.aspose.com/slides/hu/net/aspose.slides/itable/).
+Ennek eredményeként az [ICellFormatEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/icellformateffectivedata/) tulajdonságai kerülnek felhasználásra a táblázatcellák megrajzolásához. Az alábbi kódrészlet bemutatja, hogyan lehet a táblázat különböző részeinek hatékony kitöltési formátumát lekérni. Feltételezi, hogy az első dián lévő első alakzat egy [ITable](https://reference.aspose.com/slides/hu/net/aspose.slides/itable/) objektum.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -248,26 +265,34 @@ var cellFillFormatEffective = cellFormatEffective.FillFormat;
 
 ## **GYIK**
 
-**A `GetEffective` egy pillanatképet ad vissza?**  
-Nem mindig. Az effektív adatok az öröklődés után kiszámított formázást képviselik, de egyes effektív adatobjektumok lehetnek belsőleg gyorsítótárazva. Egy későbbi `GetEffective` hívás újraszámíthatja a formázást és frissítheti a gyorsítótárat, így a korábban lekért objektum nem tekinthető tartós pillanatképként.
+### A `GetEffective` egy pillanatképet ad vissza?
 
-**Mikor kell újra beolvasni az effektív tulajdonságokat?**  
-Hívja újra a `GetEffective`‑t a helyi formázás, a szülő‑stílusok, az elrendezés, a mester vagy a bemutató szintű alapértelmezések módosítása után. A következő hívás újraértékeli a formázási hierarchiát és a jelenlegi effektív eredményt adja vissza.
+Nem mindig. A hatékony adatok az öröklődés alkalmazása után számított formázást képviselik, de egyes hatékony adatobjektumok belsőleg gyorsítótárazottak lehetnek. Egy későbbi `GetEffective` hívás újraszámíthatja a formázást és frissítheti a gyorsítótárat, ezért egy korábban lekért objektust nem szabad állandó pillanatképként kezelni.
 
-**A layout/mester dia módosítása befolyásolja a már lekért effektív tulajdonságokat?**  
-Igen, de a változás a következő `GetEffective` híváskor jelenik meg. Ha egy szülő formázási forrás módosul vagy eltávolításra kerül, a korábban lekért effektív adatok elavultak lehetnek. Amint a `GetEffective` újra meghívásra kerül, az Aspose.Slides újraértékeli a formázási fát, és a betűtípusok, színek, méretek vagy egyéb értékek megváltozhatnak.
+### Mikor kell újra beolvasni a hatékony tulajdonságokat?
 
-**Módosíthatók az értékek az effektív adatobjektumokon keresztül?**  
-Nem. Az effektív adatobjektumok csak kiszámolt értékeket tartalmaznak. A módosításokat a helyi formázási objektumokban kell elvégezni, majd újra be kell kérni az effektív értékeket.
+Hívd meg újra a `GetEffective` metódust, miután helyi formázást, szülőstílusokat, elrendezésformázást, mesterformázást vagy a bemutató szintű alapértelmezéseket módosítottad. A következő hívás újra értékeli a formázási hierarchiát, és a jelenlegi hatékony eredményt adja vissza.
 
-**Mi történik, ha egy tulajdonság nincs beállítva sem az alakzat szintjén, sem az elrendezésen/mesteren, sem a globális beállításokban?**  
-Az effektív értéket a alapértelmezett mechanizmus határozza meg, amely magában foglalja a PowerPoint és az Aspose.Slides alapértelmezéseit. A feloldott érték a jelenlegi effektív adatok részévé válik.
+### A layout/mester dia módosítása vagy eltávolítása befolyásolja a már lekért hatékony tulajdonságokat?
 
-**Az effektív betűértékből meg lehet tudni, melyik szint biztosította a méretet vagy betűtípust?**  
-Nem közvetlenül. Az effektív adat csak a végső értéket adja vissza. A forrást a rész, bekezdés, szövegdoboz és a szövegstílusok helyi értékeinek ellenőrzésével, valamint az elrendezés, mester és bemutató szintű értékekkel kell meghatározni.
+Igen, de a változás csak a következő `GetEffective` híváskor jelenik meg. Ha egy szülő formázási forrás módosul vagy eltávolításra kerül, a korábban lekért hatékony adatok elavulhatnak. Amint a `GetEffective` újra meghívásra kerül, az Aspose.Slides újraértékeli a formázási fát, és a betűtípusok, színek, méretek vagy egyéb értékek megváltozhatnak.
 
-**Miért néznek úgy ki az effektív értékek néha azonosnak a helyi értékekkel?**  
-Mert a helyi érték végsővé vált (nem volt szükség magasabb szintű öröklődésre). Ilyen esetben az effektív érték megegyezik a helyi értékkel.
+### Módosíthatók a hatékony adatobjektumok értékei?
 
-**Mikor kell effektív tulajdonságokat használni, és mikor csak a helyi tulajdonságokkal dolgozni?**  
-Használja az effektív adatokat, ha az „renderelt” eredményre van szüksége az összes öröklődés alkalmazása után, például színek, behúzások vagy méretek igazításához. Ha meg akarja őrizni ezeket az értékeket a későbbi formázási változásoktól függetlenül, másolja a szükséges tulajdonságokat a saját objektumába. Ha egy adott szinten szeretne formázást módosítani, változtassa meg a helyi tulajdonságokat, majd ha szükséges, olvassa be újra az effektív adatokat a végeredmény ellenőrzéséhez.
+Nem. A hatékony adatobjektumok csak a kiszámított értékeket exponálják. A módosításokat a helyi formázási objektumokban kell elvégezni, majd újra le kell kérni a hatékony értékeket.
+
+### Mi történik, ha egy tulajdonság nincs beállítva az alakzat szintjén, a layout/master szintjén, sem a globális beállításokban?
+
+A hatékony értéket a alapértelmezett mechanizmus határozza meg, amely a PowerPoint és az Aspose.Slides alapértelmezéseit tartalmazza. Ez a feloldott érték a jelenlegi hatékony adat részévé válik.
+
+### Egy hatékony betűértékből meg tudom-e határozni, melyik szint adta meg a méretet vagy a betűtípust?
+
+Nem közvetlenül. A hatékony adat a végső értéket adja vissza. A forrás megtalálásához ellenőrizd a helyi értékeket a rész, bekezdés, szövegkeret és a szövegstílusok (layout, master, presentation) szintjein, hogy lásd, hol jelent meg először az explicit definíció.
+
+### Miért néznek néha az effektív értékek azonosnak a helyi értékekkel?
+
+Mert a helyi érték végleges lett (nem volt szükség magasabb szintű öröklődésre). Ilyen esetekben az effektív érték megegyezik a helyi értékkel.
+
+### Mikor használjam a hatékony tulajdonságokat, és mikor csak a helyi tulajdonságokkal dolgozzak?
+
+Használd a hatékony adatot, amikor a „renderelt” eredményre van szükséged az összes öröklődés alkalmazása után, például színek, behúzások vagy méretek összehangolásához. Ha meg szeretnéd őrizni ezeket az értékeket a későbbi formázási változások ellenére, másold át a szükséges tulajdonságokat a saját objektumodba. Ha egy adott szinten szeretnél formázást módosítani, változtasd meg a helyi tulajdonságokat, majd ha szükséges, olvasd be újra a hatékony adatot a végeredmény ellenőrzéséhez.

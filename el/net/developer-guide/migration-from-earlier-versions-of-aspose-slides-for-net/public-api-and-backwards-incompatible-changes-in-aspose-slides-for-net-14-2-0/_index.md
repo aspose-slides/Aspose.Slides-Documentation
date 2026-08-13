@@ -1,13 +1,13 @@
 ---
-title: Δημοσιο API και Αλλαγές που δεν είναι συμβατές με προηγούμενες εκδόσεις στο Aspose.Slides for .NET 14.2.0
-linktitle: Aspose.Slides for .NET 14.2.0
+title: Δημόσιο API και Αλλαγές Μη Συμβατότητας Πίσω στο Aspose.Slides για .NET 14.2.0
+linktitle: Aspose.Slides για .NET 14.2.0
 type: docs
 weight: 40
 url: /el/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-2-0/
 keywords:
 - μετάβαση
-- κληρονομικού κώδικα
-- σύγχρονο κώδικα
+- παραδοσιακός κώδικας
+- σύγχρονος κώδικας
 - παραδοσιακή προσέγγιση
 - σύγχρονη προσέγγιση
 - PowerPoint
@@ -16,18 +16,20 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Ανασκόπηση των ενημερώσεων του δημόσιου API και των σπαστικών αλλαγών στο Aspose.Slides for .NET για ομαλή μετάβαση των λύσεων παρουσίασης PowerPoint PPT, PPTX και ODP."
+description: "Ανασκόπηση των ενημερώσεων του δημόσιου API και των σημαντικών αλλαγών στο Aspose.Slides για .NET, ώστε να μεταβείτε ομαλά στις λύσεις παρουσίασης PowerPoint PPT, PPTX και ODP."
 ---
-## **Δημόσιο API και Αλλαγές που δεν είναι συμβατές με προηγούμενες εκδόσεις**
-{{% alert color="primary" %}} 
-Έχουμε κάνει κάποιες αλλαγές στο Aspose.Slides for .NET 14.2.0 API. Ορισμένες ιδιότητες και μέθοδοι έχουν αφαιρεθεί και κάποιες έχουν μεταφερθεί σε άλλο namespace.
+## **Δημόσιο API και Αλλαγές Μη Συμβατότητας Πίσω**
+{{% alert color="info" %}} 
+
+Κάναμε κάποιες αλλαγές στο API του Aspose.Slides για .NET 14.2.0. Ορισμένες ιδιότητες και μέθοδοι έχουν αφαιρεθεί και άλλες έχουν μεταφερθεί σε άλλο namespace.
+
 {{% /alert %}} 
 ### **Μέθοδοι Aspose.Slides.IPresentation.Write(…) Αφαιρέθηκαν**
-Αυτές οι μέθοδοι έγραφαν αντικείμενα Presentation μόνο σε αρχείο μορφής PPTX. Στο νέο API, η κλάση Presentation προορίζεται για εργασία με όλες τις μορφές. Είναι δυνατόν να χρησιμοποιηθούν οι μέθοδοι Presentation.Save(…) για αποθήκευση των αντικειμένων Presentation σε όλες τις υποστηριζόμενες μορφές.
-### **Κλάσεις σχετικές με Στυλ Θέματος Μεταφέρθηκαν στο Namespace Aspose.Slides.Theme**
-Οι παρακάτω κλάσεις έχουν μετακινηθεί από το namespace Aspose.Slides στο namespace Aspose.Slides.Theme.
+Αυτές οι μέθοδοι έγραφαν αντικείμενα Presentation μόνο σε αρχείο μορφής PPTX. Στο νέο API, η κλάση Presentation χρησιμοποιείται για εργασία με όλες τις μορφές. Είναι δυνατόν να χρησιμοποιηθεί η μέθοδος Presentation.Save(…) για να αποθηκευτούν τα αντικείμενα Presentation σε όλες τις υποστηριζόμενες μορφές.
+### **Κλάσεις Σχετικές με Τα Στυλ Θέματος Μεταφέρθηκαν στο Namespace Aspose.Slides.Theme**
+Οι παρακάτω κλάσεις έχουν μεταφερθεί από το namespace Aspose.Slides στο namespace Aspose.Slides.Theme.
 
-- Τύποι ColorScheme
+- Types ColorScheme
 - EffectStyle
 - EffectStyleCollection
 - EffectStyleCollectionEffectiveData
@@ -53,5 +55,5 @@ description: "Ανασκόπηση των ενημερώσεων του δημό
 - IFormatScheme
 - ILineFormatCollection
 - ILineFormatCollectionEffectiveData
-### **Αλλαγές από Aspose.Slides for .NET 8.X.0**
-Οι δυνατότητες Aspose.Slides for .NET 8.4 προστέθηκαν στο Aspose.Slides for .NET 14.2.0
+### **Αλλαγές από το Aspose.Slides για .NET 8.X.0**
+Τα χαρακτηριστικά του Aspose.Slides για .NET 8.4 προστέθηκαν στο Aspose.Slides για .NET 14.2.0

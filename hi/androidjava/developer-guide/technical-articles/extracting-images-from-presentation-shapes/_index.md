@@ -1,6 +1,6 @@
 ---
-title: Android के लिए Java के माध्यम से प्रस्तुति आकारों से छवियों को निकालें
-linktitle: आकार से छवि
+title: Android में Java के माध्यम से प्रस्तुति शैप्स से छवियों को निकालें
+linktitle: शैप से छवि
 type: docs
 weight: 100
 url: /hi/androidjava/extracting-images-from-presentation-shapes/
@@ -13,23 +13,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "PowerPoint और OpenDocument प्रस्तुतियों में आकारों से छवियों को Aspose.Slides for Android के माध्यम से Java में निकालें - तेज़, कोड-मैत्री समाधान।"
+description: "PowerPoint और OpenDocument प्रस्तुतियों में शैप्स से छवियों को Aspose.Slides for Android के साथ Java के द्वारा निकालें - तेज, कोड-मैत्री समाधान।"
 ---
 ## **Overview**
 
-प्रेजेंटेशन में छवियाँ कई आकार प्रकारों में दिखाई दे सकती हैं: सामान्य चित्र फ्रेम के रूप में, आकारों पर लागू चित्र भराव के रूप में, OLE ऑब्जेक्ट प्रीव्यू छवियों के रूप में, वीडियो या ऑडियो फ्रेम थंबनेल के रूप में, ज़ूम छवियों के रूप में, या तालिका, चार्ट और SmartArt आकारों के भीतर नेस्टेड छवियों के रूप में। Aspose.Slides इन छवियों को प्रेजेंटेशन इमेज कलेक्शन में संग्रहीत करता है, जिसे [IImageCollection](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iimagecollection/) और [IPPImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ippimage/) ऑब्जेक्ट के माध्यम से एक्सपोज़ किया गया है।
+प्रेजेंटेशन में छवियाँ कई प्रकार के शapest में दिखाई दे सकती हैं: सामान्य चित्र फ्रेम, शैप्स पर लागू चित्र फ़िल, OLE ऑब्जेक्ट प्रीव्यू छवियाँ, वीडियो या ऑडियो फ़्रेम थंबनेल, ज़ूम इमेज, या टेबल, चार्ट, और SmartArt शैप्स के अंदर नेस्टेड छवियाँ। Aspose.Slides इन छवियों को प्रेजेंटेशन इमेज कलेक्शन में स्टोर करता है, जिसे [IImageCollection](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.iimagecollection/) और [IPPImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.ippimage/) ऑब्जेक्ट्स के माध्यम से एक्सपोज़ किया जाता है।
 
-यदि आपको केवल प्रेजेंटेशन में एम्बेड की गई प्रत्येक छवि संसाधन को निर्यात करने की आवश्यकता है, तो `presentation.getImages()` पर इटररेट करें। यह लेख एक अलग कार्य पर केंद्रित है: स्लाइड्स में जहाँ छवियों का उपयोग किया गया है, उन आकारों को ट्रैवर्स करना, ताकि सहेजी गई फाइलें स्लाइड नंबर, आकार की स्थिति, और स्रोत प्रकार (चित्र फ्रेम, भराव चित्र, मीडिया प्रीव्यू, OLE प्रीव्यू, या ज़ूम चित्र) जैसे उपयोगी संदर्भ रख सकें।
+यदि आप केवल प्रेजेंटेशन में एम्बेडेड प्रत्येक इमेज रिसोर्स को एक्सपोर्ट करना चाहते हैं, तो `presentation.getImages()` पर इटरेट करें। यह लेख एक अलग कार्य पर केंद्रित है: स्लाइड्स में जहाँ छवियों का उपयोग किया गया है, ऐसे शैप्स को ट्रैवर्स करना, ताकि सहेजी गई फ़ाइलें स्लाइड नंबर, शैप पोजीशन, और स्रोत प्रकार (पिक्चर फ्रेम, फ़िल इमेज, मीडिया प्रीव्यू, OLE प्रीव्यू, या ज़ूम इमेज) जैसे उपयोगी संदर्भ रख सकें।
 
-{{% alert title="Tip" color="primary" %}}
-
-ओरिजिनल एन्कोडेड इमेज डेटा और फ़ाइल प्रकार को संरक्षित करने के लिए [IPPImage.getBinaryData](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ippimage/#getBinaryData--) का उपयोग करें। यदि आप आउटपुट को PNG जैसे विशिष्ट फ़ॉर्मेट में नॉर्मलाइज़ करना चाहते हैं, तो [IPPImage.getImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ippimage/#getImage--) को [IImage.save](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) के साथ उपयोग करें।
-
+{{% alert title="Tip" color="info" %}}
+[IPPImage.getBinaryData](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.ippimage/#getBinaryData--) का उपयोग करके मूल एन्कोडेड इमेज डेटा और फ़ाइल प्रकार को संरक्षित रखें। जब आप आउटपुट को किसी विशिष्ट फ़ॉर्मेट जैसे PNG में सामान्य बनाना चाहते हैं, तो [IPPImage.getImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.ippimage/#getImage--) को [IImage.save](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.iimage/#save-java.lang.String-int-) के साथ उपयोग करें।
 {{% /alert %}}
 
 ## **Shared Helper Methods**
 
-नीचे दिखाए गए हेल्पर मेथड्स उदाहरणों को संक्षिप्त रखते हैं। `saveOriginalImage` मूल एम्बेडेड बाइट्स को लिखता है, MIME टाइप से एक सुरक्षित एक्सटेंशन चुनता है, और SHA-256 हैश द्वारा डुप्लिकेट इमेज बाइनरी को स्किप करता है।
+नीचे दिए गए सहायक मेथड्स उदाहरणों को छोटा रखते हैं। `saveOriginalImage` मूल एम्बेडेड बाइट्स लिखता है, MIME टाइप से एक सुरक्षित एक्सटेंशन चुनता है, और SHA-256 हैश द्वारा डुप्लिकेट इमेज बायनरीज़ को स्किप करता है।
 
 ```java
 import com.aspose.slides.*;
@@ -227,9 +225,14 @@ private static String makeSafeFileNamePart(String value)
 
 ## **Extract Images from Picture Frames**
 
-स्टैंडअलोन ऑब्जेक्ट के रूप में डाली गई तस्वीरों के लिए इस दृष्टिकोण का उपयोग करें। एक [IPictureFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ipictureframe/) अपनी तस्वीर `getPictureFormat().getPicture().getImage()` में संग्रहीत करता है, जो एक [IPPImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ippimage/) ऑब्जेक्ट लौटाता है।
+इस विधि का उपयोग उन चित्रों के लिए करें जो स्टैंडअलोन ऑब्जेक्ट्स के रूप में डाले गए हैं। एक [IPictureFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.ipictureframe/) अपनी तस्वीर को `getPictureFormat().getPicture().getImage()` में स्टोर करता है, जो एक [IPPImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.ippimage/) ऑब्जेक्ट लौटाता है। ध्यान दें कि [IVideoFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.ivideoframe/) और [IAudioFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.iaudioframe/) दोनों [IPictureFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.ipictureframe/) से डेराइव्ड हैं, इसलिए यह `instanceof` चेक मीडिया फ़्रेम्स को भी मिलाता है और उनके प्रीव्यू इमेज एक्सपोर्ट करता है; जब आप उन्हें अलग से हैंडल करना चाहते हैं तो पहले उन टाइप्स की जाँच करें, जैसा कि इस पेज के अंतिम उदाहरण में दिखाया गया है।
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "extracted-images");
@@ -271,9 +274,13 @@ finally
 
 ## **Extract Images from Picture-Filled Shapes**
 
-आकार एक तस्वीर को उनके भराव के रूप में उपयोग कर सकते हैं। पहले आकार के भराव प्रकार को जांचें: यदि यह [FillType.Picture](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/filltype/) नहीं है, तो उस भराव से निकालने के लिये कोई तस्वीर नहीं है। नीचे दिया गया उदाहरण [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) ऑब्जेक्ट्स को संभालता है और प्रत्येक छवि को PNG के रूप में [IPPImage.getImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ippimage/#getImage--) के माध्यम से सहेजता है।
+शैप्स एक चित्र को फ़िल के रूप में उपयोग कर सकते हैं। पहले शैप के फ़िल टाइप की जाँच करें: यदि यह [FillType.Picture](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.filltype/) नहीं है, तो उस फ़िल से निकालने के लिए कोई चित्र नहीं है। नीचे दिया गया उदाहरण [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.iautoshape/) ऑब्जेक्ट्स को हैंडल करता है और प्रत्येक इमेज को [IPPImage.getImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.ippimage/#getImage--) के माध्यम से PNG के रूप में सहेजता है।
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "shape-fill-images");
@@ -317,9 +324,14 @@ finally
 
 ## **Extract Preview Images from OLE Object Frames**
 
-एक [IOleObjectFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ioleobjectframe/) के पास एक प्रतिस्थापन तस्वीर हो सकती है जिसे PowerPoint स्लाइड पर ऑब्जेक्ट के प्रीव्यू के रूप में उपयोग करता है। यह छवि `getSubstitutePictureFormat().getPicture().getImage()` के माध्यम से उपलब्ध है। इस तस्वीर को निकालना आपको प्रीव्यू इमेज देता है, एम्बेडेड OLE पैकेज की सामग्री नहीं।
+एक [IOleObjectFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.ioleobjectframe/) के पास एक प्रतिस्थापन चित्र हो सकता है जिसे PowerPoint स्लाइड पर ऑब्जेक्ट के प्रीव्यू के रूप में उपयोग करता है। यह इमेज `getSubstitutePictureFormat().getPicture().getImage()` के माध्यम से उपलब्ध है। इस चित्र को एक्सट्रैक्ट करने से आपको प्रीव्यू इमेज मिलता है, एम्बेडेड OLE पैकेज सामग्री नहीं।
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "ole-preview-images");
@@ -365,9 +377,14 @@ finally
 
 ## **Extract Preview Images from Video Frames**
 
-एक [IVideoFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ivideoframe/) भी `getPictureFormat().getPicture().getImage()` में प्रीव्यू इमेज संग्रहीत कर सकता है। यह स्लाइड पर दिखाया गया पोस्टर या थंबनेल है, वीडियो स्ट्रीम से डिकोड किया गया फ्रेम नहीं।
+एक [IVideoFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.ivideoframe/) भी `getPictureFormat().getPicture().getImage()` में एक प्रीव्यू इमेज स्टोर कर सकता है। यह स्लाइड पर दिखाया गया पोस्टर या थंबनेल है, वीडियो स्ट्रिम से डिकोड किया गया फ्रेम नहीं।
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "video-preview-images");
@@ -413,9 +430,14 @@ finally
 
 ## **Extract Preview Images from Audio Frames**
 
-एक [IAudioFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iaudioframe/) `getPictureFormat().getPicture().getImage()` में थंबनेल संग्रहीत कर सकता है। यह स्लाइड पर ऑडियो ऑब्जेक्ट के लिए दिखायी जाने वाली छवि है।
+एक [IAudioFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.iaudioframe/) `getPictureFormat().getPicture().getImage()` में थंबनेल स्टोर कर सकता है। यह स्लाइड पर ऑडियो ऑब्जेक्ट के लिए दिखाया गया इमेज है।
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "audio-preview-images");
@@ -461,9 +483,14 @@ finally
 
 ## **Extract Images from Zoom Objects**
 
-[IZoomFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/izoomframe/) और [ISectionZoomFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isectionzoomframe/) आकार कस्टम छवियों का उपयोग कर सकते हैं। ज़ूम फ्रेम से `getZoomImage()` पढ़ें।
+[IZoomFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.izoomframe/) और [ISectionZoomFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.isectionzoomframe/) शैप्स कस्टम इमेज का उपयोग कर सकते हैं। ज़ूम फ्रेम से `getZoomImage()` पढ़ें।
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "zoom-images");
@@ -522,9 +549,14 @@ finally
 
 ## **Extract Images from Summary Zoom Frames**
 
-एक [ISummaryZoomFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isummaryzoomframe/) भी एक आकार है। इसके सेक्शन आइटम कस्टम छवियों का उपयोग कर सकते हैं, जो प्रत्येक सारांश ज़ूम सेक्शन की `getZoomImage()` मेथड द्वारा एक्सपोज़ किया जाता है।
+एक [ISummaryZoomFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.isummaryzoomframe/) भी एक शैप है। इसके सेक्शन आइटम्स कस्टम इमेज का उपयोग कर सकते हैं, जो प्रत्येक समरी ज़ूम सेक्शन की `getZoomImage()` मेथड द्वारा एक्सपोज़ होते हैं।
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "summary-zoom-images");
@@ -576,9 +608,14 @@ finally
 
 ## **Extract Images from Table Shapes**
 
-एक [ITable](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itable/) एक आकार है। तालिका में छवियों को आमतौर पर तालिका कोशिकाओं में चित्र भराव के रूप में संग्रहीत किया जाता है।
+एक [ITable](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.itable/) एक शैप है। टेबल में छवियाँ सामान्यतः टेबल सेल्स में पिक्चर फ़िल के रूप में स्टोर की जाती हैं।
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "table-images");
@@ -636,9 +673,14 @@ finally
 
 ## **Extract Images from Chart Shapes**
 
-एक [IChart](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichart/) एक आकार है। नीचे दिया गया उदाहरण चार्ट क्षेत्र के चित्र भराव से एक छवि निकालता है।
+एक [IChart](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.ichart/) एक शैप है। नीचे दिया गया उदाहरण चार्ट एरिया की पिक्चर फ़िल से इमेज एक्सट्रैक्ट करता है।
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "chart-images");
@@ -685,9 +727,14 @@ finally
 
 ## **Extract Images from SmartArt Shapes**
 
-एक [ISmartArt](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ismartart/) ऑब्जेक्ट एक आकार है। SmartArt लेआउट के आधार पर, छवियों को नोड बुलेट भराव या नोड आकारों के भराव फॉर्मेट में संग्रहीत किया जा सकता है।
+एक [ISmartArt](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.ismartart/) ऑब्जेक्ट एक शैप है। स्मार्टआर्ट लेआउट के आधार पर, इमेजेस नोड बुलेट फ़िल्स या नोड शैप फ़िल फॉर्मैट्स में स्टोर हो सकती हैं।
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "smartart-images");
@@ -755,9 +802,14 @@ finally
 
 ## **Include Images Inside Grouped Shapes**
 
-ग्रुप्ड शैप्स अपने स्वयं के आकार कलेक्शन को रखती हैं। साझा `enumerateShapes` हेल्पर में `includeGroupedShapes` विकल्प होता है। जब आप [IGroupShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/igroupshape/) ऑब्जेक्ट्स के भीतर के आकारों का निरीक्षण करना चाहते हैं, तो इसे `true` सेट करें। नीचे दिया गया उदाहरण चित्र फ्रेम, चित्र‑भरे आकार, OLE ऑब्जेक्ट प्रीव्यू, वीडियो फ्रेम थंबनेल तथा ऑडियो फ्रेम थंबनेल से छवियों को निकालता है। तालिका, चार्ट, SmartArt और सारांश ज़ूम छवियों को भी शामिल करने के लिये, पिछले सेक्शनों से विशिष्ट एक्सट्रैक्शन लॉजिक को पुनः उपयोग करें जबकि वही रेकर्सिव आकार ट्रैवर्सल बनाये रखें।
+ग्रुप्ड शैप्स अपने स्वयं के शैप कलेक्शन रखती हैं। शेयर किया गया `enumerateShapes` हेल्पर में `includeGroupedShapes` विकल्प होता है। इसे `true` सेट करें जब आप [IGroupShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.igroupshape/) ऑब्जेक्ट्स के अंदर शैप्स की जाँच करना चाहते हों। नीचे दिया गया उदाहरण पिक्चर फ्रेम, पिक्चर-फ़िल्ड शैप्स, OLE ऑब्जेक्ट प्रीव्यू, वीडियो फ़्रेम थंबनेल, और ऑडियो फ़्रेम थंबनेल से इमेजेस एक्सट्रैक्ट करता है। टेबल, चार्ट, SmartArt, और समरी ज़ूम इमेजेस को भी शामिल करने के लिए, पिछले सेक्शन्स से विशेषीकृत एक्सट्रैक्शन लॉजिक को पुनः उपयोग करें जबकि वही रीकर्सिव शैप ट्रैवर्सल रखें।
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "all-shape-images");
@@ -850,43 +902,43 @@ finally
 
 ## **Edge Cases and Practical Notes**
 
-- **Duplicate images:** कई आकार एक ही छवि का संदर्भ दे सकते हैं या समान बाइट्स वाली अलग छवियां। यदि आप प्रत्येक अनोखी छवि के लिए एक आउटपुट फ़ाइल चाहते हैं, तो फाइल लिखने से पहले [IPPImage.getBinaryData](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ippimage/#getBinaryData--) का हैश बनाएँ।
-- **Original data vs. converted output:** [IPPImage.getBinaryData](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ippimage/#getBinaryData--) को सहेजने से एम्बेडेड JPEG, PNG, GIF, SVG, EMF, या WMF डेटा संरक्षित रहता है। [IPPImage.getImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ippimage/#getImage--) को [IImage.save](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) के साथ उपयोग करना उपयोगी है जब आप एकसमान आउटपुट फ़ॉर्मेट चाहते हैं।
-- **Unsupported fill types:** ठोस, ग्रेडिएंट, पैटर्न और नो‑फ़िल आकारों में चित्र भराव नहीं होता। `getPictureFillFormat()` पढ़ने से पहले [FillType](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/filltype/) की जाँच करें।
-- **Grouped shapes:** टॉप‑लेवल स्लाइड आकार कलेक्शन समूहों को फ्लैट नहीं करता। जब समूहित कंटेंट मायने रखता हो, तो रेकर्सिवली [IGroupShape.getShapes](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/igroupshape/#getShapes--) को निरीक्षण करें।
-- **OLE object previews:** एक [IOleObjectFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ioleobjectframe/) प्रीव्यू छवि को `getSubstitutePictureFormat()` के माध्यम से एक्सपोज़ कर सकता है, लेकिन वह केवल स्लाइड प्रीव्यू है, एम्बेडेड फ़ाइल नहीं।
-- **Video frame thumbnails:** एक [IVideoFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ivideoframe/) प्रीव्यू छवि को `getPictureFormat()` के माध्यम से एक्सपोज़ कर सकता है, लेकिन वह केवल स्लाइड पर दिखाया गया पोस्टर है, वीडियो स्ट्रीम से निकाला नहीं गया।
-- **Audio frame thumbnails:** एक [IAudioFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iaudioframe/) आइकन या थंबनेल को `getPictureFormat()` के माध्यम से एक्सपोज़ कर सकता है; यह एम्बेडेड ऑडियो डेटा नहीं है।
-- **Zoom images:** स्लाइड ज़ूम, सेक्शन ज़ूम, और सारांश ज़ूम आकार कस्टम [IPPImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ippimage/) ऑब्जेक्ट्स को `getZoomImage()` के माध्यम से उपयोग कर सकते हैं।
-- **Nested shape models:** तालिका, चार्ट और SmartArt ऑब्जेक्ट्स [IShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ishape/) को लागू करते हैं, लेकिन उनकी छवियाँ अक्सर नेस्टेड तालिका सेल, चार्ट एलिमेंट, या SmartArt नोड फ़ॉर्मेटिंग ऑब्जेक्ट में संग्रहीत होती हैं।
-- **Cropped or transformed pictures:** [IPPImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ippimage/) तक पहुँचने से आपको स्टोर की गई मूल छवि मिलती है। यह आकार द्वारा लागू क्रॉपिंग, ट्रांसपेरेंसी, पुनः‑रंगना, घुमाव या अन्य दृश्य प्रभावों को नहीं दर्शाती।
+- **Duplicate images:** कई शैप्स एक ही इमेज को रेफ़र कर सकते हैं या अलग-अलग इमेजेज जिनमें समान बाइट्स होते हैं। यदि आप यूनिक इमेज के लिए एक आउटपुट फाइल चाहते हैं तो फ़ाइल लिखने से पहले [IPPImage.getBinaryData](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.ippimage/#getBinaryData--) को हैश करें।
+- **Original data vs. converted output:** [IPPImage.getBinaryData](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.ippimage/#getBinaryData--) को सेव करने से एम्बेडेड JPEG, PNG, GIF, SVG, EMF, या WMF डेटा संरक्षित रहता है। [IPPImage.getImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.ippimage/#getImage--) को [IImage.save](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.iimage/#save-java.lang.String-int-) के साथ इस्तेमाल करने से जब आप एकसमान आउटपुट फ़ॉर्मेट चाहते हैं तो उपयोगी होता है।
+- **Unsupported fill types:** सॉलिड, ग्रेडिएंट, पैटर्न, और नो-फ़िल शैप्स में पिक्चर फ़िल नहीं होता। पढ़ने से पहले [FillType](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.filltype/) की जाँच करें।
+- **Grouped shapes:** टॉप-लेवल स्लाइड शैप कलेक्शन ग्रुप्स को फ्लैट नहीं करता। जब ग्रुप्ड कंटेंट मायने रखता हो, तो [IGroupShape.getShapes](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.igroupshape/#getShapes--) को रीकर्सिवली इंस्पेक्ट करें।
+- **OLE object previews:** एक [IOleObjectFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.ioleobjectframe/) `getSubstitutePictureFormat()` के माध्यम से प्रीव्यू इमेज प्रदान कर सकता है, लेकिन यह केवल स्लाइड प्रीव्यू है, एम्बेडेड फ़ाइल नहीं।
+- **Video frame thumbnails:** एक [IVideoFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.ivideoframe/) `getPictureFormat()` के माध्यम से प्रीव्यू इमेज दे सकता है, लेकिन यह केवल स्लाइड पर दिखाया गया पोस्टर है, वीडियो स्ट्रिम से निकाला नहीं गया।
+- **Audio frame thumbnails:** एक [IAudioFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.iaudioframe/) `getPictureFormat()` के माध्यम से आइकन या थंबनेल दे सकता है; यह एम्बेडेड ऑडियो डेटा नहीं है।
+- **Zoom images:** स्लाइड ज़ूम, सेक्शन ज़ूम, और समरी ज़ूम शैप्स कस्टम [IPPImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.ippimage/) ऑब्जेक्ट्स को `getZoomImage()` के माध्यम से उपयोग कर सकते हैं।
+- **Nested shape models:** टेबल, चार्ट, और SmartArt ऑब्जेक्ट्स [IShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.ishape/) को इम्प्लीमेंट करते हैं, लेकिन उनकी इमेजेस अक्सर नेस्टेड टेबल सेल, चार्ट एलिमेंट, या SmartArt नोड फॉर्मैटिंग ऑब्जेक्ट्स में स्टोर होती हैं।
+- **Cropped or transformed pictures:** [IPPImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.ippimage/) को एक्सेस करने से आपको स्टोर किया गया इमेज रिसोर्स मिलता है। यह शैप द्वारा लागू क्रॉपिंग, ट्रांसपेरेंसी, रीकलरिंग, रोटेशन, या अन्य विज़ुअल इफ़ेक्ट्स को रेंडर नहीं करता।
 
 ## **FAQ**
 
-**क्या मैं मूल छवि को बिना क्रॉप, इफ़ेक्ट या आकार ट्रांसफॉर्मेशन के एक्सट्रैक्ट कर सकता हूँ?**
+### क्या मैं मूल इमेज को बिना क्रॉपिंग, इफ़ेक्ट्स या शैप ट्रांसफ़ॉर्मेशन के एक्सट्रैक्ट कर सकता हूँ?
 
-हाँ। [IPPImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ippimage/) ऑब्जेक्ट तक पहुँचें और [IPPImage.getBinaryData](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ippimage/#getBinaryData--) को डिस्क पर लिखें। यह प्रेजेंटेशन में संग्रहीत मूल एन्कोडेड इमेज को संरक्षित करता है, ना कि स्लाइड पर चित्र कैसे रेंडर हुआ है।
+हाँ। [IPPImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.ippimage/) ऑब्जेक्ट को एक्सेस करें और [IPPImage.getBinaryData](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.ippimage/#getBinaryData--) को डिस्क पर लिखें। इससे प्रेजेंटेशन में स्टोर की गई मूल एन्कोडेड इमेज संरक्षित रहती है, न कि स्लाइड पर रेंडर किए गए रूप की।
 
-**क्या मैं हर एक्सट्रैक्ट की गई छवि को PNG के रूप में निर्यात कर सकता हूँ?**
+### क्या मैं सभी एक्सट्रैक्टेड इमेज को PNG के रूप में एक्सपोर्ट कर सकता हूँ?
 
-हाँ। [IPPImage.getImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ippimage/#getImage--) का उपयोग करके एक [IImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iimage/) ऑब्जेक्ट प्राप्त करें, फिर [IImage.save](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) को [ImageFormat.Png](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imageformat/) के साथ कॉल करें। यह आउटपुट को परिवर्तित करता है और मूल फ़ाइल प्रकार या वेक्टर डेटा को संरक्षित नहीं करता।
+हाँ। [IPPImage.getImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.ippimage/#getImage--) का उपयोग करके एक [IImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.iimage/) ऑब्जेक्ट प्राप्त करें, फिर [IImage.save](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.iimage/#save-java.lang.String-int-) को [ImageFormat.Png](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.imageformat/) के साथ कॉल करें। यह आउटपुट को परिवर्तित करता है और मूल फ़ाइल टाइप या वेक्टर डेटा को संरक्षित नहीं रखता।
 
-**मैं एक ही छवि को बार‑बार सहेजने से कैसे बचूँ?**
+### एक ही इमेज को कई बार सेव करने से कैसे बचूँ?
 
-[IPPImage.getBinaryData](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ippimage/#getBinaryData--) का हैश बनाकर उसे एक सेट में रखें। यदि नया छवि का हैश पहले से मौजूद है, तो उसे स्किप करें या मौजूदा आउटपुट फ़ाइल के लिए एक अतिरिक्त रेफ़रेंस रिकॉर्ड करें।
+[IPPImage.getBinaryData](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.ippimage/#getBinaryData--) का हैश बनाकर उसे एक सेट में रखें। यदि नया इमेज का हैश पहले से मौजूद है, तो उसे स्किप करें या मौजूदा आउटपुट फ़ाइल की ओर एक और रेफ़रेंस रिकॉर्ड करें।
 
-**कुछ आकारों से छवि क्यों नहीं बनती?**
+### कुछ शैप्स इमेज क्यों नहीं बनाते?
 
-चित्र फ्रेम, चित्र‑भरे आकार, OLE ऑब्जेक्ट फ्रेम, मीडिया फ्रेम, ज़ूम फ्रेम, तालिका, चार्ट और SmartArt ऑब्जेक्ट छवियों का संदर्भ दे सकते हैं। कुछ आकार प्रकार नेस्टेड फ़ॉर्मेटिंग ऑब्जेक्ट्स के माध्यम से छवियों को एक्सपोज़ करते हैं, इसलिए केवल `getPictureFormat()` या आकार का `getFillFormat()` जांचना काफी नहीं हो सकता।
+पिक्चर फ्रेम्स, पिक्चर-फ़िल्ड शैप्स, OLE ऑब्जेक्ट फ्रेम्स, मीडिया फ़्रेम्स, ज़ूम फ़्रेम्स, टेबल्स, चार्ट्स, और SmartArt ऑब्जेक्ट्स इमेजेज रेफ़र कर सकते हैं। कुछ शैप टाइप्स नेस्टेड फ़ॉर्मैटिंग ऑब्जेक्ट्स के माध्यम से इमेजेज एक्सपोज़ करते हैं, इसलिए केवल `getPictureFormat()` या शैप `getFillFormat()` की जाँच हमेशा पर्याप्त नहीं होती।
 
-**क्या मैं वीडियो फ्रेम के लिए दिखाए गए थंबनेल को एक्सट्रैक्ट कर सकता हूँ?**
+### क्या मैं वीडियो फ्रेम के लिए दिखाए गए थंबनेल को एक्सट्रैक्ट कर सकता हूँ?
 
-हाँ। [IVideoFrame.getPictureFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ivideoframe/#getPictureFormat--) का उपयोग करें और `getPictureFormat().getPicture().getImage()` पढ़ें। यह वीडियो फ्रेम के साथ संग्रहीत पोस्टर इमेज को निकालता है, न कि वीडियो फ़ाइल से उत्पन्न किसी फ्रेम को।
+हाँ। [IVideoFrame.getPictureFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.ivideoframe/#getPictureFormat--) का उपयोग करें और `getPictureFormat().getPicture().getImage()` पढ़ें। यह वीडियो फ्रेम के साथ स्टोर किया गया पोस्टर इमेज निकालता है, वीडियो फ़ाइल से जेनरेट किया गया फ्रेम नहीं।
 
-**मैं कैसे निर्धारित करूँ कि प्रस्तुति इमेज कलेक्शन की कौन सी छवि किन आकारों द्वारा उपयोग की जा रही है?**
+### मैं कैसे निर्धारित करूँ कि कौनसे शैप्स प्रेजेंटेशन इमेज कलेक्शन की एक विशिष्ट इमेज का उपयोग करते हैं?
 
-Aspose.Slides [IPPImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ippimage/) से आकारों की रिवर्स लिंक नहीं रखता। ट्रैवर्सल के दौरान एक मैपिंग बनाएं: जब भी आप किसी इमेज रेफ़रेंस को पाएँ, स्लाइड नंबर, आकार पाथ और इमेज हैश या कलेक्शन आइटम को रिकॉर्ड करें।
+Aspose.Slides के पास [IPPImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.ippimage/) से शैप्स की रिवर्स लिंक नहीं होती। ट्रैवर्सल के दौरान एक मैपिंग बनाएं: जब भी आप कोई इमेज रेफ़रेंस पाएँ, स्लाइड नंबर, शैप पाथ, और इमेज हैश या कलेक्शन आइटम रिकॉर्ड करें।
 
-**क्या मैं OLE ऑब्जेक्ट के भीतर एम्बेडेड छवियों, जैसे संलग्न दस्तावेज़, को एक्सट्रैक्ट कर सकता हूँ?**
+### क्या मैं OLE ऑब्जेक्ट्स के अंदर एम्बेडेड इमेजेज, जैसे अटैच्ड डॉक्यूमेंट्स, को एक्सट्रैक्ट कर सकता हूँ?
 
-आप [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--) के माध्यम से OLE ऑब्जेक्ट का स्लाइड प्रीव्यू निकाल सकते हैं। हालाँकि, वह प्रीव्यू स्वयं एम्बेडेड दस्तावेज़ नहीं है। एम्बेडेड फ़ाइल के भीतर से छवियों को निकालने के लिये, OLE डेटा को एक्सट्रैक्ट करें और उस फ़ाइल प्रकार के उपयुक्त उपकरणों से उसका विश्लेषण करें।
+आप [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides.ioleobjectframe/#getSubstitutePictureFormat--) से OLE ऑब्जेक्ट का स्लाइड प्रीव्यू एक्सट्रैक्ट कर सकते हैं। हालांकि, वह प्रीव्यू एम्बेडेड डॉक्यूमेंट स्वयं नहीं है। एम्बेडेड फ़ाइल के अंदर की इमेजेज को निकालने के लिए OLE डेटा को एक्सट्रैक्ट करें और उस फ़ाइल टाइप के टूल्स से.inspect करें।

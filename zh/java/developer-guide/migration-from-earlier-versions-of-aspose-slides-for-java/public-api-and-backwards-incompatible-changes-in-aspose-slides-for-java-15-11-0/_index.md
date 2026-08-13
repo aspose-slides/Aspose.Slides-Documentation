@@ -1,18 +1,30 @@
 ---
-title: Aspose.Slides for Java 15.11.0 的公共 API 及不兼容更改
+title: Aspose.Slides for Java 15.11.0 的公共 API 及向后不兼容更改
+linktitle: Aspose.Slides for Java 15.11.0
 type: docs
 weight: 190
 url: /zh/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-11-0/
+keywords:
+- 迁移
+- 传统代码
+- 现代代码
+- 传统方法
+- 现代方法
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Java
+- Aspose.Slides
+description: "审查 Aspose.Slides for Java 中的公共 API 更新和重大更改，以顺利迁移您的 PowerPoint PPT、PPTX 和 ODP 演示文稿解决方案。"
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-此页面列出了在 Aspose.Slides for Java 15.11.0 API 中添加的 [添加](/slides/zh/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-11-0/) 或 [删除](/slides/zh/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-11-0/) 的类、方法、属性等，以及其他更改。
+此页面列出了所有 [已添加](/slides/zh/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-11-0/) 或 [已删除](/slides/zh/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-11-0/) 类、方法、属性等，以及 Aspose.Slides for Java 15.11.0 API 引入的其他更改。
 
 {{% /alert %}} 
 ## **公共 API 更改**
-#### **com.aspose.slides.DataLabelCollection 类中的过时方法已被删除**
-com.aspose.slides.DataLabelCollection 类中的过时方法已被删除：
+#### **已删除 com.aspose.slides.DataLabelCollection 类中的过时方法**
+已删除 com.aspose.slides.DataLabelCollection 类中的过时方法：
 
 DataLabelCollection.getNumberFormat()
 DataLabelCollection.setNumberFormat(String value)
@@ -42,18 +54,21 @@ DataLabelCollection.getShowBubbleSize()
 DataLabelCollection.setShowBubbleSize(boolean value)
 
 
-#### **Presentation 类新增了 getFirstSlideNumber() 和 setFirstSlideNumber() 方法**
-新增的方法 getFirstSlideNumber() 和 setFirstSlideNumber() 允许获取或设置演示文稿中的第一张幻灯片的编号。
-当指定新的第一张幻灯片编号时，所有幻灯片的编号会被重新计算。
+#### **已在 Presentation 类中添加了新方法 getFirstSlideNumber() 和 setFirstSlideNumber()**
+新方法 getFirstSlideNumber() 和 setFirstSlideNumber() 允许获取或设置演示文稿中第一张幻灯片的编号。
+当指定新的第一张幻灯片编号时，所有幻灯片的编号将重新计算。
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(path);
+Presentation pres = new Presentation("presentation.pptx");
+try {
+    int firstSlideNumber = pres.getFirstSlideNumber();
 
-int firstSlideNumber = pres.getFirstSlideNumber();
+    pres.setFirstSlideNumber(10);
 
-pres.setFirstSlideNumber(10);
-
-pres.save(newPath, SaveFormat.Pptx);
-
+    pres.save("presentation_out.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```

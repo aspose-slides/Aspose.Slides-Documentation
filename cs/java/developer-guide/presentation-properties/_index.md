@@ -1,5 +1,5 @@
 ---
-title: Správa vlastností prezentace v Java
+title: Správa vlastností prezentace v Javě
 linktitle: Vlastnosti prezentace
 type: docs
 weight: 70
@@ -10,7 +10,7 @@ keywords:
 - Vlastnosti dokumentu
 - Vestavěné vlastnosti
 - Vlastní vlastnosti
-- Rozšířené vlastnosti
+- Pokročilé vlastnosti
 - Správa vlastností
 - Úprava vlastností
 - Metadata dokumentu
@@ -19,49 +19,52 @@ keywords:
 - Výchozí jazyk
 - PowerPoint
 - OpenDocument
-- Prezentace
+- prezentace
 - Java
 - Aspose.Slides
-description: "Spravujte vlastnosti prezentací v Aspose.Slides pro Java a zefektivněte vyhledávání, branding a pracovní postup ve vašich souborech PowerPoint a OpenDocument."
+description: "Ovládejte vlastnosti prezentace v Aspose.Slides pro Java a zefektivněte vyhledávání, značkování a pracovní postup ve svých souborech PowerPoint a OpenDocument."
 ---
 ## **Úvod**
 
 Aspose.Slides podporuje dva typy vlastností dokumentu: **Built-in** a **Custom**. Oba tyto typy vlastností lze snadno získat a spravovat pomocí API Aspose.Slides.
 
-Aspose.Slides vám umožňuje pracovat s vlastnostmi dokumentu prezentace prostřednictvím rozhraní [IDocumentProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/idocumentproperties/) . Instance tohoto rozhraní je vrácena metodou [Presentation.getDocumentProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#getDocumentProperties--) . Následující příklady ukazují, jak číst, upravovat a spravovat tyto vlastnosti.
+Aspose.Slides vám umožňuje pracovat s vlastnostmi dokumentu prezentace přes rozhraní [IDocumentProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/idocumentproperties/) . Instance tohoto rozhraní je vrácena metodou [Presentation.getDocumentProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#getDocumentProperties--) . Následující příklady ukazují, jak číst, upravovat a spravovat tyto vlastnosti.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Upozorňujeme, že pole **Application** a **Producer** nelze upravit, protože tato pole budou vždy zobrazovat "Aspose Ltd." a "Aspose.Slides for Java x.x.x".
+Všimněte si, že pole **Application** a **AppVersion** nelze upravit. Aspose.Slides je při každém uložení přepíše, takže uložená prezentace vždy uvádí „Aspose.Slides for Java“ a verzi knihovny, která ji vytvořila. Jakákoli hodnota předaná metodě `setNameOfApplication` je při zápisu prezentace zahozená.
 
 {{% /alert %}} 
 
 ## **Vlastnosti dokumentu v PowerPointu**
 
-Microsoft PowerPoint 2007 umožňuje spravovat vlastnosti dokumentů souborů prezentace. Stačí kliknout na ikonu Office a poté na položku nabídky **Prepare | Properties | Advanced Properties** v Microsoft PowerPoint 2007, jak je znázorněno níže:
+Microsoft PowerPoint 2007 umožňuje spravovat vlastnosti dokumentu souborů prezentace. Stačí kliknout na ikonu Office a poté na položku nabídky **Prepare | Properties | Advanced Properties** v Microsoft PowerPoint 2007, jak je uvedeno níže:
 
-|**Výběr položky nabídky Advanced Properties**| |
+|**Výběr položky nabídky Advanced Properties**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
 
-Po výběru položky **Advanced Properties** se zobrazí dialogové okno, které umožňuje spravovat vlastnosti dokumentu PowerPointu, jak je ukázáno níže na obrázku:
+Po výběru položky **Advanced Properties** se zobrazí dialog, který umožňuje spravovat vlastnosti dokumentu souboru PowerPoint, jak je uvedeno níže na obrázku:
 
-|**Dialog Vlastností**| |
+|**Dialog Vlastnosti**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
-V výše uvedeném **Dialogu Vlastností** můžete vidět, že obsahuje mnoho záložek, jako jsou **General**, **Summary**, **Statistics**, **Contents** a **Custom**. Všechny tyto záložky umožňují konfigurovat různé typy informací souvisejících se soubory PowerPoint. Záložka **Custom** slouží ke správě vlastních (custom) vlastností souborů PowerPoint.
 
-### Práce s vlastnostmi dokumentu pomocí Aspose.Slides pro Java
+V výše uvedeném **Dialog Vlastnosti** můžete vidět mnoho záložek, jako jsou **General**, **Summary**, **Statistics**, **Contents** a **Custom**. Všechny tyto záložky umožňují konfigurovat různé typy informací souvisejících se soubory PowerPoint. Záložka **Custom** slouží ke správě uživatelských vlastností souborů PowerPoint.
 
-Jak jsme již popisovali, Aspose.Slides pro Java podporuje dva druhy vlastností dokumentu, což jsou **Built-in** a **Custom** vlastnosti. Vývojáři tak mohou přistupovat k oběma druhům vlastností pomocí API Aspose.Slides pro Java. Aspose.Slides pro Java poskytuje třídu [IDocumentProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/idocumentproperties) , která představuje vlastnosti dokumentu spojené se souborem prezentace prostřednictvím vlastnosti **Presentation.DocumentProperties**.
+## **Práce s vlastnostmi dokumentu pomocí Aspose.Slides pro Java**
 
-Vývojáři mohou použít vlastnost **IDocumentProperties** vystavenou objektem [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation) k přístupu k vlastnostem dokumentu souborů prezentace, jak je popsáno níže:
+Jak jsme již dříve popsali, Aspose.Slides pro Java podporuje dva druhy vlastností dokumentu, což jsou **Built-in** a **Custom**. Vývojáři tak mohou přistupovat k oběma druhům vlastností pomocí API Aspose.Slides pro Java. Aspose.Slides pro Java poskytuje třídu [IDocumentProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/idocumentproperties), která představuje vlastnosti dokumentu spojené s prezentačním souborem prostřednictvím vlastnosti **Presentation.DocumentProperties**.
+
+Vývojáři mohou použít vlastnost **IDocumentProperties** vystavenou objektem [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation), aby získali vlastnosti dokumentu prezentačních souborů, jak je popsáno níže:
 
 ## **Přístup k vestavěným vlastnostem**
 
-Tyto vlastnosti, které jsou poskytovány objektem [IDocumentProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/idocumentproperties) , zahrnují: **Creator** (Autor), **Description**, **Keywords**, **Created** (Datum vytvoření), **Modified** (Datum úpravy), **Printed** (Datum posledního tisku), **LastModifiedBy**, **Keywords**, **SharedDoc** (Je sdílen mezi různými tvůrci?), **PresentationFormat**, **Subject** a **Title**.
+Tyto vlastnosti, jak je vystavuje objekt [IDocumentProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/idocumentproperties), zahrnují: **Creator** (Autor), **Description**, **Keywords**, **Created** (Datum vytvoření), **Modified** (Datum úpravy), **Printed** (Datum posledního tisku), **LastModifiedBy**, **Keywords**, **SharedDoc** (Je sdílen mezi různými tvůrci?), **PresentationFormat**, **Subject** a **Title**.
 
 ```java
+import com.aspose.slides.*;
+
 // Vytvořte instanci třídy Presentation, která představuje prezentaci
 Presentation pres = new Presentation("Presentation.pptx");
 try {
@@ -90,9 +93,11 @@ try {
 
 ## **Upravit vestavěné vlastnosti**
 
-Úprava vestavěných vlastností souborů prezentace je stejně snadná jako jejich získání. Stačí přiřadit řetězcovou hodnotu požadované vlastnosti a hodnota se změní. V níže uvedeném příkladu jsme ukázali, jak lze pomocí Aspose.Slides pro Java upravit vestavěné vlastnosti dokumentu prezentace.
+Upravit vestavěné vlastnosti prezentačních souborů je stejně snadné jako k nim přistupovat. Stačí přiřadit řetězcovou hodnotu libovolné požadované vlastnosti a tato hodnota bude změněna. V níže uvedeném příkladu ukazujeme, jak lze upravit vestavěné vlastnosti dokumentu prezentace pomocí Aspose.Slides pro Java.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("Presentation.pptx");
 try {
     // Vytvořte odkaz na objekt IDocumentProperties spojený s prezentací
@@ -105,7 +110,7 @@ try {
     dp.setComments("Aspose Description");
     dp.setManager("Aspose Manager");
     
-    // Uložte prezentaci do souboru
+    // Uložte svou prezentaci do souboru
     pres.save("DocProps.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -114,21 +119,23 @@ try {
 
 Tento příklad upravuje vestavěné vlastnosti prezentace, jak lze vidět níže:
 
-|**Vestavěné vlastnosti dokumentu po úpravě**| |
+|**Vestavěné vlastnosti dokumentu po úpravě**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
 
 ## **Přidat vlastní vlastnosti dokumentu**
 
-Aspose.Slides pro Java také umožňuje vývojářům přidávat vlastní hodnoty pro vlastnosti dokumentu prezentace. Níže je uveden příklad, který ukazuje, jak nastavit vlastní vlastnosti pro prezentaci.
+Aspose.Slides pro Java také umožňuje vývojářům přidávat vlastní hodnoty pro vlastnosti dokumentu prezentace. Níže uvedený příklad přidá tři vlastní vlastnosti, poté vyhledá název uložený na indexu 2 a tuto vlastnost odstraní, takže uložená prezentace si ponechá dvě z nich. Vlastní vlastnosti jsou indexovány v abecedním pořadí, nikoli v pořadí, v jakém byly přidány.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     // Získání vlastností dokumentu
     IDocumentProperties dProps = pres.getDocumentProperties();
     
-    // Přidání vlastních vlastností
+    // Přidávání vlastních vlastností
     dProps.set_Item("New Custom", 12);
     dProps.set_Item("My Name", "Mudassir");
     dProps.set_Item("Custom", 124);
@@ -136,25 +143,27 @@ try {
     // Získání názvu vlastnosti na konkrétním indexu
     String getPropertyName = dProps.getCustomPropertyName(2);
     
-    // Odebrání vybrané vlastnosti
+    // Odstranění vybrané vlastnosti
     dProps.removeCustomProperty(getPropertyName);
     
-    // Uložení prezentace
+    // Ukládání prezentace
     pres.save("CustomDemo.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-|**Přidány vlastní vlastnosti dokumentu**| |
+|**Přidané vlastní vlastnosti dokumentu**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
 
 ## **Přístup a úprava vlastních vlastností**
 
-Aspose.Slides pro Java také umožňuje vývojářům získat hodnoty vlastních vlastností. Níže je uveden příklad, který ukazuje, jak můžete získat a upravit všechny tyto vlastní vlastnosti pro prezentaci.
+Aspose.Slides pro Java také umožňuje vývojářům přistupovat k hodnotám vlastních vlastností. Níže je uveden příklad, který ukazuje, jak můžete přistupovat ke všem těmto vlastním vlastnostem prezentace a upravovat je.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("Presentation.pptx");
 try {
     // Vytvořte odkaz na objekt DocumentProperties spojený s prezentací
@@ -170,47 +179,49 @@ try {
         dp.set_Item(dp.getCustomPropertyName(i), "New Value " + (i + 1));
     }
     
-    // Uložte prezentaci do souboru
+    // Uložte svou prezentaci do souboru
     pres.save("CustomDemoModified.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-Tento příklad upravuje vlastní vlastnosti [PPTX ](https://docs.fileformat.com/presentation/pptx/) prezentace. Následující obrázky ukazují vlastní vlastnosti prezentace před a po úpravě:
+Tento příklad upravuje vlastní vlastnosti [PPTX ](https://docs.fileformat.com/presentation/pptx/)prezentace. Následující obrázky ukazují vlastní vlastnosti prezentace před a po úpravě:
 
-|**Vlastní vlastnosti před úpravou**| |
+|**Vlastní vlastnosti před úpravou**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
 
-|**Vlastní vlastnosti po úpravě**| |
+|**Vlastní vlastnosti po úpravě**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
 
-## **Rozšířené vlastnosti dokumentu**
+## **Pokročilé vlastnosti dokumentu**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Byly přidány nové metody [ReadDocumentProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IPresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-), a [WriteBindedPresentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) do [IPresentationInfo](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IPresentationInfo) , logika nastavení vlastnosti [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/cs/java/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) byla změněna.
+Nové metody [ReadDocumentProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IPresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-), a [WriteBindedPresentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) byly přidány do [IPresentationInfo](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IPresentationInfo), logika setteru vlastnosti [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/cs/java/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) byla změněna.
 
 {{% /alert %}} 
 
-Tyto dvě nové metody [ReadDocumentProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IPresentationInfo#readDocumentProperties--) a [UpdateDocumentProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) byly přidány do rozhraní [IPresentationInfo](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IPresentationInfo). Poskytují rychlý přístup k vlastnostem dokumentu a umožňují změnit a aktualizovat vlastnosti bez načítání celé prezentace.
+Tyto dvě nové metody [ReadDocumentProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IPresentationInfo#readDocumentProperties--) a [UpdateDocumentProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) byly přidány do rozhraní [IPresentationInfo](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IPresentationInfo). Poskytují rychlý přístup k vlastnostem dokumentu a umožňují měnit a aktualizovat vlastnosti bez načítání celé prezentace.
 
-Typický scénář načtení vlastností, změna hodnoty a aktualizace dokumentu lze implementovat následovně:
+Typický scénář načíst vlastnosti, změnit nějakou hodnotu a aktualizovat dokument lze implementovat následujícím způsobem:
 
 ```java
-// přečtěte informace o prezentaci
+import com.aspose.slides.*;
+
+// načíst informace o prezentaci
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("presentation.pptx");
 
-// získejte aktuální vlastnosti
+// obtain the current properties
 IDocumentProperties props = info.readDocumentProperties();
 
-// nastavte nové hodnoty polí Author a Title
+// set the new values of Author and Title fields
 props.setAuthor("New Author");
 props.setTitle("New Title");
 
-// aktualizujte prezentaci s novými hodnotami
+// update the presentation with a new values
 info.updateDocumentProperties(props);
 info.writeBindedPresentation("presentation.pptx");
 ```
@@ -218,6 +229,8 @@ info.writeBindedPresentation("presentation.pptx");
 Existuje další způsob, jak použít vlastnosti konkrétní prezentace jako šablonu pro aktualizaci vlastností v jiných prezentacích:
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("template.pptx");
 DocumentProperties template = (DocumentProperties) info.readDocumentProperties();
 
@@ -230,12 +243,16 @@ template.setComments("Created from template");
 template.setContentType("Template Content");
 template.setSubject("Template Subject");
 
-updateByTemplate("doc1.pptx", template);
-updateByTemplate("doc2.odp", template);
-updateByTemplate("doc3.ppt", template);
+for (String path : new String[] { "doc1.pptx", "doc2.odp", "doc3.ppt" }) {
+    IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
+    toUpdate.updateDocumentProperties(template);
+    toUpdate.writeBindedPresentation(path);
+}
 ```
 
 ```java
+import com.aspose.slides.*;
+
 private static void updateByTemplate(String path, IDocumentProperties template) 
 {
     IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
@@ -244,10 +261,12 @@ private static void updateByTemplate(String path, IDocumentProperties template)
 }
 ```
 
-Nová šablona může být vytvořena od nuly a poté použita k aktualizaci více prezentací:
+Novou šablonu lze vytvořit od začátku a poté ji použít k aktualizaci více prezentací:
 
 ```java
-DocumentProperties template = new DocumentProperties();\
+import com.aspose.slides.*;
+
+DocumentProperties template = new DocumentProperties();
 
 template.setAuthor("Template Author");
 template.setTitle("Template Title");
@@ -258,27 +277,24 @@ template.setComments("Created from template");
 template.setContentType("Template Content");
 template.setSubject("Template Subject");
 
-updateByTemplate("doc1.pptx", template);
-updateByTemplate("doc2.odp", template);
-updateByTemplate("doc3.ppt", template);
-```
-
-```java
-private static void updateByTemplate(String path, IDocumentProperties template) 
-{
+for (String path : new String[] { "doc1.pptx", "doc2.odp", "doc3.ppt" }) {
     IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
     toUpdate.updateDocumentProperties(template);
     toUpdate.writeBindedPresentation(path);
 }
 ```
 
-## **Nastavit jazyk kontroly pravopisu**
+## **Nastavit jazyk pro kontrolu pravopisu**
 
-Aspose.Slides poskytuje vlastnost LanguageId (poskytnutou třídou PortionFormat), která umožňuje nastavit jazyk kontroly pravopisu pro dokument PowerPoint. Jazyk kontroly pravopisu je jazyk, pro který jsou v PowerPointu kontrolovány pravopis a gramatika.
+Aspose.Slides poskytuje vlastnost LanguageId (vystavenou třídou PortionFormat), která umožňuje nastavit jazyk pro kontrolu pravopisu v dokumentu PowerPoint. Jazyk pro kontrolu pravopisu je jazyk, pro který jsou kontrolovány pravopis a gramatika v PowerPointu.
 
-Tento Java kód ukazuje, jak nastavit jazyk kontroly pravopisu pro PowerPoint: xxx Proč chybí LanguageId ve třídě Java PortionFormat?
+Tento kód v Javě ukazuje, jak nastavit jazyk pro kontrolu pravopisu v PowerPointu:
 
 ```java
+import com.aspose.slides.*;
+
+String pptxFileName = "presentation.pptx";
+
 Presentation pres = new Presentation(pptxFileName);
 try {
     AutoShape autoShape = (AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -294,7 +310,7 @@ try {
     portionFormat.setEastAsianFont(font);
     portionFormat.setLatinFont(font);
 
-    portionFormat.setLanguageId("zh-CN"); // nastavte ID jazyka pro kontrolu pravopisu
+    portionFormat.setLanguageId("zh-CN"); // nastavit Id jazyka pro kontrolu pravopisu
 
     newPortion.setText("1。");
     paragraph.getPortions().add(newPortion);
@@ -305,9 +321,11 @@ try {
 
 ## **Nastavit výchozí jazyk**
 
-Tento Java kód ukazuje, jak nastavit výchozí jazyk pro celou PowerPoint prezentaci:
+Tento kód v Javě ukazuje, jak nastavit výchozí jazyk pro celou prezentaci PowerPoint:
 
 ```java
+import com.aspose.slides.*;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDefaultTextLanguage("en-US");
 
@@ -317,7 +335,7 @@ try {
     IAutoShape shp = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
     shp.getTextFrame().setText("New Text");
 
-    // Kontroluje jazyk první části
+    // Zkontroluje jazyk první části
     System.out.println(shp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getLanguageId());
 } finally {
     if (pres != null) pres.dispose();
@@ -326,20 +344,20 @@ try {
 
 ## **Živý příklad**
 
-Vyzkoušejte online aplikaci [**Aspose.Slides Metadata**](https://products.aspose.app/slides/cs/metadata) a podívejte se, jak pracovat s vlastnostmi dokumentu pomocí Aspose.Slides API:
+Vyzkoušejte [**Aspose.Slides Metadata**](https://products.aspose.app/slides/cs/metadata) online aplikaci a podívejte se, jak pracovat s vlastnostmi dokumentu přes API Aspose.Slides:
 
-[![Zobrazit a upravit metadata PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/cs/metadata)
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/cs/metadata)
 
 ## ***FAQ**
 
-**Jak mohu odstranit vestavěnou vlastnost z prezentace?**
+### Jak mohu odstranit vestavěnou vlastnost z prezentace?
 
 Vestavěné vlastnosti jsou nedílnou součástí prezentace a nelze je zcela odstranit. Můžete však změnit jejich hodnoty nebo je nastavit na prázdné, pokud to konkrétní vlastnost umožňuje.
 
-**Co se stane, pokud přidám vlastní vlastnost, která již existuje?**
+### Co se stane, když přidám vlastní vlastnost, která již existuje?
 
-Pokud přidáte vlastní vlastnost, která již existuje, její stávající hodnota bude přepsána novou. Nemusíte vlastnost předtím odstraňovat nebo kontrolovat, protože Aspose.Slides automaticky aktualizuje hodnotu vlastnosti.
+Pokud přidáte vlastní vlastnost, která již existuje, její stávající hodnota bude přepsána novou. Nemusíte vlastnost předem odstraňovat ani kontrolovat, protože Aspose.Slides automaticky aktualizuje hodnotu vlastnosti.
 
-**Mohu získat vlastnosti prezentace bez úplného načtení prezentace?**
+### Mohu přistupovat k vlastnostem prezentace, aniž bych načetl celou prezentaci?
 
-Ano, můžete získat vlastnosti prezentace bez úplného načtení prezentace pomocí metody `getPresentationInfo` ze třídy [PresentationFactory](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentationfactory/) . Pak využijte metodu `readDocumentProperties` poskytovanou rozhraním [IPresentationInfo](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipresentationinfo/) k efektivnímu načtení vlastností, čímž šetříte paměť a zvyšujete výkon.
+Ano, můžete přistupovat k vlastnostem prezentace, aniž byste načetli celou prezentaci, pomocí metody `getPresentationInfo` ze třídy [PresentationFactory](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentationfactory/). Pak využijte metodu `readDocumentProperties` poskytovanou rozhraním [IPresentationInfo](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipresentationinfo/) k efektivnímu načtení vlastností, což šetří paměť a zlepšuje výkon.

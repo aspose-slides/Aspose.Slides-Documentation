@@ -1,12 +1,12 @@
 ---
-title: پیکربندی مجموعه‌های فونت جایگزین در .NET
-linktitle: مجموعه فونت جایگزین
+title: پیکربندی مجموعه‌های فونت پشتیبان در .NET
+linktitle: مجموعه فونت پشتیبان
 type: docs
 weight: 20
 url: /fa/net/create-fallback-fonts-collection/
 keywords:
-- فونت جایگزین
-- قانون جایگزین
+- فونت پشتیبان
+- قانون پشتیبان
 - مجموعه فونت
 - پیکربندی فونت
 - راه‌اندازی فونت
@@ -16,27 +16,29 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "یک مجموعه فونت‌های جایگزین در Aspose.Slides برای .NET تنظیم کنید تا متن در ارائه‌های PowerPoint و OpenDocument یکنواخت و واضح بماند."
+description: "یک مجموعه فونت‌های پشتیبان را در Aspose.Slides برای .NET تنظیم کنید تا متن در ارائه‌های PowerPoint و OpenDocument ثابت و واضح باقی بماند."
 ---
 ## **بررسی کلی**
 
-Aspose.Slides به شما امکان می‌دهد مجموعه‌ای از قوانین فونت جایگزین برای یک ارائه پیکربندی کنید. هر قانون جایگزین توسط کلاس `FontFallBackRule` نماینده می‌شود و می‌تواند به `FontFallBackRulesCollection` افزوده شود که رابط `IFontFallBackRulesCollection` را پیاده‌سازی می‌کند.
+Aspose.Slides به شما امکان می‌دهد مجموعه‌ای از قوانین فونت‌پشتیبان را برای یک ارائه پیکربندی کنید. هر قانون پشتیبان توسط کلاس `FontFallBackRule` نمایانده می‌شود و می‌تواند به `FontFallBackRulesCollection` اضافه شود، که اینترفیس `IFontFallBackRulesCollection` را پیاده‌سازی می‌کند.
 
-پس از ایجاد مجموعه، می‌توانید آن را به ویژگی `FontFallBackRulesCollection` از `FontsManager` ارائه اختصاص دهید. `FontsManager` فونت‌ها را در سراسر ارائه کنترل می‌کند و هر نمونه `Presentation` دارای `FontsManager` خود است.
+پس از ایجاد مجموعه، می‌توانید آن را به ویژگی `FontFallBackRulesCollection` از `FontsManager` ارائه اختصاص دهید. `FontsManager` فونت‌ها را در سراسر ارائه کنترل می‌کند و هر نمونه `Presentation` مدیریت‌کننده فونت‌های خود را دارد.
 
-هنگامی که `FontsManager` با مجموعه فونت‌های جایگزین مقداردهی اولیه شد، فونت‌های جایگزین مشخص‌شده در هنگام رندر ارائه اعمال می‌شوند.
+زمانی که `FontsManager` با مجموعه فونت‌های پشتیبان مقداردهی اولیه شد، فونت‌های پشتیبان مشخص‌شده در طول رندر ارائه اعمال می‌شوند.
 
-## **اعمال قوانین جایگزین**
+## **اعمال قوانین پشتیبان**
 
-نمونه‌های کلاس [FontFallBackRule](https://reference.aspose.com/slides/fa/net/aspose.slides/FontFallBackRule) می‌توانند در [FontFallBackRulesCollection](https://reference.aspose.com/slides/fa/net/aspose.slides/fontfallbackrulescollection) سازماندهی شوند که رابط [IFontFallBackRulesCollection](https://reference.aspose.com/slides/fa/net/aspose.slides/ifontfallbackrulescollection) را پیاده‌سازی می‌کند. امکان افزودن یا حذف قوانین از مجموعه وجود دارد.
+نمونه‌های کلاس [FontFallBackRule](https://reference.aspose.com/slides/fa/net/aspose.slides/FontFallBackRule) می‌توانند در [FontFallBackRulesCollection](https://reference.aspose.com/slides/fa/net/aspose.slides/fontfallbackrulescollection) که اینترفیس [IFontFallBackRulesCollection](https://reference.aspose.com/slides/fa/net/aspose.slides/ifontfallbackrulescollection) را پیاده‌سازی می‌کند سازماندهی شوند. امکان افزودن یا حذف قوانین از مجموعه وجود دارد.
 
-سپس این مجموعه می‌تواند به ویژگی [FontFallBackRulesCollection ](https://reference.aspose.com/slides/fa/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection)property از کلاس [FontsManager](https://reference.aspose.com/slides/fa/net/aspose.slides/fontsmanager) اختصاص داده شود. FontsManager فونت‌ها را در سراسر ارائه کنترل می‌کند.
+سپس این مجموعه می‌تواند به ویژگی [FontFallBackRulesCollection ](https://reference.aspose.com/slides/fa/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection) از کلاس [FontsManager](https://reference.aspose.com/slides/fa/net/aspose.slides/fontsmanager) اختصاص داده شود. `FontsManager` فونت‌ها را در سراسر ارائه کنترل می‌کند.
 
-هر [Presentation ](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) دارای ویژگی [FontsManager ](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/properties/fontsmanager) است که نمونه خود از کلاس FontsManager را دارد.
+هر [Presentation ](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) یک ویژگی [FontsManager ](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/properties/fontsmanager) دارای نمونهٔ خود از کلاس `FontsManager` دارد.
 
-در ادامه نمونه‌ای از نحوه ایجاد مجموعه قوانین فونت جایگزین و اختصاص آن به FontsManager یک ارائه خاص آورده شده است:
+در این‌جا یک مثال برای ایجاد مجموعه قوانین فونت‌های پشتیبان و اختصاص آن به `FontsManager` یک ارائهٔ خاص آمده است:  
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation())
 {
 	IFontFallBackRulesCollection userRulesList = new FontFallBackRulesCollection();
@@ -48,26 +50,26 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-پس از مقداردهی اولیه FontsManager با مجموعه فونت‌های جایگزین، فونت‌های جایگزین در هنگام رندر ارائه اعمال می‌شوند.
+پس از مقداردهی اولیه `FontsManager` با مجموعه فونت‌های پشتیبان، فونت‌های پشتیبان در طول رندر ارائه اعمال می‌شوند.
 
-{{% alert color="primary" %}} 
-برای اطلاعات بیشتر درباره نحوه [رندر ارائه با فونت جایگزین](/slides/fa/net/render-presentation-with-fallback-font/).
+{{% alert color="info" %}} 
+بیشتر بخوانید چگونگی [رندر ارائه با فونت پشتیبان](/slides/fa/net/render-presentation-with-fallback-font/).
 {{% /alert %}}
 
-## **پرسش‌های متداول**
+## **سوالات متداول**
 
-**آیا قوانین جایگزین من در فایل PPTX تعبیه می‌شوند و پس از ذخیره در PowerPoint قابل مشاهده خواهند بود؟**
+### آیا قوانین پشتیبان من در فایل PPTX جاسازی می‌شوند و پس از ذخیره در PowerPoint قابل مشاهده خواهند بود؟
 
-خیر. قوانین جایگزین تنظیمات رندر زمان اجرا هستند؛ آن‌ها به فایل PPTX سریالایز نمی‌شوند و در رابط کاربری PowerPoint نمایش داده نمی‌شوند.
+نه. قوانین پشتیبان تنظیمات رندر زمان اجرا هستند؛ آن‌ها در PPTX سریال‌سازی نمی‌شوند و در رابط کاربری PowerPoint نمایش داده نمی‌شوند.
 
-**آیا جایگزین برای متنی که در SmartArt، WordArt، نمودارها و جداول قرار دارد اعمال می‌شود؟**
+### آیا پشتیبان برای متن داخل SmartArt، WordArt، نمودارها و جدول‌ها اعمال می‌شود؟
 
-بله. همان مکانیزم تعویض گلایف برای هر متنی در این اشیا استفاده می‌شود.
+بله. همان مکانیزم جایگزینی گلیف برای هر متنی در این اشیاء استفاده می‌شود.
 
-**آیا Aspose هیچ فونتی به همراه کتابخانه توزیع می‌کند؟**
+### آیا Aspose فونتی را همراه با کتابخانه توزیع می‌کند؟
 
-خیر. شما فونت‌ها را به‌صورت محلی اضافه و استفاده می‌کنید و مسئولیت آن بر عهده شماست.
+نه. شما فونت‌ها را خودتان اضافه و استفاده می‌کنید و مسئولیت آن بر عهدهٔ شماست.
 
-**آیا می‌توان جایگزینی/تعویض برای فونت‌های گمشده و جایگزینی برای گلیف‌های ناقص را همزمان استفاده کرد؟**
+### آیا می‌توان جایگزینی/جایگزینی برای فونت‌های گمشده و پشتیبان برای گلیف‌های گمشده را همزمان استفاده کرد؟
 
-بله. آن‌ها مراحل مستقل در یک خط لوله‌ی حل فونت هستند: ابتدا موتور در دسترس بودن فونت‌ها را با استفاده از ([replacement](/slides/fa/net/font-replacement/)/[substitution](/slides/fa/net/font-substitution/)) حل می‌کند، سپس جایگزین شکست‌های گلیف‌های گمشده را در فونت‌های موجود پر می‌کند.
+بله. این‌ها مراحل مستقل در همان خط لولهٔ حل فونت هستند: ابتدا موتور در دسترس بودن فونت را حل می‌کند ([replacement](/slides/fa/net/font-replacement/)/[substitution](/slides/fa/net/font-substitution/)) و سپس پشتیبان برای گلیف‌های گمشده در فونت‌های موجود پرتو می‌کند.

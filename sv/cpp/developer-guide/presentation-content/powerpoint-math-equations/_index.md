@@ -21,33 +21,49 @@ description: "Infoga och redigera matematiska ekvationer i PowerPoint PPT och PP
 ---
 ## **Översikt**
 
-PowerPoint lagrar ekvationer som Office Math Markup Language (OMML). Med Aspose.Slides för C++ kan du skapa samma typ av matematiskt innehåll programvarumässigt: bråktal, radikaler, funktioner, gränsvärden, N-ary‑operatorer, matriser, arrayer och formaterade matematikblock.
+PowerPoint lagrar ekvationer som Office Math Markup Language (OMML). Med Aspose.Slides för C++ kan du skapa samma typ av matematiskt innehåll programmässigt: bråk, radikaler, funktioner, gränser, N-ary‑operatorer, matriser, arrayer och formaterade matematiska block.
 
-I PowerPoint lägger användare normalt till ekvationer från **Insert > Equation**:
+I PowerPoint lägger användare normalt till ekvationer via **Infoga > Ekvation**:
 
-![PowerPoint fliken Infoga med kommandot Ekvation markerat](powerpoint-math-equations_1.png)
+![PowerPoint‑fliken Infoga med kommandot Ekvation markerat](powerpoint-math-equations_1.png)
 
 Resultatet är redigerbar matematisk text på bilden:
 
 ![En PowerPoint‑bild som innehåller en redigerbar matematisk ekvation](powerpoint-math-equations_2.png)
 
-Aspose.Slides bygger den matematiska texten genom tre huvudobjekt:
+Aspose.Slides bygger den matematiska texten med tre huvudobjekt:
 
-- En math shape, skapad med [AddMathShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/shapecollection/), är formen som innehåller ekvationen.
-- [MathPortion](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/mathportion/) lagrar matematikinnehåll i formens textruta.
+- Ett matematiskt form, skapat med [AddMathShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/shapecollection/), är formen som innehåller ekvationen.
+- [MathPortion](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/mathportion/) lagrar matematiskt innehåll i formens textram.
 - [MathParagraph](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/mathparagraph/) innehåller ett eller flera [MathBlock](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/mathblock/)-objekt.
 
-De flesta exempel nedan använder [MathematicalText](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/mathematicaltext/) och de flytande metoderna från [IMathElement](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/imathelement/) för att hålla koden kort och läsbar.
+De flesta exempel nedan använder [MathematicalText](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/mathematicaltext/) och de fluent‑metoderna från [IMathElement](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/imathelement/) för att hålla koden kort och läsbar.
 
-För MathML‑exportscenarier, se [Export Math Equations from Presentations in C++](/slides/sv/cpp/exporting-math-equations/).
+För MathML‑exportscenarier, se [Exportera matematiska ekvationer från presentationer i C++](/slides/sv/cpp/exporting-math-equations/).
 
 ## **Skapa en ekvation**
 
-Detta exempel skapar en math shape och lägger till Pythagoras sats:
+Detta exempel skapar ett matematiskt form och lägger till Pythagoras sats:
 
 ![Ekvationen c kvadrat lika med a kvadrat plus b kvadrat](powerpoint-math-equations_3.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathBlock.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/IMathSuperscriptElement.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -68,17 +84,35 @@ presentation->Save(u"pythagorean-theorem.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert color="primary" %}}
-`AddMathShape` skapar en form som redan innehåller ett math paragraph. Åtkomst till den första `MathPortion`, hämta dess `MathParagraph` och lägg till matematikblock eller matteelement i den.
+{{% alert color="info" %}}
+
+`AddMathShape` skapar ett form som redan innehåller ett matematiskt stycke. Hämta den första `MathPortion`, få dess `MathParagraph` och lägg till matematiska block eller matematiska element i det.
+
 {{% /alert %}}
 
-## **Lägg till bråktal**
+## **Lägg till bråk**
 
-Använd `Divide` för att skapa ett bråk. Du kan välja en bråktyp med [MathFractionTypes](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/mathfractiontypes/).
+Använd `Divide` för att skapa ett bråk. Du kan välja stil på bråket med [MathFractionTypes](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/mathfractiontypes/).
 
-![Ett snedställt matematiskt bråk som visar en delat med x](powerpoint-math-equations_4.png)
+![Ett snedvridet matematiskt bråk som visar ett dividerat med x](powerpoint-math-equations_4.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathFractionTypes.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -98,16 +132,35 @@ presentation->Dispose();
 För ett staplat bråk, använd `MathFractionTypes::Bar`:
 
 ```cpp
+#include <DOM/MathText/MathFractionTypes.h>
+#include <DOM/MathText/MathematicalText.h>
+using namespace Aspose::Slides::MathText;
+
 auto stackedFraction = System::MakeObject<MathematicalText>(u"x + 1")->Divide(u"y - 1", MathFractionTypes::Bar);
 ```
 
 ## **Lägg till radikaler**
 
-Använd `Radical` för att skapa en kvadratrot, kubrot eller annan rot. Det aktuella elementet blir basen och argumentet blir graden.
+Använd `Radical` för att skapa en kvadratrot, kubikrot eller annan rot. Det aktuella elementet blir basen, och argumentet blir graden.
 
-![Ett n‑te rotuttryck med x under radikaltecknet](powerpoint-math-equations_5.png)
+![Ett n‑te röttexpression med x under radikaltecknet](powerpoint-math-equations_5.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -124,13 +177,29 @@ presentation->Save(u"radical.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Lägg till funktioner och gränsvärden**
+## **Lägg till funktioner och gränser**
 
-Använd `AsArgumentOfFunction` eller `Function` för funktioner som `sin(x)`, `log(x)` eller egna funktionsnamn. För gränsvärden, placera `lim` i en [MathLimit](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/mathlimit/) eller använd `SetLowerLimit`.
+Använd `AsArgumentOfFunction` eller `Function` för funktioner såsom `sin(x)`, `log(x)` eller egna funktionsnamn. För gränser, placera `lim` i en [MathLimit](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/mathlimit/) eller använd `SetLowerLimit`.
 
-![Gränsvärdet för x när x närmar sig oändligheten](powerpoint-math-equations_8.png)
+![Gränsen för x när x närmar sig oändligheten](powerpoint-math-equations_8.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathLimit.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -151,16 +220,36 @@ presentation->Dispose();
 För ett eget funktionsnamn, gör funktionsnamnet till det aktuella elementet:
 
 ```cpp
+#include <DOM/MathText/MathematicalText.h>
+using namespace Aspose::Slides::MathText;
+
 auto customFunction = System::MakeObject<MathematicalText>(u"f")->Function(u"x + 1");
 ```
 
-## **Lägg till N-ary‑operatorer och integraler**
+## **Lägg till N‑ary‑operatorer och integraler**
 
-Använd `Nary` för summationer, unioner, snitt och andra stora operatorer. Använd `Integral` för integraler. Båda metoderna låter dig ange lägre och övre gränser.
+Använd `Nary` för summationer, unioner, snitt och andra stora operatorer. Använd `Integral` för integraler. Båda metoderna låter dig ange nedre och övre gränser.
 
-![En summation med lägre och övre gränser](powerpoint-math-equations_7.png)
+![En summation med nedre och övre gränser](powerpoint-math-equations_7.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/IMathSuperscriptElement.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathNaryOperatorTypes.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -180,22 +269,47 @@ presentation->Save(u"nary-operators.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-N‑ary‑operatorer är för stora operatorer med valfria gränser. Enkla operatorer som `+`, `-` och `=` läggs vanligtvis till som `MathematicalText` och sammanfogas i uttrycket.
+N‑ary‑operatorer är för stora operatorer med valfria gränser. Enkla operatorer såsom `+`, `-` och `=` läggs vanligtvis till som `MathematicalText` och förenas i uttrycket.
 
 För en integral, använd `Integral`:
 
 ```cpp
+#include <DOM/MathText/IMathBlock.h>
+#include <DOM/MathText/IMathBox.h>
+#include <DOM/MathText/IMathElement.h>
+#include <DOM/MathText/MathIntegralTypes.h>
+#include <DOM/MathText/MathematicalText.h>
+using namespace Aspose::Slides::MathText;
+
 auto integralBase = System::MakeObject<MathematicalText>(u"x")->Join(System::MakeObject<MathematicalText>(u"dx")->ToBox());
 auto integral = integralBase->Integral(MathIntegralTypes::Simple, u"0", u"1");
 ```
 
 ## **Lägg till matriser**
 
-Använd [MathMatrix](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/mathmatrix/) för rader och kolumner. Matriser innehåller inte hakparenteser som standard, så omge matrixen när du behöver parenteser, hakparenteser eller klammerparenteser.
+Använd [MathMatrix](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/mathmatrix/) för rader och kolumner. Matriser innehåller inte hakparenteser som standard, så omge matrisen med parenteser, hakparenteser eller klammerparenteser när det behövs.
 
-![En två‑radig matematikmatris med en tom cell](powerpoint-math-equations_10.png)
+![En två‑radig matematisk matris med en tom cell](powerpoint-math-equations_10.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathBlock.h>
+#include <DOM/MathText/IMathElement.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathMatrix.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -223,6 +337,21 @@ Använd `ToMathArray` när du behöver justerade ekvationer eller en vertikal st
 ![En vertikal matematisk array med x ovanför y](powerpoint-math-equations_11.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -247,6 +376,22 @@ Använd `AsArgumentOfFunction` när argumentet är det aktuella elementet och fu
 ![Den trigonometriska funktionen cos tillämpad på 2x](powerpoint-math-equations_6.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathFunctionsOfOneArgument.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -263,13 +408,28 @@ presentation->Save(u"trigonometric-function.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Lägg till nedsatta och upphöjda index**
+## **Lägg till nedsänkta och upphöjda index**
 
-Använd hjälparfunktionerna för nedsatta och upphöjda index för index och potenser. När indexen måste visas på vänster sida av basen, använd `SetSubSuperscriptOnTheLeft`.
+Använd hjälpfunktionerna för nedsänkta och upphöjda index för index och potenser. När indexen måste visas på vänster sida om basen, använd `SetSubSuperscriptOnTheLeft`.
 
-![En versal Y med vänster‑sida nedsatt index 1 och upphöjt index n](powerpoint-math-equations_9.png)
+![En stor Y med vänstersidigt nedsänkt index 1 och upphöjt index n](powerpoint-math-equations_9.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -290,9 +450,24 @@ presentation->Dispose();
 
 Använd `Enclose` för att placera ett uttryck inom avgränsare. Du kan också ange ett separator‑tecken för avgränsade uttryck som innehåller flera element.
 
-![Ett avgränsning‑uttryck som innehåller x, y och z separerade med vertikala streck](powerpoint-math-equations_13.png)
+![Ett avgränsat uttryck som innehåller x, y och z separerade med lodräta streck](powerpoint-math-equations_13.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -311,13 +486,29 @@ presentation->Save(u"delimiters.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Lägg till en kantlåda**
+## **Lägg till en ramruta**
 
-Använd `ToBorderBox` när ekvationen själv ska ramas in.
+Använd `ToBorderBox` när ekvationen själv ska omges av en ram.
 
-![En inramad ekvation som visar a kvadrat lika med b kvadrat plus c kvadrat](powerpoint-math-equations_12.png)
+![En inramad ekvation som visar c kvadrat lika med b kvadrat plus a kvadrat](powerpoint-math-equations_12.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/IMathSuperscriptElement.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -341,11 +532,28 @@ presentation->Dispose();
 
 ## **Gruppera termer**
 
-Använd `Group` för att placera ett grupperingstecken över eller under ett uttryck. Lägg till en gräns för att märka de grupperade termerna.
+Använd `Group` för att placera ett grupptecken ovanför eller nedanför ett uttryck. Lägg till en gräns för att märka de grupperade termerna.
 
-![Uttrycket x plus y grupperat med etiketten någon text under det](powerpoint-math-equations_15.png)
+![Uttrycket x plus y grupperat med etiketten någon text under](powerpoint-math-equations_15.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathGroupingCharacter.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathTopBotPositions.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -363,13 +571,28 @@ presentation->Save(u"grouped-terms.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Formatera matteelement**
+## **Formatera matematiska element**
 
-Använd formateringshjälpmedel endast där de förtydligar formeln. Till exempel placerar `Overbar` ett streck ovanför ett matteelement.
+Använd formateringshjälpverktyg endast där de förtydligar formeln. Till exempel placerar `Overbar` en linje ovanför ett matematiskt element.
 
-![Ett matematiskt uttryck ABC med ett överstreck](powerpoint-math-equations_14.png)
+![Ett matematiskt uttryck ABC med en överlinje](powerpoint-math-equations_14.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -389,31 +612,31 @@ presentation->Dispose();
 
 | Uppgift | Huvud‑API |
 | --- | --- |
-| Skapa matematiktext | [MathematicalText](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/mathematicaltext/) |
+| Skapa matematisk text | [MathematicalText](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/mathematicaltext/) |
 | Kombinera element | [IMathElement.Join](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/imathelement/join/) |
 | Skapa bråk | [IMathElement.Divide](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/imathelement/divide/) |
-| Lägg till upphöjt eller nedsatt index | [SetSuperscript](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/imathelement/setsubscript/) |
+| Lägg till upphöjt eller nedsänkt index | [SetSuperscript](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/imathelement/setsubscript/) |
 | Lägg till funktioner | [Function](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
 | Lägg till radikaler | [IMathElement.Radical](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/imathelement/radical/) |
-| Lägg till gränsvärden | [SetLowerLimit](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/imathelement/setupperlimit/) |
-| Lägg till skript på vänster sida | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
+| Lägg till gränser | [SetLowerLimit](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/imathelement/setupperlimit/) |
+| Lägg till vänstersidiga index | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
 | Lägg till summationer och integraler | [Nary](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/imathelement/integral/) |
 | Lägg till matriser | [MathMatrix](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/mathmatrix/) |
 | Lägg till ekvationsarrayer | [ToMathArray](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/imathelement/tomatharray/) |
 | Lägg till avgränsare | [Enclose](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/imathelement/enclose/) |
-| Lägg till streck och ramar | [Overbar](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/imathelement/toborderbox/) |
+| Lägg till linjer och ramar | [Overbar](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/imathelement/toborderbox/) |
 | Gruppera termer | [Group](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/imathelement/group/) |
 
 ## **FAQ**
 
 **Kan jag redigera en befintlig PowerPoint‑ekvation?**
 
-Ja. Öppna presentationen, hitta formen som innehåller en `MathPortion`, hämta dess `MathParagraph` och uppdatera math‑blocken i det paragrafen.
+Ja. Öppna presentationen, hitta formen som innehåller en `MathPortion`, få dess `MathParagraph` och uppdatera de matematiska blocken i det stycket.
 
 **Sparas ekvationer som redigerbar PowerPoint‑matematik?**
 
-Ja. När du sparar till PPTX skriver Aspose.Slides ekvationen som redigerbart Office‑math‑innehåll.
+Ja. När du sparar till PPTX skriver Aspose.Slides ekvationen som redigerbart Office‑matteinnehåll.
 
 **Kan jag exportera ekvationer till LaTeX?**
 
-Aspose.Slides exporterar matematiska ekvationer till MathML. Om du behöver LaTeX, exportera först till MathML och konvertera sedan MathML med ett verktyg som stöder ditt mål‑LaTeX‑dialekt.
+Ja. Hämta ekvationens [IMathParagraph](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/imathparagraph/) från dess [IMathPortion](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/imathportion/), och anropa [IMathParagraph::ToLatex](https://reference.aspose.com/slides/sv/cpp/aspose.slides.mathtext/imathparagraph/tolatex/) för att exportera den direkt. För ett komplett exempel, se [Exportera matematiska ekvationer från presentationer i C++](/slides/sv/cpp/exporting-math-equations/#export-math-equations-to-latex).

@@ -1,107 +1,105 @@
 ---
-title: Δημιουργία ή Ενημέρωση Διαγραμμάτων Παρουσίασης PowerPoint σε Android
-linktitle: Δημιουργία ή Ενημέρωση Διαγραμμάτων
+title: Δημιουργία ή Ενημέρωση Γραφημάτων Παρουσίασης PowerPoint σε Android
+linktitle: Δημιουργία ή Ενημέρωση Γραφημάτων
 type: docs
 weight: 10
 url: /el/androidjava/create-chart/
 keywords:
-- προσθήκη διαγράμματος
-- δημιουργία διαγράμματος
-- επεξεργασία διαγράμματος
-- αλλαγή διαγράμματος
-- ενημέρωση διαγράμματος
-- διασκορπισμένο διάγραμμα
-- διάγραμμα πίτας
-- γραμμικό διάγραμμα
-- διάγραμμα δέντρου
-- διάγραμμα μετοχών
-- διάγραμμα box and whisker
-- διάγραμμα χωνιού
-- διάγραμμα sunburst
-- ιστόγραμμα
-- διάγραμμα radar
-- πολυκατηγορικό διάγραμμα
+- προσθήκη γραφήματος
+- δημιουργία γραφήματος
+- επεξεργασία γραφήματος
+- αλλαγή γραφήματος
+- ενημέρωση γραφήματος
+- διασκορπιστικό γράφημα
+- γράφημα πίτας
+- γράφημα γραμμής
+- γράφημα χάρτη δένδρου
+- γράφημα αποθεμάτων
+- γράφημα κουβά και μεζονιού
+- γράφημα χωνίου
+- γράφημα ηλιακού εκτυλισμού
+- γράφημα ιστογράμματος
+- γράφημα ραδιοφώνου
+- γράφημα πολλαπλών κατηγοριών
 - PowerPoint
 - παρουσίαση
 - Android
 - Java
 - Aspose.Slides
-description: "Δημιουργήστε και προσαρμόστε διαγράμματα σε παρουσιάσεις PowerPoint χρησιμοποιώντας το Aspose.Slides για Android. Προσθέστε, μορφοποιήστε και επεξεργαστείτε διαγράμματα με πρακτικά παραδείγματα κώδικα Java."
+description: "Δημιουργήστε και προσαρμόστε γραφήματα σε παρουσιάσεις PowerPoint χρησιμοποιώντας το Aspose.Slides για Android. Προσθέστε, μορφοποιήστε και επεξεργαστείτε γραφήματα με πρακτικά παραδείγματα κώδικα Java."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο παρέχει έναν ολοκληρωμένο οδηγό για το πώς να δημιουργήσετε και να προσαρμόσετε διαγράμματα χρησιμοποιώντας το Aspose.Slides. Θα μάθετε πώς να προσθέσετε προγραμματιστικά ένα διάγραμμα σε μια διαφάνεια, να το γεμίσετε με δεδομένα και να εφαρμόσετε διάφορες επιλογές μορφοποίησης ώστε να ταιριάζει με τις συγκεκριμένες απαιτήσεις σχεδίασής σας. Σε όλο το άρθρο, λεπτομερή παραδείγματα κώδικα απεικονίζουν κάθε βήμα, από την αρχικοποίηση της παρουσίασης και του αντικειμένου διαγράμματος μέχρι τη διαμόρφωση σειρών, αξόνων και υπομνήματος. Ακολουθώντας αυτόν τον οδηγό, θα αποκτήσετε ισχυρή κατανόηση του τρόπου ενσωμάτωσης δυναμικής δημιουργίας διαγραμμάτων στις εφαρμογές σας, βελτιώνοντας τη διαδικασία δημιουργίας παρουσιάσεων που βασίζονται σε δεδομένα.
+Αυτό το άρθρο παρέχει έναν ολοκληρωμένο οδηγό για το πώς να δημιουργείτε και να προσαρμόζετε γραφήματα χρησιμοποιώντας το Aspose.Slides. Θα μάθετε πώς να προσθέτετε προγραμματιστικά ένα γράφημα σε μια διαφάνεια, να το γεμίζετε με δεδομένα και να εφαρμόζετε διάφορες επιλογές μορφοποίησης ώστε να ταιριάζουν με τις συγκεκριμένες απαιτήσεις του σχεδιασμού σας. Καθ' όλη τη διάρκεια του άρθρου, λεπτομερή παραδείγματα κώδικα απεικονίζουν κάθε βήμα, από την αρχικοποίηση της παρουσίασης και του αντικειμένου γραφήματος μέχρι τη διαμόρφωση σειρών, αξόνων και υπομνημάτων. Ακολουθώντας αυτόν τον οδηγό, θα αποκτήσετε μια σαφή κατανόηση του πώς να ενσωματώνετε δυναμική δημιουργία γραφημάτων στις εφαρμογές σας, βελτιώνοντας τη διαδικασία δημιουργίας παρουσιάσεων βασισμένων σε δεδομένα.
 
-## **Δημιουργία Διαγράμματος**
-Τα διαγράμματα βοηθούν τους ανθρώπους να οπτικοποιούν γρήγορα τα δεδομένα και να εξάγουν συμπεράσματα, κάτι που ίσως να μην είναι άμεσα προφανές από έναν πίνακα ή ένα λογιστικό φύλλο. 
+## **Δημιουργία Γραφήματος**
+Τα γραφήματα βοηθούν τους ανθρώπους να οπτικοποιούν γρήγορα δεδομένα και να εξάγουν διορατικά συμπεράσματα, κάτι που μπορεί να μην είναι άμεσα εμφανές από έναν πίνακα ή φύλλο εργασίας.
 
-**Γιατί να Δημιουργείτε Διαγράμματα;**
+**Γιατί να δημιουργήσετε γραφήματα;**
 
-Χρησιμοποιώντας διαγράμματα, μπορείτε να
+Χρησιμοποιώντας γραφήματα, μπορείτε να
 
-* συγκεντρώσετε, συμπτύξετε ή συνοψίσετε μεγάλες ποσότητες δεδομένων σε μια ενιαία διαφάνεια μιας παρουσίασης
-* αποκαλύψετε μοτίβα και τάσεις στα δεδομένα
-* συμπεράνετε την κατεύθυνση και την ορμή των δεδομένων με την πάροδο του χρόνου ή σε σχέση με μια συγκεκριμένη μονάδα μέτρησης
-* εντοπίσετε ακραίες τιμές, αποκλίσεις, σφάλματα, παράλογα δεδομένα κ.λπ.
-* επικοινωνήσετε ή παρουσιάσετε σύνθετα δεδομένα
+* συγκεντρώνετε, συμπτύσσετε ή συνοψίζετε μεγάλες ποσότητες δεδομένων σε μία διαφάνεια της παρουσίασης
+* αποκαλύπτετε πρότυπα και τάσεις στα δεδομένα
+* συμπεραίνετε τη διεύθυνση και τη δυναμική των δεδομένων με την πάροδο του χρόνου ή σε σχέση με μια συγκεκριμένη μονάδα μέτρησης
+* ανιχνεύετε ακραίες τιμές, αποκλίσεις, σφάλματα, ασύμβατα δεδομένα κ.λπ.
+* επικοινωνείτε ή παρουσιάζετε σύνθετα δεδομένα
 
-Στο PowerPoint, μπορείτε να δημιουργήσετε διαγράμματα μέσω της λειτουργίας εισαγωγής, η οποία παρέχει πρότυπα για τον σχεδιασμό πολλών τύπων διαγραμμάτων. Με το Aspose.Slides, μπορείτε να δημιουργήσετε κανονικά διαγράμματα (βασισμένα σε δημοφιλείς τύπους) και προσαρμοσμένα διαγράμματα. 
+Στο PowerPoint, μπορείτε να δημιουργήσετε γραφήματα μέσω της λειτουργίας εισαγωγής, η οποία παρέχει πρότυπα για το σχεδιασμό πολλών τύπων γραφημάτων. Χρησιμοποιώντας Aspose.Slides, μπορείτε να δημιουργήσετε κανονικά γραφήματα (βασισμένα σε δημοφιλείς τύπους γραφημάτων) και προσαρμοσμένα γραφήματα.
 
-{{% alert color="primary" %}} 
-
-Για να μπορείτε να δημιουργείτε διαγράμματα, το Aspose.Slides παρέχει την κλάση [ChartType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ChartType). Τα πεδία της κλάσης αντιστοιχούν σε διαφορετικούς τύπους διαγραμμάτων.
-
+{{% alert color="info" %}} 
+Για να δημιουργήσετε γραφήματα, το Aspose.Slides παρέχει τη κλάση [ChartType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ChartType). Τα πεδία αυτής της κλάσης αντιστοιχούν σε διαφορετικούς τύπους γραφημάτων.
 {{% /alert %}} 
 
-### **Δημιουργία Κανονικών Διαγραμμάτων**
+### **Δημιουργία Κανονικών Γραφημάτων**
 
-_Βήματα: Create Chart_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος PowerPoint σε Java</strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος Παρουσίασης σε Java</strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος Παρουσίασης PowerPoint σε Java</strong></a>
+_Steps: Create Chart_
+- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος PowerPoint σε Java</strong></a>
+- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Παρουσίασης σε Java</strong></a>
+- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Παρουσίασης PowerPoint σε Java</strong></a>
 
-_Κώδικας Βημάτων:_
+_Βήματα Κώδικα:_
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation).
-2. Λάβετε αναφορά σε μια διαφάνεια μέσω του δείκτη της.
-3. Προσθέστε ένα διάγραμμα με κάποια δεδομένα και ορίστε τον προτιμώμενο τύπο διαγράμματος. 
-4. Προσθέστε έναν τίτλο για το διάγραμμα. 
-5. Πρόσβαση στο φύλλο εργασίας δεδομένων του διαγράμματος. 
-6. Καθαρίστε όλες τις προεπιλεγμένες σειρές και κατηγορίες. 
-7. Προσθέστε νέες σειρές και κατηγορίες. 
-8. Προσθέστε νέα δεδομένα στο διάγραμμα για τις σειρές. 
-9. Προσθέστε χρώμα γεμίσματος για τις σειρές. 
-10. Προσθέστε ετικέτες για τις σειρές. 
+1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation).
+2. Αποκτήστε την παραπομπή σε μια διαφάνεια μέσω του δείκτη της.
+3. Προσθέστε ένα γράφημα με κάποια δεδομένα και ορίστε τον προτιμώμενο τύπο γραφήματος. 
+4. Προσθέστε έναν τίτλο για το γράφημα. 
+5. Προσπελάστε το φύλλο εργασίας δεδομένων του γραφήματος.
+6. Καθαρίστε όλες τις προεπιλεγμένες σειρές και κατηγορίες.
+7. Προσθέστε νέες σειρές και κατηγορίες.
+8. Προσθέστε νέα δεδομένα γραφήματος για τις σειρές του γραφήματος.
+9. Προσθέστε χρώμα γεμίσματος για τις σειρές του γραφήματος.
+10. Προσθέστε ετικέτες για τις σειρές του γραφήματος. 
 11. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα κανονικό διάγραμμα:
+Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα κανονικό γράφημα:
 
 ```java
-// Δημιουργεί ένα αντικείμενο παρουσίασης που αντιπροσωπεύει αρχείο PPTX
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει αρχείο PPTX
 Presentation pres = new Presentation();
 try {
     // Πρόσβαση στην πρώτη διαφάνεια
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // Προσθέτει ένα διάγραμμα με τα προεπιλεγμένα δεδομένα
+    // Προσθέτει ένα γράφημα με τα προεπιλεγμένα δεδομένα του
     IChart chart = sld.getShapes().addChart(ChartType.ClusteredColumn, 0, 0, 500, 500);
     
-    // Ορίζει τον τίτλο του διαγράμματος
+    // Ορίζει τον τίτλο του γραφήματος
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
-    chart.hasTitle();
+    chart.setTitle(true);
     
-    // Ορίζει την πρώτη σειρά να εμφανίζει τιμές
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    
-    // Ορίζει το ευρετήριο για το φύλλο δεδομένων του διαγράμματος
+    // Ορίζει το δείκτη για το φύλλο δεδομένων του γραφήματος
     int defaultWorksheetIndex = 0;
     
-    // Λαμβάνει το φύλλο εργασίας δεδομένων του διαγράμματος
+    // Λαμβάνει το φύλλο εργασίας δεδομένων του γραφήματος
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // Διαγράφει τις προεπιλεγμένες παραγόμενες σειρές και κατηγορίες
+    // Διαγράφει τις προεπιλεγμένες δημιουργημένες σειρές και κατηγορίες
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     int s = chart.getChartData().getSeries().size();
@@ -116,7 +114,7 @@ try {
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
     
-    // Παίρνει την πρώτη σειρά του διαγράμματος
+    // Παίρνει την πρώτη σειρά γραφήματος
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
     // Τώρα γεμίζει τα δεδομένα της σειράς
@@ -128,7 +126,7 @@ try {
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
     
-    // Παίρνει τη δεύτερη σειρά του διαγράμματος
+    // Παίρνει τη δεύτερη σειρά γραφήματος
     series = chart.getChartData().getSeries().get_Item(1);
     
     // Γεμίζει τα δεδομένα της σειράς
@@ -140,75 +138,78 @@ try {
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN);
     
-    // Δημιουργία προσαρμοσμένων ετικετών για κάθε κατηγορία της νέας σειράς
-    // Ορίζει την πρώτη ετικέτα να εμφανίζει το όνομα κατηγορίας
+    //Δημιουργεί προσαρμοσμένες ετικέτες για κάθε κατηγορία για τις νέες σειρές
+    // Ορίζει την πρώτη ετικέτα να εμφανίζει το όνομα της κατηγορίας
     IDataLabel lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
     
     lbl = series.getDataPoints().get_Item(1).getLabel();
     lbl.getDataLabelFormat().setShowSeriesName(true);
     
-    // Εμφανίζει τιμή για την τρίτη ετικέτα
+    // Εμφανίζει την τιμή για την τρίτη ετικέτα
     lbl = series.getDataPoints().get_Item(2).getLabel();
     lbl.getDataLabelFormat().setShowValue(true);
     lbl.getDataLabelFormat().setShowSeriesName(true);
     lbl.getDataLabelFormat().setSeparator("/");
     
-    // Αποθηκεύει την παρουσίαση με το διάγραμμα
+    // Αποθηκεύει την παρουσίαση με το γράφημα
     pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-### **Δημιουργία Διασκορπισμένων Διαγραμμάτων**
-Τα διασκορπισμένα διαγράμματα (γνωστά επίσης ως scatter plots ή γραφήματα x‑y) χρησιμοποιούνται συχνά για να ελέγξουν μοτίβα ή να αποδείξουν συσχετίσεις μεταξύ δύο μεταβλητών. 
+### **Δημιουργία Διασκορπισμένων Γραφημάτων**
 
-Μπορεί να θέλετε να χρησιμοποιήσετε ένα διασκορπισμένο διάγραμμα όταν 
+Τα διασκορπισμένα γραφήματα (γνωστά και ως scatter plots ή γραφήματα x‑y) χρησιμοποιούνται συχνά για να ελέγχουν πρότυπα ή να δείχνουν συσχετίσεις μεταξύ δύο μεταβλητών. 
 
-* έχετε ζεύγος αριθμητικών δεδομένων
+Μπορεί να θελήσετε να χρησιμοποιήσετε ένα διασκορπιστικό γράφημα όταν
+
+* διαθέτετε ζευγαρωμένα αριθμητικά δεδομένα
 * έχετε 2 μεταβλητές που ταιριάζουν καλά μεταξύ τους
 * θέλετε να καθορίσετε εάν 2 μεταβλητές σχετίζονται
 * έχετε μια ανεξάρτητη μεταβλητή με πολλαπλές τιμές για μια εξαρτημένη μεταβλητή
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Βήματα:</em> Δημιουργία Διασκορπισμένου Διαγράμματος σε Java</strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Βήματα:</em> Δημιουργία Διασκορπισμένου Διαγράμματος PowerPoint σε Java</strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Βήματα:</em> Δημιουργία Διασκορπισμένου Διαγράμματος Παρουσίασης PowerPoint σε Java</strong></a>
+<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Βήματα:</em> Δημιουργία Διασκορπιστικού Γραφήματος σε Java</strong></a> |
+<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Βήματα:</em> Δημιουργία Διασκορπιστικού Γραφήματος PowerPoint σε Java</strong></a> |
+<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Βήματα:</em> Δημιουργία Διασκορπιστικού Γραφήματος Παρουσίασης PowerPoint σε Java</strong></a>
 
-1. Ακολουθήστε τα βήματα που αναφέρθηκαν παραπάνω στο [Creating Normal Charts](#creating-normal-charts)
-2. Στο τρίτο βήμα, Προσθέστε ένα διάγραμμα με κάποια δεδομένα και ορίστε τον τύπο διαγράμματος ως έναν από τους παρακάτω
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/charttype/#ScatterWithMarkers) - _Αντιπροσωπεύει Scatter Chart._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Αντιπροσωπεύει Scatter Chart συνδεδεμένο με καμπύλες, με δείκτες δεδομένων._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Αντιπροσωπεύει Scatter Chart συνδεδεμένο με καμπύλες, χωρίς δείκτες δεδομένων._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Αντιπροσωπεύει Scatter Chart συνδεδεμένο με ευθείες γραμμές, με δείκτες δεδομένων._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Αντιπροσωπεύει Scatter Chart συνδεδεμένο με ευθείες γραμμές, χωρίς δείκτες δεδομένων._
+1. Ακολουθήστε τα βήματα που αναφέρονται παραπάνω στο [Δημιουργία Κανονικών Γραφημάτων](#creating-normal-charts)
+2. Στο τρίτο βήμα, Προσθέστε ένα γράφημα με κάποια δεδομένα και ορίστε τον τύπο γραφήματος ως έναν από τους ακόλουθους
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/charttype/#ScatterWithMarkers) - _Αντιπροσωπεύει Διασκορπιστικό Γράφημα._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Αντιπροσωπεύει Διασκορπιστικό Γράφημα συνδεδεμένο με καμπύλες, με δείκτες δεδομένων._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Αντιπροσωπεύει Διασκορπιστικό Γράφημα συνδεδεμένο με καμπύλες, χωρίς δείκτες δεδομένων._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Αντιπροσωπεύει Διασκορπιστικό Γράφημα συνδεδεμένο με ευθείες, με δείκτες δεδομένων._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Αντιπροσωπεύει Διασκορπιστικό Γράφημα συνδεδεμένο με ευθείες, χωρίς δείκτες δεδομένων._
 
-Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε διασκορπισμένα διαγράμματα με διαφορετικές σειρές δεικτών: 
+Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε διασκορπιστικά γραφήματα με διαφορετικές σειρές δεικτών:
 
 ```java
-// Δημιουργεί ένα αντικείμενο παρουσίασης που αντιπροσωπεύει αρχείο PPTX
+import com.aspose.slides.*;
+
+// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει αρχείο PPTX
 Presentation pres = new Presentation();
 try {
     // Πρόσβαση στην πρώτη διαφάνεια
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Δημιουργεί το προεπιλεγμένο διάγραμμα
+    // Δημιουργεί το προεπιλεγμένο γράφημα
     IChart chart = slide.getShapes().addChart(ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
     
-    // Λαμβάνει το ευρετήριο του προεπιλεγμένου φύλλου δεδομένων διαγράμματος
+    // Λαμβάνει το δείκτη του προεπιλεγμένου φύλλου δεδομένων του γραφήματος
     int defaultWorksheetIndex = 0;
     
-    // Λαμβάνει το φύλλο δεδομένων του διαγράμματος
+    // Λαμβάνει το φύλλο εργασίας δεδομένων του γραφήματος
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // Διαγράφει τις δοκιμαστικές σειρές
+    // Διαγράφει τις σειρές επίδειξης
     chart.getChartData().getSeries().clear();
     
     // Προσθέτει νέες σειρές
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.getType());
     
-    // Παίρνει την πρώτη σειρά του διαγράμματος
+    // Παίρνει την πρώτη σειρά του γραφήματος
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
     // Προσθέτει ένα νέο σημείο (1:3) στη σειρά
@@ -220,11 +221,11 @@ try {
     // Αλλάζει τον τύπο της σειράς
     series.setType(ChartType.ScatterWithStraightLinesAndMarkers);
     
-    // Αλλάζει το δείκτη της σειράς διαγράμματος
+    // Αλλάζει τον δείκτη σειράς του γραφήματος
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Star);
     
-    // Παίρνει τη δεύτερη σειρά του διαγράμματος
+    // Παίρνει τη δεύτερη σειρά του γραφήματος
     series = chart.getChartData().getSeries().get_Item(1);
     
     // Προσθέτει ένα νέο σημείο (5:2) εκεί
@@ -239,7 +240,7 @@ try {
     // Προσθέτει ένα νέο σημείο (5:1)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 5, 3, 5), fact.getCell(defaultWorksheetIndex, 5, 4, 1));
     
-    // Αλλάζει το δείκτη της σειράς διαγράμματος
+    // Αλλάζει τον δείκτη σειράς του γραφήματος
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Circle);
     
@@ -249,52 +250,52 @@ try {
 }
 ```
 
-### **Δημιουργία Πίτας Διαγραμμάτων**
+### **Δημιουργία Γραφημάτων Πίτας**
 
-Τα διαγράμματα πίτας χρησιμοποιούνται κυρίως για να εμφανίσουν τη σχέση μέρος‑προς‑ολό στην παρουσίαση δεδομένων, ειδικά όταν τα δεδομένα περιέχουν κατηγορηματικές ετικέτες με αριθμητικές τιμές. Ωστόσο, εάν τα δεδομένα σας περιέχουν πολλά κομμάτια ή ετικέτες, ίσως θελήσετε να χρησιμοποιήσετε ένα ραβδόγραμμα αντί αυτού.
+Τα γραφήματα πίτας είναι ιδανικά για να δείξουν τη σχέση μέρος‑από‑ολόκληρο στα δεδομένα, ειδικά όταν τα δεδομένα περιέχουν κατηγορίες με αριθμητικές τιμές. Ωστόσο, εάν τα δεδομένα σας περιέχουν πολλά τμήματα ή ετικέτες, ίσως θέλετε να χρησιμοποιήσετε ένα ραβδόγραμμα αντί αυτού.
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος Πίτας σε Java</strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος Πίτας PowerPoint σε Java</strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος Πίτας Παρουσίασης PowerPoint σε Java</strong></a>
+<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Πίτας σε Java</strong></a> |
+<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Πίτας PowerPoint σε Java</strong></a> |
+<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Πίτας Παρουσίασης PowerPoint σε Java</strong></a>
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation).
-2. Λάβετε αναφορά σε μια διαφάνεια μέσω του δείκτη της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο (σε αυτήν την περίπτωση, [ChartType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ChartType).Pie).
-4. Πρόσβαση στα δεδομένα διαγράμματος μέσω του [IChartDataWorkbook](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IChartDataWorkbook).
+1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation).
+2. Αποκτήστε την παραπομπή σε μια διαφάνεια μέσω του δείκτη της.
+3. Προσθέστε ένα γράφημα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο (σε αυτή την περίπτωση, [ChartType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ChartType).Pie).
+4. Προσπελάστε τα δεδομένα γραφήματος μέσω του [IChartDataWorkbook](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IChartDataWorkbook).
 5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
 6. Προσθέστε νέες σειρές και κατηγορίες.
-7. Προσθέστε νέα δεδομένα στο διάγραμμα για τις σειρές.
-8. Προσθέστε νέες τιμές σημείων για το διάγραμμα και προσαρμόστε χρώματα για τα τμήματα της πίτας.
+7. Προσθέστε νέα δεδομένα γραφήματος για τις σειρές.
+8. Προσθέστε νέα σημεία στα γραφήματα και προσαρμόστε χρώματα για τις τομείς του γραφήματος πίτας.
 9. Ορίστε ετικέτες για τις σειρές.
-10. Ορίστε γραμμές οδηγό για τις ετικέτες των σειρών.
-11. Ορίστε τη γωνία περιστροφής για τις διαφάνειες του διαγράμματος πίτας.
-12. Αποθηκεύστε την τροποποιημένη παρουσίαση σε αρχείο PPTX.
+10. Ορίστε γραμμές οδηγούς για τις ετικέτες των σειρών.
+11. Ορίστε τη γωνία περιστροφής για τις διαφάνειες του γραφήματος πίτας.
+12. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα διάγραμμα πίτας:
+Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα γράφημα πίτας:
 
 ```java
-// Δημιουργεί ένα αντικείμενο παρουσίασης που αντιπροσωπεύει αρχείο PPTX
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει αρχείο PPTX
 Presentation pres = new Presentation();
 try {
     // Πρόσβαση στην πρώτη διαφάνεια
     ISlide slides = pres.getSlides().get_Item(0);
     
-    // Προσθέτει ένα διάγραμμα με προεπιλεγμένα δεδομένα
+    // Προσθέτει ένα γράφημα με προεπιλεγμένα δεδομένα
     IChart chart = slides.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
     
-    // Ορίζει τον τίτλο του διαγράμματος
+    // Ορίζει τον τίτλο του γραφήματος
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
     
-    // Ορίζει την πρώτη σειρά να εμφανίζει τιμές
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    
-    // Ορίζει το ευρετήριο για το φύλλο δεδομένων του διαγράμματος
+    // Ορίζει το δείκτη για το φύλλο δεδομένων του γραφήματος
     int defaultWorksheetIndex = 0;
     
-    // Λαμβάνει το φύλλο εργασίας δεδομένων του διαγράμματος
+    // Λαμβάνει το φύλλο εργασίας δεδομένων του γραφήματος
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
     // Διαγράφει τις προεπιλεγμένες δημιουργημένες σειρές και κατηγορίες
@@ -315,7 +316,7 @@ try {
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     
     // Δεν λειτουργεί στη νέα έκδοση
-    // Προσθήκη νέων σημείων και ορισμός χρώματος τμήματος
+    // Adding new points and setting sector color
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
     
@@ -323,7 +324,7 @@ try {
     point.getFormat().getFill().setFillType(FillType.Solid);
     point.getFormat().getFill().getSolidFillColor().setColor(Color.CYAN);
 	
-    // Ορίζει το περίγραμμα του τμήματος
+    // Ορίζει το περίγραμμα του τομέα
     point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
     point.getFormat().getLine().setWidth(3.0);
@@ -334,7 +335,7 @@ try {
     point1.getFormat().getFill().setFillType(FillType.Solid);
     point1.getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE);
     
-    // Ορίζει το περίγραμμα του τμήματος
+    // Ορίζει το περίγραμμα του τομέα
     point1.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     point1.getFormat().getLine().setWidth(3.0);
@@ -345,7 +346,7 @@ try {
     point2.getFormat().getFill().setFillType(FillType.Solid);
     point2.getFormat().getFill().getSolidFillColor().setColor(Color.YELLOW);
     
-    // Ορίζει το περίγραμμα του τμήματος
+    // Ορίζει το περίγραμμα του τομέα
     point2.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
     point2.getFormat().getLine().setWidth(2.0);
@@ -367,35 +368,33 @@ try {
     lbl3.getDataLabelFormat().setShowSeriesName(true);
     lbl3.getDataLabelFormat().setShowPercentage(true);
     
-    // Εμφανίζει γραμμές οδηγού για το διάγραμμα
+    // Εμφανίζει γραμμές οδηγούς για το γράφημα
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
     
-    // Ορίζει τη γωνία περιστροφής για τα τμήματα του διαγράμματος πίτας
+    // Ορίζει τη γωνία περιστροφής για τους τομείς του γραφήματος πίτας
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
     
-    // Αποθηκεύει την παρουσίαση με το διάγραμμα
+    // Αποθηκεύει την παρουσίαση με ένα γράφημα
     pres.save("PieChart_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-### **Δημιουργία Γραμμικών Διαγραμμάτων**
+### **Δημιουργία Γραφημάτων Γραμμής**
 
-Τα γραμμικά διαγράμματα (επίσης γνωστά ως γραμμικά γραφήματα) χρησιμοποιούνται καλύτερα όταν θέλετε να επιδείξετε αλλαγές στην τιμή με την πάροδο του χρόνου. Με ένα γραμμικό διάγραμμα, μπορείτε να συγκρίνετε πολλά δεδομένα ταυτόχρονα, να παρακολουθείτε αλλαγές και τάσεις στο χρόνο, να επισημάνετε ανωμαλίες σε σειρές δεδομένων κ.λπ.
+Τα γραφήματα γραμμής (επίσης γνωστά ως διαγράμματα γραμμών) είναι κατάλληλα όταν θέλετε να δείξετε αλλαγές στην τιμή με την πάροδο του χρόνου. Με ένα γράφημα γραμμής, μπορείτε να συγκρίνετε πολλά δεδομένα ταυτόχρονα, να εντοπίζετε αλλαγές και τάσεις με την πάροδο του χρόνου, να επισημαίνετε ασυνήθιστα σημεία στις σειρές δεδομένων κ.λπ.
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation).
-1. Λάβετε αναφορά σε μια διαφάνεια μέσω του δείκτη της.
-1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο (σε αυτήν την περίπτωση, `ChartType.Line`).
-1. Πρόσβαση στα δεδομένα του διαγράμματος μέσω του IChartDataWorkbook.
-1. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
-1. Προσθέστε νέες σειρές και κατηγορίες.
-1. Προσθέστε νέα δεδομένα στο διάγραμμα για τις σειρές.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση σε αρχείο PPTX.
+1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation).
+1. Αποκτήστε την παραπομπή σε μια διαφάνεια μέσω του δείκτη της.
+1. Προσθέστε ένα γράφημα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο (σε αυτή την περίπτωση, `ChartType.Line`).
+1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα γραμμικό διάγραμμα:
+Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα γράφημα γραμμής:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
@@ -406,37 +405,46 @@ try {
 }
 ```
 
-Από προεπιλογή, τα σημεία ενός γραμμικού διαγράμματος ενώνονται με ευθείες συνεχείς γραμμές. Εάν θέλετε τα σημεία να ενωθούν με παύλες, μπορείτε να ορίσετε τον προτιμώμενο τύπο παύλας ως εξής:
+Από προεπιλογή, τα σημεία σε ένα γράφημα γραμμής συνδέονται με συνεχόμενες ευθείες γραμμές. Εάν θέλετε τα σημεία να συνδέονται με παύλες, μπορείτε να ορίσετε τον προτιμώμενο τύπο παύλας με τον εξής τρόπο:
 
 ```java
-IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
+import com.aspose.slides.*;
 
-for (IChartSeries series : lineChart.getChartData().getSeries())
-{
-    series.getFormat().getLine().setDashStyle(LineDashStyle.Dash);
+Presentation pres = new Presentation();
+try {
+    IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
+
+    for (IChartSeries series : lineChart.getChartData().getSeries())
+    {
+        series.getFormat().getLine().setDashStyle(LineDashStyle.Dash);
+    }
+} finally {
+    if (pres != null) pres.dispose();
 }
 ```
 
-### **Δημιουργία Διαγραμμάτων Δέντρου (Tree Map)**
+### **Δημιουργία Γραφημάτων Δένδρου (Tree Map)**
 
-Τα διαγράμματα δέντρου χρησιμοποιούνται καλύτερα για δεδομένα πωλήσεων όταν θέλετε να εμφανίσετε το σχετικό μέγεθος των κατηγοριών δεδομένων και, ταυτόχρονα, να τραβήξετε γρήγορα την προσοχή σε στοιχεία που συνεισφέρουν σημαντικά σε κάθε κατηγορία. 
+Τα γραφήματα Tree Map είναι ιδανικά για δεδομένα πωλήσεων όταν θέλετε να δείξετε το σχετικό μέγεθος των κατηγοριών δεδομένων και (ταυτόχρονα) να τραβήξετε γρήγορα την προσοχή σε στοιχεία που συμβάλλουν σημαντικά σε κάθε κατηγορία.
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος Tree Map σε Java</strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος Tree Map PowerPoint σε Java</strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος Tree Map Παρουσίασης PowerPoint σε Java</strong></a>
+<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Tree Map σε Java</strong></a> |
+<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Tree Map PowerPoint σε Java</strong></a> |
+<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Tree Map Παρουσίασης PowerPoint σε Java</strong></a>
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation) .
-2. Λάβετε αναφορά σε μια διαφάνεια μέσω του δείκτη της.
-3. Προσθέστε ένα διάγραμμά με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο (σε αυτήν την περίπτωση, [ChartType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ChartType).TreeMap).
-4. Πρόσβαση στα δεδομένα διαγράμματος μέσω του [IChartDataWorkbook](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IChartDataWorkbook).
+1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation) .
+2. Αποκτήστε την παραπομπή σε μια διαφάνεια μέσω του δείκτη της.
+3. Προσθέστε ένα γράφημα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο (σε αυτή την περίπτωση, [ChartType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ChartType).TreeMap).
+4. Προσπελάστε τα δεδομένα γραφήματος μέσω του [IChartDataWorkbook](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IChartDataWorkbook).
 5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
 6. Προσθέστε νέες σειρές και κατηγορίες.
-7. Προσθέστε νέα δεδομένα για τις σειρές του διαγράμματος.
-8. Αποθηκεύστε την τροποποιημένη παρουσίαση σε αρχείο PPTX.
+7. Προσθέστε νέα δεδομένα γραφήματος για τις σειρές.
+8. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα διάγραμμα δέντρου:
+Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα γράφημα Tree Map:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Treemap, 50, 50, 500, 400);
@@ -489,25 +497,27 @@ try {
 }
 ```
 
-### **Δημιουργία Διαγραμμάτων Αγοράς (Stock Charts)**
+### **Δημιουργία Γραφημάτων Αποθεμάτων (Stock)**
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος Stock σε Java</strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος Stock PowerPoint σε Java</strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος Stock Παρουσίασης PowerPoint σε Java</strong></a>
+<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Αποθεμάτων σε Java</strong></a> |
+<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Αποθεμάτων PowerPoint σε Java</strong></a> |
+<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Αποθεμάτων Παρουσίασης PowerPoint σε Java</strong></a>
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation) .
-2. Λάβετε αναφορά σε μια διαφάνεια μέσω του δείκτη της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο ([ChartType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ChartType).OpenHighLowClose).
-4. Πρόσβαση στα δεδομένα διαγράμματος μέσω του [IChartDataWorkbook](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IChartDataWorkbook).
+1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation) .
+2. Αποκτήστε την παραπομπή σε μια διαφάνεια μέσω του δείκτη της.
+3. Προσθέστε ένα γράφημα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο ([ChartType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ChartType).OpenHighLowClose).
+4. Προσπελάστε τα δεδομένα γραφήματος μέσω του [IChartDataWorkbook](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IChartDataWorkbook).
 5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
 6. Προσθέστε νέες σειρές και κατηγορίες.
-7. Προσθέστε νέα δεδομένα για τις σειρές.
-8. Ορίστε μορφή HiLowLines.
-9. Αποθηκεύστε την τροποποιημένη παρουσίαση σε αρχείο PPTX.
+7. Προσθέστε νέα δεδομένα γραφήματος για τις σειρές.
+8. Ορίστε τη μορφή HiLowLines.
+9. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-Δείγμα κώδικα Java που δημιουργεί ένα διάγραμμα stock:
+Παράδειγμα κώδικα Java για δημιουργία γραφήματος αποθεμάτων:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.OpenHighLowClose, 50, 50, 600, 400, false);
@@ -561,24 +571,26 @@ try {
 }
 ```
 
-### **Δημιουργία Διαγραμμάτων Box and Whisker**
+### **Δημιουργία Γραφημάτων Κούτας και Μεζονιού (Box and Whisker)**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος Box and Whisker σε Java</strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος Box and Whisker PowerPoint σε Java</strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος Box and Whisker Παρουσίασης PowerPoint σε Java</strong></a>
+<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Κούτας και Μεζονιού σε Java</strong></a> |
+<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Κούτας και Μεζονιού PowerPoint σε Java</strong></a> |
+<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Κούτας και Μεζονιού Παρουσίασης PowerPoint σε Java</strong></a>
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation) .
-2. Λάβετε αναφορά σε μια διαφάνεια μέσω του δείκτη της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο ([ChartType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ChartType).BoxAndWhisker).
-4. Πρόσβαση στα δεδομένα διαγράμματος μέσω του [IChartDataWorkbook](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IChartDataWorkbook).
+1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation) .
+2. Αποκτήστε την παραπομπή σε μια διαφάνεια μέσω του δείκτη της.
+3. Προσθέστε ένα γράφημα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο ([ChartType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ChartType).BoxAndWhisker).
+4. Προσπελάστε τα δεδομένα γραφήματος μέσω του [IChartDataWorkbook](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IChartDataWorkbook).
 5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
 6. Προσθέστε νέες σειρές και κατηγορίες.
-7. Προσθέστε νέα δεδομένα για τις σειρές.
-8. Αποθηκεύστε την τροποποιημένη παρουσίαση σε αρχείο PPTX.
+7. Προσθέστε νέα δεδομένα γραφήματος για τις σειρές.
+8. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα διάγραμμα box and whisker:
+Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα γράφημα κούτας και μεζονιού:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.BoxAndWhisker, 50, 50, 500, 400);
@@ -616,21 +628,23 @@ try {
 }
 ```
 
-### **Δημιουργία Διάγραμμα Funnel**
+### **Δημιουργία Γραφημάτων Χωνιού (Funnel)**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος Funnel σε Java</strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος Funnel PowerPoint σε Java</strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος Funnel Παρουσίασης PowerPoint σε Java</strong></a>
+<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Χωνιού σε Java</strong></a> |
+<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Χωνιού PowerPoint σε Java</strong></a> |
+<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Χωνιού Παρουσίασης PowerPoint σε Java</strong></a>
 
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation) .
-2. Λάβετε αναφορά σε μια διαφάνεια μέσω του δείκτη της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο ([ChartType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ChartType).Funnel).
-4. Αποθηκεύστε την τροποποιημένη παρουσίαση σε αρχείο PPTX.
+1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation) .
+2. Αποκτήστε την παραπομπή σε μια διαφάνεια μέσω του δείκτη της.
+3. Προσθέστε ένα γράφημα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο ([ChartType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ChartType).Funnel).
+4. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-Ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα διάγραμμα funnel:
+Ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα γράφημα χωνιού:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Funnel, 50, 50, 500, 400);
@@ -663,20 +677,22 @@ try {
 }
 ```
 
-### **Δημιουργία Διαγραμμάτων Sunburst**
+### **Δημιουργία Γραφημάτων Ήλιου (Sunburst)**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος Sunburst σε Java</strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος Sunburst PowerPoint σε Java</strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος Sunburst Παρουσίασης PowerPoint σε Java</strong></a>
+<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Ήλιου σε Java</strong></a> |
+<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Ήλιου PowerPoint σε Java</strong></a> |
+<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Ήλιου Παρουσίασης PowerPoint σε Java</strong></a>
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation) .
-2. Λάβετε αναφορά σε μια διαφάνεια μέσω του δείκτη της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο (σε αυτήν την περίπτωση, [ChartType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ChartType).sunburst).
-4. Αποθηκεύστε την τροποποιημένη παρουσίαση σε αρχείο PPTX.
+1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation) .
+2. Αποκτήστε την παραπομπή σε μια διαφάνεια μέσω του δείκτη της.
+3. Προσθέστε ένα γράφημα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο (σε αυτή την περίπτωση, [ChartType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ChartType).sunburst).
+4. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα διάγραμμα sunburst:
+Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα γράφημα ήλιου:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 50, 50, 500, 400);
@@ -727,23 +743,25 @@ try {
 }
 ```
 
-### **Δημιουργία Ιστόγραμμα (Histogram) Διαγραμμάτων**
+### **Δημιουργία Γραφημάτων Ιστόγραμμα (Histogram)**
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Βήματα:</em> Δημιουργία Ιστόγραμμα Διαγράμματος σε Java</strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Βήματα:</em> Δημιουργία Ιστόγραμμα Διαγράμματος PowerPoint σε Java</strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Βήματα:</em> Δημιουργία Ιστόγραμμα Διαγράμματος Παρουσίασης PowerPoint σε Java</strong></a>
+<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Ιστόγραμμα σε Java</strong></a> |
+<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Ιστόγραμμα PowerPoint σε Java</strong></a> |
+<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Ιστόγραμμα Παρουσίασης PowerPoint σε Java</strong></a>
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation) .
-2. Λάβετε αναφορά σε μια διαφάνεια μέσω του δείκτη της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο ([ChartType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ChartType).Histogram).
-4. Πρόσβαση στα δεδομένα διαγράμματος μέσω του [IChartDataWorkbook](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IChartDataWorkbook).
+1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation) .
+2. Αποκτήστε την παραπομπή σε μια διαφάνεια μέσω του δείκτη της.
+3. Προσθέστε ένα γράφημα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο ([ChartType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ChartType).Histogram).
+4. Προσπελάστε τα δεδομένα γραφήματος μέσω του [IChartDataWorkbook](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IChartDataWorkbook).
 5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
 6. Προσθέστε νέες σειρές και κατηγορίες.
-7. Αποθηκεύστε την τροποποιημένη παρουσίαση σε αρχείο PPTX.
+7. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα διάγραμμα ιστόγραμμα:
+Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα γράφημα ιστογράμματος:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Histogram, 50, 50, 500, 400);
@@ -761,7 +779,7 @@ try {
     series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A5", -23));
     series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
 
-    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic;)
+    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic);
 
     pres.save("Histogram.pptx", SaveFormat.Pptx);
 } finally {
@@ -769,20 +787,22 @@ try {
 }
 ```
 
-### **Δημιουργία Διαγραμμάτων Radar**
+### **Δημιουργία Γραφημάτων Ραδιοφώνου (Radar)**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος Radar σε Java</strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος Radar PowerPoint σε Java</strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος Radar Παρουσίασης PowerPoint σε Java</strong></a>
+<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Ραδιοφώνου σε Java</strong></a> |
+<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Ραδιοφώνου PowerPoint σε Java</strong></a> |
+<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Ραδιοφώνου Παρουσίασης PowerPoint σε Java</strong></a>
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation) .
-2. Λάβετε αναφορά σε μια διαφάνεια μέσω του δείκτη της. 
-3. Προσθέστε ένα διάγραμμα με κάποια δεδομένα και ορίστε τον προτιμώμενο τύπο (`ChartType.Radar` σε αυτήν την περίπτωση).
-4. Αποθηκεύστε την τροποποιημένη παρουσίαση σε αρχείο PPTX.
+1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation) .
+2. Αποκτήστε την παραπομπή σε μια διαφάνεια μέσω του δείκτη της. 
+3. Προσθέστε ένα γράφημα με κάποια δεδομένα και ορίστε τον προτιμώμενο τύπο γραφήματος (`ChartType.Radar` σε αυτή την περίπτωση).
+4. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα διάγραμμα radar:
+Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα γράφημα ραδιοφώνου:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Radar, 20, 20, 400, 300);
@@ -792,24 +812,26 @@ try {
 }
 ```
 
-### **Δημιουργία Πολυ‑Κατηγορικών Διαγραμμάτων**
+### **Δημιουργία Πολλαπλών Κατηγοριών (Multi‑Category)**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Βήματα:</em> Δημιουργία Πολυ‑Κατηγορικού Διαγράμματος σε Java</strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Βήματα:</em> Δημιουργία Πολυ‑Κατηγορικού Διαγράμματος PowerPoint σε Java</strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Βήματα:</em> Δημιουργία Πολυ‑Κατηγορικού Διαγράμματος Παρουσίασης PowerPoint σε Java</strong></a>
+<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Πολλαπλών Κατηγοριών σε Java</strong></a> |
+<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Πολλαπλών Κατηγοριών PowerPoint σε Java</strong></a> |
+<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Πολλαπλών Κατηγοριών Παρουσίασης PowerPoint σε Java</strong></a>
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation) .
-2. Λάβετε αναφορά σε μια διαφάνεια μέσω του δείκτη της. 
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο ([ChartType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ChartType).ClusteredColumn).
-4. Πρόσβαση στα δεδομένα διαγράμματος μέσω του [IChartDataWorkbook](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IChartDataWorkbook).
+1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation) .
+2. Αποκτήστε την παραπομπή σε μια διαφάνεια μέσω του δείκτη της. 
+3. Προσθέστε ένα γράφημα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο ([ChartType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ChartType).ClusteredColumn).
+4. Προσπελάστε τα δεδομένα γραφήματος μέσω του [IChartDataWorkbook](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IChartDataWorkbook).
 5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
 6. Προσθέστε νέες σειρές και κατηγορίες.
-7. Προσθέστε νέα δεδομένα για τις σειρές.
-8. Αποθηκεύστε την τροποποιημένη παρουσίαση σε αρχείο PPTX.
+7. Προσθέστε νέα δεδομένα γραφήματος για τις σειρές.
+8. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα πολυ‑κατηγορικό διάγραμμα:
+Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα γράφημα πολλαπλών κατηγοριών:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart ch = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 600, 450);
@@ -849,24 +871,26 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D8", 70));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D9", 80));
     
-    // Αποθήκευση παρουσίασης με διάγραμμα
+    // Αποθήκευση παρουσίασης με γράφημα
     pres.save("AsposeChart_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-### **Δημιουργία Διαγραμμάτων Χάρτη (Map Charts)**
+### **Δημιουργία Γραφημάτων Χάρτη (Map)**
 
-Ένα διάγραμμα χάρτη είναι μια οπτικοποίηση περιοχής που περιέχει δεδομένα. Τα διαγράμματα χάρτη χρησιμοποιούνται καλύτερα για σύγκριση δεδομένων ή τιμών μεταξύ γεωγραφικών περιοχών.
+Ένα γράφημα χάρτη είναι μια απεικόνιση περιοχής που περιέχει δεδομένα. Τα γραφήματα χάρτη είναι ιδανικά για σύγκριση δεδομένων ή τιμών ανά γεωγραφική περιοχή.
 
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος Χάρτη σε Java</strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος Χάρτη PowerPoint σε Java</strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος Χάρτη Παρουσίασης PowerPoint σε Java</strong></a>
+<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Χάρτη σε Java</strong></a> |
+<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Χάρτη PowerPoint σε Java</strong></a> |
+<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Βήματα:</em> Δημιουργία Γραφήματος Χάρτη Παρουσίασης PowerPoint σε Java</strong></a>
 
-Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα διάγραμμα χάρτη:
+Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα γράφημα χάρτη:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Map, 50, 50, 500, 400);
@@ -876,15 +900,18 @@ try {
 }
 ```
 
-### **Δημιουργία Συνδυαστικών Διαγραμμάτων**
+### **Δημιουργία Συνδυαστικών Γραφημάτων**
 
-Ένα συνδυαστικό διάγραμμα (ή combo chart) συνδυάζει δύο ή περισσότερους τύπους διαγραμμάτων σε ένα ενιαίο γράφημα. Αυτό το διάγραμμα σας επιτρέπει να τονίσετε, να συγκρίνετε ή να εξετάσετε διαφορές μεταξύ δύο ή περισσότερων συνόλων δεδομένων, βοηθώντας σας να εντοπίσετε σχέσεις μεταξύ τους.
+Ένα συνδυαστικό γράφημα (ή combo chart) συνδυάζει δύο ή περισσότερους τύπους γραφημάτων σε ένα διάγραμμα. Αυτό το γράφημα σάς επιτρέπει να τονίζετε, να συγκρίνετε ή να εξετάζετε διαφορές μεταξύ δύο ή περισσότερων συνόλων δεδομένων, βοηθώντας σας να εντοπίσετε σχέσεις μεταξύ τους.
 
 ![The combination chart](combination_chart.png)
 
-Ο παρακάτω κώδικας Java δείχνει πώς να δημιουργήσετε το παραπάνω συνδυαστικό διάγραμμα σε μια παρουσίαση PowerPoint:
+Ο παρακάτω κώδικας Java δείχνει πώς να δημιουργήσετε το συνδυαστικό γράφημα που φαίνεται παραπάνω σε μια παρουσίαση PowerPoint:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 static void createComboChart() {
     Presentation presentation = new Presentation();
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -906,7 +933,7 @@ static void createComboChart() {
 static IChart createChartWithFirstSeries(ISlide slide) {
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
-    // Ορίζει τον τίτλο του διαγράμματος.
+    // Ορίστε τον τίτλο του γραφήματος.
     chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("Chart Title");
     chart.getChartTitle().setOverlay(false);
@@ -915,24 +942,24 @@ static IChart createChartWithFirstSeries(ISlide slide) {
     titleFormat.setFontBold(NullableBool.False);
     titleFormat.setFontHeight(18f);
 
-    // Ορίζει το υπόμνημα του διαγράμματος.
+    // Ορίστε το υπόμνημα του γραφήματος.
     chart.getLegend().setPosition(LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12f);
 
-    // Διαγράφει τις προεπιλεγμένες δημιουργημένες σειρές και κατηγορίες.
+    // Διαγράψτε τις προεπιλεγμένες δημιουργημένες σειρές και κατηγορίες.
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
     int worksheetIndex = 0;
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-    // Προσθέτει νέες κατηγορίες.
+    // Προσθήκη νέων κατηγοριών.
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 1, 0, "Category 1"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 2, 0, "Category 2"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 3, 0, "Category 3"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 4, 0, "Category 4"));
 
-    // Προσθέτει την πρώτη σειρά.
+    // Προσθήκη της πρώτης σειράς.
     IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
     IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
@@ -979,28 +1006,28 @@ static void addThirdSeriesToChart(IChart chart) {
 }
 
 static void setPrimaryAxesFormat(IChart chart) {
-    // Ορίζει τον οριζόντιο άξονα.
+    // Ορίστε τον οριζόντιο άξονα.
     IAxis horizontalAxis = chart.getAxes().getHorizontalAxis();
     horizontalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
     horizontalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
     setAxisTitle(horizontalAxis, "X Axis");
 
-    // Ορίζει τον κάθετο άξονα.
+    // Ορίστε τον κατακόρυφο άξονα.
     IAxis verticalAxis = chart.getAxes().getVerticalAxis();
     verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
     verticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
     setAxisTitle(verticalAxis, "Y Axis 1");
 
-    // Ορίζει το χρώμα των κύριων γραμμών πλέγματος του κάθετου άξονα.
+    // Ορίστε το χρώμα των κύριων γραμμών πλέγματος κάθετου.
     ILineFillFormat majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
     majorGridLinesFormat.setFillType(FillType.Solid);
     majorGridLinesFormat.getSolidFillColor().setColor(new Color(217, 217, 217));
 }
 
 static void setSecondaryAxesFormat(IChart chart) {
-    // Ορίζει τον δευτερεύοντα οριζόντιο άξονα.
+    // Ορίστε τον δευτερεύοντα οριζόντιο άξονα.
     IAxis secondaryHorizontalAxis = chart.getAxes().getSecondaryHorizontalAxis();
     secondaryHorizontalAxis.setPosition(AxisPositionType.Bottom);
     secondaryHorizontalAxis.setCrossType(CrossesType.Maximum);
@@ -1008,7 +1035,7 @@ static void setSecondaryAxesFormat(IChart chart) {
     secondaryHorizontalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
     secondaryHorizontalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
-    // Ορίζει τον δευτερεύοντα κάθετο άξονα.
+    // Ορίστε τον δευτερεύοντα κατακόρυφο άξονα.
     IAxis secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
     secondaryVerticalAxis.setPosition(AxisPositionType.Right);
     secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
@@ -1029,55 +1056,58 @@ static void setAxisTitle(IAxis axis, String axisTitle) {
 }
 ```
 
-## **Ενημέρωση Διαγραμμάτων**
+## **Ενημέρωση Γραφημάτων**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Βήματα:</em> Ενημέρωση Διαγράμματος PowerPoint σε Java</strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Βήματα:</em> Ενημέρωση Διαγράμματος Παρουσίασης σε Java</strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Βήματα:</em> Ενημέρωση Διαγράμματος Παρουσίασης PowerPoint σε Java</strong></a>
+<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Βήματα:</em> Ενημέρωση Γραφήματος PowerPoint σε Java</strong></a> |
+<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Βήματα:</em> Ενημέρωση Γραφήματος Παρουσίασης σε Java</strong></a> |
+<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Βήματα:</em> Ενημέρωση Γραφήματος Παρουσίασης PowerPoint σε Java</strong></a>
 
-1. Δημιουργήστε μια παρουσίαση μέσω της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation) που περιέχει το διάγραμμα που θέλετε να ενημερώσετε.
-2. Λάβετε την αναφορά μιας διαφάνειας χρησιμοποιώντας το Index της.
-3. Περιηγηθείτε σε όλα τα σχήματα για να βρείτε το επιθυμητό διάγραμμα.
-4. Πρόσβαση στο φύλλο εργασίας δεδομένων του διαγράμματος.
-5. Τροποποιήστε τις τιμές της σειράς δεδομένων του διαγράμματος αλλάζοντας τις τιμές των σειρών.
-6. Προσθέστε μια νέα σειρά και γεμίστε τα δεδομένα της.
+1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation) που αντιπροσωπεύει την παρουσίαση που περιέχει το γράφημα που θέλετε να ενημερώσετε.
+2. Αποκτήστε την παραπομπή σε μια διαφάνεια χρησιμοποιώντας το Index της.
+3. Περιηγηθείτε σε όλα τα σχήματα για να βρείτε το επιθυμητό γράφημα.
+4. Προσπελάστε το φύλλο εργασίας δεδομένων του γραφήματος.
+5. Τροποποιήστε τα δεδομένα της σειράς γραφήματος αλλάζοντας τις τιμές της σειράς.
+6. Προσθέστε μια νέα σειρά και γεμίστε την με δεδομένα.
 7. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-Αυτός ο κώδικας Java δείχνει πώς να ενημερώσετε ένα διάγραμμα:
+Αυτός ο κώδικας Java δείχνει πώς να ενημερώσετε ένα γράφημα:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+// Ανοίγει την παρουσίαση που περιέχει το γράφημα προς ενημέρωση
+Presentation pres = new Presentation("ExistingChart.pptx");
 try {
     // Πρόσβαση στην πρώτη διαφάνεια
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Λήψη διαγράμματος με προεπιλεγμένα δεδομένα
+    // Λάβετε το γράφημα από τη διαφάνεια
     IChart chart = (IChart)sld.getShapes().get_Item(0);
 
-    // Ορισμός του ευρετηρίου του φύλλου δεδομένων του διαγράμματος
+    // Ορισμός του δείκτη του φύλλου δεδομένων του γραφήματος
     int defaultWorksheetIndex = 0;
 
-    // Λήψη του φύλλου εργασίας δεδομένων του διαγράμματος
+    // Λήψη του φύλλου εργασίας δεδομένων του γραφήματος
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
 
-    // Αλλαγή του ονόματος της κατηγορίας του διαγράμματος
+    // Αλλαγή του ονόματος κατηγορίας του γραφήματος
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
 
-    // Λήψη της πρώτης σειράς του διαγράμματος
+    // Πάρτε την πρώτη σειρά γραφήματος
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
-    // Τώρα ενημέρωση δεδομένων σειράς
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // Τροποποίηση του ονόματος της σειράς
+    // Τώρα ενημερώνουμε τα δεδομένα της σειράς
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// Τροποποίηση του ονόματος σειράς
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
 
-    // Λήψη της δεύτερης σειράς του διαγράμματος
+    // Πάρτε τη δεύτερη σειρά γραφήματος
     series = chart.getChartData().getSeries().get_Item(1);
 
-    // Τώρα ενημέρωση δεδομένων σειράς
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // Τροποποίηση του ονόματος της σειράς
+    // Τώρα ενημερώνουμε τα δεδομένα της σειράς
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// Τροποποίηση του ονόματος σειράς
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
@@ -1085,37 +1115,40 @@ try {
     // Τώρα, προσθήκη νέας σειράς
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
 
-    // Λήψη της τρίτης σειράς του διαγράμματος
+    // Πάρτε την τρίτη σειρά γραφήματος
     series = chart.getChartData().getSeries().get_Item(2);
 
-    // Τώρα γεμίζουμε τα δεδομένα σειράς
+    // Τώρα γεμίζουμε τα δεδομένα της σειράς
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
 
     chart.setType(ChartType.ClusteredCylinder);
 
-    // Αποθήκευση παρουσίασης με διάγραμμα
+    // Αποθήκευση παρουσίασης με το γράφημα
     pres.save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Ορισμός Περιοχής Δεδομένων για Διάγραμμα**
+## **Ορισμός Εύρους Δεδομένων για Γράφημα**
 
-Για να ορίσετε την περιοχή δεδομένων για ένα διάγραμμα, κάντε τα εξής:
+Για να ορίσετε το εύρος δεδομένων ενός γραφήματος, κάντε τα εξής:
 
-1. Δημιουργήστε μια παρουσίαση μέσω της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation) που περιέχει το διάγραμμα.
-2. Λάβετε αναφορά σε μια διαφάνεια μέσω του δείκτη της.
-3. Περιηγηθείτε σε όλα τα σχήματα για να βρείτε το επιθυμητό διάγραμμα.
-4. Πρόσβαση στα δεδομένα του διαγράμματος και ορίστε την περιοχή.
+1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation) που αντιπροσωπεύει την παρουσίαση που περιέχει το γράφημα.
+2. Αποκτήστε την παραπομπή σε μια διαφάνεια μέσω του δείκτη της.
+3. Περιηγηθείτε σε όλα τα σχήματα για να βρείτε το επιθυμητό γράφημα.
+4. Προσπελάστε τα δεδομένα του γραφήματος και ορίστε το εύρος.
 5. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-Αυτός ο κώδικας Java δείχνει πώς να ορίσετε την περιοχή δεδομένων για ένα διάγραμμα:
+Αυτός ο κώδικας Java δείχνει πώς να ορίσετε το εύρος δεδομένων για ένα γράφημα:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+// Ανοίγει την παρουσίαση που περιέχει το γράφημα
+Presentation pres = new Presentation("ExistingChart.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
     IChart chart = (IChart)slide.getShapes().get_Item(0);
@@ -1128,12 +1161,14 @@ try {
 }
 ```
 
-## **Χρήση Προεπιλεγμένων Δεικτών σε Διαγράμματα**
-Όταν χρησιμοποιείτε έναν προεπιλεγμένο δείκτη σε διαγράμματα, κάθε σειρά διαγράμματος λαμβάνει διαφορετικό προεπιλεγμένο σύμβολο δείκτη αυτόματα.
+## **Χρήση Προεπιλεγμένων Δεικτών στα Γραφήματα**
+Όταν χρησιμοποιείτε έναν προεπιλεγμένο δείκτη σε γραφήματα, κάθε σειρά γραφήματος λαμβάνει αυτόματα διαφορετικό προεπιλεγμένο σύμβολο δείκτη.
 
-Αυτός ο κώδικας Java δείχνει πώς να ορίσετε αυτόματα έναν δείκτη σειράς διαγράμματος:
+Αυτός ο κώδικας Java δείχνει πώς να ορίσετε αυτόματα δείκτη σειράς γραφήματος:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -1156,7 +1191,7 @@ try {
     series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
 
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    // Λήψη της δεύτερης σειράς του διαγράμματος
+    // Πάρτε τη δεύτερη σειρά γραφήματος
     IChartSeries series2 = chart.getChartData().getSeries().get_Item(1);
 
     // Τώρα γεμίζουμε τα δεδομένα της σειράς
@@ -1174,20 +1209,20 @@ try {
 }
 ```
 
-## **Συχνές Ερωτήσεις**
+## **Συχνές Ερωτήσεις (FAQ)**
 
-**Ποιοί τύποι διαγραμμάτων υποστηρίζονται από το Aspose.Slides;**
+### Ποιοι τύποι γραφημάτων υποστηρίζονται από το Aspose.Slides;
 
-Το Aspose.Slides υποστηρίζει ένα ευρύ φάσμα [τύπων διαγραμμάτων](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/charttype/), συμπεριλαμβανομένων των ραβδωτών, γραμμικών, πίτας, περιοχής, διασκορπισμού, ιστογράμματος, radar και πολλών άλλων. Αυτή η ευελιξία σας επιτρέπει να επιλέξετε τον πιο κατάλληλο τύπο διαγράμματος για τις ανάγκες απεικόνισης των δεδομένων σας.
+Το Aspose.Slides υποστηρίζει μια ευρεία γκάμα [τύπων γραφημάτων](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/charttype/), όπως ράβδοι, γραμμές, πίτες, περιοχές, διασκορπισμένα, ιστογράμματα, ραδιοφώνους και πολλά άλλα. Αυτή η ευελιξία σας επιτρέπει να επιλέξετε τον πιο κατάλληλο τύπο γραφήματος για τις ανάγκες οπτικοποίησης των δεδομένων σας.
 
-**Πώς προσθέτω νέο διάγραμμα σε μία διαφάνεια;**
+### Πώς προσθέτω ένα νέο γράφημα σε μία διαφάνεια;
 
-Για να προσθέσετε ένα διάγραμμα, πρώτα δημιουργείτε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/) , ανακτάτε τη ζητούμενη διαφάνεια χρησιμοποιώντας τον δείκτη της και, στη συνέχεια, καλείτε τη μέθοδο προσθήκης διαγράμματος, ορίζοντας τον τύπο διαγράμματος και τα αρχικά δεδομένα. Η διαδικασία αυτή ενσωματώνει το διάγραμμα απευθείας στην παρουσίασή σας.
+Για να προσθέσετε ένα γράφημα, πρώτα δημιουργείτε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/) , λαμβάνετε τη διαφάνεια που θέλετε μέσω του δείκτη της και, στη συνέχεια, καλείτε τη μέθοδο για προσθήκη γραφήματος, καθορίζοντας τον τύπο γραφήματος και τα αρχικά δεδομένα. Αυτή η διαδικασία ενσωματώνει το γράφημα άμεσα στην παρουσίασή σας.
 
-**Πώς μπορώ να ενημερώσω τα δεδομένα που εμφανίζονται σε ένα διάγραμμα;**
+### Πώς μπορώ να ενημερώσω τα δεδομένα που απεικονίζονται σε ένα γράφημα;
 
-Μπορείτε να ενημερώσετε τα δεδομένα ενός διαγράμματος έχοντας πρόσβαση στο βιβλίο δεδομένων του ([IChartDataWorkbook](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartdataworkbook/)), καθαρίζοντας τυχόν προεπιλεγμένες σειρές και κατηγορίες και προσθέτοντας τα δικά σας προσαρμοσμένα δεδομένα. Αυτό σας επιτρέπει να ανανεώσετε το διάγραμμα ώστε να αντικατοπτρίζει τα πιο πρόσφατα δεδομένα.
+Μπορείτε να ενημερώσετε τα δεδομένα ενός γραφήματος προσπελάζοντας το βιβλίο εργασίας δεδομένων του ([IChartDataWorkbook](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichartdataworkbook/)), καθαρίζοντας τυχόν προεπιλεγμένες σειρές και κατηγορίες και, στη συνέχεια, προσθέτοντας τα δικά σας προσαρμοσμένα δεδομένα. Αυτό σας επιτρέπει να ανανεώνετε το γράφημα ώστε να αντικατοπτρίζει τα πιο πρόσφατα δεδομένα.
 
-**Μπορεί να προσαρμοστεί η εμφάνιση του διαγράμματος;**
+### Είναι δυνατόν να προσαρμόσω την εμφάνιση του γραφήματος;
 
-Ναι, το Aspose.Slides παρέχει εκτενείς επιλογές προσαρμογής. Μπορείτε να τροποποιήσετε χρώματα, γραμματοσειρές, ετικέτες, υπομνήματα και άλλα [formatting elements](/slides/el/androidjava/chart-entities/) ώστε να ταιριάζουν με τις συγκεκριμένες απαιτήσεις σχεδίασής σας.
+Ναι, το Aspose.Slides παρέχει εκτενείς επιλογές προσαρμογής. Μπορείτε να τροποποιήσετε χρώματα, γραμματοσειρές, ετικέτες, υπομνήματα και άλλα [στοιχεία μορφοποίησης](/slides/el/androidjava/chart-entities/) ώστε να προσαρμόσετε την εμφάνιση του γραφήματος στις συγκεκριμένες σχεδιαστικές σας απαιτήσεις.

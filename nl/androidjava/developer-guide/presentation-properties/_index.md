@@ -1,21 +1,21 @@
 ---
-title: Beheer presentatie‑eigenschappen op Android
-linktitle: Presentatie‑eigenschappen
+title: Beheer presentatie-eigenschappen op Android
+linktitle: Presentatie-eigenschappen
 type: docs
 weight: 70
 url: /nl/androidjava/presentation-properties/
 keywords:
-- PowerPoint‑eigenschappen
-- presentatie‑eigenschappen
-- document‑eigenschappen
-- ingebouwde‑eigenschappen
-- aangepaste‑eigenschappen
-- geavanceerde‑eigenschappen
+- PowerPoint-eigenschappen
+- presentatie-eigenschappen
+- documenteigenschappen
+- ingebouwde eigenschappen
+- aangepaste eigenschappen
+- geavanceerde eigenschappen
 - eigenschappen beheren
 - eigenschappen wijzigen
-- document‑metadata
+- documentmetadata
 - metadata bewerken
-- correctietaal
+- taalcontrole
 - standaardtaal
 - PowerPoint
 - OpenDocument
@@ -23,53 +23,52 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Beheer presentatie‑eigenschappen in Aspose.Slides for Android via Java en stroomlijn zoeken, branding en workflow in uw PowerPoint‑ en OpenDocument‑bestanden."
+description: "Beheers presentatie-eigenschappen in Aspose.Slides voor Android via Java en stroomlijn zoeken, branding en workflow in uw PowerPoint- en OpenDocument-bestanden."
 ---
-## **Introductie**
+## **Inleiding**
 
-Aspose.Slides ondersteunt twee soorten documenteigenschappen: **Ingebouwd** en **Aangepast**. Beide soorten eigenschappen kunnen eenvoudig worden benaderd en beheerd via de Aspose.Slides API.
+Aspose.Slides ondersteunt twee types documenteigenschappen: **Built-in** en **Custom**. Beide soorten eigenschappen zijn eenvoudig toegankelijk en beheersbaar via de Aspose.Slides‑API.
 
-Aspose.Slides maakt het mogelijk om te werken met de documenteigenschappen van een presentatie via de [IDocumentProperties](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/idocumentproperties/) interface. Een instantie van deze interface wordt teruggegeven door de [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/#getDocumentProperties--) methode. De volgende voorbeelden tonen hoe deze eigenschappen gelezen, gewijzigd en beheerd kunnen worden.
+Aspose.Slides stelt u in staat om met documenteigenschappen van presentaties te werken via de [IDocumentProperties](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/idocumentproperties/) interface. Een instantie van deze interface wordt geretourneerd door de [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/#getDocumentProperties--) methode. De volgende voorbeelden tonen hoe u deze eigenschappen kunt lezen, wijzigen en beheren.
 
-{{% alert color="primary" %}} 
-Let op dat de velden **Application** en **Producer** niet kunnen worden aangepast, aangezien deze velden altijd "Aspose Ltd." en "Aspose.Slides for Android via Java x.x.x" weergeven.
+{{% alert color="info" %}} 
+Let op: de velden **Application** en **AppVersion** kunnen niet worden gewijzigd. Aspose.Slides herschrijft ze bij elke opslaan, zodat een opgeslagen presentatie altijd de productnaam van Aspose.Slides en de versie van de bibliotheek die het heeft gegenereerd vermeldt. Elke waarde die aan `setNameOfApplication` wordt doorgegeven, wordt genegeerd wanneer de presentatie wordt weggeschreven.
 {{% /alert %}} 
 
 ## **Documenteigenschappen in PowerPoint**
 
-Microsoft PowerPoint 2007 maakt het mogelijk om de documenteigenschappen van presentaties te beheren. Het enige wat je moet doen, is op het Office‑pictogram klikken en vervolgens **Prepare | Properties | Advanced Properties** kiezen in het menu van Microsoft PowerPoint 2007, zoals hieronder weergegeven:
+Microsoft PowerPoint 2007 maakt het mogelijk om de documenteigenschappen van presentaties te beheren. Het enige wat u moet doen, is op het Office‑icoon klikken en vervolgens het menu‑item **Prepare | Properties | Advanced Properties** van Microsoft PowerPoint 2007 te selecteren, zoals hieronder weergegeven:
 
-|**Selecteer het menu‑item Geavanceerde eigenschappen**| |
+|**Selecteren van het menu‑item 'Advanced Properties'**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
+Nadat u het menu‑item **Advanced Properties** hebt geselecteerd, verschijnt er een dialoogvenster waarmee u de documenteigenschappen van het PowerPoint‑bestand kunt beheren, zoals hieronder in de afbeelding wordt getoond:
 
-Na het selecteren van het menu‑item **Advanced Properties** verschijnt er een dialoogvenster waarmee je de documenteigenschappen van het PowerPoint‑bestand kunt beheren, zoals in de onderstaande afbeelding weergegeven:
-
-|**Dialoogvenster Eigenschappen**| |
+|**Eigenschappen‑dialoog**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
-In het bovenstaande **Dialoogvenster Eigenschappen** zie je verschillende tabbladen, zoals **General**, **Summary**, **Statistics**, **Contents** en **Custom**. Al deze tabbladen laten toe verschillende soorten informatie over de PowerPoint‑bestanden in te stellen. Het tabblad **Custom** wordt gebruikt om de aangepaste eigenschappen van de PowerPoint‑bestanden te beheren.
+In de bovenstaande **Properties Dialog** kunt u zien dat er verschillende tabbladen zijn, zoals **General**, **Summary**, **Statistics**, **Contents** en **Custom**. Al deze tabbladen maken het mogelijk om verschillende soorten informatie over de PowerPoint‑bestanden te configureren. Het tabblad **Custom** wordt gebruikt om de aangepaste eigenschappen van de PowerPoint‑bestanden te beheren.
 
+Werken met documenteigenschappen met Aspose.Slides voor Android via Java
 
+Zoals we eerder hebben beschreven, ondersteunt Aspose.Slides voor Android via Java twee soorten documenteigenschappen, namelijk **Built-in** en **Custom** eigenschappen. Ontwikkelaars kunnen dus beide soorten eigenschappen benaderen met behulp van de Aspose.Slides voor Android via Java API. Aspose.Slides voor Android via Java biedt een klasse [IDocumentProperties](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/idocumentproperties) die de documenteigenschappen van een presentatiedocument vertegenwoordigt via de eigenschap **Presentation.DocumentProperties**.
 
-Werken met documenteigenschappen met Aspose.Slides for Android via Java
+Ontwikkelaars kunnen de eigenschap **IDocumentProperties** die wordt blootgesteld door het [Presentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation)‑object gebruiken om de documenteigenschappen van presentaties te benaderen, zoals hieronder beschreven:
 
-Zoals eerder beschreven ondersteunt Aspose.Slides for Android via Java twee soorten documenteigenschappen, namelijk **Built-in** en **Custom**. Ontwikkelaars kunnen beide soorten eigenschappen benaderen via de Aspose.Slides for Android via Java API. Aspose.Slides for Android via Java biedt de klasse [IDocumentProperties](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/idocumentproperties) die de documenteigenschappen van een presentatiesbestand vertegenwoordigt via de eigenschap **Presentation.DocumentProperties**.
+## **Toegang tot Built-in eigenschappen**
 
-Ontwikkelaars kunnen de eigenschap **IDocumentProperties**, die wordt blootgesteld door het [Presentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation) object, gebruiken om de documenteigenschappen van presentaties op te vragen, zoals hieronder beschreven:
-
-## **Toegang tot ingebouwde eigenschappen**
-
-Deze eigenschappen, die worden blootgesteld via het [IDocumentProperties](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/idocumentproperties) object, omvatten: **Creator** (Auteur), **Description**, **Keywords**, **Created** (Aanmaakdatum), **Modified** (Wijzigingsdatum), **Printed** (Datum laatste afdruk), **LastModifiedBy**, **Keywords**, **SharedDoc** (Is gedeeld tussen verschillende producenten?), **PresentationFormat**, **Subject** en **Title**
+Deze eigenschappen, zoals blootgesteld door het [IDocumentProperties](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/idocumentproperties) object, omvatten: **Creator** (Auteur), **Description**, **Keywords**, **Created** (Aanmaakdatum), **Modified** (Wijzigingsdatum), **Printed** (Datum van laatste afdruk), **LastModifiedBy**, **Keywords**, **SharedDoc** (Wordt gedeeld tussen verschillende makers?), **PresentationFormat**, **Subject** en **Title**
 
 ```java
-// Instantieer de Presentation‑klasse die de presentatie vertegenwoordigt
+import com.aspose.slides.*;
+
+// Instantieer de Presentation-klasse die de presentatie vertegenwoordigt
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // Maak een referentie naar het IDocumentProperties‑object dat aan de Presentation is gekoppeld
+    // Maak een verwijzing naar het IDocumentProperties-object dat bij de presentatie hoort
     IDocumentProperties dp = pres.getDocumentProperties();
     
-    // Geef de ingebouwde eigenschappen weer
+    // Toon de ingebouwde eigenschappen
     System.out.println("Category : " + dp.getCategory());
     System.out.println("Current Status : " + dp.getContentStatus());
     System.out.println("Creation Date : " + dp.getCreatedTime());
@@ -89,14 +88,16 @@ try {
 }
 ```
 
-## **Ingebouwde eigenschappen wijzigen**
+## **Bewerken van Built-in eigenschappen**
 
-Het wijzigen van de ingebouwde eigenschappen van presentaties is net zo eenvoudig als het benaderen ervan. Je kunt eenvoudig een tekenreeks toewijzen aan een gewenste eigenschap en de waarde wordt aangepast. In het onderstaande voorbeeld tonen we hoe we de ingebouwde documenteigenschappen van een presentatiedocument kunnen wijzigen met Aspose.Slides for Android via Java.
+Het aanpassen van de ingebouwde eigenschappen van presentaties is net zo eenvoudig als ze te benaderen. U kunt eenvoudig een tekenreeks aan een gewenste eigenschap toewijzen en de waarde wordt aangepast. In het onderstaande voorbeeld laten we zien hoe we de ingebouwde documenteigenschappen van een presentatiedocument kunnen wijzigen met Aspose.Slides voor Android via Java.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // Maak een referentie naar het IDocumentProperties‑object dat aan de Presentation is gekoppeld
+    // Maak een verwijzing naar het IDocumentProperties-object dat bij de presentatie hoort
     IDocumentProperties dp = pres.getDocumentProperties();
     
     // Stel de ingebouwde eigenschappen in
@@ -113,17 +114,19 @@ try {
 }
 ```
 
-Dit voorbeeld wijzigt de ingebouwde eigenschappen van de presentatie, zoals hieronder te zien is:
+Dit voorbeeld wijzigt de ingebouwde eigenschappen van de presentatie, die hieronder worden weergegeven:
 
-|**Ingebouwde documenteigenschappen na wijziging**| |
+|**Ingebouwde documenteigenschappen na wijziging**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
 
 ## **Aangepaste documenteigenschappen toevoegen**
 
-Aspose.Slides for Android via Java stelt ontwikkelaars bovendien in staat om aangepaste waarden toe te voegen aan de documenteigenschappen van een presentatie. Hieronder staat een voorbeeld dat laat zien hoe je aangepaste eigenschappen voor een presentatie kunt instellen.
+Aspose.Slides voor Android via Java stelt ontwikkelaars ook in staat de aangepaste waarden voor documenteigenschappen van een presentatie toe te voegen. Het onderstaande voorbeeld voegt drie aangepaste eigenschappen toe, zoekt vervolgens de naam op die op index 2 is opgeslagen en verwijdert die eigenschap, zodat de opgeslagen presentatie er twee overhoudt. Aangepaste eigenschappen worden geïndexeerd op alfabetische volgorde, niet in de volgorde waarin ze zijn toegevoegd.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     // Documenteigenschappen ophalen
@@ -134,7 +137,7 @@ try {
     dProps.set_Item("My Name", "Mudassir");
     dProps.set_Item("Custom", 124);
     
-    // Eigenschapsnaam ophalen op bepaalde index
+    // Naam van eigenschap op een bepaalde index ophalen
     String getPropertyName = dProps.getCustomPropertyName(2);
     
     // Geselecteerde eigenschap verwijderen
@@ -147,27 +150,29 @@ try {
 }
 ```
 
-|**Aangepaste documenteigenschappen toegevoegd**| |
+|**Aangepaste documenteigenschappen toegevoegd**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
 
 ## **Aangepaste eigenschappen benaderen en wijzigen**
 
-Aspose.Slides for Android via Java maakt het ook mogelijk om de waarden van aangepaste eigenschappen te benaderen. Hieronder staat een voorbeeld dat laat zien hoe je alle aangepaste eigenschappen van een presentatie kunt benaderen en wijzigen.
+Aspose.Slides voor Android via Java stelt ontwikkelaars ook in staat de waarden van aangepaste eigenschappen te benaderen. Hieronder staat een voorbeeld dat laat zien hoe u alle aangepaste eigenschappen van een presentatie kunt benaderen en wijzigen.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // Maak een referentie naar het DocumentProperties‑object dat aan de Presentation is gekoppeld
+    // Maak een verwijzing naar het DocumentProperties-object dat bij de presentatie hoort
     IDocumentProperties dp = pres.getDocumentProperties();
     
     // Toegang tot en wijziging van aangepaste eigenschappen
     for (int i = 0; i < dp.getCountOfCustomProperties(); i++) {
-        // Toon de namen en waarden van aangepaste eigenschappen
+        // Namen en waarden van aangepaste eigenschappen weergeven
         System.out.println("Custom Property Name : " + dp.getCustomPropertyName(i));
         System.out.println("Custom Property Value : " + dp.get_Item(dp.getCustomPropertyName(i)));
     
-        // Wijzig de waarden van aangepaste eigenschappen
+        // Waarden van aangepaste eigenschappen wijzigen
         dp.set_Item(dp.getCustomPropertyName(i), "New Value " + (i + 1));
     }
     
@@ -178,34 +183,36 @@ try {
 }
 ```
 
-Dit voorbeeld wijzigt de aangepaste eigenschappen van de [PPTX ](https://docs.fileformat.com/presentation/pptx/)presentatie. De onderstaande afbeeldingen tonen de aangepaste eigenschappen vóór en na wijziging:
+Dit voorbeeld wijzigt de aangepaste eigenschappen van de [PPTX ](https://docs.fileformat.com/presentation/pptx/)presentatie. De volgende afbeeldingen tonen de aangepaste eigenschappen van de presentatie vóór en na wijziging:
 
-|**Aangepaste eigenschappen vóór wijziging**| |
+|**Aangepaste eigenschappen vóór wijziging**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
 
-|**Aangepaste eigenschappen na wijziging**| |
+|**Aangepaste eigenschappen na wijziging**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
 
 ## **Geavanceerde documenteigenschappen**
 
-{{% alert color="primary" %}} 
-Nieuwe methoden [ReadDocumentProperties](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-), en [WriteBindedPresentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) zijn toegevoegd aan [IPresentationInfo](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IPresentationInfo), de logica van de setter van de eigenschap [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) is aangepast.
+{{% alert color="info" %}} 
+Nieuwe methoden [ReadDocumentProperties](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-), en [WriteBindedPresentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) zijn toegevoegd aan [IPresentationInfo](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IPresentationInfo), de logica van de setter van de eigenschap [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) is gewijzigd.
 {{% /alert %}} 
 
-De twee nieuwe methoden [ReadDocumentProperties](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--) en [UpdateDocumentProperties](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) zijn toegevoegd aan de interface [IPresentationInfo](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IPresentationInfo). Ze bieden snelle toegang tot documenteigenschappen en maken het mogelijk om eigenschappen te wijzigen en bij te werken zonder een volledige presentatie te laden.
+De twee nieuwe methoden [ReadDocumentProperties](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--) en [UpdateDocumentProperties](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) zijn toegevoegd aan de interface [IPresentationInfo]. Ze bieden snelle toegang tot documenteigenschappen en maken het mogelijk om eigenschappen te wijzigen en bij te werken zonder een volledige presentatie te laden.
 
-Het typische scenario waarbij de eigenschappen worden geladen, een waarde wordt aangepast en het document wordt bijgewerkt, kan op de volgende manier worden geïmplementeerd:
+Het typische scenario waarbij de eigenschappen worden geladen, een waarde wordt gewijzigd en het document wordt bijgewerkt, kan op de volgende manier worden geïmplementeerd:
 
 ```java
+import com.aspose.slides.*;
+
 // lees de info van de presentatie
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("presentation.pptx");
 
 // verkrijg de huidige eigenschappen
 IDocumentProperties props = info.readDocumentProperties();
 
-// stel de nieuwe waarden van de Auteur- en Titel-velden in
+// stel de nieuwe waarden van de Auteur- en Titelvelden in
 props.setAuthor("New Author");
 props.setTitle("New Title");
 
@@ -214,9 +221,11 @@ info.updateDocumentProperties(props);
 info.writeBindedPresentation("presentation.pptx");
 ```
 
-Er is een alternatieve manier om de eigenschappen van een specifieke presentatie als sjabloon te gebruiken om eigenschappen in andere presentaties bij te werken:
+Er is een andere manier om de eigenschappen van een bepaalde presentatie als sjabloon te gebruiken om eigenschappen in andere presentaties bij te werken:
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("template.pptx");
 DocumentProperties template = (DocumentProperties) info.readDocumentProperties();
 
@@ -235,6 +244,8 @@ updateByTemplate("doc3.ppt", template);
 ```
 
 ```java
+import com.aspose.slides.*;
+
 private static void updateByTemplate(String path, IDocumentProperties template) 
 {
     IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
@@ -243,10 +254,12 @@ private static void updateByTemplate(String path, IDocumentProperties template)
 }
 ```
 
-Er kan een nieuw sjabloon vanaf nul worden aangemaakt en vervolgens worden gebruikt om meerdere presentaties bij te werken:
+Er kan een nieuw sjabloon vanaf nul worden gemaakt en vervolgens worden gebruikt om meerdere presentaties bij te werken:
 
 ```java
-DocumentProperties template = new DocumentProperties();\
+import com.aspose.slides.*;
+
+DocumentProperties template = new DocumentProperties();
 
 template.setAuthor("Template Author");
 template.setTitle("Template Title");
@@ -257,13 +270,7 @@ template.setComments("Created from template");
 template.setContentType("Template Content");
 template.setSubject("Template Subject");
 
-updateByTemplate("doc1.pptx", template);
-updateByTemplate("doc2.odp", template);
-updateByTemplate("doc3.ppt", template);
-```
-
-```java
-private static void updateByTemplate(String path, IDocumentProperties template) 
+for (String path : new String[] { "doc1.pptx", "doc2.odp", "doc3.ppt" })
 {
     IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
     toUpdate.updateDocumentProperties(template);
@@ -271,14 +278,16 @@ private static void updateByTemplate(String path, IDocumentProperties template)
 }
 ```
 
-## **Controlertaal instellen**
+## **Taalcontrole instellen**
 
-Aspose.Slides biedt de eigenschap LanguageId (beschikbaar via de PortionFormat‑klasse) waarmee je de controlertaal voor een PowerPoint‑document kunt instellen. De controlertaal is de taal waarvoor de spelling en grammatica in PowerPoint worden gecontroleerd.
+Aspose.Slides biedt de eigenschap LanguageId (beschikbaar via de klasse PortionFormat) om de taalcontrole in te stellen voor een PowerPoint‑document. De taalcontrole is de taal waarvoor spelling en grammatica in PowerPoint worden gecontroleerd.
 
-Deze Java‑code toont hoe je de controlertaal voor een PowerPoint kunt instellen: xxx Waarom ontbreekt LanguageId in de Java‑klasse PortionFormat?
+Deze Java‑code laat zien hoe u de taalcontrole voor een PowerPoint kunt instellen:
 
 ```java
-Presentation pres = new Presentation(pptxFileName);
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
     AutoShape autoShape = (AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
 
@@ -293,7 +302,7 @@ try {
     portionFormat.setEastAsianFont(font);
     portionFormat.setLatinFont(font);
 
-    portionFormat.setLanguageId("zh-CN"); // stel de Id van een correctietaal in
+    portionFormat.setLanguageId("zh-CN"); // stel de Id van een taalcontrole in
 
     newPortion.setText("1。");
     paragraph.getPortions().add(newPortion);
@@ -304,15 +313,17 @@ try {
 
 ## **Standaardtaal instellen**
 
-Deze Java‑code toont hoe je de standaardtaal voor een volledige PowerPoint‑presentatie kunt instellen:
+Deze Java‑code laat zien hoe u de standaardtaal voor een volledige PowerPoint‑presentatie kunt instellen:
 
 ```java
+import com.aspose.slides.*;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDefaultTextLanguage("en-US");
 
 Presentation pres = new Presentation(loadOptions);
 try {
-    // Voegt een nieuwe rechthoekvorm met tekst toe
+    // Voegt een nieuwe rechthoekvorm toe met tekst
     IAutoShape shp = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
     shp.getTextFrame().setText("New Text");
 
@@ -325,20 +336,20 @@ try {
 
 ## **Live‑voorbeeld**
 
-Probeer de online‑app [**Aspose.Slides Metadata**](https://products.aspose.app/slides/nl/metadata) om te zien hoe je met documenteigenschappen kunt werken via de Aspose.Slides‑API:
+Probeer de online app [**Aspose.Slides Metadata**](https://products.aspose.app/slides/nl/metadata) om te zien hoe u met documenteigenschappen kunt werken via de Aspose.Slides‑API:
 
 [![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/nl/metadata)
 
 ## ***FAQ**
 
-**Hoe kan ik een ingebouwde eigenschap uit een presentatie verwijderen?**
+### Hoe kan ik een ingebouwde eigenschap uit een presentatie verwijderen?
 
-Ingebouwde eigenschappen vormen een integraal onderdeel van de presentatie en kunnen niet volledig worden verwijderd. Je kunt ze echter wel aanpassen of, indien de specifieke eigenschap dat toestaat, leeg maken.
+Ingebouwde eigenschappen maken een integraal onderdeel van een presentatie uit en kunnen niet volledig worden verwijderd. U kunt echter wel hun waarden wijzigen of, mits toegestaan door de specifieke eigenschap, leeg maken.
 
-**Wat gebeurt er als ik een aangepaste eigenschap toevoeg die al bestaat?**
+### Wat gebeurt er als ik een aangepaste eigenschap toevoeg die al bestaat?
 
-Als je een aangepaste eigenschap toevoegt die al bestaat, wordt de bestaande waarde overschreven door de nieuwe. Je hoeft de eigenschap niet eerst te verwijderen of te controleren; Aspose.Slides werkt de eigenschapswaarde automatisch bij.
+Als u een aangepaste eigenschap toevoegt die al bestaat, wordt de bestaande waarde overschreven door de nieuwe. U hoeft de eigenschap niet eerst te verwijderen of te controleren, aangezien Aspose.Slides de waarde van de eigenschap automatisch bijwerkt.
 
-**Kan ik presentatie‑eigenschappen benaderen zonder de volledige presentatie te laden?**
+### Kan ik presentatie‑eigenschappen benaderen zonder de hele presentatie te laden?
 
-Ja, je kunt presentatie‑eigenschappen benaderen zonder de volledige presentatie te laden door de `getPresentationInfo`‑methode van de klasse [PresentationFactory](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentationfactory/) te gebruiken. Vervolgens kun je de `readDocumentProperties`‑methode van de interface [IPresentationInfo](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ipresentationinfo/) gebruiken om de eigenschappen efficiënt uit te lezen, waardoor geheugen wordt bespaard en de prestaties worden verbeterd.
+Ja, u kunt presentatie‑eigenschappen benaderen zonder de volledige presentatie te laden door de `getPresentationInfo`‑methode van de klasse [PresentationFactory](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentationfactory/) te gebruiken. Vervolgens kunt u de `readDocumentProperties`‑methode van de interface [IPresentationInfo](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ipresentationinfo/) gebruiken om de eigenschappen efficiënt te lezen, waardoor geheugen bespaard en de prestaties verbeterd worden.

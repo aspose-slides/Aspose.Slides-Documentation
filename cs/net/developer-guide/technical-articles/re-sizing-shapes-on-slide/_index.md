@@ -12,25 +12,28 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Jednoduše změňte velikost tvarů na snímcích PowerPoint a OpenDocument pomocí Aspose.Slides pro .NET - automatizujte úpravy rozvržení snímků a zvyšte produktivitu."
+description: "Jednoduše změňte velikost tvarů na snímcích PowerPoint a OpenDocument pomocí Aspose.Slides pro .NET—automatizujte úpravy rozvržení snímků a zvyšte produktivitu."
 ---
 ## **Přehled**
 
-Jedna z nejčastějších otázek zákazníků Aspose.Slides pro .NET je, jak změnit velikost tvarů tak, aby při změně velikosti snímku nebyla data oříznuta. Tento stručný technický článek ukazuje, jak to provést.
+Jedna z nejčastějších otázek zákazníků Aspose.Slides pro .NET je, jak změnit velikost tvarů tak, aby při změně velikosti snímku nedocházelo k oříznutí dat. Tento krátký technický článek ukazuje, jak to provést.
 
 ## **Změna velikosti tvarů**
 
 Aby se zabránilo nesprávnému zarovnání tvarů při změně velikosti snímku, aktualizujte pozici a rozměry každého tvaru tak, aby odpovídaly novému rozložení snímku.
 
 ```c#
- // Načíst soubor prezentace.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Načtěte soubor prezentace.
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     // Získat původní velikost snímku.
     float currentHeight = presentation.SlideSize.Size.Height;
     float currentWidth = presentation.SlideSize.Size.Width;
 
-    // Změnit velikost snímku bez škálování existujících tvarů.
+    // Změňte velikost snímku bez škálování existujících tvarů.
     presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
 
     // Získat novou velikost snímku.
@@ -40,16 +43,16 @@ using (Presentation presentation = new Presentation("sample.pptx"))
     float heightRatio = newHeight / currentHeight;
     float widthRatio = newWidth / currentWidth;
 
-    // Změnit velikost a pozici tvarů na každém snímku.
+    // Změňte velikost a přemístěte tvary na každém snímku.
     foreach (ISlide slide in presentation.Slides)
     {
         foreach (IShape shape in slide.Shapes)
         {
-            // Škálovat velikost tvaru.
+            // Změňte velikost tvaru.
             shape.Height *= heightRatio;
             shape.Width *= widthRatio;
 
-            // Škálovat pozici tvaru.
+            // Změňte pozici tvaru.
             shape.Y *= heightRatio;
             shape.X *= widthRatio;
         }
@@ -59,13 +62,16 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 Pokud snímek obsahuje tabulku, výše uvedený kód nebude fungovat správně. V takovém případě je třeba změnit velikost každé buňky v tabulce.
 {{% /alert %}}
 
-Použijte následující kód k změně velikosti snímků, které obsahují tabulky. U tabulek je nastavení šířky nebo výšky zvláštním případem: musíte upravit výšku jednotlivých řádků a šířku sloupců, aby se změnila celková velikost tabulky.
+Použijte následující kód na své straně k změně velikosti snímků, které obsahují tabulky. U tabulek škálujte výšky jednotlivých řádků a šířky sloupců místo šířky a výšky celého tvaru – aplikace obojího by tabulku zvětšila dvakrát a posunula ji mimo snímek.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     // Získat původní velikost snímku.
@@ -87,11 +93,11 @@ using (Presentation presentation = new Presentation("sample.pptx"))
     {
         foreach (IShape shape in master.Shapes)
         {
-            // Škálovat velikost tvaru.
+            // Změnit velikost tvaru.
             shape.Height *= heightRatio;
             shape.Width *= widthRatio;
 
-            // Škálovat pozici tvaru.
+            // Změnit pozici tvaru.
             shape.Y *= heightRatio;
             shape.X *= widthRatio;
         }
@@ -100,11 +106,11 @@ using (Presentation presentation = new Presentation("sample.pptx"))
         {
             foreach (IShape shape in layoutSlide.Shapes)
             {
-                // Škálovat velikost tvaru.
+                // Změnit velikost tvaru.
                 shape.Height *= heightRatio;
                 shape.Width *= widthRatio;
 
-                // Škálovat pozici tvaru.
+                // Změnit pozici tvaru.
                 shape.Y *= heightRatio;
                 shape.X *= widthRatio;
             }
@@ -115,16 +121,9 @@ using (Presentation presentation = new Presentation("sample.pptx"))
     {
         foreach (IShape shape in slide.Shapes)
         {
-            // Škálovat velikost tvaru.
-            shape.Height *= heightRatio;
-            shape.Width *= widthRatio;
-
-            // Škálovat pozici tvaru.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-
             if (shape is ITable)
             {
+                // Změnit velikost tabulky prostřednictvím jejích řádků a sloupců.
                 ITable table = (ITable)shape;
                 foreach (IRow row in table.Rows)
                 {
@@ -135,6 +134,16 @@ using (Presentation presentation = new Presentation("sample.pptx"))
                     column.Width *= widthRatio;
                 }
             }
+            else
+            {
+                // Změnit velikost tvaru.
+                shape.Height *= heightRatio;
+                shape.Width *= widthRatio;
+            }
+
+            // Změnit pozici tvaru.
+            shape.Y *= heightRatio;
+            shape.X *= widthRatio;
         }
     }
 
@@ -144,30 +153,30 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
 ## **Často kladené otázky**
 
-**Proč jsou tvary po změně velikosti snímku deformované nebo oříznuté?**
+### Proč jsou tvary po změně velikosti snímku deformované nebo oříznuté?
 
-Při změně velikosti snímku si tvary zachovávají původní pozici a rozměry, pokud není výslovně změněno měřítko. To může vést k oříznutí obsahu nebo k nesprávnému zarovnání tvarů.
+Při změně velikosti snímku tvary zachovávají svou původní pozici a velikost, pokud není explicitně změněno měřítko. To může vést k oříznutí obsahu nebo k nesprávnému zarovnání tvarů.
 
-**Funguje poskytnutý kód pro všechny typy tvarů?**
+### Funguje poskytnutý kód pro všechny typy tvarů?
 
-Základní příklad funguje pro většinu typů tvarů (textová pole, obrázky, grafy atd.). U tabulek však musíte zacházet s řádky a sloupci samostatně, protože výška a šířka tabulky jsou určeny rozměry jednotlivých buněk.
+Základní příklad funguje pro většinu typů tvarů (textová pole, obrázky, grafy atd.). U tabulek však musíte zpracovávat řádky a sloupce samostatně, protože výška a šířka tabulky jsou určeny rozměry jednotlivých buněk.
 
-**Jak změním velikost tabulek při změně velikosti snímku?**
+### Jak změnit velikost tabulek při změně velikosti snímku?
 
-Je nutné projít všechny řádky a sloupce tabulky a změnit jejich výšku a šířku úměrně, jak je ukázáno ve druhém příkladu kódu.
+Musíte projít všechny řádky a sloupce tabulky a změnit jejich výšku a šířku úměrně, jak je ukázáno ve druhém příkladu kódu.
 
-**Bude tato změna velikosti fungovat i pro hlavní snímky a rozložení snímků?**
+### Bude tato změna velikosti fungovat i pro hlavní snímky a rozložení snímků?
 
-Ano, ale měli byste také projít [Předlohy](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/masters/) a [RozloženíSnimek](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/layoutslides/) a použít stejnou logiku škálování na jejich tvary, aby byla zachována konzistence v celé prezentaci.
+Ano, ale měli byste také projít [Masters](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/masters/) a [LayoutSlides](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/layoutslides/) a použít stejnou logiku škálování na jejich tvary, aby byla zajištěna konzistence v celé prezentaci.
 
-**Mohu změnit orientaci snímku (na výšku / na šířku) spolu se změnou velikosti?**
+### Mohu změnit orientaci snímku (na výšku/do šířky) spolu se změnou velikosti?
 
-Ano. Můžete nastavit [presentation.SlideSize.Orientation](https://reference.aspose.com/slides/cs/net/aspose.slides/islidesize/orientation/) pro změnu orientace. Ujistěte se, že logiku škálování upravíte tak, aby byl zachován původní rozvrh.
+Ano. Můžete nastavit [presentation.SlideSize.Orientation](https://reference.aspose.com/slides/cs/net/aspose.slides/islidesize/orientation/) pro změnu orientace. Ujistěte se, že logiku škálování nastavíte odpovídajícím způsobem, aby rozvržení zůstalo zachováno.
 
-**Existuje limit velikosti, kterou mohu nastavit?**
+### Existuje limit velikosti snímku, kterou mohu nastavit?
 
 Aspose.Slides podporuje vlastní velikosti, ale velmi velké rozměry mohou ovlivnit výkon nebo kompatibilitu s některými verzemi PowerPointu.
 
-**Jak mohu zabránit deformaci tvarů se zamknutým poměrem stran?**
+### Jak mohu zabránit deformaci tvarů se zamknutým poměrem stran?
 
-Před škálováním můžete zkontrolovat vlastnost `AspectRatioLocked` tvaru. Pokud je zamčena, upravte šířku nebo výšku úměrně místo samostatného škálování.
+Můžete před škálováním zkontrolovat vlastnost `AspectRatioLocked` tvaru. Pokud je zamčená, upravte šířku nebo výšku úměrně místo samostatného škálování.

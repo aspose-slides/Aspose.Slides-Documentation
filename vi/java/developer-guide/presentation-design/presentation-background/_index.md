@@ -1,11 +1,11 @@
 ---
-title: Quản lý nền bài thuyết trình trong Java
+title: Quản lý Nền Bài Trình Chiếu trong Java
 linktitle: Nền Slide
 type: docs
 weight: 20
 url: /vi/java/presentation-background/
 keywords:
-- nền bài thuyết trình
+- nền bản trình chiếu
 - nền slide
 - màu đồng nhất
 - màu gradient
@@ -14,30 +14,33 @@ keywords:
 - thuộc tính nền
 - PowerPoint
 - OpenDocument
-- bài thuyết trình
+- bản trình chiếu
 - Java
 - Aspose.Slides
-description: "Tìm hiểu cách đặt nền động trong tập tin PowerPoint và OpenDocument bằng Aspose.Slides cho Java, với các mẹo mã giúp nâng cao bài thuyết trình của bạn."
+description: "Tìm hiểu cách thiết lập nền động trong các tệp PowerPoint và OpenDocument bằng Aspose.Slides cho Java, kèm các mẹo mã giúp nâng cao bản trình chiếu của bạn."
 ---
 ## **Giới thiệu**
 
-Solid colors, gradients, and images are commonly used for slide backgrounds. You can set the background for a **normal slide** (a single slide) or a **master slide** (applies to multiple slides at once).
+Màu nền đồng nhất, gradient và hình ảnh thường được sử dụng cho nền của slide. Bạn có thể đặt nền cho một **slide thường** (một slide duy nhất) hoặc một **slide chủ** (áp dụng cho nhiều slide cùng lúc).
 
 ![PowerPoint background](powerpoint-background.png)
 
-## **Đặt nền màu đồng nhất cho Slide bình thường**
+## **Đặt Nền Màu Đồng Nhất cho Slide Thông Thường**
 
-Aspose.Slides cho phép bạn đặt một màu đồng nhất làm nền cho một slide cụ thể trong bài thuyết trình — ngay cả khi bài thuyết trình sử dụng slide master. Thay đổi sẽ chỉ áp dụng cho slide được chọn.
+Aspose.Slides cho phép bạn đặt một màu đồng nhất làm nền cho một slide cụ thể trong bản trình bày — ngay cả khi bản trình bày sử dụng slide chủ. Thay đổi chỉ áp dụng cho slide được chọn.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/).
 2. Đặt [BackgroundType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/backgroundtype/) của slide thành `OwnBackground`.
-3. Đặt [FillType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/filltype/) của nền slide thành `Solid`.
+3. Đặt [FillType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/filltype/) nền slide thành `Solid`.
 4. Sử dụng phương thức [getSolidFillColor](https://reference.aspose.com/slides/vi/java/com.aspose.slides/fillformat/#getSolidFillColor--) trên [FillFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/fillformat/) để chỉ định màu nền đồng nhất.
-5. Lưu bài thuyết trình đã chỉnh sửa.
+5. Lưu bản trình bày đã chỉnh sửa.
 
-Ví dụ Java sau đây cho thấy cách đặt màu xanh đậm đồng nhất làm nền cho một slide bình thường:
+Ví dụ Java sau đây cho thấy cách đặt màu đồng nhất màu xanh làm nền cho một slide thường:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Tạo một thể hiện của lớp Presentation.
 Presentation presentation = new Presentation();
 try {
@@ -48,56 +51,62 @@ try {
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     
-    // Lưu bài thuyết trình vào đĩa.
+    // Lưu bản trình chiếu vào đĩa.
     presentation.save("SolidColorBackground.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Đặt nền màu đồng nhất cho Slide master**
+## **Đặt Nền Màu Đồng Nhất cho Slide Chủ**
 
-Aspose.Slides cho phép bạn đặt một màu đồng nhất làm nền cho slide master trong một bài thuyết trình. Slide master hoạt động như một mẫu kiểm soát định dạng cho tất cả các slide, vì vậy khi bạn chọn một màu đồng nhất cho nền của slide master, nó sẽ áp dụng cho mọi slide.
+Aspose.Slides cho phép bạn đặt một màu đồng nhất làm nền cho slide chủ trong bản trình bày. Slide chủ hoạt động như một mẫu điều khiển định dạng cho tất cả các slide, vì vậy khi bạn chọn một màu đồng nhất cho nền của slide chủ, nó sẽ áp dụng cho mọi slide.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/).
-2. Đặt [BackgroundType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/backgroundtype/) của slide master (qua `getMasters`) thành `OwnBackground`.
-3. Đặt [FillType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/filltype/) của nền slide master thành `Solid`.
+2. Đặt [BackgroundType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/backgroundtype/) của slide chủ (qua `getMasters`) thành `OwnBackground`.
+3. Đặt [FillType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/filltype/) nền slide chủ thành `Solid`.
 4. Sử dụng phương thức [getSolidFillColor](https://reference.aspose.com/slides/vi/java/com.aspose.slides/fillformat/#getSolidFillColor--) để chỉ định màu nền đồng nhất.
-5. Lưu bài thuyết trình đã chỉnh sửa.
+5. Lưu bản trình bày đã chỉnh sửa.
 
-Ví dụ Java sau đây cho thấy cách đặt một màu đồng nhất (xanh lá) làm nền cho slide master:
+Ví dụ Java sau đây cho thấy cách đặt màu đồng nhất (xanh lá) làm nền cho một slide chủ:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Tạo một thể hiện của lớp Presentation.
 Presentation presentation = new Presentation();
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
 
-    // Đặt màu nền cho slide Master thành màu Xanh Rừng.
+    // Đặt màu nền cho slide chủ thành màu xanh lá.
     masterSlide.getBackground().setType(BackgroundType.OwnBackground);
     masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
     masterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
 
-    // Lưu bài thuyết trình vào đĩa.
+    // Lưu bản trình chiếu vào đĩa.
     presentation.save("MasterSlideBackground.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Đặt nền Gradient cho Slide**
+## **Đặt Nền Gradient cho Slide**
 
-Gradient là hiệu ứng đồ họa tạo ra bằng sự thay đổi dần dần của màu. Khi được sử dụng làm nền slide, gradient có thể làm cho bài thuyết trình trông nghệ thuật và chuyên nghiệp hơn. Aspose.Slides cho phép bạn đặt màu gradient làm nền cho các slide.
+Gradient là một hiệu ứng đồ họa được tạo ra bằng sự thay đổi dần dần về màu sắc. Khi được sử dụng làm nền slide, gradient có thể làm cho bản trình bày trông nghệ thuật và chuyên nghiệp hơn. Aspose.Slides cho phép bạn đặt màu gradient làm nền cho các slide.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/).
 2. Đặt [BackgroundType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/backgroundtype/) của slide thành `OwnBackground`.
-3. Đặt [FillType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/filltype/) của nền slide thành `Gradient`.
+3. Đặt [FillType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/filltype/) nền slide thành `Gradient`.
 4. Sử dụng phương thức [getGradientFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/fillformat/#getGradientFormat--) trên [FillFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/fillformat/) để cấu hình các thiết lập gradient mong muốn.
-5. Lưu bài thuyết trình đã chỉnh sửa.
+5. Lưu bản trình bày đã chỉnh sửa.
 
 Ví dụ Java sau đây cho thấy cách đặt màu gradient làm nền cho một slide:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Tạo một thể hiện của lớp Presentation.
 Presentation presentation = new Presentation();
 try {
@@ -106,30 +115,38 @@ try {
     // Áp dụng hiệu ứng gradient cho nền.
     slide.getBackground().setType(BackgroundType.OwnBackground);
     slide.getBackground().getFillFormat().setFillType(FillType.Gradient);
-    slide.getBackground().getFillFormat().getGradientFormat().setTileFlip(TileFlip.FlipBoth);
 
-    // Lưu bài thuyết trình vào đĩa.
+    IGradientFormat gradientFormat = slide.getBackground().getFillFormat().getGradientFormat();
+    gradientFormat.setTileFlip(TileFlip.FlipBoth);
+
+    // Thêm các màu gradient. Nếu không có các điểm dừng gradient, nền sẽ sử dụng dải màu đen‑trắng mặc định.
+    gradientFormat.getGradientStops().add(0f, Color.CYAN);
+    gradientFormat.getGradientStops().add(1f, Color.BLUE);
+
+    // Lưu bản trình chiếu vào đĩa.
     presentation.save("GradientBackground.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Đặt hình ảnh làm nền Slide**
+## **Đặt Hình Ảnh làm Nền Slide**
 
-Ngoài các nền đồng nhất và gradient, Aspose.Slides cho phép bạn sử dụng hình ảnh làm nền slide.
+Ngoài việc sử dụng màu nền đồng nhất và gradient, Aspose.Slides cho phép bạn sử dụng hình ảnh làm nền cho slide.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/).
 2. Đặt [BackgroundType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/backgroundtype/) của slide thành `OwnBackground`.
-3. Đặt [FillType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/filltype/) của nền slide thành `Picture`.
+3. Đặt [FillType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/filltype/) nền slide thành `Picture`.
 4. Tải hình ảnh bạn muốn sử dụng làm nền slide.
-5. Thêm hình ảnh vào bộ sưu tập hình ảnh của bài thuyết trình.
+5. Thêm hình ảnh vào bộ sưu tập hình ảnh của bản trình chiếu.
 6. Sử dụng phương thức [getPictureFillFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/fillformat/#getPictureFillFormat--) trên [FillFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/fillformat/) để gán hình ảnh làm nền.
-7. Lưu bài thuyết trình đã chỉnh sửa.
+7. Lưu bản trình bày đã chỉnh sửa.
 
 Ví dụ Java sau đây cho thấy cách đặt hình ảnh làm nền cho một slide:
 
 ```java
+import com.aspose.slides.*;
+
 // Tạo một thể hiện của lớp Presentation.
 Presentation presentation = new Presentation();
 try {
@@ -142,22 +159,24 @@ try {
     
     // Tải hình ảnh.
     IImage image = Images.fromFile("Tulips.jpg");
-    // Thêm hình ảnh vào bộ sưu tập hình ảnh của bài thuyết trình.
+    // Thêm hình ảnh vào bộ sưu tập hình ảnh của bản trình chiếu.
     IPPImage ppImage = presentation.getImages().addImage(image);
     image.dispose();
 
     slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(ppImage);
     
-    // Lưu bài thuyết trình vào đĩa.
+    // Lưu bản trình chiếu vào đĩa.
     presentation.save("ImageAsBackground.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Mẫu code sau đây cho thấy cách đặt kiểu nền thành hình ảnh lắp gạch và chỉnh sửa các thuộc tính lắp gạch:
+Mã mẫu sau đây cho thấy cách đặt loại tô nền thành ảnh lặp và chỉnh sửa các thuộc tính lặp:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide firstSlide = presentation.getSlides().get_Item(0);
@@ -175,7 +194,7 @@ try {
     IPictureFillFormat backPictureFillFormat = background.getFillFormat().getPictureFillFormat();
     backPictureFillFormat.getPicture().setImage(ppImage);
 
-    // Đặt chế độ tô hình ảnh thành Tile và điều chỉnh các thuộc tính lặp.
+    // Đặt chế độ tô hình ảnh thành Lặp và điều chỉnh các thuộc tính lặp.
     backPictureFillFormat.setPictureFillMode(PictureFillMode.Tile);
     backPictureFillFormat.setTileOffsetX(15f);
     backPictureFillFormat.setTileOffsetY(15f);
@@ -190,47 +209,60 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-Đọc thêm: [**Hình ảnh lặp lại làm kết cấu**](/slides/vi/java/shape-formatting/#tile-picture-as-texture).
+{{% alert color="info" %}}
+Read more: [**Tile Picture As Texture**](/slides/vi/java/shape-formatting/#tile-picture-as-texture).
 {{% /alert %}}
 
-### **Thay đổi Độ trong suốt của Hình nền**
+### **Thay Đổi Độ Trong Suốt của Hình Nền**
 
-Bạn có thể muốn điều chỉnh độ trong suốt của hình nền slide để làm nổi bật nội dung của slide. Đoạn mã Java sau đây cho bạn thấy cách thay đổi độ trong suốt cho hình nền slide:
+Bạn có thể muốn điều chỉnh độ trong suốt của hình nền slide để làm nổi bật nội dung của slide. Mã Java sau đây cho bạn thấy cách thay đổi độ trong suốt cho hình nền của slide:
 
 ```java
+import com.aspose.slides.*;
+
 int transparencyValue = 30; // Ví dụ.
 
-// Lấy bộ sưu tập các thao tác biến đổi hình ảnh.
-IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-// Tìm hiệu ứng trong suốt cố định phần trăm hiện có.
-IAlphaModulateFixed transparencyOperation = null;
-for (IImageTransformOperation operation : imageTransform) {
-    if (operation instanceof IAlphaModulateFixed) {
-        transparencyOperation = (IAlphaModulateFixed)operation;
-        break;
+    // Lấy bộ sưu tập các thao tác biến đổi hình ảnh.
+    IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+
+    // Tìm hiệu ứng trong suốt phần trăm cố định hiện có.
+    IAlphaModulateFixed transparencyOperation = null;
+    for (IImageTransformOperation operation : imageTransform) {
+        if (operation instanceof IAlphaModulateFixed) {
+            transparencyOperation = (IAlphaModulateFixed)operation;
+            break;
+        }
     }
-}
 
-// Đặt giá trị trong suốt mới.
-if (transparencyOperation == null) {
-    imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
-}
-else {
-    transparencyOperation.setAmount(100 - transparencyValue);
+    // Đặt giá trị trong suốt mới.
+    if (transparencyOperation == null) {
+        imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
+    }
+    else {
+        transparencyOperation.setAmount(100 - transparencyValue);
+    }
+
+    presentation.save("output.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Lấy Giá trị Nền Slide**
+## **Lấy Giá Trị Nền Slide**
 
-Aspose.Slides cung cấp giao diện [IBackgroundEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibackgroundeffectivedata/) để lấy các giá trị nền thực tế của một slide. Giao diện này hiển thị [FillFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibackgroundeffectivedata/#getFillFormat--) và [EffectFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibackgroundeffectivedata/#getEffectFormat--) thực tế.
+Aspose.Slides cung cấp giao diện [IBackgroundEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibackgroundeffectivedata/) để truy xuất các giá trị nền hiệu quả của một slide. Giao diện này cung cấp các [FillFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibackgroundeffectivedata/#getFillFormat--) và [EffectFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibackgroundeffectivedata/#getEffectFormat--) hiệu quả.
 
-Bằng cách sử dụng phương thức `getBackground` của lớp [BaseSlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/baseslide/), bạn có thể lấy nền thực tế cho một slide.
+Bằng cách sử dụng phương thức `getBackground` của lớp [BaseSlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/baseslide/), bạn có thể lấy nền hiệu quả cho một slide.
 
-Ví dụ Java sau đây cho thấy cách lấy giá trị nền thực tế của một slide:
+Ví dụ Java sau đây cho thấy cách lấy giá trị nền hiệu quả của một slide:
 
 ```java
+import com.aspose.slides.*;
+
 // Tạo một thể hiện của lớp Presentation.
 Presentation presentation = new Presentation("Sample.pptx");
 try {
@@ -248,12 +280,12 @@ try {
 }
 ```
 
-## **Câu hỏi thường gặp**
+## **FAQ**
 
-**Tôi có thể đặt lại nền tùy chỉnh và khôi phục lại nền của theme/bố cục không?**
+### **Tôi có thể đặt lại nền tùy chỉnh và khôi phục nền của giao diện/bố cục không?**
 
-Có. Xóa phần tô nền tùy chỉnh của slide, và nền sẽ được kế thừa lại từ slide [layout](/slides/vi/java/slide-layout/)/[master](/slides/vi/java/slide-master/) tương ứng (tức là [nền theme](/slides/vi/java/presentation-theme/)).
+Có. Xóa phần tô tùy chỉnh của slide, nền sẽ được kế thừa lại từ slide [layout](/slides/vi/java/slide-layout/)/[master](/slides/vi/java/slide-master/) tương ứng (tức là [nền giao diện](/slides/vi/java/presentation-theme/)).
 
-**Điều gì xảy ra với nền nếu tôi thay đổi theme của bài thuyết trình sau này?**
+### **Điều gì sẽ xảy ra với nền nếu tôi đổi giao diện của bản trình bày sau này?**
 
-Nếu một slide có nền riêng, nó sẽ không thay đổi. Nếu nền được kế thừa từ [layout](/slides/vi/java/slide-layout/)/[master](/slides/vi/java/slide-master/), nó sẽ được cập nhật để phù hợp với [theme mới](/slides/vi/java/presentation-theme/).
+Nếu một slide có phần tô riêng, nó sẽ không thay đổi. Nếu nền được kế thừa từ [layout](/slides/vi/java/slide-layout/)/[master](/slides/vi/java/slide-master/), nó sẽ được cập nhật để khớp với [giao diện mới](/slides/vi/java/presentation-theme/).

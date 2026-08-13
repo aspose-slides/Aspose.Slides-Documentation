@@ -1,36 +1,38 @@
 ---
-title: Nyilvános API és visszafelé kompatibilitást felborító változások az Aspose.Slides for Java 15.7.0-ban
+title: Nyilvános API és visszafelé nem kompatibilis változások az Aspose.Slides for Java 15.7.0-ban
 linktitle: Aspose.Slides for Java 15.7.0
 type: docs
 weight: 150
 url: /hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-7-0/
 keywords:
 - migráció
-- régi kód
+- örökölt kód
 - modern kód
-- régi megközelítés
+- örökölt megközelítés
 - modern megközelítés
 - PowerPoint
 - OpenDocument
-- bemutató
+- prezentáció
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java nyilvános API frissítéseinek és törő változásainak áttekintése a PowerPoint PPT, PPTX és ODP prezentációs megoldások zökkenőmentes migrálásához."
+description: "Tekintse át az Aspose.Slides for Java nyilvános API frissítéseit és a töréspont változásokat, hogy zökkenőmentesen migrálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Ez az oldal felsorolja az összes [hozzáadott](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-7-0/) vagy [eltávolított](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-7-0/) osztályt, metódust, tulajdonságot stb., valamint a Aspose.Slides for Java 15.7.0 API-val bevezetett egyéb változásokat.
+Ez az oldal felsorolja az összes [added](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-7-0/) vagy [removed](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-7-0/) osztályt, metódust, tulajdonságot stb., valamint a Aspose.Slides for Java 15.7.0 API-val bevezetett egyéb változásokat.
 
 {{% /alert %}} 
-## **Nyilvános API változások**
-#### **Az com.aspose.slides.ImagePixelFormat enum hozzá lett adva**
-Az com.aspose.slides.ImagePixelFormat enum hozzá lett adva a generált képek pixelformátumának megadásához.
-#### **A com.aspose.slides.IChartDataPoint.getAutomaticDataPointColor() metódus hozzá lett adva**
-Ez a metódus automatikus színt ad vissza az adatponthoz a sorozat-index, adatpont-index, parentSeriesGroup, isColorVaried értékek és diagram stílus alapján. Ez a szín lesz alapértelmezésként használva, ha a fillType egyenlő a NotDefined értékkel.
-#### **A getPixelFormat() és a setPixelFormat(int) metódusok hozzá lettek adva a com.aspose.slides.ITiffOptions-hoz**
-A getPixelFormat() és a setPixelFormat(/ImagePixelFormat/int) metódusok hozzá lettek adva a com.aspose.slides.ITiffOptions és a com.aspose.slides.TiffOptions osztályokhoz, a generált TIFF képek pixelformátumának megadásához.
+## **Public API Changes**
+#### **Enum com.aspose.slides.ImagePixelFormat has been added**
+Enum com.aspose.slides.ImagePixelFormat has been added for specifying pixel format for the generated images.
+#### **com.aspose.slides.IChartDataPoint.getAutomaticDataPointColor() method has been added**
+This method returns an automatic color of data point based on series index, data point index, parentSeriesGroup, isColorVaried values and chart style. This color is used by default if fillType equals NotDefined.
+#### **Methods getPixelFormat(), setPixelFormat(int) have been added to com.aspose.slides.ITiffOptions**
+Methods getPixelFormat(), setPixelFormat(/ImagePixelFormat/int) have been added to com.aspose.slides.ITiffOptions and com.aspose.slides.TiffOptions for specifying pixel format for the generated TIFF images.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation("demo.pptx");
 

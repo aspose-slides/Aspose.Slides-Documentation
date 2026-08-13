@@ -4,16 +4,12 @@ type: docs
 weight: 20
 url: /zh/jasperreports/resources/
 ---
-
-{{% alert color="primary" %}} 
-
+{{% alert color="info" %}}
 此表列出了重要的 Aspose.Slides for Java 技术资源。
-
-{{% /alert %}} 
-
+{{% /alert %}}
 |**资源**|**描述**|
 | :- | :- |
-|[Aspose.Slides for Java 首页](https://products.aspose.com/slides/jasperreports/)|产品首页。|
-|[Aspose.Slides 博客](https://blog.aspose.com/category/slides/)|请经常查看此处获取有关新版本和关于 Aspose.Slides 的有用提示的信息。|
-|[Aspose.Slides for Java 下载](https://downloads.aspose.com/slides/jasperreport)|在这里下载 Aspose.Slides 的最新版本。我们经常发布更新。|
-|[Aspose.Slides 支持论坛](https://forum.aspose.com/c/slides/11)|在这里发布您的问题和问题以快速解决。|
+|[Aspose.Slides for Java home page](https://products.aspose.com/slides/zh/jasperreports/)|产品主页。|
+|[Aspose.Slides blog](https://blog.aspose.com/category/slides/zh/)|请经常查看此处，以获取新版本信息和 Aspose.Slides 的实用技巧。|
+|[Aspose.Slides for Java download](https://downloads.aspose.com/slides/zh/jasperreport)|从此处下载最新版本的 Aspose.Slides。我们会频繁发布新版本。|
+|[Aspose.Slides support forum](https://forum.aspose.com/c/slides/zh/11)|在此处发布您的问题和疑难，以便快速解决。|

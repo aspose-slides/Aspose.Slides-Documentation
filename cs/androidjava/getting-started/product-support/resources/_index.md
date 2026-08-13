@@ -8,7 +8,7 @@ keywords:
 - domovská stránka
 - blog
 - stáhnout Aspose.Slides
-- forum podpory
+- fórum podpory
 - dokumentace produktu
 - PowerPoint
 - OpenDocument
@@ -16,18 +16,18 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Objevte klíčové zdroje Aspose.Slides pro Android prostřednictvím Javy—od stažení a dokumentace až po fóra a aktualizace blogu—pro lepší práci s PPT, PPTX a ODP."
+description: "Objevte klíčové zdroje Aspose.Slides for Android via Java - od stažení a dokumentace po fóra a aktualizace blogu - pro lepší práci s PPT, PPTX a ODP."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Tato tabulka uvádí důležité technické zdroje pro Aspose.Slides pro Android prostřednictvím Javy. 
+Tato tabulka uvádí důležité technické zdroje Aspose.Slides for Android via Java. 
 
 {{% /alert %}} 
 
-|**Zdroj**|**Popis**|
+|**Resource**|**Description**|
 | :- | :- |
-|[Domovská stránka Aspose.Slides pro Android prostřednictvím Javy](/slides/cs/androidjava/)|Domovská stránka produktu.|
-|[Blog Aspose.Slides](https://blog.aspose.com/category/slides/cs/)|Pravidelně kontrolujte tuto sekci pro informace o nových verzích a užitečné tipy k Aspose.Slides.|
-|[Stáhnout Aspose.Slides pro Android prostřednictvím Javy](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)|Stáhněte si nejnovější verzi Aspose.Slides zde. Často vydáváme nové verze.|
-|[Fórum podpory Aspose.Slides](https://forum.aspose.com/c/slides/cs/11)|Zde položte své otázky a problémy pro rychlé vyřešení.|
-|[Dokumentace produktu Aspose.Slides pro Android prostřednictvím Javy](/slides/cs/java/)|Úplná online dokumentace, která obsahuje tento dokument a referenci API Aspose.Slides.|
+|[Aspose.Slides for Android via Java home page](/slides/cs/androidjava/)|Domovská stránka produktu.|
+|[Aspose.Slides blog](https://blog.aspose.com/category/slides/cs/)|Pravidelně kontrolujte tuto sekci pro informace o nových verzích a užitečné tipy k Aspose.Slides.|
+|[Aspose.Slides for Android via Java download](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)|Stáhněte si nejnovější verzi Aspose.Slides zde. Často vydáváme nové verze.|
+|[Aspose.Slides support forum](https://forum.aspose.com/c/slides/cs/11)|Zde položte své otázky a problémy pro rychlé vyřešení.|
+|[Aspose.Slides for Android via Java product documentation](/slides/cs/java/)|Kompletní online dokumentace, která obsahuje tento dokument a referenční příručku API Aspose.Slides.|

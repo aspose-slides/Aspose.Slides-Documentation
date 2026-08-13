@@ -14,15 +14,15 @@ keywords:
 - presentation
 - Java
 - Aspose.Slides
-description: "Lär dig om förtroendekrav, behörigheter och värdbegränsningar för Aspose.Slides för Java så att du säkert kan distribuera appar som behandlar PPT, PPTX och ODP på servrar."
+description: "Lär dig om förtroendekrav, behörigheter och hostingbegränsningar för Aspose.Slides för Java så att du säkert kan distribuera appar som bearbetar PPT, PPTX och ODP på servrar."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Alla Aspose Java-komponenter kräver behörighetsuppsättningen Full Trust. Anledningen är att Aspose Java-komponenter behöver åtkomst till registerinställningar, systemfiler utöver den virtuella katalogen för vissa operationer som att parsra teckensnitt etc. Dessutom är Aspose Java-komponenter baserade på kärn-Java-systemklasser som också i många fall kräver behörighetsuppsättningen Full Trust. 
+Alla Aspose Java-komponenter kräver Full Trust-behörighetsuppsättning. Anledningen är att Aspose Java-komponenter måste komma åt registerinställningar, systemfiler utöver den virtuella katalogen för vissa operationer som att analysera teckensnitt etc. Dessutom är Aspose Java-komponenter baserade på kärn‑Java‑systemklasser som också i många fall kräver Full Trust-behörighetsuppsättning. 
 
 {{% /alert %}} 
 
-Internetleverantörer som är värdar för flera applikationer från olika företag upprätthåller oftast säkerhetsnivån Medium Trust: 
+Internetleverantörer som hostar flera applikationer från olika företag tillämpar vanligtvis säkerhetsnivån Medium Trust: 
 
 - OleDbPermission är inte tillgänglig. Detta innebär att du inte kan använda den hanterade OLE DB-dataleverantören i ADO.NET för att komma åt databaser.
 - EventLogPermission är inte tillgänglig. Detta innebär att du inte kan komma åt Windows händelselogg.
@@ -31,8 +31,8 @@ Internetleverantörer som är värdar för flera applikationer från olika före
 - WebPermission är begränsad. Detta innebär att din applikation bara kan kommunicera med en adress eller ett adressintervall som du definierar i <trust>-elementet.
 - FileIOPermission är begränsad. Detta innebär att du bara kan komma åt filer i din applikations virtuella kataloghierarki.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-På grund av de ovan angivna skälen kan Aspose Java-komponenter inte användas på servrar som tilldelar en behörighetsuppsättning annan än Full Trust. 
+På grund av ovanstående skäl kan inte Aspose Java-komponenter användas på servrar som beviljar en behörighetsuppsättning annat än Full Trust. 
 
 {{% /alert %}}

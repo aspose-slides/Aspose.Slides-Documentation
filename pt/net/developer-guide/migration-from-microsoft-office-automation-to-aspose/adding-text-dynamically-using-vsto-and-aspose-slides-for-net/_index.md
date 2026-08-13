@@ -8,20 +8,20 @@ keywords:
 - adicionar texto
 - migração
 - VSTO
-- automação do Office
+- automação de Office
 - PowerPoint
 - apresentação
 - .NET
 - C#
 - Aspose.Slides
-description: "Veja como migrar da automação do Microsoft Office para o Aspose.Slides for .NET e adicionar texto dinâmico a apresentações PowerPoint (PPT, PPTX) em C#."
+description: "Veja como migrar da automação do Microsoft Office para Aspose.Slides para .NET e adicionar texto dinâmico a apresentações PowerPoint (PPT, PPTX) em C#."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Uma tarefa comum que os desenvolvedores precisam realizar é adicionar texto a slides dinamicamente. Este artigo mostra exemplos de código para adicionar texto dinamicamente usando [VSTO](/slides/pt/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/) e [Aspose.Slides for .NET](/slides/pt/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/).
 
 {{% /alert %}} 
-## **Adding Text Dynamically**
+## **Adicionar Texto Dinamicamente**
 Ambos os métodos seguem estas etapas:
 
 1. Criar uma apresentação.
@@ -40,28 +40,28 @@ Os trechos de código abaixo resultam em uma apresentação com um slide simples
 //Observação: PowerPoint é um namespace que foi definido acima desta forma
 //using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 
-//Create a presentation
+//Criar uma apresentação
 PowerPoint.Presentation pres = Globals.ThisAddIn.Application
 	.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 
-//Get the blank slide layout
+//Obter o layout de slide em branco
 PowerPoint.CustomLayout layout = pres.SlideMaster.
 	CustomLayouts[7];
 
-//Add a blank slide
+//Adicionar um slide em branco
 PowerPoint.Slide sld = pres.Slides.AddSlide(1, layout);
 
-//Add a text
+//Adicionar um texto
 PowerPoint.Shape shp = sld.Shapes.AddTextbox(Microsoft.Office.Core.MsoTextOrientation.msoTextOrientationHorizontal, 150, 100, 400, 100);
 
-//Set a text
+//Definir um texto
 PowerPoint.TextRange txtRange = shp.TextFrame.TextRange;
 txtRange.Text = "Text added dynamically";
 txtRange.Font.Name = "Arial";
 txtRange.Font.Bold = Microsoft.Office.Core.MsoTriState.msoTrue;
 txtRange.Font.Size = 32;
 
-//Write the output to disk
+//Gravar a saída no disco
 pres.SaveAs("c:\\outVSTO.ppt",
 	PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,
 	Microsoft.Office.Core.MsoTriState.msoFalse);
@@ -69,7 +69,7 @@ pres.SaveAs("c:\\outVSTO.ppt",
 
 
 
-## **Exemplo de Aspose.Slides para .NET**
+## **Exemplo Aspose.Slides para .NET**
 Os trechos de código abaixo usam Aspose.Slides para criar uma apresentação com um slide simples e uma string de texto.
 
 **A apresentação criada usando Aspose.Slides para .NET** 
@@ -77,10 +77,13 @@ Os trechos de código abaixo usam Aspose.Slides para criar uma apresentação co
 ![todo:image_alt_text](adding-text-dynamically-using-vsto-and-aspose-slides-for-net_2.png)
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 //Criar uma apresentação
 Presentation pres = new Presentation();
 
-//Slide em branco é adicionado por padrão, ao criar
+//Um slide em branco é adicionado por padrão, ao criar
 //apresentação a partir do construtor padrão
 //Portanto, não precisamos adicionar nenhum slide em branco
 ISlide sld = pres.Slides[1];
@@ -89,10 +92,10 @@ ISlide sld = pres.Slides[1];
 //Para adicioná-la, primeiro adicionaremos um retângulo
 IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 1200, 800, 3200, 370);
 
-//Ocultar sua linha
+//Ocultar a linha
 shp.LineFormat.Style = LineStyle.NotDefined;
 
-//Em seguida, adicione uma moldura de texto dentro dela
+//Em seguida, adicione um quadro de texto dentro dele
 ITextFrame tf = ((IAutoShape)shp).TextFrame;
 
 //Definir um texto
@@ -103,5 +106,5 @@ port.PortionFormat.FontBold = NullableBool.True;
 port.PortionFormat.FontHeight = 32;
 
 //Gravar a saída no disco
-pres.Save("c:\\outAspose.ppt", SaveFormat.Ppt);
+pres.Save("outAspose.ppt", SaveFormat.Ppt);
 ```

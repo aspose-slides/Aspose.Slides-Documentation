@@ -6,7 +6,7 @@ weight: 20
 url: /sv/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/
 keywords:
 - lägga till text
-- migration
+- migrering
 - VSTO
 - Office-automatisering
 - PowerPoint
@@ -14,12 +14,10 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Se hur du migrerar från Microsoft Office-automatisering till Aspose.Slides för .NET och lägger till dynamisk text i PowerPoint (PPT, PPTX)-presentationer i C#."
+description: "Se hur du migrerar från Microsoft Office-automatisering till Aspose.Slides för .NET och lägger till dynamisk text i PowerPoint (PPT, PPTX) presentationer i C#."
 ---
-{{% alert color="primary" %}} 
-
-Ett vanligt uppdrag som utvecklare har är att lägga till text i bilder dynamiskt. Denna artikel visar kodexempel för att lägga till text dynamiskt med [VSTO](/slides/sv/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/) och [Aspose.Slides for .NET](/slides/sv/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/).
-
+{{% alert color="info" %}} 
+En vanlig uppgift som utvecklare måste utföras är att lägga till text på bilder dynamiskt. Denna artikel visar kodexempel för att lägga till text dynamiskt med hjälp av [VSTO](/slides/sv/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/) och [Aspose.Slides for .NET](/slides/sv/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/).
 {{% /alert %}} 
 ## **Lägga till text dynamiskt**
 Båda metoderna följer dessa steg:
@@ -29,15 +27,15 @@ Båda metoderna följer dessa steg:
 1. Lägg till en textruta.
 1. Ange lite text.
 1. Skriv presentationen.
-## **VSTO kodexempel**
+## **VSTO-kodexempel**
 Kodsnuttarna nedan resulterar i en presentation med en enkel bild och en textsträng på den.
 
-**Presentationen som skapades i VSTO** 
+**Presentationen som skapats i VSTO** 
 
 ![todo:image_alt_text](adding-text-dynamically-using-vsto-and-aspose-slides-for-net_1.png)
 
 ```c#
-//Obs: PowerPoint är ett namnrum som har definierats ovan så här
+//Obs: PowerPoint är ett namnrum som har definierats ovan på detta sätt
 //using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 
 //Skapa en presentation
@@ -67,22 +65,23 @@ pres.SaveAs("c:\\outVSTO.ppt",
 	Microsoft.Office.Core.MsoTriState.msoFalse);
 ```
 
-
-
-## **Aspose.Slides for .NET exempel**
+## **Aspose.Slides for .NET-exempel**
 Kodsnuttarna nedan använder Aspose.Slides för att skapa en presentation med en enkel bild och en textsträng på den.
 
-**Presentationen som skapades med Aspose.Slides for .NET** 
+**Presentationen som skapats med Aspose.Slides för .NET** 
 
 ![todo:image_alt_text](adding-text-dynamically-using-vsto-and-aspose-slides-for-net_2.png)
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 //Skapa en presentation
 Presentation pres = new Presentation();
 
-//Tom bild läggs till som standard, när du skapar
-//presentation från standardkonstruktor
-//Så, vi behöver inte lägga till någon tom bild
+//Tom bild läggs till som standard när du skapar
+//presentation från standardkonstruktorn
+//Så vi behöver inte lägga till någon tom bild
 ISlide sld = pres.Slides[1];
 
 //Lägg till en textruta
@@ -92,7 +91,7 @@ IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 1200, 800, 3200, 370);
 //Dölj dess linje
 shp.LineFormat.Style = LineStyle.NotDefined;
 
-//Lägg sedan till en textram i den
+//Lägg sedan till en textram inuti den
 ITextFrame tf = ((IAutoShape)shp).TextFrame;
 
 //Ange en text
@@ -102,6 +101,6 @@ IPortion port = tf.Paragraphs[0].Portions[0];
 port.PortionFormat.FontBold = NullableBool.True;
 port.PortionFormat.FontHeight = 32;
 
-//Skriv utdata till disk
-pres.Save("c:\\outAspose.ppt", SaveFormat.Ppt);
+//Write the output to disk
+pres.Save("outAspose.ppt", SaveFormat.Ppt);
 ```

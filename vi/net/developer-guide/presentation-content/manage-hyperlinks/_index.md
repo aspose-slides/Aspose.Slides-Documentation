@@ -1,52 +1,55 @@
 ---
-title: Quản lý Siêu liên kết trong Bản trình chiếu .NET
-linktitle: Quản lý Siêu liên kết
+title: Quản lý liên kết siêu văn bản trong bản trình chiếu .NET
+linktitle: Quản lý Liên kết
 type: docs
 weight: 20
 url: /vi/net/manage-hyperlinks/
 keywords:
 - thêm URL
-- thêm siêu liên kết
-- tạo siêu liên kết
-- định dạng siêu liên kết
-- xóa siêu liên kết
-- cập nhật siêu liên kết
-- siêu liên kết văn bản
-- siêu liên kết slide
-- siêu liên kết hình dạng
-- siêu liên kết hình ảnh
-- siêu liên kết video
-- siêu liên kết có thể thay đổi
+- thêm liên kết siêu văn bản
+- tạo liên kết siêu văn bản
+- định dạng liên kết siêu văn bản
+- xóa liên kết siêu văn bản
+- cập nhật liên kết siêu văn bản
+- liên kết siêu văn bản văn bản
+- liên kết siêu văn bản slide
+- liên kết siêu văn bản hình dạng
+- liên kết siêu văn bản hình ảnh
+- liên kết siêu văn bản video
+- liên kết siêu văn bản có thể thay đổi
 - PowerPoint
 - OpenDocument
 - bản trình chiếu
 - .NET
 - C#
 - Aspose.Slides
-description: "Dễ dàng quản lý siêu liên kết trong các bản trình chiếu PowerPoint và OpenDocument với Aspose.Slides cho .NET—tăng cường tính tương tác và quy trình làm việc chỉ trong vài phút."
+description: "Quản lý liên kết siêu văn bản trong các bản trình chiếu PowerPoint và OpenDocument một cách dễ dàng với Aspose.Slides cho .NET—tăng cường tính tương tác và quy trình làm việc chỉ trong vài phút."
 ---
 ## **Giới thiệu**
 
-Siêu liên kết là một tham chiếu đến một đối tượng, dữ liệu hoặc một vị trí nào đó. Đây là các siêu liên kết phổ biến trong Bản trình chiếu PowerPoint:
+Liên kết siêu văn bản là một tham chiếu đến một đối tượng hoặc dữ liệu hoặc một vị trí trong một thứ gì đó. Đây là các liên kết siêu văn bản thường gặp trong các bản trình chiếu PowerPoint:
 
-* Liên kết tới các trang web trong văn bản, hình dạng hoặc phương tiện
-* Liên kết tới các slide
+* Liên kết đến các trang web trong văn bản, hình dạng hoặc phương tiện
+* Liên kết đến các slide
 
-Aspose.Slides for .NET cho phép bạn thực hiện nhiều tác vụ liên quan đến siêu liên kết trong bản trình chiếu. 
+Aspose.Slides cho .NET cho phép bạn thực hiện nhiều tác vụ liên quan đến liên kết siêu văn bản trong các bản trình chiếu. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Bạn có thể muốn khám phá Aspose đơn giản, [trình chỉnh sửa PowerPoint trực tuyến miễn phí.](https://products.aspose.app/slides/vi/editor)
+Bạn có thể muốn xem [trình soạn thảo PowerPoint trực tuyến miễn phí của Aspose.](https://products.aspose.app/slides/vi/editor)
 
 {{% /alert %}} 
 
-## **Thêm Siêu Liên Kết URL**
+## **Thêm Liên kết URL**
 
-### **Thêm Siêu Liên Kết URL vào Văn Bản**
+### **Thêm Liên kết URL vào Văn bản**
 
-Đoạn mã C# này cho bạn thấy cách thêm siêu liên kết trang web vào văn bản:
+Mã C# này cho bạn thấy cách thêm liên kết siêu văn bản tới một trang web vào văn bản:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
 	IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -59,11 +62,14 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **Thêm Siêu Liên Kết URL vào Hình Dạng hoặc Khung**
+### **Thêm Liên kết URL vào Hình dạng hoặc Khung**
 
-Đoạn mã mẫu bằng C# này cho bạn thấy cách thêm siêu liên kết trang web vào một hình dạng:
+Mã mẫu này bằng C# cho bạn thấy cách thêm liên kết siêu văn bản tới một trang web vào một hình dạng:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -75,13 +81,16 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **Thêm Siêu Liên Kết URL vào Phương Tiện**
+### **Thêm Liên kết URL vào Phương tiện**
 
-Aspose.Slides cho phép bạn thêm siêu liên kết vào hình ảnh, tệp âm thanh và video. 
+Aspose.Slides cho phép bạn thêm liên kết siêu văn bản vào hình ảnh, âm thanh và tệp video. 
 
-Đoạn mã mẫu này cho bạn thấy cách thêm siêu liên kết vào **hình ảnh**:
+Mã mẫu này cho bạn thấy cách thêm một liên kết siêu văn bản vào **hình ảnh**:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     // Thêm hình ảnh vào bản trình chiếu
@@ -95,10 +104,12 @@ using (Presentation pres = new Presentation())
     pres.Save("pres-out.pptx", SaveFormat.Pptx);
 }
 ```
-
- Đoạn mã mẫu này cho bạn thấy cách thêm siêu liên kết vào **tệp âm thanh**:
+Mã mẫu này cho bạn thấy cách thêm một liên kết siêu văn bản vào **tệp âm thanh**:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IAudio audio = pres.Audios.AddAudio(File.ReadAllBytes("audio.mp3"));
@@ -110,10 +121,12 @@ using (Presentation pres = new Presentation())
     pres.Save("pres-out.pptx", SaveFormat.Pptx);
 }
 ```
-
- Đoạn mã mẫu này cho bạn thấy cách thêm siêu liên kết vào **video**:
+Mã mẫu này cho bạn thấy cách thêm một liên kết siêu văn bản vào **video**:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IVideo video = pres.Videos.AddVideo(File.ReadAllBytes("video.avi"));
@@ -126,20 +139,24 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-{{%  alert  title="Mẹo"  color="primary"  %}} 
+{{%  alert  title="Tip"  color="info"  %}} 
 
 Bạn có thể muốn xem *[Quản lý OLE](https://docs.aspose.com/slides/vi/net/manage-ole/)*.
 
 {{% /alert %}}
 
 
-## **Sử Dụng Siêu Liên Kết Để Tạo Mục Lục**
+## **Sử dụng Liên kết để Tạo Mục Lục**
 
-Vì siêu liên kết cho phép bạn thêm tham chiếu tới các đối tượng hoặc vị trí, bạn có thể sử dụng chúng để tạo mục lục. 
+Vì liên kết siêu văn bản cho phép bạn thêm tham chiếu đến các đối tượng hoặc vị trí, bạn có thể sử dụng chúng để tạo mục lục. 
 
-Đoạn mã mẫu này cho bạn thấy cách tạo mục lục với siêu liên kết:
+Mã mẫu này cho bạn thấy cách tạo mục lục với các liên kết siêu văn bản:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation())
 {
     var firstSlide = presentation.Slides[0];
@@ -166,15 +183,19 @@ using (var presentation = new Presentation())
 }
 ```
 
-## **Định Dạng Siêu Liên Kết**
+## **Định dạng Liên kết**
 
-### **Màu Sắc**
+### **Màu sắc**
 
-Với thuộc tính [ColorSource](https://reference.aspose.com/slides/vi/net/aspose.slides/ihyperlink/properties/colorsource) trong giao diện [IHyperlink](https://reference.aspose.com/slides/vi/net/aspose.slides/ihyperlink), bạn có thể đặt màu cho siêu liên kết và cũng có thể lấy thông tin màu từ siêu liên kết. Tính năng này lần đầu được giới thiệu trong PowerPoint 2019, vì vậy các thay đổi liên quan đến thuộc tính này không áp dụng cho các phiên bản PowerPoint cũ hơn.
+Với thuộc tính [ColorSource](https://reference.aspose.com/slides/vi/net/aspose.slides/ihyperlink/properties/colorsource) trong giao diện [IHyperlink](https://reference.aspose.com/slides/vi/net/aspose.slides/ihyperlink), bạn có thể đặt màu cho các liên kết siêu văn bản và cũng có thể lấy thông tin màu từ các liên kết. Tính năng này lần đầu được giới thiệu trong PowerPoint 2019, vì vậy các thay đổi liên quan đến thuộc tính này không áp dụng cho các phiên bản PowerPoint cũ hơn.
 
-Đoạn mã mẫu này minh họa một thao tác trong đó các siêu liên kết với màu sắc khác nhau được thêm vào cùng một slide:
+Mã mẫu này minh họa một thao tác trong đó các liên kết siêu văn bản với màu sắc khác nhau được thêm vào cùng một slide:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -191,17 +212,20 @@ using (Presentation presentation = new Presentation())
     presentation.Save("presentation-out-hyperlink.pptx", SaveFormat.Pptx);
 }
 ```
-### **Âm Thanh**
+### **Âm thanh**
 
-Aspose.Slides cung cấp các thuộc tính sau để cho phép bạn nhấn mạnh một siêu liên kết bằng âm thanh:
+Aspose.Slides cung cấp các thuộc tính này để cho phép bạn nhấn mạnh một liên kết siêu văn bản bằng âm thanh:
 - [IHyperlink.Sound](https://reference.aspose.com/slides/vi/net/aspose.slides/ihyperlink/properties/sound) 
 - [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/vi/net/aspose.slides/ihyperlink/properties/stopsoundonclick)
 
-#### **Thêm Âm Thanh Cho Siêu Liên Kết**
+#### **Thêm Âm thanh cho Liên kết**
 
-Đoạn mã C# này cho bạn thấy cách thiết lập siêu liên kết phát âm thanh và dừng nó bằng một siêu liên kết khác:
+Mã C# này cho bạn thấy cách đặt liên kết siêu văn bản để phát âm thanh và dừng nó bằng một liên kết siêu văn bản khác:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
 	// Thêm âm thanh mới vào bộ sưu tập âm thanh của bản trình chiếu
@@ -209,58 +233,63 @@ using (Presentation pres = new Presentation())
 
 	ISlide firstSlide = pres.Slides[0];
 
-	// Thêm hình dạng mới với siêu liên kết tới slide tiếp theo
+	// Thêm hình dạng mới với liên kết tới slide tiếp theo
 	IShape firstShape = firstSlide.Shapes.AddAutoShape(ShapeType.SoundButton, 100, 100, 100, 50);
 	firstShape.HyperlinkClick = Hyperlink.NextSlide;
 
-	// Kiểm tra siêu liên kết cho "No Sound"
+	// Kiểm tra liên kết cho "No Sound"
 	if (!firstShape.HyperlinkClick.StopSoundOnClick && firstShape.HyperlinkClick.Sound == null)
 	{
-		// Đặt siêu liên kết phát âm thanh
+		// Đặt liên kết sẽ phát âm thanh
 		firstShape.HyperlinkClick.Sound = playSound;
 	}
 
 	// Thêm slide trống 
 	ISlide secondSlide = pres.Slides.AddEmptySlide(firstSlide.LayoutSlide);
 
-	// Thêm hình dạng mới với siêu liên kết NoAction
+	// Thêm hình dạng mới với liên kết NoAction
 	IShape secondShape = secondSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 100, 50);
 	secondShape.HyperlinkClick = Hyperlink.NoAction;
 
-	// Đặt cờ "Stop previous sound" cho siêu liên kết
+	// Đặt cờ "Stop previous sound" cho liên kết
 	secondShape.HyperlinkClick.StopSoundOnClick = true;
 
 	pres.Save("hyperlink-sound.pptx", SaveFormat.Pptx);
 }
 ```
 
-#### **Trích Xuất Âm Thanh Từ Siêu Liên Kết**
+#### **Trích xuất Âm thanh từ Liên kết**
 
-Đoạn mã C# này cho bạn thấy cách trích xuất âm thanh được sử dụng trong một siêu liên kết:
+Mã C# này cho bạn thấy cách trích xuất âm thanh được sử dụng trong một liên kết siêu văn bản:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 {
 	ISlide firstSlide = pres.Slides[0];
 
-	// Lấy siêu liên kết của hình dạng đầu tiên
+	// Lấy liên kết siêu văn bản của hình dạng đầu tiên
 	IHyperlink link = firstSlide.Shapes[0].HyperlinkClick;
 
 	if (link.Sound != null)
 	{
-		// Trích xuất âm thanh siêu liên kết dưới dạng mảng byte
+		// Trích xuất âm thanh của liên kết siêu văn bản thành mảng byte
 		byte[] audioData = link.Sound.BinaryData;
 	}
 }
 ```
 
-## **Xóa Siêu Liên Kết Khỏi Bản Trình Chiếu**
+## **Xóa Liên kết khỏi Bản trình chiếu**
 
-### **Xóa Siêu Liên Kết Khỏi Văn Bản**
+### **Xóa Liên kết khỏi Văn bản**
 
-Đoạn mã C# này cho bạn thấy cách xóa siêu liên kết khỏi văn bản trong một slide của bản trình chiếu:
+Mã C# này cho bạn thấy cách xóa liên kết siêu văn bản khỏi văn bản trong một slide của bản trình chiếu:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     ISlide slide = pres.Slides[0];
@@ -283,11 +312,14 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-### **Xóa Siêu Liên Kết Khỏi Hình Dạng hoặc Khung**
+### **Xóa Liên kết khỏi Hình dạng hoặc Khung**
 
-Đoạn mã C# này cho bạn thấy cách xóa siêu liên kết khỏi một hình dạng trong một slide của bản trình chiếu: 
+Mã C# này cho bạn thấy cách xóa liên kết siêu văn bản khỏi một hình dạng trong slide của bản trình chiếu: 
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("demo.pptx")) 
 { 
    ISlide slide = pres.Slides[0]; 
@@ -299,18 +331,21 @@ using (Presentation pres = new Presentation("demo.pptx"))
 }
 ```
 
-## **Siêu Liên Kết Có Thể Thay Đổi**
+## **Liên kết có thể thay đổi**
 
-Lớp [Hyperlink](https://reference.aspose.com/slides/vi/net/aspose.slides/hyperlink) là mutable. Với lớp này, bạn có thể thay đổi giá trị của các thuộc tính sau:
+Lớp [Hyperlink](https://reference.aspose.com/slides/vi/net/aspose.slides/hyperlink) có thể thay đổi. Với lớp này, bạn có thể thay đổi giá trị của các thuộc tính sau:
 
 - [IHyperlink.TargetFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/ihyperlink/properties/targetframe)
 - [IHyperlink.Tooltip](https://reference.aspose.com/slides/vi/net/aspose.slides/ihyperlink/properties/tooltip)
 - [IHyperlink.History](https://reference.aspose.com/slides/vi/net/aspose.slides/ihyperlink/properties/history)
 - [IHyperlink.HighlightClick](https://reference.aspose.com/slides/vi/net/aspose.slides/ihyperlink/properties/highlightclick)
 
-Đoạn mã mẫu cho bạn thấy cách thêm một siêu liên kết vào slide và chỉnh sửa tooltip của nó sau đó:
+Đoạn mã dưới đây cho bạn thấy cách thêm một liên kết siêu văn bản vào slide và chỉnh sửa chú giải công cụ (tooltip) của nó sau này:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {   
    IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);    
@@ -327,9 +362,9 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Các Thuộc Tính Được Hỗ Trợ Trong IHyperlinkQueries**
+## **Các thuộc tính được hỗ trợ trong IHyperlinkQueries**
 
-Bạn có thể truy cập IHyperlinkQueries từ một bản trình chiếu, slide hoặc văn bản mà siêu liên kết được định nghĩa. 
+Bạn có thể truy cập IHyperlinkQueries từ một bản trình chiếu, slide hoặc văn bản mà trong đó liên kết siêu văn bản được định nghĩa. 
 
 - [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/vi/net/aspose.slides/ipresentation/properties/hyperlinkqueries)
 - [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/vi/net/aspose.slides/ibaseslide/properties/hyperlinkqueries)
@@ -342,16 +377,16 @@ Lớp IHyperlinkQueries hỗ trợ các phương thức và thuộc tính sau:
 - [IHyperlinkQueries.GetAnyHyperlinks();](https://reference.aspose.com/slides/vi/net/aspose.slides/ihyperlinkqueries/methods/getanyhyperlinks)
 - [IHyperlinkQueries.RemoveAllHyperlinks();](https://reference.aspose.com/slides/vi/net/aspose.slides/ihyperlinkqueries/methods/removeallhyperlinks)
 
-## **Câu Hỏi Thường Gặp**
+## **FAQ**
 
-**Làm thế nào tôi có thể tạo điều hướng nội bộ không chỉ tới một slide, mà tới “phần” hoặc slide đầu tiên của một phần?**
+### Làm sao tôi có thể tạo điều hướng nội bộ không chỉ tới một slide, mà tới một “phần” hoặc slide đầu tiên của một phần?
 
-Các phần trong PowerPoint là các nhóm slide; điều hướng về mặt kỹ thuật vẫn nhắm tới một slide cụ thể. Để “đi tới một phần”, bạn thường liên kết tới slide đầu tiên của phần đó.
+Các phần trong PowerPoint là nhóm các slide; điều hướng về mặt kỹ thuật hướng tới một slide cụ thể. Để “đi tới một phần”, bạn thường liên kết tới slide đầu tiên của phần đó.
 
-**Tôi có thể gắn siêu liên kết vào các thành phần của slide chủ (master) để chúng hoạt động trên tất cả các slide không?**
+### Tôi có thể gắn liên kết siêu văn bản vào các yếu tố của master slide để chúng hoạt động trên tất cả các slide không?
 
-Có. Các thành phần của slide chủ và bố cục hỗ trợ siêu liên kết. Các liên kết này sẽ xuất hiện trên các slide con và có thể nhấp được trong khi trình chiếu.
+Có. Các yếu tố của master slide và layout hỗ trợ liên kết siêu văn bản. Những liên kết này sẽ xuất hiện trên các slide con và có thể nhấp được trong quá trình trình chiếu.
 
-**Liệu siêu liên kết có được giữ lại khi xuất ra PDF, HTML, hình ảnh hoặc video không?**
+### Liên kết siêu văn bản có được giữ lại khi xuất ra PDF, HTML, hình ảnh hoặc video không?
 
-Trong [PDF](/slides/vi/net/convert-powerpoint-to-pdf/) và [HTML](/slides/vi/net/convert-powerpoint-to-html/), có, các liên kết thường được giữ lại. Khi xuất ra [hình ảnh](/slides/vi/net/convert-powerpoint-to-png/) và [video](/slides/vi/net/convert-powerpoint-to-video/), khả năng nhấp sẽ không được chuyển vì các định dạng này (khung raster/video) không hỗ trợ siêu liên kết.
+Trong [PDF](/slides/vi/net/convert-powerpoint-to-pdf/) và [HTML](/slides/vi/net/convert-powerpoint-to-html/), có — các liên kết thường được giữ lại. Khi xuất ra [hình ảnh](/slides/vi/net/convert-powerpoint-to-png/) và [video](/slides/vi/net/convert-powerpoint-to-video/), tính năng có thể nhấp sẽ không được chuyển sang do bản chất của các định dạng này (khung raster/video không hỗ trợ liên kết siêu văn bản).

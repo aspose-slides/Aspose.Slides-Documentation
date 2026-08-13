@@ -1,72 +1,76 @@
 ---
-title: "Megértés: PPT vs PPTX közötti különbség"
-linktitle: PPT vs PPTX
+title: "A különbség megértése: PPT vs PPTX"
+linktitle: "PPT vs PPTX"
 type: docs
 weight: 10
 url: /hu/java/ppt-vs-pptx/
 keywords:
-- PPT vs PPTX
-- PPT vagy PPTX
-- régi formátum
-- modern formátum
-- bináris formátum
-- modern szabvány
-- PowerPoint
-- prezentáció
-- Java
-- Aspose.Slides
-description: "Hasonlítsa össze a PPT‑t és a PPTX‑et a PowerPoint számára az Aspose.Slides for Java segítségével, vizsgálva a formátumkülönbségeket, előnyöket, kompatibilitást és átalakítási tippeket."
+- "PPT vs PPTX"
+- "PPT vagy PPTX"
+- "örökölt formátum"
+- "modern formátum"
+- "bináris formátum"
+- "modern szabvány"
+- "PowerPoint"
+- "prezentáció"
+- "Java"
+- "Aspose.Slides"
+description: "Hasonlítsa össze a PPT-t és a PPTX-et a PowerPointhoz az Aspose.Slides for Java segítségével, megvizsgálva a formátumok közti különbségeket, előnyöket, kompatibilitást és a konverziós tippeket."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja a PPT és a PPTX formátumok közötti különbségeket. Leírja a PPT‑t, mint a PowerPoint 97–2003‑ban használt örökölt bináris formátumot, míg a PPTX‑et a modern Office Open XML‑alapú formátumként mutatja be, amely nagyobb rugalmasságot kínál és jobban alkalmas a bemutatók képességeinek bővítésére. A cikk kitér a formátumok közötti átalakítás kulcsfontosságú szempontjaira, beleértve a kompatibilitási megfontolásokat, és megmutatja, hogyan használható az Aspose.Slides ilyen átalakításokhoz. Általánosságban a PPTX‑et ajánljuk, amennyiben lehetséges.
+Ez a cikk ismerteti a PPT és PPTX formátumok közötti különbségeket. Leírja, hogy a PPT a PowerPoint 97-2003 által használt örökölt bináris formátum, míg a PPTX a modern Office Open XML-alapú formátum, amely nagyobb rugalmasságot kínál, és jobban alkalmas a bemutatók képességeinek bővítésére. A cikk bemutatja a formátumok közötti átalakítás kulcsfontosságú szempontjait, beleértve a kompatibilitási megfontolásokat, és megmutatja, hogyan használható az Aspose.Slides az ilyen átalakítások végrehajtásához. Általánosságban a PPTX-et ajánljuk, ha lehetséges.
 
 ## **Mi a PPT?**
-[**PPT**](https://docs.fileformat.com/presentation/ppt/) egy bináris fájlformátum, vagyis speciális eszközök nélkül lehetetlen megtekinteni a tartalmát. Az első PowerPoint 97‑2003 verziók a PPT fájlformátummal dolgoztak, azonban bővíthetősége korlátozott.
+[**PPT**](https://docs.fileformat.com/presentation/ppt/) egy bináris fájlformátum, azaz speciális eszközök nélkül lehetetlen megtekinteni a tartalmát. Az első PowerPoint 97-2003 verziók a PPT fájlformátummal dolgoztak, azonban a bővíthetősége korlátozott.
 
 ## **Mi a PPTX?**
-[**PPTX**](https://docs.fileformat.com/presentation/pptx/) egy új prezentációs fájlformátum, amely az Office Open XML (ISO 29500:2008‑2016, ECMA‑376) szabványon alapul. A PPTX egy archivált XML‑ és médiafájlokból álló halmaz. A PPTX formátum könnyen kibővíthető. Például egyszerűen hozzáadható egy új diagram‑ vagy alakzattípus támogatása anélkül, hogy minden új PowerPoint verzióban módosítani kellene a PPTX formátumot. A PPTX formátum a PowerPoint 2007‑től használható.
+[**PPTX**](https://docs.fileformat.com/presentation/pptx/) egy új bemutató fájlformátum, az Office Open XML (ISO 29500:2008-2016, ECMA-376) szabványon alapul. A PPTX egy archivált XML és médiafájlok halmaza. A PPTX formátum könnyen bővíthető. Például egyszerűen hozzáadható egy új diagramtípus vagy alakzat típus anélkül, hogy minden új PowerPoint verzióban módosítani kellene a PPTX formátumot. A PPTX formátumot a PowerPoint 2007-tol kezdve használják.
 
 ## **PPT vs PPTX**
-Bár a PPTX sokkal szélesebb funkcionalitást biztosít, a PPT továbbra is népszerű. A PPT‑ről PPTX‑re és vissza történő átalakítás iránti igény magas.
+Bár a PPTX sokkal szélesebb funkcionalitást nyújt, a PPT még mindig igen népszerű. A PPT-ről PPTX-re és vissza történő átalakítás igénye magas.
 
-Azonban a régi PPT és az új PPTX formátum közötti átalakítás a legösszetettebb kihívás a többi Microsoft Office formátum között. Bár a PPT formátum specifikációja nyílt, nehéz vele dolgozni. A PowerPoint speciális részeket (MetroBlob) hozhat létre PPT fájlokban, hogy tárolja a PPTX‑ből származó, a PPT formátum által nem támogatott információkat, amelyek nem jeleníthetők meg a régi PowerPoint verziókban. Ezek az információk helyreállíthatók, ha egy PPT fájlt modern PowerPoint verzióban betöltenek vagy PPTX formátumra konvertálnak.
+Azonban a régi PPT és az új PPTX formátum közötti konverzió a legösszetettebb kihívás a többi Microsoft Office formátum között. Bár a PPT formátum specifikációja nyílt, nehéz vele dolgozni. A PowerPoint speciális részeket (MetroBlob) hozhat létre a PPT fájlokban, hogy tárolja a PPTX-ből származó, a PPT formátum által nem támogatott információkat, amelyeket a régi PowerPoint verziók nem tudnak megjeleníteni. Ez az információ helyreállítható, amikor egy PPT fájlt egy modern PowerPoint verzióban betöltenek vagy PPTX formátumba konvertálnak.
 
-Az Aspose.Slides közös felületet biztosít az összes prezentációs formátummal való munkához. Nagyon egyszerű módon teszi lehetővé a PPT‑ről PPTX‑re és a PPTX‑ről PPT‑re történő átalakítást. Az Aspose.Slides teljes mértékben támogatja a PPT‑ről PPTX‑re konverziót, és bizonyos korlátozásokkal a PPTX‑ről PPT‑re konverziót is. Ajánljuk a PPTX formátum használatát, ahol csak lehetséges.
+Az Aspose.Slides egy közös felületet biztosít az összes bemutatóformátummal való munkához. Lehetővé teszi a PPT-ről PPTX-re és a PPTX-ről PPT-re történő egyszerű konvertálást. Az Aspose.Slides teljes körűen támogatja a PPT-ről PPTX-re történő konvertálást, valamint a PPTX-ről PPT-re történő konvertálást bizonyos korlátozásokkal. Ajánljuk a PPTX formátum használatát, ahol csak lehetséges.
 
-{{% alert color="primary" %}} 
-Ellenőrizze a PPT‑ről PPTX‑re és PPTX‑ről PPT‑re átalakítások minőségét az online [**Aspose.Slides Conversion app**](https://products.aspose.app/slides/hu/conversion/) segítségével.
+{{% alert color="info" %}} 
+
+Ellenőrizze a PPT-ről PPTX-re és PPTX-ről PPT-re konverziók minőségét az online [**Aspose.Slides Conversion app**](https://products.aspose.app/slides/hu/conversion/).
+
 {{% /alert %}} 
 
 ```java
-// Példányosít egy Presentation objektumot, amely PPT fájlt képvisel
+import com.aspose.slides.*;
+
+// Létrehoz egy Presentation objektumot, amely egy PPT fájlt képvisel
 Presentation pres = new Presentation("PPTtoPPTX.ppt");
 try {
-// A PPT prezentáció mentése PPTX formátumba
+// PPT prezentáció mentése PPTX formátumba
     pres.save("PPTtoPPTX_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-{{% alert color="primary" %}} 
-Olvassa el részletesebben a [**Hogyan konvertáljuk a prezentációkat PPT‑ről PPTX‑re**.](/slides/hu/java/convert-ppt-to-pptx/)
+{{% alert color="info" %}} 
+Olvassa el továbbiakban a [**Hogyan konvertáljunk prezentációkat PPT-ről PPTX-re**](/slides/hu/java/convert-ppt-to-pptx/)
 {{% /alert %}} 
 
-## **FAQ**
+## **GYIK**
 
-**Van értelme megtartani a régi PPT prezentációkat, ha hibátlanul megnyílnak?**
+### Van-e értelme a régi PPT bemutatókat megtartani, ha hiba nélkül nyílnak meg?
 
-Ha egy prezentáció megbízhatóan megnyílik, és nem igényel együttműködést vagy újabb funkciókat, megtartható PPT‑ként. Azonban a jövőbeli kompatibilitás és bővíthetőség érdekében jobb a [konvertálás PPTX‑re](/slides/hu/java/convert-ppt-to-pptx/): a formátum az nyílt OOXML szabványon alapul, és modernebb eszközök által könnyebben támogatott.
+Ha egy bemutató megbízhatóan megnyílik, és nem igényel együttműködést vagy újabb funkciókat, akkor megtartható PPT-ként. Azonban a jövőbeli kompatibilitás és bővíthetőség érdekében jobb, ha [átalakítja PPTX-re](/slides/hu/java/convert-ppt-to-pptx/): a formátum a nyílt OOXML szabványon alapul, és modernebb eszközök könnyebben támogatják.
 
-**Hogyan dönthetem el, mely fájlok a legkritikusabbak a PPTX‑re való első konvertáláshoz?**
+### Hogyan döntheti el, melyik fájlokat konvertálja először PPTX-re?
 
-Először azokat a prezentációkat konvertálja, amelyek: több személy által szerkesztettek; összetett [diagramokat](/slides/hu/java/create-chart/)/[alakzatokat](/slides/hu/java/shape-manipulations/) tartalmaznak; külső kommunikációban használatosak; vagy figyelmeztetést generálnak [megnyitáskor](/slides/hu/java/open-presentation/).
+Konvertálja először azokat a bemutatókat, amelyek: több felhasználó által szerkesztettek; összetett [diagramok](/slides/hu/java/create-chart/)/[alakzatok](/slides/hu/java/shape-manipulations/); külső kommunikációban használatosak; vagy figyelmeztetést adnak, ha [megnyitják](/slides/hu/java/open-presentation/).
 
-**Megmarad a jelszóvédelem a PPT‑ről PPTX‑re és vissza történő konvertálás során?**
+### Megőrizhető-e a jelszóvédelem a PPT-ről PPTX-re és vissza történő konverzió során?
 
-A jelszó csak akkor marad meg, ha a konverzió és a titkosítás támogatása megfelelően működik az adott eszközben. Megbízhatóbb, ha először [védettség eltávolítása](/slides/hu/java/password-protected-presentation/), [konvertálás](/slides/hu/java/convert-ppt-to-pptx/), majd újraalkalmazza a védelmet a biztonsági irányelveknek megfelelően.
+A jelszó jelenléte csak akkor kerül át, ha a megfelelő konvertálás és titkosítás támogatásával rendelkezik az eszköz. Megbízhatóbb a [jelszó eltávolítása](/slides/hu/java/password-protected-presentation/), [konvertálás](/slides/hu/java/convert-ppt-to-pptx/), majd a védelem újbóli alkalmazása a biztonsági irányelveknek megfelelően.
 
-**Miért tűnnek el vagy egyszerűsödnek egyes hatások a PPTX‑ről PPT‑re visszakonvertálás során?**
+### Miért tűnnek el vagy egyszerűsödnek néhány effektus a PPTX-ről PPT-re visszakonvertáláskor?
 
-Mivel a PPT nem támogat bizonyos újabb objektumokat/tulajdonságokat. A PowerPoint és egyes eszközök speciális blokkokban tárolhatják ennek az információnak a „nyomait” későbbi helyreállításra, de a régebbi PowerPoint verziók nem tudják megjeleníteni őket.
+Mert a PPT nem támogatja a újabb objektumok/tulajdonságok egy részét. A PowerPoint és az eszközök tárolhatnak „nyomokat” erről az információról speciális blokkokban a későbbi helyreállítás érdekében, de a régi PowerPoint verziók nem tudják megjeleníteni őket.

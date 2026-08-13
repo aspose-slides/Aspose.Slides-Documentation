@@ -1,5 +1,5 @@
 ---
-title: Android पर PowerPoint फ़ॉन्ट्स को कस्टमाइज़ करें
+title: Android पर PowerPoint फ़ॉन्ट को कस्टमाइज़ करें
 linktitle: कस्टम फ़ॉन्ट
 type: docs
 weight: 20
@@ -8,8 +8,8 @@ keywords:
 - फ़ॉन्ट
 - कस्टम फ़ॉन्ट
 - बाहरी फ़ॉन्ट
-- फ़ॉन्ट लोड करें
-- फ़ॉन्ट्स का प्रबंधन
+- फ़ॉन्ट लोड
+- फ़ॉन्ट प्रबंधन
 - फ़ॉन्ट फ़ोल्डर
 - PowerPoint
 - OpenDocument
@@ -17,84 +17,97 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android के साथ Java के माध्यम से PowerPoint स्लाइड्स में फ़ॉन्ट्स को कस्टमाइज़ करें ताकि आपके प्रेज़ेंटेशन किसी भी डिवाइस पर स्पष्ट और सुसंगत रहें।"
+description: "Android के लिए Aspose.Slides के साथ Java के माध्यम से PowerPoint स्लाइड्स में फ़ॉन्ट कस्टमाइज़ करें ताकि आपके प्रेजेंटेशन किसी भी डिवाइस पर स्पष्ट और सुसंगत रहें।"
 ---
 ## **अवलोकन**
 
-Aspose.Slides आपको प्रस्तुतियों में कस्टम फ़ॉन्ट्स का उपयोग करने की अनुमति देता है बिना उन्हें ऑपरेटिंग सिस्टम पर स्थापित किए। आप कस्टम फ़ोल्डरों से फ़ॉन्ट्स लोड कर सकते हैं, दस्तावेज़‑स्तर फ़ॉन्ट स्रोतों के माध्यम से किसी विशेष प्रस्तुति के लिए फ़ॉन्ट्स प्रदान कर सकते हैं, या बाइनरी डेटा से सीधे बाहरी फ़ॉन्ट्स लोड कर सकते हैं।
+Aspose.Slides आपको प्रस्तुतियों में कस्टम फ़ॉन्ट बिना ऑपरेटिंग सिस्टम पर इंस्टॉल किए उपयोग करने देता है। आप कस्टम फ़ोल्डर्स से फ़ॉन्ट लोड कर सकते हैं, दस्तावेज़‑स्तरीय फ़ॉन्ट स्रोतों के माध्यम से किसी विशिष्ट प्रस्तुति के लिए फ़ॉन्ट प्रदान कर सकते हैं, या बाइनरी डेटा से सीधे बाहरी फ़ॉन्ट लोड कर सकते हैं।
 
-लोड किए गए फ़ॉन्ट्स का उपयोग तब किया जाता है जब प्रस्तुति को रेंडर या निर्यात किया जाता है, उदाहरण के लिए PDF, छवियों और अन्य समर्थित स्वरूपों में। यह विभिन्न वातावरणों में प्रस्तुति आउटपुट को समान रखने में मदद करता है। लेख यह भी बताता है कि Aspose.Slides द्वारा उपयोग किए जाने वाले फ़ॉन्ट फ़ोल्डरों की जाँच कैसे की जाए और बाहरी फ़ॉन्ट्स के साथ काम करने के बाद फ़ॉन्ट कैश को कैसे साफ़ किया जाए।
+लोड किए गए फ़ॉन्ट प्रस्तुति के रेंडर या निर्यात (जैसे PDF, इमेज, और अन्य समर्थित फ़ॉर्मेट) के समय उपयोग होते हैं। यह विभिन्न वातावरणों में प्रस्तुति आउटपुट को सुसंगत रखने में मदद करता है। यह लेख यह भी बताता है कि Aspose.Slides द्वारा उपयोग किए जाने वाले फ़ॉन्ट फ़ोल्डर कैसे जांचें और बाहरी फ़ॉन्ट के साथ काम करने के बाद फ़ॉन्ट कैश कैसे साफ़ करें।
 
-रेंडरिंग के लिए कस्टम फ़ॉन्ट्स को पंजीकृत करना PPTX फ़ाइल में फ़ॉन्ट एम्बेड करने से अलग है। यदि फ़ॉन्ट को प्रस्तुति के भीतर ही संग्रहीत करना आवश्यक है, तो फ़ॉन्ट एम्बेडिंग सुविधाओं का स्पष्ट रूप से उपयोग करें।
+रेंडरिंग के लिए कस्टम फ़ॉन्ट रजिस्टर करना PPTX फ़ाइल में फ़ॉन्ट एम्बेड करने से अलग है। यदि फ़ॉन्ट को प्रस्तुति के भीतर संग्रहीत करना हो, तो फ़ॉन्ट एम्बेडिंग सुविधाओं का स्पष्ट रूप से उपयोग करें।
 
-{{% alert color="primary" %}} 
-Aspose Slides आपको इन फ़ॉन्ट्स को [loadExternalFonts](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) मेथड का उपयोग करके लोड करने की अनुमति देता है:
+{{% alert color="info" %}} 
 
-* TrueType (.ttf) और TrueType Collection (.ttc) फ़ॉन्ट्स। देखें [TrueType](https://en.wikipedia.org/wiki/TrueType)।
+Aspose Slides आपको ये फ़ॉन्ट निम्नलिखित मेथड से लोड करने देता है: [loadExternalFonts](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---)
 
-* OpenType (.otf) फ़ॉन्ट्स। देखें [OpenType](https://en.wikipedia.org/wiki/OpenType)।
+* TrueType (.ttf) और TrueType Collection (.ttc) फ़ॉन्ट। देखें [TrueType](https://en.wikipedia.org/wiki/TrueType)।
+
+* OpenType (.otf) फ़ॉन्ट। देखें [OpenType](https://en.wikipedia.org/wiki/OpenType)।
 
 {{% /alert %}}
 
-## **कस्टम फ़ॉन्ट्स लोड करें**
+## **कस्टम फ़ॉन्ट लोड करें**
 
-Aspose.Slides आपको प्रस्तुति में उपयोग होने वाले फ़ॉन्ट्स को सिस्टम पर स्थापित किए बिना लोड करने की अनुमति देता है। यह निर्यात आउटपुट—जैसे PDF, छवियां और अन्य समर्थित स्वरूप—को प्रभावित करता है ताकि उत्पन्न दस्तावेज़ विभिन्न वातावरणों में समान दिखें। फ़ॉन्ट्स कस्टम डायरेक्टरीज़ से लोड किए जाते हैं।
+Aspose.Slides आपको प्रस्तुति में उपयोग किए जाने वाले फ़ॉन्ट को सिस्टम पर इंस्टॉल किए बिना लोड करने देता है। यह निर्यात आउटपुट—जैसे PDF, इमेज, और अन्य समर्थित फ़ॉर्मेट—को प्रभावित करता है, जिससे उत्पन्न दस्तावेज़ विभिन्न वातावरणों में सुसंगत दिखते हैं। फ़ॉन्ट कस्टम डायरेक्टरी से लोड होते हैं।
 
-1. उन फ़ोल्डरों को निर्दिष्ट करें जिसमें फ़ॉन्ट फ़ाइलें मौजूद हों।  
-2. स्थैतिक [FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) मेथड को कॉल करके उन फ़ोल्डरों से फ़ॉन्ट्स लोड करें।  
-3. प्रस्तुति को लोड और रेंडर/निर्यात करें।  
+1. उन फ़ोल्डर्स को निर्दिष्ट करें जिनमें फ़ॉन्ट फ़ाइलें हैं।
+2. स्थिर मेथड [FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) को कॉल करके उन फ़ोल्डरों से फ़ॉन्ट लोड करें।
+3. प्रस्तुति को लोड और रेंडर/निर्यात करें।
 4. फ़ॉन्ट कैश को साफ़ करने के लिए [FontsLoader.clearCache](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/FontsLoader#clearCache--) को कॉल करें।
 
 निम्नलिखित कोड उदाहरण फ़ॉन्ट लोडिंग प्रक्रिया को दर्शाता है:
 
 ```java
-// कस्टम फ़ॉन्ट फ़ाइलों वाले फ़ोल्डर्स को परिभाषित करें.
+import com.aspose.slides.*;
+
+// कस्टम फ़ॉन्ट फ़ाइलों वाले फ़ोल्डरों को परिभाषित करें।
+String externalFontFolder1 = "assets/fonts";
+String externalFontFolder2 = "global/fonts";
+
 String[] fontFolders = new String[] { externalFontFolder1, externalFontFolder2 };
 
-// कस्टम फ़ॉन्ट्स को निर्दिष्ट फ़ोल्डरों से लोड करें.
+// Load custom fonts from the specified folders.
 FontsLoader.loadExternalFonts(fontFolders);
 
 Presentation presentation = null;
 try {
     presentation = new Presentation("sample.pptx");
-    
-    // लोड किए गए फ़ॉन्ट्स का उपयोग करके प्रस्तुति को रेंडर/निर्यात करें (उदा., PDF, छवियों, या अन्य स्वरूपों में).
+
+    // लोड किए गए फ़ॉन्ट का उपयोग करके प्रस्तुति को रेंडर/निर्यात करें (जैसे PDF, इमेज, या अन्य फ़ॉर्मेट)।
     presentation.save("output.pdf", SaveFormat.Pdf);
 } finally {
     if (presentation != null) presentation.dispose();
 
-    // काम समाप्त होने के बाद फ़ॉन्ट कैश साफ़ करें.
+    // कार्य समाप्त होने के बाद फ़ॉन्ट कैश साफ़ करें।
     FontsLoader.clearCache();
 }
 ```
 
 {{% alert color="info" title="Note" %}}
-[FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) अतिरिक्त फ़ोल्डरों को फ़ॉन्ट खोज पथ में जोड़ता है, लेकिन फ़ॉन्ट प्रारम्भ क्रम को नहीं बदलता। फ़ॉन्ट्स इस क्रम में प्रारम्भ होते हैं:
 
-1. डिफ़ॉल्ट ऑपरेटिंग सिस्टम फ़ॉन्ट पथ।  
-1. वे पथ जो [FontsLoader](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/fontsloader/) के माध्यम से लोड किए गए हैं।
+[FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) अतिरिक्त फ़ोल्डर को फ़ॉन्ट खोज पथ में जोड़ता है, परंतु फ़ॉन्ट इनिशियलाइज़ेशन क्रम को नहीं बदलता है। फ़ॉन्ट इस क्रम में इनिशियलाइज़ होते हैं:
+
+1. डिफ़ॉल्ट ऑपरेटिंग सिस्टम फ़ॉन्ट पाथ।
+1. [FontsLoader](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/fontsloader/) द्वारा लोड किए गए पाथ।
 
 {{%/alert %}}
 
 ## **कस्टम फ़ॉन्ट फ़ोल्डर प्राप्त करें**
-Aspose.Slides वह [getFontFolders](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/fontsloader/#getFontFolders--) मेथड प्रदान करता है जिससे आप फ़ॉन्ट फ़ोल्डर खोज सकते हैं। यह मेथड `LoadExternalFonts` मेथड द्वारा जोड़े गए फ़ोल्डरों और सिस्टम फ़ॉन्ट फ़ोल्डरों को लौटाता है।
+Aspose.Slides [getFontFolders](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/fontsloader/#getFontFolders--) मेथड प्रदान करता है जिससे आप फ़ॉन्ट फ़ोल्डर खोज सकते हैं। यह मेथड `LoadExternalFonts` मेथड के माध्यम से जोड़े गए फ़ोल्डर और सिस्टम फ़ॉन्ट फ़ोल्डर लौटाता है।
 
-यह Java कोड दिखाता है कि आप [getFontFolders](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/fontsloader/#getFontFolders--) को कैसे उपयोग कर सकते हैं:
+यह Java कोड आपको दिखाता है कि कैसे [getFontFolders](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/fontsloader/#getFontFolders--) का उपयोग करें:
 
 ```java
-// यह पंक्ति उन फ़ोल्डरों को आउटपुट करती है जहाँ फ़ॉन्ट फ़ाइलें खोजी जाती हैं.
-// वे फ़ोल्डर LoadExternalFonts मेथड के माध्यम से जोड़े गए फ़ोल्डर और सिस्टम फ़ॉन्ट फ़ोल्डर हैं.
+import com.aspose.slides.*;
+
+// यह पंक्ति उन फ़ोल्डरों को आउटपुट करती है जहाँ फ़ॉन्ट फ़ाइलों की खोज की जाती है.
+// ये फ़ोल्डर LoadExternalFonts मेथड के द्वारा जोड़े गए फ़ोल्डर और सिस्टम फ़ॉन्ट फ़ोल्डर हैं।
 String[] fontFolders = FontsLoader.getFontFolders();
 ```
 
-## **प्रस्तुति के साथ उपयोग किए जाने वाले कस्टम फ़ॉन्ट्स निर्दिष्ट करें**
-Aspose.Slides वह [setDocumentLevelFontSources](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) प्रॉपर्टी प्रदान करता है जिससे आप प्रस्तुति के साथ उपयोग किए जाने वाले बाहरी फ़ॉन्ट्स को निर्दिष्ट कर सकते हैं।
+## **प्रेजेंटेशन में उपयोग किए जाने वाले कस्टम फ़ॉन्ट निर्दिष्ट करें**
+Aspose.Slides [setDocumentLevelFontSources](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) प्रॉपर्टी प्रदान करता है जिससे आप उन बाहरी फ़ॉन्ट को निर्दिष्ट कर सकते हैं जो प्रस्तुति के साथ उपयोग होंगे।
 
-यह Java कोड दिखाता है कि आप [setDocumentLevelFontSources](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) प्रॉपर्टी को कैसे उपयोग कर सकते हैं:
+यह Java कोड आपको दिखाता है कि कैसे [setDocumentLevelFontSources](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) प्रॉपर्टी का उपयोग करें:
 
 ```java
-byte[] memoryFont1 = Files.readAllBytes("customfonts/CustomFont1.ttf");
-byte[] memoryFont2 = Files.readAllBytes("customfonts/CustomFont2.ttf");
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+byte[] memoryFont1 = Files.readAllBytes(Paths.get("customfonts/CustomFont1.ttf"));
+byte[] memoryFont2 = Files.readAllBytes(Paths.get("customfonts/CustomFont2.ttf"));
 
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.getDocumentLevelFontSources().setFontFolders(new String[] { "assets/fonts", "global/fonts" });
@@ -102,20 +115,24 @@ loadOptions.getDocumentLevelFontSources().setMemoryFonts(new byte[][] { memoryFo
 
 Presentation pres = new Presentation("MyPresentation.pptx", loadOptions);
 try {
-    // प्रस्तुति के साथ कार्य करें
-    // CustomFont1, CustomFont2, और assets\fonts और global\fonts फ़ोल्डरों तथा उनके उपफ़ोल्डरों के फ़ॉन्ट्स प्रस्तुति में उपलब्ध हैं
+    // प्रेज़ेंटेशन के साथ काम करें
+    // CustomFont1, CustomFont2, और assets\fonts तथा global\fonts फ़ोल्डरों और उनके सबफ़ोल्डरों के फ़ॉन्ट प्रेज़ेंटेशन के लिए उपलब्ध हैं
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **फ़ॉन्ट्स को बाहरी रूप से प्रबंधित करें**
+## **फ़ॉन्ट को बाहरी रूप से प्रबंधित करें**
 
-Aspose.Slides वह [loadExternalFont](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) मेथड प्रदान करता है जिससे आप बाइनरी डेटा से बाहरी फ़ॉन्ट्स लोड कर सकते हैं।
+Aspose.Slides [loadExternalFont](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) मेथड प्रदान करता है जिससे आप बाइनरी डेटा से बाहरी फ़ॉन्ट लोड कर सकते हैं।
 
 यह Java कोड बाइट एरे फ़ॉन्ट लोडिंग प्रक्रिया को दर्शाता है:
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALN.TTF")));
 FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALNBI.TTF")));
 FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALNI.TTF")));
@@ -124,7 +141,7 @@ try
 {
     Presentation pres = new Presentation("");
     try {
-        // presentation के जीवनकाल के दौरान बाहरी फ़ॉन्ट लोड किया गया
+        // प्रेज़ेंटेशन लाइफटाइम के दौरान बाहरी फ़ॉन्ट लोड किया गया
     } finally {
         
     }
@@ -135,24 +152,24 @@ finally
 }
 ```
 
-## **FAQ**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या कस्टम फ़ॉन्ट्स सभी स्वरूपों (PDF, PNG, SVG, HTML) के निर्यात को प्रभावित करते हैं?**
+### क्या कस्टम फ़ॉन्ट सभी फ़ॉर्मेट्स (PDF, PNG, SVG, HTML) पर निर्यात को प्रभावित करते हैं?
 
-हाँ। जुड़े हुए फ़ॉन्ट्स रेंडरर द्वारा सभी निर्यात स्वरूपों में उपयोग किए जाते हैं।
+हां। कनेक्टेड फ़ॉन्ट रेंडरर द्वारा सभी निर्यात फ़ॉर्मेट्स में उपयोग किए जाते हैं।
 
-**क्या कस्टम फ़ॉन्ट्स स्वचालित रूप से उत्पन्न PPTX में एम्बेड हो जाते हैं?**
+### क्या कस्टम फ़ॉन्ट स्वचालित रूप से परिणामी PPTX में एम्बेड हो जाते हैं?
 
-नहीं। रेंडरिंग के लिए फ़ॉन्ट पंजीकृत करने का अर्थ PPTX में एम्बेड करना नहीं है। यदि आपको फ़ॉन्ट को प्रस्तुति फ़ाइल के भीतर ले जाना है, तो आपको स्पष्ट रूप से [embedding features](/slides/hi/androidjava/embedded-font/) का उपयोग करना चाहिए।
+नहीं। रेंडरिंग के लिए फ़ॉन्ट रजिस्टर्ड करना PPTX में एम्बेड करने के समान नहीं है। यदि आपको फ़ॉन्ट को प्रस्तुति फ़ाइल के भीतर रखना है, तो स्पष्ट रूप से [embedding features](/slides/hi/androidjava/embedded-font/) का उपयोग करना होगा।
 
-**क्या मैं कस्टम फ़ॉन्ट में कुछ ग्लिफ़ न होने पर फ़ॉलबैक व्यवहार को नियंत्रित कर सकता हूँ?**
+### क्या मैं तब फॉलबैक व्यवहार नियंत्रित कर सकता हूँ जब कस्टम फ़ॉन्ट में कुछ glyph नहीं होते?
 
-हाँ। आप [font substitution](/slides/hi/androidjava/font-substitution/), [replacement rules](/slides/hi/androidjava/font-replacement/) और [fallback sets](/slides/hi/androidjava/fallback-font/) को कॉन्फ़िगर करके यह निर्धारित कर सकते हैं कि अनुरोधित ग्लिफ़ के अनुपलब्ध होने पर कौन सा फ़ॉन्ट उपयोग किया जाएगा।
+हां। आप [font substitution](/slides/hi/androidjava/font-substitution/), [replacement rules](/slides/hi/androidjava/font-replacement/), और [fallback sets](/slides/hi/androidjava/fallback-font/) को कॉन्फ़िगर कर सकते हैं ताकि अनुरोधित glyph नहीं मिलने पर कौन सा फ़ॉन्ट उपयोग होगा, इसे परिभाषित किया जा सके।
 
-**क्या मैं Linux/Docker कंटेनर में फ़ॉन्ट्स को सिस्टम‑व्यापी स्थापित किए बिना उपयोग कर सकता हूँ?**
+### क्या मैं Linux/Docker कंटेनर में फ़ॉन्ट को सिस्टम‑वाइड इंस्टॉल किए बिना उपयोग कर सकता हूँ?
 
-हाँ। अपनी स्वयं की फ़ॉन्ट फ़ोल्डर की ओर इशारा करें या फ़ॉन्ट्स को बाइट एरे से लोड करें। इससे कंटेनर इमेज में सिस्टम फ़ॉन्ट डायरेक्टरीज़ पर निर्भरता समाप्त हो जाती है।
+हां। अपने स्वयं के फ़ॉन्ट फ़ोल्डर की ओर इशारा करें या बाइट एरे से फ़ॉन्ट लोड करें। इससे कंटेनर इमेज में सिस्टम फ़ॉन्ट डायरेक्टरी पर किसी भी निर्भरता को हटाया जा सकता है।
 
-**लाइसेंसिंग के बारे में—क्या मैं किसी भी कस्टम फ़ॉन्ट को प्रतिबंधों के बिना एम्बेड कर सकता हूँ?**
+### लाइसेंसिंग के बारे में—क्या मैं बिना प्रतिबंध के कोई भी कस्टम फ़ॉन्ट एम्बेड कर सकता हूँ?
 
-आप फ़ॉन्ट लाइसेंसिंग अनुपालन के लिए जिम्मेदार हैं। शर्तें भिन्न होती हैं; कुछ लाइसेंस एम्बेडिंग या व्यावसायिक उपयोग को प्रतिबंधित करते हैं। आउटपुट वितरित करने से पहले हमेशा फ़ॉन्ट की EULA की समीक्षा करें।
+आप फ़ॉन्ट लाइसेंस अनुपालन के लिए जिम्मेदार हैं। शर्तें विविध होती हैं; कुछ लाइसेंस एम्बेडिंग या व्यावसायिक उपयोग को प्रतिबंधित करते हैं। आउटपुट वितरित करने से पहले फ़ॉन्ट की EULA की हमेशा समीक्षा करें।

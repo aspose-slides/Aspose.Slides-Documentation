@@ -14,10 +14,10 @@ keywords:
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Poznaj wymagania zaufania, uprawnienia i ograniczenia hostingu Aspose.Slides dla C++, abyś mógł bezpiecznie wdrażać aplikacje przetwarzające pliki PPT, PPTX i ODP na serwerach."
+description: "Poznaj wymagania zaufania, uprawnienia i ograniczenia hostingu Aspose.Slides dla C++, aby bezpiecznie wdrażać aplikacje przetwarzające PPT, PPTX i ODP na serwerach."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Wszystkie komponenty Aspose C++ wymagają zestawu uprawnień Full Trust. Powodem jest to, że komponenty Aspose C++ muszą mieć dostęp do ustawień rejestru, plików systemowych poza wirtualnym katalogiem w celu wykonywania niektórych operacji, takich jak parsowanie czcionek itp. Co więcej, komponenty Aspose C++ opierają się na podstawowych klasach systemowych C++, które w wielu przypadkach również wymagają zestawu uprawnień Full Trust. 
+Wszystkie komponenty Aspose C++ wymagają zestawu uprawnień Full Trust. Powodem jest to, że komponenty Aspose C++ muszą uzyskiwać dostęp do ustawień rejestru, plików systemowych poza wirtualnym katalogiem w celu wykonania niektórych operacji, takich jak parsowanie czcionek itp. Co więcej, komponenty Aspose C++ opierają się na podstawowych klasach systemowych C++, które również w wielu przypadkach wymagają zestawu uprawnień Full Trust. 
 
 {{% /alert %}}

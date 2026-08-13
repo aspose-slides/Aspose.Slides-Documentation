@@ -7,39 +7,43 @@ url: /nl/net/presentation-background/
 keywords:
 - presentatie-achtergrond
 - dia-achtergrond
-- vaste kleur
-- kleurverloop
-- afbeeldingsachtergrond
+- effen kleur
+- verloopkleur
+- afbeelding-achtergrond
 - achtergrondtransparantie
-- achtergrond-eigenschappen
+- achtergrondeigenschappen
 - PowerPoint
 - OpenDocument
 - presentatie
 - .NET
 - C#
 - Aspose.Slides
-description: "Leer hoe je dynamische achtergronden instelt in PowerPoint- en OpenDocument-bestanden met Aspose.Slides voor .NET, met code-tips om je presentaties te verbeteren."
+description: "Leer hoe u dynamische achtergronden instelt in PowerPoint- en OpenDocument-bestanden met Aspose.Slides voor .NET, met code-tips om uw presentaties te verbeteren."
 ---
-## **Inleiding**
+## **Introductie**
 
-Vaste kleuren, kleurverlopen en afbeeldingen worden vaak gebruikt voor dia‑achtergronden. Je kan de achtergrond instellen voor een **normale dia** (een enkele dia) of een **masterdia** (geldt voor meerdere dia’s tegelijk).
+Effen kleuren, verlopen en afbeeldingen worden vaak gebruikt voor dia‑achtergronden. Je kunt de achtergrond instellen voor een **normale dia** (een enkele dia) of een **masterdia** (geldt voor meerdere dia’s tegelijk).
 
-![PowerPoint-achtergrond](powerpoint-background.png)
+![PowerPoint‑achtergrond](powerpoint-background.png)
 
-## **Stel een vaste kleurachtergrond in voor een normale dia**
+## **Instellen van een effen kleurachtergrond voor een normale dia**
 
-Aspose.Slides maakt het mogelijk om een vaste kleur in te stellen als achtergrond voor een specifieke dia in een presentatie — zelfs als de presentatie een masterdia gebruikt. De wijziging geldt uitsluitend voor de geselecteerde dia.
+Aspose.Slides stelt je in staat om een effen kleur als achtergrond in te stellen voor een specifieke dia in een presentatie — zelfs als de presentatie een masterdia gebruikt. De wijziging geldt alleen voor de geselecteerde dia.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) klasse aan.
-2. Stel de [BackgroundType](https://reference.aspose.com/slides/nl/net/aspose.slides/backgroundtype/) van de dia in op `OwnBackground`.
-3. Stel de [FillType](https://reference.aspose.com/slides/nl/net/aspose.slides/filltype/) van de dia‑achtergrond in op `Solid`.
-4. Gebruik de eigenschap [SolidFillColor](https://reference.aspose.com/slides/nl/net/aspose.slides/fillformat/solidfillcolor/) op [FillFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/fillformat/) om de vaste achtergrondkleur op te geven.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) class.
+2. Stel het [BackgroundType](https://reference.aspose.com/slides/nl/net/aspose.slides/backgroundtype/) van de dia in op `OwnBackground`.
+3. Stel het [FillType](https://reference.aspose.com/slides/nl/net/aspose.slides/filltype/) van de dia‑achtergrond in op `Solid`.
+4. Gebruik de eigenschap [SolidFillColor](https://reference.aspose.com/slides/nl/net/aspose.slides/fillformat/solidfillcolor/) op [FillFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/fillformat/) om de effen achtergrondkleur op te geven.
 5. Sla de gewijzigde presentatie op.
 
-De volgende C#‑voorbeeld laat zien hoe je een blauwe vaste kleur als achtergrond voor een normale dia instelt:
+Het volgende C#‑voorbeeld toont hoe je een blauwe effen kleur als achtergrond instelt voor een normale dia:
 
 ```cs
-// Maak een instantie van de Presentation-klasse aan.
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Maak een instantie van de Presentation-klasse.
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -54,25 +58,29 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Stel een vaste kleurachtergrond in voor een masterdia**
+## **Instellen van een effen kleurachtergrond voor een masterdia**
 
-Aspose.Slides maakt het mogelijk om een vaste kleur in te stellen als achtergrond voor de masterdia in een presentatie. De masterdia fungeert als een sjabloon dat de opmaak voor alle dia’s beheert; wanneer je een vaste kleur voor de achtergrond van de masterdia kiest, wordt deze toegepast op elke dia.
+Aspose.Slides stelt je in staat om een effen kleur als achtergrond in te stellen voor de masterdia in een presentatie. De masterdia fungeert als een sjabloon dat de opmaak van alle dia’s beheert, zodat wanneer je een effen kleur kiest voor de achtergrond van de masterdia, deze op elke dia wordt toegepast.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) klasse aan.
-2. Stel de [BackgroundType](https://reference.aspose.com/slides/nl/net/aspose.slides/backgroundtype/) van de masterdia in (via `masters`) op `OwnBackground`.
-3. Stel de [FillType](https://reference.aspose.com/slides/nl/net/aspose.slides/filltype/) van de masterdia‑achtergrond in op `Solid`.
-4. Gebruik de [SolidFillColor](https://reference.aspose.com/slides/nl/net/aspose.slides/fillformat/solidfillcolor/) om de vaste achtergrondkleur op te geven.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) class.
+2. Stel het [BackgroundType](https://reference.aspose.com/slides/nl/net/aspose.slides/backgroundtype/) van de masterdia (via `masters`) in op `OwnBackground`.
+3. Stel het [FillType](https://reference.aspose.com/slides/nl/net/aspose.slides/filltype/) van de masterdia‑achtergrond in op `Solid`.
+4. Gebruik de eigenschap [SolidFillColor](https://reference.aspose.com/slides/nl/net/aspose.slides/fillformat/solidfillcolor/) om de effen achtergrondkleur op te geven.
 5. Sla de gewijzigde presentatie op.
 
-De volgende C#‑voorbeeld laat zien hoe je een vaste kleur (boshoud) als achtergrond voor een masterdia instelt:
+Het volgende C#‑voorbeeld toont hoe je een effen kleur (bosgroen) als achtergrond instelt voor een masterdia:
 
 ```cs
-// Maak een instantie van de Presentation-klasse aan.
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Maak een instantie van de Presentation-klasse.
 using (Presentation presentation = new Presentation())
 {
     IMasterSlide masterSlide = presentation.Masters[0];
 
-    // Stel de achtergrondkleur voor de Masterdia in op bosgroen.
+    // Stel de achtergrondkleur voor de Masterdia in op Bosgroen.
     masterSlide.Background.Type = BackgroundType.OwnBackground;
     masterSlide.Background.FillFormat.FillType = FillType.Solid;
     masterSlide.Background.FillFormat.SolidFillColor.Color = Color.ForestGreen;
@@ -82,25 +90,28 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Stel een kleurverloopachtergrond in voor een dia**
+## **Instellen van een verloopachtergrond voor een dia**
 
-Een kleurverloop is een grafisch effect dat ontstaat door een geleidelijke verandering in kleur. Wanneer het wordt gebruikt als dia‑achtergrond, kan een kleurverloop presentaties een meer artistiek en professioneel uiterlijk geven. Aspose.Slides maakt het mogelijk om een kleurverloop als achtergrond voor dia’s in te stellen.
+Een verloop is een grafisch effect dat ontstaat door een geleidelijke kleurverandering. Wanneer het wordt gebruikt als dia‑achtergrond, kan een verloop presentaties een meer artistiek en professioneel uiterlijk geven. Aspose.Slides stelt je in staat om een verloopkleur als achtergrond in te stellen voor dia’s.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) klasse aan.
-2. Stel de [BackgroundType](https://reference.aspose.com/slides/nl/net/aspose.slides/backgroundtype/) van de dia in op `OwnBackground`.
-3. Stel de [FillType](https://reference.aspose.com/slides/nl/net/aspose.slides/filltype/) van de dia‑achtergrond in op `Gradient`.
-4. Gebruik de eigenschap [GradientFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/fillformat/gradientformat/) op [FillFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/fillformat/) om je gewenste kleurverloopinstellingen te configureren.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) class.
+2. Stel het [BackgroundType](https://reference.aspose.com/slides/nl/net/aspose.slides/backgroundtype/) van de dia in op `OwnBackground`.
+3. Stel het [FillType](https://reference.aspose.com/slides/nl/net/aspose.slides/filltype/) van de dia‑achtergrond in op `Gradient`.
+4. Gebruik de eigenschap [GradientFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/fillformat/gradientformat/) op [FillFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/fillformat/) om je gewenste verloopinstellingen te configureren.
 5. Sla de gewijzigde presentatie op.
 
-De volgende C#‑voorbeeld laat zien hoe je een kleurverloop als achtergrond voor een dia instelt:
+Het volgende C#‑voorbeeld toont hoe je een verloopkleur als achtergrond instelt voor een dia:
 
 ```cs
-// Maak een instantie van de Presentation-klasse aan.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Maak een instantie van de Presentation-klasse.
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // Pas een kleurverloop toe op de achtergrond.
+    // Pas een verloop-effect toe op de achtergrond.
     slide.Background.Type = BackgroundType.OwnBackground;
     slide.Background.FillFormat.FillType = FillType.Gradient;
     slide.Background.FillFormat.GradientFormat.TileFlip = TileFlip.FlipBoth;
@@ -110,47 +121,53 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Stel een afbeelding in als dia‑achtergrond**
+## **Een afbeelding als dia‑achtergrond instellen**
 
-Naast vaste en kleurverloopvullingen maakt Aspose.Slides het mogelijk om afbeeldingen te gebruiken als dia‑achtergronden.
+Naast effen en verloopvullingen stelt Aspose.Slides je in staat afbeeldingen als dia‑achtergrond te gebruiken.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) klasse aan.
-2. Stel de [BackgroundType](https://reference.aspose.com/slides/nl/net/aspose.slides/backgroundtype/) van de dia in op `OwnBackground`.
-3. Stel de [FillType](https://reference.aspose.com/slides/nl/net/aspose.slides/filltype/) van de dia‑achtergrond in op `Picture`.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) class.
+2. Stel het [BackgroundType](https://reference.aspose.com/slides/nl/net/aspose.slides/backgroundtype/) van de dia in op `OwnBackground`.
+3. Stel het [FillType](https://reference.aspose.com/slides/nl/net/aspose.slides/filltype/) van de dia‑achtergrond in op `Picture`.
 4. Laad de afbeelding die je als dia‑achtergrond wilt gebruiken.
-5. Voeg de afbeelding toe aan de afbeeldingscollectie van de presentatie.
+5. Voeg de afbeelding toe aan de afbeeldingencollectie van de presentatie.
 6. Gebruik de eigenschap [PictureFillFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/fillformat/picturefillformat/) op [FillFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/fillformat/) om de afbeelding als achtergrond toe te wijzen.
 7. Sla de gewijzigde presentatie op.
 
-De volgende C#‑voorbeeld laat zien hoe je een afbeelding als achtergrond voor een dia instelt:
+Het volgende C#‑voorbeeld toont hoe je een afbeelding als achtergrond instelt voor een dia:
 
 ```c#
- // Maak een instantie van de Presentation-klasse aan.
- using (Presentation presentation = new Presentation())
- {
-     ISlide slide = presentation.Slides[0];
- 
-     // Stel eigenschappen van de achtergrondafbeelding in.
-     slide.Background.Type = BackgroundType.OwnBackground;
-     slide.Background.FillFormat.FillType = FillType.Picture;
-     slide.Background.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
- 
-     // Laad de afbeelding.
-     IImage image = Images.FromFile("Tulips.jpg");
-     // Voeg de afbeelding toe aan de afbeeldingscollectie van de presentatie.
-     IPPImage ppImage = presentation.Images.AddImage(image);
-     image.Dispose();
- 
-     slide.Background.FillFormat.PictureFillFormat.Picture.Image = ppImage;
- 
-     // Sla de presentatie op naar schijf.
-     presentation.Save("ImageAsBackground.pptx", SaveFormat.Pptx);
- }
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Maak een instantie van de Presentation-klasse.
+using (Presentation presentation = new Presentation())
+{
+    ISlide slide = presentation.Slides[0];
+
+    // Stel de eigenschappen van de achtergrondafbeelding in.
+    slide.Background.Type = BackgroundType.OwnBackground;
+    slide.Background.FillFormat.FillType = FillType.Picture;
+    slide.Background.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+
+    // Laad de afbeelding.
+    IImage image = Images.FromFile("Tulips.jpg");
+    // Voeg de afbeelding toe aan de afbeeldingencollectie van de presentatie.
+    IPPImage ppImage = presentation.Images.AddImage(image);
+    image.Dispose();
+
+    slide.Background.FillFormat.PictureFillFormat.Picture.Image = ppImage;
+
+    // Sla de presentatie op naar schijf.
+    presentation.Save("ImageAsBackground.pptx", SaveFormat.Pptx);
+}
 ```
 
-De volgende code‑voorbeeld laat zien hoe je het vultype van de achtergrond instelt op een getegeld beeld en de tegel‑eigenschappen wijzigt:
+De volgende code‑sample laat zien hoe je het achtergrondvulltype instelt op een betegelde afbeelding en de betegelingseigenschappen wijzigt:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide firstSlide = presentation.Slides[0];
@@ -164,11 +181,11 @@ using (Presentation presentation = new Presentation())
     using (IImage newImage = Aspose.Slides.Images.FromFile("image.png"))
         ppImage = presentation.Images.AddImage(newImage);
 
-    // Stel de afbeelding in die voor de achtergrondvulling gebruikt wordt.
+    // Stel de afbeelding in die wordt gebruikt voor de achtergrondvulling.
     IPictureFillFormat backPictureFillFormat = background.FillFormat.PictureFillFormat;
     backPictureFillFormat.Picture.Image = ppImage;
 
-    // Stel de picture fill mode in op Tile en pas de tegel‑eigenschappen aan.
+    // Stel de picture fill-modus in op Tegel en pas de tegel‑eigenschappen aan.
     backPictureFillFormat.PictureFillMode = PictureFillMode.Tile;
     backPictureFillFormat.TileOffsetX = 15f;
     backPictureFillFormat.TileOffsetY = 15f;
@@ -181,57 +198,70 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-{{% alert color="primary" %}}
-Lees meer: [**Afbeelding tegel als textuur**](/slides/nl/net/shape-formatting/#tile-picture-as-texture).
+{{% alert color="info" %}}
+Lees meer: [**Tegelafbeelding als textuur**](/slides/nl/net/shape-formatting/#tile-picture-as-texture).
 {{% /alert %}}
 
-### **Transparantie van de achtergrondafbeelding wijzigen**
+### **Transparantie van de achtergrondafbeelding aanpassen**
 
-Je wilt misschien de transparantie van de achtergrondafbeelding van een dia aanpassen zodat de inhoud beter opvalt. De volgende C#‑code laat zien hoe je de transparantie van een dia‑achtergrondafbeelding wijzigt:
+Je wilt misschien de transparantie van de achtergrondafbeelding van een dia aanpassen zodat de inhoud van de dia beter opvalt. De volgende C#‑code laat zien hoe je de transparantie van een dia‑achtergrondafbeelding wijzigt:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Effects;
+using Aspose.Slides.Export;
+
 var transparencyValue = 30; // Bijvoorbeeld.
 
-// Haal de collectie van afbeeldingstransformatie‑operaties op.
-var imageTransform = slide.Background.FillFormat.PictureFillFormat.Picture.ImageTransform;
-
-// Zoek een bestaand vaste‑percentage transparantie‑effect.
-var transparencyOperation = null as IAlphaModulateFixed;
-foreach (var operation in imageTransform)
+using (Presentation presentation = new Presentation("ImageAsBackground.pptx"))
 {
-    if (operation is IAlphaModulateFixed alphaModulateFixed)
+    ISlide slide = presentation.Slides[0];
+
+    // Haal de collectie van picture‑transform‑operaties op.
+    var imageTransform = slide.Background.FillFormat.PictureFillFormat.Picture.ImageTransform;
+
+    // Zoek een bestaand vast‑percentage transparantie‑effect.
+    var transparencyOperation = null as IAlphaModulateFixed;
+    foreach (var operation in imageTransform)
     {
-        transparencyOperation = alphaModulateFixed;
-        break;
+        if (operation is IAlphaModulateFixed alphaModulateFixed)
+        {
+            transparencyOperation = alphaModulateFixed;
+            break;
+        }
     }
-}
 
-// Stel de nieuwe transparantiewaarde in.
-if (transparencyOperation == null)
-{
-    imageTransform.AddAlphaModulateFixedEffect(100 - transparencyValue);
-}
-else
-{
-    transparencyOperation.Amount = (100 - transparencyValue);
+    // Stel de nieuwe transparantiewaarde in.
+    if (transparencyOperation == null)
+    {
+        imageTransform.AddAlphaModulateFixedEffect(100 - transparencyValue);
+    }
+    else
+    {
+        transparencyOperation.Amount = (100 - transparencyValue);
+    }
+
+    presentation.Save("ImageBackgroundTransparency.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **De achtergrondwaarde van de dia ophalen**
+## **De achtergrondwaarde van een dia ophalen**
 
-Aspose.Slides biedt de interface [IBackgroundEffectiveData](https://reference.aspose.com/slides/nl/net/aspose.slides/ibackgroundeffectivedata/) voor het ophalen van de effectieve achtergrondwaarden van een dia. Deze interface exposeert de effectieve [FillFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/ibackgroundeffectivedata/fillformat/) en [EffectFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/ibackgroundeffectivedata/effectformat/).
+Aspose.Slides biedt de interface [IBackgroundEffectiveData](https://reference.aspose.com/slides/nl/net/aspose.slides/ibackgroundeffectivedata/) voor het ophalen van de effectieve achtergrondwaarden van een dia. Deze interface geeft toegang tot de effectieve [FillFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/ibackgroundeffectivedata/fillformat/) en [EffectFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/ibackgroundeffectivedata/effectformat/).
 
-Met de `background`‑eigenschap van de [BaseSlide](https://reference.aspose.com/slides/nl/net/aspose.slides/baseslide/) klasse kun je de effectieve achtergrond van een dia verkrijgen.
+Met de `background`‑eigenschap van de klasse [BaseSlide](https://reference.aspose.com/slides/nl/net/aspose.slides/baseslide/) kun je de effectieve achtergrond van een dia verkrijgen.
 
-De volgende C#‑voorbeeld laat zien hoe je de effectieve achtergrondwaarde van een dia ophaalt:
+Het volgende C#‑voorbeeld toont hoe je de effectieve achtergrondwaarde van een dia ophaalt:
 
 ```cs
-// Maak een instantie van de Presentation-klasse aan.
+using Aspose.Slides;
+
+// Maak een instantie van de Presentation-klasse.
 using (Presentation presentation = new Presentation("Sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];  
 
-    // Haal de effectieve achtergrond op, rekening houdend met master, lay‑out en thema.
+    // Haal de effectieve achtergrond op, rekening houdend met master, layout en thema.
     IBackgroundEffectiveData effBackground = slide.Background.GetEffective();
 
     if (effBackground.FillFormat.FillType == FillType.Solid)
@@ -241,12 +271,12 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
 }
 ```
 
-## **FAQ**
+## **Veelgestelde vragen**
 
-**Kan ik een aangepaste achtergrond resetten en het thema-/lay‑outachtergrond herstellen?**
+### Kan ik een aangepaste achtergrond resetten en de thema/lay‑out‑achtergrond herstellen?
 
-Ja. Verwijder de aangepaste vulling van de dia, en de achtergrond wordt weer geërfd van de overeenkomstige [lay‑out](/slides/nl/net/slide-layout/)/[master](/slides/nl/net/slide-master/) dia (d.w.z. de [thematische achtergrond](/slides/nl/net/presentation-theme/)).
+Ja. Verwijder de aangepaste vulling van de dia, dan wordt de achtergrond opnieuw overgeërfd van de overeenkomstige [layout](/slides/nl/net/slide-layout/)/[master](/slides/nl/net/slide-master/) dia (dat wil zeggen de [theme background](/slides/nl/net/presentation-theme/)).
 
-**Wat gebeurt er met de achtergrond als ik later het thema van de presentatie wijzig?**
+### Wat gebeurt er met de achtergrond als ik later het thema van de presentatie wijzig?
 
-Als een dia zijn eigen vulling heeft, blijft deze onveranderd. Als de achtergrond wordt geërfd van de [lay‑out](/slides/nl/net/slide-layout/)/[master](/slides/nl/net/slide-master/), wordt deze bijgewerkt om overeen te komen met het [nieuwe thema](/slides/nl/net/presentation-theme/).
+Als een dia een eigen vulling heeft, blijft deze ongewijzigd. Als de achtergrond wordt overgeërfd van de [layout](/slides/nl/net/slide-layout/)/[master](/slides/nl/net/slide-master/), wordt deze bijgewerkt om overeen te komen met het [new theme](/slides/nl/net/presentation-theme/).

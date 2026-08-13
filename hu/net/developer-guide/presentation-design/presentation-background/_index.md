@@ -1,5 +1,5 @@
 ---
-title: Prezentáció háttereinek kezelése .NET-ben
+title: Prezentáció háttérkezelése .NET-ben
 linktitle: Dia háttér
 type: docs
 weight: 20
@@ -7,8 +7,8 @@ url: /hu/net/presentation-background/
 keywords:
 - prezentáció háttér
 - dia háttér
-- egyszinű szín
-- gradiens szín
+- egyszínű szín
+- színátmenetes szín
 - kép háttér
 - háttér átlátszóság
 - háttér tulajdonságok
@@ -18,27 +18,31 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Ismerje meg, hogyan állíthat be dinamikus háttereket PowerPoint és OpenDocument fájlokban az Aspose.Slides for .NET használatával, kódtippekkel a prezentációk fejlesztéséhez."
+description: "Ismerje meg, hogyan állíthat be dinamikus háttereket PowerPoint és OpenDocument fájlokban az Aspose.Slides for .NET segítségével, kóbtippekkel a prezentációk fokozásához."
 ---
 ## **Bevezetés**
 
-Az egyszínű háttér, a fokozatok és a képek gyakran használatosak diák háttérként. Beállíthatja a háttérképet egy **normál dia** (egyetlen dia) vagy egy **mester dia** (több dia egyszerre) számára.
+A háttérképhez gyakran használnak egyszínű hátteret, színátmeneteket és képeket. Beállíthatja a háttért egy **normál dia** (egyes dia) vagy egy **mester dia** (egyszerre több diára alkalmazva).
 
 ![PowerPoint háttér](powerpoint-background.png)
 
 ## **Egyszínű háttér beállítása normál diára**
 
-Az Aspose.Slides lehetővé teszi, hogy egy konkrét diában egyszínű hátteret állítson be a bemutatóban – még akkor is, ha a bemutató mester diát használ. A módosítás csak a kiválasztott diára vonatkozik.
+Az Aspose.Slides lehetővé teszi, hogy egy egyszínű színt állítson be a háttérként egy adott diához a prezentációban – még akkor is, ha a prezentáció mester diát használ. A változtatás csak a kiválasztott diára vonatkozik.
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból.
 2. Állítsa be a dia [BackgroundType](https://reference.aspose.com/slides/hu/net/aspose.slides/backgroundtype/) értékét `OwnBackground`-ra.
 3. Állítsa be a dia háttér [FillType](https://reference.aspose.com/slides/hu/net/aspose.slides/filltype/) értékét `Solid`-ra.
-4. Használja a [SolidFillColor](https://reference.aspose.com/slides/hu/net/aspose.slides/fillformat/solidfillcolor/) tulajdonságot a [FillFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/fillformat/) objektumon a szilárd háttérszín megadásához.
-5. Mentse a módosított bemutatót.
+4. Használja a [SolidFillColor] tulajdonságot a [FillFormat]‑on a szilárd háttérszín megadásához.
+5. Mentse el a módosított prezentációt.
 
-Az alábbi C# példa bemutatja, hogyan állíthat be kék egyszínű hátteret egy normál diára:
+A következő C# példa bemutatja, hogyan állíthat be egy kék egyszínű színt a háttérként egy normál diához:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Hozzon létre egy példányt a Presentation osztályból.
 using (Presentation presentation = new Presentation())
 {
@@ -49,82 +53,92 @@ using (Presentation presentation = new Presentation())
     slide.Background.FillFormat.FillType = FillType.Solid;
     slide.Background.FillFormat.SolidFillColor.Color = Color.Blue;
 
-    // Mentse a bemutatót a lemezre.
+    // Mentse a prezentációt lemezre.
     presentation.Save("SolidColorBackground.pptx", SaveFormat.Pptx);
 }
 ```
 
 ## **Egyszínű háttér beállítása mester diára**
 
-Az Aspose.Slides lehetővé teszi, hogy a bemutató mester diájának háttérként egyszínű színt állítson be. A mester dia sablonként működik, amely az összes dia formázását irányítja, így amikor egy egyszínű színt választ a mester dia háttérhez, az az összes diára érvényes lesz.
+Az Aspose.Slides lehetővé teszi, hogy egy egyszínű színt állítson be a mester dia háttérként egy prezentációban. A mester dia sablonként működik, amely az összes dia formázását irányítja, így amikor egyszínű színt választ a mester dia háttéréhez, az minden diára alkalmazásra kerül.
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból.
 2. Állítsa be a mester dia [BackgroundType](https://reference.aspose.com/slides/hu/net/aspose.slides/backgroundtype/) (a `masters` használatával) értékét `OwnBackground`-ra.
 3. Állítsa be a mester dia háttér [FillType](https://reference.aspose.com/slides/hu/net/aspose.slides/filltype/) értékét `Solid`-ra.
-4. Használja a [SolidFillColor](https://reference.aspose.com/slides/hu/net/aspose.slides/fillformat/solidfillcolor/) tulajdonságot a szilárd háttérszín megadásához.
-5. Mentse a módosított bemutatót.
+4. Használja a [SolidFillColor]‑t a szilárd háttérszín megadásához.
+5. Mentse el a módosított prezentációt.
 
-Az alábbi C# példa bemutatja, hogyan állíthat be egy szilárd színt (erdőzöld) a mester dia háttérként:
+A következő C# példa bemutatja, hogyan állíthat be egy egyszínű (erdőzöld) színt a mester dia háttérként:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Hozzon létre egy példányt a Presentation osztályból.
 using (Presentation presentation = new Presentation())
 {
     IMasterSlide masterSlide = presentation.Masters[0];
 
-    // Állítsa be a mester dia háttérszínét erdőzöldre.
+    // Állítsa be a mester dia háttérszínét erdei zöldre.
     masterSlide.Background.Type = BackgroundType.OwnBackground;
     masterSlide.Background.FillFormat.FillType = FillType.Solid;
     masterSlide.Background.FillFormat.SolidFillColor.Color = Color.ForestGreen;
 
-    // Mentse a bemutatót a lemezre.
+    // Mentse a prezentációt lemezre.
     presentation.Save("MasterSlideBackground.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Gradiens háttér beállítása diára**
+## **Színátmenetes háttér beállítása diára**
 
-A gradiens egy grafikai effekt, amely szín fokozatos változásából jön létre. Diák háttérként használva a gradiensek művészibbé és professzionálisabbá tehetik a bemutatókat. Az Aspose.Slides lehetővé teszi, hogy gradienst állítson be diák háttérként.
+A színátmenet egy grafikai hatás, amelyet a szín fokozatos változása hoz létre. Dia háttérként használva a színátmenetek művészibbé és professzionálisabbá tehetik a prezentációkat. Az Aspose.Slides lehetővé teszi, hogy színátmenetes színt állítson be a diák háttérként.
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból.
 2. Állítsa be a dia [BackgroundType](https://reference.aspose.com/slides/hu/net/aspose.slides/backgroundtype/) értékét `OwnBackground`-ra.
 3. Állítsa be a dia háttér [FillType](https://reference.aspose.com/slides/hu/net/aspose.slides/filltype/) értékét `Gradient`-ra.
-4. Használja a [GradientFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/fillformat/gradientformat/) tulajdonságot a [FillFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/fillformat/) objektumon a kívánt gradiens beállítások konfigurálásához.
-5. Mentse a módosított bemutatót.
+4. Használja a [GradientFormat] tulajdonságot a [FillFormat]‑on a kívánt színátmenet beállításához.
+5. Mentse el a módosított prezentációt.
 
-Az alábbi C# példa bemutatja, hogyan állíthat be gradienst a dia háttérként:
+A következő C# példa bemutatja, hogyan állíthat be egy színátmenetes színt a dia háttérként:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Hozzon létre egy példányt a Presentation osztályból.
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // Alkalmazzon gradiens hatást a háttérre.
+    // Alkalmazzon színátmenetes effektust a háttérre.
     slide.Background.Type = BackgroundType.OwnBackground;
     slide.Background.FillFormat.FillType = FillType.Gradient;
     slide.Background.FillFormat.GradientFormat.TileFlip = TileFlip.FlipBoth;
 
-    // Mentse a bemutatót a lemezre.
+    // Mentse a prezentációt lemezre.
     presentation.Save("GradientBackground.pptx", SaveFormat.Pptx);
 }
 ```
 
 ## **Kép beállítása dia háttérként**
 
-A szilárd és gradiens kitöltéseken kívül az Aspose.Slides lehetővé teszi képek használatát dia háttérként.
+Az egyszínű és színátmenetes kitöltéseken kívül az Aspose.Slides lehetővé teszi, hogy képeket használjon dia háttereként.
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból.
 2. Állítsa be a dia [BackgroundType](https://reference.aspose.com/slides/hu/net/aspose.slides/backgroundtype/) értékét `OwnBackground`-ra.
 3. Állítsa be a dia háttér [FillType](https://reference.aspose.com/slides/hu/net/aspose.slides/filltype/) értékét `Picture`-ra.
 4. Töltse be a képet, amelyet a dia háttérként szeretne használni.
-5. Adja hozzá a képet a bemutató képgyűjteményéhez.
-6. Használja a [PictureFillFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/fillformat/picturefillformat/) tulajdonságot a [FillFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/fillformat/) objektumon a kép hátérként történő hozzárendeléséhez.
-7. Mentse a módosított bemutatót.
+5. Adja hozzá a képet a prezentáció képgyűjteményéhez.
+6. Használja a [PictureFillFormat] tulajdonságot a [FillFormat]‑on a kép háttérként való hozzárendeléséhez.
+7. Mentse el a módosított prezentációt.
 
-Az alábbi C# példa bemutatja, hogyan állíthat be egy képet a dia háttérként:
+A következő C# példa bemutatja, hogyan állíthat be egy képet a dia háttérként:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Hozzon létre egy példányt a Presentation osztályból.
 using (Presentation presentation = new Presentation())
 {
@@ -137,20 +151,21 @@ using (Presentation presentation = new Presentation())
 
     // Töltse be a képet.
     IImage image = Images.FromFile("Tulips.jpg");
-    // Adja hozzá a képet a bemutató képgyűjteményéhez.
+    // Adja hozzá a képet a prezentáció képgyűjteményéhez.
     IPPImage ppImage = presentation.Images.AddImage(image);
     image.Dispose();
 
     slide.Background.FillFormat.PictureFillFormat.Picture.Image = ppImage;
 
-    // Mentse a bemutatót a lemezre.
+    // Mentse a prezentációt lemezre.
     presentation.Save("ImageAsBackground.pptx", SaveFormat.Pptx);
 }
 ```
 
-Az alábbi kódrészlet bemutatja, hogyan állítható be a háttér kitöltési típusa csempeképre, és hogyan módosíthatók a csempézés beállításai:
-
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide firstSlide = presentation.Slides[0];
@@ -164,11 +179,11 @@ using (Presentation presentation = new Presentation())
     using (IImage newImage = Aspose.Slides.Images.FromFile("image.png"))
         ppImage = presentation.Images.AddImage(newImage);
 
-    // Állítsa be a háttér kitöltéséhez használt képet.
+    // Állítsa be a háttérkitöltéshez használt képet.
     IPictureFillFormat backPictureFillFormat = background.FillFormat.PictureFillFormat;
     backPictureFillFormat.Picture.Image = ppImage;
 
-    // Állítsa be a kép kitöltési módot Csempére, és módosítsa a csempe tulajdonságait.
+    // Állítsa be a kép kitöltési módot Csempe-re, és módosítsa a csempe tulajdonságait.
     backPictureFillFormat.PictureFillMode = PictureFillMode.Tile;
     backPictureFillFormat.TileOffsetX = 15f;
     backPictureFillFormat.TileOffsetY = 15f;
@@ -181,59 +196,70 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-{{% alert color="primary" %}}
-
-Olvasd tovább: [**Csempézett kép textúraként**](/slides/hu/net/shape-formatting/#tile-picture-as-texture).
-
+{{% alert color="info" %}}
+További információk: [**Csempe kép textúraként**](/slides/hu/net/shape-formatting/#tile-picture-as-texture).
 {{% /alert %}}
 
 ### **A háttérkép átlátszóságának módosítása**
 
-Előfordulhat, hogy a dia háttérkép átlátszóságát szeretné módosítani, hogy a dia tartalma kiemelkedjen. Az alábbi C# kód bemutatja, hogyan változtatható meg egy dia háttérkép átlátszósága:
+Lehet, hogy szeretné módosítani egy dia háttérképének átlátszóságát, hogy a dia tartalma kiemelkedjen. A következő C# kód megmutatja, hogyan változtatható a dia háttérkép átlátszósága:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Effects;
+using Aspose.Slides.Export;
+
 var transparencyValue = 30; // Például.
 
-// Szerezze meg a képtranszformációs műveletek gyűjteményét.
-var imageTransform = slide.Background.FillFormat.PictureFillFormat.Picture.ImageTransform;
-
-// Keressen egy meglévő fix százalékos átlátszósági hatást.
-var transparencyOperation = null as IAlphaModulateFixed;
-foreach (var operation in imageTransform)
+using (Presentation presentation = new Presentation("ImageAsBackground.pptx"))
 {
-    if (operation is IAlphaModulateFixed alphaModulateFixed)
+    ISlide slide = presentation.Slides[0];
+
+    // Szerezze be a képtranszformációs műveletek gyűjteményét.
+    var imageTransform = slide.Background.FillFormat.PictureFillFormat.Picture.ImageTransform;
+
+    // Keressen egy meglévő fix százalékos átlátszósági effektust.
+    var transparencyOperation = null as IAlphaModulateFixed;
+    foreach (var operation in imageTransform)
     {
-        transparencyOperation = alphaModulateFixed;
-        break;
+        if (operation is IAlphaModulateFixed alphaModulateFixed)
+        {
+            transparencyOperation = alphaModulateFixed;
+            break;
+        }
     }
-}
 
-// Állítsa be az új átlátszósági értéket.
-if (transparencyOperation == null)
-{
-    imageTransform.AddAlphaModulateFixedEffect(100 - transparencyValue);
-}
-else
-{
-    transparencyOperation.Amount = (100 - transparencyValue);
+    // Állítsa be az új átlátszósági értéket.
+    if (transparencyOperation == null)
+    {
+        imageTransform.AddAlphaModulateFixedEffect(100 - transparencyValue);
+    }
+    else
+    {
+        transparencyOperation.Amount = (100 - transparencyValue);
+    }
+
+    presentation.Save("ImageBackgroundTransparency.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **A dia háttérértékének lekérdezése**
+## **Dia háttérértékének lekérése**
 
-Az Aspose.Slides biztosítja az [IBackgroundEffectiveData](https://reference.aspose.com/slides/hu/net/aspose.slides/ibackgroundeffectivedata/) interfészt a dia tényleges háttérértékeinek lekérdezéséhez. Ez az interfész a tényleges [FillFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/ibackgroundeffectivedata/fillformat/) és [EffectFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/ibackgroundeffectivedata/effectformat/) adatokat teszi elérhetővé.
+Az Aspose.Slides biztosítja a [IBackgroundEffectiveData] interfészt a dia hatékony háttérértékeinek lekéréséhez. Ez az interfész elérhetővé teszi a hatékony [FillFormat] és [EffectFormat] értékeket.
 
-A [BaseSlide](https://reference.aspose.com/slides/hu/net/aspose.slides/baseslide/) osztály `background` tulajdonságának használatával lekérheti egy dia tényleges hátterét.
+A [BaseSlide] osztály `background` tulajdonságának használatával lekérhető egy dia hatékony háttere.
 
-Az alábbi C# példa bemutatja, hogyan lehet megszerezni egy dia tényleges háttérértékét:
+A következő C# példa bemutatja, hogyan lehet lekérni egy dia hatékony háttérértékét:
 
 ```cs
+using Aspose.Slides;
+
 // Hozzon létre egy példányt a Presentation osztályból.
 using (Presentation presentation = new Presentation("Sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];  
 
-    // Szerezze meg a hatékony háttérét, figyelembe véve a mestert, elrendezést és a témát.
+    // Szerezze meg a hatékony hátteret, figyelembe véve a master, layout és téma beállításait.
     IBackgroundEffectiveData effBackground = slide.Background.GetEffective();
 
     if (effBackground.FillFormat.FillType == FillType.Solid)
@@ -245,10 +271,8 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
 
 ## **GYIK**
 
-**Visszaállíthatom a saját hátteret, és visszanyerhetem a téma/elrendezés hátterét?**
+### Visszaállíthatom-e a saját háttért, és visszaállíthatom a téma/elrendezés háttérjét?
+Igen. Távolítsa el a dia egyéni kitöltését, és a háttér újra a megfelelő [layout](/slides/hu/net/slide-layout/)/[master](/slides/hu/net/slide-master/) diáról lesz örökölve (azaz a [téma háttér](/slides/hu/net/presentation-theme/)).
 
-Igen. Távolítsa el a dia egyéni kitöltését, és a háttér újra az adott [elrendezés](/slides/hu/net/slide-layout/)/[mester](/slides/hu/net/slide-master/) diáról fog öröklődni (azaz a [theme background](/slides/hu/net/presentation-theme/) lesz).
-
-**Mi történik a háttérrel, ha később megváltoztatom a bemutató témáját?**
-
-Ha egy diához saját kitöltés van rendelve, az változatlan marad. Ha a háttér az [elrendezés](/slides/hu/net/slide-layout/)/[mester](/slides/hu/net/slide-master/) diáról öröklődik, akkor frissül, hogy a [új téma](/slides/hu/net/presentation-theme/) szerint legyen.
+### Mi történik a háttérrel, ha később megváltoztatom a prezentáció témáját?
+Ha egy dia saját kitöltéssel rendelkezik, az változatlan marad. Ha a háttér az [layout](/slides/hu/net/slide-layout/)/[master](/slides/hu/net/slide-master/) diáról van örökölve, akkor a [új téma](/slides/hu/net/presentation-theme/) szerint frissül.

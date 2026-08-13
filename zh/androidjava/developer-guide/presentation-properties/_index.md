@@ -5,7 +5,7 @@ type: docs
 weight: 70
 url: /zh/androidjava/presentation-properties/
 keywords:
-- PowerPoint 属性
+- PowerPoint属性
 - 演示文稿属性
 - 文档属性
 - 内置属性
@@ -23,52 +23,47 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "在 Aspose.Slides for Android via Java 中精通演示文稿属性，并在您的 PowerPoint 和 OpenDocument 文件中简化搜索、品牌化和工作流。"
+description: "在 Aspose.Slides for Android via Java 中掌握演示文稿属性，并简化 PowerPoint 和 OpenDocument 文件的搜索、品牌化和工作流。"
 ---
+## **介绍**
 
-{{% alert color="primary" %}} 
+Aspose.Slides 支持两种文档属性类型：**内置**和**自定义**。这两种属性类型都可以通过 Aspose.Slides API 轻松访问和管理。
 
-Microsoft PowerPoint 提供了一项功能，可以向演示文稿文件添加一些属性。这些文档属性允许将有用的信息与文档（演示文稿文件）一起存储。文档属性分为以下两类：
+Aspose.Slides 允许您通过 [IDocumentProperties](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/idocumentproperties/) 接口处理演示文稿的文档属性。该接口的实例由 [Presentation.getDocumentProperties](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/#getDocumentProperties--) 方法返回。下面的示例展示了如何读取、修改和管理这些属性。
 
-- 系统定义（内置）属性
-- 用户定义（自定义）属性
-
-**内置**属性包含文档的一般信息，例如文档标题、作者姓名、文档统计信息等。**自定义**属性是用户以 **名称/值** 对的形式定义的，其中名称和值均由用户自行设定。使用 Aspose.Slides for Android via Java，开发人员可以访问并修改内置属性和自定义属性的值。
-
+{{% alert color="info" %}} 
+请注意，**Application** 和 **AppVersion** 字段无法修改。Aspose.Slides 在每次保存时都会重写它们，因此保存的演示文稿始终报告 Aspose.Slides 的产品名称以及生成该演示文稿的库版本。传递给 `setNameOfApplication` 的任何值在写入演示文稿时都会被丢弃。
 {{% /alert %}} 
 
 ## **PowerPoint 中的文档属性**
 
-Microsoft PowerPoint 2007 允许管理演示文稿文件的文档属性。只需单击 Office 图标，然后依次选择 **Prepare | Properties | Advanced Properties** 菜单项，如下所示：
+Microsoft PowerPoint 2007 允许管理演示文稿文件的文档属性。您只需点击 Office 图标，然后选择 Microsoft PowerPoint 2007 中的 **准备 | 属性 | 高级属性** 菜单项，如下所示：
 
-{{% alert color="primary" %}} 
-
-请注意，您无法对 **Application** 和 **Producer** 字段设置值，因为 Aspose Ltd. 和 Aspose.Slides for Android via Java x.x.x 将显示在这些字段中。
-
-{{% /alert %}} 
-
-|**选择 高级 属性 菜单项**|** |
+|**选择高级属性菜单项**|** **|
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
 
-选择 **Advanced Properties** 菜单项后，会出现一个对话框，允许您管理 PowerPoint 文件的文档属性，如下图所示：
+选择 **高级属性** 菜单项后，会出现一个对话框，允许您管理 PowerPoint 文件的文档属性，如下图所示：
 
-|**属性 对话框**|** |
+|**属性对话框**|** **|
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
 
-在上述 **Properties Dialog** 中，您可以看到有 **General**、**Summary**、**Statistics**、**Contents** 和 **Custom** 等多个选项卡。这些选项卡允许配置与 PowerPoint 文件相关的不同信息。**Custom** 选项卡用于管理 PowerPoint 文件的自定义属性。
+在上述 **属性对话框** 中，您可以看到有多个选项卡，如 **常规**、**摘要**、**统计信息**、**内容** 和 **自定义**。所有这些选项卡都用于配置与 PowerPoint 文件相关的不同信息。**自定义** 选项卡用于管理 PowerPoint 文件的自定义属性。
 
 ### 使用 Aspose.Slides for Android via Java 处理文档属性
 
-正如前文所述，Aspose.Slides for Android via Java 支持两类文档属性，即 **内置** 和 **自定义** 属性。因此，开发人员可以通过 Aspose.Slides for Android via Java API 访问这两类属性。Aspose.Slides for Android via Java 提供了一个接口 [IDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties)，它通过 **Presentation.DocumentProperties** 属性表示与演示文稿文件关联的文档属性。
+正如前面所述，Aspose.Slides for Android via Java 支持两种文档属性，即 **内置** 和 **自定义** 属性。因此，开发人员可以使用 Aspose.Slides for Android via Java API 访问这两种属性。Aspose.Slides for Android via Java 提供了一个类 [IDocumentProperties](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/idocumentproperties)，该类通过 **Presentation.DocumentProperties** 属性表示与演示文稿文件关联的文档属性。
 
-开发人员可以使用 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) 对象公开的 **IDocumentProperties** 属性来访问演示文稿文件的文档属性，示例如下：
+开发人员可以使用由 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation) 对象公开的 **IDocumentProperties** 属性，按如下方式访问演示文稿文件的文档属性：
 
 ## **访问内置属性**
 
-通过 [IDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties) 对象公开的属性包括：**Creator**（作者）、**Description**、**Keywords**、**Created**（创建日期）、**Modified**（修改日期）、**Printed**（最近打印日期）、**LastModifiedBy**、**SharedDoc**（是否在不同制作者之间共享？）、**PresentationFormat**、**Subject** 和 **Title**  
+这些通过 [IDocumentProperties](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/idocumentproperties) 对象公开的属性包括：**Creator**（作者）、**Description**、**Keywords**、**Created**（创建日期）、**Modified**（修改日期）、**Printed**（上次打印日期）、**LastModifiedBy**、**Keywords**、**SharedDoc**（是否在不同的制作者之间共享？）、**PresentationFormat**、**Subject** 和 **Title**。
+
 ```java
+import com.aspose.slides.*;
+
 // 实例化表示演示文稿的 Presentation 类
 Presentation pres = new Presentation("Presentation.pptx");
 try {
@@ -95,11 +90,13 @@ try {
 }
 ```
 
-
 ## **修改内置属性**
 
-修改演示文稿文件的内置属性与访问它们一样简便。只需为任意所需属性分配字符串值即可完成修改。下面的示例演示了如何使用 Aspose.Slides for Android via Java 修改演示文稿的内置文档属性。  
+修改演示文稿文件的内置属性与访问它们一样简单。只需为任意所需属性赋予字符串值，即可修改属性值。下面的示例演示了如何使用 Aspose.Slides for Android via Java 修改演示文稿文件的内置文档属性。
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("Presentation.pptx");
 try {
     // 创建与 Presentation 关联的 IDocumentProperties 对象的引用
@@ -119,17 +116,19 @@ try {
 }
 ```
 
+此示例修改了演示文稿的内置属性，效果如下所示：
 
-此示例修改了演示文稿的内置属性，修改后效果如下：
-
-|**修改后 的 内置文档属性**|** |
+|**修改后内置文档属性**|** **|
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
 
 ## **添加自定义文档属性**
 
-Aspose.Slides for Android via Java 还允许开发人员为演示文稿添加自定义属性值。下面的示例展示了如何为演示文稿设置自定义属性。  
+Aspose.Slides for Android via Java 还允许开发人员为演示文稿的文档属性添加自定义值。下面的示例添加了三个自定义属性，然后查找索引 2 处存储的名称并移除该属性，因此保存的演示文稿保留了其余两个属性。自定义属性按字母顺序索引，而不是按添加顺序。
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     // 获取文档属性
@@ -153,15 +152,17 @@ try {
 }
 ```
 
-
-|**已添加的自定义文档属性**|** |
+|**已添加的自定义文档属性**|** **|
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
 
-## **访问并修改自定义属性**
+## **访问和修改自定义属性**
 
-Aspose.Slides for Android via Java 也允许开发人员访问自定义属性的值。下面的示例展示了如何访问并修改演示文稿的所有自定义属性。  
+Aspose.Slides for Android via Java 还允许开发人员访问自定义属性的值。下面给出一个示例，展示如何访问并修改演示文稿的所有自定义属性。
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("Presentation.pptx");
 try {
     // 创建与 Presentation 关联的 DocumentProperties 对象的引用
@@ -184,29 +185,29 @@ try {
 }
 ```
 
+此示例修改了 [PPTX](https://docs.fileformat.com/presentation/pptx/) 演示文稿的自定义属性。下面的图示展示了自定义属性修改前后的情况：
 
-此示例修改了 [PPTX ](https://docs.fileformat.com/presentation/pptx/) 演示文稿的自定义属性。下图分别展示了修改前后的自定义属性：
-
-|**修改前的自定义属性**|** |
+|**修改前的自定义属性**|** **|
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
 
-|**修改后的自定义属性**|** |
+|**修改后的自定义属性**|** **|
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
 
 ## **高级文档属性**
 
-{{% alert color="primary" %}} 
-
-新增了方法 [ReadDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--)、[UpdateDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-)、以及 [WriteBindedPresentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) 至 [IPresentationInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo)，并已更改 [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) 属性 setter 的实现。
-
+{{% alert color="info" %}} 
+在 [IPresentationInfo](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IPresentationInfo) 中添加了新方法 [ReadDocumentProperties](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--)、[UpdateDocumentProperties](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) 和 [WriteBindedPresentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IPPresentationInfo#writeBindedPresentation-java.lang.String-)，并且 [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) 属性设置器的逻辑已更改。
 {{% /alert %}} 
 
-两个新方法 [ReadDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--) 和 [UpdateDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) 已被添加到 [IPresentationInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo) 接口。它们提供对文档属性的快速访问，并允许在不加载完整演示文稿的情况下更改和更新属性。
+两个新方法 [ReadDocumentProperties](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IPPresentationInfo#readDocumentProperties--) 和 [UpdateDocumentProperties](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IPPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) 已添加到 [IPresentationInfo](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IPPresentationInfo) 接口。它们提供了快速访问文档属性的方式，并允许在不加载整个演示文稿的情况下更改和更新属性。
 
-典型的场景是加载属性、修改某些值，然后更新文档，示例代码如下：  
+典型的场景是加载属性、修改某些值并更新文档，可按以下方式实现：
+
 ```java
+import com.aspose.slides.*;
+
 // 读取演示文稿的信息
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("presentation.pptx");
 
@@ -222,9 +223,11 @@ info.updateDocumentProperties(props);
 info.writeBindedPresentation("presentation.pptx");
 ```
 
+还有一种方法是将特定演示文稿的属性用作模板，以更新其他演示文稿的属性：
 
-另一种方式是将特定演示文稿的属性作为模板，以更新其他演示文稿的属性：  
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("template.pptx");
 DocumentProperties template = (DocumentProperties) info.readDocumentProperties();
 
@@ -243,6 +246,8 @@ updateByTemplate("doc3.ppt", template);
 ```
 
 ```java
+import com.aspose.slides.*;
+
 private static void updateByTemplate(String path, IDocumentProperties template) 
 {
     IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
@@ -251,10 +256,12 @@ private static void updateByTemplate(String path, IDocumentProperties template)
 }
 ```
 
+可以从零创建一个新模板，然后用于更新多个演示文稿：
 
-也可以从头创建新模板，然后用于更新多个演示文稿：  
 ```java
-DocumentProperties template = new DocumentProperties();\
+import com.aspose.slides.*;
+
+DocumentProperties template = new DocumentProperties();
 
 template.setAuthor("Template Author");
 template.setTitle("Template Title");
@@ -265,13 +272,7 @@ template.setComments("Created from template");
 template.setContentType("Template Content");
 template.setSubject("Template Subject");
 
-updateByTemplate("doc1.pptx", template);
-updateByTemplate("doc2.odp", template);
-updateByTemplate("doc3.ppt", template);
-```
-
-```java
-private static void updateByTemplate(String path, IDocumentProperties template) 
+for (String path : new String[] { "doc1.pptx", "doc2.odp", "doc3.ppt" })
 {
     IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
     toUpdate.updateDocumentProperties(template);
@@ -279,14 +280,16 @@ private static void updateByTemplate(String path, IDocumentProperties template)
 }
 ```
 
-
 ## **设置校对语言**
 
-Aspose.Slides 提供了 LanguageId 属性（由 PortionFormat 类公开），可以为 PowerPoint 文档设置校对语言。校对语言决定了 PowerPoint 中的拼写和语法检查使用的语言。
+Aspose.Slides 提供了 LanguageId 属性（由 PortionFormat 类公开），允许您为 PowerPoint 文档设置校对语言。校对语言是 PowerPoint 检查拼写和语法的语言。
 
-下面的 Java 代码演示了如何为 PowerPoint 设置校对语言： xxx 为什么 Java PortionFormat 类中缺少 LanguageId？  
+以下 Java 代码演示了如何为 PowerPoint 设置校对语言：
+
 ```java
-Presentation pres = new Presentation(pptxFileName);
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
     AutoShape autoShape = (AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
 
@@ -301,7 +304,7 @@ try {
     portionFormat.setEastAsianFont(font);
     portionFormat.setLatinFont(font);
 
-    portionFormat.setLanguageId("zh-CN"); // 设置校对语言的ID
+    portionFormat.setLanguageId("zh-CN"); // 设置校对语言的 Id
 
     newPortion.setText("1。");
     paragraph.getPortions().add(newPortion);
@@ -310,11 +313,13 @@ try {
 }
 ```
 
-
 ## **设置默认语言**
 
-下面的 Java 代码演示了如何为整个 PowerPoint 演示文稿设置默认语言：  
+以下 Java 代码演示了如何为整个 PowerPoint 演示文稿设置默认语言：
+
 ```java
+import com.aspose.slides.*;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDefaultTextLanguage("en-US");
 
@@ -324,30 +329,29 @@ try {
     IAutoShape shp = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
     shp.getTextFrame().setText("New Text");
 
-    // 检查第一个文字段的语言
+    // 检查第一段落的语言
     System.out.println(shp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getLanguageId());
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-
 ## **实时示例**
 
-尝试使用在线应用 [**Aspose.Slides Metadata**](https://products.aspose.app/slides/metadata) 了解如何通过 Aspose.Slides API 操作文档属性：
+尝试在线应用程序 [**Aspose.Slides Metadata**](https://products.aspose.app/slides/zh/metadata) ，了解如何通过 Aspose.Slides API 使用文档属性：
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![查看并编辑 PowerPoint 元数据](slides-metadata.png)](https://products.aspose.app/slides/zh/metadata)
 
-## ***FAQ**
+## ***常见问题**
 
-**如何从演示文稿中移除内置属性？**
+### 如何从演示文稿中移除内置属性？
 
-内置属性是演示文稿的组成部分，无法完全删除。不过，您可以更改它们的值，或在属性允许的情况下将其设为空。
+内置属性是演示文稿的组成部分，无法完全删除。不过，您可以更改它们的值，或在特定属性允许的情况下将其设为空。
 
-**如果添加的自定义属性已存在会怎样？**
+### 如果添加已存在的自定义属性会怎样？
 
-如果添加的自定义属性已存在，原有的值会被新值覆盖。无需事先删除或检查该属性，Aspose.Slides 会自动更新属性的值。
+如果添加的自定义属性已经存在，其现有值将被新值覆盖。您无需事先删除或检查该属性，因为 Aspose.Slides 会自动更新属性的值。
 
-**能否在不完全加载演示文稿的情况下访问其属性？**
+### 能否在不完全加载演示文稿的情况下访问演示文稿属性？
 
-可以。您可以使用 [PresentationFactory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationfactory/) 类的 `getPresentationInfo` 方法获取演示文稿信息，然后调用 [IPresentationInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationinfo/) 接口的 `readDocumentProperties` 方法高效读取属性，从而节省内存并提升性能。
+是的，您可以通过使用来自 [PresentationFactory](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentationfactory/) 类的 `getPresentationInfo` 方法，在不完全加载演示文稿的情况下访问演示文稿属性。然后，利用 [IPresentationInfo](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ipresentationinfo/) 接口提供的 `readDocumentProperties` 方法高效读取属性，从而节省内存并提升性能。

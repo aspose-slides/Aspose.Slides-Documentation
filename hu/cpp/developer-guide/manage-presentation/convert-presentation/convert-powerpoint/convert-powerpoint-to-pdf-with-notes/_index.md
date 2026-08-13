@@ -1,6 +1,6 @@
 ---
-title: PowerPoint előadások konvertálása PDF-be jegyzetekkel C++-ban
-linktitle: PowerPoint PDF-be jegyzetekkel
+title: PowerPoint bemutatók konvertálása PDF-re jegyzetekkel C++-ban
+linktitle: PowerPoint PDF-re jegyzetekkel
 type: docs
 weight: 50
 url: /hu/cpp/convert-powerpoint-to-pdf-with-notes/
@@ -10,11 +10,11 @@ keywords:
 - dia konvertálása
 - PPT konvertálása
 - PPTX konvertálása
-- PowerPoint PDF-be
-- prezentáció PDF-be
-- dia PDF-be
-- PPT PDF-be
-- PPTX PDF-be
+- PowerPoint PDF-re
+- prezentáció PDF-re
+- dia PDF-re
+- PPT PDF-re
+- PPTX PDF-re
 - prezentáció mentése PDF-ként
 - PPT mentése PDF-ként
 - PPTX mentése PDF-ként
@@ -24,34 +24,43 @@ keywords:
 - PDF jegyzetekkel
 - C++
 - Aspose.Slides
-description: "Konvertálja a PPT és PPTX formátumokat PDF-be jegyzetekkel az Aspose.Slides for C++ használatával. Megőrzi az elrendezéseket és az előadói jegyzeteket a professzionális prezentációkhoz."
+description: "Konvertálja a PPT és PPTX formátumokat PDF-re jegyzetekkel az Aspose.Slides for C++ használatával. Tartsa meg a elrendezéseket és az előadói jegyzeteket a professzionális bemutatókhoz."
 ---
 ## **Áttekintés**
 
-Ezen a cikken megtanulja, hogyan konvertálhatja a PowerPoint előadásokat PDF formátumba előadói jegyzetekkel az Aspose.Slides segítségével. Ez az útmutató lefedi a szükséges lépéseket, és kódpéldákat biztosít a feladat hatékony elvégzéséhez. A cikk végére képes lesz:
+Ebben a cikkben megtanulja, hogyan konvertálhat PowerPoint bemutatókat PDF formátumba előadói jegyzetekkel az Aspose.Slides használatával. Ez az útmutató lefedi a szükséges lépéseket, és kódrészletekkel segíti a feladat hatékony elvégzését. A cikk végére képes lesz:
 
-- A konverziós folyamat megvalósítása a PowerPoint diákat PDF dokumentumokká alakítva, miközben megőrzi az előadói jegyzeteket.
-- Az eredmény PDF testreszabása annak biztosítása érdekében, hogy az előadói jegyzetek benne legyenek, és a követelményeinek megfelelően legyenek formázva.
+- Megvalósítani a konverziós folyamatot, hogy a PowerPoint diait PDF dokumentummá alakítsa, miközben megőrzi az előadói jegyzeteket.
+- Testreszabni a kimeneti PDF-et, hogy az előadói jegyzetek szerepeljenek benne, és az igényeinek megfelelően legyenek formázva.
 
-## **PowerPoint konvertálása PDF-be jegyzetekkel**
+## **PowerPoint konvertálása PDF-re jegyzetekkel**
 
-A `Save` metódus a [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) osztályban használható egy PPT vagy PPTX előadás PDF-re konvertálásához előadói jegyzetekkel. Az Aspose.Slides használatával egyszerűen betölti az előadást, a [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/notescommentslayoutingoptions/) osztály segítségével konfigurálja az elrendezési beállításokat az előadói jegyzetek bevonásához, majd a fájlt PDF-ként menti. Az alábbi kódrészlet bemutatja, hogyan konvertálhat egy mintaprezentációt PDF-re Jegyzet diá nézetben.
+A `Save` metódus a [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) osztályban használható egy PPT vagy PPTX bemutató PDF-re konvertálásához előadói jegyzetekkel. Az Aspose.Slides segítségével egyszerűen betölti a bemutatót, a [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/notescommentslayoutingoptions/) osztály segítségével beállítja a elrendezési opciókat az előadói jegyzetek felvételéhez, majd PDF-ként menti a fájlt. Az alábbi kódrészlet bemutatja, hogyan konvertálhat egy minta bemutatót PDF-re a Jegyzet Dia nézetben.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/NotesPositions.h>
+#include <Export/PdfOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// PDF beállítások konfigurálása az előadói jegyzetek megjelenítéséhez.
-    
+// PDF opciók konfigurálása az előadói jegyzetek megjelenítéséhez.
 auto notesOptions = MakeObject<NotesCommentsLayoutingOptions>();
 notesOptions->set_NotesPosition(NotesPositions::BottomFull); // Az előadói jegyzetek megjelenítése a dia alatt.
     
 auto pdfOptions = MakeObject<PdfOptions>();
 pdfOptions->set_SlidesLayoutOptions(notesOptions);
 
-// Prezentáció mentése PDF-be előadói jegyzetekkel.
+// A bemutató mentése PDF-be előadói jegyzetekkel.
 presentation->Save(u"output.pdf", SaveFormat::Pdf, pdfOptions);
 ```
 
-{{% alert color="primary" %}} 
-Érdemes megnézni az Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/hu/conversion) szolgáltatást. 
+{{% alert color="info" %}} 
+Érdemes megnézni az Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/hu/conversion) szolgáltatását. 
 {{% /alert %}}

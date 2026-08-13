@@ -9,38 +9,40 @@ keywords:
 - import snímku
 - import PDF
 - import HTML
-- PDF do prezentace
-- PDF do PPT
-- PDF do PPTX
-- PDF do ODP
-- HTML do prezentace
-- HTML do PPT
-- HTML do PPTX
-- HTML do ODP
+- PDF na prezentaci
+- PDF na PPT
+- PDF na PPTX
+- PDF na ODP
+- HTML na prezentaci
+- HTML na PPT
+- HTML na PPTX
+- HTML na ODP
 - PowerPoint
 - OpenDocument
 - Android
 - Java
 - Aspose.Slides
-description: "Importujte PDF a HTML dokumenty do prezentací PowerPoint a OpenDocument v Javě s Aspose.Slides pro Android pro plynulé a vysoce výkonné zpracování snímků."
+description: "Importujte PDF a HTML dokumenty do prezentací PowerPoint a OpenDocument v jazyce Java pomocí Aspose.Slides pro Android pro plynulé a výkonné zpracování snímků."
 ---
 ## **Úvod**
 
-Pomocí [**Aspose.Slides for Android via Java**](https://products.aspose.com/slides/cs/androidjava/) můžete importovat prezentace ze souborů v jiných formátech. Aspose.Slides poskytuje třídu [SlideCollection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/slidecollection/), která vám umožní importovat prezentace z PDF, HTML dokumentů atd.
+Pomocí [**Aspose.Slides for Android via Java**](https://products.aspose.com/slides/cs/androidjava/) můžete importovat prezentace ze souborů v jiných formátech. Aspose.Slides poskytuje třídu [SlideCollection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/slidecollection/), která umožňuje importovat prezentace z PDF, HTML dokumentů atd.
 
-## **Import PowerPointu z PDF**
+## **Importovat PowerPoint z PDF**
 
-V tomto případě můžete převést PDF do prezentace PowerPoint.
+V tomto případě můžete převést PDF na prezentaci PowerPoint.
 
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom:50%;" />
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/).
-2. Zavolejte metodu [addFromPdf()](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/SlideCollection#addFromPdf-java.lang.String-) a předáte soubor PDF.
+2. Zavolejte metodu [addFromPdf()](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/SlideCollection#addFromPdf-java.lang.String-) a předáte PDF soubor.
 3. Použijte metodu [save()](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) k uložení souboru ve formátu PowerPoint.
 
-Tento Java kód ukazuje operaci převodu PDF do PowerPointu:
+Tento kód v jazyce Java demonstruje operaci převodu PDF do PowerPoint:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     pres.getSlides().addFromPdf("InputPDF.pdf");
@@ -50,21 +52,25 @@ try {
 }
 ```
 
-{{% alert  title="Tip" color="primary" %}} 
-Možná budete chtít vyzkoušet **Aspose free** [PDF to PowerPoint](https://products.aspose.app/slides/cs/import/pdf-to-powerpoint) webovou aplikaci, protože je živou implementací procesu popsaného zde. 
+{{% alert  title="Tip" color="info" %}} 
+Možná budete chtít vyzkoušet webovou aplikaci **Aspose free** [PDF to PowerPoint](https://products.aspose.app/slides/cs/import/pdf-to-powerpoint), protože se jedná o živou implementaci zde popsaného procesu. 
 {{% /alert %}} 
 
-## **Import PowerPointu z HTML**
+## **Importovat PowerPoint z HTML**
 
-V tomto případě můžete převést HTML dokument do prezentace PowerPoint.
+V tomto případě můžete převést HTML dokument na prezentaci PowerPoint.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/).
-2. Zavolejte metodu [addFromHtml()](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) a předáte soubor HTML.
+2. Zavolejte metodu [addFromHtml()](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) a předáte proud s HTML dokumentem.
 3. Použijte metodu [save()](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) k uložení souboru ve formátu PowerPoint.
 
-Tento Java kód ukazuje operaci převodu HTML do PowerPointu: 
+Tento kód v jazyce Java demonstruje operaci převodu HTML do PowerPoint: 
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 Presentation presentation = new Presentation();
 try {
     FileInputStream htmlStream = new FileInputStream("page.html");
@@ -83,6 +89,6 @@ try {
 
 ## **Často kladené otázky**
 
-**Zůstávají tabulky zachovány při importu PDF a lze jejich detekci zlepšit?**
+### Jsou tabulky zachovány při importu PDF a lze jejich detekci zlepšit?
 
-Tabulky lze během importu detekovat; [PdfImportOptions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/pdfimportoptions/) obsahuje metodu [setDetectTables](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/pdfimportoptions/#setDetectTables-boolean-), která umožňuje rozpoznávání tabulek. Účinnost závisí na struktuře PDF.
+Tabulky lze během importu detekovat; [PdfImportOptions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/pdfimportoptions/) obsahuje metodu [setDetectTables](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/pdfimportoptions/#setDetectTables-boolean-), která umožňuje rozpoznání tabulek. Účinnost závisí na struktuře PDF.

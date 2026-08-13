@@ -1,48 +1,51 @@
----  
-title: Quản lý danh sách có dấu đầu dòng và đánh số trong bản trình bày bằng Java  
-linktitle: Quản lý danh sách  
-type: docs  
-weight: 60  
-url: /vi/java/manage-lists/  
-keywords:  
-- dấu đầu dòng  
-- danh sách có dấu đầu dòng  
-- danh sách đánh số  
-- dấu đầu dòng ký hiệu  
-- dấu đầu dòng hình ảnh  
-- dấu đầu dòng tùy chỉnh  
-- danh sách đa cấp  
-- tạo dấu đầu dòng  
-- thêm dấu đầu dòng  
-- thêm danh sách  
-- PowerPoint  
-- OpenDocument  
-- bản trình bày  
-- Java  
-- Aspose.Slides  
-description: "Tìm hiểu cách tạo và định dạng các danh sách có dấu đầu dòng, hình ảnh, đa cấp và đánh số trong các bản trình bày PowerPoint và OpenDocument bằng Aspose.Slides for Java."  
+---
+title: Quản lý danh sách có dấu đầu dòng và có số trong bản trình chiếu bằng Java
+linktitle: Quản lý danh sách
+type: docs
+weight: 60
+url: /vi/java/manage-lists/
+keywords:
+- dấu đầu dòng
+- danh sách có dấu đầu dòng
+- danh sách có số
+- dấu đầu dòng ký hiệu
+- dấu đầu dòng hình ảnh
+- dấu đầu dòng tùy chỉnh
+- danh sách đa cấp
+- tạo dấu đầu dòng
+- thêm dấu đầu dòng
+- thêm danh sách
+- PowerPoint
+- OpenDocument
+- bản trình chiếu
+- Java
+- Aspose.Slides
+description: "Tìm hiểu cách tạo và định dạng danh sách có dấu đầu dòng, hình ảnh, đa cấp và có số trong các bản trình chiếu PowerPoint và OpenDocument bằng Aspose.Slides cho Java."
 ---
 ## **Tổng quan**
 
-Aspose.Slides for Java cho phép bạn tạo và định dạng các danh sách có dấu đầu dòng và đánh số trong các bản trình bày PowerPoint và OpenDocument. Một mục danh sách là một đoạn văn mà cài đặt dấu đầu dòng được kiểm soát thông qua định dạng đoạn văn của nó.
+Aspose.Slides for Java cho phép bạn tạo và định dạng các danh sách có dấu đầu dòng và có số trong các bản trình bày PowerPoint và OpenDocument. Một mục danh sách là một đoạn văn mà cài đặt dấu đầu dòng được kiểm soát thông qua định dạng đoạn văn của nó.
 
-Sử dụng phương pháp [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraph/#getParagraphFormat--) để truy cập cài đặt danh sách ở mức đoạn văn. Điểm vào chính là [IParagraphFormat.getBullet](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#getBullet--), nó trả về một đối tượng [IBulletFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/) . Với đối tượng này, bạn có thể đặt loại dấu đầu dòng, ký hiệu, hình ảnh, màu sắc, kích thước, kiểu đánh số và số bắt đầu.
+Sử dụng phương thức [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraph/#getParagraphFormat--) để truy cập cài đặt danh sách ở mức đoạn. Điểm vào chính là [IParagraphFormat.getBullet](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#getBullet--), phương thức này trả về một đối tượng [IBulletFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/). Với đối tượng này, bạn có thể đặt loại dấu đầu dòng, ký hiệu, hình ảnh, màu, kích thước, kiểu đánh số và số bắt đầu.
 
-Bài viết này cho thấy cách:
+Bài viết này mô tả cách:
 
 - tạo danh sách có dấu đầu dòng với ký hiệu tùy chỉnh
 - tạo dấu đầu dòng dạng hình ảnh
 - tạo danh sách đa cấp bằng cách đặt độ sâu đoạn văn
-- tạo danh sách đánh số
+- tạo danh sách có số
 - kiểm tra và thay đổi định dạng danh sách trong một bản trình bày hiện có
 
 ## **Tạo danh sách có dấu đầu dòng**
 
-Để tạo danh sách có dấu đầu dòng, thêm các đối tượng [IParagraph](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraph/) vào một [ITextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/) và đặt [IBulletFormat.setType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/#setType-byte-) thành [BulletType.Symbol](https://reference.aspose.com/slides/vi/java/com.aspose.slides/bullettype/#Symbol). Sau đó bạn có thể đặt [IBulletFormat.setChar](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/#setChar-char-), [IBulletFormat.getColor](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/#getColor--) và [IBulletFormat.setHeight](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/#setHeight-float-) để kiểm soát giao diện của dấu đầu dòng.
+Để tạo danh sách có dấu đầu dòng, thêm các đối tượng [IParagraph](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraph/) vào một [ITextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/) và đặt [IBulletFormat.setType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/#setType-byte-) thành [BulletType.Symbol](https://reference.aspose.com/slides/vi/java/com.aspose.slides/bullettype/#Symbol). Sau đó bạn có thể đặt [IBulletFormat.setChar](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/#setChar-char-), [IBulletFormat.getColor](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/#getColor--) và [IBulletFormat.setHeight](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/#setHeight-float-) để điều khiển giao diện dấu đầu dòng.
 
-Đoạn mã Java sau minh họa cách tạo danh sách có dấu đầu dòng trong một slide:
+Mã Java sau đây minh họa cách tạo danh sách có dấu đầu dòng trong một slide:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -83,13 +86,15 @@ Kết quả:
 
 ![Các dấu đầu dòng ký hiệu](symbol_bullets.png)
 
-## **Tạo danh sách đánh số**
+## **Tạo danh sách có số**
 
-Sử dụng danh sách đánh số khi thứ tự các mục quan trọng. Đặt [IBulletFormat.setType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/#setType-byte-) thành [BulletType.Numbered](https://reference.aspose.com/slides/vi/java/com.aspose.slides/bullettype/#Numbered). Bạn cũng có thể chọn định dạng đánh số bằng [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) hoặc đặt [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) khi danh sách phải bắt đầu từ một giá trị khác 1.
+Sử dụng danh sách có số khi thứ tự các mục quan trọng. Đặt [IBulletFormat.setType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/#setType-byte-) thành [BulletType.Numbered](https://reference.aspose.com/slides/vi/java/com.aspose.slides/bullettype/#Numbered). Bạn cũng có thể chọn định dạng đánh số bằng [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) hoặc đặt [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) khi danh sách cần bắt đầu từ giá trị khác 1.
 
-Đoạn mã Java sau cho thấy cách tạo danh sách đánh số trong một slide:
+Mã Java sau đây cho thấy cách tạo danh sách có số trong một slide:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -121,25 +126,29 @@ try {
 
 Kết quả:
 
-![Các dấu đầu dòng đánh số](numbered_bullets.png)
+![Các dấu đầu dòng có số](numbered_bullets.png)
 
 ## **Tạo dấu đầu dòng dạng hình ảnh**
 
-Aspose.Slides cho phép bạn thay thế ký hiệu dấu đầu dòng thông thường bằng một hình ảnh. Dấu đầu dòng dạng hình ảnh hoạt động tốt nhất với các hình ảnh đơn giản, vẫn có thể đọc được ở kích thước nhỏ, chẳng hạn như biểu tượng hoặc các file PNG trong suốt nhỏ.
+Aspose.Slides cho phép bạn thay thế ký hiệu dấu đầu dòng thông thường bằng một hình ảnh. Dấu đầu dòng dạng hình ảnh hoạt động tốt nhất với các hình ảnh đơn giản vẫn đọc được ở kích thước nhỏ, chẳng hạn như biểu tượng hoặc các tệp PNG trong suốt nhỏ.
 
-{{% alert color="primary" %}}
-Lý tưởng nhất, nếu bạn dự định thay thế ký hiệu dấu đầu dòng thông thường bằng một hình ảnh, tốt nhất là chọn một hình đồ họa đơn giản với nền trong suốt. Những hình ảnh như vậy hoạt động tốt như các ký hiệu dấu đầu dòng tùy chỉnh.
+{{% alert color="info" %}}
+Ideal, nếu bạn dự định thay thế dấu đầu dòng thông thường bằng một hình ảnh, tốt nhất là chọn một đồ họa đơn giản với nền trong suốt. Những hình ảnh như vậy hoạt động tốt làm ký hiệu dấu đầu dòng tùy chỉnh.
+
+Hãy nhớ rằng hình ảnh sẽ được thu nhỏ lại rất nhỏ. Vì lý do này, chúng tôi mạnh mẽ khuyên bạn nên chọn một hình ảnh vẫn rõ ràng và hiệu quả về mặt thị giác khi được sử dụng làm dấu đầu dòng trong danh sách.
 {{% /alert %}}
 
 Để tạo dấu đầu dòng dạng hình ảnh, thêm một hình ảnh vào [Presentation.getImages](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#getImages--) và gán đối tượng hình ảnh trả về cho [IBulletFormat.getPicture](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/#getPicture--). Đặt [IBulletFormat.setType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/#setType-byte-) thành [BulletType.Picture](https://reference.aspose.com/slides/vi/java/com.aspose.slides/bullettype/#Picture) trước khi gán hình ảnh.
 
-Giả sử chúng ta có một file "image.png":
+Giả sử chúng ta có một "image.png":
 
 ![Hình ảnh cho các dấu đầu dòng](picture_for_bullets.png)
 
-Đoạn mã Java sau cho thấy cách tạo dấu đầu dòng dạng hình ảnh trong một slide:
+Mã Java sau đây cho thấy cách tạo dấu đầu dòng dạng hình ảnh trong một slide:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -178,11 +187,13 @@ Kết quả:
 
 ## **Tạo danh sách đa cấp**
 
-Sử dụng [IParagraphFormat.setDepth](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setDepth-short-) để đặt các mục danh sách ở các cấp độ khác nhau. Cấp độ 0 là cấp cao nhất, cấp độ 1 là cấp lồng dưới nó, và tiếp tục như vậy.
+Sử dụng [IParagraphFormat.setDepth](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setDepth-short-) để đặt các mục danh sách ở các cấp độ khác nhau. Cấp 0 là cấp cao nhất, cấp 1 là cấp con của nó, và tiếp tục như vậy.
 
-Đoạn mã Java sau cho thấy cách tạo danh sách có dấu đầu dòng đa cấp:
+Mã Java sau đây cho thấy cách tạo danh sách đa cấp có dấu đầu dòng:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -223,11 +234,13 @@ Kết quả:
 
 ## **Thay đổi danh sách hiện có**
 
-Để thay đổi định dạng danh sách trong một bản trình bày hiện có, truy cập đoạn văn mục tiêu và cập nhật cài đặt [IParagraphFormat.getBullet](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#getBullet--). Các thuộc tính tương tự đã dùng để tạo danh sách cũng có thể được dùng để kiểm tra hoặc chỉnh sửa các danh sách được tải từ file PPT, PPTX, hoặc ODP.
+Để thay đổi định dạng danh sách trong một bản trình bày hiện có, truy cập đoạn văn mục tiêu và cập nhật cài đặt [IParagraphFormat.getBullet](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#getBullet--) của nó. Các thuộc tính giống như khi tạo danh sách có thể được sử dụng để kiểm tra hoặc sửa đổi danh sách được tải từ tệp PPT, PPTX hoặc ODP.
 
-Đoạn mã Java sau thay đổi đoạn văn đầu tiên trong một khung văn bản để sử dụng kiểu danh sách đánh số:
+Mã Java sau đây thay đổi đoạn văn đầu tiên trong một khung văn bản để sử dụng kiểu danh sách có số:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -246,16 +259,16 @@ try {
 }
 ```
 
-## **Câu hỏi thường gặp**
+## **FAQ**
 
-**Danh sách có dấu đầu dòng và danh sách đánh số có thể xuất ra PDF hoặc hình ảnh không?**
+### Các danh sách có dấu đầu dòng và có số có thể xuất sang PDF hoặc hình ảnh không?
 
 Có. Aspose.Slides giữ nguyên định dạng danh sách khi định dạng đích hỗ trợ bố cục văn bản và tính năng dấu đầu dòng tương ứng.
 
-**Tôi có thể chỉnh sửa danh sách trong các bản trình bày hiện có không?**
+### Tôi có thể chỉnh sửa danh sách trong các bản trình bày hiện có không?
 
-Có. Tải bản trình bày, truy cập đoạn văn mục tiêu, kiểm tra hoặc cập nhật cài đặt [IParagraphFormat.getBullet](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#getBullet--) và lưu bản trình bày.
+Có. Tải bản trình bày, truy cập đoạn văn mục tiêu, kiểm tra hoặc cập nhật cài đặt [IParagraphFormat.getBullet](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#getBullet--) của nó, và lưu bản trình bày.
 
-**Danh sách có thể chứa văn bản không phải Latin không?**
+### Danh sách có thể chứa văn bản không phải Latinh không?
 
-Có. Văn bản của mục danh sách có thể chứa các ký tự Unicode, vì vậy bạn có thể tạo danh sách trong các bản trình bày đa ngôn ngữ. Đảm bảo các phông chữ được sử dụng trong bản trình bày hỗ trợ các ký tự bạn cần.
+Có. Văn bản của mục danh sách có thể chứa ký tự Unicode, vì vậy bạn có thể tạo danh sách trong các bản trình bày đa ngôn ngữ. Đảm bảo các phông chữ được sử dụng trong bản trình bày hỗ trợ các ký tự bạn cần.

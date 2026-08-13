@@ -7,8 +7,8 @@ url: /sv/cpp/presentation-background/
 keywords:
 - presentationsbakgrund
 - bildbakgrund
-- solid färg
-- gradientfärg
+- enfärgad färg
+- övertoningsfärg
 - bildbakgrund
 - bakgrundstransparens
 - bakgrundsegenskaper
@@ -21,29 +21,44 @@ description: "Lär dig hur du ställer in dynamiska bakgrunder i PowerPoint- och
 ---
 ## **Introduktion**
 
-Solida färger, gradienter och bilder används ofta för bildbakgrunder. Du kan ställa in bakgrunden för en **normal bild** (en enskild bild) eller en **master‑bild** (gäller flera bilder samtidigt).
+Enfärgade färger, övertoningar och bilder används ofta som bakgrund för bilder. Du kan ange bakgrunden för en **normal bild** (en enskild bild) eller en **mallbild** (gäller för flera bilder samtidigt).
 
-![PowerPoint background](powerpoint-background.png)
+![PowerPoint bakgrund](powerpoint-background.png)
 
-## **Ställ in en solid färg som bakgrund för en normal bild**
+## **Ange en enfärgad bakgrund för en normal bild**
 
-Aspose.Slides låter dig ange en solid färg som bakgrund för en specifik bild i en presentation—även om presentationen använder en master‑bild. Ändringen gäller endast den valda bilden.
+Aspose.Slides låter dig ange en enfärgad färg som bakgrund för en specifik bild i en presentation – även om presentationen använder en mallbild. Ändringen gäller endast den markerade bilden.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/).
-2. Ställ in bildens [BackgroundType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/backgroundtype/) till `OwnBackground`.
-3. Ställ in bildbakgrundens [FillType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/filltype/) till `Solid`.
-4. Använd metoden [get_SolidFillColor](https://reference.aspose.com/slides/sv/cpp/aspose.slides/fillformat/get_solidfillcolor/) på [FillFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/fillformat/) för att ange den solida bakgrundsfärgen.
+2. Ange bildens [BackgroundType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/backgroundtype/) till `OwnBackground`.
+3. Ange bildbakgrundens [FillType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/filltype/) till `Solid`.
+4. Använd metoden [get_SolidFillColor](https://reference.aspose.com/slides/sv/cpp/aspose.slides/fillformat/get_solidfillcolor/) på [FillFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/fillformat/) för att ange den enfärgade bakgrundsfärgen.
 5. Spara den ändrade presentationen.
 
-Följande C++‑exempel visar hur du ställer in en blå solid färg som bakgrund för en normal bild:
+Följande C++-exempel visar hur du anger en blå enfärgad bakgrund för en normal bild:
 
 ```cpp
-// Skapa en instans av Presentation-klassen.
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+// Skapa en instans av Presentation‑klassen.
 auto presentation = MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
 
-// Ställ in bakgrundsfärgen för bilden till blå.
+// Ange bakgrundsfärgen för bilden till blå.
 slide->get_Background()->set_Type(BackgroundType::OwnBackground);
 slide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
 slide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
@@ -53,25 +68,40 @@ presentation->Save(u"SolidColorBackground.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Ställ in en solid färg som bakgrund för en master‑bild**
+## **Ange en enfärgad bakgrund för en mallbild**
 
-Aspose.Slides låter dig ange en solid färg som bakgrund för master‑bilden i en presentation. Master‑bilden fungerar som en mall som styr formatering för alla bilder, så när du väljer en solid färg för master‑bildens bakgrund gäller den för varje bild.
+Aspose.Slides låter dig ange en enfärgad färg som bakgrund för mallbilden i en presentation. Mallbilden fungerar som en mall som styr formatering för alla bilder, så när du väljer en enfärgad färg för mallbildens bakgrund gäller den för varje bild.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/).
-2. Ställ in master‑bildens [BackgroundType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/backgroundtype/) (via `get_Masters`) till `OwnBackground`.
-3. Ställ in master‑bildens bakgrund [FillType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/filltype/) till `Solid`.
-4. Använd metoden [get_SolidFillColor](https://reference.aspose.com/slides/sv/cpp/aspose.slides/fillformat/get_solidfillcolor/) för att ange den solida bakgrundsfärgen.
+2. Ange mallbildens [BackgroundType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/backgroundtype/) (via `get_Masters`) till `OwnBackground`.
+3. Ange mallbildens bakgrunds [FillType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/filltype/) till `Solid`.
+4. Använd metoden [get_SolidFillColor](https://reference.aspose.com/slides/sv/cpp/aspose.slides/fillformat/get_solidfillcolor/) för att ange den enfärgade bakgrundsfärgen.
 5. Spara den ändrade presentationen.
 
-Följande C++‑exempel visar hur du ställer in en solid färg (skoggrön) som bakgrund för en master‑bild:
+Följande C++-exempel visar hur du anger en enfärgad bakgrund (skoggrön) för en mallbild:
 
 ```cpp
-// Skapa en instans av Presentation-klassen.
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+// Skapa en instans av Presentation‑klassen.
 auto presentation = MakeObject<Presentation>();
 
 auto masterSlide = presentation->get_Master(0);
 
-// Ställ in bakgrundsfärgen för master‑bilden till skogsgrön.
+// Ange bakgrundsfärgen för master‑bilden till skogsgrön.
 masterSlide->get_Background()->set_Type(BackgroundType::OwnBackground);
 masterSlide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
 masterSlide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_ForestGreen());
@@ -81,25 +111,39 @@ presentation->Save(u"MasterSlideBackground.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Ställ in en gradientbakgrund för en bild**
+## **Ange en övertoningsbakgrund för en bild**
 
-En gradient är en grafisk effekt som skapas genom en gradvis färgförändring. När den används som bildbakgrund kan gradienter göra presentationer mer konstnärliga och professionella. Aspose.Slides låter dig ange en gradientfärg som bakgrund för bilder.
+En övertoning är en grafisk effekt som skapas av en gradvis färgförändring. När den används som bildbakgrund kan övertoningar göra presentationer mer konstnärliga och professionella. Aspose.Slides låter dig ange en övertoningsfärg som bakgrund för bilder.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/).
-2. Ställ in bildens [BackgroundType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/backgroundtype/) till `OwnBackground`.
-3. Ställ in bildbakgrundens [FillType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/filltype/) till `Gradient`.
-4. Använd metoden [get_GradientFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/fillformat/get_gradientformat/) på [FillFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/fillformat/) för att konfigurera dina önskade gradientinställningar.
+2. Ange bildens [BackgroundType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/backgroundtype/) till `OwnBackground`.
+3. Ange bildbakgrundens [FillType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/filltype/) till `Gradient`.
+4. Använd metoden [get_GradientFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/fillformat/get_gradientformat/) på [FillFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/fillformat/) för att konfigurera dina önskade övertoningsinställningar.
 5. Spara den ändrade presentationen.
 
-Följande C++‑exempel visar hur du ställer in en gradientfärg som bakgrund för en bild:
+Följande C++-exempel visar hur du anger en övertoningsfärg som bakgrund för en bild:
 
 ```cpp
-// Skapa en instans av Presentation-klassen.
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IGradientFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/TileFlip.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// Skapa en instans av Presentation‑klassen.
 auto presentation = MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
 
-// Applicera en gradienteffekt på bakgrunden.
+// Tillämpa en övertoningseffekt på bakgrunden.
 slide->get_Background()->set_Type(BackgroundType::OwnBackground);
 slide->get_Background()->get_FillFormat()->set_FillType(FillType::Gradient);
 slide->get_Background()->get_FillFormat()->get_GradientFormat()->set_TileFlip(TileFlip::FlipBoth);
@@ -109,27 +153,45 @@ presentation->Save(u"GradientBackground.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Använd en bild som bakgrund för en bild**
+## **Ange en bild som bildbakgrund**
 
-Förutom solida och gradientfyllningar låter Aspose.Slides dig använda bilder som bildbakgrunder.
+Förutom enfärgade och övertoningsfyllningar låter Aspose.Slides dig använda bilder som bildbakgrund.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/).
-2. Ställ in bildens [BackgroundType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/backgroundtype/) till `OwnBackground`.
-3. Ställ in bildbakgrundens [FillType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/filltype/) till `Picture`.
-4. Ladda bilden du vill använda som bildbakgrund.
+2. Ange bildens [BackgroundType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/backgroundtype/) till `OwnBackground`.
+3. Ange bildbakgrundens [FillType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/filltype/) till `Picture`.
+4. Läs in bilden du vill använda som bildbakgrund.
 5. Lägg till bilden i presentationens bildsamling.
 6. Använd metoden [get_PictureFillFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/fillformat/get_picturefillformat/) på [FillFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/fillformat/) för att tilldela bilden som bakgrund.
 7. Spara den ändrade presentationen.
 
-Följande C++‑exempel visar hur du ställer in en bild som bakgrund för en bild:
+Följande C++-exempel visar hur du anger en bild som bakgrund för en bild:
 
 ```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Skapa en instans av Presentation-klassen.
 auto presentation = MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
 
-// Ställ in egenskaper för bakgrundsbild.
+// Ange egenskaper för bakgrundsbild.
 slide->get_Background()->set_Type(BackgroundType::OwnBackground);
 slide->get_Background()->get_FillFormat()->set_FillType(FillType::Picture);
 slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
@@ -147,9 +209,29 @@ presentation->Save(u"ImageAsBackground.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Följande kodexempel visar hur du ställer in bakgrundens fyllningstyp till en mosaikbild och ändrar mosaikegenskaperna:
+Följande kodexempel visar hur du ställer in bakgrundens fyllningstyp till en tilead bild och ändrar tile‑egenskaperna:
 
 ```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Presentation.h>
+#include <DOM/RectangleAlignment.h>
+#include <DOM/TileFlip.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>();
 
 auto firstSlide = presentation->get_Slide(0);
@@ -180,16 +262,36 @@ presentation->Save(u"TileBackground.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 Läs mer: [**Tile Picture As Texture**](/slides/sv/cpp/shape-formatting/#tile-picture-as-texture).
 {{% /alert %}}
 
 ### **Ändra bakgrundsbildens transparens**
 
-Du kanske vill justera transparensen för en bilds bakgrundsbild för att få innehållet i bilden att framträda tydligare. Följande C++‑kod visar hur du ändrar transparensen för en bilds bakgrundsbild:
+Du kanske vill justera transparensen för en bilds bakgrundsbild för att få bildens innehåll att framträda. Följande C++-kod visar hur du ändrar transparensen för en bildbakgrund:
 
 ```cpp
+#include <DOM/Effects/IAlphaModulateFixed.h>
+#include <DOM/Effects/IImageTransformOperationCollection.h>
+#include <DOM/IBackground.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Effects;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto transparencyValue = 30; // Till exempel.
+
+// Skapa en instans av Presentation‑klassen.
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+
+auto slide = presentation->get_Slide(0);
 
 // Get the collection of picture transform operations.
 auto imageTransform = slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->get_ImageTransform();
@@ -214,18 +316,34 @@ else
 {
     transparencyOperation->set_Amount(100.0f - transparencyValue);
 }
+
+// Save the presentation to disk.
+presentation->Save(u"TransparentBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
 ## **Hämta bildens bakgrundsvärde**
 
-Aspose.Slides tillhandahåller gränssnittet [IBackgroundEffectiveData](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibackgroundeffectivedata/) för att hämta en bilds faktiska bakgrundsvärden. Detta gränssnitt exponerar den faktiska [FillFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibackgroundeffectivedata/get_fillformat/) och [EffectFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibackgroundeffectivedata/get_effectformat/).
+Aspose.Slides tillhandahåller gränssnittet [IBackgroundEffectiveData](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibackgroundeffectivedata/) för att hämta en bilds effektiva bakgrundsvärden. Detta gränssnitt visar den effektiva [FillFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibackgroundeffectivedata/get_fillformat/) och [EffectFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibackgroundeffectivedata/get_effectformat/).
 
-Genom att använda metoden `get_Background` i klassen [BaseSlide](https://reference.aspose.com/slides/sv/cpp/aspose.slides/baseslide/) kan du få den faktiska bakgrunden för en bild.
+Genom att använda [BaseSlide](https://reference.aspose.com/slides/sv/cpp/aspose.slides/baseslide/)‑klassens `get_Background`‑metod kan du hämta den effektiva bakgrunden för en bild.
 
-Följande C++‑exempel visar hur du hämtar en bilds faktiska bakgrundsvärde:
+Följande C++-exempel visar hur du får en bilds effektiva bakgrundsvärde:
 
 ```cpp
-// Skapa en instans av Presentation-klassen.
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IBackgroundEffectiveData.h>
+#include <DOM/IFillFormatEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <drawing/color.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+// Skapa en instans av Presentation‑klassen.
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -243,12 +361,12 @@ else
 }
 ```
 
-## **Vanliga frågor**
+## **FAQ**
 
-**Kan jag återställa en anpassad bakgrund och återfå temats/layoute‑bakgrund?**
+### Kan jag återställa en anpassad bakgrund och återfå tema-/layoutbakgrunden?
 
-Ja. Ta bort bildens anpassade fyllning så ärver bakgrunden återigen från motsvarande [layout](/slides/sv/cpp/slide-layout/)/[master](/slides/sv/cpp/slide-master/) bild (dvs. [tema bakgrund](/slides/sv/cpp/presentation-theme/)).
+Ja. Ta bort bildens anpassade fyllning så ärver bakgrunden igen från motsvarande [layout](/slides/sv/cpp/slide-layout/)/[master](/slides/sv/cpp/slide-master/)‑bild (dvs. [temabakgrunden](/slides/sv/cpp/presentation-theme/)).
 
-**Vad händer med bakgrunden om jag ändrar presentationens tema senare?**
+### Vad händer med bakgrunden om jag ändrar presentationens tema senare?
 
 Om en bild har sin egen fyllning förblir den oförändrad. Om bakgrunden ärvs från [layout](/slides/sv/cpp/slide-layout/)/[master](/slides/sv/cpp/slide-master/) uppdateras den för att matcha det [nya temat](/slides/sv/cpp/presentation-theme/).

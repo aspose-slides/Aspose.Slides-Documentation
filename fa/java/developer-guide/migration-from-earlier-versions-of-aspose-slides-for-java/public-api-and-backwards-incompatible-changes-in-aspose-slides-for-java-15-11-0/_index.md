@@ -1,13 +1,13 @@
 ---
-title: API عمومی و تغییرات ناسازگار با نسخه‌های قبلی در Aspose.Slides برای Java 15.11.0
-linktitle: Aspose.Slides برای Java 15.11.0
+title: API عمومی و تغییرات ناسازگار به عقب در Aspose.Slides برای جاوا 15.11.0
+linktitle: Aspose.Slides برای جاوا 15.11.0
 type: docs
 weight: 190
 url: /fa/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-11-0/
 keywords:
 - مهاجرت
-- کد قدیمی
-- کد مدرن
+- کدهای قدیمی
+- کدهای مدرن
 - رویکرد قدیمی
 - رویکرد مدرن
 - PowerPoint
@@ -15,14 +15,16 @@ keywords:
 - ارائه
 - Java
 - Aspose.Slides
-description: "به‌روزرسانی‌های API عمومی و تغییرات ناسازگار در Aspose.Slides برای Java را بررسی کنید تا بتوانید به‌صورت روان برنامه‌های ارائه PowerPoint (PPT، PPTX) و ODP خود را مهاجرت دهید."
+description: "به‌روزرسانی‌های API عمومی و تغییرات شکسته‌کننده در Aspose.Slides برای جاوا را مرور کنید تا به‌صورت روان راه‌حل‌های ارائه PowerPoint PPT، PPTX و ODP خود را مهاجرت دهید."
 ---
-{{% alert color="primary" %}} 
-این صفحه تمام [اضافه‌شده](/slides/fa/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-11-0/) یا [حذف‌شده](/slides/fa/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-11-0/) کلاس‌ها، متدها، ویژگی‌ها و موارد مشابه، و سایر تغییراتی که با Aspose.Slides برای Java 15.11.0 API معرفی شده‌اند را فهرست می‌کند.
+{{% alert color="info" %}} 
+
+این صفحه تمام کلاس‌ها، متدها، ویژگی‌ها و غیره که [added](/slides/fa/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-11-0/) یا [removed](/slides/fa/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-11-0/) هستند را فهرست می‌کند و سایر تغییرات معرفی‌شده در API Aspose.Slides for Java 15.11.0.
+
 {{% /alert %}} 
 ## **تغییرات API عمومی**
-#### **متدهای منسوخ‌شده در کلاس com.aspose.slides.DataLabelCollection حذف شده‌اند**
-متدهای منسوخ‌شده در کلاس com.aspose.slides.DataLabelCollection حذف شده‌اند:
+#### **متدهای منسوخ شده در کلاس com.aspose.slides.DataLabelCollection حذف شده‌اند**
+متدهای منسوخ شده در کلاس com.aspose.slides.DataLabelCollection حذف شده‌اند:
 
 DataLabelCollection.getNumberFormat()
 DataLabelCollection.setNumberFormat(String value)
@@ -54,16 +56,19 @@ DataLabelCollection.setShowBubbleSize(boolean value)
 
 #### **متدهای جدید getFirstSlideNumber() و setFirstSlideNumber() به کلاس Presentation اضافه شده‌اند**
 متدهای جدید getFirstSlideNumber() و setFirstSlideNumber() امکان دریافت یا تنظیم شماره اولین اسلاید در یک ارائه را فراهم می‌کنند.
-هنگامی که مقدار جدید شماره اولین اسلاید مشخص شود، تمام شماره‌های اسلاید مجدداً محاسبه می‌شوند.
+هنگامی که مقدار جدیدی برای شماره اولین اسلاید مشخص می‌شود، تمام شماره اسلایدها دوباره محاسبه می‌شوند.
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(path);
+Presentation pres = new Presentation("presentation.pptx");
+try {
+    int firstSlideNumber = pres.getFirstSlideNumber();
 
-int firstSlideNumber = pres.getFirstSlideNumber();
+    pres.setFirstSlideNumber(10);
 
-pres.setFirstSlideNumber(10);
-
-pres.save(newPath, SaveFormat.Pptx);
-
+    pres.save("presentation_out.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```

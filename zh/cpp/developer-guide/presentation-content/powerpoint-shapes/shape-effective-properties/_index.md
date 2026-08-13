@@ -1,5 +1,5 @@
 ---
-title: 在 C++ 中从演示文稿获取形状的有效属性
+title: 从 C++ 演示文稿中获取形状有效属性
 linktitle: 有效属性
 type: docs
 weight: 50
@@ -8,7 +8,7 @@ keywords:
 - 形状属性
 - 相机属性
 - 灯光装置
-- 斜角形状
+- 倒角形状
 - 文本框
 - 文本样式
 - 字体高度
@@ -21,17 +21,27 @@ description: "了解 Aspose.Slides for C++ 如何计算并应用形状的有效�
 ---
 ## **概述**
 
-本主题解释 **本地** 和 **有效** 属性之间的区别。本地值是直接在特定格式级别设置的值，例如：
+本主题解释 **本地** 与 **有效** 属性之间的区别。本地值是直接在特定格式级别设置的值，例如：
 
-1. 幻灯片上的段落属性。
-1. 原型形状文本样式在布局或母版幻灯片上，当该段落的文本框形状具有该样式时。
+1. 幻灯片上的段落属性。  
+1. 布局或母版幻灯片上的原型形状文本样式（当该段落的文本框形状具有此样式时）。  
 1. 演示文稿中的全局文本设置。
 
-本地值可以在任何层级上定义或省略。当 Aspose.Slides 需要最终「实际渲染」的格式时，它会解析继承链并返回 **有效** 值。可以通过在本地格式对象上调用 `GetEffective` 方法来获取它们。
+本地值可以在任何级别定义或省略。当 Aspose.Slides 需要最终 “渲染后” 的格式时，它会解析继承链并返回 **有效** 值。您可以通过在本地格式对象上调用 `GetEffective` 方法来获取它们。
 
-以下示例展示了如何获取有效值。假设第一张幻灯片上的第一个形状是一个带有文本框且至少包含一个段落的 [IAutoShape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iautoshape/)。
+下面的示例演示如何获取有效值。假设第一张幻灯片上的第一个形状是一个带有文本框且至少包含一个段落的 [IAutoShape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iautoshape/)。
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -46,17 +56,28 @@ auto effectivePortionFormat = portion->get_PortionFormat()->GetEffective();
 presentation->Dispose();
 ```
 
-{{% alert color="primary" %}}
-有效格式数据表示在应用继承后计算得到的当前格式。在当前实现中，某些有效数据对象，例如 [IPortionFormatEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iportionformateffectivedata/)，可能会在内部被缓存。在更改父级或继承的格式后再次调用 `GetEffective` 可以刷新缓存的数据，先前获取的对象可能不再代表之前的状态。如果需要保留有效值以供后续使用，请将所需的属性（例如字体高度、填充颜色、字体样式或对齐方式）复制到自己的数据对象中。
+{{% alert color="info" %}}
+有效格式数据表示在应用继承后计算得到的当前格式。在当前实现中，某些有效数据对象（例如 [IPortionFormatEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iportionformateffectivedata/)）可能会在内部被缓存。更改父级或继承的格式后再次调用 `GetEffective` 可以刷新缓存数据，先前获取的对象可能不再代表之前的状态。如果需要保留有效值以供后续使用，请将所需属性（如字体高度、填充颜色、字体样式或对齐方式）复制到您自己的数据对象中。
 {{% /alert %}}
 
 ## **获取相机的有效属性**
 
-Aspose.Slides 允许获取相机的有效属性。接口 [ICameraEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icameraeffectivedata/) 表示一个包含相机有效属性的不可变对象。[ICameraEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icameraeffectivedata/) 实例通过 [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ithreedformateffectivedata/) 暴露，后者提供对 [IThreeDFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ithreedformat/) 的有效值。
+Aspose.Slides 允许您获取相机的有效属性。 [ICameraEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icameraeffectivedata/) 接口表示一个不可变对象，包含有效的相机属性。通过 [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ithreedformateffectivedata/) 暴露的 [ICameraEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icameraeffectivedata/) 实例，提供 [IThreeDFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ithreedformat/) 的有效值。
 
-以下代码示例展示了如何获取相机的有效属性。假设第一张幻灯片上的第一个形状具有 3D 格式。
+下面的代码示例演示如何获取相机的有效属性。假设第一张幻灯片上的第一个形状具有 3D 格式。
 
 ```cpp
+#include <DOM/ICameraEffectiveData.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -80,11 +101,22 @@ presentation->Dispose();
 
 ## **获取灯光装置的有效属性**
 
-Aspose.Slides 允许获取灯光装置的有效属性。接口 [ILightRigEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ilightrigeffectivedata/) 表示一个包含灯光装置有效属性的不可变对象。[ILightRigEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ilightrigeffectivedata/) 实例通过 [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ithreedformateffectivedata/) 暴露，后者提供对 [IThreeDFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ithreedformat/) 的有效值。
+Aspose.Slides 允许您获取灯光装置的有效属性。 [ILightRigEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ilightrigeffectivedata/) 接口表示一个不可变对象，包含有效的灯光装置属性。通过 [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ithreedformateffectivedata/) 暴露的 [ILightRigEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ilightrigeffectivedata/) 实例，提供 [IThreeDFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ithreedformat/) 的有效值。
 
-以下代码示例展示了如何获取灯光装置的有效属性。假设第一张幻灯片上的第一个形状具有 3D 格式。
+下面的代码示例演示如何获取灯光装置的有效属性。假设第一张幻灯片上的第一个形状具有 3D 格式。
 
 ```cpp
+#include <DOM/ILightRigEffectiveData.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 auto shape = presentation->get_Slide(0)->get_Shape(0);
 
@@ -101,13 +133,24 @@ System::Console::WriteLine(System::String(u"Direction: ") + lightDirection);
 presentation->Dispose();
 ```
 
-## **获取形状斜角的有效属性**
+## **获取形状倒角的有效属性**
 
-Aspose.Slides 允许获取形状斜角的有效属性。接口 [IShapeBevelEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ishapebeveleffectivedata/) 表示一个包含形状面部斜角有效属性的不可变对象。[IShapeBevelEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ishapebeveleffectivedata/) 实例通过 [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ithreedformateffectivedata/) 暴露，后者提供对 [IThreeDFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ithreedformat/) 的有效值。
+Aspose.Slides 允许您获取形状倒角的有效属性。 [IShapeBevelEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ishapebeveleffectivedata/) 接口表示一个不可变对象，包含形状倒角的有效面部特征属性。通过 [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ithreedformateffectivedata/) 暴露的 [IShapeBevelEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ishapebeveleffectivedata/) 实例，提供 [IThreeDFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ithreedformat/) 的有效值。
 
-以下代码示例展示了如何获取形状顶部斜角的有效属性。假设第一张幻灯片上的第一个形状具有 3D 格式。
+下面的代码示例演示如何获取形状顶部倒角的有效属性。假设第一张幻灯片上的第一个形状具有 3D 格式。
 
 ```cpp
+#include <DOM/IShape.h>
+#include <DOM/IShapeBevelEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 auto shape = presentation->get_Slide(0)->get_Shape(0);
 
@@ -129,11 +172,22 @@ presentation->Dispose();
 
 ## **获取文本框的有效属性**
 
-使用 Aspose.Slides，您可以获取文本框的有效属性。[ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itextframeformateffectivedata/) 接口包含文本框的有效格式属性。
+使用 Aspose.Slides，您可以获取文本框的有效属性。 [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itextframeformateffectivedata/) 接口包含有效的文本框格式属性。
 
-以下代码示例展示了如何获取文本框的有效格式属性。假设第一张幻灯片上的第一个形状是一个带有文本框的 [IAutoShape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iautoshape/)。
+下面的代码示例演示如何获取文本框的有效格式属性。假设第一张幻灯片上的第一个形状是一个带有文本框的 [IAutoShape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iautoshape/)。
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/ITextFrameFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -168,11 +222,24 @@ presentation->Dispose();
 
 ## **获取文本样式的有效属性**
 
-使用 Aspose.Slides，您可以获取文本样式的有效属性。[ITextStyleEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itextstyleeffectivedata/) 接口包含文本样式的有效属性。
+使用 Aspose.Slides，您可以获取文本样式的有效属性。 [ITextStyleEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itextstyleeffectivedata/) 接口包含有效的文本样式属性。
 
-以下代码示例展示了如何获取文本样式的有效属性。假设第一张幻灯片上的第一个形状是一个带有文本框的 [IAutoShape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iautoshape/)。
+下面的代码示例演示如何获取文本样式的有效属性。假设第一张幻灯片上的第一个形状是一个带有文本框的 [IAutoShape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iautoshape/)。
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphFormatEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/ITextStyleEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -199,11 +266,30 @@ for (int levelIndex = 0; levelIndex < levelCount; levelIndex++)
 presentation->Dispose();
 ```
 
-## **获取有效字体高度值**
+## **获取有效的字体高度值**
 
-使用 Aspose.Slides，您可以获取有效的字体高度。以下代码演示了在演示文稿不同层级设置本地字体高度后，段落的有效字体高度如何变化。
+使用 Aspose.Slides，您可以获取有效的字体高度。下面的代码演示在演示文稿结构的不同层级设置本地字体高度后，段落的有效字体高度如何变化。
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
@@ -262,11 +348,27 @@ presentation->Dispose();
 
 ## **获取表格的有效填充格式**
 
-使用 Aspose.Slides，您可以获取表格不同部分的有效填充格式。[IFillFormatEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ifillformateffectivedata/) 接口包含有效的填充格式属性。单元格格式的优先级高于行格式，行格式优先于列格式，列格式优先于整个表格的格式。
+使用 Aspose.Slides，您可以获取不同表格部分的有效填充格式。 [IFillFormatEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ifillformateffectivedata/) 接口包含有效的填充格式属性。单元格格式的优先级高于行格式，行格式高于列格式，列格式高于整表格式。
 
-因此，绘制表格单元格时使用 [ICellFormatEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icellformateffectivedata/) 的属性。以下代码示例展示了如何获取表格不同部分的有效填充格式。假设第一张幻灯片上的第一个形状是一个 [ITable](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itable/)。
+因此，绘制表格单元格时会使用 [ICellFormatEffectiveData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icellformateffectivedata/) 的属性。下面的代码示例演示如何获取不同表格部分的有效填充格式。假设第一张幻灯片上的第一个形状是一个 [ITable](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itable/)。
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/ICellFormatEffectiveData.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/IColumnFormat.h>
+#include <DOM/Table/IColumnFormatEffectiveData.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowFormat.h>
+#include <DOM/Table/IRowFormatEffectiveData.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ITableFormat.h>
+#include <DOM/Table/ITableFormatEffectiveData.h>
+using namespace Aspose::Slides;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -282,34 +384,34 @@ presentation->Dispose();
 
 ## **常见问题**
 
-**`GetEffective` 是否返回快照？**
+### `GetEffective` 会返回快照吗？
 
-并非总是如此。有效数据表示在应用继承后计算得到的格式，但某些有效数据对象可能会在内部被缓存。后续调用 `GetEffective` 可能会重新计算格式并刷新缓存的数据，因此先前获取的对象不应被视为持久的快照。
+并不总是。有效数据表示在应用继承后计算得到的格式，但某些有效数据对象可能会在内部被缓存。随后再次调用 `GetEffective` 可能会重新计算格式并刷新缓存数据，因此先前获取的对象不应视为持久的快照。
 
-**何时应重新读取有效属性？**
+### 何时需要重新读取有效属性？
 
-在更改本地格式、父样式、布局格式、母版格式或演示文稿级别的默认设置后，请再次调用 `GetEffective`。下次调用会重新评估格式层次并返回当前的有效结果。
+在更改本地格式、父级样式、布局格式、母版格式或演示文稿级别默认值后，请再次调用 `GetEffective`。下一次调用会重新评估格式层级并返回当前的有效结果。
 
-**更改或删除布局/母版幻灯片会影响已检索的有效属性吗？**
+### 更改或删除布局/母版幻灯片会影响已经获取的有效属性吗？
 
-会，但该更改会在下次调用 `GetEffective` 时生效。如果父级格式源被更改或移除，先前获取的有效数据可能已经过时。再次调用 `GetEffective` 后，Aspose.Slides 会重新评估格式树，导致字体、颜色、尺寸或其他值可能发生变化。
+会，但更改会在下次 `GetEffective` 调用时体现。如果父级格式源被更改或删除，先前获取的有效数据可能已过时。再次调用 `GetEffective` 后，Aspose.Slides 会重新评估格式树，字体、颜色、大小等值可能会改变。
 
-**我可以通过有效数据对象修改数值吗？**
+### 可以通过有效数据对象修改值吗？
 
-不能。有效数据对象仅暴露计算后的值。请在本地格式对象中进行修改，然后再次获取有效值。
+不能。有效数据对象只暴露计算后的值。请在本地格式对象中进行更改，然后再次获取有效值。
 
-**如果属性既未在形状层级设置，也未在布局/母版或全局设置中设置，会怎样？**
+### 如果在形状级别、布局/母版以及全局设置中都未设置属性会怎样？
 
-有效值将由默认机制决定，其中包括 PowerPoint 和 Aspose.Slides 的默认值。该解析得到的值将成为当前有效数据的一部分。
+有效值将由默认机制决定，包括 PowerPoint 和 Aspose.Slides 的默认值。该解析得到的值将成为当前有效数据的一部分。
 
-**从有效的字体值，我能判断是哪个层级提供的大小或字体吗？**
+### 从有效的字体值能否判断出是哪一级提供的大小或字体？
 
-无法直接判断。有效数据只返回最终值。若要查找来源，需要检查段落、段落、文本框以及布局、母版和演示文稿层级的文本样式中的本地值，找出首次出现的显式定义。
+不能直接判断。有效数据只返回最终值。若要找出来源，需要检查段落、文本框、以及布局、母版和演示文稿级别的本地值，找出首次出现的显式定义。
 
-**为什么有效值有时看起来与本地值相同？**
+### 为什么有效值有时看起来与本地值相同？
 
-因为本地值已经是最终值（不需要更高层级的继承）。在这种情况下，有效值与本地值相同。
+因为本地值已经是最终值（不需要更高层级的继承）。在这种情况下，有效值与本地值相匹配。
 
-**何时应该使用有效属性，何时仅使用本地属性？**
+### 何时使用有效属性，何时仅使用本地属性？
 
-当需要在所有继承应用后得到“实际渲染”结果时（例如对齐颜色、缩进或大小），应使用有效数据。如果希望保留这些值而不受后续格式更改影响，请将所需属性复制到自己的对象中。如果需要在特定层级修改格式，请修改本地属性，然后在必要时再次读取有效数据以验证结果。
+当需要在所有继承应用后得到 “渲染后” 的结果时使用有效数据，例如对齐颜色、缩进或大小。如果需要在后续格式更改后仍保持这些值，请将所需属性复制到自己的对象中。如果仅需在特定层级修改格式，修改本地属性后如有必要再次读取有效数据以验证结果。

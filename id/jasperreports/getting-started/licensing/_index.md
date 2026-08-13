@@ -4,18 +4,19 @@ type: docs
 weight: 50
 url: /id/jasperreports/licensing/
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Aspose.Slides untuk JasperReports tersedia sebagai evaluasi gratis tanpa batas waktu dari [halaman unduhan](https://downloads.aspose.com/slides/id/jasperreport). Versi evaluasi dan versi berlisensi dari produk diunduh dari tautan yang sama.
+Aspose.Slides untuk JasperReports tersedia sebagai evaluasi gratis tanpa batas waktu dari [download page](https://downloads.aspose.com/slides/id/jasperreport). Versi evaluasi dan versi berlisensi produk merupakan unduhan yang sama.
 
-Jika Anda puas dengan evaluasi, [beli lisensi](https://purchase.aspose.com/buy). Pastikan Anda memahami dan menyetujui ketentuan berlangganan.
+Jika Anda puas dengan evaluasi, [buy a license](https://purchase.aspose.com/buy). Pastikan Anda memahami dan menyetujui syarat berlangganan.
 
-Lisensi dapat diunduh dari halaman pemesanan setelah pembayaran selesai. Lisensi adalah file XML teks jelas yang ditandatangani secara digital, berisi informasi seperti nama klien, produk yang dibeli, dan jenis lisensi. Jangan mengubah isi file lisensi dengan cara apa pun: tindakan tersebut akan membuat lisensi tidak berlaku.
+Lisensi dapat diunduh dari halaman pesanan setelah pembayaran selesai. Lisensi berupa file XML teks jelas yang ditandatangani secara digital dan berisi informasi seperti nama klien, produk yang dibeli, dan tipe lisensi. Jangan memodifikasi konten file lisensi dengan cara apapun: hal tersebut akan membuat lisensi tidak berlaku.
 
-Unduh lisensi ke komputer Anda dan salin ke folder yang sesuai (misalnya folder aplikasi Anda atau **JasperReports\lib**).
+Unduh lisensi ke komputer Anda dan salin ke folder yang tepat (misalnya folder aplikasi Anda atau **JasperReports\lib**).
+{{% /alert %}}
 
 ## **Batasan Versi Evaluasi**
-Versi evaluasi Aspose.Slides (tanpa lisensi yang ditentukan) menyediakan semua fungsionalitas produk, tetapi (ketika Anda menyimpan presentasi) akan menyisipkan watermark evaluasi di tengah setiap slide seperti yang ditampilkan pada gambar di bawah ini:
+Versi evaluasi Aspose.Slides (tanpa lisensi yang ditentukan) menyediakan semua fungsi produk, tetapi (saat Anda menyimpan presentasi) akan menyisipkan watermark evaluasi di tengah setiap slide seperti yang ditampilkan pada gambar di bawah:
 
 ![todo:image_alt_text](evaluation_watermark.png) 
 
@@ -23,7 +24,7 @@ Versi evaluasi Aspose.Slides (tanpa lisensi yang ditentukan) menyediakan semua f
 Ada beberapa cara untuk menerapkan lisensi, tergantung apakah Anda bekerja pada JasperReports atau JasperServer.
 
 ### **Menerapkan Lisensi untuk JasperReports**
-Gunakan pemanggilan metode setLicense secara langsung yang mirip dengan Aspose.Slides untuk Java.
+Gunakan pemanggilan metode setLicense langsung seperti Aspose.Slides untuk Java.
 
 ```java
 import com.aspose.slides.jasperreports.License;
@@ -44,7 +45,7 @@ try {
 }
 ```
 
-Atau, atur parameter exporter dalam kode.
+Atau, tetapkan parameter exporter dalam kode.
 
 ```java
 ASPptExporter exporter = new ASPptExporter (); 
@@ -53,7 +54,7 @@ exporter.exportReport();
 ```
 
 ### **Menerapkan Lisensi pada JasperServer**
-Atur parameter exporter dalam applicationContext.xml.
+Tetapkan parameter exporter di applicationContext.xml.
 
 ``` xml
 <bean id="asExportParametersBean" class="com.aspose.slides.jasperreports.ASExportParametersBean">

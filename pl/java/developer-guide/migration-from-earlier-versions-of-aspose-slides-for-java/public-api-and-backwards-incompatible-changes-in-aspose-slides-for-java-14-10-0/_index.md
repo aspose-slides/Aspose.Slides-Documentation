@@ -1,43 +1,45 @@
 ---
-title: Publiczne API i zmiany niezgodne wstecz w Aspose.Slides dla Javy 14.10.0
-linktitle: Aspose.Slides dla Javy 14.10.0
+title: Public API i zmiany niekompatybilne wstecz w Aspose.Slides dla Java 14.10.0
+linktitle: Aspose.Slides dla Java 14.10.0
 type: docs
 weight: 90
 url: /pl/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/
 keywords:
 - migracja
-- kod dziedziczony
+- starszy kod
 - nowoczesny kod
-- podejście dziedziczone
+- starsze podejście
 - nowoczesne podejście
 - PowerPoint
 - OpenDocument
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Zapoznaj się z aktualizacjami publicznego API i zmianami niekompatybilnymi w Aspose.Slides dla Javy, aby płynnie migrować rozwiązania prezentacji PowerPoint (PPT, PPTX) i ODP."
+description: "Przegląd aktualizacji publicznego API i zmian łamiących w Aspose.Slides dla Java, aby płynnie migrować rozwiązania prezentacji PowerPoint PPT, PPTX i ODP."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Ta strona wymienia wszystkie [dodane](/slides/pl/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) klasy, metody, własności itd., wszelkie nowe ograniczenia oraz inne [zmiany](/slides/pl/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) wprowadzone w API Aspose.Slides for Java 14.10.0.
+Ta strona wymienia wszystkie [dodane](/slides/pl/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) klasy, metody, właściwości i tak dalej, wszelkie nowe ograniczenia oraz inne [zmiany](/slides/pl/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) wprowadzone w API Aspose.Slides for Java 14.10.0.
 
 {{% /alert %}} 
-## **Zmiany w publicznym API**
-### **Dodano metodę com.aspose.slides.FieldType.getFooter()**
+## **Zmiany publicznego API**
+### **com.aspose.slides.FieldType.getFooter() metoda została dodana**
 Metoda getFooter() zwraca typ pola stopki. Została dodana w celu umożliwienia tworzenia pól tego typu oraz prawidłowej serializacji prezentacji.
 ### **Element com.aspose.slides.ShapeElementFillSource.Own został usunięty**
-Element ShapeElementFillSource.Own został usunięty jako zdublowany. Zamiast ShapeElementFillSource.Own użyj ShapeElementFillSource.Shape.
-### **Dodano metody usuwania punktów danych wykresu oraz kategorii**
-**Dodano następujące metody, które umożliwiają usunięcie punktu danych wykresu z kolekcji punktów danych wykresu:**  
+Element ShapeElementFillSource.Own został usunięty jako duplikat. Użyj ShapeElementFillSource.Shape zamiast ShapeElementFillSource.Own.
+### **Dodano metody usuwania punktów danych wykresu i kategorii**
+**Dodano następujące metody, które pozwalają usunąć punkt danych wykresu z kolekcji punktów danych wykresu:**
 
-IChartDataPointCollection.remove(IChartDataPoint)  
-IChartDataPoint.remove()  
+IChartDataPointCollection.remove(IChartDataPoint)
+IChartDataPoint.remove()
 
-**Dodano następującą metodę, która umożliwia usunięcie kategorii wykresu z zawierającej ją kolekcji:**  
+**Dodano następującą metodę, która pozwala usunąć kategorię wykresu z zawierającej kolekcji:**
 
-IChartCategory.remove()  
+IChartCategory.remove()
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -61,19 +63,19 @@ pres.save("presentation.pptx", SaveFormat.Pptx);
 
 ```
 ### **Usunięto przestarzałe metody Aspose.Slides.ParagraphFormat**
-Metody getBulletChar(), getBulletColor(), getBulletColorFormat(), getBulletFont(), getBulletHeight(), getBulletType(), isBulletHardColor(), isBulletHardFont(), getNumberedBulletStartWith(), getNumberedBulletStyle() oraz odpowiadające im metody set zostały usunięte. Zostały oznaczone jako przestarzałe już dawno temu.
+Usunięto metody getBulletChar(), getBulletColor(), getBulletColorFormat(), getBulletFont(), getBulletHeight(), getBulletType(), isBulletHardColor(), isBulletHardFont(), getNumberedBulletStartWith(), getNumberedBulletStyle() oraz odpowiadające im metody set. Zostały oznaczone jako przestarzałe już dawno temu.
 ### **Usunięto nieprzydatne i przestarzałe konstruktory**
 Usunięto następujące konstruktory:
 
-com.aspose.slides.AlphaBiLevel(float)  
-com.aspose.slides.AlphaModulateFixed(float)  
-com.aspose.slides.AlphaReplace(float)  
-com.aspose.slides.BiLevel(float)  
-com.aspose.slides.Blur(double, boolean)  
-com.aspose.slides.HSL(float, float, float)  
-com.aspose.slides.ImageTransformOperation(com.aspose.slides.ImageTransformOperationCollection)  
-com.aspose.slides.Luminance(float, float)  
-com.aspose.slides.Tint(float, float)  
-com.aspose.slides.PortionFormat(com.aspose.slides.ParagraphFormat)  
-com.aspose.slides.PortionFormat(com.aspose.slides.Portion)  
+com.aspose.slides.AlphaBiLevel(float)
+com.aspose.slides.AlphaModulateFixed(float)
+com.aspose.slides.AlphaReplace(float)
+com.aspose.slides.BiLevel(float)
+com.aspose.slides.Blur(double, boolean)
+com.aspose.slides.HSL(float, float, float)
+com.aspose.slides.ImageTransformOperation(com.aspose.slides.ImageTransformOperationCollection)
+com.aspose.slides.Luminance(float, float)
+com.aspose.slides.Tint(float, float)
+com.aspose.slides.PortionFormat(com.aspose.slides.ParagraphFormat)
+com.aspose.slides.PortionFormat(com.aspose.slides.Portion)
 com.aspose.slides.PortionFormat(com.aspose.slides.PortionFormat)

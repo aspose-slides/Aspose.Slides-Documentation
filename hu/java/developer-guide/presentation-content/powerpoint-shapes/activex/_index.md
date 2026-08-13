@@ -1,5 +1,5 @@
 ---
-title: ActiveX vezérlők kezelése prezentációkban Java használatával
+title: ActiveX vezérlők kezelése prezentációkban Java-val
 linktitle: ActiveX
 type: docs
 weight: 80
@@ -10,36 +10,38 @@ keywords:
 - ActiveX kezelése
 - ActiveX hozzáadása
 - ActiveX módosítása
-- médiavégző
+- médialejátszó
 - PowerPoint
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Ismerje meg, hogyan használja az Aspose.Slides for Java az ActiveX-et a PowerPoint‑prezentációk automatizálásához és fejlesztéséhez, erőteljes vezérlést biztosítva a fejlesztőknek a diák felett."
+description: "Ismerkedjen meg azzal, hogyan használja az Aspose.Slides for Java az ActiveX-ot a PowerPoint prezentációk automatizálására és fejlesztésére, lehetővé téve a fejlesztők számára a diák erőteljes irányítását."
 ---
 ## **Bevezetés**
 
-Az ActiveX vezérlőket prezentációkban használják. Az Aspose.Slides for Java lehetővé teszi az ActiveX vezérlők hozzáadását és kezelését, de ezek a szokásos prezentációs alakzatokhoz képest kicsit bonyolultabbak. Beépítettük a Media Player Active vezérlő hozzáadásának támogatását az Aspose.Slides-be. Vegye figyelembe, hogy az ActiveX vezérlők nem alakzatok; nem részei a prezentáció [IShapeCollection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishapecollection/). Ehelyett a különálló [IControlCollection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icontrolcollection/) részei. Ebben a témában megmutatjuk, hogyan dolgozhat velük. 
+Az ActiveX vezérlőket prezentációkban használják. Az Aspose.Slides for Java lehetővé teszi az ActiveX vezérlők hozzáadását és kezelését, de ezek kezelése valamivel bonyolultabb a szokásos prezentációs alakzatokhoz képest. Támogatást valósítottunk meg a Media Player Active vezérlő hozzáadására az Aspose.Slides-ben. Vegye figyelembe, hogy az ActiveX vezérlők nem alakzatok; nem részei a prezentáció IShapeCollection gyűjteményének. Ehelyett a különálló IControlCollection részei. Ebben a témában megmutatjuk, hogyan dolgozhat velük. 
 
-## **Media Player ActiveX vezérlő hozzáadása egy diára**
-Az ActiveX Media Player vezérlő hozzáadásához a következőket kell tenni:
+## **Media Player ActiveX vezérlő hozzáadása diára**
+A Media Player ActiveX vezérlő hozzáadásához tegye a következőket:
 
-1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation) osztály példányt, és generáljon egy üres prezentációt.
-2. Hozzáférés a cél diához a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation) segítségével.
-3. Adja hozzá a Media Player ActiveX vezérlőt a [addControl](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) metódus használatával, amelyet az [IControlCollection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icontrolcollection/) biztosít.
-4. Hozzáférés a Media Player ActiveX vezérlőhöz, és a videó útvonal beállítása a tulajdonságain keresztül.
-5. Mentse a prezentációt PPTX fájlként.
+1. Hozzon létre egy példányt a Presentation osztályból, és generáljon egy üres prezentációpéldányt.
+1. Hozzáférjen a céldiához a Presentation-ben.
+1. Adja hozzá a Media Player ActiveX vezérlőt az IControlCollection által biztosított addControl metódus használatával.
+1. Hozzáfér a Media Player ActiveX vezérlőhöz, és állítsa be a videó útvonalát a tulajdonságai segítségével.
+1. Mentse a prezentációt PPTX fájlként.
 
-Ez a mintakód, a fentiek alapján, bemutatja, hogyan adhat Media Player ActiveX vezérlőt egy diához:
+Ez a mintakód a fenti lépések alapján bemutatja, hogyan adjon Media Player ActiveX vezérlőt egy diára:
 
 ```java
+import com.aspose.slides.*;
+
 // Üres prezentációpéldány létrehozása
 Presentation pres = new Presentation();
 try {
-    // A Media Player ActiveX vezérlő hozzáadása
+    // Media Player ActiveX vezérlő hozzáadása
     pres.getSlides().get_Item(0).getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
 
-    // A Media Player ActiveX vezérlő elérése és a videó útvonal beállítása
+    // Hozzáférés a Media Player ActiveX vezérlőhöz és a videó útvonal beállítása
     pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("URL", "Wildlife.wmv");
 
     // A prezentáció mentése
@@ -50,31 +52,39 @@ try {
 ```
 
 ## **ActiveX vezérlő módosítása**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Az Aspose.Slides for Java 7.1.0 és újabb verziók komponensekkel vannak ellátva az ActiveX vezérlők kezeléséhez. Elérheti a már hozzáadott ActiveX vezérlőt a prezentációban, és módosíthatja vagy törölheti a tulajdonságai segítségével.
+Az Aspose.Slides for Java 7.1.0 és annál újabb verziói rendelkeznek az ActiveX vezérlők kezeléséhez szükséges összetevőkkel. Hozzáférhet a már hozzáadott ActiveX vezérlőhöz a prezentációban, és módosíthatja vagy törölheti azt a tulajdonságain keresztül.
 
 {{% /alert %}} 
 
-Egyszerű ActiveX vezérlő, például szövegdoboz és egyszerű parancsgomb kezelése egy dián a következő:
+Egy egyszerű ActiveX vezérlő, például szövegdoboz vagy egyszerű parancsgomb kezelése egy dián a következőképpen történik:
 
-1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation) osztály példányt, és töltse be a prezentációt, amelyben ActiveX vezérlők vannak.
-2. Szerezzen be egy diára hivatkozást az indexe alapján.
-3. Hozzáférés a dián lévő ActiveX vezérlőkhöz a [IControlCollection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icontrolcollection/) elérésével.
-4. Hozzáférés a TextBox1 ActiveX vezérlőhöz a [IControl](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icontrol/) objektum használatával.
-5. Módosítsa a TextBox1 ActiveX vezérlő tulajdonságait, amelyek a szöveget, betűtípust, betűméretet és a keret pozícióját tartalmazzák.
-6. Hozzáférés a második vezérlőhöz, amely CommandButton1 néven ismert.
-7. Módosítsa a gomb feliratát, betűtípusát és pozícióját.
-8. Módosítsa az ActiveX vezérlők keretének helyzetét.
-9. Írja a módosított prezentációt PPTX fájlba.
+1. Hozzon létre egy példányt a Presentation osztályból, és töltse be a prezentációt, amely már tartalmaz ActiveX vezérlőket.
+1. Szerezzen meg egy diára mutató hivatkozást az indexe alapján.
+1. Hozzáférjen a dián lévő ActiveX vezérlőkhöz az IControlCollection elérésével.
+1. A TextBox1 ActiveX vezérlőhöz az IControl objektum segítségével férhet hozzá.
+1. Módosítsa a TextBox1 ActiveX vezérlő tulajdonságait, amelyek közé tartozik a szöveg, a betűtípus, a betűméret és a keret pozíciója.
+1. Hozzáfér a második vezérlőhöz, amelynek neve CommandButton1.
+1. Módosítsa a gomb feliratát, betűtípusát és pozícióját.
+1. Módosítsa az ActiveX vezérlők kereteinek pozícióját.
+1. Írja a módosított prezentációt PPTX fájlba.
 
-Ez a mintakód, a fenti lépések alapján, bemutatja, hogyan kezelhet egy egyszerű ActiveX vezérlőt: 
+Ez a mintakód a fenti lépések alapján bemutatja, hogyan kezeljen egy egyszerű ActiveX vezérlőt: 
 
 ```java
-// ActiveX vezérlőket tartalmazó prezentáció elérése
+import com.aspose.slides.*;
+import java.awt.FontMetrics;
+import java.awt.SystemColor;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+
+// AktívX vezérlőkkel rendelkező prezentáció elérése
 Presentation pres = new Presentation("ActiveX.pptm");
 try {
-    // A prezentáció első diájának elérése
+    // Prezentáció első diájának elérése
     ISlide slide = pres.getSlides().get_Item(0);
 
     // TextBox szövegének módosítása
@@ -84,8 +94,8 @@ try {
         String newText = "Changed text";
         control.getProperties().set_Item("Value", newText);
 
-        // Helyettesítő kép módosítása. A PowerPoint ezt a képet az ActiveX aktiválásakor lecseréli,
-        // ezért néha elfogadható a kép változatlanul hagyása.
+        // Helyettesítő kép módosítása. A PowerPoint a kép helyét kicseréli az ActiveX aktiválásakor,
+        // ezért időnként rendben van, ha a képet változatlanul hagyjuk.
         BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
                 BufferedImage.TYPE_INT_ARGB);
 
@@ -122,13 +132,13 @@ try {
         control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
     }
 
-    // Gombfelirat módosítása
+    // Gomb feliratának módosítása
     control = pres.getSlides().get_Item(0).getControls().get_Item(1);
 
     if (control.getName().equalsIgnoreCase("CommandButton1") && control.getProperties() != null) {
         String newCaption = "Show MessageBox";
         control.getProperties().set_Item("Caption", newCaption);
-        // Helyettesítő módosítása
+        // Helyettesítő kép módosítása
         BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
                 BufferedImage.TYPE_INT_ARGB);
         java.awt.Graphics graphics = image.getGraphics();
@@ -165,7 +175,7 @@ try {
                 control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
             }
 
-            // 100 ponttal lejjebb mozgatás
+            // 100 ponttal lefelé mozgatás
             for (IControl ctl : pres.getSlides().get_Item(0).getControls()) {
                 IShapeFrame frame = ctl.getFrame();
                 ctl.setFrame(new ShapeFrame(frame.getX(), frame.getY() + 100,
@@ -182,16 +192,16 @@ try {
         }
 ```
 
-## **GYIK**
+## **FAQ**
 
-**Az Aspose.Slides megőrzi az ActiveX vezérlőket olvasás és újramentés során, ha azok nem hajthatók végre a Java runtime környezetben?**
+### Megőrzi-e az Aspose.Slides az ActiveX vezérlőket olvasáskor és újbóli mentéskor, ha nem hajthatók végre a Java futtatókörnyezetben?
 
-Igen. Az Aspose.Slides ezeket a prezentáció részének tekinti, és képes olvasni/módosítani a tulajdonságaikat és kereteiket; a vezérlők tényleges végrehajtása nem szükséges a megőrzésükhöz.
+Igen. Az Aspose.Slides a vezérlőket a prezentáció részeként kezeli, és képes olvasni/módosítani a tulajdonságaikat és a kereteiket; a vezérlők tényleges végrehajtása nem szükséges a megőrzésükhöz.
 
-**Miben különböznek az ActiveX vezérlők az OLE objektumoktól egy prezentációban?**
+### Miben különböznek az ActiveX vezérlők az OLE objektumoktól egy prezentációban?
 
-Az ActiveX vezérlők interaktív, kezelt vezérlők (gombok, szövegdobozok, médialejátszó), míg az [OLE](/slides/hu/java/manage-ole/) beágyazott alkalmazásobjektumokra (például egy Excel munkalapra) utal. Ezek eltérő módon tárolódnak és kezelődnek, valamint különböző tulajdonságmodellel rendelkeznek.
+Az ActiveX vezérlők interaktív, menedzselt vezérlők (gombok, szövegdobozok, médialejátszó), míg az [OLE](/slides/hu/java/manage-ole/) beágyazott alkalmazásobjektumokra (például egy Excel munkalapra) utal. Másképp tárolódnak és kezelődnek, és eltérő tulajdonságmodellel rendelkeznek.
 
-**Működnek az ActiveX események és a VBA makrók, ha a fájlt az Aspose.Slides módosította?**
+### Működnek-e az ActiveX események és VBA makrók, ha a fájlt az Aspose.Slides módosította?
 
-Az Aspose.Slides megtartja a meglévő jelölőnyelvet és metaadatokat; azonban az események és a makrók csak Windows-on a PowerPoint-on futnak, ha a biztonsági beállítások engedélyezik. A könyvtár nem hajtja végre a VBA‑t.
+Az Aspose.Slides megőrzi a meglévő jelölést és metaadatokat; azonban az események és makrók csak a Windows rendszeren működő PowerPointban futnak, ha a biztonsági beállítások engedélyezik. A könyvtár nem hajtja végre a VBA-t.

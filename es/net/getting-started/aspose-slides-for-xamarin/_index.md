@@ -13,40 +13,38 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Cree aplicaciones móviles Xamarin en C# para ver, editar y convertir presentaciones con Aspose.Slides, con soporte de funciones avanzadas para PPT, PPTX y ODP en Android."
+description: "Cree aplicaciones móviles Xamarin en C# para ver, editar y convertir presentaciones con Aspose.Slides, con soporte de amplias funcionalidades para PPT, PPTX y ODP en Android."
 ---
+## **Introducción**
 
-## **Visión general**
-Xamarin es un framework utilizado para el desarrollo móvil en .NET C#. Xamarin tiene herramientas y bibliotecas que amplían las capacidades de la plataforma .NET. Permite a los desarrolladores crear aplicaciones para el sistema operativo **Android**.
+Xamarin es un framework utilizado para el desarrollo móvil en .NET C#. Xamarin dispone de herramientas y bibliotecas que amplían las capacidades de la plataforma .NET. Permite a los desarrolladores crear aplicaciones para el sistema operativo **Android**.
 
-{{% alert color="primary" %}} 
-
+{{% alert color="info" %}} 
 Para el desarrollo en Xamarin, los programadores pueden usar sus entornos de desarrollo habituales (C#, Visual Studio y bibliotecas de terceros).
-
 {{% /alert %}}
 
-Aspose.Slides API funciona en la plataforma Xamarin. Para lograrlo, el paquete Aspose.Slides .NET agrega un DLL separado para Xamarin. Aspose.Slides para Xamarin admite la mayoría de las funciones disponibles en la versión .NET:
+La API Aspose.Slides funciona en la plataforma Xamarin. Para lograrlo, el paquete Aspose.Slides .NET añade un DLL separado para Xamarin. Aspose.Slides para Xamarin admite la mayoría de las funcionalidades disponibles en la versión .NET:
 
-- conversión y visualización de presentaciones.  
-- edición de contenidos en presentaciones: texto, formas, gráficos, SmartArt, audio/video, fuentes, etc.  
-- manejo de animaciones, efectos 2D, WordArt, etc.  
-- manejo de metadatos y propiedades del documento.  
+- conversión y visualización de presentaciones.
+- edición de contenidos en presentaciones: texto, formas, gráficos, SmartArt, audio/video, fuentes, etc.
+- gestión de animaciones, efectos 2D, WordArt, etc.
+- gestión de metadatos y propiedades del documento.
 - impresión, clonación, combinación, comparación, división, etc.
 
-Proporcionamos una comparación de todas las funciones en otra sección cerca del final de esta página.
+Hemos proporcionado una comparativa de todas las funcionalidades en otra sección situada cerca del final de esta página.
 
-En la API Aspose.Slides para Xamarin, las clases, espacios de nombres, lógica y comportamiento son lo más similar posible a la versión .NET. Puede migrar sus aplicaciones Aspose.Slides .NET a Xamarin con costos mínimos.
+En la API Aspose.Slides para Xamarin, las clases, espacios de nombres, lógica y comportamiento son lo más similares posible a la versión .NET. Puede migrar sus aplicaciones Aspose.Slides .NET a Xamarin con costos mínimos.
 
 ## **Ejemplo rápido**
-Puede usar Aspose.Slides para Xamarin para crear y utilizar su aplicación C# a través de Slides para Android.
+Puede usar Aspose.Slides para Xamarin para crear y utilizar su aplicación C# a través de Slides for Android.
 
-Estamos proporcionando un ejemplo de aplicación Android via Xamarin que usa Aspose.Slides para mostrar diapositivas de presentación y agrega una nueva forma en la diapositiva al tocarla. Puede encontrar el código completo de los ejemplos en [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
+Estamos proporcionando un ejemplo de aplicación Android mediante Xamarin que utiliza Aspose.Slides para mostrar diapositivas de presentación y agrega una nueva forma en la diapositiva al tocarla. Puede encontrar el código completo de los ejemplos en [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
 
 Comencemos creando una aplicación Xamarin Android:
 
 ![todo:image_alt_text](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
 
-Primero, creamos un diseño de contenido que contendrá una vista de imagen, los botones Prev y Next:
+Primero, creamos un diseño de contenido que contendrá una vista de imagen, los botones Anterior y Siguiente:
 
 ![todo:image_alt_text](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
 
@@ -94,11 +92,13 @@ Primero, creamos un diseño de contenido que contendrá una vista de imagen, los
 </LinearLayout>
 ```
 
-
 Aquí, hacemos referencia a la biblioteca "Aspose.Slides.Droid.dll" que incluye una presentación de ejemplo ("HelloWorld.pptx") en los Assets de la aplicación Xamarin y añadimos su inicialización a MainActivity:
 
 **C# - MainActivity.cs - Inicialización**
 ``` csharp
+using System.Diagnostics;
+using Aspose.Slides.Theme;
+
 [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
 public class MainActivity : AppCompatActivity
 {
@@ -132,11 +132,12 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-
-Agreguemos la función para mostrar las diapositivas Prev y Next al pulsar los botones:
-
-**C# - MainActivity.cs - Mostrar diapositivas al hacer clic en los botones Prev y Next**
+Añadamos la función para mostrar las diapositivas Anterior y Siguiente al pulsar los botones:
+**C# - MainActivity.cs - Mostrar diapositivas al hacer clic en los botones Anterior y Siguiente**
 ``` csharp
+using System.Diagnostics;
+using Aspose.Slides.Theme;
+
 [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
 public class MainActivity : AppCompatActivity
 {
@@ -266,10 +267,8 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-
-Finalmente, implementemos una función para agregar una forma elíptica al tocar la diapositiva:
-
-**C# - MainActivity.cs - Agregar elipse al hacer clic en la diapositiva**
+Finalmente, implementemos una función para añadir una forma elíptica al tocar la diapositiva:
+**C# - MainActivity.cs - Añadir elipse al hacer clic en la diapositiva**
 ``` csharp
  private void ImageView_Touch(object sender, Android.Views.View.TouchEventArgs e)
 {
@@ -299,26 +298,24 @@ Finalmente, implementemos una función para agregar una forma elíptica al tocar
 }
 ```
 
-
-Cada clic en la diapositiva de la presentación causa que se añada una elipse de color aleatorio:
+Cada clic en la diapositiva de la presentación hace que se añada una elipse de color aleatorio:
 
 ![todo:image_alt_text](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
 
 ## **Características compatibles**
-
-|**CARACTERÍSTICAS**|**Aspose.Slides para .NET**|**Aspose.Slides para Xamarin**|
+|**CARACTERÍSTICAS**|**Aspose.Slides for .NET**|**Aspose.Slides for Xamarin**|
 | :- | :- | :- |
 |**Características de presentación**:| | |
 |Crear nuevas presentaciones|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Abrir/guardar formatos PowerPoint 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Abrir/guardar formatos PowerPoint 2007|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Soporte de extensiones PowerPoint 2010|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Soporte de extensiones PowerPoint 2013|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Soporte de funciones PowerPoint 2016|restringido|restringido|
-|Soporte de funciones PowerPoint 2019|restringido|restringido|
+|Formatos PowerPoint 97 - 2003 abrir/guardar|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Formatos PowerPoint 2007 abrir/guardar|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Compatibilidad con extensiones PowerPoint 2010|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Compatibilidad con extensiones PowerPoint 2013|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Compatibilidad con funcionalidades PowerPoint 2016|restricted|restricted|
+|Compatibilidad con funcionalidades PowerPoint 2019|restricted|restricted|
 |Conversión PPT a PPTX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Conversión PPTX a PPT|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PPTX dentro de PPT|restringido|restringido|
+|PPTX en PPT|restricted|restricted|
 |Procesamiento de temas|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Procesamiento de macros|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Procesamiento de propiedades del documento|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
@@ -332,14 +329,14 @@ Cada clic en la diapositiva de la presentación causa que se añada una elipse d
 |XPS|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |HTML|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |TIFF|{{< emoticons/tick >}}|{{< emoticons/cross >}}|
-|ODP|restringido|restringido|
-|SWF|restringido|restringido|
+|ODP|restricted|restricted|
+|SWF|restricted|restricted|
 |SVG|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Formatos de importación:**| | |
-|HTML|restringido|restringido|
+|HTML|restricted|restricted|
 |ODP|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |THMX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Características de diapositivas maestra:**| | |
+|**Características de diapositivas maestras:**| | |
 |Acceso a todas las diapositivas maestras existentes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Crear/eliminar diapositivas maestras|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Clonar diapositivas maestras|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
@@ -353,31 +350,31 @@ Cada clic en la diapositiva de la presentación causa que se añada una elipse d
 |Clonar diapositivas|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Exportar diapositivas a imágenes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Crear/editar/eliminar secciones de diapositivas|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Características de notas:**| | |
-|Acceso a todas las notas existentes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Características de diapositivas de notas:**| | |
+|Acceso a todas las diapositivas de notas existentes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Características de formas:**| | |
 |Acceso a todas las formas de la diapositiva|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Agregar nuevas formas|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Añadir nuevas formas|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Clonar formas|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Exportar formas independientes a imágenes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Tipos de forma admitidos:**| | |
-|Todas las formas predefinidas|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Tipos de forma compatibles:**| | |
+|Todos los tipos de forma predefinidos|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Marcos de imagen|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Tablas|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Gráficos|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |SmartArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Diagramas heredados|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Diagrama heredado|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |WordArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|OLE, objetos ActiveX|restringido|restringido|
-|Marcos de video|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Marcos de audio|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Objetos OLE, ActiveX|restricted|restricted|
+|Fotogramas de vídeo|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Fotogramas de audio|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Conectores|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Características de grupos de formas:**| | |
 |Acceso a grupos de formas|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Crear grupos de formas|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Desagrupar grupos de formas existentes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Características de efectos de forma:**| | |
-|Efectos 2D|restringido|restringido|
+|Efectos 2D|restricted|restricted|
 |Efectos 3D|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |**Características de texto:**| | |
 |Formato de párrafos|{{< emoticons/tick >}}|{{< emoticons/tick >}}|

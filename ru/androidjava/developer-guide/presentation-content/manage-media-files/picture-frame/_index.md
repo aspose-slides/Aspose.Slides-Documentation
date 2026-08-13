@@ -28,33 +28,36 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Добавляйте рамки изображений в презентации PowerPoint и OpenDocument с помощью Aspose.Slides for Android via Java. Упрощайте рабочий процесс и улучшайте дизайн слайдов."
+description: "Добавьте рамки изображений в презентации PowerPoint и OpenDocument с помощью Aspose.Slides для Android через Java. Оптимизируйте рабочий процесс и улучшите дизайн слайдов."
 ---
 ## **Введение**
 
-Рамка изображения — это фигура, содержащая изображение, она похожа на картину в рамке. 
+Рамка изображения — это фигура, содержащая изображение; она похожа на картину в рамке.
 
-Вы можете добавить изображение на слайд через рамку изображения. Таким образом, вы форматируете изображение, форматируя рамку.
+Вы можете добавить изображение на слайд через рамку изображения. Таким образом, вы форматируете изображение, форматируя саму рамку.
 
-{{% alert  title="Tip" color="primary" %}} 
-
-Aspose предоставляет бесплатные конвертеры —[JPEG в PowerPoint](https://products.aspose.app/slides/ru/import/jpg-to-ppt) и [PNG в PowerPoint](https://products.aspose.app/slides/ru/import/png-to-ppt) — которые позволяют быстро создавать презентации из изображений. 
-
+{{% alert  title="Tip" color="info" %}} 
+Aspose предоставляет бесплатные конвертеры —[JPEG to PowerPoint](https://products.aspose.app/slides/ru/import/jpg-to-ppt) и [PNG to PowerPoint](https://products.aspose.app/slides/ru/import/png-to-ppt) —которые позволяют быстро создавать презентации из изображений. 
 {{% /alert %}} 
 
 ## **Создание рамки изображения**
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/Presentation).
 2. Получите ссылку на слайд по его индексу. 
-3. Создайте объект [IPPImage]() , добавив изображение в [IImagescollection](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IImageCollection), связанный с объектом презентации, который будет использоваться для заполнения фигуры.
+3. Создайте объект [IPPImage]() , добавив изображение в [IImagescollection](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IImageCollection), связанную с объектом презентации, которое будет использовано для заполнения фигуры.
 4. Укажите ширину и высоту изображения.
-5. Создайте [PictureFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/PictureFrame) на основе ширины и высоты изображения через метод `AddPictureFrame`, доступный у объекта формы, связанного с указанным слайдом.
-6. Добавьте рамку изображения (содержащую картинку) на слайд.
+5. Создайте [PictureFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/PictureFrame) на основе ширины и высоты изображения через метод `AddPictureFrame`, доступный у объекта фигуры, связанного с выбранным слайдом.
+6. Добавьте рамку изображения (с изображением) на слайд.
 7. Запишите изменённую презентацию в файл PPTX.
 
-Этот Java‑код демонстрирует, как создать рамку изображения:
+Этот Java‑код показывает, как создать рамку изображения:
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 // Создает экземпляр класса Presentation, представляющего файл PPTX
 Presentation pres = new Presentation();
 try {
@@ -82,14 +85,19 @@ try {
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/Presentation).
 2. Получите ссылку на слайд по его индексу. 
 3. Добавьте изображение в коллекцию изображений презентации.
-4. Создайте объект [IPPImage](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IPPImage), добавив изображение в [IImagescollection](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IImageCollection), связанный с объектом презентации, который будет использоваться для заполнения фигуры.
+4. Создайте объект [IPPImage](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IPPImage), добавив изображение в [IImagescollection](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IImageCollection), связанную с объектом презентации, которое будет использовано для заполнения фигуры.
 5. Укажите относительную ширину и высоту изображения в рамке.
 6. Запишите изменённую презентацию в файл PPTX.
 
-Этот Java‑код демонстрирует, как создать рамку изображения с относительным масштабом:
+Этот Java‑код показывает, как создать рамку изображения с относительным масштабом:
 
 ```java
-// Создает экземпляр класса Presentation, представляющего файл PPTX
+import com.aspose.slides.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+// Создает экземпляр класса Presentation, представляющего PPTX
 Presentation pres = new Presentation();
 try {
     // Получает первый слайд
@@ -102,7 +110,7 @@ try {
     // Добавляет рамку изображения с высотой и шириной, эквивалентными изображению
     IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
     
-    // Устанавливает относительный масштаб высоты и ширины
+    // Устанавливает относительный масштаб ширины и высоты
     pf.setRelativeScaleHeight(0.8f);
     pf.setRelativeScaleWidth(1.35f);
     
@@ -114,11 +122,13 @@ try {
 }
 ```
 
-## **Извлечение растровых изображений из рамок изображения**
+## **Извлечение растровых изображений из рамок изображений**
 
-Вы можете извлечь растровые изображения из объектов [PictureFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/PictureFrame) и сохранить их в форматах PNG, JPG и других. Пример кода ниже демонстрирует, как извлечь изображение из документа «sample.pptx» и сохранить его в формате PNG.
+Вы можете извлечь растровые изображения из объектов [PictureFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/PictureFrame) и сохранить их в PNG, JPG и других форматах. Пример кода ниже демонстрирует, как извлечь изображение из документа «sample.pptx» и сохранить его в формате PNG.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 
 try {
@@ -127,26 +137,29 @@ try {
 
     if (firstShape instanceof IPictureFrame) {
         IPictureFrame pictureFrame = (IPictureFrame) firstShape;
+        IImage slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
         try {
-			IImage slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
-			slideImage.save("slide_1_shape_1.png", ImageFormat.Png);
-		} finally {
-			if (slideImage != null) slideImage.dispose();
-		}
+            slideImage.save("slide_1_shape_1.png", ImageFormat.Png);
+        } finally {
+            if (slideImage != null) slideImage.dispose();
+        }
     }
-} catch (IOException e) {
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Извлечение SVG‑изображений из рамок изображения**
+## **Извлечение SVG‑изображений из рамок изображений**
 
-Когда презентация содержит SVG‑графику, размещённую внутри фигур [PictureFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/pictureframe/), Aspose.Slides for Android via Java позволяет получить оригинальные векторные изображения с полной точностью. Путём обхода коллекции фигур слайда можно идентифицировать каждую [PictureFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/pictureframe/), проверить, содержит ли лежащий в основе [IPPImage](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ippimage/) контент SVG, и затем сохранить это изображение на диск или в поток в его родном формате SVG.
+Когда презентация содержит SVG‑графику, размещённую внутри фигур [PictureFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/pictureframe/), Aspose.Slides для Android на Java позволяет получить оригинальные векторные изображения с полной точностью. Как только у вас есть [PictureFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/pictureframe/), у которого [IPPImage](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ippimage/) содержит SVG‑контент, вы можете считать это SVG‑изображение и сохранить его на диск или в поток в его собственном формате SVG.
 
 Следующий пример кода демонстрирует, как извлечь SVG‑изображение из рамки:
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 Presentation presentation = new Presentation("sample.pptx");
 
 try {
@@ -173,6 +186,8 @@ try {
 Aspose.Slides позволяет получить эффект прозрачности, применённый к изображению. Этот Java‑код демонстрирует операцию:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("Test.pptx");
 
 var pictureFrame = (IPictureFrame) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -193,6 +208,8 @@ Aspose.Slides позволяет получить эффекты яркости 
 Этот Java‑код демонстрирует, как получить настройки яркости и контрастности из рамки изображения:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 
 try {
@@ -218,26 +235,32 @@ try {
 
 ## **Форматирование рамки изображения**
 
-Aspose.Slides предоставляет множество параметров форматирования, которые можно применить к рамке изображения. С их помощью можно изменить рамку, чтобы она соответствовала конкретным требованиям.
+Aspose.Slides предоставляет множество параметров форматирования, которые можно применить к рамке изображения. С их помощью можно изменить рамку так, чтобы она соответствовала конкретным требованиям.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/Presentation).
 2. Получите ссылку на слайд по его индексу. 
-3. Создайте объект [IPPImage](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IPPImage), добавив изображение в [IImagescollection](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IImageCollection), связанный с объектом презентации, который будет использоваться для заполнения фигуры.
+3. Создайте объект [IPPImage](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IPPImage), добавив изображение в [IImagescollection](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IImageCollection), связанную с объектом презентации, которое будет использовано для заполнения фигуры.
 4. Укажите ширину и высоту изображения.
-5. Создайте `PictureFrame` на основе ширины и высоты изображения через метод [AddPictureFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) у объекта [IShapes](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IShapeCollection), связанного с указанным слайдом.
-6. Добавьте рамку изображения (содержащую картинку) на слайд.
+5. Создайте `PictureFrame` на основе ширины и высоты изображения через метод [AddPictureFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) объекта [IShapes](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IShapeCollection), связанного с выбранным слайдом.
+6. Добавьте рамку изображения (с изображением) на слайд.
 7. Установите цвет линии рамки.
-8. Установите ширину линии рамки.
+8. Установите толщину линии рамки.
 9. Поверните рамку, задав положительное или отрицательное значение.
    * Положительное значение вращает изображение по часовой стрелке. 
    * Отрицательное значение вращает изображение против часовой стрелки.
-10. Добавьте рамку изображения (содержащую картинку) на слайд.
+10. Добавьте рамку изображения (с изображением) на слайд.
 11. Запишите изменённую презентацию в файл PPTX.
 
 Этот Java‑код демонстрирует процесс форматирования рамки изображения:
 
 ```java
-// Создает экземпляр класса Presentation, представляющего файл PPTX
+import com.aspose.slides.*;
+import java.awt.Color;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+// Создает экземпляр класса Presentation, представляющего PPTX
 Presentation pres = new Presentation();
 try {
     // Получает первый слайд
@@ -246,7 +269,7 @@ try {
     // Создает экземпляр класса Image
     IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
     
-    // Добавляет рамку изображения с высотой и шириной, эквивалентными изображению
+    // Добавляет рамку изображения с высотой и шириной, соответствующей изображению
     IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
     
     // Применяет некоторое форматирование к PictureFrameEx
@@ -263,17 +286,19 @@ try {
 }
 ```
 
-{{% alert title="Tip" color="primary" %}}
+{{% alert title="Tip" color="info" %}}
 
-Aspose недавно разработал [бесплатный Collage Maker](https://products.aspose.app/slides/ru/collage). Если вам когда‑нибудь понадобится [объединять JPG/JPEG](https://products.aspose.app/slides/ru/collage/jpg) или PNG‑изображения, [создавать сетки из фотографий](https://products.aspose.app/slides/ru/collage/photo-grid), вы можете использовать этот сервис. 
-
+Aspose недавно разработал [бесплатный Collage Maker](https://products.aspose.app/slides/ru/collage). Если вам нужно [объединить JPG/JPEG](https://products.aspose.app/slides/ru/collage/jpg) или PNG‑изображения, [создать сетку из фотографий](https://products.aspose.app/slides/ru/collage/photo-grid), используйте этот сервис. 
 {{% /alert %}}
 
-## **Добавление изображения в виде ссылки**
+## **Добавление изображения как ссылки**
 
-Чтобы избежать больших размеров презентаций, можно добавлять изображения (или видео) через ссылки вместо встраивания файлов непосредственно в презентацию. Этот Java‑код показывает, как добавить изображение и видео в заполнитель:
+Чтобы уменьшить размер презентации, можно добавлять изображения (или видео) через ссылки, а не встраивая файлы непосредственно в презентацию. Этот Java‑код показывает, как добавить изображение и видео в заполнитель:
 
 ```java
+import com.aspose.slides.*;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation("input.pptx");
 try {
     ArrayList<IShape> shapesToRemove = new ArrayList<IShape>();
@@ -330,18 +355,20 @@ try {
 Этот Java‑код показывает, как обрезать существующее изображение на слайде:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 // Создает новый объект изображения
 try {
     IPPImage picture;
-    IImage image = Images.fromFile(imagePath);
+    IImage image = Images.fromFile("image.png");
     try {
         picture = pres.getImages().addImage(image);
     } finally {
         if (image != null) image.dispose();
     }
 
-    // Добавляет рамку изображения на слайд
+    // Добавляет PictureFrame на слайд
     IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(
             ShapeType.Rectangle, 100, 100, 420, 250, picture);
 
@@ -352,28 +379,29 @@ try {
     picFrame.getPictureFormat().setCropBottom(31);
 
     // Сохраняет результат
-    pres.save(outPptxFile, SaveFormat.Pptx);
-} catch (IOException e) {
+    pres.save("cropped_image.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Удаление обрезанных областей изображения**
+## **Удаление обрезанных областей изображения в рамке**
 
-Если нужно удалить обрезанные области изображения, содержащегося в рамке, можно использовать метод [deletePictureCroppedAreas()](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--). Метод возвращает обрезанное изображение или оригинальное, если обрезка не требуется.
+Если нужно удалить обрезанные области изображения, содержащегося в рамке, используйте метод [deletePictureCroppedAreas()](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--). Метод возвращает обрезанное изображение или оригинал, если обрезка не требуется.
 
 Этот Java‑код демонстрирует операцию:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("PictureFrameCrop.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Получает рамку изображения с первого слайда
+    // Получает PictureFrame с первого слайда
     IPictureFrame picFrame = (IPictureFrame)slide.getShapes().get_Item(0);
 
-    // Удаляет обрезанные области изображения рамки и возвращает обрезанное изображение
+    // Удаляет обрезанные области изображения PictureFrame и возвращает обрезанное изображение
     IPPImage croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
 
     // Сохраняет результат
@@ -384,28 +412,29 @@ try {
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
+Метод [deletePictureCroppedAreas()](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) добавляет обрезанное изображение в коллекцию изображений презентации. Если изображение используется только в обработанном [PictureFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/pictureframe/), такая настройка может снизить размер презентации. В противном случае количество изображений в полученной презентации увеличится.
 
-Метод [deletePictureCroppedAreas()](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) добавляет обрезанное изображение в коллекцию изображений презентации. Если изображение используется только в обработанной [PictureFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/pictureframe/), такая настройка может уменьшить размер презентации. В противном случае количество изображений в полученной презентации увеличится.
-
-Метод конвертирует метафайлы WMF/EMF в растровое PNG‑изображение во время операции обрезки. 
-
+Метод преобразует метафайлы WMF/EMF в растровое PNG‑изображение при выполнении обрезки. 
 {{% /alert %}}
 
 ## **Сжатие изображений**
 
-Вы можете сжать изображение в презентации, используя метод [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-). Этот метод уменьшает размер изображения, исходя из размеров фигуры и заданного разрешения, с возможностью удаления обрезанных областей.
+Вы можете сжать изображение в презентации, используя метод [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-).  
+Метод сжимает изображение, уменьшая его размер в зависимости от размеров фигуры и заданного разрешения, с возможностью удаления обрезанных областей.
 
-Он регулирует размер и разрешение изображения аналогично функции PowerPoint **Picture Format > Compress Pictures > Resolution**.
+Он регулирует размер и разрешение изображения аналогично функции PowerPoint **Format Picture > Compress Pictures > Resolution**.
 
-Следующие примеры на Java демонстрируют, как сжать изображение в презентации, указав целевое разрешение и, при необходимости, удалив обрезанные области:
+Ниже приведены примеры Java, демонстрирующие сжатие изображения в презентации с указанием целевого разрешения и, при необходимости, удалением обрезанных областей:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("demo.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
     IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
 
-    // Сжимает изображение с целевым разрешением 150 DPI (веб‑разрешение) и удаляет обрезанные области.
+    // Сжимает изображение с целевым разрешением 150 DPI (веб-разрешение) и удаляет обрезанные области.
     boolean result = pictureFrame.getPictureFormat().compressImage(true, PicturesCompression.Dpi150);
 
     // Проверяет результат сжатия.
@@ -421,9 +450,11 @@ try {
 }
 ```
 
-Или напрямую используя пользовательское значение DPI:
+Или с указанием собственного значения DPI напрямую:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("demo.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -439,19 +470,19 @@ try {
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
-
-Метод преобразует изображение к более низкому разрешению, исходя из размеров фигуры и заданного DPI. Обрезанные области также могут быть удалены для оптимизации размера файла.  
-Если изображение является метафайлом (WMF/EMF) или SVG, сжатие не применяется. Кроме того, качество JPEG сохраняется или слегка снижается в зависимости от разрешения, аналогично тому, как PowerPoint обрабатывает JPEG‑изображения высокого разрешения.
-
+Метод преобразует изображение к более низкому разрешению, опираясь на размер фигуры и указанный DPI. Обрезанные области также могут быть удалены для оптимизации размера файла.  
+Если изображение является метафайлом (WMF/EMF) или SVG, сжатие не применяется. Кроме того, качество JPEG сохраняется или слегка снижается в зависимости от разрешения, аналогично тому, как PowerPoint обрабатывает JPEG‑изображения высокого разрешения. 
 {{% /alert %}}
 
 ## **Блокировка соотношения сторон**
 
-Если требуется, чтобы фигура с изображением сохраняла своё соотношение сторон даже после изменения размеров изображения, можно использовать метод [setAspectRatioLocked](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) для установки параметра *Lock Aspect Ratio*.
+Если нужно, чтобы фигура с изображением сохраняла своё соотношение сторон даже после изменения размеров изображения, используйте метод [setAspectRatioLocked](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) для установки свойства *Lock Aspect Ratio*.
 
 Этот Java‑код показывает, как заблокировать соотношение сторон фигуры:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     ILayoutSlide layout = pres.getLayoutSlides().getByType(SlideLayoutType.Custom);
@@ -464,41 +495,40 @@ try {
         if (image != null) image.dispose();
     }
     IPictureFrame pictureFrame = emptySlide.getShapes().addPictureFrame(
-            ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
+            ShapeType.Rectangle, 50, 150, picture.getWidth(), picture.getHeight(), picture);
 
-    // установить форму так, чтобы сохранять соотношение сторон при изменении размеров
+    // установить, чтобы фигура сохраняла пропорции при изменении размера
     pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
-} catch(IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
-
-Параметр *Lock Aspect Ratio* сохраняет только соотношение сторон самой фигуры, а не изображения, которое она содержит.
-
+Настройка *Lock Aspect Ratio* сохраняет только соотношение сторон фигуры, а не изображения, которое она содержит. 
 {{% /alert %}}
 
 ## **Использование свойства StretchOff**
 
 Используя свойства [StretchOffsetLeft](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-), [StretchOffsetTop](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetTop--), [StretchOffsetRight](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetRight--) и [StretchOffsetBottom](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) интерфейса [IPictureFillFormat](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IPictureFillFormat) и класса [PictureFillFormat](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IPictureFillFormat) можно задать прямоугольник заполнения.
 
-При указании растяжения для изображения исходный прямоугольник масштабируется до указанных размеров заполнения. Каждая грань прямоугольника заполнения задаётся процентным смещением от соответствующей грани ограничивающего коробки фигуры. Положительный процент обозначает уменьшение, отрицательный — расширение.
+При растягивании изображения исходный прямоугольник масштабируется до указанного прямоугольника заполнения. Каждая граница прямоугольника заполнения задаётся процентным смещением от соответствующей границы ограничивающего прямоугольника фигуры. Положительный процент задаёт отступ, отрицательный – выступ.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/Presentation).
 2. Получите ссылку на слайд по его индексу.
 3. Добавьте прямоугольник `AutoShape`. 
 4. Создайте изображение.
-5. Установите тип заливки фигуры.
-6. Установите режим заливки изображения фигуры.
-7. Добавьте установленное изображение для заполнения фигуры.
-8. Укажите смещения изображения от соответствующей грани ограничивающего коробки фигуры.
+5. Установите тип заполнения фигуры.
+6. Установите режим заполнения изображения.
+7. Добавьте изображение‑заполнитель для фигуры.
+8. Укажите смещения изображения от соответствующей границы ограничивающего прямоугольника фигуры.
 9. Запишите изменённую презентацию в файл PPTX.
 
-Этот Java‑код демонстрирует процесс, в котором используется свойство StretchOff:
+Этот Java‑код демонстрирует процесс использования свойства StretchOff:
 
 ```java
+import com.aspose.slides.*;
+
 // Создает экземпляр класса Presentation, представляющего файл PPTX
 Presentation pres = new Presentation();
 try {
@@ -514,46 +544,45 @@ try {
         if (image != null) image.dispose();
     }
 
-    // Добавляет AutoShape, установленный как Rectangle
+    // Добавляет AutoShape в виде прямоугольника
     IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
 
     // Устанавливает тип заливки фигуры
     aShape.getFillFormat().setFillType(FillType.Picture);
 
-    // Устанавливает режим заливки изображения фигуры
+    // Устанавливает режим заливки фигурой изображением
     aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
 
     // Устанавливает изображение для заполнения фигуры
     aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
-    // Задает смещения изображения от соответствующего края ограничивающего прямоугольника фигуры
+    // Указывает смещения изображения от соответствующей границы ограничивающего прямоугольника фигуры
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
-    
+
     // Записывает файл PPTX на диск
     pres.save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Часто задаваемые вопросы**
+## **FAQ**
 
-**Как узнать, какие форматы изображений поддерживаются в PictureFrame?**
+### Как узнать, какие форматы изображений поддерживаются для PictureFrame?
 
-Aspose.Slides поддерживает как растровые изображения (PNG, JPEG, BMP, GIF и т.д.), так и векторные (например, SVG) через объект изображения, назначенный [PictureFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/pictureframe/). Список поддерживаемых форматов в целом совпадает с возможностями движка конвертации слайдов и изображений.
+Aspose.Slides поддерживает как растровые изображения (PNG, JPEG, BMP, GIF и т.д.), так и векторные (например, SVG) через объект изображения, назначенный [PictureFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/pictureframe/). Список поддерживаемых форматов, как правило, перекрывается с возможностями движка конвертации слайдов и изображений.
 
-**Как добавление десятков больших изображений повлияет на размер и производительность PPTX?**
+### Как добавление десятков больших изображений влияет на размер и производительность PPTX?
 
-Встраивание больших изображений увеличивает размер файла и потребление памяти; привязка изображений через ссылки помогает уменьшить размер презентации, но требует доступности внешних файлов. Aspose.Slides позволяет добавлять изображения по ссылке для снижения размера файла.
+Встраивание больших изображений увеличивает размер файла и потребление памяти; связывание изображений помогает уменьшить размер презентации, но требует доступности внешних файлов. Aspose.Slides предоставляет возможность добавлять изображения по ссылке для снижения размера файла.
 
-**Как заблокировать объект изображения от случайного перемещения/изменения размера?**
+### Как заблокировать объект изображения от случайного перемещения/изменения размеров?
 
-Используйте [блокировку фигур](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/pictureframe/#getPictureFrameLock--) для [PictureFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/pictureframe/) (например, отключите перемещение или изменение размеров). Механизм блокировки поддерживается для различных типов фигур, включая [PictureFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/pictureframe/).
+Используйте [shape locks](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/pictureframe/#getPictureFrameLock--) для [PictureFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/pictureframe/) (например, отключить перемещение или изменение размеров). Механизм блокировки поддерживается для различных типов фигур, включая [PictureFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/pictureframe/).
 
-**Сохраняется ли векторная точность SVG при экспорте презентации в PDF/изображения?**
+### Сохраняется ли векторная точность SVG при экспорте презентации в PDF/изображения?
 
-Aspose.Slides позволяет извлекать SVG из [PictureFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/pictureframe/) как оригинальный вектор. При [экспорте в PDF](/slides/ru/androidjava/convert-powerpoint-to-pdf/) или [растровые форматы](/slides/ru/androidjava/convert-powerpoint-to-png/) результат может быть растровым в зависимости от настроек экспорта; факт того, что оригинальный SVG хранится как вектор, подтверждается поведением функции извлечения.
+Aspose.Slides позволяет извлечь SVG из [PictureFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/pictureframe/) в оригинальном векторном виде. При [экспорте в PDF](/slides/ru/androidjava/convert-powerpoint-to-pdf/) или [растровые форматы](/slides/ru/androidjava/convert-powerpoint-to-png/) результат может быть растровым в зависимости от настроек экспорта; факт сохранения оригинального SVG как вектора подтверждается поведением извлечения.

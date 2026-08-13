@@ -1,20 +1,20 @@
 ---
-title: Quản lý Nền Bài Trình Chiếu trong .NET
+title: Quản lý nền bài thuyết trình trong .NET
 linktitle: Nền Slide
 type: docs
 weight: 20
 url: /vi/net/presentation-background/
 keywords:
-- nền bài trình chiếu
+- nền bài thuyết trình
 - nền slide
-- màu nền đơn
+- màu đồng nhất
 - màu gradient
-- nền hình ảnh
+- nền ảnh
 - độ trong suốt nền
 - thuộc tính nền
 - PowerPoint
 - OpenDocument
-- bài trình chiếu
+- bài thuyết trình
 - .NET
 - C#
 - Aspose.Slides
@@ -22,51 +22,59 @@ description: "Tìm hiểu cách đặt nền động trong các tệp PowerPoint
 ---
 ## **Giới thiệu**
 
-Màu nền đơn, gradient và hình ảnh thường được sử dụng làm nền cho slide. Bạn có thể đặt nền cho một **slide thường** (một slide duy nhất) hoặc một **slide chủ** (áp dụng cho nhiều slide cùng lúc).
+Màu nền đơn, gradient và ảnh thường được sử dụng cho nền slide. Bạn có thể đặt nền cho một **slide thường** (một slide duy nhất) hoặc một **slide mẫu** (áp dụng cho nhiều slide cùng lúc).
 
 ![PowerPoint background](powerpoint-background.png)
 
-## **Đặt Nền Màu Đơn cho Slide Thường**
+## **Đặt nền màu đồng nhất cho một Slide Thường**
 
-Aspose.Slides cho phép bạn đặt màu nền đơn làm nền cho một slide cụ thể trong bản trình chiếu — ngay cả khi bản trình chiếu sử dụng slide chủ. Thay đổi chỉ áp dụng cho slide đã chọn.
+Aspose.Slides cho phép bạn đặt màu đồng nhất làm nền cho một slide cụ thể trong bài thuyết trình — ngay cả khi bài thuyết trình sử dụng slide mẫu. Thay đổi chỉ áp dụng cho slide được chọn.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/).
 2. Đặt [BackgroundType](https://reference.aspose.com/slides/vi/net/aspose.slides/backgroundtype/) của slide thành `OwnBackground`.
 3. Đặt [FillType](https://reference.aspose.com/slides/vi/net/aspose.slides/filltype/) của nền slide thành `Solid`.
-4. Sử dụng thuộc tính [SolidFillColor](https://reference.aspose.com/slides/vi/net/aspose.slides/fillformat/solidfillcolor/) trên [FillFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/fillformat/) để chỉ định màu nền đơn.
-5. Lưu bản trình chiếu đã sửa đổi.
+4. Sử dụng thuộc tính [SolidFillColor](https://reference.aspose.com/slides/vi/net/aspose.slides/fillformat/solidfillcolor/) trên [FillFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/fillformat/) để chỉ định màu nền đồng nhất.
+5. Lưu bài thuyết trình đã sửa đổi.
 
-Ví dụ C# sau đây minh họa cách đặt màu nền xanh lam dạng đơn cho một slide thường:
+Ví dụ C# sau cho thấy cách đặt màu xanh đồng nhất làm nền cho một slide thường:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Tạo một thể hiện của lớp Presentation.
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // Đặt màu nền của slide thành màu xanh lam.
+    // Đặt màu nền của slide thành màu xanh.
     slide.Background.Type = BackgroundType.OwnBackground;
     slide.Background.FillFormat.FillType = FillType.Solid;
     slide.Background.FillFormat.SolidFillColor.Color = Color.Blue;
 
-    // Lưu bản trình chiếu vào đĩa.
+    // Lưu bài thuyết trình vào đĩa.
     presentation.Save("SolidColorBackground.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Đặt Nền Màu Đơn cho Slide Chủ**
+## **Đặt nền màu đồng nhất cho một Slide Mẫu**
 
-Aspose.Slides cho phép bạn đặt màu nền đơn làm nền cho slide chủ trong bản trình chiếu. Slide chủ hoạt động như một mẫu, kiểm soát định dạng cho tất cả các slide, vì vậy khi bạn chọn màu nền đơn cho nền của slide chủ, nó sẽ áp dụng cho mọi slide.
+Aspose.Slides cho phép bạn đặt màu đồng nhất làm nền cho slide mẫu trong một bài thuyết trình. Slide mẫu hoạt động như một mẫu kiểm soát định dạng cho tất cả các slide, vì vậy khi bạn chọn màu đồng nhất cho nền của slide mẫu, nó sẽ áp dụng cho mọi slide.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/).
-2. Đặt [BackgroundType](https://reference.aspose.com/slides/vi/net/aspose.slides/backgroundtype/) của slide chủ (qua `masters`) thành `OwnBackground`.
-3. Đặt [FillType](https://reference.aspose.com/slides/vi/net/aspose.slides/filltype/) của nền slide chủ thành `Solid`.
-4. Sử dụng [SolidFillColor](https://reference.aspose.com/slides/vi/net/aspose.slides/fillformat/solidfillcolor/) để chỉ định màu nền đơn.
-5. Lưu bản trình chiếu đã sửa đổi.
+2. Đặt [BackgroundType](https://reference.aspose.com/slides/vi/net/aspose.slides/backgroundtype/) của slide mẫu (qua `masters`) thành `OwnBackground`.
+3. Đặt [FillType](https://reference.aspose.com/slides/vi/net/aspose.slides/filltype/) của nền slide mẫu thành `Solid`.
+4. Sử dụng [SolidFillColor](https://reference.aspose.com/slides/vi/net/aspose.slides/fillformat/solidfillcolor/) để chỉ định màu nền đồng nhất.
+5. Lưu bài thuyết trình đã sửa đổi.
 
-Ví dụ C# sau đây minh họa cách đặt màu nền dạng đơn (xanh rừng) cho một slide chủ:
+Ví dụ C# sau cho thấy cách đặt màu xanh rừng đồng nhất làm nền cho một slide mẫu:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Tạo một thể hiện của lớp Presentation.
 using (Presentation presentation = new Presentation())
 {
@@ -77,24 +85,27 @@ using (Presentation presentation = new Presentation())
     masterSlide.Background.FillFormat.FillType = FillType.Solid;
     masterSlide.Background.FillFormat.SolidFillColor.Color = Color.ForestGreen;
 
-    // Lưu bản trình chiếu vào đĩa.
+    // Lưu bài thuyết trình vào đĩa.
     presentation.Save("MasterSlideBackground.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Đặt Nền Gradient cho Slide**
+## **Đặt nền Gradient cho một Slide**
 
-Gradient là một hiệu ứng đồ họa tạo ra bằng cách thay đổi màu dần dần. Khi được sử dụng làm nền cho slide, gradient có thể làm cho bản trình chiếu trông nghệ thuật và chuyên nghiệp hơn. Aspose.Slides cho phép bạn đặt màu gradient làm nền cho các slide.
+Gradient là hiệu ứng đồ họa được tạo ra bằng sự thay đổi dần dần về màu sắc. Khi được sử dụng làm nền slide, gradient có thể làm cho bài thuyết trình trông nghệ thuật và chuyên nghiệp hơn. Aspose.Slides cho phép bạn đặt màu gradient làm nền cho các slide.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/).
 2. Đặt [BackgroundType](https://reference.aspose.com/slides/vi/net/aspose.slides/backgroundtype/) của slide thành `OwnBackground`.
 3. Đặt [FillType](https://reference.aspose.com/slides/vi/net/aspose.slides/filltype/) của nền slide thành `Gradient`.
 4. Sử dụng thuộc tính [GradientFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/fillformat/gradientformat/) trên [FillFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/fillformat/) để cấu hình các thiết lập gradient mong muốn.
-5. Lưu bản trình chiếu đã sửa đổi.
+5. Lưu bài thuyết trình đã sửa đổi.
 
-Ví dụ C# sau đây minh họa cách đặt màu gradient làm nền cho một slide:
+Ví dụ C# sau cho thấy cách đặt màu gradient làm nền cho một slide:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Tạo một thể hiện của lớp Presentation.
 using (Presentation presentation = new Presentation())
 {
@@ -105,52 +116,58 @@ using (Presentation presentation = new Presentation())
     slide.Background.FillFormat.FillType = FillType.Gradient;
     slide.Background.FillFormat.GradientFormat.TileFlip = TileFlip.FlipBoth;
 
-    // Lưu bản trình chiếu vào đĩa.
+    // Lưu bài thuyết trình vào đĩa.
     presentation.Save("GradientBackground.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Đặt Hình Ảnh làm Nền cho Slide**
+## **Đặt ảnh làm Nền Slide**
 
-Ngoài các nền đơn và gradient, Aspose.Slides cho phép bạn sử dụng hình ảnh làm nền cho slide.
+Ngoài việc sử dụng màu đồng nhất và gradient, Aspose.Slides còn cho phép bạn dùng ảnh làm nền slide.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/).
 2. Đặt [BackgroundType](https://reference.aspose.com/slides/vi/net/aspose.slides/backgroundtype/) của slide thành `OwnBackground`.
 3. Đặt [FillType](https://reference.aspose.com/slides/vi/net/aspose.slides/filltype/) của nền slide thành `Picture`.
-4. Tải hình ảnh bạn muốn dùng làm nền cho slide.
-5. Thêm hình ảnh vào bộ sưu tập hình ảnh của bản trình chiếu.
-6. Sử dụng thuộc tính [PictureFillFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/fillformat/picturefillformat/) trên [FillFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/fillformat/) để gán hình ảnh làm nền.
-7. Lưu bản trình chiếu đã sửa đổi.
+4. Tải ảnh mà bạn muốn dùng làm nền slide.
+5. Thêm ảnh vào bộ sưu tập ảnh của bài thuyết trình.
+6. Sử dụng thuộc tính [PictureFillFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/fillformat/picturefillformat/) trên [FillFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/fillformat/) để gán ảnh làm nền.
+7. Lưu bài thuyết trình đã sửa đổi.
 
-Ví dụ C# sau đây minh họa cách đặt hình ảnh làm nền cho một slide:
+Ví dụ C# sau cho thấy cách đặt ảnh làm nền cho một slide:
 
 ```c#
- // Tạo một thể hiện của lớp Presentation.
- using (Presentation presentation = new Presentation())
- {
-     ISlide slide = presentation.Slides[0];
- 
-     // Đặt các thuộc tính hình ảnh nền.
-     slide.Background.Type = BackgroundType.OwnBackground;
-     slide.Background.FillFormat.FillType = FillType.Picture;
-     slide.Background.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
- 
-     // Tải hình ảnh.
-     IImage image = Images.FromFile("Tulips.jpg");
-     // Thêm hình ảnh vào bộ sưu tập hình ảnh của bản trình chiếu.
-     IPPImage ppImage = presentation.Images.AddImage(image);
-     image.Dispose();
- 
-     slide.Background.FillFormat.PictureFillFormat.Picture.Image = ppImage;
- 
-     // Lưu bản trình chiếu vào đĩa.
-     presentation.Save("ImageAsBackground.pptx", SaveFormat.Pptx);
- }
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Tạo một thể hiện của lớp Presentation.
+using (Presentation presentation = new Presentation())
+{
+    ISlide slide = presentation.Slides[0];
+
+    // Đặt các thuộc tính hình ảnh nền.
+    slide.Background.Type = BackgroundType.OwnBackground;
+    slide.Background.FillFormat.FillType = FillType.Picture;
+    slide.Background.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+
+    // Tải hình ảnh.
+    IImage image = Images.FromFile("Tulips.jpg");
+    // Thêm hình ảnh vào bộ sưu tập ảnh của bài thuyết trình.
+    IPPImage ppImage = presentation.Images.AddImage(image);
+    image.Dispose();
+
+    slide.Background.FillFormat.PictureFillFormat.Picture.Image = ppImage;
+
+    // Lưu bài thuyết trình vào đĩa.
+    presentation.Save("ImageAsBackground.pptx", SaveFormat.Pptx);
+}
 ```
 
-Mẫu mã sau đây minh họa cách đặt kiểu tô nền thành hình ảnh lặp và chỉnh sửa các thuộc tính lặp:
+Mẫu mã sau cho thấy cách đặt kiểu fill nền thành ảnh lặp và chỉnh sửa các thuộc tính lặp:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide firstSlide = presentation.Slides[0];
@@ -164,11 +181,11 @@ using (Presentation presentation = new Presentation())
     using (IImage newImage = Aspose.Slides.Images.FromFile("image.png"))
         ppImage = presentation.Images.AddImage(newImage);
 
-    // Đặt hình ảnh được sử dụng cho việc tô nền.
+    // Đặt hình ảnh được sử dụng cho việc lấp nền.
     IPictureFillFormat backPictureFillFormat = background.FillFormat.PictureFillFormat;
     backPictureFillFormat.Picture.Image = ppImage;
 
-    // Đặt chế độ tô hình ảnh thành Lát và điều chỉnh các thuộc tính lát.
+    // Đặt chế độ lấp ảnh thành Lát và điều chỉnh các thuộc tính lát.
     backPictureFillFormat.PictureFillMode = PictureFillMode.Tile;
     backPictureFillFormat.TileOffsetX = 15f;
     backPictureFillFormat.TileOffsetY = 15f;
@@ -181,57 +198,72 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
+
 Đọc thêm: [**Tile Picture As Texture**](/slides/vi/net/shape-formatting/#tile-picture-as-texture).
+
 {{% /alert %}}
 
-### **Thay Đổi Độ Trong Suất Hình Ảnh Nền**
+### **Thay đổi Độ trong suốt của Ảnh Nền**
 
-Bạn có thể muốn điều chỉnh độ trong suốt của hình ảnh nền slide để làm nổi bật nội dung slide. Đoạn mã C# sau đây chỉ cho bạn cách thay đổi độ trong suốt cho hình ảnh nền slide:
+Bạn có thể muốn điều chỉnh độ trong suốt của ảnh nền slide để nội dung slide nổi bật hơn. Đoạn mã C# sau cho thấy cách thay đổi độ trong suốt cho ảnh nền slide:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Effects;
+using Aspose.Slides.Export;
+
 var transparencyValue = 30; // Ví dụ.
 
-// Lấy tập hợp các thao tác biến đổi hình ảnh.
-var imageTransform = slide.Background.FillFormat.PictureFillFormat.Picture.ImageTransform;
-
-// Tìm hiệu ứng trong suốt tỉ lệ cố định hiện có.
-var transparencyOperation = null as IAlphaModulateFixed;
-foreach (var operation in imageTransform)
+using (Presentation presentation = new Presentation("ImageAsBackground.pptx"))
 {
-    if (operation is IAlphaModulateFixed alphaModulateFixed)
+    ISlide slide = presentation.Slides[0];
+
+    // Lấy tập hợp các phép biến đổi hình ảnh.
+    var imageTransform = slide.Background.FillFormat.PictureFillFormat.Picture.ImageTransform;
+
+    // Tìm hiệu ứng trong suốt cố định theo tỷ lệ đã tồn tại.
+    var transparencyOperation = null as IAlphaModulateFixed;
+    foreach (var operation in imageTransform)
     {
-        transparencyOperation = alphaModulateFixed;
-        break;
+        if (operation is IAlphaModulateFixed alphaModulateFixed)
+        {
+            transparencyOperation = alphaModulateFixed;
+            break;
+        }
     }
-}
 
-// Đặt giá trị trong suốt mới.
-if (transparencyOperation == null)
-{
-    imageTransform.AddAlphaModulateFixedEffect(100 - transparencyValue);
-}
-else
-{
-    transparencyOperation.Amount = (100 - transparencyValue);
+    // Đặt giá trị trong suốt mới.
+    if (transparencyOperation == null)
+    {
+        imageTransform.AddAlphaModulateFixedEffect(100 - transparencyValue);
+    }
+    else
+    {
+        transparencyOperation.Amount = (100 - transparencyValue);
+    }
+
+    presentation.Save("ImageBackgroundTransparency.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Lấy Giá Trị Nền của Slide**
+## **Lấy Giá Trị Nền Slide**
 
-Aspose.Slides cung cấp giao diện [IBackgroundEffectiveData](https://reference.aspose.com/slides/vi/net/aspose.slides/ibackgroundeffectivedata/) để lấy các giá trị nền thực tế của một slide. Giao diện này cung cấp [FillFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/ibackgroundeffectivedata/fillformat/) và [EffectFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/ibackgroundeffectivedata/effectformat/) thực tế.
+Aspose.Slides cung cấp giao diện [IBackgroundEffectiveData](https://reference.aspose.com/slides/vi/net/aspose.slides/ibackgroundeffectivedata/) để truy xuất các giá trị nền thực tế của một slide. Giao diện này cung cấp [FillFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/ibackgroundeffectivedata/fillformat/) và [EffectFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/ibackgroundeffectivedata/effectformat/) thực tế.
 
-Sử dụng thuộc tính `background` của lớp [BaseSlide](https://reference.aspose.com/slides/vi/net/aspose.slides/baseslide/), bạn có thể lấy nền thực tế cho một slide.
+Sử dụng thuộc tính `background` của lớp [BaseSlide](https://reference.aspose.com/slides/vi/net/aspose.slides/baseslide/), bạn có thể lấy nền thực tế của một slide.
 
-Ví dụ C# sau đây minh họa cách lấy giá trị nền thực tế của một slide:
+Ví dụ C# sau cho thấy cách lấy giá trị nền thực tế của một slide:
 
 ```cs
+using Aspose.Slides;
+
 // Tạo một thể hiện của lớp Presentation.
 using (Presentation presentation = new Presentation("Sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];  
 
-    // Lấy nền thực tế, có tính đến master, layout và theme.
+    // Lấy nền hiệu quả, tính đến master, layout và theme.
     IBackgroundEffectiveData effBackground = slide.Background.GetEffective();
 
     if (effBackground.FillFormat.FillType == FillType.Solid)
@@ -243,10 +275,10 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
 
 ## **Câu hỏi thường gặp**
 
-**Tôi có thể đặt lại nền tùy chỉnh và khôi phục lại nền của chủ đề/bố cục không?**
+### Tôi có thể đặt lại nền tùy chỉnh và khôi phục nền theo theme/bố cục không?
 
-Có. Loại bỏ việc tô tùy chỉnh của slide, và nền sẽ lại được kế thừa từ slide [layout](/slides/vi/net/slide-layout/)/[master](/slides/vi/net/slide-master/) tương ứng (tức là [theme background](/slides/vi/net/presentation-theme/)).
+Có. Xóa fill tùy chỉnh của slide, và nền sẽ được kế thừa lại từ slide [layout](/slides/vi/net/slide-layout/)/[master](/slides/vi/net/slide-master/) tương ứng (tức là [theme background](/slides/vi/net/presentation-theme/)).
 
-**Điều gì sẽ xảy ra với nền nếu tôi thay đổi chủ đề của bản trình chiếu sau này?**
+### Điều gì sẽ xảy ra với nền nếu tôi thay đổi theme của bài thuyết trình sau này?
 
-Nếu một slide có màu tô riêng, nó sẽ không thay đổi. Nếu nền được kế thừa từ [layout](/slides/vi/net/slide-layout/)/[master](/slides/vi/net/slide-master/), nó sẽ được cập nhật để khớp với [new theme](/slides/vi/net/presentation-theme/).
+Nếu một slide có fill riêng, nó sẽ không thay đổi. Nếu nền được kế thừa từ [layout](/slides/vi/net/slide-layout/)/[master](/slides/vi/net/slide-master/), nó sẽ cập nhật để phù hợp với [new theme](/slides/vi/net/presentation-theme/).

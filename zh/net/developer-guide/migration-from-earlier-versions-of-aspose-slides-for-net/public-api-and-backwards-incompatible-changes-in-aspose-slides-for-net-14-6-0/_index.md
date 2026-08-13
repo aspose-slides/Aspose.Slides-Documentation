@@ -1,12 +1,12 @@
 ---
-title: Aspose.Slides for .NET 14.6.0 的公共 API 与向后不兼容的更改
-linktitle: Aspose.Slides for .NET 14.6.0
+title: Aspose.Slides for .NET 14.6.0 公共 API 与向后不兼容的更改
+linktitle: Aspose.Slides for .NET 14.6.0 公共 API 与向后不兼容的更改
 type: docs
 weight: 80
 url: /zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/
 keywords:
 - 迁移
-- 遗留代码
+- 旧版代码
 - 现代代码
 - 传统方法
 - 现代方法
@@ -16,22 +16,25 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "审阅 Aspose.Slides for .NET 的公共 API 更新和突破性更改，以顺利迁移您的 PowerPoint PPT、PPTX 和 ODP 演示文稿解决方案。"
+description: "审阅 Aspose.Slides for .NET 的公共 API 更新和破坏性更改，以顺利迁移您的 PowerPoint PPT、PPTX 和 ODP 演示文稿解决方案。"
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-此页面列出所有[已添加](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/)的类、方法、属性等，以及因 Aspose.Slides for .NET 14.6.0 API 引入的任何新[限制](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/)和其他[更改](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/)。
+此页面列出了所有[已添加](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/)的类、方法、属性等，任何新[限制](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/)以及其他[更改](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/)，这些均随 Aspose.Slides for .NET 14.6.0 API 引入。
 
 {{% /alert %}} 
 ## **公共 API 更改**
 ### **已添加的接口、方法和属性**
 #### **已添加 Aspose.Slides.Charts.IErrorBarsFormat 接口**
-它表示图表系列的误差条。
+该接口表示图表系列的误差线。
 
-在自定义值类型的情况下，要指定值，请使用系列的 DataPoints 集合中特定数据点的 ErrorBarCustomValues 属性。
+对于自定义值类型，要指定值，请使用系列的 DataPoints 集合中特定数据点的 ErrorBarCustomValues 属性。
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -70,6 +73,10 @@ description: "审阅 Aspose.Slides for .NET 的公共 API 更新和突破性更�
 当 IErrorBarsFormat.ValueType 属性等于 Custom 时，要指定值，请使用 DataPoints 集合中特定数据点的 ErrorBarCustomValues 属性。
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -124,6 +131,10 @@ description: "审阅 Aspose.Slides for .NET 的公共 API 更新和突破性更�
 指定 ChartDataPoint.ErrorBarsCustomValues 属性列表中值的类型。
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -185,8 +196,10 @@ description: "审阅 Aspose.Slides for .NET 的公共 API 更新和突破性更�
 - Aspose.Slides.IShapeCollection.InsertClone(int index, IShape sourceShape, float x, float y, float width, float height)
 
 ``` csharp
+using Aspose.Slides;
 
- using (Presentation srcPres = new Presentation(dataPath_ShapeCloning + "Source Frame.pptx"))
+
+ using (Presentation srcPres = new Presentation("Source Frame.pptx"))
 
 {
 
@@ -211,12 +224,13 @@ description: "审阅 Aspose.Slides for .NET 的公共 API 更新和突破性更�
     destShapes.InsertClone(0, sourceShapes[0], 50, 150);
 
 }
-
 ``` 
 #### **已添加 ViewType 枚举、IViewProperties 接口、ViewProperties 类和 IPresentation.ViewProperties 属性**
-IPresentation.ViewProperty 允许开发者在 PowerPoint 中打开演示文稿时更改视图类型和注释的可见性。
+IPresentation.ViewProperty 允许开发人员在 PowerPoint 中打开演示文稿时更改演示文稿的视图类型和注释可见性。
 
 ``` csharp
+using Aspose.Slides;
+
 
  using(Presentation p = new Presentation())
 
@@ -225,5 +239,4 @@ IPresentation.ViewProperty 允许开发者在 PowerPoint 中打开演示文稿�
     p.ViewProperties.LastView = ViewType.SlideMasterView;
 
 }
-
 ```

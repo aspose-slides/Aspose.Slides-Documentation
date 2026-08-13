@@ -1,75 +1,77 @@
 ---
-title: กำหนดแบบอักษรสำรองสำหรับการนำเสนอใน Java
-linktitle: แบบอักษรสำรอง
+title: ระบุฟอนต์สำรองสำหรับการนำเสนอใน Java
+linktitle: ฟอนต์สำรอง
 type: docs
 weight: 10
 url: /th/java/create-fallback-font/
 keywords:
-- แบบอักษรสำรอง
-- กฎสำรอง
-- ใช้แบบอักษร
-- แทนที่แบบอักษร
+- ฟอนต์สำรอง
+- กฎฟอนต์สำรอง
+- ใช้ฟอนต์
+- แทนที่ฟอนต์
 - ช่วง Unicode
-- glyph ที่หายไป
-- glyph ที่ถูกต้อง
+- glyph ที่ขาดหาย
+- glyph ที่เหมาะสม
 - PowerPoint
 - OpenDocument
-- การนำเสนอ
+- งานนำเสนอ
 - Java
 - Aspose.Slides
-description: "เชี่ยวชาญ Aspose.Slides for Java เพื่อกำหนดแบบอักษรสำรองในไฟล์ PPT, PPTX และ ODP, เพื่อรักษาการแสดงผลข้อความที่สอดคล้องบนอุปกรณ์หรือระบบปฏิบัติการใดก็ได้"
+description: "ใช้ Aspose.Slides สำหรับ Java เพื่อกำหนดฟอนต์สำรองในไฟล์ PPT, PPTX และ ODP, ทำให้การแสดงข้อความคงที่บนอุปกรณ์หรือระบบปฏิบัติการใดก็ได้"
 ---
 ## **ภาพรวม**
 
-Aspose.Slides ให้คุณกำหนดแบบอักษรสำรองสำหรับการแสดงผลและการส่งออกพรีเซนเทชันแบบอักษรสำรองจะถูกใช้เมื่อแบบอักษรหลักไม่มี glyph สำหรับอักขระบางตัว
+Aspose.Slides ให้คุณระบุฟอนต์สำรองสำหรับการเรนเดอร์และการส่งออกงานนำเสนอ ฟอนต์สำรองจะถูกใช้เมื่อฟอนต์หลักไม่มี glyph สำหรับอักขระบางตัว
 
-พฤติกรรมการสำรองจะถูกกำหนดผ่านกฎสำรอง แต่ละกฎจะเชื่อมช่วง Unicode กับแบบอักษรหนึ่งหรือหลายแบบที่อาจมี glyph ที่ต้องการ คุณสามารถกำหนดกฎสำหรับช่วงอักขระต่าง ๆ เพิ่มหรือลบแบบอักษรสำรองจากกฎที่มีอยู่และจัดระเบียบบรรทัดหลายกฎในคอลเลกชันกฎแบบอักษรสำรอง
+พฤติกรรมฟอนต์สำรองถูกกำหนดผ่านกฎฟอนต์สำรอง แต่ละกฎจะเชื่อมต่อช่วง Unicode กับฟอนต์หนึ่งหรือหลายตัวที่อาจมี glyph ที่ต้องการ คุณสามารถกำหนดกฎสำหรับช่วงอักขระต่างๆ เพิ่มหรือเอาฟอนต์สำรองออกจากกฎที่มีอยู่ และจัดระเบียบหลายกฎในคอลเลกชันกฎฟอนต์สำรอง
 
-กฎสำรองเป็นการตั้งค่าการเรนเดอร์ระหว่างการทำงาน พวกมันไม่ได้แก้ไขไฟล์พรีเซนเทชันเองและไม่ได้ถูกจัดเก็บในไฟล์ PPTX
+กฎฟอนต์สำรองเป็นการตั้งค่าการเรนเดอร์ขณะรัน พวกมันไม่ได้แก้ไขไฟล์งานนำเสนอเองและไม่ได้ถูกจัดเก็บภายในไฟล์ PPTX
 
-## **กฎการสำรอง**
+## **กฎฟอนต์สำรอง**
 
-Aspose.Slides รองรับอินเทอร์เฟซ [IFontFallBackRule](https://reference.aspose.com/slides/th/java/com.aspose.slides/IFontFallBackRule) และคลาส [FontFallBackRule](https://reference.aspose.com/slides/th/java/com.aspose.slides/FontFallBackRule) เพื่อกำหนดกฎการใช้แบบอักษรสำรอง คลาส [FontFallBackRule](https://reference.aspose.com/slides/th/java/com.aspose.slides/FontFallBackRule) แทนความสัมพันธ์ระหว่างช่วง Unicode ที่ระบุ (ใช้ในการค้นหา glyph ที่หายไป) กับรายการแบบอักษรที่อาจมี glyph ที่ถูกต้อง:
+Aspose.Slides รองรับอินเทอร์เฟซ [IFontFallBackRule](https://reference.aspose.com/slides/th/java/com.aspose.slides/IFontFallBackRule) และคลาส [FontFallBackRule](https://reference.aspose.com/slides/th/java/com.aspose.slides/FontFallBackRule) เพื่อระบุกฎการใช้ฟอนต์สำรอง คลาส [FontFallBackRule](https://reference.aspose.com/slides/th/java/com.aspose.slides/FontFallBackRule) แทนความสัมพันธ์ระหว่างช่วง Unicode ที่กำหนด ใช้สำหรับค้นหา glyph ที่ขาดหาย และรายการฟอนต์ที่อาจมี glyph ที่เหมาะสม:
 
 ```java
+import com.aspose.slides.*;
+
 long startUnicodeIndex = 0x0B80;
 long endUnicodeIndex = 0x0BFF;
 
 IFontFallBackRule firstRule = new FontFallBackRule(startUnicodeIndex, endUnicodeIndex, "Vijaya");
 IFontFallBackRule secondRule = new FontFallBackRule(0x3040, 0x309F, "MS Mincho, MS Gothic");
 
-//โดยใช้หลายวิธีคุณสามารถเพิ่มรายการฟอนต์ได้:
+//Using multiple ways you can add fonts list:
 String[] fontNames = new String[] { "Segoe UI Emoji, Segoe UI Symbol", "Arial" };
 
 IFontFallBackRule thirdRule = new FontFallBackRule(0x1F300, 0x1F64F, fontNames);
 ```
 
-คุณยังสามารถ [remove](https://reference.aspose.com/slides/th/java/com.aspose.slides/FontFallBackRule#remove-java.lang.String-) แบบอักษรสำรอง หรือ [addFallBackFonts](https://reference.aspose.com/slides/th/java/com.aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) ลงในวัตถุ [FontFallBackRule](https://reference.aspose.com/slides/th/java/com.aspose.slides/FontFallBackRule) ที่มีอยู่ได้
+คุณยังสามารถ [remove](https://reference.aspose.com/slides/th/java/com.aspose.slides/FontFallBackRule#remove-java.lang.String-) ฟอนต์สำรองหรือ [addFallBackFonts](https://reference.aspose.com/slides/th/java/com.aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) ลงในอ็อบเจ็กต์ [FontFallBackRule](https://reference.aspose.com/slides/th/java/com.aspose.slides/FontFallBackRule) ที่มีอยู่
 
-[FontFallBackRulesCollection](https://reference.aspose.com/slides/th/java/com.aspose.slides/FontFallBackRulesCollection) สามารถใช้เพื่อจัดระเบียบบัญชีรายการของวัตถุ [FontFallBackRule](https://reference.aspose.com/slides/th/java/com.aspose.slides/FontFallBackRule) เมื่อจำเป็นต้องกำหนดกฎการแทนที่แบบอักษรสำรองสำหรับหลายช่วง Unicode
+[FontFallBackRulesCollection](https://reference.aspose.com/slides/th/java/com.aspose.slides/FontFallBackRulesCollection) สามารถใช้จัดระเบียบรายการอ็อบเจ็กต์ [FontFallBackRule](https://reference.aspose.com/slides/th/java/com.aspose.slides/FontFallBackRule) ได้เมื่อจำเป็นต้องระบุกฎการแทนที่ฟอนต์สำรองสำหรับหลายช่วง Unicode
 
-{{% alert color="primary" title="ดูเพิ่มเติม" %}} 
-- [สร้างคอลเลกชันแบบอักษรสำรอง](/slides/th/java/create-fallback-fonts-collection/)
+{{% alert color="info" title="ดูเพิ่มเติม" %}} 
+- [Create Fallback Fonts Collection](/slides/th/java/create-fallback-fonts-collection/)
 {{% /alert %}}
 
 ## **คำถามที่พบบ่อย**
 
-**ความแตกต่างระหว่างแบบอักษรสำรอง การแทนที่แบบอักษร และการฝังแบบอักษรคืออะไร?**
+### ความแตกต่างระหว่างฟอนต์สำรอง, การแทนที่ฟอนต์, และการฝังฟอนต์คืออะไร?
 
-แบบอักษรสำรองจะใช้เฉพาะกับอักขระที่หายไปในแบบอักษรหลักเท่านั้น [การแทนที่แบบอักษร](/slides/th/java/font-substitution/) จะเปลี่ยนแบบอักษรที่ระบุทั้งหมดเป็นแบบอักษรอื่น [การฝังแบบอักษร](/slides/th/java/embedded-font/) จะบรรจุแบบอักษรไว้ในไฟล์ผลลัพธ์เพื่อให้ผู้รับสามารถดูข้อความได้ตามที่ตั้งใจ
+ฟอนต์สำรองจะใช้เฉพาะกับอักขระที่หายไปในฟอนต์หลัก [Font substitution](/slides/th/java/font-substitution/) แทนที่ฟอนต์ที่ระบุทั้งหมดด้วยฟอนต์อื่น [Font embedding](/slides/th/java/embedded-font/) จะบรรจุฟอนต์ภายในไฟล์ผลลัพธ์เพื่อให้ผู้รับสามารถดูข้อความได้ตามที่ต้องการ
 
-**แบบอักษรสำรองจะถูกนำไปใช้ระหว่างการส่งออกเช่น PDF, PNG หรือ SVG หรือเพียงการเรนเดอร์บนหน้าจอเท่านั้น?**
+### ฟอนต์สำรองถูกนำไปใช้ระหว่างการส่งออกเช่น PDF, PNG, หรือ SVG หรือใช้เฉพาะการแสดงผลบนหน้าจอเท่านั้น?
 
-ใช่. การสำรองส่งผลต่อทุก [การเรนเดอร์และการส่งออก](/slides/th/java/convert-presentation/) ที่ต้องวาดอักขระแต่ไม่มีในแบบอักษรต้นฉบับ
+ใช่ ฟอนต์สำรองมีผลต่อทุก [rendering and export operations](/slides/th/java/convert-presentation/) ที่ต้องวาดอักขระแต่ฟอนต์ต้นทางไม่มี
 
-**การกำหนดค่าแบบอักษรสำรองจะเปลี่ยนไฟล์พรีเซนเทชันเองหรือไม่ และการตั้งค่านั้นจะคงอยู่เมื่อเปิดไฟล์ในครั้งต่อไปหรือไม่?**
+### การกำหนดค่าฟอนต์สำรองทำให้ไฟล์งานนำเสนอเปลี่ยนแปลงหรือไม่ และการตั้งค่านั้นจะคงอยู่เมือเปิดไฟล์ในครั้งต่อไปหรือไม่?
 
-ไม่. กฎสำรองเป็นการตั้งค่าการเรนเดอร์ระหว่างรันไทม์ในโค้ดของคุณ; พวกมันไม่ได้ถูกเก็บไว้ในไฟล์ .pptx และจะไม่ปรากฏใน PowerPoint
+ไม่ กฎฟอนต์สำรองเป็นการตั้งค่าการเรนเดอร์ขณะรันในโค้ดของคุณ ไม่ได้ถูกเก็บภายในไฟล์ .pptx และจะไม่ปรากฏใน PowerPoint
 
-**ระบบปฏิบัติการ (Windows/Linux/macOS) และชุดโฟลเดอร์แบบอักษรมีผลต่อการเลือกแบบอักษรสำรองหรือไม่?**
+### ระบบปฏิบัติการ (Windows/Linux/macOS) และชุดโฟลเดอร์ฟอนต์มีผลต่อการเลือกฟอนต์สำรองหรือไม่?
 
-ใช่. เอนจินจะตรวจหาแบบอักษรจากโฟลเดอร์ระบบที่มีอยู่และ [เส้นทางเพิ่มเติม](/slides/th/java/custom-font/) ที่คุณระบุ หากแบบอักษรไม่มีอยู่จริง กฎที่อ้างอิงมันจะไม่ทำงาน
+ใช่ เอนจินจะค้นหาฟอนต์จากโฟลเดอร์ระบบที่มีอยู่และ [additional paths](/slides/th/java/custom-font/) ที่คุณระบุ หากฟอนต์ไม่มีอยู่จริง กฎที่อ้างอิงฟอนต์นั้นจะไม่ทำงาน
 
-**การสำรองทำงานกับ WordArt, SmartArt และแผนภูมิหรือไม่?**
+### ฟอนต์สำรองทำงานกับ WordArt, SmartArt และแผนภูมิหรือไม่?
 
-ใช่. เมื่อวัตถุเหล่านี้มีข้อความ กลไกการแทนที่ glyph เดียวกันจะถูกนำมาใช้เพื่อเรนเดอร์อักขระที่หายไป
+ใช่ เมื่อวัตถุเหล่านี้มีข้อความ กลไกการแทนที่ glyph เดียวกันจะถูกใช้เพื่อเรนเดอร์อักขระที่ขาดหาย

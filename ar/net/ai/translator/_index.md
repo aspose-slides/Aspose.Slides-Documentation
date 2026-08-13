@@ -1,12 +1,12 @@
 ---
-title: مترجم العروض التقديمية المدعم بالذكاء الاصطناعي
-linktitle: المترجم المدعم بالذكاء الاصطناعي
+title: مترجم العروض التقديمية بالذكاء الاصطناعي
+linktitle: مترجم مدعم بالذكاء الاصطناعي
 type: docs
 weight: 20
 url: /ar/net/ai/translator/
 keywords:
-- مترجم عرض تقديمي بالذكاء الاصطناعي
-- مترجم شريحة بالذكاء الاصطناعي
+- مترجم عروض تقديمية بالذكاء الاصطناعي
+- مترجم شرائح بالذكاء الاصطناعي
 - ميزة مدعومة بالذكاء الاصطناعي
 - عرض تقديمي متعدد اللغات
 - شريحة متعددة اللغات
@@ -15,63 +15,70 @@ keywords:
 - ميزات مدفوعة بالذكاء الاصطناعي
 - قدرات الذكاء الاصطناعي
 - وكيل الذكاء الاصطناعي
-- عميل ويب
+- عميل الويب
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "ترجم شرائح PowerPoint باستخدام الذكاء الاصطناعي عبر Aspose.Slides لـ .NET. قم بتعريب ملفات PPT و PPTX و ODP مع الحفاظ على التخطيط — سريع ومناسب للمطورين. جرّبه."
+description: "ترجم شرائح PowerPoint باستخدام الذكاء الاصطناعي مع Aspose.Slides لـ .NET. قم بترجمة PPT و PPTX و ODP مع الحفاظ على التخطيط—بسرعة وسهولة للمطورين. جرّبها."
 ---
+## **المقدمة**
 
-## **API ترجمة العروض التقديمية Aspose.Slides: ترجمة شرائح متعددة اللغات مدعومة بالذكاء الاصطناعي**
-
-Aspose.Slides هو API قوي لإدارة عروض PowerPoint برمجيًا. بالإضافة إلى إنشاء وتعديل وتحويل الشرائح، يقدم ميزات مدعومة بالذكاء الاصطناعي - مثل [Presentation Translation API](https://reference.aspose.com/slides/net/aspose.slides.ai/) لمحتوى الشرائح متعدد اللغات.
+Aspose.Slides هي واجهة برمجة تطبيقات قوية لإدارة عروض PowerPoint برمجيًا. بالإضافة إلى إنشاء وتحرير وتحويل الشرائح، تقدم ميزات مدفوعة بالذكاء الاصطناعي - مثل [Presentation Translation API](https://reference.aspose.com/slides/ar/net/aspose.slides.ai/) لمحتوى الشرائح متعدد اللغات.
 
 ## **كيف يعمل**
 
-Aspose.Slides لا يتضمن قدرات ذكاء اصطناعي مدمجة ولكنه يندمج مع نماذج ذكاء اصطناعي خارجية عبر الإنترنت. يتم كشف هذه الوظيفة من خلال الفئة [SlidesAIAgent](https://reference.aspose.com/slides/net/aspose.slides.ai/slidesaiagent) التي تستخدم تنفيذًا لواجهة [IAIWebClient](https://reference.aspose.com/slides/net/aspose.slides.ai/iaiwebclient/) للتواصل مع خدمات الذكاء الاصطناعي.
+Aspose.Slides لا تتضمن قدرات ذكاء اصطناعي مدمجة ولكنها تتكامل مع نماذج ذكاء اصطناعي خارجية عبر الإنترنت. يتم إتاحة هذه الوظيفة عبر الفئة [SlidesAIAgent](https://reference.aspose.com/slides/ar/net/aspose.slides.ai/slidesaiagent) التي تستخدم تنفيذًا للواجهة [IAIWebClient](https://reference.aspose.com/slides/ar/net/aspose.slides.ai/iaiwebclient/) للتواصل مع خدمات الذكاء الاصطناعي.
 
-يمكنك استخدام [OpenAIWebClient](https://reference.aspose.com/slides/net/aspose.slides.ai/openaiwebclient/) المدمج للاتصال بواجهة برمجة تطبيقات OpenAI أو تنفيذ واجهة [IAIWebClient](https://reference.aspose.com/slides/net/aspose.slides.ai/iaiwebclient/) الخاصة بك لاستخدام موفر ذكاء اصطناعي أو نموذج لغوي مختلف.
+يمكنك استخدام [OpenAIWebClient](https://reference.aspose.com/slides/ar/net/aspose.slides.ai/openaiwebclient/) المدمج للاتصال بواجهة برمجة تطبيقات OpenAI أو تنفيذ واجهتك الخاصة [IAIWebClient](https://reference.aspose.com/slides/ar/net/aspose.slides.ai/iaiwebclient/) لاستخدام مزود ذكاء اصطناعي أو نموذج لغة مختلف.
 
-Aspose.Slides يتولى التواصل، وتحليل ردود الذكاء الاصطناعي، وإدراج المحتوى المترجم بذكاء مع الحفاظ على تخطيط وتنسيق الشريحة الأصلي.
+يتولى Aspose.Slides عملية التواصل، وتحليل استجابات الذكاء الاصطناعي، وإدراج المحتوى المترجم بذكاء مع الحفاظ على تخطيط الشريحة الأصلي وتنسيقه.
 
-{{% alert color="primary" %}}
-ملاحظة أن واجهة برمجة تطبيقات OpenAI هي خدمة مدفوعة، لذا سيتعين عليك إنشاء حساب وتوفير مفتاح API الخاص بك عند استخدام [OpenAIWebClient](https://reference.aspose.com/slides/net/aspose.slides.ai/openaiwebclient/).
+{{% alert color="info" %}}
+لاحظ أن واجهة برمجة تطبيقات OpenAI خدمة مدفوعة، لذا ستحتاج إلى إنشاء حساب وتوفير مفتاح API الخاص بك عند استخدام [OpenAIWebClient](https://reference.aspose.com/slides/ar/net/aspose.slides.ai/openaiwebclient/).
 {{% /alert %}}
 
 ## **مثال**
 
-في هذا المثال، نترجم عرض PowerPoint إلى اليابانية باستخدام [OpenAIWebClient](https://reference.aspose.com/slides/net/aspose.slides.ai/openaiwebclient/) المدمج مع نموذج OpenAI محدد.
+في هذا المثال، نقوم بترجمة عرض PowerPoint إلى اللغة اليابانية باستخدام [OpenAIWebClient](https://reference.aspose.com/slides/ar/net/aspose.slides.ai/openaiwebclient/) المدمج مع نموذج OpenAI محدد.
 
 ```csharp
-// Load a presentation to translate.
+using Aspose.Slides;
+using Aspose.Slides.AI;
+using Aspose.Slides.Export;
+
+// تحميل عرض تقديمي للترجمة.
 using var presentation = new Presentation("sample.pptx");
 
-// Create an AI client with OpenAIWebClient, specifying your model and API key.
+// إنشاء عميل ذكاء اصطناعي باستخدام OpenAIWebClient، وتحديد النموذج ومفتاح API الخاصين بك.
 using var aiWebClient = new OpenAIWebClient(model: "gpt-4o-mini", apiKey: "apiKey", organizationId: null);
 
-// Initialize SlidesAIAgent with the AI client.
+// تهيئة SlidesAIAgent باستخدام عميل الذكاء الاصطناعي.
 var aiAgent = new SlidesAIAgent(aiWebClient);
 
-// Translate the presentation to Japanese.
+// ترجمة العرض التقديمي إلى اللغة اليابانية.
 await aiAgent.TranslateAsync(presentation, "japanese");
 
-// Save the translated presentation as a PDF.
+// حفظ العرض التقديمي المترجم كملف PDF.
 presentation.Save("sample_jp.pdf", SaveFormat.Pdf);
 ```
 
-افتراضيًا، يقوم [OpenAIWebClient](https://reference.aspose.com/slides/net/aspose.slides.ai/openaiwebclient/) بإنشاء وإدارة مثيل داخلي من [HttpClient](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient) الخاص به، مع معالجة دورة حياته وتفريغه تلقائيًا. ومع ذلك، إذا كنت تفضل إدارة [HttpClient](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient) بنفسك - مثلًا عند استخدام [IHttpClientFactory](https://learn.microsoft.com/en-us/dotnet/core/extensions/httpclient-factory) لتحسين إدارة الموارد والأداء - يمكنك تزويد مثيل `HttpClient` الخاص بك عند إنشاء [OpenAIWebClient](https://reference.aspose.com/slides/net/aspose.slides.ai/openaiwebclient/).
+بشكل افتراضي، يقوم [OpenAIWebClient](https://reference.aspose.com/slides/ar/net/aspose.slides.ai/openaiwebclient/) بإنشاء وإدارة مثيل داخلي من `HttpClient` الخاص به، مع معالجة دورة حياته والتخلص منه تلقائيًا. ومع ذلك، إذا كنت تفضل إدارة `HttpClient` بنفسك - مثلًا عند استخدام [IHttpClientFactory](https://learn.microsoft.com/en-us/dotnet/core/extensions/httpclient-factory) لإدارة الموارد وتحسين الأداء - يمكنك تمرير مثيل `HttpClient` الخاص بك عند إنشاء [OpenAIWebClient](https://reference.aspose.com/slides/ar/net/aspose.slides.ai/openaiwebclient/).
 
 ```csharp
-// Assume you have an IHttpClientFactory instance (e.g., injected via dependency injection).
-HttpClient httpClient = httpClientFactory.CreateClient();
+using System.Net.Http;
+using Aspose.Slides.AI;
+
+// استخدم HttpClient تديره بنفسك - على سبيل المثال، أحد التي تم إنشاؤها بواسطة IHttpClientFactory
+// تم حقنه عبر حقن الاعتماديات.
+HttpClient httpClient = new HttpClient();
 using var aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null, httpClient);
 ```
 
-Aspose.Slides يُستخدم عادةً في بيئات متزامنة. لدعم ذلك، توفر فئة [SlidesAIAgent](https://reference.aspose.com/slides/net/aspose.slides.ai/slidesaiagent/) كلًا من الأساليب المتزامنة وغير المتزامنة - مما يتيح لك اختيار النهج الذي يناسب سير عمل تطبيقك.
+عادةً ما يُستخدم Aspose.Slides في بيئات متزامنة. لدعم ذلك، تُوفر الفئة [SlidesAIAgent](https://reference.aspose.com/slides/ar/net/aspose.slides.ai/slidesaiagent/) كلًا من الأساليب المتزامنة وغير المتزامنة - مما يتيح لك اختيار النهج الأنسب لسير عمل تطبيقك.
 
 ## **الفوائد الرئيسية**
 
-API ترجمة العروض التقديمية Aspose.Slides يقدم حلًا مدعومًا بالذكاء الاصطناعي لتسليم عروض PowerPoint متعددة اللغات. من خلال أتمتة الترجمة مع الحفاظ على التخطيط والتصميم، يوفر الوقت ويقلل الأخطاء مقارنةً بالعمليات اليدوية. سواء كنت مطورًا أو معلمًا أو محترفًا في الأعمال، يتيح لك هذا API إنشاء عروض تقديمية جذابة وم lokalized للجماهير العالمية - مما يوسع نطاق وصولك ويحسن التواصل.
+توفر Aspose.Slides [Presentation Translation API](https://reference.aspose.com/slides/ar/net/aspose.slides.ai/) حلاً مدعومًا بالذكاء الاصطناعي لتقديم عروض PowerPoint متعددة اللغات. من خلال أتمتة الترجمة مع الحفاظ على التخطيط والتصميم، يوفر الوقت ويقلل الأخطاء مقارنةً بالعمليات اليدوية. سواء كنت مطورًا أو معلمًا أو محترفًا تجاريًا، يمكّنك هذا API من إنشاء عروض جذابة ومُعربة للجمهور العالمي - مما يوسع نطاق وصولك ويحسن التواصل.

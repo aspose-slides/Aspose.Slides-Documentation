@@ -1,5 +1,5 @@
 ---
-title: Hantera punkt- och numrerade listor i presentationer i Java
+title: Hantera punkt- och nummerlistor i presentationer i Java
 linktitle: Hantera listor
 type: docs
 weight: 60
@@ -13,8 +13,8 @@ keywords:
 - anpassad punkt
 - flernivålista
 - skapa punkt
-- lägg till punkt
-- lägg till lista
+- lägga till punkt
+- lägga till lista
 - PowerPoint
 - OpenDocument
 - presentation
@@ -24,25 +24,28 @@ description: "Lär dig hur du skapar och formaterar punkt-, bild-, flernivå- oc
 ---
 ## **Översikt**
 
-Aspose.Slides for Java låter dig skapa och formatera punkt- och numrerade listor i PowerPoint‑ och OpenDocument‑presentationer. Ett listobjekt är ett stycke vars punkteringsinställningar styrs via dess styckeformat.
+Aspose.Slides for Java låter dig skapa och formatera punkt- och nummerlistor i PowerPoint- och OpenDocument-presentationer. Ett listobjekt är ett stycke vars punktinställningar styrs genom dess styckeformat.
 
-Använd [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iparagraph/#getParagraphFormat--)‑metoden för att komma åt listinställningar på stycknivå. Huvudinkörningspunkten är [IParagraphFormat.getBullet](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iparagraphformat/#getBullet--), som returnerar ett [IBulletFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ibulletformat/)-objekt. Med detta objekt kan du ange bullet‑typ, symbol, bild, färg, storlek, numreringsstil och startnummer.
+Använd metoden [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iparagraph/#getParagraphFormat--) för att komma åt listinställningar på styckenivå. Huvudinkörningspunkten är [IParagraphFormat.getBullet](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iparagraphformat/#getBullet--), som returnerar ett [IBulletFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ibulletformat/)‑objekt. Med detta objekt kan du ange punktens typ, symbol, bild, färg, storlek, numreringsstil och startnummer.
 
-Denna artikel visar hur du:
+Denna artikel visar hur man:
 
-- skapar en punktlista med en anpassad symbol
-- skapar en bildpunkt
-- skapar en flernivålista genom att ange styckedjup
-- skapar en numrerad lista
-- inspekterar och ändrar listformatering i en befintlig presentation
+- skapa en punktlista med en anpassad symbol
+- skapa en bildpunkt
+- skapa en flernivålista genom att ange styckets djup
+- skapa en numrerad lista
+- undersöka och ändra listformatering i en befintlig presentation
 
 ## **Skapa en punktlista**
 
-För att skapa en punktlista, lägg till [IParagraph](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iparagraph/)-objekt i ett [ITextFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itextframe/) och sätt [IBulletFormat.setType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ibulletformat/#setType-byte-) till [BulletType.Symbol](https://reference.aspose.com/slides/sv/java/com.aspose.slides/bullettype/#Symbol). Du kan sedan ange [IBulletFormat.setChar](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ibulletformat/#setChar-char-), [IBulletFormat.getColor](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ibulletformat/#getColor--) och [IBulletFormat.setHeight](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ibulletformat/#setHeight-float-) för att styra punktens utseende.
+För att skapa en punktlista, lägg till [IParagraph](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iparagraph/)‑objekt i ett [ITextFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itextframe/) och sätt [IBulletFormat.setType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ibulletformat/#setType-byte-) till [BulletType.Symbol](https://reference.aspose.com/slides/sv/java/com.aspose.slides/bullettype/#Symbol). Du kan sedan sätta [IBulletFormat.setChar](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ibulletformat/#setChar-char-), [IBulletFormat.getColor](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ibulletformat/#getColor--) och [IBulletFormat.setHeight](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ibulletformat/#setHeight-float-) för att kontrollera punktens utseende.
 
-Följande Java‑kod demonstrerar hur du skapar en punktlista i en bild:
+Följande Java‑kod visar hur man skapar en punktlista i en bild:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -85,11 +88,13 @@ Resultatet:
 
 ## **Skapa en numrerad lista**
 
-Använd numrerade listor när ordningsföljden på objekten är viktig. Sätt [IBulletFormat.setType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ibulletformat/#setType-byte-) till [BulletType.Numbered](https://reference.aspose.com/slides/sv/java/com.aspose.slides/bullettype/#Numbered). Du kan även välja ett nummerformat med [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) eller ange [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) när listan ska börja med ett annat värde än 1.
+Använd numrerade listor när objektens ordning är viktig. Sätt [IBulletFormat.setType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ibulletformat/#setType-byte-) till [BulletType.Numbered](https://reference.aspose.com/slides/sv/java/com.aspose.slides/bullettype/#Numbered). Du kan även välja ett numreringsformat med [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) eller sätta [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) när listan ska börja med ett annat värde än 1.
 
-Följande Java‑kod visar hur du skapar en numrerad lista i en bild:
+Följande Java‑kod visar hur man skapar en numrerad lista i en bild:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -125,12 +130,12 @@ Resultatet:
 
 ## **Skapa en bildpunkt**
 
-Aspose.Slides låter dig ersätta en vanlig punkt‑symbol med en bild. Bildpunkter fungerar bäst med enkla bilder som förblir läsbara i liten storlek, t.ex. ikoner eller små transparenta PNG‑filer.
+Aspose.Slides låter dig ersätta en vanlig punktsymbol med en bild. Bildpunkter fungerar bäst med enkla bilder som förblir läsbara i liten storlek, såsom ikoner eller små transparenta PNG‑filer.
 
-{{% alert color="primary" %}}
-Idealiskt, om du planerar att ersätta den vanliga punkt‑symbolen med en bild, är det bäst att välja en enkel grafik med transparent bakgrund. Sådana bilder fungerar bra som anpassade punkt‑symboler.
+{{% alert color="info" %}}
+Om du planerar att ersätta den vanliga punktsymbolen med en bild är det idealiskt att välja en enkel grafik med transparent bakgrund. Sådana bilder fungerar bra som anpassade punktsymboler.
 
-Kom ihåg att bilden kommer att skalas ned till mycket liten storlek. Av den anledningen rekommenderar vi starkt att välja en bild som förblir tydlig och visuellt effektiv när den används som punkt i en lista.
+Kom ihåg att bilden kommer att skalas ner till en mycket liten storlek. Av den anledningen rekommenderar vi starkt att välja en bild som förblir tydlig och visuellt effektiv när den används som punkt i en lista.
 {{% /alert %}}
 
 För att skapa en bildpunkt, lägg till en bild i [Presentation.getImages](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/#getImages--) och tilldela det returnerade bildobjektet till [IBulletFormat.getPicture](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ibulletformat/#getPicture--). Sätt [IBulletFormat.setType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ibulletformat/#setType-byte-) till [BulletType.Picture](https://reference.aspose.com/slides/sv/java/com.aspose.slides/bullettype/#Picture) innan du tilldelar bilden.
@@ -139,9 +144,11 @@ Anta att vi har en "image.png":
 
 ![En bild för punkterna](picture_for_bullets.png)
 
-Följande Java‑kod visar hur du skapar bildpunkter i en bild:
+Följande Java‑kod visar hur man skapar bildpunkter i en bild:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -180,11 +187,13 @@ Resultatet:
 
 ## **Skapa en flernivålista**
 
-Använd [IParagraphFormat.setDepth](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iparagraphformat/#setDepth-short-) för att placera listobjekt på olika nivåer. Nivå 0 är den översta nivån, nivå 1 är inbäddad under den och så vidare.
+Använd [IParagraphFormat.setDepth](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iparagraphformat/#setDepth-short-) för att placera listaobjekt på olika nivåer. Nivå 0 är den översta nivån, nivå 1 ligger inbäddad under den, och så vidare.
 
-Följande Java‑kod visar hur du skapar en flernivåpunktlista:
+Följande Java‑kod visar hur man skapar en flernivå punktlista:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -225,11 +234,13 @@ Resultatet:
 
 ## **Ändra en befintlig lista**
 
-För att ändra listformatering i en befintlig presentation, kom åt målstycket och uppdatera dess [IParagraphFormat.getBullet](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iparagraphformat/#getBullet--)‑inställningar. Samma egenskaper som används för att skapa listor kan användas för att inspektera eller modifiera listor som lästs in från en PPT-, PPTX‑ eller ODP‑fil.
+För att ändra listformatering i en befintlig presentation, gå till målstycket och uppdatera dess [IParagraphFormat.getBullet](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iparagraphformat/#getBullet--)‑inställningar. Samma egenskaper som används för att skapa listor kan också användas för att undersöka eller ändra listor som har lästs in från en PPT‑, PPTX‑ eller ODP‑fil.
 
-Följande Java‑kod ändrar det första stycket i en textram till att använda en numrerad liststil:
+Följande Java‑kod ändrar det första stycket i en textram för att använda ett numrerat listformat:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -250,14 +261,14 @@ try {
 
 ## **FAQ**
 
-**Kan punkt‑ och numrerade listor exporteras till PDF eller bilder?**
+### Kan punkt- och nummerlistor exporteras till PDF eller bilder?
 
-Ja. Aspose.Slides bevarar listformatering när måletformatet stöder motsvarande textlayout och punktfunktioner.
+Ja. Aspose.Slides bevarar listformatering när målformatet stödjer motsvarande textlayout och punktfunktioner.
 
-**Kan jag redigera listor i befintliga presentationer?**
+### Kan jag redigera listor i befintliga presentationer?
 
-Ja. Läs in presentationen, kom åt målstycket, inspektera eller uppdatera dess [IParagraphFormat.getBullet](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iparagraphformat/#getBullet--)‑inställningar och spara presentationen.
+Ja. Ladda presentationen, gå till målstycket, undersök eller uppdatera dess [IParagraphFormat.getBullet](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iparagraphformat/#getBullet--)‑inställningar, och spara presentationen.
 
-**Kan listor innehålla icke‑latinsk text?**
+### Kan listor innehålla icke‑latinsk text?
 
-Ja. Texten i listobjekt kan innehålla Unicode‑tecken, så du kan skapa listor i flerspråkiga presentationer. Se till att de typsnitt som används i presentationen stödjer de tecken du behöver.
+Ja. Texten för listobjekt kan innehålla Unicode‑tecken, så du kan skapa listor i flerspråkiga presentationer. Säkerställ att de teckensnitt som används i presentationen stöder de tecken du behöver.

@@ -5,7 +5,7 @@ weight: 150
 url: /pl/net/aspose-slides-for-xamarin/
 keywords:
 - Xamarin
-- tworzenie aplikacji mobilnych
+- programowanie mobilne
 - Android
 - PowerPoint
 - OpenDocument
@@ -13,34 +13,37 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Twórz aplikacje mobilne Xamarin w C#, aby przeglądać, edytować i konwertować prezentacje za pomocą Aspose.Slides, wspierające bogate funkcje dla PPT, PPTX i ODP na Androidzie."
+description: "Twórz aplikacje mobilne Xamarin w C#, aby wyświetlać, edytować i konwertować prezentacje przy użyciu Aspose.Slides, wspierające bogate funkcje dla PPT, PPTX i ODP na Androidzie."
 ---
 ## **Wprowadzenie**
 
-Xamarin jest frameworkiem używanym do tworzenia aplikacji mobilnych w .NET C#. Xamarin posiada narzędzia i biblioteki, które rozszerzają możliwości platformy .NET. Umożliwia programistom budowanie aplikacji dla systemu operacyjnego **Android**.
+Xamarin to framework używany do tworzenia aplikacji mobilnych w .NET C#. Xamarin posiada narzędzia i biblioteki, które rozszerzają możliwości platformy .NET. Umożliwia programistom tworzenie aplikacji dla systemu operacyjnego **Android**.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
+
 Do tworzenia w Xamarin programiści mogą korzystać ze swoich standardowych środowisk programistycznych (C#, Visual Studio oraz bibliotek firm trzecich).
+
 {{% /alert %}}
 
 API Aspose.Slides działa na platformie Xamarin. Aby to osiągnąć, pakiet Aspose.Slides .NET dodaje osobny plik DLL dla Xamarin. Aspose.Slides dla Xamarin obsługuje większość funkcji dostępnych w wersji .NET:
 
 - konwertowanie i przeglądanie prezentacji.
-- edytowanie zawartości prezentacji: tekst, kształty, wykresy, SmartArt, audio/wideo, czcionki itp.
+- edycja zawartości w prezentacjach: tekst, kształty, wykresy, SmartArt, audio/wideo, czcionki itp.
 - obsługa animacji, efektów 2D, WordArt itp.
 - obsługa metadanych i właściwości dokumentu.
 - drukowanie, klonowanie, scalanie, porównywanie, dzielenie itp.
 
-Porównanie pełnych funkcji znajduje się w innej sekcji, blisko końca tej strony.
+Porównanie pełnej listy funkcji znajduje się w innej sekcji, blisko końca tej strony.
 
-W API Aspose.Slides dla Xamarin klasy, przestrzenie nazw, logika i zachowanie są tak bardzo podobne do wersji .NET, jak to możliwe. Możesz migrować swoje aplikacje Aspose.Slides .NET do Xamarin przy minimalnych kosztach.
+W API Aspose.Slides dla Xamarin klasy, przestrzenie nazw, logika i zachowanie są tak podobne, jak to możliwe do wersji .NET. Możesz migrować swoje aplikacje Aspose.Slides .NET do Xamarin przy minimalnych kosztach.
+
 
 ## **Szybki przykład**
-Możesz używać Aspose.Slides dla Xamarin, aby tworzyć i wykorzystywać swoją aplikację C# poprzez Slides for Android.
+Możesz używać Aspose.Slides dla Xamarin do budowania i wykorzystywania swojej aplikacji C# za pośrednictwem Slides for Android.
 
-Udostępniamy przykład aplikacji Android opartej na Xamarin, która używa Aspose.Slides do wyświetlania slajdów prezentacji i dodaje nowy kształt na slajdzie po dotknięciu. Pełne źródła przykładów znajdziesz na[GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
+Udostępniamy przykład aplikacji Android przy użyciu Xamarin, która wykorzystuje Aspose.Slides do wyświetlania slajdów prezentacji i dodaje nowy kształt na slajdzie po dotknięciu. Pełne źródła przykładów znajdziesz na [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
 
-Zacznijmy od stworzenia aplikacji Xamarin Android:
+Zacznijmy od utworzenia aplikacji Xamarin Android:
 
 ![todo:image_alt_text](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
 
@@ -49,7 +52,7 @@ Najpierw tworzymy układ zawartości, który będzie zawierał widok obrazu oraz
 ![todo:image_alt_text](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
 
 **XML - content_main.xml - Utwórz układ zawartości**
-```
+``` 
  <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -92,10 +95,14 @@ Najpierw tworzymy układ zawartości, który będzie zawierał widok obrazu oraz
 </LinearLayout>
 ```
 
-Tutaj odwołujemy się do biblioteki "Aspose.Slides.Droid.dll", która zawiera przykładową prezentację ("HelloWorld.pptx") w zasobach aplikacji Xamarin i dodaje jej inicjalizację do klasy MainActivity:
+Tutaj odwołujemy się do biblioteki "Aspose.Slides.Droid.dll", która zawiera przykładową prezentację ("HelloWorld.pptx") w zasobach aplikacji Xamarin i dodaje jej inicjalizację do MainActivity:
 
 **C# - MainActivity.cs - Inicjalizacja**
-```csharp
+
+``` csharp
+using System.Diagnostics;
+using Aspose.Slides.Theme;
+
 [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
 public class MainActivity : AppCompatActivity
 {
@@ -129,10 +136,14 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-Dodajmy funkcję wyświetlającą poprzednie i następne slajdy po naciśnięciu przycisków:
+Dodajmy funkcję wyświetlania slajdów Prev i Next po naciśnięciu przycisków:
 
-**C# - MainActivity.cs - Wyświetlanie slajdów po kliknięciu przycisków Prev i Next**
-```csharp
+**C# - MainActivity.cs - Wyświetl slajdy po kliknięciu przycisku Prev i Next**
+
+``` csharp
+using System.Diagnostics;
+using Aspose.Slides.Theme;
+
 [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
 public class MainActivity : AppCompatActivity
 {
@@ -262,10 +273,11 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-Na koniec zaimplementujmy funkcję dodającą elipsę po dotknięciu slajdu:
+Na koniec zaimplementujmy funkcję dodającą kształt elipsy po dotknięciu slajdu:
 
-**C# - MainActivity.cs - Dodaj elipsę po kliknięciu na slajdzie**
-```csharp
+**C# - MainActivity.cs - Dodaj elipsę po kliknięciu slajdu**
+
+``` csharp
  private void ImageView_Touch(object sender, Android.Views.View.TouchEventArgs e)
 {
     int[] location = new int[2];
@@ -294,8 +306,10 @@ Na koniec zaimplementujmy funkcję dodającą elipsę po dotknięciu slajdu:
 }
 ```
 
-Każde kliknięcie na slajdzie prezentacji powoduje dodanie elipsy o losowym kolorze:
+Każde kliknięcie slajdu prezentacji powoduje dodanie elipsy o losowym kolorze:
+
 ![todo:image_alt_text](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
+
 
 ## **Obsługiwane funkcje**
 
@@ -303,65 +317,65 @@ Każde kliknięcie na slajdzie prezentacji powoduje dodanie elipsy o losowym kol
 | :- | :- | :- |
 |**Funkcje prezentacji**:| | |
 |Tworzenie nowych prezentacji|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Obsługa otwierania/zapisywania formatów PowerPoint 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Obsługa otwierania/zapisywania formatów PowerPoint 2007|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Obsługa formatów PowerPoint 97 - 2003 (otwieranie/zapisywanie)|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Obsługa formatów PowerPoint 2007 (otwieranie/zapisywanie)|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Obsługa rozszerzeń PowerPoint 2010|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Obsługa rozszerzeń PowerPoint 2013|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Obsługa funkcji PowerPoint 2016|restricted|restricted|
-|Obsługa funkcji PowerPoint 2019|restricted|restricted|
+|Obsługa funkcji PowerPoint 2016|ograniczone|ograniczone|
+|Obsługa funkcji PowerPoint 2019|ograniczone|ograniczone|
 |Konwersja PPT do PPTX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Konwersja PPTX do PPT|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PPTX w PPT|restricted|restricted|
-|Przetwarzanie motywów|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PPTX w PPT|ograniczone|ograniczone|
+|Przetwarzanie szablonów|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Przetwarzanie makr|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Przetwarzanie właściwości dokumentu|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Ochrona hasłem|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Szybkie wyodrębnianie tekstu|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Osadzanie czcionek|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Renderowanie komentarzy|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Przerywanie długotrwałych zadań|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Renderowanie komentarzy|{{< emoticons/tick >}} |{{< emoticons/tick >}}|
+|Przerywanie długotrwałych zadań|{{< emoticons/tick >}}|{{< emoticons/tick >}} |
 |**Formaty eksportu:**| | |
 |PDF|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |XPS|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |HTML|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |TIFF|{{< emoticons/tick >}}|{{< emoticons/cross >}}|
-|ODP|restricted|restricted|
-|SWF|restricted|restricted|
+|ODP|ograniczone|ograniczone|
+|SWF|ograniczone|ograniczone|
 |SVG|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Formaty importu:**| | |
-|HTML|restricted|restricted|
+|HTML|ograniczone|ograniczone|
 |ODP|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |THMX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Funkcje slajdów master:**| | |
 |Dostęp do wszystkich istniejących slajdów master|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Tworzenie/usuwanie slajdów master|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Klonowanie slajdów master|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Funkcje układów slajdów:**| | |
-|Dostęp do wszystkich istniejących układów slajdów|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Tworzenie/usuwanie układów slajdów|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Klonowanie układów slajdów|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Funkcje slajdów:**| | |
+|**Funkcje slajdów układu:**| | |
+|Dostęp do wszystkich istniejących slajdów układu|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Tworzenie/usuwanie slajdów układu|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Klonowanie slajdów układu|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Funkcje slajdu:**| | |
 |Dostęp do wszystkich istniejących slajdów|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Tworzenie/usuwanie slajdów|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Klonowanie slajdów|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Eksportowanie slajdów do obrazów|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Tworzenie/edycja/usuwanie sekcji slajdów|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Funkcje notatek slajdów**:| | |
+|Tworzenie/edycja/usuwanie sekcji slajdu|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Funkcje notatek slajdów:**| | |
 |Dostęp do wszystkich istniejących notatek slajdów|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Funkcje kształtów:**| | |
 |Dostęp do wszystkich kształtów slajdu|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Dodawanie nowych kształtów|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Klonowanie kształtów|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Eksportowanie pojedynczych kształtów do obrazów|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Eksportowanie poszczególnych kształtów do obrazów|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Obsługiwane typy kształtów:**| | |
-|Wszystkie predefiniowane typy kształtów|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Ramki obrazu|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Wszystkie wbudowane typy kształtów|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Ramki obrazów|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Tabele|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Wykresy|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |SmartArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Diagram legacy|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Diagram starszy|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |WordArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Obiekty OLE, ActiveX|restricted|restricted|
+|Obiekty OLE, ActiveX|ograniczone|ograniczone|
 |Ramki wideo|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Ramki audio|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Łączniki|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
@@ -370,7 +384,7 @@ Każde kliknięcie na slajdzie prezentacji powoduje dodanie elipsy o losowym kol
 |Tworzenie grup kształtów|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Rozgrupowywanie istniejących grup kształtów|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Funkcje efektów kształtów:**| | |
-|Efekty 2D|restricted|restricted|
+|Efekty 2D|ograniczone|ograniczone|
 |Efekty 3D|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |**Funkcje tekstu:**| | |
 |Formatowanie akapitów|{{< emoticons/tick >}}|{{< emoticons/tick >}}|

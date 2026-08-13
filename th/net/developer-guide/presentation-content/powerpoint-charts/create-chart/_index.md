@@ -1,5 +1,5 @@
 ---
-title: สร้างหรืออัปเดตแผนภูมิการนำเสนอ PowerPoint ใน .NET
+title: สร้างหรืออัปเดตแผนภูมิในงานนำเสนอ PowerPoint ด้วย .NET
 linktitle: สร้างหรืออัปเดตแผนภูมิ
 type: docs
 weight: 10
@@ -10,74 +10,79 @@ keywords:
 - แก้ไขแผนภูมิ
 - เปลี่ยนแผนภูมิ
 - อัปเดตแผนภูมิ
-- แผนภูมิกระจายจุด
-- แผนภูมิวงกลม
+- แผนภูมิกระจาย
+- แผนภูมิกวงกลม
 - แผนภูมิเส้น
-- แผนภูมิแผนที่ต้นไม้
-- แผนภูมิหุ้น
-- แผนภูมิ Box and Whisker
-- แผนภูมิ Funnel
-- แผนภูมิ Sunburst
-- แผนภูมิ Histogram
-- แผนภูมิ Radar
+- แผนภูมิต้นไม้
+- แผนภูมหุ้น
+- แผนภูมิกล่องและหนวด
+- แผนภูมิกรวย
+- แผนภูมิดวงอาทิตย์
+- แผนภูมิฮิสโตแกรม
+- แผนภูมิเรดาร์
 - แผนภูมิหลายหมวดหมู่
 - PowerPoint
-- การนำเสนอ
+- งานนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "สร้างและปรับแต่งแผนภูมิในงานนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ .NET. เพิ่ม, จัดรูปแบบ, และแก้ไขแผนภูมิด้วยตัวอย่างโค้ดที่ใช้งานได้จริงใน C#."
+description: "สร้างและปรับแต่งแผนภูมิในงานนำเสนอ PowerPoint ด้วย Aspose.Slides for .NET เพิ่ม, จัดรูปแบบ, และแก้ไขแผนภูมิด้วยตัวอย่างโค้ดที่ใช้งานได้จริงใน C#."
 ---
 ## **ภาพรวม**
 
-บทความนี้ให้คำแนะนำอย่างละเอียดเกี่ยวกับวิธีสร้างและปรับแต่งแผนภูมิด้วย Aspose.Slides for .NET คุณจะได้เรียนรู้วิธีเพิ่มแผนภูมิลงในสไลด์อย่างโปรแกรมเมติก เติมข้อมูลเข้าไปและใช้ตัวเลือกการจัดรูปแบบต่าง ๆ เพื่อให้สอดคล้องกับความต้องการออกแบบของคุณ ตลอดบทความ ตัวอย่างโค้ดที่ละเอียดจะอธิบายทุกขั้นตอน ตั้งแต่การเริ่มต้น Presentation และออบเจกต์แผนภูมิ ไปจนถึงการกำหนด Series, Axes และ Legend ด้วยการทำตามคำแนะนำนี้ คุณจะเข้าใจวิธีผสานการสร้างแผนภูมิแบบไดนามิกเข้าไปในแอปพลิเคชัน .NET ของคุณ ทำให้การสร้างงานนำเสนอที่อิงข้อมูลเป็นเรื่องง่ายและรวดเร็ว
+บทความนี้ให้คำแนะนำอย่างละเอียดเกี่ยวกับวิธีการสร้างและปรับแต่งแผนภูมิด้วย Aspose.Slides for .NET คุณจะได้เรียนรู้วิธีการเพิ่มแผนภูมิเข้าไปในสไลด์โดยโปรแกรม, เติมข้อมูลเข้าไป, และกำหนดรูปแบบต่าง ๆ ให้ตรงตามความต้องการออกแบบของคุณ ตัวอย่างโค้ดที่ละเอียดในบทความจะแสดงขั้นตอนแต่ละขั้นตอน ตั้งแต่การเริ่มต้น Presentation และอ็อบเจ็กต์แผนภูมิ ไปจนถึงการกำหนด Series, Axis, และ Legend ด้วยการทำตามคำแนะนำนี้ คุณจะเข้าใจวิธีการรวมการสร้างแผนภูมิแบบไดนามิกเข้าสู่แอปพลิเคชัน .NET ของคุณ ทำให้การสร้างงานนำเสนอที่ใช้ข้อมูลเป็นศูนย์กลางเป็นเรื่องง่ายขึ้น
 
 ## **สร้างแผนภูมิ**
 
-แผนภูมิช่วยให้ผู้ใช้มองเห็นข้อมูลได้อย่างรวดเร็วและได้รับอินไซต์ที่อาจไม่ชัดเจนจากตารางหรือสเปรดชีต
+แผนภูมิช่วยให้ผู้ใช้มองเห็นข้อมูลได้อย่างรวดเร็วและค้นพบข้อสรุปที่อาจไม่ชัดเจนจากตารางหรือสเปรดชีต
 
 **ทำไมต้องสร้างแผนภูมิ?**
 
-โดยใช้แผนภูมิ คุณสามารถ:
+ด้วยแผนภูมิคุณสามารถ:
 
-* รวมรวม ย่อหรือสรุปข้อมูลจำนวนมากลงในสไลด์เดียวของงานนำเสนอ;
-* เปิดเผยรูปแบบและแนวโน้มของข้อมูล;
-* สรุปทิศทางและความเคลื่อนไหวของข้อมูลตามเวลา หรือเทียบกับหน่วยวัดที่กำหนด;
-* ตรวจพบค่าผิดปกติ ความเบี่ยงเบน ความผิดพลาด และข้อมูลที่ไม่สมเหตุสมผล;
+* สรุปข้อมูลจำนวนมากลงในสไลด์เดียวของงานนำเสนอ
+* เปิดเผยรูปแบบและแนวโน้มของข้อมูล
+* สรุปทิศทางและโมเมนตัมของข้อมูลตามเวลา หรือหน่วยการวัดที่กำหนด
+* ตรวจจับข้อมูลที่อยู่นอกค่าปกติ ความผิดพลาด หรือข้อมูลที่ไม่มีเหตุผล
 * สื่อสารหรือแสดงข้อมูลที่ซับซ้อน
 
-ใน PowerPoint คุณสามารถสร้างแผนภูมิผ่านฟังก์ชัน *Insert* ที่มีแม่แบบสำหรับออกแบบแผนภูมิต่าง ๆ ด้วย Aspose.Slides คุณสามารถสร้างแผนภูมิปกติ (จากประเภทแผนภูมิยอดนิยม) และแผนภูมิที่กำหนดเองได้
+ใน PowerPoint คุณสามารถสร้างแผนภูมิได้ผ่านเมนู *Insert* ซึ่งมีเทมเพลตสำหรับออกแบบแผนภูมิต่าง ๆ ด้วย Aspose.Slides คุณสามารถสร้างแผนภูมิปกติ (อิงจากประเภทแผนภูมิที่นิยม) และแผนภูมิแบบกำหนดเองได้
 
-{{% alert color="primary" %}} 
-ใช้ [ChartType](https://reference.aspose.com/slides/th/net/aspose.slides.charts/charttype/) enumeration ภายใต้ namespace [Aspose.Slides.Charts](https://reference.aspose.com/slides/th/net/aspose.slides.charts/) ค่าต่าง ๆ ใน enumeration นี้สอดคล้องกับประเภทแผนภูมิต่าง ๆ
+{{% alert color="info" %}} 
+ใช้ enumeration [ChartType](https://reference.aspose.com/slides/th/net/aspose.slides.charts/charttype/) ภายใต้ namespace [Aspose.Slides.Charts](https://reference.aspose.com/slides/th/net/aspose.slides.charts/) ค่าต่าง ๆ ใน enumeration นี้สอดคล้องกับประเภทแผนภูมิแต่ละแบบ
 {{% /alert %}} 
 
 ### **สร้างแผนภูมิคอลัมน์แบบกลุ่ม**
 
-ส่วนนี้อธิบายวิธีสร้างแผนภูมิคอลัมน์แบบกลุ่มด้วย Aspose.Slides for .NET คุณจะได้เรียนรู้การเริ่มต้น Presentation, เพิ่มแผนภูมิ, และปรับแต่งองค์ประกอบต่าง ๆ เช่น ชื่อเรื่อง, ข้อมูล, Series, Categories และสไตล์ ตามขั้นตอนด้านล่างเพื่อดูวิธีการสร้างแผนภูมิคอลัมน์แบบกลุ่มมาตรฐาน:
+ส่วนนี้อธิบายวิธีสร้างแผนภูมิคอลัมน์แบบกลุ่มด้วย Aspose.Slides for .NET คุณจะได้เรียนรู้การเริ่มต้น Presentation, เพิ่มแผนภูมิ, และปรับแต่งส่วนต่าง ๆ เช่น ชื่อเรื่อง, ข้อมูล, Series, Category, และสไตล์ ทำตามขั้นตอนด้านล่างเพื่อดูว่าการสร้างแผนภูมิคอลัมน์แบบกลุ่มมาตรฐานเกิดขึ้นอย่างไร:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)  
-1. รับอ้างอิงสไลด์โดยใช้ดัชนีของสไลด์  
-1. เพิ่มแผนภูมิกับข้อมูลบางส่วนและระบุประเภท `ChartType.ClusteredColumn`  
-1. เพิ่มชื่อเรื่องให้กับแผนภูมิ  
-1. เข้าถึง worksheet ของข้อมูลแผนภูมิ  
-1. ลบ Series และ Categories เริ่มต้นทั้งหมด  
-1. เพิ่ม Series และ Categories ใหม่  
-1. เพิ่มข้อมูลแผนภูมิใหม่สำหรับ Series  
-1. ตั้งค่าสีเติมให้กับ Series  
-1. เพิ่มป้ายกำกับให้กับ Series  
-1. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)
+1. ดึงอ้างอิงสไลด์โดยใช้ดัชนีของมัน
+1. เพิ่มแผนภูมิพร้อมข้อมูลบางส่วนและระบุประเภท `ChartType.ClusteredColumn`
+1. เพิ่มชื่อเรื่องให้กับแผนภูมิ
+1. เข้าถึง worksheet ของข้อมูลแผนภูมิ
+1. ลบ Series และ Category เริ่มต้นทั้งหมด
+1. เพิ่ม Series และ Category ใหม่
+1. เพิ่มข้อมูลใหม่ให้กับ Series ของแผนภูมิ
+1. ตั้งค่าสีเติมให้กับ Series ของแผนภูมิ
+1. เพิ่มป้ายชื่อให้กับ Series ของแผนภูมิ
+1. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX
 
 โค้ด C# นี้แสดงวิธีสร้างแผนภูมิคอลัมน์แบบกลุ่ม:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // สร้างอินสแตนซ์ของคลาส Presentation.
 using (Presentation presentation = new Presentation())
 {
     // เข้าถึงสไลด์แรก.
     ISlide slide = presentation.Slides[0];
 
-    // เพิ่มแผนภูมิคอลัมน์แบบกลุ่มพร้อมข้อมูลเริ่มต้น.
+    // เพิ่มแผนภูมิคอลัมน์แบบกลุ่มพร้อมข้อมูลค่าเริ่มต้น.
     IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
     // ตั้งค่าชื่อเรื่องของแผนภูมิ.
@@ -86,66 +91,63 @@ using (Presentation presentation = new Presentation())
     chart.ChartTitle.Height = 20;
     chart.HasTitle = true;
 
-    // ตั้งค่า series แรกให้แสดงค่า.
-    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
-    // ตั้งดัชนีของชีตข้อมูลแผนภูมิ.
+    // ตั้งค่าตำแหน่งดัชนีของชีตข้อมูลแผนภูมิ.
     int worksheetIndex = 0;
 
     // ดึง workbook ของข้อมูลแผนภูมิ.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // ลบ series และ categories ที่สร้างโดยอัตโนมัติ.
+    // ลบ Series และ Category ที่สร้างโดยอัตโนมัติ.
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
-    // เพิ่ม series ใหม่.
+    // เพิ่ม Series ใหม่.
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 1, "Series 1"), chart.Type);
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 2, "Series 2"), chart.Type);
 
-    // เพิ่ม categories ใหม่.
+    // เพิ่ม Category ใหม่.
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 1, 0, "Category 1"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 2, 0, "Category 2"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
 
-    // ดึง series แผนภูมิเ�แรก.
+    // ดึง Series แผนภูมุตัวแรก.
     IChartSeries series = chart.ChartData.Series[0];
 
-    // เติมข้อมูลให้ series.
+    // เติมข้อมูลให้ Series.
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
 
-    // ตั้งค่าสีเติมสำหรับ series.
+    // ตั้งค่าสีเติมให้กับ Series.
     series.Format.Fill.FillType = FillType.Solid;
     series.Format.Fill.SolidFillColor.Color = Color.Red;
 
-    // ดึง series แผนภูมิที่สอง.
+    // ดึง Series แผนภูมิที่สอง.
     series = chart.ChartData.Series[1];
 
-    // เติมข้อมูลให้ series.
+    // เติมข้อมูลให้ Series.
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 2, 30));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 2, 10));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 2, 60));
 
-    // ตั้งค่าสีเติมสำหรับ series.
+    // ตั้งค่าสีเติมให้กับ Series.
     series.Format.Fill.FillType = FillType.Solid;
     series.Format.Fill.SolidFillColor.Color = Color.Green;
 
-    // ตั้งค่า label แรกให้แสดงชื่อหมวดหมู่.
+    // ตั้งค่า label แรกให้แสดงชื่อ Category.
     IDataLabel label = series.DataPoints[0].Label;
     label.DataLabelFormat.ShowCategoryName = true;
 
     label = series.DataPoints[1].Label;
     label.DataLabelFormat.ShowSeriesName = true;
 
-    // ตั้งค่า series ให้แสดงค่าบน label ที่สาม.
+    // ตั้งค่า Series ให้แสดงค่าใน label ที่สาม.
     label = series.DataPoints[2].Label;
     label.DataLabelFormat.ShowValue = true;
     label.DataLabelFormat.ShowSeriesName = true;
     label.DataLabelFormat.Separator = "/";
 
-    // บันทึกการนำเสนอเป็นไฟล์ PPTX บนดิสก์.
+    // บันทึกงานนำเสนอลงดิสก์เป็นไฟล์ PPTX.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
@@ -154,62 +156,66 @@ using (Presentation presentation = new Presentation())
 
 ![แผนภูมิคอลัมน์แบบกลุ่ม](clustered_column_chart.png)
 
-### **สร้างแผนภูมิแบบกระจายจุด**
+### **สร้างแผนภูมิกระจาย (Scatter)**
 
-แผนภูมิแบบกระจายจุด (หรือ scatter plot, กราฟ x‑y) มักใช้เพื่อตรวจหารูปแบบหรือแสดงความสัมพันธ์ระหว่างตัวแปรสองตัว
+แผนภูมิกระจาย (หรือ Scatter Plot, X‑Y Graph) มักใช้เพื่อตรวจสอบรูปแบบหรือแสดงความสัมพันธ์ระหว่างสองตัวแปร
 
-ใช้แผนภูมิแบบกระจายจุดเมื่อ:
+ใช้แผนภูมิกระจายเมื่อ:
 
-* คุณมีข้อมูลตัวเลขแบบคู่  
-* มีสองตัวแปรที่สัมพันธ์กันดี  
-* ต้องการตรวจสอบว่าตัวแปรทั้งสองเกี่ยวข้องกันหรือไม่  
-* มีตัวแปรอิสระที่มีค่าหลายค่าเพื่อกำหนดค่าตัวแปรตาม  
+* คุณมีข้อมูลตัวเลขที่จับคู่กัน
+* มีสองตัวแปรที่สัมพันธ์กันดี
+* ต้องการตรวจสอบว่าตัวแปรสองตัวเกี่ยวข้องกันหรือไม่
+* มีตัวแปรอิสระหนึ่งค่าที่มีหลายค่าตัวแปรตาม
 
-โค้ด C# นี้แสดงวิธีสร้างแผนภูมิแบบกระจายจุดพร้อมชุด marker ที่แตกต่างกัน:
+โค้ด C# นี้แสดงวิธีสร้างแผนภูมิกระจายพร้อมชุด marker ที่แตกต่างกัน:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // สร้างอินสแตนซ์ของคลาส Presentation.
 using (Presentation presentation = new Presentation())
 {
     // เข้าถึงสไลด์แรก.
     ISlide slide = presentation.Slides[0];
 
-    // สร้างแผนภูมิกระจาย (scatter) เริ่มต้น.
+    // สร้างแผนภูมิกระจายเริ่มต้น.
     IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
 
-    // ตั้งค่าดัชนีของชีตข้อมูลแผนภูมิ.
+    // ตั้งค่าตำแหน่งดัชนีของชีตข้อมูลแผนภูมิ.
     int worksheetIndex = 0;
 
     // ดึง workbook ของข้อมูลแผนภูมิ.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // ลบ series เริ่มต้น.
+    // ลบ Series เริ่มต้น.
     chart.ChartData.Series.Clear();
 
-    // เพิ่ม series ใหม่.
+    // เพิ่ม Series ใหม่.
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 1, "Series 1"), chart.Type);
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 3, "Series 2"), chart.Type);
 
-    // ดึง series แผนภูมิแรก.
+    // ดึง Series แผนภูมุตัวแรก.
     IChartSeries series = chart.ChartData.Series[0];
 
-    // เพิ่มจุดใหม่ (1:3) ไปยัง series.
+    // เพิ่มจุดใหม่ (1:3) ให้กับ Series.
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 1, 1), workbook.GetCell(worksheetIndex, 2, 2, 3));
 
     // เพิ่มจุดใหม่ (2:10).
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 1, 2), workbook.GetCell(worksheetIndex, 3, 2, 10));
 
-    // เปลี่ยนประเภทของ series.
+    // เปลี่ยนประเภทของ Series.
     series.Type = ChartType.ScatterWithStraightLinesAndMarkers;
 
-    // เปลี่ยน marker ของ series แผนภูมิ.
+    // เปลี่ยน Marker ของ Series แผนภูมิ.
     series.Marker.Size = 10;
     series.Marker.Symbol = MarkerStyleType.Star;
 
-    // ดึง series แผนภูมิที่สอง.
+    // ดึง Series แผนภูมิที่สอง.
     series = chart.ChartData.Series[1];
 
-    // เพิ่มจุดใหม่ (5:2) ไปยัง series แผนภูมิ.
+    // เพิ่มจุดใหม่ (5:2) ให้กับ Series ของแผนภูมิ.
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 3, 5), workbook.GetCell(worksheetIndex, 2, 4, 2));
 
     // เพิ่มจุดใหม่ (3:1).
@@ -221,46 +227,51 @@ using (Presentation presentation = new Presentation())
     // เพิ่มจุดใหม่ (5:1).
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 5, 3, 5), workbook.GetCell(worksheetIndex, 5, 4, 1));
 
-    // เปลี่ยน marker ของ series แผนภูมิ.
+    // เปลี่ยน Marker ของ Series แผนภูมิ.
     series.Marker.Size = 10;
     series.Marker.Symbol = MarkerStyleType.Circle;
 
-    // บันทึกการนำเสนอเป็นไฟล์ PPTX บนดิสก์.
+    // บันทึกงานนำเสนอลงดิสก์เป็นไฟล์ PPTX.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 ผลลัพธ์:
 
-![แผนภูมิกระจายจุด](scatter_chart.png)
+![แผนภูมิกระจาย](scatter_chart.png)
 
-### **สร้างแผนภูมิวงกลม**
+### **สร้างแผนภูมิวงกลม (Pie)**
 
-แผนภูมิวงกลมเหมาะสำหรับแสดงความสัมพันธ์ส่วนต่อส่วนทั้งหมดของข้อมูล โดยเฉพาะเมื่อข้อมูลมีป้ายหมวดหมู่พร้อมค่าตัวเลข อย่างไรก็ตาม หากข้อมูลมีหลายส่วนหรือหลายป้ายบ่งชี้ ควรพิจารณาใช้แผนภูมิแท่งแทน
+แผนภูมิวงกลมเหมาะสำหรับแสดงความสัมพันธ์ส่วนต่อส่วนทั้งหมดของข้อมูล โดยเฉพาะเมื่อข้อมูลมีป้ายประเภทพร้อมค่าตัวเลข อย่างไรก็ตาม หากข้อมูลมีหลายส่วนหรือหลายป้าย ควรพิจารณาใช้แผนภูมิจำนวนแทน
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)  
-1. รับอ้างอิงสไลด์โดยใช้ดัชนีของสไลด์  
-1. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท `ChartType.Pie`  
-1. เข้าถึง workbook ของข้อมูลแผนภูมิ ([IChartDataWorkbook](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdataworkbook/))  
-1. ลบ Series และ Categories เริ่มต้นทั้งหมด  
-1. เพิ่ม Series และ Categories ใหม่  
-1. เพิ่มข้อมูลแผนภูมิใหม่สำหรับ Series  
-1. เพิ่มจุดใหม่ให้กับแผนภูมิและกำหนดสีแบบกำหนดเองให้กับส่วนของแผนภูมิวงกลม  
-1. ตั้งค่าป้ายกำกับสำหรับ Series  
-1. เปิดใช้งาน leader lines สำหรับป้ายกำกับ Series  
-1. ตั้งค่ามุมการหมุนของแผนภูมิวงกลม  
-1. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)
+1. ดึงอ้างอิงสไลด์โดยใช้ดัชนีของมัน
+1. เพิ่มแผนภูมิด้วยข้อมูลเริ่มต้นและระบุประเภท `ChartType.Pie`
+1. เข้าถึง workbook ของข้อมูลแผนภูมิ ([IChartDataWorkbook](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdataworkbook/))
+1. ลบ Series และ Category เริ่มต้นทั้งหมด
+1. เพิ่ม Series และ Category ใหม่
+1. เพิ่มข้อมูลใหม่ให้กับ Series ของแผนภูมิ
+1. เพิ่มจุดใหม่ให้กับแผนภูมิและตั้งค่าสีที่กำหนดเองให้กับส่วนของแผนภูมิวงกลม
+1. ตั้งค่าป้ายชื่อให้กับ Series
+1. เปิดใช้งานเส้นเชื่อม (leader lines) สำหรับป้ายชื่อ Series
+1. ตั้งค่ามุมการหมุนของแผนภูมิวงกลม
+1. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX
 
 โค้ด C# นี้แสดงวิธีสร้างแผนภูมิวงกลม:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // สร้างอินสแตนซ์ของคลาส Presentation.
 using (Presentation presentation = new Presentation())
 {
     // เข้าถึงสไลด์แรก.
     ISlide slide = presentation.Slides[0];
 
-    // เพิ่มแผนภูมิกับข้อมูลเริ่มต้น.
+    // เพิ่มแผนภูมิกับข้อมูลค่าเริ่มต้น.
     IChart chart = slide.Shapes.AddChart(ChartType.Pie, 20, 20, 500, 300);
 
     // ตั้งค่าชื่อเรื่องของแผนภูมิ.
@@ -269,33 +280,33 @@ using (Presentation presentation = new Presentation())
     chart.ChartTitle.Height = 20;
     chart.HasTitle = true;
 
-    // ตั้งค่า series แรกให้แสดงค่า.
+    // ตั้งค่า Series แรกให้แสดงค่าตัวเลข.
     chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
-    // ตั้งดัชนีของชีตข้อมูลแผนภูมิ.
+    // ตั้งค่าตำแหน่งดัชนีของชีตข้อมูลแผนภูมิ.
     int worksheetIndex = 0;
 
     // ดึง workbook ของข้อมูลแผนภูมิ.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // ลบ series และ categories ที่สร้างโดยอัตโนมัติ.
+    // ลบ Series และ Category ที่สร้างโดยอัตโนมัติ.
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
-    // เพิ่ม categoriesใหม่.
+    // เพิ่ม Category ใหม่.
     chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "1st Qtr"));
     chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "2nd Qtr"));
     chart.ChartData.Categories.Add(workbook.GetCell(0, 3, 0, "3rd Qtr"));
 
-    // เพิ่ม seriesใหม่.
+    // เพิ่ม Series ใหม่.
     IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Series 1"), chart.Type);
 
-    // เติมข้อมูลให้ series.
+    // เติมข้อมูลให้ Series.
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
 
-    // ตั้งค่าสีของส่วน.
+    // ตั้งค่าสีของส่วน (sector).
     chart.ChartData.SeriesGroups[0].IsColorVaried = true;
 
     IChartDataPoint point = series.DataPoints[0];
@@ -331,7 +342,7 @@ using (Presentation presentation = new Presentation())
     point2.Format.Line.Style = LineStyle.ThinThin;
     point2.Format.Line.DashStyle = LineDashStyle.LargeDashDotDot;
 
-    // สร้างป้ายกำกับแบบกำหนดเองสำหรับแต่ละหมวดหมู่ใน series ใหม่.
+    // สร้างป้ายกำกับกำหนดเองสำหรับแต่ละ Category ใน Series ใหม่.
     IDataLabel label1 = series.DataPoints[0].Label;
 
     label1.DataLabelFormat.ShowValue = true;
@@ -345,13 +356,13 @@ using (Presentation presentation = new Presentation())
     label3.DataLabelFormat.ShowSeriesName = true;
     label3.DataLabelFormat.ShowPercentage = true;
 
-    // ตั้งค่า series ให้แสดงเส้นเชื่อมสำหรับแผนภูมิ.
+    // ตั้งค่า Series ให้แสดงเส้นนำไปยังป้าย (leader lines) ของแผนภูมิ.
     series.Labels.DefaultDataLabelFormat.ShowLeaderLines = true;
 
-    // ตั้งค่ามุมการหมุนของส่วนในแผนภูมวงกลม.
+    // ตั้งค่ามุมการหมุนของส่วนของแผนภูมิพาย.
     chart.ChartData.SeriesGroups[0].FirstSliceAngle = 180;
 
-    // บันทึกการนำเสนอเป็นไฟล์ PPTX บนดิสก์.
+    // บันทึกงานนำเสนอลงดิสก์เป็นไฟล์ PPTX.
     presentation.Save("PieChart_out.pptx", SaveFormat.Pptx);
 }
 ```
@@ -360,22 +371,26 @@ using (Presentation presentation = new Presentation())
 
 ![แผนภูมิวงกลม](pie_chart.png)
 
-### **สร้างแผนภูมิเส้น**
+### **สร้างแผนภูมิเส้น (Line)**
 
-แผนภูมิเส้น (หรือ line graph) เหมาะสำหรับแสดงการเปลี่ยนแปลงของค่าเมื่อเวลาผ่านไป ใช้แผนภูมิเส้นคุณสามารถเปรียบเทียบข้อมูลจำนวนมากในครั้งเดียว, ติดตามการเปลี่ยนแปลงและแนวโน้มตามเวลา, ไฮไลท์ความผิดปกติใน Series ฯลฯ
+แผนภูมิเส้นเหมาะสำหรับแสดงการเปลี่ยนแปลงของค่าเมื่อเวลาผ่านไป ด้วยแผนภูมิเส้นคุณสามารถเปรียบเทียบข้อมูลจำนวนมากในคราวเดียว, ติดตามการเปลี่ยนแปลงและแนวโน้มตามเวลา, ไฮไลท์ความแปลกประหลาดใน Series ฯลฯ
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)  
-1. รับอ้างอิงสไลด์โดยใช้ดัชนีของสไลด์  
-1. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท `ChartType.Line`  
-1. เข้าถึง workbook ของข้อมูลแผนภูมิ ([IChartDataWorkbook](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdataworkbook/))  
-1. ลบ Series และ Categories เริ่มต้นทั้งหมด  
-1. เพิ่ม Series และ Categories ใหม่  
-1. เพิ่มข้อมูลแผนภูมิใหม่สำหรับ Series  
-1. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)
+1. ดึงอ้างอิงสไลด์โดยใช้ดัชนีของมัน
+1. เพิ่มแผนภูมิด้วยข้อมูลเริ่มต้นและระบุประเภท `ChartType.Line`
+1. เข้าถึง workbook ของข้อมูลแผนภูมิ ([IChartDataWorkbook](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdataworkbook/))
+1. ลบ Series และ Category เริ่มต้นทั้งหมด
+1. เพิ่ม Series และ Category ใหม่
+1. เพิ่มข้อมูลใหม่ให้กับ Series ของแผนภูมิ
+1. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX
 
 โค้ด C# นี้แสดงวิธีสร้างแผนภูมิเส้น:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart lineChart = presentation.Slides[0].Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
@@ -384,12 +399,20 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-โดยปกติ จุดบนแผนภูมิเส้นจะเชื่อมต่อด้วยเส้นตรงต่อเนื่อง หากต้องการให้จุดเชื่อมด้วยเส้นประ ให้กำหนดประเภท dash ที่ต้องการดังนี้:
+โดยค่าเริ่มต้น จุดบนแผนภูมิเส้นจะถูกเชื่อมต่อด้วยเส้นตรงต่อเนื่อง หากต้องการให้เชื่อมด้วยเส้นประ สามารถระบุประเภท dash ที่ต้องการได้ดังนี้:
 
 ```c#
-foreach (IChartSeries series in lineChart.ChartData.Series)
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+using (Presentation presentation = new Presentation())
 {
-    series.Format.Line.DashStyle = LineDashStyle.Dash;
+    IChart lineChart = presentation.Slides[0].Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
+
+    foreach (IChartSeries series in lineChart.ChartData.Series)
+    {
+        series.Format.Line.DashStyle = LineDashStyle.Dash;
+    }
 }
 ```
 
@@ -397,22 +420,26 @@ foreach (IChartSeries series in lineChart.ChartData.Series)
 
 ![แผนภูมิเส้น](line_chart.png)
 
-### **สร้างแผนภูมิ Tree Map**
+### **สร้างแผนภูมิต้นไม้ (Tree Map)**
 
-แผนภูมิ Tree Map เหมาะสำหรับข้อมูลการขายเมื่อคุณต้องการแสดงขนาดสัมพัทธ์ของหมวดหมู่ข้อมูลและดึงความสนใจไปที่รายการที่เป็นผู้สนับสนุนหลักในแต่ละหมวดหมู่
+แผนภูมิต้นไม้เหมาะสำหรับข้อมูลการขายเมื่อคุณต้องการแสดงขนาดสัมพัทธ์ของประเภทข้อมูลและดึงความสนใจไปยังรายการที่มีส่วนร่วมสูงในแต่ละประเภท
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)  
-1. รับอ้างอิงสไลด์โดยใช้ดัชนีของสไลด์  
-1. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท `ChartType.Treemap`  
-1. เข้าถึง workbook ของข้อมูลแผนภูมิ ([IChartDataWorkbook](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdataworkbook/))  
-1. ลบ Series และ Categories เริ่มต้นทั้งหมด  
-1. เพิ่ม Series และ Categories ใหม่  
-1. เพิ่มข้อมูลแผนภูมิใหม่สำหรับ Series  
-1. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)
+1. ดึงอ้างอิงสไลด์โดยใช้ดัชนีของมัน
+1. เพิ่มแผนภูมิด้วยข้อมูลเริ่มต้นและระบุประเภท `ChartType.Treemap`
+1. เข้าถึง workbook ของข้อมูลแผนภูมิ ([IChartDataWorkbook](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdataworkbook/))
+1. ลบ Series และ Category เริ่มต้นทั้งหมด
+1. เพิ่ม Series และ Category ใหม่
+1. เพิ่มข้อมูลใหม่ให้กับ Series ของแผนภูมิ
+1. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด C# นี้แสดงวิธีสร้างแผนภูมิ Tree Map:
+โค้ด C# นี้แสดงวิธีสร้างแผนภูมิต้นไม้:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Treemap, 20, 20, 500, 300);
@@ -465,25 +492,29 @@ using (Presentation presentation = new Presentation())
 
 ผลลัพธ์:
 
-![แผนภูมิ Tree Map](treemap_chart.png)
+![แผนภูมิต้นไม้](treemap_chart.png)
 
-### **สร้างแผนภูมิ Stock**
+### **สร้างแผนภูมหุ้น (Stock)**
 
-แผนภูมิ Stock แสดงข้อมูลการเงินเช่นราคาเปิด, สูง, ต่ำ, ปิด ช่วยวิเคราะห์แนวโน้มตลาดและความผันผวน ให้ข้อมูลสำคัญเกี่ยวกับประสิทธิภาพของหุ้นเพื่อสนับสนุนการตัดสินใจของนักลงทุนและนักวิเคราะห์
+แผนภูมหุ้นใช้แสดงข้อมูลการเงินเช่น ราคาเปิด, สูง, ต่ำ, ปิด เพื่อวิเคราะห์แนวโน้มตลาดและความผันผวน ให้ข้อมูลที่สำคัญสำหรับนักลงทุนและนักวิเคราะห์ในการตัดสินใจ
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)  
-1. รับอ้างอิงสไลด์โดยใช้ดัชนีของสไลด์  
-1. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท `ChartType.OpenHighLowClose`  
-1. เข้าถึง workbook ของข้อมูลแผนภูมิ ([IChartDataWorkbook](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdataworkbook/))  
-1. ลบ Series และ Categories เริ่มต้นทั้งหมด  
-1. เพิ่ม Series และ Categories ใหม่  
-1. เพิ่มข้อมูลแผนภูมิใหม่สำหรับ Series  
-1. ระบุรูปแบบ HiLowLines  
-1. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)
+1. ดึงอ้างอิงสไลด์โดยใช้ดัชนีของมัน
+1. เพิ่มแผนภูมิด้วยข้อมูลเริ่มต้นและระบุประเภท `ChartType.OpenHighLowClose`
+1. เข้าถึง workbook ของข้อมูลแผนภูมิ ([IChartDataWorkbook](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdataworkbook/))
+1. ลบ Series และ Category เริ่มต้นทั้งหมด
+1. เพิ่ม Series และ Category ใหม่
+1. เพิ่มข้อมูลใหม่ให้กับ Series ของแผนภูมิ
+1. ระบุรูปแบบ HiLowLines
+1. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด C# นี้แสดงวิธีสร้างแผนภูมิ Stock:
+โค้ด C# นี้แสดงวิธีสร้างแผนภูมหุ้น:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
@@ -535,24 +566,28 @@ using (Presentation presentation = new Presentation())
 
 ผลลัพธ์:
 
-![แผนภูมิ Stock](stock_chart.png)
+![แผนภูม หุ้น](stock_chart.png)
 
-### **สร้างแผนภูมิ Box and Whisker**
+### **สร้างแผนภูมิกล่องและหนวด (Box and Whisker)**
 
-แผนภูมิ Box and Whisker แสดงการกระจายของข้อมูลโดยสรุปสถิติสำคัญ เช่น มัธยฐาน, ควอร์ไทล์, และค่า outlier เหมาะสำหรับการวิเคราะห์สำรวจข้อมูลและการศึกษาทางสถิติเพื่อทำความเข้าใจความเปลี่ยนแปลงของข้อมูลและระบุความผิดปกติ
+แผนภูมิกล่องและหนวดใช้แสดงการกระจายของข้อมูลโดยสรุปค่าทางสถิติหลัก เช่น มัธยฐาน, ควอร์ไทล์, และค่าผิดปกติ เหมาะสำหรับการวิเคราะห์ข้อมูลเชิงสำรวจและการศึกษาเชิงสถิติ
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)  
-1. รับอ้างอิงสไลด์โดยใช้ดัชนีของสไลด์  
-1. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท `ChartType.BoxAndWhisker`  
-1. เข้าถึง workbook ของข้อมูลแผนภูมิ ([IChartDataWorkbook](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdataworkbook/))  
-1. ลบ Series และ Categories เริ่มต้นทั้งหมด  
-1. เพิ่ม Series และ Categories ใหม่  
-1. เพิ่มข้อมูลแผนภูมิใหม่สำหรับ Series  
-1. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)
+1. ดึงอ้างอิงสไลด์โดยใช้ดัชนีของมัน
+1. เพิ่มแผนภูมิด้วยข้อมูลเริ่มต้นและระบุประเภท `ChartType.BoxAndWhisker`
+1. เข้าถึง workbook ของข้อมูลแผนภูมิ ([IChartDataWorkbook](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdataworkbook/))
+1. ลบ Series และ Category เริ่มต้นทั้งหมด
+1. เพิ่ม Series และ Category ใหม่
+1. เพิ่มข้อมูลใหม่ให้กับ Series ของแผนภูมิ
+1. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด C# นี้แสดงวิธีสร้างแผนภูมิ Box and Whisker:
+โค้ด C# นี้แสดงวิธีสร้างแผนภูมิกล่องและหนวด:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.BoxAndWhisker, 20, 20, 500, 300);
@@ -588,18 +623,22 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **สร้างแผนภูมิ Funnel**
+### **สร้างแผนภูมกรวย (Funnel)**
 
-แผนภูมิ Funnel ใช้แสดงกระบวนการที่มีขั้นตอนต่อเนื่อง โดยปริมาณข้อมูลจะลดลงตามขั้นตอน ช่วยวิเคราะห์อัตราการแปลง, ระบุคอขวด, ติดตามประสิทธิภาพของกระบวนการขายหรือการตลาด
+แผนภูมกรวยใช้แสดงกระบวนการที่มีหลายขั้นตอนโดยปริมาณข้อมูลจะลดลงเมื่อเคลื่อนจากขั้นตอนแรกไปยังขั้นตอนต่อไป มีประโยชน์ในการวิเคราะห์อัตราการแปลง, ค้นหาข้อบกพร่อง, และติดตามประสิทธิภาพของกระบวนการขายหรือการตลาด
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)  
-1. รับอ้างอิงสไลด์โดยใช้ดัชนีของสไลด์  
-1. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท `ChartType.Funnel`  
-1. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)
+1. ดึงอ้างอิงสไลด์โดยใช้ดัชนีของมัน
+1. เพิ่มแผนภูมิด้วยข้อมูลเริ่มต้นและระบุประเภท `ChartType.Funnel`
+1. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด C# นี้แสดงวิธีสร้างแผนภูมิ Funnel:
+โค้ด C# นี้แสดงวิธีสร้างแผนภูมกรวย:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("test.pptx"))
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Funnel, 50, 50, 500, 400);
@@ -631,20 +670,24 @@ using (Presentation presentation = new Presentation("test.pptx"))
 
 ผลลัพธ์:
 
-![แผนภูมิ Funnel](funnel_chart.png)
+![แผนภูมกรวย](funnel_chart.png)
 
-### **สร้างแผนภูมิ Sunburst**
+### **สร้างแผนภูมาดวงอาทิตย์ (Sunburst)**
 
-แผนภูมิ Sunburst ใช้แสดงข้อมูลเชิงลำดับชั้นโดยแสดงระดับต่าง ๆ เป็นวงรอบศูนย์กลาง ช่วยสื่อสารความสัมพันธ์ส่วนต่อส่วนทั้งหมดและเหมาะกับการแสดงหมวดหมู่และหมวดย่อยแบบซ้อนกันในรูปแบบที่กระชับ
+แผนภูมิดวงอาทิตย์ใช้แสดงข้อมูลเชิงลำดับชั้นโดยแสดงระดับต่าง ๆ เป็นวงกลมรอบศูนย์ ช่วยให้มองเห็นความสัมพันธ์ส่วนต่อส่วนทั้งหมดและเหมาะสำหรับแสดงหมวดหมู่ย่อยหลายระดับในรูปแบบที่กระชับ
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)  
-1. รับอ้างอิงสไลด์โดยใช้ดัชนีของสไลด์  
-1. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท `ChartType.Sunburst`  
-1. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)
+1. ดึงอ้างอิงสไลด์โดยใช้ดัชนีของมัน
+1. เพิ่มแผนภูมิด้วยข้อมูลเริ่มต้นและระบุประเภท `ChartType.Sunburst`
+1. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด C# นี้แสดงวิธีสร้างแผนภูมิ Sunburst:
+โค้ด C# นี้แสดงวิธีสร้างแผนภูมิดวงอาทิตย์:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Sunburst, 20, 20, 500, 300);
@@ -695,23 +738,27 @@ using (Presentation presentation = new Presentation())
 
 ผลลัพธ์:
 
-![แผนภูมิ Sunburst](sunburst_chart.png)
+![แผนภูมิดวงอาทิตย์](sunburst_chart.png)
 
-### **สร้างแผนภูมิ Histogram**
+### **สร้างแผนภูมิฮิสโตแกรม (Histogram)**
 
-แผนภูมิ Histogram แสดงการกระจายของข้อมูลตัวเลขโดยจัดกลุ่มค่าเป็นช่วงหรือบ๊อกซ์ ใช้เพื่อระบุรูปแบบความถี่, ความผิดปกติ, การกระจาย และตรวจจับ outlier ในชุดข้อมูล
+แผนภูมฮิสโตแกรมใช้แสดงการกระจายของข้อมูลตัวเลขโดยจัดกลุ่มค่าเป็นช่วงหรือบิ้น ช่วยระบุรูปแบบความถี่, การเบี่ยงเบน, การกระจาย, และการตรวจจับค่าผิดปกติในข้อมูล
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)  
-1. รับอ้างอิงสไลด์โดยใช้ดัชนีของสไลด์  
-1. เพิ่มแผนภูมิกับข้อมูลบางส่วนและระบุประเภท `ChartType.Histogram`  
-1. เข้าถึง workbook ของข้อมูลแผนภูมิ ([IChartDataWorkbook](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdataworkbook/))  
-1. ลบ Series และ Categories เริ่มต้นทั้งหมด  
-1. เพิ่ม Series และ Categories ใหม่  
-1. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)
+1. ดึงอ้างอิงสไลด์โดยใช้ดัชนีของมัน
+1. เพิ่มแผนภูมิด้วยข้อมูลบางส่วนและระบุประเภท `ChartType.Histogram`
+1. เข้าถึง workbook ของข้อมูลแผนภูมิ ([IChartDataWorkbook](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdataworkbook/))
+1. ลบ Series และ Category เริ่มต้นทั้งหมด
+1. เพิ่ม Series และ Category ใหม่
+1. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด C# นี้แสดงวิธีสร้างแผนภูมิ Histogram:
+โค้ด C# นี้แสดงวิธีสร้างแผนภูมฮิสโตแกรม:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Histogram, 20, 20, 500, 300);
@@ -737,20 +784,24 @@ using (Presentation presentation = new Presentation())
 
 ผลลัพธ์:
 
-![แผนภูมิ Histogram](histogram_chart.png)
+![แผนภูมฮิสโตแกรม](histogram_chart.png)
 
-### **สร้างแผนภูมิ Radar**
+### **สร้างแผนภูมาราเดอร์ (Radar)**
 
-แผนภูมิ Radar แสดงข้อมูลหลายตัวแปรในรูปแบบสองมิติ ทำให้เปรียบเทียบหลายตัวแปรพร้อมกันได้ง่าย เหมาะสำหรับค้นหารูปแบบ, จุดแข็ง, จุดอ่อนของเมตริกหรือคุณลักษณะหลาย ๆ อย่าง
+แผนภูมราเดอร์ใช้แสดงข้อมูลหลายตัวแปรในรูปแบบสองมิติ ทำให้เปรียบเทียบหลายตัวแปรพร้อมกันได้ง่าย เหมาะสำหรับการระบุรูปแบบ, จุดแข็ง, จุดอ่อนของเมตริกหลาย ๆ ตัว
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)  
-1. รับอ้างอิงสไลด์โดยใช้ดัชนีของสไลด์  
-1. เพิ่มแผนภูมิกับข้อมูลบางส่วนและระบุประเภท `ChartType.Radar`  
-1. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)
+1. ดึงอ้างอิงสไลด์โดยใช้ดัชนีของมัน
+1. เพิ่มแผนภูมิด้วยข้อมูลบางส่วนและระบุประเภท `ChartType.Radar`
+1. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด C# นี้แสดงวิธีสร้างแผนภูมิ Radar:
+โค้ด C# นี้แสดงวิธีสร้างแผนภูมราเดอร์:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     presentation.Slides[0].Shapes.AddChart(ChartType.Radar, 20, 20, 500, 300);
@@ -760,24 +811,28 @@ using (Presentation presentation = new Presentation())
 
 ผลลัพธ์:
 
-![แผนภูมิ Radar](radar_chart.png)
+![แผนภูมราเดอร์](radar_chart.png)
 
-### **สร้างแผนภูมิ Multi‑Category**
+### **สร้างแผนภูมิหลายประเภท (Multi-Category)**
 
-แผนภูมิ Multi‑Category ใช้แสดงข้อมูลที่มีการจัดกลุ่มเชิงหมวดหมู่หลายระดับ ช่วยเปรียบเทียบค่าข้ามมิติหลาย ๆ ด้านพร้อมกัน เหมาะกับการวิเคราะห์แนวโน้มและความสัมพันธ์ในชุดข้อมูลที่ซับซ้อนและหลายชั้น
+แผนภูมิหลายประเภทใช้แสดงข้อมูลที่มีการจัดกลุ่มหลายมิติพร้อมกัน ช่วยให้เปรียบเทียบค่าในหลายมิติได้ในคราวเดียว เหมาะสำหรับการวิเคราะห์แนวโน้มและความสัมพันธ์ในชุดข้อมูลที่ซับซ้อนหลายชั้น
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)  
-1. รับอ้างอิงสไลด์โดยใช้ดัชนีของสไลด์  
-1. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท `ChartType.ClusteredColumn`  
-1. เข้าถึง workbook ของข้อมูลแผนภูมิ ([IChartDataWorkbook](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdataworkbook/))  
-1. ลบ Series และ Categories เริ่มต้นทั้งหมด  
-1. เพิ่ม Series และ Categories ใหม่  
-1. เพิ่มข้อมูลแผนภูมิใหม่สำหรับ Series  
-1. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)
+1. ดึงอ้างอิงสไลด์โดยใช้ดัชนีของมัน
+1. เพิ่มแผนภูมิด้วยข้อมูลเริ่มต้นและระบุประเภท `ChartType.ClusteredColumn`
+1. เข้าถึง workbook ของข้อมูลแผนภูมิ ([IChartDataWorkbook](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdataworkbook/))
+1. ลบ Series และ Category เริ่มต้นทั้งหมด
+1. เพิ่ม Series และ Category ใหม่
+1. เพิ่มข้อมูลใหม่ให้กับ Series ของแผนภูมิ
+1. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด C# นี้แสดงวิธีสร้างแผนภูมิ Multi‑Category:
+โค้ด C# นี้แสดงวิธีสร้างแผนภูมิหลายประเภท:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -807,7 +862,7 @@ using (Presentation presentation = new Presentation())
     category.GroupingLevels.SetGroupingItem(1, "Group4");
     category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c9", "H"));
 
-    // เพิ่ม series.
+    // เพิ่ม Series.
     IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, "D1", "Series 1"), ChartType.ClusteredColumn);
 
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D2", 10));
@@ -819,22 +874,26 @@ using (Presentation presentation = new Presentation())
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D8", 70));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D9", 80));
 
-    // บันทึกการนำเสนอพร้อมแผนภูมิ.
+    // บันทึกงานนำเสนอพร้อมแผนภูมิ.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 ผลลัพธ์:
 
-![แผนภูมิ Multi‑Category](multi_category_chart.png)
+![แผนภูมหลายประเภท](multi_category_chart.png)
 
-### **สร้างแผนภูมิ Map**
+### **สร้างแผนภูมาผัง (Map)**
 
-แผนภูมิ Map ใช้แสดงข้อมูลทางภูมิศาสตร์โดยแมปข้อมูลไปยังตำแหน่งเช่น ประเทศ, รัฐ หรือเมือง ช่วยวิเคราะห์แนวโน้มภูมิภาค, ข้อมูลประชากร, การกระจายเชิงพื้นที่อย่างชัดเจนและดึงดูดสายตา
+แผนภูมาผังใช้แสดงข้อมูลเชิงภูมิศาสตร์โดยแมปข้อมูลไปยังตำแหน่งที่เฉพาะเจาะจง เช่น ประเทศ, รัฐ หรือเมือง เหมาะสำหรับการวิเคราะห์แนวโน้มระดับภูมิภาค, ข้อมูลประชากร, หรือการกระจายเชิงพื้นที่ในรูปแบบที่ชัดเจนและดึงดูดสายตา
 
-โค้ด C# นี้แสดงวิธีสร้างแผนภูมิ Map:
+โค้ด C# นี้แสดงวิธีสร้างแผนภูมาผัง:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Map, 20, 20, 500, 300);
@@ -844,17 +903,26 @@ using (Presentation presentation = new Presentation())
 
 ผลลัพธ์:
 
-![แผนภูมิ Map](map_chart.png)
+![แผนภูมาผัง](map_chart.png)
 
-### **สร้างแผนภูมิ Combination**
+{{% alert color="info" %}} 
+รูปภาพด้านบนแสดงการเปิด Presentation ที่บันทึกแล้วใน PowerPoint Aspose.Slides เขียนแผนภูมาผังและข้อมูลได้อย่างถูกต้อง แต่ไม่ได้วาดแผนภูมาผังเอง: เมื่อสไลด์ที่มีแผนภูมานี้ถูกแปลงเป็นภาพหรือเป็น PDF หรือ SVG พื้นที่แผนภูมาจะเป็นค่าว่าง รูปทรงอื่น ๆ ในสไลด์เดียวกันไม่มีผลกระทบ
+{{% /alert %}} 
 
-แผนภูมิ Combination (หรือ combo chart) ผสานประเภทแผนภูมิสองประเภทหรือมากกว่าบนกราฟเดียว ช่วยเน้น, เปรียบเทียบ หรือวิเคราะห์ความแตกต่างระหว่างชุดข้อมูลหลายชุด เพื่อให้เห็นความสัมพันธ์ได้ชัดเจน
+### **สร้างแผนภูมิกาผสม (Combination)**
 
-![แผนภูมิ Combination](combination_chart.png)
+แผนภูมิกาผสม (หรือ Combo Chart) รวมประเภทแผนภูมิสองประเภทหรือมากกว่าไว้ในกราฟเดียว ช่วยให้คุณไฮไลท์, เปรียบเทียบ, หรือวิเคราะห์ความแตกต่างระหว่างชุดข้อมูลหลายชุดได้ง่ายขึ้น
 
-โค้ด C# ด้านล่างแสดงวิธีสร้างแผนภูมิ Combination ที่แสดงในภาพด้านบนใน PowerPoint:
+![แผนภูมิกาผสม](combination_chart.png)
+
+โค้ด C# ด้านล่างแสดงวิธีสร้างแผนภูมิกาผสมตามตัวอย่างข้างบนใน PowerPoint:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 private static void CreateComboChart()
 {
     using (Presentation presentation = new Presentation())
@@ -888,20 +956,20 @@ private static IChart CreateChartWithFirstSeries(ISlide slide)
     chart.Legend.Position = LegendPositionType.Bottom;
     chart.Legend.TextFormat.PortionFormat.FontHeight = 12f;
 
-    // ลบ series และ categories ที่สร้างโดยอัตโนมัติ
+    // ลบ Series และ Category ที่สร้างโดยอัตโนมัติ
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
     int worksheetIndex = 0;
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // เพิ่ม categories ใหม่
+    // เพิ่ม Category ใหม่
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 1, 0, "Category 1"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 2, 0, "Category 2"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 4, 0, "Category 4"));
 
-    // เพิ่ม series แรก
+    // เพิ่ม Series แรก
     IChartSeries series = chart.ChartData.Series.Add(
         workbook.GetCell(worksheetIndex, 0, 1, "Series 1"), chart.Type);
 
@@ -958,14 +1026,14 @@ private static void SetPrimaryAxesFormat(IChart chart)
 
     SetAxisTitle(horizontalAxis, "X Axis");
 
-    // ตั้งค่าแกนแนวดิ่ง
+    // ตั้งค่าแกนแนวตั้ง
     IAxis verticalAxis = chart.Axes.VerticalAxis;
     verticalAxis.TextFormat.PortionFormat.FontHeight = 12f;
     verticalAxis.Format.Line.FillFormat.FillType = FillType.NoFill;
 
     SetAxisTitle(verticalAxis, "Y Axis 1");
 
-    // ตั้งค่าสีเส้นกริดหลักแนวดิ่ง
+    // ตั้งค่าสีของเส้นกริดหลักแนวตั้ง
     ILineFillFormat majorGridLinesFormat = verticalAxis.MajorGridLinesFormat.Line.FillFormat;
     majorGridLinesFormat.FillType = FillType.Solid;
     majorGridLinesFormat.SolidFillColor.Color = Color.FromArgb(217, 217, 217);
@@ -981,7 +1049,7 @@ private static void SetSecondaryAxesFormat(IChart chart)
     secondaryHorizontalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
     secondaryHorizontalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
 
-    // ตั้งค่าแกนแนวดิ่งรอง
+    // ตั้งค่าแกนแนวตั้งรอง
     IAxis secondaryVerticalAxis = chart.Axes.SecondaryVerticalAxis;
     secondaryVerticalAxis.Position = AxisPositionType.Right;
     secondaryVerticalAxis.TextFormat.PortionFormat.FontHeight = 12f;
@@ -1005,22 +1073,26 @@ private static void SetAxisTitle(IAxis axis, string axisTitle)
 
 ## **อัปเดตแผนภูมิ**
 
-Aspose.Slides for .NET ทำให้คุณอัปเดตแผนภูมิ PowerPoint ได้โดยแก้ไขข้อมูลแผนภูมิ, การจัดรูปแบบ และสไตล์ ช่วยให้งานนำเสนอเป็นปัจจุบันกับเนื้อหาไดนามิกและทำให้แผนภูมิตรงกับข้อมูลและมาตรฐานการออกแบบล่าสุด
+Aspose.Slides for .NET ช่วยให้คุณอัปเดตแผนภูมิ PowerPoint ได้โดยการแก้ไขข้อมูลแผนภูมิ, การจัดรูปแบบ, และสไตล์ ทำให้การรักษาความทันสมัยของงานนำเสนอด้วยเนื้อหาไดนามิกเป็นเรื่องง่ายและทำให้แผนภูมอสอดคล้องกับข้อมูลและมาตรฐานการออกแบบล่าสุด
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation) ที่เป็นตัวแทนของงานนำเสนอที่มีแผนภูมิ  
-1. รับอ้างอิงสไลด์โดยใช้ดัชนีของสไลด์  
-1. วนลูปผ่าน shape ทั้งหมดเพื่อค้นหาแผนภูมิ  
-1. เข้าถึง worksheet ของข้อมูลแผนภูมิ  
-1. แก้ไข Series ของข้อมูลแผนภูมิโดยเปลี่ยนค่าของ Series  
-1. เพิ่ม Series ใหม่และใส่ข้อมูลลงไป  
-1. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation) ที่เป็นตัวแทนของงานนำเสนอที่มีแผนภูมิ
+1. ดึงอ้างอิงสไลด์โดยใช้ดัชนีของมัน
+1. ตรวจสอบทุก Shape เพื่อหาแผนภูมิ
+1. เข้าถึง worksheet ของข้อมูลแผนภูมิ
+1. แก้ไข Series ของแผนภูมิโดยเปลี่ยนค่าของ Series
+1. เพิ่ม Series ใหม่และเติมข้อมูลลงไป
+1. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX
 
 โค้ด C# นี้แสดงวิธีอัปเดตแผนภูมิ:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 const string chartName = "My chart";
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นไฟล์ PPTX
+// สร้างอินสแตนซ์ของคลาส Presentation ซึ่งเป็นไฟล์ PPTX
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
     // เข้าถึงสไลด์แรก
@@ -1030,38 +1102,38 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
     {
         if (shape is IChart chart && chart.Name == chartName)
         {
-            // ตั้งค่าดัชนีของชีตข้อมูลแผนภูมิ
+            // ตั้งค่าตำแหน่งดัชนีของชีตข้อมูลแผนภูมิ
             int worksheetIndex = 0;
 
             // ดึง workbook ของข้อมูลแผนภูมิ
             IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-            // เปลี่ยนชื่อหมวดหมู่ของแผนภูมิ
+            // เปลี่ยนชื่อ Category ของแผนภูมิ
             workbook.GetCell(worksheetIndex, 1, 0, "Modified Category 1");
             workbook.GetCell(worksheetIndex, 2, 0, "Modified Category 2");
 
-            // ดึง series แผนภูมิแรก
+            // ดึง Series แผนภูมุตัวแรก
             IChartSeries series = chart.ChartData.Series[0];
 
-            // อัปเดตข้อมูลของ series
-            workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1"); // แก้ไขชื่อ series.
+            // อัปเดตข้อมูลของ Series
+            workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1"); // แก้ไขชื่อ Series
             series.DataPoints[0].Value.Data = 90;
             series.DataPoints[1].Value.Data = 123;
             series.DataPoints[2].Value.Data = 44;
 
-            // ดึง series แผนภูมิที่สอง
+            // ดึง Series แผนภูมิที่สอง
             series = chart.ChartData.Series[1];
 
-            // อัปเดตข้อมูลของ series
-            workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2"); // แก้ไขชื่อ series.
+            // อัปเดตข้อมูลของ Series
+            workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2"); // แก้ไขชื่อ Series
             series.DataPoints[0].Value.Data = 23;
             series.DataPoints[1].Value.Data = 67;
             series.DataPoints[2].Value.Data = 99;
 
-            // เพิ่ม series ใหม่
+            // เพิ่ม Series ใหม่
             series = chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 3, "Series 3"), chart.Type);
 
-            // เติมข้อมูลให้ series
+            // เติมข้อมูลให้ Series
             series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 3, 20));
             series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 3, 50));
             series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 3, 30));
@@ -1070,30 +1142,34 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
         }
     }
 
-    // บันทึกการนำเสนอพร้อมแผนภูมิ
+    // บันทึกงานนำเสนอพร้อมแผนภูมิ
     presentation.Save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 ## **กำหนดช่วงข้อมูลสำหรับแผนภูมิ**
 
-Aspose.Slides for .NET ให้ความยืดหยุ่นในการกำหนดช่วงข้อมูลเฉพาะจาก worksheet เป็นแหล่งข้อมูลของแผนภูมิของคุณ หมายความว่าคุณสามารถแมปส่วนของ worksheet ไปยังแผนภูมิได้โดยตรง ควบคุมว่าเซลล์ใดบ้างที่มีส่วนร่วมใน Series และ Categories ของแผนภูมิ ทำให้คุณอัปเดตและทำให้แผนภูมิสอดคล้องกับการเปลี่ยนแปลงข้อมูลล่าสุดใน worksheet ได้ง่าย
+Aspose.Slides for .NET ให้ความยืดหยุ่นในการกำหนดช่วงข้อมูลเฉพาะจาก Worksheet เป็นแหล่งข้อมูลของแผนภูมิ ซึ่งหมายความว่าคุณสามารถแมปส่วนหนึ่งของ Worksheet ไปยังแผนภูมิได้โดยตรง ทำให้ควบคุมได้ว่าตารางใดบ้างที่เป็นส่วนประกอบของ Series และ Category ของแผนภูมิ ด้วยวิธีนี้คุณสามารถอัปเดตและซิงโครไนซ์แผนภูมิของคุณกับข้อมูลล่าสุดใน Worksheet ได้อย่างง่ายดาย ทำให้งานนำเสนอ PowerPoint ของคุณสะท้อนข้อมูลที่ถูกต้องและทันสมัยอยู่เสมอ
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation) ที่เป็นตัวแทนของงานนำเสนอที่มีแผนภูมิ  
-1. รับอ้างอิงสไลด์โดยใช้ดัชนีของสไลด์  
-1. วนลูปผ่าน shape ทั้งหมดเพื่อค้นหาแผนภูมิ  
-1. เข้าถึงข้อมูลแผนภูมิและกำหนดช่วง  
-1. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation) ที่เป็นตัวแทนของงานนำเสนอที่มีแผนภูมิ
+1. ดึงอ้างอิงสไลด์โดยใช้ดัชนีของมัน
+1. ตรวจสอบทุก Shape เพื่อหาแผนภูมิ
+1. เข้าถึงข้อมูลแผนภูมิและกำหนดช่วง
+1. บันทึก Presentation ที่แก้ไขเป็นไฟล์ PPTX
 
 โค้ด C# นี้แสดงวิธีกำหนดช่วงข้อมูลสำหรับแผนภูมิ:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 const string chartName = "My chart";
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นไฟล์ PPTX
+// สร้างอินสแตนซ์ของคลาส Presentation ซึ่งเป็นไฟล์ PPTX
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
-    // เข้าถึงสไลด์แรก
+    // เข้าถึงสไลด์แรก.
     ISlide slide = presentation.Slides[0];
 
     foreach (IShape shape in slide.Shapes)
@@ -1112,9 +1188,13 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 
 เมื่อใช้ Marker เริ่มต้นในแผนภูมิแต่ละ Series จะได้รับสัญลักษณ์ Marker เริ่มต้นที่แตกต่างกันโดยอัตโนมัติ
 
-โค้ด C# นี้แสดงวิธีตั้งค่า Marker ของ Series โดยอัตโนมัติ:
+โค้ด C# นี้แสดงวิธีตั้งค่า Marker ของ Series ในแผนภูมิโดยอัตโนมัติ:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -1141,7 +1221,7 @@ using (Presentation presentation = new Presentation())
 
     IChartSeries series2 = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 2, "Series 2"), chart.Type);
 
-    // เติมข้อมูลให้ series.
+    // เติมข้อมูลให้ Series.
     series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 1, 2, 30));
     series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 2, 2, 10));
     series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 3, 2, 60));
@@ -1154,20 +1234,20 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **FAQ**
+## **คำถามที่พบบ่อย (FAQ)**
 
-**Aspose.Slides for .NET รองรับประเภทแผนภูมิอะไรบ้าง?**
+### แพลตฟอร์มแผนภูมิใดบ้างที่ Aspose.Slides for .NET รองรับ?
 
-Aspose.Slides for .NET รองรับประเภทแผนภูมิมากมาย รวมถึง bar, line, pie, area, scatter, histogram, radar และอื่น ๆ ทำให้คุณเลือกประเภทที่เหมาะสมกับการแสดงผลข้อมูลของคุณได้
+Aspose.Slides for .NET รองรับแผนภูมิหลายประเภท รวมถึง bar, line, pie, area, scatter, histogram, radar และอื่น ๆ มากมาย ความยืดหยุ่นนี้ช่วยให้คุณเลือกประเภทแผนภูมิที่เหมาะสมที่สุดสำหรับการแสดงผลข้อมูลของคุณ
 
-**ฉันจะเพิ่มแผนภูมิใหม่ลงในสไลด์ได้อย่างไร?**
+### ฉันจะเพิ่มแผนภูมิใหม่ลงในสไลด์อย่างไร?
 
-ในการเพิ่มแผนภูมิ คุณต้องสร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation) แล้วดึงสไลด์ที่ต้องการโดยใช้ดัชนี และเรียกเมธอดเพิ่มแผนภูมิพร้อมระบุประเภทและข้อมูลเริ่มต้น กระบวนการนี้จะผสานแผนภูมิลงในงานนำเสนอของคุณโดยตรง
+เพื่อเพิ่มแผนภูมิ คุณต้องสร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation) เรียกสไลด์ที่ต้องการโดยใช้ดัชนี แล้วเรียกเมธอดเพิ่มแผนภูมิ พร้อมระบุประเภทแผนภูมิและข้อมูลเริ่มต้น กระบวนการนี้จะฝังแผนภูมirectly ลงในงานนำเสนอของคุณ
 
-**ฉันจะอัปเดตข้อมูลที่แสดงในแผนภูมิได้อย่างไร?**
+### ฉันจะอัปเดตข้อมูลที่แสดงในแผนภูมิได้อย่างไร?
 
-คุณสามารถอัปเดตข้อมูลของแผนภูมิได้โดยเข้าถึง workbook ของแผนภูมิ ([IChartDataWorkbook](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdataworkbook/)) ลบ Series และ Categories เริ่มต้น แล้วเพิ่มข้อมูลที่กำหนดเองของคุณ ซึ่งจะทำให้แผนภูมิรีเฟรชตามข้อมูลล่าสุด
+คุณสามารถอัปเดตข้อมูลของแผนภูมิได้โดยเข้าถึง workbook ของข้อมูลแผนภูมิ ([IChartDataWorkbook](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdataworkbook/)) ลบ Series และ Category เริ่มต้น จากนั้นเพิ่มข้อมูลที่กำหนดเองของคุณ การทำเช่นนี้จะทำให้คุณรีเฟรชแผนภูมิให้สอดคล้องกับข้อมูลล่าสุดได้โดยอัตโนมัติ
 
-**ฉันสามารถปรับเปลี่ยนลักษณะของแผนภูมิได้หรือไม่?**
+### สามารถปรับแต่งลักษณะของแผนภูมิได้หรือไม่?
 
-ได้, Aspose.Slides for .NET มีตัวเลือกการปรับแต่งหลายอย่าง คุณสามารถแก้ไขสี, ฟอนต์, ป้ายกำกับ, Legend และองค์ประกอบการจัดรูปแบบอื่น ๆ เพื่อให้แผนภูมิตรงกับความต้องการด้านการออกแบบของคุณได้อย่างเต็มที่.
+ได้, Aspose.Slides for .NET มีตัวเลือกการปรับแต่งที่ครอบคลุม คุณสามารถแก้ไขสี, ฟอนต์, ป้ายชื่อ, เลเจนด์, และองค์ประกอบการจัดรูปแบบอื่น ๆ เพื่อให้แผนภูมิตรงตามความต้องการด้านการออกแบบของคุณอย่างละเอียด

@@ -1,5 +1,5 @@
 ---
-title: Veřejné API a zpětně nekompatibilní změny v Aspose.Slides pro .NET 16.1.0
+title: Veřejné rozhraní API a zpětně nekompatibilní změny v Aspose.Slides pro .NET 16.1.0
 linktitle: Aspose.Slides pro .NET 16.1.0
 type: docs
 weight: 220
@@ -18,16 +18,19 @@ keywords:
 - Aspose.Slides
 description: "Prohlédněte si aktualizace veřejného API a zásadní změny v Aspose.Slides pro .NET a hladce migrujte své řešení prezentací PowerPoint PPT, PPTX a ODP."
 ---
-{{% alert color="primary" %}} 
-Tato stránka uvádí všechny [přidané](/slides/cs/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) nebo [odstraněné](/slides/cs/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) třídy, metody, vlastnosti a podobně a další změny zavedené v API Aspose.Slides pro .NET 16.1.0.
+{{% alert color="info" %}} 
+Tato stránka uvádí všechny [přidáno](/slides/cs/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) nebo [odstraněno](/slides/cs/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) třídy, metody, vlastnosti a tak dále a další změny zavedené v rozhraní API Aspose.Slides pro .NET 16.1.0.
 {{% /alert %}} 
 ## **Změny veřejného API**
 
 #### **Vlastnost RotationAngle byla přidána do rozhraní IChartTextBlockFormat a ITextFrameFormat**
-Vlastnost RotationAngle byla přidána do rozhraní Aspose.Slides.Charts.IChartTextBlockFormat a Aspose.Slides.ITextFrameFormat.  
-Určuje vlastní rotaci, která se aplikuje na text v rámci ohraničujícího rámečku.
+Vlastnost RotationAngle byla přidána do rozhraní Aspose.Slides.Charts.IChartTextBlockFormat a Aspose.Slides.ITextFrameFormat. Udává vlastní rotaci, která se aplikuje na text v ohraničujícím rámečku.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -48,7 +51,5 @@ chart.ChartTitle.AddTextFrameForOverriding("Custom title").TextFrameFormat.Rotat
 pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
-
-
 ``` 
 #### **OdpException přesunuta z Aspose.Slides.Odp do jmenného prostoru Aspose.Slides**

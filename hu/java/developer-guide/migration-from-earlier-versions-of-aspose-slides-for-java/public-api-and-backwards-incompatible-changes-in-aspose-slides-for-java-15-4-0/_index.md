@@ -1,5 +1,5 @@
 ---
-title: Nyilvános API és visszafelé nem kompatibilis változások az Aspose.Slides for Java 15.4.0-ban
+title: Nyilvános API és visszafelé inkompatibilis változások az Aspose.Slides for Java 15.4.0-ban
 linktitle: Aspose.Slides for Java 15.4.0
 type: docs
 weight: 120
@@ -15,22 +15,24 @@ keywords:
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Tekintse át a nyilvános API frissítéseit és a törbreaköző változásokat az Aspose.Slides for Java-ban, hogy zökkenőmentesen migrálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
+description: "Tekintse át az Aspose.Slides for Java nyilvános API frissítéseit és törést okozó változásait, hogy zökkenőmentesen migrálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Ez az oldal felsorolja az összes [hozzáadott](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/) osztályt, metódust, tulajdonságot stb., valamint az új korlátozásokat és egyéb [változásokat](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/) az Aspose.Slides for Java 15.4.0 API-val.
+Ez az oldal felsorolja az összes [hozzáadott](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/) osztályt, metódust, tulajdonságot és így tovább, minden új korlátozást és egyéb [változást](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/) amely a Aspose.Slides for Java 15.4.0 API-val került bevezetésre.
 
 {{% /alert %}} 
-## **Nyilvános API módosítások**
-### **Enum OrganizationChartLayoutType hozzá lett adva**
-A com.aspose.slides.OrganizationChartLayoutType enumeráció azt a formázási típust képviseli, amely a szervezeti ábra gyermek csomópontjaira vonatkozik.
+## **Nyilvános API változások**
+### **Az OrganizationChartLayoutType enum hozzá lett adva**
+A com.aspose.slides.OrganizationChartLayoutType enum a szervezeti diagram gyermekcsomópontjainak formázási típusát képviseli.
 ### **Az IBulletFormat.applyDefaultParagraphIndentsShifts() metódus hozzá lett adva**
-A com.aspose.slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts metódus beállítja az alapértelmezett, nullánál nagyobb eltolásokat a hatékony bekezdés behúzásához és bal margójához, amikor a felsorolás engedélyezve van (akárcsak a PowerPoint, ha engedélyezi a bekezdés felsorolásait/ számozását). Ha a felsorolás le van tiltva, akkor csak visszaállítja a bekezdés behúzását és bal margóját (akárcsak a PowerPoint, ha letiltja a bekezdés felsorolásait/ számozását).
+A com.aspose.slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts metódus alapértelmezett nem nulla eltolásokat állít be a hatékony bekezdés behúzásához (Indent) és baloldali margójához (MarginLeft), ha a felsorolás engedélyezve van (akárcsak a PowerPoint, ha engedélyezi a bekezdés felsorolásait/számozását). Ha a felsorolás le van tiltva, akkor csak visszaállítja a bekezdés behúzását és baloldali margóját (akárcsak a PowerPoint, ha letiltja a bekezdés felsorolásait/számozását).
 ### **Az IConnector.reroute() metódus hozzá lett adva**
-A com.aspose.slides.IConnector.reroute() metódus újrairányítja a kapcsolót, hogy a lehető legrövidebb útvonalat vegye a hozzá kapcsolt alakzatok között. Ennek érdekében a reroute() metódus módosíthatja a StartShapeConnectionSiteIndex és EndShapeConnectionSiteIndex értékeket.
+A com.aspose.slides.IConnector.reroute() metódus átirányítja a csatlakozót, hogy a lehető legrövidebb utat vegye a kapcsolódó alakzatok között. Ennek érdekében a reroute() metódus megváltoztathatja a StartShapeConnectionSiteIndex és EndShapeConnectionSiteIndex értékeket.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation input = new Presentation();
 
@@ -52,9 +54,11 @@ input.save("output.pptx", SaveFormat.Pptx);
 
 ```
 ### **Az IPresentation.getSlideById(long) metódus hozzá lett adva**
-Aspose.Slides.IPresentation.getSlideById(int) metódus visszaad egy Slide, MasterSlide vagy LayoutSlide objektumot a diák azonosítója alapján.
+Az Aspose.Slides.IPresentation.getSlideById(long) metódus egy Slide, MasterSlide vagy LayoutSlide objektumot ad vissza a diavetítés azonosítója alapján.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation presentation = new Presentation();
 
@@ -64,9 +68,11 @@ IBaseSlide slide = presentation.getSlideById(id);
 
 ```
 ### **Az ISmartArt.getNodes() metódus hozzá lett adva**
-A com.aspose.slides.ISmartArt.getNodes() metódus visszaadja a SmartArt objektum gyökércsomópontjainak gyűjteményét.
+A com.aspose.slides.ISmartArt.getNodes() metódus a SmartArt objektum gyökércsomópontjainak gyűjteményét adja vissza.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -80,9 +86,11 @@ pres.save("out.pptx", SaveFormat.Pptx);
 
 ```
 ### **Az ISmartArt.setLayout(int) metódus hozzá lett adva**
-A com.aspose.slides.ISmartArt.setLayout(int) tulajdonsághoz tartozó metódus hozzá lett adva. Lehetővé teszi egy meglévő diagram elrendezéstípusának módosítását.
+A com.aspose.slides.ISmartArt.setLayout(int) tulajdonság metódusa hozzá lett adva. Lehetővé teszi egy meglévő diagram elrendezéstípusának módosítását.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -97,6 +105,8 @@ pres.save("out.pptx", SaveFormat.Pptx);
 A com.aspose.slides.ISmartArtNode.isHidden() metódus true értéket ad vissza, ha ez a csomópont rejtett a adatmodellben.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -108,17 +118,18 @@ boolean hidden = node.isHidden(); //true értéket ad vissza
 
 if(hidden) {
 
-    //végezzen néhány műveletet vagy értesítést
+    //végezzünk néhány műveletet vagy értesítést
 
 }
 
-pres.Save("out.pptx", SaveFormat.Pptx);
-
+pres.save("out.pptx", SaveFormat.Pptx);
 ```
-### **Az ISmartArt.isReversed(), setReserved() metódusok hozzá lettek adva**
-A com.aspose.slides.ISmartArt.IsReversed tulajdonság lehetővé teszi a SmartArt diagram állapotának lekérdezését vagy beállítását a (balról-jobbra) LTR vagy (jobbról-balra) RTL tekintetében, ha a diagram támogatja a fordítást.
+### **Az ISmartArt.isReversed() és setReversed() metódusok hozzá lettek adva**
+A com.aspose.slides.ISmartArt.IsReversed tulajdonság lehetővé teszi a SmartArt diagram állapotának lekérdezését vagy beállítását a balról jobbra (LTR) vagy jobbról balra (RTL) irányú megjelenítés tekintetében, ha a diagram támogatja a fordítást.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation presentation = new Presentation();
 
@@ -129,10 +140,12 @@ smart.setReversed(true);
 presentation.save("out.pptx", SaveFormat.Pptx);
 
 ```
-### **Az ISmartArtNode.getOrganizationChartLayout(), setOrganizationChartLayout(int) metódusok hozzá lettek adva**
+### **Az ISmartArtNode.getOrganizationChartLayout() és setOrganizationChartLayout(int) metódusok hozzá lettek adva**
 A com.aspose.slides.ISmartArtNode.getOrganizationChartLayout() és setOrganizationChartLayout(int) metódusok lehetővé teszik a jelenlegi csomóponthoz kapcsolódó szervezeti diagram típus lekérdezését vagy beállítását.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -141,12 +154,13 @@ ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 4
 smart.getNodes().get_Item(0).setOrganizationChartLayout(OrganizationChartLayoutType.LeftHanging);
 
 pres.save("out.pptx", SaveFormat.Pptx);
-
 ```
 ### **Az IShape.getConnectionSiteCount() tulajdonság hozzá lett adva**
-A com.aspose.slides.getConnectionSiteCount() tulajdonság visszaadja az alakzaton lévő csatlakozási pontok számát.
+A com.aspose.slides.getConnectionSiteCount() tulajdonság visszaadja a forma csatlakozási pontjainak számát.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation input = new Presentation();
 
@@ -173,12 +187,12 @@ if (ellipse.getConnectionSiteCount() > wantedIndex) {
 input.save("output.pptx", SaveFormat.Pptx);
 
 ```
-### **Kisebb változások**
+### **Apróbb változások**
 Ez a kisebb API változások listája:
 
 |Enum com.aspose.slides.BevelColorMode |törölve, nem használt enum |
 | :- | :- |
-|Method ThreeDFormatEffectiveData.getBevelColorMode() |törölve, nem használt property |
+|Method ThreeDFormatEffectiveData.getBevelColorMode() |törölve, nem használt tulajdonság |
 |Method com.aspose.slides.ChartSeriesGroup.getChart() |hozzáadva |
 |Inheritance of IParagraphFormatEffectiveData from ISlideComponent <br>Inheritance of IThreeDFormat from ISlideComponent |törölve |
 |Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletChar() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletFont() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletHeight() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletType() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getNumberedBulletStartWith() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getNumberedBulletStyle() |törölve, elavultként |

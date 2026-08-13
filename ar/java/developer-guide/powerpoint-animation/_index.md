@@ -1,22 +1,22 @@
 ---
-title: تحسين عروض PowerPoint التقديمية باستخدام الرسوم المتحركة في Java
-linktitle: رسوم متحركة للـ PowerPoint
+title: تحسين عروض PowerPoint التقديمية باستخدام التحريكات في Java
+linktitle: تحريك PowerPoint
 type: docs
 weight: 150
 url: /ar/java/powerpoint-animation/
 keywords:
-- إضافة رسوم متحركة
-- تحديث الرسوم المتحركة
-- تغيير الرسوم المتحركة
-- إزالة الرسوم المتحركة
-- إدارة الرسوم المتحركة
-- التحكم في الرسوم المتحركة
-- تأثير الرسوم المتحركة
-- رسوم PowerPoint المتحركة
-- خط الزمن للرسوم المتحركة
-- رسوم متحركة تفاعلية
-- رسوم متحركة مخصصة
-- رسوم متحركة للأشكال
+- إضافة تحريك
+- تحديث التحريك
+- تغيير التحريك
+- إزالة التحريك
+- إدارة التحريك
+- التحكم في التحريك
+- تأثير التحريك
+- تحريك PowerPoint
+- خط زمن التحريك
+- تحريك تفاعلي
+- تحريك مخصص
+- تحريك الشكل
 - مخطط متحرك
 - نص متحرك
 - شكل متحرك
@@ -27,83 +27,80 @@ keywords:
 - عرض تقديمي
 - Java
 - Aspose.Slides
-description: "استكشف إمكانيات Aspose.Slides for Java في معالجة الرسوم المتحركة لبرنامج PowerPoint. يسلط هذا الاستعراض العام الضوء على الميزات الرئيسية ويقدم رؤى لتعزيز عروضك التقديمية."
+description: "استكشف قدرات Aspose.Slides للغة Java في معالجة تحريكات PowerPoint. يسلط هذا الملخص العام الضوء على الميزات الرئيسية ويقدم رؤى لتحسين عروضك التقديمية."
 ---
+## **المقدمة**
 
-## **نظرة عامة**
+نظرًا لأن العروض التقديمية تهدف إلى عرض شيء ما، فإن مظهرها البصري وسلوكها التفاعلي يُؤخذ دائمًا في الاعتبار أثناء الإنشاء.
 
-نظرًا لأن العروض التقديمية تهدف إلى عرض شيء ما، فإن المظهر البصري والسلوك التفاعلي دائمًا ما يؤخذان في الاعتبار أثناء إنشائها.
+**PowerPoint animation** يلعب دورًا مهمًا في جعل العرض التقديمي جذابًا ومشوقًا للمشاهدين. توفر Aspose.Slides مجموعة واسعة من الخيارات لإضافة التحريكات إلى عروض PowerPoint:
 
-**PowerPoint animation** يلعب دورًا مهمًا لجعل العرض التقديمي جذابًا ومثيرًا لاهتمام المشاهدين. تقدم Aspose.Slides for Java مجموعة واسعة من الخيارات لإضافة رسوم متحركة إلى عرض PowerPoint:
+- تطبيق أنماط مختلفه من تأثيرات تحريك PowerPoint على الأشكال، المخططات، الجداول، كائنات OLE، وعناصر العرض الأخرى.
+- استخدام تأثيرات تحريك PowerPoint متعددة على شكل واحد.
+- الاستفادة من خط الزمن للتحريك للسيطرة على تأثيرات التحريك.
+- إنشاء تحريكات مخصصة.
 
-- تطبيق أنواع مختلفة من تأثيرات الرسوم المتحركة في PowerPoint على الأشكال، المخططات، الجداول، كائنات OLE وغيرها من عناصر العرض.
-- استخدام تأثيرات متعددة للرسوم المتحركة في PowerPoint على شكل واحد.
-- استخدام خط زمن للرسوم المتحركة للتحكم في تأثيرات الرسوم.
-- إنشاء رسوم متحركة مخصصة.
+في Aspose.Slides، يمكن تطبيق تأثيرات تحريك مختلفة على الأشكال. نظرًا لأن كل عنصر في الشريحة، بما في ذلك النصوص والصور وكائنات OLE والجداول، يُعد شكلًا، يمكن تطبيق تأثيرات التحريك على أي عنصر في الشريحة.
 
-في Aspose.Slides for Java، يمكن تطبيق تأثيرات رسوم متحركة مختلفة على الأشكال. نظرًا لأن كل عنصر على الشريحة بما في ذلك النص، الصور، كائن OLE، الجدول etc يُعتبر شكلًا، فهذا يعني أنه يمكننا تطبيق تأثير رسوم متحركة على كل عنصر في الشريحة.
+## **تأثيرات التحريك**
+تدعم Aspose.Slides **150+ تأثير تحريك**، بما في ذلك تأثيرات التحريك الأساسية مثل Bounce، PathFootball، تأثير التكبير وتأثيرات تحريك محددة مثل OLEObjectShow، OLEObjectOpen. يمكنك العثور على قائمة كاملة بتأثيرات التحريك في تعداد [**EffectType**](https://reference.aspose.com/slides/ar/java/com.aspose.slides/effecttype/) .
 
-## **تأثيرات الرسوم المتحركة**
-يدعم Aspose.Slides **أكثر من 150 تأثيرًا للرسوم المتحركة**، بما في ذلك التأثيرات الأساسية مثل Bounce، PathFootball، تأثير التكبير وتأثيرات خاصة مثل OLEObjectShow، OLEObjectOpen. يمكنك العثور على قائمة كاملة لتأثيرات الرسوم المتحركة في تعداد [**EffectType**](https://reference.aspose.com/slides/java/com.aspose.slides/effecttype/) .
+بالإضافة إلى ذلك، يمكن استخدام هذه تأثيرات التحريك بالاشتراك معًا:
+- [ColorEffect](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ColorEffect)
+- [CommandEffect](https://reference.aspose.com/slides/ar/java/com.aspose.slides/CommandEffect)
+- [FilterEffect](https://reference.aspose.com/slides/ar/java/com.aspose.slides/FilterEffect)
+- [MotionEffect](https://reference.aspose.com/slides/ar/java/com.aspose.slides/MotionEffect)
+- [PropertyEffect](https://reference.aspose.com/slides/ar/java/com.aspose.slides/PropertyEffect)
+- [RotationEffect](https://reference.aspose.com/slides/ar/java/com.aspose.slides/RotationEffect)
+- [ScaleEffect](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ScaleEffect)
+- [SetEffect](https://reference.aspose.com/slides/ar/java/com.aspose.slides/SetEffect)
 
-بالإضافة إلى ذلك، يمكن استخدام هذه التأثيرات معًا:
+## **تحريك مخصص**
+يمكن إنشاء **تحريكات مخصصة** خاصة بك في Aspose.Slides. يمكن تحقيق ذلك إذا قمت بدمج عدة سلوكيات معًا في تحريك مخصص جديد.
 
-- [ColorEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ColorEffect)
-- [CommandEffect](https://reference.aspose.com/slides/java/com.aspose.slides/CommandEffect)
-- [FilterEffect](https://reference.aspose.com/slides/java/com.aspose.slides/FilterEffect)
-- [MotionEffect](https://reference.aspose.com/slides/java/com.aspose.slides/MotionEffect)
-- [PropertyEffect](https://reference.aspose.com/slides/java/com.aspose.slides/PropertyEffect)
-- [RotationEffect](https://reference.aspose.com/slides/java/com.aspose.slides/RotationEffect)
-- [ScaleEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ScaleEffect)
-- [SetEffect](https://reference.aspose.com/slides/java/com.aspose.slides/SetEffect)
+[**Behavior**](https://reference.aspose.com/slides/ar/java/com.aspose.slides/Behavior) هو وحدة بناء لأي تأثير تحريك في PowerPoint. كل تأثيرات التحريك هي في الواقع مجموعة من السلوكيات المكوّنة في استراتيجية واحدة. يمكنك دمج السلوكيات في تحريك مخصص مرة واستخدامه مرة أخرى في عروض تقديمية أخرى. إذا أضفت سلوكًا جديدًا إلى تأثير تحريك PowerPoint القياسي - سيصبح تحريكًا مخصصًا آخر. على سبيل المثال، يمكنك إضافة سلوك التكرار إلى تحريك لجعله يتكرر عدة مرات.
 
-## **الرسوم المتحركة المخصصة**
-يمكنك إنشاء **رسوم متحركة مخصصة** في Aspose.Slides. 
-يمكن تحقيق ذلك إذا قمت بدمج سلوكيات متعددة معًا في رسم متحرك مخصص جديد.
+[**Animation Point**](https://reference.aspose.com/slides/ar/java/com.aspose.slides/Point) هو النقطة التي يجب تطبيق السلوك عندها.
 
-[**Behavior**](https://reference.aspose.com/slides/java/com.aspose.slides/Behavior) هو وحدة بناء أي تأثير رسوم متحركة في PowerPoint. جميع تأثيرات الرسوم المتحركة هي في الواقع مجموعة من السلوكيات المكوَّنة في استراتيجية واحدة. يمكنك دمج السلوكيات في رسم متحرك مخصص مرة واستخدامه في عروض تقديمية أخرى. إذا أضفت سلوكًا جديدًا إلى تأثير رسوم متحركة قياسي في PowerPoint، سيصبح ذلك رسمًا متحركًا مخصصًا آخر. على سبيل المثال، يمكنك إضافة سلوك تكرار إلى رسم متحرك لجعله يكرر نفسه عدة مرات.
+## **خط الزمن للتحريك**
+[**Sequence**](https://reference.aspose.com/slides/ar/java/com.aspose.slides/Sequence) هي مجموعة من تأثيرات التحريك، تُطبّق على شكل محدد.
 
-[**Animation Point**](https://reference.aspose.com/slides/java/com.aspose.slides/Point) هو النقطة التي يجب تطبيق السلوك عندها.
+[**Timeline**](https://reference.aspose.com/slides/ar/java/com.aspose.slides/AnimationTimeLine) هو مجموعة من الـSequences تُستخدم في شريحة محددة. إنه محرك تحريك موجود منذ PowerPoint 2002. في الإصدارات السابقة من PowerPoint، كان من الصعب إضافة تأثيرات تحريك إلى العرض، وكان ذلك ممكنًا فقط عبر حلول بديلة مختلفة. يأتي Timeline ليحل محل الفئة القديمة AnimationSettings ويوفر نموذج كائن أكثر وضوحًا لتحريك PowerPoint. يمكن لشفرة واحدة أن تحتوي على Timeline واحد فقط.
 
-## **خط زمن الرسوم المتحركة**
-[**Sequence**](https://reference.aspose.com/slides/java/com.aspose.slides/Sequence) هو مجموعة من تأثيرات الرسوم المتحركة، تُطبق على شكل محدد.
+## **التحريك التفاعلي**
+[**Trigger**](https://reference.aspose.com/slides/ar/java/com.aspose.slides/EffectTriggerType) يتيح تعريف إجراءات المستخدم (مثل النقر على زر)، والتي تجعل تحريكًا معينًا يبدأ. تم إضافة الـTriggers فقط في أحدث إصدار من PowerPoint.
 
-[**Timeline**](https://reference.aspose.com/slides/java/com.aspose.slides/AnimationTimeLine) هو مجموعة من الـ Sequences تُستخدم في شريحة معينة. يُمثِّل محرك الرسوم المتحركة منذ PowerPoint 2002. في إصدارات PowerPoint السابقة، كان من الصعب إضافة تأثيرات رسوم متحركة إلى العرض، وكان ذلك ممكنًا فقط عبر حلول بديلة مختلفة. جاء الـ Timeline ليحل محل فئة AnimationSettings القديمة ويقدم نموذج كائن أكثر وضوحًا للرسوم المتحركة في PowerPoint. يمكن أن تحتوي شريحة واحدة على **خط زمن واحد** فقط للرسوم المتحركة.
+## **تحريك الشكل**
+تسمح Aspose.Slides بتطبيق التحريك على الأشكال، والتي قد تكون نصًا، مستطيلًا، خطًا، إطارًا، كائن OLE، إلخ.
 
-## **الرسوم المتحركة التفاعلية**
-[**Trigger**](https://reference.aspose.com/slides/java/com.aspose.slides/EffectTriggerType) يسمح بتعريف إجراءات المستخدم (مثل النقر على زر) التي ستجعل رسماً متحركًا معينًا يبدأ. تمت إضافة الـ Triggers فقط في أحدث إصدارات PowerPoint.
-
-## **رسوم متحركة للأشكال**
-تسمح Aspose.Slides بتطبيق رسوم متحركة على الأشكال، التي يمكن أن تكون نصًا، مستطيلًا، خطًا، إطارًا، كائن OLE، إلخ.
-
-{{% alert color="primary" %}} 
-اقرأ المزيد [**حول حركة الشكل**](/slides/ar/java/shape-animation/).
+{{% alert color="info" %}} 
+اقرأ المزيد [**حول تحريك الشكل**](/slides/ar/java/shape-animation/).
 {{% /alert %}}
 
-## **مخططات متحركة**
-لإنشاء مخططات متحركة، يجب استخدام نفس الفئات كما هو الحال مع الأشكال. ومع ذلك، يمكن استخدام رسوم متحركة PowerPoint فقط على فئات المخطط أو سلسلات المخطط. يمكنك أيضًا تطبيق تأثير رسوم متحركة على عنصر فئة أو عنصر سلسلة.
+## **المخططات المتحركة**
+لإنشاء مخططات متحركة، يجب عليك استخدام جميع الفئات نفسها كما هو الحال مع الأشكال. ومع ذلك، يمكن استخدام تحريك PowerPoint فقط على فئات المخطط أو سلاسل المخطط. يمكنك أيضًا تطبيق تأثير التحريك على عنصر فئة أو عنصر سلسلة.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 اقرأ المزيد [**حول المخططات المتحركة**](/slides/ar/java/animated-charts/).
 {{% /alert %}}
 
-## **نص متحرك**
-إلى جانب النص المتحرك، يمكن أيضًا تطبيق رسوم متحركة على فقرة.
+## **النص المتحرك**
+إلى جانب النص المتحرك، يمكن أيضًا تطبيق التحريك على فقرة.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 اقرأ المزيد [**حول النص المتحرك**](/slides/ar/java/animated-text/).
 {{% /alert %}}
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**هل ستُحَفظ الرسوم المتحركة عند التصدير إلى PDF؟**
+### هل سيتم الحفاظ على التحريكات عند التصدير إلى PDF؟
 
-لا. PDF هو تنسيق ثابت، لذا لا تُشَغَّل الرسوم المتحركة و[انتقالات الشرائح](/slides/ar/java/slide-transition/). إذا كنت تحتاج إلى حركة، صدّر إلى [HTML5](/slides/ar/java/export-to-html5/)، [GIF متحرك](/slides/ar/java/convert-powerpoint-to-animated-gif/)، أو [فيديو](/slides/ar/java/convert-powerpoint-to-video/) بدلاً من ذلك.
+لا. PDF هو تنسيق ثابت، لذلك لا تعمل التحريكات و[انتقالات الشرائح](/slides/ar/java/slide-transition/). إذا كنت تحتاج إلى حركة، قم بالتصدير إلى [HTML5](/slides/ar/java/export-to-html5/)، [GIF متحرك](/slides/ar/java/convert-powerpoint-to-animated-gif/)، أو [فيديو](/slides/ar/java/convert-powerpoint-to-video/) بدلاً من ذلك.
 
-**هل يمكنني تحويل عرض تقديمي متحرك إلى فيديو والتحكم في معدل الإطارات وحجم الإطار؟**
+### هل يمكنني تحويل عرض تقديمي متحرك إلى فيديو والتحكم في معدل الإطارات وحجم الإطار؟
 
-نعم. يمكنك [تصدير العرض كإطارات](/slides/ar/java/convert-powerpoint-to-video/) وترميزها إلى فيديو (مثلاً باستخدام ffmpeg)، مع اختيار عدد الإطارات في الثانية (FPS) والدقة. تُشَغَّل الرسوم المتحركة وانتقالات الشرائح أثناء التصدير.
+نعم. يمكنك [تحويل العرض إلى إطارات](/slides/ar/java/convert-powerpoint-to-video/) وترميزها إلى فيديو (مثلاً باستخدام ffmpeg)، مع اختيار عدد الإطارات في الثانية (FPS) والدقة. يتم تشغيل التحريكات وانتقالات الشرائح أثناء التحويل.
 
-**هل ستظل الرسوم المتحركة سليمة عند العمل مع ODP (ليس فقط PPTX)؟**
+### هل ستبقى التحريكات سليمة عند العمل مع ODP (ليس فقط PPTX)؟
 
-تُدعم PPT وPPTX وODP لل[القراءة](/slides/ar/java/open-presentation/) و[الكتابة](/slides/ar/java/save-presentation/)، لكن اختلافات الصيغ قد تجعل بعض التأثيرات تبدو أو تتصرف بشكل مختلف قليلًا. احرص على التحقق من الحالات الحرجة باستخدام عينات فعلية.
+يتم دعم PPT وPPTX وODP لل[قراءة](/slides/ar/java/open-presentation/) و[كتابة](/slides/ar/java/save-presentation/)، لكن الاختلافات في التنسيق قد تجعل بعض التأثيرات تبدو أو تتصرف بشكل مختلف قليلًا. تحقق من الحالات الحرجة باستخدام عينات حقيقية.

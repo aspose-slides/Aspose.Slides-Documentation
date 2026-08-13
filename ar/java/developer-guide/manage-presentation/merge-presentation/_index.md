@@ -1,66 +1,68 @@
 ---
-title: دمج العروض التقديمية بفعالية في جافا
-linktitle: دمج العروض التقديمية
+title: دمج العروض التقديمية بفعالية في Java
+linktitle: دمج العروض
 type: docs
 weight: 40
 url: /ar/java/merge-presentation/
 keywords:
 - دمج PowerPoint
-- دمج العروض التقديمية
+- دمج العروض
 - دمج الشرائح
 - دمج PPT
 - دمج PPTX
 - دمج ODP
-- دمج PowerPoint
-- دمج العروض التقديمية
-- دمج الشرائح
-- دمج PPT
-- دمج PPTX
-- دمج ODP
-- جافا
+- جمع PowerPoint
+- جمع العروض
+- جمع الشرائح
+- جمع PPT
+- جمع PPTX
+- جمع ODP
+- Java
 - Aspose.Slides
-description: "دمج عروض PowerPoint (PPT, PPTX) وOpenDocument (ODP) بسهولة باستخدام Aspose.Slides for Java، مما يبسط سير عملك."
+description: "دمج عروض PowerPoint (PPT، PPTX) و OpenDocument (ODP) بسهولة باستخدام Aspose.Slides for Java، لتبسيط سير العمل الخاص بك."
 ---
-
 ## **نظرة عامة**
 
-يُعد دمج عروض PowerPoint وOpenDocument مهمة شائعة في العديد من تطبيقات Java، خاصةً عند إنشاء تقارير، تجميع شرائح من مصادر مختلفة، أو أتمتة سير عمل العروض التقديمية. يوفر Aspose.Slides for Java واجهة برمجة تطبيقات قوية وسهلة الاستخدام لدمج ملفات PPT وPPTX أو ODP متعددة في عرض تقديمي واحد دون الحاجة لتثبيت Microsoft PowerPoint أو LibreOffice أو OpenOffice.
+يعد دمج عروض PowerPoint وOpenDocument مهمة شائعة في العديد من تطبيقات Java، خاصةً عند إنشاء تقارير، تجميع شرائح من مصادر مختلفة، أو أتمتة عمليات العروض التقديمية. توفر Aspose.Slides for Java واجهة برمجة تطبيقات قوية وسهلة الاستخدام لدمج ملفات PPT وPPTX أو ODP متعددة في عرض تقديمي واحد دون الحاجة لتثبيت Microsoft PowerPoint أو LibreOffice أو OpenOffice.
 
-في هذا الدليل، ستتعلم كيفية دمج عروض PowerPoint وOpenDocument باستخدام بضع أسطر فقط من كود Java. سنوفر أمثلة جاهزة للاستخدام، ونظهر كيفية الحفاظ على تنسيق الشرائح وتخطيطاتها والعناصر الأخرى للعرض أثناء عملية الدمج.
+في هذا الدليل، ستتعلم كيفية دمج عروض PowerPoint وOpenDocument باستخدام بضع أسطر من شفرة Java فقط. سنقدم أمثلة جاهزة للاستخدام، ونوضح كيفية الحفاظ على تنسيق الشرائح، وتخطيطاتها، والعناصر الأخرى للعرض أثناء عملية الدمج.
 
-سواءً كنت تبني تطبيقًا على مستوى المؤسسات أو أداة أتمتة بسيطة، يجعل Aspose.Slides دمج العروض التقديمية في Java سريعًا، موثوقًا، وقابلاً للتوسع. يتيح Aspose.Slides for Java دمج العروض بطرق مختلفة. يمكنك دمج العروض مع جميع الأشكال، الأنماط، النصوص، التنسيقات، التعليقات، الرسوم المتحركة، وأكثر—دون القلق بشأن فقدان الجودة أو البيانات.
+سواءً كنت تبني تطبيقًا على مستوى المؤسسة أو أداة أتمتة بسيطة، تجعل Aspose.Slides عملية دمج العروض في Java سريعة، موثوقة، وقابلة للتوسع. تتيح لك Aspose.Slides for Java دمج العروض بطرق مختلفة. يمكنك دمج العروض مع جميع الأشكال، الأنماط، النصوص، التنسيقات، التعليقات، الرسوم المتحركة، وأكثر—دون القلق بشأن فقدان الجودة أو البيانات.
 
-{{% alert color="primary" %}}
-انظر أيضًا: [استنساخ الشرائح](https://docs.aspose.com/slides/java/clone-slides/)
+{{% alert color="info" %}}
+انظر أيضًا: [نسخ الشرائح](https://docs.aspose.com/slides/ar/java/clone-slides/)
 {{% /alert %}}
 
 ### **ما الذي يمكن دمجه؟**
 
 مع Aspose.Slides، يمكنك دمج:
 
-**العروض التقديمية بالكامل** – تُدمج جميع الشرائح من عروض متعددة في عرض واحد.
+**العروض بالكامل** – يتم دمج جميع الشرائح من عروض متعددة في عرض واحد.
 
 **شرائح محددة** – تُدمج فقط الشرائح المختارة في عرض تقديمي واحد.
 
-**العروض بنفس التنسيق** (مثل PPT إلى PPT، PPTX إلى PPTX) **وبتنسيقات مختلفة** (مثل PPT إلى PPTX، PPTX إلى ODP).
+**العروض بنفس الصيغة** (مثل PPT إلى PPT، PPTX إلى PPTX) **وبصيغ مختلفة** (مثل PPT إلى PPTX، PPTX إلى ODP).
 
 ### **خيارات الدمج**
 
-يمكنك تطبيق خيارات تحدد ما إذا:
+يمكنك تطبيق خيارات تحدد ما إذا كان:
 
-- تحتفظ كل شريحة في العرض الناتج بنمطها الأصلي
-- يُطبق نمط محدد على جميع الشرائح في العرض الناتج
+- كل شريحة في العرض الناتج تحتفظ بالنمط الأصلي الخاص بها
+- يتم تطبيق نمط محدد على جميع الشرائح في العرض الناتج
 
-لدمج العروض، يقدم Aspose.Slides طرق `AddClone` من واجهة [ISlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/). هناك عدة إصدارات مفرطة لـ `AddClone` تحدد سلوك عملية الدمج. كل كائن [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) يحتوي على مجموعة Slides. لذا يمكنك استدعاء طريقة `AddClone` على العرض الهدف الذي تريد دمج الشرائح فيه.
+لدمج العروض، توفر Aspose.Slides طرق `AddClone` من واجهة [ISlideCollection](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islidecollection/) . هناك عدة إصدارات لطريقة `AddClone` تحدد سلوك عملية الدمج. كل كائن [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/) يمتلك مجموعة Slides. لذا، يمكنك استدعاء طريقة `AddClone` على العرض الهدف الذي تريد دمج الشرائح فيه.
 
-تُعيد طريقة `AddClone` كائنًا من نوع [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/)، وهو نسخة مستنسخة من الشريحة المصدر. الشرائح الناتجة في العرض النهائي هي نسخ بسيطة من الشرائح الأصلية. هذا يعني أنه يمكنك تعديل الشرائح المستنسخة بأمان—مثل تطبيق الأنماط أو خيارات التنسيق أو التخطيطات—دون التأثير على العرض المصدر.
+طريقة `AddClone` تُعيد كائن [ISlide](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islide/) ، وهو نسخة مستنسخة من الشريحة المصدر. الشرائح الناتجة في العرض النهائي هي مجرد نسخ من الشرائح الأصلية. وهذا يعني أنه يمكنك تعديل الشرائح المستنسخة بأمان—مثل تطبيق الأنماط، خيارات التنسيق، أو التخطيطات—دون التأثير على العرض المصدر.
 
-## **دمج العروض التقديمية**
+## **دمج العروض**
 
-يوفر Aspose.Slides طريقة [AddClone(ISlide)](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) التي تسمح بدمج الشرائح مع الحفاظ على تخطيطاتها وأنماطها الأصلية (السلوك الافتراضي).
+توفر Aspose.Slides طريقة [AddClone(ISlide)](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) التي تسمح بدمج الشرائح مع الحفاظ على تخطيطاتها وأنماطها الأصلية (السلوك الافتراضي).
 
-الكود التالي Java يوضح كيفية دمج العروض التقديمية:
+يظهر الشفرة التالية بلغة Java كيفية دمج العروض:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation1 = new Presentation("presentation1.pptx");
 Presentation presentation2 = new Presentation("presentation2.pptx");
 try {
@@ -74,18 +76,20 @@ try {
 }
 ```
 
+## **دمج العروض مع شريحة رئيسية**
 
-## **دمج العروض التقديمية مع شريحة رئيسية**
+توفر Aspose.Slides طريقة [AddClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) التي تسمح بدمج الشرائح مع تطبيق شريحة رئيسية من قالب عرض. بهذه الطريقة، يمكنك تعديل نمط الشرائح في العرض الناتج إذا لزم الأمر.
 
-يوفر Aspose.Slides طريقة [AddClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) التي تسمح بدمج الشرائح مع تطبيق شريحة رئيسية من قالب عرض تقديمي. بهذه الطريقة، إذا لزم الأمر، يمكنك تغيير نمط الشرائح في العرض الناتج.
+توضح الشفرة التالية بلغة Java هذا الإجراء:
 
-الكود التالي Java يوضح هذا العملية:
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation1 = new Presentation("presentation1.pptx");
 Presentation presentation2 = new Presentation("presentation2.pptx");
 try {
     for (ISlide slide : presentation2.getSlides()) {
-        IMasterSlide masterSlide = presentation2.getMasters().get_Item(0);
+        IMasterSlide masterSlide = presentation1.getMasters().get_Item(0);
         presentation1.getSlides().addClone(slide, masterSlide, true);
     }
     presentation1.save("combined.pptx", SaveFormat.Pptx);
@@ -95,17 +99,19 @@ try {
 }
 ```
 
-
 {{% alert title="ملاحظة" color="warning" %}}
-يتم تحديد تخطيط الشريحة تلقائيًا. عندما لا يمكن العثور على تخطيط مناسب، وإذا تم تعيين المعامل المنطقي `allowCloneMissingLayout` في طريقة `AddClone` إلى `true`، يُستخدم التخطيط من الشريحة المصدر. وإلا، يُرمى استثناء [PptxEditException](https://reference.aspose.com/slides/java/com.aspose.slides/pptxeditexception/).
+يتم تحديد تخطيط الشريحة تلقائيًا. عندما لا يمكن العثور على تخطيط مناسب، وإذا تم تعيين المعامل `allowCloneMissingLayout` في طريقة `AddClone` إلى `true`، يُستخدم التخطيط من الشريحة المصدر. وإلا، يتم إلقاء استثناء [PptxEditException](https://reference.aspose.com/slides/ar/java/com.aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
-## **دمج شرائح محددة من العروض التقديمية**
+## **دمج شرائح محددة من العروض**
 
-يعد دمج شرائح محددة من عدة عروض مفيدًا لإنشاء مجموعات شرائح مخصصة. يتيح Aspose.Slides for Java اختيار واستيراد الشرائح التي تحتاجها فقط. يحافظ API على تنسيق وتخطيط وتصميم الشرائح الأصلية.
+يُعد دمج شرائح محددة من عدة عروض مفيدًا لإنشاء مجموعة شرائح مخصصة. يتيح لك Aspose.Slides for Java اختيار واستيراد الشرائح التي تحتاجها فقط. يحافظ API على التنسيق، التخطيط، وتصميم الشرائح الأصلية.
 
-الكود التالي Java ينشئ عرضًا تقديميًا جديدًا، يضيف شرائح عنوان من عرضين آخرين، ويحفظ النتيجة في ملف:
+تظهر الشفرة التالية بلغة Java إنشاء عرض جديد، إضافة شرائح عنوان من عرضين آخرين، وحفظ النتيجة في ملف:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 Presentation presentation1 = new Presentation("presentation1.pptx");
 Presentation presentation2 = new Presentation("presentation2.pptx");
@@ -129,8 +135,9 @@ try {
     presentation.dispose();
 }
 ```
-
 ```java
+import com.aspose.slides.*;
+
 static ISlide getTitleSlide(IPresentation presentation) {
     for (ISlide slide : presentation.getSlides()) {
         if (slide.getLayoutSlide().getLayoutType() == SlideLayoutType.Title) {
@@ -141,20 +148,22 @@ static ISlide getTitleSlide(IPresentation presentation) {
 }
 ```
 
+## **دمج العروض مع تخطيط شريحة**
 
-## **دمج العروض التقديمية مع تخطيط شريحة**
+لتطبيق تخطيط شريحة مختلف على الشرائح الناتجة أثناء الدمج، استخدم طريقة [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) بدلاً من ذلك.
 
-لتطبيق تخطيط شريحة مختلف على الشرائح الناتجة أثناء الدمج، استخدم طريقة [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) بدلاً من ذلك.
+تُظهر الشفرة التالية بلغة Java كيفية دمج الشرائح من عروض متعددة مع تطبيق التخطيط المفضل لديك، مما ينتج عرضًا تقديميًا واحدًا:
 
-الكود التالي Java يوضح كيفية دمج الشرائح من عدة عروض مع تطبيق تخطيط شريحة مفضل لديك، لينتج عرضًا تقديميًا واحدًا:
 ```java
+import com.aspose.slides.*;
+
 int layoutIndex = 0;
 
 Presentation presentation1 = new Presentation("presentation1.pptx");
 Presentation presentation2 = new Presentation("presentation2.pptx");
 try {
     for (ISlide slide : presentation2.getSlides()) {
-        ILayoutSlide layoutSlide = presentation2.getLayoutSlides().get_Item(layoutIndex);
+        ILayoutSlide layoutSlide = presentation1.getLayoutSlides().get_Item(layoutIndex);
         presentation1.getSlides().addClone(slide, layoutSlide);
     }
     presentation1.save("combined.pptx", SaveFormat.Pptx);
@@ -164,13 +173,16 @@ try {
 }
 ```
 
+## **دمج العروض بأحجام شرائح مختلفة**
 
-## **دمج العروض التقديمية بأحجام شرائح مختلفة**
+لدمج عرضين بأحجام شرائح مختلفة، يجب تعديل حجم أحدهما لتطابق حجم الشرائح في العرض الآخر.
 
-لدمج عرضين بحجم شريحة مختلف، يجب تعديل أحدهما ليتطابق مع حجم شريحة العرض الآخر.
+تُظهر الشفرة التالية بلغة Java هذا الإجراء:
 
-الكود التالي Java يوضح هذه العملية:
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
 Presentation presentation1 = new Presentation("presentation1.pptx");
 Presentation presentation2 = new Presentation("presentation2.pptx");
 try {
@@ -190,13 +202,15 @@ try {
 }
 ```
 
+## **دمج الشرائح إلى قسم من العرض**
 
-## **دمج الشرائح إلى قسم في العرض التقديمي**
+يساعد دمج الشرائح في قسم معين من العرض على تنظيم المحتوى وتحسين تنقل الشرائح. تسمح لك Aspose.Slides بدمج الشرائح إلى الأقسام الموجودة. يضمن ذلك هيكلًا واضحًا مع الحفاظ على تنسيق كل شريحة أصلي.
 
-يساعد دمج الشرائح في قسم محدد من العرض على تنظيم المحتوى وتحسين تنقل الشرائح. يسمح Aspose.Slides بدمج الشرائح إلى أقسام موجودة، مما يضمن بنية واضحة مع الحفاظ على تنسيق كل شريحة أصلي.
+تُظهر الشفرة التالية بلغة Java كيفية دمج شريحة محددة في قسم من العرض:
 
-الكود التالي Java يوضح كيفية دمج شريحة محددة إلى قسم في عرض تقديمي:
 ```java
+import com.aspose.slides.*;
+
 int sectionIndex = 0;
 
 Presentation presentation1 = new Presentation("presentation1.pptx");
@@ -213,33 +227,32 @@ try {
 }
 ```
 
-
-تُضاف الشريحة إلى نهاية القسم.
+يُضاف الشريحة إلى نهاية القسم.
 
 ## **انظر أيضًا**
 
-توفر Aspose أداة **صانع كولاج مجاني عبر الإنترنت**(https://products.aspose.app/slides/collage). باستخدام هذه الخدمة على الإنترنت، يمكنك دمج [JPG إلى JPG](https://products.aspose.app/slides/collage/jpg) أو PNG إلى PNG، وإنشاء [شبكات صور](https://products.aspose.app/slides/collage/photo-grid)، وأكثر.
+توفر Aspose أداة [صانعة كولاج مجانية عبر الإنترنت](https://products.aspose.app/slides/ar/collage). باستخدام هذه الخدمة عبر الإنترنت، يمكنك دمج [JPG إلى JPG](https://products.aspose.app/slides/ar/collage/jpg) أو PNG إلى PNG، إنشاء [شبكات صور](https://products.aspose.app/slides/ar/collage/photo-grid)، وأكثر.
 
-جرب **أداة الدمج المجانية عبر الإنترنت**(https://products.aspose.app/slides/merger). تتيح لك دمج عروض PowerPoint بنفس التنسيق (مثل PPT إلى PPT، PPTX إلى PPTX) أو عبر تنسيقات مختلفة (مثل PPT إلى PPTX، PPTX إلى ODP).
+جرب [أداة دمج مجانية عبر الإنترنت من Aspose](https://products.aspose.app/slides/ar/merger). تتيح لك دمج عروض PowerPoint بنفس الصيغة (مثل PPT إلى PPT، PPTX إلى PPTX) أو عبر صيغ مختلفة (مثل PPT إلى PPTX، PPTX إلى ODP).
 
-[![Aspose أداة دمج مجانية عبر الإنترنت](slides-merger.png)](https://products.aspose.app/slides/merger)
+[![Aspose دمج مجاني عبر الإنترنت](slides-merger.png)](https://products.aspose.app/slides/ar/merger)
 
-إلى جانب العروض التقديمية، يتيح Aspose.Slides دمج ملفات أخرى:
+بالإضافة إلى العروض، تسمح Aspose.Slides بدمج ملفات أخرى:
 
-- [**الصور**](https://products.aspose.com/slides/java/merger/image-to-image/)، مثل [JPG إلى JPG](https://products.aspose.com/slides/java/merger/jpg-to-jpg/) أو [PNG إلى PNG](https://products.aspose.com/slides/java/merger/png-to-png/)
-- **المستندات**، مثل [PDF إلى PDF](https://products.aspose.com/slides/java/merger/pdf-to-pdf/) أو [HTML إلى HTML](https://products.aspose.com/slides/java/merger/html-to-html/)
-- **أنواع ملفات مختلطة**، مثل [صورة إلى PDF](https://products.aspose.com/slides/java/merger/image-to-pdf/)، [JPG إلى PDF](https://products.aspose.com/slides/java/merger/jpg-to-pdf/)، أو [TIFF إلى PDF](https://products.aspose.com/slides/java/merger/tiff-to-pdf/)
+- [**صور**](https://products.aspose.com/slides/ar/java/merger/image-to-image/)، مثل [JPG إلى JPG](https://products.aspose.com/slides/ar/java/merger/jpg-to-jpg/) أو [PNG إلى PNG](https://products.aspose.com/slides/ar/java/merger/png-to-png/)
+- **مستندات**، مثل [PDF إلى PDF](https://products.aspose.com/slides/ar/java/merger/pdf-to-pdf/) أو [HTML إلى HTML](https://products.aspose.com/slides/ar/java/merger/html-to-html/)
+- **أنواع ملفات مختلطة**، مثل [صورة إلى PDF](https://products.aspose.com/slides/ar/java/merger/image-to-pdf/)، [JPG إلى PDF](https://products.aspose.com/slides/ar/java/merger/jpg-to-pdf/)، أو [TIFF إلى PDF](https://products.aspose.com/slides/ar/java/merger/tiff-to-pdf/)
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**هل هناك أي حدود لعدد الشرائح عند دمج العروض التقديمية؟**
+### هل هناك أي حدود على عدد الشرائح عند دمج العروض؟
 
-ليس هناك حدود صارمة. يمكن لـ Aspose.Slides التعامل مع ملفات كبيرة، لكن الأداء يعتمد على حجم الملف وموارد النظام. بالنسبة للعروض الكبيرة جدًا، يُنصح باستخدام JVM بنسخة 64‑bit وتخصيص ذاكرة كافية.
+لا توجد حدود صارمة. يمكن لـ Aspose.Slides معالجة ملفات كبيرة، لكن الأداء يعتمد على حجم الملف وموارد النظام. بالنسبة للعروض الكبيرة جدًا، يُنصح باستخدام JVM 64‑bit وتخصيص ذاكرة heap كافية.
 
-**هل يمكنني دمج عروض تحتوي على فيديو أو صوت مدمج؟**
+### هل يمكنني دمج عروض تحتوي على فيديو أو صوت مدمج؟
 
-نعم، يحافظ Aspose.Slides على المحتوى متعدد الوسائط المدمج في الشرائح، لكن قد يصبح حجم العرض النهائي أكبر بكثير.
+نعم، يحافظ Aspose.Slides على المحتوى المتعدد الوسائط المدمج في الشرائح، لكن قد يصبح حجم العرض النهائي أكبر بشكل ملحوظ.
 
-**هل يتم الحفاظ على الخطوط عند دمج العروض؟**
+### هل سيتم الحفاظ على الخطوط عند دمج العروض؟
 
-نعم. تُحافظ الخطوط المستخدمة في العروض المصدر في الملف الناتج، شريطة أن تكون مثبتة على النظام أو [مضمنة](/slides/ar/java/embedded-font/).
+نعم. يتم الحفاظ على الخطوط المستخدمة في العروض المصدر في الملف الناتج، بشرط أن تكون مثبتة على النظام أو [مُضمَّنة](/slides/ar/java/embedded-font/).

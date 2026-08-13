@@ -1,6 +1,6 @@
 ---
-title: Hantera presentationsteman i .NET
-linktitle: Presentationstema
+title: Hantera presentations-teman i .NET
+linktitle: Presentations-tema
 type: docs
 weight: 10
 url: /sv/net/presentation-theme/
@@ -13,7 +13,7 @@ keywords:
 - hantera tema
 - temafärg
 - extra palett
-- tematypsnitt
+- temateckensnitt
 - temastil
 - temaeffekt
 - PowerPoint
@@ -22,21 +22,25 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Hantera huvudpresentationsteman i Aspose.Slides för .NET för att skapa, anpassa och konvertera PowerPoint-filer med konsekvent varumärkesidentitet."
+description: "Behärska presentations-teman i Aspose.Slides för .NET för att skapa, anpassa och konvertera PowerPoint-filer med konsekvent varumärkesprofil."
 ---
 ## **Introduktion**
 
-Ett presentationstema definierar egenskaperna för designelement. När du väljer ett presentationstema väljer du i princip en specifik uppsättning visuella element och deras egenskaper.
+Ett presentations‑tema definierar egenskaperna för designelement. När du väljer ett presentations‑tema väljer du i praktiken en specifik uppsättning visuella element och deras egenskaper.
 
-I PowerPoint består ett tema av färger, [typsnitt](/slides/sv/net/powerpoint-fonts/), [bakgrundsstilar](/slides/sv/net/presentation-background/), och effekter.
+I PowerPoint består ett tema av färger, [teckensnitt](/slides/sv/net/powerpoint-fonts/), [bakgrundsstilar](/slides/sv/net/presentation-background/) och effekter.
 
 ![theme-constituents](theme-constituents.png)
 
 ## **Ändra temafärg**
 
-Ett PowerPoint-tema använder en specifik uppsättning färger för olika element på en bild. Om du inte gillar färgerna kan du ändra dem genom att tillämpa nya färger för temat. För att låta dig välja en ny temafärg tillhandahåller Aspose.Slides värden under [SchemeColor](https://reference.aspose.com/slides/sv/net/aspose.slides/schemecolor/)‑uppräkningen.
+Ett PowerPoint‑tema använder en specifik uppsättning färger för olika element på en bild. Om du inte gillar färgerna ändrar du dem genom att tillämpa nya färger för temat. För att låta dig välja en ny temafärg erbjuder Aspose.Slides värden under uppräkningen [SchemeColor](https://reference.aspose.com/slides/sv/net/aspose.slides/schemecolor/).
+
+Den här C#‑koden visar hur du ändrar accentfärgen för ett tema:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation())
     
 {
@@ -48,39 +52,61 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-Du kan bestämma den resulterande färgens effektiva värde på detta sätt:
+Du kan bestämma den resulterande färgens effektiva värde på följande sätt:
 
 ```c#
-var fillEffective = shape.FillFormat.GetEffective();
+using Aspose.Slides;
 
-Console.WriteLine($"{fillEffective.SolidFillColor.Name} ({fillEffective.SolidFillColor})"); // ff8064a2 (Color [A=255, R=128, G=100, B=162])
+using (Presentation pres = new Presentation())
+{
+    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+
+    shape.FillFormat.FillType = FillType.Solid;
+
+    shape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+
+    var fillEffective = shape.FillFormat.GetEffective();
+
+    Console.WriteLine($"{fillEffective.SolidFillColor.Name} ({fillEffective.SolidFillColor})"); // ff8064a2 (Färg [A=255, R=128, G=100, B=162])
+}
 ```
 
-För att ytterligare demonstrera färgändringsoperationen skapar vi ett annat element och tilldelar accentfärgen (från den initiala operationen) till det. Sedan ändrar vi färgen i temat:
+För att ytterligare demonstrera färgändringsoperationen skapar vi ett annat element och tilldelar accentfärgen (från den ursprungliga operationen) till det. Sedan ändrar vi färgen i temat:
 
 ```c#
-IAutoShape otherShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
+using System.Drawing;
+using Aspose.Slides;
 
-otherShape.FillFormat.FillType = FillType.Solid;
+using (Presentation pres = new Presentation())
+{
+    IAutoShape otherShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
 
-otherShape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+    otherShape.FillFormat.FillType = FillType.Solid;
 
-pres.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
+    otherShape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+
+    pres.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
+}
 ```
 
 Den nya färgen tillämpas automatiskt på båda elementen.
 
-### **Ange temafärg från en extra palett**
+### **Ställ in temafärg från ett extra färgpalett**
 
-När du applicerar luminansomvandlingar på huvudtemafärgen(1) bildas färger från den extra paletten(2). Du kan sedan sätta och hämta dessa temafärger. 
+När du tillämpar luminans‑transformeringar på huvudtemafärgen(1) bildas färger från den extra paletten(2). Du kan sedan ställa in och hämta dessa temafärger.
 
 ![additional-palette-colors](additional-palette-colors.png)
 
-**1** - Huvudtemafärger
+**1** - Huvudtemafärger  
 
 **2** - Färger från den extra paletten.
 
+Den här C#‑koden demonstrerar en operation där färger från den extra paletten hämtas från huvudtemafärgen och sedan används i former:
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -133,17 +159,17 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **Mappa `SchemeColor` till `IColorScheme`-färger**
+### **Mappa `SchemeColor` till `IColorScheme`‑färger**
 
-När du arbetar med [SchemeColor](https://reference.aspose.com/slides/sv/net/aspose.slides/schemecolor/), kan du märka att den innehåller följande temafärgvärden:
+När du arbetar med [SchemeColor](https://reference.aspose.com/slides/sv/net/aspose.slides/schemecolor/) kan du märka att den innehåller följande temafärgvärden:
 
-`Background1`, `Background2`, `Text1`, and `Text2`.
+`Background1`, `Background2`, `Text1` och `Text2`.
 
-Dock returnerar `Presentation.MasterTheme.ColorScheme` [IColorScheme](https://reference.aspose.com/slides/sv/net/aspose.slides.theme/icolorscheme/), som exponerar motsvarande färger som:
+Dock returnerar `Presentation.MasterTheme.ColorScheme` ett [IColorScheme](https://reference.aspose.com/slides/sv/net/aspose.slides.theme/icolorscheme/) som exponerar motsvarande färger som:
 
-`Dark1`, `Dark2`, `Light1`, and `Light2`.
+`Dark1`, `Dark2`, `Light1` och `Light2`.
 
-Denna skillnad är bara i namn. Dessa värden hänvisar till samma temafärgsplatser och mappningen är fast:
+Denna skillnad är bara i namn. Dessa värden hänvisar till samma temafärg‑platser och mappningen är fast:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
@@ -154,48 +180,66 @@ Det finns ingen dynamisk konvertering mellan `Text`/`Background` och `Dark`/`Lig
 
 Denna namnskillnad kommer från Microsoft Office‑terminologi. Äldre Office‑versioner använde `Dark 1`, `Light 1`, `Dark 2` och `Light 2`, medan nyare UI‑versioner visar samma platser som `Text 1`, `Background 1`, `Text 2` och `Background 2`.
 
-## **Ändra tematypsnitt**
+## **Ändra temafont**
 
-För att låta dig välja typsnitt för teman och andra ändamål använder Aspose.Slides dessa speciella identifierare (liknande de som används i PowerPoint):
+För att låta dig välja teckensnitt för teman och andra ändamål använder Aspose.Slides dessa specialidentifierare (liknande de som används i PowerPoint):
 
-* **+mn-lt** – Kroppstypsnitt Latin (Minor Latin Font)
-* **+mj-lt** – Rubriktypsnitt Latin (Major Latin Font)
-* **+mn-ea** – Kroppstypsnitt Östasiatiskt (Minor East Asian Font)
-* **+mj-ea** – Kroppstypsnitt Östasiatiskt (Minor East Asian Font)
+* **+mn-lt** – Body Font Latin (Minor Latin Font)
+* **+mj-lt** – Heading Font Latin (Major Latin Font)
+* **+mn-ea** – Body Font East Asian (Minor East Asian Font)
+* **+mj-ea** – Body Font East Asian (Minor East Asian Font)
 
-```c#
-IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
-
-Paragraph paragraph = new Paragraph();
-
-Portion portion = new Portion("Theme text format");
-
-paragraph.Portions.Add(portion);
-
-shape.TextFrame.Paragraphs.Add(paragraph);
-
-portion.PortionFormat.LatinFont = new FontData("+mn-lt");
-```
+Den här C#‑koden visar hur du tilldelar det latinska teckensnittet till ett temaelement:
 
 ```c#
-pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
+using Aspose.Slides;
+
+using (Presentation pres = new Presentation())
+{
+    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+
+    Paragraph paragraph = new Paragraph();
+
+    Portion portion = new Portion("Theme text format");
+
+    paragraph.Portions.Add(portion);
+
+    shape.TextFrame.Paragraphs.Add(paragraph);
+
+    portion.PortionFormat.LatinFont = new FontData("+mn-lt");
+}
 ```
 
-Typsnittet i alla textrutor kommer att uppdateras.
+Den här C#‑koden visar hur du ändrar presentations‑temats teckensnitt:
 
-{{% alert color="primary" title="TIPS" %}} 
-Du kanske vill se [PowerPoint-typsnitt](/slides/sv/net/powerpoint-fonts/).
+```c#
+using Aspose.Slides;
+
+using (Presentation pres = new Presentation())
+{
+    pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
+}
+```
+
+Teckensnittet i alla textrutor uppdateras.
+
+{{% alert color="info" title="TIP" %}} 
+
+Du kanske vill titta på [PowerPoint-teckensnitt](/slides/sv/net/powerpoint-fonts/).
+
 {{% /alert %}}
 
 ## **Ändra temats bakgrundsstil**
 
-Som standard erbjuder PowerPoint‑appen 12 fördefinierade bakgrunder men endast 3 av dessa 12 bakgrunder sparas i en vanlig presentation. 
+Som standard erbjuder PowerPoint‑appen 12 fördefinierade bakgrunder men bara 3 av dessa 12 sparas i en typisk presentation.
 
 ![todo:image_alt_text](presentation-design_8.png)
 
-Till exempel, efter att du har sparat en presentation i PowerPoint‑appen kan du köra detta C#‑kod för att ta reda på antalet fördefinierade bakgrunder i presentationen:
+Till exempel, efter att du sparat en presentation i PowerPoint‑appen, kan du köra den här C#‑koden för att ta reda på hur många fördefinierade bakgrunder som finns i presentationen:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 
 {
@@ -206,28 +250,45 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 {{% alert color="warning" %}} 
+
 Genom att använda egenskapen [BackgroundFillStyles](https://reference.aspose.com/slides/sv/net/aspose.slides.theme/formatscheme/backgroundfillstyles/) från klassen [FormatScheme](https://reference.aspose.com/slides/sv/net/aspose.slides.theme/formatscheme/) kan du lägga till eller komma åt bakgrundsstilen i ett PowerPoint‑tema. 
+
 {{% /alert %}}
 
+Den här C#‑koden visar hur du anger bakgrunden för en presentation:
+
 ```c#
-pres.Masters[0].Background.StyleIndex = 2;
+using Aspose.Slides;
+
+using (Presentation pres = new Presentation("pres.pptx"))
+{
+    pres.Masters[0].Background.StyleIndex = 2;
+}
 ```
 
-**Indexguide**: 0 används för ingen fyllning. Indexet börjar på 1.
+**Indexguide**: 0 betyder ingen fyllning. Indexet börjar på 1.
 
-{{% alert color="primary" title="TIPS" %}} 
-Du kanske vill se [PowerPoint‑bakgrund](/slides/sv/net/presentation-background/).
+{{% alert color="info" title="TIP" %}} 
+
+Du kanske vill titta på [PowerPoint‑bakgrund](/slides/sv/net/presentation-background/).
+
 {{% /alert %}}
 
 ## **Ändra temaeffekt**
 
-Ett PowerPoint‑tema innehåller vanligtvis 3 värden för varje stilarray. Dessa arrayer kombineras till dessa 3 effekter: subtil, måttlig och intensiv. Till exempel, så här blir resultatet när effekterna appliceras på en specifik form:
+Ett PowerPoint‑tema innehåller vanligtvis 3 värden för varje stil‑array. Dessa arrayer kombineras till dessa 3 effekter: subtil, måttlig och intensiv. Till exempel är detta resultatet när effekterna tillämpas på en specifik form:
 
 ![todo:image_alt_text](presentation-design_10.png)
 
 Genom att använda 3 egenskaper ([FillStyles](https://reference.aspose.com/slides/sv/net/aspose.slides.theme/formatscheme/fillstyles), [LineStyles](https://reference.aspose.com/slides/sv/net/aspose.slides.theme/formatscheme/linestyles), [EffectStyles](https://reference.aspose.com/slides/sv/net/aspose.slides.theme/formatscheme/effectstyles)) från klassen [FormatScheme](https://reference.aspose.com/slides/sv/net/aspose.slides.theme/formatscheme) kan du ändra elementen i ett tema (ännu mer flexibelt än alternativen i PowerPoint).
 
+Den här C#‑koden visar hur du ändrar en temaeffekt genom att ändra delar av element:
+
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx"))
 {
     pres.MasterTheme.FormatScheme.LineStyles[0].FillFormat.SolidFillColor.Color = Color.Red;
@@ -242,20 +303,20 @@ using (Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx"))
 }
 ```
 
-De resulterande förändringarna i fyllningsfärg, fyllningstyp, skuggeffekt, etc:
+De resulterande förändringarna i fyllningsfärg, fyllningstyp, skuggeffekt osv.:
 
 ![todo:image_alt_text](presentation-design_11.png)
 
 ## **FAQ**
 
-**Kan jag applicera ett tema på en enda bild utan att ändra master?**
+### Kan jag tillämpa ett tema på en enskild bild utan att ändra master?
 
-Ja. Aspose.Slides stödjer temaunderskott på bildnivå, så du kan applicera ett lokalt tema på just den bilden medan master‑temat förblir intakt (via [SlideThemeManager](https://reference.aspose.com/slides/sv/net/aspose.slides.theme/slidethememanager/)).
+Ja. Aspose.Slides stöder bild‑nivå tema‑överskrivningar, så du kan tillämpa ett lokalt tema på just den bilden samtidigt som master‑temat förblir oförändrat (via [SlideThemeManager](https://reference.aspose.com/slides/sv/net/aspose.slides.theme/slidethememanager/)).
 
-**Vad är det säkraste sättet att föra ett tema från en presentation till en annan?**
+### Vad är det säkraste sättet att föra över ett tema från en presentation till en annan?
 
-[Klona bilder](/slides/sv/net/clone-slides/) tillsammans med deras master till mål‑presentationen. Detta bevarar original‑master, layouter och det associerade temat så att utseendet förblir konsekvent.
+[Klon‑bilder](/slides/sv/net/clone-slides/) tillsammans med deras master till mål‑presentationen. Detta bevarar den ursprungliga mastern, layouterna och det associerade temat så att utseendet förblir konsekvent.
 
-**Hur kan jag se de "effektiva" värdena efter all arv och överskrivning?**
+### Hur kan jag se de ”effektiva” värdena efter all arv och överskrivning?
 
-Använd API:ets ["effektiva"](/slides/sv/net/shape-effective-properties/) vyer för tema/färg/typsnitt/effekt. Dessa returnerar de lösta, slutgiltiga egenskaperna efter att ha applicerat både master och eventuella lokala överskrivningar.
+Använd API:ets ["effektiva"](/slides/sv/net/shape-effective-properties/) visningar för tema/färg/font/effekt. Dessa returnerar de lösta, slutgiltiga egenskaperna efter att ha tillämpat mastern samt eventuella lokala överskrivningar.

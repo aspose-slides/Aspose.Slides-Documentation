@@ -1,5 +1,5 @@
 ---
-title: Verwalten von Aufzählungs‑ und Nummerierungslisten in Präsentationen in Java
+title: Verwalten von Aufzählungs- und nummerierten Listen in Präsentationen in Java
 linktitle: Listen verwalten
 type: docs
 weight: 60
@@ -8,10 +8,10 @@ keywords:
 - Aufzählungszeichen
 - Aufzählungsliste
 - nummerierte Liste
-- Symbol‑Aufzählungszeichen
-- Bild‑Aufzählungszeichen
-- benutzerdefiniertes Aufzählungszeichen
-- mehrstufige Liste
+- Symbol-Aufzählungszeichen
+- Bild-Aufzählungszeichen
+- Benutzerdefiniertes Aufzählungszeichen
+- Mehrstufige Liste
 - Aufzählungszeichen erstellen
 - Aufzählungszeichen hinzufügen
 - Liste hinzufügen
@@ -20,27 +20,32 @@ keywords:
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Aufzählungs‑, Bild‑, mehrstufige und nummerierte Listen in PowerPoint‑ und OpenDocument‑Präsentationen mit Aspose.Slides für Java erstellen und formatieren."
+description: "Erfahren Sie, wie Sie Aufzählungs-, Bild-, mehrstufige und nummerierte Listen in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für Java erstellen und formatieren."
 ---
 ## **Übersicht**
 
-Aspose.Slides für Java ermöglicht das Erstellen und Formatieren von Aufzählungs‑ und Nummerierungslisten in PowerPoint‑ und OpenDocument‑Präsentationen. Ein Listenelement ist ein Absatz, dessen Aufzählungseinstellungen über das Absatzformat gesteuert werden.
+Aspose.Slides for Java ermöglicht das Erstellen und Formatieren von Aufzählungs‑ und Nummerierungslisten in PowerPoint‑ und OpenDocument‑Präsentationen. Ein Listeneintrag ist ein Absatz, dessen Aufzählungseinstellungen über das Absatzformat gesteuert werden.
 
-Verwenden Sie die [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraph/#getParagraphFormat--)‑Methode, um auf listenbezogene Absatz‑Einstellungen zuzugreifen. Der zentrale Einstiegspunkt ist [IParagraphFormat.getBullet](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#getBullet--), der ein [IBulletFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibulletformat/)‑Objekt zurückgibt. Mit diesem Objekt können Sie den Aufzählungstyp, das Symbol, das Bild, die Farbe, die Größe, den Nummerierungsstil und die Startnummer festlegen.
+Verwenden Sie die [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides.iparagraph/#getParagraphFormat--)‑Methode, um auf listenbezogene Einstellungen auf Absatzebene zuzugreifen. Der zentrale Einstiegspunkt ist [IParagraphFormat.getBullet](https://reference.aspose.com/slides/de/java/com.aspose.slides.iparagraphformat/#getBullet--), der ein [IBulletFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides.ibulletformat/)‑Objekt zurückgibt. Mit diesem Objekt können Sie Aufzählungstyp, Symbol, Bild, Farbe, Größe, Nummerierungsstil und Startnummer festlegen.
 
 Dieser Artikel zeigt, wie man:
 
 - eine Aufzählungsliste mit einem benutzerdefinierten Symbol erstellt
-- einen Bildbullet erstellt
-- eine mehrstufige Liste erstellt, indem die Absatztiefe festgelegt wird
+- eine Bild‑Aufzählung erstellt
+- eine mehrstufige Liste erstellt, indem die Absatz‑Tiefe gesetzt wird
 - eine nummerierte Liste erstellt
-- die Listformatierung in einer vorhandenen Präsentation überprüft und ändert
+- die Listformatierung in einer bestehenden Präsentation inspiziert und ändert
 
-## **Aufzählungsliste erstellen**
+## **Eine Aufzählungsliste erstellen**
 
-Um eine Aufzählungsliste zu erstellen, fügen Sie [IParagraph](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraph/)‑Objekte zu einem [ITextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextframe/) hinzu und setzen Sie [IBulletFormat.setType](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibulletformat/#setType-byte-) auf [BulletType.Symbol](https://reference.aspose.com/slides/de/java/com.aspose.slides/bullettype/#Symbol). Anschließend können Sie [IBulletFormat.setChar](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibulletformat/#setChar-char-), [IBulletFormat.getColor](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibulletformat/#getColor--) und [IBulletFormat.setHeight](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibulletformat/#setHeight-float-) festlegen, um das Erscheinungsbild der Aufzählungszeichen zu steuern.
+Um eine Aufzählungsliste zu erstellen, fügen Sie [IParagraph](https://reference.aspose.com/slides/de/java/com.aspose.slides.iparagraph/)‑Objekte zu einem [ITextFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides.itextframe/) hinzu und setzen Sie [IBulletFormat.setType](https://reference.aspose.com/slides/de/java/com.aspose.slides.ibulletformat/#setType-byte-) auf [BulletType.Symbol](https://reference.aspose.com/slides/de/java/com.aspose.slides.bullettype/#Symbol). Anschließend können Sie [IBulletFormat.setChar](https://reference.aspose.com/slides/de/java/com.aspose.slides.ibulletformat/#setChar-char-), [IBulletFormat.getColor](https://reference.aspose.com/slides/de/java/com.aspose.slides.ibulletformat/#getColor--) und [IBulletFormat.setHeight](https://reference.aspose.com/slides/de/java/com.aspose.slides.ibulletformat/#setHeight-float-) setzen, um das Aussehen der Aufzählungszeichen zu steuern.
+
+Der folgende Java‑Code demonstriert, wie man in einer Folie eine Aufzählungsliste erstellt:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -79,15 +84,17 @@ try {
 
 Das Ergebnis:
 
-![Die Symbolaufzählungen](symbol_bullets.png)
+![The symbol bullets](symbol_bullets.png)
 
-## **Nummerierte Liste erstellen**
+## **Eine nummerierte Liste erstellen**
 
-Verwenden Sie nummerierte Listen, wenn die Reihenfolge der Elemente wichtig ist. Setzen Sie [IBulletFormat.setType](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibulletformat/#setType-byte-) auf [BulletType.Numbered](https://reference.aspose.com/slides/de/java/com.aspose.slides/bullettype/#Numbered). Sie können außerdem ein Nummerierungsformat mit [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) auswählen oder [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) festlegen, wenn die Liste mit einem anderen Wert als 1 beginnen soll.
+Verwenden Sie nummerierte Listen, wenn die Reihenfolge der Elemente wichtig ist. Setzen Sie [IBulletFormat.setType](https://reference.aspose.com/slides/de/java/com.aspose.slides.ibulletformat/#setType-byte-) auf [BulletType.Numbered](https://reference.aspose.com/slides/de/java/com.aspose.slides.bullettype/#Numbered). Sie können außerdem ein Nummerierungsformat mit [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/de/java/com.aspose.slides.ibulletformat/#setNumberedBulletStyle-byte-) auswählen oder [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/de/java/com.aspose.slides.ibulletformat/#setNumberedBulletStartWith-short-) setzen, wenn die Liste bei einem anderen Wert als 1 beginnen soll.
 
-Der folgende Java‑Code zeigt, wie man eine nummerierte Liste in einer Folie erstellt:
+Der folgende Java‑Code zeigt, wie man in einer Folie eine nummerierte Liste erstellt:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -119,27 +126,27 @@ try {
 
 Das Ergebnis:
 
-![Die nummerierten Aufzählungen](numbered_bullets.png)
+![The numbered bullets](numbered_bullets.png)
 
-## **Bildbullet erstellen**
+## **Ein Bild‑Aufzählungszeichen erstellen**
 
-Aspose.Slides ermöglicht es, ein reguläres Aufzählungszeichen durch ein Bild zu ersetzen. Bildbullets funktionieren am besten mit einfachen Grafiken, die in kleiner Größe lesbar bleiben, z. B. Icons oder kleine transparente PNG‑Dateien.
+Aspose.Slides ermöglicht es, ein reguläres Aufzählungszeichen durch ein Bild zu ersetzen. Bild‑Aufzählungszeichen funktionieren am besten mit einfachen Bildern, die auch in kleiner Größe lesbar bleiben, z. B. Icons oder kleine transparente PNG‑Dateien.
 
-{{% alert color="primary" %}}
-Ideal ist es, wenn Sie das reguläre Aufzählungszeichen durch ein Bild ersetzen möchten, ein einfaches Bild mit transparentem Hintergrund zu wählen. Solche Bilder eignen sich gut als benutzerdefinierte Aufzählungssymbole.
-
-Beachten Sie, dass das Bild auf eine sehr kleine Größe herunter skaliert wird. Deshalb empfehlen wir dringend, ein Bild auszuwählen, das auch in kleiner Größe klar und visuell wirksam bleibt, wenn es als Aufzählungszeichen in einer Liste verwendet wird.
+{{% alert color="info" %}}
+Idealerweise wählen Sie, wenn Sie das reguläre Aufzählungszeichen durch ein Bild ersetzen möchten, eine einfache Grafik mit transparentem Hintergrund. Solche Bilder eignen sich gut als benutzerdefinierte Aufzählungszeichen.
 {{% /alert %}}
 
-Um einen Bildbullet zu erstellen, fügen Sie ein Bild zu [Presentation.getImages](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/#getImages--) hinzu und weisen Sie das zurückgegebene Bildobjekt [IBulletFormat.getPicture](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibulletformat/#getPicture--) zu. Setzen Sie [IBulletFormat.setType](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibulletformat/#setType-byte-) auf [BulletType.Picture](https://reference.aspose.com/slides/de/java/com.aspose.slides/bullettype/#Picture), bevor Sie das Bild zuweisen.
+Um ein Bild‑Aufzählungszeichen zu erstellen, fügen Sie ein Bild zu [Presentation.getImages](https://reference.aspose.com/slides/de/java/com.aspose.slides.presentation/#getImages--) hinzu und weisen Sie das zurückgegebene Bildobjekt [IBulletFormat.getPicture](https://reference.aspose.com/slides/de/java/com.aspose.slides.ibulletformat/#getPicture--) zu. Setzen Sie [IBulletFormat.setType](https://reference.aspose.com/slides/de/java/com.aspose.slides.ibulletformat/#setType-byte-) auf [BulletType.Picture](https://reference.aspose.com/slides/de/java/com.aspose.slides.bullettype/#Picture), bevor Sie das Bild zuweisen.
 
-Angenommen, wir haben eine "image.png":
+Angenommen, wir haben eine „image.png“:
 
-![Ein Bild für die Aufzählungen](picture_for_bullets.png)
+![A picture for the bullets](picture_for_bullets.png)
 
-Der folgende Java‑Code zeigt, wie man Bildbullets in einer Folie erstellt:
+Der folgende Java‑Code zeigt, wie man Bild‑Aufzählungszeichen in einer Folie erstellt:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -174,15 +181,17 @@ try {
 
 Das Ergebnis:
 
-![Die Bildaufzählungen](picture_bullets.png)
+![The picture bullets](picture_bullets.png)
 
-## **Mehrstufige Liste erstellen**
+## **Eine mehrstufige Liste erstellen**
 
-Verwenden Sie [IParagraphFormat.setDepth](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#setDepth-short-), um Listenelemente auf unterschiedlichen Ebenen zu platzieren. Ebene 0 ist die oberste Ebene, Ebene 1 ist darunter verschachtelt usw.
+Verwenden Sie [IParagraphFormat.setDepth](https://reference.aspose.com/slides/de/java/com.aspose.slides.iparagraphformat/#setDepth-short-), um Listenelemente auf verschiedenen Ebenen zu platzieren. Ebene 0 ist die oberste Ebene, Ebene 1 ist darunter verschachtelt usw.
 
 Der folgende Java‑Code zeigt, wie man eine mehrstufige Aufzählungsliste erstellt:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -219,13 +228,17 @@ try {
 
 Das Ergebnis:
 
-![Die mehrstufige Liste](multilevel_list.png)
+![The multilevel list](multilevel_list.png)
 
-## **Vorhandene Liste ändern**
+## **Eine vorhandene Liste ändern**
 
-Um die Listformatierung in einer vorhandenen Präsentation zu ändern, greifen Sie auf den Zielabsatz zu und aktualisieren dessen [IParagraphFormat.getBullet](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#getBullet--)‑Einstellungen. Die gleichen Eigenschaften, die zum Erstellen von Listen verwendet werden, können auch zum Überprüfen oder Ändern von Listen verwendet werden, die aus einer PPT‑, PPTX‑ oder ODP‑Datei geladen wurden.
+Um die Listformatierung in einer bestehenden Präsentation zu ändern, greifen Sie auf den Zielabsatz zu und aktualisieren Sie dessen [IParagraphFormat.getBullet](https://reference.aspose.com/slides/de/java/com.aspose.slides.iparagraphformat/#getBullet--)‑Einstellungen. Die gleichen Eigenschaften, die zum Erstellen von Listen verwendet werden, können zum Inspizieren oder Anpassen von Listen verwendet werden, die aus einer PPT‑, PPTX‑ oder ODP‑Datei geladen wurden.
+
+Der folgende Java‑Code ändert den ersten Absatz in einem Textfeld, sodass er einen nummerierten Listenstil verwendet:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -246,14 +259,14 @@ try {
 
 ## **FAQ**
 
-**Können Aufzählungs‑ und Nummerierungslisten in PDF oder Bilder exportiert werden?**
+### Können Aufzählungs‑ und Nummerierungslisten in PDF oder Bilder exportiert werden?
 
-Ja. Aspose.Slides bewahrt die Listformatierung, wenn das Zielformat die entsprechenden Textlayout‑ und Aufzählungsfunktionen unterstützt.
+Ja. Aspose.Slides behält die Listformatierung bei, sofern das Zielformat die entsprechenden Text‑Layout‑ und Aufzählungs‑Funktionen unterstützt.
 
-**Kann ich Listen in vorhandenen Präsentationen bearbeiten?**
+### Kann ich Listen in bestehenden Präsentationen bearbeiten?
 
-Ja. Laden Sie die Präsentation, greifen Sie auf den Zielabsatz zu, prüfen oder aktualisieren Sie dessen [IParagraphFormat.getBullet](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraphformat/#getBullet--)‑Einstellungen und speichern Sie die Präsentation.
+Ja. Laden Sie die Präsentation, greifen Sie auf den Zielabsatz zu, inspizieren oder aktualisieren Sie dessen [IParagraphFormat.getBullet](https://reference.aspose.com/slides/de/java/com.aspose.slides.iparagraphformat/#getBullet--)‑Einstellungen und speichern Sie die Präsentation.
 
-**Können Listen nicht‑lateinischen Text enthalten?**
+### Können Listen nicht‑lateinischen Text enthalten?
 
 Ja. Der Text von Listenelementen kann Unicode‑Zeichen enthalten, sodass Sie Listen in mehrsprachigen Präsentationen erstellen können. Stellen Sie sicher, dass die in der Präsentation verwendeten Schriftarten die benötigten Zeichen unterstützen.

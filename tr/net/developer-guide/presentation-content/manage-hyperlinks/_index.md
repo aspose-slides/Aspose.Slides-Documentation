@@ -1,5 +1,5 @@
 ---
-title: .NET'te Sunum Köprülerini Yönetme
+title: PowerPoint Sunumlarındaki Köprüleri .NET ile Yönet
 linktitle: Köprüyü Yönet
 type: docs
 weight: 20
@@ -8,7 +8,7 @@ keywords:
 - URL ekle
 - köprü ekle
 - köprü oluştur
-- köprüyü biçimlendir
+- köprü biçimlendir
 - köprüyü kaldır
 - köprüyü güncelle
 - metin köprüsü
@@ -19,32 +19,34 @@ keywords:
 - değiştirilebilir köprü
 - PowerPoint
 - OpenDocument
-- presentation
+- sunum
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET ile PowerPoint ve OpenDocument sunumlarındaki köprüleri zahmetsizce yönetin—etkileşimi ve iş akışını dakikalar içinde artırın."
+description: "Aspose.Slides for .NET ile PowerPoint ve OpenDocument sunumlarında köprüleri zahmetsizce yönetin—etkileşimi ve iş akışını dakikalar içinde artırın."
 ---
 ## **Giriş**
 
-Köprü, bir nesneye, veriye veya bir yere yapılan referanstır. Bunlar PowerPoint Sunumlarındaki yaygın köprülerdir:
+Bir köprü, bir nesneye, veriye veya bir şeydeki bir konuma referanstır. Bunlar PowerPoint Sunumlarında yaygın köprülerdir:
 
-* Metinler, şekiller veya medya içinde web sitelerine bağlantılar
+* Metin, şekil veya medya içindeki web sitesine bağlantılar
 * Slaytlara bağlantılar
 
-Aspose.Slides for .NET, sunumlardaki köprülerle ilgili birçok görevi gerçekleştirmenizi sağlar.
+Aspose.Slides for .NET, sunumlarda köprülerle ilgili birçok görevi gerçekleştirmenizi sağlar.
 
-{{% alert color="primary" %}} 
-Aspose Simple'i, [ücretsiz çevrimiçi PowerPoint düzenleyicisini](https://products.aspose.app/slides/tr/editor).
+{{% alert color="info" %}} 
+Aspose basit, [ücretsiz çevrimiçi PowerPoint düzenleyicisini](https://products.aspose.app/slides/tr/editor) incelemek isteyebilirsiniz.
 {{% /alert %}} 
 
-## **URL Köprüleri Ekleme**
+## **URL Köprüleri Ekle**
 
-### **Metne URL Köprüsü Ekleme**
+### **Metne URL Köprüleri Ekle**
 
-Bu C# kodu, bir metne web sitesi köprüsü eklemenizi gösterir:
-
+Bu C# kodu, bir metne web sitesi köprüsü eklemenin nasıl yapılacağını gösterir:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
 	IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -57,11 +59,13 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **Şekillere veya Çerçevelere URL Köprüsü Ekleme**
+### **Şekillere veya Çerçevelere URL Köprüleri Ekle**
 
-Bu C# örnek kodu, bir şekle web sitesi köprüsü eklemenizi gösterir:
-
+Bu C# örnek kodu, bir şekle web sitesi köprüsü eklemenin nasıl yapılacağını gösterir:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -73,18 +77,20 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **Medya İçin URL Köprüsü Ekleme**
+### **Medyaya URL Köprüleri Ekle**
 
-Aspose.Slides, görsellere, ses ve video dosyalarına köprü eklemenize olanak tanır.
+Aspose.Slides, görüntülere, ses ve video dosyalarına köprü eklemenize olanak tanır. 
 
-Bu örnek kod, bir **görsele** köprü eklemenizi gösterir:
-
+Bu örnek kod, bir **görüntüye** köprü eklemenin nasıl yapılacağını gösterir:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
-    // Sunuma resim ekler
+    // Sunuma görüntü ekler
     IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    // Daha önce eklenen resme dayalı olarak slayt 1'de resim çerçevesi oluşturur
+    // Daha önce eklenen görüntüyü temel alarak slayt 1'de resim çerçevesi oluşturur
     IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
 
     pictureFrame.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
@@ -94,9 +100,11 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-Bu örnek kod, bir **ses dosyasına** köprü eklemenizi gösterir:
-
+Bu örnek kod, bir **ses dosyasına** köprü eklemenin nasıl yapılacağını gösterir:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IAudio audio = pres.Audios.AddAudio(File.ReadAllBytes("audio.mp3"));
@@ -109,9 +117,11 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-Bu örnek kod, bir **video'ya** köprü eklemenizi gösterir:
-
+Bu örnek kod, bir **video**'ya köprü eklemenin nasıl yapılacağını gösterir:
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IVideo video = pres.Videos.AddVideo(File.ReadAllBytes("video.avi"));
@@ -124,17 +134,21 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-{{%  alert  title="Tip"  color="primary"  %}} 
-Şu belgeyi incelemek isteyebilirsiniz *[OLE Yönetimi](https://docs.aspose.com/slides/tr/net/manage-ole/)*.
+{{%  alert  title="Tip"  color="info"  %}} 
+* [OLE Yönetimini](https://docs.aspose.com/slides/tr/net/manage-ole/)* görmek isteyebilirsiniz.
 {{% /alert %}}
 
-## **Köprüleri İçindekiler Tablosu Oluşturmak İçin Kullanma**
 
-Köprüler nesnelere veya yerlere referans eklemenizi sağladığından, bunları bir içindekiler tablosu oluşturmak için kullanabilirsiniz.
+## **Köprüleri Kullanarak İçindekiler Tablosu Oluşturma**
 
-Bu örnek kod, köprülerle bir içindekiler tablosu oluşturmanızı gösterir:
+Köprüler, nesnelere veya konumlara referans eklemenizi sağladığından, bunları bir içindekiler tablosu oluşturmak için kullanabilirsiniz. 
 
+Bu örnek kod, köprülerle bir içindekiler tablosu oluşturmanın nasıl yapılacağını gösterir:
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation())
 {
     var firstSlide = presentation.Slides[0];
@@ -165,11 +179,14 @@ using (var presentation = new Presentation())
 
 ### **Renk**
 
-IHyperlink arayüzündeki [ColorSource](https://reference.aspose.com/slides/tr/net/aspose.slides/ihyperlink/properties/colorsource) özelliği sayesinde köprülerin rengini ayarlayabilir ve köprülerden renk bilgisini alabilirsiniz. Bu özellik PowerPoint 2019'da ilk kez sunulmuştur, bu yüzden özellikteki değişiklikler eski PowerPoint sürümlerine uygulanmaz.
+[IHyperlink](https://reference.aspose.com/slides/tr/net/aspose.slides/ihyperlink) arayüzündeki [ColorSource](https://reference.aspose.com/slides/tr/net/aspose.slides/ihyperlink/properties/colorsource) özelliği sayesinde, köprülerin rengini ayarlayabilir ve köprülerden renk bilgisi alabilirsiniz. Bu özellik PowerPoint 2019'da ilk kez tanıtıldı, bu nedenle özelliği etkileyen değişiklikler eski PowerPoint sürümlerine uygulanmaz.
 
-Bu örnek kod, aynı slayta farklı renklerde köprüler eklenmesini gösterir:
-
+Bu örnek kod, farklı renklerdeki köprülerin aynı slayta eklendiği bir işlemi gösterir:
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -192,11 +209,13 @@ Aspose.Slides, bir köprüyü sesle vurgulamanızı sağlayan şu özellikleri s
 - [IHyperlink.Sound](https://reference.aspose.com/slides/tr/net/aspose.slides/ihyperlink/properties/sound) 
 - [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/tr/net/aspose.slides/ihyperlink/properties/stopsoundonclick)
 
-#### **Bir Köprüye Ses Ekleme**
+#### **Köprüye Ses Ekle**
 
-Bu C# kodu, bir ses çalan köprüyü ayarlamayı ve başka bir köprü ile durdurmayı gösterir:
-
+Bu C# kodu, ses çalan bir köprüyü ayarlamayı ve başka bir köprüyle durdurmayı nasıl yapacağınızı gösterir:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
 	// Sunumun ses koleksiyonuna yeni ses ekler
@@ -204,11 +223,11 @@ using (Presentation pres = new Presentation())
 
 	ISlide firstSlide = pres.Slides[0];
 
-	// Sonraki slayta yönlendiren köprü ile yeni şekil ekler
+	// Bir sonraki slayta köprü içeren yeni şekil ekler
 	IShape firstShape = firstSlide.Shapes.AddAutoShape(ShapeType.SoundButton, 100, 100, 100, 50);
 	firstShape.HyperlinkClick = Hyperlink.NextSlide;
 
-	// "Ses Yok" köprüsünü kontrol eder
+	// Köprüyü "Ses Yok" için denetler
 	if (!firstShape.HyperlinkClick.StopSoundOnClick && firstShape.HyperlinkClick.Sound == null)
 	{
 		// Ses çalan köprüyü ayarlar
@@ -218,22 +237,23 @@ using (Presentation pres = new Presentation())
 	// Boş slaytı ekler 
 	ISlide secondSlide = pres.Slides.AddEmptySlide(firstSlide.LayoutSlide);
 
-	// NoAction köprüsü ile yeni şekil ekler
+	// NoAction köprüsü olan yeni şekil ekler
 	IShape secondShape = secondSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 100, 50);
 	secondShape.HyperlinkClick = Hyperlink.NoAction;
 
-	// "Önceki sesi durdur" köprüsü bayrağını ayarlar
+	// Köprü "Önceki sesi durdur" bayrağını ayarlar
 	secondShape.HyperlinkClick.StopSoundOnClick = true;
 
 	pres.Save("hyperlink-sound.pptx", SaveFormat.Pptx);
 }
 ```
 
-#### **Bir Köprünün Sesini Çıkarma**
+#### **Köprü Sesini Çıkar**
 
-Bu C# kodu, bir köprüde kullanılan sesi çıkarmayı gösterir:
-
+Bu C# kodu, bir köprüde kullanılan sesi nasıl çıkaracağınızı gösterir:
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 {
 	ISlide firstSlide = pres.Slides[0];
@@ -243,7 +263,7 @@ using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 
 	if (link.Sound != null)
 	{
-		// Köprü sesini bayt dizisi olarak çıkarır
+		// Köprü sesini bayt dizisine çıkarır
 		byte[] audioData = link.Sound.BinaryData;
 	}
 }
@@ -253,9 +273,11 @@ using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 
 ### **Metinden Köprüleri Kaldırma**
 
-Bu C# kodu, bir sunum slaydındaki metinden köprüyü kaldırmayı gösterir:
-
+Bu C# kodu, bir sunum slaydındaki metinden köprüyü nasıl kaldıracağınızı gösterir:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     ISlide slide = pres.Slides[0];
@@ -280,9 +302,11 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ### **Şekillerden veya Çerçevelerden Köprüleri Kaldırma**
 
-Bu C# kodu, bir sunum slaydındaki şekilden köprüyü kaldırmayı gösterir:
-
+Bu C# kodu, bir sunum slaydındaki bir şekilden köprüyü nasıl kaldıracağınızı gösterir: 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("demo.pptx")) 
 { 
    ISlide slide = pres.Slides[0]; 
@@ -296,15 +320,18 @@ using (Presentation pres = new Presentation("demo.pptx"))
 
 ## **Değiştirilebilir Köprü**
 
-[Hyperlink](https://reference.aspose.com/slides/tr/net/aspose.slides/hyperlink) sınıfı değiştirilebilirdir. Bu sınıfla, aşağıdaki özelliklerin değerlerini değiştirebilirsiniz:
+[Hyperlink](https://reference.aspose.com/slides/tr/net/aspose.slides/hyperlink) sınıfı değiştirilebilirdir. Bu sınıfı kullanarak aşağıdaki özelliklerin değerlerini değiştirebilirsiniz:
+
 - [IHyperlink.TargetFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/ihyperlink/properties/targetframe)
 - [IHyperlink.Tooltip](https://reference.aspose.com/slides/tr/net/aspose.slides/ihyperlink/properties/tooltip)
 - [IHyperlink.History](https://reference.aspose.com/slides/tr/net/aspose.slides/ihyperlink/properties/history)
 - [IHyperlink.HighlightClick](https://reference.aspose.com/slides/tr/net/aspose.slides/ihyperlink/properties/highlightclick)
 
-Kod parçacığı, bir slayta köprü eklemeyi ve daha sonra araç ipucunu düzenlemeyi gösterir:
-
+Kod parçacığı, bir slayta köprü eklemeyi ve daha sonra araç ipucunu düzenlemeyi nasıl yapacağınızı gösterir:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {   
    IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);    
@@ -321,15 +348,15 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **IHyperlinkQueries İçindeki Desteklenen Özellikler**
+## **IHyperlinkQueries'te Desteklenen Özellikler**
 
-Köprünün tanımlı olduğu sunum, slayt veya metinden IHyperlinkQueries'e erişebilirsiniz.
+Köprünün tanımlı olduğu bir sunum, slayt veya metinden IHyperlinkQueries'e erişebilirsiniz. 
 
 - [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/tr/net/aspose.slides/ipresentation/properties/hyperlinkqueries)
 - [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/tr/net/aspose.slides/ibaseslide/properties/hyperlinkqueries)
 - [ITextFrame.HyperlinkQueries](https://reference.aspose.com/slides/tr/net/aspose.slides/itextframe/properties/hyperlinkqueries)
 
-IHyperlinkQueries sınıfı şu yöntemleri ve özellikleri destekler:
+IHyperlinkQueries sınıfı şu yöntem ve özellikleri destekler: 
 
 - [IHyperlinkQueries.GetHyperlinkClicks();](https://reference.aspose.com/slides/tr/net/aspose.slides/ihyperlinkqueries/methods/gethyperlinkclicks)
 - [IHyperlinkQueries.GetHyperlinkMouseOvers();](https://reference.aspose.com/slides/tr/net/aspose.slides/ihyperlinkqueries/methods/gethyperlinkmouseovers)
@@ -338,14 +365,11 @@ IHyperlinkQueries sınıfı şu yöntemleri ve özellikleri destekler:
 
 ## **SSS**
 
-**Bir slayta değil, bir “bölüm”e veya bir bölümün ilk slaytına iç gezinme nasıl oluşturabilirim?**
+### Sadece bir slayta değil, bir "bölüm"e ya da bir bölümün ilk slaytına yönelik iç gezinme nasıl oluşturabilirim?
+PowerPoint'teki bölümler, slayt gruplarıdır; gezinme teknik olarak belirli bir slaytı hedefler. Bir “bölüme gezinmek” için genellikle bölümün ilk slaytına bağlanırsınız.
 
-PowerPoint'teki bölümler, slaytların gruplarıdır; gezinme teknik olarak belirli bir slaytı hedefler. “Bir bölüme gezinmek” için genellikle o bölümün ilk slaytına bağlanırsınız.
+### Ana slayt öğelerine bir köprü ekleyebilir miyim, böylece tüm slaytlarda çalışır?
+Evet. Ana slayt ve düzen öğeleri köprüleri destekler. Bu tür bağlantılar alt slaytlarda görünür ve slayt gösterisi sırasında tıklanabilir.
 
-**Ana slayt öğelerine köprü ekleyebilir ve tüm slaytlarda işe yarar hale getirebilir miyim?**
-
-Evet. Ana slayt ve düzen öğeleri köprüleri destekler. Bu tür bağlantılar alt slaytlarda görünür ve sunum sırasında tıklanabilir.
-
-**Köprüler PDF, HTML, görüntüler veya video olarak dışa aktarıldığında korunur mu?**
-
-[PDF](/slides/tr/net/convert-powerpoint-to-pdf/) ve [HTML](/slides/tr/net/convert-powerpoint-to-html/) formatlarında, evet—bağlantılar genellikle korunur. [Görüntüler](/slides/tr/net/convert-powerpoint-to-png/) ve [video](/slides/tr/net/convert-powerpoint-to-video/) formatına dışa aktarıldığında, bu formatların doğası gereği (raster çerçeveler/video köprüleri desteklemez) tıklanabilirlik korunmaz.
+### Köprüler PDF, HTML, görüntüler veya video olarak dışa aktarılırken korunur mu?
+[PDF](/slides/tr/net/convert-powerpoint-to-pdf/) ve [HTML](/slides/tr/net/convert-powerpoint-to-html/) formatlarında evet—bağlantılar genellikle korunur. [Görüntüler](/slides/tr/net/convert-powerpoint-to-png/) ve [video](/slides/tr/net/convert-powerpoint-to-video/) formatlarına dışa aktarırken, bu formatların doğası gereği (raster çerçeveler/video yönlendirmeleri desteklemez) tıklanabilirlik taşınmaz.

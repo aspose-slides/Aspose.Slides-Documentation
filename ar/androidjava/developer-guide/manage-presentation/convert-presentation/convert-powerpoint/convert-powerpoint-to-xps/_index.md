@@ -24,45 +24,54 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "حوّل PowerPoint PPT/PPTX إلى XPS عالي الجودة غير معتمد على منصة باستخدام Java وAspose.Slides لأجهزة Android. احصل على دليل خطوة بخطوة وعينة شفرة."
+description: "تحويل ملفات PowerPoint PPT/PPTX إلى XPS عالي الجودة ومستقل عن المنصة باستخدام Aspose.Slides للـ Android في Java. احصل على دليل خطوة بخطوة وعينات من الكود."
 ---
+## **نظرة عامة**
+
+تمكنك Aspose.Slides من تحويل عروض PowerPoint إلى XPS عن طريق حفظ ملف PPT أو PPTX بصيغة XPS. يشرح هذا المقال متى قد تكون صيغة XPS مفيدة ويظهر كيفية إجراء التحويل باستخدام Aspose.Slides إما بالإعدادات الافتراضية أو إعدادات [XpsOptions](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/xpsoptions/) المخصصة.
 
 ## **حول XPS**
-Microsoft طوّرت [XPS](https://docs.fileformat.com/page-description-language/xps/) كبديل لـ [PDF](https://docs.fileformat.com/pdf/). يسمح لك بطباعة المحتوى عن طريق إخراج ملف مشابه جداً لملف PDF. تنسيق XPS مبني على XML. يبقى تخطيط أو بنية ملف XPS ثابتًا على جميع أنظمة التشغيل والطابعات. 
+قامت مايكروسوفت بتطوير [XPS](https://docs.fileformat.com/page-description-language/xps/) كبديل لـ [PDF](https://docs.fileformat.com/pdf/). يسمح لك بطباعة المحتوى عن طريق إنشاء ملف مشابه جداً للـ PDF. صيغـة XPS مبنية على XML. يبقى تخطيط أو بنية ملف XPS ثابتاً على جميع أنظمة التشغيل والطابعات.
 
-## **متى تستخدم تنسيق Microsoft XPS**
-{{% alert color="primary" %}} 
-لمعرفة كيفية تحويل Aspose.Slides للعرض التقديمي PPT أو PPTX إلى تنسيق XPS، يمكنك الاطلاع على [هذا التطبيق المجاني للتحويل عبر الإنترنت](https://products.aspose.app/slides/conversion). 
+## **متى تستخدم صيغة Microsoft XPS**
+
+{{% alert color="info" %}} 
+لمعرفة كيفية تحويل Aspose.Slides لعرض PPT أو PPTX إلى صيغة XPS، يمكنك تجربة [هذا التطبيق المجاني للتحويل عبر الإنترنت](https://products.aspose.app/slides/ar/conversion). 
 {{% /alert %}} 
 
-إذا كنت ترغب في خفض تكاليف التخزين، يمكنك تحويل عرض PowerPoint الخاص بك إلى تنسيق XPS. بهذه الطريقة، ستجد حفظ المستندات ومشاركتها وطبعها أسهل. 
+إذا كنت ترغب في تقليل تكاليف التخزين، يمكنك تحويل عرض Microsoft PowerPoint إلى صيغة XPS. بهذه الطريقة سيكون من الأسهل حفظ المستندات ومشاركتها وطباعةها. 
 
-مايكروسوفت تستمر في توفير دعم قوي لـ XPS في نظام Windows (حتى في Windows 10)، لذا قد ترغب في التفكير في حفظ الملفات بهذا التنسيق. إذا كنت تتعامل مع Windows 8.1 أو Windows 8 أو Windows 7 أو Windows Vista، فقد يكون XPS هو الخيار الأفضل لعمليات معينة. 
+تستمر مايكروسوفت في تقديم دعم قوي لـ XPS في نظام Windows (حتى في Windows 10)، لذا قد ترغب في التفكير في حفظ الملفات بهذه الصيغة. إذا كنت تتعامل مع Windows 8.1 أو Windows 8 أو Windows 7 أو Windows Vista، فقد تكون XPS هي الخيار الأنسب لبعض العمليات. 
 
-- **Windows 8** يستخدم تنسيق OXPS (Open XPS) لملفات XPS. OXPS هو نسخة موحدة من تنسيق XPS الأصلي. Windows 8 يوفر دعماً أفضل لملفات XPS مقارنة بملفات PDF. 
+- **Windows 8** يستخدم صيغة OXPS (Open XPS) للملفات XPS. OXPS هي نسخة موحدة من الصيغة الأصلية لـ XPS. يوفر Windows 8 دعماً أفضل لملفات XPS مقارنة بملفات PDF. 
   - **XPS:** عارض/قارئ XPS مدمج وميزة الطباعة إلى XPS متاحة. 
   - **PDF:** قارئ PDF متاح لكن لا توجد ميزة طباعة إلى PDF. 
 
-- **Windows 7** و **Windows Vista** يستخدمان تنسيق XPS الأصلي. أنظمة التشغيل هذه توفر دعماً أفضل لملفات XPS مقارنة بملفات PDF. 
+- **Windows 7 و Windows Vista** يستخدمان الصيغة الأصلية لـ XPS. توفر أنظمة التشغيل هذه دعماً أفضل لملفات XPS مقارنة بملفات PDF. 
   - **XPS:** عارض XPS مدمج وميزة الطباعة إلى XPS متاحة. 
   - **PDF:** لا يوجد قارئ PDF. لا توجد ميزة طباعة إلى PDF. 
 
-|<p>**إدخال PPT(X):**</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_1.png)**</p>|<p>**الإخراج XPS:**</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_2.png)**</p>|
+|<p>**إدخال PPT(X):**</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_1.png)**</p>|<p>**إخراج XPS:**</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_2.png)**</p>|
 | :- | :- |
 
-Microsoft في النهاية نفذت دعم عمليات الطباعة في PDF عبر ميزة Print to PDF في Windows 10. في السابق, كان من المتوقع أن يطبع المستخدمون المستندات عبر تنسيق XPS. 
+في النهاية، نفذت مايكروسوفت دعم عمليات الطباعة في PDF عبر ميزة الطباعة إلى PDF في Windows 10. سابقاً، كان يتوجب على المستخدمين طباعة المستندات عبر صيغة XPS. 
 
 ## **تحويل XPS باستخدام Aspose.Slides**
-في [**Aspose.Slides**](https://products.aspose.com/slides/androidjava/) لـ Java، يمكنك الاستفادة من طريقة [**Save**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) التي توفرها فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) لتحويل العرض التقديمي بالكامل إلى مستند XPS.
 
-عند تحويل عرض تقديمي إلى XPS، عليك حفظ العرض باستخدام أحد الإعدادين التاليين:
+في [**Aspose.Slides**](https://products.aspose.com/slides/ar/androidjava/) للغة Java، يمكنك استخدام طريقة [**Save**](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) التي توفرها فئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/Presentation) لتحويل العرض بالكامل إلى مستند XPS.
 
-- الإعدادات الافتراضية (بدون [**XPSOptions**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/xpsoptions))
-- الإعدادات المخصصة (مع [**XPSOptions**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/xpsoptions))
+عند تحويل عرض إلى XPS، عليك حفظ العرض باستخدام أحد الإعدادات التالية:
+
+- الإعدادات الافتراضية (دون [**XPSOptions**](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/xpsoptions))
+- الإعدادات المخصصة (مع [**XPSOptions**](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/xpsoptions))
 
 ### **تحويل العروض إلى XPS باستخدام الإعدادات الافتراضية**
-يعرض هذا المثال في Java كيفية تحويل عرض تقديمي إلى مستند XPS باستخدام الإعدادات القياسية:
+
+يعرض لك هذا المثال المكتوب بلغة Java كيفية تحويل عرض إلى مستند XPS باستخدام الإعدادات القياسية:
+
 ```java
+import com.aspose.slides.*;
+
 // إنشاء كائن Presentation يمثل ملف عرض تقديمي
 Presentation pres = new Presentation("Convert_XPS.pptx");
 try {
@@ -73,17 +82,19 @@ try {
 }
 ```
 
-
 ### **تحويل العروض إلى XPS باستخدام الإعدادات المخصصة**
-يعرض هذا المثال كيفية تحويل عرض تقديمي إلى مستند XPS باستخدام إعدادات مخصصة في Java:
+يظهر لك هذا المثال كيفية تحويل عرض إلى مستند XPS باستخدام إعدادات مخصصة في Java:
+
 ```java
+import com.aspose.slides.*;
+
 // إنشاء كائن Presentation يمثل ملف عرض تقديمي
 Presentation pres = new Presentation("Convert_XPS_Options.pptx");
 try {
-    // إنشاء فئة TiffOptions
+    // إنشاء كائن من الفئة XpsOptions
     XpsOptions options = new XpsOptions();
 
-    // حفظ MetaFiles كـ PNG
+    // حفظ ملفات Meta كـ PNG
     options.setSaveMetafilesAsPng(true);
 
     // حفظ العرض التقديمي إلى مستند XPS
@@ -93,13 +104,12 @@ try {
 }
 ```
 
+## **الأسئلة الشائعة**
 
-## **الأسئلة المتكررة**
+### هل يمكن حفظ XPS إلى تدفق بدلاً من ملف؟
 
-**هل يمكنني حفظ XPS إلى تدفق بدلاً من ملف؟**
+نعم—تتيح لك Aspose.Slides التصدير مباشرة إلى تدفق، وهو أمر مثالي لواجهات برمجة التطبيقات على الويب، أو خطوط الأنابيب على الخادم، أو أي سيناريو تريد فيه إرسال XPS دون التعامل مع نظام الملفات.
 
-نعم—Aspose.Slides يتيح لك التصدير مباشرة إلى تدفق، وهو مثالي لواجهات برمجة التطبيقات على الويب، خطوط الأنابيب على الخادم، أو أي سيناريو تحتاج فيه إلى إرسال XPS دون التعامل مع نظام الملفات.
+### هل يتم نقل الشرائح المخفية إلى XPS، وهل يمكن استثناؤها؟
 
-**هل يتم نقل الشرائح المخفية إلى XPS، وهل يمكن استثناؤها؟**
-
-إفتراضيًا، يتم تصوير الشرائح العادية (المرئية) فقط. يمكنك [تضمين أو استثناؤ الشرائح المخفية](https://reference.aspose.com/slides/androidjava/com.aspose.slides/xpsoptions/#setShowHiddenSlides-boolean-) عبر [إعدادات التصدير](https://reference.aspose.com/slides/androidjava/com.aspose.slides/xpsoptions/) قبل الحفظ إلى XPS، لضمان أن يحتوي الناتج على الصفحات التي تريدها بالضبط.
+بشكل افتراضي، يتم معالجة الشرائح العادية (المرئية) فقط. يمكنك [تضمين أو استبعاد الشرائح المخفية](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/xpsoptions/#setShowHiddenSlides-boolean-) عبر [إعدادات التصدير](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/xpsoptions/) قبل الحفظ إلى XPS، لضمان أن يحتوي الناتج على الصفحات التي تريدها بالضبط.

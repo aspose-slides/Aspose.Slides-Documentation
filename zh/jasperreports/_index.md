@@ -1,31 +1,30 @@
 ---
 title: Aspose.Slides for JasperReports
 second_title: Aspose.Slides for JasperReports
-description: Aspose.Slides for JasperReports 是一个专门为开发者设计和开发的库，旨在帮助开发者轻松地将 JasperReports 报告导出为 Microsoft PowerPoint 演示文稿 (PPT) 和 Microsoft PowerPoint 幻灯片 (PPS) 格式，供其在 Java 应用程序中使用。
+description: Aspose.Slides for JasperReports 是专为需要在 Java 应用程序中轻松将 JasperReports 报表导出为 Microsoft PowerPoint 演示文稿 (PPT) 和 Microsoft PowerPoint 幻灯片 (PPS) 格式的开发人员设计和开发的库。
 type: docs
 weight: 70
 url: /zh/jasperreports/
 is_root: true
 ---
-
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 ![Aspose.Slides for JasperReports 产品标志](home_1.png)
 
 **欢迎使用 Aspose.Slides for JasperReports**
 
-Aspose.Slides for JasperReports 是一个专为开发者设计和开发的库，旨在帮助开发者轻松地将 JasperReports 报告导出为 Microsoft PowerPoint 演示文稿 (PPT) 和 Microsoft PowerPoint 幻灯片 (PPS) 格式，供其在 Java 应用程序中使用。所有报告特性都以最高的精确度转换为 Microsoft PowerPoint 演示文稿。Aspose.Slides for JasperReports 支持 JasperReports 5 及更高版本。
+Aspose.Slides for JasperReports 是专为需要在 Java 应用程序中轻松将 JasperReports 报表导出为 Microsoft PowerPoint 演示文稿 (PPT) 和 Microsoft PowerPoint 幻灯片 (PPS) 格式而设计和开发的库。所有报表功能都以最高精度转换为 Microsoft PowerPoint 演示文稿。Aspose.Slides for JasperReports 支持 JasperReports 5 及以上版本。
 
 {{% /alert %}}
 
 ## **Aspose.Slides for JasperReports 资源**
 
-以下是一些您可能需要的有用资源链接，以完成您的任务。
+以下是您可能需要完成任务的一些有用资源链接。
 
 - [Aspose.Slides for JasperReports 在线文档](/slides/zh/jasperreports/)
-- [Aspose.Slides for JasperReports 特性](/slides/zh/jasperreports/features/)
-- [Aspose.Slides for JasperReports 更新说明](https://releases.aspose.com/slides/jasperreport/release-notes/)
-- [Aspose.Slides for JasperReports 产品页面](https://products.aspose.com/slides/jasperreports/)
-- [下载 Aspose.Slides for JasperReports](https://releases.aspose.com/slides/jasperreport/)
-- [Aspose.Slides for JasperReports 免费支持论坛](https://forum.aspose.com/c/slides/11)
-- [Aspose.Slides for JasperReports 付费支持帮助desk](https://helpdesk.aspose.com/)
+- [Aspose.Slides for JasperReports 功能](/slides/zh/jasperreports/features/)
+- [Aspose.Slides for JasperReports 发布说明](https://releases.aspose.com/slides/zh/jasperreport/release-notes/)
+- [Aspose.Slides for JasperReports 产品页面](https://products.aspose.com/slides/zh/jasperreports/)
+- [下载 Aspose.Slides for JasperReports](https://releases.aspose.com/slides/zh/jasperreport/)
+- [Aspose.Slides for JasperReports 免费支持论坛](https://forum.aspose.com/c/slides/zh/11)
+- [Aspose.Slides for JasperReports 付费支持帮助台](https://helpdesk.aspose.com/)

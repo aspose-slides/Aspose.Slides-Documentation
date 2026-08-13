@@ -1,5 +1,5 @@
 ---
-title: مشخص کردن فونت‌های جایگزین برای ارائه‌ها در اندروید
+title: مشخص‌کردن فونت‌های جایگزین برای ارائه‌ها در اندروید
 linktitle: فونت جایگزین
 type: docs
 weight: 10
@@ -8,69 +8,71 @@ keywords:
 - فونت جایگزین
 - قانون جایگزین
 - اعمال فونت
-- جایگزین کردن فونت
+- جایگزینی فونت
 - بازه یونیکد
 - گلیف گمشده
 - گلیف مناسب
 - PowerPoint
 - OpenDocument
 - ارائه
-- اندروید
-- جاوا
+- Android
+- Java
 - Aspose.Slides
-description: "Aspose.Slides برای اندروید را با جاوا به‌کار بگیرید تا فونت‌های جایگزین را در فایل‌های PPT، PPTX و ODP تنظیم کنید و نمایش یکپارچهٔ متن را در هر دستگاه یا سیستم عاملی تضمین کنید."
+description: "Aspose.Slides برای اندروید را با استفاده از جاوا به‌کارگیرید تا فونت‌های جایگزین را در فایل‌های PPT، PPTX و ODP تنظیم کنید و نمایش متن یکسان را در هر دستگاه یا سیستم‌عاملی تضمین کنید."
 ---
-## **مرور کلی**
+## **مروری کلی**
 
-Aspose.Slides به شما امکان مشخص کردن فونت‌های جایگزین برای رندر و عملیات خروجی ارائه‌ها را می‌دهد. فونت‌های جایگزین زمانی استفاده می‌شوند که فونت اصلی شامل گلیف‌های کاراکترهای خاصی نباشد.
+Aspose.Slides به شما امکان می‌دهد فونت‌های جایگزین را برای رندر و عملیات صادرات ارائه تعیین کنید. فونت‌های جایگزین زمانی استفاده می‌شوند که فونت اصلی گلیف‌های کاراکترهای خاصی را نداشته باشد.
 
-رفتار جایگزینی از طریق قوانین جایگزینی پیکربندی می‌شود. هر قانون یک بازهٔ یونیکد را با یک یا چند فونت که ممکن است گلیف‌های مورد نیاز را داشته باشند، مرتبط می‌کند. می‌توانید قوانین را برای بازه‌های کاراکتری مختلف تعریف کنید، فونت‌های جایگزین را به قوانین موجود اضافه یا حذف کنید و چندین قانون را در یک مجموعهٔ قوانین فونت جایگزین سازماندهی کنید.
+رفتار جایگزینی از طریق قوانین جایگزین پیکربندی می‌شود. هر قانون یک بازه یونیکد را با یک یا چند فونت که ممکن است گلیف‌های مورد نیاز را داشته باشند، مرتبط می‌کند. می‌توانید برای بازه‌های کاراکتری مختلف قوانین تعریف کنید، فونت‌های جایگزین را از قوانین موجود اضافه یا حذف کنید و چندین قانون را در یک مجموعه قوانین فونت جایگزین سازماندهی کنید.
 
-قوانین جایگزینی تنظیمات رندر زمان اجرا هستند. آن‌ها فایل ارائه را تغییر نمی‌دهند و داخل فایل PPTX ذخیره نمی‌شوند.
+قوانین جایگزین تنظیمات رندر در زمان اجرا هستند. آن‌ها فایل ارائه را تغییر نمی‌دهند و در داخل فایل PPTX ذخیره نمی‌شوند.
 
-## **قواعد جایگزینی فونت**
+## **قوانین جایگزین**
 
-Aspose.Slides از اینترفیس [IFontFallBackRule](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IFontFallBackRule) و کلاس [FontFallBackRule](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/FontFallBackRule) برای مشخص کردن قواعد اعمال فونت جایگزین پشتیبانی می‌کند. کلاس [FontFallBackRule](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/FontFallBackRule) نمایانگر ارتباط بین بازهٔ یونیکد مشخص‌شده (که برای جستجوی گلیف‌های گمشده استفاده می‌شود) و فهرستی از فونت‌ها است که ممکن است گلیف‌های مناسب را داشته باشند:
+Aspose.Slides رابط [IFontFallBackRule](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IFontFallBackRule) و کلاس [FontFallBackRule](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/FontFallBackRule) را برای مشخص کردن قوانینی که فونت جایگزین را اعمال می‌کنند، پشتیبانی می‌کند. کلاس [FontFallBackRule](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/FontFallBackRule) نشان‌دهندهٔ ارتباط بین بازهٔ یونیکد مشخص‌شده، که برای جستجوی گلیف‌های گمشده استفاده می‌شود، و فهرستی از فونت‌هایی است که ممکن است گلیف‌های مناسب را داشته باشند:
 
 ```java
+import com.aspose.slides.*;
+
 long startUnicodeIndex = 0x0B80;
 long endUnicodeIndex = 0x0BFF;
 
 IFontFallBackRule firstRule = new FontFallBackRule(startUnicodeIndex, endUnicodeIndex, "Vijaya");
 IFontFallBackRule secondRule = new FontFallBackRule(0x3040, 0x309F, "MS Mincho, MS Gothic");
 
-//استفاده از روش‌های مختلف می‌توانید فهرست فونت‌ها را اضافه کنید:
+//با استفاده از روش‌های مختلف می‌توانید فهرست فونت‌ها را اضافه کنید:
 String[] fontNames = new String[] { "Segoe UI Emoji, Segoe UI Symbol", "Arial" };
 
 IFontFallBackRule thirdRule = new FontFallBackRule(0x1F300, 0x1F64F, fontNames);
 ```
 
-همچنین امکان [remove](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/FontFallBackRule#remove-java.lang.String-) فونت جایگزین یا [addFallBackFonts](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) به شیء [FontFallBackRule](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/FontFallBackRule) موجود وجود دارد.
+همچنین می‌توانید فونت جایگزین را [remove](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/FontFallBackRule#remove-java.lang.String-) کنید یا [addFallBackFonts](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) را به شیء [FontFallBackRule](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/FontFallBackRule) موجود اضافه کنید.
 
-[FontFallBackRulesCollection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/FontFallBackRulesCollection) می‌تواند برای سازماندهی فهرستی از اشیای [FontFallBackRule](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/FontFallBackRule) استفاده شود، هنگامی که نیاز به مشخص کردن قواعد جایگزینی فونت برای بازه‌های یونیکد متعدد باشد.
+می‌توان از [FontFallBackRulesCollection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/FontFallBackRulesCollection) برای سازماندهی فهرستی از اشیای [FontFallBackRule](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/FontFallBackRule) استفاده کرد، هنگامی که نیاز به تعیین قوانین جایگزینی فونت برای چندین بازهٔ یونیکد باشد.
 
-{{% alert color="primary" title="See also" %}} 
-- [ایجاد مجموعهٔ فونت‌های جایگزین](/slides/fa/androidjava/create-fallback-fonts-collection/)
+{{% alert color="info" title="همچنین ببینید" %}} 
+- [Create Fallback Fonts Collection](/slides/fa/androidjava/create-fallback-fonts-collection/)
 {{% /alert %}}
 
 ## **سوالات متداول**
 
-**تفاوت بین فونت جایگزین، جایگزینی فونت و جاسازی فونت چیست؟**
+### تفاوت فونت جایگزین، جایگزینی فونت و جاسازی فونت چیست؟
 
-یک فونت جایگزین فقط برای کاراکترهای گمشده در فونت اصلی استفاده می‌شود. [Font substitution](/slides/fa/androidjava/font-substitution/) کل فونت مشخص‌شده را با فونت دیگری جایگزین می‌کند. [Font embedding](/slides/fa/androidjava/embedded-font/) فونت‌ها را داخل فایل خروجی بسته‌بندی می‌کند تا دریافت‌کنندگان بتوانند متن را همان‌طور که منظور شده است ببینند.
+یک فونت جایگزین فقط برای کاراکترهایی که در فونت اصلی موجود نیستند، استفاده می‌شود. [Font substitution](/slides/fa/androidjava/font-substitution/) کل فونت مشخص‌شده را با فونت دیگری جایگزین می‌کند. [Font embedding](/slides/fa/androidjava/embedded-font/) فونت‌ها را داخل فایل خروجی بسته‌بندی می‌کند تا دریافت‌کنندگان بتوانند متن را همان‌گونه که منظور شده است، مشاهده کنند.
 
-**آیا فونت‌های جایگزین فقط در رندر روی صفحه نمایش اعمال می‌شوند یا در عملیات خروجی مانند PDF، PNG یا SVG نیز کار می‌کنند؟**
+### آیا فونت‌های جایگزین در زمان صادرات مانند PDF، PNG یا SVG اعمال می‌شوند یا فقط در رندر روی صفحه نمایش؟
 
-بله. جایگزینی بر تمام [رندر و عملیات خروجی](/slides/fa/androidjava/convert-presentation/) که کاراکترها باید رسم شوند اما در فونت منبع موجود نیستند، تأثیر می‌گذارد.
+بله. جایگزین کردن بر تمام [rendering and export operations](/slides/fa/androidjava/convert-presentation/) که در آن کاراکترها باید رسم شوند اما در فونت منبع وجود ندارند، تأثیر می‌گذارد.
 
-**آیا پیکربندی جایگزینی فایل ارائه را تغییر می‌دهد و آیا این تنظیم برای باز کردن‌های آینده حفظ می‌شود؟**
+### آیا پیکربندی فونت جایگزین فایل ارائه را تغییر می‌دهد و آیا تنظیم برای باز کردن‌های بعدی باقی می‌ماند؟
 
-نه. قوانین جایگزینی تنظیمات رندر زمان اجرا در کد شما هستند؛ آن‌ها داخل فایل .pptx ذخیره نمی‌شوند و در پاورپوینت نمایان نخواهند شد.
+خیر. قوانین جایگزین تنظیمات رندر در زمان اجرا در کد شما هستند؛ آنها در داخل فایل .pptx ذخیره نمی‌شوند و در PowerPoint نشان داده نمی‌شوند.
 
-**آیا سیستم‌عامل (Windows/Linux/macOS) و مجموعهٔ پوشه‌های فونت بر انتخاب جایگزین تأثیر می‌گذارد؟**
+### آیا سیستم‌عامل (Windows/Linux/macOS) و مجموعهٔ مسیرهای فونت بر انتخاب جایگزین تأثیر می‌گذارد؟
 
-بله. موتور فونت‌ها را از پوشه‌های سیستمی موجود و هر [مسیر اضافی](/slides/fa/androidjava/custom-font/) که شما فراهم می‌کنید، بازیابی می‌کند. اگر یک فونت به صورت فیزیکی در دسترس نباشد، قانونی که به آن ارجاع می‌دهد نمی‌تواند مؤثر باشد.
+بله. موتور فونت‌ها را از پوشه‌های سیستم موجود و هر [additional paths](/slides/fa/androidjava/custom-font/) که ارائه می‌دهید، پیدا می‌کند. اگر فونتی به‌صورت فیزیکی موجود نباشد، قانونی که به آن اشاره دارد نمی‌تواند اعمال شود.
 
-**آیا جایگزینی برای WordArt، SmartArt و نمودارها کار می‌کند؟**
+### آیا جایگزینی برای WordArt، SmartArt و نمودارها اعمال می‌شود؟
 
-بله. وقتی این اشیاء شامل متن هستند، همان مکانیزم جایگزینی گلیف برای رندر کاراکترهای گمشده اعمال می‌شود.
+بله. وقتی این اشیا شامل متن می‌شوند، همان مکانیزم جایگزینی گلیف برای رندر کاراکترهای گمشده اعمال می‌شود.

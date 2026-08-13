@@ -11,12 +11,12 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Crea, modifica e converte presentazioni in Java—senza PowerPoint. Aspose.Slides per Android supporta PPT, PPTX e ODP con esportazione rapida SVG/PDF."
+description: "Crea, modifica e converti presentazioni in Java—non è necessario PowerPoint. Aspose.Slides per Android supporta PPT, PPTX e ODP con esportazione veloce SVG/PDF."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}}
 
-Aspose.Slides for Android via Java è una libreria di classi che consente alle applicazioni Java per Android di leggere e scrivere documenti di presentazione senza utilizzare Microsoft PowerPoint® o altro software. Aspose.Slides for Android via Java permette di gestire testo, forme, tabelle e animazioni; aggiungere audio e video alle diapositive; visualizzare in anteprima le diapositive; ed esportare le diapositive in SVG, formato PDF e altro.
+Aspose.Slides per Android via Java è una libreria di classi che consente alle applicazioni Java per Android di leggere e scrivere documenti di presentazione senza utilizzare Microsoft PowerPoint® o altro software. Aspose.Slides per Android via Java permette di gestire testo, forme, tabelle e animazioni; aggiungere audio e video alle diapositive; visualizzare in anteprima le diapositive; ed esportare le diapositive in formato SVG, PDF e altro.
 
-L'ultima API Reference può essere trovata a [Aspose.Slides for Android via Java API Reference](https://reference.aspose.com/slides/it/androidjava/).
+L'ultima documentazione API è disponibile su [Riferimento API di Aspose.Slides per Android via Java](https://reference.aspose.com/slides/it/androidjava/).
 
 {{% /alert %}}

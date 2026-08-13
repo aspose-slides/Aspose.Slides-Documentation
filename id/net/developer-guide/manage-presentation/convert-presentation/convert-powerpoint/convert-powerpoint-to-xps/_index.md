@@ -24,37 +24,39 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Konversi PowerPoint PPT/PPTX ke XPS berkualitas tinggi dan bersifat lintas platform di .NET menggunakan Aspose.Slides. Dapatkan panduan langkah demi langkah dan contoh kode C#."
+description: "Konversi PowerPoint PPT/PPTX menjadi XPS berkualitas tinggi dan platform-independen di .NET menggunakan Aspose.Slides. Dapatkan panduan langkah demi langkah dan contoh kode C#."
 ---
 ## **Ikhtisar**
 
-Aspose.Slides memungkinkan Anda mengonversi presentasi PowerPoint ke XPS dengan menyimpan file PPT atau PPTX dalam format XPS. Artikel ini menjelaskan kapan format XPS dapat berguna dan menunjukkan cara melakukan konversi dengan Aspose.Slides menggunakan pengaturan bawaan atau pengaturan khusus [XpsOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/xpsoptions/) .
+Aspose.Slides memungkinkan Anda mengonversi presentasi PowerPoint ke XPS dengan menyimpan file PPT atau PPTX dalam format XPS. Artikel ini menjelaskan kapan format XPS berguna dan menunjukkan cara melakukan konversi dengan Aspose.Slides menggunakan pengaturan default atau pengaturan **[XpsOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/xpsoptions/)** kustom.
 
 ## **Tentang XPS**
-Microsoft mengembangkan [XPS](https://docs.fileformat.com/page-description-language/xps/) sebagai alternatif bagi [PDF](https://docs.fileformat.com/pdf/). Ini memungkinkan Anda mencetak konten dengan menghasilkan file yang sangat mirip dengan PDF. Format XPS berbasis XML. Tata letak atau struktur file XPS tetap sama di semua sistem operasi dan printer. 
+Microsoft mengembangkan [XPS](https://docs.fileformat.com/page-description-language/xps/) sebagai alternatif untuk [PDF](https://docs.fileformat.com/pdf/).  XPS memungkinkan Anda mencetak konten dengan menghasilkan file yang sangat mirip dengan PDF. Format XPS berbasis XML. Tata letak atau struktur file XPS tetap sama di semua sistem operasi dan printer. 
 
 ## **Kapan Menggunakan Format XPS Microsoft**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Untuk melihat cara Aspose.Slides mengonversi presentasi PPT atau PPTX ke format XPS, Anda dapat mencoba [aplikasi konversi online gratis ini](https://products.aspose.app/slides/id/conversion). 
+Untuk melihat bagaimana Aspose.Slides mengonversi presentasi PPT atau PPTX ke format XPS, Anda dapat mencoba [aplikasi konversi online gratis ini](https://products.aspose.app/slides/id/conversion). 
 
 {{% /alert %}} 
 
-Jika Anda ingin mengurangi biaya penyimpanan, Anda dapat mengonversi presentasi Microsoft PowerPoint Anda ke format XPS. Dengan cara ini, Anda akan lebih mudah menyimpan, berbagi, dan mencetak dokumen Anda. 
+Jika Anda ingin mengurangi biaya penyimpanan, Anda dapat mengonversi presentasi Microsoft PowerPoint Anda ke format XPS. Dengan cara ini, Anda akan lebih mudah menyimpan, membagikan, dan mencetak dokumen Anda. 
 
-Microsoft terus memberikan dukungan kuat untuk XPS di Windows (bahkan di Windows 10), sehingga Anda mungkin ingin mempertimbangkan menyimpan file ke format ini. Jika Anda menggunakan Windows 8.1, Windows 8, Windows 7, dan Windows Vista, maka XPS mungkin menjadi pilihan terbaik untuk operasi tertentu. 
+Microsoft terus memberikan dukungan kuat untuk XPS di Windows (bahkan di Windows 10), jadi Anda mungkin ingin mempertimbangkan menyimpan file dalam format ini. Jika Anda bekerja dengan Windows 8.1, Windows 8, Windows 7, dan Windows Vista, maka XPS mungkin menjadi opsi terbaik untuk operasi tertentu. 
 
-- **Windows 8** menggunakan format OXPS (Open XPS) untuk file XPS. OXPS adalah versi standar dari format XPS asli. Windows 8 menyediakan dukungan yang lebih baik untuk file XPS dibandingkan file PDF. 
-  - **XPS:** Penampil/pembaca XPS bawaan dan fitur mencetak ke XPS tersedia. 
-  - **PDF:** Pembaca PDF tersedia tetapi tidak ada fitur mencetak ke PDF. 
+- **Windows 8** menggunakan format OXPS (Open XPS) untuk file XPS. OXPS adalah versi standar dari format XPS asli. Windows 8 menyediakan dukungan yang lebih baik untuk file XPS dibandingkan dengan file PDF. 
+  - **XPS:** Penampil/pembaca XPS bawaan dan fitur pencetakan ke XPS tersedia. 
+  - **PDF**: Pembaca PDF tersedia tetapi tidak ada fitur pencetakan ke PDF. 
 
-- **Windows 7 dan Windows Vista** menggunakan format XPS asli. Sistem operasi ini juga menyediakan dukungan yang lebih baik untuk file XPS dibandingkan PDF. 
-  - **XPS:** Penampil XPS bawaan dan fitur mencetak ke XPS tersedia. 
-  - **PDF:** Tidak ada pembaca PDF. Tidak ada fitur mencetak ke PDF. 
+- **Windows 7 dan Windows Vista** menggunakan format XPS asli. Sistem operasi ini juga menyediakan dukungan yang lebih baik untuk file XPS dibandingkan dengan PDF. 
+  - **XPS**: Penampil XPS bawaan dan fitur pencetakan ke XPS tersedia. 
+  - **PDF**: Tidak ada pembaca PDF. Tidak ada fitur pencetakan ke PDF. 
 
-|<p>**Masukan PPT(X):</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_1.png)**</p>|<p>**Keluaran XPS:</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_2.png)**</p>|
+|<p>**Input PPT(X):**</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_1.png)**</p>|<p>**Output XPS:**</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_2.png)**</p>|
 | :- | :- |
+
+
 
 Microsoft akhirnya menambahkan dukungan untuk operasi pencetakan dalam PDF melalui fitur Print to PDF di Windows 10. Sebelumnya, pengguna diharapkan mencetak dokumen melalui format XPS. 
 
@@ -64,14 +66,17 @@ Di [**Aspose.Slides**](https://products.aspose.com/slides/id/net/) untuk .NET, A
 
 Saat mengonversi presentasi ke XPS, Anda harus menyimpan presentasi menggunakan salah satu pengaturan berikut:
 
-- Pengaturan bawaan (tanpa [**XPSOptions**](https://reference.aspose.com/slides/id/net/aspose.slides.export/xpsoptions))
-- Pengaturan khusus (dengan [**XPSOptions**](https://reference.aspose.com/slides/id/net/aspose.slides.export/xpsoptions))
+- Pengaturan default (tanpa **[XPSOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/xpsoptions)**)
+- Pengaturan kustom (dengan **[XPSOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/xpsoptions)**)
 
-### **Konversi Presentasi ke XPS Menggunakan Pengaturan Bawaan**
+### **Mengonversi Presentasi ke XPS Menggunakan Pengaturan Default**
 
-Kode contoh ini dalam C# menunjukkan cara mengonversi presentasi ke dokumen XPS menggunakan pengaturan standar:
+Kode contoh berikut dalam C# menunjukkan cara mengonversi presentasi ke dokumen XPS menggunakan pengaturan standar:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instansiasi objek Presentation yang mewakili file presentasi
 using (Presentation pres = new Presentation("Convert_XPS.pptx"))
 {
@@ -80,11 +85,14 @@ using (Presentation pres = new Presentation("Convert_XPS.pptx"))
 }
 ```
 
-### **Konversi Presentasi ke XPS Menggunakan Pengaturan Khusus**
 
-Kode contoh ini menunjukkan cara mengonversi presentasi ke dokumen XPS menggunakan pengaturan khusus dalam C#:
+### **Mengonversi Presentasi ke XPS Menggunakan Pengaturan Kustom**
+Kode contoh berikut menunjukkan cara mengonversi presentasi ke dokumen XPS menggunakan pengaturan kustom dalam C#:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instansiasi objek Presentation yang mewakili file presentasi
 using (Presentation pres = new Presentation("Convert_XPS_Options.pptx"))
 {
@@ -101,10 +109,10 @@ using (Presentation pres = new Presentation("Convert_XPS_Options.pptx"))
 
 ## **FAQ**
 
-**Apakah saya dapat menyimpan ke XPS dalam stream alih-alih ke file?**
+### Apakah saya dapat menyimpan ke XPS ke dalam stream alih-alih file?
 
 Ya—Aspose.Slides memungkinkan Anda mengekspor langsung ke stream, yang ideal untuk API web, pipeline sisi server, atau skenario apa pun di mana Anda ingin mengirim XPS tanpa menyentuh sistem file.
 
-**Apakah slide tersembunyi termasuk dalam XPS, dan dapatkah saya mengecualikannya?**
+### Apakah slide tersembunyi ikut disertakan ke XPS, dan dapatkah saya mengecualikannya?
 
-Secara default, hanya slide reguler (terlihat) yang dirender. Anda dapat [menyertakan atau mengecualikan slide tersembunyi](https://reference.aspose.com/slides/id/net/aspose.slides.export/xpsoptions/showhiddenslides/) melalui [pengaturan ekspor](https://reference.aspose.com/slides/id/net/aspose.slides.export/xpsoptions/) sebelum menyimpan ke XPS, memastikan output berisi tepat halaman yang Anda inginkan.
+Secara default, hanya slide biasa (yang terlihat) yang dirender. Anda dapat [menyertakan atau mengecualikan slide tersembunyi](https://reference.aspose.com/slides/id/net/aspose.slides.export/xpsoptions/showhiddenslides/) melalui [pengaturan ekspor](https://reference.aspose.com/slides/id/net/aspose.slides.export/xpsoptions/) sebelum menyimpan ke XPS, memastikan output berisi tepat halaman yang Anda inginkan.

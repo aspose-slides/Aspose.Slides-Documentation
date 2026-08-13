@@ -1,38 +1,40 @@
 ---
-title: الحصول على الخصائص الفعالة للأشكال من العروض التقديمية في .NET
-linktitle: الخصائص الفعالة
+title: الحصول على الخصائص الفعلية للشكل من العروض التقديمية في .NET
+linktitle: خصائص فعالة
 type: docs
 weight: 50
 url: /ar/net/shape-effective-properties/
 keywords:
 - خصائص الشكل
 - خصائص الكاميرا
-- جهاز الإضاءة
-- حافة الشكل
-- إطار النص
+- وحدة إضاءة
+- شكل بحد
+- إطار نص
 - نمط النص
 - ارتفاع الخط
 - تنسيق التعبئة
 - PowerPoint
-- العرض التقديمي
+- عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "اكتشف كيف تقوم Aspose.Slides لـ .NET بحساب وتطبيق الخصائص الفعالة للأشكال لضمان عرض PowerPoint بدقة."
+description: "اكتشف كيف تقوم Aspose.Slides لـ .NET بحساب وتطبيق الخصائص الفعلية للأشكال لتحقيق عرض PowerPoint دقيق."
 ---
 ## **نظرة عامة**
 
-يوضح هذا الموضوع الفرق بين الخصائص **المحلية** و **الفعالة**. القيم المحلية هي القيم التي يتم تعيينها مباشرةً على مستوى تنسيق معين، مثل:
+هذا الموضوع يوضح الفرق بين الخصائص **المحلية** والخصائص **الفعلية**. القيم المحلية هي القيم التي يتم ضبطها مباشرةً على مستوى تنسيق معين، مثل:
 
-1. خصائص الجزء على الشريحة.
-1. أنماط نص الشكل النموذجي على تخطيط أو شريحة رئيسية، عندما يحتوي شكل إطار نص الجزء على أحدها.
-1. إعدادات النص العامة في العرض التقديمي.
+1. خصائص الجزء في شريحة.
+1. أنماط نص الشكل النموذجي في تخطيط أو شريحة رئيسية، عندما يحتوي شكل إطار النص للجزء على واحدة.
+1. إعدادات النص العامة في عرض تقديمي.
 
-يمكن تعريف القيم المحلية أو حذفها على أي مستوى. عندما تحتاج Aspose.Slides إلى التنسيق النهائي "كما يتم عرضه"، تقوم بحل سلسلة الوراثة وتعيد القيم **الفعالة**. يمكنك الحصول عليها عن طريق استدعاء طريقة `GetEffective` على كائن التنسيق المحلي.
+يمكن تعريف القيم المحلية أو إغفالها على أي مستوى. عندما يحتاج Aspose.Slides إلى التنسيق النهائي "كما يُعرض"، فإنه يحل سلسلة الوراثة ويعيد القيم **الفعلية**. يمكنك الحصول عليها عبر استدعاء الطريقة `GetEffective` على كائن التنسيق المحلي.
 
-يظهر المثال التالي كيفية الحصول على القيم الفعالة. يفترض أن الشكل الأول على الشريحة الأولى هو [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/) يحتوي على إطار نص وعلى الأقل جزء واحد.
+المثال التالي يوضح كيفية الحصول على القيم الفعلية. يفترض أن الشكل الأول في الشريحة الأولى هو [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/) يحتوي على إطار نص وعلى الأقل جزء واحد.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -46,17 +48,19 @@ var localPortionFormat = portion.PortionFormat;
 var effectivePortionFormat = localPortionFormat.GetEffective();
 ```
 
-{{% alert color="primary" %}}
-تمثل بيانات التنسيق الفعالة التنسيق الحالي المحسوب بعد تطبيق الوراثة. في التنفيذ الحالي، قد يتم تخزين بعض كائنات البيانات الفعالة داخليًا في الذاكرة المؤقتة، مثل [IPortionFormatEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/iportionformateffectivedata/). قد يؤدي استدعاء `GetEffective` مرة أخرى بعد تغيير التنسيق الأب أو الوراثي إلى تحديث البيانات المخزنة مؤقتًا، وقد لا يمثل الكائن الذي تم الحصول عليه مسبقًا الحالة السابقة. إذا كنت بحاجة إلى حفظ القيم الفعالة لإعادة استخدامها لاحقًا، فانسخ الخصائص المطلوبة، مثل ارتفاع الخط، لون التعبئة، نمط الخط، أو المحاذاة، إلى كائن البيانات الخاص بك.
+{{% alert color="info" %}}
+البيانات التنسيقية الفعلية تمثل التنسيق الجاري حسابه بعد تطبيق الوراثة. في التنفيذ الحالي، قد يتم تخزين بعض كائنات البيانات الفعلية، مثل [IPortionFormatEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/iportionformateffectivedata/)، في الذاكرة مؤقتًا. استدعاء `GetEffective` مرة أخرى بعد تعديل تنسيق الأب أو التنسيق الموروث يمكن أن يحدث تحديثًا للبيانات المخزنة، وقد لا يمثل الكائن الذي تم الحصول عليه مسبقًا الحالة السابقة. إذا كنت بحاجة إلى الحفاظ على القيم الفعلية لإعادة استخدامها لاحقًا، قم بنسخ الخصائص المطلوبة مثل ارتفاع الخط، لون التعبئة، نمط الخط، أو المحاذاة إلى كائن بيانات خاص بك.
 {{% /alert %}}
 
-## **الحصول على الخصائص الفعالة للكاميرا**
+## **الحصول على الخصائص الفعلية للكاميرا**
 
-تتيح لك Aspose.Slides الحصول على الخصائص الفعالة للكاميرا. تمثل الواجهة [ICameraEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/icameraeffectivedata/) كائنًا غير قابل للتغيير يحتوي على خصائص الكاميرا الفعالة. يتم عرض نسخة من [ICameraEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/icameraeffectivedata/) عبر [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/ithreedformateffectivedata/)، التي توفر القيم الفعالة لـ [IThreeDFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/ithreedformat/).
+يسمح Aspose.Slides لك بالحصول على الخصائص الفعلية للكاميرا. تمثل الواجهة [ICameraEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/icameraeffectivedata/) كائنًا غير قابل للتغيير يحتوي على خصائص كاميرا فعلية. يتم الكشف عن مثيل [ICameraEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/icameraeffectivedata/) من خلال [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/ithreedformateffectivedata/)، الذي يوفر القيم الفعلية لـ [IThreeDFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/ithreedformat/).
 
-يعرض مثال الشيفرة التالي كيفية الحصول على الخصائص الفعالة للكاميرا. يفترض أن الشكل الأول على الشريحة الأولى يحتوي على تنسيق ثلاثي الأبعاد.
+يعرض مثال الشيفرة التالي كيفية الحصول على الخصائص الفعلية للكاميرا. يفترض أن الشكل الأول في الشريحة الأولى لديه تنسيق ثلاثي الأبعاد.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -70,13 +74,15 @@ Console.WriteLine("Field of view: " + threeDEffectiveData.Camera.FieldOfViewAngl
 Console.WriteLine("Zoom: " + threeDEffectiveData.Camera.Zoom);
 ```
 
-## **الحصول على الخصائص الفعالة لجهاز الإضاءة**
+## **الحصول على الخصائص الفعلية لجهاز إضاءة**
 
-تتيح لك Aspose.Slides الحصول على الخصائص الفعالة لجهاز الإضاءة. تمثل الواجهة [ILightRigEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/ilightrigeffectivedata/) كائنًا غير قابل للتغيير يحتوي على خصائص جهاز الإضاءة الفعالة. يتم عرض نسخة من [ILightRigEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/ilightrigeffectivedata/) عبر [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/ithreedformateffectivedata/)، التي توفر القيم الفعالة لـ [IThreeDFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/ithreedformat/).
+يسمح Aspose.Slides لك بالحصول على الخصائص الفعلية لجهاز إضاءة. تمثل الواجهة [ILightRigEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/ilightrigeffectivedata/) كائنًا غير قابل للتغيير يحتوي على خصائص جهاز إضاءة فعلية. يتم الكشف عن مثيل [ILightRigEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/ilightrigeffectivedata/) من خلال [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/ithreedformateffectivedata/)، الذي يوفر القيم الفعلية لـ [IThreeDFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/ithreedformat/).
 
-يعرض مثال الشيفرة التالي كيفية الحصول على الخصائص الفعالة لجهاز الإضاءة. يفترض أن الشكل الأول على الشريحة الأولى يحتوي على تنسيق ثلاثي الأبعاد.
+يعرض مثال الشيفرة التالي كيفية الحصول على الخصائص الفعلية لجهاز الإضاءة. يفترض أن الشكل الأول في الشريحة الأولى لديه تنسيق ثلاثي الأبعاد.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -89,13 +95,15 @@ Console.WriteLine("Type: " + threeDEffectiveData.LightRig.LightType);
 Console.WriteLine("Direction: " + threeDEffectiveData.LightRig.Direction);
 ```
 
-## **الحصول على الخصائص الفعالة لحد الحواف الشكلية**
+## **الحصول على الخصائص الفعلية لحافة الشكل**
 
-تتيح لك Aspose.Slides الحصول على الخصائص الفعالة لحد الحواف الشكلية. تمثل الواجهة [IShapeBevelEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/ishapebeveleffectivedata/) كائنًا غير قابل للتغيير يحتوي على خصائص الحافة الفعالة للشكل. يتم عرض نسخة من [IShapeBevelEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/ishapebeveleffectivedata/) عبر [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/ithreedformateffectivedata/)، التي توفر القيم الفعالة لـ [IThreeDFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/ithreedformat/).
+يسمح Aspose.Slides لك بالحصول على الخصائص الفعلية لحافة الشكل. تمثل الواجهة [IShapeBevelEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/ishapebeveleffectivedata/) كائنًا غير قابل للتغيير يحتوي على خصائص الحافة الفعلية للشكل. يتم الكشف عن مثيل [IShapeBevelEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/ishapebeveleffectivedata/) من خلال [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/ithreedformateffectivedata/)، الذي يوفر القيم الفعلية لـ [IThreeDFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/ithreedformat/).
 
-يعرض مثال الشيفرة التالي كيفية الحصول على الخصائص الفعالة للحد العلوي لشكل. يفترض أن الشكل الأول على الشريحة الأولى يحتوي على تنسيق ثلاثي الأبعاد.
+يعرض مثال الشيفرة التالي كيفية الحصول على الخصائص الفعلية للحافة العليا للشكل. يفترض أن الشكل الأول في الشريحة الأولى لديه تنسيق ثلاثي الأبعاد.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -109,13 +117,15 @@ Console.WriteLine("Width: " + threeDEffectiveData.BevelTop.Width);
 Console.WriteLine("Height: " + threeDEffectiveData.BevelTop.Height);
 ```
 
-## **الحصول على الخصائص الفعالة لإطار النص**
+## **الحصول على الخصائص الفعلية لإطار النص**
 
-باستخدام Aspose.Slides، يمكنك الحصول على الخصائص الفعالة لإطار النص. تحتوي الواجهة [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframeformateffectivedata/) على خصائص تنسيق إطار النص الفعالة.
+باستخدام Aspose.Slides، يمكنك الحصول على الخصائص الفعلية لإطار النص. تحتوي الواجهة [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframeformateffectivedata/) على خصائص تنسيق إطار النص الفعلية.
 
-يعرض مثال الشيفرة التالي كيفية الحصول على خصائص تنسيق إطار النص الفعالة. يفترض أن الشكل الأول على الشريحة الأولى هو [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/) يحتوي على إطار نص.
+يعرض مثال الشيفرة التالي كيفية الحصول على خصائص تنسيق إطار النص الفعلية. يفترض أن الشكل الأول في الشريحة الأولى هو [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/) يحتوي على إطار نص.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -134,13 +144,15 @@ Console.WriteLine("   Right: " + effectiveTextFrameFormat.MarginRight);
 Console.WriteLine("   Bottom: " + effectiveTextFrameFormat.MarginBottom);
 ```
 
-## **الحصول على الخصائص الفعالة لنمط النص**
+## **الحصول على الخصائص الفعلية لنمط النص**
 
-باستخدام Aspose.Slides، يمكنك الحصول على الخصائص الفعالة لنمط النص. تحتوي الواجهة [ITextStyleEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/itextstyleeffectivedata/) على خصائص نمط النص الفعالة.
+باستخدام Aspose.Slides، يمكنك الحصول على الخصائص الفعلية لنمط النص. تحتوي الواجهة [ITextStyleEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/itextstyleeffectivedata/) على خصائص نمط النص الفعلية.
 
-يعرض مثال الشيفرة التالي كيفية الحصول على خصائص نمط النص الفعالة. يفترض أن الشكل الأول على الشريحة الأولى هو [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/) يحتوي على إطار نص.
+يعرض مثال الشيفرة التالي كيفية الحصول على خصائص نمط النص الفعلية. يفترض أن الشكل الأول في الشريحة الأولى هو [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/) يحتوي على إطار نص.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -161,11 +173,14 @@ for (var levelIndex = 0; levelIndex < levelCount; levelIndex++)
 }
 ```
 
-## **الحصول على قيمة ارتفاع الخط الفعال**
+## **الحصول على قيمة ارتفاع الخط الفعلي**
 
-باستخدام Aspose.Slides، يمكنك الحصول على ارتفاع الخط الفعال. يوضح المثال التالي كيف يتغير ارتفاع الخط الفعال للجزء بعد تعيين قيم ارتفاع الخط المحلية على مستويات مختلفة من بنية العرض التقديمي.
+باستخدام Aspose.Slides، يمكنك الحصول على ارتفاع الخط الفعلي. يوضح الشيفرة التالية كيف يتغير ارتفاع الخط الفعلي للجزء بعد ضبط قيم ارتفاع الخط المحلي على مستويات مختلفة من بنية العرض التقديمي.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
@@ -223,13 +238,15 @@ Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
 presentation.Save("SetLocalFontHeightValues.pptx", SaveFormat.Pptx);
 ```
 
-## **الحصول على تنسيق التعبئة الفعال لجدول**
+## **الحصول على تنسيق التعبئة الفعلي للجدول**
 
-باستخدام Aspose.Slides، يمكنك الحصول على تنسيق التعبئة الفعال لأجزاء مختلفة من الجدول. تحتوي الواجهة [IFillFormatEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/ifillformateffectivedata/) على خصائص تنسيق التعبئة الفعالة. تنسيق الخلية له أولوية أعلى من تنسيق الصف، وتنسيق الصف له أولوية أعلى من تنسيق العمود، وتنسيق العمود له أولوية أعلى من تنسيق الجدول بالكامل.
+باستخدام Aspose.Slides، يمكنك الحصول على تنسيق التعبئة الفعلي لأجزاء مختلفة من الجدول. تحتوي الواجهة [IFillFormatEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/ifillformateffectivedata/) على خصائص تنسيق التعبئة الفعلية. تنسيق الخلية له أولوية أعلى من تنسيق الصف، وتنظيم الصف له أولوية أعلى من تنسيق العمود، وتنسيق العمود له أولوية أعلى من تنسيق الجدول بالكامل.
 
-وبالتالي، تُستخدم خصائص [ICellFormatEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/icellformateffectivedata/) لرسم خلية الجدول. يعرض مثال الشيفرة التالي كيفية الحصول على تنسيق التعبئة الفعال لأجزاء مختلفة من الجدول. يفترض أن الشكل الأول على الشريحة الأولى هو [ITable](https://reference.aspose.com/slides/ar/net/aspose.slides/itable/).
+وبالتالي، يتم استعمال خصائص [ICellFormatEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/icellformateffectivedata/) لرسم خلية الجدول. يعرض مثال الشيفرة التالي كيفية الحصول على تنسيق التعبئة الفعلي لأجزاء مختلفة من الجدول. يفترض أن الشكل الأول في الشريحة الأولى هو [ITable](https://reference.aspose.com/slides/ar/net/aspose.slides/itable/).
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -248,34 +265,34 @@ var cellFillFormatEffective = cellFormatEffective.FillFormat;
 
 ## **الأسئلة المتكررة**
 
-**هل تُعيد `GetEffective` لقطة؟**
+### هل تُعيد `GetEffective` لقطة ثابتة؟
 
-ليس دائمًا. تمثل البيانات الفعالة التنسيق المحسوب بعد تطبيق الوراثة، لكن بعض كائنات البيانات الفعالة قد تُخزن مؤقتًا داخليًا. قد يؤدي استدعاء `GetEffective` لاحقًا إلى إعادة حساب التنسيق وتحديث البيانات المخزنة، لذا لا يجب اعتبار الكائن المسترجع مسبقًا لقطة ثابتة.
+ليس دائمًا. تمثل البيانات الفعلية التنسيق المحسوب بعد تطبيق الوراثة، لكن بعض كائنات البيانات الفعلية قد تُخزن مؤقتًا داخل النظام. قد يؤدي استدعاء `GetEffective` لاحقًا بعد تعديل تنسيق الأب أو التنسيق الموروث إلى إعادة حساب التنسيق وتحديث البيانات المخزنة، وبالتالي لا يجب اعتبار الكائن الذي تم الحصول عليه مسبقًا لقطة ثابتة.
 
-**متى ينبغي قراءة الخصائص الفعالة مرة أخرى؟**
+### متى يجب قراءة الخصائص الفعلية مرة أخرى؟
 
-استدعِ `GetEffective` مرة أخرى بعد تعديل التنسيق المحلي أو أنماط الوالد، أو تنسيق التخطيط، أو تنسيق الرئيس، أو الإعدادات الافتراضية على مستوى العرض التقديمي. سيُعيد الاستدعاء التالي تقييم شجرة التنسيق ويُعيد النتيجة الفعالة الحالية.
+استدعِ `GetEffective` مرة أخرى بعد تعديل تنسيق محلي، أو أنماط الأب، أو تنسيق التخطيط، أو تنسيق الرئيسي، أو الإعدادات الافتراضية على مستوى العرض التقديمي. سيعيد الاستدعاء التالي تقييم شجرة التنسيق ويُعيد النتيجة الفعلية الحالية.
 
-**هل يؤثر تعديل أو إزالة شريحة تخطيط/رئيسية على الخصائص الفعالة التي تم استرجاعها مسبقًا؟**
+### هل يؤثر تعديل أو حذف تخطيط/شريحة رئيسية على الخصائص الفعلية التي تم استخراجها بالفعل؟
 
-نعم، لكن التغيير ينعكس في الاستدعاء التالي لـ `GetEffective`. إذا تم تغيير أو إزالة مصدر تنسيق أب، قد تصبح البيانات الفعالة المسترجعة سابقًا قديمة. بمجرد استدعاء `GetEffective` مرة أخرى، تُعيد Aspose.Slides تقييم شجرة التنسيق وقد تتغير الخطوط أو الألوان أو الأحجام أو القيم الأخرى الناتجة.
+نعم، لكن التغيير سينعكس في الاستدعاء التالي لـ `GetEffective`. إذا تم تعديل أو حذف مصدر تنسيق أب، قد تصبح البيانات الفعلية المستخرجة مسبقًا قديمة. بمجرد استدعاء `GetEffective` مرة أخرى، تعيد Aspose.Slides تقييم شجرة التنسيق وقد تتغير الخطوط والألوان والأحجام أو القيم الأخرى.
 
-**هل يمكن تعديل القيم عبر كائنات البيانات الفعالة؟**
+### هل يمكن تعديل القيم عبر كائنات البيانات الفعلية؟
 
-لا. كائنات البيانات الفعالة تُظهر القيم المحسوبة فقط. قم بإجراء التغييرات في كائنات التنسيق المحلي، ثم استرجع القيم الفعالة مرة أخرى.
+لا. تُظهر كائنات البيانات الفعلية القيم المحسوبة فقط. قم بإجراء التعديلات في كائنات التنسيق المحلي، ثم احصل على القيم الفعلية مرة أخرى.
 
-**ماذا يحدث إذا لم يتم تعيين خاصية على مستوى الشكل ولا في التخطيط/الرئيس ولا في الإعدادات العامة؟**
+### ماذا يحدث إذا لم يُحدد الإعداد على مستوى الشكل، ولا في التخطيط/الرئيسية، ولا في الإعدادات العامة؟
 
-يُحدد القيمة الفعالة عبر آلية القيم الافتراضية، والتي تشمل افتراضات PowerPoint و Aspose.Slides. تُصبح القيمة المحسومة جزءًا من البيانات الفعالة الحالية.
+يتم تحديد القيمة الفعلية عبر آلية القيم الافتراضية، التي تشمل الافتراضات الخاصة بـ PowerPoint وAspose.Slides. تصبح القيمة التي تم حلها جزءًا من البيانات الفعلية الحالية.
 
-**من قيمة الخط الفعال، هل يمكنني معرفة المستوى الذي قدم الحجم أو الخط؟**
+### من قيمة الخط الفعلي، هل يمكنني معرفة المستوى الذي وفر الحجم أو الخط؟
 
-ليس مباشرة. تُعيد البيانات الفعالة القيمة النهائية فقط. لتحديد المصدر، تحقّق من القيم المحلية على مستوى الجزء، الفقرة، إطار النص، وأنماط النص على التخطيط، الرئيس، ومستوى العرض التقديمي لترى أين تظهر التعريف الصريح الأول.
+ليس بشكل مباشر. تُعيد البيانات الفعلية القيمة النهائية. لتحديد المصدر، راجع القيم المحلية على مستوى الجزء، الفقرة، إطار النص، وأنماط النص في التخطيط، الرئيسة، ومستوى العرض التقديمي لتحديد أول تعريف صريح.
 
-**لماذا تبدو القيم الفعالة أحيانًا مطابقة للقيم المحلية؟**
+### لماذا تبدو القيم الفعلية أحيانًا مطابقة للقيم المحلية؟
 
-لأن القيمة المحلية انتهت بأنها النهائية (لم يُستدعَ مستوى أعلى من الوراثة). في هذه الحالة تتطابق القيمة الفعالة مع القيمة المحلية.
+لأن القيمة المحلية أصبحت هي النهائية (لم يُستدعَ مستوى أعلى من الوراثة). في هذه الحالات تتطابق القيمة الفعلية مع القيمة المحلية.
 
-**متى يجب استخدام الخصائص الفعالة، ومتى أكتفي بالخصائص المحلية فقط؟**
+### متى يجب استخدام الخصائص الفعلية، ومتى أكتفي بالخصائص المحلية؟
 
-استخدم البيانات الفعالة عندما تحتاج إلى النتيجة "كما يتم عرضها" بعد تطبيق كل الوراثات، مثل مطابقة الألوان أو الهوامش أو الأحجام. إذا أردت حفظ تلك القيم بغض النظر عن تغييرات التنسيق المستقبلية، انسخ الخصائص المطلوبة إلى كائنك الخاص. إذا كنت تحتاج لتعديل التنسيق في مستوى معين، عدل الخصائص المحلية ثم، إذا لزم الأمر، أعد قراءة البيانات الفعالة للتحقق من النتيجة.
+استخدم البيانات الفعلية عندما تحتاج إلى النتيجة "كما تُعرض" بعد تطبيق كل الوراثات، مثل محاذاة الألوان أو الهوامش أو الأحجام. إذا كنت بحاجة إلى الحفاظ على تلك القيم بغض النظر عن تغييرات التنسيق المستقبلية، انسخ الخصائص المطلوبة إلى كائن خاص بك. إذا كنت تحتاج إلى تعديل التنسيق على مستوى معين، قم بتعديل الخصائص المحلية ثم، إذا لزم الأمر، اقرأ البيانات الفعلية مرة أخرى للتحقق من النتيجة.

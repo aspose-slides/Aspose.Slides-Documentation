@@ -1,41 +1,43 @@
 ---
-title: Aspose.Slides for Java 14.6.0 में सार्वजनिक API और अनुकूल नहीं होने वाले परिवर्तन
-linktitle: Aspose.Slides for Java 14.6.0
+title: Aspose.Slides for Java 14.6.0 में सार्वजनिक API और पीछे की असंगत परिवर्तन
+linktitle: Aspose.Slides के लिए Java 14.6.0
 type: docs
 weight: 50
 url: /hi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/
 keywords:
-- स्थलांतर
+- प्रवर्तन
 - पुराना कोड
 - आधुनिक कोड
 - पुरानी पद्धति
 - आधुनिक पद्धति
 - PowerPoint
 - OpenDocument
-- प्रस्तुतीकरण
+- प्रस्तुति
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java में सार्वजनिक API अपडेट और टूटने वाले बदलावों की समीक्षा करें ताकि आप अपने PowerPoint PPT, PPTX और ODP प्रस्तुतीकरण समाधान को सहजता से स्थानांतरित कर सकें।"
+description: "Aspose.Slides for Java में सार्वजनिक API अपडेट और तोड़ने वाले परिवर्तन का समीक्षा करें ताकि आप अपने PowerPoint PPT, PPTX और ODP प्रस्तुति समाधान को सुगमता से माइग्रेट कर सकें।"
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-यह पृष्ठ Aspose.Slides for Java 14.6.0 API के साथ प्रस्तुत किए गए सभी [जोड़ें](/slides/hi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/) क्लास, मेथड, प्रॉपर्टी आदि, किसी भी नई प्रतिबंधों और अन्य बदलावों की सूची देता है।
+यह पृष्ठ सभी [added](/slides/hi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/) वर्गों, विधियों, गुणों आदि, नई प्रतिबंधों और Aspose.Slides for Java 14.6.0 API के साथ प्रस्तुत किए गए अन्य परिवर्तनों की सूची देता है।
 
 {{% /alert %}} 
 ## **सार्वजनिक API परिवर्तन**
-### **जोड़े गए क्लास, मेथड, इंटरफ़ेस और एनीमरेशन**
-#### **जोड़ा गया ViewType एनीमरेशन, IViewProperties इंटरफ़ेस, ViewProperties क्लास और IPresentation.getViewProperties() मेथड**
-IPresentation.getViewProperty() मेथड IViewProperties तक पहुंच प्रदान करता है और आपको Microsoft PowerPoint में प्रस्तुति खोलते समय प्रस्तुति दृश्य प्रकार और नोट्स की दृश्यता बदलने की अनुमति देता है।
+### **जोड़े गए वर्ग, विधियां, इंटरफ़ेस और एन्यूमरेशन**
+#### **जोड़ा गया ViewType एन्यूमरेशन, IViewProperties इंटरफ़ेस, ViewProperties क्लास और IPresentation.getViewProperties() विधि**
+IPresentation.getViewProperties() विधि IViewProperties तक पहुँच प्रदान करती है और आपको प्रस्तुति के दृश्य प्रकार और नोट्स की दृश्यता को बदलने की अनुमति देती है जब प्रस्तुति Microsoft PowerPoint में खोली जाती है।
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation p = new Presentation();
 
 p.getViewProperties().setLastView(ViewType.SlideMasterView);
 
 ```
-#### **जोड़े गए Aspose.Slides.IShapeCollection.addClone(...) और .insertClone(...) मेथड**
-इनमेथड्स
+#### **जोड़ी गई Aspose.Slides.IShapeCollection.addClone(...) और .insertClone(...) विधियां**
+विधियां
 
 - Aspose.Slides.IShapeCollection.addClone(IShape sourceShape),
 - Aspose.Slides.IShapeCollection.addClone(IShape sourceShape, float x, float y),
@@ -44,9 +46,11 @@ p.getViewProperties().setLastView(ViewType.SlideMasterView);
 - Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape, float x, float y), और
 - Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape, float x, float y, float width, float height)
 
-निर्दिष्ट आकार की एक प्रतिलिपि को संग्रह में जोड़ते/सम्मिलित करते हैं। 
+निर्दिष्ट आकार की एक प्रति संग्रह में जोड़ती/डालती हैं। 
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation srcPres = new Presentation("data/Source Frame.pptx");
 
@@ -69,12 +73,13 @@ destShapes.addClone(sourceShapes.get_Item(4));
 destShapes.addClone(sourceShapes.get_Item(5), 300, 300, 50, 200);
 
 destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
-
 ```
 #### **जोड़ा गया Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues इंटरफ़ेस**
-यह इंटरफ़ेस ChartDataPoint.ErrorBarsCustomValues प्रॉपर्टी सूची में मानों के प्रकार को निर्दिष्ट करता है।
+यह इंटरफ़ेस ChartDataPoint.ErrorBarsCustomValues गुण सूची में मानों के प्रकार को निर्दिष्ट करता है।
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -122,9 +127,11 @@ pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 
 ```
 #### **जोड़ा गया Aspose.Slides.Charts.IErrorBarsCustomValues इंटरफ़ेस**
-जब IErrorBarsFormat.ValueType प्रॉपर्टी Custom के बराबर हो, तो मान निर्दिष्ट करने के लिए श्रृंखला के DataPoints संग्रह में विशिष्ट डेटा पॉइंट की ErrorBarCustomValues प्रॉपर्टी का उपयोग करें।
+जब IErrorBarsFormat.ValueType प्रॉपर्टी Custom के बराबर हो, तो मान निर्दिष्ट करने के लिए श्रृंखला के DataPoints संग्रह में विशेष डेटा बिंदु की ErrorBarCustomValues प्रॉपर्टी का उपयोग करें।
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -172,10 +179,12 @@ pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 
 ```
 #### **जोड़ा गया Aspose.Slides.Charts.IErrorBarsFormat इंटरफ़ेस**
-यह इंटरफ़ेस चार्ट श्रृंखला के एरर बार को दर्शाता है।
-कस्टम वैल्यू टाइप के मामले में, मान निर्दिष्ट करने के लिए श्रृंखला के DataPoins संग्रह में विशिष्ट डेटा पॉइंट की ErrorBarCustomValues प्रॉपर्टी का उपयोग करें।
+यह इंटरफ़ेस चार्ट श्रृंखला की त्रुटि बार को दर्शाता है।
+कस्टम मान प्रकार के मामले में मान निर्दिष्ट करने के लिए श्रृंखला के DataPoins संग्रह में विशिष्ट डेटा बिंदु की ErrorBarCustomValues प्रॉपर्टी का उपयोग करें।
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 

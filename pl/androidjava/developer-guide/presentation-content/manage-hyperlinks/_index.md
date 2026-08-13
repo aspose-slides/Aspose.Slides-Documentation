@@ -1,52 +1,52 @@
 ---
-title: Zarządzanie hiperłączami prezentacji w Androidzie
-linktitle: Zarządzaj hiperłączem
+title: Zarządzanie odnośnikami w prezentacji na Androidzie
+linktitle: Zarządzaj odnośnikiem
 type: docs
 weight: 20
 url: /pl/androidjava/manage-hyperlinks/
 keywords:
 - dodaj URL
-- dodaj hiperłącze
-- utwórz hiperłącze
-- formatowanie hiperłącza
-- usuń hiperłącze
-- zaktualizuj hiperłącze
-- hiperłącze tekstowe
-- hiperłącze slajdu
-- hiperłącze kształtu
-- hiperłącze obrazu
-- hiperłącze wideo
-- modyfikowalne hiperłącze
+- dodaj odnośnik
+- utwórz odnośnik
+- formatowanie odnośnika
+- usuń odnośnik
+- aktualizuj odnośnik
+- odnośnik w tekście
+- odnośnik do slajdu
+- odnośnik do kształtu
+- odnośnik do obrazu
+- odnośnik do wideo
+- modyfikowalny odnośnik
 - PowerPoint
 - OpenDocument
 - prezentacja
 - Android
 - Java
 - Aspose.Slides
-description: "Bez problemu zarządzaj hiperłączami w prezentacjach PowerPoint i OpenDocument za pomocą Aspose.Slides for Android via Java — zwiększ interaktywność i usprawnij przepływ pracy w kilka minut."
+description: "Łatwo zarządzaj odnośnikami w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides for Android via Java - zwiększ interaktywność i efektywność pracy w kilka minut."
 ---
 ## **Wprowadzenie**
 
-Hiperalink jest odwołaniem do obiektu, danych lub miejsca w czymś. Oto typowe hiperliki w prezentacjach PowerPoint:
+Odnośnik hipertekstowy (hyperlink) jest odwołaniem do obiektu, danych lub miejsca w czymś. Są to typowe odnośniki w prezentacjach PowerPoint:
 
-* łącza do stron internetowych w tekście, kształtach lub mediach
-* łącza do slajdów
+* Odnośniki do stron internetowych wewnątrz tekstów, kształtów lub multimediów
+* Odnośniki do slajdów
 
-Aspose.Slides for Android via Java umożliwia wykonywanie wielu zadań związanych z hiperlankami w prezentacjach.
+Aspose.Slides for Android via Java pozwala na wykonywanie wielu zadań związanych z odnośnikami w prezentacjach.
 
-{{% alert color="primary" %}} 
-
-Możesz chcieć wypróbować prosty, [darmowy edytor PowerPoint online.](https://products.aspose.app/slides/pl/editor)
-
+{{% alert color="info" %}} 
+Możesz sprawdzić prosty, [darmowy edytor PowerPoint online.](https://products.aspose.app/slides/pl/editor)
 {{% /alert %}} 
 
-## **Dodaj hiperłącza URL**
+## **Dodaj odnośniki URL**
 
-### **Dodaj hiperłącza URL do tekstu**
+### **Dodaj odnośniki URL do tekstu**
 
-Ten kod w Javie pokazuje, jak dodać hiperłącze do witryny w tekście:
+Ten kod w języku Java pokazuje, jak dodać odnośnik do strony internetowej w tekście:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
 	IAutoShape shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -63,11 +63,13 @@ try {
 }
 ```
 
-### **Dodaj hiperłącza URL do kształtów lub ramek**
+### **Dodaj odnośniki URL do kształtów lub ramek**
 
-Ten przykładowy kod w Javie pokazuje, jak dodać hiperłącze do witryny w kształcie:
+Ten przykładowy kod w Javie pokazuje, jak dodać odnośnik do strony internetowej do kształtu:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -81,22 +83,24 @@ try {
 }
 ```
 
-### **Dodaj hiperłącza URL do multimediów**
+### **Dodaj odnośniki URL do multimediów**
 
-Aspose.Slides umożliwia dodawanie hiperłączy do plików graficznych, audio i wideo. 
+Aspose.Slides umożliwia dodawanie odnośników do obrazów, plików audio i wideo.
 
-Ten przykładowy kod pokazuje, jak dodać hiperłącze do **obrazu**:
+Ten przykładowy kod pokazuje, jak dodać odnośnik do **obrazu**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	// Dodaje obraz do prezentacji
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
-    picture = pres.getImages().addImage(picture);
+        picture = pres.getImages().addImage(image);
     } finally {
-          if (image != null) image.dispose();
+        if (image != null) image.dispose();
     }
 	// Tworzy ramkę obrazu na slajdzie 1 na podstawie wcześniej dodanego obrazu
 	IPictureFrame pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
@@ -105,15 +109,19 @@ try {
 	pictureFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 
 	pres.save("pres-out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
-Ten przykładowy kod pokazuje, jak dodać hiperłącze do **pliku audio**:
+Ten przykładowy kod pokazuje, jak dodać odnośnik do **pliku audio**:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IAudio audio = pres.getAudios().addAudio(Files.readAllBytes(Paths.get("audio.mp3")));
@@ -129,9 +137,14 @@ try {
 }
 ```
 
-Ten przykładowy kod pokazuje, jak dodać hiperłącze do **wideo**:
+Ten przykładowy kod pokazuje, jak dodać odnośnik do **wideo**:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IVideo video = pres.getVideos().addVideo(Files.readAllBytes(Paths.get("video.avi")));
@@ -147,19 +160,20 @@ try {
 }
 ```
 
-{{%  alert  title="Tip"  color="primary"  %}} 
-
-Możesz chcieć zobaczyć *[Manage OLE](/slides/pl/androidjava/manage-ole/)*.
-
+{{%  alert  title="Tip"  color="info"  %}} 
+Możesz chcieć zobaczyć *[Zarządzaj OLE](/slides/pl/androidjava/manage-ole/)*.
 {{% /alert %}}
 
-## **Użyj hiperłączy do utworzenia spisu treści**
+## **Użyj odnośników do tworzenia spisu treści**
 
-Ponieważ hiperłącza umożliwiają dodawanie odwołań do obiektów lub miejsc, możesz ich użyć do stworzenia spisu treści. 
+Ponieważ odnośniki umożliwiają dodawanie odwołań do obiektów lub miejsc, możesz ich użyć do stworzenia spisu treści.
 
-Ten przykładowy kod pokazuje, jak stworzyć spis treści z hiperłączami:
+Ten przykładowy kod pokazuje, jak stworzyć spis treści z odnośnikami:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	ISlide firstSlide = pres.getSlides().get_Item(0);
@@ -188,15 +202,18 @@ try {
 }
 ```
 
-## **Formatowanie hiperłączy**
+## **Formatuj odnośniki**
 
 ### **Kolor**
 
-Z właściwością [ColorSource](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Hyperlink#setColorSource-int-) w interfejsie [IHyperlink](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IHyperlink) możesz ustawić kolor hiperłączy oraz pobrać informacje o kolorze z hiperłączy. Funkcja została wprowadzona po raz pierwszy w PowerPoint 2019, więc zmiany dotyczące tej właściwości nie mają zastosowania w starszych wersjach PowerPoint.
+Za pomocą własności [ColorSource](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Hyperlink#setColorSource-int-) w interfejsie [IHyperlink](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IHyperlink) możesz ustawić kolor odnośników oraz pobierać informacje o kolorze odnośników. Funkcja została wprowadzona po raz pierwszy w PowerPoint 2019, więc zmiany dotyczące tej własności nie mają zastosowania do starszych wersji PowerPoint.
 
-Ten przykładowy kod demonstruje operację, w której do tego samego slajdu dodano hiperłącza o różnych kolorach:
+Ten przykładowy kod demonstruje operację, w której odnośniki o różnych kolorach zostały dodane do tego samego slajdu:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -217,21 +234,23 @@ try {
 }
 ```
 
-## **Usuwanie hiperłączy z prezentacji**
+## **Usuń odnośniki z prezentacji**
 
-### **Usuwanie hiperłączy z tekstu**
+### **Usuń odnośniki z tekstu**
 
-Ten kod w Javie pokazuje, jak usunąć hiperłącze z tekstu na slajdzie prezentacji:
+Ten kod w języku Java pokazuje, jak usunąć odnośnik z tekstu w slajdzie prezentacji:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
 	{
-		IAutoShape autoShape = (IAutoShape)shape;
-		if (autoShape != null)
+		if (shape instanceof IAutoShape)
 		{
+			IAutoShape autoShape = (IAutoShape)shape;
 			for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs())
 			{
 				for (IPortion portion : paragraph.getPortions())
@@ -248,12 +267,14 @@ try {
 }
 ```
 
-### **Usuwanie hiperłączy z kształtów lub ramek**
+### **Usuń odnośniki z kształtów lub ramek**
 
-Ten kod w Javie pokazuje, jak usunąć hiperłącze z kształtu na slajdzie prezentacji: 
+Ten kod w Javie pokazuje, jak usunąć odnośnik z kształtu w slajdzie prezentacji: 
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
@@ -266,9 +287,9 @@ try {
 }
 ```
 
-## **Modyfikowalne hiperłącze**
+## **Modyfikowalny odnośnik**
 
-Klasa [Hyperlink](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Hyperlink) jest modyfikowalna. Dzięki tej klasie możesz zmieniać wartości następujących właściwości:
+Klasa [Hyperlink](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Hyperlink) jest modyfikowalna. Dzięki tej klasie możesz zmienić wartości następujących właściwości:
 
 - [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
 - [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IHyperlink#setTooltip-java.lang.String-)
@@ -276,9 +297,11 @@ Klasa [Hyperlink](https://reference.aspose.com/slides/pl/androidjava/com.aspose.
 - [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IHyperlink#setHighlightClick-boolean-)
 - [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
 
-Ten fragment kodu pokazuje, jak dodać hiperłącze do slajdu i później edytować jego podpowiedź (tooltip):
+Poniższy fragment kodu pokazuje, jak dodać odnośnik do slajdu i później edytować jego podpowiedź (tooltip):
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -289,6 +312,9 @@ try {
 	portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 	portionFormat.setFontHeight(32);
 
+	// Zmienia podpowiedź odnośnika, który już został dodany
+	portionFormat.getHyperlinkClick().setTooltip("Aspose: the File Format APIs");
+
 	pres.save("presentation-out.pptx", SaveFormat.Pptx);
 } finally {
 	if (pres != null) pres.dispose();
@@ -297,13 +323,13 @@ try {
 
 ## **Obsługiwane właściwości w IHyperlinkQueries**
 
-Możesz uzyskać dostęp do [IHyperlinkQueries](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IHyperlinkQueries) z prezentacji, slajdu lub tekstu, dla którego zdefiniowano hiperłącze.
+Możesz uzyskać dostęp do [IHyperlinkQueries](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IHyperlinkQueries) z prezentacji, slajdu lub tekstu, dla którego zdefiniowano odnośnik.
 
 - [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IPresentation#getHyperlinkQueries--)
 - [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
 - [ITextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ITextFrame#getHyperlinkQueries--)
 
-Klasa [IHyperlinkQueries](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IHyperlinkQueries) obsługuje następujące metody i właściwości:
+Klasa [IHyperlinkQueries](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IHyperlinkQueries) obsługuje te metody i właściwości:
 
 - [IHyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
 - [IHyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
@@ -312,14 +338,14 @@ Klasa [IHyperlinkQueries](https://reference.aspose.com/slides/pl/androidjava/com
 
 ## **FAQ**
 
-**Jak mogę stworzyć wewnętrzną nawigację nie tylko do slajdu, ale do „sekcji” lub pierwszego slajdu sekcji?**
+### Jak mogę utworzyć wewnętrzną nawigację nie tylko do slajdu, ale do „sekcji” lub pierwszego slajdu sekcji?
 
-Sekcje w PowerPoint to grupy slajdów; nawigacja technicznie skierowana jest do konkretnego slajdu. Aby „nawigować do sekcji”, zazwyczaj linkuje się do jej pierwszego slajdu.
+Sekcje w PowerPoint to grupy slajdów; nawigacja technicznie celuje w konkretny slajd. Aby „nawigować do sekcji”, zazwyczaj linkuje się do jej pierwszego slajdu.
 
-**Czy mogę dołączyć hiperłącze do elementów master slajdu, aby działało na wszystkich slajdach?**
+### Czy mogę dodać odnośnik do elementów slajdu głównego, aby działał na wszystkich slajdach?
 
-Tak. Elementy master slajdu i układu obsługują hiperłącza. Takie linki pojawiają się na slajdach potomnych i są klikalne podczas pokazu slajdów.
+Tak. Elementy slajdu głównego i układu obsługują odnośniki. Takie linki pojawiają się na slajdach potomnych i są klikalne podczas pokazu slajdów.
 
-**Czy hiperłącza zostaną zachowane przy eksportowaniu do PDF, HTML, obrazów lub wideo?**
+### Czy odnośniki zostaną zachowane przy eksporcie do PDF, HTML, obrazów lub wideo?
 
-W [PDF](/slides/pl/androidjava/convert-powerpoint-to-pdf/) i [HTML](/slides/pl/androidjava/convert-powerpoint-to-html/) tak — linki są zazwyczaj zachowywane. Przy eksportowaniu do [images](/slides/pl/androidjava/convert-powerpoint-to-png/) i [video](/slides/pl/androidjava/convert-powerpoint-to-video/) klikalność nie zostanie przeniesiona ze względu na charakter tych formatów (klatki rastrowe/wideo nie wspierają hiperłączy).
+W [PDF](/slides/pl/androidjava/convert-powerpoint-to-pdf/) i [HTML](/slides/pl/androidjava/convert-powerpoint-to-html/) tak — linki są zazwyczaj zachowywane. Przy eksporcie do [obrazów](/slides/pl/androidjava/convert-powerpoint-to-png/) i [wideo](/slides/pl/androidjava/convert-powerpoint-to-video/), klikalność nie zostanie przeniesiona ze względu na charakter tych formatów (klatki rastrowe/wideo nie obsługują odnośników).

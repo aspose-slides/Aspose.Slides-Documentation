@@ -1,14 +1,14 @@
 ---
-title: API عمومی و تغییرات ناسازگار با نسخه قبلی در Aspose.Slides برای .NET 14.10.0
+title: API عمومی و تغییرات ناسازگار به‌عقب در Aspose.Slides برای .NET 14.10.0
 linktitle: Aspose.Slides برای .NET 14.10.0
 type: docs
 weight: 120
 url: /fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/
 keywords:
 - مهاجرت
-- کدهای میراثی
+- کدهای قدیمی
 - کدهای مدرن
-- رویکرد میراثی
+- رویکرد قدیمی
 - رویکرد مدرن
 - PowerPoint
 - OpenDocument
@@ -16,46 +16,52 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "به‌روزرسانی‌های API عمومی و تغییرات مخرب در Aspose.Slides برای .NET را مرور کنید تا بتوانید به‌صورت روان راه‌حل‌های ارائه PowerPoint (PPT، PPTX) و ODP خود را مهاجرت دهید."
+description: "مرور به‌روزرسانی‌های API عمومی و تغییرات ناسازگار در Aspose.Slides برای .NET برای مهاجرت روان راه‌حل‌های ارائه PowerPoint PPT، PPTX و ODP شما."
 ---
-{{% alert color="primary" %}} 
-
-این صفحه تمام کلاس‌ها، متدها، ویژگی‌ها و موارد مشابه که [اضافه‌شده](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) یا [حذف‌شده](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) هستند و سایر تغییرات معرفی‌شده با Aspose.Slides for .NET 14.10.0 API را فهرست می‌کند.
-
+{{% alert color="info" %}} 
+این صفحه تمام کلاس‌ها، متدها، ویژگی‌ها و موارد مشابه [اضافه‌شده](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) یا [حذف‌شده](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) را فهرست می‌کند و سایر تغییراتی که با API Aspose.Slides برای .NET 14.10.0 معرفی شده‌اند.
 {{% /alert %}} 
-## **تغییرات عمومی API**
-#### **نوع فیلد Footer در Aspose.Slides.FieldType اضافه شده است**
-نوع فیلد Footer برای امکان‌پذیری ایجاد فیلدهای این نوع و برای سریال‌سازی صحیح ارائه اضافه شده است.
-#### **عنصر شمارشی ShapeElementFillSource.Own حذف شده است**
-عنصر شمارشی ShapeElementFillSource.Own به‌عنوان تکراری حذف شده است. به جای آن از ShapeElementFillSource.Shape استفاده کنید.
-#### **متدهایی برای حذف نقاط داده نمودار و دسته‌ها اضافه شده‌اند**
-متدهای زیر که امکان حذف نقطه داده نمودار از مجموعه نقاط داده را فراهم می‌کنند، اضافه شده‌اند:
+## **تغییرات API عمومی**
+#### **نوع فیلد Aspose.Slides.FieldType.Footer اضافه شده است**
+نوع فیلد Footer برای امکان ایجاد فیلدهایی از این نوع و برای سریال‌سازی صحیح ارائه اضافه شده است.
+#### **عنصر Enum ShapeElementFillSource.Own حذف شده است**
+عنصر Enum ShapeElementFillSource.Own به دلیل تکراری بودن حذف شد. به جای ShapeElementFillSource.Own از ShapeElementFillSource.Shape استفاده کنید.
+#### **متدهایی برای حذف نقاط دادهٔ نمودار و دسته‌ها اضافه شده‌اند**
+متدهای زیر که امکان حذف نقطه دادهٔ نمودار از مجموعهٔ نقاط دادهٔ نمودار را فراهم می‌کنند، اضافه شده‌اند:
 
 IChartDataPointCollection.Remove(IChartDataPoint)
 IChartDataPoint.Report()
 
-متد زیر که امکان حذف دسته‌بندی نمودار از مجموعه مربوطه را فراهم می‌کند، اضافه شده است:
+متد زیر که امکان حذف یک دستهٔ نمودار از مجموعهٔ مربوطه را می‌دهد، اضافه شده است:
 
 IChartCategory.Remove()
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
- using (Presentation pres = new Presentation())
+using (Presentation pres = new Presentation())
 {
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 400, true);
+
     chart.ChartData.Categories[0].Remove(); //حذف با ChartCategory.Remove()
+
     chart.ChartData.Categories.Remove(chart.ChartData.Categories[0]); //حذف با ChartCategoryCollection.Remove()
+
     foreach (var ser in chart.ChartData.Series)
     {
         ser.DataPoints[0].Remove();//حذف با ChartDataPoint.Remove()
+
         ser.DataPoints.Remove(ser.DataPoints[0]);//ChartDataPointCollection.Remove()
     }
-    pres.Save(outPath, SaveFormat.Pptx);
+
+    pres.Save("chart.pptx", SaveFormat.Pptx);
 }
 ``` 
-#### **ویژگی‌های منسوخ‌شده Aspose.Slides.ParagraphFormat حذف شده‌اند**
-ویژگی‌های BulletChar، BulletColor، BulletColorFormat، BulletFont، BulletHeight، BulletType، IsBulletHardColor، IsBulletHardFont، NumberedBulletStartWith و NumberedBulletStyle حذف شده‌اند. این ویژگی‌ها مدت‌ها پیش به‌عنوان منسوخ علامت‌دار شده بودند.
-#### **سازنده‌های غیرقابل استفاده و منسوخ‌شده حذف شده‌اند**
+#### **ویژگی‌های منسوخ Aspose.Slides.ParagraphFormat حذف شده‌اند**
+ویژگی‌های BulletChar، BulletColor، BulletColorFormat، BulletFont، BulletHeight، BulletType، IsBulletHardColor، IsBulletHardFont، NumberedBulletStartWith و NumberedBulletStyle حذف شده‌اند. این ویژگی‌ها مدت‌ها پیش به‌عنوان منسوخ علامت‌گذاری شده بودند.
+#### **سازنده‌های غیر مفید و منسوخ حذف شده‌اند**
 سازنده‌های زیر حذف شده‌اند:
 
 - Aspose.Slides.Effects.AlphaBiLevel(System.Single)

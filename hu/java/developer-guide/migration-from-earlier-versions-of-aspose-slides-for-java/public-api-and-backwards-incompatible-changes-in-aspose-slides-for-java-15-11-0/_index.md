@@ -15,15 +15,15 @@ keywords:
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Tekintse át az Aspose.Slides for Java nyilvános API frissítéseit és visszafelé nem kompatibilis változásait, hogy zökkenőmentesen migrálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
+description: "Tekintse át az Aspose.Slides for Java nyilvános API frissítéseit és a visszafelé nem kompatibilis változásokat, hogy zökkenőmentesen migrálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
 ---
-{{% alert color="primary" %}}
-
-Ez az oldal felsorolja az összes [hozzáadott](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-11-0/) vagy [eltávolított](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-11-0/) osztályt, metódust, tulajdonságot stb., valamint az Aspose.Slides for Java 15.11.0 API-val bevezetett egyéb változásokat.
-
-{{% /alert %}}
+{{% alert color="info" %}} 
+Ez az oldal felsorolja az összes [hozzáadott](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-11-0/) vagy [eltávolított](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-11-0/) osztályt, metódust, tulajdonságot stb., valamint egyéb változásokat, amelyeket az Aspose.Slides for Java 15.11.0 API bevezetett.
+{{% /alert %}} 
 ## **Nyilvános API változások**
-#### **A com.aspose.slides.DataLabelCollection osztály elavult metódusai törölve lettek**
+#### **Az elavult metódusok a com.aspose.slides.DataLabelCollection osztályban törlésre kerültek**
+Az elavult metódusok a com.aspose.slides.DataLabelCollection osztályban törlésre kerültek:
+
 DataLabelCollection.getNumberFormat()
 DataLabelCollection.setNumberFormat(String value)
 DataLabelCollection.getLinkedSource()
@@ -52,18 +52,20 @@ DataLabelCollection.getShowBubbleSize()
 DataLabelCollection.setShowBubbleSize(boolean value)
 
 
-#### **Új getFirstSlideNumber() és setFirstSlideNumber() metódusok kerültek hozzáadásra a Presentation osztályhoz**
-Az új getFirstSlideNumber() és setFirstSlideNumber() metódusok lehetővé teszik az első dia számának lekérdezését vagy beállítását egy prezentációban.
-Ha új első dia számérték kerül megadásra, az összes dia száma újraszámításra kerül.
+#### **Új metódusok, a getFirstSlideNumber() és a setFirstSlideNumber() hozzáadva a Presentation osztályhoz**
+Az új getFirstSlideNumber() és setFirstSlideNumber() metódusok lehetővé teszik az első dia számának lekérését vagy beállítását egy bemutatóban. Ha új első dia számot adunk meg, az összes dia száma újraszámításra kerül.
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(path);
+Presentation pres = new Presentation("presentation.pptx");
+try {
+    int firstSlideNumber = pres.getFirstSlideNumber();
 
-int firstSlideNumber = pres.getFirstSlideNumber();
+    pres.setFirstSlideNumber(10);
 
-pres.setFirstSlideNumber(10);
-
-pres.save(newPath, SaveFormat.Pptx);
-
+    pres.save("presentation_out.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```

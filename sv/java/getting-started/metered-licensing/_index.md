@@ -1,33 +1,33 @@
 ---
-title: Meterad licensiering
+title: Mätlicensiering
 type: docs
 weight: 100
 url: /sv/java/metered-licensing/
 keywords:
 - licens
-- meterad licens
+- mätlicens
 - licensnycklar
 - offentlig nyckel
 - privat nyckel
-- förbrukningsmängd
+- förbrukningskvantitet
 - PowerPoint
 - OpenDocument
 - presentation
 - Java
 - Aspose.Slides
-description: "Lär dig hur Aspose.Slides för Java meterad licensiering låter dig bearbeta PowerPoint- och OpenDocument-filer flexibelt, och endast betala för det du använder."
+description: "Lär dig hur Aspose.Slides för Java mätlicensiering låter dig bearbeta PowerPoint- och OpenDocument-filer flexibelt, och betala endast för det du använder."
 ---
 ## **Introduktion**
 
-Meterad licensiering är en licensieringsmekanism som kan användas tillsammans med befintliga licensieringsmetoder. Om du vill faktureras baserat på din användning av Aspose.Slides API-funktioner väljer du meterad licensiering.
+Metered licensing är en licensieringsmekanism som kan användas tillsammans med befintliga licensmetoder. Om du vill faktureras baserat på din användning av Aspose.Slides API‑funktioner, väljer du Metered licensing.
 
-## **Använd meterade nycklar**
+## **Använd Metered‑nycklar**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Meterad licensiering är en ny licensieringsmekanism som kan användas tillsammans med befintliga licensieringsmetoder. Om du vill faktureras baserat på din användning av Aspose.Slides API-funktioner väljer du meterad licensiering.
+Metered licensing är en ny licensieringsmekanism som kan användas tillsammans med befintliga licensmetoder. Om du vill faktureras baserat på din användning av Aspose.Slides API‑funktioner, väljer du Metered licensing.
 
-När du köper en meterad licens får du nycklar (och inte en licensfil). Denna meterade nyckel kan tillämpas med hjälp av klassen [Metered](https://reference.aspose.com/slides/sv/java/com.aspose.slides/metered/) som Aspose tillhandahåller för meteringsoperationer. För mer information, se [Vanliga frågor om meterad licensiering](https://purchase.aspose.com/faqs/licensing/metered).
+När du köper en metered‑licens får du nycklar (och inte en licensfil). Denna metered‑nyckel kan tillämpas med hjälp av klassen [Metered](https://reference.aspose.com/slides/sv/java/com.aspose.slides/metered/) som Aspose tillhandahåller för mätoperationer. För mer information, se [Metered Licensing FAQ](https://purchase.aspose.com/faqs/licensing/metered).
 
 {{% /alert %}} 
 
@@ -39,26 +39,26 @@ När du köper en meterad licens får du nycklar (och inte en licensfil). Denna 
 
 1. Anropa metoden [getConsumptionQuantity](https://reference.aspose.com/slides/sv/java/com.aspose.slides/metered/#getConsumptionQuantity--) i klassen `Metered`.
 
-Du bör se mängden/antalet API-förfrågningar du har förbrukat hittills.
+Du bör se mängden/antalet API‑förfrågningar du har förbrukat hittills.
 
-Den här exempelkoden visar hur du använder meterad licensiering:
+Denna exempelkod visar hur du använder Metered licensing:
 
 ```java
 // Skapar en instans av Metered-klassen
 com.aspose.slides.Metered metered = new com.aspose.slides.Metered();
 
 try {
-    // Skickar de offentliga och privata nycklarna till Metered-objektet
+    // Skickar den offentliga och privata nyckeln till Metered-objektet
     metered.setMeteredKey("<valid public key>", "<valid private key>");
 
-    // Hämtar den förbrukade kvantiteten före API-anrop
+    // Hämtar det förbrukade kvantitetsvärdet före API-anrop
     double amountBefore = com.aspose.slides.Metered.getConsumptionQuantity();
     System.out.println("Amount consumed before: " + amountBefore);
 
     // Gör något med Aspose.Slides API här
     // ...
 
-    // Hämtar den förbrukade kvantiteten efter API-anrop
+    // Hämtar det förbrukade kvantitetsvärdet efter API-anrop
     double amountAfter = com.aspose.slides.Metered.getConsumptionQuantity();
     System.out.println("Amount consumed after: " + amountAfter);
 } catch (Exception ex) {
@@ -68,32 +68,32 @@ try {
 
 {{% alert color="warning" title="NOTE"  %}} 
 
-För att använda meterad licensiering behöver du en stabil internetanslutning eftersom licensieringsmekanismen använder internet för att kontinuerligt interagera med våra tjänster och utföra beräkningar.
+För att använda Metered licensing behöver du en stabil internetanslutning eftersom licensieringsmekanismen använder internet för att kontinuerligt kommunicera med våra tjänster och utföra beräkningar.
 
 {{% /alert %}} 
 
-## **Vanliga frågor**
+## **FAQ**
 
-**Kan jag använda en meterad licens tillsammans med en vanlig licens (perpetuell eller tillfällig) i samma applikation?**
+### Kan jag använda en metered‑licens tillsammans med en vanlig licens (perpetuell eller tillfällig) i samma applikation?
 
-Ja. Meterad är en extra licensieringsmekanism som kan användas tillsammans med befintliga [licensieringsmetoder](/slides/sv/java/licensing/). Du väljer vilken mekanism som ska tillämpas när applikationen startas.
+Ja. Metered är en extra licensieringsmekanism som kan användas tillsammans med befintliga [licensing methods](/slides/sv/java/licensing/). Du väljer vilken mekanism som ska tillämpas när applikationen startar.
 
-**Vad räknas exakt som förbrukning under en meterad licens: operationer eller filer?**
+### Vad räknas exakt som förbrukning under en metered‑licens: operationer eller filer?
 
-API-användning räknas, dvs. antalet förfrågningar eller operationer. Du kan hämta den aktuella förbrukningen via [spårningsmetoder för förbrukning](https://reference.aspose.com/slides/sv/java/com.aspose.slides/metered/).
+API‑användning räknas, dvs. antalet förfrågningar eller operationer. Du kan hämta den aktuella förbrukningen via [consumption‑tracking methods](https://reference.aspose.com/slides/sv/java/com.aspose.slides/metered/).
 
-**Är meterad lämplig för mikrotjänster och serverlösa miljöer där instanser ofta startas om?**
+### Är metered lämplig för mikrotjänster och serverlösa miljöer där instanser startas om ofta?
 
-Ja. Eftersom redovisning sker på API-anropsnivå är scenarier med frekventa kalla startar kompatibla, förutsatt att det finns stabil nätverkstillgång för meterade beräkningar.
+Ja. Eftersom redovisning sker på API‑anropsnivå är scenarier med frekventa kallstarter kompatibla, förutsatt att det finns stabil nätverkstillgång för metered‑beräkningar.
 
-**Skiljer sig bibliotekets funktionalitet när man använder en meterad licens jämfört med en perpetuell licens?**
+### Skiljer sig bibliotekets funktionalitet när man använder en metered‑licens jämfört med en perpetual‑licens?
 
-Nej. Detta gäller endast licens- och faktureringsmekanismen; produktens funktioner är desamma.
+Nej. Detta handlar endast om licens‑ och faktureringsmekanismen; produktens funktioner är desamma.
 
-**Hur förhåller sig meterad licensiering till provversionen och den tillfälliga licensen?**
+### Hur förhåller sig metered till provversionen och den temporära licensen?
 
-Provversionen har begränsningar och vattenmärken, den [tillfälliga licensen](https://purchase.aspose.com/temporary-license/) tar bort begränsningarna i 30 dagar, och meterad licensiering tar bort begränsningarna och debiterar baserat på faktisk användning.
+Provversionen har begränsningar och vattenstämplar, den [temporary license](https://purchase.aspose.com/temporary-license/) tar bort begränsningarna i 30 dagar, och Metered tar bort begränsningarna och debiterar baserat på faktisk användning.
 
-**Kan jag kontrollera budgeten genom att automatiskt reagera när en förbrukningströskel överskrids?**
+### Kan jag kontrollera budgeten genom att automatiskt reagera när ett förbrukningströskel värde överskrids?
 
-Ja. En vanlig metod är att periodiskt läsa den aktuella förbrukningen via [spårningsmetoder](https://reference.aspose.com/slides/sv/java/com.aspose.slides/metered/) och implementera egna gränser eller varningar på applikations- eller övervakningsnivå.
+Ja. En vanlig metod är att periodiskt läsa den aktuella förbrukningen via [tracking methods](https://reference.aspose.com/slides/sv/java/com.aspose.slides/metered/) och implementera egna gränser eller varningar på applikations‑ eller övervakningsnivå.

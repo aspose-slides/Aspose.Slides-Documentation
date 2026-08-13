@@ -1,5 +1,5 @@
 ---
-title: Az Aspose.Slides for Java 15.10.0 nyilvános API-ja és visszafelé nem kompatibilis változások
+title: Nyilvános API és visszafelé nem kompatibilis változások az Aspose.Slides for Java 15.10.0-ban
 linktitle: Aspose.Slides for Java 15.10.0
 type: docs
 weight: 180
@@ -15,14 +15,17 @@ keywords:
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Tekintse át az Aspose.Slides for Java nyilvános API-frissítéseit és a töréspontokat, hogy zökkenőmentesen migrálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
+description: "Tekintse át az Aspose.Slides for Java nyilvános API frissítéseit és töréspontjait, hogy zökkenőmentesen migrálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
 ---
-{{% alert color="primary" %}} 
-Ez az oldal felsorolja az összes [added](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) vagy [removed](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) osztályt, metódust, tulajdonságot és egyebeket, valamint a Aspose.Slides for Java 15.10.0 API-val bevezetett egyéb változásokat.
+{{% alert color="info" %}} 
+
+Ez az oldal felsorolja az összes [added](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) vagy [removed](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) osztályt, metódust, tulajdonságot és így tovább, valamint az Aspose.Slides for Java 15.10.0 API-jával bevezetett egyéb változásokat.
+
 {{% /alert %}} 
-## **Nyilvános API változások**
-#### **A diagram sorozat animáció API hozzáadva az ISequence-hez**
+## **Public API Changes**
+#### **Chart series animation API has been added to ISequence**
 Az új 2 metódus hozzá lett adva a com.aspose.slides.ISequence interfészhez.
+
 ``` java
 
  IEffect addEffect(IChart chart, int type, int index, int effectType, int subtype, int triggerType);
@@ -30,16 +33,25 @@ Az új 2 metódus hozzá lett adva a com.aspose.slides.ISequence interfészhez.
 IEffect addEffect(IChart chart, int type, int seriesIndex, int categoriesIndex, int effectType, int subtype, int triggerType);
 
 ```
-Ezek a metódusok a diagram elemeinek animációját támogatják:
+
+Ezek a metódusok a diagram elemeinek animációjának támogatására szolgálnak:
+
 by series
 by categories
 by series elements
 by categories elements
-A két új enum, az EffectChartMajorGroupingType és az EffectChartMinorGroupingType, amelyek a diagram elemeinek animációjához kapcsolódnak, bevezetésre került.
-A sorozat animáció hozzáadásához a diagramhoz az alábbi kód használható:
-``` java
 
- Presentation pres = new Presentation(inFileName);
+A diagram elemeinek animációjához kapcsolódó két új enum, az EffectChartMajorGroupingType és az EffectChartMinorGroupingType került bevezetésre.
+
+Diagram sorozat animáció hozzáadásához a következő kód használható. A példafájlban lévő diagram három sorozattal rendelkezik, ezért minden 0‑tól 2‑ig terjedő indexhez egy effektet adunk hozzá:
+
+``` java
+import com.aspose.slides.*;
+
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try {
 
@@ -71,12 +83,6 @@ try {
 
 		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMajorGroupingType.BySeries, 3,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
 	pres.save(outFileName, SaveFormat.Pptx);
 
 } finally {
@@ -84,12 +90,17 @@ try {
 	if(pres != null) pres.dispose();
 
 }
-
 ```
-Categories animation:
-``` java
 
- Presentation pres = new Presentation(inFileName);
+Categories animation:
+
+``` java
+import com.aspose.slides.*;
+
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -136,12 +147,17 @@ try
 	if(pres != null) pres.dispose();
 
 }
-
 ```
-Series elements animation:
-``` java
 
- Presentation pres = new Presentation(inFileName);
+Series elements animation:
+
+``` java
+import com.aspose.slides.*;
+
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -236,12 +252,17 @@ try
 	if(pres != null) pres.dispose();
 
 }
-
 ```
-Categories elements animation:
-``` java
 
- Presentation pres = new Presentation(inFileName);
+Categories elements animation:
+
+``` java
+import com.aspose.slides.*;
+
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -336,16 +357,21 @@ try
 	if(pres != null) pres.dispose();
 
 }
-
 ```
-#### **Új com.aspose.slides.VideoPlayerHtmlController hozzáadva a médiafájlok HTML-be exportálásának támogatásához**
-Az új, nyilvános com.aspose.slides.VideoPlayerHtmlController osztály hozzá lett adva. Az osztály példányának használatával a felhasználó videó- és audiofájlokat exportálhat HTML-be.
-A VideoPlayerHtmlController konstruktorok a következő paramétereket fogadják:
-path: Az útvonal, ahová a videó- és audiofájlok létre lesznek hozva
+#### **New com.aspose.slides.VideoPlayerHtmlController added to support export od media files to HTML**
+Az új nyilvános osztály, a com.aspose.slides.VideoPlayerHtmlController hozzá lett adva. Ennek az osztálynak a példányával a felhasználó videó- és audiofájlokat exportálhat HTML-be.
+
+A VideoPlayerHtmlController konstruktor a következő paramétereket fogadja:
+
+path: Az elérési út, ahová a videó- és audiofájlok generálódnak (a mappának már léteznie kell)
 fileName: A HTML fájl neve
 baseUri: Az alap URI, amelyet a hivatkozások generálásához használnak
-Használati példa:
+
+Usage example:
+
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation("example.pptx");
 
@@ -353,7 +379,7 @@ try
 
 {
 
-	final String path = "path";
+	final String path = "path/";
 
 	final String fileName = "video.html";
 

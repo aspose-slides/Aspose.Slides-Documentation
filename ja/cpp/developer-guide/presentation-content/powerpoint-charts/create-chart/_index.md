@@ -1,21 +1,23 @@
 ---
-title: PowerPoint プレゼンテーションのチャートを C++ で作成または更新
+title: C++でPowerPointプレゼンテーションのチャートを作成または更新
 linktitle: チャートの作成または更新
 type: docs
 weight: 10
 url: /ja/cpp/create-chart/
+aliases:
+  - /cpp/update-chart/
 keywords:
-- チャートを追加
-- チャートを作成
-- チャートを編集
-- チャートを変更
-- チャートを更新
-- 散布図
+- チャートの追加
+- チャートの作成
+- チャートの編集
+- チャートの変更
+- チャートの更新
+- 散布図チャート
 - 円グラフ
 - 折れ線グラフ
 - ツリーマップチャート
 - 株価チャート
-- 箱ひげ図
+- 箱ひげ図チャート
 - ファンネルチャート
 - サンバーストチャート
 - ヒストグラムチャート
@@ -25,210 +27,285 @@ keywords:
 - プレゼンテーション
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ を使用して PowerPoint プレゼンテーション内のチャートを作成およびカスタマイズします。実用的な C++ のコード例を使って、チャートの追加、書式設定、編集が可能です。"
+description: "Aspose.Slides for C++ を使用して PowerPoint プレゼンテーション内のチャートを作成・カスタマイズします。C++ の実践的なコード例を使って、チャートの追加、書式設定、編集が可能です。"
 ---
+## **概要**
+
+本記事では、Aspose.Slides を使用してチャートを作成およびカスタマイズするための包括的な手順を解説します。スライドにプログラムでチャートを追加し、データを設定し、さまざまな書式設定オプションを適用して特定のデザイン要件に合わせる方法を学びます。記事全体を通じて、プレゼンテーションとチャートオブジェクトの初期化から系列、軸、凡例の構成まで、各ステップを示す詳細なコード例が示されています。このガイドに従うことで、動的なチャート生成をアプリケーションに統合し、データ駆動型プレゼンテーションの作成プロセスを効率化する方法を確実に習得できます。
 
 ## **チャートの作成**
 
-チャートはデータをすばやく可視化し、テーブルやスプレッドシートからはすぐに分からない洞察を得るのに役立ちます。
+チャートは、データをすばやく可視化し、テーブルやスプレッドシートだけではすぐに分からない洞察を得るのに役立ちます。
 
-**なぜチャートを作成するのか？**
+**チャートを作成する理由**
 
-チャートを使用すると
+チャートを使用すると、
 
-* プレゼンテーションの 1 枚のスライド上で大量のデータを集約、圧縮、または要約できます  
-* データのパターンやトレンドを明らかにします  
-* 時間の経過や特定の測定単位に対するデータの方向性と勢いを推測します  
-* 外れ値、異常、偏差、エラー、意味のないデータなどを検出します  
-* 複雑なデータを伝達または提示します  
+* 大量のデータを 1 つのスライドに集約、要約できる
+* データのパターンやトレンドを明らかにできる
+* 時間や特定の測定単位に対するデータの方向性や勢いを推測できる
+* 外れ値、異常、誤差、意味のないデータなどを検出できる
+* 複雑なデータを効果的に伝達できる
 
-PowerPoint では、挿入機能を使用してさまざまなテンプレートからチャートを作成できます。Aspose.Slides を使用すると、一般的なチャートタイプに基づく標準チャートとカスタムチャートの両方を作成できます。
+PowerPoint では「挿入」機能を使ってテンプレートから様々な種類のチャートを作成できます。Aspose.Slides を使用すれば、一般的なチャートタイプに基づく通常のチャートと、独自にカスタマイズしたチャートの両方を作成できます。
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-チャートの作成を可能にするために、Aspose.Slides は [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.charts/) 名前空間下にある [ChartType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) 列挙クラスを提供します。この列挙クラスの値はさまざまなチャートタイプに対応しています。
+チャート作成を支援するために、Aspose.Slides は [ChartType](https://reference.aspose.com/slides/ja/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) 列挙型を [Aspose::Slides::Charts](https://reference.aspose.com/slides/ja/cpp/namespace/aspose.slides.charts/) 名前空間で提供しています。この列挙型の値はさまざまなチャートタイプに対応しています。
 
 {{% /alert %}} 
 
-### **標準チャートの作成**
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。  
-1. インデックスを使用してスライドの参照を取得します。  
-1. データを指定してチャートを追加し、希望のチャートタイプを指定します。  
+### **通常のチャートを作成**
+1. [Presentation](https://reference.aspose.com/slides/ja/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。  
+1. インデックスでスライドの参照を取得します。  
+1. データを伴うチャートを追加し、希望するチャートタイプを指定します。  
 1. チャートにタイトルを追加します。  
 1. チャートデータのワークシートにアクセスします。  
-1. デフォルトの系列とカテゴリをすべてクリアします。  
+1. 既定の系列とカテゴリをすべてクリアします。  
 1. 新しい系列とカテゴリを追加します。  
-1. チャート系列の新しいデータを追加します。  
-1. チャート系列の塗りつぶし色を設定します。  
-1. チャート系列のラベルを追加します。  
-1. 変更されたプレゼンテーションを PPTX ファイルとして保存します。  
+1. 系列用の新しいチャートデータを追加します。  
+1. 系列の塗りつぶし色を設定します。  
+1. 系列のラベルを追加します。  
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-この C++ コードは標準チャートの作成方法を示しています:
+この C++ コードは通常のチャートの作成方法を示しています：
+
 ```c++
-// ドキュメント ディレクトリへのパス。
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+// ドキュメントディレクトリへのパスです。
 	const String outPath = u"../out/NormalCharts_out.pptx";
 
-	// PPTX ファイルを表すプレゼンテーション クラスのインスタンスを作成します。
+	// PPTX ファイルを表すプレゼンテーション クラスのインスタンスを作成します
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// 最初のスライドにアクセスします。
+	// 最初のスライドにアクセスします
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// デフォルト データでチャートを追加します。
+	// デフォルト データでチャートを追加します
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
 
-	// チャート データ シートのインデックスを設定します。
+	// チャート データ シートのインデックスを設定します
 	int defaultWorksheetIndex = 0;
 
-	// チャート データのワークシートを取得します。
+	// チャート データ ワークシートを取得します
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-	// チャートのタイトルを設定します。
+	// チャートのタイトルを設定します
 	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Sample Title");
 	chart->get_ChartTitle()->get_TextFrameForOverriding()->get_TextFrameFormat()->set_CenterText ( NullableBool::True);
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle( true);
 
-	// デフォルトで生成された系列とカテゴリを削除します。
+	// デフォルトで生成された系列とカテゴリを削除します
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 	int s = chart->get_ChartData()->get_Series()->get_Count();
 	s = chart->get_ChartData()->get_Categories()->get_Count();
 
 
-	// 新しい系列を追加します。
+	// 新しい系列を追加します
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
 
-	// カテゴリを追加します。
+	// カテゴリを追加します
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"Caetegoty 1")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"Caetegoty 2")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"Caetegoty 3")));
 
 	
-	// 最初のチャート系列を取得します。
+	// 最初のチャート系列を取得します
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-	// 系列のデータを設定します。
+	// 系列データを設定します
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(20)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(50)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(30)));
 
-	// 系列の塗りつぶし色を設定します。
+	// 系列の塗りつぶし色を設定します
 	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 
 
-	// 2 番目のチャート系列を取得します。
+	 // 第二のチャート系列を取得します
 	 series = chart->get_ChartData()->get_Series()->idx_get(1);
 
-	// 系列のデータを設定します。
+	// 系列データを設定します
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(30)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(10)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(60)));
 
-	// 系列の塗りつぶし色を設定します。
+	// 系列の塗りつぶし色を設定します
 	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Green());
 
 
-	// 最初のラベルはカテゴリ名を表示するように設定します。
+	// 最初のラベルはカテゴリ名を表示するように設定します
 	SharedPtr<IDataLabel> lbl = series->get_DataPoints()->idx_get(0)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowCategoryName(true);
 
 	lbl = series->get_DataPoints()->idx_get(1)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowSeriesName (true);
 
-	// 3 番目のラベルに値を表示します。
+	// 3 番目のラベルに値を表示します
 	lbl = series->get_DataPoints()->idx_get(2)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowValue (true);
 	lbl->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl->get_DataLabelFormat()->set_Separator (u"/");
 
-	// プレゼンテーションを保存します。
+	// プレゼンテーションを保存します
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+
 ```
 
+### **散布図チャートを作成**
+散布図 (散布プロットまたは x‑y グラフ) は、2 つの変数間のパターンや相関関係を確認する際によく使用されます。
 
-### **散布図チャートの作成**
-散布図（散布プロットまたは XY グラフとも呼ばれる）は、2 つの変数間のパターンや相関関係を確認するために使用されます。
+次の場合に散布図を使用すると便利です。
 
-次の場合に散布図を使用したいことがあります
+* ペアになった数値データがあるとき
+* 2 つの変数が相互に関連しているとき
+* 2 変数が相関しているかどうかを判断したいとき
+* 従属変数が独立変数の複数の値に対応しているとき
 
-* ペアになった数値データがあるとき  
-* 2 つの変数が相互に関連しているとき  
-* 2 変数が関連しているかどうかを判断したいとき  
-* 従属変数に対して独立変数が複数の値を持つとき  
+この C++ コードは、マーカーの異なる系列を持つ散布図の作成方法を示しています：
 
-この C++ コードはマーカーが異なる散布図の作成方法を示しています:
 ```c++
-// ドキュメント ディレクトリへのパス。
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IChartSeriesGroupCollection.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/Chart/IMarker.h>
+#include <DOM/Chart/MarkerStyleType.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/LineDashStyle.h>
+#include <DOM/LineStyle.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+// ドキュメントディレクトリへのパスです。
 	const String outPath = u"../out/ScatteredChart_out.pptx";
 
-	// PPTX ファイルを表すプレゼンテーション クラスのインスタンスを作成します。
+	//PPTX ファイルを表すプレゼンテーション クラスのインスタンスを作成します
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// 最初のスライドにアクセスします。
+	//最初のスライドにアクセスします
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// デフォルト データでチャートを追加します。
+	// デフォルト データでチャートを追加します
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ScatterWithSmoothLines, 0, 0, 500, 500);
 
-	// チャートのタイトルを設定します。
+	// チャートのタイトルを設定します
 	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Sample Title");
 	chart->get_ChartTitle()->get_TextFrameForOverriding()->get_TextFrameFormat()->set_CenterText(NullableBool::True);
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle(true);
 
-	// デフォルトで生成された系列を削除します。
+	// デフォルトで生成された系列を削除します
 	chart->get_ChartData()->get_Series()->Clear();
 	
-	// チャート データ シートのインデックスを設定します。
+	// チャート データ シートのインデックスを設定します
 	int defaultWorksheetIndex = 0;
 
-	// チャート データのワークシートを取得します。
+	// チャート データ ワークシートを取得します
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-	// 新しい系列を追加します。
+	// 新しい系列を追加します
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 1, 3, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
 
-	// 最初のチャート系列を取得します。
+	// 最初のチャート系列を取得します
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-	// 新しいポイント (1:3) を追加します。
+	// 新しいポイント (1:3) を追加します
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(1)), fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(3)));
 
-	// 新しいポイント (2:10) を追加します。
+	// 新しいポイント (2:10) を追加します
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(2)), fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(10)));
 
-	// 系列のタイプを編集します。
+	// 系列タイプを編集します
 	series->set_Type (ChartType::ScatterWithStraightLinesAndMarkers);
 
-	// チャート系列のマーカーを変更します。
+	// チャート系列のマーカーを変更します
 	series->get_Marker()->set_Size  (10);
 	series->get_Marker()->set_Symbol(MarkerStyleType::Star);
 
 
 
-	// 2 番目のチャート系列を取得します。
+	// 第二のチャート系列を取得します
 	series  = chart->get_ChartData()->get_Series()->idx_get(1);
 
-	// 新しいポイント (5:2) を追加します。
+	// 新しいポイント (5:2) を追加します
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 2, 3, ObjectExt::Box<double>(5)), fact->GetCell(defaultWorksheetIndex, 2, 4, ObjectExt::Box<double>(2)));
 
-	// 新しいポイント (3:1) を追加します。
+	// 新しいポイント (3:1) を追加します
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 3, 3, ObjectExt::Box<double>(3)), fact->GetCell(defaultWorksheetIndex, 3, 4, ObjectExt::Box<double>(1)));
 
-	// 新しいポイント (2:2) を追加します。
+	// 新しいポイント (2:2) を追加します
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 4, 3, ObjectExt::Box<double>(2)), fact->GetCell(defaultWorksheetIndex, 4, 4, ObjectExt::Box<double>(2)));
 
-	// 新しいポイント (5:1) を追加します。
+	// 新しいポイント (5:1) を追加します
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 5, 3, ObjectExt::Box<double>(5)), fact->GetCell(defaultWorksheetIndex, 5, 4, ObjectExt::Box<double>(1)));
 
-	// チャート系列のマーカーを変更します。
+	// チャート系列のマーカーを変更します
 	series->get_Marker()->set_Size ( 10);
 	series->get_Marker()->set_Symbol(MarkerStyleType::Circle);
 
@@ -239,7 +316,7 @@ PowerPoint では、挿入機能を使用してさまざまなテンプレート
 	SharedPtr<IChartDataPoint> point = series->get_DataPoints()->idx_get(0);
 	point->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Cyan());
-	// セクタの枠線を設定します。
+	// セクタの枠線を設定します
 	point->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Gray());
 	point->get_Format()->get_Line()->set_Width ( 3.0);
@@ -250,7 +327,7 @@ PowerPoint では、挿入機能を使用してさまざまなテンプレート
 	point1->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point1->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Brown());
 
-	// セクタの枠線を設定します。
+	// セクタの枠線を設定します
 	point1->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point1->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
 	point1->get_Format()->get_Line()->set_Width (3.0);
@@ -262,7 +339,7 @@ PowerPoint では、挿入機能を使用してさまざまなテンプレート
 	point2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Coral());
 
-	// セクタの枠線を設定します。
+	// セクタの枠線を設定します
 	point2->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point2->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 	point2->get_Format()->get_Line()->set_Width ( 2.0);
@@ -270,7 +347,7 @@ PowerPoint では、挿入機能を使用してさまざまなテンプレート
 	point2->get_Format()->get_Line()->set_DashStyle(LineDashStyle::LargeDashDotDot);
 
 
-	// 新しい系列の各カテゴリのカスタムラベルを作成します。
+	// 新しい系列の各カテゴリ用にカスタムラベルを作成します
 	SharedPtr<IDataLabel> lbl1 = series->get_DataPoints()->idx_get(0)->get_Label();
 
 	// lbl.ShowCategoryName = true;
@@ -287,76 +364,113 @@ PowerPoint では、挿入機能を使用してさまざまなテンプレート
 	lbl3->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl3->get_DataLabelFormat()->set_ShowPercentage(true);
 
-	// チャートのリーダーラインを表示します。
+	// チャートのリーダーラインを表示します
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLeaderLines(true);
 
-	// 円グラフのセクタの回転角度を設定します。
+	// パイチャートのセクタの回転角度を設定します
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->set_FirstSliceAngle(180);
 
 
-	// プレゼンテーションを保存します。
+	// プレゼンテーションを保存します
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+### **円グラフを作成**
+円グラフは、カテゴリラベルと数値が対応するデータの「全体に対する部分」関係を示すのに最適です。ただし、項目やラベルが多数ある場合は、棒グラフの使用を検討してください。
 
-### **円グラフの作成**
-円グラフは、特に数値ラベル付きのカテゴリーデータの全体に対する構成比を示すのに最適です。ただし、項目やラベルが多すぎる場合は棒グラフの使用を検討してください。
-
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。  
-1. インデックスを使用してスライドの参照を取得します。  
-1. デフォルトデータと `ChartType.Pie` を指定してチャートを追加します。  
-1. チャート データ `IChartDataWorkbook` にアクセスします。  
-1. デフォルトの系列とカテゴリをクリアします。  
+1. [Presentation](https://reference.aspose.com/slides/ja/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。  
+1. インデックスでスライドの参照を取得します。  
+1. デフォルトデータと目的のタイプ (`ChartType.Pie`) でチャートを追加します。  
+1. `IChartDataWorkbook` にアクセスします。  
+1. 既定の系列とカテゴリをクリアします。  
 1. 新しい系列とカテゴリを追加します。  
-1. チャート系列の新しいデータを追加します。  
-1. 円グラフのセクタに対して新しいポイントとカスタム色を追加します。  
+1. 系列用の新しいチャートデータを追加します。  
+1. 円グラフの各セクタにカスタムカラーを設定しながら新しいポイントを追加します。  
 1. 系列のラベルを設定します。  
-1. 系列ラベルのリーダーラインを設定します。  
-1. 円グラフスライドの回転角度を設定します。  
-1. 変更されたプレゼンテーションを PPTX ファイルに書き込みます  
+1. 系列ラベル用のリーダーラインを設定します。  
+1. 円グラフの回転角度を設定します。  
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-この C++ コードは円グラフの作成方法を示しています:
+この C++ コードは円グラフの作成方法を示しています：
+
 ```c++
-	// ドキュメント ディレクトリへのパス。
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IChartSeriesGroupCollection.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/LineDashStyle.h>
+#include <DOM/LineStyle.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+	// ドキュメントディレクトリへのパスです。
 	const String outPath = u"../out/PieChart_out.pptx";
 
-	// PPTX ファイルを表す Presentation クラスのインスタンスを作成します。
+	// PPTX ファイルを表す Presentation クラスのインスタンスを作成します
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// 最初のスライドにアクセスします。
+	// 最初のスライドにアクセスします
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// デフォルト データでチャートを追加します。
+	// デフォルトデータでチャートを追加します
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Pie, 0, 0, 500, 500);
 
-	// チャートのタイトルを設定します。
+	// チャートのタイトルを設定します
 	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Sample Title");
 	chart->get_ChartTitle()->get_TextFrameForOverriding()->get_TextFrameFormat()->set_CenterText(NullableBool::True);
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle(true);
 
-	// デフォルトで生成された系列とカテゴリを削除します。
+	// デフォルトで生成された系列とカテゴリを削除します
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 
-	// チャート データ シートのインデックスを設定します。
+	// チャート データ シートのインデックスを設定します
 	int defaultWorksheetIndex = 0;
 
-	// チャート データのワークシートを取得します。
+	// チャート データ ワークシートを取得します
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-	// カテゴリを追加します。
+	// カテゴリを追加します
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"First Qtr")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"2nd Qtr")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"3ed Qtr")));
 
-	// 新しい系列を追加します。
+	// 新しい系列を追加します
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 	
-	// 最初のチャート系列を取得します。
+	// 最初のチャート系列を取得します
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-	// 系列のデータを設定します。
+	// 系列データを設定します
 	series->get_DataPoints()->AddDataPointForPieSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(20)));
 	series->get_DataPoints()->AddDataPointForPieSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(50)));
 	series->get_DataPoints()->AddDataPointForPieSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(30)));
@@ -366,7 +480,7 @@ PowerPoint では、挿入機能を使用してさまざまなテンプレート
 	SharedPtr<IChartDataPoint> point = series->get_DataPoints()->idx_get(0);
 	point->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Cyan());
-	// セクタの枠線を設定します。
+	// セクタの枠線を設定します
 	point->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Gray());
 	point->get_Format()->get_Line()->set_Width ( 3.0);
@@ -377,7 +491,7 @@ PowerPoint では、挿入機能を使用してさまざまなテンプレート
 	point1->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point1->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Brown());
 
-	// セクタの枠線を設定します。
+	// セクタの枠線を設定します
 	point1->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point1->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
 	point1->get_Format()->get_Line()->set_Width (3.0);
@@ -389,7 +503,7 @@ PowerPoint では、挿入機能を使用してさまざまなテンプレート
 	point2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Coral());
 
-	// セクタの枠線を設定します。
+	// セクタの枠線を設定します
 	point2->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point2->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 	point2->get_Format()->get_Line()->set_Width (2.0);
@@ -397,7 +511,7 @@ PowerPoint では、挿入機能を使用してさまざまなテンプレート
 	point2->get_Format()->get_Line()->set_DashStyle(LineDashStyle::LargeDashDotDot);
 
 
-	// 新しい系列の各カテゴリにカスタム ラベルを作成します。
+	// 新しい系列の各カテゴリ用にカスタムラベルを作成します
 	SharedPtr<IDataLabel> lbl1 = series->get_DataPoints()->idx_get(0)->get_Label();
 
 	// lbl.ShowCategoryName = true;
@@ -414,41 +528,70 @@ PowerPoint では、挿入機能を使用してさまざまなテンプレート
 	lbl3->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl3->get_DataLabelFormat()->set_ShowPercentage(true);
 
-	// 系列がチャートのリーダーラインを表示するよう設定します。
+	// チャートのリーダーラインを表示するように系列を設定します
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLeaderLines ( true);
 
-	// 円グラフのセクタの回転角度を設定します。
+	// パイチャートのセクタの回転角度を設定します
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->set_FirstSliceAngle ( 180);
 
 
-	// プレゼンテーションを保存します。
+	// プレゼンテーションを保存します
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+### **折れ線グラフを作成**
 
-### **折れ線グラフの作成**
-折れ線グラフ（折れ線グラフ）は、時間経過に伴う値の変化を示すのに最適です。折れ線グラフを使用すると、複数のデータを同時に比較したり、時間に沿った変化やトレンドを追跡したり、系列内の異常を強調したりできます。
+折れ線グラフ (折れ線グラフ) は、時間経過に伴う値の変化を示すのに最適です。折れ線グラフを使用すると、複数のデータを同時に比較したり、時間に沿った変化やトレンドを追跡したり、系列の異常をハイライトしたりできます。
 
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。  
-1. インデックスを使用してスライドの参照を取得します。  
-1. デフォルトデータと `ChartType::Line` を指定してチャートを追加します。  
-1. チャート データ `IChartDataWorkbook` にアクセスします。  
-1. デフォルトの系列とカテゴリをクリアします。  
+1. [Presentation](https://reference.aspose.com/slides/ja/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。  
+1. インデックスでスライドの参照を取得します。  
+1. デフォルトデータと目的のタイプ (`ChartType::Line`) でチャートを追加します。  
+1. `IChartDataWorkbook` にアクセスします。  
+1. 既定の系列とカテゴリをクリアします。  
 1. 新しい系列とカテゴリを追加します。  
-1. チャート系列の新しいデータを追加します。  
-1. 変更されたプレゼンテーションを PPTX ファイルに書き込みます  
+1. 系列用の新しいチャートデータを追加します。  
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-この C++ コードは折れ線グラフの作成方法を示しています:
+この C++ コードは折れ線グラフの作成方法を示しています：
+
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 
 System::SharedPtr<IChart> lineChart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Line, 10.0f, 50.0f, 600.0f, 350.0f);
 pres->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
+既定では、折れ線グラフのポイントは直線で結ばれます。破線で結びたい場合は、次のように破線タイプを指定できます：
 
-デフォルトでは、折れ線グラフのポイントは直線で結ばれます。ポイントを破線で結びたい場合は、次のように破線タイプを指定できます:
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/LineDashStyle.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+
+auto pres = System::MakeObject<Presentation>();
+
 System::SharedPtr<IChart> lineChart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Line, 10.0f, 50.0f, 600.0f, 350.0f);
 for (auto&& series : lineChart->get_ChartData()->get_Series())
 {
@@ -456,28 +599,53 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 }
 ```
 
+### **ツリーマップチャートを作成**
 
-### **ツリーマップチャートの作成**
-ツリーマップチャートは、売上データなどでカテゴリごとの相対的なサイズを示し、同時に各カテゴリで大きな貢献をしている項目に注目させたいときに最適です。
+ツリーマップチャートは、売上データなどでカテゴリごとの相対的なサイズを示しつつ、各カテゴリ内で大きく貢献している項目に注目させたいときに最適です。
 
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。  
-1. インデックスを使用してスライドの参照を取得します。  
-1. デフォルトデータと `ChartType.TreeMap` を指定してチャートを追加します。  
-1. チャート データ `IChartDataWorkbook` にアクセスします。  
-1. デフォルトの系列とカテゴリをクリアします。  
+1. [Presentation](https://reference.aspose.com/slides/ja/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。  
+1. インデックスでスライドの参照を取得します。  
+1. デフォルトデータと目的のタイプ (`ChartType.TreeMap`) でチャートを追加します。  
+1. `IChartDataWorkbook` にアクセスします。  
+1. 既定の系列とカテゴリをクリアします。  
 1. 新しい系列とカテゴリを追加します。  
-1. チャート系列の新しいデータを追加します。  
-1. 変更されたプレゼンテーションを PPTX ファイルに書き込みます  
+1. 系列用の新しいチャートデータを追加します。  
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します
 
-この C++ コードはツリーマップチャートの作成方法を示しています:
+この C++ コードはツリーマップチャートの作成方法を示しています：
+
 ```c++
-// ドキュメント ディレクトリへのパスです。
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategory.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartCategoryLevelsManager.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/ParentLabelLayoutType.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// ドキュメントディレクトリへのパスです。
 	const String outPath = u"../out/TreemapChart_out.pptx";
 
-	// PPTX ファイルを表す Presentation クラスのインスタンスを作成します。
+	//PPTX ファイルを表す Presentation クラスのインスタンスを作成します
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// 最初のスライドにアクセスします。
+	// 最初のスライドにアクセスします
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Treemap, 50, 50, 500, 400);
@@ -530,21 +698,48 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-
-### **株価チャートの作成**
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。  
-1. インデックスを使用してスライドの参照を取得します。  
-1. デフォルトデータと `ChartType.OpenHighLowClose` を指定してチャートを追加します。  
-1. チャート データ `IChartDataWorkbook` にアクセスします。  
-1. デフォルトの系列とカテゴリをクリアします。  
+### **株価チャートを作成**
+1. [Presentation](https://reference.aspose.com/slides/ja/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。  
+1. インデックスでスライドの参照を取得します。  
+1. デフォルトデータと目的のタイプ (`ChartType.OpenHighLowClose`) でチャートを追加します。  
+1. `IChartDataWorkbook` にアクセスします。  
+1. 既定の系列とカテゴリをクリアします。  
 1. 新しい系列とカテゴリを追加します。  
-1. チャート系列の新しいデータを追加します。  
+1. 系列用の新しいチャートデータを追加します。  
 1. HiLowLines の書式を指定します。  
-1. 変更されたプレゼンテーションを PPTX ファイルに書き込みます  
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します
 
-株価チャート作成のサンプル C++ コード:
+株価チャート作成のサンプル C++ コード：
+
 ```c++
-	// ドキュメント ディレクトリへのパスです。
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartLinesFormat.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IChartSeriesGroupCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/Chart/IUpDownBarsManager.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+	// ドキュメントディレクトリへのパスです。
 	const String outPath = u"../out/AddStockChart_out.pptx";
 
 	// PPTX ファイルを表す Presentation クラスのインスタンスを作成します
@@ -560,7 +755,7 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 	// チャート データ シートのインデックスを設定します
 	int defaultWorksheetIndex = 0;
 
-	// チャート データのワークシートを取得します
+	// チャート データ ワークシートを取得します
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
@@ -582,27 +777,27 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 
 	// 最初のチャート系列を取得します
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
-	// 最初の系列のデータを設定します
+	// 最初の系列データを設定します
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(72)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(25)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(38)));
 
 
 	series = chart->get_ChartData()->get_Series()->idx_get(1);
-	// 2 番目の系列のデータを設定します
+	// 2 系列目のデータを設定します
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(172)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(57)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(57)));
 
 	series = chart->get_ChartData()->get_Series()->idx_get(2);
-	// 2 番目の系列のデータを設定します
+	// 2 系列目のデータを設定します
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 3, ObjectExt::Box<double>(12)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 3, ObjectExt::Box<double>(12)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 3, ObjectExt::Box<double>(13)));
 
 
 	series = chart->get_ChartData()->get_Series()->idx_get(3);
-	// 2 番目の系列のデータを設定します
+	// 2 系列目のデータを設定します
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 4, ObjectExt::Box<double>(25)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 4, ObjectExt::Box<double>(38)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 4, ObjectExt::Box<double>(50)));
@@ -622,73 +817,112 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-
-### **箱ひげ図の作成**
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。  
-1. インデックスを使用してスライドの参照を取得します。  
-1. デフォルトデータと `ChartType.BoxAndWhisker` を指定してチャートを追加します。  
-1. チャート データ `IChartDataWorkbook` にアクセスします。  
-1. デフォルトの系列とカテゴリをクリアします。  
+### **箱ひげ図を作成**
+1. [Presentation](https://reference.aspose.com/slides/ja/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。  
+1. インデックスでスライドの参照を取得します。  
+1. デフォルトデータと目的のタイプ (`ChartType.BoxAndWhisker`) でチャートを追加します。  
+1. `IChartDataWorkbook` にアクセスします。  
+1. 既定の系列とカテゴリをクリアします。  
 1. 新しい系列とカテゴリを追加します。  
-1. チャート系列の新しいデータを追加します。  
-1. 変更されたプレゼンテーションを PPTX ファイルに書き込みます  
+1. 系列用の新しいチャートデータを追加します。  
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します
 
-この C++ コードは箱ひげ図の作成方法を示しています:
+この C++ コードは箱ひげ図の作成方法を示しています：
+
 ```c++
-	// ドキュメント ディレクトリへのパスです。
-	const String outPath = u"../out/BoxAndWhisker_out.pptx";
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/QuartileMethodType.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-	// PPTX ファイルを表す Presentation クラスのインスタンスを作成します
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+    // ドキュメントディレクトリへのパスです。
+    const String outPath = u"../out/BoxAndWhisker_out.pptx";
 
-	// 最初のスライドにアクセスします
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+    // PPTX ファイルを表す Presentation クラスのインスタンスを作成します
+    SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::BoxAndWhisker, 50, 50, 500, 400);
-	chart->get_ChartData()->get_Categories()->Clear();
-	chart->get_ChartData()->get_Series()->Clear();
+    // 最初のスライドにアクセスします
+    SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	System::SharedPtr<IChartDataWorkbook> wb = chart->get_ChartData()->get_ChartDataWorkbook();
+    System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::BoxAndWhisker, 50, 50, 500, 400);
+    chart->get_ChartData()->get_Categories()->Clear();
+    chart->get_ChartData()->get_Series()->Clear();
 
-	wb->Clear(0);
+    System::SharedPtr<IChartDataWorkbook> wb = chart->get_ChartData()->get_ChartDataWorkbook();
 
-	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"A1", System::ObjectExt::Box<System::String>(u"Category 1")));
-	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"A2", System::ObjectExt::Box<System::String>(u"Category 1")));
-	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"A3", System::ObjectExt::Box<System::String>(u"Category 1")));
-	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"A4", System::ObjectExt::Box<System::String>(u"Category 1")));
-	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"A5", System::ObjectExt::Box<System::String>(u"Category 1")));
-	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"A6", System::ObjectExt::Box<System::String>(u"Category 1")));
+    wb->Clear(0);
 
-	System::SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->Add(Aspose::Slides::Charts::ChartType::BoxAndWhisker);
+    chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"A1", System::ObjectExt::Box<System::String>(u"Category 1")));
+    chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"A2", System::ObjectExt::Box<System::String>(u"Category 1")));
+    chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"A3", System::ObjectExt::Box<System::String>(u"Category 1")));
+    chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"A4", System::ObjectExt::Box<System::String>(u"Category 1")));
+    chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"A5", System::ObjectExt::Box<System::String>(u"Category 1")));
+    chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"A6", System::ObjectExt::Box<System::String>(u"Category 1")));
 
-	series->set_QuartileMethod(Aspose::Slides::Charts::QuartileMethodType::Exclusive);
-	series->set_ShowMeanLine(true);
-	series->set_ShowMeanMarkers(true);
-	series->set_ShowInnerPoints(true);
-	series->set_ShowOutlierPoints(true);
+    System::SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->Add(Aspose::Slides::Charts::ChartType::BoxAndWhisker);
 
-	series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(wb->GetCell(0, u"B1", System::ObjectExt::Box<int32_t>(15)));
-	series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(wb->GetCell(0, u"B2", System::ObjectExt::Box<int32_t>(41)));
-	series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(wb->GetCell(0, u"B3", System::ObjectExt::Box<int32_t>(16)));
-	series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(wb->GetCell(0, u"B4", System::ObjectExt::Box<int32_t>(10)));
-	series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(wb->GetCell(0, u"B5", System::ObjectExt::Box<int32_t>(23)));
-	series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(wb->GetCell(0, u"B6", System::ObjectExt::Box<int32_t>(16)));
+    series->set_QuartileMethod(Aspose::Slides::Charts::QuartileMethodType::Exclusive);
+    series->set_ShowMeanLine(true);
+    series->set_ShowMeanMarkers(true);
+    series->set_ShowInnerPoints(true);
+    series->set_ShowOutlierPoints(true);
+
+    series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(wb->GetCell(0, u"B1", System::ObjectExt::Box<int32_t>(15)));
+    series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(wb->GetCell(0, u"B2", System::ObjectExt::Box<int32_t>(41)));
+    series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(wb->GetCell(0, u"B3", System::ObjectExt::Box<int32_t>(16)));
+    series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(wb->GetCell(0, u"B4", System::ObjectExt::Box<int32_t>(10)));
+    series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(wb->GetCell(0, u"B5", System::ObjectExt::Box<int32_t>(23)));
+    series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(wb->GetCell(0, u"B6", System::ObjectExt::Box<int32_t>(16)));
 
 
-	// プレゼンテーションを保存します
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+    // プレゼンテーションを保存します
+    pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+### **ファンネルチャートを作成**
+1. [Presentation](https://reference.aspose.com/slides/ja/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。  
+1. インデックスでスライドの参照を取得します。  
+1. デフォルトデータと目的のタイプ (`ChartType.Funnel`) でチャートを追加します。  
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します
 
-### **ファンネルチャートの作成**
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。  
-1. インデックスを使用してスライドの参照を取得します。  
-1. デフォルトデータと `ChartType.Funnel` を指定してチャートを追加します。  
-1. 変更されたプレゼンテーションを PPTX ファイルに書き込みます  
+この C++ コードはファンネルチャートの作成方法を示しています：
 
-この C++ コードはファンネルチャートの作成方法を示しています:
 ```c++
-	// ドキュメント ディレクトリへのパスです。
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+	// ドキュメントディレクトリへのパスです。
 	const String outPath = u"../out/FunnelChart_out.pptx";
 
 	// PPTX ファイルを表す Presentation クラスのインスタンスを作成します
@@ -726,16 +960,39 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+### **サンバーストチャートを作成**
+1. [Presentation](https://reference.aspose.com/slides/ja/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。  
+1. インデックスでスライドの参照を取得します。  
+1. デフォルトデータと目的のタイプ (`ChartType.sunburst`) でチャートを追加します。  
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します
 
-### **サンバーストチャートの作成**
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。  
-1. インデックスを使用してスライドの参照を取得します。  
-1. デフォルトデータと `ChartType.sunburst` を指定してチャートを追加します。  
-1. 変更されたプレゼンテーションを PPTX ファイルに書き込みます  
+この C++ コードはサンバーストチャートの作成方法を示しています：
 
-この C++ コードはサンバーストチャートの作成方法を示しています:
 ```c++
-	// ドキュメント ディレクトリへのパスです。
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategory.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartCategoryLevelsManager.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+	// ドキュメントディレクトリへのパスです。
 	const String outPath = u"../out/SunburstChart_out.pptx";
 
 	// PPTX ファイルを表す Presentation クラスのインスタンスを作成します
@@ -789,107 +1046,160 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 
 	// プレゼンテーション ファイルをディスクに保存します
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+
 ```
 
-
-### **ヒストグラムチャートの作成**
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。  
-1. インデックスを使用してスライドの参照を取得します。  
-1. データを指定し、`ChartType.Histogram` を選択してチャートを追加します。  
-1. チャート データ `IChartDataWorkbook` にアクセスします。  
-1. デフォルトの系列とカテゴリをクリアします。  
+### **ヒストグラムチャートを作成**
+1. [Presentation](https://reference.aspose.com/slides/ja/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。  
+1. インデックスでスライドの参照を取得します。  
+1. データを伴うチャートを追加し、目的のタイプ (`ChartType.Histogram`) を指定します。  
+1. `IChartDataWorkbook` にアクセスします。  
+1. 既定の系列とカテゴリをクリアします。  
 1. 新しい系列とカテゴリを追加します。  
-1. 変更されたプレゼンテーションを PPTX ファイルに書き込みます。  
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-この C++ コードはヒストグラムチャートの作成方法を示しています:
+この C++ コードはヒストグラムチャートの作成方法を示しています：
+
 ```c++
-	// ドキュメント ディレクトリへのパスです。
-	const String outPath = u"../out/HistogramChart_out.pptx";
+#include <DOM/Chart/AxisAggregationType.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat> 
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-	// PPTX ファイルを表す Presentation クラスのインスタンスを作成します。
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+    // ドキュメントディレクトリへのパスです。
+    const String outPath = u"../out/HistogramChart_out.pptx";
 
-	// 最初のスライドにアクセスします。
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+    // PPTX ファイルを表す Presentation クラスのインスタンスを作成します
+    SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Histogram, 50, 50, 500, 400);
-	chart->get_ChartData()->get_Categories()->Clear();
-	chart->get_ChartData()->get_Series()->Clear();
+    // 最初のスライドにアクセスします
+    SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	System::SharedPtr<IChartDataWorkbook> wb = chart->get_ChartData()->get_ChartDataWorkbook();
+    System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Histogram, 50, 50, 500, 400);
+    chart->get_ChartData()->get_Categories()->Clear();
+    chart->get_ChartData()->get_Series()->Clear();
 
-	wb->Clear(0);
+    System::SharedPtr<IChartDataWorkbook> wb = chart->get_ChartData()->get_ChartDataWorkbook();
 
-	System::SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->Add(Aspose::Slides::Charts::ChartType::Histogram);
-	series->get_DataPoints()->AddDataPointForHistogramSeries(wb->GetCell(0, u"A1", System::ObjectExt::Box<int32_t>(15)));
-	series->get_DataPoints()->AddDataPointForHistogramSeries(wb->GetCell(0, u"A2", System::ObjectExt::Box<int32_t>(-41)));
-	series->get_DataPoints()->AddDataPointForHistogramSeries(wb->GetCell(0, u"A3", System::ObjectExt::Box<int32_t>(16)));
-	series->get_DataPoints()->AddDataPointForHistogramSeries(wb->GetCell(0, u"A4", System::ObjectExt::Box<int32_t>(10)));
-	series->get_DataPoints()->AddDataPointForHistogramSeries(wb->GetCell(0, u"A5", System::ObjectExt::Box<int32_t>(-23)));
-	series->get_DataPoints()->AddDataPointForHistogramSeries(wb->GetCell(0, u"A6", System::ObjectExt::Box<int32_t>(16)));
+    wb->Clear(0);
 
-	chart->get_Axes()->get_HorizontalAxis()->set_AggregationType(Aspose::Slides::Charts::AxisAggregationType::Automatic);
+    System::SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->Add(Aspose::Slides::Charts::ChartType::Histogram);
+    series->get_DataPoints()->AddDataPointForHistogramSeries(wb->GetCell(0, u"A1", System::ObjectExt::Box<int32_t>(15)));
+    series->get_DataPoints()->AddDataPointForHistogramSeries(wb->GetCell(0, u"A2", System::ObjectExt::Box<int32_t>(-41)));
+    series->get_DataPoints()->AddDataPointForHistogramSeries(wb->GetCell(0, u"A3", System::ObjectExt::Box<int32_t>(16)));
+    series->get_DataPoints()->AddDataPointForHistogramSeries(wb->GetCell(0, u"A4", System::ObjectExt::Box<int32_t>(10)));
+    series->get_DataPoints()->AddDataPointForHistogramSeries(wb->GetCell(0, u"A5", System::ObjectExt::Box<int32_t>(-23)));
+    series->get_DataPoints()->AddDataPointForHistogramSeries(wb->GetCell(0, u"A6", System::ObjectExt::Box<int32_t>(16)));
 
-	// プレゼンテーションを保存します。
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+    chart->get_Axes()->get_HorizontalAxis()->set_AggregationType(Aspose::Slides::Charts::AxisAggregationType::Automatic);
+
+    // プレゼンテーションを保存します
+    pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+### **レーダーチャートを作成**
 
-### **レーダーチャートの作成**
+1. [Presentation](https://reference.aspose.com/slides/ja/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。  
+1. インデックスでスライドの参照を取得します。  
+1. データを伴うチャートを追加し、目的のタイプ (`ChartType.Radar`) を指定します。  
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します
 
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。  
-1. インデックスを使用してスライドの参照を取得します。  
-1. データを指定し、`ChartType.Radar` を選択してチャートを追加します。  
-1. 変更されたプレゼンテーションを PPTX ファイルに書き込みます  
+この C++ コードはレーダーチャートの作成方法を示しています：
 
-この C++ コードはレーダーチャートの作成方法を示しています:
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+
 System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
 
 presentation->get_Slides()->idx_get(0)->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Radar, 20.0f, 20.0f, 400.0f, 300.0f);
 presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+### **マルチカテゴリチャートを作成**
 
-### **複合カテゴリチャートの作成**
-
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。  
+1. [Presentation](https://reference.aspose.com/slides/ja/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。  
 1. インデックスでスライドの参照を取得します。  
-1. デフォルトデータと `ChartType.ClusteredColumn` を指定してチャートを追加します。  
-1. チャート データ `IChartDataWorkbook` にアクセスします。  
-1. デフォルトの系列とカテゴリをクリアします。  
+1. デフォルトデータと目的のタイプ (`ChartType.ClusteredColumn`) でチャートを追加します。  
+1. `IChartDataWorkbook` にアクセスします。  
+1. 既定の系列とカテゴリをクリアします。  
 1. 新しい系列とカテゴリを追加します。  
-1. チャート系列の新しいデータを追加します。  
-1. 変更されたプレゼンテーションを PPTX ファイルに書き込みます。  
+1. 系列用の新しいチャートデータを追加します。  
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-この C++ コードはマルチカテゴリチャートの作成方法を示しています:
+この C++ コードはマルチカテゴリチャートの作成方法を示しています：
+
 ```c++
-	// ドキュメント ディレクトリへのパスです。
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategory.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartCategoryLevelsManager.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+	// ドキュメントディレクトリへのパスです。
 	const String outPath = u"../out/MultiCategoryChart_out.pptx";
 
-	// PPTX ファイルを表す Presentation クラスのインスタンスを作成します。
+	// PPTX ファイルを表す Presentation クラスのインスタンスを作成します
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// 最初のスライドにアクセスします。
+	// 最初のスライドにアクセスします
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// デフォルト データでチャートを追加します。
+	// デフォルト データでチャートを追加します
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
-	// チャート データ シートのインデックスを設定します。
+	// チャート データ シートのインデックスを設定します
 	int defaultWorksheetIndex = 0;
 
-	// チャート データのワークシートを取得します。
+	// チャート データ ワークシートを取得します
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-	// ワークブックをクリアします。
+	// ワークブックをクリアします
 	fact->Clear(defaultWorksheetIndex);
 
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 
 
-	// カテゴリを追加します。
+	// カテゴリを追加します
 	SharedPtr<IChartCategory> category = chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c2", ObjectExt::Box<System::String>(u"A")));
 	category->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box<System::String>(u"Group1"));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c3", ObjectExt::Box<System::String>(u"B")));
@@ -907,7 +1217,7 @@ presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx
 	category->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box<System::String>(u"Group4"));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c9", ObjectExt::Box<System::String>(u"H")));
 
-	// 新しい系列を追加します。
+	// 新しい系列を追加します
 	SharedPtr<IChartSeries>  series = chart->get_ChartData()->get_Series()->Add(fact->GetCell(0, u"D1", ObjectExt::Box<System::String>(u"Series 1")),
 		ChartType::ClusteredColumn);
 
@@ -920,32 +1230,83 @@ presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, u"D8", ObjectExt::Box<double>(70)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, u"D9", ObjectExt::Box<double>(80)));
 
-	// プレゼンテーションを保存します。
+	// プレゼンテーションを保存します
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+### **マップチャートを作成**
 
-### **マップチャートの作成**
+マップチャートは、データを含む領域を視覚化したものです。地理的な領域ごとのデータや数値を比較するのに最適です。
 
-マップチャートは、データを含む領域の可視化です。地理的領域間でデータや値を比較するのに最適です。
+この C++ コードはマップチャートの作成方法を示しています：
 
-この C++ コードはマップチャートの作成方法を示しています:
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
 auto chart = slide->get_Shapes()->AddChart(ChartType::Map, 50.0f, 50.0f, 500.0f, 400.0f);
 pres->Save(u"mapChart.pptx", SaveFormat::Pptx);
 ```
 
+### **複合チャートを作成**
 
-### **コンビネーションチャートの作成**
+複合チャート (コンボチャート) は、1 つのグラフ内に 2 種類以上のチャートタイプを組み合わせます。このチャートを使用すると、複数のデータセット間の違いをハイライト、比較、検証でき、相関関係を把握しやすくなります。
 
-コンビネーションチャート（コンボチャート）は、単一のグラフに 2 つ以上のチャートタイプを組み合わせます。このチャートを使用すると、複数のデータセット間の違いを強調、比較、検証でき、相互関係を把握しやすくなります。
+![The combination chart](combination_chart.png)
 
-![組み合わせチャート](combination_chart.png)
+以下の C++ コードは、上記の複合チャートを PowerPoint プレゼンテーションに作成する方法を示しています：
 
-以下の C++ コードは、上記のコンビネーションチャートを PowerPoint プレゼンテーションに作成する方法を示しています:
-```cpp
+```c++
+#include <DOM/Chart/AxisPositionType.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/CrossesType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IAxisFormat.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartLinesFormat.h>
+#include <DOM/Chart/IChartPortionFormat.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/Chart/ILegend.h>
+#include <DOM/Chart/LegendPositionType.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 static SharedPtr<IChart> CreateChartWithFirstSeries(SharedPtr<ISlide> slide)
 {
     auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
@@ -1050,7 +1411,7 @@ static void SetPrimaryAxesFormat(SharedPtr<IChart> chart)
 
     SetAxisTitle(verticalAxis, u"Y Axis 1");
 
-    // 垂直方向の主目盛線の色を設定します。
+    // 垂直軸の主要グリッドラインの色を設定します。
     auto majorGridLinesFormat = verticalAxis->get_MajorGridLinesFormat()->get_Line()->get_FillFormat();
     majorGridLinesFormat->set_FillType(FillType::Solid);
     majorGridLinesFormat->get_SolidFillColor()->set_Color(Color::FromArgb(217, 217, 217));
@@ -1095,19 +1456,36 @@ static void CreateComboChart()
 }
 ```
 
-
 ## **チャートの更新**
 
-1. チャートを含むプレゼンテーションを表す [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。  
-2. インデックスを使用してスライドの参照を取得します。  
-3. すべてのシェイプを走査し、目的のチャートを見つけます。  
-4. チャート データのワークシートにアクセスします。  
-5. 系列の値を変更してチャート データ系列を更新します。  
-6. 新しい系列を追加し、データを入力します。  
-7. 変更されたプレゼンテーションを PPTX ファイルとして書き込みます。  
+1. チャートを含むプレゼンテーションを表す [Presentation](https://reference.aspose.com/slides/ja/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。  
+2. インデックスでスライドの参照を取得します。  
+3. すべてのシェイプを走査して目的のチャートを見つけます。  
+4. チャートデータのワークシートにアクセスします。  
+5. 系列の値を変更してチャートデータ系列を修正します。  
+6. 新しい系列を追加し、そのデータを入力します。  
+7. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-この C++ コードはチャートの更新方法を示しています:
+この C++ コードはチャートの更新方法を示しています：
+
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+
 // PPTX ファイルを表す Presentation クラスのインスタンスを作成します
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"ExistingChart.pptx");
 
@@ -1120,7 +1498,7 @@ System::SharedPtr<IChart> chart = System::ExplicitCast<Aspose::Slides::Charts::I
 // チャート データ シートのインデックスを設定します
 int32_t defaultWorksheetIndex = 0;
 
-// チャート データのワークシートを取得します
+// チャート データ ワークシートを取得します
 System::SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
@@ -1131,9 +1509,9 @@ fact->GetCell(defaultWorksheetIndex, 2, 0, System::ObjectExt::Box<System::String
 // 最初のチャート系列を取得します
 System::SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-// 系列のデータを更新します
+// 系列データを更新します
 fact->GetCell(defaultWorksheetIndex, 0, 1, System::ObjectExt::Box<System::String>(u"New_Series1"));
-// 系列名を変更しています
+// 系列名を変更します
 series->get_DataPoints()->idx_get(0)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(90));
 series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(123));
 series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(44));
@@ -1141,117 +1519,151 @@ series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::B
 // 2 番目のチャート系列を取得します
 series = chart->get_ChartData()->get_Series()->idx_get(1);
 
-// 現在、系列データを更新しています
+// 系列データを更新します
 fact->GetCell(defaultWorksheetIndex, 0, 2, System::ObjectExt::Box<System::String>(u"New_Series2"));
-// 系列名を変更しています
+// 系列名を変更します
 series->get_DataPoints()->idx_get(0)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(23));
 series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(67));
 series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(99));
 
 
-// 新しい系列を追加しています
+// 新しい系列を追加します
 chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 3, System::ObjectExt::Box<System::String>(u"Series 3")), chart->get_Type());
 
 // 3 番目のチャート系列を取得します
 series = chart->get_ChartData()->get_Series()->idx_get(2);
 
-// 現在、系列データを設定しています
+// 系列データを設定します
 series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 3, System::ObjectExt::Box<int32_t>(20)));
 series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 3, System::ObjectExt::Box<int32_t>(50)));
 series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 3, System::ObjectExt::Box<int32_t>(30)));
 
 chart->set_Type(Aspose::Slides::Charts::ChartType::ClusteredCylinder);
 
-// チャート付きプレゼンテーションを保存します
+// チャート付きでプレゼンテーションを保存します
 pres->Save(u"AsposeChartModified_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+## **チャートのデータ範囲を設定**
 
-## **チャートのデータ範囲の設定**
+1. チャートを含む [Presentation](https://reference.aspose.com/slides/ja/cpp/class/aspose.slides.presentation) クラスのインスタンスを開きます。  
+2. インデックスでスライドの参照を取得します。  
+3. すべてのシェイプを走査して目的のチャートを見つけます。  
+4. チャートデータにアクセスし、範囲を設定します。  
+5. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-1. チャートを含む [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) インスタンスを開きます。  
-2. インデックスを使用してスライドの参照を取得します。  
-3. すべてのシェイプを走査し、目的のチャートを見つけます。  
-4. チャート データにアクセスし、範囲を設定します。  
-5. 変更されたプレゼンテーションを PPTX ファイルとして保存します。  
+この C++ コードはチャートのデータ範囲設定方法を示しています：
 
-この C++ コードはチャートのデータ範囲設定方法を示しています:
 ```cpp
-// ドキュメント ディレクトリへのパスです。
-String dataDir = GetDataPath();
+#include <DOM/Chart/IChartData.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// PPTX ファイルを表す Presentation クラスのインスタンスを作成します。
+// ドキュメントディレクトリへのパスです。
+String dataDir = u"../documents/";
+
+// PPTX ファイルを表す Presentation クラスのインスタンスを作成します
 auto presentation = System::MakeObject<Presentation>(dataDir + u"ExistingChart.pptx");
 
-// 最初のスライドにアクセスし、デフォルト データでチャートを追加します。
+// 最初のスライドにアクセスし、デフォルト データでチャートを追加します
 auto slide = presentation->get_Slides()->idx_get(0);
 auto chart = System::ExplicitCast<IChart>(slide->get_Shapes()->idx_get(0));
 chart->get_ChartData()->SetRange(u"Sheet1!A1:B4");
 presentation->Save(dataDir + u"SetDataRange_out.pptx", SaveFormat::Pptx);
 ```
 
+## **チャートでデフォルトマーカーを使用**
 
-## **チャートでデフォルトマーカーを使用する**
-デフォルトマーカーを使用すると、各チャート系列に自動的に異なるデフォルトマーカーシンボルが設定されます。
+チャートでデフォルトマーカーを使用すると、各系列に自動的に異なるデフォルトマーカー記号が割り当てられます。
 
-この C++ コードはチャート系列のマーカーを自動設定する方法を示しています:
+この C++ コードは系列マーカーを自動設定する方法を示しています：
+
 ``` cpp
-	// ドキュメント ディレクトリへのパスです。
-	String dataDir = GetDataPath();
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/ILegend.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-	auto pres = System::MakeObject<Presentation>();
+// ドキュメントディレクトリへのパスです。
+String dataDir = u"../documents/";
 
-	auto slide = pres->get_Slides()->idx_get(0);
-	auto chart = slide->get_Shapes()->AddChart(ChartType::LineWithMarkers, 10.0f, 10.0f, 400.0f, 400.0f);
+auto pres = System::MakeObject<Presentation>();
 
-	chart->get_ChartData()->get_Series()->Clear();
-	chart->get_ChartData()->get_Categories()->Clear();
+auto slide = pres->get_Slides()->idx_get(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::LineWithMarkers, 10.0f, 10.0f, 400.0f, 400.0f);
 
-	auto wb = chart->get_ChartData()->get_ChartDataWorkbook();
-	chart->get_ChartData()->get_Series()->Add(wb->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Series 1")), chart->get_Type());
-	auto series = chart->get_ChartData()->get_Series()->idx_get(0);
+chart->get_ChartData()->get_Series()->Clear();
+chart->get_ChartData()->get_Categories()->Clear();
 
-	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, 1, 0, ObjectExt::Box<String>(u"C1")));
-	series->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 1, 1, ObjectExt::Box<int32_t>(24)));
-	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, 2, 0, ObjectExt::Box<String>(u"C2")));
-	series->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 2, 1, ObjectExt::Box<int32_t>(23)));
-	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, 3, 0, ObjectExt::Box<String>(u"C3")));
-	series->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 3, 1, ObjectExt::Box<int32_t>(-10)));
-	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, 4, 0, ObjectExt::Box<String>(u"C4")));
-	series->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 4, 1, nullptr));
+auto wb = chart->get_ChartData()->get_ChartDataWorkbook();
+chart->get_ChartData()->get_Series()->Add(wb->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Series 1")), chart->get_Type());
+auto series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-	chart->get_ChartData()->get_Series()->Add(wb->GetCell(0, 0, 2, ObjectExt::Box<String>(u"Series 2")), chart->get_Type());
+chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, 1, 0, ObjectExt::Box<String>(u"C1")));
+series->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 1, 1, ObjectExt::Box<int32_t>(24)));
+chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, 2, 0, ObjectExt::Box<String>(u"C2")));
+series->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 2, 1, ObjectExt::Box<int32_t>(23)));
+chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, 3, 0, ObjectExt::Box<String>(u"C3")));
+series->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 3, 1, ObjectExt::Box<int32_t>(-10)));
+chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, 4, 0, ObjectExt::Box<String>(u"C4")));
+series->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 4, 1, nullptr));
 
-	// 2 番目のチャート系列を取得します
-	auto series2 = chart->get_ChartData()->get_Series()->idx_get(1);
+chart->get_ChartData()->get_Series()->Add(wb->GetCell(0, 0, 2, ObjectExt::Box<String>(u"Series 2")), chart->get_Type());
 
-	// 系列のデータを設定します
-	series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 1, 2, ObjectExt::Box<int32_t>(30)));
-	series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 2, 2, ObjectExt::Box<int32_t>(10)));
-	series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 3, 2, ObjectExt::Box<int32_t>(60)));
-	series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 4, 2, ObjectExt::Box<int32_t>(40)));
+// 2 番目のチャート系列を取得します
+auto series2 = chart->get_ChartData()->get_Series()->idx_get(1);
 
-	chart->set_HasLegend(true);
-	chart->get_Legend()->set_Overlay(false);
+// 系列データを設定します
+series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 1, 2, ObjectExt::Box<int32_t>(30)));
+series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 2, 2, ObjectExt::Box<int32_t>(10)));
+series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 3, 2, ObjectExt::Box<int32_t>(60)));
+series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 4, 2, ObjectExt::Box<int32_t>(40)));
 
-	pres->Save(dataDir + u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
+chart->set_HasLegend(true);
+chart->get_Legend()->set_Overlay(false);
+
+pres->Save(dataDir + u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 ```
-
 
 ## **FAQ**
 
-**Aspose.Slides がサポートするチャートタイプは何ですか？**
+### Aspose.Slides がサポートするチャートタイプは何ですか？
 
-Aspose.Slides は棒グラフ、折れ線グラフ、円グラフ、エリアグラフ、散布図、ヒストグラム、レーダーグラフなど、幅広いチャートタイプをサポートしています。この柔軟性により、データ可視化のニーズに最適なチャートタイプを選択できます。
+Aspose.Slides は棒グラフ、折れ線グラフ、円グラフ、エリア グラフ、散布図、ヒストグラム、レーダー グラフなど、幅広いチャートタイプをサポートしています。この柔軟性により、データ可視化のニーズに最適なチャートタイプを選択できます。
 
-**スライドに新しいチャートを追加するにはどうすればよいですか？**
+### スライドに新しいチャートを追加するにはどうすればよいですか？
 
-まず、[Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) クラスのインスタンスを作成し、インデックスで目的のスライドを取得します。その後、チャート追加メソッドを呼び出し、チャートタイプと初期データを指定します。この手順でチャートがプレゼンテーションに直接組み込まれます。
+まず [Presentation](https://reference.aspose.com/slides/ja/cpp/aspose.slides/presentation/) クラスのインスタンスを作成し、インデックスで目的のスライドを取得します。その後、チャート追加メソッドを呼び出し、チャートタイプと初期データを指定します。この手順でチャートがプレゼンテーションに直接組み込まれます。
 
-**チャートに表示されるデータを更新するには？**
+### チャートに表示されるデータを更新するには？
 
-チャートのデータワークブック（[IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/)）にアクセスし、デフォルトの系列とカテゴリをクリアしてからカスタムデータを追加します。これにより、最新データを反映するようにプログラムでチャートを更新できます。
+`IChartDataWorkbook` ([参照先](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdataworkbook/)) にアクセスし、既定の系列とカテゴリをクリアした上でカスタムデータを追加することで、チャートのデータを更新できます。これにより、プログラムから最新データを反映したチャートにリフレッシュできます。
 
-**チャートの外観をカスタマイズできますか？**
+### チャートの外観をカスタマイズできますか？
 
-はい、Aspose.Slides は豊富なカスタマイズオプションを提供します。色、フォント、ラベル、凡例、その他の書式設定要素を変更して、チャートの外観を特定のデザイン要件に合わせて調整できます。
+はい、Aspose.Slides は豊富なカスタマイズ機能を提供します。色、フォント、ラベル、凡例、その他の書式設定要素を変更して、チャートの外観を特定のデザイン要件に合わせて調整できます。

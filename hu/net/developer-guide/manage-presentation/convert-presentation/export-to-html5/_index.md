@@ -1,5 +1,5 @@
 ---
-title: Prezentációk konvertálása HTML5 formátumba .NET-ben
+title: Prezentációk konvertálása HTML5-re .NET-ben
 linktitle: Prezentáció HTML5-re
 type: docs
 weight: 40
@@ -15,36 +15,42 @@ keywords:
 - PPT mentése HTML5-ként
 - PPTX mentése HTML5-ként
 - ODP mentése HTML5-ként
-- PPT exportálása HTML5-re
-- PPTX exportálása HTML5-re
-- ODP exportálása HTML5-re
+- PPT exportálása HTML5-be
+- PPTX exportálása HTML5-be
+- ODP exportálása HTML5-be
 - .NET
 - C#
 - Aspose.Slides
-description: "PowerPoint és OpenDocument prezentációk exportálása reszponzív HTML5-be az Aspose.Slides for .NET segítségével. Megőrzik a formázást, animációkat és az interaktivitást."
+description: "PowerPoint és OpenDocument prezentációk exportálása responsív HTML5-re az Aspose.Slides for .NET használatával. Megőrzi a formázást, animációkat és az interaktivitást."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan konvertálhatók a PowerPoint bemutatók HTML5 formátumba az Aspose.Slides segítségével. Lefedi az egyszerű HTML5 exportot webes kiterjesztések vagy további függőségek nélkül, valamint a formaanimációk és diavetítések vezérlésének beállításait. A cikk bemutatja a szabványos PowerPoint‑to‑HTML exportfolyamatot, elmagyarázza, hogyan generálhatók HTML5 kimenetek dianézet módban, és megmutatja, hogyan lehet megjegyzéseket belefoglalni az exportált dokumentumba a elrendezésük konfigurálásával.
+Ez a cikk bemutatja, hogyan lehet PowerPoint‑prezentációkat HTML5‑re konvertálni az Aspose.Slides segítségével. Kitér az alapvető HTML5‑exportálásra, valamint a formaanimációk és diákátmenetek szabályozásának lehetőségeire. A cikk meg is mutatja a szabványos PowerPoint‑HTML export folyamatát, elmagyarázza, hogyan lehet HTML5 kimenetet előállítani dianézet módban, és bemutatja, hogyan lehet megjegyzéseket belefoglalni az exportált dokumentumba a elrendezésük konfigurálásával.
 
-## **PowerPoint exportálása HTML5‑be**
+## **PowerPoint exportálása HTML5‑re**
 
-Ez a C# kód bemutatja, hogyan exportálhat egy bemutatót HTML5‑be webes kiterjesztések és függőségek nélkül:
+Ez a C# kód bemutatja, hogyan lehet egy prezentációt HTML5‑re exportálni:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
    pres.Save("pres.html", SaveFormat.Html5);
 }
 ```
 
-{{% alert color="primary" %}}  
-Ebben az esetben tiszta HTML-et kap.  
+{{% alert color="info" %}} 
+A HTML dokumentum mellett az exportálás létrehozza a hivatkozott segédfájlokat is: `pres.css`, `master.css`, `animation.js`, `effects.js` és `navigation.js`. A generált oldal továbbá betölti a jQuery‑t és az Anime.js‑t a nyilvános CDN‑ekről; ezek nélkül a diák navigációja és animációi nem működnek.
 {{% /alert %}}
 
-Ilyen módon megadhatja a formaanimációk és diavetítések beállításait:
+Az alábbi módon adhatsz meg beállításokat a formaanimációk és diákátmenetek számára:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
    pres.Save("pres5.html", SaveFormat.Html5, new Html5Options
@@ -55,18 +61,21 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## **PowerPoint exportálása HTML‑be**
+## **PowerPoint exportálása HTML‑re**
 
-Ez a C# bemutatja a szabványos PowerPoint‑to‑HTML folyamatot:
+A következő C# bemutatja a szabványos PowerPoint‑HTML folyamát:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
    pres.Save("pres.html", SaveFormat.Html);
 }
 ```
 
-Ebben az esetben a bemutató tartalma SVG‑vel kerül renderelésre, a következő formában:
+Ebben az esetben a prezentáció tartalma SVG‑ként kerül renderelésre, a következő formában:
 
 ```html
 <body>
@@ -78,17 +87,20 @@ Ebben az esetben a bemutató tartalma SVG‑vel kerül renderelésre, a követke
 </body>
 ```
 
-{{% alert title="Note" color="warning" %}}  
-Ha ezt a módszert használja a PowerPoint HTML‑be exportálásához, az SVG renderelés miatt nem fog tudni stílusokat alkalmazni vagy egyes elemeket animálni.  
+{{% alert title="Note" color="warning" %}} 
+Ha ezzel a módszerrel exportálsz PowerPoint‑t HTML‑re, az SVG renderelés miatt nem lesz lehetőség stílusok alkalmazására vagy egyes elemek animálására.
 {{% /alert %}}
 
 ## **PowerPoint exportálása HTML5 dianézetben**
 
-**Aspose.Slides** lehetővé teszi, hogy egy PowerPoint bemutatót HTML5 dokumentummá konvertáljon, amelyben a diák dianézet módban jelennek meg. Ebben az esetben, ha a keletkezett HTML5 fájlt egy böngészőben nyitja meg, a bemutatót dianézetben láthatja a weboldalon.
+**Aspose.Slides** lehetővé teszi, hogy egy PowerPoint‑prezentációt HTML5 dokumentummá konvertálj, amelyben a diák dianézet módban jelennek meg. Ebben az esetben, ha a kapott HTML5 fájlt egy böngészőben nyitod meg, a prezentációt a weboldalon diaképként láthatod.
 
-Ez a C# kód bemutatja a PowerPoint‑to‑HTML5 dianézet export folyamatát:
+Az alábbi C# kód demonstrálja a PowerPoint‑HTML5 dianézet export folyamatát:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
    pres.Save("HTML5-slide-view.html", SaveFormat.Html5, new Html5Options
@@ -99,22 +111,24 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## **Bemutató konvertálása HTML5 dokumentummá megjegyzésekkel**
+## **Prezentáció konvertálása HTML5 dokumentummá megjegyzésekkel**
 
-A PowerPoint megjegyzései olyan eszközök, amelyek lehetővé teszik a felhasználók számára, hogy jegyzeteket vagy visszajelzéseket hagyjanak a bemutató diáin. Különösen hasznosak együttműködési projektekben, ahol több személy adhat hozzá javaslatokat vagy megjegyzéseket a diák bizonyos elemeihez anélkül, hogy a fő tartalmat módosítaná. Minden megjegyzés a szerző nevét mutatja, így könnyű nyomon követni, ki hagyta.
+Megjegyzések a PowerPointban olyan eszközök, amelyek lehetővé teszik a felhasználók számára, hogy jegyzeteket vagy visszajelzéseket hagyjanak a prezentációs diákon. Különösen együttműködő projektekben hasznosak, ahol több személy is hozzáadhatja javaslatait vagy megjegyzéseit a konkrét diáelemekhez a fő tartalom módosítása nélkül. Minden megjegyzés tartalmazza a szerző nevét, így könnyen nyomon követhető, ki hagyta a megjegyzést.
 
-Tegyük fel, hogy a következő PowerPoint bemutató a "sample.pptx" fájlban van elmentve.
+Tegyük fel, hogy a következő PowerPoint‑prezentáció el van mentve a "sample.pptx" fájlban.
 
-![Két megjegyzés a bemutató dián](two_comments_pptx.png)
+![Két megjegyzés a prezentációs dián](two_comments_pptx.png)
 
-Amikor egy PowerPoint bemutatót HTML5 dokumentummá konvertál, könnyen megadhatja, hogy a kimeneti dokumentumban szerepeljenek‑e a bemutató megjegyzései. Ehhez meg kell adnia a megjegyzések megjelenítési paramétereit a `NotesCommentsLayouting` tulajdonságban a [Html5Options](https://reference.aspose.com/slides/hu/net/aspose.slides.export/html5options/) osztályban.
+Amikor egy PowerPoint‑prezentációt HTML5 dokumentummá konvertálsz, egyszerűen megadhatod, hogy a prezentációból származó megjegyzéseket bele szeretnéd-e foglalni a kimeneti dokumentumba. Ehhez a megjegyzések megjelenítési paramétereit kell megadni a `NotesCommentsLayouting` tulajdonságban a [Html5Options](https://reference.aspose.com/slides/hu/net/aspose.slides.export/html5options/) osztályban.
 
-A következő kódrészlet egy bemutatót HTML5 dokumentummá konvertál, a megjegyzésekkel a diák jobb oldalán:
-
+A következő kódrészlet egy prezentációt HTML5 dokumentummá konvertál, a megjegyzésekkel a diák jobb oldalán.
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 var html5Options = new Html5Options
 {
-    NotesCommentsLayouting =
+    SlidesLayoutOptions = new NotesCommentsLayoutingOptions
     {
         CommentsPosition = CommentsPositions.Right
     }
@@ -126,15 +140,18 @@ presentation.Save("output.html", SaveFormat.Html5, html5Options);
 
 Az "output.html" dokumentum az alábbi képen látható.
 
-![A megjegyzések az eredmény HTML5 dokumentumban](two_comments_html5.png)
+![A megjegyzések a kimeneti HTML5 dokumentumban](two_comments_html5.png)
 
 ## **GYIK**
 
-**Megal tudom határozni, hogy az objektumanimációk és diavetítések lejátszódjanak‑e HTML5‑ben?**  
-Igen, a HTML5 különálló beállításokat biztosít a [shape animations](https://reference.aspose.com/slides/hu/net/aspose.slides.export/html5options/animateshapes/) és a [slide transitions](https://reference.aspose.com/slides/hu/net/aspose.slides.export/html5options/animatetransitions/) engedélyezésére vagy letiltására.
+### Szabályozhatom-e, hogy az objektumanimációk és diákátmenetek lejátszódjanak HTML5‑ben?
 
-**Támogatott-e a megjegyzések kimenete, és hol helyezhetők el a diára vonatkozóan?**  
-Igen, a megjegyzések hozzáadhatók HTML5‑ben, és a [layout settings](https://reference.aspose.com/slides/hu/net/aspose.slides.export/html5options/notescommentslayouting/) segítségével (például a dia jobb oldalára) helyezhetők el a jegyzetek és megjegyzések számára.
+Igen, a HTML5 különálló beállításokat kínál a [formaanimációk](https://reference.aspose.com/slides/hu/net/aspose.slides.export/html5options/animateshapes/) és a [diákátmenetek](https://reference.aspose.com/slides/hu/net/aspose.slides.export/html5options/animatetransitions/) engedélyezésére vagy letiltására.
 
-**Kihagyhatom‑e azokat a hivatkozásokat, amelyek JavaScript‑et hívnak meg biztonsági vagy CSP‑okból adódó okok miatt?**  
-Igen, van egy [setting](https://reference.aspose.com/slides/hu/net/aspose.slides.export/saveoptions/skipjavascriptlinks/) amely lehetővé teszi, hogy a mentés során kihagyja a JavaScript hívásokat tartalmazó hiperhivatkozásokat. Ez segít a szigorú biztonsági szabályzatok betartásában.
+### Támogatott-e a megjegyzések kimenete, és hol helyezhetők el a diához képest?
+
+Igen, a megjegyzések hozzáadhatók HTML5-ben, és elhelyezhetők (például a dia jobb oldalán) a [elrendezési beállítások](https://reference.aspose.com/slides/hu/net/aspose.slides.export/html5options/notescommentslayouting/) segítségével.
+
+### Kihagyhatom-e a JavaScript‑hívásokat tartalmazó hivatkozásokat biztonsági vagy CSP okokból?
+
+Igen, van egy [beállítás](https://reference.aspose.com/slides/hu/net/aspose.slides.export/saveoptions/skipjavascriptlinks/), amely lehetővé teszi, hogy a mentés során kihagyjuk a JavaScript‑hívásokat tartalmazó hiperhivatkozásokat. Ez segít a szigorú biztonsági politikák betartásában.

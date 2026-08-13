@@ -1,45 +1,47 @@
 ---
-title: Kelola Kontrol ActiveX dalam Presentasi Menggunakan Java
-linktitle: ActiveX
+title: "Kelola Kontrol ActiveX dalam Presentasi Menggunakan Java"
+linktitle: "ActiveX"
 type: docs
 weight: 80
 url: /id/java/activex/
 keywords:
 - ActiveX
 - kontrol ActiveX
-- kelola ActiveX
-- tambahkan ActiveX
-- modifikasi ActiveX
+- mengelola ActiveX
+- menambahkan ActiveX
+- memodifikasi ActiveX
 - pemutar media
 - PowerPoint
 - presentasi
 - Java
 - Aspose.Slides
-description: "Pelajari bagaimana Aspose.Slides untuk Java memanfaatkan ActiveX untuk mengotomatiskan dan meningkatkan presentasi PowerPoint, memberikan kontrol yang kuat kepada pengembang atas slide."
+description: "Pelajari bagaimana Aspose.Slides for Java memanfaatkan ActiveX untuk mengotomatiskan dan meningkatkan presentasi PowerPoint, memberi pengembang kontrol kuat atas slide."
 ---
-## **Pendahuluan**
+## **Introduction**
 
-Kontrol ActiveX digunakan dalam presentasi. Aspose.Slides untuk Java memungkinkan Anda menambahkan dan mengelola kontrol ActiveX, tetapi kontrol ini sedikit lebih kompleks dibandingkan bentuk presentasi biasa. Kami telah menambahkan dukungan untuk menambahkan kontrol Active Media Player di Aspose.Slides. Perlu dicatat bahwa kontrol ActiveX bukan bentuk; mereka bukan bagian dari [IShapeCollection](https://reference.aspose.com/slides/id/java/com.aspose.slides/ishapecollection/) presentasi. Mereka merupakan bagian dari [IControlCollection](https://reference.aspose.com/slides/id/java/com.aspose.slides/icontrolcollection/) terpisah. Pada topik ini, kami akan menunjukkan cara bekerja dengan mereka. 
+Kontrol ActiveX digunakan dalam presentasi. Aspose.Slides for Java memungkinkan Anda menambahkan dan mengelola kontrol ActiveX, tetapi kontrol tersebut sedikit lebih sulit dikelola dibandingkan bentuk presentasi normal. Kami telah mengimplementasikan dukungan untuk menambahkan kontrol Media Player Active di Aspose.Slides. Perlu diketahui bahwa kontrol ActiveX bukan bentuk; mereka tidak termasuk dalam [IShapeCollection](https://reference.aspose.com/slides/id/java/com.aspose.slides/ishapecollection/). Mereka termasuk dalam [IControlCollection](https://reference.aspose.com/slides/id/java/com.aspose.slides/icontrolcollection/) yang terpisah. Pada topik ini, kami akan menunjukkan cara bekerja dengan mereka. 
 
-## **Menambahkan Kontrol Media Player ActiveX ke Slide**
+## **Add a Media Player ActiveX Control to a Slide**
 Untuk menambahkan kontrol Media Player ActiveX, lakukan hal berikut:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation) dan buat presentasi kosong.
-1. Akses slide target dalam [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation).
-1. Tambahkan kontrol Media Player ActiveX menggunakan metode [addControl](https://reference.aspose.com/slides/id/java/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) yang disediakan oleh [IControlCollection](https://reference.aspose.com/slides/id/java/com.aspose.slides/icontrolcollection/).
-1. Akses kontrol Media Player ActiveX dan tetapkan jalur video dengan menggunakan propertinya.
-1. Simpan presentasi sebagai file PPTX.
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation) dan hasilkan sebuah presentasi kosong.
+2. Akses slide target dalam [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation).
+3. Tambahkan kontrol Media Player ActiveX menggunakan metode [addControl](https://reference.aspose.com/slides/id/java/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) yang disediakan oleh [IControlCollection](https://reference.aspose.com/slides/id/java/com.aspose.slides/icontrolcollection/).
+4. Akses kontrol Media Player ActiveX dan atur jalur video dengan menggunakan propertinya.
+5. Simpan presentasi sebagai file PPTX.
 
-Kode contoh ini, berdasarkan langkah‑langkah di atas, menunjukkan cara menambahkan Media Player ActiveX Control ke slide:
+Kode contoh ini, berdasarkan langkah-langkah di atas, menunjukkan cara menambahkan Kontrol ActiveX Media Player ke slide:
 
 ```java
+import com.aspose.slides.*;
+
 // Buat instance presentasi kosong
 Presentation pres = new Presentation();
 try {
-    // Menambahkan kontrol Media Player ActiveX
+    // Menambahkan kontrol ActiveX Media Player
     pres.getSlides().get_Item(0).getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
 
-    // Akses kontrol Media Player ActiveX dan tetapkan jalur video
+    // Akses kontrol ActiveX Media Player dan atur jalur video
     pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("URL", "Wildlife.wmv");
 
     // Simpan Presentasi
@@ -49,28 +51,36 @@ try {
 }
 ```
 
-## **Memodifikasi Kontrol ActiveX**
-{{% alert color="primary" %}} 
+## **Modify an ActiveX Control**
+{{% alert color="info" %}} 
 
-Aspose.Slides untuk Java 7.1.0 dan versi yang lebih baru dilengkapi dengan komponen untuk mengelola kontrol ActiveX. Anda dapat mengakses kontrol ActiveX yang sudah ditambahkan dalam presentasi Anda dan memodifikasi atau menghapusnya melalui propertinya.
+Aspose.Slides for Java 7.1.0 dan versi yang lebih baru dilengkapi dengan komponen untuk mengelola kontrol ActiveX. Anda dapat mengakses kontrol ActiveX yang sudah ditambahkan dalam presentasi Anda dan memodifikasi atau menghapusnya melalui propertinya.
 
 {{% /alert %}} 
 
 Untuk mengelola kontrol ActiveX sederhana seperti kotak teks dan tombol perintah pada slide, lakukan hal berikut:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation) dan muat presentasi yang berisi kontrol ActiveX.
-1. Dapatkan referensi slide berdasarkan indeksnya.
-1. Akses kontrol ActiveX pada slide dengan mengakses [IControlCollection](https://reference.aspose.com/slides/id/java/com.aspose.slides/icontrolcollection/).
-1. Akses kontrol ActiveX TextBox1 menggunakan objek [IControl](https://reference.aspose.com/slides/id/java/com.aspose.slides/icontrol/).
-1. Ubah properti kontrol ActiveX TextBox1 meliputi teks, font, tinggi font, dan posisi bingkai.
-1. Akses kontrol kedua yang bernama CommandButton1.
-1. Ubah caption tombol, font, dan posisi.
-1. Geser posisi bingkai kontrol ActiveX.
-1. Tulis presentasi yang telah dimodifikasi ke file PPTX.
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation) dan muat presentasi yang berisi kontrol ActiveX.
+2. Dapatkan referensi slide berdasarkan indeksnya.
+3. Akses kontrol ActiveX dalam slide dengan mengakses [IControlCollection](https://reference.aspose.com/slides/id/java/com.aspose.slides/icontrolcollection/).
+4. Akses kontrol ActiveX TextBox1 menggunakan objek [IControl](https://reference.aspose.com/slides/id/java/com.aspose.slides/icontrol/).
+5. Ubah properti kontrol ActiveX TextBox1 yang meliputi teks, font, tinggi font, dan posisi bingkai.
+6. Akses kontrol akses kedua yang disebut CommandButton1.
+7. Ubah caption tombol, font, dan posisi.
+8. Pindahkan posisi bingkai kontrol ActiveX.
+9. Tuliskan presentasi yang telah dimodifikasi ke file PPTX.
 
-Kode contoh ini, berdasarkan langkah‑langkah di atas, menunjukkan cara mengelola kontrol ActiveX sederhana: 
+Kode contoh ini, berdasarkan langkah-langkah di atas, menunjukkan cara mengelola kontrol ActiveX sederhana: 
 
 ```java
+import com.aspose.slides.*;
+import java.awt.FontMetrics;
+import java.awt.SystemColor;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+
 // Mengakses presentasi dengan kontrol ActiveX
 Presentation pres = new Presentation("ActiveX.pptm");
 try {
@@ -84,7 +94,7 @@ try {
         String newText = "Changed text";
         control.getProperties().set_Item("Value", newText);
 
-        // Mengubah gambar pengganti. PowerPoint akan mengganti gambar ini saat aktivasi ActiveX,
+        // Mengubah gambar substitusi. PowerPoint akan mengganti gambar ini selama aktivasi ActiveX,
         // jadi kadang-kadang boleh membiarkan gambar tidak berubah.
         BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
                 BufferedImage.TYPE_INT_ARGB);
@@ -122,13 +132,13 @@ try {
         control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
     }
 
-    // Mengubah caption tombol
+    // Mengubah caption Tombol
     control = pres.getSlides().get_Item(0).getControls().get_Item(1);
 
     if (control.getName().equalsIgnoreCase("CommandButton1") && control.getProperties() != null) {
         String newCaption = "Show MessageBox";
         control.getProperties().set_Item("Caption", newCaption);
-        // Mengubah gambar pengganti
+        // Mengubah substitusi
         BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
                 BufferedImage.TYPE_INT_ARGB);
         java.awt.Graphics graphics = image.getGraphics();
@@ -165,7 +175,7 @@ try {
                 control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
             }
 
-            // memindahkan 100 poin ke bawah
+            // memindahkan ke bawah 100 poin
             for (IControl ctl : pres.getSlides().get_Item(0).getControls()) {
                 IShapeFrame frame = ctl.getFrame();
                 ctl.setFrame(new ShapeFrame(frame.getX(), frame.getY() + 100,
@@ -184,14 +194,11 @@ try {
 
 ## **FAQ**
 
-**Apakah Aspose.Slides mempertahankan kontrol ActiveX saat membaca dan menyimpan ulang meskipun tidak dapat dijalankan di runtime Java?**
-
+### Does Aspose.Slides preserve ActiveX controls when reading and re-saving if they cannot be executed in the Java runtime?
 Ya. Aspose.Slides memperlakukan mereka sebagai bagian dari presentasi dan dapat membaca/mengubah properti serta bingkai mereka; mengeksekusi kontrol itu sendiri tidak diperlukan untuk mempertahankannya.
 
-**Bagaimana perbedaan kontrol ActiveX dengan objek OLE dalam sebuah presentasi?**
+### How do ActiveX controls differ from OLE objects in a presentation?
+Kontrol ActiveX adalah kontrol yang dikelola secara interaktif (tombol, kotak teks, pemutar media), sedangkan [OLE](/slides/id/java/manage-ole/) mengacu pada objek aplikasi tersemat (misalnya, lembar kerja Excel). Mereka disimpan dan diproses secara berbeda serta memiliki model properti yang berbeda.
 
-Kontrol ActiveX adalah kontrol interaktif yang dikelola (tombol, kotak teks, pemutar media), sedangkan [OLE](/slides/id/java/manage-ole/) mengacu pada objek aplikasi yang disematkan (misalnya, lembar kerja Excel). Mereka disimpan dan ditangani secara berbeda serta memiliki model properti yang berbeda.
-
-**Apakah peristiwa ActiveX dan makro VBA berfungsi jika file telah dimodifikasi oleh Aspose.Slides?**
-
-Aspose.Slides mempertahankan markup dan metadata yang ada; namun, peristiwa dan makro hanya berjalan di PowerPoint pada Windows ketika keamanan mengizinkannya. Perpustakaan ini tidak mengeksekusi VBA.
+### Do ActiveX events and VBA macros work if the file has been modified by Aspose.Slides?
+Aspose.Slides mempertahankan markup dan metadata yang ada; namun, peristiwa dan makro hanya dijalankan di dalam PowerPoint pada Windows ketika keamanan mengizinkannya. Perpustakaan tidak mengeksekusi VBA.

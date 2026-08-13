@@ -32,25 +32,19 @@ description: "Lär dig hur du konverterar PowerPoint-presentationer till video i
 
 Genom att konvertera din PowerPoint-presentation till video får du 
 
-* **Ökad tillgänglighet:** Alla enheter (oavsett plattform) är som standard utrustade med videospelare jämfört med program för att öppna presentationer, så användare finner det lättare att öppna eller spela upp videor.
-* **Större räckvidd:** Genom videor kan du nå en stor publik och rikta dem med information som annars kan verka tungrodd i en presentation. De flesta undersökningar och statistik visar att människor tittar på och konsumerar videor mer än andra former av innehåll, och de föredrar generellt sådant innehåll.
+* **Ökad tillgänglighet:** Alla enheter (oavsett plattform) är som standard utrustade med videospelare jämfört med program för att öppna presentationer, så användare har det lättare att öppna eller spela upp videor.
+* **Större räckvidd:** Genom videor kan du nå en stor publik och rikta information till dem som annars kan upplevas som tråkig i en presentation. De flesta undersökningar och statistik visar att människor tittar på och konsumerar videor mer än andra former av innehåll, och de föredrar generellt sådant innehåll.
 
-{{% alert color="primary" %}} 
+## **PowerPoint till video‑konvertering i Aspose.Slides**
 
-Du kanske vill titta på vår [**PowerPoint till Video Onlinekonverterare**](https://products.aspose.app/slides/sv/conversion/ppt-to-word) eftersom det är en levande och effektiv implementering av processen som beskrivs här.
+Aspose.Slides stöder konvertering från presentation till video.
 
-{{% /alert %}} 
-
-## **PowerPoint till Video‑konvertering i Aspose.Slides**
-
-Aspose.Slides stöder konvertering av presentation till video.
-
-* Använd **Aspose.Slides** för att generera en uppsättning bildrutor (från presentationsbilderna) som motsvarar ett visst FPS (bilder per sekund)
+* Använd **Aspose.Slides** för att generera en uppsättning bildrutor (från presentationsbilderna) som motsvarar en viss FPS (bilder per sekund)
 * Använd ett tredjepartsverktyg som **ffmpeg** ([för java](https://github.com/bramp/ffmpeg-cli-wrapper)) för att skapa en video baserad på bildrutorna. 
 
-### **Konvertera PowerPoint till Video**
+### **Konvertera PowerPoint till video**
 
-1. Lägg till detta i din POM-fil:
+1. Add this to your POM file:
 ```xml
    <dependency>
      <groupId>net.bramp.ffmpeg</groupId>
@@ -59,16 +53,20 @@ Aspose.Slides stöder konvertering av presentation till video.
    </dependency>
 ```
 
-2. Ladda ner ffmpeg [här](https://ffmpeg.org/download.html).
+2. Download ffmpeg [här](https://ffmpeg.org/download.html).
 
-4. Kör PowerPoint till video Java-koden.
+3. Kör Java‑koden för PowerPoint till video.
 
-Denna Java-kod visar hur du konverterar en presentation (innehållande en figur och två animationseffekter) till en video:
+Denna Java‑kod visar hur du konverterar en presentation (med en figur och två animeringseffekter) till en video:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation();
 try {
-    // Lägger till en smileyform och animerar den sedan
+    // Lägger till en leendeform och animerar den sedan
     IAutoShape smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effectIn = mainSequence.addEffect(smile, EffectType.Fly, EffectSubtype.TopLeft, EffectTriggerType.AfterPrevious);
@@ -102,7 +100,7 @@ try {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
 
-    // Konfigurera katalogen för ffmpeg-binärer. Se den här sidan: https://github.com/rosenbjerg/FFMpegCore#installation
+    // Konfigurera ffmpeg-binärkatalogen. Se den här sidan: https://github.com/bramp/ffmpeg-cli-wrapper
     FFmpeg ffmpeg = new FFmpeg("path/to/ffmpeg");
     FFprobe ffprobe = new FFprobe("path/to/ffprobe");
 
@@ -125,35 +123,44 @@ try {
 
 Du kan applicera animationer på objekt på bilder och använda övergångar mellan bilder. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Du kanske vill se dessa artiklar: [PowerPoint‑animation](https://docs.aspose.com/slides/sv/androidjava/powerpoint-animation/), [Form‑animation](https://docs.aspose.com/slides/sv/androidjava/shape-animation/), och [Form‑effekt](https://docs.aspose.com/slides/sv/androidjava/shape-effect/).
 
 {{% /alert %}} 
 
-Animationer och övergångar gör bildspel mer engagerande och intressanta—och de har samma effekt för videor. Låt oss lägga till ytterligare en bild och en övergång i koden för den föregående presentationen:
+Animationer och övergångar gör bildspel mer engagerande och intressanta—och de gör samma sak för videor. Låt oss lägga till en ytterligare bild och en övergång i koden för den föregående presentationen:
 
 ```java
-// Lägger till en smileyform och animerar den
+import com.aspose.slides.*;
+import java.awt.Color;
 
-// ...
+// Presentationen med den animerade leendeformen som skapades ovan.
+Presentation presentation = new Presentation();
+try {
+    // Lägger till en ny bild och animerad övergång
 
-// Lägger till en ny bild och animerad övergång
+    ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
 
-ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
+    newSlide.getBackground().setType(BackgroundType.OwnBackground);
 
-newSlide.getBackground().setType(BackgroundType.OwnBackground);
+    newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
 
-newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
 
-newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
-
-newSlide.getSlideShowTransition().setType(TransitionType.Push);
+    newSlide.getSlideShowTransition().setType(TransitionType.Push);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 
-Aspose.Slides stöder även animation för text. Så vi animerar stycken på objekt, som kommer att visas ett efter ett (med fördröjning satt till en sekund):
+Aspose.Slides stöder också animation för text. Så vi animerar stycken på objekt, som visas ett efter ett (med fördröjning på en sekund):
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation();
 try {
     // Lägger till text och animationer
@@ -169,18 +176,15 @@ try {
     paragraphCollection.add(para1);
     paragraphCollection.add(para2);
     paragraphCollection.add(para3);
-    paragraphCollection.add(new Paragraph());
 
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effect1 = mainSequence.addEffect(para1, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     IEffect effect2 = mainSequence.addEffect(para2, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     IEffect effect3 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-    IEffect effect4 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
     effect1.getTiming().setTriggerDelayTime(1f);
     effect2.getTiming().setTriggerDelayTime(1f);
     effect3.getTiming().setTriggerDelayTime(1f);
-    effect4.getTiming().setTriggerDelayTime(1f);
 
     final int fps = 33;
     ArrayList<String> frames = new ArrayList<String>();
@@ -208,7 +212,7 @@ try {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
 
-    // Konfigurera ffmpeg-binärkatalogen. Se den här sidan: https://github.com/rosenbjerg/FFMpegCore#installation
+    // Konfigurera ffmpeg-binärkatalogen. Se den här sidan: https://github.com/bramp/ffmpeg-cli-wrapper
     FFmpeg ffmpeg = new FFmpeg("path/to/ffmpeg");
     FFprobe ffprobe = new FFprobe("path/to/ffprobe");
 
@@ -231,16 +235,18 @@ try {
 
 För att låta dig utföra PowerPoint‑till‑video‑konverteringsuppgifter tillhandahåller Aspose.Slides klasserna [PresentationAnimationsGenerator](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentationanimationsgenerator/) och [PresentationPlayer](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentationplayer/).
 
-[PresentationAnimationsGenerator] låter dig ange bildstorlek för videon (som kommer att skapas senare) via dess konstruktor. Om du skickar en instans av presentationen kommer `Presentation.SlideSize` att användas och den genererar animationer som [PresentationPlayer] använder.
+[PresentationAnimationsGenerator] låter dig ange bildrutinens storlek för den video (som kommer att skapas senare) via sin konstruktor. Om du passerar en instans av presentationen används `Presentation.SlideSize` och den genererar animationer som [PresentationPlayer] använder.
 
-När animationer genereras skapas ett `NewAnimation`‑händelse för varje efterföljande animation, som har [IPresentationAnimationPlayer]-parametern. Den senare är en klass som representerar en spelare för en separat animation.
+När animationer genereras skapas ett `NewAnimation`‑event för varje efterföljande animation, som har parametern [IPresentationAnimationPlayer]. Den senare är en klass som representerar en spelare för en separat animation.
 
-För att arbeta med [IPresentationAnimationPlayer] används egenskapen [Duration] (animationens totala varaktighet) och metoden [SetTimePosition]. Varje animationsposition sätts inom intervallet *0 till varaktighet*, och sedan kommer `GetFrame`‑metoden att returnera en BufferedImage som motsvarar animationstillståndet vid det tillfället:
+För att arbeta med [IPresentationAnimationPlayer] används egenskaperna [Duration] (animationens totala varaktighet) och [SetTimePosition]. Varje animationsposition sätts inom intervallet *0 till varaktighet*, och sedan kommer `getFrame`‑metoden att returnera en [IImage] som motsvarar animationstillståndet vid den tidpunkten:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // Lägger till en smileyform och animerar den
+    // Lägger till en leendeform och animerar den
     IAutoShape smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effectIn = mainSequence.addEffect(smile, EffectType.Fly, EffectSubtype.TopLeft, EffectTriggerType.AfterPrevious);
@@ -253,21 +259,18 @@ try {
         animationsGenerator.setNewAnimation(animationPlayer ->
         {
             System.out.println(String.format("Animation total duration: %f", animationPlayer.getDuration()));
-            animationPlayer.setTimePosition(0); // initialt animationstillstånd
-            try {
-                // bitmap för initialt animationstillstånd
-                animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            animationPlayer.setTimePosition(animationPlayer.getDuration()); // slutligt animationstillstånd
-            try {
-                // sista bildrutan av animationen
-                animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+
+            animationPlayer.setTimePosition(0); // initialt animeringstillstånd
+            // bitmap för initialt animeringstillstånd
+            animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
+
+            animationPlayer.setTimePosition(animationPlayer.getDuration()); // slutligt animeringstillstånd
+            // sista bildrutan i animationen
+            animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
         });
+
+        // Generera animationerna. Callback-funktionen ovan körs för var och en av dem.
+        animationsGenerator.run(presentation.getSlides());
     } finally {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
@@ -276,9 +279,11 @@ try {
 }
 ```
 
-För att låta alla animationer i en presentation spelas samtidigt används klassen [PresentationPlayer]. Denna klass tar en [PresentationAnimationsGenerator]-instans och FPS för effekter i sin konstruktor och anropar sedan `FrameTick`‑händelsen för alla animationer för att få dem spelade:
+För att få alla animationer i en presentation att spelas upp samtidigt används klassen [PresentationPlayer]. Denna klass tar en [PresentationAnimationsGenerator]-instans och FPS för effekter i sin konstruktor och anropar sedan `FrameTick`‑eventet för alla animationer för att spela upp dem:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("animated.pptx");
 try {
     PresentationAnimationsGenerator animationsGenerator = new PresentationAnimationsGenerator(presentation);
@@ -287,11 +292,7 @@ try {
         try {
             player.setFrameTick((sender, arguments) ->
             {
-                try {
-                    arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+                arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
             });
             animationsGenerator.run(presentation.getSlides());
         } finally {
@@ -305,84 +306,84 @@ try {
 }
 ```
 
-Sedan kan de genererade bildrutorna kompileras för att producera en video. Se avsnittet [Konvertera PowerPoint till Video](https://docs.aspose.com/slides/sv/androidjava/convert-powerpoint-to-video/#convert-powerpoint-to-video) .
+Sedan kan de genererade bildrutorna kompileras för att skapa en video. Se avsnittet [Konvertera PowerPoint till video].
 
 ## **Stödda animationer och effekter**
 
-**Ingång**:
+**Ingång**
 
-| Animationstyp | Aspose.Slides | PowerPoint |
+| Animeringstyp | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Visa** | ![not supported](x.png) | ![supported](v.png) |
-| **Tona** | ![supported](v.png) | ![supported](v.png) |
-| **Flyga in** | ![supported](v.png) | ![supported](v.png) |
-| **Flyt in** | ![supported](v.png) | ![supported](v.png) |
-| **Dela** | ![supported](v.png) | ![supported](v.png) |
-| **Svepa** | ![supported](v.png) | ![supported](v.png) |
-| **Form** | ![supported](v.png) | ![supported](v.png) |
-| **Hjul** | ![supported](v.png) | ![supported](v.png) |
-| **Slumpmässiga staplar** | ![supported](v.png) | ![supported](v.png) |
-| **Väx och vrid** | ![not supported](x.png) | ![supported](v.png) |
-| **Zoom** | ![supported](v.png) | ![supported](v.png) |
-| **Snurra** | ![supported](v.png) | ![supported](v.png) |
-| **Studs** | ![supported](v.png) | ![supported](v.png) |
+| **Appear** | ![ej stöd](x.png) | ![stöd](v.png) |
+| **Fade** | ![stöd](v.png) | ![stöd](v.png) |
+| **Fly In** | ![stöd](v.png) | ![stöd](v.png) |
+| **Float In** | ![stöd](v.png) | ![stöd](v.png) |
+| **Split** | ![stöd](v.png) | ![stöd](v.png) |
+| **Wipe** | ![stöd](v.png) | ![stöd](v.png) |
+| **Shape** | ![stöd](v.png) | ![stöd](v.png) |
+| **Wheel** | ![stöd](v.png) | ![stöd](v.png) |
+| **Random Bars** | ![stöd](v.png) | ![stöd](v.png) |
+| **Grow & Turn** | ![ej stöd](x.png) | ![stöd](v.png) |
+| **Zoom** | ![stöd](v.png) | ![stöd](v.png) |
+| **Swivel** | ![stöd](v.png) | ![stöd](v.png) |
+| **Bounce** | ![stöd](v.png) | ![stöd](v.png) |
 
-**Betoning**:
+**Betoning**
 
-| Animationstyp | Aspose.Slides | PowerPoint |
+| Animeringstyp | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Pulsering** | ![not supported](x.png) | ![supported](v.png) |
-| **Färgpulsering** | ![not supported](x.png) | ![supported](v.png) |
-| **Vobba** | ![supported](v.png) | ![supported](v.png) |
-| **Snurra** | ![supported](v.png) | ![supported](v.png) |
-| **Växa/krempa** | ![not supported](x.png) | ![supported](v.png) |
-| **Desaturera** | ![not supported](x.png) | ![supported](v.png) |
-| **Mörkare** | ![not supported](x.png) | ![supported](v.png) |
-| **Ljusare** | ![not supported](x.png) | ![supported](v.png) |
-| **Transparens** | ![not supported](x.png) | ![supported](v.png) |
-| **Objektsfärg** | ![not supported](x.png) | ![supported](v.png) |
-| **Komplementfärg** | ![not supported](x.png) | ![supported](v.png) |
-| **Linjefärg** | ![not supported](x.png) | ![supported](v.png) |
-| **Fyllnadsfärg** | ![not supported](x.png) | ![supported](v.png) |
+| **Pulse** | ![ej stöd](x.png) | ![stöd](v.png) |
+| **Color Pulse** | ![ej stöd](x.png) | ![stöd](v.png) |
+| **Teeter** | ![stöd](v.png) | ![stöd](v.png) |
+| **Spin** | ![stöd](v.png) | ![stöd](v.png) |
+| **Grow/Shrink** | ![ej stöd](x.png) | ![stöd](v.png) |
+| **Desaturate** | ![ej stöd](x.png) | ![stöd](v.png) |
+| **Darken** | ![ej stöd](x.png) | ![stöd](v.png) |
+| **Lighten** | ![ej stöd](x.png) | ![stöd](v.png) |
+| **Transparency** | ![ej stöd](x.png) | ![stöd](v.png) |
+| **Object Color** | ![ej stöd](x.png) | ![stöd](v.png) |
+| **Complementary Color** | ![ej stöd](x.png) | ![stöd](v.png) |
+| **Line Color** | ![ej stöd](x.png) | ![stöd](v.png) |
+| **Fill Color** | ![ej stöd](x.png) | ![stöd](v.png) |
 
-**Utgång**:
+**Utgång**
 
-| Animationstyp | Aspose.Slides | PowerPoint |
+| Animeringstyp | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Försvinna** | ![not supported](x.png) | ![supported](v.png) |
-| **Tona** | ![supported](v.png) | ![supported](v.png) |
-| **Flyga ut** | ![supported](v.png) | ![supported](v.png) |
-| **Flyt ut** | ![supported](v.png) | ![supported](v.png) |
-| **Dela** | ![supported](v.png) | ![supported](v.png) |
-| **Svepa** | ![supported](v.png) | ![supported](v.png) |
-| **Form** | ![supported](v.png) | ![supported](v.png) |
-| **Slumpmässiga staplar** | ![supported](v.png) | ![supported](v.png) |
-| **Krymp och vrid** | ![not supported](x.png) | ![supported](v.png) |
-| **Zoom** | ![supported](v.png) | ![supported](v.png) |
-| **Snurra** | ![supported](v.png) | ![supported](v.png) |
-| **Studs** | ![supported](v.png) | ![supported](v.png) |
+| **Disappear** | ![ej stöd](x.png) | ![stöd](v.png) |
+| **Fade** | ![stöd](v.png) | ![stöd](v.png) |
+| **Fly Out** | ![stöd](v.png) | ![stöd](v.png) |
+| **Float Out** | ![stöd](v.png) | ![stöd](v.png) |
+| **Split** | ![stöd](v.png) | ![stöd](v.png) |
+| **Wipe** | ![stöd](v.png) | ![stöd](v.png) |
+| **Shape** | ![stöd](v.png) | ![stöd](v.png) |
+| **Random Bars** | ![stöd](v.png) | ![stöd](v.png) |
+| **Shrink & Turn** | ![ej stöd](x.png) | ![stöd](v.png) |
+| **Zoom** | ![stöd](v.png) | ![stöd](v.png) |
+| **Swivel** | ![stöd](v.png) | ![stöd](v.png) |
+| **Bounce** | ![stöd](v.png) | ![stöd](v.png) |
 
-**Rörelsesökvägar**:
+**Rörelsebanor:**
 
-| Animationstyp | Aspose.Slides | PowerPoint |
+| Animeringstyp | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Linjer** | ![supported](v.png) | ![supported](v.png) |
-| **Bågar** | ![supported](v.png) | ![supported](v.png) |
-| **Vändningar** | ![supported](v.png) | ![supported](v.png) |
-| **Former** | ![supported](v.png) | ![supported](v.png) |
-| **Loopar** | ![supported](v.png) | ![supported](v.png) |
-| **Anpassad bana** | ![supported](v.png) | ![supported](v.png) |
+| **Lines** | ![stöd](v.png) | ![stöd](v.png) |
+| **Arcs** | ![stöd](v.png) | ![stöd](v.png) |
+| **Turns** | ![stöd](v.png) | ![stöd](v.png) |
+| **Shapes** | ![stöd](v.png) | ![stöd](v.png) |
+| **Loops** | ![stöd](v.png) | ![stöd](v.png) |
+| **Custom Path** | ![stöd](v.png) | ![stöd](v.png) |
 
-## **FAQ**
+## **Vanliga frågor**
 
-**Är det möjligt att konvertera lösenordsskyddade presentationer?**
+### Är det möjligt att konvertera presentationer som är lösenordsskyddade?
 
 Ja, Aspose.Slides möjliggör arbete med [lösenordsskyddade presentationer](/slides/sv/androidjava/password-protected-presentation/). När du bearbetar sådana filer måste du ange rätt lösenord så att biblioteket kan komma åt presentationens innehåll.
 
-**Stöder Aspose.Slides användning i molnlösningar?**
+### Stöder Aspose.Slides användning i molnlösningar?
 
-Ja, Aspose.Slides kan integreras i molnapplikationer och -tjänster. Biblioteket är designat för att fungera i servermiljöer, vilket säkerställer hög prestanda och skalbarhet för batchbearbetning av filer.
+Ja, Aspose.Slides kan integreras i molnapplikationer och tjänster. Biblioteket är designat för att fungera i servermiljöer och säkerställer hög prestanda och skalbarhet för batchbearbetning av filer.
 
-**Finns det några storleksbegränsningar för presentationer vid konvertering?**
+### Finns det några storleksbegränsningar för presentationer vid konvertering?
 
-Aspose.Slides kan hantera presentationer av i praktiken vilken storlek som helst. När du arbetar med mycket stora filer kan dock ytterligare systemresurser behövas, och det rekommenderas ibland att optimera presentationen för att förbättra prestandan.
+Aspose.Slides kan hantera presentationer av i princip vilken storlek som helst. Vid arbete med mycket stora filer kan dock extra systemresurser krävas, och det rekommenderas ibland att optimera presentationen för att förbättra prestandan.

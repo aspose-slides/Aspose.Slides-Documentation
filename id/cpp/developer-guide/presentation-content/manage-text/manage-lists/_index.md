@@ -1,47 +1,67 @@
 ---
-title: Kelola Daftar Bertanda Peluru dan Bernomor dalam Presentasi di C++
+title: Kelola Daftar Poin dan Bernomor dalam Presentasi dengan C++
 linktitle: Kelola Daftar
 type: docs
 weight: 70
 url: /id/cpp/manage-lists/
 keywords:
-- peluru
-- daftar bertanda peluru
+- poin
+- daftar berpoin
 - daftar bernomor
-- peluru simbol
-- peluru gambar
-- peluru khusus
+- poin simbol
+- poin gambar
+- poin khusus
 - daftar berjenjang
-- buat peluru
-- tambahkan peluru
+- buat poin
+- tambahkan poin
 - tambahkan daftar
 - PowerPoint
 - OpenDocument
 - presentasi
 - C++
 - Aspose.Slides
-description: "Pelajari cara membuat dan memformat daftar bertanda peluru, gambar, berjenjang, dan bernomor dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk C++."
+description: "Pelajari cara membuat dan memformat daftar berpoin, poin gambar, daftar berjenjang, dan daftar bernomor dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk C++."
 ---
 ## **Gambaran Umum**
 
-Aspose.Slides untuk C++ memungkinkan Anda membuat dan memformat daftar bertanda peluru dan bernomor dalam presentasi PowerPoint dan OpenDocument. Item daftar adalah paragraf yang pengaturan pelurunya dikontrol melalui format paragrafnya.
+Aspose.Slides untuk C++ memungkinkan Anda membuat dan memformat daftar berpoin dan bernomor dalam presentasi PowerPoint dan OpenDocument. Item daftar adalah sebuah paragraf yang pengaturan poinnya dikendalikan melalui format paragrafnya.
 
-Gunakan metode [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraph/get_paragraphformat/) untuk mengakses pengaturan daftar pada tingkat paragraf. Titik masuk utama adalah [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/get_bullet/), yang mengembalikan objek [IBulletFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibulletformat/). Dengan objek ini, Anda dapat mengatur jenis peluru, simbol, gambar, warna, ukuran, gaya penomoran, dan nomor awal.
+Gunakan metode [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraph/get_paragraphformat/) untuk mengakses pengaturan daftar tingkat paragraf. Titik masuk utama adalah [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/get_bullet/), yang mengembalikan objek [IBulletFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibulletformat/). Dengan objek ini, Anda dapat mengatur jenis poin, simbol, gambar, warna, ukuran, gaya penomoran, dan nomor awal.
 
-Artikel ini menunjukkan cara:
-- membuat daftar bertanda peluru dengan simbol khusus
-- membuat peluru gambar
+Artikel ini menunjukkan cara untuk:
+
+- membuat daftar berpoin dengan simbol khusus
+- membuat poin gambar
 - membuat daftar berjenjang dengan mengatur kedalaman paragraf
 - membuat daftar bernomor
 - memeriksa dan mengubah pemformatan daftar dalam presentasi yang ada
 
-## **Membuat Daftar Bertanda Peluru**
+## **Buat Daftar Berpoin**
 
-Untuk membuat daftar bertanda peluru, tambahkan objek [Paragraph](https://reference.aspose.com/slides/id/cpp/aspose.slides/paragraph/) ke dalam [ITextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/) dan setel [IBulletFormat::set_Type](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibulletformat/set_type/) ke [BulletType::Symbol](https://reference.aspose.com/slides/id/cpp/aspose.slides/bullettype/). Anda kemudian dapat mengatur [IBulletFormat::set_Char](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibulletformat/set_char/), [IBulletFormat::get_Color](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibulletformat/get_color/), dan [IBulletFormat::set_Height](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibulletformat/set_height/) untuk mengontrol tampilan peluru.
+Untuk membuat daftar berpoin, tambahkan objek [Paragraph](https://reference.aspose.com/slides/id/cpp/aspose.slides/paragraph/) ke dalam sebuah [ITextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/) dan setel [IBulletFormat::set_Type](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibulletformat/set_type/) ke [BulletType::Symbol](https://reference.aspose.com/slides/id/cpp/aspose.slides/bullettype/). Anda kemudian dapat mengatur [IBulletFormat::set_Char](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibulletformat/set_char/), [IBulletFormat::get_Color](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibulletformat/get_color/), dan [IBulletFormat::set_Height](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibulletformat/set_height/) untuk mengontrol tampilan poin.
 
-Kode C++ berikut menunjukkan cara membuat daftar bertanda peluru dalam sebuah slide:
+Kode C++ berikut menunjukkan cara membuat daftar berpoin dalam sebuah slide:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto createParagraph = [](System::String text)
 {
     auto paragraph = System::MakeObject<Paragraph>();
@@ -78,15 +98,30 @@ presentation->Dispose();
 
 Hasil:
 
-![Peluru simbol](symbol_bullets.png)
+![Poin simbol](symbol_bullets.png)
 
-## **Membuat Daftar Bernomor**
+## **Buat Daftar Bernomor**
 
-Gunakan daftar bernomor ketika urutan item penting. Setel [IBulletFormat::set_Type](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibulletformat/set_type/) ke [BulletType::Numbered](https://reference.aspose.com/slides/id/cpp/aspose.slides/bullettype/). Anda juga dapat memilih format penomoran dengan [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) atau setel [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) bila daftar harus dimulai dari nilai selain 1.
+Gunakan daftar bernomor ketika urutan item penting. Setel [IBulletFormat::set_Type](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibulletformat/set_type/) ke [BulletType::Numbered](https://reference.aspose.com/slides/id/cpp/aspose.slides/bullettype/). Anda juga dapat memilih format penomoran dengan [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) atau setel [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) ketika daftar harus dimulai dari nilai selain 1.
 
 Kode C++ berikut menunjukkan cara membuat daftar bernomor dalam sebuah slide:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 90, 80);
@@ -115,25 +150,46 @@ presentation->Dispose();
 
 Hasil:
 
-![Peluru bernomor](numbered_bullets.png)
+![Poin bernomor](numbered_bullets.png)
 
-## **Membuat Peluru Gambar**
+## **Buat Poin Gambar**
 
-Aspose.Slides memungkinkan Anda mengganti simbol peluru biasa dengan gambar. Peluru gambar paling cocok dengan gambar sederhana yang tetap dapat dibaca pada ukuran kecil, seperti ikon atau file PNG transparan kecil.
+Aspose.Slides memungkinkan Anda mengganti simbol poin standar dengan sebuah gambar. Poin gambar paling cocok dengan gambar sederhana yang tetap dapat dibaca pada ukuran kecil, seperti ikon atau file PNG transparan berukuran kecil.
 
-{{% alert color="primary" %}}
-Idealnya, jika Anda berencana mengganti simbol peluru biasa dengan gambar, sebaiknya pilih grafik sederhana dengan latar belakang transparan. Gambar semacam itu bekerja baik sebagai simbol peluru khusus.
+{{% alert color="info" %}}
+Idealnya, jika Anda berencana mengganti simbol poin standar dengan gambar, sebaiknya pilih grafik sederhana dengan latar belakang transparan. Gambar seperti itu bekerja baik sebagai simbol poin khusus.
+
+Perlu diingat bahwa gambar akan diperkecil menjadi ukuran yang sangat kecil. Karena itu, kami sangat menyarankan memilih gambar yang tetap jelas dan efektif secara visual ketika digunakan sebagai poin dalam sebuah daftar.
 {{% /alert %}}
 
-Untuk membuat peluru gambar, tambahkan gambar ke [IPresentation::get_Images](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentation/get_images/) dan tetapkan objek [IPPImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/ippimage/) yang dikembalikan ke [IBulletFormat::get_Picture](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibulletformat/get_picture/). Setel [IBulletFormat::set_Type](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibulletformat/set_type/) ke [BulletType::Picture](https://reference.aspose.com/slides/id/cpp/aspose.slides/bullettype/) sebelum menetapkan gambar.
+Untuk membuat poin gambar, tambahkan sebuah gambar ke [IPresentation::get_Images](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentation/get_images/) dan tetapkan objek [IPPImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/ippimage/) yang dikembalikan ke [IBulletFormat::get_Picture](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibulletformat/get_picture/). Setel [IBulletFormat::set_Type](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibulletformat/set_type/) ke [BulletType::Picture](https://reference.aspose.com/slides/id/cpp/aspose.slides/bullettype/) sebelum menetapkan gambar.
 
-Misalkan kita memiliki file "image.png":
+Misalkan kita memiliki "image.png":
 
-![Gambar untuk peluru](picture_for_bullets.png)
+![Gambar untuk poin](picture_for_bullets.png)
 
-Kode C++ berikut menunjukkan cara membuat peluru gambar dalam sebuah slide:
+Kode C++ berikut menunjukkan cara membuat poin gambar dalam sebuah slide:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto createParagraph = [](System::String text, System::SharedPtr<IPPImage> image)
 {
     auto paragraph = System::MakeObject<Paragraph>();
@@ -172,15 +228,28 @@ presentation->Dispose();
 
 Hasil:
 
-![Peluru gambar](picture_bullets.png)
+![Poin gambar](picture_bullets.png)
 
-## **Membuat Daftar Bertingkat**
+## **Buat Daftar Berjenjang**
 
-Gunakan [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_depth/) untuk menempatkan item daftar pada level yang berbeda. Level 0 adalah level teratas, level 1 berada di bawahnya, dan seterusnya.
+Gunakan [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/set_depth/) untuk menempatkan item daftar pada tingkat yang berbeda. Tingkat 0 adalah tingkat teratas, tingkat 1 berada di bawahnya, dan seterusnya.
 
-Kode C++ berikut menunjukkan cara membuat daftar bertanda peluru berjenjang:
+Kode C++ berikut menunjukkan cara membuat daftar berpoin berjenjang:
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 260, 110);
@@ -218,11 +287,24 @@ Hasil:
 
 ## **Ubah Daftar yang Ada**
 
-Untuk mengubah pemformatan daftar dalam presentasi yang ada, akses paragraf target dan perbarui pengaturan [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/get_bullet/). Properti yang sama yang digunakan untuk membuat daftar dapat digunakan untuk memeriksa atau memodifikasi daftar yang dimuat dari file PPT, PPTX, atau ODP.
+Untuk mengubah pemformatan daftar dalam presentasi yang ada, akses paragraf target dan perbarui pengaturan [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/get_bullet/)nya. Properti yang sama yang digunakan untuk membuat daftar dapat digunakan untuk memeriksa atau memodifikasi daftar yang dimuat dari file PPT, PPTX, atau ODP.
 
 Kode C++ berikut mengubah paragraf pertama dalam sebuah frame teks untuk menggunakan gaya daftar bernomor:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NumberedBulletStyle.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"input.pptx");
 auto slide = presentation->get_Slide(0);
 auto autoShape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
@@ -243,14 +325,14 @@ presentation->Dispose();
 
 ## **FAQ**
 
-**Apakah daftar bertanda peluru dan bernomor dapat diekspor ke PDF atau gambar?**
+### Apakah daftar berpoin dan bernomor dapat diekspor ke PDF atau gambar?
 
-Ya. Aspose.Slides mempertahankan pemformatan daftar ketika format target mendukung tata letak teks dan fitur peluru yang bersesuaian.
+Ya. Aspose.Slides mempertahankan pemformatan daftar ketika format target mendukung tata letak teks dan fitur poin yang bersangkutan.
 
-**Apakah saya dapat mengedit daftar dalam presentasi yang ada?**
+### Bisakah saya mengedit daftar dalam presentasi yang ada?
 
 Ya. Muat presentasi, akses paragraf target, periksa atau perbarui pengaturan [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/get_bullet/), dan simpan presentasi.
 
-**Apakah daftar dapat berisi teks non-Latin?**
+### Apakah daftar dapat berisi teks non-Latin?
 
 Ya. Teks item daftar dapat berisi karakter Unicode, sehingga Anda dapat membuat daftar dalam presentasi multibahasa. Pastikan font yang digunakan dalam presentasi mendukung karakter yang Anda perlukan.

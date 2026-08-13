@@ -17,97 +17,97 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "یاد بگیرید چگونه در ارائه‌های PowerPoint (PPT، PPTX) و ODP در .NET با استفاده از Aspose.Slides و هر دو API نمودار قدیمی و مدرن، نمودارها را ایجاد کنید."
+description: "بیاموزید چگونه در ارائه‌های PowerPoint PPT, PPTX و ODP در .NET با استفاده از Aspose.Slides، نمودارها را با هر دو API نموداری قدیمی و مدرن ایجاد کنید."
 ---
-{{% alert color="primary" %}} 
-
-یک [API Aspose.Slides برای .NET](/slides/fa/net/) جدید منتشر شده است و اکنون این محصول واحد توانایی تولید اسناد PowerPoint از ابتدا و ویرایش اسناد موجود را پشتیبانی می‌کند.
-
+{{% alert color="info" %}} 
+یک [Aspose.Slides for .NET API](/slides/fa/net/) جدید منتشر شده است و اکنون این محصول واحد قابلیت تولید اسناد PowerPoint از ابتدا و ویرایش اسناد موجود را پشتیبانی می‌کند.
 {{% /alert %}} 
 ## **پشتیبانی از کدهای قدیمی**
-برای استفاده از کدهای قدیمی که با نسخه‌های پیش از 13.x Aspose.Slides برای .NET توسعه یافته‌اند، باید تغییرات جزئی در کد خود اعمال کنید تا کد همچنان همانند قبل کار کند. تمام کلاس‌هایی که در Aspose.Slides قدیمی برای .NET تحت فضاهای نام Aspose.Slide و Aspose.Slides.Pptx وجود داشتند، اکنون در یک فضای نام Aspose.Slides واحد ترکیب شده‌اند. لطفاً به قطعه کد ساده زیر برای ایجاد یک نمودار عادی از ابتدا در ارائه با استفاده از API قدیمی Aspose.Slides نگاه کنید و مراحل ارتقا به API جدید ترکیبی را دنبال کنید.
-## **رویکرد قدیمی Aspose.Slides برای .NET**
+برای استفاده از کدهای قدیمی که با نسخه‌های پیش از 13.x Aspose.Slides for .NET توسعه یافته‌اند، نیاز دارید تا تغییرات جزئی در کد خود ایجاد کنید و کد همانند قبل کار خواهد کرد. تمام کلاس‌هایی که در Aspose.Slides for .NET قدیمی تحت فضای نام‌های Aspose.Slide و Aspose.Slides.Pptx وجود داشتند، اکنون در یک فضای نام واحد Aspose.Slides ترکیب شده‌اند. لطفاً نمونه کد ساده زیر را برای ایجاد یک نمودار معمولی از ابتدا در ارائه با استفاده از API قدیمی Aspose.Slides بررسی کنید و مراحل انتقال به API جدید ترکیبی را دنبال کنید.
+## **رویکرد قبلی Aspose.Slides برای .NET**
 ```c#
-//نمونه‌سازی کلاس PresentationEx که نمایانگر فایل PPTX است
+using System.Drawing;
+
+// نمونه‌سازی کلاس PresentationEx که نمایانگر فایل PPTX است
 using (PresentationEx pres = new PresentationEx())
 {
-	//دسترسی به اولین اسلاید
+	// دسترسی به اسلاید اول
 	SlideEx sld = pres.Slides[0];
 
-	//افزودن نمودار با داده‌های پیش‌فرض
+	// افزودن نمودار با داده‌های پیش‌فرض
 	ChartEx chart = sld.Shapes.AddChart(ChartTypeEx.ClusteredColumn, 0, 0, 500, 500);
 
-	//تنظیم عنوان نمودار
+	// تنظیم عنوان نمودار
 	chart.ChartTitle.Text.Text = "Sample Title";
 	chart.ChartTitle.Text.CenterText = true;
 	chart.ChartTitle.Height = 20;
 	chart.HasTitle = true;
 
-	//تنظیم سری اول برای نمایش مقادیر
+	// تنظیم اولین سری برای نمایش مقادیر
 	chart.ChartData.Series[0].Labels.ShowValue = true;
 
-	//تنظیم اندیس برگه داده‌های نمودار 
+	// تنظیم ایندکس شیت داده‌های نمودار 
 	int defaultWorksheetIndex = 0;
 
-	//دریافت برگه‌کار داده‌های نمودار
+	// دریافت ورک شیت داده‌های نمودار
 	ChartDataCellFactory fact = chart.ChartData.ChartDataCellFactory;
 
-	//حذف سری‌ها و دسته‌بندی‌های پیش‌فرض تولید شده
+	// حذف سری‌ها و دسته‌بندی‌های پیش‌فرض تولید شده
 	chart.ChartData.Series.Clear();
 	chart.ChartData.Categories.Clear();
 	int s = chart.ChartData.Series.Count;
 	s = chart.ChartData.Categories.Count;
 
-	//افزودن سری‌های جدید
+	// افزودن سری جدید
 	chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.Type);
 	chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.Type);
 
-	//افزودن دسته‌بندی‌های جدید
+	// افزودن دسته‌بندی‌های جدید
 	chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
 	chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
 	chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
 
-	//دریافت اولین سری نمودار
+	// دریافت اولین سری نمودار
 	ChartSeriesEx series = chart.ChartData.Series[0];
 
-	//اکنون در حال پر کردن داده‌های سری
+	// اکنون داده‌های سری پر می‌شود
 	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
 	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
 	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
 
-	//تنظیم رنگ پر برای سری
+	// تنظیم رنگ پر برای سری
 	series.Format.Fill.FillType = FillTypeEx.Solid;
 	series.Format.Fill.SolidFillColor.Color = Color.Red;
 
 
-	//دریافت سری دوم نمودار
+	// دریافت دومین سری نمودار
 	series = chart.ChartData.Series[1];
 
-	//اکنون در حال پر کردن داده‌های سری
+	// اکنون داده‌های سری پر می‌شود
 	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 1, 2, 30));
 	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 2, 2, 10));
 	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 3, 2, 60));
 
-	//تنظیم رنگ پر برای سری
+	// تنظیم رنگ پر برای سری
 	series.Format.Fill.FillType = FillTypeEx.Solid;
 	series.Format.Fill.SolidFillColor.Color = Color.Green;
 
 
-	//ایجاد برچسب‌های سفارشی برای هر یک از دسته‌بندی‌ها برای سری جدید
+	// ایجاد برچسب‌های سفارشی برای هر یک از دسته‌ها برای سری جدید
 
-	//برچسب اول نام دسته‌بندی را نشان می‌دهد
+	// برچسب اول نام دسته را نشان می‌دهد
 	DataLabelEx lbl = new DataLabelEx(series);
 	lbl.ShowCategoryName = true;
 	lbl.Id = 0;
 	series.Labels.Add(lbl);
 
-	//نمایش نام سری برای برچسب دوم
+	// نمایش نام سری برای برچسب دوم
 	lbl = new DataLabelEx(series);
 	lbl.ShowSeriesName = true;
 	lbl.Id = 1;
 	series.Labels.Add(lbl);
 
-	//نمایش مقدار برای برچسب سوم
+	// نمایش مقدار برای برچسب سوم
 	lbl = new DataLabelEx(series);
 	lbl.ShowValue = true;
 	lbl.ShowSeriesName = true;
@@ -115,23 +115,28 @@ using (PresentationEx pres = new PresentationEx())
 	lbl.Id = 2;
 	series.Labels.Add(lbl);
 
-	//نمایش مقدار و متن سفارشی
+	// نمایش مقدار و متن سفارشی
 	lbl = new DataLabelEx(series);
 	lbl.TextFrame.Text = "My text";
 	lbl.Id = 3;
 	series.Labels.Add(lbl);
 
-	//ذخیره ارائه با نمودار
+	// ذخیره ارائه با نمودار
 	pres.Write(@"D:\AsposeChart.pptx");
 }
 ```
 
 ## **رویکرد جدید Aspose.Slides برای .NET 13.x**
-``` csharp
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 //نمونه‌سازی کلاس Presentation که نمایانگر فایل PPTX است//نمونه‌سازی کلاس Presentation که نمایانگر فایل PPTX است
 Presentation pres = new Presentation();
 
-//دسترسی به اولین اسلاید
+//دسترسی به اسلاید اول
 ISlide sld = pres.Slides[0];
 
 // افزودن نمودار با داده‌های پیش‌فرض
@@ -144,13 +149,10 @@ chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBoo
 chart.ChartTitle.Height = 20;
 chart.HasTitle = true;
 
-//تنظیم سری اول برای نمایش مقادیر
-chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
-//تنظیم اندیس برگه داده‌های نمودار
+//تنظیم ایندکس شیت داده‌های نمودار
 int defaultWorksheetIndex = 0;
 
-//دریافت برگه‌کار داده‌های نمودار
+//دریافت ورک شیت داده‌های نمودار
 IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
 
 //حذف سری‌ها و دسته‌بندی‌های پیش‌فرض تولید شده
@@ -159,9 +161,12 @@ chart.ChartData.Categories.Clear();
 int s = chart.ChartData.Series.Count;
 s = chart.ChartData.Categories.Count;
 
-//افزودن سری‌های جدید
+//افزودن سری جدید
 chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.Type);
 chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.Type);
+
+//تنظیم اولین سری برای نمایش مقادیر
+chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
 //افزودن دسته‌بندی‌های جدید
 chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
@@ -171,7 +176,7 @@ chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 3, 0, "Caeteg
 //دریافت اولین سری نمودار
 IChartSeries series = chart.ChartData.Series[0];
 
-//اکنون در حال پر کردن داده‌های سری
+//اکنون داده‌های سری پر می‌شود
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
@@ -181,10 +186,10 @@ series.Format.Fill.FillType = FillType.Solid;
 series.Format.Fill.SolidFillColor.Color = Color.Red;
 
 
-//دریافت سری دوم نمودار
+//دریافت دومین سری نمودار
 series = chart.ChartData.Series[1];
 
-//اکنون در حال پر کردن داده‌های سری
+//اکنون داده‌های سری پر می‌شود
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 2, 30));
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 2, 10));
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 2, 60));
@@ -194,9 +199,8 @@ series.Format.Fill.FillType = FillType.Solid;
 series.Format.Fill.SolidFillColor.Color = Color.Green;
 
 
-//ایجاد برچسب‌های سفارشی برای هر یک از دسته‌بندی‌ها برای سری جدید
-
-//برچسب اول نام دسته‌بندی را نشان می‌دهد
+//ایجاد برچسب‌های سفارشی برای هر یک از دسته‌ها برای سری جدید
+//برچسب اول نام دسته را نشان می‌دهد
 IDataLabel lbl = series.DataPoints[0].Label;
 lbl.DataLabelFormat.ShowCategoryName = true;
 
@@ -213,8 +217,9 @@ lbl.DataLabelFormat.Separator = "/";
 pres.Save("AsposeChart.pptx", SaveFormat.Pptx);
 ```
 
-لطفاً به قطعه کد ساده زیر برای ایجاد یک نمودار پراکنده از ابتدا در ارائه با استفاده از API قدیمی Aspose.Slides نگاه کنید و نحوه پیاده‌سازی آن با API جدید ترکیبی را مشاهده کنید.
-## **رویکرد قدیمی Aspose.Slides برای .NET**
+لطفاً نمونه کد ساده زیر را برای ایجاد یک نمودار پراکنده از ابتدا در ارائه با استفاده از API قدیمی Aspose.Slides بررسی کنید و نحوه دستیابی به آن با API جدید ترکیبی را ببینید.
+
+## **رویکرد قبلی Aspose.Slides برای .NET**
 ```c#
 using (PresentationEx pres = new PresentationEx())
 {
@@ -223,23 +228,23 @@ using (PresentationEx pres = new PresentationEx())
     //ایجاد نمودار پیش‌فرض
     ChartEx chart = slide.Shapes.AddChart(ChartTypeEx.ScatterWithSmoothLines, 0, 0, 400, 400);
 
-    //دریافت اندیس برگه داده‌های پیش‌فرض نمودار
+    //دریافت ایندکس شیت داده‌های پیش‌فرض نمودار
     int defaultWorksheetIndex = 0;
 
-    //دسترسی به برگه داده‌های نمودار
+    //دسترس‍ی به شیت داده‌های نمودار
     ChartDataCellFactory fact = chart.ChartData.ChartDataCellFactory;
 
-    //حذف سری‌های دمو
+    //حذف سری‌های نمونه
     chart.ChartData.Series.Clear();
 
-    //افزودن سری‌های جدید
+    //افزودن سری جدید
     chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.Type);
     chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.Type);
 
     //دریافت اولین سری نمودار
     ChartSeriesEx series = chart.ChartData.Series[0];
 
-    //افزودن نقطه جدید (1:3) در آن.
+    //افزودن نقطه جدید (1:3) در آنجا.
     series.XValues.Add(fact.GetCell(defaultWorksheetIndex, 2, 1, 1));
     series.YValues.Add(fact.GetCell(defaultWorksheetIndex, 2, 2, 3));
 
@@ -250,14 +255,14 @@ using (PresentationEx pres = new PresentationEx())
     //ویرایش نوع سری
     series.Type = ChartTypeEx.ScatterWithStraightLinesAndMarkers;
 
-    //تغییر نشانگر سری نمودار
+    //تغییر مارکر سری نمودار
     series.MarkerSize = 10;
     series.MarkerSymbol = MarkerStyleTypeEx.Star;
 
-    //دریافت سری دوم نمودار
+    //دریافت دومین سری نمودار
     series = chart.ChartData.Series[1];
 
-    //افزودن نقطه جدید (5:2) در آن.
+    //افزودن نقطه جدید (5:2) در آنجا.
     series.XValues.Add(fact.GetCell(defaultWorksheetIndex, 2, 3, 5));
     series.YValues.Add(fact.GetCell(defaultWorksheetIndex, 2, 4, 2));
 
@@ -273,7 +278,7 @@ using (PresentationEx pres = new PresentationEx())
     series.XValues.Add(fact.GetCell(defaultWorksheetIndex, 5, 3, 5));
     series.YValues.Add(fact.GetCell(defaultWorksheetIndex, 5, 4, 1));
 
-    //تغییر نشانگر سری نمودار
+    //تغییر مارکر سری نمودار
     series.MarkerSize = 10;
     series.MarkerSymbol = MarkerStyleTypeEx.Circle;
 
@@ -282,7 +287,11 @@ using (PresentationEx pres = new PresentationEx())
 ```
 
 ## **رویکرد جدید Aspose.Slides برای .NET 13.x**
-``` csharp
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 Presentation pres = new Presentation();
 
 ISlide slide = pres.Slides[0];
@@ -290,23 +299,23 @@ ISlide slide = pres.Slides[0];
 //ایجاد نمودار پیش‌فرض
 IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
 
-//دریافت اندیس برگه داده‌های پیش‌فرض نمودار
+//دریافت ایندکس شیت داده‌های پیش‌فرض نمودار
 int defaultWorksheetIndex = 0;
 
-//دسترسی به برگه داده‌های نمودار
+//دسترس‍ی به شیت داده‌های نمودار
 IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
 
-//حذف سری‌های دمو
+//حذف سری‌های نمونه
 chart.ChartData.Series.Clear();
 
-//افزودن سری‌های جدید
+//افزودن سری جدید
 chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.Type);
 chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.Type);
 
 //دریافت اولین سری نمودار
 IChartSeries series = chart.ChartData.Series[0];
 
-//افزودن نقطه جدید (1:3) در آن.
+//افزودن نقطه جدید (1:3) در آنجا.
 series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 1), fact.GetCell(defaultWorksheetIndex, 2, 2, 3));
 
 //افزودن نقطه جدید (2:10)
@@ -315,14 +324,14 @@ series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetInde
 //ویرایش نوع سری
 series.Type = ChartType.ScatterWithStraightLinesAndMarkers;
 
-//تغییر نشانگر سری نمودار
+//تغییر مارکر سری نمودار
 series.Marker.Size = 10;
 series.Marker.Symbol = MarkerStyleType.Star;
 
-//دریافت سری دوم نمودار
+//دریافت دومین سری نمودار
 series = chart.ChartData.Series[1];
 
-//افزودن نقطه جدید (5:2) در آن.
+//افزودن نقطه جدید (5:2) در آنجا.
 series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetIndex, 2, 3, 5), fact.GetCell(defaultWorksheetIndex, 2, 4, 2));
 
 //افزودن نقطه جدید (3:1)
@@ -334,7 +343,7 @@ series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetInde
 //افزودن نقطه جدید (5:1)
 series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetIndex, 5, 3, 5), fact.GetCell(defaultWorksheetIndex, 5, 4, 1));
 
-//تغییر نشانگر سری نمودار
+//تغییر مارکر سری نمودار
 series.Marker.Size = 10;
 series.Marker.Symbol = MarkerStyleType.Circle;
 

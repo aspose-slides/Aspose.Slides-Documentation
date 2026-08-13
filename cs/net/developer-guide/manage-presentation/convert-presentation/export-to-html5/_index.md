@@ -21,30 +21,38 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Exportujte prezentace PowerPoint a OpenDocument do responzivního HTML5 pomocí Aspose.Slides pro .NET. Zachovejte formátování, animace a interaktivitu."
+description: "Exportujte prezentace PowerPoint a OpenDocument do responsivního HTML5 pomocí Aspose.Slides pro .NET. Zachovejte formátování, animace a interaktivitu."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak převést prezentace PowerPoint do formátu HTML5 pomocí Aspose.Slides. Popisuje základní export do HTML5 bez webových rozšíření nebo dalších závislostí, stejně jako možnosti řízení animací tvarů a přechodů mezi snímky. Článek také ukazuje standardní proces exportu PowerPoint do HTML, vysvětluje, jak vygenerovat výstup HTML5 v režimu zobrazení snímků, a demonstruje, jak do exportovaného dokumentu zahrnout komentáře konfigurací jejich rozložení.
+Tento článek vysvětluje, jak převést prezentace PowerPoint do HTML5 pomocí Aspose.Slides. Pokrývá základní export do HTML5 i možnosti řízení animací tvarů a přechodů mezi snímky. Článek také ukazuje standardní proces exportu z PowerPointu do HTML, popisuje, jak vygenerovat výstup HTML5 v režimu zobrazení snímků, a demonstruje, jak zahrnout komentáře do exportovaného dokumentu nastavením jejich rozvržení.
 
-## **Export PowerPointu do HTML5**
+## **Export PowerPoint do HTML5**
 
-C# kód ukazuje, jak exportovat prezentaci do HTML5 bez webových rozšíření a závislostí:
+Tento C# kód ukazuje, jak exportovat prezentaci do HTML5:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
    pres.Save("pres.html", SaveFormat.Html5);
 }
 ```
 
-{{% alert color="primary" %}} 
-V tomto případě získáte čisté HTML. 
+{{% alert color="info" %}} 
+
+Kromě HTML dokumentu export zapisuje také přidružené soubory, na které odkazuje: `pres.css`, `master.css`, `animation.js`, `effects.js` a `navigation.js`. Vygenerovaná stránka také načítá jQuery a Anime.js z veřejných CDN; bez nich nefunguje navigace mezi snímky ani animace. 
+
 {{% /alert %}}
 
-Můžete také specifikovat nastavení animací tvarů a přechodů mezi snímky tímto způsobem:
+Možná budete chtít nastavit možnosti pro animace tvarů a přechody mezi snímky tímto způsobem:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
    pres.Save("pres5.html", SaveFormat.Html5, new Html5Options
@@ -55,18 +63,21 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## **Export PowerPointu do HTML**
+## **Export PowerPoint do HTML**
 
-C# kód demonstruje standardní proces převodu PowerPointu do HTML:
+Tento C# ukazuje standardní proces exportu z PowerPointu do HTML:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
    pres.Save("pres.html", SaveFormat.Html);
 }
 ```
 
-V tomto případě je obsah prezentace vykreslen pomocí SVG ve formě jako níže:
+V tomto případě je obsah prezentace vykreslen pomocí SVG ve formátu jako je tento:
 
 ```html
 <body>
@@ -78,17 +89,22 @@ V tomto případě je obsah prezentace vykreslen pomocí SVG ve formě jako ní�
 </body>
 ```
 
-{{% alert title="Poznámka" color="warning" %}} 
+{{% alert title="Note" color="warning" %}} 
+
 Když použijete tuto metodu pro export PowerPointu do HTML, kvůli vykreslování SVG nebudete moci aplikovat styly ani animovat konkrétní prvky. 
+
 {{% /alert %}}
 
-## **Export PowerPointu do HTML5 zobrazení snímků**
+## **Export PowerPoint do HTML5 v režimu zobrazení snímků**
 
-**Aspose.Slides** umožňuje převést prezentaci PowerPoint do HTML5 dokumentu, ve kterém jsou snímky zobrazeny v režimu zobrazení snímků. V tomto případě, když otevřete výsledný HTML5 soubor v prohlížeči, uvidíte prezentaci v režimu zobrazení snímků na webové stránce. 
+**Aspose.Slides** umožňuje převést prezentaci PowerPoint do HTML5 dokumentu, ve kterém jsou snímky zobrazeny v režimu zobrazení snímků. V takovém případě, když otevřete výsledný HTML5 soubor v prohlížeči, uvidíte prezentaci v režimu zobrazení snímků na webové stránce. 
 
-C# kód demonstruje proces exportu PowerPointu do HTML5 v režimu zobrazení snímků:
+Tento C# kód demonstruje proces exportu PowerPointu do HTML5 v režimu zobrazení snímků:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
    pres.Save("HTML5-slide-view.html", SaveFormat.Html5, new Html5Options
@@ -101,19 +117,22 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ## **Převod prezentace do HTML5 dokumentu s komentáři**
 
-Komentáře v PowerPointu jsou nástroj, který uživatelům umožňuje zanechat poznámky nebo zpětnou vazbu k snímkům prezentace. Jsou zvláště užitečné v kolaborativních projektech, kde může více lidí přidávat své návrhy nebo připomínky k určitým prvkům snímku, aniž by měnili hlavní obsah. Každý komentář zobrazuje jméno autora, což usnadňuje sledovat, kdo poznámku přidal.
+Komentáře v PowerPointu jsou nástroj, který uživatelům umožňuje zanechat poznámky nebo zpětnou vazbu k jednotlivým snímkům. Jsou zvláště užitečné v kolaborativních projektech, kde může více lidí přidávat své návrhy nebo poznámky k určitým prvkům snímku, aniž by měnili hlavní obsah. Každý komentář zobrazuje jméno autora, což usnadňuje sledovat, kdo poznámku přidal.
 
-Řekněme, že máme následující PowerPoint prezentaci uloženou v souboru "sample.pptx".
+Předpokládejme, že máme následující prezentaci PowerPoint uloženou v souboru „sample.pptx“.
 
-![Dva komentáře na snímku prezentace](two_comments_pptx.png)
+![Two comments on the presentation slide](two_comments_pptx.png)
 
-Když převádíte PowerPoint prezentaci do HTML5 dokumentu, můžete snadno určit, zda zahrnout komentáře z prezentace do výstupního dokumentu. K tomu je třeba nastavit parametry zobrazení komentářů v vlastnosti `NotesCommentsLayouting` třídy [Html5Options](https://reference.aspose.com/slides/cs/net/aspose.slides.export/html5options/).
+Když převádíte prezentaci PowerPoint do HTML5 dokumentu, můžete snadno určit, zda chcete do výstupního dokumentu zahrnout komentáře z prezentace. K tomu je třeba nastavit parametry zobrazení komentářů ve vlastnosti `NotesCommentsLayouting` třídy [Html5Options](https://reference.aspose.com/slides/cs/net/aspose.slides.export/html5options/).
 
-Následující příklad kódu převádí prezentaci do HTML5 dokumentu s komentáři zobrazenými vpravo od snímků.
+Následující ukázkový kód převádí prezentaci do HTML5 dokumentu s komentáři zobrazenými vpravo od snímků.
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 var html5Options = new Html5Options
 {
-    NotesCommentsLayouting =
+    SlidesLayoutOptions = new NotesCommentsLayoutingOptions
     {
         CommentsPosition = CommentsPositions.Right
     }
@@ -123,20 +142,20 @@ using var presentation = new Presentation("sample.pptx");
 presentation.Save("output.html", SaveFormat.Html5, html5Options);
 ```
 
-Dokument "output.html" je zobrazen na obrázku níže.
+Dokument „output.html“ je zobrazen na obrázku níže.
 
-![Komentáře ve výstupním HTML5 dokumentu](two_comments_html5.png)
+![The comments in the output HTML5 document](two_comments_html5.png)
 
 ## **Často kladené otázky**
 
-**Mohu řídit, zda se v HTML5 přehrávají animace objektů a přechody mezi snímky?**
+### Mohu kontrolovat, zda se v HTML5 přehrávají animace objektů a přechody mezi snímky?
 
 Ano, HTML5 poskytuje samostatné možnosti pro povolení nebo zakázání [animací tvarů](https://reference.aspose.com/slides/cs/net/aspose.slides.export/html5options/animateshapes/) a [přechodů mezi snímky](https://reference.aspose.com/slides/cs/net/aspose.slides.export/html5options/animatetransitions/).
 
-**Je podpora výstupu komentářů a kde je lze umístit vzhledem k snímkům?**
+### Je podpora výstupu komentářů dostupná a kde lze komentáře umístit vzhledem k snímku?
 
-Ano, komentáře lze v HTML5 přidat a umístit (například vpravo od snímku) pomocí [nastavení rozložení](https://reference.aspose.com/slides/cs/net/aspose.slides.export/html5options/notescommentslayouting/) pro poznámky a komentáře.
+Ano, komentáře lze v HTML5 přidat a umístit (například vpravo od snímku) prostřednictvím [nastavení rozvržení](https://reference.aspose.com/slides/cs/net/aspose.slides.export/html5options/notescommentslayouting/) pro poznámky a komentáře.
 
-**Mohu vynechat odkazy, které spouštějí JavaScript, z důvodů bezpečnosti nebo CSP?**
+### Mohu přeskočit odkazy, které vyvolávají JavaScript, z bezpečnostních nebo CSP důvodů?
 
-Ano, existuje [nastavení](https://reference.aspose.com/slides/cs/net/aspose.slides.export/saveoptions/skipjavascriptlinks/), které umožňuje během ukládání vynechat hypertextové odkazy s voláním JavaScriptu. To pomáhá dodržovat přísné bezpečnostní zásady.
+Ano, existuje [nastavení](https://reference.aspose.com/slides/cs/net/aspose.slides.export/saveoptions/skipjavascriptlinks/), které umožňuje při ukládání přeskočit hypertextové odkazy s JavaScriptovým voláním. To pomáhá splnit přísné bezpečnostní politiky.

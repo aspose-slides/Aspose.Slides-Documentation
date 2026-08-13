@@ -29,32 +29,34 @@ description: "Konwertuj formaty PPT i PPTX do PDF z notatkami przy użyciu Aspos
 ---
 ## **Przegląd**
 
-W tym artykule dowiesz się, jak konwertować prezentacje PowerPoint do formatu PDF z notatkami prelegenta przy użyciu Aspose.Slides. Ten przewodnik omówi niezbędne kroki i dostarczy przykłady kodu, które pomogą Ci skutecznie wykonać to zadanie. Po zakończeniu tego artykułu będziesz w stanie:
+W tym artykule dowiesz się, jak konwertować prezentacje PowerPoint do formatu PDF z notatkami prelegenta przy użyciu Aspose.Slides. Ten przewodnik opisze niezbędne kroki i dostarczy przykłady kodu, które pomogą Ci efektywnie wykonać to zadanie. Po zakończeniu tego artykułu będziesz w stanie:
 
 - Zaimplementować proces konwersji, aby przekształcić slajdy PowerPoint w dokumenty PDF, zachowując notatki prelegenta.
-- Dostosować wyjściowy plik PDF, aby zapewnić włączenie notatek prelegenta i ich formatowanie zgodnie z wymaganiami.
+- Dostosować wyjściowy plik PDF, aby notatki prelegenta były uwzględnione i sformatowane zgodnie z Twoimi wymaganiami.
 
-## **Konwertuj PowerPoint do PDF z notatkami**
+## **Konwertuj PowerPoint na PDF z notatkami**
 
-Metoda `save` w klasie [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/) może być użyta do konwersji prezentacji PPT lub PPTX do PDF z notatkami prelegenta. Korzystając z Aspose.Slides, po prostu wczytujesz prezentację, konfigurujesz opcje układu przy użyciu klasy [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/notescommentslayoutingoptions/) aby uwzględnić notatki prelegenta, a następnie zapisujesz plik jako PDF. Poniższy fragment kodu pokazuje, jak przekonwertować przykładową prezentację do PDF w widoku Notatki slajdu.
+Metoda `save` w klasie [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/) może być użyta do konwersji prezentacji PPT lub PPTX do PDF z notatkami prelegenta. Korzystając z Aspose.Slides, po prostu ładujesz prezentację, konfigurujesz opcje układu przy użyciu klasy [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/notescommentslayoutingoptions/) , aby uwzględnić notatki prelegenta, a następnie zapisujesz plik jako PDF. Poniższy fragment kodu pokazuje, jak przekonwertować przykładową prezentację na PDF w widoku Notatki slajdu.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-	// Skonfiguruj opcje PDF dla renderowania notatek prelegenta.
+	// Skonfiguruj opcje PDF do renderowania notatek prelegenta.
 	NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
-	notesOptions.setNotesPosition(NotesPositions.BottomFull); // Renderuj notatki prelegenta pod slajdem.
+	notesOptions.setNotesPosition(NotesPositions.BottomFull); // Renderuj notatki prelegenta poniżej slajdu.
 
 	PdfOptions pdfOptions = new PdfOptions();
 	pdfOptions.setSlidesLayoutOptions(notesOptions);
 
-	// Zapisz prezentację jako PDF z notatkami prelegenta.
+	// Zapisz prezentację do PDF z notatkami prelegenta.
 	presentation.save("output.pdf", SaveFormat.Pdf, pdfOptions);
 } finally {
 	if (presentation != null) presentation.dispose();
 }
 ```
 
-{{% alert color="primary" %}} 
-Możesz chcieć sprawdzić internetowy konwerter PowerPoint na PDF od Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/pl/conversion). 
+{{% alert color="info" %}} 
+Możesz chcieć sprawdzić Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/pl/conversion). 
 {{% /alert %}}

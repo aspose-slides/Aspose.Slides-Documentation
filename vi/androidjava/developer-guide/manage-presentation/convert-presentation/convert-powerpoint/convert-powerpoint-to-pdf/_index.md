@@ -1,14 +1,14 @@
 ---
-title: Chuyển đổi PPT và PPTX sang PDF trên Android [Bao gồm tính năng nâng cao]
+title: Chuyển đổi PPT và PPTX sang PDF trên Android [Bao gồm các tính năng nâng cao]
 linktitle: PowerPoint sang PDF
 type: docs
 weight: 40
 url: /vi/androidjava/convert-powerpoint-to-pdf/
 keywords:
 - chuyển đổi PowerPoint
-- chuyển đổi bài thuyết trình
+- chuyển đổi bản trình chiếu
 - PowerPoint sang PDF
-- bài thuyết trình sang PDF
+- bản trình chiếu sang PDF
 - PPT sang PDF
 - chuyển đổi PPT sang PDF
 - PPTX sang PDF
@@ -24,84 +24,88 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Chuyển đổi PowerPoint PPT/PPTX sang PDF chất lượng cao, có thể tìm kiếm trong Java sử dụng Aspose.Slides cho Android, với các ví dụ mã nhanh và các tùy chọn chuyển đổi nâng cao."
+description: "Chuyển đổi PowerPoint PPT/PPTX sang PDF chất lượng cao, có thể tìm kiếm trong Java bằng Aspose.Slides cho Android, kèm ví dụ mã nhanh và các tùy chọn chuyển đổi nâng cao."
 ---
 ## **Tổng quan**
 
-Chuyển đổi các bài thuyết trình PowerPoint (PPT, PPTX, ODP, v.v.) sang định dạng PDF trên Android mang lại một số lợi ích, bao gồm khả năng tương thích trên các thiết bị khác nhau và duy trì bố cục cũng như định dạng của bài thuyết trình. Hướng dẫn này trình bày cách chuyển đổi bài thuyết trình sang tài liệu PDF, sử dụng các tùy chọn khác nhau để kiểm soát chất lượng hình ảnh, bao gồm các slide ẩn, bảo vệ PDF bằng mật khẩu, phát hiện việc thay thế phông chữ, chọn các slide cụ thể để chuyển đổi và áp dụng các tiêu chuẩn tuân thủ cho tài liệu đầu ra.
+Chuyển đổi các bản trình chiếu PowerPoint (PPT, PPTX, ODP, v.v.) sang định dạng PDF trên Android mang lại nhiều lợi thế, bao gồm khả năng tương thích trên các thiết bị khác nhau và bảo toàn bố cục cùng định dạng của bản trình chiếu. Hướng dẫn này trình bày cách chuyển đổi bản trình chiếu sang tài liệu PDF, sử dụng các tùy chọn khác nhau để kiểm soát chất lượng hình ảnh, bao gồm các slide ẩn, bảo mật PDF bằng mật khẩu, phát hiện thay thế phông chữ, lựa chọn các slide cụ thể để chuyển đổi, và áp dụng các tiêu chuẩn tuân thủ cho tài liệu đầu ra.
 
 ## **Chuyển đổi PowerPoint sang PDF**
 
-Sử dụng Aspose.Slides, bạn có thể chuyển đổi các bài thuyết trình ở các định dạng sau sang PDF:
+Sử dụng Aspose.Slides, bạn có thể chuyển đổi các bản trình chiếu dưới các định dạng sau sang PDF:
 
 * **PPT**
 * **PPTX**
 * **ODP**
 
-Để chuyển đổi một bài thuyết trình sang PDF, truyền tên tệp làm đối số cho lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/) và sau đó lưu bài thuyết trình dưới dạng PDF bằng phương thức `save`. Lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/) cung cấp phương thức `save` thường được sử dụng để chuyển đổi bài thuyết trình sang PDF.
+Để chuyển đổi một bản trình chiếu sang PDF, truyền tên tệp làm đối số cho lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/) và sau đó lưu bản trình chiếu dưới dạng PDF bằng phương thức `save`. Lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/) cung cấp phương thức `save` thường được sử dụng để chuyển đổi bản trình chiếu sang PDF.
 
 {{%  alert title="NOTE"  color="warning"   %}} 
-Aspose.Slides for Android via Java chèn thông tin API và số phiên bản của nó vào tài liệu đầu ra. Ví dụ, khi chuyển đổi một bài thuyết trình sang PDF, Aspose.Slides sẽ điền trường Application bằng "*Aspose.Slides*" và trường PDF Producer bằng giá trị dạng "*Aspose.Slides v XX.XX*". **Lưu ý** rằng bạn không thể yêu cầu Aspose.Slides thay đổi hoặc xóa thông tin này khỏi tài liệu đầu ra.
+Aspose.Slides for Android via Java chèn thông tin API và số phiên bản của nó vào tài liệu đầu ra. Ví dụ, khi chuyển đổi một bản trình chiếu sang PDF, Aspose.Slides sẽ điền trường Application bằng "*Aspose.Slides*" và trường PDF Producer bằng giá trị dạng "*Aspose.Slides v XX.XX*". **Lưu ý** rằng bạn không thể yêu cầu Aspose.Slides thay đổi hoặc xóa thông tin này khỏi tài liệu đầu ra.
 {{% /alert %}}
 
 Aspose.Slides cho phép bạn chuyển đổi:
 
-* Toàn bộ bài thuyết trình sang PDF
-* Các slide cụ thể từ một bài thuyết trình sang PDF
+* Toàn bộ bản trình chiếu sang PDF
+* Các slide cụ thể từ một bản trình chiếu sang PDF
 
-Aspose.Slides xuất bài thuyết trình ra PDF, đảm bảo các PDF tạo ra gần giống với bản gốc. Các yếu tố và thuộc tính được hiển thị chính xác trong quá trình chuyển đổi, bao gồm:
+Aspose.Slides xuất bản trình chiếu sang PDF, đảm bảo các PDF kết quả gần giống với bản trình chiếu gốc. Các yếu tố và thuộc tính được hiển thị chính xác trong quá trình chuyển đổi, bao gồm:
 
 * Hình ảnh
-* Hộp văn bản và hình dạng
+* Các hộp văn bản và hình dạng
 * Định dạng văn bản
 * Định dạng đoạn văn
-* Siêu liên kết
+* Liên kết siêu văn bản
 * Đầu trang và chân trang
 * Dấu đầu dòng
 * Bảng
 
 ## **Chuyển đổi PowerPoint sang PDF**
 
-Quá trình chuyển đổi tiêu chuẩn PowerPoint sang PDF sử dụng các tùy chọn mặc định. Trong trường hợp này, Aspose.Slides sẽ cố gắng chuyển đổi bài thuyết trình đã cung cấp sang PDF bằng các thiết lập tối ưu ở mức chất lượng tối đa.
+Quá trình chuyển đổi chuẩn từ PowerPoint sang PDF sử dụng các tùy chọn mặc định. Trong trường hợp này, Aspose.Slides sẽ cố gắng chuyển đổi bản trình chiếu được cung cấp sang PDF bằng các cài đặt tối ưu ở mức chất lượng tối đa.
 
-Đoạn mã dưới đây cho bạn thấy cách chuyển đổi một bài thuyết trình (PPT, PPTX, ODP, v.v.) sang PDF:
+Mã này cho bạn thấy cách chuyển đổi một bản trình chiếu (PPT, PPTX, ODP, v.v.) sang PDF:
 
 ```java
-// Khởi tạo lớp Presentation đại diện cho tệp PowerPoint hoặc OpenDocument.
+import com.aspose.slides.*;
+
+// Khởi tạo lớp Presentation đại diện cho tệp PowerPoint hoặc OpenDocument file.
 Presentation presentation = new Presentation("PowerPoint.ppt");
 try {
-    // Lưu bài thuyết trình dưới dạng PDF.
+    // Lưu bản trình chiếu dưới dạng PDF.
     presentation.save("PPT-to-PDF.pdf", SaveFormat.Pdf);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{%  alert  color="primary"  %}} 
-Aspose cung cấp một công cụ chuyển đổi trực tuyến miễn phí [**PowerPoint sang PDF**](https://products.aspose.app/slides/vi/conversion/ppt-to-pdf) để minh họa quá trình chuyển đổi bài thuyết trình sang PDF. Bạn có thể thực hiện thử nghiệm với công cụ này để thấy việc triển khai thực tế của quy trình được mô tả ở đây.
+{{%  alert  color="info"  %}} 
+Aspose cung cấp một **trình chuyển đổi PowerPoint sang PDF**(https://products.aspose.app/slides/vi/conversion/ppt-to-pdf) miễn phí trực tuyến, diễn giải quá trình chuyển đổi bản trình chiếu sang PDF. Bạn có thể chạy thử nghiệm với trình chuyển đổi này để thực hiện thực tế quy trình được mô tả ở đây.
 {{% /alert %}}
 
-## **Chuyển đổi PowerPoint sang PDF với các tùy chọn**
+## **Chuyển đổi PowerPoint sang PDF với Các Tùy Chọn**
 
-Aspose.Slides cung cấp các tùy chọn tùy chỉnh—các thuộc tính trong lớp [PdfOptions](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/pdfoptions/)—cho phép bạn tùy chỉnh PDF kết quả, khóa PDF bằng mật khẩu, hoặc chỉ định cách quá trình chuyển đổi sẽ tiến hành.
+Aspose.Slides cung cấp các tùy chọn tùy chỉnh—các thuộc tính dưới lớp [PdfOptions](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/pdfoptions/)—cho phép bạn tùy biến PDF đầu ra, khóa PDF bằng mật khẩu, hoặc chỉ định cách thức tiến trình chuyển đổi sẽ diễn ra.
 
-### **Chuyển đổi PowerPoint sang PDF với các tùy chọn tùy chỉnh**
+### **Chuyển đổi PowerPoint sang PDF với Tùy Chọn Tùy Chỉnh**
 
-Sử dụng các tùy chọn chuyển đổi tùy chỉnh, bạn có thể xác định mức chất lượng mong muốn cho hình raster, chỉ định cách xử lý metafile, đặt mức nén cho văn bản, cấu hình DPI cho hình ảnh, và hơn thế nữa.
+Bằng cách sử dụng các tùy chọn chuyển đổi tùy chỉnh, bạn có thể định nghĩa thiết lập chất lượng mong muốn cho hình ảnh raster, chỉ định cách xử lý metafile, đặt mức nén cho văn bản, cấu hình DPI cho hình ảnh, và nhiều hơn nữa.
 
-Ví dụ mã dưới đây minh họa cách chuyển đổi một bài thuyết trình PowerPoint sang PDF với một số tùy chọn tùy chỉnh.
+Mã ví dụ bên dưới minh họa cách chuyển đổi một bản trình chiếu PowerPoint sang PDF với một số tùy chọn tùy chỉnh.
 
 ```java
+import com.aspose.slides.*;
+
 // Khởi tạo lớp PdfOptions.
 PdfOptions pdfOptions = new PdfOptions();
 
-// Đặt chất lượng cho hình JPG.
+// Đặt chất lượng cho hình ảnh JPG.
 pdfOptions.setJpegQuality((byte)90);
 
 // Đặt DPI cho hình ảnh.
 pdfOptions.setSufficientResolution(300);
 
-/// Đặt hành vi cho metafile.
+/// Đặt hành vi cho metafiles.
 pdfOptions.setSaveMetafilesAsPng(true);
 
 // Đặt mức nén văn bản cho nội dung văn bản.
@@ -113,21 +117,23 @@ pdfOptions.setCompliance(PdfCompliance.Pdf15);
 // Khởi tạo lớp Presentation đại diện cho tệp PowerPoint hoặc OpenDocument file.
 Presentation presentation = new Presentation("PowerPoint.pptx");
 try {
-    // Lưu bài thuyết trình dưới dạng tài liệu PDF.
+    // Lưu bản trình chiếu dưới dạng tài liệu PDF.
     presentation.save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 } finally {
     presentation.dispose();
 }
 ```
 
-### **Chuyển đổi PowerPoint sang PDF với các slide ẩn**
+### **Chuyển đổi PowerPoint sang PDF với Các Slide Ẩn**
 
-Nếu một bài thuyết trình chứa các slide ẩn, bạn có thể sử dụng phương thức [setShowHiddenSlides](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/pdfoptions/#setShowHiddenSlides-boolean-) từ lớp [PdfOptions](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/pdfoptions/) để bao gồm các slide ẩn dưới dạng trang trong PDF kết quả.
+Nếu một bản trình chiếu chứa các slide ẩn, bạn có thể sử dụng phương thức [setShowHiddenSlides](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/pdfoptions/#setShowHiddenSlides-boolean-) từ lớp [PdfOptions](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/pdfoptions/) để bao gồm các slide ẩn dưới dạng trang trong PDF kết quả.
 
-Đoạn mã này cho thấy cách chuyển đổi một bài thuyết trình PowerPoint sang PDF kèm các slide ẩn được bao gồm:
+Mã này cho thấy cách chuyển đổi một bản trình chiếu PowerPoint sang PDF với các slide ẩn được bao gồm:
 
 ```java
-// Khởi tạo lớp Presentation đại diện cho tệp PowerPoint hoặc OpenDocument.
+import com.aspose.slides.*;
+
+// Khởi tạo lớp Presentation đại diện cho tệp PowerPoint hoặc OpenDocument file.
 Presentation presentation = new Presentation("PowerPoint.pptx");
 try {
     // Khởi tạo lớp PdfOptions.
@@ -136,51 +142,55 @@ try {
     // Thêm các slide ẩn.
     pdfOptions.setShowHiddenSlides(true);
 
-    // Lưu bài thuyết trình dưới dạng PDF.
+    // Lưu bản trình chiếu dưới dạng PDF.
     presentation.save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 } finally {
     presentation.dispose();
 }
 ```
 
-### **Chuyển đổi PowerPoint sang PDF được bảo vệ bằng mật khẩu**
+### **Chuyển đổi PowerPoint sang PDF Bảo Mật Mật Khẩu**
 
-Đoạn mã này minh họa cách chuyển đổi một bài thuyết trình PowerPoint sang PDF được bảo vệ bằng mật khẩu bằng cách sử dụng các tham số bảo vệ từ lớp [PdfOptions](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/pdfoptions/):
+Mã này minh họa cách chuyển đổi một bản trình chiếu PowerPoint thành PDF được bảo mật bằng mật khẩu bằng cách sử dụng các tham số bảo vệ từ lớp [PdfOptions](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/pdfoptions/):
 
 ```java
+import com.aspose.slides.*;
+
 // Khởi tạo lớp Presentation đại diện cho tệp PowerPoint hoặc OpenDocument file.
 Presentation presentation = new Presentation("PowerPoint.pptx");
 try {
     // Khởi tạo lớp PdfOptions.
     PdfOptions pdfOptions = new PdfOptions();
 
-    // Đặt mật khẩu PDF và các quyền truy cập.
+    // Đặt mật khẩu PDF và quyền truy cập.
     pdfOptions.setPassword("password");
     pdfOptions.setAccessPermissions(PdfAccessPermissions.PrintDocument | PdfAccessPermissions.HighQualityPrint);
 
-    // Lưu bài thuyết trình dưới dạng PDF.
+    // Lưu bản trình chiếu dưới dạng PDF.
     presentation.save("PPTX-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 } finally {
     presentation.dispose();
 }
 ```
 
-### **Phát hiện việc thay thế phông chữ**
+### **Phát Hiện Thay Thế Phông Chữ**
 
-Aspose.Slides cung cấp phương thức [setWarningCallback](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/saveoptions/#setWarningCallback-com.aspose.slides.IWarningCallback-) trong lớp [PdfOptions](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/pdfoptions/), giúp bạn phát hiện việc thay thế phông chữ trong quá trình chuyển đổi bài thuyết trình sang PDF.
+Aspose.Slides cung cấp phương thức [setWarningCallback](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/saveoptions/#setWarningCallback-com.aspose.slides.IWarningCallback-) dưới lớp [PdfOptions](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/pdfoptions/), cho phép bạn phát hiện các thay thế phông chữ trong quá trình chuyển đổi bản trình chiếu sang PDF.
 
-Đoạn mã này cho thấy cách phát hiện việc thay thế phông chữ:
+Mã này cho thấy cách phát hiện các thay thế phông chữ:
 
 ```java
+import com.aspose.slides.*;
+
 public static void main(String[] args) {
-    // Khởi tạo lớp Presentation đại diện cho tệp PowerPoint hoặc OpenDocument.
+    // Khởi tạo lớp Presentation đại diện cho tệp PowerPoint hoặc OpenDocument file.
     Presentation presentation = new Presentation("sample.pptx");
 
     // Đặt callback cảnh báo trong tùy chọn PDF.
     PdfOptions pdfOptions = new PdfOptions();
     pdfOptions.setWarningCallback(new FontSubstitutionHandler());
 
-    // Lưu bài thuyết trình dưới dạng PDF.
+    // Lưu bản trình chiếu dưới dạng PDF.
     presentation.save("output.pdf", SaveFormat.Pdf, pdfOptions);
 }
 
@@ -197,64 +207,73 @@ private static class FontSubstitutionHandler implements IWarningCallback {
 }
 ```
 
-{{%  alert color="primary"  %}} 
+{{%  alert color="info"  %}} 
 Để biết thêm thông tin về việc thay thế phông chữ, xem bài viết [Font Substitution](/slides/vi/androidjava/font-substitution/).
 {{% /alert %}} 
 
-## **Chuyển đổi các slide được chọn từ PowerPoint sang PDF**
+## **Chuyển đổi Các Slide Được Chọn từ PowerPoint sang PDF**
 
-Đoạn mã này minh họa cách chỉ chuyển đổi các slide cụ thể từ một bài thuyết trình PowerPoint sang PDF:
+Mã này minh họa cách chỉ chuyển đổi các slide cụ thể từ một bản trình chiếu PowerPoint sang PDF:
 
 ```java
+import com.aspose.slides.*;
+
 // Khởi tạo lớp Presentation đại diện cho tệp PowerPoint hoặc OpenDocument.
 Presentation presentation = new Presentation("PowerPoint.pptx");
 try {
     // Đặt mảng các số slide.
     int[] slides = { 1, 3 };
 
-    // Lưu bài thuyết trình dưới dạng PDF.
+    // Lưu bản trình chiếu dưới dạng PDF.
     presentation.save("PPTX-to-PDF.pdf", slides, SaveFormat.Pdf);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Chuyển đổi PowerPoint sang PDF với kích thước slide tùy chỉnh**
+## **Chuyển đổi PowerPoint sang PDF với Kích Thước Slide Tùy Chỉnh**
 
-Đoạn mã này minh họa cách chuyển đổi một bài thuyết trình PowerPoint sang PDF với kích thước slide được chỉ định:
+Mã này minh họa cách chuyển đổi một bản trình chiếu PowerPoint sang PDF với kích thước slide được chỉ định:
 
 ```java
+import com.aspose.slides.*;
+
 float slideWidth = 612;
 float slideHeight = 792;
 
-// Khởi tạo lớp Presentation đại diện cho tệp PowerPoint hoặc OpenDocument.
+// Khởi tạo lớp Presentation đại diện cho tệp PowerPoint hoặc OpenDocument file.
 Presentation presentation = new Presentation("SelectedSlides.pptx");
 
-// Tạo một bài thuyết trình mới với kích thước slide đã điều chỉnh.
+// Tạo một bản trình chiếu mới với kích thước slide được điều chỉnh.
 Presentation resizedPresentation = new Presentation();
 
 try {
     // Đặt kích thước slide tùy chỉnh.
     resizedPresentation.getSlideSize().setSize(slideWidth, slideHeight, SlideSizeScaleType.EnsureFit);
 
-    // Sao chép slide đầu tiên từ bài thuyết trình gốc.
+    // Sao chép slide đầu tiên từ bản trình chiếu gốc.
     ISlide slide = presentation.getSlides().get_Item(0);
     resizedPresentation.getSlides().insertClone(0, slide);
 
-    // Lưu bài thuyết trình đã thay đổi kích thước sang PDF có ghi chú.
-    resizedPresentation.save("PDF_with_notes.pdf", SaveFormat.Pdf);
+    // Xóa slide trống mà bản trình chiếu mới được tạo ra.
+    resizedPresentation.getSlides().removeAt(1);
+
+    // Lưu bản trình chiếu đã thay đổi kích thước dưới dạng PDF.
+    resizedPresentation.save("PDF_with_custom_slide_size.pdf", SaveFormat.Pdf);
 } finally {
     resizedPresentation.dispose();
     presentation.dispose();
 }
 ```
 
-## **Chuyển đổi PowerPoint sang PDF trong chế độ xem ghi chú của slide**
+## **Chuyển đổi PowerPoint sang PDF trong chế độ Ghi chú Slide**
 
-Đoạn mã này minh họa cách chuyển đổi một bài thuyết trình PowerPoint sang PDF có bao gồm ghi chú:
+Mã này minh họa cách chuyển đổi một bản trình chiếu PowerPoint sang PDF có bao gồm ghi chú:
 
 ```java
-// Khởi tạo lớp Presentation đại diện cho tệp PowerPoint hoặc OpenDocument.
+import com.aspose.slides.*;
+
+// Khởi tạo lớp Presentation đại diện cho tệp PowerPoint hoặc OpenDocument file.
 Presentation presentation = new Presentation("SelectedSlides.pptx");
 try {
     // Cấu hình các tùy chọn PDF với bố cục ghi chú.
@@ -263,20 +282,22 @@ try {
     PdfOptions pdfOptions = new PdfOptions();
     pdfOptions.setSlidesLayoutOptions(notesOptions);
 
-    // Lưu bài thuyết trình thành PDF có ghi chú.
+    // Lưu bản trình chiếu thành PDF có ghi chú.
     presentation.save("PDF_with_notes.pdf", SaveFormat.Pdf, pdfOptions);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Tiêu chuẩn truy cập và tuân thủ cho PDF**
+## **Tiêu Chuẩn Truy Cập và Tuân Thủ cho PDF**
 
-Aspose.Slides cho phép bạn sử dụng quy trình chuyển đổi tuân thủ các [Hướng dẫn về Truy cập Nội dung Web (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Bạn có thể xuất tài liệu PowerPoint sang PDF bằng bất kỳ tiêu chuẩn tuân thủ nào sau: **PDF/A1a**, **PDF/A1b**, và **PDF/UA**.
+Aspose.Slides cho phép bạn sử dụng quy trình chuyển đổi tuân thủ các [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Bạn có thể xuất tài liệu PowerPoint sang PDF bằng bất kỳ tiêu chuẩn tuân thủ nào sau: **PDF/A1a**, **PDF/A1b**, và **PDF/UA**.
 
-Đoạn mã này minh họa quy trình chuyển đổi PowerPoint sang PDF tạo ra nhiều PDF dựa trên các tiêu chuẩn tuân thủ khác nhau:
+Mã này minh họa quy trình chuyển đổi PowerPoint sang PDF tạo ra nhiều tệp PDF dựa trên các tiêu chuẩn tuân thủ khác nhau:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("pres.pptx");
 try {
     PdfOptions pdfOptions = new PdfOptions();
@@ -295,35 +316,35 @@ try {
 ```
 
 {{% alert title="Note" color="warning" %}} 
-Aspose.Slides hỗ trợ các thao tác chuyển đổi PDF, cho phép bạn chuyển đổi các tệp PDF sang các định dạng tệp phổ biến. Bạn có thể thực hiện các chuyển đổi [PDF sang HTML](https://products.aspose.com/slides/vi/java/conversion/pdf-to-html/), [PDF sang hình ảnh](https://products.aspose.com/slides/vi/java/conversion/pdf-to-image/), [PDF sang JPG](https://products.aspose.com/slides/vi/java/conversion/pdf-to-jpg/), và [PDF sang PNG](https://products.aspose.com/slides/vi/java/conversion/pdf-to-png/). Các thao tác chuyển đổi PDF sang các định dạng chuyên dụng khác—[PDF sang SVG](https://products.aspose.com/slides/vi/java/conversion/pdf-to-svg/), [PDF sang TIFF](https://products.aspose.com/slides/vi/java/conversion/pdf-to-tiff/), và [PDF sang XML](https://products.aspose.com/slides/vi/java/conversion/pdf-to-xml/)—cũng được hỗ trợ.
+Aspose.Slides hỗ trợ các thao tác chuyển đổi PDF, cho phép bạn chuyển đổi các tệp PDF sang các định dạng phổ biến. Bạn có thể thực hiện các chuyển đổi [PDF to HTML](https://products.aspose.com/slides/vi/java/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/vi/java/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/vi/java/conversion/pdf-to-jpg/), và [PDF to PNG](https://products.aspose.com/slides/vi/java/conversion/pdf-to-png/) . Các thao tác chuyển đổi PDF sang các định dạng chuyên biệt—[PDF to SVG](https://products.aspose.com/slides/vi/java/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/vi/java/conversion/pdf-to-tiff/), và [PDF to XML](https://products.aspose.com/slides/vi/java/conversion/pdf-to-xml/)—cũng được hỗ trợ.
 {{% /alert %}}
 
-> **Lưu ý:** Khi xuất sang PDF/UA, Aspose.Slides xử lý các đồ họa phức tạp như SmartArt, biểu đồ và công thức như một hình duy nhất. Các phần tử đường dẫn riêng lẻ không được giữ lại dưới dạng nội dung riêng và có thể được đánh dấu là hiện vật; văn bản thay thế chỉ được cung cấp cho toàn bộ hình.
+> **Lưu ý:** Khi xuất ra PDF/UA, Aspose.Slides coi các đồ họa phức tạp như SmartArt, biểu đồ và công thức là một hình duy nhất. Các phần tử đường dẫn riêng lẻ không được giữ lại dưới dạng nội dung riêng và có thể được đánh dấu là hiện vật; văn bản thay thế chỉ được cung cấp cho toàn bộ hình.
 
 ## **Câu hỏi thường gặp**
 
-**Tôi có thể chuyển đổi nhiều tệp PowerPoint sang PDF hàng loạt không?**
+### Tôi có thể chuyển đổi nhiều tệp PowerPoint sang PDF hàng loạt không?
 
-Có, Aspose.Slides hỗ trợ chuyển đổi hàng loạt nhiều tệp PPT hoặc PPTX sang PDF. Bạn có thể lặp qua các tệp của mình và áp dụng quy trình chuyển đổi bằng lập trình.
+Có, Aspose.Slides hỗ trợ chuyển đổi hàng loạt nhiều tệp PPT hoặc PPTX sang PDF. Bạn có thể lặp qua các tệp của mình và áp dụng quá trình chuyển đổi bằng chương trình.
 
-**Có thể bảo vệ PDF đã chuyển đổi bằng mật khẩu không?**
+### Có thể bảo mật bằng mật khẩu cho PDF đã chuyển đổi không?
 
 Chắc chắn. Sử dụng lớp [PdfOptions](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/pdfoptions/) để đặt mật khẩu và xác định quyền truy cập trong quá trình chuyển đổi.
 
-**Làm sao để bao gồm các slide ẩn trong PDF?**
+### Làm sao để bao gồm các slide ẩn trong PDF?
 
 Sử dụng phương thức `setShowHiddenSlides` trong lớp [PdfOptions](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/pdfoptions/) để bao gồm các slide ẩn trong PDF kết quả.
 
-**Aspose.Slides có thể duy trì chất lượng hình ảnh cao trong PDF không?**
+### Aspose.Slides có thể duy trì chất lượng hình ảnh cao trong PDF không?
 
 Có, bạn có thể kiểm soát chất lượng hình ảnh bằng cách sử dụng các phương thức như `setJpegQuality` và `setSufficientResolution` trong lớp [PdfOptions](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/pdfoptions/) để đảm bảo hình ảnh chất lượng cao trong PDF của bạn.
 
-**Aspose.Slides có hỗ trợ các tiêu chuẩn tuân thủ PDF/A không?**
+### Aspose.Slides có hỗ trợ các tiêu chuẩn tuân thủ PDF/A không?
 
-Có, Aspose.Slides cho phép bạn xuất PDF tuân thủ các tiêu chuẩn khác nhau, bao gồm PDF/A1a, PDF/A1b và PDF/UA, đảm bảo tài liệu của bạn đáp ứng yêu cầu về truy cập và lưu trữ.
+Có, Aspose.Slides cho phép bạn xuất PDF tuân thủ các tiêu chuẩn khác nhau, bao gồm PDF/A1a, PDF/A1b và PDF/UA, đảm bảo tài liệu của bạn đáp ứng yêu cầu về khả năng truy cập và lưu trữ.
 
 ## **Tài nguyên bổ sung**
 
 - [Tài liệu Aspose.Slides cho Android qua Java](/slides/vi/androidjava/)
 - [Tham chiếu API Aspose.Slides cho Android qua Java](https://reference.aspose.com/slides/vi/androidjava/)
-- [Công cụ chuyển đổi trực tuyến miễn phí của Aspose](https://products.aspose.app/slides/vi/conversion)
+- [Bộ chuyển đổi trực tuyến miễn phí của Aspose](https://products.aspose.app/slides/vi/conversion)

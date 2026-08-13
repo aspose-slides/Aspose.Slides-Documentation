@@ -13,21 +13,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Afbeeldingen extraheren uit vormen in PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor .NET - snelle, codevriendelijke oplossing."
+description: "Afbeeldingen extraheren uit vormen in PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor .NET - snelle, programmeervriendelijke oplossing."
 ---
 ## **Overzicht**
 
-Afbeeldingen in een presentatie kunnen in verschillende vormtypen voorkomen: als gewone foto‑kaders, als foto‑opvullingen toegepast op vormen, als OLE‑object‑preview‑afbeeldingen, als miniaturen van video‑ of audio‑frames, als zoom‑afbeeldingen, of als afbeeldingen die genest zijn in tabel‑, grafiek‑ en SmartArt‑vormen. Aspose.Slides slaat die afbeeldingen op in de presentatie‑afbeeldingscollectie, toegankelijk via [ImageCollection](https://reference.aspose.com/slides/nl/net/aspose.slides/imagecollection/) en [IPPImage](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) objecten.
+Afbeeldingen in een presentatie kunnen in verschillende vormtypen voorkomen: als gewone afbeeldingskaders, als afbeeldingsvullingen toegepast op vormen, als voorbeeldafbeeldingen van OLE‑objecten, als miniaturen van video‑ of audio‑frames, als zoomafbeeldingen, of als afbeeldingen genest binnen tabellen, grafieken en SmartArt‑vormen. Aspose.Slides slaat die afbeeldingen op in de afbeeldingsverzameling van de presentatie, toegankelijk via de objecten [ImageCollection](https://reference.aspose.com/slides/nl/net/aspose.slides/imagecollection/) en [IPPImage](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) objects.
 
-Als je alleen elke afbeeldingsbron die in een presentatie is ingebed wilt exporteren, itereren door `presentation.Images`. Dit artikel richt zich op een andere taak: vormen doorlopen om te achterhalen waar afbeeldingen op dia’s worden gebruikt, zodat de opgeslagen bestanden bruikbare context kunnen behouden zoals het dia‑nummer, de vormpositie en het type bron (foto‑kader, opvul‑afbeelding, media‑preview, OLE‑preview of zoom‑afbeelding).
+Als u alleen elke in de presentatie ingebedde afbeeldingsbron wilt exporteren, doorloop dan `presentation.Images`. Dit artikel richt zich op een andere taak: vormen doorlopen om te vinden waar afbeeldingen op de dia's worden gebruikt, zodat de opgeslagen bestanden nuttige context kunnen behouden, zoals het dia‑nummer, de vormpositie en het brontype (afbeeldingskader, vullingsafbeelding, mediavoorbeeld, OLE‑voorbeeld of zoomafbeelding).
 
-{{% alert title="Tip" color="primary" %}}
-Gebruik [IPPImage.BinaryData](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) om de oorspronkelijke gecodeerde afbeeldingsgegevens en bestandstype te behouden. Gebruik [IPPImage.Image](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) met [IImage.Save](https://reference.aspose.com/slides/nl/net/aspose.slides/iimage/) wanneer je de uitvoer wilt normaliseren naar een specifiek formaat zoals PNG.
+{{% alert title="Tip" color="info" %}}
+
+Gebruik [IPPImage.BinaryData](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) om de oorspronkelijk gecodeerde afbeeldingsgegevens en bestandstype te behouden. Gebruik [IPPImage.Image](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) met [IImage.Save](https://reference.aspose.com/slides/nl/net/aspose.slides/iimage/) wanneer u de uitvoer wilt normaliseren naar een specifiek formaat zoals PNG.
+
 {{% /alert %}}
 
-## **Gedeelde hulpfuncties**
+## **Gedeelde helpermethoden**
 
-De hulpfuncties hieronder houden de voorbeelden kort. `SaveOriginalImage` schrijft de oorspronkelijke ingebedde bytes, kiest een veilige extensie op basis van het MIME‑type, en slaat dubbele afbeeldings‑binaries over door een SHA‑256‑hash.
+De helpermethoden hieronder houden de voorbeelden kort. `SaveOriginalImage` schrijft de oorspronkelijk ingebedde bytes, kiest een veilige extensie op basis van het MIME‑type, en slaat dubbele afbeeldingsbinaire bestanden over op basis van een SHA‑256‑hash.
 
 ```c#
 using Aspose.Slides;
@@ -162,11 +164,13 @@ private static string MakeSafeFileNamePart(string value)
 }
 ```
 
-## **Afbeeldingen extraheren uit foto‑kaders**
+## **Afbeeldingen extraheren uit afbeeldingskaders**
 
-Gebruik deze aanpak voor afbeeldingen die als zelfstandige objecten zijn ingevoegd. Een [IPictureFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ipictureframe/) slaat zijn foto op in `PictureFormat.Picture.Image`, wat een [IPPImage](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) object retourneert.
+Gebruik deze aanpak voor afbeeldingen die als zelfstandige objecten zijn ingevoegd. Een [IPictureFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ipictureframe/) slaat zijn afbeelding op in `PictureFormat.Picture.Image`, wat een [IPPImage](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) object retourneert.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "extracted-images");
 Directory.CreateDirectory(outputDirectory);
@@ -193,11 +197,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Afbeeldingen extraheren uit foto‑gevulde vormen**
+## **Afbeeldingen extraheren uit met afbeeldingen gevulde vormen**
 
-Vormen kunnen een foto als opvulling gebruiken. Controleer eerst het opvullingstype van de vorm: als het niet [FillType.Picture](https://reference.aspose.com/slides/nl/net/aspose.slides/filltype/) is, is er geen foto om uit die opvulling te halen. Het voorbeeld hieronder behandelt [IAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/) objecten en slaat elke afbeelding op als PNG via [IPPImage.Image](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/).
+Vormen kunnen een afbeelding als vulling gebruiken. Controleer eerst het vullingstype van de vorm: als het niet [FillType.Picture](https://reference.aspose.com/slides/nl/net/aspose.slides/filltype/) is, is er geen afbeelding om uit die vulling te extraheren. Het voorbeeld hieronder behandelt [IAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/) objecten en slaat elke afbeelding op als PNG via [IPPImage.Image](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/).
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "shape-fill-images");
 Directory.CreateDirectory(outputDirectory);
@@ -225,11 +231,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Preview‑afbeeldingen extraheren uit OLE‑objectkaders**
+## **Voorbeeldafbeeldingen extraheren uit OLE‑objectkaders**
 
-Een [IOleObjectFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ioleobjectframe/) kan een vervangende foto hebben die PowerPoint gebruikt als de preview van het object op een dia. Deze afbeelding is beschikbaar via `SubstitutePictureFormat.Picture.Image`. Het extraheren van deze foto levert de preview‑afbeelding op, niet de ingebedde OLE‑pakket‑inhoud.
+Een [IOleObjectFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ioleobjectframe/) kan een vervangende afbeelding hebben die PowerPoint gebruikt als voorbeeld van het object op een dia. Deze afbeelding is beschikbaar via `SubstitutePictureFormat.Picture.Image`. Het extraheren van deze afbeelding levert de voorbeeldafbeelding op, niet de ingebedde OLE‑pakketinhoud.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "ole-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -260,11 +268,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Preview‑afbeeldingen extraheren uit video‑kaders**
+## **Voorbeeldafbeeldingen extraheren uit video‑frames**
 
-Een [IVideoFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/) kan ook een preview‑afbeelding opslaan in `PictureFormat.Picture.Image`. Dit is de poster‑ of miniatuurafbeelding die op de dia wordt getoond, niet een frame dat uit de videostroom is gedecodeerd.
+Een [IVideoFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/) kan ook een voorbeeldafbeelding opslaan in `PictureFormat.Picture.Image`. Dit is de poster‑ of miniatuurfoto die op de dia wordt getoond, niet een frame dat is gedecodeerd uit de videostroom.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "video-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -295,11 +305,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Preview‑afbeeldingen extraheren uit audio‑kaders**
+## **Voorbeeldafbeeldingen extraheren uit audio‑frames**
 
 Een [IAudioFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/iaudioframe/) kan een miniatuur opslaan in `PictureFormat.Picture.Image`. Dit is de afbeelding die wordt getoond voor het audio‑object op de dia.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "audio-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -335,6 +347,8 @@ using (Presentation presentation = new Presentation(inputPath))
 [IZoomFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/izoomframe/) en [ISectionZoomFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/isectionzoomframe/) vormen kunnen aangepaste afbeeldingen gebruiken. Lees `ZoomImage` van het zoom‑frame.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "zoom-images");
 Directory.CreateDirectory(outputDirectory);
@@ -370,11 +384,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Afbeeldingen extraheren uit samenvattende zoom‑kaders**
+## **Afbeeldingen extraheren uit samenvattende zoom‑frames**
 
-Een [ISummaryZoomFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/isummaryzoomframe/) is ook een vorm. De sectie‑items kunnen aangepaste afbeeldingen gebruiken, toegankelijk via de `ZoomImage`‑eigenschap van elk samenvattend zoom‑sectie‑item.
+Een [ISummaryZoomFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/isummaryzoomframe/) is ook een vorm. De sectie‑items kunnen aangepaste afbeeldingen gebruiken, toegankelijk via de `ZoomImage`‑eigenschap van elke samenvattende zoom‑sectie.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "summary-zoom-images");
 Directory.CreateDirectory(outputDirectory);
@@ -412,9 +428,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Afbeeldingen extraheren uit tabel‑vormen**
 
-Een [ITable](https://reference.aspose.com/slides/nl/net/aspose.slides/itable/) is een vorm. Afbeeldingen in een tabel worden meestal opgeslagen als foto‑opvullingen in tabelcellen.
+Een [ITable](https://reference.aspose.com/slides/nl/net/aspose.slides/itable/) is een vorm. Afbeeldingen in een tabel worden meestal opgeslagen als afbeeldingenvullingen in tabelcellen.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "table-images");
 Directory.CreateDirectory(outputDirectory);
@@ -456,9 +474,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Afbeeldingen extraheren uit grafiek‑vormen**
 
-Een [IChart](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichart/) is een vorm. Het voorbeeld hieronder haalt een afbeelding uit de foto‑opvulling van het grafiekgebied.
+Een [IChart](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichart/) is een vorm. Het voorbeeld hieronder haalt een afbeelding uit de afbeeldingenvulling van het diagramgebied.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "chart-images");
 Directory.CreateDirectory(outputDirectory);
@@ -492,9 +512,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Afbeeldingen extraheren uit SmartArt‑vormen**
 
-Een [ISmartArt](https://reference.aspose.com/slides/nl/net/aspose.slides.smartart/ismartart/) object is een vorm. Afhankelijk van de SmartArt‑lay-out kunnen afbeeldingen worden opgeslagen in knooppunt‑bullet‑opvullingen of in de opvullingsformaten van knooppunt‑vormen.
+Een [ISmartArt](https://reference.aspose.com/slides/nl/net/aspose.slides.smartart/ismartart/) object is een vorm. Afhankelijk van de SmartArt‑indeling kunnen afbeeldingen worden opgeslagen in de kogel‑vullingen van knooppunten of in de vullingsformaten van knooppunt‑vormen.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "smartart-images");
 Directory.CreateDirectory(outputDirectory);
@@ -544,9 +566,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Afbeeldingen opnemen in gegroepeerde vormen**
 
-Gegroepeerde vormen bevatten hun eigen vormcollecties. De gedeelde `EnumerateShapes`‑helper heeft een `includeGroupedShapes`‑optie. Zet deze op `true` wanneer je vormen binnen [IGroupShape](https://reference.aspose.com/slides/nl/net/aspose.slides/igroupshape/) objecten wilt inspecteren. Het voorbeeld hieronder haalt afbeeldingen uit foto‑kaders, foto‑gevulde vormen, OLE‑object‑previews, video‑frame‑miniaturen en audio‑frame‑miniaturen. Om ook tabel‑, grafiek‑, SmartArt‑ en samenvattende zoom‑afbeeldingen mee te nemen, hergebruik je de gespecialiseerde extractielogica uit de vorige secties terwijl je dezelfde recursieve vorm‑doorloop behoudt.
+Gegroepeerde vormen bevatten hun eigen vormcollecties. De gedeelde helper `EnumerateShapes` heeft een `includeGroupedShapes`‑optie. Zet deze op `true` wanneer u vormen binnen [IGroupShape](https://reference.aspose.com/slides/nl/net/aspose.slides/igroupshape/) objecten wilt inspecteren. Het voorbeeld hieronder extrahert afbeeldingen uit afbeeldingskaders, met afbeeldingenvulling gevulde vormen, OLE‑objectvoorbeelden, miniaturen van video‑frames en miniaturen van audio‑frames. Om ook tabel-, grafiek-, SmartArt- en samenvattende zoom‑afbeeldingen op te nemen, hergebruik de gespecialiseerde extractielogica uit de vorige secties terwijl u dezelfde recursieve vormdoorloop behoudt.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "all-shape-images");
 Directory.CreateDirectory(outputDirectory);
@@ -621,43 +645,43 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Randgevallen en praktische opmerkingen**
 
-- **Dubbele afbeeldingen:** Meerdere vormen kunnen naar dezelfde afbeelding verwijzen of naar afzonderlijke afbeeldingen met identieke bytes. Hash [IPPImage.BinaryData](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) vóór het wegschrijven van bestanden als je één uitvoerbestand per unieke afbeelding wilt.
-- **Originele data vs. geconverteerde output:** Het opslaan van [IPPImage.BinaryData](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) behoudt de ingebedde JPEG, PNG, GIF, SVG, EMF of WMF data. Het opslaan van [IPPImage.Image](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) via [IImage.Save](https://reference.aspose.com/slides/nl/net/aspose.slides/iimage/) is nuttig wanneer je een consistent uitvoerformaat wilt.
-- **Niet‑ondersteunde opvullingstypen:** Solide, gradient, patroon‑ en geen‑opvulling‑vormen bevatten geen foto‑opvulling. Controleer [FillType](https://reference.aspose.com/slides/nl/net/aspose.slides/filltype/) vóór het lezen van `PictureFillFormat`.
-- **Gegroepeerde vormen:** De bovenliggende dia‑vormcollectie vlakt groepen niet af. Inspecteer recursief [IGroupShape.Shapes](https://reference.aspose.com/slides/nl/net/aspose.slides/igroupshape/) wanneer gegroepeerde inhoud van belang is.
-- **OLE‑object‑previews:** Een [IOleObjectFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ioleobjectframe/) kan een preview‑afbeelding blootleggen via `SubstitutePictureFormat`, maar die afbeelding is alleen de slide‑preview. Het is niet het ingebedde bestand binnen het OLE‑object.
-- **Video‑frame‑miniaturen:** Een [IVideoFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/) kan een preview‑afbeelding blootleggen via `PictureFormat`, maar die afbeelding is alleen de poster die op de dia wordt getoond. Het wordt niet uit de videostroom geëxtraheerd.
-- **Audio‑frame‑miniaturen:** Een [IAudioFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/iaudioframe/) kan een icoon of miniatuur blootleggen via `PictureFormat`; het is niet de ingebedde audio‑data.
+- **Duplicaatafbeeldingen:** Meerdere vormen kunnen naar dezelfde afbeelding verwijzen of naar verschillende afbeeldingen met identieke bytes. Hash [IPPImage.BinaryData](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) vóór het schrijven van bestanden als u één uitvoerbestand per unieke afbeelding wilt.
+- **Oorspronkelijke gegevens vs. geconverteerde uitvoer:** Het opslaan van [IPPImage.BinaryData](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) behoudt de ingebedde JPEG-, PNG-, GIF-, SVG-, EMF- of WMF‑gegevens. Het opslaan van [IPPImage.Image](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) via [IImage.Save](https://reference.aspose.com/slides/nl/net/aspose.slides/iimage/) is nuttig wanneer u een consistent uitvoerformaat wilt.
+- **Niet‑ondersteunde vullingstypen:** Vormen met een effen, verloop, patroon of zonder vulling bevatten geen afbeeldingenvulling. Controleer [FillType](https://reference.aspose.com/slides/nl/net/aspose.slides/filltype/) voordat u `PictureFillFormat` leest.
+- **Gegroepeerde vormen:** De boven‑level dia‑vormcollectie maakt geen platte weergave van groepen. Doorloop recursief [IGroupShape.Shapes](https://reference.aspose.com/slides/nl/net/aspose.slides/igroupshape/) wanneer gegroepeerde inhoud van belang is.
+- **OLE‑objectvoorbeelden:** Een [IOleObjectFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ioleobjectframe/) kan een voorbeeldafbeelding blootleggen via `SubstitutePictureFormat`, maar die afbeelding is alleen het dia‑voorbeeld. Het is niet het ingebedde bestand in het OLE‑object.
+- **Miniaturen van video‑frames:** Een [IVideoFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/) kan een voorbeeldafbeelding blootleggen via `PictureFormat`, maar die afbeelding is alleen de poster die op de dia wordt getoond. Het wordt niet geëxtraheerd uit de videostroom.
+- **Miniaturen van audio‑frames:** Een [IAudioFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/iaudioframe/) kan een pictogram of miniatuur blootleggen via `PictureFormat`; het is niet de ingebedde audio‑data.
 - **Zoom‑afbeeldingen:** Slide‑zoom, sectie‑zoom en samenvattende zoom‑vormen kunnen aangepaste [IPPImage](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) objecten gebruiken via `ZoomImage`.
-- **Geneste vorm‑modellen:** Tabel‑, grafiek‑ en SmartArt‑objecten implementeren [IShape](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape/), maar hun afbeeldingen worden vaak opgeslagen in geneste tabel‑cel, grafiek‑element of SmartArt‑knooppunt‑formatteerobjecten.
-- **Bijsneden of getransformeerde foto’s:** Toegang tot [IPPImage](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) geeft je de opgeslagen afbeeldingsbron. Het renderen van bijsnijden, transparantie, herkleuring, rotatie of andere visuele effecten die op de vorm zijn toegepast, gebeurt niet.
+- **Geneste vormmodellen:** Tabel‑, grafiek‑ en SmartArt‑objecten implementeren [IShape](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape/), maar hun afbeeldingen worden vaak opgeslagen in geneste tabelcel‑, diagram‑element‑ of SmartArt‑knooppunt‑formattering objecten.
+- **Bijgesneden of getransformeerde afbeeldingen:** Toegang tot [IPPImage](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) geeft u de opgeslagen afbeeldingsbron. Het rendert geen bijsnijden, transparantie, herkleuring, rotatie of andere visuele effecten die door de vorm worden toegepast.
 
 ## **FAQ**
 
-**Kan ik de originele afbeelding extraheren zonder bijsnijden, effecten of vorm‑transformaties?**
+### Kan ik de originele afbeelding extraheren zonder bijsnijden, effecten of vormtransformaties?
 
-Ja. Gebruik het [IPPImage](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) object en schrijf [IPPImage.BinaryData](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) naar schijf. Dit behoudt de oorspronkelijke gecodeerde afbeelding die in de presentatie is opgeslagen, niet de manier waarop de afbeelding op de dia wordt weergegeven.
+Ja. Benader het [IPPImage](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) object en schrijf [IPPImage.BinaryData](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) naar schijf. Hiermee behoudt u de oorspronkelijk gecodeerde afbeelding die in de presentatie is opgeslagen, niet de manier waarop de afbeelding op de dia wordt gerenderd.
 
-**Kan ik elke geëxtraheerde afbeelding als PNG exporteren?**
+### Kan ik elke geëxtraheerde afbeelding exporteren als PNG?
 
-Ja. Gebruik [IPPImage.Image](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) om een [IImage](https://reference.aspose.com/slides/nl/net/aspose.slides/iimage/) object te krijgen, en roep vervolgens [IImage.Save](https://reference.aspose.com/slides/nl/net/aspose.slides/iimage/) aan met [ImageFormat.Png](https://reference.aspose.com/slides/nl/net/aspose.slides/imageformat/). Dit zet de output om en behoudt mogelijk niet het oorspronkelijke bestandstype of vector‑data.
+Ja. Gebruik [IPPImage.Image](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) om een [IImage](https://reference.aspose.com/slides/nl/net/aspose.slides/iimage/) object te verkrijgen, en roep vervolgens [IImage.Save](https://reference.aspose.com/slides/nl/net/aspose.slides/iimage/) aan met [ImageFormat.Png](https://reference.aspose.com/slides/nl/net/aspose.slides/imageformat/). Dit converteert de uitvoer en behoudt mogelijk niet het originele bestandstype of vectorgegevens.
 
-**Hoe voorkom ik dat ik dezelfde afbeelding meer dan één keer opsla?**
+### Hoe voorkom ik dat dezelfde afbeelding meer dan één keer wordt opgeslagen?
 
-Gebruik een hash van [IPPImage.BinaryData](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) en houd de hashes bij in een set. Als een nieuwe afbeelding een hash heeft die al bestaat, sla je deze over of registreer je een extra verwijzing naar het bestaande output‑bestand.
+Gebruik een hash van [IPPImage.BinaryData](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) en bewaar de hashes in een set. Als een nieuwe afbeelding een hash heeft die al bestaat, sla deze dan over of noteer een andere referentie naar het bestaande uitvoerbestand.
 
-**Waarom leveren sommige vormen geen afbeelding?**
+### Waarom leveren sommige vormen geen afbeelding?
 
-Foto‑kaders, foto‑gevulde vormen, OLE‑object‑kaders, media‑kaders, zoom‑kaders, tabellen, grafieken en SmartArt‑objecten kunnen naar afbeeldingen verwijzen. Sommige vorm‑types exposen afbeeldingen via geneste formatteerobjecten, dus een eenvoudige `PictureFormat`‑ of vorm‑`FillFormat`‑controle is niet altijd voldoende.
+Afbeeldingskaders, met afbeeldingenvulling gevulde vormen, OLE‑objectkaders, mediakaders, zoomkaders, tabellen, grafieken en SmartArt‑objecten kunnen naar afbeeldingen verwijzen. Sommige vormtypen exposeren afbeeldingen via geneste opmaakobjecten, dus een eenvoudige controle van `PictureFormat` of vorm `FillFormat` is niet altijd voldoende.
 
-**Kan ik de miniatuur van een video‑frame extraheren?**
+### Kan ik de miniatuur extraheren die wordt getoond voor een video‑frame?
 
-Ja. Gebruik [IVideoFrame.PictureFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/) en lees `PictureFormat.Picture.Image`. Dit haalt de poster‑afbeelding op die bij het video‑frame is opgeslagen, niet een frame dat uit het videobestand is gegenereerd.
+Ja. Gebruik [IVideoFrame.PictureFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/ivideoframe/) en lees `PictureFormat.Picture.Image`. Hiermee wordt de poster‑afbeelding geëxtraheerd die bij het video‑frame is opgeslagen, niet een frame dat is gegenereerd uit het videobestand.
 
-**Hoe kan ik bepalen welke vormen een specifieke afbeelding uit de presentatie‑afbeeldingscollectie gebruiken?**
+### Hoe kan ik bepalen welke vormen een specifieke afbeelding uit de afbeeldingsverzameling van de presentatie gebruiken?
 
-Aspose.Slides slaat geen omgekeerde koppelingen op van [IPPImage](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) naar vormen. Bouw tijdens de doorloop een mapping: wanneer je een afbeeldingsreferentie tegenkomt, noteer je het dia‑nummer, het vormpad en de afbeelding‑hash of collectiewaarde.
+Aspose.Slides slaat geen omgekeerde koppelingen van [IPPImage](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) naar vormen op. Bouw tijdens het doorlopen een mapping op: wanneer u een afbeeldingsreferentie vindt, noteer dan het dia‑nummer, het vormpad en de afbeeldingshash of collectie‑item.
 
-**Kan ik afbeeldingen extraheren die ingebed zijn in OLE‑objecten, zoals bijgevoegde documenten?**
+### Kan ik afbeeldingen extraheren die ingebed zijn in OLE‑objecten, zoals bijgevoegde documenten?
 
-Je kunt de slide‑preview van het OLE‑object extraheren via [IOleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/ioleobjectframe/). Deze preview is echter niet het ingebedde document zelf. Om afbeeldingen uit het ingebedde bestand te halen, moet je de OLE‑data extraheren en deze met geschikte gereedschappen voor dat bestandstype inspecteren.
+U kunt het dia‑voorbeeld van het OLE‑object extraheren via [IOleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/ioleobjectframe/). Dit voorbeeld is echter niet het ingebedde document zelf. Om afbeeldingen uit het ingebedde bestand te extraheren, moet u de OLE‑gegevens extraheren en deze inspecteren met tools voor dat bestandstype.

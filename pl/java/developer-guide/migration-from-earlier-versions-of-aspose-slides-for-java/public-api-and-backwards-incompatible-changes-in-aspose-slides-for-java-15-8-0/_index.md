@@ -1,32 +1,34 @@
 ---
-title: Publiczne API i niekompatybilne wstecz zmiany w Aspose.Slides for Java 15.8.0
-linktitle: Aspose.Slides for Java 15.8.0
+title: Publiczne API i zmiany niezgodne wstecz w Aspose.Slides for Java 15.8.0
+linktitle: Aspose.Slides dla Java 15.8.0
 type: docs
 weight: 160
 url: /pl/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/
 keywords:
 - migracja
-- dziedziczony kod
+- kod dziedziczny
 - nowoczesny kod
-- dziedziczne podejście
+- podejście dziedziczne
 - nowoczesne podejście
 - PowerPoint
 - OpenDocument
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Przeglądaj aktualizacje publicznego API i zmiany łamiące w Aspose.Slides for Java, aby płynnie migrować swoje rozwiązania prezentacji PowerPoint PPT, PPTX i ODP."
+description: "Przejrzyj aktualizacje publicznego API oraz zmiany łamiące kompatybilność w Aspose.Slides for Java, aby płynnie migrować rozwiązania prezentacji PowerPoint PPT, PPTX i ODP."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Ta strona wymienia wszystkie [dodane](/slides/pl/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) lub [usunięte](/slides/pl/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) klasy, metody, właściwości i tak dalej, oraz inne zmiany wprowadzone w API Aspose.Slides for Java 15.8.0.
+Ta strona wymienia wszystkie [dodano](/slides/pl/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) lub [usunięto](/slides/pl/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) klasy, metody, właściwości i podobne, a także inne zmiany wprowadzone w API Aspose.Slides for Java 15.8.0.
 
 {{% /alert %}} 
-## **Zmiany w publicznym API**
-#### **Do IChartSeries i ChartSeries dodano metody getDoughnutHoleSize(), setDoughnutHoleSize(byte)**
+## **Zmiany publicznego API**
+#### **Metody getDoughnutHoleSize(), setDoughnutHoleSize(byte) zostały dodane do IChartSeries i ChartSeries**
 Określa rozmiar otworu w wykresie pierścieniowym.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 

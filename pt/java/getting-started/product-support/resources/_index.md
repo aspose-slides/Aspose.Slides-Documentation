@@ -15,18 +15,18 @@ keywords:
 - apresentação
 - Java
 - Aspose.Slides
-description: "Descubra os recursos principais do Aspose.Slides para Java—desde downloads e documentação até fóruns e atualizações de blog—para melhorar o trabalho com PPT, PPTX e ODP."
+description: "Descubra os principais recursos do Aspose.Slides for Java—de downloads e documentação a fóruns e atualizações de blog—para melhorar o trabalho com PPT, PPTX e ODP."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Esta tabela lista recursos técnicos importantes do Aspose.Slides para Java. 
+Esta tabela lista recursos técnicos importantes do Aspose.Slides for Java. 
 
 {{% /alert %}} 
 
 |**Recurso**|**Descrição**|
 | :- | :- |
-|[Página inicial do Aspose.Slides para Java](https://products.aspose.com/slides/pt/java/)|Página inicial do produto.|
-|[Blog do Aspose.Slides](https://blog.aspose.com/category/slides/pt/)|Verifique com frequência para obter informações sobre novas versões e dicas úteis sobre o Aspose.Slides.|
-|[Download do Aspose.Slides para Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)|Baixe a versão mais recente do Aspose.Slides aqui. Lançamos versões frequentemente.|
-|[Fórum de suporte do Aspose.Slides](https://forum.aspose.com/c/slides/pt/11)|Publique suas perguntas e problemas aqui para uma resolução rápida.|
-|[Documentação do produto Aspose.Slides para Java](/slides/pt/java/)|Documentação online completa que inclui esta documentação, bem como a Referência da API do Aspose.Slides.|
+|[Aspose.Slides for Java home page](https://products.aspose.com/slides/pt/java/)|Página inicial do produto.|
+|[Aspose.Slides blog](https://blog.aspose.com/category/slides/pt/)|Verifique frequentemente para obter informações sobre novas versões e dicas úteis sobre o Aspose.Slides.|
+|[Aspose.Slides for Java download](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)|Baixe a versão mais recente do Aspose.Slides aqui. Nós lançamos frequentemente.|
+|[Aspose.Slides support forum](https://forum.aspose.com/c/slides/pt/11)|Publique suas perguntas e problemas aqui para uma resolução rápida.|
+|[Aspose.Slides for Java product documentation](/slides/pt/java/)|Documentação online completa que inclui esta documentação, bem como a Referência da API do Aspose.Slides.|

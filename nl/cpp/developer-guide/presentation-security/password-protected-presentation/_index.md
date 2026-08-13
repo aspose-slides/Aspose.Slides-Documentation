@@ -1,5 +1,5 @@
 ---
-title: Beveilig presentaties met wachtwoorden in C++
+title: Presentaties beveiligen met wachtwoorden in C++
 linktitle: Wachtwoordbeveiliging
 type: docs
 weight: 20
@@ -17,7 +17,7 @@ keywords:
 - presentatie versleutelen
 - PowerPoint ontsleutelen
 - presentatie ontsleutelen
-- schrijfbescherming
+- schrijfbeveiliging
 - PowerPoint-beveiliging
 - presentatiebeveiliging
 - wachtwoord verwijderen
@@ -25,103 +25,115 @@ keywords:
 - versleuteling verwijderen
 - wachtwoord uitschakelen
 - beveiliging uitschakelen
-- schrijfbescherming verwijderen
+- schrijfbeveiliging verwijderen
 - PowerPoint
 - OpenDocument
 - presentatie
 - C++
 - Aspose.Slides
-description: "Leer hoe u moeiteloos PowerPoint- en OpenDocument‑presentaties met wachtwoordbeveiliging kunt vergrendelen en ontgrendelen met Aspose.Slides voor C++. Beveilig uw presentaties."
+description: "Leer hoe je moeiteloos PowerPoint- en OpenDocument-presentaties met een wachtwoord kunt vergrendelen en ontgrendelen met Aspose.Slides voor C++. Bescherm je presentaties."
 ---
-## **Introductie**
+## **Inleiding**
 
-Wanneer u een presentatie met een wachtwoord beveiligt, betekent dit dat u een wachtwoord instelt dat bepaalde beperkingen op de presentatie afdwingt. Om de beperkingen te verwijderen, moet het wachtwoord worden ingevoerd. Een met wachtwoord beveiligde presentatie wordt beschouwd als een vergrendelde presentatie.
+Wanneer je een presentatie met een wachtwoord beschermt, stel je een wachtwoord in dat bepaalde beperkingen op de presentatie afdwingt. Om de beperkingen te verwijderen, moet het wachtwoord worden ingevoerd. Een met wachtwoord beschermde presentatie wordt beschouwd als een vergrendelde presentatie.
 
-Typisch kunt u een wachtwoord instellen om deze beperkingen op een presentatie af te dwingen:
+Doorgaans kun je een wachtwoord instellen om deze beperkingen op een presentatie af te dwingen:
 
 - **Wijziging**
 
-  Als u alleen bepaalde gebruikers uw presentatie wilt laten wijzigen, kunt u een wijzigingsbeperking instellen. Deze beperking voorkomt dat mensen wijzigen, veranderen of kopiëren in uw presentatie (tenzij ze het wachtwoord invoeren).
+  Als je wilt dat alleen bepaalde gebruikers je presentatie mogen wijzigen, kun je een wijzigingsbeperking instellen. Deze beperking voorkomt dat mensen wijzigingen aanbrengen, zaken aanpassen of kopiëren in je presentatie (tenzij ze het wachtwoord invoeren). 
 
-  Echter, in dit geval kan een gebruiker, zelfs zonder het wachtwoord, toegang krijgen tot uw document en het openen. In de alleen-lezen modus kan de gebruiker de inhoud of zaken—hyperlinks, animaties, effecten en andere—binnen uw presentatie bekijken, maar hij kan geen items kopiëren of de presentatie opslaan.
+  Echter, in dit geval kan een gebruiker, zelfs zonder het wachtwoord, toegang krijgen tot je document en het openen. In deze alleen‑lezen modus kan de gebruiker de inhoud of elementen — hyperlinks, animaties, effecten en andere — binnen je presentatie bekijken, maar hij kan geen items kopiëren of de presentatie opslaan. 
 
 - **Openen**
 
-  Als u alleen bepaalde gebruikers uw presentatie wilt laten openen, kunt u een openingsbeperking instellen. Deze beperking voorkomt dat mensen zelfs de inhoud van uw presentatie kunnen bekijken (tenzij ze het wachtwoord invoeren).
+  Als je wilt dat alleen bepaalde gebruikers je presentatie mogen openen, kun je een openingsbeperking instellen. Deze beperking verhindert dat mensen zelfs de inhoud van je presentatie kunnen bekijken (tenzij ze het wachtwoord invoeren).
 
-  Technisch gezien voorkomt de openingsbeperking ook dat gebruikers uw presentaties wijzigen: wanneer mensen een presentatie niet kunnen openen, kunnen ze deze niet wijzigen of aanpassingen maken.
+  Technisch gezien voorkomt de openingsbeperking ook dat gebruikers je presentaties wijzigen: wanneer mensen een presentatie niet kunnen openen, kunnen ze deze niet aanpassen of wijzigen. 
+  
+  **Opmerking** dat wanneer je een presentatie met een wachtwoord beschermt om openen te voorkomen, het presentatiedbestand versleuteld wordt.
 
-  **Note** dat wanneer u een presentatie met een wachtwoord beveiligt om openen te voorkomen, het presentatie‑bestand versleuteld wordt.
-
-## **Hoe een presentatie online met wachtwoord beveiligen**
+## **Hoe een presentatie online met een wachtwoord beveiligen**
 
 1. Ga naar onze [**Aspose.Slides Lock**](https://products.aspose.app/slides/nl/lock) pagina. 
 
    ![todo:image_alt_text](slides-lock.png)
 
-2. Klik op **Sleep of upload uw bestanden**.
+2. Klik op **Sleep of upload je bestanden**.
 
-3. Selecteer het bestand dat u wilt beveiligen met een wachtwoord op uw computer. 
+3. Selecteer het bestand dat je wilt beveiligen met een wachtwoord op je computer. 
 
-4. Voer uw gewenste wachtwoord in voor bewerkingsbeveiliging; Voer uw gewenste wachtwoord in voor weergavebeveiliging. 
+4. Voer je gewenste wachtwoord in voor bewerkingsbescherming; Voer je gewenste wachtwoord in voor weergavebescherming. 
 
-5. Als u wilt dat gebruikers uw presentatie zien als de definitieve kopie, vink dan het **Mark as final** selectievakje aan.
+5. Als je wilt dat gebruikers je presentatie zien als de definitieve kopie, zet dan een vinkje bij het **Mark as final** selectievak.
 
 6. Klik op **PROTECT NOW.** 
 
 7. Klik op **DOWNLOAD NOW.**
 
 ## **Wachtwoordbeveiliging voor presentaties in Aspose.Slides**
-**Ondersteunde formaten**
+**Ondersteunde indelingen**
 
-Aspose.Slides ondersteunt wachtwoordbeveiliging, versleuteling en vergelijkbare bewerkingen voor presentaties in deze formaten:
+Aspose.Slides ondersteunt wachtwoordbeveiliging, versleuteling en vergelijkbare bewerkingen voor presentaties in deze indelingen: 
 
-- PPTX en PPT - Microsoft PowerPoint‑presentatie
-- ODP - OpenDocument‑presentatie
-- OTP - OpenDocument‑presentatiesjabloon
+- PPTX en PPT - Microsoft PowerPoint‑presentatie 
+- ODP - OpenDocument‑presentatie 
+- OTP - OpenDocument‑presentatiesjabloon 
 
 **Ondersteunde bewerkingen**
 
-Aspose.Slides stelt u in staat wachtwoordbeveiliging op presentaties te gebruiken om wijzigingen te voorkomen op de volgende manieren:
+Aspose.Slides stelt je in staat om wachtwoordbeveiliging toe te passen op presentaties om wijzigingen te voorkomen op de volgende manieren:
 
 - Een presentatie versleutelen
-- Schrijfbescherming instellen voor een presentatie
+- Schrijfbeveiliging instellen voor een presentatie
 
 **Andere bewerkingen**
 
-Aspose.Slides laat u andere taken uitvoeren die verband houden met wachtwoordbeveiliging en versleuteling op de volgende manieren:
+Aspose.Slides stelt je in staat om andere taken met betrekking tot wachtwoordbeveiliging en versleuteling uit te voeren op de volgende manieren:
 
 - Een presentatie ontsleutelen; een versleutelde presentatie openen
 - Versleuteling verwijderen; wachtwoordbeveiliging uitschakelen
-- Schrijfbescherming van een presentatie verwijderen
+- Schrijfbeveiliging van een presentatie verwijderen
 - De eigenschappen van een versleutelde presentatie ophalen
 - Controleren of een presentatie versleuteld is
-- Controleren of een presentatie met wachtwoord is beveiligd.
+- Controleren of een presentatie met een wachtwoord is beveiligd.
 
 ## **Een presentatie versleutelen**
 
-U kunt een presentatie versleutelen door een wachtwoord in te stellen. Vervolgens moet een gebruiker het wachtwoord invoeren om de vergrendelde presentatie te wijzigen.
+Je kunt een presentatie versleutelen door een wachtwoord in te stellen. Om vervolgens de vergrendelde presentatie te wijzigen, moet een gebruiker het wachtwoord opgeven. 
 
-Om een presentatie te versleutelen of met een wachtwoord te beveiligen, moet u de **encrypt**‑methode gebruiken (van [ProtectionManager](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.protection_manager)) om een wachtwoord voor de presentatie in te stellen. U geeft het wachtwoord door aan de **encrypt**‑methode en gebruikt vervolgens de **save**‑methode om de nu versleutelde presentatie op te slaan.
+Om een presentatie te versleutelen of met een wachtwoord te beveiligen, moet je de encrypt‑methode (van [ProtectionManager](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.protection_manager)) gebruiken om een wachtwoord voor de presentatie in te stellen. Je geeft het wachtwoord door aan de encrypt‑methode en gebruikt de save‑methode om de nu versleutelde presentatie op te slaan. 
 
-Deze voorbeeldcode laat zien hoe u een presentatie versleutelt:
+Deze voorbeeldcode toont hoe je een presentatie versleutelt:
 
 ``` cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
 
 presentation->get_ProtectionManager()->Encrypt(u"123123");
 presentation->Save(u"encrypted-pres.pptx", SaveFormat::Pptx);
 ```
 
-## **Schrijfbescherming instellen voor een presentatie** 
+## **Schrijfbeveiliging voor een presentatie instellen** 
 
-U kunt een markering “Do not modify” toevoegen aan een presentatie. Op deze manier laat u gebruikers weten dat u niet wilt dat zij wijzigingen aanbrengen in de presentatie.  
+Je kunt een markering toevoegen met de tekst “Do not modify” aan een presentatie. Op deze manier kun je gebruikers laten weten dat je niet wilt dat ze wijzigingen aanbrengen in de presentatie.  
 
-**Note** dat het proces van schrijfbescherming de presentatie niet versleutelt. Daarom kunnen gebruikers—indien ze dat willen—de presentatie wijzigen, maar om de wijzigingen op te slaan, moeten ze een presentatie onder een andere naam aanmaken. 
+**Opmerking** dat het proces van schrijfbeveiliging de presentatie niet versleutelt. Gebruikers—als ze dat willen—kunnen de presentatie wijzigen, maar om de wijzigingen op te slaan moeten ze een presentatie met een andere naam maken. 
 
-Om schrijfbescherming in te stellen, moet u de **setWriteProtection**‑methode gebruiken. Deze voorbeeldcode laat zien hoe u schrijfbescherming instelt voor een presentatie:
+Om een schrijfbeveiliging in te stellen, moet je de setWriteProtection‑methode gebruiken. Deze voorbeeldcode toont hoe je een schrijfbeveiliging aan een presentatie toevoegt:
 
 ``` cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
 
 presentation->get_ProtectionManager()->SetWriteProtection(u"123123");
@@ -130,11 +142,14 @@ presentation->Save(u"write-protected-pres.pptx", SaveFormat::Pptx);
 
 ## **Een versleutelde presentatie laden**
 
-Aspose.Slides maakt het mogelijk een versleuteld bestand te laden door het wachtwoord door te geven. Om een presentatie te ontsleutelen, moet u de [RemoveEncryption](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.protection_manager#a422059278b430a0493680252aa975d4d)‑methode zonder parameters aanroepen. Vervolgens moet u het juiste wachtwoord invoeren om de presentatie te laden. 
+Aspose.Slides stelt je in staat een versleuteld bestand te laden door het wachtwoord door te geven. Om een presentatie te ontsleutelen, moet je de [RemoveEncryption](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.protection_manager#a422059278b430a0493680252aa975d4d)‑methode zonder parameters aanroepen. Vervolgens moet je het correcte wachtwoord invoeren om de presentatie te laden. 
 
-Deze voorbeeldcode laat zien hoe u een presentatie ontsleutelt: 
+Deze voorbeeldcode toont hoe je een presentatie ontsleutelt: 
 
 ``` cpp
+#include <DOM/LoadOptions.h>
+using namespace Aspose::Slides;
+
 auto loadOptions = System::MakeObject<LoadOptions>();
 loadOptions->set_Password(u"123123");
     
@@ -143,13 +158,20 @@ System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(
 // werk met ontsleutelde presentatie
 ```
 
-## **Versleuteling verwijderen van een presentatie**
+## **Versleuteling van een presentatie verwijderen**
 
-U kunt de versleuteling of wachtwoordbeveiliging van een presentatie verwijderen. Op deze manier kunnen gebruikers de presentatie zonder beperkingen openen of wijzigen. 
+Je kunt de versleuteling of wachtwoordbeveiliging van een presentatie verwijderen. Zo kunnen gebruikers de presentatie zonder beperkingen openen of wijzigen. 
 
-Om versleuteling of wachtwoordbeveiliging te verwijderen, moet u de [RemoveEncryption](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.protection_manager#a422059278b430a0493680252aa975d4d)‑methode aanroepen. Deze voorbeeldcode laat zien hoe u versleuteling van een presentatie verwijdert:
+Om versleuteling of wachtwoordbeveiliging te verwijderen, moet je de [RemoveEncryption](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.protection_manager#a422059278b430a0493680252aa975d4d)‑methode aanroepen. Deze voorbeeldcode toont hoe je de versleuteling van een presentatie verwijdert:
 
 ``` cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto loadOptions = System::MakeObject<LoadOptions>();
 loadOptions->set_Password(u"123123");
     
@@ -159,41 +181,95 @@ presentation->get_ProtectionManager()->RemoveEncryption();
 presentation->Save(u"encryption-removed.pptx", SaveFormat::Pptx);
 ```
 
-## **Schrijfbescherming verwijderen van een presentatie**
+## **Schrijfbeveiliging van een presentatie verwijderen**
 
-U kunt Aspose.Slides gebruiken om de schrijfbescherming van een presentatiedocument te verwijderen. Op die manier kunnen gebruikers vrijelijk wijzigen en krijgen zij geen waarschuwingen bij dergelijke handelingen.
+Je kunt met Aspose.Slides de schrijfbeveiliging van een presentatiebestand verwijderen. Zo kunnen gebruikers naar wens wijzigen—en krijgen ze geen waarschuwingen bij het uitvoeren van zulke handelingen.
 
-U kunt de schrijfbescherming van een presentatie verwijderen met de [RemoveWriteProtection](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.protection_manager#a9f9e6de5983965157dac0f270a0a9e50)‑methode. Deze voorbeeldcode laat zien hoe u de schrijfbescherming van een presentatie verwijdert:
+Je kunt de schrijfbeveiliging van een presentatie verwijderen door de [RemoveWriteProtection](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.protection_manager#a9f9e6de5983965157dac0f270a0a9e50)‑methode te gebruiken. Deze voorbeeldcode toont hoe je de schrijfbeveiliging van een presentatie verwijdert:
 
 ``` cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
 
 presentation->get_ProtectionManager()->RemoveWriteProtection();
 presentation->Save(u"write-protection-removed.pptx", SaveFormat::Pptx);
 ```
 
-## **De eigenschappen van een versleutelde presentatie ophalen**
+## **Eigenschappen van een versleutelde presentatie ophalen**
 
-Gebruikers hebben vaak moeite om de documenteigenschappen van een versleutelde of met wachtwoord beveiligde presentatie te verkrijgen. Aspose.Slides biedt echter een mechanisme waarmee u een presentatie kunt beveiligen met een wachtwoord terwijl gebruikers nog steeds toegang hebben tot de eigenschappen van die presentatie.
+Meestal hebben gebruikers moeite om de documenteigenschappen van een versleutelde of met een wachtwoord beveiligde presentatie op te halen. Aspose.Slides biedt echter een mechanisme waarmee je een presentatie met een wachtwoord kunt beveiligen en toch toegang tot de documenteigenschappen behoudt.
 
-**Note** dat wanneer Aspose.Slides een presentatie versleutelt, de documenteigenschappen van de presentatie standaard ook met een wachtwoord worden beveiligd. Als u echter de eigenschappen van de presentatie toegankelijk wilt maken (zelfs nadat de presentatie versleuteld is), maakt Aspose.Slides dit mogelijk.
+**Opmerking:** Standaard zijn de documenteigenschappen van een presentatie ook met een wachtwoord beveiligd wanneer Aspose.Slides een presentatie versleutelt. Als je de documenteigenschappen toegankelijk wilt houden zelfs na versleuteling, biedt Aspose.Slides precies die mogelijkheid.
 
-Als u wilt dat gebruikers de mogelijkheid behouden om de eigenschappen van een door u versleutelde presentatie te bekijken, kunt u `true` doorgeven aan de [set_EncryptDocumentProperties()](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.protection_manager#a67e041b432552969d106f72fa7fe5a1d)‑methode. Deze voorbeeldcode laat zien hoe u een presentatie versleutelt en tegelijkertijd gebruikers toestaat de documenteigenschappen te bekijken:
+Als je wilt dat gebruikers de mogelijkheid behouden om de eigenschappen van een versleutelde presentatie te bekijken, geef dan `false` door aan de `set_EncryptDocumentProperties`‑methode van [IProtectionManager](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iprotectionmanager/). Deze voorbeeldcode toont hoe je een presentatie versleutelt en toch gebruikers toegang geeft tot de documenteigenschappen:
 
 ``` cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
 auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
 
-presentation->get_ProtectionManager()->set_EncryptDocumentProperties(true);
+presentation->get_ProtectionManager()->set_EncryptDocumentProperties(false);
 presentation->get_ProtectionManager()->Encrypt(u"123123");
+presentation->Save(u"encrypted-pres.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Controleren of een presentatie met wachtwoord is beveiligd**
+## **Alleen documenteigenschappen laden van een versleutelde presentatie**
 
-Voordat u een presentatie laadt, wilt u mogelijk controleren of de presentatie niet met een wachtwoord is beveiligd. Op die manier kunt u fouten en soortgelijke problemen voorkomen die ontstaan wanneer een met wachtwoord beveiligde presentatie zonder wachtwoord wordt geladen.
+Om de metadata van een versleutelde presentatie te inspecteren zonder de dia's of andere inhoud te laden, maak je een [LoadOptions](https://reference.aspose.com/slides/nl/cpp/aspose.slides/loadoptions/)‑object aan en stel je [set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/nl/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) in op `true`. In deze modus negeert Aspose.Slides het wachtwoord en laadt alleen de publiek toegankelijke documenteigenschappen.
 
-Deze C++‑code laat zien hoe u een presentatie onderzoekt om te bepalen of deze met wachtwoord beveiligd is (zonder de presentatie zelf te laden):
+De volgende codevoorbeelden lezen ingebouwde en aangepaste documenteigenschappen via [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipresentation/get_documentproperties/):
+
+``` cpp
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_OnlyLoadDocumentProperties(true);
+
+auto presentation = MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
+auto documentProperties = presentation->get_DocumentProperties();
+
+// Read built-in document properties.
+auto title = documentProperties->get_Title();
+auto author = documentProperties->get_Author();
+Console::WriteLine(String(u"Title: ") + title);
+Console::WriteLine(String(u"Author: ") + author);
+
+// Read custom document properties.
+int customPropertyCount = documentProperties->get_CountOfCustomProperties();
+
+for (int propertyIndex = 0; propertyIndex < customPropertyCount; propertyIndex++)
+{
+    auto propertyName = documentProperties->GetCustomPropertyName(propertyIndex);
+    auto propertyValue = documentProperties->idx_get(propertyName);
+    auto propertyValueText = ObjectExt::ToString(propertyValue);
+
+    Console::WriteLine(propertyName + u": " + propertyValueText);
+}
+
+presentation->Dispose();
+```
+
+Deze workflow werkt alleen wanneer de documenteigenschappen onversleuteld (publiek) zijn gelaten toen de presentatie werd versleuteld. Als de documenteigenschappen versleuteld zijn, leidt het instellen van `LoadOptions::set_OnlyLoadDocumentProperties` op `true` tot een uitzondering omdat het wachtwoord in deze modus wordt genegeerd. Om versleutelde documenteigenschappen te benaderen of de complete presentatie, inclusief dia's en andere inhoud, te laden, geef je het juiste wachtwoord mee met `LoadOptions::set_Password` in [LoadOptions](https://reference.aspose.com/slides/nl/cpp/aspose.slides/loadoptions/).
+
+## **Controleren of een presentatie met een wachtwoord is beveiligd**
+
+Voordat je een presentatie laadt, wil je misschien controleren en bevestigen dat de presentatie niet met een wachtwoord is beveiligd. Zo kun je fouten en soortgelijke problemen vermijden die ontstaan wanneer een met een wachtwoord beveiligde presentatie zonder wachtwoord wordt geladen.
+
+Deze C++‑code toont hoe je een presentatie kunt onderzoeken om te zien of deze met een wachtwoord is beveiligd (zonder de presentatie zelf te laden):
 
 ```c++
+#include <DOM/IPresentationInfo.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(u"example.pptx");
 System::Console::WriteLine(System::String(u"The presentation is password protected: ") +
                            presentationInfo->get_IsPasswordProtected());
@@ -201,57 +277,69 @@ System::Console::WriteLine(System::String(u"The presentation is password protect
 
 ## **Controleren of een presentatie versleuteld is**
 
-Aspose.Slides maakt het mogelijk te controleren of een presentatie versleuteld is. Hiervoor kunt u de [get_IsEncrypted()](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.protection_manager#ad88b984e44b378f335317ded49b34e68)‑methode gebruiken, die `true` retourneert als de presentatie versleuteld is of `false` als deze niet versleuteld is. 
+Aspose.Slides stelt je in staat te controleren of een presentatie versleuteld is. Hiervoor kun je de [get_IsEncrypted()](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.protection_manager#ad88b984e44b378f335317ded49b34e68)‑methode gebruiken, die `true` retourneert als de presentatie versleuteld is en `false` als de presentatie niet versleuteld is. 
 
-Deze voorbeeldcode laat zien hoe u controleert of een presentatie versleuteld is:
+Deze voorbeeldcode toont hoe je kunt controleren of een presentatie versleuteld is:
 
 ``` cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
 auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
 
 bool isEncrypted = presentation->get_ProtectionManager()->get_IsEncrypted();
 ```
 
-## **Controleren of een presentatie schrijfbeschermd is**
+## **Controleren of een presentatie schrijfbeveiligd is**
 
-Aspose.Slides maakt het mogelijk te controleren of een presentatie schrijfbeschermd is. Hiervoor kunt u de [get_IsWriteProtected()](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.protection_manager#a0b4a82c0f7b3a32ca5762c5fcc8844a2)‑methode gebruiken, die `true` retourneert als de presentatie schrijfbeschermd is of `false` als deze niet schrijfbeschermd is. 
+Aspose.Slides stelt je in staat te controleren of een presentatie schrijfbeveiligd is. Hiervoor kun je de [get_IsWriteProtected()](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.protection_manager#a0b4a82c0f7b3a32ca5762c5fcc8844a2)‑methode gebruiken, die `true` retourneert als de presentatie schrijfbeveiligd is en `false` als de presentatie niet schrijfbeveiligd is. 
 
-Deze voorbeeldcode laat zien hoe u controleert of een presentatie schrijfbeschermd is:
+Deze voorbeeldcode toont hoe je kunt controleren of een presentatie schrijfbeveiligd is:
 
 ``` cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
 auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
 
 bool isEncrypted = presentation->get_ProtectionManager()->get_IsWriteProtected();
 ```
 
-## **Verifiëren van wachtwoordgebruik voor presentatie**
+## **Controleren of een presentatiewachtwoord wordt gebruikt**
 
-U wilt wellicht controleren of een specifiek wachtwoord is gebruikt om een presentatiedocument te beveiligen. Aspose.Slides biedt de mogelijkheid om een wachtwoord te valideren. 
+Je wilt wellicht controleren en bevestigen dat een specifiek wachtwoord is gebruikt om een presentatiedocument te beveiligen. Aspose.Slides biedt de mogelijkheid om een wachtwoord te valideren. 
 
-Deze voorbeeldcode laat zien hoe u een wachtwoord valideert:
+Deze voorbeeldcode toont hoe je een wachtwoord valideert:
 
 ``` cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 
 // controleer of "pass" overeenkomt met
 bool isWriteProtected = pres->get_ProtectionManager()->CheckWriteProtection(u"my_password");
 ```
 
-Het retourneert `true` als de presentatie versleuteld is met het opgegeven wachtwoord. Anders retourneert het `false`. 
+Het retourneert `true` als de presentatie is versleuteld met het opgegeven wachtwoord. Anders retourneert het `false`. 
 
-{{% alert color="primary" title="Zie ook" %}} 
-- [Digitale handtekening in PowerPoint](/slides/nl/cpp/digital-signature-in-powerpoint/)
+{{% alert color="info" title="Zie ook" %}} 
+- [Digital Signature in PowerPoint](/slides/nl/cpp/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **FAQ**
 
-**Welke versleutelingsmethoden ondersteunt Aspose.Slides?**
+**Welke versleutelingsmethoden worden ondersteund door Aspose.Slides?**
 
-Aspose.Slides ondersteunt moderne versleutelingsmethoden, inclusief AES‑gebaseerde algoritmen, wat zorgt voor een hoog beveiligingsniveau van uw presentaties.
+Aspose.Slides ondersteunt moderne versleutelingsmethoden, waaronder AES‑gebaseerde algoritmen, wat een hoog niveau van gegevensbeveiliging voor je presentaties garandeert.
 
-**Wat gebeurt er als er een onjuist wachtwoord wordt ingevoerd bij het proberen te openen van een presentatie?**
+**Wat gebeurt er als een onjuist wachtwoord wordt ingevoerd bij het proberen een presentatie te openen?**
 
-Er wordt een uitzondering gegooid bij een onjuist wachtwoord, waardoor u wordt gewaarschuwd dat de toegang tot de presentatie wordt geweigerd. Dit helpt onbevoegde toegang te voorkomen en beschermt de inhoud van de presentatie.
+Er wordt een uitzondering gegooid als een onjuist wachtwoord wordt gebruikt, waarmee je wordt gewaarschuwd dat de toegang tot de presentatie wordt geweigerd. Dit helpt ongeautoriseerde toegang te voorkomen en beschermt de inhoud van de presentatie.
 
-**Zijn er prestatie‑implicaties bij het werken met met wachtwoord beveiligde presentaties?**
+**Zijn er prestatie‑implicaties bij het werken met met een wachtwoord beveiligde presentaties?**
 
-Het versleutel‑ en ontsleutelproces kan een lichte overhead veroorzaken tijdens het openen en opslaan. In de meeste gevallen is deze impact minimaal en beïnvloedt het de algehele verwerkingstijd van uw presentatietaken niet wezenlijk.
+Het versleutelings‑ en ontsleutelingsproces kan enige extra overhead veroorzaken tijdens open‑ en opslaan‑bewerkingen. In de meeste gevallen is deze prestatie‑impact minimaal en heeft ze geen significante invloed op de totale verwerkingstijd van je presentatietaken.

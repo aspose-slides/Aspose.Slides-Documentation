@@ -1,6 +1,6 @@
 ---
-title: Aspose.Slides for .NET 15.8.0'de Genel API ve Geriye Uyumlu Olmayan Değişiklikler
-linktitle: Aspose.Slides for .NET 15.8.0
+title: "Aspose.Slides for .NET 15.8.0'de Genel API ve Geriye Uyumsuz Değişiklikler"
+linktitle: "Aspose.Slides for .NET 15.8.0"
 type: docs
 weight: 190
 url: /tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/
@@ -18,13 +18,20 @@ keywords:
 - Aspose.Slides
 description: "Aspose.Slides for .NET'teki genel API güncellemelerini ve kırılma değişikliklerini inceleyerek PowerPoint PPT, PPTX ve ODP sunum çözümlerinizi sorunsuz bir şekilde taşıyın."
 ---
-{{% alert color="primary" %}} 
-Bu sayfa, Aspose.Slides for .NET 15.8.0 API'siyle tanıtılan [eklenen](/slides/tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) veya [kaldırılan](/slides/tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) sınıfları, metodları, özellikleri vb. ve diğer değişiklikleri listeler.
+{{% alert color="info" %}} 
+
+Bu sayfa, Aspose.Slides for .NET 15.8.0 API'siyle tanıtılan [eklenen](/slides/tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) veya [kaldırılan](/slides/tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) sınıflar, metodlar, özellikler vb. ve diğer değişiklikleri listeler.
+
 {{% /alert %}} 
-## **Public API Değişiklikleri**
+## **Genel API Değişiklikleri**
 #### **DoughnutHoleSize Özelliği IChartSeries ve ChartSeries'e Eklendi**
-Doughnut grafiğindeki deliğin boyutunu belirtir.
+Donut grafiğindeki deliğin boyutunu belirtir.
+
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -37,5 +44,4 @@ Doughnut grafiğindeki deliğin boyutunu belirtir.
    pres.Save("ChartSeries.API.DoughnutHoleSize.pptx", SaveFormat.Pptx);
 
 }
-
 ```

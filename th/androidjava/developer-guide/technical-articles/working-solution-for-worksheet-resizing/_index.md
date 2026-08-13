@@ -1,49 +1,53 @@
 ---
-title: วิธีแก้ปัญหาการปรับขนาดแผ่นงาน
+title: วิธีแก้ปัญหาการปรับขนาดชีตงาน
 type: docs
 weight: 20
 url: /th/androidjava/working-solution-for-worksheet-resizing/
 keywords:
 - OLE
-- ภาพตัวอย่าง
+- ภาพแสดงตัวอย่าง
 - การปรับขนาดภาพ
 - Excel
-- แผ่นงาน
+- ชีตงาน
 - PowerPoint
 - งานนำเสนอ
 - Android
 - Java
 - Aspose.Slides
-description: "แก้ไขการปรับขนาด OLE ของแผ่นงาน Excel ในงานนำเสนอ: สองวิธีเพื่อให้กรอบวัตถุคงที่—ปรับสเกลกรอบหรือแผ่นงาน—ในรูปแบบ PPT และ PPTX."
+description: "แก้ไขการปรับขนาด OLE ของชีตงาน Excel ในงานนำเสนอ: สองวิธีเพื่อให้กรอบวัตถุตรงกัน - ปรับขนาดกรอบหรือชีต - ในรูปแบบ PPT และ PPTX"
 ---
-{{% alert color="primary" %}}
-
-พบว่าแผ่นงาน Excel ที่ฝังเป็นวัตถุ OLE ในงานนำเสนอ PowerPoint ผ่านคอมโพเนนท์ของ Aspose จะถูกปรับขนาดเป็นสเกลที่ไม่ระบุหลังจากการเปิดใช้งานครั้งแรก พฤติกรรมนี้สร้างความแตกต่างด้านภาพที่สังเกตได้ระหว่างสถานะก่อนและหลังการเปิดใช้งานวัตถุ OLE เราได้สำรวจปัญหานี้อย่างละเอียดและให้วิธีแก้ ซึ่งอธิบายไว้ในบทความนี้
-
+{{% alert color="info" %}}
+พบว่าชีตงาน Excel ที่ฝังเป็นวัตถุ OLE ในงานนำเสนอ PowerPoint ผ่านคอมโพเนนต์ของ Aspose จะถูกปรับขนาดเป็นสเกลที่ไม่ระบุหลังจากการเปิดใช้งานครั้งแรก พฤติกรรมนี้ทำให้เกิดความแตกต่างด้านภาพที่สังเกตได้ระหว่างสถานะก่อนและหลังการเปิดใช้งานของวัตถุ OLE เราได้สอบสวนปัญหานี้อย่างละเอียดและได้ให้วิธีแก้ ซึ่งครอบคลุมในบทความนี้
 {{% /alert %}}
 
 ## **พื้นฐาน**
 
-ในบทความ [จัดการ OLE](/slides/th/androidjava/manage-ole/) เราได้อธิบายวิธีการเพิ่มกรอบ OLE ลงในงานนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ Android ผ่าน Java เพื่อแก้ไข [ปัญหาการแสดงตัวอย่างวัตถุ](/slides/th/androidjava/object-preview-issue-when-adding-oleobjectframe/) เราได้กำหนดภาพของพื้นที่แผ่นงานที่เลือกให้กับกรอบวัตถุ OLE ในงานนำเสนอที่ส่งออก เมื่อคุณคลิกสองครั้งที่กรอบ OLE ที่แสดงภาพแผ่นงาน Excel จะทำการเปิดใช้งานสมุดงาน Excel ผู้ใช้สามารถทำการแก้ไขใด ๆ ที่ต้องการในสมุดงานจริงแล้วคลิกนอกสมุดงานที่เปิดใช้งานเพื่อกลับไปยังสไลด์ได้ ขนาดของกรอบ OLE จะเปลี่ยนแปลงเมื่อผู้ใช้กลับไปยังสไลด์ ตัวเลขการปรับขนาดจะแตกต่างกันขึ้นอยู่กับขนาดของกรอบ OLE และสมุดงาน Excel ที่ฝังไว้
+ในบทความ [จัดการ OLE](/slides/th/androidjava/manage-ole/) เราได้อธิบายวิธีการเพิ่มเฟรม OLE ลงในงานนำเสนอ PowerPoint โดยใช้ Aspose.Slides สำหรับ Android ผ่าน Java เพื่อแก้ไข [ปัญหาการแสดงตัวอย่างวัตถุ](/slides/th/androidjava/object-preview-issue-when-adding-oleobjectframe/) เราได้กำหนดรูปภาพของพื้นที่ชีตงานที่เลือกให้กับเฟรม OLE ในงานนำเสนอที่ได้ผลลัพธ์ เมื่อคุณดับเบิลคลิกที่เฟรม OLE ที่แสดงรูปภาพของชีต งาน Excel จะถูกเปิดใช้งาน ผู้ใช้ขั้นสุดท้ายสามารถทำการเปลี่ยนแปลงใดๆ ที่ต้องการกับไฟล์ Excel จริงแล้วกลับไปยังสไลด์โดยคลิกนอกไฟล์ Excel ที่เปิดอยู่ ขนาดของเฟรม OLE จะเปลี่ยนแปลงเมื่อผู้ใช้กลับไปยังสไลด์ ปัจจัยการปรับขนาดจะแตกต่างกันตามขนาดของเฟรม OLE และไฟล์ Excel ที่ฝังอยู่
 
 ## **สาเหตุของการปรับขนาด**
 
-เนื่องจากสมุดงาน Excel มีขนาดหน้าต่างของตนเอง มันพยายามรักษาขนาดเดิมไว้เมื่อเปิดใช้งานครั้งแรก ในขณะที่กรอบ OLE มีขนาดของตนเอง ตามคำชี้แจงของ Microsoft เมื่อสมุดงาน Excel ถูกเปิดใช้งาน Excel และ PowerPoint จะเจรจาขนาดเพื่อให้รักษาสัดส่วนที่ถูกต้องเป็นส่วนหนึ่งของกระบวนการฝัง การปรับขนาดเกิดจากความแตกต่างระหว่างขนาดหน้าต่าง Excel กับขนาดและตำแหน่งของกรอบ OLE
+เนื่องจากไฟล์งาน Excel มีขนาดหน้าต่างของตนเอง มันพยายามคงขนาดเดิมไว้เมื่อติดตั้งครั้งแรก ในขณะเดียวกันเฟรม OLE มีขนาดของมันเอง ตามที่ Microsoft ระบุ เมื่อไฟล์งาน Excel ถูกเปิดใช้งาน Excel และ PowerPoint จะเจรจาขนาดเพื่อให้แน่ใจว่ารักษาส่วนสัดส่วนที่ถูกต้องเป็นส่วนหนึ่งของกระบวนการฝัง การปรับขนาดเกิดขึ้นตามความแตกต่างระหว่างขนาดหน้าต่าง Excel กับขนาดและตำแหน่งของเฟรม OLE
 
-## **วิธีแก้ที่ทำงานได้**
+## **วิธีแก้ปัญหา**
 
 มีวิธีแก้สองวิธีเพื่อหลีกเลี่ยงผลของการปรับขนาด
 
-- ปรับสเกลขนาดกรอบ OLE ในงานนำเสนอ PowerPoint ให้ตรงกับความสูงและความกว้างของจำนวนแถวและคอลัมน์ที่ต้องการในกรอบ OLE
-- คงขนาดกรอบ OLE ไคงที่และปรับขนาดของแถวและคอลัมน์ที่เกี่ยวข้องให้พอดีกับขนาดกรอบ OLE ที่เลือก
+- ปรับขนาดเฟรม OLE ในงานนำเสนอ PowerPoint ให้ตรงกับความสูงและความกว้างของจำนวนแถวและคอลัมน์ที่ต้องการในเฟรม OLE
+- คงขนาดเฟรม OLE ไคยไว้และปรับขนาดของแถวและคอลัมน์ที่เกี่ยวข้องให้พอดีกับขนาดเฟรม OLE ที่เลือก
 
-### **ปรับสเกลขนาดกรอบ OLE**
+### **ปรับขนาดเฟรม OLE**
 
-ในแนวทางนี้ เราจะเรียนรู้วิธีตั้งค่าขนาดกรอบ OLE ของสมุดงาน Excel ที่ฝังไว้ให้ตรงกับขนาดรวมของแถวและคอลัมน์ที่เกี่ยวข้องในแผ่นงาน Excel
+ในวิธีนี้ เราจะเรียนรู้วิธีตั้งค่าขนาดเฟรม OLE ของไฟล์ Excel ที่ฝังไว้ให้ตรงกับขนาดรวมของแถวและคอลัมน์ที่เกี่ยวข้องในชีตงาน Excel
 
-สมมติว่าเรามีแผ่นงาน Excel แบบเทมเพลตและต้องการเพิ่มเข้าเป็นกรอบ OLE ในงานนำเสนอ ในสถานการณ์นี้ ขนาดของกรอบ OLE จะถูกคำนวณเป็นครั้งแรกจากความสูงรวมของแถวและความกว้างรวมของคอลัมน์ที่เกี่ยวข้องในสมุดงาน จากนั้นเราจะตั้งค่าขนาดของกรอบ OLE ให้เป็นค่าที่คำนวณได้ เพื่อหลีกเลี่ยงข้อความสีแดง “EMBEDDED OLE OBJECT” ในกรอบ OLE ของ PowerPoint เราจะจับภาพส่วนที่ต้องการของแถวและคอลัมน์ในสมุดงานและตั้งค่าเป็นภาพกรอบ OLE
+สมมติว่าเรามีแผ่นงาน Excel เป็นเทมเพลตและต้องการเพิ่มลงในงานนำเสนอเป็นเฟรม OLE ในสถานการณ์นี้ ขนาดของเฟรม OLE จะถูกคำนวณเป็นครั้งแรกจากความสูงแถวและความกว้างคอลัมน์รวมของแถวและคอลัมน์ที่เกี่ยวข้องในเวิร์กบุ๊ก จากนั้นเราจะตั้งค่าขนาดของเฟรม OLE ให้เป็นค่าที่คำนวณได้ เพื่อหลีกเลี่ยงข้อความสีแดง “EMBEDDED OLE OBJECT” สำหรับเฟรม OLE ใน PowerPoint เราจะจับภาพส่วนที่ต้องการของแถวและคอลัมน์ในเวิร์กบุ๊กและตั้งเป็นภาพของเฟรม OLE
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -53,7 +57,7 @@ int imageResolution = 96;
 com.aspose.cells.Workbook workbook = new com.aspose.cells.Workbook( "sample.xlsx");
 com.aspose.cells.Worksheet worksheet = workbook.getWorksheets().get(worksheetIndex);
 
-// ตั้งขนาดที่แสดงเมื่อไฟล์สมุดงานถูกใช้เป็นวัตถุ OLE ใน PowerPoint.
+// ตั้งค่าขนาดที่แสดงเมื่อไฟล์เวิร์กบุ๊กถูกใช้เป็นวัตถุ OLE ใน PowerPoint.
 int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -61,12 +65,12 @@ workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
 com.aspose.cells.Range cellRange = worksheet.getCells().createRange(startRow, startColumn, rowCount, columnCount);
 InputStream imageStream = CreateOleImage(cellRange, imageResolution);
 
-// Get the width and height of the OLE image in points.
+// รับความกว้างและความสูงของภาพ OLE เป็นหน่วยพอยต์.
 Bitmap image = BitmapFactory.decodeStream(imageStream);
-float imageWidth = image.getWidth(null) * 72f / imageResolution;
-float imageHeight = image.getHeight(null) * 72f / imageResolution;
+float imageWidth = image.getWidth() * 72f / imageResolution;
+float imageHeight = image.getHeight() * 72f / imageResolution;
 
-// We need to use the modified workbook.
+// เราต้องใช้เวิร์กบุ๊กที่ปรับปรุงแล้ว.
 ByteArrayOutputStream oleStream = new ByteArrayOutputStream();
 workbook.save(oleStream, com.aspose.cells.SaveFormat.XLSX);
 workbook.dispose();
@@ -74,12 +78,12 @@ workbook.dispose();
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
-// Add the OLE image to the presentation resources.
+// เพิ่มภาพ OLE ไปยังทรัพยากรของงานนำเสนอ.
 imageStream.reset();
 IPPImage oleImage = presentation.getImages().addImage(imageStream);
 imageStream.close();
 
-// Create the OLE object frame.
+// สร้างเฟรมวัตถุ OLE.
 IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleStream.toByteArray(), "xlsx");
 IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(10, 10, imageWidth, imageHeight, dataInfo);
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
@@ -91,6 +95,10 @@ presentation.dispose();
 ```
 
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -115,13 +123,17 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 }
 ```
 
-### **ปรับสเกลขนาดช่วงเซลล์**
+### **ปรับขนาดช่วงเซลล์**
 
-ในแนวทางนี้ เราจะเรียนรู้วิธีปรับความสูงของแถวที่เกี่ยวข้องและความกว้างของคอลัมน์ที่เกี่ยวข้องให้ตรงกับขนาดกรอบ OLE ที่กำหนดเอง
+ในวิธีนี้ เราจะเรียนรู้วิธีปรับความสูงของแถวที่เกี่ยวข้องและความกว้างของคอลัมน์ที่เกี่ยวข้องให้ตรงกับขนาดเฟรม OLE ที่กำหนดเอง
 
-สมมติว่าเรามีแผ่นงาน Excel แบบเทมเพลตและต้องการเพิ่มเข้าเป็นกรอบ OLE ในงานนำเสนอ เราจะตั้งค่าขนาดของกรอบ OLE แล้วปรับขนาดของแถวและคอลัมน์ที่เข้าร่วมในพื้นที่กรอบ OLE จากนั้นเราจะบันทึกสมุดงานลงในสตรีมเพื่อใช้การเปลี่ยนแปลงและแปลงเป็นอาร์เรย์ไบต์เพื่อเพิ่มเข้าในกรอบ OLE เพื่อหลีกเลี่ยงข้อความสีแดง “EMBEDDED OLE OBJECT” ในกรอบ OLE ของ PowerPoint เราจะจับภาพส่วนที่ต้องการของแถวและคอลัมน์ในสมุดงานและตั้งค่าเป็นภาพกรอบ OLE
+สมมติว่าเรามีแผ่นงาน Excel เป็นเทมเพลตและต้องการเพิ่มลงในงานนำเสนอเป็นเฟรม OLE ในสถานการณ์นี้ เราจะตั้งค่าขนาดของเฟรม OLE และปรับขนาดของแถวและคอลัมน์ที่เข้าร่วมในพื้นที่เฟรม OLE จากนั้นเราจะบันทึกเวิร์กบุ๊กลงในสตรีมเพื่อใช้การเปลี่ยนแปลงและแปลงเป็นอาเรย์ไบต์เพื่อเพิ่มลงในเฟรม OLE เพื่อหลีกเลี่ยงข้อความสีแดง “EMBEDDED OLE OBJECT” สำหรับเฟรม OLE ใน PowerPoint เราจะจับภาพส่วนที่ต้องการของแถวและคอลัมน์ในเวิร์กบุ๊กและตั้งเป็นภาพของเฟรม OLE
 
 ```java
+import com.aspose.slides.*;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -132,18 +144,18 @@ float frameWidth = 400, frameHeight = 100;
 com.aspose.cells.Workbook workbook = new com.aspose.cells.Workbook("sample.xlsx");
 com.aspose.cells.Worksheet worksheet = workbook.getWorksheets().get(worksheetIndex);
 
-// กำหนดขนาดที่แสดงเมื่อไฟล์สมุดงานถูกใช้เป็นวัตถุ OLE ใน PowerPoint.
+// ตั้งค่าขนาดที่แสดงเมื่อไฟล์เวิร์กบุ๊กถูกใช้เป็นวัตถุ OLE ใน PowerPoint.
 int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
 
-// ปรับสเกลช่วงเซลล์ให้พอดีกับขนาดกรอบ.
+// ปรับสเกลช่วงเซลล์ให้พอดีกับขนาดเฟรม.
 com.aspose.cells.Range cellRange = worksheet.getCells().createRange(startRow, startColumn, rowCount, columnCount);
 ScaleCellRange(cellRange, frameWidth, frameHeight);
 
 InputStream imageStream = CreateOleImage(cellRange, imageResolution);
 
-// เราต้องใช้สมุดงานที่แก้ไขแล้ว.
+// เราต้องใช้เวิร์กบุ๊กที่ปรับแก้แล้ว.
 ByteArrayOutputStream oleStream = new ByteArrayOutputStream();
 workbook.save(oleStream, com.aspose.cells.SaveFormat.XLSX);
 workbook.dispose();
@@ -151,11 +163,11 @@ workbook.dispose();
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
-// เพิ่มภาพ OLE ลงในทรัพยากรของงานนำเสนอ.
+// เพิ่มภาพ OLE ไปยังทรัพยากรของงานนำเสนอ.
 IPPImage oleImage = presentation.getImages().addImage(imageStream);
 imageStream.close();
 
-// สร้างกรอบวัตถุ OLE.
+// สร้างเฟรมวัตถุ OLE.
 IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleStream.toByteArray(), "xlsx");
 IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(10, 10, frameWidth, frameHeight, dataInfo);
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
@@ -168,8 +180,8 @@ presentation.dispose();
 
 ```java
 /**
- * @param width     ความกว้างที่คาดว่าจะเป็นของช่วงเซลล์ในหน่วยจุด.
- * @param height    ความสูงที่คาดว่าจะเป็นของช่วงเซลล์ในหน่วยจุด.
+ * @param width     ความกว้างที่คาดหวังของช่วงเซลล์ในหน่วยพอยต์.
+ * @param height    ความสูงที่คาดหวังของช่วงเซลล์ในหน่วยพอยต์.
  */
 static void ScaleCellRange(com.aspose.cells.Range cellRange, float width, float height) {
     double rangeWidth = cellRange.getWidth();
@@ -204,6 +216,10 @@ static void ScaleCellRange(com.aspose.cells.Range cellRange, float width, float 
 ```
 
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -230,34 +246,32 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 
 ## **สรุป**
 
-{{% alert color="primary" %}} 
-
-มีสองแนวทางเพื่อแก้ไขปัญหาการปรับขนาดแผ่นงาน การเลือกแนวทางที่เหมาะสมขึ้นอยู่กับความต้องการและกรณีการใช้งาน ทั้งสองแนวทางทำงานเช่นเดียวกันไม่ว่าจะสร้างงานนำเสนอจากเทมเพลตหรือจากศูนย์ นอกจากนี้ไม่มีขีดจำกัดขนาดของกรอบ OLE ในวิธีแก้นี้
-
+{{% alert color="info" %}} 
+มีสองวิธีเพื่อแก้ไขปัญหาการปรับขนาดของชีตงาน การเลือกวิธีที่เหมาะสมขึ้นอยู่กับความต้องการและกรณีการใช้งานเฉพาะ ทั้งสองวิธีทำงานแบบเดียวกัน ไม่ว่าจะสร้างงานนำเสนอจากเทมเพลตหรือจากศูนย์ นอกจากนี้ไม่มีข้อจำกัดเรื่องขนาดของเฟรม OLE ในวิธีนี้
 {{% /alert %}}
 
 ## **คำถามที่พบบ่อย**
 
-**ทำไมแผ่นงาน Excel ที่ฝังอยู่ถึงเปลี่ยนขนาดเมื่อเปิดใช้งานครั้งแรกใน PowerPoint?**
+### ทำไมชีตงาน Excel ที่ฝังอยู่จึงเปลี่ยนขนาดเมื่อเปิดใช้งานครั้งแรกใน PowerPoint?
 
-เกิดจาก Excel พยายามรักษาขนาดหน้าต่างเดิมเมื่อเปิดใช้งาน ในขณะที่กรอบ OLE ใน PowerPoint มีมิติของตนเอง PowerPoint และ Excel จัดขนาดร่วมกันเพื่อรักษาอัตราส่วน ซึ่งอาจทำให้เกิดการปรับขนาด
+เกิดจาก Excel พยายามคงขนาดหน้าต่างเดิมเมื่อเปิดใช้งาน ในขณะที่เฟรม OLE ใน PowerPoint มีมิติของตัวเอง PowerPoint และ Excel จะเจรจาขนาดเพื่อรักษาอัตราส่วน ซึ่งทำให้เกิดการปรับขนาด
 
-**สามารถป้องกันปัญหาการปรับขนาดนี้ได้โดยสมบูรณ์หรือไม่?**
+### สามารถป้องกันปัญหาการปรับขนาดนี้ได้อย่างสมบูรณ์หรือไม่?
 
-ได้ เราสามารถปรับสเกลกรอบ OLE ให้พอดีกับขนาดช่วงเซลล์ Excel หรือปรับสเกลช่วงเซลล์ให้พอดีกับขนาดกรอบ OLE ที่ต้องการเพื่อป้องกันการปรับขนาดที่ไม่ต้องการ
+ทำได้โดยปรับขนาดเฟรม OLE ให้พอดีกับขนาดช่วงเซลล์ของ Excel หรือปรับขนาดช่วงเซลล์ให้พอดีกับขนาดเฟรม OLE ที่ต้องการ ซึ่งจะป้องกันการปรับขนาดที่ไม่ต้องการ
 
-**ควรใช้วิธีการสเกลใด ระหว่างการสเกลกรอบ OLE หรือการสเกลช่วงเซลล์?**
+### ควรใช้วิธีการปรับขนาดใด ควรใช้การปรับขนาดเฟรม OLE หรือการปรับขนาดช่วงเซลล์?
 
-เลือก **การสเกลกรอบ OLE** หากต้องการคงขนาดแถวและคอลัมน์เดิมของ Excel เลือก **การสเกลช่วงเซลล์** หากต้องการให้กรอบ OLE มีขนาดคงที่ในงานนำเสนอของคุณ
+เลือก **การปรับขนาดเฟรม OLE** หากต้องการคงขนาดแถวและคอลัมน์ของ Excel ดั้งเดิม เลือก **การปรับขนาดช่วงเซลล์** หากต้องการให้เฟรม OLE มีขนาดคงที่ในงานนำเสนอของคุณ
 
-**วิธีแก้เหล่านี้จะทำงานได้หรือไม่หากงานนำเสนอของฉันสร้างจากเทมเพลต?**
+### วิธีการเหล่านี้จะทำงานได้หรือไม่หากงานนำเสนอของฉันสร้างจากเทมเพลต?
 
-ใช่ ทั้งสองวิธีทำงานได้กับงานนำเสนอที่สร้างจากเทมเพลตและจากศูนย์
+ทำงานได้ทั้งในงานนำเสนอที่สร้างจากเทมเพลตและจากศูนย์
 
-**มีขีดจำกัดขนาดของกรอบ OLE เมื่อใช้วิธีเหล่านี้หรือไม่?**
+### มีขนาดจำกัดของเฟรม OLE เมื่อใช้วิธีเหล่านี้หรือไม่?
 
-ไม่มี คุณสามารถทำให้กรอบ OLE มีขนาดใดก็ได้ตราบใดที่ตั้งค่าสเกลอย่างเหมาะสม
+ไม่มีข้อจำกัด คุณสามารถทำให้เฟรม OLE มีขนาดเท่าไรก็ตามตราบใดที่ตั้งค่าการสเกลอย่างเหมาะสม
 
-**มีวิธีใดที่จะหลีกเลี่ยงข้อความตัวแทน “EMBEDDED OLE OBJECT” ใน PowerPoint หรือไม่?**
+### มีวิธีใดที่จะหลีกเลี่ยงข้อความแทนที่ “EMBEDDED OLE OBJECT” ใน PowerPoint หรือไม่?
 
-มี โดยการถ่ายภาพช่วงเซลล์ Excel ที่ต้องการและตั้งเป็นภาพแทนของกรอบ OLE คุณจะสามารถแสดงภาพตัวอย่างที่กำหนดเองแทนข้อความตัวแทนเริ่มต้นได้
+ทำได้โดยถ่ายภาพช่วงเซลล์ Excel ที่ต้องการและตั้งเป็นภาพแทนของเฟรม OLE ซึ่งจะแสดงภาพตัวอย่างที่กำหนดเองแทนข้อความแทนที่เริ่มต้น

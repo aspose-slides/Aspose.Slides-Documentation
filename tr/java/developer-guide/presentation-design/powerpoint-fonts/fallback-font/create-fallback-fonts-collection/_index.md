@@ -1,6 +1,6 @@
 ---
-title: Java’da Yedek Yazı Tipi Koleksiyonlarını Yapılandırma
-linktitle: Yedek Yazı Tipi Koleksiyonu
+title: "Java'da Yedek Yazı Tipi Koleksiyonlarını Yapılandırma"
+linktitle: "Yedek Yazı Tipi Koleksiyonu"
 type: docs
 weight: 20
 url: /tr/java/create-fallback-fonts-collection/
@@ -8,34 +8,36 @@ keywords:
 - yedek yazı tipi
 - yedek kural
 - yazı tipi koleksiyonu
-- yazı tipini yapılandır
-- yazı tipini kur
+- yazı tipi yapılandırması
+- yazı tipi kurulumu
 - PowerPoint
 - OpenDocument
 - sunum
 - Java
 - Aspose.Slides
-description: "Java için Aspose.Slides içinde yedek yazı tipleri koleksiyonunu kurarak, PowerPoint ve OpenDocument sunumlarında metnin tutarlı ve net olmasını sağlayın."
+description: "Aspose.Slides for Java'da yedek yazı tipleri koleksiyonu kurarak PowerPoint ve OpenDocument sunumlarında metnin tutarlı ve net kalmasını sağlayın."
 ---
-## **Overview**
+## **Genel Bakış**
 
-Aspose.Slides, bir sunum için yedek yazı tipi kurallarının bir koleksiyonunu yapılandırmanıza olanak tanır. Her yedek kural, `FontFallBackRule` sınıfı ile temsil edilir ve `IFontFallBackRulesCollection` arabirimini uygulayan bir `FontFallBackRulesCollection`a eklenebilir.
+Aspose.Slides, bir sunum için yedek yazı tipi kurallarının bir koleksiyonunu yapılandırmanıza olanak tanır. Her yedek kural, `FontFallBackRule` sınıfı ile temsil edilir ve `FontFallBackRulesCollection` koleksiyonuna eklenebilir; bu koleksiyon `IFontFallBackRulesCollection` arayüzünü uygular.
 
-Koleksiyonu oluşturduktan sonra, bunu sunumun `FontsManager`'ının `FontFallBackRulesCollection` özelliğine atayabilirsiniz. `FontsManager`, sunum boyunca yazı tiplerini kontrol eder ve her `Presentation` örneğinin kendi `FontsManager`'ı vardır.
+Koleksiyonu oluşturduktan sonra, sunumun `FontsManager` nesnesinin `FontFallBackRulesCollection` özelliğine atayabilirsiniz. `FontsManager`, sunum boyunca yazı tiplerini kontrol eder ve her `Presentation` örneğinin kendi `FontsManager` nesnesi vardır.
 
-`FontsManager`, yedek yazı tipi koleksiyonu ile başlatıldıktan sonra, belirtilen yedek yazı tipleri sunumun render edilmesi sırasında uygulanır.
+`FontsManager` yedek yazı tipi koleksiyonu ile başlatıldığında, belirtilen yedek yazı tipleri sunumun işlenmesi sırasında uygulanır.
 
-## **Apply Fallback Rules**
+## **Yedek Kuralları Uygula**
 
-[FontFallBackRule](https://reference.aspose.com/slides/tr/java/com.aspose.slides/FontFallBackRule) sınıfının örnekleri, [IFontFallBackRulesCollection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IFontFallBackRulesCollection) arabirimini uygulayan bir [FontFallBackRulesCollection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/FontFallBackRulesCollection) içinde düzenlenebilir. Koleksiyondan kurallar eklemek veya kaldırmak mümkündür.
+[FontFallBackRule](https://reference.aspose.com/slides/tr/java/com.aspose.slides/FontFallBackRule) sınıfının örnekleri, [FontFallBackRulesCollection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/FontFallBackRulesCollection) içinde düzenlenebilir; bu koleksiyon, [IFontFallBackRulesCollection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IFontFallBackRulesCollection) arayüzünü uygular. Koleksiyondan kurallar eklemek veya çıkarmak mümkündür.
 
-Ardından bu koleksiyon, [FontsManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/FontsManager) sınıfının [FontFallBackRulesCollection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/FontFallBackRulesCollection) metoduna atanabilir. FontsManager, sunum boyunca yazı tiplerini kontrol eder.
+Ardından bu koleksiyon, [FontFallBackRulesCollection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/FontFallBackRulesCollection) yöntemi aracılığıyla [FontsManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/FontsManager) sınıfına atanabilir. FontsManager, sunum boyunca yazı tiplerini kontrol eder.
 
-Her [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation) nesnesinin, kendi [FontsManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/FontsManager) sınıfı örneğiyle bir [getFontsManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation#getFontsManager--) metodu vardır.
+Her [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation) nesnesinin, kendi [FontsManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/FontsManager) örneğiyle birlikte bir [getFontsManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation#getFontsManager--) yöntemi bulunur.
 
-Aşağıda, bir sunumun [FontsManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation#getFontsManager--)'ına yedek yazı tipi kuralları koleksiyonu oluşturup atamanın bir örneği verilmiştir:
-  
+Aşağıda, belirli bir sunumun [FontsManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation#getFontsManager--) nesnesine yedek yazı tipi kurallarının koleksiyonunu nasıl oluşturup atayacağınıza dair bir örnek verilmiştir:  
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IFontFallBackRulesCollection userRulesList = new FontFallBackRulesCollection();
@@ -49,26 +51,26 @@ try {
 }
 ```
 
-FontsManager, yedek yazı tipleri koleksiyonu ile başlatıldıktan sonra, yedek yazı tipleri sunumun render edilmesi sırasında uygulanır.
+FontsManager yedek yazı tipi koleksiyonu ile başlatıldıktan sonra, yedek yazı tipleri sunumun işlenmesi sırasında uygulanır.
 
-{{% alert color="primary" %}} 
-Daha fazla bilgi için [Render Presentation with Fallback Font](/slides/tr/java/render-presentation-with-fallback-font/) konusuna bakın.
+{{% alert color="info" %}} 
+Daha fazla bilgi için [Render Presentation with Fallback Font](/slides/tr/java/render-presentation-with-fallback-font/) sayfasına bakabilirsiniz.
 {{% /alert %}}
 
-## **FAQ**
+## **SSS**
 
-**Will my fallback rules be embedded into the PPTX file and visible in PowerPoint after saving?**
+### Yedek kurallarım PPTX dosyasına gömülür ve kaydedildikten sonra PowerPoint içinde görünür mü?
 
-Hayır. Yedek kurallar, çalışma zamanı render ayarlarıdır; PPTX'e serileştirilmez ve PowerPoint arayüzünde görünmez.
+Hayır. Yedek kurallar, çalışma zamanı işleme ayarlarıdır; PPTX dosyasına serileştirilmez ve PowerPoint kullanıcı arabiriminde görünmez.
 
-**Does fallback apply to text inside SmartArt, WordArt, charts, and tables?**
+### Yedekleme, SmartArt, WordArt, grafikler ve tablolar içindeki metne uygulanır mı?
 
-Evet. Aynı glif-değiştirme mekanizması bu nesnelerdeki tüm metinler için kullanılır.
+Evet. Aynı glif değiştirme mekanizması bu nesnelerdeki tüm metinler için kullanılır.
 
-**Does Aspose distribute any fonts with the library?**
+### Aspose, kitaplıkla birlikte herhangi bir yazı tipi dağıtıyor mu?
 
-Hayır. Yazı tiplerini kendi tarafınızdan ekler ve kullanırsınız, sorumluluk tamamen size aittir.
+Hayır. Yazı tiplerini kendi tarafınızdan ekler ve sorumluluğu siz üstlenirsiniz.
 
-**Can replacement/substitution for missing fonts and fallback for missing glyphs be used together?**
+### Eksik yazı tipleri için değiştirme/ikame ve eksik glifler için yedekleme birlikte kullanılabilir mi?
 
-Evet. Bunlar aynı yazı tipi çözümleme hattının bağımsız aşamalarıdır: önce motor, yazı tipi kullanılabilirliğini ([replacement](/slides/tr/java/font-replacement/)/[substitution](/slides/tr/java/font-substitution/)) çözer, ardından yedekleme, mevcut yazı tiplerindeki eksik glifleri doldurur.
+Evet. Bunlar aynı yazı tipi çözümleme hattının bağımsız aşamalarıdır: önce motor, yazı tipi bulunabilirliğini (değiştirme](/slides/tr/java/font-replacement/)/[ikame](/slides/tr/java/font-substitution/)) çözer, ardından yedekleme mevcut yazı tiplerinde eksik glifleri doldurur.

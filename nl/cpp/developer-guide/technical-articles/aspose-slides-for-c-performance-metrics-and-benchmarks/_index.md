@@ -1,46 +1,48 @@
 ---
-title: "Aspose.Slides voor C++: Prestatie-metriek en benchmarks"
+title: "Aspose.Slides voor C++: Prestatie‑metrieken en benchmarktests"
 type: docs
 weight: 20
 url: /nl/cpp/aspose-slides-for-c-performance-metrics-and-benchmarks/
 keywords:
 - prestaties
-- metriek
-- benchmarks
+- meetwaarden
+- benchmarktests
 - VSTO
 - PowerPoint
 - OpenDocument
 - presentatie
 - C++
 - Aspose.Slides
-description: "Vergelijk de prestaties van Aspose.Slides voor C++ met VSTO aan de hand van echte benchmarks en zie hoe het het werken met PPT-, PPTX- en ODP-presentaties versnelt."
+description: "Vergelijk de prestaties van Aspose.Slides for C++ met VSTO met behulp van echte benchmarktests en zie hoe het het werken met PPT-, PPTX- en ODP‑presentaties versnelt."
 ---
 ## **Doel**
-Prestaties zijn vaak de eerste kritische factor bij het kiezen van een component. Dit artikel meet de prestaties van Aspose.Slides voor C++ en VSTO 2008. De eenvoudige tests worden uitgevoerd op vergelijkbare besturingssystemen, hardware‑componenten en configuraties. 
+Performance is often the first critical factor when choosing a component. This article measures the performance of Aspose.Slides for C++ and VSTO 2008. The simple tests are conducted across the similar operating system, hardware components, and configurations. 
 
-Dit artikel presenteert prestatiewaarden voor producten inclusief **Aspose.Slides voor C++** en **VSTO 2008**. De hier gepresenteerde prestatie‑inschattingen zijn bedoeld om u te helpen begrijpen wat u kunt verwachten van verschillende componenten in enkele veelgebruikte scenario’s onder gelijkaardige configuraties op gewone hardware die gangbare besturingssystemen draait. Uiteraard hangt de prestatie van uw applicatie af van uw gegevens, gegevens‑toegangspatronen, cache‑grootte, andere configuratie‑parameters, besturingssysteem en hardware enzovoort. De benchmark wil laten zien hoe de componenten presteren onder minimale hardware‑omstandigheden; hoe sneller de hardware, hoe sneller de taken door de componenten worden verwerkt. 
+This article presents performance measurements for products including **Aspose.Slides for C++** and **VSTO 2008**. Performance estimates presented here are intended to help you understand what to expect from different components in some commonly used scenarios under similar configurations on commodity hardware running widely used operating systems. Naturally, your application performance depends on your data, data access patterns, cache size, other configuration parameters, operating system and hardware etc. The benchmark aims to illustrate how the components perform under minimum hardware conditions, the faster the hardware, the faster the tasks will be processed by the components. 
+
 ## **Verklaring**
-Dit document wordt uitsluitend ter informatie verstrekt en de inhoud kan zonder voorafgaande kennisgeving worden gewijzigd. Dit document is niet gegarandeerd foutloos, noch onderworpen aan enige andere garanties of voorwaarden, hetzij mondeling uitgedrukt of stilzwijgend in de wet, inclusief stilzwijgende garanties en voorwaarden van handelsbaarheid of geschiktheid voor een bepaald doel. Wij wijzen specifiek elke aansprakelijkheid met betrekking tot dit document af en er worden door dit document geen contractuele verplichtingen direct of indirect aangegaan. Dit document mag niet worden gereproduceerd of verspreid in welke vorm of op welke wijze dan ook, elektronisch of mechanisch, voor welk doel dan ook. 
+This document is provided for information purposes only and the contents hereof are subjected to change without notice. This document is not warranted to be error-free, nor subject to any other warranties or conditions, whether exp ressed orally or implied in law including implied warranties and conditions of merchantability or fitness for a particular purpose. We specifically disclaim any liability with respect to this document and no contractual obligations are formed either directly or indirectly by this document. This document may not be reproduced or transmitted in any form or by any means, electronic or mechanical, for any purpose. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Benchmarks bieden richtlijnen en helpen basisverwachtingen voor de werking te bepalen. Het onderwerp toont benchmark‑tests die zijn uitgevoerd tegen Aspose.Slides voor C++ en VSTO 2008. De Performance Measures *{*} stellen zelfs beginnende gebruikers in staat de prestaties van de component die ze gebruiken te benchmarken. De tests zullen *{*} u in staat stellen een component objectief te benchmarken met behulp van een verscheidenheid aan verschillende snelheids‑tests. Alle taken zijn gangbaar en zorgvuldig gekozen, waarbij de relevante functies worden onderzocht om ervoor te zorgen dat beide componenten de taken moeiteloos kunnen voltooien. Bovendien zijn de API’s om een test per component uit te voeren zorgvuldig gekozen en geselecteerd om de best mogelijke resultaten te behalen die een component kan produceren tijdens de evaluatie van zijn prestaties, en alle taken zijn twee‑ of driemaal geïmplementeerd om de cijfers beter te kunnen beoordelen. 
+Benchmarks provide guidelines and help to set basic operational expectations. The topic shows benchmark tes ts that have been performed against Aspose.Slides for C++ and VSTO 2008 . The Performance Measures *{*} allow even novice users to benchmark the performance of the component they are using. The tests will *{*} allow you to objectively benchmark a component using a variety of different speed tests. All the tasks are common and carefully chosen exploring the relevant features to make sure that both the components may complete the tasks with ease. Moreover, the APIs to perform a test by each component are carefully chosen and selected to get the best possible results that a component can produce while evaluating its performance and all the tasks were implemented twice / thrice to better judge the figures. 
 
 {{% /alert %}} 
 ## **Testmethodologie**
-Alle prestatietests werden uitgevoerd op een gemeenschappelijke hardware‑ en besturingssysteemcombinatie, zonder aangepaste configuratie, afstemming of andere prestatie‑verbeterende technieken. Alle tests werden uitgevoerd met de component‑installaties op hetzelfde systeem dat anderszins in ruststand stond. Om nauwkeurige metingen te krijgen, hebben we alle taken twee‑ of driemaal achter elkaar uitgevoerd om een component beter te kunnen evalueren en om nauwkeurige meetwaarden te verkrijgen. 
-## **Benchmarkconfiguratie**
-De volgende tabel geeft de benchmarkconfiguratie weer: 
+All the performance tests were conducted on a common hardware and operating system combinations, without customized configuration, tuning or any other performance enhancing techniques. All tests were run with the component insta llations on the same system those were otherwise quiescent. To get accurate readings, we performed all the tasks twice / thrice at a time to better evaluate a component and to get accurate readings. 
+
+## **Benchmark‑opstelling**
+The following table enlists the Benchmark Setup: 
 
 ![todo:image_alt_text](/plugins/servlet/confluence/placeholder/unknown-attachment)
-### **Resultaten van de prestatie**
-De volgende tabel geeft de prestatie‑resultaten weer: 
+### **Prestatie‑resultaten**
+The following table enlists the performance results: 
 
 ![todo:image_alt_text](/plugins/servlet/confluence/placeholder/unknown-attachment)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-De uitvoeringstijd wordt gemeten nadat de applicaties zijn geïmplementeerd, omdat dit de exacte tijd geeft; berekening van de tijd in de Visual Studio Debugger levert onverwachte en onrealistische resultaten op. Bijvoorbeeld, als de codefragmenten in de bijgevoegde broncode 3 – 5 keer in de Visual Studio Debugger worden uitgevoerd, ontstaat er een marginale afwijking van de resultaten bij elke poging, waardoor er geen conclusie kan worden getrokken. 
+The exe cution time is taken after deploying the applications as it gives the exact time, otherwise time calculation in the Visual Studio Debugger results in unexpected and unrealistic results. For example, if the code snippets in the attached source code are executed in Visual Studio Debugger 3 – 5 times, there will be a marginal difference of the results in every attempt thus creating a situation with no conclusion. 
 
 {{% /alert %}} 
-## **Prestatie resultaten (Excel‑grafiek)**
+## **Prestatie‑resultaten (Excel‑grafiek)**

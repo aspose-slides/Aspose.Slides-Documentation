@@ -1,20 +1,34 @@
 ---
-title: API Public et Changements Incompatibles avec les Versions Précédentes dans Aspose.Slides pour Java 15.8.0
+title: API publique et modifications incompatibles rétroactives dans Aspose.Slides for Java 15.8.0
+linktitle: Aspose.Slides for Java 15.8.0
 type: docs
 weight: 160
 url: /fr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/
+keywords:
+- migration
+- code hérité
+- code moderne
+- approche héritée
+- approche moderne
+- PowerPoint
+- OpenDocument
+- présentation
+- Java
+- Aspose.Slides
+description: "Passez en revue les mises à jour de l'API publique et les changements incompatibles dans Aspose.Slides for Java afin de migrer en douceur vos solutions de présentations PowerPoint PPT, PPTX et ODP."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-Cette page liste toutes les [ajoutées](/slides/fr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) ou [supprimées](/slides/fr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) classes, méthodes, propriétés, etc., et d'autres changements introduits avec l'API Aspose.Slides pour Java 15.8.0.
+Cette page répertorie tous les [ajoutés](/slides/fr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) ou [supprimés](/slides/fr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) classes, méthodes, propriétés, etc., ainsi que les autres modifications introduites avec l'API Aspose.Slides for Java 15.8.0.
 
 {{% /alert %}} 
-## **Changements de l'API publique**
+## **Modifications de l'API publique**
 #### **Les méthodes getDoughnutHoleSize(), setDoughnutHoleSize(byte) ont été ajoutées à IChartSeries et ChartSeries**
-Spécifie la taille du trou dans un graphique à beignet.
+Spécifie la taille du trou dans un diagramme en anneau.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 

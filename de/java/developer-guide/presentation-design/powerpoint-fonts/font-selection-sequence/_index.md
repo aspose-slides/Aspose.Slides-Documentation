@@ -1,5 +1,5 @@
 ---
-title: Schriftauswahlablauf in Aspose.Slides für Java
+title: Schriftauswahlsequenz in Aspose.Slides für Java
 linktitle: Schriftauswahl
 type: docs
 weight: 80
@@ -8,7 +8,7 @@ keywords:
 - Schriftauswahl
 - Schriftart-Substitution
 - Schriftart-Ersetzung
-- Ersetzungsregel
+- Substitutionsregel
 - verfügbare Schriftart
 - fehlende Schriftart
 - PowerPoint
@@ -16,39 +16,46 @@ keywords:
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Entdecken Sie, wie Aspose.Slides für Java Schriftarten auswählt und dabei eine klare, konsistente Darstellung von PPT-, PPTX- und ODP-Dateien sicherstellt – verbessern Sie jetzt Ihre Folien."
+description: "Entdecken Sie, wie Aspose.Slides für Java Schriftarten auswählt und dabei eine klare, konsistente Darstellung von PPT-, PPTX- und ODP-Dateien gewährleistet – verbessern Sie jetzt Ihre Folien."
 ---
+## **Übersicht**
+
+Wenn eine Präsentation geladen, gerendert oder in ein anderes Format konvertiert wird, prüft Aspose.Slides, ob die in der Präsentation verwendeten Schriftarten im Betriebssystem verfügbar sind. Fehlt eine erforderliche Schriftart, wählt Aspose.Slides eine Ersatzschriftart aus, die so nah wie möglich an der liegt, die PowerPoint verwenden würde.
+
+Aspose.Slides sucht zunächst die ausgewählte Schriftart im Betriebssystem. Wird die Schriftart gefunden, wird sie verwendet. Wird sie nicht gefunden, wird ein geeigneter Ersatz angewendet. Werden Schriftart‑Ersetzungsregeln über `FontSubstRule` definiert, fließen diese ebenfalls ein.
+
+Sie können auch zur Laufzeit der Anwendung Schriftarten hinzufügen, eingebettete Schriftarten aus einer Präsentation verwenden oder externe Schriftarten für Ausgabedokumente wie PDF‑Dateien laden.
 
 ## **Schriftauswahl**
 
-Bestimmte Regeln gelten für Schriftarten in einer Präsentation, wenn die Präsentation geladen, gerendert oder in ein anderes Format konvertiert wird. Zum Beispiel werden beim Versuch, eine Präsentation (ihre Folien) in Bilder zu konvertieren, die Schriftarten der Präsentation überprüft, um zu verifizieren, dass die gewählten Schriftarten im Betriebssystem verfügbar sind. Wenn die Schriftarten als fehlend bestätigt werden, werden sie ersetzt — siehe [**Font-Ersetzung**](https://docs.aspose.com/slides/java/font-replacement/) und [**Font-Substitution**](https://docs.aspose.com/slides/java/font-substitution/).
+Bestimmte Regeln gelten für Schriftarten in einer Präsentation, wenn die Präsentation geladen, gerendert oder in ein anderes Format konvertiert wird. Wenn Sie beispielsweise versuchen, eine Präsentation (ihre Folien) in Bilder zu konvertieren, werden die Schriftarten der Präsentation überprüft, ob die gewählten Schriftarten im Betriebssystem verfügbar sind. Werden die Schriftarten als fehlend bestätigt, werden sie ersetzt – siehe [**Schriftart-Ersetzung**](https://docs.aspose.com/slides/de/java/font-replacement/) und [**Schriftart-Substitution**](https://docs.aspose.com/slides/de/java/font-substitution/).
 
-Dies ist der Prozess, dem Aspose.Slides bei der Verarbeitung von Schriftarten folgt:
+So geht Aspose.Slides beim Umgang mit Schriftarten vor:
 
-1. Aspose.Slides sucht im Betriebssystem nach Schriftarten, um die Schriftart zu finden, die der in der Präsentation gewählten Schriftart entspricht.  
-2. Wird die gewählte Schriftart gefunden, verwendet Aspose.Slides sie. Andernfalls verwendet Aspose.Slides eine Ersatzschriftart, die so nahe wie möglich an das herankommt, was PowerPoint verwenden würde.  
-3. Wenn über [FontSubstRule](https://reference.aspose.com/slides/java/com.aspose.slides/fontsubstrule/) Schriftart-Ersetzungsregeln festgelegt wurden, werden diese angewendet.  
+1. Aspose.Slides sucht im Betriebssystem nach Schriftarten, um die Schriftart zu finden, die der in der Präsentation gewählten Schriftart entspricht. 
+2. Wird die gewählte Schriftart gefunden, verwendet Aspose.Slides sie. Andernfalls verwendet Aspose.Slides eine Ersatzschriftart, die so nah wie möglich an der liegt, die PowerPoint verwenden würde.
+3. Sind Schriftart‑Ersetzungsregeln über [FontSubstRule](https://reference.aspose.com/slides/de/java/com.aspose.slides/fontsubstrule/) festgelegt, werden sie angewendet. 
 
-Aspose.Slides ermöglicht das Hinzufügen von Schriftarten zur Laufzeit der Anwendung und deren Nutzung. Siehe [**Benutzerdefinierte Fonts**](https://docs.aspose.com/slides/java/custom-font/).  
+Aspose.Slides ermöglicht das Hinzufügen von Schriftarten zur Laufzeit der Anwendung, die dann verwendet werden können. Siehe [**Benutzerdefinierte Schriftarten**](https://docs.aspose.com/slides/de/java/custom-font/). 
 
-Wenn zusätzliche Schriftarten in einer Präsentation abgelegt werden, nennt man sie [**Eingebettete Fonts**](https://docs.aspose.com/slides/java/embedded-font/).  
+Wenn zusätzliche Schriftarten in einer Präsentation eingebettet werden, nennt man sie [**Eingebettete Schriftarten**](https://docs.aspose.com/slides/de/java/embedded-font/).
 
-Aspose.Slides erlaubt das Hinzufügen von Schriftarten, die **nur** auf Ausgabedokumente angewendet werden. Wenn beispielsweise eine Präsentation, die Sie in PDF konvertieren möchten, Schriftarten enthält, die in Ihrem System und in den eingebetteten Fonts fehlen, können Sie die benötigten Schriftarten als **externe Fonts** hinzufügen oder laden.  
+Aspose.Slides ermöglicht das Hinzufügen von Schriftarten, die *nur* auf Ausgabedokumente angewendet werden. Wenn beispielsweise eine Präsentation, die Sie in PDF konvertieren möchten, Schriftarten enthält, die in Ihrem System und den eingebetteten Schriftarten fehlen, können Sie die erforderlichen Schriftarten als **externe Schriftarten** hinzufügen oder laden. 
 
-{{% alert title="Hinweis" color="primary" %}} 
-Wir verteilen keine Schriftarten, weder kostenpflichtige noch kostenlose. Unsere API ermöglicht das Laden externer Fonts und das Einbetten in Dokumente, jedoch geschieht dies nach Ihrem Ermessen und Ihrer Verantwortung. 
+{{% alert title="Note" color="info" %}} 
+Wir verteilen keine Schriftarten, weder kostenpflichtige noch kostenlose. Unsere API ermöglicht das Laden externer Schriftarten und deren Einbettung in Dokumente, aber Sie tun dies mit Schriftarten nach eigenem Ermessen und Verantwortung.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Wie kann ich bestimmen, welche Schriftarten tatsächlich in einer Präsentation vor der Konvertierung verwendet werden?**
+### Wie kann ich feststellen, welche Schriftarten in einer Präsentation vor der Konvertierung tatsächlich verwendet werden?
 
-Aspose.Slides lässt Sie die über den [font manager](https://reference.aspose.com/slides/java/com.aspose.slides/fontsmanager/) verwendeten Schriftarten inspizieren, sodass Sie entscheiden können, ob Sie [einbetten](/slides/de/java/embedded-font/), [ersetzen](/slides/de/java/font-replacement/) oder [externe Quellen](/slides/de/java/custom-font/) hinzufügen möchten. Das hilft, unerwünschte Substitutionen während des Renderns und Exports zu verhindern.
+Aspose.Slides ermöglicht die Inspektion der verwendeten Schriftarten über den [Schriftarten-Manager](https://reference.aspose.com/slides/de/java/com.aspose.slides/fontsmanager/), sodass Sie entscheiden können, ob Sie [einbetten](/slides/de/java/embedded-font/), [ersetzen](/slides/de/java/font-replacement/) oder [externe Quellen](/slides/de/java/custom-font/) hinzufügen möchten. Dies hilft, unerwünschte Ersetzungen beim Rendern und Export zu verhindern.
 
-**Kann ich zusätzliche Schriftartenverzeichnisse hinzufügen, ohne sie im Betriebssystem zu installieren?**
+### Kann ich zusätzliche Schriftart-Verzeichnisse hinzufügen, ohne sie im Betriebssystem zu installieren?
 
-Ja. Sie können [externe Font-Quellen](/slides/de/java/custom-font/) wie Ordner oder In‑Memory‑Streams für das Rendern und den Export registrieren. Dies entfernt die Abhängigkeit von den Systemfonts des Hosts und hält das Layout vorhersehbar.
+Ja. Sie können [externe Schriftart-Quellen](/slides/de/java/custom-font/) wie Ordner oder In-Memory-Streams für das Rendern und den Export registrieren. Dadurch entfällt die Abhängigkeit von den Schriftarten des Host-Systems und das Layout bleibt vorhersehbar.
 
-**Wie verhindere ich ein stilles Zurückfallen auf eine ungeeignete Schriftart, wenn ein Glyph fehlt?**
+### Wie verhindere ich ein stilles Zurückfallen auf eine ungeeignete Schriftart, wenn ein Glyph fehlt?
 
-Definieren Sie im Voraus eindeutige [Font-Ersetzung](/slides/de/java/font-replacement/) und Font-[Fallback‑Regeln](/slides/de/java/fallback-font/). Durch Analyse der verwendeten Schriftarten und Festlegung einer kontrollierten Priorität für Ersatzschriften stellen Sie konsistente Typografie sicher und vermeiden unerwartete Ergebnisse.
+Definieren Sie im Voraus explizite [Schriftart-Ersetzung](/slides/de/java/font-replacement/) und Schriftart-[Fallback-Regeln](/slides/de/java/fallback-font/). Durch Analyse der verwendeten Schriftarten und Festlegung einer kontrollierten Priorität für Ersatzschriften gewährleisten Sie konsistente Typografie und vermeiden unerwartete Ergebnisse.

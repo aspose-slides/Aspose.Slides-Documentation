@@ -1,11 +1,13 @@
 ---
-title: Eksportowanie równań matematycznych z prezentacji w .NET
-linktitle: Eksportuj równania
+title: Eksport równań matematycznych z prezentacji w .NET
+linktitle: Eksport równań
 type: docs
 weight: 30
 url: /pl/net/exporting-math-equations/
 keywords:
 - eksport równań matematycznych
+- eksport równań do LaTeX
+- PowerPoint do LaTeX
 - MathML
 - LaTeX
 - PowerPoint
@@ -13,23 +15,73 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Umożliw płynny eksport równań matematycznych z PowerPoint do MathML przy użyciu Aspose.Slides for .NET — zachowaj formatowanie i zwiększ kompatybilność."
+description: "Eksportuj równania matematyczne z prezentacji PowerPoint do LaTeX lub MathML bezpośrednio przy użyciu Aspose.Slides dla .NET."
 ---
 ## **Wprowadzenie**
 
-Aspose.Slides for .NET umożliwia eksportowanie równań matematycznych z prezentacji. Na przykład możesz potrzebować wyodrębnić równania matematyczne ze slajdów (z określonej prezentacji) i użyć ich w innym programie lub platformie. 
+Aspose.Slides for .NET umożliwia eksportowanie równań matematycznych z prezentacji. Na przykład możesz potrzebować wyodrębnić równania matematyczne z wybranych slajdów (z konkretnej prezentacji) i użyć ich w innym programie lub platformie. 
 
-{{% alert color="primary" %}} 
-Możesz eksportować równania do MathML, popularnego formatu lub standardu dla równań matematycznych i podobnych treści widocznych w sieci i w wielu aplikacjach. 
+{{% alert color="info" %}} 
+
+Możesz eksportować równania bezpośrednio do LaTeX lub do MathML, popularnego standardu treści matematycznych używanego w Internecie i w wielu aplikacjach.
+
 {{% /alert %}}
 
-## **Zapisz równania matematyczne jako MathML**
+## **Eksport równań matematycznych do LaTeX**
 
-Choć ludzie łatwo piszą kod dla niektórych formatów równań, takich jak LaTeX, mają trudności z pisaniem kodu dla MathML, ponieważ ten ostatni ma być generowany automatycznie przez aplikacje. Programy łatwo odczytują i parsują MathML, ponieważ jego kod jest w XML, dlatego MathML jest powszechnie używany jako format wyjściowy i do drukowania w wielu dziedzinach. 
+Aspose.Slides może konwertować równanie matematyczne PowerPointa bezpośrednio do LaTeX; nie jest wymagany pośredni plik MathML ani zewnętrzny konwerter. Równanie matematyczne jest przechowywane w ramce tekstowej jako [MathPortion](https://reference.aspose.com/slides/pl/net/aspose.slides.mathtext/mathportion/). Użyj [MathPortion.MathParagraph](https://reference.aspose.com/slides/pl/net/aspose.slides.mathtext/mathportion/mathparagraph/) , aby uzyskać [IMathParagraph](https://reference.aspose.com/slides/pl/net/aspose.slides.mathtext/imathparagraph/), a następnie wywołaj [IMathParagraph.ToLatex](https://reference.aspose.com/slides/pl/net/aspose.slides.mathtext/imathparagraph/tolatex/). Metoda zwraca ciąg znaków, który możesz zapisać, wyświetlić, wysłać do innej aplikacji lub dalej przetworzyć.
+
+Poniższy przykład przegląda każdą ramkę tekstową na każdym slajdzie, znajduje wszystkie części matematyczne i zapisuje każde równanie do oddzielnego pliku `.tex`:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.MathText;
+using Aspose.Slides.Util;
+
+using var presentation = new Presentation("equations.pptx");
+
+for (var slideIndex = 0; slideIndex < presentation.Slides.Count; slideIndex++)
+{
+    var slide = presentation.Slides[slideIndex];
+    var slideNumber = slideIndex + 1;
+    var equationNumber = 1;
+    var textFrames = SlideUtil.GetAllTextBoxes(slide);
+
+    foreach (var textFrame in textFrames)
+    {
+        foreach (var paragraph in textFrame.Paragraphs)
+        {
+            foreach (var portion in paragraph.Portions)
+            {
+                if (portion is not MathPortion mathPortion)
+                    continue;
+
+                IMathParagraph mathParagraph = mathPortion.MathParagraph;
+                var latexPath = $"slide_{slideNumber}_equation_{equationNumber}.tex";
+
+                var latexText = mathParagraph.ToLatex();
+                File.WriteAllText(latexPath, latexText);
+                equationNumber++;
+            }
+        }
+    }
+}
+```
+
+[SlideUtil.GetAllTextBoxes](https://reference.aspose.com/slides/pl/net/aspose.slides.util/slideutil/getalltextboxes/) zwraca wszystkie ramki tekstowe znalezione na slajdzie. Kontrola typu [MathPortion](https://reference.aspose.com/slides/pl/net/aspose.slides.mathtext/mathportion/) odróżnia prawdziwe edytowalne równania od zwykłego tekstu i obrazów.
+
+Silniki LaTeX i szablony dokumentów nie obsługują wszystkich tych samych poleceń, pakietów ani znaków Unicode. Przetestuj zwrócony ciąg znaków przy użyciu silnika LaTeX wykorzystywanego w Twojej aplikacji. Jeśli symbol lub element Office Math nie ma odpowiedniej reprezentacji w tym środowisku, zastąp go w zwróconym ciągu poleceniem specyficznym dla projektu albo pomiń równanie i zarejestruj problem do przeglądu.
+
+## **Zapis równań matematycznych jako MathML**
+
+Podczas gdy ludzie łatwo piszą kod dla niektórych formatów równań, takich jak LaTeX, mają trudności z pisaniem kodu dla MathML, ponieważ ten drugi ma być generowany automatycznie przez aplikacje. Programy łatwo odczytują i analizują MathML, ponieważ jego kod jest w XML, dlatego MathML jest powszechnie używany jako format wyjściowy i drukarski w wielu dziedzinach. 
 
 Ten przykładowy kod pokazuje, jak wyeksportować równanie matematyczne z prezentacji do MathML:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.MathText;
+
 using (Presentation pres = new Presentation())
         {
             var autoShape = pres.Slides[0].Shapes.AddMathShape(0, 0, 500, 50);
@@ -44,22 +96,22 @@ using (Presentation pres = new Presentation())
 
 ## **FAQ**
 
-**Co dokładnie jest eksportowane do MathML — akapit czy pojedynczy blok formuły?**
+**Co dokładnie jest eksportowane do MathML — cały akapit czy pojedynczy blok formuły?**
 
-Możesz wyeksportować zarówno cały akapit matematyczny ([MathParagraph](https://reference.aspose.com/slides/pl/net/aspose.slides.mathtext/mathparagraph/)) jak i pojedynczy blok ([MathBlock](https://reference.aspose.com/slides/pl/net/aspose.slides.mathtext/mathblock/)) do MathML. Oba typy udostępniają metodę zapisu do MathML.
+Możesz wyeksportować zarówno cały akapit matematyczny ([MathParagraph](https://reference.aspose.com/slides/pl/net/aspose.slides.mathtext/mathparagraph/)), jak i pojedynczy blok ([MathBlock](https://reference.aspose.com/slides/pl/net/aspose.slides.mathtext/mathblock/)) do MathML. Oba typy udostępniają metodę zapisu do MathML.
 
-**Jak mogę rozpoznać, że obiekt na slajdzie jest formułą matematyczną, a nie zwykłym tekstem lub obrazem?**
+**Jak rozpoznać, że obiekt na slajdzie jest formułą matematyczną, a nie zwykłym tekstem lub obrazem?**
 
-Formuła znajduje się w [MathPortion](https://reference.aspose.com/slides/pl/net/aspose.slides.mathtext/mathportion/) i posiada [MathParagraph](https://reference.aspose.com/slides/pl/net/aspose.slides.mathtext/mathparagraph/). Obrazy oraz zwykłe fragmenty tekstu bez [MathParagraph](https://reference.aspose.com/slides/pl/net/aspose.slides.mathtext/mathparagraph/) nie są eksportowalnymi formułami.
+Formuła znajduje się w [MathPortion](https://reference.aspose.com/slides/pl/net/aspose.slides.mathtext/mathportion/) i posiada [MathParagraph](https://reference.aspose.com/slides/pl/net/aspose.slides.mathtext/mathparagraph/). Obrazy i zwykłe fragmenty tekstu bez [MathParagraph](https://reference.aspose.com/slides/pl/net/aspose.slides.mathtext/mathparagraph/) nie są eksportowalnymi formułami.
 
-**Skąd pochodzi MathML w prezentacji — czy jest specyficzny dla PowerPointa, czy to standard?**
+**Skąd pochodzi MathML w prezentacji — czy jest specyficzny dla PowerPointa, czy jest standardem?**
 
-Eksport dotyczy standardowego MathML (XML). Aspose używa Presentation MathML — podzestawu prezentacji standardu, który jest szeroko stosowany w aplikacjach i w sieci.
+Eksport skierowany jest do standardowego MathML (XML). Aspose używa Presentation MathML — podzbioru prezentacji standardu, który jest szeroko stosowany w aplikacjach i w sieci.
 
-**Czy eksport formuł znajdujących się w tabelach, SmartArt, grupach itp. jest obsługiwany?**
+**Czy eksport formuł wewnątrz tabel, SmartArt, grup itp. jest obsługiwany?**
 
-Tak, jeśli te obiekty zawierają fragmenty tekstu z [MathParagraph](https://reference.aspose.com/slides/pl/net/aspose.slides.mathtext/mathparagraph/) (czyli prawdziwe formuły PowerPoint), zostaną wyeksportowane. Jeśli formuła jest osadzona jako obraz, nie zostanie wyeksportowana.
+Tak, jeśli te obiekty zawierają fragmenty tekstu z [MathParagraph](https://reference.aspose.com/slides/pl/net/aspose.slides.mathtext/mathparagraph/) (czyli prawdziwe formuły PowerPoint), są eksportowane. Jeśli formuła jest osadzona jako obraz, nie jest.
 
 **Czy eksport do MathML modyfikuje oryginalną prezentację?**
 
-Nie. Zapis MathML jest serializacją zawartości formuły; nie modyfikuje pliku prezentacji.
+Nie. Zapis MathML to serializacja zawartości formuły; nie modyfikuje pliku prezentacji.

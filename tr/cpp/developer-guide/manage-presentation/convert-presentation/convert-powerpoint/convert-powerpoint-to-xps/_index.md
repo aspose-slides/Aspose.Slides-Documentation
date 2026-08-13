@@ -1,105 +1,116 @@
 ---
-title: PowerPoint Sunumlarını C++ ile XPS'e Dönüştür
-linktitle: PowerPoint'ten XPS'e
+title: C++'ta PowerPoint Sunumlarını XPS'ye Dönüştürme
+linktitle: PowerPoint'ten XPS'ye
 type: docs
 weight: 70
 url: /tr/cpp/convert-powerpoint-to-xps
 keywords:
-- PowerPoint'i dönüştür
+- PowerPoint dönüştür
 - sunumu dönüştür
 - slaytı dönüştür
-- PPT'yi dönüştür
-- PPTX'i dönüştür
-- PowerPoint'ten XPS'e
-- sunumu XPS'e
-- slaytı XPS'e
-- PPT'yi XPS'e
-- PPTX'i XPS'e
+- PPT dönüştür
+- PPTX dönüştür
+- PowerPoint'ten XPS'ye
+- sunumu XPS'ye
+- slaytı XPS'ye
+- PPT'yi XPS'ye
+- PPTX'i XPS'ye
 - PPT'yi XPS olarak kaydet
 - PPTX'i XPS olarak kaydet
-- PPT'yi XPS'ye aktar
-- PPTX'i XPS'ye aktar
+- PPT'yi XPS'ye dışa aktar
+- PPTX'i XPS'ye dışa aktar
 - PowerPoint
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides kullanarak C++ ile PowerPoint PPT/PPTX'i yüksek kaliteli, platform bağımsız XPS'e dönüştürün. Adım adım kılavuz ve örnek kod alın."
+description: "Aspose.Slides kullanarak C++'ta PowerPoint PPT/PPTX dosyalarını yüksek kalite, platform bağımsız XPS'ye dönüştürün. Adım adım kılavuz ve örnek kod alın."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, PPT veya PPTX dosyasını XPS formatında kaydederek PowerPoint sunumlarını XPS'e dönüştürmenizi sağlar. Bu makale, XPS formatının ne zaman faydalı olabileceğini açıklar ve Aspose.Slides ile varsayılan ayarları veya özel [XpsOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/xpsoptions/) ayarlarını kullanarak dönüşümün nasıl yapılacağını gösterir.
+Aspose.Slides, bir PPT veya PPTX dosyasını XPS biçiminde kaydederek PowerPoint sunumlarını XPS’ye dönüştürmenizi sağlar. Bu makale, XPS biçiminin ne zaman faydalı olabileceğini açıklar ve Aspose.Slides kullanarak varsayılan ayarlar veya özelleştirilmiş [XpsOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/xpsoptions/) ayarları ile dönüşümün nasıl yapılacağını gösterir.
 
 ## **XPS Hakkında**
+Microsoft, [XPS](https://docs.fileformat.com/page-description-language/xps/)’yi [PDF](https://docs.fileformat.com/pdf/)’ye alternatif olarak geliştirdi. PDF’e çok benzer bir dosya üreterek içeriği yazdırmanıza olanak tanır. XPS biçimi XML tabanlıdır. Bir XPS dosyasının düzeni veya yapısı tüm işletim sistemlerinde ve yazıcılarda aynı kalır. 
 
-Microsoft, [XPS](https://docs.fileformat.com/page-description-language/xps/)’ı [PDF](https://docs.fileformat.com/pdf/)’a bir alternatif olarak geliştirdi. İçeriği PDF'ye çok benzer bir dosya oluşturarak yazdırmanıza olanak tanır. XPS formatı XML tabanlıdır. Bir XPS dosyasının düzeni veya yapısı tüm işletim sistemleri ve yazıcılarda aynı kalır. 
+## **Microsoft XPS Biçimini Ne Zaman Kullanmalısınız**
 
-## **Microsoft XPS Formatını Ne Zaman Kullanmalısınız**
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-Aspose.Slides'in PPT veya PPTX sunumunu XPS formatına nasıl dönüştürdüğünü görmek için [bu ücretsiz çevrimiçi dönüştürücü uygulamasına](https://products.aspose.app/slides/tr/conversion) göz atabilirsiniz. 
+Aspose.Slides’ın PPT veya PPTX sunumunu XPS biçimine nasıl dönüştürdüğünü görmek için [bu ücretsiz çevrimiçi dönüştürücü uygulamasını](https://products.aspose.app/slides/tr/conversion) inceleyebilirsiniz. 
 
 {{% /alert %}} 
 
-Depolama maliyetlerinizi azaltmak istiyorsanız, Microsoft PowerPoint sunumunuzu XPS formatına dönüştürebilirsiniz. Bu sayede belgelerinizi kaydetmek, paylaşmak ve yazdırmak daha kolay olacaktır. 
+Depolama maliyetlerini azaltmak istiyorsanız Microsoft PowerPoint sunumunuzu XPS biçimine dönüştürebilirsiniz. Böylece belgelerinizi kaydetmek, paylaşmak ve yazdırmak daha kolay olur. 
 
-Microsoft, Windows’ta (Windows 10 dahil) XPS için güçlü destek sağlamaya devam ediyor, bu nedenle dosyaları bu formatta kaydetmeyi düşünebilirsiniz. Windows 8.1, Windows 8, Windows 7 ve Windows Vista ile çalışıyorsanız, XPS bazı işlemler için en iyi seçeneğiniz olabilir. 
+Microsoft, Windows’ta (Windows 10’da dahi) XPS’e güçlü destek sağlamaya devam ediyor; bu yüzden dosyalarınızı bu biçimde kaydetmeyi düşünebilirsiniz. Windows 8.1, Windows 8, Windows 7 ve Windows Vista ile çalışıyorsanız, belirli işlemler için XPS aslında en iyi seçeneğiniz olabilir. 
 
-- **Windows 8** XPS dosyaları için OXPS (Open XPS) formatını kullanır. OXPS, orijinal XPS formatının standartlaştırılmış bir sürümüdür. Windows 8, PDF dosyalarına göre XPS dosyalarına daha iyi destek sağlar. 
-  - **XPS:** Yerleşik XPS görüntüleyici/okuyucu ve XPS’ye yazdırma özelliği mevcuttur. 
+- **Windows 8** XPS dosyaları için OXPS (Open XPS) biçimini kullanır. OXPS, orijinal XPS biçiminin standartlaştırılmış bir sürümüdür. Windows 8, PDF dosyalarına göre XPS dosyalarına daha iyi destek sunar. 
+  - **XPS:** Yerleşik XPS görüntüleyici/okuyucu ve XPS’ye yazdırma özelliği mevcut. 
   - **PDF:** PDF okuyucu mevcut ancak PDF’ye yazdırma özelliği yok. 
 
-- **Windows 7 ve Windows Vista** orijinal XPS formatını kullanır. Bu işletim sistemleri de PDF'ye göre XPS dosyalarına daha iyi destek sağlar. 
-  - **XPS:** Yerleşik XPS görüntüleyici ve XPS’ye yazdırma özelliği mevcuttur. 
+- **Windows 7 ve Windows Vista** orijinal XPS biçimini kullanır. Bu işletim sistemleri de PDF dosyalarına göre XPS dosyalarına daha iyi destek verir. 
+  - **XPS:** Yerleşik XPS görüntüleyici ve XPS’ye yazdırma özelliği mevcut. 
   - **PDF:** PDF okuyucu yok. PDF’ye yazdırma özelliği yok. 
 
-|<p>**Giriş PPT(X):</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_1.png)**</p>|<p>**Çıktı XPS:</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_2.png)**</p>|
+|<p>**Giriş PPT(X):**</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_1.png)**</p>|<p>**Çıktı XPS:**</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_2.png)**</p>|
 | :- | :- |
 
-Microsoft, Windows 10’da PDF’ye yazdırma özelliği aracılığıyla PDF için yazdırma işlemlerine destek ekledi. Önceden, kullanıcıların belgeleri XPS formatı üzerinden yazdırması bekleniyordu. 
+Microsoft, Windows 10’da “Print to PDF” özelliği sayesinde PDF’ye yazdırma desteğini sonunda uygulamaya koydu. Daha önce kullanıcıların belgelerini XPS biçimi üzerinden yazdırması bekleniyordu. 
 
 ## **Aspose.Slides ile XPS Dönüştürme**
 
-C++ için [**Aspose.Slides**](https://products.aspose.com/slides/tr/cpp/) içinde, [**Save**](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) metodunu, [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfı tarafından sunulan, tüm sunumu bir XPS belgesine dönüştürmek için kullanabilirsiniz. 
+[C++ için **Aspose.Slides**](https://products.aspose.com/slides/tr/cpp/) içinde, [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfı tarafından sunulan [**Save**](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) metodunu kullanarak tüm sunumu bir XPS belgesine dönüştürebilirsiniz. 
 
-Bir sunumu XPS'ye dönüştürürken, sunumu aşağıdaki ayarlardan biriyle kaydetmeniz gerekir:
+Bir sunumu XPS’ye dönüştürürken aşağıdaki ayarlardan birini kullanarak kaydetmeniz gerekir:
 
-- Varsayılan ayarlar (without [**XPSOptions**](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.export.xps_options))
-- Özel ayarlar (with [**XPSOptions**](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.export.xps_options))
+- Varsayılan ayarlar ([**XPSOptions**](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.export.xps_options) olmadan)
+- Özelleştirilmiş ayarlar ([**XPSOptions**](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.export.xps_options) ile)
 
-### **Varsayılan Ayarları Kullanarak Sunumları XPS'e Dönüştürme**
+### **Varsayılan Ayarları Kullanarak Sunumları XPS’ye Dönüştürme**
 
-C++ örnek kodu, bir sunumu standart ayarları kullanarak XPS belgesine nasıl dönüştüreceğinizi gösterir:
+Aşağıdaki C++ örnek kodu, standart ayarları kullanarak bir sunumu XPS belgesine nasıl dönüştüreceğinizi gösterir:
 
 ``` cpp
-// Bir sunum dosyasını temsil eden Presentation nesnesi oluşturur
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+// Instantiate a Presentation object that represents a presentation file
 auto pres = System::MakeObject<Presentation>(u"Convert_XPS.pptx");
-// Sunumu XPS belgesine kaydediyor
+// Saving the presentation to XPS document
 pres->Save(u"XPS_Output_Without_XPSOption_out.xps", SaveFormat::Xps);
 ```
 
-### **Özel Ayarları Kullanarak Sunumları XPS'e Dönüştürme**
-C++'ta özel ayarları kullanarak bir sunumu XPS belgesine nasıl dönüştüreceğinizi gösteren örnek kod:
+### **Özelleştirilmiş Ayarları Kullanarak Sunumları XPS’ye Dönüştürme**
+
+Bu örnek kod, C++ içinde özelleştirilmiş ayarlarla bir sunumu XPS belgesine nasıl dönüştüreceğinizi gösterir:
 
 ``` cpp
-// Bir sunum dosyasını temsil eden Presentation nesnesi oluşturur
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Export/XpsOptions.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+// Bir sunum dosyasını temsil eden bir Presentation nesnesi oluştur
 auto pres = System::MakeObject<Presentation>(u"Convert_XPS_Options.pptx");
-// TiffOptions sınıfını oluşturur
+// TiffOptions sınıfını örnekle
 auto options = System::MakeObject<XpsOptions>();
 
-// MetaDosyaları PNG olarak kaydet
+// MetaDosyalarını PNG olarak kaydet
 options->set_SaveMetafilesAsPng(true);
 
-// Sunumu XPS belgesine kaydet
+// Sunumu XPS belgesi olarak kaydet
 pres->Save(u"XPS_With_Options_out.xps", SaveFormat::Xps, options);
 ```
 
 ## **SSS**
 
-**XPS'yi bir dosya yerine akışa kaydedebilir miyim?**
+### XPS’yi bir dosya yerine akışa kaydedebilir miyim?
 
-Evet—Aspose.Slides, XPS'yi doğrudan bir akışa dışa aktarmanıza olanak tanır; bu, web API'leri, sunucu tarafı işlem hatları veya XPS'yi dosya sistemine dokunmadan göndermek istediğiniz herhangi bir senaryo için idealdir.
+Evet—Aspose.Slides, doğrudan bir akışa dışa aktarmanıza olanak tanır; bu, web API’leri, sunucu tarafı işlem hatları veya XPS’yi dosya sistemine dokunmadan göndermek istediğiniz herhangi bir senaryo için idealdir.
 
-**Gizli slaytlar XPS'ye aktarılır mı ve bunları dışarı bırakabilir miyim?**
+### Gizli slaytlar XPS’ye aktarılır mı ve bunları hariç tutabilir miyim?
 
-Varsayılan olarak yalnızca normal (görünür) slaytlar işlenir. XPS'ye kaydetmeden önce [dışa aktarma ayarları](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/xpsoptions/) aracılığıyla gizli slaytları [dahil edebilir veya hariç tutabilirsiniz](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/xpsoptions/set_showhiddenslides/), böylece çıktı tam olarak istediğiniz sayfaları içerir.
+Varsayılan olarak yalnızca normal (görünür) slaytlar işlenir. [export settings](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/xpsoptions/) kullanarak [gizli slaytları ekleyebilir veya hariç tutabilirsiniz](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/xpsoptions/set_showhiddenslides/), böylece kaydedilen XPS çıktısı tam olarak istediğiniz sayfaları içerir.

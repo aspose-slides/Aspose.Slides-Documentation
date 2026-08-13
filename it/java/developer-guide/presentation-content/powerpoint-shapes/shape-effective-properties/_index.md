@@ -1,37 +1,39 @@
 ---
-title: Ottenere le proprietà effettive della forma dalle presentazioni in Java
+title: Ottieni le proprietà effettive della forma da presentazioni in Java
 linktitle: Proprietà effettive
 type: docs
 weight: 50
 url: /it/java/shape-effective-properties/
 keywords:
-  - proprietà della forma
-  - proprietà della fotocamera
-  - rig di illuminazione
-  - forma smussata
-  - riquadro di testo
-  - stile di testo
-  - altezza del carattere
-  - formato di riempimento
-  - PowerPoint
-  - presentazione
-  - Java
-  - Aspose.Slides
-description: "Scopri come Aspose.Slides per Java calcola e applica le proprietà effettive delle forme per una resa precisa di PowerPoint."
+- proprietà della forma
+- proprietà della fotocamera
+- impianto di illuminazione
+- forma smussata
+- riquadro di testo
+- stile di testo
+- altezza del carattere
+- formato di riempimento
+- PowerPoint
+- presentazione
+- Java
+- Aspose.Slides
+description: "Scopri come Aspose.Slides per Java calcola e applica le proprietà effettive della forma per una resa precisa di PowerPoint."
 ---
 ## **Panoramica**
 
-Questo argomento spiega la differenza tra le proprietà **locali** e **effettive**. I valori locali sono valori che vengono impostati direttamente a un livello di formattazione specifico, come:
+Questo argomento spiega la differenza tra le proprietà **locali** e **effettive**. I valori locali sono valori impostati direttamente a un livello di formattazione specifico, ad esempio:
 
-1. Proprietà della porzione in una diapositiva.
-1. Stili di testo della forma prototipo in un layout o diapositiva master, quando la forma del riquadro di testo della porzione ne ha uno.
+1. Proprietà della porzione su una diapositiva.
+1. Stili di testo della forma prototipo su un layout o su una diapositiva master, quando la forma del riquadro di testo della porzione ne ha uno.
 1. Impostazioni di testo globali in una presentazione.
 
-I valori locali possono essere definiti o omessi a qualsiasi livello. Quando Aspose.Slides ha bisogno della formattazione finale "as rendered", risolve la catena di ereditarietà e restituisce i valori **effettivi**. È possibile ottenerli chiamando il metodo `getEffective` sull'oggetto di formattazione locale.
+I valori locali possono essere definiti o omessi a qualsiasi livello. Quando Aspose.Slides ha bisogno della formattazione finale “come renderizzata”, risolve la catena di ereditarietà e restituisce i valori **effettivi**. È possibile ottenerli chiamando il metodo `getEffective` sull'oggetto di formato locale.
 
-L'esempio seguente mostra come ottenere i valori effettivi. Si assume che la prima forma nella prima diapositiva sia un [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/IAutoShape) con un riquadro di testo e almeno una porzione.
+Il seguente esempio mostra come ottenere i valori effettivi. Si presume che la prima forma nella prima diapositiva sia un [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/IAutoShape) con un riquadro di testo e almeno una porzione.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -49,17 +51,17 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-I dati di formattazione effettiva rappresentano la formattazione calcolata attuale dopo l'applicazione dell'ereditarietà. Nell'implementazione corrente, alcuni oggetti di dati effettivi, come [IPortionFormatEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/IPortionFormatEffectiveData), possono essere memorizzati nella cache internamente. Richiamare nuovamente `getEffective` dopo aver modificato la formattazione del genitore o ereditata può aggiornare i dati nella cache, e un oggetto precedentemente ottenuto potrebbe non rappresentare più lo stato precedente. Se è necessario conservare i valori effettivi per un utilizzo futuro, copiare le proprietà richieste, come altezza del carattere, colore di riempimento, stile del carattere o allineamento, nel proprio oggetto dati.
+{{% alert color="info" %}}
+I dati di formattazione effettiva rappresentano la formattazione calcolata corrente dopo l'applicazione dell'ereditarietà. Nell'implementazione attuale, alcuni oggetti di dati effettivi, come [IPortionFormatEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/IPortionFormatEffectiveData), possono essere memorizzati nella cache internamente. Richiamare nuovamente `getEffective` dopo aver modificato la formattazione del genitore o quella ereditata può aggiornare i dati memorizzati, e un oggetto precedentemente ottenuto potrebbe non rappresentare più lo stato precedente. Se è necessario conservare i valori effettivi per un utilizzo futuro, copiare le proprietà richieste, come altezza del carattere, colore di riempimento, stile del carattere o allineamento, nel proprio oggetto dati.
 {{% /alert %}}
 
 ## **Ottenere le proprietà effettive di una fotocamera**
 
-Aspose.Slides consente di ottenere le proprietà effettive di una fotocamera. L'interfaccia [ICameraEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/ICameraEffectiveData) rappresenta un oggetto immutabile che contiene le proprietà effettive della fotocamera. Un'istanza di [ICameraEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/ICameraEffectiveData) è esposta tramite [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/IThreeDFormatEffectiveData), che fornisce valori effettivi per [IThreeDFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/IThreeDFormat).
-
-Il seguente esempio di codice mostra come ottenere le proprietà effettive per la fotocamera. Si assume che la prima forma nella prima diapositiva abbia una formattazione 3D.
+Aspose.Slides consente di ottenere le proprietà effettive di una fotocamera. L'interfaccia [ICameraEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/ICameraEffectiveData) rappresenta un oggetto immutabile che contiene le proprietà della fotocamera effettive. Un'istanza di [ICameraEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/ICameraEffectiveData) è esposta tramite [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/IThreeDFormatEffectiveData), che fornisce valori effettivi per [IThreeDFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/IThreeDFormat).
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -80,13 +82,13 @@ try {
 }
 ```
 
-## **Ottenere le proprietà effettive di un rig di illuminazione**
+## **Ottenere le proprietà effettive di un impianto di illuminazione**
 
-Aspose.Slides consente di ottenere le proprietà effettive di un rig di illuminazione. L'interfaccia [ILightRigEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/ILightRigEffectiveData) rappresenta un oggetto immutabile che contiene le proprietà effettive del rig di illuminazione. Un'istanza di [ILightRigEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/ILightRigEffectiveData) è esposta tramite [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/IThreeDFormatEffectiveData), che fornisce valori effettivi per [IThreeDFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/IThreeDFormat).
-
-Il seguente esempio di codice mostra come ottenere le proprietà effettive per il rig di illuminazione. Si assume che la prima forma nella prima diapositiva abbia una formattazione 3D.
+Aspose.Slides consente di ottenere le proprietà effettive di un impianto di illuminazione. L'interfaccia [ILightRigEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/ILightRigEffectiveData) rappresenta un oggetto immutabile che contiene le proprietà dell'impianto di illuminazione effettive. Un'istanza di [ILightRigEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/ILightRigEffectiveData) è esposta tramite [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/IThreeDFormatEffectiveData), che fornisce valori effettivi per [IThreeDFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/IThreeDFormat).
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -105,13 +107,13 @@ try {
 }
 ```
 
-## **Ottenere le proprietà effettive di una forma a smusso**
+## **Ottenere le proprietà effettive di una forma smussata**
 
-Aspose.Slides consente di ottenere le proprietà effettive di uno smusso di forma. L'interfaccia [IShapeBevelEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/IShapeBevelEffectiveData) rappresenta un oggetto immutabile che contiene le proprietà effettive di rilievo della faccia per una forma. Un'istanza di [IShapeBevelEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/IShapeBevelEffectiveData) è esposta tramite [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/IThreeDFormatEffectiveData), che fornisce valori effettivi per [IThreeDFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/IThreeDFormat).
-
-Il seguente esempio di codice mostra come ottenere le proprietà effettive per lo smusso superiore di una forma. Si assume che la prima forma nella prima diapositiva abbia una formattazione 3D.
+Aspose.Slides consente di ottenere le proprietà effettive di una smussatura di forma. L'interfaccia [IShapeBevelEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/IShapeBevelEffectiveData) rappresenta un oggetto immutabile che contiene le proprietà effettive di rilievo per una forma. Un'istanza di [IShapeBevelEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/IShapeBevelEffectiveData) è esposta tramite [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/IThreeDFormatEffectiveData), che fornisce valori effettivi per [IThreeDFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/IThreeDFormat).
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -136,9 +138,9 @@ try {
 
 Utilizzando Aspose.Slides, è possibile ottenere le proprietà effettive di un riquadro di testo. L'interfaccia [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/ITextFrameFormatEffectiveData) contiene le proprietà di formattazione effettiva del riquadro di testo.
 
-Il seguente esempio di codice mostra come ottenere le proprietà di formattazione effettiva del riquadro di testo. Si assume che la prima forma nella prima diapositiva sia un [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/IAutoShape) con un riquadro di testo.
-
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -171,9 +173,9 @@ try {
 
 Utilizzando Aspose.Slides, è possibile ottenere le proprietà effettive di uno stile di testo. L'interfaccia [ITextStyleEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/ITextStyleEffectiveData) contiene le proprietà effettive dello stile di testo.
 
-Il seguente esempio di codice mostra come ottenere le proprietà effettive dello stile di testo. Si assume che la prima forma nella prima diapositiva sia un [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/IAutoShape) con un riquadro di testo.
-
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -201,11 +203,13 @@ try {
 }
 ```
 
-## **Ottenere il valore di altezza del carattere effettivo**
+## **Ottenere il valore effettivo dell'altezza del carattere**
 
-Utilizzando Aspose.Slides, è possibile ottenere l'altezza del carattere effettiva. Il codice seguente dimostra come l'altezza del carattere effettiva di una porzione cambi dopo che i valori locali di altezza del carattere sono impostati a diversi livelli della struttura della presentazione.
+Utilizzando Aspose.Slides, è possibile ottenere l'altezza del carattere effettiva. Il codice seguente dimostra come l'altezza del carattere effettiva di una porzione cambi dopo che i valori locali dell'altezza del carattere sono stati impostati a diversi livelli della struttura della presentazione.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -278,11 +282,13 @@ try {
 
 ## **Ottenere il formato di riempimento effettivo per una tabella**
 
-Utilizzando Aspose.Slides, è possibile ottenere la formattazione di riempimento effettiva per diverse parti della tabella. L'interfaccia [IFillFormatEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/IFillFormatEffectiveData) contiene le proprietà di formattazione di riempimento effettive. La formattazione della cella ha priorità più alta rispetto alla formattazione della riga, la formattazione della riga ha priorità più alta rispetto alla formattazione della colonna e la formattazione della colonna ha priorità più alta rispetto alla formattazione dell'intera tabella.
+Utilizzando Aspose.Slides, è possibile ottenere la formattazione di riempimento effettiva per diverse parti di una tabella. L'interfaccia [IFillFormatEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/IFillFormatEffectiveData) contiene le proprietà di formattazione di riempimento effettive. La formattazione delle celle ha priorità più alta rispetto a quella delle righe, la formattazione delle righe ha priorità più alta rispetto a quella delle colonne e la formattazione delle colonne ha priorità più alta rispetto a quella dell'intera tabella.
 
-Di conseguenza, le proprietà di [ICellFormatEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/ICellFormatEffectiveData) vengono utilizzate per disegnare la cella della tabella. Il seguente esempio di codice mostra come ottenere la formattazione di riempimento effettiva per diverse parti della tabella. Si assume che la prima forma nella prima diapositiva sia una [ITable](https://reference.aspose.com/slides/it/java/com.aspose.slides/ITable).
+Di conseguenza, le proprietà di [ICellFormatEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/ICellFormatEffectiveData) vengono utilizzate per disegnare la cella della tabella. Il seguente esempio di codice mostra come ottenere la formattazione di riempimento effettiva per diverse parti della tabella. Si presume che la prima forma nella prima diapositiva sia una [ITable](https://reference.aspose.com/slides/it/java/com.aspose.slides/ITable).
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -304,34 +310,34 @@ try {
 
 ## **FAQ**
 
-**Restituisce `getEffective` un'istantanea?**
+### `getEffective` restituisce un'istantanea?
 
-Non sempre. I dati effettivi rappresentano la formattazione calcolata dopo l'applicazione dell'ereditarietà, ma alcuni oggetti di dati effettivi possono essere memorizzati nella cache internamente. Una chiamata successiva a `getEffective` può ricalcolare la formattazione e aggiornare i dati nella cache, quindi un oggetto ottenuto in precedenza non dovrebbe essere considerato un'istantanea durevole.
+Non sempre. I dati effettivi rappresentano la formattazione calcolata dopo l'applicazione dell'ereditarietà, ma alcuni oggetti di dati effettivi possono essere memorizzati nella cache internamente. Una chiamata successiva a `getEffective` può ricalcolare la formattazione e aggiornare i dati memorizzati, quindi un oggetto ottenuto in precedenza non dovrebbe essere considerato un'istantanea permanente.
 
-**Quando dovrei rileggere nuovamente le proprietà effettive?**
+### Quando dovrei leggere nuovamente le proprietà effettive?
 
-Richiamare `getEffective` nuovamente dopo aver modificato la formattazione locale, gli stili genitore, la formattazione del layout, la formattazione master o le impostazioni predefinite a livello di presentazione. La chiamata successiva rivaluta la gerarchia di formattazione e restituisce il risultato effettivo corrente.
+Chiamare nuovamente `getEffective` dopo aver modificato la formattazione locale, gli stili genitore, la formattazione del layout, la formattazione master o le impostazioni predefinite a livello di presentazione. La chiamata successiva rivaluta la gerarchia di formattazione e restituisce il risultato effettivo corrente.
 
-**Modificare o rimuovere una diapositiva di layout/master influisce sulle proprietà effettive già recuperate?**
+### La modifica o la rimozione di una diapositiva layout/master influisce sulle proprietà effettive già recuperate?
 
-Sì, ma la modifica si riflette alla successiva chiamata di `getEffective`. Se una sorgente di formattazione genitore viene modificata o rimossa, i dati effettivi precedentemente ottenuti potrebbero essere obsoleti. Una volta richiamato nuovamente `getEffective`, Aspose.Slides rivaluta l'albero di formattazione e i caratteri, i colori, le dimensioni o gli altri valori risultanti possono cambiare.
+Sì, ma la modifica viene riflessa nella successiva chiamata a `getEffective`. Se una fonte di formattazione genitore viene modificata o rimossa, i dati effettivi ottenuti in precedenza potrebbero diventare obsoleti. Una volta che `getEffective` viene chiamato nuovamente, Aspose.Slides rivaluta l'albero di formattazione e i caratteri, i colori, le dimensioni o altri valori risultanti possono cambiare.
 
-**Posso modificare i valori attraverso gli oggetti di dati effettivi?**
+### Posso modificare i valori tramite oggetti di dati effettivi?
 
-No. Gli oggetti di dati effettivi espongono i valori calcolati. Apporta le modifiche negli oggetti di formattazione locale, quindi ottieni nuovamente i valori effettivi.
+No. Gli oggetti di dati effettivi espongono valori calcolati. Apporta le modifiche negli oggetti di formattazione locale, quindi ottieni nuovamente i valori effettivi.
 
-**Cosa succede se una proprietà non è impostata a livello di forma, né nel layout/master, né nelle impostazioni globali?**
+### Cosa accade se una proprietà non è impostata a livello di forma, né nel layout/master, né nelle impostazioni globali?
 
-Il valore effettivo viene determinato dal meccanismo predefinito, che comprende i valori predefiniti di PowerPoint e Aspose.Slides. Tale valore risolto diventa parte dei dati effettivi correnti.
+Il valore effettivo è determinato dal meccanismo predefinito, che include i valori predefiniti di PowerPoint e Aspose.Slides. Tale valore risolto diventa parte dei dati effettivi correnti.
 
-**Dal valore di font effettivo, posso capire quale livello ha fornito la dimensione o il tipo di carattere?**
+### Da un valore di carattere effettivo, posso capire a quale livello è stato fornito la dimensione o il tipo di carattere?
 
-Non direttamente. I dati effettivi restituiscono il valore finale. Per trovare la sorgente, controlla i valori locali nella porzione, nel paragrafo, nel riquadro di testo e negli stili di testo a livello di layout, master e presentazione per vedere dove appare la prima definizione esplicita.
+Non direttamente. I dati effettivi restituiscono il valore finale. Per individuare la fonte, controlla i valori locali nella porzione, nel paragrafo, nel riquadro di testo e negli stili di testo a livello di layout, master e presentazione per vedere dove appare la prima definizione esplicita.
 
-**Perché a volte i valori effettivi sembrano identici a quelli locali?**
+### Perché i valori effettivi a volte sembrano identici a quelli locali?
 
-Perché il valore locale è risultato finale (non è stata necessaria alcuna eredità di livello superiore). In questi casi, il valore effettivo corrisponde a quello locale.
+Perché il valore locale è risultato finale (non è stata necessaria alcuna ereditarietà di livello superiore). In questi casi, il valore effettivo coincide con quello locale.
 
-**Quando dovrei usare le proprietà effettive e quando dovrei lavorare solo con quelle locali?**
+### Quando dovrei usare le proprietà effettive e quando dovrei lavorare solo con quelle locali?
 
-Utilizza i dati effettivi quando ti serve il risultato "as rendered" dopo l'applicazione di tutta l'ereditarietà, ad esempio per allineare colori, rientri o dimensioni. Se devi conservare tali valori indipendentemente da modifiche successive di formattazione, copia le proprietà necessarie nel tuo oggetto. Se devi modificare la formattazione a un livello specifico, modifica le proprietà locali e, se necessario, leggi nuovamente i dati effettivi per verificare il risultato.
+Utilizza i dati effettivi quando ti serve il risultato “come renderizzato” dopo l'applicazione di tutta l'ereditarietà, ad esempio per allineare colori, rientri o dimensioni. Se devi conservare tali valori indipendentemente dalle modifiche di formattazione successive, copia le proprietà necessarie nel tuo oggetto. Se devi modificare la formattazione a un livello specifico, modifica le proprietà locali e poi, se necessario, leggi nuovamente i dati effettivi per verificare il risultato.

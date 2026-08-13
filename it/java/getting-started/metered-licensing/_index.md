@@ -19,15 +19,15 @@ description: "Scopri come la licenza a consumo di Aspose.Slides per Java ti cons
 ---
 ## **Introduzione**
 
-La licenza a consumo è un meccanismo di licenza che può essere usato insieme ai metodi di licenza esistenti. Se desideri essere fatturato in base all'utilizzo delle funzionalità dell'API Aspose.Slides, scegli la licenza a consumo.
+La licenza a consumo è un meccanismo di licenza che può essere utilizzato insieme ai metodi di licenza esistenti. Se desideri essere fatturato in base all'utilizzo delle funzionalità dell'API Aspose.Slides, scegli la licenza a consumo.
 
 ## **Applicare le chiavi a consumo**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-La licenza a consumo è un nuovo meccanismo di licenza che può essere usato insieme ai metodi di licenza esistenti. Se desideri essere fatturato in base all'utilizzo delle funzionalità dell'API Aspose.Slides, scegli la licenza a consumo.
+La licenza a consumo è un nuovo meccanismo di licenza che può essere utilizzato insieme ai metodi di licenza esistenti. Se desideri essere fatturato in base all'utilizzo delle funzionalità dell'API Aspose.Slides, scegli la licenza a consumo.
 
-Quando acquisti una licenza a consumo, ricevi le chiavi (e non un file di licenza). Questa chiave a consumo può essere applicata usando la classe [Metered](https://reference.aspose.com/slides/it/java/com.aspose.slides/metered/) fornita da Aspose per le operazioni di misurazione. Per maggiori dettagli, consulta le [Metered Licensing FAQ](https://purchase.aspose.com/faqs/licensing/metered).
+Quando acquisti una licenza a consumo, ottieni delle chiavi (e non un file di licenza). Questa chiave a consumo può essere applicata utilizzando la classe [Metered](https://reference.aspose.com/slides/it/java/com.aspose.slides/metered/) fornita da Aspose per le operazioni di misurazione. Per ulteriori dettagli, consulta le [FAQ sulla licenza a consumo](https://purchase.aspose.com/faqs/licensing/metered).
 
 {{% /alert %}} 
 
@@ -39,9 +39,9 @@ Quando acquisti una licenza a consumo, ricevi le chiavi (e non un file di licenz
 
 1. Chiama il metodo [getConsumptionQuantity](https://reference.aspose.com/slides/it/java/com.aspose.slides/metered/#getConsumptionQuantity--) della classe `Metered`.
 
-Dovresti vedere l'importo/quantità di richieste API consumate finora.
+Dovresti vedere la quantità di richieste API che hai consumato finora.
 
-Questo esempio di codice mostra come utilizzare la licenza a consumo:
+Questo esempio di codice ti mostra come utilizzare la licenza a consumo:
 
 ```java
 // Crea un'istanza della classe Metered
@@ -55,7 +55,7 @@ try {
     double amountBefore = com.aspose.slides.Metered.getConsumptionQuantity();
     System.out.println("Amount consumed before: " + amountBefore);
 
-    // Esegui qualcosa con l'API Aspose.Slides qui
+    // Esegui qualche operazione con l'API Aspose.Slides qui
     // ...
 
     // Ottiene il valore della quantità consumata dopo le chiamate API
@@ -68,32 +68,32 @@ try {
 
 {{% alert color="warning" title="NOTE"  %}} 
 
-Per utilizzare la licenza a consumo, è necessaria una connessione internet stabile perché il meccanismo di licenza utilizza internet per interagire costantemente con i nostri servizi e per eseguire calcoli.
+Per utilizzare la licenza a consumo, è necessaria una connessione internet stabile poiché il meccanismo di licenza utilizza Internet per interagire costantemente con i nostri servizi ed eseguire i calcoli.
 
 {{% /alert %}} 
 
 ## **FAQ**
 
-**Posso usare una licenza a consumo insieme a una licenza regolare (perpetua o temporanea) nella stessa applicazione?**
+### Posso utilizzare una licenza a consumo insieme a una licenza regolare (perpetua o temporanea) nella stessa applicazione?
 
-Sì. La licenza a consumo è un meccanismo di licenza aggiuntivo che può essere usato insieme ai [metodi di licenza](/slides/it/java/licensing/). Decidi quale meccanismo applicare all'avvio dell'applicazione.
+Sì. La licenza a consumo è un meccanismo di licenza aggiuntivo che può essere utilizzato insieme ai [metodi di licenza](/slides/it/java/licensing/). Decidi quale meccanismo applicare all'avvio dell'applicazione.
 
-**Cosa conta esattamente come consumo con una licenza a consumo: operazioni o file?**
+### Cosa conta esattamente come consumo con una licenza a consumo: operazioni o file?
 
-Viene conteggiato l'uso dell'API, cioè il numero di richieste o operazioni. È possibile ottenere il consumo attuale tramite i [metodi di tracciamento del consumo](https://reference.aspose.com/slides/it/java/com.aspose.slides/metered/).
+L'utilizzo dell'API viene conteggiato, ovvero il numero di richieste o operazioni. Puoi ottenere il consumo corrente tramite i [metodi di tracciamento del consumo](https://reference.aspose.com/slides/it/java/com.aspose.slides/metered/).
 
-**La licenza a consumo è adatta a microservizi e ambienti serverless in cui le istanze si riavviano frequentemente?**
+### La licenza a consumo è adatta per microservizi e ambienti serverless in cui le istanze vengono riavviate frequentemente?
 
-Sì. Poiché la contabilizzazione avviene a livello di chiamata API, gli scenari con frequenti avvii a freddo sono compatibili, a patto che vi sia un accesso di rete stabile per i calcoli della licenza a consumo.
+Sì. Poiché la contabilità avviene a livello di chiamata API, gli scenari con frequenti avvii a freddo sono compatibili, a condizione che vi sia un accesso di rete stabile per i calcoli a consumo.
 
-**La funzionalità della libreria differisce quando si utilizza una licenza a consumo rispetto a una licenza perpetua?**
+### Le funzionalità della libreria differiscono quando si utilizza una licenza a consumo rispetto a una licenza perpetua?
 
-No. Si tratta solo del meccanismo di licenza e fatturazione; le capacità del prodotto rimangono le stesse.
+No. Questo riguarda solo il meccanismo di licenza e fatturazione; le capacità del prodotto rimangono le stesse.
 
-**Come si colloca la licenza a consumo rispetto alla versione di prova e alla licenza temporanea?**
+### Come si colloca la licenza a consumo rispetto alla versione di prova e alla licenza temporanea?
 
-La versione di prova ha limitazioni e filigrane, la [licenza temporanea](https://purchase.aspose.com/temporary-license/) rimuove le limitazioni per 30 giorni, e la licenza a consumo rimuove le limitazioni e addebita in base all'uso reale.
+La versione di prova ha limitazioni e filigrane, la [licenza temporanea](https://purchase.aspose.com/temporary-license/) rimuove le limitazioni per 30 giorni, e la licenza a consumo rimuove le limitazioni e addebita in base all'uso effettivo.
 
-**Posso controllare il budget reagendo automaticamente quando viene superata una soglia di consumo?**
+### Posso controllare il budget reagendo automaticamente quando una soglia di consumo viene superata?
 
-Sì. Una pratica comune è leggere periodicamente il consumo attuale tramite i [metodi di tracciamento](https://reference.aspose.com/slides/it/java/com.aspose.slides/metered/) e implementare i propri limiti o avvisi a livello di applicazione o di monitoraggio.
+Sì. Una pratica comune è leggere periodicamente il consumo corrente tramite i [metodi di tracciamento](https://reference.aspose.com/slides/it/java/com.aspose.slides/metered/) e implementare i propri limiti o avvisi a livello di applicazione o di monitoraggio.

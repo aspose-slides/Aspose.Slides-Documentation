@@ -5,8 +5,8 @@ type: docs
 weight: 50
 url: /tr/net/creating-a-table-on-powerpoint-slide/
 keywords:
-- tablo oluşturma
-- göç
+- tablo oluştur
+- geçiş
 - VSTO
 - Office otomasyonu
 - PowerPoint
@@ -14,23 +14,25 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Microsoft Office otomasyonundan Aspose.Slides for .NET'e geçiş yapın ve C# ile esnek biçimlendirme seçenekleriyle PowerPoint (PPT, PPTX) slaytlarında tablolar oluşturun."
+description: "Microsoft Office otomasyonundan Aspose.Slides for .NET'e geçiş yapın ve C# ile PowerPoint (PPT, PPTX) slaytlarında esnek biçimlendirme ile tablolar oluşturun."
 ---
-{{% alert color="primary" %}}
-Tablolar, sunum slaytlarında verileri görüntülemek için yaygın olarak kullanılır. Bu makale, önce [VSTO 2008](/slides/tr/net/creating-a-table-on-powerpoint-slide/) ve ardından [Aspose.Slides for .NET](/slides/tr/net/creating-a-table-on-powerpoint-slide/) kullanarak programlı olarak 10 punto boyutunda 15 x 15 bir tablo nasıl oluşturulacağını gösterir.
-{{% /alert %}}
-## **Tablo Oluşturma**
+{{% alert color="info" %}} 
+
+Tablolar, sunum slaytlarında verileri görüntülemek için yaygın olarak kullanılır. Bu makale, önce [VSTO 2008](/slides/tr/net/creating-a-table-on-powerpoint-slide/) ve ardından [Aspose.Slides for .NET](/slides/tr/net/creating-a-table-on-powerpoint-slide/) kullanarak programlı olarak 15 x 15 boyutunda ve 10 punto yazı tipiyle bir tablo oluşturmanın yolunu gösterir.
+
+{{% /alert %}} 
+## **Tabloları Oluşturma**
 #### **VSTO 2008 Örneği**
-Aşağıdaki adımlar VSTO kullanarak bir Microsoft PowerPoint slaytına tablo ekler:
+Aşağıdaki adımlar, VSTO kullanarak bir Microsoft PowerPoint slaytına tablo ekler:
 
 1. Bir sunum oluşturun.
 1. Sunuma boş bir slayt ekleyin.
 1. Slayta 15 x 15 bir tablo ekleyin.
-1. Tablonun her hücresine 10 punto boyutunda metin ekleyin.
+1. Tablonun her hücresine 10 punto yazı tipiyle metin ekleyin.
 1. Sunumu diske kaydedin.
 
 ```c#
- //Sunum oluştur
+//Bir sunum oluştur
 PowerPoint.Presentation pres = Globals.ThisAddIn.Application
               .Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 //Boş bir slayt ekle
@@ -42,13 +44,13 @@ PowerPoint.Table tbl = shp.Table;
 int i = -1;
 int j = -1;
 
-//Tüm satırları dolaş
+//Tüm satırlar üzerinden döngü
 foreach (PowerPoint.Row row in tbl.Rows)
 {
     i = i + 1;
     j = -1;
 
-    //Satırdaki tüm hücreleri dolaş
+    //Satırdaki tüm hücreler üzerinden döngü
     foreach (PowerPoint.Cell cell in row.Cells)
     {
         j = j + 1;
@@ -67,43 +69,48 @@ pres.SaveAs("d:\\tblVSTO.ppt",
       Microsoft.Office.Core.MsoTriState.msoFalse);
 ```
 
+
+
 ### **Aspose.Slides for .NET Örneği**
-Aşağıdaki adımlar Aspose.Slides kullanarak bir Microsoft PowerPoint slaytına tablo ekler:
+Aşağıdaki adımlar, Aspose.Slides kullanarak bir Microsoft PowerPoint slaytına tablo ekler:
 
 1. Bir sunum oluşturun.
 1. İlk slayta 15 x 15 bir tablo ekleyin.
-1. Tablonun her hücresine 10 punto boyutunda metin ekleyin.
-1. Sunumu diske yazın.
+1. Tablonun her hücresine 10 punto yazı tipiyle metin ekleyin.
+1. Sunumu diske kaydedin.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 Presentation pres = new Presentation();
 
 //İlk slayta eriş
 ISlide sld = pres.Slides[0];
 
-//Genişliklerle sütunları ve yüksekliklerle satırları tanımla
+//Sütunları genişlikleri ve satırları yükseklikleriyle tanımla
 double[] dblCols = { 50, 50, 50 };
 double[] dblRows = { 50, 30, 30, 30, 30 };
 
 //Bir tablo ekle
 Aspose.Slides.ITable tbl = sld.Shapes.AddTable(50, 50, dblCols, dblRows);
 
-//Her hücre için kenarlık biçimini ayarla
+//Her hücre için kenar biçimini ayarla
 foreach (IRow row in tbl.Rows)
 {
-		foreach (ICell cell in row)
-		{
+    foreach (ICell cell in row)
+    {
 
-			//Her hücrenin metin çerçevesini al
-			ITextFrame tf = cell.TextFrame;
-			//Biraz metin ekle
-			tf.Text = "T" + cell.FirstRowIndex.ToString() + cell.FirstColumnIndex.ToString();
-			//Yazı tipinin punto boyutunu 10 olarak ayarla
-			tf.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 10;
-			tf.Paragraphs[0].ParagraphFormat.Bullet.Type = BulletType.None;
-		}
+        //Her hücrenin metin çerçevesini al
+        ITextFrame tf = cell.TextFrame;
+        //Metin ekle
+        tf.Text = "T" + cell.FirstRowIndex.ToString() + cell.FirstColumnIndex.ToString();
+        //Yazı tipi boyutunu 10 olarak ayarla
+        tf.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 10;
+        tf.Paragraphs[0].ParagraphFormat.Bullet.Type = BulletType.None;
+    }
 }
 
-//Sunumu diske yaz
-pres.Save("C:\\data\\tblSLD.ppt", SaveFormat.Ppt);
+//Sunumu diske kaydet
+pres.Save("tblSLD.ppt", SaveFormat.Ppt);
 ```

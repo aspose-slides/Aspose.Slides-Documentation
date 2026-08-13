@@ -32,13 +32,13 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Converta slides PowerPoint PPT e PPTX em documentos Word editáveis em C# usando Aspose.Slides para .NET com layout preciso, imagens e formatação preservados."
+description: "Converter slides PowerPoint PPT e PPTX para documentos Word editáveis em C# usando Aspose.Slides for .NET com layout preciso, imagens e formatação preservados."
 ---
-## **Visão Geral**
+## **Visão geral**
 
-Este artigo fornece uma solução para desenvolvedores sobre como converter apresentações PowerPoint e OpenDocument em documentos Word usando Aspose.Slides para .NET e Aspose.Words para .NET. O guia passo a passo orienta você por cada estágio do processo de conversão.
+Este artigo fornece uma solução para desenvolvedores sobre a conversão de apresentações PowerPoint e OpenDocument para documentos Word usando Aspose.Slides for .NET e Aspose.Words for .NET. O guia passo a passo orienta você em cada estágio do processo de conversão.
 
-## **Converter uma Apresentação em um Documento Word**
+## **Converter uma apresentação para um documento Word**
 
 Siga as instruções abaixo para converter uma apresentação PowerPoint ou OpenDocument em um documento Word:
 
@@ -48,16 +48,19 @@ Siga as instruções abaixo para converter uma apresentação PowerPoint ou Open
 4. Defina as margens no documento Word usando a propriedade [DocumentBuilder.PageSetup](https://reference.aspose.com/words/net/aspose.words/documentbuilder/pagesetup/).
 5. Percorra todos os slides da apresentação usando a propriedade [Presentation.Slides](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/slides/pt/).
     - Gere uma imagem do slide usando o método `GetImage` da interface [ISlide](https://reference.aspose.com/slides/pt/net/aspose.slides/islide/) e salve-a em um fluxo de memória.
-    - Adicione a imagem do slide ao documento Word usando o método `InsertImage` da classe [DocumentBuilder](https://reference.aspose.com/words/net/aspose.words/documentbuilder/).
+    - Adicione a imagem do slide ao documento Word usando o método `InsertImage` da classe [DocumentBuilder](https://reference.aspose.com/words/net/aspose.words/documentbuilder/) .
 6. Salve o documento Word em um arquivo.
 
-Suponhamos que temos uma apresentação "sample.pptx" que se parece com isto:
+Suponha que temos uma apresentação "sample.pptx" que se parece com isto:
 
 ![Apresentação PowerPoint](PowerPoint.png)
 
-O exemplo de código C# a seguir demonstra como converter a apresentação PowerPoint em um documento Word:
+O exemplo de código C# a seguir demonstra como converter a apresentação PowerPoint para um documento Word:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Words;
+
 // Carregar um arquivo de apresentação.
 using var presentation = new Presentation("sample.pptx");
 
@@ -78,10 +81,10 @@ builder.PageSetup.BottomMargin = 0;
 
 const float scaleX = 2, scaleY = 2;
 
-// Go through all the presentation slides.
+// Percorrer todos os slides da apresentação.
 foreach (var slide in presentation.Slides)
 {
-    // Gerar uma imagem do slide e salvar em um fluxo de memória.
+    // Gerar uma imagem do slide e salvá‑la em um fluxo de memória.
     using var image = slide.GetImage(scaleX, scaleY);
     using var imageStream = new MemoryStream();
     image.Save(imageStream, ImageFormat.Png);
@@ -101,18 +104,18 @@ O resultado:
 
 ![Documento Word](Word.png)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Experimente nosso [**Conversor Online de PPT para Word**](https://products.aspose.app/slides/pt/conversion/ppt-to-word) para ver o que você pode ganhar ao converter apresentações PowerPoint e OpenDocument em documentos Word. 
+Experimente o nosso **Conversor Online de PPT para Word**(https://products.aspose.app/slides/pt/conversion/ppt-to-word) para ver o que você pode ganhar ao converter apresentações PowerPoint e OpenDocument em documentos Word. 
 
 {{% /alert %}}
 
-## **Perguntas Frequentes**
+## **FAQ**
 
-**Quais componentes precisam ser instalados para converter apresentações PowerPoint e OpenDocument em documentos Word?**
+### Quais componentes precisam ser instalados para converter apresentações PowerPoint e OpenDocument em documentos Word?
 
-Você só precisa adicionar os respectivos pacotes NuGet para [Aspose.Slides for .NET](https://www.nuget.org/packages/Aspose.Slides.NET) e [Aspose.Words for .NET](https://www.nuget.org/packages/Aspose.Words/) ao seu projeto C#. Ambas as bibliotecas funcionam como APIs independentes, e não há necessidade de ter o Microsoft Office instalado.
+Você só precisa adicionar os pacotes NuGet correspondentes para [Aspose.Slides for .NET](https://www.nuget.org/packages/Aspose.Slides.NET) e [Aspose.Words for .NET](https://www.nuget.org/packages/Aspose.Words/) ao seu projeto C#. Ambas as bibliotecas funcionam como APIs independentes, e não há necessidade de ter o Microsoft Office instalado.
 
-**Todos os formatos de apresentação PowerPoint e OpenDocument são suportados?**
+### Todos os formatos de apresentação PowerPoint e OpenDocument são suportados?
 
-Aspose.Slides for .NET [suporta todos os formatos de apresentação](/slides/pt/net/supported-file-formats/), incluindo PPT, PPTX, ODP e outros tipos de arquivos comuns. Isso garante que você possa trabalhar com apresentações criadas em várias versões do Microsoft PowerPoint.
+Aspose.Slides for .NET [suporta todos os formatos de apresentação](/slides/pt/net/supported-file-formats/), incluindo PPT, PPTX, ODP e outros tipos de arquivo comuns. Isso garante que você possa trabalhar com apresentações criadas em várias versões do Microsoft PowerPoint.

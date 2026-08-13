@@ -1,41 +1,50 @@
 ---
-title: C++'ta Geri Dönüş Yazı Tipi Koleksiyonlarını Yapılandırma
-linktitle: Geri Dönüş Yazı Tipi Koleksiyonu
+title: C++'ta Yedek Yazı Tipi Koleksiyonlarını Yapılandırma
+linktitle: Yedek Yazı Tipi Koleksiyonu
 type: docs
 weight: 20
 url: /tr/cpp/create-fallback-fonts-collection/
 keywords:
-- geri dönüş yazı tipi
-- geri dönüş kuralı
+- yedek yazı tipi
+- yedek kural
 - yazı tipi koleksiyonu
-- yazı tipini yapılandırma
-- yazı tipini ayarlama
+- yazı tipini yapılandır
+- yazı tipini kur
 - PowerPoint
 - OpenDocument
 - sunum
-- С++
+- C++
 - Aspose.Slides
-description: "Aspose.Slides içinde C++ için bir geri dönüş yazı tipi koleksiyonu kurarak, PowerPoint ve OpenDocument sunumlarında metnin tutarlı ve net kalmasını sağlayın."
+description: "Aspose.Slides for C++'ta bir yedek yazı tipi koleksiyonu kurarak PowerPoint ve OpenDocument sunumlarında metnin tutarlı ve net kalmasını sağlayın."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, bir sunum için geri dönüş yazı tipi kurallarının bir koleksiyonunu yapılandırmanıza olanak tanır. Her geri dönüş kuralı, `FontFallBackRule` sınıfıyla temsil edilir ve `IFontFallBackRulesCollection` arayüzünü uygulayan bir `FontFallBackRulesCollection` içine eklenebilir.
+Aspose.Slides, bir sunum için yedek yazı tipi kurallarının bir koleksiyonunu yapılandırmanıza olanak tanır. Her yedek kural, `FontFallBackRule` sınıfı ile temsil edilir ve `FontFallBackRulesCollection`a eklenebilir; bu sınıf `IFontFallBackRulesCollection` arayüzünü uygular.
 
-Koleksiyonu oluşturduktan sonra, sunumun `FontsManager` nesnesinin `set_FontFallBackRulesCollection` metodunu kullanarak atayabilirsiniz. `FontsManager`, sunum boyunca yazı tiplerini yönetir ve her `Presentation` örneğinin kendi `FontsManager`'ı vardır.
+Koleksiyonu oluşturduktan sonra, sunumun `FontsManager` sınıfının `set_FontFallBackRulesCollection` yöntemi ile atayabilirsiniz. `FontsManager`, sunum genelindeki yazı tiplerini kontrol eder ve her `Presentation` örneğinin kendi `FontsManager`'ı vardır.
 
-`FontsManager` geri dönüş yazı tipi koleksiyonu ile başlatıldığında, belirtilen geri dönüş yazı tipleri sunum render edilirken uygulanır.
+`FontsManager` yedek yazı tipi koleksiyonuyla başlatıldıktan sonra, belirtilen yedek yazı tipleri sunum işlenirken uygulanır.
 
-## **Geri Dönüş Kurallarını Uygula**
+## **Yedek Kurallarını Uygulama**
 
-`FontFallBackRule` sınıfının örnekleri, `IFontFallBackRulesCollection` arayüzünü uygulayan bir [FontFallBackRulesCollection](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontfallbackrulescollection/) içinde düzenlenebilir. Koleksiyondan kurallar eklemek veya kaldırmak mümkündür.
+`[FontFallBackRule](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontfallbackrule/)` sınıfının örnekleri, `[FontFallBackRulesCollection](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontfallbackrulescollection/)` içine düzenlenebilir; bu sınıf `[IFontFallBackRulesCollection](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ifontfallbackrulescollection/)` arayüzünü uygular. Koleksiyondan kurallar eklemek veya çıkarmak mümkündür.
 
-Daha sonra bu koleksiyon, [set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsmanager/set_fontfallbackrulescollection/) metoduyla [FontsManager](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsmanager/) sınıfına aktarılabilir. FontsManager, sunum boyunca yazı tiplerini kontrol eder.
+Ardından bu koleksiyon, `[set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsmanager/set_fontfallbackrulescollection/)` yöntemi aracılığıyla `[FontsManager](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsmanager/)` sınıfına geçirilebilir. FontsManager, sunum genelindeki yazı tiplerini kontrol eder.
 
-Her [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının, kendi FontsManager örneğiyle birlikte bir [get_FontsManager()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/get_fontsmanager/) metodu vardır.
+Her `[Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/)` nesnesi, kendi FontsManager sınıfı örneğiyle birlikte bir `[get_FontsManager()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/get_fontsmanager/)` yöntemine sahiptir.
 
-Belirli bir sunumun FontsManager'ına geri dönüş yazı tipi kurallarının koleksiyonunu nasıl oluşturup atayabileceğinize dair bir örnek:  
+Belirli bir sunumun FontsManager'ına yedek yazı tipi kuralları koleksiyonu nasıl oluşturulur ve atanır, aşağıda bir örnek verilmiştir:  
 
 ``` cpp
+#include <DOM/Fonts/FontFallBackRule.h>
+#include <DOM/Fonts/FontFallBackRulesCollection.h>
+#include <DOM/IFontFallBackRule.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>();
 auto userRulesList = MakeObject<FontFallBackRulesCollection>();
 
@@ -45,26 +54,26 @@ userRulesList->Add(MakeObject<FontFallBackRule>(static_cast<uint32_t>(0x3040), s
 presentation->get_FontsManager()->set_FontFallBackRulesCollection(userRulesList);
 ```
 
-FontsManager geri dönüş yazı tipi koleksiyonuyla başlatıldıktan sonra, geri dönüş yazı tipleri sunum render edilirken uygulanır.
+FontsManager yedek yazı tipleri koleksiyonu ile başlatıldıktan sonra, yedek yazı tipleri sunum işlenirken uygulanır.
 
-{{% alert color="primary" %}} 
-Geri dönüş yazı tipi ile Sunumu Render Etme hakkında daha fazla bilgi edinin: [Render Presentation with Fallback Font](/slides/tr/cpp/render-presentation-with-fallback-font/).
+{{% alert color="info" %}} 
+Daha fazla bilgi için [Yedek Yazı Tipi ile Sunumu İşleme](/slides/tr/cpp/render-presentation-with-fallback-font/).
 {{% /alert %}}
 
 ## **SSS**
 
-**Geri dönüş kurallarım PPTX dosyasına gömülüp kaydedildikten sonra PowerPoint'te görünecek mi?**
+### Yedek kurallarım PPTX dosyasına yerleştirilecek ve kaydettikten sonra PowerPoint'te görünecek mi?
 
-Hayır. Geri dönüş kuralları çalışma zamanı render ayarlarıdır; PPTX dosyasına serileştirilmez ve PowerPoint arayüzünde görünmez.
+Hayır. Yedek kurallar, çalışma zamanı işleme ayarlarıdır; PPTX dosyasına serileştirilmezler ve PowerPoint kullanıcı arayüzünde görünmezler.
 
-**Geri dönüş, SmartArt, WordArt, grafikler ve tablolar içindeki metne uygulanır mı?**
+### Yedekleme, SmartArt, WordArt, grafikler ve tablolar içindeki metne uygulanır mı?
 
-Evet. Aynı glyph-değiştirme mekanizması bu nesnelerdeki tüm metinler için kullanılır.
+Evet. Bu nesnelerdeki tüm metinler için aynı glif değiştirme mekanizması kullanılır.
 
-**Aspose, kütüphane ile birlikte herhangi bir yazı tipi dağıtıyor mu?**
+### Aspose, kütüphane ile birlikte herhangi bir yazı tipi dağıtıyor mu?
 
-Hayır. Yazı tiplerini kendi tarafınızda ekler ve kullanırsınız; sorumluluk tamamen size aittir.
+Hayır. Yazı tiplerini kendiniz ekler ve kullanırsınız; sorumluluk size aittir.
 
-**Eksik yazı tipleri için değiştirme/yerine koyma ve eksik glifler için geri dönüş birlikte kullanılabilir mi?**
+### Eksik yazı tipleri için değiştirme/yerine koyma ve eksik glifler için yedekleme birlikte kullanılabilir mi?
 
-Evet. Bunlar aynı font çözümleme hattının bağımsız aşamalarıdır: önce motor, font mevcutluğunu ([replacement](/slides/tr/cpp/font-replacement/)/[substitution](/slides/tr/cpp/font-substitution/)) çözer, ardından geri dönüş mevcut fontlardaki eksik glifleri doldurur.
+Evet. Bunlar aynı yazı tipi çözümleme boru hattının bağımsız aşamalarıdır: önce motor, yazı tipi kullanılabilirliğini ([replacement](/slides/tr/cpp/font-replacement/)/[substitution](/slides/tr/cpp/font-substitution/)) çözümleyip, ardından yedekleme, mevcut yazı tiplerindeki eksik glifleri doldurur.

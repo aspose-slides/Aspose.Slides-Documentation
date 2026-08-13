@@ -1,5 +1,5 @@
 ---
-title: วิธีสร้างแผนภูมิในงานนำเสนอด้วย Java
+title: วิธีสร้างแผนภูมิในงานนำเสนอโดยใช้ Java
 linktitle: สร้างแผนภูมิ
 type: docs
 weight: 30
@@ -9,29 +9,29 @@ keywords:
 - สร้างแผนภูมิ
 - โค้ดเก่า
 - โค้ดสมัยใหม่
-- แนวทางเก่า
-- แนวทางสมัยใหม่
+- วิธีการเก่า
+- วิธีการสมัยใหม่
 - PowerPoint
 - OpenDocument
 - งานนำเสนอ
 - Java
 - Aspose.Slides
-description: "เรียนรู้วิธีสร้างแผนภูมิในงานนำเสนอ PowerPoint PPT, PPTX และ ODP ด้วย Java และ Aspose.Slides โดยใช้ทั้ง API แผนภูมิแบบเก่าและแบบสมัยใหม่"
+description: "เรียนรู้วิธีสร้างแผนภูมิในงานนำเสนอ PowerPoint PPT, PPTX และ ODP ด้วย Java และ Aspose.Slides โดยใช้ API แผนภูมิทั้งแบบเก่าและแบบใหม่."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-ใหม่ [Aspose.Slides for Java API](https://docs.aspose.com/slides/th/java/) ได้รับการเผยแพร่และขณะนี้ผลิตภัณฑ์เดียวนี้รองรับความสามารถในการสร้างเอกสาร PowerPoint จากศูนย์และแก้ไขเอกสารที่มีอยู่เดิม
+มีการเปิดตัว [Aspose.Slides for Java API](https://docs.aspose.com/slides/th/java/) เวอร์ชันใหม่ และตอนนี้ผลิตภัณฑ์เดียวนี้รองรับความสามารถในการสร้างเอกสาร PowerPoint ตั้งแต่ต้นและแก้ไขเอกสารที่มีอยู่
 
 {{% /alert %}} 
-## **การสนับสนุนโค้ดแบบเก่า**
-เพื่อใช้โค้ดเดิมที่พัฒนาด้วย Aspose.Slides for Java เวอร์ชันก่อน 14.x.x คุณต้องทำการปรับเปลี่ยนเพียงเล็กน้อยในโค้ดของคุณ แล้วโค้ดจะทำงานเช่นเดิม ทุกคลาสที่เคยอยู่ใน Aspose.Slides for Java รุ่นเก่าภายใต้เนมสเปซ com.aspose.slides และ com.aspose.slides.pptx ตอนนี้ถูกรวมเป็นหนึ่งเดียวในเนมสเปซ com.aspose.slides โปรดดูตัวอย่างโค้ดอย่างง่ายต่อไปนี้สำหรับการสร้างแผนภูมิปกติจากศูนย์ในงานนำเสนอโดยใช้ Aspose.Slides API รุ่นเก่า และทำตามขั้นตอนที่อธิบายวิธีการย้ายไปยัง API ที่รวมกันใหม่
-## **แนวทางของ Aspose.Slides for Java รุ่นเก่า**
+## **การสนับสนุนโค้ด Legacy**
+เพื่อใช้โค้ด legacy ที่พัฒนาขึ้นด้วย Aspose.Slides for Java เวอร์ชันก่อนหน้า 14.x.x คุณจำเป็นต้องทำการเปลี่ยนแปลงเล็กน้อยในโค้ดของคุณและโค้ดจะทำงานเช่นเดิม คลาสทั้งหมดที่เคยมีอยู่ใน Aspose.Slides for Java รุ่นเก่าภายใต้เนมสเปซ com.aspose.slides และ com.aspose.slides.pptx ขณะนี้ถูกรวมเข้าในเนมสเปซเดียวคือ com.aspose.slides กรุณาดูตัวอย่างโค้ดง่ายต่อไปนี้สำหรับการสร้างแผนภูมิทั่วไปตั้งแต่ต้นในงานนำเสนอโดยใช้ Aspose.Slides API รุ่น legacy และทำตามขั้นตอนที่อธิบายวิธีการย้ายไปยัง API ที่รวมกันใหม่
+## **วิธีการ Aspose.Slides for Java แบบ Legacy**
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-CreateChartEx-CreateChartEx.java" >}}
-## **แนวทางของ Aspose.Slides for Java 14.x.x รุ่นใหม่**
+## **วิธีการ Aspose.Slides for Java 14.x.x ใหม่**
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-CreateAChart-CreateAChart.java" >}}
 
-โปรดดูตัวอย่างโค้ดอย่างง่ายต่อไปนี้สำหรับการสร้างแผนภูมิกระจายจากศูนย์ในงานนำเสนอโดยใช้ Aspose.Slides API รุ่นเก่าและวิธีทำให้สำเร็จด้วย API ที่รวมกันใหม่
-## **แนวทางของ Aspose.Slides for Java รุ่นเก่า**
+โปรดดูตัวอย่างโค้ดง่ายต่อไปนี้สำหรับการสร้างแผนภูมิกระจายตั้งแต่ต้นในงานนำเสนอโดยใช้ Aspose.Slides API รุ่น legacy และวิธีการทำเช่นนั้นด้วย API ที่รวมกันใหม่
+## **วิธีการ Aspose.Slides for Java แบบ Legacy**
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-ExistingChart-ExistingChart.java" >}}
-## **แนวทางของ Aspose.Slides for Java 14.x.x รุ่นใหม่**
+## **วิธีการ Aspose.Slides for Java 14.x.x ใหม่**
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-CreateScatterChart-CreateScatterChart.java" >}}

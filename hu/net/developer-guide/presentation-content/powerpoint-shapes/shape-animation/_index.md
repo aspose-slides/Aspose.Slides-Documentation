@@ -1,5 +1,5 @@
 ---
-title: Alakzat animációk alkalmazása prezentációkban .NET környezetben
+title: Alkalmazz alakzat animációkat prezentációkban .NET-ben
 linktitle: Alakzat animáció
 type: docs
 weight: 60
@@ -16,108 +16,121 @@ keywords:
 - hatás hozzáadása
 - hatás lekérése
 - hatás kinyerése
-- hatás hangja
+- hatás hang
 - animáció alkalmazása
 - PowerPoint
 - prezentáció
 - .NET
 - C#
 - Aspose.Slides
-description: "Fedezze fel, hogyan hozhat létre és testreszabhat alakzat animációkat PowerPoint prezentációkban az Aspose.Slides for .NET segítségével. Tűnjön ki!"
+description: "Fedezze fel, hogyan hozhat létre és testreszabhat alakzat animációkat PowerPoint prezentációkban az Aspose.Slides for .NET segítségével. Emelkedjen ki!"
 ---
 ## **Bevezetés**
 
-Az animációk vizuális hatások, amelyeket szövegekre, képekre, alakzatokra vagy [diagramokra](/slides/hu/net/animated-charts/) lehet alkalmazni. Életet adnak a bemutatóknak vagy azok elemeinek. 
+Az animációk vizuális hatások, amelyeket szövegekre, képekre, alakzatokra vagy [grafikonokra](/slides/hu/net/animated-charts/) lehet alkalmazni. Életet adnak a prezentációknak vagy azok elemeinek. 
 
-## **Miért használjunk animációkat a bemutatókban?**
+## **Miért használjunk animációkat a prezentációkban?**
 
-* az információáramlás irányítása  
-* fontos pontok kiemelése  
-* az érdeklődés vagy a közönség részvételének növelése  
-* a tartalom könnyebb olvasása, elsajátítása vagy feldolgozása  
-* a közönség figyelmének felhívása a bemutató fontos részeire  
+Az animációk segítségével 
 
-A PowerPoint számos lehetőséget és eszközt kínál az animációk és animációs hatások **belépés**, **kilépés**, **kiemelés** és **mozgási útvonalak** kategóriáiban. 
+* az információáramlás szabályozása
+* a fontos pontok kiemelése
+* az érdeklődés vagy részvétel növelése a közönségben
+* a tartalom olvasásának, elsajátításának vagy feldolgozásának megkönnyítése
+* a olvasók vagy nézők figyelmének felirányítása a prezentáció fontos részeire
+
+A PowerPoint számos lehetőséget és eszközt kínál az animációk és animációs hatások számára a **belépés**, **kilépés**, **kiemelés** és **mozgáspálya** kategóriákban. 
 
 ## **Animációk az Aspose.Slides-ban**
 
-* Az Aspose.Slides biztosítja az osztályokat és típusokat, amelyekre az animációkkal való munkához szükség van az [Aspose.Slides.Animation](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/) névtérben,  
-* Az Aspose.Slides több mint **150 animációs hatást** kínál az [EffectType](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/effecttype) felsorolásban. Ezek a hatások lényegében ugyanazok (vagy ekvivalens) a PowerPoint-ban használt hatások.  
+* Az Aspose.Slides biztosítja az animációkkal való munkához szükséges osztályokat és típusokat a [Aspose.Slides.Animation](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/) névtérben,  
+* Az Aspose.Slides több mint **150 animációs hatást** biztosít a [EffectType](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/effecttype) felsorolásban. Ezek a hatások lényegében megegyeznek (vagy ekvivalensek) a PowerPoint-ban használt hatásokkal.  
 
-## **Animáció alkalmazása egy szövegdobozra**
+## **Animáció alkalmazása egy TextBox-ra**
 
-Az Aspose.Slides for .NET lehetővé teszi, hogy animációt alkalmazz a formán belüli szövegre. 
+Az Aspose.Slides for .NET lehetővé teszi, hogy animációt alkalmazzon egy alakzat szövegére. 
 
 1. Hozzon létre egy példányt a [Presentation](http://www.aspose.com/api/net/slides/hu/aspose.slides/) osztályból.  
-2. Szerezze meg egy dia hivatkozását az indexén keresztül.  
-3. Adjon hozzá egy `rectangle` [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape) elemet.  
-4. Adjon szöveget a [IAutoShape.TextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/properties/textframe) objektumhoz.  
-5. Szerezzen egy fő hatássorozatot.  
-6. Adjon animációs hatást a [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape) elemhez.  
+2. Szerezze meg egy dia hivatkozását az indexe alapján.  
+3. Adjon hozzá egy `rectangle` [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape)-t.  
+4. Adjon szöveget a [IAutoShape.TextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/properties/textframe)-hez.  
+5. Szerezze meg a fő hatássorozatot.  
+6. Adjon animációs hatást a [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape)-hez.  
 7. Állítsa be a [TextAnimation.BuildType](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/textanimation/properties/buildtype) tulajdonságot a [BuildType Enumeration](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/buildtype) értékére.  
-8. Mentse a bemutatót lemezre PPTX fájlként.  
+8. Írja ki a prezentációt lemezre PPTX fájlként.  
 
-Ez a C# kód bemutatja, hogyan kell a `Fade` hatást alkalmazni az AutoShape-re, és a szöveganimációt a *By 1st Level Paragraphs* értékre állítani:
+Ez a C# kód megmutatja, hogyan kell alkalmazni a `Fade` hatást az AutoShape-re, és beállítani a szöveg animációt a *By 1st Level Paragraphs* értékre:  
 
 ```c#
-// Példányosít egy prezentáció osztályt, amely egy prezentáció fájlt képvisel.
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
+// Létrehozza a prezentáció osztályt, amely egy prezentációs fájlt képvisel.
 using (Presentation pres = new Presentation())
 {
     ISlide sld = pres.Slides[0];
-    
-    // Új AutoShape elemet ad hozzá szöveggel
+
+    // Új AutoShape-et ad hozzá szöveggel
     IAutoShape autoShape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 100);
 
+    // Három bekezdést ad hozzá, hogy a bekezdésenkénti felépítésnek legyen mit feldolgoznia.
     ITextFrame textFrame = autoShape.TextFrame;
-    textFrame.Text = "First paragraph \nSecond paragraph \n Third paragraph";
+    textFrame.Text = "First paragraph";
+    textFrame.Paragraphs.Add(new Paragraph { Text = "Second paragraph" });
+    textFrame.Paragraphs.Add(new Paragraph { Text = "Third paragraph" });
 
-    // Lekéri a dia fő sorozatát.
+    // Lekéri a dia fő szekvenciáját.
     ISequence sequence = sld.Timeline.MainSequence;
 
-    // Fade animációs hatást ad hozzá az alakzathoz
+    // Fade animációs hatást ad az alakzathoz
     IEffect effect = sequence.AddEffect(autoShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // Animálja az alakzat szövegét az első szintű bekezdések szerint
+    // Az alakzat szövegét az első szintű bekezdések szerint animálja
     effect.TextAnimation.BuildType = BuildType.ByLevelParagraphs1;
 
     // Mentse a PPTX fájlt a lemezre
-    pres.Save(path + "AnimTextBox_out.pptx", SaveFormat.Pptx);
+    pres.Save("AnimTextBox_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-{{%  alert color="primary"  %}} 
+{{%  alert color="info"  %}} 
 
-A szövegre alkalmazott animációk mellett animációkat egyetlen [Paragraph](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraph) elemre is alkalmazhat. Lásd [**Animált szöveg**](/slides/hu/net/animated-text/).
+A szövegre való animációk mellett animációkat alkalmazhat egyetlen [Paragraph](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraph) elemre is. Lásd [**Animált szöveg**](/slides/hu/net/animated-text/).  
 
 {{% /alert %}} 
 
 ## **Animáció alkalmazása egy PictureFrame-re**
 
 1. Hozzon létre egy példányt a [Presentation](http://www.aspose.com/api/net/slides/hu/aspose.slides/) osztályból.  
-2. Szerezze meg egy dia hivatkozását az indexén keresztül.  
-3. Adjon hozzá vagy szerezzen meg egy [PictureFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/ipictureframe) elemet a dián.  
+2. Szerezze meg egy dia hivatkozását az indexe alapján.  
+3. Adjon hozzá vagy szerezzen egy [PictureFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/ipictureframe)-et a diára.  
 5. Szerezze meg a fő hatássorozatot.  
-6. Adjon animációs hatást a [PictureFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/ipictureframe) elemhez.  
-8. Mentse a bemutatót lemezre PPTX fájlként.  
+6. Adjon animációs hatást a [PictureFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/ipictureframe)-hez.  
+8. Írja ki a prezentációt lemezre PPTX fájlként.  
 
-Ez a C# kód bemutatja, hogyan kell a `Fly` hatást alkalmazni egy képkockára:
+Ez a C# kód megmutatja, hogyan kell alkalmazni a `Fly` hatást egy képkeretre:  
 
 ```c#
-// Példányosít egy prezentáció osztályt, amely egy prezentáció fájlt képvisel.
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
+// Létrehozza a prezentáció osztályt, amely egy prezentációs fájlt képvisel.
 using (Presentation pres = new Presentation())
 {
-    // Betölti a képet, hogy hozzáadja a prezentáció képgyűjteményéhez
+    // Betölti a képet, amely a prezentáció képkollekciójába kerül
     IImage image = Images.FromFile("aspose-logo.jpg");
     IPPImage ppImage = pres.Images.AddImage(image);
     image.Dispose();
 
-    // Képkockát ad hozzá a diához
+    // Képkockát ad a diára
     IPictureFrame picFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, ppImage);
 
-    // Lekéri a dia fő sorozatát.
+    // Lekéri a dia fő szekvenciáját.
     ISequence sequence = pres.Slides[0].Timeline.MainSequence;
 
-    // Fly balról animációs hatást ad hozzá a képkockához
+    // Fly animációt ad a balról a képkockához
     IEffect effect = sequence.AddEffect(picFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
 
     // Mentse a PPTX fájlt a lemezre
@@ -125,44 +138,49 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Animáció alkalmazása egy alakzatra**
+## **Animáció alkalmazása egy Shape-re**
 
 1. Hozzon létre egy példányt a [Presentation](http://www.aspose.com/api/net/slides/hu/aspose.slides/) osztályból.  
-2. Szerezze meg egy dia hivatkozását az indexén keresztül.  
-3. Adjon hozzá egy `rectangle` [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape) elemet.  
-4. Adjon hozzá egy `Bevel` [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape) elemet (amikor ez az objektumra kattintanak, az animáció lejátszásra kerül).  
+2. Szerezze meg egy dia hivatkozását az indexe alapján.  
+3. Adjon hozzá egy `rectangle` [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape)-t.  
+4. Adjon hozzá egy `Bevel` [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape)-et (amikor ezt az objektumot kattintják, az animáció lejátszódik).  
 5. Hozzon létre egy hatássorozatot a bevel alakzaton.  
-6. Hozzon létre egy egyedi `UserPath`-et.  
+6. Hozzon létre egy egyéni `UserPath`-t.  
 7. Adjon parancsokat a `UserPath`-ra való mozgáshoz.  
-8. Mentse a bemutatót lemezre PPTX fájlként.  
+8. Írja ki a prezentációt lemezre PPTX fájlként.  
 
-Ez a C# kód bemutatja, hogyan kell a `PathFootball` (path football) hatást alkalmazni egy alakzatra:
+Ez a C# kód megmutatja, hogyan kell alkalmazni a `PathFootball` (path football) hatást egy alakzatra:  
 
 ```c#
-// Példányosít egy Presentation osztályt, amely egy prezentáció fájlt képvisel.
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
+// Létrehozza a Presentation osztályt, amely egy prezentációs fájlt képvisel.
 using (Presentation pres = new Presentation())
 {
     ISlide sld = pres.Slides[0];
 
-    // Létrehozza a PathFootball hatást egy meglévő alakzatra a semmiből.
+    // Létrehozza a PathFootball hatást a meglévő alakzathoz a semmiből.
     IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 250, 25);
 
     ashp.AddTextFrame("Animated TextBox");
 
-    // Hozzáadja a PathFootball animációs hatást.
+    // Hozzáadja a PathFootBall animációs hatást.
     pres.Slides[0].Timeline.MainSequence.AddEffect(ashp, EffectType.PathFootball,
                            EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // Létrehozza egyfajta "gomb" elemet.
+    // Létrehoz egyfajta „gombot”.
     IShape shapeTrigger = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Bevel, 10, 10, 20, 20);
 
-    // Létrehozza a gombhoz tartozó hatássorozatot.
+    // Létrehoz egy hatássorozatot a gombhoz.
     ISequence seqInter = pres.Slides[0].Timeline.InteractiveSequences.Add(shapeTrigger);
 
-    // Létrehoz egy egyéni felhasználói útvonalat. Az objektumunk csak a gomb megnyomása után mozdul el.
+    // Létrehoz egy egyéni felhasználói útvonalat. Az objektumunk csak a gomb megnyomása után lesz mozdítva.
     IEffect fxUserPath = seqInter.AddEffect(ashp, EffectType.PathUser, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // Hozzáad mozgási parancsokat, mivel a létrehozott útvonal üres.
+    // Parancsokat ad hozzá a mozgáshoz, mivel a létrehozott útvonal üres.
     IMotionEffect motionBhv = ((IMotionEffect)fxUserPath.Behaviors[0]);
 
     PointF[] pts = new PointF[1];
@@ -172,25 +190,28 @@ using (Presentation pres = new Presentation())
     motionBhv.Path.Add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, false);
     motionBhv.Path.Add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
 
-    // Kiírja a PPTX fájlt a lemezre
+    // A PPTX fájlt lemezre írja
     pres.Save("AnimExample_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 ## **Az alakzatra alkalmazott animációs hatások lekérése**
 
-A következő példák bemutatják, hogyan kell használni a `GetEffectsByShape` metódust a [ISequence](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/isequence/) interfészből, hogy lekérje egy alakzatra alkalmazott összes animációs hatást.  
+A következő példák megmutatják, hogyan kell használni a `GetEffectsByShape` metódust a [ISequence](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/isequence/) interfészből, hogy lekérje egy alakzatra alkalmazott összes animációs hatást.  
 
-**Példa 1: Az animációs hatások lekérése egy alakzatra egy normál dián**
+**Példa 1: Animációs hatások lekérése egy normál dián lévő alakzatra**  
 
-Korábban megtanulta, hogyan kell animációs hatásokat hozzáadni az alakzatokhoz a PowerPoint bemutatókban. A következő mintakód bemutatja, hogyan lehet lekérni az első alakzatra az első normál dián a `AnimExample_out.pptx` bemutatóban alkalmazott hatásokat.
+Korábban megtanulta, hogyan kell animációs hatásokat hozzáadni alakzatokhoz PowerPoint prezentációkban. A következő példa kód megmutatja, hogyan kell lekérni az első alakzatra alkalmazott hatásokat az első normál dián a `AnimExample_out.pptx` prezentációban.  
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+
 using (Presentation presentation = new Presentation("AnimExample_out.pptx"))
 {
     ISlide firstSlide = presentation.Slides[0];
 
-    // Lekéri a dia fő animációs sorozatát.
+    // Lekéri a dia fő animációs szekvenciáját.
     ISequence sequence = firstSlide.Timeline.MainSequence;
 
     // Lekéri az első alakzatot az első dián.
@@ -204,38 +225,43 @@ using (Presentation presentation = new Presentation("AnimExample_out.pptx"))
 }
 ```
 
-**Példa 2: Az összes animációs hatás lekérése, beleértve a helyőrzőkből örökölt hatásokat is**
+**Példa 2: Az összes animációs hatás lekérése, beleértve a helyőrzőkből örökölt hatásokat**  
 
-Ha egy alakzat egy normál dián helyőrzőkkel rendelkezik, amelyek a elrendezés dián és/vagy a mester dián találhatók, és animációs hatásokat adtak hozzá ezekhez a helyőrzőkhöz, akkor az alakzat összes hatása lejátszásra kerül a diavetítés során, beleértve a helyőrzőkből örökölt hatásokat is.  
+Ha egy normál dián lévő alakzat helyőrzőkkel rendelkezik, amelyek a layout vagy a master dián vannak, és animációs hatásokat adtak ezekhez a helyőrzőkhöz, akkor az alakzat összes hatása lejátszásra kerül a diavetítés során, beleértve a helyőrzőkből örökölt hatásokat.  
 
-Tegyük fel, hogy van egy `sample.pptx` nevű PowerPoint bemutatófájl, amely egyetlen diát tartalmaz, azon csak egy lábléc alakzatot a "Made with Aspose.Slides" szöveggel, és a **Random Bars** hatás van alkalmazva az alakzatra.
+Tegyük fel, hogy van egy `sample.pptx` PowerPoint prezentációs fájlunk, amely egyetlen diát tartalmaz, azon csak egy lábléc alakzat a "Made with Aspose.Slides" szöveggel, és a **Random Bars** hatás van alkalmazva az alakzatra.  
 
-![Dia alakzat animációs hatás](slide-shape-animation.png)
+![Slide shape animation effect](slide-shape-animation.png)
 
-Tegyük fel továbbá, hogy a **Split** hatás a lábléc helyőrzőre van alkalmazva az **elrendezés** dián.
+Tegyük fel továbbá, hogy a **Split** hatás alkalmazva van a lábléc helyőrzőre a **layout** dián.  
 
-![Elrendezés alakzat animációs hatás](layout-shape-animation.png)
+![Layout shape animation effect](layout-shape-animation.png)
 
-Végül, a **Fly In** hatás a lábléc helyőrzőre van alkalmazva a **mester** dián.
+Végül a **Fly In** hatás van alkalmazva a lábléc helyőrzőre a **master** dián.  
 
-![Mester alakzat animációs hatás](master-shape-animation.png)
+![Master shape animation effect](master-shape-animation.png)
 
-A következő mintakód bemutatja, hogyan kell használni a `GetBasePlaceholder` metódust a [IShape](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/) interfészből, hogy elérje az alakzat helyőrzőit, és lekérje a lábléc alakzatra alkalmazott animációs hatásokat, beleértve az elrendezés és a mester diákon elhelyezkedő helyőrzőkből örökölt hatásokat.
+A következő példa kód megmutatja, hogyan kell használni a `GetBasePlaceholder` metódust a [IShape](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/) interfészből, hogy hozzáférjünk az alakzat helyőrzőihez, és lekérjük a láblécre alkalmazott animációs hatásokat, beleértve a layout és master diák helyőrzőiből örökölt hatásokat.  
 
 ```cs
+using System;
+using System.Collections.Generic;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
 
-    // Lekéri a normál dián lévő alakzat animációs hatásait.
+    // Lekéri a alakzatra alkalmazott animációs hatásokat a normál dián.
     IShape shape = slide.Shapes[0];
     IEffect[] shapeEffects = slide.Timeline.MainSequence.GetEffectsByShape(shape);
 
-    // Lekéri az elrendezés dián lévő helyőrző animációs hatásait.
+    // Lekéri a helyőrzőre alkalmazott animációs hatásokat a layout dián.
     IShape layoutShape = shape.GetBasePlaceholder();
     IEffect[] layoutShapeEffects = slide.LayoutSlide.Timeline.MainSequence.GetEffectsByShape(layoutShape);
 
-    // Lekéri a mester dián lévő helyőrző animációs hatásait.
+    // Lekéri a helyőrzőre alkalmazott animációs hatásokat a master dián.
     IShape masterShape = layoutShape.GetBasePlaceholder();
     IEffect[] masterShapeEffects = slide.LayoutSlide.MasterSlide.Timeline.MainSequence.GetEffectsByShape(masterShape);
 
@@ -244,8 +270,18 @@ using (Presentation presentation = new Presentation("sample.pptx"))
     PrintEffects(layoutShapeEffects);
     PrintEffects(shapeEffects);
 }
+
+static void PrintEffects(IEnumerable<IEffect> effects)
+{
+    foreach (IEffect effect in effects)
+    {
+        Console.WriteLine($"{effect.Type} {effect.Subtype}");
+    }
+}
 ```
 ```cs
+using Aspose.Slides.Animation;
+
 static void PrintEffects(IEnumerable<IEffect> effects)
 {
     foreach (IEffect effect in effects)
@@ -255,6 +291,7 @@ static void PrintEffects(IEnumerable<IEffect> effects)
 }
 ```
 
+Output:
 ```text
 Main sequence of shape effects:
 Fly Bottom
@@ -262,41 +299,43 @@ Split VerticalIn
 RandomBars Horizontal
 ```
 
-## **Az animációs hatás időzítési tulajdonságainak módosítása**
+## **Animációs hatás időzítési tulajdonságainak módosítása**
 
-Az Aspose.Slides for .NET lehetővé teszi az animációs hatások Timing (időzítés) tulajdonságainak módosítását.  
+Az Aspose.Slides for .NET lehetővé teszi, hogy módosítsa egy animációs hatás időzítési tulajdonságait.  
 
-Ez a PowerPointban a Animation Timing ablaktábla és a kibővített menü:  
+Ez a Microsoft PowerPoint Animation Timing ablaktábla és kibővített menüje:  
 
-![animáció időzítése](shape-animation.png)
+![example1_image](shape-animation.png)
 
-Az alábbiak a PowerPoint Timing és az [Effect.Timing](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/effect/properties/timing) tulajdonságok közti megfelelések:  
+- A PowerPoint Timing **Start** legördülő lista megfelel a [Effect.Timing.TriggerType](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/itiming/properties/triggertype) tulajdonságnak.  
+- A PowerPoint Timing **Duration** a [Effect.Timing.Duration](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/itiming/properties/duration) tulajdonsággal egyezik. Az animáció időtartama (másodpercben) az az összes idő, amely a hatás egy ciklusának befejezéséhez szükséges.  
+- A PowerPoint Timing **Delay** a [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/itiming/properties/triggerdelaytime) tulajdonsággal egyezik.  
+- A PowerPoint Timing **Repeat** legördülő lista megfelel ezeknek a tulajdonságoknak:  
+  * a [Effect.Timing.RepeatCount](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/itiming/repeatcount) tulajdonság, amely leírja a hatás *számát*;  
+  * a [Effect.Timing.RepeatUntilEndSlide](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/itiming/repeatuntilendslide) jelző, amely megadja, hogy a hatás a dia végéig ismétlődik-e;  
+  * a [Effect.Timing.RepeatUntilNextClick](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/itiming/repeatuntilnextclick) jelző, amely megadja, hogy a hatás a következő kattintásig ismétlődik-e.  
+- A PowerPoint Timing **Rewind when done playing** jelölőnégyzet a [Effect.Timing.Rewind](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/itiming/rewind/) tulajdonsággal egyezik.  
 
-- A PowerPoint Timing **Start** legördülő lista megfelel az [Effect.Timing.TriggerType](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/itiming/properties/triggertype) tulajdonságnak.  
-- A PowerPoint Timing **Duration** megfelel az [Effect.Timing.Duration](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/itiming/properties/duration) tulajdonságnak. Egy animáció időtartama (másodpercben) az az összidő, ami alatt az animáció egy ciklust befejez.  
-- A PowerPoint Timing **Delay** megfelel az [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/itiming/properties/triggerdelaytime) tulajdonságnak.  
-- A PowerPoint Timing **Repeat** legördülő lista a következő tulajdonságoknak felel meg:  
-  * [Effect.Timing.RepeatCount](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/itiming/repeatcount) tulajdonság, amely leírja a *szám* ismétlések számát;  
-  * [Effect.Timing.RepeatUntilEndSlide](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/itiming/repeatuntilendslide) jelző, amely meghatározza, hogy a hatás a dia végéig ismétlődik-e;  
-  * [Effect.Timing.RepeatUntilNextClick](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/itiming/repeatuntilnextclick) jelző, amely azt határozza meg, hogy a hatás a következő kattintásig ismétlődik-e.  
-- A PowerPoint Timing **Rewind when done playing** jelölőnégyzet megfelel az [Effect.Timing.Rewind](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/itiming/rewind/) tulajdonságnak.  
+Így módosíthatja a Effekt időzítési tulajdonságait:  
 
-Így módosíthatja az Effect Timing tulajdonságokat:  
-
-1. [Alkalmazza](#apply-animation-to-shape) vagy szerezze be az animációs hatást.  
+1. [Alkalmazza](#apply-animation-to-shape) vagy szerezze meg az animációs hatást.  
 2. Állítson be új értékeket a szükséges [Effect.Timing](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/effect/properties/timing) tulajdonságokhoz.  
-3. Mentse el a módosított PPTX fájlt.  
+3. Mentse a módosított PPTX fájlt.  
 
-Ez a C# kód demonstrálja a műveletet:
+Ez a C# kód bemutatja a műveletet:  
 
 ```c#
-// Példányosít egy presentation osztályt, amely egy prezentáció fájlt képvisel.
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
+// Létrehozza a prezentáció osztályt, amely egy prezentációs fájlt képvisel.
 using (Presentation pres = new Presentation("AnimExample_out.pptx"))
 {
-    // Lekéri a dia fő sorozatát.
+    // Lekéri a dia fő szekvenciáját.
     ISequence sequence = pres.Slides[0].Timeline.MainSequence;
 
-    // Lekéri a fő sorozat első hatását.
+    // Lekéri a fő szekvencia első hatását.
     IEffect effect = sequence[0];
 
     // A hatás TriggerType értékét kattintásra indításra módosítja
@@ -311,81 +350,88 @@ using (Presentation pres = new Presentation("AnimExample_out.pptx"))
     // Ha a hatás Repeat értéke "none"
     if (effect.Timing.RepeatCount == 1f)
     {
-        // A hatás ismétlést "Until Next Click" értékre módosítja
+        // A hatás Repeat értékét "Until Next Click"-re módosítja
         effect.Timing.RepeatUntilNextClick = true;
     }
     else
     {
-        // A hatás ismétlést "Until End of Slide" értékre módosítja
+        // A hatás Repeat értékét "Until End of Slide"-re módosítja
         effect.Timing.RepeatUntilEndSlide = true;
     }
 
     // Bekapcsolja a hatás Rewind beállítását
         effect.Timing.Rewind = true;
     
-    // Mentse a PPTX fájlt a lemezre
+    // Elmenti a PPTX fájlt lemezre
     pres.Save("AnimExample_changed.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Animációs hatás hangja**
+## **Animációs hatás hang**
 
-Az Aspose.Slides a következő tulajdonságokat biztosítja, hogy hangokat kezelhessen animációs hatásokban:  
+Az Aspose.Slides ezeket a tulajdonságokat biztosítja, hogy hangokkal dolgozhasson animációs hatásokban:  
 - [IEffect.Sound](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/effect/sound/)  
 - [IEffect.StopPreviousSound](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/effect/stopprevioussound/)  
 
-### **Animációs hatás hangjának hozzáadása**
+### **Animációs hatás hang hozzáadása**
 
-Ez a C# kód bemutatja, hogyan kell animációs hatás hangot hozzáadni és leállítani, amikor a következő hatás elindul:
+Ez a C# kód megmutatja, hogyan kell animációs hatás hangot hozzáadni és leállítani, amikor a következő hatás elindul:  
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("AnimExample_out.pptx"))
 {
-	// Audió hozzáadása a prezentáció audiógyűjteményéhez
+	// Hozzáad hangot a prezentáció hanggyűjteményéhez
 	IAudio effectSound = pres.Audios.AddAudio(File.ReadAllBytes("sampleaudio.wav"));
 
 	ISlide firstSlide = pres.Slides[0];
 
-	// Lekéri a dia fő sorozatát.
+	// Lekéri a dia fő szekvenciáját.
 	ISequence sequence = firstSlide.Timeline.MainSequence;
 
-	// Lekéri a fő sorozat első hatását
+	// Lekéri a fő szekvencia első hatását
 	IEffect firstEffect = sequence[0];
 
-	// Ellenőrzi a hatás \"No Sound\" állapotát
+	// Ellenőrzi, hogy a hatásnak nincs-e hangja
 	if (!firstEffect.StopPreviousSound && firstEffect.Sound == null)
 	{
-		// Hangot ad hozzá az első hatáshoz
+		// Hozzáad hangot az első hatáshoz
 		firstEffect.Sound = effectSound;
 	}
 
-	// Lekéri a dia első interaktív sorozatát.
+	// Lekéri a dia első interaktív szekvenciáját.
 	ISequence interactiveSequence = firstSlide.Timeline.InteractiveSequences[0];
 
-	// Beállítja a hatás \"Stop previous sound\" jelzőjét
+	// Beállítja a hatás "Stop previous sound" jelzőjét
 	interactiveSequence[0].StopPreviousSound = true;
 
-	// Kiírja a PPTX fájlt a lemezre
+	// A PPTX fájlt lemezre írja
 	pres.Save("AnimExample_Sound_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-### **Animációs hatás hangjának kinyerése**
+### **Animációs hatás hang kinyerése**
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból.  
-2. Szerezze meg egy dia hivatkozását az indexén keresztül.  
+2. Szerezze meg egy dia hivatkozását az indexe alapján.  
 3. Szerezze meg a fő hatássorozatot.  
-4. Válassza ki a [Sound](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/effect/sound/) beágyazott hangot minden animációs hatáshoz.  
+4. Vonja ki minden animációs hatáshoz beágyazott [Sound](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/effect/sound/) hangot.  
 
-Ez a C# kód bemutatja, hogyan lehet kinyerni az animációs hatásba beágyazott hangot:
+Ez a C# kód megmutatja, hogyan kell kinyerni egy animációs hatásba beágyazott hangot:  
 
 ```c#
-// Példányosít egy presentation osztályt, amely egy prezentáció fájlt képvisel.
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+
+// Létrehozza a prezentáció osztályt, amely egy prezentációs fájlt képvisel.
 using (Presentation presentation = new Presentation("EffectSound.pptx"))
 {
     ISlide slide = presentation.Slides[0];
 
-    // Lekéri a dia fő sorozatát.
+    // Lekéri a dia fő szekvenciáját.
     ISequence sequence = slide.Timeline.MainSequence;
 
     foreach (IEffect effect in sequence)
@@ -393,7 +439,7 @@ using (Presentation presentation = new Presentation("EffectSound.pptx"))
         if (effect.Sound == null)
             continue;
 
-        // Kivonja a hatás hangját byte tömbbe
+        // Kinyeri a hatás hangját bájt tömbbe
         byte[] audio = effect.Sound.BinaryData;
     }
 }
@@ -401,95 +447,104 @@ using (Presentation presentation = new Presentation("EffectSound.pptx"))
 
 ## **Animáció után**
 
-Az Aspose.Slides for .NET lehetővé teszi az animációs hatás After animation (animáció után) tulajdonságának módosítását.  
+Az Aspose.Slides for .NET lehetővé teszi, hogy módosítsa egy animációs hatás After animation (animáció után) tulajdonságát.  
 
-Ez a PowerPointban az Animation Effect ablaktábla és a kibővített menü:  
+Ez a Microsoft PowerPoint Animation Effect ablaktábla és kibővített menüje:  
 
-![animációs hatás panel](shape-after-animation.png)
+![example1_image](shape-after-animation.png)
 
-A PowerPoint Effect **After animation** legördülő lista a következő tulajdonságoknak felel meg:  
+A PowerPoint Effect **After animation** legördülő lista megfelel ezeknek a tulajdonságoknak:  
 
-* [IEffect.AfterAnimationType](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/ieffect/afteranimationtype/) tulajdonság, amely leírja az After animation típust:  
-  * A PowerPoint **More Colors** megfelel a [AfterAnimationType.Color](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/afteranimationtype/) típusnak;  
-  * A PowerPoint **Don't Dim** listaelem megfelel a [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/afteranimationtype/) típusnak (az alapértelmezett after animation típus);  
-  * A PowerPoint **Hide After Animation** elem megfelel a [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/afteranimationtype/) típusnak;  
-  * A PowerPoint **Hide on Next Mouse Click** elem megfelel a [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/afteranimationtype/) típusnak;  
-* [IEffect.AfterAnimationColor](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/ieffect/afteranimationcolor/) tulajdonság, amely meghatározza az after animation színformátumot. Ez a tulajdonság a [AfterAnimationType.Color](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/afteranimationtype/) típussal együtt működik. Ha más típusra változtatja, az after animation szín törlődik.  
+- A [IEffect.AfterAnimationType] tulajdonság, amely leírja az animáció utáni típust:  
+  * a PowerPoint **More Colors** a [AfterAnimationType.Color] típussal egyezik;  
+  * a PowerPoint **Don't Dim** elem a [AfterAnimationType.DoNotDim] típussal egyezik (az alapértelmezett animáció utáni típus);  
+  * a PowerPoint **Hide After Animation** elem a [AfterAnimationType.HideAfterAnimation] típussal egyezik;  
+  * a PowerPoint **Hide on Next Mouse Click** elem a [AfterAnimationType.HideOnNextMouseClick] típussal egyezik;  
+- Az [IEffect.AfterAnimationColor] tulajdonság egy animáció utáni színformátumot határoz meg. Ez a tulajdonság a [AfterAnimationType.Color] típussal együtt működik. Ha a típust másikra változtatja, az animáció utáni szín törlődik.  
 
-Ez a C# kód bemutatja, hogyan kell módosítani egy after animation hatást:
+Ez a C# kód megmutatja, hogyan kell módosítani egy animáció utáni hatást:  
 
 ```c#
-// Példányosít egy presentation osztályt, amely egy prezentáció fájlt képvisel
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
+// Létrehozza a prezentáció osztályt, amely egy prezentációs fájlt képvisel
 using (Presentation pres = new Presentation("AnimImage_out.pptx"))
 {
     ISlide firstSlide = pres.Slides[0];
 
-    // Lekéri a fő sorozat első hatását
+    // Lekéri a fő szekvencia első hatását
     IEffect firstEffect = firstSlide.Timeline.MainSequence[0];
 
-    // Az after animation típusát Color-ra változtatja
+    // A "after animation" típust Színre módosítja
     firstEffect.AfterAnimationType = AfterAnimationType.Color;
 
-    // Beállítja az after animation színét
+    // Beállítja az animáció utáni elhalványítás színét
     firstEffect.AfterAnimationColor.Color = Color.AliceBlue;
 
-    // Kiírja a PPTX fájlt a lemezre
+    // A PPTX fájlt lemezre írja
     pres.Save("AnimImage_AfterAnimation.pptx", SaveFormat.Pptx);
 }
 ```
 
 ## **Szöveg animálása**
 
-Az Aspose.Slides a következő tulajdonságokat biztosítja, hogy a *Animate text* blokkot kezelje egy animációs hatásnál:  
+Az Aspose.Slides ezeket a tulajdonságokat biztosítja, hogy dolgozhasson egy animációs hatás *Animate text* blokkjával:  
 
-* [IEffect.AnimateTextType](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/ieffect/animatetexttype/) amely leírja a szöveg animálásának típusát a hatásban. Az alakzat szövege animálható:  
-  * Egyszerre ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/animatetexttype/) típus)  
-  * Szó szerint ([AnimateTextType.ByWord](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/animatetexttype/) típus)  
-  * Betű szerint ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/animatetexttype/) típus)  
-* [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/ieffect/delaybetweentextparts/) beállít egy késleltetést a animált szövegrészek (szavak vagy betűk) között. A pozitív érték a hatás időtartamának százalékát jelzi. A negatív érték a késleltetést másodpercben adja meg.  
+- [IEffect.AnimateTextType] amely leírja az animált szöveg típusát a hatáson. Az alakzat szövege animálható:  
+  - egyszerre ([AnimateTextType.AllAtOnce] típus)  
+  - szó szerint ([AnimateTextType.ByWord] típus)  
+  - betű szerint ([AnimateTextType.ByLetter] típus)  
+- [IEffect.DelayBetweenTextParts] késleltetést állít be az animált szövegrészek (szavak vagy betűk) között. A pozitív érték a hatás időtartamának százalékát adja meg. A negatív érték késleltetést ad másodpercben.  
 
-Így módosíthatja az Effect Animate text tulajdonságait:  
+Így módosíthatja az Effekt Animate text tulajdonságait:  
 
-1. [Alkalmazza](#apply-animation-to-shape) vagy szerezze be az animációs hatást.  
-2. Állítsa be a [IEffect.TextAnimation.BuildType](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/itextanimation/buildtype/) tulajdonságot a [BuildType.AsOneObject](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/buildtype/) értékre, hogy kikapcsolja a *By Paragraphs* animációs módot.  
-3. Állítson be új értékeket a [IEffect.AnimateTextType](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/ieffect/animatetexttype/) és a [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/hu/net/aspose.slides.animation/ieffect/delaybetweentextparts/) tulajdonságokhoz.  
-4. Mentse el a módosított PPTX fájlt.  
+1. [Alkalmazza](#apply-animation-to-shape) vagy szerezze meg az animációs hatást.  
+2. Állítsa be a [IEffect.TextAnimation.BuildType] tulajdonságot a [BuildType.AsOneObject] értékre, hogy kikapcsolja a *By Paragraphs* animációs módot.  
+3. Állítson be új értékeket a [IEffect.AnimateTextType] és a [IEffect.DelayBetweenTextParts] tulajdonságokhoz.  
+4. Mentse a módosított PPTX fájlt.  
 
-Ez a C# kód demonstrálja a műveletet:
+Ez a C# kód bemutatja a műveletet:  
 
 ```c#
-// Példányosít egy presentation osztályt, amely egy prezentáció fájlt képvisel.
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
+// Létrehozza a prezentáció osztályt, amely egy prezentációs fájlt képvisel.
 using (Presentation pres = new Presentation("AnimTextBox_out.pptx"))
 {
     ISlide firstSlide = pres.Slides[0];
 
-    // Lekéri a fő sorozat első hatását
+    // Lekéri a fő szekvencia első hatását
     IEffect firstEffect = firstSlide.Timeline.MainSequence[0];
 
-    // Módosítja a hatás szöveganimáció típusát "As One Object" értékre
+    // Módosítja a hatás szöveg animáció típusát "As One Object"-ra
     firstEffect.TextAnimation.BuildType = BuildType.AsOneObject;
 
-    // Módosítja a hatás Animate text típusát "By word" értékre
+    // Módosítja a hatás animált szöveg típusát "By word"-ra
     firstEffect.AnimateTextType = AnimateTextType.ByWord;
 
-    // Beállítja a szavak közti késleltetést a hatás időtartamának 20%-ára
+    // Beállítja a szavak közötti késleltetést a hatás időtartamának 20%-ára
     firstEffect.DelayBetweenTextParts = 20f;
 
-    // Kiírja a PPTX fájlt a lemezre
+    // A PPTX fájlt lemezre írja
     pres.Save("AnimTextBox_AnimateText.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **FAQ**
+## **GYIK**
 
-**Hogyan biztosíthatom, hogy az animációk megmaradjanak a bemutató webre publikálásakor?**
+### Hogyan biztosíthatom, hogy az animációk megmaradjanak a prezentáció webre publikálásakor?
 
-[Export to HTML5](/slides/hu/net/export-to-html5/) és engedélyezze az [opciókat](https://reference.aspose.com/slides/hu/net/aspose.slides.export/html5options/), amelyek a [shape](https://reference.aspose.com/slides/hu/net/aspose.slides.export/html5options/animateshapes/) és [transition](https://reference.aspose.com/slides/hu/net/aspose.slides.export/html5options/animatetransitions/) animációkért felelősek. A sima HTML nem játszik le diavetítési animációkat, míg a HTML5 igen.  
+[Export to HTML5](/slides/hu/net/export-to-html5/) és engedélyezze a [beállításokat](https://reference.aspose.com/slides/hu/net/aspose.slides.export/html5options/), amelyek a [shape](https://reference.aspose.com/slides/hu/net/aspose.slides.export/html5options/animateshapes/) és a [transition](https://reference.aspose.com/slides/hu/net/aspose.slides.export/html5options/animatetransitions/) animációkért felelősek. A sima HTML nem játssza le a diák animációit, míg a HTML5 igen.  
 
-**Hogyan befolyásolja az animációt az alakzatok z-sorrendjének (rétegsorrend) módosítása?**
+### Hogyan befolyásolja az alakzatok z-sorrendjének (réteg sorrendjének) módosítása az animációt?
 
-Az animáció és a rajzolási sorrend független egymástól: egy hatás szabályozza a megjelenés/eltűnés időzítését és típusát, míg a [z-sorrend](https://reference.aspose.com/slides/hu/net/aspose.slides/shape/zorderposition/) meghatározza, mi takarja meg a mást. A látható eredményt ezek kombinációja határozza meg. (Ez a PowerPoint általános viselkedése; az Aspose.Slides hatások‑és‑alakzatok modellje ugyanazt a logikát követi.)  
+Az animáció és a rajzolási sorrend független egymástól: egy hatás szabályozza a megjelenés/eltűnés időzítését és típusát, míg a [z-order](https://reference.aspose.com/slides/hu/net/aspose.slides/shape/zorderposition/) meghatározza, mi takarja meg miet. A látható eredményt ezek kombinációja határozza meg. (Ez a PowerPoint általános viselkedése; az Aspose.Slides hatás- és alakzatmodellje ugyanazt a logikát követi.)  
 
-**Vannak korlátozások az animációk videóvá konvertálásakor bizonyos hatások esetén?**
+### Vannak korlátozások az animációk videóvá konvertálásakor bizonyos hatások esetén?
 
-Általánosságban a [animációk támogatottak](/slides/hu/net/convert-powerpoint-to-video/), de ritka esetekben vagy bizonyos hatások esetén eltérően jelenhetnek meg. Ajánlott tesztelni a használt hatásokkal és a könyvtár verziójával.
+Általánosságban a [animációk támogatottak](/slides/hu/net/convert-powerpoint-to-video/), de ritka esetekben vagy egyes hatásoknál eltérő renderelés fordulhat elő. Ajánlott tesztelni a használt hatásokat és a könyvtár verzióját.

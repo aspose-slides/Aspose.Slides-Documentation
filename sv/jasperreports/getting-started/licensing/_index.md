@@ -4,18 +4,19 @@ type: docs
 weight: 50
 url: /sv/jasperreports/licensing/
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" %}} 
 
-Aspose.Slides för JasperReports är tillgängligt som en gratis tidsobestämd utvärdering från [download page](https://downloads.aspose.com/slides/sv/jasperreport). Utvärderings- och licensierade versioner av produkten är samma nedladdning.
+Aspose.Slides for JasperReports är tillgänglig som en fri tidsobegränsad utvärdering från [nedladdningssida](https://downloads.aspose.com/slides/sv/jasperreport). Utvärderings‑ och licensierade versioner av produkten är samma nedladdning.
 
-När du är nöjd med utvärderingen, [buy a license](https://purchase.aspose.com/buy). Se till att du förstår och godkänner abonnemangsvillkoren.
+När du är nöjd med utvärderingen, [köp en licens](https://purchase.aspose.com/buy). Se till att du förstår och godkänner prenumerationsvillkoren.
 
-Licensen kan laddas ner från beställningssidan efter att beställningen har betalats. Licensen är en klartext, digitalt signerad XML-fil som innehåller information såsom kundnamn, den köpta produkten och licenstypen. Ändra inte innehållet i licensfilen på något sätt: detta ogiltigförklarar licensen.
+Licensen kan hämtas från beställningssidan efter att beställningen har betalats. Licensen är en klartext, digitalt signerad XML‑fil som innehåller information såsom kundnamn, den köpta produkten och licenstypen. Ändra inte innehållet i licensfilen på något sätt: det gör licensen ogiltig.
 
-Ladda ner licensen till din dator och kopiera den till lämplig mapp (till exempel din applikationsmapp eller **JasperReports\lib**).
+Ladda ner licensen till din dator och kopiera den till lämplig mapp (till exempel din programmapp eller **JasperReports\lib**).
+{{% /alert %}}
 
-## **Begränsning för utvärderingsversion**
-Utvärderingsversionen av Aspose.Slides (utan en licens angiven) ger full produktfunktionalitet, men (när du sparar dina presentationer) infogar den ett utvärderingsvattenmärke i mitten av varje bild som visas i figuren nedan:
+## **Begränsning av utvärderingsversion**
+Utvärderingsversionen av Aspose.Slides (utan en specificerad licens) ger full funktionalitet, men (när du sparar dina presentationer) infogar den ett utvärderingsvattenstämpel i mitten av varje bild som visas i figuren nedan:
 
 ![todo:image_alt_text](evaluation_watermark.png) 
 
@@ -23,7 +24,7 @@ Utvärderingsversionen av Aspose.Slides (utan en licens angiven) ger full produk
 Det finns flera sätt att applicera en licens, beroende på om du arbetar med JasperReports eller JasperServer.
 
 ### **Applicera en licens för JasperReports**
-Använd ett direkt setLicense-metodanrop som i Aspose.Slides för Java.
+Använd ett direkt setLicense‑metodanrop liknande Aspose.Slides för Java.
 
 ```java
 import com.aspose.slides.jasperreports.License;
@@ -37,7 +38,7 @@ try {
     //Instansiera License-klassen
     License license = new License();
 	
-    //Ställ in licensen via strömobjektet
+    //Ange licensen via strömobjektet
     license.setLicense(fstream);
 } catch(Exception ex) {
     System.out.println(ex.toString());

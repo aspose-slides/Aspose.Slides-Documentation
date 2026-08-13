@@ -1,5 +1,5 @@
 ---
-title: Licenze
+title: Licenza
 type: docs
 weight: 90
 url: /it/java/licensing/
@@ -8,7 +8,7 @@ keywords:
 - licenza temporanea
 - impostare licenza
 - utilizzare licenza
-- convalidare licenza
+- validare licenza
 - file di licenza
 - versione di valutazione
 - PowerPoint
@@ -16,67 +16,67 @@ keywords:
 - presentazione
 - Java
 - Aspose.Slides
-description: "Applica, gestisci e risolvi i problemi delle licenze in Aspose.Slides per Java. Garantisci un accesso ininterrotto a tutte le funzionalità con la nostra guida passo passo sulla gestione delle licenze."
+description: "Applica, gestisci e risolvi i problemi delle licenze in Aspose.Slides per Java. Garantisci accesso ininterrotto a tutte le funzionalità con la nostra guida passo‑passo alla licenza."
 ---
 ## **Panoramica**
 
-Aspose.Slides può essere utilizzato in modalità di valutazione o con una licenza valida. La versione di valutazione fornisce le stesse funzionalità della versione con licenza, ma aggiunge una filigrana di valutazione quando le presentazioni vengono aperte o salvate e limita l'estrazione del testo a una sola diapositiva.
+Aspose.Slides può essere utilizzato in modalità di valutazione o con una licenza valida. La versione di valutazione fornisce la stessa funzionalità della versione con licenza, ma aggiunge una filigrana di valutazione quando le presentazioni vengono aperte o salvate e limita l'estrazione del testo a una diapositiva.
 
-Questo articolo spiega come funziona la gestione delle licenze in Aspose.Slides e come applicare una licenza prima di utilizzare la libreria. Una licenza può essere caricata da un file, da uno stream o da una risorsa incorporata utilizzando la classe `License`. L'articolo mostra inoltre come convalidare se una licenza è stata applicata correttamente.
+Questo articolo spiega come funzionano le licenze in Aspose.Slides e come applicare una licenza prima di utilizzare la libreria. Una licenza può essere caricata da un file, uno stream o una risorsa incorporata utilizzando la classe `License`. L'articolo mostra anche come convalidare se una licenza è stata applicata correttamente.
 
 ## **Valuta Aspose.Slides**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-È possibile scaricare una versione di valutazione di **Aspose.Slides for Java** dalla sua [pagina di download](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/). La versione di valutazione fornisce le stesse funzionalità della versione con licenza del prodotto. Il pacchetto di valutazione è identico a quello acquistato. La versione di valutazione diventa semplicemente con licenza dopo aver aggiunto alcune righe di codice (per applicare la licenza).
+Puoi scaricare una versione di valutazione di **Aspose.Slides for Java** dalla sua [pagina di download](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/). La versione di valutazione fornisce le stesse funzionalità della versione con licenza del prodotto. Il pacchetto di valutazione è identico al pacchetto acquistato. La versione di valutazione diventa semplicemente licenziata dopo aver aggiunto alcune righe di codice (per applicare la licenza).
 
-Una volta soddisfatti della valutazione di **Aspose.Slides**, è possibile [acquistare una licenza](https://purchase.aspose.com/buy). Si consiglia di esaminare i diversi tipi di abbonamento. Per domande, contattare il team commerciale di Aspose.
+Una volta terminata la tua valutazione di **Aspose.Slides**, puoi [acquistare una licenza](https://purchase.aspose.com/buy). Ti consigliamo di esplorare i diversi tipi di abbonamento. Se hai domande, contatta il team commerciale di Aspose.
 
-Ogni licenza Aspose include un abbonamento di un anno per aggiornamenti gratuiti a nuove versioni o correzioni rilasciate durante il periodo di abbonamento. Gli utenti con prodotti con licenza (o anche versioni di valutazione) ricevono supporto tecnico gratuito e illimitato.
+Ogni licenza Aspose include un abbonamento di un anno per aggiornamenti gratuiti a nuove versioni o correzioni rilasciate entro il periodo di abbonamento. Gli utenti con prodotti con licenza (o anche versioni di valutazione) ottengono supporto tecnico gratuito e illimitato.
 
 {{% /alert %}} 
 
 **Limitazioni della versione di valutazione**
 
-* Sebbene la versione di valutazione di Aspose.Slides (senza licenza specificata) fornisca tutte le funzionalità del prodotto, inserisce una filigrana di valutazione nella parte superiore del documento durante le operazioni di apertura e salvataggio. 
-* L'estrazione del testo dalle diapositive è limitata a una sola diapositiva.
+* Mentre la versione di valutazione di Aspose.Slides (senza licenza specificata) fornisce la piena funzionalità del prodotto, inserisce una filigrana di valutazione nella parte superiore del documento durante le operazioni di apertura e salvataggio. 
+* Sei limitato a una diapositiva quando estrai testi dalle diapositive della presentazione.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Per testare Aspose.Slides senza limitazioni, è possibile richiedere una **Licenza Temporanea di 30 giorni**. Consultare la pagina [Come ottenere una Licenza Temporanea](https://purchase.aspose.com/temporary-license) per ulteriori informazioni.
+Per testare Aspose.Slides senza limitazioni, puoi richiedere una **Licenza Temporanea di 30 Giorni**. Consulta la pagina [Come ottenere una Licenza Temporanea](https://purchase.aspose.com/temporary-license) per ulteriori informazioni.
 
 {{% /alert %}}
 
 ## **Licenze in Aspose.Slides**
 
-* Una versione di valutazione diventa con licenza dopo aver acquistato una licenza e aggiunto qualche riga di codice (per applicare la licenza).
+* Una versione di valutazione diventa licenziata dopo aver acquistato una licenza e aver aggiunto un paio di righe di codice (per applicare la licenza).
 * La licenza è un file XML di testo semplice che contiene dettagli come il nome del prodotto, il numero di sviluppatori a cui è concessa, la data di scadenza dell'abbonamento e così via. 
-* Il file di licenza è firmato digitalmente, quindi non deve essere modificato. Anche l'aggiunta involontaria di un ritorno a capo extra al contenuto del file ne invaliderà la validità.
-* Aspose.Slides per Java normalmente tenta di trovare la licenza nei seguenti percorsi:
+* Il file di licenza è firmato digitalmente, quindi non devi modificare il file. Anche l'aggiunta involontaria di una riga vuota al contenuto invaliderà la licenza.
+* Aspose.Slides for Java tenta tipicamente di trovare la licenza in queste posizioni:
   * Un percorso esplicito
   * La cartella contenente Aspose.Slides.jar
-* Per evitare le limitazioni associate alla versione di valutazione, è necessario impostare una licenza prima di utilizzare **Aspose.Slides**. È necessario impostare la licenza una sola volta per applicazione o processo.
+* Per evitare le limitazioni associate alla versione di valutazione, è necessario impostare una licenza prima di utilizzare **Aspose.Slides**. Devi impostare una licenza una sola volta per applicazione o processo.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Potresti voler consultare [Licenza a consumo](/slides/it/java/metered-licensing/).
+Potresti voler vedere [Licenza a consumo](/slides/it/java/metered-licensing/).
 
 {{% /alert %}} 
 
 
-## **Applicare una licenza**
+## **Applicare una Licenza**
 
 Una licenza può essere caricata da un **file** o da uno **stream**.
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
-Aspose.Slides fornisce la classe [License](https://reference.aspose.com/slides/it/java/com.aspose.slides/License) per le operazioni di licenza.
+Aspose.Slides fornisce la classe [License](https://reference.aspose.com/slides/it/java/com.aspose.slides/License) per le operazioni di licenziamento.
 
 {{% /alert %}} 
 
 {{% alert color="warning" %}}
 
-Le nuove licenze possono attivare Aspose.Slides solo con la versione 21.4 o successive. Le versioni precedenti utilizzano un sistema di licenza diverso e non riconosceranno queste licenze.
+Le nuove licenze possono attivare Aspose.Slides solo con la versione 21.4 o successive. Le versioni precedenti utilizzano un sistema di licenza differente e non riconosceranno queste licenze.
 
 {{% /alert %}}
 
@@ -98,13 +98,13 @@ license.setLicense("Aspose.Slides.Java.lic");
 
 Se posizioni il file di licenza in una directory diversa, quando chiami il metodo [SetLicense](https://reference.aspose.com/slides/it/java/com.aspose.slides/License#setLicense-java.lang.String-) il nome del file di licenza alla fine del percorso esplicito specificato deve corrispondere al nome del tuo file di licenza.
 
-Ad esempio, puoi cambiare il nome del file di licenza in *Aspose.Slides.Java.lic.xml*. Quindi, nel tuo codice, devi passare al metodo [SetLicense](https://reference.aspose.com/slides/it/java/com.aspose.slides/License#setLicense-java.lang.String-) il percorso del file (che termina con *Aspose.Slides.Java.lic.xml*).
+Ad esempio, puoi cambiare il nome del file di licenza in *Aspose.Slides.Java.lic.xml*. Quindi, nel tuo codice, devi passare il percorso al file (terminante con *Aspose.Slides.Java.lic.xml*) al metodo [SetLicense](https://reference.aspose.com/slides/it/java/com.aspose.slides/License#setLicense-java.lang.String-).
 
 {{% /alert %}}
 
 ### **Stream**
 
-È possibile caricare una licenza da uno stream. Questo codice Java mostra come applicare una licenza da uno stream:
+Puoi caricare una licenza da uno stream. Questo codice Java mostra come applicare una licenza da uno stream:
 
 ``` java
 // Istanzia la classe License
@@ -114,38 +114,40 @@ com.aspose.slides.License license = new com.aspose.slides.License();
 license.setLicense(new java.io.FileInputStream("Aspose.Slides.Java.lic"));
 ```
 
-### **Bridge PHP/Java**
+### **PHP/Java Bridge**
 
-Se utilizzi Aspose.Slides per PHP tramite Java, puoi impostare una licenza attraverso un bridge PHP/Java. Questo bridge consente di utilizzare le classi Java nella sintassi PHP. Per ulteriori informazioni, consulta [Licenza in PHP](/slides/it/php-java/licensing/).
+Se utilizzi Aspose.Slides per PHP tramite Java, puoi impostare una licenza tramite un bridge PHP/Java. Questo bridge consente di usare classi Java nella sintassi PHP. Per ulteriori informazioni, consulta [License in PHP](/slides/it/php-java/licensing/).
 
-## **Convalidare una licenza**
+## **Validare una Licenza**
 
-Per verificare se una licenza è stata impostata correttamente, è possibile convalidarla. Questo codice Java mostra come convalidare una licenza:
+Per verificare se una licenza è stata impostata correttamente, puoi validararla. Questo codice Java mostra come validare una licenza:
 
 ```java
+import com.aspose.slides.*;
+
 License license = new License();
 license.setLicense("Aspose.Slides.Java.lic");
 
-if (License.isLicensed()) 
+if (license.isLicensed()) 
 {
     System.out.println("License is good!");
 }
 ```
 
-## **Sicurezza dei thread**
+## **Sicurezza dei Thread**
 
-{{% alert title="Note" color="warning" %}} 
+{{% alert title="Nota" color="warning" %}} 
 
-Il metodo [SetLicense](https://reference.aspose.com/slides/it/java/com.aspose.slides/License#setLicense-java.io.InputStream-) non è thread‑safe. Se questo metodo deve essere chiamato simultaneamente da più thread, potresti voler utilizzare primitive di sincronizzazione (come un lock) per evitare problemi. 
+Il metodo [SetLicense](https://reference.aspose.com/slides/it/java/com.aspose.slides/License#setLicense-java.io.InputStream-) non è thread‑safe. Se questo metodo deve essere chiamato simultaneamente da più thread, potresti voler usare primitive di sincronizzazione (come un lock) per evitare problemi. 
 
 {{% /alert %}}
 
 ## **FAQ**
 
-**Posso applicare la licenza in un ambiente completamente offline (senza accesso a internet)?**
+### Posso applicare la licenza in un ambiente completamente offline (senza accesso a Internet)?
 
-Sì. La convalida della licenza viene eseguita localmente utilizzando il file di licenza; non è necessaria alcuna connessione a internet.
+Sì. La convalida della licenza avviene localmente utilizzando il file di licenza; non è necessaria alcuna connessione a Internet.
 
-**Cosa succede quando scade l'abbonamento di un anno? La libreria smetterà di funzionare?**
+### Cosa succede dopo la scadenza dell'abbonamento di un anno? La libreria smetterà di funzionare?
 
-No. La licenza è perpetua: è possibile continuare a utilizzare le versioni rilasciate prima della data di scadenza dell'abbonamento; semplicemente non sarà possibile utilizzare le versioni più recenti senza rinnovare.
+No. La licenza è perpetua: puoi continuare a utilizzare le versioni rilasciate prima della data di fine abbonamento; semplicemente non avrai diritto a utilizzare versioni più recenti senza rinnovare.

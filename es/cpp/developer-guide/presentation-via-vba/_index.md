@@ -21,23 +21,26 @@ keywords:
 - Aspose.Slides
 description: "Descubra cómo generar y manipular presentaciones PowerPoint y OpenDocument mediante VBA con Aspose.Slides para C++ y optimizar su flujo de trabajo."
 ---
+## **Introducción**
 
-El espacio de nombres [Aspose.Slides.Vba](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.vba/) contiene clases e interfaces para trabajar con macros y código VBA.
+El espacio de nombres [Aspose.Slides.Vba](https://reference.aspose.com/slides/es/cpp/namespace/aspose.slides.vba/) contiene clases e interfaces para trabajar con macros y código VBA.
 
 {{% alert title="Note" color="warning" %}} 
+
 Cuando conviertes una presentación que contiene macros a un formato de archivo diferente (PDF, HTML, etc.), Aspose.Slides ignora todas las macros (las macros no se trasladan al archivo resultante).
 
 Cuando añades macros a una presentación o vuelves a guardar una presentación que contiene macros, Aspose.Slides simplemente escribe los bytes de las macros.
 
 Aspose.Slides **nunca** ejecuta las macros en una presentación.
+
 {{% /alert %}}
 
-## **Agregar macros VBA**
+## **Añadir macros VBA**
 
-Aspose.Slides proporciona la clase [VbaProject](https://reference.aspose.com/slides/cpp/class/aspose.slides.vba.vba_project) para permitirte crear proyectos VBA (y referencias de proyecto) y editar módulos existentes. Puedes usar la interfaz [IVbaProject](https://reference.aspose.com/slides/cpp/class/aspose.slides.vba.i_vba_project/) para gestionar VBA incrustado en una presentación.
+Aspose.Slides proporciona la clase [VbaProject](https://reference.aspose.com/slides/es/cpp/class/aspose.slides.vba.vba_project) para permitir crear proyectos VBA (y referencias de proyecto) y editar módulos existentes. Puedes utilizar la interfaz [IVbaProject](https://reference.aspose.com/slides/es/cpp/class/aspose.slides.vba.i_vba_project/) para gestionar VBA incrustado en una presentación.
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-1. Usa el constructor de [VbaProject](https://reference.aspose.com/slides/cpp/class/aspose.slides.vba.vba_project#a01b7a0287df8a75f2f8d85185f3e197b) para añadir un nuevo proyecto VBA.
+1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/cpp/class/aspose.slides.presentation).
+1. Utiliza el constructor [VbaProject](https://reference.aspose.com/slides/es/cpp/class/aspose.slides.vba.vba_project#a01b7a0287df8a75f2f8d85185f3e197b) para añadir un nuevo proyecto VBA.
 1. Añade un módulo al VbaProject.
 1. Establece el código fuente del módulo.
 1. Añade referencias a <stdole>.
@@ -46,7 +49,21 @@ Aspose.Slides proporciona la clase [VbaProject](https://reference.aspose.com/sli
 1. Guarda la presentación.
 
 Este código C++ muestra cómo añadir una macro VBA desde cero a una presentación: 
+
 ```c++
+#include <DOM/Presentation.h>
+#include <DOM/Vba/IVbaModule.h>
+#include <DOM/Vba/IVbaModuleCollection.h>
+#include <DOM/Vba/IVbaReferenceCollection.h>
+#include <DOM/Vba/VbaProject.h>
+#include <DOM/Vba/VbaReferenceOleTypeLib.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::Vba;
+using namespace System;
+
 // La ruta al directorio de documentos.
 const String outPath = u"../out/AddVBAMacros_out.pptm";
 
@@ -77,21 +94,31 @@ presentation->get_VbaProject()->get_References()->Add(officeReference);
 presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptm);
 ```
 
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-Puede que quieras probar **Aspose** [Macro Remover](https://products.aspose.app/slides/remove-macros), una aplicación web gratuita que sirve para eliminar macros de documentos PowerPoint, Excel y Word. 
+Puede que quieras probar **Aspose** [Macro Remover](https://products.aspose.app/slides/es/remove-macros), una aplicación web gratuita utilizada para eliminar macros de documentos PowerPoint, Excel y Word. 
+
 {{% /alert %}} 
 
 ## **Eliminar macros VBA**
 
-Usando la propiedad [VbaProject](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#ac9554082a2ac5ed57adf6012c90da5f4) bajo la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation), puedes eliminar una macro VBA.
+Utilizando la propiedad [VbaProject](https://reference.aspose.com/slides/es/cpp/class/aspose.slides.presentation#ac9554082a2ac5ed57adf6012c90da5f4) de la clase [Presentation](https://reference.aspose.com/slides/es/cpp/class/aspose.slides.presentation), puedes eliminar una macro VBA.
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) y carga la presentación que contiene la macro.
+1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/cpp/class/aspose.slides.presentation) y carga la presentación que contiene la macro.
 1. Accede al módulo Macro y elimínalo.
 1. Guarda la presentación modificada.
 
 Este código C++ muestra cómo eliminar una macro VBA: 
+
 ```c++
+#include <DOM/Presentation.h>
+#include <DOM/Vba/IVbaModule.h>
+#include <DOM/Vba/IVbaModuleCollection.h>
+#include <DOM/Vba/IVbaProject.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
 
 // La ruta al directorio de documentos.
 const String outPath = u"../out/RemoveVBAMacros_out.pptm";
@@ -100,22 +127,31 @@ const String templatePath = u"../templates/vba.pptm";
 // Carga la presentación que contiene la macro
 SharedPtr<Presentation> presentation = MakeObject<Presentation>(templatePath);
 
-// Accede al módulo Vba y lo elimina 
+// Accede al módulo Vba y lo elimina
 presentation->get_VbaProject()->get_Modules()->Remove(presentation->get_VbaProject()->get_Modules()->idx_get(0));
 
 // Guarda la presentación
 presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptm);
 ```
 
-
 ## **Extraer macros VBA**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) y carga la presentación que contiene la macro.
-2. Verifica si la presentación contiene un proyecto VBA.
-3. Recorre todos los módulos contenidos en el proyecto VBA para ver las macros.
+1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/cpp/class/aspose.slides.presentation) y carga la presentación que contiene la macro.
+1. Comprueba si la presentación contiene un proyecto VBA.
+1. Recorre todos los módulos contenidos en el proyecto VBA para ver las macros.
 
 Este código C++ muestra cómo extraer macros VBA de una presentación que contiene macros: 
+
 ```c++
+#include <DOM/Presentation.h>
+#include <DOM/Vba/IVbaModule.h>
+#include <DOM/Vba/IVbaModuleCollection.h>
+#include <DOM/Vba/IVbaProject.h>
+#include <system/console.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Vba;
+using namespace System;
 
 	// La ruta al directorio de documentos.
 	const String templatePath = u"../templates/VBA.pptm";
@@ -124,7 +160,7 @@ Este código C++ muestra cómo extraer macros VBA de una presentación que conti
 	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
 
 
-	if (pres->get_VbaProject() != NULL) // Comprueba si la Presentación contiene un proyecto VBA
+	if (pres->get_VbaProject() != NULL) // Comprueba si la presentación contiene un proyecto VBA
 	{
 		
 		//for (SharedPtr<IVbaModule> module : pres->get_VbaProject()->get_Modules())
@@ -138,15 +174,22 @@ Este código C++ muestra cómo extraer macros VBA de una presentación que conti
 	}
 ```
 
-
 ## **Comprobar si un proyecto VBA está protegido con contraseña**
 
-Utilizando la propiedad [IVbaProject::get_IsPasswordProtected](https://reference.aspose.com/slides/cpp/aspose.slides.vba/ivbaproject/get_ispasswordprotected/), puedes determinar si las propiedades de un proyecto están protegidas con contraseña.
+Utilizando la propiedad [IVbaProject::get_IsPasswordProtected](https://reference.aspose.com/slides/es/cpp/aspose.slides.vba/ivbaproject/get_ispasswordprotected/), puedes determinar si las propiedades de un proyecto están protegidas con contraseña.
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) y carga una presentación que contiene una macro.
-2. Comprueba si la presentación contiene un [proyecto VBA](https://reference.aspose.com/slides/cpp/aspose.slides.vba/vbaproject/).
-3. Verifica si el proyecto VBA está protegido con contraseña para ver sus propiedades.
+1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/cpp/aspose.slides/presentation/) y carga una presentación que contiene una macro.
+2. Comprueba si la presentación contiene un [proyecto VBA](https://reference.aspose.com/slides/es/cpp/aspose.slides.vba/vbaproject/).
+3. Comprueba si el proyecto VBA está protegido con contraseña para visualizar sus propiedades.
+
 ```cpp
+#include <DOM/Presentation.h>
+#include <DOM/Vba/IVbaProject.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Vba;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"VBA.pptm");
     
 if (presentation->get_VbaProject() != nullptr) // Comprueba si la presentación contiene un proyecto VBA.
@@ -160,17 +203,16 @@ if (presentation->get_VbaProject() != nullptr) // Comprueba si la presentación 
 presentation->Dispose();
 ```
 
-
 ## **Preguntas frecuentes**
 
-**¿Qué ocurre con las macros si guardo la presentación como PPTX?**
+### ¿Qué ocurre con las macros si guardo la presentación como PPTX?
 
 Las macros se eliminarán porque PPTX no admite VBA. Para conservar las macros, elige PPTM, PPSM o POTM.
 
-**¿Puede Aspose.Slides ejecutar macros dentro de una presentación para, por ejemplo, actualizar datos?**
+### ¿Puede Aspose.Slides ejecutar macros dentro de una presentación para, por ejemplo, actualizar datos?
 
-No. La biblioteca nunca ejecuta código VBA; la ejecución solo es posible dentro de PowerPoint con la configuración de seguridad adecuada.
+No. La biblioteca nunca ejecuta código VBA; la ejecución sólo es posible dentro de PowerPoint con la configuración de seguridad adecuada.
 
-**¿Se admite trabajar con controles ActiveX vinculados a código VBA?**
+### ¿Se admite trabajar con controles ActiveX vinculados a código VBA?
 
-Sí, puedes acceder a los [controles ActiveX](/slides/es/cpp/activex/) existentes, modificar sus propiedades y eliminarlos. Esto es útil cuando las macros interactúan con ActiveX.
+Sí, puedes acceder a los [controles ActiveX](/slides/es/cpp/activex/), modificar sus propiedades y eliminarlos. Esto es útil cuando las macros interactúan con ActiveX.

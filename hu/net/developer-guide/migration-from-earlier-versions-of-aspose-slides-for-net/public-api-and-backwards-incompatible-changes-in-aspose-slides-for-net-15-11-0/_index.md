@@ -1,14 +1,14 @@
 ---
-title: Nyilvános API és visszafelé nem kompatibilis változások az Aspose.Slides for .NET 15.11.0-ban
+title: Publikus API és visszafelé nem kompatibilis változások az Aspose.Slides for .NET 15.11.0-ban
 linktitle: Aspose.Slides for .NET 15.11.0
 type: docs
 weight: 210
 url: /hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/
 keywords:
 - migráció
-- régi kód
+- örökölt kód
 - modern kód
-- régi megközelítés
+- örökölt megközelítés
 - modern megközelítés
 - PowerPoint
 - OpenDocument
@@ -16,17 +16,17 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Tekintse át az Aspose.Slides for .NET nyilvános API frissítéseit és töréspontjait, hogy zökkenőmentesen migrálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
+description: "Tekintse át a publikus API frissítéseket és a visszafelé nem kompatibilis változásokat az Aspose.Slides for .NET-ben, hogy zökkenőmentesen migruálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Ez az oldal felsorolja az összes [hozzáadott](/slides/hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) vagy [eltávolított](/slides/hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) osztályt, metódust, tulajdonságot stb., valamint a Aspose.Slides for .NET 15.11.0 API‑val bevezetett egyéb változásokat.
+Ez az oldal felsorolja az összes [hozzáadott](/slides/hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) vagy [eltávolított](/slides/hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) osztályt, metódust, tulajdonságot stb., valamint a többi változást, amelyet az Aspose.Slides for .NET 15.11.0 API bevezetett.
 
 {{% /alert %}} 
-## **Nyilvános API módosítások**
+## **Publikus API változások**
 
-#### **Az DataLabelCollection osztály elavult tulajdonságai törölve lettek**
-Az DataLabelCollection osztály elavult tulajdonságai törölve lettek:
+#### **Az DataLabelCollection osztály elavult tulajdonságai törlésre kerültek**
+Az DataLabelCollection osztály elavult tulajdonságai törlésre kerültek:
 Aspose.Slides.Charts.DataLabelCollection.Delete
 Aspose.Slides.Charts.DataLabelCollection.Format
 Aspose.Slides.Charts.DataLabelCollection.LinkedSource
@@ -41,23 +41,24 @@ Aspose.Slides.Charts.DataLabelCollection.ShowPercentage
 Aspose.Slides.Charts.DataLabelCollection.ShowSeriesName
 Aspose.Slides.Charts.DataLabelCollection.ShowValue
 
-#### **Az új FirstSlideNumber tulajdonság hozzá lett adva a Presentation osztályhoz**
-Az új FirstSlideNumber tulajdonság, amely a Presentation osztályhoz lett hozzáadva, lehetővé teszi az első dia számának lekérdezését vagy beállítását a prezentációban.
+#### **Az új FirstSlideNumber tulajdonság hozzáadásra került a Presentation osztályhoz**
+Az új FirstSlideNumber tulajdonság a Presentation osztályban lehetővé teszi az első dia számának lekérdezését vagy beállítását egy előadásban.
 
-Amikor új FirstSlideNumber értéket adunk meg, az összes dia száma újraszámításra kerül.
+Új FirstSlideNumber érték megadása esetén az összes diaszám újraszámítódik.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- using(var pres = new Presenation(path))
+string path = "sample.pptx";
+string newPath = "output.pptx";
 
+using (var pres = new Presentation(path))
 {
+    int firstSlideNumber = pres.FirstSlideNumber;
 
-  int firstSlideNumber = pres.FirstSlideNumber;
+    pres.FirstSlideNumber = 10;
 
-  pres.FirstSlideNumber = 10;
-
-  pres.Save(newPath, SaveFormat.Pptx);
-
+    pres.Save(newPath, SaveFormat.Pptx);
 }
-
 ```

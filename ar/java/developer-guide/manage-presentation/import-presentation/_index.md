@@ -1,27 +1,47 @@
 ---
-title: استيراد العرض التقديمي
+title: استيراد عروض تقديمية من PDF أو HTML في Java
+linktitle: استيراد عرض تقديمي
 type: docs
 weight: 60
 url: /ar/java/import-presentation/
-keywords: "استيراد باوربوينت، PDF إلى عرض تقديمي، PDF إلى PPTX، PDF إلى PPT، جافا، Aspose.Slides لجافا"
-description: "استيراد العرض التقديمي من PDF. تحويل PDF إلى باوربوينت"
+keywords:
+- استيراد عرض تقديمي
+- استيراد شريحة
+- استيراد PDF
+- استيراد HTML
+- PDF إلى عرض تقديمي
+- PDF إلى PPT
+- PDF إلى PPTX
+- PDF إلى ODP
+- HTML إلى عرض تقديمي
+- HTML إلى PPT
+- HTML إلى PPTX
+- HTML إلى ODP
+- PowerPoint
+- OpenDocument
+- Java
+- Aspose.Slides
+description: "استيراد مستندات PDF وHTML بسهولة إلى عروض PowerPoint وOpenDocument في Java باستخدام Aspose.Slides لمعالجة الشرائح بأداء عالٍ وسلس."
 ---
+## **المقدمة**
 
-باستخدام [**Aspose.Slides لجافا**](https://products.aspose.com/slides/java/)، يمكنك استيراد العروض التقديمية من الملفات بتنسيقات أخرى. يوفر Aspose.Slides فئة [SlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/slidecollection/) للسماح لك باستيراد العروض التقديمية من PDF، ومستندات HTML، إلخ.
+باستخدام Aspose.Slides، يمكنك استيراد العروض التقديمية من ملفات بصيغ أخرى. يقدم Aspose.Slides فئة [SlideCollection](https://reference.aspose.com/slides/ar/java/com.aspose.slides/slidecollection/) التي تسمح لك باستيراد العروض التقديمية من مستندات PDF وHTML.
 
-## **استيراد باوربوينت من PDF**
+## **استيراد PowerPoint من PDF**
 
-في هذه الحالة، ستحصل على تحويل PDF إلى عرض تقديمي باوربوينت.
+في هذه الحالة، ستحول ملف PDF إلى عرض PowerPoint.
 
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom:50%;" />
 
-1. أنشئ مثيلاً من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/) .
-2. استدعِ طريقة [addFromPdf()](https://reference.aspose.com/slides/java/com.aspose.slides/SlideCollection#addFromPdf-java.lang.String-) ومرر ملف PDF.
-3. استخدم طريقة [save()](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-) لحفظ الملف بتنسيق باوربوينت.
+1. أنشئ مثيلاً من الفئة [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/) .
+2. استدعي الطريقة [addFromPdf()](https://reference.aspose.com/slides/ar/java/com.aspose.slides/SlideCollection#addFromPdf-java.lang.String-) ومرّر ملف PDF.
+3. استخدم الطريقة [save()](https://reference.aspose.com/slides/ar/java/com.aspose.slides/Presentation#save-java.lang.String-int-) لحفظ الملف بتنسيق PowerPoint.
 
-يظهر هذا الكود بلغة جافا عملية تحويل PDF إلى باوربوينت:
+يظهر هذا الكود Java عملية التحويل من PDF إلى PowerPoint:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     pres.getSlides().addFromPdf("InputPDF.pdf");
@@ -31,23 +51,27 @@ try {
 }
 ```
 
-{{% alert  title="نصيحة" color="primary" %}} 
+{{% alert  title="Tip" color="info" %}} 
 
-قد ترغب في الاطلاع على تطبيق **Aspose المجاني** [PDF إلى باوربوينت](https://products.aspose.app/slides/import/pdf-to-powerpoint) لأنه تطبيق مباشر للعملية الموضحة هنا. 
+قد ترغب في تجربة تطبيق الويب **Aspose free** [PDF to PowerPoint](https://products.aspose.app/slides/ar/import/pdf-to-powerpoint) لأنه تنفيذ حي للعملية الموضحة هنا. 
 
 {{% /alert %}} 
 
-## **استيراد باوربوينت من HTML**
+## **استيراد PowerPoint من HTML**
 
-في هذه الحالة، ستحصل على تحويل مستند HTML إلى عرض تقديمي باوربوينت.
+في هذه الحالة، ستحول مستند HTML إلى عرض PowerPoint.
 
-1. أنشئ مثيلاً من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/) .
-2. استدعِ طريقة [addFromHtml()](https://reference.aspose.com/slides/java/com.aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) ومرر ملف PDF.
-3. استخدم طريقة [save()](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-) لحفظ الملف بتنسيق باوربوينت.
+1. أنشئ مثيلاً من الفئة [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/) .
+2. استدعي الطريقة [addFromHtml()](https://reference.aspose.com/slides/ar/java/com.aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) ومرّر تدفقًا يحتوي مستند HTML.
+3. استخدم الطريقة [save()](https://reference.aspose.com/slides/ar/java/com.aspose.slides/Presentation#save-java.lang.String-int-) لحفظ الملف بتنسيق PowerPoint.
 
-يظهر هذا الكود بلغة جافا عملية تحويل HTML إلى باوربوينت: 
+يظهر هذا الكود Java عملية التحويل من HTML إلى PowerPoint: 
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 Presentation presentation = new Presentation();
 try {
     FileInputStream htmlStream = new FileInputStream("page.html");
@@ -64,13 +88,19 @@ try {
 }
 ```
 
-{{% alert title="ملاحظة" color="warning" %}} 
+## **الأسئلة الشائعة**
 
-يمكنك أيضًا استخدام Aspose.Slides لتحويل HTML إلى تنسيقات ملفات شائعة أخرى: 
+### هل يتم الحفاظ على الجداول عند استيراد PDF، وهل يمكن تحسين كشفها؟
 
-* [HTML إلى صورة](https://products.aspose.com/slides/java/conversion/html-to-image/)
-* [HTML إلى JPG](https://products.aspose.com/slides/java/conversion/html-to-jpg/)
-* [HTML إلى XML](https://products.aspose.com/slides/java/conversion/html-to-xml/)
-* [HTML إلى TIFF](https://products.aspose.com/slides/java/conversion/html-to-tiff/)
+يمكن كشف الجداول أثناء الاستيراد؛ يحتوي [PdfImportOptions](https://reference.aspose.com/slides/ar/java/com.aspose.slides/pdfimportoptions/) على طريقة [setDetectTables](https://reference.aspose.com/slides/ar/java/com.aspose.slides/pdfimportoptions/#setDetectTables-boolean-) التي تمكن من التعرف على الجداول. تعتمد الفعالية على بنية ملف PDF.
+
+{{% alert title="Note" color="warning" %}} 
+
+يمكنك أيضًا استخدام Aspose.Slides لتحويل HTML إلى صيغ ملفات شائعة أخرى: 
+
+* [HTML to image](https://products.aspose.com/slides/ar/java/conversion/html-to-image/)
+* [HTML to JPG](https://products.aspose.com/slides/ar/java/conversion/html-to-jpg/)
+* [HTML to XML](https://products.aspose.com/slides/ar/java/conversion/html-to-xml/)
+* [HTML to TIFF](https://products.aspose.com/slides/ar/java/conversion/html-to-tiff/)
 
 {{% /alert %}}

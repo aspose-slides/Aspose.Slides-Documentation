@@ -1,32 +1,32 @@
 ---
-title: Javada Sunum Şekillerinden Görüntüleri Çıkarma
-linktitle: Şekilden Görüntü
+title: Java'da Sunum Şekillerinden Görselleri Çıkarma
+linktitle: Şekilden Görsel
 type: docs
 weight: 100
 url: /tr/java/extracting-images-from-presentation-shapes/
 keywords:
-- görüntü çıkar
-- görüntü al
+- görsel çıkar
+- görsel al
 - PowerPoint
 - OpenDocument
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java ile PowerPoint ve OpenDocument sunumlarındaki şekillerden görüntüleri çıkarın - hızlı, kod dostu çözüm."
+description: "Aspose.Slides for Java ile PowerPoint ve OpenDocument sunumlarındaki şekillerden görselleri çıkarın - hızlı, kod dostu çözüm."
 ---
 ## **Genel Bakış**
 
-Bir sunumdaki görüntüler birkaç şekil türünde görünebilir: normal resim çerçeveleri olarak, şekillere uygulanan resim doldurma olarak, OLE nesne önizleme görüntüleri olarak, video veya ses çerçeve küçük resimleri olarak, yakınlaştırma görüntüleri olarak veya tablo, grafik ve SmartArt şekilleri içinde iç içe geçmiş görüntüler olarak. Aspose.Slides bu görüntüleri sunum görüntü koleksiyonunda saklar ve bu koleksiyon [IImageCollection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iimagecollection/) ve [IPPImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ippimage/) nesneleri aracılığıyla sunulur.
+Sunumdaki görseller çeşitli şekil türlerinde görülebilir: normal resim çerçeveleri olarak, şekillere uygulanan resim doldurması olarak, OLE nesne önizleme görselleri olarak, video veya ses çerçevesi küçük resimleri olarak, yakınlaştırma görselleri olarak veya tablo, grafik ve SmartArt şekilleri içinde iç içe yer alan görseller olarak. Aspose.Slides bu görselleri sunum görüntü koleksiyonunda saklar ve bu koleksiyon [IImageCollection](https://reference.aspose.com/slides/tr/java/com.aspose.slides.iimagecollection/) ve [IPPImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides.ippimage/) nesneleri aracılığıyla sunulur.
 
-Sadece bir sunuma gömülü tüm görüntü kaynaklarını dışa aktarmanız gerekiyorsa `presentation.getImages()` üzerinden döngü yapın. Bu makale farklı bir göreve odaklanır: şekilleri dolaşarak görüntülerin slaytlarda nerede kullanıldığını bulmak, böylece kaydedilen dosyalar slayt numarası, şekil konumu ve kaynak türü (resim çerçevesi, doldurma görüntüsü, medya önizlemesi, OLE önizlemesi veya yakınlaştırma görüntüsü) gibi yararlı bağlamı tutabilir.
+Yalnızca bir sunuma gömülü tüm görsel kaynaklarını dışa aktarmanız gerekiyorsa `presentation.getImages()` üzerinden yineleyin. Bu makale, görsellerin slaytlarda nerelerde kullanıldığını bulmak için şekilleri dolaşmaya odaklanır; böylece kaydedilen dosyalar slayt numarası, şekil konumu ve kaynak türü (resim çerçevesi, doldurma görseli, medya önizleme, OLE önizleme veya yakınlaştırma görseli) gibi yararlı bağlamı tutabilir.
 
-{{% alert title="Tip" color="primary" %}}
-[IPPImage.getBinaryData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ippimage/#getBinaryData--) kullanarak orijinal kodlanmış görüntü verisini ve dosya türünü koruyun. Belirli bir format (ör. PNG) için çıktıyı normalleştirmek istediğinizde [IPPImage.getImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ippimage/#getImage--) ile [IImage.save](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iimage/#save-java.lang.String-int-) kullanın.
+{{% alert title="Tip" color="info" %}}
+Orijinal kodlanmış görsel verisini ve dosya türünü korumak için [IPPImage.getBinaryData](https://reference.aspose.com/slides/tr/java/com.aspose.slides.ippimage/#getBinaryData--) kullanın. Çıktıyı PNG gibi belirli bir formata normalleştirmek istediğinizde [IPPImage.getImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides.ippimage/#getImage--) ile [IImage.save](https://reference.aspose.com/slides/tr/java/com.aspose.slides.iimage/#save-java.lang.String-int-) kullanın.
 {{% /alert %}}
 
 ## **Paylaşılan Yardımcı Yöntemler**
 
-Aşağıdaki yardımcı yöntemler örnekleri kısa tutar. `saveOriginalImage` gömülü baytları yazar, MIME türünden güvenli bir uzantı seçer ve SHA-256 hash ile yinelenen görüntü ikili dosyalarını atlar.
+Aşağıdaki yardımcı yöntemler örnekleri kısa tutar. `saveOriginalImage` gömülü baytları yazar, MIME tipinden güvenli bir uzantı seçer ve SHA‑256 özetine göre yinelenen görsel ikili dosyalarını atlar.
 
 ```java
 import com.aspose.slides.*;
@@ -222,11 +222,16 @@ private static String makeSafeFileNamePart(String value)
 }
 ```
 
-## **Resim Çerçevelerinden Görüntüleri Çıkarma**
+## **Resim Çerçevelerinden Görselleri Çıkar**
 
-Bağımsız nesneler olarak eklenen resimler için bu yaklaşımı kullanın. Bir [IPictureFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipictureframe/) resmi `getPictureFormat().getPicture().getImage()` içinde depolar ve bu bir [IPPImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ippimage/) nesnesi döndürür.
+Bu yaklaşımı bağımsız nesne olarak eklenmiş resimler için kullanın. Bir [IPictureFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides.ipictureframe/) resmini `getPictureFormat().getPicture().getImage()` içinde saklar; bu çağrı bir [IPPImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides.ippimage/) nesnesi döndürür.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "extracted-images");
@@ -266,11 +271,15 @@ finally
 }
 ```
 
-## **Resim Dolu Şekillerden Görüntüleri Çıkarma**
+## **Resim Doldurmalı Şekillerden Görselleri Çıkar**
 
-Şekiller bir resmi doldurma olarak kullanabilir. Önce şeklin doldurma türünü kontrol edin: eğer [FillType.Picture](https://reference.aspose.com/slides/tr/java/com.aspose.slides/filltype/) değilse o doldurmadan çıkarılacak bir resim yoktur. Aşağıdaki örnek [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iautoshape/) nesnelerini işler ve her görüntüyü [IPPImage.getImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ippimage/#getImage--) aracılığıyla PNG olarak kaydeder.
+Şekiller bir resmi doldurma olarak kullanabilir. Öncelikle şeklin doldurma tipini kontrol edin: eğer [FillType.Picture](https://reference.aspose.com/slides/tr/java/com.aspose.slides.filltype/) değilse, bu doldurmadan çıkarılacak bir resim yoktur. Aşağıdaki örnek [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides.iautoshape/) nesnelerini ele alır ve her görseli [IPPImage.getImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides.ippimage/#getImage--) ile PNG olarak kaydeder.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "shape-fill-images");
@@ -312,11 +321,16 @@ finally
 }
 ```
 
-## **OLE Nesne Çerçevelerinden Önizleme Görüntülerini Çıkarma**
+## **OLE Nesne Çerçevelerinden Önizleme Görselleri Çıkar**
 
-Bir [IOleObjectFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ioleobjectframe/) PowerPoint’in slaytta nesnenin önizlemesi olarak kullandığı bir yedek resim içerebilir. Bu görüntü `getSubstitutePictureFormat().getPicture().getImage()` üzerinden erişilebilir. Bu resmi çıkarmak, OLE paketinin gömülü içeriklerini değil önizleme görüntüsünü verir.
+Bir [IOleObjectFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides.ioleobjectframe/) PowerPoint'in bir nesnenin slayt üzerindeki önizlemesi olarak kullandığı bir alternatif resim içerebilir. Bu resim `getSubstitutePictureFormat().getPicture().getImage()` aracılığıyla elde edilir. Bu resmi çıkarmak, OLE paketinin gömülü içeriği yerine önizleme görselini verir.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "ole-preview-images");
@@ -360,11 +374,16 @@ finally
 }
 ```
 
-## **Video Çerçevelerinden Önizleme Görüntülerini Çıkarma
+## **Video Çerçevelerinden Önizleme Görselleri Çıkar**
 
-Bir [IVideoFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ivideoframe/) ayrıca `getPictureFormat().getPicture().getImage()` içinde bir önizleme resmi depolayabilir. Bu, slaytta gösterilen poster veya küçük resimdir, videodan çözülen bir kare değildir.
+Bir [IVideoFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides.ivideoframe/) ayrıca `getPictureFormat().getPicture().getImage()` içinde bir önizleme resmi saklayabilir. Bu, slaytta gösterilen poster veya küçük resimdir, video akışından çözülmüş bir çerçeve değildir.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "video-preview-images");
@@ -408,11 +427,16 @@ finally
 }
 ```
 
-## **Ses Çerçevelerinden Önizleme Görüntülerini Çıkarma**
+## **Ses Çerçevelerinden Önizleme Görselleri Çıkar**
 
-Bir [IAudioFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iaudioframe/) `getPictureFormat().getPicture().getImage()` içinde bir küçük resim depolayabilir. Bu, ses nesnesi için slaytta gösterilen görüntüdür.
+Bir [IAudioFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides.iaudioframe/) `getPictureFormat().getPicture().getImage()` içinde bir küçük resim saklayabilir. Bu, ses nesnesi için slaytta gösterilen görseldir.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "audio-preview-images");
@@ -456,11 +480,16 @@ finally
 }
 ```
 
-## **Zoom Nesnelerinden Görüntüleri Çıkarma**
+## **Yakınlaştırma Nesnelerinden Görselleri Çıkar**
 
-[IZoomFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/izoomframe/) ve [ISectionZoomFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isectionzoomframe/) şekilleri özel resimler kullanabilir. Zoom çerçevesinden `getZoomImage()` okuyun.
+[IZoomFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides.izoomframe/) ve [ISectionZoomFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides.isectionzoomframe/) şekilleri özel görseller kullanabilir. Yakınlaştırma çerçevesinden `getZoomImage()` okuyun.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "zoom-images");
@@ -517,11 +546,16 @@ finally
 }
 ```
 
-## **Özet Zoom Çerçevelerinden Görüntüleri Çıkarma**
+## **Özet Yakınlaştırma Çerçevelerinden Görselleri Çıkar**
 
-Bir [ISummaryZoomFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isummaryzoomframe/) de bir şekildir. Bölüm öğeleri özel resimler kullanabilir; bu resimler her özet zoom bölümünün `getZoomImage()` yöntemiyle ortaya çıkar.
+[ISummaryZoomFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides.isummaryzoomframe/) da bir şekildir. Bölüm öğeleri özel görseller kullanabilir; bu görseller her özet yakınlaştırma bölümünün `getZoomImage()` yöntemiyle ortaya çıkar.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "summary-zoom-images");
@@ -571,11 +605,16 @@ finally
 }
 ```
 
-## **Tablo Şekillerinden Görüntüleri Çıkarma**
+## **Tablo Şekillerinden Görselleri Çıkar**
 
-Bir [ITable](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itable/) bir şekildir. Tablodaki görüntüler genellikle tablo hücrelerindeki resim doldurmaları olarak depolanır.
+[ITable](https://reference.aspose.com/slides/tr/java/com.aspose.slides.itable/) bir şekildir. Tablodaki görseller genellikle tablo hücrelerindeki resim doldurmaları olarak saklanır.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "table-images");
@@ -631,11 +670,16 @@ finally
 }
 ```
 
-## **Grafik Şekillerinden Görüntüleri Çıkarma**
+## **Grafik Şekillerinden Görselleri Çıkar**
 
-Bir [IChart](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichart/) bir şekildir. Aşağıdaki örnek grafik alanının resim doldurmasından bir görüntü çıkarır.
+[IChart](https://reference.aspose.com/slides/tr/java/com.aspose.slides.ichart/) bir şekildir. Aşağıdaki örnek, grafik alanının resim doldurmasından bir görsel çıkarır.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "chart-images");
@@ -680,11 +724,16 @@ finally
 }
 ```
 
-## **SmartArt Şekillerinden Görüntüleri Çıkarma**
+## **SmartArt Şekillerinden Görselleri Çıkar**
 
-Bir [ISmartArt](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ismartart/) nesnesi bir şekildir. SmartArt düzenine bağlı olarak, görüntüler düğüm madde işareti doldurmalarında veya düğüm şekillerinin doldurma biçimlerinde depolanabilir.
+[ISmartArt](https://reference.aspose.com/slides/tr/java/com.aspose.slides.ismartart/) bir şekildir. SmartArt düzenine bağlı olarak görseller düğüm madde işareti doldurmalarında veya düğüm şekillerinin doldurma biçimlerinde saklanabilir.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "smartart-images");
@@ -750,11 +799,16 @@ finally
 }
 ```
 
-## **Gruplanmış Şekiller İçindeki Görüntüleri Dahil Et**
+## **Gruplandırılmış Şekiller İçindeki Görselleri Dahil Et**
 
-Gruplanmış şekiller kendi şekil koleksiyonlarını içerir. Paylaşılan `enumerateShapes` yardımcı yöntemi bir `includeGroupedShapes` seçeneğine sahiptir. [IGroupShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/igroupshape/) nesneleri içindeki şekilleri incelemek istediğinizde bunu `true` olarak ayarlayın. Aşağıdaki örnek resim çerçevelerinden, resim doldurmalı şekillerden, OLE nesne önizlemelerinden, video çerçeve küçük resimlerinden ve ses çerçeve küçük resimlerinden görüntüleri çıkarır. Tablo, grafik, SmartArt ve özet zoom görüntülerini de dahil etmek için önceki bölümlerdeki özel çıkarma mantığını aynı yinelemeli şekil dolaşımıyla yeniden kullanın.
+Gruplandırılmış şekiller kendi şekil koleksiyonlarını içerir. Paylaşılan `enumerateShapes` yardımcı yöntemi bir `includeGroupedShapes` seçeneğine sahiptir. [IGroupShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides.igroupshape/) nesneleri içinde şekilleri incelemek istiyorsanız bunu `true` olarak ayarlayın. Aşağıdaki örnek, resim çerçevelerinden, resim doldurmalı şekillerden, OLE nesne önizlemelerinden, video çerçeve küçük resimlerinden ve ses çerçeve küçük resimlerinden görselleri çıkarır. Tablo, grafik, SmartArt ve özet yakınlaştırma görsellerini de dahil etmek için önceki bölümlerdeki özel çıkarma mantığını yeniden kullanın ve aynı yinelemeli şekil geçişini sürdürün.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "all-shape-images");
@@ -847,43 +901,43 @@ finally
 
 ## **Köşe Durumları ve Pratik Notlar**
 
-- **Duplicate images:** Multiple shapes may reference the same image or separate images with identical bytes. Hash [IPPImage.getBinaryData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ippimage/#getBinaryData--) before writing files if you want one output file per unique image.
-- **Original data vs. converted output:** Saving [IPPImage.getBinaryData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ippimage/#getBinaryData--) preserves the embedded JPEG, PNG, GIF, SVG, EMF, or WMF data. Saving [IPPImage.getImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ippimage/#getImage--) through [IImage.save](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iimage/#save-java.lang.String-int-) is useful when you want a consistent output format.
-- **Unsupported fill types:** Solid, gradient, pattern, and no-fill shapes do not contain a picture fill. Check [FillType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/filltype/) before reading `getPictureFillFormat()`.
-- **Grouped shapes:** The top-level slide shape collection does not flatten groups. Recursively inspect [IGroupShape.getShapes](https://reference.aspose.com/slides/tr/java/com.aspose.slides/igroupshape/#getShapes--) when grouped content matters.
-- **OLE object previews:** An [IOleObjectFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ioleobjectframe/) may expose a preview image through `getSubstitutePictureFormat()`, but that image is only the slide preview. It is not the embedded file inside the OLE object.
-- **Video frame thumbnails:** An [IVideoFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ivideoframe/) may expose a preview image through `getPictureFormat()`, but that image is only the poster shown on the slide. It is not extracted from the video stream.
-- **Audio frame thumbnails:** An [IAudioFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iaudioframe/) may expose an icon or thumbnail through `getPictureFormat()`; it is not the embedded audio data.
-- **Zoom images:** Slide zoom, section zoom, and summary zoom shapes may use custom [IPPImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ippimage/) objects through `getZoomImage()`.
-- **Nested shape models:** Table, chart, and SmartArt objects implement [IShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishape/), but their images are often stored in nested table cell, chart element, or SmartArt node formatting objects.
-- **Cropped or transformed pictures:** Accessing [IPPImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ippimage/) gives you the stored image resource. It does not render cropping, transparency, recoloring, rotation, or other visual effects applied by the shape.
+- **Yinelenen görseller:** Birden çok şekil aynı görsele ya da aynı baytlara sahip ayrı görsellere referans verebilir. Tek bir benzersiz görsel için bir çıktı dosyası istiyorsanız dosyaları yazmadan önce [IPPImage.getBinaryData](https://reference.aspose.com/slides/tr/java/com.aspose.slides.ippimage/#getBinaryData--) özetini alın.
+- **Orijinal veri vs. dönüştürülmüş çıktı:** [IPPImage.getBinaryData](https://reference.aspose.com/slides/tr/java/com.aspose.slides.ippimage/#getBinaryData--) kaydetmek gömülü JPEG, PNG, GIF, SVG, EMF veya WMF verisini korur. [IPPImage.getImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides.ippimage/#getImage--) üzerinden [IImage.save](https://reference.aspose.com/slides/tr/java/com.aspose.slides.iimage/#save-java.lang.String-int-) kaydetmek tutarlı bir çıktı formatı istediğinizde faydalıdır.
+- **Desteklenmeyen doldurma türleri:** Katı, degrade, desen ve doldurma yok şekiller resim doldurması içermez. `getPictureFillFormat()` okumadan önce [FillType](https://reference.aspose.com/slides/tr/java/com.aspose.slides.filltype/) kontrol edin.
+- **Gruplandırılmış şekiller:** Üst‑seviye slayt şekil koleksiyonu grupları düzleştirmez. Gruplandırılmış içerik önemliyse [IGroupShape.getShapes](https://reference.aspose.com/slides/tr/java/com.aspose.slides.igroupshape/#getShapes--) öğesini yinelemeli olarak inceleyin.
+- **OLE nesne önizlemeleri:** Bir [IOleObjectFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides.ioleobjectframe/) `getSubstitutePictureFormat()` aracılığıyla bir önizleme resmi gösterebilir, ancak bu resim yalnızca slayt önizlemesidir; OLE nesnesinin içindeki gömülü dosya değildir.
+- **Video çerçeve küçük resimleri:** Bir [IVideoFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides.ivideoframe/) `getPictureFormat()` üzerinden bir önizleme resmi sunabilir; bu sadece slaytta gösterilen poster/görseldir, video akışından çıkarılmış bir çerçeve değildir.
+- **Ses çerçeve küçük resimleri:** Bir [IAudioFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides.iaudioframe/) `getPictureFormat()` üzerinden bir simge veya küçük resim sağlayabilir; bu, gömülü ses verisi değildir.
+- **Yakınlaştırma görselleri:** Slayt yakınlaştırma, bölüm yakınlaştırma ve özet yakınlaştırma şekilleri `getZoomImage()` aracılığıyla özel [IPPImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides.ippimage/) nesneleri kullanabilir.
+- **İç içe şekil modelleri:** Tablo, grafik ve SmartArt nesneleri [IShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides.ishape/) uygular, ancak görselleri çoğunlukla iç içe tablo hücresi, grafik öğesi veya SmartArt düğüm biçimlendirme nesnelerinde saklanır.
+- **Kırpılmış veya dönüştürülmüş resimler:** [IPPImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides.ippimage/) erişmek, depolanmış görsel kaynağını verir. Şeklin uyguladığı kırpma, şeffaflık, renk değiştirme, döndürme veya diğer görsel efektleri yansıtmaz.
 
 ## **SSS**
 
-**Orijinal görüntüyü kırpma, efekt veya şekil dönüşümleri olmadan çıkarabilir miyim?**
+### Orijinal resmi kırpmalar, efektler veya şekil dönüşümleri olmadan çıkarabilir miyim?
 
-Evet. [IPPImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ippimage/) nesnesine erişin ve [IPPImage.getBinaryData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ippimage/#getBinaryData--) yöntemini diske yazın. Bu, sunumda depolanan orijinal kodlanmış görüntüyü korur, slaytta görüntünün nasıl render edildiğini değil.
+Evet. [IPPImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides.ippimage/) nesnesine erişin ve [IPPImage.getBinaryData](https://reference.aspose.com/slides/tr/java/com.aspose.slides.ippimage/#getBinaryData--)'yi diske yazın. Bu, sunumda saklanan orijinal kodlanmış görseli korur; slaytta nasıl render edildiğiyle ilgili hiçbir kesme, efekt veya dönüşüm uygulanmaz.
 
-**Çıkarılan her görüntüyü PNG olarak dışa aktarabilir miyim?**
+### Her çıkarılan resmi PNG olarak dışa aktarabilir miyim?
 
-Evet. [IPPImage.getImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ippimage/#getImage--) kullanarak bir [IImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iimage/) nesnesi elde edin ve ardından [IImage.save](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iimage/#save-java.lang.String-int-) metodunu [ImageFormat.Png](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imageformat/) ile çağırın. Bu, çıktıyı dönüştürür ve orijinal dosya türünü veya vektör verisini korumayabilir.
+Evet. [IPPImage.getImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides.ippimage/#getImage--) ile bir [IImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides.iimage/) nesnesi alın ve ardından [IImage.save](https://reference.aspose.com/slides/tr/java/com.aspose.slides.iimage/#save-java.lang.String-int-) metodunu [ImageFormat.Png](https://reference.aspose.com/slides/tr/java/com.aspose.slides.imageformat/) ile çağırın. Bu, çıktıyı PNG’ye dönüştürür ancak orijinal dosya türünü veya vektör verisini korumaz.
 
-**Aynı görüntüyü birden fazla kez kaydetmekten nasıl kaçınırım?**
+### Aynı görseli birden fazla kez kaydetmemeyi nasıl sağlayabilirim?
 
-[IPPImage.getBinaryData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ippimage/#getBinaryData--) hash’i kullanın ve hash’leri bir kümede tutun. Yeni bir görüntünün hash’i zaten mevcutsa, dosyayı atlayın veya mevcut çıkış dosyasına başka bir referans kaydedin.
+[IPPImage.getBinaryData](https://reference.aspose.com/slides/tr/java/com.aspose.slides.ippimage/#getBinaryData--) özetini bir hash olarak alın ve bu özetleri bir kümede tutun. Yeni bir görselin özeti zaten mevcutsa, dosyayı atlayın veya mevcut çıktı dosyasına başka bir referans kaydedin.
 
-**Neden bazı şekiller görüntü üretmiyor?**
+### Bazı şekiller neden görsel üretmiyor?
 
-Resim çerçeveleri, resim doldurmalı şekiller, OLE nesne çerçeveleri, medya çerçeveleri, zoom çerçeveleri, tablolar, grafikler ve SmartArt nesneleri görüntülere referans verebilir. Bazı şekil türleri görüntüleri iç içe biçimlendirme nesneleri aracılığıyla ortaya çıkarır; bu yüzden basit bir `getPictureFormat()` veya şekil `getFillFormat()` kontrolü her zaman yeterli olmayabilir.
+Resim çerçeveleri, resim doldurmalı şekiller, OLE nesne çerçeveleri, medya çerçeveleri, yakınlaştırma çerçeveleri, tablolar, grafikler ve SmartArt nesneleri görsellere referans verebilir. Bazı şekil tipleri görselleri iç içe biçimlendirme nesneleri aracılığıyla sunar; bu yüzden basit bir `getPictureFormat()` ya da şekil `getFillFormat()` kontrolü her zaman yeterli olmayabilir.
 
-**Bir video çerçevesi için gösterilen küçük resmi çıkarabilir miyim?**
+### Video çerçevesi için gösterilen küçük resmi çıkarabilir miyim?
 
-Evet. [IVideoFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ivideoframe/) kullanın ve `getPictureFormat().getPicture().getImage()` metodunu okuyun. Bu, video çerçevesiyle birlikte depolanan poster görüntüsünü çıkarır, video dosyasından üretilen bir kareyi değil.
+Evet. [IVideoFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides.ivideoframe/) kullanın ve `getPictureFormat().getPicture().getImage()` okuyun. Bu, video çerçevesiyle birlikte depolanmış poster görselini çıkarır; videodan dinamik olarak oluşturulmuş bir çerçeve değildir.
 
-**Sunum görüntü koleksiyonundaki belirli bir görüntüyü hangi şekillerin kullandığını nasıl belirleyebilirim?**
+### Sunum görüntü koleksiyonundaki belirli bir görseli hangi şekiller kullandığını nasıl belirleyebilirim?
 
-Aspose.Slides, [IPPImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ippimage/) nesnesinden şekillere geri bağlantılar tutmaz. Dolaşma sırasında bir harita oluşturun: bir görüntü referansı bulduğunuzda slayt numarasını, şekil yolunu ve görüntü hash’ini veya koleksiyon öğesini kaydedin.
+Aspose.Slides, [IPPImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides.ippimage/) nesnesinden şekillere ters bağlantılar saklamaz. Gezinme sırasında bir görsel referansı bulduğunuzda, slayt numarasını, şekil yolunu ve görsel özetini veya koleksiyon öğesini kaydedin; bu şekilde hangi şekillerin belirli bir görseli kullandığını izleyebilirsiniz.
 
-**OLE nesneleri içinde gömülü görüntüleri, örneğin ekli belgeler gibi, çıkarabilir miyim?**
+### OLE nesneleri içinde gömülü, örneğin ekli belgeler gibi, görselleri çıkarabilir miyim?
 
-[IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--) üzerinden OLE nesnesinin slayt önizlemesini çıkarabilirsiniz. Ancak bu önizleme, gömülü belgeyi içermez. Gömülü dosyanın içindeki görüntüleri çıkarmak için OLE verisini çıkarın ve dosya türüne uygun araçlarla inceleyin.
+[IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides.ioleobjectframe/#getSubstitutePictureFormat--) üzerinden OLE nesnesinin slayt önizlemesini çıkarabilirsiniz. Ancak bu önizleme, gömülü belgenin kendisi değildir. Görselleri gömülü dosyanın içinden çıkarmak için OLE verisini ayıklayın ve ilgili dosya türü araçlarıyla inceleyin.

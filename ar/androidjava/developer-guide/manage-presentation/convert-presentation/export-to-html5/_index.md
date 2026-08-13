@@ -21,15 +21,19 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "تصدير عروض PowerPoint و OpenDocument إلى HTML5 متجاوب باستخدام Aspose.Slides لأندرويد عبر Java. الحفاظ على التنسيق والرسوم المتحركة والتفاعلية."
+description: "تصدير عروض PowerPoint و OpenDocument إلى HTML5 متجاوب باستخدام Aspose.Slides لأجهزة Android عبر Java. الحفاظ على التنسيق، والتحريكات، والتفاعل."
 ---
+## **نظرة عامة**
 
-Aspose.Slides يدعم تصدير HTML5. عملية التصدير إلى HTML5 هنا تتيح لك تحويل PowerPoint إلى HTML بدون امتدادات ويب أو تبعيات. بهذه الطريقة، باستخدام القوالب الخاصة بك، يمكنك تطبيق خيارات مرنة جدًا تُعرِّف عملية التصدير ونتيجة HTML وCSS وJavaScript وخصائص الرسوم المتحركة.
+تشرح هذه المقالة كيفية تحويل عروض PowerPoint التقديمية إلى HTML5 باستخدام Aspose.Slides. وتغطي تصدير HTML5 الأساسي دون امتدادات ويب أو تبعيات إضافية، بالإضافة إلى خيارات التحكم في تحريك الأشكال وانتقالات الشرائح. كما تعرض العملية القياسية لتصدير PowerPoint إلى HTML، وتوضح كيفية إنشاء مخرجات HTML5 في وضع عرض الشرائح، وتظهر كيفية تضمين التعليقات في المستند المُصدَّر عبر تكوين تخطيطها.
 
 ## **تصدير PowerPoint إلى HTML5**
 
-هذا الكود Java يوضح كيفية تصدير عرض تقديمي إلى HTML5 بدون امتدادات ويب وتبعيات:
+يوضح هذا الكود بلغة Java كيفية تصدير عرض تقديمي إلى HTML5 دون امتدادات ويب أو تبعيات:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.save("pres.html", SaveFormat.Html5);
@@ -38,13 +42,15 @@ try {
 }
 ```
 
-
-{{% alert color="primary" %}} 
-في هذه الحالة ستحصل على HTML نظيف. 
+{{% alert color="info" %}} 
+في هذه الحالة، ستحصل على HTML نظيف. 
 {{% /alert %}}
 
-قد ترغب في تحديد إعدادات لرسوم متحركة الأشكال وانتقالات الشرائح بهذه الطريقة:
+قد ترغب في تحديد إعدادات تحريك الأشكال وانتقالات الشرائح بهذه الطريقة:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     Html5Options html5Options = new Html5Options();
@@ -57,11 +63,13 @@ try {
 }
 ```
 
-
 ## **تصدير PowerPoint إلى HTML**
 
-هذا الكود Java يُظهر عملية PowerPoint إلى HTML القياسية:
+يوضح هذا الكود بلغة Java العملية القياسية لتصدير PowerPoint إلى HTML:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.save("pres.html", SaveFormat.Html);
@@ -70,8 +78,8 @@ try {
 }
 ```
 
+في هذه الحالة، يتم عرض محتوى العرض التقديمي عبر SVG على الشكل التالي:
 
-في هذه الحالة يتم عرض محتوى العرض عبر SVG بالشكل التالي:
 ```html
 <body>
 <div class="slide" name="slide" id="slideslideIface1">
@@ -82,17 +90,19 @@ try {
 </body>
 ```
 
-
 {{% alert title="Note" color="warning" %}} 
-عند استخدامك لهذه الطريقة لتصدير PowerPoint إلى HTML، بسبب عرض SVG، لن تكون قادرًا على تطبيق الأنماط أو تحريك عناصر محددة. 
+عند استخدام هذه الطريقة لتصدير PowerPoint إلى HTML، وبسبب عرض SVG، لن تتمكن من تطبيق الأنماط أو تحريك العناصر المحددة. 
 {{% /alert %}}
 
 ## **تصدير PowerPoint إلى عرض شرائح HTML5**
 
-**Aspose.Slides** يتيح لك تحويل عرض تقديمي PowerPoint إلى مستند HTML5 تُعرض فيه الشرائح في وضع عرض الشرائح. في هذه الحالة، عند فتح ملف HTML5 الناتج في المتصفح، ترى العرض في وضع عرض الشرائح على صفحة ويب.
+يسمح لك **Aspose.Slides** بتحويل عرض PowerPoint التقديمي إلى مستند HTML5 يتم عرض الشرائح فيه في وضع عرض الشرائح. في هذه الحالة، عند فتح ملف HTML5 الناتج في المتصفح، سترى العرض التقديمي في وضع عرض الشرائح على صفحة ويب.
 
-هذا الكود Java يوضح عملية تصدير PowerPoint إلى عرض شرائح HTML5:
+يوضح هذا الكود بلغة Java عملية تصدير PowerPoint إلى عرض شرائح HTML5:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     Html5Options html5Options = new Html5Options();
@@ -105,42 +115,42 @@ try {
 }
 ```
 
-
 ## **تحويل عرض تقديمي إلى مستند HTML5 مع التعليقات**
 
-التعليقات في PowerPoint هي أداة تسمح للمستخدمين بترك ملاحظات أو ملاحظات على شرائح العرض. هي مفيدة بشكل خاص في المشاريع التعاونية، حيث يمكن لعدة أشخاص إضافة اقتراحاتهم أو ملاحظاتهم إلى عناصر شريحة معينة دون تعديل المحتوى الرئيسي. كل تعليق يظهر اسم المؤلف، مما يسهل تتبع من ترك الملاحظة.
+التعليقات في PowerPoint هي أداة تتيح للمستخدمين ترك ملاحظات أو ملاحظات حول شرائح العرض التقديمي. وهي مفيدة بشكل خاص في المشاريع التعاونية، حيث يمكن للعديد من الأشخاص إضافة اقتراحاتهم أو ملاحظاتهم إلى عناصر شريحة معينة دون تعديل المحتوى الرئيسي. كل تعليق يظهر اسم المؤلف، مما يسهل تتبع من قام بترك الملاحظة.
 
-لنفترض أن لدينا عرض تقديمي PowerPoint محفوظ في الملف "sample.pptx".
+لنفترض أن لدينا عرض PowerPoint التالي محفوظًا في ملف "sample.pptx".
 
-![تعليقين على شريحة العرض](two_comments_pptx.png)
+![تعليقين على شريحة العرض التقديمي](two_comments_pptx.png)
 
-عند تحويل عرض تقديمي PowerPoint إلى مستند HTML5، يمكنك بسهولة تحديد ما إذا كنت تريد تضمين التعليقات من العرض في المستند الناتج. للقيام بذلك، يجب تحديد معلمات عرض التعليقات في طريقة `getNotesCommentsLayouting` من فئة [Html5Options](https://reference.aspose.com/slides/androidjava/com.aspose.slides.html5options/) .
+عند تحويل عرض PowerPoint إلى مستند HTML5، يمكنك بسهولة تحديد ما إذا كنت تريد تضمين التعليقات من العرض في المستند الناتج. للقيام بذلك، يلزم تمرير معلمات عرض التعليقات إلى طريقة `setSlidesLayoutOptions` في فئة [Html5Options](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/html5options/).
 
-الكود التالي يحول عرضًا تقديميًا إلى مستند HTML5 مع عرض التعليقات إلى يمين الشرائح.
+يوضح المثال البرمجي التالي كيفية تحويل عرض تقديمي إلى مستند HTML5 مع عرض التعليقات إلى يمين الشرائح.
 ```java
+import com.aspose.slides.*;
+
+NotesCommentsLayoutingOptions layoutingOptions = new NotesCommentsLayoutingOptions();
+layoutingOptions.setCommentsPosition(CommentsPositions.Right);
+
 Html5Options html5Options = new Html5Options();
-html5Options.getNotesCommentsLayouting().setCommentsPosition(CommentsPositions.Right);
+html5Options.setSlidesLayoutOptions(layoutingOptions);
 
 Presentation presentation = new Presentation("sample.pptx");
 presentation.save("output.html", SaveFormat.Html5, html5Options);
 presentation.dispose();
 ```
 
-
-مستند "output.html" موضح في الصورة أدناه.
+يتم عرض مستند "output.html" في الصورة أدناه.
 
 ![التعليقات في مستند HTML5 الناتج](two_comments_html5.png)
 
-## **FAQ**
+## **الأسئلة الشائعة**
 
-**هل يمكنني التحكم فيما إذا كانت رسوميات الكائنات وانتقالات الشرائح ستعمل في HTML5؟**
+### هل يمكنني التحكم فيما إذا كانت تحريكات الكائنات وانتقالات الشرائح ستعمل في HTML5؟
+نعم، يوفر HTML5 خيارات منفصلة لتمكين أو تعطيل [تحريكات الأشكال](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) و[انتقالات الشرائح](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).
 
-نعم، يوفر HTML5 خيارات منفصلة لتمكين أو تعطيل [shape animations](https://reference.aspose.com/slides/androidjava/com.aspose.slides.html5options/#setAnimateShapes-boolean-) و[slide transitions](https://reference.aspose.com/slides/androidjava/com.aspose.slides.html5options/#setAnimateTransitions-boolean-).
+### هل يتم دعم مخرجات التعليقات، وأين يمكن وضعها بالنسبة للشرائح؟
+نعم، يمكن إضافة التعليقات في HTML5 وتحديد موضعها (على سبيل المثال، إلى يمين الشريحة) عبر [إعدادات التخطيط](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) للملاحظات والتعليقات.
 
-**هل دعم إخراج التعليقات متوفر، وأين يمكن وضعها بالنسبة للشفرة؟**
-
-نعم، يمكن إضافة التعليقات في HTML5 وتحديد موقعها (على سبيل المثال، إلى يمين الشريحة) من خلال [layout settings](https://reference.aspose.com/slides/androidjava/com.aspose.slides.html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) للملاحظات والتعليقات.
-
-**هل يمكنني تخطي الروابط التي تستدعي JavaScript لأسباب أمنية أو متعلقة بـ CSP؟**
-
-نعم، هناك [setting](https://reference.aspose.com/slides/androidjava/com.aspose.slides.saveoptions/#setSkipJavaScriptLinks-boolean-) يتيح لك تخطي الروابط التي تحتوي على استدعاءات JavaScript أثناء الحفظ. هذا يساعد على الامتثال لسياسات الأمان الصارمة.
+### هل يمكنني تخطي الروابط التي تستدعي JavaScript لأسباب أمنية أو متعلقة بسياسة المحتوى (CSP)؟
+نعم، هناك [إعداد](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-) يسمح بتخطي الروابط ذات استدعاءات JavaScript أثناء الحفظ. يساعد ذلك في الامتثال لسياسات الأمان الصارمة.

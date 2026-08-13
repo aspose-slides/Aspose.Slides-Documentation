@@ -1,48 +1,51 @@
 ---
-title: Aspose.Slides for Java 15.2.0 的公開 API 以及相容性中斷變更
+title: Aspose.Slides for Java 15.2.0 公共 API 與向後不相容變更
 linktitle: Aspose.Slides for Java 15.2.0
 type: docs
 weight: 110
 url: /zh-hant/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-2-0/
 keywords:
-- 移植
-- 傳統程式碼
+- 遷移
+- 舊版程式碼
 - 現代程式碼
-- 傳統方法
+- 舊版方法
 - 現代方法
 - PowerPoint
 - OpenDocument
 - 簡報
 - Java
 - Aspose.Slides
-description: "檢閱 Aspose.Slides for Java 的公開 API 更新與相容性中斷變更，以順利遷移您的 PowerPoint PPT、PPTX 與 ODP 簡報解決方案。"
+description: "檢視 Aspose.Slides for Java 的公共 API 更新與重大變更，協助您順利遷移 PowerPoint PPT、PPTX 與 ODP 簡報解決方案。"
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-此頁面列出所有[新增](/slides/zh-hant/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-2-0/)的類別、方法、屬性等，任何新限制以及其他[變更](/slides/zh-hant/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-2-0/) ，這些皆為 Aspose.Slides for Java 15.2.0 API 所引入。
+此頁面列出所有 [已添加](/slides/zh-hant/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-2-0/) 類別、方法、屬性等，任何新的限制以及其他 [變更](/slides/zh-hant/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-2-0/)，這些皆隨 Aspose.Slides for Java 15.2.0 API 引入。
 
-{{% /alert %}} {{% alert color="primary" %}} 
+{{% /alert %}} {{% alert color="info" %}} 
 
-已知部份影像項目符號與 WordArt 物件存在問題，將在 Aspose.Slides for Java 15.2.0 中修復。
+已知某些圖片項目符號和 WordArt 物件存在問題，將在 Aspose.Slides for Java 15.2.0 中修復。
 
 {{% /alert %}} 
-## **公開 API 變更**
+## **公共 API 變更**
 ### **已新增 addDataPointForDoughnutSeries 方法**
-已新增 IChartDataPointCollection.addDataPointForDoughnutSeries() 方法的兩個重載，用於將資料點加入 Doughnut 類型的系列中。
-### **com.aspose.slides.SmartArtShape 類別已從 com.aspose.slides.GeometryShape 類別繼承**
-com.aspose.slides.SmartArtShape 類別已從 com.aspose.slides.GeometryShape 類別繼承。此變更改善了 Aspose.Slides 物件模型，並為 SmartArtShape 類別加入新功能。
+已新增 IChartDataPointCollection.addDataPointForDoughnutSeries() 方法的兩個重載，用於將資料點加入環形圖系列。
+### **com.aspose.slides.SmartArtShape 類別已繼承自 com.aspose.slides.GeometryShape 類別**
+com.aspose.slides.SmartArtShape 類別已繼承自 com.aspose.slides.GeometryShape 類別。此變更改善了 Aspose.Slides 物件模型，並為 SmartArtShape 類別新增功能。
 ### **IGradientStopCollection.add(...) 與 IGradientStopCollection.insert(...) 方法已變更**
-IGradientStop add(float position, int presetColor) 簽名已改為 IGradientStop addPresetColor(float position, int presetColor) 簽名。
+IGradientStop add(float position, int presetColor) 簽章已替換為 IGradientStop addPresetColor(float position, int presetColor) 簽章。
 
-IGradientStopCollection 方法 IGradientStop add(float position, SchemeColor schemeColor) 簽名已改為 IGradientStop addSchemeColor(float position, int schemeColor) 簽名。
+IGradientStopCollection 方法 IGradientStop add(float position, SchemeColor schemeColor) 簽章已替換為 IGradientStop addSchemeColor(float position, int schemeColor) 簽章。
 
-IGradientStopCollection 方法 void insert(int index, float position, int presetColor) 簽名已改為 void insertPresetColor(int index, float position, int presetColor) 簽名。
+IGradientStopCollection 方法 void insert(int index, float position, int presetColor) 簽章已替換為 void insertPresetColor(int index, float position, int presetColor) 簽章。
 
-IGradientStopCollection 方法 void insert(int index, float position, SchemeColor schemeColor) 簽名已改為 void insertSchemeColor(int index, float position, int schemeColor) 簽名。
+IGradientStopCollection 方法 void insert(int index, float position, SchemeColor schemeColor) 簽章已替換為 void insertSchemeColor(int index, float position, int schemeColor) 簽章。
 ### **已在 com.aspose.slides.IChartSeries 中新增 java.awt.Color getAutomaticSeriesColor() 方法**
-getAutomaticSeriesColor() 方法根據系列索引和圖表樣式返回自動系列顏色。如果 FillType 為 NotDefined，則預設使用此顏色。
+getAutomaticSeriesColor() 方法會根據系列索引與圖表樣式返回自動顏色。如果 FillType 等於 NotDefined，則預設使用此顏色。
  
+
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -58,7 +61,6 @@ for (int i = 0; i < chart.getChartData().getSeries().size(); i++)
 
 ```
 ### **已新增依索引移除圖表資料點與圖表類別的方法**
-已新增 IChartDataPointCollection.removeAt(int index) 方法，用於依索引移除圖表資料點。
-已新增 IChartCategoryCollection.removeAt(int index) 方法，用於依索引移除圖表類別。
-### **已在 com.aspose.slides.PropertyType 列舉型別中新增 PptXPptY 值**
-為了解決序列化問題，已在 com.aspose.slides.PropertyType 列舉型別中加入 PptXPptY 值。
+已新增 IChartDataPointCollection.removeAt(int index) 方法，用於依索引移除圖表資料點。已新增 IChartCategoryCollection.removeAt(int index) 方法，用於依索引移除圖表類別。
+### **已在 com.aspose.slides.PropertyType 列舉中新增 PptXPptY 值**
+在修復序列化問題的範圍內，已在 com.aspose.slides.PropertyType 列舉中新增 PptXPptY 值。

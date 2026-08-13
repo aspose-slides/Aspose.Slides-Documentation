@@ -1,37 +1,39 @@
 ---
-title: مشخص کردن فونت‌های فالبیک برای ارائه‌ها در جاوا
-linktitle: فونت فالبیک
+title: تعیین فونت‌های جایگزین برای ارائه‌ها در جاوا
+linktitle: فونت جایگزین
 type: docs
 weight: 10
 url: /fa/java/create-fallback-font/
 keywords:
-- فونت فالبیک
-- قانون فالبیک
+- فونت جایگزین
+- قانون جایگزین
 - اعمال فونت
 - جایگزینی فونت
 - بازه یونیکد
-- گلیف گمشده
-- گلیف مناسب
-- PowerPoint
+- گلیف از دست رفته
+- گلیف صحیح
+- پاورپوینت
 - OpenDocument
 - ارائه
-- Java
+- جاوا
 - Aspose.Slides
-description: "به‌کارگیری کامل Aspose.Slides برای جاوا جهت تنظیم فونت‌های فالبیک در فایل‌های PPT، PPTX و ODP، به‌منظور حفظ نمایش متنی یکسان در هر دستگاه یا سیستم‌عامل."
+description: "آشنایی کامل با Aspose.Slides برای جاوا جهت تنظیم فونت‌های جایگزین در فایل‌های PPT، PPTX و ODP، تضمین نمایش ثابت متن در هر دستگاه یا سیستم‌عامل."
 ---
-## **Overview**
+## **مرور کلی**
 
-Aspose.Slides به شما امکان می‌دهد فونت‌های فالبیک را برای رندرینگ و عملیات خروجی‌گیری ارائه‌ها مشخص کنید. فونت‌های فالبیک زمانی استفاده می‌شوند که فونت اصلی برای کاراکترهای خاص گلیف نداشته باشد.
+Aspose.Slides به شما امکان می‌دهد فونت‌های جایگزین برای رندرینگ و عملیات خروجی ارائه را مشخص کنید. فونت‌های جایگزین زمانی استفاده می‌شوند که فونت اصلی گلیف‌های مربوط به برخی کاراکترها را نداشته باشد.
 
-رفتار فالبیک از طریق قوانین فالبیک پیکربندی می‌شود. هر قانون یک بازه Unicode را با یک یا چند فونت که ممکن است گلیف‌های مورد نیاز را داشته باشند، مرتبط می‌کند. می‌توانید قوانین برای بازه‌های مختلف کاراکتر تعریف کنید، فونت‌های فالبیک را به قوانین موجود اضافه یا حذف کنید و چندین قانون را در یک مجموعه قوانین فونت فالبیک سازماندهی کنید.
+رفتار جایگزینی از طریق قوانین fallback پیکربندی می‌شود. هر قانون یک بازه Unicode را با یک یا چند فونت که ممکن است گلیف‌های مورد نیاز را داشته باشند، مرتبط می‌کند. می‌توانید قوانین را برای بازه‌های کاراکتری مختلف تعریف کنید، فونت‌های جایگزین را به قوانین موجود اضافه یا حذف کنید و چندین قانون را در یک مجموعه قوانین فونت‌های جایگزین سازماندهی کنید.
 
-قوانین فالبیک تنظیمات رندرینگ زمان اجرا هستند. آن‌ها فایل ارائه را تغییر نمی‌دهند و داخل فایل PPTX ذخیره نمی‌شوند.
+قوانین fallback تنظیمات رندرینگ در زمان اجرا هستند. آن‌ها فایل ارائه را تغییر نمی‌دهند و در داخل فایل PPTX ذخیره نمی‌شوند.
 
-## **Fallback Rules**
+## **قوانین جایگزینی**
 
-Aspose.Slides از اینترفیس [IFontFallBackRule](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IFontFallBackRule) و کلاس [FontFallBackRule](https://reference.aspose.com/slides/fa/java/com.aspose.slides/FontFallBackRule) برای مشخص کردن قوانینی که فونت فالبیک را اعمال می‌کند، پشتیبانی می‌کند. کلاس [FontFallBackRule](https://reference.aspose.com/slides/fa/java/com.aspose.slides/FontFallBackRule) نمایانگر ارتباط بین بازه Unicode مشخص‌شده (که برای جستجوی گلیف‌های گمشده استفاده می‌شود) و فهرستی از فونت‌هاست که ممکن است گلیف‌های مناسب را داشته باشند:
+Aspose.Slides رابط [IFontFallBackRule](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IFontFallBackRule) و کلاس [FontFallBackRule](https://reference.aspose.com/slides/fa/java/com.aspose.slides/FontFallBackRule) را برای مشخص کردن قواعد اعمال فونت جایگزین پشتیبانی می‌کند. کلاس [FontFallBackRule](https://reference.aspose.com/slides/fa/java/com.aspose.slides/FontFallBackRule) یک ارتباط بین بازه Unicode مشخص‌شده، که برای جستجوی گلیف‌های مفقود استفاده می‌شود، و فهرستی از فونت‌ها که ممکن است گلیف‌های مناسب را داشته باشند، نشان می‌دهد:
 
 ```java
+import com.aspose.slides.*;
+
 long startUnicodeIndex = 0x0B80;
 long endUnicodeIndex = 0x0BFF;
 
@@ -44,32 +46,32 @@ String[] fontNames = new String[] { "Segoe UI Emoji, Segoe UI Symbol", "Arial" }
 IFontFallBackRule thirdRule = new FontFallBackRule(0x1F300, 0x1F64F, fontNames);
 ```
 
-همچنین می‌توانید فونت فالبیک را [remove](https://reference.aspose.com/slides/fa/java/com.aspose.slides/FontFallBackRule#remove-java.lang.String-) کنید یا با استفاده از [addFallBackFonts](https://reference.aspose.com/slides/fa/java/com.aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) به شیء موجود [FontFallBackRule](https://reference.aspose.com/slides/fa/java/com.aspose.slides/FontFallBackRule) اضافه کنید.
+همچنین امکان [remove](https://reference.aspose.com/slides/fa/java/com.aspose.slides/FontFallBackRule#remove-java.lang.String-) حذف فونت جایگزین یا [addFallBackFonts](https://reference.aspose.com/slides/fa/java/com.aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) اضافه کردن فونت‌های جایگزین به شیء [FontFallBackRule](https://reference.aspose.com/slides/fa/java/com.aspose.slides/FontFallBackRule) موجود وجود دارد.
 
-[FontFallBackRulesCollection](https://reference.aspose.com/slides/fa/java/com.aspose.slides/FontFallBackRulesCollection) می‌تواند برای سازماندهی فهرستی از اشیای [FontFallBackRule](https://reference.aspose.com/slides/fa/java/com.aspose.slides/FontFallBackRule) استفاده شود، وقتی که نیاز به تعیین قوانین جایگزینی فونت فالبیک برای چندین بازه Unicode وجود دارد.
+کلاس [FontFallBackRulesCollection](https://reference.aspose.com/slides/fa/java/com.aspose.slides/FontFallBackRulesCollection) می‌تواند برای سازماندهی فهرستی از اشیاء [FontFallBackRule](https://reference.aspose.com/slides/fa/java/com.aspose.slides/FontFallBackRule) استفاده شود، زمانی که نیاز به تعیین قواعد جایگزینی فونت‌های fallback برای چندین بازه Unicode باشد.
 
-{{% alert color="primary" title="See also" %}} 
-- [ایجاد مجموعه فونت‌های فالبیک](/slides/fa/java/create-fallback-fonts-collection/)
+{{% alert color="info" title="See also" %}} 
+- [ایجاد مجموعه فونت‌های جایگزین](/slides/fa/java/create-fallback-fonts-collection/)
 {{% /alert %}}
 
-## **FAQ**
+## **سوالات متداول**
 
-**تفاوت بین فونت فالبیک، جایگزینی فونت و تعبیه فونت چیست؟**
+### تفاوت فونت جایگزین، جایگزینی فونت و جاسازی فونت چیست؟
 
-یک فونت فالبیک فقط برای کاراکترهایی که در فونت اصلی موجود نیستند استفاده می‌شود. [Font substitution](/slides/fa/java/font-substitution/) کل فونت مشخص‌شده را با فونت دیگری جایگزین می‌کند. [Font embedding](/slides/fa/java/embedded-font/) فونت‌ها را داخل فایل خروجی بسته‌بندی می‌کند تا دریافت‌کنندگان بتوانند متن را همان‌طور که منظور شده است مشاهده کنند.
+فونت جایگزین فقط برای کاراکترهایی که در فونت اصلی موجود نیستند استفاده می‌شود. [Font substitution](/slides/fa/java/font-substitution/) کل فونت مشخص‌شده را با فونت دیگری جایگزین می‌کند. [Font embedding](/slides/fa/java/embedded-font/) فونت‌ها را داخل فایل خروجی بسته‌بندی می‌کند تا دریافت‌کنندگان بتوانند متن را همان‌گونه که منظور شده مشاهده کنند.
 
-**آیا فونت‌های فالبیک در زمان خروجی‌گیری مانند PDF، PNG یا SVG اعمال می‌شوند یا فقط در رندرینگ روی صفحه؟**
+### آیا فونت‌های جایگزین در هنگام خروجی‌گیری مانند PDF، PNG یا SVG اعمال می‌شوند یا فقط در رندرینگ روی صفحه نمایش؟
 
-بله. فالبیک بر تمام [rendering and export operations](/slides/fa/java/convert-presentation/) که کاراکترها باید رسم شوند اما در فونت منبع موجود نیستند، تأثیر می‌گذارد.
+بله. فونت‌های جایگزین بر تمام [rendering and export operations](/slides/fa/java/convert-presentation/) که در آن‌ها کاراکترها باید رسم شوند اما در فونت منبع موجود نیستند، تأثیر می‌گذارند.
 
-**آیا پیکربندی فالبیک فایل ارائه را تغییر می‌دهد و آیا این تنظیم برای باز شدن‌های آینده باقی می‌ماند؟**
+### آیا پیکربندی جایگزینی فایل ارائه را تغییر می‌دهد و آیا تنظیم برای باز شدن‌های آینده باقی می‌ماند؟
 
-خیر. قوانین فالبیک تنظیمات رندرینگ زمان اجرا در کد شما هستند؛ آن‌ها داخل فایل .pptx ذخیره نمی‌شوند و در PowerPoint نشان داده نمی‌شوند.
+خیر. قوانین fallback تنظیمات رندرینگ در زمان اجرا در کد شما هستند؛ در داخل فایل .pptx ذخیره نمی‌شوند و در پاورپوینت ظاهر نمی‌شوند.
 
-**آیا سیستم‌عامل (Windows/Linux/macOS) و مجموعهٔ پوشه‌های فونت بر انتخاب فالبیک تأثیر می‌گذارد؟**
+### آیا سیستم عامل (Windows/Linux/macOS) و مجموعهٔ پوشه‌های فونت بر انتخاب جایگزین تأثیر می‌گذارد؟
 
-بله. موتور فونت‌ها را از پوشه‌های سیستم موجود و هر [additional paths](/slides/fa/java/custom-font/) که ارائه می‌کنید، حل می‌کند. اگر یک فونت به صورت فیزیکی در دسترس نباشد، قانونی که به آن ارجاع می‌دهد نمی‌تواند اثر کند.
+بله. موتور فونت‌ها را از پوشه‌های سیستم موجود و هر [additional paths](/slides/fa/java/custom-font/) که شما فراهم می‌کنید، پیدا می‌کند. اگر فونتی به طور فیزیکی موجود نباشد، قانونی که به آن اشاره دارد نمی‌تواند اعمال شود.
 
-**آیا فالبیک برای WordArt، SmartArt و نمودارها کار می‌کند؟**
+### آیا جایگزینی برای WordArt، SmartArt و نمودارها کار می‌کند؟
 
-بله. وقتی این اشیاء حاوی متن هستند، همان مکانیزم جایگزینی گلیف برای رندر کردن کاراکترهای گمشده اعمال می‌شود.
+بله. زمانی که این اشیاء شامل متن می‌شوند، همان مکانیزم جایگزینی گلیف برای رسم کاراکترهای مفقود اعمال می‌شود.

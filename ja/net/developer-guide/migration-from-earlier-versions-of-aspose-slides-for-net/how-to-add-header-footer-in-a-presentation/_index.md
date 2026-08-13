@@ -1,34 +1,30 @@
 ---
-title: ".NET でプレゼンテーションにヘッダーとフッターを追加する方法"
-linktitle: "ヘッダーとフッターを追加"
+title: .NET でプレゼンテーションにヘッダーとフッターを追加する方法
+linktitle: ヘッダーとフッターの追加
 type: docs
 weight: 20
 url: /ja/net/how-to-add-header-footer-in-a-presentation/
 keywords:
-- "移行"
-- "ヘッダーを追加"
-- "フッターを追加"
-- "レガシーコード"
-- "モダンコード"
-- "レガシーアプローチ"
-- "モダンアプローチ"
-- "PowerPoint"
-- "OpenDocument"
-- "プレゼンテーション"
-- ".NET"
-- "C#"
-- "Aspose.Slides"
-description: ".NET でレガシーおよびモダンな Aspose.Slides API を使用して、PowerPoint PPT、PPTX、ODP プレゼンテーションにヘッダーとフッターを追加する方法を学びます。"
+- 移行
+- ヘッダー追加
+- フッター追加
+- レガシーコード
+- モダンコード
+- レガシーアプローチ
+- モダンアプローチ
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "レガシーとモダンの両方の Aspose.Slides API を使用して、.NET で PowerPoint PPT、PPTX、ODP プレゼンテーションにヘッダーとフッターを追加する方法を学びます。"
 ---
-
-{{% alert color="primary" %}} 
-
-新しい [Aspose.Slides for .NET API](/slides/ja/net/) がリリースされ、この単一製品でスクラッチからPowerPoint文書を生成し、既存のものを編集する機能がサポートされました。
-
+{{% alert color="info" %}} 
+新しい[Aspose.Slides for .NET API](/slides/ja/net/)がリリースされ、この単一製品は、ゼロからPowerPointドキュメントを生成し、既存のものを編集する機能をサポートしています。
 {{% /alert %}} 
 ## **レガシーコードのサポート**
-Aspose.Slides for .NET 13.x より前のバージョンで開発されたレガシーコードを使用するには、コードにいくつかの小さな変更を加える必要がありますが、変更後も従来通りに動作します。旧 Aspose.Slides for .NET の Aspose.Slide および Aspose.Slides.Pptx 名前空間に存在したすべてのクラスは、現在単一の Aspose.Slides 名前空間に統合されています。レガシー Aspose.Slides API でプレゼンテーションにヘッダーとフッターを追加する簡単なコードスニペットを以下に示しますので、新しい統合 API への移行手順をご確認ください。
-
+13.x以前のAspose.Slides for .NETバージョンで開発されたレガシーコードを使用するには、コードにいくつかの小さな変更を加える必要がありますが、コードは以前と同様に動作します。旧Aspose.Slides for .NETのAspose.SlideおよびAspose.Slides.Pptx名前空間に存在していたすべてのクラスは、現在単一のAspose.Slides名前空間に統合されています。レガシーAspose.Slides APIでプレゼンテーションにヘッダーとフッターを追加する以下のシンプルなコードスニペットをご覧いただき、新しい統合APIへの移行手順をご確認ください。
 ## **レガシー Aspose.Slides for .NET アプローチ**
 ```c#
 PresentationEx sourcePres = new PresentationEx();
@@ -51,11 +47,13 @@ sourcePres.HeaderFooterManager.IsSlideNumberVisible = true;
 //タイトルスライドでヘッダーとフッターの表示を設定
 sourcePres.HeaderFooterManager.SetVisibilityOnTitleSlide(true);
 
-//プレゼンテーションを書き込みディスクへ保存
+//プレゼンテーションを書き込む
 sourcePres.Write("NewSource.pptx");
 ```
 
 ```c#
+using Aspose.Slides;
+
 //プレゼンテーションを作成
 Presentation pres = new Presentation();
 
@@ -86,15 +84,15 @@ hf.HeaderText = "Header Text";
 //フッターテキストを設定
 hf.FooterText = "Footer Text";
 
-//プレゼンテーションを書き込みディスクへ保存
+//プレゼンテーションを書き込み
 pres.Write("HeadFoot.ppt");
 ```
 
-
-
-
 ## **新しい Aspose.Slides for .NET 13.x アプローチ**
-```csharp
+``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation sourcePres = new Presentation())
 {
     //ヘッダーとフッターの表示プロパティを設定
@@ -112,7 +110,7 @@ using (Presentation sourcePres = new Presentation())
     //タイトルスライドでヘッダーとフッターの表示を設定
     sourcePres.HeaderFooterManager.SetVisibilityOnAllTitleSlides(true);
 
-    //プレゼンテーションを書き込みディスクへ保存
+    //プレゼンテーションを書き込む
     sourcePres.Save("NewSource.pptx", SaveFormat.Pptx);
 }
 ```

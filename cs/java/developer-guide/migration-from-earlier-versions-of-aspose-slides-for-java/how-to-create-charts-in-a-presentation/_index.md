@@ -16,20 +16,22 @@ keywords:
 - prezentace
 - Java
 - Aspose.Slides
-description: "Naučte se, jak vytvářet grafy v prezentacích PowerPoint PPT, PPTX a ODP pomocí Javy a Aspose.Slides s použitím jak starých, tak moderních API pro grafy."
+description: "Zjistěte, jak vytvořit grafy v prezentacích PowerPoint PPT, PPTX a ODP v Javě s Aspose.Slides pomocí jak starých, tak moderních API grafů."
 ---
-{{% alert color="primary" %}} 
-Bylo vydáno nové [Aspose.Slides for Java API](https://docs.aspose.com/slides/cs/java/) a nyní tento jediný produkt podporuje tvorbu PowerPoint dokumentů od nuly i úpravu existujících souborů.
+{{% alert color="info" %}} 
+
+Byla vydána nová [Aspose.Slides for Java API](https://docs.aspose.com/slides/cs/java/) a nyní tento jediný produkt podporuje schopnost generovat PowerPoint dokumenty od nuly a upravovat existující.
+
 {{% /alert %}} 
-## **Support for Legacy Code**
-Aby bylo možné používat legacy kód vyvinutý pro Aspose.Slides for Java verze starší než 14.x.x, je potřeba provést některé menší změny ve vašem kódu a kód bude fungovat jako dříve. Všechny třídy, které byly v starém Aspose.Slides for Java v nameprostorech com.aspose.slides a com.aspose.slides.pptx, jsou nyní sloučeny do jediného jmenného prostoru com.aspose.slides. Podívejte se prosím na následující jednoduchý úryvek kódu pro vytvoření běžného grafu od nuly v prezentaci pomocí legacy API Aspose.Slides a postupujte podle kroků popisujících, jak migrovat na nové sloučené API.
-## **Legacy Aspose.Slides for Java Approach**
+## **Podpora starého kódu**
+Aby bylo možné používat starý kód vyvinutý pro Aspose.Slides for Java ve verzích starších než 14.x.x, musíte ve svém kódu provést drobné změny a kód bude fungovat jako dříve. Všechny třídy, které byly ve starém Aspose.Slides for Java v názvových prostorech com.aspose.slides a com.aspose.slides.pptx, jsou nyní sloučeny do jediného názvu prostoru com.aspose.slides. Podívejte se na následující jednoduchý úryvek kódu pro vytvoření běžného grafu od nuly v prezentaci pomocí starého Aspose.Slides API a následujte kroky popisující, jak migrovat na nové sloučené API.
+## **Legacy Aspose.Slides for Java přístup**
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-CreateChartEx-CreateChartEx.java" >}}
-## **New Aspose.Slides for Java 14.x.x Approach**
+## **Nový Aspose.Slides for Java 14.x.x přístup**
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-CreateAChart-CreateAChart.java" >}}
 
-Podívejte se prosím na následující jednoduchý úryvek kódu pro vytvoření rozptylového grafu od nuly v prezentaci pomocí legacy API Aspose.Slides a jak jej dosáhnout s novým sloučeným API.
-## **Legacy Aspose.Slides for Java Approach**
+Podívejte se na následující jednoduchý úryvek kódu pro vytvoření rozptýleného grafu od nuly v prezentaci pomocí starého Aspose.Slides API a jak toho dosáhnout s novým sloučeným API.
+## **Legacy Aspose.Slides for Java přístup**
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-ExistingChart-ExistingChart.java" >}}
-## **New Aspose.Slides for Java 14.x.x Approach**
+## **Nový Aspose.Slides for Java 14.x.x přístup**
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-CreateScatterChart-CreateScatterChart.java" >}}

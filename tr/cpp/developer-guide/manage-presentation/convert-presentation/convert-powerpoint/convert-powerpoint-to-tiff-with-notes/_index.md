@@ -1,6 +1,6 @@
 ---
-title: Notlarla PowerPoint Sunumlarını C++ ile TIFF'e Dönüştürme
-linktitle: Notlarla PowerPoint'ten TIFF'e
+title: PowerPoint Sunumlarını Notlarla TIFF'e C++ ile Dönüştürme
+linktitle: PowerPoint'ten Notlarla TIFF'e
 type: docs
 weight: 100
 url: /tr/cpp/convert-powerpoint-to-tiff-with-notes/
@@ -27,40 +27,50 @@ keywords:
 - Notlu TIFF
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ kullanarak PowerPoint sunumlarını notlarla TIFF'e dönüştürün. Konuşmacı notlarıyla slaytları verimli bir şekilde dışa aktarmayı öğrenin."
+description: "Aspose.Slides for C++ kullanarak PowerPoint sunumlarını notlarla birlikte TIFF'e dönüştürün. Konuşmacı notlarıyla slaytları verimli bir şekilde dışa aktarmayı öğrenin."
 ---
 ## **Giriş**
 
-Aspose.Slides for C++ sunum notlarıyla PowerPoint ve OpenDocument sunumlarını (PPT, PPTX ve ODP) TIFF formatına dönüştürmek için basit bir çözüm sunar. Bu format, yüksek kaliteli görüntü depolama, baskı ve belge arşivleme için yaygın olarak kullanılır. Aspose.Slides ile yalnızca sunum notlarıyla bütün sunumları dışa aktarmakla kalmaz, aynı zamanda Not Slaytı görünümünde slayt küçük resimlerini de oluşturabilirsiniz. Dönüştürme işlemi basit ve etkilidir; `Save` yöntemi [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının tüm sunumu notları ve düzeni koruyarak bir dizi TIFF görüntüsüne dönüştürmek için kullanılır.
+Aspose.Slides for C++ PowerPoint ve OpenDocument sunumlarını (PPT, PPTX ve ODP) notlarla birlikte TIFF formatına dönüştürmek için basit bir çözüm sunar. Bu format yüksek kaliteli görüntü depolama, yazdırma ve belge arşivleme için yaygın olarak kullanılır. Aspose.Slides ile yalnızca konuşmacı notları içeren tüm sunumları dışa aktarmakla kalmaz, aynı zamanda Not Slaytı görünümünde slayt küçük resimleri de oluşturabilirsiniz. Dönüştürme süreci basit ve etkilidir; tüm sunumu notları ve düzeni koruyarak bir dizi TIFF görüntüsüne dönüştürmek için [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının `Save` metodunu kullanır.
 
 ## **Sunumu Notlarla TIFF'e Dönüştürme**
 
-Aspose.Slides for C++ kullanarak bir PowerPoint veya OpenDocument sunumunu notlarla birlikte TIFF'e kaydetmek aşağıdaki adımları içerir:
+PowerPoint veya OpenDocument sunumunu notlarla birlikte TIFF formatına kaydetmek için Aspose.Slides for C++ aşağıdaki adımları içerir:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun: PowerPoint veya OpenDocument dosyasını yükleyin.  
-1. Çıkış düzeni seçeneklerini yapılandırın: Notların ve yorumların nasıl gösterileceğini belirlemek için [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/notescommentslayoutingoptions/) sınıfını kullanın.  
-1. Sunumu TIFF olarak kaydedin: Yapılandırılmış seçenekleri [Save](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/save/) yöntemine iletin.
+1. [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun: PowerPoint veya OpenDocument dosyasını yükleyin.
+2. Çıktı düzen seçeneklerini yapılandırın: Notların ve yorumların nasıl gösterileceğini belirlemek için [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/notescommentslayoutingoptions/) sınıfını kullanın.
+3. Sunumu TIFF olarak kaydedin: Yapılandırılmış seçenekleri [Save](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/save/) metoduna iletin.
 
-Diyelim ki aşağıdaki slayta sahip bir **speaker_notes.pptx** dosyamız var:
+Diyelim ki aşağıdaki slaytı içeren bir "speaker_notes.pptx" dosyamız var:
 
-![Sunum slaytı ve konuşmacı notları](slide_with_notes.png)
+![Konuşmacı notları içeren sunum slaytı](slide_with_notes.png)
 
-Aşağıdaki kod örneği, [set_SlidesLayoutOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/tiffoptions/set_slideslayoutoptions/) yöntemini kullanarak sunumu Not Slaytı görünümünde bir TIFF görüntüsüne nasıl dönüştüreceğinizi gösterir.
+Aşağıdaki kod parçacığı, [set_SlidesLayoutOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/tiffoptions/set_slideslayoutoptions/) metodunu kullanarak sunumu Not Slaytı görünümünde bir TIFF görüntüsüne nasıl dönüştüreceğinizi gösterir.
 
 ```cpp
-// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
+#include <DOM/Presentation.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/NotesPositions.h>
+#include <Export/SaveFormat.h>
+#include <Export/TiffOptions.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// Sunum dosyasını temsil eden Presentation sınıfını örnekle.
 auto presentation = MakeObject<Presentation>(u"speaker_notes.pptx");
 
 auto notesOptions = MakeObject<NotesCommentsLayoutingOptions>();
 notesOptions->set_NotesPosition(NotesPositions::BottomFull); // Notları slaytın altında göster.
 
-// Not yerleşimiyle TIFF seçeneklerini yapılandırın.
+// Configure the TIFF options with Notes layouting.
 auto tiffOptions = MakeObject<TiffOptions>();
 tiffOptions->set_DpiX(300);
 tiffOptions->set_DpiY(300);
 tiffOptions->set_SlidesLayoutOptions(notesOptions);
 
-// Sunumu konuşmacı notlarıyla TIFF olarak kaydedin.
+// Save the presentation to TIFF with the speaker notes.
 presentation->Save(u"TIFF_with_notes.tiff", SaveFormat::Tiff, tiffOptions);
 
 presentation->Dispose();
@@ -68,22 +78,22 @@ presentation->Dispose();
 
 Sonuç:
 
-![TIFF görüntüsü ve konuşmacı notları](TIFF_with_notes.png)
+![Konuşmacı notları içeren TIFF görüntüsü](TIFF_with_notes.png)
 
-{{% alert title="Tip" color="primary" %}}
-Aspose'un [Ücretsiz PowerPoint'ten Poster Dönüştürücü](https://products.aspose.app/slides/tr/conversion/convert-ppt-to-poster-online) hizmetine göz atın.
+{{% alert title="Tip" color="info" %}}
+Aspose [Ücretsiz PowerPoint'ten Poster Dönüştürücü](https://products.aspose.app/slides/tr/conversion/convert-ppt-to-poster-online) ürününe göz atın.
 {{% /alert %}}
 
 ## **SSS**
 
-**Son TIFF'teki not bölgesinin konumunu kontrol edebilir miyim?**
+### Oluşturulan TIFF içinde not alanının konumunu kontrol edebilir miyim?
 
-Evet. Notların konumunu seçmek için [notes layout settings](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/tiffoptions/set_slideslayoutoptions/) kullanın; `None`, `BottomTruncated` veya `BottomFull` gibi seçenekler notları gizlemeyi, tek bir sayfaya sığdırmayı veya ek sayfalara akmasını sağlar.
+Evet. Notların düzen ayarlarını ([notes layout settings](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/tiffoptions/set_slideslayoutoptions/)) kullanarak `None`, `BottomTruncated` veya `BottomFull` gibi seçeneklerden birini seçebilirsiniz; bu seçenekler sırasıyla notları gizler, tek bir sayfaya sığdırır veya ek sayfalara akmasına izin verir.
 
-**Notlarla birlikte bir TIFF dosyasının boyutunu kalite kaybı olmadan nasıl küçültebilirim?**
+### Notlarla bir TIFF dosyasının boyutunu kalite kaybı olmadan nasıl azaltabilirim?
 
-Verimli bir sıkıştırma türü seçin ([efficient compression](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/tiffoptions/set_compressiontype/); ör. `LZW` veya `RLE`), makul bir DPI ayarlayın ve kabul edilebilirse daha düşük bir [pixel format](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/tiffoptions/set_pixelformat/) (ör. 8 bpp veya monokrom için 1 bpp) kullanın. Görüntü boyutlarını biraz küçültmek ([image dimensions](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/tiffoptions/set_imagesize/)) da okunabilirliği belirgin şekilde etkilemeden yardımcı olabilir.
+Verimli bir sıkıştırma ([efficient compression](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/tiffoptions/set_compressiontype/)) seçin (ör. `LZW` veya `RLE`), makul bir DPI ayarlayın ve kabul edilebilir ise daha düşük bir [pixel format](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/tiffoptions/set_pixelformat/) (ör. monokrom için 8 bpp veya 1 bpp) kullanın. [image dimensions](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/tiffoptions/set_imagesize/) biraz azaltmak da okunabilirliği belirgin şekilde etkilemeden yardımcı olabilir.
 
-**Orijinal yazı tipleri sistemde eksikse, notlardaki yazı tipi sonuca etkiler mi?**
+### Notlardaki yazı tipi, sistemde orijinal yazı tipleri eksikse sonucu etkiler mi?
 
-Evet. Eksik yazı tipleri [substitution](/slides/tr/cpp/font-selection-sequence/) tetikleyerek metin ölçümlerini ve görünümünü değiştirebilir. Bunu önlemek için gerekli yazı tiplerini [supply the required fonts](/slides/tr/cpp/custom-font/) sağlayın veya varsayılan bir [fallback font](/slides/tr/cpp/fallback-font/) ayarlayarak istenen tipografi kullanılmasını sağlayın.
+Evet. Eksik yazı tipleri [substitution](/slides/tr/cpp/font-selection-sequence/) tetikler ve bu da metin ölçümlerini ve görünümünü değiştirebilir. Bunu önlemek için [gerekli yazı tiplerini sağlayın](/slides/tr/cpp/custom-font/) veya varsayılan bir [fallback font](/slides/tr/cpp/fallback-font/) belirleyerek istenen yazı tiplerinin kullanılmasını sağlayın.

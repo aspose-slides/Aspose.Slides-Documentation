@@ -17,46 +17,46 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java'ın yazı tiplerini nasıl seçtiğini keşfedin, PPT, PPTX ve ODP dosyalarının net ve tutarlı sunumunu sağlayarak slaytlarınızı şimdi geliştirin."
+description: "Aspose.Slides for Android via Java'nin yazı tiplerini nasıl seçtiğini keşfedin, PPT, PPTX ve ODP dosyalarının net ve tutarlı bir şekilde sunulmasını sağlayarak slaytlarınızı şimdi geliştirin."
 ---
 ## **Genel Bakış**
 
-Bir sunum yüklendiğinde, işlendğinde veya başka bir formata dönüştürüldüğünde, Aspose.Slides sunumda kullanılan yazı tiplerinin işletim sisteminde mevcut olup olmadığını denetler. Gerekli bir yazı tipi eksikse, Aspose.Slides PowerPoint'in kullanacağı yazı tipine olabildiğince yakın bir yedek yazı tipini seçer.
+Bir sunum yüklendiğinde, işlendğinde veya başka bir formata dönüştürüldüğünde, Aspose.Slides sunumda kullanılan yazı tiplerinin işletim sisteminde mevcut olup olmadığını kontrol eder. Gerekli bir yazı tipi eksikse, Aspose.Slides PowerPoint'in kullanacağına en yakın olan bir yedek yazı tipini seçer.
 
-Aspose.Slides önce seçilen yazı tipini işletim sisteminde arar. Yazı tipi bulunursa kullanılır. Bulunmazsa uygun bir yedek uygulanır. Yazı tipi ikame kuralları `FontSubstRule` aracılığıyla tanımlandığında, bu kurallar da göz önünde bulundurulur.
+Aspose.Slides önce seçilen yazı tipini işletim sisteminde arar. Yazı tipi bulunursa kullanılır. Bulunamazsa uygun bir yedek uygulanır. `FontSubstRule` aracılığıyla tanımlanan yazı tipi ikame kuralları da dikkate alınır.
 
-Uygulama çalışma zamanında ayrıca yazı tipleri ekleyebilir, bir sunumdan gömülü yazı tiplerini kullanabilir veya PDF dosyaları gibi çıktı belgeleri için harici yazı tipleri yükleyebilirsiniz.
+Ayrıca uygulama çalışma zamanında yazı tipleri ekleyebilir, bir sunumdan gömülü yazı tiplerini kullanabilir veya PDF gibi çıktı belgeleri için dış yazı tiplerini yükleyebilirsiniz.
 
 ## **Yazı Tipi Seçimi**
 
-Sunum yüklendiğinde, işlendiğinde veya başka bir formata dönüştürüldüğünde, sunumdaki yazı tiplerine belirli kurallar uygulanır. Örneğin, bir sunumu (slaytlarını) görüntülere dönüştürmeye çalıştığınızda, seçilen yazı tiplerinin işletim sisteminde mevcut olup olmadığı doğrulanmak için sunumun yazı tipleri kontrol edilir. Yazı tiplerinin eksik olduğu onaylanırsa, değiştirilir — bkz. [**Yazı Tipi Değiştirme**](https://docs.aspose.com/slides/tr/androidjava/font-replacement/) ve [**Yazı Tipi İkamesi**](https://docs.aspose.com/slides/tr/androidjava/font-substitution/).
+Bir sunum yüklendiğinde, işlendğinde veya başka bir formata dönüştürüldüğünde, sunumdaki yazı tiplerine belirli kurallar uygulanır. Örneğin, bir sunumu (slaytlarını) görüntülere dönüştürmeye çalıştığınızda, seçilen yazı tiplerinin işletim sisteminde mevcut olduğu doğrulanmak üzere sunumun yazı tipleri kontrol edilir. Yazı tiplerinin eksik olduğu onaylanırsa, değiştirilir — bakın [**Yazı Tipi Değiştirme**](https://docs.aspose.com/slides/tr/androidjava/font-replacement/) ve [**Yazı Tipi İkamesi**](https://docs.aspose.com/slides/tr/androidjava/font-substitution/).
 
-İşte Aspose.Slides'in yazı tipleriyle ilgili izlediği süreç:
+Aspose.Slides'in yazı tipleriyle ilgili izlediği süreç şu şekildedir:
 
-1. Aspose.Slides işletim sisteminde yazı tiplerini arayarak, sunumun seçtiği yazı tipine eşleşen bir yazı tipi bulmaya çalışır. 
-2. Eğer seçilen yazı tipi bulunursa, Aspose.Slides bunu kullanır. Aksi takdirde, Aspose.Slides PowerPoint'in kullanacağına en yakın yedek bir yazı tipini kullanır.
-3. Eğer [FontSubstRule](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/fontsubstrule/) aracılığıyla yazı tipi değiştirme kuralları belirlenmişse, bunlar uygulanır.
+1. Aspose.Slides, sunumun seçilen yazı tipine uygun bir yazı tipini bulmak için işletim sisteminde yazı tiplerini arar. 
+2. Seçilen yazı tipi bulunursa, Aspose.Slides onu kullanır. Aksi takdirde, Aspose.Slides PowerPoint'in kullanacağına en yakın yedek bir yazı tipini kullanır.
+3. Eğer [FontSubstRule](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/fontsubstrule/) aracılığıyla yazı tipi değiştirme kuralları ayarlanmışsa, bunlar uygulanır.
 
-Aspose.Slides, uygulama çalışma zamanına yazı tipleri eklemenize ve ardından bu yazı tiplerini kullanmanıza olanak tanır. Bakınız [**Özel yazı tipleri**](https://docs.aspose.com/slides/tr/androidjava/custom-font/).
+Aspose.Slides, uygulama çalışma zamanına yazı tipleri eklemenize ve bu yazı tiplerini kullanmanıza olanak tanır. Bakınız [**Özel yazı tipleri**](https://docs.aspose.com/slides/tr/androidjava/custom-font/).
 
-Bir sunuma ek yazı tipleri yerleştirildiğinde, bunlara [**Gömülü yazı tipleri**](https://docs.aspose.com/slides/tr/androidjava/embedded-font/) denir.
+Ek yazı tipleri bir sunuma yerleştirildiğinde, bunlar [**Gömülü yazı tipleri**](https://docs.aspose.com/slides/tr/androidjava/embedded-font/) olarak adlandırılır.
 
-Aspose.Slides, yalnızca çıktı belgelerine uygulanacak yazı tipleri eklemenize izin verir. Örneğin, PDF'ye dönüştürmek istediğiniz bir sunumda sisteminizde ve gömülü yazı tiplerinde eksik olan yazı tipleri varsa, gereken yazı tiplerini **harici yazı tipleri** olarak ekleyebilir veya yükleyebilirsiniz.
+Aspose.Slides, yalnızca çıktı belgelerine uygulanacak yazı tipleri eklemenizi sağlar. Örneğin, PDF'ye dönüştürmek istediğiniz bir sunum sisteminizde ve gömülü yazı tiplerinde eksik olan yazı tipleri içeriyorsa, gereken yazı tiplerini **harici yazı tipleri** olarak ekleyebilir veya yükleyebilirsiniz.
 
-{{% alert title="Note" color="primary" %}} 
-Biz herhangi bir yazı tipini, ücretli olsun ya da ücretsiz, dağıtmıyoruz. API'imiz harici yazı tiplerini yüklemenize ve belgelerde gömmenize izin verir, ancak bunu yalnızca kendi takdirinize ve sorumluluğunuza göre yaparsınız.
+{{% alert title="Note" color="info" %}} 
+Biz herhangi bir yazı tipi dağıtmıyoruz, ister ücretli ister ücretsiz olsun. API'miz dış yazı tiplerini yüklemenize ve belgelerde gömmenize izin verir, ancak bunu tamamen kendi takdiriniz ve sorumluluğunuzla yaparsınız.
 {{% /alert %}}
 
 ## **SSS**
 
-**Dönüştürmeden önce bir sunumda gerçekte hangi yazı tiplerinin kullanıldığını nasıl belirleyebilirim?**
+### Bir sunumu dönüştürmeden önce hangi yazı tiplerinin gerçekten kullanıldığını nasıl belirleyebilirim?
 
-Aspose.Slides, kullanılan yazı tiplerini [font manager](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/fontsmanager/) aracılığıyla incelemenizi sağlar; böylece [gömme](/slides/tr/androidjava/embedded-font/), [değiştirme](/slides/tr/androidjava/font-replacement/) veya [harici kaynak ekleme](/slides/tr/androidjava/custom-font/) konularında karar verebilirsiniz. Bu, işlemeden ve dışa aktarmadan kaynaklanan istenmeyen ikameleri önlemenize yardımcı olur.
+Aspose.Slides, kullanılan yazı tiplerini [font manager](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/fontsmanager/) aracılığıyla incelemenizi sağlar, böylece [göm](/slides/tr/androidjava/embedded-font/), [değiştir](/slides/tr/androidjava/font-replacement/) veya [harici kaynakları](/slides/tr/androidjava/custom-font/) ekleyip eklemeyeceğinize karar verebilirsiniz. Bu, işleme ve dışa aktarma sırasında istenmeyen ikameleri önlemenize yardımcı olur.
 
-**Yazı tiplerini işletim sistemine kurmadan ekstra yazı tipi dizinleri ekleyebilir miyim?**
+### İşletim sistemine kurulum yapmadan ek yazı tipi dizinleri ekleyebilir miyim?
 
-Evet. İşleme ve dışa aktarma için klasörler veya bellek içi akışlar gibi [harici yazı tipi kaynaklarını](/slides/tr/androidjava/custom-font/) kaydedebilirsiniz. Bu, ana sistem yazı tiplerine bağımlılığı ortadan kaldırır ve yerleşimin öngörülebilir olmasını sağlar.
+Evet. İşleme ve dışa aktarma için klasörler ya da bellek içi akışlar gibi [harici yazı tipi kaynaklarını](/slides/tr/androidjava/custom-font/) kaydedebilirsiniz. Bu, ana sistem yazı tiplerine bağımlılığı ortadan kaldırır ve yerleşimin öngörülebilir kalmasını sağlar.
 
-**Bir glif eksik olduğunda sessiz bir yedekleme ile uygunsuz bir yazı tipine geçişi nasıl önleyebilirim?**
+### Bir glif eksik olduğunda uygunsuz bir yazı tipine sessizce geçişi nasıl önleyebilirim?
 
-Önceden açık [yazı tipi değiştirme](/slides/tr/androidjava/font-replacement/) ve yazı tipi [yedekleme kuralları](/slides/tr/androidjava/fallback-font/) tanımlayın. Kullanılan yazı tiplerini analiz edip değiştiriciler için kontrollü bir öncelik belirleyerek tutarlı tipografi sağlarsınız ve beklenmedik sonuçların önüne geçersiniz.
+Önceden açık [yazı tipi değiştirme](/slides/tr/androidjava/font-replacement/) ve yazı tipi [geri dönüş kuralları](/slides/tr/androidjava/fallback-font/) tanımlayın. Kullanılan yazı tiplerini analiz ederek ve ikameler için kontrollü bir öncelik belirleyerek tutarlı tipografi sağlar ve beklenmeyen sonuçların önüne geçersiniz.

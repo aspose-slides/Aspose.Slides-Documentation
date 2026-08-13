@@ -1,11 +1,11 @@
 ---
-title: Publikt API och bakåtinkompatibla förändringar i Aspose.Slides för .NET 15.4.0
+title: Publika API och bakåtinkompatibla ändringar i Aspose.Slides för .NET 15.4.0
 linktitle: Aspose.Slides för .NET 15.4.0
 type: docs
 weight: 150
 url: /sv/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/
 keywords:
-- migrering
+- migration
 - gammal kod
 - modern kod
 - gammal metod
@@ -16,24 +16,27 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Granska offentliga API-uppdateringar och brytande förändringar i Aspose.Slides för .NET för att smidigt migrera dina PowerPoint PPT, PPTX och ODP presentationslösningar."
+description: "Granska publika API-uppdateringar och brytande förändringar i Aspose.Slides för .NET för att smidigt migrera dina PowerPoint PPT-, PPTX- och ODP‑presentationslösningar."
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" %}} 
 
-Den här sidan listar alla [tillagda](/slides/sv/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) eller [borttagna](/slides/sv/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) klasser, metoder, egenskaper osv., samt andra förändringar som införts med Aspose.Slides för .NET 15.4.0 API.
+Den här sidan listar alla [tillagda](/slides/sv/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) eller [borttagna](/slides/sv/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) klasser, metoder, egenskaper med mera, samt andra ändringar som introducerats med Aspose.Slides för .NET 15.4.0 API.
 
-{{% /alert %}}
-## **Offentliga API-ändringar**
+{{% /alert %}} 
+## **Publika API-ändringar**
 #### **Enum OrganizationChartLayoutType har lagts till**
-Enum Aspose.Slides.SmartArt.OrganizationChartLayoutType representerar formateringstypen för de underordnade noderna i ett organisationsdiagram.
+Enum Aspose.Slides.SmartArt.OrganizationChartLayoutType representerar formateringstypen för barnnoder i ett organisationsdiagram.
 #### **Metod IBulletFormat.ApplyDefaultParagraphIndentsShifts har lagts till**
-Metoden Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts sätter standardvärden för icke‑nollförskjutningar för effektiv styckeindrag och vänster marginal när punkter är aktiverade (på samma sätt som PowerPoint gör om du aktiverar styckepunkter/numrering). Om punkter är avstängda återställs bara styckeindrag och vänster marginal (som PowerPoint gör om du inaktiverar styckepunkter/numrering).
+Metoden Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts sätter standardvärdena för icke‑noll förskjutningar för effektiv styckeindrag och vänstermarginal när punkter är aktiverade (på samma sätt som PowerPoint gör när stycke‑punkter/numrering är aktiverade). Om punkter är inaktiverade återställs bara styckeindrag och vänstermarginal (så som PowerPoint gör när stycke‑punkter/numrering inaktiveras).
 
 Se exempel [här](/slides/sv/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx):
 #### **Metod IConnector.Reroute har lagts till**
-Metoden Aspose.Slides.IConnector.Reroute omdirigerar anslutningslinjen så att den tar den kortaste möjliga vägen mellan formerna den kopplar ihop. För att göra detta kan Reroute()-metoden ändra StartShapeConnectionSiteIndex och EndShapeConnectionSiteIndex.
+Metoden Aspose.Slides.IConnector.Reroute omdirigerar anslutningen så att den tar den kortaste möjliga vägen mellan de former den ansluter. För att göra detta kan Reroute()-metoden ändra StartShapeConnectionSiteIndex och EndShapeConnectionSiteIndex.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
  using(Presentation input = new Presentation())
 
@@ -56,12 +59,14 @@ Metoden Aspose.Slides.IConnector.Reroute omdirigerar anslutningslinjen så att d
   input.Save("output.pptx", SaveFormat.Pptx);
 
 }
-
-```
+``` 
 #### **Metod IPresentation.GetSlideById har lagts till**
 Metoden Aspose.Slides.IPresentation.GetSlideById(System.UInt32) returnerar en Slide, MasterSlide eller LayoutSlide baserat på slide‑Id.
 
 ``` csharp
+using System.Diagnostics;
+using Aspose.Slides;
+
 
  using (Presentation presentation = new Presentation())
 
@@ -74,12 +79,14 @@ Metoden Aspose.Slides.IPresentation.GetSlideById(System.UInt32) returnerar en Sl
     Debug.Assert(presentation.Slides[0] == slide);
 
 }
-
-```
+``` 
 #### **Egenskap IShape.ConnectionSiteCount har lagts till**
 Egenskapen Aspose.Slides.IShape.ConnectionSiteCount returnerar antalet anslutningspunkter på formen.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
  using(Presentation input = new Presentation())
 
@@ -110,25 +117,36 @@ Egenskapen Aspose.Slides.IShape.ConnectionSiteCount returnerar antalet anslutnin
   input.Save("output.pptx", SaveFormat.Pptx);
 
 }
-
-```
+``` 
 #### **Egenskap ISmartArt.IsReversed har lagts till**
-Egenskapen Aspose.Slides.SmartArt.ISmartArt.IsReversed möjliggör att hämta eller ange diagrammets tillstånd avseende (vänster‑till‑höger) LTR eller (höger‑till‑vänster) RTL, om diagrammet stöder omvändning.
+Egenskapen Aspose.Slides.SmartArt.ISmartArt.IsReversed möjliggör att hämta eller ange diagrammets tillstånd med avseende på (vänster‑till‑höger) LTR eller (höger‑till‑vänster) RTL, om diagrammet stödjer omvändning.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
 {
+
   ISmartArt smart = pres.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicProcess);
+
   smart.IsReversed = true;
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+
+  pres.Save("out.pptx", SaveFormat.Pptx);
+
 }
-```
+``` 
 #### **Egenskap ISmartArt.Nodes har lagts till**
 Egenskapen Aspose.Slides.SmartArt.ISmartArt.Nodes returnerar en samling av rot‑noder i SmartArt‑objektet.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -136,18 +154,22 @@ Egenskapen Aspose.Slides.SmartArt.ISmartArt.Nodes returnerar en samling av rot�
 
   ISmartArt smart = pres.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.VerticalBulletList);
 
-  ISmartArtNode node = smart.Nodes[1]; // välj den andra rotnoden
+  ISmartArtNode node = smart.Nodes[1]; // välj andra rotnod
 
   node.TextFrame.Text = "Second root node";
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
-```
+``` 
 #### **Egenskap ISmartArtNode.IsHidden har lagts till**
 Egenskapen Aspose.Slides.SmartArt.ISmartArtNode.IsHidden returnerar true om denna nod är en dold nod i datamodellen.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -163,18 +185,22 @@ Egenskapen Aspose.Slides.SmartArt.ISmartArtNode.IsHidden returnerar true om denn
 
   {
 
-    //utför några åtgärder eller notifikationer
+    //utför vissa åtgärder eller aviseringar
 
   }
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
-```
+``` 
 #### **Egenskap ISmartArtNode.OrganizationChartLayout har lagts till**
-Egenskapen Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout möjliggör att hämta eller ange organisationsdiagramtyp som är associerad med den aktuella noden.
+Egenskapen Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout möjliggör att hämta eller ange diagramtyp för organisationsdiagram som är associerad med den aktuella noden.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -184,26 +210,33 @@ Egenskapen Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout möjligg
 
   smart.Nodes[0].OrganizationChartLayout = OrganizationChartLayoutType.LeftHanging;
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
-
-```
+``` 
 #### **Set‑metod för egenskap ISmartArt.Layout har lagts till**
-Set‑metoden för egenskapen Aspose.Slides.SmartArt.ISmartArt.Layout har lagts till. Den möjliggör att ändra layout‑typ för ett befintligt diagram.
+Set‑metoden för egenskapen Aspose.Slides.SmartArt.ISmartArt.Layout har lagts till. Den möjliggör att ändra layout‑typen för ett befintligt diagram.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
 {
+
   ISmartArt smart = pres.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
+
   smart.Layout = SmartArtLayoutType.BasicProcess;
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+
+  pres.Save("out.pptx", SaveFormat.Pptx);
+
 }
-```
+``` 
 #### **Mindre API‑ändringar**
-**Detta är listan över mindre API‑ändringar:**
+**Det här är listan över mindre API‑ändringar:**
 
 |Enum Aspose.Slides.BevelColorMode |borttagen, oanvänd enum |
 | :- | :- |

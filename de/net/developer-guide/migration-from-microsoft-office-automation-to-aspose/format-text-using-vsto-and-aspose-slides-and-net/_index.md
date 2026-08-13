@@ -16,10 +16,9 @@ keywords:
 - Aspose.Slides
 description: "Migrieren Sie von der Microsoft Office-Automatisierung zu Aspose.Slides für .NET und formatieren Sie Text in PowerPoint (PPT, PPTX)-Präsentationen mit präziser Kontrolle."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-Manchmal müssen Sie den Text in Folien programmgesteuert formatieren. Dieser Artikel zeigt, wie man eine Beispielpräsentation mit etwas Text auf der ersten Folie entweder mit [VSTO](/slides/de/net/format-text-using-vsto-and-aspose-slides-and-net/) und [Aspose.Slides for .NET](/slides/de/net/format-text-using-vsto-and-aspose-slides-and-net/) liest. Der Code formatiert den Text im dritten Textfeld auf der Folie, sodass er wie der Text im letzten Textfeld aussieht.
+Manchmal müssen Sie den Text auf Folien programmatisch formatieren. Dieser Artikel zeigt, wie Sie eine Beispielpräsentation mit etwas Text auf der ersten Folie entweder mit [VSTO](/slides/de/net/format-text-using-vsto-and-aspose-slides-and-net/) und [Aspose.Slides for .NET](/slides/de/net/format-text-using-vsto-and-aspose-slides-and-net/) einlesen. Der Code formatiert den Text im dritten Textfeld auf der Folie so, dass er wie der Text im letzten Textfeld aussieht.
 
 {{% /alert %}} 
 ## **Text formatieren**
@@ -31,17 +30,20 @@ Sowohl die VSTO- als auch die Aspose.Slides-Methoden führen die folgenden Schri
 1. Ändern Sie die Formatierung des Textes im dritten Textfeld.
 1. Speichern Sie die Präsentation auf dem Datenträger.
 
-Die Screenshots unten zeigen die Beispiel‑Folie vor und nach der Ausführung des VSTO‑ und Aspose.Slides‑für‑.NET‑Codes.
+Die folgenden Screenshots zeigen die Beispielsfolie vor und nach der Ausführung des VSTO- und Aspose.Slides‑for‑.NET‑Codes.
 
-**Die Eingabepäsentation** 
+**Die Eingabepräsentation** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-and-net_1.png)
 ### **VSTO-Codebeispiel**
-Der folgende Code zeigt, wie man Text auf einer Folie mit VSTO neu formatiert.
+Der untenstehende Code zeigt, wie man Text auf einer Folie mithilfe von VSTO neu formatiert.
 
 **Der mit VSTO neu formatierte Text** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-and-net_2.png)
+
+
+
 ```c#
 //Hinweis: PowerPoint ist ein Namespace, der oben wie folgt definiert wurde
 //using PowerPoint = Microsoft.Office.Interop.PowerPoint;
@@ -59,27 +61,27 @@ PowerPoint.Slide slide = pres.Slides[1];
 //Greife auf das dritte Shape zu
 PowerPoint.Shape shp = slide.Shapes[3];
 
-//Ändere die Schriftart des Textes zu Verdana und die Höhe auf 32
+//Ändere die Schriftart des Textes zu Verdana und die Höhe zu 32
 PowerPoint.TextRange txtRange = shp.TextFrame.TextRange;
 txtRange.Font.Name = "Verdana";
 txtRange.Font.Size = 32;
 
-//Mache es fett
+//Fette Schrift anwenden
 txtRange.Font.Bold = Microsoft.Office.Core.MsoTriState.msoCTrue;
 
-//Stelle es kursiv
+//Kursiv setzen
 txtRange.Font.Italic = Microsoft.Office.Core.MsoTriState.msoCTrue;
 
-//Ändere die Textfarbe
+//Textfarbe ändern
 txtRange.Font.Color.RGB = 0x00CC3333;
 
-//Ändere die Hintergrundfarbe des Shapes
+//Hintergrundfarbe der Form ändern
 shp.Fill.ForeColor.RGB = 0x00FFCCCC;
 
-//Positioniere es horizontal neu
+//Horizontal verschieben
 shp.Left -= 70;
 
-//Schreibe die Ausgabe auf die Festplatte
+//Speichere die Ausgabe auf dem Datenträger
 pres.SaveAs("c:\\outVSTO.ppt",
 	PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,
 	Microsoft.Office.Core.MsoTriState.msoFalse);
@@ -88,16 +90,22 @@ pres.SaveAs("c:\\outVSTO.ppt",
 
 
 
-
-### **Aspose.Slides für .NET‑Beispiel**
-Um Text mit Aspose.Slides zu formatieren, fügen Sie die Schriftart vor dem Formatieren des Textes hinzu.
+### **Aspose.Slides für .NET Beispiel**
+Um Text mit Aspose.Slides zu formatieren, fügen Sie die Schriftart hinzu, bevor Sie den Text formatieren.
 
 **Die mit Aspose.Slides erstellte Ausgabepäsentation** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-and-net_3.png)
+
+
+
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
  //Öffne die Präsentation
-Presentation pres = new Presentation("c:\\source.ppt");
+Presentation pres = new Presentation("source.ppt");
 
 //Greife auf die erste Folie zu
 ISlide slide = pres.Slides[0];
@@ -105,7 +113,7 @@ ISlide slide = pres.Slides[0];
 //Greife auf das dritte Shape zu
 IShape shp = slide.Shapes[2];
 
-//Ändere die Schriftart des Textes zu Verdana und die Höhe auf 32
+//Ändere die Schriftart des Textes zu Verdana und die Höhe zu 32
 ITextFrame tf = ((IAutoShape)shp).TextFrame;
 IParagraph para = tf.Paragraphs[0];
 IPortion port = para.Portions[0];
@@ -113,10 +121,10 @@ port.PortionFormat.LatinFont = new FontData("Verdana");
 
 port.PortionFormat.FontHeight = 32;
 
-//Fett formatieren
+//Fett anwenden
 port.PortionFormat.FontBold = NullableBool.True;
 
-//Kursiv formatieren
+//Kursiv setzen
 port.PortionFormat.FontItalic = NullableBool.True;
 
 //Textfarbe ändern
@@ -124,10 +132,10 @@ port.PortionFormat.FontItalic = NullableBool.True;
 port.PortionFormat.FillFormat.FillType = FillType.Solid;
 port.PortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(0x33, 0x33, 0xCC);
 
-//Shape-Hintergrundfarbe ändern
+//Hintergrundfarbe des Shapes ändern
 shp.FillFormat.FillType = FillType.Solid;
 shp.FillFormat.SolidFillColor.Color = Color.FromArgb(0xCC, 0xCC, 0xFF);
 
-//Ausgabe auf die Festplatte schreiben
-pres.Save("c:\\outAspose.ppt", SaveFormat.Ppt);
+//Speichere die Ausgabe auf dem Datenträger
+pres.Save("outAspose.ppt", SaveFormat.Ppt);
 ```

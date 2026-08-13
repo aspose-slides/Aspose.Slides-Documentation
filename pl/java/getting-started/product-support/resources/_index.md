@@ -7,26 +7,26 @@ keywords:
 - zasoby
 - strona główna
 - blog
-- pobieranie Aspose.Slides
-- forum pomocy technicznej
+- pobierz Aspose.Slides
+- forum wsparcia
 - dokumentacja produktu
 - PowerPoint
 - OpenDocument
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Odkryj kluczowe zasoby Aspose.Slides for Java — od pobrań i dokumentacji po fora i aktualizacje bloga — aby usprawnić pracę z plikami PPT, PPTX i ODP."
+description: "Odkryj kluczowe zasoby Aspose.Slides dla Javy — od pobrań i dokumentacji po fora i aktualizacje bloga — aby ułatwić pracę z plikami PPT, PPTX i ODP."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Ta tabela zawiera ważne zasoby techniczne Aspose.Slides for Java. 
+Ta tabela zawiera ważne zasoby techniczne Aspose.Slides dla Javy. 
 
 {{% /alert %}} 
 
 |**Zasób**|**Opis**|
 | :- | :- |
-|[Strona główna Aspose.Slides for Java](https://products.aspose.com/slides/pl/java/)|Strona główna produktu.|
-|[Blog Aspose.Slides](https://blog.aspose.com/category/slides/pl/)|Sprawdzaj go często, aby uzyskać informacje o nowych wydaniach i przydatnych wskazówkach dotyczących Aspose.Slides.|
-|[Pobieranie Aspose.Slides for Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)|Pobierz najnowszą wersję Aspose.Slides stąd. Wydajemy aktualizacje często.|
-|[Forum pomocy technicznej Aspose.Slides](https://forum.aspose.com/c/slides/pl/11)|Zadawaj pytania i zgłaszaj problemy, aby uzyskać szybką pomoc.|
-|[Dokumentacja produktu Aspose.Slides for Java](/slides/pl/java/)|Pełna dokumentacja online, zawierająca tę dokumentację oraz Odniesienie API Aspose.Slides.|
+|[Aspose.Slides for Java home page](https://products.aspose.com/slides/pl/java/)|Strona główna produktu.|
+|[Aspose.Slides blog](https://blog.aspose.com/category/slides/pl/)|Sprawdzaj to często, aby uzyskać informacje o nowych wydaniach i przydatne wskazówki dotyczące Aspose.Slides.|
+|[Aspose.Slides for Java download](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)|Pobierz najnowszą wersję Aspose.Slides tutaj. Wydajemy nowe wersje często.|
+|[Aspose.Slides support forum](https://forum.aspose.com/c/slides/pl/11)|Zadaj swoje pytania i problemy tutaj, aby szybko uzyskać rozwiązanie.|
+|[Aspose.Slides for Java product documentation](/slides/pl/java/)|Pełna dokumentacja online, która zawiera tę dokumentację oraz odniesienie do API Aspose.Slides.|

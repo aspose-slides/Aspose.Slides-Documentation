@@ -4,25 +4,27 @@ type: docs
 weight: 110
 url: /sv/java/re-sizing-shapes-on-slide/
 keywords:
+- ändra formstorlek
 - ändra storlek på form
-- ändra formens storlek
 - PowerPoint
 - OpenDocument
 - presentation
 - Java
 - Aspose.Slides
-description: "Skala enkelt former på PowerPoint- och OpenDocument-bilder med Aspose.Slides för Java—automatisera justeringar av bildlayout och öka produktiviteten."
+description: "Ändra enkelt storlek på former i PowerPoint- och OpenDocument-bilder med Aspose.Slides för Java—automatisera justeringar av bildlayouten och öka produktiviteten."
 ---
 ## **Översikt**
 
-En av de vanligaste frågorna från Aspose.Slides för Java‑kunder är hur man ändrar storlek på former så att, när bildens storlek ändras, informationen inte kapas bort. Denna korta tekniska artikel visar hur man gör det.
+En av de vanligaste frågorna från Aspose.Slides för Java‑kunder är hur man ändrar storlek på former så att, när bildstorleken förändras, data inte kapas bort. Denna korta tekniska artikel visar hur man gör det.
 
 ## **Ändra storlek på former**
 
-För att förhindra att former blir feljusterade när bildens storlek ändras, uppdatera varje forms position och dimensioner så att de anpassas till den nya bildlayouten.
+För att förhindra att former blir feljusterade när bildstorleken ändras, uppdatera varje formens position och dimensioner så att de följer den nya bildlayouten.
 
 ```java
-// Ladda presentationsfilen.
+import com.aspose.slides.*;
+
+// Läs in presentationsfilen.
 Presentation presentation = new Presentation("sample.ppt");
 try {
     // Hämta den ursprungliga bildstorleken.
@@ -39,7 +41,7 @@ try {
     float heightRatio = newHeight / currentHeight;
     float widthRatio = newWidth / currentWidth;
 
-    // Ändra storlek och ompositionera former på varje bild.
+    // Ändra storlek och flytta om former på varje bild.
     for (ISlide slide : presentation.getSlides()) {
         for (IShape shape : slide.getShapes()) {
             
@@ -60,13 +62,15 @@ finally {
 }
 ```
 
-{{% alert color="primary" %}} 
-Om en bild innehåller en tabell kommer koden ovan inte att fungera korrekt. I så fall måste varje cell i tabellen ändras i storlek.
+{{% alert color="info" %}} 
+Tabeller kräver ingen särskild behandling: att sätta en tabells bredd och höjd omräknar dess kolumner och rader proportionellt, så att skala radhöjder och kolumnbredder igen skulle tillämpa förhållandet två gånger.
 {{% /alert %}} 
 
-Använd följande kod på din sida för att ändra storlek på bilder som innehåller tabeller. För tabeller är det en speciell situation att sätta bredd eller höjd: du måste justera enskilda radhöjder och kolumnbredder för att ändra tabellens totala storlek.
+Koden ovan ändrar endast formerna på bilderna. Masternbilder och layoutbilder behåller sina egna former, så skala även dem när du vill att hela presentationen ska följa den nya bildstorleken:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     // Hämta den ursprungliga bildstorleken.
@@ -117,17 +121,6 @@ try {
             // Skala formens position.
             shape.setY(shape.getY() * heightRatio);
             shape.setX(shape.getX() * widthRatio);
-            if (shape instanceof ITable) {
-                ITable table = (ITable) shape;
-                for (int i = 0; i < table.getRows().size(); i++) {
-                    IRow row = table.getRows().get_Item(i);
-                    row.setMinimalHeight(row.getMinimalHeight() * heightRatio);
-                }
-                for (int j = 0; j < table.getColumns().size(); j++) {
-                    IColumn column = table.getColumns().get_Item(j);
-                    column.setWidth(column.getWidth() * widthRatio);
-                }
-            }
         }
     }
 
@@ -140,30 +133,30 @@ finally {
 
 ## **Vanliga frågor**
 
-**Varför blir former förvrängda eller avklippta efter att en bild har ändrats i storlek?**
+### Varför blir former förvrängda eller avkapade efter att en bild har ändrats i storlek?
 
-När en bild ändras i storlek behåller former sina ursprungliga position och storlek om skalan inte uttryckligen ändras. Detta kan leda till att innehållet beskärs eller att former blir feljusterade.
+När en bild ändras i storlek behåller formerna sin ursprungliga position och storlek om skalan inte ändras explicit. Detta kan leda till att innehåll kapas bort eller att former blir feljusterade.
 
-**Fungerar den medföljande koden för alla typer av former?**
+### Fungerar den medföljande koden för alla former?
 
-Det grundläggande exemplet fungerar för de flesta former (textrutor, bilder, diagram osv.). För tabeller måste du dock hantera rader och kolumner separat, eftersom en tabells höjd och bredd bestäms av dimensionerna på de enskilda cellerna.
+Ja. Att ange höjd och bredd fungerar för textrutor, bilder, diagram och tabeller lika.
 
-**Hur ändrar jag storlek på tabeller när jag ändrar storlek på en bild?**
+### Hur ändrar jag storlek på tabeller när jag ändrar bildens storlek?
 
-Du måste iterera igenom alla rader och kolumner i tabellen och ändra deras höjd och bredd proportionellt, som visas i det andra kodexemplet.
+Skala själva tabellformen, precis som vilken annan form som helst. Dess rader och kolumner följer proportionellt, så skala dem inte igen efteråt.
 
-**Kommer denna storleksändring att fungera för masterbilder och layoutbilder?**
+### Kommer denna storleksändring att fungera för masterbilder och layoutbilder?
 
-Ja, men du bör också iterera genom [Masterbilder](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/#getMasters--) och [Layoutbilder](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/#getLayoutSlides--) och tillämpa samma skalningslogik på deras former för att säkerställa konsistens i hela presentationen.
+Ja, men du bör också loopa igenom [Masters](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/#getMasters--) och [Layout slides](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/#getLayoutSlides--) och tillämpa samma skalningslogik på deras former för att säkerställa konsekvens i hela presentationen.
 
-**Kan jag ändra orienteringen på en bild (porträtt/landskaps) samtidigt som jag ändrar storlek?**
+### Kan jag ändra orienteringen på en bild (stående/liggande) samtidigt som jag ändrar storlek?
 
-Ja. Du kan använda [presentation.getSlideSize().setOrientation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/islidesize/#setOrientation-int-) för att ändra orienteringen. Se till att du anpassar skalningslogiken så att layouten bevaras.
+Ja. Du kan använda [presentation.getSlideSize().setOrientation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/islidesize/#setOrientation-int-) för att ändra orienteringen. Se till att du justerar skalningslogiken därefter för att bevara layouten.
 
-**Finns det någon gräns för den bildstorlek jag kan ange?**
+### Finns det någon gräns för den bildstorlek jag kan ställa in?
 
-Aspose.Slides stöder anpassade storlekar, men mycket stora storlekar kan påverka prestanda eller kompatibilitet med vissa versioner av PowerPoint.
+Aspose.Slides stödjer anpassade storlekar, men mycket stora storlekar kan påverka prestanda eller kompatibilitet med vissa versioner av PowerPoint.
 
-**Hur kan jag förhindra att former med fast bildförhållande blir förvrängda?**
+### Hur kan jag förhindra att former med fast bildförhållande blir förvrängda?
 
-Du kan kontrollera metoden `getAspectRatioLocked` för formen innan du skalar. Om den är låst, justera bredden eller höjden proportionellt i stället för att skala dem individuellt.
+Du kan kontrollera metoden `getAspectRatioLocked` för formen innan du skalar. Om den är låst, justera bredd eller höjd proportionellt snarare än att skala dem individuellt.

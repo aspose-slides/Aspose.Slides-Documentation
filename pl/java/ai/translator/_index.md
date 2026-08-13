@@ -1,50 +1,52 @@
 ---
-title: Translator Prezentacji z Wykorzystaniem Sztucznej Inteligencji
-linktitle: Translator z Wykorzystaniem Sztucznej Inteligencji
+title: Tłumacz Prezentacji z Wykorzystaniem Sztucznej Inteligencji
+linktitle: Tłumacz z Wykorzystaniem Sztucznej Inteligencji
 type: docs
 weight: 20
 url: /pl/java/ai/translator/
 keywords:
-- Translator prezentacji AI
-- Translator slajdów AI
-- Funkcja oparta na sztucznej inteligencji
+- Tłumacz prezentacji AI
+- Tłumacz slajdów AI
+- Funkcja oparta na AI
 - Wielojęzyczna prezentacja
 - Wielojęzyczny slajd
 - Tłumaczenie prezentacji
-- Tłumaczenie slajdów
-- Funkcje sterowane AI
+- Tłumaczenie slajdu
+- Funkcje napędzane AI
 - Możliwości AI
 - Agent AI
-- Klient sieciowy
+- Klient internetowy
 - PowerPoint
 - OpenDocument
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Tłumacz slajdy PowerPoint za pomocą AI używając Aspose.Slides dla Java. Lokalizuj PPT, PPTX i ODP zachowując układ — szybko i przyjazne dla programistów. Wypróbuj."
+description: "Tłumacz slajdy PowerPoint przy użyciu AI i Aspose.Slides dla Javy. Lokalizuj pliki PPT, PPTX i ODP, zachowując układ — szybko i przyjazne dla programistów. Wypróbuj."
 ---
 ## **Wprowadzenie**
 
-Aspose.Slides jest potężnym interfejsem API umożliwiającym programowe zarządzanie prezentacjami PowerPoint. Oprócz tworzenia, edytowania i konwertowania slajdów, oferuje funkcje oparte na sztucznej inteligencji – takie jak API tłumaczenia prezentacji dla treści wielojęzycznych.
+Aspose.Slides to potężne API umożliwiające programowe zarządzanie prezentacjami PowerPoint. Oprócz tworzenia, edytowania i konwertowania slajdów, oferuje funkcje oparte na AI – takie jak Presentation Translation API do wielojęzycznej treści slajdów.
 
 ## **Jak to działa**
 
-Aspose.Slides nie zawiera wbudowanych możliwości AI, ale integruje się z zewnętrznymi modelami sztucznej inteligencji przez internet. Funkcjonalność ta jest udostępniana za pośrednictwem klasy [SlidesAIAgent](https://reference.aspose.com/slides/pl/java/com.aspose.slides/slidesaiagent/), która wykorzystuje implementację interfejsu [IAIWebClient](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iaiwebclient/), aby komunikować się z usługami AI.
+Aspose.Slides nie zawiera wbudowanych funkcji AI, ale integruje się z zewnętrznymi modelami AI przez internet. Funkcjonalność ta jest udostępniana poprzez klasę [SlidesAIAgent](https://reference.aspose.com/slides/pl/java/com.aspose.slides/slidesaiagent/), która używa implementacji interfejsu [IAIWebClient](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iaiwebclient/) do komunikacji z usługami AI.
 
-Możesz użyć wbudowanego [OpenAIWebClient](https://reference.aspose.com/slides/pl/java/com.aspose.slides/openaiwebclient/) do połączenia z API OpenAI lub zaimplementować własny [IAIWebClient](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iaiwebclient/), aby korzystać z innego dostawcy AI lub modelu językowego.
+Możesz użyć wbudowanego [OpenAIWebClient](https://reference.aspose.com/slides/pl/java/com.aspose.slides/openaiwebclient/) aby połączyć się z API OpenAI lub zaimplementować własny [IAIWebClient](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iaiwebclient/) aby korzystać z innego dostawcy AI lub modelu językowego.
 
-Aspose.Slides obsługuje komunikację, analizuje odpowiedzi AI i inteligentnie wstawia przetłumaczoną treść, zachowując pierwotny układ i formatowanie slajdów.
+Aspose.Slides obsługuje komunikację, analizuje odpowiedzi AI i inteligentnie wstawia przetłumaczoną treść, zachowując oryginalny układ i formatowanie slajdów.
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 Należy pamiętać, że API OpenAI jest usługą płatną, więc musisz założyć konto i podać swój klucz API podczas korzystania z wbudowanego [OpenAIWebClient](https://reference.aspose.com/slides/pl/java/com.aspose.slides/openaiwebclient/).
 {{% /alert %}}
 
 ## **Przykład**
 
-W tym przykładzie tłumaczymy prezentację PowerPoint na język japoński, używając wbudowanego [OpenAIWebClient](https://reference.aspose.com/slides/pl/java/com.aspose.slides/openaiwebclient/) z określonym modelem OpenAI [model](https://platform.openai.com/docs/models).
+W tym przykładzie tłumaczymy prezentację PowerPoint na język japoński przy użyciu wbudowanego [OpenAIWebClient](https://reference.aspose.com/slides/pl/java/com.aspose.slides/openaiwebclient/) z określonym modelem OpenAI [model](https://platform.openai.com/docs/models).
 
 ```java
-// Załaduj prezentację do tłumaczenia.
+import com.aspose.slides.*;
+
+// Wczytaj prezentację do przetłumaczenia.
 Presentation presentation = new Presentation("sample.pptx");
 
 // Create an AI client with OpenAIWebClient, specifying your model and API key.
@@ -65,14 +67,24 @@ try {
 }
 ```
 
-Domyślnie wbudowany [OpenAIWebClient](https://reference.aspose.com/slides/pl/java/com.aspose.slides/openaiwebclient/) tworzy i zarządza własną wewnętrzną instancją [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html), obsługując jej cykl życia automatycznie. Jednak jeśli wolisz sam zarządzać [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) — głównie aby skonfigurować kluczowe ustawienia, takie jak proxy, lub użyć [URLStreamHandlerFactory](https://docs.oracle.com/javase/8/docs/api/java/net/URLStreamHandlerFactory.html) albo innego [HttpClient](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html) dla lepszego zarządzania zasobami i wydajności — możesz dostarczyć własną instancję `HttpURLConnection` podczas tworzenia [OpenAIWebClient](https://reference.aspose.com/slides/pl/java/com.aspose.slides/openaiwebclient/).
+Domyślnie wbudowany [OpenAIWebClient](https://reference.aspose.com/slides/pl/java/com.aspose.slides/openaiwebclient/) tworzy i zarządza własną wewnętrzną instancją [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html), automatycznie obsługując jej cykl życia. Jednak jeśli wolisz samodzielnie zarządzać [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) — głównie aby skonfigurować niezbędne ustawienia, takie jak proxy, lub użyć [URLStreamHandlerFactory](https://docs.oracle.com/javase/8/docs/api/java/net/URLStreamHandlerFactory.html) lub innego [HttpClient](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html) dla lepszego zarządzania zasobami i wydajności — możesz podać własną instancję `HttpURLConnection` podczas konstruowania [OpenAIWebClient](https://reference.aspose.com/slides/pl/java/com.aspose.slides/openaiwebclient/).
 
 ```java
-// Załóż, że masz wstępnie skonfigurowaną instancję HttpURLConnection (np. z własnymi limitami czasu, ustawieniami proxy itp.)
-HttpURLConnection urlConnection = yourPreconfiguredConnection;
+import com.aspose.slides.*;
+import java.net.HttpURLConnection;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
+import java.net.URL;
+
+// Skonfiguruj własną instancję HttpURLConnection (niestandardowe czasy oczekiwania, ustawienia proxy itp.).
+Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("proxy.example.com", 8080));
+HttpURLConnection urlConnection = (HttpURLConnection)new URL("https://api.openai.com/v1/chat/completions").openConnection(proxy);
+urlConnection.setConnectTimeout(30000);
+urlConnection.setReadTimeout(60000);
+
 OpenAIWebClient aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null, urlConnection);
 ```
 
 ## **Kluczowe korzyści**
 
-API tłumaczenia prezentacji Aspose.Slides oferuje rozwiązanie oparte na sztucznej inteligencji umożliwiające dostarczanie wielojęzycznych prezentacji PowerPoint. Automatyzując tłumaczenie przy zachowaniu układu i projektu, oszczędza czas i zmniejsza liczbę błędów w porównaniu z ręcznymi procesami. Niezależnie od tego, czy jesteś programistą, edukatorem, czy profesjonalistą biznesowym, to API pozwala tworzyć angażujące, lokalizowane prezentacje dla globalnej publiczności – zwiększając zasięg i ulepszając komunikację.
+Presentation Translation API firmy Aspose.Slides oferuje rozwiązanie oparte na AI umożliwiające dostarczanie wielojęzycznych prezentacji PowerPoint. Dzięki automatyzacji tłumaczenia przy zachowaniu układu i projektu, oszczędza czas i minimalizuje błędy w porównaniu z ręcznymi procesami. Niezależnie od tego, czy jesteś programistą, edukatorem czy profesjonalistą biznesowym, to API pozwala tworzyć atrakcyjne, lokalizowane prezentacje dla globalnej publiczności – zwiększając zasięg i usprawniając komunikację.

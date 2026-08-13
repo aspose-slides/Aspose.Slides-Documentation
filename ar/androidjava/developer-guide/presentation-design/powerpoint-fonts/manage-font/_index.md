@@ -7,132 +7,143 @@ url: /ar/androidjava/manage-fonts/
 keywords:
 - إدارة الخطوط
 - خصائص الخط
-- الفقرة
+- فقرة
 - تنسيق النص
 - PowerPoint
 - OpenDocument
-- العرض التقديمي
+- عرض تقديمي
 - Android
 - Java
 - Aspose.Slides
-description: "تحكم في الخطوط في Java باستخدام Aspose.Slides للـ Android: دمج، استبدال، وتحميل خطوط مخصصة لضمان وضوح عروض PPT و PPTX و ODP، وضمان سلامة العلامة التجارية والاتساق."
+description: "التحكم في الخطوط في Java باستخدام Aspose.Slides للـ Android: تضمين الخطوط، استبدالها، وتحميل خطوط مخصصة لضمان وضوح عروض PPT، PPTX و ODP وأمان العلامة التجارية واتساقها."
 ---
+## **نظرة عامة**
 
-## **إدارة الخصائص المتعلقة بالخط**
-{{% alert color="primary" %}} 
+يتيح Aspose.Slides لك إدارة خصائص الخط في نص العرض مباشرةً من خلال التعليمات البرمجية. يمكنك الوصول إلى النص في الشرائح عبر الأشكال، إطارات النص، الفقرات، والجزء (Portion)، ثم تطبيق التنسيق على النص المختار.
 
-عادةً ما تحتوي العروض التقديمية على كل من النصوص والصور. يمكن تنسيق النص بطرق مختلفة، إما لتسليط الضوء على أقسام وكلمات معينة أو للامتثال لأنماط الشركة. يساعد تنسيق النص المستخدمين على تغيير مظهر ومضمون محتوى العرض. يوضح هذا المقال كيفية استخدام Aspose.Slides for Android عبر Java لتكوين خصائص الخط للفقرة النصية على الشريحة.
+توضح هذه المقالة كيفية تكوين خصائص الخط للنص الموجود في عرض تقديمي، بما في ذلك عائلة الخط، الأنماط الغامقة (Bold) والمائلة (Italic)، محاذاة الفقرة، ولون الخط. كما توضح كيفية إنشاء مربع نص، إضافة نص إليه، وتعيين خصائص الخط مثل عائلة الخط، الغامق، المائل، تحت الخط، حجم الخط، واللون قبل حفظ النتيجة كملف PPTX.
+
+## **إدارة خصائص الخط المرتبطة**
+{{% alert color="info" %}} 
+عادةً ما تحتوي العروض التقديمية على نصوص وصور. يمكن تنسيق النص بطرق مختلفة، إما لتسليط الضوء على أقسام وكلمات محددة أو للالتزام بالأنماط المؤسسية. يساعد تنسيق النص المستخدمين على تغيير مظهر محتوى العرض التقديمي. تُظهر هذه المقالة كيفية استخدام Aspose.Slides for Android عبر Java لتكوين خصائص الخط للفقرة على الشرائح.
 
 {{% /alert %}} 
 
 لإدارة خصائص الخط لفقرة باستخدام Aspose.Slides for Android عبر Java:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
-1. الحصول على مرجع الشريحة باستخدام الفهرس الخاص بها.
-1. الوصول إلى أشكال [Placeholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/) في الشريحة وتحويلها إلى [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/autoshape/).
-1. الحصول على الـ [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/) من الـ [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/) المعروض بواسطة [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/autoshape/).
-1. محاذاة الفقرة.
-1. الوصول إلى نص الـ [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/paragraph/) عبر الـ [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/).
-1. تعريف الخط باستخدام [FontData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontdata/) وتعيين **Font** للنص في الـ [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/) وفقًا لذلك.
-   1. جعل الخط غامقًا.
-   1. جعل الخط مائلًا.
-1. تعيين لون الخط باستخدام [FillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fillformat/) المعروض من كائن الـ [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/).
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation).
+1. الحصول على مرجع الشريحة باستخدام فهرسها.
+1. الوصول إلى الأشكال [Placeholder](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/placeholder/) في الشريحة وتحويلها إلى [AutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/autoshape/).
+1. الحصول على الـ[Paragraph](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/paragraph/) من الـ[TextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/textframe/) المعروض عبر [AutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/autoshape/).
+1. تعديل محاذاة الفقرة لتكون مبررة.
+1. الوصول إلى نص الـ[Paragraph](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/paragraph/) عبر الـ[Portion](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/portion/).
+1. تعريف الخط باستخدام [FontData](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/fontdata/) وتعيين **Font** للـ[Portion](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/portion/) وفقاً لذلك.
+   1. ضبط الخط كغامق.
+   1. ضبط الخط كمائل.
+1. تعيين لون الخط باستخدام الـ[FillFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/fillformat/) المعروض عبر كائن الـ[Portion](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/portion/).
 1. حفظ العرض المعدل كملف PPTX.
 
-التنفيذ للخطوات المذكورة موضح أدناه. يأخذ عرضًا غير مُنسيق ويُطبق تنسيقات الخط على إحدى الشرائح. توضح اللقطات التالية ملف الإدخال وكيفية تعديل الشيفرة له. تقوم الشيفرة بتغيير الخط، واللون، ونمط الخط.
+التنفيذ العملي للخطوات أعلاه موضح أدناه. يأخذ عرضًا تقديميًا بسيطًا ويقوم بتنسيق الخطوط في إحدى الشرائح. تُظهر لقطات الشاشة التالية ملف الإدخال وكيفية تغيير الشيفرة له. تقوم الشيفرة بتغيير الخط، اللون، ونمط الخط.
 
 |![todo:image_alt_text](http://i.imgur.com/rqpPgJn.jpg)|
 | :- |
 |**الشكل: النص في ملف الإدخال**|
 
+
 |![todo:image_alt_text](http://i.imgur.com/rY27Lt9.png)|
 | :- |
-|**الشكل: نفس النص مع تنسيق محدث**|
+|**الشكل: نفس النص بعد تحديث التنسيق**|
+
 ```java
-	// إنشاء كائن Presentation يمثل ملف PPTX
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// إنشاء كائن Presentation يمثل ملف PPTX
 Presentation pres = new Presentation("FontProperties.pptx");
 try {
-		// الوصول إلى شريحة باستخدام موضعها
+	// الوصول إلى شريحة باستخدام موضعها
 	ISlide slide = pres.getSlides().get_Item(0);
 
-		// الوصول إلى العنصر النائب الأول والثاني في الشريحة وتحويلهما إلى AutoShape
+	// الوصول إلى العنصر النائب الأول والثاني في الشريحة وتحويله إلى AutoShape
 	ITextFrame tf1 = ((IAutoShape) slide.getShapes().get_Item(0)).getTextFrame();
 	ITextFrame tf2 = ((IAutoShape) slide.getShapes().get_Item(1)).getTextFrame();
 
-		// الوصول إلى الفقرة الأولى
+	// الوصول إلى الفقرة الأولى
 	IParagraph para1 = tf1.getParagraphs().get_Item(0);
 	IParagraph para2 = tf2.getParagraphs().get_Item(0);
 
-		// محاذاة الفقرة
+	// محاذاة الفقرة
 	para2.getParagraphFormat().setAlignment(TextAlignment.JustifyLow);
 
-		// الوصول إلى الجزء الأول
+	// الوصول إلى الجزء الأول
 	IPortion port1 = para1.getPortions().get_Item(0);
 	IPortion port2 = para2.getPortions().get_Item(0);
 
-		// تعريف خطوط جديدة
+	// تعريف خطوط جديدة
 	FontData fd1 = new FontData("Elephant");
 	FontData fd2 = new FontData("Castellar");
 
-		// تعيين خطوط جديدة إلى الجزء
+	// تعيين خطوط جديدة للجزء
 	port1.getPortionFormat().setLatinFont(fd1);
 	port2.getPortionFormat().setLatinFont(fd2);
 
-		// تعيين الخط إلى غامق
+	// ضبط الخط كغامق
 	port1.getPortionFormat().setFontBold(NullableBool.True);
 	port2.getPortionFormat().setFontBold(NullableBool.True);
 
-		// تعيين الخط إلى مائل
+	// ضبط الخط كمائل
 	port1.getPortionFormat().setFontItalic(NullableBool.True);
 	port2.getPortionFormat().setFontItalic(NullableBool.True);
 
-		// تعيين لون الخط
+	// ضبط لون الخط
 	port1.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
 	port1.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 	port2.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
 	port2.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
 
-		// حفظ ملف PPTX إلى القرص
+	// حفظ ملف PPTX إلى القرص
 	pres.save("WelcomeFont.pptx", SaveFormat.Pptx);
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
-
-## **تعيين خصائص خط النص**
-{{% alert color="primary" %}} 
-
-كما هو مذكور في **إدارة الخصائص المتعلقة بالخط**، يُستخدم الـ [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/) لحفظ النص الذي له نمط تنسيق مشابه داخل الفقرة. يوضح هذا المقال كيفية استخدام Aspose.Slides for Android عبر Java لإنشاء مربع نص يحتوي على بعض النصوص ثم تعريف خط معين، والخصائص الأخرى لفئة عائلة الخط.
+## **ضبط خصائص خط النص**
+{{% alert color="info" %}} 
+كما ذُكر في **إدارة خصائص الخط المرتبطة**، يُستخدم الـ[Portion](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/portion/) للاحتفاظ بنص ذات تنسيق موحد داخل الفقرة. تُظهر هذه المقالة كيفية استخدام Aspose.Slides for Android عبر Java لإنشاء مربع نص يحتوي على بعض النصوص ثم تعريف خط معين، بالإضافة إلى خصائص أخرى من فئة عائلة الخط.
 
 {{% /alert %}} 
 
-لإنشاء مربع نص وتعيين خصائص الخط للنص داخلها:
+لإنشاء مربع نص وتعيين خصائص الخط للنص الموجود فيه:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
-1. الحصول على مرجع شريحة باستخدام الفهرس الخاص بها.
-1. إضافة [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/autoshape/) من النوع **Rectangle** إلى الشريحة.
-1. إزالة نمط التعبئة المرتبط بالـ [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/autoshape/).
-1. الوصول إلى الـ [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/) الخاص بالـ [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/autoshape/).
-1. إضافة بعض النص إلى الـ [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/).
-1. الوصول إلى كائن الـ [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/) المرتبط بالـ [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textframe/).
-1. تعريف الخط الذي سيُستخدم للـ [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/).
-1. تعيين خصائص أخرى للخط مثل الغامق، المائل، تحت الخط، اللون والارتفاع باستخدام الخصائص المتاحة في كائن الـ [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/).
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation).
+1. الحصول على مرجع الشريحة باستخدام فهرسها.
+1. إضافة [AutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/autoshape/) من النوع **Rectangle** إلى الشريحة.
+1. إزالة نمط التعبئة المرتبط بالـ[AutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/autoshape/).
+1. الوصول إلى الـ[TextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/textframe/) الخاص بالـ[AutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/autoshape/).
+1. إضافة بعض النص إلى الـ[TextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/textframe/).
+1. الوصول إلى كائن الـ[Portion](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/portion/) المرتبط بالـ[TextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/textframe/).
+1. تعريف الخط الذي سيُستخدم للـ[Portion](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/portion/).
+1. تعيين خصائص أخرى للخط مثل الغامق، المائل، تحت الخط، اللون والارتفاع باستخدام الخصائص المتاحة في كائن الـ[Portion](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/portion/).
 1. كتابة العرض المعدل كملف PPTX.
 
-التنفيذ للخطوات المذكورة موضح أدناه.
+التنفيذ العملي للخطوات أعلاه موضح أدناه.
 
 |![todo:image_alt_text](http://i.imgur.com/n5r12dS.jpg)|
 | :- |
 |**الشكل: نص مع بعض خصائص الخط التي تم تعيينها بواسطة Aspose.Slides for Android عبر Java**|
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // إنشاء كائن Presentation يمثل ملف PPTX
 Presentation pres = new Presentation();
 try {
 	// الحصول على الشريحة الأولى
 	ISlide sld = pres.getSlides().get_Item(0);
 	
-	// إضافة AutoShape من نوع Rectangle
+	// إضافة AutoShape من النوع Rectangle
 	IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 50);
 	
 	// إزالة أي نمط تعبئة مرتبط بـ AutoShape
@@ -148,13 +159,13 @@ try {
 	// تعيين الخط للـ Portion
 	port.getPortionFormat().setLatinFont(new FontData("Times New Roman"));
 	
-	// تعيين الخط إلى غامق
+	// تعيين خاصية الغامق للخط
 	port.getPortionFormat().setFontBold(NullableBool.True);
 	
-	// تعيين الخط إلى مائل
+	// تعيين خاصية المائل للخط
 	port.getPortionFormat().setFontItalic(NullableBool.True);
 	
-	// تعيين الخط إلى مسطر
+	// تعيين خاصية التسطير للخط
 	port.getPortionFormat().setFontUnderline(TextUnderlineType.Single);
 	
 	// تعيين ارتفاع الخط
@@ -164,7 +175,7 @@ try {
 	port.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
 	port.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 	
-	// حفظ العرض إلى القرص
+	// حفظ العرض التقديمي إلى القرص
 	pres.save("pptxFont.pptx", SaveFormat.Pptx);
 } finally {
 	if (pres != null) pres.dispose();

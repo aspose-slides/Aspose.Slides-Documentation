@@ -5,37 +5,35 @@ type: docs
 weight: 50
 url: /hi/net/creating-a-table-on-powerpoint-slide/
 keywords:
-- टेबल बनाना
+- टेबल बनाएं
 - माइग्रेशन
 - VSTO
 - ऑफिस ऑटोमेशन
 - PowerPoint
-- प्रेजेंटेशन
+- प्रेज़ेंटेशन
 - .NET
 - C#
 - Aspose.Slides
-description: "Microsoft Office ऑटोमेशन से Aspose.Slides for .NET में माइग्रेट करें और C# में लचीले प्रारूपण के साथ PowerPoint (PPT, PPTX) स्लाइड्स में टेबल बनाएं।"
+description: "Microsoft Office ऑटोमेशन से Aspose.Slides for .NET में माइग्रेट करें और C# में लचीले फ़ॉर्मेटिंग के साथ PowerPoint (PPT, PPTX) स्लाइड्स में टेबल बनाएं।"
 ---
-{{% alert color="primary" %}} 
-
-टेबल्स का व्यापक उपयोग प्रस्तुति स्लाइड्स पर डेटा प्रदर्शित करने के लिए किया जाता है। यह लेख दिखाता है कि कैसे प्रोग्रामेटिक रूप से पहले [VSTO 2008](/slides/hi/net/creating-a-table-on-powerpoint-slide/) और फिर [Aspose.Slides for .NET](/slides/hi/net/creating-a-table-on-powerpoint-slide/) का उपयोग करके 15 x 15 टेबल को फ़ॉन्ट आकार 10 के साथ बनाया जा सकता है।
-
+{{% alert color="info" %}} 
+टेबल्स का व्यापक उपयोग प्रस्तुति स्लाइड्स में डेटा दिखाने के लिए किया जाता है। यह लेख दिखाता है कि कैसे प्रोग्रामेटिकली पहले [VSTO 2008](/slides/hi/net/creating-a-table-on-powerpoint-slide/) और फिर [Aspose.Slides for .NET](/slides/hi/net/creating-a-table-on-powerpoint-slide/) का उपयोग करके फ़ॉन्ट आकार 10 के साथ 15 x 15 का टेबल बनाया जाए।
 {{% /alert %}} 
-## **Creating Tables**
-#### **VSTO 2008 Example**
-निम्नलिखित चरण VSTO का उपयोग करके Microsoft PowerPoint स्लाइड में एक टेबल जोड़ते हैं:
+## **टेबल बनाना**
+#### **VSTO 2008 उदाहरण**
+निम्नलिखित चरणों से VSTO का उपयोग करके Microsoft PowerPoint स्लाइड में टेबल जोड़ी जाती है:
 
 1. एक प्रस्तुति बनाएं।
 1. एक खाली स्लाइड प्रस्तुति में जोड़ें।
-1. स्लाइड में 15 x 15 टेबल जोड़ें।
+1. स्लाइड में 15 x 15 का टेबल जोड़ें।
 1. टेबल की प्रत्येक सेल में फ़ॉन्ट आकार 10 के साथ टेक्स्ट जोड़ें।
 1. प्रस्तुति को डिस्क पर सहेजें।
 
 ```c#
-//प्रेजेंटेशन बनाएं
+//एक प्रस्तुति बनाएं
 PowerPoint.Presentation pres = Globals.ThisAddIn.Application
               .Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
-//खाली स्लाइड जोड़ें
+//एक खाली स्लाइड जोड़ें
 PowerPoint.Slide sld = pres.Slides.Add(1, PowerPoint.PpSlideLayout.ppLayoutBlank);
 
 //Add a 15 x 15 table
@@ -63,7 +61,7 @@ foreach (PowerPoint.Row row in tbl.Rows)
     }
 }
 
-//प्रेजेंटेशन को डिस्क पर सहेजें
+//प्रेज़ेंटेशन को डिस्क पर सहेजें
 pres.SaveAs("d:\\tblVSTO.ppt",
       PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,
       Microsoft.Office.Core.MsoTriState.msoFalse);
@@ -71,28 +69,31 @@ pres.SaveAs("d:\\tblVSTO.ppt",
 
 
 
-### **Aspose.Slides for .NET Example**
-निम्नलिखित चरण Aspose.Slides का उपयोग करके Microsoft PowerPoint स्लाइड में एक टेबल जोड़ते हैं:
+### **Aspose.Slides for .NET उदाहरण**
+निम्नलिखित चरणों से Aspose.Slides का उपयोग करके Microsoft PowerPoint स्लाइड में टेबल जोड़ी जाती है:
 
 1. एक प्रस्तुति बनाएं।
-1. पहली स्लाइड में 15 x 15 टेबल जोड़ें।
+1. पहली स्लाइड में 15 x 15 का टेबल जोड़ें।
 1. टेबल की प्रत्येक सेल में फ़ॉन्ट आकार 10 के साथ टेक्स्ट जोड़ें।
 1. प्रस्तुति को डिस्क पर लिखें।
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 Presentation pres = new Presentation();
 
-//पहली स्लाइड तक पहुंचें
+//पहली स्लाइड तक पहुँचें
 ISlide sld = pres.Slides[0];
 
-//चौड़ाई के साथ कॉलम और ऊँचाई के साथ पंक्तियों को परिभाषित करें
+//कॉलम की चौड़ाइयों और पंक्तियों की ऊँचाइयों को परिभाषित करें
 double[] dblCols = { 50, 50, 50 };
 double[] dblRows = { 50, 30, 30, 30, 30 };
 
-//टेबल जोड़ें
+//एक टेबल जोड़ें
 Aspose.Slides.ITable tbl = sld.Shapes.AddTable(50, 50, dblCols, dblRows);
 
-//प्रत्येक सेल के लिए बॉर्डर फ़ॉर्मेट सेट करें
+//प्रत्येक सेल के लिए सीमा (बॉर्डर) फॉर्मेट सेट करें
 foreach (IRow row in tbl.Rows)
 {
 	foreach (ICell cell in row)
@@ -108,6 +109,6 @@ foreach (IRow row in tbl.Rows)
 	}
 }
 
-//प्रेजेंटेशन को डिस्क पर लिखें
-pres.Save("C:\\data\\tblSLD.ppt", SaveFormat.Ppt);
+//प्रेज़ेंटेशन को डिस्क पर लिखें
+pres.Save("tblSLD.ppt", SaveFormat.Ppt);
 ```

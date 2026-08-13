@@ -1,14 +1,14 @@
 ---
-title: Nyilvános API és visszafelé nem kompatibilis változások az Aspose.Slides for .NET 15.1.0-ban
+title: Nyilvános API és visszafelé inkompatibilis változások az Aspose.Slides for .NET 15.1.0-ban
 linktitle: Aspose.Slides for .NET 15.1.0
 type: docs
 weight: 130
 url: /hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/
 keywords:
 - migráció
-- régi kód
+- örökölt kód
 - modern kód
-- régi megközelítés
+- örökölt megközelítés
 - modern megközelítés
 - PowerPoint
 - OpenDocument
@@ -16,34 +16,35 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Tekintse át a nyilvános API frissítéseket és a töréspontokat az Aspose.Slides for .NET-ben, hogy zökkenőmentesen migrálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
+description: "Tekintse át a nyilvános API frissítéseket és a tör breaking változásokat az Aspose.Slides for .NET-ben, hogy zökkenőmentesen migrálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
 ---
-{{% alert color="primary" %}} 
-
-Ez az oldal felsorolja az összes [hozzáadott](/slides/hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) vagy [eltávolított](/slides/hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) osztályt, metódust, tulajdonságot stb., valamint a Aspose.Slides for .NET 15.1.0 API-val bevezetett egyéb változásokat.
-
+{{% alert color="info" %}} 
+Ez az oldal felsorolja az összes [hozzáadott](/slides/hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) vagy [eltávolított](/slides/hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) osztályt, metódust, tulajdonságot stb., valamint az Aspose.Slides for .NET 15.1.0 API‑val bevezetett egyéb változásokat.
 {{% /alert %}} 
-## **Nyilvános API Változások**
-#### **A betűtípus helyettesítés funkciója hozzá lett adva**
-Lehetőség került hozzáadásra a betűtípus globális cseréjére az egész prezentációban és ideiglenesen a rendereléshez.
+## **Nyilvános API változások**
+#### **Betűtípus-helyettesítési funkció hozzáadva**
+Lehetőség lett hozzáadva a betűtípus globális cseréjére az egész prezentációban, valamint ideiglenes cserére a renderelés során.
 
-Új "FontsManager" tulajdonság került bevezetésre a Presentation osztályban. A FontsManager osztálynak a következő tagjai vannak:
+Új, a Presentation osztályhoz tartozó "FontsManager" tulajdonság került bevezetésre. A FontsManager osztálynak a következő tagjai vannak:
 
-**IFontSubstRuleCollection FontSubstRuleList** tulajdonság
+**IFontSubstRuleCollection FontSubstRuleList** Tulajdonság
 
-Ez az IFontSubstRule példányok gyűjteménye, amely a betűtípusok helyettesítésére szolgál renderelés közben. Az IFontSubstRule rendelkezik a SourceFont és a DestFont tulajdonságokkal, amelyek az IFontData interfészt valósítják meg, valamint a ReplaceFontCondition tulajdonsággal, amely lehetővé teszi a csere feltételének kiválasztását („WhenInaccessible” vagy „Always”).
+Ez az IFontSubstRule példányok gyűjteménye, amelyet a betűtípusok renderelés közbeni helyettesítésére használnak. Az IFontSubstRule rendelkezik a SourceFont és DestFont tulajdonságokkal, amelyek az IFontData interfészt valósítják meg, valamint a ReplaceFontCondition tulajdonsággal, amely lehetővé teszi a csere feltételének kiválasztását („WhenInaccessible” vagy „Always”).
 
-**IFontData[] GetFonts()** metódus
+**IFontData[] GetFonts()** Metódus
 
-A jelenlegi prezentációban használt összes betűtípus lekérésére szolgál.
+A jelenlegi prezentációban használt összes betűtípus lekérésére használható.
 
-**ReplaceFont** metódusok
+**ReplaceFont** Metódusok
 
-A prezentációban a betűtípus tartós cseréjére szolgál.  
+A prezentációban a betűtípus tartós cseréjére használható. 
 
-A következő példa bemutatja, hogyan cserélhető a betűtípus a prezentációban:
+Az alábbi példa bemutatja, hogyan cserélhető a betűtípus a prezentációban:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
              Presentation pres = new Presentation("PresContainsArialFont.pptx");
 
@@ -58,9 +59,11 @@ A következő példa bemutatja, hogyan cserélhető a betűtípus a prezentáci�
 
 ``` 
 
-Egy másik példa a betűtípus helyettesítést mutatja be rendereléskor, ha elérhetetlen:
+Egy másik példa a betűtípus helyettesítést mutatja be rendereléskor, amikor a betűtípus nem érhető el:
 
 ``` csharp
+using Aspose.Slides;
+
 
              Presentation pres = new Presentation("PresContainsSomeRareFontFont.pptx");
 
@@ -78,8 +81,8 @@ Egy másik példa a betűtípus helyettesítést mutatja be rendereléskor, ha e
 
             pres.FontsManager.FontSubstRuleList = fontSubstRuleCollection;
 
-            // Az Arial betűtípus lesz használva a SomeRareFont helyett, ha nem érhető el
+            // Az Arial betűtípust a SomeRareFont helyett használják, amikor elérhetetlen
 
-            pres.Slides[0].GetThumbnail();
+            pres.Slides[0].GetImage();
 
 ```

@@ -1,5 +1,5 @@
 ---
-title: Veřejné API a zpětně nekompatibilní změny v Aspose.Slides pro Java 15.8.0
+title: Veřejné API a nekompatibilní změny v Aspose.Slides pro Java 15.8.0
 linktitle: Aspose.Slides pro Java 15.8.0
 type: docs
 weight: 160
@@ -15,18 +15,20 @@ keywords:
 - prezentace
 - Java
 - Aspose.Slides
-description: "Prohlédněte si aktualizace veřejného API a narušující změny v Aspose.Slides pro Java, abyste hladce migrovali svá řešení prezentací PowerPoint PPT, PPTX a ODP."
+description: "Přehled aktualizací veřejného API a zásadních změn v Aspose.Slides pro Java, které umožní plynulou migraci vašich řešení pro prezentace PowerPoint PPT, PPTX a ODP."
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" %}} 
 
-Tato stránka uvádí všechny [added](/slides/cs/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) nebo [removed](/slides/cs/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) třídy, metody, vlastnosti a podobně a další změny zavedené v API Aspose.Slides pro Java 15.8.0.
+Tato stránka uvádí všechny [přidáno](/slides/cs/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) nebo [odebráno](/slides/cs/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) třídy, metody, vlastnosti a podobně a další změny zavedené v rozhraní API Aspose.Slides pro Java 15.8.0.
 
-{{% /alert %}}
+{{% /alert %}} 
 ## **Změny veřejného API**
-#### **Metody getDoughnutHoleSize(), setDoughnutHoleSize(byte) byly přidány do IChartSeries a ChartSeries**
-Určuje velikost díry v prstencovém grafu.
+#### **Metody getDoughnutHoleSize() a setDoughnutHoleSize(byte) byly přidány do IChartSeries a ChartSeries**
+Určuje velikost otvoru v prstencovém grafu.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 

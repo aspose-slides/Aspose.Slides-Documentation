@@ -1,5 +1,5 @@
 ---
-title: PowerPoint Sunum Şekillerinden Görselleri Çıkar (.NET)
+title: Sunum Şekillerinden Görselleri .NET'te Çıkarma
 linktitle: Şekilden Görsel
 type: docs
 weight: 90
@@ -17,17 +17,17 @@ description: "Aspose.Slides for .NET ile PowerPoint ve OpenDocument sunumlarınd
 ---
 ## **Genel Bakış**
 
-Sunumdaki görseller çeşitli şekil türlerinde görünebilir: normal resim çerçeveleri olarak, şekillere uygulanan resim dolgu olarak, OLE nesne önizleme görselleri olarak, video veya ses çerçeve küçük resimleri olarak, yakınlaştırma görselleri olarak veya tablo, grafik ve SmartArt şekilleri içinde iç içe yer alan görseller olarak. Aspose.Slides bu görselleri sunum görüntü koleksiyonunda depolar ve bu koleksiyon [ImageCollection](https://reference.aspose.com/slides/tr/net/aspose.slides/imagecollection/) ve [IPPImage](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage/) nesneleri aracılığıyla sunulur.
+Sunumdaki görseller, çeşitli şekil türlerinde görünebilir: normal resim çerçeveleri olarak, şekillere uygulanan resim doldurmaları olarak, OLE nesne önizleme görselleri olarak, video veya ses çerçeve küçük resimleri olarak, yakınlaştırma görselleri olarak veya tablo, grafik ve SmartArt şekilleri içinde iç içe yer alan görseller olarak. Aspose.Slides bu görselleri sunum görüntü koleksiyonunda saklar ve [ImageCollection](https://reference.aspose.com/slides/tr/net/aspose.slides/imagecollection/) ve [IPPImage](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage/) nesneleri aracılığıyla sunar.
 
-Eğer bir sunuma gömülü tüm görüntü kaynaklarını dışa aktarmanız yeterliyse, `presentation.Images` koleksiyonunu dolaşın. Bu makale farklı bir göreve odaklanır: kaydırılarda görsellerin nerede kullanıldığını bulmak için şekilleri gezmek, böylece kaydedilen dosyalar slayt numarası, şekil konumu ve kaynak türü (resim çerçevesi, dolgu resmi, medya önizlemesi, OLE önizlemesi veya yakınlaştırma resmi) gibi yararlı bağlamı tutabilir.
+Eğer yalnızca bir sunuma gömülü tüm resim kaynaklarını dışa aktarmanız gerekiyorsa, `presentation.Images` üzerinde yineleme yapın. Bu makale farklı bir göreve odaklanır: slaytlarda görsellerin nerede kullanıldığını bulmak için şekilleri dolaşmak, böylece kaydedilen dosyalar slayt numarası, şekil konumu ve kaynak tipi (resim çerçevesi, doldurma görseli, medya önizleme, OLE önizleme veya yakınlaştırma görseli) gibi yararlı bağlamı tutabilir.
 
-{{% alert title="Tip" color="primary" %}}
-Orijinal kodlanmış görüntü verisini ve dosya tipini korumak için [IPPImage.BinaryData](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage/) kullanın. Çıktıyı PNG gibi belirli bir formata normalleştirmek istediğinizde [IPPImage.Image](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage/) ile [IImage.Save](https://reference.aspose.com/slides/tr/net/aspose.slides/iimage/) kullanın.
+{{% alert title="Tip" color="info" %}}
+[IPPImage.BinaryData](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage/) kullanarak orijinal kodlanmış görsel verisini ve dosya tipini koruyun. Çıktıyı PNG gibi belirli bir biçime normalize etmek istediğinizde [IPPImage.Image](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage/) ile [IImage.Save](https://reference.aspose.com/slides/tr/net/aspose.slides/iimage/) kullanın.
 {{% /alert %}}
 
-## **Ortak Yardımcı Metodlar**
+## **Paylaşılan Yardımcı Metodlar**
 
-Aşağıdaki yardımcı metodlar örnekleri kısa tutar. `SaveOriginalImage` orijinal gömülü baytları yazar, MIME tipinden güvenli bir dosya uzantısı seçer ve SHA-256 karmasıyla yinelenen görüntü ikili dosyalarını atlar.
+Aşağıdaki yardımcı metodlar örnekleri kısa tutar. `SaveOriginalImage` orijinal gömülü baytları yazar, MIME tipinden güvenli bir uzantı seçer ve SHA-256 karmasıyla yinelenen görsel ikili dosyalarını atlar.
 
 ```c#
 using Aspose.Slides;
@@ -164,9 +164,11 @@ private static string MakeSafeFileNamePart(string value)
 
 ## **Resim Çerçevelerinden Görselleri Çıkar**
 
-Bu yaklaşımı bağımsız nesne olarak eklenen resimler için kullanın. Bir [IPictureFrame] resmini `PictureFormat.Picture.Image` içinde saklar ve bu, bir [IPPImage] nesnesi döndürür.
+Bağımsız nesneler olarak eklenmiş resimler için bu yöntemi kullanın. Bir [IPictureFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/ipictureframe/) resmi `PictureFormat.Picture.Image` içinde saklar ve bu bir [IPPImage](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage/) nesnesi döndürür.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "extracted-images");
 Directory.CreateDirectory(outputDirectory);
@@ -193,11 +195,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Resim Dolu Şekillerden Görselleri Çıkar**
+## **Resim Doldurmalı Şekillerden Görselleri Çıkar**
 
-Şekiller bir resmi dolgu olarak kullanabilir. Öncelikle şeklin dolgu tipini kontrol edin: eğer [FillType.Picture] değilse, bu dolgu üzerinden çıkarılacak bir resim yoktur. Aşağıdaki örnek [IAutoShape] nesnelerini yönetir ve her bir resmi [IPPImage.Image] aracılığıyla PNG olarak kaydeder.
+Şekiller bir resmi doldurma olarak kullanabilir. Öncelikle şeklin doldurma tipini kontrol edin: eğer [FillType.Picture](https://reference.aspose.com/slides/tr/net/aspose.slides/filltype/) değilse, o doldurmadan çıkarılacak bir resim yoktur. Aşağıdaki örnek [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/) nesnelerini işler ve her görseli [IPPImage.Image](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage/) aracılığıyla PNG olarak kaydeder.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "shape-fill-images");
 Directory.CreateDirectory(outputDirectory);
@@ -225,11 +229,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **OLE Nesne Çerçevelerinden Önizleme Görselleri Çıkar**
+## **OLE Nesne Çerçevelerinden Önizleme Görsellerini Çıkar**
 
-Bir [IOleObjectFrame], PowerPoint'in bir slaytta nesnenin önizlemesi olarak kullandığı bir yedek resme sahip olabilir. Bu resim `SubstitutePictureFormat.Picture.Image` aracılığıyla elde edilebilir. Bu resmi çıkarmak, size önizleme görselini verir, gömülü OLE paket içeriğini değildir.
+Bir [IOleObjectFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/ioleobjectframe/) PowerPoint'in nesnenin slayt üzerindeki önizleme olarak kullandığı bir yedek resim içerebilir. Bu görsel `SubstitutePictureFormat.Picture.Image` üzerinden elde edilir. Bu resmi çıkarmak, OLE paketinin gömülü içeriğini değil, önizleme görselini verir.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "ole-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -260,11 +266,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Video Çerçevelerinden Önizleme Görselleri Çıkar**
+## **Video Çerçevelerinden Önizleme Görsellerini Çıkar**
 
-Bir [IVideoFrame] ayrıca `PictureFormat.Picture.Image` içinde bir önizleme resmi saklayabilir. Bu, slaytta gösterilen poster ya da küçük resimdir, video akışından ayrıştırılan bir çerçeve değildir.
+Bir [IVideoFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/ivideoframe/) de `PictureFormat.Picture.Image` içinde bir önizleme resmi saklayabilir. Bu, slaytta gösterilen poster veya küçük resimdir, video akışından çözümlenen bir çerçeve değildir.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "video-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -295,11 +303,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Ses Çerçevelerinden Önizleme Görselleri Çıkar**
+## **Ses Çerçevelerinden Önizleme Görsellerini Çıkar**
 
-Bir [IAudioFrame] `PictureFormat.Picture.Image` içinde bir küçük resim saklayabilir. Bu, slayttaki ses nesnesi için gösterilen görseldir.
+Bir [IAudioFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/iaudioframe/) `PictureFormat.Picture.Image` içinde bir küçük resim saklayabilir. Bu, slaytta ses nesnesi için gösterilen görseldir.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "audio-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -330,11 +340,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Yakınlaştırma Nesnelerinden Görselleri Çıkar**
+## **Zoom Nesnelerinden Görselleri Çıkar**
 
-[IZoomFrame] ve [ISectionZoomFrame] şekilleri özel resimler kullanabilir. Yakınlaştırma çerçevesinden `ZoomImage` değerini okuyun.
+[IZoomFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/izoomframe/) ve [ISectionZoomFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/isectionzoomframe/) şekilleri özel görseller kullanabilir. Zoom çerçevesinden `ZoomImage` değerini okuyun.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "zoom-images");
 Directory.CreateDirectory(outputDirectory);
@@ -370,11 +382,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Özet Yakınlaştırma Çerçevelerinden Görselleri Çıkar**
+## **Özet Zoom Çerçevelerinden Görselleri Çıkar**
 
-Bir [ISummaryZoomFrame] aynı zamanda bir şekildir. Bölüm öğeleri özel resimler kullanabilir ve bu resimler her özet yakınlaştırma bölümünün `ZoomImage` özelliği sayesinde ortaya çıkar.
+[ISummaryZoomFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/isummaryzoomframe/) da bir şekildir. Bölüm öğeleri özel görseller kullanabilir; her özet zoom bölümünün `ZoomImage` özelliği aracılığıyla bu görseller ortaya çıkar.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "summary-zoom-images");
 Directory.CreateDirectory(outputDirectory);
@@ -412,9 +426,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Tablo Şekillerinden Görselleri Çıkar**
 
-Bir [ITable] bir şekildir. Tablodaki görseller genellikle tablo hücrelerindeki resim dolguları olarak saklanır.
+[ITable](https://reference.aspose.com/slides/tr/net/aspose.slides/itable/) bir şekildir. Tablo içindeki görseller genellikle tablo hücrelerindeki resim doldurmaları olarak saklanır.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "table-images");
 Directory.CreateDirectory(outputDirectory);
@@ -456,9 +472,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Grafik Şekillerinden Görselleri Çıkar**
 
-Bir [IChart] bir şekildir. Aşağıdaki örnek, grafik alanının resim dolgusundan bir görsel çıkarır.
+[IChart](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichart/) bir şekildir. Aşağıdaki örnek grafik alanının resim doldurmasından bir görsel çıkarır.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "chart-images");
 Directory.CreateDirectory(outputDirectory);
@@ -492,9 +510,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **SmartArt Şekillerinden Görselleri Çıkar**
 
-Bir [ISmartArt] nesnesi bir şekildir. SmartArt düzenine bağlı olarak, görseller düğüm madde işareti dolgularında ya da düğüm şekillerinin dolgu formatlarında saklanabilir.
+[ISmartArt](https://reference.aspose.com/slides/tr/net/aspose.slides.smartart/ismartart/) nesnesi bir şekildir. SmartArt düzenine bağlı olarak, görseller düğüm madde doldurmalarında veya düğüm şekillerinin doldurma biçimlerinde saklanabilir.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "smartart-images");
 Directory.CreateDirectory(outputDirectory);
@@ -542,11 +562,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Gruplanmış Şekiller İçindeki Görselleri Dahil Et**
+## **Gruplandırılmış Şekillerin İçindeki Görselleri Dahil Et**
 
-Gruplanmış şekiller kendi şekil koleksiyonlarını içerir. Paylaşılan `EnumerateShapes` yardımcı metodunda `includeGroupedShapes` seçeneği bulunur. [IGroupShape] nesneleri içindeki şekilleri incelemek istediğinizde bunu `true` olarak ayarlayın. Aşağıdaki örnek, resim çerçevelerinden, resim dolgulu şekillerden, OLE nesne önizlemelerinden, video çerçeve küçük resimlerinden ve ses çerçeve küçük resimlerinden görselleri çıkarır. Tablo, grafik, SmartArt ve özet yakınlaştırma görsellerini de dahil etmek için, aynı yinelemeli şekil dolaşımını koruyarak önceki bölümlerdeki özel çıkarma mantığını yeniden kullanın.
+Gruplandırılmış şekiller kendi şekil koleksiyonlarına sahiptir. Paylaşılan `EnumerateShapes` yardımcı metodunda `includeGroupedShapes` seçeneği vardır. [IGroupShape](https://reference.aspose.com/slides/tr/net/aspose.slides/igroupshape/) nesnelerindeki şekilleri incelemek istediğinizde bunu `true` yapın. Aşağıdaki örnek resim çerçevelerinden, resim doldurmalı şekillerden, OLE nesne önizlemelerinden, video çerçeve küçük resimlerinden ve ses çerçeve küçük resimlerinden görselleri çıkarır. Tablo, grafik, SmartArt ve özet zoom görsellerini de eklemek için önceki bölümlerdeki özel çıkarma mantığını aynı yinelemeli şekil geçişiyle yeniden kullanın.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "all-shape-images");
 Directory.CreateDirectory(outputDirectory);
@@ -621,43 +643,43 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Köşe Durumları ve Pratik Notlar**
 
-- **Yinelenen görseller:** Birden fazla şekil aynı görsele veya aynı baytlara sahip ayrı görsellere referans verebilir. Her benzersiz görsel için bir çıktı dosyası istiyorsanız, dosyaları yazmadan önce [IPPImage.BinaryData] üzerinde hash alın.
-- **Orijinal veri vs. dönüştürülmüş çıktı:** [IPPImage.BinaryData] kaydetmek, gömülü JPEG, PNG, GIF, SVG, EMF veya WMF verilerini korur. [IPPImage.Image] üzerinden [IImage.Save] kullanarak kaydetmek, çıktıyı tutarlı bir formatta (ör. PNG) almak istediğinizde faydalıdır.
-- **Desteklenmeyen dolgu türleri:** Katı, degrade, desen ve dolgu olmayan şekiller resim dolgusu içermez. `PictureFillFormat` okuma öncesi [FillType] kontrol edin.
-- **Gruplanmış şekiller:** Üst düzey slayt şekil koleksiyonu grupları düzleştirmez. Grup içeriği önemli olduğunda [IGroupShape.Shapes] öğesini yinelemeli olarak inceleyin.
-- **OLE nesne önizlemeleri:** Bir [IOleObjectFrame] `SubstitutePictureFormat` aracılığıyla bir önizleme resmi sunabilir, ancak bu sadece slayt önizlemesidir. OLE nesnesinin içinde gömülü dosya değildir.
-- **Video çerçeve küçük resimleri:** Bir [IVideoFrame] `PictureFormat` aracılığıyla bir önizleme resmi sunabilir, ancak bu sadece slaytta gösterilen posterdir. Video akışından çıkarılan bir çerçeve değildir.
-- **Ses çerçeve küçük resimleri:** Bir [IAudioFrame] `PictureFormat` üzerinden bir ikon veya küçük resim sunabilir; bu gömülü ses verisi değildir.
-- **Yakınlaştırma görselleri:** Slayt yakınlaştırma, bölüm yakınlaştırma ve özet yakınlaştırma şekilleri, `ZoomImage` aracılığıyla özel [IPPImage] nesneleri kullanabilir.
-- **İç içe şekil modelleri:** Tablo, grafik ve SmartArt nesneleri [IShape] uygular, ancak görseller genellikle iç içe tablo hücresi, grafik öğesi veya SmartArt düğüm formatı nesnelerinde saklanır.
-- **Kırpılmış veya dönüştürülmüş resimler:** [IPPImage] erişmek, saklanan görüntü kaynağını verir. Şeklin uyguladığı kırpma, şeffaflık, yeniden renkleme, döndürme veya diğer görsel etkileri yansıtmaz.
+- **Yinelenen görseller:** Birden fazla şekil aynı görsele ya da aynı baytlara sahip ayrı görsellere başvurabilir. Tek bir benzersiz görsel için bir çıktı dosyası istiyorsanız, dosyaları yazmadan önce [IPPImage.BinaryData](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage/) üzerinde karma oluşturun.
+- **Orijinal veri vs. dönüştürülmüş çıktı:** [IPPImage.BinaryData](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage/) kaydetmek gömülü JPEG, PNG, GIF, SVG, EMF veya WMF verisini korur. [IPPImage.Image](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage/) ile [IImage.Save](https://reference.aspose.com/slides/tr/net/aspose.slides/iimage/) kaydetmek tutarlı bir çıktı biçimi (ör. PNG) istediğinizde faydalıdır.
+- **Desteklenmeyen doldurma tipleri:** Düz, degrade, desen ve boş doldurma şekilleri resim doldurması içermez. `PictureFillFormat` okumadan önce [FillType](https://reference.aspose.com/slides/tr/net/aspose.slides/filltype/) kontrol edin.
+- **Gruplandırılmış şekiller:** Üst seviyedeki slayt şekil koleksiyonu grupları düzleştirmez. Gruplandırılmış içerik önemliyse, [IGroupShape.Shapes](https://reference.aspose.com/slides/tr/net/aspose.slides/igroupshape/) üzerinde yinelemeli inceleme yapın.
+- **OLE nesne önizlemeleri:** Bir [IOleObjectFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/ioleobjectframe/) `SubstitutePictureFormat` üzerinden bir önizleme görseli sunabilir, ancak bu yalnızca slayt önizlemesidir. OLE nesnesinin içinde gömülü dosya değildir.
+- **Video çerçeve küçük resimleri:** Bir [IVideoFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/ivideoframe/) `PictureFormat` üzerinden bir önizleme görseli sunabilir; bu yalnızca slaytta gösterilen posterdır, video akışından çıkarılan bir çerçeve değildir.
+- **Ses çerçeve küçük resimleri:** Bir [IAudioFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/iaudioframe/) `PictureFormat` üzerinden bir simge veya küçük resim sunabilir; bu gömülü ses verisi değildir.
+- **Zoom görselleri:** Slayt zoom, bölüm zoom ve özet zoom şekilleri `ZoomImage` aracılığıyla özel [IPPImage](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage/) nesneleri kullanabilir.
+- **İç içe şekil modelleri:** Tablo, grafik ve SmartArt nesneleri [IShape](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/) uygular, ancak görselleri genellikle iç içe tablo hücresi, grafik öğesi veya SmartArt düğüm biçimlendirme nesnelerinde saklanır.
+- **Kırpılmış veya dönüştürülmüş resimler:** [IPPImage](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage/) erişimi, depolanan görsel kaynağını verir. Şeklin uyguladığı kırpma, şeffaflık, renk değiştirme, döndürme veya diğer görsel efektler burada işlenmez.
 
 ## **SSS**
 
-**Orijinal resmi kırpma, efektler veya şekil dönüşümleri olmadan çıkarabilir miyim?**
+### Orijinal görseli kırpma, efektler veya şekil dönüşümleri olmadan çıkarabilir miyim?
 
-Evet. [IPPImage] nesnesine erişin ve [IPPImage.BinaryData] dosyasına yazın. Bu, sunumda depolanan orijinal kodlanmış resmi korur, slaytta görüntünün nasıl render edildiği değil.
+Evet. [IPPImage](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage/) nesnesine erişin ve [IPPImage.BinaryData](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage/) dosyaya yazın. Bu, sunumda saklanan orijinal kodlanmış görseli korur, slaytta nasıl render edildiğiyle ilgili değişiklikleri içermez.
 
-**Çıkarılan her resmi PNG olarak dışa aktarabilir miyim?**
+### Çıkarılan tüm görselleri PNG olarak dışa aktarabilir miyim?
 
-Evet. [IPPImage.Image] kullanarak bir [IImage] nesnesi alın ve ardından [IImage.Save] metodunu [ImageFormat.Png] ile çağırın. Bu, çıktıyı dönüştürür ve orijinal dosya tipi veya vektör verisini korumayabilir.
+Evet. [IPPImage.Image](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage/) ile bir [IImage](https://reference.aspose.com/slides/tr/net/aspose.slides/iimage/) nesnesi alın ve ardından [IImage.Save](https://reference.aspose.com/slides/tr/net/aspose.slides/iimage/) metodunu [ImageFormat.Png](https://reference.aspose.com/slides/tr/net/aspose.slides/imageformat/) ile çağırın. Bu çıktı biçimini PNG’ye dönüştürür ve orijinal dosya tipini ya da vektör verisini korumayabilir.
 
-**Aynı resmi birden fazla kez kaydetmekten nasıl kaçınırım?**
+### Aynı görseli birden fazla kez kaydetmekten nasıl kaçınabilirim?
 
-[IPPImage.BinaryData] üzerinde bir hash kullanın ve hash'leri bir sette tutun. Yeni bir resmin hash'i zaten mevcutsa, onu atlayın veya mevcut çıktı dosyasına başka bir referans kaydedin.
+[IPPImage.BinaryData](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage/) karmasını bir kümede tutun. Yeni bir görselin karması zaten mevcutsa, dosyayı atlayın veya mevcut çıktı dosyasına başka bir referans kaydedin.
 
-**Neden bazı şekiller resim üretmiyor?**
+### Neden bazı şekiller görsel üretmiyor?
 
-Resim çerçeveleri, resim dolgulu şekiller, OLE nesne çerçeveleri, medya çerçeveleri, yakınlaştırma çerçeveleri, tablolar, grafikler ve SmartArt nesneleri resim referansına sahip olabilir. Bazı şekil türleri resimleri iç içe biçimlendirme nesneleri aracılığıyla ortaya çıkar, bu yüzden basit bir `PictureFormat` veya şekil `FillFormat` kontrolü her zaman yeterli değildir.
+Resim çerçeveleri, resim doldurmalı şekiller, OLE nesne çerçeveleri, medya çerçeveleri, zoom çerçeveleri, tablolar, grafikler ve SmartArt nesneleri görsellere başvurabilir. Bazı şekil tipleri görselleri iç içe biçimlendirme nesneleri aracılığıyla sunar; bu yüzden yalnızca `PictureFormat` ya da şekil `FillFormat` kontrolü her zaman yeterli olmayabilir.
 
-**Bir video çerçevesi için gösterilen küçük resmi çıkarabilir miyim?**
+### Bir video çerçevesi için gösterilen küçük resmi çıkarabilir miyim?
 
-Evet. [IVideoFrame.PictureFormat] kullanın ve `PictureFormat.Picture.Image` değerini okuyun. Bu, video çerçevesiyle birlikte saklanan poster görselini çıkarır, video dosyasından oluşturulan bir çerçeve değildir.
+Evet. [IVideoFrame.PictureFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/ivideoframe/) kullanın ve `PictureFormat.Picture.Image` değerini okuyun. Bu, video çerçevesiyle birlikte saklanan poster görselini çıkarır, video dosyasından üretilen bir çerçeve değildir.
 
-**Sunum görüntü koleksiyonundan belirli bir resmi kullanan şekilleri nasıl belirleyebilirim?**
+### Sunum görüntü koleksiyonundaki belirli bir görseli hangi şekillerin kullandığını nasıl belirleyebilirim?
 
-Aspose.Slides, [IPPImage] nesnelerinden şekillere ters bağlantılar tutmaz. Gezinme sırasında bir eşleme oluşturun: bir görüntü referansı bulduğunuzda slayt numarasını, şekil yolunu ve görüntü hash'ini veya koleksiyon öğesini kaydedin.
+Aspose.Slides, [IPPImage](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage/) nesnesinden şekillere ters bağlantılar tutmaz. Gezinme sırasında bir görsel referansı bulduğunuzda, slayt numarasını, şekil yolunu ve görsel karmasını veya koleksiyon öğesini kaydedin.
 
-**OLE nesneleri içinde gömülü görselleri, örneğin ekli belgeleri, çıkarabilir miyim?**
+### Ekli belgeler gibi OLE nesneleri içinde gömülü görselleri çıkarabilir miyim?
 
-[IOleObjectFrame.SubstitutePictureFormat] aracılığıyla OLE nesnesinin slayt önizlemesini çıkarabilirsiniz. Ancak bu önizleme, gömülü belgeyi içermez. Gömülü dosyanın içindeki görselleri çıkarmak için OLE verisini çıkarın ve dosya tipine uygun araçlarla inceleyin.
+[IOleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/ioleobjectframe/) aracılığıyla OLE nesnesinin slayt önizlemesini çıkarabilirsiniz. Ancak bu önizleme, gömülü belgeyi içermez. Gömülü dosyanın içindeki görselleri çıkarmak için OLE verisini ayıklamalı ve ilgili dosya türü araçlarıyla incelemelisiniz.

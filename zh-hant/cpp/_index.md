@@ -12,25 +12,25 @@ keywords:
 - OpenDocument
 - C++
 - Aspose.Slides
-description: Aspose.Slides for C++ 是一個 Microsoft PowerPoint® 管理 API，使 C++ 應用程式能在不使用 Microsoft PowerPoint® 的情況下讀寫 PowerPoint® 文件。
+description: Aspose.Slides for C++ 是一個 Microsoft PowerPoint® 管理 API，可讓 C++ 應用程式在不使用 Microsoft PowerPoint® 的情況下讀寫 PowerPoint® 文件。
 is_root: true
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
-![Aspose.Slides for C++ 產品圖示](home_1.png)
+![Aspose.Slides for C++ 產品標誌](home_1.png)
 
 **歡迎使用 Aspose.Slides for C++**
 
-Aspose.Slides for C++ 是一個 Microsoft PowerPoint® 管理 API，使 C++ 應用程式能在不使用 Microsoft PowerPoint® 的情況下讀寫 PowerPoint® 文件。Aspose.Slides for C++ 是首個也是唯一提供管理 PowerPoint® 文件功能的元件。Aspose.Slides for C++ 提供許多關鍵功能，例如管理文字、圖形、表格與動畫、向投影片加入音訊與影片、預覽投影片、將投影片匯出為 SVG、PDF 格式等。
+Aspose.Slides for C++ 是一個 Microsoft PowerPoint® 管理 API，可讓 C++ 應用程式在不使用 Microsoft PowerPoint® 的情況下讀寫 PowerPoint® 文件。Aspose.Slides for C++ 是第一個也是唯一提供管理 PowerPoint® 文件功能的元件。Aspose.Slides for C++ 提供許多關鍵功能，例如管理文字、圖形、表格與動畫，向投影片加入音訊和影片，預覽投影片，將投影片匯出為 SVG、PDF 格式等。
 
 {{% /alert %}}
 
 ## **Aspose.Slides for C++ 資源**
 
-These are links to useful resources:
+以下是實用資源的連結：
 
 - [Aspose.Slides for C++ 線上文件](/slides/zh-hant/cpp/)
-- [Aspose.Slides for C++ 功能總覽](/slides/zh-hant/cpp/features-overview/)
+- [Aspose.Slides for C++ 功能](/slides/zh-hant/cpp/features-overview/)
 - [Aspose.Slides for C++ 發行說明](https://releases.aspose.com/slides/zh-hant/cpp/release-notes/)
 - [Aspose.Slides for C++ 產品頁面](https://products.aspose.com/slides/zh-hant/cpp/)
 - [下載 Aspose.Slides for C++](https://releases.aspose.com/slides/zh-hant/cpp/)

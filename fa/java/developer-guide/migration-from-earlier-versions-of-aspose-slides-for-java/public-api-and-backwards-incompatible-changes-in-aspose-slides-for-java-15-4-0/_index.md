@@ -1,38 +1,36 @@
 ---
-title: "API عمومی و تغییرات ناسازگار به عقب در Aspose.Slides برای Java 15.4.0"
+title: "تغییرات API عمومی و ناسازگاری‌های عقب‌گرد در Aspose.Slides برای Java 15.4.0"
 linktitle: "Aspose.Slides برای Java 15.4.0"
 type: docs
 weight: 120
 url: /fa/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/
 keywords:
 - مهاجرت
-- کد میراثی
-- کد مدرن
-- رویکرد میراثی
+- کدهای قدیمی
+- کدهای مدرن
+- رویکرد قدیمی
 - رویکرد مدرن
 - پاورپوینت
 - OpenDocument
 - ارائه
-- Java
+- جاوا
 - Aspose.Slides
-description: "به‌روزرسانی‌های API عمومی و تغییرات شکست‌پذیر در Aspose.Slides برای Java را بررسی کنید تا به‌صورت روان راه‌حل‌های ارائهٔ PowerPoint PPT، PPTX و ODP خود را منتقل کنید."
+description: "مروری بر به‌روزرسانی‌های API عمومی و تغییرات ناسازگار در Aspose.Slides برای Java به منظور مهاجرت آسان راهکارهای ارائه پاورپوینت (PPT، PPTX) و ODP شما."
 ---
-{{% alert color="primary" %}} 
-
-این صفحه تمام [added](/slides/fa/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/) کلاس‌ها، متدها، خصوصیات و غیره‌ای که افزوده شده‌اند، هر محدودیت جدید و سایر [changes](/slides/fa/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/) معرفی‌شده در API Aspose.Slides for Java 15.4.0 را فهرست می‌کند.
-
+{{% alert color="info" %}} 
+این صفحه تمام کلاس‌ها، متدها، ویژگی‌ها و غیره افزوده‌شده، هر محدودیت جدید و سایر [تغییرات](/slides/fa/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/) معرفی‌شده با API Aspose.Slides for Java 15.4.0 را فهرست می‌کند.
 {{% /alert %}} 
 ## **تغییرات API عمومی**
 ### **Enum OrganizationChartLayoutType اضافه شده است**
-enum com.aspose.slides.OrganizationChartLayoutType نوع قالب‌بندی گره‌های فرزند در یک نمودار سازمانی را نمایندگی می‌کند.
-
-### **Method IBulletFormat.applyDefaultParagraphIndentsShifts() اضافه شده است**
-متد com.aspose.slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts جابجایی‌های پیش‌فرض غیر صفر برای تورفتگی پاراگراف و MarginLeft مؤثر را وقتی گلوله‌ها فعال هستند تنظیم می‌کند (مانند کاری که PowerPoint هنگام فعال‌سازی گلوله‌ها/شماره‌گذاری پاراگراف انجام می‌دهد). اگر گلوله‌ها غیرفعال باشند، تنها تورفتگی پاراگراف و MarginLeft را بازنشانی می‌کند (مانند کاری که PowerPoint هنگام غیرفعال‌سازی گلوله‌ها/شمامه‌گذاری پاراگراف انجام می‌دهد).
-
-### **Method IConnector.reroute() اضافه شده است**
-متد com.aspose.slides.IConnector.reroute() مسیر اتصال‌کننده را طوری تنظیم می‌کند که کوتاه‌ترین مسیر ممکن بین اشکالی که به هم متصل می‌کند را بگیرد. برای این کار، متد reroute() ممکن است مقادیر StartShapeConnectionSiteIndex و EndShapeConnectionSiteIndex را تغییر دهد.
+Enum com.aspose.slides.OrganizationChartLayoutType نشان‌دهنده نوع قالب‌بندی گره‌های فرزند در یک نمودار سازمانی است.
+### **متد IBulletFormat.applyDefaultParagraphIndentsShifts() اضافه شده است**
+متد com.aspose.slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts برای تنظیم جابجایی‌های پیش‌فرض غیر صفر برای تو رفتگی پاراگراف و MarginLeft مؤثر هنگامی که گلوله‌ها فعال هستند (مانند PowerPoint هنگامی که پاراگراف گلوله‌دار/شماره‌دار می‌شود) استفاده می‌شود. اگر گلوله‌ها غیرفعال باشند، فقط تو رفتگی پاراگراف و MarginLeft بازنشانی می‌شود (مانند PowerPoint وقتی گلوله‌ها غیرفعال می‌شوند).
+### **متد IConnector.reroute() اضافه شده است**
+متد com.aspose.slides.IConnector.reroute() مسیر اتصال را طوری تنظیم می‌کند که کوتاه‌ترین مسیر ممکن بین اشکالی که به هم وصل می‌شوند را بگیرد. برای این کار، متد reroute() ممکن است مقدار StartShapeConnectionSiteIndex و EndShapeConnectionSiteIndex را تغییر دهد.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation input = new Presentation();
 
@@ -53,10 +51,12 @@ connector.reroute();
 input.save("output.pptx", SaveFormat.Pptx);
 
 ```
-### **Method IPresentation.getSlideById(long) اضافه شده است**
-متد Aspose.Slides.IPresentation.getSlideById(int) یک Slide، MasterSlide یا LayoutSlide را بر اساس شناسه اسلاید بر می‌گرداند.
+### **متد IPresentation.getSlideById(long) اضافه شده است**
+متد Aspose.Slides.IPresentation.getSlideById(long) یک Slide، MasterSlide یا LayoutSlide را بر اساس شناسه اسلاید برمی‌گرداند.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation presentation = new Presentation();
 
@@ -65,10 +65,12 @@ long id = presentation.getSlides().get_Item(0).getSlideId();
 IBaseSlide slide = presentation.getSlideById(id);
 
 ```
-### **Method ISmartArt.getNodes() اضافه شده است**
-متد com.aspose.slides.ISmartArt.getNodes() مجموعه‌ای از گره‌های ریشه در شیء SmartArt را بر می‌گرداند.
+### **متد ISmartArt.getNodes() اضافه شده است**
+متد com.aspose.slides.ISmartArt.getNodes() مجموعه‌ای از گره‌های ریشه در شیء SmartArt را برمی‌گرداند.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -81,10 +83,12 @@ node.getTextFrame().setText("Second root node");
 pres.save("out.pptx", SaveFormat.Pptx);
 
 ```
-### **Method ISmartArt.setLayout(int) اضافه شده است**
-متد برای خصوصیت com.aspose.slides.ISmartArt.setLayout(int) اضافه شده است. این متد امکان تغییر نوع چینش یک نمودار موجود را می‌دهد.
+### **متد ISmartArt.setLayout(int) اضافه شده است**
+متد برای ویژگی com.aspose.slides.ISmartArt.setLayout(int) اضافه شده است. این متد امکان تغییر نوع طرح‌بندی یک نمودار موجود را فراهم می‌کند.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -95,10 +99,12 @@ smart.setLayout(SmartArtLayoutType.BasicProcess);
 pres.save("out.pptx", SaveFormat.Pptx);
 
 ```
-### **Method ISmartArtNode.isHidden() اضافه شده است**
-متد com.aspose.slides.ISmartArtNode.isHidden() در صورتی که این گره در مدل داده مخفی باشد، مقدار true را بر می‌گرداند.
+### **متد ISmartArtNode.isHidden() اضافه شده است**
+متد com.aspose.slides.ISmartArtNode.isHidden() در صورتی که این گره یک گره مخفی در مدل داده باشد، مقدار true را برمی‌گرداند.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -106,21 +112,22 @@ ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 4
 
 ISmartArtNode node = smart.getAllNodes().addNode();
 
-boolean hidden = node.isHidden(); //true برمی‌گرداند
+boolean hidden = node.isHidden(); // برمی‌گرداند true
 
 if(hidden) {
 
-    //برخی اقدامات یا اعلان‌ها را انجام بدهید
+    // انجام برخی عملیات یا اعلان‌ها
 
 }
 
-pres.Save("out.pptx", SaveFormat.Pptx);
-
+pres.save("out.pptx", SaveFormat.Pptx);
 ```
-### **Methods ISmartArt.isReversed(), setReserved() اضافه شده‌اند**
-خصوصیت com.aspose.slides.ISmartArt.IsReversed امکان دریافت یا تنظیم وضعیت نمودار SmartArt نسبت به (چپ به راست) LTR یا (راست به چپ) RTL را فراهم می‌کند، در صورتی که نمودار از وارون شدن پشتیبانی کند.
+### **متدهای ISmartArt.isReversed()، setReversed() اضافه شده‌اند**
+ویژگی com.aspose.slides.ISmartArt.IsReversed امکان دریافت یا تنظیم وضعیت نمودار SmartArt نسبت به جهت چپ به راست (LTR) یا راست به چپ (RTL) را فراهم می‌کند، در صورتی که نمودار از معکوس شدن پشتیبانی کند.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation presentation = new Presentation();
 
@@ -131,10 +138,12 @@ smart.setReversed(true);
 presentation.save("out.pptx", SaveFormat.Pptx);
 
 ```
-### **Methods ISmartArtNode.getOrganizationChartLayout(), setOrganizationChartLayout(int) اضافه شده‌اند**
+### **متدهای ISmartArtNode.getOrganizationChartLayout()، setOrganizationChartLayout(int) اضافه شده‌اند**
 متدهای com.aspose.slides.ISmartArtNode.getOrganizationChartLayout() و setOrganizationChartLayout(int) امکان دریافت یا تنظیم نوع نمودار سازمانی مرتبط با گره فعلی را فراهم می‌کنند.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -145,10 +154,12 @@ smart.getNodes().get_Item(0).setOrganizationChartLayout(OrganizationChartLayoutT
 pres.save("out.pptx", SaveFormat.Pptx);
 
 ```
-### **Property IShape.getConnectionSiteCount() اضافه شده است**
-خاصیت com.aspose.slides.getConnectionSiteCount() تعداد نقاط اتصال روی شکل را بر می‌گرداند.
+### **ویژگی IShape.getConnectionSiteCount() اضافه شده است**
+ویژگی com.aspose.slides.getConnectionSiteCount() تعداد سایت‌های اتصال روی شکل را برمی‌گرداند.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation input = new Presentation();
 
@@ -180,7 +191,7 @@ input.save("output.pptx", SaveFormat.Pptx);
 
 |Enum com.aspose.slides.BevelColorMode |حذف شد، enum استفاده نشده |
 | :- | :- |
-|Method ThreeDFormatEffectiveData.getBevelColorMode() |حذف شد، خصوصیت استفاده نشده |
+|Method ThreeDFormatEffectiveData.getBevelColorMode() |حذف شد، property استفاده نشده |
 |Method com.aspose.slides.ChartSeriesGroup.getChart() |اضافه شد |
 |Inheritance of IParagraphFormatEffectiveData from ISlideComponent <br>Inheritance of IThreeDFormat from ISlideComponent |حذف شد |
 |Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletChar() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletFont() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletHeight() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletType() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getNumberedBulletStartWith() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getNumberedBulletStyle() |حذف شد به عنوان منسوخ |

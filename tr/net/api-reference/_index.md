@@ -11,12 +11,12 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Sunumları .NET içinde oluşturun, düzenleyin ve dönüştürün—PowerPoint gerekmez. Aspose.Slides, PPT, PPTX ve ODP'yi hızlı SVG/PDF dışa aktarımıyla destekler."
+description: "NET'te sunumları oluşturun, düzenleyin ve dönüştürün—PowerPoint gerekmez. Aspose.Slides, PPT, PPTX ve ODP'yi hızlı SVG/PDF dışa aktarımıyla destekler."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}}
 
-Aspose.Slides for .NET, .NET uygulamalarının Microsoft PowerPoint® ya da diğer programları kullanmadan sunum belgelerini okumasına ve yazmasına olanak sağlayan bir sınıf kitaplığıdır. Aspose.Slides for .NET, metin, şekiller, tablolar ve animasyonları yönetmeye, slaytlara ses ve video eklemeye, slaytları önizlemeye, slaytları SVG, PDF formatına dışa aktarmaya ve daha fazlasına izin verir.
+Aspose.Slides for .NET, Microsoft PowerPoint® veya diğerlerini kullanmadan .NET uygulamalarının sunum belgelerini okumasını ve yazmasını sağlayan bir sınıf kitaplığıdır. Aspose.Slides for .NET, metin, şekil, tablo ve animasyonları yönetmeye, slaytlara ses ve video eklemeye, slaytları önizlemeye, slaytları SVG, PDF formatına ve daha fazlasına dışa aktarmaya olanak tanır.
 
-En son API Referansı şu adreste bulunabilir: [Aspose.Slides for .NET API Referansı](https://reference.aspose.com/slides/tr/net).
+En son API Referansı şu adreste bulunabilir: [Aspose.Slides for .NET API Reference](https://reference.aspose.com/slides/tr/net).
 
 {{% /alert %}}

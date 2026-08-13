@@ -1,70 +1,73 @@
 ---
-title: إدارة خصائص عرض PowerPoint التقديمي في C#
-linktitle: خصائص العرض التقديمي
+title: إدارة خصائص العرض في .NET
+linktitle: خصائص العرض
 type: docs
 weight: 70
 url: /ar/net/presentation-properties/
 keywords:
-  - خصائص PowerPoint
-  - خصائص العرض التقديمي
-  - خصائص المستند
-  - خصائص مدمجة
-  - خصائص مخصصة
-  - خصائص متقدمة
-  - الوصول إلى الخصائص
-  - تعديل الخصائص
-  - إدارة الخصائص
-  - بيانات تعريف المستند
-  - تحرير البيانات الوصفية
-  - لغة التدقيق
-  - PowerPoint
-  - عرض تقديمي
-  - C#
-  - Csharp
-  - Aspose.Slides for .NET
-description: "تعلم كيفية إدارة وقراءة وتحرير خصائص مستندات PowerPoint بسهولة باستخدام Aspose.Slides for .NET في C#. عزز الإنتاجية وأتمت عملك!"
+- خصائص PowerPoint
+- خصائص العرض
+- خصائص المستند
+- خصائص مضمنة
+- خصائص مخصصة
+- خصائص متقدمة
+- إدارة الخصائص
+- تعديل الخصائص
+- بيانات المستند الوصفية
+- تحرير البيانات الوصفية
+- لغة التدقيق
+- اللغة الافتراضية
+- PowerPoint
+- OpenDocument
+- عرض
+- .NET
+- C#
+- Aspose.Slides
+description: "اتقن خصائص العرض في Aspose.Slides for .NET وسهّل البحث والعلامة التجارية وتدفق العمل في ملفات PowerPoint وOpenDocument الخاصة بك."
 ---
+## **المقدمة**
 
-## **نظرة عامة**
+Aspose.Slides for .NET يدعم نوعين من خصائص المستند: **المضمنة** و **المخصصة**. يمكن الوصول إلى كلا النوعين وإدارتهما بسهولة باستخدام API الخاص بـ Aspose.Slides for .NET.
 
-يدعم Aspose.Slides for .NET نوعين من خصائص المستند: **Built-in** و **Custom**. يمكن الوصول إلى كلا النوعين من الخصائص وإدارتهما بسهولة باستخدام API الخاص بـ Aspose.Slides for .NET.
+Aspose.Slides يتيح لك العمل مع خصائص مستند العرض من خلال واجهة [IDocumentProperties](https://reference.aspose.com/slides/ar/net/aspose.slides/idocumentproperties/) . يتم إرجاع كائن من هذه الواجهة عبر الخاصية [Presentation.DocumentProperties](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/documentproperties/) . توضح الأمثلة التالية كيفية قراءة وتعديل وإدارة هذه الخصائص.
 
-للتعامل مع خصائص المستند، يوفر Aspose.Slides الواجهة [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) التي يمكن الوصول إليها من خلال خاصية [Presentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/presentation/documentproperties/). يمكن للمطورين الاستفادة من واجهة [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) لكائن `Presentation` لقراءة، تعديل وإدارة خصائص العرض التقديمي بسهولة، كما هو موضح في الأمثلة أدناه.
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-يرجى ملاحظة أن حقول **Application** و **Producer** لا يمكن تعديلها، حيث ستظهر دائمًا القيم "Aspose Ltd." و "Aspose.Slides for .NET x.x.x".
+يرجى ملاحظة أنه لا يمكن تعديل حقلي **Application** و **Producer**، حيث سيظهر دائمًا "Aspose Ltd." و "Aspose.Slides for .NET x.x.x".
 
 {{% /alert %}} 
 
-## **إدارة خصائص العرض التقديمي**
+## **إدارة خصائص العرض**
 
-يوفر Microsoft PowerPoint ميزة لإضافة خصائص إلى ملفات العروض التقديمية. تسمح هذه الخصائص بتخزين معلومات مفيدة مع الملفات. هناك نوعان من خصائص المستند:
+يوفر Microsoft PowerPoint ميزة لإضافة خصائص إلى ملفات العروض. تسمح هذه الخصائص بتخزين معلومات مفيدة مع الملفات. هناك نوعان من خصائص المستند:
 
-- خصائص معرفة من النظام (built-in)
-- خصائص معرفة من المستخدم (custom)
+- خصائص معرفة بالنظام (مضمنة)
+- خصائص معرفة من قبل المستخدم (مخصصة)
 
-تحتوي الخصائص **Built-in** على معلومات عامة حول المستند، مثل عنوان المستند، اسم المؤلف، إحصائيات المستند، والمزيد.
+تحتوي الخصائص **المضمنة** على معلومات عامة عن المستند، مثل عنوان المستند، اسم المؤلف، إحصاءات المستند، وأكثر.
 
-تُعرّف الخصائص **Custom** من قبل المستخدمين كأزواج **Name/Value**، حيث يكون كل من الاسم والقيمة محددين من قبل المستخدم.
+تُعرّف الخصائص **المخصصة** من قبل المستخدم كأزواج **اسم/قيمة**، حيث يكون كل من الاسم والقيمة محددين من قبل المستخدم.
 
-باستخدام Aspose.Slides for .NET، يمكن للمطورين الوصول إلى كل من الخصائص built-in و custom وتعديلها.
+باستخدام Aspose.Slides for .NET، يمكن للمطورين الوصول إلى كل من الخصائص المضمنة والمخصصة وتعديلها.
 
-يسمح Microsoft PowerPoint للمستخدمين بإدارة خصائص المستند عن طريق النقر على أيقونة Office، ثم اختيار **File → Info → Properties**. بعد اختيار **Advanced Properties**، تظهر نافذة حوارية حيث يمكنك إدارة جميع خصائص المستند لملف العرض التقديمي.
+يسمح Microsoft PowerPoint للمستخدمين بإدارة خصائص المستند بالنقر على أيقونة Office، ثم اختيار **File → Info → Properties**. بعد اختيار **Advanced Properties**، يظهر حوار يمكنك من خلاله إدارة جميع خصائص المستند للملف العرض.
 
-في نافذة الحوار **Properties**، توجد عدة علامات تبويب، مثل **General** و **Summary** و **Statistics** و **Contents** و **Custom**. كل علامة تبويب توفر خيارات لتكوين أنواع محددة من المعلومات المتعلقة بملف PowerPoint. تُستخدم علامة التبويب **Custom** لإدارة الخصائص المعرفة من قبل المستخدم.
+في حوار **Properties**، توجد عدة علامات تبويب، مثل **General**, **Summary**, **Statistics**, **Contents**, و **Custom**. كل تبويب يوفر خيارات لتكوين أنواع محددة من المعلومات المتعلقة بملف PowerPoint. تُستخدم تبويب **Custom** لإدارة الخصائص المعرفة من قبل المستخدم.
 
-## **الوصول إلى الخصائص Built-in**
+## **الوصول إلى الخصائص المضمنة**
 
-هذه الخصائص، كما تُظهرها الواجهة [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/)، تشمل: **Creator** (المؤلف)، **Description**، **Keywords**، **Created** (تاريخ الإنشاء)، **Modified** (تاريخ التعديل)، **Printed** (تاريخ آخر طباعة)، **LastModifiedBy**، **SharedDoc** (يشير إلى ما إذا كان المستند مشتركًا بين منتجين مختلفين)، **PresentationFormat**، **Subject**، **Title**، والمزيد.
+هذه الخصائص، كما تُظهرها واجهة [IDocumentProperties](https://reference.aspose.com/slides/ar/net/aspose.slides/idocumentproperties/) ، تشمل: **Creator** (المؤلف)، **Description**, **Keywords**, **Created** (تاريخ الإنشاء)، **Modified** (تاريخ التعديل)، **Printed** (تاريخ آخر طباعة)، **LastModifiedBy**, **SharedDoc** (يشير إلى ما إذا كان المستند مشتركًا بين منتجين مختلفين)، **PresentationFormat**, **Subject**, **Title**, والمزيد.
+
 ```cs
-// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
+using Aspose.Slides;
+
+// إنشاء فئة Presentation التي تمثل ملف عرض.
 using Presentation presentation = new Presentation("AccessBuiltInProperties.pptx");
 
-// الحصول على مرجع إلى كائن من النوع IDocumentProperties المرتبط بالعرض التقديمي.
+// Get a reference to the object of type IDocumentProperties associated with the presentation.
 IDocumentProperties documentProperties = presentation.DocumentProperties;
 
-// عرض الخصائص المدمجة.
+// Display the Built-in properties.
 Console.WriteLine("Category : " + documentProperties.Category);
 Console.WriteLine("Content status : " + documentProperties.ContentStatus);
 Console.WriteLine("Creation date : " + documentProperties.CreatedTime);
@@ -81,37 +84,43 @@ Console.WriteLine("Subject : " + documentProperties.Subject);
 Console.WriteLine("Title : " + documentProperties.Title);
 ```
 
+## **تعديل الخصائص المضمنة**
 
-## **تعديل الخصائص Built-in**
+تعديل الخصائص المضمنة لملفات العرض سهل بقدر الوصول إليها. يمكنك ببساطة تعيين قيمة نصية لأي خاصية مرغوبة، وسيتم تحديث قيمة الخاصية. في المثال أدناه، نوضح كيفية تعديل خصائص المستند المضمنة لملف عرض.
 
-تعديل الخصائص built-in لملفات العرض التقديمي سهل بقدر الوصول إليها. يمكنك ببساطة تعيين قيمة نصية لأي خاصية مرغوبة، وسيتم تحديث قيمة الخاصية. في المثال أدناه، نوضح كيفية تعديل خصائص المستند built-in لملف عرض تقديمي.
 ```cs
-// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// إنشاء فئة Presentation التي تمثل ملف عرض.
 using Presentation presentation = new Presentation("ModifyBuiltInProperties.pptx");
 
-// الحصول على مرجع إلى كائن من النوع IDocumentProperties المرتبط بالعرض التقديمي.
+// الحصول على مرجع لكائن من النوع IDocumentProperties المرتبط بالعرض.
 IDocumentProperties documentProperties = presentation.DocumentProperties;
 
-// تعيين الخصائص المدمجة.
+// تعيين الخصائص المضمنة.
 documentProperties.Author = "Aspose.Slides for .NET";
 documentProperties.Title = "Manage PowerPoint Presentation Properties";
 documentProperties.Subject = "Modify Built-in Properties";
 documentProperties.Comments = "Aspose description";
 documentProperties.Manager = "Aspose manager";
 
-// حفظ العرض التقديمي إلى ملف.
+// حفظ العرض إلى ملف.
 presentation.Save("DocumentProperties_output.pptx", SaveFormat.Pptx);
 ```
 
+## **إضافة خصائص عرض مخصصة**
 
-## **إضافة خصائص عرض تقديمي مخصصة**
+تمكن خصائص العرض المخصصة المطورين من تخزين بيانات وصفية إضافية أو معلومات محددة داخل ملف العرض. يجعل Aspose.Slides إنشاء وإدارة هذه الخصائص المخصصة برمجيًا أمرًا سهلًا. توضح الأمثلة التالية كيفية إضافة خصائص مخصصة إلى عروضك.
 
-تتيح خصائص العرض التقديمي المخصصة للمطورين تخزين بيانات تعريفية إضافية أو معلومات محددة داخل ملف العرض التقديمي. يجعل Aspose.Slides من السهل إنشاء وإدارة هذه الخصائص المخصصة برمجيًا. توضح الأمثلة التالية كيفية إضافة خصائص مخصصة إلى عروضك التقديمية.
 ```cs
-// إنشاء كائن من فئة Presentation.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// إنشاء فئة Presentation.
 using Presentation presentation = new Presentation();
 
-// الحصول على مرجع إلى كائن من النوع IDocumentProperties المرتبط بالعرض التقديمي.
+// الحصول على مرجع لكائن من النوع IDocumentProperties المرتبط بالعرض.
 IDocumentProperties documentProperties = presentation.DocumentProperties;
 
 // إضافة خصائص مخصصة.
@@ -119,19 +128,22 @@ documentProperties["Reviewed by"] = "John Smith";
 documentProperties["Confidentiality level"] = "Internal";
 documentProperties["Document version"] = 2;
 
-// حفظ العرض التقديمي إلى ملف.
+// حفظ العرض إلى ملف.
 presentation.Save("CustomDocumentProperties_output.pptx", SaveFormat.Pptx);
 ```
 
-
 ## **الوصول إلى الخصائص المخصصة وتعديلها**
 
-يسمح Aspose.Slides أيضًا للمطورين بالوصول إلى الخصائص المخصّصة الموجودة وتعديل قيمها بسهولة. تساعد هذه الوظيفة في الحفاظ على بيانات تعريفية دقيقة وتدعم التحديثات الديناميكية بناءً على مدخلات المستخدم أو منطق العمل. توضح الأمثلة أدناه كيفية استرجاع وتحديث قيم الخصائص المخصّصة داخل عرض تقديمي.
+يسمح Aspose.Slides أيضًا للمطورين بالوصول إلى الخصائص المخصصة الموجودة وتعديل قيمها بسهولة. تساعد هذه الوظيفة في الحفاظ على بيانات وصفية دقيقة وتدعم التحديثات الديناميكية بناءً على إدخال المستخدم أو منطق الأعمال. توضح الأمثلة أدناه كيفية استرجاع وتحديث قيم الخصائص المخصصة داخل عرض.
+
 ```cs
-// إنشاء كائن من الفئة Presentation التي تمثل ملف PPTX.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// إنشاء فئة Presentation التي تمثل ملف PPTX.
 using Presentation presentation = new Presentation("AccessAndModifyProperties.pptx");
 
-// الحصول على مرجع إلى الكائن من النوع IDocumentProperties المرتبط بالعرض التقديمي.
+// الحصول على مرجع للكائن من النوع IDocumentProperties المرتبط بالعرض.
 IDocumentProperties documentProperties = presentation.DocumentProperties;
 
 // الوصول إلى الخصائص المخصصة وتعديلها.
@@ -140,7 +152,7 @@ for (int i = 0; i < documentProperties.CountOfCustomProperties; i++)
     string propertyName = documentProperties.GetCustomPropertyName(i);
     object propertyValue = documentProperties[propertyName];
 
-    // عرض اسم وقيمة الخاصية المخصصة.
+    // عرض اسم الخاصية المخصصة وقيمتها.
     Console.WriteLine("Custom property name : " + propertyName);
     Console.WriteLine("Custom property value : " + propertyValue);
 
@@ -148,27 +160,26 @@ for (int i = 0; i < documentProperties.CountOfCustomProperties; i++)
     documentProperties[propertyName] = "New Value " + (i + 1);
 }
 
-// حفظ العرض التقديمي إلى ملف.
+// حفظ العرض إلى ملف.
 presentation.Save("CustomProperties_output.pptx", SaveFormat.Pptx);
 ```
 
-
 ## **مثال حي**
 
-جرّب التطبيق عبر الإنترنت [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) لتتعرف على كيفية التعامل مع خصائص المستند باستخدام API الخاص بـ Aspose.Slides:
+جرّب التطبيق الإلكتروني [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/ar/metadata) لتعرف كيف تعمل مع خصائص المستند باستخدام API الخاص بـ Aspose.Slides:
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/ar/metadata)
 
 ## ***الأسئلة الشائعة**
 
-**كيف يمكنني إزالة خاصية built-in من عرض تقديمي؟**
+### كيف يمكنني إزالة خاصية مضمَّنة من عرض؟
 
-الخصائص built-in هي جزء لا يتجزأ من العرض التقديمي ولا يمكن إزالتها بالكامل. ومع ذلك، يمكنك إما تغيير قيمها أو تعيينها إلى فارغ إذا سمحت الخاصية المحددة بذلك.
+الخصائص المضمنة هي جزء أساسي من العرض ولا يمكن إزالتها بالكامل. ومع ذلك، يمكنك إما تغيير قيمها أو تعيينها إلى فارغ إذا سمحت الخاصية المحددة بذلك.
 
-**ماذا يحدث إذا قمت بإضافة خاصية مخصصة موجودة بالفعل؟**
+### ماذا يحدث إذا أضفت خاصية مخصصة موجودة مسبقًا؟
 
-إذا قمت بإضافة خاصية مخصصة موجودة بالفعل، سيتم استبدال قيمتها الحالية بالأخرى الجديدة. لا تحتاج إلى إزالة الخاصية أو فحصها مسبقًا، حيث يقوم Aspose.Slides تلقائيًا بتحديث قيمة الخاصية.
+إذا أضفت خاصية مخصصة موجودة مسبقًا، سيُستبدل قيمتها الحالية بالقيمة الجديدة. لا تحتاج إلى إزالة الخاصية أو التحقق منها مسبقًا، حيث يقوم Aspose.Slides بتحديث قيمة الخاصية تلقائيًا.
 
-**هل يمكنني الوصول إلى خصائص العرض التقديمي دون تحميله بالكامل؟**
+### هل يمكنني الوصول إلى خصائص العرض دون تحميل العرض بالكامل؟
 
-نعم، يمكنك الوصول إلى خصائص العرض التقديمي دون تحميله بالكامل باستخدام طريقة `GetPresentationInfo` من فئة [PresentationFactory](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/). ثم، استخدم طريقة `ReadDocumentProperties` المتوفرة عبر الواجهة [IPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/) لقراءة الخصائص بشكل فعال، مما يوفر الذاكرة ويعزز الأداء.
+نعم، يمكنك الوصول إلى خصائص العرض دون تحميل العرض بالكامل باستخدام طريقة `GetPresentationInfo` من فئة [PresentationFactory](https://reference.aspose.com/slides/ar/net/aspose.slides/presentationfactory/). ثم، استخدم طريقة `ReadDocumentProperties` المقدمة من واجهة [IPresentationInfo](https://reference.aspose.com/slides/ar/net/aspose.slides/ipresentationinfo/) لقراءة الخصائص بكفاءة، مما يوفر الذاكرة ويحسن الأداء.

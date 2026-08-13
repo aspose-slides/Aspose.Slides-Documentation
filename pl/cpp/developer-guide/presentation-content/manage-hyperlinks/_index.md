@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie hiperłączami prezentacji w C++
+title: Zarządzanie hiperłączami w prezentacjach w C++
 linktitle: Zarządzaj hiperłączem
 type: docs
 weight: 20
@@ -8,7 +8,7 @@ keywords:
 - dodaj URL
 - dodaj hiperłącze
 - utwórz hiperłącze
-- formatuj hiperłącze
+- sformatuj hiperłącze
 - usuń hiperłącze
 - zaktualizuj hiperłącze
 - hiperłącze tekstowe
@@ -22,20 +22,20 @@ keywords:
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Bezproblemowo zarządzaj hiperłączami w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla C++ — zwiększ interaktywność i wydajność pracy w ciągu kilku minut."
+description: "Bez problemu zarządzaj hiperłączami w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides for C++ — zwiększ interaktywność i wydajność pracy w ciągu kilku minut."
 ---
 ## **Wprowadzenie**
 
-Hyperlink to odwołanie do obiektu, danych lub miejsca w czymś. Są to typowe hiperłącza w prezentacjach PowerPoint:
+Hyperlink to odniesienie do obiektu, danych lub miejsca w czymś. Oto typowe hiperłącza w prezentacjach PowerPoint:
 
-* łącza do stron internetowych w tekstach, kształtach lub mediach
-* łącza do slajdów
+* Linki do stron internetowych w tekście, kształtach lub mediach
+* Linki do slajdów
 
 Aspose.Slides for C++ umożliwia wykonywanie wielu zadań związanych z hiperłączami w prezentacjach. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Możesz sprawdzić prosty, [darmowy edytor PowerPoint online.](https://products.aspose.app/slides/pl/editor)
+Możesz chcieć wypróbować prosty, [bezpłatny edytor PowerPoint online.](https://products.aspose.app/slides/pl/editor)
 
 {{% /alert %}} 
 
@@ -46,13 +46,30 @@ Możesz sprawdzić prosty, [darmowy edytor PowerPoint online.](https://products.
 Ten kod C++ pokazuje, jak dodać hiperłącze do strony internetowej w tekście:
 
 ``` cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
 auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 600.0f, 50.0f, false);
 shape->AddTextFrame(u"Aspose: File Format APIs");
 
 auto portionFormat = shape->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
-portionFormat->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+portionFormat->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 portionFormat->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
 portionFormat->set_FontHeight(32.0f);
 
@@ -64,6 +81,17 @@ presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 Ten przykładowy kod w C++ pokazuje, jak dodać hiperłącze do strony internetowej w kształcie:
 
 ``` cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
 auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 600.0f, 50.0f);
@@ -76,18 +104,33 @@ pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
 
 ### **Dodawanie hiperłączy URL do mediów**
 
-Aspose.Slides umożliwia dodawanie hiperłączy do obrazów, plików audio i wideo. 
+Aspose.Slides pozwala dodawać hiperłącza do obrazów, plików audio i wideo. 
 
 Ten przykładowy kod pokazuje, jak dodać hiperłącze do **obrazu**:
 
 ``` cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
 // Dodaje obraz do prezentacji
 auto image = pres->get_Images()->AddImage(File::ReadAllBytes(u"image.png"));
+// Tworzy ramkę obrazu na slajdzie 1 na podstawie wcześniej dodanego obrazu
 auto pictureFrame = shapes->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
 
-pictureFrame->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+pictureFrame->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 pictureFrame->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
 
 pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
@@ -96,12 +139,25 @@ pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
  Ten przykładowy kod pokazuje, jak dodać hiperłącze do **pliku audio**:
 
 ``` cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IAudioCollection.h>
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
 auto audio = pres->get_Audios()->AddAudio(File::ReadAllBytes(u"audio.mp3"));
 auto audioFrame = shapes->AddAudioFrameEmbedded(10.0f, 10.0f, 100.0f, 100.0f, audio);
 
-audioFrame->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+audioFrame->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 audioFrame->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
 
 pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
@@ -110,20 +166,33 @@ pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
  Ten przykładowy kod pokazuje, jak dodać hiperłącze do **wideo**:
 
 ``` cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/IVideoCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
 auto video = pres->get_Videos()->AddVideo(File::ReadAllBytes(u"video.avi"));
 auto videoFrame = shapes->AddVideoFrame(10.0f, 10.0f, 100.0f, 100.0f, video);
 
-videoFrame->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+videoFrame->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 videoFrame->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
 
 pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
 ```
 
-{{%  alert  title="Tip"  color="primary"  %}} 
+{{% alert title="Tip" color="info" %}} 
 
-Możesz zobaczyć *[Zarządzanie OLE](https://docs.aspose.com/slides/pl/cpp/manage-ole/)*.
+Możesz chcieć zobaczyć *[Zarządzanie OLE](https://docs.aspose.com/slides/pl/cpp/manage-ole/)*.
 
 {{% /alert %}}
 
@@ -136,6 +205,29 @@ Ponieważ hiperłącza umożliwiają dodawanie odwołań do obiektów lub miejsc
 Ten przykładowy kod pokazuje, jak utworzyć spis treści z hiperłączami:
 
 ``` cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IHyperlinkManager.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>();
 auto firstSlide = presentation->get_Slides()->idx_get(0);
 auto secondSlide = presentation->get_Slides()->AddEmptySlide(firstSlide->get_LayoutSlide());
@@ -164,17 +256,40 @@ contentTable->get_TextFrame()->get_Paragraphs()->Add(paragraph);
 
 ### **Kolor**
 
-Za pomocą metod [set_ColorSource()](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_hyperlink#ab739ae21025485366d44a3b72e0d7dac) i [get_ColorSource()](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_hyperlink#af5370af1ba9fba7b22fcc8a7ce344494) w interfejsie [IHyperlink](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_hyperlink) możesz ustawić kolor hiperłączy oraz odczytać informacje o kolorze hiperłączy. Funkcjonalność została wprowadzona po raz pierwszy w PowerPoint 2019, więc zmiany dotyczące tej właściwości nie mają zastosowania do starszych wersji PowerPointa.
+Za pomocą metod [set_ColorSource()](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_hyperlink#ab739ae21025485366d44a3b72e0d7dac) i [get_ColorSource()](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_hyperlink#af5370af1ba9fba7b22fcc8a7ce344494) w interfejsie [IHyperlink](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_hyperlink) możesz ustawić kolor hiperłączy oraz pobrać informację o kolorze z hiperłączy. Funkcjonalność została wprowadzona po raz pierwszy w PowerPoint 2019, więc zmiany dotyczące tej właściwości nie mają zastosowania w starszych wersjach PowerPoint.
 
-Ten przykładowy kod demonstruje operację, w której do tego samego slajdu dodano hiperłącza o różnych kolorach:
+Ten przykładowy kod demonstruje operację, w której hiperłącza o różnych kolorach zostały dodane do tego samego slajdu:
 
 ``` cpp
+#include <DOM/FillType.h>
+#include <DOM/Hyperlink.h>
+#include <DOM/HyperlinkColorSource.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>();
 auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
 auto shape1 = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 450.0f, 50.0f, false);
 shape1->AddTextFrame(u"This is a sample of colored hyperlink.");
 auto shape1PortionFormat = shape1->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
-shape1PortionFormat->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+shape1PortionFormat->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 shape1PortionFormat->get_HyperlinkClick()->set_ColorSource(HyperlinkColorSource::PortionFormat);
 shape1PortionFormat->get_FillFormat()->set_FillType(FillType::Solid);
 shape1PortionFormat->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
@@ -182,7 +297,7 @@ shape1PortionFormat->get_FillFormat()->get_SolidFillColor()->set_Color(Color::ge
 auto shape2 = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 450.0f, 50.0f, false);
 shape2->AddTextFrame(u"This is a sample of usual hyperlink.");
 auto shape2PortionFormat = shape2->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
-shape2PortionFormat->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+shape2PortionFormat->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 
 presentation->Save(u"presentation-out-hyperlink.pptx", SaveFormat::Pptx);
 ```
@@ -195,6 +310,22 @@ presentation->Save(u"presentation-out-hyperlink.pptx", SaveFormat::Pptx);
 Ten kod C++ pokazuje, jak usunąć hiperłącze z tekstu na slajdzie prezentacji:
 
 ``` cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IHyperlinkManager.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 auto slide = pres->get_Slides()->idx_get(0);
 for (const auto& shape : slide->get_Shapes())
@@ -221,6 +352,16 @@ pres->Save(u"pres-removed-hyperlinks.pptx", SaveFormat::Pptx);
 Ten kod C++ pokazuje, jak usunąć hiperłącze z kształtu na slajdzie prezentacji: 
 
 ``` cpp
+#include <DOM/IHyperlinkManager.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>(u"demo.pptx");
 auto slide = pres->get_Slides()->idx_get(0);
 for (const auto& shape : slide->get_Shapes())
@@ -232,9 +373,9 @@ pres->Save(u"pres-removed-hyperlinks.pptx", SaveFormat::Pptx);
 
 
 
-## **Modyfikowalne hiperłącze**
+## **Modyfikowalny hiperlink**
 
-Klasa [Hyperlink](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.hyperlink) jest modyfikowalna. Dzięki tej klasie możesz zmienić wartości dla następujących metod:
+Klasa [Hyperlink](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.hyperlink) jest modyfikowalna. Dzięki tej klasie możesz zmienić wartości następujących metod:
 
 - [IHyperlink::set_TargetFrame()](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_hyperlink#af2d9c5672517d98afe5868903a5a637f)
 - [IHyperlink::set_Tooltip()](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_hyperlink#adf1c8eee89bd292292293e58da79a6f2)
@@ -242,9 +383,26 @@ Klasa [Hyperlink](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides
 - [IHyperlink.set_HighlightClick()](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_hyperlink#ac48a0fa4106cff14cb5772269399587e)
 - [IHyperlink.set_StopSoundOnClick()](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_hyperlink#ad0db04da8009b329d2c79019642aaa43)
 
-Fragment kodu pokazuje, jak dodać hiperłącze do slajdu i później edytować jego podpowiedź:
+Fragment kodu pokazuje, jak dodać hiperłącze do slajdu i później edytować jego podpowiedź (tooltip):
 
 ``` cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
 auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 600.0f, 50.0f, false);
@@ -252,7 +410,7 @@ auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 600.0f, 
 shape->AddTextFrame(u"Aspose: File Format APIs");
 
 auto shapePortionFormat = shape->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
-shapePortionFormat->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+shapePortionFormat->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 shapePortionFormat->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
 shapePortionFormat->set_FontHeight(32.0f);
 
@@ -279,14 +437,14 @@ Klasa IHyperlinkQueries obsługuje następujące metody:
 
 ## **FAQ**
 
-**Jak mogę stworzyć nawigację wewnętrzną nie tylko do slajdu, ale do „sekcji” lub pierwszego slajdu sekcji?**
+### Jak mogę utworzyć nawigację wewnętrzną nie tylko do slajdu, ale do „sekcji” lub pierwszego slajdu sekcji?
 
-Sekcje w PowerPoint to grupowania slajdów; nawigacja technicznie celuje w konkretny slajd. Aby „nawigować do sekcji”, zazwyczaj linkuje się do jej pierwszego slajdu.
+Sekcje w PowerPoint są grupami slajdów; nawigacja technicznie prowadzi do konkretnego slajdu. Aby „nawigować do sekcji”, zazwyczaj odnośnik prowadzi do pierwszego slajdu tej sekcji.
 
-**Czy mogę dołączyć hiperłącze do elementów master slajdu, aby działało na wszystkich slajdach?**
+### Czy mogę przypiąć hiperłącze do elementów slajdu głównego, aby działało na wszystkich slajdach?
 
-Tak. Elementy master slajdu i układu obsługują hiperłącza. Takie linki pojawiają się na slajdach potomnych i są klikalne podczas pokazu slajdów.
+Tak. Elementy slajdu głównego i układu obsługują hiperłącza. Takie odnośniki pojawiają się na slajdach potomnych i są klikalne podczas pokazu.
 
-**Czy hiperłącza zostaną zachowane przy eksporcie do PDF, HTML, obrazów lub wideo?**
+### Czy hiperłącza będą zachowane podczas eksportu do PDF, HTML, obrazów lub wideo?
 
-W [PDF](/slides/pl/cpp/convert-powerpoint-to-pdf/) i [HTML](/slides/pl/cpp/convert-powerpoint-to-html/) tak — linki są zazwyczaj zachowywane. Przy eksporcie do [obrazów](/slides/pl/cpp/convert-powerpoint-to-png/) i [wideo](/slides/pl/cpp/convert-powerpoint-to-video/) klikalność nie zostanie przeniesiona ze względu na charakter tych formatów (klatki rastrowe/wideo nie obsługują hiperłączy).
+W przypadku [PDF](/slides/pl/cpp/convert-powerpoint-to-pdf/) i [HTML](/slides/pl/cpp/convert-powerpoint-to-html/) tak — odnośniki są zazwyczaj zachowywane. Podczas eksportu do [obrazów](/slides/pl/cpp/convert-powerpoint-to-png/) i [wideo](/slides/pl/cpp/convert-powerpoint-to-video/) możliwość klikania nie zostanie przeniesiona ze względu na charakter tych formatów (ramki rastrowe/wideo nie wspierają hiperłączy).

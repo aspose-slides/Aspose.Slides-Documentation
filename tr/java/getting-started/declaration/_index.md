@@ -14,25 +14,25 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java güven gereksinimleri, izinler ve barındırma sınırlamaları hakkında bilgi edinin, böylece PPT, PPTX ve ODP işleyen uygulamaları sunucularda güvenle dağıtabilirsiniz."
+description: "Aspose.Slides for Java güven gereksinimlerini, izinlerini ve barındırma sınırlamalarını öğrenin, böylece PPT, PPTX ve ODP işleyen uygulamaları sunucularda güvenli bir şekilde dağıtabilirsiniz."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Tüm Aspose Java bileşenleri Full Trust izin kümesini gerektirir. Bunun nedeni, Aspose Java bileşenlerinin yazı tipi ayrıştırma gibi belirli işlemler için sanal dizin dışındaki kayıt defteri ayarlarına ve sistem dosyalarına erişmesi gerekir. Ayrıca, Aspose Java Bileşenleri, birçok durumda Full Trust izin kümesini gerektiren temel Java sistem sınıflarına dayanır. 
+Tüm Aspose Java bileşenleri Full Trust izin kümesini gerektirir. Bunun nedeni, Aspose Java bileşenlerinin fontları ayrıştırma gibi belirli işlemler için kayıt defteri ayarlarına, sanal dizin dışındaki sistem dosyalarına erişmesi gerektiğidir. Ayrıca, Aspose Java Bileşenleri, birçok durumda Full Trust izin kümesini gerektiren temel Java sistem sınıflarına dayanır. 
 
 {{% /alert %}} 
 
-Internet Service Providers hosting multiple applications from different companies mostly enforce Medium Trust security level: 
+İnternet Servis Sağlayıcıları, farklı şirketlere ait birden fazla uygulamayı barındırırken genellikle Medium Trust güvenlik seviyesini uygular: 
 
-- OleDbPermission mevcut değil. Bu, veritabanlarına erişmek için ADO.NET yönetilen OLE DB veri sağlayıcısını kullanamayacağınız anlamına gelir.
-- EventLogPermission mevcut değil. Bu, Windows olay günlüğüne erişemeyeceğiniz anlamına gelir.
-- ReflectionPermission mevcut değil. Bu, yansıma kullanamayacağınız anlamına gelir.
-- RegistryPermission mevcut değil. Bu, kayıt defterine erişemeyeceğiniz anlamına gelir.
+- OleDbPermission mevcut değildir. Bu, veritabanlarına erişmek için ADO.NET yönetilen OLE DB veri sağlayıcısını kullanamayacağınız anlamına gelir.
+- EventLogPermission mevcut değildir. Bu, Windows olay günlüğüne erişemeyeceğiniz anlamına gelir.
+- ReflectionPermission mevcut değildir. Bu, yansıtma kullanamayacağınız anlamına gelir.
+- RegistryPermission mevcut değildir. Bu, kayıt defterine erişemeyeceğiniz anlamına gelir.
 - WebPermission kısıtlanmıştır. Bu, uygulamanızın yalnızca <trust> öğesinde tanımladığınız bir adres veya adres aralığıyla iletişim kurabileceği anlamına gelir.
 - FileIOPermission kısıtlanmıştır. Bu, yalnızca uygulamanızın sanal dizin hiyerarşisindeki dosyalara erişebileceğiniz anlamına gelir.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Yukarıda belirtilen nedenlerden dolayı, Aspose Java bileşenleri Full Trust dışındaki izin kümesini sağlayan sunucularda kullanılamaz. 
+Yukarıda belirtilen nedenlerden dolayı, Aspose Java bileşenleri Full Trust dışındaki bir izin kümesi veren sunucularda kullanılamaz. 
 
 {{% /alert %}}

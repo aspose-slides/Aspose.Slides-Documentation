@@ -1,40 +1,66 @@
 ---
-title: Конвертировать PowerPoint в PDF с комментариями
+title: Конвертировать презентации PowerPoint в PDF с примечаниями на C++
+linktitle: PowerPoint в PDF с примечаниями
 type: docs
 weight: 50
 url: /ru/cpp/convert-powerpoint-to-pdf-with-notes/
-keywords: "конвертировать powerpoint в pdf с комментариями"
-description: "Конвертируйте PowerPoint в PDF с комментариями. Конвертируйте PPT и PPTX в PDF с комментариями в Aspose.Slides."
+keywords:
+- конвертировать PowerPoint
+- конвертировать презентацию
+- конвертировать слайд
+- конвертировать PPT
+- конвертировать PPTX
+- PowerPoint в PDF
+- презентацию в PDF
+- слайд в PDF
+- PPT в PDF
+- PPTX в PDF
+- сохранить презентацию как PDF
+- сохранить PPT как PDF
+- сохранить PPTX как PDF
+- экспортировать PPT в PDF
+- экспортировать PPTX в PDF
+- примечания докладчика
+- PDF с примечаниями
+- C++
+- Aspose.Slides
+description: "Конвертировать форматы PPT и PPTX в PDF с примечаниями с помощью Aspose.Slides для C++. Сохраняет макеты и примечания докладчика для профессиональных презентаций."
 ---
+## **Обзор**
 
-Метод [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e), предоставленный классом Presentation, можно использовать для конвертации презентации PowerPoint PPT или PPTX в PDF с комментариями. Сохранение презентации Microsoft PowerPoint в PDF с комментариями с помощью Aspose.Slides для C++ занимает два шага. Вам просто нужно открыть презентацию и сохранить ее в формате PDF с комментариями. Приведенные ниже фрагменты кода обновляют образец презентации в формате PDF в режиме слайдов с комментариями:
+В этой статье вы узнаете, как конвертировать презентации PowerPoint в PDF с примечаниями докладчика с помощью Aspose.Slides. Это руководство охватит необходимые шаги и предоставит примеры кода, помогающие эффективно выполнить эту задачу. К концу статьи вы сможете:
 
-``` cpp
-// Путь к директории документов.
-String dataDir = GetDataPath();
+- Реализовать процесс конвертации, преобразующий слайды PowerPoint в PDF‑документы с сохранением примечаний докладчика.  
+- Настроить выходной PDF, чтобы убедиться, что примечания докладчика включены и отформатированы в соответствии с вашими требованиями.
 
-// Создание объекта Presentation, представляющего файл презентации 
-auto presentation = System::MakeObject<Presentation>(dataDir + u"SelectedSlides.pptx");
-auto auxPresentation = System::MakeObject<Presentation>();
+## **Конвертировать PowerPoint в PDF с заметками**
 
-auto slide = presentation->get_Slides()->idx_get(0);
+Метод `Save` класса [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/) может быть использован для преобразования презентации PPT или PPTX в PDF с примечаниями докладчика. С помощью Aspose.Slides вы просто загружаете презентацию, настраиваете параметры макета, используя класс [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/notescommentslayoutingoptions/) для включения примечаний докладчика, и затем сохраняете файл в формате PDF. Следующий фрагмент кода демонстрирует, как конвертировать пример презентации в PDF в представлении с примечаниями к слайдам.
 
-auxPresentation->get_Slides()->InsertClone(0, slide);
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/NotesPositions.h>
+#include <Export/PdfOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Установка типа и размера слайда 
-//auxPresentation->get_SlideSize()->SetSize(presentation->get_SlideSize()->get_Size().get_Width(), presentation->get_SlideSize()->get_Size().get_Height(), SlideSizeScaleType::EnsureFit);
-auxPresentation->get_SlideSize()->SetSize(612.F, 792.F, SlideSizeScaleType::EnsureFit);
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-auto pdfOptions = System::MakeObject<PdfOptions>();
-pdfOptions->get_NotesCommentsLayouting()->set_NotesPosition(NotesPositions::BottomFull);
+// Настроить параметры PDF для отображения примечаний докладчика.
+auto notesOptions = MakeObject<NotesCommentsLayoutingOptions>();
+notesOptions->set_NotesPosition(NotesPositions::BottomFull); // Отобразить примечания докладчика под слайдом.
+    
+auto pdfOptions = MakeObject<PdfOptions>();
+pdfOptions->set_SlidesLayoutOptions(notesOptions);
 
-auxPresentation->Save(dataDir + u"PDFnotes_out.pdf", SaveFormat::Pdf, pdfOptions);
+// Save the presentation to PDF with speaker notes.
+presentation->Save(u"output.pdf", SaveFormat::Pdf, pdfOptions);
 ```
 
-
-
-{{% alert color="primary" %}} 
-
-Вы можете ознакомиться с конвертером Aspose [PowerPoint в PDF](https://products.aspose.app/slides/conversion/powerpoint-to-pdf) или [PPT в PDF](https://products.aspose.app/slides/conversion/ppt-to-pdf). 
-
-{{% /alert %}} 
+{{% alert color="info" %}} 
+Возможно, вам будет интересно ознакомиться с онлайн‑конвертером Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/ru/conversion). 
+{{% /alert %}}

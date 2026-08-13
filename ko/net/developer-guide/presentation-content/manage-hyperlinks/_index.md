@@ -7,7 +7,7 @@ url: /ko/net/manage-hyperlinks/
 keywords:
 - URL 추가
 - 하이퍼링크 추가
-- 하이퍼링크 생성
+- 하이퍼링크 만들기
 - 하이퍼링크 서식 지정
 - 하이퍼링크 제거
 - 하이퍼링크 업데이트
@@ -23,28 +23,31 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET를 사용하여 PowerPoint 및 OpenDocument 프레젠테이션의 하이퍼링크를 손쉽게 관리하고, 몇 분 만에 인터랙티브 기능과 워크플로우를 향상시킵니다."
+description: "Aspose.Slides for .NET을 사용하여 PowerPoint 및 OpenDocument 프레젠테이션에서 하이퍼링크를 손쉽게 관리하고, 몇 분 안에 인터랙티브성과 작업 흐름을 향상시킵니다."
 ---
 ## **소개**
 
-하이퍼링크는 객체나 데이터, 혹은 어떤 위치에 대한 참조입니다. 다음은 PowerPoint 프레젠테이션에서 흔히 사용되는 하이퍼링크입니다:
+하이퍼링크는 개체·데이터·또는 위치에 대한 참조입니다. 다음은 PowerPoint 프레젠테이션에서 일반적으로 사용되는 하이퍼링크입니다:
 
-* 텍스트, 도형 또는 미디어 안의 웹사이트 링크
+* 텍스트, 도형 또는 미디어 내의 웹사이트 링크
 * 슬라이드 링크
 
-Aspose.Slides for .NET을 사용하면 프레젠테이션에서 하이퍼링크와 관련된 다양한 작업을 수행할 수 있습니다. 
+Aspose.Slides for .NET을 사용하면 프레젠테이션에서 하이퍼링크와 관련된 다양한 작업을 수행할 수 있습니다.
 
-{{% alert color="primary" %}} 
-Aspose 간단한 무료 온라인 PowerPoint 편집기를 확인해 보세요, [free online PowerPoint editor.](https://products.aspose.app/slides/ko/editor)
+{{% alert color="info" %}} 
+Aspose Simple을 확인해 보세요, [무료 온라인 PowerPoint 편집기.](https://products.aspose.app/slides/ko/editor)
 {{% /alert %}} 
 
 ## **URL 하이퍼링크 추가**
 
 ### **텍스트에 URL 하이퍼링크 추가**
 
-이 C# 코드는 텍스트에 웹사이트 하이퍼링크를 추가하는 방법을 보여줍니다:
+다음 C# 코드에서는 텍스트에 웹사이트 하이퍼링크를 추가하는 방법을 보여줍니다:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
 	IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -59,9 +62,12 @@ using (Presentation presentation = new Presentation())
 
 ### **도형 또는 프레임에 URL 하이퍼링크 추가**
 
-이 C# 샘플 코드는 도형에 웹사이트 하이퍼링크를 추가하는 방법을 보여줍니다:
+다음 C# 샘플 코드에서는 도형에 웹사이트 하이퍼링크를 추가하는 방법을 보여줍니다:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -77,9 +83,12 @@ using (Presentation pres = new Presentation())
 
 Aspose.Slides를 사용하면 이미지, 오디오 및 비디오 파일에 하이퍼링크를 추가할 수 있습니다. 
 
-이 샘플 코드는 **이미지**에 하이퍼링크를 추가하는 방법을 보여줍니다:
+다음 샘플 코드는 **이미지**에 하이퍼링크를 추가하는 방법을 보여줍니다:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     // 프레젠테이션에 이미지 추가
@@ -94,9 +103,12 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-이 샘플 코드는 **오디오 파일**에 하이퍼링크를 추가하는 방법을 보여줍니다:
+다음 샘플 코드는 **오디오 파일**에 하이퍼링크를 추가하는 방법을 보여줍니다:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IAudio audio = pres.Audios.AddAudio(File.ReadAllBytes("audio.mp3"));
@@ -109,9 +121,12 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-이 샘플 코드는 **비디오**에 하이퍼링크를 추가하는 방법을 보여줍니다:
+다음 샘플 코드는 **비디오**에 하이퍼링크를 추가하는 방법을 보여줍니다:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IVideo video = pres.Videos.AddVideo(File.ReadAllBytes("video.avi"));
@@ -124,17 +139,21 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-{{% alert title="팁" color="primary" %}} 
-다음 항목을 확인해 보세요 *[Manage OLE](https://docs.aspose.com/slides/ko/net/manage-ole/)*.
+{{%  alert  title="Tip"  color="info"  %}} 
+다음도 확인해 보세요 *[OLE 관리](https://docs.aspose.com/slides/ko/net/manage-ole/)*.
 {{% /alert %}}
 
-## **목차 생성을 위해 하이퍼링크 사용**
+## **하이퍼링크를 사용하여 목차 만들기**
 
-하이퍼링크는 객체나 위치에 대한 참조를 추가할 수 있으므로 목차를 만드는 데 사용할 수 있습니다. 
+하이퍼링크를 사용하면 개체나 위치에 대한 참조를 추가할 수 있으므로 이를 이용해 목차를 만들 수 있습니다. 
 
-이 샘플 코드는 하이퍼링크가 포함된 목차를 만드는 방법을 보여줍니다:
+다음 샘플 코드는 하이퍼링크가 포함된 목차를 만드는 방법을 보여줍니다:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation())
 {
     var firstSlide = presentation.Slides[0];
@@ -165,11 +184,15 @@ using (var presentation = new Presentation())
 
 ### **색상**
 
-[IHyperlink](https://reference.aspose.com/slides/ko/net/aspose.slides/ihyperlink) 인터페이스의 [ColorSource](https://reference.aspose.com/slides/ko/net/aspose.slides/ihyperlink/properties/colorsource) 속성을 사용하면 하이퍼링크 색상을 설정하고 색상 정보를 가져올 수 있습니다. 이 기능은 PowerPoint 2019에 처음 도입되었으며, 속성과 관련된 변경 사항은 이전 PowerPoint 버전에는 적용되지 않습니다.
+[IHyperlink](https://reference.aspose.com/slides/ko/net/aspose.slides/ihyperlink) 인터페이스의 [ColorSource](https://reference.aspose.com/slides/ko/net/aspose.slides/ihyperlink/properties/colorsource) 속성을 사용하면 하이퍼링크의 색상을 설정하고 하이퍼링크에서 색상 정보를 가져올 수 있습니다. 이 기능은 PowerPoint 2019에서 처음 도입되었으므로 해당 속성과 관련된 변경 사항은 이전 PowerPoint 버전에는 적용되지 않습니다.
 
-다음 샘플 코드는 동일한 슬라이드에 서로 다른 색상의 하이퍼링크가 추가된 예를 보여줍니다:
+다음 샘플 코드는 동일한 슬라이드에 서로 다른 색상의 하이퍼링크를 추가하는 작업을 보여줍니다:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -186,18 +209,20 @@ using (Presentation presentation = new Presentation())
     presentation.Save("presentation-out-hyperlink.pptx", SaveFormat.Pptx);
 }
 ```
-
 ### **소리**
 
-Aspose.Slides는 하이퍼링크에 소리를 부여할 수 있는 다음 속성을 제공합니다:
+Aspose.Slides는 하이퍼링크에 소리를 추가하여 강조할 수 있는 다음 속성을 제공합니다:
 - [IHyperlink.Sound](https://reference.aspose.com/slides/ko/net/aspose.slides/ihyperlink/properties/sound) 
 - [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/ko/net/aspose.slides/ihyperlink/properties/stopsoundonclick)
 
-#### **하이퍼링크 소리 추가**
+#### **하이퍼링크에 소리 추가**
 
-이 C# 코드는 소리를 재생하는 하이퍼링크를 설정하고 다른 하이퍼링크로 중지하는 방법을 보여줍니다:
+다음 C# 코드는 소리를 재생하는 하이퍼링크를 설정하고 다른 하이퍼링크로 중지시키는 방법을 보여줍니다:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
 	// 프레젠테이션 오디오 컬렉션에 새 오디오를 추가합니다
@@ -209,7 +234,7 @@ using (Presentation pres = new Presentation())
 	IShape firstShape = firstSlide.Shapes.AddAutoShape(ShapeType.SoundButton, 100, 100, 100, 50);
 	firstShape.HyperlinkClick = Hyperlink.NextSlide;
 
-	// 하이퍼링크가 "소리 없음"인지 확인합니다
+	// "No Sound"에 대한 하이퍼링크를 확인합니다
 	if (!firstShape.HyperlinkClick.StopSoundOnClick && firstShape.HyperlinkClick.Sound == null)
 	{
 		// 소리를 재생하는 하이퍼링크를 설정합니다
@@ -223,7 +248,7 @@ using (Presentation pres = new Presentation())
 	IShape secondShape = secondSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 100, 50);
 	secondShape.HyperlinkClick = Hyperlink.NoAction;
 
-	// 하이퍼링크 "이전 소리 중지" 플래그를 설정합니다
+	// 하이퍼링크 "Stop previous sound" 플래그를 설정합니다
 	secondShape.HyperlinkClick.StopSoundOnClick = true;
 
 	pres.Save("hyperlink-sound.pptx", SaveFormat.Pptx);
@@ -232,14 +257,16 @@ using (Presentation pres = new Presentation())
 
 #### **하이퍼링크 소리 추출**
 
-이 C# 코드는 하이퍼링크에 사용된 소리를 추출하는 방법을 보여줍니다:
+다음 C# 코드는 하이퍼링크에 사용된 소리를 추출하는 방법을 보여줍니다:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 {
 	ISlide firstSlide = pres.Slides[0];
 
-	// 첫 번째 도형의 하이퍼링크를 가져옵니다
+	// 첫 번째 도형 하이퍼링크를 가져옵니다
 	IHyperlink link = firstSlide.Shapes[0].HyperlinkClick;
 
 	if (link.Sound != null)
@@ -254,9 +281,12 @@ using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 
 ### **텍스트에서 하이퍼링크 제거**
 
-이 C# 코드는 프레젠테이션 슬라이드의 텍스트에서 하이퍼링크를 제거하는 방법을 보여줍니다:
+다음 C# 코드는 프레젠테이션 슬라이드의 텍스트에서 하이퍼링크를 제거하는 방법을 보여줍니다:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     ISlide slide = pres.Slides[0];
@@ -281,9 +311,12 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ### **도형 또는 프레임에서 하이퍼링크 제거**
 
-이 C# 코드는 프레젠테이션 슬라이드의 도형에서 하이퍼링크를 제거하는 방법을 보여줍니다: 
+다음 C# 코드는 프레젠테이션 슬라이드의 도형에서 하이퍼링크를 제거하는 방법을 보여줍니다: 
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("demo.pptx")) 
 { 
    ISlide slide = pres.Slides[0]; 
@@ -297,16 +330,19 @@ using (Presentation pres = new Presentation("demo.pptx"))
 
 ## **가변 하이퍼링크**
 
-[Hyperlink](https://reference.aspose.com/slides/ko/net/aspose.slides/hyperlink) 클래스는 가변입니다. 이 클래스를 사용하면 다음 속성의 값을 변경할 수 있습니다:
+[Hyperlink](https://reference.aspose.com/slides/ko/net/aspose.slides/hyperlink) 클래스는 가변적입니다. 이 클래스를 사용하면 다음 속성들의 값을 변경할 수 있습니다:
 
 - [IHyperlink.TargetFrame](https://reference.aspose.com/slides/ko/net/aspose.slides/ihyperlink/properties/targetframe)
 - [IHyperlink.Tooltip](https://reference.aspose.com/slides/ko/net/aspose.slides/ihyperlink/properties/tooltip)
 - [IHyperlink.History](https://reference.aspose.com/slides/ko/net/aspose.slides/ihyperlink/properties/history)
 - [IHyperlink.HighlightClick](https://reference.aspose.com/slides/ko/net/aspose.slides/ihyperlink/properties/highlightclick)
 
-다음 코드 조각은 슬라이드에 하이퍼링크를 추가하고 이후에 툴팁을 편집하는 방법을 보여줍니다:
+다음 코드 조각은 슬라이드에 하이퍼링크를 추가하고 나중에 툴팁을 편집하는 방법을 보여줍니다:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {   
    IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);    
@@ -323,9 +359,9 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **IHyperlinkQueries에서 지원되는 속성**
+## **IHyperlinkQueries 지원 속성**
 
-프레젠테이션, 슬라이드 또는 하이퍼링크가 정의된 텍스트에서 IHyperlinkQueries에 접근할 수 있습니다. 
+프레젠테이션, 슬라이드 또는 하이퍼링크가 정의된 텍스트에서 IHyperlinkQueries에 액세스할 수 있습니다. 
 
 - [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/ko/net/aspose.slides/ipresentation/properties/hyperlinkqueries)
 - [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/ko/net/aspose.slides/ibaseslide/properties/hyperlinkqueries)
@@ -340,14 +376,14 @@ IHyperlinkQueries 클래스는 다음 메서드와 속성을 지원합니다:
 
 ## **FAQ**
 
-**슬라이드뿐만 아니라 "섹션"이나 섹션의 첫 번째 슬라이드로 이동하는 내부 탐색을 만들려면 어떻게 해야 하나요?**
+### 슬라이드뿐만 아니라 "섹션"이나 섹션의 첫 번째 슬라이드로 이동하는 내부 탐색을 어떻게 만들 수 있나요?
 
-PowerPoint에서 섹션은 슬라이드의 그룹이며, 탐색은 기술적으로 특정 슬라이드를 목표로 합니다. "섹션으로 이동"하려면 일반적으로 해당 섹션의 첫 번째 슬라이드에 링크를 연결합니다.
+PowerPoint의 섹션은 슬라이드의 그룹이며, 탐색은 실제로 특정 슬라이드를 대상으로 합니다. "섹션으로 이동"하려면 일반적으로 해당 섹션의 첫 번째 슬라이드에 링크합니다.
 
-**마스터 슬라이드 요소에 하이퍼링크를 연결하면 모든 슬라이드에서 작동하게 할 수 있나요?**
+### 마스터 슬라이드 요소에 하이퍼링크를 연결하면 모든 슬라이드에서 작동하도록 할 수 있나요?
 
-예. 마스터 슬라이드 및 레이아웃 요소는 하이퍼링크를 지원합니다. 이러한 링크는 하위 슬라이드에 표시되며 슬라이드 쇼 중에 클릭할 수 있습니다.
+예. 마스터 슬라이드와 레이아웃 요소는 하이퍼링크를 지원합니다. 이러한 링크는 자식 슬라이드에 표시되며 슬라이드 쇼 중에 클릭할 수 있습니다.
 
-**PDF, HTML, 이미지 또는 비디오로 내보낼 때 하이퍼링크가 유지되나요?**
+### PDF, HTML, 이미지 또는 비디오로 내보낼 때 하이퍼링크가 보존됩니까?
 
-[PDF](/slides/ko/net/convert-powerpoint-to-pdf/)와 [HTML](/slides/ko/net/convert-powerpoint-to-html/)에서는 링크가 일반적으로 유지됩니다. [images](/slides/ko/net/convert-powerpoint-to-png/)와 [video](/slides/ko/net/convert-powerpoint-to-video/)로 내보낼 경우, 해당 포맷이 래스터 프레임/비디오이기 때문에 클릭 가능성이 유지되지 않습니다.
+PDF([PDF](/slides/ko/net/convert-powerpoint-to-pdf/))와 HTML([HTML](/slides/ko/net/convert-powerpoint-to-html/))에서는 일반적으로 링크가 보존됩니다. 이미지([images](/slides/ko/net/convert-powerpoint-to-png/))와 비디오([video](/slides/ko/net/convert-powerpoint-to-video/))로 내보낼 경우, 해당 포맷의 특성상(래스터 프레임/비디오는 하이퍼링크를 지원하지 않음) 클릭 가능성은 유지되지 않습니다.

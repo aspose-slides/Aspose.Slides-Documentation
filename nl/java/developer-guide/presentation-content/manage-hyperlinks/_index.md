@@ -1,5 +1,5 @@
 ---
-title: Beheer presentatie-hyperlinks in Java
+title: Beheer presentatie‑hyperlinks in Java
 linktitle: Beheer hyperlink
 type: docs
 weight: 20
@@ -16,36 +16,35 @@ keywords:
 - vormhyperlink
 - afbeeldinghyperlink
 - videohyperlink
-- aanpasbare hyperlink
+- wijzigbare hyperlink
 - PowerPoint
 - OpenDocument
 - presentatie
 - Java
 - Aspose.Slides
-description: "Beheer moeiteloos hyperlinks in PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor Java—verbeter interactiviteit en workflow in enkele minuten."
+description: "Beheer moeiteloos hyperlinks in PowerPoint- en OpenDocument‑presentaties met Aspose.Slides voor Java—verhoog de interactiviteit en workflow in enkele minuten."
 ---
-## **Inleiding**
+## **Introductie**
 
-Een hyperlink is een verwijzing naar een object, gegevens of een locatie in iets. Dit zijn veelvoorkomende hyperlinks in PowerPoint‑presentaties:
+Een hyperlink is een verwijzing naar een object, gegevens of een plaats in iets. Dit zijn veelvoorkomende hyperlinks in PowerPoint‑presentaties:
 
-* Links naar websites in tekst, vormen of media
-* Links naar dia’s
+* Links naar websites in teksten, vormen of media
+* Links naar dia's
 
-Aspose.Slides for Java stelt u in staat om tal van taken met betrekking tot hyperlinks in presentaties uit te voeren. 
+Aspose.Slides for Java stelt je in staat vele taken met betrekking tot hyperlinks in presentaties uit te voeren.
 
-{{% alert color="primary" %}} 
-
-U wilt misschien de eenvoudige, gratis online PowerPoint‑editor van Aspose bekijken.[free online PowerPoint editor.](https://products.aspose.app/slides/nl/editor)
-
+{{% alert color="info" %}} 
+Je wilt misschien Aspose Simple uitproberen, [gratis online PowerPoint‑editor.](https://products.aspose.app/slides/nl/editor)
 {{% /alert %}} 
 
-## **URL‑hyperlinks toevoegen**
+## **URL-hyperlinks toevoegen**
 
-### **URL‑hyperlinks toevoegen aan tekst**
+### **URL-hyperlinks aan tekst toevoegen**
 
-Deze Java‑code laat zien hoe u een website‑hyperlink aan een tekst toevoegt:
-
+Deze Java‑code laat zien hoe je een website‑hyperlink aan een tekst kunt toevoegen:
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
 	IAutoShape shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -62,11 +61,12 @@ try {
 }
 ```
 
-### **URL‑hyperlinks toevoegen aan vormen of frames**
+### **URL-hyperlinks aan vormen of kaders toevoegen**
 
-Dit voorbeeld in Java laat zien hoe u een website‑hyperlink aan een vorm toevoegt:
-
+Deze voorbeeldcode in Java laat zien hoe je een website‑hyperlink aan een vorm kunt toevoegen:
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -80,39 +80,43 @@ try {
 }
 ```
 
-### **URL‑hyperlinks toevoegen aan media**
+### **URL-hyperlinks aan media toevoegen**
 
-Aspose.Slides maakt het mogelijk om hyperlinks toe te voegen aan afbeeldingen, audio‑ en videobestanden. 
+Aspose.Slides stelt je in staat hyperlinks toe te voegen aan afbeeldingen, audio‑ en videobestanden. 
 
-Dit voorbeeld laat zien hoe u een hyperlink aan een **afbeelding** toevoegt:
-
+Deze voorbeeldcode laat zien hoe je een hyperlink aan een **afbeelding** kunt toevoegen:
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
-	// Voegt afbeelding toe aan de presentatie
+	// Voegt afbeelding toe aan presentatie
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
-    picture = pres.getImages().addImage(picture);
+        picture = pres.getImages().addImage(image);
     } finally {
-          if (image != null) image.dispose();
+        if (image != null) image.dispose();
     }
-	// Maakt afbeeldingsframe op dia 1 op basis van eerder toegevoegde afbeelding
+	// Maakt afbeeldingframe aan op dia 1 op basis van eerder toegevoegde afbeelding
 	IPictureFrame pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
 
 	pictureFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
 	pictureFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 
 	pres.save("pres-out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
-Dit voorbeeld laat zien hoe u een hyperlink aan een **audio‑bestand** toevoegt:
-
+Deze voorbeeldcode laat zien hoe je een hyperlink aan een **audio‑bestand** kunt toevoegen:
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IAudio audio = pres.getAudios().addAudio(Files.readAllBytes(Paths.get("audio.mp3")));
@@ -128,9 +132,13 @@ try {
 }
 ```
 
-Dit voorbeeld laat zien hoe u een hyperlink aan een **video** toevoegt:
-
+Deze voorbeeldcode laat zien hoe je een hyperlink aan een **video** kunt toevoegen:
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IVideo video = pres.getVideos().addVideo(Files.readAllBytes(Paths.get("video.avi")));
@@ -146,19 +154,19 @@ try {
 }
 ```
 
-{{%  alert  title="Tip"  color="primary"  %}} 
-
-U wilt misschien *[Manage OLE](/slides/nl/java/manage-ole/)* bekijken.
-
+{{%  alert  title="Tip"  color="info"  %}} 
+Je wilt misschien *[OLE beheren](/slides/nl/java/manage-ole/)* bekijken.
 {{% /alert %}}
 
 ## **Hyperlinks gebruiken om een inhoudsopgave te maken**
 
-Aangezien hyperlinks u in staat stellen om verwijzingen naar objecten of locaties toe te voegen, kunt u ze gebruiken om een inhoudsopgave te maken. 
+Aangezien hyperlinks je in staat stellen verwijzingen toe te voegen naar objecten of plaatsen, kun je ze gebruiken om een inhoudsopgave te maken. 
 
-Dit voorbeeld laat zien hoe u een inhoudsopgave met hyperlinks maakt:
-
+Deze voorbeeldcode laat zien hoe je een inhoudsopgave met hyperlinks kunt maken:
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	ISlide firstSlide = pres.getSlides().get_Item(0);
@@ -191,11 +199,13 @@ try {
 
 ### **Kleur**
 
-Met de [ColorSource](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Hyperlink#setColorSource-int-)‑eigenschap in de [IHyperlink](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IHyperlink)‑interface kunt u de kleur van hyperlinks instellen en ook de kleurinformatie van hyperlinks opvragen. De functie werd voor het eerst geïntroduceerd in PowerPoint 2019, dus wijzigingen met betrekking tot deze eigenschap zijn niet van toepassing op oudere PowerPoint‑versies.
+Met de eigenschap [ColorSource](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Hyperlink#setColorSource-int-) in de interface [IHyperlink](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IHyperlink) kun je de kleur voor hyperlinks instellen en ook de kleurinformatie van hyperlinks ophalen. De functie werd voor het eerst geïntroduceerd in PowerPoint 2019, dus wijzigingen die de eigenschap betreffen zijn niet van toepassing op oudere PowerPoint‑versies.
 
-Dit voorbeeld demonstreert een bewerking waarbij hyperlinks met verschillende kleuren aan dezelfde dia werden toegevoegd:
-
+Deze voorbeeldcode toont een bewerking waarbij hyperlinks met verschillende kleuren aan dezelfde dia werden toegevoegd:
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -220,17 +230,18 @@ try {
 
 ### **Hyperlinks uit tekst verwijderen**
 
-Deze Java‑code laat zien hoe u de hyperlink uit een tekst in een presentatiedia verwijdert:
-
+Deze Java‑code laat zien hoe je de hyperlink uit een tekst in een presentatiedia kunt verwijderen:
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
 	{
-		IAutoShape autoShape = (IAutoShape)shape;
-		if (autoShape != null)
+		if (shape instanceof IAutoShape)
 		{
+			IAutoShape autoShape = (IAutoShape)shape;
 			for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs())
 			{
 				for (IPortion portion : paragraph.getPortions())
@@ -247,12 +258,13 @@ try {
 }
 ```
 
-### **Hyperlinks uit vormen of frames verwijderen**
+### **Hyperlinks uit vormen of kaders verwijderen**
 
-Deze Java‑code laat zien hoe u de hyperlink uit een vorm in een presentatiedia verwijdert: 
-
+Deze Java‑code laat zien hoe je de hyperlink uit een vorm in een presentatiedia kunt verwijderen:
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
@@ -267,7 +279,7 @@ try {
 
 ## **Veranderbare hyperlink**
 
-De [Hyperlink](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Hyperlink)‑klasse is veranderbaar. Met deze klasse kunt u de waarden van de volgende eigenschappen wijzigen:
+De klasse [Hyperlink](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Hyperlink) is veranderbaar. Met deze klasse kun je de waarden van de volgende eigenschappen aanpassen:
 
 - [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
 - [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IHyperlink#setTooltip-java.lang.String-)
@@ -275,9 +287,10 @@ De [Hyperlink](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Hyp
 - [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IHyperlink#setHighlightClick-boolean-)
 - [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
 
-Het codefragment laat zien hoe u een hyperlink aan een dia toevoegt en later de tooltip bewerkt:
-
+De code‑fragment laat zien hoe je een hyperlink aan een dia kunt toevoegen en later de tooltip ervan kunt bewerken:
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -288,6 +301,9 @@ try {
 	portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 	portionFormat.setFontHeight(32);
 
+	// Wijzigt de tooltip van de hyperlink die al is toegevoegd
+	portionFormat.getHyperlinkClick().setTooltip("Aspose: the File Format APIs");
+
 	pres.save("presentation-out.pptx", SaveFormat.Pptx);
 } finally {
 	if (pres != null) pres.dispose();
@@ -296,13 +312,13 @@ try {
 
 ## **Ondersteunde eigenschappen in IHyperlinkQueries**
 
-U kunt IHyperlinkQueries benaderen vanuit een presentatie, dia of tekst waarvoor de hyperlink is gedefinieerd. 
+Je kunt [IHyperlinkQueries](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IHyperlinkQueries) benaderen vanuit een presentatie, dia of tekst waarvoor de hyperlink is gedefinieerd. 
 
 - [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IPresentation#getHyperlinkQueries--)
 - [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
 - [ITextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ITextFrame#getHyperlinkQueries--)
 
-De [IHyperlinkQueries](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IHyperlinkQueries)‑klasse ondersteunt deze methoden en eigenschappen: 
+De klasse [IHyperlinkQueries](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IHyperlinkQueries) ondersteunt deze methoden en eigenschappen: 
 
 - [IHyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
 - [IHyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
@@ -311,14 +327,14 @@ De [IHyperlinkQueries](https://reference.aspose.com/slides/nl/java/com.aspose.sl
 
 ## **FAQ**
 
-**Hoe kan ik interne navigatie creëren, niet alleen naar een dia, maar naar een “sectie” of de eerste dia van een sectie?**
+### Hoe kan ik interne navigatie maken, niet alleen naar een dia, maar naar een “sectie” of de eerste dia van een sectie?
 
-Secties in PowerPoint zijn groeperingen van dia’s; navigatie richt zich technisch op een specifieke dia. Om “naar een sectie te navigeren”, linkt u doorgaans naar de eerste dia van die sectie.
+Secties in PowerPoint zijn groeperingen van dia's; navigatie richt zich technisch op een specifieke dia. Om naar een “sectie” te navigeren, link je doorgaans naar de eerste dia ervan.
 
-**Kan ik een hyperlink aan elementen van de master‑dia koppelen zodat deze op alle dia’s werkt?**
+### Kan ik een hyperlink toevoegen aan elementen van de masterdia zodat deze op alle dia's werkt?
 
-Ja. Master‑dia‑ en layout‑elementen ondersteunen hyperlinks. Dergelijke links verschijnen op kind‑dia’s en zijn klikbaar tijdens de diavoorstelling.
+Ja. Masterdia‑ en layoutelementen ondersteunen hyperlinks. Dergelijke koppelingen verschijnen op kinddia's en zijn klikbaar tijdens de diavoorstelling.
 
-**Worden hyperlinks bewaard bij exporteren naar PDF, HTML, afbeeldingen of video?**
+### Worden hyperlinks behouden bij het exporteren naar PDF, HTML, afbeeldingen of video?
 
-In [PDF](/slides/nl/java/convert-powerpoint-to-pdf/) en [HTML](/slides/nl/java/convert-powerpoint-to-html/) ja – links worden over het algemeen bewaard. Bij exporteren naar [afbeeldingen](/slides/nl/java/convert-powerpoint-to-png/) en [video](/slides/nl/java/convert-powerpoint-to-video/) blijft de klikbaarheid verloren, omdat raster‑frames/video’s geen hyperlinks ondersteunen.
+In [PDF](/slides/nl/java/convert-powerpoint-to-pdf/) en [HTML](/slides/nl/java/convert-powerpoint-to-html/) ja – links worden over het algemeen behouden. Bij exporteren naar [afbeeldingen](/slides/nl/java/convert-powerpoint-to-png/) en [video](/slides/nl/java/convert-powerpoint-to-video/) is klikbaarheid niet meegeleverd vanwege de aard van die formaten (rasterframes/video ondersteunen geen hyperlinks).

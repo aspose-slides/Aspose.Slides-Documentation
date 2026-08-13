@@ -18,26 +18,38 @@ keywords:
 - Efekt motywu
 - PowerPoint
 - OpenDocument
-- prezentacja
+- Prezentacja
 - C++
 - Aspose.Slides
-description: "Zarządzaj motywami prezentacji w Aspose.Slides dla C++, aby tworzyć, dostosowywać i konwertować pliki PowerPoint z jednolitą identyfikacją wizualną."
+description: "Zarządzaj motywami prezentacji w Aspose.Slides dla C++, aby tworzyć, dostosowywać i konwertować pliki PowerPoint z zachowaniem spójnej identyfikacji wizualnej."
 ---
-## **Wprowadzenie**
+## **Wstęp**
 
-Motyw prezentacji definiuje właściwości elementów projektowych. Wybierając motyw prezentacji, w zasadzie wybierasz określony zestaw elementów wizualnych oraz ich właściwości.
+Motyw prezentacji definiuje właściwości elementów projektowych. Wybierając motyw prezentacji, zasadniczo wybierasz określony zestaw elementów wizualnych i ich właściwości.
 
 W programie PowerPoint motyw składa się z kolorów, [czcionek](/slides/pl/cpp/powerpoint-fonts/), [stylów tła](/slides/pl/cpp/presentation-background/) oraz efektów.
 
-![theme-constituents](theme-constituents.png)
+![theme-constitutes](theme-constitutes.png)
 
-## **Zmień kolor motywu**
+## **Zmienianie koloru motywu**
 
-Motyw PowerPoint używa określonego zestawu kolorów dla różnych elementów na slajdzie. Jeśli nie podoba Ci się kolorystyka, możesz ją zmienić, stosując nowe kolory w motywie. Aby umożliwić wybór nowego koloru motywu, Aspose.Slides udostępnia wartości w wyliczeniu [SchemeColor](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_color_format#aad82c1d2daf9d92e4d44a5a9b3bbcf28) .
+Motyw PowerPoint używa określonego zestawu kolorów dla różnych elementów na slajdzie. Jeśli nie podoba Ci się kolorystyka, możesz zmienić ją, stosując nowe kolory dla motywu. Aby umożliwić wybór nowego koloru motywu, Aspose.Slides udostępnia wartości w enumeracji [SchemeColor](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_color_format#aad82c1d2daf9d92e4d44a5a9b3bbcf28).
 
-Poniższy kod C++ pokazuje, jak zmienić kolor akcentu w motywie:
+Ten kod C++ pokazuje, jak zmienić kolor akcentu w motywie:
 
 ```c++
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+using namespace Aspose::Slides;
+
 auto pres = System::MakeObject<Presentation>();
 
 auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f);
@@ -46,40 +58,95 @@ shape->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_FillFormat()->get_SolidFillColor()->set_SchemeColor(SchemeColor::Accent4);
 ```
 
-Możesz określić efektywną wartość uzyskanego koloru w następujący sposób:
+Możesz w ten sposób określić efektywną wartość otrzymanego koloru:
 
 ```c++
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IFillFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+auto pres = System::MakeObject<Presentation>();
+auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f);
+
+shape->get_FillFormat()->set_FillType(FillType::Solid);
+shape->get_FillFormat()->get_SolidFillColor()->set_SchemeColor(SchemeColor::Accent4);
+
 auto fillEffective = shape->get_FillFormat()->GetEffective();
-    
+
 Console::WriteLine(u"{0} ({1})", fillEffective->get_SolidFillColor().get_Name(), fillEffective->get_SolidFillColor());
 // ff8064a2 (Kolor [A=255, R=128, G=100, B=162])
 ```
 
-Aby dodatkowo zilustrować operację zmiany koloru, tworzymy kolejny element i przypisujemy mu kolor akcentu (z początkowej operacji). Następnie zmieniamy kolor w motywie:
+Aby dodatkowo zademonstrować operację zmiany koloru, tworzymy kolejny element i przypisujemy mu kolor akcentu (z początkowej operacji). Następnie zmieniamy kolor w motywie:
 
 ```c++
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+#include <DOM/Theme/IColorScheme.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto pres = System::MakeObject<Presentation>();
+
 auto otherShape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10.0f, 120.0f, 100.0f, 100.0f);
-    
+
 otherShape->get_FillFormat()->set_FillType(FillType::Solid);
 otherShape->get_FillFormat()->get_SolidFillColor()->set_SchemeColor(SchemeColor::Accent4);
 
 pres->get_MasterTheme()->get_ColorScheme()->get_Accent4()->set_Color(Color::get_Red());
 ```
 
-Nowy kolor jest stosowany automatycznie w obu elementach.
+Nowy kolor zostaje automatycznie zastosowany do obu elementów.
 
-### **Ustaw kolor motywu z dodatkowej palety**
+### **Ustawianie koloru motywu z dodatkowej palety**
 
-Gdy stosujesz transformacje luminancji do głównego koloru motywu (1), powstają kolory z dodatkowej palety (2). Następnie możesz ustawiać i pobierać te kolory motywu.
+Gdy zastosujesz przekształcenia luminancji do głównego koloru motywu (1), powstają kolory z dodatkowej palety (2). Następnie możesz ustawiać i pobierać te kolory motywu.
 
 ![additional-palette-colors](additional-palette-colors.png)
 
-**1**‑ Główne kolory motywu  
-**2**‑ Kolory z dodatkowej palety.
+**1**- Główne kolory motywu  
+**2**- Kolory z dodatkowej palety.
 
-Poniższy kod C++ demonstruje operację, w której kolory dodatkowej palety są pobierane z głównego koloru motywu i następnie używane w kształtach:
+Ten kod C++ demonstruje operację, w której kolory dodatkowej palety są uzyskiwane z głównego koloru motywu, a następnie wykorzystywane w kształtach:
 
 ```c++
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
@@ -143,9 +210,9 @@ solidFillColor6->get_ColorTransform()->Add(ColorTransformOperation::MultiplyLumi
 presentation->Save(u"example.pptx", Export::SaveFormat::Pptx);
 ```
 
-### **Mapuj `SchemeColor` na kolory `IColorScheme`**
+### **Mapowanie `SchemeColor` na kolory `IColorScheme`**
 
-Podczas pracy z [SchemeColor](https://reference.aspose.com/slides/pl/cpp/aspose.slides.schemecolor/), możesz zauważyć, że zawiera następujące wartości kolorów motywu:
+Pracując z [SchemeColor](https://reference.aspose.com/slides/pl/cpp/aspose.slides/schemecolor/), możesz zauważyć, że zawiera następujące wartości kolorów motywu:
 
 `Background1`, `Background2`, `Text1` i `Text2`.
 
@@ -153,29 +220,46 @@ Jednak `Presentation::get_MasterTheme()::get_ColorScheme()` zwraca [IColorScheme
 
 `Dark1`, `Dark2`, `Light1` i `Light2`.
 
-Ta różnica dotyczy wyłącznie nazewnictwa. Te wartości odnoszą się do tych samych slotów kolorów motywu, a mapowanie jest stałe:
+Ta różnica dotyczy wyłącznie nazewnictwa. Wartości te odnoszą się do tych samych slotów kolorów motywu, a mapowanie jest stałe:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Nie istnieje dynamiczna konwersja między `Text`/`Background` a `Dark`/`Light`. Są to po prostu alternatywne nazwy tych samych kolorów motywu.
+Nie ma dynamicznej konwersji pomiędzy `Text`/`Background` a `Dark`/`Light`. Są to po prostu alternatywne nazwy tych samych kolorów motywu.
 
-Różnica w nazewnictwie wynika z terminologii Microsoft Office. Starsze wersje Office używały `Dark 1`, `Light 1`, `Dark 2` i `Light 2`, podczas gdy nowsze wersje interfejsu wyświetlają te same sloty jako `Text 1`, `Background 1`, `Text 2` i `Background 2`.
+Ta różnica w nazewnictwie pochodzi z terminologii Microsoft Office. Starsze wersje Office używały `Dark 1`, `Light 1`, `Dark 2` i `Light 2`, podczas gdy nowsze wersje interfejsu wyświetlają te same sloty jako `Text 1`, `Background 1`, `Text 2` i `Background 2`.
 
-## **Zmień czcionkę motywu**
+## **Zmienianie czcionki motywu**
 
-Aby umożliwić wybór czcionek dla motywów i innych celów, Aspose.Slides używa następujących specjalnych identyfikatorów (podobnych do tych używanych w PowerPoint):
+Aby umożliwić wybór czcionek dla motywów i innych celów, Aspose.Slides używa następujących specjalnych identyfikatorów (podobnych do używanych w PowerPoint):
 
-* **+mn-lt** – Czcionka tekstu podstawowego (Latin) (Minor Latin Font)
-* **+mj-lt** – Czcionka nagłówka (Latin) (Major Latin Font)
-* **+mn-ea** – Czcionka tekstu podstawowego (East Asian) (Minor East Asian Font)
-* **+mj-ea** – Czcionka nagłówka (East Asian) (Major East Asian Font)
+* **+mn-lt** - Czcionka treści Latin (Minor Latin Font)
+* **+mj-lt** - Czcionka nagłówka Latin (Major Latin Font)
+* **+mn-ea** - Czcionka treści East Asian (Minor East Asian Font)
+* **+mj-ea** - Czcionka nagłówka East Asian (Major East Asian Font)
 
-Poniższy kod C++ pokazuje, jak przypisać czcionkę Latin do elementu motywu:
+Ten kod C++ pokazuje, jak przypisać czcionkę Latin do elementu motywu:
 
 ```c++
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+using namespace Aspose::Slides;
+
+auto pres = System::MakeObject<Presentation>();
+
 auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f);
 
 auto paragraph = System::MakeObject<Paragraph>();
@@ -187,27 +271,46 @@ shape->get_TextFrame()->get_Paragraphs()->Add(paragraph);
 portion->get_PortionFormat()->set_LatinFont(System::MakeObject<FontData>(u"+mn-lt"));
 ```
 
-Poniższy kod C++ pokazuje, jak zmienić czcionkę motywu prezentacji:
+Ten kod C++ pokazuje, jak zmienić czcionkę motywu prezentacji:
 
 ```c++
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IFonts.h>
+#include <DOM/Presentation.h>
+#include <DOM/Theme/IFontScheme.h>
+#include <DOM/Theme/IMasterTheme.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+auto pres = MakeObject<Presentation>(u"pres.pptx");
+
 pres->get_MasterTheme()->get_FontScheme()->get_Minor()->set_LatinFont(MakeObject<FontData>(u"Arial"));
 ```
 
 Czcionka we wszystkich polach tekstowych zostanie zaktualizowana.
 
-{{% alert color="primary" title="TIP" %}} 
+{{% alert color="info" title="TIP" %}} 
 Możesz chcieć zobaczyć [czcionki PowerPoint](/slides/pl/cpp/powerpoint-fonts/).
 {{% /alert %}}
 
-## **Zmień styl tła motywu**
+## **Zmienianie stylu tła motywu**
 
-Domyślnie aplikacja PowerPoint udostępnia 12 wstępnie zdefiniowanych teł, ale tylko 3 z tych 12 teł są zapisywane w typowej prezentacji. 
+Domyślnie aplikacja PowerPoint udostępnia 12 predefiniowanych teł, ale tylko 3 z tych 12 teł są zapisywane w typowej prezentacji.
 
 ![todo:image_alt_text](presentation-design_8.png)
 
-Na przykład, po zapisaniu prezentacji w aplikacji PowerPoint, możesz uruchomić poniższy kod C++, aby dowiedzieć się, ile wstępnie zdefiniowanych teł znajduje się w prezentacji:
+Na przykład, po zapisaniu prezentacji w aplikacji PowerPoint, możesz uruchomić ten kod C++, aby dowiedzieć się, ile predefiniowanych teł znajduje się w prezentacji:
 
 ```c++
+#include <DOM/Presentation.h>
+#include <DOM/Theme/IFillFormatCollection.h>
+#include <DOM/Theme/IFormatScheme.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Theme;
+using namespace System;
+
 auto pres = MakeObject<Presentation>(u"pres.pptx");
         
 int32_t numberOfBackgroundFills = pres->get_MasterTheme()->get_FormatScheme()->get_BackgroundFillStyles()->get_Count();
@@ -216,34 +319,63 @@ Console::WriteLine(u"Number of background fill styles for theme is {0}", numberO
 ```
 
 {{% alert color="warning" %}} 
-Używając właściwości [BackgroundFillStyles](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.theme.format_scheme#aec29b94bc65619519a86a8d4607f5f7d) z klasy [FormatScheme](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.theme.i_format_scheme/), możesz dodać lub uzyskać dostęp do stylu tła w motywie PowerPoint. 
+Korzystając z właściwości [BackgroundFillStyles](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.theme.format_scheme#aec29b94bc65619519a86a8d4607f5f7d) klasy [FormatScheme](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.theme.i_format_scheme/), możesz dodać lub uzyskać dostęp do stylu tła w motywie PowerPoint. 
 {{% /alert %}}
 
-Poniższy kod C++ pokazuje, jak ustawić tło dla prezentacji:
+Ten kod C++ pokazuje, jak ustawić tło dla prezentacji:
 
 ```c++
+#include <DOM/IBackground.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+auto pres = MakeObject<Presentation>(u"pres.pptx");
+
 pres->get_Masters()->idx_get(0)->get_Background()->set_StyleIndex(2);
 ```
 
-**Podpowiedź indeksu**: 0 oznacza brak wypełnienia. Indeks zaczyna się od 1.
+**Przewodnik po indeksach**: 0 oznacza brak wypełnienia. Indeks zaczyna się od 1.
 
-{{% alert color="primary" title="TIP" %}} 
-Możesz chcieć zobaczyć [tło PowerPoint](/slides/pl/cpp/presentation-background/).
+{{% alert color="info" title="TIP" %}} 
+Możesz chcieć zobaczyć [Tło PowerPoint](/slides/pl/cpp/presentation-background/).
 {{% /alert %}}
 
-## **Zmień efekt motywu**
+## **Zmienianie efektu motywu**
 
-Motyw PowerPoint zazwyczaj zawiera 3 wartości dla każdej tablicy stylów. Tablice te są łączone w 3 efekty: subtelny, umiarkowany i intensywny. Na przykład, taki jest wynik po zastosowaniu efektów do konkretnego kształtu:
+Typowy motyw PowerPoint zawiera zazwyczaj 3 wartości dla każdej tablicy stylów. Tablice te są łączone w 3 efekty: subtelnY, umiarkowany i intensywny. Na przykład, oto wynik zastosowania efektów do konkretnego kształtu:
 
 ![todo:image_alt_text](presentation-design_10.png)
 
-Używając 3 właściwości ([FillStyles](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.theme.i_format_scheme#ab80b867174104e26e4824dc8585a1563), [LineStyles](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.theme.i_format_scheme#ae68a6d0a27dd2ada86a857ebde695ecd), [EffectStyles](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.theme.i_format_scheme#aba41300412c5c755fe82cf735bcf0f58)) z klasy [FormatScheme](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.theme.i_format_scheme/) możesz zmieniać elementy w motywie (nawet bardziej elastycznie niż opcje w PowerPoint).
+Używając 3 właściwości ([FillStyles](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.theme.i_format_scheme#ab80b867174104e26e4824dc8585a1563), [LineStyles](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.theme.i_format_scheme#ae68a6d0a27dd2ada86a857ebde695ecd), [EffectStyles](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.theme.i_format_scheme#aba41300412c5c755fe82cf735bcf0f58)) z klasy [FormatScheme](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.theme.i_format_scheme/) możesz zmienić elementy w motywie (jeszcze bardziej elastycznie niż opcje w PowerPoint).
 
-Poniższy kod C++ pokazuje, jak zmienić efekt motywu, modyfikując części elementów:
+Ten kod C++ pokazuje, jak zmienić efekt motywu, modyfikując części elementów:
 
 ```c++
+#include <DOM/Effects/IOuterShadow.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/Theme/IEffectStyle.h>
+#include <DOM/Theme/IEffectStyleCollection.h>
+#include <DOM/Theme/IFillFormatCollection.h>
+#include <DOM/Theme/IFormatScheme.h>
+#include <DOM/Theme/ILineFormatCollection.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto pres = System::MakeObject<Presentation>(u"Subtle_Moderate_Intense.pptx");
-        
+
 pres->get_MasterTheme()->get_FormatScheme()->get_LineStyles()->idx_get(0)->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
 
 pres->get_MasterTheme()->get_FormatScheme()->get_FillStyles()->idx_get(2)->set_FillType(FillType::Solid);
@@ -255,17 +387,20 @@ pres->get_MasterTheme()->get_FormatScheme()->get_EffectStyles()->idx_get(2)->get
 pres->Save(u"Design_04_Subtle_Moderate_Intense-out.pptx", SaveFormat::Pptx);
 ```
 
-Otrzymane zmiany w kolorze wypełnienia, typie wypełnienia, efekcie cienia itp.:
+Powstałe zmiany w kolorze wypełnienia, typie wypełnienia, efekcie cienia itp:
 
 ![todo:image_alt_text](presentation-design_11.png)
 
 ## **FAQ**
 
-**Czy mogę zastosować motyw tylko do jednego slajdu bez zmiany mastera?**  
-Tak. Aspose.Slides obsługuje nadpisywanie motywu na poziomie slajdu, więc możesz zastosować lokalny motyw tylko do tego slajdu, zachowując nienaruszony motyw główny (za pośrednictwem [SlideThemeManager](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/slidethememanager/)).
+### Czy mogę zastosować motyw do pojedynczego slajdu bez zmiany głównego?
 
-**Jaki jest najbezpieczniejszy sposób przeniesienia motywu z jednej prezentacji do drugiej?**  
-[Klonuj slajdy](/slides/pl/cpp/clone-slides/) razem z ich masterem do docelowej prezentacji. To zachowuje oryginalny master, układy i powiązany motyw, dzięki czemu wygląd pozostaje spójny.
+Tak. Aspose.Slides obsługuje nadpisywanie motywu na poziomie slajdu, więc możesz zastosować lokalny motyw tylko do tego slajdu, zachowując niezmieniony motyw główny (przez [SlideThemeManager](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/slidethememanager/)).
 
-**Jak mogę zobaczyć „efektywne” wartości po wszystkich dziedziczeniach i nadpisaniach?**  
-Użyj [widoki „effective”](/slides/pl/cpp/shape-effective-properties/) dla motywu/koloru/czcionki/efektu. Zwracają one rozstrzygnięte, ostateczne właściwości po zastosowaniu mastera oraz ewentualnych lokalnych nadpisań.
+### Jaki jest najbezpieczniejszy sposób przeniesienia motywu z jednej prezentacji do drugiej?
+
+Skopiuj slajdy (/slides/pl/cpp/clone-slides/) razem z ich masterem do docelowej prezentacji. To zachowuje oryginalny master, układy i powiązany motyw, więc wygląd pozostaje spójny.
+
+### Jak mogę zobaczyć „efektywne” wartości po wszystkich dziedziczeniach i nadpisaniach?
+
+Użyj widoków „effective” API (/slides/pl/cpp/shape-effective-properties/) dla motywu/koloru/czcionki/efektu. Zwracają one rozstrzygnięte, ostateczne właściwości po zastosowaniu mastera oraz wszelkich lokalnych nadpisań.

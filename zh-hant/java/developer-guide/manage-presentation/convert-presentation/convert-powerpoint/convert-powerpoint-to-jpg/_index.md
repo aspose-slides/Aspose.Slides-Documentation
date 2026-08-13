@@ -1,5 +1,5 @@
 ---
-title: 在 Java 中將 PPT 和 PPTX 轉換為 JPG
+title: 在 Java 中將 PPT 與 PPTX 轉換為 JPG
 linktitle: PowerPoint 轉 JPG
 type: docs
 weight: 60
@@ -11,8 +11,8 @@ keywords:
 - 轉換 PPT
 - 轉換 PPTX
 - PowerPoint 轉 JPG
-- 簡報轉 JPG
-- 投影片轉 JPG
+- 簡報 轉 JPG
+- 投影片 轉 JPG
 - PPT 轉 JPG
 - PPTX 轉 JPG
 - 將 PowerPoint 儲存為 JPG
@@ -20,39 +20,43 @@ keywords:
 - 將投影片儲存為 JPG
 - 將 PPT 儲存為 JPG
 - 將 PPTX 儲存為 JPG
-- 將 PPT 匯出為 JPG
-- 將 PPTX 匯出為 JPG
+- 匯出 PPT 為 JPG
+- 匯出 PPTX 為 JPG
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Java 於 Java 中將 PowerPoint（PPT、PPTX）投影片轉換為高品質 JPG 圖像，提供快速且可靠的程式碼範例。"
+description: "在 Java 中使用 Aspose.Slides for Java，透過快速且可靠的程式碼範例，將 PowerPoint（PPT、PPTX）投影片轉換為高品質的 JPG 圖像。"
 ---
 ## **簡介**
 
-將 PowerPoint 和 OpenDocument 簡報轉換為 JPG 圖像有助於共享投影片、優化效能，以及將內容嵌入網站或應用程式。Aspose.Slides 允許您將 PPTX、PPT 和 ODP 檔案轉換為高品質的 JPEG 圖像。本指南說明了不同的轉換方法。
+將 PowerPoint 與 OpenDocument 簡報轉換為 JPG 圖像有助於分享投影片、優化效能，並將內容嵌入網站或應用程式中。Aspose.Slides 讓您能將 PPTX、PPT 與 ODP 檔案轉換為高品質的 JPEG 圖像。本指南說明了不同的轉換方法。
 
-藉由這些功能，您可以輕鬆實作自己的簡報檢視器，並為每張投影片建立縮圖。若您希望防止投影片被複製或以唯讀模式展示簡報，這將相當有用。Aspose.Slides 允許您將整個簡報或特定投影片轉換為圖像格式。
+有了這些功能，您可以輕鬆實作自己的簡報檢視器，並為每張投影片產生縮圖。這在您想保護簡報投影片免於被複製，或以唯讀模式展示簡報時非常有用。Aspose.Slides 支援將整個簡報或特定投影片轉換為圖像格式。
 
 ## **將 PowerPoint PPT/PPTX 轉換為 JPG**
 
 以下是將 PPT/PPTX 轉換為 JPG 的步驟：
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/Presentation) 類型的實例。
-2. 從 [Presentation.getSlides()](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/Presentation#getSlides--) 集合中取得 [ISlide](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ISlide) 類型的投影片物件。
-3. 建立每張投影片的縮圖，然後將其轉換為 JPG。[**ISlide.getImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ISlide#getImage-float-float-) 方法用於取得投影片的縮圖，會回傳 [Images](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/Images) 物件。必須在所需的 [ISlide](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ISlide) 物件上呼叫 [getImage](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ISlide#getImage-com.aspose.slides.IRenderingOptions-float-float-) 方法，並將縮圖的比例傳入該方法。
-4. 取得投影片縮圖後，從縮圖物件呼叫 [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IImage#save(String formatName, int imageFormat)) 方法。將產生的檔案名稱與圖像格式傳入該方法。
+1. 建立一個 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/Presentation) 類型的實例。  
+2. 從 [Presentation.getSlides()](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/Presentation#getSlides--) 集合中取得 [ISlide](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ISlide) 類型的投影片物件。  
+3. 為每張投影片建立縮圖，然後將其轉換為 JPG。使用 [**ISlide.getImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ISlide#getImage-float-float-) 方法取得投影片的縮圖，該方法會回傳 [Images](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/Images) 物件。必須從所需的 [ISlide](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ISlide) 物件呼叫 [getImage](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ISlide#getImage-com.aspose.slides.IRenderingOptions-float-float-) 方法，並將縮圖的比例傳入。  
+4. 取得投影片縮圖後，從縮圖物件呼叫 [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IImage#save(String formatName, int imageFormat)) 方法。將產生的檔名與圖像格式傳入即可。  
 
-{{% alert color="primary" %}}
-**Note**: PPT/PPTX 轉 JPG 的轉換方式與 Aspose.Slides API 中其他類型的轉換不同。對於其他類型，通常使用 [**IPresentation.Save(String fname, int format, ISaveOptions options)**](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IPresentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) 方法，但此處需要使用 [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IImage#save(String formatName, int imageFormat)) 方法。
-{{% /alert %}}
+{{% alert color="info" %}}
+
+**注意**：PPT/PPTX 轉 JPG 的轉換方式與 Aspose.Slides API 中其他類型的轉換不同。對於其他類型，通常使用 [**IPresentation.Save(String fname, int format, ISaveOptions options)**](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IPresentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) 方法，但此處需要使用 [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IImage#save(String formatName, int imageFormat)) 方法。
+
+{{% /alert %}} 
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("PowerPoint-Presentation.pptx");
 try {
     for (ISlide sld : pres.getSlides()) {
-        // 建立完整比例的圖像
+        // 建立完整比例的影像
         IImage slideImage = sld.getImage(1f, 1f);
 
-        // 將圖像以 JPEG 格式儲存至磁碟
+        // 將影像以 JPEG 格式儲存至磁碟
         try {
               slideImage.save(String.format("Slide_%d.jpg", sld.getSlideNumber()), ImageFormat.Jpeg);
         } finally {
@@ -64,11 +68,13 @@ try {
 }
 ```
 
-## **將 PowerPoint PPT/PPTX 轉換為 JPG 並自訂尺寸**
+## **將 PowerPoint PPT/PPTX 轉換為具自訂尺寸的 JPG**
 
-若要變更產生的縮圖與 JPG 圖像的尺寸，您可以在呼叫 [**ISlide.getImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ISlide#getImage-float-float-) 方法時傳入 *ScaleX* 與 *ScaleY* 值：
+若要變更產生的縮圖與 JPG 圖像的尺寸，可在呼叫 [**ISlide.getImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ISlide#getImage-float-float-) 方法時傳入 *ScaleX* 與 *ScaleY* 值：
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("PowerPoint-Presentation.pptx");
 try {
     // 定義尺寸
@@ -80,10 +86,10 @@ try {
 
     for (ISlide sld : pres.getSlides())
     {
-        // 建立完整比例的圖像
+        // 建立完整比例的影像
         IImage slideImage = sld.getImage(ScaleX, ScaleY);
 
-        // 将图像以 JPEG 格式儲存至磁碟
+        // 將影像以 JPEG 格式儲存至磁碟
         try {
               slideImage.save(String.format("Slide_%d.jpg", sld.getSlideNumber()), ImageFormat.Jpeg);
         } finally {
@@ -95,15 +101,20 @@ try {
 }
 ```
 
-## **在將投影片儲存為圖像時渲染註解**
+## **儲存投影片為圖像時渲染批註**
 
-Aspose.Slides for Java 提供了在將投影片轉換為圖像時渲染簡報註解的功能。以下 Java 程式碼示範此操作：
+Aspose.Slides for Java 提供了在將投影片轉換為圖像時渲染批註的功能。以下 Java 程式碼示範了此操作：
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Dimension;
+
 Presentation pres = new Presentation("presentation.pptx");
 try {
     NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
     notesOptions.setNotesPosition(NotesPositions.BottomTruncated);
+    notesOptions.setCommentsPosition(CommentsPositions.Right);
+    notesOptions.setCommentsAreaWidth(200);
 
     IRenderingOptions opts = new RenderingOptions();
     opts.setSlidesLayoutOptions(notesOptions);
@@ -121,28 +132,30 @@ try {
 }
 ```
 
-{{% alert title="Tip" color="primary" %}}
-Aspose 提供一個 [免費的 Collage 網頁應用程式](https://products.aspose.app/slides/zh-hant/collage)。使用此線上服務，您可以合併 [JPG 到 JPG](https://products.aspose.app/slides/zh-hant/collage/jpg) 或 PNG 到 PNG 圖像，建立 [照片格子](https://products.aspose.app/slides/zh-hant/collage/photo-grid) 等。
+{{% alert title="Tip" color="info" %}}
 
-依照本篇文章中描述的相同原理，您可以將圖像由一種格式轉換為另一種格式。更多資訊請參閱以下頁面：將 [image 轉換為 JPG](https://products.aspose.com/slides/zh-hant/java/conversion/image-to-jpg/); 將 [JPG 轉換為 image](https://products.aspose.com/slides/zh-hant/java/conversion/jpg-to-image/); 將 [JPG 轉換為 PNG](https://products.aspose.com/slides/zh-hant/java/conversion/jpg-to-png/), 將 [PNG 轉換為 JPG](https://products.aspose.com/slides/zh-hant/java/conversion/png-to-jpg/); 將 [PNG 轉換為 SVG](https://products.aspose.com/slides/zh-hant/java/conversion/png-to-svg/), 將 [SVG 轉換為 PNG](https://products.aspose.com/slides/zh-hant/java/conversion/svg-to-png/)。
+Aspose 提供一個 [FREE Collage 網頁應用程式](https://products.aspose.app/slides/zh-hant/collage)。使用此線上服務，您可以合併 [JPG to JPG](https://products.aspose.app/slides/zh-hant/collage/jpg) 或 PNG to PNG 圖像，建立 [photo grids](https://products.aspose.app/slides/zh-hant/collage/photo-grid) 等。  
+
+遵循本文所述的相同原理，您也可以將圖像從一種格式轉換為另一種格式。更多資訊請參考以下頁面：轉換 [image to JPG](https://products.aspose.com/slides/zh-hant/java/conversion/image-to-jpg/)；轉換 [JPG to image](https://products.aspose.com/slides/zh-hant/java/conversion/jpg-to-image/)；轉換 [JPG to PNG](https://products.aspose.com/slides/zh-hant/java/conversion/jpg-to-png/)、轉換 [PNG to JPG](https://products.aspose.com/slides/zh-hant/java/conversion/png-to-jpg/)；轉換 [PNG to SVG](https://products.aspose.com/slides/zh-hant/java/conversion/png-to-svg/)、轉換 [SVG to PNG](https://products.aspose.com/slides/zh-hant/java/conversion/svg-to-png/)。
+
 {{% /alert %}}
 
 ## **常見問題**
 
-**此方法是否支援批次轉換？**
+### 此方法支援批次轉換嗎？
 
-是，Aspose.Slides 允許在單一操作中將多張投影片批次轉換為 JPG。
+是的，Aspose.Slides 允許在單次操作中將多張投影片批次轉換為 JPG。
 
-**轉換是否支援 SmartArt、圖表及其他複雜物件？**
+### 轉換是否支援 SmartArt、圖表及其他複雜物件？
 
-是，Aspose.Slides 會渲染所有內容，包括 SmartArt、圖表、表格、形狀等。但與 PowerPoint 相比，渲染精確度可能略有差異，特別是使用自訂或缺少的字型時。
+是的，Aspose.Slides 會渲染所有內容，包括 SmartArt、圖表、表格、圖形等。但與 PowerPoint 相比，渲染精確度可能會因使用自訂或缺少的字型而略有差異。
 
-**處理的投影片數量有任何限制嗎？**
+### 處理投影片的數量有任何限制嗎？
 
-Aspose.Slides 本身並未對可處理的投影片數量設定嚴格限制。但在處理大型簡報或高解析度圖像時，可能會遇到記憶體不足的錯誤。
+Aspose.Slides 本身對可處理的投影片數量沒有嚴格限制。然而，在處理大型簡報或高解析度圖像時，可能會遇到記憶體不足的錯誤。
 
-## **另請參閱**
+## **相關參考**
 
-另請參考其他將 PPT/PPTX 轉換為圖像的選項，例如：
+請參考其他將 PPT/PPTX 轉換為圖像的選項，例如：
 
-- [PPT/PPTX 轉換為 SVG](/slides/zh-hant/java/render-a-slide-as-an-svg-image/)。
+- [PPT/PPTX to SVG conversion](/slides/zh-hant/java/render-a-slide-as-an-svg-image/)

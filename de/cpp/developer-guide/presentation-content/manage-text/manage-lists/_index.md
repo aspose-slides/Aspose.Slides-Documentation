@@ -1,46 +1,67 @@
 ---
-title: Verwalten von Aufzählungs- und nummerierten Listen in Präsentationen in C++
+title: Verwalten von Aufzählungs- und Nummerierungslisten in Präsentationen in C++
 linktitle: Listen verwalten
 type: docs
 weight: 70
 url: /de/cpp/manage-lists/
 keywords:
-- Aufzählungszeichen
+- Aufzählung
 - Aufzählungsliste
 - nummerierte Liste
-- Symbol Aufzählungszeichen
-- Bild Aufzählungszeichen
-- benutzerdefiniertes Aufzählungszeichen
+- Symbol‑Aufzählung
+- Bild‑Aufzählung
+- benutzerdefinierte Aufzählung
 - mehrstufige Liste
-- Aufzählungszeichen erstellen
-- Aufzählungszeichen hinzufügen
+- Aufzählung erstellen
+- Aufzählung hinzufügen
 - Liste hinzufügen
 - PowerPoint
 - OpenDocument
 - Präsentation
 - C++
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Aufzählungs-, Bild-, mehrstufige und nummerierte Listen in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für C++ erstellen und formatieren."
+description: "Erfahren Sie, wie Sie Aufzählungs-, Bild-, mehrstufige und nummerierte Listen in PowerPoint- und OpenDocument‑Präsentationen mit Aspose.Slides für C++ erstellen und formatieren."
 ---
 ## **Übersicht**
 
-Aspose.Slides für C++ ermöglicht das Erstellen und Formatieren von Aufzählungs‑ und nummerierten Listen in PowerPoint‑ und OpenDocument‑Präsentationen. Ein Listeneintrag ist ein Absatz, dessen Aufzählungseinstellungen über das Absatzformat gesteuert werden.
+Aspose.Slides für C++ ermöglicht das Erstellen und Formatieren von Aufzählungs‑ und Nummerierungslisten in PowerPoint‑ und OpenDocument‑Präsentationen. Ein Listenelement ist ein Absatz, dessen Aufzählungseinstellungen über das Absatzformat gesteuert werden.
 
-Verwenden Sie die [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraph/get_paragraphformat/) Methode, um die listenbezogenen Einstellungen auf Absatzebene zu erhalten. Der Haupteinstiegspunkt ist [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphformat/get_bullet/), das ein [IBulletFormat](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibulletformat/) Objekt zurückgibt. Mit diesem Objekt können Sie den Aufzählungstyp, das Symbol, das Bild, die Farbe, die Größe, den Nummerierungsstil und die Anfangsnummer festlegen.
+Verwenden Sie die [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraph/get_paragraphformat/)‑Methode, um listenbezogene Einstellungen auf Absatzebene zu erhalten. Der zentrale Einstiegspunkt ist [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphformat/get_bullet/), der ein [IBulletFormat](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibulletformat/)‑Objekt zurückgibt. Mit diesem Objekt können Sie Aufzählungstyp, Symbol, Bild, Farbe, Größe, Nummerierungsstil und Startnummer festlegen.
 
 Dieser Artikel zeigt, wie man:
 
-- eine Aufzählungsliste mit einem benutzerdefinierten Symbol erstellen
-- eine Bild‑Aufzählung erstellen
-- eine mehrstufige Liste erstellen, indem die Absatztiefe festgelegt wird
-- eine nummerierte Liste erstellen
-- die Listformatierung in einer bestehenden Präsentation prüfen und ändern
+- eine Aufzählungsliste mit einem benutzerdefinierten Symbol erstellt
+- eine Bild‑Aufzählung erstellt
+- eine mehrstufige Liste durch Festlegen der Absatz‑Tiefe erstellt
+- eine nummerierte Liste erstellt
+- die Listformatierung in einer bestehenden Präsentation untersucht und ändert
 
 ## **Erstellen einer Aufzählungsliste**
 
-Um eine Aufzählungsliste zu erstellen, fügen Sie [Paragraph](https://reference.aspose.com/slides/de/cpp/aspose.slides/paragraph/)‑Objekte zu einem [ITextFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/) hinzu und setzen [IBulletFormat::set_Type](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibulletformat/set_type/) auf [BulletType::Symbol](https://reference.aspose.com/slides/de/cpp/aspose.slides/bullettype/). Anschließend können Sie [IBulletFormat::set_Char](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibulletformat/set_char/), [IBulletFormat::get_Color](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibulletformat/get_color/) und [IBulletFormat::set_Height](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibulletformat/set_height/) festlegen, um das Aussehen der Aufzählungszeichen zu steuern.
+Um eine Aufzählungsliste zu erstellen, fügen Sie einem [ITextFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/) [Paragraph](https://reference.aspose.com/slides/de/cpp/aspose.slides/paragraph/)-Objekte hinzu und setzen Sie [IBulletFormat::set_Type](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibulletformat/set_type/) auf [BulletType::Symbol](https://reference.aspose.com/slides/de/cpp/aspose.slides/bullettype/). Anschließend können Sie [IBulletFormat::set_Char](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibulletformat/set_char/), [IBulletFormat::get_Color](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibulletformat/get_color/) und [IBulletFormat::set_Height](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibulletformat/set_height/) verwenden, um das Aussehen der Aufzählung zu steuern.
+
+Der folgende C++‑Code demonstriert, wie man in einer Folie eine Aufzählungsliste erstellt:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto createParagraph = [](System::String text)
 {
     auto paragraph = System::MakeObject<Paragraph>();
@@ -77,13 +98,30 @@ presentation->Dispose();
 
 Das Ergebnis:
 
-![Die Symbol‑Aufzählungen](symbol_bullets.png)
+![The symbol bullets](symbol_bullets.png)
 
-## **Nummerierte Liste erstellen**
+## **Erstellen einer nummerierten Liste**
 
-Verwenden Sie nummerierte Listen, wenn die Reihenfolge der Elemente wichtig ist. Setzen Sie [IBulletFormat::set_Type](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibulletformat/set_type/) auf [BulletType::Numbered](https://reference.aspose.com/slides/de/cpp/aspose.slides/bullettype/). Sie können außerdem ein Nummerierungsformat mit [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) auswählen oder [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) festlegen, wenn die Liste mit einem anderen Wert als 1 beginnen soll.
+Verwenden Sie nummerierte Listen, wenn die Reihenfolge der Elemente wichtig ist. Setzen Sie [IBulletFormat::set_Type](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibulletformat/set_type/) auf [BulletType::Numbered](https://reference.aspose.com/slides/de/cpp/aspose.slides/bullettype/). Sie können zudem ein Nummerierungsformat mit [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) auswählen oder [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) setzen, wenn die Liste nicht bei 1 beginnen soll.
+
+Der folgende C++‑Code zeigt, wie man in einer Folie eine nummerierte Liste erstellt:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 90, 80);
@@ -112,23 +150,44 @@ presentation->Dispose();
 
 Das Ergebnis:
 
-![Die nummerierten Aufzählungen](numbered_bullets.png)
+![The numbered bullets](numbered_bullets.png)
 
-## **Bild‑Aufzählungszeichen erstellen**
+## **Erstellen einer Bild‑Aufzählung**
 
-Aspose.Slides ermöglicht es, ein reguläres Aufzählungszeichen durch ein Bild zu ersetzen. Bild‑Aufzählungszeichen funktionieren am besten mit einfachen Bildern, die auch bei kleiner Größe lesbar bleiben, z. B. Icons oder kleine transparente PNG‑Dateien.
+Aspose.Slides ermöglicht es, ein reguläres Aufzählungssymbol durch ein Bild zu ersetzen. Bild‑Aufzählungen eignen sich am besten für einfache Grafiken, die in kleiner Größe lesbar bleiben, z. B. Icons oder kleine transparente PNG‑Dateien.
 
-{{% alert color="primary" %}}
-Idealerweise sollten Sie, wenn Sie das reguläre Aufzählungszeichen durch ein Bild ersetzen wollen, eine einfache Grafik mit transparentem Hintergrund wählen. Solche Bilder eignen sich gut als benutzerdefinierte Aufzählungssymbole.
+{{% alert color="info" %}}
+Idealerweise wählen Sie, wenn Sie das reguläre Aufzählungssymbol durch ein Bild ersetzen möchten, eine einfache Grafik mit transparentem Hintergrund. Solche Bilder eignen sich gut als benutzerdefinierte Aufzählungssymbole.
 {{% /alert %}}
 
-Um ein Bild‑Aufzählungszeichen zu erstellen, fügen Sie ein Bild zu [IPresentation::get_Images](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentation/get_images/) hinzu und weisen das zurückgegebene [IPPImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/ippimage/)‑Objekt [IBulletFormat::get_Picture](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibulletformat/get_picture/) zu. Setzen Sie [IBulletFormat::set_Type](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibulletformat/set_type/) auf [BulletType::Picture](https://reference.aspose.com/slides/de/cpp/aspose.slides/bullettype/) , bevor Sie das Bild zuweisen.
+Um eine Bild‑Aufzählung zu erstellen, fügen Sie ein Bild zu [IPresentation::get_Images](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentation/get_images/) hinzu und weisen das zurückgegebene [IPPImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/ippimage/)‑Objekt [IBulletFormat::get_Picture](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibulletformat/get_picture/) zu. Setzen Sie [IBulletFormat::set_Type](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibulletformat/set_type/) auf [BulletType::Picture](https://reference.aspose.com/slides/de/cpp/aspose.slides/bullettype/), bevor Sie das Bild zuweisen.
 
-Angenommen, wir haben eine "image.png":
+Angenommen, wir haben eine „image.png“:
 
-![Ein Bild für die Aufzählungszeichen](picture_for_bullets.png)
+![A picture for the bullets](picture_for_bullets.png)
+
+Der folgende C++‑Code zeigt, wie man Bild‑Aufzählungen in einer Folie erstellt:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto createParagraph = [](System::String text, System::SharedPtr<IPPImage> image)
 {
     auto paragraph = System::MakeObject<Paragraph>();
@@ -167,13 +226,28 @@ presentation->Dispose();
 
 Das Ergebnis:
 
-![Die Bild‑Aufzählungszeichen](picture_bullets.png)
+![The picture bullets](picture_bullets.png)
 
-## **Mehrstufige Liste erstellen**
+## **Erstellen einer mehrstufigen Liste**
 
-Verwenden Sie [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphformat/set_depth/), um Listeneinträge auf verschiedenen Ebenen zu platzieren. Ebene 0 ist die oberste Ebene, Ebene 1 ist darunter verschachtelt usw.
+Verwenden Sie [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphformat/set_depth/), um Listenelemente auf verschiedenen Ebenen zu platzieren. Ebene 0 ist die oberste Ebene, Ebene 1 liegt darunter usw.
+
+Der folgende C++‑Code zeigt, wie man eine mehrstufige Aufzählungsliste erstellt:
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 260, 110);
@@ -207,13 +281,28 @@ presentation->Dispose();
 
 Das Ergebnis:
 
-![Die mehrstufige Liste](multilevel_list.png)
+![The multilevel list](multilevel_list.png)
 
-## **Vorhandene Liste ändern**
+## **Ändern einer bestehenden Liste**
 
-Um die Listformatierung in einer bestehenden Präsentation zu ändern, greifen Sie auf den gewünschten Absatz zu und aktualisieren dessen [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphformat/get_bullet/)‑Einstellungen. Die gleichen Eigenschaften, die zum Erstellen von Listen verwendet werden, können auch zum Prüfen oder Ändern von aus einer PPT-, PPTX- oder ODP‑Datei geladenen Listen genutzt werden.
+Um die Listformatierung in einer bestehenden Präsentation zu ändern, greifen Sie auf den gewünschten Absatz zu und aktualisieren Sie dessen [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphformat/get_bullet/)‑Einstellungen. Die gleichen Eigenschaften, die zum Erstellen von Listen verwendet werden, können auch zum Untersuchen oder Anpassen von Listen verwendet werden, die aus einer PPT-, PPTX‑ oder ODP‑Datei geladen wurden.
+
+Der folgende C++‑Code ändert den ersten Absatz in einem Textfeld, sodass er einen nummerierten Listenstil verwendet:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NumberedBulletStyle.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"input.pptx");
 auto slide = presentation->get_Slide(0);
 auto autoShape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
@@ -234,14 +323,14 @@ presentation->Dispose();
 
 ## **FAQ**
 
-**Können Aufzählungs‑ und nummerierte Listen in PDF oder Bilder exportiert werden?**
+### Können Aufzählungs‑ und Nummerierungslisten in PDF oder Bilder exportiert werden?
 
-Ja. Aspose.Slides bewahrt die Listformatierung, wenn das Zielformat die entsprechenden Textlayouts und Aufzählungsfunktionen unterstützt.
+Ja. Aspose.Slides bewahrt die Listformatierung, sofern das Zielformat die entsprechenden Textlayout‑ und Aufzählungsfunktionen unterstützt.
 
-**Kann ich Listen in bestehenden Präsentationen bearbeiten?**
+### Kann ich Listen in bestehenden Präsentationen bearbeiten?
 
 Ja. Laden Sie die Präsentation, greifen Sie auf den gewünschten Absatz zu, prüfen oder aktualisieren Sie dessen [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/de/cpp/aspose.slides/iparagraphformat/get_bullet/)‑Einstellungen und speichern Sie die Präsentation.
 
-**Können Listen nicht‑lateinischen Text enthalten?**
+### Können Listen nicht‑lateinischen Text enthalten?
 
-Ja. Der Text von Listeneinträgen kann Unicode‑Zeichen enthalten, sodass Sie Listen in mehrsprachigen Präsentationen erstellen können. Stellen Sie sicher, dass die in der Präsentation verwendeten Schriften die benötigten Zeichen unterstützen.
+Ja. Der Text von Listenelementen kann Unicode‑Zeichen enthalten, sodass Sie Listen in mehrsprachigen Präsentationen erstellen können. Stellen Sie sicher, dass die in der Präsentation verwendeten Schriftarten die benötigten Zeichen unterstützen.

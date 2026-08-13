@@ -1,14 +1,14 @@
 ---
-title: Vyhodnoťte Aspose.Slides
+title: Vyzkoušejte Aspose.Slides
 type: docs
 weight: 130
 url: /cs/java/evaluate-aspose-slides/
 keywords:
+- vyzkoušet Aspose.Slides
 - vyhodnocení Aspose.Slides
-- vyzkoušení Aspose.Slides
-- verze pro vyhodnocení
+- verze pro vyzkoušení
 - plná funkčnost
-- vyhodnocovací vodoznak
+- vodoznak pro vyzkoušení
 - nákup Aspose.Slides
 - omezení
 - PowerPoint
@@ -16,34 +16,34 @@ keywords:
 - prezentace
 - Java
 - Aspose.Slides
-description: "Vyzkoušete Aspose.Slides pro Javu a prozkoumejte funkce API pro prezentace PowerPoint (PPT, PPTX) a OpenDocument (ODP) - začněte svou bezplatnou zkušební verzi."
+description: "Vyzkoušejte Aspose.Slides pro Java a prozkoumejte funkce API pro prezentace PowerPoint (PPT, PPTX) a OpenDocument (ODP) - začněte svou bezplatnou zkušební verzi."
 ---
-## **Aspose.Slides – zkušební verze**
+## **Aspose.Slides Evaluace**
 
-Aspose.Slides můžete snadno stáhnout k vyzkoušení. Stažený soubor pro vyzkoušení je stejný jako soubor zakoupený. Vyzkoušející verze se jednoduše stane licencovanou, když přidáte několik řádků kódu pro načtení licence.
+Aspose.Slides můžete snadno stáhnout k vyzkoušení. Stáhnutí k vyzkoušení je stejné jako zakoupené stáhnutí. Verze pro vyzkoušení se jednoduše licencuje, když přidáte několik řádků kódu pro použití licence.
 
-Vyzkoušející verze Aspose.Slides (bez uvedené licence) poskytuje plnou funkčnost produktu, ale při otevření a uložení vloží vodoznak „Evaluation“ v horní části dokumentu a při extrahování textu z prezentací omezuje výstup na jeden snímek.
+Verze pro vyzkoušení Aspose.Slides (bez určené licence) poskytuje plnou funkčnost produktu, ale vloží vodoznak pro vyzkoušení v horní části dokumentu při otevření i uložení a omezuje na jeden snímek při extrahování textu z prezentačních snímků.
 
 ![todo:image_alt_text](evaluate-aspose-slides_1.png)
 
-{{% alert color="primary" %}} 
-Pokud chcete testovat Aspose.Slides bez omezení vyzkoušející verze, můžete také požádat o 30‑denní dočasnou licenci. Další informace najdete v článku [How to get a Temporary License?](https://purchase.aspose.com/temporary-license)
+{{% alert color="info" %}} 
+Pokud chcete testovat Aspose.Slides bez omezení verze pro vyzkoušení, můžete také požádat o 30denní dočasnou licenci. Viz [Jak získat dočasnou licenci?](https://purchase.aspose.com/temporary-license)
 {{% /alert %}}
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Mohu testovat více prezentací paralelně na různých vláknech v režimu vyzkoušení?**
+### Mohu testovat více prezentací paralelně napříč různými vlákny v režimu vyzkoušení?
 
 Ano. Můžete zpracovávat různé dokumenty paralelně; neměli byste sdílet stejný objekt prezentace [napříč vlákny](/slides/cs/java/multithreading/). Režim vyzkoušení to neovlivňuje.
 
-**Musím nainstalovat Microsoft PowerPoint pro vyzkoušení knihovny na serveru nebo v CI?**
+### Potřebuji nainstalovat Microsoft PowerPoint, abych mohl vyhodnotit knihovnu na serveru nebo v CI?
 
-Ne. Aspose.Slides je samostatný engine a nevyžaduje instalaci PowerPointu ani při vyzkoušení, ani v produkčním prostředí.
+Ne. Aspose.Slides je samostatný engine a nevyžaduje instalaci PowerPointu ani při vyhodnocení, ani v produkci.
 
-**Mohu plně otestovat konverzi PPT/PPTX do PDF a obrázků v režimu vyzkoušení?**
+### Mohu plně testovat konverzi PPT/PPTX na PDF a obrázky v režimu vyzkoušení?
 
 Ano. [Konvertory](/slides/cs/java/convert-presentation/) fungují; výstup bude obsahovat vodoznak.
 
-**Mohu použít dočasnou licenci pro zátěžové testování bez vodoznaku?**
+### Mohu použít dočasnou licenci pro zátěžové testování bez vodoznaku?
 
-Ano. 30‑denní dočasná licence odstraňuje omezení režimu vyzkoušení a umožňuje testování bez vodoznaku.
+Ano. 30denní dočasná licence odstraňuje omezení režimu vyzkoušení a umožňuje testování bez vodoznaku.

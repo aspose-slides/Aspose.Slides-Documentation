@@ -26,23 +26,42 @@ description: "Lär dig hur du skapar och formaterar punkt-, bild-, flernivå- oc
 
 Aspose.Slides för C++ låter dig skapa och formatera punkt- och numrerade listor i PowerPoint- och OpenDocument-presentationer. Ett listobjekt är ett stycke vars punktinställningar styrs via dess styckeformat.
 
-Använd metoden [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraph/get_paragraphformat/) för att komma åt listinställningar på stycknivå. Huvudingångspunkten är [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/get_bullet/), som returnerar ett [IBulletFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibulletformat/)‑objekt. Med detta objekt kan du ställa in punkttyp, symbol, bild, färg, storlek, numreringsstil och startnummer.
+Använd metoden [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraph/get_paragraphformat/) för att komma åt listinställningar på styckennivå. Huvudåtkomstpunkten är [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/get_bullet/), som returnerar ett [IBulletFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibulletformat/)‑objekt. Med detta objekt kan du ange punktens typ, symbol, bild, färg, storlek, numreringsstil och startnummer.
 
-Den här artikeln visar hur man:
+Denna artikel visar hur man:
 
 - skapa en punktlista med en anpassad symbol
 - skapa en bildpunkt
 - skapa en flernivålista genom att ange styckedjup
 - skapa en numrerad lista
-- undersöka och ändra listformatering i en befintlig presentation
+- inspektera och ändra listformatering i en befintlig presentation
 
 ## **Skapa en punktlista**
 
-För att skapa en punktlista, lägg till [Paragraph](https://reference.aspose.com/slides/sv/cpp/aspose.slides/paragraph/)‑objekt i ett [ITextFrame](https://reference.aspose.com/slides/sv/cpp/aspose.slides/itextframe/) och sätt [IBulletFormat::set_Type](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibulletformat/set_type/) till [BulletType::Symbol](https://reference.aspose.com/slides/sv/cpp/aspose.slides/bullettype/). Du kan sedan sätta [IBulletFormat::set_Char](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibulletformat/set_char/), [IBulletFormat::get_Color](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibulletformat/get_color/) och [IBulletFormat::set_Height](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibulletformat/set_height/) för att styra punktens utseende.
+För att skapa en punktlista, lägg till [Paragraph](https://reference.aspose.com/slides/sv/cpp/aspose.slides/paragraph/)‑objekt i ett [ITextFrame](https://reference.aspose.com/slides/sv/cpp/aspose.slides/itextframe/) och ange [IBulletFormat::set_Type](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibulletformat/set_type/) till [BulletType::Symbol](https://reference.aspose.com/slides/sv/cpp/aspose.slides/bullettype/). Du kan sedan ange [IBulletFormat::set_Char](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibulletformat/set_char/), [IBulletFormat::get_Color](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibulletformat/get_color/) och [IBulletFormat::set_Height](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibulletformat/set_height/) för att styra punktens utseende.
 
-Följande C++‑kod demonstrerar hur man skapar en punktlista i en bild:
+Följande C++‑kod demonstrerar hur du skapar en punktlista i en bild:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto createParagraph = [](System::String text)
 {
     auto paragraph = System::MakeObject<Paragraph>();
@@ -79,15 +98,30 @@ presentation->Dispose();
 
 Resultatet:
 
-![Symbolpunkterna](symbol_bullets.png)
+![Symbolpunkter](symbol_bullets.png)
 
 ## **Skapa en numrerad lista**
 
-Använd numrerade listor när ordningsföljden på objekten är viktig. Sätt [IBulletFormat::set_Type](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibulletformat/set_type/) till [BulletType::Numbered](https://reference.aspose.com/slides/sv/cpp/aspose.slides/bullettype/). Du kan också välja ett nummerformat med [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) eller sätta [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) när listan ska börja med ett annat värde än 1.
+Använd numrerade listor när ordningen på objekten är viktig. Ange [IBulletFormat::set_Type](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibulletformat/set_type/) till [BulletType::Numbered](https://reference.aspose.com/slides/sv/cpp/aspose.slides/bullettype/). Du kan också välja ett numreringsformat med [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) eller ange [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) när listan ska börja med ett annat värde än 1.
 
-Följande C++‑kod visar hur man skapar en numrerad lista i en bild:
+Följande C++‑kod visar hur du skapar en numrerad lista i en bild:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 90, 80);
@@ -120,23 +154,40 @@ Resultatet:
 
 ## **Skapa en bildpunkt**
 
-Aspose.Slides låter dig ersätta en vanlig punkt‑symbol med en bild. Bildpunkter fungerar bäst med enkla bilder som förblir läsbara i liten storlek, till exempel ikoner eller små transparenta PNG‑filer.
+Aspose.Slides låter dig ersätta en vanlig punktsymbol med en bild. Bildpunkter fungerar bäst med enkla bilder som förblir läsbara i liten storlek, såsom ikoner eller små transparenta PNG‑filer.
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 Idealiskt, om du planerar att ersätta den vanliga punkt‑symbolen med en bild, är det bäst att välja en enkel grafik med transparent bakgrund. Sådana bilder fungerar bra som anpassade punkt‑symboler.
-
-Kom ihåg att bilden kommer att skalas ner till en mycket liten storlek. Av den anledningen rekommenderar vi starkt att välja en bild som förblir tydlig och visuellt effektiv när den används som punkt i en lista.
 {{% /alert %}}
 
-För att skapa en bildpunkt, lägg till en bild i [IPresentation::get_Images](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ipresentation/get_images/) och tilldela det returnerade [IPPImage](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ippimage/)‑objektet till [IBulletFormat::get_Picture](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibulletformat/get_picture/). Sätt [IBulletFormat::set_Type](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibulletformat/set_type/) till [BulletType::Picture](https://reference.aspose.com/slides/sv/cpp/aspose.slides/bullettype/) innan du tilldelar bilden.
+För att skapa en bildpunkt, lägg till en bild i [IPresentation::get_Images](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ipresentation/get_images/) och tilldela det returnerade [IPPImage](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ippimage/)‑objektet till [IBulletFormat::get_Picture](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibulletformat/get_picture/). Ange [IBulletFormat::set_Type](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibulletformat/set_type/) till [BulletType::Picture](https://reference.aspose.com/slides/sv/cpp/aspose.slides/bullettype/) innan du tilldelar bilden.
 
 Anta att vi har en "image.png":
 
 ![En bild för punkterna](picture_for_bullets.png)
 
-Följande C++‑kod visar hur man skapar bildpunkter i en bild:
+Följande C++‑kod visar hur du skapar bildpunkter i en bild:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto createParagraph = [](System::String text, System::SharedPtr<IPPImage> image)
 {
     auto paragraph = System::MakeObject<Paragraph>();
@@ -175,15 +226,28 @@ presentation->Dispose();
 
 Resultatet:
 
-![Bildpunkterna](picture_bullets.png)
+![Bildpunkter](picture_bullets.png)
 
 ## **Skapa en flernivålista**
 
-Använd [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/set_depth/) för att placera listobjekt på olika nivåer. Nivå 0 är översta nivån, nivå 1 ligger inbäddad under den och så vidare.
+Använd [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/set_depth/) för att placera listobjekt på olika nivåer. Nivå 0 är toppnivån, nivå 1 är inbäddad under den, och så vidare.
 
-Följande C++‑kod visar hur man skapar en flernivåpunktlista:
+Följande C++‑kod visar hur du skapar en flernivåpunktlista:
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 260, 110);
@@ -221,11 +285,24 @@ Resultatet:
 
 ## **Ändra en befintlig lista**
 
-För att ändra listformatering i en befintlig presentation, få åtkomst till mål‑stycket och uppdatera dess [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/get_bullet/)‑inställningar. Samma egenskaper som används för att skapa listor kan också användas för att inspektera eller ändra listor som lästs in från en PPT-, PPTX- eller ODP‑fil.
+För att ändra listformatering i en befintlig presentation, hämta målstycket och uppdatera dess [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/get_bullet/)‑inställningar. Samma egenskaper som används för att skapa listor kan också användas för att inspektera eller modifiera listor som lästs in från en PPT-, PPTX- eller ODP‑fil.
 
 Följande C++‑kod ändrar det första stycket i en textram för att använda en numrerad liststil:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NumberedBulletStyle.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"input.pptx");
 auto slide = presentation->get_Slide(0);
 auto autoShape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
@@ -246,14 +323,14 @@ presentation->Dispose();
 
 ## **Vanliga frågor**
 
-**Kan punkt- och nummerlistor exporteras till PDF eller bilder?**
+### Kan punkt- och numrerade listor exporteras till PDF eller bilder?
 
-Ja. Aspose.Slides bevarar listformatering när målformatet stödjer motsvarande textlayout och punktfunktioner.
+Ja. Aspose.Slides bevarar listformatering när målformatet stödjer motsvarande textrendering och punktfunktioner.
 
-**Kan jag redigera listor i befintliga presentationer?**
+### Kan jag redigera listor i befintliga presentationer?
 
-Ja. Ladda presentationen, få åtkomst till mål‑stycket, inspektera eller uppdatera dess [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/get_bullet/)‑inställningar och spara presentationen.
+Ja. Ladda presentationen, hämta målstycket, inspektera eller uppdatera dess [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraphformat/get_bullet/)‑inställningar och spara presentationen.
 
-**Kan listor innehålla icke‑latinsk text?**
+### Kan listor innehålla icke‑latinsk text?
 
-Ja. Text i listobjekt kan innehålla Unicode‑tecken, så du kan skapa listor i flerspråkiga presentationer. Se till att de teckensnitt som används i presentationen stödjer de tecken du behöver.
+Ja. Texten i listobjekt kan innehålla Unicode‑tecken, så du kan skapa listor i flerspråkiga presentationer. Se till att de teckensnitt som används i presentationen stödjer de tecken du behöver.

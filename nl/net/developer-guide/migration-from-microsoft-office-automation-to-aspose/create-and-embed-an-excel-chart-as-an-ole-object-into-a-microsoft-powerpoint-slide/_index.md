@@ -16,31 +16,31 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Migreer van Microsoft Office-automatisering naar Aspose.Slides voor .NET en embed Excel-grafieken als OLE-objecten in PowerPoint (PPT, PPTX)-dia's in C#."
+description: "Migreer van Microsoft Office-automatisering naar Aspose.Slides voor .NET en embed Excel-grafieken als OLE-objecten in PowerPoint (PPT, PPTX)-slides in C#."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Grafieken zijn visuele weergaven van uw gegevens en worden veel gebruikt in presentatieslides. In dit artikel wordt de code getoond om een Excel‑grafiek als OLE‑object in een PowerPoint‑dia in te voegen en te embedden via [VSTO](/slides/nl/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) en [Aspose.Slides for .NET](/slides/nl/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
+Grafieken zijn visuele weergaven van uw gegevens en worden veel gebruikt in presentatieslides. Dit artikel toont u de code om een Excel‑grafiek als OLE‑object in een PowerPoint‑slide te maken en in te sluiten via programmeren met behulp van [VSTO](/slides/nl/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) en [Aspose.Slides for .NET](/slides/nl/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **Een Excel‑grafiek maken en insluiten**
-De twee code‑voorbeelden hieronder zijn lang en gedetailleerd omdat de beschreven taak complex is. U maakt een Microsoft Excel‑werkmap, maakt een grafiek en maakt vervolgens de Microsoft PowerPoint‑presentatie waarin u de grafiek gaat insluiten. OLE‑objecten bevatten koppelingen naar het oorspronkelijke document, zodat een gebruiker die dubbelklikt op het ingebedde bestand het bestand en de bijbehorende applicatie start.
+De twee onderstaande codevoorbeelden zijn lang en gedetailleerd omdat de taak die ze beschrijven complex is. U maakt een Microsoft Excel‑werkboek, maakt een grafiek en vervolgens de Microsoft PowerPoint‑presentatie waarin u de grafiek insluit. OLE‑objecten bevatten koppelingen naar het oorspronkelijke document, zodat een gebruiker die het ingesloten bestand dubbelklikt, het bestand en de bijbehorende toepassing start.
 ## **VSTO‑voorbeeld**
 Met VSTO worden de volgende stappen uitgevoerd:
 
-1. Maak een instantie van het Microsoft Excel ApplicationClass‑object.
-1. Maak een nieuwe werkmap met één blad.
-1. Voeg een grafiek toe aan het blad.
-1. Sla de werkmap op.
-1. Open de Excel‑werkmap die het werkblad met de grafiekgegevens bevat.
-1. Haal de ChartObjects‑collectie op voor het blad.
-1. Haal de te kopiëren grafiek op.
-1. Maak een Microsoft PowerPoint‑presentatie.
-1. Voeg een lege dia toe aan de presentatie.
-1. Kopieer de grafiek van het Excel‑werkblad naar het klembord.
-1. Plak de grafiek in de PowerPoint‑presentatie.
-1. Positioneer de grafiek op de dia.
-1. Sla de presentatie op.
+1. Maak een instantie van het Microsoft Excel ApplicationClass‑object.  
+1. Maak een nieuw werkboek met één blad erin.  
+1. Voeg een grafiek toe aan het blad.  
+1. Sla het werkboek op.  
+1. Open het Excel‑werkboek dat het werkblad met de grafiekgegevens bevat.  
+1. Haal de ChartObjects‑collectie op voor het blad.  
+1. Haal de te kopiëren grafiek op.  
+1. Maak een Microsoft PowerPoint‑presentatie.  
+1. Voeg een lege slide toe aan de presentatie.  
+1. Kopieer de grafiek van het Excel‑werkblad naar het klembord.  
+1. Plak de grafiek in de PowerPoint‑presentatie.  
+1. Positioneer de grafiek op de slide.  
+1. Sla de presentatie op.  
 
 ```c#
 CreateNewChartInExcel();
@@ -57,14 +57,14 @@ static void SetCellValue(xlNS.Worksheet targetSheet, string Cell, object Value)
 ```c#
 static void CreateNewChartInExcel()
 {
-    // Declareer een variabele voor de Excel ApplicationClass-instantie.
+    // Declareer een variabele voor de Excel ApplicationClass‑instantie.
     Microsoft.Office.Interop.Excel.ApplicationClass excelApplication = null;
 
-    // Declareer variabelen voor de parameters van de Workbooks.Open-methode.
+    // Declareer variabelen voor de parameters van de Workbooks.Open‑methode.
     string paramWorkbookPath = Application.StartupPath + @"\ChartData.xlsx";
     object paramMissing = Type.Missing;
 
-    // Declareer variabelen voor de Chart.ChartWizard-methode.
+    // Declareer variabelen voor de Chart.ChartWizard‑methode.
     object paramChartFormat = 1;
     object paramCategoryLabels = 0;
     object paramSeriesLabels = 0;
@@ -75,17 +75,17 @@ static void CreateNewChartInExcel()
 
     try
     {
-        // Maak een instantie van het Excel ApplicationClass-object.
+        // Maak een instantie van het Excel ApplicationClass‑object.
         excelApplication = new Microsoft.Office.Interop.Excel.ApplicationClass();
 
-        // Maak een nieuwe werkmap met 1 blad.
+        // Maak een nieuw werkboek met 1 blad.
         xlNS.Workbook newWorkbook = excelApplication.Workbooks.Add(xlNS.XlWBATemplate.xlWBATWorksheet);
 
-        // Verander de naam van het blad.
+        // Wijzig de naam van het blad.
         xlNS.Worksheet targetSheet = (xlNS.Worksheet)(newWorkbook.Worksheets[1]);
         targetSheet.Name = "Quarterly Sales";
 
-        // Voeg wat gegevens voor de grafiek toe aan het blad.
+        // Voeg enkele gegevens voor de grafiek in het blad in.
         //              A       B       C       D       E
         //     1                Q1      Q2      Q3      Q4
         //     2    N. America  1.5     2       1.5     2.5
@@ -125,7 +125,7 @@ static void CreateNewChartInExcel()
         // Haal het bereik op dat de grafiekgegevens bevat.
         xlNS.Range dataRange = targetSheet.get_Range("A1", "E5");
 
-        // Haal de ChartObjects-collectie op voor het blad.
+        // Haal de ChartObjects‑collectie op voor het blad.
         xlNS.ChartObjects chartObjects = (xlNS.ChartObjects)(targetSheet.ChartObjects(paramMissing));
 
         // Voeg een grafiek toe aan de collectie.
@@ -136,7 +136,7 @@ static void CreateNewChartInExcel()
         newChartObject.Chart.ChartWizard(dataRange, xlNS.XlChartType.xl3DColumn, paramChartFormat, xlNS.XlRowCol.xlRows,
             paramCategoryLabels, paramSeriesLabels, paramHasLegend, paramTitle, paramCategoryTitle, paramValueTitle, paramMissing);
 
-        // Sla de werkmap op.
+        // Sla het werkboek op.
         newWorkbook.SaveAs(paramWorkbookPath, paramMissing, paramMissing, paramMissing, paramMissing,
             paramMissing, xlNS.XlSaveAsAccessMode.xlNoChange, paramMissing, paramMissing, paramMissing, paramMissing, paramMissing);
     }
@@ -148,7 +148,7 @@ static void CreateNewChartInExcel()
     {
         if (excelApplication != null)
         {
-            // Sluit Excel af.
+            // Sluit Excel.
             excelApplication.Quit();
         }
     }
@@ -158,13 +158,13 @@ static void CreateNewChartInExcel()
 ```c#
 static void UseCopyPaste()
 {
-    // Declareer variabelen om referenties naar PowerPoint-objecten vast te leggen.
+    // Declareer variabelen om referenties naar PowerPoint-objecten vast te houden.
     pptNS.ApplicationClass powerpointApplication = null;
     pptNS.Presentation pptPresentation = null;
     pptNS.Slide pptSlide = null;
     pptNS.ShapeRange shapeRange = null;
 
-    // Declareer variabelen om referenties naar Excel-objecten vast te leggen.
+    // Declareer variabelen om referenties naar Excel-objecten vast te houden.
     xlNS.ApplicationClass excelApplication = null;
     xlNS.Workbook excelWorkBook = null;
     xlNS.Worksheet targetSheet = null;
@@ -183,7 +183,7 @@ static void UseCopyPaste()
         // Maak een instantie van Excel.
         excelApplication = new xlNS.ApplicationClass();
 
-        // Open de Excel-werkmap die het werkblad met de grafiekgegevens bevat.
+        // Open het Excel-werkboek dat het werkblad met de grafiekgegevens bevat.
         excelWorkBook = excelApplication.Workbooks.Open(paramWorkbookPath,
             paramMissing, paramMissing, paramMissing, paramMissing, paramMissing,
             paramMissing, paramMissing, paramMissing, paramMissing, paramMissing,
@@ -206,7 +206,7 @@ static void UseCopyPaste()
             powerpointApplication.Presentations.Add(
             Microsoft.Office.Core.MsoTriState.msoTrue);
 
-        // Voeg een lege dia toe aan de presentatie.
+        // Voeg een lege slide toe aan de presentatie.
         pptSlide =
             pptPresentation.Slides.Add(1, pptNS.PpSlideLayout.ppLayoutBlank);
 
@@ -216,7 +216,7 @@ static void UseCopyPaste()
         // Plak de grafiek in de PowerPoint-presentatie.
         shapeRange = pptSlide.Shapes.Paste();
 
-        // Positioneer de grafiek op de dia.
+        // Positioneer de grafiek op de slide.
         shapeRange.Left = 60;
         shapeRange.Top = 100;
 
@@ -229,18 +229,18 @@ static void UseCopyPaste()
     }
     finally
     {
-        // Maak het PowerPoint-dias-object vrij.
+        // Maak het PowerPoint-slide-object vrij.
         shapeRange = null;
         pptSlide = null;
 
-        // Sluit en maak het Presentation-object vrij.
+        // Sluit en maak het Presentatie-object vrij.
         if (pptPresentation != null)
         {
             pptPresentation.Close();
             pptPresentation = null;
         }
 
-        // Sluit PowerPoint en maak het ApplicationClass-object vrij.
+        // Sluit PowerPoint af en maak het ApplicationClass-object vrij.
         if (powerpointApplication != null)
         {
             powerpointApplication.Quit();
@@ -252,14 +252,14 @@ static void UseCopyPaste()
         chartObjects = null;
         existingChartObject = null;
 
-        // Sluit en maak het Excel-werkmap-object vrij.
+        // Sluit en maak het Excel-werkboek-object vrij.
         if (excelWorkBook != null)
         {
             excelWorkBook.Close(false, paramMissing, paramMissing);
             excelWorkBook = null;
         }
 
-        // Sluit Excel en maak het ApplicationClass-object vrij.
+        // Sluit Excel af en maak het ApplicationClass-object vrij.
         if (excelApplication != null)
         {
             excelApplication.Quit();
@@ -277,46 +277,50 @@ static void UseCopyPaste()
 
 
 
-## **Aspose.Slides voor .NET‑voorbeeld**
-Met Aspose.Slides voor .NET worden de volgende stappen uitgevoerd:
+## **Aspose.Slides for .NET‑voorbeeld**
+Met Aspose.Slides for .NET worden de volgende stappen uitgevoerd:
 
-1. Maak een werkmap met Aspose.Cells voor .NET.
-1. Maak een Microsoft Excel‑grafiek.
-1. Stel de OLE‑grootte van de Excel‑grafiek in.
-1. Haal een afbeelding van de grafiek op.
-1. Integreer de Excel‑grafiek als OLE‑object in een PPTX‑presentatie met behulp van Aspose.Slides voor .NET.
-1. Vervang de afbeelding van het gewijzigde object door de afbeelding die in stap 3 is verkregen om het probleem met gewijzigde objecten op te lossen.
-1. Schrijf de uitvoerpresentatie naar schijf in PPTX‑formaat.
-
-
+1. Maak een werkboek met Aspose.Cells for .NET.  
+1. Maak een Microsoft Excel‑grafiek.  
+1. Stel de OLE‑grootte van de Excel‑grafiek in.  
+1. Haal een afbeelding van de grafiek op.  
+1. Integreer de Excel‑grafiek als OLE‑object in een PPTX‑presentatie met Aspose.Slides for .NET.  
+1. Vervang de afbeelding van het gewijzigde object door de afbeelding uit stap 3 om het probleem met gewijzigde objecten op te lossen.  
+1. Schrijf de uiteindelijke presentatie naar schijf in PPTX‑formaat.  
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+
 //Stap - 1: Maak een Excel-grafiek met Aspose.Cells
 //--------------------------------------------------
-//Maak een werkmap
+//Maak een werkboek
 Aspose.Cells.Workbook wb = new Aspose.Cells.Workbook();
 //Voeg een Excel-grafiek toe
 int chartRows = 55;
 int chartCols = 25;
 int chartSheetIndex = AddExcelChartInWorkbook(wb, chartRows, chartCols);
-//Stap - 2: Stel de OLE-grootte van de grafiek in met Aspose.Cells
+//Stap - 2: Stel de OLE-grootte van de grafiek in. met Aspose.Cells
 //-----------------------------------------------------------
 wb.Worksheets.SetOleSize(0, chartRows, 0, chartCols);
 //Stap - 3: Haal de afbeelding van de grafiek op met Aspose.Cells
 //-----------------------------------------------------------
-Bitmap imgChart = wb.Worksheets[chartSheetIndex].Charts[0].ToImage();
-//Sla de werkmap op in een stream
+MemoryStream chartImageStream = new MemoryStream();
+wb.Worksheets[chartSheetIndex].Charts[0].ToImage(chartImageStream, Aspose.Cells.Drawing.ImageType.Png);
+chartImageStream.Position = 0;
+Bitmap imgChart = new Bitmap(chartImageStream);
+//Sla het werkboek op naar stream
 MemoryStream wbStream = wb.SaveToStream();
 //Stap - 4  EN 5
 //-----------------------------------------------------------
-//Stap - 4: Embed de grafiek als OLE-object in een .ppt-presentatie met Aspose.Slides
+//Stap - 4: Integreer de grafiek als OLE-object in een .ppt-presentatie met Aspose.Slides
 //-----------------------------------------------------------
-//Stap - 5: Vervang de afbeelding van het gewijzigde object door de afbeelding die in stap 3 is verkregen om het Object Changed-probleem op te lossen
+//Stap - 5: Vervang de gewijzigde-objectafbeelding door de afbeelding verkregen in stap 3 om het Object Changed-probleem op te lossen
 //-----------------------------------------------------------
 //Maak een presentatie
 Presentation pres = new Presentation();
 ISlide sld = pres.Slides[0];
-//Voeg de werkmap toe aan de dia
+//Voeg het werkboek toe aan de slide
 AddExcelChartInPresentation(pres, sld, wbStream, imgChart);
 //Stap - 6: Schrijf de uitvoerpresentatie naar schijf
 //-----------------------------------------------------------
@@ -324,6 +328,10 @@ pres.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
 static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, Stream workbookStream, Bitmap chartImage)
 {
     float oleWidth = presentation.SlideSize.Size.Width;
@@ -370,7 +378,7 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int 
  43,29,69,26,
  24,40,38,25
       };
-    //Voeg een nieuw werkblad toe om cellen met gegevens te vullen
+    //Voeg een nieuw werkblad toe om cellen met data te vullen
     int dataSheetIdx = wb.Worksheets.Add();
     Aspose.Cells.Worksheet dataSheet = wb.Worksheets[dataSheetIdx];
     string sheetName = "DataSheet";
@@ -382,18 +390,18 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int 
         int cellValue = cellsValue[i];
         dataSheet.Cells[cellName].PutValue(cellValue);
     }
-    //Voeg een grafiekblad toe
+    //Voeg een chart-werkblad toe
     int chartSheetIdx = wb.Worksheets.Add(Aspose.Cells.SheetType.Chart);
     Aspose.Cells.Worksheet chartSheet = wb.Worksheets[chartSheetIdx];
     chartSheet.Name = "ChartSheet";
-    //Voeg een grafiek toe in ChartSheet met gegevensreeksen van DataSheet
+    //Voeg een grafiek toe in ChartSheet met dataseries van DataSheet
     int chartIdx = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, chartRows, 0, chartCols);
     Aspose.Cells.Charts.Chart chart = chartSheet.Charts[chartIdx];
     chart.NSeries.Add(sheetName + "!A1:E1", false);
     chart.NSeries.Add(sheetName + "!A2:E2", false);
     chart.NSeries.Add(sheetName + "!A3:E3", false);
     chart.NSeries.Add(sheetName + "!A4:E4", false);
-    //Maak ChartSheet het actieve blad
+    //Stel ChartSheet in als actief blad
     wb.Worksheets.ActiveSheetIndex = chartSheetIdx;
     return chartSheetIdx;
 }

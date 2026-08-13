@@ -6,9 +6,9 @@ weight: 220
 url: /ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/
 keywords:
 - миграция
-- наследованный код
+- унаследованный код
 - современный код
-- наследованный подход
+- унаследованный подход
 - современный подход
 - PowerPoint
 - OpenDocument
@@ -16,20 +16,25 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Обзор обновлений публичного API и несовместимых изменений в Aspose.Slides для .NET, позволяющий плавно мигрировать ваши решения для презентаций PowerPoint PPT, PPTX и ODP."
+description: "Обзор обновлений публичного API и разрывных изменений в Aspose.Slides для .NET, позволяющий плавно мигрировать ваши решения для презентаций PowerPoint PPT, PPTX и ODP."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-На этой странице перечислены все [добавленные](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) или [удалённые](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) классы, методы, свойства и т.д., а также другие изменения, введённые в API Aspose.Slides for .NET 16.1.0.
+Эта страница перечисляет все [added](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) или [removed](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) классы, методы, свойства и т.д., а также другие изменения, введённые в API Aspose.Slides for .NET 16.1.0.
+
 {{% /alert %}} 
 ## **Изменения публичного API**
 
 
 #### **Свойство RotationAngle было добавлено в интерфейсы IChartTextBlockFormat и ITextFrameFormat**
 Свойство RotationAngle было добавлено в интерфейсы Aspose.Slides.Charts.IChartTextBlockFormat и Aspose.Slides.ITextFrameFormat.  
-Оно задаёт пользовательский угол поворота, применяемый к тексту внутри ограничивающего прямоугольника.
+Оно определяет пользовательский угол поворота, применяемый к тексту внутри ограничивающего прямоугольника.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -50,7 +55,5 @@ chart.ChartTitle.AddTextFrameForOverriding("Custom title").TextFrameFormat.Rotat
 pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
-
-
 ``` 
-#### **OdpException перемещён из пространства имён Aspose.Slides.Odp в пространство имён Aspose.Slides**
+#### **OdpException перемещено из Aspose.Slides.Odp в пространство имен Aspose.Slides**

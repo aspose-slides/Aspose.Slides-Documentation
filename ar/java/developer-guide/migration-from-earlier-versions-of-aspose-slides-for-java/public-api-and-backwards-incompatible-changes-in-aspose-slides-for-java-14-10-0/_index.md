@@ -1,31 +1,43 @@
 ---
-title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة في Aspose.Slides لـ Java 14.10.0
+title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides for Java 14.10.0
+linktitle: Aspose.Slides لـ Java 14.10.0
 type: docs
 weight: 90
 url: /ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/
+keywords:
+- الهجرة
+- الكود القديم
+- الكود الحديث
+- النهج القديم
+- النهج الحديث
+- PowerPoint
+- OpenDocument
+- العرض التقديمي
+- Java
+- Aspose.Slides
+description: "استعرض تحديثات واجهة برمجة التطبيقات العامة والتغييرات الجذرية في Aspose.Slides for Java لتحديث حلول عروض PowerPoint (PPT، PPTX) وODP بسلاسة."
 ---
-
-{{% alert color="primary" %}} 
-
-تدرج هذه الصفحة جميع [الإضافات](/slides/ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) من الفئات، والطرق، والخصائص وما إلى ذلك، وأي قيود جديدة وأي [تغييرات](/slides/ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) تمت إضافتها مع واجهة برمجة التطبيقات Aspose.Slides لـ Java 14.10.0.
-
-{{% /alert %}} 
+{{% alert color="info" %}}
+هذه الصفحة تسرد جميع [مضافة](/slides/ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) الفئات، الطرق، الخصائص وما إلى ذلك، وأي قيود جديدة و[التغييرات](/slides/ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) التي تم تقديمها مع Aspose.Slides for Java 14.10.0 API.
+{{% /alert %}}
 ## **تغييرات واجهة برمجة التطبيقات العامة**
-### **تم إضافة طريقة com.aspose.slides.FieldType.getFooter()**
-تُرجع طريقة getFooter() نوع حقل التذييل. تم إضافتها لتطبيق إمكانية إنشاء حقول من هذا النوع وللتسلسل الصحيح للعروض التقديمية.
-### **تم حذف العنصر com.aspose.slides.ShapeElementFillSource.Own**
-تم حذف العنصر ShapeElementFillSource.Own لأنه مكرر. استخدم ShapeElementFillSource.Shape بدلاً من ShapeElementFillSource.Own.
-### **تم إضافة طرق لإزالة نقاط بيانات الرسم البياني والفئات**
-**تمت إضافة الطرق التالية، التي تسمح بإزالة نقطة بيانات الرسم البياني من مجموعة نقاط بيانات الرسم البياني:**
+### **طريقة com.aspose.slides.FieldType.getFooter() تم إضافتها**
+طريقة getFooter() تُعيد نوع حقل التذييل. تم إضافتها لتوفير إمكانية إنشاء حقول من هذا النوع وللسماح بتسلسل العرض التقديمي بشكل صحيح.
+### **العنصر com.aspose.slides.ShapeElementFillSource.Own تم حذفه**
+العنصر ShapeElementFillSource.Own تم حذفه لأنه مكرر. استخدم ShapeElementFillSource.Shape بدلاً من ShapeElementFillSource.Own.
+### **تم إضافة طرق لإزالة نقاط بيانات المخطط والفئات**
+**الطرق التالية التي تسمح بإزالة نقطة بيانات من مجموعة نقاط بيانات المخطط تم إضافتها:**
 
 IChartDataPointCollection.remove(IChartDataPoint)
 IChartDataPoint.remove()
 
-**تمت إضافة الطريقة التالية، التي تسمح بإزالة فئة الرسم البياني من المجموعة المحتوية:**
+**الطريقة التالية التي تسمح بإزالة فئة مخطط من المجموعة الحاوية تم إضافتها:**
 
 IChartCategory.remove()
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -48,10 +60,10 @@ for (IChartSeries ser : chart.getChartData().getSeries())
 pres.save("presentation.pptx", SaveFormat.Pptx);
 
 ```
-### **تمت إزالة طرق Aspose.Slides.ParagraphFormat القديمة**
-تمت إزالة الطرق getBulletChar()، getBulletColor()، getBulletColorFormat()، getBulletFont()، getBulletHeight()، getBulletType()، isBulletHardColor()، isBulletHardFont()، getNumberedBulletStartWith()، getNumberedBulletStyle() وطرق set المقابلة. لقد تم وضع علامة عليها كقديمة منذ زمن طويل.
-### **تمت إزالة الإنشاءات غير المفيدة والقديمة**
-تمت إزالة الإنشاءات التالية:
+### **تم حذف طرق Aspose.Slides.ParagraphFormat القديمة**
+تم حذف الطرق getBulletChar()، getBulletColor()، getBulletColorFormat()، getBulletFont()، getBulletHeight()، getBulletType()، isBulletHardColor()، isBulletHardFont()، getNumberedBulletStartWith()، getNumberedBulletStyle() والطُرق المقابلة set. كانت مُعلَّمة بأنها قديمة منذ زمن طويل.
+### **تم حذف البُنَيات غير المفيدة والقديمة**
+البنائيات التالية تم حذفها:
 
 com.aspose.slides.AlphaBiLevel(float)
 com.aspose.slides.AlphaModulateFixed(float)

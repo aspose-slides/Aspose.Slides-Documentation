@@ -1,5 +1,5 @@
 ---
-title: VBA projektek kezelése prezentációkban .NET-ben
+title: VBA projektek kezelése prezentációkban .NET környezetben
 linktitle: Prezentáció VBA-val
 type: docs
 weight: 250
@@ -20,39 +20,43 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Fedezze fel, hogyan lehet VBA-val PowerPoint és OpenDocument prezentációkat létrehozni és módosítani az Aspose.Slides for .NET segítségével, hogy egyszerűsítse munkafolyamatait."
+description: Ismerje meg, hogyan generálhat és kezelhet PowerPoint és OpenDocument prezentációkat VBA-val az Aspose.Slides for .NET segítségével, hogy egyszerűsítse munkafolyamatát.
 ---
 ## **Bevezetés**
 
-A [Aspose.Slides.Vba](https://reference.aspose.com/slides/hu/net/aspose.slides.vba/) névtér osztályokat és interfészeket tartalmaz a makrókkal és a VBA kóddal való munkához.
+Az [Aspose.Slides.Vba](https://reference.aspose.com/slides/hu/net/aspose.slides.vba/) névtér osztályokat és interfészeket tartalmaz a makrókkal és a VBA kóddal való munkához.
 
-{{% alert title="Note" color="warning" %}} 
+{{% alert title="Megjegyzés" color="warning" %}} 
 
-Amikor egy makrókat tartalmazó prezentációt más fájlformátumba (PDF, HTML, stb.) konvertál, az Aspose.Slides figyelmen kívül hagyja az összes makrót (a makrók nem kerülnek át a létrehozott fájlba).
+Amikor egy makrókat tartalmazó prezentációt más fájlformátumba (PDF, HTML stb.) konvertál, az Aspose.Slides figyelmen kívül hagyja az összes makrót (a makrók nem kerülnek át a létrehozott fájlba).
 
-Amikor makrókat ad hozzá egy prezentációhoz vagy újra ment egy makrókat tartalmazó prezentációt, az Aspose.Slides egyszerűen a makrók bájtjait írja ki.
+Amikor makrókat ad hozzá egy prezentációhoz vagy újra ment egy makrókat tartalmazó prezentációt, az Aspose.Slides egyszerűen az eredeti makró bájtjait írja be.
 
-Az Aspose.Slides **soha** nem futtatja a prezentáció makróit.
+Az Aspose.Slides **soha** nem futtatja a prezentációban található makrókat.
 
 {{% /alert %}}
 
-## **VBA-makrók hozzáadása**
+## **VBA makrók hozzáadása**
 
-Az Aspose.Slides biztosítja a [VbaProject](https://reference.aspose.com/slides/hu/net/aspose.slides.vba/vbaproject/) osztályt, amely lehetővé teszi VBA projektek (és projekt hivatkozások) létrehozását és meglévő modulok szerkesztését. A [IVbaProject](https://reference.aspose.com/slides/hu/net/aspose.slides.vba/ivbaproject/) interfész segítségével kezelheti a prezentációba ágyazott VBA-t.
+Az Aspose.Slides a [VbaProject](https://reference.aspose.com/slides/hu/net/aspose.slides.vba/vbaproject/) osztályt biztosítja, amely lehetővé teszi VBA projektek (és projekt hivatkozások) létrehozását, valamint meglévő modulok szerkesztését. A [IVbaProject](https://reference.aspose.com/slides/hu/net/aspose.slides.vba/ivbaproject/) interfészt használhatja a prezentációba ágyazott VBA kezeléséhez.
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból.
-1. Használja a [VbaProject](https://reference.aspose.com/slides/hu/net/aspose.slides.vba/vbaproject/vbaproject/#constructor) konstruktort egy új VBA projekt hozzáadásához.
-1. Adjon hozzá egy modult a VbaProjecthez.
+1. Használja a [VbaProject](https://reference.aspose.com/slides/hu/net/aspose.slides.vba/vbaproject/vbaproject/#constructor) konstruktorát egy új VBA projekt hozzáadásához.
+1. Adjon hozzá egy modult a VbaProject-hez.
 1. Állítsa be a modul forráskódját.
-1. Adjon hozzá hivatkozásokat a <stdole>-re.
-1. Adjon hozzá hivatkozásokat a **Microsoft Office**-ra.
+1. Adjon hivatkozásokat a <stdole>-ra.
+1. Adjon hivatkozásokat a **Microsoft Office**-ra.
 1. Kapcsolja össze a hivatkozásokat a VBA projekttel.
-1. Mentse a prezentációt.
+1. Mentse el a prezentációt.
 
-Ez a C# kód megmutatja, hogyan lehet egy VBA makrót teljesen újonnan hozzáadni egy prezentációhoz:
+Ez a C# kód megmutatja, hogyan adhat hozzá egy VBA makrót a semmiből egy prezentációhoz:
 
 ```c#
-    // Létrehoz egy példányt a Presentation osztályból
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Vba;
+
+// Létrehozza a presentation osztály egy példányát
 using (Presentation presentation = new Presentation())
 {
     // Létrehoz egy új VBA projektet
@@ -60,67 +64,72 @@ using (Presentation presentation = new Presentation())
 
     // Üres modult ad hozzá a VBA projekthez
     IVbaModule module = presentation.VbaProject.Modules.AddEmptyModule("Module");
-  
+
     // Beállítja a modul forráskódját
     module.SourceCode = @"Sub Test(oShape As Shape) MsgBox ""Test"" End Sub";
 
-    // Létrehoz egy hivatkozást a <stdole>-ra
+    // Létrehozza a <stdole> hivatkozást
     VbaReferenceOleTypeLib stdoleReference =
         new VbaReferenceOleTypeLib("stdole", "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation");
 
-    // Létrehoz egy hivatkozást az Office-ra
+    // Létrehozza az Office hivatkozást
     VbaReferenceOleTypeLib officeReference =
         new VbaReferenceOleTypeLib("Office", "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
 
-    // Hivatkozásokat ad hozzá a VBA projekthez
+    // Hivatkozásokat ad a VBA projekthez
     presentation.VbaProject.References.Add(stdoleReference);
     presentation.VbaProject.References.Add(officeReference);
 
-            
-    // Mentse a prezentációt
-    presentation.Save(dataDir + "AddVBAMacros_out.pptm", SaveFormat.Pptm);
+    // Elmenti a prezentációt
+    presentation.Save("AddVBAMacros_out.pptm", SaveFormat.Pptm);
 }
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Érdemes megnézni az **Aspose** [Macro Remover](https://products.aspose.app/slides/hu/remove-macros) ingyenes webalkalmazását, amely makrókat távolít el PowerPoint, Excel és Word dokumentumokból. 
+Érdemes megtekinteni az **Aspose** [Macro Remover](https://products.aspose.app/slides/hu/remove-macros) ingyenes webalkalmazást, amely makrókat távolít el PowerPoint, Excel és Word dokumentumokból. 
 
 {{% /alert %}} 
 
-## **VBA-makrók eltávolítása**
-A [VbaProject](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/vbaproject/) tulajdonságot a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztály alatt használva eltávolíthat egy VBA makrót.
+## **VBA makrók eltávolítása**
+A [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztály alatt elérhető [VbaProject](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/vbaproject/) tulajdonság segítségével eltávolíthat egy VBA makrót.
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból, és töltse be a makrót tartalmazó prezentációt.
-1. Hozzáférés a Makró modulhoz, és távolítsa el azt.
-1. Mentse a módosított prezentációt.
+1. Hozzáfér a Makró modulhoz, és eltávolítja azt.
+1. Mentse el a módosított prezentációt.
 
-Ez a C# kód megmutatja, hogyan lehet egy VBA makrót eltávolítani:
+Ez a C# kód megmutatja, hogyan távolíthat el egy VBA makrót:
 
 ```c#
-    // Betölti a makrót tartalmazó prezentációt
-using (Presentation presentation = new Presentation(dataDir + "VBA.pptm"))
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Betölti a makrót tartalmazó prezentációt
+using (Presentation presentation = new Presentation("VBA.pptm"))
 {
-    // Eléri a Vba modult és eltávolítja 
+    // Hozzáfér a Vba modulhoz és eltávolítja azt
     presentation.VbaProject.Modules.Remove(presentation.VbaProject.Modules[0]);
 
-    // Mentse a prezentációt
-    presentation.Save(dataDir + "RemovedVBAMacros_out.pptm", SaveFormat.Pptm);
+    // Elmenti a prezentációt
+    presentation.Save("RemovedVBAMacros_out.pptm", SaveFormat.Pptm);
 }
 ```
 
-## **VBA-makrók kinyerése**
-1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) példányt, és töltse be a makrót tartalmazó prezentációt.
-2. Ellenőrizze, hogy a prezentáció tartalmaz‑e VBA Projectet.
-3. Járja be a VBA Projectben található összes modult a makrók megtekintéséhez.
+## **VBA makrók kinyerése**
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból, és töltse be a makrót tartalmazó prezentációt.
+2. Ellenőrizze, hogy a prezentáció tartalmaz‑e VBA Projektet.
+3. Járja végig a VBA Projektben található összes modult a makrók megtekintéséhez.
 
-Ez a C# kód megmutatja, hogyan lehet VBA makrókat kinyerni egy makrókat tartalmazó prezentációból:
+Ez a C# kód megmutatja, hogyan nyerhet ki VBA makrókat egy makrókat tartalmazó prezentációból:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Vba;
+
     // Betölti a makrót tartalmazó prezentációt
 using (Presentation pres = new Presentation("VBA.pptm"))
 {
-	if (pres.VbaProject != null) // Ellenőrzi, hogy a prezentáció tartalmaz-e VBA projektet
+	if (pres.VbaProject != null) // Ellenőrizze, hogy a prezentáció tartalmaz-e VBA projektet
 	{
 		foreach (IVbaModule module in pres.VbaProject.Modules)
 		{
@@ -131,18 +140,20 @@ using (Presentation pres = new Presentation("VBA.pptm"))
 }
 ```
 
-## **Ellenőrizze, hogy a VBA projekt jelszóval védett‑e**
+## **Ellenőrizze, hogy egy VBA projekt jelszóval védett‑e**
 
-Az [IVbaProject.IsPasswordProtected](https://reference.aspose.com/slides/hu/net/aspose.slides.vba/ivbaproject/ispasswordprotected/) tulajdonság segítségével megállapítható, hogy egy projekt tulajdonságai jelszóval védettek‑e.
+Az [IVbaProject.IsPasswordProtected](https://reference.aspose.com/slides/hu/net/aspose.slides.vba/ivbaproject/ispasswordprotected/) tulajdonság használatával meghatározhatja, hogy egy projekt tulajdonságai jelszóval védettek‑e.
 
-1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) példányt, és töltse be a makrót tartalmazó prezentációt.
-2. Ellenőrizze, hogy a prezentáció tartalmaz‑e [VBA projectet](https://reference.aspose.com/slides/hu/net/aspose.slides.vba/vbaproject/).
-3. Ellenőrizze, hogy a VBA projekt jelszóval védett‑e a tulajdonságok megtekintéséhez.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból, és töltse be egy makrót tartalmazó prezentációt.
+2. Ellenőrizze, hogy a prezentáció tartalmaz‑e egy [VBA projektet](https://reference.aspose.com/slides/hu/net/aspose.slides.vba/vbaproject/).
+3. Ellenőrizze, hogy a VBA projekt jelszóval védett‑e a tulajdonságai megtekintéséhez.
 
 ```cs
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("VBA.pptm"))
 {
-    if (presentation.VbaProject != null) // Ellenőrzi, hogy a prezentáció tartalmaz-e VBA projektet.
+    if (presentation.VbaProject != null) // Ellenőrizze, hogy a prezentáció tartalmaz-e VBA projektet.
     {
         if (presentation.VbaProject.IsPasswordProtected)
         {
@@ -154,14 +165,14 @@ using (Presentation presentation = new Presentation("VBA.pptm"))
 
 ## **GYIK**
 
-**Mi történik a makrókkal, ha a bemutatót PPTX formátumban mentem?**
+### Mi történik a makrókkal, ha PPTX formátumban mentem a prezentációt?
 
-A makrók eltávolításra kerülnek, mert a PPTX nem támogatja a VBA‑t. A makrók megtartásához válassza a PPTM, PPSM vagy POTM formátumot.
+A makrókat eltávolítja, mert a PPTX nem támogatja a VBA‑t. A makrók megtartásához válassza a PPTM, PPSM vagy POTM formátumot.
 
-**Futtathatja‑e az Aspose.Slides a makrókat a bemutatóban, például az adatok frissítéséhez?**
+### Az Aspose.Slides képes-e makrókat futtatni egy prezentációban, például adatok frissítéséhez?
 
 Nem. A könyvtár soha nem hajtja végre a VBA kódot; a végrehajtás csak a PowerPointban lehetséges a megfelelő biztonsági beállításokkal.
 
-**Támogatott‑e az ActiveX vezérlőkkel való munka, amelyek VBA kódra hivatkoznak?**
+### Támogatott‑e az ActiveX vezérlőkkel való, VBA kódra hivatkozó munka?
 
-Igen, hozzáférhet a meglévő [ActiveX controls](/slides/hu/net/activex/) vezérlőkhöz, módosíthatja azok tulajdonságait, és eltávolíthatja őket. Ez hasznos, ha a makrók az ActiveX‑szel interakcióba lépnek.
+Igen, elérheti a meglévő [ActiveX vezérlőket](/slides/hu/net/activex/), módosíthatja azok tulajdonságait, és eltávolíthatja őket. Ez hasznos, ha a makrók ActiveX‑szel lépnek kölcsönhatásba.

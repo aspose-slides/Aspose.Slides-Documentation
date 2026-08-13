@@ -1,38 +1,40 @@
 ---
-title: Lấy Các Thuộc Tính Effective của Hình Dạng từ Bài Thuyết Trình trên Android
-linktitle: Thuộc Tính Effective
+title: Lấy Thuộc tính Effective của Shape từ Bài thuyết trình trên Android
+linktitle: Thuộc tính Effective
 type: docs
 weight: 50
 url: /vi/androidjava/shape-effective-properties/
 keywords:
-- thuộc tính hình dạng
+- thuộc tính shape
 - thuộc tính camera
-- bộ đèn
-- hình dạng bevel
+- light rig
+- shape bevel
 - khung văn bản
 - kiểu văn bản
-- độ cao phông chữ
-- định dạng tô đầy
+- chiều cao phông chữ
+- định dạng đổ màu
 - PowerPoint
 - bài thuyết trình
 - Android
 - Java
 - Aspose.Slides
-description: "Khám phá cách Aspose.Slides cho Android bằng Java tính toán và áp dụng các thuộc tính hình dạng effective để render PowerPoint một cách chính xác."
+description: "Khám phá cách Aspose.Slides cho Android qua Java tính toán và áp dụng các thuộc tính shape effective để hiển thị PowerPoint một cách chính xác."
 ---
 ## **Tổng quan**
 
-Chủ đề này giải thích sự khác nhau giữa **local** và **effective** property. Giá trị local là các giá trị được đặt trực tiếp ở mức định dạng cụ thể, chẳng hạn như:
+Bài viết này giải thích sự khác biệt giữa các thuộc tính **local** và **effective**. Giá trị local là các giá trị được đặt trực tiếp ở một mức định dạng cụ thể, chẳng hạn như:
 
-1. Thuộc tính phần trong một slide.
-1. Kiểu văn bản hình dạng mẫu trên bố cục hoặc slide master, khi hình dạng khung văn bản của phần có một kiểu.
-1. Cài đặt văn bản toàn cục trong một bài thuyết trình.
+1. Thuộc tính portion trên một slide.  
+2. Kiểu văn bản hình dạng prototype trên một bố cục hoặc slide master, khi shape khung văn bản của portion có một.  
+3. Cài đặt văn bản toàn cục trong một bài thuyết trình.
 
-Giá trị local có thể được định nghĩa hoặc bỏ qua ở bất kỳ cấp nào. Khi Aspose.Slides cần định dạng cuối cùng "as rendered", nó sẽ giải quyết chuỗi kế thừa và trả về các giá trị **effective**. Bạn có thể lấy chúng bằng cách gọi phương thức `getEffective()` trên đối tượng định dạng local.
+Giá trị local có thể được định nghĩa hoặc bỏ qua ở bất kỳ mức nào. Khi Aspose.Slides cần định dạng cuối cùng "as rendered", nó giải quyết chuỗi kế thừa và trả về các giá trị **effective**. Bạn có thể lấy chúng bằng cách gọi phương thức `getEffective()` trên đối tượng định dạng local.
 
-Ví dụ sau cho thấy cách lấy các giá trị **effective**. Nó giả định rằng hình dạng đầu tiên trên slide đầu tiên là một [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape/) có khung văn bản và ít nhất một phần.
+Ví dụ sau minh họa cách lấy các giá trị effective. Giả sử shape đầu tiên trên slide đầu tiên là một [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape/) có khung văn bản và ít nhất một portion.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -48,17 +50,17 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-Dữ liệu định dạng **effective** đại diện cho định dạng tính toán hiện tại sau khi đã áp dụng kế thừa. Trong triển khai hiện tại, một số đối tượng dữ liệu **effective**, chẳng hạn như [IPortionFormatEffectiveData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iportionformateffectivedata/), có thể được lưu trong bộ nhớ đệm nội bộ. Gọi lại `getEffective()` sau khi thay đổi định dạng cha hoặc kế thừa có thể làm mới dữ liệu đã được lưu, và một đối tượng đã lấy trước đó có thể không còn phản ánh trạng thái trước nữa. Nếu bạn cần lưu giữ các giá trị **effective** để sử dụng lại sau, hãy sao chép các thuộc tính cần thiết, chẳng hạn như độ cao phông chữ, màu nền, kiểu phông chữ hoặc căn chỉnh, vào đối tượng dữ liệu của riêng bạn.
+{{% alert color="info" %}}
+Dữ liệu định dạng effective đại diện cho định dạng đã tính toán hiện tại sau khi áp dụng kế thừa. Trong triển khai hiện tại, một số đối tượng dữ liệu effective, chẳng hạn như [IPortionFormatEffectiveData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iportionformateffectivedata/), có thể được lưu trong bộ nhớ đệm nội bộ. Gọi `getEffective()` lần nữa sau khi thay đổi định dạng cha hoặc định dạng kế thừa có thể làm mới dữ liệu đã được đệm, và một đối tượng đã lấy trước đó có thể không còn đại diện cho trạng thái trước đó. Nếu bạn cần giữ lại các giá trị effective để dùng lại sau, sao chép các thuộc tính cần thiết, chẳng hạn như chiều cao phông chữ, màu tô, kiểu phông chữ hoặc căn chỉnh, vào đối tượng dữ liệu của riêng bạn.
 {{% /alert %}}
 
-## **Lấy các thuộc tính Effective của Camera**
+## **Lấy Thuộc tính Effective của Camera**
 
-Aspose.Slides cho phép bạn lấy các thuộc tính **effective** của một camera. Giao diện [ICameraEffectiveData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/icameraeffectivedata/) đại diện cho một đối tượng bất biến chứa các thuộc tính camera **effective**. Một thể hiện của [ICameraEffectiveData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/icameraeffectivedata/) được cung cấp thông qua [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ithreedformateffectivedata/), cung cấp các giá trị **effective** cho [IThreeDFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ithreedformat/).
-
-Ví dụ mã sau cho thấy cách lấy các thuộc tính **effective** cho camera. Nó giả định rằng hình dạng đầu tiên trên slide đầu tiên có định dạng 3D.
+Aspose.Slides cho phép bạn lấy các thuộc tính effective của một camera. Giao diện [ICameraEffectiveData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/icameraeffectivedata/) đại diện cho một đối tượng bất biến chứa các thuộc tính camera effective. Một thể hiện [ICameraEffectiveData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/icameraeffectivedata/) được phơi bày thông qua [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ithreedformateffectivedata/), cung cấp các giá trị effective cho [IThreeDFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ithreedformat/).
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -76,13 +78,13 @@ try {
 }
 ```
 
-## **Lấy các thuộc tính Effective của Light Rig**
+## **Lấy Thuộc tính Effective của Light Rig**
 
-Aspose.Slides cho phép bạn lấy các thuộc tính **effective** của một light rig. Giao diện [ILightRigEffectiveData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilightrigeffectivedata/) đại diện cho một đối tượng bất biến chứa các thuộc tính light rig **effective**. Một thể hiện của [ILightRigEffectiveData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilightrigeffectivedata/) được cung cấp thông qua [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ithreedformateffectivedata/), cung cấp các giá trị **effective** cho [IThreeDFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ithreedformat/).
-
-Ví dụ mã sau cho thấy cách lấy các thuộc tính **effective** cho light rig. Nó giả định rằng hình dạng đầu tiên trên slide đầu tiên có định dạng 3D.
+Aspose.Slides cho phép bạn lấy các thuộc tính effective của một light rig. Giao diện [ILightRigEffectiveData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilightrigeffectivedata/) đại diện cho một đối tượng bất biến chứa các thuộc tính light rig effective. Một thể hiện [ILightRigEffectiveData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilightrigeffectivedata/) được phơi bày thông qua [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ithreedformateffectivedata/), cung cấp các giá trị effective cho [IThreeDFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ithreedformat/).
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -99,13 +101,13 @@ try {
 }
 ```
 
-## **Lấy các thuộc tính Effective của Hình dạng Bevel**
+## **Lấy Thuộc tính Effective của Bevel Shape**
 
-Aspose.Slides cho phép bạn lấy các thuộc tính **effective** của một bevel shape. Giao diện [IShapeBevelEffectiveData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishapebeveleffectivedata/) đại diện cho một đối tượng bất biến chứa các thuộc tính relief mặt cho một hình dạng. Một thể hiện của [IShapeBevelEffectiveData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishapebeveleffectivedata/) được cung cấp thông qua [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ithreedformateffectivedata/), cung cấp các giá trị **effective** cho [IThreeDFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ithreedformat/).
-
-Ví dụ mã sau cho thấy cách lấy các thuộc tính **effective** cho bevel trên của một hình dạng. Nó giả định rằng hình dạng đầu tiên trên slide đầu tiên có định dạng 3D.
+Aspose.Slides cho phép bạn lấy các thuộc tính effective của một shape bevel. Giao diện [IShapeBevelEffectiveData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishapebeveleffectivedata/) đại diện cho một đối tượng bất biến chứa các thuộc tính relief face cho một shape. Một thể hiện [IShapeBevelEffectiveData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishapebeveleffectivedata/) được phơi bày thông qua [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ithreedformateffectivedata/), cung cấp các giá trị effective cho [IThreeDFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ithreedformat/).
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -123,13 +125,13 @@ try {
 }
 ```
 
-## **Lấy các thuộc tính Effective của Khung Văn bản**
+## **Lấy Thuộc tính Effective của Text Frame**
 
-Sử dụng Aspose.Slides, bạn có thể lấy các thuộc tính **effective** của một khung văn bản. Giao diện [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframeformateffectivedata/) chứa các thuộc tính định dạng khung văn bản **effective**.
-
-Ví dụ mã sau cho thấy cách lấy các thuộc tính định dạng **effective** của khung văn bản. Nó giả định rằng hình dạng đầu tiên trên slide đầu tiên là một [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape/) có khung văn bản.
+Sử dụng Aspose.Slides, bạn có thể lấy các thuộc tính effective của một khung văn bản. Giao diện [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframeformateffectivedata/) chứa các thuộc tính định dạng khung văn bản effective.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -150,13 +152,13 @@ try {
 }
 ```
 
-## **Lấy các thuộc tính Effective của Kiểu Văn bản**
+## **Lấy Thuộc tính Effective của Text Style**
 
-Sử dụng Aspose.Slides, bạn có thể lấy các thuộc tính **effective** của một kiểu văn bản. Giao diện [ITextStyleEffectiveData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextstyleeffectivedata/) chứa các thuộc tính kiểu văn bản **effective**.
-
-Ví dụ mã sau cho thấy cách lấy các thuộc tính **effective** của kiểu văn bản. Nó giả định rằng hình dạng đầu tiên trên slide đầu tiên là một [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape/) có khung văn bản.
+Sử dụng Aspose.Slides, bạn có thể lấy các thuộc tính effective của một kiểu văn bản. Giao diện [ITextStyleEffectiveData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextstyleeffectivedata/) chứa các thuộc tính kiểu văn bản effective.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -180,11 +182,13 @@ try {
 }
 ```
 
-## **Lấy Giá trị Độ cao Phông chữ Effective**
+## **Lấy Giá trị Chiều cao Phông chữ Effective**
 
-Sử dụng Aspose.Slides, bạn có thể lấy độ cao phông chữ **effective**. Đoạn mã sau minh họa cách độ cao phông chữ **effective** của một phần thay đổi sau khi giá trị độ cao phông chữ local được đặt ở các cấp cấu trúc bài thuyết trình khác nhau.
+Sử dụng Aspose.Slides, bạn có thể lấy chiều cao phông chữ effective. Đoạn mã sau minh họa cách chiều cao phông chữ effective của một portion thay đổi sau khi giá trị chiều cao phông chữ local được đặt ở các mức cấu trúc trình chiếu khác nhau.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -255,13 +259,15 @@ try {
 }
 ```
 
-## **Lấy Định dạng Fill Effective cho Bảng**
+## **Lấy Định dạng Đổ màu Effective cho Table**
 
-Sử dụng Aspose.Slides, bạn có thể lấy định dạng fill **effective** cho các phần khác nhau của bảng. Giao diện [IFillFormatEffectiveData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ifillformateffectivedata/) chứa các thuộc tính định dạng fill **effective**. Định dạng ô có ưu tiên cao hơn định dạng hàng, định dạng hàng có ưu tiên cao hơn định dạng cột, và định dạng cột có ưu tiên cao hơn định dạng toàn bảng.
+Sử dụng Aspose.Slides, bạn có thể lấy định dạng đổ màu effective cho các phần khác nhau của bảng. Giao diện [IFillFormatEffectiveData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ifillformateffectivedata/) chứa các thuộc tính định dạng đổ màu effective. Định dạng ô có ưu tiên cao hơn định dạng dòng, định dạng dòng cao hơn định dạng cột, và định dạng cột cao hơn định dạng toàn bảng.
 
-Do đó, các thuộc tính [ICellFormatEffectiveData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/icellformateffectivedata/) được sử dụng để vẽ ô bảng. Ví dụ mã sau cho thấy cách lấy định dạng fill **effective** cho các phần khác nhau của bảng. Nó giả định rằng hình dạng đầu tiên trên slide đầu tiên là một [ITable](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itable/).
+Kết quả, các thuộc tính [ICellFormatEffectiveData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/icellformateffectivedata/) được dùng để vẽ ô bảng. Đoạn mã sau cho thấy cách lấy định dạng đổ màu effective cho các phần khác nhau của bảng. Giả sử shape đầu tiên trên slide đầu tiên là một [ITable](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itable/).
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -282,34 +288,34 @@ try {
 
 ## **Câu hỏi thường gặp**
 
-**`getEffective()` có trả về một ảnh chụp nhanh không?**
+### `getEffective()` có trả về một ảnh chụp nhanh (snapshot) không?
 
-Không phải luôn luôn. Dữ liệu **effective** đại diện cho định dạng đã tính toán sau khi áp dụng kế thừa, nhưng một số đối tượng dữ liệu **effective** có thể được lưu trong bộ nhớ đệm nội bộ. Một lần gọi `getEffective()` tiếp theo có thể tính lại định dạng và làm mới dữ liệu đã lưu, vì vậy một đối tượng đã lấy trước đó không nên được coi là một ảnh chụp nhanh bền vững.
+Không phải luôn luôn. Dữ liệu effective đại diện cho định dạng đã tính toán sau khi áp dụng kế thừa, nhưng một số đối tượng dữ liệu effective có thể được lưu trong bộ nhớ đệm nội bộ. Lần gọi `getEffective()` tiếp theo có thể tính lại định dạng và làm mới dữ liệu đã được đệm, vì vậy một đối tượng đã lấy trước không nên được coi là một ảnh chụp nhanh bền vững.
 
-**Khi nào tôi nên đọc lại các thuộc tính effective?**
+### Khi nào tôi nên đọc lại các thuộc tính effective?
 
-Gọi lại `getEffective()` sau khi thay đổi định dạng local, kiểu cha, định dạng bố cục, định dạng master, hoặc các mặc định ở cấp trình bày. Lần gọi tiếp theo sẽ đánh giá lại cây định dạng và trả về kết quả **effective** hiện tại.
+Gọi `getEffective()` lại sau khi thay đổi định dạng local, kiểu cha, định dạng bố cục, định dạng master hoặc các mặc định ở mức bài thuyết trình. Lần gọi tiếp theo sẽ đánh giá lại cây định dạng và trả về kết quả effective hiện tại.
 
-**Việc thay đổi hoặc xóa một slide bố cục/master có ảnh hưởng đến các thuộc tính effective đã được lấy trước không?**
+### Thay đổi hoặc xoá một slide bố cục/master có ảnh hưởng đến các thuộc tính effective đã được lấy trước không?
 
-Có, nhưng thay đổi sẽ được phản ánh trong lần gọi `getEffective()` tiếp theo. Nếu nguồn định dạng cha bị thay đổi hoặc xóa, dữ liệu **effective** đã lấy trước có thể lỗi thời. Khi `getEffective()` được gọi lại, Aspose.Slides sẽ đánh giá lại cây định dạng và các phông chữ, màu sắc, kích thước hoặc các giá trị khác có thể thay đổi.
+Có, nhưng thay đổi sẽ chỉ được phản ánh ở lần gọi `getEffective()` tiếp theo. Nếu nguồn định dạng cha được thay đổi hoặc xoá, dữ liệu effective đã lấy trước có thể trở nên lỗi thời. Khi `getEffective()` được gọi lại, Aspose.Slides sẽ đánh giá lại cây định dạng và các phông chữ, màu sắc, kích thước hoặc giá trị khác có thể thay đổi.
 
-**Tôi có thể sửa đổi giá trị thông qua các đối tượng dữ liệu effective không?**
+### Tôi có thể sửa đổi giá trị qua các đối tượng dữ liệu effective không?
 
-Không. Các đối tượng dữ liệu **effective** chỉ cung cấp các giá trị đã tính toán. Thực hiện các thay đổi trong các đối tượng định dạng local, sau đó lấy lại các giá trị **effective**.
+Không. Các đối tượng dữ liệu effective chỉ cung cấp các giá trị đã được tính toán. Thực hiện thay đổi trong các đối tượng định dạng local, sau đó lấy lại các giá trị effective.
 
-**Điều gì xảy ra nếu một thuộc tính không được đặt ở mức hình dạng, cũng không ở bố cục/master, hoặc trong cài đặt toàn cục?**
+### Nếu một thuộc tính không được đặt ở mức shape, bố cục/master hoặc trong cài đặt toàn cục thì sao?
 
-Giá trị **effective** được xác định bằng cơ chế mặc định, bao gồm các giá trị mặc định của PowerPoint và Aspose.Slides. Giá trị đã giải quyết đó trở thành một phần của dữ liệu **effective** hiện tại.
+Giá trị effective sẽ được xác định bởi cơ chế mặc định, bao gồm các giá trị mặc định của PowerPoint và Aspose.Slides. Giá trị đã giải quyết sẽ trở thành một phần của dữ liệu effective hiện tại.
 
-**Từ một giá trị phông chữ effective, tôi có thể biết được cấp độ nào đã cung cấp kích thước hoặc kiểu phông không?**
+### Từ một giá trị phông chữ effective, tôi có thể biết được mức nào đã cung cấp kích thước hoặc kiểu chữ không?
 
-Không trực tiếp. Dữ liệu **effective** trả về giá trị cuối cùng. Để tìm nguồn, kiểm tra các giá trị local ở phần, đoạn, khung văn bản và các kiểu văn bản ở cấp bố cục, master và trình bày để xem nơi định nghĩa rõ ràng đầu tiên xuất hiện.
+Không trực tiếp. Dữ liệu effective chỉ trả về giá trị cuối cùng. Để tìm nguồn, kiểm tra các giá trị local ở mức portion, paragraph, text frame và các kiểu văn bản ở mức layout, master và presentation để xác định nơi xuất hiện định nghĩa đầu tiên.
 
-**Tại sao đôi khi giá trị effective trông giống hệt với giá trị local?**
+### Tại sao các giá trị effective đôi khi trông giống hệt với giá trị local?
 
-Bởi vì giá trị local đã trở thành giá trị cuối cùng (không cần kế thừa ở cấp cao hơn). Trong những trường hợp đó, giá trị **effective** trùng khớp với giá trị local.
+Bởi vì giá trị local đã trở thành giá trị cuối cùng (không cần kế thừa ở mức cao hơn). Trong các trường hợp này, giá trị effective trùng với giá trị local.
 
-**Khi nào tôi nên sử dụng các thuộc tính effective, và khi nào chỉ nên làm việc với các thuộc tính local?**
+### Khi nào tôi nên sử dụng các thuộc tính effective, và khi nào chỉ làm việc với các thuộc tính local?
 
-Sử dụng dữ liệu **effective** khi bạn cần kết quả "as rendered" sau khi tất cả các mức kế thừa đã được áp dụng, chẳng hạn để căn chỉnh màu sắc, thụt lề hoặc kích thước. Nếu bạn cần giữ lại các giá trị này bất kể các thay đổi định dạng sau này, hãy sao chép các thuộc tính cần thiết vào đối tượng của riêng bạn. Nếu bạn cần thay đổi định dạng ở một cấp độ cụ thể, sửa đổi các thuộc tính local và sau đó, nếu cần, đọc lại dữ liệu **effective** để xác nhận kết quả.
+Sử dụng dữ liệu effective khi bạn cần kết quả "as rendered" sau khi mọi kế thừa được áp dụng, chẳng hạn để đồng bộ màu, lề hoặc kích thước. Nếu bạn muốn bảo lưu các giá trị này bất kể các thay đổi định dạng sau này, sao chép các thuộc tính cần thiết vào đối tượng của riêng bạn. Nếu bạn muốn thay đổi định dạng ở mức cụ thể, chỉnh sửa các thuộc tính local và, nếu cần, đọc lại dữ liệu effective để xác nhận kết quả.

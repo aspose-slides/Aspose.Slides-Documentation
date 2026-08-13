@@ -16,33 +16,36 @@ keywords:
 - ไฮเปอร์ลิงก์รูปร่าง
 - ไฮเปอร์ลิงก์รูปภาพ
 - ไฮเปอร์ลิงก์วิดีโอ
-- ไฮเปอร์ลิงก์ที่เปลี่ยนแปลงได้
+- ไฮเปอร์ลิงก์ที่แก้ไขได้
 - PowerPoint
 - OpenDocument
 - งานนำเสนอ
 - Java
 - Aspose.Slides
-description: "จัดการไฮเปอร์ลิงก์ในงานนำเสนอ PowerPoint และ OpenDocument อย่างง่ายดายด้วย Aspose.Slides for Java—เสริมการโต้ตอบและกระบวนการทำงานภายในไม่กี่นาที."
+description: "จัดการไฮเปอร์ลิงก์ในงานนำเสนอ PowerPoint และ OpenDocument อย่างง่ายดายด้วย Aspose.Slides for Java—เพิ่มการโต้ตอบและกระบวนการทำงานในไม่กี่นาที."
 ---
 ## **บทนำ**
 
-ไฮเปอร์ลิงก์คือการอ้างอิงถึงวัตถุหรือข้อมูลหรือสถานที่ในบางอย่าง ซึ่งเป็นไฮเปอร์ลิงก์ที่พบทั่วไปในงานนำเสนอ PowerPoint:
+ไฮเปอร์ลิงก์คือการอ้างอิงถึงวัตถุหรือข้อมูลหรือสถานที่ในบางสิ่ง เหล่านี้คือไฮเปอร์ลิงก์ที่พบบ่อยในงานนำเสนอ PowerPoint:
 
-* ลิงก์ไปยังเว็บไซต์ภายในข้อความ รูปร่าง หรือสื่อ
+* ลิงก์ไปยังเว็บไซต์ภายในข้อความ, รูปร่าง หรือสื่อ
 * ลิงก์ไปยังสไลด์
 
 Aspose.Slides for Java ช่วยให้คุณทำงานหลายอย่างที่เกี่ยวกับไฮเปอร์ลิงก์ในงานนำเสนอได้
 
-{{% alert color="primary" %}} 
-คุณอาจต้องการลองใช้ Aspose แบบง่าย, [โปรแกรมแก้ไข PowerPoint ออนไลน์ฟรี](https://products.aspose.app/slides/th/editor)
+{{% alert color="info" %}} 
+คุณอาจต้องการลอง Aspose แบบง่าย, [ฟรีออนไลน์ PowerPoint editor.](https://products.aspose.app/slides/th/editor)
 {{% /alert %}} 
 
 ## **เพิ่มไฮเปอร์ลิงก์ URL**
 
 ### **เพิ่มไฮเปอร์ลิงก์ URL ไปยังข้อความ**
 
-โค้ด Java นี้แสดงวิธีการเพิ่มไฮเปอร์ลิงก์เว็บไซต์ลงในข้อความ:
+โค้ด Java ตัวนี้แสดงวิธีเพิ่มไฮเปอร์ลิงก์เว็บไซต์ไปยังข้อความ:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
 	IAutoShape shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -61,8 +64,11 @@ try {
 
 ### **เพิ่มไฮเปอร์ลิงก์ URL ไปยังรูปร่างหรือเฟรม**
 
-โค้ดตัวอย่างใน Java นี้แสดงวิธีการเพิ่มไฮเปอร์ลิงก์เว็บไซต์ลงในรูปร่าง:
+ตัวอย่างโค้ดใน Java นี้แสดงวิธีเพิ่มไฮเปอร์ลิงก์เว็บไซต์ไปยังรูปร่าง:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -78,35 +84,43 @@ try {
 
 ### **เพิ่มไฮเปอร์ลิงก์ URL ไปยังสื่อ**
 
-Aspose.Slides อนุญาตให้คุณเพิ่มไฮเปอร์ลิงก์ไปยังไฟล์รูปภาพ, เสียง, และวิดีโอ.
+Aspose.Slides ช่วยให้คุณเพิ่มไฮเปอร์ลิงก์ไปยังไฟล์รูปภาพ, เสียงและวิดีโอ
 
-โค้ดตัวอย่างนี้แสดงวิธีการเพิ่มไฮเปอร์ลิงก์ไปยัง **รูปภาพ**:
+ตัวอย่างโค้ดนี้แสดงวิธีเพิ่มไฮเปอร์ลิงก์ไปยัง **รูปภาพ**:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	// เพิ่มรูปภาพลงในงานนำเสนอ
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
-    picture = pres.getImages().addImage(picture);
+        picture = pres.getImages().addImage(image);
     } finally {
-          if (image != null) image.dispose();
+        if (image != null) image.dispose();
     }
-	// สร้างกรอบรูปบนสไลด์ 1 จากรูปภาพที่เพิ่มไว้ก่อนหน้า
+	// สร้างกรอบรูปบนสไลด์ที่ 1 จากรูปภาพที่เพิ่มไว้ก่อนหน้า
 	IPictureFrame pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
 
 	pictureFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
 	pictureFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 
 	pres.save("pres-out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
-โค้ดตัวอย่างนี้แสดงวิธีการเพิ่มไฮเปอร์ลิงก์ไปยัง **ไฟล์เสียง**:
+ตัวอย่างโค้ดนี้แสดงวิธีเพิ่มไฮเปอร์ลิงก์ไปยัง **ไฟล์เสียง**:
+
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IAudio audio = pres.getAudios().addAudio(Files.readAllBytes(Paths.get("audio.mp3")));
@@ -122,8 +136,14 @@ try {
 }
 ```
 
-โค้ดตัวอย่างนี้แสดงวิธีการเพิ่มไฮเปอร์ลิงก์ไปยัง **วิดีโอ**:
+ตัวอย่างโค้ดนี้แสดงวิธีเพิ่มไฮเปอร์ลิงก์ไปยัง **วิดีโอ**:
+
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IVideo video = pres.getVideos().addVideo(Files.readAllBytes(Paths.get("video.avi")));
@@ -139,16 +159,20 @@ try {
 }
 ```
 
-{{%  alert  title="Tip"  color="primary"  %}} 
+{{%  alert  title="Tip"  color="info"  %}} 
 คุณอาจต้องการดู *[จัดการ OLE](/slides/th/java/manage-ole/)*.
 {{% /alert %}}
 
 ## **ใช้ไฮเปอร์ลิงก์เพื่อสร้างสารบัญ**
 
-เนื่องจากไฮเปอร์ลิงก์ทำให้คุณเพิ่มการอ้างอิงต่อวัตถุหรือสถานที่ได้ คุณจึงสามารถใช้มันสร้างสารบัญได้.
+เนื่องจากไฮเปอร์ลิงก์ช่วยให้คุณเพิ่มการอ้างอิงถึงวัตถุหรือสถานที่ คุณสามารถใช้มันเพื่อสร้างสารบัญได้
 
-โค้ดตัวอย่างนี้แสดงวิธีสร้างสารบัญพร้อมไฮเปอร์ลิงก์:
+ตัวอย่างโค้ดนี้แสดงวิธีสร้างสารบัญด้วยไฮเปอร์ลิงก์:
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	ISlide firstSlide = pres.getSlides().get_Item(0);
@@ -181,10 +205,14 @@ try {
 
 ### **สี**
 
-ด้วยคุณสมบัติ [ColorSource](https://reference.aspose.com/slides/th/java/com.aspose.slides/Hyperlink#setColorSource-int-) ในอินเทอร์เฟซ [IHyperlink](https://reference.aspose.com/slides/th/java/com.aspose.slides/IHyperlink) คุณสามารถกำหนดสีให้กับไฮเปอร์ลิงก์และยังสามารถรับข้อมูลสีจากไฮเปอร์ลิงก์ได้ คุณลักษณะนี้ถูกนำมาใช้ครั้งแรกใน PowerPoint 2019 ดังนั้นการเปลี่ยนแปลงที่เกี่ยวกับคุณสมบัตินี้จะไม่ส่งผลกับเวอร์ชัน PowerPoint เก่า.
+ด้วยคุณสมบัติ [ColorSource](https://reference.aspose.com/slides/th/java/com.aspose.slides/Hyperlink#setColorSource-int-) ในอินเทอร์เฟซ [IHyperlink](https://reference.aspose.com/slides/th/java/com.aspose.slides/IHyperlink) คุณสามารถตั้งค่าสีสำหรับไฮเปอร์ลิงก์และยังสามารถรับข้อมูลสีจากไฮเปอร์ลิงก์ได้ ฟีเจอร์นี้เริ่มแรกถูกนำเสนอใน PowerPoint 2019 ดังนั้นการเปลี่ยนแปลงที่เกี่ยวข้องกับคุณสมบัตินี้จะไม่ได้ใช้กับเวอร์ชัน PowerPoint เก่ากว่า
 
-โค้ดตัวอย่างนี้สาธิตการดำเนินการที่เพิ่มไฮเปอร์ลิงก์หลายสีลงในสไลด์เดียวกัน:
+ตัวอย่างโค้ดนี้แสดงการดำเนินการที่เพิ่มไฮเปอร์ลิงก์หลายสีในสไลด์เดียวกัน:
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -209,16 +237,19 @@ try {
 
 ### **ลบไฮเปอร์ลิงก์จากข้อความ**
 
-โค้ด Java นี้แสดงวิธีลบไฮเปอร์ลิงก์ออกจากข้อความในสไลด์งานนำเสนอ:
+โค้ด Java นี้แสดงวิธีลบไฮเปอร์ลิงก์จากข้อความในสไลด์ของงานนำเสนอ:
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
 	{
-		IAutoShape autoShape = (IAutoShape)shape;
-		if (autoShape != null)
+		if (shape instanceof IAutoShape)
 		{
+			IAutoShape autoShape = (IAutoShape)shape;
 			for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs())
 			{
 				for (IPortion portion : paragraph.getPortions())
@@ -237,9 +268,12 @@ try {
 
 ### **ลบไฮเปอร์ลิงก์จากรูปร่างหรือเฟรม**
 
-โค้ด Java นี้แสดงวิธีลบไฮเปอร์ลิงก์ออกจากรูปร่างในสไลด์งานนำเสนอ: 
+โค้ด Java นี้แสดงวิธีลบไฮเปอร์ลิงก์จากรูปร่างในสไลด์ของงานนำเสนอ: 
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
@@ -252,9 +286,9 @@ try {
 }
 ```
 
-## **ไฮเปอร์ลิงก์ที่เปลี่ยนแปลงได้**
+## **ไฮเปอร์ลิงก์ที่สามารถเปลี่ยนแปลงได้**
 
-คลาส [Hyperlink](https://reference.aspose.com/slides/th/java/com.aspose.slides/Hyperlink) สามารถเปลี่ยนแปลงค่าได้ ด้วยคลาสนี้ คุณสามารถเปลี่ยนค่าได้สำหรับคุณสมบัติดังต่อไปนี้:
+คลาส [Hyperlink](https://reference.aspose.com/slides/th/java/com.aspose.slides/Hyperlink) สามารถแก้ไขได้ ด้วยคลาสนี้คุณสามารถเปลี่ยนค่าให้กับคุณสมบัติเหล่านี้ได้:
 
 - [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/th/java/com.aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
 - [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/th/java/com.aspose.slides/IHyperlink#setTooltip-java.lang.String-)
@@ -263,7 +297,10 @@ try {
 - [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/th/java/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
 
 ส่วนของโค้ดนี้แสดงวิธีเพิ่มไฮเปอร์ลิงก์ไปยังสไลด์และแก้ไข tooltip ของมันภายหลัง:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -274,6 +311,9 @@ try {
 	portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 	portionFormat.setFontHeight(32);
 
+	// เปลี่ยน tooltip ของไฮเปอร์ลิงก์ที่ได้เพิ่มไว้แล้ว
+	portionFormat.getHyperlinkClick().setTooltip("Aspose: the File Format APIs");
+
 	pres.save("presentation-out.pptx", SaveFormat.Pptx);
 } finally {
 	if (pres != null) pres.dispose();
@@ -282,13 +322,13 @@ try {
 
 ## **คุณสมบัติที่รองรับใน IHyperlinkQueries**
 
-คุณสามารถเข้าถึง [IHyperlinkQueries](https://reference.aspose.com/slides/th/java/com.aspose.slides/IHyperlinkQueries) จากงานนำเสนอ, สไลด์, หรือข้อความที่กำหนดไฮเปอร์ลิงก์ไว้.
+คุณสามารถเข้าถึง [IHyperlinkQueries](https://reference.aspose.com/slides/th/java/com.aspose.slides/IHyperlinkQueries) จากงานนำเสนอ, สไลด์ หรือข้อความที่กำหนดไฮเปอร์ลิงก์ไว้ 
 
 - [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/th/java/com.aspose.slides/IPresentation#getHyperlinkQueries--)
 - [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/th/java/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
 - [ITextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/th/java/com.aspose.slides/ITextFrame#getHyperlinkQueries--)
 
-คลาส [IHyperlinkQueries](https://reference.aspose.com/slides/th/java/com.aspose.slides/IHyperlinkQueries) รองรับเมธอดและคุณสมบัติดังต่อไปนี้: 
+คลาส [IHyperlinkQueries] สนับสนุนเมธอดและคุณสมบัติเหล่านี้: 
 
 - [IHyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/th/java/com.aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
 - [IHyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/th/java/com.aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
@@ -297,14 +337,14 @@ try {
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะสร้างการนำทางภายในไม่ใช่แค่ไปยังสไลด์ แต่ไปยัง "ส่วน" หรือสไลด์แรกของส่วนได้อย่างไร?**
+### ฉันจะสร้างการนำทางภายในไม่ใช่แค่ไปยังสไลด์ แต่ไปยัง “ส่วน” หรือสไลด์แรกของส่วนได้อย่างไร?
 
-ส่วนใน PowerPoint คือการจัดกลุ่มสไลด์; การนำทางโดยเทคนิคมุ่งเป้าหมายที่สไลด์เฉพาะ เพื่อ "นำทางไปยังส่วน" คุณมักจะลิงก์ไปยังสไลด์แรกของส่วนนั้น.
+ส่วนใน PowerPoint คือการจัดกลุ่มสไลด์; การนำทางโดยเทคนิคยังคงชี้ไปยังสไลด์เฉพาะ เพื่อ “ไปยังส่วน” คุณมักจะลิงก์ไปยังสไลด์แรกของส่วนนั้น
 
-**ฉันสามารถแนบไฮเปอร์ลิงก์ไปยังองค์ประกอบสไลด์มาสเตอร์เพื่อให้ทำงานบนทุกสไลด์ได้หรือไม่?**
+### ฉันสามารถแนบไฮเปอร์ลิงก์กับองค์ประกอบของสไลด์แม่เพื่อให้ทำงานบนสไลด์ทั้งหมดได้หรือไม่?
 
-ได้. องค์ประกอบสไลด์มาสเตอร์และเลย์เอาต์รองรับไฮเปอร์ลิงก์ ลิงก์เหล่านี้จะแสดงบนสไลด์ลูกและสามารถคลิกได้ระหว่างการนำเสนอ.
+ใช่. สไลด์แม่และองค์ประกอบของเลเอาต์รองรับไฮเปอร์ลิงก์ ลิงก์เหล่านี้จะแสดงบนสไลด์ลูกและสามารถคลิกได้ระหว่างการสไลด์โชว์
 
-**ไฮเปอร์ลิงก์จะถูกรักษาไว้เมื่อส่งออกเป็น PDF, HTML, รูปภาพ หรือวิดีโอหรือไม่?**
+### ไฮเปอร์ลิงก์จะคงอยู่เมื่อส่งออกเป็น PDF, HTML, รูปภาพ หรือวิดีโอหรือไม่?
 
-ใน [PDF](/slides/th/java/convert-powerpoint-to-pdf/) และ [HTML](/slides/th/java/convert-powerpoint-to-html/) ใช่—ลิงก์จะถูกคงไว้โดยทั่วไป เมื่อส่งออกเป็น [images](/slides/th/java/convert-powerpoint-to-png/) และ [video](/slides/th/java/convert-powerpoint-to-video/) ความสามารถในการคลิกจะไม่ถูกรักษาไว้ เนื่องจากลักษณะของฟอร์แมตเหล่านั้น (เฟรมและวิดีโอแบบราสเตอร์ไม่รองรับไฮเปอร์ลิงก์).
+ใน [PDF](/slides/th/java/convert-powerpoint-to-pdf/) และ [HTML](/slides/th/java/convert-powerpoint-to-html/) ใช่ — ลิงก์ส่วนใหญ่จะคงไว้ แต่เมื่อส่งออกเป็น [รูปภาพ](/slides/th/java/convert-powerpoint-to-png/) และ [วิดีโอ](/slides/th/java/convert-powerpoint-to-video/) ความสามารถในการคลิกจะไม่ถ่ายทอดเนื่องจากรูปแบบเหล่านั้นเป็น raster frames/video ที่ไม่รองรับไฮเปอร์ลิงก์.

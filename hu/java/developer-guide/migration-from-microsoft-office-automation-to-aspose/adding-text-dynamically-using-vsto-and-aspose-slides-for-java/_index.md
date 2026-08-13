@@ -1,5 +1,5 @@
 ---
-title: Szöveg dinamikus hozzáadása VSTO és Aspose.Slides for Java használatával
+title: Szöveg dinamikus hozzáadása VSTO-val és Aspose.Slides for Java-val
 linktitle: Szöveg dinamikus hozzáadása
 type: docs
 weight: 20
@@ -13,33 +13,33 @@ keywords:
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Tekintse meg, hogyan lehet a Microsoft Office automatizálásról az Aspose.Slides for Java-ra migrálni, és Java-ban dinamikus szöveget hozzáadni a PowerPoint (PPT, PPTX) prezentációkhoz."
+description: "Tekintse meg, hogyan lehet migrálni a Microsoft Office automatizálásból az Aspose.Slides for Java-ra, és hogyan adhat dinamikus szöveget a PowerPoint (PPT, PPTX) prezentációkhoz Java-ban."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-A fejlesztők által gyakran végzett feladat a szöveg dinamikus hozzáadása a diákhoz. Ebben a cikkben kódrészleteket mutatunk be a szöveg dinamikus hozzáadásához a [VSTO](/slides/hu/java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/) és az [Aspose.Slides for Java](/slides/hu/java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/) használatával.
+A fejlesztők által gyakran elvégzendő feladat a szöveg dinamikus hozzáadása a diákhoz. Ez a cikk kódrészleteket mutat be a szöveg dinamikus hozzáadásához a [VSTO](/slides/hu/java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/) és az [Aspose.Slides for Java](/slides/hu/java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/) segítségével.
 
 {{% /alert %}} 
 ## **Szöveg dinamikus hozzáadása**
 Mindkét módszer a következő lépéseket követi:
 
-1. Hozzon létre egy prezentációt.
+1. Készítsen egy prezentációt.
 1. Adjon hozzá egy üres diát.
 1. Adjon hozzá egy szövegdobozt.
-1. Állítson be némi szöveget.
-1. Mentse a prezentációt.
+1. Állítson be szöveget.
+1. Írja ki a prezentációt.
 ## **VSTO kódpélda**
-Az alábbi kódrészletek egy egyszerű diát és egy szövegsorozatot tartalmazó prezentációt eredményeznek.
+Az alábbi kódrészletek egy egyszerű diát és egy szövegsort tartalmazó prezentációt eredményeznek.
 
-**A VSTO-val létrehozott prezentáció** 
+**A VSTO-vel létrehozott prezentáció** 
 
 ![todo:image_alt_text](adding-text-dynamically-using-vsto-and-aspose-slides-for-java_1.png)
 
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-VSTO-AddTextBoxVSTO-AddTextBoxVSTO.cs" >}}
 ## **Aspose.Slides for Java példa**
-Az alábbi kódrészletek az Aspose.Slides segítségével hoznak létre egy egyszerű diát és egy szövegsorozatot tartalmazó prezentációt.
+Az alábbi kódrészletek az Aspose.Slides-ot használják egy egyszerű diát és egy szövegsort tartalmazó prezentáció létrehozásához.
 
-**Az Aspose.Slides for Java használatával létrehozott prezentáció** 
+**Az Aspose.Slides for Java segítségével létrehozott prezentáció** 
 
 ![todo:image_alt_text](adding-text-dynamically-using-vsto-and-aspose-slides-for-java_2.png)
 

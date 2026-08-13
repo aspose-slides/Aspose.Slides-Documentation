@@ -1,24 +1,19 @@
 ---
-title: PPT, PPTX, PDF 和 HTML 导出
+title: PPT、PPTX、PDF 和 HTML 导出
 type: docs
 weight: 20
 url: /zh/jasperreports/ppt-pptx-pdf-and-html-export/
 ---
+{{% alert color="info" %}} 
+JasperReports 和 JasperServer 没有内置将报告导出为 Microsoft PowerPoint 演示文稿的功能，但使用 Aspose.Slides for JasperReports，您可以访问额外的导出格式：
 
-{{% alert color="primary" %}} 
-
-JasperReports 和 JasperServer 并没有内置导出报告为 Microsoft PowerPoint 演示文稿的功能，但使用 Aspose.Slides for JasperReports，您可以访问额外的导出格式：
-
-- Microsoft PowerPoint 演示文稿 (PPT)
-- Microsoft PowerPoint 演示文稿 (PPTX)
+- Microsoft PowerPoint Presentation (PPT)
+- Microsoft PowerPoint Presentation (PPTX)
 - HTML
 - PDF
-
 {{% /alert %}} 
 
-要创建这些格式的文档，Aspose.Slides for JasperReports 依赖于内置版本的 [Aspose.Slides for Java](https://products.aspose.com/slides/java/)，这是来自 Aspose 的市场领先的演示处理库。生成文档时并未使用 Microsoft PowerPoint。
-
-
+要在这些格式中创建文档，Aspose.Slides for JasperReports 依赖于内置的 [Aspose.Slides for Java](https://products.aspose.com/slides/zh/java/)，这是一款来自 Aspose 的行业领先的演示文稿处理库。生成文档时不使用 Microsoft PowerPoint。
 
 **导出为 Microsoft PowerPoint (PPT) 演示文稿的示例报告** 
 

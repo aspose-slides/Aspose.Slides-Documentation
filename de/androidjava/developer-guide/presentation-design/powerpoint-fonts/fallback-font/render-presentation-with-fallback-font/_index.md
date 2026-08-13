@@ -1,5 +1,5 @@
 ---
-title: Präsentationen mit Fallback-Schriftarten auf Android rendern
+title: Rendern von Präsentationen mit Fallback-Schriftarten auf Android
 linktitle: Präsentationen rendern
 type: docs
 weight: 30
@@ -8,52 +8,61 @@ keywords:
 - Fallback-Schriftart
 - PowerPoint rendern
 - Präsentation rendern
-- Folien rendern
+- Folie rendern
 - PowerPoint
 - OpenDocument
 - Präsentation
 - Android
 - Java
 - Aspose.Slides
-description: "Präsentationen mit Fallback-Schriftarten in Aspose.Slides für Android rendern – Text über PPT, PPTX und ODP hinweg konsistent halten mit schrittweisen Java-Codebeispielen."
+description: "Rendern von Präsentationen mit Fallback‑Schriftarten in Aspose.Slides für Android – Text in PPT, PPTX und ODP konsistent halten mit schrittweisen Java‑Code‑Beispielen."
 ---
+## **Übersicht**
 
-Das folgende Beispiel enthält diese Schritte:
+Aspose.Slides ermöglicht das Rendern von Präsentationen mit Fallback‑Schriftartenregeln. Dieser Artikel zeigt, wie man eine Sammlung von Fallback‑Schriftartenregeln erstellt, die Regeln durch Entfernen oder Hinzufügen von Fallback‑Schriftarten ändert und die Sammlung mit der Methode `FontsManager.setFontFallBackRulesCollection` zuweist.
 
-1. Wir [erstellen die Sammlung von Fallback‑Schriftartregeln](/slides/de/androidjava/create-fallback-fonts-collection/).
-1. Entfernen Sie eine Fallback‑Schriftartregel und [addFallBackFonts](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) zu einer anderen Regel.
-1. Setzen Sie die Sammlung der Regeln über die Methode [getFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getFontsManager--).[getFontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager#getFontFallBackRulesCollection--) fest.
-1. Mit der Methode [Presentation.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) können wir die Präsentation im selben Format speichern oder in einem anderen Format. Nachdem die Sammlung von Fallback‑Schriftartregeln im [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager) festgelegt ist, werden diese Regeln bei allen Vorgängen mit der Präsentation angewendet: speichern, rendern, konvertieren usw.
+Sobald die Sammlung von Fallback‑Schriftartenregeln dem `FontsManager` der Präsentation zugewiesen ist, werden die Regeln bei Vorgängen wie dem Speichern, Rendern und Konvertieren der Präsentation angewendet. Das Beispiel zeigt, wie die konfigurierten Regeln beim Rendern einer Folienminiatur und beim Speichern als JPEG‑Bild verwendet werden.
+
+## **Rendern einer Folie mit Fallback‑Schriftartenregeln**
+
+1. Wir [Erstellen einer Sammlung von Fallback‑Schriftartenregeln](/slides/de/androidjava/create-fallback-fonts-collection/).
+2. [Entfernen](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/FontFallBackRule#remove-java.lang.String-) eine Fallback‑Schriftartenregel und [addFallBackFonts](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) zu einer anderen Regel.
+3. Setzen Sie die Regelesammlung über die Methode [getFontsManager](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/Presentation#getFontsManager--).[getFontFallBackRulesCollection](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/FontsManager#getFontFallBackRulesCollection--) .
+4. Mit der Methode [Presentation.save](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) können wir die Präsentation im selben Format speichern oder in einem anderen Format speichern. Nachdem die Fallback‑Schriftartenregelesammlung dem [FontsManager](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/FontsManager) zugewiesen wurde, werden diese Regeln bei allen Vorgängen mit der Präsentation angewendet: Speichern, Rendern, Konvertieren usw.
+
 ```java
-// Neue Instanz einer Regel-Sammlung erstellen
+import com.aspose.slides.*;
+
+// Neue Instanz einer Regelsammlung erstellen
 IFontFallBackRulesCollection rulesList = new FontFallBackRulesCollection();
 
 // Eine Reihe von Regeln erstellen
 rulesList.add(new FontFallBackRule(0x400, 0x4FF, "Times New Roman"));
+rulesList.add(new FontFallBackRule(0x600, 0x6FF, "Tahoma, Arial"));
 
 for (IFontFallBackRule fallBackRule : rulesList)
 {
-    // Versuch, die Fallback-Schriftart "Tahoma" aus geladenen Regeln zu entfernen
+    // Versuchen, die Fallback‑Schriftart "Tahoma" aus den geladenen Regeln zu entfernen
     fallBackRule.remove("Tahoma");
 
     // Und die Regeln für den angegebenen Bereich aktualisieren
-    if ((fallBackRule.getRangeEndIndex() >= 0x4000) && (fallBackRule.getRangeStartIndex() < 0x5000))
+    if ((fallBackRule.getRangeEndIndex() >= 0x400) && (fallBackRule.getRangeStartIndex() < 0x500))
         fallBackRule.addFallBackFonts("Verdana");
 }
 
-// Auch können wir vorhandene Regeln aus der Liste entfernen
-if (rulesList.size() > 0)
-    rulesList.remove(rulesList.get_Item(0));
+// Wir können auch vorhandene Regeln aus der Liste entfernen, dabei mindestens eine Regel zum Rendern behalten
+if (rulesList.size() > 1)
+    rulesList.remove(rulesList.get_Item(1));
 
 Presentation pres = new Presentation("input.pptx");
 try {
-    // Zuweisung einer vorbereiteten Regel-Liste zur Verwendung
+    // Zuweisen einer vorbereiteten Regelliste zur Verwendung
     pres.getFontsManager().setFontFallBackRulesCollection(rulesList);
 
-    // Rendern des Thumbnails unter Verwendung der initialisierten Regel-Sammlung und Speicherung als JPEG
+    // Rendern der Miniatur mit der initialisierten Regelsammlung und Speichern als JPEG
    IImage slideImage = pres.getSlides().get_Item(0).getImage(1f, 1f);
 
-   // Bild im JPEG-Format auf die Festplatte speichern
+   // Bild im JPEG‑Format auf die Festplatte speichern
    try {
          slideImage.save("Slide_0.jpg", ImageFormat.Jpeg);
    } finally {
@@ -64,7 +73,6 @@ try {
 }
 ```
 
-
-{{% alert color="primary" %}} 
-Erfahren Sie mehr über [PPT und PPTX auf Android in JPG konvertieren](/slides/de/androidjava/convert-powerpoint-to-jpg/).
+{{% alert color="info" %}} 
+Erfahren Sie mehr über [PowerPoint (PPT und PPTX) nach JPG auf Android konvertieren](/slides/de/androidjava/convert-powerpoint-to-jpg/).
 {{% /alert %}}

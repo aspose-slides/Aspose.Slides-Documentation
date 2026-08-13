@@ -1,5 +1,5 @@
 ---
-title: .NET'te Sunum Arka Planlarını Yönetin
+title: .NET'te Sunum Arka Planlarını Yönet
 linktitle: Slayt Arka Planı
 type: docs
 weight: 20
@@ -8,8 +8,8 @@ keywords:
 - sunum arka planı
 - slayt arka planı
 - katı renk
-- geçiş rengi
-- resim arka planı
+- degrade renk
+- görüntü arka planı
 - arka plan şeffaflığı
 - arka plan özellikleri
 - PowerPoint
@@ -18,132 +18,146 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET kullanarak PowerPoint ve OpenDocument dosyalarında dinamik arka planları nasıl ayarlayacağınızı, sunumlarınızı güçlendirecek kod ipuçlarıyla öğrenin."
+description: "Aspose.Slides for .NET kullanarak PowerPoint ve OpenDocument dosyalarında dinamik arka planları nasıl ayarlayacağınızı öğrenin, sunumlarınızı güçlendirecek kod ipuçlarıyla."
 ---
 ## **Giriş**
 
-Katı renkler, geçişler ve resimler slayt arka planları için yaygın olarak kullanılır. Arka planı **normal bir slayt** (tek bir slayt) veya **üst slayt** (birden çok slayta aynı anda uygulanır) için ayarlayabilirsiniz.
+Katı renkler, degrade'ler ve görüntüler genellikle slayt arka planları için kullanılır. **Normal slayt** (tek bir slayt) veya **master slayt** (birden fazla slayta aynı anda uygulanır) için arka plan ayarlayabilirsiniz.
 
-![PowerPoint background](powerpoint-background.png)
+![PowerPoint arka planı](powerpoint-background.png)
 
-## **Normal Bir Slayt İçin Katı Renk Arka Planı Ayarlama**
+## **Normal Slayt için Katı Renk Arka Planı Ayarlama**
 
-Aspose.Slides, bir sunumdaki belirli bir slayt için, sunum bir üst slayt kullansa bile, arka planı katı bir renk olarak ayarlamanıza olanak tanır. Değişiklik yalnızca seçilen slayta uygulanır.
+Aspose.Slides, bir sunumdaki belirli bir slayt için katı renkli arka plan ayarlamanıza olanak tanır—sunum bir master slayt kullansa bile. Değişiklik yalnızca seçilen slayta uygulanır.
 
-1. bir [Sunum](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfı örneği oluşturun.
-2. slaytın [BackgroundType](https://reference.aspose.com/slides/tr/net/aspose.slides/backgroundtype/) niteliğini `OwnBackground` olarak ayarlayın.
-3. slayt arka planının [FillType](https://reference.aspose.com/slides/tr/net/aspose.slides/filltype/) niteliğini `Solid` olarak ayarlayın.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. Slaytın [BackgroundType](https://reference.aspose.com/slides/tr/net/aspose.slides/backgroundtype/) özelliğini `OwnBackground` olarak ayarlayın.
+3. Slayt arka planının [FillType](https://reference.aspose.com/slides/tr/net/aspose.slides/filltype/) özelliğini `Solid` olarak ayarlayın.
 4. [FillFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/fillformat/) üzerindeki [SolidFillColor](https://reference.aspose.com/slides/tr/net/aspose.slides/fillformat/solidfillcolor/) özelliğini kullanarak katı arka plan rengini belirleyin.
-5. değiştirilmiş sunumu kaydedin.
+5. Değiştirilen sunumu kaydedin.
 
-Aşağıdaki C# örneği, normal bir slayt için mavi bir katı renk arka planının nasıl ayarlanacağını gösterir:
+Aşağıdaki C# örneği, normal bir slayt için mavi katı renk arka planı ayarlamayı gösterir:
 
 ```cs
-// Presentation sınıfının bir örneğini oluşturun.
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Presentation sınıfının bir örneğini oluştur.
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // Slaytın arka plan rengini mavi olarak ayarlayın.
+    // Slaydın arka plan rengini mavi olarak ayarla.
     slide.Background.Type = BackgroundType.OwnBackground;
     slide.Background.FillFormat.FillType = FillType.Solid;
     slide.Background.FillFormat.SolidFillColor.Color = Color.Blue;
 
-    // Sunumu diske kaydedin.
+    // Sunumu diske kaydet.
     presentation.Save("SolidColorBackground.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Üst Slayt İçin Katı Renk Arka Planı Ayarlama**
+## **Master Slayt için Katı Renk Arka Planı Ayarlama**
 
-Aspose.Slides, bir sunumdaki üst slayt için arka planı katı bir renk olarak ayarlamanıza izin verir. Üst slayt, tüm slaytların biçimlendirmesini kontrol eden bir şablon görevi görür; bu nedenle üst slaytın arka planı için katı bir renk seçtiğinizde, bu renk her slayta uygulanır.
+Aspose.Slides, bir sunumdaki master slayt için katı renkli arka plan ayarlamanıza olanak tanır. Master slayt, tüm slaytların biçimlendirmesini kontrol eden bir şablon görevi görür; bu nedenle master slaytın arka planına katı renk seçtiğinizde, bu renk her slayta uygulanır.
 
-1. bir [Sunum](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfı örneği oluşturun.
-2. üst slaytın [BackgroundType](https://reference.aspose.com/slides/tr/net/aspose.slides/backgroundtype/) niteliğini ( `masters` aracılığıyla) `OwnBackground` olarak ayarlayın.
-3. üst slayt arka planının [FillType](https://reference.aspose.com/slides/tr/net/aspose.slides/filltype/) niteliğini `Solid` olarak ayarlayın.
-4. katı arka plan rengini belirlemek için [SolidFillColor](https://reference.aspose.com/slides/tr/net/aspose.slides/fillformat/solidfillcolor/) özelliğini kullanın.
-5. değiştirilmiş sunumu kaydedin.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. Master slaytın [BackgroundType](https://reference.aspose.com/slides/tr/net/aspose.slides/backgroundtype/) (via `masters`) özelliğini `OwnBackground` olarak ayarlayın.
+3. Master slayt arka planının [FillType](https://reference.aspose.com/slides/tr/net/aspose.slides/filltype/) özelliğini `Solid` olarak ayarlayın.
+4. [SolidFillColor](https://reference.aspose.com/slides/tr/net/aspose.slides/fillformat/solidfillcolor/) özelliğini kullanarak katı arka plan rengini belirleyin.
+5. Değiştirilen sunumu kaydedin.
 
-Aşağıdaki C# örneği, üst slayt için katı bir renk (orman yeşili) arka planının nasıl ayarlanacağını gösterir:
+Aşağıdaki C# örneği, master slayt için katı renk (orman yeşili) arka planı ayarlamayı gösterir:
 
 ```cs
-// Presentation sınıfının bir örneğini oluşturun.
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Presentation sınıfının bir örneğini oluştur.
 using (Presentation presentation = new Presentation())
 {
     IMasterSlide masterSlide = presentation.Masters[0];
 
-    // Master slaytın arka plan rengini Orman Yeşili olarak ayarlayın.
+    // Master slaytının arka plan rengini Orman Yeşili olarak ayarla.
     masterSlide.Background.Type = BackgroundType.OwnBackground;
     masterSlide.Background.FillFormat.FillType = FillType.Solid;
     masterSlide.Background.FillFormat.SolidFillColor.Color = Color.ForestGreen;
 
-    // Sunumu diske kaydedin.
+    // Sunumu diske kaydet.
     presentation.Save("MasterSlideBackground.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Bir Slayt İçin Geçiş (Gradient) Arka Planı Ayarlama**
+## **Slayt için Degrade Arka Planı Ayarlama**
 
-Geçiş, renklerin kademeli olarak değişmesiyle oluşturulan bir grafik etkisidir. Slayt arka planı olarak kullanıldığında, geçişler sunumların daha sanatsal ve profesyonel görünmesini sağlar. Aspose.Slides, slaytlar için geçiş rengi arka planı ayarlamanıza olanak tanır.
+Degrade, renklerin kademeli olarak değişmesiyle oluşturulan bir grafik etkisidir. Slayt arka planı olarak kullanıldığında, degrade sunumların daha sanatsal ve profesyonel görünmesini sağlar. Aspose.Slides, slaytlar için degrade renkli arka plan ayarlamanıza izin verir.
 
-1. bir [Sunum](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfı örneği oluşturun.
-2. slaytın [BackgroundType](https://reference.aspose.com/slides/tr/net/aspose.slides/backgroundtype/) niteliğini `OwnBackground` olarak ayarlayın.
-3. slayt arka planının [FillType](https://reference.aspose.com/slides/tr/net/aspose.slides/filltype/) niteliğini `Gradient` olarak ayarlayın.
-4. tercih ettiğiniz geçiş ayarlarını yapılandırmak için [FillFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/fillformat/) üzerindeki [GradientFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/fillformat/gradientformat/) özelliğini kullanın.
-5. değiştirilmiş sunumu kaydedin.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. Slaytın [BackgroundType](https://reference.aspose.com/slides/tr/net/aspose.slides/backgroundtype/) özelliğini `OwnBackground` olarak ayarlayın.
+3. Slayt arka planının [FillType](https://reference.aspose.com/slides/tr/net/aspose.slides/filltype/) özelliğini `Gradient` olarak ayarlayın.
+4. [FillFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/fillformat/) üzerindeki [GradientFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/fillformat/gradientformat/) özelliğini kullanarak istediğiniz degrade ayarlarını yapılandırın.
+5. Değiştirilen sunumu kaydedin.
 
-Aşağıdaki C# örneği, bir slayt için geçiş rengi arka planının nasıl ayarlanacağını gösterir:
+Aşağıdaki C# örneği, bir slayt için degrade renk arka planı ayarlamayı gösterir:
 
 ```cs
-// Presentation sınıfının bir örneğini oluşturun.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Presentation sınıfının bir örneğini oluştur.
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // Arka plana bir geçiş efekti uygulayın.
+    // Arka plana bir degrade etkisi uygula.
     slide.Background.Type = BackgroundType.OwnBackground;
     slide.Background.FillFormat.FillType = FillType.Gradient;
     slide.Background.FillFormat.GradientFormat.TileFlip = TileFlip.FlipBoth;
 
-    // Sunumu diske kaydedin.
+    // Sunumu diske kaydet.
     presentation.Save("GradientBackground.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Bir Slayt Arka Planı Olarak Resim Ayarlama**
+## **Slayt Arka Planı Olarak Görüntü Ayarlama**
 
-Katı ve geçiş doldurmalarına ek olarak, Aspose.Slides resimleri slayt arka planı olarak kullanmanıza izin verir.
+Katı ve degrade doldurmaların yanı sıra, Aspose.Slides slayt arka planı olarak görüntü kullanmanıza da izin verir.
 
-1. bir [Sunum](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfı örneği oluşturun.
-2. slaytın [BackgroundType](https://reference.aspose.com/slides/tr/net/aspose.slides/backgroundtype/) niteliğini `OwnBackground` olarak ayarlayın.
-3. slayt arka planının [FillType](https://reference.aspose.com/slides/tr/net/aspose.slides/filltype/) niteliğini `Picture` olarak ayarlayın.
-4. slayt arka planı olarak kullanmak istediğiniz resmi yükleyin.
-5. resmi sunumun resim koleksiyonuna ekleyin.
-6. [FillFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/fillformat/) üzerindeki [PictureFillFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/fillformat/picturefillformat/) özelliğini kullanarak resmi arka plan olarak atayın.
-7. değiştirilmiş sunumu kaydedin.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. Slaytın [BackgroundType](https://reference.aspose.com/slides/tr/net/aspose.slides/backgroundtype/) özelliğini `OwnBackground` olarak ayarlayın.
+3. Slayt arka planının [FillType](https://reference.aspose.com/slides/tr/net/aspose.slides/filltype/) özelliğini `Picture` olarak ayarlayın.
+4. Slayt arka planı olarak kullanmak istediğiniz görüntüyü yükleyin.
+5. Görüntüyü sunumun görüntü koleksiyonuna ekleyin.
+6. [FillFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/fillformat/) üzerindeki [PictureFillFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/fillformat/picturefillformat/) özelliğini kullanarak görüntüyü arka plan olarak atayın.
+7. Değiştirilen sunumu kaydedin.
 
-Aşağıdaki C# örneği, bir slayt için arka plan resmi olarak nasıl ayarlanacağını gösterir:
+Aşağıdaki C# örneği, bir slayt için arka plan olarak bir görüntü ayarlamayı gösterir:
 
 ```c#
-// Presentation sınıfının bir örneğini oluşturun.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Presentation sınıfının bir örneğini oluştur.
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // Arka plan resmi özelliklerini ayarlayın.
+    // Arka plan görüntüsü özelliklerini ayarla.
     slide.Background.Type = BackgroundType.OwnBackground;
     slide.Background.FillFormat.FillType = FillType.Picture;
     slide.Background.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
 
-    // Resmi yükleyin.
+    // Görüntüyü yükle.
     IImage image = Images.FromFile("Tulips.jpg");
-    // Resmi sunumun görüntü koleksiyonuna ekleyin.
+    // Görüntüyü sunumun görüntü koleksiyonuna ekle.
     IPPImage ppImage = presentation.Images.AddImage(image);
     image.Dispose();
 
     slide.Background.FillFormat.PictureFillFormat.Picture.Image = ppImage;
 
-    // Sunumu diske kaydedin.
+    // Sunumu diske kaydet.
     presentation.Save("ImageAsBackground.pptx", SaveFormat.Pptx);
 }
 ```
@@ -151,6 +165,9 @@ using (Presentation presentation = new Presentation())
 Aşağıdaki kod örneği, arka plan doldurma tipini döşeli bir resim olarak ayarlamayı ve döşeme özelliklerini değiştirmeyi gösterir:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide firstSlide = presentation.Slides[0];
@@ -164,11 +181,11 @@ using (Presentation presentation = new Presentation())
     using (IImage newImage = Aspose.Slides.Images.FromFile("image.png"))
         ppImage = presentation.Images.AddImage(newImage);
 
-    // Arka plan doldurması için kullanılan resmi ayarlayın.
+    // Arka plan doldurması için kullanılan görüntüyü ayarla.
     IPictureFillFormat backPictureFillFormat = background.FillFormat.PictureFillFormat;
     backPictureFillFormat.Picture.Image = ppImage;
 
-    // Resim doldurma modunu Döşeme olarak ayarlayın ve döşeme özelliklerini ayarlayın.
+    // Resim doldurma modunu Döşeme olarak ayarla ve döşeme özelliklerini ayarla.
     backPictureFillFormat.PictureFillMode = PictureFillMode.Tile;
     backPictureFillFormat.TileOffsetX = 15f;
     backPictureFillFormat.TileOffsetY = 15f;
@@ -181,59 +198,70 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-{{% alert color="primary" %}}
-
-Daha fazla bilgi: [**Tile Picture As Texture**](/slides/tr/net/shape-formatting/#tile-picture-as-texture).
-
+{{% alert color="info" %}}
+Daha fazla okuyun: [**Tile Picture As Texture**](/slides/tr/net/shape-formatting/#tile-picture-as-texture).
 {{% /alert %}}
 
-### **Arka Plan Resmi Şeffaflığını Değiştirme**
+### **Arka Plan Görüntüsü Şeffaflığını Değiştirme**
 
-Bir slaytın arka plan resminin şeffaflığını ayarlamak, slayt içeriğinin öne çıkmasını sağlayabilir. Aşağıdaki C# kodu, slayt arka planı resminin şeffaflığını nasıl değiştireceğinizi gösterir:
+Slaytın arka plan görüntüsünün şeffaflığını ayarlayarak slayt içeriğinin daha çok öne çıkmasını isteyebilirsiniz. Aşağıdaki C# kodu, bir slayt arka plan görüntüsünün şeffaflığını nasıl değiştireceğinizi gösterir:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Effects;
+using Aspose.Slides.Export;
+
 var transparencyValue = 30; // Örneğin.
 
-// Resim dönüşüm işlemlerinin koleksiyonunu alın.
-var imageTransform = slide.Background.FillFormat.PictureFillFormat.Picture.ImageTransform;
-
-// Mevcut sabit yüzde şeffaflık etkisini bulun.
-var transparencyOperation = null as IAlphaModulateFixed;
-foreach (var operation in imageTransform)
+using (Presentation presentation = new Presentation("ImageAsBackground.pptx"))
 {
-    if (operation is IAlphaModulateFixed alphaModulateFixed)
+    ISlide slide = presentation.Slides[0];
+
+    // Resim dönüşüm işlemleri koleksiyonunu al.
+    var imageTransform = slide.Background.FillFormat.PictureFillFormat.Picture.ImageTransform;
+
+    // Mevcut sabit yüzde şeffaflık etkisini bul.
+    var transparencyOperation = null as IAlphaModulateFixed;
+    foreach (var operation in imageTransform)
     {
-        transparencyOperation = alphaModulateFixed;
-        break;
+        if (operation is IAlphaModulateFixed alphaModulateFixed)
+        {
+            transparencyOperation = alphaModulateFixed;
+            break;
+        }
     }
-}
 
-// Yeni şeffaflık değerini ayarlayın.
-if (transparencyOperation == null)
-{
-    imageTransform.AddAlphaModulateFixedEffect(100 - transparencyValue);
-}
-else
-{
-    transparencyOperation.Amount = (100 - transparencyValue);
+    // Yeni şeffaflık değerini ayarla.
+    if (transparencyOperation == null)
+    {
+        imageTransform.AddAlphaModulateFixedEffect(100 - transparencyValue);
+    }
+    else
+    {
+        transparencyOperation.Amount = (100 - transparencyValue);
+    }
+
+    presentation.Save("ImageBackgroundTransparency.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Slayt Arka Plan Değerini Alma**
+## **Slayt Arka Plan Değerini Almak**
 
-Aspose.Slides, bir slaytın geçerli arka plan değerlerini almak için [IBackgroundEffectiveData](https://reference.aspose.com/slides/tr/net/aspose.slides/ibackgroundeffectivedata/) arayüzünü sağlar. Bu arayüz, geçerli [FillFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/ibackgroundeffectivedata/fillformat/) ve [EffectFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/ibackgroundeffectivedata/effectformat/) öğelerini ortaya çıkarır.
+Aspose.Slides, bir slaytın etkili arka plan değerlerini almak için [IBackgroundEffectiveData](https://reference.aspose.com/slides/tr/net/aspose.slides/ibackgroundeffectivedata/) arayüzünü sağlar. Bu arayüz, etkili [FillFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/ibackgroundeffectivedata/fillformat/) ve [EffectFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/ibackgroundeffectivedata/effectformat/) özelliklerini ortaya koyar.
 
-[BaseSlide](https://reference.aspose.com/slides/tr/net/aspose.slides/baseslide/) sınıfının `background` özelliğini kullanarak bir slaytın geçerli arka planını elde edebilirsiniz.
+[BaseSlide](https://reference.aspose.com/slides/tr/net/aspose.slides/baseslide/) sınıfının `background` özelliğini kullanarak bir slaytın etkili arka planını elde edebilirsiniz.
 
-Aşağıdaki C# örneği, bir slaytın geçerli arka plan değerinin nasıl alınacağını gösterir:
+Aşağıdaki C# örneği, bir slaytın etkili arka plan değerini almayı gösterir:
 
 ```cs
-// Presentation sınıfının bir örneğini oluşturun.
+using Aspose.Slides;
+
+// Presentation sınıfının bir örneğini oluştur.
 using (Presentation presentation = new Presentation("Sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];  
 
-    // Master, düzen ve temayı dikkate alarak etkili arka planı alın.
+    // Master, yerleşim ve temayı dikkate alarak etkili arka planı al.
     IBackgroundEffectiveData effBackground = slide.Background.GetEffective();
 
     if (effBackground.FillFormat.FillType == FillType.Solid)
@@ -245,10 +273,10 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
 
 ## **SSS**
 
-**Özel bir arka planı sıfırlayıp tema/düzen arka planını geri yükleyebilir miyim?**
+### Özel bir arka planı sıfırlayıp tema/yerleşim arka planını geri yükleyebilir miyim?
 
-Evet. Slaytın özel doldurmasını kaldırın; arka plan, ilgili [düzen](/slides/tr/net/slide-layout/)/[üst slayt](/slides/tr/net/slide-master/) slaytından (yani [tema arka planı](/slides/tr/net/presentation-theme/)) yeniden devralınır.
+Evet. Slaytın özel doldurmasını kaldırın, böylece arka plan tekrar ilgili [layout](/slides/tr/net/slide-layout/)/[master](/slides/tr/net/slide-master/) slaytundan (yani [theme background](/slides/tr/net/presentation-theme/)) devralınır.
 
-**Sunumun temasını daha sonra değiştirirsem arka plan ne olur?**
+### Sunum temasını daha sonra değiştirirsem arka plan ne olur?
 
-Slaytın kendi doldurması varsa değişmeden kalır. Arka plan, [düzen](/slides/tr/net/slide-layout/)/[üst slayt](/slides/tr/net/slide-master/) üzerinden devralınmışsa, yeni tema ile eşleşecek şekilde güncellenir.
+Eğer bir slaytın kendi doldurması varsa, bu değişmeden kalır. Eğer arka plan [layout](/slides/tr/net/slide-layout/)/[master](/slides/tr/net/slide-master/) üzerinden devralınmışsa, yeni tema ile eşleşecek şekilde güncellenir.

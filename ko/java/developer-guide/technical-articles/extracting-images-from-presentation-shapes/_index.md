@@ -1,6 +1,6 @@
 ---
 title: Java에서 프레젠테이션 도형의 이미지 추출
-linktitle: 도형에서 이미지
+linktitle: 도형의 이미지
 type: docs
 weight: 100
 url: /ko/java/extracting-images-from-presentation-shapes/
@@ -14,19 +14,19 @@ keywords:
 - Aspose.Slides
 description: "Aspose.Slides for Java를 사용하여 PowerPoint 및 OpenDocument 프레젠테이션의 도형에서 이미지를 추출합니다 - 빠르고 코드 친화적인 솔루션."
 ---
-## **개요**
+## **Overview**
 
-프레젠테이션의 이미지는 여러 형태의 도형에 나타날 수 있습니다: 일반 그림 프레임, 도형에 적용된 그림 채우기, OLE 개체 미리 보기 이미지, 비디오 또는 오디오 프레임 썸네일, 확대 이미지, 혹은 표, 차트, SmartArt 도형 내부에 중첩된 이미지 등입니다. Aspose.Slides는 이러한 이미지를 프레젠테이션 이미지 컬렉션에 저장하며, 이는 [IImageCollection](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iimagecollection/) 및 [IPPImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/) 객체를 통해 노출됩니다.
+프레젠테이션의 이미지들은 여러 형태의 도형에 나타날 수 있습니다: 일반 사진 프레임, 도형에 적용된 사진 채우기, OLE 객체 미리 보기 이미지, 비디오 또는 오디오 프레임 썸네일, 줌 이미지, 또는 표, 차트 및 SmartArt 도형 내부에 중첩된 이미지 등. Aspose.Slides는 이러한 이미지들을 프레젠테이션 이미지 컬렉션에 저장하며, 이는 [IImageCollection](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iimagecollection/)와 [IPPImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/) 객체를 통해 노출됩니다.
 
-프레젠테이션에 포함된 모든 이미지 리소스를 내보내기만 하면 된다면 `presentation.getImages()`를 순회하면 됩니다. 이 문서는 다른 작업에 초점을 맞춥니다: 슬라이드에서 이미지가 사용된 위치를 찾기 위해 도형을 순회하고, 저장된 파일에 슬라이드 번호, 도형 위치, 원본 유형(그림 프레임, 채우기 이미지, 미디어 미리 보기, OLE 미리 보기 또는 확대 이미지)과 같은 유용한 컨텍스트를 보존합니다.
+프레젠테이션에 포함된 모든 이미지 리소스를 내보내기만 하면 된다면 `presentation.getImages()`를 반복하면 됩니다. 이 문서는 다른 작업에 초점을 맞춥니다: 도형을 순회하여 슬라이드에서 이미지가 사용된 위치를 찾아 저장된 파일에 슬라이드 번호, 도형 위치 및 원본 유형(사진 프레임, 채우기 이미지, 미디어 미리 보기, OLE 미리 보기 또는 줌 이미지)과 같은 유용한 컨텍스트를 유지하도록 합니다.
 
-{{% alert title="Tip" color="primary" %}}
-[IPPImage.getBinaryData](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/#getBinaryData--)를 사용하면 원본 인코딩 이미지 데이터와 파일 형식을 보존할 수 있습니다. 특정 형식(PNG 등)으로 출력을 정규화하려면 [IPPImage.getImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/#getImage--)와 [IImage.save](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iimage/#save-java.lang.String-int-)를 사용하십시오.
+{{% alert title="Tip" color="info" %}}
+원본 인코딩된 이미지 데이터와 파일 유형을 보존하려면 [IPPImage.getBinaryData](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/#getBinaryData--)를 사용하십시오. PNG와 같은 특정 형식으로 출력을 정규화하려면 [IPPImage.getImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/#getImage--)를 [IImage.save](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iimage/#save-java.lang.String-int-)와 함께 사용하십시오.
 {{% /alert %}}
 
-## **공유 헬퍼 메서드**
+## **Shared Helper Methods**
 
-아래 헬퍼 메서드는 예제를 간결하게 유지합니다. `saveOriginalImage`는 원본 임베디드 바이트를 기록하고 MIME 유형에서 안전한 확장자를 선택하며 SHA‑256 해시로 중복 이미지 바이너리를 건너뜁니다.
+아래 헬퍼 메서드는 예제를 간결하게 유지합니다. `saveOriginalImage`는 원본 임베드된 바이트를 쓰고, MIME 타입에서 안전한 확장자를 선택하며, SHA-256 해시를 사용해 중복 이미지 바이너리를 건너뜁니다.
 
 ```java
 import com.aspose.slides.*;
@@ -222,11 +222,16 @@ private static String makeSafeFileNamePart(String value)
 }
 ```
 
-## **그림 프레임에서 이미지 추출**
+## **Extract Images from Picture Frames**
 
-독립 객체로 삽입된 그림에 이 접근 방식을 사용하십시오. [IPictureFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ipictureframe/)은 `getPictureFormat().getPicture().getImage()`를 통해 그림을 저장하며, 이는 [IPPImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/) 객체를 반환합니다.
+독립 객체로 삽입된 사진에 대해 이 방법을 사용하십시오. [IPictureFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ipictureframe/)은 `getPictureFormat().getPicture().getImage()`에 사진을 저장하며, 이는 [IPPImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/) 객체를 반환합니다.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "extracted-images");
@@ -266,11 +271,15 @@ finally
 }
 ```
 
-## **그림 채우기 도형에서 이미지 추출**
+## **Extract Images from Picture-Filled Shapes**
 
-도형은 그림을 채우기로 사용할 수 있습니다. 먼저 도형의 채우기 유형을 확인하십시오: [FillType.Picture](https://reference.aspose.com/slides/ko/java/com.aspose.slides/filltype/)가 아니면 해당 채우기에서 추출할 그림이 없습니다. 아래 예시는 [IAutoShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iautoshape/) 객체를 처리하고 각 이미지를 [IPPImage.getImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/#getImage--)를 통해 PNG로 저장합니다.
+도형은 사진을 채우기로 사용할 수 있습니다. 먼저 도형의 채우기 유형을 확인하십시오: [FillType.Picture](https://reference.aspose.com/slides/ko/java/com.aspose.slides/filltype/)이 아니라면 해당 채우기에서 추출할 사진이 없습니다. 아래 예제는 [IAutoShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iautoshape/) 객체를 처리하고 각 이미지를 [IPPImage.getImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/#getImage--)를 통해 PNG로 저장합니다.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "shape-fill-images");
@@ -312,11 +321,16 @@ finally
 }
 ```
 
-## **OLE 개체 프레임에서 미리 보기 이미지 추출**
+## **Extract Preview Images from OLE Object Frames**
 
-[IOleObjectFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ioleobjectframe/)는 PowerPoint가 슬라이드에서 개체의 미리 보기로 사용하는 대체 그림을 가질 수 있습니다. 이 이미지는 `getSubstitutePictureFormat().getPicture().getImage()`를 통해 제공됩니다. 이 그림을 추출하면 OLE 패키지의 실제 내용이 아니라 미리 보기 이미지만 얻을 수 있습니다.
+[IOleObjectFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ioleobjectframe/)은 PowerPoint이 슬라이드에서 객체의 미리 보기로 사용하는 대체 사진을 가질 수 있습니다. 이 이미지에는 `getSubstitutePictureFormat().getPicture().getImage()`를 통해 접근할 수 있습니다. 이 사진을 추출하면 미리 보기 이미지를 얻을 수 있으며, 임베드된 OLE 패키지 내용은 아닙니다.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "ole-preview-images");
@@ -360,11 +374,16 @@ finally
 }
 ```
 
-## **비디오 프레임에서 미리 보기 이미지 추출**
+## **Extract Preview Images from Video Frames**
 
-[IVideoFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ivideoframe/)도 `getPictureFormat().getPicture().getImage()`를 통해 미리 보기 이미지를 저장할 수 있습니다. 이는 슬라이드에 표시되는 포스터 또는 썸네일이며, 비디오 스트림에서 디코딩한 프레임이 아닙니다.
+[IVideoFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ivideoframe/) 역시 `getPictureFormat().getPicture().getImage()`에 미리 보기 이미지를 저장할 수 있습니다. 이는 슬라이드에 표시되는 포스터 또는 썸네일이며, 비디오 스트림에서 디코딩된 프레임이 아닙니다.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "video-preview-images");
@@ -408,11 +427,16 @@ finally
 }
 ```
 
-## **오디오 프레임에서 미리 보기 이미지 추출**
+## **Extract Preview Images from Audio Frames**
 
-[IAudioFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iaudioframe/)는 `getPictureFormat().getPicture().getImage()`를 통해 썸네일을 저장할 수 있습니다. 이는 슬라이드에 표시되는 오디오 객체의 이미지입니다.
+[IAudioFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iaudioframe/)은 `getPictureFormat().getPicture().getImage()`에 썸네일을 저장할 수 있습니다. 이는 슬라이드에 표시되는 오디오 객체의 이미지입니다.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "audio-preview-images");
@@ -456,11 +480,16 @@ finally
 }
 ```
 
-## **확대 개체에서 이미지 추출**
+## **Extract Images from Zoom Objects**
 
-[IZoomFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/izoomframe/) 및 [ISectionZoomFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/isectionzoomframe/) 도형은 사용자 지정 이미지를 사용할 수 있습니다. 확대 프레임에서 `getZoomImage()`를 읽으십시오.
+[IZoomFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/izoomframe/) 및 [ISectionZoomFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/isectionzoomframe/) 도형은 사용자 정의 이미지를 사용할 수 있습니다. 줌 프레임에서 `getZoomImage()`를 읽습니다.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "zoom-images");
@@ -517,11 +546,16 @@ finally
 }
 ```
 
-## **요약 확대 프레임에서 이미지 추출**
+## **Extract Images from Summary Zoom Frames**
 
-[ISummaryZoomFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/isummaryzoomframe/)도 도형입니다. 해당 섹션 항목은 각 요약 확대 섹션의 `getZoomImage()` 메서드를 통해 사용자 정의 이미지를 사용할 수 있습니다.
+[ISummaryZoomFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/isummaryzoomframe/)도 도형입니다. 해당 섹션 항목은 사용자 정의 이미지를 사용할 수 있으며, 각 요약 줌 섹션의 `getZoomImage()` 메서드를 통해 노출됩니다.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "summary-zoom-images");
@@ -571,11 +605,16 @@ finally
 }
 ```
 
-## **표 도형에서 이미지 추출**
+## **Extract Images from Table Shapes**
 
-[ITable](https://reference.aspose.com/slides/ko/java/com.aspose.slides/itable/)은 도형입니다. 표에 포함된 이미지는 일반적으로 셀의 그림 채우기로 저장됩니다.
+[ITable](https://reference.aspose.com/slides/ko/java/com.aspose.slides/itable/)은 도형입니다. 표 내 이미지들은 보통 셀의 사진 채우기로 저장됩니다.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "table-images");
@@ -631,11 +670,16 @@ finally
 }
 ```
 
-## **차트 도형에서 이미지 추출**
+## **Extract Images from Chart Shapes**
 
-[IChart](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ichart/)는 도형입니다. 아래 예시는 차트 영역의 그림 채우기에서 이미지를 추출합니다.
+[IChart](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ichart/)은 도형입니다. 아래 예제는 차트 영역 사진 채우기에서 이미지를 추출합니다.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "chart-images");
@@ -680,11 +724,16 @@ finally
 }
 ```
 
-## **SmartArt 도형에서 이미지 추출**
+## **Extract Images from SmartArt Shapes**
 
 [ISmartArt](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ismartart/) 객체는 도형입니다. SmartArt 레이아웃에 따라 이미지는 노드 글머리표 채우기 또는 노드 도형의 채우기 형식에 저장될 수 있습니다.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "smartart-images");
@@ -750,11 +799,16 @@ finally
 }
 ```
 
-## **그룹화된 도형 내부 이미지 포함**
+## **Include Images Inside Grouped Shapes**
 
-그룹화된 도형은 자체 도형 컬렉션을 가집니다. 공유된 `enumerateShapes` 헬퍼에는 `includeGroupedShapes` 옵션이 있습니다. [IGroupShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/igroupshape/) 객체 내부의 도형을 검사하려면 이를 `true`로 설정하십시오. 아래 예시는 그림 프레임, 그림 채우기 도형, OLE 개체 미리 보기, 비디오 프레임 썸네일 및 오디오 프레임 썸네일에서 이미지를 추출합니다. 표, 차트, SmartArt 및 요약 확대 이미지도 포함하려면 이전 섹션의 특수 추출 로직을 재사용하면서 동일한 재귀 도형 순회를 유지하십시오.
+그룹화된 도형은 자체 도형 컬렉션을 포함합니다. 공유된 `enumerateShapes` 헬퍼에는 `includeGroupedShapes` 옵션이 있습니다. [IGroupShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/igroupshape/) 객체 내부의 도형을 검사하려면 이를 `true`로 설정하십시오. 아래 예제는 사진 프레임, 사진 채우기 도형, OLE 객체 미리 보기, 비디오 프레임 썸네일 및 오디오 프레임 썸네일에서 이미지를 추출합니다. 표, 차트, SmartArt 및 요약 줌 이미지까지 포함하려면 이전 섹션의 특수 추출 로직을 재사용하면서 동일한 재귀적 도형 순회를 유지하십시오.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "all-shape-images");
@@ -845,38 +899,45 @@ finally
 }
 ```
 
-## **예외 상황 및 실용적인 참고 사항**
+## **Edge Cases and Practical Notes**
 
-- **중복 이미지:** 여러 도형이 동일한 이미지를 참조하거나 바이트가 동일한 별개의 이미지를 사용할 수 있습니다. 고유 이미지당 하나의 출력 파일만 원한다면 파일을 쓸 때 [IPPImage.getBinaryData](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/#getBinaryData--)의 해시를 확인하십시오.
-- **원본 데이터 vs. 변환된 출력:** [IPPImage.getBinaryData](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/#getBinaryData--)를 저장하면 임베디드 JPEG, PNG, GIF, SVG, EMF 또는 WMF 데이터가 보존됩니다. [IPPImage.getImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/#getImage--)를 [IImage.save](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iimage/#save-java.lang.String-int-)와 함께 사용하면 PNG와 같은 일관된 형식으로 변환할 수 있지만 원본 파일 형식이나 벡터 데이터는 유지되지 않을 수 있습니다.
-- **지원되지 않는 채우기 유형:** 단색, 그라디언트, 패턴 및 무채우기 도형에는 그림 채우기가 포함되지 않습니다. `getPictureFillFormat()`을 읽기 전에 [FillType](https://reference.aspose.com/slides/ko/java/com.aspose.slides/filltype/)을 확인하십시오.
-- **그룹화된 도형:** 최상위 슬라이드 도형 컬렉션은 그룹을 평면화하지 않습니다. 그룹화된 내용이 중요할 경우 [IGroupShape.getShapes](https://reference.aspose.com/slides/ko/java/com.aspose.slides/igroupshape/#getShapes--)를 재귀적으로 검사하십시오.
-- **OLE 개체 미리 보기:** [IOleObjectFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ioleobjectframe/)는 `getSubstitutePictureFormat()`을 통해 미리 보기 이미지를 제공할 수 있지만, 해당 이미지는 슬라이드 미리 보기일 뿐 OLE 개체 내부에 임베디드된 파일은 아닙니다.
-- **비디오 프레임 썸네일:** [IVideoFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ivideoframe/)는 `getPictureFormat()`을 통해 미리 보기 이미지를 제공할 수 있지만, 이는 슬라이드에 표시되는 포스터이며 비디오 스트림에서 추출된 프레임이 아닙니다.
-- **오디오 프레임 썸네일:** [IAudioFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iaudioframe/)는 `getPictureFormat()`을 통해 아이콘 또는 썸네일을 제공할 수 있지만, 이는 임베디드 오디오 데이터가 아닙니다.
-- **확대 이미지:** 슬라이드 확대, 섹션 확대 및 요약 확대 도형은 `getZoomImage()`를 통해 사용자 지정 [IPPImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/) 객체를 사용할 수 있습니다.
-- **중첩된 도형 모델:** 표, 차트 및 SmartArt 객체는 [IShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ishape/)을 구현하지만, 그 이미지들은 종종 중첩된 표 셀, 차트 요소 또는 SmartArt 노드 서식 객체에 저장됩니다.
-- **잘리거나 변형된 그림:** [IPPImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/)에 접근하면 저장된 이미지 리소스를 얻을 수 있지만, 도형이 적용한 자르기, 투명도, 색상 재조정, 회전 또는 기타 시각 효과는 반영되지 않습니다.
+- **중복 이미지:** 여러 도형이 동일한 이미지를 참조하거나 바이트가 동일한 별개의 이미지를 가질 수 있습니다. 고유 이미지당 하나의 출력 파일을 원한다면 파일을 쓰기 전에 [IPPImage.getBinaryData](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/#getBinaryData--)를 해시하십시오.
+- **원본 데이터 vs. 변환된 출력:** [IPPImage.getBinaryData](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/#getBinaryData--)를 저장하면 임베드된 JPEG, PNG, GIF, SVG, EMF 또는 WMF 데이터를 보존합니다. [IImage.save](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iimage/#save-java.lang.String-int-)을 통해 [IPPImage.getImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/#getImage--)를 저장하면 일관된 출력 형식이 필요할 때 유용합니다.
+- **지원되지 않는 채우기 유형:** 실색, 그라디언트, 패턴 및 무채우기 도형에는 사진 채우기가 없습니다. `getPictureFillFormat()`을 읽기 전에 [FillType](https://reference.aspose.com/slides/ko/java/com.aspose.slides/filltype/)을 확인하십시오.
+- **그룹화된 도형:** 최상위 슬라이드 도형 컬렉션은 그룹을 펼치지 않습니다. 그룹화된 콘텐츠가 중요할 때는 [IGroupShape.getShapes](https://reference.aspose.com/slides/ko/java/com.aspose.slides/igroupshape/#getShapes--)를 재귀적으로 검사하십시오.
+- **OLE 객체 미리 보기:** [IOleObjectFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ioleobjectframe/)은 `getSubstitutePictureFormat()`을 통해 미리 보기 이미지를 제공할 수 있지만, 해당 이미지는 슬라이드 미리 보기일 뿐이며 OLE 객체 내부에 임베드된 파일은 아닙니다.
+- **비디오 프레임 썸네일:** [IVideoFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ivideoframe/)은 `getPictureFormat()`을 통해 미리 보기 이미지를 제공할 수 있지만, 이 이미지는 슬라이드에 표시되는 포스터일 뿐이며 비디오 스트림에서 추출된 것이 아닙니다.
+- **오디오 프레임 썸네일:** [IAudioFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iaudioframe/)은 `getPictureFormat()`을 통해 아이콘이나 썸네일을 제공할 수 있지만, 이는 임베드된 오디오 데이터가 아닙니다.
+- **줌 이미지:** 슬라이드 줌, 섹션 줌 및 요약 줌 도형은 `getZoomImage()`를 통해 사용자 정의 [IPPImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/) 객체를 사용할 수 있습니다.
+- **중첩 도형 모델:** 표, 차트 및 SmartArt 객체는 [IShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ishape/)을 구현하지만, 이들의 이미지는 종종 중첩된 표 셀, 차트 요소 또는 SmartArt 노드 서식 객체에 저장됩니다.
+- **자르기 또는 변형된 사진:** [IPPImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/)에 접근하면 저장된 이미지 리소스를 얻을 수 있지만, 도형이 적용한 자르기, 투명도, 색상 재조정, 회전 또는 기타 시각 효과는 렌더링되지 않습니다.
 
 ## **FAQ**
 
-**원본 이미지를 자르기, 효과, 또는 도형 변형 없이 추출할 수 있나요?**  
-예. [IPPImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/) 객체에 접근하고 [IPPImage.getBinaryData](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/#getBinaryData--)를 디스크에 기록하면 프레젠테이션에 저장된 원본 인코딩 이미지를 보존할 수 있습니다. 이는 슬라이드에 렌더링되는 방식과 무관합니다.
+### 원본 이미지를 잘라내기, 효과 또는 도형 변환 없이 추출할 수 있나요?
 
-**추출한 모든 이미지를 PNG로 내보낼 수 있나요?**  
-예. [IPPImage.getImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/#getImage--)를 사용해 [IImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iimage/) 객체를 얻은 다음, [IImage.save](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iimage/#save-java.lang.String-int-)에 [ImageFormat.Png](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imageformat/)을 지정하십시오. 이렇게 하면 출력이 변환되며 원본 파일 형식이나 벡터 데이터는 보존되지 않을 수 있습니다.
+예. [IPPImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/) 객체에 접근하여 [IPPImage.getBinaryData](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/#getBinaryData--)를 디스크에 쓰면 됩니다. 이는 프레젠테이션에 저장된 원본 인코딩된 이미지를 보존하며, 슬라이드에 렌더링된 방식은 아닙니다.
 
-**같은 이미지를 여러 번 저장하지 않으려면 어떻게 해야 하나요?**  
-[IPPImage.getBinaryData](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/#getBinaryData--)의 해시를 생성하고 이를 집합에 보관하십시오. 새 이미지의 해시가 이미 존재하면 해당 이미지를 건너뛰거나 기존 출력 파일에 대한 다른 참조만 기록하면 됩니다.
+### 추출한 모든 이미지를 PNG로 내보낼 수 있나요?
 
-**왜 일부 도형은 이미지를 생성하지 않나요?**  
-그림 프레임, 그림 채우기 도형, OLE 개체 프레임, 미디어 프레임, 확대 프레임, 표, 차트 및 SmartArt 객체는 이미지를 참조할 수 있습니다. 그러나 일부 도형 유형은 중첩된 서식 객체를 통해 이미지를 제공하므로 단순히 `getPictureFormat()`이나 도형의 `getFillFormat()`만 검사해서는 충분하지 않을 수 있습니다.
+예. [IPPImage.getImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/#getImage--)을 사용해 [IImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iimage/) 객체를 얻은 다음, [ImageFormat.Png](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imageformat/)와 함께 [IImage.save](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iimage/#save-java.lang.String-int-)을 호출하십시오. 이렇게 하면 출력이 변환되며 원본 파일 유형이나 벡터 데이터가 보존되지 않을 수 있습니다.
 
-**비디오 프레임에 표시되는 썸네일을 추출할 수 있나요?**  
-예. [IVideoFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ivideoframe/)를 사용하고 `getPictureFormat().getPicture().getImage()`를 읽으면 비디오 프레임에 저장된 포스터 이미지를 추출할 수 있습니다. 이는 비디오 파일에서 생성된 프레임이 아니라 저장된 썸네일입니다.
+### 같은 이미지를 여러 번 저장하는 것을 어떻게 방지할 수 있나요?
 
-**프레젠테이션 이미지 컬렉션에서 특정 이미지를 사용하는 도형을 어떻게 찾을 수 있나요?**  
-Aspose.Slides는 [IPPImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/)에서 도형으로의 역링크를 저장하지 않습니다. 순회하면서 매핑을 구축하십시오: 이미지 참조를 찾을 때마다 슬라이드 번호, 도형 경로 및 이미지 해시 또는 컬렉션 항목을 기록합니다.
+[IPPImage.getBinaryData](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/#getBinaryData--)의 해시를 사용하고 해시를 집합에 보관하십시오. 새로운 이미지의 해시가 이미 존재하면 해당 이미지를 건너뛰거나 기존 출력 파일에 대한 다른 참조를 기록하십시오.
 
-**OLE 개체 내부에 임베디드된 문서와 같은 이미지도 추출할 수 있나요?**  
-[IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--)를 사용하면 OLE 개체의 슬라이드 미리 보기를 추출할 수 있습니다. 그러나 이 미리 보기 자체는 임베디드 문서가 아니며, 문서 내부의 이미지를 추출하려면 OLE 데이터를 추출한 뒤 해당 파일 유형에 맞는 도구로 검사해야 합니다.
+### 왜 일부 도형은 이미지를 생성하지 않나요?
+
+사진 프레임, 사진 채우기 도형, OLE 객체 프레임, 미디어 프레임, 줌 프레임, 표, 차트 및 SmartArt 객체는 이미지를 참조할 수 있습니다. 일부 도형 유형은 중첩된 서식 객체를 통해 이미지를 노출하므로 단순히 `getPictureFormat()` 또는 도형의 `getFillFormat()`을 검사하는 것만으로는 충분하지 않을 수 있습니다.
+
+### 비디오 프레임에 표시되는 썸네일을 추출할 수 있나요?
+
+예. [IVideoFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ivideoframe/)을 사용하고 `getPictureFormat().getPicture().getImage()`를 읽으십시오. 이렇게 하면 비디오 프레임과 함께 저장된 포스터 이미지를 추출하게 되며, 비디오 파일에서 생성된 프레임이 아닙니다.
+
+### 프레젠테이션 이미지 컬렉션에서 특정 이미지를 사용하는 도형을 어떻게 판단할 수 있나요?
+
+Aspose.Slides는 [IPPImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ippimage/)에서 도형으로의 역링크를 저장하지 않습니다. 순회 중에 매핑을 구축하십시오: 이미지 참조를 찾을 때마다 슬라이드 번호, 도형 경로 및 이미지 해시 또는 컬렉션 항목을 기록합니다.
+
+### 첨부 문서와 같은 OLE 객체 내부에 임베드된 이미지를 추출할 수 있나요?
+
+[IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--)을 통해 OLE 객체의 슬라이드 미리 보기를 추출할 수 있습니다. 그러나 해당 미리 보기는 임베드된 문서 자체가 아닙니다. 임베드된 파일 내부의 이미지를 추출하려면 OLE 데이터를 추출하고 해당 파일 유형에 맞는 도구로 검사하십시오.

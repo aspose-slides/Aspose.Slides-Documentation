@@ -1,66 +1,68 @@
 ---
-title: รวมการนำเสนออย่างมีประสิทธิภาพใน Java
-linktitle: รวมการนำเสนอ
+title: ผสานการนำเสนออย่างมีประสิทธิภาพใน Java
+linktitle: ผสานการนำเสนอ
 type: docs
 weight: 40
 url: /th/java/merge-presentation/
 keywords:
-- รวม PowerPoint
-- รวมการนำเสนอ
-- รวมสไลด์
-- รวม PPT
-- รวม PPTX
-- รวม ODP
 - ผสาน PowerPoint
 - ผสานการนำเสนอ
 - ผสานสไลด์
 - ผสาน PPT
 - ผสาน PPTX
 - ผสาน ODP
+- รวม PowerPoint
+- รวมการนำเสนอ
+- รวมสไลด์
+- รวม PPT
+- รวม PPTX
+- รวม ODP
 - Java
 - Aspose.Slides
-description: "รวม PowerPoint (PPT, PPTX) และการนำเสนอ OpenDocument (ODP) อย่างง่ายดายด้วย Aspose.Slides for Java เพื่อทำให้กระบวนการทำงานของคุณราบรื่นขึ้น"
+description: "ผสานการนำเสนอ PowerPoint (PPT, PPTX) และ OpenDocument (ODP) อย่างไม่มีขั้นตอนยุ่งยากด้วย Aspose.Slides สำหรับ Java ช่วยให้การทำงานของคุณเป็นระบบระเบียบ"
 ---
 ## **ภาพรวม**
 
-การรวมไฟล์การนำเสนอ PowerPoint และ OpenDocument เป็นงานที่พบบ่อยในแอปพลิเคชัน Java จำนวนมาก โดยเฉพาะเมื่อสร้างรายงาน, รวบรวมสไลด์จากแหล่งที่ต่างกัน, หรืออัตโนมัติกระบวนการนำเสนอ Aspose.Slides for Java มี API ที่ทรงพลังและใช้งานง่ายเพื่อรวมไฟล์ PPT, PPTX หรือ ODP หลายไฟล์เข้าเป็นการนำเสนอเดียวโดยไม่ต้องติดตั้ง Microsoft PowerPoint, LibreOffice หรือ OpenOffice.
+การผสานการนำเสนอ PowerPoint และ OpenDocument เป็นงานที่พบบ่อยในแอปพลิเคชัน Java หลาย ๆ ตัว โดยเฉพาะเมื่อต้องสร้างรายงาน รวบรวมสไลด์จากแหล่งต่าง ๆ หรือทำงานอัตโนมัติของการนำเสนอ Aspose.Slides for Java มอบ API ที่ทรงพลังและใช้งานง่ายเพื่อรวมไฟล์ PPT, PPTX หรือ ODP หลายไฟล์เป็นการนำเสนอเดียวโดยไม่ต้องติดตั้ง Microsoft PowerPoint, LibreOffice หรือ OpenOffice
 
-ในคู่มือนี้ คุณจะได้เรียนรู้วิธีการรวมไฟล์การนำเสนอ PowerPoint และ OpenDocument ด้วยโค้ด Java เพียงไม่กี่บรรทัด เราจะให้ตัวอย่างพร้อมใช้งานและแสดงวิธีการรักษาการจัดรูปแบบสไลด์, เลย์เอาต์ และองค์ประกอบอื่น ๆ ของการนำเสนอระหว่างกระบวนการรวม
+ในคู่มือนี้ คุณจะได้เรียนรู้วิธีผสานการนำเสนอ PowerPoint และ OpenDocument ด้วยโค้ด Java เพียงไม่กี่บรรทัด เราจะให้ตัวอย่างพร้อมใช้ และแสดงวิธีการคงรูปแบบสไลด์ การจัดวาง และองค์ประกอบการนำเสนออื่น ๆ ระหว่างกระบวนการผสาน
 
-ไม่ว่าคุณจะพัฒนาแอปพลิเคชันระดับองค์กรหรือเครื่องมืออัตโนมัติแบบง่าย Aspose.Slides ทำให้การรวมการนำเสนอใน Java รวดเร็ว เชื่อถือได้ และขยายขนาดได้ Aspose.Slides for Java อนุญาตให้คุณรวมการนำเสนอได้หลายวิธี คุณสามารถรวมการนำเสนอพร้อมกับรูปร่างทั้งหมด, สไตล์, ข้อความ, การจัดรูปแบบ, ความคิดเห็น, แอนิเมชันและอื่น ๆ — โดยไม่ต้องกังวลเรื่องการสูญเสียคุณภาพหรือข้อมูล.
+ไม่ว่าคุณจะสร้างแอประดับองค์กรหรือเครื่องมืออัตโนมัติแบบง่าย Aspose.Slides ทำให้การผสานการนำเสนอใน Java รวดเร็ว เชื่อถือได้ และขยายได้ Aspose.Slides for Java ช่วยให้คุณผสานการนำเสนอได้หลายวิธี คุณสามารถรวมการนำเสนอพร้อมรูปทรงสไตล์ ข้อความ การจัดรูปแบบ ความคิดเห็น แอนิเมชัน และอื่น ๆ — โดยไม่ต้องกังวลเรื่องการสูญเสียคุณภาพหรือข้อมูล
 
-{{% alert color="primary" %}}
-ดูเพิ่มเติม: [Clone Slides](https://docs.aspose.com/slides/th/java/clone-slides/)
+{{% alert color="info" %}}
+ดูเพิ่มเติม: [คัดลอกสไลด์](https://docs.aspose.com/slides/th/java/clone-slides/)
 {{% /alert %}}
 
-### **อะไรบ้างที่สามารถรวมได้?**
+### **สิ่งที่สามารถผสานได้?**
 
-With Aspose.Slides, you can merge:
+ด้วย Aspose.Slides คุณสามารถผสาน:
 
 **การนำเสนอทั้งหมด** – สไลด์ทั้งหมดจากหลายการนำเสนอจะถูกรวมเป็นหนึ่งไฟล์
 
-**สไลด์ที่เลือกเฉพาะ** – สไลด์ที่เลือกเท่านั้นจะถูกรวมเป็นการนำเสนอเดียว
+**สไลด์เฉพาะ** – เพียงสไลด์ที่เลือกจะถูกรวมเป็นการนำเสนอเดียว
 
-**การนำเสนอในรูปแบบเดียวกัน** (เช่น PPT เป็น PPT, PPTX เป็น PPTX) และ **ในรูปแบบต่างกัน** (เช่น PPT เป็น PPTX, PPTX เป็น ODP)
+**การนำเสนอในรูปแบบเดียวกัน** (เช่น PPT → PPT, PPTX → PPTX) และ **ในรูปแบบต่างกัน** (เช่น PPT → PPTX, PPTX → ODP)
 
-### **ตัวเลือกการรวม**
+### **ตัวเลือกการผสาน**
 
-You can apply options that determine whether:
+คุณสามารถกำหนดตัวเลือกเพื่อระบุว่า:
 
-- สไลด์แต่ละใบในการนำเสนอผลลัพธ์คงสไตล์เดิมไว้
-- สไตล์เฉพาะจะถูกนำไปใช้กับสไลด์ทั้งหมดในการนำเสนอผลลัพธ์
+- สไลด์แต่ละสไลด์ในผลลัพธ์จะคงสไตล์เดิม
+- จะใช้สไตล์เฉพาะกับสไลด์ทั้งหมดในผลลัพธ์
 
-เพื่อรวมการนำเสนอ Aspose.Slides มีเมธอด `AddClone` จากอินเตอร์เฟซ [ISlideCollection](https://reference.aspose.com/slides/th/java/com.aspose.slides/islidecollection/) มีการโอเวอร์โหลดเมธอด `AddClone` หลายแบบที่กำหนดพฤติกรรมของกระบวนการรวม แต่ละอ็อบเจกต์ [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) มีคอลเลกชัน Slides ดังนั้นคุณสามารถเรียกเมธอด `AddClone` บนการนำเสนอเป้าหมายที่ต้องการรวมสไลด์ได้
+ในการผสานการนำเสนอ Aspose.Slides ให้เมธอด `AddClone` จากอินเทอร์เฟซ [ISlideCollection](https://reference.aspose.com/slides/th/java/com.aspose.slides/islidecollection/) มีหลายรูปแบบการอัปโหลดที่กำหนดพฤติกรรมของกระบวนการผสาน แต่ละวัตถุ [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) มีคอลเลกชัน Slides ดังนั้นคุณสามารถเรียกเมธอด `AddClone` บนการนำเป้าหมายที่ต้องการผสานสไลด์เข้าไปได้
 
-เมธอด `AddClone` จะคืนค่าอ็อบเจกต์ [ISlide](https://reference.aspose.com/slides/th/java/com.aspose.slides/islide/) ซึ่งเป็นสำเนาของสไลด์ต้นทาง สไลด์ที่ได้ในการนำเสนอผลลัพธ์เป็นเพียงสำเนาของสไลด์เดิม ซึ่งหมายความว่าคุณสามารถแก้ไขสไลด์ที่ถูกสำเนาได้อย่างปลอดภัย เช่น การนำสไตล์, ตัวเลือกการจัดรูปแบบ หรือเลย์เอาต์ โดยไม่กระทบต่อการนำเสนอต้นฉบับ
+เมธอด `AddClone` จะคืนค่าเป็นวัตถุ [ISlide](https://reference.aspose.com/slides/th/java/com.aspose.slides/islide/) ซึ่งเป็นสำเนาของสไลด์ต้นฉบับ สไลด์ผลลัพธ์ในการนำเสนอจะเป็นสำเนาเดียวกับสไลด์ต้นฉบับ ซึ่งหมายความว่าคุณสามารถแก้ไขสไลด์ที่คัดลอกได้อย่างปลอดภัย เช่น การปรับสไตล์ ตัวเลือกการจัดรูปแบบ หรือการจัดวาง โดยไม่กระทบต่อการนำเสนอแหล่งที่มา
 
-## **รวมการนำเสนอ**
+## **ผสานการนำเสนอ** 
 
-Aspose.Slides มีเมธอด [AddClone(ISlide)](https://reference.aspose.com/slides/th/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) ซึ่งช่วยให้คุณรวมสไลด์โดยคงเลย์เอาต์และสไตล์เดิมไว้ (พฤติกรรมเริ่มต้น).
+Aspose.Slides ให้เมธอด [AddClone(ISlide)](https://reference.aspose.com/slides/th/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) ซึ่งช่วยให้คุณรวมสไลด์พร้อมคงการจัดวางและสไตล์เดิม (พฤติกรรมเริ่มต้น)
 
-โค้ด Java ด้านล่างแสดงวิธีการรวมการนำเสนอ:
+โค้ด Java ต่อไปนี้แสดงวิธีผสานการนำเสนอ:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation1 = new Presentation("presentation1.pptx");
 Presentation presentation2 = new Presentation("presentation2.pptx");
 try {
@@ -74,18 +76,20 @@ try {
 }
 ```
 
-## **รวมการนำเสนอด้วย Slide Master**
+## **ผสานการนำเสนอพร้อม Slide Master** 
 
-Aspose.Slides มีเมธอด [AddClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/th/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISSlide-com.aspose.slides.IMasterSlide-boolean-) ซึ่งช่วยให้คุณรวมสไลด์โดยใช้ slide master จากเท็มเพลตการนำเสนอ ซึ่งทำให้คุณสามารถเปลี่ยนสไตล์ของสไลด์ในการนำเสนอผลลัพธ์ได้หากจำเป็น
+Aspose.Slides ให้เมธอด [AddClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/th/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) ที่ช่วยให้คุณรวมสไลด์พร้อมใช้ Slide Master จากเทมเพลตการนำเสนอ วิธีนี้ทำให้คุณสามารถเปลี่ยนสไตล์ของสไลด์ในผลลัพธ์ได้หากต้องการ
 
-โค้ด Java ด้านล่างแสดงการดำเนินการนี้:
+โค้ด Java ตัวอย่างต่อไปนี้แสดงการดำเนินการนี้:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation1 = new Presentation("presentation1.pptx");
 Presentation presentation2 = new Presentation("presentation2.pptx");
 try {
     for (ISlide slide : presentation2.getSlides()) {
-        IMasterSlide masterSlide = presentation2.getMasters().get_Item(0);
+        IMasterSlide masterSlide = presentation1.getMasters().get_Item(0);
         presentation1.getSlides().addClone(slide, masterSlide, true);
     }
     presentation1.save("combined.pptx", SaveFormat.Pptx);
@@ -95,17 +99,19 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}}
-เลย์เอาต์ของสไลด์จะถูกกำหนดโดยอัตโนมัติ. เมื่อไม่พบเลย์เอาต์ที่เหมาะสม และพารามิเตอร์ boolean `allowCloneMissingLayout` ของเมธอด `AddClone` ถูกตั้งค่าเป็น `true` ระบบจะใช้เลย์เอาต์จากสไลด์ต้นฉบับ. ในกรณีอื่น จะเกิดข้อผิดพลาดประเภท [PptxEditException](https://reference.aspose.com/slides/th/java/com.aspose.slides/pptxeditexception/).
+{{% alert title="หมายเหตุ" color="warning" %}}
+รูปแบบสไลด์สำหรับสไลด์จะถูกกำหนดอัตโนมัติ หากไม่พบรูปแบบที่เหมาะสมและพารามิเตอร์ `allowCloneMissingLayout` ของเมธอด `AddClone` ถูกตั้งค่าเป็น `true` จะใช้รูปแบบจากสไลด์ต้นฉบับ มิฉะนั้นจะเกิดข้อยกเว้น [PptxEditException](https://reference.aspose.com/slides/th/java/com.aspose.slides/pptxeditexception/)
 {{% /alert %}}
 
-## **รวมสไลด์เฉพาะจากการนำเสนอ**
+## **ผสานสไลด์เฉพาะจากการนำเสนอ** 
 
-การรวมสไลด์เฉพาะจากหลายการนำเสนอเป็นประโยชน์ในการสร้างชุดสไลด์แบบกำหนดเอง Aspose.Slides for Java อนุญาตให้คุณเลือกและนำเข้าสไลด์ที่ต้องการเท่านั้น API จะคงการจัดรูปแบบ, เลย์เอาต์ และการออกแบบของสไลด์ต้นฉบับ
+การผสานสไลด์เฉพาะจากหลายการนำเสนอเป็นประโยชน์เมื่อสร้างชุดสไลด์ที่กำหนดเอง Aspose.Slides for Java อนุญาตให้คุณเลือกและนำเข้าสไลด์ที่ต้องการเท่านั้น API จะคงการจัดรูปแบบ การจัดวาง และการออกแบบของสไลด์ต้นฉบับ
 
-โค้ด Java ด้านล่างสร้างการนำเสนอใหม่ เพิ่มสไลด์หัวข้อจากสองการนำเสนออื่น และบันทึกผลลัพธ์เป็นไฟล์:
+โค้ด Java ด้านล่างนี้สร้างการนำเสนอใหม่ เพิ่มสไลด์หัวเรื่องจากสองการนำเสนออื่น ๆ แล้วบันทึกผลลัพธ์เป็นไฟล์:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 Presentation presentation1 = new Presentation("presentation1.pptx");
 Presentation presentation2 = new Presentation("presentation2.pptx");
@@ -130,6 +136,8 @@ try {
 }
 ```
 ```java
+import com.aspose.slides.*;
+
 static ISlide getTitleSlide(IPresentation presentation) {
     for (ISlide slide : presentation.getSlides()) {
         if (slide.getLayoutSlide().getLayoutType() == SlideLayoutType.Title) {
@@ -140,20 +148,22 @@ static ISlide getTitleSlide(IPresentation presentation) {
 }
 ```
 
-## **รวมการนำเสนอด้วย Slide Layout**
+## **ผสานการนำเสนอพร้อม Layout สไลด์** 
 
-เพื่อใช้เลย์เอาต์สไลด์ที่แตกต่างกับสไลด์ผลลัพธ์ระหว่างการรวม ให้ใช้เมธอด [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/th/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISSlide-com.aspose.slides.ILayoutSlide-) แทน
+หากต้องการใช้ Layout สไลด์ที่ต่างออกไปสำหรับสไลด์ผลลัพธ์ระหว่างการผสาน ให้ใช้เมธอด [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/th/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) แทน
 
-โค้ด Java ด้านล่างแสดงวิธีการรวมสไลด์จากหลายการนำเสนอพร้อมกับใช้เลย์เอาต์สไลด์ที่คุณต้องการ สิ่งนี้จะได้การนำเสนอผลลัพธ์เดียว:
+โค้ด Java ต่อไปนี้แสดงวิธีรวมสไลด์จากหลายการนำเสนอพร้อมใช้ Layout สไลด์ที่คุณต้องการ ผลลัพธ์คือการนำเสนอเดียวที่มี Layout สไลด์สอดคล้องกัน:
 
 ```java
+import com.aspose.slides.*;
+
 int layoutIndex = 0;
 
 Presentation presentation1 = new Presentation("presentation1.pptx");
 Presentation presentation2 = new Presentation("presentation2.pptx");
 try {
     for (ISlide slide : presentation2.getSlides()) {
-        ILayoutSlide layoutSlide = presentation2.getLayoutSlides().get_Item(layoutIndex);
+        ILayoutSlide layoutSlide = presentation1.getLayoutSlides().get_Item(layoutIndex);
         presentation1.getSlides().addClone(slide, layoutSlide);
     }
     presentation1.save("combined.pptx", SaveFormat.Pptx);
@@ -163,13 +173,16 @@ try {
 }
 ```
 
-## **รวมการนำเสนอที่มีขนาดสไลด์ต่างกัน**
+## **ผสานการนำเสนอที่มีขนาดสไลด์ต่างกัน** 
 
-เพื่อรวมสองการนำเสนอที่มีขนาดสไลด์ต่างกัน คุณต้องปรับขนาดของหนึ่งให้ตรงกับขนาดสไลด์ของการนำเสนออีกอันหนึ่ง
+เพื่อผสานการนำเสนอสองไฟล์ที่มีขนาดสไลด์ต่างกัน คุณควรปรับขนาดหนึ่งไฟล์ให้ตรงกับขนาดสไลด์ของอีกไฟล์หนึ่ง
 
-โค้ด Java ด้านล่างแสดงการดำเนินการนี้:
+โค้ด Java ตัวอย่างต่อไปนี้แสดงการดำเนินการนี้:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
 Presentation presentation1 = new Presentation("presentation1.pptx");
 Presentation presentation2 = new Presentation("presentation2.pptx");
 try {
@@ -189,13 +202,15 @@ try {
 }
 ```
 
-## **รวมสไลด์เข้าส่วนของการนำเสนอ**
+## **ผสานสไลด์เข้าส่วนของการนำเสนอ** 
 
-การรวมสไลด์เข้าส่วนที่กำหนดของการนำเสนอช่วยจัดระเบียบเนื้อหาและปรับปรุงการนำทางสไลด์ Aspose.Slides อนุญาตให้คุณรวมสไลด์เข้าส่วนที่มีอยู่แล้ว ซึ่งช่วยให้โครงสร้างชัดเจนพร้อมคงการจัดรูปแบบเดิมของแต่ละสไลด์
+การผสานสไลด์เข้าส่วนของการนำเสนอช่วยจัดระเบียบเนื้อหาและปรับปรุงการนำทางสไลด์ Aspose.Slides รองรับการผสานสไลด์เข้าส่วนที่มีอยู่แล้ว ซึ่งช่วยให้โครงสร้างชัดเจนพร้อมคงรูปแบบต้นฉบับของแต่ละสไลด์
 
-โค้ด Java ด้านล่างแสดงวิธีการรวมสไลด์เฉพาะเข้าส่วนในการนำเสนอ:
+โค้ด Java ด้านล่างนี้แสดงวิธีผสานสไลด์เฉพาะเข้าส่วนของการนำเสนอ:
 
 ```java
+import com.aspose.slides.*;
+
 int sectionIndex = 0;
 
 Presentation presentation1 = new Presentation("presentation1.pptx");
@@ -212,32 +227,32 @@ try {
 }
 ```
 
-สไลด์จะถูกเพิ่มไปยังส่วนสุดท้ายของส่วน
+สไลด์จะถูกเพิ่มไปที่ท้ายส่วน
 
-## **ดูเพิ่มเติม**
+## **ดูเพิ่มเติม** 
 
-Aspose มีบริการ [FREE Online Collage Maker](https://products.aspose.app/slides/th/collage) ออนไลน์ ที่คุณสามารถรวมรูปแบบ [JPG to JPG](https://products.aspose.app/slides/th/collage/jpg) หรือ PNG เป็น PNG, สร้าง [photo grids](https://products.aspose.app/slides/th/collage/photo-grid) และอื่น ๆ
+Aspose มีบริการ [FREE Online Collage Maker](https://products.aspose.app/slides/th/collage) ออนไลน์ คุณสามารถผสานภาพ [JPG ไป JPG](https://products.aspose.app/slides/th/collage/jpg) หรือ PNG ไป PNG, สร้าง [photo grids](https://products.aspose.app/slides/th/collage/photo-grid) และอื่น ๆ
 
-ลองใช้ [Aspose FREE Online Merger](https://products.aspose.app/slides/th/merger) ซึ่งช่วยให้คุณรวมไฟล์ PowerPoint ในรูปแบบเดียวกัน (เช่น PPT เป็น PPT, PPTX เป็น PPTX) หรือข้ามรูปแบบต่างกัน (เช่น PPT เป็น PPTX, PPTX เป็น ODP)
+ลองใช้ [Aspose FREE Online Merger](https://products.aspose.app/slides/th/merger) ซึ่งช่วยผสานการนำเสนอ PowerPoint ในรูปแบบเดียวกัน (เช่น PPT → PPT, PPTX → PPTX) หรือข้ามรูปแบบ (เช่น PPT → PPTX, PPTX → ODP)
 
 [![Aspose FREE Online Merger](slides-merger.png)](https://products.aspose.app/slides/th/merger)
 
-นอกจากการนำเสนอแล้ว Aspose.Slides ยังสามารถรวมไฟล์อื่น ๆ ได้:
+นอกจากการนำเสนอแล้ว Aspose.Slides ยังสามารถผสานไฟล์ประเภทอื่นได้:
 
-- [**ภาพ**](https://products.aspose.com/slides/th/java/merger/image-to-image/), เช่น [JPG to JPG](https://products.aspose.com/slides/th/java/merger/jpg-to-jpg/) หรือ [PNG to PNG](https://products.aspose.com/slides/th/java/merger/png-to-png/)
-- **เอกสาร**, เช่น [PDF to PDF](https://products.aspose.com/slides/th/java/merger/pdf-to-pdf/) หรือ [HTML to HTML](https://products.aspose.com/slides/th/java/merger/html-to-html/)
-- **ประเภทไฟล์ผสม**, เช่น [image to PDF](https://products.aspose.com/slides/th/java/merger/image-to-pdf/), [JPG to PDF](https://products.aspose.com/slides/th/java/merger/jpg-to-pdf/), หรือ [TIFF to PDF](https://products.aspose.com/slides/th/java/merger/tiff-to-pdf/)
+- [**ภาพ**](https://products.aspose.com/slides/th/java/merger/image-to-image/), เช่น [JPG ไป JPG](https://products.aspose.com/slides/th/java/merger/jpg-to-jpg/) หรือ [PNG ไป PNG](https://products.aspose.com/slides/th/java/merger/png-to-png/)
+- **เอกสาร**, เช่น [PDF ไป PDF](https://products.aspose.com/slides/th/java/merger/pdf-to-pdf/) หรือ [HTML ไป HTML](https://products.aspose.com/slides/th/java/merger/html-to-html/)
+- **ไฟล์ชนิดผสม**, เช่น [image ไป PDF](https://products.aspose.com/slides/th/java/merger/image-to-pdf/), [JPG ไป PDF](https://products.aspose.com/slides/th/java/merger/jpg-to-pdf/), หรือ [TIFF ไป PDF](https://products.aspose.com/slides/th/java/merger/tiff-to-pdf/)
 
-## **FAQ**
+## **คำถามที่พบบ่อย** 
 
-**มีข้อจำกัดใดเกี่ยวกับจำนวนสไลด์เมื่อรวมการนำเสนอหรือไม่?**
+### มีข้อจำกัดเรื่องจำนวนสไลด์เมื่อผสานการนำเสนอหรือไม่?
 
-ไม่มีข้อจำกัดที่เข้มงวด Aspose.Slides สามารถจัดการไฟล์ขนาดใหญ่ได้ แต่ประสิทธิภาพขึ้นอยู่กับขนาดไฟล์และทรัพยากรของระบบ สำหรับการนำเสนอขนาดใหญ่มาก แนะนำให้ใช้ JVM 64-bit และจัดสรรหน่วยความจำ heap อย่างเพียงพอ
+ไม่มีข้อจำกัดที่เข้มงวด Aspose.Slides สามารถจัดการไฟล์ขนาดใหญ่ได้ แต่ประสิทธิภาพขึ้นกับขนาดไฟล์และทรัพยากรของระบบ สำหรับการนำเสนอขนาดใหญ่มาก ควรใช้ JVM 64‑bit และจัดสรรหน่วยความจำ heap เพียงพอ
 
-**ฉันสามารถรวมการนำเสนอที่มีวิดีโอหรือเสียงฝังอยู่ได้หรือไม่?**
+### ฉันสามารถผสานการนำเสนอที่มีวิดีโอหรือเสียงฝังอยู่ได้หรือไม่?
 
-ได้ Aspose.Slides คงเนื้อหามัลติมีเดียที่ฝังอยู่ในสไลด์ไว้ แต่อาจทำให้ไฟล์การนำเสนอสุดท้ายใหญ่ขึ้นอย่างมาก
+ได้ Aspose.Slides คงเนื้อหามัลติมีเดียที่ฝังอยู่ในสไลด์ไว้ แต่ไฟล์ผลลัพธ์อาจมีขนาดใหญ่ขึ้นอย่างมาก
 
-**ฟอนต์จะถูกคงไว้เมื่อรวมการนำเสนอหรือไม่?**
+### ตัวอักษรจะยังคงอยู่เมื่อตอนผสานการนำเสนอหรือไม่?
 
-ใช่ ฟอนต์ที่ใช้ในการนำเสนอแหล่งต้นจะถูกคงไว้ในไฟล์ผลลัพธ์ หากฟอนต์นั้นติดตั้งอยู่ในระบบหรือ [ฝังไว้](/slides/th/java/embedded-font/).
+ใช่ ตัวอักษรที่ใช้ในการนำเสนอแหล่งที่มาจะถูกคงไว้ในไฟล์ผลลัพธ์ หากอักษรนั้นติดตั้งบนระบบหรือ [embedded](/slides/th/java/embedded-font/)

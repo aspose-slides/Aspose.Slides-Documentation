@@ -12,22 +12,23 @@ keywords:
 - プレゼンテーション
 - C++
 - Aspose.Slides
-description: "Qt Creator と Visual Studio を使用して Aspose.Slides for C++ を活用し、クロスプラットフォームアプリで PowerPoint および OpenDocument のプレゼンテーションを作成、ロード、編集します。"
+description: "Qt Creator と Visual Studio を使用して Aspose.Slides for C++ を利用し、クロスプラットフォーム アプリで PowerPoint および OpenDocument のプレゼンテーションを作成、読み込み、編集します。"
 ---
+## **はじめに**
 
-Qt は C++ ベースのクロスプラットフォーム アプリケーション開発フレームワークで、デスクトップ、モバイル、組み込みシステム向けのさまざまなアプリケーション開発に広く使用されています。Aspose.Slides for C++ を Qt に統合することで、Qt アプリケーション内で PowerPoint ドキュメントの作成や操作が可能になります。
+Qt は C++ ベースのクロスプラットフォームアプリケーション開発フレームワークで、デスクトップ、モバイル、組み込みシステム向けの様々なアプリケーション開発に広く使用されています。Aspose.Slides for C++ は Qt に統合でき、Qt アプリケーション内で PowerPoint ドキュメントの作成および操作が可能です。
 
 ## **Qt Creator で Aspose.Slides for C++ を使用する**
 
-Qt アプリケーションで Aspose.Slides for C++ を使用するには、[downloads](https://downloads.aspose.com/slides/cpp) セクションから API の最新バージョンをダウンロードします。API をダウンロードしたら、Qt Creator または Visual Studio に C++ ライブラリを統合できます。
+Qt アプリケーションで Aspose.Slides for C++ を使用するには、[downloads](https://downloads.aspose.com/slides/ja/cpp) セクションから API の最新バージョンをダウンロードしてください。API をダウンロードしたら、C++ ライブラリを Qt Creator または Visual Studio に統合できます。
 
-Qt Creator で開発した Qt コンソール アプリケーションに Aspose.Slides for C++ ライブラリを統合して使用する手順は以下の通りです。
+Qt Creator で作成した Qt コンソール アプリケーションに Aspose.Slides for C++ ライブラリを統合して使用するには、以下の手順に従ってください。
 
 - Qt Creator を開き、*Qt Console Application* を新規作成します。
 
 ![qt_console_application](qt-console-application.png)
 
-- *Build System* ドロップダウンリストから QMake オプションを選択します。
+- *Build System* のドロップダウンリストから QMake オプションを選択します。
 
 ![qt_console_application_qmake](qt-console-application-qmake.png)
 
@@ -36,11 +37,11 @@ Qt Creator で開発した Qt コンソール アプリケーションに Aspose
 
 ![lib_files](aspose.slides-lib-files.png)
 
-- lib と include フォルダーへのパスを追加するには、左側パネルのプロジェクトを右クリックし、*Add Library* を選択します。
+- lib および include フォルダーへのパスを追加するには、左側パネルのプロジェクトを右クリックし、*Add Library* を選択します。
 
 ![qt_add_library](qt_add_library.png)
 
-- External Library オプションを選択し、include と lib フォルダーのパスを 1 つずつ参照します。
+- External Library オプションを選択し、lib フォルダーへのパスを1つずつ参照します。
 
 ![todo:image_alt_text](qt-add-external-library.png)
 
@@ -50,13 +51,15 @@ Qt Creator で開発した Qt コンソール アプリケーションに Aspose
 
 - アプリケーションをビルドすれば、統合は完了です。  
 
-{{% alert color="primary" %}}
-Note: 詳細については、[full demo project](https://github.com/aspose-slides/Aspose.Slides-for-C/tree/master/QtDemos/QtCreator/Qt_AsposeSlides_QMake) を参照してください。
+{{% alert color="info" %}}
+
+注: 詳細については、[full demo project](https://github.com/aspose-slides/Aspose.Slides-for-C/tree/master/QtDemos/QtCreator/Qt_AsposeSlides_QMake) を参照してください。
+
 {{% /alert %}}
 
-## **Visual Studio で Qt アプリケーション内で Aspose.Slides for C++ を使用する**
+## **Visual Studio で Qt アプリケーションに Aspose.Slides for C++ を使用する**
 
-Visual Studio を使用して Qt アプリケーションを開発するには、[Qt Visual Studio Tools](https://marketplace.visualstudio.com/items?itemName=TheQtCompany.QtVisualStudioTools-19123) をインストールする必要があります。インストールが完了したら、[downloads](https://downloads.aspose.com/slides/cpp) セクションから API の最新バージョンをダウンロードし、以下の手順に従います。
+Visual Studio を使用して Qt アプリケーションを開発するには、[Qt Visual Studio Tools](https://marketplace.visualstudio.com/items?itemName=TheQtCompany.QtVisualStudioTools-19123) をインストールする必要があります。インストールが完了したら、[downloads](https://downloads.aspose.com/slides/ja/cpp) セクションから API の最新バージョンをダウンロードし、以下の手順に従ってください。
 
 - Microsoft Visual Studio を開き、*Qt Console Application* を新規作成します。
 
@@ -73,6 +76,8 @@ Visual Studio を使用して Qt アプリケーションを開発するには�
 
 - プロジェクトをビルドすれば、統合は完了です。  
 
-{{% alert color="primary" %}}
-Note: 詳細については、[full demo project](https://github.com/aspose-slides/Aspose.Slides-for-C/tree/master/QtDemos/Visual%20Studio/Qt_AsposeSlides_VS) を参照してください。
+{{% alert color="info" %}}
+
+注: 詳細については、[full demo project](https://github.com/aspose-slides/Aspose.Slides-for-C/tree/master/QtDemos/Visual%20Studio/Qt_AsposeSlides_VS) を参照してください。
+
 {{% /alert %}}

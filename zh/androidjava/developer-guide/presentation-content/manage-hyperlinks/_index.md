@@ -25,24 +25,28 @@ keywords:
 - Aspose.Slides
 description: "使用 Aspose.Slides for Android via Java，轻松管理 PowerPoint 和 OpenDocument 演示文稿中的超链接——在几分钟内提升交互性和工作流。"
 ---
+## **简介**
 
-超链接是对对象、数据或某个位置的引用。以下是 PowerPoint 演示文稿中常见的超链接：
+超链接是对对象、数据或某个位置的引用。这些是 PowerPoint 演示文稿中常见的超链接：
 
-* 文本、形状或媒体中的网站链接
-* 幻灯片链接
+* 链接到文本、形状或媒体中的网站
+* 链接到幻灯片
 
-Aspose.Slides for Android via Java 允许您在演示文稿中执行许多与超链接相关的操作。
+Aspose.Slides for Android via Java 允许您在演示文稿中执行许多涉及超链接的任务。
 
-{{% alert color="primary" %}} 
-您可能想了解 Aspose 简单的[免费在线 PowerPoint 编辑器.](https://products.aspose.app/slides/editor)
+{{% alert color="info" %}} 
+您可能想查看 Aspose 简单的[免费在线 PowerPoint 编辑器.](https://products.aspose.app/slides/zh/editor)
 {{% /alert %}} 
 
 ## **添加 URL 超链接**
 
 ### **向文本添加 URL 超链接**
 
-此 Java 示例展示了如何向文本添加网站超链接：
+此 Java 代码展示了如何向文本添加网站超链接：
+
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
 	IAutoShape shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -59,11 +63,13 @@ try {
 }
 ```
 
-
 ### **向形状或框架添加 URL 超链接**
 
-此 Java 示例展示了如何向形状添加网站超链接：
+此 Java 示例代码展示了如何向形状添加网站超链接：
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -77,39 +83,45 @@ try {
 }
 ```
 
-
 ### **向媒体添加 URL 超链接**
 
 Aspose.Slides 允许您向图像、音频和视频文件添加超链接。
 
 此示例代码展示了如何向**图像**添加超链接：
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
-	// 向演示文稿添加图像
+	// 将图像添加到演示文稿
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
-    picture = pres.getImages().addImage(picture);
+        picture = pres.getImages().addImage(image);
     } finally {
-          if (image != null) image.dispose();
+        if (image != null) image.dispose();
     }
-	// 在幻灯片 1 上基于先前添加的图像创建图片框
+	// 在幻灯片 1 上根据之前添加的图像创建图片框
 	IPictureFrame pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
 
 	pictureFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
 	pictureFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 
 	pres.save("pres-out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
 } finally {
-	if (pres != null) pres.dispose();
+	if (pres != NULL) pres.dispose();
 }
 ```
 
-
 此示例代码展示了如何向**音频文件**添加超链接：
+
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IAudio audio = pres.getAudios().addAudio(Files.readAllBytes(Paths.get("audio.mp3")));
@@ -125,9 +137,14 @@ try {
 }
 ```
 
-
 此示例代码展示了如何向**视频**添加超链接：
+
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IVideo video = pres.getVideos().addVideo(Files.readAllBytes(Paths.get("video.avi")));
@@ -143,17 +160,20 @@ try {
 }
 ```
 
-
-{{%  alert  title="Tip"  color="primary"  %}} 
+{{%  alert  title="Tip"  color="info"  %}} 
 您可能想查看 *[管理 OLE](/slides/zh/androidjava/manage-ole/)*。
 {{% /alert %}}
 
 ## **使用超链接创建目录**
 
-由于超链接可以引用对象或位置，您可以利用它们创建目录。
+由于超链接可用于添加对对象或位置的引用，您可以利用它们创建目录。
 
 此示例代码展示了如何使用超链接创建目录：
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	ISlide firstSlide = pres.getSlides().get_Item(0);
@@ -182,15 +202,18 @@ try {
 }
 ```
 
-
 ## **格式化超链接**
 
 ### **颜色**
 
-通过 [IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlink) 接口中的 [ColorSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Hyperlink#setColorSource-int-) 属性，您可以设置超链接的颜色并获取颜色信息。此功能首次在 PowerPoint 2019 中引入，对旧版本 PowerPoint 无效。
+使用 [ColorSource](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/Hyperlink#setColorSource-int-) 属性在 [IHyperlink](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IHyperlink) 接口中，您可以设置超链接的颜色，也可以从超链接中获取颜色信息。此功能首次在 PowerPoint 2019 中引入，因此对该属性的更改不适用于旧版本 PowerPoint。
 
-此示例代码演示了在同一幻灯片上添加不同颜色超链接的操作：
+此示例代码演示了在同一幻灯片中添加不同颜色超链接的操作：
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -211,21 +234,23 @@ try {
 }
 ```
 
-
 ## **从演示文稿中删除超链接**
 
-### **从文本删除超链接**
+### **从文本中删除超链接**
 
 此 Java 代码展示了如何从演示文稿幻灯片中的文本删除超链接：
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
 	{
-		IAutoShape autoShape = (IAutoShape)shape;
-		if (autoShape != null)
+		if (shape instanceof IAutoShape)
 		{
+			IAutoShape autoShape = (IAutoShape)shape;
 			for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs())
 			{
 				for (IPortion portion : paragraph.getPortions())
@@ -242,12 +267,14 @@ try {
 }
 ```
 
-
-### **从形状或框架删除超链接**
+### **从形状或框架中删除超链接**
 
 此 Java 代码展示了如何从演示文稿幻灯片中的形状删除超链接：
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
@@ -260,19 +287,21 @@ try {
 }
 ```
 
-
 ## **可变超链接**
 
-[Hyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Hyperlink) 类是可变的。使用此类，您可以更改以下属性的值：
+[Hyperlink](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/Hyperlink) 类是可变的。使用此类，您可以更改以下属性的值：
 
-- [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
-- [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlink#setTooltip-java.lang.String-)
-- [IHyperlink.setHistory(boolean value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlink#setHistory-boolean-)
-- [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlink#setHighlightClick-boolean-)
-- [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
+- [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
+- [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IHyperlink#setTooltip-java.lang.String-)
+- [IHyperlink.setHistory(boolean value)](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IHyperlink#setHistory-boolean-)
+- [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IHyperlink#setHighlightClick-boolean-)
+- [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
 
-以下代码片段展示了如何向幻灯片添加超链接并随后编辑其提示文字：
+此代码片段展示了如何向幻灯片添加超链接并随后编辑其工具提示：
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -283,38 +312,40 @@ try {
 	portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 	portionFormat.setFontHeight(32);
 
+	// 更改已添加超链接的工具提示
+	portionFormat.getHyperlinkClick().setTooltip("Aspose: the File Format APIs");
+
 	pres.save("presentation-out.pptx", SaveFormat.Pptx);
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
+## **IHyperlinkQueries 中支持的属性**
 
-## **IHyperlinkQueries 支持的属性**
+您可以从演示文稿、幻灯片或定义了超链接的文本中访问 [IHyperlinkQueries](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IHyperlinkQueries)。
 
-您可以从演示文稿、幻灯片或定义了超链接的文本中访问 [IHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkQueries)。
+- [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IPresentation#getHyperlinkQueries--)
+- [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
+- [ITextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ITextFrame#getHyperlinkQueries--)
 
-- [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentation#getHyperlinkQueries--)
-- [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
-- [ITextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrame#getHyperlinkQueries--)
+[IHyperlinkQueries](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IHyperlinkQueries) 类支持以下方法和属性：
 
-[IHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkQueries) 类支持以下方法和属性：
+- [IHyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
+- [IHyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
+- [IHyperlinkQueries.getAnyHyperlinks()](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IHyperlinkQueries#getAnyHyperlinks--)
+- [IHyperlinkQueries.removeAllHyperlinks()](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IHyperlinkQueries#removeAllHyperlinks--)
 
-- [IHyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
-- [IHyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
-- [IHyperlinkQueries.getAnyHyperlinks()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkQueries#getAnyHyperlinks--)
-- [IHyperlinkQueries.removeAllHyperlinks()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkQueries#removeAllHyperlinks--)
+## **常见问题**
 
-## **FAQ**
+### 如何创建不仅指向幻灯片，还指向“章节”或章节第一张幻灯片的内部导航？
 
-**如何创建不只是指向幻灯片，而是指向“章节”或章节第一张幻灯片的内部导航？**
+PowerPoint 中的章节是幻灯片的分组；导航技术上仍然定位到具体的幻灯片。要“导航到章节”，通常链接到该章节的第一张幻灯片。
 
-PowerPoint 中的章节是幻灯片的分组；导航技术上仍然指向具体的幻灯片。若要“导航到章节”，通常链接到该章节的第一张幻灯片。
+### 我可以将超链接附加到母版幻灯片元素，以便在所有幻灯片上都生效吗？
 
-**我可以将超链接附加到母版幻灯片元素，使其在所有幻灯片上工作吗？**
+可以。母版幻灯片和布局元素支持超链接。这些链接会出现在子幻灯片上，并在放映时可点击。
 
-可以。母版幻灯片和版式元素支持超链接。这些链接会出现在子幻灯片上，并在放映时可点击。
+### 导出为 PDF、HTML、图像或视频时，超链接会被保留吗？
 
-**导出为 PDF、HTML、图像或视频时，超链接会被保留吗？**
-
-在 [PDF](/slides/zh/androidjava/convert-powerpoint-to-pdf/) 和 [HTML](/slides/zh/androidjava/convert-powerpoint-to-html/) 中会保留链接。导出为 [图像](/slides/zh/androidjava/convert-powerpoint-to-png/) 和 [视频](/slides/zh/androidjava/convert-powerpoint-to-video/) 时，由于这些格式本质上为光栅帧/视频，不支持超链接，点击功能将不会保留。
+在[PDF](/slides/zh/androidjava/convert-powerpoint-to-pdf/)和[HTML](/slides/zh/androidjava/convert-powerpoint-to-html/)中，会保留链接。导出为[图像](/slides/zh/androidjava/convert-powerpoint-to-png/)和[视频](/slides/zh/androidjava/convert-powerpoint-to-video/)时，由于这些格式本身不支持超链接（光栅帧/视频不具备超链接功能），可点击性将不会保留。

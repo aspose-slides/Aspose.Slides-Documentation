@@ -1,5 +1,5 @@
 ---
-title: API pubbliche e modifiche incompatibili con versioni precedenti in Aspose.Slides per .NET 15.11.0
+title: API pubblica e modifiche incompatibili retroattive in Aspose.Slides per .NET 15.11.0
 linktitle: Aspose.Slides per .NET 15.11.0
 type: docs
 weight: 210
@@ -16,10 +16,12 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Rivedi gli aggiornamenti dell'API pubblica e le modifiche breaking in Aspose.Slides per .NET per migrare senza problemi le soluzioni di presentazione PowerPoint PPT, PPTX e ODP."
+description: "Esamina gli aggiornamenti dell'API pubblica e le modifiche breaking in Aspose.Slides per .NET per migrare senza problemi le tue soluzioni di presentazione PowerPoint PPT, PPTX e ODP."
 ---
-{{% alert color="primary" %}} 
-Questa pagina elenca tutte le classi, i metodi, le proprietà aggiunti o rimossi e così via, e le altre modifiche introdotte con l'API di Aspose.Slides per .NET 15.11.0.
+{{% alert color="info" %}} 
+
+Questa pagina elenca tutte le [aggiunte](/slides/it/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) o [rimosse](/slides/it/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) classi, metodi, proprietà e così via, e le altre modifiche introdotte con l'API Aspose.Slides for .NET 15.11.0.
+
 {{% /alert %}} 
 ## **Modifiche all'API pubblica**
 
@@ -42,20 +44,21 @@ Aspose.Slides.Charts.DataLabelCollection.ShowValue
 #### **È stata aggiunta la nuova proprietà FirstSlideNumber alla classe Presentation**
 La nuova proprietà FirstSlideNumber aggiunta a Presentation consente di ottenere o impostare il numero della prima diapositiva in una presentazione.
 
-Quando viene specificato un nuovo valore per FirstSlideNumber, tutti i numeri delle diapositive vengono ricalcolati.
+Quando viene specificato un nuovo valore di FirstSlideNumber, tutti i numeri delle diapositive vengono ricalcolati.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- using(var pres = new Presenation(path))
+string path = "sample.pptx";
+string newPath = "output.pptx";
 
+using (var pres = new Presentation(path))
 {
+    int firstSlideNumber = pres.FirstSlideNumber;
 
-  int firstSlideNumber = pres.FirstSlideNumber;
+    pres.FirstSlideNumber = 10;
 
-  pres.FirstSlideNumber = 10;
-
-  pres.Save(newPath, SaveFormat.Pptx);
-
+    pres.Save(newPath, SaveFormat.Pptx);
 }
-
 ```

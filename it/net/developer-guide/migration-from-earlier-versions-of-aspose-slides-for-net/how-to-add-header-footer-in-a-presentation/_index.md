@@ -20,12 +20,14 @@ keywords:
 - Aspose.Slides
 description: "Scopri come aggiungere intestazioni e piè di pagina nelle presentazioni PowerPoint PPT, PPTX e ODP in .NET utilizzando sia le API legacy che quelle moderne di Aspose.Slides."
 ---
-{{% alert color="primary" %}}
-È stata rilasciata una nuova [Aspose.Slides for .NET API](/slides/it/net/) e ora questo unico prodotto supporta la generazione di documenti PowerPoint da zero e la modifica di quelli esistenti.
+{{% alert color="info" %}}
+
+È stata rilasciata una nuova [Aspose.Slides for .NET API](/slides/it/net/) e ora questo unico prodotto supporta la capacità di generare documenti PowerPoint da zero e di modificare quelli esistenti.
+
 {{% /alert %}}
 ## **Supporto per il codice legacy**
-Per utilizzare il codice legacy sviluppato con le versioni di Aspose.Slides per .NET precedenti alla 13.x, è necessario apportare alcune piccole modifiche al proprio codice affinché continui a funzionare come prima. Tutte le classi presenti nella vecchia Aspose.Slides per .NET nei namespace Aspose.Slide e Aspose.Slides.Pptx sono ora unite in un unico namespace Aspose.Slides. Si prega di consultare il seguente semplice snippet di codice per aggiungere intestazione e piè di pagina nella presentazione nell'API legacy di Aspose.Slides e seguire i passaggi che descrivono come migrare alla nuova API unificata.
-## **Approccio legacy di Aspose.Slides per .NET**
+Per utilizzare il codice legacy sviluppato con versioni di Aspose.Slides for .NET precedenti alla 13.x, è necessario apportare alcune piccole modifiche al codice affinché continui a funzionare come prima. Tutte le classi presenti nella vecchia Aspose.Slides for .NET nei namespace Aspose.Slide e Aspose.Slides.Pptx sono ora unite in un unico namespace Aspose.Slides. Si prega di consultare il seguente semplice frammento di codice per aggiungere intestazione e piè di pagina nella presentazione con l'API legacy di Aspose.Slides e seguire i passaggi che descrivono come migrare alla nuova API unificata.
+## **Approccio legacy di Aspose.Slides for .NET**
 ```c#
 PresentationEx sourcePres = new PresentationEx();
 
@@ -38,13 +40,13 @@ sourcePres.UpdateDateTimeFields = true;
 //Mostra il segnaposto data e ora
 sourcePres.HeaderFooterManager.IsDateTimeVisible = true;
 
-//Mostra il segnaposto piè di pagina
+//Mostra il segnaposto del piè di pagina
 sourcePres.HeaderFooterManager.IsFooterVisible = true;
 
 //Mostra il numero della diapositiva
 sourcePres.HeaderFooterManager.IsSlideNumberVisible = true;
 
-//Imposta la visibilità dell'intestazione e del piè di pagina nella diapositiva titolo
+//Imposta la visibilità dell'intestazione e del piè di pagina nella diapositiva del titolo
 sourcePres.HeaderFooterManager.SetVisibilityOnTitleSlide(true);
 
 //Scrivi la presentazione su disco
@@ -52,6 +54,8 @@ sourcePres.Write("NewSource.pptx");
 ```
 
 ```c#
+using Aspose.Slides;
+
 //Crea la presentazione
 Presentation pres = new Presentation();
 
@@ -87,8 +91,12 @@ pres.Write("HeadFoot.ppt");
 ```
 
 
-## **Nuovo approccio di Aspose.Slides per .NET 13.x**
+
+## **Nuovo approccio di Aspose.Slides for .NET 13.x**
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation sourcePres = new Presentation())
 {
     //Impostazione delle proprietà di visibilità dell'intestazione e del piè di pagina
@@ -103,7 +111,7 @@ using (Presentation sourcePres = new Presentation())
     //Mostra il segnaposto del piè di pagina
     sourcePres.HeaderFooterManager.SetAllFootersVisibility(true);
     
-    //Imposta la visibilità dell'intestazione e del piè di pagina nella diapositiva titolo
+    //Imposta la visibilità dell'intestazione e del piè di pagina sulla diapositiva del titolo
     sourcePres.HeaderFooterManager.SetVisibilityOnAllTitleSlides(true);
 
     //Scrivi la presentazione su disco

@@ -1,6 +1,6 @@
 ---
-title: Publiczne API i zmiany niekompatybilne wstecz w Aspose.Slides for Java 14.8.0
-linktitle: Aspose.Slides dla Java 14.8.0
+title: Publiczne API oraz zmiany niekompatybilne wstecz w Aspose.Slides dla Javy 14.8.0
+linktitle: Aspose.Slides dla Javy 14.8.0
 type: docs
 weight: 70
 url: /pl/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/
@@ -15,22 +15,22 @@ keywords:
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Przeglądaj aktualizacje publicznego API oraz zmiany łamiące w Aspose.Slides for Java, aby płynnie migrować rozwiązania prezentacji PowerPoint PPT, PPTX i ODP."
+description: "Przeglądaj aktualizacje publicznego API oraz zmiany łamiące w Aspose.Slides dla Javy, aby płynnie migrować rozwiązania prezentacji PowerPoint PPT, PPTX i ODP."
 ---
-{{% alert color="primary" %}} 
-
-Ta strona wymienia wszystkie [dodane](/slides/pl/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) klasy, metody, właściwości i tak dalej, wszystkie nowe ograniczenia oraz inne [zmiany](/slides/pl/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) wprowadzone w API Aspose.Slides for Java 14.8.0.
-
+{{% alert color="info" %}} 
+Ta strona wymienia wszystkie [dodane](/slides/pl/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) klasy, metody, właściwości itp., nowe ograniczenia oraz inne [zmiany](/slides/pl/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) wprowadzone w API Aspose.Slides for Java 14.8.0.
 {{% /alert %}} 
 ## **Zmiany w publicznym API**
-### **Dodano metody Aspose.Slides.Charts.IChartSeries.getOverlap(), IChartSeriesGroup.getOverlap() oraz setOverlap(byte)**
-Metoda Aspose.Slides.Charts.IChartSeries.getOverlap() określa, jak bardzo słupki i kolumny powinny nachodzić na wykresach 2D (w przedziale od -100 do 100).  
-Ta metoda nie dotyczy tylko konkretnej serii, ale wszystkich serii w grupie serii nadrzędnej – jest to projekcja odpowiedniej własności grupy.
+### **Dodano metody Aspose.Slides.Charts.IChartSeries.getOverlap(), IChartSeriesGroup.getOverlap() i setOverlap(byte)**
+Metoda Aspose.Slides.Charts.IChartSeries.getOverlap() zwraca, jak bardzo paski i kolumny powinny nachodzić na wykresach 2D (w zakresie od -100 do 100).
+Ta metoda nie dotyczy tylko konkretnej serii, ale wszystkich serii w grupie serii nadrzędnej – jest to projekcja odpowiedniej właściwości grupy.
 
-- Użyj metody IChartSeries.getParentSeriesGroup() w celu uzyskania dostępu do grupy serii nadrzędnej.  
-- Użyj metod IChartSeriesGroup.getOverlap() oraz setOverlap(byte) do zarządzania wartością.
+- Użyj metody IChartSeries.getParentSeriesGroup() aby uzyskać dostęp do grupy serii nadrzędnej.
+- Użyj metod IChartSeriesGroup.getOverlap() i setOverlap(byte), aby zarządzać wartością.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -40,25 +40,29 @@ IChartSeriesCollection series = chart.getChartData().getSeries();
 
 if (series.get_Item(0).getOverlap() == 0) {
 
-  series.get_Item(0).getParentSeriesGroup().setOverlap(-30);
+  series.get_Item(0).getParentSeriesGroup().setOverlap((byte)-30);
 
 }
 
 ```
 ### **Dodano wartość wyliczenia ShapeThumbnailBounds.Appearance**
-Ta metoda tworzenia miniaturek kształtów umożliwia programistom wygenerowanie miniatury kształtu w granicach jego wyglądu. Uwzględnia wszystkie efekty kształtu. Wygenerowana miniatura kształtu jest ograniczona granicami slajdu.
+Ta metoda tworzenia miniatur kształtów pozwala programistom wygenerować miniaturę kształtu w granicach jego wyglądu. Uwzględnia wszystkie efekty kształtu. Wygenerowana miniatura kształtu jest ograniczona granicami slajdu.
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation();
 
-BufferedImage st = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThumbnail(ShapeThumbnailBounds.Appearance, 1, 1);
+ Presentation pres = new Presentation("Presentation.pptx");
+
+IImage st = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(ShapeThumbnailBounds.Appearance, 1, 1);
 
 ```
-### **Dodano klasę VbaProject i interfejs IVbaProject, zmieniono metody Presentation.getVbaProject() oraz setVbaProject(VbaProject)**
-Nowa funkcja umożliwia programistom tworzenie i edytowanie projektów VBA w prezentacji.
+### **Dodano klasę VbaProject i interfejs IVbaProject, zmieniono metody Presentation.getVbaProject() i setVbaProject(VbaProject)**
+Nowa funkcja pozwala programistom tworzyć i edytować projekty VBA w prezentacji.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -96,6 +100,5 @@ pres.getVbaProject().getReferences().add(stdoleReference);
 
 pres.getVbaProject().getReferences().add(officeReference);
 
-pres.save("data\\test.pptm", SaveFormat.Pptm);
-
+pres.save("test.pptm", SaveFormat.Pptm);
 ```

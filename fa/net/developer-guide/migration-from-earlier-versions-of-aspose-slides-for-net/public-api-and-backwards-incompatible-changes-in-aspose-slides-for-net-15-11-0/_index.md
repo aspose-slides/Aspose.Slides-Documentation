@@ -1,14 +1,14 @@
 ---
-title: API عمومی و تغییرات ناسازگار با نسخه‌های قبلی در Aspose.Slides برای .NET 15.11.0
+title: API عمومی و تغییرات ناسازگار با عقبگرد در Aspose.Slides برای .NET 15.11.0
 linktitle: Aspose.Slides برای .NET 15.11.0
 type: docs
 weight: 210
 url: /fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/
 keywords:
 - مهاجرت
-- کد میراثی
+- کد قدیمی
 - کد مدرن
-- رویکرد میراثی
+- رویکرد قدیمی
 - رویکرد مدرن
 - PowerPoint
 - OpenDocument
@@ -16,15 +16,17 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "به‌روزرسانی‌های API عمومی و تغییرات شکسته‌کننده در Aspose.Slides برای .NET را مرور کنید تا به‌صورت روان ارائه PowerPoint (PPT، PPTX) و ODP خود را مهاجرت دهید."
+description: "به‌روزرسانی‌های API عمومی و تغییرات شکننده در Aspose.Slides برای .NET را مرور کنید تا بتوانید به‌صورت یک‌پارچه راهکارهای ارائه PowerPoint PPT، PPTX و ODP خود را مهاجرت دهید."
 ---
-{{% alert color="primary" %}} 
-این صفحه تمام کلاس‌ها، متدها، ویژگی‌های [added](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) یا [removed](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) و سایر موارد و تغییرات دیگری که در API Aspose.Slides برای .NET نسخه 15.11.0 معرفی شده‌اند را فهرست می‌کند.
-{{% /alert %}} 
-## **تغییرات API عمومی**
+{{% alert color="info" %}} 
 
-#### **ویژگی‌های منسوخ‌شده در کلاس DataLabelCollection حذف شده‌اند**
-ویژگی‌های منسوخ‌شده در کلاس DataLabelCollection حذف شده‌اند:
+این صفحه تمام کلاس‌ها، متدها، ویژگی‌ها و سایر موارد [added](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) یا [removed](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) را که با API Aspose.Slides for .NET 15.11.0 معرفی شده‌اند، فهرست می‌کند.
+
+{{% /alert %}} 
+## **Public API Changes**
+
+#### **ویژگی‌های منسوخ شده در کلاس DataLabelCollection حذف شدند**
+ویژگی‌های منسوخ شده در کلاس DataLabelCollection حذف شدند:
 Aspose.Slides.Charts.DataLabelCollection.Delete
 Aspose.Slides.Charts.DataLabelCollection.Format
 Aspose.Slides.Charts.DataLabelCollection.LinkedSource
@@ -39,23 +41,24 @@ Aspose.Slides.Charts.DataLabelCollection.ShowPercentage
 Aspose.Slides.Charts.DataLabelCollection.ShowSeriesName
 Aspose.Slides.Charts.DataLabelCollection.ShowValue
 
-#### **ویژگی جدید FirstSlideNumber به کلاس Presentation اضافه شده است**
+#### **ویژگی جدید FirstSlideNumber به کلاس Presentation اضافه شد**
 ویژگی جدید FirstSlideNumber که به کلاس Presentation اضافه شده است، امکان دریافت یا تنظیم شماره اولین اسلاید در یک ارائه را فراهم می‌کند.
 
-زمانی که مقدار جدیدی برای FirstSlideNumber تعیین شود، تمام شماره‌های اسلاید مجدداً محاسبه می‌شوند.
+زمانی که مقدار جدید FirstSlideNumber مشخص شود، تمام شماره‌های اسلاید دوباره محاسبه می‌شوند.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- using(var pres = new Presenation(path))
+string path = "sample.pptx";
+string newPath = "output.pptx";
 
+using (var pres = new Presentation(path))
 {
+    int firstSlideNumber = pres.FirstSlideNumber;
 
-  int firstSlideNumber = pres.FirstSlideNumber;
+    pres.FirstSlideNumber = 10;
 
-  pres.FirstSlideNumber = 10;
-
-  pres.Save(newPath, SaveFormat.Pptx);
-
+    pres.Save(newPath, SaveFormat.Pptx);
 }
-
 ```

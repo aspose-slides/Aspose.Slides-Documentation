@@ -15,43 +15,49 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Отображение презентаций с резервными шрифтами в Aspose.Slides для .NET – сохраняет единообразие текста в PPT, PPTX и ODP с пошаговыми примерами кода на C#."
+description: "Отображение презентаций с резервными шрифтами в Aspose.Slides для .NET – сохраняйте единообразие текста в PPT, PPTX и ODP с помощью пошаговых примеров кода на C#."
 ---
+## **Обзор**
 
-В следующем примере содержатся следующие шаги:
+Aspose.Slides позволяет рендерить презентации, используя правила резервных шрифтов. Эта статья показывает, как создать коллекцию правил резервных шрифтов, изменить её правила, удаляя или добавляя резервные шрифты, и назначить коллекцию свойству `FontsManager.FontFallBackRulesCollection`.
+
+После того как коллекция правил резервных шрифтов назначена `FontsManager` презентации, правила применяются во время таких операций, как сохранение, рендеринг и конвертация презентации. Пример демонстрирует, как использовать сконфигурированные правила при рендеринге миниатюры слайда и сохранении её как PNG‑изображения.
+
+## **Отображение слайда с использованием правил резервных шрифтов**
 
 1. Мы [создаём коллекцию правил резервных шрифтов](/slides/ru/net/create-fallback-fonts-collection/).
-2. [Remove()](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrule/methods/remove) правило резервного шрифта и [AddFallBackFonts()](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrule/methods/addfallbackfonts) к другому правилу.
-3. Установите коллекцию правил в свойство [FontsManager.FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection).
-4. С помощью метода [Presentation.Save()](https://reference.aspose.com/slides/net/aspose.slides.presentation/save/methods/4) мы можем сохранить презентацию в том же формате или в другом. После того как коллекция правил резервных шрифтов установлена в FontsManager, эти правила применяются при любых операциях с презентацией: сохранение, рендеринг, конвертация и т.д.
+2. Вызываем [Remove()](https://reference.aspose.com/slides/ru/net/aspose.slides/fontfallbackrule/methods/remove) для правила резервного шрифта и [AddFallBackFonts()](https://reference.aspose.com/slides/ru/net/aspose.slides/fontfallbackrule/methods/addfallbackfonts) для другого правила.
+3. Устанавливаем коллекцию правил в свойство [FontsManager.FontFallBackRulesCollection](https://reference.aspose.com/slides/ru/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection).
+4. С помощью метода [Presentation.Save()](https://reference.aspose.com/slides/ru/net/aspose.slides.presentation/save/methods/4) можно сохранить презентацию в том же формате или в другом. После установки коллекции правил резервных шрифтов в FontsManager, эти правила применяются при любых операциях над презентацией: сохранение, рендеринг, конвертация и т.д.
+
 ```c#
+using Aspose.Slides;
+
 // Создать новый экземпляр коллекции правил
 IFontFallBackRulesCollection rulesList = new FontFallBackRulesCollection();
 
-// create a number of rules
+// создать несколько правил
 rulesList.Add(new FontFallBackRule(0x400, 0x4FF, "Times New Roman"));
-//rulesList.Add(new FontFallBackRule(...));
+rulesList.Add(new FontFallBackRule(0x600, 0x6FF, "Tahoma, Arial"));
 
 foreach (IFontFallBackRule fallBackRule in rulesList)
 {
-	// Пытаемся удалить резервный шрифт "Tahoma" из загруженных правил
-	fallBackRule.Remove("Tahoma");
-
-	// И обновить правила для указанного диапазона
-	if ((fallBackRule.RangeEndIndex >= 0x4000) && (fallBackRule.RangeStartIndex < 0x5000))
+	//Trying to remove FallBack font "Tahoma" from loaded rules
+	//And to update of rules for specified range
+	if ((fallBackRule.RangeEndIndex >= 0x400) && (fallBackRule.RangeStartIndex < 0x500))
 		fallBackRule.AddFallBackFonts("Verdana");
 }
 
-// Также можно удалить любые существующие правила из списка
-if (rulesList.Count > 0)
-	rulesList.Remove(rulesList[0]);
+//Also we can remove any existing rules from list, keeping at least one rule to render with
+if (rulesList.Count > 1)
+	rulesList.Remove(rulesList[1]);
 
 using (Presentation pres = new Presentation("input.pptx"))
 {
-    // Назначаем подготовленный список правил для использования
+    //Назначение подготовленного списка правил для использования
     pres.FontsManager.FontFallBackRulesCollection = rulesList;
 
-    // Рендерим миниатюру с использованием инициализированной коллекции правил и сохраняем в PNG
+    //Рендеринг миниатюры с использованием инициализированной коллекции правил и сохранение в PNG
     using (IImage image = pres.Slides[0].GetImage(1f, 1f))
     {
         image.Save("Slide_0.png", ImageFormat.Png);
@@ -59,8 +65,6 @@ using (Presentation pres = new Presentation("input.pptx"))
 }
 ```
 
-
-
-{{% alert color="primary" %}} 
-Подробнее о [Save and Convertion in Presentation](/slides/ru/net/convert-powerpoint-to-png/).
+{{% alert color="info" %}} 
+Подробнее о [Сохранении и конвертации в презентации](/slides/ru/net/convert-powerpoint-to-png/).
 {{% /alert %}}

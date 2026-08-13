@@ -1,38 +1,40 @@
 ---
-title: "รับคุณสมบัติรูปร่างที่ Effective จากการนำเสนอใน Android"
-linktitle: "คุณสมบัติ Effective"
+title: รับคุณสมบัติรูปร่างแบบ Effective จากงานนำเสนอบน Android
+linktitle: คุณสมบัติ Effective
 type: docs
 weight: 50
 url: /th/androidjava/shape-effective-properties/
 keywords:
-- คุณสมบัติรูปร่าง
+- คุณสมบัติของรูปร่าง
 - คุณสมบัติกล้อง
 - ระบบแสง
-- รูปร่างบีเวล
+- รูปร่าง bevel
 - กรอบข้อความ
 - สไตล์ข้อความ
-- ความสูงฟอนต์
-- รูปแบบเติม
+- ความสูงของฟอนต์
+- รูปแบบการเติม
 - PowerPoint
 - งานนำเสนอ
 - Android
 - Java
 - Aspose.Slides
-description: "ค้นพบวิธีที่ Aspose.Slides สำหรับ Android ผ่าน Java คำนวณและใช้คุณสมบัติรูปร่างที่ Effective เพื่อการแสดงผล PowerPoint อย่างแม่นยำ."
+description: "ค้นพบวิธีที่ Aspose.Slides สำหรับ Android ผ่าน Java คำนวณและใช้คุณสมบัติรูปร่างแบบ Effective เพื่อการเรนเดอร์ PowerPoint อย่างแม่นยำ."
 ---
 ## **ภาพรวม**
 
-หัวข้อนี้อธิบายความแตกต่างระหว่างคุณสมบัติ **local** และ **effective** ค่าท้องถิ่นคือค่าที่ถูกตั้งโดยตรงในระดับการจัดรูปแบบเฉพาะ เช่น:
+หัวข้อนี้อธิบายความแตกต่างระหว่างคุณสมบัติ **local** และ **effective** ค่าท้องถิ่นคือค่าที่ตั้งโดยตรงในระดับการจัดรูปแบบเฉพาะ เช่น:
 
-1. คุณสมบัติ Portion บนสไลด์.  
-1. สไตล์ข้อความของรูปร่างต้นแบบบนเลย์เอาต์หรือสไลด์มาสเตอร์, เมื่อรูปร่างกรอบข้อความของ Portion มีสไตล์หนึ่ง.  
-1. การตั้งค่าข้อความระดับส่วนกลางในงานนำเสนอ.
+1. คุณสมบัติของส่วนบนสไลด์.
+1. ลุคแบบข้อความของรูปร่างต้นแบบบนเลย์เอาต์หรือสไลด์มาสเตอร์เมื่อรูปร่างกรอบข้อความของส่วนมีลุคแบบหนึ่ง.
+1. การตั้งค่าข้อความระดับทั่วโลกในงานนำเสนอ.
 
-ค่าท้องถิ่นสามารถกำหนดหรือละเว้นได้ในทุกระดับ เมื่อ Aspose.Slides ต้องการการจัดรูปแบบขั้นสุดท้ายที่แสดงผลจริง จะทำการแก้ไขโซ่การสืบทอดและส่งคืนค่าที่ **effective** คุณสามารถรับค่าเหล่านี้ได้โดยเรียกเมธอด `getEffective()` บนวัตถุรูปแบบท้องถิ่น
+ค่าท้องถิ่นสามารถกำหนดหรือละเว้นได้ในทุกระดับ เมื่อ Aspose.Slides ต้องการการจัดรูปแบบขั้นสุดท้ายที่ "as rendered" มันจะทำการแก้ไขโซ่การสืบทอดและคืนค่า **effective** คุณสามารถเรียกใช้เมธอด `getEffective()` บนวัตถุรูปแบบท้องถิ่นเพื่อรับค่าเหล่านั้น
 
-ตัวอย่างต่อไปนี้แสดงวิธีการรับค่าที่ effective โดยสมมติว่ารูปร่างแรกบนสไลด์แรกเป็น [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) ที่มีกรอบข้อความและอย่างน้อยหนึ่ง Portion.
+ตัวอย่างต่อไปนี้แสดงวิธีการรับค่า effective โดยสมมติว่ารูปร่างแรกบนสไลด์แรกเป็น [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) ที่มีกรอบข้อความและอย่างน้อยหนึ่งส่วน.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -48,15 +50,17 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-ข้อมูลการจัดรูปแบบที่ effective แสดงถึงการจัดรูปแบบที่คำนวณแล้วหลังจากนำการสืบทอดมาใช้ ในการทำงานปัจจุบันบางอ็อบเจกต์ข้อมูลที่ effective เช่น [IPortionFormatEffectiveData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iportionformateffectivedata/) อาจถูกเก็บแคชภายใน การเรียก `getEffective()` อีกครั้งหลังจากเปลี่ยนรูปแบบของพาเรนต์หรือการสืบทอดสามารถรีเฟรชข้อมูลแคชได้และอ็อบเจกต์ที่ได้มาก่อนหน้าอาจไม่แสดงสถานะเดิมอีกต่อไป หากต้องการเก็บค่าที่ effective ไว้ใช้ใหม่ในภายหลัง ให้คัดลอกคุณสมบัติที่ต้องการ เช่น ความสูงของฟอนต์ สีเติม สไตล์ฟอนต์ หรือการจัดแนว ไปยังอ็อบเจกต์ข้อมูลของคุณเอง
+{{% alert color="info" %}}
+ข้อมูลการจัดรูปแบบ Effective แสดงการจัดรูปแบบที่คำนวณแล้วหลังจากใช้การสืบทอด ในการนำไปใช้ปัจจุบันบางวัตถุข้อมูล Effective เช่น [IPortionFormatEffectiveData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iportionformateffectivedata/) อาจถูกแคชภายใน การเรียก `getEffective()` อีกครั้งหลังจากเปลี่ยนแปลงการจัดรูปแบบของพาเรนท์หรือการสืบทอดสามารถรีเฟรชข้อมูลแคชได้และวัตถุที่ดึงมาก่อนหน้านี้อาจไม่แสดงสภาพเดิม หากต้องการเก็บค่าที่ Effective ไว้ใช้ต่อไป ให้คัดลอกคุณสมบัติที่ต้องการ เช่น ความสูงของฟอนต์ สีเติมสไตล์ฟอนต์หรือการจัดแนว ไปยังออบเจ็กต์ข้อมูลของคุณเอง.
 {{% /alert %}}
 
 ## **รับคุณสมบัติ Effective ของกล้อง**
 
-Aspose.Slides ให้คุณรับคุณสมบัติ effective ของกล้อง อินเทอร์เฟซ [ICameraEffectiveData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icameraeffectivedata/) แสดงถึงอ็อบเจกต์ที่ไม่เปลี่ยนแปลงซึ่งบรรจุคุณสมบัติกล้องที่ effective อินสแตนซ์ของ [ICameraEffectiveData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icameraeffectivedata/) ถูกเปิดเผยผ่าน [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ithreedformateffectivedata/), ซึ่งให้ค่าที่ effective สำหรับ [IThreeDFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ithreedformat/).
+Aspose.Slides อนุญาตให้คุณรับคุณสมบัติ Effective ของกล้อง อินเทอร์เฟซ [ICameraEffectiveData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icameraeffectivedata/) แสดงออบเจ็กต์ไม่เปลี่ยนแปลงที่บรรจุคุณสมบัติกล้องแบบ Effective อินสแตนซ์ของ [ICameraEffectiveData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icameraeffectivedata/) เปิดให้เข้าถึงผ่าน [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ithreedformateffectivedata/) ซึ่งให้ค่าที่ Effective ของ [IThreeDFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ithreedformat/).
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -76,9 +80,11 @@ try {
 
 ## **รับคุณสมบัติ Effective ของ Light Rig**
 
-Aspose.Slides ให้คุณรับคุณสมบัติ effective ของ Light Rig อินเทอร์เฟซ [ILightRigEffectiveData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ilightrigeffectivedata/) แสดงถึงอ็อบเจกต์ที่ไม่เปลี่ยนแปลงซึ่งบรรจุคุณสมบัติ Light Rig ที่ effective อินสแตนซ์ของ [ILightRigEffectiveData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ilightrigeffectivedata/) ถูกเปิดเผยผ่าน [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ithreedformateffectivedata/), ซึ่งให้ค่าที่ effective สำหรับ [IThreeDFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ithreedformat/).
+Aspose.Slides อนุญาตให้คุณรับคุณสมบัติ Effective ของ Light Rig อินเทอร์เฟซ [ILightRigEffectiveData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ilightrigeffectivedata/) แสดงออบเจ็กต์ไม่เปลี่ยนแปลงที่บรรจุคุณสมบัติ Light Rig แบบ Effective อินสแตนซ์ของ [ILightRigEffectiveData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ilightrigeffectivedata/) เปิดให้เข้าถึงผ่าน [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ithreedformateffectivedata/) ซึ่งให้ค่าที่ Effective ของ [IThreeDFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ithreedformat/).
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -97,9 +103,11 @@ try {
 
 ## **รับคุณสมบัติ Effective ของ Bevel Shape**
 
-Aspose.Slides ให้คุณรับคุณสมบัติ effective ของ bevel รูปร่าง อินเทอร์เฟซ [IShapeBevelEffectiveData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishapebeveleffectivedata/) แสดงถึงอ็อบเจกต์ที่ไม่เปลี่ยนแปลงซึ่งบรรจุคุณสมบัติ face‑relief ของรูปร่าง อินสแตนซ์ของ [IShapeBevelEffectiveData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishapebeveleffectivedata/) ถูกเปิดเผยผ่าน [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ithreedformateffectivedata/), ซึ่งให้ค่าที่ effective สำหรับ [IThreeDFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ithreedformat/).
+Aspose.Slides อนุญาตให้คุณรับคุณสมบัติ Effective ของ bevel รูปร่าง อินเทอร์เฟซ [IShapeBevelEffectiveData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishapebeveleffectivedata/) แสดงออบเจ็กต์ไม่เปลี่ยนแปลงที่บรรจุคุณสมบัติ relief ของรูปร่าง อินสแตนซ์ของ [IShapeBevelEffectiveData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishapebeveleffectivedata/) เปิดให้เข้าถึงผ่าน [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ithreedformateffectivedata/) ซึ่งให้ค่าที่ Effective ของ [IThreeDFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ithreedformat/).
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -119,9 +127,11 @@ try {
 
 ## **รับคุณสมบัติ Effective ของ Text Frame**
 
-ด้วย Aspose.Slides คุณสามารถรับคุณสมบัติ effective ของกรอบข้อความได้ อินเทอร์เฟซ [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframeformateffectivedata/) มีคุณสมบัติการจัดรูปแบบกรอบข้อความที่ effective
+โดยใช้ Aspose.Slides คุณสามารถรับคุณสมบัติ Effective ของ Text Frame อินเทอร์เฟซ [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframeformateffectivedata/) มีคุณสมบัติการจัดรูปแบบ Text Frame แบบ Effective
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -144,9 +154,11 @@ try {
 
 ## **รับคุณสมบัติ Effective ของ Text Style**
 
-ด้วย Aspose.Slides คุณสามารถรับคุณสมบัติ effective ของสไตล์ข้อความได้ อินเทอร์เฟซ [ITextStyleEffectiveData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextstyleeffectivedata/) มีคุณสมบัติสไตล์ข้อความที่ effective
+โดยใช้ Aspose.Slides คุณสามารถรับคุณสมบัติ Effective ของ Text Style อินเทอร์เฟซ [ITextStyleEffectiveData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextstyleeffectivedata/) มีคุณสมบัติ Text Style แบบ Effective
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -172,9 +184,11 @@ try {
 
 ## **รับค่าความสูงฟอนต์ Effective**
 
-ด้วย Aspose.Slides คุณสามารถรับความสูงฟอนต์ที่ effective ได้ ตัวอย่างต่อไปนี้แสดงว่าความสูงฟอนต์ของ Portion ที่ effective จะเปลี่ยนอย่างไรหลังจากตั้งค่าความสูงฟอนต์ท้องถิ่นในระดับโครงสร้างงานนำเสนอที่ต่างกัน
+โดยใช้ Aspose.Slides คุณสามารถรับความสูงฟอนต์ Effective ตัวอย่างต่อไปนี้แสดงการเปลี่ยนแปลงความสูงฟอนต์ Effective ของส่วนหลังจากตั้งค่าความสูงฟอนต์ท้องถิ่นที่ระดับโครงสร้างงานนำเสนอต่าง ๆ
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -245,13 +259,15 @@ try {
 }
 ```
 
-## **รับ Fill Format Effective ของ Table**
+## **รับ Fill Format Effective สำหรับ Table**
 
-ด้วย Aspose.Slides คุณสามารถรับการจัดรูปแบบเติมที่ effective สำหรับส่วนต่าง ๆ ของตารางได้ อินเทอร์เฟซ [IFillFormatEffectiveData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ifillformateffectivedata/) มีคุณสมบัติการเติมที่ effective การจัดรูปแบบของเซลล์มีลำดับความสำคัญสูงกว่าการจัดรูปแบบของแถว, แถวนั้นมีลำดับความสำคัญสูงกว่าการจัดรูปแบบของคอลัมน์, และคอลัมน์มีลำดับความสำคัญสูงกว่าการจัดรูปแบบของทั้งตาราง
+โดยใช้ Aspose.Slides คุณสามารถรับการจัดรูปแบบ Fill แบบ Effective สำหรับส่วนต่าง ๆ ของตาราง อินเทอร์เฟซ [IFillFormatEffectiveData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ifillformateffectivedata/) มีคุณสมบัติการเติมแบบ Effective การจัดรูปแบบเซลล์มีระดับความสำคัญสูงกว่าการจัดรูปแบบแถว แถวมีระดับความสำคัญสูงกว่าการจัดรูปแบบคอลัมน์ และคอลัมน์มีระดับความสำคัญสูงกว่าการจัดรูปแบบทั้งตาราง
 
-ผลลัพธ์คือคุณสมบัติของ [ICellFormatEffectiveData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icellformateffectivedata/) จะถูกใช้ในการวาดเซลล์ตาราง ตัวอย่างต่อไปนี้แสดงวิธีรับการจัดรูปแบบเติมที่ effective สำหรับส่วนต่าง ๆ ของตาราง โดยสมมติว่ารูปร่างแรกบนสไลด์แรกเป็น [ITable](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itable/)
+ดังนั้นคุณสมบัติของ [ICellFormatEffectiveData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icellformateffectivedata/) ถูกใช้ในการวาดเซลล์ตาราง ตัวอย่างต่อไปนี้แสดงวิธีการรับการเติมแบบ Effective สำหรับส่วนต่าง ๆ ของตาราง โดยสมมติว่ารูปร่างแรกบนสไลด์แรกเป็น [ITable](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itable/).
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -270,36 +286,36 @@ try {
 }
 ```
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**`getEffective()` คืนค่าที่เป็นสแนปช็อตหรือไม่?**
+### `getEffective()` คืนค่า snapshot หรือไม่?
 
-ไม่เสมอ ข้อมูลที่ effective แสดงถึงการจัดรูปแบบที่คำนวณแล้วหลังจากนำการสืบทอดมาใช้ แต่บางอ็อบเจกต์ข้อมูลที่ effective อาจถูกแคชภายใน การเรียก `getEffective()` อีกครั้งหลังจากเปลี่ยนรูปแบบของพาเรนต์หรือการสืบทอดอาจทำให้คำนวณใหม่และรีเฟรชข้อมูลแคช ดังนั้นอ็อบเจกต์ที่ได้ก่อนหน้านี้ไม่ควรถือเป็นสแนปช็อตที่คงที่
+ไม่เสมอไป ข้อมูล Effective แสดงการจัดรูปแบบที่คำนวณแล้วหลังการสืบทอด แต่บางออบเจ็กต์ข้อมูล Effective อาจถูกแคชภายใน การเรียก `getEffective()` อีกครั้งหลังจากเปลี่ยนแปลงการจัดรูปแบบของพาเรนท์หรือการสืบทอดอาจคำนวณใหม่และรีเฟรชแคช ดังนั้นออบเจ็กต์ที่ดึงมาก่อนหน้านี้ไม่ควรถือเป็น snapshot ถาวร
 
-**ควรอ่านคุณสมบัติ effective อีกครั้งเมื่อใด?**
+### ควรอ่านคุณสมบัติ Effective อีกครั้งเมื่อใด?
 
-ให้เรียก `getEffective()` อีกครั้งหลังจากเปลี่ยนรูปแบบท้องถิ่น, สไตล์พาเรนต์, การจัดรูปแบบเลย์เอาต์, การจัดรูปแบบมาสเตอร์ หรือค่าเริ่มต้นระดับงานนำเสนอ การเรียกครั้งต่อไปจะประเมินลำดับชั้นการจัดรูปแบบใหม่และคืนค่าที่ effective ปัจจุบัน
+เรียก `getEffective()` อีกครั้งหลังจากเปลี่ยนแปลงการจัดรูปแบบท้องถิ่น สไตล์พาเรนท์ การจัดรูปแบบเลย์เอาต์ การจัดรูปแบบมาสเตอร์ หรือค่าตั้งต้นระดับงานนำเสนอ การเรียกครั้งต่อไปจะประเมินลำดับการจัดรูปแบบใหม่และคืนค่าผลลัพธ์ Effective ปัจจุบัน
 
-**การเปลี่ยนหรือเอาเลย์เอาต์/มาสเตอร์สไลด์ออกส่งผลต่อคุณสมบัติ effective ที่ได้แล้วหรือไม่?**
+### การเปลี่ยนหรือเอาเลย์เอาต์/มาสเตอร์สไลด์ออกมีผลต่อคุณสมบัติ Effective ที่ดึงแล้วหรือไม่?
 
-ใช่ แต่การเปลี่ยนแปลงจะสะท้อนในการเรียก `getEffective()` ครั้งถัดไป หากแหล่งข้อมูลการจัดรูปแบบของพาเรนต์ถูกเปลี่ยนหรือเอาออก ข้อมูลที่ effective ที่ได้ก่อนหน้านี้อาจล้าสมัย เมื่อเรียก `getEffective()` อีกครั้ง Aspose.Slides จะประเมินต้นไม้การจัดรูปแบบใหม่และค่าต่าง ๆ เช่น ฟอนต์, สี, ขนาดอาจเปลี่ยนแปลง
+มีผล แต่การเปลี่ยนแปลงจะปรากฏในการเรียก `getEffective()` ถัดไป หากแหล่งการจัดรูปแบบพาเรนท์เปลี่ยนหรือถูกลบ ข้อมูล Effective ที่ได้รับก่อนหน้าอาจล้าสมัย เมื่อเรียก `getEffective()` อีกครั้ง Aspose.Slides จะประเมินต้นไม้การจัดรูปแบบใหม่และฟอนต์ สี ขนาด หรือค่าต่าง ๆ อาจเปลี่ยนแปลง
 
-**ฉันสามารถแก้ไขค่าโดยใช้ข้อมูลที่ effective ได้หรือไม่?**
+### สามารถแก้ไขค่าได้ผ่านออบเจ็กต์ Effective หรือไม่?
 
-ไม่ได้ ข้อมูลที่ effective เฉพาะการเปิดเผยค่าที่คำนวณแล้ว ให้ทำการเปลี่ยนแปลงในอ็อบเจกต์รูปแบบท้องถิ่น แล้วเรียกรับค่าที่ effective ใหม่อีกครั้ง
+ไม่ได้ ออบเจ็กต์ Effective ให้ค่าที่คำนวณแล้ว ทำการเปลี่ยนแปลงในออบเจ็กต์การจัดรูปแบบท้องถิ่น แล้วดึงค่า Effective ใหม่อีกครั้ง
 
-**หากคุณสมบัติไม่ได้ตั้งค่าในระดับรูปร่าง, เลย์เอาต์/มาสเตอร์, หรือการตั้งค่าระดับส่วนกลาง จะเกิดอะไรขึ้น?**
+### หากคุณสมบัติไม่ได้ตั้งค่าในระดับรูปร่าง ไม่ได้ตั้งค่าในเลย์เอาต์/มาสเตอร์ และไม่ได้ตั้งค่าในระดับทั่วโลก จะเป็นอย่างไร?
 
-ค่าที่ effective จะถูกกำหนดโดยกลไกค่าเริ่มต้น ซึ่งรวมถึงค่าเริ่มต้นของ PowerPoint และ Aspose.Slides ค่าที่ได้จะเป็นส่วนหนึ่งของข้อมูลที่ effective ปัจจุบัน
+ค่าที่ Effective จะถูกกำหนดโดยกลไกค่าเริ่มต้น ซึ่งรวมถึงค่าเริ่มต้นของ PowerPoint และ Aspose.Slides ค่าที่ได้จะเป็นส่วนหนึ่งของข้อมูล Effective ปัจจุบัน
 
-**จากค่าฟอนต์ที่ effective ฉันจะทราบได้หรือไม่ว่ามาจากระดับใด?**
+### จากค่าฟอนต์ Effective สามารถบอกได้หรือไม่ว่ามาจากระดับใด?
 
-โดยตรงไม่ได้ ข้อมูลที่ effective คืนค่าที่สุดท้าย เพื่อหาต้นทางต้องตรวจสอบค่าท้องถิ่นที่ Portion, ย่อหน้า, Text Frame และสไตล์ข้อความที่เลย์เอาต์, มาสเตอร์, งานนำเสนอ เพื่อดูว่าการกำหนดที่ชัดเจนแรกปรากฏที่ระดับใด
+ไม่ได้โดยตรง ข้อมูล Effective ให้ค่าที่สุดท้ายเท่านั้น หากต้องการทราบแหล่งที่มาให้ตรวจสอบค่าท้องถิ่นที่ Portion, Paragraph, Text Frame และ Text Styles ที่เลย์เอาต์, มาสเตอร์ และระดับงานนำเสนอเพื่อหาการกำหนดที่ชัดเจนแรกที่ปรากฏ
 
-**ทำไมค่าที่ effective บางครั้งจึงดูเหมือนเดียวกับค่าท้องถิ่น?**
+### ทำไมค่าที่ Effective บางครั้งดูเหมือนกับค่าท้องถิ่น?
 
-เพราะค่าท้องถิ่นนั้นเป็นค่าที่สุดท้ายแล้ว (ไม่ต้องอ้างอิงจากระดับที่สูงกว่า) ในกรณีนั้นค่าที่ effective จะตรงกับค่าท้องถิ่น
+เพราะค่าท้องถิ่นกลายเป็นค่าต finale (ไม่มีการสืบทอดจากระดับที่สูงกว่า) ดังนั้นค่าที่ Effective จึงตรงกับค่าท้องถิ่น
 
-**ควรใช้คุณสมบัติ effective เมื่อใดและควรใช้ค่าท้องถิ่นเท่านั้นเมื่อใด?**
+### ควรใช้คุณสมบัติ Effective เมื่อใด และควรใช้ค่าท้องถิ่นเท่านั้นเมื่อใด?
 
-ใช้ข้อมูลที่ effective เมื่อคุณต้องการผลลัพธ์ “ตามที่แสดง” หลังจากการสืบทอดทั้งหมดถูกนำมาใช้ เช่น การจัดสี, การเยื้อง, หรือขนาด หากต้องการเก็บค่าดังกล่าวไว้โดยไม่ให้การเปลี่ยนแปลงการจัดรูปแบบในภายหลังมีผล ให้คัดลอกคุณสมบัติที่ต้องการไปยังอ็อบเจกต์ของคุณเอง หากต้องการเปลี่ยนการจัดรูปแบบในระดับใดระดับหนึ่ง ให้แก้ไขค่าท้องถิ่นและจากนั้น (หากจำเป็น) อ่านข้อมูลที่ effective อีกครั้งเพื่อยืนยันผลลัพธ์.
+ใช้ข้อมูล Effective เมื่อคุณต้องการผลลัพธ์ \"as rendered\" หลังจากการสืบทอดทั้งหมด เช่น การจัดสี การเยื้อง หรือขนาด หากต้องการเก็บค่าดังกล่าวไว้แม้การจัดรูปแบบจะเปลี่ยนในภายหลัง ให้คัดลอกคุณสมบัติที่ต้องการไปยังออบเจ็กต์ของคุณเอง หากต้องการเปลี่ยนการจัดรูปแบบที่ระดับใดระดับหนึ่ง ให้แก้ไขค่าท้องถิ่นแล้วหากจำเป็นให้อ่านข้อมูล Effective อีกครั้งเพื่อยืนยันผลลัพธ์.

@@ -1,14 +1,14 @@
 ---
-title: Publieke API en achterwaarts incompatibele wijzigingen in Aspose.Slides voor .NET 15.1.0
+title: Openbare API en terugwaarts incompatibele wijzigingen in Aspose.Slides voor .NET 15.1.0
 linktitle: Aspose.Slides voor .NET 15.1.0
 type: docs
 weight: 130
 url: /nl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/
 keywords:
 - migratie
-- legacycode
+- verouderde code
 - moderne code
-- legacy aanpak
+- verouderde aanpak
 - moderne aanpak
 - PowerPoint
 - OpenDocument
@@ -16,32 +16,32 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Bekijk de updates van de publieke API en breaking changes in Aspose.Slides voor .NET om soepel uw PowerPoint PPT-, PPTX- en ODP-presentatie-oplossingen te migreren."
+description: "Bekijk de updates van de openbare API en de breaking changes in Aspose.Slides voor .NET om uw PowerPoint PPT-, PPTX- en ODP-presentatieoplossingen soepel te migreren."
 ---
-{{% alert color="primary" %}} 
-Deze pagina geeft een overzicht van alle [toegevoegde](/slides/nl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) of [verwijderde](/slides/nl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) klassen, methoden, eigenschappen enz., en andere wijzigingen die geïntroduceerd zijn met de Aspose.Slides for .NET 15.1.0 API.
+{{% alert color="info" %}} 
+Deze pagina geeft een overzicht van alle [added](/slides/nl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) of [removed](/slides/nl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) klassen, methoden, eigenschappen enz., en andere wijzigingen die zijn geïntroduceerd met de Aspose.Slides for .NET 15.1.0 API.
 {{% /alert %}} 
-## **Openbare API-wijzigingen**
-#### **Lettertype‑substitutiefunctionaliteit is toegevoegd**
-Er is de mogelijkheid toegevoegd om lettertypen globaal in de hele presentatie te vervangen en tijdelijk voor het renderen.
+## **Openbare API‑wijzigingen**
+#### **Functionaliteit voor lettertypevervanging toegevoegd**
+Mogelijkheid om lettertype globaal in de presentatie en tijdelijk voor weergave te vervangen is toegevoegd.
 
-De nieuwe eigenschap "FontsManager" van de Presentation‑klasse is geïntroduceerd. De FontsManager‑klasse heeft de volgende leden:
+Nieuwe eigenschap "FontsManager" van de Presentation‑klasse is geïntroduceerd. De FontsManager‑klasse heeft de volgende leden:
 
-**IFontSubstRuleCollection FontSubstRuleList** eigenschap
+**IFontSubstRuleCollection FontSubstRuleList** Property  
+Deze collectie van IFontSubstRule‑instanties wordt gebruikt om lettertypen tijdens het renderen te vervangen. IFontSubstRule heeft de eigenschappen SourceFont en DestFont die de IFontData‑interface implementeren en de eigenschap ReplaceFontCondition waarmee de vervangingsconditie kan worden gekozen ("WhenInaccessible" of "Always").
 
-Deze verzameling van IFontSubstRule‑instanties wordt gebruikt om lettertypen tijdens het renderen te substitueren. IFontSubstRule heeft de eigenschappen SourceFont en DestFont die de IFontData‑interface implementeren, en de eigenschap ReplaceFontCondition waarmee de vervangingsconditie kan worden gekozen ("WhenInaccessible" of "Always").
-
-**IFontData[] GetFonts()** methode
-
+**IFontData[] GetFonts()** Method  
 Wordt gebruikt om alle lettertypen op te halen die in de huidige presentatie worden gebruikt.
 
-**ReplaceFont** methoden
+**ReplaceFont** Methods  
+Worden gebruikt om lettertype blijvend in de presentatie te vervangen.
 
-Wordt gebruikt om een lettertype blijvend in de presentatie te vervangen.
-
-Het volgende voorbeeld toont hoe een lettertype in de presentatie te vervangen:
+Het volgende voorbeeld toont hoe een lettertype in de presentatie kan worden vervangen:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
              Presentation pres = new Presentation("PresContainsArialFont.pptx");
 
@@ -56,9 +56,11 @@ Het volgende voorbeeld toont hoe een lettertype in de presentatie te vervangen:
 
 ``` 
 
-Een ander voorbeeld toont lettertype‑substitutie voor rendering wanneer het niet toegankelijk is:
+Een ander voorbeeld demonstreert lettertypevervanging voor weergave wanneer niet toegankelijk:
 
 ``` csharp
+using Aspose.Slides;
+
 
              Presentation pres = new Presentation("PresContainsSomeRareFontFont.pptx");
 
@@ -76,7 +78,8 @@ Een ander voorbeeld toont lettertype‑substitutie voor rendering wanneer het ni
 
             pres.FontsManager.FontSubstRuleList = fontSubstRuleCollection;
 
-            // Arial-lettertype wordt gebruikt in plaats van SomeRareFont wanneer het ontoegankelijk is
+            // Arial lettertype wordt gebruikt in plaats van SomeRareFont wanneer niet toegankelijk
 
-            pres.Slides[0].GetThumbnail();
+            pres.Slides[0].GetImage();
+
 ```

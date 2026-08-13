@@ -5,10 +5,10 @@ type: docs
 weight: 20
 url: /pt/java/presentation-background/
 keywords:
-- fundo da apresentação
-- fundo do slide
+- fundo de apresentação
+- fundo de slide
 - cor sólida
-- cor em gradiente
+- cor gradiente
 - fundo de imagem
 - transparência do fundo
 - propriedades do fundo
@@ -17,17 +17,17 @@ keywords:
 - apresentação
 - Java
 - Aspose.Slides
-description: "Saiba como definir fundos dinâmicos em arquivos PowerPoint e OpenDocument usando Aspose.Slides for Java, com dicas de código para melhorar suas apresentações."
+description: "Aprenda como definir fundos dinâmicos em arquivos PowerPoint e OpenDocument usando Aspose.Slides para Java, com dicas de código para melhorar suas apresentações."
 ---
 ## **Introdução**
 
 Cores sólidas, gradientes e imagens são comumente usados como fundos de slides. Você pode definir o fundo para um **slide normal** (um único slide) ou um **slide mestre** (aplicado a vários slides de uma vez).
 
-![Fundo do PowerPoint](powerpoint-background.png)
+![PowerPoint background](powerpoint-background.png)
 
 ## **Definir um Fundo de Cor Sólida para um Slide Normal**
 
-Aspose.Slides permite definir uma cor sólida como fundo para um slide específico em uma apresentação — mesmo que a apresentação use um slide mestre. A alteração se aplica somente ao slide selecionado.
+Aspose.Slides permite definir uma cor sólida como fundo para um slide específico em uma apresentação — mesmo que a apresentação use um slide mestre. A alteração se aplica apenas ao slide selecionado.
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/).
 2. Defina o [BackgroundType](https://reference.aspose.com/slides/pt/java/com.aspose.slides/backgroundtype/) do slide como `OwnBackground`.
@@ -38,12 +38,15 @@ Aspose.Slides permite definir uma cor sólida como fundo para um slide específi
 O exemplo Java a seguir mostra como definir a cor azul sólida como fundo para um slide normal:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Crie uma instância da classe Presentation.
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Defina a cor de fundo do slide para azul.
+    // Defina a cor de fundo do slide como azul.
     slide.getBackground().setType(BackgroundType.OwnBackground);
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
@@ -57,7 +60,7 @@ try {
 
 ## **Definir um Fundo de Cor Sólida para um Slide Mestre**
 
-Aspose.Slides permite definir uma cor sólida como fundo para o slide mestre em uma apresentação. O slide mestre atua como um modelo que controla a formatação de todos os slides, portanto, ao escolher uma cor sólida para o fundo do slide mestre, ela será aplicada a cada slide.
+Aspose.Slides permite definir uma cor sólida como fundo para o slide mestre em uma apresentação. O slide mestre funciona como um modelo que controla a formatação de todos os slides, portanto, ao escolher uma cor sólida para o fundo do slide mestre, ela será aplicada a cada slide.
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/).
 2. Defina o [BackgroundType](https://reference.aspose.com/slides/pt/java/com.aspose.slides/backgroundtype/) do slide mestre (via `getMasters`) como `OwnBackground`.
@@ -68,12 +71,15 @@ Aspose.Slides permite definir uma cor sólida como fundo para o slide mestre em 
 O exemplo Java a seguir mostra como definir uma cor sólida (verde) como fundo para um slide mestre:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Crie uma instância da classe Presentation.
 Presentation presentation = new Presentation();
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
 
-    // Defina a cor de fundo do slide Master para Verde Floresta.
+    // Defina a cor de fundo do slide mestre como verde.
     masterSlide.getBackground().setType(BackgroundType.OwnBackground);
     masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
     masterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
@@ -87,17 +93,20 @@ try {
 
 ## **Definir um Fundo em Gradiente para um Slide**
 
-Um gradiente é um efeito gráfico criado por uma mudança gradual de cor. Quando usado como fundo de slide, gradientes podem conferir à apresentação um aspecto mais artístico e profissional. Aspose.Slides permite definir uma cor em gradiente como fundo para slides.
+Um gradiente é um efeito gráfico criado por uma mudança gradual de cor. Quando usado como fundo de slide, gradientes podem fazer apresentações parecerem mais artísticas e profissionais. Aspose.Slides permite definir uma cor em gradiente como fundo para slides.
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/).
 2. Defina o [BackgroundType](https://reference.aspose.com/slides/pt/java/com.aspose.slides/backgroundtype/) do slide como `OwnBackground`.
 3. Defina o [FillType](https://reference.aspose.com/slides/pt/java/com.aspose.slides/filltype/) do fundo do slide como `Gradient`.
-4. Use o método [getGradientFormat](https://reference.aspose.com/slides/pt/java/com.aspose.slides/fillformat/#getGradientFormat--) em [FillFormat](https://reference.aspose.com/slides/pt/java/com.aspose.slides/fillformat/) para configurar as definições de gradiente desejadas.
+4. Use o método [getGradientFormat](https://reference.aspose.com/slides/pt/java/com.aspose.slides/fillformat/#getGradientFormat--) em [FillFormat](https://reference.aspose.com/slides/pt/java/com.aspose.slides/fillformat/) para configurar as opções de gradiente desejadas.
 5. Salve a apresentação modificada.
 
 O exemplo Java a seguir mostra como definir uma cor em gradiente como fundo para um slide:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Crie uma instância da classe Presentation.
 Presentation presentation = new Presentation();
 try {
@@ -106,7 +115,13 @@ try {
     // Aplique um efeito de gradiente ao fundo.
     slide.getBackground().setType(BackgroundType.OwnBackground);
     slide.getBackground().getFillFormat().setFillType(FillType.Gradient);
-    slide.getBackground().getFillFormat().getGradientFormat().setTileFlip(TileFlip.FlipBoth);
+
+    IGradientFormat gradientFormat = slide.getBackground().getFillFormat().getGradientFormat();
+    gradientFormat.setTileFlip(TileFlip.FlipBoth);
+
+    // Adicione as cores do gradiente. Sem pontos de gradiente, o fundo volta para uma rampa padrão preto‑para‑branco.
+    gradientFormat.getGradientStops().add(0f, Color.CYAN);
+    gradientFormat.getGradientStops().add(1f, Color.BLUE);
 
     // Salve a apresentação no disco.
     presentation.save("GradientBackground.pptx", SaveFormat.Pptx);
@@ -130,6 +145,8 @@ Além de preenchimentos sólidos e em gradiente, Aspose.Slides permite usar imag
 O exemplo Java a seguir mostra como definir uma imagem como fundo para um slide:
 
 ```java
+import com.aspose.slides.*;
+
 // Crie uma instância da classe Presentation.
 Presentation presentation = new Presentation();
 try {
@@ -155,9 +172,11 @@ try {
 }
 ```
 
-O exemplo de código a seguir mostra como definir o tipo de preenchimento de fundo para uma imagem em mosaico e modificar as propriedades de repetição:
+O exemplo de código a seguir mostra como definir o tipo de preenchimento do fundo como imagem em mosaico e modificar as propriedades de mosaico:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide firstSlide = presentation.getSlides().get_Item(0);
@@ -171,11 +190,11 @@ try {
     IPPImage ppImage = presentation.getImages().addImage(newImage);
     newImage.dispose();
 
-    // Defina a imagem usada para o preenchimento do fundo.
+    // Defina a imagem usada para o preenchimento de fundo.
     IPictureFillFormat backPictureFillFormat = background.getFillFormat().getPictureFillFormat();
     backPictureFillFormat.getPicture().setImage(ppImage);
 
-    // Defina o modo de preenchimento da imagem como Mosaico e ajuste as propriedades de repetição.
+    // Defina o modo de preenchimento da imagem como Mosaico e ajuste as propriedades de mosaico.
     backPictureFillFormat.setPictureFillMode(PictureFillMode.Tile);
     backPictureFillFormat.setTileOffsetX(15f);
     backPictureFillFormat.setTileOffsetY(15f);
@@ -190,53 +209,66 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-Leia mais: [**Imagem em Mosaico como Textura**](/slides/pt/java/shape-formatting/#tile-picture-as-texture).
+{{% alert color="info" %}}
+Leia mais: [**Tile Picture As Texture**](/slides/pt/java/shape-formatting/#tile-picture-as-texture).
 {{% /alert %}}
 
 ### **Alterar a Transparência da Imagem de Fundo**
 
-Pode ser necessário ajustar a transparência da imagem de fundo de um slide para que o conteúdo do slide se destaque. O código Java a seguir mostra como alterar a transparência da imagem de fundo de um slide:
+Você pode querer ajustar a transparência da imagem de fundo de um slide para que o conteúdo do slide se destaque. O código Java a seguir mostra como alterar a transparência de uma imagem de fundo de slide:
 
 ```java
+import com.aspose.slides.*;
+
 int transparencyValue = 30; // Por exemplo.
 
- // Obtenha a coleção de operações de transformação de imagem.
-IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-// Encontre um efeito de transparência de percentual fixo existente.
-IAlphaModulateFixed transparencyOperation = null;
-for (IImageTransformOperation operation : imageTransform) {
-    if (operation instanceof IAlphaModulateFixed) {
-        transparencyOperation = (IAlphaModulateFixed)operation;
-        break;
+    // Obtenha a coleção de operações de transformação de imagem.
+    IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+
+    // Encontre um efeito de transparência de percentual fixo existente.
+    IAlphaModulateFixed transparencyOperation = null;
+    for (IImageTransformOperation operation : imageTransform) {
+        if (operation instanceof IAlphaModulateFixed) {
+            transparencyOperation = (IAlphaModulateFixed)operation;
+            break;
+        }
     }
-}
 
-// Defina o novo valor de transparência.
-if (transparencyOperation == null) {
-    imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
-}
-else {
-    transparencyOperation.setAmount(100 - transparencyValue);
+    // Defina o novo valor de transparência.
+    if (transparencyOperation == null) {
+        imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
+    }
+    else {
+        transparencyOperation.setAmount(100 - transparencyValue);
+    }
+
+    presentation.save("output.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **Obter o Valor de Fundo do Slide**
 
-Aspose.Slides fornece a interface [IBackgroundEffectiveData](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ibackgroundeffectivedata/) para recuperar os valores efetivos de fundo de um slide. Essa interface expõe o [FillFormat](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ibackgroundeffectivedata/#getFillFormat--) e o [EffectFormat](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ibackgroundeffectivedata/#getEffectFormat--) efetivos.
+Aspose.Slides fornece a interface [IBackgroundEffectiveData](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ibackgroundeffectivedata/) para recuperar os valores de fundo efetivos de um slide. Essa interface expõe o [FillFormat](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ibackgroundeffectivedata/#getFillFormat--) e o [EffectFormat](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ibackgroundeffectivedata/#getEffectFormat--) efetivos.
 
 Usando o método `getBackground` da classe [BaseSlide](https://reference.aspose.com/slides/pt/java/com.aspose.slides/baseslide/), você pode obter o fundo efetivo de um slide.
 
 O exemplo Java a seguir mostra como obter o valor de fundo efetivo de um slide:
 
 ```java
+import com.aspose.slides.*;
+
 // Crie uma instância da classe Presentation.
 Presentation presentation = new Presentation("Sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Recupere o fundo efetivo, levando em conta master, layout e tema.
+    // Recupere o fundo efetivo, levando em conta mestre, layout e tema.
     IBackgroundEffectiveData effBackground = slide.getBackground().getEffective();
     
     if (effBackground.getFillFormat().getFillType() == FillType.Solid)
@@ -250,10 +282,10 @@ try {
 
 ## **FAQ**
 
-**Posso redefinir um fundo personalizado e restaurar o fundo do tema/layout?**
+### Posso redefinir um fundo personalizado e restaurar o fundo do tema/layout?
 
-Sim. Remova o preenchimento personalizado do slide e o fundo será herdado novamente do slide de [layout](/slides/pt/java/slide-layout/)/[master](/slides/pt/java/slide-master/) correspondente (ou seja, o [fundo do tema](/slides/pt/java/presentation-theme/)).
+Sim. Remova o preenchimento customizado do slide, e o fundo será herdado novamente do slide de [layout](/slides/pt/java/slide-layout/)/[master](/slides/pt/java/slide-master/) correspondente (ou seja, o [theme background](/slides/pt/java/presentation-theme/)).
 
-**O que acontece com o fundo se eu alterar o tema da apresentação mais tarde?**
+### O que acontece com o fundo se eu mudar o tema da apresentação posteriormente?
 
 Se um slide tem seu próprio preenchimento, ele permanecerá inalterado. Se o fundo for herdado do [layout](/slides/pt/java/slide-layout/)/[master](/slides/pt/java/slide-master/), ele será atualizado para corresponder ao [novo tema](/slides/pt/java/presentation-theme/).

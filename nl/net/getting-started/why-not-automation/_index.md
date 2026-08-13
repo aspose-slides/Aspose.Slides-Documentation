@@ -1,12 +1,12 @@
 ---
-title: "Waarom geen automatisering"
+title: Waarom geen automatisering
 type: docs
 weight: 40
 url: /nl/net/why-not-automation/
 keywords:
 - automatisering
 - Microsoft Office
-- vergelijking
+- vergelijken
 - beveiliging
 - stabiliteit
 - schaalbaarheid
@@ -17,7 +17,7 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Ontdek waarom Office-automatisering riskant is voor servers en services, en zie hoe Aspose.Slides veiliger en sneller presentaties verwerkt voor PowerPoint en OpenDocument."
+description: "Ontdek waarom Office-automatisering riskant is voor servers en diensten, en zie hoe Aspose.Slides veiligere, snellere presentatieverwerking biedt voor PowerPoint en OpenDocument."
 ---
 ## **Introductie**
 
@@ -39,90 +39,90 @@ Er zijn twee vragen die we vaak horen bij Aspose:
 
 Het korte, eenvoudige antwoord is **NEE**.
 
-Aspose‑componenten zijn volledig onafhankelijk en zijn niet geaffilieerd met, geautoriseerd door, gesponsord door of anderszins goedgekeurd door Microsoft Corporation.
+Aspose‑componenten zijn volledig onafhankelijk en zijn niet gelieerd aan, geautoriseerd door, gesponsord door of anderszins goedgekeurd door Microsoft Corporation.
 
-- Waarom zouden we Aspose‑producten gebruiken in plaats van Microsoft Office‑automatisering?
+- Waarom zouden we Aspose‑producten gebruiken in plaats van Microsoft Office Automation?
 
-Ten eerste zijn er veel [benefits you enjoy when you use Aspose.Slides](/slides/nl/net/product-overview/).
+Ten eerste zijn er veel [voordelen die u krijgt wanneer u Aspose.Slides gebruikt](/slides/nl/net/product-overview/).
 
-Ten tweede raadt Microsoft zelf sterk **af** om Office‑Automatisering te gebruiken vanuit software‑oplossingen.
+Ten tweede raadt Microsoft zelf sterk **af** om Office Automation vanuit softwareoplossingen te gebruiken.
 
 ## **Beveiliging**
-Het volgende is een rechtstreeks citaat uit een Microsoft‑artikel: 
+Het volgende is een directe quote uit een Microsoft‑artikel: 
 
-> "Office‑applications waren nooit bedoeld voor gebruik aan de serverzijde, en houden daarom geen rekening met de beveiligingsproblemen waarmee gedistribueerde componenten te maken hebben. Office authenticatieert geen inkomende verzoeken en beschermt u niet tegen het onbedoeld uitvoeren van macro’s, of het starten van een andere server die macro’s zou kunnen uitvoeren, vanuit uw server‑side code. Open geen bestanden die geüpload zijn naar de server vanaf een anonieme web! Op basis van de laatst ingestelde beveiligingsinstellingen kan de server macro’s uitvoeren onder een Administrator‑ of System‑context met volledige rechten en uw netwerk compromitteren! Daarnaast gebruikt Office veel client‑side componenten (zoals Simple MAPI, WinInet, MSDAIPP) die client‑authenticatie‑informatie kunnen cachen om de verwerking te versnellen. Als Office server‑side geautomatiseerd wordt, kan één instantie meer dan één client bedienen, en omdat authenticatie‑informatie voor die sessie is gecached, is het mogelijk dat één client de gecachete referenties van een andere client gebruikt, en daardoor onbevoegde toegangsrechten verkrijgt door zich voor te doen als andere gebruikers."
+> "Office Applications were never intended for use server-side, and therefore do not take into consideration the security problems that are faced by distributed components. Office does not authenticate incoming requests, and does not protect you from unintentionally running macros, or starting another server that might run macros, from your server-side code. Do not open files that are uploaded to the server from an anonymous Web! Based on the security settings that were last set, the server can run macros under an Administrator or System context with full privileges and compromise your network! In addition, Office uses many client-side components (such as Simple MAPI, WinInet, MSDAIPP) that can cache client authentication information in order to speed up processing. If Office is being automated server-side, one instance may service more than one client, and because authentication information has been cached for that session, it is possible that one client can use the cached credentials of another client, and thereby gain non-granted access permissions by impersonating other users."
 
-Aspose‑producten zijn zeer **veilig**. Aspose‑componenten draaien in dezelfde gebruikerscontext als alle ASP.NET‑toepassingen (onder de ASPNET‑gebruiker). Daarom vormen Aspose‑componenten **geen** beveiligingsrisico. Ze verbruiken ook geen kritieke systeembronnen. Bovendien, wanneer een Aspose‑component een document opent, worden macro’s niet automatisch uitgevoerd. Aspose‑componenten zijn gebouwd om ontwikkelaars in staat te stellen Office‑bestanden te maken, te manipuleren en op te slaan. 
+Aspose‑producten zijn zeer **beveiligd**. Aspose‑componenten draaien in dezelfde gebruikerscontext als alle ASP.NET‑toepassingen (onder de ASPNET‑gebruiker). Daarom vormen Aspose‑componenten **geen** beveiligingsrisico. Ze verbruiken ook geen kritieke systeembronnen. Bovendien, wanneer een Aspose‑component een document opent, worden macro’s niet automatisch uitgevoerd. Aspose‑componenten zijn ontwikkeld om ontwikkelaars in staat te stellen Office‑bestanden te maken, te manipuleren en op te slaan. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Geen van de risico’s die verbonden zijn aan het Microsoft‑Office‑pakket zijn van toepassing op Aspose‑componenten.
+Geen van de risico’s die gepaard gaan met het Microsoft‑Office‑pakket zijn van toepassing op Aspose‑componenten.
 
 {{% /alert %}} 
 
 ## **Stabiliteit**
-Deze tekst is een rechtstreeks citaat uit het eerder genoemde Microsoft‑artikel: 
+Deze tekst is een directe quote uit het eerder genoemde Microsoft‑artikel: 
 
-> "Office 2000, Office XP en Office 2003 gebruiken Microsoft Windows Installer (MSI)‑technologie om installatie en zelfherstel voor de eindgebruiker te vergemakkelijken. MSI introduceert het concept van “install on first use”, waardoor functies dynamisch kunnen worden geïnstalleerd of geconfigureerd tijdens runtime (voor het systeem, of vaker voor een specifieke gebruiker). In een server‑side omgeving vertraagt dit zowel de prestaties als de kans dat een dialoogvenster verschijnt waarin de gebruiker wordt gevraagd de installatie goed te keuren of een geschikt installatieschijfje te leveren. Hoewel het bedoeld is om de veerkracht van Office als eindgebruikersproduct te vergroten, is de implementatie van MSI‑mogelijkheden door Office contraproductief in een server‑side omgeving. Bovendien kan de stabiliteit van Office in het algemeen niet worden gegarandeerd wanneer het server‑side wordt uitgevoerd, omdat het niet is ontworpen of getest voor dit type gebruik. Het gebruik van Office als service‑component op een netwerk‑server kan de stabiliteit van die machine en daarmee uw hele netwerk verminderen. Als u van plan bent Office server‑side te automatiseren, probeer het programma dan te isoleren op een toegewijde computer die geen kritieke functies kan beïnvloeden en die indien nodig herstart kan worden."
+> "Office 2000, Office XP and Office 2003 use Microsoft Windows Installer (MSI) technology to make installation and self-repair easier for an end user. MSI introduces the concept of "install on first use", which allows features to be dynamically installed or configured at runtime (for the system, or more often for a particular user). In a server-side environment this both slows down performance and increases the likelihood that a dialog box may appear that asks for the user to approve the install or provide an appropriate install disk. Although it is designed to increase the resiliency of Office as an end-user product, Office's implementation of MSI capabilities is counterproductive in a server-side environment. Furthermore, the stability of Office in general cannot be assured when run server-side because it has not been designed or tested for this type of use. Using Office as a service component on a network server may reduce the stability of that machine and as a consequence your network as a whole. If you plan to automate Office server-side, attempt to isolate the program to a dedicated computer that cannot affect critical functions, and that can be restarted as needed."
 
-Aangezien Aspose‑componenten verpakt zijn in één enkele DLL, hoeven hun gebruikers nooit extra onderdelen te installeren om ze te laten functioneren. Aspose‑componenten worden uitsluitend gebruikt door .NET‑toepassingen en er is geen deel van de componentcode dat wacht op een menselijke reactie. 
+Aangezien Aspose‑componenten in één enkele DLL zijn verpakt, hoeven hun gebruikers nooit extra onderdelen te installeren om ze te laten functioneren. Aspose‑componenten worden uitsluitend gebruikt door .NET‑toepassingen en er is geen deel van de componentcode dat wacht op een menselijke reactie. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Aspose‑componenten zijn grondig getest en bewezen zeer stabiel te zijn. Aspose‑componenten worden gebruikt door [companies](http://www.aspose.com/Corporate/Aspose/Customerlist.html) zoals **IBM**, **Hilton**, **Reader's Digest**, **Bank of America** en vele andere toonaangevende organisaties in diverse sectoren en vakgebieden. 
+Aspose‑componenten zijn grondig getest en bewezen zeer stabiel te zijn. Aspose‑componenten worden gebruikt door [bedrijven](http://www.aspose.com/Corporate/Aspose/Customerlist.html) zoals **IBM**, **Hilton**, **Reader's Digest**, **Bank of America** en vele andere toonaangevende organisaties in verschillende sectoren en vakgebieden. 
 
 {{% /alert %}} 
 
 ## **Schaalbaarheid/Snelheid**
-Het volgende is een rechtstreeks citaat uit een Microsoft‑artikel: 
+Het volgende is een directe quote uit een Microsoft‑artikel: 
 
-> "Server‑side componenten moeten sterk her‑entrant, multi‑threaded COM‑componenten zijn met minimaal overhead en hoog doorvoervermogen voor meerdere clients. Office‑applications zijn in bijna alle opzichten precies het tegenovergestelde. Het zijn niet‑her‑entrant, STA‑gebaseerde Automation‑servers die ontworpen zijn om diverse maar resource‑intensieve functionaliteit te leveren voor één client. Ze bieden weinig schaalbaarheid als server‑side oplossing, en hebben vaste limieten voor belangrijke elementen, zoals geheugen, die niet via configuratie gewijzigd kunnen worden. Belangrijker nog, ze gebruiken globale bronnen (zoals geheugen‑gemapte bestanden, globale add‑ins of sjablonen, en gedeelde Automation‑servers), die het aantal instanties dat gelijktijdig kan draaien kunnen beperken en tot race‑conditions kunnen leiden als ze geconfigureerd zijn in een multi‑client omgeving. Ontwikkelaars die van plan zijn meer dan één instantie van een Office‑application tegelijk te draaien, moeten overwegen om pooling of serializing access to the Office Application toe te passen om potentiële deadlocks of datacorruption te voorkomen."
+> "Server-side components need to be highly reentrant, multi-threaded COM components with minimum overhead and high throughput for multiple clients. Office Applications are in almost all respects the exact opposite. They are non-reentrant, STA-based Automation servers that are designed to provide diverse but resource-intensive functionality for a single client. They offer little scalability as a server-side solution, and have fixed limits to important elements, such as memory, which cannot be changed through configuration. More importantly, they use global resources (such as memory mapped files, global add-ins or templates, and shared Automation servers), which can limit the number of instances that can run concurrently and lead to race conditions if they are configured in a multi-client environment. Developers who plan to run more then one instance of any Office Application at the same time need to consider Pooling or Serializing Access to the Office Application for avoiding potential Deadlocks or Data Corruption”.
 
-Aspose‑componenten zijn ongelooflijk schaalbaar en razendsnel. Office‑applications zijn niet ontworpen om gelijktijdig door honderden of duizenden gebruikers gebruikt te worden, maar Aspose‑componenten zijn precies voor dat scenario gebouwd. Onze componenten zijn een echte .NET‑oplossing. 
+Aspose‑componenten zijn enorm schaalbaar en bliksemsnel. Office‑applicaties waren niet bedoeld om gelijktijdig door honderden of duizenden gebruikers gebruikt te worden, maar Aspose‑componenten zijn juist daarvoor ontworpen. Onze componenten vormen een echte .NET‑oplossing. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-De prestaties van Aspose‑componenten zijn foutloos op één enkele server (die één applicatie aandrijft) of op een load‑balanced web‑form (die een enterprise‑wide applicatie aandrijft).
+De prestaties van Aspose‑componenten zijn foutloos op een enkele server (die één applicatie voedt) of op een load‑balanced web‑form (die een ondernemingsbrede applicatie ondersteunt).
 
 {{% /alert %}} 
 
 ## **Prijs**
-Wanneer een applicatie Microsoft Office Automation gebruikt, moet voor elke machine die de app draait een exemplaar van Microsoft Office worden aangeschaft. Er zijn vele gevallen waarin een applicatie een Office‑bestand moet maken of manipuleren, maar het proces vereist geen Microsoft Office. 
+Wanneer een applicatie Microsoft Office Automation gebruikt, moet voor elke machine die de applicatie draait een exemplaar van Microsoft Office worden aangeschaft. Een applicatie kan talloze keren een Office‑bestand aanmaken of manipuleren, maar dit proces vereist geen Microsoft Office. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Aspose biedt een zeer [cost-effective](https://purchase.aspose.com/) en royalty‑vrije redistributielicentie die inzet op een onbeperkt aantal gebruikers zonder licentie‑zorgen mogelijk maakt. 
+Aspose biedt een zeer [kosteneffectieve](https://purchase.aspose.com/) en royalty‑vrije redistributielicentie die inzet op een onbeperkt aantal gebruikers zonder licentiezorgen mogelijk maakt. 
 
 {{% /alert %}} 
 
-Bij het maken van web‑gebaseerde applicaties is het belangrijk te onthouden dat Microsoft Office Automation‑componenten noch geprijsd noch gelicentieerd zijn voor server‑side oplossingen. Daarom bestaat er geen goede licentie‑oplossing voor de uitrol van web‑applicaties die Microsoft Office‑componenten gebruiken. Aspose biedt daarentegen een zeer [cost-effective](https://purchase.aspose.com/) oplossing voor server‑gebaseerde applicaties.
+Bij het ontwikkelen van web‑gebaseerde applicaties moet men zich realiseren dat Microsoft Office Automation‑componenten noch geprijsd noch gelicentieerd zijn voor server‑side oplossingen. Er bestaat dus geen goede licentieoplossing voor de inzet van web‑applicaties die Microsoft Office‑componenten gebruiken. Aspose daarentegen biedt een zeer [kosteneffectieve](https://purchase.aspose.com/) oplossing voor server‑gebaseerde applicaties.
 
 ## **Functies**
-Aspose‑componenten bieden alles wat nodig is voor het beheren van Office‑bestanden en nog veel meer. We hebben ze ontworpen volgens onze filosofie om ontwikkelaars te helpen de best mogelijke resultaten te behalen met de minste inspanning. 
+Aspose‑componenten bieden alles wat nodig is voor het beheren van Office‑bestanden en nog veel meer. We hebben ze ontworpen volgens onze filosofie om ontwikkelaars te helpen de best mogelijke resultaten te behalen met zo min mogelijk inspanning. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-In tegenstelling tot Office Automation bieden Aspose‑componenten vele krachtige en tijdbesparende functies. 
-
-{{% /alert %}} 
-
-Zo geeft [Aspose.Cells](https://products.aspose.com/cells/net/) ontwikkelaars de mogelijkheid om data direct vanuit een **DataTable** of **DataView** in een Excel‑bestand te importeren. [Aspose.Words](https://products.aspose.com/words/net/) biedt een vergelijkbare functie waarmee ontwikkelaars een Word‑document (bijvoorbeeld Mail Merge) direct vanuit elk .NET‑data‑object kunnen vullen. [Every component](https://products.aspose.com/total/net/) in de Aspose‑familie biedt zijn eigen reeks unieke en krachtige kenmerken. 
-
-Het beste van het aanschaffen van een Aspose‑component is de toegang tot onze ontwikkelteams. Als u bijvoorbeeld Office Automation‑objecten gebruikt en bepaalde functies nodig heeft, is de kans dat deze functies worden toegevoegd zeer, zeer klein. Met Aspose‑componenten is het echter anders. 
-
-{{% alert color="primary" %}} 
-
-Onze ontwikkelteams begrijpen dat als er een functie is die uw bedrijf nodig heeft, er een goede kans is dat andere bedrijven dezelfde functie nodig hebben. Hoewel we weten dat we niet elke gevraagde functie kunnen implementeren, streven we ernaar om zoveel mogelijk functies toe te voegen op basis van feedback van onze klanten. 
+In tegenstelling tot Office Automation bieden Aspose‑componenten tal van krachtige en tijdbesparende functies. 
 
 {{% /alert %}} 
 
-Onze teams staan altijd open, flexibel en behulpzaam – en dat is de reden waarom Aspose‑componenten zo krachtig zijn geworden.
+Zo geeft [Aspose.Cells](https://products.aspose.com/cells/net/) ontwikkelaars de mogelijkheid om gegevens uit een **DataTable** of **DataView** rechtstreeks in een Excel‑bestand te importeren. [Aspose.Words](https://products.aspose.com/words/net/) biedt een vergelijkbare functie waarmee ontwikkelaars een Word‑document (bijv. een mail‑merge) direct vanuit elk .NET‑data‑object kunnen vullen. [Elke component](https://products.aspose.com/total/net/) in de Aspose‑familie biedt zijn eigen set unieke en krachtige functionaliteiten. 
+
+Het beste van het kopen van een Aspose‑component is de toegang tot onze ontwikkelingsteams. Als u Office Automation‑objecten gebruikt en bepaalde functies nodig heeft, is de kans dat die functies worden toegevoegd zeer, zeer klein. Met Aspose‑componenten is dat anders. 
+
+{{% alert color="info" %}} 
+
+Onze ontwikkelingsteams begrijpen dat als een functie nodig is voor uw bedrijf, er een grote kans is dat andere bedrijven diezelfde functie nodig hebben. Hoewel we weten dat we niet elke aangevraagde functie kunnen implementeren, streven we ernaar zoveel mogelijk functies toe te voegen op basis van feedback van onze klanten. 
+
+{{% /alert %}} 
+
+Onze teams staan altijd open en flexibel bij het bieden van ondersteuning – en dat is de reden waarom Aspose‑componenten inmiddels zo krachtig zijn geworden. 
 
 ## **Conclusie**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Hoewel dit artikel enkele van de belangrijkste punten behandelt waarom Aspose‑componenten een betere keuze zijn dan Office Automation, moet u begrijpen dat er nog veel meer voordelen zijn. We hebben slechts een deel van de belangrijkste voordelen belicht. 
+Hoewel dit artikel enkele van de belangrijkste redenen behandelt waarom Aspose‑componenten een betere keuze zijn dan Office Automation, moet u weten dat er nog veel meer voordelen bestaan. We hebben alleen een aantal van de grootste voordelen belicht. 
 
-Bovendien bieden alle Aspose‑producten en -componenten een risicovrije, vrijblijvende [Evaluation Version](https://downloads.aspose.com/slides/nl/net). We moedigen u aan om gebruik te maken van de evaluatie om te zien wat Aspose voor uw applicaties of bedrijf kan betekenen. 
+Bovendien bieden alle Aspose‑producten en -componenten een risico‑vrije, vrijblijvende [Evaluatieversie](https://downloads.aspose.com/slides/nl/net). We moedigen u aan om de evaluatie te gebruiken om te zien wat Aspose voor uw applicaties of bedrijf kan betekenen. 
 
 {{% /alert %}}

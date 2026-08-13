@@ -15,7 +15,7 @@ keywords:
 - Aspose.Slides
 description: "Lihat cara memigrasi dari otomasi Microsoft Office ke Aspose.Slides untuk Java dan menambahkan teks dinamis ke presentasi PowerPoint (PPT, PPTX) dalam Java."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Tugas umum yang harus dilakukan pengembang adalah menambahkan teks ke slide secara dinamis. Artikel ini menampilkan contoh kode untuk menambahkan teks secara dinamis menggunakan [VSTO](/slides/id/java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/) dan [Aspose.Slides for Java](/slides/id/java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/).
 
@@ -26,10 +26,10 @@ Kedua metode mengikuti langkah-langkah berikut:
 1. Buat presentasi.
 1. Tambahkan slide kosong.
 1. Tambahkan kotak teks.
-1. Setel teks.
-1. Tuliskan presentasi.
+1. Atur beberapa teks.
+1. Tulis presentasi.
 ## **Contoh Kode VSTO**
-Potongan kode di bawah menghasilkan presentasi dengan slide biasa dan sebuah string teks di atasnya.
+Potongan kode di bawah menghasilkan presentasi dengan slide polos dan satu baris teks di dalamnya.
 
 **Presentasi yang dibuat di VSTO** 
 
@@ -37,7 +37,7 @@ Potongan kode di bawah menghasilkan presentasi dengan slide biasa dan sebuah str
 
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-VSTO-AddTextBoxVSTO-AddTextBoxVSTO.cs" >}}
 ## **Contoh Aspose.Slides for Java**
-Potongan kode di bawah menggunakan Aspose.Slides untuk membuat presentasi dengan slide biasa dan sebuah string teks di atasnya.
+Potongan kode di bawah menggunakan Aspose.Slides untuk membuat presentasi dengan slide polos dan satu baris teks di dalamnya.
 
 **Presentasi yang dibuat menggunakan Aspose.Slides for Java** 
 

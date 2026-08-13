@@ -1,52 +1,52 @@
 ---
-title: Δημόσιο API και Αλλαγές Πίσω Μη Συμβατές στο Aspose.Slides for Java 14.6.0
-linktitle: Aspose.Slides for Java 14.6.0
+title: Δημόσιο API και Αλλαγές Πίσω Ασυμβατότητας στο Aspose.Slides για Java 14.6.0
+linktitle: Aspose.Slides για Java 14.6.0
 type: docs
 weight: 50
 url: /el/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/
 keywords:
-- μετεγκατάσταση
-- παλαιός κώδικας
+- μετανάστευση
+- παραδοσιακός κώδικας
 - σύγχρονος κώδικας
-- παλαιή προσέγγιση
+- παραδοσιακή προσέγγιση
 - σύγχρονη προσέγγιση
 - PowerPoint
 - OpenDocument
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Ανασκόπηση ενημερώσεων του δημόσιου API και διακοπτικών αλλαγών στο Aspose.Slides for Java για ομαλή μετάβαση των λύσεων παρουσίασης PowerPoint PPT, PPTX και ODP."
+description: "Ανασκόπηση των ενημερώσεων του δημόσιου API και των διακοπτικών αλλαγών στο Aspose.Slides για Java, ώστε να μεταφέρετε ομαλά τις λύσεις παρουσίασης PowerPoint PPT, PPTX και ODP."
 ---
-{{% alert color="primary" %}} 
-
-Αυτή η σελίδα παραθέτει όλες τις [added](/slides/el/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/) κλάσεις, μεθόδους, ιδιότητες κ.ά., τυχόν νέους περιορισμούς και άλλες αλλαγές που εισήχθησαν με το API του Aspose.Slides for Java 14.6.0.
-
+{{% alert color="info" %}} 
+Αυτή η σελίδα παραθέτει όλες τις [προστιθέμενα](/slides/el/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/) κλάσεις, μεθόδους, ιδιότητες κ.ά., τυχόν νέους περιορισμούς και άλλες αλλαγές που εισήχθησαν με το Aspose.Slides for Java 14.6.0 API.
 {{% /alert %}} 
 ## **Αλλαγές Δημόσιου API**
-### **Προστιθέμενες Κλάσεις, Μέθοδοι, Διεπαφές και Απαριθμήσεις**
+### **Προστέθηκαν Κλάσεις, Μέθοδοι, Διεπαφές και Απαριθμήσεις**
 #### **Προστέθηκε η Απαρίθμηση ViewType, η Διεπαφή IViewProperties, η Κλάση ViewProperties και η Μέθοδος IPresentation.getViewProperties()**
-Η μέθοδος IPresentation.getViewProperty() παρέχει πρόσβαση στο IViewProperties και επιτρέπει την αλλαγή του τύπου προβολής της παρουσίασης και της ορατότητας των σημειώσεων όταν η παρουσίαση ανοίγει στο Microsoft PowerPoint.
+Η μέθοδος IPresentation.getViewProperties() παρέχει πρόσβαση στο IViewProperties και σας επιτρέπει να αλλάξετε τον τύπο προβολής της παρουσίασης και την ορατότητα των σημειώσεων όταν μια παρουσίαση ανοίγει στο Microsoft PowerPoint.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation p = new Presentation();
 
 p.getViewProperties().setLastView(ViewType.SlideMasterView);
 
 ```
-#### **Προστέθηκαν οι μέθοδοι Aspose.Slides.IShapeCollection.addClone(...) και .insertClone(...)**
+#### **Προστέθηκαν οι Μέθοδοι Aspose.Slides.IShapeCollection.addClone(...) και .insertClone(...)**
 Οι μέθοδοι
-
 - Aspose.Slides.IShapeCollection.addClone(IShape sourceShape),
 - Aspose.Slides.IShapeCollection.addClone(IShape sourceShape, float x, float y),
 - Aspose.Slides.IShapeCollection.addClone(IShape sourceShape, float x, float y, float width, float height),
 - Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape),
 - Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape, float x, float y), and
 - Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape, float x, float y, float width, float height)
-
-προσθέτουν/εισάγουν ένα αντίγραφο του καθορισμένου σχήματος στη συλλογή. 
+προσθέτει/εισαγκάνει ένα αντίγραφο ενός καθορισμένου σχήματος στη συλλογή. 
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation srcPres = new Presentation("data/Source Frame.pptx");
 
@@ -71,10 +71,12 @@ destShapes.addClone(sourceShapes.get_Item(5), 300, 300, 50, 200);
 destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
 
 ```
-#### **Προστέθηκε η διεπαφή Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues**
-Αυτή η διεπαφή καθορίζει τους τύπους τιμών στη λίστα ιδιοτήτων ChartDataPoint.ErrorBarsCustomValues. 
+#### **Προστέθηκε η Διεπαφή Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues**
+Αυτή η διεπαφή καθορίζει τους τύπους τιμών στη λίστα ιδιοτήτων ChartDataPoint.ErrorBarsCustomValues.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -121,10 +123,12 @@ for (int i = 0; i < points.size(); i++)
 pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 
 ```
-#### **Προστέθηκε η διεπαφή Aspose.Slides.Charts.IErrorBarsCustomValues**
-Όταν η ιδιότητα IErrorBarsFormat.ValueType είναι ίση με Custom, για να καθορίσετε την τιμή χρησιμοποιήστε την ιδιότητα ErrorBarCustomValues του συγκεκριμένου σημείου δεδομένων στη συλλογή DataPoints της σειράς. 
+#### **Προστέθηκε η Διεπαφή Aspose.Slides.Charts.IErrorBarsCustomValues**
+Όταν η ιδιότητα IErrorBarsFormat.ValueType είναι ίση με Custom, για να καθορίσετε την τιμή χρησιμοποιήστε την ιδιότητα ErrorBarCustomValues του συγκεκριμένου σημείου δεδομένων στη συλλογή DataPoints της σειράς.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -171,11 +175,12 @@ for (int i = 0; i < points.size(); i++)
 pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 
 ```
-#### **Προστέθηκε η διεπαφή Aspose.Slides.Charts.IErrorBarsFormat**
-Αυτή η διεπαφή αντιπροσωπεύει τις γραμμές σφάλματος των σειρών διαγραμμάτων. 
-Σε περίπτωση προσαρμοσμένου τύπου τιμής, για να καθορίσετε την τιμή χρησιμοποιήστε την ιδιότητα ErrorBarCustomValues ενός συγκεκριμένου σημείου δεδομένων στη συλλογή DataPoins της σειράς. 
+#### **Προστέθηκε η Διεπαφή Aspose.Slides.Charts.IErrorBarsFormat**
+Αυτή η διεπαφή αντιπροσωπεύει τις γραμμές σφάλματος των σειρών γραφήματος. Σε περίπτωση προσαρμοσμένου τύπου τιμής, για να καθορίσετε την τιμή χρησιμοποιήστε την ιδιότητα ErrorBarCustomValues ενός συγκεκριμένου σημείου δεδομένων στη συλλογή DataPoins της σειράς.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 

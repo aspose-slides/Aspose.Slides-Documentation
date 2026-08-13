@@ -1,5 +1,5 @@
 ---
-title: PowerPoint-Präsentationen mit Notizen in PDF konvertieren in .NET
+title: PowerPoint-Präsentationen mit Notizen in .NET in PDF konvertieren
 linktitle: PowerPoint zu PDF mit Notizen
 type: docs
 weight: 50
@@ -20,44 +20,44 @@ keywords:
 - PPTX als PDF speichern
 - PPT nach PDF exportieren
 - PPTX nach PDF exportieren
-- Sprecher-Notizen
+- Sprechernotizen
 - PDF mit Notizen
 - .NET
 - C#
 - Aspose.Slides
-description: "Konvertieren Sie die Formate PPT und PPTX mit Notizen in PDF mithilfe von Aspose.Slides für .NET. Bewahren Sie Layouts und Sprecher-Notizen für professionelle Präsentationen."
+description: "Konvertieren Sie die Formate PPT und PPTX mit Notizen in PDF mit Aspose.Slides für .NET. Bewahren Sie Layouts und Sprechernotizen für professionelle Präsentationen."
 ---
-
 ## **Übersicht**
 
-In diesem Artikel erfahren Sie, wie Sie PowerPoint‑Präsentationen mit Sprecherankündigungen in das PDF‑Format konvertieren können, indem Sie Aspose.Slides verwenden. Dieser Leitfaden behandelt die erforderlichen Schritte und liefert Codebeispiele, um diese Aufgabe effizient zu erledigen. Am Ende dieses Artikels können Sie:
+In diesem Artikel lernen Sie, wie Sie PowerPoint‑Präsentationen mit Sprechernotizen mithilfe von Aspose.Slides in das PDF‑Format konvertieren. Dieser Leitfaden behandelt die erforderlichen Schritte und liefert Codebeispiele, damit Sie diese Aufgabe effizient erledigen können. Am Ende dieses Artikels können Sie:
 
-- Den Konvertierungsprozess implementieren, um PowerPoint‑Folien in PDF‑Dokumente zu transformieren und dabei die Sprecherankündigungen zu erhalten.
-- Das Ausgabe‑PDF anpassen, um sicherzustellen, dass die Sprecherankündigungen enthalten und nach Ihren Anforderungen formatiert sind.
+- Den Konvertierungsprozess implementieren, um PowerPoint‑Folien in PDF‑Dokumente zu transformieren und dabei die Sprechernotizen beizubehalten.
+- Das Ausgabe‑PDF anpassen, um sicherzustellen, dass die Sprechernotizen enthalten und nach Ihren Anforderungen formatiert sind.
 
 ## **PowerPoint in PDF mit Notizen konvertieren**
 
-Die `Save`‑Methode in der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) kann verwendet werden, um eine PPT‑ oder PPTX‑Präsentation in ein PDF mit Sprecherankündigungen zu konvertieren. Mit Aspose.Slides laden Sie einfach die Präsentation, konfigurieren die Layout‑Optionen mithilfe der Klasse [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/notescommentslayoutingoptions/), um Sprecherankündigungen einzuschließen, und speichern die Datei anschließend als PDF. Das folgende Code‑Snippet zeigt, wie Sie eine Beispiel‑Präsentation in ein PDF im Notiz‑Folien‑Ansicht konvertieren.
+Die `Save`‑Methode der Klasse [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/) kann verwendet werden, um eine PPT‑ oder PPTX‑Präsentation in ein PDF mit Sprechernotizen zu konvertieren. Mit Aspose.Slides laden Sie einfach die Präsentation, konfigurieren die Layout‑Optionen mithilfe der Klasse [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/de/net/aspose.slides.export/notescommentslayoutingoptions/) zum Einbeziehen der Sprechernotizen und speichern die Datei anschließend als PDF. Der folgende Code‑Abschnitt zeigt, wie eine Beispiel‑Präsentation in ein PDF im Notiz‑Folien‑Modus konvertiert wird.
+
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
-    // PDF-Optionen für das Rendern von Sprecher-Notizen konfigurieren.
+    // PDF-Optionen für die Wiedergabe von Sprechernotizen konfigurieren.
     PdfOptions pdfOptions = new PdfOptions
     {
         SlidesLayoutOptions = new NotesCommentsLayoutingOptions
         {
-            NotesPosition = NotesPositions.BottomFull // Rendern der Sprecher-Notizen unterhalb der Folie.
+            NotesPosition = NotesPositions.BottomFull // Sprechernotizen unterhalb der Folie rendern.
         }
     };
 
-    // Präsentation mit Sprecher-Notizen als PDF speichern.
+    // Präsentation mit Sprechernotizen als PDF speichern.
     presentation.Save("output.pdf", SaveFormat.Pdf, pdfOptions);
 }
 ```
 
-
-{{% alert color="primary" %}} 
-
-Vielleicht möchten Sie den Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/conversion) ausprobieren. 
-
+{{% alert color="info" %}} 
+Vielleicht möchten Sie den Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/de/conversion) ausprobieren. 
 {{% /alert %}}

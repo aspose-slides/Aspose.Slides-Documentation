@@ -14,10 +14,10 @@ keywords:
 - presentation
 - C++
 - Aspose.Slides
-description: "Lär dig om förtroende- och behörighetskrav samt värdbegränsningar för Aspose.Slides för C++ så att du på ett säkert sätt kan distribuera appar som bearbetar PPT, PPTX och ODP på servrar."
+description: "Lär dig om Aspose.Slides för C++ förtroendekrav, behörigheter och värdbegränsningar så att du säkert kan distribuera appar som behandlar PPT, PPTX och ODP på servrar."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}}
 
-Alla Aspose C++-komponenter kräver Full Trust-behörighetsuppsättning. Anledningen är att Aspose C++-komponenter måste komma åt registerinställningar, systemfiler utanför den virtuella katalogen för vissa operationer såsom parsning av typsnitt osv. Dessutom är Aspose C++-komponenter baserade på grundläggande C++-systemklasser som i många fall också kräver Full Trust-behörighetsuppsättning. 
+Alla Aspose C++-komponenter kräver Full Trust‑behörighetsuppsättning. Anledningen är att Aspose C++-komponenter måste komma åt registerinställningar, systemfiler förutom den virtuella katalogen för vissa operationer som att tolka typsnitt osv. Dessutom är Aspose C++-komponenter baserade på kärn‑C++‑systemklasser som också i många fall kräver Full Trust‑behörighetsuppsättning.
 
 {{% /alert %}}

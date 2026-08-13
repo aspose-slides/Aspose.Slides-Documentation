@@ -4,13 +4,13 @@ type: docs
 weight: 45
 url: /fa/jasperreports/integration-with-jasperserver/
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-برای ادغام Aspose.Slides for JasperReports با JasperServer، لازم است چندین مرحلهٔ اضافی انجام داده و فایل‌های پیکربندی JasperServer را به‌روز کنید. این مقاله توضیح می‌دهد چگونه.
+برای یکپارچه‌سازی Aspose.Slides برای JasperReports با JasperServer، لازم است چند مرحلهٔ اضافی انجام داده و فایل‌های پیکربندی JasperServer را به‌روزرسانی کنید. این مقاله توضیح می‌دهد چگونه.
 
 {{% /alert %}} 
 
-1. خصوصیات جدید exporter را به فایل پیکربندی **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml** اضافه کنید.
+1. ویژگی‌های جدید exporter را به فایل پیکربندی **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml** اضافه کنید.
 
 ``` xml
 <bean id="reportPptExporter" class="com.aspose.slides.jasperreports.ASPptReportExporter" parent="baseReportExporter">
@@ -32,8 +32,8 @@ url: /fa/jasperreports/integration-with-jasperserver/
 </util:map>
 ```
 
-2. فایل **aspose.slides.jasperreports.jar** را به **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\lib** کپی کنید.
-3. برای استفاده از ویژگی نگاشت فونت، **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** را همان‌طور که در زیر نشان داده شده به‌روز کنید.
+2. **aspose.slides.jasperreports.jar** را به مسیر **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\lib** کپی کنید.
+3. برای استفاده از قابلیت نگاشت قلم، **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** را همان‌طور که در زیر است به‌روزرسانی کنید.
 
 ``` xml
 <bean id="pptExportParameters" class="com.aspose.slides.jasperreports.ASExportParametersBean">

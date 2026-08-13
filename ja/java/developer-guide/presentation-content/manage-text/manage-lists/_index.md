@@ -1,5 +1,5 @@
 ---
-title: Java でプレゼンテーションの箇条書きと番号付きリストを管理する
+title: Java でプレゼンテーションの箇条書きおよび番号付きリストを管理する
 linktitle: リストの管理
 type: docs
 weight: 60
@@ -8,41 +8,44 @@ keywords:
 - 箇条書き
 - 箇条書きリスト
 - 番号付きリスト
-- 記号箇条書き
+- シンボル箇条書き
 - 画像箇条書き
 - カスタム箇条書き
-- 多層リスト
-- 箇条書きの作成
-- 箇条書きの追加
-- リストの追加
+- 多階層リスト
+- 箇条書き作成
+- 箇条書き追加
+- リスト追加
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java を使用して、PowerPoint および OpenDocument のプレゼンテーションで、箇条書き、画像箇条書き、多層、番号付きリストを作成および書式設定する方法を学びます。"
+description: "Aspose.Slides for Java を使用して、PowerPoint および OpenDocument プレゼンテーションで箇条書き、画像、多階層、番号付きリストを作成および書式設定する方法を学びます。"
 ---
 ## **概要**
 
-Aspose.Slides for Java を使用すると、PowerPoint および OpenDocument プレゼンテーションで箇条書きリストや番号付きリストを作成および書式設定できます。リスト項目は、段落形式で箇条書き設定が制御される段落です。
+Aspose.Slides for Java は、PowerPoint および OpenDocument プレゼンテーションで箇条書きと番号付きリストを作成および書式設定できます。リスト項目は、段落の書式設定を通じて箇条書き設定が制御される段落です。
 
-[IParagraph.getParagraphFormat](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iparagraph/#getParagraphFormat--) メソッドを使用して段落レベルのリスト設定にアクセスします。主なエントリーポイントは[IParagraphFormat.getBullet](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iparagraphformat/#getBullet--) で、[IBulletFormat](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ibulletformat/) オブジェクトを返します。このオブジェクトを使用して、箇条書きの種類、記号、画像、色、サイズ、番号付けスタイル、開始番号を設定できます。
+Use the [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iparagraph/#getParagraphFormat--) メソッドで段落レベルのリスト設定にアクセスします。主なエントリポイントは [IParagraphFormat.getBullet](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iparagraphformat/#getBullet--) で、[IBulletFormat](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ibulletformat/) オブジェクトを返します。このオブジェクトを使用して、箇条書きのタイプ、シンボル、画像、色、サイズ、番号付けスタイル、開始番号を設定できます。
 
-この記事では以下を説明します。
+この記事では次のことを示します。
 
-- カスタム記号による箇条書きリストの作成
-- 画像箇条書きの作成
-- 段落の深さを設定しての多層リストの作成
-- 番号付きリストの作成
-- 既存のプレゼンテーションでリスト書式を調査および変更する方法
+- カスタムシンボルを使用した箇条書きリストを作成する
+- 画像箇条書きを作成する
+- 段落の深さを設定して多階層リストを作成する
+- 番号付きリストを作成する
+- 既存のプレゼンテーションでリストの書式設定を検査および変更する
 
 ## **箇条書きリストの作成**
 
-箇条書きリストを作成するには、[IParagraph](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iparagraph/) オブジェクトを[ITextFrame](https://reference.aspose.com/slides/ja/java/com.aspose.slides/itextframe/) に追加し、[IBulletFormat.setType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ibulletformat/#setType-byte-) を[BulletType.Symbol](https://reference.aspose.com/slides/ja/java/com.aspose.slides/bullettype/#Symbol) に設定します。その後、[IBulletFormat.setChar](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ibulletformat/#setChar-char-)、[IBulletFormat.getColor](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ibulletformat/#getColor--)、[IBulletFormat.setHeight](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ibulletformat/#setHeight-float-) を設定して箇条書きの外観を制御できます。
+箇条書きリストを作成するには、[IParagraph](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iparagraph/) オブジェクトを [ITextFrame](https://reference.aspose.com/slides/ja/java/com.aspose.slides/itextframe/) に追加し、[IBulletFormat.setType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ibulletformat/#setType-byte-) を [BulletType.Symbol](https://reference.aspose.com/slides/ja/java/com.aspose.slides/bullettype/#Symbol) に設定します。その後、[IBulletFormat.setChar](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ibulletformat/#setChar-char-)、[IBulletFormat.getColor](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ibulletformat/#getColor--)、[IBulletFormat.setHeight](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ibulletformat/#setHeight-float-) を設定して箇条書きの外観を制御できます。
 
-以下の Java コードは、スライドで箇条書きリストを作成する方法を示しています。
+以下の Java コードは、スライド内で箇条書きリストを作成する方法を示しています。
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -81,15 +84,17 @@ try {
 
 結果:
 
-![記号箇条書き](symbol_bullets.png)
+![シンボル箇条書き](symbol_bullets.png)
 
 ## **番号付きリストの作成**
 
-項目の順序が重要な場合は番号付きリストを使用します。[IBulletFormat.setType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ibulletformat/#setType-byte-) を[BulletType.Numbered](https://reference.aspose.com/slides/ja/java/com.aspose.slides/bullettype/#Numbered) に設定します。また、[IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) で番号付け形式を選択したり、[IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) を使用してリストの開始番号を 1 以外に設定したりできます。
+項目の順序が重要な場合は、番号付きリストを使用します。[IBulletFormat.setType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ibulletformat/#setType-byte-) を [BulletType.Numbered](https://reference.aspose.com/slides/ja/java/com.aspose.slides/bullettype/#Numbered) に設定します。また、[IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) で番号付け形式を選択したり、リストを 1 以外の値から開始したい場合は [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) を設定できます。
 
-以下の Java コードは、スライドで番号付きリストを作成する方法を示しています。
+以下の Java コードは、スライド内で番号付きリストを作成する方法を示しています。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -125,23 +130,25 @@ try {
 
 ## **画像箇条書きの作成**
 
-Aspose.Slides を使用すると、通常の箇条書き記号を画像に置き換えることができます。画像箇条書きは、アイコンや小さな透過 PNG ファイルなど、サイズが小さくても読みやすいシンプルな画像で最適に機能します。
+Aspose.Slides は、通常の箇条書きシンボルを画像に置き換えることを可能にします。画像箇条書きは、アイコンや小さな透明 PNG ファイルなど、サイズが小さくても読みやすいシンプルな画像で最適に機能します。
 
-{{% alert color="primary" %}}
-理想的には、通常の箇条書き記号を画像で置き換える場合、透過背景のシンプルなグラフィックを選択するのが最適です。そのような画像はカスタム箇条書き記号としてうまく機能します。
+{{% alert color="info" %}}
+理想的には、通常の箇条書きシンボルを画像に置き換える場合は、透明な背景を持つシンプルなグラフィックを選択するのが最良です。そのような画像はカスタム箇条書きシンボルとしてうまく機能します。
 
-画像は非常に小さなサイズに縮小されます。そのため、リスト内の箇条書きとして使用したときに鮮明さと視認性が保たれる画像を選択することを強く推奨します。
+画像は非常に小さいサイズに縮小されることに留意してください。そのため、リスト内の箇条書きとして使用したときに鮮明さと視覚的有効性が保たれる画像を選択することを強くお勧めします。
 {{% /alert %}}
 
-画像箇条書きを作成するには、[Presentation.getImages](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/#getImages--) に画像を追加し、返された画像オブジェクトを[IBulletFormat.getPicture](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ibulletformat/#getPicture--) に割り当てます。画像を割り当てる前に、[IBulletFormat.setType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ibulletformat/#setType-byte-) を[BulletType.Picture](https://reference.aspose.com/slides/ja/java/com.aspose.slides/bullettype/#Picture) に設定してください。
+画像箇条書きを作成するには、[Presentation.getImages](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/#getImages--) に画像を追加し、返された画像オブジェクトを [IBulletFormat.getPicture](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ibulletformat/#getPicture--) に割り当てます。画像を割り当てる前に、[IBulletFormat.setType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ibulletformat/#setType-byte-) を [BulletType.Picture](https://reference.aspose.com/slides/ja/java/com.aspose.slides/bullettype/#Picture) に設定します。
 
-たとえば "image.png" があるとします。
+たとえば、"image.png" という画像があるとします:
 
 ![箇条書き用の画像](picture_for_bullets.png)
 
-以下の Java コードは、スライドで画像箇条書きを作成する方法を示しています。
+以下の Java コードは、スライド内で画像箇条書きを作成する方法を示しています。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -178,13 +185,15 @@ try {
 
 ![画像箇条書き](picture_bullets.png)
 
-## **多層リストの作成**
+## **多階層リストの作成**
 
-[IParagraphFormat.setDepth](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iparagraphformat/#setDepth-short-) を使用して、リスト項目を異なるレベルに配置します。レベル 0 が最上位、レベル 1 がその下位、というように階層化されます。
+[IParagraphFormat.setDepth](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iparagraphformat/#setDepth-short-) を使用して、リスト項目を異なるレベルに配置します。レベル 0 が最上位レベル、レベル 1 がその下位にネストされるという形になります。
 
-以下の Java コードは、多層箇条書きリストを作成する方法を示しています。
+以下の Java コードは、多階層箇条書きリストを作成する方法を示しています。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -221,15 +230,17 @@ try {
 
 結果:
 
-![多層リスト](multilevel_list.png)
+![多階層リスト](multilevel_list.png)
 
 ## **既存リストの変更**
 
-既存のプレゼンテーションでリスト書式を変更するには、対象の段落にアクセスし、その[IParagraphFormat.getBullet](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iparagraphformat/#getBullet--) 設定を更新します。リスト作成時に使用したプロパティは、PPT、PPTX、ODP ファイルからロードしたリストを調査または変更する際にも使用できます。
+既存のプレゼンテーションでリストの書式設定を変更するには、対象の段落にアクセスし、[IParagraphFormat.getBullet](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iparagraphformat/#getBullet--) 設定を更新します。リストを作成する際に使用したのと同じプロパティを使用して、PPT、PPTX、または ODP ファイルから読み込んだリストを検査または変更できます。
 
 以下の Java コードは、テキストフレーム内の最初の段落を番号付きリストスタイルに変更します。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -248,16 +259,16 @@ try {
 }
 ```
 
-## **FAQ**
+## **よくある質問**
 
-**箇条書きおよび番号付きリストは PDF や画像にエクスポートできますか？**
+### 箇条書きと番号付きリストは PDF や画像にエクスポートできますか？
 
-はい。Aspose.Slides は、対象フォーマットが対応するテキストレイアウトと箇条書き機能をサポートしている場合、リスト書式を保持します。
+はい。Aspose.Slides は、対象フォーマットが対応するテキストレイアウトと箇条書き機能をサポートしている場合、リストの書式設定を保持したままエクスポートします。
 
-**既存のプレゼンテーションでリストを編集できますか？**
+### 既存のプレゼンテーションでリストを編集できますか？
 
-はい。プレゼンテーションをロードし、対象の段落にアクセスして[IParagraphFormat.getBullet](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iparagraphformat/#getBullet--) 設定を調査または更新し、プレゼンテーションを保存します。
+はい。プレゼンテーションを読み込み、対象の段落にアクセスし、[IParagraphFormat.getBullet](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iparagraphformat/#getBullet--) 設定を検査または更新して、プレゼンテーションを保存できます。
 
-**リストに非ラテン文字を含めることは可能ですか？**
+### リストに非ラテン文字テキストを含めることはできますか？
 
 はい。リスト項目のテキストは Unicode 文字を含めることができるため、多言語プレゼンテーションでリストを作成できます。使用するフォントが必要な文字をサポートしていることを確認してください。

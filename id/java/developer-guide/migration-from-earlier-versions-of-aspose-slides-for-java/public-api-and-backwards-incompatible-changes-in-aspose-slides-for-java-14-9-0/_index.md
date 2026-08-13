@@ -1,5 +1,5 @@
 ---
-title: API Publik dan Perubahan Tidak Kompatibel Mundur pada Aspose.Slides untuk Java 14.9.0
+title: API Publik dan Perubahan Tidak Kompatibel Mundur di Aspose.Slides untuk Java 14.9.0
 linktitle: Aspose.Slides untuk Java 14.9.0
 type: docs
 weight: 80
@@ -15,11 +15,11 @@ keywords:
 - presentasi
 - Java
 - Aspose.Slides
-description: "Tinjau pembaruan API publik dan perubahan yang memutuskan pada Aspose.Slides untuk Java untuk memigrasikan solusi presentasi PowerPoint PPT, PPTX, dan ODP Anda dengan lancar."
+description: "Tinjau pembaruan API publik dan perubahan yang merusak di Aspose.Slides untuk Java untuk memigrasikan solusi presentasi PowerPoint PPT, PPTX, dan ODP Anda dengan lancar."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Halaman ini mencantumkan semua kelas, metode, properti, dan sebagainya yang [ditambahkan](/slides/id/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/), serta pembatasan baru dan [perubahan](/slides/id/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/) yang diperkenalkan dengan API Aspose.Slides untuk Java 14.9.0.
+Halaman ini mencantumkan semua kelas, metode, properti, dan sebagainya yang [ditambahkan](/slides/id/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/), pembatasan baru, dan [perubahan](/slides/id/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/) lain yang diperkenalkan dengan API Aspose.Slides for Java 14.9.0.
 
 {{% /alert %}} 
 ## **Perubahan API Publik**
@@ -30,66 +30,76 @@ Metode baru yang ditambahkan:
 - IPPImage.replaceImage(IPPImage newImage)
 
 ``` java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
- Presentation presentation = new Presentation("presentation.pptx");
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    // Cara pertama
+    byte[] imageData = Files.readAllBytes(Paths.get("image.png"));
+    presentation.getImages().get_Item(0).replaceImage(imageData);
 
-//Cara pertama
+    // Cara kedua
+    presentation.getImages().get_Item(1).replaceImage(presentation.getImages().get_Item(0));
 
-byte[] imageData = // ...
-
-presentation.getImages().get_Item(0).replaceImage(imageData);
-
-//Cara kedua
-
-presentation.getImages().get_Item(1).replaceImage(
-
-    presentation.getImages().get_Item(0));
-
-presentation.save("presentation_out.pptx", SaveFormat.Pptx);
-
+    presentation.save("presentation_out.pptx", SaveFormat.Pptx);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 ### **Metode yang Ditambahkan untuk Menyimpan Slide dengan Menjaga Nomor Halaman**
-Metode berikut telah ditambahkan:
+Metode-metode berikut telah ditambahkan:
 
 - void IPresentation.save(string fname, int[] slides, SaveFormat format);
 - void IPresentation.save(string fname, int[] slides, SaveFormat format, ISaveOption options);
 - void IPresentation.save(Stream stream, int[] slides, SaveFormat format);
 - void IPresentation.save(Stream stream, int[] slides, SaveFormat format, ISaveOption options);
 
-Metode-metode ini memungkinkan menyimpan slide presentasi tertentu ke dalam format PDF, XPS, TIFF, HTML. Array 'slides' memungkinkan menentukan nomor halaman, mulai dari 1.
+Metode ini memungkinkan menyimpan slide presentasi tertentu ke format PDF, XPS, TIFF, HTML. Array `slides` memungkinkan menentukan nomor halaman, mulai dari 1.
 
 ``` java
-
- save(string fname, int\[\] slides, SaveFormat format);
-
+// Overload yang ditambahkan ke IPresentation (nilai SaveFormat adalah konstanta int di Java):
+//
+// void save(String fname, int[] slides, int format);
+// void save(String fname, int[] slides, int format, ISaveOptions options);
+// void save(OutputStream stream, int[] slides, int format);
+// void save(OutputStream stream, int[] slides, int format, ISaveOptions options);
 ```
 
 
 
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation presentation = new Presentation(presentationFileName);
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    int[] slides = new int[] { 2, 3, 5 }; // Array posisi slide
 
-int[] slides = new int[] { 2, 3, 5 }; //Array posisi slide
-
-presentation.save(outFileName, slides, SaveFormat.Pdf);
-
+    presentation.save("presentation_out.pdf", slides, SaveFormat.Pdf);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 ### **Menambahkan Nilai Enum SmartArtLayoutType.Custom**
-Tipe tata letak SmartArt ini mewakili diagram dengan templat khusus. Diagram khusus hanya dapat dimuat dari file presentasi dan tidak dapat dibuat melalui metode ShapeCollection.addSmartArt(x, y, width, height, SmartArtLayoutType.Custom)
+Jenis tata letak SmartArt ini mewakili diagram dengan templat khusus. Diagram khusus hanya dapat dimuat dari file presentasi dan tidak dapat dibuat melalui metode `ShapeCollection.addSmartArt(x, y, width, height, SmartArtLayoutType.Custom)`.
+
 ### **Menambahkan Kelas SmartArtShape dan Antarmuka ISmartArtShape**
-Kelas Aspose.Slides.SmartArt.SmartArtShape (dan antarmukanya Aspose.Slides.SmartArt.ISmartArtShape) menambahkan akses ke bentuk individual di dalam diagram SmartArt. SmartArtShape dapat digunakan untuk mengubah FillFormat, LineFormat, menambahkan Hyperlink, dll.
+Kelas `Aspose.Slides.SmartArt.SmartArtShape` (dan antarmukanya `Aspose.Slides.SmartArt.ISmartArtShape`) menyediakan akses ke bentuk individu di dalam diagram SmartArt. `SmartArtShape` dapat digunakan untuk mengubah `FillFormat`, `LineFormat`, menambahkan hyperlink, dll.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-SmartArtShape tidak mendukung properti IShape RawFrame, Frame, Rotation, X, Y, Width, Height dan akan mengeluarkan System.NotSupportedException ketika mencoba mengaksesnya.
+SmartArtShape tidak mendukung properti IShape `RawFrame`, `Frame`, `Rotation`, `X`, `Y`, `Width`, `Height` dan akan melempar `System.NotSupportedException` saat mencoba mengaksesnya.
 
 {{% /alert %}} 
 
 Contoh penggunaan:
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 
  Presentation pres = new Presentation();
 
@@ -108,18 +118,22 @@ for (ISmartArtShape shape : node.getShapes())
 }
 
 pres.save("out.pptx", SaveFormat.Pptx);
-
 ```
-### **Menambahkan kelas SmartArtShapeCollection, antarmuka ISmartArtShapeCollection, dan metode ISmartArtNode.getShapes()**
-Kelas Aspose.Slides.SmartArt.SmartArtShapeCollection (dan antarmukanya Aspose.Slides.SmartArt.ISmartArtShapeCollection) menambahkan akses ke bentuk individual di dalam diagram SmartArt. Koleksi berisi bentuk-bentuk yang terkait dengan SmartArtNode. Properti SmartArtNode.Shapes mengembalikan koleksi semua bentuk yang terkait dengan node tersebut.
+### **Kelas SmartArtShapeCollection, Antarmuka ISmartArtShapeCollection, dan Metode ISmartArtNode.getShapes() telah ditambahkan**
+Kelas `Aspose.Slides.SmartArt.SmartArtShapeCollection` (dan antarmukanya `Aspose.Slides.SmartArt.ISmartArtShapeCollection`) menyediakan akses ke bentuk individu di dalam diagram SmartArt. Koleksi berisi bentuk-bentuk yang terkait dengan `SmartArtNode`. Properti `SmartArtNode.Shapes` mengembalikan koleksi semua bentuk yang terkait dengan node tersebut.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Bergantung pada SmartArtLayoutType, satu SmartArtShape dapat dibagikan di antara beberapa node.
+Tergantung pada `SmartArtLayoutType`, satu `SmartArtShape` dapat dibagikan antara beberapa node.
 
 {{% /alert %}} 
 
+ 
+
 ``` java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 
  Presentation pres = new Presentation();
 

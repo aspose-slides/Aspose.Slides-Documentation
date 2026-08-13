@@ -1,5 +1,5 @@
 ---
-title: Android'de Sunum Özelliklerini Yönetme
+title: Android'de Sunum Özelliklerini Yönet
 linktitle: Sunum Özellikleri
 type: docs
 weight: 70
@@ -11,10 +11,10 @@ keywords:
 - yerleşik özellikler
 - özel özellikler
 - gelişmiş özellikler
-- özellikleri yönetme
-- özellikleri değiştirme
-- belge meta verileri
-- meta verileri düzenleme
+- özellikleri yönet
+- özellikleri değiştir
+- belge üst verileri
+- üst verileri düzenle
 - düzeltme dili
 - varsayılan dil
 - PowerPoint
@@ -23,52 +23,58 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java ile sunum özelliklerini yönetin ve PowerPoint ve OpenDocument dosyalarınızda aramayı, markalaşmayı ve iş akışını kolaylaştırın."
+description: "Aspose.Slides for Android via Java'da sunum özelliklerini yönetin ve PowerPoint ve OpenDocument dosyalarınızda arama, markalaşma ve iş akışını kolaylaştırın."
 ---
 ## **Giriş**
 
-Aspose.Slides iki tür belge özelliğini destekler: **Yerleşik** ve **Özel**. Bu özellik türlerinin her ikisi de Aspose.Slides API'si kullanılarak kolayca erişilebilir ve yönetilebilir.
+Aspose.Slides iki tür belge özelliğini destekler: **Yerleşik** ve **Özel**. Bu özellik türlerinin her ikisi de Aspose.Slides API'si kullanılarak kolaylıkla erişilebilir ve yönetilebilir.
 
-Aspose.Slides, sunum belge özellikleriyle [IDocumentProperties](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/idocumentproperties/) arabirimi üzerinden çalışmanıza olanak tanır. Bu arabirimin bir örneği, [Presentation.getDocumentProperties](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/#getDocumentProperties--) yöntemi tarafından döndürülür. Aşağıdaki örnekler, bu özelliklerin nasıl okunacağını, değiştirileceğini ve yönetileceğini gösterir.
+Aspose.Slides, sunum belge özellikleriyle [IDocumentProperties](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/idocumentproperties/) arayüzü üzerinden çalışmanıza olanak tanır. Bu arayüzün bir örneği, [Presentation.getDocumentProperties](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/#getDocumentProperties--) yöntemiyle döndürülür. Aşağıdaki örnekler, bu özelliklerin nasıl okunacağını, değiştirileceğini ve yönetileceğini gösterir.
 
-{{% alert color="primary" %}} 
-Lütfen **Application** ve **Producer** alanlarının değiştirilemeyeceğini unutmayın; bu alanlar her zaman "Aspose Ltd." ve "Aspose.Slides for Android via Java x.x.x" olarak görüntülenecektir.
+{{% alert color="info" %}} 
+
+Lütfen **Application** ve **AppVersion** alanlarının değiştirilemeyeceğini unutmayın. Aspose.Slides, her kaydetmede bu alanları yeniden yazar, böylece kaydedilen bir sunum her zaman Aspose.Slides ürün adını ve onu oluşturan kütüphane sürümünü rapor eder. `setNameOfApplication` yöntemine verilen herhangi bir değer, sunum yazıldığında göz ardı edilir.
+
 {{% /alert %}} 
 
-## **PowerPoint'taki Belge Özellikleri**
+## **PowerPoint'te Belge Özellikleri**
 
-Microsoft PowerPoint 2007, sunum dosyalarının belge özelliklerini yönetmeye olanak tanır. Tek yapmanız gereken, aşağıda gösterildiği gibi Office simgesine tıklamak ve ardından Microsoft PowerPoint 2007'de **Prepare | Properties | Advanced Properties** menü öğesini seçmektir:
+Microsoft PowerPoint 2007, sunum dosyalarının belge özelliklerini yönetmeye olanak tanır. Tek yapmanız gereken, aşağıda gösterildiği gibi Office simgesine tıklayıp **Prepare | Properties | Advanced Properties** menü öğesini seçmektir:
 
-|**Gelişmiş Özellikler menü öğesini seçme**|** |
+|**Advanced Özellikler Menüsü Öğesini Seçme**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
 
 **Advanced Properties** menü öğesini seçtikten sonra, aşağıdaki şekilde gösterilen PowerPoint dosyasının belge özelliklerini yönetmenizi sağlayan bir iletişim kutusu açılır:
 
-|**Özellikler İletişim Kutusu**|** |
+|**Özellikler Dialogu**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
 
-Yukarıdaki **Properties Dialog** içinde, **General**, **Summary**, **Statistics**, **Contents** ve **Custom** gibi birçok sekme sayfası olduğunu görebilirsiniz. Bu sekme sayfalarının tümü PowerPoint dosyalarıyla ilgili çeşitli bilgiler yapılandırmaya olanak tanır. **Custom** sekmesi, PowerPoint dosyalarının özel özelliklerini yönetmek için kullanılır.
+Yukarıdaki **Özellikler Dialogu**'nda **General**, **Summary**, **Statistics**, **Contents** ve **Custom** gibi birçok sekme sayfası görebilirsiniz. Bu sekme sayfaları, PowerPoint dosyalarıyla ilgili farklı bilgi türlerini yapılandırmaya izin verir. **Custom** sekmesi, PowerPoint dosyalarının özel özelliklerini yönetmek için kullanılır.
 
-Aspose.Slides for Android via Java ile Belge Özellikleriyle Çalışma
 
-Daha önce açıkladığımız gibi Aspose.Slides for Android via Java iki tür belge özelliğini destekler: **Built-in** ve **Custom** özellikler. Bu nedenle geliştiriciler, Aspose.Slides for Android via Java API'si ile her iki tür özelliğe de erişebilir. Aspose.Slides for Android via Java, bir sunum dosyasıyla ilişkili belge özelliklerini **Presentation.DocumentProperties** özelliği aracılığıyla temsil eden bir sınıf olan [IDocumentProperties](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/idocumentproperties) sağlar.
 
-Geliştiriciler, aşağıda açıklandığı gibi sunum dosyalarının belge özelliklerine erişmek için [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation) nesnesi tarafından sunulan **IDocumentProperties** özelliğini kullanabilirler:
+Aspose.Slides for Android via Java Kullanarak Belge Özellikleriyle Çalışma
+
+Daha önce belirttiğimiz gibi Aspose.Slides for Android via Java, **Yerleşik** ve **Özel** olmak üzere iki çeşit belge özelliğini destekler. Bu sayede geliştiriciler, Aspose.Slides for Android via Java API'si ile her iki tür özelliğe de erişebilir. Aspose.Slides for Android via Java, **Presentation.DocumentProperties** özelliği aracılığıyla bir sunum dosyasına ilişkin belge özelliklerini temsil eden bir [IDocumentProperties](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/idocumentproperties) sınıfı sunar.
+
+Geliştiriciler, aşağıda açıklandığı gibi sunum dosyalarının belge özelliklerine erişmek için [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation) nesnesi tarafından ortaya çıkarılan **IDocumentProperties** özelliğini kullanabilir:
 
 ## **Yerleşik Özelliklere Erişim**
 
-Bu özellikler, [IDocumentProperties](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/idocumentproperties) nesnesi tarafından sunulan: **Creator** (Yazar), **Description**, **Keywords**, **Created** (Oluşturma Tarihi), **Modified** (Değiştirme Tarihi), **Printed** (Son Yazdırma Tarihi), **LastModifiedBy**, **Keywords**, **SharedDoc** (Farklı üreticiler arasında paylaşılıyor mu?), **PresentationFormat**, **Subject** ve **Title** içerir.
+Bu özellikler, [IDocumentProperties] nesnesi tarafından sunulan: **Creator** (Yazar), **Description**, **Keywords**, **Created** (Oluşturma Tarihi), **Modified** (Değiştirme Tarihi), **Printed** (Son Yazdırma Tarihi), **LastModifiedBy**, **SharedDoc** (Farklı üreticiler arasında paylaşılıyor mu?), **PresentationFormat**, **Subject** ve **Title**.
 
 ```java
-// Sunumu temsil eden Presentation sınıfını örnekleyin
+import com.aspose.slides.*;
+
+// Sunumu temsil eden Presentation sınıfını oluştur
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // Presentation ile ilişkili IDocumentProperties nesnesine bir referans oluşturun
+    // Presentation ile ilişkili IDocumentProperties nesnesine bir referans oluştur
     IDocumentProperties dp = pres.getDocumentProperties();
     
-    // Yerleşik özellikleri gösterin
+    // Yerleşik özellikleri görüntüle
     System.out.println("Category : " + dp.getCategory());
     System.out.println("Current Status : " + dp.getContentStatus());
     System.out.println("Creation Date : " + dp.getCreatedTime());
@@ -90,15 +96,17 @@ try {
 
 ## **Yerleşik Özellikleri Değiştirme**
 
-Sunum dosyalarının yerleşik özelliklerini değiştirmek, onlara erişmek kadar kolaydır. İstediğiniz herhangi bir özelliğe basitçe bir dize değeri atayabilirsiniz ve özellik değeri değiştirilecektir. Aşağıdaki örnekte, Aspose.Slides for Android via Java kullanarak sunum dosyasının yerleşik belge özelliklerini nasıl değiştirebileceğimizi gösterdik.
+Yerleşik özellikleri değiştirmek, onlara erişmek kadar kolaydır. İstediğiniz herhangi bir özelliğe bir metin değeri atayabilirsiniz ve özellik değeri değişecektir. Aşağıdaki örnekte, Aspose.Slides for Android via Java kullanarak bir sunum dosyasının yerleşik belge özelliklerini nasıl değiştirebileceğimizi gösteriyoruz.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // Presentation ile ilişkili IDocumentProperties nesnesine bir referans oluşturun
+    // Presentation ile ilişkili IDocumentProperties nesnesine bir referans oluştur
     IDocumentProperties dp = pres.getDocumentProperties();
     
-    // Yerleşik özellikleri ayarlayın
+    // Yerleşik özellikleri ayarla
     dp.setAuthor("Aspose.Slides for Android via Java");
     dp.setTitle("Modifying Presentation Properties");
     dp.setSubject("Aspose Subject");
@@ -112,34 +120,36 @@ try {
 }
 ```
 
-Bu örnek, aşağıda gösterildiği gibi sunumun yerleşik özelliklerini değiştirir:
+Bu örnek, aşağıda gösterildiği gibi değiştirilen yerleşik özellikleri içerir:
 
-|**Değişiklikten Sonra Yerleşik Belge Özellikleri**|** |
+|**Değiştirme Sonrası Yerleşik Belge Özellikleri**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
 
 ## **Özel Belge Özellikleri Ekleme**
 
-Aspose.Slides for Android via Java, geliştiricilerin sunum belge özellikleri için özel değerler eklemesine de olanak tanır. Aşağıda bir sunum için özel özelliklerin nasıl ayarlanacağını gösteren bir örnek verilmiştir.
+Aspose.Slides for Android via Java, geliştiricilerin sunum belge özelliklerine özel değerler eklemesine de izin verir. Aşağıdaki örnek üç özel özellik ekler, ardından 2. indekste saklanan adı bulur ve bu özelliği kaldırır; böylece kaydedilen sunum iki özelliği tutar. Özel özellikler alfabetik sıraya göre indekslenir, eklenme sırasına göre değil.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
-    // Belge Özelliklerini Alıyor
+    // Belge Özelliklerini Alma
     IDocumentProperties dProps = pres.getDocumentProperties();
     
-    // Özel özellikler ekleniyor
+    // Özel özellikler ekleme
     dProps.set_Item("New Custom", 12);
     dProps.set_Item("My Name", "Mudassir");
     dProps.set_Item("Custom", 124);
     
-    // Belirli bir indeksdeki özellik adını alıyor
+    // Belirli bir indeksteki özellik adını alma
     String getPropertyName = dProps.getCustomPropertyName(2);
     
-    // Seçilen özelliği kaldırıyor
+    // Seçilen özelliği kaldırma
     dProps.removeCustomProperty(getPropertyName);
     
-    // Sunumu kaydediyor
+    // Sunumu kaydetme
     pres.save("CustomDemo.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -152,17 +162,19 @@ try {
 
 ## **Özel Özelliklere Erişim ve Değiştirme**
 
-Aspose.Slides for Android via Java, geliştiricilerin özel özelliklerin değerlerine erişmesine de izin verir. Aşağıda, bir sunum için bu özel özelliklerin tümüne nasıl erişileceği ve değiştirileceği gösteren bir örnek verilmiştir.
+Aspose.Slides for Android via Java, geliştiricilerin özel özelliklerin değerlerine erişmesine de olanak tanır. Aşağıdaki örnek, bir sunum için bu özel özelliklerin tümüne nasıl erişileceğini ve değiştirileceğini gösterir.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // Presentation ile ilişkili DocumentProperties nesnesine bir referans oluşturun
+    // Presentation ile ilişkili DocumentProperties nesnesine bir referans oluştur
     IDocumentProperties dp = pres.getDocumentProperties();
     
     // Özel özelliklere eriş ve değiştir
     for (int i = 0; i < dp.getCountOfCustomProperties(); i++) {
-        // Özel özelliklerin adlarını ve değerlerini göster
+        // Özel özelliklerin adlarını ve değerlerini görüntüle
         System.out.println("Custom Property Name : " + dp.getCustomPropertyName(i));
         System.out.println("Custom Property Value : " + dp.get_Item(dp.getCustomPropertyName(i)));
     
@@ -177,34 +189,38 @@ try {
 }
 ```
 
-Bu örnek, [PPTX ](https://docs.fileformat.com/presentation/pptx/) sunumunun özel özelliklerini değiştirir. Aşağıdaki görseller, değişiklik öncesi ve sonrası sunumun özel özelliklerini gösterir:
+Bu örnek, [PPTX](https://docs.fileformat.com/presentation/pptx/) sunumunun özel özelliklerini değiştirir. Aşağıdaki şekiller, değişiklik öncesi ve sonrası sunumun özel özelliklerini gösterir:
 
-|**Değişiklik Öncesi Özel Özellikler**|** |
+|**Değiştirmeden Önce Özel Özellikler**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
 
-|**Değişiklik Sonrası Özel Özellikler**|** |
+|**Değiştirmeden Sonra Özel Özellikler**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
 
 ## **Gelişmiş Belge Özellikleri**
 
-{{% alert color="primary" %}} 
-Yeni yöntemler [ReadDocumentProperties](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-), ve [WriteBindedPresentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) [IPresentationInfo](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IPresentationInfo) e eklenmiştir, [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) özellik ayarlayıcısının mantığı değiştirilmiştir.
+{{% alert color="info" %}} 
+
+Yeni yöntemler [ReadDocumentProperties](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-), ve [WriteBindedPresentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) [IPresentationInfo](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IPresentationInfo) arayüzüne eklendi; [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) özelliğinin ayarlayıcı mantığı değiştirildi.
+
 {{% /alert %}} 
 
-İki yeni yöntem [ReadDocumentProperties](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--) ve [UpdateDocumentProperties](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) [IPresentationInfo](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IPresentationInfo) arabirimine eklenmiştir. Bu yöntemler, belge özelliklerine hızlı erişim sağlar ve tüm bir sunumu yüklemeden özellikleri değiştirme ve güncelleme imkanı tanır.
+Yeni eklenen iki yöntem, belge özelliklerine hızlı erişim sağlar ve tüm bir sunumu yüklemeden özellikleri değiştirme ve güncelleme imkanı sunar.
 
-Tipik senaryo, özellikleri yüklemek, bir değeri değiştirmek ve belgeyi güncellemek aşağıdaki şekilde uygulanabilir:
+Tipik senaryoda özellikler yüklenir, bir değer değiştirilir ve belge güncellenir; bu aşağıdaki şekilde uygulanabilir:
 
 ```java
+import com.aspose.slides.*;
+
 // sunumun bilgilerini oku
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("presentation.pptx");
 
-// geçerli özellikleri al
+// mevcut özellikleri al
 IDocumentProperties props = info.readDocumentProperties();
 
-// Yazar ve Başlık alanlarının yeni değerlerini ayarla
+// Author ve Title alanlarının yeni değerlerini ayarla
 props.setAuthor("New Author");
 props.setTitle("New Title");
 
@@ -213,9 +229,11 @@ info.updateDocumentProperties(props);
 info.writeBindedPresentation("presentation.pptx");
 ```
 
-Belirli bir sunumun özelliklerini bir şablon olarak kullanarak diğer sunumların özelliklerini güncellemenin başka bir yolu da vardır:
+Belirli bir sunumun özelliklerini şablon olarak kullanarak diğer sunumlardaki özellikleri güncellemenin başka bir yolu da vardır:
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("template.pptx");
 DocumentProperties template = (DocumentProperties) info.readDocumentProperties();
 
@@ -234,6 +252,8 @@ updateByTemplate("doc3.ppt", template);
 ```
 
 ```java
+import com.aspose.slides.*;
+
 private static void updateByTemplate(String path, IDocumentProperties template) 
 {
     IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
@@ -245,7 +265,9 @@ private static void updateByTemplate(String path, IDocumentProperties template)
 Sıfırdan yeni bir şablon oluşturulabilir ve ardından birden fazla sunumu güncellemek için kullanılabilir:
 
 ```java
-DocumentProperties template = new DocumentProperties();\
+import com.aspose.slides.*;
+
+DocumentProperties template = new DocumentProperties();
 
 template.setAuthor("Template Author");
 template.setTitle("Template Title");
@@ -256,13 +278,7 @@ template.setComments("Created from template");
 template.setContentType("Template Content");
 template.setSubject("Template Subject");
 
-updateByTemplate("doc1.pptx", template);
-updateByTemplate("doc2.odp", template);
-updateByTemplate("doc3.ppt", template);
-```
-
-```java
-private static void updateByTemplate(String path, IDocumentProperties template) 
+for (String path : new String[] { "doc1.pptx", "doc2.odp", "doc3.ppt" })
 {
     IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
     toUpdate.updateDocumentProperties(template);
@@ -270,14 +286,16 @@ private static void updateByTemplate(String path, IDocumentProperties template)
 }
 ```
 
-## **Düzeltme Dilini Ayarlama**
+## **Düzeltme Dilini Ayarla**
 
-Aspose.Slides, bir PowerPoint belgesi için düzeltme dilini ayarlamanıza olanak tanıyan LanguageId özelliğini (PortionFormat sınıfı tarafından sunulur) sağlar. Düzeltme dili, PowerPoint'teki yazım ve dilbilgisinin denetlendiği dildir.
+Aspose.Slides, PortionFormat sınıfı tarafından sunulan LanguageId özelliği sayesinde PowerPoint belgesinin düzeltme dilini ayarlamanıza olanak tanır. Düzeltme dili, PowerPoint'te imla ve dilbilgisi denetiminin yapılacağı dildir.
 
-Bu Java kodu, bir PowerPoint için düzeltme dilinin nasıl ayarlanacağını gösterir: xxx LanguageId'nin Java PortionFormat sınıfından neden eksik olduğu?
+Bu Java kodu, bir PowerPoint için düzeltme dilinin nasıl ayarlanacağını gösterir:
 
 ```java
-Presentation pres = new Presentation(pptxFileName);
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
     AutoShape autoShape = (AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
 
@@ -301,17 +319,19 @@ try {
 }
 ```
 
-## **Varsayılan Dil Ayarlama**
+## **Varsayılan Dilini Ayarla**
 
 Bu Java kodu, tüm bir PowerPoint sunumu için varsayılan dilin nasıl ayarlanacağını gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDefaultTextLanguage("en-US");
 
 Presentation pres = new Presentation(loadOptions);
 try {
-    // Yeni bir dikdörtgen şekli ve metin ekler
+    // Yeni bir dikdörtgen şekil ekler ve metin ayarlar
     IAutoShape shp = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
     shp.getTextFrame().setText("New Text");
 
@@ -324,20 +344,20 @@ try {
 
 ## **Canlı Örnek**
 
-Belge özellikleriyle Aspose.Slides API'si üzerinden nasıl çalışılacağını görmek için çevrimiçi uygulama [**Aspose.Slides Metadata**](https://products.aspose.app/slides/tr/metadata) deneyin:
+Aspose.Slides API'si aracılığıyla belge özellikleriyle nasıl çalışılacağını görmek için çevrimiçi uygulama olan [**Aspose.Slides Metadata**](https://products.aspose.app/slides/tr/metadata)'yi deneyin:
 
-[![PowerPoint Meta Verilerini Görüntüle ve Düzenle](slides-metadata.png)](https://products.aspose.app/slides/tr/metadata)
+[![PowerPoint Üst Verisini Görüntüle ve Düzenle](slides-metadata.png)](https://products.aspose.app/slides/tr/metadata)
 
 ## ***SSS**
 
-**Sunumdan bir yerleşik özelliği nasıl kaldırabilirim?**
+### Bir yerleşik özelliği bir sunumdan nasıl kaldırabilirim?
 
-Yerleşik özellikler, sunumun ayrılmaz bir parçasıdır ve tamamen kaldırılamaz. Ancak, ilgili özellik izin veriyorsa, değerlerini değiştirebilir veya boş olarak ayarlayabilirsiniz.
+Yerleşik özellikler sunumun ayrılmaz bir parçasıdır ve tamamen kaldırılamaz. Ancak, belirli özellik izin veriyorsa değerlerini değiştirebilir veya boş bırakabilirsiniz.
 
-**Zaten var olan bir özel özellik eklerseniz ne olur?**
+### Zaten var olan bir özel özelliği eklersem ne olur?
 
-Eğer zaten var olan bir özel özellik eklerseniz, mevcut değeri yeni değerle üzerine yazılır. Özelliği önceden kaldırmanıza veya kontrol etmenize gerek yoktur; Aspose.Slides, özelliğin değerini otomatik olarak günceller.
+Zaten var olan bir özel özelliği eklerseniz, mevcut değeri yeni değerle üzerine yazılır. Özelliği önceden kaldırmaya veya kontrol etmeye gerek yoktur; Aspose.Slides otomatik olarak özelliğin değerini günceller.
 
-**Sunumu tamamen yüklemeden sunum özelliklerine erişebilir miyim?**
+### Sunumu tamamen yüklemeden sunum özelliklerine erişebilir miyim?
 
-Evet, [PresentationFactory](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentationfactory/) sınıfının `getPresentationInfo` yöntemini kullanarak sunumu tamamen yüklemeden sunum özelliklerine erişebilirsiniz. Ardından, [IPresentationInfo](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipresentationinfo/) arabirimi tarafından sağlanan `readDocumentProperties` yöntemini kullanarak özellikleri verimli bir şekilde okuyabilir, bellek tasarrufu sağlayabilir ve performansı artırabilirsiniz.
+Evet, sunumu tamamen yüklemeden [PresentationFactory](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentationfactory/) sınıfının `getPresentationInfo` yöntemini kullanarak sunum özelliklerine erişebilirsiniz. Ardından, [IPresentationInfo](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipresentationinfo/) arayüzünün `readDocumentProperties` metodunu kullanarak özellikleri verimli bir şekilde okuyabilir, bellek tasarrufu sağlayabilir ve performansı artırabilirsiniz.

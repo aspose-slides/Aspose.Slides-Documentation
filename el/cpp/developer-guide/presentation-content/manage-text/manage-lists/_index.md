@@ -1,6 +1,6 @@
 ---
-title: Διαχείριση λιστών με κουκίδες και αριθμούς σε παρουσιάσεις σε C++
-linktitle: Διαχείριση λιστών
+title: Διαχείριση Λιστών με Κουκίδες και Αρίθμηση σε Παρουσιάσεις σε C++
+linktitle: Διαχείριση Λιστών
 type: docs
 weight: 70
 url: /el/cpp/manage-lists/
@@ -8,8 +8,8 @@ keywords:
 - κουκίδα
 - λίστα με κουκίδες
 - αριθμημένη λίστα
-- σύμβολο κουκίδας
-- κουκίδα εικόνας
+- συμβολική κουκίδα
+- εικονογραφική κουκίδα
 - προσαρμοσμένη κουκίδα
 - πολυεπίπεδη λίστα
 - δημιουργία κουκίδας
@@ -20,29 +20,48 @@ keywords:
 - παρουσίαση
 - C++
 - Aspose.Slides
-description: "Μάθετε πώς να δημιουργείτε και να μορφοποιείτε λίστες με κουκίδες, εικόνες, πολυεπίπεδες και αριθμημένες σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για C++."
+description: "Μάθετε πώς να δημιουργείτε και να μορφοποιείτε λίστες με κουκίδες, εικόνα, πολυεπίπεδες και αριθμημένες λίστες σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για C++."
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides για C++ σάς επιτρέπει να δημιουργείτε και να μορφοποιείτε λίστες με κουκίδες και αριθμημένες λίστες σε παρουσιάσεις PowerPoint και OpenDocument. Ένα στοιχείο λίστας είναι μια παράγραφος της οποίας οι ρυθμίσεις της κουκίδας ελέγχονται μέσω της μορφοποίησης της παραγράφου.
+Το Aspose.Slides για C++ σάς επιτρέπει να δημιουργείτε και να μορφοποιείτε λίστας με κουκίδες και αριθμημένες λίστες σε παρουσιάσεις PowerPoint και OpenDocument. Ένα στοιχείο λίστας είναι μια παράγραφος της οποίας οι ρυθμίσεις κουκίδας ελέγχονται μέσω της μορφοποίησης παραγράφου.
 
-Χρησιμοποιήστε τη μέθοδο [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/iparagraph/get_paragraphformat/) για να αποκτήσετε πρόσβαση στις ρυθμίσεις λίστας σε επίπεδο παραγράφου. Το κύριο σημείο εισόδου είναι [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/el/cpp/aspose.slides/iparagraphformat/get_bullet/), που επιστρέφει ένα αντικείμενο τύπου [IBulletFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/ibulletformat/). Με αυτό το αντικείμενο, μπορείτε να ορίσετε τον τύπο της κουκίδας, το σύμβολο, την εικόνα, το χρώμα, το μέγεθος, το στυλ αρίθμησης και τον αρχικό αριθμό.
+Χρησιμοποιήστε τη μέθοδο [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/iparagraph/get_paragraphformat/) για πρόσβαση στις ρυθμίσεις λίστας επιπέδου παραγράφου. Το κύριο σημείο εισόδου είναι [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/el/cpp/aspose.slides/iparagraphformat/get_bullet/), το οποίο επιστρέφει ένα αντικείμενο [IBulletFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/ibulletformat/). Με αυτό το αντικείμενο μπορείτε να ορίσετε τον τύπο κουκίδας, το σύμβολο, την εικόνα, το χρώμα, το μέγεθος, το στυλ αρίθμησης και τον αριθμό έναρξης.
 
 Αυτό το άρθρο δείχνει πώς να:
 
-- δημιουργήσετε μια λίστα με κουκίδες με προσαρμοσμένο σύμβολο
-- δημιουργήσετε μια κουκίδα εικόνας
-- δημιουργήσετε μια πολυεπίπεδη λίστα ορίζοντας το βάθος της παραγράφου
-- δημιουργήσετε μια αριθμημένη λίστα
-- επιθεωρήσετε και αλλάξετε τη μορφοποίηση λίστας σε υπάρχουσα παρουσίαση
+- δημιουργήσετε μια λίστα με κουκίδες χρησιμοποιώντας προσαρμοσμένο σύμβολο
+- δημιουργήσετε μια εικόνα-κουκίδα
+- δημιουργήσετε πολυεπίπεδη λίστα ορίζοντας το βάθος παραγράφου
+- δημιουργήσετε αριθμημένη λίστα
+- ελέγξετε και αλλάξετε την μορφοποίηση λίστας σε μια υπάρχουσα παρουσίαση
 
 ## **Δημιουργία λίστας με κουκίδες**
 
-Για να δημιουργήσετε μια λίστα με κουκίδες, προσθέστε αντικείμενα [Paragraph](https://reference.aspose.com/slides/el/cpp/aspose.slides/paragraph/) σε ένα [ITextFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/itextframe/) και ορίστε το [IBulletFormat::set_Type](https://reference.aspose.com/slides/el/cpp/aspose.slides/ibulletformat/set_type/) σε [BulletType::Symbol](https://reference.aspose.com/slides/el/cpp/aspose.slides/bullettype/). Στη συνέχεια, μπορείτε να ορίσετε το [IBulletFormat::set_Char](https://reference.aspose.com/slides/el/cpp/aspose.slides/ibulletformat/set_char/), το [IBulletFormat::get_Color](https://reference.aspose.com/slides/el/cpp/aspose.slides/ibulletformat/get_color/) και το [IBulletFormat::set_Height](https://reference.aspose.com/slides/el/cpp/aspose.slides/ibulletformat/set_height/) για να ελέγξετε την εμφάνιση της κουκίδας.
+Για να δημιουργήσετε μια λίστα με κουκίδες, προσθέστε αντικείμενα [Paragraph](https://reference.aspose.com/slides/el/cpp/aspose.slides/paragraph/) σε ένα [ITextFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/itextframe/) και ορίστε [IBulletFormat::set_Type](https://reference.aspose.com/slides/el/cpp/aspose.slides/ibulletformat/set_type/) σε [BulletType::Symbol](https://reference.aspose.com/slides/el/cpp/aspose.slides/bullettype/). Στη συνέχεια μπορείτε να ορίσετε [IBulletFormat::set_Char](https://reference.aspose.com/slides/el/cpp/aspose.slides/ibulletformat/set_char/), [IBulletFormat::get_Color](https://reference.aspose.com/slides/el/cpp/aspose.slides/ibulletformat/get_color/) και [IBulletFormat::set_Height](https://reference.aspose.com/slides/el/cpp/aspose.slides/ibulletformat/set_height/) για να ελέγξετε την εμφάνιση της κουκίδας.
 
 Ο παρακάτω κώδικας C++ δείχνει πώς να δημιουργήσετε μια λίστα με κουκίδες σε μια διαφάνεια:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto createParagraph = [](System::String text)
 {
     auto paragraph = System::MakeObject<Paragraph>();
@@ -79,15 +98,30 @@ presentation->Dispose();
 
 Το αποτέλεσμα:
 
-![Οι σύμβολα των κουκίδων](symbol_bullets.png)
+![Τα σύμβολα κουκίδων](symbol_bullets.png)
 
 ## **Δημιουργία αριθμημένης λίστας**
 
-Χρησιμοποιήστε αριθμημένες λίστες όταν η σειρά των στοιχείων έχει σημασία. Ορίστε το [IBulletFormat::set_Type](https://reference.aspose.com/slides/el/cpp/aspose.slides/ibulletformat/set_type/) σε [BulletType::Numbered](https://reference.aspose.com/slides/el/cpp/aspose.slides/bullettype/). Μπορείτε επίσης να επιλέξετε μορφή αρίθμησης με το [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/el/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) ή να ορίσετε το [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/el/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) όταν η λίστα πρέπει να ξεκινήσει από τιμή διαφορετική του 1.
+Χρησιμοποιήστε αριθμημένες λίστες όταν η σειρά των στοιχείων έχει σημασία. Ορίστε [IBulletFormat::set_Type](https://reference.aspose.com/slides/el/cpp/aspose.slides/ibulletformat/set_type/) σε [BulletType::Numbered](https://reference.aspose.com/slides/el/cpp/aspose.slides/bullettype/). Μπορείτε επίσης να επιλέξετε μορφή αρίθμησης με [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/el/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) ή να ορίσετε [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/el/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) όταν η λίστα πρέπει να ξεκινά από τιμή διαφορετική του 1.
 
 Ο παρακάτω κώδικας C++ δείχνει πώς να δημιουργήσετε μια αριθμημένη λίστα σε μια διαφάνεια:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 90, 80);
@@ -118,23 +152,44 @@ presentation->Dispose();
 
 ![Οι αριθμημένες κουκίδες](numbered_bullets.png)
 
-## **Δημιουργία κουκίδας εικόνας**
+## **Δημιουργία εικόνας-κουκίδας**
 
-Το Aspose.Slides σας επιτρέπει να αντικαταστήσετε το κανονικό σύμβολο της κουκίδας με μια εικόνα. Οι κουκίδες εικόνας λειτουργούν καλύτερα με απλές εικόνες που παραμένουν αναγνώσιμες σε μικρό μέγεθος, όπως εικονίδια ή μικρά διαφαίνοντα αρχεία PNG.
+Το Aspose.Slides σας επιτρέπει να αντικαταστήσετε ένα κανονικό σύμβολο κουκίδας με μια εικόνα. Οι εικόνες-κουκίδες λειτουργούν καλύτερα με απλές εικόνες που παραμένουν ευανάγνωστες σε μικρό μέγεθος, όπως εικονίδια ή μικρά διαυγή αρχεία PNG.
 
-{{% alert color="primary" %}}
-Ιδανικά, εάν σκοπεύετε να αντικαταστήσετε το κανονικό σύμβολο της κουκίδας με μια εικόνα, είναι καλύτερο να επιλέξετε ένα απλό γραφικό με διαφανές φόντο. Τέτοιες εικόνες λειτουργούν καλά ως προσαρμοσμένα σύμβολα κουκίδας.
+{{% alert color="info" %}}
+Ιδανικά, εάν σκοπεύετε να αντικαταστήσετε το κανονικό σύμβολο κουκίδας με μια εικόνα, είναι καλύτερο να επιλέξετε ένα απλό γραφικό με διαυγές φόντο. Τέτοιες εικόνες λειτουργούν καλά ως προσαρμοσμένα σύμβολα κουκίδας.
+
+Θυμηθείτε ότι η εικόνα θα μειωθεί σε πολύ μικρό μέγεθος. Για το λόγο αυτό, συνιστούμε έντονα την επιλογή μιας εικόνας που παραμένει σαφής και οπτικά αποτελεσματική όταν χρησιμοποιείται ως κουκίδα σε λίστα.
 {{% /alert %}}
 
-Για να δημιουργήσετε μια κουκίδα εικόνας, προσθέστε μια εικόνα στο [IPresentation::get_Images](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentation/get_images/) και αντιστοιχίστε το επιστρεφόμενο αντικείμενο [IPPImage](https://reference.aspose.com/slides/el/cpp/aspose.slides/ippimage/) στο [IBulletFormat::get_Picture](https://reference.aspose.com/slides/el/cpp/aspose.slides/ibulletformat/get_picture/). Ορίστε το [IBulletFormat::set_Type](https://reference.aspose.com/slides/el/cpp/aspose.slides/ibulletformat/set_type/) σε [BulletType::Picture](https://reference.aspose.com/slides/el/cpp/aspose.slides/bullettype/) πριν αντιστοιχίσετε την εικόνα.
+Για να δημιουργήσετε μια εικόνα-κουκίδα, προσθέστε μια εικόνα στο [IPresentation::get_Images](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentation/get_images/) και αντιστοιχίστε το επιστρεφόμενο αντικείμενο [IPPImage](https://reference.aspose.com/slides/el/cpp/aspose.slides/ippimage/) στο [IBulletFormat::get_Picture](https://reference.aspose.com/slides/el/cpp/aspose.slides/ibulletformat/get_picture/). Ορίστε [IBulletFormat::set_Type](https://reference.aspose.com/slides/el/cpp/aspose.slides/ibulletformat/set_type/) σε [BulletType::Picture](https://reference.aspose.com/slides/el/cpp/aspose.slides/bullettype/) πριν αντιστοιχίσετε την εικόνα.
 
-Ας υποθέσουμε ότι έχουμε το "image.png":
+Ας πούμε ότι έχουμε το «image.png»:
 
 ![Μια εικόνα για τις κουκίδες](picture_for_bullets.png)
 
-Ο παρακάτω κώδικας C++ δείχνει πώς να δημιουργήσετε κουκίδες εικόνας σε μια διαφάνεια:
+Ο παρακάτω κώδικας C++ δείχνει πώς να δημιουργήσετε εικόνες-κουκίδες σε μια διαφάνεια:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto createParagraph = [](System::String text, System::SharedPtr<IPPImage> image)
 {
     auto paragraph = System::MakeObject<Paragraph>();
@@ -173,15 +228,28 @@ presentation->Dispose();
 
 Το αποτέλεσμα:
 
-![Οι κουκίδες με εικόνα](picture_bullets.png)
+![Οι εικόνες-κουκίδες](picture_bullets.png)
 
 ## **Δημιουργία πολυεπίπεδης λίστας**
 
-Χρησιμοποιήστε το [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/el/cpp/aspose.slides/iparagraphformat/set_depth/) για να τοποθετήσετε στοιχεία λίστας σε διαφορετικά επίπεδα. Το επίπεδο 0 είναι το κορυφαίο επίπεδο, το επίπεδο 1 είναι ένθετο κάτω από αυτό, κ.λπ.
+Χρησιμοποιήστε το [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/el/cpp/aspose.slides/iparagraphformat/set_depth/) για να τοποθετήσετε στοιχεία λίστας σε διαφορετικά επίπεδα. Το επίπεδο 0 είναι το ανώτερο, το επίπεδο 1 είναι ενσωματωμένο κάτω από αυτό, κτλ.
 
-Ο παρακάτω κώδικας C++ δείχνει πώς να δημιουργήσετε μια πολυεπίπεδη λίστα με κουκίδες:
+Ο παρακάτω κώδικας C++ δείχνει πώς να δημιουργήσετε μια πολυεπίπεδη λιστά με κουκίδες:
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 260, 110);
@@ -219,11 +287,24 @@ presentation->Dispose();
 
 ## **Αλλαγή υπάρχουσας λίστας**
 
-Για να αλλάξετε τη μορφοποίηση λίστας σε υπάρχουσα παρουσίαση, αποκτήστε πρόσβαση στην επιθυμητή παράγραφο και ενημερώστε τις ρυθμίσεις του [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/el/cpp/aspose.slides/iparagraphformat/get_bullet/). Οι ίδιες ιδιότητες που χρησιμοποιούνται για τη δημιουργία λιστών μπορούν να χρησιμοποιηθούν για την επιθεώρηση ή την τροποποίηση λιστών που έχουν φορτωθεί από αρχείο PPT, PPTX ή ODP.
+Για να αλλάξετε τη μορφοποίηση λίστας σε μια υπάρχουσα παρουσίαση, αποκτήστε πρόσβαση στην επιθυμητή παράγραφο και ενημερώστε τις ρυθμίσεις [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/el/cpp/aspose.slides/iparagraphformat/get_bullet/). Οι ίδιες ιδιότητες που χρησιμοποιούνται για τη δημιουργία λιστών μπορούν να χρησιμοποιηθούν για έλεγχο ή τροποποίηση λιστών που έχουν φορτωθεί από αρχείο PPT, PPTX ή ODP.
 
 Ο παρακάτω κώδικας C++ αλλάζει την πρώτη παράγραφο σε ένα πλαίσιο κειμένου ώστε να χρησιμοποιεί στυλ αριθμημένης λίστας:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NumberedBulletStyle.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"input.pptx");
 auto slide = presentation->get_Slide(0);
 auto autoShape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
@@ -242,16 +323,16 @@ presentation->Save(u"updated_list.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Συχνές ερωτήσεις**
+## **Συχνές Ερωτήσεις**
 
-**Μπορούν οι λίστες με κουκίδες και αριθμημένες λίστες να εξαχθούν σε PDF ή εικόνες;**
+### Μπορούν οι λίστας με κουκίδες και αριθμημένες λίστες να εξαχθούν σε PDF ή εικόνες;
 
-Ναι. Το Aspose.Slides διατηρεί τη μορφοποίηση της λίστας όταν η μορφή προορισμού υποστηρίζει την αντίστοιχη διάταξη κειμένου και τις δυνατότητες κουκίδας.
+Ναι. Το Aspose.Slides διατηρεί τη μορφοποίηση λίστας όταν η μορφή προορισμού υποστηρίζει την αντίστοιχη διάταξη κειμένου και τα χαρακτηριστικά κουκίδας.
 
-**Μπορώ να επεξεργαστώ λίστες σε υπάρχουσες παρουσιάσεις;**
+### Μπορώ να επεξεργαστώ λίστες σε υπάρχουσες παρουσιάσεις;
 
-Ναι. Φορτώστε την παρουσίαση, αποκτήστε πρόσβαση στην επιθυμητή παράγραφο, επιθεωρήστε ή ενημερώστε τις ρυθμίσεις του [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/el/cpp/aspose.slides/iparagraphformat/get_bullet/) και αποθηκεύστε την παρουσίαση.
+Ναι. Φορτώστε την παρουσίαση, αποκτήστε πρόσβαση στην επιθυμητή παράγραφο, ελέγξτε ή ενημερώστε τις ρυθμίσεις [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/el/cpp/aspose.slides/iparagraphformat/get_bullet/) και αποθηκεύστε την παρουσίαση.
 
-**Μπορούν οι λίστες να περιέχουν μη λατινικό κείμενο;**
+### Μπορεί μια λίστα να περιέχει μη‑λατινικό κείμενο;
 
 Ναι. Το κείμενο των στοιχείων λίστας μπορεί να περιέχει χαρακτήρες Unicode, ώστε να μπορείτε να δημιουργείτε λίστες σε πολυγλωσσικές παρουσιάσεις. Βεβαιωθείτε ότι οι γραμματοσειρές που χρησιμοποιούνται στην παρουσίαση υποστηρίζουν τους χαρακτήρες που χρειάζεστε.

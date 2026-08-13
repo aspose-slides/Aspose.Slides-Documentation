@@ -18,27 +18,29 @@ keywords:
 - Εφέ θέματος
 - PowerPoint
 - OpenDocument
-- παρουσίαση
+- Παρουσίαση
 - .NET
 - C#
 - Aspose.Slides
-description: "Διαχειριστείτε τα θέματα παρουσίασης στο Aspose.Slides για .NET ώστε να δημιουργείτε, προσαρμόζετε και μετατρέπετε αρχεία PowerPoint με συνεπή επωνυμία."
+description: "Κύρια θέματα παρουσίασης στο Aspose.Slides για .NET για τη δημιουργία, προσαρμογή και μετατροπή αρχείων PowerPoint με συνεπή επωνυμία."
 ---
 ## **Εισαγωγή**
 
-Ένα θέμα παρουσίασης ορίζει τις ιδιότητες των στοιχείων σχεδίασης. Όταν επιλέγετε ένα θέμα παρουσίασης, στην ουσία επιλέγετε ένα συγκεκριμένο σύνολο οπτικών στοιχείων και τις ιδιότητές τους.
+Ένα θέμα παρουσίασης ορίζει τις ιδιότητες των στοιχείων σχεδίασης. Όταν επιλέγετε ένα θέμα παρουσίασης, ουσιαστικά επιλέγετε ένα συγκεκριμένο σύνολο οπτικών στοιχείων και των ιδιοτήτων τους.
 
-Στο PowerPoint, ένα θέμα περιλαμβάνει χρώματα, [γραμματοσειρές](/slides/el/net/powerpoint-fonts/), [στυλ υποβάθρου](/slides/el/net/presentation-background/), και εφέ.
+Στο PowerPoint, ένα θέμα περιλαμβάνει χρώματα, [fonts](/slides/el/net/powerpoint-fonts/), [background styles](/slides/el/net/presentation-background/), και εφέ.
 
 ![theme-constituents](theme-constituents.png)
 
 ## **Αλλαγή Χρώματος Θέματος**
 
-Ένα θέμα PowerPoint χρησιμοποιεί ένα συγκεκριμένο σύνολο χρωμάτων για διαφορετικά στοιχεία σε μια διαφάνεια. Εάν δεν σας αρέσουν τα χρώματα, τα αλλάζετε εφαρμόζοντας νέα χρώματα στο θέμα. Για να μπορείτε να επιλέξετε νέο χρώμα θέματος, το Aspose.Slides παρέχει τιμές στην απαρίθμηση [SchemeColor](https://reference.aspose.com/slides/el/net/aspose.slides/schemecolor/).
+Ένα θέμα PowerPoint χρησιμοποιεί ένα συγκεκριμένο σύνολο χρωμάτων για διαφορετικά στοιχεία σε μια διαφάνεια. Αν δεν σας αρέσουν τα χρώματα, τα αλλάζετε εφαρμόζοντας νέα χρώματα για το θέμα. Για να επιλέξετε νέο χρώμα θέματος, η Aspose.Slides παρέχει τιμές στην απαρίθμηση [SchemeColor](https://reference.aspose.com/slides/el/net/aspose.slides/schemecolor/).
 
 Αυτός ο κώδικας C# δείχνει πώς να αλλάξετε το χρώμα έμφασης για ένα θέμα:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation())
     
 {
@@ -50,40 +52,61 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-Μπορείτε να καθορίσετε την αποτελεσματική τιμή του προκύπτοντος χρώματος με αυτόν τον τρόπο:
+Μπορείτε να καθορίσετε την αποτελεσματική τιμή του προκύπτοντος χρώματος με τον εξής τρόπο:
 
 ```c#
-var fillEffective = shape.FillFormat.GetEffective();
+using Aspose.Slides;
 
-Console.WriteLine($"{fillEffective.SolidFillColor.Name} ({fillEffective.SolidFillColor})"); // ff8064a2 (Color [A=255, R=128, G=100, B=162])
+using (Presentation pres = new Presentation())
+{
+    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+
+    shape.FillFormat.FillType = FillType.Solid;
+
+    shape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+
+    var fillEffective = shape.FillFormat.GetEffective();
+
+    Console.WriteLine($"{fillEffective.SolidFillColor.Name} ({fillEffective.SolidFillColor})"); // ff8064a2 (Χρώμα [A=255, R=128, G=100, B=162])
+}
 ```
 
-Για να επιδείξουμε περαιτέρω τη λειτουργία αλλαγής χρώματος, δημιουργούμε ένα άλλο στοιχείο και του αναθέτουμε το χρώμα έμφασης (από την αρχική λειτουργία). Στη συνέχεια αλλάζουμε το χρώμα στο θέμα:
+Για να επαληθεύσετε περαιτέρω τη λειτουργία αλλαγής χρώματος, δημιουργούμε άλλο στοιχείο και του αναθέτουμε το χρώμα έμφασης (από την αρχική λειτουργία). Στη συνέχεια αλλάζουμε το χρώμα στο θέμα:
 
 ```c#
-IAutoShape otherShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
+using System.Drawing;
+using Aspose.Slides;
 
-otherShape.FillFormat.FillType = FillType.Solid;
+using (Presentation pres = new Presentation())
+{
+    IAutoShape otherShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
 
-otherShape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+    otherShape.FillFormat.FillType = FillType.Solid;
 
-pres.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
+    otherShape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+
+    pres.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
+}
 ```
 
 Το νέο χρώμα εφαρμόζεται αυτόματα και στα δύο στοιχεία.
 
 ### **Ορισμός Χρώματος Θέματος από Πρόσθετη Παλέτα**
 
-Όταν εφαρμόζετε μετασχηματισμούς φωτεινότητας στο κύριο χρώμα θέματος(1), δημιουργούνται χρώματα από την πρόσθετη παλέτα(2). Στη συνέχεια μπορείτε να ορίσετε και να λάβετε αυτά τα χρώματα θέματος.
+Όταν εφαρμόζετε μετασχηματισμούς φωτεινότητας στο κύριο χρώμα θέματος(1), σχηματίζονται χρώματα από την πρόσθετη παλέτα(2). Μπορείτε μετά να ορίσετε και να λάβετε αυτά τα χρώματα θέματος. 
 
 ![additional-palette-colors](additional-palette-colors.png)
 
-**1** - Κύρια χρώματα θέματος  
+**1** - Κύρια χρώματα θέματος
+
 **2** - Χρώματα από την πρόσθετη παλέτα.
 
-Αυτός ο κώδικας C# δείχνει μια λειτουργία όπου τα χρώματα της πρόσθετης παλέτας λαμβάνονται από το κύριο χρώμα θέματος και στη συνέχεια χρησιμοποιούνται σε σχήματα:
+Αυτός ο κώδικας C# παρουσιάζει μια λειτουργία όπου τα χρώματα της πρόσθετης παλέτας λαμβάνονται από το κύριο χρώμα θέματος και στη συνέχεια χρησιμοποιούνται σε σχήματα:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -136,71 +159,87 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **Αντιστοίχιση `SchemeColor` σε Χρώματα `IColorScheme`**
+### **Χαρτογράφηση `SchemeColor` σε `IColorScheme` Χρώματα**
 
-Όταν εργάζεστε με το [SchemeColor](https://reference.aspose.com/slides/el/net/aspose.slides/schemecolor/), μπορεί να παρατηρήσετε ότι περιέχει τις παρακάτω τιμές χρωμάτων θέματος:
+Όταν εργάζεστε με [SchemeColor](https://reference.aspose.com/slides/el/net/aspose.slides/schemecolor/), μπορεί να παρατηρήσετε ότι περιέχει τις παρακάτω τιμές χρωμάτων θέματος:
 
-`Background1`, `Background2`, `Text1`, and `Text2`.
+`Background1`, `Background2`, `Text1`, και `Text2`.
 
-Ωστόσο, το `Presentation.MasterTheme.ColorScheme` επιστρέφει το [IColorScheme](https://reference.aspose.com/slides/el/net/aspose.slides.theme/icolorscheme/), το οποίο εκθέτει τα αντίστοιχα χρώματα ως:
+Ωστόσο, το `Presentation.MasterTheme.ColorScheme` επιστρέφει [IColorScheme](https://reference.aspose.com/slides/el/net/aspose.slides.theme/icolorscheme/), το οποίο εκθέτει τα αντίστοιχα χρώματα ως:
 
-`Dark1`, `Dark2`, `Light1`, and `Light2`.
+`Dark1`, `Dark2`, `Light1`, και `Light2`.
 
-Αυτή η διαφορά ονομασίας προέρχεται από την ορολογία του Microsoft Office. Οι παλαιότερες εκδόσεις του Office χρησιμοποιούσαν τα `Dark 1`, `Light 1`, `Dark 2` και `Light 2`, ενώ οι νεότερες εκδόσεις UI εμφανίζουν τις ίδιες θέσεις ως `Text 1`, `Background 1`, `Text 2` και `Background 2`.
+Αυτή η διαφορά είναι μόνο στην ονομασία. Οι τιμές αυτές αναφέρονται στα ίδια υποδοχέα χρωμάτων θέματος και η χαρτογράφηση είναι σταθερή:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Δεν υπάρχει δυναμική μετατροπή μεταξύ `Text`/`Background` και `Dark`/`Light`. Απλώς είναι εναλλακτικές ονομασίες για τα ίδια χρώματα θέματος.
+Δεν υπάρχει δυναμική μετατροπή μεταξύ `Text`/`Background` και `Dark`/`Light`. Είναι απλώς εναλλακτικές ονομασίες για τα ίδια χρώματα θέματος.
+
+Αυτή η διαφορά στην ονομασία προέρχεται από την ορολογία του Microsoft Office. Παλαιότερες εκδόσεις του Office χρησιμοποιούσαν `Dark 1`, `Light 1`, `Dark 2` και `Light 2`, ενώ οι νεότερες εκδόσεις UI εμφανίζουν τους ίδιους υποδοχείς ως `Text 1`, `Background 1`, `Text 2` και `Background 2`.
 
 ## **Αλλαγή Γραμματοσειράς Θέματος**
 
-Για να μπορείτε να επιλέγετε γραμματοσειρές για θέματα και άλλους σκοπούς, το Aspose.Slides χρησιμοποιεί αυτούς τους ειδικούς ταυτοποιητές (παρόμοιους με αυτούς που χρησιμοποιούνται στο PowerPoint):
+Για να μπορείτε να επιλέγετε γραμματοσειρές για θέματα και άλλους σκοπούς, η Aspose.Slides χρησιμοποιεί αυτούς τους ειδικούς ταυτοποιητές (παρόμοιους με αυτούς που χρησιμοποιεί το PowerPoint):
 
-* **+mn-lt** - Γραμματοσειρά σώματος Latin (Minor Latin Font)
-* **+mj-lt** - Γραμματοσειρά κεφαλίδας Latin (Major Latin Font)
-* **+mn-ea** - Γραμματοσειρά σώματος East Asian (Minor East Asian Font)
-* **+mj-ea** - Γραμματοσειρά σώματος East Asian (Minor East Asian Font)
+* **+mn-lt** - Σώμα Γραμματοσειράς Λατινικής (Minor Latin Font)
+* **+mj-lt** - Γραμματοσειρά Επικεφαλίδας Λατινική (Major Latin Font)
+* **+mn-ea** - Σώμα Γραμματοσειράς Ανατολικής Ασίας (Minor East Asian Font)
+* **+mj-ea** - Σώμα Γραμματοσειράς Ανατολικής Ασίας (Minor East Asian Font)
 
-Αυτός ο κώδικας C# δείχνει πώς να αντιστοιχίσετε τη γραμματοσειρά Latin σε ένα στοιχείο θέματος:
+Αυτός ο κώδικας C# δείχνει πώς να αναθέσετε τη λατινική γραμματοσειρά σε ένα στοιχείο θέματος:
 
 ```c#
-IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+using Aspose.Slides;
 
-Paragraph paragraph = new Paragraph();
+using (Presentation pres = new Presentation())
+{
+    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
-Portion portion = new Portion("Theme text format");
+    Paragraph paragraph = new Paragraph();
 
-paragraph.Portions.Add(portion);
+    Portion portion = new Portion("Theme text format");
 
-shape.TextFrame.Paragraphs.Add(paragraph);
+    paragraph.Portions.Add(portion);
 
-portion.PortionFormat.LatinFont = new FontData("+mn-lt");
+    shape.TextFrame.Paragraphs.Add(paragraph);
+
+    portion.PortionFormat.LatinFont = new FontData("+mn-lt");
+}
 ```
 
-Αυτός ο κώδικας C# δείχνει πώς να αλλάξετε τη γραμματοσειρά του θέματος παρουσίασης:
+Αυτός ο κώδικας C# δείχνει πώς να αλλάξετε τη γραμματοσειρά θέματος παρουσίασης:
 
 ```c#
-pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
+using Aspose.Slides;
+
+using (Presentation pres = new Presentation())
+{
+    pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
+}
 ```
 
 Η γραμματοσειρά σε όλα τα πλαίσια κειμένου θα ενημερωθεί.
 
-{{% alert color="primary" title="TIP" %}} 
-Μπορεί να θέλετε να δείτε τις [γραμματοσειρές PowerPoint](/slides/el/net/powerpoint-fonts/).
+{{% alert color="info" title="TIP" %}} 
+
+Μπορεί να θέλετε να δείτε [PowerPoint fonts](/slides/el/net/powerpoint-fonts/).
+
 {{% /alert %}}
 
-## **Αλλαγή Στυλ Υποβάθρου Θέματος**
+## **Αλλαγή Στυλ Παρασκηνίου Θέματος**
 
-Από προεπιλογή, η εφαρμογή PowerPoint παρέχει 12 προορισμένους υπόβαθρους, αλλά μόνο 3 από αυτούς τους 12 αποθηκεύονται σε μια τυπική παρουσίαση.
+Από προεπιλογή, η εφαρμογή PowerPoint παρέχει 12 προρυθμισμένα παρασκήνια, αλλά μόνο 3 από αυτά αποθηκεύονται σε μια τυπική παρουσίαση. 
 
 ![todo:image_alt_text](presentation-design_8.png)
 
-Για παράδειγμα, μετά την αποθήκευση μιας παρουσίασης στην εφαρμογή PowerPoint, μπορείτε να εκτελέσετε αυτόν τον κώδικα C# για να μάθετε τον αριθμό των προορισμένων υποβάθρων στην παρουσίαση:
+Για παράδειγμα, αφού αποθηκεύσετε μια παρουσίαση στην εφαρμογή PowerPoint, μπορείτε να εκτελέσετε αυτόν τον κώδικα C# για να μάθετε πόσα προρυθμισμένα παρασκήνια υπάρχουν στην παρουσίαση:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 
 {
@@ -211,32 +250,45 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 {{% alert color="warning" %}} 
-Χρησιμοποιώντας την ιδιότητα [BackgroundFillStyles](https://reference.aspose.com/slides/el/net/aspose.slides.theme/formatscheme/backgroundfillstyles/) από την κλάση [FormatScheme](https://reference.aspose.com/slides/el/net/aspose.slides.theme/formatscheme/), μπορείτε να προσθέσετε ή να προσπελάσετε το στυλ υποβάθρου σε ένα θέμα PowerPoint. 
+
+Χρησιμοποιώντας την ιδιότητα [BackgroundFillStyles](https://reference.aspose.com/slides/el/net/aspose.slides.theme/formatscheme/backgroundfillstyles/) από την κλάση [FormatScheme](https://reference.aspose.com/slides/el/net/aspose.slides.theme/formatscheme/), μπορείτε να προσθέσετε ή να προσπελάσετε το στυλ παρασκηνίου σε ένα θέμα PowerPoint. 
+
 {{% /alert %}}
 
-Αυτός ο κώδικας C# δείχνει πώς να ορίσετε το υπόβαθρο για μια παρουσίαση:
+Αυτός ο κώδικας C# δείχνει πώς να ορίσετε το παρασκήνιο για μια παρουσίαση:
 
 ```c#
-pres.Masters[0].Background.StyleIndex = 2;
+using Aspose.Slides;
+
+using (Presentation pres = new Presentation("pres.pptx"))
+{
+    pres.Masters[0].Background.StyleIndex = 2;
+}
 ```
 
-**Οδηγός ευρετηρίου**: 0 χρησιμοποιείται για χωρίς γέμισμα. Το ευρετήριο ξεκινά από 1.
+**Οδηγός δείκτη**: 0 χρησιμοποιείται για χωρίς γέμισμα. Ο δείκτης ξεκινά από το 1.
 
-{{% alert color="primary" title="TIP" %}} 
-Μπορεί να θέλετε να δείτε το [Υπόβαθρο PowerPoint](/slides/el/net/presentation-background/).
+{{% alert color="info" title="TIP" %}} 
+
+Μπορεί να θέλετε να δείτε [PowerPoint Background](/slides/el/net/presentation-background/).
+
 {{% /alert %}}
 
 ## **Αλλαγή Εφέ Θέματος**
 
-Ένα θέμα PowerPoint συνήθως περιέχει 3 τιμές για κάθε σειρά στυλ. Αυτές οι σειρές συνδυάζονται σε αυτά τα 3 εφέ: διακριτικό, μέτρια, και έντονο. Για παράδειγμα, αυτό είναι το αποτέλεσμα όταν τα εφέ εφαρμόζονται σε ένα συγκεκριμένο σχήμα:
+Ένα θέμα PowerPoint συνήθως περιέχει 3 τιμές για κάθε σειρά στυλ. Αυτές οι σειρές συνδυάζονται σε αυτά τα 3 εφέ: διακριτικό, μέτριο και έντονο. Για παράδειγμα, αυτό είναι το αποτέλεσμα όταν τα εφέ εφαρμόζονται σε ένα συγκεκριμένο σχήμα:
 
 ![todo:image_alt_text](presentation-design_10.png)
 
-Χρησιμοποιώντας τις 3 ιδιότητες ([FillStyles](https://reference.aspose.com/slides/el/net/aspose.slides.theme/formatscheme/fillstyles), [LineStyles](https://reference.aspose.com/slides/el/net/aspose.slides.theme/formatscheme/linestyles), [EffectStyles](https://reference.aspose.com/slides/el/net/aspose.slides.theme/formatscheme/effectstyles)) από την κλάση [FormatScheme](https://reference.aspose.com/slides/el/net/aspose.slides.theme/formatscheme) μπορείτε να αλλάξετε τα στοιχεία σε ένα θέμα (ακόμη πιο ευέλικτα από τις επιλογές στο PowerPoint).
+Χρησιμοποιώντας 3 ιδιότητες ([FillStyles](https://reference.aspose.com/slides/el/net/aspose.slides.theme/formatscheme/fillstyles), [LineStyles](https://reference.aspose.com/slides/el/net/aspose.slides.theme/formatscheme/linestyles), [EffectStyles](https://reference.aspose.com/slides/el/net/aspose.slides.theme/formatscheme/effectstyles)) από την κλάση [FormatScheme](https://reference.aspose.com/slides/el/net/aspose.slides.theme/formatscheme) μπορείτε να αλλάξετε τα στοιχεία σε ένα θέμα (ακόμη πιο ευέλικτα από τις επιλογές στο PowerPoint).
 
-Αυτός ο κώδικας C# δείχνει πώς να αλλάξετε ένα εφέ θέματος τροποποιώντας τμήματα στοιχείων:
+Αυτός ο κώδικας C# δείχνει πώς να αλλάξετε ένα εφέ θέματος τροποποιώντας μέρη των στοιχείων:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx"))
 {
     pres.MasterTheme.FormatScheme.LineStyles[0].FillFormat.SolidFillColor.Color = Color.Red;
@@ -251,20 +303,20 @@ using (Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx"))
 }
 ```
 
-Οι προκύπτουσες αλλαγές στο χρώμα γέμισης, τύπο γέμισης, εφέ σκιάς κ.λπ.:
+Οι resulting αλλαγές σε χρώμα γεμίσματος, τύπο γεμίσματος, σκιά, κ.λπ.:
 
 ![todo:image_alt_text](presentation-design_11.png)
 
-## **FAQ**
+## **Συχνές Ερωτήσεις**
 
-**Μπορώ να εφαρμόσω ένα θέμα σε μια μόνο διαφάνεια χωρίς να αλλάξω το κύριο θέμα;**
+### Μπορώ να εφαρμόσω ένα θέμα σε μία διαφάνεια χωρίς να αλλάξω το master;
 
-Ναι. Το Aspose.Slides υποστηρίζει παρακάμψεις θέματος επιπέδου διαφάνειας, έτσι μπορείτε να εφαρμόσετε ένα τοπικό θέμα μόνο σε αυτή τη διαφάνεια διατηρώντας το κύριο θέμα αμετάβλητο (μέσω του [SlideThemeManager](https://reference.aspose.com/slides/el/net/aspose.slides.theme/slidethememanager/)).
+Ναι. Η Aspose.Slides υποστηρίζει παρακάμψεις θέματος επιπέδου διαφάνειας, ώστε να μπορείτε να εφαρμόσετε τοπικό θέμα μόνο σε εκείνη τη διαφάνεια ενώ το master theme παραμένει αμετάβλητο (μέσω του [SlideThemeManager](https://reference.aspose.com/slides/el/net/aspose.slides.theme/slidethememanager/)).
 
-**Ποιος είναι ο πιο ασφαλής τρόπος να μεταφέρετε ένα θέμα από μια παρουσίαση σε άλλη;**
+### Ποιος είναι ο πιο ασφαλής τρόπος για να μεταφέρω ένα θέμα από μία παρουσίαση σε άλλη;
 
-[Κλωνοποίηση διαφανειών](/slides/el/net/clone-slides/) μαζί με το κύριό τους στην προορισμένη παρουσίαση. Αυτό διατηρεί το αρχικό master, τις διατάξεις και το σχετικό θέμα, ώστε η εμφάνιση να παραμένει συνεπής.
+[Clone slides](/slides/el/net/clone-slides/) μαζί με το master τους στην προορισμένη παρουσίαση. Αυτό διατηρεί το αρχικό master, τις διατάξεις και το συσχετισμένο θέμα ώστε η εμφάνιση να παραμείνει συνεπής.
 
-**Πώς μπορώ να δω τις «αποτελεσματικές» τιμές μετά από όλες τις κληρονομήσεις και παρακάμψεις;**
+### Πώς μπορώ να δω τις «αποτελεσματικές» τιμές μετά από όλες τις κληρονομήσεις και παρακάμψεις;
 
 Χρησιμοποιήστε τις «αποτελεσματικές» προβολές του API [/slides/el/net/shape-effective-properties/] για θέμα/χρώμα/γραμματοσειρά/εφέ. Αυτές επιστρέφουν τις τελικές, επιλυμένες ιδιότητες μετά την εφαρμογή του master και τυχόν τοπικών παρακάμψεων.

@@ -1,5 +1,5 @@
 ---
-title: API Publik dan Perubahan Tidak Kompatibel Mundur di Aspose.Slides untuk .NET 15.1.0
+title: API Publik dan Perubahan Tidak Kompatibel ke Belakang di Aspose.Slides untuk .NET 15.1.0
 linktitle: Aspose.Slides untuk .NET 15.1.0
 type: docs
 weight: 130
@@ -16,34 +16,37 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Tinjau pembaruan API publik dan perubahan yang merusak di Aspose.Slides untuk .NET untuk memigrasikan solusi presentasi PowerPoint PPT, PPTX, dan ODP Anda dengan lancar."
+description: "Tinjau pembaruan API publik dan perubahan yang memutuskan dalam Aspose.Slides untuk .NET untuk memigrasikan solusi presentasi PowerPoint PPT, PPTX, dan ODP Anda dengan mulus."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Halaman ini menampilkan semua [added](/slides/id/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) atau [removed](/slides/id/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) kelas, metode, properti, dan lain-lain, serta perubahan lainnya yang diperkenalkan dengan API Aspose.Slides untuk .NET 15.1.0.
+Halaman ini menampilkan semua [ditambahkan](/slides/id/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) atau [dihapus](/slides/id/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) kelas, metode, properti, dan sebagainya, serta perubahan lain yang diperkenalkan dengan API Aspose.Slides for .NET 15.1.0.
 
 {{% /alert %}} 
-## **Public API Chages**
-#### **Fonts Substitutions Functinality Has Been Added**
-Kemampuan untuk mengganti font secara global di seluruh presentasi serta sementara untuk proses rendering telah ditambahkan.
+## **Perubahan API Publik**
+#### **Fungsionalitas Substitusi Font Telah Ditambahkan**
+Kemampuan untuk mengganti font secara global di seluruh presentasi dan sementara untuk rendering telah ditambahkan.
 
 Properti baru "FontsManager" pada kelas Presentation telah diperkenalkan. Kelas FontsManager memiliki anggota-anggota berikut:
 
-**IFontSubstRuleCollection FontSubstRuleList** Property
+**IFontSubstRuleCollection FontSubstRuleList** Properti
 
-Koleksi ini berisi instance IFontSubstRule yang digunakan untuk mengganti font selama rendering. IFontSubstRule memiliki properti SourceFont dan DestFont yang mengimplementasikan antarmuka IFontData serta properti ReplaceFontCondition yang memungkinkan memilih kondisi penggantian ("WhenInaccessible" atau "Always").
+Koleksi ini berisi instance IFontSubstRule yang digunakan untuk mengganti font selama rendering. IFontSubstRule memiliki properti SourceFont dan DestFont yang mengimplementasikan interface IFontData serta properti ReplaceFontCondition yang memungkinkan memilih kondisi penggantian ("WhenInaccessible" atau "Always").
 
-**IFontData[] GetFonts()** Method
+**IFontData[] GetFonts()** Metode
 
 Digunakan untuk mengambil semua font yang digunakan dalam presentasi saat ini.
 
-**ReplaceFont** Methods
+**ReplaceFont** Metode
 
 Digunakan untuk mengganti font secara permanen dalam presentasi. 
 
 Contoh berikut menunjukkan cara mengganti font dalam presentasi:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
              Presentation pres = new Presentation("PresContainsArialFont.pptx");
 
@@ -61,6 +64,8 @@ Contoh berikut menunjukkan cara mengganti font dalam presentasi:
 Contoh lain menunjukkan substitusi font untuk rendering ketika tidak dapat diakses:
 
 ``` csharp
+using Aspose.Slides;
+
 
              Presentation pres = new Presentation("PresContainsSomeRareFontFont.pptx");
 
@@ -80,6 +85,6 @@ Contoh lain menunjukkan substitusi font untuk rendering ketika tidak dapat diaks
 
             // Font Arial akan digunakan alih-alih SomeRareFont ketika tidak dapat diakses
 
-            pres.Slides[0].GetThumbnail();
+            pres.Slides[0].GetImage();
 
 ```

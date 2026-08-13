@@ -1,11 +1,11 @@
 ---
-title: Πώς να δημιουργήσετε διαγράμματα σε παρουσιάσεις στο .NET
-linktitle: Δημιουργία διαγράμματος
+title: Πώς να Δημιουργήσετε Διαγράμματα σε Παρουσιάσεις σε .NET
+linktitle: Δημιουργία Διαγράμματος
 type: docs
 weight: 30
 url: /el/net/how-to-create-charts-in-a-presentation/
 keywords:
-- μεταφορά
+- μετανάστευση
 - δημιουργία διαγράμματος
 - παλαιός κώδικας
 - σύγχρονος κώδικας
@@ -17,120 +17,130 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Μάθετε πώς να δημιουργείτε διαγράμματα σε παρουσιάσεις PowerPoint PPT, PPTX και ODP στο .NET με το Aspose.Slides, χρησιμοποιώντας τόσο τα κληρονομικά όσο και τα σύγχρονα API διαγραμμάτων."
+description: "Μάθετε πώς να δημιουργείτε διαγράμματα σε παρουσιάσεις PowerPoint PPT, PPTX και ODP σε .NET με το Aspose.Slides χρησιμοποιώντας τόσο τις κληρονομικές όσο και τις σύγχρονες API διαγραμμάτων."
 ---
-{{% alert color="primary" %}} 
-Έχει κυκλοφορήσει ένα νέο [Aspose.Slides for .NET API](/slides/el/net/) και πλέον αυτό το μοναδικό προϊόν υποστηρίζει τη δυνατότητα δημιουργίας εγγράφων PowerPoint από το μηδέν και επεξεργασίας των υπαρχόντων.
-{{% /alert %}} 
-## **Υποστήριξη κώδικα κληρονομικού**
-Για να χρησιμοποιήσετε τον κώδικα κληρονομικό που αναπτύχθηκε με εκδόσεις του Aspose.Slides για .NET παλαιότερες από την 13.x, πρέπει να κάνετε κάποιες μικρές αλλαγές στον κώδικά σας ώστε να λειτουργεί όπως πριν. Όλες οι κλάσεις που υπήρχαν στην παλιά έκδοση του Aspose.Slides για .NET στα ονόματα χώρου Aspose.Slide και Aspose.Slides.Pptx έχουν πλέον συγχωνευτεί σε ένα ενιαίο χώρο ονομάτων Aspose.Slides. Δείτε το παρακάτω απλό απόσπασμα κώδικα για τη δημιουργία ενός κανονικού διαγράμματος από το μηδέν στην παρουσίαση χρησιμοποιώντας το legacy Aspose.Slides API και ακολουθήστε τα βήματα που περιγράφουν πώς να μεταβείτε στο νέο συγχωνευμένο API.
-## **Προσέγγιση legacy Aspose.Slides για .NET**
+{{% alert color="info" %}}
+
+Ένα νέο [Aspose.Slides for .NET API](/slides/el/net/) έχει κυκλοφορήσει και τώρα αυτό το μοναδικό προϊόν υποστηρίζει τη δυνατότητα δημιουργίας εγγράφων PowerPoint από το μηδέν και την επεξεργασία των υπαρχόντων.
+
+{{% /alert %}}
+## **Υποστήριξη Παλαιού Κώδικα**
+Για να χρησιμοποιήσετε τον κώδικα κληρονομικό που αναπτύχθηκε με εκδόσεις του Aspose.Slides for .NET παλαιότερες από 13.x, πρέπει να κάνετε κάποιες μικρές αλλαγές στον κώδικά σας και ο κώδικας θα λειτουργεί όπως πριν. Όλες οι κλάσεις που υπήρχαν στην παλιά έκδοση Aspose.Slides for .NET στα namespaces Aspose.Slide και Aspose.Slides.Pptx έχουν πλέον ενοποιηθεί σε ένα ενιαίο namespace Aspose.Slides. Δείτε το παρακάτω απλό απόσπασμα κώδικα για τη δημιουργία ενός κανονικού διαγράμματος από το μηδέν σε παρουσίαση χρησιμοποιώντας το κληρονομικό API του Aspose.Slides και ακολουθήστε τα βήματα που περιγράφουν πώς να μεταβείτε στο νέο ενοποιημένο API.
+## **Legacy Aspose.Slides for .NET Approach**
 ```c#
-//Δημιουργήστε αντικείμενο της κλάσης PresentationEx που αντιπροσωπεύει αρχείο PPTX
+using System.Drawing;
+
+//Δημιουργία αντικειμένου PresentationEx που αντιπροσωπεύει αρχείο PPTX
 using (PresentationEx pres = new PresentationEx())
 {
-    //Πρόσβαση στο πρώτο slide
-    SlideEx sld = pres.Slides[0];
+	//Πρόσβαση στην πρώτη διαφάνεια
+	SlideEx sld = pres.Slides[0];
 
-    // Προσθήκη διαγράμματος με προεπιλεγμένα δεδομένα
-    ChartEx chart = sld.Shapes.AddChart(ChartTypeEx.ClusteredColumn, 0, 0, 500, 500);
+	// Προσθήκη διαγράμματος με προεπιλεγμένα δεδομένα
+	ChartEx chart = sld.Shapes.AddChart(ChartTypeEx.ClusteredColumn, 0, 0, 500, 500);
 
-    //Ορισμός τίτλου διαγράμματος
-    chart.ChartTitle.Text.Text = "Sample Title";
-    chart.ChartTitle.Text.CenterText = true;
-    chart.ChartTitle.Height = 20;
-    chart.HasTitle = true;
+	//Ορισμός τίτλου διαγράμματος
+	chart.ChartTitle.Text.Text = "Sample Title";
+	chart.ChartTitle.Text.CenterText = true;
+	chart.ChartTitle.Height = 20;
+	chart.HasTitle = true;
 
-    //Ορισμός πρώτης σειράς ώστε να εμφανίζει τιμές
-    chart.ChartData.Series[0].Labels.ShowValue = true;
+	//Ορισμός της πρώτης σειράς να εμφανίζει τιμές
+	chart.ChartData.Series[0].Labels.ShowValue = true;
 
-    //Ορισμός του δείκτη του φύλλου δεδομένων διαγράμματος 
-    int defaultWorksheetIndex = 0;
+	//Ορισμός του δείκτη φύλλου δεδομένων διαγράμματος 
+	int defaultWorksheetIndex = 0;
 
-    //Λήψη του φύλλου εργασίας δεδομένων διαγράμματος
-    ChartDataCellFactory fact = chart.ChartData.ChartDataCellFactory;
+	//Λήψη του φύλλου εργασίας δεδομένων διαγράμματος
+	ChartDataCellFactory fact = chart.ChartData.ChartDataCellFactory;
 
-    //Διαγραφή των προεπιλεγμένων παραγόμενων σειρών και κατηγοριών
-    chart.ChartData.Series.Clear();
-    chart.ChartData.Categories.Clear();
-    int s = chart.ChartData.Series.Count;
-    s = chart.ChartData.Categories.Count;
+	//Διαγραφή των προεπιλεγμένων παραγόμενων σειρών και κατηγοριών
+	chart.ChartData.Series.Clear();
+	chart.ChartData.Categories.Clear();
+	int s = chart.ChartData.Series.Count;
+	s = chart.ChartData.Categories.Count;
 
-    //Προσθήκη νέας σειράς
-    chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.Type);
-    chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.Type);
+	//Προσθήκη νέας σειράς
+	chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.Type);
+	chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.Type);
 
-    //Προσθήκη νέων κατηγοριών
-    chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
+	//Προσθήκη νέων κατηγοριών
+	chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
+	chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
+	chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
 
-    //Πάρε την πρώτη σειρά διαγράμματος
-    ChartSeriesEx series = chart.ChartData.Series[0];
+	//Λήψη της πρώτης σειράς διαγράμματος
+	ChartSeriesEx series = chart.ChartData.Series[0];
 
-    //Τώρα γεμίζουμε τα δεδομένα της σειράς
-    series.Values.Add(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
-    series.Values.Add(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
-    series.Values.Add(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
+	//Τώρα γεμίζουμε τα δεδομένα της σειράς
+	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
+	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
+	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
 
-    //Ορισμός χρώματος γεμίσματος για τη σειρά
-    series.Format.Fill.FillType = FillTypeEx.Solid;
-    series.Format.Fill.SolidFillColor.Color = Color.Red;
+	//Ορισμός χρώματος γεμίσματος για τη σειρά
+	series.Format.Fill.FillType = FillTypeEx.Solid;
+	series.Format.Fill.SolidFillColor.Color = Color.Red;
 
 
-    //Πάρε τη δεύτερη σειρά διαγράμματος
-    series = chart.ChartData.Series[1];
+	//Λήψη της δεύτερης σειράς διαγράμματος
+	series = chart.ChartData.Series[1];
 
-    //Τώρα γεμίζουμε τα δεδομένα της σειράς
-    series.Values.Add(fact.GetCell(defaultWorksheetIndex, 1, 2, 30));
-    series.Values.Add(fact.GetCell(defaultWorksheetIndex, 2, 2, 10));
-    series.Values.Add(fact.GetCell(defaultWorksheetIndex, 3, 2, 60));
+	//Τώρα γεμίζουμε τα δεδομένα της σειράς
+	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 1, 2, 30));
+	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 2, 2, 10));
+	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 3, 2, 60));
 
-    //Ορισμός χρώματος γεμίσματος για τη σειρά
-    series.Format.Fill.FillType = FillTypeEx.Solid;
-    series.Format.Fill.SolidFillColor.Color = Color.Green;
+	//Ορισμός χρώματος γεμίσματος για τη σειρά
+	series.Format.Fill.FillType = FillTypeEx.Solid;
+	series.Format.Fill.SolidFillColor.Color = Color.Green;
 
-    //Δημιουργία προσαρμοσμένων ετικετών για κάθε κατηγορία στη νέα σειρά
 
-    //Η πρώτη ετικέτα θα εμφανίζει το όνομα της κατηγορίας
-    DataLabelEx lbl = new DataLabelEx(series);
-    lbl.ShowCategoryName = true;
-    lbl.Id = 0;
-    series.Labels.Add(lbl);
+	//Δημιουργία προσαρμοσμένων ετικετών για κάθε κατηγορία της νέας σειράς
 
-    //Εμφάνιση ονόματος σειράς για τη δεύτερη ετικέτα
-    lbl = new DataLabelEx(series);
-    lbl.ShowSeriesName = true;
-    lbl.Id = 1;
-    series.Labels.Add(lbl);
+	//Η πρώτη ετικέτα θα εμφανίζει το όνομα της κατηγορίας
+	DataLabelEx lbl = new DataLabelEx(series);
+	lbl.ShowCategoryName = true;
+	lbl.Id = 0;
+	series.Labels.Add(lbl);
 
-    //Εμφάνιση τιμής για την τρίτη ετικέτα
-    lbl = new DataLabelEx(series);
-    lbl.ShowValue = true;
-    lbl.ShowSeriesName = true;
-    lbl.Separator = "/";
-    lbl.Id = 2;
-    series.Labels.Add(lbl);
+	//Εμφάνιση του ονόματος σειράς στη δεύτερη ετικέτα
+	lbl = new DataLabelEx(series);
+	lbl.ShowSeriesName = true;
+	lbl.Id = 1;
+	series.Labels.Add(lbl);
 
-    //Εμφάνιση τιμής και προσαρμοσμένου κειμένου
-    lbl = new DataLabelEx(series);
-    lbl.TextFrame.Text = "My text";
-    lbl.Id = 3;
-    series.Labels.Add(lbl);
+	//Εμφάνιση τιμής στην τρίτη ετικέτα
+	lbl = new DataLabelEx(series);
+	lbl.ShowValue = true;
+	lbl.ShowSeriesName = true;
+	lbl.Separator = "/";
+	lbl.Id = 2;
+	series.Labels.Add(lbl);
 
-    //Αποθήκευση παρουσίασης με διάγραμμα
-    pres.Write(@"D:\AsposeChart.pptx");
+	//Εμφάνιση τιμής και προσαρμοσμένου κειμένου
+	lbl = new DataLabelEx(series);
+	lbl.TextFrame.Text = "My text";
+	lbl.Id = 3;
+	series.Labels.Add(lbl);
+
+	//Αποθήκευση παρουσίασης με διάγραμμα
+	pres.Write(@"D:\AsposeChart.pptx");
 }
 ```
 
 
 
-## **Νέα προσέγγιση Aspose.Slides για .NET 13.x**
+## **Νέα Προσέγγιση Aspose.Slides for .NET 13.x**
 ``` csharp
-//Δημιουργήστε αντικείμενο της κλάσης Presentation που αντιπροσωπεύει αρχείο PPTX//Δημιουργήστε αντικείμενο της κλάσης Presentation που αντιπροσωπεύει αρχείο PPTX
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+//Δημιουργία αντικειμένου Presentation που αντιπροσωπεύει αρχείο PPTX//Δημιουργία αντικειμένου Presentation που αντιπροσωπεύει αρχείο PPTX
 Presentation pres = new Presentation();
 
-//Πρόσβαση στο πρώτο slide
+//Πρόσβαση στην πρώτη διαφάνεια
 ISlide sld = pres.Slides[0];
 
 // Προσθήκη διαγράμματος με προεπιλεγμένα δεδομένα
@@ -143,16 +153,13 @@ chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBoo
 chart.ChartTitle.Height = 20;
 chart.HasTitle = true;
 
-//Ορισμός πρώτης σειράς ώστε να εμφανίζει τιμές
-chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
-//Ορισμός του δείκτη του φύλλου δεδομένων διαγράμματος
+//Ορισμός δείκτη φύλλου δεδομένων διαγράμματος
 int defaultWorksheetIndex = 0;
 
-//Λήψη του φύλλου εργασίας δεδομένων διαγράμματος
+//Λήψη φύλλου εργασίας δεδομένων διαγράμματος
 IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
 
-//Διαγραφή των προεπιλεγμένων παραγόμενων σειρών και κατηγοριών
+//Διαγραφή προεπιλεγμένων παραγόμενων σειρών και κατηγοριών
 chart.ChartData.Series.Clear();
 chart.ChartData.Categories.Clear();
 int s = chart.ChartData.Series.Count;
@@ -162,12 +169,15 @@ s = chart.ChartData.Categories.Count;
 chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.Type);
 chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.Type);
 
+//Ορισμός της πρώτης σειράς να εμφανίζει τιμές
+chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
+
 //Προσθήκη νέων κατηγοριών
 chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
 chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
 chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
 
-//Πάρε την πρώτη σειρά διαγράμματος
+//Λήψη της πρώτης σειράς διαγράμματος
 IChartSeries series = chart.ChartData.Series[0];
 
 //Τώρα γεμίζουμε τα δεδομένα της σειράς
@@ -181,7 +191,7 @@ series.Format.Fill.FillType = FillType.Solid;
 series.Format.Fill.SolidFillColor.Color = Color.Red;
 
 
-//Πάρε τη δεύτερη σειρά διαγράμματος
+//Λήψη της δεύτερης σειράς διαγράμματος
 series = chart.ChartData.Series[1];
 
 //Τώρα γεμίζουμε τα δεδομένα της σειράς
@@ -194,7 +204,7 @@ series.Format.Fill.FillType = FillType.Solid;
 series.Format.Fill.SolidFillColor.Color = Color.Green;
 
 
-//Δημιουργία προσαρμοσμένων ετικετών για κάθε κατηγορία στη νέα σειρά
+//Δημιουργία προσαρμοσμένων ετικετών για κάθε κατηγορία της νέας σειράς
 
 //Η πρώτη ετικέτα θα εμφανίζει το όνομα της κατηγορίας
 IDataLabel lbl = series.DataPoints[0].Label;
@@ -203,7 +213,7 @@ lbl.DataLabelFormat.ShowCategoryName = true;
 lbl = series.DataPoints[1].Label;
 lbl.DataLabelFormat.ShowSeriesName = true;
 
-//Show value for third label
+//Εμφάνιση τιμής στην τρίτη ετικέτα
 lbl = series.DataPoints[2].Label;
 lbl.DataLabelFormat.ShowValue = true;
 lbl.DataLabelFormat.ShowSeriesName = true;
@@ -213,31 +223,31 @@ lbl.DataLabelFormat.Separator = "/";
 pres.Save("AsposeChart.pptx", SaveFormat.Pptx);
 ```
 
-Δείτε το παρακάτω απλό απόσπασμα κώδικα για τη δημιουργία ενός διασκορπισμένου διαγράμματος από το μηδέν στην παρουσίαση χρησιμοποιώντας το legacy Aspose.Slides API και πώς να το επιτύχετε με το νέο συγχωνευμένο API.
+Δείτε το παρακάτω απλό απόσπασμα κώδικα για τη δημιουργία ενός διασπαρμένου διαγράμματος από το μηδέν σε παρουσίαση χρησιμοποιώντας το κληρονομικό API του Aspose.Slides και πώς να το επιτύχετε με το νέο ενοποιημένο API.
 
-## **Προσέγγιση legacy Aspose.Slides για .NET**
+## **Legacy Aspose.Slides for .NET Approach**
 ```c#
 using (PresentationEx pres = new PresentationEx())
 {
     SlideEx slide = pres.Slides[0];
 
-    //Δημιουργία προεπιλεγμένου διαγράμματος
+    //Δημιουργία του προεπιλεγμένου διαγράμματος
     ChartEx chart = slide.Shapes.AddChart(ChartTypeEx.ScatterWithSmoothLines, 0, 0, 400, 400);
 
     //Λήψη του δείκτη του προεπιλεγμένου φύλλου δεδομένων διαγράμματος
     int defaultWorksheetIndex = 0;
 
-    //Πρόσβαση στο φύλλο δεδομένων διαγράμματος
+    //Πρόσβαση στο φύλλο δεδομένων του διαγράμματος
     ChartDataCellFactory fact = chart.ChartData.ChartDataCellFactory;
 
-    //Διαγραφή δείγματος σειράς
+    //Διαγραφή σειρών επίδειξης
     chart.ChartData.Series.Clear();
 
     //Προσθήκη νέας σειράς
     chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.Type);
     chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.Type);
 
-    //Λήψη πρώτης σειράς διαγράμματος
+    //Λήψη της πρώτης σειράς διαγράμματος
     ChartSeriesEx series = chart.ChartData.Series[0];
 
     //Προσθήκη νέου σημείου (1:3) εκεί.
@@ -248,14 +258,14 @@ using (PresentationEx pres = new PresentationEx())
     series.XValues.Add(fact.GetCell(defaultWorksheetIndex, 3, 1, 2));
     series.YValues.Add(fact.GetCell(defaultWorksheetIndex, 3, 2, 10));
 
-    //Επεξεργασία τύπου σειράς
+    //Επεξεργασία του τύπου της σειράς
     series.Type = ChartTypeEx.ScatterWithStraightLinesAndMarkers;
 
     //Αλλαγή του δείκτη σειράς διαγράμματος
     series.MarkerSize = 10;
     series.MarkerSymbol = MarkerStyleTypeEx.Star;
 
-    //Λήψη δεύτερης σειράς διαγράμματος
+    //Λήψη της δεύτερης σειράς διαγράμματος
     series = chart.ChartData.Series[1];
 
     //Προσθήκη νέου σημείου (5:2) εκεί.
@@ -283,8 +293,12 @@ using (PresentationEx pres = new PresentationEx())
 ```
 
 
-## **Νέα προσέγγιση Aspose.Slides για .NET 13.x**
+## **Νέα Προσέγγιση Aspose.Slides for .NET 13.x**
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 Presentation pres = new Presentation();
 
 ISlide slide = pres.Slides[0];
@@ -295,17 +309,17 @@ IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 0, 0, 400
 //Λήψη του δείκτη του προεπιλεγμένου φύλλου δεδομένων διαγράμματος
 int defaultWorksheetIndex = 0;
 
-//Πρόσβαση στο φύλλο δεδομένων διαγράμματος
+//Πρόσβαση στο φύλλο δεδομένων του διαγράμματος
 IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
 
-//Διαγραφή δείγματος σειράς
+//Διαγραφή σειρών επίδειξης
 chart.ChartData.Series.Clear();
 
 //Προσθήκη νέας σειράς
 chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.Type);
 chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.Type);
 
-//Λήψη πρώτης σειράς διαγράμματος
+//Λήψη της πρώτης σειράς διαγράμματος
 IChartSeries series = chart.ChartData.Series[0];
 
 //Προσθήκη νέου σημείου (1:3) εκεί.
@@ -314,14 +328,14 @@ series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetInde
 //Προσθήκη νέου σημείου (2:10)
 series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 2), fact.GetCell(defaultWorksheetIndex, 3, 2, 10));
 
-//Επεξεργασία τύπου σειράς
+//Επεξεργασία του τύπου της σειράς
 series.Type = ChartType.ScatterWithStraightLinesAndMarkers;
 
-//Αλλαγή δεικτών σειράς διαγράμματος
+//Αλλαγή του δείκτη σειράς διαγράμματος
 series.Marker.Size = 10;
 series.Marker.Symbol = MarkerStyleType.Star;
 
-//Λήψη δεύτερης σειράς διαγράμματος
+//Λήψη της δεύτερης σειράς διαγράμματος
 series = chart.ChartData.Series[1];
 
 //Προσθήκη νέου σημείου (5:2) εκεί.
@@ -336,7 +350,7 @@ series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetInde
 //Προσθήκη νέου σημείου (5:1)
 series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetIndex, 5, 3, 5), fact.GetCell(defaultWorksheetIndex, 5, 4, 1));
 
-//Αλλαγή δεικτών σειράς διαγράμματος
+//Αλλαγή του δείκτη σειράς διαγράμματος
 series.Marker.Size = 10;
 series.Marker.Symbol = MarkerStyleType.Circle;
 

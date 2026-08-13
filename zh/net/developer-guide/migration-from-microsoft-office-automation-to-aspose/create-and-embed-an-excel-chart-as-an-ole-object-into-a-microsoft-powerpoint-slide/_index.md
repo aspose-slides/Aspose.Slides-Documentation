@@ -1,6 +1,6 @@
 ---
-title: 使用 VSTO 和 Aspose.Slides for .NET 将 Excel 图表创建并嵌入为 OLE 对象
-linktitle: 创建并嵌入 Excel 图表为 OLE 对象
+title: 使用 VSTO 和 Aspose.Slides for .NET 创建并嵌入 Excel 图表作为 OLE 对象
+linktitle: 使用 VSTO 和 Aspose.Slides for .NET 创建并嵌入 Excel 图表作为 OLE 对象
 type: docs
 weight: 70
 url: /zh/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
@@ -16,32 +16,32 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "从 Microsoft Office 自动化迁移到 Aspose.Slides for .NET，并在 C# 中将 Excel 图表作为 OLE 对象嵌入 PowerPoint（PPT、PPTX）幻灯片。"
+description: "从 Microsoft Office 自动化迁移到 Aspose.Slides for .NET，并在 C# 中将 Excel 图表作为 OLE 对象嵌入到 PowerPoint (PPT, PPTX) 幻灯片。"
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
- 图表是对数据的可视化展示，广泛用于演示幻灯片。本文将展示如何使用 [VSTO](/slides/zh/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) 和 [Aspose.Slides for .NET](/slides/zh/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) 以编程方式在 PowerPoint 幻灯片中创建并嵌入 Excel 图表作为 OLE 对象的代码。
+ 图表是对数据的可视化表示，广泛用于演示幻灯片。本文将展示使用[VSTO](/slides/zh/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/)和[Aspose.Slides for .NET](/slides/zh/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/)以编程方式在 PowerPoint 幻灯片中创建并嵌入 Excel 图表作为 OLE 对象的代码。
 
 {{% /alert %}} 
 ## **创建并嵌入 Excel 图表**
-下面的两个代码示例较长且详细，因为它们描述的任务相当复杂。您需要创建一个 Microsoft Excel 工作簿，创建图表，然后创建 Microsoft PowerPoint 演示文稿，将图表嵌入其中。OLE 对象包含指向原始文档的链接，用户双击嵌入的文件时会启动该文件及其相应应用程序。
+下面的两个代码示例篇幅较长且详细，因为它们描述的任务相当复杂。您需要创建一个 Microsoft Excel 工作簿，创建图表，然后创建要嵌入该图表的 Microsoft PowerPoint 演示文稿。OLE 对象包含指向原始文档的链接，因此双击嵌入的文件的用户将启动该文件及其应用程序。
 ## **VSTO 示例**
-使用 VSTO，执行以下步骤：
+使用 VSTO 时，执行以下步骤：
 
 1. 创建 Microsoft Excel ApplicationClass 对象的实例。
-1. 创建一个仅包含一个工作表的新工作簿。
-1. 向工作表添加图表。
+1. 创建一个包含一个工作表的新工作簿。
+1. 将图表添加到工作表中。
 1. 保存工作簿。
 1. 打开包含图表数据工作表的 Excel 工作簿。
 1. 获取该工作表的 ChartObjects 集合。
 1. 获取要复制的图表。
 1. 创建 Microsoft PowerPoint 演示文稿。
-1. 向演示文稿添加空白幻灯片。
+1. 向演示文稿添加一个空白幻灯片。
 1. 将 Excel 工作表中的图表复制到剪贴板。
 1. 将图表粘贴到 PowerPoint 演示文稿中。
 1. 在幻灯片上定位图表。
 1. 保存演示文稿。
+
 ```c#
 CreateNewChartInExcel();
 UseCopyPaste();
@@ -57,14 +57,14 @@ static void SetCellValue(xlNS.Worksheet targetSheet, string Cell, object Value)
 ```c#
 static void CreateNewChartInExcel()
 {
-    // 声明一个用于 Excel ApplicationClass 实例的变量。
+    // 声明一个 Excel ApplicationClass 实例的变量。
     Microsoft.Office.Interop.Excel.ApplicationClass excelApplication = null;
 
-    // 声明用于 Workbooks.Open 方法参数的变量。
+    // 声明 Workbooks.Open 方法参数的变量。
     string paramWorkbookPath = Application.StartupPath + @"\ChartData.xlsx";
     object paramMissing = Type.Missing;
 
-    // 声明用于 Chart.ChartWizard 方法的变量。
+    // 声明 Chart.ChartWizard 方法的变量。
     object paramChartFormat = 1;
     object paramCategoryLabels = 0;
     object paramSeriesLabels = 0;
@@ -206,11 +206,11 @@ static void UseCopyPaste()
             powerpointApplication.Presentations.Add(
             Microsoft.Office.Core.MsoTriState.msoTrue);
 
-        // 向演示文稿添加空白幻灯片。
+        // 向演示文稿添加一个空白幻灯片。
         pptSlide =
             pptPresentation.Slides.Add(1, pptNS.PpSlideLayout.ppLayoutBlank);
 
-        // 将 Excel 工作表中的图表复制到剪贴板。
+        // 将图表从 Excel 工作表复制到剪贴板。
         existingChartObject.Copy();
 
         // 将图表粘贴到 PowerPoint 演示文稿中。
@@ -252,7 +252,7 @@ static void UseCopyPaste()
         chartObjects = null;
         existingChartObject = null;
 
-        // 关闭并释放 Excel 工作簿对象。
+        // 关闭并释放 Excel Workbook 对象。
         if (excelWorkBook != null)
         {
             excelWorkBook.Close(false, paramMissing, paramMissing);
@@ -277,9 +277,8 @@ static void UseCopyPaste()
 
 
 
-
 ## **Aspose.Slides for .NET 示例**
-使用 Aspose.Slides for .NET，执行以下步骤：
+使用 Aspose.Slides for .NET 时，执行以下步骤：
 
 1. 使用 Aspose.Cells for .NET 创建工作簿。
 1. 创建 Microsoft Excel 图表。
@@ -287,45 +286,52 @@ static void UseCopyPaste()
 1. 获取图表的图像。
 1. 使用 Aspose.Slides for .NET 将 Excel 图表作为 OLE 对象嵌入 PPTX 演示文稿中。
 1. 将对象更改后的图像替换为第 3 步获取的图像，以解决对象更改问题。
-1. 将输出的演示文稿以 PPTX 格式写入磁盘。
+1. 将输出演示文稿以 PPTX 格式写入磁盘。
+
 ```c#
-//Step - 1: 使用 Aspose.Cells 创建 Excel 图表
+using System.Drawing;
+using Aspose.Slides;
+
+//步骤 - 1: 使用 Aspose.Cells 创建 Excel 图表
 //--------------------------------------------------
-//Create a workbook
-创建工作簿
+//创建工作簿
 Aspose.Cells.Workbook wb = new Aspose.Cells.Workbook();
-//Add an excel chart
-添加 Excel 图表
+//添加 Excel 图表
 int chartRows = 55;
 int chartCols = 25;
 int chartSheetIndex = AddExcelChartInWorkbook(wb, chartRows, chartCols);
-//Step - 2: 使用 Aspose.Cells 设置图表的 OLE 大小
+//步骤 - 2: 使用 Aspose.Cells 设置图表的 OLE 大小
 //-----------------------------------------------------------
 wb.Worksheets.SetOleSize(0, chartRows, 0, chartCols);
-//Step - 3: 使用 Aspose.Cells 获取图表的图像
+//步骤 - 3: 使用 Aspose.Cells 获取图表的图像
 //-----------------------------------------------------------
-Bitmap imgChart = wb.Worksheets[chartSheetIndex].Charts[0].ToImage();
+MemoryStream chartImageStream = new MemoryStream();
+wb.Worksheets[chartSheetIndex].Charts[0].ToImage(chartImageStream, Aspose.Cells.Drawing.ImageType.Png);
+chartImageStream.Position = 0;
+Bitmap imgChart = new Bitmap(chartImageStream);
 //Save the workbook to stream
 MemoryStream wbStream = wb.SaveToStream();
-//Step - 4  AND 5
+//步骤 - 4 和 5
 //-----------------------------------------------------------
-//Step - 4: 使用 Aspose.Slides 将图表作为 OLE 对象嵌入 .ppt 演示文稿
+//步骤 - 4: 使用 Aspose.Slides 将图表作为 OLE 对象嵌入 .ppt 演示文稿
 //-----------------------------------------------------------
-//Step - 5: 用第 3 步获取的图像替换对象更改后的图像，以解决对象更改问题
+//步骤 - 5: 用第 3 步获得的图像替换对象更改后的图像，以解决对象更改问题
 //-----------------------------------------------------------
-//Create a presentation
-创建演示文稿
+//创建演示文稿
 Presentation pres = new Presentation();
 ISlide sld = pres.Slides[0];
-//Add the workbook on slide
-在幻灯片上添加工作簿
+//在幻灯片上添加工作簿
 AddExcelChartInPresentation(pres, sld, wbStream, imgChart);
-//Step - 6: 将输出演示文稿写入磁盘
+//步骤 - 6: 将输出演示文稿写入磁盘
 //-----------------------------------------------------------
 pres.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
 static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, Stream workbookStream, Bitmap chartImage)
 {
     float oleWidth = presentation.SlideSize.Size.Width;
@@ -353,7 +359,7 @@ static void AddExcelChartInPresentation(Presentation presentation, ISlide slide,
 ```c#
 static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int chartCols)
 {
-    //单元格名称数组
+    // 单元格名称数组
     string[] cellsName = new string[]
       {
   "A1", "A2", "A3", "A4",
@@ -363,7 +369,7 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int 
   "E1", "E2", "E3", "E4"
       };
 
-    //单元格数据数组
+    // 单元格数据数组
     int[] cellsValue = new int[]
       {
  67,86,68,91,
@@ -372,30 +378,30 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int 
  43,29,69,26,
  24,40,38,25
       };
-    //添加一个新工作表以填充数据
+    // 添加一个新工作表以填充单元格数据
     int dataSheetIdx = wb.Worksheets.Add();
     Aspose.Cells.Worksheet dataSheet = wb.Worksheets[dataSheetIdx];
     string sheetName = "DataSheet";
     dataSheet.Name = sheetName;
-    //用数据填充 DataSheet
+    // 使用数据填充 DataSheet
     for (int i = 0; i < cellsName.Length; i++)
     {
         string cellName = cellsName[i];
         int cellValue = cellsValue[i];
         dataSheet.Cells[cellName].PutValue(cellValue);
     }
-    //添加图表工作表
+    // 添加图表工作表
     int chartSheetIdx = wb.Worksheets.Add(Aspose.Cells.SheetType.Chart);
     Aspose.Cells.Worksheet chartSheet = wb.Worksheets[chartSheetIdx];
     chartSheet.Name = "ChartSheet";
-    //在 ChartSheet 中添加一个图表，数据系列来源于 DataSheet
+    // 在 ChartSheet 中添加图表，数据系列来自 DataSheet
     int chartIdx = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, chartRows, 0, chartCols);
     Aspose.Cells.Charts.Chart chart = chartSheet.Charts[chartIdx];
     chart.NSeries.Add(sheetName + "!A1:E1", false);
     chart.NSeries.Add(sheetName + "!A2:E2", false);
     chart.NSeries.Add(sheetName + "!A3:E3", false);
     chart.NSeries.Add(sheetName + "!A4:E4", false);
-    //将 ChartSheet 设置为活动工作表
+    // 将 ChartSheet 设置为活动工作表
     wb.Worksheets.ActiveSheetIndex = chartSheetIdx;
     return chartSheetIdx;
 }

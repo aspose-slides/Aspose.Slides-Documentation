@@ -1,34 +1,40 @@
 ---
-title: "مدیریت کتاب‌کارهای نمودار در ارائه‌ها با استفاده از جاوا"
-linktitle: "کتاب‌کار نمودار"
+title: مدیریت کتاب‌کارهای نمودار در ارائه‌ها با استفاده از جاوا
+linktitle: کتاب‌کار نمودار
 type: docs
 weight: 70
 url: /fa/java/chart-workbook/
 keywords:
-- "کتاب‌کار نمودار"
-- "داده‌های نمودار"
-- "سلول کتاب‌کار"
-- "برچسب داده"
-- "ورق‌کاری"
-- "منبع داده"
-- "کتاب‌کار خارجی"
-- "داده خارجی"
-- "PowerPoint"
-- "ارائه"
-- "Java"
-- "Aspose.Slides"
-description: "Aspose.Slides برای جاوا را کشف کنید: به راحتی کتاب‌کارهای نمودار را در فرمت‌های PowerPoint و OpenDocument مدیریت کنید تا داده‌های ارائه خود را بهینه کنید."
+- کتاب‌کار نمودار
+- داده‌های نمودار
+- سلول کتاب‌کار
+- برچسب داده
+- برگه کاری
+- منبع داده
+- کتاب‌کار خارجی
+- داده خارجی
+- کش نمودار
+- بازیابی کتاب‌کار
+- PowerPoint
+- ارائه
+- Java
+- Aspose.Slides
+description: "Aspose.Slides برای جاوا را کشف کنید: به راحتی کتاب‌کارهای نمودار را در فرمت‌های PowerPoint و OpenDocument مدیریت کنید تا داده‌های ارائه خود را بهینه‌سازی کنید."
 ---
-## **بررسی کلی**
+## **نمای کلی**
 
-این مقاله توضیح می‌دهد که چگونه با کتاب‌کارهای نمودار در Aspose.Slides کار کنید. نشان می‌دهد چگونه داده‌های نمودار را از طریق جریان‌های کتاب‌کار خوانده و نوشته، از سلول‌های کتاب‌کار به عنوان برچسب‌های داده نمودار استفاده کنید، به مجموعه‌های ورق‌کاری دسترسی داشته باشید و نوع منبع داده برای مقادیر نمودار را مشخص کنید.
+این مقاله توضیح می‌دهد که چگونه با کتاب‌کارهای نمودار در Aspose.Slides کار کنیم. این مقاله نشان می‌دهد چگونه داده‌های نمودار را از طریق جریان‌های کتاب‌کار بخوانید و بنویسید، از سلول‌های کتاب‌کار به عنوان برچسب‌های داده نمودار استفاده کنید، به مجموعه‌های برگه‌کار دسترسی پیدا کنید و نوع منبع داده برای مقادیر نمودار را مشخص کنید.
 
-همچنین کار با کتاب‌کارهای خارجی به عنوان منابع داده برای نمودارها را پوشش می‌دهد. مثال‌ها نشان می‌دهند چگونه یک کتاب‌کار خارجی ایجاد و اختصاص دهید، مسیر کتاب‌کار خارجی مرتبط با یک نمودار را دریافت کنید و داده‌های نمودار را وقتی کتاب‌کار در دسترس باشد ویرایش کنید.
+همچنین کار با کتاب‌کارهای خارجی به عنوان منابع داده نمودار را پوشش می‌دهد. مثال‌ها نشان می‌دهند چگونه یک کتاب‌کار خارجی ایجاد و اختصاص دهید، مسیر کتاب‌کار خارجی مرتبط با یک نمودار را بازیابی کنید و داده‌های نمودار را هنگام در دسترس بودن کتاب‌کار ویرایش کنید.
 
 ## **خواندن و نوشتن داده‌های نمودار از یک کتاب‌کار**
-Aspose.Slides متدهای [ReadWorkbookStream](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IChartData#readWorkbookStream--) و [WriteWorkbookStream](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) را فراهم می‌کند که به شما امکان خواندن و نوشتن کتاب‌کارهای داده نمودار (حاوی داده‌های نمودار ویرایش‌شده با Aspose.Cells) را می‌دهد. **توجه** داشته باشید که داده‌های نمودار باید به همان شکل سازماندهی شوند یا ساختاری مشابه منبع داشته باشند.
+Aspose.Slides متدهای [ReadWorkbookStream](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IChartData#readWorkbookStream--) و [WriteWorkbookStream](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) را فراهم می‌کند که به شما اجازه می‌دهد کتاب‌کارهای داده نمودار (شامل داده‌های نمودار ویرایش‌شده با Aspose.Cells) را بخوانید و بنویسید. **Note** that the chart data has to be organized in the same manner or must have a structure similar to the source.
+
+این کد Java یک عملیات نمونه را نشان می‌دهد:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("chart.pptx");
 try {
     Chart chart = (Chart) pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -45,16 +51,20 @@ try {
 }
 ```
 
-## **تنظیم یک سلول کتاب‌کار به‌عنوان برچسب داده نمودار**
+## **تنظیم یک سلول WorkBook به عنوان برچسب داده نمودار**
 
 1. یک نمونه از کلاس [Presentation](https://apireference.aspose.com/slides/fa/java/com.aspose.slides/presentation) ایجاد کنید.  
-2. مرجع اسلاید را از طریق شاخص آن دریافت کنید.  
-3. یک نمودار حبابی با مقداری داده اضافه کنید.  
-4. به سری‌های نمودار دسترسی پیدا کنید.  
-5. سلول کتاب‌کار را به‌عنوان برچسب داده تنظیم کنید.  
-6. ارائه را ذخیره کنید.
+1. از طریق ایندکس، مرجع یک اسلاید را دریافت کنید.  
+1. یک نمودار حبابی با برخی داده‌ها اضافه کنید.  
+1. به سری‌های نمودار دسترسی پیدا کنید.  
+1. سلول کتاب‌کار را به عنوان برچسب داده تنظیم کنید.  
+1. ارائه را ذخیره کنید.
+
+این کد Java نشان می‌دهد چگونه یک سلول کتاب‌کار را به عنوان برچسب داده نمودار تنظیم کنید:
 
 ```java
+import com.aspose.slides.*;
+
 String lbl0 = "Label 0 cell value";
 String lbl1 = "Label 1 cell value";
 String lbl2 = "Label 2 cell value";
@@ -81,11 +91,13 @@ try {
 }
 ```
 
-## **مدیریت ورق‌های کاری**
+## **مدیریت برگه‌های کاری**
 
-این کد جاوا عملی را نشان می‌دهد که در آن متد [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) برای دسترسی به یک مجموعه ورق‌کاری استفاده می‌شود:
+این کد Java عملی را نشان می‌دهد که در آن متد [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) برای دسترسی به مجموعه برگه‌کار استفاده می‌شود:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 500);
@@ -99,9 +111,11 @@ try {
 
 ## **مشخص کردن نوع منبع داده**
 
-این کد جاوا نشان می‌دهد چگونه یک نوع برای منبع داده مشخص کنید:
+این کد Java نشان می‌دهد چگونه یک نوع برای منبع داده مشخص کنید:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
@@ -119,11 +133,13 @@ try {
 }
 ```
 
-## **شناسایی فرمت‌های کتاب‌کار توکار پشتیبانی‌نشده**
+## **تشخیص قالب‌های غیرقابل پشتیبانی کتاب‌کار جاسازی‌شده**
 
-Aspose.Slides از فرمت کتاب‌کار باینری Excel (.xlsb) که می‌تواند در برخی نمودارها توکار شود، پشتیبانی نمی‌کند. می‌توانید از متد `getEmbeddedWorkbookType` روی [IChartData](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IChartData) همراه با enumeration [WorkbookType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/WorkbookType) برای شناسایی فرمت‌های پشتیبانی‌نشده استفاده کنید و آن نمودارها را نادیده بگیرید.
+Aspose.Slides از قالب کتاب‌کار باینری Excel (.xlsb) که می‌تواند در برخی نمودارها جاسازی شود، پشتیبانی نمی‌کند. می‌توانید از متد `getEmbeddedWorkbookType` روی [IChartData](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IChartData) همراه با شمارش‌نامه [WorkbookType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/WorkbookType) برای شناسایی قالب‌های پشتیبانی‌نشده و رد کردن آن نمودارها استفاده کنید.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -136,11 +152,11 @@ try {
 
         if (chartData.getDataSourceType() == ChartDataSourceType.InternalWorkbook &&
                 chartData.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro) {
-            // کتاب‌کار توکار در قالب .xlsb است که پشتیبانی نمی‌شود.
+            // کتاب‌کار جاسازی‌شده در قالب .xlsb است که پشتیبانی نمی‌شود.
             continue;
         }
 
-        // در اینجا داده‌های کتاب‌کار نمودار را بخوانید یا تغییر دهید.
+        // در اینجا داده‌های کتاب‌کار نمودار را بخوانید یا اصلاح کنید.
     }
 } finally {
     presentation.dispose();
@@ -149,13 +165,21 @@ try {
 
 ## **کتاب‌کار خارجی**
 
-{{% alert color="primary" %}} در [Aspose.Slides 19.4](https://docs.aspose.com/slides/fa/java/aspose-slides-for-java-19-4-release-notes/)، پشتیبانی از کتاب‌کارهای خارجی به‌عنوان منبع داده برای نمودارها را پیاده‌سازی کردیم. {{% /alert %}}
+{{% alert color="info" %}} 
+در [Aspose.Slides 19.4](https://docs.aspose.com/slides/fa/java/aspose-slides-for-java-19-4-release-notes/)، ما پشتیبانی از کتاب‌کارهای خارجی را به عنوان منبع داده برای نمودارها پیاده‌سازی کردیم.
+{{% /alert %}} 
 
 ### **ایجاد یک کتاب‌کار خارجی**
 
-با استفاده از متدهای **`readWorkbookStream`** و **`setExternalWorkbook`** می‌توانید یک کتاب‌کار خارجی را از ابتدا ایجاد کنید یا یک کتاب‌کار داخلی را به‌صورت خارجی تبدیل کنید.
+با استفاده از متدهای **`readWorkbookStream`** و **`setExternalWorkbook`** می‌توانید یک کتاب‌کار خارجی را از صفر ایجاد کنید یا یک کتاب‌کار داخلی را به حالت خارجی تبدیل کنید.
+
+این کد Java فرآیند ایجاد کتاب‌کار خارجی را نشان می‌دهد:
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 Presentation pres = new Presentation();
 try {
     final String workbookPath = "externalWorkbook1.xlsx";
@@ -180,11 +204,15 @@ try {
 
 ### **تنظیم یک کتاب‌کار خارجی**
 
-با استفاده از متد **`setExternalWorkbook`** می‌توانید یک کتاب‌کار خارجی را به‌عنوان منبع داده برای یک نمودار اختصاص دهید. این متد همچنین می‌تواند برای به‌روزرسانی مسیر کتاب‌کار خارجی (در صورت جابجا شدن آن) استفاده شود.
+با استفاده از متد **`setExternalWorkbook`** می‌توانید یک کتاب‌کار خارجی را به یک نمودار به عنوان منبع داده آن اختصاص دهید. این متد همچنین می‌تواند برای به‌روزرسانی مسیر کتاب‌کار خارجی (در صورت جابه‌جایی آن) استفاده شود.
 
-در حالی که نمی‌توانید داده‌ها را در کتاب‌کارهای ذخیره‌شده در مکان‌های راه دور یا منابع ویرایش کنید، همچنان می‌توانید از چنین کتاب‌کارهایی به‌عنوان منبع داده خارجی استفاده کنید. اگر مسیر نسبی برای کتاب‌کار خارجی ارائه شود، به‌طور خودکار به مسیر کامل تبدیل می‌شود.
+در حالی که نمی‌توانید داده‌های موجود در کتاب‌کارهای ذخیره‌شده در مکان‌های دوردست یا منابع را ویرایش کنید، همچنان می‌توانید از چنین کتاب‌کارهایی به عنوان منبع داده خارجی استفاده کنید. اگر مسیر نسبی برای یک کتاب‌کار خارجی فراهم شود، به‌صورت خودکار به مسیر کامل تبدیل می‌شود.
+
+این کد Java نشان می‌دهد چگونه یک کتاب‌کار خارجی تنظیم کنید:
 
 ```java
+import com.aspose.slides.*;
+
 // یک نمونه از کلاس Presentation ایجاد می‌کند
 Presentation pres = new Presentation("chart.pptx");
 try {
@@ -208,12 +236,14 @@ try {
 }
 ```
 
-پارامتر `ChartData` (در زیر متد `setExternalWorkbook`) برای تعیین این‌که آیا یک کتاب‌کار Excel بارگذاری شود یا خیر استفاده می‌شود.
+پارامتر دوم (`boolean`) متد `setExternalWorkbook` برای تعیین این استفاده می‌شود که آیا یک کتاب‌کار Excel بارگذاری شود یا نه.
 
-* وقتی مقدار `ChartData` روی `false` تنظیم شود، تنها مسیر کتاب‌کار به‌روزرسانی می‌شود — داده‌های نمودار از کتاب‌کار هدف بارگذاری یا به‌روزرسانی نمی‌شوند. می‌توانید از این تنظیم زمانی استفاده کنید که کتاب‌کار هدف وجود نداشته باشد یا در دسترس نباشد.  
-* وقتی مقدار `ChartData` روی `true` تنظیم شود، داده‌های نمودار از کتاب‌کار هدف به‌روزرسانی می‌شوند.
+* وقتی مقدار آن به `false` تنظیم شود، فقط مسیر کتاب‌کار به‌روز می‌شود—داده‌های نمودار از کتاب‌کار هدف بارگذاری یا به‌روز نمی‌شوند. می‌توانید از این تنظیم زمانی استفاده کنید که کتاب‌کار هدف وجود نداشته باشد یا در دسترس نباشد.  
+* وقتی مقدار آن به `true` تنظیم شود، داده‌های نمودار از کتاب‌کار هدف به‌روز می‌شوند.
 
 ```java
+import com.aspose.slides.*;
+
 // یک نمونه از کلاس Presentation ایجاد می‌کند
 Presentation pres = new Presentation("chart.pptx");
 try {
@@ -231,12 +261,16 @@ try {
 ### **دریافت مسیر کتاب‌کار منبع داده خارجی یک نمودار**
 
 1. یک نمونه از کلاس [Presentation](https://apireference.aspose.com/slides/fa/java/com.aspose.slides/presentation) ایجاد کنید.  
-2. مرجع اسلاید را از طریق شاخص آن دریافت کنید.  
-3. یک شی برای شکل نمودار ایجاد کنید.  
-4. یک شی برای نوع منبع (`ChartDataSourceType`) که نمایانگر منبع داده نمودار است، ایجاد کنید.  
-5. شرط مربوطه را بر اساس این‌که نوع منبع همان نوع منبع داده کتاب‌کار خارجی باشد، مشخص کنید.
+1. از طریق ایندکس، مرجع یک اسلاید را دریافت کنید.  
+1. یک شی برای شکل نمودار ایجاد کنید.  
+1. یک شی برای نوع منبع (`ChartDataSourceType`) ایجاد کنید که نمایانگر منبع داده نمودار است.  
+1. بر اساس نوع منبع که همان نوع منبع داده کتاب‌کار خارجی است، شرط مربوطه را مشخص کنید.
+
+این کد Java عملیات را نشان می‌دهد:
 
 ```java
+import com.aspose.slides.*;
+
 // یک نمونه از کلاس Presentation ایجاد می‌کند
 Presentation pres = new Presentation("chart.pptx");
 try {
@@ -248,8 +282,8 @@ try {
     {
         String path = chart.getChartData().getExternalWorkbookPath();
     }
-    
-    // ارائه را ذخیره می‌کند
+	
+	// ارائه را ذخیره می‌کند
     pres.save("result.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -258,9 +292,13 @@ try {
 
 ### **ویرایش داده‌های نمودار**
 
-می‌توانید داده‌ها را در کتاب‌کارهای خارجی همان‌طور که در کتاب‌کارهای داخلی تغییر می‌دهید، ویرایش کنید. وقتی کتاب‌کار خارجی قابل بارگذاری نباشد، استثنا ایجاد می‌شود.
+می‌توانید داده‌های موجود در کتاب‌کارهای خارجی را به همان روشی که محتوای کتاب‌کارهای داخلی را تغییر می‌دهید، ویرایش کنید. وقتی یک کتاب‌کار خارجی قابل بارگذاری نباشد، استثنا پرتاب می‌شود.
+
+این کد Java پیاده‌سازی فرآیند توصیف‌شده را نشان می‌دهد:
 
 ```java
+import com.aspose.slides.*;
+
 // یک نمونه از کلاس Presentation ایجاد می‌کند
 Presentation pres = new Presentation("chart.pptx");
 try {
@@ -275,22 +313,48 @@ try {
 }
 ```
 
-## **سؤالات متداول**
+### **بازیابی یک کتاب‌کار از کش نمودار**
 
-**آیا می‌توانم تعیین کنم که آیا یک نمودار خاص به کتاب‌کار خارجی یا توکار لینک دارد؟**  
-بله. یک نمودار دارای [نوع منبع داده](https://reference.aspose.com/slides/fa/java/com.aspose.slides/chartdata/#getDataSourceType--) و [مسیر به کتاب‌کار خارجی](https://reference.aspose.com/slides/fa/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) است؛ اگر منبع یک کتاب‌کار خارجی باشد، می‌توانید مسیر کامل را بخوانید تا اطمینان حاصل کنید که فایل خارجی استفاده می‌شود.
+اگر یک نمودار از کتاب‌کار خارجی استفاده کند که مفقود یا در دسترس نباشد، Aspose.Slides می‌تواند کتاب‌کار نمودار را از داده‌های کش‌شده در ارائه بازسازی کند. [LoadOptions](https://reference.aspose.com/slides/fa/java/com.aspose.slides/loadoptions/) ایجاد کنید، آن را با [SpreadsheetOptions](https://reference.aspose.com/slides/fa/java/com.aspose.slides/spreadsheetoptions/) پیکربندی کنید و قبل از باز کردن ارائه، متد [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) را با مقدار `true` صدا بزنید.
 
-**آیا مسیرهای نسبی به کتاب‌کارهای خارجی پشتیبانی می‌شوند و چگونه ذخیره می‌شوند؟**  
-بله. اگر مسیر نسبی را مشخص کنید، به‌طور خودکار به مسیر مطلق تبدیل می‌شود. این امر برای قابل حمل بودن پروژه مفید است؛ البته توجه داشته باشید که ارائه مسیر مطلق را در فایل PPTX ذخیره می‌کند.
+مثال Java زیر یک ارائه را باز می‌کند که نمودار آن به یک کتاب‌کار خارجی در دسترس نیست و داده‌های بازیابی‌شده را از طریق [IChart.getChartData](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichart/#getChartData--) و [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) دسترسی می‌یابد:
 
-**آیا می‌توانم از کتاب‌کارهایی که روی منابع/به‌اشتراک‌گذاری‌های شبکه قرار دارند استفاده کنم؟**  
-بله، چنین کتاب‌کارهایی می‌توانند به‌عنوان منبع داده خارجی استفاده شوند. با این حال، ویرایش مستقیم کتاب‌کارهای راه دور از Aspose.Slides پشتیبانی نمی‌شود — آنها فقط می‌توانند به‌عنوان منبع استفاده شوند.
+```java
+SpreadsheetOptions spreadsheetOptions = new SpreadsheetOptions();
+spreadsheetOptions.setRecoverWorkbookFromChartCache(true);
 
-**آیا Aspose.Slides هنگام ذخیره ارائه، فایل XLSX خارجی را بازنویسی می‌کند؟**  
-نه. ارائه یک [لینک به فایل خارجی](https://reference.aspose.com/slides/fa/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) را ذخیره می‌کند و برای خواندن داده‌ها از آن استفاده می‌کند. فایل خارجی هنگام ذخیره ارائه تغییر نمی‌کند.
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
 
-**اگر فایل خارجی با رمز عبور محافظت شود، چه باید بکنم؟**  
-Aspose.Slides هنگام لینک کردن رمز عبور نمی‌گیرد. رویکرد معمول این است که پیش از آن محافظت را حذف کنید یا یک نسخه رمزگشایی‌شده تهیه کنید (به‌عنوان مثال با استفاده از [Aspose.Cells](/cells/java/)) و به آن نسخه لینک کنید.
+Presentation presentation = new Presentation("presentation.pptx", loadOptions);
+try {
+    IChart chart = (IChart)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
 
-**آیا چندین نمودار می‌توانند به یک کتاب‌کار خارجی یکسان ارجاع دهند؟**  
-بله. هر نمودار لینک خود را ذخیره می‌کند. اگر همه به یک فایل اشاره کنند، به‌روزرسانی آن فایل در بارگذاری بعدی داده‌ها در هر نمودار منعکس می‌شود.
+    // در اینجا داده‌های کتاب‌کار بازیابی‌شده را بخوانید یا اصلاح کنید.
+} finally {
+    presentation.dispose();
+}
+```
+
+اگر کتاب‌کار خارجی در دسترس نباشد و بازیابی غیرفعال باشد، Aspose.Slides استثنا پرتاب می‌کند. بازیابی را فقط زمانی فعال کنید که استفاده از داده‌های کش‌شده نمودار گزینه قابل قبولی باشد، زیرا کش ممکن است تغییرات اعمال‌شده به کتاب‌کار خارجی پس از آخرین به‌روزرسانی ارائه را شامل نباشد.
+
+## **سوالات متداول**
+
+**Can I determine whether a specific chart is linked to an external or an embedded workbook?**  
+بله. یک نمودار دارای [data source type](https://reference.aspose.com/slides/fa/java/com.aspose.slides/chartdata/#getDataSourceType--) و [path to an external workbook](https://reference.aspose.com/slides/fa/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) است؛ اگر منبع یک کتاب‌کار خارجی باشد، می‌توانید مسیر کامل را بخوانید تا مطمئن شوید فایل خارجی مورد استفاده است.
+
+**Are relative paths to external workbooks supported, and how are they stored?**  
+بله. اگر مسیر نسبی مشخص کنید، به‌صورت خودکار به مسیر مطلق تبدیل می‌شود. این امر برای جابجایی پروژه مفید است؛ اما توجه داشته باشید که ارائه مسیر مطلق را در فایل PPTX ذخیره می‌کند.
+
+**Can I use workbooks located on network resources/shares?**  
+بله، می‌توان از چنین کتاب‌کارهایی به‌عنوان منبع داده خارجی استفاده کرد. با این حال، ویرایش مستقیم کتاب‌کارهای دوردست از طریق Aspose.Slides پشتیبانی نمی‌شود—آنها فقط می‌توانند به‌عنوان منبع استفاده شوند.
+
+**Does Aspose.Slides overwrite the external XLSX when saving the presentation?**  
+خیر. ارائه تنها یک [link to the external file](https://reference.aspose.com/slides/fa/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) ذخیره می‌کند و برای خواندن داده‌ها از آن استفاده می‌کند. فایل خارجی هنگام ذخیره ارائه تغییر نمی‌کند.
+
+**What should I do if the external file is password‑protected?**  
+Aspose.Slides هنگام لینک کردن رمز عبور قبول نمی‌کند. معمولاً پیش از استفاده، حفاظت را حذف کنید یا یک نسخه‌ی رمزگشایی‌شده (به عنوان مثال با استفاده از [Aspose.Cells](/cells/java/)) تهیه کنید و به آن لینک کنید.
+
+**Can multiple charts reference the same external workbook?**  
+بله. هر نمودار لینک خود را ذخیره می‌کند. اگر همه به یک فایل اشاره کنند، به‌روزرسانی آن فایل در هر بار بارگذاری داده‌ها در تمام نمودارها منعکس می‌شود.

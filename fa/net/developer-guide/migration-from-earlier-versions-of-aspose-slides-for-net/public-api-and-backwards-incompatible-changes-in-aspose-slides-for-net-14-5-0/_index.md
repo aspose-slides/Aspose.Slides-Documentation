@@ -1,148 +1,109 @@
 ---
-title: "API عمومی و تغییرات ناسازگار به عقب در Aspose.Slides برای .NET 14.5.0"
+title: "API عمومی و تغییرات ناسازگار با نسخه پیشین در Aspose.Slides برای .NET 14.5.0"
 linktitle: "Aspose.Slides برای .NET 14.5.0"
 type: docs
 weight: 70
 url: /fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/
 keywords:
-- "مهاجرت"
-- "کد قدیمی"
-- "کد مدرن"
-- "روش قدیمی"
-- "روش مدرن"
-- "پاورپوینت"
-- "OpenDocument"
-- "ارائه"
-- ".NET"
-- "C#"
-- "Aspose.Slides"
-description: "به‌روزرسانی‌های API عمومی و تغییرات ناسازگار در Aspose.Slides برای .NET را مرور کنید تا راه‌حل‌های ارائهٔ PowerPoint (PPT، PPTX) و ODP خود را به‌صورت روان مهاجرت دهید."
+- مهاجرت
+- کدهای قدیمی
+- کدهای مدرن
+- رویکرد قدیمی
+- رویکرد مدرن
+- PowerPoint
+- OpenDocument
+- ارائه
+- .NET
+- C#
+- Aspose.Slides
+description: "به‌روزرسانی‌های API عمومی و تغییرات شکسته‌کننده در Aspose.Slides برای .NET را مرور کنید تا به‌راحتی راه‌حل‌های ارائهٔ PowerPoint PPT، PPTX و ODP خود را مهاجرت دهید."
 ---
-{{% alert color="primary" %}} 
-
-این صفحه تمام کلاس‌ها، متدها، خواص و غیره‌ی [اضافه‌شده](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/) را فهرست می‌کند، هر [محدودیت](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/) جدید و سایر [تغییرات](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/) معرفی شده با Aspose.Slides for .NET 14.5.0 API.
-
+{{% alert color="info" %}} 
+این صفحه تمام کلاس‌ها، متدها، ویژگی‌ها و غیره که [اضافه‌شده](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/)، هر [محدودیت](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/) جدید و سایر [تغییرات](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/) معرفی‌شده با Aspose.Slides for .NET 14.5.0 API را فهرست می‌کند.
 {{% /alert %}} 
-## **API عمومی و تغییرات ناسازگار به عقب**
-### **رابط‌ها، کلاس‌ها، خواص و متدهای اضافه شده**
-#### **افزودن رابط Aspose.Slides.IPresentationInfo و کلاس PresentationInfo**
-نمایانگر اطلاعات دربارهٔ ارائه.
+## **API عمومی و تغییرات ناسازگار با نسخه قبلی**
+### **رابط‌ها، کلاس‌ها، ویژگی‌ها و متدهای اضافه شده**
+#### **اضافه شد Interface Aspose.Slides.IPresentationInfo و کلاس PresentationInfo**
+نمایش اطلاعات دربارهٔ ارائه.
 
-- ویژگی بولی IsEncrypted مقدار True را می‌گیرد اگر ارائه رمزنگاری شده باشد، در غیر این صورت مقدار False را می‌گیرد.
-- ویژگی LoadFormat نوع ارائه را دریافت می‌کند.
-#### **افزودن ویژگی Aspose.Slides.IShape.IsGrouped**
-ویژگی Aspose.Slides.IShape.IsGrouped تعیین می‌کند که آیا یک شکل گروه‌بندی شده است یا خیر.
-#### **افزودن ویژگی Aspose.Slides.IShape.ParentGroup**
-ویژگی Aspose.Slides.IShape.ParentGroup شیء GroupShape والد را برمی‌گرداند اگر شکل گروه‌بندی شده باشد. در غیر این صورت مقدار null را برمی‌گرداند.
-#### **افزودن متد Aspose.Slides.IShapeCollection.AddGroupShape()**
-متد Aspose.Slides.IShapeCollection.AddGroupShape() یک GroupShape جدید ایجاد می‌کند و به انتهای مجموعه اضافه می‌گیرد.
-اندازه و موقعیت فریم GroupShape با محتوا منطبق می‌شود زمانی که شکل جدید اضافه می‌شود.
-#### **افزودن متد Aspose.Slides.IShapeCollection.Clear()**
-متد Aspose.Slides.IShapeCollection.Clear() همهٔ شکل‌ها را از مجموعه حذف می‌کند.
-#### **افزودن متد Aspose.Slides.IShapeCollection.InsertGroupShape(int)**
-متد Aspose.Slides.IShapeCollection.InsertGroupShape(int) یک GroupShape جدید ایجاد می‌کند و آن را در مجموعه در موقعیت ایندکس مشخص شده وارد می‌سازد.
-اندازه و موقعیت فریم GroupShape با محتوا منطبق می‌شود وقتی شکل جدید اضافه می‌شود.
-#### **افزودن متدهای IPresentationFactory.GetPresentationInfo(string file)، IPresentatoinFactory.GetPresentationInfo(Stream stream)**
+- ویژگی Boolean IsEncrypted مقدار True را برمی‌گرداند اگر ارائه رمزگذاری شده باشد، در غیر اینصورت مقدار False را برمی‌گرداند.
+- ویژگی LoadFormat نوع ارائه را برمی‌گرداند.
+#### **اضافه شد ویژگی Aspose.Slides.IShape.IsGrouped**
+ویژگی Aspose.Slides.IShape.IsGrouped تعیین می‌کند که آیا یک شکل گروه‌بندی شده است یا نه.
+#### **اضافه شد ویژگی Aspose.Slides.IShape.ParentGroup**
+ویژگی Aspose.Slides.IShape.ParentGroup شیء GroupShape والد را در صورتی که شکل گروه‌بندی شده باشد باز می‌گرداند. در غیر اینصورت مقدار null را برمی‌گرداند.
+#### **اضافه شد متد Aspose.Slides.IShapeCollection.AddGroupShape()**
+متد Aspose.Slides.IShapeCollection.AddGroupShape() یک GroupShape جدید ایجاد کرده و به انتهای مجموعه اضافه می‌کند.
+اندازه و موقعیت چارچوب GroupShape هنگام افزودن شکل جدید به محتوا منطبق خواهد شد.
+#### **اضافه شد متد Aspose.Slides.IShapeCollection.Clear()**
+متد Aspose.Slides.IShapeCollection.Clear() تمام اشکال را از مجموعه حذف می‌کند.
+#### **اضافه شد متد Aspose.Slides.IShapeCollection.InsertGroupShape(int)**
+متد Aspose.Slides.IShapeCollection.InsertGroupShape(int) یک GroupShape جدید ایجاد کرده و آن را در موقعیت ایندکس مشخص به مجموعه وارد می‌کند.
+اندازه و موقعیت چارچوب GroupShape هنگام افزودن شکل جدید به محتوا منطبق خواهد شد.
+#### **اضافه شد متدهای IPresentationFactory.GetPresentationInfo(string file)، IPresentatoinFactory.GetPresentationInfo(Stream stream)**
 این متدها امکان دریافت اطلاعات دربارهٔ فایل یا جریان ارائه را بدون بارگذاری کامل ارائه فراهم می‌کنند.
-#### **افزودن ویژگی IPresentationFactory PresentationFactory.Instance**
-این ویژگی به توسعه‌دهندگان اجازه می‌دهد تا از عملکرد کارخانه بدون نمونه‌سازی استفاده کنند.
+#### **اضافه شد ویژگی IPresentationFactory PresentationFactory.Instance**
+این ویژگی به توسعه‌دهندگان اجازه می‌دهد بدون ایجاد نمونه، از عملکرد کارخانه استفاده کنند.
 ### **محدودیت‌ها**
 #### **محدودیت‌ها برای IShape.Frame**
-محدودیت‌هایی برای استفاده از مقادیر تعریف‌نشده برای IShape.Frame افزوده شده‌اند. کدی که سعی می‌کند یک فریم تعریف‌نشده را به IShape.Frame اختصاص دهد در بیشتر موارد معنا ندارد (به‌ویژه وقتی GroupShape والد چندین بار در {{GroupShape}}های دیگر تو در تو باشد). برای مثال:
-
+محدودیت‌هایی برای استفاده از مقادیر تعریف‌نشده برای IShape.Frame اضافه شده است. کدی که سعی می‌کند یک چارچوب تعریف‌نشده را به IShape.Frame اختصاص دهد در بیشتر موارد منطقی نیست (به ویژه زمانی که GroupShape والد چندین بار در داخل سایر {{GroupShape}}ها تو در تو باشد). برای مثال:
 ``` csharp
+using Aspose.Slides;
 
- IShape shape = ...;
+Presentation presentation = new Presentation();
+IShape shape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
+// استثنای ArgumentException صادر می‌شود: مقادیر چارچوب باید تعریف شوند.
 shape.Frame = new ShapeFrame(float.NaN, float.NaN, float.NaN, float.NaN, NullableBool.NotDefined, NullableBool.NotDefined, float.NaN);
-
-
 ``` 
-
 یا
-
 ``` csharp
+using Aspose.Slides;
 
- slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, float.NaN, float.NaN, float.NaN, float.NaN);
+Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
 
+// استثنای ArgumentException صادر می‌شود: مقدارهای x، y، عرض و ارتفاع باید تعریف شوند.
+slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, float.NaN, float.NaN, float.NaN, float.NaN);
 ``` 
-
-چنین کدی می‌تواند به موقعیت‌های نامشخص منجر شود. بنابراین محدودیت‌هایی برای استفاده از مقادیر تعریف‌نشده برای IShape.Frame افزوده شده است. مقادیر x، y، عرض، ارتفاع، flipH، flipV و rotationAngle باید تعریف شوند (و نه به float.NaN یا NullableBool.NotDefined تنظیم شوند). کد نمونهٔ بالا اکنون یک استثنای ArgumentException می‌اندازد.
-این برای موارد استفاده زیر اعمال می‌شود:
-
+چنین کدی می‌تواند به وضعیت‌های نامشخص منجر شود. بنابراین محدودیت‌هایی برای استفاده از مقادیر تعریف‌نشده برای IShape.Frame اضافه شده است. مقادیر x، y، width، height، flipH، flipV و rotationAngle باید تعریف شوند (و نه به float.NaN یا NullableBool.NotDefined تنظیم شوند). کد مثال بالا اکنون یک استثنای ArgumentException تولید می‌کند.
+این محدودیت‌ها در موارد زیر اعمال می‌شود:
 ``` csharp
+using Aspose.Slides;
 
- IShape shape = ...;
+Presentation presentation = new Presentation();
+IShapeCollection shapes = presentation.Slides[0].Shapes;
 
-shape.Frame = ...; // نمی‌تواند تعریف‌نشده باشد
+// پارامترهای x، y، عرض و ارتفاع نمی‌توانند float.NaN باشند، و flipH، flipV
+// نمی‌توانند NullableBool.NotDefined باشند:
+IShape shape = shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+shape.Frame = new ShapeFrame(100, 100, 200, 100, NullableBool.False, NullableBool.False, 0);
 
-IShapeCollection shapes = ...;
+// همان محدودیت برای هر متدی که یک شکل ایجاد می‌کند اعمال می‌شود:
+AddAudioFrameCD, AddAudioFrameEmbedded, AddAudioFrameLinked, AddAutoShape, AddChart,
+AddConnector, AddOleObjectFrame, AddPictureFrame, AddSmartArt, AddTable, AddVideoFrame,
+InsertAudioFrameEmbedded, InsertAudioFrameLinked, InsertAutoShape, InsertChart,
+InsertConnector, InsertOleObjectFrame, InsertPictureFrame, InsertTable, InsertVideoFrame.
+``` 
+اما ویژگی‌های چارچوب IShape.RawFrame می‌توانند تعریف‌نشده باشند. این مورد زمانی که یک شکل به یک placeholder لینک شده باشد منطقی است. سپس مقادیر تعریف‌نشده چارچوب شکل از شکل placeholder والد بازنویسی می‌شوند. اگر placeholder والد وجود نداشته باشد، آن شکل هنگام محاسبه چارچوب مؤثر بر پایه IShape.RawFrame از مقادیر پیش‌فرض استفاده می‌کند. مقادیر پیش‌فرض برای x، y، width، height، flipH، flipV و rotationAngle برابر 0 و NullableBool.False هستند. برای مثال:
+``` csharp
+using Aspose.Slides;
 
-// پارامترهای x، y، عرض، ارتفاع نمی‌توانند float.NaN باشند:
-
+using (Presentation presentation = new Presentation("sample.pptx"))
 {
+    // شکل به یک placeholder لینک شده است
+    IShape shape = presentation.Slides[0].Shapes[0];
 
-    shapes.AddAudioFrameCD(...);
+    shape.RawFrame = new ShapeFrame(float.NaN, float.NaN, 100, float.NaN, NullableBool.NotDefined, NullableBool.NotDefined, 0);
 
-    shapes.AddAudioFrameEmbedded(...);
-
-    shapes.AddAudioFrameLinked(...);
-
-    shapes.AddAutoShape(...);
-
-    shapes.AddChart(...);
-
-    shapes.AddConnector(...);
-
-    shapes.AddOleObjectFrame(...);
-
-    shapes.AddPictureFrame(...);
-
-    shapes.AddSmartArt(...);
-
-    shapes.AddTable(...);
-
-    shapes.AddVideoFrame(...);
-
-    shapes.InsertAudioFrameEmbedded(...);
-
-    shapes.InsertAudioFrameLinked(...);
-
-    shapes.InsertAutoShape(...);
-
-    shapes.InsertChart(...);
-
-    shapes.InsertConnector(...);
-
-    shapes.InsertOleObjectFrame(...);
-
-    shapes.InsertPictureFrame(...);
-
-    shapes.InsertTable(...);
-
-    shapes.InsertVideoFrame(...);
-
+    // اکنون شکل مقادیر x، y، height، flipH، flipV را از placeholder ارث‌برداری می‌کند و عرض=100 و rotationAngle=0 را بازنویسی می‌کند.
 }
-
-
 ``` 
-
-اما خواص فریم IShape.RawFrame می‌توانند تعریف‌نشده باشند. این منطقی است وقتی یک شکل به یک placeholder لینک شده باشد. سپس مقادیر فریم تعریف‌نشدهٔ شکل از شکل placeholder والد بازنویسی می‌شوند. اگر placeholder والد وجود نداشته باشد، آن شکل از مقادیر پیش‌فرض استفاده می‌کند وقتی فریم مؤثر را بر پایهٔ IShape.RawFrame ارزیابی می‌کند. مقادیر پیش‌فرض برای x، y، عرض، ارتفاع، flipH، flipV و rotationAngle برابر 0 و NullableBool.False هستند. برای مثال:
-
-``` csharp
-
- IShape shape = ...; // شکل به placeholder لینک شده است
-
-shape.RawFrame = new ShapeFrame(float.NaN, float.NaN, 100, float.NaN, NullableBool.NotDefined, NullableBool.NotDefined, 0);
-
-// اکنون shape مقادیر x، y، height، flipH، flipV را از placeholder به ارث می‌برد و width=100 و rotationAngle=0 را بازنویسی می‌کند.
-
-``` 
-### **خواص تغییر یافته**
+### **ویژگی‌های تغییر یافته**
 #### **تغییر نام و نوع ویژگی Aspose.Slides.IShapeCollection.Parent**
-- نوع ویژگی Aspose.Slides.IShapeCollection.Parent از ISlideComponent به اینترفیس جدید IGroupShape تغییر کرده است. اینترفیس IGroupShape فرزند ISlideComponent است، بنابراین کد موجود نیازی به اصلاح ندارد.
+- نوع ویژگی Aspose.Slides.IShapeCollection.Parent از ISlideComponent به اینترفیس جدید IGroupShape تغییر پیدا کرده است. اینترفیس IGroupShape یک نوادگان ISlideComponent است، بنابراین کدهای موجود نیازی به تغییر ندارند.
 - نام ویژگی Aspose.Slides.IShapeCollection.Parent از Parent به ParentGroup تغییر یافته است.
-#### **تغییر نوع ویژگی‌های Aspose.Slides.IShapeFrame.FlipH و .FlipV**
+#### **تغییر نوع ویژگی‌های Aspose.Slides.IShapeFrame.FlipH، .FlipV**
 - نوع ویژگی Aspose.Slides.IShapeFrame.FlipH از bool به NullableBool تغییر یافته است.
-- ویژگی IShape.Frame یک نمونهٔ مؤثر از IShapeFrame را بر می‌گرداند (همهٔ خواص آن مقادیر مؤثر تعریف‌شده دارند).
-- ویژگی IShape.RawFrame یک نمونهٔ IShapeFrame را بر می‌گرداند که هر ویژگی می‌تواند مقدار تعریف‌نشده داشته باشد (به‌ویژه FlipH یا FlipV می‌تواند مقدار NullableBool.NotDefined داشته باشد).
+- ویژگی IShape.Frame یک نمونه مؤثر از IShapeFrame را برمی‌گرداند (همهٔ ویژگی‌های آن دارای مقادیر مؤثر تعریف‌شده هستند).
+- ویژگی IShape.RawFrame یک نمونه از IShapeFrame را برمی‌گرداند که هر ویژگی می‌تواند مقدار تعریف‌نشده داشته باشد (به‌ویژه FlipH یا FlipV می‌توانند مقدار NullableBool.NotDefined داشته باشند).

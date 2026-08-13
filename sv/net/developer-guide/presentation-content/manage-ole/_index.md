@@ -1,11 +1,11 @@
 ---
-title: Hantera OLE-objekt i presentationer i .NET
+title: Hantera OLE‑objekt i presentationer i .NET
 linktitle: Hantera OLE
 type: docs
 weight: 40
 url: /sv/net/manage-ole/
 keywords:
-- OLE-objekt
+- OLE‑objekt
 - Objektlänkning & Inbäddning
 - lägg till OLE
 - bädda in OLE
@@ -14,10 +14,10 @@ keywords:
 - lägg till fil
 - bädda in fil
 - länkat objekt
-- länkad fil
+- länkat fil
 - ändra OLE
-- OLE-ikon
-- OLE-titel
+- OLE‑ikon
+- OLE‑titel
 - extrahera OLE
 - extrahera objekt
 - extrahera fil
@@ -26,26 +26,26 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Optimera hanteringen av OLE-objekt i PowerPoint- och OpenDocument-filer med Aspose.Slides för .NET. Bädda in, uppdatera och exportera OLE-innehåll sömlöst."
+description: "Optimera hanteringen av OLE‑objekt i PowerPoint‑ och OpenDocument‑filer med Aspose.Slides för .NET. Bädda in, uppdatera och exportera OLE‑innehåll sömlöst."
 ---
 ## **Introduktion**
 
 {{% alert title="Info" color="info" %}}
 
-OLE (Object Linking & Embedding) är en Microsoft‑teknik som tillåter data och objekt skapade i ett program att placeras i ett annat program via länkning eller inbäddning. 
+OLE (Object Linking & Embedding) är en Microsoft‑teknik som gör att data och objekt som skapats i en applikation kan placeras i en annan applikation genom länkning eller inbäddning. 
 
 {{% /alert %}} 
 
-Tänk på ett diagram skapat i MS Excel. Diagrammet placeras sedan i en PowerPoint‑bild. Det Excel‑diagrammet betraktas som ett OLE‑objekt. 
+Föreställ dig ett diagram som skapats i MS Excel. Diagrammet placeras sedan i en PowerPoint‑bild. Det Excel‑diagrammet betraktas som ett OLE‑objekt. 
 
-- Ett OLE‑objekt kan visas som en ikon. I så fall öppnas diagrammet i det tillhörande programmet (Excel) när du dubbelklickar på ikonen, eller så blir du ombedd att välja ett program för att öppna eller redigera objektet. 
+- Ett OLE‑objekt kan visas som en ikon. I så fall, när du dubbelklickar på ikonen, öppnas diagrammet i dess tillhörande program (Excel), eller du blir ombedd att välja ett program för att öppna eller redigera objektet. 
 - Ett OLE‑objekt kan visa sitt faktiska innehåll, till exempel innehållet i ett diagram. I så fall aktiveras diagrammet i PowerPoint, diagramgränssnittet laddas och du kan ändra diagrammets data i PowerPoint.
 
-[Aspose.Slides for .NET](https://products.aspose.com/slides/sv/net/) låter dig infoga OLE‑objekt i bilder som OLE‑objekt‑ramar ([OleObjectFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/oleobjectframe)).
+[Aspose.Slides for .NET](https://products.aspose.com/slides/sv/net/) låter dig infoga OLE‑objekt i bilder som OLE‑objektramar ([OleObjectFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/oleobjectframe)).
 
-## **Lägg till OLE‑objekt‑ramar i bilder**
+## **Lägg till OLE‑objektramar till bilder**
 
-Anta att du redan har skapat ett diagram i Microsoft Excel och vill bädda in det i en bild som en OLE‑objekt‑ram med Aspose.Slides for .NET, så kan du göra så här:
+Antag att du redan har skapat ett diagram i Microsoft Excel och vill bädda in det i en bild som en OLE‑objektram med Aspose.Slides for .NET, så kan du göra så här:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation).
 2. Hämta en bilds referens via dess index.
@@ -53,10 +53,15 @@ Anta att du redan har skapat ett diagram i Microsoft Excel och vill bädda in de
 4. Lägg till [OleObjectFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/oleobjectframe) på bilden med byte‑arrayen och annan information om OLE‑objektet.
 5. Skriv den modifierade presentationen som en PPTX‑fil.
 
-I exemplet nedan lade vi till ett diagram från en Excel‑fil på en bild som ett [OleObjectFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/oleobjectframe) med Aspose.Slides for .NET.  
-**Obs** att konstruktorn för [OleEmbeddedDataInfo](https://reference.aspose.com/slides/sv/net/aspose.slides.dom.ole/oleembeddeddatainfo/) tar en inbäddningsbar objekt‑extension som andra parameter. Denna extension låter PowerPoint tolka filtypen korrekt och välja rätt program för att öppna detta OLE‑objekt.
+I exemplen nedan lade vi till ett diagram från en Excel‑fil i en bild som ett [OleObjectFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/oleobjectframe) med Aspose.Slides for .NET.  
+**Obs!** att konstruktören för [OleEmbeddedDataInfo](https://reference.aspose.com/slides/sv/net/aspose.slides.dom.ole/oleembeddeddatainfo/) tar en inbäddningsbar objekt‑extension som andra parameter. Denna extension gör att PowerPoint korrekt tolkar filtypen och väljer rätt program för att öppna OLE‑objektet.
 
 ```csharp 
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     SizeF slideSize = presentation.SlideSize.Size;
@@ -73,13 +78,14 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **Lägg till länkade OLE‑objekt‑ramar**
+### **Lägg till länkade OLE‑objektramar**
 
 Aspose.Slides for .NET låter dig lägga till ett [OleObjectFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/oleobjectframe) utan att bädda in data, utan bara med en länk till filen.
 
-Denna C#‑kod visar hur du lägger till ett [OleObjectFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/oleobjectframe) med en länkad Excel‑fil på en bild:
-
 ```csharp 
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -91,18 +97,20 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Åtkomst till OLE‑objekt‑ramar**
+## **Åtkomst till OLE‑objektramar**
 
 Om ett OLE‑objekt redan är inbäddat i en bild kan du enkelt hitta eller komma åt det på följande sätt:
 
-1. Läs in en presentation med det inbäddade OLE‑objektet genom att skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation).
+1. Ladda en presentation med det inbäddade OLE‑objektet genom att skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation).
 2. Hämta bildens referens med hjälp av dess index.
-3. Åtkom formen [OleObjectFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/oleobjectframe). I vårt exempel använde vi den tidigare skapade PPTX‑filen som har endast en form på den första bilden. Vi *castade* sedan det objektet till en [IOleObjectFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/ioleobjectframe). Detta var den önskade OLE‑objekt‑ramen som skulle nås.
-4. När OLE‑objekt‑ramen har nåtts kan du utföra valfri operation på den.
+3. Kom åt formen [OleObjectFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/oleobjectframe). I vårt exempel använde vi den tidigare skapade PPTX‑filen som har endast en form på den första bilden. Vi *castar* sedan det objektet till ett [IOleObjectFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/ioleobjectframe). Detta var den önskade OLE‑objektramen som skulle nås.
+4. När OLE‑objektramen har nåtts kan du utföra valfri operation på den.
 
-I exemplet nedan nås en OLE‑objekt‑ram (ett Excel‑diagramobjekt inbäddat i en bild) och dess fildata.
+I exemplen nedan nås en OLE‑objektram (ett Excel‑diagramobjekt inbäddat i en bild) och dess fildata.
 
 ```csharp 
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -112,7 +120,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
     if (oleFrame != null)
     {
-        // Hämta den inbäddade fildatan.
+        // Hämta den inbäddade filens data.
         byte[] fileData = oleFrame.EmbeddedData.EmbeddedFileData;
 
         // Hämta filändelsen för den inbäddade filen.
@@ -123,13 +131,13 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-### **Åtkomst till egenskaper för länkad OLE‑objekt‑ram**
+### **Åtkomst till egenskaper för länkade OLE‑objektramar**
 
-Aspose.Slides låter dig komma åt egenskaper för länkade OLE‑objekt‑ramar.
-
-Denna C#‑kod visar hur du kontrollerar om ett OLE‑objekt är länkat och sedan hämtar sökvägen till den länkade filen:
+Aspose.Slides låter dig komma åt egenskaper för länkade OLE‑objektramar.
 
 ```csharp
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.ppt"))
 {
     ISlide slide = presentation.Slides[0];
@@ -155,26 +163,30 @@ using (Presentation presentation = new Presentation("sample.ppt"))
 
 ## **Ändra OLE‑objektdata**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-I detta avsnitt använder kodexemplet nedan [Aspose.Cells for .NET](/cells/net/).
+I den här sektionen använder kodexemplet nedan [Aspose.Cells for .NET](/cells/net/).
 
 {{% /alert %}}
 
-Om ett OLE‑objekt redan är inbäddat i en bild kan du på detta sätt enkelt nå objektet och ändra dess data:
+Om ett OLE‑objekt redan är inbäddat i en bild kan du enkelt nå det och ändra dess data på följande sätt:
 
-1. Läs in en presentation med det inbäddade OLE‑objektet genom att skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation).
+1. Ladda en presentation med det inbäddade OLE‑objektet genom att skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation).
 2. Hämta bildens referens via dess index. 
-3. Åtkom formen [OLEObjectFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/oleobjectframe). I vårt exempel använde vi den tidigare skapade PPTX‑filen som har en form på den första bilden. Vi *castade* sedan objektet till en [IOleObjectFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/ioleobjectframe). Detta var den önskade OLE‑objekt‑ramen som skulle nås.
-4. När OLE‑objekt‑ramen har nåtts kan du utföra vilken operation som helst på den.
-5. Skapa ett `Workbook`‑objekt och få åtkomst till OLE‑data.
-6. Åtkom det önskade `Worksheet` och ändra datan.
-7. Spara det uppdaterade `Workbook` i en ström.
-8. Ändra OLE‑objektdata från strömmen.
+3. Kom åt formen [OLEObjectFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/oleobjectframe). I vårt exempel använde vi den tidigare skapade PPTX‑filen som har en form på den första bilden. Vi *castar* sedan objektet till ett [IOleObjectFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/ioleobjectframe). Detta var den önskade OLE‑objektramen som skulle nås.
+4. När OLE‑objektramen har nåtts kan du utföra valfri operation på den.
+5. Skapa ett `Workbook`‑objekt och hämta OLE‑data.
+6. Hämta önskat `Worksheet` och ändra data.
+7. Spara den uppdaterade `Workbook` i en ström.
+8. Ändra OLE‑objektdatan från strömmen.
 
-I exemplet nedan nås en OLE‑objekt‑ram ( ett Excel‑diagramobjekt inbäddat i en bild) och dess fildata modifieras för att uppdatera diagrammets data.
+I exemplen nedan nås en OLE‑objektram (ett Excel‑diagramobjekt inbäddat i en bild) och dess fildata modifieras för att uppdatera diagrammets data.
 
 ```csharp 
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -187,7 +199,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
         using (MemoryStream oleStream = new MemoryStream(oleFrame.EmbeddedData.EmbeddedFileData))
         {
             // Läs OLE-objektets data som ett Workbook-objekt.
-            Workbook workbook = new Workbook(oleStream);
+            Aspose.Cells.Workbook workbook = new Aspose.Cells.Workbook(oleStream);
 
             using (MemoryStream newOleStream = new MemoryStream())
             {
@@ -197,10 +209,10 @@ using (Presentation presentation = new Presentation("sample.pptx"))
                 workbook.Worksheets[0].Cells[2, 4].PutValue(14);
                 workbook.Worksheets[0].Cells[3, 4].PutValue(15);
 
-                OoxmlSaveOptions fileOptions = new OoxmlSaveOptions(Aspose.Cells.SaveFormat.Xlsx);
+                Aspose.Cells.OoxmlSaveOptions fileOptions = new Aspose.Cells.OoxmlSaveOptions(Aspose.Cells.SaveFormat.Xlsx);
                 workbook.Save(newOleStream, fileOptions);
 
-                // Ändra OLE-ramens objektdata.
+                // Ändra OLE-ramens objektdatat.
                 IOleEmbeddedDataInfo newData = new OleEmbeddedDataInfo(newOleStream.ToArray(), oleFrame.EmbeddedData.EmbeddedFileExtension);
                 oleFrame.SetEmbeddedData(newData);
             }
@@ -213,11 +225,13 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
 ## **Bädda in andra filtyper i bilder**
 
-Förutom Excel‑diagram låter Aspose.Slides for .NET dig bädda in andra filtyper i bilder. Till exempel kan du infoga HTML-, PDF- och ZIP‑filer som objekt. När en användare dubbelklickar på det infogade objektet öppnas det automatiskt i det relevanta programmet, eller så blir användaren ombedd att välja ett lämpligt program för att öppna det.
-
-Denna C#‑kod visar hur du bäddar in HTML och ZIP i en bild:
+Förutom Excel‑diagram låter Aspose.Slides for .NET dig bädda in andra filtyper i bilder. Till exempel kan du infoga HTML‑, PDF‑ och ZIP‑filer som objekt. När en användare dubbelklickar på det infogade objektet öppnas det automatiskt i det relevanta programmet, eller så får användaren en uppmaning att välja ett lämpligt program för att öppna det.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -238,11 +252,13 @@ using (Presentation presentation = new Presentation())
 
 ## **Ange filtyper för inbäddade objekt**
 
-När du arbetar med presentationer kan du behöva ersätta gamla OLE‑objekt med nya eller ersätta ett ej‑stödd OLE‑objekt med ett stödt. Aspose.Slides for .NET låter dig ange filtypen för ett inbäddat objekt, vilket möjliggör att uppdatera OLE‑ramens data eller dess extension.
-
-Denna C#‑kod visar hur du anger filtypen för ett inbäddat OLE‑objekt till `zip`:
+När du arbetar med presentationer kan du behöva ersätta gamla OLE‑objekt med nya eller ersätta ett ej‑stött OLE‑objekt med ett stödt. Aspose.Slides for .NET låter dig ange filtypen för ett inbäddat objekt, vilket gör att du kan uppdatera OLE‑ramens data eller dess extension.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -262,11 +278,12 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
 ## **Ange ikonbilder och titlar för inbäddade objekt**
 
-Efter att ett OLE‑objekt har bäddats in läggs automatiskt en förhandsgranskning bestående av en ikonbild till. Denna förhandsgranskning är vad användarna ser innan de åtkommer till eller öppnar OLE‑objektet. Om du vill använda en specifik bild och text som element i förhandsgranskningen kan du ange ikonbilden och titeln med Aspose.Slides for .NET.
-
-Denna C#‑kod visar hur du anger ikonbilden och titeln för ett inbäddat objekt: 
+Efter att ha bäddat in ett OLE‑objekt läggs automatiskt en förhandsgranskning bestående av en ikonbild till. Denna förhandsgranskning är vad användare ser innan de öppnar eller får åtkomst till OLE‑objektet. Om du vill använda en specifik bild och text som element i förhandsgranskningen kan du ange ikonbilden och titeln med Aspose.Slides for .NET.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -276,7 +293,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
     byte[] imageData = File.ReadAllBytes("image.png");
     IPPImage oleImage = presentation.Images.AddImage(imageData);
 
-    // Ange en titel och bilden för OLE-förhandsgranskningen.
+    // Ange en titel och bilden för OLE‑förhandsgranskningen.
     oleFrame.SubstitutePictureTitle = "My title";
     oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
     oleFrame.IsObjectIcon = true;
@@ -285,24 +302,36 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **Prevent an OLE Object Frame from Being Resized and Pepositioned**
+## **Förhindra att en OLE‑objektram ändras i storlek och position**
 
-När du har lagt till ett länkat OLE‑objekt på en presentationsbild och öppnar presentationen i PowerPoint kan du få ett meddelande som ber dig uppdatera länkarna. Klickar du på knappen "Update Links" kan storlek och position för OLE‑objekt‑ramen ändras eftersom PowerPoint uppdaterar data från det länkade OLE‑objektet och uppdaterar förhandsgranskningen. För att förhindra att PowerPoint uppmanar dig att uppdatera objektets data, sätt egenskapen `UpdateAutomatic` för gränssnittet [IOleObjectFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/ioleobjectframe/) till `false`:
+Efter att du har lagt till ett länkat OLE‑objekt i en presentationsbild, kan du när du öppnar presentationen i PowerPoint få ett meddelande som ber dig uppdatera länkarna. Att klicka på knappen "Uppdatera länkar" kan ändra storlek och position på OLE‑objektramen eftersom PowerPoint uppdaterar data från det länkade OLE‑objektet och uppdaterar förhandsgranskningen. För att förhindra att PowerPoint uppmanar att uppdatera objektets data, sätt egenskapen `UpdateAutomatic` på [IOleObjectFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/ioleobjectframe/)‑gränssnittet till `false`:
 
 ```cs
-oleFrame.UpdateAutomatic = false;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    IOleObjectFrame oleFrame = (IOleObjectFrame)presentation.Slides[0].Shapes[0];
+
+    // Behåll OLE-objektramens storlek och position när PowerPoint uppdaterar länken.
+    oleFrame.UpdateAutomatic = false;
+
+    presentation.Save("output.pptx", SaveFormat.Pptx);
+}
 ```
 
 ## **Extrahera inbäddade filer**
 
 Aspose.Slides for .NET låter dig extrahera filer som är inbäddade i bilder som OLE‑objekt på följande sätt:
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation) som innehåller de OLE‑objekt du vill extrahera.
-2. Loop igenom alla former i presentationen och åtkom [OLEObjectFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/oleobjectframe)-formerna.
-3. Åtkom datan för inbäddade filer från OLE‑objekt‑ramarna och skriv den till disk.
 
-Denna C#‑kod visar hur du extraherar filer som är inbäddade i en bild som OLE‑objekt:
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation) som innehåller de OLE‑objekt du vill extrahera.
+2. Loopa igenom alla former i presentationen och kom åt formerna [OLEObjectFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/oleobjectframe).
+3. Hämta data från inbäddade filer i OLE‑objektramarna och skriv den till disk.
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -326,18 +355,18 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
 ## **FAQ**
 
-**Kommer OLE‑innehållet att renderas när bilder exporteras till PDF/bilder?**
+### Renderas OLE‑innehållet när bilder exporteras till PDF/bilder?
 
-Det som är synligt på bilden renderas – ikon-/ersättningsbilden (förhandsgranskning). Det "levande" OLE‑innehållet körs inte under rendering. Vid behov, ange din egen förhandsgranskningsbild för att säkra det förväntade utseendet i den exporterade PDF‑filen.
+Det som syns på bilden renderas – ikonen/substitut‑bilden (förhandsgranskningen). Det ”levande” OLE‑innehållet körs inte under rendering. Vid behov, ange en egen förhandsgranskningsbild för att säkerställa önskat utseende i den exporterade PDF‑filen.
 
-**Hur kan jag låsa ett OLE‑objekt på en bild så att användare inte kan flytta/redigera det i PowerPoint?**
+### Hur kan jag låsa ett OLE‑objekt på en bild så att användare inte kan flytta/redigera det i PowerPoint?
 
-Lås formen: Aspose.Slides tillhandahåller [formnivå‑låsning](/slides/sv/net/applying-protection-to-presentation/). Detta är inte kryptering, men det förhindrar effektivt oavsiktliga redigeringar och förflyttningar.
+Lås formen: Aspose.Slides tillhandahåller [form‑nivå lås](/slides/sv/net/applying-protection-to-presentation/). Detta är ingen kryptering, men det förhindrar i praktiken oavsiktliga redigeringar och flyttningar.
 
-**Varför "hoppar" eller ändrar storlek ett länkat Excel‑objekt när jag öppnar presentationen?**
+### Varför “hoppar” ett länkat Excel‑objekt eller ändrar storlek när jag öppnar presentationen?
 
-PowerPoint kan uppdatera förhandsgranskningen av det länkade OLE‑objektet. För ett stabilt utseende, följ rekommendationerna i [Working Solution for Worksheet Resizing](/slides/sv/net/working-solution-for-worksheet-resizing/) – anpassa antingen ramen till intervallet, eller skala intervallet till en fast ram och ange en lämplig ersättningsbild.
+PowerPoint kan uppdatera förhandsgranskningen av det länkade OLE‑objektet. För ett stabilt utseende, följ [Working Solution for Worksheet Resizing](/slides/sv/net/working-solution-for-worksheet-resizing/)-praktiken – antingen anpassa ramen till intervallet, eller skala intervallet till en fast ram och ange en lämplig ersättningsbild.
 
-**Kommer relativa sökvägar för länkade OLE‑objekt att bevaras i PPTX‑formatet?**
+### Kommer relativa sökvägar för länkade OLE‑objekt att bevaras i PPTX‑formatet?
 
-I PPTX finns ingen information om "relativ sökväg" – endast den fullständiga sökvägen. Relativa sökvägar finns i det äldre PPT‑formatet. För portabilitet bör du föredra pålitliga absoluta sökvägar/tillgängliga URI:er eller bädda in.
+I PPTX är information om “relativ sökväg” inte tillgänglig – endast den fullständiga sökvägen. Relativa sökvägar finns i det äldre PPT‑formatet. För portabilitet, föredra pålitliga absoluta sökvägar/tillgängliga URI:er eller inbäddning.

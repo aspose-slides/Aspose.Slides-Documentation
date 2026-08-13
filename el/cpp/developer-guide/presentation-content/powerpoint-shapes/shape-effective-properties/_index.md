@@ -1,14 +1,14 @@
 ---
-title: Απόκτηση αποτελεσματικών ιδιοτήτων σχήματος από παρουσιάσεις σε C++
-linktitle: Αποτελεσματικές Ιδιότητες
+title: "Λήψη αποτελεσματικών ιδιοτήτων σχήματος από παρουσιάσεις σε C++"
+linktitle: "Αποτελεσματικές Ιδιότητες"
 type: docs
 weight: 50
 url: /el/cpp/shape-effective-properties/
 keywords:
 - ιδιότητες σχήματος
 - ιδιότητες κάμερας
-- σύστημα φωτισμού
-- σχήμα λοξότμησης
+- εξοπλισμός φωτισμού
+- σχήμα κλίσης
 - πλαίσιο κειμένου
 - στυλ κειμένου
 - ύψος γραμματοσειράς
@@ -21,17 +21,27 @@ description: "Ανακαλύψτε πώς το Aspose.Slides για C++ υπολ
 ---
 ## **Επισκόπηση**
 
-Αυτό το θέμα εξηγεί τη διαφορά μεταξύ ιδιοτήτων **local** και **effective**. Οι τοπικές τιμές είναι τιμές που ορίζονται άμεσα σε ένα συγκεκριμένο επίπεδο μορφοποίησης, όπως:
+Αυτό το θέμα εξηγεί τη διαφορά μεταξύ **τοπικών** και **αποτελεσματικών** ιδιοτήτων. Οι τοπικές τιμές είναι τιμές που ορίζονται άμεσα σε ένα συγκεκριμένο επίπεδο μορφοποίησης, όπως:
 
-1. Ιδιότητες τμήματος σε μια διαφάνεια.
-1. Τεχνοτροπίες κειμένου προτύπου σχήματος σε διάταξη ή κυριότερη διαφάνεια, όταν το σχήμα πλαισίου κειμένου του τμήματος διαθέτει μία.
+1. Ιδιότητες τμήματος σε μια διαφάνεια.  
+1. Προτυποτικές μορφές κειμένου σχήματος σε διάταξη ή κύρια διαφάνεια, όταν το σχήμα του πλαισίου κειμένου του τμήματος έχει μία.  
 1. Γενικές ρυθμίσεις κειμένου σε μια παρουσίαση.
 
-Οι τοπικές τιμές μπορούν να οριστούν ή να παραλειφθούν σε οποιοδήποτε επίπεδο. Όταν το Aspose.Slides χρειάζεται τη τελική μορφοποίηση "as rendered", επιλύει την αλυσίδα κληρονομικότητας και επιστρέφει τιμές **effective**. Μπορείτε να τις λάβετε καλώντας τη μέθοδο `GetEffective` στο αντικείμενο τοπικής μορφής.
+Οι τοπικές τιμές μπορούν να οριστούν ή να παραλειφθούν σε οποιοδήποτε επίπεδο. Όταν το Aspose.Slides χρειάζεται τη τελική μορφοποίηση «όπως αποδίδεται», επιλύει την αλυσίδα κληρονομικότητας και επιστρέφει **αποτελεσματικές** τιμές. Μπορείτε να τις λάβετε καλώντας τη μέθοδο `GetEffective` στο αντικείμενο τοπικής μορφής.
 
-Το παρακάτω παράδειγμα δείχνει πώς να λάβετε τις αποτελεσματικές τιμές. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι ένα [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/) με πλαίσιο κειμένου και τουλάχιστον ένα τμήμα.
+Το παρακάτω παράδειγμα δείχνει πώς να λάβετε αποτελεσματικές τιμές. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι ένα [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/) με πλαίσιο κειμένου και τουλάχιστον ένα τμήμα.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -46,17 +56,28 @@ auto effectivePortionFormat = portion->get_PortionFormat()->GetEffective();
 presentation->Dispose();
 ```
 
-{{% alert color="primary" %}}
-Τα δεδομένα αποτελεσματικής μορφοποίησης αντιπροσωπεύουν την τρέχουσα υπολογισμένη μορφοποίηση μετά την εφαρμογή της κληρονομικότητας. Στην τρέχουσα υλοποίηση, ορισμένα αντικείμενα αποτελεσματικών δεδομένων, όπως το [IPortionFormatEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/iportionformateffectivedata/), μπορεί να αποθηκεύονται στην κρυφή μνήμη. Η επανάκληση του `GetEffective` μετά την αλλαγή της γονικής ή κληρονομικής μορφοποίησης μπορεί να ανανεώσει τα αποθηκευμένα δεδομένα, και ένα αντικείμενο που είχε ληφθεί προηγουμένως μπορεί να μην αντιπροσωπεύει πλέον την προηγούμενη κατάσταση. Εάν χρειάζεται να διατηρήσετε τις αποτελεσματικές τιμές για μετέπειτα χρήση, αντιγράψτε τις απαιτούμενες ιδιότητες, όπως το ύψος γραμματοσειράς, το χρώμα γεμίσματος, το στυλ γραμματοσειράς ή την ευθυγράμμιση, στο δικό σας αντικείμενο δεδομένων.
+{{% alert color="info" %}}
+Τα αποτελεσματικά δεδομένα μορφοποίησης αντιπροσωπεύουν τη τρέχουσα υπολογισμένη μορφοποίηση μετά την εφαρμογή της κληρονομικότητας. Στην τρέχουσα υλοποίηση, κάποια αντικείμενα αποτελεσματικών δεδομένων, όπως το [IPortionFormatEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/iportionformateffectivedata/), ενδέχεται να αποθηκεύονται προσωρινά εσωτερικά. Η επανεκτέλεση του `GetEffective` μετά από τροποποίηση της γονικής ή κληρονομημένης μορφοποίησης μπορεί να ανανεώσει τα προσωρινά δεδομένα, και ένα αντικείμενο που είχε ληφθεί νωρίτερα μπορεί να μην αντιπροσωπεύει πλέον την προηγούμενη κατάσταση. Εάν χρειάζεται να διατηρήσετε τις αποτελεσματικές τιμές για μελλοντική χρήση, αντιγράψτε τις απαιτούμενες ιδιότητες, όπως το ύψος γραμματοσειράς, το χρώμα γεμίσματος, το στυλ γραμματοσειράς ή την ευθυγράμμιση, σε δικό σας αντικείμενο δεδομένων.
 {{% /alert %}}
 
 ## **Λήψη αποτελεσματικών ιδιοτήτων κάμερας**
 
-Το Aspose.Slides σας επιτρέπει να λάβετε τις αποτελεσματικές ιδιότητες μιας κάμερας. Η διεπαφή [ICameraEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/icameraeffectivedata/) αντιπροσωπεύει ένα αμετάβλητο αντικείμενο που περιέχει τις αποτελεσματικές ιδιότητες της κάμερας. Μια παρουσία του [ICameraEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/icameraeffectivedata/) εκτίθεται μέσω του [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/ithreedformateffectivedata/), το οποίο παρέχει τις αποτελεσματικές τιμές για το [IThreeDFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/ithreedformat/).
+Το Aspose.Slides σας επιτρέπει να λάβετε αποτελεσματικές ιδιότητες μιας κάμερας. Η διεπαφή [ICameraEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/icameraeffectivedata/) αντιπροσωπεύει ένα αμετάβλητο αντικείμενο που περιέχει αποτελεσματικές ιδιότητες κάμερας. Μια παρουσία της [ICameraEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/icameraeffectivedata/) εκτίθεται μέσω του [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/ithreedformateffectivedata/), το οποίο παρέχει αποτελεσματικές τιμές για το [IThreeDFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/ithreedformat/).
 
-Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε τις αποτελεσματικές ιδιότητες για την κάμερα. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια έχει 3D μορφοποίηση.
+Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε αποτελεσματικές ιδιότητες για την κάμερα. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια έχει 3D μορφοποίηση.
 
 ```cpp
+#include <DOM/ICameraEffectiveData.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -78,13 +99,24 @@ System::Console::WriteLine(System::String(u"Zoom: ") + cameraZoom);
 presentation->Dispose();
 ```
 
-## **Λήψη αποτελεσματικών ιδιοτήτων Light Rig**
+## **Λήψη αποτελεσματικών ιδιοτήτων φωτισμού**
 
-Το Aspose.Slides σας επιτρέπει να λάβετε τις αποτελεσματικές ιδιότητες Light Rig. Η διεπαφή [ILightRigEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilightrigeffectivedata/) αντιπροσωπεύει ένα αμετάβλητο αντικείμενο που περιέχει τις αποτελεσματικές ιδιότητες του φωτιστικού Rig. Μια παρουσία του [ILightRigEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilightrigeffectivedata/) εκτίθεται μέσω του [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/ithreedformateffectivedata/), το οποίο παρέχει τις αποτελεσματικές τιμές για το [IThreeDFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/ithreedformat/).
+Το Aspose.Slides σας επιτρέπει να λάβετε αποτελεσματικές ιδιότητες ενός φωτιστικού εξοπλισμού. Η διεπαφή [ILightRigEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilightrigeffectivedata/) αντιπροσωπεύει ένα αμετάβλητο αντικείμενο που περιέχει αποτελεσματικές ιδιότητες του φωτιστικού. Μια παρουσία της [ILightRigEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilightrigeffectivedata/) εκτίθεται μέσω του [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/ithreedformateffectivedata/), το οποίο παρέχει αποτελεσματικές τιμές για το [IThreeDFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/ithreedformat/).
 
-Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε τις αποτελεσματικές ιδιότητες για το φωτιστικό Rig. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια έχει 3D μορφοποίηση.
+Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε αποτελεσματικές ιδιότητες για το φωτιστικό. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια έχει 3D μορφοποίηση.
 
 ```cpp
+#include <DOM/ILightRigEffectiveData.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 auto shape = presentation->get_Slide(0)->get_Shape(0);
 
@@ -101,13 +133,24 @@ System::Console::WriteLine(System::String(u"Direction: ") + lightDirection);
 presentation->Dispose();
 ```
 
-## **Λήψη αποτελεσματικών ιδιοτήτων Bevel Shape**
+## **Λήψη αποτελεσματικών ιδιοτήτων κλίσης σχήματος**
 
-Το Aspose.Slides σας επιτρέπει να λάβετε τις αποτελεσματικές ιδιότητες Bevel Shape. Η διεπαφή [IShapeBevelEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishapebeveleffectivedata/) αντιπροσωπεύει ένα αμετάβλητο αντικείμενο που περιέχει τις αποτελεσματικές ιδιότητες ανάπλασης ενός σχήματος. Μια παρουσία του [IShapeBevelEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishapebeveleffectivedata/) εκτίθεται μέσω του [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/ithreedformateffectivedata/), το οποίο παρέχει τις αποτελεσματικές τιμές για το [IThreeDFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/ithreedformat/).
+Το Aspose.Slides σας επιτρέπει να λάβετε αποτελεσματικές ιδιότητες κλίσης ενός σχήματος. Η διεπαφή [IShapeBevelEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishapebeveleffectivedata/) αντιπροσωπεύει ένα αμετάβλητο αντικείμενο που περιέχει αποτελεσματικές ιδιότητες ανάπλασης πρόσοψης για ένα σχήμα. Μια παρουσία της [IShapeBevelEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishapebeveleffectivedata/) εκτίθεται μέσω του [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/ithreedformateffectivedata/), το οποίο παρέχει αποτελεσματικές τιμές για το [IThreeDFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/ithreedformat/).
 
-Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε τις αποτελεσματικές ιδιότητες για το άνω bevel ενός σχήματος. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια έχει 3D μορφοποίηση.
+Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε αποτελεσματικές ιδιότητες για την άνω κλίση ενός σχήματος. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια έχει 3D μορφοποίηση.
 
 ```cpp
+#include <DOM/IShape.h>
+#include <DOM/IShapeBevelEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 auto shape = presentation->get_Slide(0)->get_Shape(0);
 
@@ -127,13 +170,24 @@ System::Console::WriteLine(System::String(u"Height: ") + bevelHeight);
 presentation->Dispose();
 ```
 
-## **Λήψη αποτελεσματικών ιδιοτήτων Text Frame**
+## **Λήψη αποτελεσματικών ιδιοτήτων πλαισίου κειμένου**
 
-Με χρήση του Aspose.Slides, μπορείτε να λάβετε τις αποτελεσματικές ιδιότητες ενός πλαισίου κειμένου. Η διεπαφή [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/itextframeformateffectivedata/) περιέχει τις αποτελεσματικές ιδιότητες μορφοποίησης του πλαισίου κειμένου.
+Με το Aspose.Slides, μπορείτε να λάβετε αποτελεσματικές ιδιότητες ενός πλαισίου κειμένου. Η διεπαφή [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/itextframeformateffectivedata/) περιέχει αποτελεσματικές ιδιότητες μορφοποίησης πλαισίου κειμένου.
 
-Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε τις αποτελεσματικές ιδιότητες μορφοποίησης πλαισίου κειμένου. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι ένα [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/) με πλαίσιο κειμένου.
+Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε αποτελεσματικές ιδιότητες μορφοποίησης πλαισίου κειμένου. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι ένα [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/) με πλαίσιο κειμένου.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/ITextFrameFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -166,13 +220,26 @@ System::Console::WriteLine(System::String(u"   Bottom: ") + marginBottom);
 presentation->Dispose();
 ```
 
-## **Λήψη αποτελεσματικών ιδιοτήτων Text Style**
+## **Λήψη αποτελεσματικών ιδιοτήτων στυλ κειμένου**
 
-Με χρήση του Aspose.Slides, μπορείτε να λάβετε τις αποτελεσματικές ιδιότητες ενός στυλ κειμένου. Η διεπαφή [ITextStyleEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/itextstyleeffectivedata/) περιέχει τις αποτελεσματικές ιδιότητες στυλ κειμένου.
+Με το Aspose.Slides, μπορείτε να λάβετε αποτελεσματικές ιδιότητες ενός στυλ κειμένου. Η διεπαφή [ITextStyleEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/itextstyleeffectivedata/) περιέχει αποτελεσματικές ιδιότητες στυλ κειμένου.
 
-Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε τις αποτελεσματικές ιδιότητες στυλ κειμένου. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι ένα [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/) με πλαίσιο κειμένου.
+Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε αποτελεσματικές ιδιότητες στυλ κειμένου. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι ένα [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/) με πλαίσιο κειμένου.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphFormatEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/ITextStyleEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -199,11 +266,30 @@ for (int levelIndex = 0; levelIndex < levelCount; levelIndex++)
 presentation->Dispose();
 ```
 
-## **Λήψη της αποτελεσματικής τιμής ύψους γραμματοσειράς**
+## **Λήψη αποτελεσματικής τιμής ύψους γραμματοσειράς**
 
-Με χρήση του Aspose.Slides, μπορείτε να λάβετε το αποτελεσματικό ύψος γραμματοσειράς. Το παρακάτω παράδειγμα δείχνει πώς το αποτελεσματικό ύψος γραμματοσειράς ενός τμήματος αλλάζει μετά τον ορισμό τοπικών τιμών ύψους σε διαφορετικά επίπεδα δομής παρουσίασης.
+Με το Aspose.Slides, μπορείτε να λάβετε το αποτελεσματικό ύψος γραμματοσειράς. Ο παρακάτω κώδικας δείχνει πώς το αποτελεσματικό ύψος γραμματοσειράς ενός τμήματος αλλάζει μετά τον ορισμό τοπικών τιμών ύψους γραμματοσειράς σε διαφορετικά επίπεδα δομής παρουσίασης.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
@@ -260,13 +346,29 @@ presentation->Save(u"SetLocalFontHeightValues.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Λήψη της αποτελεσματικής μορφής γεμίσματος για πίνακα**
+## **Λήψη αποτελεσματικής μορφής γεμίσματος για πίνακα**
 
-Με χρήση του Aspose.Slides, μπορείτε να λάβετε αποτελεσματική μορφή γεμίσματος για διαφορετικά τμήματα πίνακα. Η διεπαφή [IFillFormatEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/ifillformateffectivedata/) περιέχει τις αποτελεσματικές ιδιότητες μορφοποίησης γεμίσματος. Η μορφοποίηση κελιού έχει υψηλότερη προτεραιότητα από τη μορφοποίηση γραμμής, η μορφοποίηση γραμμής έχει υψηλότερη προτεραιότητα από τη μορφοποίηση στήλης, και η μορφοποίηση στήλης έχει υψηλότερη προτεραιότητα από τη μορφοποίηση ολόκληρου του πίνακα.
+Με το Aspose.Slides, μπορείτε να λάβετε αποτελεσματική μορφοποίηση γεμίσματος για διαφορετικά τμήματα πίνακα. Η διεπαφή [IFillFormatEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/ifillformateffectivedata/) περιέχει αποτελεσματικές ιδιότητες μορφοποίησης γεμίσματος. Η μορφοποίηση κελιού έχει υψηλότερο προτεραιότητα από τη μορφοποίηση γραμμής, η μορφοποίηση γραμμής έχει υψηλότερο προτεραιότητα από τη μορφοποίηση στήλης και η μορφοποίηση στήλης έχει υψηλότερο προτεραιότητα από τη μορφοποίηση ολόκληρου του πίνακα.
 
-Ως αποτέλεσμα, οι ιδιότητες [ICellFormatEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/icellformateffectivedata/) χρησιμοποιούνται για τη σχεδίαση του κελιού του πίνακα. Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε αποτελεσματική μορφή γεμίσματος για διαφορετικά τμήματα πίνακα. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι ένα [ITable](https://reference.aspose.com/slides/el/cpp/aspose.slides/itable/).
+Κατά συνέπεια, οι ιδιότητες του [ICellFormatEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/icellformateffectivedata/) χρησιμοποιούνται για την απόδοση του κελιού του πίνακα. Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε αποτελεσματική μορφοποίηση γεμίσματος για διαφορετικά τμήματα πίνακα. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι ένα [ITable](https://reference.aspose.com/slides/el/cpp/aspose.slides/itable/).
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/ICellFormatEffectiveData.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/IColumnFormat.h>
+#include <DOM/Table/IColumnFormatEffectiveData.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowFormat.h>
+#include <DOM/Table/IRowFormatEffectiveData.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ITableFormat.h>
+#include <DOM/Table/ITableFormatEffectiveData.h>
+using namespace Aspose::Slides;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -280,36 +382,36 @@ auto cellFillFormatEffective = table->idx_get(0, 0)->get_CellFormat()->GetEffect
 presentation->Dispose();
 ```
 
-## **Συχνές Ερωτήσεις**
+## **Συχνές ερωτήσεις**
 
-**Επιστρέφει η `GetEffective` μια στιγμιότυπη εικόνα;**
+### Το `GetEffective` επιστρέφει στιγμιότυπο;
 
-Όχι πάντα. Τα αποτελεσματικά δεδομένα αντιπροσωπεύουν τη υπολογισμένη μορφοποίηση μετά την εφαρμογή της κληρονομικότητας, αλλά ορισμένα αντικείμενα αποτελεσματικών δεδομένων μπορεί να αποθηκεύονται στην κρυφή μνήμη. Μια επόμενη κλήση του `GetEffective` μπορεί να επαναϋπολογίσει τη μορφοποίηση και να ανανεώσει τα αποθηκευμένα δεδομένα, έτσι ένα αντικείμενο που είχε ληφθεί προηγουμένως δεν πρέπει να θεωρείται μόνιμη στιγμιότυπη εικόνα.
+Δεν πάντα. Τα αποτελεσματικά δεδομένα αντιπροσωπεύουν τη υπολογισμένη μορφοποίηση μετά την εφαρμογή της κληρονομικότητας, αλλά ορισμένα αντικείμενα αποτελεσματικών δεδομένων ενδέχεται να αποθηκεύονται προσωρινά εσωτερικά. Μια επακόλουθη κλήση του `GetEffective` μπορεί να επανυπολογίσει τη μορφοποίηση και να ανανεώσει τα προσωρινά δεδομένα, έτσι ένα αντικείμενο που έχει ληφθεί νωρίτερα δεν πρέπει να αντιμετωπίζεται ως μόνιμο στιγμιότυπο.
 
-**Πότε πρέπει να διαβάζω ξανά τις αποτελεσματικές ιδιότητες;**
+### Πότε πρέπει να διαβάζω ξανά τις αποτελεσματικές ιδιότητες;
 
-Κλήστε ξανά το `GetEffective` μετά την αλλαγή της τοπικής μορφοποίησης, των γονικών στυλ, της μορφοποίησης διάταξης, της μορφοποίησης master ή των προεπιλογών επιπέδου παρουσίασης. Η επόμενη κλήση επανεξετάζει τη ιεραρχία μορφοποίησης και επιστρέφει το τρέχον αποτελεσματικό αποτέλεσμα.
+Κλήστε ξανά το `GetEffective` μετά από αλλαγή τοπικής μορφοποίησης, στυλ γονέα, μορφοποίησης διάταξης, μορφοποίησης κύριας διαφάνειας ή προεπιλογών σε επίπεδο παρουσίασης. Η επόμενη κλήση επανεξετάζει την ιεραρχία μορφοποίησης και επιστρέφει το τρέχον αποτελεσματικό αποτέλεσμα.
 
-**Επηρεάζει η αλλαγή ή η αφαίρεση μιας διαφάνειας διάταξης/master τις αποτελεσματικές ιδιότητες που έχουν ήδη ανακτηθεί;**
+### Η αλλαγή ή η αφαίρεση μιας διάταξης/κύριας διαφάνειας επηρεάζει τις αποτελεσματικές ιδιότητες που έχουν ήδη ληφθεί;
 
-Ναι, αλλά η αλλαγή αντικατοπτρίζεται στην επόμενη κλήση του `GetEffective`. Εάν μια γονική πηγή μορφοποίησης αλλάξει ή αφαιρεθεί, τα προηγουμένως ληφθέντα αποτελεσματικά δεδομένα μπορεί να είναι ξεπερασμένα. Μόλις κληθεί ξανά το `GetEffective`, το Aspose.Slides επανεξετάζει το δέντρο μορφοποίησης και οι προκύπτοντες γραμματοσειρές, χρώματα, μεγέθη ή άλλες τιμές μπορεί να αλλάξουν.
+Ναι, αλλά η αλλαγή αντικατοπτρίζεται στην επόμενη κλήση του `GetEffective`. Εάν αλλάξει ή αφαιρεθεί μια πηγή μορφοποίησης γονέα, τα προηγουμένως ληφθέντα αποτελεσματικά δεδομένα μπορεί να γίνουν ξεπερασμένα. Μόλις κληθεί ξανά το `GetEffective`, το Aspose.Slides επανεξαρτιζόται το δέντρο μορφοποίησης και οι γραμματοσειρές, τα χρώματα, τα μεγέθη ή άλλες τιμές μπορούν να αλλάξουν.
 
-**Μπορώ να τροποποιήσω τιμές μέσω των αντικειμένων αποτελεσματικών δεδομένων;**
+### Μπορώ να τροποποιήσω τιμές μέσω των αντικειμένων αποτελεσματικών δεδομένων;
 
-Όχι. Τα αντικείμενα αποτελεσματικών δεδομένων εκθέτουν υπολογισμένες τιμές. Κάντε αλλαγές στα τοπικά αντικείμενα μορφοποίησης και, στη συνέχεια, λάβετε ξανά τις αποτελεσματικές τιμές.
+Όχι. Τα αντικείμενα αποτελεσματικών δεδομένων εκθέτουν μόνο τις υπολογισμένες τιμές. Κάντε αλλαγές στα τοπικά αντικείμενα μορφοποίησης και στη συνέχεια λάβετε ξανά τις αποτελεσματικές τιμές.
 
-**Τι συμβαίνει αν μια ιδιότητα δεν οριστεί στο επίπεδο του σχήματος, ούτε στη διάταξη/master, ούτε στις καθολικές ρυθμίσεις;**
+### Τι συμβαίνει αν μια ιδιότητα δεν ορίζεται στο επίπεδο του σχήματος, ούτε στη διάταξη/κύρια, ούτε στις παγκόσμιες ρυθμίσεις;
 
-Η αποτελεσματική τιμή καθορίζεται από τον προεπιλεγμένο μηχανισμό, που περιλαμβάνει τις προεπιλογές του PowerPoint και του Aspose.Slides. Η επιλυμένη τιμή γίνεται μέρος των τρεχουσών αποτελεσματικών δεδομένων.
+Η αποτελεσματική τιμή καθορίζεται από τον μηχανισμό προεπιλογών, ο οποίος περιλαμβάνει τις προεπιλογές του PowerPoint και του Aspose.Slides. Η ανιχνευμένη τιμή γίνεται μέρος των τρεχουσών αποτελεσματικών δεδομένων.
 
-**Από μια αποτελεσματική τιμή γραμματοσειράς, μπορώ να καταλάβω ποιο επίπεδο παρείχε το μέγεθος ή το τύπο γραμματοσειράς;**
+### Από μια αποτελεσματική τιμή γραμματοσειράς, μπορώ να καταλάβω ποιο επίπεδο παρείχε το μέγεθος ή το στυλ;
 
-Όχι άμεσα. Τα αποτελεσματικά δεδομένα επιστρέφουν την τελική τιμή. Για να βρείτε την πηγή, ελέγξτε τις τοπικές τιμές στο τμήμα, την παράγραφο, το πλαίσιο κειμένου και τα στυλ κειμένου στη διάταξη, το master και το επίπεδο παρουσίασης ώστε να δείτε πού εμφανίζεται η πρώτη ρητή ορισμός.
+Όχι άμεσα. Τα αποτελεσματικά δεδομένα επιστρέφουν την τελική τιμή. Για να βρείτε την πηγή, ελέγξτε τις τοπικές τιμές στο τμήμα, την παράγραφο, το πλαίσιο κειμένου και τα στυλ κειμένου στη διάταξη, στην κύρια διαφάνεια και στο επίπεδο παρουσίασης ώστε να εντοπίσετε πού εμφανίζεται η πρώτη ρητή ορισμός.
 
-**Γιατί οι αποτελεσματικές τιμές μερικές φορές φαίνονται ταυτόσημες με τις τοπικές;**
+### Γιατί οι αποτελεσματικές τιμές μερικές φορές φαίνονται ίδιες με τις τοπικές;
 
-Επειδή η τοπική τιμή κατέληξε να είναι η τελική (δεν απαιτήθηκε κληρονομική τιμή από υψηλότερο επίπεδο). Σε τέτοιες περιπτώσεις, η αποτελεσματική τιμή ταιριάζει με την τοπική.
+Επειδή η τοπική τιμή τελικά αποτέλεσε την τελική (δεν χρειάστηκε κληρονόμηση από υψηλότερο επίπεδο). Σε τέτοιες περιπτώσεις, η αποτελεσματική τιμή ταιριάζει με την τοπική.
 
-**Πότε πρέπει να χρησιμοποιώ αποτελεσματικές ιδιότητες και πότε να εργάζομαι μόνο με τοπικές;**
+### Πότε πρέπει να χρησιμοποιώ αποτελεσματικές ιδιότητες και πότε να εργάζομαι μόνο με τοπικές;
 
-Χρησιμοποιήστε τα αποτελεσματικά δεδομένα όταν χρειάζεστε το αποτέλεσμα «as rendered» μετά την πλήρη εφαρμογή της κληρονομικότητας, π.χ. για ευθυγράμμιση χρωμάτων, εσοχών ή μεγεθών. Εάν χρειάζεται να διατηρήσετε αυτές τις τιμές ανεξάρτητα από μελλοντικές αλλαγές μορφοποίησης, αντιγράψτε τις απαιτούμενες ιδιότητες σε δικό σας αντικείμενο. Εάν θέλετε να αλλάξετε τη μορφοποίηση σε συγκεκριμένο επίπεδο, τροποποιήστε τις τοπικές ιδιότητες και, εάν είναι απαραίτητο, διαβάστε ξανά τα αποτελεσματικά δεδομένα για να επαληθεύσετε το αποτέλεσμα.
+Χρησιμοποιήστε τα αποτελεσματικά δεδομένα όταν χρειάζεστε το αποτέλεσμα «όπως αποδίδεται» μετά την πλήρη κληρονομικότητα, π.χ. για ευθυγράμμιση χρωμάτων, εσοχών ή μεγεθών. Εάν χρειάζεται να διατηρήσετε αυτές τις τιμές ανεξάρτητα από μελλοντικές αλλαγές μορφοποίησης, αντιγράψτε τις απαιτούμενες ιδιότητες σε δικό σας αντικείμενο. Εάν χρειάζεται να αλλάξετε τη μορφοποίηση σε συγκεκριμένο επίπεδο, τροποποιήστε τις τοπικές ιδιότητες και, εάν απαιτείται, διαβάστε ξανά τα αποτελεσματικά δεδομένα για να επαληθεύσετε το αποτέλεσμα.

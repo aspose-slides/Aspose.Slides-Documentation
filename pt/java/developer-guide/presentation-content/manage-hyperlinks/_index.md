@@ -1,51 +1,51 @@
 ---
-title: Gerenciar Hyperlinks de Apresentação em Java
-linktitle: Gerenciar Hyperlink
+title: Gerenciar hiperlinks de apresentação em Java
+linktitle: Gerenciar hiperlink
 type: docs
 weight: 20
 url: /pt/java/manage-hyperlinks/
 keywords:
 - adicionar URL
-- adicionar hyperlink
-- criar hyperlink
-- formatar hyperlink
-- remover hyperlink
-- atualizar hyperlink
-- hyperlink de texto
-- hyperlink de slide
-- hyperlink de forma
-- hyperlink de imagem
-- hyperlink de vídeo
-- hyperlink mutável
+- adicionar hiperlink
+- criar hiperlink
+- formatar hiperlink
+- remover hiperlink
+- atualizar hiperlink
+- hiperlink de texto
+- hiperlink de slide
+- hiperlink de forma
+- hiperlink de imagem
+- hiperlink de vídeo
+- hiperlink mutável
 - PowerPoint
 - OpenDocument
 - apresentação
 - Java
 - Aspose.Slides
-description: "Gerencie hyperlinks de forma fácil em apresentações PowerPoint e OpenDocument com Aspose.Slides para Java—melhore a interatividade e o fluxo de trabalho em minutos."
+description: "Gerencie hiperlinks em apresentações PowerPoint e OpenDocument com Aspose.Slides para Java — aumente a interatividade e o fluxo de trabalho em minutos."
 ---
 ## **Introdução**
 
-Um hyperlink é uma referência a um objeto, dado ou um local em algo. Estes são hyperlinks comuns em Apresentações do PowerPoint:
+Um hiperlink é uma referência a um objeto, dado ou um local em algo. Estes são hiperlinks comuns em apresentações do PowerPoint:
 
 * Links para sites dentro de textos, formas ou mídia
 * Links para slides
 
-Aspose.Slides for Java permite que você execute muitas tarefas envolvendo hyperlinks em apresentações. 
+Aspose.Slides for Java permite que você execute muitas tarefas envolvendo hiperlinks em apresentações. 
 
-{{% alert color="primary" %}} 
-
-Você pode querer conferir o Aspose simple, [editor online gratuito de PowerPoint.](https://products.aspose.app/slides/pt/editor)
-
+{{% alert color="info" %}} 
+Você pode querer conferir o Aspose simples, [editor online gratuito de PowerPoint.](https://products.aspose.app/slides/pt/editor)
 {{% /alert %}} 
 
-## **Adicionar Hyperlinks de URL**
+## **Adicionar hiperlinks de URL**
 
-### **Adicionar Hyperlinks de URL ao Texto**
+### **Adicionar hiperlinks de URL ao texto**
 
-Este código Java mostra como adicionar um hyperlink de site a um texto:
+Este código Java mostra como adicionar um hiperlink de site a um texto:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
 	IAutoShape shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -62,11 +62,13 @@ try {
 }
 ```
 
-### **Adicionar Hyperlinks de URL a Formas ou Quadros**
+### **Adicionar hiperlinks de URL a formas ou quadros**
 
-Este código de exemplo em Java mostra como adicionar um hyperlink de site a uma forma:
+Este exemplo de código em Java mostra como adicionar um hiperlink de site a uma forma:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -80,22 +82,24 @@ try {
 }
 ```
 
-### **Adicionar Hyperlinks de URL a Mídia**
+### **Adicionar hiperlinks de URL a mídia**
 
-Aspose.Slides permite adicionar hyperlinks a imagens, arquivos de áudio e vídeo. 
+Aspose.Slides permite que você adicione hiperlinks a imagens, arquivos de áudio e vídeo. 
 
-Este código de exemplo mostra como adicionar um hyperlink a uma **imagem**:
+Este exemplo de código mostra como adicionar um hiperlink a uma **imagem**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	// Adiciona imagem à apresentação
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
-    picture = pres.getImages().addImage(picture);
+        picture = pres.getImages().addImage(image);
     } finally {
-          if (image != null) image.dispose();
+        if (image != null) image.dispose();
     }
 	// Cria quadro de imagem no slide 1 com base na imagem adicionada anteriormente
 	IPictureFrame pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
@@ -104,15 +108,19 @@ try {
 	pictureFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 
 	pres.save("pres-out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
-Este código de exemplo mostra como adicionar um hyperlink a um **arquivo de áudio**:
+Este exemplo de código mostra como adicionar um hiperlink a um **arquivo de áudio**:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IAudio audio = pres.getAudios().addAudio(Files.readAllBytes(Paths.get("audio.mp3")));
@@ -128,9 +136,14 @@ try {
 }
 ```
 
-Este código de exemplo mostra como adicionar um hyperlink a um **vídeo**:
+Este exemplo de código mostra como adicionar um hiperlink a um **vídeo**:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IVideo video = pres.getVideos().addVideo(Files.readAllBytes(Paths.get("video.avi")));
@@ -146,19 +159,20 @@ try {
 }
 ```
 
-{{%  alert  title="Tip"  color="primary"  %}} 
-
+{{%  alert  title="Tip"  color="info"  %}} 
 Você pode querer ver *[Gerenciar OLE](/slides/pt/java/manage-ole/)*.
-
 {{% /alert %}}
 
-## **Usar Hyperlinks para Criar uma Tabela de Conteúdos**
+## **Usar hiperlinks para criar um índice**
 
-Como os hyperlinks permitem adicionar referências a objetos ou locais, você pode usá-los para criar uma tabela de conteúdos.
+Como os hiperlinks permitem que você adicione referências a objetos ou locais, pode usá‑los para criar um índice. 
 
-Este código de exemplo mostra como criar uma tabela de conteúdos com hyperlinks:
+Este exemplo de código mostra como criar um índice com hiperlinks:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	ISlide firstSlide = pres.getSlides().get_Item(0);
@@ -187,15 +201,18 @@ try {
 }
 ```
 
-## **Formatar Hyperlinks**
+## **Formatar hiperlinks**
 
 ### **Cor**
 
-Com a propriedade [ColorSource](https://reference.aspose.com/slides/pt/java/com.aspose.slides/Hyperlink#setColorSource-int-) na interface [IHyperlink](https://reference.aspose.com/slides/pt/java/com.aspose.slides/IHyperlink), você pode definir a cor dos hyperlinks e também obter as informações de cor dos hyperlinks. O recurso foi introduzido pela primeira vez no PowerPoint 2019, portanto alterações envolvendo a propriedade não se aplicam a versões mais antigas do PowerPoint.
+Com a propriedade [ColorSource](https://reference.aspose.com/slides/pt/java/com.aspose.slides/Hyperlink#setColorSource-int-) na interface [IHyperlink](https://reference.aspose.com/slides/pt/java/com.aspose.slides/IHyperlink), você pode definir a cor dos hiperlinks e também obter informações de cor dos hiperlinks. O recurso foi introduzido pela primeira vez no PowerPoint 2019, portanto alterações envolvendo a propriedade não se aplicam a versões mais antigas do PowerPoint.
 
-Este código de exemplo demonstra uma operação onde hyperlinks com cores diferentes foram adicionados ao mesmo slide:
+Este exemplo de código demonstra uma operação onde hiperlinks com cores diferentes foram adicionados ao mesmo slide:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -216,21 +233,23 @@ try {
 }
 ```
 
-## **Remover Hyperlinks de Apresentações**
+## **Remover hiperlinks de apresentações**
 
-### **Remover Hyperlinks do Texto**
+### **Remover hiperlinks do texto**
 
-Este código Java mostra como remover o hyperlink de um texto em um slide de apresentação:
+Este código Java mostra como remover o hiperlink de um texto em um slide de apresentação:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
 	{
-		IAutoShape autoShape = (IAutoShape)shape;
-		if (autoShape != null)
+		if (shape instanceof IAutoShape)
 		{
+			IAutoShape autoShape = (IAutoShape)shape;
 			for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs())
 			{
 				for (IPortion portion : paragraph.getPortions())
@@ -247,12 +266,14 @@ try {
 }
 ```
 
-### **Remover Hyperlinks de Formas ou Quadros**
+### **Remover hiperlinks de formas ou quadros**
 
-Este código Java mostra como remover o hyperlink de uma forma em um slide de apresentação: 
+Este código Java mostra como remover o hiperlink de uma forma em um slide de apresentação: 
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
@@ -265,7 +286,7 @@ try {
 }
 ```
 
-## **Hyperlink Mutável**
+## **Hiperlink mutável**
 
 A classe [Hyperlink](https://reference.aspose.com/slides/pt/java/com.aspose.slides/Hyperlink) é mutável. Com esta classe, você pode alterar os valores dessas propriedades:
 
@@ -275,9 +296,11 @@ A classe [Hyperlink](https://reference.aspose.com/slides/pt/java/com.aspose.slid
 - [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/pt/java/com.aspose.slides/IHyperlink#setHighlightClick-boolean-)
 - [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/pt/java/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
 
-O trecho de código mostra como adicionar um hyperlink a um slide e editar seu tooltip posteriormente:
+O trecho de código mostra como adicionar um hiperlink a um slide e editar seu tooltip posteriormente:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -288,15 +311,18 @@ try {
 	portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 	portionFormat.setFontHeight(32);
 
+	// Altera o tooltip do hyperlink que já foi adicionado
+	portionFormat.getHyperlinkClick().setTooltip("Aspose: the File Format APIs");
+
 	pres.save("presentation-out.pptx", SaveFormat.Pptx);
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
-## **Propriedades Compatíveis em IHyperlinkQueries**
+## **Propriedades suportadas em IHyperlinkQueries**
 
-Você pode acessar [IHyperlinkQueries](https://reference.aspose.com/slides/pt/java/com.aspose.slides/IHyperlinkQueries) a partir de uma apresentação, slide ou texto para o qual o hyperlink está definido. 
+Você pode acessar [IHyperlinkQueries](https://reference.aspose.com/slides/pt/java/com.aspose.slides/IHyperlinkQueries) a partir de uma apresentação, slide ou texto para o qual o hiperlink está definido. 
 
 - [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/pt/java/com.aspose.slides/IPresentation#getHyperlinkQueries--)
 - [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/pt/java/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
@@ -311,14 +337,14 @@ A classe [IHyperlinkQueries](https://reference.aspose.com/slides/pt/java/com.asp
 
 ## **FAQ**
 
-**Como posso criar navegação interna não apenas para um slide, mas para uma "seção" ou o primeiro slide de uma seção?**
+### Como posso criar navegação interna não apenas para um slide, mas para uma “seção” ou o primeiro slide de uma seção?
 
-Seções no PowerPoint são agrupamentos de slides; a navegação tecnicamente aponta para um slide específico. Para "navegar para uma seção", normalmente você cria um link para o primeiro slide da seção.
+Seções no PowerPoint são agrupamentos de slides; a navegação tecnicamente aponta para um slide específico. Para “navegar até uma seção”, normalmente você cria um link para o primeiro slide da seção.
 
-**Posso anexar um hyperlink a elementos do slide mestre para que funcione em todos os slides?**
+### Posso anexar um hiperlink a elementos do slide mestre para que ele funcione em todos os slides?
 
-Sim. Elementos do slide mestre e de layout suportam hyperlinks. Esses links aparecem nos slides filhos e são clicáveis durante a apresentação.
+Sim. Elementos do slide mestre e de layout suportam hiperlinks. Esses links aparecem nos slides filhos e são clicáveis durante a apresentação.
 
-**Os hyperlinks serão preservados ao exportar para PDF, HTML, imagens ou vídeo?**
+### Os hiperlinks serão preservados ao exportar para PDF, HTML, imagens ou vídeo?
 
-Em [PDF](/slides/pt/java/convert-powerpoint-to-pdf/) e [HTML](/slides/pt/java/convert-powerpoint-to-html/), sim—os links geralmente são preservados. Ao exportar para [imagens](/slides/pt/java/convert-powerpoint-to-png/) e [vídeo](/slides/pt/java/convert-powerpoint-to-video/), a capacidade de clique não será mantida devido à natureza desses formatos (quadros raster/vídeo não suportam hyperlinks).
+Em [PDF](/slides/pt/java/convert-powerpoint-to-pdf/) e [HTML](/slides/pt/java/convert-powerpoint-to-html/), sim — os links geralmente são preservados. Ao exportar para [imagens](/slides/pt/java/convert-powerpoint-to-png/) e [vídeo](/slides/pt/java/convert-powerpoint-to-video/), a clicabilidade não será mantida devido à natureza desses formatos (quadros raster/vídeo não suportam hiperlinks).

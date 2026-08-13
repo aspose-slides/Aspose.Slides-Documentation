@@ -1,6 +1,6 @@
 ---
-title: Nyilvános API és visszafelé nem kompatibilis változások az Aspose.Slides for .NET 14.8.0 verzióban
-linktitle: Aspose.Slides for .NET 14.8.0
+title: "Nyilvános API és visszafelé nem kompatibilis változások az Aspose.Slides for .NET 14.8.0 verzióban"
+linktitle: "Aspose.Slides for .NET 14.8.0"
 type: docs
 weight: 100
 url: /hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-8-0/
@@ -16,35 +16,44 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Tekintse át a nyilvános API frissítéseket és a töréspontokat az Aspose.Slides for .NET-ben, hogy zökkenőmentesen migreálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
+description: "Áttekintés a nyilvános API frissítéseiről és a breaking változásokról az Aspose.Slides for .NET-ben, hogy zökkenőmentesen migrálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Ez az oldal felsorolja az összes [hozzáadott](/slides/hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-8-0/) vagy [eltávolított](/slides/hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-8-0/) osztályt, metódust, tulajdonságot stb., valamint a Aspose.Slides for .NET 14.8.0 API-val bevezetett egyéb változásokat.
+Ez az oldal felsorolja az összes [hozzáadott](/slides/hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-8-0/) vagy [eltávolított](/slides/hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-8-0/) osztályt, metódust, tulajdonságot és így tovább, valamint az Aspose.Slides for .NET 14.8.0 API-val bevezetett egyéb változásokat.
 
 {{% /alert %}} 
 ## **Nyilvános API változások**
-### **Megváltozott tulajdonságok**
-#### **Hozzáadott az IVbaProject interfész, megváltozott a Presentation.VbaProject tulajdonság**
-A Presentation osztály VbaProject tulajdonsága helyettesítésre került. A VbaProject tulajdonság nyers bájtábrázolásának helyett, hozzá lett adva az új IVbaProject interfész megvalósítása.
+### **Módosított tulajdonságok**
+#### **Hozzáadott IVbaProject interfész, módosított Presentation.VbaProject tulajdonság**
+A Presentation osztály VbaProject tulajdonságát lecserélték. A VbaProject tulajdonság nyers bájtábrázolása a VBA projektről helyett az új IVbaProject interfész megvalósítása lett hozzáadva.
 
-Használja az IVbaProject tulajdonságot a prezentációba beágyazott VBA projektek kezeléséhez. Új projekt hivatkozásokat adhat hozzá, szerkesztheti a meglévő modulokat és újat hozhat létre.
+Használd az IVbaProject tulajdonságot a prezentációba ágyazott VBA projektek kezelésére. Új projektreferenciákat adhat hozzá, meglévő modulokat szerkeszthet és újat hozhat létre.
 
-Ezen felül új VBA projektet hozhat létre a VbaProject osztály használatával, amely az IVbaProject interfészt valósítja meg.
+Továbbá új VBA projektet hozhatsz létre a VbaProject osztály használatával, amely megvalósítja az IVbaProject interfészt.
 
 A következő példa egy egyszerű VBA projekt létrehozását mutatja, amely egy modult tartalmaz, és két szükséges hivatkozást ad hozzá a könyvtárakhoz.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Vba;
+
 
  using (Presentation pres = new Presentation())
+
 {
+
     // Új VBA projekt létrehozása
+
     pres.VbaProject = new VbaProject();
 
     // Üres modul hozzáadása a VBA projekthez
+
     IVbaModule module = pres.VbaProject.Modules.AddEmptyModule("Module");
 
     // Modul forráskód beállítása
+
     module.SourceCode =
 
         @"Sub Test(oShape As Shape)
@@ -53,78 +62,112 @@ A következő példa egy egyszerű VBA projekt létrehozását mutatja, amely eg
 
         End Sub";
 
-    // Hivatkozás létrehozása a <stdole> elemre
+    // Hivatkozás létrehozása a <stdole>-ra
+
     VbaReferenceOleTypeLib stdoleReference =
 
         new VbaReferenceOleTypeLib("stdole", "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation");
 
-    // Hivatkozás létrehozása az Office-hez
+    // Hivatkozás létrehozása az Office-ra
+
     VbaReferenceOleTypeLib officeReference =
 
         new VbaReferenceOleTypeLib("Office", "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
 
     // Hivatkozások hozzáadása a VBA projekthez
+
     pres.VbaProject.References.Add(stdoleReference);
+
     pres.VbaProject.References.Add(officeReference);
 
     pres.Save("test.pptm", SaveFormat.Pptm);
+
 }
 ``` 
 
 Ez a példa azt mutatja, hogyan másolhatunk VBA projektet egy meglévő prezentációból egy újba.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Vba;
+
 
  using (Presentation pres1 = new Presentation("PresentationWithMacroses.pptm"), pres2 = new Presentation())
+
 {
+
     pres2.VbaProject = new VbaProject(pres1.VbaProject.ToBinary());
+
 }
+
 ``` 
-### **Hozzáadott interfészek, tulajdonságok és felsorolás opciók**
-#### **Hozzáadott Az Aspose.Slides.Charts.IChartSeries.Overlap tulajdonság**
-Az Aspose.Slides.Charts.IChartSeries.Overlap tulajdonság meghatározza, hogy a sávok és oszlopok mennyire fedhetik egymást 2D diagramokban (‑100 és 100 között).
+### **Hozzáadott interfészek, tulajdonságok és enumerációs opciók**
+#### **Hozzáadott Aspose.Slides.Charts.IChartSeries.Overlap tulajdonság**
+Az Aspose.Slides.Charts.IChartSeries.Overlap tulajdonság meghatározza, hogy a sávok és oszlopok mennyire fedjék egymást 2D diagramokon (tartomány: -100–100).
 
-Ez a tulajdonság nem csak erre a sorozatra vonatkozik, hanem a szülő sorozatcsoport minden sorozatára – ez a megfelelő csoporttulajdonság leképezése. Így ez a tulajdonság csak olvasható.
+Ez a tulajdonság nem csak ezen sorozatra, hanem a szülő sorozatcsoport minden sorozatára vonatkozik – ez a megfelelő csoporttulajdonság projekciója. Így ez a tulajdonság csak olvasható.
 
-- Használja a ParentSeriesGroup tulajdonságot a szülő sorozatcsoport eléréséhez.
-- Használja a ParentSeriesGroup.Overlap olvasás/írás tulajdonságot az érték módosításához.
+- Használd a ParentSeriesGroup tulajdonságot a szülő sorozatcsoport eléréséhez.
+- Használd a ParentSeriesGroup.Overlap írás/olvasás tulajdonságot az érték módosításához.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 
  using (Presentation pres = new Presentation())
+
 {
+
    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
+
    IChartSeriesCollection series = chart.ChartData.Series;
+
    if (series[0].Overlap == 0)
+
       {
+
             series[0].ParentSeriesGroup.Overlap = -30;
+
       }
+
 }
+
 ``` 
-#### **Hozzáadott Az Aspose.Slides.Charts.IChartSeriesGroup.Overlap tulajdonság**
-Az Aspose.Slides.Charts.IChartSeriesGroup.Overlap tulajdonság meghatározza, hogy a sávok és oszlopok mennyire fedjék egymást 2D diagramokban (‑100 és 100 között).
+#### **Hozzáadott Aspose.Slides.Charts.IChartSeriesGroup.Overlap tulajdonság**
+Az Aspose.Slides.Charts.IChartSeriesGroup.Overlap tulajdonság meghatározza, hogy a sávok és oszlopok mennyire fedjék egymást 2D diagramokon (tartomány: -100–100).
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 
 
 
 using (Presentation pres = new Presentation())
+
 {
+
    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
+
    IChartSeriesCollection series = chart.ChartData.Series;
+
    series[0].ParentSeriesGroup.Overlap = -30;
+
 }
+
 ``` 
-#### **Hozzáadott a ShapeThumbnailBounds.Appearance felsoroló érték**
-Ez a alakzat előnézetkép létrehozási módszer lehetővé teszi, hogy az alakzat megjelenésének határain belül generáljon előnézetképet. Figyelembe veszi az összes alakzateffektet. A generált előnézetkép a dia határai által van korlátozva.
+#### **Hozzáadott ShapeThumbnailBounds.Appearance enum érték**
+Ez a forma bélyegkép létrehozási módszer lehetővé teszi, hogy a forma megjelenésének határain belül generálj egy bélyegképet. Figyelembe veszi az összes formaeffektet. A generált forma bélyegkép a dia határaival van korlátozva.
 
 ``` csharp
-
-
+using Aspose.Slides;
 
 using (Presentation p = new Presentation("Presentation.pptx"))
 {
-    Bitmap st = p.Slides[0].Shapes[0].GetThumbnail(ShapeThumbnailBounds.Appearance, 1, 1);
-    st.Save("ShapeThumbnail.png", ImageFormat.Png);
+    using (IImage image = p.Slides[0].Shapes[0].GetImage(ShapeThumbnailBounds.Appearance, 1, 1))
+    {
+        image.Save("ShapeThumbnail.png", ImageFormat.Png);
+    }
 }
 ```

@@ -1,35 +1,40 @@
 ---
-title: "จัดการสมุดงานแผนภูมิในงานนำเสนอด้วย Java"
-linktitle: "สมุดงานแผนภูมิ"
+title: จัดการเวิร์กบุ๊กแผนภูมิในงานนำเสนอด้วย Java
+linktitle: เวิร์กบุ๊กแผนภูมิ
 type: docs
 weight: 70
 url: /th/java/chart-workbook/
 keywords:
-- "สมุดงานแผนภูมิ"
-- "ข้อมูลแผนภูมิ"
-- "เซลล์สมุดงาน"
-- "ป้ายกำกับข้อมูล"
-- "แผ่นงาน"
-- "แหล่งข้อมูล"
-- "สมุดงานภายนอก"
-- "ข้อมูลภายนอก"
-- "PowerPoint"
-- "การนำเสนอ"
-- "Java"
-- "Aspose.Slides"
-description: "ค้นพบ Aspose.Slides สำหรับ Java: จัดการสมุดงานแผนภูมิในรูปแบบ PowerPoint และ OpenDocument อย่างง่ายดายเพื่อปรับปรุงข้อมูลการนำเสนอของคุณ."
+- เวิร์กบุ๊กแผนภูมิ
+- ข้อมูลแผนภูมิ
+- เซลล์เวิร์กบุ๊ก
+- ป้ายกำกับข้อมูล
+- แผ่นงาน
+- แหล่งข้อมูล
+- เวิร์กบุ๊กภายนอก
+- ข้อมูลภายนอก
+- แคชแผนภูมิ
+- การกู้คืนเวิร์กบุ๊ก
+- PowerPoint
+- การนำเสนอ
+- Java
+- Aspose.Slides
+description: "ค้นพบ Aspose.Slides สำหรับ Java: จัดการเวิร์กบุ๊กแผนภูมิในรูปแบบ PowerPoint และ OpenDocument อย่างง่ายดายเพื่อทำให้ข้อมูลการนำเสนอของคุณเป็นระเบียบ"
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีการทำงานกับสมุดงานของแผนภูมิใน Aspose.Slides โดยแสดงวิธีการอ่านและเขียนข้อมูลแผนภูมิผ่านสตรีมสมุดงาน, ใช้เซลล์สมุดงานเป็นป้ายกำกับข้อมูลแผนภูมิ, เข้าถึงคอลเลคชันของแผ่นงาน, และระบุประเภทแหล่งข้อมูลสำหรับค่าของแผนภูมิ. นอกจากนี้ยังครอบคลุมการทำงานกับสมุดงานภายนอกเป็นแหล่งข้อมูลของแผนภูมิ ตัวอย่างจะแสดงวิธีการสร้างและกำหนดสมุดงานภายนอก, ดึงเส้นทางของสมุดงานภายนอกที่เชื่อมโยงกับแผนภูมิ, และแก้ไขข้อมูลแผนภูมิเมื่อสมุดงานนั้นพร้อมใช้งาน.
+บทความนี้อธิบายวิธีทำงานกับเวิร์กบุ๊กแผนภูมิใน Aspose.Slides แสดงวิธีอ่านและเขียนข้อมูลแผนภูมิผ่านสตรีมของเวิร์กบุ๊ก ใช้เซลล์เวิร์กบุ๊กเป็นป้ายกำกับข้อมูลแผนภูมิ เข้าถึงคอลเลกชันของ worksheet และกำหนดประเภทของแหล่งข้อมูลสำหรับค่าของแผนภูมิ
 
-## **อ่านและเขียนข้อมูลแผนภูมิจากสมุดงาน**
+บทความยังครอบคลุมการทำงานกับเวิร์กบุ๊กภายนอกเป็นแหล่งข้อมูลของแผนภูมิ ตัวอย่างจะแสดงวิธีสร้างและกำหนดเวิร์กบุ๊กภายนอก ดึงเส้นทางของเวิร์กบุ๊กภายนอกที่เชื่อมโยงกับแผนภูมิ และแก้ไขข้อมูลแผนภูมิเมื่อเวิร์กบุ๊กพร้อมใช้งาน
 
-Aspose.Slides มีเมธอด [ReadWorkbookStream](https://reference.aspose.com/slides/th/java/com.aspose.slides/IChartData#readWorkbookStream--) และ [WriteWorkbookStream](https://reference.aspose.com/slides/th/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) ที่อนุญาตให้คุณอ่านและเขียนสมุดงานข้อมูลแผนภูมิ (ซึ่งประกอบด้วยข้อมูลแผนภูมิที่แก้ไขด้วย Aspose.Cells) **Note** ว่าข้อมูลแผนภูมิต้องถูกจัดระเบียบในลักษณะเดียวกันหรือจะต้องมีโครงสร้างคล้ายกับต้นทาง.  
+## **อ่านและเขียนข้อมูลแผนภูมิจากเวิร์กบุ๊ก**
+Aspose.Slides มีเมธอด [ReadWorkbookStream](https://reference.aspose.com/slides/th/java/com.aspose.slides/IChartData#readWorkbookStream--) และ [WriteWorkbookStream](https://reference.aspose.com/slides/th/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) ที่ช่วยให้คุณอ่านและเขียนเวิร์กบุ๊กข้อมูลแผนภูมิ (ที่มีข้อมูลแผนภูมิที่แก้ไขด้วย Aspose.Cells) **หมายเหตุ** ข้อมูลแผนภูมิต้องจัดเรียงในลักษณะเดียวกันหรือมีโครงสร้างที่คล้ายกับแหล่งข้อมูล
 
-โค้ด Java นี้แสดงตัวอย่างการดำเนินการ:
+โค้ด Java ตัวอย่างต่อไปนี้แสดงการดำเนินการตัวอย่าง:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("chart.pptx");
 try {
     Chart chart = (Chart) pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -46,23 +51,25 @@ try {
 }
 ```
 
-## **ตั้งค่าเซลล์WorkBookเป็นป้ายกำกับข้อมูลแผนภูมิ**
+## **กำหนดเซลล์เวิร์กบุ๊กเป็นป้ายกำกับข้อมูลแผนภูมิ**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://apireference.aspose.com/slides/th/java/com.aspose.slides/presentation).
-2. รับอ้างอิงสไลด์ผ่านดัชนีของมัน.
-3. เพิ่มแผนภูมิ Bubble พร้อมข้อมูลบางส่วน.
-4. เข้าถึงชุดข้อมูลของแผนภูมิ.
-5. ตั้งค่าเซลล์สมุดงานเป็นป้ายกำกับข้อมูล.
-6. บันทึกการนำเสนอ.
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://apireference.aspose.com/slides/th/java/com.aspose.slides/presentation)
+2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน
+3. เพิ่มแผนภูมิแบบบับเบิลพร้อมข้อมูลบางส่วน
+4. เข้าถึงซีรีส์ของแผนภูมิ
+5. ตั้งค่าเซลล์เวิร์กบุ๊กเป็นป้ายกำกับข้อมูล
+6. บันทึกการนำเสนอ
 
-โค้ด Java นี้แสดงวิธีตั้งค่าเซลล์สมุดงานเป็นป้ายกำกับข้อมูลแผนภูมิ:
+โค้ด Java นี้แสดงวิธีตั้งค่าเซลล์เวิร์กบุ๊กเป็นป้ายกำกับข้อมูลแผนภูมิ:
 
 ```java
+import com.aspose.slides.*;
+
 String lbl0 = "Label 0 cell value";
 String lbl1 = "Label 1 cell value";
 String lbl2 = "Label 2 cell value";
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์งานนำเสนอ
+// สร้างอินสแตนซ์ของคลาสการนำเสนอที่แสดงไฟล์การนำเสนอ
 Presentation pres = new Presentation("chart2.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -84,11 +91,13 @@ try {
 }
 ```
 
-## **จัดการ Worksheets**
+## **จัดการ Worksheet**
 
-โค้ด Java นี้แสดงการดำเนินการที่เมธอด [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/th/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) ถูกใช้เพื่อเข้าถึงคอลเลคชันของ worksheet:
+โค้ด Java นี้แสดงการดำเนินการที่ใช้เมธอด [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/th/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) เพื่อเข้าถึงคอลเลกชันของ worksheet:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 500);
@@ -100,11 +109,13 @@ try {
 }
 ```
 
-## **ระบุประเภทแหล่งข้อมูล**
+## **ระบุประเภทของแหล่งข้อมูล**
 
 โค้ด Java นี้แสดงวิธีระบุประเภทสำหรับแหล่งข้อมูล:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
@@ -122,11 +133,13 @@ try {
 }
 ```
 
-## **ตรวจจับรูปแบบสมุดงานฝังที่ไม่รองรับ**
+## **ตรวจจับรูปแบบเวิร์กบุ๊กที่ฝังซึ่งไม่รองรับ**
 
-Aspose.Slides ไม่รองรับรูปแบบสมุดงาน Excel แบบไบนารี (.xlsb) ที่อาจฝังอยู่ในบางแผนภูมิ คุณสามารถใช้เมธอด `getEmbeddedWorkbookType` บน [IChartData](https://reference.aspose.com/slides/th/java/com.aspose.slides/IChartData) ร่วมกับ enumeration [WorkbookType](https://reference.aspose.com/slides/th/java/com.aspose.slides/WorkbookType) เพื่อตรวจจับรูปแบบที่ไม่รองรับและข้ามแผนภูมิที่เกี่ยวข้อง.
+Aspose.Slides ไม่รองรับรูปแบบเวิร์กบุ๊ก Excel แบบไบน์ (.xlsb) ที่อาจถูกฝังในบางแผนภูมิ คุณสามารถใช้เมธอด `getEmbeddedWorkbookType` บน [IChartData](https://reference.aspose.com/slides/th/java/com.aspose.slides/IChartData) ร่วมกับ enumeration [WorkbookType](https://reference.aspose.com/slides/th/java/com.aspose.slides/WorkbookType) เพื่อค้นหารูปแบบที่ไม่รองรับและข้ามแผนภูมินั้น ๆ
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -139,30 +152,34 @@ try {
 
         if (chartData.getDataSourceType() == ChartDataSourceType.InternalWorkbook &&
                 chartData.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro) {
-            // สมุดงานฝังอยู่ในรูปแบบ .xlsb ซึ่งไม่รองรับ.
+            // เวิร์กบุ๊กที่ฝังอยู่เป็นรูปแบบ .xlsb ซึ่งไม่รองรับ.
             continue;
         }
 
-        // อ่านหรือแก้ไขข้อมูลสมุดงานแผนภูมิที่นี่.
+        // อ่านหรือแก้ไขข้อมูลเวิร์กบุ๊กของแผนภูมิที่นี่.
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **สมุดงานภายนอก**
+## **เวิร์กบุ๊กภายนอก**
 
-{{% alert color="primary" %}} 
-ใน [Aspose.Slides 19.4](https://docs.aspose.com/slides/th/java/aspose-slides-for-java-19-4-release-notes/) เราได้เพิ่มการสนับสนุนสมุดงานภายนอกเป็นแหล่งข้อมูลสำหรับแผนภูมิ. 
+{{% alert color="info" %}} 
+ใน [Aspose.Slides 19.4](https://docs.aspose.com/slides/th/java/aspose-slides-for-java-19-4-release-notes/) เราได้เพิ่มการสนับสนุนเวิร์กบุ๊กภายนอกเป็นแหล่งข้อมูลสำหรับแผนภูมิ
 {{% /alert %}} 
 
-### **สร้างสมุดงานภายนอก**
+### **สร้างเวิร์กบุ๊กภายนอก**
 
-โดยใช้เมธอด **`readWorkbookStream`** และ **`setExternalWorkbook`** คุณสามารถสร้างสมุดงานภายนอกตั้งแต่ต้นหรือเปลี่ยนสมุดงานภายในให้เป็นภายนอกได้.  
+โดยใช้เมธอด **`readWorkbookStream`** และ **`setExternalWorkbook`** คุณสามารถสร้างเวิร์กบุ๊กภายนอกจากศูนย์หรือทำให้เวิร์กบุ๊กภายในเป็นภายนอกได้
 
-โค้ด Java นี้แสดงกระบวนการสร้างสมุดงานภายนอก:
+โค้ด Java นี้แสดงกระบวนการสร้างเวิร์กบุ๊กภายนอก:
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 Presentation pres = new Presentation();
 try {
     final String workbookPath = "externalWorkbook1.xlsx";
@@ -185,15 +202,17 @@ try {
 }
 ```
 
-### **กำหนดสมุดงานภายนอก**
+### **ตั้งค่าเวิร์กบุ๊กภายนอก**
 
-โดยใช้เมธอด **`setExternalWorkbook`** คุณสามารถกำหนดสมุดงานภายนอกให้กับแผนภูมิเป็นแหล่งข้อมูลได้ เมธอดนี้ยังสามารถใช้อัปเดตเส้นทางไปยังสมุดงานภายนอก (หากไฟล์นั้นถูกย้ายไปแล้ว).  
+โดยใช้เมธอด **`setExternalWorkbook`** คุณสามารถกำหนดเวิร์กบุ๊กภายนอกให้กับแผนภูมิเป็นแหล่งข้อมูลของมันได้ เมธอดนี้ยังใช้เพื่ออัปเดตเส้นทางของเวิร์กบุ๊กภายนอก (หากเวิร์กบุ๊กถูกย้ายตำแหน่ง)
 
-แม้ว่าคุณไม่สามารถแก้ไขข้อมูลในสมุดงานที่จัดเก็บอยู่ในตำแหน่งหรือทรัพยากรระยะไกลได้ คุณยังสามารถใช้สมุดงานเหล่านั้นเป็นแหล่งข้อมูลภายนอกได้ หากกำหนดเส้นทางสัมพันธ์สำหรับสมุดงานภายนอก ระบบจะทำการแปลงเป็นเส้นทางเต็มโดยอัตโนมัติ.  
+แม้ว่าคุณจะไม่สามารถแก้ไขข้อมูลในเวิร์กบุ๊กที่จัดเก็บในตำแหน่งระยะไกลหรือทรัพยากรได้ แต่คุณยังสามารถใช้เวิร์กบุ๊กเหล่านั้นเป็นแหล่งข้อมูลภายนอกได้ หากระบุเส้นทางสัมพันธ์สำหรับเวิร์กบุ๊กภายนอก ระบบจะเปลี่ยนเป็นเส้นทางเต็มโดยอัตโนมัติ
 
-โค้ด Java นี้แสดงวิธีกำหนดสมุดงานภายนอก:
+โค้ด Java นี้แสดงวิธีตั้งค่าเวิร์กบุ๊กภายนอก:
 
 ```java
+import com.aspose.slides.*;
+
 // สร้างอินสแตนซ์ของคลาส Presentation
 Presentation pres = new Presentation("chart.pptx");
 try {
@@ -217,12 +236,14 @@ try {
 }
 ```
 
-พารามิเตอร์ `ChartData` (ภายใต้เมธอด `setExternalWorkbook`) ใช้เพื่อระบุว่าจะโหลดสมุดงาน Excel หรือไม่  
+พารามิเตอร์ที่สอง (`boolean`) ของเมธอด `setExternalWorkbook` ใช้ระบุว่าจะโหลดเวิร์กบุ๊ก Excel หรือไม่
 
-* เมื่อค่า `ChartData` ถูกตั้งเป็น `false` จะอัปเดตเฉพาะเส้นทางของสมุดงานเท่านั้น — ข้อมูลแผนภูมิจะไม่ถูกโหลดหรืออัปเดตจากสมุดงานเป้าหมาย คุณอาจต้องการใช้การตั้งค่านี้เมื่อสมุดงานเป้าหมายไม่มีอยู่หรือไม่พร้อมใช้งาน.  
-* เมื่อค่า `ChartData` ถูกตั้งเป็น `true` ข้อมูลแผนภูมิจะอัปเดตจากสมุดงานเป้าหมาย.  
+* เมื่อค่าตั้งเป็น `false` จะอัปเดตเฉพาะเส้นทางของเวิร์กบุ๊ก — ข้อมูลแผนภูมิจะไม่ถูกโหลดหรืออัปเดตจากเวิร์กบุ๊กเป้าหมาย คุณอาจใช้การตั้งค่านี้เมื่อเวิร์กบุ๊กเป้าหมายไม่มีอยู่หรือไม่พร้อมใช้
+* เมื่อค่าตั้งเป็น `true` ข้อมูลแผนภูมิจะอัปเดตจากเวิร์กบุ๊กเป้าหมาย
 
 ```java
+import com.aspose.slides.*;
+
 // สร้างอินสแตนซ์ของคลาส Presentation
 Presentation pres = new Presentation("chart.pptx");
 try {
@@ -237,17 +258,19 @@ try {
 }
 ```
 
-### **รับเส้นทางสมุดงานแหล่งข้อมูลภายนอกของแผนภูมิ**
+### **รับเส้นทางของเวิร์กบุ๊กแหล่งข้อมูลภายนอกจากแผนภูมิ**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://apireference.aspose.com/slides/th/java/com.aspose.slides/presentation).
-2. รับอ้างอิงสไลด์ผ่านดัชนีของมัน.
-3. สร้างอ็อบเจ็กต์สำหรับรูปแบบแผนภูมิ.
-4. สร้างอ็อบเจ็กต์สำหรับประเภทแหล่งข้อมูล (`ChartDataSourceType`) ที่แทนแหล่งข้อมูลของแผนภูมิ.
-5. ระบุเงื่อนไขที่เกี่ยวข้องโดยอิงจากประเภทแหล่งข้อมูลที่ตรงกับประเภทแหล่งข้อมูลสมุดงานภายนอก.
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://apireference.aspose.com/slides/th/java/com.aspose.slides/presentation)
+2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน
+3. สร้างอ็อบเจกต์สำหรับรูปแบบแผนภูมิ
+4. สร้างอ็อบเจกต์สำหรับประเภทแหล่งข้อมูล (`ChartDataSourceType`) ที่แสดงถึงแหล่งข้อมูลของแผนภูมิ
+5. ระบุเงื่อนไขที่เกี่ยวข้องโดยอิงตามประเภทแหล่งข้อมูลที่ตรงกับประเภทของเวิร์กบุ๊กภายนอก
 
-โค้ด Java นี้แสดงการดำเนินการ:
+โค้ด Java ตัวอย่างแสดงการดำเนินการ:
 
 ```java
+import com.aspose.slides.*;
+
 // สร้างอินสแตนซ์ของคลาส Presentation
 Presentation pres = new Presentation("chart.pptx");
 try {
@@ -269,11 +292,13 @@ try {
 
 ### **แก้ไขข้อมูลแผนภูมิ**
 
-คุณสามารถแก้ไขข้อมูลในสมุดงานภายนอกได้เช่นเดียวกับการเปลี่ยนแปลงเนื้อหาของสมุดงานภายใน หากไม่สามารถโหลดสมุดงานภายนอกได้ ระบบจะโยนข้อยกเว้น.  
+คุณสามารถแก้ไขข้อมูลในเวิร์กบุ๊กภายนอกได้เช่นเดียวกับการแก้ไขเนื้อหาในเวิร์กบุ๊กภายใน เมื่อเวิร์กบุ๊กภายนอกไม่สามารถโหลดได้ จะมีการโยนข้อยกเว้น
 
-โค้ด Java นี้เป็นการนำกระบวนการที่อธิบายไปใช้งาน:
+โค้ด Java นี้เป็นการดำเนินการตามที่อธิบายไว้:
 
 ```java
+import com.aspose.slides.*;
+
 // สร้างอินสแตนซ์ของคลาส Presentation
 Presentation pres = new Presentation("chart.pptx");
 try {
@@ -288,28 +313,48 @@ try {
 }
 ```
 
-## **คำถามที่พบบ่อย**
+### **กู้คืนเวิร์กบุ๊กจากแคชของแผนภูมิ**
 
-**ฉันสามารถตรวจสอบได้หรือไม่ว่าแผนภูมิเฉพาะเชื่อมโยงกับสมุดงานภายนอกหรือสมุดงานฝัง?**  
+หากแผนภูมิใช้เวิร์กบุ๊กภายนอกที่หายไปหรือไม่พร้อมใช้งาน Aspose.Slides สามารถสร้างเวิร์กบุ๊กของแผนภูมิใหม่จากข้อมูลที่ทำแคชไว้ในการนำเสนอได้ สร้าง [LoadOptions](https://reference.aspose.com/slides/th/java/com.aspose.slides/loadoptions/), ตั้งค่าให้ใช้ [SpreadsheetOptions](https://reference.aspose.com/slides/th/java/com.aspose.slides/spreadsheetoptions/), แล้วเรียก [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/th/java/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) ด้วยค่า `true` ก่อนเปิดการนำเสนอ
 
-ใช่ แผนภูมิมี [data source type](https://reference.aspose.com/slides/th/java/com.aspose.slides/chartdata/#getDataSourceType--) และ [path to an external workbook](https://reference.aspose.com/slides/th/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--); หากแหล่งเป็นสมุดงานภายนอก คุณสามารถอ่านเส้นทางเต็มเพื่อยืนยันว่าใช้ไฟล์ภายนอก.
+ตัวอย่าง Java ด้านล่างเปิดการนำเสนอที่แผนภูมิอ้างอิงเวิร์กบุ๊กภายนอกที่ไม่พร้อมใช้งานและเข้าถึงข้อมูลที่กู้คืนผ่าน [IChart.getChartData](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichart/#getChartData--) และ [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
 
-**รองรับเส้นทางสัมพันธ์สำหรับสมุดงานภายนอกหรือไม่และจัดเก็บอย่างไร?**  
+```java
+SpreadsheetOptions spreadsheetOptions = new SpreadsheetOptions();
+spreadsheetOptions.setRecoverWorkbookFromChartCache(true);
 
-ใช่ หากคุณกำหนดเส้นทางสัมพันธ์ ระบบจะทำการแปลงเป็นเส้นทางเต็มโดยอัตโนมัติ สิ่งนี้ทำให้โครงการพกพาง่ายขึ้น; อย่างไรก็ตามการนำเสนอตัวจะเก็บเส้นทางเต็มไว้ในไฟล์ PPTX.
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
 
-**ฉันสามารถใช้สมุดงานที่อยู่บนทรัพยากร/แชร์เครือข่ายได้หรือไม่?**  
+Presentation presentation = new Presentation("presentation.pptx", loadOptions);
+try {
+    IChart chart = (IChart)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
 
-ใช่ สมุดงานเช่นนี้สามารถใช้เป็นแหล่งข้อมูลภายนอกได้ อย่างไรก็ตามการแก้ไขสมุดงานระยะไกลโดยตรงจาก Aspose.Slides ไม่ได้รับการสนับสนุน – สามารถใช้เป็นแหล่งข้อมูลเท่านั้น.
+    // อ่านหรือแก้ไขข้อมูลเวิร์กบุ๊กที่กู้คืนที่นี่.
+} finally {
+    presentation.dispose();
+}
+```
 
-**Aspose.Slides เขียนทับไฟล์ XLSX ภายนอกเมื่อบันทึกการนำเสนอหรือไม่?**  
+หากเวิร์กบุ๊กภายนอกไม่พร้อมใช้และการกู้คืนถูกปิดใช้งาน Aspose.Slides จะโยนข้อยกเว้น เปิดการกู้คืนเฉพาะเมื่อต้องการใช้ข้อมูลแคชเป็นทางเลือกสำรองที่ยอมรับได้ เนื่องจากแคชอาจไม่มีการเปลี่ยนแปลงที่ทำในเวิร์กบุ๊กภายนอกหลังจากการอัพเดตรายการนำเสนอครั้งล่าสุด
 
-ไม่ การนำเสนอจะเก็บ [link to the external file](https://reference.aspose.com/slides/th/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) และใช้เพื่ออ่านข้อมูล ไฟล์ภายนอกเองจะไม่ถูกแก้ไขเมื่อบันทึกการนำเสนอ.
+## **FAQ**
 
-**ควรทำอย่างไรหากไฟล์ภายนอกถูกตั้งรหัสผ่าน?**  
+**ฉันสามารถระบุได้หรือไม่ว่าแผนภูมิเฉพาะเชื่อมโยงกับเวิร์กบุ๊กภายนอกหรือเวิร์กบุ๊กที่ฝังไว้?**  
+ได้ แผนภูมิมี [data source type](https://reference.aspose.com/slides/th/java/com.aspose.slides/chartdata/#getDataSourceType--) และ [path to an external workbook](https://reference.aspose.com/slides/th/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) หากแหล่งเป็นเวิร์กบุ๊กภายนอก คุณสามารถอ่านเส้นทางเต็มเพื่อยืนยันว่ากำลังใช้ไฟล์ภายนอก
 
-Aspose.Slides ไม่รับรหัสผ่านเมื่อเชื่อมโยง วิธีทั่วไปคือถอดการป้องกันล่วงหน้าหรือเตรียมสำเนาที่ถอดรหัส (เช่น ใช้ [Aspose.Cells](/cells/java/)) แล้วเชื่อมโยงไปยังสำเนานั้น.
+**รองรับเส้นทางสัมพันธ์ไปยังเวิร์กบุ๊กภายนอกหรือไม่ และเก็บอย่างไร?**  
+ได้ หากคุณระบุเส้นทางสัมพันธ์ ระบบจะเปลี่ยนเป็นเส้นทางเต็มโดยอัตโนมัติ ซึ่งสะดวกต่อการพกพาโปรเจกต์; อย่างไรก็ตาม การนำเสนอจะบันทึกเส้นทางเต็มไว้ในไฟล์ PPTX
 
-**หลายแผนภูมิสามารถอ้างอิงสมุดงานภายนอกเดียวกันได้หรือไม่?**  
+**ฉันสามารถใช้เวิร์กบุ๊กที่อยู่บนทรัพยากร/แชร์เครือข่ายได้หรือไม่?**  
+ได้ เวิร์กบุ๊กเหล่านั้นสามารถใช้เป็นแหล่งข้อมูลภายนอกได้ อย่างไรก็ตาม Aspose.Slides ไม่สนับสนุนการแก้ไขเวิร์กบุ๊กระยะไกลโดยตรง — สามารถใช้เป็นแหล่งข้อมูลเท่านั้น
 
-ได้ แต่ละแผนภูมิจะเก็บลิงก์ของตัวเอง หากทั้งหมดชี้ไปยังไฟล์เดียวกัน การอัปเดตไฟล์นั้นจะสะท้อนในแต่ละแผนภูมิในครั้งต่อไปที่โหลดข้อมูล.
+**Aspose.Slides จะเขียนทับไฟล์ XLSX ภายนอกเมื่อบันทึกการนำเสนอหรือไม่?**  
+ไม่ การนำเสนอจะเก็บ [link to the external file](https://reference.aspose.com/slides/th/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) และใช้ลิงก์นั้นเพื่ออ่านข้อมูล ไฟล์ภายนอกเองจะไม่ถูกแก้ไขเมื่อบันทึกการนำเสนอ
+
+**ถ้าไฟล์ภายนอกถูกป้องกันด้วยรหัสผ่าน ฉันควรทำอย่างไร?**  
+Aspose.Slides ไม่รับรหัสผ่านเมื่อทำการลิงก์ วิธีทั่วไปคือถอดการป้องกันล่วงหน้าหรือเตรียมสำเนาที่ถอดรหัสแล้ว (เช่น ใช้ [Aspose.Cells](/cells/java/)) แล้วลิงก์ไปยังสำเนานั้น
+
+**หลายแผนภูมิสามารถอ้างอิงเวิร์กบุ๊กภายนอกเดียวกันได้หรือไม่?**  
+ได้ แต่ละแผนภูมิจะเก็บลิงก์ของตนเอง หากลิงก์ทั้งหมดชี้ไปที่ไฟล์เดียวกัน การอัปเดตไฟล์นั้นจะสะท้อนในแต่ละแผนภูมิในครั้งต่อไปที่โหลดข้อมูล  

@@ -24,57 +24,56 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Konvertálja a PowerPoint PPT/PPTX fájlokat magas minőségű, platformfüggetlen XPS formátumba Java-ban az Aspose.Slides for Android használatával. Kapjon lépésről-lépésre útmutatót és mintakódot."
+description: "Konvertálja a PowerPoint PPT/PPTX fájlokat magas minőségű, platformfüggetlen XPS formátumba Java-ban az Aspose.Slides for Android használatával. Szerezze meg a lépésről-lépésre útmutatót és a mintakódot."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides lehetővé teszi, hogy a PowerPoint‑prezentációkat XPS‑re konvertálja a PPT vagy PPTX fájl XPS formátumban történő mentésével. Ez a cikk elmagyarázza, mikor lehet hasznos az XPS formátum, és bemutatja, hogyan hajtható végre a konvertálás az Aspose.Slides használatával alapértelmezett vagy egyéni [XpsOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/xpsoptions/) beállításokkal.
+Aspose.Slides lehetővé teszi, hogy PowerPoint‑prezentációkat XPS‑formátumba konvertáljon egy PPT vagy PPTX fájl XPS‑ként való mentésével. Ez a cikk bemutatja, mikor lehet hasznos az XPS‑formátum, és megmutatja, hogyan hajtható végre a konverzió az Aspose.Slides‑kel alapértelmezett vagy egyedi [XpsOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/xpsoptions/) beállítások használatával.
 
-## **Az XPS‑ról**
-A Microsoft fejlesztette a [XPS](https://docs.fileformat.com/page-description-language/xps/) formátumot, mint alternatívát a [PDF](https://docs.fileformat.com/pdf/) mellett. Lehetővé teszi a tartalom nyomtatását egy PDF‑hez hasonló fájl előállításával. Az XPS formátum XML‑en alapul. Egy XPS fájl elrendezése vagy szerkezete minden operációs rendszeren és nyomtatón ugyanaz marad.
+## **Az XPS-ről**
+
+A Microsoft a [XPS](https://docs.fileformat.com/page-description-language/xps/) formátumot a [PDF](https://docs.fileformat.com/pdf/) alternatívájaként fejlesztette ki. Lehetővé teszi a tartalom nyomtatását egy a PDF‑hez hasonló fájl kimenetével. Az XPS formátum XML‑alapú. Egy XPS fájl elrendezése vagy szerkezete minden operációs rendszeren és nyomtatón ugyanaz marad.
 
 ## **Mikor használjuk a Microsoft XPS formátumot**
 
-{{% alert color="primary" %}} 
-
-Az Aspose.Slides által a PPT vagy PPTX prezentáció XPS formátumba történő konvertálás megtekintéséhez látogasson el a [ez az ingyenes online konverter alkalmazás](https://products.aspose.app/slides/hu/conversion) oldalra. 
-
+{{% alert color="info" %}} 
+Azt szeretnéd látni, hogy az Aspose.Slides hogyan konvertál PPT vagy PPTX prezentációt XPS formátumba? Tekintsd meg [ezt az ingyenes online konverter alkalmazást](https://products.aspose.app/slides/hu/conversion). 
 {{% /alert %}} 
 
-Ha csökkenteni szeretné a tárolási költségeket, konvertálhatja a Microsoft PowerPoint prezentációját XPS formátumba. Így könnyebb lesz a dokumentumok mentése, megosztása és nyomtatása.
+Ha csökkenteni szeretnéd a tárolási költségeket, konvertálhatod a Microsoft PowerPoint prezentációdat XPS formátumba. Így egyszerűbbé válik a dokumentumok mentése, megosztása és nyomtatása.
 
-A Microsoft továbbra is erős támogatást nyújt az XPS‑nek a Windowsban (még a Windows 10‑ben is), ezért érdemes lehet ebbe a formátumba menteni a fájlokat. Ha Windows 8.1, Windows 8, Windows 7 vagy Windows Vista felhasználója, az XPS valójában a legjobb választás bizonyos műveletekhez.
+A Microsoft folyamatosan erős támogatást épít be az XPS‑hez a Windowsban (még a Windows 10‑ben is), ezért érdemes megfontolni a fájlok ebben a formátumban való mentését. Ha Windows 8.1, Windows 8, Windows 7 vagy Windows Vista rendszerrel dolgozol, az XPS valójában a legjobb választás lehet bizonyos műveletekhez.
 
-- **Windows 8** az OXPS (Open XPS) formátumot használja XPS fájlokhoz. Az OXPS az eredeti XPS formátum szabványosított változata. A Windows 8 jobb támogatást nyújt az XPS fájlokhoz, mint a PDF fájlokhoz. 
-  - **XPS:** Beépített XPS‑megtekintő/olvasó és XPS‑nyomtatás funkció elérhető. 
-  - **PDF:** PDF‑olvasó elérhető, de PDF‑nyomtatás funkció nincs. 
+- **Windows 8** az OXPS (Open XPS) formátumot használja az XPS fájlokhoz. Az OXPS az eredeti XPS formátum szabványosított változata. A Windows 8 jobb támogatást nyújt az XPS fájlokhoz, mint a PDF fájlokhoz. 
+  - **XPS:** Beépített XPS‑megjelenítő/olvasó és XPS‑nyomtatási funkció elérhető. 
+  - **PDF:** PDF‑olvasó elérhető, de PDF‑nyomtatási funkció nincs. 
 
 - **Windows 7 és Windows Vista** az eredeti XPS formátumot használják. Ezek az operációs rendszerek szintén jobb támogatást nyújtanak az XPS fájlokhoz, mint a PDF‑ekhez. 
-  - **XPS:** Beépített XPS‑megtekintő és XPS‑nyomtatás funkció elérhető. 
-  - **PDF:** Nincs PDF‑olvasó. Nincs PDF‑nyomtatás funkció. 
+  - **XPS:** Beépített XPS‑megjelenítő és XPS‑nyomtatási funkció elérhető. 
+  - **PDF:** Nincs PDF‑olvasó. Nincs PDF‑nyomtatási funkció. 
 
-|<p>**Bemeneti PPT(X):</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_1.png)**</p>|<p>**Kimeneti XPS:</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_2.png)**</p>|
+|<p>**Bemeneti PPT(X):**</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_1.png)**</p>|<p>**Kimeneti XPS:**</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_2.png)**</p>|
 | :- | :- |
 
+A Microsoft végül bevezette a PDF nyomtatási műveletek támogatását a Windows 10‑es „Print to PDF” funkcióval. Korábban a felhasználók az XPS formátumon keresztül nyomtatták a dokumentumokat.
 
+## **XPS konverzió az Aspose.Slides használatával**
 
-A Microsoft végül bevezette a PDF nyomtatási műveletek támogatását a Windows 10‑es Print to PDF funkción keresztül. Korábban a felhasználók a dokumentumokat az XPS formátumon keresztül nyomtatták.
+Az [**Aspose.Slides**](https://products.aspose.com/slides/hu/androidjava/) Java változatában a [**Save**](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) metódust használhatod, amelyet a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztály biztosít, a teljes prezentáció XPS dokumentummá konvertálásához.
 
-## **XPS konverzió az Aspose.Slides‑el**
+XPS‑re konvertáláskor a prezentációt az alábbi beállítások egyikével kell menteni:
 
-A [**Aspose.Slides**](https://products.aspose.com/slides/hu/androidjava/) Java‑változatában a [**Save**](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) metódust használhatja, amelyet a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztály biztosít, hogy a teljes prezentációt XPS dokumentummá konvertálja.
+- Alapértelmezett beállítások (a [**XPSOptions**](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/xpsoptions) nélkül)  
+- Egyedi beállítások (a [**XPSOptions**](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/xpsoptions) használatával)
 
-A prezentáció XPS‑re konvertálásakor a következő beállítások egyikével kell menteni a prezentációt:
+### **Prezentációk konvertálása XPS-re alapértelmezett beállításokkal**
 
-- Alapértelmezett beállítások (a [**XPSOptions**](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/xpsoptions) nélkül)
-- Egyéni beállítások (a [**XPSOptions**](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/xpsoptions) használatával)
-
-### **Prezentációk konvertálása XPS‑re alapértelmezett beállításokkal**
-
-Ez a Java‑mintakód bemutatja, hogyan konvertáljon egy prezentációt XPS dokumentummá szabványos beállításokkal:
+Ez a Java példa megmutatja, hogyan konvertálj egy prezentációt XPS dokumentummá szabványos beállításokkal:
 
 ```java
-// Példányosít egy Presentation objektumot, amely egy prezentációs fájlt képvisel
+import com.aspose.slides.*;
+
+// Hozzon létre egy Presentation objektumot, amely egy prezentációs fájlt képvisel
 Presentation pres = new Presentation("Convert_XPS.pptx");
 try {
     // A prezentáció mentése XPS dokumentumba
@@ -84,15 +83,17 @@ try {
 }
 ```
 
+### **Prezentációk konvertálása XPS-re egyéni beállításokkal**
 
-### **Prezentációk konvertálása XPS‑re egyéni beállításokkal**
-Ez a mintakód bemutatja, hogyan konvertáljon egy prezentációt XPS dokumentummá egyéni beállításokkal Java‑ban:
+Ez a példa bemutatja, hogyan konvertálj egy prezentációt XPS dokumentummá egyéni beállításokkal Java nyelven:
 
 ```java
-// Példányosít egy Presentation objektumot, amely egy prezentációs fájlt képvisel
+import com.aspose.slides.*;
+
+// Hozzon létre egy Presentation objektumot, amely egy prezentációs fájlt képvisel
 Presentation pres = new Presentation("Convert_XPS_Options.pptx");
 try {
-    // Példányosítja a TiffOptions osztályt
+    // Hozzon létre egy XpsOptions osztályt
     XpsOptions options = new XpsOptions();
 
     // MetaFájlok mentése PNG-ként
@@ -107,10 +108,10 @@ try {
 
 ## **GYIK**
 
-**Menthetek XPS‑t adatfolyamba a fájl helyett?**
+### Menthetek XPS‑t adatfolyamba a fájl helyett?
 
-Igen — az Aspose.Slides lehetővé teszi, hogy közvetlenül adatfolyamba exportáljon, ami ideális web‑API‑k, szerver‑oldali csővezetékek vagy bármely olyan forgatókönyv esetén, amikor az XPS‑t a fájlrendszer érintése nélkül kívánja küldeni.
+Igen — az Aspose.Slides lehetővé teszi, hogy közvetlenül adatfolyamba exportálj, ami ideális web‑API‑k, szerver‑oldali folyamatok vagy bármely olyan eset számára, amikor a XPS‑t a fájlrendszer érintése nélkül szeretnéd továbbküldeni.
 
-**A rejtett diák átkerülnek az XPS‑be, és el lehet-e őket hagyni?**
+### Átvitelre kerülnek a rejtett diák az XPS‑be, és kizárhatom‑e őket?
 
-Alapértelmezés szerint csak a normál (látható) diák kerülnek renderelésre. A [rejtett diák felvételét vagy kihagyását](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/xpsoptions/#setShowHiddenSlides-boolean-) a [export beállításokon](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/xpsoptions/) keresztül szabályozhatja mentés előtt, így a kimenet pontosan az Ön által kívánt oldalakat tartalmazza.
+Alapértelmezés szerint csak a szabályos (látható) diák kerülnek renderelésre. A [export beállítások](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/xpsoptions/) segítségével [belefoglalhatod vagy kizárhatod a rejtett diákat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/xpsoptions/#setShowHiddenSlides-boolean-), így biztosíthatod, hogy a kimenet pontosan az általad kívánt oldalakat tartalmazza.

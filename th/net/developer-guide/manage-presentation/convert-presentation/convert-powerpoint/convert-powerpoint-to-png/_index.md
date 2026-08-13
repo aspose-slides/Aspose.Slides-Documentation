@@ -6,12 +6,12 @@ weight: 30
 url: /th/net/convert-powerpoint-to-png/
 keywords:
 - แปลง PowerPoint
-- แปลงงานนำเสนอ
+- แปลงการนำเสนอ
 - แปลงสไลด์
 - แปลง PPT
 - แปลง PPTX
 - PowerPoint เป็น PNG
-- งานนำเสนอเป็น PNG
+- การนำเสนอเป็น PNG
 - สไลด์เป็น PNG
 - PPT เป็น PNG
 - PPTX เป็น PNG
@@ -22,33 +22,35 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "แปลงงานนำเสนอ PowerPoint เป็นภาพ PNG คุณภาพสูงอย่างรวดเร็วด้วย Aspose.Slides สำหรับ .NET เพื่อให้ได้ผลลัพธ์ที่แม่นยำและอัตโนมัติ"
+description: "แปลงการนำเสนอ PowerPoint เป็นภาพ PNG คุณภาพสูงอย่างรวดเร็วด้วย Aspose.Slides สำหรับ .NET พร้อมผลลัพธ์ที่แม่นยำและอัตโนมัติ"
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีการแปลงงานนำเสนอ PowerPoint เป็นรูปภาพ PNG ด้วย Aspose.Slides พร้อมแสดงวิธีโหลดไฟล์งานนำเสนอในรูปแบบเช่น PPT, PPTX และ ODP, ทำการเรนเดอร์สไลด์เป็นภาพ และบันทึกผลลัพธ์เป็นรูปแบบ PNG  
+บทความนี้อธิบายวิธีแปลงการนำเสนอ PowerPoint เป็นภาพ PNG ด้วย Aspose.Slides แสดงวิธีโหลดไฟล์การนำเสนอในรูปแบบเช่น PPT, PPTX และ ODP, เรนเดอร์สไลด์เป็นภาพ และบันทึกผลลัพธ์ในรูปแบบ PNG
 
-บทความยังสาธิตวิธีปรับแต่งภาพ PNG ที่สร้างโดยการกำหนดค่าตำแหน่งสเกลหรือระบุความกว้างและความสูงที่ต้องการ  
+บทความยังสาธิตวิธีปรับแต่งภาพ PNG ที่สร้างขึ้นโดยการกำหนดค่าตำแหน่งสเกลหรือระบุความกว้างและความสูงที่ต้องการ
 
 ## **แปลง PowerPoint เป็น PNG**
 
 ทำตามขั้นตอนต่อไปนี้:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)  
-2. ดึงอ็อบเจกต์สไลด์จากคอลเล็กชัน [Presentation.Slides](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/properties/slides) ภายใต้ส่วนติดต่อ [ISlide](https://reference.aspose.com/slides/th/net/aspose.slides/islide)  
-3. ใช้เมธอด [ISlide.GetImage](https://reference.aspose.com/slides/th/net/aspose.slides/islide/getimage/) เพื่อรับภาพย่อของแต่ละสไลด์  
-4. ใช้เมธอด [IPresentation.Save(String, SaveFormat, ISaveOptions](https://reference.aspose.com/slides/th/net/aspose.slides.ipresentation/save/methods/5) เพื่อบันทึกภาพย่อของสไลด์เป็นรูปแบบ PNG  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation).
+2. รับอ็อบเจกต์สไลด์จากคอลเลกชัน [Presentation.Slides](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/properties/slides) ภายใต้อินเทอร์เฟซ [ISlide](https://reference.aspose.com/slides/th/net/aspose.slides/islide).
+3. ใช้เมธอด [ISlide.GetImage(float, float)](https://reference.aspose.com/slides/th/net/aspose.slides/islide/getimage/) เพื่อเรนเดอร์แต่ละสไลด์ตามสเกลที่คุณต้องการ
+4. ใช้เมธอด [IPresentation.Save(String, SaveFormat, ISaveOptions](https://reference.aspose.com/slides/th/net/aspose.slides.ipresentation/save/methods/5) เพื่อบันทึกภาพย่อของสไลด์เป็นรูปแบบ PNG
 
-โค้ด C# นี้แสดงวิธีการแปลงงานนำเสนอ PowerPoint เป็น PNG โดยอ็อบเจกต์ Presentation สามารถโหลดไฟล์ PPT, PPTX, ODP เป็นต้น แล้วแต่ละสไลด์ในอ็อบเจกต์ Presentation จะถูกแปลงเป็นรูปแบบ PNG หรือรูปแบบภาพอื่น ๆ  
+โค้ด C# นี้แสดงวิธีแปลงการนำเสนอ PowerPoint เป็น PNG วัตถุ Presentation สามารถโหลดไฟล์ PPT, PPTX, ODP ฯลฯ แล้วแต่ละสไลด์ในวัตถุ Presentation จะถูกแปลงเป็นรูปแบบ PNG หรือรูปแบบภาพอื่น
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     for (var index = 0; index < pres.Slides.Count; index++)
     {
         ISlide slide = pres.Slides[index];
 
-        using (IImage image = slide.GetImage())
+        using (IImage image = slide.GetImage(1f, 1f))
         {
             image.Save($"slide_{index}.png", ImageFormat.Png);
         }
@@ -56,13 +58,19 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
+{{% alert color="info" %}} 
+**หมายเหตุ:** อาร์กิวเมนต์สเกล `1f, 1f` เรนเดอร์แต่ละสไลด์ในขนาดเต็ม ดังนั้นสไลด์ขนาด 720×540 pt จะสร้างภาพขนาด 720×540 px เมธอด overload ของ [GetImage()](https://reference.aspose.com/slides/th/net/aspose.slides/islide/getimage/) ที่ไม่มีพารามิเตอร์จะคืนค่าภาพย่อตัวอย่างที่เล็กกว่ามาก
+{{% /alert %}} 
+
 ## **แปลง PowerPoint เป็น PNG ด้วยมิติที่กำหนดเอง**
 
-หากต้องการรับไฟล์ PNG ที่มีสเกลใกล้เคียงกับที่ต้องการ คุณสามารถตั้งค่าตัวแปร `desiredX` และ `desiredY` ซึ่งกำหนดขนาดของภาพย่อผลลัพธ์ได้  
+หากต้องการสร้างไฟล์ PNG ที่มีสเกลเฉพาะ คุณสามารถกำหนดค่าของ `desiredX` และ `desiredY` ซึ่งเป็นค่าที่กำหนดมิติของภาพย่อที่ได้
 
-โค้ดใน C# นี้สาธิตการดำเนินการที่อธิบายไว้:  
+โค้ด C# นี้สาธิตการดำเนินการที่อธิบายไว้:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     float scaleX = 2f;
@@ -81,11 +89,14 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ## **แปลง PowerPoint เป็น PNG ด้วยขนาดที่กำหนดเอง**
 
-หากต้องการรับไฟล์ PNG ที่มีขนาดใกล้เคียงตามที่ต้องการ คุณสามารถส่งอาร์กิวเมนต์ `width` และ `height` ที่ต้องการสำหรับ `imageSize`  
+หากต้องการสร้างไฟล์ PNG ที่มีขนาดเฉพาะ คุณสามารถส่งอาร์กิวเมนต์ `width` และ `height` ที่ต้องการสำหรับ `imageSize`
 
-โค้ดนี้แสดงวิธีแปลง PowerPoint เป็น PNG พร้อมระบุขนาดของภาพ:  
+โค้ดนี้แสดงวิธีแปลง PowerPoint เป็น PNG พร้อมระบุขนาดของภาพ:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     Size size = new Size(960, 720);
@@ -101,16 +112,16 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**ฉันจะส่งออกเฉพาะรูปร่างที่กำหนด (เช่น แผนภูมิหรือรูปภาพ) แทนที่จะส่งออกสไลด์ทั้งหมดได้อย่างไร?**  
+### ฉันจะส่งออกเฉพาะรูปทรงที่ระบุ (เช่น แผนภูมิหรือรูปภาพ) แทนการส่งออกสไลด์ทั้งหมดได้อย่างไร?
 
-Aspose.Slides รองรับ [generating thumbnails for individual shapes](/slides/th/net/create-shape-thumbnails/); คุณสามารถเรนเดอร์รูปร่างเป็นภาพ PNG  
+Aspose.Slides รองรับการสร้างภาพย่อสำหรับรูปทรงแต่ละรายการ คุณสามารถเรนเดอร์รูปทรงเป็นภาพ PNG ได้
 
-**การแปลงพร้อมกันแบบขนานรองรับบนเซิร์ฟเวอร์หรือไม่?**  
+### การแปลงแบบขนานสนับสนุนบนเซิร์ฟเวอร์หรือไม่?
 
-ใช่ แต่ต้อง [don’t share](/slides/th/net/multithreading/) อินสแตนซ์ Presentation เดียวข้ามเธรด ใช้อินสแตนซ์แยกต่อเธรดหรือกระบวนการ  
+ใช่ แต่ **ห้าม**แชร์อินสแตนซ์ Presentation เดียวกันข้ามเธรด ใช้อินสแตนซ์แยกสำหรับแต่ละเธรดหรือกระบวนการ
 
-**ข้อจำกัดของรุ่นทดลองเมื่อส่งออกเป็น PNG มีอะไรบ้าง?**  
+### ข้อจำกัดของเวอร์ชันทดลองเมื่อส่งออกเป็น PNG คืออะไร?
 
-โหมดการประเมินค่าจะใส่น้ำแสดงบนภาพผลลัพธ์และบังคับใช้ [other restrictions](/slides/th/net/licensing/) จนกว่าจะมีการใส่ใบอนุญาต
+โหมดประเมินผลจะเพิ่มลายน้ำในภาพผลลัพธ์และบังคับใช้ [ข้อจำกัดอื่นๆ](/slides/th/net/licensing/) จนกว่าจะมีการใช้ใบอนุญาต

@@ -1,5 +1,5 @@
 ---
-title: Konvertera PowerPoint-bilder till PNG i .NET
+title: Konvertera PowerPoint‑bilder till PNG i .NET
 linktitle: PowerPoint till PNG
 type: docs
 weight: 30
@@ -22,33 +22,35 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Konvertera PowerPoint-presentationer till högkvalitativa PNG-bilder snabbt med Aspose.Slides för .NET, vilket säkerställer precisa, automatiserade resultat."
+description: "Konvertera PowerPoint‑presentationer till högkvalitativa PNG‑bilder snabbt med Aspose.Slides för .NET, vilket säkerställer precisa, automatiserade resultat."
 ---
 ## **Översikt**
 
-Denna artikel förklarar hur du konverterar PowerPoint-presentationer till PNG‑bilder med Aspose.Slides. Den visar hur du läser in presentationsfiler i format som PPT, PPTX och ODP, renderar bilder som bilder och sparar resultatet i PNG‑format.
+Den här artikeln förklarar hur man konverterar PowerPoint‑presentationer till PNG‑bilder med Aspose.Slides. Den visar hur man laddar presentationsfiler i format som PPT, PPTX och ODP, renderar bilder som bilder och sparar resultaten i PNG‑format.
 
-Artikeln visar också hur du anpassar de genererade PNG‑bilderna genom att ange skalvärden eller specificera önskad bredd och höjd.
+Artikeln demonstrerar också hur man anpassar de genererade PNG‑bilderna genom att ange skalvärden eller specificera önskad bredd och höjd.
 
 ## **Konvertera PowerPoint till PNG**
 
-Följ dessa steg:
+Gå igenom dessa steg:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation).
 2. Hämta bildobjektet från samlingen [Presentation.Slides](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/properties/slides) under gränssnittet [ISlide](https://reference.aspose.com/slides/sv/net/aspose.slides/islide).
-3. Använd metoden [ISlide.GetImage](https://reference.aspose.com/slides/sv/net/aspose.slides/islide/getimage/) för att hämta miniatyrbilden för varje bild.
+3. Använd metoden [ISlide.GetImage(float, float)](https://reference.aspose.com/slides/sv/net/aspose.slides/islide/getimage/) för att rendera varje bild i den skala du behöver.
 4. Använd metoden [IPresentation.Save(String, SaveFormat, ISaveOptions](https://reference.aspose.com/slides/sv/net/aspose.slides.ipresentation/save/methods/5) för att spara bildens miniatyr till PNG‑format.
 
-Den här C#‑koden visar hur du konverterar en PowerPoint-presentation till PNG. Presentation‑objektet kan läsa in PPT, PPTX, ODP med mera, och varje bild i presentationsobjektet konverteras sedan till PNG‑format eller andra bildformat.
+Den här C#‑koden visar hur man konverterar en PowerPoint‑presentation till PNG. Presentationsobjektet kan läsa in PPT, PPTX, ODP osv, och varje bild i presentationsobjektet konverteras till PNG‑format eller andra bildformat.
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     for (var index = 0; index < pres.Slides.Count; index++)
     {
         ISlide slide = pres.Slides[index];
 
-        using (IImage image = slide.GetImage())
+        using (IImage image = slide.GetImage(1f, 1f))
         {
             image.Save($"slide_{index}.png", ImageFormat.Png);
         }
@@ -56,13 +58,19 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
+{{% alert color="info" %}} 
+**Obs:** Skalargumenten `1f, 1f` renderar varje bild i sin fulla storlek, så en 720×540 pt‑bild ger en 720×540 px‑bild. Den parameterlösa överlagringen [GetImage()](https://reference.aspose.com/slides/sv/net/aspose.slides/islide/getimage/) returnerar istället en mycket mindre förhandsminiatyr. 
+{{% /alert %}} 
+
 ## **Konvertera PowerPoint till PNG med anpassade dimensioner**
 
-Om du vill få PNG‑filer med en viss skala kan du sätta värdena för `desiredX` och `desiredY`, som bestämmer dimensionerna på den resulterande miniatyrbilden.
+Om du vill få PNG‑filer i en viss skala kan du sätta värdena för `desiredX` och `desiredY`, som bestämmer dimensionerna på den resulterande miniatyren. 
 
-Denna C#‑kod demonstrerar den beskrivna operationen:
+Den här C#‑koden demonstrerar den beskrivna operationen:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     float scaleX = 2f;
@@ -81,11 +89,14 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ## **Konvertera PowerPoint till PNG med anpassad storlek**
 
-Om du vill få PNG‑filer med en viss storlek kan du skicka dina föredragna argument `width` och `height` för `imageSize`.
+Om du vill få PNG‑filer i en viss storlek kan du ange dina föredragna argument `width` och `height` för `imageSize`. 
 
-Denna kod visar hur du konverterar en PowerPoint till PNG samtidigt som du specificerar storleken för bilderna:
+Den här koden visar hur du konverterar en PowerPoint till PNG samtidigt som du specificerar storleken på bilderna: 
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     Size size = new Size(960, 720);
@@ -101,16 +112,16 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## **Vanliga frågor**
+## **FAQ**
 
-**Hur kan jag exportera endast en specifik form (t.ex. diagram eller bild) istället för hela bilden?**
+### Hur kan jag exportera endast en specifik form (t.ex. diagram eller bild) istället för hela bilden?
 
-Aspose.Slides stödjer att generera miniatyrbilder för enskilda former; du kan rendera en form till en PNG‑bild.
+Aspose.Slides stöder [generering av miniatyrer för enskilda former](/slides/sv/net/create-shape-thumbnails/); du kan rendera en form till en PNG‑bild.
 
-**Stöds parallell konvertering på en server?**
+### Stöds parallell konvertering på en server?
 
-Ja, men dela inte en enda presentation‑instans över trådar. Använd en separat instans per tråd eller process.
+Ja, men [dela inte](/slides/sv/net/multithreading/) en enda presentationsinstans mellan trådar. Använd en separat instans per tråd eller process.
 
-**Vilka begränsningar gäller för provversionen vid export till PNG?**
+### Vilka begränsningar finns för provversionen vid export till PNG?
 
-Utvärderingsläget lägger till ett vattenmärke på utdatasbilder och tillämpar andra begränsningar tills en licens har aktiverats.
+Utvärderingsläget lägger till ett vattenmärke på utskriftsbilder och tillämpar [andra begränsningar](/slides/sv/net/licensing/) tills en licens har aktiverats.

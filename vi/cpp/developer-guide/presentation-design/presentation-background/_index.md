@@ -1,43 +1,58 @@
 ---
-title: Quản lý nền bản trình chiếu trong C++
+title: Quản lý Nền Bài Thuyết Trình trong C++
 linktitle: Nền Slide
 type: docs
 weight: 20
 url: /vi/cpp/presentation-background/
 keywords:
-- nền bản trình chiếu
+- nền bài thuyết trình
 - nền slide
 - màu đồng nhất
 - màu gradient
-- nền hình ảnh
+- nền ảnh
 - độ trong suốt nền
 - thuộc tính nền
 - PowerPoint
 - OpenDocument
-- bản trình chiếu
+- bài thuyết trình
 - C++
 - Aspose.Slides
-description: "Tìm hiểu cách thiết lập nền động trong các tệp PowerPoint và OpenDocument bằng Aspose.Slides cho C++, kèm các mẹo mã để nâng cao bản trình chiếu của bạn."
+description: "Tìm hiểu cách đặt nền động cho tệp PowerPoint và OpenDocument bằng Aspose.Slides cho C++, với các mẹo mã để nâng cao bài thuyết trình của bạn."
 ---
 ## **Giới thiệu**
 
-Màu nền đồng nhất, chuyển màu và hình ảnh thường được sử dụng làm nền cho các slide. Bạn có thể đặt nền cho một **slide bình thường** (một slide duy nhất) hoặc một **slide chủ đề** (áp dụng cho nhiều slide cùng một lúc).
+Màu nền đồng nhất, gradient và hình ảnh thường được sử dụng cho nền của các slide. Bạn có thể đặt nền cho một **slide bình thường** (một slide duy nhất) hoặc một **slide chủ** (áp dụng cho nhiều slide cùng lúc).
 
 ![PowerPoint background](powerpoint-background.png)
 
-## **Đặt nền màu đồng nhất cho slide bình thường**
+## **Đặt nền màu đồng nhất cho Slide bình thường**
 
-Aspose.Slides cho phép bạn đặt một màu đồng nhất làm nền cho một slide cụ thể trong bản trình chiếu—ngay cả khi bản trình chiếu sử dụng slide chủ đề. Thay đổi chỉ áp dụng cho slide đã chọn.
+Aspose.Slides cho phép bạn đặt một màu đồng nhất làm nền cho một slide cụ thể trong bản thuyết trình—ngay cả khi bản thuyết trình sử dụng slide chủ. Thay đổi chỉ áp dụng cho slide đã chọn.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/).
 2. Đặt [BackgroundType](https://reference.aspose.com/slides/vi/cpp/aspose.slides/backgroundtype/) của slide thành `OwnBackground`.
 3. Đặt [FillType](https://reference.aspose.com/slides/vi/cpp/aspose.slides/filltype/) của nền slide thành `Solid`.
 4. Sử dụng phương thức [get_SolidFillColor](https://reference.aspose.com/slides/vi/cpp/aspose.slides/fillformat/get_solidfillcolor/) trên [FillFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/fillformat/) để chỉ định màu nền đồng nhất.
-5. Lưu bản trình chiếu đã sửa đổi.
+5. Lưu bản thuyết trình đã chỉnh sửa.
 
-Ví dụ C++ sau cho thấy cách đặt màu xanh lam đồng nhất làm nền cho một slide bình thường:
+Ví dụ C++ sau cho thấy cách đặt màu xanh đậm đồng nhất làm nền cho một slide bình thường:
 
 ```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 // Tạo một thể hiện của lớp Presentation.
 auto presentation = MakeObject<Presentation>();
 
@@ -48,52 +63,81 @@ slide->get_Background()->set_Type(BackgroundType::OwnBackground);
 slide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
 slide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 
-// Lưu bản trình chiếu vào đĩa.
+// Lưu bản thuyết trình vào đĩa.
 presentation->Save(u"SolidColorBackground.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Đặt nền màu đồng nhất cho slide chủ đề**
+## **Đặt nền màu đồng nhất cho Slide chủ**
 
-Aspose.Slides cho phép bạn đặt một màu đồng nhất làm nền cho slide chủ đề trong bản trình chiếu. Slide chủ đề hoạt động như một mẫu điều khiển định dạng cho tất cả các slide, vì vậy khi bạn chọn một màu đồng nhất cho nền của slide chủ đề, nó sẽ áp dụng cho mọi slide.
+Aspose.Slides cho phép bạn đặt một màu đồng nhất làm nền cho slide chủ trong bản thuyết trình. Slide chủ đóng vai trò là mẫu kiểm soát định dạng cho tất cả các slide, vì vậy khi bạn chọn màu đồng nhất cho nền slide chủ, nó sẽ áp dụng cho mọi slide.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/).
-2. Đặt [BackgroundType](https://reference.aspose.com/slides/vi/cpp/aspose.slides/backgroundtype/) của slide chủ đề (qua `get_Masters`) thành `OwnBackground`.
-3. Đặt [FillType](https://reference.aspose.com/slides/vi/cpp/aspose.slides/filltype/) của nền slide chủ đề thành `Solid`.
+2. Đặt [BackgroundType](https://reference.aspose.com/slides/vi/cpp/aspose.slides/backgroundtype/) của slide chủ (qua `get_Masters`) thành `OwnBackground`.
+3. Đặt [FillType](https://reference.aspose.com/slides/vi/cpp/aspose.slides/filltype/) của nền slide chủ thành `Solid`.
 4. Sử dụng phương thức [get_SolidFillColor](https://reference.aspose.com/slides/vi/cpp/aspose.slides/fillformat/get_solidfillcolor/) để chỉ định màu nền đồng nhất.
-5. Lưu bản trình chiếu đã sửa đổi.
+5. Lưu bản thuyết trình đã chỉnh sửa.
 
-Ví dụ C++ sau cho thấy cách đặt màu xanh rừng đồng nhất làm nền cho một slide chủ đề:
+Ví dụ C++ sau cho thấy cách đặt màu đồng nhất (xanh rừng) làm nền cho một slide chủ:
 
 ```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 // Tạo một thể hiện của lớp Presentation.
 auto presentation = MakeObject<Presentation>();
 
 auto masterSlide = presentation->get_Master(0);
 
-// Đặt màu nền cho slide Master thành màu Xanh Rừng.
+// Đặt màu nền cho slide Master thành màu xanh rừng.
 masterSlide->get_Background()->set_Type(BackgroundType::OwnBackground);
 masterSlide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
 masterSlide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_ForestGreen());
 
-// Lưu bản trình chiếu vào đĩa.
+// Lưu bản thuyết trình vào đĩa.
 presentation->Save(u"MasterSlideBackground.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Đặt nền gradient cho slide**
+## **Đặt nền Gradient cho Slide**
 
-Gradient là một hiệu ứng đồ họa được tạo ra bằng cách thay đổi màu một cách dần dần. Khi được sử dụng làm nền slide, gradient có thể làm cho bản trình chiếu trông nghệ thuật và chuyên nghiệp hơn. Aspose.Slides cho phép bạn đặt màu gradient làm nền cho các slide.
+Gradient là hiệu ứng đồ họa được tạo ra bằng sự thay đổi dần dãi của màu sắc. Khi được sử dụng làm nền slide, gradient có thể làm cho bản thuyết trình trông nghệ thuật và chuyên nghiệp hơn. Aspose.Slides cho phép bạn đặt màu gradient làm nền cho các slide.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/).
 2. Đặt [BackgroundType](https://reference.aspose.com/slides/vi/cpp/aspose.slides/backgroundtype/) của slide thành `OwnBackground`.
 3. Đặt [FillType](https://reference.aspose.com/slides/vi/cpp/aspose.slides/filltype/) của nền slide thành `Gradient`.
 4. Sử dụng phương thức [get_GradientFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/fillformat/get_gradientformat/) trên [FillFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/fillformat/) để cấu hình các thiết lập gradient mong muốn.
-5. Lưu bản trình chiếu đã sửa đổi.
+5. Lưu bản thuyết trình đã chỉnh sửa.
 
 Ví dụ C++ sau cho thấy cách đặt màu gradient làm nền cho một slide:
 
 ```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IGradientFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/TileFlip.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Tạo một thể hiện của lớp Presentation.
 auto presentation = MakeObject<Presentation>();
 
@@ -104,50 +148,88 @@ slide->get_Background()->set_Type(BackgroundType::OwnBackground);
 slide->get_Background()->get_FillFormat()->set_FillType(FillType::Gradient);
 slide->get_Background()->get_FillFormat()->get_GradientFormat()->set_TileFlip(TileFlip::FlipBoth);
 
-// Lưu bản trình chiếu vào đĩa.
+// Lưu bản thuyết trình vào đĩa.
 presentation->Save(u"GradientBackground.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Đặt hình ảnh làm nền slide**
+## **Đặt hình ảnh làm Nền cho Slide**
 
-Ngoài các loại tô đồng nhất và gradient, Aspose.Slides cho phép bạn sử dụng hình ảnh làm nền cho slide.
+Ngoài các màu nền đồng nhất và gradient, Aspose.Slides cho phép bạn sử dụng hình ảnh làm nền cho slide.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/).
 2. Đặt [BackgroundType](https://reference.aspose.com/slides/vi/cpp/aspose.slides/backgroundtype/) của slide thành `OwnBackground`.
 3. Đặt [FillType](https://reference.aspose.com/slides/vi/cpp/aspose.slides/filltype/) của nền slide thành `Picture`.
-4. Tải hình ảnh bạn muốn dùng làm nền slide.
-5. Thêm hình ảnh vào bộ sưu tập hình ảnh của bản trình chiếu.
-6. Sử dụng phương thức [get_PictureFillFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/fillformat/get_picturefillformat/) trên [FillFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/fillformat/) để gán hình ảnh làm nền.
-7. Lưu bản trình chiếu đã sửa đổi.
+4. Tải ảnh bạn muốn dùng làm nền cho slide.
+5. Thêm ảnh vào bộ sưu tập ảnh của bản thuyết trình.
+6. Sử dụng phương thức [get_PictureFillFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/fillformat/get_picturefillformat/) trên [FillFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/fillformat/) để gán ảnh làm nền.
+7. Lưu bản thuyết trình đã chỉnh sửa.
 
-Ví dụ C++ sau cho thấy cách đặt một hình ảnh làm nền cho một slide:
+Ví dụ C++ sau cho thấy cách đặt hình ảnh làm nền cho một slide:
 
 ```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Tạo một thể hiện của lớp Presentation.
 auto presentation = MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
 
-// Đặt các thuộc tính hình ảnh nền.
+// Đặt các thuộc tính hình nền.
 slide->get_Background()->set_Type(BackgroundType::OwnBackground);
 slide->get_Background()->get_FillFormat()->set_FillType(FillType::Picture);
 slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
 
 // Tải hình ảnh.
 auto image = Images::FromFile(u"Tulips.jpg");
-// Thêm hình ảnh vào bộ sưu tập hình ảnh của bản trình chiếu.
+// Thêm hình ảnh vào bộ sưu tập hình ảnh của bản thuyết trình.
 auto ppImage = presentation->get_Images()->AddImage(image);
 image->Dispose();
 
 slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(ppImage);
 
-// Lưu bản trình chiếu vào đĩa.
+// Lưu bản thuyết trình vào đĩa.
 presentation->Save(u"ImageAsBackground.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
 ```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Presentation.h>
+#include <DOM/RectangleAlignment.h>
+#include <DOM/TileFlip.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>();
 
 auto firstSlide = presentation->get_Slide(0);
@@ -178,21 +260,41 @@ presentation->Save(u"TileBackground.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 Đọc thêm: [**Tile Picture As Texture**](/slides/vi/cpp/shape-formatting/#tile-picture-as-texture).
 {{% /alert %}}
 
-### **Thay đổi độ trong suốt của ảnh nền**
+### **Thay đổi Độ trong suốt của Hình nền**
 
-Bạn có thể muốn điều chỉnh độ trong suốt của ảnh nền slide để làm cho nội dung slide nổi bật hơn. Đoạn mã C++ sau cho thấy cách thay đổi độ trong suốt cho ảnh nền slide:
+Bạn có thể muốn điều chỉnh độ trong suốt của hình nền slide để nội dung slide nổi bật hơn. Mã C++ sau cho bạn biết cách thay đổi độ trong suốt cho hình nền của slide:
 
 ```cpp
+#include <DOM/Effects/IAlphaModulateFixed.h>
+#include <DOM/Effects/IImageTransformOperationCollection.h>
+#include <DOM/IBackground.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Effects;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto transparencyValue = 30; // Ví dụ.
 
-// Lấy bộ sưu tập các thao tác biến đổi hình ảnh.
+// Tạo một thể hiện của lớp Presentation.
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+
+auto slide = presentation->get_Slide(0);
+
+// Lấy tập hợp các thao tác biến đổi hình ảnh.
 auto imageTransform = slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->get_ImageTransform();
 
-// Tìm hiệu ứng trong suốt tỉ lệ phần trăm cố định hiện có.
+// Tìm hiệu ứng trong suốt phần trăm cố định hiện có.
 SharedPtr<IAlphaModulateFixed> transparencyOperation;
 for (auto&& operation : imageTransform)
 {
@@ -203,7 +305,7 @@ for (auto&& operation : imageTransform)
     }
 }
 
-// Set the new transparency value.
+// Đặt giá trị trong suốt mới.
 if (transparencyOperation == nullptr)
 {
     imageTransform->AddAlphaModulateFixedEffect(100.0f - transparencyValue);
@@ -212,23 +314,39 @@ else
 {
     transparencyOperation->set_Amount(100.0f - transparencyValue);
 }
+
+// Lưu bản thuyết trình vào đĩa.
+presentation->Save(u"TransparentBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Lấy giá trị nền của slide**
+## **Lấy giá trị Nền của Slide**
 
-Aspose.Slides cung cấp giao diện [IBackgroundEffectiveData](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibackgroundeffectivedata/) để truy xuất các giá trị nền thực tế của một slide. Giao diện này cung cấp [FillFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibackgroundeffectivedata/get_fillformat/) và [EffectFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibackgroundeffectivedata/get_effectformat/) thực tế.
+Aspose.Slides cung cấp giao diện [IBackgroundEffectiveData](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibackgroundeffectivedata/) để truy xuất các giá trị nền thực tế của slide. Giao diện này cung cấp [FillFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibackgroundeffectivedata/get_fillformat/) và [EffectFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibackgroundeffectivedata/get_effectformat/) thực tế.
 
-Sử dụng phương thức `get_Background` của lớp [BaseSlide](https://reference.aspose.com/slides/vi/cpp/aspose.slides/baseslide/), bạn có thể lấy nền thực tế của một slide.
+Bằng cách sử dụng phương thức `get_Background` của lớp [BaseSlide](https://reference.aspose.com/slides/vi/cpp/aspose.slides/baseslide/), bạn có thể lấy nền thực tế của một slide.
 
 Ví dụ C++ sau cho thấy cách lấy giá trị nền thực tế của một slide:
 
 ```cpp
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IBackgroundEffectiveData.h>
+#include <DOM/IFillFormatEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <drawing/color.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 // Tạo một thể hiện của lớp Presentation.
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
 auto slide = presentation->get_Slide(0);
 
-// Lấy nền thực tế, tính đến master, layout và theme.
+// Lấy nền hiệu lực, tính đến master, layout và theme.
 auto effBackground = slide->get_Background()->GetEffective();
 
 if (effBackground->get_FillFormat()->get_FillType() == FillType::Solid)
@@ -243,10 +361,10 @@ else
 
 ## **FAQ**
 
-**Tôi có thể đặt lại nền tùy chỉnh và khôi phục lại nền của theme/bố cục không?**
+### Tôi có thể đặt lại nền tùy chỉnh và khôi phục lại nền theme/bố cục không?
 
-Có. Loại bỏ việc tô màu tùy chỉnh của slide, và nền sẽ được kế thừa lại từ slide [layout](/slides/vi/cpp/slide-layout/)/[master](/slides/vi/cpp/slide-master/) tương ứng (tức là [nền theme](/slides/vi/cpp/presentation-theme/)).
+Có. Xóa phần tô màu tùy chỉnh của slide, và nền sẽ lại được kế thừa từ slide [layout](/slides/vi/cpp/slide-layout/)/[master](/slides/vi/cpp/slide-master/) tương ứng (tức là [theme background](/slides/vi/cpp/presentation-theme/)).
 
-**Điều gì sẽ xảy ra với nền nếu tôi thay đổi theme của bản trình chiếu sau này?**
+### Điều gì sẽ xảy ra với nền nếu tôi thay đổi theme của bản thuyết trình sau này?
 
-Nếu một slide có màu nền riêng, nó sẽ không thay đổi. Nếu nền được kế thừa từ [layout](/slides/vi/cpp/slide-layout/)/[master](/slides/vi/cpp/slide-master/), nó sẽ được cập nhật để phù hợp với [theme mới](/slides/vi/cpp/presentation-theme/).
+Nếu một slide có phần tô màu riêng, nó sẽ không thay đổi. Nếu nền được kế thừa từ [layout](/slides/vi/cpp/slide-layout/)/[master](/slides/vi/cpp/slide-master/), nó sẽ cập nhật để phù hợp với [new theme](/slides/vi/cpp/presentation-theme/).

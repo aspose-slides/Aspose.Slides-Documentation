@@ -6,28 +6,28 @@ weight: 20
 url: /vi/net/convert-ppt-to-pptx/
 keywords:
 - chuyển đổi PowerPoint
-- chuyển đổi bản trình bày
+- chuyển đổi bản trình chiếu
 - chuyển đổi slide
 - chuyển đổi PPT
 - PPT sang PPTX
 - lưu PPT dưới dạng PPTX
 - xuất PPT sang PPTX
 - PowerPoint
-- bản trình bày
+- bản trình chiếu
 - .NET
 - C#
 - Aspose.Slides
-description: "Chuyển đổi các bản trình bày PPT cổ điển sang PPTX hiện đại nhanh chóng trong .NET với Aspose.Slides — hướng dẫn rõ ràng, mẫu mã C# miễn phí, không cần phụ thuộc vào Microsoft Office."
+description: "Chuyển đổi nhanh các bản trình chiếu PPT cũ sang PPTX hiện đại trong .NET với Aspose.Slides — hướng dẫn rõ ràng, mẫu mã C# miễn phí, không cần Microsoft Office."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách chuyển đổi bản trình bày PowerPoint ở định dạng PPT sang định dạng PPTX bằng C# và ứng dụng chuyển đổi PPT sang PPTX trực tuyến. Các chủ đề sau được đề cập.
+Bài viết này giải thích cách chuyển đổi PowerPoint Presentation ở định dạng PPT sang PPTX bằng C# và ứng dụng chuyển đổi PPT sang PPTX trực tuyến. Các chủ đề sau được đề cập.
 
 - [Chuyển đổi PPT sang PPTX trong C#](#convert-ppt-to-pptx)
 
 ## **Chuyển đổi PPT sang PPTX trong .NET**
 
-Để xem mã mẫu C# chuyển đổi PPT sang PPTX, vui lòng xem phần bên dưới, tức là [Chuyển đổi PPT sang PPTX](#convert-ppt-to-pptx). Nó chỉ tải tệp PPT và lưu ở định dạng PPTX. Bằng cách chỉ định các định dạng lưu khác nhau, bạn cũng có thể lưu tệp PPT thành nhiều định dạng khác như PDF, XPS, ODP, HTML, v.v. như đã thảo luận trong các bài viết này. 
+Đối với mã mẫu C# chuyển đổi PPT sang PPTX, vui lòng xem phần dưới đây là [Chuyển đổi PPT sang PPTX](#convert-ppt-to-pptx). Nó chỉ tải tệp PPT và lưu dưới định dạng PPTX. Bằng cách chỉ định các định dạng lưu khác nhau, bạn cũng có thể lưu tệp PPT sang nhiều định dạng khác như PDF, XPS, ODP, HTML, v.v. như đã thảo luận trong các bài viết này.
 
 - [Chuyển đổi PPT sang PDF trong .NET](/slides/vi/net/convert-powerpoint-to-pdf/)
 - [Chuyển đổi PPT sang XPS trong .NET](/slides/vi/net/convert-powerpoint-to-xps/)
@@ -35,70 +35,72 @@ Bài viết này giải thích cách chuyển đổi bản trình bày PowerPoin
 - [Chuyển đổi PPT sang ODP trong .NET](/slides/vi/net/save-presentation/)
 - [Chuyển đổi PPT sang PNG trong .NET](/slides/vi/net/convert-powerpoint-to-png/)
 
-## **Về chuyển đổi PPT sang PPTX**
-
-Chuyển đổi định dạng PPT cũ sang PPTX bằng Aspose.Slides API. Nếu bạn cần chuyển đổi hàng ngàn bản trình bày PPT sang định dạng PPTX, giải pháp tốt nhất là thực hiện tự động. Với Aspose.Slides API, bạn có thể thực hiện chỉ trong vài dòng mã. API hỗ trợ tương thích đầy đủ để chuyển đổi bản trình bày PPT sang PPTX và có thể:
+## **Về việc chuyển đổi PPT sang PPTX**
+Chuyển đổi định dạng PPT cũ sang PPTX với Aspose.Slides API. Nếu bạn cần chuyển đổi hàng ngàn bản trình chiếu PPT sang định dạng PPTX, giải pháp tốt nhất là thực hiện chương trình. Với Aspose.Slides API, việc này có thể thực hiện chỉ trong vài dòng mã. API hỗ trợ tương thích đầy đủ để chuyển đổi bản trình chiếu PPT sang PPTX và có thể:
 
 - Chuyển đổi cấu trúc phức tạp của master, layout và slide.
-- Chuyển đổi bản trình bày có biểu đồ.
-- Chuyển đổi bản trình bày có group shapes, auto-shapes (như hình chữ nhật và hình elip), các hình có hình học tùy chỉnh.
-- Chuyển đổi bản trình bày, có kết cấu và phong cách điền ảnh cho các hình tự động.
-- Chuyển đổi bản trình bày có vị trí giữ chỗ, khung văn bản và trình giữ văn bản.
+- Chuyển đổi bản trình chiếu có biểu đồ.
+- Chuyển đổi bản trình chiếu có nhóm hình dạng, auto-shapes (như hình chữ nhật và ellipse), hình dạng với hình học tùy chỉnh.
+- Chuyển đổi bản trình chiếu, có kết cấu và kiểu điền ảnh cho auto-shapes.
+- Chuyển đổi bản trình chiếu có placeholders, khung văn bản và người giữ văn bản.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Hãy xem ứng dụng [**Aspose.Slides PPT to PPTX Conversion**](https://products.aspose.app/slides/vi/conversion/ppt-to-pptx) :
+Hãy xem [**Aspose.Slides PPT to PPTX Conversion**](https://products.aspose.app/slides/vi/conversion/ppt-to-pptx) app:
 
 [](https://products.aspose.app/slides/vi/conversion/ppt-to-pptx)
 
 [![todo:image_alt_text](ppt-to-pptx.png)](https://products.aspose.app/slides/vi/conversion/ppt-to-pptx)
 
-Ứng dụng này được xây dựng dựa trên **Aspose.Slides API**, vì vậy bạn có thể thấy ví dụ thực tế về khả năng chuyển đổi PPT sang PPTX cơ bản. Aspose.Slides Conversion là một ứng dụng web, cho phép kéo thả tệp bản trình bày ở định dạng PPT và tải xuống phiên bản đã chuyển đổi sang PPTX.
+Ứng dụng này được xây dựng dựa trên **Aspose.Slides API**, vì vậy bạn có thể thấy ví dụ trực tiếp về khả năng chuyển đổi PPT cơ bản sang PPTX. Aspose.Slides Conversion là một ứng dụng web, cho phép kéo thả tệp bản trình chiếu dạng PPT và tải về bản đã chuyển đổi sang PPTX.
 
-Tìm các ví dụ trực tiếp khác về [**Aspose.Slides Conversion**](https://products.aspose.app/slides/vi/conversion/) .
+Tìm các ví dụ trực tiếp khác của [**Aspose.Slides Conversion**](https://products.aspose.app/slides/vi/conversion/) .
 
 {{% /alert %}} 
 
 
 ## **Chuyển đổi PPT sang PPTX**
-Để chuyển đổi PPT sang PPTX, chỉ cần truyền tên tệp và định dạng lưu vào phương thức [**Save**](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/methods/save/index) của lớp [**Presentation**](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation). Mẫu mã C# dưới đây chuyển đổi một Presentation từ PPT sang PPTX bằng các tùy chọn mặc định.
+Để chuyển đổi PPT sang PPTX, đơn giản chỉ cần truyền tên tệp và định dạng lưu vào phương thức [**Save**](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/methods/save/index) của lớp [**Presentation**](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation). Mẫu mã C# dưới đây chuyển đổi một Presentation từ PPT sang PPTX bằng các tùy chọn mặc định.
 
 ```c#
-// Khởi tạo đối tượng Presentation đại diện cho tệp PPTX
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Khởi tạo một đối tượng Presentation đại diện cho tệp PPTX
 Presentation pres = new Presentation("PPTtoPPTX.ppt");
 
-// Lưu bản trình bày PPTX sang định dạng PPTX
+// Lưu bản trình chiếu PPTX dưới định dạng PPTX
 pres.Save("PPTtoPPTX_out.pptx", SaveFormat.Pptx);
 ```
 
-Đọc thêm về các định dạng bản trình bày [**PPT vs PPTX**](/slides/vi/net/ppt-vs-pptx/) và cách [**Aspose.Slides supports PPT to PPTX conversion**](/slides/vi/net/convert-ppt-to-pptx/).
+Đọc thêm về định dạng bản trình chiếu [**PPT vs PPTX**](/slides/vi/net/ppt-vs-pptx/) và cách mà [**Aspose.Slides hỗ trợ chuyển đổi PPT sang PPTX**](/slides/vi/net/convert-ppt-to-pptx/).
 
 ## **Câu hỏi thường gặp**
 
-**Sự khác nhau giữa định dạng PPT và PPTX là gì?**
+### Sự khác nhau giữa định dạng PPT và PPTX là gì?
 
-PPT là định dạng tệp nhị phân cũ hơn được Microsoft PowerPoint sử dụng, trong khi PPTX là định dạng dựa trên XML mới được giới thiệu cùng Microsoft Office 2007. Tệp PPTX cung cấp hiệu suất tốt hơn, kích thước tệp giảm và khả năng khôi phục dữ liệu cải thiện.
+PPT là định dạng tệp nhị phân cũ được Microsoft PowerPoint sử dụng, trong khi PPTX là định dạng dựa trên XML mới được giới thiệu với Microsoft Office 2007. Tệp PPTX cung cấp hiệu năng tốt hơn, kích thước tệp giảm và khả năng khôi phục dữ liệu cải thiện.
 
-**Tôi có thể chuyển đổi PPT sang PPTX bằng .NET không?**
+### Tôi có thể chuyển đổi PPT sang PPTX bằng .NET không?
 
-Có, bằng cách sử dụng thư viện Aspose.Slides cho .NET, bạn có thể dễ dàng tải tệp PPT và lưu nó ở định dạng PPTX chỉ với vài dòng mã.
+Có, bằng cách sử dụng thư viện Aspose.Slides for .NET, bạn có thể dễ dàng tải tệp PPT và lưu nó ở định dạng PPTX chỉ với vài dòng mã.
 
-**Aspose.Slides hỗ trợ chuyển đổi hàng loạt nhiều tệp PPT sang PPTX không?**
+### Aspose.Slides có hỗ trợ chuyển đổi hàng loạt nhiều tệp PPT sang PPTX không?
 
-Có, bạn có thể sử dụng Aspose.Slides trong một vòng lặp để chuyển đổi nhiều tệp PPT sang PPTX một cách tự động, phù hợp cho các kịch bản chuyển đổi hàng loạt.
+Có, bạn có thể sử dụng Aspose.Slides trong vòng lặp để chuyển đổi nhiều tệp PPT sang PPTX một cách lập trình, phù hợp cho các kịch bản chuyển đổi hàng loạt.
 
-**Nội dung và định dạng có được giữ nguyên sau khi chuyển đổi không?**
+### Nội dung và định dạng có được giữ nguyên sau khi chuyển đổi không?
 
-Aspose.Slides duy trì độ chính xác cao khi chuyển đổi bản trình bày. Bố cục slide, hoạt ảnh, hình dạng, biểu đồ và các yếu tố thiết kế khác được giữ nguyên trong quá trình chuyển đổi PPT sang PPTX.
+Aspose.Slides duy trì độ trung thực cao khi chuyển đổi bản trình chiếu. Bố cục slide, hoạt ảnh, hình dạng, biểu đồ và các yếu tố thiết kế khác được giữ nguyên trong quá trình chuyển đổi PPT sang PPTX.
 
-**Tôi có thể chuyển đổi các định dạng khác như PDF hoặc HTML từ tệp PPT không?**
+### Tôi có thể chuyển đổi sang các định dạng khác như PDF hoặc HTML từ tệp PPT không?
 
 Có, Aspose.Slides hỗ trợ chuyển đổi tệp PPT sang nhiều định dạng, bao gồm PDF, XPS, HTML, ODP và các định dạng hình ảnh như PNG và JPEG.
 
-**Có thể chuyển đổi PPT sang PPTX mà không cần cài đặt Microsoft PowerPoint không?**
+### Có thể chuyển đổi PPT sang PPTX mà không cần cài đặt Microsoft PowerPoint không?
 
-Có, Aspose.Slides cho .NET là một API độc lập và không yêu cầu Microsoft PowerPoint hay bất kỳ phần mềm bên thứ ba nào để thực hiện việc chuyển đổi.
+Có, Aspose.Slides for .NET là một API độc lập và không yêu cầu Microsoft PowerPoint hay bất kỳ phần mềm bên thứ ba nào để thực hiện chuyển đổi.
 
-**Có công cụ trực tuyến nào cho việc chuyển đổi PPT sang PPTX không?**
+### Có công cụ trực tuyến nào để chuyển đổi PPT sang PPTX không?
 
-Có, bạn có thể sử dụng ứng dụng web miễn phí [Aspose.Slides PPT to PPTX Converter](https://products.aspose.app/slides/vi/conversion/ppt-to-pptx) để thực hiện chuyển đổi trực tiếp trong trình duyệt mà không cần viết bất kỳ mã nào.
+Có, bạn có thể sử dụng miễn phí [Aspose.Slides PPT to PPTX Converter](https://products.aspose.app/slides/vi/conversion/ppt-to-pptx) trên web để thực hiện chuyển đổi trực tiếp trong trình duyệt mà không cần viết mã.

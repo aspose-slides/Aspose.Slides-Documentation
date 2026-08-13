@@ -1,49 +1,53 @@
 ---
-title: مدیریت ابرلینک‌های ارائه در Java
-linktitle: مدیریت ابرلینک
+title: مدیریت پیوندهای ارائه در جاوا
+linktitle: مدیریت پیوند
 type: docs
 weight: 20
 url: /fa/java/manage-hyperlinks/
 keywords:
 - افزودن URL
-- افزودن ابرلینک
-- ایجاد ابرلینک
-- قالب‌بندی ابرلینک
-- حذف ابرلینک
-- بروزرسانی ابرلینک
-- ابرلینک متن
-- ابرلینک اسلاید
-- ابرلینک شکل
-- ابرلینک تصویر
-- ابرلینک ویدئو
-- ابرلینک قابل تغییر
+- افزودن پیوند
+- ایجاد پیوند
+- قالب‌بندی پیوند
+- حذف پیوند
+- به‌روزرسانی پیوند
+- پیوند متن
+- پیوند اسلاید
+- پیوند شکل
+- پیوند تصویر
+- پیوند ویدئو
+- پیوند قابل تغییر
 - PowerPoint
 - OpenDocument
 - ارائه
-- Java
+- جاوا
 - Aspose.Slides
-description: "به راحتی ابرلینک‌ها را در ارائه‌های PowerPoint و OpenDocument با Aspose.Slides برای Java مدیریت کنید—تعامل و جریان کار را در عرض چند دقیقه ارتقا دهید."
+description: "به‌راحتی پیوندها را در ارائه‌های PowerPoint و OpenDocument با Aspose.Slides برای جاوا مدیریت کنید—تعامل و جریان کار را در عرض چند دقیقه ارتقا دهید."
 ---
 ## **مقدمه**
 
-یک ابرلینک مرجع به یک شیء، داده یا مکانی در چیزی است. این‌ها ابرلینک‌های رایج در ارائه‌های پاورپوینت هستند:
+یک پیوند ارجاعی به یک شی، داده یا مکانی در چیزی است. این‌ها پیوندهای رایج در ارائه‌های PowerPoint هستند:
 
-* لینک به وب‌سایت‌ها درون متن‌ها، شکل‌ها یا رسانه‌ها
-* لینک به اسلایدها
+* پیوندها به وب‌سایت‌ها داخل متن‌ها، اشکال یا رسانه‌ها
+* پیوندها به اسلایدها
 
-Aspose.Slides for Java به شما امکان انجام بسیاری از کارها با ابرلینک‌ها در ارائه‌ها را می‌دهد. 
+Aspose.Slides for Java به شما امکان می‌دهد بسیاری از وظایف مربوط به پیوندها در ارائه‌ها را انجام دهید. 
 
-{{% alert color="primary" %}} 
-ممکن است بخواهید ویرایشگر آنلاین رایگان پاورپوینت Aspose را بررسی کنید.[ویرایشگر آنلاین رایگان پاورپوینت Aspose](https://products.aspose.app/slides/fa/editor)
+{{% alert color="info" %}} 
+
+ممکن است بخواهید Aspose ساده، [ویرایشگر آنلاین رایگان PowerPoint](https://products.aspose.app/slides/fa/editor) را بررسی کنید.
+
 {{% /alert %}} 
 
-## **اضافه‌کردن ابرلینک‌های URL**
+## **افزودن پیوندهای URL**
 
-### **اضافه‌کردن ابرلینک URL به متن**
+### **افزودن پیوندهای URL به متن**
 
-این کد جاوا نشان می‌دهد چگونه یک ابرلینک وب‌سایت به متن اضافه کنید:
+این کد Java نشان می‌دهد چگونه یک پیوند وب‌سایت به متن اضافه کنید:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
 	IAutoShape shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -60,11 +64,13 @@ try {
 }
 ```
 
-### **اضافه‌کردن ابرلینک URL به اشکال یا فریم‌ها**
+### **افزودن پیوندهای URL به اشکال یا فریم‌ها**
 
-این نمونه کد در جاوا نشان می‌دهد چگونه یک ابرلینک وب‌سایت به یک شکل اضافه کنید:
+این نمونه کد در Java نشان می‌دهد چگونه یک پیوند وب‌سایت به یک شکل اضافه کنید:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -78,39 +84,45 @@ try {
 }
 ```
 
-### **اضافه‌کردن ابرلینک URL به رسانه‌ها**
+### **افزودن پیوندهای URL به رسانه‌ها**
 
-Aspose.Slides به شما امکان اضافه‌کردن ابرلینک به تصاویر، فایل‌های صوتی و ویدئویی را می‌دهد. 
+Aspose.Slides به شما امکان می‌دهد پیوندهایی به تصاویر، فایل‌های صوتی و ویدئو اضافه کنید. 
 
-این نمونه کد نشان می‌دهد چگونه به یک **تصویر** ابرلینک اضافه کنید:
+این نمونه کد نشان می‌دهد چگونه به یک **تصویر** پیوند اضافه کنید:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	// تصویر را به ارائه اضافه می‌کند
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
-    picture = pres.getImages().addImage(picture);
+        picture = pres.getImages().addImage(image);
     } finally {
-          if (image != null) image.dispose();
+        if (image != null) image.dispose();
     }
-	// قاب تصویر را بر روی اسلاید 1 ایجاد می‌کند بر پایه تصویری که قبلاً اضافه شده بود
+	// ایجاد فریم تصویر در اسلاید 1 بر اساس تصویر اضافه‌شده قبلی
 	IPictureFrame pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
 
 	pictureFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
 	pictureFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 
 	pres.save("pres-out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
-این نمونه کد نشان می‌دهد چگونه به یک **فایل صوتی** ابرلینک اضافه کنید:
+این نمونه کد نشان می‌دهد چگونه به یک **فایل صوتی** پیوند اضافه کنید:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IAudio audio = pres.getAudios().addAudio(Files.readAllBytes(Paths.get("audio.mp3")));
@@ -126,9 +138,14 @@ try {
 }
 ```
 
-این نمونه کد نشان می‌دهد چگونه به یک **ویدئو** ابرلینک اضافه کنید:
+این نمونه کد نشان می‌دهد چگونه به یک **ویدئو** پیوند اضافه کنید:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IVideo video = pres.getVideos().addVideo(Files.readAllBytes(Paths.get("video.avi")));
@@ -144,17 +161,22 @@ try {
 }
 ```
 
-{{%  alert  title="Tip"  color="primary"  %}} 
-ممکن است بخواهید *[مدیریت OLE](/slides/fa/java/manage-ole/)* را مشاهده کنید.
+{{% alert title="Tip" color="info" %}} 
+
+ممکن است بخواهید *[Manage OLE](/slides/fa/java/manage-ole/)* را مشاهده کنید.
+
 {{% /alert %}}
 
-## **استفاده از ابرلینک‌ها برای ساخت فهرست مطالب**
+## **استفاده از پیوندها برای ایجاد فهرست مطالب**
 
-از آنجا که ابرلینک‌ها به شما امکان اضافه‌کردن مرجع به اشیاء یا مکان‌ها را می‌دهند، می‌توانید از آن‌ها برای ساخت فهرست مطالب استفاده کنید. 
+از آنجا که پیوندها به شما امکان می‌دهند ارجاع به اشیاء یا مکان‌ها اضافه کنید، می‌توانید از آن‌ها برای ایجاد فهرست مطالب استفاده کنید. 
 
-این نمونه کد نشان می‌دهد چگونه فهرست مطالب با ابرلینک‌ها ایجاد کنید:
+این نمونه کد نشان می‌دهد چگونه فهرست مطالبی با پیوندها ایجاد کنید:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	ISlide firstSlide = pres.getSlides().get_Item(0);
@@ -183,15 +205,18 @@ try {
 }
 ```
 
-## **قالب‌بندی ابرلینک‌ها**
+## **قالب‌بندی پیوندها**
 
 ### **رنگ**
 
-با ویژگی [ColorSource](https://reference.aspose.com/slides/fa/java/com.aspose.slides/Hyperlink#setColorSource-int-) در اینترفیس [IHyperlink](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IHyperlink) می‌توانید رنگ ابرلینک‌ها را تنظیم کنید و همچنین اطلاعات رنگ را از ابرلینک‌ها دریافت کنید. این ویژگی برای اولین بار در PowerPoint 2019 معرفی شد، بنابراین تغییرات مربوط به این ویژگی در نسخه‌های قبلی پاورپوینت اعمال نمی‌شود.
+با ویژگی [ColorSource](https://reference.aspose.com/slides/fa/java/com.aspose.slides/Hyperlink#setColorSource-int-) در رابط [IHyperlink](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IHyperlink) می‌توانید رنگ پیوندها را تنظیم کنید و همچنین اطلاعات رنگ را از پیوندها دریافت کنید. این ویژگی اولین بار در PowerPoint 2019 معرفی شد، بنابراین تغییرات مربوط به این ویژگی برای نسخه‌های قدیمی‌تر PowerPoint اعمال نمی‌شود.
 
-این نمونه کد عملیاتی را نشان می‌دهد که در آن ابرلینک‌های با رنگ‌های مختلف به همان اسلاید اضافه شدند:
+این نمونه کد عملی را نشان می‌دهد که در آن پیوندهای با رنگ‌های مختلف به همان اسلاید اضافه شدند:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -212,21 +237,23 @@ try {
 }
 ```
 
-## **حذف ابرلینک‌ها از ارائه‌ها**
+## **حذف پیوندها از ارائه‌ها**
 
-### **حذف ابرلینک‌ها از متن**
+### **حذف پیوندها از متن**
 
-این کد جاوا نشان می‌دهد چگونه ابرلینک را از یک متن در اسلاید ارائه حذف کنید:
+این کد Java نشان می‌دهد چگونه پیوند را از متن در یک اسلاید ارائه حذف کنید:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
 	{
-		IAutoShape autoShape = (IAutoShape)shape;
-		if (autoShape != null)
+		if (shape instanceof IAutoShape)
 		{
+			IAutoShape autoShape = (IAutoShape)shape;
 			for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs())
 			{
 				for (IPortion portion : paragraph.getPortions())
@@ -243,12 +270,14 @@ try {
 }
 ```
 
-### **حذف ابرلینک‌ها از اشکال یا فریم‌ها**
+### **حذف پیوندها از اشکال یا فریم‌ها**
 
-این کد جاوا نشان می‌دهد چگونه ابرلینک را از یک شکل در اسلاید ارائه حذف کنید: 
+این کد Java نشان می‌دهد چگونه پیوند را از یک شکل در یک اسلاید ارائه حذف کنید: 
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
@@ -261,9 +290,9 @@ try {
 }
 ```
 
-## **Hyperlink قابل تغییر**
+## **پیوند قابل تغییر**
 
-کلاس [Hyperlink](https://reference.aspose.com/slides/fa/java/com.aspose.slides/Hyperlink) قابل تغییر است. با این کلاس می‌توانید مقادیر ویژگی‌های زیر را تغییر دهید:
+کلاس [Hyperlink](https://reference.aspose.com/slides/fa/java/com.aspose.slides/Hyperlink) قابل تغییر است. با استفاده از این کلاس می‌توانید مقادیر این ویژگی‌ها را تغییر دهید:
 
 - [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
 - [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IHyperlink#setTooltip-java.lang.String-)
@@ -271,9 +300,11 @@ try {
 - [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IHyperlink#setHighlightClick-boolean-)
 - [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
 
-این قطعه کد نشان می‌دهد چگونه یک ابرلینک به اسلاید اضافه کنید و بعداً tooltip آن را ویرایش کنید:
+این کد نمونه نشان می‌دهد چگونه پیوندی به اسلاید اضافه کنید و پس از آن tooltip آن را ویرایش کنید:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -284,6 +315,9 @@ try {
 	portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 	portionFormat.setFontHeight(32);
 
+	// Tooltip پیوندی که قبلاً اضافه شده است را تغییر می‌دهد
+	portionFormat.getHyperlinkClick().setTooltip("Aspose: the File Format APIs");
+
 	pres.save("presentation-out.pptx", SaveFormat.Pptx);
 } finally {
 	if (pres != null) pres.dispose();
@@ -292,29 +326,29 @@ try {
 
 ## **ویژگی‌های پشتیبانی‌شده در IHyperlinkQueries**
 
-می‌توانید از [IHyperlinkQueries](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IHyperlinkQueries) از طریق یک ارائه، اسلاید یا متن که ابرلینک در آن تعریف شده است، دسترسی پیدا کنید. 
+می‌توانید از [IHyperlinkQueries](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IHyperlinkQueries) از یک ارائه، اسلاید یا متن که پیوند برای آن تعریف شده است، دسترسی پیدا کنید. 
 
 - [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IPresentation#getHyperlinkQueries--)
 - [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
 - [ITextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ITextFrame#getHyperlinkQueries--)
 
-کلاس [IHyperlinkQueries](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IHyperlinkQueries) این متدها و ویژگی‌ها را پشتیبانی می‌کند: 
+کلاس [IHyperlinkQueries](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IHyperlinkQueries) این روش‌ها و ویژگی‌ها را پشتیبانی می‌کند: 
 
 - [IHyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
 - [IHyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
 - [IHyperlinkQueries.getAnyHyperlinks()](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IHyperlinkQueries#getAnyHyperlinks--)
 - [IHyperlinkQueries.removeAllHyperlinks()](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IHyperlinkQueries#removeAllHyperlinks--)
 
-## **سؤالات متداول**
+## **سوالات متداول**
 
-**چگونه می‌توانم ناوبری داخلی نه فقط به یک اسلاید بلکه به «بخش» یا اولین اسلاید یک بخش ایجاد کنم؟**
+### چگونه می‌توانم ناوبری داخلی ایجاد کنم که نه فقط به یک اسلاید، بلکه به یک «بخش» یا اولین اسلاید یک بخش اختصاص یابد؟
 
-بخش‌ها در PowerPoint گروهی از اسلایدها هستند؛ ناوبری به‌صورت فنی به اسلاید خاصی هدف می‌گیرد. برای «ناوبری به یک بخش»، معمولاً به اولین اسلاید آن لینک می‌دهید.
+بخش‌ها در PowerPoint گروهی از اسلایدها هستند؛ ناوبری عملاً به یک اسلاید خاص هدف می‌گیرد. برای «ناوبری به یک بخش»، معمولاً به اولین اسلاید آن بخش پیوند می‌دهید.
 
-**آیا می‌توانم ابرلینک را به عناصر اسلاید اصلی (master) متصل کنم تا در تمام اسلایدها کار کند؟**
+### آیا می‌توانم پیوند را به عناصر اسلاید اصلی (master) پیوست کنم تا در تمام اسلایدها کار کند؟
 
-بله. عناصر اسلاید اصلی و قالب‌های چیدمان از ابرلینک‌ها پشتیبانی می‌کنند. این لینک‌ها بر روی اسلایدهای فرزند ظاهر می‌شوند و در حین نمایش اسلاید قابل کلیک هستند.
+بله. عناصر اسلاید اصلی و چیدمان‌ها از پیوندها پشتیبانی می‌کنند. چنین پیوندهایی در اسلایدهای فرعی ظاهر می‌شوند و در حین نمایش اسلاید قابل کلیک هستند.
 
-**آیا ابرلینک‌ها هنگام خروجی گرفتن به PDF، HTML، تصویر یا ویدئو حفظ می‌شوند؟**
+### آیا پیوندها هنگام خروجی به PDF، HTML، تصاویر یا ویدئو حفظ می‌شوند؟
 
-در [PDF](/slides/fa/java/convert-powerpoint-to-pdf/) و [HTML](/slides/fa/java/convert-powerpoint-to-html/) بله—لینک‌ها عموماً حفظ می‌شوند. هنگام خروجی به [تصاویر](/slides/fa/java/convert-powerpoint-to-png/) و [ویدئو](/slides/fa/java/convert-powerpoint-to-video/) قابلیت کلیک شدن به دلیل طبیعت این فرمت‌ها (فریم‌های رستر/ویدئو از ابرلینک پشتیبانی نمی‌کنند) حفظ نمی‌شود.
+در [PDF](/slides/fa/java/convert-powerpoint-to-pdf/) و [HTML](/slides/fa/java/convert-powerpoint-to-html/) بله—پیوندها عموماً حفظ می‌شوند. هنگام خروجی به [images](/slides/fa/java/convert-powerpoint-to-png/) و [video](/slides/fa/java/convert-powerpoint-to-video/) قابلیت کلیک‌پذیری منتقل نمی‌شود زیرا این فرمت‌ها (فریم‌های رستر/ویدئو) از پیوندها پشتیبانی نمی‌کنند.

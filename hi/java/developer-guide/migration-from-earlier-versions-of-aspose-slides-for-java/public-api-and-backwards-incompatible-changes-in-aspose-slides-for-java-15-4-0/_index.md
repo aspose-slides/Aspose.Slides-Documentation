@@ -1,36 +1,38 @@
 ---
-title: Aspose.Slides for Java 15.4.0 में सार्वजनिक API और बैकवर्ड असंगत परिवर्तन
+title: Aspose.Slides for Java 15.4.0 में सार्वजनिक API और पिछड़े अनुकूलता न रखने वाले बदलाव
 linktitle: Aspose.Slides for Java 15.4.0
 type: docs
 weight: 120
 url: /hi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/
 keywords:
-- स्थानांतरण
-- पुरानी कोड
+- परिवर्तन
+- पुराना कोड
 - आधुनिक कोड
 - पुरानी पद्धति
 - आधुनिक पद्धति
 - PowerPoint
 - OpenDocument
-- प्रस्तुति
+- प्रेजेंटेशन
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java में सार्वजनिक API अपडेट और ब्रेकिंग बदलावों की समीक्षा करें ताकि आप अपने PowerPoint PPT, PPTX और ODP प्रस्तुति समाधान को सुगमता से माइग्रेट कर सकें।"
+description: "Aspose.Slides for Java में सार्वजनिक API अपडेट और ब्रेकिंग परिवर्तन की समीक्षा करें ताकि आप अपने PowerPoint PPT, PPTX और ODP प्रेजेंटेशन समाधान को सहजता से माइग्रेट कर सकें।"
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-यह पृष्ठ सभी [जोड़े गए](/slides/hi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/) वर्ग, विधियों, गुणों आदि, नई प्रतिबंधों और अन्य [बदलाव](/slides/hi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/) को सूचीबद्ध करता है जो Aspose.Slides for Java 15.4.0 API के साथ प्रस्तुत किए गए हैं।
+यह पृष्ठ सभी [जोड़े गए](/slides/hi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/) क्लास, मेथड, प्रॉपर्टी आदि, किसी भी नए प्रतिबंध और अन्य [बदलाव](/slides/hi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/) को Aspose.Slides for Java 15.4.0 API के साथ प्रस्तुत करता है।
 
 {{% /alert %}} 
 ## **Public API Changes**
 ### **Enum OrganizationChartLayoutType has been added**
-com.aspose.slides.OrganizationChartLayoutType enum एक संगठन चार्ट में बाल नोड्स के स्वरूपण प्रकार को दर्शाता है।
+The com.aspose.slides.OrganizationChartLayoutType enum एक संगठन चार्ट में चाइल्ड नोड्स के फ़ॉर्मेटिंग प्रकार का प्रतिनिधित्व करता है।
 ### **Method IBulletFormat.applyDefaultParagraphIndentsShifts() has been added**
-Method com.aspose.slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts डिफ़ॉल्ट शून्य‑से‑भिन्न शिफ्ट सेट करता है प्रभावी पैराग्राफ इंडेंट और MarginLeft के लिए जब बुलेट सक्षम हो (जैसे PowerPoint पैराग्राफ बुलेट/नंबरिंग सक्षम करने पर करता है)। यदि बुलेट निष्क्रिय हो तो केवल पैराग्राफ इंडेंट और MarginLeft को रीसेट करता है (जैसे PowerPoint बुलेट/नंबरिंग निष्क्रिय करने पर करता है)।
+Method com.aspose.slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts bullets सक्षम होने पर प्रभावी पैराग्राफ Indent और MarginLeft के लिए डिफ़ॉल्ट गैर‑शून्य शिफ्ट सेट करता है (जैसा PowerPoint पैराग्राफ बुलेट/नंबरिंग सक्षम करने पर करता है)। यदि bullets निष्क्रिय है तो केवल पैराग्राफ Indent और MarginLeft रीसेट करता है (जैसा PowerPoint निष्क्रिय करने पर करता है)।
 ### **Method IConnector.reroute() has been added**
-Method com.aspose.slides.IConnector.reroute() कनेक्टर को पुनः मार्गित करता है ताकि वह जुड़े आकारों के बीच सबसे छोटा संभव मार्ग ले सके। इसके लिए reroute() मेथड StartShapeConnectionSiteIndex और EndShapeConnectionSiteIndex को बदल सकता है।
+Method com.aspose.slides.IConnector.reroute() कनेक्टर को पुनः रूट करता है ताकि वह जुड़े हुए शैलियों के बीच सबसे छोटा संभव मार्ग ले। इस हेतु reroute() मेथड StartShapeConnectionSiteIndex और EndShapeConnectionSiteIndex को बदल सकता है।
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation input = new Presentation();
 
@@ -52,9 +54,11 @@ input.save("output.pptx", SaveFormat.Pptx);
 
 ```
 ### **Method IPresentation.getSlideById(long) has been added**
-Method Aspose.Slides.IPresentation.getSlideById(int) स्लाइड, मास्टरस्लाइड या लेआउटस्लाइड को स्लाइड Id द्वारा लौटाता है।
+Method Aspose.Slides.IPresentation.getSlideById(long) स्लाइड Id द्वारा Slide, MasterSlide या LayoutSlide लौटाता है।
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation presentation = new Presentation();
 
@@ -64,15 +68,17 @@ IBaseSlide slide = presentation.getSlideById(id);
 
 ```
 ### **Method ISmartArt.getNodes() has been added**
-Method com.aspose.slides.ISmartArt.getNodes() SmartArt ऑब्जेक्ट में मूल नोड्स का संग्रह लौटाता है।
+Method com.aspose.slides.ISmartArt.getNodes() SmartArt ऑब्जेक्ट में रूट नोड्स का संग्रह लौटाता है।
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
 ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.VerticalBulletList);
 
-ISmartArtNode node = smart.getNodes().get_Item(1); // दूसरे मूल नोड को चुनें
+ISmartArtNode node = smart.getNodes().get_Item(1); // दूसरा रूट नोड चुनें
 
 node.getTextFrame().setText("Second root node");
 
@@ -80,9 +86,11 @@ pres.save("out.pptx", SaveFormat.Pptx);
 
 ```
 ### **Method ISmartArt.setLayout(int) has been added**
-Method com.aspose.slides.ISmartArt.setLayout(int) को जोड़ा गया है। यह मौजूदा आरेख के लेआउट प्रकार को बदलने की अनुमति देता है।
+Method for property com.aspose.slides.ISmartArt.setLayout(int) जोड़ा गया है। यह मौजूदा डायग्राम का लेआउट प्रकार बदलने की अनुमति देता है।
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -94,9 +102,11 @@ pres.save("out.pptx", SaveFormat.Pptx);
 
 ```
 ### **Method ISmartArtNode.isHidden() has been added**
-Method com.aspose.slides.ISmartArtNode.isHidden() true लौटाता है यदि यह नोड डेटा मॉडल में छुपा हुआ है।
+Method com.aspose.slides.ISmartArtNode.isHidden() true लौटाता है यदि यह नोड डेटा मॉडल में छिपा हुआ नोड है।
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -104,21 +114,22 @@ ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 4
 
 ISmartArtNode node = smart.getAllNodes().addNode();
 
-boolean hidden = node.isHidden(); //true लौटाता है
+boolean hidden = node.isHidden(); // true लौटाता है
 
 if(hidden) {
 
-    //कुछ कार्रवाई या सूचनाएँ करें
+    // कुछ कार्य या सूचनाएँ करें
 
 }
 
-pres.Save("out.pptx", SaveFormat.Pptx);
-
+pres.save("out.pptx", SaveFormat.Pptx);
 ```
-### **Methods ISmartArt.isReversed(), setReserved() have been added**
-Property com.aspose.slides.ISmartArt.IsReversed बाएँ‑से‑दाएँ (LTR) या दाएँ‑से‑बाएँ (RTL) दिशा में SmartArt आरेख की स्थिति को प्राप्त या सेट करने की अनुमति देता है, यदि आरेख उलटने का समर्थन करता है।
+### **Methods ISmartArt.isReversed(), setReversed() have been added**
+Property com.aspose.slides.ISmartArt.IsReversed SmartArt डायग्राम की दिशा (बाएँ‑से‑दाएँ LTR या दाएँ‑से‑बाएँ RTL) को प्राप्त या सेट करने की अनुमति देती है, यदि डायग्राम रिवर्सल का समर्थन करता है।
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation presentation = new Presentation();
 
@@ -130,9 +141,11 @@ presentation.save("out.pptx", SaveFormat.Pptx);
 
 ```
 ### **Methods ISmartArtNode.getOrganizationChartLayout(), setOrganizationChartLayout(int) have been added**
-Methods com.aspose.slides.ISmartArtNode.getOrganizationChartLayout(), setOrganizationChartLayout(int) वर्तमान नोड से जुड़े संगठन चार्ट प्रकार को प्राप्त या सेट करने की अनुमति देते हैं।
+Methods com.aspose.slides.ISmartArtNode.getOrganizationChartLayout(), setOrganizationChartLayout(int) वर्तमान नोड से जुड़ा संगठन चार्ट प्रकार प्राप्त या सेट करने की अनुमति देते हैं।
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -144,9 +157,11 @@ pres.save("out.pptx", SaveFormat.Pptx);
 
 ```
 ### **Property IShape.getConnectionSiteCount() has been added**
-Property com.aspose.slides.getConnectionSiteCount() आकार पर कनेक्शन साइटों की संख्या लौटाता है।
+Property com.aspose.slides.getConnectionSiteCount() शैल में कनेक्शन साइट्स की संख्या लौटाता है।
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation input = new Presentation();
 
@@ -174,11 +189,11 @@ input.save("output.pptx", SaveFormat.Pptx);
 
 ```
 ### **Minor Changes**
-यहां छोटे API बदलावों की सूची है:
+यह न्यूनतम API बदलावों की सूची है:
 
-| Enum com.aspose.slides.BevelColorMode | हटाया गया, अप्रयुक्त एनम |
+|Enum com.aspose.slides.BevelColorMode |deleted, unused enum |
 | :- | :- |
-| Method ThreeDFormatEffectiveData.getBevelColorMode() | हटाया गया, अप्रयुक्त प्रॉपर्टी |
-| Method com.aspose.slides.ChartSeriesGroup.getChart() | जोड़ा गया |
-| Inheritance of IParagraphFormatEffectiveData from ISlideComponent <br>Inheritance of IThreeDFormat from ISlideComponent | हटाया गया |
-| Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletChar() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletFont() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletHeight() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletType() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getNumberedBulletStartWith() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getNumberedBulletStyle() | पुराने होने के कारण हटाया गया |
+|Method ThreeDFormatEffectiveData.getBevelColorMode() |deleted, unused property |
+|Method com.aspose.slides.ChartSeriesGroup.getChart() |added |
+|Inheritance of IParagraphFormatEffectiveData from ISlideComponent <br>Inheritance of IThreeDFormat from ISlideComponent |deleted |
+|Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletChar() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletFont() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletHeight() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletType() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getNumberedBulletStartWith() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getNumberedBulletStyle() |deleted as obsolete |

@@ -1,11 +1,11 @@
 ---
-title: Zarządzanie motywami prezentacji w Java
+title: Zarządzanie motywami prezentacji w Javie
 linktitle: Motyw prezentacji
 type: docs
 weight: 10
 url: /pl/java/presentation-theme/
 keywords:
-- Motyw PowerPoint
+- motyw PowerPoint
 - motyw prezentacji
 - motyw slajdu
 - ustaw motyw
@@ -21,23 +21,24 @@ keywords:
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Zarządzaj motywami prezentacji w Aspose.Slides dla Javy, aby tworzyć, dostosowywać i konwertować pliki PowerPoint z jednolitą identyfikacją wizualną."
+description: "Zarządzaj motywami prezentacji w Aspose.Slides dla Javy, aby tworzyć, dostosowywać i konwertować pliki PowerPoint z zachowaniem spójnej identyfikacji wizualnej."
 ---
 ## **Wprowadzenie**
 
-Motyw prezentacji definiuje właściwości elementów projektu. Wybierając motyw prezentacji, w zasadzie wybierasz konkretny zestaw elementów wizualnych i ich właściwości.
+Motyw prezentacji definiuje właściwości elementów projektu. Wybierając motyw prezentacji, w zasadzie wybierasz określony zestaw elementów wizualnych i ich właściwości.
 
-W programie PowerPoint motyw składa się z kolorów, [czcionek](/slides/pl/java/powerpoint-fonts/), [stylów tła](/slides/pl/java/presentation-background/) oraz efektów.
+W programie PowerPoint motyw składa się z kolorów, [czcionek](/slides/pl/java/powerpoint-fonts/), [stylów tła](/slides/pl/java/presentation-background/) i efektów.
 
-![składniki-motywu](theme-constituents.png)
+![theme-constituents](theme-constituents.png)
 
-## **Zmień kolor motywu**
+## **Zmiana koloru motywu**
 
-Motyw PowerPoint używa określonego zestawu kolorów dla różnych elementów na slajdzie. Jeśli nie podoba Ci się kolorystyka, możesz zmienić ją, stosując nowe kolory w motywie. Aby umożliwić wybór nowego koloru motywu, Aspose.Slides udostępnia wartości w wyliczeniu [SchemeColor](https://reference.aspose.com/slides/pl/java/com.aspose.slides/SchemeColor).
+Motyw PowerPoint wykorzystuje określony zestaw kolorów dla różnych elementów na slajdzie. Jeśli nie podoba Ci się kolorystyka, możesz zmienić ją, zastosowując nowe kolory dla motywu. Aby umożliwić wybór nowego koloru motywu, Aspose.Slides udostępnia wartości w wyliczeniu [SchemeColor](https://reference.aspose.com/slides/pl/java/com.aspose.slides/SchemeColor).
 
-Ten kod w języku Java pokazuje, jak zmienić kolor akcentu w motywie:
-
+Ten kod Java pokazuje, jak zmienić kolor akcentu w motywie:
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
@@ -50,43 +51,68 @@ try {
 }
 ```
 
-Możesz w ten sposób określić efektywną wartość powstałego koloru:
-
+Możesz określić rzeczywistą wartość otrzymanego koloru w następujący sposób:
 ```java
-IFillFormatEffectiveData fillEffective = shape.getFillFormat().getEffective();
+import com.aspose.slides.*;
+import java.awt.Color;
 
-Color effectiveColor = fillEffective.getSolidFillColor();
+Presentation pres = new Presentation();
+try {
+    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
-System.out.println(String.format("Color [A=%d, R=%d, G=%d, B=%d]", 
-        effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
+    shape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+
+    IFillFormatEffectiveData fillEffective = shape.getFillFormat().getEffective();
+
+    Color effectiveColor = fillEffective.getSolidFillColor();
+
+    System.out.println(String.format("Color [A=%d, R=%d, G=%d, B=%d]",
+            effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 Aby dodatkowo zilustrować operację zmiany koloru, tworzymy kolejny element i przypisujemy mu kolor akcentu (z początkowej operacji). Następnie zmieniamy kolor w motywie:
-
 ```java
-IAutoShape otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
+import com.aspose.slides.*;
+import java.awt.Color;
 
-otherShape.getFillFormat().setFillType(FillType.Solid);
+Presentation pres = new Presentation();
+try {
+    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
-otherShape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+    shape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
 
-pres.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED);
+    IAutoShape otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
+
+    otherShape.getFillFormat().setFillType(FillType.Solid);
+
+    otherShape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+
+    pres.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
-Nowy kolor jest automatycznie stosowany do obu elementów.
+Nowy kolor jest stosowany automatycznie w obu elementach.
 
-### **Ustaw kolor motywu z dodatkowej palety**
+### **Ustawienie koloru motywu z dodatkowej palety**
 
-Gdy stosujesz przekształcenia luminancji do głównego koloru motywu (1), powstają kolory z dodatkowej palety (2). Następnie możesz ustawiać i pobierać te kolory motywu.  
+Gdy zastosujesz przekształcenia luminancji do głównego koloru motywu(1), powstają kolory z dodatkowej palety(2). Następnie możesz ustawiać i pobierać te kolory motywu.
 
-![kolory-dodatkowej-palety](additional-palette-colors.png)
+![additional-palette-colors](additional-palette-colors.png)
 
-**1** - Główne kolory motywu  
+**1** - Główne kolory motywu
 **2** - Kolory z dodatkowej palety.
 
-Ten kod w języku Java demonstruje operację, w której kolory z dodatkowej palety są pobierane z głównego koloru motywu, a następnie używane w kształtach:
-
+Ten kod Java demonstruje operację, w której kolory dodatkowej palety są pobierane z głównego koloru motywu i następnie używane w kształtach:
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -135,23 +161,21 @@ try {
     shape6.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape6.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.5f);
 
-    presentation.save(path + "example_accent4.pptx", SaveFormat.Pptx);
+    presentation.save("example_accent4.pptx", SaveFormat.Pptx);
 } finally {
     if (presentation != null) presentation.dispose();
 }
 ```
 
-### **Mapuj `SchemeColor` na kolory `IColorScheme`**
+### **Mapowanie `SchemeColor` na `IColorScheme`**
 
-Pracując z [SchemeColor](https://reference.aspose.com/slides/pl/java/com.aspose.slides/schemecolor/), możesz zauważyć, że zawiera następujące wartości kolorów motywu:
-
+Podczas pracy z [SchemeColor](https://reference.aspose.com/slides/pl/java/com.aspose.slides/schemecolor/) możesz zauważyć, że zawiera następujące wartości kolorów motywu:
 `Background1`, `Background2`, `Text1` i `Text2`.
 
-Jednak `Presentation.getMasterTheme().getColorScheme()` zwraca [IColorScheme](https://reference.aspose.com/slides/pl/java/com.aspose.slides/icolorscheme/), który udostępnia odpowiadające kolory jako:
-
+Jednak `Presentation.getMasterTheme().getColorScheme()` zwraca [IColorScheme](https://reference.aspose.com/slides/pl/java/com.aspose.slides/icolorscheme/), które udostępnia odpowiadające kolory jako:
 `Dark1`, `Dark2`, `Light1` i `Light2`.
 
-Ta różnica dotyczy wyłącznie nazewnictwa. Te wartości odnoszą się do tych samych miejsc kolorów motywu, a mapowanie jest stałe:
+Różnica dotyczy wyłącznie nazewnictwa. Te wartości odnoszą się do tych samych miejsc kolorów w motywie, a mapowanie jest stałe:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
@@ -160,54 +184,67 @@ Ta różnica dotyczy wyłącznie nazewnictwa. Te wartości odnoszą się do tych
 
 Nie ma dynamicznej konwersji między `Text`/`Background` a `Dark`/`Light`. Są to po prostu alternatywne nazwy tych samych kolorów motywu.
 
-Różnica w nazewnictwie wynika z terminologii Microsoft Office. Starsze wersje Office używały `Dark 1`, `Light 1`, `Dark 2` i `Light 2`, podczas gdy nowsze wersje interfejsu wyświetlają te same miejsca jako `Text 1`, `Background 1`, `Text 2` i `Background 2`.
+Ta różnica w nazewnictwie pochodzi od terminologii Microsoft Office. Starsze wersje Office używały `Dark 1`, `Light 1`, `Dark 2` i `Light 2`, podczas gdy nowsze wersje interfejsu wyświetlają te same miejsca jako `Text 1`, `Background 1`, `Text 2` i `Background 2`.
 
-## **Zmień czcionkę motywu**
+## **Zmiana czcionki motywu**
 
 Aby umożliwić wybór czcionek dla motywów i innych celów, Aspose.Slides używa następujących specjalnych identyfikatorów (podobnych do tych używanych w PowerPoint):
 
-* **+mn-lt** – Czcionka treści Latin (Minor Latin Font)
+* **+mn-lt** – Czcionka tekstu głównego Latin (Minor Latin Font)
 * **+mj-lt** – Czcionka nagłówka Latin (Major Latin Font)
-* **+mn-ea** – Czcionka treści East Asian (Minor East Asian Font)
-* **+mj-ea** – Czcionka treści East Asian (Major East Asian Font)
+* **+mn-ea** – Czcionka tekstu głównego East Asian (Minor East Asian Font)
+* **+mj-ea** – Czcionka tekstu głównego East Asian (Major East Asian Font)
 
-Ten kod w języku Java pokazuje, jak przypisać czcionkę Latin do elementu motywu:
-
+Ten kod Java pokazuje, jak przypisać czcionkę Latin do elementu motywu:
 ```java
-IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+import com.aspose.slides.*;
 
-Paragraph paragraph = new Paragraph();
+Presentation pres = new Presentation();
+try {
+    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
-Portion portion = new Portion("Theme text format");
+    Paragraph paragraph = new Paragraph();
 
-paragraph.getPortions().add(portion);
+    Portion portion = new Portion("Theme text format");
 
-shape.getTextFrame().getParagraphs().add(paragraph);
+    paragraph.getPortions().add(portion);
 
-portion.getPortionFormat().setLatinFont(new FontData("+mn-lt"));
+    shape.getTextFrame().getParagraphs().add(paragraph);
+
+    portion.getPortionFormat().setLatinFont(new FontData("+mn-lt"));
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
-Ten kod w języku Java pokazuje, jak zmienić czcionkę motywu prezentacji:
-
+Ten kod Java pokazuje, jak zmienić czcionkę motywu prezentacji:
 ```java
-pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation();
+try {
+    pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 Czcionka we wszystkich polach tekstowych zostanie zaktualizowana.
 
-{{% alert color="primary" title="TIP" %}} 
-Możesz chcieć zobaczyć [czcionki PowerPoint](/slides/pl/java/powerpoint-fonts/).
+{{% alert color="info" title="TIP" %}} 
+Możesz chcieć zobaczyć [PowerPoint fonts](/slides/pl/java/powerpoint-fonts/).
 {{% /alert %}}
 
-## **Zmień styl tła motywu**
+## **Zmiana stylu tła motywu**
 
-Domyślnie aplikacja PowerPoint udostępnia 12 wstępnie zdefiniowanych teł, ale w typowej prezentacji zapisywane są tylko 3 z tych 12.
+Domyślnie aplikacja PowerPoint udostępnia 12 wstępnie zdefiniowanych teł, ale tylko 3 z tych 12 teł są zapisywane w typowej prezentacji.
 
 ![todo:image_alt_text](presentation-design_8.png)
 
-Na przykład po zapisaniu prezentacji w aplikacji PowerPoint, możesz uruchomić ten kod w języku Java, aby sprawdzić liczbę wstępnie zdefiniowanych teł w prezentacji:
-
+Na przykład, po zapisaniu prezentacji w aplikacji PowerPoint, możesz uruchomić ten kod Java, aby dowiedzieć się, ile wstępnie zdefiniowanych teł znajduje się w prezentacji:
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     int numberOfBackgroundFills = pres.getMasterTheme().getFormatScheme().getBackgroundFillStyles().size();
@@ -222,29 +259,37 @@ try {
 Korzystając z właściwości [BackgroundFillStyles](https://reference.aspose.com/slides/pl/java/com.aspose.slides/FormatScheme#getBackgroundFillStyles--) klasy [FormatScheme](https://reference.aspose.com/slides/pl/java/com.aspose.slides/FormatScheme), możesz dodać lub uzyskać dostęp do stylu tła w motywie PowerPoint. 
 {{% /alert %}} 
 
-Ten kod w języku Java pokazuje, jak ustawić tło prezentacji:
-
+Ten kod Java pokazuje, jak ustawić tło dla prezentacji:
 ```java
-pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("pres.pptx");
+try {
+    pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 **Przewodnik po indeksach**: 0 oznacza brak wypełnienia. Indeks zaczyna się od 1.
 
-{{% alert color="primary" title="TIP" %}} 
-Możesz chcieć zobaczyć [tło PowerPoint](/slides/pl/java/presentation-background/).
+{{% alert color="info" title="TIP" %}} 
+Możesz chcieć zobaczyć [PowerPoint Background](/slides/pl/java/presentation-background/).
 {{% /alert %}}
 
-## **Zmień efekt motywu**
+## **Zmiana efektu motywu**
 
-Motyw PowerPoint zazwyczaj zawiera 3 wartości dla każdej tablicy stylów. Te tablice są łączone w 3 efekty: subtelny, umiarkowany i intensywny. Na przykład, oto wynik zastosowania efektów do konkretnego kształtu:
+Motyw PowerPoint zazwyczaj zawiera 3 wartości dla każdej tablicy stylów. Te tablice są łączone w 3 efekty: subtelny, umiarkowany i intensywny. Na przykład, tak wygląda wynik po zastosowaniu efektów do konkretnego kształtu:
 
 ![todo:image_alt_text](presentation-design_10.png)
 
-Używając 3 właściwości ([FillStyles](https://reference.aspose.com/slides/pl/java/com.aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/pl/java/com.aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/pl/java/com.aspose.slides/FormatScheme#getEffectStyles--)) z klasy [FormatScheme](https://reference.aspose.com/slides/pl/java/com.aspose.slides/FormatScheme) możesz zmienić elementy w motywie (nawet bardziej elastycznie niż w opcjach PowerPoint).
+Korzystając z 3 właściwości ([FillStyles](https://reference.aspose.com/slides/pl/java/com.aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/pl/java/com.aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/pl/java/com.aspose.slides/FormatScheme#getEffectStyles--)) klasy [FormatScheme](https://reference.aspose.com/slides/pl/java/com.aspose.slides/FormatScheme) możesz zmieniać elementy w motywie (nawet bardziej elastycznie niż opcje w PowerPoint).
 
-Ten kod w języku Java pokazuje, jak zmienić efekt motywu, modyfikując części elementów:
-
+Ten kod Java pokazuje, jak zmienić efekt motywu, modyfikując części elementów:
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx");
 try {
     pres.getMasterTheme().getFormatScheme().getLineStyles().get_Item(0).getFillFormat().getSolidFillColor().setColor(Color.RED);
@@ -261,20 +306,19 @@ try {
 }
 ```
 
-Wynikowe zmiany w kolorze wypełnienia, typie wypełnienia, efekcie cienia itp.:
-
+Powstałe zmiany w kolorze wypełnienia, typie wypełnienia, efekcie cienia itp:
 ![todo:image_alt_text](presentation-design_11.png)
 
 ## **FAQ**
 
-**Czy mogę zastosować motyw do pojedynczego slajdu bez zmiany mastera?**
+### Czy mogę zastosować motyw do pojedynczego slajdu bez zmiany mastera?
 
-Tak. Aspose.Slides obsługuje nadpisywanie motywu na poziomie slajdu, więc możesz zastosować lokalny motyw tylko do tego slajdu, zachowując niezmieniony motyw master (za pomocą [SlideThemeManager](https://reference.aspose.com/slides/pl/java/com.aspose.slides/slidethememanager/)).
+Tak. Aspose.Slides obsługuje nadpisywanie motywu na poziomie slajdu, więc możesz zastosować lokalny motyw tylko do tego slajdu, zachowując niezmieniony motyw główny (za pomocą [SlideThemeManager](https://reference.aspose.com/slides/pl/java/com.aspose.slides/slidethememanager/)).
 
-**Jaki jest najbezpieczniejszy sposób przeniesienia motywu z jednej prezentacji do drugiej?**
+### Jaki jest najbezpieczniejszy sposób przeniesienia motywu z jednej prezentacji do drugiej?
 
-[Clone slides](/slides/pl/java/clone-slides/) razem z ich masterem do docelowej prezentacji. To zachowuje oryginalny master, układy i powiązany motyw, dzięki czemu wygląd pozostaje spójny.
+[Clone slides](/slides/pl/java/clone-slides/) razem z ich masterem do docelowej prezentacji. Dzięki temu zachowany zostaje oryginalny master, układy oraz powiązany motyw, tak aby wygląd pozostawał spójny.
 
-**Jak mogę zobaczyć „efektywne” wartości po wszystkich dziedziczeniach i nadpisaniach?**
+### Jak mogę zobaczyć „rzeczywiste” wartości po wszystkich dziedziczeniach i nadpisaniach?
 
-Użyj „widoków efektywnych” API [/slides/pl/java/shape-effective-properties/], dotyczących motywu/koloru/czcionki/efektu. Zwracają one rozwiązane, ostateczne właściwości po zastosowaniu mastera oraz wszelkich lokalnych nadpisań.
+Użyj ["widoków „efektywnych”"](/slides/pl/java/shape-effective-properties/) dla motywu/koloru/czcionki/efektu. Zwracają one rozwiązane, ostateczne właściwości po zastosowaniu mastera oraz wszelkich lokalnych nadpisań.

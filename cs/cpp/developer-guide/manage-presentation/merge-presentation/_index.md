@@ -19,26 +19,24 @@ keywords:
 - kombinovat ODP
 - C++
 - Aspose.Slides
-description: "Bez námahy sloučte prezentace PowerPoint (PPT, PPTX) a OpenDocument (ODP) pomocí Aspose.Slides pro C++, zefektivníte svůj pracovní postup."
+description: "Jednoduše sloučte prezentace PowerPoint (PPT, PPTX) a OpenDocument (ODP) pomocí Aspose.Slides pro C++, což zjednoduší váš pracovní postup."
 ---
 ## **Přehled**
 
-Aspose.Slides vám umožňuje sloučit prezentace klonováním snímků z jedné prezentace do druhé. Tento článek vysvětluje, jak sloučit celé prezentace nebo vybrané snímky, použít hlavní snímek nebo konkrétní rozvržení během sloučení, pracovat s prezentacemi s různými velikostmi snímků a přidat sloučené snímky do sekce prezentace. Také pokrývá praktické poznámky související se sloučeným obsahem, včetně poznámek přednášejícího, komentářů, souborů chráněných heslem a používání vláken.
+Aspose.Slides vám umožňuje sloučit prezentace klonováním snímků z jedné prezentace do druhé. Tento článek vysvětluje, jak sloučit celé prezentace nebo vybrané snímky, použít hlavní snímek nebo konkrétní rozložení během sloučení, zacházet s prezentacemi s různými velikostmi snímků a přidat sloučené snímky do sekce prezentace. také se zabývá praktickými poznámkami souvisejícími se sloučeným obsahem, včetně poznámek přednášejícího, komentářů, souborů chráněných heslem a používání vláken.
 
 ## **Sloučení prezentací**
 
-Když sloučíte jednu prezentaci s jinou, v podstatě kombinujete jejich snímky v jedné prezentaci a získáte jeden soubor. 
+Když sloučíte jednu prezentaci s druhou, v podstatě spojíte jejich snímky do jedné prezentace a získáte tak jeden soubor. 
 
 {{% alert title="Info" color="info" %}}
+Většina programů pro prezentace (PowerPoint nebo OpenOffice) postrádá funkce, které uživatelům umožňují takto kombinovat prezentace. 
 
-Většina programů pro prezentace (PowerPoint nebo OpenOffice) postrádá funkce, které uživatelům umožňují kombinovat prezentace tímto způsobem. 
-
-[**Aspose.Slides for C++**](https://products.aspose.com/slides/cs/cpp/), však umožňuje sloučit prezentace různými způsoby. Můžete sloučit prezentace se všemi jejich tvary, styly, texty, formátováním, komentáři, animacemi atd., aniž byste se museli obávat ztráty kvality nebo dat. 
+[**Aspose.Slides for C++**](https://products.aspose.com/slides/cs/cpp/) však umožňuje sloučit prezentace různými způsoby. Můžete sloučit prezentace se všemi jejich tvary, styly, texty, formátováním, komentáři, animacemi atd., aniž byste se museli obávat ztráty kvality nebo dat. 
 
 **Viz také**
 
-[Clone Slides](https://docs.aspose.com/slides/cs/cpp/clone-slides/)*.* 
-
+[Klonovat snímky](https://docs.aspose.com/slides/cs/cpp/clone-slides/)*.* 
 {{% /alert %}}
 
 ### **Co lze sloučit**
@@ -47,36 +45,39 @@ S Aspose.Slides můžete sloučit
 
 * celé prezentace. Všechny snímky z prezentací skončí v jedné prezentaci
 * konkrétní snímky. Vybrané snímky skončí v jedné prezentaci
-* prezentace v jednom formátu (PPT na PPT, PPTX na PPTX atd.) i v různých formátech (PPT na PPTX, PPTX na ODP atd.) mezi sebou. 
+* prezentace v jednom formátu (PPT na PPT, PPTX na PPTX atd.) a v různých formátech (PPT na PPTX, PPTX na ODP atd.) mezi sebou. 
 
 {{% alert title="Poznámka" color="warning" %}} 
-
 Kromě prezentací umožňuje Aspose.Slides sloučit i jiné soubory:
 
-* [Images](https://products.aspose.com/slides/cs/cpp/merger/image-to-image/), například [JPG to JPG](https://products.aspose.com/slides/cs/cpp/merger/jpg-to-jpg/) nebo [PNG to PNG](https://products.aspose.com/slides/cs/cpp/merger/png-to-png/)
-* Dokumenty, například [PDF to PDF](https://products.aspose.com/slides/cs/cpp/merger/pdf-to-pdf/) nebo [HTML to HTML](https://products.aspose.com/slides/cs/cpp/merger/html-to-html/)
-* A dva rozdílné soubory, například [image to PDF](https://products.aspose.com/slides/cs/cpp/merger/image-to-pdf/) nebo [JPG to PDF](https://products.aspose.com/slides/cs/cpp/merger/jpg-to-pdf/) nebo [TIFF to PDF](https://products.aspose.com/slides/cs/cpp/merger/tiff-to-pdf/).
-
+* [Obrázky](https://products.aspose.com/slides/cs/cpp/merger/image-to-image/), například [JPG na JPG](https://products.aspose.com/slides/cs/cpp/merger/jpg-to-jpg/) nebo [PNG na PNG](https://products.aspose.com/slides/cs/cpp/merger/png-to-png/)
+* Dokumenty, například [PDF na PDF](https://products.aspose.com/slides/cs/cpp/merger/pdf-to-pdf/) nebo [HTML na HTML](https://products.aspose.com/slides/cs/cpp/merger/html-to-html/)
+* A dva různé soubory, například [obrázek na PDF](https://products.aspose.com/slides/cs/cpp/merger/image-to-pdf/), [JPG na PDF](https://products.aspose.com/slides/cs/cpp/merger/jpg-to-pdf/) nebo [TIFF na PDF](https://products.aspose.com/slides/cs/cpp/merger/tiff-to-pdf/).
 {{% /alert %}}
 
 ### **Možnosti sloučení**
 
 Můžete použít možnosti, které určují, zda
 
-* každý snímek ve výstupní prezentaci zachová jedinečný styl
-* pro všechny snímky ve výstupní prezentaci bude použit jeden konkrétní styl. 
+* každý snímek ve výstupní prezentaci zachová unikátní styl
+* pro všechny snímky ve výstupní prezentaci bude použit konkrétní styl. 
 
-Pro sloučení prezentací poskytuje Aspose.Slides metody [AddClone](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) (z rozhraní [ISlideCollection](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_slide_collection)). Existuje několik implementací metod `AddClone`, které definují parametry procesu sloučení prezentací. Každý objekt Presentation má kolekci [Slides](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c), takže můžete zavolat metodu `AddClone` z prezentace, do které chcete snímky sloučit. 
+K sloučení prezentací poskytuje Aspose.Slides metody [AddClone](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) (z rozhraní [ISlideCollection](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_slide_collection)). Existuje několik implementací metod `AddClone`, které definují parametry procesu sloučení prezentací. Každý objekt Presentation má kolekci [Slides](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c), takže můžete zavolat metodu `AddClone` z prezentace, do které chcete snímky sloučit. 
 
-Metoda `AddClone` vrací objekt `ISlide`, což je klon zdrojového snímku. Snímky ve výstupní prezentaci jsou jednoduše kopií snímků ze zdroje. Proto můžete měnit výsledné snímky (například aplikovat styly, formátování nebo rozvržení) aniž byste ovlivnili původní prezentace. 
+`AddClone` metoda vrací objekt `ISlide`, který je klonem zdrojového snímku. Snímky ve výstupní prezentaci jsou jednoduše kopií snímků ze zdroje. Proto můžete měnit vzniklé snímky (například aplikovat styly, formátování nebo rozložení) aniž byste se museli obávat, že by to ovlivnilo zdrojové prezentace.
 
-## **Sloučení prezentací** 
+## **Sloučit prezentace** 
 
-Aspose.Slides poskytuje metodu [**AddClone (ISlide)**](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee), která umožňuje kombinovat snímky tak, aby snímky zachovaly svá rozvržení a styly (výchozí parametry). 
+Aspose.Slides poskytuje metodu [**AddClone (ISlide)**](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee), která umožní kombinovat snímky, přičemž snímky si zachovají svá rozložení a styly (výchozí parametry). 
 
-Tento kód v C++ ukazuje, jak sloučit prezentace:
-
+Tento C++ kód vám ukazuje, jak sloučit prezentace:
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
 for (const auto& slide : pres2->get_Slides())
@@ -87,13 +88,19 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-## **Sloučení prezentací s hlavním snímkem**
+## **Sloučit prezentace s hlavním snímkem (Slide Master)**
 
-Aspose.Slides poskytuje metodu [**AddClone (ISlide, IMasterSlide, bool)**](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_slide_collection#a6b040e6b30f52ab4644fafdbc650b640), která umožňuje kombinovat snímky při aplikaci šablony hlavního snímku. Tímto způsobem můžete v případě potřeby změnit styl snímků ve výstupní prezentaci. 
+Aspose.Slides poskytuje metodu [**AddClone (ISlide, IMasterSlide, bool)**](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_slide_collection#a6b040e6b30f52ab4644fafdbc650b640), která umožňuje kombinovat snímky při aplikaci šablony hlavního snímku (slide master). Tímto způsobem můžete v případě potřeby změnit styl snímků ve výstupní prezentaci. 
 
-Tento kód v C++ demonstruje popsanou operaci:
-
+Tento C++ kód demonstruje popsanou operaci:
 ```cpp
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
 for (const auto& slide : pres2->get_Slides())
@@ -105,20 +112,26 @@ pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
 {{% alert title="Poznámka" color="warning" %}} 
-
-Rozvržení snímku pro hlavní snímek je určeno automaticky. Pokud není možné vhodné rozvržení určit, a parametr `allowCloneMissingLayout` metody `AddClone` je nastaven na true, použije se rozvržení zdrojového snímku. V opačném případě bude vyhozena výjimka [PptxEditException](https://reference.aspose.com/slides/cs/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d). 
-
+Rozložení snímku pro hlavní snímek je určeno automaticky. Pokud nelze vhodné rozložení určit, a parametr `allowCloneMissingLayout` metody `AddClone` je nastaven na true, použije se rozložení zdrojového snímku. V opačném případě bude vyvolána výjimka [PptxEditException](https://reference.aspose.com/slides/cs/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d). 
 {{% /alert %}}
 
-Pokud chcete, aby snímky ve výstupní prezentaci měly jiné rozvržení, použijte při sloučení metodu [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_slide_collection#a0ed5909b2d92555159007046760ff2f1). 
+Pokud chcete, aby snímky ve výstupní prezentaci měly jiné rozložení, použijte místo toho metodu [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_slide_collection#a0ed5909b2d92555159007046760ff2f1) při sloučení. 
 
-## **Sloučení konkrétních snímků z prezentací**
+## **Sloučit vybrané snímky z prezentací**
 
-Sloučení konkrétních snímků z více prezentací je užitečné při tvorbě vlastních balíčků snímků. Aspose.Slides C++ umožňuje vybrat a importovat pouze snímky, které potřebujete. API zachovává formátování, rozvržení i design původních snímků.
+Sloučení konkrétních snímků z více prezentací je užitečné pro tvorbu vlastních sad snímků. Aspose.Slides C++ vám umožňuje vybrat a importovat jen snímky, které potřebujete. API zachovává formátování, rozložení a design původních snímků.
 
-Následující kód v C++ vytvoří novou prezentaci, přidá titulní snímky ze dvou dalších prezentací a uloží výsledek do souboru:
-
+Následující C++ kód vytvoří novou prezentaci, přidá úvodní snímky ze dvou dalších prezentací a výsledek uloží do souboru:
 ```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IPresentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/SlideLayoutType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation)
 {
     for (auto&& slide : presentation->get_Slides())
@@ -132,6 +145,19 @@ SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation)
 }
 ```
 ```cpp
+#include <DOM/IPresentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// Deklarováno výše v kódu.
+SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation);
+
 auto presentation = MakeObject<Presentation>();
 auto presentation1 = MakeObject<Presentation>(u"presentation1.pptx");
 auto presentation2 = MakeObject<Presentation>(u"presentation2.pptx");
@@ -155,11 +181,17 @@ presentation1->Dispose();
 presentation->Dispose();
 ```
 
-## **Sloučení prezentací s rozvržením snímku**
+## **Sloučit prezentace s rozložením snímku**
 
-Tento kód v C++ ukazuje, jak kombinovat snímky z prezentací při aplikaci vámi preferovaného rozvržení snímku, abyste získali jednu výstupní prezentaci:
-
+Tento C++ kód vám ukazuje, jak kombinovat snímky z prezentací při aplikaci vámi preferovaného rozložení snímku, abyste získali jednu výstupní prezentaci:
 ```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
 for (const auto& slide : pres2->get_Slides())
@@ -170,19 +202,25 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-## **Sloučení prezentací s různými velikostmi snímků**
+## **Sloučit prezentace s různými velikostmi snímků**
 
 {{% alert title="Poznámka" color="warning" %}} 
-
-Nelze sloučit prezentace s různými velikostmi snímků. 
-
+Nemůžete sloučit prezentace s různými velikostmi snímků. 
 {{% /alert %}}
 
-Chcete-li sloučit 2 prezentace s různými velikostmi snímků, musíte velikost jedné z prezentací změnit tak, aby odpovídala velikosti druhé. 
+Pro sloučení dvou prezentací s různými velikostmi snímků musíte změnit velikost jedné z prezentací, aby odpovídala velikosti druhé. 
 
 Tento ukázkový kód demonstruje popsanou operaci:
-
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres1Size = pres1->get_SlideSize()->get_Size();
 
@@ -197,11 +235,17 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-## **Sloučení snímků do sekce prezentace**
+## **Sloučit snímky do sekce prezentace**
 
-Tento kód v C++ ukazuje, jak sloučit konkrétní snímek do sekce v prezentaci:
-
+Tento C++ kód vám ukazuje, jak sloučit konkrétní snímek do sekce v prezentaci:
 ```cpp
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
 for (int32_t index = 0; index < pres2->get_Slides()->get_Count(); index++)
@@ -215,26 +259,24 @@ pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 
 Snímek je přidán na konec sekce. 
 
-{{% alert title="Tip" color="primary" %}}
-
-Aspose poskytuje [FREE Collage web app](https://products.aspose.app/slides/cs/collage). Pomocí této online služby můžete sloučit [JPG to JPG](https://products.aspose.app/slides/cs/collage/jpg) nebo PNG na PNG obrázky, vytvořit [photo grids](https://products.aspose.app/slides/cs/collage/photo-grid) a podobně. 
-
+{{% alert title="Tip" color="info" %}} 
+Aspose poskytuje [ZDARMA webovou aplikaci Collage](https://products.aspose.app/slides/cs/collage). Pomocí této online služby můžete sloučit [JPG na JPG](https://products.aspose.app/slides/cs/collage/jpg) nebo PNG na PNG obrázky, vytvořit [foto mřížky](https://products.aspose.app/slides/cs/collage/photo-grid) a podobně. 
 {{% /alert %}}
 
 ## **FAQ**
 
-**Jsou poznámky přednášejícího zachovány při sloučení?**
+### Jsou poznámky přednášejícího zachovány při sloučení?
 
 Ano. Při klonování snímků Aspose.Slides přenáší všechny prvky snímku, včetně poznámek, formátování a animací.
 
-**Přenesou se komentáře a jejich autoři?**
+### Přenášejí se komentáře a jejich autoři?
 
-Komentáře, jako součást obsahu snímku, jsou zkopírovány se snímkem. Štítky autorů komentářů jsou zachovány jako objekty komentářů ve výsledné prezentaci.
+Komentáře, jako součást obsahu snímku, jsou zkopírovány se snímkem. Štítky autorů komentářů jsou zachovány jako objekty komentářů v výsledné prezentaci.
 
-**Co když je zdrojová prezentace chráněna heslem?**
+### Co když je zdrojová prezentace chráněna heslem?
 
-Musí být [otevřena s heslem](/slides/cs/cpp/password-protected-presentation/) pomocí [LoadOptions::set_Password](https://reference.aspose.com/slides/cs/cpp/aspose.slides/loadoptions/set_password/); po načtení lze tyto snímky bezpečně klonovat do nechráněného cílového souboru (nebo také do chráněného).
+Musí být [otevřena s heslem](/slides/cs/cpp/password-protected-presentation/) pomocí [LoadOptions::set_Password](https://reference.aspose.com/slides/cs/cpp/aspose.slides/loadoptions/set_password/); po načtení mohou být tyto snímky bezpečně klonovány do nechráněného cílového souboru (nebo také do chráněného).
 
-**Jak je operace sloučení bezpečná pro vlákna?**
+### Jak bezpečná je operace sloučení při použití více vláken?
 
-Neužívejte stejnou [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/) instanci z [více vláken](/slides/cs/cpp/multithreading/). Doporučené pravidlo je „jeden dokument — jedno vlákno“; různé soubory lze zpracovávat paralelně v samostatných vláknech.
+Nepoužívejte stejnou instanci [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/) z [více vláken](/slides/cs/cpp/multithreading/). Doporučené pravidlo je „jeden dokument — jedno vlákno“; různé soubory mohou být zpracovávány paralelně v samostatných vláknech.

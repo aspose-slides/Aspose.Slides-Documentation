@@ -1,6 +1,6 @@
 ---
 title: Android'de PowerPoint Sunumlarını Videoya Dönüştürme
-linktitle: PowerPoint'ten Video
+linktitle: PowerPoint'ten Video'ya
 type: docs
 weight: 130
 url: /tr/androidjava/convert-powerpoint-to-video/
@@ -21,36 +21,30 @@ keywords:
 - PPTX'i MP4 olarak kaydet
 - PPT'yi MP4'e dışa aktar
 - PPTX'i MP4'e dışa aktar
-- video dönüşümü
+- video dönüştürme
 - PowerPoint
 - Android
 - Java
 - Aspose.Slides
-description: "Java'da PowerPoint sunumlarını videoya nasıl dönüştüreceğinizi öğrenin. İş akışınızı kolaylaştırmak için örnek kod ve otomasyon tekniklerini keşfedin."
+description: "Java'da PowerPoint sunumlarını videoya nasıl dönüştüreceğinizi öğrenin. İş akışınızı hızlandırmak için örnek kod ve otomasyon tekniklerini keşfedin."
 ---
 ## **Giriş**
 
-PowerPoint sunumunuzu videoya dönüştürerek şunları elde edersiniz  
+PowerPoint sunumunuzu video'ya dönüştürerek şunları elde edersiniz
 
-* **Erişilebilirlik artışı:** Tüm cihazlar (platforma bakılmaksızın) varsayılan olarak video oynatıcılarıyla donatılmıştır; bu, kullanıcıların videoları açıp oynatmasını sunum‑açma uygulamalarına göre daha kolay hâle getirir.
-* **Daha geniş kitle:** Videolar sayesinde büyük bir izleyici kitlesine ulaşabilir ve onları, bir sunumda sıkıcı olabilecek bilgilerle hedefleyebilirsiniz. Çoğu anket ve istatistik, insanların diğer içerik türlerine kıyasla videoları daha çok izlediğini ve tükettiğini, ayrıca bu tür içerikleri genellikle tercih ettiklerini göstermektedir.
+* **Erişilebilirlik artışı:** Tüm cihazlar (platformdan bağımsız) varsayılan olarak video oynatıcılarla donatılmıştır; bu nedenle kullanıcılar video açmayı veya oynatmayı daha kolay bulur.
+* **Daha geniş kitle:** Videolar sayesinde geniş bir izleyici kitlesine ulaşabilir ve onları bir sunumda sıkıcı olabilecek bilgilerle hedefleyebilirsiniz. Çoğu anket ve istatistik, insanların diğer içerik türlerine göre videoları daha çok izlediğini ve tükettiklerini, ayrıca genellikle bu tür içerikleri tercih ettiklerini göstermektedir.
 
-{{% alert color="primary" %}} 
+## **Aspose.Slides’da PowerPoint'ten Video Dönüştürme**
 
-İsterseniz [**PowerPoint'tan Video'ya Çevrimiçi Dönüştürücü**](https://products.aspose.app/slides/tr/conversion/ppt-to-word) inceleyebilirsiniz; çünkü burada anlatılan sürecin canlı ve etkili bir uygulamasıdır.
+Aspose.Slides, sunumdan video dönüşümünü destekler.
 
-{{% /alert %}} 
+* **Aspose.Slides**'ı, belirli bir FPS'ye (saniyedeki kare sayısı) karşılık gelen bir dizi çerçeve (sunum slaytlarından) oluşturmak için kullanın
+* **ffmpeg** gibi üçüncü taraf bir araç ([java için](https://github.com/bramp/ffmpeg-cli-wrapper)) kullanarak çerçevelerden bir video oluşturun. 
 
-## **Aspose.Slides’da PowerPoint‑tan Video Dönüştürme**
+### **PowerPoint'i Video'ya Dönüştürme**
 
-Aspose.Slides, sunum‑dan‑video dönüşümünü destekler.
-
-* **Aspose.Slides** kullanarak, belirli bir FPS (saniyedeki kare sayısı) değerine karşılık gelen bir dizi çerçeve (sunum slaytlarından) oluşturun
-* **ffmpeg** gibi bir üçüncü taraf aracı ([java için](https://github.com/bramp/ffmpeg-cli-wrapper)) kullanarak bu çerçevelerden bir video oluşturun. 
-
-### **PowerPoint'tan Video'ya Dönüştürme**
-
-1. POM dosyanıza şu satırı ekleyin:
+1. POM dosyanıza şunu ekleyin:
 ```xml
    <dependency>
      <groupId>net.bramp.ffmpeg</groupId>
@@ -61,11 +55,14 @@ Aspose.Slides, sunum‑dan‑video dönüşümünü destekler.
 
 2. ffmpeg'i [buradan](https://ffmpeg.org/download.html) indirin.
 
-4. PowerPoint‑ten video Java kodunu çalıştırın.
+3. PowerPoint'ten video'ya Java kodunu çalıştırın.
 
-Bu Java kodu, bir şekil ve iki animasyon efekti içeren bir sunumu nasıl video hâline getireceğinizi gösterir:
-
+Bu Java kodu, bir şekil ve iki animasyon efekti içeren bir sunumu video'ya nasıl dönüştüreceğinizi gösterir:
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation();
 try {
     // Bir gülümseme şekli ekler ve ardından animasyon uygular
@@ -102,7 +99,7 @@ try {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
 
-    // ffmpeg ikili dosyaları klasörünü yapılandırın. Bu sayfaya bakın: https://github.com/rosenbjerg/FFMpegCore#installation
+    // ffmpeg ikili dosyaları klasörünü yapılandır. Bu sayfayı inceleyin: https://github.com/bramp/ffmpeg-cli-wrapper
     FFmpeg ffmpeg = new FFmpeg("path/to/ffmpeg");
     FFprobe ffprobe = new FFprobe("path/to/ffprobe");
 
@@ -123,37 +120,44 @@ try {
 
 ## **Video Efektleri**
 
-Slaytlardaki nesnelere animasyon uygulayabilir ve slaytlar arasında geçişler kullanabilirsiniz. 
+Slaytlardaki nesnelere animasyonlar uygulayabilir ve slaytlar arasında geçişler kullanabilirsiniz. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Şu makalelere göz atmak isteyebilirsiniz: [PowerPoint Animasyonu](https://docs.aspose.com/slides/tr/androidjava/powerpoint-animation/), [Şekil Animasyonu](https://docs.aspose.com/slides/tr/androidjava/shape-animation/), ve [Şekil Efekti](https://docs.aspose.com/slides/tr/androidjava/shape-effect/).
+Görmek isteyebileceğiniz makaleler: [PowerPoint Animasyonu](https://docs.aspose.com/slides/tr/androidjava/powerpoint-animation/), [Şekil Animasyonu](https://docs.aspose.com/slides/tr/androidjava/shape-animation/), ve [Şekil Efekti](https://docs.aspose.com/slides/tr/androidjava/shape-effect/).
 
 {{% /alert %}} 
 
-Animasyonlar ve geçişler, slayt gösterilerini daha ilgi çekici ve etkileyici hâle getirir—ve aynı etkiyi videolara da uygular. Önceki sunum koduna bir slayt ve geçiş daha ekleyelim:
-
+Animasyonlar ve geçişler slayt gösterilerini daha çekici ve ilginç hâle getirir — videolar için de aynı şeyi yaparlar. Önceki sunum koduna bir slayt ve geçiş daha ekleyelim:
 ```java
-// Bir gülümseme şekli ekler ve animasyon uygular
+import com.aspose.slides.*;
+import java.awt.Color;
 
-// ...
+// Yukarıda oluşturulan animasyonlu gülümseme şekli içeren sunum.
+Presentation presentation = new Presentation();
+try {
+    //    Yeni bir slayt ekler ve animasyonlu geçiş ekler
 
-// Yeni bir slayt ekler ve animasyonlu geçiş ekler
+    ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
 
-ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
+    newSlide.getBackground().setType(BackgroundType.OwnBackground);
 
-newSlide.getBackground().setType(BackgroundType.OwnBackground);
+    newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
 
-newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
 
-newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
-
-newSlide.getSlideShowTransition().setType(TransitionType.Push);
+    newSlide.getSlideShowTransition().setType(TransitionType.Push);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 
-Aspose.Slides ayrıca metin animasyonlarını da destekler. Nesneler üzerindeki paragrafları, birbirini bir saniyelik gecikmeyle takip edecek şekilde canlandırıyoruz:
-
+Aspose.Slides ayrıca metin animasyonunu da destekler. Bu yüzden nesneler üzerindeki paragrafları animasyonlu hale getiririz; bu paragraflar birbiri ardına (gecikme bir saniye olarak ayarlanmış) görünür:
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation();
 try {
     // Metin ve animasyon ekler
@@ -169,18 +173,15 @@ try {
     paragraphCollection.add(para1);
     paragraphCollection.add(para2);
     paragraphCollection.add(para3);
-    paragraphCollection.add(new Paragraph());
 
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effect1 = mainSequence.addEffect(para1, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     IEffect effect2 = mainSequence.addEffect(para2, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     IEffect effect3 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-    IEffect effect4 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
     effect1.getTiming().setTriggerDelayTime(1f);
     effect2.getTiming().setTriggerDelayTime(1f);
     effect3.getTiming().setTriggerDelayTime(1f);
-    effect4.getTiming().setTriggerDelayTime(1f);
 
     final int fps = 33;
     ArrayList<String> frames = new ArrayList<String>();
@@ -208,7 +209,7 @@ try {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
 
-    // ffmpeg ikili dosyaları klasörünü yapılandırın. Bu sayfaya bakın: https://github.com/rosenbjerg/FFMpegCore#installation
+    // ffmpeg ikili dosyaları klasörünü yapılandır. Bu sayfayı inceleyin: https://github.com/bramp/ffmpeg-cli-wrapper
     FFmpeg ffmpeg = new FFmpeg("path/to/ffmpeg");
     FFprobe ffprobe = new FFprobe("path/to/ffprobe");
 
@@ -229,18 +230,19 @@ try {
 
 ## **Video Dönüştürme Sınıfları**
 
-PowerPoint‑tan video dönüşüm görevlerini gerçekleştirmenizi sağlamak için Aspose.Slides, [PresentationAnimationsGenerator](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentationanimationsgenerator/) ve [PresentationPlayer](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentationplayer/) sınıflarını sunar.
+PowerPoint'ten video dönüşüm görevlerini gerçekleştirmenize olanak sağlamak için Aspose.Slides, [PresentationAnimationsGenerator](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentationanimationsgenerator/) ve [PresentationPlayer](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentationplayer/) sınıflarını sunar.
 
-[PresentationAnimationsGenerator](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentationanimationsgenerator/) video (daha sonra oluşturulacak) için çerçeve boyutunu yapıcı yöntemi aracılığıyla ayarlamanıza olanak tanır. Sunumu bir örnek olarak geçirirseniz `Presentation.SlideSize` kullanılır ve [PresentationPlayer](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentationplayer/) tarafından kullanılan animasyonları üretir.
+[PresentationAnimationsGenerator](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentationanimationsgenerator/) sınıfı, video (daha sonra oluşturulacak) için çerçeve boyutunu kurucusu aracılığıyla ayarlamanıza olanak tanır. Sunum örneğini geçirirseniz, `Presentation.SlideSize` kullanılacak ve [PresentationPlayer](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentationplayer/) tarafından kullanılan animasyonları üretir.
 
-Animasyonlar oluşturulduğunda, her ardışık animasyon için `NewAnimation` olayı tetiklenir; bu olayda [IPresentationAnimationPlayer](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipresentationanimationplayer/) parametresi bulunur. Bu sınıf, ayrı bir animasyonun oynatıcısını temsil eder.
+Animasyonlar üretildiğinde, her ardışık animasyon için bir `NewAnimation` olayı üretilir; bu olayın [IPresentationAnimationPlayer](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipresentationanimationplayer/) parametresi vardır. Bu sınıf, ayrı bir animasyon için oynatıcıyı temsil eder.
 
-[IPresentationAnimationPlayer](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipresentationanimationplayer/) ile çalışmak için [Duration](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipresentationanimationplayer/#getDuration--) (animasyonun tam süresi) özelliği ve [SetTimePosition](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipresentationanimationplayer/#setTimePosition-double-) yöntemi kullanılır. Her animasyon konumu *0 ile süresi* arasına ayarlanır ve ardından `GetFrame` yöntemi, o anki animasyon durumuna karşılık gelen bir BufferedImage döndürür:
-
+[IPresentationAnimationPlayer](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipresentationanimationplayer/) ile çalışmak için, [Duration](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipresentationanimationplayer/#getDuration--) (animasyonun tam süresi) özelliği ve [SetTimePosition](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipresentationanimationplayer/#setTimePosition-double-) yöntemi kullanılır. Her animasyon konumu *0 ile süre* aralığında ayarlanır ve ardından `getFrame` yöntemi, o anda animasyon durumuna karşılık gelen bir [IImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimage/) döndürür:
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // Bir gülümseme şekli ekler ve animasyon uygular
+    // Gülümseme şekli ekler ve animasyon uygular
     IAutoShape smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effectIn = mainSequence.addEffect(smile, EffectType.Fly, EffectSubtype.TopLeft, EffectTriggerType.AfterPrevious);
@@ -253,21 +255,18 @@ try {
         animationsGenerator.setNewAnimation(animationPlayer ->
         {
             System.out.println(String.format("Animation total duration: %f", animationPlayer.getDuration()));
-            animationPlayer.setTimePosition(0); // ilk animasyon durumu
-            try {
-                // ilk animasyon durumu bitmap'i
-                animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+
+            animationPlayer.setTimePosition(0); // başlangıç animasyon durumu
+            // başlangıç animasyon durumu bitmap'i
+            animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
+
             animationPlayer.setTimePosition(animationPlayer.getDuration()); // animasyonun son durumu
-            try {
-                // animasyonun son karesi
-                animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            // animasyonun son karesi
+            animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
         });
+
+        // Animasyonları oluştur. Yukarıdaki geri çağırma her biri için çalışır.
+        animationsGenerator.run(presentation.getSlides());
     } finally {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
@@ -276,9 +275,10 @@ try {
 }
 ```
 
-Bir sunumdaki tüm animasyonların aynı anda oynatılmasını sağlamak için [PresentationPlayer](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentationplayer/) sınıfı kullanılır. Bu sınıf, bir [PresentationAnimationsGenerator](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentationanimationsgenerator/) örneği ve FPS değerini yapıcıda alır, ardından tüm animasyonlar için `FrameTick` olayını tetikleyerek oynatılmalarını sağlar:
-
+Bütün animasyonların aynı anda oynatılması için [PresentationPlayer](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentationplayer/) sınıfı kullanılır. Bu sınıf, bir [PresentationAnimationsGenerator](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentationanimationsgenerator/) örneği ve FPS'i alır, ardından tüm animasyonlar için `FrameTick` olayını çağırarak oynatır:
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("animated.pptx");
 try {
     PresentationAnimationsGenerator animationsGenerator = new PresentationAnimationsGenerator(presentation);
@@ -287,11 +287,7 @@ try {
         try {
             player.setFrameTick((sender, arguments) ->
             {
-                try {
-                    arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+                arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
             });
             animationsGenerator.run(presentation.getSlides());
         } finally {
@@ -305,7 +301,7 @@ try {
 }
 ```
 
-Oluşturulan çerçeveler daha sonra birleştirilerek video üretilir. Bkz. [PowerPoint‑ten Video'ya Dönüştürme](https://docs.aspose.com/slides/tr/androidjava/convert-powerpoint-to-video/#convert-powerpoint-to-video) bölümü.
+Ardından oluşturulan çerçeveler birleştirilerek video üretilir. Bkz. [Convert PowerPoint to Video](https://docs.aspose.com/slides/tr/androidjava/convert-powerpoint-to-video/#convert-powerpoint-to-video) bölümü.
 
 ## **Desteklenen Animasyonlar ve Efektler**
 
@@ -313,76 +309,76 @@ Oluşturulan çerçeveler daha sonra birleştirilerek video üretilir. Bkz. [Pow
 
 | Animasyon Türü | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Appear** | ![not supported](x.png) | ![supported](v.png) |
-| **Fade** | ![supported](v.png) | ![supported](v.png) |
-| **Fly In** | ![supported](v.png) | ![supported](v.png) |
-| **Float In** | ![supported](v.png) | ![supported](v.png) |
-| **Split** | ![supported](v.png) | ![supported](v.png) |
-| **Wipe** | ![supported](v.png) | ![supported](v.png) |
-| **Shape** | ![supported](v.png) | ![supported](v.png) |
-| **Wheel** | ![supported](v.png) | ![supported](v.png) |
-| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
-| **Grow & Turn** | ![not supported](x.png) | ![supported](v.png) |
-| **Zoom** | ![supported](v.png) | ![supported](v.png) |
-| **Swivel** | ![supported](v.png) | ![supported](v.png) |
-| **Bounce** | ![supported](v.png) | ![supported](v.png) |
+| **Appear** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Fade** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Fly In** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Float In** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Split** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Wipe** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Shape** | ![destekleniyorum](v.png) | ![destekleniyor](v.png) |
+| **Wheel** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Random Bars** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Grow & Turn** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Zoom** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Swivel** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Bounce** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
 
 **Vurgu**:
 
 | Animasyon Türü | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Pulse** | ![not supported](x.png) | ![supported](v.png) |
-| **Color Pulse** | ![not supported](x.png) | ![supported](v.png) |
-| **Teeter** | ![supported](v.png) | ![supported](v.png) |
-| **Spin** | ![supported](v.png) | ![supported](v.png) |
-| **Grow/Shrink** | ![not supported](x.png) | ![supported](v.png) |
-| **Desaturate** | ![not supported](x.png) | ![supported](v.png) |
-| **Darken** | ![not supported](x.png) | ![supported](v.png) |
-| **Lighten** | ![not supported](x.png) | ![supported](v.png) |
-| **Transparency** | ![not supported](x.png) | ![supported](v.png) |
-| **Object Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Complementary Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Line Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Pulse** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Color Pulse** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Teeter** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Spin** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Grow/Shrink** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Desaturate** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Darken** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Lighten** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Transparency** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Object Color** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Complementary Color** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Line Color** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Fill Color** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
 
 **Çıkış**:
 
 | Animasyon Türü | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Disappear** | ![not supported](x.png) | ![supported](v.png) |
-| **Fade** | ![supported](v.png) | ![supported](v.png) |
-| **Fly Out** | ![supported](v.png) | ![supported](v.png) |
-| **Float Out** | ![supported](v.png) | ![supported](v.png) |
-| **Split** | ![supported](v.png) | ![supported](v.png) |
-| **Wipe** | ![supported](v.png) | ![supported](v.png) |
-| **Shape** | ![supported](v.png) | ![supported](v.png) |
-| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
-| **Shrink & Turn** | ![not supported](x.png) | ![supported](v.png) |
-| **Zoom** | ![supported](v.png) | ![supported](v.png) |
-| **Swivel** | ![supported](v.png) | ![supported](v.png) |
-| **Bounce** | ![supported](v.png) | ![supported](v.png) |
+| **Disappear** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Fade** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Fly Out** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Float Out** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Split** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Wipe** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Shape** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Random Bars** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Shrink & Turn** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Zoom** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Swivel** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Bounce** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
 
 **Hareket Yolları**:
 
 | Animasyon Türü | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Lines** | ![supported](v.png) | ![supported](v.png) |
-| **Arcs** | ![supported](v.png) | ![supported](v.png) |
-| **Turns** | ![supported](v.png) | ![supported](v.png) |
-| **Shapes** | ![supported](v.png) | ![supported](v.png) |
-| **Loops** | ![supported](v.png) | ![supported](v.png) |
-| **Custom Path** | ![supported](v.png) | ![supported](v.png) |
+| **Lines** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Arcs** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Turns** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Shapes** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Loops** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Custom Path** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
 
 ## **SSS**
 
-**Parola korumalı sunumları dönüştürmek mümkün mü?**
+### Şifre korumalı sunumları dönüştürmek mümkün mü?
 
-Evet, Aspose.Slides, [parola‑korumalı sunumlarla](/slides/tr/androidjava/password-protected-presentation/) çalışmaya izin verir. Bu dosyaları işlerken, kütüphanenin sunum içeriğine erişebilmesi için doğru parolayı sağlamalısınız.
+Evet, Aspose.Slides, [şifre korumalı sunumlarla](/slides/tr/androidjava/password-protected-presentation/) çalışmaya izin verir. Böyle dosyaları işlerken doğru şifreyi sağlamanız gerekir, böylece kütüphane sunumun içeriğine erişebilir.
 
-**Aspose.Slides bulut çözümlerinde kullanılabilir mi?**
+### Aspose.Slides bulut çözümlerinde kullanımını destekliyor mu?
 
-Evet, Aspose.Slides bulut uygulamaları ve hizmetlerine entegre edilebilir. Kütüphane, sunucu ortamlarında çalışacak şekilde tasarlanmıştır; bu da dosyaların toplu işlenmesinde yüksek performans ve ölçeklenebilirlik sağlar.
+Evet, Aspose.Slides, bulut uygulamaları ve hizmetlerine entegre edilebilir. Kütüphane, sunucu ortamlarında çalışacak şekilde tasarlanmış olup, dosyaların toplu işlenmesi için yüksek performans ve ölçeklenebilirlik sağlar.
 
-**Dönüşüm sırasında sunumların boyutlarıyla ilgili sınırlamalar var mı?**
+### Dönüştürme sırasında sunumların boyutlarıyla ilgili sınırlamalar var mı?
 
-Aspose.Slides, temelde her boyutta sunumu işleyebilir. Ancak çok büyük dosyalarla çalışırken ek sistem kaynakları gerekebilir ve performansı artırmak için sunumu optimize etmeniz önerilir.
+Aspose.Slides, neredeyse her boyuttaki sunumu işleyebilir. Ancak, çok büyük dosyalarla çalışırken ek sistem kaynakları gerekebilir ve performansı artırmak için sunumu optimize etmeniz önerilir.

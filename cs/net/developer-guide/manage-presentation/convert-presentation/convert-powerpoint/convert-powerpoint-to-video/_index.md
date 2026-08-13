@@ -1,14 +1,14 @@
 ---
-title: Převod PowerPoint prezentací na video v .NET
+title: Převod prezentací PowerPoint na video v .NET
 linktitle: PowerPoint na video
 type: docs
 weight: 130
 url: /cs/net/convert-powerpoint-to-video/
 keywords:
-- převod PowerPoint
-- převod prezentace
-- převod PPT
-- převod PPTX
+- převést PowerPoint
+- převést prezentaci
+- převést PPT
+- převést PPTX
 - PowerPoint na video
 - prezentace na video
 - PPT na video
@@ -26,42 +26,42 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Naučte se, jak převést PowerPoint prezentace na video v .NET. Objevte ukázkový C# kód a automatizační techniky pro zefektivnění vašeho pracovního postupu."
+description: "Zjistěte, jak převést prezentace PowerPoint na video v .NET. Objevte ukázkový kód v C# a automatizační techniky pro zefektivnění vašeho pracovního postupu."
 ---
 ## **Úvod**
 
 Převodem vaší prezentace PowerPoint nebo OpenDocument na video získáte:
 
-**Zvýšená přístupnost:** Všechna zařízení, bez ohledu na platformu, jsou standardně vybavena video přehrávači, což usnadňuje uživatelům otevírání nebo přehrávání videí ve srovnání s tradičními aplikacemi pro prezentace.
+**Zvýšená přístupnost:** Všechna zařízení, bez ohledu na platformu, jsou standardně vybavena video přehrávači, což usnadňuje uživatelům otevírat nebo přehrávat videa ve srovnání s tradičními aplikacemi pro prezentace.
 
-**Širší dosah:** Videa vám umožňují oslovit širší publikum a prezentovat informace atraktivnějším způsobem. Průzkumy a statistiky ukazují, že lidé dávají přednost sledování a konzumaci video obsahu před jinými formami, což činí vaši zprávu účinnější.
+**Širší dosah:** Videa vám umožňují oslovit širší publikum a prezentovat informace v poutavějším formátu. Průzkumy a statistiky ukazují, že lidé dávají přednost sledování a konzumaci video obsahu před jinými formami, což činí vaši zprávu působivější.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 Podívejte se na náš [**PowerPoint to Video Online Converter**](https://products.aspose.app/slides/cs/video), protože nabízí živou a efektivní implementaci procesu popsaného zde.
 {{% /alert %}} 
 
 V Aspose.Slides pro .NET jsme implementovali podporu převodu prezentací na video.
 
 * Použijte Aspose.Slides pro .NET k vygenerování snímků z prezentace při zadané snímkové frekvenci (FPS).
-* Pak použijte nástroj třetí strany, jako je ffmpeg, k vytvoření videa z těchto snímků.
+* Poté použijte nástroj třetí strany, jako je ffmpeg, k sestavení těchto snímků do videa.
 
-## **Převod PowerPoint prezentace na video**
+## **Převod prezentace PowerPoint na video**
 
-1. Použijte příkaz `dotnet add package` k přidání Aspose.Slides a knihovny FFMpegCore do vašeho projektu:
+1. Použijte příkaz `dotnet add package` k přidání knihoven Aspose.Slides a FFMpegCore do vašeho projektu:
    * run `dotnet add package Aspose.Slides.NET --version 22.11.0`
    * run `dotnet add package FFMpegCore --version 4.8.0`
 2. Stáhněte ffmpeg z [zde](https://ffmpeg.org/download.html).
-3. FFMpegCore vyžaduje zadání cesty k staženému ffmpeg (např. extrahováno do "C:\tools\ffmpeg"):  
+3. FFMpegCore vyžaduje, abyste určili cestu k staženému ffmpeg (např. extrahováno do "C:\tools\ffmpeg"):  
 ```cs
     GlobalFFOptions.Configure(new FFOptions { BinaryFolder = @"c:\tools\ffmpeg\bin" });
 ```
 4. Spusťte kód pro převod PowerPoint na video.
 
-Tento C# kód demonstruje, jak převést prezentaci (obsahující tvar a dva animační efekty) na video:
+Následující C# kód demonstruje, jak převést prezentaci (obsahující tvar a dva animační efekty) do videa:
 ```c#
 using System.Collections.Generic;
 using Aspose.Slides;
-using FFMpegCore; // použije FFmpeg binární soubory, které jsme dříve extrahovali do C:\tools\ffmpeg.
+using FFMpegCore; // použije binární soubory FFmpeg, které jsme dříve rozbalili do C:\tools\ffmpeg.
 using Aspose.Slides.Animation;
 
 using (Presentation presentation = new Presentation())
@@ -95,39 +95,45 @@ using (Presentation presentation = new Presentation())
         animationsGenerator.Run(presentation.Slides);
     }
 
-    // Nastavte složku s binárními soubory ffmpeg. Viz tato stránka: https://github.com/rosenbjerg/FFMpegCore#installation
+    // Nakonfigurujte složku binárních souborů ffmpeg. Viz tato stránka: https://github.com/rosenbjerg/FFMpegCore#installation
     GlobalFFOptions.Configure(new FFOptions { BinaryFolder = @"c:\tools\ffmpeg\bin" });
 
-    // Převěďte snímky na webm video.
+    // Převést snímky na video ve formátu webm.
     FFMpeg.JoinImageSequence("smile.webm", Fps, frames.Select(frame => ImageInfo.FromPath(frame)).ToArray());
 }
 ```
 
 ## **Video efekty**
 
-Když převádíte PowerPoint prezentaci na video pomocí Aspose.Slides pro .NET, můžete použít různé video efekty ke zlepšení vizuální kvality výstupu. Tyto efekty vám umožňují kontrolovat vzhled snímků ve finálním videu přidáním plynulých přechodů, animací a dalších vizuálních prvků. Tato sekce popisuje dostupné možnosti video efektů a ukazuje, jak je použít.
+Při převodu prezentace PowerPoint na video pomocí Aspose.Slides pro .NET můžete použít různé video efekty ke zlepšení vizuální kvality výstupu. Tyto efekty vám umožňují řídit vzhled snímků ve finálním videu přidáním plynulých přechodů, animací a dalších vizuálních prvků. Tato sekce popisuje dostupné možnosti video efektů a ukazuje, jak je použít.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 Viz:
-- [Enhancing PowerPoint Presentations with Animations in C#](https://docs.aspose.com/slides/cs/net/powerpoint-animation/)
-- [Shape Animation](https://docs.aspose.com/slides/cs/net/shape-animation/)
-- [Apply Shape Effects in PowerPoint Using C#](https://docs.aspose.com/slides/cs/net/shape-effect/)
+- [Vylepšení prezentací PowerPoint pomocí animací v C#](https://docs.aspose.com/slides/cs/net/powerpoint-animation/)
+- [Animace tvaru](https://docs.aspose.com/slides/cs/net/shape-animation/)
+- [Použití efektů tvaru v PowerPointu pomocí C#](https://docs.aspose.com/slides/cs/net/shape-effect/)
 {{% /alert %}} 
 
-Animace a přechody dělají prezentace zajímavější a poutavější — a totéž platí i pro videa. Přidejme další snímek a přechod do kódu předchozí prezentace:
+Animace a přechody dělají prezentace dynamičtějšími a zajímavějšími — a totéž platí i pro videa. Přidejme další snímek a přechod do kódu pro předchozí prezentaci:
 ```c#
- // Přidejte tvar úsměvu a animujte jej.
- // ...
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.SlideShow;
 
- // Přidejte nový snímek a animovaný přechod.
- ISlide newSlide = presentation.Slides.AddEmptySlide(presentation.Slides[0].LayoutSlide);
- newSlide.Background.Type = BackgroundType.OwnBackground;
- newSlide.Background.FillFormat.FillType = FillType.Solid;
- newSlide.Background.FillFormat.SolidFillColor.Color = Color.Indigo;
- newSlide.SlideShowTransition.Type = TransitionType.Push;
+using (Presentation presentation = new Presentation())
+{
+    // Přidejte tvar úsměvu a animujte jej (viz výše uvedený kód).
+
+    // Přidejte nový snímek a animovaný přechod.
+    ISlide newSlide = presentation.Slides.AddEmptySlide(presentation.Slides[0].LayoutSlide);
+    newSlide.Background.Type = BackgroundType.OwnBackground;
+    newSlide.Background.FillFormat.FillType = FillType.Solid;
+    newSlide.Background.FillFormat.SolidFillColor.Color = Color.Indigo;
+    newSlide.SlideShowTransition.Type = TransitionType.Push;
+}
 ```
 
-Aspose.Slides také podporuje animaci textu. V tomto příkladu animujeme odstavce na objektech tak, aby se objevovaly po sobě, s jednasekundovým zpožděním mezi nimi:
+Aspose.Slides také podporuje animace textu. V tomto příkladu animujeme odstavce na objektech tak, aby se objevovaly jeden po druhém, s jednosekundovým zpožděním mezi nimi:
 ```c#
 using System.Collections.Generic;
 using Aspose.Slides.Export;
@@ -186,24 +192,28 @@ using (Presentation presentation = new Presentation())
         animationsGenerator.Run(presentation.Slides);
     }
 
-    // Nastavte složku s binárními soubory ffmpeg. Viz tato stránka: https://github.com/rosenbjerg/FFMpegCore#installation
+    // Nakonfigurujte složku binárních souborů ffmpeg. Viz tato stránka: https://github.com/rosenbjerg/FFMpegCore#installation
     GlobalFFOptions.Configure(new FFOptions { BinaryFolder = @"c:\tools\ffmpeg\bin" });
 
-    // Převěďte snímky na webm video.
+    // Převést snímky na video ve formátu webm.
     FFMpeg.JoinImageSequence("text_animation.webm", Fps, frames.Select(frame => ImageInfo.FromPath(frame)).ToArray());
 }
 ```
 
-## **Třídy pro konverzi videa**
+## **Třídy pro převod videa**
 
-Pro umožnění úkolů převodu PowerPoint na video poskytuje Aspose.Slides pro .NET třídy [PresentationAnimationsGenerator](https://reference.aspose.com/slides/cs/net/aspose.slides.export/presentationanimationsgenerator/) a [PresentationPlayer](https://reference.aspose.com/slides/cs/net/aspose.slides.export/presentationplayer/).
+Pro umožnění úkolů převodu PowerPointu na video poskytuje Aspose.Slides pro .NET třídy [PresentationAnimationsGenerator](https://reference.aspose.com/slides/cs/net/aspose.slides.export/presentationanimationsgenerator/) a [PresentationPlayer](https://reference.aspose.com/slides/cs/net/aspose.slides.export/presentationplayer/).
 
-`PresentationAnimationsGenerator` umožňuje nastavit velikost snímku pro video (které bude vytvořeno později) a hodnotu FPS (snímků za sekundu) přes konstruktor. Pokud předáte instanci prezentace, použije se její `Presentation.SlideSize` a generuje animace, které [PresentationPlayer](https://reference.aspose.com/slides/cs/net/aspose.slides.export/presentationplayer/) používá.
+`PresentationAnimationsGenerator` vám umožňuje nastavit velikost snímku pro video (které bude vytvořeno později) a hodnotu FPS (snímků za sekundu) prostřednictvím svého konstruktoru. Pokud předáte instanci prezentace, použije se její `Presentation.SlideSize` a generuje animace, které používá [PresentationPlayer](https://reference.aspose.com/slides/cs/net/aspose.slides.export/presentationplayer/).
 
-Když jsou animace generovány, spustí se událost `NewAnimation` pro každou následující animaci a předá se parametr [IPresentationAnimationPlayer](https://reference.aspose.com/slides/cs/net/aspose.slides.export/ipresentationanimationplayer/). Tato třída představuje přehrávač pro jednotlivou animaci.
+Když jsou animace generovány, spustí se událost `NewAnimation` pro každou následnou animaci, která zahrnuje parametr [IPresentationAnimationPlayer](https://reference.aspose.com/slides/cs/net/aspose.slides.export/ipresentationanimationplayer/). Tato třída představuje přehrávač pro jednotlivou animaci.
 
-Pro práci s [IPresentationAnimationPlayer](https://reference.aspose.com/slides/cs/net/aspose.slides.export/ipresentationanimationplayer/) používáte vlastnost [Duration](https://reference.aspose.com/slides/cs/net/aspose.slides.export/ipresentationanimationplayer/duration/) (která udává celkovou délku animace) a metodu [SetTimePosition](https://reference.aspose.com/slides/cs/net/aspose.slides.export/ipresentationanimationplayer/settimeposition/). Každá pozice animace je nastavena v rozmezí *0 až duration* a metoda `GetFrame` pak vrátí Bitmap představující stav animace v daném okamžiku.
+Pro práci s [IPresentationAnimationPlayer](https://reference.aspose.com/slides/cs/net/aspose.slides.export/ipresentationanimationplayer/) používáte vlastnost [Duration](https://reference.aspose.com/slides/cs/net/aspose.slides.export/ipresentationanimationplayer/duration/) (která udává celkovou dobu animace) a metodu [SetTimePosition](https://reference.aspose.com/slides/cs/net/aspose.slides.export/ipresentationanimationplayer/settimeposition/). Každá pozice animace je nastavena v rozmezí *0 až duration* a metoda `GetFrame` potom vrací Bitmap představující stav animace v daném okamžiku.
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -226,19 +236,22 @@ using (Presentation presentation = new Presentation())
         {
             Console.WriteLine($"Total animation duration: {animationPlayer.Duration}");
 
-            animationPlayer.SetTimePosition(0);          // Počáteční stav animace.
-            Bitmap bitmap = animationPlayer.GetFrame();  // Bitmapa počátečního stavu animace.
+            animationPlayer.SetTimePosition(0);        // Počáteční stav animace.
+            IImage image = animationPlayer.GetFrame(); // Obrázek počátečního stavu animace.
 
-            animationPlayer.SetTimePosition(animationPlayer.Duration);  // Konečný stav animace.
-            Bitmap lastBitmap = animationPlayer.GetFrame();             // Poslední snímek animace.
-            lastBitmap.Save("last.png");
+            animationPlayer.SetTimePosition(animationPlayer.Duration); // Konečný stav animace.
+            IImage lastImage = animationPlayer.GetFrame();             // Poslední snímek animace.
+            lastImage.Save("last.png");
         };
     }
 }
 ```
 
-Pro simultánní přehrání všech animací v prezentaci se používá třída [PresentationPlayer](https://reference.aspose.com/slides/cs/net/aspose.slides.export/presentationplayer/). Tato třída přijímá instanci [PresentationAnimationsGenerator](https://reference.aspose.com/slides/cs/net/aspose.slides.export/presentationanimationsgenerator/) a hodnotu FPS pro efekty v konstruktoru a následně volá událost `FrameTick` pro všechny animace, aby je přehrála:
+Aby se všechny animace v prezentaci přehrály najednou, používá se třída [PresentationPlayer](https://reference.aspose.com/slides/cs/net/aspose.slides.export/presentationplayer/). Tato třída přijímá instanci [PresentationAnimationsGenerator](https://reference.aspose.com/slides/cs/net/aspose.slides.export/presentationanimationsgenerator/) a hodnotu FPS pro efekty ve svém konstruktoru a poté volá událost `FrameTick` pro všechny animace, aby je přehrála:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("animated.pptx"))
 {
     using (var animationsGenerator = new PresentationAnimationsGenerator(presentation))
@@ -253,13 +266,13 @@ using (Presentation presentation = new Presentation("animated.pptx"))
 }
 ```
 
-Poté mohou být vygenerované snímky zkompilovány do videa. Viz sekce [Convert a PowerPoint Presentation to Video](/slides/cs/net/convert-powerpoint-to-video/#convert-a-powerpoint-presentation-to-video).
+Poté mohou být vygenerované snímky sloučeny do videa. Viz sekce [Převod prezentace PowerPoint na video](/slides/cs/net/convert-powerpoint-to-video/#convert-a-powerpoint-presentation-to-video).
 
 ## **Podporované animace a efekty**
 
-Při převodu PowerPoint prezentace na video pomocí Aspose.Slides pro .NET je důležité rozumět tomu, které animace a efekty jsou ve výstupu podporovány. Aspose.Slides podporuje širokou škálu běžných vstupních, výstupních a důrazových efektů, jako jsou prolínání, přilet, přiblížení a otáčení. Některé pokročilé nebo vlastní animace však nemusí být zcela zachovány nebo se mohou ve finálním videu projevit odlišně. Tato sekce popisuje podporované animace a efekty.
+Při převodu prezentace PowerPoint na video pomocí Aspose.Slides pro .NET je důležité pochopit, které animace a efekty jsou ve výstupu podporovány. Aspose.Slides podporuje širokou škálu běžných vstupních, výstupních a zdůrazňovacích efektů, jako jsou postupné zeslabení, přilet, přiblížení a otáčení. Některé pokročilé nebo vlastní animace však nemusí být plně zachovány nebo se mohou ve finálním videu zobrazit odlišně. Tato sekce popisuje podporované animace a efekty.
 
-**Vstupní**:
+**Vstup**:
 
 | Typ animace | Aspose.Slides | PowerPoint |
 |---|---|---|
@@ -277,7 +290,7 @@ Při převodu PowerPoint prezentace na video pomocí Aspose.Slides pro .NET je d
 | **Swivel** | ![supported](v.png) | ![supported](v.png) |
 | **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
-**Důrazové**:
+**Zdůraznění**:
 
 | Typ animace | Aspose.Slides | PowerPoint |
 |---|---|---|
@@ -295,7 +308,7 @@ Při převodu PowerPoint prezentace na video pomocí Aspose.Slides pro .NET je d
 | **Line Color** | ![not supported](x.png) | ![supported](v.png) |
 | **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
 
-**Výstupní**:
+**Odchod**:
 
 | Typ animace | Aspose.Slides | PowerPoint |
 |---|---|---|
@@ -325,7 +338,7 @@ Při převodu PowerPoint prezentace na video pomocí Aspose.Slides pro .NET je d
 
 ## **Podporované efekty přechodu snímků**
 
-Efekty přechodu snímků hrají důležitou roli při vytváření plynulých a vizuálně atraktivních změn mezi snímky ve videu. Aspose.Slides pro .NET podporuje řadu běžně používaných přechodových efektů, aby pomohl zachovat tok a styl vaší původní prezentace. Tato sekce uvádí, které přechodové efekty jsou během konverze podporovány.
+Efekty přechodu snímků hrají důležitou roli při vytváření plynulých a vizuálně atraktivních změn mezi snímky ve videu. Aspose.Slides pro .NET podporuje řadu běžně používaných přechodových efektů, aby pomohl zachovat tok a styl vaší původní prezentace. Tato sekce zdůrazňuje, které přechodové efekty jsou během převodu podporovány.
 
 **Jemné**:
 
@@ -345,7 +358,7 @@ Efekty přechodu snímků hrají důležitou roli při vytváření plynulých a
 | **Flash** | ![supported](v.png) | ![supported](v.png) |
 | **Strips** | ![supported](v.png) | ![supported](v.png) |
 
-**Vzrušující**:
+**Zajímavé**:
 
 | Typ animace | Aspose.Slides | PowerPoint |
 |---|---|---|
@@ -390,16 +403,16 @@ Efekty přechodu snímků hrají důležitou roli při vytváření plynulých a
 | **Orbit** | ![not supported](x.png) | ![supported](v.png) |
 | **Fly Through** | ![supported](v.png) | ![supported](v.png) |
 
-## **FAQ**
+## **Často kladené otázky**
 
-**Je možné převést prezentace chráněné heslem?**
+### Je možné převádět prezentace chráněné heslem?
 
-Ano, Aspose.Slides pro .NET umožňuje práci s prezentacemi chráněnými heslem. Při zpracování takových souborů musíte zadat správné heslo, aby knihovna mohla získat přístup k obsahu prezentace.
+Ano, Aspose.Slides pro .NET umožňuje pracovat s prezentacemi chráněnými heslem. Při zpracování takových souborů musíte zadat správné heslo, aby knihovna mohla získat přístup k obsahu prezentace.
 
-**Podporuje Aspose.Slides pro .NET použití v cloudových řešeních?**
+### Podporuje Aspose.Slides pro .NET použití v cloudových řešeních?
 
-Ano, Aspose.Slides pro .NET lze integrovat do cloudových aplikací a služeb. Knihovna je navržena pro provoz na serverech, zajišťuje vysoký výkon a škálovatelnost pro hromadné zpracování souborů.
+Ano, Aspose.Slides pro .NET lze integrovat do cloudových aplikací a služeb. Knihovna je navržena tak, aby fungovala v serverových prostředích, což zajišťuje vysoký výkon a škálovatelnost při dávkovém zpracování souborů.
 
-**Existují omezení velikosti prezentací během konverze?**
+### Existují nějaká omezení velikosti prezentací během převodu?
 
-Aspose.Slides pro .NET je schopen zpracovat prezentace téměř libovolné velikosti. Při práci s velmi velkými soubory však může být potřeba více systémových zdrojů a někdy se doporučuje optimalizovat prezentaci pro zlepšení výkonu.
+Aspose.Slides pro .NET je schopna zpracovat prezentace prakticky jakékoli velikosti. Při práci s velmi velkými soubory však může být potřeba více systémových prostředků a často se doporučuje optimalizovat prezentaci pro zlepšení výkonu.

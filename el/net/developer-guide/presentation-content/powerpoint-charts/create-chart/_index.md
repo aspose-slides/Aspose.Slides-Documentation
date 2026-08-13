@@ -1,5 +1,5 @@
 ---
-title: Δημιουργία ή Ενημέρωση Διαγραμμάτων Παρουσιάσεων PowerPoint σε .NET
+title: Δημιουργία ή Ενημέρωση Διαγραμμάτων Παρουσίασης PowerPoint σε .NET
 linktitle: Δημιουργία ή Ενημέρωση Διαγραμμάτων
 type: docs
 weight: 10
@@ -13,14 +13,14 @@ keywords:
 - διάγραμμα διασποράς
 - διάγραμμα πίτας
 - γραμμικό διάγραμμα
-- διάγραμμα χάρτη δένδρου
+- διάγραμμα χάρτη δέντρου
 - διάγραμμα μετοχών
-- διάγραμμα κουτιού και χορδής
+- διάγραμμα box‑and‑whisker
 - διάγραμμα χωνιού
-- διάγραμμα ηλιοστασίου
-- ιστογραμματικό διάγραμμα
-- διάγραμμα ραδίου
-- πολύκατηγορικό διάγραμμα
+- διάγραμμα ηλιακού κύκλου
+- ιστόγραμμα
+- διάγραμμα ραντάρ
+- πολυκατηγορικό διάγραμμα
 - PowerPoint
 - παρουσίαση
 - .NET
@@ -30,72 +30,73 @@ description: "Δημιουργήστε και προσαρμόστε διαγρ�
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο παρέχει έναν ολοκληρωμένο οδηγό για το πώς να δημιουργήσετε και να προσαρμόσετε διαγράμματα χρησιμοποιώντας το Aspose.Slides για .NET. Θα μάθετε πώς να προσθέτετε προγραμματιστικά ένα διάγραμμα σε μια διαφάνεια, να το γεμίζετε με δεδομένα και να εφαρμόζετε διάφορες επιλογές μορφοποίησης ώστε να ταιριάζει με τις συγκεκριμένες απαιτήσεις σχεδιασμού σας. Σε όλο το άρθρο, λεπτομερή παραδείγματα κώδικα απεικονίζουν κάθε βήμα, από την αρχικοποίηση της παρουσίασης και του αντικειμένου διαγράμματος έως τη ρύθμιση σειρών, αξόνων και υπομνήματος. Ακολουθώντας αυτόν τον οδηγό, θα αποκτήσετε μια στέρεη κατανόηση του πώς να ενσωματώσετε δυναμική δημιουργία διαγραμμάτων στις εφαρμογές .NET, απλοποιώντας τη διαδικασία δημιουργίας παρουσιάσεων βασισμένων σε δεδομένα.
+Αυτό το άρθρο παρέχει έναν ολοκληρωμένο οδηγό για το πώς να δημιουργήσετε και να προσαρμόσετε διαγράμματα χρησιμοποιώντας το Aspose.Slides για .NET. Θα μάθετε πώς να προσθέτετε προγραμματιστικά ένα διάγραμμα σε μια διαφάνεια, να το γεμίζετε με δεδομένα και να εφαρμόζετε διάφορες επιλογές μορφοποίησης ώστε να ταιριάζει στις συγκεκριμένες απαιτήσεις σχεδίασής σας. Καθ’ όλη τη διάρκεια του άρθρου, λεπτομερή παραδείγματα κώδικα απεικονίζουν κάθε βήμα, από την έναρξη της παρουσίασης και του αντικειμένου διαγράμματος μέχρι τη ρύθμιση σειρών, αξόνων και υπομνημάτων. Ακολουθώντας αυτόν τον οδηγό, θα αποκτήσετε στέρεη κατανόηση του πώς να ενσωματώσετε δυναμική δημιουργία διαγραμμάτων στις εφαρμογές .NET, βελτιστοποιώντας τη διαδικασία δημιουργίας παρουσιάσεων που βασίζονται σε δεδομένα.
 
 ## **Δημιουργία Διαγράμματος**
 
-Τα διαγράμματα βοηθούν τους χρήστες να οπτικοποιούν γρήγορα τα δεδομένα και να αποκομίζουν πληροφορίες που μπορεί να μην είναι άμεσα εμφανείς από έναν πίνακα ή λογιστικό φύλλο.
+Τα διαγράμματα βοηθούν τους ανθρώπους να οπτικοποιούν γρήγορα τα δεδομένα και να εξάγουν πληροφορίες που μπορεί να μην είναι άμεσα εμφανείς από έναν πίνακα ή ένα φύλλο εργασίας.
 
-**Γιατί να δημιουργείτε διαγράμματα;**
+**Γιατί να δημιουργήσετε διαγράμματα;**
 
-Με τα διαγράμματα, μπορείτε:
+Με τα διαγράμματα μπορείτε:
 
-* να συγκεντρώνετε, συμπτύσσετε ή συνοψίζετε μεγάλες ποσότητες δεδομένων σε μία διαφάνεια της παρουσίασης·
-* να αποκαλύπτετε μοτίβα και τάσεις στα δεδομένα·
-* να κατανοείτε την κατεύθυνση και την ορμή των δεδομένων με το πέρασμα του χρόνου ή σε σχέση με μια συγκεκριμένη μονάδα μέτρησης·
-* να εντοπίζετε αποκλίσεις, ανωμαλίες, σφάλματα και ακατανόητα δεδομένα·
-* να επικοινωνείτε ή να παρουσιάζετε σύνθετα δεδομένα.
+* να συγκεντρώσετε, συμπιέσετε ή συνοψίσετε μεγάλες ποσότητες δεδομένων σε μία μόνο διαφάνεια παρουσίασης·
+* να αποκαλύψετε μοτίβα και τάσεις στα δεδομένα·
+* να κατανοήσετε την κατεύθυνση και τη δυναμική των δεδομένων με την πάροδο του χρόνου ή σε σχέση με συγκεκριμένη μονάδα μέτρησης·
+* να εντοπίσετε ακραίες τιμές, αποκλίσεις, σφάλματα και ακατανόητα δεδομένα·
+* να επικοινωνήσετε ή να παρουσιάσετε πολύπλοκα δεδομένα.
 
-Στο PowerPoint, μπορείτε να δημιουργήσετε διαγράμματα μέσω της λειτουργίας *Insert*, η οποία προσφέρει πρότυπα για το σχεδιασμό πολλών τύπων διαγραμμάτων. Χρησιμοποιώντας το Aspose.Slides, μπορείτε να δημιουργήσετε τόσο κανονικά διαγράμματα (βασισμένα σε δημοφιλείς τύπους) όσο και προσαρμοσμένα διαγράμματα.
+Στο PowerPoint μπορείτε να δημιουργήσετε διαγράμματα μέσω της λειτουργίας *Insert*, η οποία προσφέρει πρότυπα για το σχεδιασμό πολλών τύπων διαγραμμάτων. Χρησιμοποιώντας το Aspose.Slides, μπορείτε να δημιουργήσετε τόσο τυπικά διαγράμματα (βασισμένα σε δημοφιλείς τύπους) όσο και προσαρμοσμένα διαγράμματα.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 Χρησιμοποιήστε την απαρίθμηση [ChartType](https://reference.aspose.com/slides/el/net/aspose.slides.charts/charttype/) στο χώρο ονομάτων [Aspose.Slides.Charts](https://reference.aspose.com/slides/el/net/aspose.slides.charts/). Οι τιμές σε αυτήν την απαρίθμηση αντιστοιχούν σε διαφορετικούς τύπους διαγραμμάτων.
 {{% /alert %}} 
 
-### **Δημιουργία Συγκροτημένων Στήλης Διαγραμμάτων**
+### **Δημιουργία Συγκεντρωτικών Στηλών (Clustered Column)**
+Αυτό το τμήμα εξηγεί πώς να δημιουργήσετε συγκεντρωτικά διαγράμματα στήλης χρησιμοποιώντας το Aspose.Slides για .NET. Θα μάθετε να αρχικοποιείτε μια παρουσίαση, να προσθέτετε ένα διάγραμμα και να προσαρμόζετε στοιχεία όπως τίτλο, δεδομένα, σειρές, κατηγορίες και στυλ. Ακολουθήστε τα παρακάτω βήματα για να δείτε πώς παράγεται ένα τυπικό συγκεντρωτικό διάγραμμα στήλης:
 
-Αυτή η ενότητα εξηγεί πώς να δημιουργήσετε συγκροτημένα στήλης διαγράμματα χρησιμοποιώντας το Aspose.Slides για .NET. Θα μάθετε να αρχικοποιείτε μια παρουσίαση, να προσθέτετε ένα διάγραμμα και να προσαρμόζετε τα στοιχεία του, όπως τίτλο, δεδομένα, σειρά, κατηγορίες και στυλ. Ακολουθήστε τα παρακάτω βήματα για να δείτε πώς δημιουργείται ένα τυπικό συγκροτημένο στήλης διάγραμμα:
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).  
+2. Αποκτήστε αναφορά σε μια διαφάνεια χρησιμοποιώντας το δείκτη της.  
+3. Προσθέστε ένα διάγραμμα με κάποια δεδομένα και ορίστε τον τύπο `ChartType.ClusteredColumn`.  
+4. Προσθέστε τίτλο στο διάγραμμα.  
+5. Πρόσβαση στο φύλλο δεδομένων του διαγράμματος.  
+6. Καθαρίστε όλες τις προεπιλεγμένες σειρές και κατηγορίες.  
+7. Προσθέστε νέες σειρές και κατηγορίες.  
+8. Προσθέστε νέα δεδομένα στο διάγραμμα για τις σειρές.  
+9. Εφαρμόστε χρώμα γέμισμα στις σειρές του διαγράμματος.  
+10. Προσθέστε ετικέτες στις σειρές του διαγράμματος.  
+11. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).
-1. Ανακτήστε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το δείκτη της.
-1. Προσθέστε ένα διάγραμμα με κάποια δεδομένα και ορίστε τον τύπο `ChartType.ClusteredColumn`.
-1. Προσθέστε έναν τίτλο στο διάγραμμα.
-1. Πρόσβαση στο φύλλο δεδομένων του διαγράμματος.
-1. Καθαρίστε όλες τις προεπιλεγμένες σειρές και κατηγορίες.
-1. Προσθέστε νέες σειρές και κατηγορίες.
-1. Προσθέστε νέα δεδομένα στο διάγραμμα για τις σειρές.
-1. Εφαρμόστε χρώμα γεμίσματος στις σειρές του διαγράμματος.
-1. Προσθέστε ετικέτες στις σειρές του διαγράμματος.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα συγκροτημένο στήλης διάγραμμα:
+Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα συγκεντρωτικό διάγραμμα στήλης:
 
 ```c#
-// Δημιουργία αντικειμένου Presentation.
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+// Δημιουργία της κλάσης Presentation.
 using (Presentation presentation = new Presentation())
 {
     // Πρόσβαση στην πρώτη διαφάνεια.
     ISlide slide = presentation.Slides[0];
 
-    // Προσθήκη συγκροτημένου διαγράμματος στήλης με τα προεπιλεγμένα δεδομένα.
+    // Προσθήκη συγκεντρωτικού διαγράμματος στήλης με τα προεπιλεγμένα δεδομένα του.
     IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
-    // Ορισμός τίτλου διαγράμματος.
+    // Ορισμός του τίτλου του διαγράμματος.
     chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
     chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
     chart.ChartTitle.Height = 20;
     chart.HasTitle = true;
 
-    // Ορισμός πρώτης σειράς να εμφανίζει τιμές.
-    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
-    // Ορισμός δείκτη φύλλου δεδομένων διαγράμματος.
+    // Ορισμός του δείκτη του φύλλου δεδομένων του διαγράμματος.
     int worksheetIndex = 0;
 
-    // Λήψη βιβλίου δεδομένων διαγράμματος.
+    // Λήψη του βιβλίου εργασίας δεδομένων του διαγράμματος.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // Διαγραφή προεπιλεγμένων σειρών και κατηγοριών.
+    // Διαγραφή των προεπιλεγμένων σειρών και κατηγοριών που δημιουργήθηκαν.
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
@@ -108,89 +109,92 @@ using (Presentation presentation = new Presentation())
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 2, 0, "Category 2"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
 
-    // Λήψη πρώτης σειράς διαγράμματος.
+    // Λήψη της πρώτης σειράς του διαγράμματος.
     IChartSeries series = chart.ChartData.Series[0];
 
-    // Γέμισμα δεδομένων σειράς.
+    // Συμπλήρωση των δεδομένων της σειράς.
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
 
-    // Ορισμός χρώματος γεμίσματος για τη σειρά.
+    // Ορισμός του χρώματος γεμίσματος για τη σειρά.
     series.Format.Fill.FillType = FillType.Solid;
     series.Format.Fill.SolidFillColor.Color = Color.Red;
 
-    // Λήψη δεύτερης σειράς διαγράμματος.
+    // Λήψη της δεύτερης σειράς του διαγράμματος.
     series = chart.ChartData.Series[1];
 
-    // Γέμισμα δεδομένων σειράς.
+    // Συμπλήρωση των δεδομένων της σειράς.
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 2, 30));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 2, 10));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 2, 60));
 
-    // Ορισμός χρώματος γεμίσματος για τη σειρά.
+    // Ορισμός του χρώματος γεμίσματος για τη σειρά.
     series.Format.Fill.FillType = FillType.Solid;
     series.Format.Fill.SolidFillColor.Color = Color.Green;
 
-    // Ορισμός πρώτης ετικέτας να δείχνει το όνομα κατηγορίας.
+    // Ορισμός της πρώτης ετικέτας ώστε να εμφανίζει το όνομα της κατηγορίας.
     IDataLabel label = series.DataPoints[0].Label;
     label.DataLabelFormat.ShowCategoryName = true;
 
     label = series.DataPoints[1].Label;
     label.DataLabelFormat.ShowSeriesName = true;
 
-    // Ορισμός σειράς να δείχνει την τιμή για την τρίτη ετικέτα.
+    // Ορισμός της σειράς ώστε η τρίτη ετικέτα να εμφανίζει την τιμή.
     label = series.DataPoints[2].Label;
     label.DataLabelFormat.ShowValue = true;
     label.DataLabelFormat.ShowSeriesName = true;
     label.DataLabelFormat.Separator = "/";
 
-    // Αποθήκευση παρουσίασης σε αρχείο PPTX.
+    // Αποθήκευση της παρουσίασης στο δίσκο ως αρχείο PPTX.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 Το αποτέλεσμα:
 
-![Το γράφημα Συγκροτημένων Στηλών](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
-### **Δημιουργία Διαγραμμάτων Διάσπασης**
+### **Δημιουργία Διαγραμμάτων Διασποράς (Scatter)**
+Τα διαγράμματα διασποράς (επίσης γνωστά ως scatter plots ή διαγράμματα x‑y) χρησιμοποιούνται συχνά για τον έλεγχο μοτίβων ή την επίδειξη συσχετίσεων μεταξύ δύο μεταβλητών.
 
-Τα διαγράμματα διάσπασης (γνωστά επίσης ως scatter plots ή x‑y διαγράμματα) χρησιμοποιούνται συχνά για την ανίχνευση μοτίβων ή την εμφάνιση συσχετίσεων μεταξύ δύο μεταβλητών.
+Χρησιμοποιήστε διάγραμμα διασποράς όταν:
 
-Χρησιμοποιήστε διάγραμμα διάσπασης όταν:
+* Διαθέτετε αριθμητικά δεδομένα σε ζεύγη.  
+* Έχετε δύο μεταβλητές που συνδυάζονται λογικά.  
+* Θέλετε να καθορίσετε εάν οι δύο μεταβλητές σχετίζονται μεταξύ τους.  
+* Έχετε μια ανεξάρτητη μεταβλητή με πολλαπλές τιμές για μια εξαρτημένη μεταβλητή.
 
-* Διαθέτετε ζεύγη αριθμητικών δεδομένων·
-* Έχετε δύο μεταβλητές που ταιριάζουν μεταξύ τους·
-* Θέλετε να καθορίσετε αν οι δύο μεταβλητές σχετίζονται·
-* Έχετε μια ανεξάρτητη μεταβλητή που έχει πολλές τιμές για μια εξαρτημένη μεταβλητή.
-
-Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα διάγραμμα διάσπασης με διαφορετική σειρά δεικτών:
+Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα διάγραμμα διασποράς με διαφορετική σειρά δεικτών:
 
 ```c#
-// Δημιουργία αντικειμένου Presentation.
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+// Αρχικοποίηση της κλάσης Presentation.
 using (Presentation presentation = new Presentation())
 {
     // Πρόσβαση στην πρώτη διαφάνεια.
     ISlide slide = presentation.Slides[0];
 
-    // Δημιουργία προεπιλεγμένου διαγράμματος διασποράς.
+    // Δημιουργία του προεπιλεγμένου διαγράμματος διασποράς.
     IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
 
-    // Ορισμός δείκτη φύλλου δεδομένων διαγράμματος.
+    // Ορισμός του δείκτη του φύλλου δεδομένων του διαγράμματος.
     int worksheetIndex = 0;
 
-    // Λήψη βιβλίου δεδομένων διαγράμματος.
+    // Λήψη του βιβλίου εργασίας δεδομένων του διαγράμματος.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
     // Διαγραφή της προεπιλεγμένης σειράς.
     chart.ChartData.Series.Clear();
 
-    // Προσθήκη νέων σειρών.
+    // Προσθήκη νέας σειράς.
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 1, "Series 1"), chart.Type);
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 3, "Series 2"), chart.Type);
 
-    // Λήψη της πρώτης σειράς διαγράμματος.
+    // Λήψη της πρώτης σειράς του διαγράμματος.
     IChartSeries series = chart.ChartData.Series[0];
 
     // Προσθήκη νέου σημείου (1:3) στη σειρά.
@@ -199,17 +203,17 @@ using (Presentation presentation = new Presentation())
     // Προσθήκη νέου σημείου (2:10).
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 1, 2), workbook.GetCell(worksheetIndex, 3, 2, 10));
 
-    // Αλλαγή τύπου σειράς.
+    // Αλλαγή του τύπου της σειράς.
     series.Type = ChartType.ScatterWithStraightLinesAndMarkers;
 
-    // Αλλαγή δείκτη σειράς διαγράμματος.
+    // Αλλαγή του δείκτη (marker) της σειράς διαγράμματος.
     series.Marker.Size = 10;
     series.Marker.Symbol = MarkerStyleType.Star;
 
-    // Λήψη της δεύτερης σειράς διαγράμματος.
+    // Λήψη της δεύτερης σειράς του διαγράμματος.
     series = chart.ChartData.Series[1];
 
-    // Προσθήκη νέου σημείου (5:2) στη σειρά διαγράμματος.
+    // Προσθήκη νέου σημείου (5:2) στη σειρά του διαγράμματος.
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 3, 5), workbook.GetCell(worksheetIndex, 2, 4, 2));
 
     // Προσθήκη νέου σημείου (3:1).
@@ -221,64 +225,68 @@ using (Presentation presentation = new Presentation())
     // Προσθήκη νέου σημείου (5:1).
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 5, 3, 5), workbook.GetCell(worksheetIndex, 5, 4, 1));
 
-    // Αλλαγή δείκτη σειράς διαγράμματος.
+    // Αλλαγή του δείκτη (marker) της σειράς διαγράμματος.
     series.Marker.Size = 10;
     series.Marker.Symbol = MarkerStyleType.Circle;
 
-    // Αποθήκευση παρουσίασης σε αρχείο PPTX.
+    // Αποθήκευση της παρουσίασης στο δίσκο ως αρχείο PPTX.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 Το αποτέλεσμα:
 
-![Το διάγραμμα Διάσπασης](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
-### **Δημιουργία Κυκλικών Διαγραμμάτων**
+### **Δημιουργία Πίτας (Pie)**
+Τα διαγράμματα πίτας είναι ιδανικά για την εμφάνιση της σχέσης μέρος‑σε‑ολό σε δεδομένα, ειδικά όταν τα δεδομένα περιέχουν κατηγορίες με αριθμητικές τιμές. Ωστόσο, εάν τα δεδομένα σας περιέχουν πολλά τμήματα ή ετικέτες, ίσως θελήσετε να χρησιμοποιήσετε ένα ραβδόγραμμα.
 
-Τα κυκλικά διαγράμματα είναι ιδανικά για την εμφάνιση της σχέσης μέρος‑συνολικό σε δεδομένα, ειδικά όταν τα δεδομένα περιέχουν κατηγορηματικές ετικέτες με αριθμητικές τιμές. Ωστόσο, εάν τα δεδομένα σας περιέχουν πολλά τμήματα ή ετικέτες, ίσως θελήσετε να εξετάσετε τη χρήση ράβδου διαγράμματος.
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).  
+2. Αποκτήστε αναφορά σε μια διαφάνεια με βάση το δείκτη της.  
+3. Προσθέστε διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο `ChartType.Pie`.  
+4. Πρόσβαση στο βιβλίο εργασίας δεδομένων του διαγράμματος ([IChartDataWorkbook](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartdataworkbook/)).  
+5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.  
+6. Προσθέστε νέες σειρές και κατηγορίες.  
+7. Προσθέστε νέα δεδομένα για τις σειρές του διαγράμματος.  
+8. Προσθέστε νέες σημεία στο διάγραμμα και εφαρμόστε προσαρμοσμένα χρώματα στους τομείς της πίτας.  
+9. Ορίστε ετικέτες για τις σειρές.  
+10. Ενεργοποιήστε τις γραμμές οδηγούς για τις ετικέτες των σειρών.  
+11. Ορίστε τη γωνία περιστροφής της πίτας.  
+12. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).
-1. Ανακτήστε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το δείκτη της.
-1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο `ChartType.Pie`.
-1. Πρόσβαση στο βιβλίο δεδομένων του διαγράμματος ([IChartDataWorkbook](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
-1. Προσθέστε νέες σειρές και κατηγορίες.
-1. Προσθέστε νέα δεδομένα στο διάγραμμα για τις σειρές.
-1. Προσθέστε νέους σημείους στο διάγραμμα και εφαρμόστε προσαρμοσμένα χρώματα στους τομείς του κυκλικού διαγράμματος.
-1. Ορίστε ετικέτες για τις σειρές.
-1. Ενεργοποιήστε τις γραμμές οδηγούς για τις ετικέτες των σειρών.
-1. Ορίστε τη γωνία περιστροφής του κυκλικού διαγράμματος.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα κυκλικό διάγραμμα:
+Ο κώδικας C# παρακάτω δείχνει πώς να δημιουργήσετε ένα διάγραμμα πίτας:
 
 ```c#
-// Δημιουργία αντικειμένου Presentation.
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+// Αρχικοποίηση της κλάσης Presentation.
 using (Presentation presentation = new Presentation())
 {
     // Πρόσβαση στην πρώτη διαφάνεια.
     ISlide slide = presentation.Slides[0];
 
-    // Προσθήκη διαγράμματος με τα προεπιλεγμένα δεδομένα.
+    // Προσθήκη διαγράμματος με τα προεπιλεγμένα δεδομένα του.
     IChart chart = slide.Shapes.AddChart(ChartType.Pie, 20, 20, 500, 300);
 
-    // Ορισμός τίτλου διαγράμματος.
+    // Ορισμός του τίτλου του διαγράμματος.
     chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
     chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
     chart.ChartTitle.Height = 20;
     chart.HasTitle = true;
 
-    // Ορισμός πρώτης σειράς να εμφανίζει τιμές.
+    // Ορισμός της πρώτης σειράς για εμφάνιση τιμών.
     chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
-    // Ορισμός δείκτη φύλλου δεδομένων διαγράμματος.
+    // Ορισμός του δείκτη του φύλλου δεδομένων του διαγράμματος.
     int worksheetIndex = 0;
 
-    // Λήψη βιβλίου δεδομένων διαγράμματος.
+    // Λήψη του βιβλίου εργασίας δεδομένων του διαγράμματος.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // Διαγραφή των προεπιλεγμένων δημιουργηθέντων σειρών και κατηγοριών.
+    // Διαγραφή των προεπιλεγμένων σειρών και κατηγοριών.
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
@@ -287,22 +295,22 @@ using (Presentation presentation = new Presentation())
     chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "2nd Qtr"));
     chart.ChartData.Categories.Add(workbook.GetCell(0, 3, 0, "3rd Qtr"));
 
-    // Προσθήκη νέων σειρών.
+    // Προσθήκη νέας σειράς.
     IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Series 1"), chart.Type);
 
-    // Γέμισμα δεδομένων σειράς.
+    // Συμπλήρωση των δεδομένων της σειράς.
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
 
-    // Ορισμός χρώματος τμήματος.
+    // Ορισμός του χρώματος του τομέα.
     chart.ChartData.SeriesGroups[0].IsColorVaried = true;
 
     IChartDataPoint point = series.DataPoints[0];
     point.Format.Fill.FillType = FillType.Solid;
     point.Format.Fill.SolidFillColor.Color = Color.Cyan;
 
-    // Ορισμός περιγράμματος τμήματος.
+    // Ορισμός του περιγράμματος του τομέα.
     point.Format.Line.FillFormat.FillType = FillType.Solid;
     point.Format.Line.FillFormat.SolidFillColor.Color = Color.Gray;
     point.Format.Line.Width = 3.0;
@@ -313,7 +321,7 @@ using (Presentation presentation = new Presentation())
     point1.Format.Fill.FillType = FillType.Solid;
     point1.Format.Fill.SolidFillColor.Color = Color.Brown;
 
-    // Ορισμός περιγράμματος τμήματος.
+    // Ορισμός του περιγράμματος του τομέα.
     point1.Format.Line.FillFormat.FillType = FillType.Solid;
     point1.Format.Line.FillFormat.SolidFillColor.Color = Color.Blue;
     point1.Format.Line.Width = 3.0;
@@ -324,7 +332,7 @@ using (Presentation presentation = new Presentation())
     point2.Format.Fill.FillType = FillType.Solid;
     point2.Format.Fill.SolidFillColor.Color = Color.Coral;
 
-    // Ορισμός περιγράμματος τμήματος.
+    // Ορισμός του περιγράμματος του τομέα.
     point2.Format.Line.FillFormat.FillType = FillType.Solid;
     point2.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
     point2.Format.Line.Width = 2.0;
@@ -345,37 +353,40 @@ using (Presentation presentation = new Presentation())
     label3.DataLabelFormat.ShowSeriesName = true;
     label3.DataLabelFormat.ShowPercentage = true;
 
-    // Ορισμός σειράς να δείχνει γραμμές οδηγό στο διάγραμμα.
+    // Ορισμός της σειράς ώστε να εμφανίζει γραμμές οδηγικής (leader) στο διάγραμμα.
     series.Labels.DefaultDataLabelFormat.ShowLeaderLines = true;
 
-    // Ορισμός γωνίας περιστροφής για τα τμήματα του κυκλικού διαγράμματος.
+    // Ορισμός της γωνίας περιστροφής για τους τομείς του διαγράμματος πίτας.
     chart.ChartData.SeriesGroups[0].FirstSliceAngle = 180;
 
-    // Αποθήκευση παρουσίασης σε αρχείο PPTX.
+    // Αποθήκευση της παρουσίασης στο δίσκο ως αρχείο PPTX.
     presentation.Save("PieChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 Το αποτέλεσμα:
 
-![Το κυκλικό διάγραμμα](pie_chart.png)
+![The Pie chart](pie_chart.png)
 
-### **Δημιουργία Γραμμικών Διαγραμμάτων**
+### **Δημιουργία Γραμμικών Διαγραμμάτων (Line)**
+Τα γραμμικά διαγράμματα (συχνά αποκαλούμενα line graphs) είναι ιδανικά όταν θέλετε να δείξετε αλλαγές στην τιμή με την πάροδο του χρόνου. Με ένα γραμμικό διάγραμμα μπορείτε να συγκρίνετε μεγάλη ποσότητα δεδομένων ταυτόχρονα, να παρακολουθείτε αλλαγές και τάσεις, να επισημαίνετε ανωμαλίες στις σειρές δεδομένων κ.λπ.
 
-Τα γραμμικά διαγράμματα (γνωστά επίσης ως line graphs) είναι κατάλληλα για καταστάσεις όπου θέλετε να επιδείξετε αλλαγές στην τιμή με την πάροδο του χρόνου. Με ένα γραμμικό διάγραμμα, μπορείτε να συγκρίνετε μεγάλο όγκο δεδομένων ταυτόχρονα, να παρακολουθείτε αλλαγές και τάσεις στον χρόνο, να επισημαίνετε ανωμαλίες σε σειρές δεδομένων και πολλά άλλα.
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).  
+2. Αποκτήστε αναφορά σε μια διαφάνεια με βάση το δείκτη της.  
+3. Προσθέστε διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο `ChartType.Line`.  
+4. Πρόσβαση στο βιβλίο εργασίας δεδομένων του διαγράμματος ([IChartDataWorkbook](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartdataworkbook/)).  
+5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.  
+6. Προσθέστε νέες σειρές και κατηγορίες.  
+7. Προσθέστε νέα δεδομένα για τις σειρές του διαγράμματος.  
+8. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).
-1. Ανακτήστε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το δείκτη της.
-1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο `ChartType.Line`.
-1. Πρόσβαση στο βιβλίο δεδομένων του διαγράμματος ([IChartDataWorkbook](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
-1. Προσθέστε νέες σειρές και κατηγορίες.
-1. Προσθέστε νέα δεδομένα στο διάγραμμα για τις σειρές.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα γραμμικό διάγραμμα:
+Ο κώδικας C# παρακάτω δείχνει πώς να δημιουργήσετε ένα γραμμικό διάγραμμα:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart lineChart = presentation.Slides[0].Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
@@ -384,35 +395,46 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-Από προεπιλογή, τα σημεία σε ένα γραμμικό διάγραμμα ενώνονται με συνεχείς ευθείες γραμμές. Εάν θέλετε τα σημεία να ενώνονται με παύλες, μπορείτε να ορίσετε τον προτιμώμενο τύπο παύλας ως εξής:
+Από προεπιλογή, τα σημεία σε ένα γραμμικό διάγραμμα συνδέονται με συνεχείς ευθείες γραμμές. Εάν θέλετε τα σημεία να συνδέονται με παύλες, μπορείτε να ορίσετε τον τύπο παύλας ως εξής:
 
 ```c#
-foreach (IChartSeries series in lineChart.ChartData.Series)
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+using (Presentation presentation = new Presentation())
 {
-    series.Format.Line.DashStyle = LineDashStyle.Dash;
+    IChart lineChart = presentation.Slides[0].Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
+
+    foreach (IChartSeries series in lineChart.ChartData.Series)
+    {
+        series.Format.Line.DashStyle = LineDashStyle.Dash;
+    }
 }
 ```
 
 Το αποτέλεσμα:
 
-![Το γραμμικό διάγραμμα](line_chart.png)
+![The Line chart](line_chart.png)
 
-### **Δημιουργία Διαγραμμάτων Δένδρων (Tree Map)**
+### **Δημιουργία Διαγραμμάτων Δελτίων (Tree Map)**
+Τα διαγράμματα δέντρου (tree map) είναι ιδανικά για δεδομένα πωλήσεων όταν θέλετε να δείξετε το σχετικό μέγεθος των κατηγοριών δεδομένων και να τραβήξετε γρήγορα την προσοχή σε στοιχεία που συμβάλλουν σημαντικά εντός κάθε κατηγορίας.
 
-Τα διαγράμματα δένδρων είναι ιδανικά για δεδομένα πωλήσεων όταν θέλετε να εμφανίσετε το σχετικό μέγεθος των κατηγοριών δεδομένων και να εστιάσετε γρήγορα σε στοιχεία που προσφέρουν σημαντική συμβολή εντός κάθε κατηγορίας.
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).  
+2. Αποκτήστε αναφορά σε μια διαφάνεια με βάση το δείκτη της.  
+3. Προσθέστε διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο `ChartType.Treemap`.  
+4. Πρόσβαση στο βιβλίο εργασίας δεδομένων του διαγράμματος ([IChartDataWorkbook](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartdataworkbook/)).  
+5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.  
+6. Προσθέστε νέες σειρές και κατηγορίες.  
+7. Προσθέστε νέα δεδομένα για τις σειρές του διαγράμματος.  
+8. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).
-1. Ανακτήστε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το δείκτη της.
-1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο `ChartType.Treemap`.
-1. Πρόσβαση στο βιβλίο δεδομένων του διαγράμματος ([IChartDataWorkbook](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
-1. Προσθέστε νέες σειρές και κατηγορίες.
-1. Προσθέστε νέα δεδομένα στο διάγραμμα για τις σειρές.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα διάγραμμα δένδρου:
+Ο κώδικας C# παρακάτω δείχνει πώς να δημιουργήσετε ένα διάγραμμα δέντρου:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Treemap, 20, 20, 500, 300);
@@ -422,7 +444,7 @@ using (Presentation presentation = new Presentation())
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
     workbook.Clear(0);
 
-    // Κλάδος 1
+    // Κλαδί 1
     IChartCategory leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C1", "Leaf1"));
     leaf.GroupingLevels.SetGroupingItem(1, "Stem1");
     leaf.GroupingLevels.SetGroupingItem(2, "Branch1");
@@ -434,7 +456,7 @@ using (Presentation presentation = new Presentation())
 
     chart.ChartData.Categories.Add(workbook.GetCell(0, "C4", "Leaf4"));
 
-    // Κλάδος 2
+    // Κλαδί 2
     leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C5", "Leaf5"));
     leaf.GroupingLevels.SetGroupingItem(1, "Stem3");
     leaf.GroupingLevels.SetGroupingItem(2, "Branch2");
@@ -465,25 +487,28 @@ using (Presentation presentation = new Presentation())
 
 Το αποτέλεσμα:
 
-![Το διάγραμμα Δένδρου](treemap_chart.png)
+![The Treemap chart](treemap_chart.png)
 
-### **Δημιουργία Διαγραμμάτων Αποθεμάτων (Stock Charts)**
+### **Δημιουργία Διαγραμμάτων Μετοχών (Stock)**
+Τα διαγράμματα μετοχών χρησιμοποιούνται για την προβολή χρηματοοικονομικών δεδομένων όπως τιμές ανοίγματος, υψηλής, χαμηλής και κλεισίματος, βοηθώντας στην ανάλυση τάσεων της αγοράς και της μεταβλητότητας. Παρέχουν κρίσιμες γνώσεις για την απόδοση των μετοχών, βοηθώντας επενδυτές και αναλυτές να λαμβάνουν ενημερωμένες αποφάσεις.
 
-Τα διαγράμματα αποθεμάτων χρησιμοποιούνται για την απεικόνιση χρηματικών δεδομένων όπως τιμές ανοίγματος, υψηλής, χαμηλής και κλεισίματος, βοηθώντας στην ανάλυση τάσεων της αγοράς και της μεταβλητότητας. Παρέχουν κρίσιμες πληροφορίες για την απόδοση των μετοχών, υποστηρίζοντας επενδυτές και αναλυτές στη λήψη τεκμηριωμένων αποφάσεων.
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).  
+2. Αποκτήστε αναφορά σε μια διαφάνεια με βάση το δείκτη της.  
+3. Προσθέστε διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο `ChartType.OpenHighLowClose`.  
+4. Πρόσβαση στο βιβλίο εργασίας δεδομένων του διαγράμματος ([IChartDataWorkbook](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartdataworkbook/)).  
+5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.  
+6. Προσθέστε νέες σειρές και κατηγορίες.  
+7. Προσθέστε νέα δεδομένα για τις σειρές του διαγράμματος.  
+8. Ορίστε τη μορφή HiLowLines.  
+9. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).
-1. Ανακτήστε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το δείκτη της.
-1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο `ChartType.OpenHighLowClose`.
-1. Πρόσβαση στο βιβλίο δεδομένων του διαγράμματος ([IChartDataWorkbook](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
-1. Προσθέστε νέες σειρές και κατηγορίες.
-1. Προσθέστε νέα δεδομένα στο διάγραμμα για τις σειρές.
-1. Ορίστε τη μορφή HiLowLines.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα διάγραμμα αποθεμάτων:
+Ο κώδικας C# παρακάτω δείχνει πώς να δημιουργήσετε ένα διάγραμμα μετοχών:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
@@ -535,24 +560,27 @@ using (Presentation presentation = new Presentation())
 
 Το αποτέλεσμα:
 
-![Το διάγραμμα Αποθεμάτων](stock_chart.png)
+![The Stock chart](stock_chart.png)
 
-### **Δημιουργία Διαγραμμάτων Box and Whisker**
+### **Δημιουργία Διαγραμμάτων Κουτιού‑Καμπύλης (Box and Whisker)**
+Τα διαγράμματα Box and Whisker χρησιμοποιούνται για την παρουσίαση της κατανομής των δεδομένων, συνοψίζοντας βασικά στατιστικά μέτρα όπως η διάμεσος, τα τεταρτημόρια και οι πιθανές ακραίες τιμές. Είναι ιδιαίτερα χρήσιμα στην εξερευνητική ανάλυση δεδομένων και σε στατιστικές μελέτες για την γρήγορη κατανόηση της μεταβλητότητας και την ταυτοποίηση ανωμαλιών.
 
-Τα διαγράμματα Box and Whisker χρησιμοποιούνται για την εμφάνιση της κατανομής των δεδομένων συνοψίζοντας βασικά στατιστικά μέτρα, όπως η διάμεσος, τα τεταρτημόρια και οι πιθανοί εξαιρετικοί τιμές. Είναι ιδιαίτερα χρήσιμα στην εξερευνητική ανάλυση δεδομένων και στις στατιστικές μελέτες για την γρήγορη κατανόηση της διακύμανσης των δεδομένων και την αναγνώριση τυχόν ανωμαλιών.
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).  
+2. Αποκτήστε αναφορά σε μια διαφάνεια με βάση το δείκτη της.  
+3. Προσθέστε διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο `ChartType.BoxAndWhisker`.  
+4. Πρόσβαση στο βιβλίο εργασίας δεδομένων του διαγράμματος ([IChartDataWorkbook](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartdataworkbook/)).  
+5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.  
+6. Προσθέστε νέες σειρές και κατηγορίες.  
+7. Προσθέστε νέα δεδομένα για τις σειρές του διαγράμματος.  
+8. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).
-1. Ανακτήστε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το δείκτη της.
-1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο `ChartType.BoxAndWhisker`.
-1. Πρόσβαση στο βιβλίο δεδομένων του διαγράμματος ([IChartDataWorkbook](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
-1. Προσθέστε νέες σειρές και κατηγορίες.
-1. Προσθέστε νέα δεδομένα στο διάγραμμα για τις σειρές.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα διάγραμμα Box and Whisker:
+Ο κώδικας C# παρακάτω δείχνει πώς να δημιουργήσετε ένα διάγραμμα Box and Whisker:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.BoxAndWhisker, 20, 20, 500, 300);
@@ -588,18 +616,21 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **Δημιουργία Διάγραμμα Σχεδίου Πυραμίδας (Funnel Charts)**
+### **Δημιουργία Διαγραμμάτων Χωνιού (Funnel)**
+Τα διαγράμματα χωνιού χρησιμοποιούνται για την οπτικοποίηση διαδικασιών που περιλαμβάνουν διαδοχικά στάδια, στα οποία ο όγκος δεδομένων μειώνεται καθώς προχωρά από το ένα βήμα στο επόμενο. Είναι ιδιαίτερα χρήσιμα για την ανάλυση ποσοστών μετατροπής, τον εντοπισμό bottleneck και την παρακολούθηση της αποδοτικότητας των διαδικασιών πώλησης ή μάρκετινγκ.
 
-Τα διαγράμματα πυραμίδας χρησιμοποιούνται για την οπτικοποίηση διαδικασιών που περιλαμβάνουν διαδοχικά στάδια, όπου ο όγκος των δεδομένων μειώνεται καθώς προχωρά από το ένα βήμα στο επόμενο. Είναι ιδιαίτερα χρήσιμα για την ανάλυση ποσοστών μετατροπής, την αναγνώριση bottleneck και την παρακολούθηση της αποτελεσματικότητας των διαδικασιών πωλήσεων ή μάρκετινγκ.
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).  
+2. Αποκτήστε αναφορά σε μια διαφάνεια με βάση το δείκτη της.  
+3. Προσθέστε διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο `ChartType.Funnel`.  
+4. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).
-1. Ανακτήστε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το δείκτη της.
-1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο `ChartType.Funnel`.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα διάγραμμα πυραμίδας:
+Ο κώδικας C# παρακάτω δείχνει πώς να δημιουργήσετε ένα διάγραμμα χωνιού:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("test.pptx"))
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Funnel, 50, 50, 500, 400);
@@ -631,20 +662,23 @@ using (Presentation presentation = new Presentation("test.pptx"))
 
 Το αποτέλεσμα:
 
-![Το διάγραμμα Πυραμίδας](funnel_chart.png)
+![The Funnel chart](funnel_chart.png)
 
-### **Δημιουργία Διάγραμμα Ηλιοστασιακού (Sunburst Charts)**
+### **Δημιουργία Διαγραμμάτων Ηλιακού Κύκλου (Sunburst)**
+Τα διαγράμματα ηλιακού κύκλου (sunburst) χρησιμοποιούνται για την οπτικοποίηση ιεραρχικών δεδομένων, εμφανίζοντας τα επίπεδα ως συγκρότημα δακτυλίων. Βοηθούν στην απεικόνιση σχέσεων μέρος‑σε‑ολό και είναι ιδανικά για την αναπαράσταση ένθετων κατηγοριών με σαφή και συμπαγή μορφή.
 
-Τα διαγράμματα ηλιοστασίου χρησιμοποιούνται για την οπτικοποίηση ιεραρχικών δεδομένων, παρουσιάζοντας τα επίπεδα ως συγκρότημα δακτυλίων. Βοηθούν στην απεικόνιση σχέσεων μέρος‑συνολικό και είναι ιδανικά για την αναπαράσταση ενσωματωμένων κατηγοριών και υποκατηγοριών με σαφή, συμπαγή μορφή.
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).  
+2. Αποκτήστε αναφορά σε μια διαφάνεια με βάση το δείκτη της.  
+3. Προσθέστε διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο `ChartType.Sunburst`.  
+4. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).
-1. Ανακτήστε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το δείκτη της.
-1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο `ChartType.Sunburst`.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα διάγραμμα ηλιοστασίου:
+Ο κώδικας C# παρακάτω δείχνει πώς να δημιουργήσετε ένα διάγραμμα ηλιακού κύκλου:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Sunburst, 20, 20, 500, 300);
@@ -654,7 +688,7 @@ using (Presentation presentation = new Presentation())
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
     workbook.Clear(0);
 
-    // Κλάδος 1
+    // Κλαδί 1
     IChartCategory leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C1", "Leaf1"));
     leaf.GroupingLevels.SetGroupingItem(1, "Stem1");
     leaf.GroupingLevels.SetGroupingItem(2, "Branch1");
@@ -666,7 +700,7 @@ using (Presentation presentation = new Presentation())
 
     chart.ChartData.Categories.Add(workbook.GetCell(0, "C4", "Leaf4"));
 
-    // Κλάδος 2
+    // Κλαδί 2
     leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C5", "Leaf5"));
     leaf.GroupingLevels.SetGroupingItem(1, "Stem3");
     leaf.GroupingLevels.SetGroupingItem(2, "Branch2");
@@ -695,23 +729,26 @@ using (Presentation presentation = new Presentation())
 
 Το αποτέλεσμα:
 
-![Το διάγραμμα Ηλιοστασίου](sunburst_chart.png)
+![The Sunburst chart](sunburst_chart.png)
 
-### **Δημιουργία Ιστογραμματικών Διαγραμμάτων (Histogram Charts)**
+### **Δημιουργία Ιστόγραμμα (Histogram)**
+Τα ιστογράμματα χρησιμοποιούνται για την απεικόνιση της κατανομής αριθμητικών δεδομένων, ομαδοποιώντας τις τιμές σε διαστήματα (bins). Είναι ιδιαίτερα χρήσιμα για την ταυτοποίηση προτύπων όπως συχνότητα, ασυμμετρία και εύρος, καθώς και για τον εντοπισμό ακραίων τιμών σε ένα σύνολο δεδομένων.
 
-Τα ιστογραμματικά διαγράμματα χρησιμοποιούνται για την αναπαράσταση της κατανομής αριθμητικών δεδομένων ομαδοποιώντας τιμές σε εύρη ή κάδους. Είναι ιδιαίτερα χρήσιμα για την ταυτοποίηση μοτίβων όπως συχνότητα, ασυμμετρία και εύρος, καθώς και για τον εντοπισμό αποκλίσεων σε σύνολο δεδομένων.
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).  
+2. Αποκτήστε αναφορά σε μια διαφάνεια με βάση το δείκτη της.  
+3. Προσθέστε διάγραμμα με κάποια δεδομένα και ορίστε τον τύπο `ChartType.Histogram`.  
+4. Πρόσβαση στο βιβλίο εργασίας δεδομένων του διαγράμματος ([IChartDataWorkbook](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartdataworkbook/)).  
+5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.  
+6. Προσθέστε νέες σειρές και κατηγορίες.  
+7. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).
-1. Ανακτήστε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το δείκτη της.
-1. Προσθέστε ένα διάγραμμα με κάποια δεδομένα και ορίστε τον τύπο `ChartType.Histogram`.
-1. Πρόσβαση στο βιβλίο δεδομένων του διαγράμματος ([IChartDataWorkbook](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
-1. Προσθέστε νέες σειρές και κατηγορίες.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα ιστογραμματικό διάγραμμα:
+Ο κώδικας C# παρακάτω δείχνει πώς να δημιουργήσετε ένα ιστόγραμμα:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Histogram, 20, 20, 500, 300);
@@ -737,20 +774,23 @@ using (Presentation presentation = new Presentation())
 
 Το αποτέλεσμα:
 
-![Το Ιστογραμματικό διάγραμμα](histogram_chart.png)
+![The Histogram chart](histogram_chart.png)
 
-### **Δημιουργία Διαγραμμάτων Ραδίου (Radar Charts)**
+### **Δημιουργία Ακτινωτών Διαγραμμάτων (Radar)**
+Τα ακτινωτά διαγράμματα (radar) χρησιμοποιούνται για την παρουσίαση πολυμεταβλητών δεδομένων σε δισδιάστατη μορφή, επιτρέποντας εύκολη σύγκριση πολλών μεταβλητών ταυτόχρονα. Είναι ιδιαίτερα χρήσιμα για τον εντοπισμό προτύπων, ισχυρών και αδύναμων σημείων σε πολλαπλούς δείκτες απόδοσης ή χαρακτηριστικά.
 
-Τα διαγράμματα ραδίου χρησιμοποιούνται για την προβολή πολυμεταβλητών δεδομένων σε δισδιάστατη μορφή, επιτρέποντας εύκολη σύγκριση πολλών μεταβλητών ταυτόχρονα. Είναι ιδιαίτερα χρήσιμα για την αναγνώριση μοτίβων, δυνατών και αδύναμων σημείων σε πολλαπλές μετρικές απόδοσης ή χαρακτηριστικά.
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).  
+2. Αποκτήστε αναφορά σε μια διαφάνεια με βάση το δείκτη της.  
+3. Προσθέστε διάγραμμα με κάποια δεδομένα και ορίστε τον τύπο `ChartType.Radar`.  
+4. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).
-1. Ανακτήστε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το δείκτη της.
-1. Προσθέστε ένα διάγραμμα με κάποια δεδομένα και ορίστε τον τύπο `ChartType.Radar`.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα διάγραμμα ραδίου:
+Ο κώδικας C# παρακάτω δείχνει πώς να δημιουργήσετε ένα ακτινωτό διάγραμμα:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     presentation.Slides[0].Shapes.AddChart(ChartType.Radar, 20, 20, 500, 300);
@@ -760,24 +800,27 @@ using (Presentation presentation = new Presentation())
 
 Το αποτέλεσμα:
 
-![Το διάγραμμα Ραδίου](radar_chart.png)
+![The Radar chart](radar_chart.png)
 
-### **Δημιουργία Πολυκατηγορικών Διαγραμμάτων (Multi-Category Charts)**
+### **Δημιουργία Πολυ‑Κατηγορικών Διαγραμμάτων**
+Τα πολυ‑κατηγορικά διαγράμματα χρησιμοποιούνται για την παρουσίαση δεδομένων που περιλαμβάνουν περισσότερες από μία κατηγορίες, επιτρέποντάς σας να συγκρίνετε τιμές κατά μήκος πολλαπλών διαστάσεων ταυτόχρονα. Είναι ιδιαίτερα χρήσιμα όταν χρειάζεται να αναλύσετε τάσεις και σχέσεις μέσα σε σύνθετα, πολυεπίπεδα σύνολα δεδομένων.
 
-Τα πολυκατηγορικά διαγράμματα χρησιμοποιούνται για την εμφάνιση δεδομένων που περιλαμβάνουν περισσότερες από μία κατηγορίες, επιτρέποντας σύγκριση τιμών σε πολλαπλές διαστάσεις ταυτόχρονα. Είναι ιδιαίτερα χρήσιμα όταν χρειάζεται να αναλύσετε τάσεις και σχέσεις μέσα σε σύνθετα, πολυεπίπεδα σύνολα δεδομένων.
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).  
+2. Αποκτήστε αναφορά σε μια διαφάνεια με βάση το δείκτη της.  
+3. Προσθέστε διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο `ChartType.ClusteredColumn`.  
+4. Πρόσβαση στο βιβλίο εργασίας δεδομένων του διαγράμματος ([IChartDataWorkbook](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartdataworkbook/)).  
+5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.  
+6. Προσθέστε νέες σειρές και κατηγορίες.  
+7. Προσθέστε νέα δεδομένα για τις σειρές του διαγράμματος.  
+8. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).
-1. Ανακτήστε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το δείκτη της.
-1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο `ChartType.ClusteredColumn`.
-1. Πρόσβαση στο βιβλίο δεδομένων του διαγράμματος ([IChartDataWorkbook](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartdataworkbook/)).
-1. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
-1. Προσθέστε νέες σειρές και κατηγορίες.
-1. Προσθέστε νέα δεδομένα στο διάγραμμα για τις σειρές.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα πολυκατηγορικό διάγραμμα:
+Ο κώδικας C# παρακάτω δείχνει πώς να δημιουργήσετε ένα πολυ‑κατηγορικό διάγραμμα:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -826,15 +869,18 @@ using (Presentation presentation = new Presentation())
 
 Το αποτέλεσμα:
 
-![Το πολυκατηγορικό διάγραμμα](multi_category_chart.png)
+![The multi category chart](multi_category_chart.png)
 
-### **Δημιουργία Χάρτη (Map Charts)**
+### **Δημιουργία Διαγραμμάτων Χάρτη (Map)**
+Τα διαγράμματα χάρτη χρησιμοποιούνται για την οπτικοποίηση γεωγραφικών δεδομένων χαρτογραφώντας πληροφορίες σε συγκεκριμένες τοποθεσίες όπως χώρες, πολιτείες ή πόλεις. Είναι ιδιαίτερα χρήσιμα για την ανάλυση περιφερειακών τάσεων, δημογραφικών δεδομένων και χωρικής κατανομής με σαφή και ελκυστική παρουσίαση.
 
-Τα διαγράμματα χάρτη χρησιμοποιούνται για την οπτικοποίηση γεωγραφικών δεδομένων με χαρτογράφηση πληροφοριών σε συγκεκριμένες τοποθεσίες όπως χώρες, πολιτείες ή πόλεις. Είναι ιδιαίτερα χρήσιμα για την ανάλυση περιφερειακών τάσεων, δημογραφικών δεδομένων και χωρικών κατανομών με καθαρό, οπτικά ελκυστικό τρόπο.
-
-Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα διάγραμμα χάρτη:
+Ο κώδικας C# παρακάτω δείχνει πώς να δημιουργήσετε ένα διάγραμμα χάρτη:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Map, 20, 20, 500, 300);
@@ -844,17 +890,25 @@ using (Presentation presentation = new Presentation())
 
 Το αποτέλεσμα:
 
-![Το διάγραμμα Χάρτη](map_chart.png)
+![The Map chart](map_chart.png)
 
-### **Δημιουργία Συνδυαστικών Διαγραμμάτων (Combination Charts)**
+{{% alert color="info" %}} 
+Η εικόνα παραπάνω δείχνει την αποθηκευμένη παρουσίαση ανοιγμένη σε PowerPoint. Το Aspose.Slides γράφει σωστά το διάγραμμα χάρτη και τα δεδομένα του, αλλά δεν σχεδιάζει μόνο του διαγράμματα χάρτη: όταν μια διαφάνεια που το περιέχει αποτυπώνεται σε εικόνα ή μετατρέπεται σε PDF ή SVG, η περιοχή του διαγράμματος παραμένει κενή. Τα άλλα σχήματα στην ίδια διαφάνεια παραμένουν αμετάβλητα.
+{{% /alert %}} 
 
-Ένα συνδυαστικό διάγραμμα (ή combo chart) συνδυάζει δύο ή περισσότερους τύπους διαγράμματος σε ένα μόνο γράφημα. Αυτό το διάγραμμα σας επιτρέπει να τονίσετε, να συγκρίνετε ή να εξετάσετε διαφορές μεταξύ δύο ή περισσότερων συνόλων δεδομένων, βοηθώντας σας να εντοπίσετε σχέσεις μεταξύ τους.
+### **Δημιουργία Συνδυαστικών Διαγραμμάτων**
+Ένα συνδυαστικό διάγραμμα (ή combo chart) συνδυάζει δύο ή περισσότερους τύπους διαγράμματος σε ένα γράφημα. Αυτό το διάγραμμα σας επιτρέπει να αναδείξετε, να συγκρίνετε ή να εξετάσετε διαφορές μεταξύ δύο ή περισσότερων συνόλων δεδομένων, βοηθώντας στην αναγνώριση σχέσεων μεταξύ τους.
 
-![Το συνδυαστικό διάγραμμα](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-Ο παρακάτω κώδικας C# δείχνει πώς να δημιουργήσετε το συνδυαστικό διάγραμμα που φαίνεται παραπάνω σε μια παρουσίαση PowerPoint:
+Ο παρακάτω κώδικας C# δείχνει πώς να δημιουργήσετε το παραπάνω συνδυαστικό διάγραμμα σε μια παρουσίαση PowerPoint:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 private static void CreateComboChart()
 {
     using (Presentation presentation = new Presentation())
@@ -958,14 +1012,14 @@ private static void SetPrimaryAxesFormat(IChart chart)
 
     SetAxisTitle(horizontalAxis, "X Axis");
 
-    // Ορίζει τον κατακόρυφο άξονα
+    // Ορίζει τον κάθετο άξονα
     IAxis verticalAxis = chart.Axes.VerticalAxis;
     verticalAxis.TextFormat.PortionFormat.FontHeight = 12f;
     verticalAxis.Format.Line.FillFormat.FillType = FillType.NoFill;
 
     SetAxisTitle(verticalAxis, "Y Axis 1");
 
-    // Ορίζει το χρώμα των κύριων γραμμών πλέγματος του κατακόρυφου άξονα
+    // Ορίζει το χρώμα των κύριων κατακόρυφων γραμμών πλέγματος
     ILineFillFormat majorGridLinesFormat = verticalAxis.MajorGridLinesFormat.Line.FillFormat;
     majorGridLinesFormat.FillType = FillType.Solid;
     majorGridLinesFormat.SolidFillColor.Color = Color.FromArgb(217, 217, 217);
@@ -981,7 +1035,7 @@ private static void SetSecondaryAxesFormat(IChart chart)
     secondaryHorizontalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
     secondaryHorizontalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
 
-    // Ορίζει τον δευτερεύοντα κατακόρυφο άξονα
+    // Ορίζει τον δευτερεύοντα κάθετο άξονα
     IAxis secondaryVerticalAxis = chart.Axes.SecondaryVerticalAxis;
     secondaryVerticalAxis.Position = AxisPositionType.Right;
     secondaryVerticalAxis.TextFormat.PortionFormat.FontHeight = 12f;
@@ -1005,22 +1059,26 @@ private static void SetAxisTitle(IAxis axis, string axisTitle)
 
 ## **Ενημέρωση Διαγραμμάτων**
 
-Το Aspose.Slides για .NET σας επιτρέπει να ενημερώνετε διαγράμματα PowerPoint τροποποιώντας τα δεδομένα, τη μορφοποίηση και το στυλ τους. Αυτή η δυνατότητα απλοποιεί τη διαδικασία διατήρησης των παρουσιάσεων ενημερωμένων με δυναμικό περιεχόμενο και εξασφαλίζει ότι τα διαγράμματα αντανακλούν ακριβώς τα τρέχοντα δεδομένα και τις οπτικές προδιαγραφές.
+Το Aspose.Slides για .NET επιτρέπει την ενημέρωση διαγραμμάτων PowerPoint τροποποιώντας δεδομένα, μορφοποίηση και στυλ. Αυτή η λειτουργικότητα απλοποιεί τη διατήρηση των παρουσιάσεων ενημερωμένων με δυναμικό περιεχόμενο και διασφαλίζει ότι τα διαγράμματα αντικατοπτρίζουν με ακρίβεια τα τρέχοντα δεδομένα και τα οπτικά πρότυπα.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation) που αντιπροσωπεύει την παρουσίαση που περιέχει το διάγραμμα.
-1. Ανακτήστε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το δείκτη της.
-1. Περπατήστε σε όλα τα σχήματα για να εντοπίσετε το διάγραμμα.
-1. Πρόσβαση στο φύλλο δεδομένων του διαγράμματος.
-1. Τροποποιήστε τις σειρές δεδομένων του διαγράμματος αλλάζοντας τις τιμές των σειρών.
-1. Προσθέστε μια νέα σειρά και συμπληρώστε τα δεδομένα της.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation) που περιέχει το διάγραμμα.  
+2. Αποκτήστε αναφορά σε μια διαφάνεια με βάση το δείκτη της.  
+3. Διασχίστε όλα τα σχήματα για να βρείτε το διάγραμμα.  
+4. Πρόσβαση στο φύλλο δεδομένων του διαγράμματος.  
+5. Τροποποιήστε τις σειρές δεδομένων του διαγράμματος αλλάζοντας τις τιμές των σειρών.  
+6. Προσθέστε μια νέα σειρά και συμπληρώστε τα δεδομένα της.  
+7. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-Αυτός ο κώδικας C# δείχνει πώς να ενημερώσετε ένα διάγραμμα:
+Ο κώδικας C# παρακάτω δείχνει πώς να ενημερώσετε ένα διάγραμμα:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 const string chartName = "My chart";
 
-// Δημιουργία αντικειμένου Presentation που αντιπροσωπεύει ένα αρχείο PPTX.
+// Δημιουργία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PPTX.
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
     // Πρόσβαση στην πρώτη διαφάνεια.
@@ -1030,13 +1088,13 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
     {
         if (shape is IChart chart && chart.Name == chartName)
         {
-            // Ορισμός του δείκτη του φύλλου δεδομένων διαγράμματος.
+            // Ορισμός του δείκτη του φύλλου δεδομένων του διαγράμματος.
             int worksheetIndex = 0;
 
-            // Λήψη του βιβλίου δεδομένων του διαγράμματος.
+            // Λήψη του βιβλίου εργασίας δεδομένων του διαγράμματος.
             IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-            // Αλλαγή των ονομάτων των κατηγοριών του διαγράμματος.
+            // Αλλαγή των ονομάτων κατηγοριών του διαγράμματος.
             workbook.GetCell(worksheetIndex, 1, 0, "Modified Category 1");
             workbook.GetCell(worksheetIndex, 2, 0, "Modified Category 2");
 
@@ -1061,7 +1119,7 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
             // Προσθήκη νέας σειράς.
             series = chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 3, "Series 3"), chart.Type);
 
-            // Γέμισμα των δεδομένων της σειράς.
+            // Συμπλήρωση των δεδομένων της σειράς.
             series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 3, 20));
             series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 3, 50));
             series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 3, 30));
@@ -1077,20 +1135,24 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 
 ## **Ορισμός Περιοχής Δεδομένων για Διάγραμμα**
 
-Το Aspose.Slides για .NET προσφέρει την ευελιξία να ορίζετε μια συγκεκριμένη περιοχή δεδομένων από ένα φύλλο εργασίας ως πηγή για τα δεδομένα του διαγράμματος. Αυτό σημαίνει ότι μπορείτε να χαρτογραφήσετε άμεσα ένα τμήμα του φύλλου εργασίας στο διάγραμμα, ελέγχοντας ποιες κυψέλες συμβάλλουν στις σειρές και τις κατηγορίες του διαγράμματος. Ως αποτέλεσμα, μπορείτε εύκολα να ενημερώνετε και να συγχρονίζετε τα διαγράμματά σας με τις τελευταίες αλλαγές στα δεδομένα, διασφαλίζοντας ότι οι παρουσιάσεις PowerPoint αντικατοπτρίζουν ακριβείς και επικαιροποιημένες πληροφορίες.
+Το Aspose.Slides για .NET προσφέρει την ευελιξία να ορίζετε μια συγκεκριμένη περιοχή δεδομένων από ένα φύλλο εργασίας ως πηγή για τα δεδομένα του διαγράμματος. Αυτό σημαίνει ότι μπορείτε άμεσα να αντιστοιχίσετε ένα τμήμα του φύλλου εργασίας στο διάγραμμα, ελέγχοντας ποιες κελιά συμβάλλουν στις σειρές και τις κατηγορίες του διαγράμματος. Ως αποτέλεσμα, μπορείτε εύκολα να ενημερώνετε και να συγχρονίζετε τα διαγράμμά σας με τις τελευταίες αλλαγές των δεδομένων, διασφαλίζοντας ότι οι παρουσιάσεις PowerPoint αντικατοπτρίζουν ακριβείς πληροφορίες.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation) που αντιπροσωπεύει την παρουσίαση που περιέχει το διάγραμμα.
-1. Ανακτήστε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το δείκτη της.
-1. Περπατήστε σε όλα τα σχήματα για να εντοπίσετε το διάγραμμα.
-1. Πρόσβαση στα δεδομένα του διαγράμματος και ορίστε την περιοχή.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation) που περιέχει το διάγραμμα.  
+2. Αποκτήστε αναφορά σε μια διαφάνεια με βάση το δείκτη της.  
+3. Διασχίστε όλα τα σχήματα για να βρείτε το διάγραμμα.  
+4. Πρόσβαση στα δεδομένα του διαγράμματος και ορίστε την περιοχή.  
+5. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-Αυτός ο κώδικας C# δείχνει πώς να ορίσετε την περιοχή δεδομένων για ένα διάγραμμα:
+Ο κώδικας C# παρακάτω δείχνει πώς να ορίσετε την περιοχή δεδομένων για ένα διάγραμμα:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 const string chartName = "My chart";
 
-// Δημιουργία αντικειμένου Presentation που αντιπροσωπεύει ένα αρχείο PPTX.
+// Δημιουργία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PPTX.
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
     // Πρόσβαση στην πρώτη διαφάνεια.
@@ -1108,13 +1170,17 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 }
 ```
 
-## **Χρήση Προεπιλεγμένων Δεικτών σε Διαγράμματα**
+## **Χρήση Προεπιλεγμένων Σημείων σε Διαγράμματα**
 
-Όταν χρησιμοποιείτε προεπιλεγμένους δείκτες σε διαγράμματα, κάθε σειρά διαγράμματος λαμβάνει αυτόματα διαφορετικό προεπιλεγμένο σύμβολο δείκτη.
+Όταν χρησιμοποιείτε προεπιλεγμένα σημεία σε διαγράμματα, κάθε σειρά διαγράμματος λαμβάνει αυτόματα διαφορετικό προεπιλεγμένο σύμβολο σημείου.
 
-Αυτός ο κώδικας C# δείχνει πώς να ορίσετε αυτόματα έναν δείκτη σειράς διαγράμματος:
+Αυτός ο κώδικας C# δείχνει πώς να ορίσετε αυτόματα το σύμβολο σημείου για μια σειρά διαγράμματος:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -1141,7 +1207,7 @@ using (Presentation presentation = new Presentation())
 
     IChartSeries series2 = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 2, "Series 2"), chart.Type);
 
-    // Γεμίστε τα δεδομένα της σειράς.
+    // Συμπλήρωση δεδομένων της σειράς.
     series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 1, 2, 30));
     series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 2, 2, 10));
     series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 3, 2, 60));
@@ -1156,18 +1222,14 @@ using (Presentation presentation = new Presentation())
 
 ## **Συχνές Ερωτήσεις (FAQ)**
 
-**Τι τύποι διαγραμμάτων υποστηρίζει το Aspose.Slides για .NET;**
+### Ποιοί τύποι διαγραμμάτων υποστηρίζονται από το Aspose.Slides για .NET;
+Το Aspose.Slides για .NET υποστηρίζει ευρύ φάσμα τύπων διαγραμμάτων, συμπεριλαμβανομένων bar, line, pie, area, scatter, histogram, radar και πολλών άλλων. Αυτή η ευελιξία σας επιτρέπει να επιλέξετε τον πιο κατάλληλο τύπο για τις ανάγκες οπτικοποίησης των δεδομένων σας.
 
-Το Aspose.Slides για .NET υποστηρίζει μια ευρεία γκάμα τύπων διαγραμμάτων, συμπεριλαμβανομένων των ραβδών, γραμμών, πίτας, περιοχής, διασποράς, ιστογράμματος, ραδίου και πολλών άλλων. Αυτή η ευελιξία σας επιτρέπει να επιλέξετε τον πιο κατάλληλο τύπο διαγράμματος για τις ανάγκες οπτικοποίησης των δεδομένων σας.
+### Πώς να προσθέσω νέο διάγραμμα σε μια διαφάνεια;
+Για να προσθέσετε διάγραμμα, πρώτα δημιουργείτε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation), ανακτάτε τη ζητούμενη διαφάνεια με βάση το δείκτη της και, στη συνέχεια, καλείτε τη μέθοδο προσθήκης διαγράμματος, ορίζοντας τον τύπο διαγράμματος και τα αρχικά δεδομένα. Η διαδικασία ενσωματώνει το διάγραμμα απευθείας στην παρουσίασή σας.
 
-**Πώς προσθέτω ένα νέο διάγραμμα σε μια διαφάνεια;**
+### Πώς μπορώ να ενημερώσω τα δεδομένα που εμφανίζονται σε ένα διάγραμμα;
+Μπορείτε να ενημερώσετε τα δεδομένα ενός διαγράμματος αποκτώντας πρόσβαση στο βιβλίο εργασίας δεδομένων του ([IChartDataWorkbook](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartdataworkbook/)), καθαρίζοντας τυχόν προεπιλεγμένες σειρές και κατηγορίες και, στη συνέχεια, προσθέτοντας τα δικά σας δεδομένα. Αυτό σας επιτρέπει να ανανεώνετε προγραμματιστικά το διάγραμμα ώστε να αντικατοπτρίζει τα πιο πρόσφατα δεδομένα.
 
-Για να προσθέσετε ένα διάγραμμα, πρώτα δημιουργείτε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation), ανακτάτε τη ζητούμενη διαφάνεια χρησιμοποιώντας τον δείκτη της και, στη συνέχεια, καλείτε τη μέθοδο για προσθήκη διαγράμματος, καθορίζοντας τον τύπο διαγράμματος και τα αρχικά δεδομένα. Αυτή η διαδικασία ενσωματώνει το διάγραμμα απευθείας στην παρουσίασή σας.
-
-**Πώς μπορώ να ενημερώσω τα δεδομένα που εμφανίζονται σε ένα διάγραμμα;**
-
-Μπορείτε να ενημερώσετε τα δεδομένα ενός διαγράμματος αποκτώντας πρόσβαση στο βιβλίο δεδομένων του ([IChartDataWorkbook](https://reference.aspose.com/slides/el/net/aspose.slides.charts/ichartdataworkbook/)), καθαρίζοντας τυχόν προεπιλεγμένες σειρές και κατηγορίες και στη συνέχεια προσθέτοντας τα προσαρμοσμένα σας δεδομένα. Αυτό σας επιτρέπει να ανανεώνετε προγραμματιστικά το διάγραμμα ώστε να αντικατοπτρίζει τα πιο πρόσφατα δεδομένα.
-
-**Μπορώ να προσαρμόσω την εμφάνιση του διαγράμματος;**
-
-Ναι, το Aspose.Slides για .NET προσφέρει εκτενείς επιλογές προσαρμογής. Μπορείτε να τροποποιήσετε χρώματα, γραμματοσειρές, ετικέτες, υπομνήματα και άλλα στοιχεία μορφοποίησης για να προσαρμόσετε την εμφάνιση του διαγράμματος στις συγκεκριμένες απαιτήσεις του σχεδίου σας.
+### Είναι δυνατόν να προσαρμόσω την εμφάνιση του διαγράμματος;
+Ναι, το Aspose.Slides για .NET παρέχει εκτενείς επιλογές προσαρμογής. Μπορείτε να τροποποιήσετε χρώματα, γραμματοσειρές, ετικέτες, υπομνήματα και άλλα στοιχεία μορφοποίησης ώστε να ταιριάζουν στις συγκεκριμένες απαιτήσεις σχεδίασής σας.

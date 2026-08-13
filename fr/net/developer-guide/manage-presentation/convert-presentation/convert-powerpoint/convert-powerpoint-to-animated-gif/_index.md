@@ -25,52 +25,62 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Convertissez facilement les présentations PowerPoint (PPT, PPTX) en GIF animés avec Aspose.Slides pour .NET. Résultats rapides et de haute qualité."
+description: "Convertissez facilement des présentations PowerPoint (PPT, PPTX) en GIF animés avec Aspose.Slides pour .NET. Résultats rapides et de haute qualité."
 ---
+## **Vue d'ensemble**
+
+Aspose.Slides vous permet de convertir des présentations PowerPoint en fichiers GIF animés en quelques lignes de code seulement. C’est utile lorsque vous devez partager le contenu des diapositives dans un format animé léger, largement pris en charge, pouvant être intégré dans des pages Web, des messageries ou de la documentation. Cet article explique comment exporter une présentation au format GIF avec les paramètres par défaut et comment personnaliser le résultat en configurant des options telles que la taille des images, le délai entre les diapositives et le taux de trame de transition via [GifOptions](https://reference.aspose.com/slides/fr/net/aspose.slides.export/gifoptions/).
 
 ## **Convertir des présentations en GIF animé avec les paramètres par défaut**
 
-Ce code d'exemple en C# montre comment convertir une présentation en GIF animé en utilisant les paramètres standard :
+Ce code d'exemple en C# montre comment convertir une présentation en GIF animé en utilisant les paramètres standards :
+
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     pres.Save("pres.gif", SaveFormat.Gif);
 }
 ```
 
+Le GIF animé sera créé avec les paramètres par défaut.
 
-Le GIF animé sera créé avec les paramètres par défaut. 
-
-{{%  alert  title="ASTUCE"  color="primary" %}} 
-Si vous préférez personnaliser les paramètres du GIF, vous pouvez utiliser la classe [GifOptions](https://reference.aspose.com/slides/net/aspose.slides.export/gifoptions). Voir le code d'exemple ci‑dessous. 
+{{%  alert  title="TIP"  color="info"  %}} 
+Si vous préférez personnaliser les paramètres du GIF, vous pouvez utiliser la classe [GifOptions](https://reference.aspose.com/slides/fr/net/aspose.slides.export/gifoptions). Voir le code d'exemple ci‑dessous. 
 {{% /alert %}} 
 
 ## **Convertir des présentations en GIF animé avec des paramètres personnalisés**
 
 Ce code d'exemple montre comment convertir une présentation en GIF animé en utilisant des paramètres personnalisés en C# :
+
 ``` csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     pres.Save("pres.gif", SaveFormat.Gif, new GifOptions
     {
         FrameSize = new Size(960, 720), // la taille du GIF résultant  
-        DefaultDelay = 2000, // durée pendant laquelle chaque diapositive sera affichée avant de passer à la suivante
-        TransitionFps = 35 // augmenter les FPS pour améliorer la qualité de l'animation de transition
+        DefaultDelay = 2000, // durée d'affichage de chaque diapositive avant de passer à la suivante
+        TransitionFps = 35 // augmenter le FPS pour une meilleure qualité d'animation de transition
     });
 }
 ```
 
-
 {{% alert title="Info" color="info" %}}
-Vous pouvez consulter un convertisseur GRATUIT [Text to GIF](https://products.aspose.app/slides/text-to-gif) développé par Aspose. 
+Vous pourriez être intéressé par le convertisseur GRATUIT [Text to GIF](https://products.aspose.app/slides/fr/text-to-gif) développé par Aspose. 
 {{% /alert %}}
 
 ## **FAQ**
 
-**Que faire si les polices utilisées dans la présentation ne sont pas installées sur le système ?**
+### Que faire si les polices utilisées dans la présentation ne sont pas installées sur le système ?
 
-Installez les polices manquantes ou [configurez des polices de secours](/slides/fr/net/powerpoint-fonts/). Aspose.Slides les remplacera, mais l’apparence peut différer. Pour l’image de marque, assurez‑vous toujours que les polices requises sont explicitement disponibles.
+Installez les polices manquantes ou [configurer les polices de secours](/slides/fr/net/powerpoint-fonts/). Aspose.Slides les remplacera, mais l’aspect peut différer. Pour le respect de l’image de marque, assurez‑vous toujours que les types de caractères requis sont explicitement disponibles.
 
-**Puis‑je superposer un filigrane sur les images du GIF ?**
+### Puis‑je superposer un filigrane sur les images du GIF ?
 
 Oui. [Ajoutez un objet/logo semi‑transparent](/slides/fr/net/watermark/) à la diapositive maîtresse ou aux diapositives individuelles avant l’exportation — le filigrane apparaîtra sur chaque image.

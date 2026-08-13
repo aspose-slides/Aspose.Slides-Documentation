@@ -1,50 +1,50 @@
 ---
-title: Ocena Aspose.Slides
+title: Ewaluacja Aspose.Slides
 type: docs
 weight: 130
 url: /pl/androidjava/evaluate-aspose-slides/
 keywords:
-- ocena Aspose.Slides
-- ocena Aspose.Slides
-- wersja oceny
+- ocenić Aspose.Slides
+- ewaluacja Aspose.Slides
+- wersja ewaluacyjna
 - pełna funkcjonalność
-- znak wodny oceny
+- znak wodny ewaluacji
 - zakup Aspose.Slides
-- ograniczenia
+- ograniczenie
 - PowerPoint
 - OpenDocument
 - prezentacja
 - Android
 - Java
 - Aspose.Slides
-description: "Oceń Aspose.Slides dla Androida przy użyciu Javy i poznaj funkcje API dla prezentacji PowerPoint (PPT, PPTX) oraz OpenDocument (ODP) — rozpocznij bezpłatny okres próbny."
+description: "Oceń Aspose.Slides dla Androida przy użyciu Java i odkryj funkcje API dla prezentacji PowerPoint (PPT, PPTX) oraz OpenDocument (ODP) — rozpocznij bezpłatny okres próbny."
 ---
-## **Ocena Aspose.Slides**
+## **Ewaluacja Aspose.Slides**
 
-Możesz łatwo pobrać Aspose.Slides do oceny. Pakiet oceny jest taki sam jak zakupiony pakiet. Wersja ocenowa zostaje po prostu licencjonowana po dodaniu kilku wierszy kodu, aby zastosować licencję.
+Możesz łatwo pobrać Aspose.Slides do oceny. Pakiet ewaluacyjny jest taki sam jak zakupiony pakiet. Wersja ewaluacyjna staje się licencjonowana po dodaniu kilku wierszy kodu, aby zastosować licencję.
 
-Wersja ocenowa Aspose.Slides (bez określonej licencji) zapewnia pełną funkcjonalność produktu, ale wstawia znak wodny oceny na górze dokumentu przy otwieraniu i zapisywaniu. Dodatkowo przy wyodrębnianiu tekstu ze slajdów prezentacji jesteś ograniczony do jednego slajdu.
+Wersja ewaluacyjna Aspose.Slides (bez określonej licencji) zapewnia pełną funkcjonalność produktu, ale wstawia znak wodny ewaluacji na górze dokumentu przy otwieraniu i zapisywaniu. Dodatkowo ograniczony jesteś do jednego slajdu przy wyodrębnianiu tekstu ze slajdów prezentacji.
 
 ![todo:image_alt_text](evaluate-aspose-slides_1.png)
 
-{{% alert color="primary" %}}
-Jeśli chcesz testować Aspose.Slides bez ograniczeń wersji oceny, możesz poprosić o 30‑dniową tymczasową licencję. Zapoznaj się z [Jak uzyskać tymczasową licencję?](https://purchase.aspose.com/temporary-license)
+{{% alert color="info" %}}
+Jeśli chcesz przetestować Aspose.Slides bez ograniczeń wersji ewaluacyjnej, możesz ubiegać się o 30-dniową tymczasową licencję. Zapoznaj się z [Jak uzyskać tymczasową licencję?](https://purchase.aspose.com/temporary-license)
 {{% /alert %}}
 
 ## **FAQ**
 
-**Can I test multiple presentations in parallel across different threads in evaluation mode?**
+### Czy mogę testować wiele prezentacji równolegle w różnych wątkach w trybie ewaluacyjnym?
 
-Tak. Możesz przetwarzać różne dokumenty równolegle; nie powinieneś współdzielić tego samego obiektu prezentacji [across threads](/slides/pl/androidjava/multithreading/). Tryb oceny nie ma na to wpływu.
+Tak. Możesz przetwarzać różne dokumenty równolegle; nie powinieneś współdzielić tego samego obiektu prezentacji [między wątkami](/slides/pl/androidjava/multithreading/). Tryb ewaluacyjny nie ma na to wpływu.
 
-**Do I need to install Microsoft PowerPoint to evaluate the library on a server or in CI?**
+### Czy muszę instalować Microsoft PowerPoint, aby ocenić bibliotekę na serwerze lub w CI?
 
-Nie. Aspose.Slides jest samodzielnym silnikiem i nie wymaga zainstalowanego PowerPointa zarówno w trybie oceny, jak i w produkcji.
+Nie. Aspose.Slides jest samodzielnym silnikiem i nie wymaga zainstalowanego PowerPointa ani w ocenie, ani w produkcji.
 
-**Can I fully test conversion of PPT/PPTX to PDF and images in evaluation mode?**
+### Czy mogę w pełni przetestować konwersję PPT/PPTX do PDF i obrazów w trybie ewaluacyjnym?
 
-Tak. [konwertery](/slides/pl/androidjava/convert-presentation/) działają; wynik będzie zawierał znak wodny.
+Tak. [Konwertery](/slides/pl/androidjava/convert-presentation/) działają; wynik będzie zawierał znak wodny.
 
-**Can I use a temporary license for load testing without a watermark?**
+### Czy mogę użyć tymczasowej licencji do testów obciążeniowych bez znaku wodnego?
 
-Tak. 30‑dniowa tymczasowa licencja usuwa ograniczenia trybu oceny i pozwala na testowanie bez znaku wodnego.
+Tak. 30-dniowa tymczasowa licencja usuwa ograniczenia trybu ewaluacji i umożliwia testowanie bez znaku wodnego.

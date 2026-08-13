@@ -1,53 +1,77 @@
 ---
-title: "PowerPoint‑presentaties naar video converteren in C++"
-linktitle: "PowerPoint naar video"
+title: PowerPoint presentaties naar video converteren in C++
+linktitle: PowerPoint naar video
 type: docs
 weight: 130
 url: /nl/cpp/convert-powerpoint-to-video/
 keywords:
-- "PowerPoint converteren"
-- "presentatie converteren"
-- "PPT converteren"
-- "PPTX converteren"
-- "PowerPoint naar video"
-- "presentatie naar video"
-- "PPT naar video"
-- "PPTX naar video"
-- "PowerPoint naar MP4"
-- "presentatie naar MP4"
-- "PPT naar MP4"
-- "PPTX naar MP4"
-- "PPT opslaan als MP4"
-- "PPTX opslaan als MP4"
-- "PPT exporteren naar MP4"
-- "PPTX exporteren naar MP4"
-- "video‑conversie"
-- "PowerPoint"
-- "C++"
-- "Aspose.Slides"
-description: "Leer hoe u PowerPoint‑presentaties naar video kunt converteren in C++. Ontdek voorbeeldcode en automatisatietechnieken om uw workflow te optimaliseren."
+- PowerPoint converteren
+- presentatie converteren
+- PPT converteren
+- PPTX converteren
+- PowerPoint naar video
+- presentatie naar video
+- PPT naar video
+- PPTX naar video
+- PowerPoint naar MP4
+- presentatie naar MP4
+- PPT naar MP4
+- PPTX naar MP4
+- PPT opslaan als MP4
+- PPTX opslaan als MP4
+- PPT exporteren naar MP4
+- PPTX exporteren naar MP4
+- video conversie
+- PowerPoint
+- C++
+- Aspose.Slides
+description: "Leer hoe u PowerPoint presentaties naar video kunt omzetten in C++. Ontdek voorbeeldcode en automatiseringstechnieken om uw workflow te stroomlijnen."
 ---
 ## **Inleiding**
 
-Door uw PowerPoint‑presentatie naar video te converteren, krijgt u 
+Door uw PowerPoint‑presentatie naar video te converteren, krijgt u
 
-* **Toename in toegankelijkheid:** Alle apparaten (ongeacht platform) hebben standaard videospelers, in tegenstelling tot presentatiesoftware, waardoor gebruikers video's gemakkelijker kunnen openen of afspelen.
-* **Groter bereik:** Met video’s kunt u een groot publiek bereiken en hen van informatie voorzien die anders misschien saai overkomt in een presentatie. De meeste onderzoeken en statistieken geven aan dat mensen video’s meer bekijken en consumeren dan andere vormen van inhoud, en zij geven er over het algemeen de voorkeur aan.
+* **Verhoogde toegankelijkheid:** Alle apparaten (ongeacht het platform) hebben standaard videospelers, in tegenstelling tot programma's voor het openen van presentaties, waardoor het voor gebruikers makkelijker is om video’s te openen of af te spelen.
+* **Groter bereik:** Met video’s kunt u een groot publiek bereiken en hen informeren met inhoud die anders misschien saai overkomt in een presentatie. De meeste enquêtes en statistieken tonen aan dat mensen video’s meer bekijken en consumeren dan andere vormen van content, en ze geven de voorkeur aan dergelijke inhoud.
 
-In [Aspose.Slides 22.11](https://docs.aspose.com/slides/nl/cpp/aspose-slides-for-cpp-22-11-release-notes/), hebben we ondersteuning geïmplementeerd voor het converteren van presentaties naar video. 
+In [Aspose.Slides 22.11](https://docs.aspose.com/slides/nl/cpp/aspose-slides-for-cpp-22-11-release-notes/) hebben we ondersteuning voor het converteren van presentaties naar video geïmplementeerd.
 
 * Gebruik Aspose.Slides om een reeks frames (van de presentatieslides) te genereren die overeenkomen met een bepaalde FPS (frames per seconde)
-* Gebruik een extern hulpprogramma zoals `ffmpeg` om een video te maken op basis van de frames.
+* Gebruik een extern hulpmiddel zoals `ffmpeg` om op basis van de frames een video te maken.
 
-## **Converteer een PowerPoint‑presentatie naar video**
+## **Een PowerPoint‑presentatie naar video converteren**
 
 1. Download ffmpeg [hier](https://ffmpeg.org/download.html).
 2. Voeg het pad naar `ffmpeg.exe` toe aan de omgevingsvariabele `PATH`.
 3. Voer de PowerPoint‑naar‑video‑code uit.
 
-Deze C++‑code laat zien hoe u een presentatie (met een afbeelding en twee animatie‑effecten) naar een video kunt converteren:
+Deze C++‑code laat zien hoe u een presentatie (met een afbeelding en twee animatie‑effecten) naar een video converteert:
 
 ```c++
+#include <DOM/Animation/EffectPresetClassType.h>
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/FramesStream/FrameTickEventArgs.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
+#include <Export/FramesStream/PresentationPlayer.h>
+#include <IImage.h>
+#include <system/diagnostics/process.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+
 void OnFrameTick(System::SharedPtr<PresentationPlayer> sender, System::SharedPtr<FrameTickEventArgs> args)
 {
     System::String fileName = System::String::Format(u"frame_{0}.png", sender->get_FrameIndex());
@@ -59,7 +83,7 @@ void Run()
     auto presentation = System::MakeObject<Presentation>();
     auto slide = presentation->get_Slide(0);
 
-    // Voegt een smiley‑vorm toe en animeert deze
+    // Voegt een smiley-vorm toe en animeert deze daarna
     System::SharedPtr<IAutoShape> smile = slide->get_Shapes()->AddAutoShape(ShapeType::SmileyFace, 110.0f, 20.0f, 500.0f, 500.0f);
     auto sequence = slide->get_Timeline()->get_MainSequence();
     System::SharedPtr<IEffect> effectIn = sequence->AddEffect(smile, EffectType::Fly, EffectSubtype::TopLeft, EffectTriggerType::AfterPrevious);
@@ -76,7 +100,7 @@ void Run()
 
     const System::String ffmpegParameters = System::String::Format(
         u"-loglevel {0} -framerate {1} -i {2} -y -c:v {3} -pix_fmt {4} {5}",
-        u"warning", m_fps, "frame_%d.png", u"libx264", u"yuv420p", "video.mp4");
+        u"warning", fps, u"frame_%d.png", u"libx264", u"yuv420p", u"video.mp4");
     auto ffmpegProcess = System::Diagnostics::Process::Start(u"ffmpeg", ffmpegParameters);
     ffmpegProcess->WaitForExit();
 }
@@ -84,20 +108,34 @@ void Run()
 
 ## **Video‑effecten**
 
-U kunt animaties toepassen op objecten op dia's en overgangen tussen dia's gebruiken.
+U kunt animaties toepassen op objecten op dia’s en overgangen tussen dia’s gebruiken.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-U wilt talvez deze artikelen bekijken: [PowerPoint‑animatie](https://docs.aspose.com/slides/nl/cpp/powerpoint-animation/), [Vorm‑animatie](https://docs.aspose.com/slides/nl/cpp/shape-animation/), en [Vorm‑effect](https://docs.aspose.com/slides/nl/cpp/shape-effect/).
+Wellicht wilt u deze artikelen lezen: [PowerPoint‑animatie](https://docs.aspose.com/slides/nl/cpp/powerpoint-animation/), [Vorm‑animatie](https://docs.aspose.com/slides/nl/cpp/shape-animation/), en [Vorm‑effect](https://docs.aspose.com/slides/nl/cpp/shape-effect/).
 
 {{% /alert %}} 
 
-Animaties en overgangen maken diavoorstellingen boeiender en interessanter—en ze doen hetzelfde voor video’s. Laten we een extra dia en overgang toevoegen aan de code van de vorige presentatie:
+Animaties en overgangen maken diavoorstellingen boeiender en interessanter — en ze hebben hetzelfde effect op video’s. Laten we een extra dia en overgang toevoegen aan de code voor de vorige presentatie:
 
 ```c++
-// Voegt een smiley‑vorm toe en animeert deze
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideShowTransition.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideShowTransition/TransitionType.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::SlideShow;
 
-// ...
+// Voegt een smile-vorm toe en animeert deze zoals hierboven weergegeven
+auto presentation = System::MakeObject<Presentation>();
 
 // Voegt een nieuwe dia toe en een geanimeerde overgang
 
@@ -116,9 +154,37 @@ fillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Indigo()
 newSlide->get_SlideShowTransition()->set_Type(TransitionType::Push);
 ```
 
-Aspose.Slides ondersteunt ook animatie voor tekst. We animeren dus alinea’s op objecten, die één voor één verschijnen (met een vertraging van één seconde):
+Aspose.Slides ondersteunt ook animaties voor teksten. We animeren dus alinea’s op objecten, die één voor één verschijnen (met een vertraging van één seconde):
 
 ```c++
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/FramesStream/FrameTickEventArgs.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
+#include <Export/FramesStream/PresentationPlayer.h>
+#include <IImage.h>
+#include <system/diagnostics/process.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+
 void OnFrameTick(System::SharedPtr<PresentationPlayer> sender, System::SharedPtr<FrameTickEventArgs> args)
 {
     System::String fileName = System::String::Format(u"frame_{0}.png", sender->get_FrameIndex());
@@ -164,43 +230,64 @@ void Run()
 
     auto animationsGenerator = System::MakeObject<PresentationAnimationsGenerator>(presentation);
     auto player = System::MakeObject<PresentationPlayer>(animationsGenerator, fps);
-    
+
     player->FrameTick += OnFrameTick;
     animationsGenerator->Run(presentation->get_Slides());
 
     const System::String ffmpegParameters = System::String::Format(
         u"-loglevel {0} -framerate {1} -i {2} -y -c:v {3} -pix_fmt {4} {5}",
-        u"warning", m_fps, "frame_%d.png", u"libx264", u"yuv420p", "video.mp4");
+        u"warning", fps, u"frame_%d.png", u"libx264", u"yuv420p", u"video.mp4");
     auto ffmpegProcess = System::Diagnostics::Process::Start(u"ffmpeg", ffmpegParameters);
     ffmpegProcess->WaitForExit();
 }
 ```
 
-## **Video‑conversieklassen**
+## **Klassen voor video‑conversie**
 
 Om u PowerPoint‑naar‑video‑conversietaken te laten uitvoeren, biedt Aspose.Slides de klassen [PresentationAnimationsGenerator](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.export.presentation_animations_generator/) en [PresentationPlayer](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.export.presentation_player/) aan.
 
-PresentationAnimationsGenerator stelt u in staat de frame‑grootte voor de video (die later wordt aangemaakt) via de constructor in te stellen. Als u een instantie van de presentatie meegeeft, wordt `Presentation.SlideSize` gebruikt en genereert het animaties die [PresentationPlayer](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.export.presentation_player/) gebruikt. 
+PresentationAnimationsGenerator maakt het mogelijk de framegrootte voor de video (die later wordt gecreëerd) in te stellen via de constructor. Als u een instantie van de presentatie doorgeeft, wordt `Presentation.SlideSize` gebruikt en genereert het animaties die [PresentationPlayer](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.export.presentation_player/) gebruikt.
 
-Wanneer animaties worden gegenereerd, wordt voor elke volgende animatie een `NewAnimation`‑gebeurtenis gegenereerd, die de parameter [IPresentationAnimationPlayer](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.export.i_presentation_animation_player/) heeft. Deze laatste is een klasse die een speler voor een afzonderlijke animatie vertegenwoordigt.
+Wanneer animaties worden gegenereerd, wordt voor elke volgende animatie een `NewAnimation`‑event gegenereerd, dat de parameter [IPresentationAnimationPlayer](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.export.i_presentation_animation_player/) bevat. Deze laatste is een klasse die een speler voor een afzonderlijke animatie voorstelt.
 
-Om met [IPresentationAnimationPlayer](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.export.i_presentation_animation_player/) te werken, worden de eigenschap [get_Duration](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.export.i_presentation_animation_player#a29881d28eb42f345ab130d52f05a2d91) (de volledige duur van de animatie) en de methode [SetTimePosition](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.export.i_presentation_animation_player#a29cb11a73e3ad5f645626fcee3bc4ea0) gebruikt. Elke animatie‑positie wordt ingesteld binnen het bereik *0 tot duur*, waarna de `GetFrame`‑methode een Bitmap retourneert die overeenkomt met de animatiestatus op dat moment.
+Om met [IPresentationAnimationPlayer](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.export.i_presentation_animation_player/) te werken, worden de eigenschap [get_Duration](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.export.i_presentation_animation_player#a29881d28eb42f345ab130d52f05a2d91) (de totale duur van de animatie) en de methode [SetTimePosition](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.export.i_presentation_animation_player#a29cb11a73e3ad5f645626fcee3bc4ea0) gebruikt. Elke animatiepositie wordt ingesteld binnen het bereik *0 tot duur*, en vervolgens zal de methode `GetFrame` een Bitmap retourneren die overeenkomt met de animatiestatus op dat moment.
 
 ```c++
+#include <DOM/Animation/EffectPresetClassType.h>
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/FramesStream/IPresentationAnimationPlayer.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
+#include <IImage.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+
 void OnNewAnimation(System::SharedPtr<IPresentationAnimationPlayer> animationPlayer)
 {
     System::Console::WriteLine(u"Total animation duration: {0}", animationPlayer->get_Duration());
 
     animationPlayer->SetTimePosition(0);
     // initiële animatiestatus
-    System::SharedPtr<System::Drawing::Bitmap> bitmap = animationPlayer->GetFrame();
-    // bitmap van initiële animatiestatus
+    System::SharedPtr<IImage> image = animationPlayer->GetFrame();
+    // bitmap van de initiële animatiestatus
 
     animationPlayer->SetTimePosition(animationPlayer->get_Duration());
-    // eindtoestand van de animatie
-    System::SharedPtr<System::Drawing::Bitmap> lastBitmap = animationPlayer->GetFrame();
+    // eindstatus van de animatie
+    System::SharedPtr<IImage> lastImage = animationPlayer->GetFrame();
     // laatste frame van de animatie
-    lastBitmap->Save(u"last.png");
+    lastImage->Save(u"last.png");
 }
 
 void Run()
@@ -208,7 +295,7 @@ void Run()
     auto presentation = System::MakeObject<Presentation>();
     auto slide = presentation->get_Slide(0);
 
-    // Voegt een smiley‑vorm toe en animeert deze
+    // Voegt een smiley-vorm toe en animeert deze
     System::SharedPtr<IAutoShape> smile = slide->get_Shapes()->AddAutoShape(ShapeType::SmileyFace, 110.0f, 20.0f, 500.0f, 500.0f);
     auto sequence = slide->get_Timeline()->get_MainSequence();
     System::SharedPtr<IEffect> effectIn = sequence->AddEffect(smile, EffectType::Fly, EffectSubtype::TopLeft, EffectTriggerType::AfterPrevious);
@@ -221,9 +308,19 @@ void Run()
 }
 ```
 
-Om alle animaties in een presentatie tegelijk af te spelen, wordt de klasse [PresentationPlayer](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.export.presentation_player/) gebruikt. Deze klasse neemt in de constructor een instantie van [PresentationAnimationsGenerator](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.export.presentation_animations_generator/) en een FPS voor effecten, en roept vervolgens het `FrameTick`‑event aan voor alle animaties om ze af te spelen:
+Om alle animaties in een presentatie tegelijk af te spelen, wordt de klasse [PresentationPlayer](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.export.presentation_player/) gebruikt. Deze klasse neemt in de constructor een instantie van [PresentationAnimationsGenerator](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.export.presentation_animations_generator/) en een FPS voor de effecten, en roept vervolgens het `FrameTick`‑event voor alle animaties aan om ze af te spelen:
 
 ```c++
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/FramesStream/FrameTickEventArgs.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
+#include <Export/FramesStream/PresentationPlayer.h>
+#include <IImage.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 void OnFrameTick(System::SharedPtr<PresentationPlayer> sender, System::SharedPtr<FrameTickEventArgs> args)
 {
     System::String fileName = System::String::Format(u"frame_{0}.png", sender->get_FrameIndex());
@@ -241,86 +338,84 @@ void Run()
 }
 ```
 
-Vervolgens kunnen de gegenereerde frames worden samengevoegd tot een video. Zie de sectie [PowerPoint converteren naar video](https://docs.aspose.com/slides/nl/cpp/convert-powerpoint-to-video/#convert-powerpoint-to-video).
+Vervolgens kunnen de gegenereerde frames worden gecompileerd om een video te produceren. Zie de sectie [Convert PowerPoint to Video](https://docs.aspose.com/slides/nl/cpp/convert-powerpoint-to-video/#convert-powerpoint-to-video).
 
 ## **Ondersteunde animaties en effecten**
-
 
 **Ingang**:
 
 | Animatietype | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Verschijnen** | ![niet ondersteund](x.png) | ![ondersteund](v.png) |
-| **Vervagen** | ![ondersteund](v.png) | ![ondersteund](v.png) |
-| **Invliegen** | ![ondersteund](v.png) | ![ondersteund](v.png) |
-| **Inzweven** | ![ondersteund](v.png) | ![ondersteund](v.png) |
-| **Splitsen** | ![ondersteund](v.png) | ![ondersteund](v.png) |
-| **Vegen** | ![ondersteund](v.png) | ![ondersteund](v.png) |
-| **Vorm** | ![ondersteund](v.png) | ![ondersteund](v.png) |
-| **Wiel** | ![ondersteund](v.png) | ![ondersteund](v.png) |
-| **Willekeurige balken** | ![ondersteund](v.png) | ![ondersteund](v.png) |
-| **Groei & Draaien** | ![niet ondersteund](x.png) | ![ondersteund](v.png) |
-| **Zoomen** | ![ondersteund](v.png) | ![ondersteund](v.png) |
-| **Draaien** | ![ondersteund](v.png) | ![ondersteund](v.png) |
-| **Stuiteren** | ![ondersteund](v.png) | ![ondersteund](v.png) |
-
+| **Appear** | ![not supported](x.png) | ![supported](v.png) |
+| **Fade** | ![supported](v.png) | ![supported](v.png) |
+| **Fly In** | ![supported](v.png) | ![supported](v.png) |
+| **Float In** | ![supported](v.png) | ![supported](v.png) |
+| **Split** | ![supported](v.png) | ![supported](v.png) |
+| **Wipe** | ![supported](v.png) | ![supported](v.png) |
+| **Shape** | ![supported](v.png) | ![supported](v.png) |
+| **Wheel** | ![supported](v.png) | ![supported](v.png) |
+| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
+| **Grow & Turn** | ![not supported](x.png) | ![supported](v.png) |
+| **Zoom** | ![supported](v.png) | ![supported](v.png) |
+| **Swivel** | ![supported](v.png) | ![supported](v.png) |
+| **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
 **Nadruk**:
 
 | Animatietype | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Pulseren** | ![niet ondersteund](x.png) | ![ondersteund](v.png) |
-| **Kleurpuls** | ![niet ondersteund](x.png) | ![ondersteund](v.png) |
-| **Wiebel** | ![ondersteund](v.png) | ![ondersteund](v.png) |
-| **Draaien** | ![ondersteund](v.png) | ![ondersteund](v.png) |
-| **Groei/krimp** | ![niet ondersteund](x.png) | ![ondersteund](v.png) |
-| **Desatureren** | ![niet ondersteund](x.png) | ![ondersteund](v.png) |
-| **Donker maken** | ![niet ondersteund](x.png) | ![ondersteund](v.png) |
-| **Lichter maken** | ![niet ondersteund](x.png) | ![ondersteund](v.png) |
-| **Transparantie** | ![niet ondersteund](x.png) | ![ondersteund](v.png) |
-| **Objectkleur** | ![niet ondersteund](x.png) | ![ondersteund](v.png) |
-| **Complementaire kleur** | ![niet ondersteund](x.png) | ![ondersteund](v.png) |
-| **Lijnkleur** | ![niet ondersteund](x.png) | ![ondersteund](v.png) |
-| **Vulkleur** | ![niet ondersteund](x.png) | ![ondersteund](v.png) |
+| **Pulse** | ![not supported](x.png) | ![supported](v.png) |
+| **Color Pulse** | ![not supported](x.png) | ![supported](v.png) |
+| **Teeter** | ![supported](v.png) | ![supported](v.png) |
+| **Spin** | ![supported](v.png) | ![supported](v.png) |
+| **Grow/Shrink** | ![not supported](x.png) | ![supported](v.png) |
+| **Desaturate** | ![not supported](x.png) | ![supported](v.png) |
+| **Darken** | ![not supported](x.png) | ![supported](v.png) |
+| **Lighten** | ![not supported](x.png) | ![supported](v.png) |
+| **Transparency** | ![not supported](x.png) | ![supported](v.png) |
+| **Object Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Complementary Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Line Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
 
 **Uitgang**:
 
 | Animatietype | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Verdwijnen** | ![niet ondersteund](x.png) | ![ondersteund](v.png) |
-| **Vervagen** | ![ondersteund](v.png) | ![ondersteund](v.png) |
-| **Uitvliegen** | ![ondersteund](v.png) | ![ondersteund](v.png) |
-| **Uitzweven** | ![ondersteund](v.png) | ![ondersteund](v.png) |
-| **Splitsen** | ![ondersteund](v.png) | ![ondersteund](v.png) |
-| **Vegen** | ![ondersteund](v.png) | ![ondersteund](v.png) |
-| **Vorm** | ![ondersteund](v.png) | ![ondersteund](v.png) |
-| **Willekeurige balken** | ![ondersteund](v.png) | ![ondersteund](v.png) |
-| **Krimpen & Draaien** | ![niet ondersteund](x.png) | ![ondersteund](v.png) |
-| **Zoomen** | ![ondersteund](v.png) | ![ondersteund](v.png) |
-| **Draaien** | ![ondersteund](v.png) | ![ondersteund](v.png) |
-| **Stuiteren** | ![ondersteund](v.png) | ![ondersteund](v.png) |
+| **Disappear** | ![not supported](x.png) | ![supported](v.png) |
+| **Fade** | ![supported](v.png) | ![supported](v.png) |
+| **Fly Out** | ![supported](v.png) | ![supported](v.png) |
+| **Float Out** | ![supported](v.png) | ![supported](v.png) |
+| **Split** | ![supported](v.png) | ![supported](v.png) |
+| **Wipe** | ![supported](v.png) | ![supported](v.png) |
+| **Shape** | ![supported](v.png) | ![supported](v.png) |
+| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
+| **Shrink & Turn** | ![not supported](x.png) | ![supported](v.png) |
+| **Zoom** | ![supported](v.png) | ![supported](v.png) |
+| **Swivel** | ![supported](v.png) | ![supported](v.png) |
+| **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
 **Bewegingspaden**:
 
 | Animatietype | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Lijnen** | ![ondersteund](v.png) | ![ondersteund](v.png) |
-| **Boog** | ![ondersteund](v.png) | ![ondersteund](v.png) |
-| **Draaien** | ![ondersteund](v.png) | ![ondersteund](v.png) |
-| **Vormen** | ![ondersteund](v.png) | ![ondersteund](v.png) |
-| **Lussen** | ![ondersteund](v.png) | ![ondersteund](v.png) |
-| **Aangepast pad** | ![ondersteund](v.png) | ![ondersteund](v.png) |
+| **Lines** | ![supported](v.png) | ![supported](v.png) |
+| **Arcs** | ![supported](v.png) | ![supported](v.png) |
+| **Turns** | ![supported](v.png) | ![supported](v.png) |
+| **Shapes** | ![supported](v.png) | ![supported](v.png) |
+| **Loops** | ![supported](v.png) | ![supported](v.png) |
+| **Custom Path** | ![supported](v.png) | ![supported](v.png) |
 
-## **Veelgestelde vragen**
+## **FAQ**
 
-**Is het mogelijk om presentaties die met wachtwoord beveiligd zijn te converteren?**
+### Is het mogelijk om presentaties die met een wachtwoord beschermd zijn te converteren?
 
 Ja, Aspose.Slides maakt het mogelijk om te werken met [wachtwoord‑beveiligde presentaties](/slides/nl/cpp/password-protected-presentation/). Bij het verwerken van dergelijke bestanden moet u het juiste wachtwoord opgeven zodat de bibliotheek toegang krijgt tot de inhoud van de presentatie.
 
-**Ondersteunt Aspose.Slides gebruik in cloud‑oplossingen?**
+### Ondersteunt Aspose.Slides gebruik in cloud‑oplossingen?
 
-Ja, Aspose.Slides kan worden geïntegreerd in cloud‑applicaties en -diensten. De bibliotheek is ontworpen om in serveromgevingen te werken, waarbij hoge prestaties en schaalbaarheid voor de batchverwerking van bestanden worden gegarandeerd.
+Ja, Aspose.Slides kan worden geïntegreerd in cloud‑applicaties en -services. De bibliotheek is ontworpen om te werken in serveromgevingen, met hoge prestaties en schaalbaarheid voor batchverwerking van bestanden.
 
-**Zijn er groottebeperkingen voor presentaties tijdens de conversie?**
+### Zijn er limieten qua grootte voor presentaties tijdens conversie?
 
-Aspose.Slides kan presentaties van vrijwel elke grootte verwerken. Bij zeer grote bestanden kunnen echter extra systeembronnen nodig zijn, en wordt soms aanbevolen de presentatie te optimaliseren om de prestaties te verbeteren.
+Aspose.Slides kan presentaties van vrijwel elke grootte aan. Echter, bij zeer grote bestanden kunnen extra systeembronnen nodig zijn, en soms wordt aanbevolen de presentatie te optimaliseren om de prestaties te verbeteren.

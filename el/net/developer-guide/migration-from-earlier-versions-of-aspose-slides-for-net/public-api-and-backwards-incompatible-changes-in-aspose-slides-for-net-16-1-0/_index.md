@@ -1,6 +1,6 @@
 ---
-title: ΔΗΜΟΣΙΟ API ΚΑΙ ΜΗ ΣΥΜΒΑΤΕΣ ΠΙΣΩ ΑΛΛΑΓΕΣ ΣΤΟ Aspose.Slides ΓΙΑ .NET 16.1.0
-linktitle: Aspose.Slides ΓΙΑ .NET 16.1.0
+title: Δημόσιο API και Αντίστροφες Ασυμβατότητες σε Aspose.Slides για .NET 16.1.0
+linktitle: Aspose.Slides για .NET 16.1.0
 type: docs
 weight: 220
 url: /el/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/
@@ -16,21 +16,25 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Ανασκόπηση των ενημερώσεων του δημόσιου API και των κατατμητικών αλλαγών στο Aspose.Slides για .NET, ώστε να μεταβείτε ομαλά στις λύσεις παρουσίασης PowerPoint PPT, PPTX και ODP σας."
+description: "Ανασκόπηση των ενημερώσεων του δημόσιου API και των διασπαστικών αλλαγών στο Aspose.Slides για .NET, ώστε να μεταβείτε ομαλά στις λύσεις παρουσίασης PowerPoint PPT, PPTX και ODP σας."
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" %}} 
 
-Αυτή η σελίδα απαριθμεί όλες τις [προστιθέμενες](/slides/el/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) ή [αφαιρεθείσες](/slides/el/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) κλάσεις, μεθόδους, ιδιότητες κ.λπ., καθώς και άλλες αλλαγές που εισήχθησαν με το API του Aspose.Slides for .NET 16.1.0.
+Αυτή η σελίδα καταχωρίζει όλες τις [προστέθηκαν](/slides/el/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) ή [αφαιρέθηκαν](/slides/el/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) κλάσεις, μεθόδους, ιδιότητες κ.λπ., καθώς και άλλες αλλαγές που εισήχθησαν με το Aspose.Slides for .NET 16.1.0 API.
 
-{{% /alert %}}
+{{% /alert %}} 
 ## **Αλλαγές Δημόσιου API**
 
-#### **Η Ιδιότητα RotationAngle Προστέθηκε στα Διεπαφές IChartTextBlockFormat και ITextFrameFormat**
 
+#### **Η Ιδιότητα RotationAngle Προστέθηκε στις Διεπαφές IChartTextBlockFormat και ITextFrameFormat**
 Η ιδιότητα RotationAngle προστέθηκε στις διεπαφές Aspose.Slides.Charts.IChartTextBlockFormat και Aspose.Slides.ITextFrameFormat.
-Καθορίζει την προσαρμοσμένη περιστροφή που εφαρμόζεται στο κείμενο εντός του περιθωρίου.
+Καθορίζει την προσαρμοσμένη περιστροφή που εφαρμόζεται στο κείμενο μέσα στο πλαίσιο περιβάλλοντος.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -53,5 +57,5 @@ pres.Save("out.pptx", SaveFormat.Pptx);
 }
 
 
-```
-#### **Το OdpException Μεταφέρθηκε από το Aspose.Slides.Odp στο Namespace Aspose.Slides**
+``` 
+#### **Η OdpException Μεταφέρθηκε από το Aspose.Slides.Odp στο Namespace Aspose.Slides**

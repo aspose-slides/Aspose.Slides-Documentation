@@ -4,14 +4,14 @@ linktitle: PowerPoint na JPG
 type: docs
 weight: 60
 url: /cs/androidjava/convert-powerpoint-to-jpg/
-keywords: 
+keywords:
 - převést PowerPoint
 - převést prezentaci
 - převést snímek
 - převést PPT
 - převést PPTX
 - PowerPoint na JPG
-- prezentaci na JPG
+- prezentace na JPG
 - snímek na JPG
 - PPT na JPG
 - PPTX na JPG
@@ -25,33 +25,39 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Převést snímky PowerPoint (PPT, PPTX) na vysoce kvalitní JPG obrázky v Javě s Aspose.Slides pro Android pomocí rychlých a spolehlivých příkladů kódu."
+description: "Převádějte snímky PowerPoint (PPT, PPTX) na vysoce kvalitní JPG obrázky v jazyce Java s Aspose.Slides pro Android pomocí rychlých a spolehlivých ukázek kódu."
 ---
 ## **Úvod**
 
-Převod prezentací PowerPoint a OpenDocument na obrázky JPG pomáhá při sdílení snímků, optimalizaci výkonu a vkládání obsahu do webových stránek nebo aplikací. Aspose.Slides pro Android přes Java vám umožňuje převést soubory PPTX, PPT a ODP na vysoce kvalitní obrázky JPEG. Tento průvodce popisuje různé metody převodu.
+Převod prezentací PowerPoint a OpenDocument do JPG obrázků usnadňuje sdílení snímků, optimalizaci výkonu a vkládání obsahu do webových stránek nebo aplikací. Aspose.Slides pro Android prostřednictvím Java vám umožňuje převést soubory PPTX, PPT a ODP na vysoce kvalitní JPEG obrázky. Tento návod vysvětluje různé metody převodu.
 
-S těmito funkcemi je snadné implementovat vlastní prohlížeč prezentací a vytvořit miniaturu pro každý snímek. To může být užitečné, pokud chcete chránit snímky před kopírováním nebo prezentovat prezentaci v režimu pouze pro čtení. Aspose.Slides umožňuje převést celou prezentaci nebo konkrétní snímek do obrazových formátů.
+S těmito funkcemi můžete snadno vytvořit vlastní prohlížeč prezentací a vytvořit miniaturu pro každý snímek. To může být užitečné, pokud chcete chránit snímky před kopírováním nebo prezentovat prezentaci v režimu jen pro čtení. Aspose.Slides vám umožňuje převést celou prezentaci nebo konkrétní snímek do obrazových formátů.
 
-## **Převod snímků prezentace na obrázky JPG**
+## **Převod snímků prezentace na JPG obrázky**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) .
+Zde jsou kroky pro převod souboru PPT, PPTX nebo ODP na JPG:
+
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
 1. Získejte objekt snímku typu [ISlide](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islide/) ze sbírky vrácené metodou [Presentation.getSlides()](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/#getSlides--) .
-1. Vytvořte obrázek snímku pomocí metody [ISlide.getImage(float, float)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islide/#getImage-float-float-) .
-1. Zavolejte metodu [IImage.save(string, ImageFormat)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) na objektu obrázku. Jako argumenty předejte název výstupního souboru a formát obrázku.
+1. Vytvořte obrázek snímku pomocí metody [ISlide.getImage(float,float)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islide/#getImage-float-float-) .
+1. Zavolejte metodu [IImage.save(string,ImageFormat)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) na objektu obrázku. Předávejte název výstupního souboru a formát obrázku jako argumenty.
 
-{{% alert color="primary" %}} 
-**Poznámka:** PPT, PPTX nebo ODP na JPG konverze se liší od konverze do jiných formátů v API Aspose.Slides pro Android přes Java. Pro jiné formáty obvykle používáte metodu [IPresentation.save(String, SaveFormat, ISaveOptions)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipresentation/#save-java.lang.String-int-com.aspose.slides.ISaveOptions-). Nicméně pro JPG konverzi musíte použít metodu [IImage.save(string, ImageFormat)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) .
+{{% alert color="info" %}} 
+
+**Poznámka:** Převod PPT, PPTX nebo ODP na JPG se liší od převodu do jiných formátů v API Aspose.Slides Android prostřednictvím Java. Pro jiné formáty obvykle používáte metodu [IPresentation.save(String,SaveFormat,ISaveOptions)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipresentation/#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) . Pro převod do JPG však musíte použít metodu [IImage.save(string,ImageFormat)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) .
+
 {{% /alert %}} 
 
 ```java
+import com.aspose.slides.*;
+
 int scaleX = 1;
 int scaleY = scaleX;
 
 Presentation presentation = new Presentation("PowerPoint_Presentation.pptx");
 try {
     for (ISlide slide : presentation.getSlides()) {
-        // Vytvořte obrázek snímku s určeným měřítkem.
+        // Vytvořte obrázek snímku v zadaném měřítku.
         IImage slideImage = slide.getImage(scaleX, scaleY);
 
         try {
@@ -69,15 +75,18 @@ try {
 
 ## **Převod snímků na JPG s vlastním rozměrem**
 
-Chcete‑li změnit rozměry výsledných JPG obrázků, můžete nastavit velikost obrázku předáním argumentu do metody [ISlide.getImage(Size)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islide/#getImage-com.aspose.slides.android.Size-). To vám umožní generovat obrázky se specifickou šířkou a výškou, což zajišťuje, že výstup splní vaše požadavky na rozlišení a poměr stran. Tato flexibilita je zvláště užitečná při generování obrázků pro webové aplikace, zprávy nebo dokumentaci, kde jsou požadovány přesné rozměry obrázku.
+Chcete‑li změnit rozměry výsledných JPG obrázků, můžete nastavit velikost obrázku předáním parametru do metody [ISlide.getImage(Size)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islide/#getImage-com.aspose.slides.android.Size-) . To vám umožní generovat obrázky s konkrétními šířkou a výškou, aby výstup splňoval požadavky na rozlišení a poměr stran. Tato flexibilita je užitečná při tvorbě obrázků pro webové aplikace, zprávy nebo dokumentaci, kde jsou požadovány přesné rozměry obrázku.
 
 ```java
+import com.aspose.slides.*;
+import com.aspose.slides.android.Size;
+
 Size imageSize = new Size(1200, 800);
 
 Presentation presentation = new Presentation("PowerPoint_Presentation.pptx");
 try {
     for (ISlide slide : presentation.getSlides()) {
-        // Vytvořte obrázek snímku s určenou velikostí.
+        // Vytvořte obrázek snímku ve specifikované velikosti.
         IImage slideImage = slide.getImage(imageSize);
 
         try {
@@ -95,15 +104,18 @@ try {
 
 ## **Vykreslení komentářů při ukládání snímků jako obrázků**
 
-Aspose.Slides pro Android přes Java poskytuje funkci, která vám umožní při převodu snímků do JPG obrázků vykreslit komentáře na snímcích prezentace. Tato funkce je zvláště užitečná pro zachování poznámek, zpětné vazby nebo diskusí přidaných spolupracovníky v PowerPoint prezentacích. Povolením této možnosti zajistíte, že komentáře budou viditelné v generovaných obrázcích, což usnadňuje revizi a sdílení zpětné vazby, aniž byste museli otevírat původní soubor prezentace.
+Aspose.Slides pro Android prostřednictvím Java poskytuje funkci, která umožňuje vykreslit komentáře na snímcích prezentace při jejich převodu do JPG obrázků. Tato funkce je užitečná pro zachování anotací, zpětné vazby nebo diskusí přidaných spolupracovníky v PowerPoint prezentacích. Aktivací této volby zajistíte, že komentáře budou viditelné v generovaných obrázcích, což usnadní revizi a sdílení zpětné vazby bez nutnosti otevírat původní soubor prezentace.
 
-Řekněme, že máme soubor prezentace "sample.pptx" se snímkem, který obsahuje komentáře:
+Předpokládejme, že máme soubor prezentace „sample.pptx“ se snímkem, který obsahuje komentáře:
 
 ![Snímek s komentáři](slide_with_comments.png)
 
-Následující kód v Javě převádí snímek na JPG obrázek při zachování komentářů:
+Následující kód v jazyce Java převádí snímek na JPG obrázek při zachování komentářů:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 int scaleX = 2;
 int scaleY = scaleX;
 
@@ -112,12 +124,12 @@ try {
     NotesCommentsLayoutingOptions commentsOptions = new NotesCommentsLayoutingOptions();
     commentsOptions.setCommentsPosition(CommentsPositions.Right);
     commentsOptions.setCommentsAreaWidth(200);
-    commentsOptions.setCommentsAreaColor(Color.rgb(255, 140, 0));
+    commentsOptions.setCommentsAreaColor(new Color(255, 140, 0));
 
     IRenderingOptions options = new RenderingOptions();
     options.setSlidesLayoutOptions(commentsOptions);
 
-    // Převést první snímek na obrázek.
+    // Převeďte první snímek na obrázek.
     IImage slideImage = presentation.getSlides().get_Item(0).getImage(options, scaleX, scaleY);
     try {
         slideImage.save("Slide_1.jpg", ImageFormat.Jpeg);
@@ -135,36 +147,39 @@ Výsledek:
 
 ## **Viz také**
 
-Prohlédněte si další možnosti převodu PPT, PPTX nebo ODP na obrázky, například:
+Další možnosti převodu PPT, PPTX nebo ODP na obrázky:
 
-- [Převod PowerPointu na GIF](/slides/cs/androidjava/convert-powerpoint-to-animated-gif/)
-- [Převod PowerPointu na PNG](/slides/cs/androidjava/convert-powerpoint-to-png/)
-- [Převod PowerPointu na TIFF](/slides/cs/androidjava/convert-powerpoint-to-tiff/)
-- [Převod PowerPointu na SVG](/slides/cs/androidjava/render-a-slide-as-an-svg-image/)
+- [Převod PowerPoint na GIF](/slides/cs/androidjava/convert-powerpoint-to-animated-gif/)
+- [Převod PowerPoint na PNG](/slides/cs/androidjava/convert-powerpoint-to-png/)
+- [Převod PowerPoint na TIFF](/slides/cs/androidjava/convert-powerpoint-to-tiff/)
+- [Převod PowerPoint na SVG](/slides/cs/androidjava/render-a-slide-as-an-svg-image/)
 
-{{% alert color="primary" %}} 
-Abyste viděli, jak Aspose.Slides převádí PowerPoint prezentace na JPG obrázky, vyzkoušejte tyto bezplatné online konvertory: PowerPoint [PPTX to JPG](https://products.aspose.app/slides/cs/conversion/pptx-to-jpg) a [PPT to JPG](https://products.aspose.app/slides/cs/conversion/ppt-to-jpg). 
+{{% alert color="info" %}} 
+
+Pro vyzkoušení, jak Aspose.Slides převádí PowerPoint prezentace na JPG obrázky, použijte tyto bezplatné online převodníky: PowerPoint [PPTX to JPG](https://products.aspose.app/slides/cs/conversion/pptx-to-jpg) a [PPT to JPG](https://products.aspose.app/slides/cs/conversion/ppt-to-jpg) .
+
 {{% /alert %}} 
 
-![Bezplatný online konvertor PPTX na JPG](ppt-to-jpg.png)
+![Bezplatný online převodník PPTX na JPG](ppt-to-jpg.png)
 
-{{% alert title="Tip" color="primary" %}}
+{{% alert title="Tip" color="info" %}}
 
-Aspose nabízí [ZDARMA Collage webovou aplikaci](https://products.aspose.app/slides/cs/collage). Pomocí této online služby můžete sloučit obrázky [JPG na JPG](https://products.aspose.app/slides/cs/collage/jpg) nebo PNG na PNG, vytvořit [foto mřížky](https://products.aspose.app/slides/cs/collage/photo-grid) a podobně. 
+Aspose poskytuje [ZDARMA webovou aplikaci Collage](https://products.aspose.app/slides/cs/collage). Pomocí této online služby můžete sloučit [JPG s JPG](https://products.aspose.app/slides/cs/collage/jpg) nebo PNG s PNG obrázky, vytvořit [foto mřížky](https://products.aspose.app/slides/cs/collage/photo-grid) a podobně. 
 
-Pomocí stejných principů popsaných v tomto článku můžete převádět obrázky z jednoho formátu do druhého. Další informace najdete na těchto stránkách: převod [obrázku na JPG](https://products.aspose.com/slides/cs/java/conversion/image-to-jpg/); převod [JPG na obrázek](https://products.aspose.com/slides/cs/java/conversion/jpg-to-image/); převod [JPG na PNG](https://products.aspose.com/slides/cs/java/conversion/jpg-to-png/), převod [PNG na JPG](https://products.aspose.com/slides/cs/java/conversion/png-to-jpg/); převod [PNG na SVG](https://products.aspose.com/slides/cs/java/conversion/png-to-svg/), převod [SVG na PNG](https://products.aspose.com/slides/cs/java/conversion/svg-to-png/).
+Pomocí stejných principů popsaných v tomto článku můžete převádět obrázky z jednoho formátu do druhého. Další informace naleznete na těchto stránkách: převod [obrázku na JPG](https://products.aspose.com/slides/cs/java/conversion/image-to-jpg/) ; převod [JPG na obrázek](https://products.aspose.com/slides/cs/java/conversion/jpg-to-image/) ; převod [JPG na PNG](https://products.aspose.com/slides/cs/java/conversion/jpg-to-png/) , převod [PNG na JPG](https://products.aspose.com/slides/cs/java/conversion/png-to-jpg/) ; převod [PNG na SVG](https://products.aspose.com/slides/cs/java/conversion/png-to-svg/) , převod [SVG na PNG](https://products.aspose.com/slides/cs/java/conversion/svg-to-png/) .
+
 {{% /alert %}}
 
 ## **Často kladené otázky**
 
-**Podporuje tato metoda hromadný převod?**
+### Podporuje tato metoda hromadný převod?
 
 Ano, Aspose.Slides umožňuje hromadný převod více snímků na JPG v jedné operaci.
 
-**Podporuje převod objekty SmartArt, grafy a další složité objekty?**
+### Podporuje převod SmartArt, grafy a další složité objekty?
 
-Ano, Aspose.Slides vykresluje veškerý obsah, včetně SmartArt, grafů, tabulek, tvarů a dalších. Přesnost vykreslení se však může mírně lišit oproti PowerPointu, zejména při použití vlastních nebo chybějících fontů.
+Ano, Aspose.Slides vykresluje celý obsah, včetně SmartArt, grafů, tabulek, tvarů a dalších. Přesnost vykreslení se však může mírně lišit od PowerPointu, zejména při použití vlastních nebo chybějících písem.
 
-**Existují nějaká omezení počtu snímků, které lze zpracovat?**
+### Existují omezení počtu snímků, které lze zpracovat?
 
-Aspose.Slides sám neklade žádná striktní omezení na počet snímků, které můžete zpracovat. Nicméně při práci s velkými prezentacemi nebo obrázky vysokého rozlišení můžete narazit na chybu nedostatku paměti.
+Aspose.Slides sám neklade žádná striktní omezení na počet snímků, které můžete zpracovat. Nicméně můžete narazit na chybu nedostatku paměti při práci s velkými prezentacemi nebo vysoce rozlišenými obrázky.

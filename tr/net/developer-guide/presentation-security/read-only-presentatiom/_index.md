@@ -1,12 +1,12 @@
 ---
-title: Salt Okunur Modda Sunumları .NET'te Kaydet
+title: PowerPoint Sunumlarını .NET'te Salt Okunur Modda Kaydet
 linktitle: Salt Okunur Sunum
 type: docs
 weight: 30
 url: /tr/net/read-only-presentation/
 keywords:
 - salt okunur
-- sunumu koruma
+- sunumu koru
 - düzenlemeyi önle
 - PowerPoint
 - OpenDocument
@@ -14,26 +14,29 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET ile PowerPoint dosyalarını (PPT, PPTX) salt okunur modda yükleyip kaydedin, sunumlarınızı değiştirmeden kesin slayt ön izlemeleri sağlar."
+description: "Aspose.Slides for .NET ile PowerPoint dosyalarını (PPT, PPTX) salt okunur modda yükleyip kaydedin, sunumlarınızı değiştirmeden kesin slayt önizlemeleri sağlar."
 ---
 ## **Giriş**
 
-PowerPoint 2019'da Microsoft, sunumları korumak için kullanıcıların kullanabileceği seçeneklerden biri olarak **Always Open Read-Only** ayarını tanıttı. Bu Read-Only ayarını bir sunumu korumak için şu durumlarda kullanmak isteyebilirsiniz:
+PowerPoint 2019'da Microsoft, sunumları korumak için kullanıcıların kullanabileceği seçeneklerden biri olarak **Always Open Read-Only** ayarını tanıttı. Bu Read-Only ayarını bir sunumu korumak için aşağıdaki durumlarda kullanmak isteyebilirsiniz:
 
-- Yanlışlıkla yapılan düzenlemeleri önlemek ve sunum içeriğinizi güvende tutmak istiyorsunuz. 
-- Sağladığınız sunumun son sürüm olduğunu insanlara bildirmek istiyorsunuz. 
+- Yanlışlıkla yapılan düzenlemeleri önlemek ve sunumunuzun içeriğini güvende tutmak istiyorsanız. 
+- Sağladığınız sunumun son sürüm olduğunu insanlara bildirmek istiyorsanız. 
 
-Bir sunum için **Always Open Read-Only** seçeneğini seçtikten sonra, kullanıcılar sunumu açtıklarında **Read-Only** önerisini görür ve şu biçimde bir mesaj alabilirler: *Yanlışlıkla değişiklik yapılmasını önlemek için yazar bu dosyayı yalnızca okunacak şekilde açacak şekilde ayarlamıştır.*
+Bir sunum için **Always Open Read-Only** seçeneğini seçtikten sonra, kullanıcılar sunumu açtıklarında **Read-Only** önerisini görür ve aşağıdaki biçimde bir mesaj alabilirler: *Yanlışlıkla yapılan değişiklikleri önlemek için yazar bu dosyayı yalnızca okunacak şekilde açılacak şekilde ayarlamıştır.*
 
-Read-Only önerisi, kullanıcıların bir sunumu düzenleyebilmeleri için önce bu öneriyi kaldırmaları gerektiğinden düzenlemeyi caydıran basit ama etkili bir önlemdir. Kullanıcıların bir sunumu değiştirmesini istemiyor ve bunu nazik bir şekilde bildirmek istiyorsanız, Read-Only önerisi sizin için iyi bir seçenek olabilir. 
+Read-Only önerisi, kullanıcıların bir sunumu düzenleyebilmek için öncelikle bunu kaldırmaları gerektiği için düzenlemeyi caydıran basit ama etkili bir önlemdir. Kullanıcıların bir sunumu değiştirmesini istemiyor ve bunu kibar bir şekilde belirtmek istiyorsanız, Read-Only önerisi sizin için iyi bir seçenek olabilir. 
 
-> **Read-Only** korumalı bir sunum, yakın zamanda tanıtılan işlevi desteklemeyen eski bir Microsoft PowerPoint uygulamasında açılırsa, **Read-Only** önerisi görmezden gelinir (sunum normal şekilde açılır).
+> Eski bir Microsoft PowerPoint uygulamasında (**Read-Only** korumasına sahip bir sunum açılırsa—yeni eklenen işlevi desteklemezse— **Read-Only** önerisi göz ardı edilir (sunum normal olarak açılır)). 
 
 ## **Read-Only Modunu Uygula**
 
-Aspose.Slides for .NET, bir sunumu **Read-Only** olarak ayarlamanıza izin verir; bu, kullanıcıların (sunumu açtıktan sonra) **Read-Only** önerisini görmesi anlamına gelir. Aşağıdaki örnek kod, Aspose.Slides kullanarak bir sunumu C# ile **Read-Only** olarak nasıl ayarlayacağınızı gösterir:
+Aspose.Slides for .NET, bir sunumu **Read-Only** olarak ayarlamanıza olanak tanır; bu, kullanıcıların (sunumu açtıktan sonra) **Read-Only** önerisini görmesi anlamına gelir. Bu örnek kod, Aspose.Slides kullanarak C# içinde bir sunumu **Read-Only** olarak nasıl ayarlayacağınızı gösterir:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     pres.ProtectionManager.ReadOnlyRecommended = true;
@@ -41,26 +44,26 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-**Not**: **Read-Only** önerisi, bir PowerPoint sunumunda düzenlemeyi caydırmak veya yanlışlıkla yapılan değişiklikleri önlemek amacıyla sunulur. İşini bilen ve kararlı bir kişi sunumunuzu düzenlemeye karar verirse, Read-Only ayarını kolayca kaldırabilir. Yetkisiz düzenlemeyi gerçekten engellemek istiyorsanız, [daha sıkı korumalar ve şifreleme ile parola koruması](https://docs.aspose.com/slides/tr/net/password-protected-presentation/) kullanmanız daha iyidir. 
+**Not**: **Read-Only** önerisi yalnızca bir PowerPoint sunumunda düzenlemeyi caydırmak veya kullanıcıların yanlışlıkla değişiklik yapmasını önlemek içindir. Ne yaptığını bilen motive bir kişi sunumunuzu düzenlemeye karar verirse, Read-Only ayarını kolayca kaldırabilir. Yetkisiz düzenlemeleri ciddi şekilde önlemeniz gerekiyorsa, [şifreleme ve parolalar içeren daha katı korumalar](https://docs.aspose.com/slides/tr/net/password-protected-presentation/) kullanmanız daha iyidir. 
 
 {{% /alert %}} 
 
 ## **SSS**
 
-**'Read-Only recommended' tam parola korumasından nasıl farklıdır?**
+### 'Read-Only recommended' tam parola korumasından nasıl farklıdır?
 
-'Read-Only recommended' sadece dosyanın yalnızca okunacak modda açılmasını önerir ve kolayca geçilebilir. [Parola koruması](/slides/tr/net/password-protected-presentation/) ise açma veya düzenlemeyi gerçekten kısıtlar ve gerçek güvenlik kontrollerine ihtiyaç duyduğunuzda uygundur.
+'Read-Only recommended', dosyayı yalnızca yalnız okuma modunda açma önerisi gösterir ve geçmesi kolaydır. [Password protection](/slides/tr/net/password-protected-presentation/) ise gerçek anlamda açma veya düzenleme kısıtlaması getirir ve gerçek güvenlik denetimlerine ihtiyaç duyduğunuzda uygundur.
 
-**'Read-Only recommended' su işaretleriyle birleştirilebilir mi?**
+### 'Read-Only recommended' su işaretleriyle birleştirilebilir mi?
 
-Evet. Öneri, görsel bir caydırıcı olarak [su işaretleri](/slides/tr/net/watermark/) ile eşleştirilebilir; bunlar ayrı mekanizmalardır ve birlikte iyi çalışır.
+Evet. Öneri, [watermarks](/slides/tr/net/watermark/) ile bir görsel caydırıcı olarak eşleştirilebilir; bunlar ayrı mekanizmalardır ve birlikte iyi çalışır.
 
-**Bir makro ya da dış araç öneri etkin olduğunda dosyayı yine de değiştirebilir mi?**
+### Öneri aktifken bir makro veya dış araç dosyayı değiştirebilir mi?
 
-Evet. Öneri programatik değişiklikleri engellemez. Otomatik düzenlemeyi önlemek için [parola ve şifreleme](/slides/tr/net/password-protected-presentation/) kullanın.
+Evet. Öneri programatik değişiklikleri engellemez. Otomatik düzenlemeleri önlemek için [passwords and encryption](/slides/tr/net/password-protected-presentation/) kullanın.
 
-**'Read-Only recommended' 'IsEncrypted' ve 'IsWriteProtected' bayraklarıyla nasıl ilişkilidir?**
+### 'Read-Only recommended' 'IsEncrypted' ve 'IsWriteProtected' bayraklarıyla nasıl ilişkilidir?
 
-Farklı sinyallerdir. 'Read-Only recommended' yumuşak, isteğe bağlı bir bildirimdir; [IsWriteProtected](https://reference.aspose.com/slides/tr/net/aspose.slides/protectionmanager/iswriteprotected/) ve [IsEncrypted](https://reference.aspose.com/slides/tr/net/aspose.slides/protectionmanager/isencrypted/) ise parolalar veya şifreleme ile bağlı gerçek yazma veya okuma kısıtlamalarını gösterir.
+Bunlar farklı sinyallerdir. 'Read-Only recommended' yumuşak, isteğe bağlı bir bildirimdir; [IsWriteProtected](https://reference.aspose.com/slides/tr/net/aspose.slides/protectionmanager/iswriteprotected/) ve [IsEncrypted](https://reference.aspose.com/slides/tr/net/aspose.slides/protectionmanager/isencrypted/) ise parolalar veya şifreleme gerektiren gerçek yazma veya okuma kısıtlamalarını gösterir.

@@ -1,30 +1,30 @@
 ---
-title: แปลงการนำเสนอ PowerPoint เป็นเอกสาร Word ใน .NET
-linktitle: PowerPoint ไปยัง Word
+title: แปลงงานนำเสนอ PowerPoint เป็นเอกสาร Word ใน .NET
+linktitle: PowerPoint เป็น Word
 type: docs
 weight: 110
 url: /th/net/convert-powerpoint-to-word/
 keywords:
 - แปลง PowerPoint
-- แปลงการนำเสนอ
+- แปลงงานนำเสนอ
 - แปลงสไลด์
 - แปลง PPT
 - แปลง PPTX
-- PowerPoint ไป Word
-- การนำเสนอไป Word
-- สไลด์ไป Word
-- PPT ไป Word
-- PPTX ไป Word
-- PowerPoint ไป DOCX
-- การนำเสนอไป DOCX
-- สไลด์ไป DOCX
-- PPT ไป DOCX
-- PPTX ไป DOCX
-- PowerPoint ไป DOC
-- การนำเสนอไป DOC
-- สไลด์ไป DOC
-- PPT ไป DOC
-- PPTX ไป DOC
+- PowerPoint ไปยัง Word
+- งานนำเสนอไปยัง Word
+- สไลด์ไปยัง Word
+- PPT ไปยัง Word
+- PPTX ไปยัง Word
+- PowerPoint ไปยัง DOCX
+- งานนำเสนอไปยัง DOCX
+- สไลด์ไปยัง DOCX
+- PPT ไปยัง DOCX
+- PPTX ไปยัง DOCX
+- PowerPoint ไปยัง DOC
+- งานนำเสนอไปยัง DOC
+- สไลด์ไปยัง DOC
+- PPT ไปยัง DOC
+- PPTX ไปยัง DOC
 - บันทึก PPT เป็น DOCX
 - บันทึก PPTX เป็น DOCX
 - ส่งออก PPT เป็น DOCX
@@ -32,36 +32,37 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "แปลงสไลด์ PowerPoint PPT และ PPTX เป็นเอกสาร Word ที่แก้ไขได้ใน C# โดยใช้ Aspose.Slides for .NET พร้อมคงรูปแบบ การจัดวาง ภาพและการฟอร์แมตอย่างแม่นยำ"
+description: "แปลงสไลด์ PowerPoint PPT และ PPTX เป็นเอกสาร Word ที่แก้ไขได้ใน C# ด้วย Aspose.Slides for .NET พร้อมรักษาเค้าโครง รูปภาพ และการจัดรูปแบบอย่างแม่นยำ."
 ---
 ## **ภาพรวม**
 
-บทความนี้นำเสนอวิธีแก้ไขสำหรับนักพัฒนาในการแปลงการนำเสนอ PowerPoint และ OpenDocument ไปเป็นเอกสาร Word โดยใช้ Aspose.Slides for .NET และ Aspose.Words for .NET คู่มือแบบเป็นขั้นตอนจะพาคุณผ่านทุกขั้นตอนของกระบวนการแปลง
+บทความนี้ให้วิธีแก้ไขสำหรับนักพัฒนาในการแปลงงานนำเสนอ PowerPoint และ OpenDocument เป็นเอกสาร Word โดยใช้ Aspose.Slides for .NET และ Aspose.Words for .NET ขั้นตอนโดยละเอียดจะพาคุณผ่านแต่ละขั้นตอนของกระบวนการแปลง
 
-## **แปลงการนำเสนอเป็นเอกสาร Word**
+## **แปลงงานนำเสนอเป็นเอกสาร Word**
 
-ทำตามคำแนะนำด้านล่างเพื่อแปลงการนำเสนอ PowerPoint หรือ OpenDocument เป็นเอกสาร Word:
+ทำตามขั้นตอนด้านล่างเพื่อแปลงงานนำเสนอ PowerPoint หรือ OpenDocument เป็นเอกสาร Word:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) และโหลดไฟล์การนำเสนอ
-2. สร้างอินสแตนซ์ของคลาส [Document](https://reference.aspose.com/words/net/aspose.words/document/) และ [DocumentBuilder](https://reference.aspose.com/words/net/aspose.words/documentbuilder/) เพื่อสร้างเอกสาร Word
-3. ตั้งค่าขนาดหน้าของเอกสาร Word ให้ตรงกับการนำเสนอโดยใช้คุณสมบัติ [DocumentBuilder.PageSetup](https://reference.aspose.com/words/net/aspose.words/documentbuilder/pagesetup/)
-4. ตั้งค่าขอบของเอกสาร Word โดยใช้คุณสมบัติ [DocumentBuilder.PageSetup](https://reference.aspose.com/words/net/aspose.words/documentbuilder/pagesetup/)
-5. วนรอบผ่านสไลด์ทั้งหมดของการนำเสนอโดยใช้คุณสมบัติ [Presentation.Slides](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/slides/th/)
-   - สร้างภาพสไลด์โดยใช้เมธอด `GetImage` จากอินเทอร์เฟซ [ISlide](https://reference.aspose.com/slides/th/net/aspose.slides/islide/) แล้วบันทึกลงในเมมโมรีสตรีม
-   - เพิ่มภาพสไลด์ลงในเอกสาร Word โดยใช้เมธอด `InsertImage` จากคลาส [DocumentBuilder](https://reference.aspose.com/words/net/aspose.words/documentbuilder/)
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/)และโหลดไฟล์งานนำเสนอ
+2. สร้างอินสแตนซ์ของคลาส [Document](https://reference.aspose.com/words/net/aspose.words/document/)และ[DocumentBuilder](https://reference.aspose.com/words/net/aspose.words/documentbuilder/)เพื่อสร้างเอกสาร Word
+3. ตั้งค่าขนาดหน้าเอกสาร Word ให้ตรงกับงานนำเสนอโดยใช้คุณสมบัติ [DocumentBuilder.PageSetup](https://reference.aspose.com/words/net/aspose.words/documentbuilder/pagesetup/)
+4. ตั้งค่าขอบกระดาษในเอกสาร Word โดยใช้คุณสมบัติ [DocumentBuilder.PageSetup](https://reference.aspose.com/words/net/aspose.words/documentbuilder/pagesetup/)
+5. วนลูปผ่านสไลด์ทั้งหมดของงานนำเสนอโดยใช้คุณสมบัติ [Presentation.Slides](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/slides/th/)
+   - สร้างภาพสไลด์โดยใช้เมธอด `GetImage` จากอินเทอร์เฟซ [ISlide](https://reference.aspose.com/slides/th/net/aspose.slides/islide/) แล้วบันทึกลงใน MemoryStream
+   - ใส่ภาพสไลด์ลงในเอกสาร Word โดยใช้เมธอด `InsertImage` จากคลาส [DocumentBuilder](https://reference.aspose.com/words/net/aspose.words/documentbuilder/)
 6. บันทึกเอกสาร Word ลงไฟล์
 
-สมมติว่าเรามีการนำเสนอ "sample.pptx" ที่มีลักษณะดังนี้:
+สมมติว่าเรามีงานนำเสนอ "sample.pptx" ที่มีลักษณะดังนี้:
 
-![การนำเสนอ PowerPoint](PowerPoint.png)
-
-ตัวอย่างโค้ด C# ด้านล่างแสดงวิธีแปลงการนำเสนอ PowerPoint เป็นเอกสาร Word:
+![งานนำเสนอ PowerPoint](PowerPoint.png)
 
 ```cs
-// โหลดไฟล์การนำเสนอ.
+using Aspose.Slides;
+using Aspose.Words;
+
+// โหลดไฟล์งานนำเสนอ.
 using var presentation = new Presentation("sample.pptx");
 
-// สร้างอ็อบเจกต์ Document และ DocumentBuilder.
+// สร้างอ็อบเจ็กต์ Document และ DocumentBuilder.
 var document = new Document();
 var builder = new DocumentBuilder(document);
 
@@ -70,7 +71,7 @@ var slideSize = presentation.SlideSize.Size;
 builder.PageSetup.PageWidth = slideSize.Width;
 builder.PageSetup.PageHeight = slideSize.Height;
 
-// ตั้งค่าขอบของเอกสาร Word.
+// ตั้งค่าขอบกระดาษในเอกสาร Word.
 builder.PageSetup.LeftMargin = 0;
 builder.PageSetup.RightMargin = 0;
 builder.PageSetup.TopMargin = 0;
@@ -78,10 +79,10 @@ builder.PageSetup.BottomMargin = 0;
 
 const float scaleX = 2, scaleY = 2;
 
-// วนผ่านสไลด์ทั้งหมดของการนำเสนอ.
+// วนผ่านสไลด์ทั้งหมดของงานนำเสนอ.
 foreach (var slide in presentation.Slides)
 {
-    // สร้างภาพสไลด์และบันทึกลงในสตรีมหน่วยความจำ.
+    // สร้างภาพสไลด์และบันทึกลงใน MemoryStream.
     using var image = slide.GetImage(scaleX, scaleY);
     using var imageStream = new MemoryStream();
     image.Save(imageStream, ImageFormat.Png);
@@ -101,16 +102,16 @@ document.Save("output.docx");
 
 ![เอกสาร Word](Word.png)
 
-{{% alert color="primary" %}} 
-ลองใช้ [**Online PPT to Word Converter**](https://products.aspose.app/slides/th/conversion/ppt-to-word) เพื่อดูว่าคุณจะได้ประโยชน์อะไรจากการแปลงการนำเสนอ PowerPoint และ OpenDocument เป็นเอกสาร Word. 
+{{% alert color="info" %}} 
+ลองใช้ [**Online PPT to Word Converter**](https://products.aspose.app/slides/th/conversion/ppt-to-word) เพื่อดูประโยชน์ที่คุณจะได้รับจากการแปลงงานนำเสนอ PowerPoint และ OpenDocument เป็นเอกสาร Word 
 {{% /alert %}}
 
 ## **คำถามที่พบบ่อย**
 
-**ต้องติดตั้งคอมโพเนนต์อะไรบ้างเพื่อแปลงการนำเสนอ PowerPoint และ OpenDocument เป็นเอกสาร Word?**
+### ต้องติดตั้งส่วนประกอบใดบ้างเพื่อแปลงงานนำเสนอ PowerPoint และ OpenDocument เป็นเอกสาร Word?
 
-คุณเพียงแค่ต้องเพิ่มแพ็กเกจ NuGet ที่เกี่ยวข้องสำหรับ [Aspose.Slides for .NET](https://www.nuget.org/packages/Aspose.Slides.NET) และ [Aspose.Words for .NET](https://www.nuget.org/packages/Aspose.Words/) ลงในโครงการ C# ของคุณ ไลบรารีทั้งสองทำงานเป็น API แยกอิสระและไม่จำเป็นต้องติดตั้ง Microsoft Office
+คุณเพียงแค่ต้องเพิ่มแพ็กเกจ NuGet ของ [Aspose.Slides for .NET](https://www.nuget.org/packages/Aspose.Slides.NET)และ[Aspose.Words for .NET](https://www.nuget.org/packages/Aspose.Words/)ลงในโครงการ C# ของคุณ ทั้งสองไลบรารีทำงานเป็น API แบบสแตนด์อโลนและไม่จำเป็นต้องติดตั้ง Microsoft Office
 
-**รูปแบบการนำเสนอ PowerPoint และ OpenDocument ทั้งหมดได้รับการสนับสนุนหรือไม่?**
+### รองรับรูปแบบไฟล์งานนำเสนอ PowerPoint และ OpenDocument ทั้งหมดหรือไม่?
 
-Aspose.Slides for .NET [supports all presentation formats](/slides/th/net/supported-file-formats/) รวมถึง PPT, PPTX, ODP และประเภทไฟล์ทั่วไปอื่น ๆ ซึ่งทำให้คุณสามารถทำงานกับการนำเสนอที่สร้างในเวอร์ชันต่าง ๆ ของ Microsoft PowerPoint ได้
+Aspose.Slides for .NET [รองรับรูปแบบไฟล์งานนำเสนอทั้งหมด](/slides/th/net/supported-file-formats/)รวมถึง PPT, PPTX, ODP และประเภทไฟล์ทั่วไปอื่น ๆ ซึ่งทำให้คุณสามารถทำงานกับงานนำเสนอที่สร้างด้วยเวอร์ชันต่าง ๆ ของ Microsoft PowerPoint ได้

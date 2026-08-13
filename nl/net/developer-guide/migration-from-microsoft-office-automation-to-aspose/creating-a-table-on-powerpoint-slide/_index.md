@@ -1,5 +1,5 @@
 ---
-title: Tabellen maken met VSTO en Aspose.Slides voor .NET
+title: Tabellen maken met VSTO en Aspose.Slides for .NET
 linktitle: Tabellen maken
 type: docs
 weight: 50
@@ -14,72 +14,71 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Migreer van Microsoft Office-automatisering naar Aspose.Slides voor .NET en maak tabellen in PowerPoint (PPT, PPTX) dia's in C# met flexibele opmaak."
+description: "Migreer van Microsoft Office-automatisering naar Aspose.Slides for .NET en maak tabellen in PowerPoint‑dia’s (PPT, PPTX) met C# met flexibele opmaak."
 ---
-{{% alert color="primary" %}} 
-
-Tabellen worden vaak gebruikt om gegevens op presentatieslides weer te geven. Dit artikel laat zien hoe u met behulp van eerst [VSTO 2008](/slides/nl/net/creating-a-table-on-powerpoint-slide/) en daarna [Aspose.Slides for .NET](/slides/nl/net/creating-a-table-on-powerpoint-slide/) een tabel van 15 × 15 met een lettergrootte van 10 programmatic kunt maken.
-
+{{% alert color="info" %}} 
+Tabellen worden veel gebruikt om gegevens weer te geven op presentatieslides. Dit artikel toont hoe u programmatic een tabel van 15 x 15 met een lettergrootte van 10 kunt maken, eerst met [VSTO 2008](/slides/nl/net/creating-a-table-on-powerpoint-slide/) en vervolgens met [Aspose.Slides for .NET](/slides/nl/net/creating-a-table-on-powerpoint-slide/).
 {{% /alert %}} 
 ## **Tabellen maken**
-#### **Voorbeeld VSTO 2008**
-De volgende stappen voegen een tabel toe aan een Microsoft PowerPoint-dia met VSTO:
+#### **VSTO 2008 voorbeeld**
+De volgende stappen voegen een tabel toe aan een Microsoft PowerPoint‑dia met VSTO:
 
 1. Maak een presentatie.
-2. Voeg een lege dia toe aan de presentatie.
-3. Voeg een 15 × 15 tabel toe aan de dia.
-4. Voeg tekst toe aan elke cel van de tabel met een lettergrootte van 10.
-5. Sla de presentatie op schijf.
+1. Voeg een lege dia toe aan de presentatie.
+1. Voeg een tabel van 15 x 15 toe aan de dia.
+1. Voeg tekst toe aan elke cel van de tabel met een lettergrootte van 10.
+1. Sla de presentatie op schijf.
 
 ```c#
-// Maak een presentatie
+//Maak een presentatie
 PowerPoint.Presentation pres = Globals.ThisAddIn.Application
               .Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
-// Voeg een lege dia toe
+//Voeg een lege dia toe
 PowerPoint.Slide sld = pres.Slides.Add(1, PowerPoint.PpSlideLayout.ppLayoutBlank);
 
-// Voeg een tabel van 15 x 15 toe
+//Voeg een tabel van 15 x 15 toe
 PowerPoint.Shape shp = sld.Shapes.AddTable(15, 15, 10, 10, pres.PageSetup.SlideWidth - 20, 300);
 PowerPoint.Table tbl = shp.Table;
 int i = -1;
 int j = -1;
 
-// Doorloop alle rijen
+//Doorloop alle rijen
 foreach (PowerPoint.Row row in tbl.Rows)
 {
     i = i + 1;
     j = -1;
 
-    // Doorloop alle cellen in de rij
+    //Doorloop alle cellen in de rij
     foreach (PowerPoint.Cell cell in row.Cells)
     {
         j = j + 1;
-        // Haalt het tekstkader van elke cel op
+        //Haal het tekstkader van elke cel op
         PowerPoint.TextFrame tf = cell.Shape.TextFrame;
-        // Voegt wat tekst toe
+        //Voeg wat tekst toe
         tf.TextRange.Text = "T" + i.ToString() + j.ToString();
-        // Stel de lettergrootte van de tekst in op 10
+        //Stel de lettergrootte van de tekst in op 10
         tf.TextRange.Paragraphs(0, tf.TextRange.Text.Length).Font.Size = 10;
     }
 }
 
-// Sla de presentatie op schijf
+//Sla de presentatie op naar schijf
 pres.SaveAs("d:\\tblVSTO.ppt",
       PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,
       Microsoft.Office.Core.MsoTriState.msoFalse);
 ```
 
-
-
-### **Voorbeeld: Aspose.Slides for .NET**
-De volgende stappen voegen een tabel toe aan een Microsoft PowerPoint-dia met Aspose.Slides:
+### **Aspose.Slides for .NET voorbeeld**
+De volgende stappen voegen een tabel toe aan een Microsoft PowerPoint‑dia met Aspose.Slides:
 
 1. Maak een presentatie.
-2. Voeg een 15 × 15 tabel toe aan de eerste dia.
-3. Voeg tekst toe aan elke cel van de tabel met een lettergrootte van 10.
-4. Schrijf de presentatie naar schijf.
+1. Voeg een tabel van 15 x 15 toe aan de eerste dia.
+1. Voeg tekst toe aan elke cel van de tabel met een lettergrootte van 10.
+1. Schrijf de presentatie naar schijf.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 Presentation pres = new Presentation();
 
 //Toegang tot eerste dia
@@ -102,12 +101,12 @@ foreach (IRow row in tbl.Rows)
 		ITextFrame tf = cell.TextFrame;
 		//Voeg wat tekst toe
 		tf.Text = "T" + cell.FirstRowIndex.ToString() + cell.FirstColumnIndex.ToString();
-		//Stel de lettergrootte in op 10
+		//Stel lettergrootte in op 10
 		tf.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 10;
 		tf.Paragraphs[0].ParagraphFormat.Bullet.Type = BulletType.None;
 	}
 }
 
 //Schrijf de presentatie naar schijf
-pres.Save("C:\\data\\tblSLD.ppt", SaveFormat.Ppt);
+pres.Save("tblSLD.ppt", SaveFormat.Ppt);
 ```

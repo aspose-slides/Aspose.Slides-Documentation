@@ -1,6 +1,6 @@
 ---
 title: Android で PowerPoint プレゼンテーションをビデオに変換
-linktitle: PowerPoint をビデオへ
+linktitle: PowerPoint からビデオへ
 type: docs
 weight: 130
 url: /ja/androidjava/convert-powerpoint-to-video/
@@ -26,30 +26,25 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Java で PowerPoint プレゼンテーションをビデオに変換する方法を学びます。サンプルコードと自動化手法を活用してワークフローを効率化しましょう。"
+description: "Java で PowerPoint プレゼンテーションをビデオに変換する方法を学びます。サンプルコードと自動化テクニックを活用してワークフローを効率化しましょう。"
 ---
+## **はじめに**
 
-PowerPoint プレゼンテーションをビデオに変換すると、次のメリットがあります
+PowerPoint プレゼンテーションをビデオに変換することで、次のメリットが得られます
 
-* **アクセシビリティの向上:** すべてのデバイス（プラットフォームに関係なく）はデフォルトでビデオプレーヤーを備えているため、プレゼンテーションアプリケーションよりも動画の再生や開封が容易です。
-* **リーチの拡大:** ビデオを通じて多くの視聴者に情報を届けられ、プレゼンテーションでは退屈に感じられる内容でも伝えることができます。ほとんどの調査や統計は、人々が他のコンテンツ形態よりもビデオを視聴・消費する傾向が強く、そういったコンテンツを好むことを示しています。
-
-{{% alert color="primary" %}} 
-
-以下の [**PowerPoint to Video Online Converter**](https://products.aspose.app/slides/conversion/ppt-to-word) をご確認ください。ここでは、本稿で説明したプロセスのライブかつ効果的な実装をご紹介しています。
-
-{{% /alert %}} 
+* **アクセシビリティの向上:** プレゼンテーションを開くアプリケーションに比べ、すべてのデバイス（プラットフォームに関係なく）はデフォルトでビデオプレーヤーが搭載されているため、ユーザーはビデオを開いたり再生したりしやすくなります。
+* **リーチの拡大:** ビデオを通じて多くの視聴者にリーチし、プレゼンテーションでは退屈に感じられるかもしれない情報を提供できます。ほとんどの調査や統計は、動画が他のコンテンツ形態よりも視聴・消費されやすく、一般的に好まれていることを示しています。
 
 ## **Aspose.Slides における PowerPoint からビデオへの変換**
 
-Aspose.Slides はプレゼンテーションからビデオへの変換をサポートします。
+Aspose.Slides はプレゼンテーションからビデオへの変換をサポートしています。
 
-* **Aspose.Slides** を使用して、プレゼンテーションスライドから一定の FPS（1 秒あたりのフレーム数）に対応するフレームのセットを生成します
-* **ffmpeg** などのサードパーティユーティリティ（[java 用](https://github.com/bramp/ffmpeg-cli-wrapper)）を使用して、フレームからビデオを作成します。 
+* **Aspose.Slides** を使用して、特定の FPS（フレーム/秒）に対応するフレームセット（プレゼンテーションのスライドから）を生成します
+* **ffmpeg** のようなサードパーティユーティリティ（[for java](https://github.com/bramp/ffmpeg-cli-wrapper)）を使用して、フレームを元にビデオを作成します。 
 
-### **PowerPoint をビデオに変換する**
+### **PowerPoint をビデオに変換**
 
-1. POM ファイルに以下を追加します:
+1. POM ファイルに以下を追加してください:
 ```xml
    <dependency>
      <groupId>net.bramp.ffmpeg</groupId>
@@ -58,16 +53,19 @@ Aspose.Slides はプレゼンテーションからビデオへの変換をサポ
    </dependency>
 ```
 
+2. ffmpeg を [ここ](https://ffmpeg.org/download.html) からダウンロードしてください。
 
-2. ffmpeg を [こちら](https://ffmpeg.org/download.html) からダウンロードします。
+3. PowerPoint をビデオに変換する Java コードを実行します。
 
-4. PowerPoint からビデオへの Java コードを実行します。
-
-以下の Java コードは、図と 2 つのアニメーション効果を含むプレゼンテーションをビデオに変換する方法を示しています:
+この Java コードは、図と 2 つのアニメーション効果を含むプレゼンテーションをビデオに変換する方法を示しています:
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation();
 try {
-    // スマイル形状を追加し、アニメーションを付けます
+    // スマイル形状を追加し、次にアニメーションを適用します
     IAutoShape smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effectIn = mainSequence.addEffect(smile, EffectType.Fly, EffectSubtype.TopLeft, EffectTriggerType.AfterPrevious);
@@ -101,7 +99,7 @@ try {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
 
-    // ffmpeg バイナリフォルダーを設定します。こちらのページをご覧ください: https://github.com/rosenbjerg/FFMpegCore#installation
+    // ffmpeg バイナリのフォルダを設定します。こちらのページをご参照ください: https://github.com/bramp/ffmpeg-cli-wrapper
     FFmpeg ffmpeg = new FFmpeg("path/to/ffmpeg");
     FFprobe ffprobe = new FFprobe("path/to/ffprobe");
 
@@ -120,42 +118,47 @@ try {
 }
 ```
 
-
 ## **ビデオ エフェクト**
 
-スライド上のオブジェクトにアニメーションを適用したり、スライド間のトランジションを使用したりできます。 
+スライド上のオブジェクトにアニメーションを適用したり、スライド間のトランジションを使用したりできます。
 
-{{% alert color="primary" %}} 
-
-以下の記事もご参照ください: [PowerPoint Animation](https://docs.aspose.com/slides/androidjava/powerpoint-animation/)、[Shape Animation](https://docs.aspose.com/slides/androidjava/shape-animation/)、[Shape Effect](https://docs.aspose.com/slides/androidjava/shape-effect/)。
-
+{{% alert color="info" %}} 
+以下の記事もご覧ください: [PowerPoint アニメーション](https://docs.aspose.com/slides/ja/androidjava/powerpoint-animation/)、[シェイプ アニメーション](https://docs.aspose.com/slides/ja/androidjava/shape-animation/)、および [シェイプ エフェクト](https://docs.aspose.com/slides/ja/androidjava/shape-effect/)。
 {{% /alert %}} 
 
-アニメーションとトランジションはスライドショーをより魅力的にし、ビデオにも同様の効果をもたらします。前述のプレゼンテーションにもう 1 枚スライドとトランジションを追加したコードは次のとおりです:
+アニメーションとトランジションはスライドショーをより魅力的で面白くします—ビデオでも同様です。前のプレゼンテーションのコードに別のスライドとトランジションを追加してみましょう:
 ```java
-// スマイル形状を追加し、アニメーションを付けます
+import com.aspose.slides.*;
+import java.awt.Color;
 
-// ...
-
-// 新しいスライドを追加し、アニメーション付きのトランジションを設定します
-
-ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
-
-newSlide.getBackground().setType(BackgroundType.OwnBackground);
-
-newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
-
-newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
-
-newSlide.getSlideShowTransition().setType(TransitionType.Push);
-```
-
-
-Aspose.Slides はテキストのアニメーションもサポートしています。したがって、オブジェクト上の段落をアニメーション化し、1 秒の遅延で順に表示させます:
-```java
+// 上記で作成したアニメーション付きスマイル形状を含むプレゼンテーション。
 Presentation presentation = new Presentation();
 try {
-    // テキストとアニメーションを追加
+    // 新しいスライドとアニメーション付きトランジションを追加
+
+    ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
+
+    newSlide.getBackground().setType(BackgroundType.OwnBackground);
+
+    newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+
+    newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
+
+    newSlide.getSlideShowTransition().setType(TransitionType.Push);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
+```
+
+Aspose.Slides はテキストのアニメーションもサポートしています。オブジェクト上の段落にアニメーションを付け、1 秒の遅延で順に表示されるようにします:
+```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
+Presentation presentation = new Presentation();
+try {
+    // テキストとアニメーションを追加します
     IAutoShape autoShape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 210, 120, 300, 300);
     Paragraph para1 = new Paragraph();
     para1.getPortions().add(new Portion("Aspose Slides for Java"));
@@ -168,18 +171,15 @@ try {
     paragraphCollection.add(para1);
     paragraphCollection.add(para2);
     paragraphCollection.add(para3);
-    paragraphCollection.add(new Paragraph());
 
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effect1 = mainSequence.addEffect(para1, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     IEffect effect2 = mainSequence.addEffect(para2, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     IEffect effect3 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-    IEffect effect4 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
     effect1.getTiming().setTriggerDelayTime(1f);
     effect2.getTiming().setTriggerDelayTime(1f);
     effect3.getTiming().setTriggerDelayTime(1f);
-    effect4.getTiming().setTriggerDelayTime(1f);
 
     final int fps = 33;
     ArrayList<String> frames = new ArrayList<String>();
@@ -207,7 +207,7 @@ try {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
 
-    // ffmpeg バイナリフォルダーを設定します。こちらのページをご覧ください: https://github.com/rosenbjerg/FFMpegCore#installation
+    // ffmpeg バイナリ フォルダを設定します。こちらのページをご参照ください: https://github.com/bramp/ffmpeg-cli-wrapper
     FFmpeg ffmpeg = new FFmpeg("path/to/ffmpeg");
     FFprobe ffprobe = new FFprobe("path/to/ffprobe");
 
@@ -226,20 +226,21 @@ try {
 }
 ```
 
-
 ## **ビデオ変換クラス**
 
-PowerPoint からビデオへの変換タスクを実行できるように、Aspose.Slides は [PresentationAnimationsGenerator](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationanimationsgenerator/) および [PresentationPlayer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationplayer/) クラスを提供します。
+PowerPoint をビデオに変換するタスクを実行できるように、Aspose.Slides は [PresentationAnimationsGenerator](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentationanimationsgenerator/) と [PresentationPlayer](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentationplayer/) クラスを提供します。
 
-[PresentationAnimationsGenerator](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationanimationsgenerator/) はコンストラクタでビデオのフレームサイズを設定できます（後で作成されます）。プレゼンテーションのインスタンスを渡すと `Presentation.SlideSize` が使用され、生成されたアニメーションは [PresentationPlayer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationplayer/) で使用されます。
+[PresentationAnimationsGenerator](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentationanimationsgenerator/) は、コンストラクタを通じてビデオのフレームサイズ（後で作成される）を設定できます。プレゼンテーションのインスタンスを渡すと、`Presentation.SlideSize` が使用され、[PresentationPlayer](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentationplayer/) が使用するアニメーションが生成されます。
 
-アニメーションが生成されると、各後続アニメーションに対して `NewAnimation` イベントが発生し、[IPresentationAnimationPlayer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationanimationplayer/) パラメータが渡されます。後者は個別アニメーション用のプレーヤーを表すクラスです。
+アニメーションが生成されると、各アニメーションごとに `NewAnimation` イベントが発生し、[IPresentationAnimationPlayer](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipresentationanimationplayer/) パラメータが渡されます。後者は、個別のアニメーション用プレーヤーを表すクラスです。
 
-[IPresentationAnimationPlayer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationanimationplayer/) を操作するには、[Duration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationanimationplayer/#getDuration--)（アニメーションの合計時間）プロパティと [SetTimePosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationanimationplayer/#setTimePosition-double-) メソッドを使用します。各アニメーション位置は *0 から duration* の範囲内で設定され、`GetFrame` メソッドはその瞬間のアニメーション状態に対応する BufferedImage を返します:
+[IPresentationAnimationPlayer](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipresentationanimationplayer/) を使用するには、[Duration](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipresentationanimationplayer/#getDuration--)（アニメーションの全体時間）プロパティと [SetTimePosition](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipresentationanimationplayer/#setTimePosition-double-) メソッドを使用します。各アニメーション位置は *0 から duration* の範囲で設定され、`getFrame` メソッドはその時点のアニメーション状態に対応する [IImage](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iimage/) を返します:
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // 笑顔の形状を追加し、アニメーションを付けます
+    // スマイル形状を追加し、アニメーションを適用します
     IAutoShape smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effectIn = mainSequence.addEffect(smile, EffectType.Fly, EffectSubtype.TopLeft, EffectTriggerType.AfterPrevious);
@@ -252,21 +253,18 @@ try {
         animationsGenerator.setNewAnimation(animationPlayer ->
         {
             System.out.println(String.format("Animation total duration: %f", animationPlayer.getDuration()));
+
             animationPlayer.setTimePosition(0); // 初期アニメーション状態
-            try {
-                // 初期アニメーション状態のビットマップ
-                animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            // 初期アニメーション状態のビットマップ
+            animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
+
             animationPlayer.setTimePosition(animationPlayer.getDuration()); // アニメーションの最終状態
-            try {
-                // アニメーションの最後のフレーム
-                animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            // アニメーションの最終フレーム
+            animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
         });
+
+        // アニメーションを生成します。上記のコールバックはそれぞれに対して実行されます。
+        animationsGenerator.run(presentation.getSlides());
     } finally {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
@@ -275,9 +273,10 @@ try {
 }
 ```
 
-
-すべてのアニメーションを同時に再生させるには、[PresentationPlayer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationplayer/) クラスを使用します。このクラスは [PresentationAnimationsGenerator](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationanimationsgenerator/) インスタンスと FPS をコンストラクタで受け取り、すべてのアニメーションに対して `FrameTick` イベントを呼び出して再生させます:
+プレゼンテーション内のすべてのアニメーションを同時に再生するには、[PresentationPlayer](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentationplayer/) クラスを使用します。このクラスはコンストラクタで [PresentationAnimationsGenerator](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentationanimationsgenerator/) のインスタンスとエフェクト用の FPS を受け取り、すべてのアニメーションに対して `FrameTick` イベントを呼び出して再生させます:
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("animated.pptx");
 try {
     PresentationAnimationsGenerator animationsGenerator = new PresentationAnimationsGenerator(presentation);
@@ -286,11 +285,7 @@ try {
         try {
             player.setFrameTick((sender, arguments) ->
             {
-                try {
-                    arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+                arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
             });
             animationsGenerator.run(presentation.getSlides());
         } finally {
@@ -304,85 +299,84 @@ try {
 }
 ```
 
-
-生成されたフレームはビデオにコンパイルできます。詳細は [Convert PowerPoint to Video](https://docs.aspose.com/slides/androidjava/convert-powerpoint-to-video/#convert-powerpoint-to-video) セクションをご参照ください。
+生成されたフレームはビデオにコンパイルできます。詳しくは [PowerPoint をビデオに変換](https://docs.aspose.com/slides/ja/androidjava/convert-powerpoint-to-video/#convert-powerpoint-to-video) のセクションをご覧ください。
 
 ## **サポートされているアニメーションとエフェクト**
 
-**Entrance**:
+**開始**:
 
-| Animation Type | Aspose.Slides | PowerPoint |
+| アニメーション タイプ | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Appear** | ![not supported](x.png) | ![supported](v.png) |
-| **Fade** | ![supported](v.png) | ![supported](v.png) |
-| **Fly In** | ![supported](v.png) | ![supported](v.png) |
-| **Float In** | ![supported](v.png) | ![supported](v.png) |
-| **Split** | ![supported](v.png) | ![supported](v.png) |
-| **Wipe** | ![supported](v.png) | ![supported](v.png) |
-| **Shape** | ![supported](v.png) | ![supported](v.png) |
-| **Wheel** | ![supported](v.png) | ![supported](v.png) |
-| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
-| **Grow & Turn** | ![not supported](x.png) | ![supported](v.png) |
-| **Zoom** | ![supported](v.png) | ![supported](v.png) |
-| **Swivel** | ![supported](v.png) | ![supported](v.png) |
-| **Bounce** | ![supported](v.png) | ![supported](v.png) |
+| **出現** | ![not supported](x.png) | ![supported](v.png) |
+| **フェード** | ![supported](v.png) | ![supported](v.png) |
+| **フライ イン** | ![supported](v.png) | ![supported](v.png) |
+| **フロート イン** | ![supported](v.png) | ![supported](v.png) |
+| **スプリット** | ![supported](v.png) | ![supported](v.png) |
+| **ワイプ** | ![supported](v.png) | ![supported](v.png) |
+| **シェイプ** | ![supported](v.png) | ![supported](v.png) |
+| **ホイール** | ![supported](v.png) | ![supported](v.png) |
+| **ランダム バー** | ![supported](v.png) | ![supported](v.png) |
+| **成長と回転** | ![not supported](x.png) | ![supported](v.png) |
+| **ズーム** | ![supported](v.png) | ![supported](v.png) |
+| **スイベル** | ![supported](v.png) | ![supported](v.png) |
+| **バウンス** | ![supported](v.png) | ![supported](v.png) |
 
-**Emphasis**:
+**強調**:
 
-| Animation Type | Aspose.Slides | PowerPoint |
+| アニメーション タイプ | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Pulse** | ![not supported](x.png) | ![supported](v.png) |
-| **Color Pulse** | ![not supported](x.png) | ![supported](v.png) |
-| **Teeter** | ![supported](v.png) | ![supported](v.png) |
-| **Spin** | ![supported](v.png) | ![supported](v.png) |
-| **Grow/Shrink** | ![not supported](x.png) | ![supported](v.png) |
-| **Desaturate** | ![not supported](x.png) | ![supported](v.png) |
-| **Darken** | ![not supported](x.png) | ![supported](v.png) |
-| **Lighten** | ![not supported](x.png) | ![supported](v.png) |
-| **Transparency** | ![not supported](x.png) | ![supported](v.png) |
-| **Object Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Complementary Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Line Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
+| **パルス** | ![not supported](x.png) | ![supported](v.png) |
+| **カラー パルス** | ![not supported](x.png) | ![supported](v.png) |
+| **テータ** | ![supported](v.png) | ![supported](v.png) |
+| **スピン** | ![supported](v.png) | ![supported](v.png) |
+| **拡大/縮小** | ![not supported](x.png) | ![supported](v.png) |
+| **彩度低下** | ![not supported](x.png) | ![supported](v.png) |
+| **暗くする** | ![not supported](x.png) | ![supported](v.png) |
+| **明るくする** | ![not supported](x.png) | ![supported](v.png) |
+| **透明度** | ![not supported](x.png) | ![supported](v.png) |
+| **オブジェクト カラー** | ![not supported](x.png) | ![supported](v.png) |
+| **補色** | ![not supported](x.png) | ![supported](v.png) |
+| **ライン カラー** | ![not supported](x.png) | ![supported](v.png) |
+| **塗りつぶし カラー** | ![not supported](x.png) | ![supported](v.png) |
 
-**Exit**:
+**終了**:
 
-| Animation Type | Aspose.Slides | PowerPoint |
+| アニメーション タイプ | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Disappear** | ![not supported](x.png) | ![supported](v.png) |
-| **Fade** | ![supported](v.png) | ![supported](v.png) |
-| **Fly Out** | ![supported](v.png) | ![supported](v.png) |
-| **Float Out** | ![supported](v.png) | ![supported](v.png) |
-| **Split** | ![supported](v.png) | ![supported](v.png) |
-| **Wipe** | ![supported](v.png) | ![supported](v.png) |
-| **Shape** | ![supported](v.png) | ![supported](v.png) |
-| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
-| **Shrink & Turn** | ![not supported](x.png) | ![supported](v.png) |
-| **Zoom** | ![supported](v.png) | ![supported](v.png) |
-| **Swivel** | ![supported](v.png) | ![supported](v.png) |
-| **Bounce** | ![supported](v.png) | ![supported](v.png) |
+| **消失** | ![not supported](x.png) | ![supported](v.png) |
+| **フェード** | ![supported](v.png) | ![supported](v.png) |
+| **フライ アウト** | ![supported](v.png) | ![supported](v.png) |
+| **フロート アウト** | ![supported](v.png) | ![supported](v.png) |
+| **スプリット** | ![supported](v.png) | ![supported](v.png) |
+| **ワイプ** | ![supported](v.png) | ![supported](v.png) |
+| **シェイプ** | ![supported](v.png) | ![supported](v.png) |
+| **ランダム バー** | ![supported](v.png) | ![supported](v.png) |
+| **縮小と回転** | ![not supported](x.png) | ![supported](v.png) |
+| **ズーム** | ![supported](v.png) | ![supported](v.png) |
+| **スイベル** | ![supported](v.png) | ![supported](v.png) |
+| **バウンス** | ![supported](v.png) | ![supported](v.png) |
 
-**Motion Paths**:
+**モーション パス**:
 
-| Animation Type | Aspose.Slides | PowerPoint |
+| アニメーション タイプ | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Lines** | ![supported](v.png) | ![supported](v.png) |
-| **Arcs** | ![supported](v.png) | ![supported](v.png) |
-| **Turns** | ![supported](v.png) | ![supported](v.png) |
-| **Shapes** | ![supported](v.png) | ![supported](v.png) |
-| **Loops** | ![supported](v.png) | ![supported](v.png) |
-| **Custom Path** | ![supported](v.png) | ![supported](v.png) |
+| **ライン** | ![supported](v.png) | ![supported](v.png) |
+| **アーク** | ![supported](v.png) | ![supported](v.png) |
+| **ターン** | ![supported](v.png) | ![supported](v.png) |
+| **シェイプ** | ![supported](v.png) | ![supported](v.png) |
+| **ループ** | ![supported](v.png) | ![supported](v.png) |
+| **カスタム パス** | ![supported](v.png) | ![supported](v.png) |
 
-## **FAQ**
+## **よくある質問**
 
-**パスワードで保護されたプレゼンテーションを変換できますか？**
+### パスワードで保護されたプレゼンテーションを変換できますか？
 
-はい、Aspose.Slides は [パスワードで保護されたプレゼンテーション](/slides/ja/androidjava/password-protected-presentation/) の取り扱いをサポートしています。このようなファイルを処理する際は、正しいパスワードを提供してライブラリがプレゼンテーションの内容にアクセスできるようにしてください。
+はい、Aspose.Slides は [パスワードで保護されたプレゼンテーション](/slides/ja/androidjava/password-protected-presentation/) の取り扱いをサポートしています。そのようなファイルを処理する際は、正しいパスワードを指定してライブラリがプレゼンテーションの内容にアクセスできるようにする必要があります。
 
-**Aspose.Slides はクラウド ソリューションでの使用をサポートしていますか？**
+### Aspose.Slides はクラウド ソリューションでの使用をサポートしていますか？
 
-はい、Aspose.Slides はクラウド アプリケーションやサービスに統合可能です。このライブラリはサーバー環境での動作を前提に設計されており、ファイルのバッチ処理において高いパフォーマンスとスケーラビリティを提供します。
+はい、Aspose.Slides はクラウド アプリケーションやサービスに統合できます。このライブラリはサーバー環境で動作するよう設計されており、ファイルのバッチ処理において高いパフォーマンスとスケーラビリティを実現します。
 
-**変換時のプレゼンテーションサイズに制限はありますか？**
+### 変換時にプレゼンテーションのサイズ制限はありますか？
 
-Aspose.Slides は実質的に任意のサイズのプレゼンテーションを処理できます。ただし、非常に大きなファイルを扱う場合は追加のシステムリソースが必要になることがあり、パフォーマンス向上のためにプレゼンテーションを最適化することが推奨される場合があります。
+Aspose.Slides は事実上あらゆるサイズのプレゼンテーションを扱うことができます。ただし、非常に大きなファイルを扱う場合は追加のシステムリソースが必要になることがあり、パフォーマンス向上のためにプレゼンテーションを最適化することが推奨されることがあります。

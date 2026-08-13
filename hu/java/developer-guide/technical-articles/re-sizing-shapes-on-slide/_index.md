@@ -11,43 +11,45 @@ keywords:
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Könnyedén átméretezheti az alakzatokat PowerPoint és OpenDocument diákon az Aspose.Slides for Java segítségével—automatizálja a diaelrendezés módosítását és növelje a hatékonyságot."
+description: "Könnyedén átméretezheti az alakzatokat a PowerPoint és OpenDocument diákon az Aspose.Slides for Java segítségével—automatizálja a diákelrendezés módosítását és növelje a hatékonyságot."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides for Java ügyfelei leggyakrabban azt kérdezik, hogyan lehet átméretezni az alakzatokat úgy, hogy a dia méretének változása esetén az adatok ne vágódjanak le. Ez a rövid technikai cikk bemutatja, hogyan lehet ezt megvalósítani.
+Az Aspose.Slides for Java ügyfelei leggyakrabban felteszik a kérdést, hogyan lehet átméretezni az alakzatokat úgy, hogy a diaméret változásakor az adatok ne vágódjanak le. Ez a rövid technikai cikk megmutatja, hogyan kell ezt megtenni.
 
 ## **Alakzatok átméretezése**
 
-Az alakzatok eltolódásának elkerülése érdekében, amikor a dia mérete változik, frissíteni kell minden alakzat pozícióját és méreteit, hogy azok megfeleljenek az új diaelrendezésnek.
+Az alakzatok elcsúszásának elkerülése érdekében a diaméret változásakor frissíteni kell minden alakzat pozícióját és méretét, hogy illeszkedjenek az új diaelrendezéshez.
 
 ```java
-// Töltsd be a prezentációs fájlt.
+import com.aspose.slides.*;
+
+// A prezentációfájl betöltése.
 Presentation presentation = new Presentation("sample.ppt");
 try {
-    // Szerezd meg az eredeti dia méretét.
+    // Az eredeti dia méretének lekérése.
     float currentHeight = (float) presentation.getSlideSize().getSize().getHeight();
     float currentWidth = (float) presentation.getSlideSize().getSize().getWidth();
 
-    // Módosítsd a dia méretét a meglévő alakzatok skálázása nélkül.
+    // A dia méretének módosítása a meglévő alakzatok méretezése nélkül.
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
 
-    // Szerezd meg az új dia méretét.
+    // Az új dia méretének lekérése.
     float newHeight = (float) presentation.getSlideSize().getSize().getHeight();
     float newWidth = (float) presentation.getSlideSize().getSize().getWidth();
 
     float heightRatio = newHeight / currentHeight;
     float widthRatio = newWidth / currentWidth;
 
-    // Átméretezd és áthelyezd az alakzatokat minden dián.
+    // Alakzatok átméretezése és újrapozicionálása minden dián.
     for (ISlide slide : presentation.getSlides()) {
         for (IShape shape : slide.getShapes()) {
             
-            // Skálázd az alakzat méretét.
+            // Az alakzat méretének méretezése.
             shape.setHeight(shape.getHeight() * heightRatio);
             shape.setWidth(shape.getWidth() * widthRatio);
 
-            // Skálázd az alakzat pozícióját.
+            // Az alakzat pozíciójának méretezése.
             shape.setY(shape.getY() * heightRatio);
             shape.setX(shape.getX() * widthRatio);
         }
@@ -60,24 +62,26 @@ finally {
 }
 ```
 
-{{% alert color="primary" %}} 
-Ha egy dián táblázat is szerepel, a fenti kód nem fog helyesen működni. Ebben az esetben a táblázat minden celláját át kell méretezni.
+{{% alert color="info" %}} 
+A táblázatoknak nincs szükség külön kezelésre: a tábla szélességének és magasságának beállítása arányosan átméretezi az oszlopokat és sorokat, így a sormagasságok és oszlopszélességek újbóli méretezése a arányt kétszer alkalmazná.
 {{% /alert %}} 
 
-Használja a következő kódot a saját oldalon a táblázatot tartalmazó diák átméretezéséhez. A táblázatoknál a szélesség vagy magasság beállítása speciális eset: egyedi sormagasságokat és oszlopszélességeket kell módosítani a táblázat teljes méretének megváltoztatásához.
+A fenti kód csak a diákon lévő alakzatokat módosítja. A mesterdiák és a layout diák saját alakzatokkal rendelkeznek, ezért ezeket is méretezze, ha azt szeretné, hogy az egész prezentáció kövesse az új diaméretet:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Szerezd meg az eredeti dia méretét.
+    // Az eredeti dia méretének lekérése.
     float currentHeight = (float) presentation.getSlideSize().getSize().getHeight();
     float currentWidth = (float) presentation.getSlideSize().getSize().getWidth();
 
-    // Módosítsd a dia méretét a meglévő alakzatok skálázása nélkül.
+    // A dia méretének módosítása a meglévő alakzatok méretezése nélkül.
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
     // presentation.getSlideSize().setOrientation(SlideOrientation.Portrait);
 
-    // Szerezd meg az új dia méretét.
+    // Az új dia méretének lekérése.
     float newHeight = (float) presentation.getSlideSize().getSize().getHeight();
     float newWidth = (float) presentation.getSlideSize().getSize().getWidth();
 
@@ -86,22 +90,22 @@ try {
 
     for (IMasterSlide master : presentation.getMasters()) {
         for (IShape shape : master.getShapes()) {
-            // Skálázd az alakzat méretét.
+            // Az alakzat méretének méretezése.
             shape.setHeight(shape.getHeight() * heightRatio);
             shape.setWidth(shape.getWidth() * widthRatio);
 
-            // Skálázd az alakzat pozícióját.
+            // Az alakzat pozíciójának méretezése.
             shape.setY(shape.getY() * heightRatio);
             shape.setX(shape.getX() * widthRatio);
         }
 
         for (ILayoutSlide layoutSlide : master.getLayoutSlides()) {
             for (IShape shape : layoutSlide.getShapes()) {
-                // Skálázd az alakzat méretét.
+                // Az alakzat méretének méretezése.
                 shape.setHeight(shape.getHeight() * heightRatio);
                 shape.setWidth(shape.getWidth() * widthRatio);
 
-                // Skálázd az alakzat pozícióját.
+                // Az alakzat pozíciójának méretezése.
                 shape.setY(shape.getY() * heightRatio);
                 shape.setX(shape.getX() * widthRatio);
             }
@@ -110,24 +114,13 @@ try {
 
     for (ISlide slide : presentation.getSlides()) {
         for (IShape shape : slide.getShapes()) {
-            // Skálázd az alakzat méretét.
+            // Az alakzat méretének méretezése.
             shape.setHeight(shape.getHeight() * heightRatio);
             shape.setWidth(shape.getWidth() * widthRatio);
 
-            // Skálázd az alakzat pozícióját.
+            // Az alakzat pozíciójának méretezése.
             shape.setY(shape.getY() * heightRatio);
             shape.setX(shape.getX() * widthRatio);
-            if (shape instanceof ITable) {
-                ITable table = (ITable) shape;
-                for (int i = 0; i < table.getRows().size(); i++) {
-                    IRow row = table.getRows().get_Item(i);
-                    row.setMinimalHeight(row.getMinimalHeight() * heightRatio);
-                }
-                for (int j = 0; j < table.getColumns().size(); j++) {
-                    IColumn column = table.getColumns().get_Item(j);
-                    column.setWidth(column.getWidth() * widthRatio);
-                }
-            }
         }
     }
 
@@ -140,30 +133,30 @@ finally {
 
 ## **GYIK**
 
-**Miért torzulnak vagy vágódnak le az alakzatok a dia átméretezése után?**
+### Miért torzulnak vagy vágódnak le az alakzatok a dia átméretezése után?
 
-A dia átméretezésekor az alakzatok megtartják eredeti pozíciójukat és méretüket, hacsak a méretezést nem módosítják kifejezetten. Ez tartalomlevágáshoz vagy alakzatok eltolódásához vezethet.
+Dia átméretezésekor az alakzatok megtartják eredeti pozíciójukat és méretüket, hacsak a méretezést nem módosítják kifeexplicit módon. Ennek következtében a tartalom levágódhat vagy az alakzatok elcsúszhatnak.
 
-**Működik a megadott kód minden alakzattípusra?**
+### Működik a megadott kód minden alakzat típusra?
 
-Az egyszerű példa a legtöbb alakzattípusra (szövegdobozok, képek, diagramok stb.) alkalmazható. Azonban táblázatok esetén a sorokat és oszlopokat külön kell kezelni, mivel a táblázat magassága és szélessége az egyes cellák méreteiből adódik.
+Igen. A magasság és szélesség beállítása mind a szövegdobozokra, képekre, diagramokra, mind a táblázatokra alkalmazható.
 
-**Hogyan lehet átméretezni a táblázatokat a dia átméretezésekor?**
+### Hogyan méretezzem át a táblázatokat a dia átméretezésekor?
 
-A táblázat összes sorát és oszlopát át kell iterálni, és a magasságukat illetve szélességüket arányosan kell átméretezni, ahogyan a második kódrészletben látható.
+Méretezze a táblázat alakzatát közvetlenül, ugyanúgy, mint bármely más alakzatot. A sorok és oszlopok arányosan követik a változást, ezért ne méretezze őket újra később.
 
-**Ez az átméretezés működik-e mesterdiákon és elrendezési diákon?**
+### Működik ez az átméretezés mesterdiák és layout diák esetén is?
 
-Igen, de a [Mesterek](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#getMasters--) és a [Elrendezési diák](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#getLayoutSlides--) is be kell járni, és ugyanazt a méretezési logikát alkalmazni kell az ő alakzataikra is, hogy a teljes bemutató konzisztens maradjon.
+Igen, de át kell iterálni a [Mesterdiák](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#getMasters--) és a [Elrendezési diák](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#getLayoutSlides--) között, és ugyanazt a méretezési logikát alkalmazni kell az alakzataikra a prezentáció egységességének biztosítása érdekében.
 
-**Megváltoztathatom a dia tájolását (álló/landscape) az átméretezés közben?**
+### Megváltoztathatom a dia orientációját (álló/fekvő) az átméretezés közben?
 
-Igen. Használhatja a [presentation.getSlideSize().setOrientation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/islidesize/#setOrientation-int-) metódust a tájolás módosításához. Győződjön meg róla, hogy a méretezési logikát ennek megfelelően állítja be a layout megőrzéséhez.
+Igen. Használhatja a [presentation.getSlideSize().setOrientation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/islidesize/#setOrientation-int-) metódust az orientáció megváltoztatásához. Ügyeljen arra, hogy a méretezési logikát ennek megfelelően állítsa be a layout megőrzése érdekében.
 
-**Van korlátozás a beállítható dia méretre?**
+### Van korlátja a beállítható diaméretnek?
 
-Az Aspose.Slides egyéni méreteket támogat, de a nagyon nagy méretek befolyásolhatják a teljesítményt vagy a kompatibilitást egyes PowerPoint-verziókkal.
+Az Aspose.Slides egyedi méreteket támogat, de a nagyon nagy méretek befolyásolhatják a teljesítményt vagy a kompatibilitást bizonyos PowerPoint verziókkal.
 
-**Hogyan akadályozhatom meg, hogy a rögzített képarányú alakzatok torzuljanak?**
+### Hogyan akadályozhatom meg, hogy a rögzített képarányú alakzatok torzuljanak?
 
-A méretezés előtt ellenőrizze a forma `getAspectRatioLocked` metódusát. Ha zárolt, a szélességet vagy magasságot arányosan kell módosítani, ahelyett, hogy egyenként skálázná őket.
+Ellenőrizheti az alakzat `getAspectRatioLocked` metódusát a méretezés előtt. Ha a képarány rögzítve van, a szélességet vagy magasságot arányosan módosítsa, ahelyett, hogy önállóan méretezné őket.

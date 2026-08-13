@@ -1,6 +1,6 @@
 ---
-title: تبدیل ارائه‌های PowerPoint به ویدئو در .NET
-linktitle: PowerPoint به ویدئو
+title: تبدیل ارائه‌های PowerPoint به ویدیو در .NET
+linktitle: PowerPoint به ویدیو
 type: docs
 weight: 130
 url: /fa/net/convert-powerpoint-to-video/
@@ -9,67 +9,69 @@ keywords:
 - تبدیل ارائه
 - تبدیل PPT
 - تبدیل PPTX
-- PowerPoint به ویدئو
-- ارائه به ویدئو
-- PPT به ویدئو
-- PPTX به ویدئو
+- PowerPoint به ویدیو
+- ارائه به ویدیو
+- PPT به ویدیو
+- PPTX به ویدیو
 - PowerPoint به MP4
 - ارائه به MP4
 - PPT به MP4
 - PPTX به MP4
 - ذخیره PPT به عنوان MP4
 - ذخیره PPTX به عنوان MP4
-- صدور PPT به MP4
-- صدور PPTX به MP4
-- تبدیل ویدئو
+- صادرات PPT به MP4
+- صادرات PPTX به MP4
+- تبدیل ویدیو
 - PowerPoint
 - .NET
 - C#
 - Aspose.Slides
-description: "یاد بگیرید چگونه ارائه‌های PowerPoint را به ویدئو در .NET تبدیل کنید. نمونه کد C# و تکنیک‌های خودکارسازی برای بهینه‌سازی گردش کار خود را کشف کنید."
+description: "یاد بگیرید چگونه ارائه‌های PowerPoint را به ویدیو در .NET تبدیل کنید. نمونه کد C# و تکنیک‌های خودکارسازی را برای بهینه‌سازی جریان کار خود کشف کنید."
 ---
 ## **مقدمه**
 
-با تبدیل ارائه PowerPoint یا OpenDocument خود به ویدئو، شما به دست می‌آورید:
+با تبدیل ارائه PowerPoint یا OpenDocument خود به ویدیو، موارد زیر را به دست می‌آورید:
 
-**دسترس‌پذیری بیشتر:** تمام دستگاه‌ها، بدون در نظر گرفتن پلتفرم، به صورت پیش‌فرض دارای پخش‌کننده ویدئو هستند که این باعث می‌شود کاربران به‌جای برنامه‌های سنتی ارائه، راحت‌تر ویدئوها را باز یا پخش کنند.
+**دسترس‌پذیری افزوده:** تمام دستگاه‌ها، صرف‌نظر از پلتفرم، به‌صورت پیش‌فرض دارای پخش‌کننده‌های ویدیو هستند، بنابراین برای کاربران ساده‌تر است تا ویدیوها را باز یا پخش کنند نسبت به برنامه‌های ارائه سنتی.
 
-**دسترسی گسترده‌تر:** ویدئوها به شما امکان می‌دهند تا به جمعیت بزرگ‌تری برسید و اطلاعات را به شکل جذاب‌تری ارائه دهید. نظرسنجی‌ها و آمار نشان می‌دهد که مردم ترجیح می‌دهند محتوای ویدئویی را نسبت به فرم‌های دیگر مشاهده و مصرف کنند، که پیام شما را تاثیرگذارتر می‌سازد.
+**دسترس‌پذیری گسترده‌تر:** ویدیوها به شما امکان می‌دهند تا به مخاطبان بیشتری برسید و اطلاعات را به شکل جذاب‌تری ارائه دهید. نظرسنجی‌ها و آمارها نشان می‌دهند که مردم ترجیح می‌دهند محتواهای ویدیویی را نسبت به سایر انواع مصرف کنند، که پیام شما را تأثیرگذارتر می‌سازد.
 
-{{% alert color="primary" %}} 
-به **[مبدل آنلاین PowerPoint به Video**](https://products.aspose.app/slides/fa/video) نگاه کنید زیرا اجرای زنده و مؤثر فرآیندی که در اینجا شرح شده را ارائه می‌دهد.
+{{% alert color="info" %}} 
+
+به [**PowerPoint to Video Online Converter**](https://products.aspose.app/slides/fa/video) سر بزنید زیرا پیاده‌سازی زنده و مؤثر روند توصیف‌شده در اینجا را ارائه می‌دهد.
+
 {{% /alert %}} 
 
-در Aspose.Slides برای .NET، ما پشتیبانی از تبدیل ارائه‌ها به ویدئو را پیاده‌سازی کرده‌ایم.
+در Aspose.Slides for .NET، ما پشتیبانی از تبدیل ارائه‌ها به ویدیو را پیاده‌سازی کرده‌ایم.
 
-* از Aspose.Slides برای .NET برای تولید فریم‌ها از اسلایدهای ارائه با نرخ فریم مشخص (FPS) استفاده کنید.  
-* سپس از ابزاری شخص ثالث مانند ffmpeg برای ترکیب این فریم‌ها به یک ویدئو بهره بگیرید.
+* از Aspose.Slides for .NET برای تولید فریم‌ها از اسلایدهای ارائه با نرخ فریم مشخص (FPS) استفاده کنید.
+* سپس، از یک ابزار شخص ثالث مانند ffmpeg برای ترکیب این فریم‌ها به یک ویدیو استفاده کنید.
 
-## **تبدیل یک ارائه PowerPoint به ویدئو**
+## **تبدیل ارائه PowerPoint به ویدیو**
 
-1. از فرمان `dotnet add package` برای افزودن Aspose.Slides و کتابخانه FFMpegCore به پروژه خود استفاده کنید:
-   * run `dotnet add package Aspose.Slides.NET --version 22.11.0`
-   * run `dotnet add package FFMpegCore --version 4.8.0`
-2. ffmpeg را از [اینجا](https://ffmpeg.org/download.html) دریافت کنید.
-3. FFMpegCore نیاز دارد مسیر ffmpeg دانلود شده (مثلاً استخراج شده در "C:\tools\ffmpeg") را مشخص کنید:  
+1. با استفاده از دستور `dotnet add package`، Aspose.Slides و کتابخانه FFMpegCore را به پروژه خود اضافه کنید:
+   * `dotnet add package Aspose.Slides.NET --version 22.11.0` را اجرا کنید
+   * `dotnet add package FFMpegCore --version 4.8.0` را اجرا کنید
+2. ffmpeg را از [here](https://ffmpeg.org/download.html) دانلود کنید.
+3. FFMpegCore نیاز دارد تا مسیر ffmpeg دانلود شده را مشخص کنید (مثلاً استخراج شده در «C:\tools\ffmpeg»):  
 ```cs
     GlobalFFOptions.Configure(new FFOptions { BinaryFolder = @"c:\tools\ffmpeg\bin" });
 ```
-4. کد تبدیل PowerPoint‑to‑video را اجرا کنید.
+4. کد تبدیل PowerPoint به ویدیو را اجرا کنید.
 
-این کد C# نشان می‌دهد چگونه یک ارائه (شامل یک شکل و دو اثر انیمیشن) را به ویدئو تبدیل کنیم:
+این کد C# نشان می‌دهد چگونه می‌توان یک ارائه (حاوی یک شکل و دو اثر انیمیشن) را به ویدیو تبدیل کرد:
 
 ```c#
 using System.Collections.Generic;
 using Aspose.Slides;
-using FFMpegCore; // از باینری‌های FFmpeg که قبلاً به C:\tools\ffmpeg استخراج کرده‌ایم استفاده می‌کند.
+using FFMpegCore; // از باینری‌های FFmpeg که پیش‌تر به C:\tools\ffmpeg استخراج کردیم استفاده خواهد شد.
 using Aspose.Slides.Animation;
 
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // یک شکل خنده اضافه می‌کند و سپس آن را انیمیشن می‌دهد.
+    // یک شکل لبخند اضافه کنید و سپس آن را انیمیشن دهید.
     IAutoShape smile = slide.Shapes.AddAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
 
     IEffect effectIn = slide.Timeline.MainSequence.AddEffect(
@@ -99,37 +101,45 @@ using (Presentation presentation = new Presentation())
     // پوشه باینری‌های ffmpeg را پیکربندی کنید. این صفحه را ببینید: https://github.com/rosenbjerg/FFMpegCore#installation
     GlobalFFOptions.Configure(new FFOptions { BinaryFolder = @"c:\tools\ffmpeg\bin" });
 
-    // فریم‌ها را به یک ویدئوی webm تبدیل کنید.
+    // فریم‌ها را به یک ویدیو webm تبدیل کنید.
     FFMpeg.JoinImageSequence("smile.webm", Fps, frames.Select(frame => ImageInfo.FromPath(frame)).ToArray());
 }
 ```
 
-## **افکت‌های ویدئو**
+## **افکت‌های ویدیو**
 
-هنگام تبدیل یک ارائه PowerPoint به ویدئو با Aspose.Slides برای .NET، می‌توانید افکت‌های ویدئویی مختلفی را برای بهبود کیفیت بصری خروجی اعمال کنید. این افکت‌ها به شما امکان می‌دهند ظاهر اسلایدها را در ویدئوی نهایی با افزودن انتقال‌های صاف، انیمیشن‌ها و سایر عناصر بصری کنترل کنید. این بخش گزینه‌های افکت ویدئویی موجود را توضیح می‌دهد و نشان می‌دهد چگونه آن‌ها را اعمال کنید.
+هنگامی که یک ارائه PowerPoint را با Aspose.Slides for .NET به ویدیو تبدیل می‌کنید، می‌توانید افکت‌های ویدیویی مختلفی را برای بهبود کیفیت بصری خروجی اعمال کنید. این افکت‌ها به شما امکان می‌دهند تا ظاهر اسلایدها را در ویدیو نهایی با افزودن انتقال‌های نرم، انیمیشن‌ها و عناصر بصری دیگر کنترل کنید. این بخش گزینه‌های افکت ویدیو موجود را توضیح می‌دهد و نحوه اعمال آن‌ها را نشان می‌دهد.
 
-{{% alert color="primary" %}} 
-مشاهده کنید:
-- [تقویت ارائه‌های PowerPoint با انیمیشن‌ها در C#](https://docs.aspose.com/slides/fa/net/powerpoint-animation/)
-- [انیمیشن شکل](https://docs.aspose.com/slides/fa/net/shape-animation/)
-- [اعمال افکت‌های شکل در PowerPoint با C#](https://docs.aspose.com/slides/fa/net/shape-effect/)
+{{% alert color="info" %}} 
+
+نگاه کنید:
+- [Enhancing PowerPoint Presentations with Animations in C#](https://docs.aspose.com/slides/fa/net/powerpoint-animation/)
+- [Shape Animation](https://docs.aspose.com/slides/fa/net/shape-animation/)
+- [Apply Shape Effects in PowerPoint Using C#](https://docs.aspose.com/slides/fa/net/shape-effect/)
+
 {{% /alert %}} 
 
-انیمیشن‌ها و انتقال‌ها اسلایدشوها را جذاب‌تر می‌سازند — و برای ویدئوها هم همین‌طور عمل می‌کنند. بیایید یک اسلاید دیگر و یک انتقال به کد ارائه قبلی اضافه کنیم:
+انیمیشن‌ها و انتقال‌ها اسلایدشوها را جذاب‌تر می‌کنند — و همین امر برای ویدیوها نیز صادق است. بیایید یک اسلاید دیگر و یک انتقال به کد ارائه قبلی اضافه کنیم:
 
 ```c#
-// یک شکل خنده اضافه کنید و آن را انیمیشن کنید.
-// ...
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.SlideShow;
 
-// یک اسلاید جدید اضافه کنید و یک انتقال انیمیشنی اعمال کنید.
-ISlide newSlide = presentation.Slides.AddEmptySlide(presentation.Slides[0].LayoutSlide);
-newSlide.Background.Type = BackgroundType.OwnBackground;
-newSlide.Background.FillFormat.FillType = FillType.Solid;
-newSlide.Background.FillFormat.SolidFillColor.Color = Color.Indigo;
-newSlide.SlideShowTransition.Type = TransitionType.Push;
+using (Presentation presentation = new Presentation())
+{
+    // یک شکل لبخند اضافه کنید و آن را انیمیشن دهید (کد بالا را ببینید).
+
+    // یک اسلاید جدید اضافه کنید و یک انتقال انیمیشن‌شده اضافه کنید.
+    ISlide newSlide = presentation.Slides.AddEmptySlide(presentation.Slides[0].LayoutSlide);
+    newSlide.Background.Type = BackgroundType.OwnBackground;
+    newSlide.Background.FillFormat.FillType = FillType.Solid;
+    newSlide.Background.FillFormat.SolidFillColor.Color = Color.Indigo;
+    newSlide.SlideShowTransition.Type = TransitionType.Push;
+}
 ```
 
-Aspose.Slides همچنین از انیمیشن‌های متنی پشتیبانی می‌کند. در این مثال، پاراگراف‌های شیء را به‌صورت متوالی با یک ثانیه تأخیر بین هر کدام انیمیشن می‌کنیم:
+Aspose.Slides همچنین از انیمیشن‌های متنی پشتیبانی می‌کند. در این مثال، پاراگراف‌های اشیاء را به‌طوری که یکی پس از دیگری ظاهر شوند، با یک ثانیه تأخیر بین آن‌ها، انیمیت می‌کنیم:
 
 ```c#
 using System.Collections.Generic;
@@ -192,27 +202,31 @@ using (Presentation presentation = new Presentation())
     // پوشه باینری‌های ffmpeg را پیکربندی کنید. این صفحه را ببینید: https://github.com/rosenbjerg/FFMpegCore#installation
     GlobalFFOptions.Configure(new FFOptions { BinaryFolder = @"c:\tools\ffmpeg\bin" });
 
-    // فریم‌ها را به یک ویدئوی webm تبدیل کنید.
+    // فریم‌ها را به یک ویدیو webm تبدیل کنید.
     FFMpeg.JoinImageSequence("text_animation.webm", Fps, frames.Select(frame => ImageInfo.FromPath(frame)).ToArray());
 }
 ```
 
-## **کلاس‌های تبدیل ویدئو**
+## **کلاس‌های تبدیل ویدیو**
 
-برای فعال‌سازی وظایف تبدیل PowerPoint به ویدئو، Aspose.Slides برای .NET کلاس‌های [PresentationAnimationsGenerator](https://reference.aspose.com/slides/fa/net/aspose.slides.export/presentationanimationsgenerator/) و [PresentationPlayer](https://reference.aspose.com/slides/fa/net/aspose.slides.export/presentationplayer/) را فراهم می‌کند.
+برای انجام وظایف تبدیل PowerPoint به ویدیو، Aspose.Slides for .NET کلاس‌های [PresentationAnimationsGenerator](https://reference.aspose.com/slides/fa/net/aspose.slides.export/presentationanimationsgenerator/) و [PresentationPlayer](https://reference.aspose.com/slides/fa/net/aspose.slides.export/presentationplayer/) را فراهم می‌کند.
 
-`PresentationAnimationsGenerator` به شما اجازه می‌دهد تا اندازه فریم برای ویدئو (که بعداً ساخته می‌شود) و مقدار FPS (فریم بر ثانیه) را از طریق سازنده‌اش تنظیم کنید. اگر یک نمونه از ارائه را پاس دهید، `Presentation.SlideSize` آن به‌کار گرفته می‌شود و انیمیشن‌هایی را تولید می‌کند که [PresentationPlayer](https://reference.aspose.com/slides/fa/net/aspose.slides.export/presentationplayer/) استفاده می‌کند.
+`PresentationAnimationsGenerator` به شما اجازه می‌دهد اندازه فریم ویدیو (که بعداً ساخته می‌شود) و مقدار FPS (فریم بر ثانیه) را از طریق سازنده خود تنظیم کنید. اگر یک نمونه از یک ارائه را پاس کنید، `Presentation.SlideSize` آن استفاده می‌شود و انیمیشن‌هایی را تولید می‌کند که [PresentationPlayer](https://reference.aspose.com/slides/fa/net/aspose.slides.export/presentationplayer/) از آن‌ها استفاده می‌کند.
 
-هنگامی که انیمیشن‌ها تولید می‌شوند، برای هر انیمیشن بعدی یک رویداد `NewAnimation` فعال می‌شود که شامل پارامتر [IPresentationAnimationPlayer](https://reference.aspose.com/slides/fa/net/aspose.slides.export/ipresentationanimationplayer/) است. این کلاس نمایانگر یک پلیر برای یک انیمیشن منفرد است.
+زمانی که انیمیشن‌ها تولید می‌شوند، یک رویداد `NewAnimation` برای هر انیمیشن بعدی فراخوانی می‌شود که شامل یک پارامتر [IPresentationAnimationPlayer](https://reference.aspose.com/slides/fa/net/aspose.slides.export/ipresentationanimationplayer/) است. این کلاس بازیکنی برای یک انیمیشن منفرد را نشان می‌دهد.
 
-برای کار با [IPresentationAnimationPlayer](https://reference.aspose.com/slides/fa/net/aspose.slides.export/ipresentationanimationplayer/)، از ویژگی [Duration](https://reference.aspose.com/slides/fa/net/aspose.slides.export/ipresentationanimationplayer/duration/) (که مدت زمان کامل انیمیشن را می‌دهد) و متد [SetTimePosition](https://reference.aspose.com/slides/fa/net/aspose.slides.export/ipresentationanimationplayer/settimeposition/) استفاده می‌کنید. هر موقعیت انیمیشن در بازه *0 تا duration* تنظیم می‌شود و سپس متد `GetFrame` یک Bitmap نشان‌دهنده وضعیت انیمیشن در آن لحظه زمانی برمی‌گرداند.
+برای کار با [IPresentationAnimationPlayer](https://reference.aspose.com/slides/fa/net/aspose.slides.export/ipresentationanimationplayer/)، از ویژگی [Duration](https://reference.aspose.com/slides/fa/net/aspose.slides.export/ipresentationanimationplayer/duration/) (که مدت کامل انیمیشن را می‌دهد) و روش [SetTimePosition](https://reference.aspose.com/slides/fa/net/aspose.slides.export/ipresentationanimationplayer/settimeposition/) استفاده می‌کنید. هر موقعیت انیمیشن در بازه *0 تا duration* تنظیم می‌شود و سپس متد `GetFrame` یک Bitmap نمایانگر وضعیت انیمیشن در آن لحظه زمانی برمی‌گرداند.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // یک شکل خنده اضافه کنید و آن را انیمیشن کنید.
+    // یک شکل لبخند اضافه کنید و آن را انیمیشن دهید.
     IAutoShape smile = slide.Shapes.AddAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
 
     IEffect effectIn = slide.Timeline.MainSequence.AddEffect(
@@ -230,20 +244,23 @@ using (Presentation presentation = new Presentation())
         {
             Console.WriteLine($"Total animation duration: {animationPlayer.Duration}");
 
-            animationPlayer.SetTimePosition(0);          // وضعیت اولیه انیمیشن.
-            Bitmap bitmap = animationPlayer.GetFrame();  // نقشه بیت وضعیت اولیه انیمیشن.
+            animationPlayer.SetTimePosition(0);        // حالت اولیه انیمیشن.
+            IImage image = animationPlayer.GetFrame(); // تصویر وضعیت اولیه انیمیشن.
 
-            animationPlayer.SetTimePosition(animationPlayer.Duration);  // وضعیت نهایی انیمیشن.
-            Bitmap lastBitmap = animationPlayer.GetFrame();             // آخرین فریم انیمیشن.
-            lastBitmap.Save("last.png");
+            animationPlayer.SetTimePosition(animationPlayer.Duration); // وضعیت نهایی انیمیشن.
+            IImage lastImage = animationPlayer.GetFrame();             // آخرین فریم انیمیشن.
+            lastImage.Save("last.png");
         };
     }
 }
 ```
 
-برای پخش همزمان تمام انیمیشن‌های یک ارائه، کلاس [PresentationPlayer](https://reference.aspose.com/slides/fa/net/aspose.slides.export/presentationplayer/) استفاده می‌شود. این کلاس یک نمونه از [PresentationAnimationsGenerator](https://reference.aspose.com/slides/fa/net/aspose.slides.export/presentationanimationsgenerator/) و مقدار FPS را در سازنده‌اش می‌گیرد و سپس برای تمام انیمیشن‌ها رویداد `FrameTick` را فراخوانی می‌کند تا آن‌ها را پخش کند:
+برای پخش همزمان تمام انیمیشن‌های یک ارائه، کلاس [PresentationPlayer](https://reference.aspose.com/slides/fa/net/aspose.slides.export/presentationplayer/) استفاده می‌شود. این کلاس یک نمونه از [PresentationAnimationsGenerator](https://reference.aspose.com/slides/fa/net/aspose.slides.export/presentationanimationsgenerator/) و یک مقدار FPS برای افکت‌ها را در سازنده‌اش می‌گیرد و سپس برای تمام انیمیشن‌ها رویداد `FrameTick` را فراخوانی می‌کند تا آن‌ها پخش شوند:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("animated.pptx"))
 {
     using (var animationsGenerator = new PresentationAnimationsGenerator(presentation))
@@ -258,153 +275,153 @@ using (Presentation presentation = new Presentation("animated.pptx"))
 }
 ```
 
-سپس فریم‌های تولید‌شده می‌توانند ترکیب شده و ویدئویی ساخته شود. بخش [تبدیل یک ارائه PowerPoint به ویدئو](/slides/fa/net/convert-powerpoint-to-video/#convert-a-powerpoint-presentation-to-video) را ببینید.
+سپس فریم‌های تولید‌شده می‌توانند برای ساخت ویدیو ترکیب شوند. بخش [Convert a PowerPoint Presentation to Video](/slides/fa/net/convert-powerpoint-to-video/#convert-a-powerpoint-presentation-to-video) را ببینید.
 
 ## **انیمیشن‌ها و افکت‌های پشتیبانی‌شده**
 
-هنگام تبدیل یک ارائه PowerPoint به ویدئو با Aspose.Slides برای .NET، مهم است بدانید کدام انیمیشن‌ها و افکت‌ها در خروجی پشتیبانی می‌شوند. Aspose.Slides طیف گسترده‌ای از افکت‌های ورودی، خروجی و تأکیدی رایج مانند محو شدن، پرواز، بزرگ‌نمایی و چرخش را پشتیبانی می‌کند. با این حال، برخی از انیمیشن‌های پیشرفته یا سفارشی ممکن است به‌طور کامل حفظ نشوند یا در ویدئوی نهایی متفاوت ظاهر شوند. این بخش به تشریح انیمیشن‌ها و افکت‌های پشتیبانی‌شده می‌پردازد.
+هنگامی که یک ارائه PowerPoint را با Aspose.Slides for .NET به ویدیو تبدیل می‌کنید، مهم است بدانید چه انیمیشن‌ها و افکت‌هایی در خروجی پشتیبانی می‌شوند. Aspose.Slides طیف وسیعی از افکت‌های ورودی، خروجی و تأکیدی رایج مانند محو شدن، پرواز به داخل، زوم و چرخش را پشتیبانی می‌کند. با این حال، برخی از انیمیشن‌های پیشرفته یا سفارشی ممکن است به‌طور کامل حفظ نشوند یا در ویدیو نهایی متفاوت ظاهر شوند. این بخش به بررسی انیمیشن‌ها و افکت‌های پشتیبانی‌شده می‌پردازد.
 
 **ورودی**:
 
 | نوع انیمیشن | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Appear** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Fade** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Fly In** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Float In** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Split** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Wipe** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Shape** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Wheel** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Random Bars** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Grow & Turn** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Zoom** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Swivel** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Bounce** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
+| **Appear** | ![not supported](x.png) | ![supported](v.png) |
+| **Fade** | ![supported](v.png) | ![supported](v.png) |
+| **Fly In** | ![supported](v.png) | ![supported](v.png) |
+| **Float In** | ![supported](v.png) | ![supported](v.png) |
+| **Split** | ![supported](v.png) | ![supported](v.png) |
+| **Wipe** | ![supported](v.png) | ![supported](v.png) |
+| **Shape** | ![supported](v.png) | ![supported](v.png) |
+| **Wheel** | ![supported](v.png) | ![supported](v.png) |
+| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
+| **Grow & Turn** | ![not supported](x.png) | ![supported](v.png) |
+| **Zoom** | ![supported](v.png) | ![supported](v.png) |
+| **Swivel** | ![supported](v.png) | ![supported](v.png) |
+| **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
-**تأکیدی**:
+**تأکید**:
 
 | نوع انیمیشن | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Pulse** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Color Pulse** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Teeter** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Spin** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Grow/Shrink** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Desaturate** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Darken** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Lighten** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Transparency** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Object Color** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Complementary Color** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Line Color** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Fill Color** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
+| **Pulse** | ![not supported](x.png) | ![supported](v.png) |
+| **Color Pulse** | ![not supported](x.png) | ![supported](v.png) |
+| **Teeter** | ![supported](v.png) | ![supported](v.png) |
+| **Spin** | ![supported](v.png) | ![supported](v.png) |
+| **Grow/Shrink** | ![not supported](x.png) | ![supported](v.png) |
+| **Desaturate** | ![not supported](x.png) | ![supported](v.png) |
+| **Darken** | ![not supported](x.png) | ![supported](v.png) |
+| **Lighten** | ![not supported](x.png) | ![supported](v.png) |
+| **Transparency** | ![not supported](x.png) | ![supported](v.png) |
+| **Object Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Complementary Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Line Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
 
 **خروجی**:
 
 | نوع انیمیشن | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Disappear** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Fade** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Fly Out** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Float Out** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Split** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Wipe** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Shape** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Random Bars** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Shrink & Turn** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Zoom** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Swivel** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Bounce** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
+| **Disappear** | ![not supported](x.png) | ![supported](v.png) |
+| **Fade** | ![supported](v.png) | ![supported](v.png) |
+| **Fly Out** | ![supported](v.png) | ![supported](v.png) |
+| **Float Out** | ![supported](v.png) | ![supported](v.png) |
+| **Split** | ![supported](v.png) | ![supported](v.png) |
+| **Wipe** | ![supported](v.png) | ![supported](v.png) |
+| **Shape** | ![supported](v.png) | ![supported](v.png) |
+| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
+| **Shrink & Turn** | ![not supported](x.png) | ![supported](v.png) |
+| **Zoom** | ![supported](v.png) | ![supported](v.png) |
+| **Swivel** | ![supported](v.png) | ![supported](v.png) |
+| **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
 **مسیرهای حرکتی**:
 
 | نوع انیمیشن | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Lines** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Arcs** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Turns** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Shapes** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Loops** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Custom Path** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
+| **Lines** | ![supported](v.png) | ![supported](v.png) |
+| **Arcs** | ![supported](v.png) | ![supported](v.png) |
+| **Turns** | ![supported](v.png) | ![supported](v.png) |
+| **Shapes** | ![supported](v.png) | ![supported](v.png) |
+| **Loops** | ![supported](v.png) | ![supported](v.png) |
+| **Custom Path** | ![supported](v.png) | ![supported](v.png) |
 
 ## **افکت‌های انتقال اسلاید پشتیبانی‌شده**
 
-افکت‌های انتقال اسلاید نقش مهمی در ایجاد تغییرات روان و جذاب بین اسلایدها در یک ویدئو ایفا می‌کنند. Aspose.Slides برای .NET مجموعه‌ای از افکت‌های انتقال رایج را پشتیبانی می‌کند تا جریان و سبک ارائه اصلی شما حفظ شود. این بخش به افکت‌های انتقالی که در فرآیند تبدیل پشتیبانی می‌شوند، می‌پردازد.
+افکت‌های انتقال اسلاید نقش مهمی در ایجاد تغییرات نرم و ظاهری جذاب بین اسلایدها در یک ویدیو ایفا می‌کنند. Aspose.Slides for .NET مجموعه‌ای از افکت‌های انتقال رایج را برای حفظ جریان و سبک ارائه اصلی شما پشتیبانی می‌کند. این بخش به افکت‌های انتقالی که در فرآیند تبدیل پشتیبانی می‌شوند، می‌پردازد.
 
 **ملایم**:
 
-| نوع انتقال | Aspose.Slides | PowerPoint |
+| نوع انیمیشن | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Morph** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Fade** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Push** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Pull** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Wipe** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Split** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Reveal** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Random Bars** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Shape** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Uncover** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Cover** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Flash** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Strips** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
+| **Morph** | ![not supported](x.png) | ![supported](v.png) |
+| **Fade** | ![supported](v.png) | ![supported](v.png) |
+| **Push** | ![supported](v.png) | ![supported](v.png) |
+| **Pull** | ![supported](v.png) | ![supported](v.png) |
+| **Wipe** | ![supported](v.png) | ![supported](v.png) |
+| **Split** | ![supported](v.png) | ![supported](v.png) |
+| **Reveal** | ![not supported](x.png) | ![supported](v.png) |
+| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
+| **Shape** | ![not supported](x.png) | ![supported](v.png) |
+| **Uncover** | ![not supported](x.png) | ![supported](v.png) |
+| **Cover** | ![supported](v.png) | ![supported](v.png) |
+| **Flash** | ![supported](v.png) | ![supported](v.png) |
+| **Strips** | ![supported](v.png) | ![supported](v.png) |
 
 **هیجان‌انگیز**:
 
-| نوع انتقال | Aspose.Slides | PowerPoint |
+| نوع انیمیشن | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Fall Over** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Drape** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Curtains** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Wind** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Prestige** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Fracture** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Crush** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Peel Off** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Page Curl** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Airplane** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Origami** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Dissolve** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Checkerboard** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Blinds** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Clock** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Ripple** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Honeycomb** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Glitter** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Vortex** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Shred** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Switch** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Flip** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Gallery** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Cube** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Doors** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Box** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Comb** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Zoom** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Random** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
+| **Fall Over** | ![not supported](x.png) | ![supported](v.png) |
+| **Drape** | ![not supported](x.png) | ![supported](v.png) |
+| **Curtains** | ![not supported](x.png) | ![supported](v.png) |
+| **Wind** | ![not supported](x.png) | ![supported](v.png) |
+| **Prestige** | ![not supported](x.png) | ![supported](v.png) |
+| **Fracture** | ![not supported](x.png) | ![supported](v.png) |
+| **Crush** | ![not supported](x.png) | ![supported](v.png) |
+| **Peel Off** | ![not supported](x.png) | ![supported](v.png) |
+| **Page Curl** | ![not supported](x.png) | ![supported](v.png) |
+| **Airplane** | ![not supported](x.png) | ![supported](v.png) |
+| **Origami** | ![not supported](x.png) | ![supported](v.png) |
+| **Dissolve** | ![supported](v.png) | ![supported](v.png) |
+| **Checkerboard** | ![not supported](x.png) | ![supported](v.png) |
+| **Blinds** | ![not supported](x.png) | ![supported](v.png) |
+| **Clock** | ![supported](v.png) | ![supported](v.png) |
+| **Ripple** | ![not supported](x.png) | ![supported](v.png) |
+| **Honeycomb** | ![not supported](x.png) | ![supported](v.png) |
+| **Glitter** | ![not supported](x.png) | ![supported](v.png) |
+| **Vortex** | ![not supported](x.png) | ![supported](v.png) |
+| **Shred** | ![not supported](x.png) | ![supported](v.png) |
+| **Switch** | ![not supported](x.png) | ![supported](v.png) |
+| **Flip** | ![not supported](x.png) | ![supported](v.png) |
+| **Gallery** | ![not supported](x.png) | ![supported](v.png) |
+| **Cube** | ![not supported](x.png) | ![supported](v.png) |
+| **Doors** | ![not supported](x.png) | ![supported](v.png) |
+| **Box** | ![not supported](x.png) | ![supported](v.png) |
+| **Comb** | ![not supported](x.png) | ![supported](v.png) |
+| **Zoom** | ![supported](v.png) | ![supported](v.png) |
+| **Random** | ![not supported](x.png) | ![supported](v.png) |
 
 **محتوای دینامیک**:
 
-| نوع انتقال | Aspose.Slides | PowerPoint |
+| نوع انیمیشن | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Pan** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Ferris Wheel** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
-| **Conveyor** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Rotate** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Orbit** | ![پشتیبانی نشده](x.png) | ![پشتیبانی شد](v.png) |
-| **Fly Through** | ![پشتیبانی شد](v.png) | ![پشتیبانی شد](v.png) |
+| **Pan** | ![not supported](x.png) | ![supported](v.png) |
+| **Ferris Wheel** | ![supported](v.png) | ![supported](v.png) |
+| **Conveyor** | ![not supported](x.png) | ![supported](v.png) |
+| **Rotate** | ![not supported](x.png) | ![supported](v.png) |
+| **Orbit** | ![not supported](x.png) | ![supported](v.png) |
+| **Fly Through** | ![supported](v.png) | ![supported](v.png) |
 
-## **سوالات متداول**
+## **سؤالات متداول**
 
-**آیا می‌توان ارائه‌های محافظت‌شده با رمز عبور را تبدیل کرد؟**
+### آیا می‌توان ارائه‌های دارای رمز عبور را تبدیل کرد؟
 
-بله، Aspose.Slides برای .NET امکان کار با ارائه‌های محافظت‌شده با رمز عبور را دارد. هنگام پردازش این فایل‌ها باید رمز عبور صحیح را ارائه دهید تا کتابخانه بتواند به محتوای ارائه دسترسی پیدا کند.
+بله، Aspose.Slides for .NET امکان کار با ارائه‌های دارای رمز عبور را فراهم می‌کند. هنگام پردازش چنین فایل‌هایی، باید رمز عبور صحیح را ارائه دهید تا کتابخانه به محتوای ارائه دسترسی پیدا کند.
 
-**آیا Aspose.Slides برای .NET پشتیبانی از استفاده در راه‌حل‌های ابری را دارد؟**
+### آیا Aspose.Slides for .NET از استفاده در راه‌حل‌های ابری پشتیبانی می‌کند؟
 
-بله، Aspose.Slides برای .NET می‌تواند در برنامه‌ها و سرویس‌های ابری یکپارچه شود. این کتابخانه برای کار در محیط‌های سروری طراحی شده است و عملکرد بالا و مقیاس‌پذیری برای پردازش دسته‌ای فایل‌ها را تضمین می‌کند.
+بله، Aspose.Slides for .NET می‌تواند در برنامه‌ها و سرویس‌های ابری یکپارچه شود. این کتابخانه برای کار در محیط‌های سروری طراحی شده است و عملکرد بالا و مقیاس‌پذیری را برای پردازش دسته‌ای فایل‌ها تضمین می‌کند.
 
-**آیا محدودیتی در اندازه ارائه‌ها هنگام تبدیل وجود دارد؟**
+### آیا محدودیتی برای اندازه ارائه‌ها هنگام تبدیل وجود دارد؟
 
-Aspose.Slides برای .NET می‌تواند ارائه‌های تقریباً با هر اندازه‌ای را مدیریت کند. با این حال، هنگام کار با فایل‌های بسیار بزرگ، ممکن است منابع سیستمی بیشتری مورد نیاز باشد و گاهی توصیه می‌شود که برای بهبود عملکرد، ارائه را بهینه‌سازی کنید.
+Aspose.Slides for .NET قادر به پردازش ارائه‌هایی با اندازه تقریباً نامحدود است. با این حال، هنگام کار با فایل‌های بسیار بزرگ، ممکن است به منابع سیستمی بیشتری نیاز باشد و گاهی توصیه می‌شود برای بهبود عملکرد، ارائه را بهینه‌سازی کنید.

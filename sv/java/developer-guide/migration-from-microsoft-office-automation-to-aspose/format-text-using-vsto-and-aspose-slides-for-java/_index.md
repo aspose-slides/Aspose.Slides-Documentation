@@ -13,29 +13,29 @@ keywords:
 - presentation
 - Java
 - Aspose.Slides
-description: "Migrera från Microsoft Office-automatisering till Aspose.Slides för Java och formatera text i PowerPoint (PPT, PPTX)-presentationer med exakt kontroll."
+description: "Migrera från Microsoft Office-automatisering till Aspose.Slides for Java och formatera text i PowerPoint (PPT, PPTX) presentationer med exakt kontroll."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Ibland behöver du formatera text på bildspel programatiskt. Den här artikeln visar hur du läser en exempelpresentation med text på den första bilden med antingen [VSTO](/slides/sv/java/format-text-using-vsto-and-aspose-slides-for-java/) och [Aspose.Slides for Java](/slides/sv/java/format-text-using-vsto-and-aspose-slides-for-java/). Koden formaterar texten i den tredje textrutan på bilden så att den ser ut som texten i den sista textrutan.
+Ibland behöver du formatera text på bilder programmatiskt. Denna artikel visar hur du läser en exempelpresentation med lite text på den första bilden med antingen [VSTO](/slides/sv/java/format-text-using-vsto-and-aspose-slides-for-java/) och [Aspose.Slides for Java](/slides/sv/java/format-text-using-vsto-and-aspose-slides-for-java/). Koden formaterar texten i den tredje textrutan på bilden så att den ser ut som texten i den sista textrutan.
 
 {{% /alert %}} 
 ## **Formatera text**
-Både VSTO- och Aspose.Slides-metoderna följer följande steg:
+Både VSTO- och Aspose.Slides-metoderna utför följande steg:
 
 1. Öppna källpresentationen.
-1. Öppna den första bilden.
-1. Öppna den tredje textrutan.
+1. Få åtkomst till den första bilden.
+1. Få åtkomst till den tredje textrutan.
 1. Ändra formateringen av texten i den tredje textrutan.
 1. Spara presentationen till disk.
 
-Skärmbilderna nedan visar exempelbilden före och efter körning av VSTO- och Aspose.Slides för Java-koden.
+Skärmbilderna nedan visar exempelbilden före och efter körning av VSTO- och Aspose.Slides for Java-koden.
 
-**Ingångspresentationen** 
+**Inmatningspresentationen** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-for-java_1.png)
 ### **VSTO-kodexempel**
-Koden nedan visar hur du omformaterar text på en bild med VSTO.
+Koden nedan visar hur man omformaterar text på en bild med VSTO.
 
 **Texten omformaterad med VSTO** 
 
@@ -44,10 +44,10 @@ Koden nedan visar hur du omformaterar text på en bild med VSTO.
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-VSTO-FormatTextUsingVSTO-FormatTextUsingVSTO.cs" >}}
 
 
-### **Aspose.Slides för Java-exempel**
+### **Aspose.Slides for Java-exempel**
 För att formatera text med Aspose.Slides, lägg till teckensnittet innan du formaterar texten.
 
-**Utdatapresentationen skapad med Aspose.Slides** 
+**Utdata-presentationen skapad med Aspose.Slides** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-for-java_3.png)
 

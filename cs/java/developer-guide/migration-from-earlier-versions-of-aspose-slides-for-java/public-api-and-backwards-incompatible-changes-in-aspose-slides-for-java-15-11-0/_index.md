@@ -1,5 +1,5 @@
 ---
-title: Veřejné API a zpětně nekompatibilní změny v Aspose.Slides pro Java 15.11.0
+title: Veřejné API a nekompatibilní změny v Aspose.Slides pro Java 15.11.0
 linktitle: Aspose.Slides pro Java 15.11.0
 type: docs
 weight: 190
@@ -15,12 +15,10 @@ keywords:
 - prezentace
 - Java
 - Aspose.Slides
-description: "Prozkoumejte aktualizace veřejného API a zásadní změny v Aspose.Slides pro Java, abyste hladce migrovali své řešení prezentací PowerPoint PPT, PPTX a ODP."
+description: "Projděte si aktualizace veřejného API a rozbití změny v Aspose.Slides pro Java, abyste hladce migrovali své řešení prezentací PowerPoint PPT, PPTX a ODP."
 ---
-{{% alert color="primary" %}} 
-
-Tato stránka uvádí všechny [přidáno](/slides/cs/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-11-0/) nebo [odstraněno](/slides/cs/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-11-0/) třídy, metody, vlastnosti a další změny zavedené v API Aspose.Slides pro Java 15.11.0.
-
+{{% alert color="info" %}} 
+Tato stránka seznamuje se všemi [added](/slides/cs/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-11-0/) nebo [removed](/slides/cs/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-11-0/) třídami, metodami, vlastnostmi a podobně a dalšími změnami zavedenými v API Aspose.Slides pro Java 15.11.0.
 {{% /alert %}} 
 ## **Změny veřejného API**
 #### **Zastaralé metody ve třídě com.aspose.slides.DataLabelCollection byly odstraněny**
@@ -54,18 +52,21 @@ DataLabelCollection.getShowBubbleSize()
 DataLabelCollection.setShowBubbleSize(boolean value)
 
 
-#### **Do třídy Presentation byly přidány nové metody getFirstSlideNumber() a setFirstSlideNumber()**
+#### **Nové metody getFirstSlideNumber() a setFirstSlideNumber() byly přidány do třídy Presentation**
 Nové metody getFirstSlideNumber() a setFirstSlideNumber() umožňují získat nebo nastavit číslo první snímku v prezentaci.
-Když je zadána nová hodnota čísla první snímku, jsou přepočítána všechna čísla snímků.
+Když je zadána nová hodnota čísla první snímku, jsou všechny čísla snímků přepočítána.
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(path);
+Presentation pres = new Presentation("presentation.pptx");
+try {
+    int firstSlideNumber = pres.getFirstSlideNumber();
 
-int firstSlideNumber = pres.getFirstSlideNumber();
+    pres.setFirstSlideNumber(10);
 
-pres.setFirstSlideNumber(10);
-
-pres.save(newPath, SaveFormat.Pptx);
-
+    pres.save("presentation_out.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```

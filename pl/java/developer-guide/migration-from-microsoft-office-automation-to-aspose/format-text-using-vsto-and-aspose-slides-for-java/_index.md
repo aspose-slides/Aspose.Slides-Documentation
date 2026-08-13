@@ -1,5 +1,5 @@
 ---
-title: Formatowanie tekstu przy użyciu VSTO i Aspose.Slides dla Javy
+title: Formatowanie tekstu przy użyciu VSTO i Aspose.Slides dla Java
 linktitle: Formatowanie tekstu
 type: docs
 weight: 30
@@ -13,19 +13,21 @@ keywords:
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Przenieś automatyzację Microsoft Office do Aspose.Slides for Java i formatuj tekst w prezentacjach PowerPoint (PPT, PPTX) z precyzyjną kontrolą."
+description: "Migracja z automatyzacji Microsoft Office do Aspose.Slides dla Java i formatowanie tekstu w prezentacjach PowerPoint (PPT, PPTX) z precyzyjną kontrolą."
 ---
-{{% alert color="primary" %}} 
-Czasami trzeba formatować tekst na slajdach programowo. Ten artykuł pokazuje, jak odczytać przykładową prezentację z tekstem na pierwszym slajdzie przy użyciu [VSTO](/slides/pl/java/format-text-using-vsto-and-aspose-slides-for-java/) oraz [Aspose.Slides for Java](/slides/pl/java/format-text-using-vsto-and-aspose-slides-for-java/). Kod formatuje tekst w trzecim polu tekstowym na slajdzie, aby wyglądał jak tekst w ostatnim polu tekstowym.
+{{% alert color="info" %}} 
+
+Czasami trzeba formatować tekst na slajdach programowo. Ten artykuł pokazuje, jak odczytać przykładową prezentację z tekstem na pierwszym slajdzie, używając [VSTO](/slides/pl/java/format-text-using-vsto-and-aspose-slides-for-java/) i [Aspose.Slides for Java](/slides/pl/java/format-text-using-vsto-and-aspose-slides-for-java/). Kod formatuje tekst w trzecim polu tekstowym na slajdzie, aby wyglądał jak tekst w ostatnim polu tekstowym.
+
 {{% /alert %}} 
 ## **Formatowanie tekstu**
-Zarówno metody VSTO, jak i Aspose.Slides wykonują następujące kroki:
+Obie metody VSTO i Aspose.Slides wykonują następujące kroki:
 
-1. Otwórz źródłową prezentację.
-1. Uzyskaj dostęp do pierwszego slajdu.
-1. Uzyskaj dostęp do trzeciego pola tekstowego.
-1. Zmień formatowanie tekstu w trzecim polu tekstowym.
-1. Zapisz prezentację na dysku.
+1. Otwórz źródłową prezentację. 
+1. Uzyskaj dostęp do pierwszego slajdu. 
+1. Uzyskaj dostęp do trzeciego pola tekstowego. 
+1. Zmień formatowanie tekstu w trzecim polu tekstowym. 
+1. Zapisz prezentację na dysku. 
 
 Zrzuty ekranu poniżej pokazują przykładowy slajd przed i po wykonaniu kodu VSTO oraz Aspose.Slides for Java.
 
@@ -33,16 +35,17 @@ Zrzuty ekranu poniżej pokazują przykładowy slajd przed i po wykonaniu kodu VS
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-for-java_1.png)
 ### **Przykład kodu VSTO**
-Poniższy kod pokazuje, jak przformatować tekst na slajdzie przy użyciu VSTO.
+Poniższy kod pokazuje, jak sformatować tekst na slajdzie przy użyciu VSTO.
 
-**Tekst sformatowany ponownie przy użyciu VSTO** 
+**Tekst sformatowany przy użyciu VSTO** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-for-java_2.png)
 
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-VSTO-FormatTextUsingVSTO-FormatTextUsingVSTO.cs" >}}
 
+
 ### **Przykład Aspose.Slides for Java**
-Aby sformatować tekst przy użyciu Aspose.Slides, dodaj czcionkę przed formatowaniem tekstu.
+Aby sformatować tekst przy użyciu Aspose.Slides, najpierw dodaj czcionkę przed formatowaniem tekstu.
 
 **Prezentacja wyjściowa utworzona przy użyciu Aspose.Slides** 
 

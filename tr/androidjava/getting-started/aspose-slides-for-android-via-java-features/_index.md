@@ -11,42 +11,40 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java özelliklerini Aspose.Slides for Java ile karşılaştırarak keşfedin; PPT, PPTX ve ODP desteği, dönüşümler ve renderleme dahil."
+description: "Aspose.Slides for Android via Java özelliklerini, Aspose.Slides for Java ile karşılaştırarak keşfedin; PPT, PPTX ve ODP desteği, dönüşümler ve renderleme dahil."
 ---
-{{% alert color="primary" %}} 
-
-Bu bölüm, API'nin tüm özelliklerini listeler ve bunların Aspose.Slides for Java ile Aspose.Slides for Android via Java arasındaki karşılaştırmalı kullanılabilirliğini gösterir.
-
+{{% alert color="info" %}} 
+Bu bölüm API'nin tüm özelliklerini listeler ve Aspose.Slides for Java ile Aspose.Slides for Android via Java arasındaki karşılaştırmalı kullanılabilirliği gösterir.
 {{% /alert %}} 
 
 |**S.No.**|**Özellik**|**Aspose.Slides for Java**|**Aspose.Slides for Android via Java**|
 | :-: | :-: | :-: | :-: |
-|1|Microsoft PowerPoint (PPT) ile çalışma|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
-|2|PresentationML (PPTX, XML) ile çalışma|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
-|3|PPT'den PPTX'ye dönüşüm desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
-|4|Portable Document Format (PDF) desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
-|5|XML Parser Specification (XPS) desteği|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
-|6|Tagged Image File Format (TIFF) desteği|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
-|7|ODP'den PPTX'ye dönüşüm desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
-|8|Sunumu HTML'ye dönüştürme desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
-|9|SVG formatına dışa aktarma desteği|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
-|10|Slayt küçük resimleri desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
-|11|Master Slaytlar desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
-|12|Normal Slaytlar desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
-|13|Not Slaytları desteği|<p> </p><p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
-|14|Düzen Slaytları desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
-|15|Slayt kopyalama desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
-|16|Yer tutucular ve Metin tutucularıyla çalışma desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
-|17|Slide AutoShapes desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
-|18|Tablolar desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
-|19|SmartArt desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
-|20|Ole Nesneleri desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
-|21|ActiveX Nesnesi desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
-|22|Grup Şekilleri desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
-|23|Video Çerçevesi desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
-|24|Audio Çerçevesi desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
-|25|Resim Çerçevesi desteği|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
-|26|Grafikler desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
-|27|VBA Makroları desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
-|28|Animasyonlar desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
-|29|Slayt Geçişleri desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
+|1|Microsoft PowerPoint (PPT) ile Çalışma|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
+|2|PresentationML (PPTX, XML) ile Çalışma|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
+|3|PPT'den PPTX'ye Dönüşüm Desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
+|4|Taşınabilir Doküman Formatı (PDF) Desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
+|5|XML Parser Specification (XPS) Desteği|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
+|6|Tagged Image File Format (TIFF) Desteği|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
+|7|ODP'den PPTX'ye Dönüşüm Desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
+|8|Sunumu HTML'ye Dönüştürme Desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
+|9|SVG Formatına Dışa Aktarma Desteği|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
+|10|Slayt Küçük Resimleri Desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
+|11|Ana Slaytlar Desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
+|12|Normal Slaytlar Desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
+|13|Not Slaytları Desteği|<p> </p><p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
+|14|Düzen Slaytları Desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
+|15|Slayt Kopyalama Desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
+|16|Yer Tutucular ve Metin Tutucular ile Çalışma Desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
+|17|Slayt AutoShapes Desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
+|18|Tablolar Desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
+|19|SmartArt Desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
+|20|Ole Nesneleri Desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
+|21|ActiveX Nesnesi Desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
+|22|Grup Şekilleri Desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
+|23|Video Çerçevesi Desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
+|24|Ses Çerçevesi Desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
+|25|Resim Çerçevesi Desteği|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
+|26|Grafikler Desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
+|27|VBA Makroları Desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|
+|28|Animasyonlar Desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|
+|29|Slayt Geçişleri Desteği|<p>![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)</p><p> </p>|![todo:image_alt_text](aspose-slides-for-android-via-java-features_1.gif)|

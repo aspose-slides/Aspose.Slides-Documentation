@@ -1,5 +1,5 @@
 ---
-title: Création de tableaux à l'aide de VSTO et Aspose.Slides pour .NET
+title: Création de tableaux avec VSTO et Aspose.Slides pour .NET
 linktitle: Création de tableaux
 type: docs
 weight: 50
@@ -14,23 +14,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Migrer de l'automatisation Microsoft Office vers Aspose.Slides pour .NET et créer des tableaux dans les diapositives PowerPoint (PPT, PPTX) en C# avec un formatage flexible."
+description: "Migrez de l'automatisation Microsoft Office vers Aspose.Slides pour .NET et créez des tableaux dans les diapositives PowerPoint (PPT, PPTX) en C# avec un formatage flexible."
 ---
-
-{{% alert color="primary" %}} 
-
-Les tableaux sont largement utilisés pour afficher des données sur les diapositives de présentation. Cet article montre comment créer programmétiquement un tableau 15 × 15 avec une taille de police de 10 en utilisant d'abord [VSTO 2008](/slides/fr/net/creating-a-table-on-powerpoint-slide/) puis [Aspose.Slides for .NET](/slides/fr/net/creating-a-table-on-powerpoint-slide/).
-
+{{% alert color="info" %}} 
+Les tableaux sont largement utilisés pour afficher des données sur les diapositives de présentation. Cet article montre comment créer un tableau de 15 × 15 avec une taille de police de 10 de façon programmatique en utilisant d'abord [VSTO 2008](/slides/fr/net/creating-a-table-on-powerpoint-slide/) puis [Aspose.Slides for .NET](/slides/fr/net/creating-a-table-on-powerpoint-slide/).
 {{% /alert %}} 
 ## **Création de tableaux**
 #### **Exemple VSTO 2008**
 Les étapes suivantes ajoutent un tableau à une diapositive Microsoft PowerPoint à l'aide de VSTO :
 
-1. Créer une présentation.
-1. Ajouter une diapositive vide à la présentation.
-1. Ajouter un tableau 15 × 15 à la diapositive.
-1. Ajouter du texte à chaque cellule du tableau avec une taille de police de 10.
-1. Enregistrer la présentation sur le disque.
+1. Créez une présentation.
+1. Ajoutez une diapositive vide à la présentation.
+1. Ajoutez un tableau de 15 × 15 à la diapositive.
+1. Ajoutez du texte à chaque cellule du tableau avec une taille de police de 10.
+1. Enregistrez la présentation sur le disque.
+
 ```c#
 //Créer une présentation
 PowerPoint.Presentation pres = Globals.ThisAddIn.Application
@@ -54,7 +52,7 @@ foreach (PowerPoint.Row row in tbl.Rows)
     foreach (PowerPoint.Cell cell in row.Cells)
     {
         j = j + 1;
-        //Obtenir le cadre texte de chaque cellule
+        //Obtenir le cadre de texte de chaque cellule
         PowerPoint.TextFrame tf = cell.Shape.TextFrame;
         //Ajouter du texte
         tf.TextRange.Text = "T" + i.ToString() + j.ToString();
@@ -71,15 +69,18 @@ pres.SaveAs("d:\\tblVSTO.ppt",
 
 
 
-
-### **Exemple Aspose.Slides pour .NET**
+### **Exemple Aspose.Slides for .NET**
 Les étapes suivantes ajoutent un tableau à une diapositive Microsoft PowerPoint à l'aide d'Aspose.Slides :
 
-1. Créer une présentation.
-1. Ajouter un tableau 15 × 15 à la première diapositive.
-1. Ajouter du texte à chaque cellule du tableau avec une taille de police de 10.
-1. Écrire la présentation sur le disque.
+1. Créez une présentation.
+1. Ajoutez un tableau de 15 × 15 à la première diapositive.
+1. Ajoutez du texte à chaque cellule du tableau avec une taille de police de 10.
+1. Enregistrez la présentation sur le disque.
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 Presentation pres = new Presentation();
 
 //Accéder à la première diapositive
@@ -98,7 +99,7 @@ foreach (IRow row in tbl.Rows)
 	foreach (ICell cell in row)
 	{
 
-		//Obtenir le cadre texte de chaque cellule
+		//Obtenir le cadre de texte de chaque cellule
 		ITextFrame tf = cell.TextFrame;
 		//Ajouter du texte
 		tf.Text = "T" + cell.FirstRowIndex.ToString() + cell.FirstColumnIndex.ToString();
@@ -109,5 +110,5 @@ foreach (IRow row in tbl.Rows)
 }
 
 //Enregistrer la présentation sur le disque
-pres.Save("C:\\data\\tblSLD.ppt", SaveFormat.Ppt);
+pres.Save("tblSLD.ppt", SaveFormat.Ppt);
 ```

@@ -6,9 +6,9 @@ weight: 130
 url: /fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/
 keywords:
 - مهاجرت
-- کدهای ارثی
-- کدهای مدرن
-- رویکرد ارثی
+- کد قدیمی
+- کد مدرن
+- رویکرد قدیمی
 - رویکرد مدرن
 - PowerPoint
 - OpenDocument
@@ -16,32 +16,32 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "به‌روزرسانی‌های API عمومی و تغییرات ناسازگار در Aspose.Slides برای .NET را بررسی کنید تا بتوانید به‌صورت روان راه‌حل‌های ارائه PowerPoint (PPT، PPTX) و ODP خود را مهاجرت دهید."
+description: "به‌روزرسانی‌های API عمومی و تغییرات ناسازگار در Aspose.Slides برای .NET را بررسی کنید تا بتوانید به‌صورت روان راه‌حل‌های ارائهٔ PowerPoint (PPT، PPTX) و ODP خود را مهاجرت دهید."
 ---
-{{% alert color="primary" %}} 
-این صفحه تمام کلاس‌ها، متدها، ویژگی‌ها و غیره که [اضافه](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) یا [حذف](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) شده‌اند و سایر تغییراتی که در API Aspose.Slides for .NET نسخه 15.1.0 معرفی شده‌اند را فهرست می‌کند.
+{{% alert color="info" %}} 
+این صفحه تمام کلاس‌ها، متدها، خصوصیات و غیرهٔ [اضافه](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) یا [حذف](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) شده را فهرست می‌کند و سایر تغییراتی که در API Aspose.Slides for .NET 15.1.0 معرفی شده‌اند.
 {{% /alert %}} 
-## **تغییرات عمومی API**
-#### **قابلیت جایگزینی فونت‌ها اضافه شده است**
-امکان جایگزینی فونت به صورت سراسری در کل ارائه و به‌صورت موقت برای رندرینگ اضافه شده است.
+## **تغییرات API عمومی**
+#### **قابلیت جایگزینی فونت‌ها اضافه شد**
+امکان جایگزینی فونت به صورت سراسری در سراسر ارائه و به صورت موقت برای رندر افزوده شده است.
 
-ویژگی جدید "FontsManager" در کلاس Presentation معرفی شده است. کلاس FontsManager دارای اعضای زیر است:
+ویژگی جدید "FontsManager" در کلاس Presentation معرفی شد. کلاس FontsManager دارای اعضای زیر است:
 
-**IFontSubstRuleCollection FontSubstRuleList** ویژگی
+**IFontSubstRuleCollection FontSubstRuleList** Property  
+این مجموعه از نمونه‌های IFontSubstRule برای جایگزینی فونت‌ها هنگام رندر استفاده می‌شود. IFontSubstRule دارای خصوصیات SourceFont و DestFont که پیاده‌سازی IFontData هستند و خصوصیت ReplaceFontCondition که امکان انتخاب شرط جایگزینی را می‌دهد ("WhenInaccessible" یا "Always").
 
-این مجموعه‌ای از نمونه‌های IFontSubstRule برای جایگزینی فونت‌ها در حین رندرینگ استفاده می‌شود. IFontSubstRule دارای ویژگی‌های SourceFont و DestFont که رابط IFontData را پیاده‌سازی می‌کنند و ویژگی ReplaceFontCondition است که امکان انتخاب شرایط جایگزینی ("WhenInaccessible" یا "Always") را فراهم می‌کند.
+**IFontData[] GetFonts()** Method  
+برای بازیابی تمام فونت‌های استفاده‌شده در ارائهٔ جاری استفاده می‌شود.
 
-**IFontData[] GetFonts()** متد
+**ReplaceFont** Methods  
+برای جایگزینی دائمی فونت در ارائه به کار می‌رود.
 
-برای دریافت تمام فونت‌های استفاده‌شده در ارائه جاری استفاده می‌شود.
-
-**ReplaceFont** متدها
-
-برای جایگزینی پایدار فونت در ارائه استفاده می‌شود.
-
-مثال زیر نشان می‌دهد چگونه فونت را در ارائه جایگزین کنیم:
+مثال زیر نشان می‌دهد چگونه می‌توان فونت را در ارائه جایگزین کرد:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
              Presentation pres = new Presentation("PresContainsArialFont.pptx");
 
@@ -56,9 +56,11 @@ description: "به‌روزرسانی‌های API عمومی و تغییرات 
 
 ``` 
 
-مثال دیگر، جایگزینی فونت را برای رندرینگ در زمانی که دسترسی‌پذیر نیست نشان می‌دهد:
+مثال دیگر، جایگزینی فونت برای رندر زمانی که دسترسی به فونت امکان‌پذیر نیست را نشان می‌دهد:
 
 ``` csharp
+using Aspose.Slides;
+
 
              Presentation pres = new Presentation("PresContainsSomeRareFontFont.pptx");
 
@@ -76,8 +78,8 @@ description: "به‌روزرسانی‌های API عمومی و تغییرات 
 
             pres.FontsManager.FontSubstRuleList = fontSubstRuleCollection;
 
-            // فونت Arial به جای SomeRareFont زمانی که در دسترس نیست استفاده خواهد شد
+            // فونت Arial به جای SomeRareFont در صورتی که قابل دسترسی نباشد استفاده می‌شود
 
-            pres.Slides[0].GetThumbnail();
+            pres.Slides[0].GetImage();
 
 ```

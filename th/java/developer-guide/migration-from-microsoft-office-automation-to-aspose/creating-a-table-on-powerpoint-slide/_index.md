@@ -1,34 +1,34 @@
 ---
-title: สร้างตารางโดยใช้ VSTO และ Aspose.Slides for Java
+title: สร้างตารางโดยใช้ VSTO และ Aspose.Slides สำหรับ Java
 linktitle: สร้างตาราง
 type: docs
 weight: 50
 url: /th/java/creating-a-table-on-powerpoint-slide/
 keywords:
 - สร้างตาราง
-- การย้ายข้อมูล
+- การย้าย
 - VSTO
 - การทำงานอัตโนมัติของ Office
 - PowerPoint
 - การนำเสนอ
 - Java
 - Aspose.Slides
-description: "ย้ายจากการทำงานอัตโนมัติของ Microsoft Office ไปยัง Aspose.Slides for Java และสร้างตารางในสไลด์ PowerPoint (PPT, PPTX) ด้วย Java พร้อมการจัดรูปแบบที่ยืดหยุ่น."
+description: "ย้ายจากการทำงานอัตโนมัติของ Microsoft Office ไปยัง Aspose.Slides สำหรับ Java และสร้างตารางในสไลด์ PowerPoint (PPT, PPTX) ด้วย Java พร้อมการจัดรูปแบบที่ยืดหยุ่น."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-ตารางถูกใช้อย่างกว้างขวางเพื่อแสดงข้อมูลบนสไลด์การนำเสนอ บทความนี้แสดงวิธีการสร้างตารางขนาด 15 x 15 ด้วยขนาดฟอนต์ 10 อย่างอัตโนมัติโดยใช้ [VSTO 2008](/slides/th/java/creating-a-table-on-powerpoint-slide/) ก่อน แล้วจึงใช้ [Aspose.Slides for Java](/slides/th/java/creating-a-table-on-powerpoint-slide/).
+ตารางถูกใช้กันอย่างกว้างขวางเพื่อแสดงข้อมูลบนสไลด์การนำเสนอ บทความนี้จะแสดงวิธีสร้างตารางขนาด 15 x 15 ด้วยขนาดฟอนต์ 10 อย่างโปรแกรมมิงโดยใช้[VSTO 2008](/slides/th/java/creating-a-table-on-powerpoint-slide/)แล้วต่อด้วย[Aspose.Slides for Java](/slides/th/java/creating-a-table-on-powerpoint-slide/).
 
 {{% /alert %}} 
-## **การสร้างตาราง**
-### **VSTO 2008 ตัวอย่าง**
+## **สร้างตาราง**
+### **ตัวอย่าง VSTO 2008**
 ขั้นตอนต่อไปนี้จะเพิ่มตารางลงในสไลด์ Microsoft PowerPoint โดยใช้ VSTO:
 
-1. สร้างงานนำเสนอ
-1. เพิ่มสไลด์เปล่าลงในงานนำเสนอ
+1. สร้างพรีเซนเทชัน
+1. เพิ่มสไลด์ว่างเข้าสู่พรีเซนเทชัน
 1. เพิ่มตารางขนาด 15 x 15 ลงในสไลด์
-1. เพิ่มข้อความในแต่ละเซลล์ของตารางโดยใช้ขนาดฟอนต์ 10
-1. บันทึกงานนำเสนอไปยังดิสก์
+1. เพิ่มข้อความในแต่ละเซลล์ของตารางด้วยขนาดฟอนต์ 10
+1. บันทึกพรีเซนเทชันลงดิสก์
 
 
 
@@ -36,10 +36,10 @@ description: "ย้ายจากการทำงานอัตโนมั
 ### **ตัวอย่าง Aspose.Slides for Java**
 ขั้นตอนต่อไปนี้จะเพิ่มตารางลงในสไลด์ Microsoft PowerPoint โดยใช้ Aspose.Slides:
 
-1. สร้างงานนำเสนอ
+1. สร้างพรีเซนเทชัน
 1. เพิ่มตารางขนาด 15 x 15 ลงในสไลด์แรก
-1. เพิ่มข้อความในแต่ละเซลล์ของตารางโดยใช้ขนาดฟอนต์ 10
-1. เขียนงานนำเสนอไปยังดิสก์
+1. เพิ่มข้อความในแต่ละเซลล์ของตารางด้วยขนาดฟอนต์ 10
+1. เขียนพรีเซนเทชันลงดิสก์
 
 
 

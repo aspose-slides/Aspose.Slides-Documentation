@@ -1,5 +1,5 @@
 ---
-title: Преобразование презентаций в HTML5 на C++
+title: Конвертировать презентации в HTML5 на C++
 linktitle: Презентация в HTML5
 type: docs
 weight: 40
@@ -22,35 +22,34 @@ keywords:
 - Aspose.Slides
 description: "Экспортировать презентации PowerPoint и OpenDocument в отзывчивый HTML5 с помощью Aspose.Slides для C++. Сохранить форматирование, анимацию и интерактивность."
 ---
+## **Обзор**
 
-{{% alert title="Информация" color="info" %}}
-
-В [Aspose.Slides 21.9](/slides/ru/cpp/aspose-slides-for-cpp-21-9-release-notes/) мы реализовали поддержку экспорта в HTML5.
-
-{{% /alert %}} 
-
-Процесс экспорта в HTML5 позволяет преобразовать PowerPoint в HTML. Таким образом, используя собственные шаблоны, вы можете задавать гибкие параметры, определяющие процесс экспорта и полученный HTML, CSS, JavaScript и атрибуты анимации. 
+Эта статья объясняет, как конвертировать презентации PowerPoint в HTML5 с помощью Aspose.Slides. Рассматривается базовый экспорт в HTML5 без веб‑расширений и дополнительных зависимостей, а также параметры управления анимацией фигур и переходами между слайдами. В статье также показан стандартный процесс экспорта PowerPoint в HTML, объясняется, как генерировать вывод HTML5 в режиме просмотра слайдов, и демонстрируется, как включить комментарии в экспортируемый документ, настроив их расположение.
 
 ## **Экспорт PowerPoint в HTML5**
 
-Этот код на C++ показывает, как экспортировать презентацию в HTML5.
+Этот C++ код показывает, как экспортировать презентацию в HTML5.
+
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
-        
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 pres->Save(u"pres.html", SaveFormat::Html5);
 ```
 
-
-{{% alert color="primary" %}} 
-
+{{% alert color="info" %}} 
 В этом случае вы получаете чистый HTML. 
-
 {{% /alert %}}
 
-Вы можете задать параметры анимации фигур и переходов между слайдами следующим образом:
+Вы можете указать параметры для анимации фигур и переходов между слайдами следующим образом:
+
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/Html5Options.h>
+#include <Export/SaveFormat.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
@@ -61,20 +60,22 @@ options->set_AnimateTransitions(true);
 pres->Save(u"pres.html", SaveFormat::Html5, options);
 ```
 
-
 ## **Экспорт PowerPoint в HTML**
 
-Этот пример на C++ демонстрирует стандартный процесс экспорта PowerPoint в HTML:
+Этот C++ демонстрирует стандартный процесс экспорта PowerPoint в HTML:
+
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
-        
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 pres->Save(u"pres.html", SaveFormat::Html);
 ```
 
+В этом случае содержимое презентации отображается через SVG в виде, показанном ниже:
 
-В этом случае содержимое презентации отображается через SVG в виде:
 ```html
 <body>
 <div class="slide" name="slide" id="slideslideIface1">
@@ -85,19 +86,23 @@ pres->Save(u"pres.html", SaveFormat::Html);
 </body>
 ```
 
-
-{{% alert title="Примечание" color="warning" %}} 
-
+{{% alert title="Note" color="warning" %}} 
 При использовании этого метода экспорта PowerPoint в HTML из‑за рендеринга SVG вы не сможете применять стили или анимировать отдельные элементы. 
-
 {{% /alert %}}
 
-## **Экспорт PowerPoint в HTML5 Slide View**
+## **Экспорт PowerPoint в HTML5 с просмотром слайдов**
 
-**Aspose.Slides** позволяет преобразовать презентацию PowerPoint в документ HTML5, в котором слайды отображаются в режиме просмотра слайдов. В этом случае, открыв полученный файл HTML5 в браузере, вы увидите презентацию в режиме просмотра слайдов на веб‑странице. 
+**Aspose.Slides** позволяет конвертировать презентацию PowerPoint в документ HTML5, в котором слайды отображаются в режиме просмотра слайдов. В этом случае, открывая полученный HTML5‑файл в браузере, вы видите презентацию в режиме просмотра слайдов на веб‑странице. 
 
-Этот код на C++ демонстрирует процесс экспорта PowerPoint в HTML5 Slide View:
+Этот C++ код демонстрирует процесс экспорта PowerPoint в HTML5 с просмотром слайдов:
+
 ```c++
+#include <DOM/Presentation.h>
+#include <Export/Html5Options.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 auto html5Options = System::MakeObject<Html5Options>();
 html5Options->set_AnimateShapes(true);
@@ -105,42 +110,53 @@ html5Options->set_AnimateTransitions(true);
 pres->Save(u"HTML5-slide-view.html", SaveFormat::Html5, html5Options);
 ```
 
+## **Преобразование презентации в документ HTML5 с комментариями**
 
-## **Конвертация презентации в документ HTML5 с комментариями**
+Комментарии в PowerPoint — это инструмент, позволяющий пользователям оставлять заметки или обратную связь к слайдам презентации. Они особенно полезны в совместных проектах, где несколько человек могут добавлять свои предложения или замечания к конкретным элементам слайда, не изменяя основной контент. Каждый комментарий отображает имя автора, что упрощает отслеживание, кто оставил замечание.
 
-Комментарии в PowerPoint — это инструмент, позволяющий пользователям оставлять заметки или обратную связь к слайдам презентации. Они особенно полезны в совместных проектах, где несколько человек могут добавить свои предложения или замечания к конкретным элементам слайда, не изменяя основной контент. Каждый комментарий отображает имя автора, что облегчает отслеживание, кто оставил замечание.
+Предположим, у нас есть следующая презентация PowerPoint, сохранённая в файле «sample.pptx».
 
-Предположим, у нас есть презентация PowerPoint, сохранённая в файле «sample.pptx».
+![Два комментария на слайде презентации](two_comments_pptx.png)
 
-![Two comments on the presentation slide](two_comments_pptx.png)
+При конвертации презентации PowerPoint в документ HTML5 вы можете указать, включать ли комментарии из презентации в выходной документ. Для этого необходимо задать параметры отображения комментариев в методе `get_NotesCommentsLayouting` класса [Html5Options](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/html5options/).
 
-При конвертации презентации PowerPoint в документ HTML5 вы можете указать, включать ли комментарии из презентации в результирующий документ. Для этого необходимо задать параметры отображения комментариев в методе `get_NotesCommentsLayouting` класса [Html5Options](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/).
-
-Следующий пример кода преобразует презентацию в документ HTML5 с комментариями, отображаемыми справа от слайдов.
+Следующий пример кода конвертирует презентацию в документ HTML5 с комментариями, отображаемыми справа от слайдов.
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/CommentsPositions.h>
+#include <Export/Html5Options.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto layoutingOptions = MakeObject<NotesCommentsLayoutingOptions>();
+layoutingOptions->set_CommentsPosition(CommentsPositions::Right);
+
 auto html5Options = MakeObject<Html5Options>();
-html5Options->get_NotesCommentsLayouting()->set_CommentsPosition(CommentsPositions::Right);
+html5Options->set_SlidesLayoutOptions(layoutingOptions);
 
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 presentation->Save(u"output.html", SaveFormat::Html5, html5Options);
 presentation->Dispose();
 ```
 
-
 Документ «output.html» показан на изображении ниже.
 
-![The comments in the output HTML5 document](two_comments_html5.png)
+![Комментарии в выходном документе HTML5](two_comments_html5.png)
 
 ## **FAQ**
 
-**Можно ли контролировать, будут ли воспроизводиться анимации объектов и переходы между слайдами в HTML5?**
+### Можно ли управлять тем, будут ли воспроизводиться анимации объектов и переходы между слайдами в HTML5?
 
-Да, HTML5 предоставляет отдельные параметры для включения или отключения [анимации фигур](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animateshapes/) и [переходов между слайдами](https://reference.aspose.com/slides/cpp/aspose.slides.export/html5options/set_animatetransitions/).
+Да, HTML5 предоставляет отдельные параметры для включения или отключения [анимации фигур](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/html5options/set_animateshapes/) и [переходов между слайдами](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/html5options/set_animatetransitions/).
 
-**Поддерживается ли вывод комментариев, и где их можно разместить относительно слайда?**
+### Поддерживается ли вывод комментариев и где их можно разместить относительно слайда?
 
-Да, комментарии могут быть добавлены в HTML5 и расположены (например, справа от слайда) через настройки расположения заметок и комментариев.
+Да, комментарии могут быть добавлены в HTML5 и размещены (например, справа от слайда) с помощью параметров разметки заметок и комментариев.
 
-**Можно ли пропустить ссылки, вызывающие JavaScript, по соображениям безопасности или CSP?**
+### Можно ли пропустить ссылки, вызывающие JavaScript, по соображениям безопасности или CSP?
 
-Да, существует [настройка](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_skipjavascriptlinks/), позволяющая пропускать гиперссылки с вызовами JavaScript при сохранении. Это помогает соответствовать строгим политикам безопасности.
+Да, существует [настройка](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/saveoptions/set_skipjavascriptlinks/), позволяющая пропускать гиперссылки с вызовами JavaScript при сохранении. Это помогает соответствовать строгим политикам безопасности.

@@ -1,5 +1,5 @@
 ---
-title: PPT és PPTX konvertálása PDF-be Java-ban [Haladó funkciók beépítve]
+title: PPT és PPTX konvertálása PDF-be Java-ban [Haladó funkciók beleértve]
 linktitle: PowerPoint PDF-re
 type: docs
 weight: 40
@@ -8,7 +8,7 @@ keywords:
 - PowerPoint konvertálása
 - prezentáció konvertálása
 - PowerPoint PDF-re
-- prezentáció PDF-be
+- prezentáció PDF-re
 - PPT PDF-re
 - PPT konvertálása PDF-be
 - PPTX PDF-re
@@ -23,164 +23,179 @@ keywords:
 - PDF/UA
 - Java
 - Aspose.Slides
-description: "Konvertálja a PowerPoint PPT/PPTX fájlokat magas minőségű, kereshető PDF-ekké Java-ban az Aspose.Slides használatával, gyors kódrészletekkel és haladó konverziós beállításokkal."
+description: "PowerPoint PPT/PPTX konvertálása magas minőségű, kereshető PDF-ekre Java-ban az Aspose.Slides segítségével, gyors kódrészletekkel és haladó konvertálási beállításokkal."
 ---
 ## **Áttekintés**
 
-PowerPoint-prezentációk (PPT, PPTX, ODP stb.) PDF formátumba konvertálása Java-ban több előnyt nyújt, beleértve a különböző eszközök közötti kompatibilitást és a prezentáció elrendezésének és formázásának megőrzését. Ez az útmutató bemutatja, hogyan lehet a prezentációkat PDF-dokumentumokká konvertálni, különböző beállításokkal szabályozni a képek minőségét, belefoglalni a rejtett diákot, jelszóval védeni a PDF-fájlokat, felismerni a betűkészlet helyettesítéseket, kiválasztani a konvertálandó diát, és alkalmazni a megfelelőségi szabványokat a kimeneti dokumentumokra.
+A PowerPoint‑prezentációk (PPT, PPTX, ODP stb.) PDF formátumba konvertálása Java‑ban számos előnnyel jár, többek között különböző eszközökkel való kompatibilitást és a bemutató elrendezésének és formázásának megőrzését. Ez az útmutató bemutatja, hogyan konvertálhatók a prezentációk PDF‑dokumentumokká, hogyan használhatók különféle beállítások a képek minőségének vezérléséhez, hogyan vehetők bele a rejtett diák, hogyan védhetők jelszóval a PDF‑fájlok, hogyan észlelhetők a betűtípus‑helyettesítések, hogyan választhatók ki adott diák a konvertáláshoz, valamint hogyan alkalmazhatók megfelelőségi szabványok a kimeneti dokumentumokra.
 
 ## **PowerPoint PDF konverziók**
 
-Az Aspose.Slides segítségével a következő formátumú prezentációkat konvertálhatja PDF-be:
+Az Aspose.Slides segítségével a következő formátumú prezentációkat konvertálhatja PDF‑be:
 
 * **PPT**
 * **PPTX**
 * **ODP**
 
-Egy prezentáció PDF-be konvertálásához adja át a fájlnevet argumentumként a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) osztálynak, majd mentse a prezentációt PDF-ként a `save` metódussal. A [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) osztály elérhetővé teszi a `save` metódust, amelyet általában a prezentáció PDF-be konvertálására használnak.
+A prezentáció PDF‑be konvertálásához adja át a fájlnevet argumentumként a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) osztálynak, majd mentse a prezentációt PDF‑ként egy `save` metódus segítségével. A [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) osztály biztosítja a `save` metódust, amelyet általában a prezentáció PDF‑be konvertálásához használnak.
 
-{{%  alert title="MEGJEGYZÉS"  color="warning"   %}} 
+{{%  alert title="NOTE"  color="warning"   %}} 
 
-Az Aspose.Slides for Java beilleszti az API-információkat és a verziószámot a kimeneti dokumentumokba. Például egy prezentáció PDF-be konvertálásakor az Aspose.Slides a *Application* mezőbe a "*Aspose.Slides*" értéket, a PDF Producer mezőbe pedig a "*Aspose.Slides v XX.XX*" formátumú értéket helyezi. **Megjegyzés** hogy nem lehet az Aspose.Slides‑nek utasítani, hogy módosítsa vagy eltávolítsa ezeket az információkat a kimeneti dokumentumokból.
+Az Aspose.Slides for Java beilleszti az API‑információkat és a verziószámot a kimeneti dokumentumokba. Például egy prezentáció PDF‑be konvertálásakor az Aspose.Slides az *Application* mezőt az "*Aspose.Slides*" értékkel, a *PDF Producer* mezőt pedig egy "*Aspose.Slides v XX.XX*" formátumú értékkel tölti ki. **Note** hogy nem adhatja meg az Aspose.Slides‑nek, hogy módosítsa vagy távolítsa el ezeket az információkat a kimeneti dokumentumokból.
 
 {{% /alert %}}
 
-Az Aspose.Slides lehetővé teszi a következő konvertálást:
+Az Aspose.Slides lehetővé teszi a következőket:
 
-* Teljes prezentációk PDF-be
-* Kiválasztott diák a prezentációból PDF-be
+* Az egész prezentáció PDF‑be konvertálása
+* Különálló diák exportálása PDF‑be egy prezentációból
 
-Az Aspose.Slides a prezentációkat PDF-be exportálja, biztosítva, hogy a kapott PDF-ek szorosan megfeleljenek az eredeti prezentációknak. Az elemek és attribútumok pontosan megjelennek a konverzió során, többek között:
+Az Aspose.Slides a prezentációkat PDF‑be exportálja, biztosítva, hogy a létrejövő PDF‑ek szorosan megegyezzenek az eredeti prezentációkkal. A konverzió során a következő elemek és attribútumok pontosan jelennek meg:
 
 * Képek
 * Szövegdobozok és alakzatok
 * Szövegformázás
 * Bekezdésformázás
 * Hiperhivatkozások
-* Fejléc és lábléc
-* Felsorolások
+* Fejlécek és láblécek
+* Punktok
 * Táblázatok
 
-## **PowerPoint PDF konvertálása**
+## **Convert PowerPoint to PDF**
 
-Az alapértelmezett PowerPoint-PDF konverziós folyamat az alapbeállításokat használja. Ebben az esetben az Aspose.Slides a megadott prezentációt a maximális minőségi szintekkel rendelkező optimális beállításokkal próbálja PDF-be konvertálni.
+A szabványos PowerPoint‑PDF konverziós folyamat az alapértelmezett opciókat használja. Ebben az esetben az Aspose.Slides megpróbálja a megadott prezentációt PDF‑be konvertálni a legoptimálisabb beállításokkal a legmagasabb minőségi szinteken.
 
-Ez a kód bemutatja, hogyan lehet egy prezentációt (PPT, PPTX, ODP stb.) PDF-be konvertálni:
+Ez a kód megmutatja, hogyan konvertálhat egy prezentációt (PPT, PPTX, ODP stb.) PDF‑be:
+
 ```java
-// Példányosítsa a Presentation osztályt, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
+import com.aspose.slides.*;
+
+// Példányosítja a Presentation osztályt, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
 Presentation presentation = new Presentation("PowerPoint.ppt");
 try {
-    // Mentse a prezentációt PDF-ként.
+    // A prezentáció mentése PDF-ként.
     presentation.save("PPT-to-PDF.pdf", SaveFormat.Pdf);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{%  alert  color="primary"  %}} 
+{{%  alert  color="info"  %}} 
 
-Az Aspose egy ingyenes online **PowerPoint PDF konvertert** kínál, amely bemutatja a prezentáció PDF-be konvertálási folyamatát. Tesztelheti ezt a konvertert a leírt eljárás élő megvalósításához.
+Az Aspose egy ingyenes online [**PowerPoint PDF konverter**](https://products.aspose.app/slides/hu/conversion/ppt-to-pdf) szolgáltatást kínál, amely bemutatja a prezentáció‑PDF konvertálási folyamatot. Ezzel a konverterrel tesztelhet egy élő implementációt a leírt eljárásra.
 
 {{% /alert %}}
 
-## **PowerPoint PDF konvertálása beállításokkal**
+## **Convert PowerPoint to PDF with Options**
 
-Az Aspose.Slides egyedi beállításokat—tulajdonságokat a [PdfOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pdfoptions/) osztályban—biztosít, amelyekkel testreszabhatja a kimeneti PDF-et, jelszóval zárolhatja azt, vagy meghatározhatja, hogyan haladjon a konverziós folyamat.
+Az Aspose.Slides egyedi opciókat biztosít – a [PdfOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pdfoptions/) osztályban található tulajdonságokat – amelyekkel testre szabhatja a kész PDF‑et, jelszóval zárolhatja azt, vagy meghatározhatja, hogyan zajljon a konvertálási folyamat.
 
-### **PowerPoint PDF konvertálása egyéni beállításokkal**
+### **Convert PowerPoint to PDF with Custom Options**
 
-Egyedi konverziós beállítások használatával meghatározhatja a raszteres képek kívánt minőségi beállítását, megadhatja, hogyan kezelje a metafájlokat, beállíthatja a szöveg tömörítési szintjét, konfigurálhatja a képek DPI-jét, és még sok mást.
+Egyedi konvertálási opciók segítségével megadhatja a raszter‑képek kívánt minőségi beállítását, meghatározhatja, hogyan kezelje a metafájlokat, beállíthatja a szöveg tömörítési szintjét, konfigurálhatja a DPI‑t a képekhez, és még sok mást.
 
-Az alábbi kódrészlet bemutatja, hogyan lehet egy PowerPoint-prezentációt PDF-be konvertálni több egyéni beállítással:
+Az alábbi kódrészlet bemutatja, hogyan konvertálhat egy PowerPoint‑prezentációt PDF‑be több egyedi opcióval.
+
 ```java
-// Példányosítsa a PdfOptions osztályt.
+import com.aspose.slides.*;
+
+// A PdfOptions osztály példányosítása.
 PdfOptions pdfOptions = new PdfOptions();
 
-// Állítsa be a JPG képek minőségét.
+// JPG képek minőségének beállítása.
 pdfOptions.setJpegQuality((byte)90);
 
-// Állítsa be a képek DPI-jét.
+// Képek DPI beállítása.
 pdfOptions.setSufficientResolution(300);
 
-// Állítsa be a metafájlok viselkedését.
+// Metafájlok viselkedésének beállítása.
 pdfOptions.setSaveMetafilesAsPng(true);
 
-// Állítsa be a szöveges tartalom tömörítési szintjét.
+// Szöveges tartalom szövegkompressziós szintjének beállítása.
 pdfOptions.setTextCompression(PdfTextCompression.Flate);
 
-// Határozza meg a PDF megfelelőségi módot.
+// PDF megfelelőségi mód meghatározása.
 pdfOptions.setCompliance(PdfCompliance.Pdf15);
 
-// Példányosítsa a Presentation osztályt, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
+// Példányosítja a Presentation osztályt, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
 Presentation presentation = new Presentation("PowerPoint.pptx");
 
 try {
-    // Mentse a prezentációt PDF-dokumentumként.
+    // A prezentáció mentése PDF dokumentumként.
     presentation.save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 } finally {
     presentation.dispose();
 }
 ```
 
-### **PowerPoint PDF konvertálása rejtett diákra**
+### **Convert PowerPoint to PDF with Hidden Slides**
 
-Ha egy prezentáció rejtett diákot tartalmaz, a [setShowHiddenSlides](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pdfoptions/#setShowHiddenSlides-boolean-) metódust a [PdfOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pdfoptions/) osztályból használhatja, hogy a rejtett diák a kimeneti PDF oldalaként szerepeljenek.
+Ha a prezentáció rejtett diákot tartalmaz, a [setShowHiddenSlides](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pdfoptions/#setShowHiddenSlides-boolean-) metódussal a [PdfOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pdfoptions/) osztályból beleveheti a rejtett diákot az eredményül kapott PDF oldalai közé.
 
-Ez a kód bemutatja, hogyan lehet egy PowerPoint-prezentációt PDF-be konvertálni a rejtett diák beillesztésével:
+Ez a kód bemutatja, hogyan konvertálhat egy PowerPoint‑prezentációt PDF‑be rejtett diák belefoglalásával:
+
 ```java
-// Példányosítsa a Presentation osztályt, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
+import com.aspose.slides.*;
+
+// A Presentation osztály példányosítása, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
 Presentation presentation = new Presentation("PowerPoint.pptx");
 try {
-    // Példányosítsa a PdfOptions osztályt.
+    // A PdfOptions osztály példányosítása.
     PdfOptions pdfOptions = new PdfOptions();
 
     // Rejtett diák hozzáadása.
     pdfOptions.setShowHiddenSlides(true);
 
-    // Mentse a prezentációt PDF-ként.
+    // A prezentáció mentése PDF-ként.
     presentation.save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 } finally {
     presentation.dispose();
 }
 ```
 
-### **PowerPoint PDF jelszóval védett konvertálása**
+### **Convert PowerPoint to Password Protected PDF**
 
-Ez a kód bemutatja, hogyan lehet egy PowerPoint-prezentációt jelszóval védett PDF-be konvertálni a [PdfOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pdfoptions/) osztály védelmi paraméterei használatával:
+Ez a kód szemlélteti, hogyan lehet egy PowerPoint‑prezentációt jelszóval védett PDF‑be konvertálni a [PdfOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pdfoptions/) osztály védelmi paramétereinek segítségével:
+
 ```java
-// Példányosítsa a Presentation osztályt, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
+import com.aspose.slides.*;
+
+// A Presentation osztály példányosítása, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
 Presentation presentation = new Presentation("PowerPoint.pptx");
 try {
-    // Példányosítsa a PdfOptions osztályt.
+    // A PdfOptions osztály példányosítása.
     PdfOptions pdfOptions = new PdfOptions();
 
-    // Állítson be PDF jelszót és hozzáférési jogosultságokat.
+    // PDF jelszó és hozzáférési jogosultságok beállítása.
     pdfOptions.setPassword("password");
     pdfOptions.setAccessPermissions(PdfAccessPermissions.PrintDocument | PdfAccessPermissions.HighQualityPrint);
 
-    // Mentse a prezentációt PDF-ként.
+    // A prezentáció mentése PDF-ként.
     presentation.save("PPTX-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 } finally {
     presentation.dispose();
 }
 ```
 
-### **Betűkészlet helyettesítések észlelése**
+### **Detect Font Substitutions**
 
-Az Aspose.Slides a [setWarningCallback](https://reference.aspose.com/slides/hu/java/com.aspose.slides/saveoptions/#setWarningCallback-com.aspose.slides.IWarningCallback-) metódust a [PdfOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pdfoptions/) osztály alatt biztosítja, amely lehetővé teszi a betűkészlet helyettesítések észlelését a prezentáció PDF-be konvertálása során.
+Az Aspose.Slides a [setWarningCallback](https://reference.aspose.com/slides/hu/java/com.aspose.slides/saveoptions/#setWarningCallback-com.aspose.slides.IWarningCallback-) metódust biztosítja a [PdfOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pdfoptions/) osztályban, amely lehetővé teszi a betűtípus‑helyettesítések észlelését a prezentáció‑PDF konvertálási folyamat során.
 
-Ez a kód bemutatja, hogyan lehet betűkészlet helyettesítéseket észlelni:
+Ez a kód mutatja be, hogyan kell észlelni a betűtípus‑helyettesítéseket:
+
 ```java
+import com.aspose.slides.*;
+
 public static void main(String[] args) {
-    // Példányosítsa a Presentation osztályt, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
+    // A Presentation osztály példányosítása, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
     Presentation presentation = new Presentation("sample.pptx");
 
-    // Állítsa be a figyelmeztető visszahívást a PDF beállításokban.
+    // Figyelmeztető visszahívás beállítása a PDF opciókban.
     PdfOptions pdfOptions = new PdfOptions();
     pdfOptions.setWarningCallback(new FontSubstitutionHandler());
 
     try {
-        // Mentse a prezentációt PDF-ként.
+        // A prezentáció mentése PDF-ként.
         presentation.save("output.pdf", SaveFormat.Pdf, pdfOptions);
     } finally {
         presentation.dispose();
@@ -200,87 +215,101 @@ private static class FontSubstitutionHandler implements IWarningCallback {
 }
 ```
 
-{{%  alert color="primary"  %}} 
+{{%  alert color="info"  %}} 
 
-További információért a betűkészlet helyettesítések során a visszahívások fogadásáról a megjelenítési folyamat során, lásd a [Betűkészlet helyettesítések figyelmeztető visszahívásainak lekérése](/slides/hu/java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
+További információkért a betűtípus‑helyettesítésekre vonatkozó figyelmeztető visszahívások fogadásáról lásd a [Getting Warning Callbacks for Fonts Substitution](/slides/hu/java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/) oldalt.
 
-További információért a betűkészlet helyettesítésről, lásd a [Betűkészlet helyettesítés](/slides/hu/java/font-substitution/) cikket.
+A betűtípus‑helyettesítésekkel kapcsolatos további információkért olvassa el a [Font Substitution](/slides/hu/java/font-substitution/) cikket.
 
 {{% /alert %}} 
 
-## **Kiválasztott diák PDF-be konvertálása PowerPointban**
+## **Convert Selected Slides in PowerPoint to PDF**
 
-Ez a kód bemutatja, hogyan lehet csak a PowerPoint-prezentációból kiválasztott diákat PDF-be konvertálni:
+Ez a kód bemutatja, hogyan konvertálhat csak a PowerPoint‑prezentáció bizonyos diáit PDF‑be:
+
 ```java
-// Példányosítsa a Presentation osztályt, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
+import com.aspose.slides.*;
+
+// A Presentation osztály példányosítása, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
 Presentation presentation = new Presentation("PowerPoint.pptx");
 try {
-    // Állítsa be a diák számait tartalmazó tömböt.
+    // Diák számait tartalmazó tömb beállítása.
     int[] slides = { 1, 3 };
 
-    // Mentse a prezentációt PDF-ként.
+    // A prezentáció mentése PDF-ként.
     presentation.save("PPTX-to-PDF.pdf", slides, SaveFormat.Pdf);
 } finally {
     presentation.dispose();
 }
 ```
 
+## **Convert PowerPoint to PDF with Custom Slide Size**
 
-## **PowerPoint PDF konvertálása egyéni dia mérettel**
+Ez a kód demonstrálja, hogyan konvertálhat egy PowerPoint‑prezentációt PDF‑be meghatározott diamérettel:
 
-Ez a kód bemutatja, hogyan lehet egy PowerPoint-prezentációt PDF-be konvertálni egy megadott dia mérettel:
 ```java
+import com.aspose.slides.*;
+
 float slideWidth = 612;
 float slideHeight = 792;
 
-// Példányosítsa a Presentation osztályt, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
+// A Presentation osztály példányosítása, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
 Presentation presentation = new Presentation("SelectedSlides.pptx");
 
-// Hozzon létre egy új prezentációt módosított dia mérettel.
+// Új prezentáció létrehozása módosított dia mérettel.
 Presentation resizedPresentation = new Presentation();
 
 try {
-    // Állítsa be az egyéni dia méretét.
+    // Egyéni dia méret beállítása.
     resizedPresentation.getSlideSize().setSize(slideWidth, slideHeight, SlideSizeScaleType.EnsureFit);
     
-    // Klónozza az első diát az eredeti prezentációból.
+    // Az eredeti prezentáció első diájának klónozása.
     ISlide slide = presentation.getSlides().get_Item(0);
     resizedPresentation.getSlides().insertClone(0, slide);
 
-    // Mentse a méretezett prezentációt PDF-be jegyzetekkel.
-    resizedPresentation.save("PDF_with_notes.pdf", SaveFormat.Pdf);
+    // Az új prezentációval létrehozott üres dia eltávolítása.
+    resizedPresentation.getSlides().removeAt(1);
+
+    // Az átméretezett prezentáció mentése PDF-ként.
+    resizedPresentation.save("PDF_with_custom_slide_size.pdf", SaveFormat.Pdf);
 } finally {
     resizedPresentation.dispose();
     presentation.dispose();
 }
 ```
 
-## **PowerPoint PDF konvertálása jegyzet dián nézetben**
+## **Convert PowerPoint to PDF in Notes Slide View**
 
-Ez a kód bemutatja, hogyan lehet egy PowerPoint-prezentációt PDF-be konvertálni, amely tartalmazza a jegyzeteket:
+Ez a kód bemutatja, hogyan konvertálhat egy PowerPoint‑prezentációt PDF‑be, amely tartalmazza a jegyzeteket:
+
 ```java
-// Példányosítsa a Presentation osztályt, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
+import com.aspose.slides.*;
+
+// A Presentation osztály példányosítása, amely egy PowerPoint vagy OpenDocument fájlt képvisel.
 Presentation presentation = new Presentation("SelectedSlides.pptx");
 try {
-    // Állítsa be a PDF opciókat Jegyzetek elrendezésével.
+    // PDF opciók beállítása jegyzet elrendezéssel.
     NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
     notesOptions.setNotesPosition(NotesPositions.BottomFull);
     PdfOptions pdfOptions = new PdfOptions();
     pdfOptions.setSlidesLayoutOptions(notesOptions);
 
-    // Mentse a prezentációt PDF-be jegyzetekkel.
+    // A prezentáció mentése jegyzetekkel ellátott PDF-be.
     presentation.save("PDF_with_notes.pdf", SaveFormat.Pdf, pdfOptions);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **PDF akadálymentesség és megfelelőségi szabványok**
+## **Accessibility and Compliance Standards for PDF**
 
-Az Aspose.Slides lehetővé teszi egy olyan konverziós eljárás használatát, amely megfelel a [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) szabványnak. Exportálhat egy PowerPoint-dokumentumot PDF-be a következő megfelelőségi szabványok bármelyikével: **PDF/A1a**, **PDF/A1b**, és **PDF/UA**.
+Az Aspose.Slides lehetővé teszi, hogy egy olyan konvertálási eljárást használjon, amely megfelel a [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) előírásainak. A PowerPoint‑dokumentumot PDF‑be exportálhatja a következő megfelelőségi szabványok valamelyikével: **PDF/A1a**, **PDF/A1b**, és **PDF/UA**.
 
-Ez a kód bemutat egy PowerPoint-PDF konverziós folyamatot, amely különböző megfelelőségi szabványok alapján több PDF-et állít elő:
+Ez a kód egy PowerPoint‑PDF konvertálási folyamatot mutat be, amely különböző megfelelőségi szabványok alapján több PDF‑et állít elő:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("pres.pptx");
 try {
     PdfOptions pdfOptions = new PdfOptions();
@@ -298,38 +327,38 @@ try {
 }
 ```
 
-{{% alert title="Megjegyzés" color="warning" %}} 
+{{% alert title="Note" color="warning" %}} 
 
-Az Aspose.Slides támogatja a PDF konverziós műveleteket, lehetővé téve, hogy a PDF-fájlokat népszerű formátumokra konvertálja. Végrehajthatja a [PDF HTML-re](https://products.aspose.com/slides/hu/java/conversion/pdf-to-html/), [PDF képre](https://products.aspose.com/slides/hu/java/conversion/pdf-to-image/), [PDF JPG-re](https://products.aspose.com/slides/hu/java/conversion/pdf-to-jpg/), és a [PDF PNG-re](https://products.aspose.com/slides/hu/java/conversion/pdf-to-png/) konverziókat. Más, speciális formátumokra történő PDF konverziók—[PDF SVG-re](https://products.aspose.com/slides/hu/java/conversion/pdf-to-svg/), [PDF TIFF-re](https://products.aspose.com/slides/hu/java/conversion/pdf-to-tiff/), és [PDF XML-re](https://products.aspose.com/slides/hu/java/conversion/pdf-to-xml/)—szintén támogatottak.
+Az Aspose.Slides támogatja a PDF konvertálási műveleteket, lehetővé téve PDF‑fájlok konvertálását népszerű formátumokba. Elvégezheti a [PDF to HTML](https://products.aspose.com/slides/hu/java/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/hu/java/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/hu/java/conversion/pdf-to-jpg/), és [PDF to PNG](https://products.aspose.com/slides/hu/java/conversion/pdf-to-png/) konverziókat. Egyéb PDF‑konvertálási műveletek speciális formátumokra – [PDF to SVG](https://products.aspose.com/slides/hu/java/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/hu/java/conversion/pdf-to-tiff/), és [PDF to XML](https://products.aspose.com/slides/hu/java/conversion/pdf-to-xml/) – szintén támogatottak.
 
 {{% /alert %}}
 
-> **Megjegyzés:** PDF/UA exportálásakor az Aspose.Slides a komplex grafikákat, például a SmartArt, diagramok és képletek egyetlen ábraként kezeli. Az egyes útvonal elemek nem maradnak meg különálló tartalomként, és artifacts‑ként jelölhetők; alternatív szöveg csak az egész ábrához kerül.
+> **Note:** PDF/UA exportálásakor az Aspose.Slides az olyan összetett grafikákat, mint a SmartArt, diagramok és képletek, egyetlen ábraként kezeli. Az egyedi útvonalelemek nem maradnak meg különálló tartalomként, és előfordulhat, hogy mesterséges elemekként vannak jelölve; a helyettesítő szöveg csak az egész ábrához kerül biztosításra.
 
 ## **GYIK**
 
-**Több PowerPoint fájlt konvertálhatok egyszerre PDF-be?**
+### **Több PowerPoint‑fájlt konvertálhatok PDF‑be tömegesen?**
 
-Igen, az Aspose.Slides támogatja a több PPT vagy PPTX fájl csoportos konvertálását PDF-be. A fájlokon iterálva programozottan alkalmazhatja a konverziós folyamatot.
+Igen, az Aspose.Slides támogatja a több PPT vagy PPTX fájl egyidejű PDF‑be konvertálását. A fájlok között iterálva programozottan alkalmazhatja a konvertálási folyamatot.
 
-**Lehet jelszóval védeni a konvertált PDF-et?**
+### **Lehet jelszóval védeni a konvertált PDF‑et?**
 
-Természetesen. Használja a [PdfOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pdfoptions/) osztályt a jelszó beállításához és a hozzáférési jogosultságok meghatározásához a konverzió során.
+Természetesen. A [PdfOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pdfoptions/) osztály segítségével beállíthat jelszót és meghatározhatja a hozzáférési jogosultságokat a konvertálás során.
 
-**Hogyan lehet a rejtett diákot belefoglalni a PDF-be?**
+### **Hogyan foglalhatom bele a rejtett diákot a PDF‑be?**
 
-Használja a `setShowHiddenSlides` metódust a [PdfOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pdfoptions/) osztályban a rejtett diák belefoglalásához a kimeneti PDF-be.
+Használja a `setShowHiddenSlides` metódust a [PdfOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pdfoptions/) osztályban a rejtett diák eredményül kapott PDF‑be való belefoglalásához.
 
-**Az Aspose.Slides képes magas képminőséget biztosítani a PDF-ben?**
+### **Az Aspose.Slides képes megőrizni a magas képi minőséget a PDF‑ben?**
 
-Igen, a képminőséget a [PdfOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pdfoptions/) osztályban található `setJpegQuality` és `setSufficientResolution` metódusokkal szabályozhatja, így biztosítva a magas minőségű képeket a PDF-ben.
+Igen, az `setJpegQuality` és a `setSufficientResolution` metódusok a [PdfOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pdfoptions/) osztályban lehetővé teszik a képek magas minőségének biztosítását a PDF‑ben.
 
-**Az Aspose.Slides támogatja a PDF/A megfelelőségi szabványokat?**
+### **Az Aspose.Slides támogatja a PDF/A megfelelőségi szabványokat?**
 
-Igen, az Aspose.Slides lehetővé teszi, hogy olyan PDF-eket exportáljon, amelyek megfelelnek a [különféle szabványoknak](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pdfcompliance/), többek között a PDF/A1a, PDF/A1b és PDF/UA szabványoknak, biztosítva, hogy dokumentumai megfeleljenek az akadálymentességi és archiválási követelményeknek.
+Igen, az Aspose.Slides lehetővé teszi, hogy olyan PDF‑eket exportáljon, amelyek megfelelnek a [különböző szabványok](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pdfcompliance/) – például PDF/A1a, PDF/A1b és PDF/UA – követelményeinek, ezáltal biztosítva, hogy dokumentumai megfeleljenek az akadálymentességi és archiválási követelményeknek.
 
 ## **További források**
 
-- [Aspose.Slides for Java dokumentáció](/slides/hu/java/)
-- [Aspose.Slides for Java API referencia](https://reference.aspose.com/slides/hu/java/)
-- [Aspose ingyenes online konvertálók](https://products.aspose.app/slides/hu/conversion)
+- [Aspose.Slides for Java Documentation](/slides/hu/java/)
+- [Aspose.Slides for Java API Reference](https://reference.aspose.com/slides/hu/java/)
+- [Aspose Free Online Converters](https://products.aspose.app/slides/hu/conversion)

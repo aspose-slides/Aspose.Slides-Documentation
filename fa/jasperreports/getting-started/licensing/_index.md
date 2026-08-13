@@ -4,28 +4,26 @@ type: docs
 weight: 50
 url: /fa/jasperreports/licensing/
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Aspose.Slides برای JasperReports به‌صورت ارزیابی رایگان بدون محدودیت زمانی از [صفحه دانلود](https://downloads.aspose.com/slides/fa/jasperreport) در دسترس است. نسخه ارزیابی و نسخه‌های دارای لایسنس محصول از همان لینک دانلود می‌شوند.
+Aspose.Slides برای JasperReports به صورت یک ارزیابی رایگان و بدون محدودیت زمانی از [صفحه دانلود](https://downloads.aspose.com/slides/fa/jasperreport) در دسترس است. نسخهٔ ارزیابی و نسخه‌های دارای مجوز محصول همان دانلود هستند.
 
-وقتی از ارزیابی راضی شدید، [خرید یک لایسنس](https://purchase.aspose.com/buy) را انجام دهید. مطمئن شوید شرایط اشتراک را درک کرده و آن را می‌پذیرید.
+وقتی از ارزیابی راضی شدید، [خرید مجوز](https://purchase.aspose.com/buy) کنید. مطمئن شوید که شرایط اشتراک را می‌فهمید و قبول دارید.
 
-پس از پرداخت سفارش، لایسنس برای دانلود از صفحه سفارش در دسترس است. لایسنس یک فایل XML متنی واضح، دارای امضای دیجیتال است که اطلاعاتی مانند نام مشتری، محصول خریداری‌شده و نوع لایسنس را شامل می‌شود. به هیچ وجه محتوای فایل لایسنس را تغییر ندهید: این کار اعتبار لایسنس را باطل می‌کند.
+مجوز پس از پرداخت سفارش از صفحهٔ سفارش برای دانلود در دسترس است. مجوز یک فایل XML متنی ساده و با امضای دیجیتال است که اطلاعاتی نظیر نام مشتری، محصول خریداری شده و نوع مجوز را شامل می‌شود. محتویات فایل مجوز را به هیچ وجه تغییر ندهید: این کار مجوز را نامعتبر می‌سازد.
 
-لایسنس را در رایانه خود دانلود کنید و به پوشه مناسب کپی کنید (برای مثال پوشه برنامه شما یا **JasperReports\lib**).
+مجوز را به رایانه خود دانلود کرده و در پوشهٔ مناسب قرار دهید (برای مثال پوشهٔ برنامهٔ شما یا **JasperReports\lib**).
+{{% /alert %}}
 
-## **محدودیت نسخه ارزیابی**
+## **محدودیت نسخهٔ ارزیابی**
+نسخهٔ ارزیابی Aspose.Slides (بدون مشخص کردن مجوز) تمام عملکردهای محصول را ارائه می‌دهد، اما (زمانی که ارائه‌های خود را ذخیره می‌کنید) یک واترمارک ارزیابی در مرکز هر اسلاید اضافه می‌کند همان‌طور که در شکل زیر نشان داده شده است:
 
-نسخه ارزیابی Aspose.Slides (بدون لایسنس مشخص) تمام قابلیت‌های محصول را فراهم می‌کند، اما هنگام ذخیره‌سازی ارائه‌ها، یک واترمارک ارزیابی در مرکز هر اسلاید قرار می‌دهد همان‌طور که در شکل زیر نشان داده شده است:
+![todo:image_alt_text](evaluation_watermark.png) 
 
-![متن جایگزین](evaluation_watermark.png) 
+## **اعمال مجوز**
+روش‌های مختلفی برای اعمال مجوز وجود دارد که بسته به این که در JasperReports یا JasperServer کار می‌کنید، متفاوت است.
 
-## **اعمال لایسنس**
-
-چندین روش برای اعمال لایسنس وجود دارد که بسته به اینکه در JasperReports یا JasperServer کار می‌کنید متفاوت است.
-
-### **اعمال لایسنس برای JasperReports**
-
+### **اعمال مجوز برای JasperReports**
 از فراخوانی مستقیم متد setLicense مشابه Aspose.Slides برای Java استفاده کنید.
 
 ```java
@@ -34,20 +32,20 @@ import com.aspose.slides.jasperreports.License;
 ..... 
 
 try {
-    //یک شی استریم حاوی فایل لایسنس را ایجاد کنید
+    //یک شیء جریان شامل فایل مجوز ایجاد کنید
     FileInputStream fstream=new FileInputStream("Aspose.Slides.JasperReports.Developer.lic");
 	
-    //یک نمونه از کلاس License ایجاد کنید
+    //نمونه‌سازی کلاس License
     License license = new License();
 	
-    //لایسنس را از طریق شی استریم تنظیم کنید
+    //مجوز را از طریق شیء جریان تنظیم کنید
     license.setLicense(fstream);
 } catch(Exception ex) {
     System.out.println(ex.toString());
 }
 ```
 
-یا پارامتر exporter را در کد تنظیم کنید.
+یا، پارامتر exporter را در کد تنظیم کنید.
 
 ```java
 ASPptExporter exporter = new ASPptExporter (); 
@@ -55,9 +53,8 @@ exporter.setParameter(ASExporterParameters.PPT_LICENSE, "Aspose.Slides.JasperRep
 exporter.exportReport();
 ```
 
-### **اعمال لایسنس بر روی JasperServer**
-
-پارامتر exporter را در فایل applicationContext.xml تنظیم کنید.
+### **اعمال مجوز در JasperServer**
+پارامتر exporter را در applicationContext.xml تنظیم کنید.
 
 ``` xml
 <bean id="asExportParametersBean" class="com.aspose.slides.jasperreports.ASExportParametersBean">

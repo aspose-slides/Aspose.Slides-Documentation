@@ -25,29 +25,53 @@ keywords:
 - PowerPoint
 - C++
 - Aspose.Slides
-description: "Pelajari cara mengonversi presentasi PowerPoint ke video dalam C++. Temukan contoh kode dan teknik otomatisasi untuk mempermudah alur kerja Anda."
+description: "Pelajari cara mengonversi presentasi PowerPoint ke video dalam C++. Temukan contoh kode dan teknik otomatisasi untuk menyederhanakan alur kerja Anda."
 ---
 ## **Pendahuluan**
 
 Dengan mengonversi presentasi PowerPoint Anda ke video, Anda mendapatkan 
 
-* **Peningkatan aksesibilitas:** Semua perangkat (tanpa memandang platform) dilengkapi pemutar video secara default dibandingkan aplikasi pembuka presentasi, sehingga pengguna lebih mudah membuka atau memutar video.
-* **Jangkauan lebih luas:** Melalui video, Anda dapat menjangkau audiens yang besar dan menargetkan mereka dengan informasi yang mungkin terasa membosankan dalam presentasi. Sebagian besar survei dan statistik menunjukkan bahwa orang menonton dan mengonsumsi video lebih banyak dibandingkan bentuk konten lain, dan mereka umumnya lebih menyukai konten tersebut.
+* **Peningkatan aksesibilitas:** Semua perangkat (tanpa memandang platform) secara default dilengkapi pemutar video dibandingkan aplikasi pembuka presentasi, sehingga pengguna lebih mudah membuka atau memutar video.
+* **Jangkauan lebih luas:** Dengan video, Anda dapat menjangkau audiens yang besar dan menargetkan mereka dengan informasi yang mungkin terasa membosankan dalam presentasi. Sebagian besar survei dan statistik menunjukkan bahwa orang menonton dan mengonsumsi video lebih banyak daripada bentuk konten lain, dan mereka umumnya lebih menyukai konten tersebut.
 
-Pada [Aspose.Slides 22.11](https://docs.aspose.com/slides/id/cpp/aspose-slides-for-cpp-22-11-release-notes/), kami menambahkan dukungan untuk konversi presentasi ke video. 
+Dalam [Aspose.Slides 22.11](https://docs.aspose.com/slides/id/cpp/aspose-slides-for-cpp-22-11-release-notes/), kami menambahkan dukungan untuk konversi presentasi ke video. 
 
 * Gunakan Aspose.Slides untuk menghasilkan sekumpulan frame (dari slide presentasi) yang sesuai dengan FPS tertentu (frame per detik)
 * Gunakan utilitas pihak ketiga seperti `ffmpeg` untuk membuat video berdasarkan frame-frame tersebut.
 
-## **Mengonversi Presentasi PowerPoint ke Video**
+## **Konversi Presentasi PowerPoint ke Video**
 
 1. Unduh ffmpeg [di sini](https://ffmpeg.org/download.html).
 2. Tambahkan path ke `ffmpeg.exe` ke variabel lingkungan `PATH`.
 3. Jalankan kode konversi PowerPoint ke video.
 
-Kode C++ ini menunjukkan cara mengonversi sebuah presentasi (yang berisi gambar dan dua efek animasi) ke video:
+Kode C++ ini memperlihatkan cara mengonversi presentasi (yang berisi gambar dan dua efek animasi) menjadi video:
 
 ```c++
+#include <DOM/Animation/EffectPresetClassType.h>
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/FramesStream/FrameTickEventArgs.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
+#include <Export/FramesStream/PresentationPlayer.h>
+#include <IImage.h>
+#include <system/diagnostics/process.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+
 void OnFrameTick(System::SharedPtr<PresentationPlayer> sender, System::SharedPtr<FrameTickEventArgs> args)
 {
     System::String fileName = System::String::Format(u"frame_{0}.png", sender->get_FrameIndex());
@@ -59,7 +83,7 @@ void Run()
     auto presentation = System::MakeObject<Presentation>();
     auto slide = presentation->get_Slide(0);
 
-    // Menambahkan bentuk smile dan kemudian memberi animasi padanya
+    // Menambahkan bentuk senyum dan kemudian memberi animasi padanya
     System::SharedPtr<IAutoShape> smile = slide->get_Shapes()->AddAutoShape(ShapeType::SmileyFace, 110.0f, 20.0f, 500.0f, 500.0f);
     auto sequence = slide->get_Timeline()->get_MainSequence();
     System::SharedPtr<IEffect> effectIn = sequence->AddEffect(smile, EffectType::Fly, EffectSubtype::TopLeft, EffectTriggerType::AfterPrevious);
@@ -76,7 +100,7 @@ void Run()
 
     const System::String ffmpegParameters = System::String::Format(
         u"-loglevel {0} -framerate {1} -i {2} -y -c:v {3} -pix_fmt {4} {5}",
-        u"warning", m_fps, "frame_%d.png", u"libx264", u"yuv420p", "video.mp4");
+        u"warning", fps, u"frame_%d.png", u"libx264", u"yuv420p", u"video.mp4");
     auto ffmpegProcess = System::Diagnostics::Process::Start(u"ffmpeg", ffmpegParameters);
     ffmpegProcess->WaitForExit();
 }
@@ -86,16 +110,32 @@ void Run()
 
 Anda dapat menerapkan animasi pada objek di slide dan menggunakan transisi antar slide.
 
-{{% alert color="primary" %}} 
-Anda mungkin ingin melihat artikel berikut: [PowerPoint Animation](https://docs.aspose.com/slides/id/cpp/powerpoint-animation/), [Shape Animation](https://docs.aspose.com/slides/id/cpp/shape-animation/), dan [Shape Effect](https://docs.aspose.com/slides/id/cpp/shape-effect/).
+{{% alert color="info" %}} 
+
+Anda mungkin ingin melihat artikel-artikel ini: [Animasi PowerPoint](https://docs.aspose.com/slides/id/cpp/powerpoint-animation/), [Animasi Bentuk](https://docs.aspose.com/slides/id/cpp/shape-animation/), dan [Efek Bentuk](https://docs.aspose.com/slides/id/cpp/shape-effect/).
+
 {{% /alert %}} 
 
-Animasi dan transisi membuat tayangan slide lebih menarik dan menarik—dan hal yang sama berlaku untuk video. Mari tambahkan slide lain dan transisi ke kode untuk presentasi sebelumnya:
+Animasi dan transisi membuat slideshow lebih menarik dan menarik—dan hal yang sama berlaku untuk video. Mari tambahkan slide dan transisi lain ke kode untuk presentasi sebelumnya:
 
 ```c++
-// Menambahkan bentuk smile dan memberi animasi padanya
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideShowTransition.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideShowTransition/TransitionType.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::SlideShow;
 
-// ...
+// Menambahkan bentuk senyum dan memberi animasi seperti yang ditunjukkan di atas
+auto presentation = System::MakeObject<Presentation>();
 
 // Menambahkan slide baru dan transisi animasi
 
@@ -114,9 +154,37 @@ fillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Indigo()
 newSlide->get_SlideShowTransition()->set_Type(TransitionType::Push);
 ```
 
-Aspose.Slides juga mendukung animasi untuk teks. Jadi kami memberi animasi pada paragraf di objek, yang akan muncul satu demi satu (dengan jeda satu detik):
+Aspose.Slides juga mendukung animasi untuk teks. Jadi kami menganimasi paragraf pada objek, yang akan muncul satu per satu (dengan jeda satu detik):
 
 ```c++
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/FramesStream/FrameTickEventArgs.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
+#include <Export/FramesStream/PresentationPlayer.h>
+#include <IImage.h>
+#include <system/diagnostics/process.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+
 void OnFrameTick(System::SharedPtr<PresentationPlayer> sender, System::SharedPtr<FrameTickEventArgs> args)
 {
     System::String fileName = System::String::Format(u"frame_{0}.png", sender->get_FrameIndex());
@@ -162,13 +230,13 @@ void Run()
 
     auto animationsGenerator = System::MakeObject<PresentationAnimationsGenerator>(presentation);
     auto player = System::MakeObject<PresentationPlayer>(animationsGenerator, fps);
-    
+
     player->FrameTick += OnFrameTick;
     animationsGenerator->Run(presentation->get_Slides());
 
     const System::String ffmpegParameters = System::String::Format(
         u"-loglevel {0} -framerate {1} -i {2} -y -c:v {3} -pix_fmt {4} {5}",
-        u"warning", m_fps, "frame_%d.png", u"libx264", u"yuv420p", "video.mp4");
+        u"warning", fps, u"frame_%d.png", u"libx264", u"yuv420p", u"video.mp4");
     auto ffmpegProcess = System::Diagnostics::Process::Start(u"ffmpeg", ffmpegParameters);
     ffmpegProcess->WaitForExit();
 }
@@ -176,29 +244,50 @@ void Run()
 
 ## **Kelas Konversi Video**
 
-Untuk memungkinkan Anda melakukan tugas konversi PowerPoint ke video, Aspose.Slides menyediakan kelas [PresentationAnimationsGenerator](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.export.presentation_animations_generator/) dan [PresentationPlayer](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.export.presentation_player/).
+Untuk memungkinkan Anda melakukan tugas konversi PowerPoint ke video, Aspose.Slides menyediakan kelas [PresentationAnimationsGenerator](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.export.presentation_animations_generator/) dan [PresentationPlayer](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.export.presentation_player/) .
 
-PresentationAnimationsGenerator memungkinkan Anda mengatur ukuran frame untuk video (yang akan dibuat nanti) melalui konstruktornya. Jika Anda memberikan instance presentasi, `Presentation.SlideSize` akan digunakan dan ia menghasilkan animasi yang digunakan oleh [PresentationPlayer](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.export.presentation_player/).
+PresentationAnimationsGenerator memungkinkan Anda mengatur ukuran frame untuk video (yang akan dibuat kemudian) melalui konstruktornya. Jika Anda memberikan instance presentasi, `Presentation.SlideSize` akan digunakan dan ia menghasilkan animasi yang digunakan oleh [PresentationPlayer](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.export.presentation_player/) .
 
-Saat animasi dihasilkan, sebuah event `NewAnimation` dibuat untuk setiap animasi berikutnya, yang memiliki parameter [IPresentationAnimationPlayer](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.export.i_presentation_animation_player/). Parameter tersebut adalah kelas yang mewakili pemutar untuk animasi terpisah.
+Ketika animasi dihasilkan, sebuah event `NewAnimation` dibuat untuk setiap animasi berikutnya, yang memiliki parameter [IPresentationAnimationPlayer](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.export.i_presentation_animation_player/). Kelas tersebut mewakili pemutar untuk animasi terpisah.
 
-Untuk bekerja dengan [IPresentationAnimationPlayer](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.export.i_presentation_animation_player/), properti [get_Duration](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.export.i_presentation_animation_player#a29881d28eb42f345ab130d52f05a2d91) (durasi penuh animasi) dan metode [SetTimePosition](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.export.i_presentation_animation_player#a29cb11a73e3ad5f645626fcee3bc4ea0) digunakan. Setiap posisi animasi diatur dalam rentang *0 hingga duration*, dan kemudian metode `GetFrame` akan mengembalikan Bitmap yang sesuai dengan keadaan animasi pada saat itu.
+Untuk bekerja dengan [IPresentationAnimationPlayer](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.export.i_presentation_animation_player/), properti [get_Duration](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.export.i_presentation_animation_player#a29881d28eb42f345ab130d52f05a2d91) (durasi penuh animasi) dan metode [SetTimePosition](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.export.i_presentation_animation_player#a29cb11a73e3ad5f645626fcee3bc4ea0) digunakan. Setiap posisi animasi diatur dalam rentang *0 hingga durasi*, dan kemudian metode `GetFrame` akan mengembalikan Bitmap yang sesuai dengan keadaan animasi pada saat itu.
 
 ```c++
+#include <DOM/Animation/EffectPresetClassType.h>
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/FramesStream/IPresentationAnimationPlayer.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
+#include <IImage.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+
 void OnNewAnimation(System::SharedPtr<IPresentationAnimationPlayer> animationPlayer)
 {
     System::Console::WriteLine(u"Total animation duration: {0}", animationPlayer->get_Duration());
 
     animationPlayer->SetTimePosition(0);
     // keadaan animasi awal
-    System::SharedPtr<System::Drawing::Bitmap> bitmap = animationPlayer->GetFrame();
+    System::SharedPtr<IImage> image = animationPlayer->GetFrame();
     // bitmap keadaan animasi awal
 
     animationPlayer->SetTimePosition(animationPlayer->get_Duration());
     // keadaan akhir animasi
-    System::SharedPtr<System::Drawing::Bitmap> lastBitmap = animationPlayer->GetFrame();
+    System::SharedPtr<IImage> lastImage = animationPlayer->GetFrame();
     // frame terakhir animasi
-    lastBitmap->Save(u"last.png");
+    lastImage->Save(u"last.png");
 }
 
 void Run()
@@ -206,7 +295,7 @@ void Run()
     auto presentation = System::MakeObject<Presentation>();
     auto slide = presentation->get_Slide(0);
 
-    // Menambahkan bentuk smile dan memberi animasi padanya
+    // Menambahkan bentuk senyum dan memberi animasi padanya
     System::SharedPtr<IAutoShape> smile = slide->get_Shapes()->AddAutoShape(ShapeType::SmileyFace, 110.0f, 20.0f, 500.0f, 500.0f);
     auto sequence = slide->get_Timeline()->get_MainSequence();
     System::SharedPtr<IEffect> effectIn = sequence->AddEffect(smile, EffectType::Fly, EffectSubtype::TopLeft, EffectTriggerType::AfterPrevious);
@@ -219,9 +308,19 @@ void Run()
 }
 ```
 
-Untuk membuat semua animasi dalam sebuah presentasi diputar bersamaan, kelas [PresentationPlayer](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.export.presentation_player/) digunakan. Kelas ini mengambil instance [PresentationAnimationsGenerator](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.export.presentation_animations_generator/) dan FPS untuk efek dalam konstruktornya, lalu memanggil event `FrameTick` untuk semua animasi agar diputar:
+Untuk membuat semua animasi dalam satu presentasi diputar sekaligus, kelas [PresentationPlayer](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.export.presentation_player/) digunakan. Kelas ini menerima instance [PresentationAnimationsGenerator](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.export.presentation_animations_generator/) dan FPS untuk efek dalam konstruktornya, lalu memanggil event `FrameTick` untuk semua animasi agar diputar:
 
 ```c++
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/FramesStream/FrameTickEventArgs.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
+#include <Export/FramesStream/PresentationPlayer.h>
+#include <IImage.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 void OnFrameTick(System::SharedPtr<PresentationPlayer> sender, System::SharedPtr<FrameTickEventArgs> args)
 {
     System::String fileName = System::String::Format(u"frame_{0}.png", sender->get_FrameIndex());
@@ -239,7 +338,7 @@ void Run()
 }
 ```
 
-Kemudian frame yang dihasilkan dapat dikompilasi menjadi video. Lihat bagian [Convert PowerPoint to Video](https://docs.aspose.com/slides/id/cpp/convert-powerpoint-to-video/#convert-powerpoint-to-video).
+Kemudian frame yang dihasilkan dapat dikompilasi menjadi video. Lihat bagian [Konversi PowerPoint ke Video](https://docs.aspose.com/slides/id/cpp/convert-powerpoint-to-video/#convert-powerpoint-to-video).
 
 ## **Animasi dan Efek yang Didukung**
 
@@ -247,76 +346,76 @@ Kemudian frame yang dihasilkan dapat dikompilasi menjadi video. Lihat bagian [Co
 
 | Tipe Animasi | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Appear** | ![not supported](x.png) | ![supported](v.png) |
-| **Fade** | ![supported](v.png) | ![supported](v.png) |
-| **Fly In** | ![supported](v.png) | ![supported](v.png) |
-| **Float In** | ![supported](v.png) | ![supported](v.png) |
-| **Split** | ![supported](v.png) | ![supported](v.png) |
-| **Wipe** | ![supported](v.png) | ![supported](v.png) |
-| **Shape** | ![supported](v.png) | ![supported](v.png) |
-| **Wheel** | ![supported](v.png) | ![supported](v.png) |
-| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
-| **Grow & Turn** | ![not supported](x.png) | ![supported](v.png) |
-| **Zoom** | ![supported](v.png) | ![supported](v.png) |
-| **Swivel** | ![supported](v.png) | ![supported](v.png) |
-| **Bounce** | ![supported](v.png) | ![supported](v.png) |
+| **Muncul** | ![tidak didukung](x.png) | ![didukung](v.png) |
+| **Memudar** | ![didukung](v.png) | ![didukung](v.png) |
+| **Terbang Masuk** | ![didukung](v.png) | ![didukung](v.png) |
+| **Mengapung Masuk** | ![didukung](v.png) | ![didukung](v.png) |
+| **Terpisah** | ![didukung](v.png) | ![didukung](v.png) |
+| **Usap** | ![didukung](v.png) | ![didukung](v.png) |
+| **Bentuk** | ![didukung](v.png) | ![didukung](v.png) |
+| **Roda** | ![didukung](v.png) | ![didukung](v.png) |
+| **Bar Acak** | ![didukung](v.png) | ![didukung](v.png) |
+| **Tumbuh & Berputar** | ![tidak didukung](x.png) | ![didukung](v.png) |
+| **Zum** | ![didukung](v.png) | ![didukung](v.png) |
+| **Putar** | ![didukung](v.png) | ![didukung](v.png) |
+| **Melompat** | ![didukung](v.png) | ![didukung](v.png) |
 
 **Penekanan**:
 
 | Tipe Animasi | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Pulse** | ![not supported](x.png) | ![supported](v.png) |
-| **Color Pulse** | ![not supported](x.png) | ![supported](v.png) |
-| **Teeter** | ![supported](v.png) | ![supported](v.png) |
-| **Spin** | ![supported](v.png) | ![supported](v.png) |
-| **Grow/Shrink** | ![not supported](x.png) | ![supported](v.png) |
-| **Desaturate** | ![not supported](x.png) | ![supported](v.png) |
-| **Darken** | ![not supported](x.png) | ![supported](v.png) |
-| **Lighten** | ![not supported](x.png) | ![supported](v.png) |
-| **Transparency** | ![not supported](x.png) | ![supported](v.png) |
-| **Object Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Complementary Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Line Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Denyar** | ![tidak didukung](x.png) | ![didukung](v.png) |
+| **Denyar Warna** | ![tidak didukung](x.png) | ![didukung](v.png) |
+| **Goyang** | ![didukung](v.png) | ![didukung](v.png) |
+| **Berputar** | ![didukung](v.png) | ![didukung](v.png) |
+| **Tumbuh/Menciut** | ![tidak didukung](x.png) | ![didukung](v.png) |
+| **Desaturasi** | ![tidak didukung](x.png) | ![didukung](v.png) |
+| **Gelap** | ![tidak didukung](x.png) | ![didukung](v.png) |
+| **Terang** | ![tidak didukung](x.png) | ![didukung](v.png) |
+| **Transparansi** | ![tidak didukung](x.png) | ![didukung](v.png) |
+| **Warna Objek** | ![tidak didukung](x.png) | ![didukung](v.png) |
+| **Warna Komplemen** | ![tidak didukung](x.png) | ![didukung](v.png) |
+| **Warna Garis** | ![tidak didukung](x.png) | ![didukung](v.png) |
+| **Warna Isi** | ![tidak didukung](x.png) | ![didukung](v.png) |
 
 **Keluar**:
 
 | Tipe Animasi | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Disappear** | ![not supported](x.png) | ![supported](v.png) |
-| **Fade** | ![supported](v.png) | ![supported](v.png) |
-| **Fly Out** | ![supported](v.png) | ![supported](v.png) |
-| **Float Out** | ![supported](v.png) | ![supported](v.png) |
-| **Split** | ![supported](v.png) | ![supported](v.png) |
-| **Wipe** | ![supported](v.png) | ![supported](v.png) |
-| **Shape** | ![supported](v.png) | ![supported](v.png) |
-| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
-| **Shrink & Turn** | ![not supported](x.png) | ![supported](v.png) |
-| **Zoom** | ![supported](v.png) | ![supported](v.png) |
-| **Swivel** | ![supported](v.png) | ![supported](v.png) |
-| **Bounce** | ![supported](v.png) | ![supported](v.png) |
+| **Menghilang** | ![tidak didukung](x.png) | ![didukung](v.png) |
+| **Memudar** | ![didukung](v.png) | ![didukung](v.png) |
+| **Terbang Keluar** | ![didukung](v.png) | ![didukung](v.png) |
+| **Mengapung Keluar** | ![didukung](v.png) | ![didukung](v.png) |
+| **Terpisah** | ![didukung](v.png) | ![didukung](v.png) |
+| **Usap** | ![didukung](v.png) | ![didukung](v.png) |
+| **Bentuk** | ![didukung](v.png) | ![didukung](v.png) |
+| **Bar Acak** | ![didukung](v.png) | ![didukung](v.png) |
+| **Menciut & Berputar** | ![tidak didukung](x.png) | ![didukung](v.png) |
+| **Zum** | ![didukung](v.png) | ![didukung](v.png) |
+| **Putar** | ![didukung](v.png) | ![didukung](v.png) |
+| **Melompat** | ![didukung](v.png) | ![didukung](v.png) |
 
-**Jalur Gerakan**:
+**Jalur Gerak**:
 
 | Tipe Animasi | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Lines** | ![supported](v.png) | ![supported](v.png) |
-| **Arcs** | ![supported](v.png) | ![supported](v.png) |
-| **Turns** | ![supported](v.png) | ![supported](v.png) |
-| **Shapes** | ![supported](v.png) | ![supported](v.png) |
-| **Loops** | ![supported](v.png) | ![supported](v.png) |
-| **Custom Path** | ![supported](v.png) | ![supported](v.png) |
+| **Garis** | ![didukung](v.png) | ![didukung](v.png) |
+| **Busur** | ![didukung](v.png) | ![didukung](v.png) |
+| **Putaran** | ![didukung](v.png) | ![didukung](v.png) |
+| **Bentuk** | ![didukung](v.png) | ![didukung](v.png) |
+| **Loop** | ![didukung](v.png) | ![didukung](v.png) |
+| **Jalur Kustom** | ![didukung](v.png) | ![didukung](v.png) |
 
 ## **FAQ**
 
-**Apakah memungkinkan mengonversi presentasi yang dilindungi kata sandi?**
+### Apakah memungkinkan mengonversi presentasi yang dilindungi kata sandi?
 
 Ya, Aspose.Slides memungkinkan bekerja dengan [presentasi yang dilindungi kata sandi](/slides/id/cpp/password-protected-presentation/). Saat memproses file tersebut, Anda harus menyediakan kata sandi yang benar agar perpustakaan dapat mengakses konten presentasi.
 
-**Apakah Aspose.Slides mendukung penggunaan dalam solusi cloud?**
+### Apakah Aspose.Slides mendukung penggunaan dalam solusi cloud?
 
-Ya, Aspose.Slides dapat diintegrasikan ke dalam aplikasi dan layanan cloud. Perpustakaan ini dirancang untuk bekerja di lingkungan server, memastikan kinerja tinggi dan skalabilitas untuk pemrosesan batch berkas.
+Ya, Aspose.Slides dapat diintegrasikan ke dalam aplikasi dan layanan cloud. Perpustakaan ini dirancang untuk bekerja pada lingkungan server, memastikan kinerja tinggi dan skalabilitas untuk pemrosesan batch file.
 
-**Apakah ada batasan ukuran untuk presentasi selama konversi?**
+### Apakah ada batasan ukuran untuk presentasi selama konversi?
 
-Aspose.Slides mampu menangani presentasi dengan ukuran apa pun secara praktis. Namun, ketika bekerja dengan berkas yang sangat besar, sumber daya sistem tambahan mungkin diperlukan, dan terkadang disarankan untuk mengoptimalkan presentasi guna meningkatkan kinerja.
+Aspose.Slides mampu menangani presentasi dengan ukuran apa pun secara praktis. Namun, saat bekerja dengan file yang sangat besar, mungkin diperlukan sumber daya sistem tambahan, dan terkadang disarankan untuk mengoptimalkan presentasi guna meningkatkan kinerja.

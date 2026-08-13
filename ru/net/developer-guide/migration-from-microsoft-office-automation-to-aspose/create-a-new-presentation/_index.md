@@ -1,6 +1,6 @@
 ---
-title: Создание новых презентаций с помощью VSTO и Aspose.Slides для .NET
-linktitle: Создание новой презентации
+title: Создание новых презентаций с использованием VSTO и Aspose.Slides для .NET
+linktitle: Создать новую презентацию
 type: docs
 weight: 10
 url: /ru/net/create-a-new-presentation/
@@ -15,60 +15,65 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Перейдите от автоматизации Microsoft Office к Aspose.Slides для .NET и создавайте новые презентации PowerPoint (PPT, PPTX) на C# с чистым, надёжным кодом."
+description: "Перейдите с автоматизации Microsoft Office на Aspose.Slides для .NET и создавайте новые презентации PowerPoint (PPT, PPTX) на C# с чистым, надёжным кодом."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
+VSTO был разработан, чтобы позволить разработчикам создавать приложения, которые могут работать внутри Microsoft Office. VSTO основан на COM, но упакован в объект .NET, чтобы его можно было использовать в приложениях .NET. VSTO требует поддержки .NET Framework, а также среды выполнения Microsoft Office, основанной на CLR. Хотя его можно использовать для создания надстроек Microsoft Office, использовать его в качестве серверного компонента почти невозможно. У него также есть серьёзные проблемы с развертыванием.
 
-VSTO был разработан, чтобы позволить разработчикам создавать приложения, которые могут работать внутри Microsoft Office. VSTO основан на COM, но обёрнут в объект .NET, чтобы его можно было использовать в приложениях .NET. VSTO требует поддержки .NET Framework, а также CLR‑базированного runtime Microsoft Office. Хотя его можно использовать для создания надстроек Microsoft Office, почти невозможно использовать его как серверный компонент. Также у него есть серьёзные проблемы с развертыванием.
-
-Aspose.Slides for .NET — это компонент, который можно использовать для манипуляции презентациями Microsoft PowerPoint, так же как и VSTO, но он имеет несколько преимуществ:
-
-- Aspose.Slides содержит только управляемый код и не требует установки runtime Microsoft Office.
+- Aspose.Slides содержит только управляемый код и не требует установки среды выполнения Microsoft Office.
 - Его можно использовать как клиентский компонент, так и как серверный компонент.
-- Развёртывание упрощено, так как Aspose.Slides находится в единой DLL.
+- Развёртывание простое, потому что Aspose.Slides находится в едином DLL.
 
 {{% /alert %}} 
 ## **Создание презентации**
-Ниже приведены два примера кода, которые демонстрируют, как VSTO и Aspose.Slides for .NET могут быть использованы для достижения одной и той же цели. Первый пример — это [VSTO](/slides/ru/net/create-a-new-presentation/); [второй пример](/slides/ru/net/create-a-new-presentation/) использует Aspose.Slides.
+Первый пример – [VSTO](/slides/ru/net/create-a-new-presentation/); [второй пример](/slides/ru/net/create-a-new-presentation/) использует Aspose.Slides.
 ### **Пример VSTO**
 **Вывод VSTO** 
 
 ![todo:image_alt_text](create-a-new-presentation_1.png)
+
+
+
 ```c#
-//Примечание: PowerPoint — это пространство имен, которое было определено выше так
+//Примечание: PowerPoint — это пространство имён, которое было определено выше следующим образом
 //using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 
 //Создать презентацию
 PowerPoint.Presentation pres = Globals.ThisAddIn.Application
 	.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 
-//Получить макет титульного слайда
+//Get the title slide layout
 PowerPoint.CustomLayout layout = pres.SlideMaster.
 	CustomLayouts[PowerPoint.PpSlideLayout.ppLayoutTitle];
 
-//Добавить титульный слайд.
+//Add a title slide.
 PowerPoint.Slide slide = pres.Slides.AddSlide(1, layout);
 
-//Установить текст заголовка
+//Set the title text
 slide.Shapes.Title.TextFrame.TextRange.Text = "Slide Title Heading";
 
-//Установить текст подзаголовка
+//Set the sub title text
 slide.Shapes[2].TextFrame.TextRange.Text = "Slide Title Sub-Heading";
 
-//Записать вывод на диск
+//Write the output to disk
 pres.SaveAs("c:\\outVSTO.ppt",
 	PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,
 	Microsoft.Office.Core.MsoTriState.msoFalse);
 ```
 
 
-
-### **Пример Aspose.Slides for .NET**
+### **Пример Aspose.Slides для .NET**
 **Вывод из Aspose.Slides** 
 
 ![todo:image_alt_text](create-a-new-presentation_2.png)
+
+
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 //Создать презентацию
 Presentation pres = new Presentation();
 
@@ -83,5 +88,5 @@ ISlide slide = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
 ((IAutoShape)slide.Shapes[1]).TextFrame.Text = "Slide Title Sub-Heading";
 
 //Записать вывод на диск
-pres.Save("c:\\data\\outAsposeSlides.pptx", SaveFormat.Ppt);
+pres.Save("outAsposeSlides.pptx", SaveFormat.Ppt);
 ```

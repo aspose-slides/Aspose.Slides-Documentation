@@ -1,6 +1,6 @@
 ---
-title: Z​arządzanie listami wypunktowanymi i numerowanymi w prezentacjach w C++
-linktitle: Z​arządzanie listami
+title: Zarządzanie listami wypunktowanymi i numerowanymi w prezentacjach w C++
+linktitle: Zarządzaj listami
 type: docs
 weight: 70
 url: /pl/cpp/manage-lists/
@@ -10,7 +10,7 @@ keywords:
 - lista numerowana
 - symbol wypunktowania
 - wypunktowanie obrazkowe
-- niestandardowe wypunktowanie
+- własne wypunktowanie
 - lista wielopoziomowa
 - utwórz wypunktowanie
 - dodaj wypunktowanie
@@ -24,25 +24,44 @@ description: "Dowiedz się, jak tworzyć i formatować listy wypunktowane, obraz
 ---
 ## **Przegląd**
 
-Aspose.Slides for C++ umożliwia tworzenie i formatowanie list wypunktowanych i numerowanych w prezentacjach PowerPoint i OpenDocument. Element listy jest akapitem, którego ustawienia wypunktowania są kontrolowane poprzez formatowanie akapitu.
+Aspose.Slides for C++ umożliwia tworzenie i formatowanie list wypunktowanych oraz numerowanych w prezentacjach PowerPoint i OpenDocument. Element listy to akapit, którego ustawienia wypunktowania są kontrolowane za pośrednictwem formatu akapitu.
 
-Użyj metody [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraph/get_paragraphformat/) , aby uzyskać dostęp do ustawień listy na poziomie akapitu. Głównym punktem wejścia jest [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/get_bullet/) , który zwraca obiekt [IBulletFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibulletformat/) . Za pomocą tego obiektu możesz ustawić typ wypunktowania, symbol, obraz, kolor, rozmiar, styl numeracji oraz numer początkowy.
+Użyj metody [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraph/get_paragraphformat/), aby uzyskać dostęp do ustawień listy na poziomie akapitu. Głównym punktem wejścia jest [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/get_bullet/), który zwraca obiekt [IBulletFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibulletformat/). Dzięki temu obiektowi możesz ustawić typ wypunktowania, symbol, obraz, kolor, rozmiar, styl numeracji oraz liczbę początkową.
 
 Ten artykuł pokazuje, jak:
 
-- utworzyć listę wypunktowaną z własnym symbolem
+- utworzyć listę wypunktowaną z niestandardowym symbolem
 - utworzyć wypunktowanie obrazkowe
-- utworzyć listę wielopoziomową, ustawiając głębokość akapitu
+- utworzyć listę wielopoziomową poprzez ustawienie głębokości akapitu
 - utworzyć listę numerowaną
-- sprawdzić i zmienić formatowanie listy w istniejącej prezentacji
+- przeglądać i zmieniać formatowanie listy w istniejącej prezentacji
 
 ## **Utworzenie listy wypunktowanej**
 
-Aby utworzyć listę wypunktowaną, dodaj obiekty [Paragraph](https://reference.aspose.com/slides/pl/cpp/aspose.slides/paragraph/) do [ITextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/) i ustaw [IBulletFormat::set_Type](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibulletformat/set_type/) na [BulletType::Symbol](https://reference.aspose.com/slides/pl/cpp/aspose.slides/bullettype/) . Następnie możesz ustawić [IBulletFormat::set_Char](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibulletformat/set_char/) , [IBulletFormat::get_Color](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibulletformat/get_color/) oraz [IBulletFormat::set_Height](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibulletformat/set_height/) , aby kontrolować wygląd wypunktowania.
+Aby utworzyć listę wypunktowaną, dodaj obiekty [Paragraph](https://reference.aspose.com/slides/pl/cpp/aspose.slides/paragraph/) do [ITextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/) i ustaw [IBulletFormat::set_Type](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibulletformat/set_type/) na [BulletType::Symbol](https://reference.aspose.com/slides/pl/cpp/aspose.slides/bullettype/). Następnie możesz ustawić [IBulletFormat::set_Char](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibulletformat/set_char/), [IBulletFormat::get_Color](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibulletformat/get_color/) i [IBulletFormat::set_Height](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibulletformat/set_height/), aby kontrolować wygląd wypunktowania.
 
 Poniższy kod C++ demonstruje, jak utworzyć listę wypunktowaną na slajdzie:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto createParagraph = [](System::String text)
 {
     auto paragraph = System::MakeObject<Paragraph>();
@@ -83,11 +102,26 @@ Wynik:
 
 ## **Utworzenie listy numerowanej**
 
-Używaj list numerowanych, gdy kolejność elementów ma znaczenie. Ustaw [IBulletFormat::set_Type](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibulletformat/set_type/) na [BulletType::Numbered](https://reference.aspose.com/slides/pl/cpp/aspose.slides/bullettype/) . Możesz także wybrać format numeracji za pomocą [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) lub ustawić [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) , gdy lista ma zaczynać się od innej wartości niż 1.
+Używaj list numerowanych, gdy kolejność elementów ma znaczenie. Ustaw [IBulletFormat::set_Type](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibulletformat/set_type/) na [BulletType::Numbered](https://reference.aspose.com/slides/pl/cpp/aspose.slides/bullettype/). Możesz także wybrać format numeracji przy użyciu [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) lub ustawić [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/), gdy lista ma zaczynać się od wartości innej niż 1.
 
 Poniższy kod C++ pokazuje, jak utworzyć listę numerowaną na slajdzie:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 90, 80);
@@ -116,27 +150,46 @@ presentation->Dispose();
 
 Wynik:
 
-![Symboliczne wypunktowanie numerowane](numbered_bullets.png)
+![Numeryczne wypunktowanie](numbered_bullets.png)
 
 ## **Utworzenie wypunktowania obrazkowego**
 
-Aspose.Slides pozwala zastąpić zwykły symbol wypunktowania obrazem. Wypunktowanie obrazkowe najlepiej działa z prostymi obrazami, które pozostają czytelne w małym rozmiarze, takimi jak ikony lub małe przezroczyste pliki PNG.
+Aspose.Slides umożliwia zastąpienie standardowego symbolu wypunktowania obrazem. Wypunktowanie obrazkowe najlepiej działa z prostymi obrazami, które pozostają czytelne w małym rozmiarze, takimi jak ikony lub małe przeźroczyste pliki PNG.
 
-{{% alert color="primary" %}}
-Idealnie, jeśli planujesz zastąpić zwykły symbol wypunktowania obrazem, należy wybrać prostą grafikę z przezroczystym tłem. Takie obrazy dobrze sprawdzają się jako własne symbole wypunktowania.
+{{% alert color="info" %}}
+Najlepiej, jeśli planujesz zastąpić standardowy symbol wypunktowania obrazem, wybrać prostą grafikę z przezroczystym tłem. Takie obrazy dobrze sprawdzają się jako niestandardowe symbole wypunktowania.
 
-Pamiętaj, że obraz zostanie zmniejszony do bardzo małego rozmiaru. Z tego powodu zdecydowanie rekomendujemy wybór obrazu, który pozostaje wyraźny i wizualnie skuteczny jako wypunktowanie w liście.
+Pamiętaj, że obraz zostanie przeskalowany do bardzo małego rozmiaru. Z tego powodu zdecydowanie zalecamy wybranie obrazu, który pozostaje wyraźny i wizualnie efektywny, gdy jest używany jako wypunktowanie na liście.
 {{% /alert %}}
 
-Aby utworzyć wypunktowanie obrazkowe, dodaj obraz do [IPresentation::get_Images](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipresentation/get_images/) i przypisz zwrócony obiekt [IPPImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ippimage/) do [IBulletFormat::get_Picture](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibulletformat/get_picture/) . Ustaw [IBulletFormat::set_Type](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibulletformat/set_type/) na [BulletType::Picture](https://reference.aspose.com/slides/pl/cpp/aspose.slides/bullettype/) przed przypisaniem obrazu.
+Aby utworzyć wypunktowanie obrazkowe, dodaj obraz do [IPresentation::get_Images](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipresentation/get_images/) i przypisz zwrócony obiekt [IPPImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ippimage/) do [IBulletFormat::get_Picture](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibulletformat/get_picture/). Ustaw [IBulletFormat::set_Type](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibulletformat/set_type/) na [BulletType::Picture](https://reference.aspose.com/slides/pl/cpp/aspose.slides/bullettype/) przed przypisaniem obrazu.
 
 Załóżmy, że mamy plik "image.png":
 
-![Obraz do wypunktowania](picture_for_bullets.png)
+![Obraz dla wypunktowania](picture_for_bullets.png)
 
 Poniższy kod C++ pokazuje, jak utworzyć wypunktowanie obrazkowe na slajdzie:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto createParagraph = [](System::String text, System::SharedPtr<IPPImage> image)
 {
     auto paragraph = System::MakeObject<Paragraph>();
@@ -179,11 +232,24 @@ Wynik:
 
 ## **Utworzenie listy wielopoziomowej**
 
-Użyj [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_depth/) , aby umieścić elementy listy na różnych poziomach. Poziom 0 to poziom najwyższy, poziom 1 jest zagnieżdżony pod nim itd.
+Użyj [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_depth/), aby umieścić elementy listy na różnych poziomach. Poziom 0 to poziom najwyższy, poziom 1 jest zagnieżdżony pod nim i tak dalej.
 
 Poniższy kod C++ pokazuje, jak utworzyć wielopoziomową listę wypunktowaną:
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 260, 110);
@@ -221,9 +287,24 @@ Wynik:
 
 ## **Zmiana istniejącej listy**
 
-Aby zmienić formatowanie listy w istniejącej prezentacji, uzyskaj dostęp do docelowego akapitu i zaktualizuj jego ustawienia [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/get_bullet/) . Te same właściwości używane do tworzenia list można wykorzystać do przeglądania lub modyfikowania list załadowanych z pliku PPT, PPTX lub ODP.
+Aby zmienić formatowanie listy w istniejącej prezentacji, uzyskaj dostęp do docelowego akapitu i zaktualizuj jego ustawienia [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/get_bullet/). Te same właściwości używane do tworzenia list mogą być użyte do przeglądania lub modyfikacji list załadowanych z pliku PPT, PPTX lub ODP.
+
+Poniższy kod C++ zmienia pierwszy akapit w ramce tekstowej, aby używał stylu listy numerowanej:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NumberedBulletStyle.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"input.pptx");
 auto slide = presentation->get_Slide(0);
 auto autoShape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
@@ -244,14 +325,14 @@ presentation->Dispose();
 
 ## **FAQ**
 
-**Czy listy wypunktowane i numerowane mogą być eksportowane do PDF lub obrazów?**
+### Czy listy wypunktowane i numerowane mogą być eksportowane do PDF lub obrazów?
 
-Tak. Aspose.Slides zachowuje formatowanie list, gdy docelowy format wspiera odpowiednie układy tekstu i funkcje wypunktowania.
+Tak. Aspose.Slides zachowuje formatowanie list, gdy docelowy format obsługuje odpowiednie układy tekstu i funkcje wypunktowania.
 
-**Czy mogę edytować listy w istniejących prezentacjach?**
+### Czy mogę edytować listy w istniejących prezentacjach?
 
-Tak. Załaduj prezentację, uzyskaj dostęp do docelowego akapitu, przejrzyj lub zaktualizuj jego ustawienia [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/get_bullet/) i zapisz prezentację.
+Tak. Załaduj prezentację, uzyskaj dostęp do docelowego akapitu, przeglądaj lub zaktualizuj jego ustawienia [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/get_bullet/), i zapisz prezentację.
 
-**Czy listy mogą zawierać tekst niełaciński?**
+### Czy listy mogą zawierać tekst niełaciński?
 
-Tak. Tekst elementu listy może zawierać znaki Unicode, więc możesz tworzyć listy w wielojęzycznych prezentacjach. Upewnij się, że czcionki użyte w prezentacji obsługują potrzebne znaki.
+Tak. Tekst elementów listy może zawierać znaki Unicode, więc możesz tworzyć listy w wielojęzycznych prezentacjach. Upewnij się, że czcionki użyte w prezentacji obsługują potrzebne znaki.

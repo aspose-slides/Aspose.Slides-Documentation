@@ -1,42 +1,44 @@
 ---
-title: Konfigurace sbírek záložních písem pro Android
-linktitle: Sbírka záložních písem
+title: Nastavení kolekcí náhradních písem na Androidu
+linktitle: Kolekce náhradních písem
 type: docs
 weight: 20
 url: /cs/androidjava/create-fallback-fonts-collection/
 keywords:
-- záložní písmo
-- záložní pravidlo
-- sbírka písem
+- náhradní písmo
+- náhradní pravidlo
+- kolekce písem
+- konfigurace písma
 - nastavení písma
-- instalace písma
 - PowerPoint
 - OpenDocument
 - prezentace
 - Android
 - Java
 - Aspose.Slides
-description: "Nastavte sbírku záložních písem v Aspose.Slides pro Android pomocí Javy, aby byl text v prezentacích PowerPoint a OpenDocument konzistentní a ostrý."
+description: "Nastavte kolekci náhradních písem v Aspose.Slides pro Android pomocí Javy, aby byl text v prezentacích PowerPoint a OpenDocument konzistentní a ostrý."
 ---
 ## **Přehled**
 
-Aspose.Slides vám umožňuje nakonfigurovat sbírku pravidel záložních písem pro prezentaci. Každé záložní pravidlo je reprezentováno třídou `FontFallBackRule` a může být přidáno do `FontFallBackRulesCollection`, která implementuje rozhraní `IFontFallBackRulesCollection`.
+Aspose.Slides umožňuje nakonfigurovat sbírku pravidel náhradních písem pro prezentaci. Každé pravidlo náhrady je reprezentováno třídou `FontFallBackRule` a může být přidáno do `FontFallBackRulesCollection`, která implementuje rozhraní `IFontFallBackRulesCollection`.
 
-Po vytvoření sbírky ji můžete přiřadit k vlastnosti `FontFallBackRulesCollection` objektu `FontsManager` prezentace. `FontsManager` řídí písma v celé prezentaci a každá instance `Presentation` má svůj vlastní `FontsManager`.
+Po vytvoření sbírky ji můžete přiřadit k vlastnosti `FontFallBackRulesCollection` objektu `FontsManager` prezentace. `FontsManager` řídí písma napříč prezentací a každá instance `Presentation` má svůj vlastní `FontsManager`.
 
-Jakmile je `FontsManager` inicializován se sbírkou záložních písem, specifikovaná záložní písma jsou použita během vykreslování prezentace.
+Jakmile je `FontsManager` inicializován se sbírkou náhradních písem, zadaná náhradní písma jsou použita během vykreslování prezentace.
 
-## **Použití záložních pravidel**
+## **Použití pravidel náhradních písem**
 
-Instance třídy [FontFallBackRule](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/FontFallBackRule) mohou být uspořádány do [FontFallBackRulesCollection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/FontFallBackRulesCollection), která implementuje rozhraní [IFontFallBackRulesCollection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IFontFallBackRulesCollection). Je možné přidávat nebo odstraňovat pravidla ze sbírky.
+Instance třídy [FontFallBackRule](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/FontFallBackRule) mohou být uspořádány do [FontFallBackRulesCollection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/FontFallBackRulesCollection), která implementuje rozhraní [IFontFallBackRulesCollection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IFontFallBackRulesCollection). Je možné přidávat nebo odebírat pravidla ze sbírky.
 
-Pak může být tato sbírka přiřazena k [FontFallBackRulesCollection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/FontFallBackRulesCollection) metodě třídy [FontsManager](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/FontsManager). FontsManager řídí písma v celé prezentaci.
+Poté může být tato sbírka přiřazena k metodě [FontFallBackRulesCollection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/FontFallBackRulesCollection) třídy [FontsManager](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/FontsManager). FontsManager řídí písma napříč prezentací.
 
 Každá [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation) má metodu [getFontsManager](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation#getFontsManager--) s vlastní instancí třídy [FontsManager](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/FontsManager).
 
-Zde je příklad, jak vytvořit sbírku pravidel záložních písem a přiřadit ji do [FontsManager](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation#getFontsManager--) určité prezentace:
+Následuje příklad, jak vytvořit sbírku pravidel náhradních písem a přiřadit ji do [FontsManager](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation#getFontsManager--) určité prezentace:  
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IFontFallBackRulesCollection userRulesList = new FontFallBackRulesCollection();
@@ -50,26 +52,26 @@ try {
 }
 ```
 
-Po inicializaci FontsManageru se sbírkou záložních písem jsou záložní písma použita během vykreslování prezentace.
+Po inicializaci FontsManageru se sbírkou náhradních písem jsou náhradní písma použita během vykreslování prezentace.
 
-{{% alert color="primary" %}} 
-Přečtěte si více o tom, jak [Vykreslit prezentaci se záložním písmem](/slides/cs/androidjava/render-presentation-with-fallback-font/).
+{{% alert color="info" %}} 
+Přečtěte si více o tom, jak [Vykreslit prezentaci s náhradním písmem](/slides/cs/androidjava/render-presentation-with-fallback-font/).
 {{% /alert %}}
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Budou moje záložní pravidla vložena do souboru PPTX a viditelná v PowerPointu po uložení?**
+### Budou mé pravidla náhrady vložena do souboru PPTX a viditelná v PowerPointu po uložení?
 
-Ne. Záložní pravidla jsou nastavení vykreslování za běhu; nejsou serializována do PPTX a nebudou se zobrazovat v uživatelském rozhraní PowerPointu.
+Ne. Pravidla náhrady jsou nastavení vykreslování za běhu; nejsou serializována do souboru PPTX a nebudou se zobrazovat v uživatelském rozhraní PowerPointu.
 
-**Platí záloha i pro text uvnitř SmartArt, WordArt, grafů a tabulek?**
+### Platí náhrada i pro text uvnitř SmartArt, WordArt, grafů a tabulek?
 
-Ano. Pro jakýkoli text v těchto objektech se používá stejný mechanismus substituce glyfu.
+Ano. Pro jakýkoli text v těchto objektech se používá stejný mechanismus substituce glifu.
 
-**Distribuuje Aspose nějaká písma s knihovnou?**
+### Distribuuje Aspose nějaká písma spolu s knihovnou?
 
-Ne. Písma přidáváte a používáte na své straně a na vlastní odpovědnost.
+Ne. Písma přidáváte a používáte na své straně a nesete za to plnou odpovědnost.
 
-**Lze kombinovat nahrazení/substituci chybějících písem a zálohu pro chybějící glyfy?**
+### Lze kombinovat nahrazení/substituci chybějících písem a náhradu pro chybějící glyfy?
 
-Ano. Jedná se o nezávislé fáze stejného pipeline pro řešení písem: nejprve engine vyřeší dostupnost písem ([náhrada](/slides/cs/androidjava/font-replacement/)/[substituce](/slides/cs/androidjava/font-substitution/)), poté záloha doplní chybějící glyfy v dostupných písmech.
+Ano. Jedná se o nezávislé fáze stejného pipeline řešení písem: nejprve engine vyřeší dostupnost písem ([replacement](/slides/cs/androidjava/font-replacement/)/[substitution](/slides/cs/androidjava/font-substitution/)), poté náhrada vyplní mezery pro chybějící glyfy v dostupných písmech.

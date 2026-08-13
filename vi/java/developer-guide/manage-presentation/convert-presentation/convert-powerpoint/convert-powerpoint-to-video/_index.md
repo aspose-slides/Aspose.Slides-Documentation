@@ -1,20 +1,20 @@
 ---
-title: Chuyển đổi bài thuyết trình PowerPoint sang video trong Java
+title: Chuyển đổi bản trình chiếu PowerPoint sang video trong Java
 linktitle: PowerPoint sang Video
 type: docs
 weight: 130
 url: /vi/java/convert-powerpoint-to-video/
 keywords:
 - chuyển đổi PowerPoint
-- chuyển đổi bài thuyết trình
+- chuyển đổi bản trình chiếu
 - chuyển đổi PPT
 - chuyển đổi PPTX
 - PowerPoint sang video
-- bài thuyết trình sang video
+- bản trình chiếu sang video
 - PPT sang video
 - PPTX sang video
 - PowerPoint sang MP4
-- bài thuyết trình sang MP4
+- bản trình chiếu sang MP4
 - PPT sang MP4
 - PPTX sang MP4
 - lưu PPT dưới dạng MP4
@@ -25,30 +25,30 @@ keywords:
 - PowerPoint
 - Java
 - Aspose.Slides
-description: "Tìm hiểu cách chuyển đổi bài thuyết trình PowerPoint sang video trong Java. Khám phá mã mẫu và các kỹ thuật tự động hoá để tối ưu quy trình làm việc của bạn."
+description: "Tìm hiểu cách chuyển đổi bản trình chiếu PowerPoint sang video trong Java. Khám phá mã mẫu và các kỹ thuật tự động hóa để tối ưu hoá quy trình làm việc của bạn."
 ---
 ## **Giới thiệu**
 
-Bằng cách chuyển đổi bài thuyết trình PowerPoint hoặc OpenDocument của bạn sang video, bạn sẽ được:
+Bằng cách chuyển đổi bản trình chiếu PowerPoint hoặc OpenDocument sang video, bạn sẽ có được:
 
-**Tăng khả năng tiếp cận:** Tất cả các thiết bị, bất kể nền tảng, đều được trang bị trình phát video mặc định, giúp người dùng mở hoặc phát video dễ dàng hơn so với các ứng dụng trình chiếu truyền thống.
+**Tăng khả năng tiếp cận:** Tất cả các thiết bị, bất kể nền tảng, đều được trang bị trình phát video mặc định, giúp người dùng dễ dàng mở hoặc phát video hơn so với các ứng dụng trình chiếu truyền thống.
 
-**Phạm vi tiếp cận rộng hơn:** Video cho phép bạn tiếp cận đối tượng lớn hơn và trình bày thông tin theo dạng hấp dẫn hơn. Các khảo sát và thống kê cho thấy mọi người thích xem và tiêu thụ nội dung video hơn so với các hình thức khác, làm cho thông điệp của bạn có tác động mạnh mẽ hơn.
+**Mở rộng phạm vi:** Video cho phép bạn tiếp cận khán giả lớn hơn và trình bày thông tin theo định dạng hấp dẫn hơn. Các khảo sát và thống kê cho thấy mọi người ưu tiên xem và tiêu thụ nội dung video hơn các hình thức khác, giúp thông điệp của bạn có tác động mạnh mẽ hơn.
 
-{{% alert color="primary" %}} 
-Bạn có thể muốn kiểm tra [**PowerPoint to Video Online Converter**](https://products.aspose.app/slides/vi/conversion/ppt-to-word) vì đây là một triển khai trực tiếp và hiệu quả của quy trình được mô tả ở đây.
+{{% alert color="info" %}} 
+Bạn có thể muốn thử công cụ [**PowerPoint to Video Online Converter**](https://products.aspose.app/slides/vi/video) vì đây là một triển khai thực tế và hiệu quả của quy trình được mô tả ở đây.
 {{% /alert %}} 
 
 ## **Chuyển đổi PowerPoint sang Video trong Aspose.Slides**
 
-Trong [Aspose.Slides 22.11](https://docs.aspose.com/slides/vi/java/aspose-slides-for-java-22-11-release-notes/), chúng tôi đã triển khai hỗ trợ chuyển đổi bài thuyết trình sang video. 
+Trong [Aspose.Slides 22.11](https://docs.aspose.com/slides/vi/java/aspose-slides-for-java-22-11-release-notes/), chúng tôi đã triển khai hỗ trợ chuyển đổi bản trình chiếu sang video. 
 
-* Sử dụng **Aspose.Slides** để tạo ra một tập hợp các khung hình (từ các slide của bài thuyết trình) tương ứng với một FPS (khung hình trên giây) nhất định
+* Sử dụng **Aspose.Slides** để tạo một tập hợp các khung (từ các slide) tương ứng với một FPS (khung hình trên giây) nhất định  
 * Sử dụng công cụ của bên thứ ba như **ffmpeg** ([for java](https://github.com/bramp/ffmpeg-cli-wrapper)) để tạo video dựa trên các khung hình. 
 
 ### **Chuyển đổi PowerPoint sang Video**
 
-1. Add this to your POM file:
+1. Thêm đoạn này vào file POM của bạn:
 ```xml
    <dependency>
      <groupId>net.bramp.ffmpeg</groupId>
@@ -61,12 +61,16 @@ Trong [Aspose.Slides 22.11](https://docs.aspose.com/slides/vi/java/aspose-slides
 
 4. Chạy mã Java chuyển đổi PowerPoint sang video.
 
-Mã Java này cho bạn thấy cách chuyển đổi một bài thuyết trình (chứa một hình và hai hiệu ứng hoạt ảnh) sang video:
+Mã Java này cho bạn thấy cách chuyển đổi một bản trình chiếu (có hình ảnh và hai hiệu ứng hoạt hình) sang video:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation();
 try {
-    // Thêm một hình mặt cười và sau đó áp dụng hoạt ảnh
+    // Thêm một hình mặt cười và sau đó tạo hoạt ảnh cho nó
     IAutoShape smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effectIn = mainSequence.addEffect(smile, EffectType.Fly, EffectSubtype.TopLeft, EffectTriggerType.AfterPrevious);
@@ -119,37 +123,49 @@ try {
 }
 ```
 
-## **Hiệu Ứng Video**
+## **Hiệu ứng Video**
 
-Bạn có thể áp dụng các hoạt ảnh cho các đối tượng trên slide và sử dụng chuyển tiếp giữa các slide. 
+Bạn có thể áp dụng hoạt hình cho các đối tượng trên slide và sử dụng chuyển tiếp giữa các slide. 
 
-{{% alert color="primary" %}} 
-Bạn có thể muốn xem các bài viết này: [PowerPoint Animation](https://docs.aspose.com/slides/vi/java/powerpoint-animation/), [Shape Animation](https://docs.aspose.com/slides/vi/java/shape-animation/), và [Shape Effect](https://docs.aspose.com/slides/vi/java/shape-effect/).
+{{% alert color="info" %}} 
+Bạn có thể xem các bài viết sau: [PowerPoint Animation](https://docs.aspose.com/slides/vi/java/powerpoint-animation/), [Shape Animation](https://docs.aspose.com/slides/vi/java/shape-animation/), và [Shape Effect](https://docs.aspose.com/slides/vi/java/shape-effect/).
 {{% /alert %}} 
 
-Các hoạt ảnh và chuyển tiếp làm cho slide trở nên hấp dẫn và thú vị hơn—và chúng cũng tạo ra hiệu quả tương tự cho video. Hãy thêm một slide và chuyển tiếp khác vào mã cho bài thuyết trình trước:
+Hoạt hình và chuyển tiếp làm cho bài trình chiếu sinh động và hấp dẫn hơn — và chúng cũng mang lại hiệu quả tương tự cho video. Hãy thêm một slide và chuyển tiếp khác vào mã của bản trình chiếu trước:
 
 ```java
-// Thêm một hình mặt cười và áp dụng hoạt ảnh
+import com.aspose.slides.*;
+import java.awt.Color;
 
-// ...
+Presentation presentation = new Presentation();
+try {
+    // Thêm một hình mặt cười và tạo hoạt ảnh cho nó
 
-// Thêm một slide mới và chuyển tiếp hoạt ảnh
+    // ...
 
-ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
+    // Thêm một slide mới và chuyển tiếp hoạt ảnh
 
-newSlide.getBackground().setType(BackgroundType.OwnBackground);
+    ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
 
-newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    newSlide.getBackground().setType(BackgroundType.OwnBackground);
 
-newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
+    newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
 
-newSlide.getSlideShowTransition().setType(TransitionType.Push);
+    newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
+
+    newSlide.getSlideShowTransition().setType(TransitionType.Push);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 
-Aspose.Slides cũng hỗ trợ hoạt ảnh cho văn bản. Vì vậy chúng tôi sẽ thực hiện hoạt ảnh cho các đoạn văn trên đối tượng, chúng sẽ xuất hiện lần lượt (với độ trễ được đặt là một giây):
+Aspose.Slides cũng hỗ trợ hoạt hình cho văn bản. Vì vậy chúng ta có thể hoạt hình các đoạn văn trên các đối tượng, sẽ xuất hiện lần lượt (với độ trễ đặt là một giây):
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation();
 try {
     // Thêm văn bản và hoạt ảnh
@@ -171,12 +187,10 @@ try {
     IEffect effect1 = mainSequence.addEffect(para1, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     IEffect effect2 = mainSequence.addEffect(para2, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     IEffect effect3 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-    IEffect effect4 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
     effect1.getTiming().setTriggerDelayTime(1f);
     effect2.getTiming().setTriggerDelayTime(1f);
     effect3.getTiming().setTriggerDelayTime(1f);
-    effect4.getTiming().setTriggerDelayTime(1f);
 
     final int fps = 33;
     ArrayList<String> frames = new ArrayList<String>();
@@ -223,20 +237,22 @@ try {
 }
 ```
 
-## **Các Lớp Chuyển Đổi Video**
+## **Các lớp chuyển đổi Video**
 
-Để cho phép bạn thực hiện các nhiệm vụ chuyển đổi PowerPoint sang video, Aspose.Slides cung cấp các lớp [PresentationAnimationsGenerator](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentationanimationsgenerator/) và [PresentationPlayer](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentationplayer/).
+Để cho phép bạn thực hiện các tác vụ chuyển đổi PowerPoint sang video, Aspose.Slides cung cấp các lớp [PresentationAnimationsGenerator](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentationanimationsgenerator/) và [PresentationPlayer](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentationplayer/).
 
-[PresentationAnimationsGenerator](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentationanimationsgenerator/) cho phép bạn thiết lập kích thước khung cho video (sẽ được tạo sau) thông qua hàm khởi tạo. Nếu bạn truyền một thể hiện của bài thuyết trình, `Presentation.SlideSize` sẽ được sử dụng và nó tạo ra các hoạt ảnh mà [PresentationPlayer](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentationplayer/) sử dụng. 
+[PresentationAnimationsGenerator](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentationanimationsgenerator/) cho phép bạn đặt kích thước khung cho video (sẽ được tạo sau này) thông qua hàm khởi tạo. Nếu bạn truyền một thể hiện của bản trình chiếu, `Presentation.SlideSize` sẽ được sử dụng và nó sẽ tạo các hoạt hình mà [PresentationPlayer](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentationplayer/) dùng.
 
-Khi các hoạt ảnh được tạo, một sự kiện `NewAnimation` được sinh ra cho mỗi hoạt ảnh tiếp theo, có tham số [IPresentationAnimationPlayer](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipresentationanimationplayer/). Tham số này là một lớp đại diện cho trình phát hoạt ảnh riêng biệt.
+Khi các hoạt hình được tạo, một sự kiện `NewAnimation` sẽ được sinh ra cho mỗi hoạt hình tiếp theo, với tham số [IPresentationAnimationPlayer](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipresentationanimationplayer/). Lớp này đại diện cho một trình phát cho một hoạt hình riêng biệt.
 
-Để làm việc với [IPresentationAnimationPlayer](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipresentationanimationplayer/), thuộc tính [Duration](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipresentationanimationplayer/#getDuration--) (thời lượng đầy đủ của hoạt ảnh) và phương thức [SetTimePosition](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipresentationanimationplayer/#setTimePosition-double-) được sử dụng. Mỗi vị trí hoạt ảnh được đặt trong khoảng *0 đến duration*, sau đó phương thức `GetFrame` sẽ trả về một BufferedImage tương ứng với trạng thái hoạt ảnh tại thời điểm đó:
+Để làm việc với [IPresentationAnimationPlayer](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipresentationanimationplayer/), thuộc tính [Duration](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipresentationanimationplayer/#getDuration--) (thời lượng đầy đủ của hoạt hình) và phương thức [SetTimePosition](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipresentationanimationplayer/#setTimePosition-double-) được sử dụng. Mỗi vị trí hoạt hình được đặt trong phạm vi *0 đến duration*, sau đó phương thức `getFrame` sẽ trả về một [IImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimage/) tương ứng với trạng thái hoạt hình tại thời điểm đó:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // Thêm một hình mặt cười và áp dụng hoạt ảnh
+    // Thêm một hình mặt cười và tạo hoạt ảnh cho nó
     IAutoShape smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effectIn = mainSequence.addEffect(smile, EffectType.Fly, EffectSubtype.TopLeft, EffectTriggerType.AfterPrevious);
@@ -249,21 +265,18 @@ try {
         animationsGenerator.setNewAnimation(animationPlayer ->
         {
             System.out.println(String.format("Animation total duration: %f", animationPlayer.getDuration()));
-            animationPlayer.setTimePosition(0); // trạng thái hoạt ảnh ban đầu
-            try {
-                // ảnh bitmap của trạng thái hoạt ảnh ban đầu
-                animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+
+            animationPlayer.setTimePosition(0); // trạng thái ban đầu của hoạt ảnh
+            // bitmap trạng thái ban đầu của hoạt ảnh
+            animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
+
             animationPlayer.setTimePosition(animationPlayer.getDuration()); // trạng thái cuối cùng của hoạt ảnh
-            try {
-                // khung cuối cùng của hoạt ảnh
-                animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            // khung cuối cùng của hoạt ảnh
+            animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
         });
+
+        // tạo các hoạt ảnh - đây là thao tác kích hoạt các sự kiện đã xử lý ở trên
+        animationsGenerator.run(presentation.getSlides());
     } finally {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
@@ -272,9 +285,11 @@ try {
 }
 ```
 
-Để làm cho tất cả các hoạt ảnh trong một bài thuyết trình chơi đồng thời, lớp [PresentationPlayer](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentationplayer/) được sử dụng. Lớp này nhận một thể hiện của [PresentationAnimationsGenerator](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentationanimationsgenerator/) và FPS cho hiệu ứng trong hàm khởi tạo, sau đó gọi sự kiện `FrameTick` cho tất cả các hoạt ảnh để chúng được phát:
+Để làm cho tất cả các hoạt hình trong một bản trình chiếu chạy đồng thời, lớp [PresentationPlayer](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentationplayer/) được sử dụng. Lớp này nhận một thể hiện của [PresentationAnimationsGenerator](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentationanimationsgenerator/) và FPS cho các hiệu ứng trong hàm khởi tạo, sau đó gọi sự kiện `FrameTick` cho mọi hoạt hình để chúng được phát:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("animated.pptx");
 try {
     PresentationAnimationsGenerator animationsGenerator = new PresentationAnimationsGenerator(presentation);
@@ -283,11 +298,7 @@ try {
         try {
             player.setFrameTick((sender, arguments) ->
             {
-                try {
-                    arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+                arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
             });
             animationsGenerator.run(presentation.getSlides());
         } finally {
@@ -301,84 +312,84 @@ try {
 }
 ```
 
-Sau đó các khung hình đã tạo có thể được biên dịch để tạo thành video. Xem phần [Convert PowerPoint to Video](https://docs.aspose.com/slides/vi/java/convert-powerpoint-to-video/#convert-powerpoint-to-video).
+Sau đó các khung hình đã tạo có thể được biên dịch thành video. Xem phần [Convert PowerPoint to Video](https://docs.aspose.com/slides/vi/java/convert-powerpoint-to-video/#convert-powerpoint-to-video).
 
-## **Các Hoạt Ảnh và Hiệu Ứng Được Hỗ Trợ**
+## **Các hoạt hình và hiệu ứng được hỗ trợ**
 
-**Mở đầu**:
+**Entrance**:
 
-| Loại Hoạt Ảnh | Aspose.Slides | PowerPoint |
+| Animation Type | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Hiện** | ![không hỗ trợ](x.png) | ![được hỗ trợ](v.png) |
-| **Mờ dần** | ![được hỗ trợ](v.png) | ![được hỗ trợ](v.png) |
-| **Bay vào** | ![được hỗ trợ](v.png) | ![được hỗ trợ](v.png) |
-| **Nổi lên** | ![được hỗ trợ](v.png) | ![được hỗ trợ](v.png) |
-| **Tách** | ![được hỗ trợ](v.png) | ![được hỗ trợ](v.png) |
-| **Xoá** | ![được hỗ trợ](v.png) | ![được hỗ trợ](v.png) |
-| **Hình dạng** | ![được hỗ trợ](v.png) | ![được hỗ trợ](v.png) |
-| **Bánh xe** | ![được hỗ trợ](v.png) | ![được hỗ trợ](v.png) |
-| **Thanh ngẫu nhiên** | ![được hỗ trợ](v.png) | ![được hỗ trợ](v.png) |
-| **Phát triển & Xoay** | ![không hỗ trợ](x.png) | ![được hỗ trợ](v.png) |
-| **Phóng to** | ![được hỗ trợ](v.png) | ![được hỗ trợ](v.png) |
-| **Quay quanh** | ![được hỗ trợ](v.png) | ![được hỗ trợ](v.png) |
-| **Nảy** | ![được hỗ trợ](v.png) | ![được hỗ trợ](v.png) |
+| **Appear** | ![not supported](x.png) | ![supported](v.png) |
+| **Fade** | ![supported](v.png) | ![supported](v.png) |
+| **Fly In** | ![supported](v.png) | ![supported](v.png) |
+| **Float In** | ![supported](v.png) | ![supported](v.png) |
+| **Split** | ![supported](v.png) | ![supported](v.png) |
+| **Wipe** | ![supported](v.png) | ![supported](v.png) |
+| **Shape** | ![supported](v.png) | ![supported](v.png) |
+| **Wheel** | ![supported](v.png) | ![supported](v.png) |
+| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
+| **Grow & Turn** | ![not supported](x.png) | ![supported](v.png) |
+| **Zoom** | ![supported](v.png) | ![supported](v.png) |
+| **Swivel** | ![supported](v.png) | ![supported](v.png) |
+| **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
-**Nhấn mạnh**:
+**Emphasis**:
 
-| Loại Hoạt Ảnh | Aspose.Slides | PowerPoint |
+| Animation Type | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Xung** | ![không hỗ trợ](x.png) | ![được hỗ trợ](v.png) |
-| **Xung màu** | ![không hỗ trợ](x.png) | ![được hỗ trợ](v.png) |
-| **Lắc** | ![được hỗ trợ](v.png) | ![được hỗ trợ](v.png) |
-| **Quay** | ![được hỗ trợ](v.png) | ![được hỗ trợ](v.png) |
-| **Mở rộng/Thu nhỏ** | ![không hỗ trợ](x.png) | ![được hỗ trợ](v.png) |
-| **Giảm bão hòa** | ![không hỗ trợ](x.png) | ![được hỗ trợ](v.png) |
-| **Làm tối** | ![không hỗ trợ](x.png) | ![được hỗ trợ](v.png) |
-| **Làm sáng** | ![không hỗ trợ](x.png) | ![được hỗ trợ](v.png) |
-| **Trong suốt** | ![không hỗ trợ](x.png) | ![được hỗ trợ](v.png) |
-| **Màu đối tượng** | ![không hỗ trợ](x.png) | ![được hỗ trợ](v.png) |
-| **Màu bổ sung** | ![không hỗ trợ](x.png) | ![được hỗ trợ](v.png) |
-| **Màu đường** | ![không hỗ trợ](x.png) | ![được hỗ trợ](v.png) |
-| **Màu tô** | ![không hỗ trợ](x.png) | ![được hỗ trợ](v.png) |
+| **Pulse** | ![not supported](x.png) | ![supported](v.png) |
+| **Color Pulse** | ![not supported](x.png) | ![supported](v.png) |
+| **Teeter** | ![supported](v.png) | ![supported](v.png) |
+| **Spin** | ![supported](v.png) | ![supported](v.png) |
+| **Grow/Shrink** | ![not supported](x.png) | ![supported](v.png) |
+| **Desaturate** | ![not supported](x.png) | ![supported](v.png) |
+| **Darken** | ![not supported](x.png) | ![supported](v.png) |
+| **Lighten** | ![not supported](x.png) | ![supported](v.png) |
+| **Transparency** | ![not supported](x.png) | ![supported](v.png) |
+| **Object Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Complementary Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Line Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
 
-**Kết thúc**:
+**Exit**:
 
-| Loại Hoạt Ảnh | Aspose.Slides | PowerPoint |
+| Animation Type | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Biến mất** | ![không hỗ trợ](x.png) | ![được hỗ trợ](v.png) |
-| **Mờ dần** | ![được hỗ trợ](v.png) | ![được hỗ trợ](v.png) |
-| **Bay ra** | ![được hỗ trợ](v.png) | ![được hỗ trợ](v.png) |
-| **Nổi ra** | ![được hỗ trợ](v.png) | ![được hỗ trợ](v.png) |
-| **Tách** | ![được hỗ trợ](v.png) | ![được hỗ trợ](v.png) |
-| **Xoá** | ![được hỗ trợ](v.png) | ![được hỗ trợ](v.png) |
-| **Hình dạng** | ![được hỗ trợ](v.png) | ![được hỗ trợ](v.png) |
-| **Thanh ngẫu nhiên** | ![được hỗ trợ](v.png) | ![được hỗ trợ](v.png) |
-| **Thu nhỏ & Xoay** | ![không hỗ trợ](x.png) | ![được hỗ trợ](v.png) |
-| **Phóng to** | ![được hỗ trợ](v.png) | ![được hỗ trợ](v.png) |
-| **Quay quanh** | ![được hỗ trợ](v.png) | ![được hỗ trợ](v.png) |
-| **Nảy** | ![được hỗ trợ](v.png) | ![được hỗ trợ](v.png) |
+| **Disappear** | ![not supported](x.png) | ![supported](v.png) |
+| **Fade** | ![supported](v.png) | ![supported](v.png) |
+| **Fly Out** | ![supported](v.png) | ![supported](v.png) |
+| **Float Out** | ![supported](v.png) | ![supported](v.png) |
+| **Split** | ![supported](v.png) | ![supported](v.png) |
+| **Wipe** | ![supported](v.png) | ![supported](v.png) |
+| **Shape** | ![supported](v.png) | ![supported](v.png) |
+| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
+| **Shrink & Turn** | ![not supported](x.png) | ![supported](v.png) |
+| **Zoom** | ![supported](v.png) | ![supported](v.png) |
+| **Swivel** | ![supported](v.png) | ![supported](v.png) |
+| **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
-**Đường chuyển động**:
+**Motion Paths**:
 
-| Loại Hoạt Ảnh | Aspose.Slides | PowerPoint |
+| Animation Type | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Đường thẳng** | ![được hỗ trợ](v.png) | ![được hỗ trợ](v.png) |
-| **Cung** | ![được hỗ trợ](v.png) | ![được hỗ trợ](v.png) |
-| **Xoắn** | ![được hỗ trợ](v.png) | ![được hỗ trợ](v.png) |
-| **Hình dạng** | ![được hỗ trợ](v.png) | ![được hỗ trợ](v.png) |
-| **Vòng lặp** | ![được hỗ trợ](v.png) | ![được hỗ trợ](v.png) |
-| **Đường tùy chỉnh** | ![được hỗ trợ](v.png) | ![được hỗ trợ](v.png) |
+| **Lines** | ![supported](v.png) | ![supported](v.png) |
+| **Arcs** | ![supported](v.png) | ![supported](v.png) |
+| **Turns** | ![supported](v.png) | ![supported](v.png) |
+| **Shapes** | ![supported](v.png) | ![supported](v.png) |
+| **Loops** | ![supported](v.png) | ![supported](v.png) |
+| **Custom Path** | ![supported](v.png) | ![supported](v.png) |
 
 ## **Câu hỏi thường gặp**
 
-**Có thể chuyển đổi các bài thuyết trình được bảo mật bằng mật khẩu không?**
+### Có thể chuyển đổi các bản trình chiếu được bảo mật bằng mật khẩu không?
 
-Có, Aspose.Slides cho phép làm việc với [password-protected presentations](/slides/vi/java/password-protected-presentation/). Khi xử lý các tệp như vậy, bạn cần cung cấp mật khẩu đúng để thư viện có thể truy cập nội dung của bài thuyết trình.
+Có, Aspose.Slides cho phép làm việc với [password-protected presentations](/slides/vi/java/password-protected-presentation/). Khi xử lý các tệp này, bạn cần cung cấp mật khẩu chính xác để thư viện có thể truy cập nội dung của bản trình chiếu.
 
-**Aspose.Slides có hỗ trợ sử dụng trong các giải pháp đám mây không?**
+### Aspose.Slides có hỗ trợ sử dụng trong các giải pháp đám mây không?
 
 Có, Aspose.Slides có thể được tích hợp vào các ứng dụng và dịch vụ đám mây. Thư viện được thiết kế để hoạt động trong môi trường máy chủ, đảm bảo hiệu năng cao và khả năng mở rộng cho việc xử lý hàng loạt các tệp.
 
-**Có giới hạn kích thước nào cho các bài thuyết trình khi chuyển đổi không?**
+### Có giới hạn kích thước nào cho bản trình chiếu khi chuyển đổi không?
 
-Aspose.Slides có khả năng xử lý các bài thuyết trình có kích thước gần như bất kỳ. Tuy nhiên, khi làm việc với các tệp rất lớn, có thể cần thêm tài nguyên hệ thống và đôi khi nên tối ưu hóa bài thuyết trình để cải thiện hiệu suất.
+Aspose.Slides có khả năng xử lý các bản trình chiếu có kích thước gần như bất kỳ. Tuy nhiên, khi làm việc với các tệp rất lớn, có thể cần thêm tài nguyên hệ thống và đôi khi nên tối ưu hoá bản trình chiếu để cải thiện hiệu năng.

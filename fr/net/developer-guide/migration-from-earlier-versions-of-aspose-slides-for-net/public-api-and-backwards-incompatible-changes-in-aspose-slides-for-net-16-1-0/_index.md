@@ -1,5 +1,5 @@
 ---
-title: API publique et changements incompatibles rétroactifs dans Aspose.Slides pour .NET 16.1.0
+title: API publique et modifications incompatibles rétroactives dans Aspose.Slides pour .NET 16.1.0
 linktitle: Aspose.Slides pour .NET 16.1.0
 type: docs
 weight: 220
@@ -18,20 +18,20 @@ keywords:
 - Aspose.Slides
 description: "Examinez les mises à jour de l'API publique et les changements majeurs dans Aspose.Slides pour .NET afin de migrer en douceur vos solutions de présentation PowerPoint PPT, PPTX et ODP."
 ---
-
-{{% alert color="primary" %}} 
-
-Cette page répertorie toutes les classes, méthodes, propriétés, etc. [ajoutées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) ou [supprimées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) ainsi que les autres changements introduits avec l'API Aspose.Slides pour .NET 16.1.0.
-
+{{% alert color="info" %}} 
+Cette page répertorie toutes les classes, méthodes, propriétés, etc., [ajoutées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) ou [supprimées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/), ainsi que les autres changements introduits avec l'API Aspose.Slides pour .NET 16.1.0.
 {{% /alert %}} 
-## **Modifications de l'API publique**
+## **Modifications de l’API publique**
 
-
-#### **La propriété RotationAngle a été ajoutée aux interfaces IChartTextBlockFormat et ITextFrameFormat**  
-La propriété RotationAngle a été ajoutée aux interfaces Aspose.Slides.Charts.IChartTextBlockFormat et Aspose.Slides.ITextFrameFormat.  
-Elle spécifie la rotation personnalisée qui est appliquée au texte à l'intérieur de la boîte de délimitation.
+#### **La propriété RotationAngle a été ajoutée aux interfaces IChartTextBlockFormat et ITextFrameFormat**
+La propriété RotationAngle a été ajoutée aux interfaces Aspose.Slides.Charts.IChartTextBlockFormat et Aspose.Slides.ITextFrameFormat.
+Elle spécifie la rotation personnalisée qui est appliquée au texte à l’intérieur de la boîte englobante.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -52,7 +52,5 @@ chart.ChartTitle.AddTextFrameForOverriding("Custom title").TextFrameFormat.Rotat
 pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
-
-
 ``` 
-#### **OdpException déplacé de Aspose.Slides.Odp vers l'espace de noms Aspose.Slides**
+#### **OdpException déplacé du namespace Aspose.Slides.Odp vers le namespace Aspose.Slides**

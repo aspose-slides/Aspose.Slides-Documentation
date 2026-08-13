@@ -5,7 +5,7 @@ type: docs
 weight: 20
 url: /id/net/manage-hyperlinks/
 keywords:
-- menambahkan URL
+- tambahkan URL
 - menambahkan hyperlink
 - membuat hyperlink
 - memformat hyperlink
@@ -23,30 +23,33 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Kelola hyperlink dalam presentasi PowerPoint dan OpenDocument dengan Aspose.Slides untuk .NET secara mudah—tingkatkan interaktivitas dan alur kerja dalam hitungan menit."
+description: "Kelola hyperlink dengan mudah dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk .NET—tingkatkan interaktivitas dan alur kerja dalam hitungan menit."
 ---
 ## **Pendahuluan**
 
-Hyperlink adalah referensi ke sebuah objek atau data atau sebuah tempat dalam sesuatu. Berikut ini adalah hyperlink umum dalam Presentasi PowerPoint:
+Hyperlink adalah referensi ke objek atau data atau ke sebuah tempat dalam sesuatu. Berikut ini adalah hyperlink umum dalam Presentasi PowerPoint:
 
 * Tautan ke situs web di dalam teks, bentuk, atau media
 * Tautan ke slide
 
 Aspose.Slides untuk .NET memungkinkan Anda melakukan banyak tugas yang melibatkan hyperlink dalam presentasi. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Anda mungkin ingin melihat Aspose sederhana, [editor PowerPoint online gratis.](https://products.aspose.app/slides/id/editor)
+Anda mungkin ingin mencoba Aspose sederhana, [editor PowerPoint online gratis.](https://products.aspose.app/slides/id/editor)
 
 {{% /alert %}} 
 
-## **Menambahkan Hyperlink URL**
+## **Tambahkan Hyperlink URL**
 
-### **Menambahkan Hyperlink URL ke Teks**
+### **Tambahkan Hyperlink URL ke Teks**
 
 Kode C# ini menunjukkan cara menambahkan hyperlink situs web ke teks:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
 	IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -59,11 +62,14 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **Menambahkan Hyperlink URL ke Bentuk atau Bingkai**
+### **Tambahkan Hyperlink URL ke Bentuk atau Bingkai**
 
 Contoh kode ini dalam C# menunjukkan cara menambahkan hyperlink situs web ke sebuah bentuk:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -75,13 +81,16 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **Menambahkan Hyperlink URL ke Media**
+### **Tambahkan Hyperlink URL ke Media**
 
-Aspose.Slides memungkinkan Anda menambahkan hyperlink ke file gambar, audio, dan video. 
+Aspose.Slides memungkinkan Anda menambahkan hyperlink ke gambar, audio, dan file video. 
 
 Contoh kode ini menunjukkan cara menambahkan hyperlink ke **gambar**:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     // Menambahkan gambar ke presentasi
@@ -99,6 +108,9 @@ using (Presentation pres = new Presentation())
 Contoh kode ini menunjukkan cara menambahkan hyperlink ke **file audio**:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IAudio audio = pres.Audios.AddAudio(File.ReadAllBytes("audio.mp3"));
@@ -114,6 +126,9 @@ using (Presentation pres = new Presentation())
 Contoh kode ini menunjukkan cara menambahkan hyperlink ke **video**:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IVideo video = pres.Videos.AddVideo(File.ReadAllBytes("video.avi"));
@@ -126,19 +141,23 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-{{%  alert  title="Tip"  color="primary"  %}} 
+{{%  alert  title="Tip"  color="info"  %}} 
 
 Anda mungkin ingin melihat *[Kelola OLE](https://docs.aspose.com/slides/id/net/manage-ole/)*.
 
 {{% /alert %}}
 
-## **Menggunakan Hyperlink untuk Membuat Daftar Isi**
+## **Gunakan Hyperlink untuk Membuat Daftar Isi**
 
 Karena hyperlink memungkinkan Anda menambahkan referensi ke objek atau tempat, Anda dapat menggunakannya untuk membuat daftar isi. 
 
 Contoh kode ini menunjukkan cara membuat daftar isi dengan hyperlink:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation())
 {
     var firstSlide = presentation.Slides[0];
@@ -165,15 +184,19 @@ using (var presentation = new Presentation())
 }
 ```
 
-## **Memformat Hyperlink**
+## **Format Hyperlink**
 
 ### **Warna**
 
-Dengan properti [ColorSource](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink/properties/colorsource) di antarmuka [IHyperlink](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink), Anda dapat mengatur warna untuk hyperlink dan juga mendapatkan informasi warna dari hyperlink. Fitur ini pertama kali diperkenalkan di PowerPoint 2019, sehingga perubahan yang melibatkan properti ini tidak berlaku untuk versi PowerPoint yang lebih lama.
+Dengan properti [ColorSource](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink/properties/colorsource) dalam antarmuka [IHyperlink](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink), Anda dapat mengatur warna untuk hyperlink dan juga mendapatkan informasi warna dari hyperlink. Fitur ini pertama kali diperkenalkan di PowerPoint 2019, sehingga perubahan yang melibatkan properti ini tidak berlaku untuk versi PowerPoint yang lebih lama.
 
-Contoh kode ini mendemonstrasikan operasi di mana hyperlink dengan warna berbeda ditambahkan ke slide yang sama:
+Contoh kode ini memperlihatkan operasi di mana hyperlink dengan warna berbeda ditambahkan ke slide yang sama:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -192,15 +215,18 @@ using (Presentation presentation = new Presentation())
 ```
 ### **Suara**
 
-Aspose.Slides menyediakan properti-properti ini agar Anda dapat menekankan hyperlink dengan suara:
+Aspose.Slides menyediakan properti-properti ini untuk memungkinkan Anda menekankan sebuah hyperlink dengan suara:
 - [IHyperlink.Sound](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink/properties/sound) 
 - [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink/properties/stopsoundonclick)
 
-#### **Menambahkan Suara pada Hyperlink**
+#### **Tambahkan Suara Hyperlink**
 
 Kode C# ini menunjukkan cara mengatur hyperlink yang memutar suara dan menghentikannya dengan hyperlink lain:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
 	// Menambahkan audio baru ke koleksi audio presentasi
@@ -233,11 +259,13 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-#### **Mengekstrak Suara Hyperlink**
+#### **Ekstrak Suara Hyperlink**
 
 Kode C# ini menunjukkan cara mengekstrak suara yang digunakan dalam sebuah hyperlink:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 {
 	ISlide firstSlide = pres.Slides[0];
@@ -253,13 +281,16 @@ using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 }
 ```
 
-## **Menghapus Hyperlink dari Presentasi**
+## **Hapus Hyperlink dari Presentasi**
 
-### **Menghapus Hyperlink dari Teks**
+### **Hapus Hyperlink dari Teks**
 
 Kode C# ini menunjukkan cara menghapus hyperlink dari teks dalam slide presentasi:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     ISlide slide = pres.Slides[0];
@@ -282,11 +313,14 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-### **Menghapus Hyperlink dari Bentuk atau Bingkai**
+### **Hapus Hyperlink dari Bentuk atau Bingkai**
 
 Kode C# ini menunjukkan cara menghapus hyperlink dari sebuah bentuk dalam slide presentasi: 
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("demo.pptx")) 
 { 
    ISlide slide = pres.Slides[0]; 
@@ -300,16 +334,19 @@ using (Presentation pres = new Presentation("demo.pptx"))
 
 ## **Hyperlink yang Dapat Diubah**
 
-Kelas [Hyperlink](https://reference.aspose.com/slides/id/net/aspose.slides/hyperlink) bersifat mutable. Dengan kelas ini, Anda dapat mengubah nilai properti-properti berikut:
+Kelas [Hyperlink](https://reference.aspose.com/slides/id/net/aspose.slides/hyperlink) bersifat mutable. Dengan kelas ini, Anda dapat mengubah nilai properti berikut:
 
 - [IHyperlink.TargetFrame](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink/properties/targetframe)
 - [IHyperlink.Tooltip](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink/properties/tooltip)
 - [IHyperlink.History](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink/properties/history)
 - [IHyperlink.HighlightClick](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink/properties/highlightclick)
 
-Potongan kode ini menunjukkan cara menambahkan hyperlink ke slide dan mengedit tooltip-nya kemudian:
+Potongan kode ini menunjukkan cara menambahkan hyperlink ke slide dan mengedit tooltip‑nya kemudian:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {   
    IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);    
@@ -328,7 +365,7 @@ using (Presentation presentation = new Presentation())
 
 ## **Properti yang Didukung dalam IHyperlinkQueries**
 
-Anda dapat mengakses IHyperlinkQueries dari presentasi, slide, atau teks tempat hyperlink didefinisikan. 
+Anda dapat mengakses IHyperlinkQueries dari sebuah presentasi, slide, atau teks yang memiliki hyperlink yang didefinisikan. 
 
 - [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/id/net/aspose.slides/ipresentation/properties/hyperlinkqueries)
 - [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/id/net/aspose.slides/ibaseslide/properties/hyperlinkqueries)
@@ -343,14 +380,14 @@ Kelas IHyperlinkQueries mendukung metode dan properti berikut:
 
 ## **FAQ**
 
-**Bagaimana saya dapat membuat navigasi internal bukan hanya ke slide, tetapi ke "bagian" atau slide pertama dari sebuah bagian?**
+### Bagaimana saya dapat membuat navigasi internal tidak hanya ke slide, tetapi ke "section" atau slide pertama dari sebuah section?
 
-Bagian dalam PowerPoint adalah pengelompokan slide; navigasi secara teknis menargetkan slide tertentu. Untuk "menavigasi ke sebuah bagian", Anda biasanya menautkan ke slide pertamanya.
+Bagian di PowerPoint adalah pengelompokan slide; navigasi secara teknis menargetkan slide tertentu. Untuk "menavigasi ke sebuah section", Anda biasanya menautkan ke slide pertamanya.
 
-**Apakah saya dapat menempelkan hyperlink ke elemen master slide sehingga berfungsi di semua slide?**
+### Apakah saya dapat melampirkan hyperlink ke elemen master slide sehingga berfungsi pada semua slide?
 
-Ya. Elemen master slide dan layout mendukung hyperlink. Tautan tersebut muncul pada slide anak dan dapat diklik selama presentasi.
+Ya. Elemen master slide dan layout mendukung hyperlink. Tautan tersebut muncul pada slide turunan dan dapat diklik selama pertunjukan slide.
 
-**Apakah hyperlink akan dipertahankan saat mengekspor ke PDF, HTML, gambar, atau video?**
+### Akankah hyperlink dipertahankan saat mengekspor ke PDF, HTML, gambar, atau video?
 
-Dalam [PDF](/slides/id/net/convert-powerpoint-to-pdf/) dan [HTML](/slides/id/net/convert-powerpoint-to-html/), ya—tautan biasanya dipertahankan. Saat mengekspor ke [gambar](/slides/id/net/convert-powerpoint-to-png/) dan [video](/slides/id/net/convert-powerpoint-to-video/), kemampuan mengklik tidak akan terbawa karena sifat format tersebut (frame raster/video tidak mendukung hyperlink).
+Dalam [PDF](/slides/id/net/convert-powerpoint-to-pdf/) dan [HTML](/slides/id/net/convert-powerpoint-to-html/), ya—tautan umumnya dipertahankan. Saat mengekspor ke [images](/slides/id/net/convert-powerpoint-to-png/) dan [video](/slides/id/net/convert-powerpoint-to-video/), kemampuan mengklik tidak akan terbawa karena sifat format tersebut (frame raster/video tidak mendukung hyperlink).

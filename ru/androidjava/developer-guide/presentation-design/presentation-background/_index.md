@@ -1,5 +1,5 @@
 ---
-title: Управление фоновыми изображениями презентации на Android
+title: Управление фонами презентаций на Android
 linktitle: Фон слайда
 type: docs
 weight: 20
@@ -9,7 +9,7 @@ keywords:
 - фон слайда
 - сплошной цвет
 - градиентный цвет
-- фоновое изображение
+- фон изображения
 - прозрачность фона
 - свойства фона
 - PowerPoint
@@ -20,25 +20,28 @@ keywords:
 - Aspose.Slides
 description: "Узнайте, как задавать динамические фоны в файлах PowerPoint и OpenDocument с помощью Aspose.Slides для Android на Java, с советами по коду для улучшения ваших презентаций."
 ---
+## **Введение**
 
-## **Обзор**
-
-Сплошные цвета, градиенты и изображения обычно используются в качестве фона слайдов. Вы можете задать фон для **обычного слайда** (одного слайда) или **главного слайда** (применяется сразу к нескольким слайдам).
+Сплошные цвета, градиенты и изображения часто используются в качестве фона слайдов. Вы можете задать фон для **обычного слайда** (один слайд) или **главного слайда** (применяется к нескольким слайдам сразу).
 
 ![Фон PowerPoint](powerpoint-background.png)
 
-## **Задать сплошной цвет фона для обычного слайда**
+## **Установить сплошной цвет фона для обычного слайда**
 
 Aspose.Slides позволяет задать сплошной цвет в качестве фона для конкретного слайда в презентации — даже если презентация использует главный слайд. Изменение применяется только к выбранному слайду.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-2. Установите свойство [BackgroundType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/backgroundtype/) слайда в `OwnBackground`.
-3. Установите тип заполнения [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) фона слайда в `Solid`.
-4. Вызовите метод [getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fillformat/#getSolidFillColor--) у [FillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fillformat/) для указания сплошного цвета фона.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/).
+2. Установите свойство [BackgroundType](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/backgroundtype/) слайда в значение `OwnBackground`.
+3. Установите [FillType](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/filltype/) фона слайда в `Solid`.
+4. Вызовите метод [getSolidFillColor](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/fillformat/#getSolidFillColor--) у [FillFormat](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/fillformat/), чтобы задать сплошной цвет фона.
 5. Сохраните изменённую презентацию.
 
 Следующий пример на Java показывает, как задать синий сплошной цвет в качестве фона обычного слайда:
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Создайте экземпляр класса Presentation.
 Presentation presentation = new Presentation();
 try {
@@ -56,25 +59,28 @@ try {
 }
 ```
 
+## **Установить сплошной цвет фона для главного слайда**
 
-## **Задать сплошной цвет фона для главного слайда**
+Aspose.Slides позволяет задать сплошной цвет в качестве фона для главного слайда в презентации. Главный слайд выступает в роли шаблона, контролирующего форматирование всех слайдов, поэтому при выборе сплошного цвета для фона главного слайда он применяется ко всем слайдам.
 
-Aspose.Slides позволяет задать сплошной цвет в качестве фона для главного слайда в презентации. Главный слайд выступает в роли шаблона, который управляет форматированием всех слайдов, поэтому при выборе сплошного цвета фона главного слайда он применяется к каждому слайду.
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-2. Установите свойство [BackgroundType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/backgroundtype/) главного слайда (через `getMasters`) в значение `OwnBackground`.
-3. Установите тип заполнения [FillType] фонa главного слайда в `Solid`.
-4. Вызовите метод [getSolidFillColor] для указания сплошного цвета фона.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/).
+2. Установите [BackgroundType](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/backgroundtype/) главного слайда (через `getMasters`) в значение `OwnBackground`.
+3. Установите [FillType](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/filltype/) фона главного слайда в `Solid`.
+4. Вызовите метод [getSolidFillColor](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/fillformat/#getSolidFillColor--) у [FillFormat](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/fillformat/), чтобы задать сплошной цвет фона.
 5. Сохраните изменённую презентацию.
 
 Следующий пример на Java показывает, как задать сплошной цвет (зеленый) в качестве фона главного слайда:
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Создайте экземпляр класса Presentation.
 Presentation presentation = new Presentation();
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
 
-    // Установите цвет фона для главного слайда в лесной зелёный.
+    // Установите цвет фона главного слайда в зеленый.
     masterSlide.getBackground().setType(BackgroundType.OwnBackground);
     masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
     masterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
@@ -86,19 +92,22 @@ try {
 }
 ```
 
+## **Установить градиентный фон для слайда**
 
-## **Задать градиентный фон для слайда**
+Градиент — это графический эффект, создаваемый постепенным изменением цвета. При использовании в качестве фона слайда градиенты делают презентацию более художественной и профессиональной. Aspose.Slides позволяет задать градиентный цвет в качестве фона слайдов.
 
-Градиент — графический эффект, создаваемый постепенным изменением цвета. При использовании в качестве фона слайда градиенты могут сделать презентацию более художественной и профессиональной. Aspose.Slides позволяет задать градиентный цвет в качестве фона слайдов.
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-2. Установите свойство [BackgroundType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/backgroundtype/) слайда в `OwnBackground`.
-3. Установите тип заполнения [FillType] фонa слайда в `Gradient`.
-4. Вызовите метод [getGradientFormat] у [FillFormat] для настройки желаемых параметров градиента.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/).
+2. Установите свойство [BackgroundType](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/backgroundtype/) слайда в значение `OwnBackground`.
+3. Установите [FillType](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/filltype/) фона слайда в `Gradient`.
+4. Вызовите метод [getGradientFormat](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/fillformat/#getGradientFormat--) у [FillFormat](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/fillformat/), чтобы настроить нужные параметры градиента.
 5. Сохраните изменённую презентацию.
 
 Следующий пример на Java показывает, как задать градиентный цвет в качестве фона слайда:
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Создайте экземпляр класса Presentation.
 Presentation presentation = new Presentation();
 try {
@@ -107,7 +116,13 @@ try {
     // Примените градиентный эффект к фону.
     slide.getBackground().setType(BackgroundType.OwnBackground);
     slide.getBackground().getFillFormat().setFillType(FillType.Gradient);
-    slide.getBackground().getFillFormat().getGradientFormat().setTileFlip(TileFlip.FlipBoth);
+
+    IGradientFormat gradientFormat = slide.getBackground().getFillFormat().getGradientFormat();
+    gradientFormat.setTileFlip(TileFlip.FlipBoth);
+
+    // Добавьте цвета градиента. Без градиентных остановок фон откатывается к стандартному градиенту от черного к белому.
+    gradientFormat.getGradientStops().add(0f, Color.CYAN);
+    gradientFormat.getGradientStops().add(1f, Color.BLUE);
 
     // Сохраните презентацию на диск.
     presentation.save("GradientBackground.pptx", SaveFormat.Pptx);
@@ -116,21 +131,23 @@ try {
 }
 ```
 
+## **Установить изображение в качестве фона слайда**
 
-## **Задать изображение в качестве фона слайда**
+Помимо сплошных и градиентных заливок, Aspose.Slides позволяет использовать изображения в качестве фона слайда.
 
-Помимо сплошных и градиентных заполнений, Aspose.Slides позволяет использовать изображения в качестве фона слайдов.
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-2. Установите свойство [BackgroundType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/backgroundtype/) слайда в `OwnBackground`.
-3. Установите тип заполнения [FillType] фонa слайда в `Picture`.
-4. Загрузите изображение, которое вы хотите использовать в качестве фона слайда.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/).
+2. Установите свойство [BackgroundType](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/backgroundtype/) слайда в значение `OwnBackground`.
+3. Установите [FillType](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/filltype/) фона слайда в `Picture`.
+4. Загрузите изображение, которое хотите использовать в качестве фона слайда.
 5. Добавьте изображение в коллекцию изображений презентации.
-6. Вызовите метод [getPictureFillFormat] у [FillFormat] для назначения изображения в качестве фона.
+6. Вызовите метод [getPictureFillFormat](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/fillformat/#getPictureFillFormat--) у [FillFormat](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/fillformat/), чтобы назначить изображение фоном.
 7. Сохраните изменённую презентацию.
 
 Следующий пример на Java показывает, как задать изображение в качестве фона слайда:
+
 ```java
+import com.aspose.slides.*;
+
 // Создайте экземпляр класса Presentation.
 Presentation presentation = new Presentation();
 try {
@@ -156,9 +173,11 @@ try {
 }
 ```
 
+Следующий образец кода демонстрирует, как установить тип заливки фона в виде чересстрочного изображения и изменить свойства мозаики:
 
-Следующий образец кода показывает, как задать тип заполнения фона в виде плиточного изображения и изменить свойства наложения:
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide firstSlide = presentation.getSlides().get_Item(0);
@@ -172,11 +191,11 @@ try {
     IPPImage ppImage = presentation.getImages().addImage(newImage);
     newImage.dispose();
 
-    // Установите изображение, используемое для заполнения фоном.
+    // Установите изображение, используемое для заливки фона.
     IPictureFillFormat backPictureFillFormat = background.getFillFormat().getPictureFillFormat();
     backPictureFillFormat.getPicture().setImage(ppImage);
 
-    // Установите режим заливки изображения в Плитку и настройте свойства плитки.
+    // Установите режим заливки изображения в Tile и настройте свойства тайла.
     backPictureFillFormat.setPictureFillMode(PictureFillMode.Tile);
     backPictureFillFormat.setTileOffsetX(15f);
     backPictureFillFormat.setTileOffsetY(15f);
@@ -191,53 +210,66 @@ try {
 }
 ```
 
-
-{{% alert color="primary" %}}
-Подробнее: [**Плиточное изображение как текстура**](/slides/ru/androidjava/shape-formatting/#tile-picture-as-texture).
+{{% alert color="info" %}}
+Подробнее: [**Изображение как текстура мозаики**](/slides/ru/androidjava/shape-formatting/#tile-picture-as-texture).
 {{% /alert %}}
 
 ### **Изменить прозрачность фонового изображения**
 
 Возможно, вам потребуется отрегулировать прозрачность фонового изображения слайда, чтобы выделить содержимое слайда. Следующий код на Java показывает, как изменить прозрачность фонового изображения слайда:
+
 ```java
+import com.aspose.slides.*;
+
 int transparencyValue = 30; // Например.
 
-// Получить коллекцию операций преобразования изображения.
-IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+Presentation presentation = new Presentation("Sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-// Найти существующий эффект прозрачности с фиксированным процентом.
-IAlphaModulateFixed transparencyOperation = null;
-for (IImageTransformOperation operation : imageTransform) {
-    if (operation instanceof IAlphaModulateFixed) {
-        transparencyOperation = (IAlphaModulateFixed)operation;
-        break;
+    // Получите коллекцию операций трансформации изображения.
+    IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+
+    // Найдите существующий эффект фиксированного процентного уровня прозрачности.
+    IAlphaModulateFixed transparencyOperation = null;
+    for (IImageTransformOperation operation : imageTransform) {
+        if (operation instanceof IAlphaModulateFixed) {
+            transparencyOperation = (IAlphaModulateFixed)operation;
+            break;
+        }
     }
-}
 
-// Установить новое значение прозрачности.
-if (transparencyOperation == null) {
-    imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
-}
-else {
-    transparencyOperation.setAmount(100 - transparencyValue);
+    // Установите новое значение прозрачности.
+    if (transparencyOperation == null) {
+        imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
+    }
+    else {
+        transparencyOperation.setAmount(100 - transparencyValue);
+    }
+
+    presentation.save("TransparentBackground.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-
 ## **Получить значение фона слайда**
 
-Aspose.Slides предоставляет интерфейс [IBackgroundEffectiveData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibackgroundeffectivedata/) для получения эффективных значений фона слайда. Этот интерфейс открывает доступ к эффективным [FillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibackgroundeffectivedata/#getFillFormat--) и [EffectFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibackgroundeffectivedata/#getEffectFormat--).
+Aspose.Slides предоставляет интерфейс [IBackgroundEffectiveData](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ibackgroundeffectivedata/) для получения эффективных значений фона слайда. Этот интерфейс раскрывает эффективные [FillFormat](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ibackgroundeffectivedata/#getFillFormat--) и [EffectFormat](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ibackgroundeffectivedata/#getEffectFormat--).
 
-С помощью метода `getBackground` класса [BaseSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/) вы можете получить эффективный фон слайда.
+С помощью метода `getBackground` класса [BaseSlide](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/baseslide/) можно получить эффективный фон слайда.
 
 Следующий пример на Java показывает, как получить эффективное значение фона слайда:
+
 ```java
+import com.aspose.slides.*;
+
 // Создайте экземпляр класса Presentation.
 Presentation presentation = new Presentation("Sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Получите эффективный фон, учитывая мастер‑слайд, макет и тему.
+    // Получите эффективный фон с учётом главного слайда, макета и темы.
     IBackgroundEffectiveData effBackground = slide.getBackground().getEffective();
     
     if (effBackground.getFillFormat().getFillType() == FillType.Solid)
@@ -249,13 +281,12 @@ try {
 }
 ```
 
+## **Часто задаваемые вопросы**
 
-## **FAQ**
+### Можно ли сбросить пользовательский фон и восстановить фон темы/макета?
 
-**Могу ли я сбросить пользовательский фон и восстановить фон темы/макета?**
+Да. Удалите пользовательскую заливку слайда, и фон вновь будет наследоваться от соответствующего слайда [макет](/slides/ru/androidjava/slide-layout/)/[главный](/slides/ru/androidjava/slide-master/) (т.е. от [фон темы](/slides/ru/androidjava/presentation-theme/)).
 
-Да. Удалите пользовательское заполнение слайда, и фон будет снова наследоваться от соответствующего слайда [layout](/slides/ru/androidjava/slide-layout/)/[master](/slides/ru/androidjava/slide-master/) (т.е. от [theme background](/slides/ru/androidjava/presentation-theme/)).
+### Что происходит с фоном, если я позже изменю тему презентации?
 
-**Что происходит с фоном, если я позже изменю тему презентации?**
-
-Если у слайда есть собственное заполнение, оно останется без изменений. Если фон наследуется от [layout](/slides/ru/androidjava/slide-layout/)/[master](/slides/ru/androidjava/slide-master/), он будет обновлён в соответствии с [new theme](/slides/ru/androidjava/presentation-theme/).
+Если у слайда есть собственная заливка, она останется без изменений. Если фон наследуется от [макет](/slides/ru/androidjava/slide-layout/)/[главный](/slides/ru/androidjava/slide-master/), он обновится в соответствии с [новой темой](/slides/ru/androidjava/presentation-theme/).

@@ -16,15 +16,22 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Prohlédněte si aktualizace veřejného API a rozbíjející změny v Aspose.Slides pro .NET, abyste hladce migrovali své řešení prezentací PowerPoint PPT, PPTX a ODP."
+description: "Prohlédněte si aktualizace veřejného API a změny, které přinášejí nekompatibility, v Aspose.Slides pro .NET a hladce migrujte své řešení prezentací PowerPoint PPT, PPTX a ODP."
 ---
-{{% alert color="primary" %}} 
-Tato stránka uvádí všechny [added](/slides/cs/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) nebo [removed](/slides/cs/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) třídy, metody, vlastnosti a podobně, a další změny zavedené v Aspose.Slides for .NET 15.8.0 API.
+{{% alert color="info" %}} 
+
+Tato stránka uvádí všechny [přidané](/slides/cs/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) nebo [odebrané](/slides/cs/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) třídy, metody, vlastnosti a podobně a další změny zavedené v API Aspose.Slides pro .NET 15.8.0.
+
 {{% /alert %}} 
-## **Public API Changes**
-#### **Property DoughnutHoleSize Has Been Added to IChartSeries and ChartSeries**
-Určuje velikost otvoru v prstencovém grafu.
+## **Změny veřejného API**
+#### **Vlastnost DoughnutHoleSize byla přidána do IChartSeries a ChartSeries**
+Určuje velikost díry v grafu typu donut.
+
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -37,5 +44,4 @@ Určuje velikost otvoru v prstencovém grafu.
    pres.Save("ChartSeries.API.DoughnutHoleSize.pptx", SaveFormat.Pptx);
 
 }
-
 ```

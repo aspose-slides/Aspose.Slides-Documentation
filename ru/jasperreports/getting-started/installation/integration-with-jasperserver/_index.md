@@ -4,14 +4,13 @@ type: docs
 weight: 45
 url: /ru/jasperreports/integration-with-jasperserver/
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-Для интеграции Aspose.Slides для JasperReports с JasperServer необходимо выполнить несколько дополнительных шагов и обновить конфигурационные файлы JasperServer. В этой статье объясняется, как это сделать.
+Чтобы интегрировать Aspose.Slides для JasperReports с JasperServer, необходимо выполнить несколько дополнительных шагов и обновить файлы конфигурации JasperServer. В этой статье объясняется, как это сделать.
 
 {{% /alert %}} 
 
-1. Добавьте новые параметры экспортера в конфигурационный файл **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml**.
+1. Добавьте новые свойства экспортёра в конфигурационный файл **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml**.
 
 ``` xml
 <bean id="reportPptExporter" class="com.aspose.slides.jasperreports.ASPptReportExporter" parent="baseReportExporter">
@@ -20,7 +19,7 @@ url: /ru/jasperreports/integration-with-jasperserver/
 </bean> 
 
 <bean id="pptExporterConfiguration" class="com.jaspersoft.jasperserver.war.action.ExporterConfigurationBean">
-    <property name="descriptionKey" value="Презентация PowerPoint через Aspose.Slides"/>
+    <property name="descriptionKey" value="PowerPoint Presentation via Aspose.Slides"/>
     <property name="iconSrc" value="/images/ppt.png"/>
     <property name="parameterDialogName" value=""/>
     <property name="exportParameters" ref="pptExportParameters"/>
@@ -34,7 +33,7 @@ url: /ru/jasperreports/integration-with-jasperserver/
 ```
 
 2. Скопируйте **aspose.slides.jasperreports.jar** в **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\lib**.
-3. Чтобы использовать функцию сопоставления шрифтов, обновите **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** следующим образом.
+3. Чтобы использовать функцию сопоставления шрифтов, обновите **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** как показано ниже.
 
 ``` xml
 <bean id="pptExportParameters" class="com.aspose.slides.jasperreports.ASExportParametersBean">

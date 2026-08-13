@@ -1,6 +1,6 @@
 ---
-title: Quản lý Dự án VBA trong Bài thuyết trình trên Android
-linktitle: Bài thuyết trình qua VBA
+title: Quản lý dự án VBA trong bản trình chiếu trên Android
+linktitle: Bản trình chiếu qua VBA
 type: docs
 weight: 250
 url: /vi/androidjava/presentation-via-vba/
@@ -16,11 +16,11 @@ keywords:
 - trích xuất VBA
 - PowerPoint
 - OpenDocument
-- bài thuyết trình
+- bản trình chiếu
 - Android
 - Java
 - Aspose.Slides
-description: "Khám phá cách tạo và thao tác các bài thuyết trình PowerPoint và OpenDocument qua VBA với Aspose.Slides cho Android bằng Java để tối ưu quy trình làm việc của bạn."
+description: "Khám phá cách tạo và thao tác các bản trình chiếu PowerPoint và OpenDocument qua VBA với Aspose.Slides cho Android bằng Java để tối ưu quy trình làm việc của bạn."
 ---
 ## **Giới thiệu**
 
@@ -28,30 +28,32 @@ Aspose.Slides cung cấp các lớp và giao diện để làm việc với macr
 
 {{% alert title="Note" color="warning" %}} 
 
-Khi bạn chuyển đổi một bài thuyết trình chứa macro sang định dạng tệp khác (PDF, HTML, v.v.), Aspose.Slides bỏ qua tất cả các macro (macro sẽ không được chuyển sang tệp kết quả).
+Khi bạn chuyển đổi một bản trình chiếu có chứa macro sang định dạng tệp khác (PDF, HTML, v.v.), Aspose.Slides bỏ qua tất cả các macro (macro không được chuyển sang tệp kết quả).
 
-Khi bạn thêm macro vào một bài thuyết trình hoặc lưu lại một bài thuyết trình chứa macro, Aspose.Slides chỉ ghi lại các byte của macro.
+Khi bạn thêm macro vào bản trình chiếu hoặc lưu lại bản trình chiếu có chứa macro, Aspose.Slides chỉ ghi các byte của macro.
 
-Aspose.Slides **không bao giờ** chạy các macro trong một bài thuyết trình.
+Aspose.Slides **không bao giờ** chạy macro trong bản trình chiếu.
 
 {{% /alert %}}
 
 ## **Thêm Macro VBA**
 
-Aspose.Slides cung cấp lớp [VbaProject](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/vbaproject/) cho phép bạn tạo dự án VBA (và các tham chiếu dự án) và chỉnh sửa các mô-đun hiện có. Bạn có thể sử dụng giao diện [IVbaProject](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ivbaproject/) để quản lý VBA nhúng trong một bài thuyết trình.
+Aspose.Slides cung cấp lớp [VbaProject](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/vbaproject/) để cho phép bạn tạo các dự án VBA (và tham chiếu dự án) và chỉnh sửa các mô-đun hiện có. Bạn có thể sử dụng giao diện [IVbaProject](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ivbaproject/) để quản lý VBA nhúng trong một bản trình chiếu.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation).
-1. Sử dụng constructor của [VbaProject](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/vbaproject/#VbaProject--) để thêm một dự án VBA mới.
+1. Sử dụng trình khởi tạo [VbaProject](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/vbaproject/#VbaProject--) để thêm một dự án VBA mới.
 1. Thêm một mô-đun vào VbaProject.
 1. Đặt mã nguồn của mô-đun.
 1. Thêm tham chiếu tới <stdole>.
 1. Thêm tham chiếu tới **Microsoft Office**.
-1. Liên kết các tham chiếu với dự án VBA.
-1. Lưu bài thuyết trình.
+1. Gắn kết các tham chiếu với dự án VBA.
+1. Lưu bản trình chiếu.
 
-Mã Java này cho bạn thấy cách thêm một macro VBA từ đầu vào một bài thuyết trình:
+Đoạn mã Java này cho bạn thấy cách thêm một macro VBA từ đầu vào một bản trình chiếu:
 
 ```java
+import com.aspose.slides.*;
+
 // Tạo một thể hiện của lớp Presentation
 Presentation pres = new Presentation();
 try {
@@ -82,23 +84,25 @@ try {
 }
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Bạn có thể muốn thử **Aspose** [Macro Remover](https://products.aspose.app/slides/vi/remove-macros), một ứng dụng web miễn phí dùng để xóa macro khỏi các tài liệu PowerPoint, Excel và Word. 
+Bạn có thể muốn xem **Aspose** [Macro Remover](https://products.aspose.app/slides/vi/remove-macros), một ứng dụng web miễn phí dùng để loại bỏ macro khỏi tài liệu PowerPoint, Excel và Word. 
 
 {{% /alert %}} 
 
 ## **Xóa Macro VBA**
 
-Sử dụng thuộc tính [VbaProject](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/#getVbaProject--) dưới lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation), bạn có thể xóa một macro VBA.
+Sử dụng thuộc tính [VbaProject](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/#getVbaProject--) trong lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation), bạn có thể xóa một macro VBA.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation) và tải bài thuyết trình chứa macro.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation) và tải bản trình chiếu có chứa macro.
 1. Truy cập mô-đun Macro và xóa nó.
-1. Lưu bài thuyết trình đã chỉnh sửa.
+1. Lưu bản trình chiếu đã sửa đổi.
 
-Mã Java này cho bạn thấy cách xóa một macro VBA:
+Đoạn mã Java này cho bạn thấy cách xóa một macro VBA:
 
 ```java
+import com.aspose.slides.*;
+
 // Tải bản trình chiếu chứa macro
 Presentation pres = new Presentation("VBA.pptm");
 try {
@@ -112,19 +116,21 @@ try {
 }
 ```
 
-## **Trích xuất Macro VBA**
+## **Trích Xuất Macro VBA**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation) và tải bài thuyết trình chứa macro.
-2. Kiểm tra xem bài thuyết trình có chứa một Dự án VBA không.
-3. Duyệt qua tất cả các mô-đun trong Dự án VBA để xem các macro.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation) và tải bản trình chiếu có chứa macro.
+2. Kiểm tra xem bản trình chiếu có chứa một VBA Project hay không.
+3. Duyệt qua tất cả các mô-đun trong VBA Project để xem các macro.
 
-Mã Java này cho bạn thấy cách trích xuất các macro VBA từ một bài thuyết trình chứa macro:
+Đoạn mã Java này cho bạn thấy cách trích xuất macro VBA từ một bản trình chiếu có chứa macro:
 
 ```java
+import com.aspose.slides.*;
+
 // Tải bản trình chiếu chứa macro
 Presentation pres = new Presentation("VBA.pptm");
 try {
-    if (pres.getVbaProject() != null) // Kiểm tra xem Bản trình chiếu có chứa dự án VBA hay không
+    if (pres.getVbaProject() != null) // Kiểm tra xem bản trình chiếu có chứa dự án VBA hay không
     {
         for (IVbaModule module : pres.getVbaProject().getModules())
         {
@@ -137,15 +143,17 @@ try {
 }
 ```
 
-## **Kiểm tra Dự án VBA có được bảo vệ bằng mật khẩu hay không**
+## **Kiểm Tra Dự Án VBA Có Được Bảo Vệ Bằng Mật Khẩu Hay Không**
 
-Sử dụng phương pháp [IVbaProject.isPasswordProtected](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ivbaproject/#isPasswordProtected--), bạn có thể xác định liệu các thuộc tính của dự án có được bảo vệ bằng mật khẩu hay không.
+Sử dụng phương thức [IVbaProject.isPasswordProtected](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ivbaproject/#isPasswordProtected--), bạn có thể xác định xem các thuộc tính của dự án có được bảo vệ bằng mật khẩu hay không.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/) và tải một bài thuyết trình chứa macro.
-2. Kiểm tra xem bài thuyết trình có chứa một [VBA project](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/vbaproject/) không.
-3. Kiểm tra xem dự án VBA có được bảo vệ bằng mật khẩu để xem các thuộc tính của nó không.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/) và tải một bản trình chiếu chứa macro.
+2. Kiểm tra xem bản trình chiếu có chứa một [VBA project](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/vbaproject/) hay không.
+3. Kiểm tra xem dự án VBA có được bảo vệ bằng mật khẩu để xem các thuộc tính của nó hay không.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("VBA.pptm");
 try {
     if (presentation.getVbaProject() != null) { // Kiểm tra xem bản trình chiếu có chứa dự án VBA hay không.
@@ -161,14 +169,14 @@ try {
 
 ## **FAQ**
 
-**Điều gì xảy ra với macro nếu tôi lưu bài thuyết trình dưới dạng PPTX?**
+### Điều gì xảy ra với macro nếu tôi lưu bản trình chiếu dưới dạng PPTX?
 
-Macro sẽ bị xóa vì PPTX không hỗ trợ VBA. Để giữ macro, hãy chọn PPTM, PPSM hoặc POTM.
+Macro sẽ bị loại bỏ vì PPTX không hỗ trợ VBA. Để giữ macro, chọn PPTM, PPSM hoặc POTM.
 
-**Aspose.Slides có thể chạy macro trong bài thuyết trình để, ví dụ, làm mới dữ liệu không?**
+### Aspose.Slides có thể chạy macro trong bản trình chiếu để, ví dụ, làm mới dữ liệu không?
 
-Không. Thư viện không bao giờ thực thi mã VBA; việc thực thi chỉ có thể thực hiện trong PowerPoint với các cài đặt bảo mật thích hợp.
+Không. Thư viện không bao giờ thực thi mã VBA; việc thực thi chỉ có thể xảy ra trong PowerPoint với các cài đặt bảo mật phù hợp.
 
-**Có hỗ trợ làm việc với các điều khiển ActiveX liên kết với mã VBA không?**
+### Có hỗ trợ làm việc với các điều khiển ActiveX liên kết với mã VBA không?
 
-Có, bạn có thể truy cập các [ActiveX controls](/slides/vi/androidjava/activex/), chỉnh sửa thuộc tính của chúng và xóa chúng. Điều này hữu ích khi macro tương tác với ActiveX.
+Có, bạn có thể truy cập các [điều khiển ActiveX](/slides/vi/androidjava/activex/), sửa đổi thuộc tính của chúng và xóa chúng. Điều này hữu ích khi macro tương tác với ActiveX.

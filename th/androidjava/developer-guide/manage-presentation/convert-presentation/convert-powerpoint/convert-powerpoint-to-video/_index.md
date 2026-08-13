@@ -1,20 +1,20 @@
 ---
-title: แปลงงานนำเสนอ PowerPoint เป็นวิดีโอบน Android
+title: แปลงการนำเสนอ PowerPoint เป็นวิดีโอบน Android
 linktitle: PowerPoint เป็นวิดีโอ
 type: docs
 weight: 130
 url: /th/androidjava/convert-powerpoint-to-video/
 keywords:
 - แปลง PowerPoint
-- แปลงงานนำเสนอ
+- แปลงการนำเสนอ
 - แปลง PPT
 - แปลง PPTX
 - PowerPoint เป็นวิดีโอ
-- งานนำเสนอเป็นวิดีโอ
+- การนำเสนอเป็นวิดีโอ
 - PPT เป็นวิดีโอ
 - PPTX เป็นวิดีโอ
 - PowerPoint เป็น MP4
-- งานนำเสนอเป็น MP4
+- การนำเสนอเป็น MP4
 - PPT เป็น MP4
 - PPTX เป็น MP4
 - บันทึก PPT เป็น MP4
@@ -26,31 +26,25 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "เรียนรู้วิธีแปลงงานนำเสนอ PowerPoint เป็นวิดีโอใน Java ค้นพบตัวอย่างโค้ดและเทคนิคการอัตโนมัติเพื่อทำให้กระบวนการทำงานของคุณเป็นระเบียบง่ายขึ้น."
+description: "เรียนรู้วิธีแปลงการนำเสนอ PowerPoint เป็นวิดีโอด้วย Java ค้นพบตัวอย่างโค้ดและเทคนิคการทำงานอัตโนมัติเพื่อปรับปรุงกระบวนการของคุณให้เป็นระบบมากขึ้น"
 ---
 ## **บทนำ**
 
-โดยการแปลงงานนำเสนอ PowerPoint ของคุณเป็นวิดีโอ คุณจะได้รับ 
+โดยการแปลงการนำเสนอ PowerPoint ของคุณเป็นวิดีโอ คุณจะได้รับ 
 
-* **เพิ่มการเข้าถึง:** ทุกอุปกรณ์ (ไม่ว่าจะเป็นแพลตฟอร์มใด) มีเครื่องเล่นวิดีโอเป็นค่าเริ่มต้นเมื่อเทียบกับแอปพลิเคชันเปิดงานนำเสนอ ดังนั้นผู้ใช้จึงพบว่าการเปิดหรือเล่นวิดีโอทำได้ง่ายขึ้น.
-* **เข้าถึงมากขึ้น:** ด้วยวิดีโอ คุณสามารถเข้าถึงผู้ชมจำนวนมากและนำเสนอข้อมูลที่อาจดูน่าเบื่อถ้าใช้ในงานนำเสนอ สถานะสำรวจและสถิติมากมายแสดงว่าผู้คนดูและบริโภควิดีโอมากกว่าชนิดเนื้อหาอื่น ๆ และโดยทั่วไปพวกเขาชอบเนื้อหาแบบนี้.
-
-{{% alert color="primary" %}} 
-
-คุณอาจต้องการตรวจสอบ [**PowerPoint to Video Online Converter**](https://products.aspose.app/slides/th/conversion/ppt-to-word) ของเรา เนื่องจากเป็นการดำเนินการแบบสดและมีประสิทธิภาพของกระบวนการที่อธิบายไว้ที่นี่.
-
-{{% /alert %}} 
+* **เพิ่มความเข้าถึง:** ทุกอุปกรณ์ (ไม่ว่าจะเป็นแพลตฟอร์มใด) ถูกติดตั้งตัวเล่นวิดีโอโดยค่าเริ่มต้นเมื่อเทียบกับแอปพลิเคชันเปิดการนำเสนอ ทำให้ผู้ใช้พบว่าการเปิดหรือเล่นวิดีโอง่ายขึ้น
+* **การเข้าถึงที่มากขึ้น:** ด้วยวิดีโอ คุณสามารถเข้าถึงผู้ชมจำนวนมากและให้ข้อมูลแก่พวกเขาที่อาจดูน่าเบื่อหากเป็นการนำเสนอ การสำรวจและสถิติส่วนใหญ่แสดงว่าผู้คนดูและบริโภควิดีโอมากกว่าประเภทเนื้อหาอื่น ๆ และโดยทั่วไปพวกเขาชอบเนื้อหาแบบนี้
 
 ## **การแปลง PowerPoint เป็นวิดีโอใน Aspose.Slides**
 
-Aspose.Slides รองรับการแปลงงานนำเสนอเป็นวิดีโอ.
+Aspose.Slides รองรับการแปลงการนำเสนอเป็นวิดีโอ
 
-* ใช้ **Aspose.Slides** เพื่อสร้างชุดเฟรม (จากสไลด์ของงานนำเสนอ) ที่สอดคล้องกับ FPS (เฟรมต่อวินาที) ที่กำหนด
-* ใช้ยูทิลิตี้ของบุคคลที่สามเช่น **ffmpeg** ([สำหรับ java](https://github.com/bramp/ffmpeg-cli-wrapper)) เพื่อสร้างวิดีโอจากเฟรมเหล่านั้น. 
+* ใช้ **Aspose.Slides** เพื่อสร้างชุดกรอบภาพ (จากสไลด์การนำเสนอ) ที่สอดคล้องกับ FPS (เฟรมต่อวินาที) ที่กำหนด
+* ใช้ยูทิลิตี้ของบุคคลที่สามอย่าง **ffmpeg** ([for java](https://github.com/bramp/ffmpeg-cli-wrapper)) เพื่อสร้างวิดีโอตามกรอบภาพ  
 
 ### **แปลง PowerPoint เป็นวิดีโอ**
 
-1. เพิ่มนี้ลงในไฟล์ POM ของคุณ:
+1. เพิ่มส่วนนี้ในไฟล์ POM ของคุณ:
 ```xml
    <dependency>
      <groupId>net.bramp.ffmpeg</groupId>
@@ -59,15 +53,20 @@ Aspose.Slides รองรับการแปลงงานนำเสนอ
    </dependency>
 ```
 
-2. ดาวน์โหลด ffmpeg [ที่นี่](https://ffmpeg.org/download.html).
+2. ดาวน์โหลด ffmpeg [here](https://ffmpeg.org/download.html).
 
-4. รันโค้ด Java สำหรับการแปลง PowerPoint เป็นวิดีโอ.
+3. เรียกใช้โค้ด Java สำหรับการแปลง PowerPoint เป็นวิดีโอ
 
-โค้ด Java นี้จะแสดงวิธีการแปลงงานนำเสนอ (ที่มีรูปภาพและเอฟเฟกต์แอนิเมชันสองรายการ) เป็นวิดีโอ:
+โค้ด Java นี้แสดงวิธีการแปลงการนำเสนอ (ซึ่งมีรูปภาพและเอฟเฟกต์แอนิเมชันสองอย่าง) เป็นวิดีโอ:
+
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation();
 try {
-    // เพิ่มรูปยิ้มและจากนั้นทำแอนิเมชันให้
+    // เพิ่มรูปหัวเราะและทำแอนิเมชันให้
     IAutoShape smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effectIn = mainSequence.addEffect(smile, EffectType.Fly, EffectSubtype.TopLeft, EffectTriggerType.AfterPrevious);
@@ -101,7 +100,7 @@ try {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
 
-    // กำหนดโฟลเดอร์ไบนารีของ ffmpeg. ดูหน้านี้: https://github.com/rosenbjerg/FFMpegCore#installation
+    // ตั้งค่าโฟลเดอร์ไบนารีของ ffmpeg ดูหน้านี้: https://github.com/bramp/ffmpeg-cli-wrapper
     FFmpeg ffmpeg = new FFmpeg("path/to/ffmpeg");
     FFprobe ffprobe = new FFprobe("path/to/ffprobe");
 
@@ -122,34 +121,46 @@ try {
 
 ## **เอฟเฟกต์วิดีโอ**
 
-คุณสามารถใส่แอนิเมชันให้กับวัตถุในสไลด์และใช้การเปลี่ยนสไลด์ระหว่างสไลด์ได้.
+คุณสามารถใช้แอนิเมชันกับวัตถุบนสไลด์และใช้การเปลี่ยนภาพระหว่างสไลด์ได้
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 คุณอาจต้องการดูบทความเหล่านี้: [PowerPoint Animation](https://docs.aspose.com/slides/th/androidjava/powerpoint-animation/), [Shape Animation](https://docs.aspose.com/slides/th/androidjava/shape-animation/), และ [Shape Effect](https://docs.aspose.com/slides/th/androidjava/shape-effect/).
 
 {{% /alert %}} 
 
-แอนิเมชันและการเปลี่ยนสไลด์ทำให้การสไลด์โชว์มีความน่าสนใจและดึงดูดมากขึ้น — และทำเช่นเดียวกันสำหรับวิดีโอ ให้เพิ่มสไลด์และการเปลี่ยนสไลด์อีกหนึ่งสไลด์ในโค้ดของงานนำเสนอก่อนหน้า:
+แอนิเมชันและการเปลี่ยนภาพทำให้การพรีเซนเทชันน่าสนใจและดึงดูดมากขึ้น—เช่นเดียวกับวิดีโอ มาลองเพิ่มสไลด์และการเปลี่ยนภาพอีกหนึ่งสไลด์ในโค้ดของการนำเสนอก่อนหน้า:
+
 ```java
-// เพิ่มรูปยิ้มและทำแอนิเมชันให้
+import com.aspose.slides.*;
+import java.awt.Color;
 
-// ...
+// การนำเสนอพร้อมรูปหัวเราะที่ทำแอนิเมชันจากด้านบน.
+Presentation presentation = new Presentation();
+try {
+    // เพิ่มสไลด์ใหม่และการเปลี่ยนภาพแบบแอนิเมชัน
 
-// เพิ่มสไลด์ใหม่และการเปลี่ยนสไลด์แบบแอนิเมชัน
-ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
+    ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
 
-newSlide.getBackground().setType(BackgroundType.OwnBackground);
+    newSlide.getBackground().setType(BackgroundType.OwnBackground);
 
-newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
 
-newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
+    newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
 
-newSlide.getSlideShowTransition().setType(TransitionType.Push);
+    newSlide.getSlideShowTransition().setType(TransitionType.Push);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 
-Aspose.Slides ยังรองรับการแอนิเมชันสำหรับข้อความ ดังนั้นเราจึงทำแอนิเมชันให้กับย่อหน้าบนวัตถุ ซึ่งจะปรากฏทีละหนึ่ง (โดยตั้งค่าหน่วงเวลาเป็นหนึ่งวินาที):
+Aspose.Slides ยังรองรับแอนิเมชันสำหรับข้อความ ดังนั้นเราจึงทำให้ย่อหน้าบนวัตถุแอนิเมชันขึ้นตามลำดับ (ด้วยการหน่วงเวลาเป็นหนึ่งวินาที):
+
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation();
 try {
     // เพิ่มข้อความและแอนิเมชัน
@@ -165,18 +176,15 @@ try {
     paragraphCollection.add(para1);
     paragraphCollection.add(para2);
     paragraphCollection.add(para3);
-    paragraphCollection.add(new Paragraph());
 
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effect1 = mainSequence.addEffect(para1, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     IEffect effect2 = mainSequence.addEffect(para2, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     IEffect effect3 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-    IEffect effect4 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
     effect1.getTiming().setTriggerDelayTime(1f);
     effect2.getTiming().setTriggerDelayTime(1f);
     effect3.getTiming().setTriggerDelayTime(1f);
-    effect4.getTiming().setTriggerDelayTime(1f);
 
     final int fps = 33;
     ArrayList<String> frames = new ArrayList<String>();
@@ -204,7 +212,7 @@ try {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
 
-    // กำหนดโฟลเดอร์ไบนารีของ ffmpeg. ดูหน้านี้: https://github.com/rosenbjerg/FFMpegCore#installation
+    // ตั้งค่าโฟลเดอร์ไบนารีของ ffmpeg ดูหน้านี้: https://github.com/bramp/ffmpeg-cli-wrapper
     FFmpeg ffmpeg = new FFmpeg("path/to/ffmpeg");
     FFprobe ffprobe = new FFprobe("path/to/ffprobe");
 
@@ -225,17 +233,20 @@ try {
 
 ## **คลาสการแปลงวิดีโอ**
 
-เพื่อให้คุณสามารถทำงานแปลง PowerPoint เป็นวิดีโอได้ Aspose.Slides มีคลาส [PresentationAnimationsGenerator](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentationanimationsgenerator/) และ [PresentationPlayer](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentationplayer/)
+เพื่อให้คุณสามารถทำงานแปลง PowerPoint เป็นวิดีโอ Aspose.Slides จัดให้มีคลาส [PresentationAnimationsGenerator](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentationanimationsgenerator/) และ [PresentationPlayer](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentationplayer/)  
 
-[PresentationAnimationsGenerator](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentationanimationsgenerator/) ให้คุณตั้งค่าขนาดเฟรมสำหรับวิดีโอ (ที่จะสร้างในภายหลัง) ผ่านคอนสตรัคเตอร์ของมัน หากคุณส่งอินสแตนซ์ของงานนำเสนอ `Presentation.SlideSize` จะถูกใช้และจะสร้างแอนิเมชันที่ [PresentationPlayer](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentationplayer/) ใช้.
+[PresentationAnimationsGenerator] ให้คุณตั้งค่าขนาดเฟรมสำหรับวิดีโอ (ที่จะสร้างในภายหลัง) ผ่านคอนสตรัคเตอร์ของมัน หากคุณส่งอินสแตนซ์ของการนำเสนอ `Presentation.SlideSize` จะถูกใช้และมันสร้างแอนิเมชันที่ [PresentationPlayer] ใช้  
 
-เมื่อสร้างแอนิเมชันแล้ว จะมีเหตุการณ์ `NewAnimation` สร้างขึ้นสำหรับแต่ละแอนิเมชันต่อเนื่อง ซึ่งมีพารามิเตอร์เป็น [IPresentationAnimationPlayer](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipresentationanimationplayer/) ตัวหลังเป็นคลาสที่แสดงผู้เล่นสำหรับแอนิเมชันแยกต่างหาก.
+เมื่อแอนิเมชันถูกสร้าง จะมีการส่งเหตุการณ์ `NewAnimation` สำหรับแอนิเมชันแต่ละอันต่อเนื่อง ซึ่งมีพารามิเตอร์ [IPresentationAnimationPlayer] ตัวหลังเป็นคลาสที่เป็นผู้เล่นสำหรับแอนิเมชันแยกต่างหาก  
 
-เพื่อทำงานกับ [IPresentationAnimationPlayer](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipresentationanimationplayer/), ใช้คุณสมบัติ [Duration](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipresentationanimationplayer/#getDuration--) (ระยะเวลาทั้งหมดของแอนิเมชัน) และเมธอด [SetTimePosition](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipresentationanimationplayer/#setTimePosition-double-) . ตำแหน่งของแต่ละแอนิเมชันจะตั้งค่าในช่วง *0 ถึง duration* จากนั้นเมธอด `GetFrame` จะคืนค่า BufferedImage ที่สอดคล้องกับสถานะของแอนิเมชันในขณะนั้น:
+เพื่อทำงานกับ [IPresentationAnimationPlayer] จะใช้คุณสมบัติ [Duration] (ระยะเวลาทั้งหมดของแอนิเมชัน) และเมธอด [SetTimePosition] แต่ละตำแหน่งของแอนิเมชันจะตั้งค่าอยู่ในช่วง *0 to duration* แล้วเมธอด `getFrame` จะคืนค่า [IImage] ที่สอดคล้องกับสถานะของแอนิเมชันในขณะนั้น:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // เพิ่มรูปยิ้มและทำแอนิเมชันให้
+    // เพิ่มรูปหัวเราะและทำแอนิเมชันให้
     IAutoShape smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effectIn = mainSequence.addEffect(smile, EffectType.Fly, EffectSubtype.TopLeft, EffectTriggerType.AfterPrevious);
@@ -248,21 +259,18 @@ try {
         animationsGenerator.setNewAnimation(animationPlayer ->
         {
             System.out.println(String.format("Animation total duration: %f", animationPlayer.getDuration()));
+
             animationPlayer.setTimePosition(0); // สถานะเริ่มต้นของแอนิเมชัน
-            try {
-                // บิตแมพของสถานะเริ่มต้นแอนิเมชัน
-                animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            // บิตแมพของสถานะเริ่มต้นของแอนิเมชัน
+            animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
+
             animationPlayer.setTimePosition(animationPlayer.getDuration()); // สถานะสุดท้ายของแอนิเมชัน
-            try {
-                // เฟรมสุดท้ายของแอนิเมชัน
-                animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            // เฟรมสุดท้ายของแอนิเมชัน
+            animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
         });
+
+        // สร้างแอนิเมชัน กำหนดการเรียกกลับด้านบนจะทำงานสำหรับแต่ละแอนิเมชัน
+        animationsGenerator.run(presentation.getSlides());
     } finally {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
@@ -271,8 +279,11 @@ try {
 }
 ```
 
-เพื่อให้แอนิเมชันทั้งหมดในงานนำเสนอเล่นพร้อมกัน ใช้คลาส [PresentationPlayer](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentationplayer/) นี้รับอินสแตนซ์ของ [PresentationAnimationsGenerator](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentationanimationsgenerator/) และ FPS สำหรับเอฟเฟกต์ในคอนสตรัคเตอร์ จากนั้นเรียกเหตุการณ์ `FrameTick` สำหรับแอนิเมชันทั้งหมดเพื่อให้มันเล่น:
+เพื่อให้แอนิเมชันทั้งหมดในการนำเสนอเล่นพร้อมกัน จะใช้คลาส [PresentationPlayer] คลาสนี้รับอินสแตนซ์ของ [PresentationAnimationsGenerator] และ FPS สำหรับเอฟเฟกต์ในคอนสตรัคเตอร์ของมัน จากนั้นเรียกเหตุการณ์ `FrameTick` สำหรับแอนิเมชันทั้งหมดเพื่อให้เล่น:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("animated.pptx");
 try {
     PresentationAnimationsGenerator animationsGenerator = new PresentationAnimationsGenerator(presentation);
@@ -281,11 +292,7 @@ try {
         try {
             player.setFrameTick((sender, arguments) ->
             {
-                try {
-                    arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+                arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
             });
             animationsGenerator.run(presentation.getSlides());
         } finally {
@@ -299,11 +306,11 @@ try {
 }
 ```
 
-จากนั้นเฟรมที่สร้างขึ้นสามารถรวมเป็นวิดีโอได้ ดูส่วน [Convert PowerPoint to Video](https://docs.aspose.com/slides/th/androidjava/convert-powerpoint-to-video/#convert-powerpoint-to-video).
+จากนั้นกรอบภาพที่สร้างขึ้นสามารถนำมาประกอบเป็นวิดีโอได้ ดูส่วน [Convert PowerPoint to Video](https://docs.aspose.com/slides/th/androidjava/convert-powerpoint-to-video/#convert-powerpoint-to-video)  
 
 ## **แอนิเมชันและเอฟเฟกต์ที่รองรับ**
 
-**การเข้าสู่**
+**การเข้าสู่**:
 
 | ประเภทแอนิเมชัน | Aspose.Slides | PowerPoint |
 |---|---|---|
@@ -321,7 +328,7 @@ try {
 | **Swivel** | ![supported](v.png) | ![supported](v.png) |
 | **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
-**การเน้น**
+**การเน้น**:
 
 | ประเภทแอนิเมชัน | Aspose.Slides | PowerPoint |
 |---|---|---|
@@ -339,7 +346,7 @@ try {
 | **Line Color** | ![not supported](x.png) | ![supported](v.png) |
 | **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
 
-**การออก**
+**การออก**:
 
 | ประเภทแอนิเมชัน | Aspose.Slides | PowerPoint |
 |---|---|---|
@@ -356,7 +363,7 @@ try {
 | **Swivel** | ![supported](v.png) | ![supported](v.png) |
 | **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
-**เส้นทางการเคลื่อนที่:**
+**เส้นทางการเคลื่อนที่**:
 
 | ประเภทแอนิเมชัน | Aspose.Slides | PowerPoint |
 |---|---|---|
@@ -369,14 +376,14 @@ try {
 
 ## **คำถามที่พบบ่อย**
 
-**สามารถแปลงงานนำเสนอที่มีการป้องกันด้วยรหัสผ่านได้หรือไม่?**
+### เป็นไปได้หรือไม่ที่จะเปลี่ยนการนำเสนอที่ป้องกันด้วยรหัสผ่าน?
 
-ใช่, Aspose.Slides รองรับการทำงานกับ [งานนำเสนอที่ป้องกันด้วยรหัสผ่าน](/slides/th/androidjava/password-protected-presentation/). เมื่อประมวลผลไฟล์ดังกล่าว คุณต้องระบุรหัสผ่านที่ถูกต้องเพื่อให้ไลบรารีสามารถเข้าถึงเนื้อหาของงานนำเสนอได้.
+ใช่, Aspose.Slides รองรับการทำงานกับ [password-protected presentations](/slides/th/androidjava/password-protected-presentation/). เมื่อต้องประมวลผลไฟล์เหล่านี้ คุณต้องระบุรหัสผ่านที่ถูกต้องเพื่อให้ไลบรารีเข้าถึงเนื้อหาของการนำเสนอได้
 
-**Aspose.Slides รองรับการใช้งานในโซลูชันคลาวด์หรือไม่?**
+### Aspose.Slides รองรับการใช้งานในโซลูชันคลาวด์หรือไม่?
 
-ใช่, Aspose.Slides สามารถรวมเข้ากับแอปพลิเคชันและบริการคลาวด์ได้ ไลบรารีถูกออกแบบให้ทำงานในสภาพแวดล้อมเซิร์ฟเวอร์, รับประกันประสิทธิภาพสูงและการขยายขนาดสำหรับการประมวลผลไฟล์เป็นชุด.
+ใช่, Aspose.Slides สามารถรวมเข้ากับแอปพลิเคชันและบริการคลาวด์ได้ ไลบรารีถูกออกแบบมาให้ทำงานในสภาพแวดล้อมเซิร์ฟเวอร์ โดยให้ประสิทธิภาพและความสามารถในการขยายตัวสูงสำหรับการประมวลผลไฟล์เป็นกลุ่ม
 
-**มีข้อจำกัดขนาดสำหรับงานนำเสนอระหว่างการแปลงหรือไม่?**
+### มีข้อจำกัดด้านขนาดของการนำเสนอระหว่างการแปลงหรือไม่?
 
-Aspose.Slides สามารถจัดการงานนำเสนอที่มีขนาดใกล้เคียงกับไม่จำกัด อย่างไรก็ตามเมื่อทำงานกับไฟล์ขนาดใหญ่มาก อาจต้องการทรัพยากรระบบเพิ่มเติม และบางครั้งแนะนำให้ทำการปรับขนาดงานนำเสนอเพื่อเพิ่มประสิทธิภาพ.
+Aspose.Slides สามารถจัดการกับการนำเสนอที่มีขนาดใกล้เคียงกับทุกขนาด อย่างไรก็ตามเมื่อทำงานกับไฟล์ขนาดใหญ่มาก อาจต้องการทรัพยากรระบบเพิ่มเติม และบางครั้งอาจแนะนำให้ทำการปรับแต่งการนำเสนอเพื่อเพิ่มประสิทธิภาพการทำงาน

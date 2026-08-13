@@ -13,21 +13,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Extrahujte obrázky z tvarů v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro .NET - rychlé, programátorsky přívětivé řešení."
+description: "Extrahujte obrázky z tvarů v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro .NET - rychlé, kódu přátelské řešení."
 ---
 ## **Přehled**
 
-Obrázky v prezentaci se mohou vyskytovat v několika typech tvarů: jako obyčejné rámečky obrázků, jako výplně obrázkem aplikované na tvary, jako náhledové obrázky OLE objektů, jako miniatury video‑ nebo audio‑rámců, jako zoom obrázky nebo jako obrázky vnořené v tabulkových, grafových a SmartArt tvarech. Aspose.Slides ukládá tyto obrázky do kolekce obrázků prezentace, která je zpřístupněna přes objekty [ImageCollection](https://reference.aspose.com/slides/cs/net/aspose.slides/imagecollection/) a [IPPImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/).
+Obrázky v prezentaci se mohou vyskytovat v několika typech tvarů: jako běžné rámečky obrázků, jako výplně obrázkem aplikované na tvary, jako náhledové obrázky OLE objektů, jako miniatury video‑ nebo audio‑snímků, jako obrázky přiblížení nebo jako obrázky vnořené uvnitř tabulky, grafu a tvarů SmartArt. Aspose.Slides ukládá tyto obrázky do kolekce obrázků prezentace, která je zpřístupněna prostřednictvím objektů [ImageCollection](https://reference.aspose.com/slides/cs/net/aspose.slides/imagecollection/) a [IPPImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/).
 
-Pokud potřebujete jen exportovat všechny vložené obrázkové zdroje v prezentaci, projděte `presentation.Images`. Tento článek se zaměřuje na jiný úkol: procházet tvary a najít, kde jsou obrázky použity na snímcích, aby uložené soubory mohly zachovat užitečný kontext, jako je číslo snímku, pozice tvaru a typ zdroje (rámeček obrázku, výplň obrázkem, náhled média, náhled OLE nebo zoom obrázek).
+Pokud potřebujete pouze exportovat každý obrázek vložený v prezentaci, projděte `presentation.Images`. Tento článek se zaměřuje na jiný úkol: procházet tvary a zjistit, kde jsou obrázky použity na snímcích, aby uložené soubory mohly zachovat užitečný kontext, jako je číslo snímku, umístění tvaru a typ zdroje (rámeček obrázku, výplň obrázkem, náhled média, OLE náhled nebo obrázek přiblížení).
 
-{{% alert title="Tip" color="primary" %}}
-Použijte [IPPImage.BinaryData](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/) k zachování původních zakódovaných dat obrázku a typu souboru. Použijte [IPPImage.Image](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/) s [IImage.Save](https://reference.aspose.com/slides/cs/net/aspose.slides/iimage/) když chcete výstup normalizovat na konkrétní formát, např. PNG.
+{{% alert title="Tip" color="info" %}}
+Použijte [IPPImage.BinaryData](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/) k zachování původních kódovaných dat obrázku a typu souboru. Použijte [IPPImage.Image](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/) s [IImage.Save](https://reference.aspose.com/slides/cs/net/aspose.slides/iimage/) v situaci, kdy chcete normalizovat výstup na konkrétní formát, například PNG.
 {{% /alert %}}
 
 ## **Sdílené pomocné metody**
 
-Níže uvedené pomocné metody udržují příklady stručné. `SaveOriginalImage` zapisuje původní vložené bajty, volí bezpečnou příponu podle MIME typu a přeskočí duplicitní binární obrázky pomocí SHA‑256 hash.
+Níže uvedené pomocné metody zkracují příklady. `SaveOriginalImage` zapisuje původní vložené bajty, vybírá bezpečnou příponu z MIME typu a přeskočí duplicitní binární obrázky pomocí SHA‑256 hashe.
 
 ```c#
 using Aspose.Slides;
@@ -162,11 +162,13 @@ private static string MakeSafeFileNamePart(string value)
 }
 ```
 
-## **Extrahovat obrázky z rámečků obrázků**
+## **Extrahovat obrázky z rámců obrázků**
 
-Použijte tento přístup pro obrázky vložené jako samostatné objekty. [IPictureFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ipictureframe/) ukládá svůj obrázek v `PictureFormat.Picture.Image`, což vrací objekt [IPPImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/).
+Použijte tento postup pro obrázky vložené jako samostatné objekty. [IPictureFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ipictureframe/) ukládá svůj obrázek v `PictureFormat.Picture.Image`, což vrací objekt [IPPImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/).
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "extracted-images");
 Directory.CreateDirectory(outputDirectory);
@@ -195,9 +197,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Extrahovat obrázky z tvarů vyplněných obrázkem**
 
-Tvary mohou používat obrázek jako svou výplň. Nejprve zkontrolujte typ výplně tvaru: pokud není [FillType.Picture](https://reference.aspose.com/slides/cs/net/aspose.slides/filltype/), neexistuje obrázek, který by se dal z výplně extrahovat. Níže uvedený příklad pracuje s objekty [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/) a ukládá každý obrázek jako PNG pomocí [IPPImage.Image](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/).
+Tvary mohou používat obrázek jako výplň. Nejprve zkontrolujte typ výplně tvaru: pokud není [FillType.Picture](https://reference.aspose.com/slides/cs/net/aspose.slides/filltype/), neexistuje žádný obrázek, který by šlo z této výplně získat. Níže uvedený příklad pracuje s objekty [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/) a ukládá každý obrázek jako PNG pomocí [IPPImage.Image](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/).
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "shape-fill-images");
 Directory.CreateDirectory(outputDirectory);
@@ -225,11 +229,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Extrahovat náhledové obrázky z OLE objektových rámečků**
+## **Extrahovat náhledové obrázky z OLE rámců objektů**
 
-[IOleObjectFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ioleobjectframe/) může mít náhradní obrázek, který PowerPoint používá jako náhled objektu na snímku. Tento obrázek je dostupný přes `SubstitutePictureFormat.Picture.Image`. Extrahování tohoto obrázku vám poskytne náhled, nikoli vložený obsah OLE balíčku.
+[IOleObjectFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ioleobjectframe/) může mít náhradní obrázek, který PowerPoint používá jako náhled objektu na snímku. Tento obrázek je k dispozici prostřednictvím `SubstitutePictureFormat.Picture.Image`. Extrahování tohoto obrázku vám poskytne náhled, nikoli vložený obsah OLE balíčku.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "ole-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -262,9 +268,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Extrahovat náhledové obrázky z video‑rámců**
 
-[IVideoFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ivideoframe/) může také uložit náhledový obrázek v `PictureFormat.Picture.Image`. Jedná se o plakát nebo miniaturu zobrazenou na snímku, ne o snímek dekódovaný z video‑proudu.
+[IVideoFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ivideoframe/) může také uložit náhledový obrázek v `PictureFormat.Picture.Image`. Jedná se o plakát nebo miniaturu zobrazenou na snímku, nikoli o snímek dekódovaný z video proudu.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "video-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -297,9 +305,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Extrahovat náhledové obrázky z audio‑rámců**
 
-[IAudioFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/iaudioframe/) může uložit miniaturu v `PictureFormat.Picture.Image`. Jedná se o obrázek zobrazený pro audio‑objekt na snímku.
+[IAudioFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/iaudioframe/) může uložit miniaturu v `PictureFormat.Picture.Image`. Jedná se o obrázek zobrazený pro audio objekt na snímku.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "audio-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -330,11 +340,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Extrahovat obrázky ze zoom objektů**
+## **Extrahovat obrázky ze Zoom objektů**
 
-Tvary [IZoomFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/izoomframe/) a [ISectionZoomFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/isectionzoomframe/) mohou používat vlastní obrázky. Přečtěte `ZoomImage` ze zoom rámce.
+[IZoomFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/izoomframe/) a [ISectionZoomFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/isectionzoomframe/) mohou používat vlastní obrázky. Přečtěte `ZoomImage` ze zoom rámce.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "zoom-images");
 Directory.CreateDirectory(outputDirectory);
@@ -370,11 +382,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Extrahovat obrázky z souhrnných zoom rámců**
+## **Extrahovat obrázky ze Summary Zoom rámců**
 
-[ISummaryZoomFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/isummaryzoomframe/) je také tvar. Jeho sekční položky mohou používat vlastní obrázky, které jsou vystaveny prostřednictvím vlastnosti `ZoomImage` každé sekce souhrnného zoomu.
+[ISummaryZoomFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/isummaryzoomframe/) je také tvarem. Jeho položky sekcí mohou používat vlastní obrázky, které jsou vystaveny prostřednictvím vlastnosti `ZoomImage` každé sekce summary zoom.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "summary-zoom-images");
 Directory.CreateDirectory(outputDirectory);
@@ -412,9 +426,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Extrahovat obrázky z tabulkových tvarů**
 
-[ITable](https://reference.aspose.com/slides/cs/net/aspose.slides/itable/) je tvar. Obrázky v tabulce jsou obvykle uloženy jako výplně obrázkem v buňkách tabulky.
+[ITable](https://reference.aspose.com/slides/cs/net/aspose.slides/itable/) je tvarem. Obrázky v tabulce jsou obvykle uloženy jako výplně obrázkem v buňkách tabulky.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "table-images");
 Directory.CreateDirectory(outputDirectory);
@@ -454,11 +470,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Extrahovat obrázky z grafových tvarů**
+## **Extrahovat obrázky z grafických tvarů**
 
-[IChart](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichart/) je tvar. Níže uvedený příklad extrahuje obrázek z výplně oblasti grafu.
+[IChart](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichart/) je tvarem. Níže uvedený příklad extrahuje obrázek z výplně obrázkem oblastí grafu.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "chart-images");
 Directory.CreateDirectory(outputDirectory);
@@ -492,9 +510,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Extrahovat obrázky ze SmartArt tvarů**
 
-[ISmartArt](https://reference.aspose.com/slides/cs/net/aspose.slides.smartart/ismartart/) je objekt tvaru. V závislosti na rozvržení SmartArt mohou být obrázky uloženy v výplních odrážek uzlů nebo ve výplňových formátech tvarů uzlů.
+[ISmartArt](https://reference.aspose.com/slides/cs/net/aspose.slides.smartart/ismartart/) je objekt tvaru. V závislosti na rozvržení SmartArt mohou být obrázky uloženy ve výplních odrážek uzlů nebo ve výplňových formátech tvarů uzlů.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "smartart-images");
 Directory.CreateDirectory(outputDirectory);
@@ -544,9 +564,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Zahrnout obrázky uvnitř seskupených tvarů**
 
-Seskupené tvary obsahují vlastní kolekce tvarů. Sdílený pomocník `EnumerateShapes` má volbu `includeGroupedShapes`. Nastavte ji na `true`, když chcete prozkoumat tvary uvnitř objektů [IGroupShape](https://reference.aspose.com/slides/cs/net/aspose.slides/igroupshape/). Níže uvedený příklad extrahuje obrázky z rámečků obrázků, tvarů vyplněných obrázkem, náhledů OLE objektů, miniatur video‑rámců a miniatur audio‑rámců. Pro zahrnutí obrázků z tabulek, grafů, SmartArt a souhrnných zoomů použijte specializovanou logiku extrakce z předchozích sekcí a zachovejte stejný rekurzivní průchod tvary.
+Seskupené tvary obsahují vlastní kolekce tvarů. Sdílená pomocná metoda `EnumerateShapes` má možnost `includeGroupedShapes`. Nastavte ji na `true`, pokud chcete prozkoumat tvary uvnitř objektů [IGroupShape](https://reference.aspose.com/slides/cs/net/aspose.slides/igroupshape/). Níže uvedený příklad extrahuje obrázky z rámců obrázků, tvarů vyplněných obrázkem, náhledů OLE objektů, miniatur video‑rámců a miniatur audio‑rámců. Pro zahrnutí obrázků z tabulek, grafů, SmartArt a summary zoom také znovu použijte specializovanou logiku extrakce z předchozích sekcí při zachování stejného rekurzivního procházení tvarů.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "all-shape-images");
 Directory.CreateDirectory(outputDirectory);
@@ -621,43 +643,43 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Hraniční případy a praktické poznámky**
 
-- **Duplicitní obrázky:** Více tvarů může odkazovat na stejný obrázek nebo na různé obrázky se stejnými bajty. Před zápisem souborů hashujte [IPPImage.BinaryData](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/), pokud chcete mít jeden výstupní soubor pro každou unikátní podobu.
-- **Původní data vs. konvertovaný výstup:** Ukládání [IPPImage.BinaryData](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/) zachovává vložená data JPEG, PNG, GIF, SVG, EMF nebo WMF. Ukládání [IPPImage.Image](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/) přes [IImage.Save](https://reference.aspose.com/slides/cs/net/aspose.slides/iimage/) je užitečné, když chcete jednotný výstupní formát.
-- **Nepodporované typy výplní:** Tvary se solidní, gradientní, vzorovanou nebo žádnou výplní neobsahují obrázek. Před čtením `PictureFillFormat` zkontrolujte [FillType](https://reference.aspose.com/slides/cs/net/aspose.slides/filltype/).
-- **Seskupené tvary:** Kolekce tvarů na úrovni snímku nevyrovnává skupiny. Rekurzivně prozkoumejte [IGroupShape.Shapes](https://reference.aspose.com/slides/cs/net/aspose.slides/igroupshape/), pokud je obsah skupiny podstatný.
-- **Náhledy OLE objektů:** [IOleObjectFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ioleobjectframe/) může exposovat náhledový obrázek přes `SubstitutePictureFormat`, ale tento obrázek je jen náhled na snímku, ne vložený soubor uvnitř OLE objektu.
-- **Miniatury video‑rámců:** [IVideoFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ivideoframe/) může exposovat náhledový obrázek přes `PictureFormat`, ale jedná se jen o plakát zobrazený na snímku, ne o snímek extrahovaný z video proudu.
-- **Miniatury audio‑rámců:** [IAudioFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/iaudioframe/) může exposovat ikonu nebo miniaturu přes `PictureFormat`; nejde o vložená audio data.
-- **Zoom obrázky:** Tvary slide zoom, section zoom a summary zoom mohou používat vlastní [IPPImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/) objekty přes `ZoomImage`.
-- **Vnořené modely tvarů:** Tabulkové, grafové a SmartArt objekty implementují [IShape](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/), ale jejich obrázky jsou často uloženy v vnořených objektech formátování buněk, prvků grafu nebo uzlů SmartArt.
-- **Oříznuté nebo transformované obrázky:** Přístupem k [IPPImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/) získáte uložený zdroj obrázku. Neposkytuje oříznutí, průhlednost, přeobarvení, rotaci ani jiné vizuální efekty aplikované tvarem.
+- **Duplicitní obrázky:** Více tvarů může odkazovat na stejný obrázek nebo na různé obrázky s identickými bajty. Vytvořte hash pomocí [IPPImage.BinaryData](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/) před zápisem souborů, pokud chcete jeden výstupní soubor na unikátní obrázek.
+- **Původní data vs. konvertovaný výstup:** Ukládání [IPPImage.BinaryData](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/) zachovává vložená data JPEG, PNG, GIF, SVG, EMF nebo WMF. Ukládání [IPPImage.Image](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/) pomocí [IImage.Save](https://reference.aspose.com/slides/cs/net/aspose.slides/iimage/) je užitečné, když chcete jednotný výstupní formát.
+- **Nepodporované typy výplní:** Tvary se solidní, gradientní, vzorovou nebo prázdnou výplní neobsahují obrázek. Zkontrolujte [FillType](https://reference.aspose.com/slides/cs/net/aspose.slides/filltype/) před čtením `PictureFillFormat`.
+- **Seskupené tvary:** Kolekce tvarů na úrovni snímku nevyrovnává skupiny. Rekurzivně prohlédněte [IGroupShape.Shapes](https://reference.aspose.com/slides/cs/net/aspose.slides/igroupshape/), pokud je seskupený obsah důležitý.
+- **Náhledy OLE objektů:** [IOleObjectFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ioleobjectframe/) může vystavit náhledový obrázek přes `SubstitutePictureFormat`, ale tento obrázek je jen náhled snímku. Nejedná se o vložený soubor uvnitř OLE objektu.
+- **Miniatury video‑rámců:** [IVideoFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ivideoframe/) může vystavit náhledový obrázek přes `PictureFormat`, ale tento obrázek je jen plakát zobrazený na snímku. Není extrahován z video proudu.
+- **Miniatury audio‑rámců:** [IAudioFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/iaudioframe/) může vystavit ikonu nebo miniaturu přes `PictureFormat`; nejde o vložená audio data.
+- **Zoom obrázky:** Tvary slide zoom, section zoom a summary zoom mohou používat vlastní objekty [IPPImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/) přes `ZoomImage`.
+- **Vnořené modely tvarů:** Objektů tabulka, graf a SmartArt implementují [IShape](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/), ale jejich obrázky jsou často uloženy ve vnořených buňkách tabulky, prvcích grafu nebo formátovacích objektech uzlů SmartArt.
+- **Oříznuté nebo transformované obrázky:** Přístup k [IPPImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/) vám poskytne uložený obrázkový zdroj. Neprezentuje oříznutí, průhlednost, přebarvení, rotaci ani jiné vizuální efekty aplikované tvarem.
 
 ## **Často kladené otázky**
 
-**Mohu extrahovat původní obrázek bez oříznutí, efektů nebo transformací tvaru?**
+### Můžu extrahovat původní obrázek bez oříznutí, efektů nebo transformací tvaru?
 
-Ano. Přistupte k objektu [IPPImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/) a zapište [IPPImage.BinaryData](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/) na disk. Tím zachováte původní zakódovaný obrázek uložený v prezentaci, nikoli způsob, jakým je obrázek vykreslen na snímku.
+Ano. Získejte objekt [IPPImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/) a zapište [IPPImage.BinaryData](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/) na disk. Tím zachováte původní kódovaný obrázek uložený v prezentaci, nikoli způsob, jak je obrázek vykreslen na snímku.
 
-**Mohu exportovat každý extrahovaný obrázek jako PNG?**
+### Můžu exportovat každý extrahovaný obrázek jako PNG?
 
-Ano. Použijte [IPPImage.Image](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/) k získání objektu [IImage](https://reference.aspose.com/slides/cs/net/aspose.slides/iimage/) a poté zavolejte [IImage.Save](https://reference.aspose.com/slides/cs/net/aspose.slides/iimage/) s [ImageFormat.Png](https://reference.aspose.com/slides/cs/net/aspose.slides/imageformat/). Tím se výstup převede a nemusí zachovat původní typ souboru nebo vektorová data.
+Ano. Použijte [IPPImage.Image](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/) pro získání objektu [IImage](https://reference.aspose.com/slides/cs/net/aspose.slides/iimage/) a poté volejte [IImage.Save](https://reference.aspose.com/slides/cs/net/aspose.slides/iimage/) s parametrem [ImageFormat.Png](https://reference.aspose.com/slides/cs/net/aspose.slides/imageformat/). Tím se výstup konvertuje a nemusí zachovat původní typ souboru ani vektorová data.
 
-**Jak zabránit vícenásobnému uložení stejného obrázku?**
+### Jak zabránit vícečetnému uložení stejného obrázku?
 
-Použijte hash [IPPImage.BinaryData](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/) a ukládejte hashe do množiny. Pokud nový obrázek má hash, který již existuje, přeskočte jej nebo zaznamenejte další odkaz na existující výstupní soubor.
+Použijte hash z [IPPImage.BinaryData](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/) a ukládejte hashe v množině. Pokud nový obrázek má hash, který již existuje, přeskočte jej nebo zaznamenejte další odkaz na existující výstupní soubor.
 
-**Proč některé tvary neprodukují žádný obrázek?**
+### Proč některé tvary neprodukují obrázek?
 
-Rámečky obrázků, tvary vyplněné obrázkem, OLE objektové rámečky, mediální rámečky, zoom rámečky, tabulky, grafy a SmartArt objekty mohou odkazovat na obrázky. Některé typy tvarů exposují obrázky přes vnořené objekty formátování, takže jednoduchá kontrola `PictureFormat` nebo `FillFormat` tvaru nemusí být vždy dostačující.
+Rámečky obrázků, tvary vyplněné obrázkem, OLE objektové rámce, mediální rámce, zoom rámce, tabulky, grafy a SmartArt objekty mohou odkazovat na obrázky. Některé typy tvarů vystavují obrázky přes vnořené formátovací objekty, takže jednoduchá kontrola `PictureFormat` nebo `FillFormat` nemusí být vždy dostatečná.
 
-**Mohu extrahovat miniaturu zobrazenou pro video‑rámec?**
+### Můžu extrahovat miniaturu zobrazenou pro video‑rámec?
 
-Ano. Použijte [IVideoFrame.PictureFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/ivideoframe/) a přečtěte `PictureFormat.Picture.Image`. Tím získáte plakát obrázek uložený s video‑rámcem, nikoli snímek vygenerovaný z video souboru.
+Ano. Použijte [IVideoFrame.PictureFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/ivideoframe/) a přečtěte `PictureFormat.Picture.Image`. Tím získáte plakátový obrázek uložený s video‑rámcem, ne snímek generovaný z video souboru.
 
-**Jak zjistit, které tvary používají konkrétní obrázek z kolekce obrázků prezentace?**
+### Jak mohu určit, které tvary používají konkrétní obrázek z kolekce obrázků prezentace?
 
-Aspose.Slides neukládá reverzní odkazy z [IPPImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/) na tvary. Během průchodu si vytvořte mapování: kdykoli najdete odkaz na obrázek, zaznamenejte číslo snímku, cestu tvaru a hash nebo položku kolekce.
+Aspose.Slides neukládá zpětné odkazy z [IPPImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/) na tvary. Vytvořte mapu během procházení: kdykoli najdete odkaz na obrázek, zaznamenejte číslo snímku, cestu tvaru a hash nebo položku kolekce obrázku.
 
-**Mohu extrahovat obrázky vložené uvnitř OLE objektů, např. připojených dokumentů?**
+### Můžu extrahovat obrázky vložené uvnitř OLE objektů, například připojené dokumenty?
 
-Z [IOleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/ioleobjectframe/) můžete získat náhled OLE objektu na snímku. Tento náhled však není samotný vložený dokument. Pro extrakci obrázků uvnitř vloženého souboru musíte extrahovat OLE data a prozkoumat je pomocí nástrojů určených pro daný typ souboru.
+Můžete extrahovat náhled OLE objektu z [IOleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/ioleobjectframe/). Tento náhled však není samotný vložený dokument. Pro extrakci obrázků uvnitř vloženého souboru musíte extrahovat OLE data a prozkoumat je pomocí nástrojů vhodných pro daný typ souboru.

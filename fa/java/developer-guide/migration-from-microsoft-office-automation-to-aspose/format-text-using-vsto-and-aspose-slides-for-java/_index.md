@@ -1,5 +1,5 @@
 ---
-title: قالب‌بندی متن با استفاده از VSTO و Aspose.Slides برای Java
+title: قالب‌بندی متن با استفاده از VSTO و Aspose.Slides برای جاوا
 linktitle: قالب‌بندی متن
 type: docs
 weight: 30
@@ -8,46 +8,45 @@ keywords:
 - قالب‌بندی متن
 - مهاجرت
 - VSTO
-- اتوماسیون Office
+- اتوماسیون آفیس
 - PowerPoint
 - ارائه
 - Java
 - Aspose.Slides
-description: "از اتوماسیون Microsoft Office به Aspose.Slides برای Java مهاجرت کنید و متن را در ارائه‌های PowerPoint (PPT، PPTX) با کنترل دقیق قالب‌بندی کنید."
+description: "از اتوماسیون مایکروسافت آفیس به Aspose.Slides برای جاوا مهاجرت کنید و متن را در ارائه‌های PowerPoint (PPT، PPTX) با کنترل دقیق قالب‌بندی کنید."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-گاهی اوقات، نیاز است که متن اسلایدها را به‌صورت برنامه‌نویسی شده قالب‌بندی کنید. این مقاله نشان می‌دهد که چگونه می‌توان یک ارائه نمونه را که متنی در اسلاید اول دارد، با استفاده از [VSTO](/slides/fa/java/format-text-using-vsto-and-aspose-slides-for-java/) و [Aspose.Slides for Java](/slides/fa/java/format-text-using-vsto-and-aspose-slides-for-java/) بخوانید. کد متن در جعبه متن سوم را طوری قالب‌بندی می‌کند که شبیه متن در جعبه متن آخر باشد.
+گاهی اوقات، نیاز دارید متن اسلایدها را به‌صورت برنامه‌نویسی قالب‌بندی کنید. این مقاله نشان می‌دهد چگونه یک ارائه نمونه را که شامل متنی در اسلاید اول است، با استفاده از [VSTO](/slides/fa/java/format-text-using-vsto-and-aspose-slides-for-java/) و [Aspose.Slides for Java](/slides/fa/java/format-text-using-vsto-and-aspose-slides-for-java/) بخوانید. کد متن داخل جعبه متن سوم اسلاید را طوری قالب‌بندی می‌کند که شبیه متن در جعبه متن آخر باشد.
 
 {{% /alert %}} 
 ## **قالب‌بندی متن**
 هر دو روش VSTO و Aspose.Slides مراحل زیر را انجام می‌دهند:
 
-1. ارائهٔ منبع را باز کنید.
+1. ارائه منبع را باز کنید.
 1. به اسلاید اول دسترسی پیدا کنید.
 1. به جعبه متن سوم دسترسی پیدا کنید.
 1. قالب‌بندی متن در جعبه متن سوم را تغییر دهید.
 1. ارائه را روی دیسک ذخیره کنید.
 
-تصاویر زیر اسلاید نمونه را قبل و بعد از اجرای کد VSTO و Aspose.Slides برای Java نشان می‌دهند.
+اسکرین‌شات‌های زیر اسلاید نمونه را قبل و بعد از اجرای کد VSTO و Aspose.Slides for Java نشان می‌دهند.
 
 **ارائه ورودی** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-for-java_1.png)
 ### **مثال کد VSTO**
-کد زیر نشان می‌دهد چگونه می‌توان متن در یک اسلاید را با استفاده از VSTO بازفرمت کرد.
+کد زیر نشان می‌دهد چگونه متن یک اسلاید را با استفاده از VSTO دوباره قالب‌بندی کنید.
 
-**متن بازفرمت‌شده با VSTO** 
+**متن قالب‌بندی شده با VSTO** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-for-java_2.png)
 
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-VSTO-FormatTextUsingVSTO-FormatTextUsingVSTO.cs" >}}
 
-
-### **مثال Aspose.Slides برای Java**
+### **مثال Aspose.Slides for Java**
 برای قالب‌بندی متن با Aspose.Slides، قبل از قالب‌بندی متن، قلم را اضافه کنید.
 
-**ارائه خروجی ایجاد‌شده با Aspose.Slides** 
+**ارائه خروجی ایجاد شده با Aspose.Slides** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-for-java_3.png)
 

@@ -1,33 +1,54 @@
 ---
-title: 将 PowerPoint 转换为视频
+title: 在 Java 中将 PowerPoint 演示文稿转换为视频
+linktitle: PowerPoint 转视频
 type: docs
 weight: 130
 url: /zh/java/convert-powerpoint-to-video/
-keywords: "转换 PowerPoint, PPT, PPTX, 演示文稿, 视频, MP4, PPT 转视频, PPT 转 MP4, Java, Aspose.Slides"
-description: "在 Java 中将 PowerPoint 转换为视频"
+keywords:
+- 转换 PowerPoint
+- 转换演示文稿
+- 转换 PPT
+- 转换 PPTX
+- PowerPoint 转视频
+- 演示文稿转视频
+- PPT 转视频
+- PPTX 转视频
+- PowerPoint 转 MP4
+- 演示文稿转 MP4
+- PPT 转 MP4
+- PPTX 转 MP4
+- 将 PPT 保存为 MP4
+- 将 PPTX 保存为 MP4
+- 导出 PPT 为 MP4
+- 导出 PPTX 为 MP4
+- 视频转换
+- PowerPoint
+- Java
+- Aspose.Slides
+description: "了解如何在 Java 中将 PowerPoint 演示文稿转换为视频。发现示例代码和自动化技术，以简化您的工作流程。"
 ---
+## **简介**
 
-通过将您的 PowerPoint 演示文稿转换为视频，您可以获得
+通过将 PowerPoint 或 OpenDocument 演示文稿转换为视频，您可以获得：
 
-* **提高可访问性：** 所有设备（无论平台如何）默认配备视频播放器，而不是打开演示文稿的应用程序，因此用户更容易打开或播放视频。
-* **更大的受众：** 通过视频，您可以接触到大量观众，并通过信息来吸引他们，这些信息在演示文稿中可能显得乏味。大多数调查和统计数据显示，人们观看和消费视频的频率超过其他内容形式，而且他们通常更喜欢这种内容。
+**可访问性提升：** 所有设备，无论平台，都默认配备视频播放器，相比传统演示文稿应用，用户打开或播放视频更为便捷。
 
-{{% alert color="primary" %}} 
+**覆盖面更广：** 视频可以帮助您触达更大的受众，并以更具吸引力的形式呈现信息。调查与统计显示，人们更倾向于观看和消费视频内容，这会使您的信息更具冲击力。
 
-您可能想查看我们的 [**在线 PowerPoint 转视频转换器**](https://products.aspose.app/slides/conversion/ppt-to-word)，因为它是此处描述的过程的实时有效实现。
-
+{{% alert color="info" %}} 
+您可能想查看我们的[**PowerPoint 转视频在线转换器**](https://products.aspose.app/slides/zh/video)，因为它是本文所述过程的实时且有效实现。
 {{% /alert %}} 
 
-## **Aspose.Slides 中的 PowerPoint 转视频**
+## **PowerPoint 转视频转换在 Aspose.Slides 中**
 
-在 [Aspose.Slides 22.11](https://docs.aspose.com/slides/java/aspose-slides-for-java-22-11-release-notes/) 中，我们实现了演示文稿转视频的支持。
+在[Aspose.Slides 22.11](https://docs.aspose.com/slides/zh/java/aspose-slides-for-java-22-11-release-notes/)中，我们实现了对演示文稿转视频的支持。 
 
-* 使用 **Aspose.Slides** 生成一组帧（来自演示文稿幻灯片），这些帧对应于一定的帧率（FPS）
-* 使用第三方工具，如 **ffmpeg** ([for java](https://github.com/bramp/ffmpeg-cli-wrapper))，根据帧创建视频。
+* 使用**Aspose.Slides**生成一组帧（来自演示文稿的幻灯片），这些帧对应特定的 FPS（每秒帧数）
+* 使用第三方工具如**ffmpeg**（[for java](https://github.com/bramp/ffmpeg-cli-wrapper)）基于这些帧创建视频。 
 
 ### **将 PowerPoint 转换为视频**
 
-1. 将此内容添加到您的 POM 文件中：
+1. 将以下内容添加到您的 POM 文件中：
 ```xml
    <dependency>
      <groupId>net.bramp.ffmpeg</groupId>
@@ -36,16 +57,20 @@ description: "在 Java 中将 PowerPoint 转换为视频"
    </dependency>
 ```
 
-2. 在 [这里](https://ffmpeg.org/download.html) 下载 ffmpeg。
+2. 在[此处](https://ffmpeg.org/download.html)下载 ffmpeg。
 
 4. 运行 PowerPoint 转视频的 Java 代码。
 
-此 Java 代码演示了如何将一个包含图形和两个动画效果的演示文稿转换为视频：
+下面的 Java 代码演示了如何将包含图形和两个动画效果的演示文稿转换为视频：
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation();
 try {
-    // 添加一个微笑形状，然后进行动画
+    // 添加一个笑脸形状并对其进行动画
     IAutoShape smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effectIn = mainSequence.addEffect(smile, EffectType.Fly, EffectSubtype.TopLeft, EffectTriggerType.AfterPrevious);
@@ -79,7 +104,7 @@ try {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
 
-    // 配置 ffmpeg 二进制文件文件夹。请参见此页面： https://github.com/rosenbjerg/FFMpegCore#installation
+    // 配置 ffmpeg 二进制文件夹。参见此页面: https://github.com/rosenbjerg/FFMpegCore#installation
     FFmpeg ffmpeg = new FFmpeg("path/to/ffmpeg");
     FFprobe ffprobe = new FFprobe("path/to/ffprobe");
 
@@ -100,37 +125,47 @@ try {
 
 ## **视频效果**
 
-您可以对幻灯片上的对象应用动画，并在幻灯片之间使用转换。
+您可以对幻灯片上的对象应用动画，并在幻灯片之间使用切换效果。 
 
-{{% alert color="primary" %}} 
-
-您可能想查看这些文章：[PowerPoint 动画](https://docs.aspose.com/slides/java/powerpoint-animation/)、[形状动画](https://docs.aspose.com/slides/java/shape-animation/) 和 [形状效果](https://docs.aspose.com/slides/java/shape-effect/)。
-
+{{% alert color="info" %}} 
+您可能想阅读以下文章：[PowerPoint Animation](https://docs.aspose.com/slides/zh/java/powerpoint-animation/)、[Shape Animation](https://docs.aspose.com/slides/zh/java/shape-animation/)和[Shape Effect](https://docs.aspose.com/slides/zh/java/shape-effect/)。
 {{% /alert %}} 
 
-动画和转换让幻灯片展示变得更具吸引力和趣味性——对视频也有同样的效果。让我们向之前的演示文稿的代码中添加另一张幻灯片和转换：
+动画和切换让幻灯片演示更具吸引力和趣味性——对视频同样适用。让我们为前面示例的代码添加另一张幻灯片和切换效果：
 
 ```java
-// 添加一个微笑形状并进行动画
+import com.aspose.slides.*;
+import java.awt.Color;
 
-// ...
+Presentation presentation = new Presentation();
+try {
+    // 添加一个笑脸形状并对其进行动画
 
-// 添加一张新幻灯片和动画过渡
+    // ...
 
-ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
+    // 添加一个新幻灯片并设置动画切换
 
-newSlide.getBackground().setType(BackgroundType.OwnBackground);
+    ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
 
-newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    newSlide.getBackground().setType(BackgroundType.OwnBackground);
 
-newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
+    newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
 
-newSlide.getSlideShowTransition().setType(TransitionType.Push);
+    newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
+
+    newSlide.getSlideShowTransition().setType(TransitionType.Push);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 
-Aspose.Slides 还支持文本动画。我们可以对对象上的段落进行动画，它们将依次出现（延迟设定为一秒）：
+Aspose.Slides 还支持文本动画。因此我们对对象上的段落进行动画处理，使其依次出现（延迟设为一秒）：
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation();
 try {
     // 添加文本和动画
@@ -138,10 +173,10 @@ try {
     Paragraph para1 = new Paragraph();
     para1.getPortions().add(new Portion("Aspose Slides for Java"));
     Paragraph para2 = new Paragraph();
-    para2.getPortions().add(new Portion("将带文本的 PowerPoint 演示文稿转换为视频"));
+    para2.getPortions().add(new Portion("convert PowerPoint Presentation with text to video"));
 
     Paragraph para3 = new Paragraph();
-    para3.getPortions().add(new Portion("逐段落"));
+    para3.getPortions().add(new Portion("paragraph by paragraph"));
     IParagraphCollection paragraphCollection = autoShape.getTextFrame().getParagraphs();
     paragraphCollection.add(para1);
     paragraphCollection.add(para2);
@@ -152,12 +187,10 @@ try {
     IEffect effect1 = mainSequence.addEffect(para1, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     IEffect effect2 = mainSequence.addEffect(para2, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     IEffect effect3 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-    IEffect effect4 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
     effect1.getTiming().setTriggerDelayTime(1f);
     effect2.getTiming().setTriggerDelayTime(1f);
     effect3.getTiming().setTriggerDelayTime(1f);
-    effect4.getTiming().setTriggerDelayTime(1f);
 
     final int fps = 33;
     ArrayList<String> frames = new ArrayList<String>();
@@ -185,7 +218,7 @@ try {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
 
-    // 配置 ffmpeg 二进制文件文件夹。请参见此页面： https://github.com/rosenbjerg/FFMpegCore#installation
+    // 配置 ffmpeg 二进制文件夹。参见此页面: https://github.com/rosenbjerg/FFMpegCore#installation
     FFmpeg ffmpeg = new FFmpeg("path/to/ffmpeg");
     FFprobe ffprobe = new FFprobe("path/to/ffprobe");
 
@@ -206,18 +239,20 @@ try {
 
 ## **视频转换类**
 
-为了允许您执行 PowerPoint 到视频转换任务，Aspose.Slides 提供了 [PresentationAnimationsGenerator](https://reference.aspose.com/slides/java/com.aspose.slides/presentationanimationsgenerator/) 和 [PresentationPlayer](https://reference.aspose.com/slides/java/com.aspose.slides/presentationplayer/) 类。
+为让您能够执行 PowerPoint 转视频的任务，Aspose.Slides 提供了[PresentationAnimationsGenerator](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentationanimationsgenerator/)和[PresentationPlayer](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentationplayer/)类。
 
-[PresentationAnimationsGenerator](https://reference.aspose.com/slides/java/com.aspose.slides/presentationanimationsgenerator/) 允许您通过其构造函数设置视频的帧大小（稍后将创建的）。如果传递演示文稿的实例，则将使用 `Presentation.SlideSize`，并生成 [PresentationPlayer](https://reference.aspose.com/slides/java/com.aspose.slides/presentationplayer/) 使用的动画。
+[PresentationAnimationsGenerator](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentationanimationsgenerator/) 允许您通过构造函数设置稍后将创建的视频的帧大小。如果传入演示文稿实例，将使用 `Presentation.SlideSize`，并生成供 [PresentationPlayer](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentationplayer/) 使用的动画。
 
-生成动画时，将为每个后续动画生成一个 `NewAnimation` 事件，带有 [IPresentationAnimationPlayer](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationanimationplayer/) 参数。后者是一个表示单个动画播放器的类。
+当生成动画时，会为每个后续动画触发 `NewAnimation` 事件，该事件带有 [IPresentationAnimationPlayer](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ipresentationanimationplayer/) 参数。后者是表示单独动画播放器的类。
 
-要使用 [IPresentationAnimationPlayer](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationanimationplayer/)，使用 [Duration](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationanimationplayer/#getDuration--)（动画的总持续时间）属性和 [SetTimePosition](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationanimationplayer/#setTimePosition-double-) 方法。在 *0 到 duration* 范围内设置每个动画位置，然后 `GetFrame` 方法将返回与该时刻的动画状态相对应的 BufferedImage：
+要使用 [IPresentationAnimationPlayer](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ipresentationanimationplayer/)，会使用其 `Duration`（动画的完整时长）属性和 `SetTimePosition` 方法。每个动画位置设置在 *0 到 duration* 范围内，然后 `getFrame` 方法将返回对应该时刻动画状态的 [IImage](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iimage/)：
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // 添加一个微笑形状并进行动画
+    // 添加一个笑脸形状并对其进行动画
     IAutoShape smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effectIn = mainSequence.addEffect(smile, EffectType.Fly, EffectSubtype.TopLeft, EffectTriggerType.AfterPrevious);
@@ -229,22 +264,19 @@ try {
     try {
         animationsGenerator.setNewAnimation(animationPlayer ->
         {
-            System.out.println(String.format("动画总持续时间: %f", animationPlayer.getDuration()));
+            System.out.println(String.format("Animation total duration: %f", animationPlayer.getDuration()));
+
             animationPlayer.setTimePosition(0); // 初始动画状态
-            try {
-                // 初始动画状态位图
-                animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            // 初始动画状态位图
+            animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
+
             animationPlayer.setTimePosition(animationPlayer.getDuration()); // 动画的最终状态
-            try {
-                // 动画的最后一帧
-                animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            // 动画的最后一帧
+            animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
         });
+
+        // 生成动画 —— 这会触发上面处理的事件
+        animationsGenerator.run(presentation.getSlides());
     } finally {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
@@ -253,9 +285,11 @@ try {
 }
 ```
 
-要使演示文稿中的所有动画同时播放，需要使用 [PresentationPlayer](https://reference.aspose.com/slides/java/com.aspose.slides/presentationplayer/) 类。该类接受一个 [PresentationAnimationsGenerator](https://reference.aspose.com/slides/java/com.aspose.slides/presentationanimationsgenerator/) 实例和 FPS 作为构造参数，然后调用 `FrameTick` 事件以播放所有动画：
+若希望演示文稿中的所有动画一次性播放，使用 [PresentationPlayer](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentationplayer/) 类。该类在构造函数中接受一个 [PresentationAnimationsGenerator](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentationanimationsgenerator/) 实例和用于效果的 FPS，然后对所有动画触发 `FrameTick` 事件以实现播放：
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("animated.pptx");
 try {
     PresentationAnimationsGenerator animationsGenerator = new PresentationAnimationsGenerator(presentation);
@@ -264,11 +298,7 @@ try {
         try {
             player.setFrameTick((sender, arguments) ->
             {
-                try {
-                    arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+                arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
             });
             animationsGenerator.run(presentation.getSlides());
         } finally {
@@ -282,70 +312,84 @@ try {
 }
 ```
 
-然后生成的帧可以被编译以生成视频。请参见 [将 PowerPoint 转换为视频](https://docs.aspose.com/slides/java/convert-powerpoint-to-video/#convert-powerpoint-to-video) 部分。
+随后可以将生成的帧编译成视频。请参阅 [Convert PowerPoint to Video](https://docs.aspose.com/slides/zh/java/convert-powerpoint-to-video/#convert-powerpoint-to-video) 部分。
 
 ## **支持的动画和效果**
 
-**进入**：
+**入口**：
 
 | 动画类型 | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **出现** | ![不支持](x.png) | ![支持](v.png) |
-| **淡入** | ![支持](v.png) | ![支持](v.png) |
-| **飞入** | ![支持](v.png) | ![支持](v.png) |
-| **浮入** | ![支持](v.png) | ![支持](v.png) |
-| **分裂** | ![支持](v.png) | ![支持](v.png) |
-| **擦除** | ![支持](v.png) | ![支持](v.png) |
-| **形状** | ![支持](v.png) | ![支持](v.png) |
-| **轮子** | ![支持](v.png) | ![支持](v.png) |
-| **随机条** | ![支持](v.png) | ![支持](v.png) |
-| **增长与转动** | ![不支持](x.png) | ![支持](v.png) |
-| **缩放** | ![支持](v.png) | ![支持](v.png) |
-| **旋转** | ![支持](v.png) | ![支持](v.png) |
-| **弹跳** | ![支持](v.png) | ![支持](v.png) |
+| **Appear** | ![不支持](x.png) | ![支持](v.png) |
+| **Fade** | ![支持](v.png) | ![支持](v.png) |
+| **Fly In** | ![支持](v.png) | ![支持](v.png) |
+| **Float In** | ![支持](v.png) | ![支持](v.png) |
+| **Split** | ![支持](v.png) | ![支持](v.png) |
+| **Wipe** | ![支持](v.png) | ![支持](v.png) |
+| **Shape** | ![支持](v.png) | ![支持](v.png) |
+| **Wheel** | ![支持](v.png) | ![支持](v.png) |
+| **Random Bars** | ![支持](v.png) | ![支持](v.png) |
+| **Grow & Turn** | ![不支持](x.png) | ![支持](v.png) |
+| **Zoom** | ![支持](v.png) | ![支持](v.png) |
+| **Swivel** | ![支持](v.png) | ![支持](v.png) |
+| **Bounce** | ![支持](v.png) | ![支持](v.png) |
 
 **强调**：
 
 | 动画类型 | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **脉冲** | ![不支持](x.png) | ![支持](v.png) |
-| **颜色脉冲** | ![不支持](x.png) | ![支持](v.png) |
-| **翘曲** | ![支持](v.png) | ![支持](v.png) |
-| **旋转** | ![支持](v.png) | ![支持](v.png) |
-| **增长/缩小** | ![不支持](x.png) | ![支持](v.png) |
-| **去饱和** | ![不支持](x.png) | ![支持](v.png) |
-| **加深** | ![不支持](x.png) | ![支持](v.png) |
-| **变亮** | ![不支持](x.png) | ![支持](v.png) |
-| **透明度** | ![不支持](x.png) | ![支持](v.png) |
-| **对象颜色** | ![不支持](x.png) | ![支持](v.png) |
-| **互补色** | ![不支持](x.png) | ![支持](v.png) |
-| **线条颜色** | ![不支持](x.png) | ![支持](v.png) |
-| **填充颜色** | ![不支持](x.png) | ![支持](v.png) |
+| **Pulse** | ![不支持](x.png) | ![支持](v.png) |
+| **Color Pulse** | ![不支持](x.png) | ![支持](v.png) |
+| **Teeter** | ![支持](v.png) | ![支持](v.png) |
+| **Spin** | ![支持](v.png) | ![支持](v.png) |
+| **Grow/Shrink** | ![不支持](x.png) | ![支持](v.png) |
+| **Desaturate** | ![不支持](x.png) | ![支持](v.png) |
+| **Darken** | ![不支持](x.png) | ![支持](v.png) |
+| **Lighten** | ![不支持](x.png) | ![支持](v.png) |
+| **Transparency** | ![不支持](x.png) | ![支持](v.png) |
+| **Object Color** | ![不支持](x.png) | ![支持](v.png) |
+| **Complementary Color** | ![不支持](x.png) | ![支持](v.png) |
+| **Line Color** | ![不支持](x.png) | ![支持](v.png) |
+| **Fill Color** | ![不支持](x.png) | ![支持](v.png) |
 
 **退出**：
 
 | 动画类型 | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **消失** | ![不支持](x.png) | ![支持](v.png) |
-| **淡出** | ![支持](v.png) | ![支持](v.png) |
-| **飞出** | ![支持](v.png) | ![支持](v.png) |
-| **浮出** | ![支持](v.png) | ![支持](v.png) |
-| **分裂** | ![支持](v.png) | ![支持](v.png) |
-| **擦除** | ![支持](v.png) | ![支持](v.png) |
-| **形状** | ![支持](v.png) | ![支持](v.png) |
-| **随机条** | ![支持](v.png) | ![支持](v.png) |
-| **缩小与转动** | ![不支持](x.png) | ![支持](v.png) |
-| **缩放** | ![支持](v.png) | ![支持](v.png) |
-| **旋转** | ![支持](v.png) | ![支持](v.png) |
-| **弹跳** | ![支持](v.png) | ![支持](v.png) |
+| **Disappear** | ![不支持](x.png) | ![支持](v.png) |
+| **Fade** | ![支持](v.png) | ![支持](v.png) |
+| **Fly Out** | ![支持](v.png) | ![支持](v.png) |
+| **Float Out** | ![支持](v.png) | ![支持](v.png) |
+| **Split** | ![支持](v.png) | ![支持](v.png) |
+| **Wipe** | ![支持](v.png) | ![支持](v.png) |
+| **Shape** | ![支持](v.png) | ![支持](v.png) |
+| **Random Bars** | ![支持](v.png) | ![支持](v.png) |
+| **Shrink & Turn** | ![不支持](x.png) | ![支持](v.png) |
+| **Zoom** | ![支持](v.png) | ![支持](v.png) |
+| **Swivel** | ![支持](v.png) | ![支持](v.png) |
+| **Bounce** | ![支持](v.png) | ![支持](v.png) |
 
-**运动路径：**
+**运动路径**：
 
 | 动画类型 | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **线条** | ![支持](v.png) | ![支持](v.png) |
-| **弧形** | ![支持](v.png) | ![支持](v.png) |
-| **转弯** | ![支持](v.png) | ![支持](v.png) |
-| **形状** | ![支持](v.png) | ![支持](v.png) |
-| **循环** | ![支持](v.png) | ![支持](v.png) |
-| **自定义路径** | ![支持](v.png) | ![支持](v.png) |
+| **Lines** | ![支持](v.png) | ![支持](v.png) |
+| **Arcs** | ![支持](v.png) | ![支持](v.png) |
+| **Turns** | ![支持](v.png) | ![支持](v.png) |
+| **Shapes** | ![支持](v.png) | ![支持](v.png) |
+| **Loops** | ![支持](v.png) | ![支持](v.png) |
+| **Custom Path** | ![支持](v.png) | ![支持](v.png) |
+
+## **常见问题**
+
+### 是否可以转换受密码保护的演示文稿？
+
+是的，Aspose.Slides 支持处理[受密码保护的演示文稿](/slides/zh/java/password-protected-presentation/)。处理此类文件时，需要提供正确的密码，以便库能够访问演示文稿的内容。
+
+### Aspose.Slides 是否支持在云解决方案中使用？
+
+是的，Aspose.Slides 可以集成到云应用和服务中。该库专为服务器环境设计，确保高性能和可扩展性，以实现批量文件处理。
+
+### 在转换过程中对演示文稿的大小有任何限制吗？
+
+Aspose.Slides 能够处理几乎任意大小的演示文稿。但在处理特别大的文件时，可能需要额外的系统资源，通常建议对演示文稿进行优化以提升性能。

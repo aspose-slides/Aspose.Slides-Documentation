@@ -1,5 +1,5 @@
 ---
-title: Converter PPT e PPTX para PDF em Java [Recursos avançados incluídos]
+title: Converter PPT e PPTX para PDF em Java [Recursos Avançados Incluídos]
 linktitle: PowerPoint para PDF
 type: docs
 weight: 40
@@ -23,11 +23,11 @@ keywords:
 - PDF/UA
 - Java
 - Aspose.Slides
-description: "Converta PowerPoint PPT/PPTX em PDFs de alta qualidade e pesquisáveis em Java usando Aspose.Slides, com exemplos de código rápidos e opções avançadas de conversão."
+description: "Converter PowerPoint PPT/PPTX para PDFs de alta qualidade e pesquisáveis em Java usando Aspose.Slides, com exemplos de código rápidos e opções avançadas de conversão."
 ---
-## **Visão geral**
+## **Visão Geral**
 
-Converter apresentações PowerPoint (PPT, PPTX, ODP etc.) para PDF em Java oferece várias vantagens, incluindo compatibilidade entre diferentes dispositivos e preservação do layout e da formatação da sua apresentação. Este guia demonstra como converter apresentações para documentos PDF, usar diversas opções para controlar a qualidade das imagens, incluir slides ocultos, proteger PDFs com senha, detectar substituições de fontes, selecionar slides específicos para conversão e aplicar padrões de conformidade aos documentos de saída.
+Converter apresentações PowerPoint (PPT, PPTX, ODP etc.) para formato PDF em Java oferece várias vantagens, incluindo compatibilidade entre diferentes dispositivos e preservação do layout e da formatação da sua apresentação. Este guia demonstra como converter apresentações para documentos PDF, usar várias opções para controlar a qualidade de imagem, incluir slides ocultos, proteger PDFs com senha, detectar substituições de fontes, selecionar slides específicos para conversão e aplicar padrões de conformidade aos documentos de saída.
 
 ## **Conversões de PowerPoint para PDF**
 
@@ -41,7 +41,7 @@ Para converter uma apresentação para PDF, passe o nome do arquivo como argumen
 
 {{%  alert title="NOTE"  color="warning"   %}} 
 
-Aspose.Slides for Java insere informações da sua API e o número da versão nos documentos de saída. Por exemplo, ao converter uma apresentação para PDF, Aspose.Slides preenche o campo Application com "*Aspose.Slides*" e o campo PDF Producer com um valor no formato "*Aspose.Slides v XX.XX*". **Note** que você não pode instruir o Aspose.Slides a alterar ou remover essas informações dos documentos de saída.
+Aspose.Slides for Java insere suas informações de API e número de versão nos documentos de saída. Por exemplo, ao converter uma apresentação para PDF, Aspose.Slides preenche o campo Application com "*Aspose.Slides*" e o campo PDF Producer com um valor no formato "*Aspose.Slides v XX.XX*". **Nota** que você não pode instruir o Aspose.Slides a alterar ou remover essas informações dos documentos de saída.
 
 {{% /alert %}}
 
@@ -55,17 +55,21 @@ Aspose.Slides exporta apresentações para PDF, garantindo que os PDFs resultant
 * Imagens
 * Caixas de texto e formas
 * Formatação de texto
-* Formatação de parágrafos
-* Hiperlinks
+* Formatação de parágrafo
+* Hipervínculos
 * Cabeçalhos e rodapés
 * Marcadores
 * Tabelas
 
 ## **Converter PowerPoint para PDF**
 
-O processo padrão de conversão de PowerPoint para PDF usa opções padrão. Nesse caso, o Aspose.Slides tenta converter a apresentação fornecida para PDF usando configurações ideais nos níveis máximos de qualidade.
+O processo padrão de conversão de PowerPoint para PDF usa opções padrão. Nesse caso, o Aspose.Slides tenta converter a apresentação fornecida para PDF usando configurações ótimas nos níveis máximos de qualidade.
+
+Este código mostra como converter uma apresentação (PPT, PPTX, ODP etc.) para PDF:
 
 ```java
+import com.aspose.slides.*;
+
 // Instanciar a classe Presentation que representa um arquivo PowerPoint ou OpenDocument.
 Presentation presentation = new Presentation("PowerPoint.ppt");
 try {
@@ -76,30 +80,32 @@ try {
 }
 ```
 
-{{%  alert  color="primary"  %}} 
+{{%  alert  color="info"  %}} 
 
-Aspose oferece um conversor online gratuito [**Conversor de PowerPoint para PDF**](https://products.aspose.app/slides/pt/conversion/ppt-to-pdf) que demonstra o processo de conversão de apresentação para PDF. Você pode executar um teste com este conversor para uma implementação ao vivo do procedimento descrito aqui.
+Aspose oferece um conversor online gratuito de [**PowerPoint para PDF**](https://products.aspose.app/slides/pt/conversion/ppt-to-pdf) que demonstra o processo de conversão de apresentação para PDF. Você pode executar um teste com este conversor para ver uma implementação ao vivo do procedimento descrito aqui.
 
 {{% /alert %}}
 
 ## **Converter PowerPoint para PDF com Opções**
 
-Aspose.Slides fornece opções personalizadas — propriedades da classe [PdfOptions](https://reference.aspose.com/slides/pt/java/com.aspose.slides/pdfoptions/) — que permitem personalizar o PDF resultante, bloquear o PDF com senha ou especificar como o processo de conversão deve prosseguir.
+Aspose.Slides fornece opções personalizadas — propriedades da classe [PdfOptions](https://reference.aspose.com/slides/pt/java/com.aspose.slides/pdfoptions/) — que permitem personalizar o PDF resultante, proteger o PDF com uma senha ou especificar como o processo de conversão deve prosseguir.
 
 ### **Converter PowerPoint para PDF com Opções Personalizadas**
 
-Usando opções de conversão personalizadas, você pode definir sua configuração preferida de qualidade para imagens raster, especificar como metafiles devem ser tratados, definir um nível de compressão para texto, configurar DPI para imagens e muito mais.
+Usando opções de conversão personalizadas, você pode definir sua configuração de qualidade preferida para imagens raster, especificar como os metafiles devem ser tratados, definir um nível de compressão para texto, configurar DPI para imagens e muito mais.
 
 O exemplo de código abaixo demonstra como converter uma apresentação PowerPoint para PDF com várias opções personalizadas.
 
 ```java
+import com.aspose.slides.*;
+
 // Instanciar a classe PdfOptions.
 PdfOptions pdfOptions = new PdfOptions();
 
 // Definir a qualidade das imagens JPG.
 pdfOptions.setJpegQuality((byte)90);
 
-// Definir DPI para as imagens.
+// Definir DPI para imagens.
 pdfOptions.setSufficientResolution(300);
 
 // Definir o comportamento para metafiles.
@@ -126,9 +132,11 @@ try {
 
 Se uma apresentação contém slides ocultos, você pode usar o método [setShowHiddenSlides](https://reference.aspose.com/slides/pt/java/com.aspose.slides/pdfoptions/#setShowHiddenSlides-boolean-) da classe [PdfOptions](https://reference.aspose.com/slides/pt/java/com.aspose.slides/pdfoptions/) para incluir os slides ocultos como páginas no PDF resultante.
 
-Este código mostra como converter uma apresentação PowerPoint para PDF com slides ocultos incluídos:
+Este código mostra como converter uma apresentação PowerPoint para PDF com os slides ocultos incluídos:
 
 ```java
+import com.aspose.slides.*;
+
 // Instanciar a classe Presentation que representa um arquivo PowerPoint ou OpenDocument.
 Presentation presentation = new Presentation("PowerPoint.pptx");
 try {
@@ -147,9 +155,11 @@ try {
 
 ### **Converter PowerPoint para PDF Protegido por Senha**
 
-Este código demonstra como converter uma apresentação PowerPoint em um PDF protegido por senha usando os parâmetros de proteção da classe [PdfOptions](https://reference.aspose.com/slides/pt/java/com.aspose.slides/pdfoptions/):
+O código abaixo demonstra como converter uma apresentação PowerPoint em um PDF protegido por senha usando os parâmetros de proteção da classe [PdfOptions](https://reference.aspose.com/slides/pt/java/com.aspose.slides/pdfoptions/):
 
 ```java
+import com.aspose.slides.*;
+
 // Instanciar a classe Presentation que representa um arquivo PowerPoint ou OpenDocument.
 Presentation presentation = new Presentation("PowerPoint.pptx");
 try {
@@ -167,18 +177,20 @@ try {
 }
 ```
 
-### **Detectar Substituição de Fontes**
+### **Detectar Substituições de Fonte**
 
-Aspose.Slides fornece o método [setWarningCallback](https://reference.aspose.com/slides/pt/java/com.aspose.slides/saveoptions/#setWarningCallback-com.aspose.slides.IWarningCallback-) na classe [PdfOptions](https://reference.aspose.com/slides/pt/java/com.aspose.slides/pdfoptions/), permitindo detectar substituições de fontes durante o processo de conversão de apresentação para PDF.
+Aspose.Slides fornece o método [setWarningCallback](https://reference.aspose.com/slides/pt/java/com.aspose.slides/saveoptions/#setWarningCallback-com.aspose.slides.IWarningCallback-) na classe [PdfOptions](https://reference.aspose.com/slides/pt/java/com.aspose.slides/pdfoptions/), permitindo detectar substituições de fonte durante o processo de conversão de apresentação para PDF.
 
-Este código mostra como detectar substituições de fontes:
+Este código mostra como detectar substituições de fonte:
 
 ```java
+import com.aspose.slides.*;
+
 public static void main(String[] args) {
     // Instanciar a classe Presentation que representa um arquivo PowerPoint ou OpenDocument.
     Presentation presentation = new Presentation("sample.pptx");
 
-    // Definir o callback de aviso nas opções PDF.
+    // Definir o callback de aviso nas opções de PDF.
     PdfOptions pdfOptions = new PdfOptions();
     pdfOptions.setWarningCallback(new FontSubstitutionHandler());
 
@@ -203,19 +215,21 @@ private static class FontSubstitutionHandler implements IWarningCallback {
 }
 ```
 
-{{%  alert color="primary"  %}} 
+{{%  alert color="info"  %}} 
 
-Para mais informações sobre como receber callbacks para substituição de fontes durante o processo de renderização, veja [Getting Warning Callbacks for Fonts Substitution](/slides/pt/java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
+Para mais informações sobre como receber callbacks para substituições de fontes durante o processo de renderização, veja [Obtendo Callbacks de Aviso para Substituição de Fontes](/slides/pt/java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
 
-Para mais informações sobre substituição de fontes, veja o artigo [Font Substitution](/slides/pt/java/font-substitution/).
+Para mais informações sobre substituição de fontes, consulte o artigo [Substituição de Fonte](/slides/pt/java/font-substitution/).
 
 {{% /alert %}} 
 
-## **Converter Slides Selecionados do PowerPoint para PDF**
+## **Converter Slides Selecionados no PowerPoint para PDF**
 
-Este código demonstra como converter somente slides específicos de uma apresentação PowerPoint para PDF:
+Este código demonstra como converter apenas slides específicos de uma apresentação PowerPoint para PDF:
 
 ```java
+import com.aspose.slides.*;
+
 // Instanciar a classe Presentation que representa um arquivo PowerPoint ou OpenDocument.
 Presentation presentation = new Presentation("PowerPoint.pptx");
 try {
@@ -234,13 +248,15 @@ try {
 Este código demonstra como converter uma apresentação PowerPoint para PDF com um tamanho de slide especificado:
 
 ```java
+import com.aspose.slides.*;
+
 float slideWidth = 612;
 float slideHeight = 792;
 
 // Instanciar a classe Presentation que representa um arquivo PowerPoint ou OpenDocument.
 Presentation presentation = new Presentation("SelectedSlides.pptx");
 
-// Criar uma nova apresentação com um tamanho de slide ajustado.
+// Criar uma nova apresentação com tamanho de slide ajustado.
 Presentation resizedPresentation = new Presentation();
 
 try {
@@ -251,29 +267,34 @@ try {
     ISlide slide = presentation.getSlides().get_Item(0);
     resizedPresentation.getSlides().insertClone(0, slide);
 
-    // Salvar a apresentação redimensionada como PDF com notas.
-    resizedPresentation.save("PDF_with_notes.pdf", SaveFormat.Pdf);
+    // Remover o slide vazio que a nova apresentação foi criada com.
+    resizedPresentation.getSlides().removeAt(1);
+
+    // Salvar a apresentação redimensionada como PDF.
+    resizedPresentation.save("PDF_with_custom_slide_size.pdf", SaveFormat.Pdf);
 } finally {
     resizedPresentation.dispose();
     presentation.dispose();
 }
 ```
 
-## **Converter PowerPoint para PDF no Modo de Visualização de Notas**
+## **Converter PowerPoint para PDF na Visualização de Slides com Notas**
 
 Este código demonstra como converter uma apresentação PowerPoint para um PDF que inclui notas:
 
 ```java
+import com.aspose.slides.*;
+
 // Instanciar a classe Presentation que representa um arquivo PowerPoint ou OpenDocument.
 Presentation presentation = new Presentation("SelectedSlides.pptx");
 try {
-    // Configurar as opções PDF com layout de notas.
+    // Configurar as opções de PDF com layout de notas.
     NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
     notesOptions.setNotesPosition(NotesPositions.BottomFull);
     PdfOptions pdfOptions = new PdfOptions();
     pdfOptions.setSlidesLayoutOptions(notesOptions);
 
-    // Salvar a apresentação como PDF com notas.
+    // Salvar a apresentação em um PDF com notas.
     presentation.save("PDF_with_notes.pdf", SaveFormat.Pdf, pdfOptions);
 } finally {
     presentation.dispose();
@@ -282,11 +303,13 @@ try {
 
 ## **Acessibilidade e Padrões de Conformidade para PDF**
 
-Aspose.Slides permite que você use um procedimento de conversão que está em conformidade com as [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Você pode exportar um documento PowerPoint para PDF usando quaisquer destes padrões de conformidade: **PDF/A1a**, **PDF/A1b** e **PDF/UA**.
+Aspose.Slides permite que você use um procedimento de conversão que esteja em conformidade com as [Diretrizes de Acessibilidade para Conteúdo Web (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Você pode exportar um documento PowerPoint para PDF usando qualquer um desses padrões de conformidade: **PDF/A1a**, **PDF/A1b** e **PDF/UA**.
 
 Este código demonstra um processo de conversão de PowerPoint para PDF que produz vários PDFs com base em diferentes padrões de conformidade:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("pres.pptx");
 try {
     PdfOptions pdfOptions = new PdfOptions();
@@ -306,36 +329,36 @@ try {
 
 {{% alert title="Note" color="warning" %}} 
 
-Aspose.Slides suporta operações de conversão de PDF, permitindo converter arquivos PDF para formatos populares. Você pode executar conversões de [PDF to HTML](https://products.aspose.com/slides/pt/java/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/pt/java/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/pt/java/conversion/pdf-to-jpg/), e [PDF to PNG](https://products.aspose.com/slides/pt/java/conversion/pdf-to-png/). Outras operações de conversão de PDF para formatos especializados — [PDF to SVG](https://products.aspose.com/slides/pt/java/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/pt/java/conversion/pdf-to-tiff/), e [PDF to XML](https://products.aspose.com/slides/pt/java/conversion/pdf-to-xml/) — também são suportadas.
+Aspose.Slides oferece suporte a operações de conversão de PDF, permitindo converter arquivos PDF para formatos populares. Você pode realizar conversões de [PDF para HTML](https://products.aspose.com/slides/pt/java/conversion/pdf-to-html/), [PDF para imagem](https://products.aspose.com/slides/pt/java/conversion/pdf-to-image/), [PDF para JPG](https://products.aspose.com/slides/pt/java/conversion/pdf-to-jpg/) e [PDF para PNG](https://products.aspose.com/slides/pt/java/conversion/pdf-to-png/). Outras operações de conversão de PDF para formatos especializados — [PDF para SVG](https://products.aspose.com/slides/pt/java/conversion/pdf-to-svg/), [PDF para TIFF](https://products.aspose.com/slides/pt/java/conversion/pdf-to-tiff/), e [PDF para XML](https://products.aspose.com/slides/pt/java/conversion/pdf-to-xml/) — também são suportadas.
 
 {{% /alert %}}
 
-> **Note:** Ao exportar para PDF/UA, o Aspose.Slides trata gráficos complexos como SmartArt, gráficos e fórmulas como uma única figura. Elementos de caminho individuais não são preservados como conteúdo separado e podem ser marcados como artefatos; o texto alternativo é fornecido apenas para a figura completa.
+> **Nota:** Ao exportar para PDF/UA, o Aspose.Slides trata gráficos complexos como SmartArt, gráficos e fórmulas como uma única figura. Elementos de caminho individuais não são preservados como conteúdo separado e podem ser marcados como artefatos; o texto alternativo é fornecido apenas para a figura inteira.
 
 ## **FAQ**
 
-**Posso converter vários arquivos PowerPoint para PDF em lote?**
+### Posso converter vários arquivos PowerPoint para PDF em lote?
 
-Sim, o Aspose.Slides suporta conversão em lote de múltiplos arquivos PPT ou PPTX para PDF. Você pode iterar pelos seus arquivos e aplicar o processo de conversão programaticamente.
+Sim, o Aspose.Slides suporta conversão em lote de vários arquivos PPT ou PPTX para PDF. Você pode iterar pelos seus arquivos e aplicar o processo de conversão programaticamente.
 
-**É possível proteger o PDF convertido com senha?**
+### É possível proteger o PDF convertido com senha?
 
-Absolutamente. Use a classe [PdfOptions](https://reference.aspose.com/slides/pt/java/com.aspose.slides/pdfoptions/) para definir uma senha e definir permissões de acesso durante o processo de conversão.
+Absolutamente. Use a classe [PdfOptions](https://reference.aspose.com/slides/pt/java/com.aspose.slides/pdfoptions/) para definir uma senha e especificar permissões de acesso durante o processo de conversão.
 
-**Como incluo slides ocultos no PDF?**
+### Como incluo slides ocultos no PDF?
 
 Use o método `setShowHiddenSlides` na classe [PdfOptions](https://reference.aspose.com/slides/pt/java/com.aspose.slides/pdfoptions/) para incluir slides ocultos no PDF resultante.
 
-**O Aspose.Slides mantém alta qualidade de imagem no PDF?**
+### O Aspose.Slides pode manter alta qualidade de imagem no PDF?
 
-Sim, você pode controlar a qualidade das imagens usando métodos como `setJpegQuality` e `setSufficientResolution` na classe [PdfOptions](https://reference.aspose.com/slides/pt/java/com.aspose.slides/pdfoptions/) para garantir imagens de alta qualidade no seu PDF.
+Sim, você pode controlar a qualidade da imagem usando métodos como `setJpegQuality` e `setSufficientResolution` na classe [PdfOptions](https://reference.aspose.com/slides/pt/java/com.aspose.slides/pdfoptions/) para garantir imagens de alta qualidade no seu PDF.
 
-**O Aspose.Slides suporta padrões de conformidade PDF/A?**
+### O Aspose.Slides oferece suporte a padrões de conformidade PDF/A?
 
-Sim, o Aspose.Slides permite exportar PDFs que atendem a [various standards](https://reference.aspose.com/slides/pt/java/com.aspose.slides/pdfcompliance/), incluindo PDF/A1a, PDF/A1b e PDF/UA, assegurando que seus documentos cumpram requisitos de acessibilidade e arquivamento.
+Sim, o Aspose.Slides permite exportar PDFs que cumprem [vários padrões](https://reference.aspose.com/slides/pt/java/com.aspose.slides/pdfcompliance/), incluindo PDF/A1a, PDF/A1b e PDF/UA, garantindo que seus documentos atendam aos requisitos de acessibilidade e arquivamento.
 
-## **Recursos adicionais**
+## **Recursos Adicionais**
 
-- [Aspose.Slides for Java Documentation](/slides/pt/java/)
-- [Aspose.Slides for Java API Reference](https://reference.aspose.com/slides/pt/java/)
-- [Aspose Free Online Converters](https://products.aspose.app/slides/pt/conversion)
+- [Documentação do Aspose.Slides para Java](/slides/pt/java/)
+- [Referência da API do Aspose.Slides para Java](https://reference.aspose.com/slides/pt/java/)
+- [Conversores Online Gratuitos da Aspose](https://products.aspose.app/slides/pt/conversion)

@@ -20,59 +20,62 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Fusionnez facilement les présentations PowerPoint (PPT, PPTX) et OpenDocument (ODP) avec Aspose.Slides pour .NET, en simplifiant votre flux de travail."
+description: "Fusionnez sans effort les présentations PowerPoint (PPT, PPTX) et OpenDocument (ODP) avec Aspose.Slides pour .NET, en simplifiant votre flux de travail."
 ---
+## **Vue d'ensemble**
 
-## **Optimiser la fusion de vos présentations**
+Aspose.Slides vous permet de fusionner des présentations en clonant des diapositives d’une présentation à une autre. Cet article explique comment fusionner des présentations complètes ou des diapositives sélectionnées, utiliser un masque de diapositive ou une disposition spécifique pendant la fusion, gérer des présentations avec des tailles de diapositive différentes, et ajouter des diapositives fusionnées à une section de présentation. Il couvre également des notes pratiques liées au contenu fusionné, y compris les notes du présentateur, les commentaires, les fichiers source protégés par mot de passe et l’utilisation des threads.
 
-Avec [Aspose.Slides for .NET](https://products.aspose.com/slides/net/), combinez sans effort des présentations PowerPoint tout en préservant les styles, les mises en page et tous les éléments. Contrairement à d’autres outils, Aspose.Slides fusionne les présentations sans compromettre la qualité ni perdre de données. Fusionnez des présentations entières, des diapositives spécifiques, voire différents formats de fichiers (PPT en PPTX, etc.).
+## **Optimisez la fusion de vos présentations**
 
-### **Fonctionnalités de fusion**
+Avec [Aspose.Slides for .NET](https://products.aspose.com/slides/fr/net/), combinez sans effort les présentations PowerPoint tout en préservant les styles, les dispositions et tous les éléments. Contrairement à d’autres outils, Aspose.Slides fusionne les présentations sans compromettre la qualité ni perdre de données. Fusionnez des présentations complètes, des diapositives spécifiques, et même différents formats de fichiers (PPT vers PPTX, etc.).
 
-- **Fusion complète de présentation :** Assemblez toutes les diapositives en un seul fichier.  
-- **Fusion de diapositives spécifiques :** Sélectionnez et combinez les diapositives choisies.  
+### **Fonctions de fusion**
+
+- **Fusion complète de la présentation :** Assemblez toutes les diapositives dans un seul fichier.  
+- **Fusion de diapositives spécifiques :** Choisissez et combinez les diapositives sélectionnées.  
 - **Fusion inter‑format :** Intégrez des présentations de formats différents tout en conservant leur intégrité.  
 
-{{% alert title="Tip" color="primary" %}}  
-Vous recherchez un outil en ligne **gratuit** et **rapide** pour **fusionner des présentations PowerPoint** ? Essayez le [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/merger).  
+{{% alert title="Tip" color="info" %}}  
+Vous recherchez un outil en ligne rapide et **gratuit** pour **fusionner des présentations PowerPoint** ? Essayez le [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/fr/merger).  
 
 - **Fusionnez facilement des fichiers PowerPoint** : combinez plusieurs présentations **PPT, PPTX, ODP** en un seul fichier.  
-- **Prise en charge de différents formats** : fusionnez **PPT en PPTX**, **PPTX en ODP**, etc.  
-- **Aucune installation requise** : fonctionne directement dans votre navigateur, rapidement et en toute sécurité.  
+- **Prise en charge de différents formats** : fusionnez **PPT vers PPTX**, **PPTX vers ODP**, etc.  
+- **Aucune installation requise** : fonctionne directement dans votre navigateur, rapide et sécurisé.  
 
-[![Merge PowerPoint Files Online](slides-merger.png)](https://products.aspose.app/slides/merger)  
+[![Merge PowerPoint Files Online](slides-merger.png)](https://products.aspose.app/slides/fr/merger)  
 
-Commencez dès aujourd’hui à fusionner vos fichiers PowerPoint avec l’**outil en ligne gratuit d’Aspose** !  
+Commencez à fusionner vos fichiers PowerPoint avec **l'outil en ligne gratuit d'Aspose** dès aujourd'hui !  
 {{% /alert %}}
 
 ## **Fusion de présentations**
 
-Lorsque vous [fusionnez une présentation avec une autre](https://products.aspose.com/slides/net/merger/ppt/), vous combinez effectivement leurs diapositives dans une seule présentation afin d’obtenir un fichier unique. 
+Lorsque vous [fusionnez une présentation avec une autre](https://products.aspose.com/slides/fr/net/merger/ppt/), vous combinez effectivement leurs diapositives dans une seule présentation pour obtenir un unique fichier. 
 
 {{% alert title="Info" color="info" %}}  
 La plupart des programmes de présentation (PowerPoint ou OpenOffice) ne disposent pas de fonctions permettant aux utilisateurs de combiner des présentations de cette manière.  
 
-[**Aspose.Slides for .NET**](https://products.aspose.com/slides/net/) permet, quant à lui, de fusionner des présentations de différentes façons. Vous pouvez fusionner des présentations avec toutes leurs formes, styles, textes, mises en forme, commentaires, animations, etc., sans craindre de perdre en qualité ou en données.  
+[**Aspose.Slides for .NET**](https://products.aspose.com/slides/fr/net/) permet cependant de fusionner des présentations de différentes façons. Vous pouvez fusionner des présentations avec toutes leurs formes, styles, textes, mises en forme, commentaires, animations, etc., sans vous soucier d’une perte de qualité ou de données.  
 
 **Voir aussi**  
 
-[Clone Slides](https://docs.aspose.com/slides/net/cloning-commenting-and-manipulating-slides/#cloning-commentingandmanipulatingslides-cloningslides)*.*  
+[Clone Slides](https://docs.aspose.com/slides/fr/net/cloning-commenting-and-manipulating-slides/#cloning-commentingandmanipulatingslides-cloningslides)*.*  
 {{% /alert %}}
 
 ### **Ce qui peut être fusionné**
 
 Avec Aspose.Slides, vous pouvez fusionner  
 
-* des présentations entières. Toutes les diapositives des présentations sont regroupées dans une seule présentation.  
-* des diapositives spécifiques. Les diapositives sélectionnées sont regroupées dans une seule présentation.  
-* des présentations dans un même format (PPT en PPT, PPTX en PPTX, etc.) ou dans des formats différents (PPT en PPTX, PPTX en ODP, etc.) les unes avec les autres.  
+* des présentations complètes. Toutes les diapositives des présentations se retrouvent dans une seule présentation  
+* des diapositives spécifiques. Les diapositives sélectionnées se retrouvent dans une seule présentation  
+* des présentations d’un même format (PPT vers PPT, PPTX vers PPTX, etc.) et de formats différents (PPT vers PPTX, PPTX vers ODP, etc.) les unes avec les autres.  
 
 {{% alert title="Note" color="warning" %}}  
-En plus des présentations, Aspose.Slides vous permet de fusionner d’autres fichiers :  
+En plus des présentations, Aspose.Slides vous permet de fusionner d’autres fichiers :
 
-* [Images](https://products.aspose.com/slides/net/merger/image-to-image/), comme [JPG en JPG](https://products.aspose.com/slides/net/merger/jpg-to-jpg/) ou [PNG en PNG](https://products.aspose.com/slides/net/merger/png-to-png/)  
-* Documents, comme [PDF en PDF](https://products.aspose.com/slides/net/merger/pdf-to-pdf/) ou [HTML en HTML](https://products.aspose.com/slides/net/merger/html-to-html/)  
-* Et deux fichiers différents tels que [image en PDF](https://products.aspose.com/slides/net/merger/image-to-pdf/), [JPG en PDF](https://products.aspose.com/slides/net/merger/jpg-to-pdf/) ou [TIFF en PDF](https://products.aspose.com/slides/net/merger/tiff-to-pdf/).  
+* [Images](https://products.aspose.com/slides/fr/net/merger/image-to-image/), comme [JPG vers JPG](https://products.aspose.com/slides/fr/net/merger/jpg-to-jpg/) ou [PNG vers PNG](https://products.aspose.com/slides/fr/net/merger/png-to-png/)  
+* Documents, comme [PDF vers PDF](https://products.aspose.com/slides/fr/net/merger/pdf-to-pdf/) ou [HTML vers HTML](https://products.aspose.com/slides/fr/net/merger/html-to-html/)  
+* Et deux fichiers différents tels que [image vers PDF](https://products.aspose.com/slides/fr/net/merger/image-to-pdf/), [JPG vers PDF](https://products.aspose.com/slides/fr/net/merger/jpg-to-pdf/) ou [TIFF vers PDF](https://products.aspose.com/slides/fr/net/merger/tiff-to-pdf/).  
 {{% /alert %}}
 
 ### **Options de fusion**
@@ -82,16 +85,20 @@ Vous pouvez appliquer des options qui déterminent si
 * chaque diapositive de la présentation de sortie conserve un style unique  
 * un style spécifique est utilisé pour toutes les diapositives de la présentation de sortie.  
 
-Pour fusionner des présentations, Aspose.Slides fournit les méthodes [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone) (de l’interface [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection)). Plusieurs implémentations des méthodes `AddClone` définissent les paramètres du processus de fusion. Chaque objet Presentation possède une collection [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides), vous pouvez donc appeler une méthode `AddClone` depuis la présentation dans laquelle vous souhaitez fusionner des diapositives.  
+Pour fusionner des présentations, Aspose.Slides fournit les méthodes [AddClone](https://reference.aspose.com/slides/fr/net/aspose.slides/islidecollection/methods/addclone) (de l’interface [ISlideCollection](https://reference.aspose.com/slides/fr/net/aspose.slides/islidecollection)). Il existe plusieurs implémentations des méthodes `AddClone` qui définissent les paramètres du processus de fusion des présentations. Chaque objet Presentation possède une collection [Slides](https://reference.aspose.com/slides/fr/net/aspose.slides/presentation/properties/slides), vous pouvez donc appeler une méthode `AddClone` à partir de la présentation dans laquelle vous souhaitez fusionner des diapositives.  
 
-La méthode `AddClone` renvoie un objet `ISlide`, qui est un clone de la diapositive source. Les diapositives dans la présentation de sortie sont simplement une copie des diapositives de la source. Ainsi, vous pouvez modifier les diapositives résultantes (par exemple appliquer des styles, des options de mise en forme ou des mises en page) sans craindre d’affecter les présentations sources.  
+La méthode `AddClone` renvoie un objet `ISlide`, qui est un clone de la diapositive source. Les diapositives d’une présentation de sortie sont simplement une copie des diapositives de la source. Ainsi, vous pouvez modifier les diapositives résultantes (par exemple, appliquer des styles, des options de mise en forme ou des dispositions) sans craindre que les présentations sources ne soient affectées.  
 
 ## **Fusionner des présentations** 
 
-Aspose.Slides propose la méthode [**AddClone (ISlide)**](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone) qui permet de combiner des diapositives tout en conservant leurs mises en page et styles (paramètres par défaut).  
+Aspose.Slides fournit la méthode [**AddClone (ISlide)**](https://reference.aspose.com/slides/fr/net/aspose.slides/islidecollection/methods/addclone) qui vous permet de combiner des diapositives tout en conservant leurs dispositions et styles (paramètres par défaut).  
 
-Ce code C# montre comment fusionner des présentations :  
+Ce code C# vous montre comment fusionner des présentations :  
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres2 = new Presentation("pres2.pptx"))
 {
@@ -104,13 +111,16 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 }
 ```
 
+## **Fusionner des présentations avec un masque de diapositive** 
 
-## **Fusionner des présentations avec un masque de diapositive**
-
-Aspose.Slides propose la méthode [**AddClone (ISlide, IMasterSlide, Boolean)**](https://reference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/2) qui permet de combiner des diapositives tout en appliquant un modèle de présentation maître. Ainsi, si besoin, vous pouvez modifier le style des diapositives dans la présentation de sortie.  
+Aspose.Slides fournit la méthode [**AddClone (ISlide, IMasterSlide, Boolean)**](https://reference.aspose.com/slides/fr/net/aspose.slides.islidecollection/addclone/methods/2) qui vous permet de combiner des diapositives tout en appliquant un modèle de masque de diapositive à la présentation. Ainsi, si nécessaire, vous pouvez modifier le style des diapositives dans la présentation de sortie.  
 
 Ce code C# illustre l’opération décrite :  
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres2 = new Presentation("pres2.pptx"))
 {
@@ -123,19 +133,22 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 }
 ```
 
-
 {{% alert title="Note" color="warning" %}}  
-La mise en page de la diapositive pour le masque est déterminée automatiquement. Lorsqu’aucune mise en page appropriée ne peut être déterminée, si le paramètre booléen `allowCloneMissingLayout` de la méthode `AddClone` est à true, la mise en page de la diapositive source est utilisée. Sinon, une [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception) sera levée.  
-{{% /alert %}}
+La disposition de la diapositive pour le masque de diapositive est déterminée automatiquement. Lorsqu'aucune disposition appropriée ne peut être déterminée, si le paramètre booléen `allowCloneMissingLayout` de la méthode `AddClone` est à true, la disposition de la diapositive source est utilisée. Sinon, une [PptxEditException](https://reference.aspose.com/slides/fr/net/aspose.slides/pptxeditexception) sera levée.  
+{{% /alert %}}  
 
-Si vous souhaitez que les diapositives de la présentation de sortie possèdent une mise en page différente, utilisez la méthode [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/1) lors de la fusion.  
+Si vous souhaitez que les diapositives de la présentation de sortie aient une disposition différente, utilisez plutôt la méthode [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/fr/net/aspose.slides.islidecollection/addclone/methods/1) lors de la fusion.  
 
-## **Fusionner des diapositives spécifiques depuis des présentations**
+## **Fusionner des diapositives spécifiques à partir de présentations** 
 
-Fusionner des diapositives spécifiques provenant de plusieurs présentations est utile pour créer des jeux de diapositives personnalisés. Aspose.Slides for .NET vous permet de sélectionner et d’importer uniquement les diapositives dont vous avez besoin. L’API préserve la mise en forme, la mise en page et le design des diapositives d’origine.  
+La fusion de diapositives spécifiques provenant de plusieurs présentations est utile pour créer des présentations personnalisées. Aspose.Slides for .NET vous permet de sélectionner et d’importer uniquement les diapositives dont vous avez besoin. L’API conserve le formatage, la disposition et le design des diapositives originales.  
 
-Le code C# suivant crée une nouvelle présentation, ajoute des diapositives titre provenant de deux autres présentations, puis enregistre le résultat dans un fichier :  
+Le code C# suivant crée une nouvelle présentation, ajoute des diapositives de titre provenant de deux autres présentations, et enregistre le résultat dans un fichier :  
+
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 using (Presentation presentation1 = new Presentation("presentation1.pptx"))
 using (Presentation presentation2 = new Presentation("presentation2.pptx"))
@@ -154,9 +167,7 @@ using (Presentation presentation2 = new Presentation("presentation2.pptx"))
 
     presentation.Save("combined.pptx", SaveFormat.Pptx);
 }
-```
-  
-```cs
+
 static ISlide GetTitleSlide(IPresentation presentation)
 {
     foreach (ISlide slide in presentation.Slides)
@@ -169,12 +180,30 @@ static ISlide GetTitleSlide(IPresentation presentation)
     return null;
 }
 ```
-  
+```cs
+using Aspose.Slides;
 
-## **Fusionner des présentations avec une mise en page de diapositive**
+static ISlide GetTitleSlide(IPresentation presentation)
+{
+    foreach (ISlide slide in presentation.Slides)
+    {
+        if (slide.LayoutSlide.LayoutType == SlideLayoutType.Title)
+        {
+            return slide;
+        }
+    }
+    return null;
+}
+```
 
-Ce code C# montre comment combiner des diapositives de présentations tout en appliquant votre mise en page de diapositive préférée afin d’obtenir une présentation de sortie unique :  
+## **Fusionner des présentations avec une disposition de diapositive** 
+
+Ce code C# vous montre comment combiner des diapositives provenant de présentations tout en appliquant votre disposition de diapositive préférée afin d’obtenir une présentation de sortie unique :  
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres2 = new Presentation("pres2.pptx"))
 {
@@ -186,18 +215,21 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres1.Save("combined.pptx", SaveFormat.Pptx);
 }
 ```
-  
 
-## **Fusionner des présentations avec des tailles de diapositive différentes**
+## **Fusionner des présentations avec des tailles de diapositive différentes** 
 
 {{% alert title="Note" color="warning" %}}  
-Il n’est pas possible de fusionner des présentations dont les tailles de diapositive diffèrent.  
+La fusion de présentations avec des tailles de diapositive différentes ne génère pas d’erreur, mais les diapositives fusionnées adoptent la taille de diapositive de la présentation cible tandis que leurs formes conservent leurs positions et tailles d’origine, ce qui peut entraîner un déplacement du contenu ou le placer hors des limites de la diapositive.  
 {{% /alert %}}  
 
-Pour fusionner 2 présentations avec des tailles de diapositive différentes, vous devez redimensionner l’une des présentations afin que sa taille corresponde à celle de l’autre.  
+Pour fusionner deux présentations avec des tailles de diapositive différentes et conserver leur contenu correctement disposé, redimensionnez l’une des présentations afin que sa taille corresponde à celle de l’autre présentation.  
 
-Ce code d’exemple illustre l’opération décrite :  
+Ce code d’exemple démontre l’opération décrite :  
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres1 = new Presentation("pres1.pptx"),
    pres2 = new Presentation("pres2.pptx"))
 {
@@ -211,12 +243,15 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
    pres1.Save("combined.pptx", SaveFormat.Pptx);
 }
 ```
-  
 
-## **Fusionner des diapositives dans une section de présentation**
+## **Fusionner des diapositives dans une section de présentation** 
 
-Ce code C# montre comment fusionner une diapositive spécifique dans une section d’une présentation :  
+Ce code C# vous montre comment fusionner une diapositive spécifique dans une section d’une présentation :  
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres2 = new Presentation("pres2.pptx"))
 {
@@ -229,24 +264,27 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres1.Save("combined.pptx", SaveFormat.Pptx);
 }
 ```
-  
 
 La diapositive est ajoutée à la fin de la section.  
 
-{{% alert title="Tip" color="primary" %}}  
-Aspose propose une [application Web GRATUITE Collage](https://products.aspose.app/slides/collage). Grâce à ce service en ligne, vous pouvez fusionner des [JPG en JPG](https://products.aspose.app/slides/collage/jpg) ou PNG en PNG, créer des [grilles de photos](https://products.aspose.app/slides/collage/photo-grid), etc.  
+{{% alert title="Tip" color="info" %}}  
+Aspose propose une [application Web GRATUITE Collage](https://products.aspose.app/slides/fr/collage). En utilisant ce service en ligne, vous pouvez fusionner des images [JPG vers JPG](https://products.aspose.app/slides/fr/collage/jpg) ou PNG vers PNG, créer des [grilles photo](https://products.aspose.app/slides/fr/collage/photo-grid), etc.  
 {{% /alert %}}
 
 ## **FAQ**
 
-**Les notes du présentateur sont-elles conservées lors de la fusion ?**  
-Oui. Lors du clonage des diapositives, Aspose.Slides transfère tous les éléments de la diapositive, y compris les notes, la mise en forme et les animations.  
+### Les notes du présentateur sont‑elles conservées lors de la fusion ?
 
-**Les commentaires et leurs auteurs sont-ils transférés ?**  
-Les commentaires, en tant que partie du contenu de la diapositive, sont copiés avec la diapositive. Les étiquettes d’auteur des commentaires sont conservées en tant qu’objets commentaire dans la présentation résultante.  
+Oui. Lors du clonage des diapositives, Aspose.Slides transfère tous les éléments de la diapositive, y compris les notes, le formatage et les animations.
 
-**Que faire si la présentation source est protégée par mot de passe ?**  
-Elle doit être [ouverte avec le mot de passe](/slides/fr/net/password-protected-presentation/) via [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/); après le chargement, ces diapositives peuvent être clonées en toute sécurité dans un fichier cible non protégé (ou également protégé).  
+### Les commentaires et leurs auteurs sont‑ils transférés ?
 
-**Quelle est la sécurité des threads de l’opération de fusion ?**  
-N’utilisez pas la même instance de [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) depuis [plusieurs threads](/slides/fr/net/multithreading/). La règle recommandée est « un document — un thread » ; différents fichiers peuvent être traités en parallèle dans des threads séparés.
+Les commentaires, en tant que partie du contenu de la diapositive, sont copiés avec la diapositive. Les étiquettes d’auteur des commentaires sont conservées comme objets commentaire dans la présentation résultante.
+
+### Que se passe‑t‑il si la présentation source est protégée par mot de passe ?
+
+Elle doit être [ouverte avec le mot de passe](/slides/fr/net/password-protected-presentation/) via [LoadOptions.Password](https://reference.aspose.com/slides/fr/net/aspose.slides/loadoptions/password/); après le chargement, ces diapositives peuvent être clonées en toute sécurité dans un fichier cible non protégé (ou également protégé).
+
+### Quelle est la sécurité des threads de l’opération de fusion ?
+
+N’utilisez pas la même instance de [Presentation](https://reference.aspose.com/slides/fr/net/aspose.slides/presentation/) depuis [multiple threads](/slides/fr/net/multithreading/). La règle recommandée est « un document — un thread » ; différents fichiers peuvent être traités en parallèle dans des threads distincts.

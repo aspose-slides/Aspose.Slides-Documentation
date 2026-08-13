@@ -12,31 +12,33 @@ keywords:
 - apresentação
 - Java
 - Aspose.Slides
-description: "Descubra como criar e personalizar gráficos de rosca no Aspose.Slides for Java, suportando formatos do PowerPoint para apresentações dinâmicas."
+description: "Descubra como criar e personalizar gráficos de rosca no Aspose.Slides for Java, suportando formatos PowerPoint para apresentações dinâmicas."
 ---
 ## **Visão Geral**
 
-Este artigo mostra como trabalhar com um gráfico de rosca no Aspose.Slides adicionando o gráfico a um slide, definindo o tamanho do seu orifício central e salvando a apresentação. Ele foca no método `setDoughnutHoleSize` e demonstra as etapas básicas necessárias para personalizar esse tipo de gráfico em código.
+Este artigo mostra como trabalhar com um gráfico de rosca no Aspose.Slides adicionando o gráfico a um slide, definindo o tamanho do buraco central e salvando a apresentação. Ele foca no método `setDoughnutHoleSize` e demonstra os passos básicos necessários para personalizar esse tipo de gráfico em código.
 
-Também inclui um FAQ breve que cobre cenários relacionados a gráficos de rosca, como usar várias séries para criar múltiplos anéis, trabalhar com gráficos de rosca explodidos e exportar um gráfico como imagem raster ou SVG.
+Ele também inclui um FAQ curto que cobre cenários relacionados a gráficos de rosca, como usar múltiplas séries para criar anéis múltiplos, trabalhar com gráficos de rosca explodidos e exportar um gráfico como imagem raster ou SVG.
 
 ## **Especificar o Espaço Central em um Gráfico de Rosca**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Aspose.Slides for Java agora suporta a especificação do tamanho do orifício em um gráfico de rosca. Neste tópico, veremos com um exemplo como especificar o tamanho do orifício em um gráfico de rosca.
+Aspose.Slides for Java agora suporta a especificação do tamanho do buraco em um gráfico de rosca. Neste tópico, veremos com um exemplo como especificar o tamanho do buraco em um gráfico de rosca.
 
 {{% /alert %}} 
 
-Para especificar o tamanho do orifício em um gráfico de rosca, siga as etapas abaixo:
+Para especificar o tamanho do buraco em um gráfico de rosca, siga os passos abaixo:
 
 1. Instanciar o objeto [Presentation](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation).
-1. Adicionar gráfico de rosca ao slide.
-1. Especificar o tamanho do buraco em um gráfico de rosca.
-1. Gravar a apresentação no disco.
+2. Adicionar um gráfico de rosca ao slide.
+3. Especificar o tamanho do buraco em um gráfico de rosca.
+4. Gravar a apresentação no disco.
 
-No exemplo abaixo, definimos o tamanho do orifício em um gráfico de rosca.
+No exemplo abaixo, definimos o tamanho do buraco em um gráfico de rosca.
 
 ```java
+import com.aspose.slides.*;
+
 // Criar uma instância da classe Presentation
 Presentation pres = new Presentation();
 try {
@@ -53,14 +55,14 @@ try {
 
 ## **FAQ**
 
-**Posso criar uma rosca de vários níveis com múltiplos anéis?**
+### Posso criar uma rosca de vários níveis com múltiplos anéis?
 
 Sim. Adicione várias séries a um único gráfico de rosca—cada série se torna um anel separado. A ordem dos anéis é determinada pela ordem das séries na coleção.
 
-**Um gráfico de rosca “explodido” (fatias separadas) é suportado?**
+### Um gráfico de rosca "explodido" (fatias separadas) é suportado?
 
-Sim. Existe um tipo de gráfico Exploded Doughnut[chart type](https://reference.aspose.com/slides/pt/java/com.aspose.slides/charttype/) e uma propriedade de explosão nos pontos de dados; você pode separar fatias individuais.
+Sim. Existe um tipo de gráfico [Exploded Doughnut](https://reference.aspose.com/slides/pt/java/com.aspose.slides/charttype/) e uma propriedade de explosão nos pontos de dados; você pode separar fatias individuais.
 
-**Como posso obter uma imagem de um gráfico de rosca (PNG/SVG) para um relatório?**
+### Como obter uma imagem de um gráfico de rosca (PNG/SVG) para um relatório?
 
-Um gráfico é uma forma; você pode renderizá‑lo para uma [raster image](https://reference.aspose.com/slides/pt/java/com.aspose.slides/shape/#getImage-int-float-float-) ou exportar o gráfico para uma [SVG image](https://reference.aspose.com/slides/pt/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-).
+Um gráfico é uma forma; você pode renderizá-lo para uma [imagem raster](https://reference.aspose.com/slides/pt/java/com.aspose.slides/shape/#getImage-int-float-float-) ou exportar o gráfico para uma [imagem SVG](https://reference.aspose.com/slides/pt/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-).

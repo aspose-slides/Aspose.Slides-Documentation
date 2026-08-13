@@ -1,48 +1,51 @@
 ---
 title: Gestire elenchi puntati e numerati nelle presentazioni in Java
-linktitle: Gestire elenchi
+linktitle: Gestire gli elenchi
 type: docs
 weight: 60
 url: /it/java/manage-lists/
 keywords:
-- punto
+- pallino
 - elenco puntato
 - elenco numerato
-- punto simbolo
-- punto immagine
-- punto personalizzato
+- pallino simbolo
+- pallino immagine
+- pallino personalizzato
 - elenco multilivello
-- crea punto
-- aggiungi punto
-- aggiungi elenco
+- creare pallino
+- aggiungere pallino
+- aggiungere elenco
 - PowerPoint
 - OpenDocument
 - presentazione
 - Java
 - Aspose.Slides
-description: "Impara a creare e formattare elenchi puntati, con immagine, multilivello e numerati in presentazioni PowerPoint e OpenDocument usando Aspose.Slides per Java."
+description: "Scopri come creare e formattare elenchi puntati, con immagine, multilivello e numerati nelle presentazioni PowerPoint e OpenDocument utilizzando Aspose.Slides per Java."
 ---
 ## **Panoramica**
 
-Aspose.Slides per Java consente di creare e formattare elenchi puntati e numerati in presentazioni PowerPoint e OpenDocument. Un elemento di elenco è un paragrafo le cui impostazioni del punto elenco sono controllate tramite il formato del paragrafo.
+Aspose.Slides per Java consente di creare e formattare elenchi puntati e numerati in presentazioni PowerPoint e OpenDocument. Un elemento di elenco è un paragrafo le cui impostazioni di elenco sono controllate tramite il formato del paragrafo.
 
-Usa il metodo [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraph/#getParagraphFormat--) per accedere alle impostazioni dell’elenco a livello di paragrafo. Il punto di ingresso principale è [IParagraphFormat.getBullet](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#getBullet--), che restituisce un oggetto [IBulletFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibulletformat/). Con questo oggetto è possibile impostare il tipo di punto elenco, il simbolo, l’immagine, il colore, la dimensione, lo stile di numerazione e il numero iniziale.
+Usa il metodo [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraph/#getParagraphFormat--) per accedere alle impostazioni di elenco a livello di paragrafo. Il punto di ingresso principale è [IParagraphFormat.getBullet](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#getBullet--), che restituisce un oggetto [IBulletFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibulletformat/). Con questo oggetto è possibile impostare il tipo di pallino, il simbolo, l'immagine, il colore, la dimensione, lo stile di numerazione e il numero di avvio.
 
 Questo articolo mostra come:
 
 - creare un elenco puntato con un simbolo personalizzato
-- creare un punto elenco immagine
+- creare un puntatore immagine
 - creare un elenco multilivello impostando la profondità del paragrafo
 - creare un elenco numerato
-- esaminare e modificare la formattazione dell’elenco in una presentazione esistente
+- esaminare e modificare la formattazione dell'elenco in una presentazione esistente
 
 ## **Creare un elenco puntato**
 
-Per creare un elenco puntato, aggiungi oggetti [IParagraph](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraph/) a un [ITextFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframe/) e imposta [IBulletFormat.setType](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibulletformat/#setType-byte-) su [BulletType.Symbol](https://reference.aspose.com/slides/it/java/com.aspose.slides/bullettype/#Symbol). Puoi quindi impostare [IBulletFormat.setChar](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibulletformat/#setChar-char-), [IBulletFormat.getColor](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibulletformat/#getColor--) e [IBulletFormat.setHeight](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibulletformat/#setHeight-float-) per controllare l’aspetto del punto elenco.
+Per creare un elenco puntato, aggiungi oggetti [IParagraph](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraph/) a un [ITextFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframe/) e imposta [IBulletFormat.setType](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibulletformat/#setType-byte-) su [BulletType.Symbol](https://reference.aspose.com/slides/it/java/com.aspose.slides/bullettype/#Symbol). Puoi quindi impostare [IBulletFormat.setChar](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibulletformat/#setChar-char-), [IBulletFormat.getColor](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibulletformat/#getColor--) e [IBulletFormat.setHeight](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibulletformat/#setHeight-float-) per controllare l'aspetto del pallino.
 
 Il seguente codice Java dimostra come creare un elenco puntato in una diapositiva:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -81,15 +84,17 @@ try {
 
 Il risultato:
 
-![I punti simbolo](symbol_bullets.png)
+![Simboli puntati](symbol_bullets.png)
 
 ## **Creare un elenco numerato**
 
-Usa gli elenchi numerati quando l’ordine degli elementi è importante. Imposta [IBulletFormat.setType](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibulletformat/#setType-byte-) su [BulletType.Numbered](https://reference.aspose.com/slides/it/java/com.aspose.slides/bullettype/#Numbered). Puoi anche scegliere un formato di numerazione con [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) o impostare [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) quando l’elenco deve iniziare da un valore diverso da 1.
+Usa gli elenchi numerati quando l'ordine degli elementi è importante. Imposta [IBulletFormat.setType](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibulletformat/#setType-byte-) su [BulletType.Numbered](https://reference.aspose.com/slides/it/java/com.aspose.slides/bullettype/#Numbered). Puoi anche scegliere un formato di numerazione con [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) o impostare [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) quando l'elenco deve iniziare da un valore diverso da 1.
 
 Il seguente codice Java mostra come creare un elenco numerato in una diapositiva:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -121,27 +126,29 @@ try {
 
 Il risultato:
 
-![I punti numerati](numbered_bullets.png)
+![Elenchi numerati](numbered_bullets.png)
 
-## **Creare un punto elenco immagine**
+## **Creare un puntatore immagine**
 
-Aspose.Slides consente di sostituire un simbolo di punto elenco normale con un’immagine. I punti elenco immagine funzionano meglio con immagini semplici che rimangono leggibili a piccole dimensioni, come icone o piccoli file PNG trasparenti.
+Aspose.Slides consente di sostituire un normale simbolo di pallino con un'immagine. I puntatori immagine funzionano meglio con immagini semplici che rimangono leggibili a piccole dimensioni, come icone o piccoli file PNG trasparenti.
 
-{{% alert color="primary" %}}
-Idealmente, se prevedi di sostituire il simbolo di punto elenco normale con un’immagine, è consigliabile scegliere una grafica semplice con sfondo trasparente. Tale immagine funziona bene come simbolo di punto elenco personalizzato.
+{{% alert color="info" %}}
+Idealmente, se prevedi di sostituire il normale simbolo di pallino con un'immagine, è consigliabile scegliere una grafica semplice con sfondo trasparente. Questo tipo di immagini funziona bene come simboli di pallino personalizzati.
+
+Tieni presente che l'immagine verrà ridotta a una dimensione molto piccola. Per questo motivo, raccomandiamo vivamente di selezionare un'immagine che rimanga chiara ed efficace visualmente quando viene utilizzata come pallino in un elenco.
 {{% /alert %}}
 
-Tieni presente che l’immagine verrà ridimensionata a una dimensione molto piccola. Per questo motivo, consigliamo vivamente di selezionare un’immagine che rimanga chiara ed efficace visivamente quando viene usata come punto elenco in un elenco.
+Per creare un puntatore immagine, aggiungi un'immagine a [Presentation.getImages](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/#getImages--) e assegna l'oggetto immagine restituito a [IBulletFormat.getPicture](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibulletformat/#getPicture--). Imposta [IBulletFormat.setType](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibulletformat/#setType-byte-) su [BulletType.Picture](https://reference.aspose.com/slides/it/java/com.aspose.slides/bullettype/#Picture) prima di assegnare l'immagine.
 
-Per creare un punto elenco immagine, aggiungi un’immagine a [Presentation.getImages](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/#getImages--) e assegna l’oggetto immagine restituito a [IBulletFormat.getPicture](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibulletformat/#getPicture--). Imposta [IBulletFormat.setType](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibulletformat/#setType-byte-) su [BulletType.Picture](https://reference.aspose.com/slides/it/java/com.aspose.slides/bullettype/#Picture) prima di assegnare l’immagine.
+Supponiamo di avere un "image.png":
 
-Supponiamo di avere un file “image.png”:
+![Un'immagine per i puntatori](picture_for_bullets.png)
 
-![Un’immagine per i punti elenco](picture_for_bullets.png)
-
-Il seguente codice Java mostra come creare punti elenco immagine in una diapositiva:
+Il seguente codice Java mostra come creare puntatori immagine in una diapositiva:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -176,15 +183,17 @@ try {
 
 Il risultato:
 
-![I punti elenco immagine](picture_bullets.png)
+![Puntatori immagine](picture_bullets.png)
 
-## **Creare un elenco multilevel**
+## **Creare un elenco multilivello**
 
-Usa [IParagraphFormat.setDepth](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setDepth-short-) per posizionare gli elementi dell’elenco su livelli diversi. Il livello 0 è il livello superiore, il livello 1 è annidato al di sotto e così via.
+Usa [IParagraphFormat.setDepth](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setDepth-short-) per posizionare gli elementi dell'elenco a livelli diversi. Il livello 0 è il livello superiore, il livello 1 è annidato sotto di esso e così via.
 
-Il seguente codice Java mostra come creare un elenco puntato multilevel:
+Il seguente codice Java mostra come creare un elenco puntato multilivello:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -221,15 +230,17 @@ try {
 
 Il risultato:
 
-![L’elenco multilevel](multilevel_list.png)
+![L'elenco multilivello](multilevel_list.png)
 
 ## **Modificare un elenco esistente**
 
-Per modificare la formattazione di un elenco in una presentazione esistente, accedi al paragrafo di destinazione e aggiorna le impostazioni di [IParagraphFormat.getBullet](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#getBullet--). Le stesse proprietà usate per creare gli elenchi possono essere utilizzate per ispezionare o modificare gli elenchi caricati da un file PPT, PPTX o ODP.
+Per modificare la formattazione di un elenco in una presentazione esistente, accedi al paragrafo target e aggiorna le impostazioni di [IParagraphFormat.getBullet](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#getBullet--). Le stesse proprietà utilizzate per creare gli elenchi possono essere usate per esaminare o modificare gli elenchi caricati da un file PPT, PPTX o ODP.
 
 Il seguente codice Java modifica il primo paragrafo in un frame di testo per utilizzare uno stile di elenco numerato:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -250,14 +261,14 @@ try {
 
 ## **FAQ**
 
-**È possibile esportare gli elenchi puntati e numerati in PDF o immagini?**
+### È possibile esportare elenchi puntati e numerati in PDF o immagini?
 
-Sì. Aspose.Slides conserva la formattazione degli elenchi quando il formato di destinazione supporta la corrispondente disposizione del testo e le funzionalità dei punti elenco.
+Sì. Aspose.Slides mantiene la formattazione degli elenchi quando il formato di destinazione supporta la disposizione del testo e le funzionalità di pallino corrispondenti.
 
-**Posso modificare gli elenchi in presentazioni esistenti?**
+### Posso modificare gli elenchi nelle presentazioni esistenti?
 
-Sì. Carica la presentazione, accedi al paragrafo di destinazione, ispeziona o aggiorna le sue impostazioni di [IParagraphFormat.getBullet](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#getBullet--), e salva la presentazione.
+Sì. Carica la presentazione, accedi al paragrafo target, esamina o aggiorna le sue impostazioni di [IParagraphFormat.getBullet](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#getBullet--), e salva la presentazione.
 
-**Gli elenchi possono contenere testo non latino?**
+### Gli elenchi possono contenere testo non latino?
 
-Sì. Il testo degli elementi di elenco può contenere caratteri Unicode, quindi è possibile creare elenchi in presentazioni multilingue. Assicurati che i caratteri utilizzati nella presentazione supportino i glifi necessari.
+Sì. Il testo degli elementi di elenco può contenere caratteri Unicode, così puoi creare elenchi in presentazioni multilingue. Assicurati che i caratteri utilizzati nella presentazione supportino i caratteri di cui hai bisogno.

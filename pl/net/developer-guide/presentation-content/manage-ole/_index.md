@@ -1,11 +1,11 @@
 ---
-title: "Zarządzanie obiektami OLE w prezentacjach w .NET"
-linktitle: "Zarządzaj OLE"
+title: Zarządzanie obiektami OLE w prezentacjach w .NET
+linktitle: Zarządzaj OLE
 type: docs
 weight: 40
 url: /pl/net/manage-ole/
 keywords:
-- Obiekt OLE
+- obiekt OLE
 - Łączenie i osadzanie obiektów
 - dodaj OLE
 - osadź OLE
@@ -26,37 +26,42 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Optymalizuj zarządzanie obiektami OLE w plikach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla .NET. Osadzaj, aktualizuj i eksportuj treść OLE bezproblemowo."
+description: "Zoptymalizuj zarządzanie obiektami OLE w plikach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla .NET. Osadzaj, aktualizuj i eksportuj zawartość OLE bezproblemowo."
 ---
 ## **Wprowadzenie**
 
 {{% alert title="Info" color="info" %}}
 
-OLE (Object Linking & Embedding) to technologia firmy Microsoft, która pozwala na umieszczanie danych i obiektów utworzonych w jednej aplikacji w innej aplikacji za pomocą łączenia lub osadzania. 
+OLE (Object Linking & Embedding) to technologia Microsoft, która pozwala na umieszczanie danych i obiektów utworzonych w jednej aplikacji w innej aplikacji poprzez łączenie lub osadzanie. 
 
 {{% /alert %}} 
 
-Rozważmy wykres utworzony w MS Excel. Wykres jest następnie umieszczany w slajdzie PowerPointa. Ten wykres Excel jest uznawany za obiekt OLE. 
+Rozważmy wykres utworzony w programie MS Excel. Wykres ten jest następnie umieszczany na slajdzie PowerPoint. Taki wykres Excel jest traktowany jako obiekt OLE. 
 
-- Obiekt OLE może wyświetlać się jako ikona. W takim przypadku podwójne kliknięcie ikony otwiera wykres w powiązanej aplikacji (Excel) lub pojawia się komunikat z prośbą o wybranie aplikacji do otwarcia lub edycji obiektu. 
-- Obiekt OLE może wyświetlać rzeczywistą zawartość, np. zawartość wykresu. Wtedy wykres jest aktywowany w PowerPoint, ładuje się interfejs wykresu i można modyfikować dane wykresu w PowerPoint. 
+- Obiekt OLE może być wyświetlany jako ikona. W takim przypadku, po dwukrotnym kliknięciu ikony wykres otwiera się w powiązanej aplikacji (Excel) lub pojawia się prośba o wybranie aplikacji do otwarcia lub edycji obiektu. 
+- Obiekt OLE może wyświetlać rzeczywistą zawartość, taką jak zawartość wykresu. W tym przypadku wykres jest aktywowany w PowerPoint, ładuje się interfejs wykresu i możesz modyfikować dane wykresu bezpośrednio w PowerPoint.
 
 [Aspose.Slides for .NET](https://products.aspose.com/slides/pl/net/) umożliwia wstawianie obiektów OLE do slajdów jako ramki obiektów OLE ([OleObjectFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/oleobjectframe)).
 
-## **Dodaj ramki obiektów OLE do slajdów**
+## **Dodawanie ramek obiektów OLE do slajdów**
 
-Zakładając, że już utworzyłeś wykres w Microsoft Excel i chcesz osadzić go w slajdzie jako ramkę obiektu OLE przy użyciu Aspose.Slides for .NET, możesz to zrobić w następujący sposób:
+Zakładając, że już utworzyłeś wykres w programie Microsoft Excel i chcesz osadzić go na slajdzie jako ramkę obiektu OLE przy użyciu Aspose.Slides for .NET, możesz to zrobić w następujący sposób:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation) .
-2. Uzyskaj odwołanie do slajdu za pomocą jego indeksu.
-3. Odczytaj plik Excel jako tablicę bajtów.
-4. Dodaj [OleObjectFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/oleobjectframe) do slajdu zawierającego tablicę bajtów i inne informacje o obiekcie OLE.
-5. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation). 
+2. Pobierz referencję do slajdu za pomocą jego indeksu. 
+3. Odczytaj plik Excel jako tablicę bajtów. 
+4. Dodaj [OleObjectFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/oleobjectframe) do slajdu, przekazując tablicę bajtów oraz inne informacje o obiekcie OLE. 
+5. Zapisz zmodyfikowaną prezentację jako plik PPTX. 
 
-W przykładzie poniżej dodaliśmy wykres z pliku Excel do slajdu jako [OleObjectFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/oleobjectframe) przy użyciu Aspose.Slides for .NET.  
-**Note** że konstruktor [OleEmbeddedDataInfo](https://reference.aspose.com/slides/pl/net/aspose.slides.dom.ole/oleembeddeddatainfo/) przyjmuje rozszerzenie obiektu osadzalnego jako drugi parametr. To rozszerzenie pozwala PowerPoint prawidłowo zinterpretować typ pliku i wybrać właściwą aplikację do otwarcia tego obiektu OLE.
+W poniższym przykładzie dodaliśmy wykres z pliku Excel do slajdu jako [OleObjectFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/oleobjectframe) przy użyciu Aspose.Slides for .NET.  
+**Uwaga**: konstruktor [OleEmbeddedDataInfo](https://reference.aspose.com/slides/pl/net/aspose.slides.dom.ole/oleembeddeddatainfo/) przyjmuje rozszerzenie osadzanego obiektu jako drugi parametr. To rozszerzenie pozwala PowerPoint prawidłowo zinterpretować typ pliku i wybrać odpowiednią aplikację do otwarcia tego obiektu OLE.
 
 ```csharp 
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     SizeF slideSize = presentation.SlideSize.Size;
@@ -73,18 +78,21 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **Dodaj powiązane ramki obiektów OLE**
+### **Dodawanie powiązanych ramek obiektów OLE**
 
-Aspose.Slides for .NET pozwala dodać [OleObjectFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/oleobjectframe) bez osadzania danych, a jedynie z odnośnikiem do pliku.
+Aspose.Slides for .NET pozwala dodać [OleObjectFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/oleobjectframe) bez osadzania danych, jedynie z odwołaniem do pliku.
 
-Ten kod C# pokazuje, jak dodać [OleObjectFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/oleobjectframe) z powiązanym plikiem Excel do slajdu:
+Poniższy kod C# pokazuje, jak dodać [OleObjectFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/oleobjectframe) z połączonym plikiem Excel do slajdu:
 
 ```csharp 
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // Dodaj ramkę obiektu OLE z powiązanym plikiem Excel.
+    // Dodaj ramkę obiektu OLE z połączonym plikiem Excel.
     slide.Shapes.AddOleObjectFrame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx");
 
     presentation.Save("output.pptx", SaveFormat.Pptx);
@@ -95,14 +103,17 @@ using (Presentation presentation = new Presentation())
 
 Jeśli obiekt OLE jest już osadzony w slajdzie, możesz go łatwo znaleźć lub uzyskać dostęp w następujący sposób:
 
-1. Załaduj prezentację z osadzonym obiektem OLE, tworząc instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation) .
-2. Uzyskaj odwołanie do slajdu, używając jego indeksu.
-3. Uzyskaj dostęp do kształtu [OleObjectFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/oleobjectframe). W naszym przykładzie użyliśmy wcześniej utworzonego pliku PPTX, który ma tylko jeden kształt na pierwszym slajdzie. Następnie *cast* ten obiekt jako [IOleObjectFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/ioleobjectframe). To była pożądana ramka obiektu OLE, do której uzyskano dostęp.
-4. Po uzyskaniu dostępu do ramki obiektu OLE możesz wykonać dowolną operację na niej.
+1. Wczytaj prezentację z osadzonym obiektem OLE, tworząc instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation). 
+2. Pobierz referencję do slajdu, używając jego indeksu. 
+3. Uzyskaj dostęp do kształtu [OleObjectFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/oleobjectframe).  
+   W naszym przykładzie użyliśmy wcześniej utworzonego PPTX, który ma tylko jeden kształt na pierwszym slajdzie. Następnie *rzutowaliśmy* ten obiekt na [IOleObjectFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/ioleobjectframe). To była pożądana ramka obiektu OLE, do której uzyskaliśmy dostęp. 
+4. Gdy ramka obiektu OLE jest już dostępna, możesz wykonać na niej dowolną operację. 
 
-W przykładzie poniżej dostęp do ramki obiektu OLE (obiekt wykresu Excel osadzony w slajdzie) oraz danych pliku jest uzyskany.
+W poniższym przykładzie uzyskiwany jest dostęp do ramki obiektu OLE (osadzony obiekt wykresu Excel na slajdzie) oraz do jego danych plikowych.
 
 ```csharp 
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -112,7 +123,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
     if (oleFrame != null)
     {
-        // Pobierz osadzone dane pliku.
+        // Pobierz dane osadzonego pliku.
         byte[] fileData = oleFrame.EmbeddedData.EmbeddedFileData;
 
         // Pobierz rozszerzenie osadzonego pliku.
@@ -127,9 +138,11 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
 Aspose.Slides umożliwia dostęp do właściwości powiązanej ramki obiektu OLE.
 
-Ten kod C# pokazuje, jak sprawdzić, czy obiekt OLE jest powiązany, a następnie uzyskać ścieżkę do powiązanego pliku:
+Poniższy kod C# pokazuje, jak sprawdzić, czy obiekt OLE jest powiązany, oraz jak uzyskać ścieżkę do połączonego pliku:
 
 ```csharp
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.ppt"))
 {
     ISlide slide = presentation.Slides[0];
@@ -137,13 +150,13 @@ using (Presentation presentation = new Presentation("sample.ppt"))
     // Pobierz pierwszy kształt jako ramkę obiektu OLE.
     IOleObjectFrame oleFrame = slide.Shapes[0] as IOleObjectFrame;
 
-    // Sprawdź, czy obiekt OLE jest powiązany.
+    // Sprawdź, czy obiekt OLE jest połączony.
     if (oleFrame != null && oleFrame.IsObjectLink)
     {
-        // Wypisz pełną ścieżkę do powiązanego pliku.
+        // Wypisz pełną ścieżkę do połączonego pliku.
         Console.WriteLine("OLE object frame is linked to: " + oleFrame.LinkPathLong);
 
-        // Wypisz względną ścieżkę do powiązanego pliku, jeśli istnieje.
+        // Wypisz względną ścieżkę do połączonego pliku, jeśli istnieje.
         // Tylko prezentacje PPT mogą zawierać względną ścieżkę.
         if (!string.IsNullOrEmpty(oleFrame.LinkPathRelative))
         {
@@ -153,28 +166,33 @@ using (Presentation presentation = new Presentation("sample.ppt"))
 }
 ```
 
-## **Zmień dane obiektu OLE**
+## **Zmiana danych obiektu OLE**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-W tej sekcji poniższy przykład kodu używa [Aspose.Cells for .NET](/cells/net/).
+W tej sekcji poniższy przykład kodu wykorzystuje [Aspose.Cells for .NET](/cells/net/).
 
 {{% /alert %}}
 
 Jeśli obiekt OLE jest już osadzony w slajdzie, możesz łatwo uzyskać dostęp do tego obiektu i zmodyfikować jego dane w następujący sposób:
 
-1. Załaduj prezentację z osadzonym obiektem OLE, tworząc instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation) .
-2. Uzyskaj odwołanie do slajdu za pomocą jego indeksu. 
-3. Uzyskaj dostęp do kształtu [OLEObjectFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/oleobjectframe). W naszym przykładzie użyliśmy wcześniej utworzonego pliku PPTX, który ma jeden kształt na pierwszym slajdzie. Następnie *cast* ten obiekt jako [IOleObjectFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/ioleobjectframe). To była pożądana ramka obiektu OLE, do której uzyskano dostęp.
-4. Po uzyskaniu dostępu do ramki obiektu OLE możesz wykonać dowolną operację na niej.
-5. Utwórz obiekt `Workbook` i uzyskaj dostęp do danych OLE.
-6. Uzyskaj dostęp do żądanego `Worksheet` i zmodyfikuj dane.
-7. Zapisz zaktualizowany `Workbook` w strumieniu.
-8. Zmień dane obiektu OLE ze strumienia.
+1. Wczytaj prezentację z osadzonym obiektem OLE, tworząc instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation). 
+2. Pobierz referencję do slajdu za pomocą jego indeksu. 
+3. Uzyskaj dostęp do kształtu [OLEObjectFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/oleobjectframe).  
+   W naszym przykładzie użyliśmy wcześniej utworzonego PPTX, który ma jeden kształt na pierwszym slajdzie. Następnie *rzutowaliśmy* ten obiekt na [IOleObjectFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/ioleobjectframe). To była pożądana ramka obiektu OLE, do której uzyskaliśmy dostęp. 
+4. Gdy ramka obiektu OLE jest już dostępna, możesz wykonać na niej dowolną operację. 
+5. Utwórz obiekt `Workbook` i uzyskaj dostęp do danych OLE. 
+6. Uzyskaj dostęp do żądanej `Worksheet` i zmień dane. 
+7. Zapisz zaktualizowany `Workbook` w strumieniu. 
+8. Zmien dane obiektu OLE z wykorzystaniem tego strumienia. 
 
-W przykładzie poniżej dostęp do ramki obiektu OLE (obiekt wykresu Excel osadzony w slajdzie) jest uzyskany, a jego dane pliku są zmodyfikowane w celu aktualizacji danych wykresu.
+W poniższym przykładzie uzyskiwany jest dostęp do ramki obiektu OLE (osadzony obiekt wykresu Excel na slajdzie) i modyfikowane są jego dane plikowe, aby zaktualizować dane wykresu.
 
 ```csharp 
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -187,17 +205,17 @@ using (Presentation presentation = new Presentation("sample.pptx"))
         using (MemoryStream oleStream = new MemoryStream(oleFrame.EmbeddedData.EmbeddedFileData))
         {
             // Odczytaj dane obiektu OLE jako obiekt Workbook.
-            Workbook workbook = new Workbook(oleStream);
+            Aspose.Cells.Workbook workbook = new Aspose.Cells.Workbook(oleStream);
 
             using (MemoryStream newOleStream = new MemoryStream())
             {
-                // Zmodyfikuj dane workbooka.
+                // Zmień dane skoroszytu.
                 workbook.Worksheets[0].Cells[0, 4].PutValue("E");
                 workbook.Worksheets[0].Cells[1, 4].PutValue(12);
                 workbook.Worksheets[0].Cells[2, 4].PutValue(14);
                 workbook.Worksheets[0].Cells[3, 4].PutValue(15);
 
-                OoxmlSaveOptions fileOptions = new OoxmlSaveOptions(Aspose.Cells.SaveFormat.Xlsx);
+                Aspose.Cells.OoxmlSaveOptions fileOptions = new Aspose.Cells.OoxmlSaveOptions(Aspose.Cells.SaveFormat.Xlsx);
                 workbook.Save(newOleStream, fileOptions);
 
                 // Zmień dane obiektu ramki OLE.
@@ -211,13 +229,17 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **Osadź inne typy plików w slajdach**
+## **Osadzanie innych typów plików w slajdach**
 
-Poza wykresami Excel, Aspose.Slides for .NET umożliwia osadzanie innych typów plików w slajdach. Na przykład możesz wstawiać pliki HTML, PDF i ZIP jako obiekty. Gdy użytkownik podwójnie kliknie wstawiony obiekt, otwiera się on automatycznie w odpowiednim programie lub wyświetla się prośba o wybranie właściwego programu do otwarcia.
+Oprócz wykresów Excel, Aspose.Slides for .NET umożliwia osadzanie w slajdach innych typów plików. Na przykład możesz wstawiać pliki HTML, PDF i ZIP jako obiekty. Gdy użytkownik dwukrotnie kliknie wstawiony obiekt, otwiera się on automatycznie w odpowiednim programie lub pojawia się prośba o wybranie odpowiedniego programu do otwarcia.
 
-Ten kod C# pokazuje, jak osadzić HTML i ZIP w slajdzie:
+Poniższy kod C# pokazuje, jak osadzić HTML i ZIP w slajdzie:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -236,13 +258,17 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Ustaw typy plików dla osadzonych obiektów**
+## **Ustawianie typów plików dla osadzonych obiektów**
 
-Podczas pracy z prezentacjami może być konieczne zastąpienie starych obiektów OLE nowymi lub wymiana nieobsługiwanego obiektu OLE na obsługiwany. Aspose.Slides for .NET pozwala ustawić typ pliku dla osadzonego obiektu, umożliwiając aktualizację danych ramki OLE lub jej rozszerzenia.
+Podczas pracy z prezentacjami może zajść potrzeba zastąpienia starych obiektów OLE nowymi lub wymiany nieobsługiwanego obiektu OLE na obsługiwany. Aspose.Slides for .NET pozwala ustawić typ pliku dla osadzonego obiektu, umożliwiając aktualizację danych ramki OLE lub jej rozszerzenia.
 
-Ten kod C# pokazuje, jak ustawić typ pliku dla osadzonego obiektu OLE na `zip`:
+Poniższy kod C# pokazuje, jak ustawić typ pliku dla osadzonego obiektu OLE na `zip`:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -260,13 +286,16 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **Ustaw obrazy ikon i tytuły dla osadzonych obiektów**
+## **Ustawianie obrazów ikon i tytułów dla osadzonych obiektów**
 
-Po osadzeniu obiektu OLE automatycznie dodawany jest podgląd składający się z obrazu ikony. Ten podgląd jest tym, co użytkownicy widzą przed dostępem lub otwarciem obiektu OLE. Jeśli chcesz użyć konkretnego obrazu i tekstu jako elementów podglądu, możesz ustawić obraz ikony i tytuł przy użyciu Aspose.Slides for .NET.
+Po osadzeniu obiektu OLE automatycznie dodawany jest podgląd składający się z obrazu ikony. Ten podgląd to to, co użytkownicy widzą przed dostępem lub otwarciem obiektu OLE. Jeśli chcesz użyć konkretnego obrazu i tekstu jako elementów podglądu, możesz ustawić obraz ikony oraz tytuł przy użyciu Aspose.Slides for .NET.
 
-Ten kod C# pokazuje, jak ustawić obraz ikony i tytuł dla osadzonego obiektu: 
+Poniższy kod C# pokazuje, jak ustawić obraz ikony i tytuł dla osadzonego obiektu: 
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -285,24 +314,37 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **Zapobiegaj zmianie rozmiaru i położenia ramki obiektu OLE**
+## **Zapobieganie zmianie rozmiaru i położenia ramki obiektu OLE**
 
-Po dodaniu powiązanego obiektu OLE do slajdu prezentacji, podczas otwierania prezentacji w PowerPoint może pojawić się komunikat z prośbą o aktualizację łączy. Kliknięcie przycisku „Update Links” może zmienić rozmiar i położenie ramki obiektu OLE, ponieważ PowerPoint aktualizuje dane z powiązanego obiektu OLE i odświeża podgląd. Aby zapobiec wyświetlaniu monitu o aktualizację danych obiektu, ustaw właściwość `UpdateAutomatic` interfejsu [IOleObjectFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/ioleobjectframe/) na `false`:
+Po dodaniu powiązanego obiektu OLE do slajdu prezentacji, po otwarciu prezentacji w PowerPoint może pojawić się komunikat z prośbą o aktualizację linków. Kliknięcie przycisku „Update Links” może zmienić rozmiar i położenie ramki obiektu OLE, ponieważ PowerPoint aktualizuje dane z powiązanego obiektu OLE i odświeża podgląd. Aby zapobiec wyświetlaniu tego komunikatu, ustaw właściwość `UpdateAutomatic` interfejsu [IOleObjectFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/ioleobjectframe/) na `false`:
 
 ```cs
-oleFrame.UpdateAutomatic = false;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    IOleObjectFrame oleFrame = (IOleObjectFrame)presentation.Slides[0].Shapes[0];
+
+    // Zachowaj rozmiar i położenie ramki obiektu OLE, gdy PowerPoint aktualizuje link.
+    oleFrame.UpdateAutomatic = false;
+
+    presentation.Save("output.pptx", SaveFormat.Pptx);
+}
 ```
 
-## **Wyodrębnij osadzone pliki**
+## **Wyodrębnianie osadzonych plików**
 
-Aspose.Slides for .NET umożliwia wyodrębnienie plików osadzonych w slajdach jako obiektów OLE w następujący sposób:
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation) zawierającej obiekty OLE, które chcesz wyodrębnić.
-2. Przejdź przez wszystkie kształty w prezentacji i uzyskaj dostęp do kształtów [OLEObjectFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/oleobjectframe).
-3. Uzyskaj dostęp do danych osadzonych plików z ramek obiektów OLE i zapisz je na dysku.
+Aspose.Slides for .NET umożliwia wyodrębnianie plików osadzonych w slajdach jako obiektów OLE w następujący sposób:
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation) zawierającą obiekty OLE, które chcesz wyodrębnić. 
+2. Przejdź przez wszystkie kształty w prezentacji i uzyskaj dostęp do kształtów [OLEObjectFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/oleobjectframe). 
+3. Uzyskaj dostęp do danych osadzonych plików z ramek OLE i zapisz je na dysku. 
 
-Ten kod C# pokazuje, jak wyodrębnić pliki osadzone w slajdzie jako obiekty OLE:
+Poniższy kod C# pokazuje, jak wyodrębnić pliki osadzone w slajdzie jako obiekty OLE:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -326,18 +368,18 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
 ## **FAQ**
 
-**Czy zawartość OLE będzie renderowana podczas eksportu slajdów do PDF/obrazów?**
+### Czy zawartość OLE będzie renderowana przy eksporcie slajdów do PDF/obrazów?
 
-To, co jest widoczne na slajdzie, jest renderowane — ikona/obraz zastępczy (podgląd). „Żywa” treść OLE nie jest wykonywana podczas renderowania. W razie potrzeby ustaw własny obraz podglądu, aby zapewnić oczekiwany wygląd w wyeksportowanym PDF.
+Rysowane jest to, co jest widoczne na slajdzie – ikona/obraz zastępczy (podgląd). „Żywa” zawartość OLE nie jest wykonywana podczas renderowania. W razie potrzeby ustaw własny obraz podglądu, aby zapewnić oczekiwany wygląd w wyeksportowanym PDF.
 
-**Jak mogę zablokować obiekt OLE na slajdzie, aby użytkownicy nie mogli go przemieszczać/edytować w PowerPoint?**
+### Jak zablokować obiekt OLE na slajdzie, aby użytkownicy nie mogli go przenosić/edytować w PowerPoint?
 
-Zablokuj kształt: Aspose.Slides udostępnia [shape-level locks](/slides/pl/net/applying-protection-to-presentation/). To nie jest szyfrowanie, ale skutecznie zapobiega przypadkowym edycjom i przemieszczaniu.
+Zablokuj kształt: Aspose.Slides udostępnia [blokady na poziomie kształtu](/slides/pl/net/applying-protection-to-presentation/). To nie jest szyfrowanie, ale skutecznie zapobiega przypadkowym edycjom i przemieszczaniu.
 
-**Dlaczego powiązany obiekt Excel „przeskakuje” lub zmienia rozmiar po otwarciu prezentacji?**
+### Dlaczego powiązany obiekt Excel „przeskakuje” lub zmienia rozmiar po otwarciu prezentacji?
 
-PowerPoint może odświeżać podgląd powiązanego obiektu OLE. Aby uzyskać stabilny wygląd, zastosuj praktyki opisane w [Working Solution for Worksheet Resizing](/slides/pl/net/working-solution-for-worksheet-resizing/) — dopasuj ramkę do zakresu lub skaluj zakres do stałej ramki i ustaw odpowiedni obraz zastępczy.
+PowerPoint może odświeżać podgląd powiązanego OLE. Aby uzyskać stabilny wygląd, stosuj praktyki opisane w [Rozwiązaniu dla zmiany rozmiaru arkusza](/slides/pl/net/working-solution-for-worksheet-resizing/) – dopasuj ramkę do zakresu lub skaluj zakres do stałej ramki i ustaw odpowiedni obraz zastępczy.
 
-**Czy ścieżki względne dla powiązanych obiektów OLE będą zachowane w formacie PPTX?**
+### Czy relatywne ścieżki do powiązanych obiektów OLE zostaną zachowane w formacie PPTX?
 
-W PPTX informacje o „ścieżce względnej” nie są dostępne — tylko pełna ścieżka. Ścieżki względne znajdują się w starszym formacie PPT. Dla przenośności zaleca się używanie pewnych ścieżek bezwzględnych / dostępnych URI lub osadzanie.
+W PPTX informacje o „relatywnej ścieżce” nie są dostępne – przechowywana jest jedynie pełna ścieżka. Relatywne ścieżki występowały w starszym formacie PPT. Dla przenośności zaleca się używanie niezawodnych ścieżek bezwzględnych / dostępnych URI lub osadzanie.

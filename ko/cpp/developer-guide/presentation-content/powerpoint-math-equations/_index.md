@@ -17,29 +17,29 @@ keywords:
 - 프레젠테이션
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++를 사용하여 PowerPoint PPT 및 PPTX에 수학 방정식을 삽입하고 편집하며, OMML 지원, 서식 제어 및 명확한 C++ 코드 샘플을 제공합니다."
+description: "Aspose.Slides for C++를 사용하여 PowerPoint PPT 및 PPTX에 수학 방정식을 삽입하고 편집합니다. OMML 지원, 서식 제어, 명확한 C++ 코드 샘플을 제공합니다."
 ---
 ## **개요**
 
-PowerPoint는 방정식을 Office Math Markup Language(OMML)로 저장합니다. Aspose.Slides for C++를 사용하면 프로그램으로 동일한 유형의 수학 콘텐츠를 만들 수 있습니다: 분수, 근호, 함수, 극한, N-ary 연산자, 행렬, 배열 및 서식이 지정된 수학 블록.
+PowerPoint는 방정식을 Office Math Markup Language(OMML)로 저장합니다. Aspose.Slides for C++를 사용하면 프로그래밍 방식으로 동일한 유형의 수학 콘텐츠를 만들 수 있습니다: 분수, 근, 함수, 극한, N-ary 연산자, 행렬, 배열 및 서식이 지정된 수학 블록.
 
-PowerPoint에서 사용자는 일반적으로 **삽입 > 방정식**을 통해 방정식을 추가합니다:
+PowerPoint에서 사용자는 일반적으로 **삽입 > 수식**을 통해 방정식을 추가합니다:
 
-![PowerPoint 삽입 탭에서 방정식 명령이 선택된 모습](powerpoint-math-equations_1.png)
+![수식 명령이 선택된 PowerPoint 삽입 탭](powerpoint-math-equations_1.png)
 
-그 결과는 슬라이드에 편집 가능한 수학 텍스트가 나타납니다:
+그 결과는 슬라이드에 편집 가능한 수학 텍스트가 됩니다:
 
-![편집 가능한 수학 방정식을 포함한 PowerPoint 슬라이드](powerpoint-math-equations_2.png)
+![편집 가능한 수학 방정식이 포함된 PowerPoint 슬라이드](powerpoint-math-equations_2.png)
 
-Aspose.Slides는 세 가지 주요 객체를 통해 해당 수학 텍스트를 구성합니다:
+Aspose.Slides는 세 가지 주요 객체를 통해 해당 수학 텍스트를 구축합니다:
 
-- 수학 도형은 [AddMathShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/shapecollection/)로 생성되며, 방정식을 포함하는 도형입니다.
+- 수학 도형은 [AddMathShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/shapecollection/)으로 생성되며, 방정식을 포함하는 도형입니다.
 - [MathPortion](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/mathportion/)은 도형 텍스트 프레임 내부에 수학 콘텐츠를 저장합니다.
 - [MathParagraph](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/mathparagraph/)은 하나 이상의 [MathBlock](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/mathblock/) 객체를 포함합니다.
 
 아래 대부분의 예제는 [MathematicalText](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/mathematicaltext/)와 [IMathElement](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/imathelement/)의 유창한 메서드를 사용하여 코드를 간결하고 읽기 쉽게 유지합니다.
 
-MathML 내보내기 시나리오에 대해서는 [Export Math Equations from Presentations in C++](/slides/ko/cpp/exporting-math-equations/)를 참고하십시오.
+MathML 내보내기 시나리오에 대해서는 [Export Math Equations from Presentations in C++](/slides/ko/cpp/exporting-math-equations/)를 참조하십시오.
 
 ## **방정식 만들기**
 
@@ -48,6 +48,22 @@ MathML 내보내기 시나리오에 대해서는 [Export Math Equations from Pre
 ![c² = a² + b² 방정식](powerpoint-math-equations_3.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathBlock.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/IMathSuperscriptElement.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -68,17 +84,33 @@ presentation->Save(u"pythagorean-theorem.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert color="primary" %}}
-`AddMathShape`은 이미 수학 단락을 포함하는 도형을 생성합니다. 첫 번째 `MathPortion`에 접근하고, 해당 `MathParagraph`를 얻은 다음 수학 블록이나 수학 요소를 추가합니다.
+{{% alert color="info" %}}
+`AddMathShape`는 이미 수학 단락을 포함하는 도형을 생성합니다. 첫 번째 `MathPortion`에 접근하고, 그 `MathParagraph`를 가져와 수학 블록이나 수학 요소를 추가합니다.
 {{% /alert %}}
 
 ## **분수 추가**
 
-`Divide`를 사용하여 분수를 만듭니다. [MathFractionTypes](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/mathfractiontypes/)를 사용하여 분수 스타일을 선택할 수 있습니다.
+`Divide`를 사용하여 분수를 만들 수 있습니다. [MathFractionTypes](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/mathfractiontypes/)를 사용해 분수 스타일을 선택할 수 있습니다.
 
 ![1을 x로 나눈 비스듬한 수학 분수](powerpoint-math-equations_4.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathFractionTypes.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -95,19 +127,38 @@ presentation->Save(u"fraction.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-스택된 분수를 위해서는 `MathFractionTypes::Bar`를 사용하십시오:
+스택형 분수를 위해서는 `MathFractionTypes::Bar`를 사용합니다:
 
 ```cpp
+#include <DOM/MathText/MathFractionTypes.h>
+#include <DOM/MathText/MathematicalText.h>
+using namespace Aspose::Slides::MathText;
+
 auto stackedFraction = System::MakeObject<MathematicalText>(u"x + 1")->Divide(u"y - 1", MathFractionTypes::Bar);
 ```
 
-## **근호 추가**
+## **근 추가**
 
 `Radical`을 사용하여 제곱근, 세제곱근 또는 기타 근을 만들 수 있습니다. 현재 요소가 밑이 되고, 인수가 차수가 됩니다.
 
-![x가 근호 아래에 있는 n번째 근 표현식](powerpoint-math-equations_5.png)
+![근호 기호 아래에 x가 있는 n제곱근 표현식](powerpoint-math-equations_5.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -126,11 +177,27 @@ presentation->Dispose();
 
 ## **함수 및 극한 추가**
 
-`AsArgumentOfFunction` 또는 `Function`을 사용하여 `sin(x)`, `log(x)`와 같은 함수 또는 사용자 정의 함수명을 만들 수 있습니다. 극한의 경우, [MathLimit](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/mathlimit/)에 `lim`을 넣거나 `SetLowerLimit`를 사용하십시오.
+함수 `sin(x)`, `log(x)` 또는 사용자 정의 함수 이름과 같은 경우 `AsArgumentOfFunction` 또는 `Function`을 사용하십시오. 극한을 위해서는 `lim`을 [MathLimit](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/mathlimit/)에 넣거나 `SetLowerLimit`을 사용합니다.
 
 ![x가 무한대로 접근할 때의 극한](powerpoint-math-equations_8.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathLimit.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -148,19 +215,39 @@ presentation->Save(u"functions-and-limits.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-사용자 정의 함수명을 위해서는 함수명을 현재 요소로 만듭니다:
+사용자 정의 함수 이름의 경우, 함수 이름을 현재 요소로 만듭니다:
 
 ```cpp
+#include <DOM/MathText/MathematicalText.h>
+using namespace Aspose::Slides::MathText;
+
 auto customFunction = System::MakeObject<MathematicalText>(u"f")->Function(u"x + 1");
 ```
 
 ## **N-ary 연산자 및 적분 추가**
 
-`Nary`를 사용하여 합계, 합집합, 교집합 및 기타 큰 연산자를 만들 수 있습니다. `Integral`을 사용하여 적분을 만듭니다. 두 메서드 모두 하한 및 상한을 설정할 수 있습니다.
+합계, 합집합, 교집합 및 기타 큰 연산자를 위해 `Nary`를 사용하십시오. 적분을 위해서는 `Integral`을 사용합니다. 두 메서드 모두 하한 및 상한을 설정할 수 있습니다.
 
 ![하한 및 상한이 있는 합계](powerpoint-math-equations_7.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/IMathSuperscriptElement.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathNaryOperatorTypes.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -180,22 +267,47 @@ presentation->Save(u"nary-operators.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-N-ary 연산자는 선택적 한계를 갖는 큰 연산자에 사용됩니다. `+`, `-`, `=`와 같은 간단한 연산자는 보통 `MathematicalText`로 추가되고 식에 결합됩니다.
+N-ary 연산자는 선택적 제한이 있는 큰 연산자를 위한 것입니다. `+`, `-`, `=`와 같은 간단한 연산자는 일반적으로 `MathematicalText`로 추가하고 식에 결합합니다.
 
-적분의 경우, `Integral`을 사용하십시오:
+적분의 경우 `Integral`을 사용합니다:
 
 ```cpp
+#include <DOM/MathText/IMathBlock.h>
+#include <DOM/MathText/IMathBox.h>
+#include <DOM/MathText/IMathElement.h>
+#include <DOM/MathText/MathIntegralTypes.h>
+#include <DOM/MathText/MathematicalText.h>
+using namespace Aspose::Slides::MathText;
+
 auto integralBase = System::MakeObject<MathematicalText>(u"x")->Join(System::MakeObject<MathematicalText>(u"dx")->ToBox());
 auto integral = integralBase->Integral(MathIntegralTypes::Simple, u"0", u"1");
 ```
 
 ## **행렬 추가**
 
-행과 열을 위해 [MathMatrix](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/mathmatrix/)를 사용하십시오. 행렬은 기본적으로 괄호를 포함하지 않으므로, 괄호, 대괄호 또는 중괄호가 필요할 경우 행렬을 감싸야 합니다.
+행과 열을 위해 [MathMatrix](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/mathmatrix/)를 사용하십시오. 행렬은 기본적으로 괄호를 포함하지 않으므로, 괄호, 대괄호 또는 중괄호가 필요할 때 행렬을 둘러싸세요.
 
-![빈 셀 하나가 있는 두 행 수학 행렬](powerpoint-math-equations_10.png)
+![한 개의 빈 셀이 있는 두 행 수학 행렬](powerpoint-math-equations_10.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathBlock.h>
+#include <DOM/MathText/IMathElement.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathMatrix.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -218,11 +330,26 @@ presentation->Dispose();
 
 ## **방정식 배열 추가**
 
-정렬된 방정식이나 수식의 수직 스택이 필요할 때는 `ToMathArray`를 사용하십시오.
+정렬된 방정식이나 수식의 수직 스택이 필요할 때 `ToMathArray`를 사용하십시오.
 
 ![x가 y 위에 있는 수직 수학 배열](powerpoint-math-equations_11.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -242,11 +369,27 @@ presentation->Dispose();
 
 ## **삼각 함수 추가**
 
-인수가 현재 요소이며 함수 이름이 알려진 경우 `AsArgumentOfFunction`을 사용하십시오.
+인수가 현재 요소이고 함수 이름이 알려진 경우 `AsArgumentOfFunction`을 사용하십시오.
 
 ![2x에 적용된 삼각 함수 cos](powerpoint-math-equations_6.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathFunctionsOfOneArgument.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -263,13 +406,28 @@ presentation->Save(u"trigonometric-function.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **첨자 및 위첨자 추가**
+## **아래첨자 및 위첨자 추가**
 
-첨자와 위첨자 도우미를 사용하여 인덱스와 거듭제곱을 표시합니다. 인덱스를 기본 요소의 왼쪽에 표시해야 할 경우 `SetSubSuperscriptOnTheLeft`를 사용하십시오.
+인덱스 및 지수를 위해 아래첨자와 위첨자 도우미를 사용하십시오. 인덱스가 기준의 왼쪽에 나타나야 할 경우 `SetSubSuperscriptOnTheLeft`를 사용합니다.
 
-![왼쪽에 첨자 1과 위첨자 n이 있는 대문자 Y](powerpoint-math-equations_9.png)
+![왼쪽 아래첨자 1과 위첨자 n이 있는 대문자 Y](powerpoint-math-equations_9.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -288,11 +446,26 @@ presentation->Dispose();
 
 ## **구분 기호 추가**
 
-`Enclose`를 사용하여 식을 구분 기호 안에 넣습니다. 여러 요소를 포함하는 구분 기호 식의 경우 구분 문자도 설정할 수 있습니다.
+`Enclose`를 사용하여 식을 구분 기호 안에 넣습니다. 여러 요소를 포함하는 구분 기호 표현식에 대해 구분 문자도 설정할 수 있습니다.
 
-![x, y, z가 수직 막대로 구분된 구분 기호 식](powerpoint-math-equations_13.png)
+![x, y, z가 수직 막대로 구분된 구분 기호 표현식](powerpoint-math-equations_13.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -315,9 +488,25 @@ presentation->Dispose();
 
 방정식 자체에 테두리를 둘러야 할 경우 `ToBorderBox`를 사용하십시오.
 
-![a² = b² + c²를 보여주는 테두리 박스 방정식](powerpoint-math-equations_12.png)
+![a² = b² + c²를 나타내는 상자 안 방정식](powerpoint-math-equations_12.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/IMathSuperscriptElement.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -341,11 +530,28 @@ presentation->Dispose();
 
 ## **항목 그룹화**
 
-`Group`을 사용하여 식 위 또는 아래에 그룹화 문자를 배치합니다. 그룹화된 항목에 레이블을 달기 위해 한계를 추가하십시오.
+`Group`을 사용하여 식 위나 아래에 그룹화 문자를 배치합니다. 그룹화된 항목에 레이블을 붙이려면 제한을 추가하십시오.
 
-![x + y 식이 아래에 'any text' 레이블과 함께 그룹화된 모습](powerpoint-math-equations_15.png)
+![아래에 'any text' 레이블이 있는 x + y 식](powerpoint-math-equations_15.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathGroupingCharacter.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathTopBotPositions.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -365,11 +571,26 @@ presentation->Dispose();
 
 ## **수학 요소 서식 지정**
 
-서식 도우미는 식을 명확히 할 때만 사용하십시오. 예를 들어 `Overbar`는 수학 요소 위에 바를 놓습니다.
+서식 도우미는 공식이 명확해지는 경우에만 사용하십시오. 예를 들어 `Overbar`는 수학 요소 위에 막대를 놓습니다.
 
-![위에 바가 있는 수학 식 ABC](powerpoint-math-equations_14.png)
+![위에 막대가 있는 수학 표현식 ABC](powerpoint-math-equations_14.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -385,7 +606,7 @@ presentation->Save(u"overbar.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **빠른 참조**
+## **빠른 참고**
 
 | 작업 | 주요 API |
 | --- | --- |
@@ -394,26 +615,26 @@ presentation->Dispose();
 | 분수 만들기 | [IMathElement.Divide](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/imathelement/divide/) |
 | 위첨자 또는 아래첨자 추가 | [SetSuperscript](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/imathelement/setsubscript/) |
 | 함수 추가 | [Function](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
-| 근호 추가 | [IMathElement.Radical](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/imathelement/radical/) |
+| 근 추가 | [IMathElement.Radical](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/imathelement/radical/) |
 | 극한 추가 | [SetLowerLimit](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/imathelement/setupperlimit/) |
 | 왼쪽 스크립트 추가 | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
 | 합계 및 적분 추가 | [Nary](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/imathelement/integral/) |
 | 행렬 추가 | [MathMatrix](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/mathmatrix/) |
 | 방정식 배열 추가 | [ToMathArray](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/imathelement/tomatharray/) |
 | 구분 기호 추가 | [Enclose](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/imathelement/enclose/) |
-| 바 및 테두리 추가 | [Overbar](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/imathelement/toborderbox/) |
+| 막대 및 테두리 추가 | [Overbar](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/imathelement/toborderbox/) |
 | 항목 그룹화 | [Group](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/imathelement/group/) |
 
 ## **FAQ**
 
 **기존 PowerPoint 방정식을 편집할 수 있나요?**
 
-예. 프레젠테이션을 열고 `MathPortion`을 포함하는 도형을 찾아 해당 `MathParagraph`를 얻은 다음 그 단락의 수학 블록을 업데이트합니다.
+예. 프레젠테이션을 열고 `MathPortion`을 포함하는 도형을 찾아 해당 `MathParagraph`를 가져온 다음, 그 단락의 수학 블록을 업데이트합니다.
 
 **방정식이 편집 가능한 PowerPoint 수학으로 저장되나요?**
 
-예. PPTX로 저장하면 Aspose.Slides는 방정식을 편집 가능한 Office 수학 콘텐츠로 기록합니다.
+예. PPTX로 저장하면 Aspose.Slides가 방정식을 편집 가능한 Office 수학 콘텐츠로 기록합니다.
 
 **방정식을 LaTeX로 내보낼 수 있나요?**
 
-Aspose.Slides는 수학 방정식을 MathML로 내보냅니다. LaTeX가 필요하면 먼저 MathML로 내보낸 다음, 대상 LaTeX 방언을 지원하는 도구로 MathML을 변환하십시오.
+예. 방정식의 [IMathParagraph](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/imathparagraph/)를 해당 [IMathPortion](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/imathportion/)에서 가져와 [IMathParagraph::ToLatex](https://reference.aspose.com/slides/ko/cpp/aspose.slides.mathtext/imathparagraph/tolatex/)를 호출하면 직접 내보낼 수 있습니다. 전체 예제는 [Export Math Equations from Presentations in C++](/slides/ko/cpp/exporting-math-equations/#export-math-equations-to-latex)를 참고하십시오.

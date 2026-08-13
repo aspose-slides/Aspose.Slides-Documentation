@@ -13,23 +13,28 @@ keywords:
 - "डेटा स्रोत"
 - "बाहरी वर्कबुक"
 - "बाहरी डेटा"
+- "चार्ट कैश"
+- "वर्कबुक पुनर्प्राप्ति"
 - "PowerPoint"
 - "प्रस्तुति"
 - ".NET"
 - "C#"
 - "Aspose.Slides"
-description: "Aspose.Slides for .NET को खोजें: PowerPoint और OpenDocument फ़ॉर्मैट में चार्ट वर्कबुक को आसानी से प्रबंधित करके अपनी प्रस्तुति डेटा को सुव्यवस्थित करें।"
+description: "Aspose.Slides for .NET की खोज करें: PowerPoint और OpenDocument स्वरूपों में चार्ट वर्कबुक को आसानी से प्रबंधित करें और अपने प्रस्तुति डेटा को सुव्यवस्थित करें।"
 ---
 ## **सारांश**
 
-यह लेख Aspose.Slides में चार्ट वर्कबुक के साथ काम करने के तरीके को समझाता है। यह दिखाता है कि कैसे वर्कबुक स्ट्रीम के माध्यम से चार्ट डेटा पढ़ें और लिखें, वर्कबुक सेल्स को चार्ट डेटा लेबल के रूप में उपयोग करें, वर्कशीट संग्रह तक पहुंचें, और चार्ट मानों के लिए डेटा स्रोत प्रकार निर्दिष्ट करें।
+यह लेख Aspose.Slides में चार्ट वर्कबुक के साथ काम करने के तरीके को समझाता है। यह दिखाता है कि वर्कबुक स्ट्रीम के माध्यम से चार्ट डेटा को कैसे पढ़ें और लिखें, वर्कबुक सेल्स को चार्ट डेटा लेबल के रूप में उपयोग करें, वर्कशीट संग्रहों तक पहुंचें, और चार्ट मानों के लिए डेटा स्रोत प्रकार कैसे निर्धारित करें।
 
-यह बाहरी वर्कबुक को चार्ट डेटा स्रोत के रूप में उपयोग करने को भी कवर करता है। उदाहरण दिखाते हैं कि कैसे एक बाहरी वर्कबुक बनाएं और असाइन करें, चार्ट से जुड़ी बाहरी वर्कबुक का पथ प्राप्त करें, और जब वर्कबुक उपलब्ध हो तो चार्ट डेटा संपादित करें।
+यह भी बाहरी वर्कबुक को चार्ट डेटा स्रोत के रूप में उपयोग करने को कवर करता है। उदाहरण दर्शाते हैं कि बाहरी वर्कबुक कैसे बनाएं और असाइन करें, चार्ट से जुड़े बाहरी वर्कबुक का पाथ कैसे प्राप्त करें, और वर्कबुक उपलब्ध होने पर चार्ट डेटा कैसे संपादित करें।
 
 ## **वर्कबुक से चार्ट डेटा पढ़ना और लिखना**
-Aspose.Slides उन [ReadWorkbookStream](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdata/readworkbookstream/) और [WriteWorkbookStream](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdata/writeworkbookstream/) मेथड्स को प्रदान करता है जो आपको चार्ट डेटा वर्कबुक (जिसमें Aspose.Cells के साथ संपादित चार्ट डेटा होता है) को पढ़ने और लिखने की अनुमति देता है। **Note** कि चार्ट डेटा को उसी तरह व्यवस्थित होना चाहिए या स्रोत के समान संरचना होनी चाहिए।
+Aspose.Slides [ReadWorkbookStream](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdata/readworkbookstream/) और [WriteWorkbookStream](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdata/writeworkbookstream/) मेथड्स प्रदान करता है जो आपको चार्ट डेटा वर्कबुक (जिसमें Aspose.Cells द्वारा संपादित चार्ट डेटा होता है) को पढ़ने और लिखने की अनुमति देते हैं। **ध्यान दें** कि चार्ट डेटा को उसी तरीके से व्यवस्थित किया जाना चाहिए या इसका ढांचा स्रोत के समान होना चाहिए।
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 using (Presentation pres = new Presentation("chart.pptx"))
 {
     Chart chart = (Chart) pres.Slides[0].Shapes[0];
@@ -46,19 +51,22 @@ using (Presentation pres = new Presentation("chart.pptx"))
 ```
 
 ## **वर्कबुक सेल को चार्ट डेटा लेबल के रूप में सेट करें**
-1. [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।  
-2. इंडेक्स के माध्यम से स्लाइड का रेफरेंस प्राप्त करें।  
+1. [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) क्लास की एक उदाहरण बनाएं।  
+2. स्लाइड का संदर्भ उसके इंडेक्स के माध्यम से प्राप्त करें।  
 3. कुछ डेटा के साथ एक बबल चार्ट जोड़ें।  
 4. चार्ट सीरीज़ तक पहुंचें।  
 5. वर्कबुक सेल को डेटा लेबल के रूप में सेट करें।  
-6. प्रेजेंटेशन सहेजें।
+6. प्रेजेंटेशन को सहेजें।
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 string lbl0 = "Label 0 cell value";
 string lbl1 = "Label 1 cell value";
 string lbl2 = "Label 2 cell value";
 
-// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली प्रस्तुति क्लास का एक उदाहरण बनाता है 
+// एक प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली प्रस्तुति क्लास को इंस्टैंसिएट करता है 
 
 using (Presentation pres = new Presentation("chart2.pptx"))
 {
@@ -82,9 +90,12 @@ using (Presentation pres = new Presentation("chart2.pptx"))
 ```
 
 ## **वर्कशीट्स का प्रबंधन**
-यह C# कोड एक ऑपरेशन दर्शाता है जहाँ [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) प्रॉपर्टी का उपयोग करके वर्कशीट संग्रह तक पहुंचा जाता है:
+यह C# कोड दर्शाता है कि कैसे [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) प्रॉपर्टी का उपयोग करके वर्कशीट संग्रह तक पहुंचा जाता है:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 using (Presentation pres = new Presentation())
 {
    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 500);
@@ -95,9 +106,13 @@ using (Presentation pres = new Presentation())
 ```
 
 ## **डेटा स्रोत प्रकार निर्दिष्ट करें**
-यह C# कोड दिखाता है कि डेटा स्रोत के लिए प्रकार कैसे निर्दिष्ट करें:
+यह C# कोड दिखाता है कि डेटा स्रोत के लिए प्रकार कैसे निर्दिष्ट किया जाता है:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Column3D, 50, 50, 600, 400, true);
@@ -113,10 +128,13 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **असमर्थित एम्बेडेड वर्कबुक फ़ॉर्मैट का पता लगाएँ**
-Aspose.Slides कुछ चार्ट में एम्बेड किए जा सकने वाले Excel बाइनरी वर्कबुक (.xlsb) फ़ॉर्मैट का समर्थन नहीं करता है। आप [IChartData](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdata/) पर `EmbeddedWorkbookType` प्रॉपर्टी को [WorkbookType](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/workbooktype/) एनेमरेशन के साथ उपयोग करके असमर्थित फ़ॉर्मैट का पता लगा सकते हैं और उन चार्ट्स को स्किप कर सकते हैं।
+## **असमर्थित एम्बेडेड वर्कबुक फ़ॉर्मेट का पता लगाएँ**
+Aspose.Slides कुछ चार्ट में एम्बेड किए जा सकने वाले Excel बाइनरी वर्कबुक (.xlsb) फ़ॉर्मेट को समर्थन नहीं देता। आप `EmbeddedWorkbookType` प्रॉपर्टी को [IChartData](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdata/) पर और [WorkbookType](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/workbooktype/) एनेमरेशन के साथ उपयोग करके असमर्थित फ़ॉर्मेट का पता लगा सकते हैं और उन चार्ट को स्किप कर सकते हैं।
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var slide = presentation.Slides[0];
@@ -130,7 +148,7 @@ using (var presentation = new Presentation("sample.pptx"))
         if (chartData.DataSourceType == ChartDataSourceType.InternalWorkbook &&
             chartData.EmbeddedWorkbookType == WorkbookType.WorkbookBinaryMacro)
         {
-            // .xlsb फ़ॉर्मैट में एम्बेडेड वर्कबुक है, जो समर्थित नहीं है।
+            // .xlsb फ़ॉर्मेट में एम्बेडेड वर्कबुक है, जो समर्थित नहीं है।
             continue;
         }
 
@@ -140,14 +158,19 @@ using (var presentation = new Presentation("sample.pptx"))
 ```
 
 ## **बाहरी वर्कबुक**
-{{% alert color="primary" %}} 
-[Aspose.Slides 19.4](https://docs.aspose.com/slides/hi/net/aspose-slides-for-net-19-4-release-notes/) में, हमने चार्ट्स के डेटा स्रोत के रूप में बाहरी वर्कबुक का समर्थन लागू किया। 
-{{% /alert %}}
 
-### **बाहरी वर्कबुक बनाएं**
-**`ReadWorkbookStream`** और **`SetExternalWorkbook`** मेथड्स का उपयोग करके, आप या तो एक नई बाहरी वर्कबुक बना सकते हैं या आंतरिक वर्कबुक को बाहरी बना सकते हैं।
+{{% alert color="info" %}} 
+[Aspose.Slides 19.4](https://docs.aspose.com/slides/hi/net/aspose-slides-for-net-19-4-release-notes/) में, हमने चार्ट के डेटा स्रोत के रूप में बाहरी वर्कबुक का समर्थन लागू किया। 
+{{% /alert %}} 
+
+### **एक बाहरी वर्कबुक बनाएं**
+**`ReadWorkbookStream`** और **`SetExternalWorkbook`** मेथड्स का उपयोग करके आप शून्य से एक बाहरी वर्कबुक बना सकते हैं या किसी आंतरिक वर्कबुक को बाहरी बना सकते हैं।
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     const string workbookPath = "externalWorkbook1.xlsx";
@@ -165,14 +188,16 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **बाहरी वर्कबुक सेट करें**
-**`SetExternalWorkbook`** मेथड का उपयोग करके, आप एक चार्ट को बाहरी वर्कबुक को उसके डेटा स्रोत के रूप में असाइन कर सकते हैं। यह मेथड बाहरी वर्कबुक के पथ को अद्यतन करने के लिए भी उपयोग किया जा सकता है (यदि बाद वाला स्थानांतरित किया गया हो)।
+### **एक बाहरी वर्कबुक सेट करें**
+**`SetExternalWorkbook`** मेथड का उपयोग करके आप एक बाहरी वर्कबुक को चार्ट के डेटा स्रोत के रूप में असाइन कर सकते हैं। यह मेथड बाहरी वर्कबुक के पाथ को अपडेट करने के लिए भी उपयोग किया जा सकता है (यदि वह स्थानांतरित हो गई हो)।
 
-हालांकि आप रिमोट स्थानों या संसाधनों में संग्रहीत वर्कबुक के डेटा को संपादित नहीं कर सकते, फिर भी आप ऐसे वर्कबुक को बाहरी डेटा स्रोत के रूप में उपयोग कर सकते हैं। यदि बाहरी वर्कबुक के लिए सापेक्ष पथ प्रदान किया जाता है, तो वह स्वचालित रूप से पूर्ण पथ में परिवर्तित हो जाता है।
-
-यह C# कोड दिखाता है कि बाहरी वर्कबुक कैसे सेट करें:
+जबकि आप रिमोट लोकेशन या संसाधनों में संग्रहीत वर्कबुक के डेटा को संपादित नहीं कर सकते, आप फिर भी ऐसे वर्कबुक को बाहरी डेटा स्रोत के रूप में उपयोग कर सकते हैं। यदि बाहरी वर्कबुक के लिए सापेक्ष पाथ प्रदान किया जाता है, तो यह स्वचालित रूप से पूर्ण पाथ में परिवर्तित हो जाता है।
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // दस्तावेज़ निर्देशिका का पथ।
 using (Presentation pres = new Presentation())
 {
@@ -194,12 +219,16 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-`SetExternalWorkbook` मेथड के तहत `ChartData` पैरामीटर का उपयोग यह निर्दिष्ट करने के लिए किया जाता है कि एक्सेल वर्कबुक लोड होगी या नहीं।
+`ChartData` पैरामीटर (`SetExternalWorkbook` मेथड के तहत) यह निर्दिष्ट करने के लिए उपयोग किया जाता है कि Excel वर्कबुक लोड होगा या नहीं।
 
-* जब `ChartData` मान `false` पर सेट किया जाता है, तो केवल वर्कबुक पथ अपडेट होता है—चार्ट डेटा लक्ष्य वर्कबुक से लोड या अपडेट नहीं होगा। आप इस सेटिंग का उपयोग तब कर सकते हैं जब लक्ष्य वर्कबुक अस्तित्व में न हो या उपलब्ध न हो।  
+* जब `ChartData` मान `false` पर सेट किया जाता है, तो केवल वर्कबुक पाथ अपडेट होता है—चार्ट डेटा लक्ष्य वर्कबुक से लोड या अपडेट नहीं किया जाता। आप इस सेटिंग का उपयोग तब कर सकते हैं जब लक्ष्य वर्कबुक मौजूद न हो या उपलब्ध न हो।  
 * जब `ChartData` मान `true` पर सेट किया जाता है, तो चार्ट डेटा लक्ष्य वर्कबुक से अपडेट हो जाता है।
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600, true);
@@ -211,14 +240,18 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **चार्ट के बाहरी डेटा स्रोत वर्कबुक पथ प्राप्त करें**
-1. [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।  
-2. इंडेक्स के माध्यम से स्लाइड का रेफरेंस प्राप्त करें।  
+### **चार्ट के बाहरी डेटा स्रोत वर्कबुक पाथ प्राप्त करें**
+1. [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) क्लास की एक उदाहरण बनाएं।  
+2. स्लाइड का संदर्भ उसके इंडेक्स के माध्यम से प्राप्त करें।  
 3. चार्ट शेप के लिए एक ऑब्जेक्ट बनाएं।  
 4. स्रोत (`ChartDataSourceType`) प्रकार के लिए एक ऑब्जेक्ट बनाएं जो चार्ट के डेटा स्रोत का प्रतिनिधित्व करता है।  
-5. बाहरी वर्कबुक डेटा स्रोत प्रकार के समान स्रोत प्रकार के आधार पर संबंधित शर्त निर्दिष्ट करें।
+5. स्रोत प्रकार को बाहरी वर्कबुक डेटा स्रोत प्रकार के समान होने के आधार पर प्रासंगिक शर्त निर्दिष्ट करें।
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     ISlide slide = pres.Slides[1];
@@ -229,15 +262,19 @@ using (Presentation pres = new Presentation("pres.pptx"))
         string path = chart.ChartData.ExternalWorkbookPath;
     }
     
-    // प्रस्तुति को सहेजें
+    // प्रेजेंटेशन को सहेजें
     pres.Save("Result.pptx", SaveFormat.Pptx);
 }
 ```
 
 ### **चार्ट डेटा संपादित करें**
-आप बाहरी वर्कबुक में डेटा को उसी तरह संपादित कर सकते हैं जैसा आप आंतरिक वर्कबुक की सामग्री में परिवर्तन करते हैं। जब कोई बाहरी वर्कबुक लोड नहीं हो पाती, तो एक अपवाद उठाया जाता है।
+आप बाहरी वर्कबुक में डेटा को उसी तरह संपादित कर सकते हैं जैसे आप आंतरिक वर्कबुक की सामग्री को बदलते हैं। जब कोई बाहरी वर्कबुक लोड नहीं हो पाती, तो एक एक्सेप्शन फेंका जाता है।
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("presentation.pptx"))
 {
     IChart chart = pres.Slides[0].Shapes[0] as IChart;
@@ -249,22 +286,49 @@ using (Presentation pres = new Presentation("presentation.pptx"))
 }
 ```
 
+### **चार्ट कैश से वर्कबुक पुनर्प्राप्त करें**
+यदि कोई चार्ट उस बाहरी वर्कबुक का उपयोग करता है जो अनुपलब्ध या गुम है, तो Aspose.Slides प्रेजेंटेशन में कैश किए गए डेटा से चार्ट वर्कबुक को पुनः बनाकर पुनर्प्राप्त कर सकता है। [LoadOptions](https://reference.aspose.com/slides/hi/net/aspose.slides/loadoptions/) बनाएं, उसकी [SpreadsheetOptions](https://reference.aspose.com/slides/hi/net/aspose.slides/loadoptions/spreadsheetoptions/) कॉन्फ़िगर करें, और प्रस्तुति खोलने से पहले `ISpreadsheetOptions.RecoverWorkbookFromChartCache` को `true` सेट करें।
+
+निम्न C# उदाहरण एक ऐसी प्रेजेंटेशन खोलता है जिसमें चार्ट किसी अनुपलब्ध बाहरी वर्कबुक को संदर्भित करता है और पुनर्प्राप्त डेटा को [IChart.ChartData](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichart/chartdata/) तथा [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/ichartdata/chartdataworkbook/) के माध्यम से एक्सेस करता है:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+var loadOptions = new LoadOptions
+{
+    SpreadsheetOptions = new SpreadsheetOptions
+    {
+        RecoverWorkbookFromChartCache = true
+    }
+};
+
+using var presentation = new Presentation("presentation.pptx", loadOptions);
+
+var chart = (IChart)presentation.Slides[0].Shapes[0];
+var recoveredWorkbook = chart.ChartData.ChartDataWorkbook;
+
+// Read or modify the recovered workbook data here.
+```
+
+यदि बाहरी वर्कबुक अनुपलब्ध है और रिकवरी अक्षम है, तो Aspose.Slides `InvalidOperationException` फेंकेगा। केवल तब रिकवरी सक्षम करें जब कैश्ड चार्ट डेटा का उपयोग एक स्वीकार्य बैकअप हो, क्योंकि कैश में बाहरी वर्कबुक में आखिरी बार प्रेजेंटेशन अपडेट होने के बाद किए गए परिवर्तन नहीं हो सकते।
+
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या मैं निर्धारित कर सकता हूँ कि कोई विशिष्ट चार्ट बाहरी या एम्बेडेड वर्कबुक से जुड़ा है?**  
-हाँ। एक चार्ट का एक [डेटा स्रोत प्रकार](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/chartdata/datasourcetype/) और एक [बाहरी वर्कबुक का पथ](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/chartdata/externalworkbookpath/) होता है; यदि स्रोत एक बाहरी वर्कबुक है, तो आप पूर्ण पथ पढ़ सकते हैं यह सुनिश्चित करने के लिए कि बाहरी फ़ाइल उपयोग में है।
+**क्या मैं निर्धारित कर सकता हूँ कि कोई विशेष चार्ट बाहरी या एम्बेडेड वर्कबुक से जुड़ा है?**  
+हाँ। एक चार्ट के पास एक [डेटा स्रोत प्रकार](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/chartdata/datasourcetype/) और एक [बाहरी वर्कबुक का पाथ](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/chartdata/externalworkbookpath/) होता है; यदि स्रोत बाहरी वर्कबुक है, तो आप पूर्ण पाथ पढ़कर सुनिश्चित कर सकते हैं कि बाहरी फ़ाइल उपयोग में है।
 
-**क्या बाहरी वर्कबुक के सापेक्ष पथ समर्थित हैं, और वे कैसे संग्रहीत होते हैं?**  
-हाँ। यदि आप सापेक्ष पथ निर्दिष्ट करते हैं, तो वह स्वचालित रूप से पूर्ण पथ में बदल जाता है। यह प्रोजेक्ट पोर्टेबलिटी के लिए सुविधाजनक है; हालांकि, ध्यान रखें कि प्रस्तुति PPTX फ़ाइल में पूर्ण पथ संग्रहीत करेगा।
+**क्या बाहरी वर्कबुक के सापेक्ष पाथ समर्थित हैं, और वे कैसे संग्रहित होते हैं?**  
+हाँ। यदि आप सापेक्ष पाथ निर्दिष्ट करते हैं, तो यह स्वचालित रूप से पूर्ण पाथ में परिवर्तित हो जाता है। यह प्रोजेक्ट पोर्टेबिलिटी के लिए सुविधाजनक है; हालांकि, ध्यान रखें कि प्रेजेंटेशन PPTX फ़ाइल में पूर्ण पाथ संग्रहीत करेगा।
 
 **क्या मैं नेटवर्क संसाधनों/शेयरों पर स्थित वर्कबुक का उपयोग कर सकता हूँ?**  
-हाँ, ऐसे वर्कबुक को बाहरी डेटा स्रोत के रूप में उपयोग किया जा सकता है। हालांकि, Aspose.Slides से सीधे रिमोट वर्कबुक को संपादित करना समर्थित नहीं है—उन्हें केवल स्रोत के रूप में उपयोग किया जा सकता है।
+हाँ, ऐसे वर्कबुक को बाहरी डेटा स्रोत के रूप में उपयोग किया जा सकता है। लेकिन Aspose.Slides से रिमोट वर्कबुक को सीधे संपादित करना समर्थित नहीं है—उन्हें केवल स्रोत के रूप में ही उपयोग किया जा सकता है।
 
-**क्या Aspose.Slides प्रस्तुति सहेजते समय बाहरी XLSX को ओवरराइट करता है?**  
-नहीं। प्रस्तुति एक [बाहरी फ़ाइल के लिंक](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/chartdata/externalworkbookpath/) को संग्रहीत करता है और डेटा पढ़ने के लिए इसका उपयोग करता है। प्रस्तुति सहेजे जाने पर बाहरी फ़ाइल स्वयं नहीं बदली जाती।
+**क्या Aspose.Slides प्रेजेंटेशन सहेजते समय बाहरी XLSX को ओवरराइट करता है?**  
+नहीं। प्रेजेंटेशन एक [बाहरी फ़ाइल लिंक](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/chartdata/externalworkbookpath/) संग्रहित करता है और डेटा पढ़ने के लिए इसका उपयोग करता है। प्रेजेंटेशन सहेजते समय बाहरी फ़ाइल स्वयं संशोधित नहीं होती।
 
-**यदि बाहरी फ़ाइल पासवर्ड-प्रोटेक्टेड हो तो मुझे क्या करना चाहिए?**  
-Aspose.Slides लिंक करते समय पासवर्ड स्वीकार नहीं करता। एक सामान्य तरीका है पहले से सुरक्षा हटाना या एक डिक्रिप्टेड कॉपी तैयार करना (उदाहरण के लिए, [Aspose.Cells](/cells/net/) का उपयोग करके) और उस कॉपी से लिंक करना।
+**यदि बाहरी फ़ाइल पासवर्ड-प्रोटेक्टेड है तो क्या करना चाहिए?**  
+Aspose.Slides लिंकिंग के समय पासवर्ड स्वीकार नहीं करता। सामान्य समाधान यह है कि पहले संरक्षण को हटाएं या एक डिक्रिप्टेड कॉपी तैयार करें (जैसे, [Aspose.Cells](/cells/net/) का उपयोग करके) और उस कॉपी को लिंक करें।
 
 **क्या कई चार्ट एक ही बाहरी वर्कबुक को संदर्भित कर सकते हैं?**  
-हाँ। प्रत्येक चार्ट अपना लिंक संग्रहीत करता है। यदि सभी एक ही फ़ाइल की ओर इशारा करते हैं, तो उस फ़ाइल को अपडेट करने से अगली बार डेटा लोड होने पर प्रत्येक चार्ट में प्रतिबिंबित होगा।
+हाँ। प्रत्येक चार्ट अपना लिंक संग्रहीत करता है। यदि सभी एक ही फ़ाइल की ओर इशारा करते हैं, तो उस फ़ाइल को अपडेट करने से अगले डेटा लोड होने पर सभी चार्ट्स में बदलाव परिलक्षित होंगे।

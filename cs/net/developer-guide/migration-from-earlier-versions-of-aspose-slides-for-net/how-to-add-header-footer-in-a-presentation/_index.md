@@ -18,43 +18,32 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Naučte se, jak přidat záhlaví a zápatí v prezentacích PowerPoint PPT, PPTX a ODP v .NET pomocí jak starého, tak moderního rozhraní Aspose.Slides API."
+description: "Zjistěte, jak přidat záhlaví a zápatí do prezentací PowerPoint PPT, PPTX a ODP v .NET pomocí starých i moderních API Aspose.Slides."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}}
 
-Bylo vydáno nové rozhraní [Aspose.Slides for .NET API](/slides/cs/net/) a nyní tento jediný produkt podporuje možnost vytvářet PowerPoint dokumenty od nuly a upravovat stávající.
+Nové [Aspose.Slides for .NET API](/slides/cs/net/) bylo vydáno a nyní tento jediný produkt podporuje možnost generovat PowerPoint dokumenty od začátku i upravovat existující.
 
 {{% /alert %}} 
-## **Podpora pro starý kód**
-Aby bylo možné použít legacy kód vyvinutý s Aspose.Slides pro .NET ve verzích starších než 13.x, je třeba provést několik drobných úprav ve vašem kódu a kód bude fungovat jako dříve. Všechny třídy, které byly v staré verzi Aspose.Slides pro .NET v namespacech Aspose.Slide a Aspose.Slides.Pptx, jsou nyní sloučeny do jediného namespace Aspose.Slides. Podívejte se na následující jednoduchý útržek kódu pro přidání záhlaví a zápatí do prezentace v legacy API Aspose.Slides a postupujte podle kroků popisujících, jak migrovat na nové sloučené API.
-
-## **Legacy Aspose.Slides pro .NET přístup**
+## **Podpora pro legacy kód**
+Aby bylo možné použít legacy kód vyvinutý pro Aspose.Slides pro .NET verze starší než 13.x, musíte provést několik drobných změn ve svém kódu a kód bude fungovat jako dříve. Všechny třídy, které byly v starém Aspose.Slides pro .NET v rámci jmenných prostorů Aspose.Slide a Aspose.Slides.Pptx, jsou nyní sloučeny do jediného jmenného prostoru Aspose.Slides. Podívejte se na následující jednoduchý úryvek kódu pro přidání záhlaví a zápatí v prezentaci ve starém Aspose.Slides API a postupujte podle kroků popisujících, jak migrovat na nové sloučené API.
+## **Zastaralý přístup k Aspose.Slides pro .NET**
 ```c#
 PresentationEx sourcePres = new PresentationEx();
 
 //Nastavení viditelnosti záhlaví a zápatí
-sourcePres.UpdateSlideNumberFields = true;
-
 //Aktualizovat pole data a času
-sourcePres.UpdateDateTimeFields = true;
-
-//Zobrazit zástupný symbol data a času
-sourcePres.HeaderFooterManager.IsDateTimeVisible = true;
-
-//Zobrazit zástupný symbol zápatí
-sourcePres.HeaderFooterManager.IsFooterVisible = true;
-
+//Zobrazit zástupný znak data a času
+//Zobrazit zástupný znak zápatí
 //Zobrazit číslo snímku
-sourcePres.HeaderFooterManager.IsSlideNumberVisible = true;
-
 //Nastavit viditelnost záhlaví a zápatí na titulním snímku
-sourcePres.HeaderFooterManager.SetVisibilityOnTitleSlide(true);
-
 //Zapsat prezentaci na disk
 sourcePres.Write("NewSource.pptx");
 ```
 
 ```c#
+using Aspose.Slides;
+
 //Vytvořit prezentaci
 Presentation pres = new Presentation();
 
@@ -89,8 +78,13 @@ hf.FooterText = "Footer Text";
 pres.Write("HeadFoot.ppt");
 ```
 
-## **Nový Aspose.Slides pro .NET 13.x přístup**
+
+
+## **Nový přístup k Aspose.Slides pro .NET 13.x**
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation sourcePres = new Presentation())
 {
     //Nastavení viditelnosti záhlaví a zápatí
@@ -99,13 +93,13 @@ using (Presentation sourcePres = new Presentation())
     //Aktualizovat pole data a času
     sourcePres.HeaderFooterManager.SetAllDateTimesVisibility(true);
 
-    //Zobrazit zástupný symbol data a času
+    //Zobrazit zástupný znak data a času
     sourcePres.HeaderFooterManager.SetAllDateTimesVisibility(true);
 
-    //Zobrazit zástupný symbol zápatí
+    //Zobrazit zástupný znak zápatí
     sourcePres.HeaderFooterManager.SetAllFootersVisibility(true);
     
-    //Nastavit viditelnost záhlaví a zápatí na titulním snímku
+    //Nastavit  viditelnost záhlaví a zápatí na titulním snímku
     sourcePres.HeaderFooterManager.SetVisibilityOnAllTitleSlides(true);
 
     //Zapsat prezentaci na disk

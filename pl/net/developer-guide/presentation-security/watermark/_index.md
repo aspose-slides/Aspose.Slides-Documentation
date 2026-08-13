@@ -6,50 +6,52 @@ weight: 40
 url: /pl/net/watermark/
 keywords:
 - znak wodny
-- znak wodny tekstowy
-- znak wodny graficzny
+- tekstowy znak wodny
+- obrazkowy znak wodny
 - dodaj znak wodny
 - zmień znak wodny
 - usuń znak wodny
-- usuń znak wodny
+- skasuj znak wodny
 - dodaj znak wodny do PPT
 - dodaj znak wodny do PPTX
 - dodaj znak wodny do ODP
 - usuń znak wodny z PPT
 - usuń znak wodny z PPTX
 - usuń znak wodny z ODP
-- usuń znak wodny z PPT
-- usuń znak wodny z PPTX
-- usuń znak wodny z ODP
+- skasuj znak wodny z PPT
+- skasuj znak wodny z PPTX
+- skasuj znak wodny z ODP
 - PowerPoint
 - OpenDocument
 - prezentacja
 - .NET
 - C#
 - Aspose.Slides
-description: "Zarządzaj znakami wodnymi tekstowymi i graficznymi w prezentacjach PowerPoint i OpenDocument w .NET, aby oznaczyć wersję roboczą, poufne informacje, prawa autorskie i inne."
+description: "Zarządzaj tekstowymi i graficznymi znakami wodnymi w prezentacjach PowerPoint i OpenDocument w .NET, aby oznaczyć wersję roboczą, poufne informacje, prawa autorskie i inne."
 ---
 ## **Wprowadzenie**
 
-**Znak wodny** w prezentacji to oznaczenie tekstowe lub graficzne używane na slajdzie lub we wszystkich slajdach prezentacji. Zazwyczaj znak wodny służy do wskazania, że prezentacja jest wersją roboczą (np. znak wodny „Draft”), zawiera poufne informacje (np. znak wodny „Confidential”), określa, do której firmy należy (np. znak wodny „Company Name”), identyfikuje autora prezentacji itp. Znak wodny pomaga zapobiegać naruszeniom praw autorskich, sygnalizując, że prezentacji nie należy kopiować. Znaki wodne są używane zarówno w formatach prezentacji PowerPoint, jak i OpenDocument. W Aspose.Slides możesz dodać znak wodny do plików PowerPoint PPT, PPTX oraz OpenDocument ODP.
+**Znak wodny** w prezentacji to tekstowa lub graficzna pieczęć używana na pojedynczym slajdzie lub we wszystkich slajdach prezentacji. Zwykle znak wodny służy do wskazania, że prezentacja jest wersją roboczą (np. znak wodny „Draft”), że zawiera informacje poufne (np. znak wodny „Confidential”), aby określić, do której firmy należy (np. znak wodny „Company Name”), do identyfikacji autora prezentacji itp. Znak wodny pomaga zapobiegać naruszeniom praw autorskich, wskazując, że prezentacja nie powinna być kopiowana. Znaki wodne są używane zarówno w formacie PowerPoint, jak i OpenDocument. W Aspose.Slides możesz dodać znak wodny do formatów plików PowerPoint PPT, PPTX oraz OpenDocument ODP.
 
-W [**Aspose.Slides**](https://products.aspose.com/slides/pl/net/) istnieje wiele sposobów tworzenia znaków wodnych w dokumentach PowerPoint lub OpenDocument oraz modyfikowania ich projektu i zachowania. Wspólnym elementem jest to, że aby dodać znaki wodne tekstowe, należy używać interfejsu [ITextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe/), a aby dodać znaki wodne graficzne, używać klasy [PictureFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/pictureframe/) lub wypełnić kształt znaku wodnego obrazem. `PictureFrame` implementuje interfejs [IShape](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape) , co pozwala korzystać ze wszystkich elastycznych ustawień obiektu kształtu. Ponieważ `ITextFrame` nie jest kształtem i jego ustawienia są ograniczone, jest on opakowywany w obiekt [IShape](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape) .
+W [**Aspose.Slides**](https://products.aspose.com/slides/pl/net/) istnieje wiele sposobów tworzenia znaków wodnych w dokumentach PowerPoint lub OpenDocument oraz modyfikowania ich wyglądu i zachowania. Wspólnym elementem jest to, że do dodania znaków wodnych tekstowych należy używać interfejsu [ITextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe/), a do dodania znaków wodnych graficznych – klasy [PictureFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/pictureframe/) lub wypełnienia kształtu znaku wodnego obrazem. `PictureFrame` implementuje interfejs [IShape](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape), co umożliwia korzystanie ze wszystkich elastycznych ustawień obiektu kształtu. Ponieważ `ITextFrame` nie jest kształtem i ma ograniczone możliwości konfiguracji, jest on opakowywany w obiekt [IShape](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape).
 
-Istnieją dwa sposoby zastosowania znaku wodnego: na pojedynczym slajdzie lub na wszystkich slajdach prezentacji. Do zastosowania znaku wodnego we wszystkich slajdach używa się Mastera slajdów – znak wodny jest dodawany do Mastera slajdów, w pełni projektowany tam i stosowany do wszystkich slajdów bez wpływu na możliwość modyfikacji znaku wodnego na poszczególnych slajdach.
+Są dwa sposoby zastosowania znaku wodnego: na pojedynczym slajdzie lub na wszystkich slajdach prezentacji. Do zastosowania znaku wodnego we wszystkich slajdach używa się Mastera slajdów – znak wodny jest dodawany do Mastera slajdów, w pełni tam projektowany i stosowany do wszystkich slajdów, nie wpływając na możliwość modyfikacji znaku wodnego na poszczególnych slajdach.
 
-Znak wodny jest zazwyczaj uznawany za niedostępny do edycji przez innych użytkowników. Aby zapobiec edycji znaku wodnego (a dokładniej jego nadrzędnego kształtu), Aspose.Slides udostępnia funkcję blokowania kształtów. Konkretny kształt może zostać zablokowany na zwykłym slajdzie lub na Masterze slajdów. Gdy kształt znaku wodnego jest zablokowany na Masterze slajdów, zostaje zablokowany we wszystkich slajdach prezentacji.
+Znak wodny jest zazwyczaj uważany za niedostępny do edycji przez innych użytkowników. Aby zapobiec edycji znaku wodnego (a dokładniej jego nadrzędnego kształtu), Aspose.Slides udostępnia funkcję blokowania kształtów. Konkretny kształt może być zablokowany na zwykłym slajdzie lub na Masterze slajdów. Gdy kształt znaku wodnego jest zablokowany na Masterze slajdów, będzie on zablokowany we wszystkich slajdach prezentacji.
 
-Możesz ustawić nazwę znaku wodnego, aby w przyszłości, gdy będziesz chciał go usunąć, móc odnaleźć go w kształtach slajdu po nazwie.
+Możesz ustawić nazwę znaku wodnego, aby w przyszłości, gdy będziesz chciał go usunąć, móc odnaleźć go wśród kształtów slajdu po nazwie.
 
-Możesz zaprojektować znak wodny na dowolny sposób; jednak zazwyczaj znaki wodne mają wspólne cechy, takie jak wyśrodkowanie, obrót, pozycja na wierzchu itp. Poniżej pokażemy, jak korzystać z tych funkcji w przykładach.
+Znak wodny możesz zaprojektować w dowolny sposób; jednak zazwyczaj posiada on wspólne cechy, takie jak wyśrodkowanie, obrót, pozycja na wierzchu itp. Poniżej przedstawimy, jak je wykorzystać w przykładach.
 
 ## **Znak wodny tekstowy**
 
-### **Dodaj znak wodny tekstowy do slajdu**
+### **Dodaj tekstowy znak wodny do slajdu**
 
-Aby dodać znak wodny tekstowy w plikach PPT, PPTX lub ODP, najpierw możesz dodać kształt do slajdu, a następnie dodać do tego kształtu ramkę tekstową. Ramka tekstowa jest reprezentowana przez interfejs [ITextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe). Ten typ nie dziedziczy po [IShape](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/), który posiada szeroki zestaw właściwości umożliwiających elastyczne pozycjonowanie znaku wodnego. Dlatego obiekt [ITextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe) jest opakowywany w obiekt [IAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/) . Aby dodać tekst znaku wodnego do kształtu, użyj metody [AddTextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/methods/addtextframe) jak pokazano poniżej.
+Aby dodać tekstowy znak wodny w formatach PPT, PPTX lub ODP, najpierw możesz dodać kształt do slajdu, a następnie dodać do tego kształtu ramkę tekstową. Ramka tekstowa jest reprezentowana przez interfejs [ITextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe). Ten typ nie dziedziczy po [IShape](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/), który posiada szeroki zestaw właściwości umożliwiających elastyczne pozycjonowanie znaku wodnego. Dlatego obiekt [ITextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe) jest opakowywany w obiekt [IAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/). Aby dodać tekst znaku wodnego do kształtu, użyj metody [AddTextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/methods/addtextframe) jak pokazano poniżej.
 
 ```cs
+using Aspose.Slides;
+
 string watermarkText = "CONFIDENTIAL";
 
 using Presentation presentation = new Presentation();
@@ -60,47 +62,62 @@ IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 
 ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
-{{% alert color="primary" title="Zobacz także" %}} 
+{{% alert color="info" title="Zobacz także" %}} 
 - [Jak używać klasy TextFrame?](/slides/pl/net/text-formatting/)
 {{% /alert %}}
 
-### **Dodaj znak wodny tekstowy do prezentacji**
+### **Dodaj tekstowy znak wodny do prezentacji**
 
-Jeśli chcesz dodać znak wodny tekstowy do całej prezentacji (czyli do wszystkich slajdów jednocześnie), dodaj go do [MasterSlide](https://reference.aspose.com/slides/pl/net/aspose.slides/masterslide/). Reszta logiki jest taka sama, jak przy dodawaniu znaku wodnego do pojedynczego slajdu – utwórz obiekt [IAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/) i następnie dodaj do niego znak wodny przy użyciu metody [AddTextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/methods/addtextframe).
+Jeśli chcesz dodać tekstowy znak wodny do całej prezentacji (czyli do wszystkich slajdów jednocześnie), dodaj go do [MasterSlide](https://reference.aspose.com/slides/pl/net/aspose.slides/masterslide/). Reszta logiki jest taka sama jak przy dodawaniu znaku wodnego do pojedynczego slajdu — utwórz obiekt [IAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/) i następnie dodaj do niego znak wodny przy użyciu metody [AddTextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/methods/addtextframe).
 
 ```cs
+using Aspose.Slides;
+
 string watermarkText = "CONFIDENTIAL";
 
 using Presentation presentation = new Presentation();
 IMasterSlide masterSlide = presentation.Masters[0];
 
-// Dodaj znak wodny do master slajdu.
+// Dodaj znak wodny do slajdu master.
 IAutoShape watermarkShape = masterSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
 ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
-{{% alert color="primary" title="Zobacz także" %}} 
-- [Jak używać Slide Master?](/slides/pl/net/slide-master/)
+{{% alert color="info" title="Zobacz także" %}} 
+- [Jak używać Mastera slajdów?](/slides/pl/net/slide-master/)
 {{% /alert %}}
 
 ### **Ustaw przezroczystość kształtu znaku wodnego**
 
-Domyślnie prostokątny kształt ma ustawione kolory wypełnienia i linii. Oznacza to, że po dodaniu znaku wodnego może on pojawić się z jednolitym tłem lub obramowaniem, które mogą odwracać uwagę od treści slajdu. Aby zapewnić, że znak wodny pozostanie dyskretny i nie będzie ingerował w wizualny projekt prezentacji, możesz całkowicie uczynić kształt przezroczystym.
+Domyślnie prostokątny kształt jest sformatowany kolorem wypełnienia i linii. Oznacza to, że po dodaniu znaku wodnego może on mieć pełne tło lub obramowanie, które mogą odciągać uwagę od treści slajdu. Aby znak wodny pozostawał dyskretny i nie kolidował z wizualnym projektem prezentacji, możesz uczynić kształt całkowicie przezroczystym.
 
-Poniższe linie kodu usuwają zarówno kolor wypełnienia, jak i obramowania, czyniąc kształt przezroczystym:
+Poniższe linie kodu czynią kształt przezroczystym, usuwając zarówno kolor wypełnienia, jak i obramowania:
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 watermarkShape.FillFormat.FillType = FillType.NoFill;
 watermarkShape.LineFormat.FillFormat.FillType = FillType.NoFill;
 ```
 
-### **Ustaw czcionkę dla znaku wodnego tekstowego**
+### **Ustaw czcionkę dla tekstowego znaku wodnego**
 
-Zanim zastosujesz znak wodny tekstowy na slajdzie, warto dostosować jego wygląd tak, aby był spójny z ogólnym projektem. Możesz zmienić typ i rozmiar czcionki, aby znak wodny był czytelny i estetycznie dopasowany. Dostosowanie czcionki może także pomóc w podkreśleniu tożsamości marki lub po prostu dopasować się do stylu prezentacji.
+Przed zastosowaniem tekstowego znaku wodnego na slajdzie warto dostosować jego wygląd, aby harmonizował z ogólnym projektem. Możesz zmienić typ i rozmiar czcionki, aby znak wodny był czytelny i estetycznie przyjemny. Dostosowanie czcionki może również pomóc w wzmocnieniu tożsamości marki lub po prostu dopasować się do stylu prezentacji.
 
-Poniższy fragment kodu pokazuje, jak ustawić czcionkę znaku wodnego, wybierając konkretną czcionkę łacińską i określając odpowiednią wysokość czcionki:
+Poniższy fragment kodu pokazuje, jak dostosować ustawienia czcionki znaku wodnego, wybierając konkretną czcionkę łacińską i ustawiając odpowiednią wysokość czcionki:
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+ITextFrame watermarkFrame = watermarkShape.AddTextFrame("CONFIDENTIAL");
+
 IPortionFormat textFormat = watermarkFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
 textFormat.LatinFont = new FontData("Arial");
 textFormat.FontHeight = 50;
@@ -108,11 +125,19 @@ textFormat.FontHeight = 50;
 
 ### **Ustaw kolor tekstu znaku wodnego**
 
-Zanim zastosujesz znak wodny, należy upewnić się, że kolor tekstu jest odpowiednio dobrany, aby współgrał z treścią slajdu i nie przytłaczał jej. Regulacja przezroczystości koloru (alpha) oraz składników czerwonego, zielonego i niebieskiego pozwala stworzyć subtelny, półprzezroczysty znak wodny, który jest widoczny, ale nieinwazyjny. Takie podejście pomaga utrzymać uwagę na głównej zawartości prezentacji, jednocześnie chroniąc treść.
+Przed zastosowaniem znaku wodnego ważne jest, aby odpowiednio ustawić kolor tekstu, tak aby dobrze komponował się z treścią slajdu, nie przytłaczając jej. Regulacja przejrzystości koloru (alpha) oraz składowych czerwonej, zielonej i niebieskiej pozwala stworzyć subtelny, półprzezroczysty znak wodny, który jest widoczny, ale nieinwazyjny. Takie podejście pomaga utrzymać skupienie na głównej części prezentacji, jednocześnie chroniąc jej zawartość.
 
 Aby ustawić kolor tekstu znaku wodnego, użyj poniższego kodu:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+ITextFrame watermarkFrame = watermarkShape.AddTextFrame("CONFIDENTIAL");
+
 int alpha = 150, red = 200, green = 200, blue = 200;
 
 IFillFormat fillFormat = watermarkFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FillFormat;
@@ -120,13 +145,21 @@ fillFormat.FillType = FillType.Solid;
 fillFormat.SolidFillColor.Color = Color.FromArgb(alpha, red, green, blue);
 ```
 
-### **Wyśrodkuj znak wodny tekstowy**
+### **Wyśrodkuj tekstowy znak wodny**
 
-Poprawne wyśrodkowanie znaku wodnego tekstowego może znacznie podnieść estetykę prezentacji, zapewniając symetryczne położenie znaku niezależnie od wymiarów slajdu. Taki układ nadaje slajdom profesjonalny wygląd i zapewnia, że znak wodny nie zakłóca głównej treści.
+Poprawne wyśrodkowanie tekstowego znaku wodnego może znacznie podnieść ogólną estetykę Twojej prezentacji, zapewniając symetryczne położenie znaku wodnego, niezależnie od wymiarów slajdu. Podejście to nie tylko nadaje slajdom profesjonalny wygląd, ale także zapewnia, że znak wodny nie zakłóca głównej treści slajdu.
 
-Poniższy fragment kodu pokazuje, jak obliczyć środkową pozycję slajdu i umieścić tam znak wodny tekstowy:
+Poniższy fragment kodu pokazuje, jak obliczyć środkową pozycję slajdu i odpowiednio umieścić tekstowy znak wodny:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+
+string watermarkText = "CONFIDENTIAL";
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+
 SizeF slideSize = presentation.SlideSize.Size;
 
 float watermarkWidth = 400;
@@ -140,17 +173,23 @@ IAutoShape watermarkShape = slide.Shapes.AddAutoShape(
 ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
-Poniższy obrazek pokazuje ostateczny rezultat.
+Obraz poniżej pokazuje ostateczny wynik.
 
-![Znak wodny tekstowy](text_watermark.png)
+![Tekstowy znak wodny](text_watermark.png)
 
-## **Znak wodny graficzny**
+## **Znak wodny obrazkowy**
 
-### **Dodaj znak wodny graficzny do prezentacji**
+### **Dodaj obrazkowy znak wodny do prezentacji**
 
-W wielu przypadkach znak wodny graficzny może zapewnić unikalny element brandingowy lub bardziej atrakcyjną wizualnie alternatywę dla znaku wodnego tekstowego. Przed dodaniem znaku wodnego upewnij się, że plik obrazu jest dostępny (np. PNG z przezroczystością). Poniższy przykład pokazuje, jak wczytać obraz z systemu plików, dodać go do prezentacji i zastosować jako znak wodny za pomocą właściwości wypełnienia kształtu.
+W wielu przypadkach znak wodny w postaci obrazu może stanowić unikalny element brandingu lub bardziej atrakcyjną wizualnie alternatywę dla tekstowego znaku wodnego. Przed dodaniem znaku wodnego upewnij się, że plik obrazu jest dostępny (np. PNG z przezroczystością). Poniższy przykład pokazuje, jak wczytać obraz z systemu plików, dodać go do prezentacji, a następnie zastosować jako znak wodny przy użyciu właściwości wypełnienia kształtu.
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 using FileStream imageStream = File.OpenRead("watermark.png");
 IPPImage image = presentation.Images.AddImage(imageStream);
 
@@ -161,10 +200,16 @@ watermarkShape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.St
 
 ## **Zablokuj znak wodny przed edycją**
 
-Jeśli konieczne jest uniemożliwienie edycji znaku wodnego, użyj właściwości [IAutoShape.ShapeLock](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/properties/shapelock) na kształcie. Dzięki tej właściwości możesz chronić kształt przed zaznaczaniem, zmianą rozmiaru, przemieszczeniem, grupowaniem z innymi elementami, zablokować jego tekst przed edycją i nie tylko:
+Jeśli konieczne jest zapobieżenie edycji znaku wodnego, użyj właściwości [IAutoShape.ShapeLock](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/properties/shapelock) na kształcie. Dzięki tej właściwości możesz chronić kształt przed zaznaczeniem, zmianą rozmiaru, przemieszczaniem, grupowaniem z innymi elementami, zablokować jego tekst przed edycją i wiele więcej:
 
 ```cs
-// Zablokuj modyfikację kształtu znaku wodnego.
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+// Zablokuj kształt znaku wodnego przed modyfikacją.
 watermarkShape.ShapeLock.SelectLocked = true;
 watermarkShape.ShapeLock.SizeLocked = true;
 watermarkShape.ShapeLock.TextLocked = true;
@@ -172,20 +217,35 @@ watermarkShape.ShapeLock.PositionLocked = true;
 watermarkShape.ShapeLock.GroupingLocked = true;
 ```
 
-## **Przenieś znak wodny na przód**
+## **Przenieś znak wodny na wierzch**
 
-W Aspose.Slides kolejność Z‑order kształtów można ustawić metodą [IShapeCollection.Reorder](https://reference.aspose.com/slides/pl/net/aspose.slides/ishapecollection/reorder/#reorder). Aby to zrobić, wywołaj tę metodę z listy slajdów prezentacji, przekazując referencję do kształtu i jego numer kolejności. Dzięki temu można przenieść kształt na przód lub wysłać go na tył slajdu. Funkcja ta jest szczególnie przydatna, gdy chcesz umieścić znak wodny przed zawartością prezentacji:
+W Aspose.Slides kolejność Z kształtów można ustawić metodą [IShapeCollection.Reorder](https://reference.aspose.com/slides/pl/net/aspose.slides/ishapecollection/reorder/#reorder). Aby to zrobić, należy wywołać tę metodę z listy slajdów prezentacji, przekazując referencję do kształtu oraz jego numer porządkowy. Dzięki temu można przenieść kształt na wierzch lub wysłać go na spód slajdu. Funkcja ta jest szczególnie przydatna, gdy trzeba umieścić znak wodny przed zawartością prezentacji:
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 int shapeCount = slide.Shapes.Count;
 slide.Shapes.Reorder(shapeCount - 1, watermarkShape);
 ```
 
-## **Ustaw obrót znaku wodnego**
+## **Ustaw rotację znaku wodnego**
 
-Regulacja obrotu znaku wodnego może znacząco zwiększyć jego wizualny wpływ i dyskrecję w prezentacji. Diagonalny znak wodny, na przykład, jest mniej inwazyjny, a jednocześnie zapewnia skuteczną ochronę przed nieautoryzowanym użyciem. Poniższy przykład oblicza odpowiedni kąt na podstawie wymiarów slajdu, tak aby znak wodny był ustawiony ukośnie na całej powierzchni slajdu. Takie dynamiczne obliczenie gwarantuje, że znak wodny pozostaje skuteczny niezależnie od rozmiaru slajdu.
+Dostosowanie rotacji znaku wodnego może znacząco zwiększyć wizualny wpływ i subtelność Twojej prezentacji. Na przykład znak wodny po przekątnej może być mniej nachalny, a jednocześnie zapewniać solidną ochronę przed nieautoryzowanym użyciem. Poniższy przykład oblicza odpowiedni kąt na podstawie wymiarów slajdu, tak aby znak wodny był umieszczony po przekątnej slajdu. To dynamiczne obliczenie zapewnia skuteczność znaku wodnego niezależnie od różnorodnych rozmiarów slajdów.
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+SizeF slideSize = presentation.SlideSize.Size;
+
 double diagonalAngle = Math.Atan((slideSize.Height / slideSize.Width)) * 180 / Math.PI;
 
 watermarkShape.Rotation = (float)diagonalAngle;
@@ -193,55 +253,66 @@ watermarkShape.Rotation = (float)diagonalAngle;
 
 ## **Ustaw nazwę znaku wodnego**
 
-Aspose.Slides pozwala ustawić nazwę kształtu. Dzięki nazwie kształtu możesz w przyszłości odnaleźć go, aby zmodyfikować lub usunąć. Aby ustawić nazwę kształtu znaku wodnego, przypisz ją do właściwości [IAutoShape.Name](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/properties/name):
+Aspose.Slides umożliwia ustawienie nazwy kształtu. Dzięki nazwie kształtu możesz w przyszłości uzyskać do niego dostęp w celu modyfikacji lub usunięcia. Aby ustawić nazwę kształtu znaku wodnego, przypisz ją do właściwości [IAutoShape.Name](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/properties/name):
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 watermarkShape.Name = "watermark";
 ```
 
 ## **Usuń znak wodny**
 
-Aby usunąć kształt znaku wodnego, użyj właściwości [IAutoShape.Name](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/properties/name) do odnalezienia go w kształtach slajdu. Następnie przekaż kształt znaku wodnego do metody [IShapeCollection.Remove](https://reference.aspose.com/slides/pl/net/aspose.slides/ishapecollection/remove/) :
+Aby usunąć kształt znaku wodnego, użyj właściwości [IAutoShape.Name](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/properties/name) aby odnaleźć go wśród kształtów slajdu. Następnie przekaż kształt znaku wodnego do metody [IShapeCollection.Remove](https://reference.aspose.com/slides/pl/net/aspose.slides/ishapecollection/remove/):
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+
 List<IShape> slideShapes = slide.Shapes.ToList();
 foreach (IShape shape in slideShapes)
 {
     if (string.Compare(shape.Name, "watermark", StringComparison.Ordinal) == 0)
     {
-        slide.Shapes.Remove(watermarkShape);
+        slide.Shapes.Remove(shape);
     }
 }
 ```
 
 ## **Przykład na żywo**
 
-Możesz chcieć wypróbować darmowe narzędzia online **Aspose.Slides free** do [Dodawania znaku wodnego](https://products.aspose.app/slides/pl/watermark) oraz [Usuwania znaku wodnego](https://products.aspose.app/slides/pl/watermark/remove-watermark).
+Możesz sprawdzić **Aspose.Slides free** [Dodaj znak wodny](https://products.aspose.app/slides/pl/watermark) i [Usuń znak wodny](https://products.aspose.app/slides/pl/watermark/remove-watermark) narzędzia online.
 
 ![Narzędzia online do dodawania i usuwania znaków wodnych](online_tools.png)
 
 ## **FAQ**
 
-**Czym jest znak wodny i dlaczego powinienem go używać?**
+### Co to jest znak wodny i dlaczego powinienem go używać?
 
-Znak wodny to nakładka tekstowa lub graficzna aplikowana na slajdy, która pomaga chronić własność intelektualną, zwiększyć rozpoznawalność marki lub zapobiec nieautoryzowanemu użyciu prezentacji.
+Znak wodny to nakładka tekstowa lub graficzna stosowana na slajdach, która pomaga chronić własność intelektualną, zwiększyć rozpoznawalność marki lub zapobiec nieautoryzowanemu użyciu prezentacji.
 
-**Czy mogę dodać znak wodny do wszystkich slajdów w prezentacji?**
+### Czy mogę dodać znak wodny do wszystkich slajdów w prezentacji?
 
-Tak, Aspose.Slides umożliwia programowe dodanie znaku wodnego do każdego slajdu w prezentacji. Można przeiterować wszystkie slajdy i zastosować ustawienia znaku wodnego indywidualnie.
+Tak, Aspose.Slides umożliwia programowe dodanie znaku wodnego do każdego slajdu w prezentacji. Możesz iterować po wszystkich slajdach i stosować ustawienia znaku wodnego indywidualnie.
 
-**Jak mogę regulować przezroczystość znaku wodnego?**
+### Jak mogę dostosować przezroczystość znaku wodnego?
 
-Przezroczystość znaku wodnego można regulować, modyfikując ustawienia wypełnienia ([FillFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/shape/fillformat/)) kształtu. Dzięki temu znak wodny pozostaje subtelny i nie odciąga uwagi od treści slajdu.
+Możesz dostosować przezroczystość znaku wodnego, modyfikując ustawienia wypełnienia ([FillFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/shape/fillformat/)) kształtu. Dzięki temu znak wodny pozostaje subtelny i nie odciąga uwagi od treści slajdu.
 
-**Jakie formaty obrazu są obsługiwane dla znaków wodnych?**
+### Jakie formaty obrazów są obsługiwane dla znaków wodnych?
 
-Aspose.Slides obsługuje różne formaty obrazu, takie jak PNG, JPEG, GIF, BMP, SVG i inne.
+Aspose.Slides obsługuje różne formaty obrazów, takie jak PNG, JPEG, GIF, BMP, SVG i inne.
 
-**Czy mogę dostosować czcionkę i styl tekstowego znaku wodnego?**
+### Czy mogę dostosować czcionkę i styl tekstowego znaku wodnego?
 
-Tak, możesz wybrać dowolną czcionkę, rozmiar i styl, aby dopasować znak wodny do projektu prezentacji i zachować spójność marki.
+Tak, możesz wybrać dowolną czcionkę, rozmiar i styl, aby dopasować je do projektu prezentacji i zachować spójność marki.
 
-**Jak zmienić pozycję lub orientację znaku wodnego?**
+### Jak zmienić pozycję lub orientację znaku wodnego?
 
-Pozycję i orientację znaku wodnego można programowo dostosować, modyfikując współrzędne, rozmiar oraz właściwość obrotu kształtu.
+Możesz programowo zmienić pozycję i orientację znaku wodnego, modyfikując współrzędne, rozmiar i właściwości rotacji kształtu.

@@ -1,5 +1,5 @@
 ---
-title: Configurare le collezioni di font di fallback in Java
+title: Configura le collezioni di font di fallback in Java
 linktitle: Collezione di font di fallback
 type: docs
 weight: 20
@@ -19,23 +19,25 @@ description: "Configura una collezione di font di fallback in Aspose.Slides per 
 ---
 ## **Panoramica**
 
-Aspose.Slides consente di configurare una raccolta di regole di font di fallback per una presentazione. Ogni regola di fallback è rappresentata dalla classe `FontFallBackRule` e può essere aggiunta a una `FontFallBackRulesCollection`, che implementa l'interfaccia `IFontFallBackRulesCollection`.
+Aspose.Slides consente di configurare una raccolta di regole di fallback per i caratteri di una presentazione. Ogni regola di fallback è rappresentata dalla classe `FontFallBackRule` e può essere aggiunta a una `FontFallBackRulesCollection`, che implementa l’interfaccia `IFontFallBackRulesCollection`.
 
-Dopo aver creato la raccolta, è possibile assegnarla alla proprietà `FontFallBackRulesCollection` del `FontsManager` della presentazione. Il `FontsManager` gestisce i font in tutta la presentazione e ogni istanza di `Presentation` dispone del proprio `FontsManager`.
+Dopo aver creato la raccolta, è possibile assegnarla alla proprietà `FontFallBackRulesCollection` del `FontsManager` della presentazione. Il `FontsManager` controlla i font in tutta la presentazione e ogni istanza di `Presentation` dispone del proprio `FontsManager`.
 
 Una volta che il `FontsManager` è stato inizializzato con la raccolta di font di fallback, i font di fallback specificati vengono applicati durante il rendering della presentazione.
 
-## **Applica Regole di Fallback**
+## **Applica le regole di fallback**
 
-Le istanze della classe [FontFallBackRule](https://reference.aspose.com/slides/it/java/com.aspose.slides/FontFallBackRule) possono essere organizzate in una [FontFallBackRulesCollection](https://reference.aspose.com/slides/it/java/com.aspose.slides/FontFallBackRulesCollection), che implementa l'interfaccia [IFontFallBackRulesCollection](https://reference.aspose.com/slides/it/java/com.aspose.slides/IFontFallBackRulesCollection). È possibile aggiungere o rimuovere regole dalla raccolta.
+Le istanze della classe [FontFallBackRule](https://reference.aspose.com/slides/it/java/com.aspose.slides/FontFallBackRule) possono essere organizzate in una [FontFallBackRulesCollection](https://reference.aspose.com/slides/it/java/com.aspose.slides/FontFallBackRulesCollection), che implementa l’interfaccia [IFontFallBackRulesCollection](https://reference.aspose.com/slides/it/java/com.aspose.slides/IFontFallBackRulesCollection). È possibile aggiungere o rimuovere regole dalla raccolta.
 
-Quindi questa raccolta può essere assegnata al metodo [FontFallBackRulesCollection](https://reference.aspose.com/slides/it/java/com.aspose.slides/FontFallBackRulesCollection) della classe [FontsManager](https://reference.aspose.com/slides/it/java/com.aspose.slides/FontsManager). Il FontsManager controlla i font in tutta la presentazione.
+Questa raccolta può quindi essere assegnata al metodo [FontFallBackRulesCollection](https://reference.aspose.com/slides/it/java/com.aspose.slides/FontFallBackRulesCollection) della classe [FontsManager](https://reference.aspose.com/slides/it/java/com.aspose.slides/FontsManager). Il `FontsManager` controlla i font in tutta la presentazione.
 
 Ogni [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/Presentation) dispone di un metodo [getFontsManager](https://reference.aspose.com/slides/it/java/com.aspose.slides/Presentation#getFontsManager--) con la propria istanza della classe [FontsManager](https://reference.aspose.com/slides/it/java/com.aspose.slides/FontsManager).
 
-Ecco un esempio su come creare una raccolta di regole di font di fallback e assegnarla al [FontsManager](https://reference.aspose.com/slides/it/java/com.aspose.slides/Presentation#getFontsManager--) di una determinata presentazione:  
+Ecco un esempio su come creare una raccolta di regole di fallback per i font e assegnarla al [FontsManager](https://reference.aspose.com/slides/it/java/com.aspose.slides/Presentation#getFontsManager--) di una determinata presentazione:  
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IFontFallBackRulesCollection userRulesList = new FontFallBackRulesCollection();
@@ -49,26 +51,26 @@ try {
 }
 ```
 
-Dopo che il FontsManager è stato inizializzato con la raccolta di font di fallback, i font di fallback vengono applicati durante il rendering della presentazione.
+Dopo che il `FontsManager` è stato inizializzato con la raccolta di font di fallback, i font di fallback vengono applicati durante il rendering della presentazione.
 
-{{% alert color="primary" %}} 
-Scopri di più su come [Renderizza la presentazione con font di fallback](/slides/it/java/render-presentation-with-fallback-font/).
+{{% alert color="info" %}} 
+Leggi di più su [Render Presentation with Fallback Font](/slides/it/java/render-presentation-with-fallback-font/).
 {{% /alert %}}
 
 ## **FAQ**
 
-**Le mie regole di fallback verranno incorporate nel file PPTX e saranno visibili in PowerPoint dopo il salvataggio?**
+### Le mie regole di fallback verranno incorporate nel file PPTX e saranno visibili in PowerPoint dopo il salvataggio?
 
-No. Le regole di fallback sono impostazioni di rendering a runtime; non vengono serializzate nel PPTX e non appariranno nell'interfaccia di PowerPoint.
+No. Le regole di fallback sono impostazioni di rendering a runtime; non vengono serializzate nel PPTX e non appariranno nell’interfaccia di PowerPoint.
 
-**Il fallback si applica al testo all'interno di SmartArt, WordArt, grafici e tabelle?**
+### Il fallback si applica al testo all’interno di SmartArt, WordArt, grafici e tabelle?
 
 Sì. Lo stesso meccanismo di sostituzione dei glifi viene utilizzato per qualsiasi testo in questi oggetti.
 
-**Aspose distribuisce dei font con la libreria?**
+### Aspose distribuisce dei font con la libreria?
 
-No. È necessario aggiungere e utilizzare i font da parte tua e sotto tua responsabilità.
+No. È necessario aggiungere e utilizzare i font sul proprio sistema, a propria responsabilità.
 
-**È possibile utilizzare insieme la sostituzione per font mancanti e il fallback per glifi mancanti?**
+### È possibile usare insieme la sostituzione/rimpiazzo per i font mancanti e il fallback per i glifi mancanti?
 
 Sì. Sono fasi indipendenti della stessa pipeline di risoluzione dei font: prima il motore risolve la disponibilità dei font ([replacement](/slides/it/java/font-replacement/)/[substitution](/slides/it/java/font-substitution/)), poi il fallback colma le lacune per i glifi mancanti nei font disponibili.

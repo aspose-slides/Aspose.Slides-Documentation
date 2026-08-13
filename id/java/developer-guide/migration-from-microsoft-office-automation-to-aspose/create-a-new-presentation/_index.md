@@ -1,11 +1,11 @@
 ---
-title: Buat Presentasi Baru Menggunakan VSTO dan Aspose.Slides untuk Java
-linktitle: Buat Presentasi Baru
+title: Membuat Presentasi Baru Menggunakan VSTO dan Aspose.Slides untuk Java
+linktitle: Membuat Presentasi Baru
 type: docs
 weight: 10
 url: /id/java/create-a-new-presentation/
 keywords:
-- buat presentasi
+- membuat presentasi
 - presentasi baru
 - migrasi
 - VSTO
@@ -14,21 +14,21 @@ keywords:
 - presentasi
 - Java
 - Aspose.Slides
-description: "Migrasikan dari otomasi Microsoft Office ke Aspose.Slides untuk Java dan buat presentasi PowerPoint (PPT, PPTX) baru dalam Java dengan kode yang bersih dan andal."
+description: "Migrasi dari otomasi Microsoft Office ke Aspose.Slides untuk Java dan buat presentasi PowerPoint (PPT, PPTX) baru di Java dengan kode yang bersih dan dapat diandalkan."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-VSTO dikembangkan untuk memungkinkan pengembang membuat aplikasi yang dapat dijalankan di dalam Microsoft Office. VSTO berbasis COM tetapi dibungkus di dalam objek .NET sehingga dapat digunakan dalam aplikasi .NET. VSTO memerlukan dukungan .NET Framework serta runtime berbasis CLR Microsoft Office. Meskipun dapat digunakan untuk membuat add-in Microsoft Office, hampir tidak mungkin menggunakannya sebagai komponen sisi server. Ia juga memiliki masalah penyebaran yang serius.
+VSTO dikembangkan untuk memungkinkan pengembang membangun aplikasi yang dapat berjalan di dalam Microsoft Office. VSTO berbasis COM tetapi dibungkus dalam objek .NET sehingga dapat digunakan dalam aplikasi .NET. VSTO memerlukan dukungan .NET framework serta runtime Microsoft Office berbasis CLR. Meskipun dapat digunakan untuk membuat add‑in Microsoft Office, hampir tidak mungkin menggunakannya sebagai komponen sisi server. Ia juga memiliki masalah penyebaran yang serius.
 
-Aspose.Slides for Java adalah komponen yang dapat digunakan untuk memanipulasi presentasi Microsoft PowerPoint, sama seperti VSTO, namun memiliki beberapa keunggulan:
+Aspose.Slides for Java adalah komponen yang dapat digunakan untuk memanipulasi presentasi Microsoft PowerPoint, sama seperti VSTO, tetapi memiliki beberapa keunggulan:
 
-- Aspose.Slides hanya berisi kode terkelola dan tidak memerlukan runtime Microsoft Office untuk diinstal.
-- Ini dapat digunakan sebagai komponen sisi klien atau sebagai komponen sisi server.
-- Penyebaran mudah karena Aspose.Slides terdapat dalam satu file jar.
+- Aspose.Slides hanya berisi kode terkelola dan tidak memerlukan runtime Microsoft Office untuk diinstal.  
+- Dapat digunakan sebagai komponen sisi klien atau sebagai komponen sisi server.  
+- Penyebaran mudah karena Aspose.Slides terkandung dalam satu file jar.  
 
 {{% /alert %}} 
 ## **Membuat Presentasi**
-Di bawah ini ada dua contoh kode yang menggambarkan bagaimana VSTO dan Aspose.Slides for Java dapat digunakan untuk mencapai tujuan yang sama. Contoh pertama adalah [VSTO](/slides/id/java/create-a-new-presentation/); [contoh kedua](/slides/id/java/create-a-new-presentation/) menggunakan Aspose.Slides.
+Berikut dua contoh kode yang menggambarkan bagaimana VSTO dan Aspose.Slides for Java dapat digunakan untuk mencapai tujuan yang sama. Contoh pertama adalah [VSTO](/slides/id/java/create-a-new-presentation/); [contoh kedua](/slides/id/java/create-a-new-presentation/) menggunakan Aspose.Slides.
 ### **Contoh VSTO**
 **Output VSTO** 
 

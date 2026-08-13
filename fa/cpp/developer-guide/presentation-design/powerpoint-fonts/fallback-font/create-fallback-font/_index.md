@@ -9,67 +9,72 @@ keywords:
 - قانون جایگزینی
 - اعمال فونت
 - جایگزینی فونت
-- بازه Unicode
-- گلیف گمشده
+- بازه یونیکد
+- گلیف گم‌شده
 - گلیف مناسب
 - PowerPoint
 - OpenDocument
 - ارائه
 - C++
 - Aspose.Slides
-description: "Aspose.Slides برای C++ را به‌کار ببرید تا فونت‌های جایگزین را در فایل‌های PPT، PPTX و ODP تنظیم کنید و نمایش یکسان متن را در هر دستگاه یا سیستم‌عامل تضمین کنید."
+description: "با Aspose.Slides برای C++، فونت‌های جایگزین را در فایل‌های PPT، PPTX و ODP تنظیم کنید تا نمایش متن به‌صورت یکسان در هر دستگاه یا سیستم‌عامل حفظ شود."
 ---
-## **Overview**
+## **نمای کلی**
 
-Aspose.Slides به شما امکان می‌دهد فونت‌های جایگزین برای رندر و عملیات خروجی ارائه بدهید. فونت‌های جایگزین زمانی استفاده می‌شوند که فونت اصلی گلیف‌های کاراکترهای خاصی را نداشته باشد.
+Aspose.Slides به شما امکان می‌دهد فونت‌های جایگزین را برای رندر و عملیات صادرات ارائه تعریف کنید. فونت‌های جایگزین زمانی استفاده می‌شوند که فونت اصلی شامل گلیف‌های کاراکترهای خاص نباشد.
 
-رفتار جایگزینی از طریق قوانین جایگزینی پیکربندی می‌شود. هر قانون یک بازه Unicode را به یک یا چند فونت که ممکن است گلیف‌های مورد نیاز را داشته باشند، مرتبط می‌کند. می‌توانید قوانین را برای بازه‌های کاراکتری مختلف تعریف کنید، فونت‌های جایگزین را به قوانین موجود اضافه یا حذف کنید، و چندین قانون را در یک مجموعه قوانین فونت جایگزین سازماندهی کنید.
+رفتار جایگزین از طریق قوانین جایگزینی پیکربندی می‌شود. هر قانون یک بازه یونیکد را با یک یا چند فونت که ممکن است گلیف‌های مورد نیاز را داشته باشند، ارتباط می‌دهد. می‌توانید قوانین برای بازه‌های کاراکتری مختلف تعریف کنید، فونت‌های جایگزین را به قوانین موجود اضافه یا حذف کنید و چندین قانون را در یک مجموعه قوانین فونت جایگزین سازماندهی کنید.
 
-قوانین جایگزینی تنظیمات رندر در زمان اجرا هستند. آن‌ها فایل ارائه را تغییر نمی‌دهند و در فایل PPTX ذخیره نمی‌شوند.
+قوانین جایگزین تنظیمات رندر در زمان اجرا هستند. آن‌ها فایل ارائه را تغییر نمی‌دهند و در داخل فایل PPTX ذخیره نمی‌شوند.
 
-## **Fallback Rules**
+## **قوانین جایگزین**
 
-Aspose.Slides از رابط کاربری [IFontFallBackRule](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ifontfallbackrule/) و کلاس [FontFallBackRule](https://reference.aspose.com/slides/fa/cpp/aspose.slides/fontfallbackrule/) برای تعیین قوانین اعمال فونت جایگزین پشتیبانی می‌کند. کلاس [FontFallBackRule](https://reference.aspose.com/slides/fa/cpp/aspose.slides/fontfallbackrule/) رابطه‌ای بین بازه Unicode مشخص‌شده، که برای جستجوی گلیف‌های گمشده استفاده می‌شود، و فهرستی از فونت‌هایی که ممکن است گلیف‌های مناسب را داشته باشند، نشان می‌دهد:
+Aspose.Slides از رابط [IFontFallBackRule](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ifontfallbackrule/) و کلاس [FontFallBackRule](https://reference.aspose.com/slides/fa/cpp/aspose.slides/fontfallbackrule/) برای تعیین قوانینی که فونت جایگزین را اعمال می‌کنند، پشتیبانی می‌کند. کلاس [FontFallBackRule](https://reference.aspose.com/slides/fa/cpp/aspose.slides/fontfallbackrule/) نمایانگر ارتباط بین بازه یونیکد مشخص شده، که برای جستجوی گلیف‌های مفقود استفاده می‌شود، و فهرستی از فونت‌ها که ممکن است گلیف‌های مناسب را داشته باشند:
 
 ``` cpp
+#include <DOM/Fonts/FontFallBackRule.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 uint32_t startUnicodeIndex = 0x0B80;
 uint32_t endUnicodeIndex = 0x0BFF;
 
 auto firstRule = MakeObject<FontFallBackRule>(startUnicodeIndex, endUnicodeIndex, u"Vijaya");
 auto secondRule = MakeObject<FontFallBackRule>(static_cast<uint32_t>(0x3040), static_cast<uint32_t>(0x309F), u"MS Mincho, MS Gothic");
 
-// با استفاده از روش‌های مختلف می‌توانید فهرست فونت‌ها را اضافه کنید:
+// Using multiple ways you can add fonts list:
 auto fontNames = MakeArray<String>({ u"Segoe UI Emoji, Segoe UI Symbol", u"Arial" });
 
 auto thirdRule = MakeObject<FontFallBackRule>(static_cast<uint32_t>(0x1F300), static_cast<uint32_t>(0x1F64F), fontNames);
 ```
 
-همچنین می‌توانید با استفاده از متد [Remove()](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ifontfallbackrule/remove/) فونت جایگزین را حذف کنید یا با متد [AddFallBackFonts()](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ifontfallbackrule/addfallbackfonts/) به شیء [FontFallBackRule](https://reference.aspose.com/slides/fa/cpp/aspose.slides/fontfallbackrule/) موجود اضافه کنید.
+همچنین امکان [Remove()](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ifontfallbackrule/remove/) فونت جایگزین یا [AddFallBackFonts()](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ifontfallbackrule/addfallbackfonts/) به شیء [FontFallBackRule](https://reference.aspose.com/slides/fa/cpp/aspose.slides/fontfallbackrule/) موجود وجود دارد.
 
-با استفاده از [FontFallBackRulesCollection](https://reference.aspose.com/slides/fa/cpp/aspose.slides/fontfallbackrulescollection/) می‌توانید فهرستی از اشیاء [FontFallBackRule](https://reference.aspose.com/slides/fa/cpp/aspose.slides/fontfallbackrule/) را سازماندهی کنید، زمانی که نیاز به تعیین قوانین جایگزینی فونت برای چندین بازه Unicode دارید.
+[FontFallBackRulesCollection](https://reference.aspose.com/slides/fa/cpp/aspose.slides/fontfallbackrulescollection/) می‌تواند برای سازماندهی فهرستی از اشیاء [FontFallBackRule](https://reference.aspose.com/slides/fa/cpp/aspose.slides/fontfallbackrule/) استفاده شود، هنگامی که نیاز به تعیین قوانین جایگزینی فونت برای چندین بازه یونیکد باشد.
 
-{{% alert color="primary" title="See also" %}} 
-- [ایجاد مجموعه فونت‌های جایگزین](/slides/fa/cpp/create-fallback-fonts-collection/)
+{{% alert color="info" title="See also" %}} 
+- [Create Fallback Fonts Collection](/slides/fa/cpp/create-fallback-fonts-collection/)
 {{% /alert %}}
 
-## **FAQ**
+## **سؤالات متداول**
 
-**فرق بین فونت جایگزین، جایگزینی فونت و جاسازی فونت چیست؟**
+### تفاوت بین فونت جایگزین، جایگزینی فونت و جاسازی فونت چیست؟
 
-فونت جایگزین تنها برای کاراکترهای گم‌شده در فونت اصلی استفاده می‌شود. [جایگزینی فونت](/slides/fa/cpp/font-substitution/) کل فونت مشخص‌شده را با فونت دیگری عوض می‌کند. [جاسازی فونت](/slides/fa/cpp/embedded-font/) فونت‌ها را داخل فایل خروجی بسته‌بندی می‌کند تا دریافت‌کنندگان متن را همان‌گونه که قصد شده است مشاهده کنند.
+یک فونت جایگزین فقط برای کاراکترهایی که در فونت اصلی موجود نیستند استفاده می‌شود. [Font substitution](/slides/fa/cpp/font-substitution/) کل فونت مشخص شده را با فونت دیگری جایگزین می‌کند. [Font embedding](/slides/fa/cpp/embedded-font/) فونت‌ها را داخل فایل خروجی بسته‌بندی می‌کند تا دریافت‌کنندگان بتوانند متن را همان‌طور که منظور بوده نمایش دهند.
 
-**آیا فونت‌های جایگزین فقط در رندر روی صفحه نمایش اعمال می‌شوند یا در خروجی‌هایی مانند PDF، PNG یا SVG نیز عمل می‌کنند؟**
+### آیا فونت‌های جایگزین در زمان صادرات مانند PDF، PNG یا SVG اعمال می‌شوند یا فقط در رندر روی صفحه نمایش؟
 
-بله. فونت جایگزین بر تمام [عملیات رندر و خروجی](/slides/fa/cpp/convert-presentation/) که در آن‌ها کاراکترها باید رسم شوند ولی در فونت منبع وجود ندارند، تأثیر می‌گذارد.
+بله. جایگزین بر تمام [عملیات رندر و صادرات](/slides/fa/cpp/convert-presentation/) که کاراکترها باید رسم شوند اما در فونت منبع موجود نیستند، تأثیر می‌گذارد.
 
-**آیا پیکربندی فونت جایگزین فایل ارائه را تغییر می‌دهد و آیا این تنظیم برای بازهای آینده حفظ می‌شود؟**
+### آیا پیکربندی جایگزین فایل ارائه را تغییر می‌دهد و آیا این تنظیم برای باز کردن‌های آینده حفظ می‌شود؟
 
-خیر. قوانین جایگزینی تنظیمات رندر زمان اجرا در کد شما هستند؛ آن‌ها داخل فایل .pptx ذخیره نمی‌شوند و در PowerPoint نشان داده نمی‌شوند.
+خیر. قوانین جایگزین تنظیمات رندر در زمان اجرا در کد شما هستند؛ آن‌ها داخل فایل .pptx ذخیره نمی‌شوند و در پاورپوینت نمایش داده نمی‌شوند.
 
-**آیا سیستم‌عامل (Windows/Linux/macOS) و مجموعه مسیرهای فونت بر انتخاب فونت جایگزین تأثیر می‌گذارد؟**
+### آیا سیستم عامل (Windows/Linux/macOS) و مجموعهٔ پوشه‌های فونت بر انتخاب جایگزین تأثیر می‌گذارد؟
 
-بله. موتور فونت‌ها را از پوشه‌های سیستم موجود و هر [مسیر اضافی](/slides/fa/cpp/custom-font/) که شما فراهم می‌کنید، بازیابی می‌کند. اگر یک فونت به صورت فیزیکی موجود نباشد، قانونی که به آن ارجاع می‌دهد نمی‌تواند اعمال شود.
+بله. موتور فونت‌ها را از پوشه‌های سیستم موجود و هر [مسیر اضافی](/slides/fa/cpp/custom-font/) که شما ارائه می‌دهید، بازیابی می‌کند. اگر فونتی به صورت فیزیکی در دسترس نباشد، قانونی که به آن ارجاع می‌دهد نمی‌تواند اثر داشته باشد.
 
-**آیا فونت جایگزین برای WordArt، SmartArt و نمودارها کار می‌کند؟**
+### آیا جایگزین برای WordArt، SmartArt و نمودارها کار می‌کند؟
 
-بله. وقتی این اشیاء شامل متن شوند، همان مکانیزم جایگزینی گلیف برای رندر کاراکترهای گمشده اعمال می‌شود.
+بله. وقتی این اشیا شامل متن باشند، همان مکانیزم جایگزینی گلیف برای رندر کاراکترهای مفقود به کار می‌رود.

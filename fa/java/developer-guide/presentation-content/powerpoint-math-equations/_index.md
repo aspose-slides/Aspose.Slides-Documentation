@@ -9,45 +9,47 @@ keywords:
 - نماد ریاضی
 - فرمول ریاضی
 - متن ریاضی
-- افزودن معادله ریاضی
-- افزودن نماد ریاضی
-- افزودن فرمول ریاضی
-- افزودن متن ریاضی
+- اضافه کردن معادله ریاضی
+- اضافه کردن نماد ریاضی
+- اضافه کردن فرمول ریاضی
+- اضافه کردن متن ریاضی
 - PowerPoint
 - ارائه
 - Java
 - Aspose.Slides
-description: "درج و ویرایش معادلات ریاضی در فایل‌های PowerPoint PPT و PPTX با Aspose.Slides برای Java، با پشتیبانی از OMML، کنترل‌های قالب‌بندی و نمونه‌های کد واضح Java."
+description: "در PowerPoint (PPT و PPTX) معادلات ریاضی را با Aspose.Slides برای Java وارد کرده و ویرایش کنید؛ پشتیبانی از OMML، کنترل‌های قالب‌بندی و نمونه‌های کد واضح Java."
 ---
 ## **بررسی کلی**
 
-PowerPoint معادلات را به عنوان Office Math Markup Language (OMML) ذخیره می‌کند. با Aspose.Slides for Java می‌توانید محتویات ریاضی مشابه را به صورت برنامه‌نویسی ایجاد کنید: کسرها، رادیکال‌ها، توابع، حدود، عملگرهای N-ary، ماتریس‌ها، آرایه‌ها و بلوک‌های ریاضی قالب‌بندی‌شده.
+PowerPoint معادلات را به صورت Office Math Markup Language (OMML) ذخیره می‌کند. با Aspose.Slides برای Java می‌توانید همان نوع محتویات ریاضی را به‌صورت برنامه‌نویسی ایجاد کنید: کسرها، رادیکال‌ها، توابع، حدها، عملگرهای N‑ary، ماتریس‌ها، آرایه‌ها و بلوک‌های ریاضی قالب‌بندی‌شده.
 
 در PowerPoint، کاربران معمولاً معادلات را از **Insert > Equation** اضافه می‌کنند:
 
-![زبانه Insert در PowerPoint با فرمان Equation انتخاب شده](powerpoint-math-equations_1.png)
+![برگه Insert در PowerPoint با فرمان Equation انتخاب شده](powerpoint-math-equations_1.png)
 
 نتیجه متن ریاضی قابل ویرایش بر روی اسلاید است:
 
-![یک اسلاید PowerPoint شامل یک معادله ریاضی قابل ویرایش](powerpoint-math-equations_2.png)
+![یک اسلاید PowerPoint حاوی یک معادله ریاضی قابل ویرایش](powerpoint-math-equations_2.png)
 
-Aspose.Slides این متن ریاضی را از طریق سه شیء اصلی می‌سازد:
+Aspose.Slides این متن ریاضی را با استفاده از سه شیء اصلی می‌سازد:
 
-- یک شکل ریاضی، که با [addMathShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) ساخته می‌شود، شکلی است که معادله را دربر می‌گیرد.
-- [MathPortion](https://reference.aspose.com/slides/fa/java/com.aspose.slides/mathportion/) محتویات ریاضی را داخل فریم متن شکل ذخیره می‌کند.
-- [MathParagraph](https://reference.aspose.com/slides/fa/java/com.aspose.slides/mathparagraph/) یک یا چند شیء [MathBlock](https://reference.aspose.com/slides/fa/java/com.aspose.slides/mathblock/) را شامل می‌شود.
+- یک شکل ریاضی که با [addMathShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) ایجاد می‌شود، شکلی است که معادله را در خود دارد.
+- [MathPortion](https://reference.aspose.com/slides/fa/java/com.aspose.slides/mathportion/) محتویات ریاضی را در داخل فریم متن شکل ذخیره می‌کند.
+- [MathParagraph](https://reference.aspose.com/slides/fa/java/com.aspose.slides/mathparagraph/) شامل یک یا چند شیء [MathBlock](https://reference.aspose.com/slides/fa/java/com.aspose.slides/mathblock/) است.
 
-اکثر مثال‌های زیر از [MathematicalText](https://reference.aspose.com/slides/fa/java/com.aspose.slides/mathematicaltext/) و متدهای زنجیروار [IMathElement](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathelement/) برای کوتاه و واضح نگه داشتن کد استفاده می‌کنند.
+اکثر مثال‌های زیر از [MathematicalText](https://reference.aspose.com/slides/fa/java/com.aspose.slides/mathematicaltext/) و روش‌های زنجیرفاری موجود در [IMathElement](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathelement/) استفاده می‌کنند تا کد کوتاه و قابل خواندن باشد.
 
-برای سناریوهای صدور MathML، به [Export Math Equations from Presentations in Java](/slides/fa/java/exporting-math-equations/) مراجعه کنید.
+برای سناریوهای خروجی MathML، به [Export Math Equations from Presentations in Java](/slides/fa/java/exporting-math-equations/) مراجعه کنید.
 
 ## **ایجاد یک معادله**
 
 این مثال یک شکل ریاضی ایجاد می‌کند و قضیه فیثاغورث را اضافه می‌نماید:
 
-![معادله c² = a² + b²](powerpoint-math-equations_3.png)
+![معادله c به توان دو برابر a به توان دو به‌علاوه b به توان دو](powerpoint-math-equations_3.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -71,17 +73,19 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-`addMathShape` یک شکل ایجاد می‌کند که از پیش شامل یک پاراگراف ریاضی است. اولین `MathPortion` را دسترسی پیدا کنید، `MathParagraph` آن را بگیرید و بلوک‌ها یا عناصر ریاضی را به آن اضافه کنید.
+{{% alert color="info" %}}
+`addMathShape` یک شکل ایجاد می‌کند که از پیش شامل یک بند ریاضی (math paragraph) است. اولین `MathPortion` را دسترسی پیدا کنید، `MathParagraph` آن را دریافت کنید و بلوک‌های ریاضی یا عناصر ریاضی را به آن اضافه کنید.
 {{% /alert %}}
 
 ## **اضافه کردن کسرها**
 
-از `divide` برای ساخت یک کسر استفاده کنید. می‌توانید سبک کسر را با [MathFractionTypes](https://reference.aspose.com/slides/fa/java/com.aspose.slides/mathfractiontypes/) انتخاب کنید.
+از `divide` برای ایجاد یک کسر استفاده کنید. می‌توانید سبک کسری را با [MathFractionTypes](https://reference.aspose.com/slides/fa/java/com.aspose.slides/mathfractiontypes/) انتخاب کنید.
 
 ![یک کسر ریاضی کج که یک تقسیم بر x را نشان می‌دهد](powerpoint-math-equations_4.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -101,19 +105,23 @@ try {
 }
 ```
 
-برای یک کسر عمودی، از `MathFractionTypes.Bar` استفاده کنید:
+برای یک کسر ستاپ‌شده (stacked)، از `MathFractionTypes.Bar` استفاده کنید:
 
 ```java
+import com.aspose.slides.*;
+
 IMathFraction stackedFraction = new MathematicalText("x + 1").divide("y - 1", MathFractionTypes.Bar);
 ```
 
 ## **اضافه کردن رادیکال‌ها**
 
-از `radical` برای ساخت رادیکال درجه دوم، سوم یا دیگر رادیکال‌ها استفاده کنید. عنصر کنونی به عنوان پایه می‌شود و آرگومان به عنوان درجه.
+از `radical` برای ایجاد رادیکال (ریشه) مربعی، مکعبی یا سایر رادیکال‌ها استفاده کنید. عنصر جاری به‌عنوان پایه می‌شود و آرگومان به‌عنوان درجه رادیکال.
 
-![یک عبارت رادیکال n-ام با x زیر علامت رادیکال](powerpoint-math-equations_5.png)
+![یک عبارت رادیکالی n‑ام با x زیر علامت رادیکال](powerpoint-math-equations_5.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -135,11 +143,13 @@ try {
 
 ## **اضافه کردن توابع و حدود**
 
-از `asArgumentOfFunction` یا `function` برای توابعی مانند `sin(x)`، `log(x)` یا نام‌های توابع سفارشی استفاده کنید. برای حدود، `lim` را در یک [MathLimit](https://reference.aspose.com/slides/fa/java/com.aspose.slides/mathlimit/) قرار دهید یا از `setLowerLimit` استفاده کنید.
+از `asArgumentOfFunction` یا `function` برای توابعی مانند `sin(x)`، `log(x)` یا نام توابع سفارشی استفاده کنید. برای حدود، `lim` را در یک [MathLimit](https://reference.aspose.com/slides/fa/java/com.aspose.slides/mathlimit/) قرار دهید یا از `setLowerLimit` استفاده کنید.
 
-![حد x هنگامی که x به بینهایت نزدیک می‌شود](powerpoint-math-equations_8.png)
+![حد x هنگامی که x به بی‌نهایت میل می‌کند](powerpoint-math-equations_8.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -160,19 +170,23 @@ try {
 }
 ```
 
-برای نام توابع سفارشی، نام تابع را به عنوان عنصر کنونی قرار دهید:
+برای نام تابع سفارشی، نام تابع را به‌عنوان عنصر جاری قرار دهید:
 
 ```java
+import com.aspose.slides.*;
+
 IMathFunction customFunction = new MathematicalText("f").function("x + 1");
 ```
 
 ## **اضافه کردن عملگرهای N-ary و انتگرال‌ها**
 
-از `nary` برای مجموع‌ها، اجتماع‌ها، تقاطع‌ها و سایر عملگرهای بزرگ استفاده کنید. برای انتگرال‌ها از `integral` بهره ببرید. هر دو متد به شما امکان تنظیم حدود پایین و بالا را می‌دهند.
+از `nary` برای جمع‌ها، اتحادیه‌ها، تقاطع‌ها، و سایر عملگرهای بزرگ استفاده کنید. برای انتگرال‌ها از `integral` استفاده کنید. هر دو روش به شما امکان تنظیم حدود پایین و بالا را می‌دهند.
 
 ![یک جمع با حدود پایین و بالا](powerpoint-math-equations_7.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -195,22 +209,26 @@ try {
 }
 ```
 
-عملگرهای N-ary برای عملگرهای بزرگ با حدود اختیاری هستند. عملگرهای ساده مانند `+`، `-` و `=` معمولاً به عنوان `MathematicalText` افزوده شده و در عبارت ترکیب می‌شوند.
+عملگرهای N‑ary برای عملگرهای بزرگ با حدود اختیاری هستند. عملگرهای ساده مانند `+`، `-` و `=` معمولاً به‌عنوان `MathematicalText` اضافه شده و به عبارت ترکیب می‌شوند.
 
 برای یک انتگرال، از `integral` استفاده کنید:
 
 ```java
+import com.aspose.slides.*;
+
 IMathBlock integralBase = new MathematicalText("x").join(new MathematicalText("dx").toBox());
 IMathNaryOperator integral = integralBase.integral(MathIntegralTypes.Simple, "0", "1");
 ```
 
 ## **اضافه کردن ماتریس‌ها**
 
-از [MathMatrix](https://reference.aspose.com/slides/fa/java/com.aspose.slides/mathmatrix/) برای ردیف‌ها و ستون‌ها استفاده کنید. به‌طور پیش‌فرض ماتریس‌ها پرانتز ندارند، بنابراین برای افزودن پرانتز، کروشه یا آکل‌نقش آن را درون پرانتز بگیرید.
+از [MathMatrix](https://reference.aspose.com/slides/fa/java/com.aspose.slides/mathmatrix/) برای ردیف‌ها و ستون‌ها استفاده کنید. به‌طور پیش‌فرض ماتریس‌ها پرانتز ندارند، بنابراین زمانی که به پرانتز، کروشه یا قلاب نیاز دارید، ماتریس را در آنها بپیچید.
 
-![یک ماتریکس ریاضی دو ردیفی با یک سلول خالی](powerpoint-math-equations_10.png)
+![یک ماتریس ریاضی دو ردیفی با یک سلول خالی](powerpoint-math-equations_10.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -236,11 +254,13 @@ try {
 
 ## **اضافه کردن آرایه‌های معادله**
 
-از `toMathArray` وقتی به معادلات تراز شده یا یک پشته عمودی از عبارات نیاز دارید، استفاده کنید.
+از `toMathArray` هنگامی که به معادلات هم‌تراز یا یک پشته عمودی از عبارات نیاز دارید استفاده کنید.
 
-![یک آرایه ریاضی عمودی با x بالای y](powerpoint-math-equations_11.png)
+![یک آرایه ریاضی عمودی با x در بالای y](powerpoint-math-equations_11.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -263,11 +283,13 @@ try {
 
 ## **اضافه کردن توابع مثلثاتی**
 
-از `asArgumentOfFunction` وقتی آرگومان عنصر فعلی است و نام تابع شناخته شده است، استفاده کنید.
+زمانی که آرگومان عنصر جاری است و نام تابع شناخته‌شده است، از `asArgumentOfFunction` استفاده کنید.
 
-![تابع مثلثاتی cos اعمال‌شده بر 2x](powerpoint-math-equations_6.png)
+![تابع مثلثاتی cos بر 2x اعمال شده](powerpoint-math-equations_6.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -287,13 +309,15 @@ try {
 }
 ```
 
-## **اضافه کردن زیرنویس و بالانویس**
+## **اضافه کردن زیرنویس‌ها و بالانویس‌ها**
 
-از ابزارهای زیرنویس و بالانویس برای اندیس‌ها و توان‌ها استفاده کنید. وقتی اندیس‌ها باید در سمت چپ پایه ظاهر شوند، از `setSubSuperscriptOnTheLeft` استفاده کنید.
+از ابزارهای زیرنویس و بالانویس برای شاخص‌ها و توان‌ها استفاده کنید. هنگامی که شاخص‌ها باید در سمت چپ پایه ظاهر شوند، از `setSubSuperscriptOnTheLeft` استفاده کنید.
 
-![حرف Y بزرگ با زیرنویس سمت چپ 1 و بالانویس n](powerpoint-math-equations_9.png)
+![یک حرف Y بزرگ با زیرنویس ۱ در سمت چپ و بالانویس n](powerpoint-math-equations_9.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -313,13 +337,15 @@ try {
 }
 ```
 
-## **اضافه کردن جداکننده‌ها**
+## **اضافه کردن محدودکننده‌ها**
 
-از `enclose` برای قرار دادن یک عبارت داخل جداکننده‌ها استفاده کنید. می‌توانید کاراکتر جداکننده را برای عبارات شامل چند عنصر تنظیم کنید.
+از `enclose` برای قرار دادن یک عبارت داخل محدودکننده‌ها استفاده کنید. می‌توانید یک کاراکتر جداکننده نیز برای عبارات محدودکننده که شامل چند عنصر هستند تعیین کنید.
 
-![یک عبارت جداکننده شامل x، y و z که با خطوط عمودی جدا شده‌اند](powerpoint-math-equations_13.png)
+![یک عبارت محدودکننده شامل x، y و z که با خطوط عمودی جدا شده‌اند](powerpoint-math-equations_13.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -342,13 +368,15 @@ try {
 }
 ```
 
-## **اضافه کردن جعبه مرزی**
+## **اضافه کردن جعبه با مرز**
 
-از `toBorderBox` وقتی خود معادله باید در یک قاب قرار گیرد، استفاده کنید.
+زمانی که خود معادله باید در یک کادر قرار گیرد، از `toBorderBox` استفاده کنید.
 
-![یک معادله درون جعبه که a² = b² + c² را نشان می‌دهد](powerpoint-math-equations_12.png)
+![یک معادله درون کادر که a به توان دو برابر b به توان دو به‌علاوه c به توان دو است](powerpoint-math-equations_12.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -375,11 +403,13 @@ try {
 
 ## **گروه‌بندی عبارات**
 
-از `group` برای قرار دادن یک علامت گروه‌بندی بالای یا زیر یک عبارت استفاده کنید. برای برچسب‌گذاری عبارات گروه‌بندی‌شده، یک حد اضافه کنید.
+از `group` برای قرار دادن یک کاراکتر گروه‌بندی بالای یا پایین یک عبارت استفاده کنید. برای برچسب‌گذاری عبارات گروه‌بندی‌شده، یک حد اضافه کنید.
 
-![عبارت x + y گروه‌بندی شده با برچسب هر متنی در زیر آن](powerpoint-math-equations_15.png)
+![عبارتی x به‌علاوه y که با برچسبی متن دلخواه در زیر آن گروه‌بندی شده است](powerpoint-math-equations_15.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -402,11 +432,13 @@ try {
 
 ## **قالب‌بندی عناصر ریاضی**
 
-از ابزارهای قالب‌بندی فقط در جایی استفاده کنید که فرمول را واضح‌تر می‌کند. برای مثال، `overbar` یک خط بالای عنصر ریاضی می‌گذارد.
+از ابزارهای قالب‌بندی فقط در جایی استفاده کنید که فرمول را واضح‌تر می‌کنند. برای مثال، `overbar` یک خط بالای عنصر ریاضی می‌گذارد.
 
 ![یک عبارت ریاضی ABC با یک خط بالایی](powerpoint-math-equations_14.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -425,35 +457,35 @@ try {
 }
 ```
 
-## **راهنمای سریع**
+## **مرجع سریع**
 
 | کار | API اصلی |
 | --- | --- |
 | ایجاد متن ریاضی | [MathematicalText](https://reference.aspose.com/slides/fa/java/com.aspose.slides/mathematicaltext/) |
 | ترکیب عناصر | [IMathElement.join](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathelement/#join-com.aspose.slides.IMathElement-) |
 | ایجاد کسرها | [IMathElement.divide](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) |
-| اضافه کردن بالانویس یا زیرنویس | [setSuperscript](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathelement/#setSuperscript-com.aspose.slides.IMathElement-),[setSubscript](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathelement/#setSubscript-com.aspose.slides.IMathElement-) |
-| اضافه کردن توابع | [function](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-),[asArgumentOfFunction](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) |
+| اضافه کردن بالانویس یا زیرنویس | [setSuperscript](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathelement/#setSuperscript-com.aspose.slides.IMathElement-), [setSubscript](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathelement/#setSubscript-com.aspose.slides.IMathElement-) |
+| اضافه کردن توابع | [function](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-), [asArgumentOfFunction](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) |
 | اضافه کردن رادیکال‌ها | [IMathElement.radical](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) |
-| اضافه کردن حدود | [setLowerLimit](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-),[setUpperLimit](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathelement/#setUpperLimit-com.aspose.slides.IMathElement-) |
-| اضافه کردن اسکریپت‌های طرف چپ | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
-| اضافه کردن جمع‌ها و انتگرال‌ها | [nary](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-),[integral](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
+| اضافه کردن حدود | [setLowerLimit](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-), [setUpperLimit](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathelement/#setUpperLimit-com.aspose.slides.IMathElement-) |
+| اضافه کردن اسکریپت‌های سمت چپ | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
+| اضافه کردن جمع‌ها و انتگرال‌ها | [nary](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-), [integral](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
 | اضافه کردن ماتریس‌ها | [MathMatrix](https://reference.aspose.com/slides/fa/java/com.aspose.slides/mathmatrix/) |
 | اضافه کردن آرایه‌های معادله | [toMathArray](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathelement/#toMathArray--) |
-| اضافه کردن جداکننده‌ها | [enclose](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathelement/#enclose-char-char-) |
-| اضافه کردن خط‌ها و حاشیه‌ها | [overbar](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathelement/#overbar--),[toBorderBox](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathelement/#toBorderBox--) |
+| اضافه کردن محدودکننده‌ها | [enclose](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathelement/#enclose-char-char-) |
+| اضافه کردن نوارها و حاشیه‌ها | [overbar](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathelement/#overbar--), [toBorderBox](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathelement/#toBorderBox--) |
 | گروه‌بندی عبارات | [group](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathelement/#group-char-int-int-) |
 
-## **سوالات متداول**
+## **پرسش‌های متداول**
 
-**آیا می‌توانم یک معادله PowerPoint موجود را ویرایش کنم؟**
+**آیا می‌توانم یک معادله موجود در PowerPoint را ویرایش کنم؟**
 
-بله. ارائه را باز کنید، شکلی که شامل `MathPortion` است پیدا کنید، `MathParagraph` آن را بگیرید و بلوک‌های ریاضی داخل آن پاراگراف را به‌روزرسانی کنید.
+بله. ارائه را باز کنید، شکلی که شامل یک `MathPortion` است پیدا کنید، `MathParagraph` آن را دریافت کنید و بلوک‌های ریاضی موجود در آن بند را به‌روزرسانی کنید.
 
-**آیا معادلات به صورت ریاضی ویرایش‌پذیر PowerPoint ذخیره می‌شوند؟**
+**آیا معادلات به‌عنوان ریاضی قابل ویرایش PowerPoint ذخیره می‌شوند؟**
 
-بله. هنگام ذخیره به قالب PPTX، Aspose.Slides معادله را به عنوان محتوای ریاضی ویرایش‌پذیر Office می‌نویسد.
+بله. هنگام ذخیره به‌صورت PPTX، Aspose.Slides معادله را به‌عنوان محتوای ریاضی Office قابل ویرایش می‌نویسد.
 
-**آیا می‌توانم معادلات را به LaTeX صادر کنم؟**
+**آیا می‌توانم معادلات را به LaTeX خروجی بگیرم؟**
 
-Aspose.Slides معادلات ریاضی را به MathML صادر می‌کند. اگر به LaTeX نیاز دارید، ابتدا به MathML صادر کنید و سپس با ابزاری که از دیالکت LaTeX هدف پشتیبانی می‌کند، MathML را به LaTeX تبدیل کنید.
+بله. [IMathParagraph] معادله را از طریق [IMathPortion] آن دریافت کنید و متد [IMathParagraph.toLatex](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imathparagraph/#toLatex--) را صدا بزنید تا به‌صورت مستقیم صادر شود. برای یک مثال کامل، به [Export Math Equations from Presentations in Java](/slides/fa/java/exporting-math-equations/#export-math-equations-to-latex) مراجعه کنید.

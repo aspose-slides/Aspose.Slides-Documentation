@@ -1,35 +1,37 @@
 ---
-title: प्रस्तुति स्लाइड पर आकार बदलें
+title: प्रेजेंटेशन स्लाइड्स पर आकृतियों का आकार बदलें
 type: docs
 weight: 110
 url: /hi/java/re-sizing-shapes-on-slide/
 keywords:
-- आकार बदलें
-- आकार का आकार बदलें
+- आकृति का आकार बदलें
+- आकृति आकार बदलें
 - PowerPoint
 - OpenDocument
 - प्रस्तुति
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java के साथ PowerPoint और OpenDocument स्लाइड्स पर आकार आसानी से बदलें—स्लाइड लेआउट समायोजन को स्वचालित करें और उत्पादकता बढ़ाएँ।"
+description: "Aspose.Slides for Java के साथ PowerPoint और OpenDocument स्लाइड्स पर आसानी से आकृतियों का आकार बदलें—स्लाइड लेआउट समायोजन को स्वचालित करें और उत्पादकता बढ़ाएँ।"
 ---
 ## **अवलोकन**
 
-Aspose.Slides for Java ग्राहकों के सबसे आम प्रश्नों में से एक है स्लाइड का आकार बदलते समय आकारों को कैसे पुनःआकार दिया जाए ताकि डेटा कट न जाए। यह छोटा तकनीकी लेख दर्शाता है कि इसे कैसे किया जाता है।
+Aspose.Slides for Java के ग्राहकों से अक्सर पूछे जाने वाले प्रश्नों में से एक है कि स्लाइड का आकार बदलने पर आकृतियों का आकार कैसे बदलें ताकि डेटा कट न जाए। यह संक्षिप्त तकनीकी लेख दिखाता है कि इसे कैसे किया जाए।
 
-## **आकार को पुनःआकार दें**
+## **आकृतियों का आकार बदलें**
 
-स्लाइड का आकार बदलते समय आकारों के विसंरेखित होने से बचने के लिए, प्रत्येक आकार की स्थिति और आयामों को अपडेट करें ताकि वे नई स्लाइड लेआउट के अनुरूप हों।
+स्लाइड का आकार बदलने पर आकृतियों का असंतुलन न हो, इसके लिए प्रत्येक आकृति की स्थिति और आकार को नए स्लाइड लेआउट के अनुसार अद्यतन करें।
 
 ```java
+import com.aspose.slides.*;
+
 // प्रेजेंटेशन फ़ाइल लोड करें।
 Presentation presentation = new Presentation("sample.ppt");
 try {
-    // मूल स्लाइड आकार प्राप्त करें।
+    // मौलिक स्लाइड आकार प्राप्त करें।
     float currentHeight = (float) presentation.getSlideSize().getSize().getHeight();
     float currentWidth = (float) presentation.getSlideSize().getSize().getWidth();
 
-    // मौजूदा आकारों को स्केल किए बिना स्लाइड आकार बदलें।
+    // मौजूदा आकृतियों को स्केल किए बिना स्लाइड आकार बदलें।
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
 
     // नया स्लाइड आकार प्राप्त करें।
@@ -39,7 +41,7 @@ try {
     float heightRatio = newHeight / currentHeight;
     float widthRatio = newWidth / currentWidth;
 
-    // हर स्लाइड पर आकारों को पुनःआकार दें और पुनःस्थिति करें।
+    // प्रत्येक स्लाइड पर आकृतियों का आकार बदलें और उनकी स्थिति पुनः निर्धारित करें।
     for (ISlide slide : presentation.getSlides()) {
         for (IShape shape : slide.getShapes()) {
             
@@ -60,20 +62,22 @@ finally {
 }
 ```
 
-{{% alert color="primary" %}} 
-यदि स्लाइड में तालिका (टेबल) सम्मिलित है, तो ऊपर दिया गया कोड सही ढंग से कार्य नहीं करेगा। उस स्थिति में, तालिका की प्रत्येक सेल को पुनःआकार देना आवश्यक है। 
+{{% alert color="info" %}} 
+टेबल को कोई विशेष उपचार नहीं चाहिए: टेबल की चौड़ाई और ऊँचाई सेट करने पर उसके कॉलम और पंक्तियाँ अनुपातिक रूप से पुनः स्केल हो जाती हैं, इसलिए पंक्ति की ऊँचाई और कॉलम की चौड़ाई को फिर से स्केल करने से अनुपात दो बार लागू हो जाएगा। 
 {{% /alert %}} 
 
-उन स्लाइडों को पुनःआकार देने के लिए नीचे दिया गया कोड उपयोग करें जिनमें तालिका हो। तालिकाओं के लिए चौड़ाई या ऊँचाई सेट करना एक विशेष मामला है: आपको तालिका के कुल आकार को बदलने के लिए व्यक्तिगत पंक्तियों की ऊँचाई और कॉलम की चौड़ाई को समायोजित करना होगा।
+ऊपर दिया गया कोड केवल स्लाइडों पर मौजूद आकृतियों को बदलता है। मास्टर स्लाइड और लेआउट स्लाइड अपनी स्वयं की आकृतियों को रखते हैं, इसलिए यदि आप संपूर्ण प्रस्तुति को नए स्लाइड आकार के अनुरूप बनाना चाहते हैं तो उन्हें भी स्केल करें:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // मूल स्लाइड आकार प्राप्त करें।
+    // मौलिक स्लाइड आकार प्राप्त करें।
     float currentHeight = (float) presentation.getSlideSize().getSize().getHeight();
     float currentWidth = (float) presentation.getSlideSize().getSize().getWidth();
 
-    // मौजूदा आकारों को स्केल किए बिना स्लाइड आकार बदलें।
+    // मौजूदा आकृतियों को स्केल किए बिना स्लाइड आकार बदलें।
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
     // presentation.getSlideSize().setOrientation(SlideOrientation.Portrait);
 
@@ -86,22 +90,22 @@ try {
 
     for (IMasterSlide master : presentation.getMasters()) {
         for (IShape shape : master.getShapes()) {
-            // आकृति के आकार को स्केल करें।
+            // आकृति का आकार स्केल करें।
             shape.setHeight(shape.getHeight() * heightRatio);
             shape.setWidth(shape.getWidth() * widthRatio);
 
-            // आकृति की स्थिति को स्केल करें।
+            // आकृति की स्थिति स्केल करें।
             shape.setY(shape.getY() * heightRatio);
             shape.setX(shape.getX() * widthRatio);
         }
 
         for (ILayoutSlide layoutSlide : master.getLayoutSlides()) {
             for (IShape shape : layoutSlide.getShapes()) {
-                // आकृति के आकार को स्केल करें।
+                // आकृति का आकार स्केल करें।
                 shape.setHeight(shape.getHeight() * heightRatio);
                 shape.setWidth(shape.getWidth() * widthRatio);
 
-                // आकृति की स्थिति को स्केल करें।
+                // आकृति की स्थिति स्केल करें।
                 shape.setY(shape.getY() * heightRatio);
                 shape.setX(shape.getX() * widthRatio);
             }
@@ -110,24 +114,13 @@ try {
 
     for (ISlide slide : presentation.getSlides()) {
         for (IShape shape : slide.getShapes()) {
-            // आकृति के आकार को स्केल करें।
+            // आकृति का आकार स्केल करें।
             shape.setHeight(shape.getHeight() * heightRatio);
             shape.setWidth(shape.getWidth() * widthRatio);
 
-            // आकृति की स्थिति को स्केल करें।
+            // आकृति की स्थिति स्केल करें।
             shape.setY(shape.getY() * heightRatio);
             shape.setX(shape.getX() * widthRatio);
-            if (shape instanceof ITable) {
-                ITable table = (ITable) shape;
-                for (int i = 0; i < table.getRows().size(); i++) {
-                    IRow row = table.getRows().get_Item(i);
-                    row.setMinimalHeight(row.getMinimalHeight() * heightRatio);
-                }
-                for (int j = 0; j < table.getColumns().size(); j++) {
-                    IColumn column = table.getColumns().get_Item(j);
-                    column.setWidth(column.getWidth() * widthRatio);
-                }
-            }
         }
     }
 
@@ -140,30 +133,30 @@ finally {
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**स्लाइड का आकार बदलने के बाद आकार विकृत या कट क्यों जाते हैं?**
+### स्लाइड का आकार बदलने के बाद आकृतियाँ बिगड़ या कट क्यों जाती हैं?
 
-जब स्लाइड का आकार बदलते हैं, तो आकार अपनी मूल स्थिति और आकार को बनाए रखते हैं जब तक कि स्केल स्पष्ट रूप से न बदला जाए। इससे सामग्री कट सकती है या आकार विसंरेखित हो सकते हैं।
+स्लाइड का आकार बदलने पर, जब तक स्केल स्पष्ट रूप से नहीं बदला जाता, आकृतियाँ अपनी मूल स्थिति और आकार रखती हैं। इससे सामग्री कट सकती है या आकृतियों का असंतुलन हो सकता है।
 
-**क्या प्रदान किया गया कोड सभी आकार प्रकारों के लिए काम करता है?**
+### क्या प्रदान किया गया कोड सभी आकृति प्रकारों के लिए काम करता है?
 
-बुनियादी उदाहरण अधिकांश आकार प्रकारों (टेक्स्ट बॉक्स, छवियाँ, चार्ट आदि) के लिए काम करता है। हालांकि, तालिकाओं के लिए आपको पंक्तियों और कॉलमों को अलग से संभालना होगा, क्योंकि तालिका की ऊँचाई और चौड़ाई व्यक्तिगत कोशिकाओं के आयामों द्वारा निर्धारित होती है।
+हाँ। ऊँचाई और चौड़ाई सेट करना टेक्स्ट बॉक्स, छवियों, चार्ट और टेबल सभी के लिए समान रूप से काम करता है।
 
-**स्लाइड का आकार बदलते समय तालिकाओं को कैसे पुनःआकार दें?**
+### स्लाइड का आकार बदलते समय टेबल का आकार कैसे बदलूँ?
 
-आपको तालिका की सभी पंक्तियों और कॉलमों के माध्यम से लूप करना होगा और उनके ऊँचाई और चौड़ाई को अनुपातिक रूप से पुनःआकार देना होगा, जैसा कि दूसरे कोड उदाहरण में दिखाया गया है।
+टेबल आकृति को स्वयं स्केल करें, बिल्कुल अन्य आकृतियों की तरह। उसकी पंक्तियों और कॉलमों का अनुपातिक रूप से स्केल हो जाता है, इसलिए बाद में उन्हें फिर से स्केल न करें।
 
-**क्या यह पुनःआकार काम करेगा मास्टर स्लाइड और लेआउट स्लाइड के लिए भी?**
+### क्या यह आकार बदलना मास्टर स्लाइड और लेआउट स्लाइड के लिए भी काम करेगा?
 
-हाँ, लेकिन आपको [Masters](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/#getMasters--) और [Layout slides](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/#getLayoutSlides--) के माध्यम से भी लूप करना चाहिए और उनके आकारों पर वही स्केलिंग लॉजिक लागू करना चाहिए ताकि प्रस्तुति में निरंतरता बनी रहे।
+हाँ, लेकिन आपको [Masters](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/#getMasters--) और [Layout slides](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/#getLayoutSlides--) के माध्यम से भी लूप करना चाहिए और उनकी आकृतियों पर समान स्केलिंग लॉजिक लागू करना चाहिए ताकि प्रस्तुति में सुसंगतता बनी रहे।
 
-**क्या मैं स्लाइड की अभिविन्यास (पोर्ट्रेट/लैंडस्केप) को पुनःआकार के साथ बदल सकता हूँ?**
+### क्या मैं स्लाइड का अभिविन्यास (पोर्ट्रेट/लैंडस्केप) बदलते हुए आकार बदल सकता हूँ?
 
-हां। आप [presentation.getSlideSize().setOrientation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/islidesize/#setOrientation-int-) का उपयोग करके अभिविन्यास बदल सकते हैं। लेआउट बनाए रखने के लिए स्केलिंग लॉजिक को उसी अनुसार सेट करें।
+हाँ। आप [presentation.getSlideSize().setOrientation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/islidesize/#setOrientation-int-) का उपयोग करके अभिविन्यास बदल सकते हैं। लेआउट को बनाए रखने के लिए स्केलिंग लॉजिक को उसी अनुसार सेट करना सुनिश्चित करें।
 
-**क्या स्लाइड आकार सेट करने पर कोई सीमा है?**
+### मैं जिस स्लाइड आकार को सेट कर सकता हूँ, उसके लिए कोई सीमा है क्या?
 
-Aspose.Slides कस्टम आकारों का समर्थन करता है, लेकिन बहुत बड़े आकार प्रदर्शन या कुछ PowerPoint संस्करणों की संगतता को प्रभावित कर सकते हैं।
+Aspose.Slides अनुकूलित आकारों को सपोर्ट करता है, लेकिन बहुत बड़े आकार प्रदर्शन या कुछ PowerPoint संस्करणों के साथ संगतता को प्रभावित कर सकते हैं।
 
-**मैं फिक्स्ड आस्पेक्ट रेशियो वाले आकारों को विकृत होने से कैसे बचा सकता हूँ?**
+### नियत अनुपात वाली आकृतियों के विकृत होने से कैसे बचूँ?
 
-आप आकार को स्केल करने से पहले `getAspectRatioLocked` मेथड की जाँच कर सकते हैं। यदि यह लॉक है, तो व्यक्तिगत रूप से स्केल करने के बजाय चौड़ाई या ऊँचाई को अनुपातिक रूप से समायोजित करें।
+आप स्केल करने से पहले आकृति के `getAspectRatioLocked` मेथड की जाँच कर सकते हैं। यदि यह लॉक है, तो व्यक्तिगत रूप से स्केल करने के बजाय चौड़ाई या ऊँचाई को अनुपातिक रूप से समायोजित करें।

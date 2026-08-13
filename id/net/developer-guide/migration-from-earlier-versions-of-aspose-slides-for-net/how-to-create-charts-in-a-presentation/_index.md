@@ -19,16 +19,18 @@ keywords:
 - Aspose.Slides
 description: "Pelajari cara membuat diagram dalam presentasi PowerPoint PPT, PPTX, dan ODP di .NET dengan Aspose.Slides menggunakan API diagram warisan dan modern."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Sebuah [Aspose.Slides for .NET API](/slides/id/net/) baru telah dirilis dan kini produk tunggal ini mendukung kemampuan untuk membuat dokumen PowerPoint dari awal serta mengedit yang sudah ada.
+Sebuah [Aspose.Slides for .NET API](/slides/id/net/) baru telah dirilis dan kini produk tunggal ini mendukung kemampuan untuk menghasilkan dokumen PowerPoint dari awal serta mengedit dokumen yang ada.
 
 {{% /alert %}} 
 ## **Dukungan untuk Kode Warisan**
-Untuk menggunakan kode warisan yang dikembangkan dengan versi Aspose.Slides for .NET sebelum 13.x, Anda perlu melakukan beberapa perubahan kecil pada kode Anda sehingga kode tersebut akan berfungsi seperti sebelumnya. Semua kelas yang ada di Aspose.Slides for .NET lama di dalam namespace Aspose.Slide dan Aspose.Slides.Pptx kini digabungkan menjadi satu namespace Aspose.Slides. Silakan lihat contoh kode sederhana berikut untuk membuat grafik biasa dari awal dalam presentasi menggunakan API Aspose.Slides warisan dan ikuti langkah-langkah yang menjelaskan cara migrasi ke API yang baru digabungkan.
-## **Legacy Aspose.Slides for .NET Approach**
+Untuk menggunakan kode warisan yang dikembangkan dengan Aspose.Slides for .NET versi sebelum 13.x, Anda perlu melakukan beberapa perubahan kecil pada kode Anda dan kode tersebut akan berfungsi seperti sebelumnya. Semua kelas yang ada di Aspose.Slides for .NET lama di dalam namespace Aspose.Slide dan Aspose.Slides.Pptx kini digabung menjadi satu namespace Aspose.Slides. Silakan lihat cuplikan kode sederhana berikut untuk membuat diagram standar dari awal dalam presentasi menggunakan API Aspose.Slides warisan dan ikuti langkah-langkah yang menjelaskan cara bermigrasi ke API yang baru digabung.
+## **Pendekatan Legacy Aspose.Slides for .NET**
 ```c#
-//Instansiasi PresentationEx class yang mewakili file PPTX
+using System.Drawing;
+
+//Instansiasi kelas PresentationEx yang merepresentasikan file PPTX
 using (PresentationEx pres = new PresentationEx())
 {
 	//Akses slide pertama
@@ -37,22 +39,22 @@ using (PresentationEx pres = new PresentationEx())
 	// Tambahkan diagram dengan data default
 	ChartEx chart = sld.Shapes.AddChart(ChartTypeEx.ClusteredColumn, 0, 0, 500, 500);
 
-	//Mengatur chart Title
+	//Mengatur Judul diagram
 	chart.ChartTitle.Text.Text = "Sample Title";
 	chart.ChartTitle.Text.CenterText = true;
 	chart.ChartTitle.Height = 20;
 	chart.HasTitle = true;
 
-	//Set first series to Show Values
+	//Set seri pertama untuk Menampilkan Nilai
 	chart.ChartData.Series[0].Labels.ShowValue = true;
 
-	//Mengatur indeks lembar data chart 
+	//Mengatur indeks lembar data diagram 
 	int defaultWorksheetIndex = 0;
 
-	//Mendapatkan chart data worksheet
+	//Mendapatkan lembar kerja data diagram
 	ChartDataCellFactory fact = chart.ChartData.ChartDataCellFactory;
 
-	//Hapus default generated series and categories
+	//Hapus seri dan kategori yang dihasilkan secara default
 	chart.ChartData.Series.Clear();
 	chart.ChartData.Categories.Clear();
 	int s = chart.ChartData.Series.Count;
@@ -67,41 +69,41 @@ using (PresentationEx pres = new PresentationEx())
 	chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
 	chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
 
-	//Ambil chart series pertama
+	//Ambil seri diagram pertama
 	ChartSeriesEx series = chart.ChartData.Series[0];
 
-	//Sekarang mengisi data series
+	//Sekarang mengisi data seri
 	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
 	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
 	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
 
-	//Mengatur warna isi untuk series
+	//Mengatur warna isi untuk seri
 	series.Format.Fill.FillType = FillTypeEx.Solid;
 	series.Format.Fill.SolidFillColor.Color = Color.Red;
 
 
-	//Ambil chart series kedua
+	//Ambil seri diagram kedua
 	series = chart.ChartData.Series[1];
 
-	//Sekarang mengisi data series
+	//Sekarang mengisi data seri
 	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 1, 2, 30));
 	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 2, 2, 10));
 	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 3, 2, 60));
 
-	//Mengatur warna isi untuk series
+	//Mengatur warna isi untuk seri
 	series.Format.Fill.FillType = FillTypeEx.Solid;
 	series.Format.Fill.SolidFillColor.Color = Color.Green;
 
 
-	//Buat custom labels untuk setiap kategori pada series baru
+	//Buat label khusus untuk setiap kategori pada seri baru
 
-	//Label pertama akan menampilkan nama Category
+	//Label pertama akan menampilkan nama Kategori
 	DataLabelEx lbl = new DataLabelEx(series);
 	lbl.ShowCategoryName = true;
 	lbl.Id = 0;
 	series.Labels.Add(lbl);
 
-	//Tampilkan nama series untuk label kedua
+	//Tampilkan nama seri untuk label kedua
 	lbl = new DataLabelEx(series);
 	lbl.ShowSeriesName = true;
 	lbl.Id = 1;
@@ -121,16 +123,21 @@ using (PresentationEx pres = new PresentationEx())
 	lbl.Id = 3;
 	series.Labels.Add(lbl);
 
-	//Simpan presentation dengan chart
+	//Simpan presentasi dengan diagram
 	pres.Write(@"D:\AsposeChart.pptx");
 }
 ```
 
 
 
-## **New Aspose.Slides for .NET 13.x Approach**
+## **Pendekatan Baru Aspose.Slides for .NET 13.x**
 ``` csharp
-//Instansiasi kelas Presentation yang mewakili file PPTX//Instansiasi kelas Presentation yang mewakili file PPTX
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+//Instansiasi kelas Presentation yang merepresentasikan file PPTX//Instansiasi kelas Presentation yang merepresentasikan file PPTX
 Presentation pres = new Presentation();
 
 //Akses slide pertama
@@ -139,15 +146,12 @@ ISlide sld = pres.Slides[0];
 // Tambahkan diagram dengan data default
 IChart chart = sld.Shapes.AddChart(ChartType.ClusteredColumn, 0, 0, 500, 500);
 
-//Mengatur judul diagram
+//Mengatur Judul diagram
 //chart.ChartTitle.TextFrameForOverriding.Text = "Sample Title";
 chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
 chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
 chart.ChartTitle.Height = 20;
 chart.HasTitle = true;
-
-//Set seri pertama untuk Menampilkan Nilai
-chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
 //Mengatur indeks lembar data diagram
 int defaultWorksheetIndex = 0;
@@ -164,6 +168,9 @@ s = chart.ChartData.Categories.Count;
 //Menambahkan seri baru
 chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.Type);
 chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.Type);
+
+//Set seri pertama untuk Menampilkan Nilai
+chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
 //Menambahkan kategori baru
 chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
@@ -199,7 +206,7 @@ series.Format.Fill.SolidFillColor.Color = Color.Green;
 
 //Buat label khusus untuk setiap kategori pada seri baru
 
-//label pertama akan menampilkan nama Kategori
+//Label pertama akan menampilkan nama Kategori
 IDataLabel lbl = series.DataPoints[0].Label;
 lbl.DataLabelFormat.ShowCategoryName = true;
 
@@ -216,9 +223,9 @@ lbl.DataLabelFormat.Separator = "/";
 pres.Save("AsposeChart.pptx", SaveFormat.Pptx);
 ```
 
-Silakan lihat contoh kode sederhana berikut untuk membuat grafik scatter dari awal dalam presentasi menggunakan API Aspose.Slides warisan dan cara mencapainya dengan API yang baru digabungkan.
+Silakan lihat cuplikan kode sederhana berikut untuk membuat diagram pencar dari awal dalam presentasi menggunakan API Aspose.Slides warisan dan cara mencapainya dengan API yang baru digabung.
 
-## **Legacy Aspose.Slides for .NET Approach**
+## **Pendekatan Legacy Aspose.Slides for .NET**
 ```c#
 using (PresentationEx pres = new PresentationEx())
 {
@@ -286,8 +293,12 @@ using (PresentationEx pres = new PresentationEx())
 ```
 
 
-## **New Aspose.Slides for .NET 13.x Approach**
+## **Pendekatan Baru Aspose.Slides for .NET 13.x**
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 Presentation pres = new Presentation();
 
 ISlide slide = pres.Slides[0];

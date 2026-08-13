@@ -4,13 +4,13 @@ type: docs
 weight: 45
 url: /hu/jasperreports/integration-with-jasperserver/
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Az Aspose.Slides for JasperReports integrálásához a JasperServerrel több további lépésre van szükség, és frissíteni kell a JasperServer konfigurációs fájljait. Ez a cikk elmagyarázza, hogyan.
+Az Aspose.Slides for JasperReports integrálásához a JasperServerhez több további lépésre van szükség, és a JasperServer konfigurációs fájljait frissíteni kell. Ez a cikk elmagyarázza, hogyan.
 
 {{% /alert %}} 
 
-1. Új exportáló tulajdonságokat adjon hozzá a **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml** konfigurációs fájlhoz.
+1. Új exportáló tulajdonságokat kell hozzáadni a **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml** konfigurációs fájlhoz.
 
 ``` xml
 <bean id="reportPptExporter" class="com.aspose.slides.jasperreports.ASPptReportExporter" parent="baseReportExporter">
@@ -32,8 +32,9 @@ Az Aspose.Slides for JasperReports integrálásához a JasperServerrel több tov
 </util:map>
 ```
 
-2. Másolja a **aspose.slides.jasperreports.jar**-t a **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\lib** könyvtárba.
-3. A betűtípusleképezés funkció használatához frissítse a **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml**-t az alábbiak szerint.
+2. **aspose.slides.jasperreports.jar**-t másolja a **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\lib** könyvtárba.
+
+3. A betűkép‑térképezési funkció használatához frissítse a **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** fájlt az alábbiak szerint.
 
 ``` xml
 <bean id="pptExportParameters" class="com.aspose.slides.jasperreports.ASExportParametersBean">

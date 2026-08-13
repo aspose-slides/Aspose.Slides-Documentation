@@ -1,40 +1,56 @@
 ---
-title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides لـ Java 14.6.0
+title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة للوراء في Aspose.Slides for Java 14.6.0
+linktitle: Aspose.Slides for Java 14.6.0
 type: docs
 weight: 50
 url: /ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/
+keywords:
+- ترحيل
+- كود قديم
+- كود حديث
+- نهج قديم
+- نهج حديث
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Java
+- Aspose.Slides
+description: "استعرض تحديثات واجهة برمجة التطبيقات العامة والتغييرات المكسرة في Aspose.Slides for Java للترحيل السلس لحلول العروض التقديمية PowerPoint PPT و PPTX و ODP."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-تسرد هذه الصفحة جميع [المضاف](/slides/ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/) من الفئات والطرق والخصائص وما إلى ذلك، أي قيود جديدة وتغييرات أخرى تم إدخالها مع واجهة برمجة التطبيقات Aspose.Slides لـ Java 14.6.0.
+تُظهر هذه الصفحة جميع الفئات، والطرق، والخصائص وما إلى ذلك التي تمت إضافتها، وأي قيود جديدة وتغييرات أخرى تم تقديمها مع واجهة برمجة تطبيقات Aspose.Slides for Java 14.6.0.
 
 {{% /alert %}} 
-## **تغييرات واجهة برمجة التطبيقات العامة**
-### **الفئات والطرق والواجهات والتعدادات المضافة**
-#### **التعداد ViewType المضاف، الواجهة IViewProperties، الفئة ViewProperties وطريقة IPresentation.getViewProperties()**
-توفر طريقة IPresentation.getViewProperty() الوصول إلى IViewProperties وتسمح لك بتغيير نوع عرض العرض وظهور الملاحظات عند فتح العرض في Microsoft PowerPoint.
+## **تغييرات API العامة**
+### **الفئات، الطرق، الواجهات والتعدادات المضافة**
+#### **تم إضافة تعداد ViewType، وواجهة IViewProperties، وفئة ViewProperties وطريقة IPresentation.getViewProperties()**
+توفر طريقة IPresentation.getViewProperties() إمكانية الوصول إلى IViewProperties وتسمح لك بتغيير نوع عرض العرض وظهور الملاحظات عندما يتم فتح العرض التقديمي في Microsoft PowerPoint.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation p = new Presentation();
 
 p.getViewProperties().setLastView(ViewType.SlideMasterView);
 
 ```
-#### **إضافة طرق Aspose.Slides.IShapeCollection.addClone(...) و .insertClone(...)**
-تضيف الطرق
+#### **تم إضافة طرق Aspose.Slides.IShapeCollection.addClone(...) و .insertClone(...)**
+الطرق
 
 - Aspose.Slides.IShapeCollection.addClone(IShape sourceShape),
 - Aspose.Slides.IShapeCollection.addClone(IShape sourceShape, float x, float y),
 - Aspose.Slides.IShapeCollection.addClone(IShape sourceShape, float x, float y, float width, float height),
 - Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape),
-- Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape, float x, float y)، و
+- Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape, float x, float y), and
 - Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape, float x, float y, float width, float height)
 
-نسخة/تدرج من شكل محدد إلى المجموعة.
+تضيف/تدرج نسخة من الشكل المحدد إلى المجموعة. 
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation srcPres = new Presentation("data/Source Frame.pptx");
 
@@ -59,10 +75,12 @@ destShapes.addClone(sourceShapes.get_Item(5), 300, 300, 50, 200);
 destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
 
 ```
-#### **إضافة الواجهة Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues**
+#### **تم إضافة واجهة Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues**
 تحدد هذه الواجهة أنواع القيم في قائمة خصائص ChartDataPoint.ErrorBarsCustomValues.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -109,10 +127,12 @@ for (int i = 0; i < points.size(); i++)
 pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 
 ```
-#### **إضافة الواجهة Aspose.Slides.Charts.IErrorBarsCustomValues**
-عندما تكون خاصية IErrorBarsFormat.ValueType تساوي Custom لتحديد القيمة استخدم خاصية ErrorBarCustomValues لنقطة البيانات المحددة في مجموعة DataPoints للسلسلة.
+#### **تم إضافة واجهة Aspose.Slides.Charts.IErrorBarsCustomValues**
+عند تكون الخاصية IErrorBarsFormat.ValueType مساوية لـ Custom لتحديد القيمة، استخدم خاصية ErrorBarCustomValues لنقطة البيانات المحددة في مجموعة DataPoints للسلسلة.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -159,11 +179,13 @@ for (int i = 0; i < points.size(); i++)
 pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 
 ```
-#### **إضافة الواجهة Aspose.Slides.Charts.IErrorBarsFormat**
-تمثل هذه الواجهة أشرطة الأخطاء لسلاسل المخططات.
-في حالة نوع القيمة المخصصة لتحديد القيمة استخدم خاصية ErrorBarCustomValues لنقطة البيانات المحددة في مجموعة DataPoins للسلسلة.
+#### **تم إضافة واجهة Aspose.Slides.Charts.IErrorBarsFormat**
+تمثل هذه الواجهة أشرطة الأخطاء لسلسلة المخطط.
+في حالة نوع القيمة المخصص لتحديد القيمة، استخدم خاصية ErrorBarCustomValues لنقطة البيانات المحددة في مجموعة DataPoins للسلسلة.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 

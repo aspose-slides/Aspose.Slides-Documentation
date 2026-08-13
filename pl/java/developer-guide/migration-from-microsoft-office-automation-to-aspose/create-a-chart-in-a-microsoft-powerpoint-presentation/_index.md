@@ -13,32 +13,32 @@ keywords:
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Dowiedz się, jak automatyzować tworzenie wykresów PowerPoint w Javie. Ten przewodnik krok po kroku pokazuje, dlaczego Aspose.Slides for Java jest szybszą i bardziej potężną alternatywą dla Microsoft.Office.Interop."
+description: "Dowiedz się, jak automatyzować tworzenie wykresów PowerPoint w Javie. Ten przewodnik krok po kroku pokazuje, dlaczego Aspose.Slides for Java jest szybszą i bardziej wydajną alternatywą dla Microsoft.Office.Interop."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Diagramy są wizualnymi reprezentacjami danych, które są szeroko stosowane w prezentacjach. Ten artykuł pokazuje kod tworzenia wykresu w programie Microsoft PowerPoint programowo przy użyciu [VSTO](/slides/pl/java/create-a-chart-in-a-microsoft-powerpoint-presentation/) oraz [Aspose.Slides for Java](/slides/pl/java/create-a-chart-in-a-microsoft-powerpoint-presentation/).
+Wykresy są wizualną reprezentacją danych, które są szeroko stosowane w prezentacjach. Ten artykuł pokazuje kod tworzący wykres w programie Microsoft PowerPoint programowo przy użyciu [VSTO](/slides/pl/java/create-a-chart-in-a-microsoft-powerpoint-presentation/) i [Aspose.Slides for Java](/slides/pl/java/create-a-chart-in-a-microsoft-powerpoint-presentation/).
 
 {{% /alert %}} 
 ## **Tworzenie wykresu**
-Poniższe przykłady kodu opisują proces dodawania prostego wykresu słupkowego 3D grupowanego przy użyciu VSTO. Tworzysz instancję prezentacji Microsoft PowerPoint, dodajesz do niej domyślny wykres. Następnie używasz skoroszytu Microsoft Excel, aby uzyskać dostęp i zmodyfikować dane wykresu oraz ustawić właściwości wykresu. Na koniec zapisujesz prezentację.
+Poniższe przykłady kodu opisują proces dodawania prostego wykresu słupkowego 3D grupowanego przy użyciu VSTO. Tworzysz instancję prezentacji Microsoft PowerPoint, dodajesz do niej domyślny wykres. Następnie używasz skoroszytu Microsoft Excel, aby uzyskać dostęp do danych wykresu i je modyfikować oraz ustawiać właściwości wykresu. Na końcu zapisujesz prezentację.
 ### **Przykład VSTO**
-Przy użyciu VSTO wykonywane są następujące kroki:
+Przy użyciu VSTO wykonuje się następujące kroki:
 
-1. Utwórz instancję prezentacji Microsoft PowerPoint.
-1. Dodaj pusty slajd do prezentacji.
-1. Dodaj wykres **3D clustered column** i uzyskaj do niego dostęp.
-1. Utwórz nową instancję skoroszytu Microsoft Excel i załaduj dane wykresu.
-1. Uzyskaj dostęp do arkusza danych wykresu przy użyciu Microsoft Excel Workbook instancefromworkbook.
-1. Ustaw zakres wykresu w arkuszu i usuń serie 2 i 3 z wykresu.
-1. Zmodyfikuj dane kategorii wykresu w arkuszu danych wykresu.
-1. Zmodyfikuj dane serii 1 wykresu w arkuszu danych wykresu.
-1. Teraz uzyskaj dostęp do tytułu wykresu i setthefontrelatedproperties.
-1. Uzyskaj dostęp do osi wartości wykresu i ustaw jednostkę główną, jednostki podrzędne, maksymalną wartość oraz minimalne wartości.
-1. Uzyskaj dostęp do osi głębokości wykresu lub osi serii i usuń ją, ponieważ w tym przykładzie używana jest tylko jedna seria onlyoneserieisused.
-1. Teraz ustaw kąty obrotu wykresu w kierunku X i Y.
-1. Zapisz prezentację.
-1. Zamknij instancje Microsoft Excel i PowerPoint.
+1. Utwórz instancję prezentacji Microsoft PowerPoint.  
+2. Dodaj pusty slajd do prezentacji.  
+3. Dodaj wykres **3D clustered column** i uzyskaj do niego dostęp.  
+4. Utwórz nową instancję skoroszytu Microsoft Excel i wczytaj dane wykresu.  
+5. Uzyskaj dostęp do arkusza danych wykresu przy użyciu instancji Microsoft Excel Workbook instancefromworkbook.  
+6. Ustaw zakres wykresu w arkuszu i usuń serie 2 i 3 z wykresu.  
+7. Modyfikuj dane kategorii wykresu w arkuszu danych wykresu.  
+8. Modyfikuj dane serii 1 wykresu w arkuszu danych wykresu.  
+9. Teraz uzyskaj dostęp do tytułu wykresu i setthefontrelatedproperties.  
+10. Uzyskaj dostęp do osi wartości wykresu i ustaw jednostkę główną, jednostki pomocnicze, wartość maksymalną oraz minimalną.  
+11. Uzyskaj dostęp do głębokości wykresu lub osi serii i usuń ją, ponieważ w tym przykładzie używana jest tylko jedna seria (onlyoneserieisused).  
+12. Teraz ustaw kąty obrotu wykresu w kierunkach X i Y.  
+13. Zapisz prezentację.  
+14. Zamknij instancje Microsoft Excel i PowerPoint.  
 
 **Prezentacja wyjściowa, utworzona przy użyciu VSTO** 
 
@@ -52,17 +52,17 @@ Przy użyciu VSTO wykonywane są następujące kroki:
 ### **Przykład Aspose.Slides for Java**
 Przy użyciu Aspose.Slides for Java wykonywane są następujące kroki:
 
-1. Utwórz instancję prezentacji Microsoft PowerPoint.
-1. Dodaj pusty slajd do prezentacji.
-1. Dodaj wykres **3D clustered column** i uzyskaj do niego dostęp.
-1. Uzyskaj dostęp do arkusza danych wykresu przy użyciu Microsoft Excel Workbook instancefromworkbook.
-1. Usuń nieużywane serie 2 i 3.
-1. Uzyskaj dostęp do kategorii wykresu i zmodyfikuj etykiety.
-1. Accesseries1 i zmodyfikuj wartości serii.
-1. Teraz uzyskaj dostęp do tytułu wykresu i ustaw właściwości czcionki.
-1. Uzyskaj dostęp do osi wartości wykresu i ustaw jednostkę główną, jednostki podrzędne, maksymalną wartość oraz minimalne wartości.
-1. Teraz ustaw kąty obrotu wykresu w kierunku X i Y.
-1. Zapisz prezentację w formacie PPTX.
+1. Utwórz instancję prezentacji Microsoft PowerPoint.  
+2. Dodaj pusty slajd do prezentacji.  
+3. Dodaj wykres **3D clustered column** i uzyskaj do niego dostęp.  
+4. Uzyskaj dostęp do arkusza danych wykresu przy użyciu instancji Microsoft Excel Workbook instancefromworkbook.  
+5. Usuń nieużywane serie 2 i 3.  
+6. Uzyskaj dostęp do kategorii wykresu i zmodyfikuj etykiety.  
+7. Uzyskaj dostęp do Accesseries1 i zmodyfikuj wartości serii.  
+8. Teraz uzyskaj dostęp do tytułu wykresu i ustaw właściwości czcionki.  
+9. Uzyskaj dostęp do osi wartości wykresu i ustaw jednostkę główną, jednostki pomocnicze, wartość maksymalną oraz minimalną.  
+10. Teraz ustaw kąty obrotu wykresu w kierunkach X i Y.  
+11. Zapisz prezentację w formacie PPTX.  
 
 **Prezentacja wyjściowa, utworzona przy użyciu Aspose.Slides** 
 
@@ -72,14 +72,14 @@ Przy użyciu Aspose.Slides for Java wykonywane są następujące kroki:
 
 ## **FAQ**
 
-**Czy mogę tworzyć inne typy wykresów, takie jak wykresy kołowe, liniowe lub słupkowe, przy użyciu Aspose.Slides?**
+### Czy mogę tworzyć inne typy wykresów, takie jak kołowe, liniowe lub słupkowe, z użyciem Aspose.Slides?
 
-Tak. Aspose.Slides obsługuje szeroką gamę [typów wykresów](/slides/pl/java/create-chart/), w tym wykresy kołowe, liniowe, słupkowe, wykresy punktowe, wykresy bąbelkowe i wiele innych. Możesz określić żądany typ wykresu, używając klasy [ChartType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/charttype/) podczas dodawania wykresu.
+Tak. Aspose.Slides obsługuje szeroką gamę [chart types](/slides/pl/java/create-chart/), w tym wykresy kołowe, liniowe, słupkowe, wykresy punktowe, wykresy bąbelkowe i wiele innych. Możesz określić żądany typ wykresu, używając klasy [ChartType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/charttype/) podczas dodawania wykresu.
 
-**Czy mogę zastosować własne style lub motywy do wykresu?**
+### Czy mogę zastosować własne style lub motywy do wykresu?
 
-Tak. Możesz w pełni dostosować wygląd wykresu, w tym kolory, czcionki, wypełnienia, kontury, linie siatki i układ. Jednak zastosowanie motywów Office dokładnie tak, jak w PowerPoint, wymaga ręcznego ustawiania poszczególnych stylów.
+Tak. Możesz w pełni dostosować wygląd wykresu, w tym kolory, czcionki, wypełnienia, kontury, linie siatki i układ. Jednak zastosowanie motywów Office dokładnie tak, jak są widoczne w PowerPoint, wymaga ręcznego ustawiania poszczególnych stylów.
 
-**Czy mogę wyeksportować wykres jako oddzielny obraz poza slajdem?**
+### Czy mogę wyeksportować wykres jako osobny obraz, oddzielnie od slajdu?
 
-Tak, Aspose.Slides umożliwia eksport dowolnego kształtu — w tym wykresów — jako oddzielny obraz (np. PNG, JPEG) przy użyciu metody `getImage` na [kształcie](https://reference.aspose.com/slides/pl/java/com.aspose.slides/shape/) wykresu.
+Tak, Aspose.Slides umożliwia wyeksportowanie dowolnego kształtu — w tym wykresów — jako osobny obraz (np. PNG, JPEG) przy użyciu metody `getImage` na [shape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/shape/).

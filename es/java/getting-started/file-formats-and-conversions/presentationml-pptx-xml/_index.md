@@ -4,39 +4,38 @@ type: docs
 weight: 20
 url: /es/java/presentationml-pptx-xml/
 ---
-
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 PresentationML es un nombre para una familia de formatos basados en XML para documentos de presentación. Office OpenXML (OOXML) es el formato basado en XML introducido en las aplicaciones de Microsoft Office 2007. Office OpenXML es un formato contenedor para varios lenguajes de marcado especializados basados en XML. PresentationML es el lenguaje de marcado utilizado por Microsoft Office PowerPoint 2007 para almacenar documentos.
 
 {{% /alert %}} 
 
-## **PresentationML en Aspose.Slides para Java**
-Los documentos PresentationML de OOXML vienen como archivos PPTX, paquetes XML comprimidos que siguen la especificación [OOXML ECMA-376](https://www.ecma-international.org/publications-and-standards/standards/ecma-376/). Aspose.Slides para Java admite ampliamente la creación, lectura, manipulación y escritura de documentos PresentationML. Además, Aspose.Slides para Java es capaz de exportar documentos PresentationML a un formato de documento ampliamente utilizado como PDF. Esto es posible porque Aspose.Slides para Java fue diseñado con el objetivo de manejar de manera integral documentos de presentación y PresentationML básicamente mantiene la presentación interna de los documentos como un paquete XML comprimido.
+## **PresentationML en Aspose.Slides for Java**
+Los documentos OOXML PresentationML se presentan como archivos PPTX, paquetes XML comprimidos que siguen la especificación [OOXML ECMA-376](https://www.ecma-international.org/publications-and-standards/standards/ecma-376/). Aspose.Slides for Java soporta de forma exhaustiva la creación, lectura, manipulación y escritura de documentos PresentationML. Además, Aspose.Slides for Java es capaz de exportar documentos PresentationML a un formato de documento ampliamente usado como PDF. Esto es posible porque Aspose.Slides for Java fue diseñado con el objetivo de gestionar integralmente los documentos de presentación y PresentationML básicamente mantiene la presentación interna de los documentos como un paquete XML comprimido.
 
-**Un documento PPTX generado por Aspose.Slides para Java y abierto en Microsoft PowerPoint** 
+**Un documento PPTX generado por Aspose.Slides for Java y abierto en Microsoft PowerPoint** 
 
 ![todo:image_alt_text](presentationml-pptx-xml_1.png)
 
 
-**Visualizando el mismo documento PPTX generado por Aspose.Slides para Java en un ZIP** 
+**Visualizando el mismo documento PPTX generado por Aspose.Slides for Java en un ZIP** 
 
 ![todo:image_alt_text](presentationml-pptx-xml_2.jpg)
 
 
-## **PresentationML es Abierto, ¿Por Qué Usar Aspose.Slides para Java?**
-Dado que PresentationML está basado en XML, es bastante posible construir aplicaciones para procesar y generar documentos PresentationML utilizando clases XML sin depender de una biblioteca de clases de terceros como Aspose.Slides para Java. Sin embargo, hay varias ventajas de usar Aspose.Slides para Java sobre las clases XML al trabajar con documentos PresentationML.
+## **PresentationML es abierto, ¿por qué usar Aspose.Slides for Java?**
+Dado que PresentationML está basado en XML, es perfectamente posible crear aplicaciones para procesar y generar documentos PresentationML usando clases XML sin depender de una biblioteca de clases de terceros como Aspose.Slides for Java. Sin embargo, existen varias ventajas de usar Aspose.Slides for Java sobre las clases XML al trabajar con documentos PresentationML.
 
-La especificación de OOXML tiene varios miles de páginas, por lo que para manejar adecuadamente los documentos PresentationML, tienes que dedicar mucho tiempo y esfuerzo para entender el formato. Por otro lado, con Aspose.Slides para Java, solo utilizas clases y sus métodos y propiedades para realizar operaciones que parecen complejas si se realizan a través de clases XML.
+La especificación OOXML tiene varios miles de páginas, por lo que para manejar adecuadamente los documentos PresentationML tienes que invertir mucho tiempo y esfuerzo en comprender el formato. Por otro lado, con Aspose.Slides for Java, simplemente utilizas clases y sus métodos y propiedades para realizar operaciones que parecen complejas si se hacen mediante clases XML.
 
 Algunas de las características que Aspose.Slides ofrece ni siquiera están disponibles cuando trabajas con documentos PresentationML a través de clases XML:
 
 - Exportar documentos PPT a formato PDF.
-- Renderizar una diapositiva a cualquier formato de imagen compatible con el marco de Java.
-- Copiar automáticamente maestros de presentaciones de origen usando la función de clonación.
+- Renderizar una diapositiva a cualquier formato de imagen compatible con el Framework de Java.
+- Copiar automáticamente masters de presentaciones origen mediante la función de clonación.
 - Aplicar protección a formas.
 
-A continuación se presenta un ejemplo de un documento PresentationML con una única diapositiva que contiene un cuadro de texto con el texto “Hola Mundo”. Para leer el texto utilizando clases XML, debes escribir un programa que pueda analizar este texto simple del siguiente fragmento. Aspose.Slides lo hace por ti.
+A continuación se muestra un ejemplo de un documento PresentationML con una única diapositiva que contiene un cuadro de texto con el texto “Hello World”. Para leer el texto usando clases XML, tendrías que escribir un programa que pueda analizar este texto sencillo a partir del siguiente fragmento. Aspose.Slides lo hace por ti.
 
 **XML**
 
@@ -57,7 +56,7 @@ A continuación se presenta un ejemplo de un documento PresentationML con una ú
           <a:chOff x="0" y="0"/>
           <a:chExt cx="0" cy="0"/>
         </a:xfrm></p:grpSpPr><p:sp>
-          <p:nvSpPr><p:cNvPr id="4" name="TextoCuadro 3"/>
+          <p:nvSpPr><p:cNvPr id="4" name="TextBox 3"/>
           <p:cNvSpPr txBox="1"/>
             <p:nvPr/>
           </p:nvSpPr>
@@ -79,7 +78,7 @@ A continuación se presenta un ejemplo de un documento PresentationML con una ú
             <a:p>
               <a:r>
                 <a:rPr lang="en-US"/>
-                <a:t>Hola Mundo
+                <a:t>Hello World
                 </a:t>
               </a:r>
               <a:endParaRPr lang="en-US"/>

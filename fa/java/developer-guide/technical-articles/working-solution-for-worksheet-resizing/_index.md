@@ -1,5 +1,5 @@
 ---
-title: راه‌حل عملی برای تغییر اندازه کاربرگ
+title: راه‌حل عملی برای تغییر اندازه برگه کاری
 type: docs
 weight: 20
 url: /fa/java/working-solution-for-worksheet-resizing/
@@ -8,41 +8,45 @@ keywords:
 - تصویر پیش‌نمایش
 - تغییر اندازه تصویر
 - Excel
-- کاربرگ
+- برگه کاری
 - PowerPoint
 - ارائه
 - Java
 - Aspose.Slides
-description: "رفع تغییر اندازه OLE کاربرگ Excel در ارائه‌ها: دو روش برای حفظ یکسانی فریم‌های شیء—مقیاس‌گذاری فریم یا شیت—در فرمت‌های PPT و PPTX."
+description: "رفع مشکل تغییر اندازه OLE برگه Excel در ارائه‌ها: دو روش برای حفظ ثابت بودن فریم‌های شی—مقیاس‌گذاری فریم یا برگه—در فرمت‌های PPT و PPTX."
 ---
-{{% alert color="primary" %}}
-
-مشاهده شده است که کاربرگ‌های Excel که به‌عنوان اشیاء OLE در یک ارائه PowerPoint از طریق مؤلفه‌های Aspose جاسازی می‌شوند، پس از اولین فعال‌سازی به مقیاسی نامشخص تغییر اندازه می‌دهند. این رفتار اختلاف بصری قابل‌توجهی بین وضعیت قبل و بعد از فعال‌سازی شیء OLE در ارائه ایجاد می‌کند. ما این مسئله را به‌طور جزئی بررسی کرده و راه‌حلی ارائه کرده‌ایم که در این مقاله پوشش داده شده است.
-
+{{% alert color="info" %}}
+در هنگام جاسازی برگه‌های Excel به‌عنوان اشیای OLE در یک ارائه PowerPoint توسط مؤلفه‌های Aspose، پس از اولین فعال‌سازی اندازه آنها به مقیاسی نامشخص تغییر می‌یابد. این رفتار تفاوت بصری قابل‌توجهی بین وضعیت قبل و بعد از فعال‌سازی شی OLE در ارائه ایجاد می‌کند. ما این مشکل را به‌صورت جزئی بررسی کرده و راه‌حلی ارائه داده‌ایم که در این مقاله آمده است.
 {{% /alert %}}
 
-## **Background**
+## **پس‌زمینه**
 
-در مقاله [Manage OLE](/slides/fa/java/manage-ole/) توضیح دادیم که چگونه یک فریم OLE را به یک ارائه PowerPoint با استفاده از Aspose.Slides for Java اضافه کنیم. برای رفع [object preview issue](/slides/fa/java/object-preview-issue-when-adding-oleobjectframe/) تصویری از محدودهٔ کاربرگ انتخاب‌شده را به فریم شیء OLE اختصاص دادیم. در ارائه خروجی، وقتی بر روی فریم شیء OLE که تصویر کاربرگ را نشان می‌دهد دوبار کلیک کنید، کتاب‌کار Excel فعال می‌شود. کاربران می‌توانند تغییرات دلخواه خود را در کتاب‌کار واقعی اعمال کنند و سپس با کلیک بیرون از کتاب‌کار فعال‌شده به اسلاید بازگردند. اندازهٔ فریم شیء OLE هنگام بازگشت کاربر به اسلاید تغییر می‌کند. عامل تغییر اندازه بسته به اندازهٔ فریم شیء OLE و کتاب‌کار Excel جاسازی‌شده متفاوت خواهد بود.
+در مقاله [مدیریت OLE](/slides/fa/java/manage-ole/) توضیح دادیم که چگونه یک فریم OLE را با استفاده از Aspose.Slides for Java به یک ارائه PowerPoint اضافه کنیم. برای رفع [مشکل پیش‌نمایش شی](/slides/fa/java/object-preview-issue-when-adding-oleobjectframe/) یک تصویر از ناحیه برگه انتخاب‌شده به فریم شی OLE اختصاص دادیم. در ارائه خروجی، هنگامی که دو بار روی فریم شی OLE که تصویر برگه را نشان می‌دهد کلیک می‌کنید، کتاب‌کاری Excel فعال می‌شود. کاربران می‌توانند هر تغییری که می‌خواهند در کتاب‌کار واقعی Excel اعمال کنند و سپس با کلیک خارج از کتاب‌کار فعال‌شده به اسلاید بازگردند. هنگام بازگشت کاربر به اسلاید، اندازه فریم شی OLE تغییر خواهد کرد. عامل تغییر اندازه بسته به اندازه فریم شی OLE و کتاب‌کار Excel جاسازی‌شده متفاوت است.
 
-## **Cause of Resizing**
+## **دلیل تغییر اندازه**
 
-از آنجا که کتاب‌کار Excel اندازهٔ پنجرهٔ خود را دارد، سعی می‌کند پس از اولین فعال‌سازی اندازهٔ اولیهٔ خود را حفظ کند. از طرف دیگر، فریم شیء OLE اندازهٔ خاص خود را دارد. طبق گفته مایکروسافت، زمانی که کتاب‌کار Excel فعال می‌شود، Excel و PowerPoint برای اطمینان از حفظ نسبت‌های صحیح، اندازهٔ آن را بر اساس فرآیند جاسازی تنظیم می‌کنند. تغییر اندازه بر پایهٔ اختلافات بین اندازهٔ پنجرهٔ Excel و اندازه و موقعیت فریم شیء OLE رخ می‌دهد.
+از آنجا که کتاب‌کار Excel اندازه پنجره خودش را دارد، سعی می‌کند پس از اولین فعال‌سازی همان اندازه اصلی را حفظ کند. در مقابل، فریم شی OLE اندازه مستقلی دارد. بر اساس توضیحات مایکروسافت، هنگام فعال شدن کتاب‌کار Excel، Excel و PowerPoint برای حفظ نسبت‌های صحیح در فرایند جاسازی، درباره اندازه مذاکره می‌کنند. تغییر اندازه بر اساس تفاوت‌های بین اندازه پنجره Excel و اندازه و موقعیت فریم شی OLE رخ می‌دهد.
 
-## **Working Solution**
+## **راه‌حل کاری**
 
-دو راه‌حل ممکن برای جلوگیری از اثر تغییر اندازه وجود دارد.
+دو راه‌حل برای جلوگیری از اثر تغییر اندازه وجود دارد.
 
-- مقیاس اندازهٔ فریم OLE در ارائه PowerPoint را طوری تنظیم کنید که با ارتفاع و عرض تعداد ردیف‌ها و ستون‌های موردنظر در فریم OLE تطابق داشته باشد.
-- اندازهٔ فریم OLE را ثابت نگه داشته و اندازهٔ ردیف‌ها و ستون‌های مشارکت‌کننده را طوری مقیاس‌دهی کنید که در اندازهٔ فریم OLE انتخاب‌شده جای بگیرد.
+- مقیاس‌گذاری اندازه فریم OLE در ارائه PowerPoint به‌گونه‌ای که با ارتفاع و عرض تعداد ردیف‌ها و ستون‌های موردنظر در فریم OLE مطابقت داشته باشد.
+- ثابت نگه داشتن اندازه فریم OLE و مقیاس‌گذاری اندازه ردیف‌ها و ستون‌های مشارکت‌کننده برای جا شدن در اندازه فریم OLE انتخاب‌شده.
 
-### **Scale the OLE Frame Size**
+### **مقیاس‌گذاری اندازه فریم OLE**
 
-در این رویکرد، نحوهٔ تنظیم اندازهٔ فریم OLE کتاب‌کار Excel جاسازی‌شده را طوری یاد می‌گیریم که با اندازهٔ تجمعی ردیف‌ها و ستون‌های مشارکت‌کننده در کاربرگ Excel مطابقت داشته باشد.
+در این رویکرد می‌آموزیم چگونه اندازه فریم OLE کتاب‌کار Excel جاسازی‌شده را طوری تنظیم کنیم که با اندازه تجمعی ردیف‌ها و ستون‌های مشارکت‌کننده در برگه Excel برابر باشد.
 
-فرض کنید یک شیت الگو Excel داریم و می‌خواهیم آن را به‌عنوان فریم OLE به یک ارائه اضافه کنیم. در این حالت، ابتدا اندازهٔ فریم شیء OLE بر پایهٔ مجموع ارتفاع ردیف‌ها و عرض ستون‌های مشارکت‌کننده در کتاب‌کار محاسبه می‌شود. سپس اندازهٔ فریم OLE را به این مقدار محاسبه‌شده تنظیم می‌کنیم. برای جلوگیری از نمایش پیام قرمز «EMBEDDED OLE OBJECT» برای فریم OLE در PowerPoint، تصویری از بخش‌های دلخواه ردیف‌ها و ستون‌ها در کتاب‌کار می‌گیریم و به‌عنوان تصویر فریم OLE تنظیم می‌کنیم.
+فرض کنید یک برگه الگو Excel داریم و می‌خواهیم آن را به عنوان فریم OLE به ارائه اضافه کنیم. در این حالت، ابتدا اندازه فریم شی OLE بر پایه مجموع ارتفاع ردیف‌ها و عرض ستون‌های مشارکت‌کننده در کتاب‌کار محاسبه می‌شود. سپس این مقدار محاسبه‌شده را به عنوان اندازه فریم OLE تنظیم می‌کنیم. برای جلوگیری از نمایش پیام قرمز «EMBEDDED OLE OBJECT» برای فریم OLE در PowerPoint، همچنین یک تصویر از قسمت‌های دلخواه ردیف‌ها و ستون‌ها در کتاب‌کار می‌گیریم و آن را به عنوان تصویر فریم OLE تنظیم می‌کنیم.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Image;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import javax.imageio.ImageIO;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -52,7 +56,7 @@ int imageResolution = 96;
 com.aspose.cells.Workbook workbook = new com.aspose.cells.Workbook( "sample.xlsx");
 com.aspose.cells.Worksheet worksheet = workbook.getWorksheets().get(worksheetIndex);
 
-// اندازه نمایش داده‌شده را زمانی که فایل کتاب‌کار به‌عنوان شیء OLE در PowerPoint استفاده می‌شود تنظیم کنید.
+// تنظیم اندازه نمایش زمانی که فایل کتاب‌کار به‌عنوان شی OLE در PowerPoint استفاده می‌شود.
 int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -90,6 +94,10 @@ presentation.dispose();
 ```
 
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -114,13 +122,17 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 }
 ```
 
-### **Scale the Cell Range Size**
+### **مقیاس‌گذاری اندازه محدوده سلول‌ها**
 
-در این رویکرد، نحوهٔ مقیاس‌دهی ارتفاع ردیف‌های مشارکت‌کننده و عرض ستون‌های مشارکت‌کننده را طوری یاد می‌گیریم که با یک اندازهٔ سفارشی فریم OLE منطبق شود.
+در این رویکرد می‌آموزیم چگونه ارتفاع ردیف‌های مشارکت‌کننده و عرض ستون‌های مشارکت‌کننده را طوری مقیاس‌گذاری کنیم که با یک اندازه سفارشی فریم OLE مطابقت داشته باشد.
 
-فرض کنید یک شیت الگو Excel داریم و می‌خواهیم آن را به‌عنوان فریم OLE به یک ارائه اضافه کنیم. در این حالت، اندازهٔ فریم OLE را تنظیم می‌کنیم و سپس اندازهٔ ردیف‌ها و ستون‌های مشارکت‌کننده در ناحیهٔ فریم OLE را مقیاس می‌دهیم. سپس کتاب‌کار را در یک جریان (stream) ذخیره می‌کنیم تا تغییرات اعمال شود و آن را به آرایهٔ بایت تبدیل می‌کنیم تا به فریم OLE اضافه شود. برای جلوگیری از پیام قرمز «EMBEDDED OLE OBJECT» برای فریم OLE در PowerPoint، تصویری از بخش‌های دلخواه ردیف‌ها و ستون‌ها در کتاب‌کار می‌گیریم و به‌عنوان تصویر فریم OLE تنظیم می‌کنیم.
+فرض کنید یک برگه الگو Excel داریم و می‌خواهیم آن را به عنوان فریم OLE به ارائه اضافه کنیم. در این حالت، اندازه فریم OLE را تنظیم می‌کنیم و اندازه ردیف‌ها و ستون‌هایی که در ناحیه فریم OLE مشارکت دارند مقیاس می‌دهیم. سپس کتاب‌کار را به یک جریان (stream) ذخیره می‌کنیم تا تغییرات اعمال شود و آن را به یک آرایه بایت تبدیل می‌کنیم تا به فریم OLE اضافه شود. برای جلوگیری از نمایش پیام قرمز «EMBEDDED OLE OBJECT» برای فریم OLE در PowerPoint، همچنین یک تصویر از قسمت‌های دلخواه ردیف‌ها و ستون‌ها در کتاب‌کار می‌گیریم و آن را به عنوان تصویر فریم OLE تنظیم می‌کنیم.
 
 ```java
+import com.aspose.slides.*;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -131,18 +143,18 @@ float frameWidth = 400, frameHeight = 100;
 com.aspose.cells.Workbook workbook = new com.aspose.cells.Workbook("sample.xlsx");
 com.aspose.cells.Worksheet worksheet = workbook.getWorksheets().get(worksheetIndex);
 
-// اندازه نمایش داده‌شده را زمانی که فایل کتاب‌کار به‌عنوان شیء OLE در PowerPoint استفاده می‌شود تنظیم کنید.
+// تنظیم اندازه نمایش هنگام استفاده از فایل کتاب‌کار به‌عنوان شی OLE در PowerPoint.
 int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
 
-// محدوده سلول را برای متناسب شدن با اندازه فریم مقیاس‌دهی کنید.
+// مقیاس‌گذاری محدوده سلول‌ها برای متناسب شدن با اندازه فریم.
 com.aspose.cells.Range cellRange = worksheet.getCells().createRange(startRow, startColumn, rowCount, columnCount);
 ScaleCellRange(cellRange, frameWidth, frameHeight);
 
 InputStream imageStream = CreateOleImage(cellRange, imageResolution);
 
-// ما باید از کتاب‌کار تغییر یافته استفاده کنیم.
+// ما باید از کتاب‌کار اصلاح‌شده استفاده کنیم.
 ByteArrayOutputStream oleStream = new ByteArrayOutputStream();
 workbook.save(oleStream, com.aspose.cells.SaveFormat.XLSX);
 workbook.dispose();
@@ -150,11 +162,11 @@ workbook.dispose();
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
-// تصویر OLE را به منابع ارائه اضافه کنید.
+// افزودن تصویر OLE به منابع ارائه.
 IPPImage oleImage = presentation.getImages().addImage(imageStream);
 imageStream.close();
 
-// فریم شیء OLE را ایجاد کنید.
+// ایجاد فریم شی OLE.
 IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleStream.toByteArray(), "xlsx");
 IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(10, 10, frameWidth, frameHeight, dataInfo);
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
@@ -167,8 +179,8 @@ presentation.dispose();
 
 ```java
 /**
- * @param width     عرض مورد انتظار محدودهٔ سلول بر حسب پوینت.
- * @param height    ارتفاع مورد انتظار محدودهٔ سلول بر حسب پوینت.
+ * @param width     عرض مورد انتظار بازه سلول بر حسب نقطه.
+ * @param height    ارتفاع مورد انتظار بازه سلول بر حسب نقطه.
  */
 static void ScaleCellRange(com.aspose.cells.Range cellRange, float width, float height) {
     double rangeWidth = cellRange.getWidth();
@@ -203,6 +215,10 @@ static void ScaleCellRange(com.aspose.cells.Range cellRange, float width, float 
 ```
 
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -227,42 +243,40 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 }
 ```
 
-## **Conclusion**
+## **نتیجه‌گیری**
 
-{{% alert color="primary" %}} 
-
-دو روش برای رفع مشکل تغییر اندازه کاربرگ وجود دارد. انتخاب روش مناسب بستگی به نیازها و موارد استفاده خاص دارد. هر دو روش به‌یک‌سان کار می‌کنند، چه ارائه‌ها از یک الگو ساخته شوند و چه از صفر. علاوه بر این، در این راه‌حل محدودیتی برای اندازهٔ فریم شیء OLE وجود ندارد.
-
+{{% alert color="info" %}} 
+دو رویکرد برای رفع مشکل تغییر اندازه برگه وجود دارد. انتخاب رویکرد مناسب بستگی به نیازهای خاص و مورد استفاده دارد. هر دو رویکرد به‌صورت یکسان عمل می‌کنند، چه ارائه‌ها از یک الگو ساخته شوند و چه از ابتدا. علاوه بر این، در این راه‌حل هیچ محدودیتی برای اندازه فریم شی OLE وجود ندارد.
 {{% /alert %}}
 
-## **FAQ**
+## **سؤال‌های متداول**
 
-**چرا یک کاربرگ Excel جاسازی‌شده پس از اولین فعال‌سازی در PowerPoint تغییر اندازه می‌دهد؟**
+### چرا پس از اولین فعال‌سازی در PowerPoint یک برگه Excel جاسازی‌شده اندازه‌اش تغییر می‌کند؟
 
-این به این دلیل است که Excel سعی می‌کند اندازهٔ پنجرهٔ اصلی خود را هنگام فعال‌سازی حفظ کند، در حالی که فریم شیء OLE در PowerPoint ابعاد خاص خود را دارد. PowerPoint و Excel برای حفظ نسبت تصویر با هم مذاکره می‌کنند که می‌تواند منجر به تغییر اندازه شود.
+این به این دلیل است که Excel سعی می‌کند اندازه پنجره اصلی خود را هنگام فعال‌سازی حفظ کند، در حالی که فریم شی OLE در PowerPoint ابعاد مستقلی دارد. PowerPoint و Excel درباره اندازه مذاکره می‌کنند تا نسبت ابعاد حفظ شود که می‌تواند منجر به تغییر اندازه شود.
 
-**آیا می‌توان این مشکل تغییر اندازه را به‌طور کامل جلوگیری کرد؟**
+### آیا می‌توان این مشکل تغییر اندازه را به‌طور کامل جلوگیری کرد؟
 
-بله. با مقیاس‌دهی فریم OLE به اندازهٔ محدودهٔ سلول‌های Excel یا مقیاس‌دهی محدوده سلول‌ها به اندازهٔ دلخواه فریم OLE می‌توانید از تغییر اندازه ناخواسته جلوگیری کنید.
+بله. با مقیاس‌گذاری فریم OLE برای متناسب شدن با اندازه محدوده سلول‌های Excel یا مقیاس‌گذاری محدوده سلول‌ها برای متناسب شدن با اندازه دلخواه فریم OLE، می‌توانید از تغییر اندازه ناخواسته جلوگیری کنید.
 
-**کدام روش مقیاس‌دهی را باید استفاده کنم، مقیاس‌دهی فریم OLE یا مقیاس‌دهی محدوده سلول؟**
+### کدام روش مقیاس‌گذاری را باید انتخاب کنم، مقیاس‌گذاری فریم OLE یا مقیاس‌گذاری محدوده سلول؟
 
-اگر می‌خواهید اندازهٔ ردیف‌ها و ستون‌های اصلی Excel حفظ شود، **مقیاس‌دهی فریم OLE** را انتخاب کنید. اگر نیاز به یک اندازهٔ ثابت برای فریم OLE در ارائه دارید، **مقیاس‌دهی محدوده سلول** را انتخاب کنید.
+اگر می‌خواهید اندازه ردیف‌ها و ستون‌های اصلی Excel را حفظ کنید، **مقیاس‌گذاری فریم OLE** را انتخاب کنید. اگر می‌خواهید اندازه فریم OLE در ارائه ثابت باشد، **مقیاس‌گذاری محدوده سلول** را انتخاب کنید.
 
-**آیا این راه‌حل‌ها در صورت استفاده از قالب (template) برای ارائه کار می‌کنند؟**
+### آیا این راه‌حل‌ها در صورتی که ارائه من بر پایه یک الگو باشد کار می‌کند؟
 
-بله. هر دو راه‌حل برای ارائه‌های ساخته‌شده از قالب و همچنین از ابتدا کار می‌کنند.
+بله. هر دو راه‌حل برای ارائه‌هایی که از قالب‌ها ساخته شده‌اند و همچنین برای ارائه‌های از ابتدا ساخته‌شده کار می‌کنند.
 
-**آیا محدودیتی برای اندازهٔ فریم OLE هنگام استفاده از این روش‌ها وجود دارد؟**
+### آیا برای اندازه فریم OLE در این روش‌ها محدودیتی وجود دارد؟
 
-خیر. می‌توانید فریم شیء OLE را به هر اندازه‌ای که بخواهید تنظیم کنید، به شرط آن‌که مقیاس را به‌درستی تنظیم کنید.
+خیر. می‌توانید فریم شی OLE را به هر اندازه‌ای که می‌خواهید تنظیم کنید، به‌شرط این‌که مقیاس را به‌طور مناسب تنظیم کنید.
 
-**آیا راهی برای جلوگیری از متن جایگزین «EMBEDDED OLE OBJECT» در PowerPoint وجود دارد؟**
+### آیا راهی برای حذف متن جای‌نگهدار «EMBEDDED OLE OBJECT» در PowerPoint وجود دارد؟
 
-بله. با گرفتن یک اسنپ‌شات از محدودهٔ سلول هدف در Excel و تنظیم آن به‌عنوان تصویر جایگزین فریم OLE، می‌توانید به‌جای متن پیش‌فرض، یک تصویر پیش‌نمایش سفارشی نمایش دهید.
+بله. با گرفتن یک تصویر از محدوده سلول هدف در Excel و تنظیم آن به‌عنوان تصویر جای‌نگهدار فریم OLE، می‌توانید به‌جای متن پیش‌فرض، یک پیش‌نمایش سفارشی نمایش دهید.
 
-## **Related Articles**
+## **مقالات مرتبط**
 
-[Creating an Excel Chart and Embedding It in a Presentation as an OLE Object](/slides/fa/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[ایجاد یک نمودار Excel و جاسازی آن در ارائه به‌عنوان شی OLE](/slides/fa/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
 
-[Updating OLE Objects Automatically Using an MS PowerPoint Add-In](/slides/fa/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[به‌روزرسانی خودکار اشیای OLE با استفاده از افزودنی MS PowerPoint](/slides/fa/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

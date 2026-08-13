@@ -10,7 +10,7 @@ keywords:
 - 3D otáčení
 - 3D hloubka
 - 3D extruze
-- 3D gradient
+- 3D přechod
 - 3D text
 - PowerPoint
 - prezentace
@@ -20,41 +20,69 @@ description: "Použijte a renderujte 3D efekty pro tvary a text v PowerPointu v 
 ---
 ## **Přehled**
 
-Aspose.Slides pro C++ může vytvářet, upravovat, zachovávat a vykreslovat 3D formátování ve stylu PowerPointu pro tvary a text. Tento článek popisuje 3D efekty jako otáčení, extruzi, fazety, osvětlení, materiál, gradientové nebo obrázkové výplně a 3D text.
+Aspose.Slides pro C++ může vytvářet, upravovat, zachovávat a vykreslovat 3D formátování ve stylu PowerPointu pro tvary a text. Tento článek pokrývá 3D efekty, jako jsou otáčení, extruze, zkosení, osvětlení, materiál, přechodové nebo obrázkové výplně a 3D text.
 
-{{% alert color="primary" %}}
-Tento článek se zabývá 3D efekty formátování na tvarech a textu v PowerPointu. Nejedná se o vkládání nebo úpravu samostatných souborů 3D modelů. Při exportu snímku do obrázku, PDF nebo HTML Aspose.Slides vykresluje tyto 3D efekty do exportovaného 2D výstupu.
+{{% alert color="info" %}}
+Tento článek se zabývá 3D formátovacími efekty na tvary a text v PowerPointu. Nejedná se o vkládání nebo úpravu samostatných souborů 3D modelů. Když exportujete snímek jako obrázek, PDF nebo HTML, Aspose.Slides vykreslí tyto 3D efekty do exportovaného 2D výstupu.
 {{% /alert %}}
 
 ## **Koncepty 3D formátování**
 
-Pomocí rozhraní [IShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishape/) použijte metodu [get_ThreeDFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishape/get_threedformat/) k aplikaci 3D formátování na tvar. Metoda vrací [IThreeDFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/), který řídí 3D scénu pro tento tvar.
+Použijte metodu [get_ThreeDFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishape/get_threedformat/) rozhraní [IShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishape/), abyste na tvaru použili 3D formátování. Metoda vrací [IThreeDFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/), který řídí 3D scénu pro daný tvar.
 
-Pro text použijte rozhraní [ITextFrameFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframeformat/) a jeho metodu [get_ThreeDFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframeformat/get_threedformat/). Tím se 3D formátování použije na textový rámec místo těla tvaru.
+Pro text použijte metodu [get_ThreeDFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframeformat/get_threedformat/) rozhraní [ITextFrameFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframeformat/). Tím se použije 3D formátování na rám textu místo na tělo tvaru.
 
 Nejdůležitější metody jsou:
 
-| Metoda | Co řídí | Kdy použít |
+| Metoda | Co řídí | Kdy ji použít |
 |---|---|---|
-| [get_Camera](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/get_camera/) | Pohled, přednastavený typ kamery, otáčení, zoom a perspektiva. | Otočte objekt ve 3D prostoru nebo odpovídání přednastavenému 3D otáčení v PowerPointu. |
-| [get_LightRig](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/get_lightrig/) | Přednastavené světlo, směr a rotace světla. | Změňte, jak se na 3D povrchu zobrazují světla a stíny. |
-| [set_Material](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/set_material/) | Materiál povrchu, např. plochý, matný, plastový nebo kovový. | Nechte stejnou geometrii vypadat plochěji, jemněji, leskle nebo kovově. |
-| [set_ExtrusionHeight](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/set_extrusionheight/) | Jak daleko se tvar rozšiřuje dozadu od své přední strany. | Převést plochý tvar na viditelně silný 3D objekt. |
-| [get_ExtrusionColor](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/get_extrusioncolor/) | Barva extrudovaných stran. | Zobrazit hloubku nebo sladit barvu stran s výplní přední strany. |
-| [set_Depth](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/set_depth/) | Další 3D hloubka používaná formátováním 3D v PowerPointu. | Doladit hloubku pro tvary nebo text, zejména v kombinaci s nastavením fazet a materiálu. |
-| [get_BevelTop](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/get_beveltop/) a [get_BevelBottom](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/get_bevelbottom/) | Vyvýšené nebo zaoblené hrany na přední a zadní straně. | Přidejte zjemněný nebo formovaný okraj místo ostré ploché strany. |
-| [get_ContourColor](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/get_contourcolor/) a [set_ContourWidth](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/set_contourwidth/) | Obrys kolem 3D objektu. | Zdůrazněte hranice objektu ve vykresleném výstupu. |
+| [get_Camera](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/get_camera/) | Pohled, přednastavený typ kamery, otáčení, přiblížení a perspektiva. | Otáčet objekt ve 3D prostoru nebo použít přednastavené 3D otáčení v PowerPointu. |
+| [get_LightRig](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/get_lightrig/) | Přednastavené osvětlení, směr a rotace světla. | Změnit, jak se zvýraznění a stíny objevují na 3D povrchu. |
+| [set_Material](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/set_material/) | Materiál povrchu, např. plochý, matný, plastový nebo kovový. | Způsobit, aby stejná geometrie vypadala plochěji, měkčeji, leskleji nebo kovově. |
+| [set_ExtrusionHeight](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/set_extrusionheight/) | Jak daleko se tvar prodlužuje dozadu od přední plochy. | Proměnit plochý tvar na viditelně silný 3D objekt. |
+| [get_ExtrusionColor](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/get_extrusioncolor/) | Barva extrudovaných stran. | Zviditelnit hloubku nebo sladit barvu stran s výplní přední plochy. |
+| [set_Depth](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/set_depth/) | Další 3D hloubka používaná v 3D formátování PowerPointu. | Jemně doladit hloubku pro tvary nebo text, zejména v kombinaci s nastavením zkosení a materiálu. |
+| [get_BevelTop](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/get_beveltop/) a [get_BevelBottom](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/get_bevelbottom/) | Vyvýšené nebo zaoblené hrany na přední a zadní ploše. | Přidat zjemněný nebo formovaný okraj místo ostré ploché strany. |
+| [get_ContourColor](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/get_contourcolor/) a [set_ContourWidth](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/set_contourwidth/) | Obrys kolem 3D objektu. | Zdůraznit hranici objektu ve vykresleném výstupu. |
 
-## **Vytvořit 3D tvar**
+## **Vytvoření 3D tvaru**
 
-- Nastavení kamery, protože výchozí pohled zepředu může skrýt extruzi.
-- Nastavení světla, protože osvětlení činí tvary a strany čitelnými.
-- Nastavení materiálu, protože povrch ovlivňuje, jak je světlo vykresleno.
+Tvar obvykle potřebuje čtyři typy nastavení, aby vypadal opravdu 3D:
+
+- Nastavení kamery, protože výchozí přední pohled může skrývat extruzi.
+- Nastavení osvětlení, protože osvětlení umožňuje čitelnost ploch a stran.
+- Nastavení materiálu, protože povrch ovlivňuje, jak se světlo vykresluje.
 - Nastavení extruze nebo hloubky, protože plochý tvar potřebuje tloušťku.
 
 Následující příklad vytvoří obdélník, přidá text na jeho přední stranu, použije 3D formátování, uloží prezentaci jako PPTX a vykreslí snímek do PNG obrázku.
 
 ```cpp
+#include <DOM/CameraPresetType.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILightRig.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/LightRigPresetType.h>
+#include <DOM/LightingDirection.h>
+#include <DOM/MaterialPresetType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 const float imageScale = 2.0f;
 
 auto presentation = System::MakeObject<Presentation>();
@@ -85,34 +113,63 @@ presentation->Save(u"shape_3d.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Vykreslený snímek ukazuje obdélník jako silný 3D blok:
+Vykreslený obrázek snímku ukazuje obdélník jako silný 3D blok:
 
 ![Vykreslený modrý 3D obdélník s bílým 3D textem na přední straně](img_01_01.png)
 
-## **Otočit tvar pomocí kamery**
+## **Otáčení tvaru pomocí kamery**
 
-V PowerPointu se 3D otáčení nastavuje v podokně 3‑D Rotation. Hodnoty otáčení X, Y a Z odpovídají otáčení nastavenému přes API kamery.
+V PowerPointu se 3D otočení nastavuje v podokně 3‑D otočení. Hodnoty otáčení X, Y a Z odpovídají otáčení, které nastavíte přes API kamery.
 
-![Panel 3‑D otáčení v PowerPointu se zvýrazněnými hodnotami otáčení X, Y a Z](img_02_01.png)
+![Podokno 3‑D otočení v PowerPointu s vyznačenými hodnotami otáčení X, Y a Z](img_02_01.png)
 
-V Aspose.Slides nastavte typ kamery a otáčení pomocí [IThreeDFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/):
+V Aspose.Slides nastavte typ kamery a otáčení přes [IThreeDFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/):
 
 ```cpp
+#include <DOM/CameraPresetType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 200.0f, 200.0f);
+
 shape->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::OrthographicFront);
 shape->get_ThreeDFormat()->get_Camera()->SetRotation(20.0f, 30.0f, 40.0f);
 ```
 
-Použijte kameru, když potřebujete změnit, jak divák vidí objekt. Nemění 2D geometrii tvaru na snímku. Mění 3D pohled, který používá PowerPoint i Aspose.Slides při renderování.
+Použijte kameru, když potřebujete změnit, jak divák objekt vidí. Nemění to 2D geometrii tvaru na snímku. Mění to 3D pohled, který používá PowerPoint i Aspose.Slides při vykreslování.
 
-## **Přidat extruzi a hloubku**
+## **Přidání extruze a hloubky**
 
-Extruze způsobí, že tvar vypadá tlustě tím, že se rozšíří za přední stranu. V PowerPointu ovládání hloubky nastavuje tuto viditelnou tloušťku a ovládání barvy určuje barvu bočních ploch.
+Extruze způsobí, že tvar vypadá silně tím, že se prodlouží za přední plochu. V PowerPointu ovládání hloubky nastavuje tuto viditelnou tloušťku a ovládání barvy nastavuje barvu bočních ploch.
 
-![Ovládání hloubky v PowerPointu přiřazené k barvám extruze a vlastnostem výšky extruze](img_02_02.png)
+![Ovládání hloubky v PowerPointu přiřazené k vlastnostem barvy extruze a výšky extruze](img_02_02.png)
 
 Nastavte [set_ExtrusionHeight](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/set_extrusionheight/) pro tloušťku a [get_ExtrusionColor](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/get_extrusioncolor/) pro barvu stran:
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 200.0f, 200.0f);
+
 shape->get_ThreeDFormat()->get_Camera()->SetRotation(20.0f, 30.0f, 40.0f);
 shape->get_ThreeDFormat()->set_ExtrusionHeight(100.0);
 
@@ -120,15 +177,41 @@ auto extrusionColor = System::Drawing::Color::get_Purple();
 shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(extrusionColor);
 ```
 
-Použijte [set_Depth](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/set_depth/), když potřebujete pracovat přímo s hodnotou hloubky v PowerPointu nebo kombinovat hloubku s fazetami, materiálem a textovými efekty. V mnoha scénářích tvaru je `set_ExtrusionHeight` přehlednější nastavení, protože přímo vyjadřuje viditelnou extruzi.
+Použijte [set_Depth](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/set_depth/), když potřebujete pracovat přímo s hodnotou hloubky v PowerPointu nebo kombinovat hloubku se zkosením, materiálem a textovými efekty. V mnoha scénářích tvarů je `set_ExtrusionHeight` přehlednější nastavení, protože přímo vyjadřuje viditelnou extruzi.
 
-## **Použít gradientové nebo obrázkové výplně s 3D efekty**
+## **Použití přechodových nebo obrázkových výplní s 3D efekty**
 
-3D formátování je nezávislé na výplni tvaru. Můžete použít plnou barvu, gradient, vzor nebo obrázkovou výplň na přední stranu a stále použít stejná nastavení kamery, světla, materiálu a extruze.
+3D formátování je nezávislé na výplni tvaru. Můžete použít jednolitou barvu, přechod, vzor nebo obrázkovou výplň na přední stranu a stále použít stejná nastavení kamery, osvětlení, materiálu a extruze.
 
-Tento příklad použije gradientovou výplň na tvar a tmavší barvu extruze na strany:
+Tento příklad použije přechodovou výplň na tvar a tmavší barvu extruze na strany:
 
 ```cpp
+#include <DOM/CameraPresetType.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IGradientFormat.h>
+#include <DOM/IGradientStopCollection.h>
+#include <DOM/ILightRig.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/LightRigPresetType.h>
+#include <DOM/LightingDirection.h>
+#include <DOM/MaterialPresetType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <IImage.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
 const float imageScale = 2.0f;
 
 auto presentation = System::MakeObject<Presentation>();
@@ -160,11 +243,37 @@ thumbnail->Dispose();
 presentation->Dispose();
 ```
 
-![Vykreslený 3D obdélník s modro‑oranžovým gradientem výplně a oranžovou extruzí](img_02_03.png)
+Vykreslený výstup zachovává přechod na přední straně a vykresluje extruzi samostatně:
+
+![Vykreslený 3D obdélník s modro‑oranžovou přechodovou výplní a oranžovou extruzí](img_02_03.png)
 
 Pro použití obrázkové výplně místo toho přidejte obrázek do prezentace a přiřaďte jej výplni tvaru:
 
 ```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+#include <system/io/file.h>
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+using namespace System::IO;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 200.0f, 200.0f);
+
 auto imageData = System::IO::File::ReadAllBytes(u"image.jpg");
 auto image = presentation->get_Images()->AddImage(imageData);
 
@@ -178,15 +287,50 @@ shape->get_ThreeDFormat()->set_ExtrusionHeight(150.0);
 shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(extrusionColor);
 ```
 
+Obrázek se vykreslí na přední stranu, zatímco extruze se vykreslí jako 3D boční povrch:
+
 ![Vykreslený 3D obdélník s fotografickou výplní na přední straně a oranžovou extruzí](img_02_04.png)
 
-## **Použít 3D formátování na text**
+## **Použití 3D formátování na text**
 
-3D formátování tvaru ovlivňuje tělo tvaru. 3D formátování textu ovlivňuje textový rámec. To je užitečné pro efekty podobné WordArt, kde samotná písmena potřebují extruzi, materiál, osvětlení a nastavení kamery.
+3D formátování tvaru ovlivňuje tělo tvaru. 3D formátování textu ovlivňuje rám textu. To je užitečné pro efekty podobné WordArt, kde samotná písmena potřebují extruzi, materiál, osvětlení a nastavení kamery.
 
-Následující příklad vytvoří text s výplní vzoru, použije WordArt transformaci a nakonfiguruje 3D nastavení na [ITextFrameFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframeformat/):
+Následující příklad vytvoří text se vzorovou výplní, použije transformaci WordArt a nastaví 3D parametry na [ITextFrameFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframeformat/):
 
 ```cpp
+#include <DOM/CameraPresetType.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILightRig.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPatternFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/LightRigPresetType.h>
+#include <DOM/LightingDirection.h>
+#include <DOM/MaterialPresetType.h>
+#include <DOM/PatternStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 const float imageScale = 2.0f;
 
 auto presentation = System::MakeObject<Presentation>();
@@ -226,39 +370,43 @@ presentation->Save(u"text_3d.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![Vykreslený 3D text s zakřiveným WordArt transformem, oranžovou výplní vzoru a tmavou extruzí](img_02_05.png)
+Text se vykreslí jako zakřivené, extrudované 3D písmo:
 
-## **Chování exportu a renderování**
+![Vykreslený 3D text s zakřivenou WordArt transformací, oranžovou vzorovanou výplní a tmavou extruzí](img_02_05.png)
 
-Aspose.Slides zachovává 3D formátování při ukládání do formátů PowerPointu, jako je PPTX. Při renderování nebo exportu do formátů s pevnou stránkou se 3D scéna rasterizuje nebo nakreslí do výstupu jako 2D výsledek. To platí, když renderujete snímky do [PNG](/slides/cs/cpp/convert-powerpoint-to-png/), exportujete do [PDF](/slides/cs/cpp/convert-powerpoint-to-pdf/), exportujete do [HTML](/slides/cs/cpp/convert-powerpoint-to-html/), nebo generujete snímky pro [video conversion](/slides/cs/cpp/convert-powerpoint-to-video/).
+## **Chování exportu a vykreslování**
+
+Aspose.Slides zachovává 3D formátování při ukládání do formátů PowerPointu, jako je PPTX. Při vykreslování nebo exportu do formátů s pevnou rozložením se 3D scéna rasterizuje nebo vloží do výstupu jako 2D výsledek. To platí, když vykreslujete snímky do [PNG](/slides/cs/cpp/convert-powerpoint-to-png/), exportujete do [PDF](/slides/cs/cpp/convert-powerpoint-to-pdf/), exportujete do [HTML](/slides/cs/cpp/convert-powerpoint-to-html/), nebo generujete snímky pro [video conversion](/slides/cs/cpp/convert-powerpoint-to-video/).
+
+Mějte na paměti tyto body:
 
 - Exportované obrázky a PDF nejsou interaktivní. Objekt nelze po exportu otáčet.
-- Konečný vzhled závisí na kombinaci kamery, světelného zařízení, materiálu, extruze, výplně a měřítka snímku.
-- Pokud potřebujete zkontrolovat zděděné nebo na motivu založené hodnoty formátování, přečtěte si [efektivní vlastnosti tvaru](/slides/cs/cpp/shape-effective-properties/).
-- Některé výstupní formáty nemohou uložit editovatelné 3D formátování PowerPointu. V těchto formátech je vizuální výsledek vykreslený místo toho, aby byl zachován jako editovatelné 3D nastavení.
+- Konečný vzhled závisí na kombinaci kamery, osvětlení, materiálu, extruze, výplně a měřítka snímku.
+- Pokud potřebujete zkontrolovat zděděné nebo tématem definované hodnoty formátování, přečtěte si [effective shape properties](/slides/cs/cpp/shape-effective-properties/).
+- Některé výstupní formáty nemohou uložit upravitelný PowerPoint 3D formát. V těchto formátech se vizuální výsledek vykreslí místo toho, aby byl zachován jako upravitelná 3D nastavení.
 
 ## **Často kladené otázky**
 
-**Může Aspose.Slides vytvářet interaktivní 3D prezentace?**
+### Může Aspose.Slides vytvářet interaktivní 3D prezentace?
 
-Aspose.Slides vytváří a vykresluje 3D efekty PowerPointu pro tvary a text. Nevytváří interaktivní 3D scény v exportovaných obrázcích, PDF nebo HTML stránkách, které by divák mohl otáčet. V PPTX zůstává 3D formátování editovatelné v PowerPointu, kde formát podporuje editaci.
+Aspose.Slides vytváří a vykresluje 3D efekty PowerPointu pro tvary a text. Nevytváří interaktivní 3D scény v exportovaných obrázcích, PDF nebo HTML stránkách, které by divák mohl otáčet. V PPTX zůstává 3D formátování editovatelné v PowerPointu, pokud formát podporuje úpravy.
 
-**Jaký je rozdíl mezi 3D modelem a 3D efektem?**
+### Jaký je rozdíl mezi 3D modelem a 3D efektem?
 
-3D model je samostatný 3D objekt vložený do prezentace. 3D efekt je formátování aplikované na běžný tvar nebo text v PowerPointu, jako je otáčení, extruze, fazeta, osvětlení a materiál. Tento článek se zabývá 3D efekty.
+3D model je samostatný 3D objekt vložený do prezentace. 3D efekt je formátování aplikované na běžný tvar nebo text v PowerPointu, jako je otáčení, extruze, zkosení, osvětlení a materiál. Tento článek se zabývá 3D efekty.
 
-**Jaká nastavení jsou potřeba pro viditelný 3D tvar?**
+### Jaká nastavení jsou potřebná pro viditelný 3D tvar?
 
-Minimálně nastavte otáčení kamery a buď extruzi, nebo hloubku. V praxi také nastavte světelné zařízení a materiál, aby měly vykreslené plochy jasné zvýraznění a stíny.
+Minimálně nastavte rotaci kamery a buď extruzi, nebo hloubku. V praxi také nastavte osvětlení a materiál, aby vykreslené plochy měly jasné zvýraznění a stínování.
 
-**Mohu aplikovat 3D efekty jak na tvary, tak na text?**
+### Mohu použít 3D efekty na tvary i text?
 
 Ano. Použijte [IShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishape/) pro tělo tvaru a [ITextFrameFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframeformat/) pro text.
 
-**Zobrazí se 3D efekty při exportu do obrázků, PDF, HTML nebo video snímků?**
+### Budou 3D efekty viditelné při exportu do obrázků, PDF, HTML nebo video snímků?
 
-Ano. Aspose.Slides vykresluje 3D efekty při vytváření obrázků snímků, PDF výstupu, HTML výstupu a snímků použité pro konverzi videa. Exportovaný výstup obsahuje vykreslený vzhled, nikoli editovatelný 3D objekt.
+Ano. Aspose.Slides vykreslí 3D efekty při tvorbě obrázků snímků, PDF výstupu, HTML výstupu a snímcích používaných pro konverzi videa. Exportovaný výstup obsahuje vykreslený vzhled, nikoli editovatelný 3D objekt.
 
-**Mohu přečíst konečné 3D hodnoty po aplikaci dědičnosti a motivu?**
+### Mohu přečíst finální 3D hodnoty po aplikaci dědičných a tématických nastavení?
 
-Ano. Použijte API efektivního formátování popsané v [efektivní vlastnosti tvaru](/slides/cs/cpp/shape-effective-properties/), abyste získali koneční hodnoty kamery, světelného zařízení, fazety a souvisejících 3D parametrů.
+Ano. Použijte API pro efektivní formátování popsaná v [effective shape properties](/slides/cs/cpp/shape-effective-properties/), abyste získali konečné hodnoty kamery, osvětlení, zkosení a souvisejících 3D parametrů.

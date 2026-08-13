@@ -24,34 +24,36 @@ keywords:
 - PDF s poznámkami
 - Java
 - Aspose.Slides
-description: "Převod formátů PPT a PPTX do PDF s poznámkami pomocí Aspose.Slides pro Javu. Zachovejte rozvržení a poznámky přednášejícího pro profesionální prezentace."
+description: "Převod formátů PPT a PPTX do PDF s poznámkami pomocí Aspose.Slides pro Java. Zachování rozvržení a poznámek přednášejícího pro profesionální prezentace."
 ---
 ## **Přehled**
 
-V tomto článku se dozvíte, jak převést prezentace PowerPoint do formátu PDF s poznámkami přednášejícího pomocí Aspose.Slides. Tento průvodce popisuje potřebné kroky a poskytuje ukázky kódu, které vám pomohou tuto úlohu provést efektivně. Na konci článku budete schopni:
+V tomto článku se naučíte, jak převést prezentace PowerPoint do formátu PDF s poznámkami přednášejícího pomocí Aspose.Slides. Tento průvodce pokryje potřebné kroky a poskytne ukázkové kódy, které vám pomohou úkol efektivně splnit. Na konci článku budete schopni:
 
 - Implementovat proces převodu, který transformuje snímky PowerPointu do PDF dokumentů při zachování poznámek přednášejícího.
-- Přizpůsobit výstupní PDF tak, aby zahrnovalo a formátovalo poznámky přednášejícího podle vašich požadavků.
+- Přizpůsobit výstupní PDF tak, aby zahrnovalo poznámky přednášejícího a formátovalo je podle vašich požadavků.
 
-## **Převod PowerPointu na PDF s poznámkami**
+## **Převod PowerPointu do PDF s poznámkami**
 
-Metodu `save` ve třídě [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/) lze použít k převodu prezentace PPT nebo PPTX do PDF s poznámkami přednášejícího. S Aspose.Slides stačí načíst prezentaci, nakonfigurovat možnosti rozvržení pomocí třídy [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cs/java/com.aspose.slides/notescommentslayoutingoptions/), aby zahrnovala poznámky přednášejícího, a následně soubor uložit jako PDF. Následující útržek kódu demonstruje, jak převést ukázkovou prezentaci do PDF v zobrazení poznámkového listu.
+Metoda `save` ve třídě [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/) lze použít k převodu prezentace PPT nebo PPTX do PDF s poznámkami přednášejícího. S Aspose.Slides stačí načíst prezentaci, nakonfigurovat možnosti rozvržení pomocí třídy [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cs/java/com.aspose.slides/notescommentslayoutingoptions/), aby byly zahrnuty poznámky, a poté soubor uložit jako PDF. Následující úryvek kódu ukazuje, jak převést ukázkovou prezentaci do PDF v režimu Poznámky ke snímkům.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 
-// Nastavte možnosti PDF pro vykreslení poznámek přednášejícího.
+// Nakonfigurujte možnosti PDF pro vykreslení poznámek přednášejícího.
 NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
 notesOptions.setNotesPosition(NotesPositions.BottomFull); // Vykreslit poznámky přednášejícího pod snímkem.
 
 PdfOptions pdfOptions = new PdfOptions();
 pdfOptions.setSlidesLayoutOptions(notesOptions);
 
-// Uložte prezentaci do PDF s poznámkami přednášejícího.
+// Uložit prezentaci do PDF s poznámkami přednášejícího.
 presentation.save("output.pdf", SaveFormat.Pdf, pdfOptions);
 presentation.dispose();
 ```
 
-{{% alert color="primary" %}} 
-Možná budete chtít vyzkoušet online převodník Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/cs/conversion). 
+{{% alert color="info" %}} 
+Možná budete chtít vyzkoušet online převodník PowerPoint do PDF od Aspose [Online převodník PowerPoint do PDF](https://products.aspose.app/slides/cs/conversion). 
 {{% /alert %}}

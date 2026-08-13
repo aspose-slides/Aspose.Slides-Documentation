@@ -13,11 +13,11 @@ keywords:
 - presentazione
 - Java
 - Aspose.Slides
-description: "Scopri come migrare dall'automazione Microsoft Office ad Aspose.Slides per Java e aggiungere testo dinamico alle presentazioni PowerPoint (PPT, PPTX) in Java."
+description: "Scopri come migrare dall'automazione Microsoft Office a Aspose.Slides per Java e aggiungere testo dinamico alle presentazioni PowerPoint (PPT, PPTX) in Java."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Un compito comune che gli sviluppatori devono svolgere è aggiungere testo alle diapositive in modo dinamico. Questo articolo mostra esempi di codice per aggiungere testo dinamicamente usando [VSTO](/slides/it/java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/) e [Aspose.Slides for Java](/slides/it/java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/).
+Un compito comune che gli sviluppatori devono eseguire è aggiungere testo alle diapositive in modo dinamico. Questo articolo mostra esempi di codice per aggiungere testo dinamicamente usando [VSTO](/slides/it/java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/) e [Aspose.Slides for Java](/slides/it/java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/).
 
 {{% /alert %}} 
 ## **Aggiungere testo dinamicamente**
@@ -39,7 +39,7 @@ Il frammento di codice sottostante genera una presentazione con una diapositiva 
 ## **Esempio Aspose.Slides per Java**
 Il frammento di codice sottostante utilizza Aspose.Slides per creare una presentazione con una diapositiva vuota e una stringa di testo.
 
-**La presentazione creata usando Aspose.Slides per Java** 
+**La presentazione creata utilizzando Aspose.Slides per Java** 
 
 ![todo:image_alt_text](adding-text-dynamically-using-vsto-and-aspose-slides-for-java_2.png)
 

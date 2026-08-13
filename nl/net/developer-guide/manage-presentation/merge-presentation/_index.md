@@ -20,82 +20,91 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Voeg moeiteloos PowerPoint (PPT, PPTX) en OpenDocument (ODP) presentaties samen met Aspose.Slides voor .NET, waardoor uw workflow wordt gestroomlijnd."
+description: "Moeiteloos PowerPoint (PPT, PPTX) en OpenDocument (ODP) presentaties samenvoegen met Aspose.Slides voor .NET, waardoor je workflow wordt gestroomlijnd."
 ---
 ## **Overzicht**
 
-Aspose.Slides stelt u in staat presentaties te combineren door dia's van de ene presentatie te clonen naar een andere. Dit artikel legt uit hoe u volledige presentaties of geselecteerde dia's kunt samenvoegen, een slide‑master of een specifieke lay‑out tijdens het samenvoegen kunt gebruiken, presentaties met verschillende dia‑groottes kunt verwerken en samengevoegde dia's kunt toevoegen aan een presentatiesectie. Het behandelt tevens praktische aandachtspunten met betrekking tot samengevoegde inhoud, inclusief sprekersnotities, opmerkingen, wachtwoord‑beveiligde bronbestanden en thread‑gebruik.
+Aspose.Slides stelt je in staat om presentaties te samenvoegen door dia's van de ene presentatie te klonen naar een andere. Dit artikel legt uit hoe je volledige presentaties of geselecteerde dia's kunt samenvoegen, een slide‑master of een specifieke lay-out tijdens het samenvoegen kunt gebruiken, presentaties met verschillende dia‑groottes kunt verwerken, en samengevoegde dia's aan een presentatiesectie kunt toevoegen. Het behandelt ook praktische opmerkingen met betrekking tot samengevoegde inhoud, zoals spreker‑notities, opmerkingen, met wachtwoord beveiligde bronbestanden en thread‑gebruik.
 
-## **Optimaliseer uw presentatiesamenvoeging**
+## **Optimaliseer het Samenvoegen van Presentaties**
 
-Met [Aspose.Slides for .NET](https://products.aspose.com/slides/nl/net/), combineert u moeiteloos PowerPoint‑presentaties terwijl stijlen, lay‑outs en alle elementen behouden blijven. In tegenstelling tot andere tools voegt Aspose.Slides presentaties samen zonder concessies aan kwaliteit of verlies van gegevens. Voeg volledige presentaties, specifieke dia's en zelfs verschillende bestandsformaten (PPT naar PPTX, enz.) samen.
+Met [Aspose.Slides voor .NET](https://products.aspose.com/slides/nl/net/) kun je PowerPoint‑presentaties moeiteloos combineren terwijl stijlen, lay-outs en alle elementen behouden blijven. In tegenstelling tot andere tools voegt Aspose.Slides presentaties samen zonder kwaliteitsverlies of gegevensverlies. Voeg volledige presentaties, specifieke dia's en zelfs verschillende bestandsformaten (PPT naar PPTX, enz.) samen.
 
-### **Samenvoegingsfuncties**
+### **Samenvoeg‑functies**
 
-- **Volledige presentatiesamenvoeging:** Alle dia's samenvoegen tot één bestand.  
-- **Specifieke dia‑samenvoeging:** Geselecteerde dia's kiezen en combineren.  
-- **Cross‑formaat samenvoeging:** Presentaties van verschillende formaten integreren, met behoud van integriteit.
+- **Volledige Presentatie‑Samenvoeging:** Verzamel alle dia's in één bestand.
+- **Specifieke Dia‑Samenvoeging:** Kies en combineer geselecteerde dia's.
+- **Cross‑Formaat Samenvoeging:** Integreer presentaties van verschillende formaten, behoud de integriteit.
 
-{{% alert title="Tip" color="primary" %}}  
-Zoekt u een snelle en **gratis online tool** om **PowerPoint‑presentaties** samen te voegen? Probeer de [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/nl/merger).  
+{{% alert title="Tip" color="info" %}}  
 
-- **PowerPoint‑bestanden eenvoudig samenvoegen**: Combineer meerdere **PPT, PPTX, ODP**‑presentaties tot één bestand.  
-- **Ondersteunt verschillende formaten**: Samenvoegen van **PPT naar PPTX**, **PPTX naar ODP**, en meer.  
-- **Geen installatie vereist**: Werkt direct in uw browser, snel en veilig.  
+Op zoek naar een snelle en **gratis online tool** om **PowerPoint‑presentaties** samen te voegen? Probeer de [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/nl/merger).  
 
-[![PowerPoint‑bestanden online samenvoegen](slides-merger.png)](https://products.aspose.app/slides/nl/merger)  
+- **PowerPoint‑bestanden eenvoudig samenvoegen**: Combineer meerdere **PPT, PPTX, ODP**‑presentaties in één bestand.  
+- **Ondersteunt verschillende formaten**: Voeg **PPT naar PPTX**, **PPTX naar ODP**, en meer samen.  
+- **Geen installatie nodig**: Werkt direct in je browser, snel en veilig.  
 
-Begin vandaag nog met het samenvoegen van uw PowerPoint‑bestanden met de **gratis Aspose‑online‑tool**!  
+[![Merge PowerPoint Files Online](slides-merger.png)](https://products.aspose.app/slides/nl/merger)  
+
+Begin vandaag nog met het samenvoegen van je PowerPoint‑bestanden met de **gratis Aspose‑online‑tool**!  
+
 {{% /alert %}}
 
-## **Presentatiesamenvoeging**
+## **Presentatie‑Samenvoeging**
 
-Wanneer u een [presentatie naar een andere samenvoegt](https://products.aspose.com/slides/nl/net/merger/ppt/), combineert u feitelijk hun dia's in één presentatie om één bestand te verkrijgen. 
+Wanneer je een presentatie [naar een andere samenvoegt](https://products.aspose.com/slides/nl/net/merger/ppt/), combineer je feitelijk hun dia's in één presentatie om één bestand te verkrijgen. 
 
-{{% alert title="Info" color="info" %}}  
-De meeste presentatiesoftware (PowerPoint of OpenOffice) beschikt niet over functies die gebruikers in staat stellen presentaties op deze manier te combineren.  
+{{% alert title="Info" color="info" %}}
 
-[**Aspose.Slides for .NET**](https://products.aspose.com/slides/nl/net/) maakt echter verschillende manieren van samenvoegen mogelijk. U kunt presentaties samenvoegen met al hun vormen, stijlen, teksten, opmaak, opmerkingen, animaties, enz., zonder zich zorgen te maken over kwaliteit of gegevensverlies.  
+De meeste presentatietoepassingen (PowerPoint of OpenOffice) missen functies die gebruikers toestaan presentaties op deze manier te combineren. 
 
-**Zie ook**  
+[Aspose.Slides voor .NET](https://products.aspose.com/slides/nl/net/) maakt echter wel verschillende manieren van samenvoegen mogelijk. Je kunt presentaties samenvoegen met al hun vormen, stijlen, teksten, opmaak, opmerkingen, animaties, enz., zonder je zorgen te maken over kwaliteits- of gegevensverlies. 
 
-[Clone Slides](https://docs.aspose.com/slides/nl/net/cloning-commenting-and-manipulating-slides/#cloning-commentingandmanipulatingslides-cloningslides)*.*  
+**Zie ook**
+
+[Clone Slides](https://docs.aspose.com/slides/nl/net/cloning-commenting-and-manipulating-slides/#cloning-commentingandmanipulatingslides-cloningslides)*.* 
+
 {{% /alert %}}
 
-### **Wat kan worden samengevoegd**
+### **Wat Kan Samengevoegd Worden**
 
-Met Aspose.Slides kunt u:
+Met Aspose.Slides kun je samenvoegen 
 
-* volledige presentaties. Alle dia's uit de presentaties komen in één presentatie terecht  
-* specifieke dia's. Geselecteerde dia's komen in één presentatie terecht  
-* presentaties in één formaat (PPT naar PPT, PPTX naar PPTX, enz.) en in verschillende formaten (PPT naar PPTX, PPTX naar ODP, enz.) naar elkaar toe.  
+* volledige presentaties. Alle dia's uit de presentaties eindigen in één presentatie  
+* specifieke dia's. Geselecteerde dia's eindigen in één presentatie  
+* presentaties in één formaat (PPT naar PPT, PPTX naar PPTX, enz.) en in verschillende formaten (PPT naar PPTX, PPTX naar ODP, enz.) naar elkaar toe. 
 
-{{% alert title="Opmerking" color="warning" %}}  
-Naast presentaties maakt Aspose.Slides het mogelijk andere bestanden samen te voegen:
+{{% alert title="Opmerking" color="warning" %}} 
+
+Naast presentaties maakt Aspose.Slides het mogelijk om andere bestanden samen te voegen:
 
 * [Afbeeldingen](https://products.aspose.com/slides/nl/net/merger/image-to-image/), zoals [JPG naar JPG](https://products.aspose.com/slides/nl/net/merger/jpg-to-jpg/) of [PNG naar PNG](https://products.aspose.com/slides/nl/net/merger/png-to-png/)  
 * Documenten, zoals [PDF naar PDF](https://products.aspose.com/slides/nl/net/merger/pdf-to-pdf/) of [HTML naar HTML](https://products.aspose.com/slides/nl/net/merger/html-to-html/)  
-* En twee verschillende bestanden, zoals [afbeelding naar PDF](https://products.aspose.com/slides/nl/net/merger/image-to-pdf/), [JPG naar PDF](https://products.aspose.com/slides/nl/net/merger/jpg-to-pdf/) of [TIFF naar PDF](https://products.aspose.com/slides/nl/net/merger/tiff-to-pdf/).  
+* En twee verschillende bestanden, zoals [afbeelding naar PDF](https://products.aspose.com/slides/nl/net/merger/image-to-pdf/), [JPG naar PDF](https://products.aspose.com/slides/nl/net/merger/jpg-to-pdf/) of [TIFF naar PDF](https://products.aspose.com/slides/nl/net/merger/tiff-to-pdf/). 
+
 {{% /alert %}}
 
-### **Samenvoegingsopties**
+### **Samenvoeg‑opties**
 
-U kunt opties toepassen die bepalen of
+Je kunt opties toepassen die bepalen of
 
 * elke dia in de uitvoerpresentatie een unieke stijl behoudt  
-* een specifieke stijl wordt gebruikt voor alle dia's in de uitvoerpresentatie.  
+* een specifieke stijl wordt gebruikt voor alle dia's in de uitvoerpresentatie. 
 
-Om presentaties samen te voegen, biedt Aspose.Slides [AddClone](https://reference.aspose.com/slides/nl/net/aspose.slides/islidecollection/methods/addclone)‑methoden (van de [ISlideCollection](https://reference.aspose.com/slides/nl/net/aspose.slides/islidecollection)‑interface). Er bestaan verschillende implementaties van de `AddClone`‑methoden die de parameters van het samenvoegproces definiëren. Elk Presentation‑object heeft een [Slides](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/properties/slides)‑collectie, zodat u een `AddClone`‑methode kunt aanroepen op de presentatie waarin u dia's wilt samenvoegen.  
+Om presentaties samen te voegen, biedt Aspose.Slides [AddClone](https://reference.aspose.com/slides/nl/net/aspose.slides/islidecollection/methods/addclone)‑methoden (van de [ISlideCollection](https://reference.aspose.com/slides/nl/net/aspose.slides/islidecollection)‑interface). Er zijn verschillende implementaties van de `AddClone`‑methoden die de parameters van het samenvoegproces definiëren. Elk Presentation‑object heeft een [Slides](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/properties/slides)‑collectie, zodat je een `AddClone`‑methode kunt aanroepen vanuit de presentatie waarin je dia's wilt samenvoegen. 
 
-De `AddClone`‑methode retourneert een `ISlide`‑object, een kloon van de bron‑dia. De dia's in de uitvoerpresentatie zijn simpelweg een kopie van de bron‑dia’s. Daarom kunt u de resulterende dia’s wijzigen (bijvoorbeeld stijlen, opmaakopties of lay‑outs toepassen) zonder dat de bronpresentaties worden beïnvloed.  
+De `AddClone`‑methode retourneert een `ISlide`‑object, een kloon van de bron‑dia. De dia's in de uitvoerpresentatie zijn simpelweg een kopie van de dia's uit de bron. Daarom kun je de resulterende dia's wijzigen (bijvoorbeeld stijlen, opmaakopties of lay-outs toepassen) zonder je zorgen te maken over de bron‑presentaties. 
 
-## **Presentaties samenvoegen** 
+## **Presentaties Samenvoegen** 
 
-Aspose.Slides biedt de [**AddClone (ISlide)**](https://reference.aspose.com/slides/nl/net/aspose.slides/islidecollection/methods/addclone)‑methode waarmee u dia's combineert terwijl de dia's hun lay‑outs en stijlen behouden (standaardparameters).  
+Aspose.Slides biedt de [**AddClone (ISlide)**](https://reference.aspose.com/slides/nl/net/aspose.slides/islidecollection/methods/addclone)‑methode waarmee je dia's kunt combineren terwijl de dia's hun lay-outs en stijlen behouden (standaardparameters). 
 
-Deze C#‑code toont hoe u presentaties samenvoegt:
+Deze C#‑code laat zien hoe je presentaties samenvoegt:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres2 = new Presentation("pres2.pptx"))
 {
@@ -108,13 +117,16 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 }
 ```
 
-## **Presentaties samenvoegen met een slide‑master**
+## **Presentaties Samenvoegen met een Slide Master**
 
-Aspose.Slides biedt de [**AddClone (ISlide, IMasterSlide, Boolean)**](https://reference.aspose.com/slides/nl/net/aspose.slides.islidecollection/addclone/methods/2)‑methode waarmee u dia's combineert terwijl u een slide‑master‑presentatiesjabloon toepast. Op die manier kunt u, indien nodig, de stijl van de dia's in de uitvoerpresentatie wijzigen.  
+Aspose.Slides biedt de [**AddClone (ISlide, IMasterSlide, Boolean)**](https://reference.aspose.com/slides/nl/net/aspose.slides.islidecollection/addclone/methods/2)‑methode waarmee je dia's kunt combineren terwijl een slide‑master‑sjabloon wordt toegepast. Zo kun je, indien nodig, de stijl van de dia's in de uitvoerpresentatie wijzigen. 
 
 Deze C#‑code demonstreert de beschreven bewerking:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres2 = new Presentation("pres2.pptx"))
 {
@@ -127,19 +139,24 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 }
 ```
 
-{{% alert title="Opmerking" color="warning" %}}  
-De slide‑lay‑out voor de slide‑master wordt automatisch bepaald. Wanneer er geen passende lay‑out kan worden gevonden en de `allowCloneMissingLayout`‑boolean‑parameter van de `AddClone`‑methode op true staat, wordt de lay‑out van de bron‑dia gebruikt. Anders wordt een [PptxEditException](https://reference.aspose.com/slides/nl/net/aspose.slides/pptxeditexception) gegooid.  
+{{% alert title="Opmerking" color="warning" %}} 
+
+De slide‑lay-out voor de slide‑master wordt automatisch bepaald. Wanneer een geschikte lay-out niet kan worden bepaald, wordt – als de `allowCloneMissingLayout`‑booleanparameter van de `AddClone`‑methode op true staat – de lay-out van de bron‑dia gebruikt. Anders wordt er een [PptxEditException](https://reference.aspose.com/slides/nl/net/aspose.slides/pptxeditexception) gegooid. 
+
 {{% /alert %}}
 
-Wilt u dat de dia's in de uitvoerpresentatie een andere lay‑out hebben, gebruik dan de [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/nl/net/aspose.slides.islidecollection/addclone/methods/1)‑methode bij het samenvoegen.  
+Wil je dat de dia's in de uitvoerpresentatie een andere slide‑lay-out hebben, gebruik dan de [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/nl/net/aspose.slides.islidecollection/addclone/methods/1)‑methode tijdens het samenvoegen. 
 
-## **Specifieke dia's uit presentaties samenvoegen**
+## **Specifieke Dia's uit Presentaties Samenvoegen**
 
-Het samenvoegen van specifieke dia's uit meerdere presentaties is handig voor het maken van op maat gemaakte slide‑decks. Aspose.Slides for .NET stelt u in staat alleen de dia's te selecteren en te importeren die u nodig heeft. De API behoudt de opmaak, lay‑out en het ontwerp van de oorspronkelijke dia's.  
+Het samenvoegen van specifieke dia's uit meerdere presentaties is handig voor het maken van aangepaste presentatiesets. Aspose.Slides voor .NET stelt je in staat alleen de dia's te selecteren en te importeren die je nodig hebt. De API behoudt de opmaak, lay-out en het ontwerp van de originele dia's.
 
-De volgende C#‑code maakt een nieuwe presentatie, voegt titeldia's uit twee andere presentaties toe en slaat het resultaat op in een bestand:
+De volgende C#‑code maakt een nieuwe presentatie, voegt titel‑dia's van twee andere presentaties toe, en slaat het resultaat op in een bestand:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 using (Presentation presentation1 = new Presentation("presentation1.pptx"))
 using (Presentation presentation2 = new Presentation("presentation2.pptx"))
@@ -158,8 +175,22 @@ using (Presentation presentation2 = new Presentation("presentation2.pptx"))
 
     presentation.Save("combined.pptx", SaveFormat.Pptx);
 }
+
+static ISlide GetTitleSlide(IPresentation presentation)
+{
+    foreach (ISlide slide in presentation.Slides)
+    {
+        if (slide.LayoutSlide.LayoutType == SlideLayoutType.Title)
+        {
+            return slide;
+        }
+    }
+    return null;
+}
 ```
 ```cs
+using Aspose.Slides;
+
 static ISlide GetTitleSlide(IPresentation presentation)
 {
     foreach (ISlide slide in presentation.Slides)
@@ -173,11 +204,14 @@ static ISlide GetTitleSlide(IPresentation presentation)
 }
 ```
 
-## **Presentaties samenvoegen met een slide‑lay‑out**
+## **Presentaties Samenvoegen met een Slide Layout**
 
-Deze C#‑code laat zien hoe u dia's uit presentaties combineert terwijl u uw gewenste slide‑lay‑out toepast om één uitvoerpresentatie te verkrijgen:
+Deze C#‑code laat zien hoe je dia's uit presentaties combineert terwijl je de gewenste slide‑lay-out toepast om één uitvoerpresentatie te verkrijgen:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres2 = new Presentation("pres2.pptx"))
 {
@@ -190,17 +224,22 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 }
 ```
 
-## **Presentaties samenvoegen met verschillende dia‑groottes**
+## **Presentaties Samenvoegen met Verschillende Dia‑Groottes**
 
-{{% alert title="Opmerking" color="warning" %}}  
-U kunt geen presentaties met verschillende dia‑groottes samenvoegen.  
+{{% alert title="Opmerking" color="warning" %}} 
+
+Het samenvoegen van presentaties met verschillende dia‑groottes veroorzaakt geen fout, maar de samengevoegde dia's nemen de dia‑grootte van de doelpresentatie over terwijl hun vormen hun oorspronkelijke positie en grootte behouden; daardoor kan inhoud verkeerd gepositioneerd of buiten de dia‑grenzen terechtkomen. 
+
 {{% /alert %}}
 
-Om 2 presentaties met verschillende dia‑groottes te combineren, moet u één van de presentaties aanpassen zodat de grootte overeenkomt met die van de andere presentatie.  
+Om 2 presentaties met verschillende dia‑groottes samen te voegen en de inhoud correct te laten uitlijnen, pas je één van de presentaties aan zodat deze dezelfde grootte heeft als de andere. 
 
 Deze voorbeeldcode demonstreert de beschreven bewerking:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres1 = new Presentation("pres1.pptx"),
    pres2 = new Presentation("pres2.pptx"))
 {
@@ -215,11 +254,14 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 }
 ```
 
-## **Dia's samenvoegen in een presentatiesectie**
+## **Dia's Samenvoegen naar een Presentatiesectie**
 
-Deze C#‑code toont hoe u een specifieke dia kunt samenvoegen met een sectie in een presentatie:
+Deze C#‑code laat zien hoe je een specifieke dia naar een sectie in een presentatie samenvoegt:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres2 = new Presentation("pres2.pptx"))
 {
@@ -233,26 +275,28 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 }
 ```
 
-De dia wordt aan het einde van de sectie toegevoegd.  
+De dia wordt aan het einde van de sectie toegevoegd. 
 
-{{% alert title="Tip" color="primary" %}}  
-Aspose biedt een [GRATIS Collage‑webapp](https://products.aspose.app/slides/nl/collage). Met deze online service kunt u [JPG naar JPG](https://products.aspose.app/slides/nl/collage/jpg) of PNG‑naar‑PNG‑afbeeldingen samenvoegen, [fotogrijen](https://products.aspose.app/slides/nl/collage/photo-grid) maken, enzovoort.  
+{{% alert title="Tip" color="info" %}}
+
+Aspose biedt een [GRATIS Collage‑webapp](https://products.aspose.app/slides/nl/collage). Met deze online service kun je [JPG naar JPG](https://products.aspose.app/slides/nl/collage/jpg) of PNG naar PNG‑afbeeldingen samenvoegen, [fotogalerijen](https://products.aspose.app/slides/nl/collage/photo-grid) maken, enzovoort. 
+
 {{% /alert %}}
 
 ## **FAQ**
 
-**Worden sprekersnotities behouden tijdens het samenvoegen?**  
+### Worden spreker‑notities behouden tijdens het samenvoegen?
 
-Ja. Bij het klonen van dia's neemt Aspose.Slides alle dia‑elementen over, inclusief notities, opmaak en animaties.  
+Ja. Bij het klonen van dia's neemt Aspose.Slides alle dia‑elementen over, inclusief notities, opmaak en animaties.
 
-**Worden opmerkingen en hun auteurs overgenomen?**  
+### Worden opmerkingen en hun auteurs overgebracht?
 
-Opmerkingen, als onderdeel van de dia‑inhoud, worden met de dia gekopieerd. Auteur‑labels van opmerkingen blijven bewaard als opmerking‑objecten in de resulterende presentatie.  
+Opmerkingen, als onderdeel van de dia‑inhoud, worden meegekopieerd. De labels van de auteurs van opmerkingen blijven behouden als opmerking‑objecten in de resulterende presentatie.
 
-**Wat gebeurt er als de bronpresentatie met een wachtwoord is beveiligd?**  
+### Wat als de bronpresentatie met een wachtwoord beveiligd is?
 
-Deze moet [worden geopend met het wachtwoord](/slides/nl/net/password-protected-presentation/) via [LoadOptions.Password](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/password/); na het laden kunnen die dia's veilig worden gekloond naar een onbeveiligd doelbestand (of ook naar een beveiligd bestand).  
+Deze moet worden [geopend met het wachtwoord](/slides/nl/net/password-protected-presentation/) via [LoadOptions.Password](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/password/); na het laden kunnen die dia's veilig worden gekloond naar een onbeveiligd doelbestand (of ook naar een beveiligd bestand).
 
-**Hoe thread‑veilig is de samenvoegbewerking?**  
+### Hoe thread‑veilig is de samenvoeg‑operatie?
 
-Gebruik dezelfde [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑instantie niet vanuit [meerdere threads](/slides/nl/net/multithreading/). De aanbevolen regel is “één document — één thread”; verschillende bestanden kunnen parallel in afzonderlijke threads worden verwerkt.  
+Gebruik dezelfde [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑instantie niet vanuit [meerdere threads](/slides/nl/net/multithreading/). De aanbevolen regel is “één document — één thread”; verschillende bestanden kunnen parallel in afzonderlijke threads worden verwerkt.

@@ -4,12 +4,14 @@ linktitle: Управление списками
 type: docs
 weight: 70
 url: /ru/net/manage-lists/
+aliases:
+  - /net/manage-bullet-and-numbered-lists/
 keywords:
 - маркер
 - маркированный список
 - нумерованный список
 - символьный маркер
-- маркер-изображение
+- маркер‑изображение
 - пользовательский маркер
 - многоуровневый список
 - создать маркер
@@ -21,15 +23,15 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Узнайте, как создавать и форматировать маркированные, маркеры-изображения, многоуровневые и нумерованные списки в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для .NET."
+description: "Узнайте, как создавать и форматировать маркированные, изображённые, многоуровневые и нумерованные списки в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для .NET."
 ---
 ## **Обзор**
 
-Aspose.Slides for .NET позволяет создавать и форматировать маркированные и нумерованные списки в презентациях PowerPoint и OpenDocument. Элемент списка — это абзац, параметры маркера которого управляются через формат абзаца.
+Aspose.Slides for .NET позволяет создавать и форматировать маркированные и нумерованные списки в презентациях PowerPoint и OpenDocument. Элемент списка представляет собой абзац, настройки маркера которого управляются через формат абзаца.
 
-Используйте свойство [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraph/paragraphformat/) для доступа к настройкам списка на уровне абзаца. Основная точка входа — [IParagraphFormat.Bullet](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/bullet/), которая возвращает объект [IBulletFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/ibulletformat/). С помощью этого объекта можно задать тип маркера, символ, изображение, цвет, размер, стиль нумерации и начальное число.
+Используйте свойство [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraph/paragraphformat/) для доступа к настройкам списка уровня абзаца. Основная точка входа — [IParagraphFormat.Bullet](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/bullet/), которая возвращает объект [IBulletFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/ibulletformat/). С помощью этого объекта вы можете задавать тип маркера, символ, изображение, цвет, размер, стиль нумерации и начальное число.
 
-Эта статья показывает, как:
+В этой статье показано, как:
 
 - создать маркированный список с пользовательским символом
 - создать маркер‑изображение
@@ -37,13 +39,17 @@ Aspose.Slides for .NET позволяет создавать и форматир
 - создать нумерованный список
 - просмотреть и изменить форматирование списка в существующей презентации
 
-## **Создание маркированного списка**
+## **Создать маркированный список**
 
-Чтобы создать маркированный список, добавьте объекты [IParagraph](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraph/) в [ITextFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/) и установите [IBulletFormat.Type](https://reference.aspose.com/slides/ru/net/aspose.slides/ibulletformat/type/) в значение [BulletType.Symbol](https://reference.aspose.com/slides/ru/net/aspose.slides/bullettype/). Затем можно задать [IBulletFormat.Char](https://reference.aspose.com/slides/ru/net/aspose.slides/ibulletformat/char/), [IBulletFormat.Color](https://reference.aspose.com/slides/ru/net/aspose.slides/ibulletformat/color/) и [IBulletFormat.Height](https://reference.aspose.com/slides/ru/net/aspose.slides/ibulletformat/height/) для управления внешним видом маркера.
+Чтобы создать маркированный список, добавьте объекты [IParagraph](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraph/) в [ITextFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/) и установите [IBulletFormat.Type](https://reference.aspose.com/slides/ru/net/aspose.slides/ibulletformat/type/) в значение [BulletType.Symbol](https://reference.aspose.com/slides/ru/net/aspose.slides/bullettype/). Затем можно задать [IBulletFormat.Char](https://reference.aspose.com/slides/ru/net/aspose.slides/ibulletformat/char/), [IBulletFormat.Color](https://reference.aspose.com/slides/ru/net/aspose.slides/ibulletformat/color/), и [IBulletFormat.Height](https://reference.aspose.com/slides/ru/net/aspose.slides/ibulletformat/height/) для управления внешним видом маркера.
 
-Следующий код C# демонстрирует, как создать маркированный список на слайде:
+Следующий код на C# демонстрирует, как создать маркированный список на слайде:
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 static Paragraph CreateParagraph(string text)
 {
     var paragraph = new Paragraph();
@@ -78,13 +84,16 @@ presentation.Save("symbol_bullets.pptx", SaveFormat.Pptx);
 
 ![Символические маркеры](symbol_bullets.png)
 
-## **Создание нумерованного списка**
+## **Создать нумерованный список**
 
-Используйте нумерованные списки, когда порядок элементов важен. Установите [IBulletFormat.Type](https://reference.aspose.com/slides/ru/net/aspose.slides/ibulletformat/type/) в значение [BulletType.Numbered](https://reference.aspose.com/slides/ru/net/aspose.slides/bullettype/). Также можно выбрать формат нумерации с помощью [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/ru/net/aspose.slides/ibulletformat/numberedbulletstyle/) или задать [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/ru/net/aspose.slides/ibulletformat/numberedbulletstartwith/), если список должен начинаться с значения, отличного от 1.
+Нумерованные списки используют, когда порядок элементов имеет значение. Установите [IBulletFormat.Type](https://reference.aspose.com/slides/ru/net/aspose.slides/ibulletformat/type/) в значение [BulletType.Numbered](https://reference.aspose.com/slides/ru/net/aspose.slides/bullettype/). Вы также можете выбрать формат нумерации с помощью [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/ru/net/aspose.slides/ibulletformat/numberedbulletstyle/) или задать [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/ru/net/aspose.slides/ibulletformat/numberedbulletstartwith/), если список должен начинаться с числа, отличного от 1.
 
-Следующий код C# показывает, как создать нумерованный список на слайде:
+Следующий код на C# показывает, как создать нумерованный список на слайде:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
@@ -115,25 +124,26 @@ presentation.Save("numbered_bullets.pptx", SaveFormat.Pptx);
 
 ![Нумерованные маркеры](numbered_bullets.png)
 
-## **Создание маркера‑изображения**
+## **Создать маркер‑изображение**
 
-Aspose.Slides позволяет заменить обычный символ маркера изображением. Маркеры‑изображения лучше всего работают с простыми изображениями, которые остаются разборчивыми при небольшом размере, например, иконками или небольшими прозрачными PNG‑файлами.
+Aspose.Slides позволяет заменить обычный символ маркера изображением. Маркеры‑изображения лучше всего работают с простыми картинками, которые остаются разборчивыми при небольшом размере, например, иконками или небольшими PNG‑файлами с прозрачным фоном.
 
- {{% alert color="primary" %}}
+{{% alert color="info" %}}
 В идеале, если вы планируете заменить обычный символ маркера изображением, лучше выбрать простую графику с прозрачным фоном. Такие изображения хорошо подходят в качестве пользовательских символов маркеров.
-
-Имейте в виду, что изображение будет масштабировано до очень малого размера. По этой причине мы настоятельно рекомендуем выбирать изображение, которое остаётся чётким и визуально эффективным, когда используется в качестве маркера в списке.
 {{% /alert %}}
 
-Чтобы создать маркер‑изображение, добавьте изображение в [Presentation.Images](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/images/) и присвойте возвращённый объект изображения свойству [IBulletFormat.Picture](https://reference.aspose.com/slides/ru/net/aspose.slides/ibulletformat/picture/). Установите [IBulletFormat.Type](https://reference.aspose.com/slides/ru/net/aspose.slides/ibulletformat/type/) в значение [BulletType.Picture](https://reference.aspose.com/slides/ru/net/aspose.slides/bullettype/) перед назначением изображения.
+Чтобы создать маркер‑изображение, добавьте изображение в [Presentation.Images](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/images/) и присвойте полученный объект изображения свойству [IBulletFormat.Picture](https://reference.aspose.com/slides/ru/net/aspose.slides/ibulletformat/picture/). Установите [IBulletFormat.Type](https://reference.aspose.com/slides/ru/net/aspose.slides/ibulletformat/type/) в значение [BulletType.Picture](https://reference.aspose.com/slides/ru/net/aspose.slides/bullettype/) перед присвоением изображения.
 
 Предположим, у нас есть файл "image.png":
 
 ![Изображение для маркеров](picture_for_bullets.png)
 
-Следующий код C# показывает, как создать маркеры‑изображения на слайде:
+Следующий код на C# показывает, как создать маркер‑изображения в слайде:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 static Paragraph CreateParagraph(string text, IPPImage image)
 {
     var paragraph = new Paragraph();
@@ -167,15 +177,18 @@ presentation.Save("picture_bullets.pptx", SaveFormat.Pptx);
 
 Результат:
 
-![Маркеры‑изображения](picture_bullets.png)
+![Маркер‑изображения](picture_bullets.png)
 
-## **Создание многоуровневого списка**
+## **Создать многоуровневый список**
 
-Используйте [IParagraphFormat.Depth](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/depth/) для размещения элементов списка на разных уровнях. Уровень 0 — верхний уровень, уровень 1 — вложенный под ним и т.д.
+Используйте [IParagraphFormat.Depth](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/depth/) для размещения элементов списка на разных уровнях. Уровень 0 — верхний уровень, уровень 1 — вложенный под ним, и т.д.
 
-Следующий код C# показывает, как создать многоуровневый маркированный список:
+Следующий код на C# показывает, как создать многоуровневый маркированный список:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
@@ -211,13 +224,14 @@ presentation.Save("multilevel_bullets.pptx", SaveFormat.Pptx);
 
 ![Многоуровневый список](multilevel_list.png)
 
-## **Изменение существующего списка**
+## **Изменить существующий список**
 
-Чтобы изменить форматирование списка в существующей презентации, получите доступ к целевому абзацу и обновите его настройки [IParagraphFormat.Bullet](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/bullet/). Те же свойства, которые используются для создания списков, можно применять для просмотра или изменения списков, загруженных из файлов PPT, PPTX или ODP.
-
-Следующий код C# изменяет первый абзац в текстовом фрейме, чтобы использовать стиль нумерованного списка:
+Чтобы изменить форматирование списка в существующей презентации, получите целевой абзац и обновите его настройки [IParagraphFormat.Bullet](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/bullet/). Те же свойства, которые используются для создания списков, можно применять для просмотра или изменения списков, загруженных из файлов PPT, PPTX или ODP.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("input.pptx");
 
 var slide = presentation.Slides[0];
@@ -233,16 +247,16 @@ paragraph.ParagraphFormat.Indent = -20;
 presentation.Save("updated_list.pptx", SaveFormat.Pptx);
 ```
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
-**Можно ли экспортировать маркированные и нумерованные списки в PDF или изображения?**
+### Можно ли экспортировать маркированные и нумерованные списки в PDF или изображения?
 
-Да. Aspose.Slides сохраняет форматирование списка, если целевой формат поддерживает соответствующее расположение текста и функции маркеров.
+Да. Aspose.Slides сохраняет форматирование списка, если целевой формат поддерживает соответствующее размещение текста и функции маркеров.
 
-**Могу ли я редактировать списки в существующих презентациях?**
+### Могу ли я редактировать списки в существующих презентациях?
 
-Да. Загрузите презентацию, получите доступ к целевому абзацу, просмотрите или обновите его настройки [IParagraphFormat.Bullet](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraphformat/bullet/), и сохраните презентацию.
+Да. Загрузите презентацию, получите целевой абзац, просмотрите или обновите его настройки [IParagraphFormat.Bullet] и сохраните презентацию.
 
-**Могут ли списки содержать нелатинский текст?**
+### Могут ли списки содержать нелатинский текст?
 
-Да. Текст элементов списка может содержать символы Unicode, поэтому вы можете создавать списки в многоязычных презентациях. Убедитесь, что шрифты, используемые в презентации, поддерживают необходимые вам символы.
+Да. Текст элементов списка может содержать Unicode‑символы, поэтому вы можете создавать списки в многоязычных презентациях. Убедитесь, что шрифты, используемые в презентации, поддерживают необходимые вам символы.

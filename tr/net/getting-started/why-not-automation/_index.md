@@ -1,5 +1,5 @@
 ---
-title: Neden Otomasyon Değil
+title: Neden Otomasyon?
 type: docs
 weight: 40
 url: /tr/net/why-not-automation/
@@ -17,11 +17,11 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Sunucular ve hizmetler için Office otomasyonunun neden riskli olduğunu keşfedin ve Aspose.Slides'ın PowerPoint ve OpenDocument için nasıl daha güvenli ve daha hızlı sunum işleme sağladığını görün."
+description: "Sunucular ve hizmetler için Office otomasyonunun neden riskli olduğunu keşfedin ve Aspose.Slides'in PowerPoint ve OpenDocument için daha güvenli, daha hızlı sunum işleme sunduğunu görün."
 ---
 ## **Giriş**
 
-Aspose bileşenlerinin otomasyona göre daha iyi bir alternatif olmasının birkaç nedeni vardır. Bazı temel nedenler şunlardır:
+Aspose bileşenlerinin otomasyona göre daha iyi bir alternatif olmasının çeşitli nedenleri vardır. Önemli nedenlerden bazıları şunlardır:
 
 - Güvenlik
 - Kararlılık
@@ -29,100 +29,100 @@ Aspose bileşenlerinin otomasyona göre daha iyi bir alternatif olmasının birk
 - Fiyat
 - Özellikler
 
-Aşağıda her bir temel noktanın daha ayrıntılı açıklaması bulunmaktadır.
+Aşağıda her bir temel noktanın daha ayrıntılı bir açıklaması yer almaktadır.
 
 ## **Önemli Sorular**
 
-Aspose'da sık sık duyduğumuz iki soru var:
+Aspose'ta sıkça duyduğumuz iki soru şunlardır:
 
-- Ürünlerinizin çalışması için Microsoft Office'in kurulu olması gerekir mi?
+- Ürünlerinizin çalışması için Microsoft Office'in yüklü olması gerekir mi?
 
-Kısa ve basit yanıt **HAYIR**.
+Kısa ve net cevap **NO** (HAYIR) dir.
 
-Aspose bileşenleri tamamen bağımsızdır ve Microsoft Corporation tarafından onaylanmış, yetkilendirilmiş, sponsorluk yapılmış veya başka bir şekilde onaylanmış değildir.
+Aspose bileşenleri tamamen bağımsızdır ve Microsoft Corporation tarafından onaylanmış, yetkilendirilmiş, sponsorlu veya başka bir şekilde onaylanmış değildir.
 
-- Neden Microsoft Office Automation yerine Aspose ürünlerini kullanmalıyız?
+- Microsoft Office Otomasyonu yerine Aspose ürünlerini neden kullanmalıyız?
 
-İlk olarak, Aspose.Slides'ı kullandığınızda elde ettiğiniz birçok [Aspose.Slides'ı kullanırken elde ettiğiniz faydalar](/slides/tr/net/product-overview/) vardır.
+İlk olarak, [Aspose.Slides kullanırken elde ettiğiniz faydalar](/slides/tr/net/product-overview/) vardır.
 
-İkinci olarak, Microsoft kendisi yazılım çözümlerinde Office Automation kullanılmasına **şiddetle karşı çıkmaktadır**.
+İkinci olarak, Microsoft kendisi Office Otomasyonu kullanılan yazılım çözümlerine karşı **strongly advises against** (kesinlikle önermemektedir).
 
 ## **Güvenlik**
-Aşağıdaki alıntı Microsoft makalesinden doğrudan alınmıştır: 
+Aşağıdaki alıntı doğrudan bir Microsoft Makalesinden alınmıştır:
 
-> "Office uygulamaları asla sunucu tarafında kullanılmak üzere tasarlanmamıştır ve bu nedenle dağıtılmış bileşenlerin karşılaştığı güvenlik sorunlarını göz önünde bulundurmaz. Office gelen istekleri kimlik doğrulamaz ve istemeden makroları çalıştırmanızdan ya da makroları çalıştırabilecek başka bir sunucuyu başlatmanızdan sizi korumaz; bu, sunucu tarafı kodunuzdan gerçekleşir. Anonim bir Web üzerinden sunucuya yüklenen dosyaları açmayın! Son ayarlanan güvenlik ayarlarına göre, sunucu bir Yönetici ya da Sistem bağlamında tam yetkilerle makroları çalıştırabilir ve ağınızı tehlikeye atabilir! Ayrıca, Office birçok istemci tarafı bileşen (Simple MAPI, WinInet, MSDAIPP gibi) kullanır ve bu bileşenler işleme hızını artırmak için istemci kimlik doğrulama bilgilerini önbelleğe alabilir. Office sunucu tarafında otomatikleştiriliyorsa, bir örnek birden fazla istemciye hizmet verebilir ve oturum için kimlik doğrulama bilgileri önbelleğe alındığından, bir istemcinin başka bir istemcinin önbelleğe alınmış kimlik bilgilerini kullanarak, başka kullanıcıları taklit ederek, verilmemiş erişim izinleri elde etmesi mümkün olabilir."
+> "Office uygulamaları hiçbir zaman sunucu tarafında kullanılmak üzere tasarlanmamıştır ve bu nedenle dağıtık bileşenlerin karşılaştığı güvenlik sorunlarını dikkate almaz. Office gelen istekleri kimlik doğrulaması yapmaz ve istemeyerek makroları çalıştırmaktan ya da sunucu tarafı kodunuzdan makro çalıştırabilecek başka bir sunucu başlatmaktan sizi korumaz. Anonim bir web üzerinden sunucuya yüklenen dosyaları açmayın! Son ayarlanan güvenlik ayarlarına göre, sunucu bir Yönetici ya da Sistem bağlamında tam yetkilerle makroları çalıştırabilir ve ağınızı tehlikeye atabilir! Ayrıca, Office birçok istemci tarafı bileşenini (Simple MAPI, WinInet, MSDAIPP gibi) işlem hızını artırmak için istemci kimlik doğrulama bilgilerini önbelleğe alabilir. Office sunucu tarafında otomatikleştiriliyorsa, bir örnek birden çok istemciye hizmet verebilir ve oturum için kimlik doğrulama bilgileri önbelleğe alındığından, bir istemci başka bir istemcinin önbelleğe alınmış kimlik bilgilerini kullanabilir ve böylece yetkisiz erişim izinleri elde edebilir."
 
-Aspose ürünleri çok **güvenlidir**. Aspose bileşenleri tüm ASP.NET uygulamalarıyla aynı kullanıcı bağlamında (ASPNET kullanıcısı altında) çalışır. Bu nedenle Aspose bileşenleri **güvenlik riski oluşturmaz**. Ayrıca kritik sistem kaynaklarını tüketmezler. Dahası, bir Aspose bileşeni bir belge açtığında makrolar otomatik olarak çalışmaz. Aspose bileşenleri geliştiricilerin Office dosyalarını oluşturmasını, manipüle etmesini ve kaydetmesini sağlamak için inşa edilmiştir. 
+Aspose ürünleri son derece **güvenlidir**. Aspose bileşenleri tüm ASP.NET uygulamalarıyla aynı kullanıcı bağlamında (ASPNET kullanıcısı altında) çalışır. Bu nedenle Aspose bileşenleri **güvenlik riski oluşturmaz**. Ayrıca kritik sistem kaynaklarını tüketmezler. Dahası, bir Aspose bileşeni bir belgeyi açtığında makrolar otomatik olarak çalışmaz. Aspose bileşenleri, geliştiricilerin Office dosyalarını oluşturmasına, manipüle etmesine ve kaydetmesine olanak tanıyacak şekilde inşa edilmiştir.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Microsoft Office paketine ilişkin risklerin hiçbiri Aspose bileşenlerine uygulanmaz.
 
 {{% /alert %}} 
 
 ## **Kararlılık**
-Bu metin daha önce referans verilen Microsoft makalesinden doğrudan alınmıştır: 
+Bu metin daha önce referans verilen Microsoft Makalesinden doğrudan alınmıştır:
 
-> "Office 2000, Office XP ve Office 2003, kurulum ve kendi kendini onarma işlemlerini son kullanıcı için kolaylaştırmak amacıyla Microsoft Windows Installer (MSI) teknolojisini kullanır. MSI, \"ilk kullanımda kurulum\" kavramını tanıtarak özelliklerin çalışma zamanında dinamik olarak kurulmasına veya yapılandırılmasına izin verir (sistem için veya daha çok belirli bir kullanıcı için). Sunucu tarafı ortamda bu durum hem performansı yavaşlatır hem de bir diyalog kutusunun kullanıcıdan kurulumu onaylamasını veya uygun bir kurulum diski sağlamasını isteme olasılığını artırır. Office, son‑kullanıcı ürünü olarak dayanıklılığı artırmak üzere tasarlanmış olsa da, MSI yeteneklerinin Officeʼdeki uygulanması sunucu tarafı ortamda ters etki yaratır. Dahası, Officeʼin genel kararlılığı sunucu tarafında çalıştırıldığında garanti edilemez çünkü bu kullanım şekli için tasarlanmamış ve test edilmemiştir. Officeʼi bir ağ sunucusunda hizmet bileşeni olarak kullanmak o makinenin ve dolayısıyla tüm ağınızın kararlılığını azaltabilir. Officeʼi sunucu tarafında otomatikleştirmeyi planlıyorsanız, programı kritik işlevleri etkileyemeyecek ve gerektiğinde yeniden başlatılabilecek özel bir bilgisayara izole etmeye çalışın."
+> "Office 2000, Office XP ve Office 2003, kurulum ve kendini onarma işlemlerini son kullanıcı için kolaylaştırmak amacıyla Microsoft Windows Installer (MSI) teknolojisini kullanır. MSI, 'ilk kullanımda kurulum' kavramını tanıtarak özelliklerin çalışma zamanında (sistem için ya da genellikle belirli bir kullanıcı için) dinamik olarak kurulmasına veya yapılandırılmasına izin verir. Sunucu tarafı ortamında bu hem performansı yavaşlatır hem de kullanıcıdan kurulumu onaylamasını ya da uygun bir kurulum diski sağlamasını isteyen bir iletişim kutusunun ortaya çıkma olasılığını artırır. Office, son‑kullanıcı ürünü olarak dayanıklılığı artırmak için tasarlanmış olsa da, MSI yeteneklerinin Office tarafından uygulanması sunucu‑tarafı ortamında ters etki yapar. Dahası, Office'in genel kararlılığı sunucu tarafında çalıştırıldığı zaman garanti edilemez; çünkü bu tip bir kullanım için tasarlanmamış ve test edilmemiştir. Office'i bir ağ sunucusunda hizmet bileşeni olarak kullanmak, o makinenin ve dolayısıyla tüm ağın kararlılığını azaltabilir. Office'i sunucu tarafında otomatikleştirmeyi planlıyorsanız, programı kritik işlevleri etkileyemeyecek, gerektiğinde yeniden başlatılabilecek ayrı bir bilgisayara izole etmeyi deneyin."
 
-Aspose bileşenleri tek bir DLL içinde paketlendiği için, kullanıcıların çalışması için ek parçalar ya da bileşenler kurmalarına hiç gerek kalmaz. Aspose bileşenleri yalnızca .NET uygulamaları tarafından kullanılır ve bileşen kodunun insan yanıtı bekleyecek bir bölümü yoktur. 
+Aspose bileşenleri tek bir DLL içinde paketlendiği için kullanıcıların ek parçalar veya bileşenler kurmasına gerek kalmaz. Aspose bileşenleri yalnızca .NET uygulamaları tarafından kullanılır ve bileşen kodunun herhangi bir kısmı insan yanıtı beklemek üzere tasarlanmamıştır.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Aspose bileşenleri titizlikle test edilmiş ve çok kararlı olduğu doğrulanmıştır. Aspose bileşenleri **IBM**, **Hilton**, **Reader's Digest**, **Bank of America** ve birçok farklı sektördeki diğer önde gelen kuruluşlar gibi [şirketler] (http://www.aspose.com/Corporate/Aspose/Customerlist.html) tarafından kullanılmaktadır. 
+Aspose bileşenleri kapsamlı testlerden geçirilmiş ve son derece kararlı olduğu doğrulanmıştır. Aspose bileşenleri **IBM**, **Hilton**, **Reader's Digest**, **Bank of America** gibi birçok sektörde lider konumdaki **şirketler** tarafından kullanılmaktadır.
 
 {{% /alert %}} 
 
 ## **Ölçeklenebilirlik/Hız**
-Aşağıdaki alıntı Microsoft makalesinden doğrudan alınmıştır: 
+Aşağıdaki alıntı doğrudan bir Microsoft Makalesinden alınmıştır:
 
-> "Sunucu tarafı bileşenleri yüksek derecede yeniden giriş yapılabilir, çok iş parçacıklı COM bileşenleri olmalı ve birden fazla istemci için minimum ek yük ve yüksek verimlilik sağlamalıdır. Office uygulamaları ise neredeyse tamamen tam tersidir. Bunlar yeniden giriş yapılamaz, STA‑tabanlı Automation sunucularıdır ve tek bir istemci için kaynak yoğun işlevsellik sağlamak üzere tasarlanmıştır. Sunucu‑tarafı çözüm olarak çok az ölçeklenebilirlik sunar ve bellek gibi önemli öğeler için sabit sınırlamalara sahiptir; bu sınırlar yapılandırma yoluyla değiştirilemez. Daha da önemlisi, global kaynaklar (bellek eşlemeli dosyalar, global eklentiler veya şablonlar, paylaşımlı Automation sunucuları gibi) kullanırlar; bu da aynı anda birden fazla örnek çalıştırılabilirliğini sınırlayabilir ve çok‑istemcili bir ortamda yapılandırıldıklarında yarış durumlarına yol açabilir. Herhangi bir Office uygulamasının aynı anda birden fazla örneğini çalıştırmayı planlayan geliştiriciler, olası kilitlenmeleri veya veri bozulmalarını önlemek için Uygulama Havuzlaması veya Seri Erişim gibi yöntemleri göz önünde bulundurmalıdır."
+> "Sunucu‑tarafı bileşenler, minimum ek yük ve yüksek verimlilikle birden çok istemciye hizmet verebilecek yüksek derecede yeniden girebilir (reentrant), çok‑iş parçacıklı COM bileşenleri olmalıdır. Office uygulamaları neredeyse her açıdan tam tersidir. Bunlar, tek bir istemciye yönelik, kaynak‑yoğun işlevsellik sağlamak üzere tasarlanmış, yeniden giremez, STA‑tabanlı otomasyon sunucularıdır. Sunucu‑tarafı çözüm olarak çok az ölçeklenebilirlik sunar ve bellek gibi önemli öğeler için sabit sınırlar vardır; bu sınırlar yapılandırma ile değiştirilemez. Dahası, global kaynaklar (bellek eşlemeli dosyalar, küresel eklentiler veya şablonlar ve paylaşılan otomasyon sunucuları) kullanırlar; bu da aynı anda çalışabilecek örnek sayısını sınırlayabilir ve çok‑istemci ortamında yapılandırıldıklarında yarış koşullarına (race conditions) yol açabilir. Bir Office uygulamasının aynı anda birden fazla örneğini çalıştırmayı planlayan geliştiriciler, olası deadlock (kilitlenme) ya da veri bozulmalarını önlemek için havuzlama (pooling) ya da sıralı erişim (serializing) yöntemlerini dikkate almalıdır."
 
-Aspose bileşenleri son derece ölçeklenebilir ve ışık hızında çalışır. Office uygulamaları yüzlerce ya da binlerce kullanıcı tarafından aynı anda kullanılmak üzere tasarlanmamışken, Aspose bileşenleri tam da bu amaçla inşa edilmiştir. Bileşenlerimiz gerçek bir .NET çözümüdür. 
+Aspose bileşenleri son derece ölçeklenebilir ve ışık hızı kadar hızlıdır. Office uygulamaları 100‑1000 kullanıcı tarafından eşzamanlı kullanılmak için tasarlanmamışken, Aspose bileşenleri tam da bu amaçla tasarlanmıştır. Bileşenlerimiz gerçek bir .NET çözümüdür.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Aspose bileşenlerinin performansı tek bir sunucuda (tek bir uygulamayı çalıştıran) ya da yük dengelemeli bir web formunda (kurumsal çapta bir uygulamayı çalıştıran) kusursuzdur.
+Aspose bileşenlerinin performansı tek bir sunucuda (tek bir uygulamayı besleyen) ya da yük dengelemeli bir web formunda (kurumsal çapta bir uygulamayı besleyen) kusursuzdur.
 
 {{% /alert %}} 
 
 ## **Fiyat**
-Bir uygulama Microsoft Office Automation kullandığında, uygulamayı çalıştıran her makine için bir Microsoft Office kopyası satın alınmalıdır. Bir uygulamanın bir ofis dosyası oluşturması veya manipüle etmesi için birçok örnek olabilir, ancak bu süreç Microsoft Office gerektirmez. 
+Bir uygulama Microsoft Office Otomasyonu kullandığında, uygulamayı çalıştıran her makine için bir Microsoft Office kopyası satın alınmalıdır. Bir uygulama bir office dosyası oluşturmak ya da manipüle etmek isteyebilir, ancak bu süreç Microsoft Office gerektirmez.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Aspose, sınırsız sayıda kullanıcıya lisans endişesi olmadan dağıtım yapmanızı sağlayan çok [ekonomik](https://purchase.aspose.com/) ve telif ücreti gerektirmeyen bir yeniden dağıtım lisansı sunar. 
+Aspose, sınırsız sayıda kullanıcıya dağıtım için lisans endişesi olmadan kullanılabilen çok [cost-effective](https://purchase.aspose.com/) ve telif ücreti gerektirmeyen bir lisans sunar.
 
 {{% /alert %}} 
 
-Web tabanlı uygulamalar geliştirirken, Microsoft Office Automation bileşenlerinin hem fiyatlandırılması hem de lisanslaması sunucu‑tarafı çözümler için geçerli değildir. Bu nedenle, Microsoft Office bileşenlerini kullanan web uygulamaları için uygun bir lisans çözümü yoktur. Aspose ise sunucu‑tabanlı uygulamalar için de çok [ekonomik](https://purchase.aspose.com/) bir çözüm sunar.
+Web tabanlı uygulamalar geliştirirken, Microsoft Office Otomasyonu bileşenlerinin sunucu‑tarafı çözümler için fiyatlandırılmadığını ve lisanslanmadığını unutmamak gerekir. Dolayısıyla, Microsoft Office bileşenlerini kullanan web uygulamaları için uygun bir lisans çözümü bulunmamaktadır. Aspose ise sunucu‑tabanlı uygulamalar için çok [cost-effective](https://purchase.aspose.com/) bir çözüm sunar.
 
 ## **Özellikler**
-Aspose bileşenleri Office dosyalarını yönetmek ve çok daha fazlası için gereken her şeyi sağlar. Geliştiricilerin mümkün olan en az çaba ile en büyük sonuçları elde etmelerine yardımcı olma felsefesine dayanarak tasarladık. 
+Aspose bileşenleri Office dosyalarını yönetmek için gerekli her şeyi ve daha fazlasını sunar. Geliştiricilerin olabildiğince az çaba harcayarak en büyük sonuçları elde etmelerine yardımcı olma felsefesiyle tasarlandı.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Office Automation'ın aksine, Aspose bileşenleri birçok güçlü ve zamandan tasarruf sağlayan işlev sunar. 
-
-{{% /alert %}} 
-
-Örneğin, [Aspose.Cells](https://products.aspose.com/cells/net/) geliştiricilere bir **DataTable** veya **DataView**'den doğrudan bir Excel dosyasına veri ithal etme imkanı verir. [Aspose.Words](https://products.aspose.com/words/net/) ise geliştiricilerin herhangi bir .NET veri nesnesinden doğrudan bir Word (örneğin Mail Merge) belgesi doldurabilmesini sağlayan benzer bir özellik sunar. Aspose ailesindeki [Her bileşen](https://products.aspose.com/total/net/) kendi benzersiz ve güçlü özellik setine sahiptir. 
-
-Bir Aspose bileşeni satın almanın en iyi yönü, geliştirme ekiplerimize erişim sağlamaktır. Örneğin, Office Automation nesnelerini kullanıyorsanız ve belirli özelliklere ihtiyaç duyuyorsanız, bu özelliklerin eklenme ihtimali çok, çok düşüktür. Ancak Aspose bileşenleriyle durum farklıdır. 
-
-{{% alert color="primary" %}} 
-
-Geliştirme ekiplerimiz, şirketinizin ihtiyaç duyduğu bir özellik varsa, aynı özelliğe başka firmaların da ihtiyaç duyma ihtimalinin yüksek olduğunu anlar. Her istenen özelliği uygulayamayacağımızı biliyoruz, ancak müşterilerimizden gelen geri bildirimler doğrultusunda olabildiğince çok özellik eklemeye çalışıyoruz. 
+Office Otomasyonu'nun aksine, Aspose bileşenleri birçok güçlü ve zaman kazandıran işlev sağlar.
 
 {{% /alert %}} 
 
-Ekiplerimiz her zaman açık fikirli ve esnek bir şekilde destek sağlar—ve bu, Aspose bileşenlerinin bugün olduğu kadar güçlü bir konuma gelmesinin nedenidir. 
+Örneğin, [Aspose.Cells](https://products.aspose.com/cells/net/) geliştiricilere bir **DataTable** ya da **DataView**'i doğrudan bir Excel dosyasına aktarma imkanı verir. [Aspose.Words](https://products.aspose.com/words/net/) benzer bir özellik sunar; geliştiricilerin herhangi bir .NET veri nesnesinden doğrudan bir Word (Mail Merge) belgesi doldurmasına olanak tanır. Aspose ailesindeki [Her bileşen](https://products.aspose.com/total/net/) kendine özgü ve güçlü özellikler seti sunar.
+
+Bir Aspose bileşeni satın almanın en güzel yanı, geliştirme ekiplerine erişim sağlamaktır. Örneğin, Office Otomasyonu nesnelerini kullanıyorsanız ve belirli özelliklere ihtiyacınız varsa, bu özelliklerin eklenme olasılığı çok, çok düşüktür. Aspose bileşenlerinde durum farklıdır.
+
+{{% alert color="info" %}} 
+
+Geliştirme ekiplerimiz, şirketinizin ihtiyaç duyduğu bir özellik varsa, aynı özelliği diğer firmaların da ihtiyaç duyma olasılığının yüksek olduğunu anlar. Tüm istenen özellikleri uygulayamıyoruz, ancak müşterilerimizden gelen geri bildirimlere dayanarak mümkün olduğunca çok özellik eklemeye çalışıyoruz.
+
+{{% /alert %}} 
+
+Ekiplerimiz yardım sağlarken her zaman açık fikirli ve esnek olurlar ve bu, Aspose bileşenlerinin bugünkü kadar güçlü hâle gelmesinin nedenidir.
 
 ## **Sonuç**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Bu makale, Aspose bileşenlerinin Office Automation'a göre daha iyi bir seçim olmasının bazı ana nedenlerini ele aldı; ancak çok daha fazla fayda olduğunu anlamalısınız. Sadece bazı önemli avantajları sıraladık. 
+Bu makalede Aspose bileşenlerinin Office Otomasyonu'na göre daha iyi bir seçim olmasının bazı ana noktalarına değindik, fakat daha pek çok fayda olduğunu anlamalısınız. Sadece bazı büyük avantajları ele aldık.
 
-Ayrıca, tüm Aspose ürün ve bileşenleri risk içermeyen, hiçbir koşul yükümlülüğü olmayan bir [Değerlendirme Sürümü](https://downloads.aspose.com/slides/tr/net) sunar. Değerlendirme sürümünden yararlanarak Aspose’un uygulamalarınız veya işiniz için neler yapabileceğini keşfetmenizi öneririz. 
+Ayrıca, tüm Aspose ürün ve bileşenleri risk içermeyen, hiçbir koşul içermeyen bir [Değerlendirme Sürümü](https://downloads.aspose.com/slides/tr/net) sunar. Değerlendirme sürümünden yararlanarak Aspose'un uygulamalarınıza ya da işinizin ihtiyaçlarına neler katabileceğini görmenizi öneririz.
 
 {{% /alert %}}

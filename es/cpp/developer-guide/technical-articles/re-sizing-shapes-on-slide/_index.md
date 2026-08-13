@@ -11,35 +11,50 @@ keywords:
 - presentación
 - C++
 - Aspose.Slides
-description: "Redimensione fácilmente las formas en diapositivas de PowerPoint y OpenDocument con Aspose.Slides para C++—automatice los ajustes del diseño de las diapositivas y aumente la productividad."
+description: "Redimensione fácilmente las formas en diapositivas de PowerPoint y OpenDocument con Aspose.Slides para C++ — automatice los ajustes del diseño de diapositivas y aumente la productividad."
 ---
+## **Descripción general**
 
-## **Visión general**
+Una de las preguntas más frecuentes de los clientes de Aspose.Slides para C++ es cómo cambiar el tamaño de las formas de modo que, cuando el tamaño de la diapositiva cambie, los datos no se recorten. Este breve artículo técnico muestra cómo hacerlo.
 
-Una de las preguntas más comunes de los clientes de Aspose.Slides para C++ es cómo cambiar el tamaño de las formas para que, cuando cambie el tamaño de la diapositiva, los datos no se recorten. Este breve artículo técnico muestra cómo hacerlo.
+## **Redimensionar formas**
 
-## **Cambiar el tamaño de las formas**
+Para evitar que las formas se desalineen cuando cambia el tamaño de la diapositiva, actualice la posición y las dimensiones de cada forma para que se ajusten al nuevo diseño de la diapositiva.
 
-Para evitar que las formas se desalineen cuando cambie el tamaño de la diapositiva, actualice la posición y las dimensiones de cada forma para que se ajusten al nuevo diseño de la diapositiva.
 ```cpp
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/SlideSizeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Cargar el archivo de presentación.
 auto presentation = MakeObject<Presentation>(u"sample.ppt");
 
-// Get the original slide size.
+// Obtener el tamaño original de la diapositiva.
 float currentHeight = presentation->get_SlideSize()->get_Size().get_Height();
 float currentWidth = presentation->get_SlideSize()->get_Size().get_Width();
 
 // Cambiar el tamaño de la diapositiva sin escalar las formas existentes.
 presentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::DoNotScale);
 
-// Get the new slide size.
+// Obtener el nuevo tamaño de la diapositiva.
 float newHeight = presentation->get_SlideSize()->get_Size().get_Height();
 float newWidth = presentation->get_SlideSize()->get_Size().get_Width();
 
 float heightRatio = newHeight / currentHeight;
 float widthRatio = newWidth / currentWidth;
 
-// Resize and reposition shapes on every slide.
+// Redimensionar y reposicionar las formas en cada diapositiva.
 for (auto&& slide : presentation->get_Slides())
 {
     for (auto&& shape : slide->get_Shapes())
@@ -58,15 +73,38 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-
-{{% alert color="primary" %}} 
-
+{{% alert color="info" %}} 
 Si una diapositiva contiene una tabla, el código anterior no funcionará correctamente. En ese caso, cada celda de la tabla debe redimensionarse.
-
 {{% /alert %}} 
 
-Utilice el siguiente código en su proyecto para redimensionar diapositivas que contienen tablas. Para las tablas, establecer el ancho o la altura es un caso especial: debe ajustar las alturas de las filas y los anchos de las columnas individualmente para cambiar el tamaño total de la tabla.
+Utilice el siguiente código para redimensionar diapositivas que contengan tablas. Para las tablas, establecer el ancho o la altura es un caso especial: debe ajustar la altura de cada fila y el ancho de cada columna para cambiar el tamaño general de la tabla.
+
 ```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILayoutSlideCollection.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/SlideSizeType.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
 // Obtener el tamaño original de la diapositiva.
@@ -143,33 +181,32 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-
 ## **Preguntas frecuentes**
 
-**¿Por qué las formas se distorsionan o se recortan después de cambiar el tamaño de una diapositiva?**
+### ¿Por qué las formas se distorsionan o recortan después de redimensionar una diapositiva?
 
-Al cambiar el tamaño de una diapositiva, las formas conservan su posición y tamaño originales a menos que la escala se modifique explícitamente. Esto puede provocar que el contenido se recorte o que las formas se desalineen.
+Al redimensionar una diapositiva, las formas conservan su posición y tamaño originales a menos que la escala se modifique explícitamente. Esto puede provocar que el contenido se recorte o que las formas queden desalineadas.
 
-**¿El código proporcionado funciona para todos los tipos de forma?**
+### ¿El código proporcionado funciona para todos los tipos de forma?
 
-El ejemplo básico funciona para la mayoría de los tipos de forma (cuadros de texto, imágenes, gráficos, etc.). Sin embargo, para las tablas, es necesario manejar filas y columnas por separado, ya que la altura y el ancho de una tabla se determinan por las dimensiones de las celdas individuales.
+El ejemplo básico funciona para la mayoría de los tipos de forma (cuadros de texto, imágenes, gráficos, etc.). Sin embargo, para las tablas es necesario manejar filas y columnas por separado, ya que la altura y el ancho de una tabla se determinan por las dimensiones de sus celdas individuales.
 
-**¿Cómo redimensiono tablas al cambiar el tamaño de una diapositiva?**
+### ¿Cómo redimensiono las tablas al redimensionar una diapositiva?
 
-Debe iterar por todas las filas y columnas de la tabla y redimensionar su altura y ancho proporcionalmente, como se muestra en el segundo ejemplo de código.
+Debe recorrer todas las filas y columnas de la tabla y redimensionar su altura y ancho de forma proporcional, como se muestra en el segundo ejemplo de código.
 
-**¿Este redimensionamiento funciona para diapositivas maestras y diapositivas de diseño?**
+### ¿Funcionará este redimensionamiento para diapositivas maestras y diapositivas de diseño?
 
-Sí, pero también debería iterar a través de [Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) y [Diapositivas de diseño](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_layoutslides/) y aplicar la misma lógica de escalado a sus formas para garantizar la coherencia en toda la presentación.
+Sí, pero también debe recorrer las [Maestras](https://reference.aspose.com/slides/es/cpp/aspose.slides/presentation/get_masters/) y las [Diapositivas de diseño](https://reference.aspose.com/slides/es/cpp/aspose.slides/presentation/get_layoutslides/) y aplicar la misma lógica de escalado a sus formas para garantizar la consistencia en toda la presentación.
 
-**¿Puedo cambiar la orientación de una diapositiva (vertical/horizontal) junto con el redimensionamiento?**
+### ¿Puedo cambiar la orientación de una diapositiva (vertical/horizontal) junto con el redimensionamiento?
 
-Sí. Puede usar [presentation->get_SlideSize()->set_Orientation](https://reference.aspose.com/slides/cpp/aspose.slides/islidesize/set_orientation/) para cambiar la orientación. Asegúrese de establecer la lógica de escalado en consecuencia para preservar el diseño.
+Sí. Puede utilizar [presentation->get_SlideSize()->set_Orientation](https://reference.aspose.com/slides/es/cpp/aspose.slides/islidesize/set_orientation/) para cambiar la orientación. Asegúrese de ajustar la lógica de escalado de manera adecuada para conservar el diseño.
 
-**¿Existe un límite para el tamaño de la diapositiva que puedo establecer?**
+### ¿Existe un límite para el tamaño de diapositiva que puedo establecer?
 
-Aspose.Slides admite tamaños personalizados, pero tamaños muy grandes pueden afectar el rendimiento o la compatibilidad con algunas versiones de PowerPoint.
+Aspose.Slides admite tamaños personalizados, pero los tamaños muy grandes pueden afectar el rendimiento o la compatibilidad con algunas versiones de PowerPoint.
 
-**¿Cómo puedo evitar que las formas con relación de aspecto fija se distorsionen?**
+### ¿Cómo puedo evitar que las formas con relación de aspecto fija se distorsionen?
 
-Puede comprobar el método `get_AspectRatioLocked` de la forma antes de escalar. Si está bloqueado, ajuste el ancho o la altura proporcionalmente en lugar de escalarlos individualmente.
+Puede comprobar el método `get_AspectRatioLocked` de la forma antes de escalar. Si está bloqueado, ajuste el ancho o la altura de forma proporcional en lugar de escalarlos individualmente.

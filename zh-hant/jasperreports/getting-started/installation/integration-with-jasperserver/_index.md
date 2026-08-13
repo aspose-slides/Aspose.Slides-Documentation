@@ -4,13 +4,13 @@ type: docs
 weight: 45
 url: /zh-hant/jasperreports/integration-with-jasperserver/
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-要將 Aspose.Slides for JasperReports 與 JasperServer 整合，需要執行幾個額外步驟並更新 JasperServer 的設定檔。本文說明如何操作。
+要將 Aspose.Slides for JasperReports 與 JasperServer 整合，必須採取幾個額外步驟並更新 JasperServer 的設定檔。本篇文章說明如何操作。
 
 {{% /alert %}} 
 
-1. 將新的匯出器屬性新增至 **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml** 設定檔。
+1. 將新匯出器屬性新增至 **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml** 設定檔。
 
 ``` xml
 <bean id="reportPptExporter" class="com.aspose.slides.jasperreports.ASPptReportExporter" parent="baseReportExporter">
@@ -27,13 +27,14 @@ url: /zh-hant/jasperreports/integration-with-jasperserver/
 </bean>
 
 <util:map id="exporterConfigMap">
-    <!-- 將此項目新增至 exporterConfigMap -->
+    <!-- 將此條目新增至 exporterConfigMap -->
     <entry key="ppt" value-ref="pptExporterConfiguration"/>
 </util:map>
 ```
 
 2. 將 **aspose.slides.jasperreports.jar** 複製到 **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\lib**。
-3. 若要使用字型對映功能，請如以下方式更新 **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml**。
+
+3. 若要使用字型對映功能，請依下列方式更新 **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml**。
 
 ``` xml
 <bean id="pptExportParameters" class="com.aspose.slides.jasperreports.ASExportParametersBean">

@@ -1,43 +1,44 @@
 ---
-title: ปรับแต่งแผนภูมิดอนัตในงานนำเสนอบน Android
-linktitle: แผนภูมิดอนัต
+title: ปรับแต่งแผนภูมิ Doughnut ในงานนำเสนอบน Android
+linktitle: แผนภูมิ Doughnut
 type: docs
 weight: 30
 url: /th/androidjava/doughnut-chart/
 keywords:
-- แผนภูมิดอนัต
-- ช่องว่างศูนย์กลาง
+- แผนภูมิ doughnut
+- ช่องว่างตรงกลาง
 - ขนาดรู
 - PowerPoint
 - งานนำเสนอ
 - Android
 - Java
 - Aspose.Slides
-description: "ค้นพบวิธีการสร้างและปรับแต่งแผนภูมิดอนัตใน Aspose.Slides สำหรับ Android ผ่าน Java พร้อมสนับสนุนรูปแบบ PowerPoint สำหรับงานนำเสนอแบบไดนามิก"
+description: "ค้นพบวิธีสร้างและปรับแต่งแผนภูมิ doughnut ใน Aspose.Slides สำหรับ Android ผ่าน Java โดยรองรับรูปแบบ PowerPoint สำหรับงานนำเสนอแบบไดนามิก"
 ---
 ## **ภาพรวม**
 
-บทความนี้แสดงวิธีการทำงานกับแผนภูมิดอนัตใน Aspose.Slides โดยการเพิ่มแผนภูมิลงในสไลด์ กำหนดขนาดของรูศูนย์กลาง และบันทึกงานนำเสนอ โดยเน้นที่เมธอด `setDoughnutHoleSize` และสาธิตขั้นตอนพื้นฐานที่จำเป็นเพื่อปรับแต่งประเภทแผนภูมินี้ด้วยโค้ด
+บทความนี้แสดงวิธีการทำงานกับแผนภูมิ doughnut ใน Aspose.Slides โดยการเพิ่มแผนภูมิลงในสไลด์ ตั้งค่าขนาดของรูตรงกลาง และบันทึกงานนำเสนอ มุ่งเน้นที่เมธอด `setDoughnutHoleSize` และสาธิตขั้นตอนพื้นฐานที่จำเป็นสำหรับการปรับแต่งประเภทแผนภูมนี้ด้วยโค้ด
 
-บทความยังรวมส่วน FAQ สั้น ๆ ที่ครอบคลุมสถานการณ์ที่เกี่ยวข้องกับแผนภูมิดอนัต เช่น การใช้หลายซีรีส์เพื่อสร้างหลายวง แผนภูมิดอนัตแบบ exploded และการส่งออกแผนภูมิเป็นรูปภาพเรสเตอร์หรือ SVG
+นอกจากนี้ยังมีส่วน FAQ สั้น ๆ ที่ครอบคลุมสถานการณ์ที่เกี่ยวข้องกับแผนภูมิ doughnut เช่น การใช้หลายซีรีส์เพื่อสร้างหลายวง, การทำงานกับแผนภูมิ doughnut exploded, และการส่งออกแผนภูมิเป็นภาพราสเตอร์หรือ SVG
 
-## **กำหนดช่องว่างศูนย์กลางในแผนภูมิดอนัต**
-{{% alert color="primary" %}} 
+## **ระบุช่องว่างตรงกลางในแผนภูมิ Doughnut**
+{{% alert color="info" %}} 
 
-Aspose.Slides for Android via Java ตอนนี้รองรับการระบุขนาดของรูในแผนภูมิดอนัต ในหัวข้อนี้ เราจะดูตัวอย่างการระบุขนาดของรูในแผนภูมิดอนัต
-
+Aspose.Slides for Android ผ่าน Java ตอนนี้รองรับการระบุขนาดของรูในแผนภูมิ doughnut ในหัวข้อนี้ เราจะดูตัวอย่างวิธีการระบุขนาดของรูในแผนภูมิ doughnut
 {{% /alert %}} 
 
-เพื่อกำหนดขนาดของรูในแผนภูมิดอนัต โปรดทำตามขั้นตอนด้านล่าง:
+เพื่อระบุขนาดของรูในแผนภูมิ doughnut โปรดทำตามขั้นตอนด้านล่าง:
 
-1. สร้างวัตถุ [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation)
-1. เพิ่มแผนภูมิดอนัตบนสไลด์
-1. ระบุขนาดของรูในแผนภูมิดอนัต
+1. สร้างอ็อบเจ็กต์ [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation)
+1. เพิ่มแผนภูมิ doughnut บนสไลด์
+1. ระบุขนาดของรูในแผนภูมิ doughnut
 1. เขียนงานนำเสนอลงดิสก์
 
-ในตัวอย่างด้านล่าง เราได้ตั้งค่าขนาดของรูในแผนภูมิดอนัตแล้ว
+ในตัวอย่างด้านล่าง เราได้ตั้งค่าขนาดของรูในแผนภูมิ doughnut
 
 ```java
+import com.aspose.slides.*;
+
 // สร้างอินสแตนซ์ของคลาส Presentation
 Presentation pres = new Presentation();
 try {
@@ -45,23 +46,23 @@ try {
     
     chart.getChartData().getSeriesGroups().get_Item(0).setDoughnutHoleSize((byte)90);
 
-    // บันทึกงานนำเสนอลงดิสก์
+    // เขียนงานนำเสนอลงดิสก์
     pres.save("DoughnutHoleSize_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**ฉันสามารถสร้างดอนัตหลายระดับที่มีหลายวงได้หรือไม่?**
+### ฉันสามารถสร้าง doughnut หลายระดับพร้อมหลายวงได้หรือไม่?
 
-ได้ครับ เพิ่มหลายซีรีส์ลงในแผนภูมิดอนัตเดียว—แต่ละซีรีส์จะกลายเป็นวงแยกต่างหาก ลำดับของวงจะกำหนดตามลำดับของซีรีส์ในคอลเลกชัน
+ใช่. เพิ่มหลายซีรีส์ลงในแผนภูมิ doughnut เดียว—แต่ละซีรีส์จะกลายเป็นวงแยกกัน ลำดับของวงจะกำหนดโดยลำดับของซีรีส์ในคอลเลกชัน
 
-**รองรับดอนัตแบบ "exploded" (แยกส่วน) หรือไม่?**
+### รองรับ doughnut แบบ "exploded" (ชิ้นส่วนแยก) หรือไม่?
 
-ได้ครับ มีประเภทแผนภูมิ Exploded Doughnut [chart type](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/charttype/) และคุณสมบัติ explosion บนจุดข้อมูล คุณสามารถแยกชิ้นส่วนแต่ละชิ้นได้
+ใช่. มีประเภทแผนภูมิ [ประเภทแผนภูมิ](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/charttype/) Exploded Doughnut และคุณสมบัติ explosion บนข้อมูลจุด; คุณสามารถแยกชิ้นส่วนแต่ละชิ้นได้
 
-**จะรับรูปภาพของแผนภูมิดอนัต (PNG/SVG) สำหรับรายงานได้อย่างไร?**
+### ฉันจะได้ภาพของแผนภูมิ doughnut (PNG/SVG) สำหรับรายงานได้อย่างไร?
 
-แผนภูมิจัดเป็น shape; คุณสามารถเรนเดอร์เป็น [raster image](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/shape/#getImage-int-float-float-) หรือส่งออกแผนภูมิเป็นภาพ [SVG](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-).
+แผนภูมิเป็นรูปทรง; คุณสามารถเรนเดอร์เป็น [ภาพราสเตอร์](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/shape/#getImage-int-float-float-) หรือส่งออกแผนภูมิเป็น [ภาพ SVG](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-)

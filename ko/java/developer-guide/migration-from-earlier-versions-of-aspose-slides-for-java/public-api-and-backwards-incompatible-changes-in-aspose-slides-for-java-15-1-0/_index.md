@@ -7,42 +7,44 @@ url: /ko/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for
 keywords:
 - 마이그레이션
 - 레거시 코드
-- 현대 코드
-- 레거시 접근법
-- 현대 접근법
+- 최신 코드
+- 레거시 접근 방식
+- 최신 접근 방식
 - 파워포인트
-- OpenDocument
+- 오픈도큐먼트
 - 프레젠테이션
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java의 공개 API 업데이트 및 중단되는 변경 사항을 검토하여 PowerPoint PPT, PPTX 및 ODP 프레젠테이션 솔루션을 원활하게 마이그레이션하십시오."
+description: "Aspose.Slides for Java의 공개 API 업데이트와 파괴적인 변경 사항을 검토하여 PowerPoint PPT, PPTX 및 ODP 프레젠테이션 솔루션을 원활하게 마이그레이션하세요."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-이 페이지에서는 Aspose.Slides for Java 15.1.0 API와 함께 도입된 모든 [추가된](/slides/ko/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-1-0/) 클래스, 메서드, 속성 등을 나열하고, 새로운 제한 사항 및 기타 [변경 사항](/slides/ko/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-1-0/)을 제공합니다.
+이 페이지에서는 Aspose.Slides for Java 15.1.0 API에 도입된 모든 [추가된](/slides/ko/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-1-0/) 클래스, 메서드, 속성 등과 새로운 제한 사항 및 기타 [변경](/slides/ko/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-1-0/)을 나열합니다.
 
-{{% /alert %}} {{% alert color="primary" %}} 
+{{% /alert %}} {{% alert color="info" %}} 
 
 일부 이미지 글머리표와 WordArt 개체에 알려진 문제가 있으며, 이는 Aspose.Slides for Java 15.2.0에서 해결될 예정입니다.
 
 {{% /alert %}} 
-## **공용 API 변경 사항**
-### **글꼴 대체 기능이 추가되었습니다**
-프레젠테이션 전체에서 글꼴을 전역적으로 교체하거나 렌더링 시 일시적으로 교체할 수 있는 기능이 추가되었습니다.
+## **공개 API 변경 사항**
+### **글꼴 교체 기능이 추가되었습니다**
+프레젠테이션 전체에서 글꼴을 전역적으로 교체하거나 렌더링 시 임시로 교체할 수 있는 기능이 추가되었습니다.
 
-Presentation 클래스에 새로운 메서드 **getFontsManager()** 가 도입되었습니다. FontsManager 클래스는 다음 멤버를 제공합니다:
+Presentation 클래스에 새로운 메서드 **getFontsManager()** 가 도입되었습니다. FontsManager 클래스에는 다음 멤버가 포함됩니다:
 
 **IFontSubstRuleCollection getFontSubstRuleList**() 메서드  
 
-이 메서드는 렌더링 중에 글꼴을 대체하는 데 사용되는 IFontSubstRule 인스턴스의 컬렉션을 반환합니다. IFontSubstRule은 IFontData 인터페이스를 구현하는 **getSourceFont()** 및 **getDestFont()** 메서드와, 교체 조건("WhenInaccessible" 또는 "Always")을 선택할 수 있게 해주는 **getReplaceFontCondition()** 메서드를 제공합니다.
+이는 렌더링 중에 글꼴을 교체하는 데 사용되는 IFontSubstRule 인스턴스들의 컬렉션입니다. IFontSubstRule 은 IFontData 인터페이스를 구현하는 **getSourceFont()** 와 **getDestFont()** 메서드와 교체 조건을 선택할 수 있는 **getReplaceFontCondition()** 메서드(“WhenInaccessible” 또는 “Always”)를 제공합니다.
 
-**IFontData[] getFonts**() 메서드를 사용하면 현재 프레젠테이션에 사용된 모든 글꼴을 검색할 수 있습니다.
+**IFontData[] getFonts()** 메서드를 사용하여 현재 프레젠테이션에서 사용되는 모든 글꼴을 가져올 수 있습니다.
 
-**replaceFont(...)** 메서드를 사용하면 프레젠테이션 내에서 글꼴을 영구적으로 교체할 수 있습니다.
+**replaceFont(...)** 메서드를 사용하면 프레젠테이션에서 글꼴을 지속적으로 교체할 수 있습니다.
 
 다음 예제는 프레젠테이션에서 글꼴을 교체하는 방법을 보여줍니다:
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation("PresContainsArialFont.pptx");
 
@@ -56,29 +58,27 @@ pres.save("PresContainsTimesNoewRomanFont.pptx", SaveFormat.Pptx);
 
 ```
 
-또 다른 예제는 글꼴이 접근 불가능할 때 렌더링을 위한 글꼴 대체를 보여줍니다:
+또 다른 예제는 접근할 수 없는 경우 렌더링을 위해 글꼴을 교체하는 방법을 보여줍니다:
 
 ``` java
-
-
+import com.aspose.slides.*;
 
 Presentation pres = new Presentation("PresContainsSomeRareFontFont.pptx");
+try {
+    IFontData sourceFont = new FontData("SomeRareFont");
+    IFontData destFont = new FontData("Arial");
 
-IFontData sourceFont = new FontData("SomeRareFont");
+    IFontSubstRule fontSubstRule = new FontSubstRule(sourceFont, destFont, FontSubstCondition.WhenInaccessible);
 
-IFontData destFont = new FontData("Arial");
+    IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
+    fontSubstRuleCollection.add(fontSubstRule);
 
-IFontSubstRule fontSubstRule = new FontSubstRule(
+    pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
 
-sourceFont, destFont, FontSubstCondition.WhenInaccessible);
-
-IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
-
-fontSubstRuleCollection.add(fontSubstRule);
-
-pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
-
-// Arial 글꼴은 SomeRareFont에 접근할 수 없을 때 대신 사용됩니다.
-
-pres.getSlides().get_Item(0).getThumbnail(1, 1);
+    // Arial 글꼴은 SomeRareFont에 접근할 수 없을 때 대신 사용됩니다.
+    IImage slideImage = pres.getSlides().get_Item(0).getImage(1, 1);
+    slideImage.dispose();
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```

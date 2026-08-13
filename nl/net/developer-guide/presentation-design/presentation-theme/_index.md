@@ -1,5 +1,5 @@
 ---
-title: Beheer presentatiethema’s in .NET
+title: Beheer presentatiethema's in .NET
 linktitle: Presentatiethema
 type: docs
 weight: 10
@@ -13,7 +13,7 @@ keywords:
 - thema beheren
 - themakleur
 - extra palet
-- themalettertype
+- thema-lettertype
 - themastijl
 - thema-effect
 - PowerPoint
@@ -22,23 +22,25 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Beheer presentatiethema’s in Aspose.Slides voor .NET om PowerPoint-bestanden te maken, aanpassen en converteren met een consistente huisstijl."
+description: "Beheer presentatiethema's in Aspose.Slides voor .NET om PowerPoint‑bestanden te maken, aan te passen en te converteren met consistente huisstijl."
 ---
 ## **Inleiding**
 
 Een presentatiethema definieert de eigenschappen van ontwerpelementen. Wanneer u een presentatiethema selecteert, kiest u in feite een specifieke set visuele elementen en hun eigenschappen.
 
-In PowerPoint bestaat een thema uit kleuren, [lettertypen](/slides/nl/net/powerpoint-fonts/), [achtergrondstijlen](/slides/nl/net/presentation-background/) en effecten.
+In PowerPoint bestaat een thema uit kleuren, [lettertypen](/slides/nl/net/powerpoint-fonts/), [achtergrondstijlen](/slides/nl/net/presentation-background/), en effecten.
 
-![theme-constituents](theme-constituents.png)
+![theme-constituents](theme-constituiants.png)
 
-## **Themakleur wijzigen**
+## **Thema‑kleur wijzigen**
 
-Een PowerPoint‑thema gebruikt een specifieke set kleuren voor verschillende elementen op een dia. Als u de kleuren niet bevalt, wijzigt u ze door nieuwe kleuren voor het thema toe te passen. Om een nieuwe themakleur te selecteren, biedt Aspose.Slides waarden onder de [SchemeColor](https://reference.aspose.com/slides/nl/net/aspose.slides/schemecolor/)‑enumeratie.
+Een PowerPoint‑thema gebruikt een specifieke set kleuren voor verschillende elementen op een dia. Als u de kleuren niet bevalt, wijzigt u ze door nieuwe kleuren voor het thema toe te passen. Om u een nieuwe themakleur te laten kiezen, biedt Aspose.Slides waarden onder de [SchemeColor](https://reference.aspose.com/slides/nl/net/aspose.slides/schemecolor/) enumeratie.
 
-Deze C#‑code laat zien hoe u de accentkleur van een thema wijzigt:
+Deze C#‑code laat zien hoe u de accentkleur voor een thema wijzigt:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation())
     
 {
@@ -50,41 +52,60 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-U kunt de effectieve waarde van de resulterende kleur op deze manier bepalen:
+Zo kunt u de effectieve waarde van de resulterende kleur bepalen:
 
 ```c#
-var fillEffective = shape.FillFormat.GetEffective();
+using Aspose.Slides;
 
-Console.WriteLine($"{fillEffective.SolidFillColor.Name} ({fillEffective.SolidFillColor})"); // ff8064a2 (Kleur [A=255, R=128, G=100, B=162])
+using (Presentation pres = new Presentation())
+{
+    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+
+    shape.FillFormat.FillType = FillType.Solid;
+
+    shape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+
+    var fillEffective = shape.FillFormat.GetEffective();
+
+    Console.WriteLine($"{fillEffective.SolidFillColor.Name} ({fillEffective.SolidFillColor})"); // ff8064a2 (Kleur [A=255, R=128, G=100, B=162])
+}
 ```
 
-Om de kleuraanpassing verder te demonstreren, maken we een extra element en wijzen we de accentkleur (van de eerste bewerking) toe. Vervolgens wijzigen we de kleur in het thema:
+Om de kleuraanpassing verder te demonstreren, maken we een extra element en wijzen de accentkleur (van de eerste bewerking) toe. Vervolgens wijzigen we de kleur in het thema:
 
 ```c#
-IAutoShape otherShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
+using System.Drawing;
+using Aspose.Slides;
 
-otherShape.FillFormat.FillType = FillType.Solid;
+using (Presentation pres = new Presentation())
+{
+    IAutoShape otherShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
 
-otherShape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+    otherShape.FillFormat.FillType = FillType.Solid;
 
-pres.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
+    otherShape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+
+    pres.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
+}
 ```
 
-De nieuwe kleur wordt automatisch toegepast op beide elementen.
+De nieuwe kleur wordt automatisch op beide elementen toegepast.
 
 ### **Themakleur instellen vanuit een extra palet**
 
-Wanneer u luminantietransformaties toepast op de hoofdthemakleur(1), ontstaan er kleuren uit het extra palet(2). Deze themakleuren kunt u vervolgens instellen en ophalen.
+Wanneer u luminantie‑transformaties toepast op de hoofdthemakleur (1), ontstaan er kleuren uit het extra palet (2). U kunt die themakleuren vervolgens instellen en ophalen.
 
 ![additional-palette-colors](additional-palette-colors.png)
 
 **1** - Hoofdthemakleuren  
-
 **2** - Kleuren uit het extra palet.
 
-Deze C#‑code demonstreert een bewerking waarbij extra paletkleuren worden afgeleid van de hoofdthemakleur en vervolgens in vormen worden gebruikt:
+Deze C#‑code demonstreert een bewerking waarbij kleuren uit het extra palet worden verkregen van de hoofdthemakleur en vervolgens in vormen worden gebruikt:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -137,17 +158,17 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **`SchemeColor` koppelen aan `IColorScheme`‑kleuren**
+### **Map `SchemeColor` naar `IColorScheme`‑kleuren**
 
-Wanneer u werkt met [SchemeColor](https://reference.aspose.com/slides/nl/net/aspose.slides/schemecolor/), ziet u dat deze de volgende themakleurwaarden bevat:
+Wanneer u werkt met [SchemeColor](https://reference.aspose.com/slides/nl/net/aspose.slides/schemecolor/), merkt u misschien op dat het de volgende themakleurwaarden bevat:
 
 `Background1`, `Background2`, `Text1` en `Text2`.
 
-Echter, `Presentation.MasterTheme.ColorScheme` geeft een [IColorScheme](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/icolorscheme/) terug, die de overeenkomstige kleuren exposeert als:
+Echter, `Presentation.MasterTheme.ColorScheme` retourneert [IColorScheme](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/icolorscheme/) die de bijbehorende kleuren exposeert als:
 
 `Dark1`, `Dark2`, `Light1` en `Light2`.
 
-Dit verschil zit alleen in de benaming. Deze waarden verwijzen naar dezelfde themakleur‑posities en de mapping is vast:
+Dit verschil zit alleen in de benaming. Deze waarden verwijzen naar dezelfde themakleur‑slots en de mapping is vast:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
@@ -156,54 +177,66 @@ Dit verschil zit alleen in de benaming. Deze waarden verwijzen naar dezelfde the
 
 Er is geen dynamische conversie tussen `Text`/`Background` en `Dark`/`Light`. Het zijn simpelweg alternatieve namen voor dezelfde themakleuren.
 
-Dit benamingsverschil komt voort uit de Microsoft‑Office‑terminologie. Oudere Office‑versies gebruikten `Dark 1`, `Light 1`, `Dark 2` en `Light 2`, terwijl nieuwere UI‑versies dezelfde posities weergeven als `Text 1`, `Background 1`, `Text 2` en `Background 2`.
+Deze naamsverschillen komen voort uit de terminologie van Microsoft Office. Oudere Office‑versies gebruikten `Dark 1`, `Light 1`, `Dark 2` en `Light 2`, terwijl nieuwere UI‑versies dezelfde slots weergeven als `Text 1`, `Background 1`, `Text 2` en `Background 2`.
 
 ## **Thema‑lettertype wijzigen**
 
-Om u in staat te stellen lettertypen voor thema’s en andere doeleinden te selecteren, gebruikt Aspose.Slides deze speciale identifiers (vergelijkbaar met die in PowerPoint):
+Om u lettertypen voor thema’s en andere doeleinden te laten kiezen, gebruikt Aspose.Slides deze speciale identificatoren (vergelijkbaar met die in PowerPoint):
 
-* **+mn-lt** – Body Font Latin (Minor Latin Font)  
-* **+mj-lt** – Heading Font Latin (Major Latin Font)  
-* **+mn-ea** – Body Font East Asian (Minor East Asian Font)  
-* **+mj-ea** – Body Font East Asian (Minor East Asian Font)
+* **+mn-lt** - Body‑lettertype Latijn (Klein Latijns Lettertype)
+* **+mj-lt** - Kop‑lettertype Latijn (Groot Latijns Lettertype)
+* **+mn-ea** - Body‑lettertype Oost‑Aziatisch (Klein Oost‑Aziatisch Lettertype)
+* **+mj-ea** - Body‑lettertype Oost‑Aziatisch (Klein Oost‑Aziatisch Lettertype)
 
-Deze C#‑code toont hoe u het Latijnse lettertype aan een thema‑element toewijst:
+Deze C#‑code laat zien hoe u het Latijnse lettertype aan een themaelement toewijst:
 
 ```c#
-IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+using Aspose.Slides;
 
-Paragraph paragraph = new Paragraph();
+using (Presentation pres = new Presentation())
+{
+    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
-Portion portion = new Portion("Theme text format");
+    Paragraph paragraph = new Paragraph();
 
-paragraph.Portions.Add(portion);
+    Portion portion = new Portion("Theme text format");
 
-shape.TextFrame.Paragraphs.Add(paragraph);
+    paragraph.Portions.Add(portion);
 
-portion.PortionFormat.LatinFont = new FontData("+mn-lt");
+    shape.TextFrame.Paragraphs.Add(paragraph);
+
+    portion.PortionFormat.LatinFont = new FontData("+mn-lt");
+}
 ```
 
-Deze C#‑code toont hoe u het presentatiethema‑lettertype wijzigt:
+Deze C#‑code laat zien hoe u het presentatiethema‑lettertype wijzigt:
 
 ```c#
-pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
+using Aspose.Slides;
+
+using (Presentation pres = new Presentation())
+{
+    pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
+}
 ```
 
 Het lettertype in alle tekstvakken wordt bijgewerkt.
 
-{{% alert color="primary" title="TIP" %}} 
-U wilt misschien de [PowerPoint‑lettertypen](/slides/nl/net/powerpoint-fonts/) bekijken. 
+{{% alert color="info" title="TIP" %}} 
+U wilt mogelijk [PowerPoint‑lettertypen](/slides/nl/net/powerpoint-fonts/) bekijken. 
 {{% /alert %}}
 
-## **Achtergrondstijl van thema wijzigen**
+## **Thema‑achtergrondstijl wijzigen**
 
-Standaard biedt de PowerPoint‑applicatie 12 voorgedefinieerde achtergronden, maar slechts 3 van die 12 worden bewaard in een typische presentatie.
+Standaard biedt de PowerPoint‑app 12 vooraf gedefinieerde achtergronden, maar in een typische presentatie worden slechts 3 van die 12 achtergronden opgeslagen.
 
 ![todo:image_alt_text](presentation-design_8.png)
 
-Bijvoorbeeld, nadat u een presentatie hebt opgeslagen in de PowerPoint‑app, kunt u deze C#‑code uitvoeren om het aantal voorgedefinieerde achtergronden in de presentatie te achterhalen:
+Bijvoorbeeld, nadat u een presentatie hebt opgeslagen in de PowerPoint‑app, kunt u deze C#‑code uitvoeren om het aantal vooraf gedefinieerde achtergronden in de presentatie te achterhalen:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 
 {
@@ -214,32 +247,41 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 {{% alert color="warning" %}} 
-Met de eigenschap [BackgroundFillStyles](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/formatscheme/backgroundfillstyles/) van de [FormatScheme](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/formatscheme/)‑klasse kunt u de achtergrondstijl in een PowerPoint‑thema toevoegen of benaderen. 
+Met de [BackgroundFillStyles](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/formatscheme/backgroundfillstyles/)‑eigenschap van de [FormatScheme](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/formatscheme/)‑klasse kunt u de achtergrondstijl in een PowerPoint‑thema toevoegen of benaderen. 
 {{% /alert %}}
 
 Deze C#‑code laat zien hoe u de achtergrond voor een presentatie instelt:
 
 ```c#
-pres.Masters[0].Background.StyleIndex = 2;
+using Aspose.Slides;
+
+using (Presentation pres = new Presentation("pres.pptx"))
+{
+    pres.Masters[0].Background.StyleIndex = 2;
+}
 ```
 
-**Indexgids**: 0 betekent geen vulling. De index start bij 1.
+**Indexgids**: 0 staat voor geen vulling. De index begint bij 1.
 
-{{% alert color="primary" title="TIP" %}} 
-U wilt misschien de [PowerPoint‑achtergrond](/slides/nl/net/presentation-background/) bekijken. 
+{{% alert color="info" title="TIP" %}} 
+U wilt mogelijk [PowerPoint‑achtergrond](/slides/nl/net/presentation-background/) bekijken. 
 {{% /alert %}}
 
 ## **Thema‑effect wijzigen**
 
-Een PowerPoint‑thema bevat doorgaans 3 waarden voor elke stijlaray. Deze arrays worden samengevoegd tot de 3 effecten: subtiel, gematigd en intens. Bijvoorbeeld, dit is het resultaat wanneer de effecten op een specifieke vorm worden toegepast:
+Een PowerPoint‑thema bevat meestal 3 waarden voor elke stijlaray. Die arrays worden gecombineerd tot deze 3 effecten: subtiel, gematigd en intens. Bijvoorbeeld, dit is het resultaat wanneer de effecten op een specifieke vorm worden toegepast:
 
 ![todo:image_alt_text](presentation-design_10.png)
 
-Met 3 eigenschappen ([FillStyles](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/formatscheme/fillstyles), [LineStyles](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/formatscheme/linestyles), [EffectStyles](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/formatscheme/effectstyles)) van de [FormatScheme](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/formatscheme)‑klasse kunt u elementen in een thema wijzigen (nog flexibeler dan de opties in PowerPoint).
+Door gebruik te maken van 3 eigenschappen ([FillStyles](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/formatscheme/fillstyles), [LineStyles](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/formatscheme/linestyles), [EffectStyles](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/formatscheme/effectstyles)) van de [FormatScheme](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/formatscheme)‑klasse kunt u de elementen in een thema wijzigen (nog flexibeler dan de opties in PowerPoint).
 
-Deze C#‑code laat zien hoe u een thema‑effect wijzigt door delen van elementen aan te passen:
+Deze C#‑code laat zien hoe u een thema‑effect wijzigt door onderdelen van elementen aan te passen:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx"))
 {
     pres.MasterTheme.FormatScheme.LineStyles[0].FillFormat.SolidFillColor.Color = Color.Red;
@@ -254,20 +296,20 @@ using (Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx"))
 }
 ```
 
-De resulterende wijzigingen in vulkleur, vultype, schaduweffect, enz.:
+De resulterende wijzigingen in vulkleur, vultype, schaduweffect, enzovoort:
 
 ![todo:image_alt_text](presentation-design_11.png)
 
-## **FAQ**
+## **Veelgestelde vragen**
 
-**Kan ik een thema op een enkele dia toepassen zonder de master te wijzigen?**
+### Kan ik een thema op één dia toepassen zonder de master te wijzigen?
 
-Ja. Aspose.Slides ondersteunt thema‑overschrijvingen op dia‑niveau, zodat u een lokaal thema op alleen die dia kunt toepassen terwijl het master‑thema intact blijft (via de [SlideThemeManager](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/slidethememanager/)).
+Ja. Aspose.Slides ondersteunt thema‑overrides op dia‑niveau, zodat u een lokaal thema alleen op die dia kunt toepassen terwijl het master‑thema ongewijzigd blijft (via de [SlideThemeManager](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/slidethememanager/)).
 
-**Wat is de veiligste manier om een thema van de ene presentatie naar de andere over te dragen?**
+### Wat is de veiligste manier om een thema van de ene presentatie naar de andere over te dragen?
 
-[Slides dupliceren](/slides/nl/net/clone-slides/) samen met hun master naar de doelpresentatie. Dit behoudt de originele master, lay-outs en het bijbehorende thema zodat de weergave consistent blijft.
+[Clone slides](/slides/nl/net/clone-slides/) samen met hun master naar de doelpresentatie. Dit behoudt de originele master, lay-outs en het bijbehorende thema zodat het uiterlijk consistent blijft.
 
-**Hoe kan ik de “effectieve” waarden zien na alle overerving en overschrijvingen?**
+### Hoe kan ik de “effectieve” waarden zien na alle overerving en overrides?
 
-Gebruik de ["effectieve"](/slides/nl/net/shape-effective-properties/) weergaven van de API voor thema/kleur/lettertype/effect. Deze geven de uiteindelijke, berekende eigenschappen terug na toepassing van de master en eventuele lokale overschrijvingen.
+Gebruik de ["effectieve" weergaven](/slides/nl/net/shape-effective-properties/) van de API voor thema/kleur/lettertype/effect. Deze retourneren de uiteindelijke, opgeloste eigenschappen na toepassen van de master plus eventuele lokale overrides.

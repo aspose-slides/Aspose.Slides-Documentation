@@ -5,45 +5,48 @@ type: docs
 weight: 20
 url: /el/net/manage-hyperlinks/
 keywords:
-- προσθήκη URL
-- προσθήκη υπερσυνδέσμου
-- δημιουργία υπερσυνδέσμου
-- μορφοποίηση υπερσυνδέσμου
-- αφαίρεση υπερσυνδέσμου
-- ενημέρωση υπερσυνδέσμου
-- υπερσύνδεσμος κειμένου
-- υπερσύνδεσμος διαφάνειας
-- υπερσύνδεσμος σχήματος
-- υπερσύνδεσμος εικόνας
-- υπερσύνδεσμος βίντεο
-- μεταβλητός υπερσύνδεσμος
+- Προσθήκη URL
+- Προσθήκη υπερσυνδέσμου
+- Δημιουργία υπερσυνδέσμου
+- Μορφοποίηση υπερσυνδέσμου
+- Αφαίρεση υπερσυνδέσμου
+- Ενημέρωση υπερσυνδέσμου
+- Υπερσύνδεσμος κειμένου
+- Υπερσύνδεσμος διαφάνειας
+- Υπερσύνδεσμος σχήματος
+- Υπερσύνδεσμος εικόνας
+- Υπερσύνδεσμος βίντεο
+- Μεταβλητός υπερσύνδεσμος
 - PowerPoint
 - OpenDocument
 - παρουσίαση
 - .NET
 - C#
 - Aspose.Slides
-description: "Διαχειριστείτε εύκολα τους υπερσυνδέσμους σε παρουσιάσεις PowerPoint και OpenDocument με το Aspose.Slides για .NET—βελτιώστε την αλληλεπίδραση και τη ροή εργασίας σε λίγα λεπτά."
+description: "Διαχειριστείτε άψογα τους υπερσυνδέσμους σε παρουσιάσεις PowerPoint και OpenDocument με το Aspose.Slides για .NET—βελτιώστε την αλληλεπίδραση και τη ροή εργασίας σε λίγα λεπτά."
 ---
 ## **Εισαγωγή**
 
-Ένας υπερσύνδεσμος είναι μια αναφορά σε ένα αντικείμενο ή δεδομένα ή σε μια θέση σε κάτι. Αυτοί είναι συνηθισμένοι υπερσύνδεσμοι σε παρουσιάσεις PowerPoint:
+Ένας υπερσύνδεσμος είναι μια αναφορά σε ένα αντικείμενο ή δεδομένα ή μια θέση σε κάτι. Αυτοί είναι συνηθισμένοι υπερσύνδεσμοι σε παρουσιάσεις PowerPoint:
 
-* Σύνδεσμοι σε ιστοσελίδες μέσα σε κείμενα, σχήματα ή μέσα.
-* Σύνδεσμοι σε διαφάνειες
+* Σύνδεσμοι προς ιστοσελίδες μέσα σε κείμενα, σχήματα ή μέσα
+* Σύνδεσμοι προς διαφάνειες
 
-Το Aspose.Slides για .NET σας επιτρέπει να εκτελείτε πολλές εργασίες που αφορούν υπερσυνδέσμους σε παρουσιάσεις. 
+Aspose.Slides for .NET σας επιτρέπει να εκτελείτε πολλές εργασίες που αφορούν υπερσυνδέσμους σε παρουσιάσεις. 
 
-{{% alert color="primary" %}} 
-Ίσως θελήσετε να δοκιμάσετε το Aspose simple, [δωρεάν διαδικτυακό πρόγραμμα επεξεργασίας PowerPoint.](https://products.aspose.app/slides/el/editor)
+{{% alert color="info" %}} 
+Ίσως θέλετε να δείτε το απλό, [δωρεάν online επεξεργαστή PowerPoint.](https://products.aspose.app/slides/el/editor)
 {{% /alert %}} 
 
-## **Προσθήκη URL Υπερσυνδέσμων**
+## **Προσθήκη Υπερσυνδέσμων URL**
 
-### **Προσθήκη URL Υπερσυνδέσμων σε Κείμενο**
+### **Προσθήκη Υπερσυνδέσμων URL σε Κείμενο**
 
-Αυτός ο κώδικας C# δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο ιστοσελίδας σε κείμενο:
+Αυτός ο κώδικας C# σας δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο ιστοσελίδας σε κείμενο:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
 	IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -56,10 +59,13 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **Προσθήκη URL Υπερσυνδέσμων σε Σχήματα ή Πλαίσια**
+### **Προσθήκη Υπερσυνδέσμων URL σε Σχήματα ή Πλαίσια**
 
-Αυτό το δείγμα κώδικα σε C# δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο ιστοσελίδας σε σχήμα:
+Αυτό το δείγμα κώδικα σε C# σας δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο ιστοσελίδας σε ένα σχήμα:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -71,12 +77,15 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **Προσθήκη URL Υπερσυνδέσμων σε Πολυμέσα**
+### **Προσθήκη Υπερσυνδέσμων URL σε Πολυμέσα**
 
-Το Aspose.Slides σας επιτρέπει να προσθέτετε υπερσυνδέσμους σε εικόνες, ήχο και βίντεο. 
+Το Aspose.Slides σας επιτρέπει να προσθέτετε υπερσυνδέσμους σε εικόνες, ήχο και αρχεία βίντεο. 
 
-Αυτό το δείγμα κώδικα δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο σε μια **εικόνα**:
+Αυτό το δείγμα κώδικα σας δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο σε μια **εικόνα**:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     // Προσθέτει εικόνα στην παρουσίαση
@@ -91,8 +100,11 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-Αυτό το δείγμα κώδικα δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο σε ένα **αρχείο ήχου**:
+Αυτό το δείγμα κώδικα σας δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο σε ένα **αρχείο ήχου**:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IAudio audio = pres.Audios.AddAudio(File.ReadAllBytes("audio.mp3"));
@@ -105,8 +117,11 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-Αυτό το δείγμα κώδικα δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο σε ένα **βίντεο**:
+Αυτό το δείγμα κώδικα σας δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο σε ένα **βίντεο**:
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IVideo video = pres.Videos.AddVideo(File.ReadAllBytes("video.avi"));
@@ -119,16 +134,20 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-{{%  alert  title="Tip"  color="primary"  %}} 
-Ίσως θελήσετε να δείτε *[Διαχείριση OLE](https://docs.aspose.com/slides/el/net/manage-ole/)*.
+{{%  alert  title="Tip"  color="info"  %}} 
+Ίσως θέλετε να δείτε *[Διαχείριση OLE](https://docs.aspose.com/slides/el/net/manage-ole/)*.
 {{% /alert %}}
 
 ## **Χρήση Υπερσυνδέσμων για Δημιουργία Πίνακα Περιεχομένων**
 
 Επειδή οι υπερσύνδεσμοι σας επιτρέπουν να προσθέτετε αναφορές σε αντικείμενα ή θέσεις, μπορείτε να τους χρησιμοποιήσετε για τη δημιουργία πίνακα περιεχομένων. 
 
-Αυτό το δείγμα κώδικα δείχνει πώς να δημιουργήσετε έναν πίνακα περιεχομένων με υπερσυνδέσμους:
+Αυτό το δείγμα κώδικα σας δείχνει πώς να δημιουργήσετε έναν πίνακα περιεχομένων με υπερσυνδέσμους:
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation())
 {
     var firstSlide = presentation.Slides[0];
@@ -159,10 +178,14 @@ using (var presentation = new Presentation())
 
 ### **Χρώμα**
 
-Με την ιδιότητα [ColorSource](https://reference.aspose.com/slides/el/net/aspose.slides/ihyperlink/properties/colorsource) στην διεπαφή [IHyperlink](https://reference.aspose.com/slides/el/net/aspose.slides/ihyperlink), μπορείτε να ορίσετε το χρώμα για τους υπερσυνδέσμους και επίσης να λάβετε τις πληροφορίες χρώματος από αυτούς. Η δυνατότητα αυτή παρουσιάστηκε για πρώτη φορά στο PowerPoint 2019, έτσι οι αλλαγές που αφορούν την ιδιότητα δεν ισχύουν για παλαιότερες εκδόσεις του PowerPoint.
+Με την ιδιότητα [ColorSource](https://reference.aspose.com/slides/el/net/aspose.slides/ihyperlink/properties/colorsource), στην διεπαφή [IHyperlink](https://reference.aspose.com/slides/el/net/aspose.slides/ihyperlink), μπορείτε να ορίσετε το χρώμα για τους υπερσυνδέσμους και επίσης να λάβετε τις πληροφορίες χρώματος από τους υπερσυνδέσμους. Η δυνατότητα εισήχθη για πρώτη φορά στο PowerPoint 2019, επομένως οι αλλαγές που αφορούν αυτή την ιδιότητα δεν ισχύουν για παλαιότερες εκδόσεις του PowerPoint.
 
-Αυτό το δείγμα κώδικα δείχνει μια λειτουργία όπου υπερσύνδεσμοι με διαφορετικά χρώματα προστέθηκαν στην ίδια διαφάνεια:
+Αυτό το δείγμα κώδικα δείχνει μια λειτουργία κατά την οποία υπερσύνδεσμοι με διαφορετικά χρώματα προστέθηκαν στην ίδια διαφάνεια:
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -179,16 +202,20 @@ using (Presentation presentation = new Presentation())
     presentation.Save("presentation-out-hyperlink.pptx", SaveFormat.Pptx);
 }
 ```
+
 ### **Ήχος**
 
 Το Aspose.Slides παρέχει αυτές τις ιδιότητες για να σας επιτρέψει να τονίσετε έναν υπερσύνδεσμο με ήχο:
 - [IHyperlink.Sound](https://reference.aspose.com/slides/el/net/aspose.slides/ihyperlink/properties/sound) 
 - [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/el/net/aspose.slides/ihyperlink/properties/stopsoundonclick)
 
-#### **Προσθήκη Ήχου Υπερσύνδεσμου**
+#### **Προσθήκη Ήχου σε Υπερσύνδεσμο**
 
-Αυτός ο κώδικας C# δείχνει πώς να ορίσετε τον υπερσύνδεσμο που παίζει ήχο και να τον σταματήσετε με έναν άλλο υπερσύνδεσμο:
+Αυτός ο κώδικας C# σας δείχνει πώς να ορίσετε τον υπερσύνδεσμο που παίζει ήχο και να τον σταματήσετε με έναν άλλο υπερσύνδεσμο:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
 	// Προσθέτει νέο ήχο στη συλλογή ήχων της παρουσίασης
@@ -196,11 +223,11 @@ using (Presentation pres = new Presentation())
 
 	ISlide firstSlide = pres.Slides[0];
 
-	// Προσθέτει νέο σχήμα με τον υπερσύνδεσμο στη επόμενη διαφάνεια
+	// Προσθέτει νέο σχήμα με υπερσύνδεσμο στην επόμενη διαφάνεια
 	IShape firstShape = firstSlide.Shapes.AddAutoShape(ShapeType.SoundButton, 100, 100, 100, 50);
 	firstShape.HyperlinkClick = Hyperlink.NextSlide;
 
-	// Ελέγχει τον υπερσύνδεσμο για "No Sound"
+	// Ελέγχει τον υπερσύνδεσμο για «Χωρίς ήχο»
 	if (!firstShape.HyperlinkClick.StopSoundOnClick && firstShape.HyperlinkClick.Sound == null)
 	{
 		// Ορίζει τον υπερσύνδεσμο που παίζει ήχο
@@ -214,22 +241,24 @@ using (Presentation pres = new Presentation())
 	IShape secondShape = secondSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 100, 50);
 	secondShape.HyperlinkClick = Hyperlink.NoAction;
 
-	// Ορίζει τη σημαία "Stop previous sound" του υπερσυνδέσμου
+	// Ορίζει τη σημαία υπερσυνδέσμου «Σταμάτημα προηγούμενου ήχου» 
 	secondShape.HyperlinkClick.StopSoundOnClick = true;
 
 	pres.Save("hyperlink-sound.pptx", SaveFormat.Pptx);
 }
 ```
 
-#### **Εξαγωγή Ήχου Υπερσύνδεσμου**
+#### **Εξαγωγή Ήχου από Υπερσύνδεσμο**
 
-Αυτός ο κώδικας C# δείχνει πώς να εξάγετε τον ήχο που χρησιμοποιείται σε έναν υπερσύνδεσμο:
+Αυτός ο κώδικας C# σας δείχνει πώς να εξάγετε τον ήχο που χρησιμοποιείται σε έναν υπερσύνδεσμο:
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 {
 	ISlide firstSlide = pres.Slides[0];
 
-	// Αποκτά τον υπερσύνδεσμο του πρώτου σχήματος
+	// Λαμβάνει τον υπερσύνδεσμο του πρώτου σχήματος
 	IHyperlink link = firstSlide.Shapes[0].HyperlinkClick;
 
 	if (link.Sound != null)
@@ -244,8 +273,11 @@ using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 
 ### **Αφαίρεση Υπερσυνδέσμων από Κείμενο**
 
-Αυτός ο κώδικας C# δείχνει πώς να αφαιρέσετε τον υπερσύνδεσμο από κείμενο σε διαφάνεια παρουσίασης:
+Αυτός ο κώδικας C# σας δείχνει πώς να αφαιρέσετε τον υπερσύνδεσμο από κείμενο σε μια διαφάνεια παρουσίασης:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     ISlide slide = pres.Slides[0];
@@ -270,8 +302,11 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ### **Αφαίρεση Υπερσυνδέσμων από Σχήματα ή Πλαίσια**
 
-Αυτός ο κώδικας C# δείχνει πώς να αφαιρέσετε τον υπερσύνδεσμο από σχήμα σε διαφάνεια παρουσίασης: 
+Αυτός ο κώδικας C# σας δείχνει πώς να αφαιρέσετε τον υπερσύνδεσμο από ένα σχήμα σε μια διαφάνεια παρουσίασης: 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("demo.pptx")) 
 { 
    ISlide slide = pres.Slides[0]; 
@@ -283,17 +318,20 @@ using (Presentation pres = new Presentation("demo.pptx"))
 }
 ```
 
-## **Μεταβλητής Υπερσύνδεσμος**
+## **Μεταβλητός Υπερσύνδεσμος**
 
-Η κλάση [Hyperlink](https://reference.aspose.com/slides/el/net/aspose.slides/hyperlink) είναι μεταβλητή. Με αυτήν την κλάση, μπορείτε να αλλάξετε τις τιμές για αυτές τις ιδιότητες:
+Η κλάση [Hyperlink](https://reference.aspose.com/slides/el/net/aspose.slides/hyperlink) είναι μεταβλητή. Με αυτή την κλάση, μπορείτε να αλλάξετε τις τιμές για τις ακόλουθες ιδιότητες:
 
 - [IHyperlink.TargetFrame](https://reference.aspose.com/slides/el/net/aspose.slides/ihyperlink/properties/targetframe)
 - [IHyperlink.Tooltip](https://reference.aspose.com/slides/el/net/aspose.slides/ihyperlink/properties/tooltip)
 - [IHyperlink.History](https://reference.aspose.com/slides/el/net/aspose.slides/ihyperlink/properties/history)
 - [IHyperlink.HighlightClick](https://reference.aspose.com/slides/el/net/aspose.slides/ihyperlink/properties/highlightclick)
 
-Το απόσπασμα κώδικα δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο σε διαφάνεια και να επεξεργαστείτε το tooltip του αργότερα:
+Το απόσπασμα κώδικα σας δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο σε μια διαφάνεια και να επεξεργαστείτε το tooltip του αργότερα:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {   
    IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);    
@@ -312,7 +350,7 @@ using (Presentation presentation = new Presentation())
 
 ## **Υποστηριζόμενες Ιδιότητες στο IHyperlinkQueries**
 
-Μπορείτε να έχετε πρόσβαση στο IHyperlinkQueries από μια παρουσίαση, διαφάνεια ή κείμενο για το οποίο ορίζεται ο υπερσύνδεσμος. 
+Μπορείτε να αποκτήσετε πρόσβαση στο IHyperlinkQueries από μια παρουσίαση, διαφάνεια ή κείμενο για το οποίο ορίζεται ο υπερσύνδεσμος. 
 
 - [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/el/net/aspose.slides/ipresentation/properties/hyperlinkqueries)
 - [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/el/net/aspose.slides/ibaseslide/properties/hyperlinkqueries)
@@ -325,16 +363,16 @@ using (Presentation presentation = new Presentation())
 - [IHyperlinkQueries.GetAnyHyperlinks();](https://reference.aspose.com/slides/el/net/aspose.slides/ihyperlinkqueries/methods/getanyhyperlinks)
 - [IHyperlinkQueries.RemoveAllHyperlinks();](https://reference.aspose.com/slides/el/net/aspose.slides/ihyperlinkqueries/methods/removeallhyperlinks)
 
-## **FAQ**
+## **Συχνές Ερωτήσεις**
 
-**Πώς μπορώ να δημιουργήσω εσωτερική πλοήγηση όχι μόνο σε μια διαφάνεια, αλλά σε μια «ενότητα» ή στην πρώτη διαφάνεια μιας ενότητας;**
+### Πώς μπορώ να δημιουργήσω εσωτερική πλοήγηση όχι μόνο σε μία διαφάνεια, αλλά σε μια «ενότητα» ή στην πρώτη διαφάνεια μιας ενότητας;
 
-Οι ενότητες στο PowerPoint είναι ομαδοποιήσεις διαφανειών· η πλοήγηση τεχνικά στοχεύει σε μια συγκεκριμένη διαφάνεια. Για να «πλοηγηθείτε σε μια ενότητα», συνήθως δημιουργείτε σύνδεσμο στην πρώτη της διαφάνεια.
+Οι ενότητες στο PowerPoint είναι ομάδες διαφανειών· η πλοήγηση τεχνικά στοχεύει σε συγκεκριμένη διαφάνεια. Για να «πλοηγηθείτε σε μια ενότητα», συνήθως συνδέεστε με την πρώτη της διαφάνεια.
 
-**Μπορώ να συνδέσω έναν υπερσύνδεσμο σε στοιχεία του κύριου προτύπου διαφάνειας ώστε να λειτουργεί σε όλες τις διαφάνειες;**
+### Μπορώ να συνδέσω έναν υπερσύνδεσμο σε στοιχεία του κύριου master slide ώστε να λειτουργεί σε όλες τις διαφάνειες;
 
-Ναι. Τα στοιχεία του κύριου πρότυπου διαφάνειας και των διατάξεων υποστηρίζουν υπερσυνδέσμους. Αυτοί οι σύνδεσμοι εμφανίζονται στις διαφάνειες-παιδιά και είναι κλικαρίψιμοι κατά τη διάρκεια της προβολής.
+Ναι. Τα στοιχεία του master slide και των διατάξεων υποστηρίζουν υπερσυνδέσμους. Αυτοί οι σύνδεσμοι εμφανίζονται στις θυγατρικές διαφάνειες και είναι κλικαρίσιμα κατά τη διάρκεια της παρουσίασης.
 
-**Θα διατηρηθούν οι υπερσύνδεσμοι κατά την εξαγωγή σε PDF, HTML, εικόνες ή βίντεο;**
+### Θα διατηρηθούν οι υπερσύνδεσμοι κατά την εξαγωγή σε PDF, HTML, εικόνες ή βίντεο;
 
-Στα [PDF](/slides/el/net/convert-powerpoint-to-pdf/) και [HTML](/slides/el/net/convert-powerpoint-to-html/), ναι — οι σύνδεσμοι συνήθως διατηρούνται. Κατά την εξαγωγή σε [εικόνες](/slides/el/net/convert-powerpoint-to-png/) και [βίντεο](/slides/el/net/convert-powerpoint-to-video/), η δυνατότητα κλικ δεν μεταφέρεται λόγω της φύσης αυτών των μορφών (τα raster καρέ/βίντεο δεν υποστηρίζουν υπερσυνδέσμους).
+Στα [PDF](/slides/el/net/convert-powerpoint-to-pdf/) και [HTML](/slides/el/net/convert-powerpoint-to-html/), ναι — οι σύνδεσμοι διατηρούνται γενικά. Κατά την εξαγωγή σε [εικόνες](/slides/el/net/convert-powerpoint-to-png/) και [βίντεο](/slides/el/net/convert-powerpoint-to-video/), η δυνατότητα κλικ δεν μεταφέρεται λόγω της φύσης των μορφών αυτών (τα ρεαλιστικά καρέ/βίντεο δεν υποστηρίζουν υπερσυνδέσμους).

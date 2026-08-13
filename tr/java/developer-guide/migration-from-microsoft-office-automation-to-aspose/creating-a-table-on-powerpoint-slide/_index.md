@@ -1,12 +1,12 @@
 ---
-title: VSTO ve Aspose.Slides for Java kullanarak Tablo Oluşturma
-linktitle: Tablo Oluşturma
+title: VSTO ve Aspose.Slides for Java ile Tablolar Oluşturma
+linktitle: Tablolar Oluşturma
 type: docs
 weight: 50
 url: /tr/java/creating-a-table-on-powerpoint-slide/
 keywords:
 - tablo oluştur
-- geçiş
+- göç
 - VSTO
 - Office otomasyonu
 - PowerPoint
@@ -15,17 +15,19 @@ keywords:
 - Aspose.Slides
 description: "Microsoft Office otomasyonundan Aspose.Slides for Java'ya geçiş yapın ve Java ile PowerPoint (PPT, PPTX) slaytlarında esnek biçimlendirme ile tablolar oluşturun."
 ---
-{{% alert color="primary" %}} 
-Tablolar, sunum slaytlarında verileri göstermek için yaygın olarak kullanılır. Bu makale, önce [VSTO 2008](/slides/tr/java/creating-a-table-on-powerpoint-slide/) ve ardından [Aspose.Slides for Java](/slides/tr/java/creating-a-table-on-powerpoint-slide/) kullanarak programlı olarak 15 x 15 boyutunda, yazı tipi boyutu 10 olan bir tablo oluşturmayı gösterir.
+{{% alert color="info" %}} 
+
+Tablolar, sunum slaytlarında verileri görüntülemek için yaygın olarak kullanılır. Bu makale, önce [VSTO 2008](/slides/tr/java/creating-a-table-on-powerpoint-slide/) ve ardından [Aspose.Slides for Java](/slides/tr/java/creating-a-table-on-powerpoint-slide/) kullanarak programlı olarak 15 x 15 ve yazı tipi boyutu 10 olan bir tablo nasıl oluşturulacağını gösterir.
+
 {{% /alert %}} 
-## **Tabloları Oluşturma**
+## **Tablo Oluşturma**
 ### **VSTO 2008 Örneği**
 Aşağıdaki adımlar, VSTO kullanarak bir Microsoft PowerPoint slaytına tablo ekler:
 
 1. Bir sunum oluşturun.
 1. Sunuma boş bir slayt ekleyin.
-1. Slayta 15 x 15 boyutunda bir tablo ekleyin.
-1. Tablonun her hücresine yazı tipi boyutu 10 olan metin ekleyin.
+1. Slayta 15 x 15 bir tablo ekleyin.
+1. Tabloyun her hücresine yazı tipini 10 olarak ayarlayarak metin ekleyin.
 1. Sunumu diske kaydedin.
 
 
@@ -35,8 +37,8 @@ Aşağıdaki adımlar, VSTO kullanarak bir Microsoft PowerPoint slaytına tablo 
 Aşağıdaki adımlar, Aspose.Slides kullanarak bir Microsoft PowerPoint slaytına tablo ekler:
 
 1. Bir sunum oluşturun.
-1. İlk slayta 15 x 15 boyutunda bir tablo ekleyin.
-1. Tablonun her hücresine yazı tipi boyutu 10 olan metin ekleyin.
+1. İlk slayta 15 x 15 bir tablo ekleyin.
+1. Tabloyun her hücresine yazı tipini 10 olarak ayarlayarak metin ekleyin.
 1. Sunumu diske yazın.
 
 

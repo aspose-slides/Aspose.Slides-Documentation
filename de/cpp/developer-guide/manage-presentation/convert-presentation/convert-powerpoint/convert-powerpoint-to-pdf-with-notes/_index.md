@@ -1,40 +1,66 @@
 ---
-title: PowerPoint in PDF mit Notizen konvertieren
+title: PowerPoint-Präsentationen mit Notizen in C++ in PDF konvertieren
+linktitle: PowerPoint zu PDF mit Notizen
 type: docs
 weight: 50
 url: /de/cpp/convert-powerpoint-to-pdf-with-notes/
-keywords: "powerpoint in pdf mit notizen konvertieren"
-description: "Konvertieren Sie PowerPoint in PDF mit Notizen. Konvertieren Sie PPT und PPTX in PDF mit Notizen in Aspose.Slides."
+keywords:
+- PowerPoint konvertieren
+- Präsentation konvertieren
+- Folien konvertieren
+- PPT konvertieren
+- PPTX konvertieren
+- PowerPoint zu PDF
+- Präsentation zu PDF
+- Folien zu PDF
+- PPT zu PDF
+- PPTX zu PDF
+- Präsentation als PDF speichern
+- PPT als PDF speichern
+- PPTX als PDF speichern
+- PPT nach PDF exportieren
+- PPTX nach PDF exportieren
+- Sprechernotizen
+- PDF mit Notizen
+- C++
+- Aspose.Slides
+description: "Formate PPT und PPTX mit Notizen mithilfe von Aspose.Slides für C++ in PDF konvertieren. Layouts und Sprechernotizen für professionelle Präsentationen erhalten."
 ---
+## **Übersicht**
 
-Die [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) Methode der Presentation-Klasse kann verwendet werden, um eine PowerPoint PPT- oder PPTX-Präsentation in PDF mit Notizen zu konvertieren. Das Speichern einer Microsoft PowerPoint-Präsentation in PDF-Notizen mit Aspose.Slides für C++ ist ein zweizeiliger Prozess. Sie öffnen einfach die Präsentation und speichern sie als PDF-Notizen. Die folgenden Codeausschnitte aktualisieren die Beispielpräsentation zu PDF in der Notizenfolie:
+In diesem Artikel lernen Sie, wie Sie PowerPoint‑Präsentationen mit Sprechernotizen mithilfe von Aspose.Slides in das PDF‑Format konvertieren. Dieser Leitfaden behandelt die erforderlichen Schritte und liefert Codebeispiele, die Ihnen helfen, diese Aufgabe effizient zu erledigen. Am Ende dieses Artikels können Sie:
 
-``` cpp
-// Der Pfad zum Dokumentenverzeichnis.
-String dataDir = GetDataPath();
+- Den Konvertierungsprozess implementieren, um PowerPoint‑Folien in PDF‑Dokumente zu transformieren und dabei die Sprechernotizen beizubehalten.
+- Das Ausgabepdf anpassen, um sicherzustellen, dass die Sprechernotizen enthalten und nach Ihren Anforderungen formatiert sind.
 
-// Instanziieren Sie ein Präsentationsobjekt, das eine Präsentationsdatei darstellt 
-auto presentation = System::MakeObject<Presentation>(dataDir + u"SelectedSlides.pptx");
-auto auxPresentation = System::MakeObject<Presentation>();
+## **PowerPoint in PDF mit Notizen konvertieren**
 
-auto slide = presentation->get_Slides()->idx_get(0);
+Die `Save`‑Methode in der [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/)‑Klasse kann verwendet werden, um eine PPT‑ oder PPTX‑Präsentation in ein PDF mit Sprechernotizen zu konvertieren. Mit Aspose.Slides laden Sie einfach die Präsentation, konfigurieren die Layout‑Optionen mithilfe der [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/notescommentslayoutingoptions/)‑Klasse, um Sprechernotizen einzuschließen, und speichern die Datei anschließend als PDF. Das folgende Code‑Snippet zeigt, wie Sie eine Beispielpräsentation in ein PDF im Notizfolien‑Ansicht konvertieren.
 
-auxPresentation->get_Slides()->InsertClone(0, slide);
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/NotesPositions.h>
+#include <Export/PdfOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Festlegen des Folientyps und der Größe 
-//auxPresentation->get_SlideSize()->SetSize(presentation->get_SlideSize()->get_Size().get_Width(), presentation->get_SlideSize()->get_Size().get_Height(), SlideSizeScaleType::EnsureFit);
-auxPresentation->get_SlideSize()->SetSize(612.F, 792.F, SlideSizeScaleType::EnsureFit);
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-auto pdfOptions = System::MakeObject<PdfOptions>();
-pdfOptions->get_NotesCommentsLayouting()->set_NotesPosition(NotesPositions::BottomFull);
+// PDF-Optionen für das Rendern der Sprechernotizen konfigurieren.
+auto notesOptions = MakeObject<NotesCommentsLayoutingOptions>();
+notesOptions->set_NotesPosition(NotesPositions::BottomFull); // Sprechernotizen unterhalb der Folie rendern.
+    
+auto pdfOptions = MakeObject<PdfOptions>();
+pdfOptions->set_SlidesLayoutOptions(notesOptions);
 
-auxPresentation->Save(dataDir + u"PDFnotes_out.pdf", SaveFormat::Pdf, pdfOptions);
+// Die Präsentation mit Sprechernotizen als PDF speichern.
+presentation->Save(u"output.pdf", SaveFormat::Pdf, pdfOptions);
 ```
 
-
-
-{{% alert color="primary" %}} 
-
-Sie möchten möglicherweise den Aspose [PowerPoint in PDF](https://products.aspose.app/slides/conversion/powerpoint-to-pdf) oder [PPT in PDF](https://products.aspose.app/slides/conversion/ppt-to-pdf) Konverter ausprobieren. 
-
-{{% /alert %}} 
+{{% alert color="info" %}} 
+Vielleicht möchten Sie den Aspose [Online PowerPoint zu PDF Konverter](https://products.aspose.app/slides/de/conversion) ausprobieren. 
+{{% /alert %}}

@@ -1,54 +1,54 @@
 ---
-title: تبدیل ارائه‌های PowerPoint به ویدیو در Java
-linktitle: PowerPoint به ویدیو
+title: تبدیل ارائه‌های پاورپوینت به ویدیو در جاوا
+linktitle: پاورپوینت به ویدیو
 type: docs
 weight: 130
 url: /fa/java/convert-powerpoint-to-video/
 keywords:
-- تبدیل PowerPoint
+- تبدیل پاورپوینت
 - تبدیل ارائه
 - تبدیل PPT
 - تبدیل PPTX
-- PowerPoint به ویدیو
+- پاورپوینت به ویدیو
 - ارائه به ویدیو
 - PPT به ویدیو
 - PPTX به ویدیو
-- PowerPoint به MP4
+- پاورپوینت به MP4
 - ارائه به MP4
 - PPT به MP4
 - PPTX به MP4
 - ذخیره PPT به عنوان MP4
 - ذخیره PPTX به عنوان MP4
-- صادرات PPT به MP4
-- صادرات PPTX به MP4
+- خروجی PPT به MP4
+- خروجی PPTX به MP4
 - تبدیل ویدیو
-- PowerPoint
-- Java
+- پاورپوینت
+- جاوا
 - Aspose.Slides
-description: "یاد بگیرید چگونه ارائه‌های PowerPoint را به ویدیو در Java تبدیل کنید. نمونه کد و تکنیک‌های خودکارسازی را برای بهینه‌سازی جریان کار خود کشف کنید."
+description: "یاد بگیرید چگونه ارائه‌های پاورپوینت را به ویدیو در جاوا تبدیل کنید. کدهای نمونه و تکنیک‌های خودکارسازی را کشف کنید تا جریان کار خود را بهینه کنید."
 ---
-## **Introduction**
+## **مقدمه**
 
-با تبدیل ارائه PowerPoint یا OpenDocument خود به ویدیو، مزایای زیر را به دست می‌آورید:
+By converting your PowerPoint or OpenDocument presentation to video, you gain:
 
-**دسترسی بیشتر:** تمام دستگاه‌ها، صرف‌نظر از پلتفرم، به‌طور پیش‌فرض دارای پخش‌کننده ویدیو هستند، بنابراین برای کاربران آسان‌تر است که ویدیوها را باز یا پخش کنند نسبت به برنامه‌های ارائه سنتی.
+**دسترس‌پذیری افزایش‌یافته:** تمام دستگاه‌ها، بدون توجه به پلتفرم، به‌طور پیش‌فرض دارای پخش‌کننده ویدئو هستند، که باز کردن یا پخش ویدئوها را نسبت به برنامه‌های ارائه سنتی آسان‌تر می‌کند.
 
-**دسترس‌پذیری گسترده‌تر:** ویدیوها به شما امکان می‌دهند به مخاطبان بیشتری دسترسی پیدا کنید و اطلاعات را به شکل جذاب‌تری ارائه دهید. نظرسنجی‌ها و آمارها نشان می‌دهند که مردم ترجیح می‌دهند محتوای ویدیویی را نسبت به سایر فرم‌ها تماشا و مصرف کنند، که پیام شما را تأثیرگذارتر می‌کند.
+**دسترس گسترده‌تر:** ویدئوها به شما امکان می‌دهند تا به مخاطبان بیشتری دسترسی داشته باشید و اطلاعات را به شکل جذاب‌تری ارائه کنید. نظرسنجی‌ها و آمارها نشان می‌دهد که افراد ترجیح می‌دهند محتواهای ویدئویی را نسبت به سایر فرم‌ها ببینند، که پیام شما را تأثیرگذارتر می‌کند.
 
-{{% alert color="primary" %}} 
-ممکن است بخواهید [**تبدیل‌کننده آنلاین PowerPoint به ویدیو**](https://products.aspose.app/slides/fa/conversion/ppt-to-word) ما را بررسی کنید، زیرا پیاده‌سازی زنده و مؤثری از فرایند شرح داده‌شده در اینجا است.
+{{% alert color="info" %}} 
+You may want to check our [**مبدل آنلاین PowerPoint به ویدئو**](https://products.aspose.app/slides/fa/video) because it is a live and effective implementation of the process described here.
 {{% /alert %}} 
 
-## **PowerPoint to Video Conversion in Aspose.Slides**
+## **تبدیل PowerPoint به ویدئو در Aspose.Slides**
 
-در [Aspose.Slides 22.11](https://docs.aspose.com/slides/fa/java/aspose-slides-for-java-22-11-release-notes/) ما پشتیبانی از تبدیل ارائه به ویدیو را پیاده‌سازی کردیم. 
+In [Aspose.Slides 22.11](https://docs.aspose.com/slides/fa/java/aspose-slides-for-java-22-11-release-notes/), we implemented support for presentation to video conversion. 
 
-* از **Aspose.Slides** برای تولید مجموعه‌ای از فریم‌ها (از اسلایدهای ارائه) استفاده کنید که متناسب با FPS (فریم در ثانیه) معینی باشد
-* از یک ابزار شخص ثالث مانند **ffmpeg** ([for java](https://github.com/bramp/ffmpeg-cli-wrapper)) برای ایجاد ویدیو بر پایه فریم‌ها استفاده کنید. 
+* Use **Aspose.Slides** to generate a set of frames (from the presentation slides) that correspond to a certain FPS (frames per second)
+* Use a third-party utility like **ffmpeg** ([for java](https://github.com/bramp/ffmpeg-cli-wrapper)) to create a video based on the frames. 
 
-### **Convert PowerPoint to Video**
+### **تبدیل PowerPoint به ویدئو**
 
-1. این موارد را به فایل POM خود اضافه کنید:
+1. Add this to your POM file:
 ```xml
    <dependency>
      <groupId>net.bramp.ffmpeg</groupId>
@@ -57,16 +57,19 @@ description: "یاد بگیرید چگونه ارائه‌های PowerPoint را
    </dependency>
 ```
 
-2. ffmpeg را [اینجا](https://ffmpeg.org/download.html) دانلود کنید.
+2. Download ffmpeg [اینجا](https://ffmpeg.org/download.html).
 
-4. کد Java تبدیل PowerPoint به ویدیو را اجرا کنید.
+4. Run the PowerPoint to video Java code.
 
-این کد Java نشان می‌دهد چگونه یک ارائه (شامل یک نمودار و دو افکت انیمیشن) را به ویدیو تبدیل کنید:
-
+This Java code shows you how to convert a presentation (containing a figure and two animation effects) to a video:
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation();
 try {
-    // یک شکل لبخند اضافه می‌کند و سپس آن را انیمیشن می‌دهد
+    // یک شکل خنده اضافه می‌کند و سپس آن را انیمیشن می‌دهد
     IAutoShape smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effectIn = mainSequence.addEffect(smile, EffectType.Fly, EffectSubtype.TopLeft, EffectTriggerType.AfterPrevious);
@@ -100,7 +103,7 @@ try {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
 
-    // پیکربندی پوشه باینری‌های ffmpeg. این صفحه را ببینید: https://github.com/rosenbjerg/FFMpegCore#installation
+    // پوشه باینری‌های ffmpeg را تنظیم کنید. این صفحه را ببینید: https://github.com/rosenbjerg/FFMpegCore#installation
     FFmpeg ffmpeg = new FFmpeg("path/to/ffmpeg");
     FFprobe ffprobe = new FFprobe("path/to/ffprobe");
 
@@ -119,37 +122,47 @@ try {
 }
 ```
 
-## **Video Effects**
+## **افکت‌های ویدئو**
 
-می‌توانید انیمیشن‌ها را بر روی اشیاء در اسلایدها اعمال کنید و از انتقال‌ها بین اسلایدها استفاده کنید. 
+You can apply animations to objects on slides and use transitions between slides. 
 
-{{% alert color="primary" %}} 
-ممکن است بخواهید این مقالات را ببینید: [PowerPoint Animation](https://docs.aspose.com/slides/fa/java/powerpoint-animation/)، [Shape Animation](https://docs.aspose.com/slides/fa/java/shape-animation/)، و [Shape Effect](https://docs.aspose.com/slides/fa/java/shape-effect/).
+{{% alert color="info" %}} 
+You may want to see these articles: [PowerPoint Animation](https://docs.aspose.com/slides/fa/java/powerpoint-animation/), [Shape Animation](https://docs.aspose.com/slides/fa/java/shape-animation/), and [Shape Effect](https://docs.aspose.com/slides/fa/java/shape-effect/).
 {{% /alert %}} 
 
-انیمیشن‌ها و انتقال‌ها نمایش اسلایدها را جذاب‌تر و جالب‌تر می‌کنند—و برای ویدیوها نیز همین کار را انجام می‌دهند. بیایید یک اسلاید دیگر و یک انتقال به کد ارائه قبلی اضافه کنیم:
-
+Animations and transitions make slideshows more engaging and interesting—and they do the same thing for videos. Let's add another slide and transition to the code for the previous presentation:
 ```java
-// یک شکل لبخند اضافه می‌کند و آن را انیمیشن می‌دهد
+import com.aspose.slides.*;
+import java.awt.Color;
 
-// ...
+Presentation presentation = new Presentation();
+try {
+    // یک شکل خنده اضافه می‌کند و آن را انیمیشن می‌دهد
 
-// یک اسلاید جدید اضافه می‌کند و انتقال انیمیشنی
+    // ...
 
-ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
+    // یک اسلاید جدید اضافه می‌کند و انتقال انیمیشنی را تنظیم می‌کند
 
-newSlide.getBackground().setType(BackgroundType.OwnBackground);
+    ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
 
-newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    newSlide.getBackground().setType(BackgroundType.OwnBackground);
 
-newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
+    newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
 
-newSlide.getSlideShowTransition().setType(TransitionType.Push);
+    newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
+
+    newSlide.getSlideShowTransition().setType(TransitionType.Push);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 
-Aspose.Slides همچنین از انیمیشن برای متن‌ها پشتیبانی می‌کند. بنابراین ما پاراگراف‌های روی اشیاء را انیمیشن می‌کنیم که یکی پس از دیگری ظاهر می‌شوند (با تاخیر تنظیم‌شده به یک ثانیه):
-
+Aspose.Slides also supports animation for texts. So we animate paragraphs on objects, which will appear one after the other (with the delay set to a second):
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation();
 try {
     // متن و انیمیشن‌ها را اضافه می‌کند
@@ -171,12 +184,10 @@ try {
     IEffect effect1 = mainSequence.addEffect(para1, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     IEffect effect2 = mainSequence.addEffect(para2, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     IEffect effect3 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-    IEffect effect4 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
     effect1.getTiming().setTriggerDelayTime(1f);
     effect2.getTiming().setTriggerDelayTime(1f);
     effect3.getTiming().setTriggerDelayTime(1f);
-    effect4.getTiming().setTriggerDelayTime(1f);
 
     final int fps = 33;
     ArrayList<String> frames = new ArrayList<String>();
@@ -204,7 +215,7 @@ try {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
 
-    // پیکربندی پوشه باینری‌های ffmpeg. این صفحه را ببینید: https://github.com/rosenbjerg/FFMpegCore#installation
+    // پوشه باینری‌های ffmpeg را تنظیم کنید. این صفحه را ببینید: https://github.com/rosenbjerg/FFMpegCore#installation
     FFmpeg ffmpeg = new FFmpeg("path/to/ffmpeg");
     FFprobe ffprobe = new FFprobe("path/to/ffprobe");
 
@@ -223,20 +234,21 @@ try {
 }
 ```
 
-## **Video Conversion Classes**
+## **کلاس‌های تبدیل ویدئو**
 
-برای انجام وظایف تبدیل PowerPoint به ویدیو، Aspose.Slides کلاس‌های [PresentationAnimationsGenerator](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentationanimationsgenerator/) و [PresentationPlayer](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentationplayer/) را ارائه می‌دهد.
+To allow you to perform PowerPoint to video conversion tasks, Aspose.Slides provides the [PresentationAnimationsGenerator](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentationanimationsgenerator/) and [PresentationPlayer](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentationplayer/) classes.
 
-[PresentationAnimationsGenerator](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentationanimationsgenerator/) به شما اجازه می‌دهد اندازه فریم برای ویدیو (که بعداً ساخته می‌شود) را از طریق سازنده‌اش تنظیم کنید. اگر نمونه‌ای از ارائه را پاس دهید، `Presentation.SlideSize` استفاده می‌شود و انیمیشن‌هایی تولید می‌کند که [PresentationPlayer](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentationplayer/) استفاده می‌کند. 
+[PresentationAnimationsGenerator](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentationanimationsgenerator/) allows you to set the frame size for the video (that will be created later) through its constructor. If you pass an instance of the presentation, `Presentation.SlideSize` will be used and it generates animations that [PresentationPlayer](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentationplayer/) uses. 
 
-هنگامی که انیمیشن‌ها تولید می‌شوند، یک رویداد `NewAnimation` برای هر انیمیشن بعدی ایجاد می‌شود که پارامتر [IPresentationAnimationPlayer](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationanimationplayer/) دارد. این کلاس نماینده یک پلیر برای انیمیشن جداگانه است.
+When animations are generated, a `NewAnimation` event is generated for each subsequent animation, which has the [IPresentationAnimationPlayer](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationanimationplayer/) parameter. The latter is a class that represents a player for a separate animation.
 
-برای کار با [IPresentationAnimationPlayer](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationanimationplayer/)، از ویژگی [Duration](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationanimationplayer/#getDuration--) (مدت کامل انیمیشن) و متد [SetTimePosition](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationanimationplayer/#setTimePosition-double-) استفاده می‌شود. هر موقعیت انیمیشن در بازه *۰ تا مدت* تنظیم می‌شود و سپس متد `GetFrame` یک BufferedImage بر می‌گرداند که با وضعیت انیمیشن در آن لحظه مطابقت دارد:
-
+To work with [IPresentationAnimationPlayer](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationanimationplayer/), the [Duration](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationanimationplayer/#getDuration--) (the full duration of the animation) property and [SetTimePosition](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationanimationplayer/#setTimePosition-double-) method are used. Each animation position is set within the *0 to duration* range, and then the `getFrame` method will return an [IImage](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iimage/) that corresponds to the animation state at that moment:
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // یک شکل لبخند اضافه می‌کند و آن را انیمیشن می‌دهد
+    // یک شکل خنده اضافه می‌کند و آن را انیمیشن می‌دهد
     IAutoShape smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effectIn = mainSequence.addEffect(smile, EffectType.Fly, EffectSubtype.TopLeft, EffectTriggerType.AfterPrevious);
@@ -249,21 +261,18 @@ try {
         animationsGenerator.setNewAnimation(animationPlayer ->
         {
             System.out.println(String.format("Animation total duration: %f", animationPlayer.getDuration()));
-            animationPlayer.setTimePosition(0); // حالت اولیه انیمیشن
-            try {
-                // نقشه‌بیتی حالت اولیه انیمیشن
-                animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            animationPlayer.setTimePosition(animationPlayer.getDuration()); // حالت نهایی انیمیشن
-            try {
-                // آخرین فریم انیمیشن
-                animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+
+            animationPlayer.setTimePosition(0); // وضعیت اولیه انیمیشن
+            // تصویر بیت‌مپ وضعیت اولیه انیمیشن
+            animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
+
+            animationPlayer.setTimePosition(animationPlayer.getDuration()); // وضعیت نهایی انیمیشن
+            // آخرین فریم انیمیشن
+            animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
         });
+
+        // تولید انیمیشن‌ها - این همان کاری است که رویدادهای مدیریت‌شده در بالا را فعال می‌کند
+        animationsGenerator.run(presentation.getSlides());
     } finally {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
@@ -272,9 +281,10 @@ try {
 }
 ```
 
-برای پخش همزمان تمام انیمیشن‌های یک ارائه، از کلاس [PresentationPlayer](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentationplayer/) استفاده می‌شود. این کلاس یک نمونه از [PresentationAnimationsGenerator](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentationanimationsgenerator/) و FPS برای افکت‌ها را در سازنده می‌گیرد و سپس برای تمام انیمیشن‌ها رویداد `FrameTick` را صدا می‌زند تا آن‌ها اجرا شوند:
-
+To make all animations in a presentation play at once, the [PresentationPlayer](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentationplayer/) class is used. This class takes a [PresentationAnimationsGenerator](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentationanimationsgenerator/) instance and FPS for effects in its constructor and then calls the `FrameTick` event for all the animations to get them played:
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("animated.pptx");
 try {
     PresentationAnimationsGenerator animationsGenerator = new PresentationAnimationsGenerator(presentation);
@@ -283,11 +293,7 @@ try {
         try {
             player.setFrameTick((sender, arguments) ->
             {
-                try {
-                    arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+                arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
             });
             animationsGenerator.run(presentation.getSlides());
         } finally {
@@ -301,13 +307,13 @@ try {
 }
 ```
 
-سپس فریم‌های تولید شده می‌توانند ترکیب شوند تا یک ویدیو ساخته شود. بخش [Convert PowerPoint to Video](https://docs.aspose.com/slides/fa/java/convert-powerpoint-to-video/#convert-powerpoint-to-video) را ببینید.
+Then the generated frames can be compiled to produce a video. See the [Convert PowerPoint to Video](https://docs.aspose.com/slides/fa/java/convert-powerpoint-to-video/#convert-powerpoint-to-video) section.
 
-## **Supported Animations and Effects**
+## **پشتیبانی انیمیشن‌ها و افکت‌ها**
 
-**Entrance**:
+**ورودی**:
 
-| نوع انیمیشن | Aspose.Slides | PowerPoint |
+| Animation Type | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Appear** | ![not supported](x.png) | ![supported](v.png) |
 | **Fade** | ![supported](v.png) | ![supported](v.png) |
@@ -323,9 +329,9 @@ try {
 | **Swivel** | ![supported](v.png) | ![supported](v.png) |
 | **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
-**Emphasis**:
+**تأکید**:
 
-| نوع انیمیشن | Aspose.Slides | PowerPoint |
+| Animation Type | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Pulse** | ![not supported](x.png) | ![supported](v.png) |
 | **Color Pulse** | ![not supported](x.png) | ![supported](v.png) |
@@ -341,9 +347,9 @@ try {
 | **Line Color** | ![not supported](x.png) | ![supported](v.png) |
 | **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
 
-**Exit**:
+**خروج**:
 
-| نوع انیمیشن | Aspose.Slides | PowerPoint |
+| Animation Type | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Disappear** | ![not supported](x.png) | ![supported](v.png) |
 | **Fade** | ![supported](v.png) | ![supported](v.png) |
@@ -352,15 +358,15 @@ try {
 | **Split** | ![supported](v.png) | ![supported](v.png) |
 | **Wipe** | ![supported](v.png) | ![supported](v.png) |
 | **Shape** | ![supported](v.png) | ![supported](v.png) |
-| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
+| **Random Bars** | ![supported](v.png) | ![supported](v/png) |
 | **Shrink & Turn** | ![not supported](x.png) | ![supported](v.png) |
 | **Zoom** | ![supported](v.png) | ![supported](v.png) |
 | **Swivel** | ![supported](v.png) | ![supported](v.png) |
 | **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
-**Motion Paths**:
+**مسیرهای حرکتی**:
 
-| نوع انیمیشن | Aspose.Slides | PowerPoint |
+| Animation Type | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Lines** | ![supported](v.png) | ![supported](v.png) |
 | **Arcs** | ![supported](v.png) | ![supported](v.png) |
@@ -369,16 +375,16 @@ try {
 | **Loops** | ![supported](v.png) | ![supported](v.png) |
 | **Custom Path** | ![supported](v.png) | ![supported](v.png) |
 
-## **FAQ**
+## **سؤالات متداول**
 
-**آیا امکان تبدیل ارائه‌های دارای رمز عبور وجود دارد؟**
+### آیا امکان تبدیل ارائه‌های دارای رمز عبور وجود دارد؟
 
-بله، Aspose.Slides امکان کار با [presentations protected by password](/slides/fa/java/password-protected-presentation/) را فراهم می‌کند. هنگام پردازش چنین فایل‌هایی، باید رمز عبور صحیح را ارائه دهید تا کتابخانه بتواند به محتوای ارائه دسترسی پیدا کند.
+Yes, Aspose.Slides allows working with [password-protected presentations](/slides/fa/java/password-protected-presentation/). When processing such files, you need to provide the correct password so that the library can access the content of the presentation.
 
-**آیا Aspose.Slides از استفاده در راه‌حل‌های ابری پشتیبانی می‌کند؟**
+### آیا Aspose.Slides از استفاده در راه‌حل‌های ابری پشتیبانی می‌کند؟
 
-بله، Aspose.Slides می‌تواند در برنامه‌ها و سرویس‌های ابری ادغام شود. این کتابخانه برای کار در محیط‌های سرور طراحی شده است و عملکرد بالا و مقیاس‌پذیری را برای پردازش دسته‌ای فایل‌ها تضمین می‌کند.
+Yes, Aspose.Slides can be integrated into cloud applications and services. The library is designed to work in server environments, ensuring high performance and scalability for batch processing of files.
 
-**آیا محدودیت اندازه‌ای برای ارائه‌ها هنگام تبدیل وجود دارد؟**
+### آیا محدودیت اندازه‌ای برای ارائه‌ها در هنگام تبدیل وجود دارد؟
 
-Aspose.Slides قادر به پردازش ارائه‌هایی با هر اندازه‌ای است. اما هنگام کار با فایل‌های بسیار بزرگ، ممکن است به منابع سیستمی بیشتری نیاز باشد و گاهی توصیه می‌شود برای بهبود عملکرد، ارائه را بهینه‌سازی کنید.
+Aspose.Slides is capable of handling presentations of virtually any size. However, when working with very large files, additional system resources may be required, and it is sometimes recommended to optimize the presentation to improve performance.

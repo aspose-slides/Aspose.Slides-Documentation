@@ -1,28 +1,30 @@
 ---
-title: Zmienianie rozmiaru kształtów na slajdach prezentacji
+title: Zmiana rozmiaru kształtów na slajdach prezentacji
 type: docs
 weight: 110
 url: /pl/java/re-sizing-shapes-on-slide/
 keywords:
 - zmień rozmiar kształtu
-- zmień rozmiar kształtu
+- zmiana rozmiaru kształtu
 - PowerPoint
 - OpenDocument
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Łatwo zmieniaj rozmiar kształtów na slajdach PowerPoint i OpenDocument za pomocą Aspose.Slides dla Javy — automatyzuj dostosowania układu slajdów i zwiększ wydajność."
+description: "Łatwo zmieniaj rozmiar kształtów na slajdach PowerPoint i OpenDocument przy użyciu Aspose.Slides for Java — automatyzuj dostosowywanie układu slajdów i zwiększaj wydajność."
 ---
 ## **Przegląd**
 
-Jednym z najczęściej zadawanych pytań przez klientów Aspose.Slides for Java jest to, jak zmienić rozmiar kształtów tak, aby przy zmianie rozmiaru slajdu dane nie były obcinane. Ten krótki artykuł techniczny pokazuje, jak to zrobić.
+Jednym z najczęstszych pytań klientów Aspose.Slides for Java jest, jak zmienić rozmiar kształtów, aby gdy rozmiar slajdu się zmieni, dane nie zostały obcięte. Ten krótki artykuł techniczny pokazuje, jak to zrobić.
 
-## **Zmiana rozmiaru kształtów**
+## **Zmienianie rozmiaru kształtów**
 
-Aby zapobiec niewłaściwemu wyrównaniu kształtów po zmianie rozmiaru slajdu, zaktualizuj pozycję i wymiary każdego kształtu tak, aby odpowiadały nowemu układowi slajdu.
+Aby zapobiec niewłaściwemu położeniu kształtów po zmianie rozmiaru slajdu, zaktualizuj pozycję i wymiary każdego kształtu, aby pasowały do nowego układu slajdu.
 
 ```java
-// Załaduj plik prezentacji.
+import com.aspose.slides.*;
+
+// Wczytaj plik prezentacji.
 Presentation presentation = new Presentation("sample.ppt");
 try {
     // Pobierz pierwotny rozmiar slajdu.
@@ -39,7 +41,7 @@ try {
     float heightRatio = newHeight / currentHeight;
     float widthRatio = newWidth / currentWidth;
 
-    // Zmien rozmiar i przesuń kształty na każdym slajdzie.
+    // Zmień rozmiar i przemieść kształty na każdym slajdzie.
     for (ISlide slide : presentation.getSlides()) {
         for (IShape shape : slide.getShapes()) {
             
@@ -60,22 +62,22 @@ finally {
 }
 ```
 
-{{% alert color="primary" %}} 
-
-Jeśli slajd zawiera tabelę, powyższy kod nie zadziała poprawnie. W takim przypadku każdy komórka w tabeli musi zostać przeskalowana.
-
+{{% alert color="info" %}} 
+Tabele nie wymagają specjalnego traktowania: ustawienie szerokości i wysokości tabeli skaluje jej kolumny i wiersze proporcjonalnie, więc ponowne skalowanie wysokości wierszy i szerokości kolumn spowodowałoby podwojenie współczynnika.
 {{% /alert %}} 
 
-Użyj poniższego kodu, aby zmienić rozmiar slajdów zawierających tabele. Dla tabel ustawienie szerokości lub wysokości jest przypadkiem specjalnym: musisz dostosować wysokości poszczególnych wierszy i szerokości kolumn, aby zmienić ogólny rozmiar tabeli.
+Powyższy kod zmienia tylko kształty na slajdach. Slajdy wzorcowe i slajdy układu posiadają własne kształty, więc skaluj je również, gdy chcesz, aby cała prezentacja dostosowała się do nowego rozmiaru slajdu:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Pobierz pierwotny rozmiar slajdu.
+    // Pobierz oryginalny rozmiar slajdu.
     float currentHeight = (float) presentation.getSlideSize().getSize().getHeight();
     float currentWidth = (float) presentation.getSlideSize().getSize().getWidth();
 
-    // Zmien rozmiar slajdu bez skalowania istniejących kształtów.
+    // Zmień rozmiar slajdu bez skalowania istniejących kształtów.
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
     // presentation.getSlideSize().setOrientation(SlideOrientation.Portrait);
 
@@ -119,17 +121,6 @@ try {
             // Skaluj pozycję kształtu.
             shape.setY(shape.getY() * heightRatio);
             shape.setX(shape.getX() * widthRatio);
-            if (shape instanceof ITable) {
-                ITable table = (ITable) shape;
-                for (int i = 0; i < table.getRows().size(); i++) {
-                    IRow row = table.getRows().get_Item(i);
-                    row.setMinimalHeight(row.getMinimalHeight() * heightRatio);
-                }
-                for (int j = 0; j < table.getColumns().size(); j++) {
-                    IColumn column = table.getColumns().get_Item(j);
-                    column.setWidth(column.getWidth() * widthRatio);
-                }
-            }
         }
     }
 
@@ -142,30 +133,30 @@ finally {
 
 ## **FAQ**
 
-**Dlaczego kształty są zniekształcone lub obcięte po zmianie rozmiaru slajdu?**
+### Dlaczego kształty są zniekształcone lub obcięte po zmianie rozmiaru slajdu?
 
-Podczas zmiany rozmiaru slajdu kształty zachowują swoje pierwotne położenie i rozmiar, chyba że skala zostanie wyraźnie zmieniona. Może to spowodować przycięcie treści lub niewłaściwe wyrównanie kształtów.
+Podczas zmiany rozmiaru slajdu kształty zachowują swoją pierwotną pozycję i rozmiar, chyba że skala zostanie wyraźnie zmieniona. Może to spowodować przycięcie zawartości lub niewłaściwe wyrównanie kształtów.
 
-**Czy podany kod działa dla wszystkich typów kształtów?**
+### Czy dostarczony kod działa dla wszystkich typów kształtów?
 
-Podstawowy przykład działa dla większości typów kształtów (pola tekstowe, obrazy, wykresy itp.). Jednak w przypadku tabel należy obsłużyć osobno wiersze i kolumny, ponieważ wysokość i szerokość tabeli są określane przez wymiary poszczególnych komórek.
+Tak. Ustawianie wysokości i szerokości działa tak samo dla pól tekstowych, obrazów, wykresów i tabel.
 
-**Jak zmienić rozmiar tabel przy zmianie rozmiaru slajdu?**
+### Jak zmienić rozmiar tabel przy zmianie rozmiaru slajdu?
 
-Należy przeiterować wszystkie wiersze i kolumny tabeli oraz proporcjonalnie zmienić ich wysokość i szerokość, tak jak pokazano w drugim przykładzie kodu.
+Skaluj sam kształt tabeli, dokładnie tak jak każdy inny kształt. Jego wiersze i kolumny skalują się proporcjonalnie, więc nie skaluj ich ponownie później.
 
-**Czy to skalowanie działa dla slajdów głównych i układów slajdów?**
+### Czy to skalowanie działa dla slajdów wzorcowych i slajdów układu?
 
-Tak, ale należy również przeiterować [Mistrzowie](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/#getMasters--) i [Układy slajdów](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/#getLayoutSlides--) oraz zastosować tę samą logikę skalowania do ich kształtów, aby zapewnić spójność w całej prezentacji.
+Tak, ale powinieneś także przeiterować przez [Masters](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/#getMasters--) i [Layout slides](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/#getLayoutSlides--) oraz zastosować tę samą logikę skalowania do ich kształtów, aby zapewnić spójność w całej prezentacji.
 
-**Czy mogę zmienić orientację slajdu (pionowa/pozioma) wraz ze zmianą rozmiaru?**
+### Czy mogę zmienić orientację slajdu (pionowa/pozioma) wraz ze zmianą rozmiaru?
 
 Tak. Możesz użyć [presentation.getSlideSize().setOrientation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/islidesize/#setOrientation-int-), aby zmienić orientację. Upewnij się, że odpowiednio dostosujesz logikę skalowania, aby zachować układ.
 
-**Czy istnieje limit rozmiaru slajdu, który mogę ustawić?**
+### Czy istnieje limit rozmiaru slajdu, który mogę ustawić?
 
-Aspose.Slides obsługuje rozmiary niestandardowe, ale bardzo duże rozmiary mogą wpływać na wydajność lub kompatybilność z niektórymi wersjami PowerPoint.
+Aspose.Slides obsługuje rozmiary niestandardowe, ale bardzo duże rozmiary mogą wpływać na wydajność lub kompatybilność z niektórymi wersjami programu PowerPoint.
 
-**Jak mogę zapobiec zniekształceniu kształtów o stałym współczynniku proporcji?**
+### Jak zapobiec zniekształceniu kształtów o stałym współczynniku proporcji?
 
-Możesz sprawdzić metodę `getAspectRatioLocked` kształtu przed skalowaniem. Jeśli jest ona zablokowana, dostosuj szerokość lub wysokość proporcjonalnie, zamiast skalować je osobno.
+Możesz sprawdzić metodę `getAspectRatioLocked` kształtu przed skalowaniem. Jeśli jest zablokowana, dostosuj szerokość lub wysokość proporcjonalnie, zamiast skaliować je osobno.

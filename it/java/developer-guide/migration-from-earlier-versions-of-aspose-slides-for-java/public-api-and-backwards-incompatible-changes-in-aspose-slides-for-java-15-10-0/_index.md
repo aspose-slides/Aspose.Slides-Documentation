@@ -1,6 +1,6 @@
 ---
-title: API pubbliche e modifiche incompatibili retroattive in Aspose.Slides per Java 15.10.0
-linktitle: Aspose.Slides per Java 15.10.0
+title: "API pubbliche e modifiche incompatibili retroattive in Aspose.Slides per Java 15.10.0"
+linktitle: "Aspose.Slides per Java 15.10.0"
 type: docs
 weight: 180
 url: /it/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/
@@ -15,15 +15,15 @@ keywords:
 - presentazione
 - Java
 - Aspose.Slides
-description: "Esamina gli aggiornamenti dell'API pubblica e le modifiche breaking in Aspose.Slides per Java per migrare senza problemi le tue soluzioni di presentazione PowerPoint PPT, PPTX e ODP."
+description: "Revisiona gli aggiornamenti dell'API pubblica e le modifiche incompatibili in Aspose.Slides per Java per migrare agevolmente le tue soluzioni di presentazione PowerPoint PPT, PPTX e ODP."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Questa pagina elenca tutti gli [aggiunti](/slides/it/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) o [rimossi](/slides/it/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) classi, metodi, proprietà e così via, e altre modifiche introdotte con l'API di Aspose.Slides per Java 15.10.0.
+Questa pagina elenca tutte le classi, i metodi, le proprietà e così via **aggiunti**[added](/slides/it/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) o **rimossi**[removed](/slides/it/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/), nonché le altre modifiche introdotte con l'API Aspose.Slides per Java 15.10.0.
 
 {{% /alert %}} 
-## **Modifiche dell'API pubblica**
-#### **L'API di animazione delle serie di grafico è stata aggiunta a ISequence**
+## **Modifiche all'API pubblica**
+#### **API di animazione delle serie di grafico aggiunta a ISequence**
 Sono stati aggiunti i nuovi 2 metodi all'interfaccia com.aspose.slides.ISequence.
 
 ``` java
@@ -36,18 +36,22 @@ IEffect addEffect(IChart chart, int type, int seriesIndex, int categoriesIndex, 
 
 Questi metodi sono destinati a supportare le animazioni degli elementi del grafico:
 
-- per serie
-- per categorie
-- per elementi della serie
-- per elementi delle categorie
+per serie
+per categorie
+per elementi di serie
+per elementi di categorie
 
 Sono stati introdotti i due nuovi enum EffectChartMajorGroupingType e EffectChartMinorGroupingType relativi all'animazione degli elementi del grafico.
 
-Per aggiungere un'animazione di serie al grafico è possibile utilizzare il seguente codice:
+Per aggiungere un'animazione di serie al grafico è possibile utilizzare il seguente codice. Il grafico nel file di esempio contiene tre serie, quindi viene aggiunto un effetto per ciascun indice da 0 a 2:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try {
 
@@ -79,12 +83,6 @@ try {
 
 		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMajorGroupingType.BySeries, 3,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
 	pres.save(outFileName, SaveFormat.Pptx);
 
 } finally {
@@ -98,8 +96,12 @@ try {
 Animazione delle categorie:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -152,8 +154,12 @@ try
 Animazione degli elementi di serie:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -254,8 +260,12 @@ try
 Animazione degli elementi di categorie:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -350,20 +360,21 @@ try
 	if(pres != null) pres.dispose();
 
 }
-
 ```
 #### **Nuovo com.aspose.slides.VideoPlayerHtmlController aggiunto per supportare l'esportazione di file multimediali in HTML**
 È stata aggiunta la nuova classe pubblica com.aspose.slides.VideoPlayerHtmlController. Utilizzando un'istanza di questa classe l'utente può esportare file video e audio in HTML.
 
 I costruttori di VideoPlayerHtmlController accettano i seguenti parametri:
 
-- path: Il percorso dove verranno generati i file video e audio
-- fileName: Il nome del file HTML
-- baseUri: L'URI di base che verrà usato per generare i collegamenti
+path: Il percorso dove verranno generati i file video e audio (la cartella deve già esistere)
+fileName: Il nome del file HTML
+baseUri: L'URI base che verrà usato per generare i collegamenti
 
-Esempio d'uso:
+Esempio di utilizzo:
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation("example.pptx");
 
@@ -371,7 +382,7 @@ try
 
 {
 
-	final String path = "path";
+	final String path = "path/";
 
 	final String fileName = "video.html";
 

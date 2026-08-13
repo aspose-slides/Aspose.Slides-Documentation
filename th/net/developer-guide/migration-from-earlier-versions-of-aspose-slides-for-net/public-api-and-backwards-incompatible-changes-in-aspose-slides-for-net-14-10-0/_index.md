@@ -1,47 +1,50 @@
 ---
-title: API สาธารณะและการเปลี่ยนแปลงที่ไม่เข้ากันย้อนหลังใน Aspose.Slides สำหรับ .NET 14.10.0
+title: การเปลี่ยนแปลง Public API และการไม่เข้ากันของเวอร์ชันย้อนหลังใน Aspose.Slides สำหรับ .NET 14.10.0
 linktitle: Aspose.Slides สำหรับ .NET 14.10.0
 type: docs
 weight: 120
 url: /th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/
 keywords:
-- การย้าย
+- การย้ายข้อมูล
 - โค้ดเก่า
-- โค้ดใหม่
-- วิธีการเก่า
-- วิธีการใหม่
+- โค้ดสมัยใหม่
+- แนวทางเดิม
+- แนวทางสมัยใหม่
 - PowerPoint
 - OpenDocument
 - การนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "ตรวจสอบการอัปเดต API สาธารณะและการเปลี่ยนแปลงที่ทำให้เกิดการพับใน Aspose.Slides สำหรับ .NET เพื่อย้ายโซลูชันการนำเสนอ PowerPoint PPT, PPTX และ ODP ของคุณอย่างราบรื่น."
+description: "ทบทวนการอัปเดต Public API และการเปลี่ยนแปลงที่ทำให้ระบบพังใน Aspose.Slides สำหรับ .NET เพื่อช่วยให้คุณย้ายโซลูชันการนำเสนอ PowerPoint PPT, PPTX และ ODP ได้อย่างราบรื่น"
 ---
-{{% alert color="primary" %}} 
-หน้านี้แสดงรายการคลาส, เมธอด, พร็อพเพอร์ตี ฯลฯ ที่ถูก[added](/slides/th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/)หรือ[removed](/slides/th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) และการเปลี่ยนแปลงอื่น ๆ ที่แนะนำใน API ของ Aspose.Slides for .NET 14.10.0
+{{% alert color="info" %}} 
+
+หน้านี้แสดงรายการทั้งหมดของคลาส, เมธอด, คุณสมบัติ ฯลฯ ที่ [added](/slides/th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) หรือ [removed](/slides/th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) และการเปลี่ยนแปลงอื่น ๆ ที่แนะนำใน Aspose.Slides for .NET 14.10.0 API.
+
 {{% /alert %}} 
 ## **การเปลี่ยนแปลง Public API**
-#### **ประเภทฟิลด์ Footer ของ Aspose.Slides.FieldType ถูกเพิ่ม**
-ประเภทฟิลด์ Footer ถูกเพิ่มเพื่อให้สามารถสร้างฟิลด์ประเภทนี้ได้และเพื่อการซีเรียลไลเซชันของพรีเซนเทชันที่ถูกต้อง
-#### **อิลิเมนต์ enum ShapeElementFillSource.Own ถูกลบ**
-อิลิเมนต์ enum ShapeElementFillSource.Own ถูกลบเนื่องจากซ้ำกัน ให้ใช้ ShapeElementFillSource.Shape แทน ShapeElementFillSource.Own
-#### **เมธอดสำหรับการลบจุดข้อมูลแผนภูมิและหมวดหมู่ได้ถูกเพิ่ม**
-เมธอดต่อไปนี้ซึ่งอนุญาตให้ลบจุดข้อมูลแผนภูมิจากคอลเลกชันของจุดข้อมูลแผนภูมิได้ถูกเพิ่ม:
+#### **เพิ่มประเภทฟิลด์ Aspose.Slides.FieldType.Footer**
+ประเภทฟิลด์ Footer ได้ถูกเพิ่มเพื่อการนำไปใช้ในการสร้างฟิลด์ประเภทนี้และสำหรับการทำ serialization พรีเซนเทชันที่ถูกต้อง
+#### **ลบรายการ Enum ShapeElementFillSource.Own**
+รายการ Enum ShapeElementFillSource.Own ถูกลบเนื่องจากเป็นข้อมูลซ้ำ ใช้ ShapeElementFillSource.Shape แทน ShapeElementFillSource.Own
+#### **เพิ่มเมธอดสำหรับการลบจุดข้อมูลกราฟและประเภท**
+เมธอดต่อไปนี้ที่อนุญาตให้ลบจุดข้อมูลกราฟจากคอลเลกชันได้ถูกเพิ่มเข้ามา:
 
-IChartDataPointCollection.Remove(IChartDataPoint)  
+IChartDataPointCollection.Remove(IChartDataPoint)
 IChartDataPoint.Report()
 
-เมธอดต่อไปนี้ซึ่งอนุญาตให้ลบหมวดหมู่แผนภูมิจากคอลเลกชันที่บรรจุได้ถูกเพิ่ม:
+เมธอดต่อไปนี้ที่อนุญาตให้ลบประเภทกราฟจากคอลเลกชันที่บรรจุอยู่ได้ถูกเพิ่มเข้ามา:
 
 IChartCategory.Remove()
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
- using (Presentation pres = new Presentation())
-
+using (Presentation pres = new Presentation())
 {
-
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 400, true);
 
     chart.ChartData.Categories[0].Remove(); //ลบด้วย ChartCategory.Remove()
@@ -49,24 +52,19 @@ IChartCategory.Remove()
     chart.ChartData.Categories.Remove(chart.ChartData.Categories[0]); //ลบด้วย ChartCategoryCollection.Remove()
 
     foreach (var ser in chart.ChartData.Series)
-
     {
-
         ser.DataPoints[0].Remove();//ลบด้วย ChartDataPoint.Remove()
 
         ser.DataPoints.Remove(ser.DataPoints[0]);//ChartDataPointCollection.Remove()
-
     }
 
-    pres.Save(outPath, SaveFormat.Pptx);
-
+    pres.Save("chart.pptx", SaveFormat.Pptx);
 }
-
 ``` 
-#### **คุณสมบัติ Aspose.Slides.ParagraphFormat ที่ล้าสมัยถูกลบ**
-คุณสมบัติ BulletChar, BulletColor, BulletColorFormat, BulletFont, BulletHeight, BulletType, IsBulletHardColor, IsBulletHardFont, NumberedBulletStartWith, NumberedBulletStyle ถูกลบออกแล้ว เนื่องจากได้ถูกทำเครื่องหมายว่า obsolete มานานแล้ว
-#### **คอนสตรัคเตอร์ที่ไม่มีประโยชน์และล้าสมัยถูกลบ**
-คอนสตรัคเตอร์ต่อไปนี้ถูกลบ:
+#### **ลบคุณสมบัติที่ล้าสมัยของ Aspose.Slides.ParagraphFormat**
+คุณสมบัติ BulletChar, BulletColor, BulletColorFormat, BulletFont, BulletHeight, BulletType, IsBulletHardColor, IsBulletHardFont, NumberedBulletStartWith, NumberedBulletStyle ถูกลบออก เนื่องจากถูกทำเครื่องหมายว่าเลิกใช้มานานแล้ว
+#### **ลบคอนสตรัคเตอร์ที่ไม่ใช้และล้าสมัย**
+คอนสตรัคเตอร์ต่อไปนี้ถูกลบออก:
 
 - Aspose.Slides.Effects.AlphaBiLevel(System.Single)
 - Aspose.Slides.Effects.AlphaModulateFixed(System.Single)

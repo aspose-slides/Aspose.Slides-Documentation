@@ -5,29 +5,29 @@ weight: 60
 url: /ar/net/system-requirements/
 keywords:
 - متطلبات النظام
-- نظام تشغيل
+- نظام التشغيل
 - التثبيت
 - التبعيات
 - ويندوز
 - لينكس
-- ماك أو إس
+- ماك
 - باوربوينت
-- OpenDocument
+- مستند مفتوح
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "اكتشف متطلبات نظام Aspose.Slides for .NET. تأكد من دعم سلس لـ PowerPoint وOpenDocument على أنظمة Windows وLinux وmacOS."
+description: "اكتشف متطلبات نظام Aspose.Slides for .NET. احرص على دعم سلس لبرنامج PowerPoint و OpenDocument على أنظمة Windows و Linux و macOS."
 ---
 ## **مقدمة**
 
-Aspose.Slides for .NET لا يتطلب وجود Microsoft PowerPoint مثبتًا لأن Aspose.Slides عبارة عن محرك مستقل لإنشاء مستندات Microsoft PowerPoint، والتحويل، وتخطيط الصفحات، وعرضها.
+Aspose.Slides for .NET لا يتطلب تثبيت Microsoft PowerPoint لأن Aspose.Slides هو محرك مستقل لإنشاء مستندات Microsoft PowerPoint وتحويلها وتنسيق الصفحات وعرضها.
 
 ## **أنظمة التشغيل المدعومة**
 
-Aspose.Slides for .NET يدعم أي نظام تشغيل 32‑bit أو 64‑bit حيث يتم تثبيت إطار .NET أو Mono بما في ذلك (ولكن ليس حصرًا على):
+يدعم Aspose.Slides for .NET أي نظام تشغيل 32‑bit أو 64‑bit يتم فيه تثبيت .NET أو إطار Mono بما في ذلك (ولكن ليس حصرًا على):
 
-### **ويندوز**
+### **Windows**
 
 - Microsoft Windows 2000 Server ( x64, x86)
 - Microsoft Windows 2003 Server ( x64, x86)
@@ -40,19 +40,19 @@ Aspose.Slides for .NET يدعم أي نظام تشغيل 32‑bit أو 64‑bit 
 - Microsoft Windows 11 ( x64, x86)
 - Microsoft Azure
 
-### **لينكس**
+### **Linux**
 
-- Linux (Ubuntu, OpenSUSE, CentOS, Alpine, and others)
+- Linux (Ubuntu, OpenSUSE, CentOS, Alpine، وغيرها)
 
-### **ماك**
+### **Mac**
 
 - Mac OS X
 
 ## **الأطر المدعومة**
 
-Aspose.Slides for .NET يدعم إطاري .NET و Mono:
+Aspose.Slides for .NET يدعم أطر .NET و Mono:
 
-### **إطارات .NET**
+### **.NET Frameworks**
 
 - .NET Framework 2.0
 - .NET Framework 3.5
@@ -77,13 +77,13 @@ Aspose.Slides for .NET يدعم إطاري .NET و Mono:
 - .NET Core
 - COM Interop support (COM, C++, VBScript)
 
-### **إطار Mono**
+### **Mono Framework**
 
 - MONO Support in MAC and Linux platforms
 
 ## **بيئات التطوير**
 
-يمكن استخدام Aspose.Slides for .NET لتطوير التطبيقات في أي بيئة تطوير تستهدف منصة .NET، ولكن هذه البيئات مدعومة صراحةً:
+Aspose.Slides for .NET يمكن استخدامها لتطوير التطبيقات في أي بيئة تطوير تستهدف منصة .NET، لكن هذه البيئات مدعومة صراحةً:
 
 - Microsoft Visual Studio 2005
 - Microsoft Visual Studio 2008
@@ -101,28 +101,27 @@ Aspose.Slides for .NET يدعم إطاري .NET و Mono:
 
 ### **[Aspose.Slides for .NET](https://www.nuget.org/packages/Aspose.Slides.NET)**
 
-هذا هو الإصدار الرئيسي للمنتج. يستخدم محرك الرسومات القياسي لــ .NET.  
-- على الأنظمة غير الويندوز، قد تحتاج إلى تثبيت مكتبة `libgdiplus` وتبعياتها.  
-- قبل الإصدار Aspose.Slides 25.3، على الأنظمة غير الويندوز، كان من الضروري استخدام ملف DLL الخاص بـ .NET Standard 2.0 من حزمة Aspose.Slides المضغوطة.  
-- بدءًا من الإصدار Aspose.Slides 25.3، يمكن استخدام حزمة NuGet مباشرةً حتى على الأنظمة غير الويندوز.  
-- عند تشغيل التطبيق على أنظمة غير الويندوز، يجب تضمين السطر التالي عند بدء التشغيل:  
+هذه هي النسخة الأساسية من المنتج. يستخدم محرك الرسومات القياسي لـ .NET.
+- على الأنظمة غير Windows، قد تحتاج إلى تثبيت مكتبة `libgdiplus` وتبعياتها.
+- قبل الإصدار Aspose.Slides 25.3، بالنسبة للأنظمة غير Windows، كان من الضروري استخدام ملف DLL لـ .NET Standard 2.0 من حزمة ZIP الخاصة بـ Aspose.Slides.
+- بدءًا من الإصدار Aspose.Slides 25.3، يمكن استخدام حزمة NuGet مباشرةً حتى على الأنظمة غير Windows.
+- عند التشغيل على أنظمة غير Windows، يجب أن يتضمن تطبيقك السطر التالي عند بدء التشغيل:
 ```cs
 AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
-```  
+```
 - **بدءًا من الإصدار 25.3، يمكنك استخدام هذه الحزمة على المنصات التي تدعم .NET، مثل Linux aarch64 (ARM64).**
 
-#### **حزم إضافية لـ Linux Alpine**
+#### **الحزم الإضافية لـ Linux Alpine**
 
-عند تشغيل Aspose.Slides for .NET داخل حاوية Alpine Linux، قد لا يكون تثبيت `libgdiplus` وحده كافيًا. عادةً لا تتضمن الحاويات Alpine الخطوط بشكل افتراضي. إذا لم تتوفر أي خطوط، قد تفشل عمليات العرض أو التحويل مع خطأ مشابه لـ:
-
+عند تشغيل Aspose.Slides for .NET في حاوية Alpine Linux، قد لا يكون تثبيت `libgdiplus` وحده كافيًا. عادةً لا تتضمن حاويات Alpine خطوطًا بشكل افتراضي. إذا لم تتوفر خطوط، قد تفشل عمليات العرض أو التحويل بخطأ مشابه للآتي:
 ```text
 System.ArgumentException: Font '?' cannot be found
-```  
+```
 لاستخدام Aspose.Slides على Alpine، قم بتثبيت `libgdiplus` مع حزمة خطوط واحدة على الأقل.
 
 **الخيار 1: خطوط DejaVu**
 
-الخيار الموصى به هو تثبيت حزمة `ttf-dejavu`:
+الخيار الموصى به هو تثبيت حزمة ttf-dejavu:
 
 ```
 RUN apk add --no-cache \
@@ -130,11 +129,11 @@ RUN apk add --no-cache \
     ttf-dejavu
 ```
 
-حزمة `ttf-dejavu` تقوم تلقائيًا بتثبيت تبعيات الخط المطلوبة مثل `fontconfig` و `encodings` و `mkfontscale` و `mkfontdir`. لا تحتاج إلى حزم خطوط إضافية في معظم الحالات.
+حزمة `ttf-dejavu` تثبت تلقائيًا التبعيات المتعلقة بالخطوط المطلوبة، مثل `fontconfig` و `encodings` و `mkfontscale` و `mkfontdir`. لا حاجة إلى حزم خطوط إضافية لمعظم الحالات.
 
 **الخيار 2: خطوط Microsoft Core**
 
-إذا كانت عروضك التقديمية تستخدم خطوط Microsoft مثل Arial أو Times New Roman أو Courier New أو Verdana، فقم بتثبيت Microsoft Core Fonts بدلاً من ذلك:
+إذا كانت عروضك التقديمية تستخدم خطوطًا خاصة بـ Microsoft مثل Arial أو Times New Roman أو Courier New أو Verdana، فقم بتثبيت Microsoft Core Fonts بدلاً من ذلك:
 
 ```
 RUN apk add --no-cache \
@@ -145,11 +144,11 @@ RUN apk add --no-cache \
     && fc-cache -fv
 ```
 
-استخدم هذا الخيار فقط عندما تتطلب العروض التقديمية معالجة خطوط Microsoft. في معظم السيناريوهات، يكون تثبيت `ttf-dejavu` أبسط وأكثر موثوقية.
+استخدم هذا الخيار فقط عندما تتطلب العروض التقديمية خطوط Microsoft. بالنسبة لمعظم السيناريوهات، يكون تثبيت `ttf-dejavu` أبسط وأكثر موثوقية.
 
-**متطلبات إضافية للعالمية**
+**متطلبات إضافية للعولمة**
 
-لتمكين دعم عالمي صحيح على Alpine، قم بتثبيت حزمة `icu-libs` وتعطيل وضع invariant:
+لتمكين دعم العولمة بشكل صحيح على Alpine، قم بتثبيت حزمة `icu-libs` وتعطيل وضع الثبات:
 
 ```dockerfile
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
@@ -158,33 +157,33 @@ RUN apk --no-cache add icu-libs
 
 ### **[Aspose.Slides for .NET 6 CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform)**
 
-هذا هو الإصدار من Aspose.Slides الذي يستخدم محرك رسوميات متعدد المنصات مخصص تم تطويره بواسطة فريق Aspose.Slides.  
-على الأنظمة غير الويندوز، قد تكون مكتبة `fontconfig` مطلوبة.
+هذه هي نسخة Aspose.Slides التي تستخدم محرك رسومات مخصص متعدد المنصات طوره فريق Aspose.Slides.  
+على الأنظمة غير Windows، قد تكون مكتبة `fontconfig` مطلوبة.
 
 **المنصات المدعومة**
 - *Windows*: x86, x86_64  
-- *Linux*: x86_64, ARM64 (aarch64)  
+- *Linux*: x86_64, ARM64 (aarch64)
 - *macOS*: x86_64, ARM64 (aarch64)
 
 **المنصات غير المدعومة**
 - *Windows 11 ARM* (ARM64) — *ليس قيد النظر حاليًا*
 
-{{%  alert  title="Notes"  color="primary"  %}}  
-بالنسبة إلى Linux x64، يلزم GLIBC 2.23+؛ بالنسبة إلى Linux ARM64، يلزم GLIBC 2.39+. الأنظمة مثل CentOS 7 (GLIBC 2.14) غير مدعومة. إذا كنت بحاجة لتشغيل Aspose.Slides على CentOS 7 أو أنظمة غير متوافقة أخرى (مثل Alpine)، يرجى استخدام الحزمة القياسية: [Aspose.Slides for .NET](https://nuget.org/packages/Aspose.Slides.NET).  
+{{%  alert  title="Notes"  color="info"  %}}  
+بالنسبة إلى Linux x64، يلزم وجود GLIBC 2.23+؛ بالنسبة إلى Linux ARM64، يلزم وجود GLIBC 2.39+. الأنظمة مثل CentOS 7 (GLIBC 2.14) غير مدعومة. إذا كنت بحاجة إلى تشغيل Aspose.Slides على CentOS 7 أو أنظمة غير متوافقة أخرى (مثل Alpine)، يرجى استخدام الحزمة القياسية: [Aspose.Slides for .NET](https://nuget.org/packages/Aspose.Slides.NET).  
 {{% /alert %}} 
 
 ## **الأسئلة المتكررة**
 
-**هل أحتاج إلى تثبيت Microsoft PowerPoint للتحويلات والعرض؟**
+### هل أحتاج إلى تثبيت Microsoft PowerPoint للتحويلات والعرض؟
 
 لا، لا يلزم PowerPoint؛ Aspose.Slides هو محرك مستقل لـ [إنشاء](/slides/ar/net/create-presentation/) وتعديل و[تحويل](/slides/ar/net/convert-presentation/) و[عرض](/slides/ar/net/convert-powerpoint-to-png/) العروض التقديمية.
 
-**ما الخطوط المطلوبة للعرض الصحيح؟**
+### ما الخطوط المطلوبة للعرض الصحيح؟
 
-يجب توفر الخطوط المستخدمة في العرض أو بدائل مناسبة في نظام التشغيل. على Linux و macOS، قم بتثبيت حزم الخطوط الشائعة لضمان عرض ثابت.
+يجب أن تكون الخطوط المستخدمة في العرض أو البدائل المناسبة متوفرة في نظام التشغيل. على Linux و macOS، قم بتثبيت حزم خطوط شائعة لضمان عرض ثابت.
 
-بالنسبة لحاويات Alpine Linux، ثبت حزمة خطوط واحدة على الأقل إلى جانب `libgdiplus`. الإعداد الأدنى الموصى به هو `libgdiplus` مع `ttf-dejavu`. إذا كانت الخطوط المطلوبة هي خطوط Microsoft مثل Arial أو Times New Roman أو Courier New أو Verdana، استخدم `msttcorefonts-installer` مع `fontconfig`.
+في حاويات Alpine Linux، قم بتثبيت حزمة خطوط واحدة على الأقل بالإضافة إلى `libgdiplus`. الإعداد الأدنى الموصى به هو `libgdiplus` مع `ttf-dejavu`. إذا كانت الخطوط المطلوبة هي خطوط Microsoft مثل Arial أو Times New Roman أو Courier New أو Verdana، استخدم `msttcorefonts-installer` مع `fontconfig`.
 
-**لماذا يتم عرض خط مخصص كبديل أو نص مفقود على Linux؟**
+### لماذا يتم عرض خط مخصص كبديل أو نص مفقود على Linux؟
 
-إذا كان ملف الخط يحتوي على سجلات جدول أسماء غير متسقة أو تالفة، قد تختار طبقة مطابقة الخطوط في Linux (FreeType/fontconfig) سجلاً غير صالح، مما يؤدي إلى عدم التعرف على الخط. استخدام نسخة خط ذات سجلات اسم مصححة أو تثبيت بديل متسق يحل المشكلة.
+إذا كان ملف الخط يحتوي على سجلات جدول أسماء غير متناسقة أو تالفة، قد يختار نظام مطابقة الخطوط في Linux (FreeType/fontconfig) سجلًا غير صالح، مما يؤدي إلى عدم التعرف على الخط. استخدام نسخة من الخط ذات سجلات جدول أسماء صحيحة أو تثبيت بديل متناسق يحل المشكلة.
