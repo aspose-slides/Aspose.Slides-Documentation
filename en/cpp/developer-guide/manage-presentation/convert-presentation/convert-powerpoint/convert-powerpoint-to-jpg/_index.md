@@ -42,7 +42,7 @@ Here are the steps to convert a PPT, PPTX, or ODP file to JPG:
 1. Create an image of the slide using the [ISlide.GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/) method.
 1. Call the [IImage.Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/) method on the image object. Pass the output file name and image format as arguments.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 **Note:** PPT, PPTX, or ODP to JPG conversion differs from conversion to other formats in the Aspose.Slides for C++ API. For other formats, you typically use the [IPresentation.Save](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/save/) method. However, for JPG conversion, you need to use the [IImage.Save](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/) method.
 
@@ -176,7 +176,7 @@ See other options for converting PPT, PPTX, or ODP to images, such as:
 - [Convert PowerPoint to TIFF](/slides/cpp/convert-powerpoint-to-tiff/)
 - [Convert PowerPoint to SVG](/slides/cpp/render-a-slide-as-an-svg-image/)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 To see how Aspose.Slides converts PowerPoint to JPG images, try these free online converters: PowerPoint [PPTX to JPG](https://products.aspose.app/slides/conversion/pptx-to-jpg) and [PPT to JPG](https://products.aspose.app/slides/conversion/ppt-to-jpg). 
 
@@ -184,7 +184,7 @@ To see how Aspose.Slides converts PowerPoint to JPG images, try these free onlin
 
 ![Free Online PPTX to JPG Converter](ppt-to-jpg.png)
 
-{{% alert title="Tip" color="primary" %}}
+{{% alert title="Tip" color="info" %}}
 
 Aspose provides a [FREE Collage web app](https://products.aspose.app/slides/collage). Using this online service, you can merge [JPG to JPG](https://products.aspose.app/slides/collage/jpg) or PNG to PNG images, create [photo grids](https://products.aspose.app/slides/collage/photo-grid), and so on. 
 

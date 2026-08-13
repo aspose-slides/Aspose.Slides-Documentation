@@ -19,7 +19,7 @@ keywords:
 description: "Review public API updates and breaking changes in Aspose.Slides for .NET to smoothly migrate your PowerPoint PPT, PPTX and ODP presentation solutions."
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 This page lists all [added](/slides/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) or [removed](/slides/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) classes, methods, properties and so on, and other changes introduced with the Aspose.Slides for .NET 15.10.0 API.
 

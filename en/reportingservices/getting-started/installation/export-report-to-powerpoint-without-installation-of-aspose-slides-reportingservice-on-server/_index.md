@@ -5,11 +5,11 @@ weight: 120
 url: /reportingservices/export-report-to-powerpoint-without-installation-of-aspose-slides-reportingservice-on-server/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Aspose.Slides for Reporting Service can be used without installation on a server. This approach is suitable when you need to integrate export to Powerpoint in your application but access to the service is restricted.
 
-{{% /alert %}} {{% alert color="primary" %}} 
+{{% /alert %}} {{% alert color="info" %}} 
 
 Visual Studio solution that illustrates the approach can be found [here](attachments/10289165/10453062.zip).
 
@@ -197,7 +197,7 @@ powerpointRenderer.Render("test.ppt, "/AdventureWorks Sample Reports/Sales Order
 
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 The export process here uses soft page breaks similar to Word or Excel, so its result may differ from the Presentation that was exported using the standard approach.
 

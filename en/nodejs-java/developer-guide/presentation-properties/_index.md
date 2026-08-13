@@ -32,7 +32,7 @@ Aspose.Slides supports two types of document properties: **Built-in** and **Cust
 
 Aspose.Slides allows you to work with presentation document properties through the [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/documentproperties/) class. An instance of this class is returned by the [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getDocumentProperties) method. The following examples show how to read, modify, and manage these properties.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Please note that you cannot set values against the **Application** and **Producer** fields, because Aspose Ltd. and Aspose.Slides for Node.js via Java x.x.x will be displayed against these fields.
 
@@ -210,7 +210,7 @@ This example modifies the custom properties of the [PPTX ](https://docs.fileform
 
 ## **Advanced Document Properties**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 New methods [ReadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-), and [WriteBindedPresentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#writeBindedPresentation-java.lang.String-) have been added to [PresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo), logic of the [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/documentproperties#setLastSavedTime-java.util.Date-) property setter has been changed.
 

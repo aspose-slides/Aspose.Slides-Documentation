@@ -31,7 +31,7 @@ Aspose.Slides supports two types of document properties: **Built-in** and **Cust
 
 Aspose.Slides allows you to work with presentation document properties through the [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) class. An instance of this class is returned by the [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDocumentProperties) method. The following examples show how to read, modify, and manage these properties.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Please note that the **Application** and **Producer** fields cannot be modified, as these fields will always display "Aspose Ltd." and "Aspose.Slides for PHP via Java x.x.x".
 
@@ -197,7 +197,7 @@ This example modifies the custom properties of the [PPTX ](https://docs.fileform
 
 ## **Advanced Document Properties**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 New methods [readDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/PresentationInfo/#readDocumentProperties), [updateDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties), and [writeBindedPresentation](https://reference.aspose.com/slides/php-java/aspose.slides/PresentationInfo/#writeBindedPresentation) have been added to [PresentationInfo](https://reference.aspose.com/slides/php-java/aspose.slides/PresentationInfo), logic of the [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setLastSavedTime) property setter has been changed.
 

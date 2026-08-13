@@ -30,7 +30,7 @@ In this guide, you'll learn how to merge PowerPoint and OpenDocument presentatio
 
 Whether you're building an enterprise-grade application or a simple automation tool, Aspose.Slides makes merging presentations in Java fast, reliable, and scalable. Aspose.Slides for Java allows you to merge presentations in different ways. You can combine presentations with all their shapes, styles, text, formatting, comments, animations, and more—without worrying about loss of quality or data.
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 See also: [Clone Slides](https://docs.aspose.com/slides/java/clone-slides/)
 

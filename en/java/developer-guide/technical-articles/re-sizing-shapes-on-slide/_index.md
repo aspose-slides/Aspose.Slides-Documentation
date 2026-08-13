@@ -63,7 +63,7 @@ finally {
 }
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Tables need no special treatment: setting a table's width and height rescales its columns and rows proportionally, so scaling the row heights and column widths again would apply the ratio twice.
 

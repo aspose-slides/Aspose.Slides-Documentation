@@ -161,7 +161,7 @@ with slides.Presentation("sample.pptx") as presentation:
             print("Picture transparency: " + str(transparency_value))
 ```
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 All effects applied to images can be found in [aspose.slides.effects](https://reference.aspose.com/slides/python-net/aspose.slides.effects/).
 {{% /alert %}}
 
@@ -232,7 +232,7 @@ with slides.Presentation() as presentation:
     presentation.save("picture_formatting.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Tip" color="primary" %}}
+{{% alert title="Tip" color="info" %}}
 
 Aspose has developed a free [Collage Maker](https://products.aspose.app/slides/collage). If you need to [merge JPG/JPEG](https://products.aspose.app/slides/collage/jpg) or PNG images, or [create photo grids](https://products.aspose.app/slides/collage/photo-grid), you can use this service.
 
@@ -470,7 +470,7 @@ with slides.Presentation() as presentation:
     presentation.save("stretch_offset.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert  title="Tip" color="primary" %}}
+{{% alert  title="Tip" color="info" %}}
 
 Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) and [PNG to PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—that let you quickly create presentations from images.
 

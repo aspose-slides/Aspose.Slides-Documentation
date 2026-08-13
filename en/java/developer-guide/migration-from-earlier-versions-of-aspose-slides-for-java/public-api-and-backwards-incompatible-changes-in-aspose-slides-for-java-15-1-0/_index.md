@@ -18,11 +18,11 @@ keywords:
 description: "Review public API updates and breaking changes in Aspose.Slides for Java to smoothly migrate your PowerPoint PPT, PPTX and ODP presentation solutions."
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 This page lists all [added](/slides/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-1-0/) classes, methods, properties and so on, any new restrictions and other [changes](/slides/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-1-0/) introduced with the Aspose.Slides for Java 15.1.0 API.
 
-{{% /alert %}} {{% alert color="primary" %}} 
+{{% /alert %}} {{% alert color="info" %}} 
 
 There are known issues with some image bullets and WordArt objects which will be fixed in Aspose.Slides for Java 15.2.0.
 

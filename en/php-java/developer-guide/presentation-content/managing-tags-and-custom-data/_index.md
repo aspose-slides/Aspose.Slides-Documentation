@@ -35,7 +35,7 @@ A presentation contains multiple parts connected by relationships. For example, 
 
 Custom data can be stored as tags ([TagCollection](https://reference.aspose.com/slides/php-java/aspose.slides/tagcollection/)) or custom XML parts ([CustomXmlPartCollection](https://reference.aspose.com/slides/php-java/aspose.slides/customxmlpartcollection/)). Both are available through the [`CustomData`](https://reference.aspose.com/slides/php-java/aspose.slides/customdata/) class.
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 Tags store simple string key-value pairs. Custom XML parts store structured XML data and can be associated with a presentation, slide, or shape.
 

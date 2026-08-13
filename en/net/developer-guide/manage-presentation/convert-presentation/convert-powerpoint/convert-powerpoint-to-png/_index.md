@@ -59,7 +59,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 **Note:** The scale arguments `1f, 1f` render each slide at its full size, so a 720×540 pt slide produces a 720×540 px image. The parameterless [GetImage()](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) overload returns a much smaller preview thumbnail instead.
 

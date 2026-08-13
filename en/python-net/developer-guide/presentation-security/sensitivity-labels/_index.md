@@ -26,7 +26,7 @@ Microsoft Purview sensitivity labels help organizations classify and govern docu
 
 Aspose.Slides for Python via .NET exposes modern sensitivity label metadata through [Presentation.sensitivity_labels](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/sensitivity_labels/). This property returns a [SensitivityLabelCollection](https://reference.aspose.com/slides/python-net/aspose.slides/sensitivitylabelcollection/) that can be inspected and modified before the presentation is saved as PPTX.
 
-{{% alert color="primary" title="Note" %}}
+{{% alert color="info" title="Note" %}}
 
 Sensitivity label identifiers and policy information are defined by your Microsoft Purview configuration. Validate label availability and policy requirements in your environment before adding or migrating metadata. The [SensitivityLabel.content_mark_types](https://reference.aspose.com/slides/python-net/aspose.slides/sensitivitylabel/content_mark_types/) values describe the content markings associated with a label; they do not by themselves add visible text or shapes to slides.
 

@@ -32,7 +32,7 @@ This article explains how to use Aspose.Slides for .NET 6 Cross-Platform from a 
 
 The article also describes the contents of the cross-platform package, including the main Aspose.Slides .NET assembly and platform-specific graphics subsystem libraries for Windows, Linux, and macOS.
 
-{{% alert title="Note" color="primary" %}}
+{{% alert title="Note" color="info" %}}
 
 Aspose.Slides for .NET 6 Cross-Platform is also available from [NuGet](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform).
 

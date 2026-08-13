@@ -5,7 +5,7 @@ weight: 30
 url: /reportingservices/install-manually/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Follow these steps only if plan to install Aspose.Slides for Reporting Services manually. In this case, you downloaded the ZIP package containing assembly files. 
 
@@ -23,14 +23,14 @@ These instructions show you how to copy and modify files in the directory where 
 1. Locate the Report Server installation directory.
    The root directory for Microsoft SQL Server is usually here: ***C:\Program Files\Microsoft SQL Server***
    
-   {{% alert color="primary" %}} 
+   {{% alert color="info" %}} 
    
    **Microsoft SQL Server 2005 and 2008**: There might be several Microsoft SQL Server instances configured on the machine and they may occupy different MSSQL.x subdirectories such as MSSQL.1, MSSQL.2 and so on. You must find the correct ***C:\Program Files\Microsoft SQL Server\MSSQL.x\Reporting Services\ReportServer*** directory before you continue to the next step.
    
    {{% /alert %}} All paths used below will refer to this directory as <Instance>. 
 
 2. Copy Aspose.Slides.ReportingServices.dll to the **C:\Program Files\Microsoft SQL Server\xxx\Reporting Services\ReportServer\bin** folder.
-   The **Aspose.Slides.ReportingServices.zip** download contains the **Aspose.Slides.ReportingServices.dll**. {{% alert color="primary" %}} 
+   The **Aspose.Slides.ReportingServices.zip** download contains the **Aspose.Slides.ReportingServices.dll**. {{% alert color="info" %}} 
 
 In some cases, when you copy the DLL to the **ReportServer\bin** directory, it might get copied alongside the explicit NTFS file permissions assigned to it. The NTFS permissions cause Microsoft SQL Server Reporting Services to get denied access when loading **Aspose.Slides.ReportingServices.dll**. If this happens, the new export formats will not become available. Check and confirm that the correct NTFS permissions are in place :
 
@@ -128,7 +128,7 @@ In some cases, when you copy the DLL to the **ReportServer\bin** directory, it m
 5. Verify that Aspose.Slides for Reporting Services was installed successfully: 
    1. Open Report Manager and check the list of available export types for a report. 
    
-      {{% alert color="primary" %}} You can launch Report Manager by opening a browser (Microsoft Internet Explorer 6.0 or later) and typing the Report Manager URL in the address bar (by default it is http://< ComputerName >/Reports ). 
+      {{% alert color="info" %}} You can launch Report Manager by opening a browser (Microsoft Internet Explorer 6.0 or later) and typing the Report Manager URL in the address bar (by default it is http://< ComputerName >/Reports ). 
    
       {{% /alert %}}
 

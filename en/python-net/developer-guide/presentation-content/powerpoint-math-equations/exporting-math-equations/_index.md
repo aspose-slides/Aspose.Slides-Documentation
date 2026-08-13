@@ -21,7 +21,7 @@ description: "Export math equations from PowerPoint presentations to LaTeX or Ma
 
 Aspose.Slides for Python via .NET allows you to export math equations from presentations. For example, you may need to extract equations from specific slides and reuse them in another program or platform.
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 You can export equations directly to LaTeX or to MathML, a popular standard for mathematical content used on the web and in many applications.
 

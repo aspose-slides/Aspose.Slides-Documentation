@@ -5,7 +5,7 @@ weight: 60
 url: /reportingservices/customizing-powerpoint-rendering-extension-caption/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 This article shows you how to customize Aspose.Slides for Reporting Services rendering options captions. 
 

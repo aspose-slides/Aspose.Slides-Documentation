@@ -213,7 +213,7 @@ This PHP code shows you how to change the presentation theme font:
 
 The font in all text boxes will be updated.
 
-{{% alert color="primary" title="TIP" %}} 
+{{% alert color="info" title="TIP" %}} 
 
 You may want to see [PowerPoint fonts](/slides/php-java/powerpoint-fonts/).
 
@@ -261,7 +261,7 @@ This PHP code shows you how to set the background for a presentation:
 
 **Index guide**: 0 is used for no fill. The index starts from 1.
 
-{{% alert color="primary" title="TIP" %}} 
+{{% alert color="info" title="TIP" %}} 
 
 You may want to see [PowerPoint Background](/slides/php-java/presentation-background/).
 

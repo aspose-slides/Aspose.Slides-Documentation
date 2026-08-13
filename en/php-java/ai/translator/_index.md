@@ -36,7 +36,7 @@ You can use the built-in [OpenAIWebClient](https://reference.aspose.com/slides/p
 
 Aspose.Slides handles the communication, parses the AI responses, and intelligently inserts translated content while preserving the original slide layout and formatting.
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 Note that the OpenAI API is a paid service, so you will need to create an account and supply your API key when using the built-in [OpenAIWebClient](https://reference.aspose.com/slides/php-java/aspose.slides/openaiwebclient/).
 

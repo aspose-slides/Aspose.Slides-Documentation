@@ -36,7 +36,7 @@ By converting your PowerPoint or OpenDocument presentation to video, you gain:
 
 **Wider reach:** Videos enable you to reach a larger audience and present information in a more engaging format. Surveys and statistics indicate that people prefer to watch and consume video content over other forms, making your message more impactful.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 You may want to check our [**PowerPoint to Video Online Converter**](https://products.aspose.app/slides/video) because it is a live and effective implementation of the process described here.
 
@@ -130,7 +130,7 @@ try {
 
 You can apply animations to objects on slides and use transitions between slides. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 You may want to see these articles: [PowerPoint Animation](https://docs.aspose.com/slides/java/powerpoint-animation/), [Shape Animation](https://docs.aspose.com/slides/java/shape-animation/), and [Shape Effect](https://docs.aspose.com/slides/java/shape-effect/).
 

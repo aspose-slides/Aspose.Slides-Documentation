@@ -5,7 +5,7 @@ weight: 70
 url: /sharepoint/evaluate-aspose-slides/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 You can easily download Aspose.Slides for evaluation. The evaluation download is the same as the purchased download. The evaluation version simply becomes licensed when you add a few lines of code to apply the license.
 
@@ -13,7 +13,7 @@ The evaluation version of Aspose.Slides (without a license specified) provides f
 
 ![todo:image_alt_text](evaluate-aspose-slides_1.png)
 
-{{% /alert %}} {{% alert color="primary" %}} 
+{{% /alert %}} {{% alert color="info" %}} 
 
 If you want to test Aspose.Slides without the evaluation version limitations, you can also request a 30-day Temporary License. Please refer to [How to get a Temporary License?](https://purchase.aspose.com/temporary-license)
 

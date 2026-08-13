@@ -190,7 +190,7 @@ with slides.Presentation("presentation1.pptx") as presentation1:
 
 The slide is added at the end of the section. 
 
-{{% alert title="Tip" color="primary" %}}
+{{% alert title="Tip" color="info" %}}
 
 Looking for a quick and **free online tool** to **merge PowerPoint presentations**? Try the [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/merger).
 
@@ -204,7 +204,7 @@ Start merging your PowerPoint files with **Aspose free online tool** today!
 
 {{% /alert %}}
 
-{{% alert title="Tip" color="primary" %}}
+{{% alert title="Tip" color="info" %}}
 
 Aspose provides a [FREE Collage web app](https://products.aspose.app/slides/collage). Using this online service, you can merge [JPG to JPG](https://products.aspose.app/slides/collage/jpg) or PNG to PNG images, create [photo grids](https://products.aspose.app/slides/collage/photo-grid), and so on. 
 

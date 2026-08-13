@@ -129,7 +129,7 @@ using (Presentation p = new Presentation(FileName))
 ## **Download Running Example**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Adding%20Layout%20Slides)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 For more details, visit [Apply or Change Slide Layouts in .NET](/slides/net/slide-layout/).
 

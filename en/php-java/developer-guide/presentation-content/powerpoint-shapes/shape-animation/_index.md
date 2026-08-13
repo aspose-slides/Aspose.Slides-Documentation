@@ -85,7 +85,7 @@ This PHP code shows you how to apply the `Fade` effect to AutoShape and set the 
   }
 ```
 
-{{%  alert color="primary"  %}} 
+{{%  alert color="info"  %}} 
 
 Besides applying animations to text, you can also apply animations to a single [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/). See [**Animated Text**](/slides/php-java/animated-text/).
 

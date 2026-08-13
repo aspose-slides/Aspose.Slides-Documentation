@@ -8,7 +8,7 @@ url: /python-java/
 is_root: true
 ---
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 **Welcome to Aspose.Slides for Python via Java**
 
@@ -24,7 +24,7 @@ Aspose.Slides for Python via Java provides a lot of key features such as managin
 
 ## Aspose.Slides for Python via Java Resources
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 Aspose.Slides for Python via Java is ported from Aspose.Slides for Java, so you can use the latter documentation and API reference.
 

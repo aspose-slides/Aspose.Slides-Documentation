@@ -5,7 +5,7 @@ weight: 30
 url: /reportingservices/comprehensive-rdl-support/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Aspose.Slides for Reporting Services fully supports all of the RDL specifications. This means two great things: 
 

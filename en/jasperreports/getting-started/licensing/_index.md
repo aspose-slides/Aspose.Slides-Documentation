@@ -5,7 +5,7 @@ weight: 50
 url: /jasperreports/licensing/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Aspose.Slides for JasperReports is available as a free time unlimited evaluation from the [download page](https://downloads.aspose.com/slides/jasperreport). The evaluation and licensed versions of the product is the same download.
 

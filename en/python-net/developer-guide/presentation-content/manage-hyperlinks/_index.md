@@ -142,7 +142,7 @@ with slides.Presentation() as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Tip" color="primary" %}}
+{{% alert title="Tip" color="info" %}}
 
 You may want to see [Manage OLE in Presentations Using Python](/slides/python-net/manage-ole/).
 
@@ -299,7 +299,7 @@ The [HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.sli
 - [get_any_hyperlinks()](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/)
 - [remove_all_hyperlinks()](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/)
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 You may want to check out Aspose’s simple, free online [PowerPoint editor](https://products.aspose.app/slides/editor).
 

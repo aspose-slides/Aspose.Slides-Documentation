@@ -43,7 +43,7 @@ using (Presentation pres = new Presentation("TestPresentation.pptx"))
 ## **Download Sample Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/Aspose.SlidesFeaturesmissingInVSTOv1.1)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 For more details, visit [Convert Slide](/slides/net/convert-slide/).
 

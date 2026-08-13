@@ -71,6 +71,6 @@ using (Presentation pres = new Presentation("input.pptx"))
 ```
 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 Read more about [Save and Convertion in Presentation](/slides/net/convert-powerpoint-to-png/).
 {{% /alert %}}

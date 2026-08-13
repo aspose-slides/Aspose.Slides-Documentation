@@ -44,7 +44,7 @@ Aspose.Slides is a class library that allows your application to perform the fol
 
 For more details about the features supported, please visit [Aspose.Slides Features](/slides/php-java/product-overview/).
 ## **Compare Open XML SDK with Aspose.Slides**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 The following table compares Open XML SDK and Aspose.Slides features.
 
@@ -60,7 +60,7 @@ The following table compares Open XML SDK and Aspose.Slides features.
 |<p>Rendering:</p><p>- Render presentations to PDF, PDF Notes, XPS, TIFF images.</p><p>- Render slide thumbnails to PNG, JPEG, BMP, SVG and TIFF.</p><p>- Specify image resolution, quality, compression and other options. </p>|No|Yes |
 |Supported platforms|Windows, .NET|Windows, Linux,UNIX, MAC, Java, PHP, Mono|
 ## **Conclusion**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Open XML SDK and Aspose.Slides do not compete head to head because they address quite different needs and audiences. Open XML SDK is a class library to provide a strong-typed way to work with OOXML documents. Aspose.Slides is a very useful presentations processing library that provides great support for nearly all Microsoft PowerPoint file formats.
 

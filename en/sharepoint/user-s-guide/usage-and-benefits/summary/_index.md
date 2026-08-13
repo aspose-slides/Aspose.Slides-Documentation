@@ -5,7 +5,7 @@ weight: 50
 url: /sharepoint/summary/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Installing and using Aspose.Slides for SharePoint is easy. It not only adds the ability to convert Microsoft PowerPoint files directly on the server, but also eliminates the need for users to have Microsoft PowerPoint installed. 
 

@@ -50,7 +50,7 @@ This sample code  shows you how to convert a presentation to animated GIF using 
 
 The animated GIF will be created with default parameters. 
 
-{{%  alert  title="TIP"  color="primary"  %}} 
+{{%  alert  title="TIP"  color="info"  %}} 
 
 If you prefer to customize the parameters for the GIF, you can use the [GifOptions](https://reference.aspose.com/slides/php-java/aspose.slides/GifOptions) class. See the sample code below.
 

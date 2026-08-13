@@ -70,7 +70,7 @@ auto watermarkFrame = watermarkShape->AddTextFrame(watermarkText);
 presentation->Dispose();
 ```
 
-{{% alert color="primary" title="See also" %}} 
+{{% alert color="info" title="See also" %}} 
 - [How to Use the TextFrame Class](/slides/cpp/text-formatting/)
 {{% /alert %}}
 
@@ -99,7 +99,7 @@ auto watermarkFrame = watermarkShape->AddTextFrame(watermarkText);
 presentation->Dispose();
 ```
 
-{{% alert color="primary" title="See also" %}} 
+{{% alert color="info" title="See also" %}} 
 - [How to Use the Slide Master](/slides/cpp/slide-master/)
 {{% /alert %}}
 

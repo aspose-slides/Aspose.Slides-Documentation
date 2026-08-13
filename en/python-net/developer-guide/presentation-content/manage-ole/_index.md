@@ -152,7 +152,7 @@ with slides.Presentation("sample.ppt") as presentation:
 
 ## **Change OLE Object Data**
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 In this section, the code example below uses [Aspose.Cells for Python via .NET](/cells/python-net/).
 

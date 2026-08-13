@@ -116,7 +116,7 @@ You can create your own **custom animations** in Aspose.Slides by combining mult
 
 Aspose.Slides lets you apply animations to shapes—such as text, rectangles, lines, frames, OLE objects, and more.
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 Read more [**About Shape Animation**](/slides/python-net/shape-animation/).
 
@@ -126,7 +126,7 @@ Read more [**About Shape Animation**](/slides/python-net/shape-animation/).
 
 To create animated charts, use the same classes as you do for shapes. However, PowerPoint animations can be applied only to chart categories or chart series. You can also apply an animation effect to an individual category element or series element.
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 Read more [**About Animated Charts**](/slides/python-net/animated-charts/).
 
@@ -136,7 +136,7 @@ Read more [**About Animated Charts**](/slides/python-net/animated-charts/).
 
 In addition to animating text, you can apply animation to a paragraph.
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 Read more [**About Animated Text**](/slides/python-net/animated-text/).
 

@@ -27,7 +27,7 @@ Loaded fonts are used when a presentation is rendered or exported, for example t
 
 Registering custom fonts for rendering is separate from embedding fonts into a PPTX file. If a font must be stored inside the presentation itself, use the font embedding features explicitly.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Aspose Slides allows you to load these fonts using the [loadExternalFonts](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) method:
 

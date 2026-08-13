@@ -5,7 +5,7 @@ weight: 10
 url: /reportingservices/sample-examples/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 This gallery demonstrates PPT reports exported by Aspose.Slides for Reporting Services. 
 

@@ -49,7 +49,7 @@ pres->Save(u"pres.gif", SaveFormat::Gif);
 
 The animated GIF will be created with default parameters. 
 
-{{%  alert  title="TIP"  color="primary"  %}} 
+{{%  alert  title="TIP"  color="info"  %}} 
 
 If you prefer to customize the parameters for the GIF, you can use the [GifOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.gif_options) class. See the sample code below. 
 

@@ -41,7 +41,7 @@ auxPresentation.Save(FileName, Aspose.Slides.Export.SaveFormat.Pptx);
 ## **Download Running Example**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Working%20With%20Size%20and%20Layout)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 For more details, visit [Change the Presentation Slide Size in .NET](/slides/net/slide-size/).
 

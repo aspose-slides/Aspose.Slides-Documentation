@@ -5,7 +5,7 @@ weight: 70
 url: /reportingservices/world-class-free-technical-support/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Aspose is renowned for its free and unlimited technical support provided directly by the developers of the products. If a new version of a product is available, or if resolving a question results in a fix, all new releases are free if you have an active subscription. 
 

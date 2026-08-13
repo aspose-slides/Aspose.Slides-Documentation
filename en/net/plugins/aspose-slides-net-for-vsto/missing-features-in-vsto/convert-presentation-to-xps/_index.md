@@ -26,7 +26,7 @@ pres.Save("converted.xps", Aspose.Slides.Export.SaveFormat.Xps);
 ## **Download Sample Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/Aspose.SlidesFeaturesmissingInVSTOv1.1)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 For more details, visit [Convert PowerPoint Presentations to XPS in .NET](/slides/net/convert-powerpoint-to-xps/).
 

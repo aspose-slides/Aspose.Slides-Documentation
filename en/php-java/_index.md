@@ -16,7 +16,7 @@ description: "Aspose.Slides is a Microsoft PowerPoint® management API that enab
 is_root: true
 ---
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 **Welcome to Aspose.Slides for PHP via Java**
 
@@ -32,7 +32,7 @@ Aspose.Slides for PHP via Java provides a lot of key features such as managing t
 
 ## Aspose.Slides for PHP via Java Resources
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 Aspose.Slides for PHP via Java is ported from Aspose.Slides for Java, so you can use the latter documentation and API reference.
 

@@ -268,7 +268,7 @@ for (auto&& shape : System::IterateOver(slide->get_Shapes()))
 
 ## **External Workbook**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 In [Aspose.Slides](https://releases.aspose.com/slides/cpp/release-notes/2019/aspose-slides-for-cpp-19-4-release-notes/) 19.4, we implemented support for external workbooks as a data source for charts.
 {{% /alert %}} 
 

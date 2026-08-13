@@ -34,7 +34,7 @@ A hyperlink is a reference to an object or data or a place in something. These a
 
 Aspose.Slides for C++ allows you to perform many tasks involving hyperlinks in presentations. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 You may want to check out Aspose simple, [free online PowerPoint editor.](https://products.aspose.app/slides/editor)
 
@@ -191,7 +191,7 @@ videoFrame->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 compan
 pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
 ```
 
-{{%  alert  title="Tip"  color="primary"  %}} 
+{{%  alert  title="Tip"  color="info"  %}} 
 
 You may want to see *[Manage OLE](https://docs.aspose.com/slides/cpp/manage-ole/)*.
 

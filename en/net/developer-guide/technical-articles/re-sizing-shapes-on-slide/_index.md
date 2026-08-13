@@ -63,7 +63,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 If a slide contains a table, the code above will not work correctly. In that case, each cell in the table must be resized.
 

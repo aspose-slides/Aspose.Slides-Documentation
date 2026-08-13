@@ -66,7 +66,7 @@ This table compares Open XML SDK capabilities and features with Aspose.Slides.
 ## **Conclusion**
 Open XML SDK and Aspose.Slides do not compete directly because they address considerably different needs, and they target different audiences. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Open XML SDK is a class library that provides a strong-typed way for working with OOXML documents while Aspose.Slides is an incredibly useful presentations processing library that provides great support for almost all Microsoft PowerPoint file formats. 
 

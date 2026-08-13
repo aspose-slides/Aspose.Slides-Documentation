@@ -24,7 +24,7 @@ Aspose.Slides allows you to manage font properties in presentation text directly
 This article explains how to configure font-related properties for existing text in a presentation, including font family, bold and italic styles, paragraph alignment, and font color. It also shows how to create a text box, add text to it, and set font properties such as font family, bold, italic, underline, font size, and color before saving the result as a PPTX file.
 
 ## **Manage Font Related Properties**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Presentations usually contain both text and images. The text can be formatted in a various way, either to highlight specific sections and words or to conform with corporate styles. Text formatting helps users vary the look and feel of the presentation content. This article shows how to use Aspose.Slides for Java to configure the font properties of paragraphs of text on slides.
 
@@ -110,7 +110,7 @@ try {
 ```
 
 ## **Set Text Font Properties**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 As mentioned in **Managing Font Related Properties**, a [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/portion/) is used to hold text with similar formatting style in a paragraph. This article shows how to use Aspose.Slides for Java to create a textbox with some text and then define a particular font, and various other properties of the font family category.
 

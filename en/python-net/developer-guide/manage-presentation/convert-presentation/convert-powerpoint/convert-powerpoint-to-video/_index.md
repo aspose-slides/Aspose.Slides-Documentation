@@ -43,7 +43,7 @@ By converting your PowerPoint or OpenDocument presentation to video, you gain:
 
 **Wider reach:** Videos enable you to reach a larger audience and present information in a more engaging format. Surveys and statistics indicate that people prefer to watch and consume video content over other forms, making your message more impactful.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Check out our [**PowerPoint to Video Online Converter**](https://products.aspose.app/slides/video) because it offers a live and effective implementation of the process described here.
 
@@ -102,7 +102,7 @@ with slides.Presentation() as presentation:
 
 When converting a PowerPoint presentation to video using Aspose.Slides for Python, you can apply various video effects to enhance the visual quality of the output. These effects allow you to control the appearance of slides in the final video by adding smooth transitions, animations, and other visual elements. This section explains the available video effect options and shows how to apply them.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 See [PowerPoint Animation](https://docs.aspose.com/slides/python-net/powerpoint-animation/), [Shape Animation](https://docs.aspose.com/slides/python-net/shape-animation/), and [Shape Effect](https://docs.aspose.com/slides/python-net/shape-effect/).
 

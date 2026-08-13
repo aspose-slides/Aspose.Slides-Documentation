@@ -5,7 +5,7 @@ weight: 50
 url: /java/xml-parser-specification-xps/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 The [XML Parser Specification](https://en.wikipedia.org/wiki/Open_XML_Paper_Specification) is a page description language and a fixed-document format originally developed by Microsoft. Like PDF, XPS is designed to preserve document fidelity and provide device-independent document appearance. 
 

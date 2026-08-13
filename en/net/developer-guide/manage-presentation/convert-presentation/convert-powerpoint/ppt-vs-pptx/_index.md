@@ -34,7 +34,7 @@ PPTX offers enhanced functionality compared to the legacy PPT format, yet conver
 
 Aspose.Slides streamlines working with both PPT and PPTX formats, offering seamless conversion capabilities. While full conversion from PPT to PPTX is supported, converting from PPTX to PPT involves limitations. Utilizing PPTX when possible is recommended to optimize functionality and compatibility.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 Experience high-quality conversions with the [**Aspose.Slides Conversion tool**](https://products.aspose.app/slides/conversion/).
 {{% /alert %}}
 
@@ -49,7 +49,7 @@ Presentation pres = new Presentation("PPTtoPPTX.ppt");
 pres.Save("PPTtoPPTX_out.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 Discover more: [**How to Convert Presentations from PPT to PPTX**](/slides/net/convert-ppt-to-pptx/)
 {{% /alert %}}
 

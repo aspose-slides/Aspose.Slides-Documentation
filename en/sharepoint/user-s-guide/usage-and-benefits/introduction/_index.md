@@ -5,7 +5,7 @@ weight: 10
 url: /sharepoint/introduction/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 SharePoint sites are meant for collaboration, communication and content storage in order to fulfill particular business needs. It enables a group of individuals to achieve a common goal by facilitating information sharing and communication. The information is most often available as a website and is accessed via a web browser. 
 

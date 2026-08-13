@@ -6,7 +6,7 @@ url: /sharepoint/system-requirements/
 ---
 
 ## **Server Requirements**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 To install Aspose.Slides for SharePoint, a system running one of the followings is required:
 
@@ -17,13 +17,13 @@ To install Aspose.Slides for SharePoint, a system running one of the followings 
 - Microsoft Office SharePoint Server 2016
 - Microsoft Office SharePoint Server 2019
 
-{{% /alert %}} {{% alert color="primary" %}} 
+{{% /alert %}} {{% alert color="info" %}} 
 
 Installing Service Pack 2 or later for these products is recommended.
 
 {{% /alert %}} 
 ## **Client Requirements**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 SharePoint sites are accessed through a web browser. Aspose.Slides for SharePoint has been tested with the following browsers:
 

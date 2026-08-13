@@ -124,7 +124,7 @@ try {
 
 You can apply animations to objects on slides and use transitions between slides. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 You may want to see these articles: [PowerPoint Animation](https://docs.aspose.com/slides/androidjava/powerpoint-animation/), [Shape Animation](https://docs.aspose.com/slides/androidjava/shape-animation/), and [Shape Effect](https://docs.aspose.com/slides/androidjava/shape-effect/).
 

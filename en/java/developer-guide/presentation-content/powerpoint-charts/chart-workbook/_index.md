@@ -166,7 +166,7 @@ try {
 
 ## **External Workbook**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 In [Aspose.Slides 19.4](https://docs.aspose.com/slides/java/aspose-slides-for-java-19-4-release-notes/), we implemented support for external workbooks as a data source for charts.
 {{% /alert %}} 
 

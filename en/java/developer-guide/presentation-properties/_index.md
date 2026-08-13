@@ -31,7 +31,7 @@ Aspose.Slides supports two types of document properties: **Built-in** and **Cust
 
 Aspose.Slides allows you to work with presentation document properties through the [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) interface. An instance of this interface is returned by the [Presentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getDocumentProperties--) method. The following examples show how to read, modify, and manage these properties.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Please note that the **Application** and **AppVersion** fields cannot be modified. Aspose.Slides rewrites them on every save, so a saved presentation always reports "Aspose.Slides for Java" and the version of the library that produced it. Any value passed to `setNameOfApplication` is discarded when the presentation is written.
 
@@ -198,7 +198,7 @@ This example modifies the custom properties of the [PPTX ](https://docs.fileform
 
 ## **Advanced Document Properties**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 New methods [ReadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-), and [WriteBindedPresentation](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) have been added to [IPresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo), logic of the [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) property setter has been changed.
 

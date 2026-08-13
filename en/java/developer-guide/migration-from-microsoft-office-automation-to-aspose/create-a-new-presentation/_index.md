@@ -17,7 +17,7 @@ keywords:
 description: "Migrate from Microsoft Office automation to Aspose.Slides for Java and create new PowerPoint (PPT, PPTX) presentations in Java with clean, reliable code."
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 VSTO was developed to let developers build applications that could run inside Microsoft Office. VSTO is COM-based but it's wrapped inside a .NET object so that it can be used in .NET applications. VSTO needs .NET framework support as well as Microsoft Office CLR-based runtime. Although it can be used for making Microsoft Office add-ins it is nearly impossible to use as a server-side component. It also has serious deployment problems.
 

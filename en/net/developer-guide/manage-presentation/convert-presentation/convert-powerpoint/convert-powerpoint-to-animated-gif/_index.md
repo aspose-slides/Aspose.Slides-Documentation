@@ -48,7 +48,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 The animated GIF will be created with default parameters. 
 
-{{%  alert  title="TIP"  color="primary"  %}} 
+{{%  alert  title="TIP"  color="info"  %}} 
 
 If you prefer to customize the parameters for the GIF, you can use the [GifOptions](https://reference.aspose.com/slides/net/aspose.slides.export/gifoptions) class. See the sample code below. 
 

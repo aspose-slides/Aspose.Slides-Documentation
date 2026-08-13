@@ -276,7 +276,7 @@ with slides.Presentation("write-protected-pres.pptx") as pres:
 
 It returns `True` if the presentation has been encrypted with the specified password. Otherwise, it returns `False`. 
 
-{{% alert color="primary" title="See also" %}} 
+{{% alert color="info" title="See also" %}} 
 - [Digital Signature in PowerPoint](/slides/python-net/digital-signature-in-powerpoint/)
 {{% /alert %}}
 

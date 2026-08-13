@@ -16,7 +16,7 @@ description: Aspose.Slides for Java is a Microsoft PowerPoint® management API t
 is_root: true
 ---
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 ![Aspose.Slides for Java Product Logo](home_1.png)
 

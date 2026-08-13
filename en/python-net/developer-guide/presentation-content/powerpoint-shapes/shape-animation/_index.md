@@ -87,7 +87,7 @@ with slides.Presentation() as pres:
     pres.save("AnimText_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{%  alert color="primary"  %}} 
+{{%  alert color="info"  %}} 
 
 Besides applying animations to text, you can also apply animations to a single [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraph/). See [**Animated Text**](/slides/python-net/animated-text/).
 

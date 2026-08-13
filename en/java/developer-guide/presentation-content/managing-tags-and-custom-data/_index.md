@@ -35,7 +35,7 @@ A presentation contains multiple parts connected by relationships. For example, 
 
 Custom data can be stored as tags ([ITagCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ITagCollection)) or custom XML parts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ICustomXmlPartCollection)). Both are available through the [`ICustomData`](https://reference.aspose.com/slides/java/com.aspose.slides/ICustomData/) interface.
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 Tags store simple string key-value pairs. Custom XML parts store structured XML data and can be associated with a presentation, slide, or shape.
 

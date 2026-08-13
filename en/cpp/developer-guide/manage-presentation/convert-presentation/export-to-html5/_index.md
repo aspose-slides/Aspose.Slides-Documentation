@@ -41,7 +41,7 @@ auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 pres->Save(u"pres.html", SaveFormat::Html5);
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 In this case, you get clean HTML. 
 

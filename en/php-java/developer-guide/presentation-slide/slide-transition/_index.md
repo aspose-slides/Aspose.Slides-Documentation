@@ -82,7 +82,7 @@ In the above section, we just applied a simple transition effect on the slide. N
 ```
 
 ## **Morph Transition**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Aspose.Slides for PHP via Java now supports the [Morph Transition](https://reference.aspose.com/slides/php-java/aspose.slides/morphtransition/). They represent new morph transition introduced in PowerPoint 2019.
 

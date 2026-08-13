@@ -39,7 +39,7 @@ Convert the old PPT format to PPTX with Aspose.Slides API. If you need to conver
 - Convert a presentation having textures and picture fill styles for auto-shapes.
 - Convert a presentation with placeholders, text frames, and text holders.
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 Take a look at the [**Aspose.Slides PPT to PPTX Conversion**](https://products.aspose.app/slides/conversion/ppt-to-pptx) app:
 

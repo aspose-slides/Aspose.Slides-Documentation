@@ -159,7 +159,7 @@ Install libfreetype and fontconfig:
   sudo yum -y install fontconfig
   ```
 
-{{% alert title="TIP" color="primary" %}} 
+{{% alert title="TIP" color="info" %}} 
 
 Don't forget to install fonts or use FontsLoader.
 

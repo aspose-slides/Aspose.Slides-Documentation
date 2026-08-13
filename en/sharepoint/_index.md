@@ -8,7 +8,7 @@ url: /sharepoint/
 is_root: true
 ---
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 ![Aspose.Slides for SharePoint](home_1.png)
 

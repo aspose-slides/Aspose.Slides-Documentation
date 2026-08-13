@@ -20,7 +20,7 @@ description: "Review public API updates and breaking changes in Aspose.Slides fo
 ---
 
 ## **Public API and Backwards Incompatible Changes**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 We have made some changes in the Aspose.Slides for .NET 14.2.0 API. Some properties and methods have been removed and some have been moved to other namespace.
 

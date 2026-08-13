@@ -27,7 +27,7 @@ This article explains how licensing works in Aspose.Slides and how to apply a li
 
 ## **Evaluate Aspose.Slides**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 You can download an evaluation version of **Aspose.Slides for C++** from [its NuGet download page](https://www.nuget.org/packages/Aspose.Slides.CPP/). The evaluation version offers the same functionality as the licensed product. In fact, the evaluation package is identical to the purchased one—it simply becomes licensed once you add a few lines of code to apply the license.
 
@@ -42,7 +42,7 @@ Every Aspose license includes a one-year subscription for free upgrades, includi
 * While the Aspose.Slides evaluation version (when no license is applied) provides full product functionality, it inserts an evaluation watermark at the top of the document during open and save operations.
 * Text extraction is limited to one slide when using the evaluation version.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 To test Aspose.Slides without limitations, you can request a **30-Day Temporary License**. For more information, see the [How to Get a Temporary License](https://purchase.aspose.com/temporary-license) page.
 
@@ -63,7 +63,7 @@ To test Aspose.Slides without limitations, you can request a **30-Day Temporary 
 
 A license can be loaded from a **file**, a **stream**, or an **embedded resource**.
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 Aspose.Slides provides the [License](https://reference.aspose.com/slides/cpp/class/aspose.slides.license/) class for licensing operations.
 

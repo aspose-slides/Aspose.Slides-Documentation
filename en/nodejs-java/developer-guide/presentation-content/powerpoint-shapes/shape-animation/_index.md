@@ -89,7 +89,7 @@ try {
 }
 ```
 
-{{%  alert color="primary"  %}} 
+{{%  alert color="info"  %}} 
 
 Besides applying animations to text, you can also apply animations to a single [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph). See [**Animated Text**](/slides/nodejs-java/animated-text/).
 

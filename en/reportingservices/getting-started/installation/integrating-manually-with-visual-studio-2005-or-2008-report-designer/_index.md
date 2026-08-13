@@ -5,7 +5,7 @@ weight: 50
 url: /reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 This article teaches you how to integrate Aspose.Slides for Reporting Services manually with Visual Studio. 
 

@@ -5,7 +5,7 @@ weight: 20
 url: /reportingservices/installation-prerequisites/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Following perquisites are needed to be met before we proceed with installation. 
 
@@ -20,7 +20,7 @@ The **Reporting Services Add-In for SharePoint** is one of the key components to
 ## **SharePoint Authentication**
 Before jumping into the RS Integration pieces, one thing is important and is to be taken care of is that how you setup your **Site** in SharePoint Farm. More specifically how you configure authentication for the Site; whether it will be **Classic** or **Claims** . This choice is important in the beginning. I do not believe that you can change this option once it is done. If you can change it, it would not be a simple process. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Reporting Services 2008 R2 is NOT Claims aware 
 

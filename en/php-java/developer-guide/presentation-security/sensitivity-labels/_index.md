@@ -26,7 +26,7 @@ Microsoft Purview sensitivity labels help organizations classify and govern docu
 
 Aspose.Slides for PHP via Java exposes modern sensitivity label metadata through [Presentation::getSensitivityLabels](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSensitivityLabels). This method returns a [SensitivityLabelCollection](https://reference.aspose.com/slides/php-java/aspose.slides/sensitivitylabelcollection/) that can be inspected and modified before the presentation is saved as PPTX.
 
-{{% alert color="primary" title="Note" %}}
+{{% alert color="info" title="Note" %}}
 
 Sensitivity label identifiers and policy information are defined by your Microsoft Purview configuration. Validate label availability and policy requirements in your environment before adding or migrating metadata. The [SensitivityLabel::getContentMarkTypes](https://reference.aspose.com/slides/php-java/aspose.slides/sensitivitylabel/#getContentMarkTypes) values describe the content markings associated with a label; they do not by themselves add visible text or shapes to slides.
 

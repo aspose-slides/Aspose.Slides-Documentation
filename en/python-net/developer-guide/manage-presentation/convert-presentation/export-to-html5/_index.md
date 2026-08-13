@@ -42,7 +42,7 @@ with slides.Presentation("pres.pptx") as presentation:
     presentation.save("index.html", slides.export.SaveFormat.HTML5)
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 In this case, you get clean HTML. 
 

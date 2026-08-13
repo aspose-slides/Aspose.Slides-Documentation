@@ -37,7 +37,7 @@ With [Aspose.Slides for .NET](https://products.aspose.com/slides/net/), seamless
 - **Specific Slide Merge:** Choose and combine selected slides.
 - **Cross-Format Merge:** Integrate presentations of varying formats, maintaining integrity.
 
-{{% alert title="Tip" color="primary" %}}  
+{{% alert title="Tip" color="info" %}}  
 
 Looking for a quick and **free online tool** to **merge PowerPoint presentations**? Try the [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/merger).  
 
@@ -278,7 +278,7 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 
 The slide is added at the end of the section. 
 
-{{% alert title="Tip" color="primary" %}}
+{{% alert title="Tip" color="info" %}}
 
 Aspose provides a [FREE Collage web app](https://products.aspose.app/slides/collage). Using this online service, you can merge [JPG to JPG](https://products.aspose.app/slides/collage/jpg) or PNG to PNG images, create [photo grids](https://products.aspose.app/slides/collage/photo-grid), and so on. 
 

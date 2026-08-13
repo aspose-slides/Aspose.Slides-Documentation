@@ -8,7 +8,7 @@ url: /jasperreports/
 is_root: true
 ---
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 ![Aspose.Slides for JasperReports Product Logo](home_1.png)
 

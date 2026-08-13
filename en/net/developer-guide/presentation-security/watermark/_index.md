@@ -63,7 +63,7 @@ IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 
 ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
-{{% alert color="primary" title="See also" %}} 
+{{% alert color="info" title="See also" %}} 
 - [How to Use the TextFrame Class?](/slides/net/text-formatting/)
 {{% /alert %}}
 
@@ -84,7 +84,7 @@ IAutoShape watermarkShape = masterSlide.Shapes.AddAutoShape(ShapeType.Rectangle,
 ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
-{{% alert color="primary" title="See also" %}} 
+{{% alert color="info" title="See also" %}} 
 - [How to Use the Slide Master?](/slides/net/slide-master/)
 {{% /alert %}}
 

@@ -229,7 +229,7 @@ The result of the operation:
 
 ![todo:image_alt_text](image-20200930114621-7.png)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 You can change the parameters for shadow, display, and glow. The effects’ properties get set on each portion of the text separately. 
 
@@ -258,7 +258,7 @@ The result:
 
 ![todo:image_alt_text](image-20200930114712-8.png)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Both Microsoft PowerPoint and Aspose.Slides for Android via Java provide a certain number of predefined transformation types.
 
@@ -363,7 +363,7 @@ The result of the operation:
 
 ![todo:image_alt_text](image-20200930114905-10.png)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 The application of 3D effects to texts or their shapes and interactions between effects are based on certain rules. 
 

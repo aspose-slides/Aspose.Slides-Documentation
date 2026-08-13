@@ -76,6 +76,6 @@ try {
 }
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 Read more about [Convert PPT and PPTX to JPG on Android](/slides/androidjava/convert-powerpoint-to-jpg/).
 {{% /alert %}}

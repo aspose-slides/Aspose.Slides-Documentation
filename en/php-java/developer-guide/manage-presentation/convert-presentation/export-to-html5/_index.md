@@ -42,7 +42,7 @@ This PHP code shows how you to export a presentation to HTML5 without web extens
   }
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 In this case, you get clean HTML. 
 

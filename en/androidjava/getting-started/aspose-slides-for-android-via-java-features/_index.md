@@ -14,7 +14,7 @@ keywords:
 description: "Explore Aspose.Slides for Android via Java features compared to Aspose.Slides for Java, including support for PPT, PPTX and ODP, conversions and rendering."
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 This section lists all the features of the API and shows the comparative availability of these in Aspose.Slides for Java vs. Aspose.Slides for Android via Java.
 

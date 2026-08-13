@@ -14,7 +14,7 @@ keywords:
 description: "Create, edit, and convert presentations in .NET—no PowerPoint needed. Aspose.Slides supports PPT, PPTX, and ODP with fast SVG/PDF export."
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Aspose.Slides for .NET is a class library that enables .NET applications to read and write presentation documents without using Microsoft PowerPoint® or others. Aspose.Slides for .NET allows to manage text, shapes, tables & animations, add audio and video to slides, preview slides, export slides to SVG, PDF format and more.
 

@@ -51,7 +51,7 @@ using (Presentation pres = new Presentation(FileName))
 ## **Download Running Example**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Managing%20Slides%20Transitions)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 For more details, visit [Managing Slides Transitions](/slides/net/slide-transition/).
 

@@ -95,7 +95,7 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-{{%  alert color="primary"  %}} 
+{{%  alert color="info"  %}} 
 
 Besides applying animations to text, you can also apply animations to a single [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph). See [**Animated Text**](/slides/net/animated-text/).
 

@@ -94,7 +94,7 @@ try {
 ```
 
 ## **Morph Transition**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Aspose.Slides for Java now supports the [Morph Transition](https://reference.aspose.com/slides/java/com.aspose.slides/IMorphTransition). They represent new morph transition introduced in PowerPoint 2019.
 

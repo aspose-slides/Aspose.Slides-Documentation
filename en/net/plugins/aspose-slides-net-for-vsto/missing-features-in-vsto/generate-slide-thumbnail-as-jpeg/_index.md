@@ -34,7 +34,7 @@ using (Presentation pres = new Presentation("Slides Test Presentation.pptx"))
 ## **Download Sample Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/Aspose.SlidesFeaturesmissingInVSTOv1.1)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 For more details, visit [Convert PPT and PPTX to JPG in .NET](/slides/net/convert-powerpoint-to-jpg/).
 

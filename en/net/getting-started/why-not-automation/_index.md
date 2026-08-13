@@ -55,7 +55,7 @@ The following is a direct quote from a Microsoft Article:
 
 Aspose products are very **secure**. Aspose components run in the same user context as all ASP.NET applications (under the ASPNET user). Therefore, Aspose components do **not** pose a security risk. They also do not consume critical system resources. Furthermore, when an Aspose component opens a document, macros do not get to run automatically. Aspose components were built to allow developers to create, manipulate, and save Office files. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 None of the risks associated with the Microsoft Office package apply to Aspose components.
 
@@ -68,7 +68,7 @@ This text is a direct quote from the previously referenced Microsoft Article:
 
 Since Aspose components are packaged into a single DLL, its users never need to install additional parts or pieces for them to function. Aspose components are only utilized by .NET applications and there is no portion of the component code designed to wait for a human response. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Aspose components have been thoroughly tested and confirmed to be very stable. Aspose components are used by [companies](http://www.aspose.com/Corporate/Aspose/Customerlist.html) such as **IBM**, **Hilton**, **Reader's Digest**, **Bank of America**, and many other leading organizations in several industries and fields. 
 
@@ -81,7 +81,7 @@ The following is a direct quote from a Microsoft Article:
 
 Aspose components are incredibly scalable and lightning fast. Office applications were not designed to be simultaneously used by 100s or 1000s of users, but Aspose components are designed for that precisely. Our components are a true .NET solution. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Aspose components' performance is flawless on a single server (powering a single application) or on a load-balanced web form (powering an enterprise-wide application).
 
@@ -90,7 +90,7 @@ Aspose components' performance is flawless on a single server (powering a single
 ## **Price**
 When an application utilizes Microsoft Office Automation, a copy of Microsoft Office has to be purchased for every machine that runs the app. There are many instances an application may need to create or manipulate an office file, but the process does not require Microsoft Office. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Aspose provides a very [cost-effective](https://purchase.aspose.com/) and royalty-free redistribution license that allows deployment to an unlimited number of users with no licensing worries. 
 
@@ -101,7 +101,7 @@ When creating web-based applications, it is important to remember that Microsoft
 ## **Features**
 Aspose components provide everything needed for managing Office files and a lot more. We designed them based on our philosophy of helping developers to accomplish the greatest results possible with the least amount of effort. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Unlike Office Automation, Aspose components provide many powerful and time-saving functions. 
 
@@ -111,7 +111,7 @@ For instance, [Aspose.Cells](https://products.aspose.com/cells/net/) gives devel
 
 The best part of purchasing an Aspose component is getting access to our development teams. For example, if you use Office Automation objects and need certain features, the chances of you getting those features to be added are very, very low. However, things are different with Aspose components. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Our development teams understand that if there is a feature that your company needs, there is a good chance other firms need the same feature. While we know we cannot implement every requested feature, we strive to add as many features as possible based on feedback from our customers. 
 
@@ -120,7 +120,7 @@ Our development teams understand that if there is a feature that your company ne
 Our teams are always open-minded and flexible when providing assistance—and this is the reason Aspose components have grown to become as powerful as they are now. 
 
 ## **Conclusion**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 While this article covered some of the key points why Aspose components are a better choice than Office Automation, you have to understand that there are many, many more benefits. We only went through some of the major advantages. 
 

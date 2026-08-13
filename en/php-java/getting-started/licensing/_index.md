@@ -23,7 +23,7 @@ description: "Apply, manage, and troubleshoot licenses in Aspose.Slides for PHP 
 
 Sometimes, for the best evaluation outcomes, a hands-on approach might be needed. For this reason, Aspose.Slides provides different purchase plans and also offers a Free Trial and a 30-day Temporary License for evaluation.
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 Note that there are a number of general policies and practices that guide you on how to evaluate, properly license, and purchase our products. You can find them in the ["Purchase Policies and FAQ"](https://purchase.aspose.com/policies) section.
 
@@ -35,7 +35,7 @@ You can easily download Aspose.Slides for evaluation. The evaluation package is 
 ## **Evaluation Version Limitation**
 The evaluation version of Aspose.Slides (without a license specified) provides the full product functionality, but it inserts an evaluation watermark at the top of the document on open and save. You are also limited to one slide when extracting texts from presentation slides.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 If you want to test Aspose.Slides without the evaluation version limitations, you can request a **30 Day Temporary License**. Please refer to [How to get a Temporary License?](https://purchase.aspose.com/temporary-license) for more information.
 
@@ -48,7 +48,7 @@ The license is a plain-text XML file that contains details such as the product n
 
 To avoid the limitations associated with the evaluation version, you need to set a license before using **Aspose.Slides**. You are only required to set a license once per application or process.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 You may want to see [Metered Licensing](https://docs.aspose.com/slides/php-java/metered-licensing/).
 
@@ -58,7 +58,7 @@ You may want to see [Metered Licensing](https://docs.aspose.com/slides/php-java/
 
 After purchase, you need to apply the license file or stream. 
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 You need to set the license:
 * only once per application domain
@@ -66,7 +66,7 @@ You need to set the license:
 
 {{% /alert %}}
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 You can find pricing information on the [“Pricing Information”](https://purchase.aspose.com/pricing/slides/family) page.
 
@@ -80,7 +80,7 @@ Licenses can be applied from these locations:
 * Stream
 * As a Metered License – a new licensing mechanism
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 Use the **setLicense** method to license a component.
 

@@ -217,7 +217,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
 All text boxes will be updated to the new font.
 
-{{% alert color="primary" title="TIP" %}}
+{{% alert color="info" title="TIP" %}}
 
 For more information, see [Master PowerPoint Fonts with Python](/slides/python-net/powerpoint-fonts/).
 
@@ -256,7 +256,7 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="primary" title="TIP" %}}
+{{% alert color="info" title="TIP" %}}
 
 For more information, see [Manage Presentation Backgrounds in Python](/slides/python-net/presentation-background/).
  

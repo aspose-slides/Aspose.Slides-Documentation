@@ -55,7 +55,7 @@ It is also possible to [Remove()](https://reference.aspose.com/slides/net/aspose
 
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrulescollection)[ ](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrulescollection)can be used to organize a list of [FontFallBackRule](https://reference.aspose.com/slides/net/aspose.slides/FontFallBackRule) objects, when there is a need to specify fallback font replacement rules for multiple Unicode ranges.
 
-{{% alert color="primary" title="See also" %}} 
+{{% alert color="info" title="See also" %}} 
 - [Create Fallback Fonts Collection](/slides/net/create-fallback-fonts-collection/)
 {{% /alert %}}
 

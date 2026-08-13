@@ -5,7 +5,7 @@ weight: 10
 url: /reportingservices/installing-aspose-slides-for-reporting-services/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 This article focuses on the installation of Aspose.Slides for Reporting Services on a server.
 
@@ -18,7 +18,7 @@ Aspose.Slides for Reporting Services can be deployed in two ways:
 
 The MSI installer for the automatic installation (Aspose.Slides for Reporting Services XX.XX) and the zip package containing files for the manual installation (Aspose.Slides for Reporting Services XX.XX DLL Only) can be downloaded from the [product release page](https://releases.aspose.com/slides/reportingservices/). 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Aspose.Slides for Reporting Services can be installed on a Power BI server.
 

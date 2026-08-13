@@ -18,7 +18,7 @@ description: "Control fonts in PHP with Aspose.Slides: embed, substitute, and lo
 ---
 
 ## **Manage Font Related Properties**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Presentations usually contain both text and images. The text can be formatted in a various way, either to highlight specific sections and words or to conform with corporate styles. Text formatting helps users vary the look and feel of the presentation content. This article shows how to use Aspose.Slides for PHP via Java to configure the font properties of paragraphs of text on slides.
 
@@ -93,7 +93,7 @@ The implementation of the above steps is given below. It takes an unadorned pres
 ```
 
 ## **Set Text Font Properties**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 As mentioned in **Managing Font Related Properties**, a [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) is used to hold text with similar formatting style in a paragraph. This article shows how to use Aspose.Slides for PHP via Java to create a textbox with some text and then define a particular font, and various other properties of the font family category.
 

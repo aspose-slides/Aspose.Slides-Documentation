@@ -30,7 +30,7 @@ description: "Streamline image management in PowerPoint and OpenDocument with As
 
 Images make presentations more engaging and interesting. In Microsoft PowerPoint, you can insert pictures from a file, the internet, or other sources onto slides. Similarly, Aspose.Slides lets you add images to slides in several ways.
 
-{{% alert  title="Tip" color="primary" %}}
+{{% alert  title="Tip" color="info" %}}
 
 Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) and [PNG to PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—that let you quickly create presentations from images.
 

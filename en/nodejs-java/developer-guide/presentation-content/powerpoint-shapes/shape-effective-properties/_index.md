@@ -53,7 +53,7 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 Effective formatting data represents the current calculated formatting after inheritance is applied. In the current implementation, some effective data objects may be cached internally. Calling `getEffective` again after changing parent or inherited formatting can refresh the cached data, and a previously obtained object may no longer represent the earlier state. If you need to preserve effective values for later reuse, copy the required properties, such as font height, fill color, font style, or alignment, into your own data object.
 

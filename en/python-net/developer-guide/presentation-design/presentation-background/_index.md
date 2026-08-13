@@ -188,7 +188,7 @@ with slides.Presentation() as presentation:
     presentation.save("TileBackground.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 Read more: [**Tile Picture As Texture**](/slides/python-net/shape-formatting/#tile-picture-as-texture).
 

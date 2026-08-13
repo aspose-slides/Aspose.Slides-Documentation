@@ -16,7 +16,7 @@ keywords:
 description: "Migrate from Microsoft Office automation to Aspose.Slides for Java and create tables in PowerPoint (PPT, PPTX) slides in Java with flexible formatting."
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Tables are widely used to display data on presentation slides. This article shows how to create a 15 x 15 table with a font size of 10 programmatically using first [VSTO 2008](/slides/java/creating-a-table-on-powerpoint-slide/) and then [Aspose.Slides for Java](/slides/java/creating-a-table-on-powerpoint-slide/).
 

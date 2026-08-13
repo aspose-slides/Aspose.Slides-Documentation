@@ -7,7 +7,7 @@ url: /reportingservices/exporting-reports-to-rpl-format/
 
 ﻿
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Aspose.Slides uses reports in RPL (Report Processing Language) format for rendering. This page demonstrates how to export reports to the RPL Format﻿.
 
@@ -19,7 +19,7 @@ Perform these steps:
 
 1. Copy to Aspose.ReportingServices.Debug.Rpl.dll to Reporting services bin directory (usually at c:\Program Files\Microsoft SQL Server\MSRS10_50.SQL2008R2\Reporting Services\ReportServer\bin).
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Aspose.ReportingServices.Debug.Rpl.dll is available in the latest versions of Aspose.Slides for Reporting Services, which can be downloaded from the [Releases page](https://releases.aspose.com/slides/reportingservices/).
 

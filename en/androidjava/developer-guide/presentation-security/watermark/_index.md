@@ -64,7 +64,7 @@ ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 presentation.dispose();
 ```
 
-{{% alert color="primary" title="See also" %}} 
+{{% alert color="info" title="See also" %}} 
 - [How to Use the TextFrame Class](/slides/androidjava/text-formatting/)
 {{% /alert %}}
 
@@ -86,7 +86,7 @@ ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 presentation.dispose();
 ```
 
-{{% alert color="primary" title="See also" %}} 
+{{% alert color="info" title="See also" %}} 
 - [How to Use the Slide Master](/slides/androidjava/slide-master/)
 {{% /alert %}}
 

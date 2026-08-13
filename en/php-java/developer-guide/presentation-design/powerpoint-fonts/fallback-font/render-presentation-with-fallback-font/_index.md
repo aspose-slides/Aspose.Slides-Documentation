@@ -70,6 +70,6 @@ The following example includes these steps:
   }
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 Read more about how to [Convert PPT and PPTX to JPG in PHP](/slides/php-java/convert-powerpoint-to-jpg/).
 {{% /alert %}}

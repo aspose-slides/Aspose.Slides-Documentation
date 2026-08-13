@@ -53,7 +53,7 @@ try {
 ```
 
 ## **Modify an ActiveX Control**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Aspose.Slides for Java 7.1.0 and newer versions are equipped with components for managing ActiveX controls. You can access the already added ActiveX control in your presentation and modify or delete it through its properties.
 

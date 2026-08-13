@@ -18,7 +18,7 @@ keywords:
 description: "Review public API updates and breaking changes in Aspose.Slides for Java to smoothly migrate your PowerPoint PPT, PPTX and ODP presentation solutions."
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 This page lists all [added](/slides/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) classes, methods, properties and so on, any new restrictions and other [changes](/slides/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) introduced with the Aspose.Slides for Java 14.8.0 API.
 

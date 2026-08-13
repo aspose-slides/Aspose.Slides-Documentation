@@ -21,7 +21,7 @@ Aspose.Slides for .NET allows you to export slides in your presentations as **SV
 - Iterate through all the slides in the presentation.
 - Write every slide to its own SVG file through FileStream.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 You may want to try out our [free web application](https://products.aspose.app/slides/conversion/ppt-to-svg) in which we implemented the PPT to SVG conversion function from Aspose.Slides for .NET.
 

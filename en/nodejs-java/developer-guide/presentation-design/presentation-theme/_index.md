@@ -234,7 +234,7 @@ try {
 
 The font in all text boxes will be updated.
 
-{{% alert color="primary" title="TIP" %}} 
+{{% alert color="info" title="TIP" %}} 
 
 You may want to see [PowerPoint fonts](/slides/nodejs-java/powerpoint-fonts/).
 
@@ -287,7 +287,7 @@ try {
 
 **Index guide**: 0 is used for no fill. The index starts from 1.
 
-{{% alert color="primary" title="TIP" %}} 
+{{% alert color="info" title="TIP" %}} 
 
 You may want to see [PowerPoint Background](/slides/nodejs-java/presentation-background/).
 

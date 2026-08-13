@@ -17,7 +17,7 @@ description: Aspose.Slides for Android is a Microsoft PowerPoint® management AP
 is_root: true
 ---
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 ![Aspose.Slides for Android Product Logo](home_1.png)
 

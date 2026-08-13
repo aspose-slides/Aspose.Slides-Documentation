@@ -6,7 +6,7 @@ url: /reportingservices/license-aspose-slides-for-reporting-services/
 ---
 
 ## **License support**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 You can download an evaluation version of **Aspose.Slides for Reporting Services** from [its Releases page](https://releases.aspose.com/slides/reportingservices/). The evaluation version provides the same functionalities as the licensed version of the product. The evaluation package is the same as the purchased package. The evaluation version simply becomes licensed after you add a few lines of code to it (to apply the license).
 
@@ -35,7 +35,7 @@ Aspose.Slides for Reporting Services injects a watermark when working in the eva
 
 ![todo:image_alt_text](license-aspose-slides-for-reporting-services_2.png)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 To test Aspose.Slides for Reporting Services without limitations, you can ask for a **30-Day Temporary License**. See the [How to Get a Temporary License](https://purchase.aspose.com/temporary-license) page for more information.
 

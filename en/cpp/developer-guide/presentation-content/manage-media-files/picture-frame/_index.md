@@ -36,7 +36,7 @@ A picture frame is a shape that contains an image—it is like a picture in a fr
 
 You can add an image to a slide through a picture frame. This way, you get to format the image by formatting the picture frame.
 
-{{% alert  title="Tip" color="primary" %}} 
+{{% alert  title="Tip" color="info" %}} 
 
 Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) and [PNG to PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—that allow people to create presentations quickly from images. 
 
@@ -270,7 +270,7 @@ for (auto&& effect : imageTransform)
 }
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 All effects applied to images can be found in [Aspose::Slides::Effects](https://reference.aspose.com/slides/cpp/aspose.slides.effects/).
 {{% /alert %}}
 
@@ -381,7 +381,7 @@ pf->set_RelativeScaleWidth(1.35);
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-{{% alert title="Tip" color="primary" %}}
+{{% alert title="Tip" color="info" %}}
 
 Aspose recently developed a [free Collage Maker](https://products.aspose.app/slides/collage). If you ever need to [merge JPG/JPEG](https://products.aspose.app/slides/collage/jpg) or PNG images, [create grids from photos](https://products.aspose.app/slides/collage/photo-grid), you can use this service. 
 

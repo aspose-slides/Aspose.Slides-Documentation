@@ -350,7 +350,7 @@ try {
 
 It returns `true` if the presentation has been encrypted with the specified password. Otherwise, it returns `false`. 
 
-{{% alert color="primary" title="See also" %}} 
+{{% alert color="info" title="See also" %}} 
 - [Digital Signature in PowerPoint](/slides/net/digital-signature-in-powerpoint/)
 {{% /alert %}}
 

@@ -31,7 +31,7 @@ In this guide, you'll learn how to merge PowerPoint and OpenDocument presentatio
 
 Whether you're building an enterprise-grade application or a simple automation tool, Aspose.Slides makes merging presentations fast, reliable, and scalable. Aspose.Slides allows you to merge presentations in different ways. You can combine presentations with all their shapes, styles, text, formatting, comments, animations, and more—without worrying about loss of quality or data.
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 See also: [Clone Slides](https://docs.aspose.com/slides/androidjava/clone-slides/)
 
@@ -246,7 +246,7 @@ try {
 
 The slide is added at the end of the section. 
 
-{{% alert title="Tip" color="primary" %}}
+{{% alert title="Tip" color="info" %}}
 
 Aspose provides a [FREE Collage web app](https://products.aspose.app/slides/collage). Using this online service, you can merge [JPG to JPG](https://products.aspose.app/slides/collage/jpg) or PNG to PNG images, create [photo grids](https://products.aspose.app/slides/collage/photo-grid), and so on. 
 

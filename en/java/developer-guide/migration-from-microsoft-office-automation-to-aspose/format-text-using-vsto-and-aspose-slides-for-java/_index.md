@@ -16,7 +16,7 @@ keywords:
 description: "Migrate from Microsoft Office automation to Aspose.Slides for Java and format text in PowerPoint (PPT, PPTX) presentations with precise control."
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Sometimes, you need to format the text on slides programmatically. This article shows how to read a sample presentation with some text on the first slide using either [VSTO](/slides/java/format-text-using-vsto-and-aspose-slides-for-java/) and [Aspose.Slides for Java](/slides/java/format-text-using-vsto-and-aspose-slides-for-java/). The code formats the text in the third textbox on the slide to look like the text in the last textbox.
 

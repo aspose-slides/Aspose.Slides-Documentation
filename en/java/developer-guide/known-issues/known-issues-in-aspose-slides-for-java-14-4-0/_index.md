@@ -13,7 +13,7 @@ keywords:
 description: "Review known issues in Aspose.Slides for Java 14.4.0 to ensure accurate work with PowerPoint and OpenDocument files and avoid surprises in your presentations."
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Aspose.Slides for Java 14.4.0 provides new decision for PowerPoint documents processing. There are some restrictions and known issues, which will be removed in coming releases:
 

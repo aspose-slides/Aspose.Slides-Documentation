@@ -5,7 +5,7 @@ weight: 40
 url: /reportingservices/high-fidelity-to-the-report-design/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Aspose.Slides for Reporting Services exports reports as Microsoft PowerPoint presentations in such a way that they appear identical to reports exported by the built-in renderers of Microsoft SQL Server Reporting Services. 
 

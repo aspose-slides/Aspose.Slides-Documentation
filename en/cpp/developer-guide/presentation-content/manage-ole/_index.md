@@ -193,7 +193,7 @@ if (ObjectExt::Is<IOleObjectFrame>(shape))
 
 ## **Change OLE Object Data**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 In this section, the code example below uses [Aspose.Cells for C++](/cells/cpp/).
 

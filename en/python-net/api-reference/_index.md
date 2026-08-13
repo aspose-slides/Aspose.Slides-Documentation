@@ -13,7 +13,7 @@ keywords:
 description: "Create, edit, and convert presentations in Python—no PowerPoint needed. Aspose.Slides for Python via .NET supports PPT, PPTX, and ODP with fast SVG/PDF export."
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Aspose.Slides for Python via .NET is a class library that enables Python applications to read and write presentation documents without using Microsoft PowerPoint® or other software. Aspose.Slides for Python via .NET allows you to manage text, shapes, tables, and animations; add audio and video to slides; preview slides; and export slides to SVG, PDF format, and more.
 

@@ -97,7 +97,7 @@ with slides.Presentation() as presentation:
     presentation.save("macros.pptm", slides.export.SaveFormat.PPTM)
 ```
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 You may want to try the **Aspose** [Macro Remover](https://products.aspose.app/slides/remove-macros), a free web app for removing macros from PowerPoint, Excel, and Word documents.
 

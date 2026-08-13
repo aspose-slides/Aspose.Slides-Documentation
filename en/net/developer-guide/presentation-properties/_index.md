@@ -32,7 +32,7 @@ Aspose.Slides for .NET supports two types of document properties: **Built-in** a
 
 Aspose.Slides allows you to work with presentation document properties through the [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) interface. An instance of this interface is returned by the [Presentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/presentation/documentproperties/) property. The following examples show how to read, modify, and manage these properties.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Please note that the **Application** and **Producer** fields cannot be modified, as these fields will always display "Aspose Ltd." and "Aspose.Slides for .NET x.x.x".
 

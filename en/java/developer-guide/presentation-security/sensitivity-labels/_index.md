@@ -26,7 +26,7 @@ Microsoft Purview sensitivity labels help organizations classify and govern docu
 
 Aspose.Slides exposes modern sensitivity label metadata through [IPresentation.getSensitivityLabels](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getSensitivityLabels--). This method returns an [ISensitivityLabelCollection](https://reference.aspose.com/slides/java/com.aspose.slides/isensitivitylabelcollection/) that can be inspected and modified before the presentation is saved as PPTX.
 
-{{% alert color="primary" title="Note" %}}
+{{% alert color="info" title="Note" %}}
 
 Sensitivity label identifiers and policy information are defined by your Microsoft Purview configuration. Validate label availability and policy requirements in your environment before adding or migrating metadata. The [ISensitivityLabel.getContentMarkTypes](https://reference.aspose.com/slides/java/com.aspose.slides/isensitivitylabel/#getContentMarkTypes--) values describe the content markings associated with a label; they do not by themselves add visible text or shapes to slides.
 

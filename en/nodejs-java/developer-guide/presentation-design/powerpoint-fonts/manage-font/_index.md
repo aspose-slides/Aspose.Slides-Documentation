@@ -97,7 +97,7 @@ try {
 ```
 
 ## **Set Text Font Properties**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 As mentioned in **Managing Font Related Properties**, a [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) is used to hold text with similar formatting style in a paragraph. This article shows how to use Aspose.Slides for Node.js via Java to create a textbox with some text and then define a particular font, and various other properties of the font family category.
 

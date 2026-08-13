@@ -5,7 +5,7 @@ weight: 30
 url: /reportingservices/setting-up-reporting-services/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Our first stop on the RS Server is the Reporting Services Configuration Manager. 
 

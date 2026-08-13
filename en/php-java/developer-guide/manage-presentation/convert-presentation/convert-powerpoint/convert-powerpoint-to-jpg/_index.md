@@ -42,7 +42,7 @@ Here are the steps to convert PPT/PPTX to JPG:
 3. Create the thumbnail of each slide and then convert it into JPG. [**Slide::getImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getImage) method is used to get a thumbnail of a slide. [getImage](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getImage) method has to be called from the needed slide of [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) type, the scales of the resulting thumbnail are passed into the method.
 4. After you get the slide thumbnail, call [**IImage::save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/php-java/aspose.slides/IImage#save(String formatName, int imageFormat)) method from the thumbnail object. Pass the resulting file name and the image format into it. 
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 **Note**: PPT/PPTX to JPG conversion differs from the conversion to other types in Aspose.Slides API. For other types, you usually use [**Presentation::Save(String fname, int format, SaveOptions options)**](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/) method, but here you need [**IImage::save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/php-java/aspose.slides/IImage#save(String formatName, int imageFormat)) method.
 
@@ -131,7 +131,7 @@ Aspose.Slides for PHP via Java provides a facility that allows you to render com
   }
 ```
 
-{{% alert title="Tip" color="primary" %}}
+{{% alert title="Tip" color="info" %}}
 
 Aspose provides a [FREE Collage web app](https://products.aspose.app/slides/collage). Using this online service, you can merge [JPG to JPG](https://products.aspose.app/slides/collage/jpg) or PNG to PNG images, create [photo grids](https://products.aspose.app/slides/collage/photo-grid), and so on. 
 

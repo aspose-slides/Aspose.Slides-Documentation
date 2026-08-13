@@ -99,7 +99,7 @@ presentation = slides.Presentation("PowerPoint.ppt")
 presentation.save("PPT-to-PDF.pdf", slides.export.SaveFormat.PDF)
 ```
 
-{{%  alert  color="primary"  %}} 
+{{%  alert  color="info"  %}} 
 
 Aspose provides a free online [**PowerPoint to PDF converter**](https://products.aspose.app/slides/conversion/ppt-to-pdf) that demonstrates the presentation to PDF conversion process. For a live implementation of the procedure described here, you can do a test with the converter.
 

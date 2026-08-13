@@ -8,7 +8,7 @@ url: /reportingservices/
 is_root: true
 ---
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 ![Aspose.Slides for Reporting Services Product Logo](home_1.png)
 

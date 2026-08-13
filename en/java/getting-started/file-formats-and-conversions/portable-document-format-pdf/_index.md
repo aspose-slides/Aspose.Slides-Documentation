@@ -5,7 +5,7 @@ weight: 40
 url: /java/portable-document-format-pdf/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 The [Portable Document Format](https://en.wikipedia.org/wiki/PDF) is a file format created by Adobe Systems for exchanging documents between organizations. The purpose of the format was to keep content and layout the same, regardless of the platform it was viewed on. Aspose.Slides for Java lets you convert presentation files to PDF.
 

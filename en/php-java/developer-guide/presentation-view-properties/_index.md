@@ -72,7 +72,7 @@ An example is given below shows how can you access [ViewProperties::getNormalVie
 ```
 
 ## **Set the Default Zoom Value**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Aspose.Slides for PHP via Java now supports setting the default zoom value for presentation such that when the presentation is opened, zoom is set already. This could be done by setting the [ViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) of a presentation. [getSlideViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties/#getSlideViewProperties) as well as [getNotesViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties/#getNotesViewProperties) could be set programmatically. In this topic, we will see with an example how to set the [View Properties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) in [Aspose.Slides](/slides/).
 

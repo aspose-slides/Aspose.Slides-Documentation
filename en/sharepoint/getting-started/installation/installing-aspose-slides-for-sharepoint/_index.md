@@ -5,7 +5,7 @@ weight: 10
 url: /sharepoint/installing-aspose-slides-for-sharepoint/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Aspose.Slides for SharePoint is downloaded as the Aspose.Slides.SharePoint.zip archive. The archive contains: 
 

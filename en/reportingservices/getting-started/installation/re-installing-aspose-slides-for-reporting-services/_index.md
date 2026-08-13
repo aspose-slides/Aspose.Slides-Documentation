@@ -5,7 +5,7 @@ weight: 40
 url: /reportingservices/re-installing-aspose-slides-for-reporting-services/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 This article describes the fix for a situation in which Aspose.Slides for Reporting Services is already installed, but for whatever reason, it has to be reinstalled.
 

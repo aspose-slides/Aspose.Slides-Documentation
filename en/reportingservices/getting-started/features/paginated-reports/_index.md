@@ -7,7 +7,7 @@ keywords: "Create Paginated Reports, Power BI, Aspose.Slides for Reporting Servi
 description: "Create Paginated Reports"
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Aspose.Slides for Reporting Services implemented support for Power BI. 
 

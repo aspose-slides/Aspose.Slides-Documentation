@@ -105,7 +105,7 @@ The result:
 
 ![Word document](Word.png)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Try our [**Online PPT to Word Converter**](https://products.aspose.app/slides/conversion/ppt-to-word) to see what you could gain from converting PowerPoint and OpenDocument presentations to Word documents. 
 

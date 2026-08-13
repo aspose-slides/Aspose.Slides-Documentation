@@ -78,21 +78,21 @@ This can be achieved if you combine several behaviours together into a new custo
 ## **Shape Animation**
 Aspose.Slides allows to apply animation to shapes, that can be actually text, rectangle, line, frame, OLE Object, etc.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 Read more [**About Shape Animation**](/slides/nodejs-java/shape-animation/).
 {{% /alert %}}
 
 ## **Animated Charts**
 To create animated charts, you should use all the same classes as for the shapes. However, it is possible to use PowerPoint animation only on chart categories or chart series. You can also apply animation effect to a category element or series element.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 Read more [**About Animated Charts**](/slides/nodejs-java/animated-charts/).
 {{% /alert %}}
 
 ## **Animated text**
 Except animated text, it is also possible to apply animation to a paragraph.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 Read more [**About Animated Text**](/slides/nodejs-java/animated-text/).
 {{% /alert %}}
 

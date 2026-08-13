@@ -63,6 +63,6 @@ with slides.Presentation("input.pptx") as pres:
 ```
 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 Read more about how to [Convert PowerPoint Slides to PNG in Python](/slides/python-net/convert-powerpoint-to-png/).
 {{% /alert %}}

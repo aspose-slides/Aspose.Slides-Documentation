@@ -42,7 +42,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Besides the HTML document, the export writes the supporting files it references: `pres.css`, `master.css`, `animation.js`, `effects.js`, and `navigation.js`. The generated page also loads jQuery and Anime.js from public CDNs; without them, slide navigation and animations do not run. 
 

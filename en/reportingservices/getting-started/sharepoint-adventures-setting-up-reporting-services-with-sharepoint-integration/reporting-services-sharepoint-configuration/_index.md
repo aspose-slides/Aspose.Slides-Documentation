@@ -5,7 +5,7 @@ weight: 50
 url: /reportingservices/reporting-services-sharepoint-configuration/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Now that SharePoint is installed and configured on the RS server and RS is setup and setup through the Reporting Services Configuration Manager, we can move onto the configuration within Central Admin. RS 2008 R2 has really simplified this process. We use to have a 3 step process that you had to perform to get this to work. Now we just have one step. 
 
@@ -18,7 +18,7 @@ We want to go to the Central Administrator Web site and then into General Applic
 
 **Figure 17**: SharePoint Configuration 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Click on " **Reporting Services Integration** . 
 
@@ -53,7 +53,7 @@ Going back to the Report Server URL as given in Figure 14, we should see somethi
 
 **Figure 20**: Successful Verification of Reporting Services with the SharePoint environment 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 If your SharePoint site is configured for SSL, it won't show up in this list. It is a known issue and doesn't mean there is a problem. Your reports should still work. 
 

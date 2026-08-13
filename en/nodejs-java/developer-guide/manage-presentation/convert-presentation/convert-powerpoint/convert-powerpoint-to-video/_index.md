@@ -36,7 +36,7 @@ By converting your PowerPoint presentation to video, you get
 * **Increase in accessibility:** All devices (regardless of platform) are equipped with video players by default compared to presentation-opening applications, so users find it easier to open or play videos.
 * **More reach:** Through videos, you can reach a large audience and target them with information that might otherwise seem tedious in a presentation. Most surveys and statistics suggest that people watch and consume videos more than other forms of content, and they generally prefer such content.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 You may want to check our [**PowerPoint to Video Online Converter**](https://products.aspose.app/slides/conversion/ppt-to-video) because it is a live and effective implementation of the process described here.
 
@@ -118,7 +118,7 @@ try {
 
 You can apply animations to objects on slides and use transitions between slides. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 You may want to see these articles: [PowerPoint Animation](https://docs.aspose.com/slides/nodejs-java/powerpoint-animation/), [Shape Animation](https://docs.aspose.com/slides/nodejs-java/shape-animation/), and [Shape Effect](https://docs.aspose.com/slides/nodejs-java/shape-effect/).
 

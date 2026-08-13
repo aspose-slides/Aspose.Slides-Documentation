@@ -317,7 +317,7 @@ This sample code shows you how to validate a password:
 
 It returns `true` if the presentation has been encrypted with the specified password. Otherwise, it returns `false`. 
 
-{{% alert color="primary" title="See also" %}} 
+{{% alert color="info" title="See also" %}} 
 - [Digital Signature in PowerPoint](/slides/php-java/digital-signature-in-powerpoint/)
 {{% /alert %}}
 

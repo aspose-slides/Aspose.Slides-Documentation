@@ -46,7 +46,7 @@ try {
 }
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 In this case, you get clean HTML. 
 

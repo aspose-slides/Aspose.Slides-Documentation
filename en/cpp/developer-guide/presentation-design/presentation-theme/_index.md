@@ -291,7 +291,7 @@ pres->get_MasterTheme()->get_FontScheme()->get_Minor()->set_LatinFont(MakeObject
 
 The font in all text boxes will be updated.
 
-{{% alert color="primary" title="TIP" %}} 
+{{% alert color="info" title="TIP" %}} 
 
 You may want to see [PowerPoint fonts](/slides/cpp/powerpoint-fonts/).
 
@@ -345,7 +345,7 @@ pres->get_Masters()->idx_get(0)->get_Background()->set_StyleIndex(2);
 
 **Index guide**: 0 is used for no fill. The index starts from 1.
 
-{{% alert color="primary" title="TIP" %}} 
+{{% alert color="info" title="TIP" %}} 
 
 You may want to see [PowerPoint Background](/slides/cpp/presentation-background/).
 

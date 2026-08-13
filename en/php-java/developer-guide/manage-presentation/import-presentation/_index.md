@@ -52,7 +52,7 @@ This PHP code demonstrates the PDF to PowerPoint operation:
   }
 ```
 
-{{% alert  title="Tip" color="primary" %}} 
+{{% alert  title="Tip" color="info" %}} 
 
 You may want to check out **Aspose free** [PDF to PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) web app because it is a live implementation of the process described here. 
 

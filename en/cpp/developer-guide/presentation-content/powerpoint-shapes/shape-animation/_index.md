@@ -108,7 +108,7 @@ effect->get_TextAnimation()->set_BuildType(Aspose::Slides::Animation::BuildType:
 pres->Save(u"AnimText_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-{{%  alert color="primary"  %}} 
+{{%  alert color="info"  %}} 
 
 Besides applying animations to text, you can also apply animations to a single [Paragraph](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_paragraph). See [**Animated Text**](/slides/cpp/animated-text/).
 

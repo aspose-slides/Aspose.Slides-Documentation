@@ -72,7 +72,7 @@ with slides.Presentation() as presentation:
     presentation.save("pythagorean-theorem.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 `add_math_shape` creates a shape that already contains a math paragraph. Access the first `MathPortion`, get its `MathParagraph`, and add math blocks or math elements to it.
 

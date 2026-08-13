@@ -20,7 +20,7 @@ description: "Build Xamarin mobile apps in C# to view, edit, and convert present
 
 Xamarin is a framework used for mobile development in .NET C#. Xamarin has tools and libraries that extend the capabilities of the .NET platform. It allows developers to build applications for the **Android** operating system. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 For development in Xamarin, programmers can use their regular development environments (C#, Visual Studio, and 3rd party libraries).
 
