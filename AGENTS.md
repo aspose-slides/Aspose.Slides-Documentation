@@ -120,6 +120,13 @@ readers arrive, and a sample that does not build costs more trust than the page 
 - Include the `using` / `import` lines. A snippet that assumes them is not runnable.
 - Say how to install the library, or link to the page that does.
 - Fence with the language: ` ```csharp `, ` ```java `, ` ```python `.
+- Keep each code statement on one physical line. Do not split method calls, member-access chains,
+  conditions, declarations or expression-bodied members across lines. If a statement becomes too
+  long, simplify it with well-named intermediate variables instead of wrapping it.
+- In article prose, link every mentioned public API class, interface, method, property and
+  enumeration to the API Reference for that article's platform. Link directly to the specific
+  member page when one exists, and verify that the target URL resolves. Do not add links inside
+  code blocks.
 
 ## Editing translations
 
