@@ -23,475 +23,406 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Objevte, jak vytvářet a přizpůsobovat animace tvarů v prezentacích PowerPoint s Aspose.Slides pro .NET. Vynikněte!"
+description: "Naučte se přidávat, kontrolovat a přizpůsobovat animace tvarů, časování, zvuky, chování po animaci a animovaný text pomocí Aspose.Slides pro .NET."
 ---
-## **Úvod**
+## **Přehled**
 
-Animace jsou vizuální efekty, které lze použít na texty, obrázky, tvary nebo [grafy](/slides/cs/net/animated-charts/). Oživují prezentace nebo jejich součásti. 
+Aspose.Slides pro .NET představuje animace snímků jako efekty na časové ose snímku. Efekt má cílový tvar, typ a podtyp animace, spouštěč, nastavení časování a volitelné vlastnosti, jako je zvuk nebo chování po animaci.
 
-## **Proč používat animace v prezentacích?**
+Časová osa obsahuje dva typy sekvencí:
 
-Pomocí animací můžete 
+- **Hlavní sekvence** se přehrává při postupu snímku.
+- **Interaktivní sekvence** se spustí, když je kliknuto na její spouštěcí tvar.
 
-* řídit tok informací
-* zdůraznit důležité body
-* zvýšit zájem nebo zapojení publika
-* usnadnit čtení, vstřebání nebo zpracování obsahu
-* přitáhnout pozornost čtenářů nebo diváků k důležitým částem v prezentaci
+Protože textová pole, obrázky, grafy, tabulky a další objekty snímku implementují [IShape](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/), používáte stejnou metodu [ISequence.AddEffect](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/isequence/addeffect/) pro většinu obsahu snímku. Dostupné efekty jsou vypsány v výčtu [EffectType](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/effecttype/).
 
-PowerPoint poskytuje mnoho možností a nástrojů pro animace a animační efekty v kategoriích **vstup**, **odchod**, **zdůraznění** a **cesty pohybu**. 
+## **Přidání animací tvarů**
 
-## **Animace v Aspose.Slides**
+Pro přidání animace získáte hlavní sekvenci snímku a zavoláte [ISequence.AddEffect](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/isequence/addeffect/) s cílovým tvarem, typem efektu, podtypem a spouštěčem. Pro efekt, který se spustí po kliknutí na jiný tvar, vytvořte interaktivní sekvenci, jejímž spouštěčem je tento jiný tvar.
 
-* Aspose.Slides poskytuje třídy a typy, které potřebujete pro práci s animacemi v rámci jmenného prostoru [Aspose.Slides.Animation](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/), 
-* Aspose.Slides nabízí více než **150 animačních efektů** v rámci výčtu [EffectType](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/effecttype). Tyto efekty jsou v podstatě stejné (nebo ekvivalentní) jako ty používané v PowerPointu.
+Následující příklad vytvoří oba typy animací a uloží výsledek do `shape-animations.pptx`.
 
-## **Použití animace na TextBoxu**
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
 
-Aspose.Slides pro .NET vám umožňuje aplikovat animaci na text ve tvaru. 
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-1. Vytvořte instanci třídy [Presentation](http://www.aspose.com/api/net/slides/cs/aspose.slides/) .
-2. Získejte referenci na snímek podle jeho indexu.
-3. Přidejte `rectangle` [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape). 
-4. Přidejte text do [IAutoShape.TextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/properties/textframe).
-5. Získejte hlavní sekvenci efektů.
-6. Přidejte animační efekt k [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape).
-7. Nastavte vlastnost [TextAnimation.BuildType](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/textanimation/properties/buildtype) na hodnotu z výčtu [BuildType Enumeration](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/buildtype).
-8. Uložte prezentaci na disk jako soubor PPTX.
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, 120, 100, 320, 80);
+targetShape.TextFrame.Text = "Click to animate this shape";
 
-Tento C# kód ukazuje, jak aplikovat efekt `Fade` na AutoShape a nastavit animaci textu na hodnotu *By 1st Level Paragraphs*:
+var mainSequence = slide.Timeline.MainSequence;
+var entranceEffect = mainSequence.AddEffect(targetShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+entranceEffect.Timing.Duration = 1.5f;
 
-```c#
-// Instancuje třídu prezentace, která představuje soubor prezentace.
-using (Presentation pres = new Presentation())
-{
-    ISlide sld = pres.Slides[0];
-    
-    // Přidá nový AutoShape s textem
-    IAutoShape autoShape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 100);
+var triggerShape = slide.Shapes.AddAutoShape(ShapeType.Bevel, 20, 20, 100, 40);
+triggerShape.TextFrame.Text = "Move";
 
-    ITextFrame textFrame = autoShape.TextFrame;
-    textFrame.Text = "First paragraph \nSecond paragraph \n Third paragraph";
+var interactiveSequence = slide.Timeline.InteractiveSequences.Add(triggerShape);
+interactiveSequence.AddEffect(targetShape, EffectType.PathFootball, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // Získá hlavní sekvenci snímku.
-    ISequence sequence = sld.Timeline.MainSequence;
-
-    // Přidá efekt animace Fade do tvaru
-    IEffect effect = sequence.AddEffect(autoShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
-
-    // Animuje text tvaru podle odstavců první úrovně
-    effect.TextAnimation.BuildType = BuildType.ByLevelParagraphs1;
-
-    // Uloží soubor PPTX na disk
-    pres.Save(path + "AnimTextBox_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("shape-animations.pptx", SaveFormat.Pptx);
 ```
 
-{{%  alert color="primary"  %}} 
+Spouštěč určuje, kdy se efekt spustí:
 
-Kromě aplikace animací na text můžete také aplikovat animace na jednotlivý [Paragraph](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraph). Viz [**Animated Text**](/slides/cs/net/animated-text/).
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/effecttriggertype/) čeká na kliknutí v hlavní sekvenci nebo na kliknutí na spouštěcí tvar v interaktivní sekvenci.
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/effecttriggertype/) spustí se společně s předchozím efektem.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/effecttriggertype/) spustí se po dokončení předchozího efektu.
 
-{{% /alert %}} 
+Pro animaci obrázku, grafu nebo jiného typu tvaru předáte tento objekt metodě [ISequence.AddEffect](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/isequence/addeffect/) místo `targetShape`. Pro možnosti seskupování specifické pro grafy viz [Animated Charts](/slides/cs/net/animated-charts/).
 
-## **Použití animace na PictureFrame**
+## **Čtení animací tvarů**
 
-1. Vytvořte instanci třídy [Presentation](http://www.aspose.com/api/net/slides/cs/aspose.slides/) .
-2. Získejte referenci na snímek podle jeho indexu.
-3. Přidejte nebo získejte [PictureFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ipictureframe) na snímku. 
-5. Získejte hlavní sekvenci efektů.
-6. Přidejte animační efekt k [PictureFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ipictureframe).
-8. Uložte prezentaci na disk jako soubor PPTX.
+Použijte [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/isequence/geteffectsbyshape/) když znáte cílový tvar. Pro prozkoumání všech efektů enumerujte hlavní sekvenci a každou interaktivní sekvenci. Enumerace zabraňuje předpokladu, že sekvence obsahuje efekt na indexu `0`.
 
-Tento C# kód ukazuje, jak aplikovat efekt `Fly` na rámeček obrázku:
+Následující příklad vytvoří tvar s hlavními i interaktivními efekty, získá efekty, které cílí na tento tvar, a poté enumeruje každou sekvenci na snímku.
 
-```c#
-// Instancuje třídu prezentace, která představuje soubor prezentace.
-using (Presentation pres = new Presentation())
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+targetShape.TextFrame.Text = "Animated shape";
+
+var mainSequence = slide.Timeline.MainSequence;
+mainSequence.AddEffect(targetShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+
+var triggerShape = slide.Shapes.AddAutoShape(ShapeType.Bevel, 20, 20, 100, 40);
+triggerShape.TextFrame.Text = "Move";
+
+var interactiveSequence = slide.Timeline.InteractiveSequences.Add(triggerShape);
+interactiveSequence.AddEffect(targetShape, EffectType.PathFootball, EffectSubtype.None, EffectTriggerType.OnClick);
+
+var targetEffects = mainSequence.GetEffectsByShape(targetShape);
+Console.WriteLine($"The main sequence contains {targetEffects.Length} effect(s) for {targetShape.Name}.");
+
+PrintSequence("Main sequence", mainSequence);
+
+var interactiveIndex = 1;
+foreach (var sequence in slide.Timeline.InteractiveSequences)
 {
-    // Načte obrázek, který bude přidán do kolekce obrázků prezentace
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
-
-    // Přidá rámeček s obrázkem do snímku
-    IPictureFrame picFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, ppImage);
-
-    // Získá hlavní sekvenci snímku.
-    ISequence sequence = pres.Slides[0].Timeline.MainSequence;
-
-    // Přidá animační efekt Fly zleva do rámečku obrázku
-    IEffect effect = sequence.AddEffect(picFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
-
-    // Uloží soubor PPTX na disk
-    pres.Save("AnimImage_out.pptx", SaveFormat.Pptx);
+    var triggerName = sequence.TriggerShape == null ? "unknown" : sequence.TriggerShape.Name;
+    var sequenceLabel = $"Interactive sequence {interactiveIndex}, trigger: {triggerName}";
+    PrintSequence(sequenceLabel, sequence);
+    interactiveIndex++;
 }
-```
 
-## **Použití animace na tvar**
-
-1. Vytvořte instanci třídy [Presentation](http://www.aspose.com/api/net/slides/cs/aspose.slides/) .
-2. Získejte referenci na snímek podle jeho indexu.
-3. Přidejte `rectangle` [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape). 
-4. Přidejte `Bevel` [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape) (při kliknutí na tento objekt se spuští animace).
-5. Vytvořte sekvenci efektů na tvaru bevel.
-6. Vytvořte vlastní `UserPath`.
-7. Přidejte příkazy pro pohyb k `UserPath`.
-8. Uložte prezentaci na disk jako soubor PPTX.
-
-Tento C# kód ukazuje, jak aplikovat efekt `PathFootball` (cesta football) na tvar:
-
-```c#
-// Instancuje třídu Presentation, která představuje soubor prezentace.
-using (Presentation pres = new Presentation())
+static void PrintSequence(string label, ISequence sequence)
 {
-    ISlide sld = pres.Slides[0];
+    Console.WriteLine($"  {label}: {sequence.Count} effect(s)");
 
-    // Vytvoří efekt PathFootball pro existující tvar od začátku.
-    IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 250, 25);
-
-    ashp.AddTextFrame("Animated TextBox");
-
-    // Přidá animační efekt PathFootball.
-    pres.Slides[0].Timeline.MainSequence.AddEffect(ashp, EffectType.PathFootball,
-                           EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-    // Vytvoří něco jako "tlačítko".
-    IShape shapeTrigger = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Bevel, 10, 10, 20, 20);
-
-    // Vytvoří sekvenci efektů pro tlačítko.
-    ISequence seqInter = pres.Slides[0].Timeline.InteractiveSequences.Add(shapeTrigger);
-
-    // Vytvoří vlastní uživatelskou cestu. Náš objekt se bude pohybovat až po kliknutí na tlačítko.
-    IEffect fxUserPath = seqInter.AddEffect(ashp, EffectType.PathUser, EffectSubtype.None, EffectTriggerType.OnClick);
-
-    // Přidá příkazy pro pohyb, protože vytvořená cesta je prázdná.
-    IMotionEffect motionBhv = ((IMotionEffect)fxUserPath.Behaviors[0]);
-
-    PointF[] pts = new PointF[1];
-    pts[0] = new PointF(0.076f, 0.59f);
-    motionBhv.Path.Add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, true);
-    pts[0] = new PointF(-0.076f, -0.59f);
-    motionBhv.Path.Add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, false);
-    motionBhv.Path.Add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
-
-    // Zapíše soubor PPTX na disk
-    pres.Save("AnimExample_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Získání animačních efektů aplikovaných na tvar**
-
-Následující příklady ukazují, jak použít metodu `GetEffectsByShape` z rozhraní [ISequence](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/isequence/) k získání všech animačních efektů aplikovaných na tvar.
-
-**Příklad 1: Získání animačních efektů aplikovaných na tvar na normálním snímku**
-
-V předchozím kapitole jste se naučili, jak přidávat animační efekty do tvarů v prezentacích PowerPoint. Následující ukázkový kód vám ukazuje, jak získat efekty aplikované na první tvar na první normálním snímku v prezentaci `AnimExample_out.pptx`.
-
-```c#
-using (Presentation presentation = new Presentation("AnimExample_out.pptx"))
-{
-    ISlide firstSlide = presentation.Slides[0];
-
-    // Získá hlavní sekvenci animací snímku.
-    ISequence sequence = firstSlide.Timeline.MainSequence;
-
-    // Získá první tvar na prvním snímku.
-    IShape shape = firstSlide.Shapes[0];
-
-    // Získá animační efekty aplikované na tvar.
-    IEffect[] shapeEffects = sequence.GetEffectsByShape(shape);
-
-    if (shapeEffects.Length > 0)
-        Console.WriteLine($"The shape {shape.Name} has {shapeEffects.Length} animation effects.");
-}
-```
-
-**Příklad 2: Získání všech animačních efektů, včetně těch zděděných z placeholderů**
-
-Pokud má tvar na normálním snímku placeholdery, které jsou na rozložení snímku a/nebo hlavním snímku, a na tyto placeholdery byly přidány animační efekty, pak budou během prezentace přehrány všechny efekty tvaru, včetně těch zděděných z placeholderů.
-
-Mějme PowerPoint soubor `sample.pptx` s jedním snímkem, který obsahuje pouze tvar zápatí s textem „Made with Aspose.Slides“ a na tento tvar je aplikován efekt **Random Bars**.
-
-![Slide shape animation effect](slide-shape-animation.png)
-
-Předpokládejme také, že efekt **Split** je aplikován na placeholder zápatí na **layout** snímku.
-
-![Layout shape animation effect](layout-shape-animation.png)
-
-A nakonec je na placeholder zápatí na **master** snímku aplikován efekt **Fly In**.
-
-![Master shape animation effect](master-shape-animation.png)
-
-Následující ukázkový kód ukazuje, jak použít metodu `GetBasePlaceholder` z rozhraní [IShape](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/) k přístupu k placeholderům tvaru a získání animačních efektů aplikovaných na tvar zápatí, včetně těch zděděných z placeholderů umístěných na layout a master snímcích.
-
-```cs
-using (Presentation presentation = new Presentation("sample.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-
-    // Získá animační efekty tvaru na normálním snímku.
-    IShape shape = slide.Shapes[0];
-    IEffect[] shapeEffects = slide.Timeline.MainSequence.GetEffectsByShape(shape);
-
-    // Získá animační efekty placeholderu na rozložení snímku.
-    IShape layoutShape = shape.GetBasePlaceholder();
-    IEffect[] layoutShapeEffects = slide.LayoutSlide.Timeline.MainSequence.GetEffectsByShape(layoutShape);
-
-    // Získá animační efekty placeholderu na hlavním snímku.
-    IShape masterShape = layoutShape.GetBasePlaceholder();
-    IEffect[] masterShapeEffects = slide.LayoutSlide.MasterSlide.Timeline.MainSequence.GetEffectsByShape(masterShape);
-
-    Console.WriteLine("Main sequence of shape effects:");
-    PrintEffects(masterShapeEffects);
-    PrintEffects(layoutShapeEffects);
-    PrintEffects(shapeEffects);
-}
-```
-```cs
-static void PrintEffects(IEnumerable<IEffect> effects)
-{
-    foreach (IEffect effect in effects)
+    foreach (var effect in sequence)
     {
-        Console.WriteLine($"{effect.Type} {effect.Subtype}");
+        var targetName = effect.TargetShape == null ? "unknown" : effect.TargetShape.Name;
+        var effectDescription = $"{effect.Type} {effect.Subtype}; target: {targetName}; trigger: {effect.Timing.TriggerType}";
+        Console.WriteLine($"    {effectDescription}");
     }
 }
 ```
 
-Output:
-```text
-Main sequence of shape effects:
-Fly Bottom
-Split VerticalIn
-RandomBars Horizontal
-```
+Pokud potřebujete efekty jen pro jeden tvar, nejprve identifikujte tvar podle názvu, typu zástupného objektu nebo jiné stabilní vlastnosti; poté zavolejte [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/isequence/geteffectsbyshape/). Nepředpokládejte, že [IShapeCollection.Item](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/item/) na indexu `0` je vždy požadovaný objekt.
 
-## **Změna časových vlastností animačního efektu**
+## **Práce s děděnými efekty zástupných objektů**
 
-Aspose.Slides pro .NET vám umožňuje měnit časové vlastnosti animačního efektu.
+Zástupný objekt na normálním snímku může dědit chování animace z odpovídajícího zástupného objektu na snímku rozvržení a hlavním snímku. [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/getbaseplaceholder/) vrací tento nadřazený zástupný objekt nebo `null`, když žádný nadřazený neexistuje.
 
-This is the Animation Timing pane and extended menu in Microsoft PowerPoint:
+V následující ukázkové prezentaci má zápatí **Random Bars** na normálním snímku, **Split** na snímku rozvržení a **Fly In** na hlavním snímku.
 
-![example1_image](shape-animation.png)
+![Animace patičky na normálním snímku](slide-shape-animation.png)
 
-These are the correspondences between PowerPoint Timing and [Effect.Timing](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/effect/properties/timing) properties:
-- Rozbalovací seznam **Start** v PowerPoint Timing odpovídá vlastnosti [Effect.Timing.TriggerType](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/itiming/properties/triggertype). 
-- PowerPoint Timing **Duration** odpovídá vlastnosti [Effect.Timing.Duration](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/itiming/properties/duration). Délka animace (v sekundách) je celkový čas potřebný k dokončení jednoho cyklu animace. 
-- PowerPoint Timing **Delay** odpovídá vlastnosti [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/itiming/properties/triggerdelaytime). 
-- PowerPoint Timing **Repeat** rozbalovací seznam odpovídá těmto vlastnostem: 
-  * vlastnost [Effect.Timing.RepeatCount](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/itiming/repeatcount), která popisuje *počet* opakování efektu;
-  * příznak [Effect.Timing.RepeatUntilEndSlide](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/itiming/repeatuntilendslide), který určuje, zda se efekt opakuje až do konce snímku;
-  * příznak [Effect.Timing.RepeatUntilNextClick](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/itiming/repeatuntilnextclick), který určuje, zda se efekt opakuje až do dalšího kliknutí.
-- Zaškrtávací políčko **Rewind when done playing** v PowerPoint Timing odpovídá vlastnosti [Effect.Timing.Rewind](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/itiming/rewind/). 
+![Animace zástupného objektu patičky na snímku rozvržení](layout-shape-animation.png)
 
-Toto je postup, jak změnit časové vlastnosti efektu:
+![Animace zástupného objektu patičky na hlavním snímku](master-shape-animation.png)
 
-1. [Apply](#apply-animation-to-shape) nebo získejte animační efekt.
-2. Nastavte nové hodnoty pro vlastnosti [Effect.Timing](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/effect/properties/timing), které potřebujete. 
-3. Uložte upravený soubor PPTX.
+Další příklad sestaví samotnou hierarchii zástupných objektů. Přidá efekty k hlavnímu zástupnému objektu, zástupnému objektu rozvržení a odpovídajícímu zástupnému objektu na normálním snímku. Každý volání [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/getbaseplaceholder/) je před použitím vráceného tvaru zkontrolováno.
 
-Tento C# kód demonstruje operaci:
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
 
-```c#
-// Instancuje třídu prezentace, která představuje soubor prezentace.
-using (Presentation pres = new Presentation("AnimExample_out.pptx"))
+using var presentation = new Presentation();
+var layoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+var layoutPlaceholder = layoutSlide.PlaceholderManager.AddTextPlaceholder(100, 100, 400, 80);
+layoutSlide.Timeline.MainSequence.AddEffect(layoutPlaceholder, EffectType.Split, EffectSubtype.VerticalIn, EffectTriggerType.OnClick);
+
+var masterPlaceholder = layoutPlaceholder.GetBasePlaceholder();
+if (masterPlaceholder != null)
 {
-    // Získá hlavní sekvenci snímku.
-    ISequence sequence = pres.Slides[0].Timeline.MainSequence;
+    var masterSequence = layoutSlide.MasterSlide.Timeline.MainSequence;
+    masterSequence.AddEffect(masterPlaceholder, EffectType.Fly, EffectSubtype.Bottom, EffectTriggerType.OnClick);
+}
 
-    // Získá první efekt hlavní sekvence.
-    IEffect effect = sequence[0];
+var slide = presentation.Slides.AddEmptySlide(layoutSlide);
+var slidePlaceholder = FindPlaceholderWithBase(slide);
 
-    // Změní TriggerType efektu na spuštění po kliknutí
-    effect.Timing.TriggerType = EffectTriggerType.OnClick;
+if (slidePlaceholder == null)
+{
+    throw new InvalidOperationException("The slide does not contain a placeholder linked to its layout slide.");
+}
 
-    // Změní délku trvání efektu
-    effect.Timing.Duration = 3f;
+slide.Timeline.MainSequence.AddEffect(slidePlaceholder, EffectType.RandomBars, EffectSubtype.Horizontal, EffectTriggerType.OnClick);
+PrintEffects("Normal slide", slide.Timeline.MainSequence.GetEffectsByShape(slidePlaceholder));
 
-    // Změní TriggerDelayTime efektu
-    effect.Timing.TriggerDelayTime = 0.5f;
+var baseLayoutPlaceholder = slidePlaceholder.GetBasePlaceholder();
+if (baseLayoutPlaceholder != null)
+{
+    PrintEffects("Layout slide", layoutSlide.Timeline.MainSequence.GetEffectsByShape(baseLayoutPlaceholder));
 
-    // Pokud je hodnota Repeat efektu "none"
-    if (effect.Timing.RepeatCount == 1f)
+    var baseMasterPlaceholder = baseLayoutPlaceholder.GetBasePlaceholder();
+    if (baseMasterPlaceholder != null)
     {
-        // Změní Repeat efektu na "Do dalšího kliknutí"
-        effect.Timing.RepeatUntilNextClick = true;
+        PrintEffects("Master slide", layoutSlide.MasterSlide.Timeline.MainSequence.GetEffectsByShape(baseMasterPlaceholder));
     }
-    else
+}
+
+presentation.Save("placeholder-animations.pptx", SaveFormat.Pptx);
+
+static IShape FindPlaceholderWithBase(ISlide slide)
+{
+    foreach (var shape in slide.Shapes)
     {
-        // Změní Repeat efektu na "Do konce snímku"
-        effect.Timing.RepeatUntilEndSlide = true;
+        if (shape.GetBasePlaceholder() != null)
+        {
+            return shape;
+        }
     }
 
-    // Zapne funkci Rewind efektu
-        effect.Timing.Rewind = true;
-    
-    // Uloží soubor PPTX na disk
-    pres.Save("AnimExample_changed.pptx", SaveFormat.Pptx);
+    return null;
+}
+
+static void PrintEffects(string source, IEffect[] effects)
+{
+    Console.WriteLine($"{source}: {effects.Length} effect(s)");
+
+    foreach (var effect in effects)
+    {
+        Console.WriteLine($"  {effect.Type} {effect.Subtype}");
+    }
 }
 ```
 
-## **Zvuk animačního efektu**
+## **Změna časování animace**
 
-Aspose.Slides poskytuje tyto vlastnosti, které vám umožňují pracovat se zvuky v animačních efektech: 
-- [IEffect.Sound](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/effect/sound/) 
-- [IEffect.StopPreviousSound](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/effect/stopprevioussound/) 
+Dialog **Timing** v PowerPointu mapuje na vlastnosti [ITiming](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/itiming/).
 
-### **Přidání zvuku animačního efektu**
+![Dialog časování PowerPointu pro efekt animace](shape-animation.png)
 
-Tento C# kód ukazuje, jak přidat zvuk animačního efektu a zastavit jej, když začne další efekt:
+- **Start** mapuje na [ITiming.TriggerType](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/itiming/triggertype/).
+- **Duration** mapuje na [ITiming.Duration](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/itiming/duration/), v sekundách.
+- **Delay** mapuje na [ITiming.TriggerDelayTime](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/itiming/triggerdelaytime/), v sekundách.
+- **Repeat** mapuje na [ITiming.RepeatCount](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/itiming/repeatcount/), [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/itiming/repeatuntilnextclick/), nebo [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/itiming/repeatuntilendslide/).
+- **Rewind when done playing** mapuje na [ITiming.Rewind](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/itiming/rewind/).
 
-```c#
-using (Presentation pres = new Presentation("AnimExample_out.pptx"))
-{
-	// Přidá audio do kolekce audia prezentace
-	IAudio effectSound = pres.Audios.AddAudio(File.ReadAllBytes("sampleaudio.wav"));
+Tento samostatný příklad přidá efekt, změní jeho časování pomocí objektu vráceného metodou [ISequence.AddEffect](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/isequence/addeffect/) a uloží výsledek. Uchování reference na vrácený [IEffect](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/ieffect/) zabraňuje zbytečnému přístupu k indexu kolekce.
 
-	ISlide firstSlide = pres.Slides[0];
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
 
-	// Získá hlavní sekvenci snímku.
-	ISequence sequence = firstSlide.Timeline.MainSequence;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+shape.TextFrame.Text = "Timed animation";
 
-	// Získá první efekt hlavní sekvence
-	IEffect firstEffect = sequence[0];
+var effect = slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+effect.Timing.TriggerType = EffectTriggerType.OnClick;
+effect.Timing.Duration = 2.0f;
+effect.Timing.TriggerDelayTime = 0.5f;
+effect.Timing.RepeatUntilNextClick = false;
+effect.Timing.RepeatUntilEndSlide = false;
+effect.Timing.RepeatCount = 2.0f;
+effect.Timing.Rewind = true;
 
-	// Kontroluje, zda efekt nemá zvuk
-	if (!firstEffect.StopPreviousSound && firstEffect.Sound == null)
-	{
-		// Přidá zvuk k prvnímu efektu
-		firstEffect.Sound = effectSound;
-	}
-
-	// Získá první interaktivní sekvenci snímku.
-	ISequence interactiveSequence = firstSlide.Timeline.InteractiveSequences[0];
-
-	// Nastaví příznak "Stop previous sound" efektu
-	interactiveSequence[0].StopPreviousSound = true;
-
-	// Zapíše soubor PPTX na disk
-	pres.Save("AnimExample_Sound_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("shape-animation-timing.pptx", SaveFormat.Pptx);
 ```
 
-### **Extrahování zvuku animačního efektu**
+Používejte jeden režim opakování úmyslně. Kombinace počtu opakování s příznakem „until“ může vést k zmateným výsledkům v různých prohlížečích. Při změně režimů opakování nejprve nastavte [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/itiming/repeatuntilnextclick/) a [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/itiming/repeatuntilendslide/), až poté [ITiming.RepeatCount](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/itiming/repeatcount/), protože nastavení kteréhokoli příznaku také mění aktivní režim opakování.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) .
-2. Získejte referenci na snímek podle jeho indexu. 
-3. Získejte hlavní sekvenci efektů. 
-4. Extrahujte [Sound](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/effect/sound/) vložený do každého animačního efektu. 
+## **Přidání a extrakce zvuků animací**
 
-Tento C# kód ukazuje, jak extrahovat zvuk vložený v animačním efektu:
+Efekt animace může odkazovat na vložený zvuk přes [IEffect.Sound](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/ieffect/sound/). [IEffect.StopPreviousSound](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/ieffect/stopprevioussound/) říká efektu, aby zastavil zvuk zahájený dříve.
 
-```c#
-// Instancuje třídu prezentace, která představuje soubor prezentace.
-using (Presentation presentation = new Presentation("EffectSound.pptx"))
+### **Přidat zvuk k efektu**
+
+Následující příklad očekává lokální zvukový soubor pojmenovaný `animation-sound.wav`. Vytvoří dva efekty, první efekt embedne tento soubor jako zvuk a druhý efekt nastaví tak, aby zvuk zastavil. Používá objekty vrácené metodou [ISequence.AddEffect](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/isequence/addeffect/), takže není nutný index sekvence.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var firstShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 80, 100, 240, 80);
+var secondShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 400, 100, 240, 80);
+firstShape.TextFrame.Text = "Starts sound";
+secondShape.TextFrame.Text = "Stops sound";
+
+var sequence = slide.Timeline.MainSequence;
+var firstEffect = sequence.AddEffect(firstShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+var secondEffect = sequence.AddEffect(secondShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+
+var audioData = File.ReadAllBytes("animation-sound.wav");
+var effectSound = presentation.Audios.AddAudio(audioData);
+firstEffect.Sound = effectSound;
+secondEffect.StopPreviousSound = true;
+
+presentation.Save("shape-animation-sound.pptx", SaveFormat.Pptx);
+```
+
+### **Extrahovat vložené zvuky efektů**
+
+Následující příklad očekává lokální prezentaci pojmenovanou `presentation-with-animation-sounds.pptx`. Prohledá hlavní i interaktivní sekvence a zapíše každý vložený zvuk efektu do adresáře `extracted-animation-sounds`. Přípona je zvolena podle MIME typu zvuku, který poskytuje [IAudio.ContentType](https://reference.aspose.com/slides/cs/net/aspose.slides/iaudio/contenttype/).
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+
+var inputPath = "presentation-with-animation-sounds.pptx";
+var outputDirectory = "extracted-animation-sounds";
+
+Directory.CreateDirectory(outputDirectory);
+
+using var presentation = new Presentation(inputPath);
+var soundIndex = 1;
+
+foreach (var slide in presentation.Slides)
 {
-    ISlide slide = presentation.Slides[0];
+    SaveSounds(slide.Timeline.MainSequence, outputDirectory, ref soundIndex);
 
-    // Získá hlavní sekvenci snímku.
-    ISequence sequence = slide.Timeline.MainSequence;
+    foreach (var sequence in slide.Timeline.InteractiveSequences)
+    {
+        SaveSounds(sequence, outputDirectory, ref soundIndex);
+    }
+}
 
-    foreach (IEffect effect in sequence)
+Console.WriteLine($"Extracted {soundIndex - 1} sound file(s) to {Path.GetFullPath(outputDirectory)}.");
+
+static void SaveSounds(ISequence sequence, string outputDirectory, ref int soundIndex)
+{
+    foreach (var effect in sequence)
     {
         if (effect.Sound == null)
             continue;
 
-        // Extrahuje zvuk efektu do pole bajtů
-        byte[] audio = effect.Sound.BinaryData;
+        var extension = GetAudioExtension(effect.Sound.ContentType);
+        var outputPath = Path.Combine(outputDirectory, $"effect-sound-{soundIndex}{extension}");
+        File.WriteAllBytes(outputPath, effect.Sound.BinaryData);
+        soundIndex++;
     }
 }
-```
 
-## **Po animaci**
-
-Aspose.Slides pro .NET vám umožňuje změnit vlastnost After animation animačního efektu.
-
-This is the Animation Effect pane and extended menu in Microsoft PowerPoint:
-
-![example1_image](shape-after-animation.png)
-
-Rozbalovací seznam **After animation** v PowerPoint odpovídá těmto vlastnostem: 
-
-- vlastnost [IEffect.AfterAnimationType](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/ieffect/afteranimationtype/) popisuje typ After animation :
-  * PowerPoint **More Colors** odpovídá typu [AfterAnimationType.Color](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/afteranimationtype/) ;
-  * PowerPoint **Don't Dim** odpovídá typu [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/afteranimationtype/) (výchozí typ after animation);
-  * PowerPoint **Hide After Animation** odpovídá typu [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/afteranimationtype/) ;
-  * PowerPoint **Hide on Next Mouse Click** odpovídá typu [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/afteranimationtype/) ;
-- vlastnost [IEffect.AfterAnimationColor](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/ieffect/afteranimationcolor/) definuje formát barvy po animaci. Tato vlastnost funguje ve spojení s typem [AfterAnimationType.Color](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/afteranimationtype/). Pokud typ změníte na jiný, barva po animaci bude vymazána.
-
-Tento C# kód ukazuje, jak změnit efekt po animaci:
-
-```c#
-// Instancuje třídu prezentace, která představuje soubor prezentace
-using (Presentation pres = new Presentation("AnimImage_out.pptx"))
+static string GetAudioExtension(string contentType)
 {
-    ISlide firstSlide = pres.Slides[0];
+    var normalizedType = contentType == null ? string.Empty : contentType.ToLowerInvariant();
 
-    // Získá první efekt hlavní sekvence
-    IEffect firstEffect = firstSlide.Timeline.MainSequence[0];
+    if (normalizedType == "audio/mpeg")
+        return ".mp3";
 
-    // Změní typ po animaci na Color
-    firstEffect.AfterAnimationType = AfterAnimationType.Color;
+    if (normalizedType == "audio/mp4")
+        return ".m4a";
 
-    // Nastaví barvu po animaci
-    firstEffect.AfterAnimationColor.Color = Color.AliceBlue;
+    if (normalizedType == "audio/ogg")
+        return ".ogg";
 
-    // Zapíše soubor PPTX na disk
-    pres.Save("AnimImage_AfterAnimation.pptx", SaveFormat.Pptx);
+    if (normalizedType == "audio/wav" || normalizedType == "audio/x-wav")
+        return ".wav";
+
+    return ".bin";
 }
 ```
 
-## **Animovat text**
+U velkých zvukových objektů použijte [IAudio.GetStream](https://reference.aspose.com/slides/cs/net/aspose.slides/iaudio/getstream/) a zkopírujte proud do souboru místo načítání celého objektu do pole bajtů.
 
-Aspose.Slides poskytuje tyto vlastnosti, které vám umožňují pracovat s blokem *Animate text* animačního efektu:
+## **Nastavení chování po animaci**
 
-- [IEffect.AnimateTextType](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/ieffect/animatetexttype/) popisuje typ animace textu efektu. Text ve tvaru lze animovat:
-  - Vše najednou ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/animatetexttype/) typ)
-  - Po slovech ([AnimateTextType.ByWord](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/animatetexttype/) typ)
-  - Po znacích ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/animatetexttype/) typ)
-- [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/ieffect/delaybetweentextparts/) nastavuje prodlevu mezi částmi animovaného textu (slovy nebo znaky). Kladná hodnota udává procento trvání efektu. Záporná hodnota udává prodlevu v sekundách.
+Možnost **After animation** řídí, co se stane s tvarem po dokončení jeho efektu.
 
-Toto je způsob, jak můžete změnit vlastnosti Effect Animate text:
+![Dialog možností efektu PowerPointu zobrazující nastavení Po animaci](shape-after-animation.png)
 
-1. [Apply](#apply-animation-to-shape) nebo získejte animační efekt.
-2. Nastavte vlastnost [IEffect.TextAnimation.BuildType](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/itextanimation/buildtype/) na hodnotu [BuildType.AsOneObject](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/buildtype/) pro vypnutí režimu animace *By Paragraphs*.
-3. Nastavte nové hodnoty pro vlastnosti [IEffect.AnimateTextType](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/ieffect/animatetexttype/) a [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/ieffect/delaybetweentextparts/).
-4. Uložte upravený soubor PPTX.
+Výčet [AfterAnimationType](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/afteranimationtype/) podporuje ponechání tvaru beze změny, změnu jeho barvy, skrytí po animaci nebo skrytí při dalším kliknutí. Když je typ [AfterAnimationType.Color](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/afteranimationtype/), nastavte také [IEffect.AfterAnimationColor](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/ieffect/afteranimationcolor/).
 
-Tento C# kód demonstruje operaci:
+Tento samostatný příklad vytvoří efekt, nastaví jeho chování po animaci prostřednictvím vráceného objektu efektu a uloží výsledek.
 
-```c#
-// Instancuje třídu prezentace, která představuje soubor prezentace.
-using (Presentation pres = new Presentation("AnimTextBox_out.pptx"))
-{
-    ISlide firstSlide = pres.Slides[0];
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
 
-    // Získá první efekt hlavní sekvence
-    IEffect firstEffect = firstSlide.Timeline.MainSequence[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+shape.TextFrame.Text = "Dim after animation";
 
-    // Změní typ textové animace efektu na "As One Object"
-    firstEffect.TextAnimation.BuildType = BuildType.AsOneObject;
+var effect = slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+effect.AfterAnimationType = AfterAnimationType.Color;
+effect.AfterAnimationColor.Color = Color.LightGray;
 
-    // Změní typ animace textu efektu na "By word"
-    firstEffect.AnimateTextType = AnimateTextType.ByWord;
-
-    // Nastaví prodlevu mezi slovy na 20% trvání efektu
-    firstEffect.DelayBetweenTextParts = 20f;
-
-    // Zapíše soubor PPTX na disk
-    pres.Save("AnimTextBox_AnimateText.pptx", SaveFormat.Pptx);
-}
+presentation.Save("shape-animation-after-effect.pptx", SaveFormat.Pptx);
 ```
 
-## **Časté dotazy**
+Změna typu od [AfterAnimationType.Color](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/afteranimationtype/) vymaže nastavení barvy po animaci.
 
-**Jak mohu zajistit, aby animace byly zachovány při publikování prezentace na web?**
+## **Animace textu**
 
-[Export to HTML5](/slides/cs/net/export-to-html5/) a povolte [options](https://reference.aspose.com/slides/cs/net/aspose.slides.export/html5options/) zodpovědné za animace [shape](https://reference.aspose.com/slides/cs/net/aspose.slides.export/html5options/animateshapes/) a [transition](https://reference.aspose.com/slides/cs/net/aspose.slides.export/html5options/animatetransitions/). Běžné HTML nepřehrává animace snímků, zatímco HTML5 ano.
+Animace textu má dvě související nastavení:
 
-**Jak změna z‑order (pořadí vrstev) tvarů ovlivňuje animaci?**
+- [ITextAnimation.BuildType](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/itextanimation/buildtype/) určuje, zda se odstavce zobrazují společně nebo po úrovních odstavců.
+- [IEffect.AnimateTextType](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/ieffect/animatetexttype/) určuje, zda se text zobrazí najednou, po slovech nebo po písmenkách. [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/ieffect/delaybetweentextparts/) nastavuje prodlevu mezi slovy nebo písmeny. Kladná hodnota představuje procento trvání efektu; záporná hodnota je prodleva v sekundách.
 
-Animace a pořadí kreslení jsou nezávislé: efekt řídí načasování a typ zobrazování/skrývání, zatímco [z-order](https://reference.aspose.com/slides/cs/net/aspose.slides/shape/zorderposition/) určuje, co co překrývá. Viditelný výsledek je definován jejich kombinací. (Jedná se o obecné chování PowerPointu; model efektů a tvarů Aspose.Slides následuje stejnou logiku.)
+Následující samostatný příklad animuje slova v textovém poli. [BuildType.AsOneObject](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/buildtype/) zakáže budování odstavec po odstavci, takže nastavení pro slova se použije na celý textový rámec.
 
-**Existují omezení při konverzi animací na video pro některé efekty?**
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
 
-Obecně jsou [animace podporovány](/slides/cs/net/convert-powerpoint-to-video/), ale v ojedinělých případech nebo pro konkrétní efekty může být výstup odlišný. Doporučujeme testovat s efekty, které používáte, a s verzí knihovny.
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 80, 80, 560, 100);
+textBox.TextFrame.Text = "Aspose.Slides animates this sentence word by word.";
+
+var effect = slide.Timeline.MainSequence.AddEffect(textBox, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+effect.TextAnimation.BuildType = BuildType.AsOneObject;
+effect.AnimateTextType = AnimateTextType.ByWord;
+effect.DelayBetweenTextParts = 20.0f;
+
+presentation.Save("animated-text.pptx", SaveFormat.Pptx);
+```
+
+Pro budování textového pole po odstavcích nastavte [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/buildtype/) (nebo jinou úroveň odstavce). Pro cílení jediného odstavce s vlastním efektem použijte přetížení [ISequence.AddEffect](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/isequence/addeffect/), které přijímá [IParagraph](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraph/). Viz [Animated Text](/slides/cs/net/animated-text/) pro příklady na úrovni odstavce.
+
+## **Export a poznámky o kompatibilitě**
+
+- Ukládání do PPT nebo PPTX zachovává model animace, ale finální přehrávání řídí prohlížeč prezentace.
+- PDF a statické obrázky neprobíhají animace. Použijte [HTML5 export](/slides/cs/net/export-to-html5/), animovaný GIF nebo [video conversion](/slides/cs/net/convert-powerpoint-to-video/) když je nutné zachovat pohyb.
+- Pro HTML5 povolte [Html5Options.AnimateShapes](https://reference.aspose.com/slides/cs/net/aspose.slides.export/html5options/animateshapes/) a podle potřeby [Html5Options.AnimateTransitions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/html5options/animatetransitions/).
+- Video rendering podporuje mnoho běžných vstupních, důrazových, odcházejících a pohybových efektů, ale ne každý efekt PowerPointu je podporován. Zkontrolujte aktuální [supported animations and effects](/slides/cs/net/convert-powerpoint-to-video/#supported-animations-and-effects) a otestujte kritické prezentace s vaší cílovou verzí Aspose.Slides.
+- Pokročilé vlastní efekty a efekty importované z jiných formátů mohou být zachovány v souboru, ale renderují se odlišně v PowerPointu, HTML5 nebo videu. Ověřte exportovaný výsledek místo spoléhání se pouze na název efektu.
+
+## **Často kladené otázky**
+
+**Proč se animace zobrazí v PowerPointu, ale ne v PDF?**
+
+PDF je statický formát, takže animace a přechody snímků se nepřehrávají. Exportujte do HTML5, animovaného GIFu nebo videa, když je nutný pohyb.
+
+**Proč se efekt přehrává odlišně ve videu?**
+
+Export videa renderuje animace místo uložení původního chování PowerPointu. Některé pokročilé efekty nejsou podporovány nebo jsou aproximovány. Prohlédněte si tabulku podporovaných efektů a otestujte skutečnou prezentaci před produkčním použitím.
+
+**Mění přesunutí tvaru dopředu nebo dozadu pořadí jeho animace?**
+
+Ne. Z‑order tvaru řídí překrývání, zatímco pořadí sekvence a spouštěče řídí přehrávání animací. Změňte časovou osu, pokud potřebujete jiný pořádek přehrávání.

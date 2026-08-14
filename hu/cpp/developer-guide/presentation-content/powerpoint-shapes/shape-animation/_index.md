@@ -1,5 +1,5 @@
 ---
-title: Alakzatanimációk alkalmazása prezentációkban C++-val
+title: Alakzatanimációk alkalmazása prezentációkban C++ segítségével
 linktitle: Alakzat animáció
 type: docs
 weight: 60
@@ -22,457 +22,553 @@ keywords:
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Ismerje meg, hogyan hozhat létre és testreszabhat alakzatanimációkat PowerPoint prezentációkban az Aspose.Slides for C++ segítségével. Emelkedjen ki!"
+description: "Ismerkedjen meg azzal, hogyan adhat hozzá, vizsgálhat és testreszabhat alakzatanimációkat, időzítést, hangokat, az animáció utáni viselkedést és animált szöveget az Aspose.Slides for C++ segítségével."
 ---
-## **Bevezetés**
+## **Áttekintés**
 
-Az animációk vizuális effektusok, amelyeket szövegekre, képekre, alakzatokra vagy [diagramokra](/slides/hu/cpp/animated-charts/) lehet alkalmazni. Életet adnak a prezentációknak vagy annak elemeinek. 
+Az Aspose.Slides for C++ a dia animációit effektusokként ábrázolja a dia idővonalában. Egy effektusnak van célalakzata, animáció típusa és altípusa, egy trigger, időzítési beállításai, valamint opcionális tulajdonságai, például hang vagy az animáció utáni viselkedés.
 
-## **Miért használjunk animációkat a prezentációkban?**
+Az idővonal kétféle sorozatot tartalmaz:
 
-Az animációk segítségével
+- A **fő sorozat** a dia előrehaladtával játszódik le.
+- Egy **interaktív sorozat** akkor indul, amikor a trigger alakzatára kattintanak.
 
-* információáramlás irányítása
-* fontos pontok kiemelése
-* az érdeklődés vagy részvétel növelése a közönség körében
-* a tartalom könnyebben olvashatóvá, befogadhatóvá vagy feldolgozhatóvá tétele
-* a közönség figyelmének felhívása a prezentáció fontos részeire
+Mivel a szövegmezők, képek, diagramok, táblázatok és más diaobjektumok implementálják az [IShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/), a legtöbb dia tartalomhoz ugyanazt az [ISequence::AddEffect](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/isequence/addeffect/) metódust használhatja. Az elérhető effektusok a [EffectType](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/effecttype/) felsorolásban vannak felsorolva.
 
-A PowerPoint számos beállítást és eszközt biztosít az animációkhoz és az animációs effektusokhoz a **belépés**, **kilépés**, **kiemelés** és **mozgáspályák** kategóriákban. 
+## **Alakzatanimációk hozzáadása**
 
-## **Animációk az Aspose.Slides-ban**
+Animáció hozzáadásához kérje le a dia fő sorozatát, és hívja meg az [ISequence::AddEffect](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/isequence/addeffect/) metódust a célalakzattal, effektustípussal, altípussal és triggerrel. Ha egy effektusnak akkor kell kezdődnie, amikor egy másik alakzatra kattintanak, hozzon létre egy interaktív sorozatot, amelynek triggerje az a másik alakzat.
 
-* Az Aspose.Slides biztosítja az osztályokat és típusokat, melyekre az animációkkal való munkához a [Aspose.Slides.Animation](https://reference.aspose.com/slides/hu/cpp/namespace/aspose.slides.animation) névtérben szüksége van,  
-* Az Aspose.Slides több mint **150 animációs effektust** biztosít a [EffectType](https://reference.aspose.com/slides/hu/cpp/namespace/aspose.slides.animation#ae0da11508d382465aa4e7a011df1bf31) enumerációban. Ezek az effektusok lényegében megegyeznek (vagy ekvivalensek) a PowerPoint-ban használtakkal.  
+A következő példában mindkét típusú animációt létrehozzuk, és az eredményt a `shape-animations.pptx` fájlba mentjük.
 
-## **Animáció alkalmazása szövegdobozra**
+```cpp
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ISequenceCollection.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
-Az Aspose.Slides for C++ lehetővé teszi, hogy animációt alkalmazzon egy alakzat szövegére. 
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation/) osztályból.  
-2. Szerezze meg egy dia referenciaját az indexén keresztül.  
-3. Adjon hozzá egy `rectangle` [IAutoShape](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_auto_shape) elemet.  
-4. Adjon szöveget a [IAutoShape.TextFrame](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_auto_shape#afb267108fea5ee5a213c162c004fcef3) elemhez.  
-5. Szerezze meg a fő effektussorozatot.  
-6. Adjon animációs effektust a [IAutoShape](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_auto_shape) elemhez.  
-7. Állítsa be a [TextAnimation.BuildType](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.animation.text_animation#afa90da088213f947baf64f8cdddd18b8) tulajdonságot a [BuildType Enumeration](https://reference.aspose.com/slides/hu/cpp/namespace/aspose.slides.animation#a1b0f1615881ac05b1a72c670a125b8e7) értékére.  
-8. Írja a prezentációt lemezre PPTX fájlként.  
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-Ez a C++ kód bemutatja, hogyan kell alkalmazni a `Fade` effektust az AutoShape-re, és beállítani a szöveg animációját a *By 1st Level Paragraphs* értékre:
+auto targetShape = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 120.0f, 100.0f, 320.0f, 80.0f);
+targetShape->get_TextFrame()->set_Text(u"Click to animate this shape");
 
-```c++
-// Példányosít egy prezentációs osztályt, amely egy prezentációs fájlt képvisel.
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+auto mainSequence = slide->get_Timeline()->get_MainSequence();
+auto entranceEffect = mainSequence->AddEffect(targetShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+entranceEffect->get_Timing()->set_Duration(1.5f);
 
-System::SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
+auto triggerShape = slide->get_Shapes()->AddAutoShape(ShapeType::Bevel, 20.0f, 20.0f, 100.0f, 40.0f);
+triggerShape->get_TextFrame()->set_Text(u"Move");
 
-// Új AutoShape-et ad hozzá szöveggel
-System::SharedPtr<IAutoShape> autoShape =
-    sld->get_Shapes()->AddAutoShape(Aspose::Slides::ShapeType::Rectangle, 20.0f, 20.0f, 150.0f, 100.0f);
+auto interactiveSequence = slide->get_Timeline()->get_InteractiveSequences()->Add(triggerShape);
+interactiveSequence->AddEffect(targetShape, EffectType::PathFootball, EffectSubtype::None, EffectTriggerType::OnClick);
 
-System::SharedPtr<ITextFrame> textFrame = autoShape->get_TextFrame();
-textFrame->set_Text(u"First paragraph \nSecond paragraph \n Third paragraph");
-
-// Lekéri a dia fő sorozatát.
-System::SharedPtr<ISequence> sequence = sld->get_Timeline()->get_MainSequence();
-
-// Fade animációs effektust ad az alakzathoz
-System::SharedPtr<IEffect> effect = sequence->AddEffect(autoShape, Aspose::Slides::Animation::EffectType::Fade,
-    Aspose::Slides::Animation::EffectSubtype::None, Aspose::Slides::Animation::EffectTriggerType::OnClick);
-
-// Az alakzat szövegét az első szintű bekezdések szerint animálja
-effect->get_TextAnimation()->set_BuildType(Aspose::Slides::Animation::BuildType::ByLevelParagraphs1);
-
-// Mentse el a PPTX fájlt a lemezre
-pres->Save(path + u"AnimText_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-{{%  alert color="primary"  %}} 
-
-Az animációk szövegre való alkalmazása mellett animációkat is alkalmazhat egyetlen [Paragraph](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_paragraph) elemre. Lásd a [**Animated Text**](/slides/hu/cpp/animated-text/).
-
-{{% /alert %}} 
-
-## **Animáció alkalmazása képkeretre**
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation/) osztályból.  
-2. Szerezze meg egy dia referenciaját az indexén keresztül.  
-3. Adjon hozzá vagy szerezze meg a dián a [PictureFrame](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_picture_frame) elemet.  
-4. Szerezze meg a fő effektussorozatot.  
-5. Adjon animációs effektust a [PictureFrame](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_picture_frame) elemhez.  
-6. Írja a prezentációt lemezre PPTX fájlként.  
-
-Ez a C++ kód bemutatja, hogyan kell alkalmazni a `Fly` effektust egy képkeretre:
-
-```c++
-// Példányosít egy prezentációs osztályt, amely egy prezentációs fájlt képvisel.
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-
-// Betölti a képet, amely a prezentáció képgyűjteményébe lesz hozzáadva
-System::SharedPtr<IImage> img = Images::FromFile(u"aspose-logo.jpg");
-System::SharedPtr<IPPImage> image = pres->get_Images()->AddImage(img);
-
-// Képkeretet ad hozzá a diához
-System::SharedPtr<IPictureFrame> picFrame =
-    pres->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(Aspose::Slides::ShapeType::Rectangle, 50.0f, 50.0f, 100.0f, 100.0f, image);
-
-// Lekéri a dia fő sorozatát.
-System::SharedPtr<ISequence> sequence = pres->get_Slides()->idx_get(0)->get_Timeline()->get_MainSequence();
-
-// Balról repülő animációs effektust ad a képkerethez
-System::SharedPtr<IEffect> effect = sequence->AddEffect(picFrame, Aspose::Slides::Animation::EffectType::Fly,
-    Aspose::Slides::Animation::EffectSubtype::Left, Aspose::Slides::Animation::EffectTriggerType::OnClick);
-
-// Mentse el a PPTX fájlt a lemezre
-pres->Save(path + u"AnimImage_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **Animáció alkalmazása alakzatra**
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation/) osztályból.  
-2. Szerezze meg egy dia referenciaját az indexén keresztül.  
-3. Adjon hozzá egy `rectangle` [IAutoShape](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_auto_shape) elemet.  
-4. Adjon hozzá egy `Bevel` [IAutoShape](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_auto_shape) elemet (amikor ezt az objektumot rákattintják, az animáció lejátszásra kerül).  
-5. Hozzon létre egy effektussorozatot a bevel alakzaton.  
-6. Hozzon létre egy egyéni `UserPath`-ot.  
-7. Adjon parancsokat a `UserPath`-ra való mozgáshoz.  
-8. Írja a prezentációt lemezre PPTX fájlként.  
-
-Ez a C++ kód bemutatja, hogyan kell alkalmazni a `PathFootball` (path football) effektust egy alakzatra:
-
-```c++
-	// A dokumentumkönyvtár elérési útja.
-	const String outPath = u"../out/AnimationsOnShapes_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
-
-	// Betölti a prezentációt
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-	// Eléri az első diát
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-	// Eléri a kiválasztott dia alakzatgyűjteményét
-	SharedPtr<IShapeCollection> shapes = slide->get_Shapes();
-
-	// Létrehozza a PathFootball effektust a meglévő alakzatra nulláról.
-	SharedPtr<IAutoShape> ashp = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 150, 250, 25);
-
-	ashp->AddTextFrame(u"Animated TextBox");
-
-	// Hozzáadja a PathFootball animációs effektust
-	slide->get_Timeline()->get_MainSequence()->AddEffect(ashp, EffectType::PathFootball,
-		EffectSubtype::None, EffectTriggerType::AfterPrevious);
-
-	// Létrehoz egyfajta „gombot”.
-	SharedPtr<IAutoShape> shapeTrigger = slide->get_Shapes()->AddAutoShape(ShapeType::Bevel, 10, 10, 20, 20);
-
-	// Létrehoz egy sorozatot az effektusokból ehhez a gombhoz.
-	SharedPtr<ISequence> seqInter = slide->get_Timeline()->get_InteractiveSequences()->Add(shapeTrigger);
-	
-	 // Létrehoz egy egyéni felhasználói útvonalat. Az objektum csak a gomb megnyomása után kerül mozgatásra.
-	SharedPtr<IEffect> fxUserPath = seqInter->AddEffect(ashp, EffectType::PathUser, EffectSubtype::None, EffectTriggerType::OnClick);
-
-	// Parancsokat ad hozzá a mozgáshoz, mivel a létrehozott útvonal üres.
-	 SharedPtr<MotionEffect> motionBhv = ExplicitCast<MotionEffect>(fxUserPath->get_Behaviors()->idx_get(0));
-
-	 //SharedPtr<PointF> point = MakeObject<PointF >(0.076, 0.59);
-	 const PointF point = PointF (0.076, 0.59);
-	 System::ArrayPtr<PointF> pts = System::MakeObject<System::Array<PointF>>(1, point);
-	 motionBhv->get_Path()->Add(MotionCommandPathType::LineTo, pts, MotionPathPointsType::Auto, true);
-	 
-	 //PointF point2[1] = { -0.076, -0.59 };
-	const  PointF point2 = PointF(-0.076, -0.59 );
-
-	 System::ArrayPtr<PointF> pts2 = System::MakeObject<System::Array<PointF>>(1, point2);
-	 motionBhv->get_Path()->Add(MotionCommandPathType::LineTo, pts2, MotionPathPointsType::Auto, false);
-	 
-	 motionBhv->get_Path()->Add(MotionCommandPathType::End, nullptr, MotionPathPointsType::Auto, false);
-	 
-	 // A PPTX fájlt lemezre írja
-	 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **Alakzatra alkalmazott animációs effektusok lekérése**
-
-Az alábbi példák megmutatják, hogyan kell használni a `GetEffectsByShape` metódust a [ISequence](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/isequence/) interfészből, hogy lekérje az alakzatra alkalmazott összes animációs effektust.
-
-**Példa 1: Animációs effektusok lekérése egy alakzatra egy normál dián**
-
-Korábban megtanulta, hogyan kell animációs effektusokat hozzáadni az alakzatokhoz PowerPoint prezentációkban. Az alábbi minta kód megmutatja, hogyan kell lekérni az első alakzatra az első normál dián a `AnimExample_out.pptx` prezentációban alkalmazott effektusokat.
-
-```c++
-SharedPtr<Presentation> presentation = MakeObject<Presentation>(u"AnimExample_out.pptx");
-
-SharedPtr<ISlide> firstSlide = presentation->get_Slide(0);
-
-// Gets the main animation sequence of the slide.
-SharedPtr<ISequence> sequence = firstSlide->get_Timeline()->get_MainSequence();
-
-// Gets the first shape on the first slide.
-SharedPtr<IShape> shape = firstSlide->get_Shape(0);
-
-// Gets animation effects applied to the shape.
-ArrayPtr<SharedPtr<IEffect>> shapeEffects = sequence->GetEffectsByShape(shape);
-
-if (shapeEffects->get_Length() > 0)
-{
-    Console::WriteLine(u"The shape " + shape->get_Name() + u" has " + shapeEffects->get_Length() + u" animation effects.");
-}
-
+presentation->Save(u"shape-animations.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-**Példa 2: Az összes animációs effektus lekérése, beleértve a helyőrzőkből örökölt effektusokat**
+A trigger szabályozza, hogy mikor indul az effektus:
 
-Ha egy alakzat egy normál dián olyan helyőrzőkkel rendelkezik, amelyek az elrendezés-dián és/vagy a mester-dián találhatók, és animációs effektusok lettek hozzáadva ezekhez a helyőrzőkhöz, akkor az alakzat összes effektusa lejátszásra kerül a diavetítés során, beleértve a helyőrzőkből örökölt effektusokat.
+- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/effecttriggertype/) a fő sorozatban kattintásra, vagy egy interaktív sorozatban a trigger alakzatra vár.
+- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/effecttriggertype/) az előző effektussal együtt indul.
+- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/effecttriggertype/) az előző effektus befejeződése után indul.
 
-Tegyük fel, hogy van egy `sample.pptx` nevű PowerPoint prezentációfájlunk, amely egyetlen diát tartalmaz, azon csak egy lábléc alakzatot a „Made with Aspose.Slides” szöveggel, és a **Random Bars** effektus van alkalmazva az alakzatra.
+Kép, diagram vagy más alakzattípussal történő animációhoz adja át azt az objektumot az [ISequence::AddEffect](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/isequence/addeffect/) metódusnak a `targetShape` helyett. Diagram-specifikus csoportosítási lehetőségekért lásd a [Animated Charts](/slides/hu/cpp/animated-charts/) oldalt.
 
-![Dia alakzat animációs effektus](slide-shape-animation.png)
+## **Alakzatanimációk olvasása**
 
-Tegyük fel továbbá, hogy a **Split** effektus van alkalmazva a lábléc helyőrzőre az **elrendezés** dián.
+Használja az [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/isequence/geteffectsbyshape/) metódust, ha ismeri a cél alakzatot. Minden effektus megvizsgálásához enumerálja a fő sorozatot és minden interaktív sorozatot. Az enumerálás elkerüli annak feltételezését, hogy egy sorozat a `0` indexen tartalmaz effektust.
 
-![Elrendezés alakzat animációs effektus](layout-shape-animation.png)
-
-Végül a **Fly In** effektus van alkalmazva a lábléc helyőrzőre a **mester** dián.
-
-![Mester alakzat animációs effektus](master-shape-animation.png)
-
-Az alábbi minta kód megmutatja, hogyan kell használni a `GetBasePlaceholder` metódust a [IShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/) interfészből az alakzat helyőrzőinek eléréséhez, és az animációs effektusok lekéréséhez, amelyek a lábléc alakzatra vannak alkalmazva, beleértve az elrendezésen és a mesterdián lévő helyőrzőkből örökölt effektusokat.
+A következő példában létrehozunk egy alakzatot fő‑sorozat és interaktív effektusokkal, lekérdezzük a alakzatot célzó effektusokat, majd enumeráljuk a dia minden sorozatát.
 
 ```cpp
-void PrintEffects(ArrayPtr<SharedPtr<IEffect>> effects)
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ISequenceCollection.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/console.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace System;
+
+auto printSequence = [](const String& label, const SharedPtr<ISequence>& sequence)
 {
-    for (SharedPtr<IEffect> effect : effects)
+    Console::WriteLine(String::Format(u"  {0}: {1} effect(s)", label, sequence->get_Count()));
+
+    for (const auto& effect : sequence)
     {
-        Console::WriteLine(String::Format(u"Type: {0}, subtype: {1}", effect->get_Type(), effect->get_Subtype()));
+        auto targetName = effect->get_TargetShape() == nullptr ? u"unknown" : effect->get_TargetShape()->get_Name();
+        auto effectDescription = String::Format(u"{0} {1}; target: {2}; trigger: {3}", effect->get_Type(), effect->get_Subtype(), targetName, effect->get_Timing()->get_TriggerType());
+        Console::WriteLine(u"    " + effectDescription);
     }
+};
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto targetShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 120.0f, 100.0f, 320.0f, 80.0f);
+targetShape->get_TextFrame()->set_Text(u"Animated shape");
+
+auto mainSequence = slide->get_Timeline()->get_MainSequence();
+mainSequence->AddEffect(targetShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+
+auto triggerShape = slide->get_Shapes()->AddAutoShape(ShapeType::Bevel, 20.0f, 20.0f, 100.0f, 40.0f);
+triggerShape->get_TextFrame()->set_Text(u"Move");
+
+auto interactiveSequence = slide->get_Timeline()->get_InteractiveSequences()->Add(triggerShape);
+interactiveSequence->AddEffect(targetShape, EffectType::PathFootball, EffectSubtype::None, EffectTriggerType::OnClick);
+
+auto targetEffects = mainSequence->GetEffectsByShape(targetShape);
+Console::WriteLine(String::Format(u"The main sequence contains {0} effect(s) for {1}.", targetEffects->get_Length(), targetShape->get_Name()));
+
+printSequence(u"Main sequence", mainSequence);
+
+int32_t interactiveIndex = 1;
+for (const auto& sequence : slide->get_Timeline()->get_InteractiveSequences())
+{
+    auto triggerName = sequence->get_TriggerShape() == nullptr ? u"unknown" : sequence->get_TriggerShape()->get_Name();
+    auto sequenceLabel = String::Format(u"Interactive sequence {0}, trigger: {1}", interactiveIndex, triggerName);
+    printSequence(sequenceLabel, sequence);
+    interactiveIndex++;
 }
-```
-```cpp
-SharedPtr<Presentation> presentation = MakeObject<Presentation>(u"sample.pptx");
-
-SharedPtr<ISlide> slide = presentation->get_Slide(0);
-
-// Lekéri a normál dián lévő alakzat animációs effektusait.
-SharedPtr<IShape> shape = slide->get_Shape(0);
-ArrayPtr<SharedPtr<IEffect>> shapeEffects = slide->get_Timeline()->get_MainSequence()->GetEffectsByShape(shape);
-
-// Lekéri a helyőrző animációs effektusait az elrendezés dián.
-SharedPtr<IShape> layoutShape = shape->GetBasePlaceholder();
-ArrayPtr<SharedPtr<IEffect>> layoutShapeEffects = slide->get_LayoutSlide()->get_Timeline()->get_MainSequence()->GetEffectsByShape(layoutShape);
-
-// Lekéri a helyőrző animációs effektusait a mester dián.
-SharedPtr<IShape> masterShape = layoutShape->GetBasePlaceholder();
-ArrayPtr<SharedPtr<IEffect>> masterShapeEffects = slide->get_LayoutSlide()->get_MasterSlide()->get_Timeline()->get_MainSequence()->GetEffectsByShape(masterShape);
 
 presentation->Dispose();
-
-Console::WriteLine(u"Main sequence of shape effects:");
-PrintEffects(masterShapeEffects);
-PrintEffects(layoutShapeEffects);
-PrintEffects(shapeEffects);
 ```
 
-Output:
-```text
-Main sequence of shape effects:
-Type: 47, subtype: 2              // Repülés, Alul
-Type: 134, subtype: 45            // Szétválás, Függőlegesen be
-Type: 126, subtype: 22            // Véletlen csíkok, Vízszintes
+Ha csak egy alakzatra van szüksége, először határozza meg az alakzatot név, helyőrző típus vagy más stabil tulajdonság alapján; ezután hívja meg az [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/isequence/geteffectsbyshape/) metódust. Ne vegye fel azt a feltételezést, hogy a [IShapeCollection::idx_get](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapecollection/idx_get/) a `0` indexen mindig a kívánt objektum.
+
+## **Örökölt helyőrző effektusok kezelése**
+
+Egy normál dia helyőrzője örökölheti az animációs viselkedést a megfelelő helyőrzőtől az elrendezés és a mester dián. Az [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/getbaseplaceholder/) visszaadja ezt a szülőhelyőrzőt, vagy `nullptr`‑t, ha nincs szülő.
+
+Az alábbi példában a láblécnek **Random Bars** animációja van a normál dián, **Split** az elrendezés dián, és **Fly In** a mester dián.
+
+![Lábléc animációs effektus a normál dián](slide-shape-animation.png)
+
+![Lábléc helyőrző animációs effektus az elrendezés dián](layout-shape-animation.png)
+
+![Lábléc helyőrző animációs effektus a mester dián](master-shape-animation.png)
+
+A következő példában felépíti a helyőrző hierarchiát. Effektusokat ad hozzá egy mester helyőrzőhöz, egy elrendezés helyőrzőhöz és a megfelelő helyőrzőhöz egy normál dián. Minden [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/getbaseplaceholder/) hívást ellenőriz, mielőtt a visszakapott alakzatot felhasználná.
+
+```cpp
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutPlaceholderManager.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto findPlaceholderWithBase = [](const SharedPtr<ISlide>& slide) -> SharedPtr<IShape>
+{
+    for (const auto& shape : slide->get_Shapes())
+    {
+        if (shape->GetBasePlaceholder() != nullptr)
+            return shape;
+    }
+
+    return nullptr;
+};
+
+auto printEffects = [](const String& source, const ArrayPtr<SharedPtr<IEffect>>& effects)
+{
+    Console::WriteLine(String::Format(u"{0}: {1} effect(s)", source, effects->get_Length()));
+
+    for (const auto& effect : effects)
+        Console::WriteLine(String::Format(u"  {0} {1}", effect->get_Type(), effect->get_Subtype()));
+};
+
+auto presentation = MakeObject<Presentation>();
+auto layoutSlide = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+auto layoutPlaceholder = layoutSlide->get_PlaceholderManager()->AddTextPlaceholder(100.0f, 100.0f, 400.0f, 80.0f);
+layoutSlide->get_Timeline()->get_MainSequence()->AddEffect(layoutPlaceholder, EffectType::Split, EffectSubtype::VerticalIn, EffectTriggerType::OnClick);
+
+auto masterPlaceholder = layoutPlaceholder->GetBasePlaceholder();
+if (masterPlaceholder != nullptr)
+{
+    auto masterSequence = layoutSlide->get_MasterSlide()->get_Timeline()->get_MainSequence();
+    masterSequence->AddEffect(masterPlaceholder, EffectType::Fly, EffectSubtype::Bottom, EffectTriggerType::OnClick);
+}
+
+auto slide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+auto slidePlaceholder = findPlaceholderWithBase(slide);
+
+if (slidePlaceholder == nullptr)
+    throw InvalidOperationException(u"The slide does not contain a placeholder linked to its layout slide.");
+
+slide->get_Timeline()->get_MainSequence()->AddEffect(slidePlaceholder, EffectType::RandomBars, EffectSubtype::Horizontal, EffectTriggerType::OnClick);
+printEffects(u"Normal slide", slide->get_Timeline()->get_MainSequence()->GetEffectsByShape(slidePlaceholder));
+
+auto baseLayoutPlaceholder = slidePlaceholder->GetBasePlaceholder();
+if (baseLayoutPlaceholder != nullptr)
+{
+    printEffects(u"Layout slide", layoutSlide->get_Timeline()->get_MainSequence()->GetEffectsByShape(baseLayoutPlaceholder));
+
+    auto baseMasterPlaceholder = baseLayoutPlaceholder->GetBasePlaceholder();
+    if (baseMasterPlaceholder != nullptr)
+        printEffects(u"Master slide", layoutSlide->get_MasterSlide()->get_Timeline()->get_MainSequence()->GetEffectsByShape(baseMasterPlaceholder));
+}
+
+presentation->Save(u"placeholder-animations.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Animációs effektus időzítési tulajdonságok módosítása**
+## **Animáció időzítésének módosítása**
 
-Az Aspose.Slides for C++ lehetővé teszi az animációs effektus időzítési tulajdonságainak módosítását.
+A PowerPoint **Timing** (Időzítés) párbeszédablaka az [ITiming](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/itiming/) metódusainak felel meg.
 
-Ez a Animation Timing panel a Microsoft PowerPoint-ben:
-![animáció időzítés panel](shape-animation.png)
+![PowerPoint időzítési párbeszédablaka egy animációs effektushoz](shape-animation.png)
 
-Az alábbiak a megfelelések a PowerPoint időzítés és a [Effect.Timing](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.animation.effect#a333640cbb8d32c413ccda11c1a7c3b4c) tulajdonságok között:
+- **Start** az [ITiming::set_TriggerType](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/itiming/set_triggertype/) metódusra vonatkozik.
+- **Duration** (Időtartam) az [ITiming::set_Duration](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/itiming/set_duration/) metódusra vonatkozik, másodpercben.
+- **Delay** (Késleltetés) az [ITiming::set_TriggerDelayTime](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/itiming/set_triggerdelaytime/) metódusra vonatkozik, másodpercben.
+- **Repeat** (Ismétlés) az [ITiming::set_RepeatCount](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/itiming/set_repeatcount/), [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/) vagy [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/) metódusokra vonatkozik.
+- **Rewind when done playing** (Visszatekerés lejátszás után) az [ITiming::set_Rewind](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/itiming/set_rewind/) metódusra vonatkozik.
 
-- A PowerPoint Timing **Start** legördülő lista egyezik a [Effect.Timing.TriggerType](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.animation.i_timing#a9cec24d555c39e33f0b71dc2210daab3) tulajdonsággal. 
-- A PowerPoint Timing **Duration** egyezik a [Effect.Timing.Duration](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.animation.i_timing#a4f5eebdec3b0b2e6d57ee944b5a8a340) tulajdonsággal. Az animáció időtartama (másodpercben) az az összes idő, amely egy ciklus befejezéséhez szükséges. 
-- A PowerPoint Timing **Delay** egyezik a [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.animation.i_timing#a947ac2f79c7310d0276ef17999b7214b) tulajdonsággal. 
+Ez az önálló példa egy effektust ad hozzá, módosítja annak időzítését az [ISequence::AddEffect](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/isequence/addeffect/) által visszaadott objektumon keresztül, és menti az eredményt. A visszakapott [IEffect](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/ieffect/) hivatkozás megtartása elkerüli a felesleges gyűjtemény index használatát.
 
-Így módosíthatja az Effect Timing tulajdonságokat:
+```cpp
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
-1. Alkalmazza ([Apply](#apply-animation-to-shape)) vagy szerezze meg az animációs effektust.  
-2. Állítson be új értékeket a szükséges [Effect.Timing](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.animation.effect#a333640cbb8d32c413ccda11c1a7c3b4c) tulajdonságokra.  
-3. Mentse a módosított PPTX fájlt.  
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-Ez a C++ kód bemutatja a műveletet:
-```c++
-// Példányosít egy prezentációs osztályt, amely egy prezentációs fájlt képvisel.
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimExample_out.pptx");
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 120.0f, 100.0f, 320.0f, 80.0f);
+shape->get_TextFrame()->set_Text(u"Timed animation");
 
-// Lekéri a dia fő sorozatát.
-System::SharedPtr<ISequence> sequence = pres->get_Slides()->idx_get(0)->get_Timeline()->get_MainSequence();
-
-// Lekéri a fő sorozat első effektusát.
-System::SharedPtr<IEffect> effect = sequence->idx_get(0);
-
-// Módosítja az effektus TriggerType értékét kattintásra indításra
-effect->get_Timing()->set_TriggerType(Aspose::Slides::Animation::EffectTriggerType::OnClick);
-
-// Módosítja az effektus időtartamát
-effect->get_Timing()->set_Duration(3.f);
-
-// Módosítja az effektus TriggerDelayTime értékét
+auto effect = slide->get_Timeline()->get_MainSequence()->AddEffect(shape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+effect->get_Timing()->set_TriggerType(EffectTriggerType::OnClick);
+effect->get_Timing()->set_Duration(2.0f);
 effect->get_Timing()->set_TriggerDelayTime(0.5f);
+effect->get_Timing()->set_RepeatUntilNextClick(false);
+effect->get_Timing()->set_RepeatUntilEndSlide(false);
+effect->get_Timing()->set_RepeatCount(2.0f);
+effect->get_Timing()->set_Rewind(true);
 
-// Elmenti a PPTX fájlt a lemezre
-pres->Save(u"AnimExample_changed.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"shape-animation-timing.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Animációs effektus hang**
+Használjon egy ismétlési módot szándékosan. A ismétlési számlálót egy „until” (amíg) jelzővel kombinálva zavaró eredményeket okozhat különböző lejátszókban. Ismétlési módok módosításakor előbb hívja meg az [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/) és [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/) metódusokat, majd az [ITiming::set_RepeatCount](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/itiming/set_repeatcount/) metódust, mivel bármely jelző beállítása megváltoztatja az aktív ismétlési módot.
 
-Az Aspose.Slides a következő tulajdonságokat biztosítja, hogy hangokat kezelhessen animációs effektusokban: 
+## **Animációs hangok hozzáadása és kinyerése**
 
-- [set_Sound()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/effect/set_sound/) 
-- [set_StopPreviousSound()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/effect/set_stopprevioussound/) 
+Egy animációs effektus beágyazott hangot hivatkozhat a [IEffect::set_Sound](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/ieffect/set_sound/) metóduson keresztül. Az [IEffect::set_StopPreviousSound](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/ieffect/set_stopprevioussound/) azt mondja az effektusnak, hogy állítsa le egy korábbi effektus által indított hangot.
 
-### **Animációs effektus hang hozzáadása**
+### **Hang hozzáadása egy effektushoz**
 
-Ez a C++ kód bemutatja, hogyan kell animációs effektus hangot hozzáadni és leállítani, amikor a következő effektus kezdődik:
-```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimExample_out.pptx");
+A következő példa egy helyi `animation-sound.wav` nevű hangfájlt vár. Két effektust hoz létre, az első effektus hangjaként beágyazza ezt a fájlt, a második effektust pedig úgy konfigurálja, hogy leállítsa a hangot. A [ISequence::AddEffect](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/isequence/addeffect/) által visszaadott objektumokat használja, így nem szükséges sorozat index.
 
-// Hangot ad a prezentáció audio gyűjteményéhez
-System::SharedPtr<IAudio> effectSound = pres->get_Audios()->AddAudio(System::IO::File::ReadAllBytes(u"sampleaudio.wav"));
-System::SharedPtr<ISlide> firstSlide = pres->get_Slide(0);
+```cpp
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAudio.h>
+#include <DOM/IAudioCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
 
-// Lekéri a dia fő sorozatát.
-System::SharedPtr<ISequence> sequence = firstSlide->get_Timeline()->get_MainSequence();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-// Lekéri a fő sorozat első effektusát
-System::SharedPtr<IEffect> firstEffect = sequence->idx_get(0);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto firstShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 80.0f, 100.0f, 240.0f, 80.0f);
+auto secondShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 400.0f, 100.0f, 240.0f, 80.0f);
+firstShape->get_TextFrame()->set_Text(u"Starts sound");
+secondShape->get_TextFrame()->set_Text(u"Stops sound");
 
-// Ellenőrzi, hogy az effektusnak nincs hangja
-if (!firstEffect->get_StopPreviousSound() && firstEffect->get_Sound() == nullptr)
+auto sequence = slide->get_Timeline()->get_MainSequence();
+auto firstEffect = sequence->AddEffect(firstShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+auto secondEffect = sequence->AddEffect(secondShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+
+auto audioData = File::ReadAllBytes(u"animation-sound.wav");
+auto effectSound = presentation->get_Audios()->AddAudio(audioData);
+firstEffect->set_Sound(effectSound);
+secondEffect->set_StopPreviousSound(true);
+
+presentation->Save(u"shape-animation-sound.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+### **Beágyazott effektushangok kinyerése**
+
+A következő példa egy helyi `presentation-with-animation-sounds.pptx` nevű prezentációt vár. Átvizsgálja a fő és interaktív sorozatokat, és minden beágyazott effektushangot a `extracted-animation-sounds` könyvtárba ír. A kiterjesztés az [IAudio::get_ContentType](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iaudio/get_contenttype/) által megadott audio MIME típussal van kiválasztva.
+
+```cpp
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ISequenceCollection.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAudio.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/io/directory.h>
+#include <system/io/file.h>
+#include <system/io/path.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace System;
+using namespace System::IO;
+
+auto getAudioExtension = [](const String& contentType)
 {
-    // Hangot ad az első effektushoz
-    firstEffect->set_Sound(effectSound);
+    auto normalizedType = String::IsNullOrEmpty(contentType) ? String::Empty : contentType.ToLowerInvariant();
+
+    if (normalizedType == u"audio/mpeg")
+        return String(u".mp3");
+
+    if (normalizedType == u"audio/mp4")
+        return String(u".m4a");
+
+    if (normalizedType == u"audio/ogg")
+        return String(u".ogg");
+
+    if (normalizedType == u"audio/wav" || normalizedType == u"audio/x-wav")
+        return String(u".wav");
+
+    return String(u".bin");
+};
+
+auto saveSounds = [&getAudioExtension](const SharedPtr<ISequence>& sequence, const String& outputDirectory, int32_t& soundIndex)
+{
+    for (const auto& effect : sequence)
+    {
+        if (effect->get_Sound() == nullptr)
+            continue;
+
+        auto extension = getAudioExtension(effect->get_Sound()->get_ContentType());
+        auto outputPath = Path::Combine(outputDirectory, String::Format(u"effect-sound-{0}{1}", soundIndex, extension));
+        File::WriteAllBytes(outputPath, effect->get_Sound()->get_BinaryData());
+        soundIndex++;
+    }
+};
+
+auto inputPath = String(u"presentation-with-animation-sounds.pptx");
+auto outputDirectory = String(u"extracted-animation-sounds");
+
+Directory::CreateDirectory_(outputDirectory);
+
+auto presentation = MakeObject<Presentation>(inputPath);
+int32_t soundIndex = 1;
+
+for (const auto& slide : presentation->get_Slides())
+{
+    saveSounds(slide->get_Timeline()->get_MainSequence(), outputDirectory, soundIndex);
+
+    for (const auto& sequence : slide->get_Timeline()->get_InteractiveSequences())
+        saveSounds(sequence, outputDirectory, soundIndex);
 }
 
-// Lekéri a dia első interaktív sorozatát.
-System::SharedPtr<ISequence> interactiveSequence = firstSlide->get_Timeline()->get_InteractiveSequence(0);
-
-// Beállítja az effektus "Előző hang leállítása" jelzőjét
-interactiveSequence->idx_get(0)->set_StopPreviousSound(true);
-
-// A PPTX fájlt lemezre írja
-pres->Save(u"AnimExample_Sound_out.pptx", SaveFormat::Pptx);
+Console::WriteLine(String::Format(u"Extracted {0} sound file(s) to {1}.", soundIndex - 1, Path::GetFullPath(outputDirectory)));
+presentation->Dispose();
 ```
 
-### **Animációs effektus hang kinyerése**
+Nagy audio objektumok esetén használja az [IAudio::GetStream](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iaudio/getstream/) metódust, és másolja a streamet fájlba ahelyett, hogy az egész objektumot byte tömbbe töltené.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) osztályból.  
-2. Szerezze meg egy dia referenciaját az indexén keresztül.  
-3. Szerezze meg a fő effektussorozatot.  
-4. Vonja ki a [set_Sound()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/effect/set_sound/) beágyazott hangot minden egyes animációs effektusból.  
+## **Az animáció utáni viselkedés beállítása**
 
-Ez a C++ kód bemutatja, hogyan kell kinyerni egy animációs effektusba beágyazott hangot:
-```c++
-// Példányosít egy prezentációs osztályt, amely egy prezentációs fájlt képvisel.
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"EffectSound.pptx");
-System::SharedPtr<ISlide> slide = pres->get_Slide(0);
+Az **After animation** (Animáció után) opció szabályozza, hogy mi történik az alakzattal, amikor az effektus befejeződik.
 
-// Lekéri a dia fő sorozatát.
-System::SharedPtr<ISequence> sequence = slide->get_Timeline()->get_MainSequence();
+![PowerPoint effektus opciók párbeszédablaka, amely az After animation beállításokat mutatja](shape-after-animation.png)
 
-for (auto&& effect : sequence)
-{
-    System::SharedPtr<IAudio> sound = effect->get_Sound();
+A [AfterAnimationType](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/afteranimationtype/) felsorolás támogatja az alakzat változatlanul hagyását, színének módosítását, a animáció után való elrejtését, vagy a következő kattintáskor való elrejtését. Ha a típus [AfterAnimationType::Color](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/afteranimationtype/), akkor hívja meg a [IEffect::get_AfterAnimationColor](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/ieffect/get_afteranimationcolor/) metódust a szín beállításához is.
 
-    if (sound == nullptr)
-        continue;
+Ez az önálló példa egy effektust hoz létre, a visszakapott effektus objektumon keresztül beállítja az animáció utáni viselkedést, és menti az eredményt.
 
-    auto audio = sound->get_BinaryData();
-}
+```cpp
+#include <DOM/Animation/AfterAnimationType.h>
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 120.0f, 100.0f, 320.0f, 80.0f);
+shape->get_TextFrame()->set_Text(u"Dim after animation");
+
+auto effect = slide->get_Timeline()->get_MainSequence()->AddEffect(shape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+effect->set_AfterAnimationType(AfterAnimationType::Color);
+effect->get_AfterAnimationColor()->set_Color(Color::get_LightGray());
+
+presentation->Save(u"shape-animation-after-effect.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Animáció után**
-
-Az Aspose.Slides for C++ lehetővé teszi, hogy megváltoztassa egy animációs effektus After animation (animáció után) tulajdonságát.
-
-Ez a Animation Effect panel és a kibővített menü a Microsoft PowerPoint-ben:
-![animáció hatás panel](shape-after-animation.png)
-
-A PowerPoint Effect **After animation** legördülő lista egyezik ezekkel a tulajdonságokkal: 
-
-- A [set_AfterAnimationType()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/ieffect/set_afteranimationtype/) tulajdonság, amely leírja az After animation típust :
-  * A PowerPoint **More Colors** egyezik a [AfterAnimationType.Color](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/afteranimationtype/) típussal;
-  * A PowerPoint **Don't Dim** listaelem egyezik a [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/afteranimationtype/) típussal (az alapértelmezett after animation típus);
-  * A PowerPoint **Hide After Animation** elem egyezik a [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/afteranimationtype/) típussal;
-  * A PowerPoint **Hide on Next Mouse Click** elem egyezik a [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/afteranimationtype/) típussal;
-- A [set_AfterAnimationColor()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/ieffect/set_afteranimationcolor/) tulajdonság, amely egy after animation színformátumot definiál. Ez a tulajdonság a [AfterAnimationType.Color](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/afteranimationtype/) típussal együttműködve működik. Ha a típust másikra módosítja, az after animation szín törlődik.
-
-Ez a C++ kód bemutatja, hogyan kell módosítani egy after animation effektust:
-```c++
-// Példányosít egy prezentációs osztályt, amely egy prezentációs fájlt képvisel
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimImage_out.pptx");
-System::SharedPtr<ISlide> firstSlide = pres->get_Slide(0);
-
-// Lekéri a fő sorozat első effektusát
-System::SharedPtr<IEffect> firstEffect = firstSlide->get_Timeline()->get_MainSequence()->idx_get(0);
-
-// A animáció után típusát Színre változtatja
-firstEffect->set_AfterAnimationType(AfterAnimationType::Color);
-
-// Beállítja az animáció után a sötétítő színt
-firstEffect->get_AfterAnimationColor()->set_Color(System::Drawing::Color::get_AliceBlue());
-
-// A PPTX fájlt lemezre írja
-pres->Save(u"AnimImage_AfterAnimation.pptx", SaveFormat::Pptx);
-```
+A [AfterAnimationType::Color](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/afteranimationtype/) típusról való eltávolítás törli az animáció utáni színbeállítást.
 
 ## **Szöveg animálása**
 
-Az Aspose.Slides a következő tulajdonságokat biztosítja, hogy kezelhesse egy animációs effektus *Animate text* blokkját:
+A szöveg animáció két kapcsolódó beállítással rendelkezik:
 
-- A [set_AnimateTextType()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) amely leírja az animált szöveg típusát az effektusban. Az alakzat szövege animálható:
-  - Egyszerre ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/animatetexttype/) típus)
-  - Szó szerint ([AnimateTextType.ByWord](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/animatetexttype/) típus)
-  - Betű szerint ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/animatetexttype/) típus)
-- A [set_DelayBetweenTextParts()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) beállítja a késleltetést az animált szövegrészek (szavak vagy betűk) között. A pozitív érték a effektus időtartamának százalékát jelöli. A negatív érték a késleltetést másodpercben adja meg.
+- [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/itextanimation/set_buildtype/) szabályozza, hogy a bekezdések egyszerre vagy bekezdés szinten jelenjenek meg.
+- [IEffect::set_AnimateTextType](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) szabályozza, hogy a szöveg egyszerre, szó szerint vagy betűként jelenjen meg. Az [IEffect::set_DelayBetweenTextParts](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) beállítja a késleltetést a szavak vagy betűk között. A pozitív érték az effektus időtartamának százalékában, a negatív érték másodpercben van megadva.
 
-Így módosíthatja az Effect Animate text tulajdonságokat:
+A következő önálló példa a szövegdoboz szavait animálja. A [BuildType::AsOneObject](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/buildtype/) letiltja a bekezdésenkénti építést, így a szóbeállítás az egész szövegkeretre vonatkozik.
 
-1. Alkalmazza ([Apply](#apply-animation-to-shape)) vagy szerezze meg az animációs effektust.  
-2. Állítsa be a [set_BuildType()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation.itextanimation/set_buildtype/) tulajdonságot a [BuildType.AsOneObject](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/buildtype/) értékre, hogy kikapcsolja a *By Paragraphs* (bekezdésenként) animációs módot.  
-3. Állítson be új értékeket a [set_AnimateTextType()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) és a [set_DelayBetweenTextParts()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) tulajdonságokra.  
-4. Mentse a módosított PPTX fájlt.  
+```cpp
+#include <DOM/Animation/AnimateTextType.h>
+#include <DOM/Animation/BuildType.h>
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITextAnimation.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
-Ez a C++ kód bemutatja a műveletet:
-```c++
-// Példányosít egy prezentációs osztályt, amely egy prezentációs fájlt képvisel.
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimTextBox_out.pptx");
-System::SharedPtr<ISlide> firstSlide = pres->get_Slide(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Lekéri a fő sorozat első effektusát
-System::SharedPtr<IEffect> firstEffect = firstSlide->get_Timeline()->get_MainSequence()->idx_get(0);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 80.0f, 80.0f, 560.0f, 100.0f);
+textBox->get_TextFrame()->set_Text(u"Aspose.Slides animates this sentence word by word.");
 
-// Módosítja az effektus szöveg animáció típusát "As One Object"
-firstEffect->get_TextAnimation()->set_BuildType(BuildType::AsOneObject);
+auto effect = slide->get_Timeline()->get_MainSequence()->AddEffect(textBox, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+effect->get_TextAnimation()->set_BuildType(BuildType::AsOneObject);
+effect->set_AnimateTextType(AnimateTextType::ByWord);
+effect->set_DelayBetweenTextParts(20.0f);
 
-// Módosítja az effektus szöveg animálás típusát "By word"
-firstEffect->set_AnimateTextType(AnimateTextType::ByWord);
-
-// Beállítja a szavak közötti késleltetést az effektus időtartamának 20%-ára
-firstEffect->set_DelayBetweenTextParts(20.0f);
-
-// A PPTX fájlt lemezre írja
-pres->Save(u"AnimTextBox_AnimateText.pptx", SaveFormat::Pptx);
+presentation->Save(u"animated-text.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+A szövegdoboz bekezdésenkénti építéséhez használja az [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/itextanimation/set_buildtype/) metódust a [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/buildtype/) vagy más bekezdés szinttel. Egyetlen bekezdéshez saját effektussal a [ISequence::AddEffect](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/isequence/addeffect/) olyan overload-ját használja, amely egy [IParagraph](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iparagraph/) objektumot fogad. Lásd a [Animated Text](/slides/hu/cpp/animated-text/) oldalt a bekezdés‑szintű példákhoz.
+
+## **Exportálás és kompatibilitási megjegyzések**
+
+- A PPT vagy PPTX formátumba mentés megőrzi az animációs modellt, de a végső lejátszást a prezentációs lejátszó szabályozza.
+- A PDF és a statikus képek nem játszanak animációkat. Használja a [HTML5 export](/slides/hu/cpp/export-to-html5/), animált GIF‑et vagy a [video conversion](/slides/hu/cpp/convert-powerpoint-to-video/) opciót, ha a kimenetnek mozgást kell mutatnia.
+- HTML5 esetén engedélyezze a [Html5Options::set_AnimateShapes](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/html5options/set_animateshapes/) és szükség esetén a [Html5Options::set_AnimateTransitions](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/html5options/set_animatetransitions/) beállításokat.
+- A videórenderelés számos gyakori belépő, hangsúlyozó, kilépő és mozgásútpont effektust támogat, de nem minden PowerPoint effektus támogatott. Tekintse meg a jelenlegi [supported animations and effects](/slides/hu/cpp/convert-powerpoint-to-video/#supported-animations-and-effects) oldalt, és tesztelje a kritikus prezentációkat a cél Aspose.Slides verzióval.
+- A fejlett egyedi effektusok és más prezentációs formátumokból importált effektusok megmaradhatnak a fájlban, de PowerPointban, HTML5‑ben vagy videóban másként jelenhetnek meg. Ellenőrizze az exportált eredményt, ne csak az effektus nevére hagyatkozzon.
 
 ## **GYIK**
 
-**Hogyan biztosíthatom, hogy az animációk megmaradjanak a prezentáció webre publikálásakor?**  
-[Export to HTML5](/slides/hu/cpp/export-to-html5/) és engedélyezze a [beállításokat](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/html5options/), amelyek a [shape](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/html5options/set_animateshapes/) és [transition](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/html5options/set_animatetransitions/) animációkért felelősek. A sima HTML nem játszik le dián animációkat, míg a HTML5 igen.  
+**Miért jelenik meg egy animáció a PowerPointban, de nem a PDF‑ben?**
 
-**Hogyan befolyásolja a z-sorrend (réteg sorrend) módosítása az animációt?**  
-Az animációs és a rajzolási sorrend független egymástól: egy effektus szabályozza a megjelenés/eltűnés időzítését és típusát, míg a [z-sorrend](https://reference.aspose.com/slides/hu/cpp/aspose.slides/shape/get_zorderposition/) meghatározza, hogy mi takarja meg miét. A látható eredményt ezek kombinációja határozza meg. (Ez a PowerPoint általános viselkedése; az Aspose.Slides effektus‑ és alakzat‑modellje ugyanazt a logikát követi.)  
+A PDF statikus formátum, ezért az animációk és diák áttűnései nem játszhatók le. Exportáljon HTML5‑re, animált GIF‑re vagy videóra, ha a mozgást meg kell őrizni.
 
-**Vannak korlátozások az animációk videóvá konvertálásakor bizonyos effektusok esetén?**  
-Általánosságban a [animációk támogatottak](/slides/hu/cpp/convert-powerpoint-to-video/), de ritka esetekben vagy specifikus effektusok másként jelenhetnek meg. Javasoljuk, hogy tesztelje a használt effektusokkal és a könyvtár verziójával.
+**Miért játszódik le másként egy effektus videóban?**
+
+A videóexport animációkat renderel, nem pedig az eredeti PowerPoint viselkedést tárolja. Néhány fejlett effektus nem támogatott vagy csak közelítőleg jelenik meg. Tekintse át a támogatott effektusok táblázatát, és tesztelje a tényleges prezentációt a termelés előtt.
+
+**Megváltoztatja-e egy alakzat előre vagy hátra mozgatása az animációs sorrendet?**
+
+Nem. Az alakzat z‑rendje a fedését szabályozza, míg a sorozat sorrendje és a triggerek az animáció lejátszását. Módosítsa az idővonalat, ha más lejátszási sorrendre van szükség.

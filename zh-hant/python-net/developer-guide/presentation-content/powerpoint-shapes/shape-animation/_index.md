@@ -1,5 +1,5 @@
 ---
-title: 使用 Python 在簡報中套用形狀動畫
+title: 在簡報中使用 Python 套用形狀動畫
 linktitle: 形狀動畫
 type: docs
 weight: 60
@@ -12,466 +12,377 @@ keywords:
 - 動畫文字
 - 新增動畫
 - 取得動畫
-- 提取動畫
+- 擷取動畫
 - 新增效果
 - 取得效果
-- 提取效果
-- 效果聲音
+- 擷取效果
+- 效果音效
 - 套用動畫
 - PowerPoint
 - 簡報
 - Python
 - Aspose.Slides
-description: "探索如何使用 Aspose.Slides for Python via .NET 在 PowerPoint 與 OpenDocument 簡報中建立與自訂形狀動畫。脫穎而出！"
+description: "了解如何使用 Aspose.Slides for Python via .NET 新增、檢查和自訂形狀動畫、時間設定、聲音、動畫結束後行為以及動畫文字。"
 ---
-## **簡介**
+## **概述**
 
-動畫是可套用於文字、影像、圖形或[圖表](/slides/zh-hant/python-net/animated-charts/)的視覺效果。它們為簡報或其組成部分賦予活力。 
+Aspose.Slides for Python via .NET 將投影片動畫表示為投影片時間軸上的效果。每個效果都有目標形狀、動畫類型與子類型、觸發方式、時間設定，以及諸如聲音或動畫結束後行為等可選屬性。
 
-## **為何在簡報中使用動畫？**
+時間軸包含兩種序列：
 
-使用動畫，您可以 
+- **主序列** 於投影片前進時播放。
+- **互動序列** 在其觸發形狀被點擊時開始。
 
-* 控制資訊的流程
-* 強調重要要點
-* 提升觀眾的興趣或參與度
-* 讓內容更易於閱讀、理解或處理
-* 吸引讀者或觀眾注意簡報中的重要部分
+由於文字方塊、圖片、圖表、表格以及其他投影片物件實作了[IShape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ishape/)，您可以對大多數投影片內容使用相同的[Sequence.add_effect](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/sequence/add_effect/)方法。可用的效果列在[EffectType](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/effecttype/)列舉中。
 
-PowerPoint 提供眾多動畫與動畫效果的選項與工具，涵蓋 **入口**、**退出**、**強調** 和 **移動路徑** 類別。 
+## **新增形狀動畫**
 
-## **Aspose.Slides 中的動畫**
+若要新增動畫，取得投影片的主序列，並以目標形狀、效果類型、子類型與觸發方式呼叫[Sequence.add_effect](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/sequence/add_effect/)。若要在另一個形狀被點擊時開始的效果，請建立觸發該其他形狀的互動序列。
 
-* Aspose.Slides 提供您在 [Aspose.Slides.Animation](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/) 命名空間下使用動畫所需的類別與型別，
-* Aspose.Slides 在 [EffectType](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/effecttype/) 列舉中提供超過 **150 種動畫效果**。這些效果本質上與 PowerPoint 中使用的效果相同（或等價）。
-
-## **將動畫套用至文字方塊**
-
-Aspose.Slides for Python via .NET 允許您將動畫套用至形狀中的文字。 
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/) 類別的實例。  
-2. 透過索引取得投影片的參照。  
-3. 新增一個 `rectangle` [IAutoShape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iautoshape/)。  
-4. 將文字新增至 `IAutoShape.TextFrame`。  
-5. 取得主要的效果序列。  
-6. 為 [IAutoShape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iautoshape/) 新增動畫效果。  
-7. 將 `TextAnimation.BuildType` 屬性設定為 `BuildType` 列舉中的值。  
-8. 將簡報寫入磁碟，儲存為 PPTX 檔案。  
-
-以下 Python 程式碼示範如何將 `Fade` 效果套用至 AutoShape，並將文字動畫設定為 *By 1st Level Paragraphs* 值：
+以下範例會建立兩種動畫並將結果儲存為`shape-animations.pptx`。
 
 ```python
 import aspose.slides as slides
 
-# 實例化一個代表簡報檔案的 Presentation 類別。
-with slides.Presentation() as pres:
-    sld = pres.slides[0]
-    
-    # 新增帶文字的 AutoShape
-    autoShape = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 150, 100)
 
-    textFrame = autoShape.text_frame
-    textFrame.text = "First paragraph \nSecond paragraph \n Third paragraph"
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # 取得投影片的主要序列。
-    sequence = sld.timeline.main_sequence
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.ROUND_CORNER_RECTANGLE, 120, 100, 320, 80)
+    target_shape.text_frame.text = "Click to animate this shape"
 
-    # 為形狀新增 Fade 動畫效果
-    effect = sequence.add_effect(autoShape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+    main_sequence = slide.timeline.main_sequence
+    entrance_effect = main_sequence.add_effect(target_shape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+    entrance_effect.timing.duration = 1.5
 
-    # 依第一層段落動畫化形狀文字
-    effect.text_animation.build_type = slides.animation.BuildType.BY_LEVEL_PARAGRAPHS1
+    trigger_shape = slide.shapes.add_auto_shape(slides.ShapeType.BEVEL, 20, 20, 100, 40)
+    trigger_shape.text_frame.text = "Move"
 
-    # 將 PPTX 檔案儲存至磁碟
-    pres.save("AnimText_out.pptx", slides.export.SaveFormat.PPTX)
+    interactive_sequence = slide.timeline.interactive_sequences.add(trigger_shape)
+    interactive_sequence.add_effect(target_shape, slides.animation.EffectType.PATH_FOOTBALL, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+
+    presentation.save("shape-animations.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{%  alert color="primary"  %}} 
+觸發器控制效果何時開始：
 
-除了將動畫套用至文字之外，您也可以將動畫套用至單一[段落](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iparagraph/)。請參閱[**動畫文字**](/slides/zh-hant/python-net/animated-text/)。 
+- [EffectTriggerType.ON_CLICK](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/effecttriggertype/) 在主序列中等待點擊，或在互動序列中等待觸發形狀的點擊。
+- [EffectTriggerType.WITH_PREVIOUS](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/effecttriggertype/) 與前一個效果同時開始。
+- [EffectTriggerType.AFTER_PREVIOUS](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/effecttriggertype/) 在前一個效果完成後開始。
 
-{{% /alert %}} 
+若要為圖片、圖表或其他形狀類型加入動畫，請將該物件傳遞給[Sequence.add_effect](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/sequence/add_effect/)而不是`target_shape`。有關圖表特定的分組選項，請參閱[Animated Charts](/slides/zh-hant/python-net/animated-charts/)。
 
-## **將動畫套用至圖片框**
+## **讀取形狀動畫**
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/) 類別的實例。  
-2. 透過索引取得投影片的參照。  
-3. 在投影片上新增或取得 [PictureFrame](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/pictureframe/)。  
-4. 取得主要的效果序列。  
-5. 為 [PictureFrame](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/pictureframe/) 新增動畫效果。  
-6. 將簡報寫入磁碟，儲存為 PPTX 檔案。  
+當您知道目標形狀時，使用[Sequence.get_effects_by_shape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/sequence/get_effects_by_shape/) 。若要檢查每個效果，請遍歷主序列以及所有互動序列。遍歷可避免假設序列在索引`0`處一定有效果。
 
-以下 Python 程式碼示範如何將 `Fly` 效果套用至圖片框：
-
-```python
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-
-# 實例化一個代表簡報檔案的 Presentation 類別。
-with slides.Presentation() as pres:
-    # 載入要加入簡報影像集合的圖像
-    img = draw.Bitmap("aspose-logo.jpg")
-    image = pres.images.add_image(img)
-
-    # 在投影片上新增圖片框
-    picFrame = pres.slides[0].shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
-
-    # 取得投影片的主要序列。
-    sequence = pres.slides[0].timeline.main_sequence
-
-    # 為圖片框新增從左側飛入的動畫效果
-    effect = sequence.add_effect(picFrame, slides.animation.EffectType.FLY,  
-        slides.animation.EffectSubtype.LEFT, 
-        slides.animation.EffectTriggerType.ON_CLICK)
-
-    # 將 PPTX 檔案儲存至磁碟
-    pres.save("AnimImage_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **將動畫套用至形狀**
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/) 類別的實例。  
-2. 透過索引取得投影片的參照。  
-3. 新增一個 `rectangle` [IAutoShape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iautoshape/)。  
-4. 新增一個 `Bevel` [IAutoShape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iautoshape/)（點擊此物件時即播放動畫）。  
-5. 為斜角形狀建立效果序列。  
-6. 建立自訂 `UserPath`。  
-7. 加入移動至 `UserPath` 的指令。  
-8. 将简报写入磁碟，儲存為 PPTX 檔案。  
-
-以下 Python 程式碼示範如何將 `PathFootball`（路徑足球）效果套用至形狀：
-
-```python
-import aspose.slides.animation as anim
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-# 實例化一個代表 PPTX 檔案的 Presentation 類別。
-with slides.Presentation() as pres:
-    sld = pres.slides[0]
-
-    # 從頭開始為現有形狀建立 PathFootball 效果。
-    ashp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 250, 25)
-
-    ashp.add_text_frame("Animated TextBox")
-
-    # 新增 PathFootBall 動畫效果。
-    pres.slides[0].timeline.main_sequence.add_effect(ashp, 
-        anim.EffectType.PATH_FOOTBALL,
-        anim.EffectSubtype.NONE, 
-        anim.EffectTriggerType.AFTER_PREVIOUS)
-
-    # 建立某種「按鈕」。
-    shapeTrigger = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.BEVEL, 10, 10, 20, 20)
-
-    # 為按鈕建立效果序列。
-    seqInter = pres.slides[0].timeline.interactive_sequences.add(shapeTrigger)
-
-    # 建立自訂使用者路徑。只有在按下按鈕後，我們的物件才會移動。
-    fxUserPath = seqInter.add_effect(ashp, 
-        anim.EffectType.PATH_USER, 
-        anim.EffectSubtype.NONE, 
-        anim.EffectTriggerType.ON_CLICK)
-
-    # 加入移動指令，因為建立的路徑目前為空。
-    motionBhv = fxUserPath.behaviors[0]
-
-    pts = [draw.PointF(0.076, 0.59)]
-    motionBhv.path.add(anim.MotionCommandPathType.LINE_TO, pts, anim.MotionPathPointsType.AUTO, True)
-    pts = [draw.PointF(-0.076, -0.59)]
-    motionBhv.path.add(anim.MotionCommandPathType.LINE_TO, pts, anim.MotionPathPointsType.AUTO, False)
-    motionBhv.path.add(anim.MotionCommandPathType.END, None, anim.MotionPathPointsType.AUTO, False)
-
-    # 將 PPTX 檔案寫入磁碟
-    pres.save("AnimExample_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **取得套用於形狀的動畫效果**
-
-以下範例示範如何使用 [Sequence](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/sequence/) 類別的 `get_effects_by_shape` 方法，取得套用於形狀的所有動畫效果。
-
-**範例 1：取得套用於普通投影片上形狀的動畫效果**
-
-先前您已學習如何在 PowerPoint 簡報中為形狀新增動畫效果。以下範例程式碼示範如何取得簡報 `AnimExample_out.pptx` 中第一張普通投影片上第一個形狀所套用的效果。
+以下範例建立一個具有主序列與互動效果的形狀，取得針對該形狀的效果，然後遍歷投影片上的每個序列。
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("AnimExample_out.pptx") as presentation:
-    first_slide = presentation.slides[0]
 
-    # 取得投影片的主要動畫序列。
-    sequence = first_slide.timeline.main_sequence
+def print_sequence(label, sequence):
+    print(f"  {label}: {sequence.count} effect(s)")
 
-    # 取得第一張投影片上的第一個形狀。
-    shape = first_slide.shapes[0]
+    for effect in sequence:
+        target_name = "unknown" if effect.target_shape is None else effect.target_shape.name
+        effect_description = f"{effect.type.name} {effect.subtype.name}; target: {target_name}; trigger: {effect.timing.trigger_type.name}"
+        print(f"    {effect_description}")
 
-    # 取得套用於該形狀的動畫效果。
-    shape_effects = sequence.get_effects_by_shape(shape)
 
-    if len(shape_effects) > 0:
-        print("The shape", shape.name, "has", len(shape_effects), "animation effects.")
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 120, 100, 320, 80)
+    target_shape.text_frame.text = "Animated shape"
+
+    main_sequence = slide.timeline.main_sequence
+    main_sequence.add_effect(target_shape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+
+    trigger_shape = slide.shapes.add_auto_shape(slides.ShapeType.BEVEL, 20, 20, 100, 40)
+    trigger_shape.text_frame.text = "Move"
+
+    interactive_sequence = slide.timeline.interactive_sequences.add(trigger_shape)
+    interactive_sequence.add_effect(target_shape, slides.animation.EffectType.PATH_FOOTBALL, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+
+    target_effects = main_sequence.get_effects_by_shape(target_shape)
+    print(f"The main sequence contains {len(target_effects)} effect(s) for {target_shape.name}.")
+
+    print_sequence("Main sequence", main_sequence)
+
+    for interactive_index, sequence in enumerate(slide.timeline.interactive_sequences, start=1):
+        trigger_name = "unknown" if sequence.trigger_shape is None else sequence.trigger_shape.name
+        sequence_label = f"Interactive sequence {interactive_index}, trigger: {trigger_name}"
+        print_sequence(sequence_label, sequence)
 ```
 
-**範例 2：取得所有動畫效果，包括從佔位區繼承的效果**
+如果只需要單一形狀的效果，請先以名稱、佔位符類型或其他穩定屬性識別該形狀，然後呼叫[Sequence.get_effects_by_shape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/sequence/get_effects_by_shape/)。不要假設索引`0`處的形狀永遠是目標物件。
 
-如果普通投影片上的形狀具有位於版面投影片和/或母片投影片的佔位區，且已為這些佔位區新增動畫效果，則在投影片放映時，該形狀的所有效果都會被播放，包含從佔位區繼承的效果。
+## **使用繼承的佔位符效果**
 
-假設我們有一個 PowerPoint 簡報檔案 `sample.pptx`，其中只有一張投影片，包含一個僅有文字「Made with Aspose.Slides」的頁腳形狀，且已套用 **Random Bars** 效果。
+普通投影片上的佔位符可以繼承其版面配置投影片與母版投影片上相對應佔位符的動畫行為。[Shape.get_base_placeholder](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shape/get_base_placeholder/) 會回傳該父佔位符，若不存在父佔位符則回傳`None`。
 
-![投影片形狀動畫效果](slide-shape-animation.png)
+在以下範例簡報中，頁腳在普通投影片上具有**Random Bars**，在版面配置投影片上具有**Split**，在母版投影片上具有**Fly In**。
 
-再假設在 **版面** 投影片的頁腳佔位區上套用了 **Split** 效果。
+![普通投影片上的頁腳動畫效果](slide-shape-animation.png)
 
-![版面形狀動畫效果](layout-shape-animation.png)
+![版面配置投影片上頁腳佔位符動畫效果](layout-shape-animation.png)
 
-最後，在 **母片** 投影片的頁腳佔位區上套用了 **Fly In** 效果。
+![母版投影片上頁腳佔位符動畫效果](master-shape-animation.png)
 
-![母片形狀動畫效果](master-shape-animation.png)
+下一個範例自行建立佔位符階層。它將效果加入母版佔位符、版面配置佔位符，以及普通投影片上相對應的佔位符。每次呼叫[Shape.get_base_placeholder](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shape/get_base_placeholder/) 前，都會先檢查回傳的形狀是否為`None`。
 
-以下範例程式碼示範如何使用 [Shape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shape/) 類別的 `get_base_placeholder` 方法，存取形狀佔位區，並取得套用於頁腳形狀的動畫效果，包含來自版面與母片投影片上佔位區的繼承效果。
-
-```py
+```python
 import aspose.slides as slides
 
-def print_effects(effects):
+
+def find_placeholder_with_base(slide):
+    for shape in slide.shapes:
+        if shape.get_base_placeholder() is not None:
+            return shape
+
+    return None
+
+
+def print_effects(source, effects):
+    print(f"{source}: {len(effects)} effect(s)")
+
     for effect in effects:
-        print(effect.type.name, effect.subtype.name)
+        print(f"  {effect.type.name} {effect.subtype.name}")
+
+
+with slides.Presentation() as presentation:
+    layout_slide = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+    layout_placeholder = layout_slide.placeholder_manager.add_text_placeholder(100, 100, 400, 80)
+    layout_slide.timeline.main_sequence.add_effect(layout_placeholder, slides.animation.EffectType.SPLIT, slides.animation.EffectSubtype.VERTICAL_IN, slides.animation.EffectTriggerType.ON_CLICK)
+
+    master_placeholder = layout_placeholder.get_base_placeholder()
+    if master_placeholder is not None:
+        master_sequence = layout_slide.master_slide.timeline.main_sequence
+        master_sequence.add_effect(master_placeholder, slides.animation.EffectType.FLY, slides.animation.EffectSubtype.BOTTOM, slides.animation.EffectTriggerType.ON_CLICK)
+
+    slide = presentation.slides.add_empty_slide(layout_slide)
+    slide_placeholder = find_placeholder_with_base(slide)
+
+    if slide_placeholder is None:
+        raise RuntimeError("The slide does not contain a placeholder linked to its layout slide.")
+
+    slide.timeline.main_sequence.add_effect(slide_placeholder, slides.animation.EffectType.RANDOM_BARS, slides.animation.EffectSubtype.HORIZONTAL, slides.animation.EffectTriggerType.ON_CLICK)
+    print_effects("Normal slide", slide.timeline.main_sequence.get_effects_by_shape(slide_placeholder))
+
+    base_layout_placeholder = slide_placeholder.get_base_placeholder()
+    if base_layout_placeholder is not None:
+        print_effects("Layout slide", layout_slide.timeline.main_sequence.get_effects_by_shape(base_layout_placeholder))
+
+        base_master_placeholder = base_layout_placeholder.get_base_placeholder()
+        if base_master_placeholder is not None:
+            print_effects("Master slide", layout_slide.master_slide.timeline.main_sequence.get_effects_by_shape(base_master_placeholder))
+
+    presentation.save("placeholder-animations.pptx", slides.export.SaveFormat.PPTX)
 ```
-```py
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
 
-    # 取得普通投影片上形狀的動畫效果。
-    shape = slide.shapes[0]
-    shape_effects = slide.timeline.main_sequence.get_effects_by_shape(shape)
+## **變更動畫時間設定**
 
-    # 取得版面投影片上佔位區的動畫效果。
-    layout_shape = shape.get_base_placeholder()
-    layout_shape_effects = slide.layout_slide.timeline.main_sequence.get_effects_by_shape(layout_shape)
+PowerPoint **Timing** 對話框對應至[Timing](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/timing/)的屬性。
 
-    # 取得母片投影片上佔位區的動畫效果。
-    master_shape = layout_shape.get_base_placeholder()
-    master_shape_effects = slide.layout_slide.master_slide.timeline.main_sequence.get_effects_by_shape(master_shape)
+![PowerPoint 動畫效果的時間對話框](shape-animation.png)
 
-    print("Main sequence of shape effects:")
-    print_effects(master_shape_effects)
-    print_effects(layout_shape_effects)
-    print_effects(shape_effects)
-```
+- **開始** 對應至[Timing.trigger_type](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/timing/trigger_type/)。
+- **持續時間** 對應至[Timing.duration](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/timing/duration/)，單位為秒。
+- **延遲** 對應至[Timing.trigger_delay_time](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/timing/trigger_delay_time/)，單位為秒。
+- **重複** 對應至[Timing.repeat_count](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/timing/repeat_count/)、[Timing.repeat_until_next_click](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/timing/repeat_until_next_click/)或[Timing.repeat_until_end_slide](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/timing/repeat_until_end_slide/)。
+- **播放完成後倒退** 對應至[Timing.rewind](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/timing/rewind/)。
 
-Output:
-```text
-Main sequence of shape effects:
-FLY BOTTOM
-SPLIT VERTICAL_IN
-RANDOM_BARS HORIZONTAL
-```
-
-## **變更動畫效果的時間屬性**
-
-Aspose.Slides for Python via .NET 允許您變更動畫效果的 Timing（時間）屬性。
-
-以下為 Microsoft PowerPoint 中的動畫時間面板：
-
-![動畫時間面板](shape-animation.png)
-
-以下為 PowerPoint Timing 與 `Effect.Timing` 屬性之對應關係：
-
-- PowerPoint Timing **Start** 下拉選單對應到 [Effect.Timing.TriggerType](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/effecttriggertype/) 屬性。 
-- PowerPoint Timing **Duration** 對應到 `Effect.Timing.Duration` 屬性。動畫的持續時間（秒）為動畫完成一次循環所需的總時間。 
-- PowerPoint Timing **Delay** 對應到 `Effect.Timing.TriggerDelayTime` 屬性。 
-
-以下說明如何變更 Effect Timing（效果時間）屬性：
-
-1. [套用](#apply-animation-to-shape)或取得動畫效果。  
-2. 為所需的 `Effect.Timing` 屬性設定新值。  
-3. 儲存修改後的 PPTX 檔案。
-
-以下 Python 程式碼示範此操作：
+此獨立範例加入一個效果，透過[Sequence.add_effect](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/sequence/add_effect/) 回傳的物件變更其時間設定，並儲存結果。保留回傳的[Effect](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/effect/) 參考可避免不必要的集合索引。
 
 ```python
 import aspose.slides as slides
 
-# 實例化一個代表簡報檔案的 Presentation 類別。
-with slides.Presentation("AnimExample_out.pptx") as pres:
-    # 取得投影片的主要序列。
-    sequence = pres.slides[0].timeline.main_sequence
 
-    # 取得主要序列的第一個效果。
-    effect = sequence[0]
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 120, 100, 320, 80)
+    shape.text_frame.text = "Timed animation"
 
-    # 將效果的 TriggerType 變更為點擊時開始
+    effect = slide.timeline.main_sequence.add_effect(shape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
     effect.timing.trigger_type = slides.animation.EffectTriggerType.ON_CLICK
-
-    # 變更效果的持續時間
-    effect.timing.duration = 3
-
-    # 變更效果的 TriggerDelayTime
+    effect.timing.duration = 2.0
     effect.timing.trigger_delay_time = 0.5
+    effect.timing.repeat_until_next_click = False
+    effect.timing.repeat_until_end_slide = False
+    effect.timing.repeat_count = 2.0
+    effect.timing.rewind = True
 
-    # 將 PPTX 檔案儲存至磁碟
-    pres.save("AnimExample_changed.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("shape-animation-timing.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **動畫效果聲音**
+請有意地僅使用一種重複模式。將重複計數與「until」旗標結合可能在不同的檢視器中產生混淆結果。變更重複模式時，先設定[Timing.repeat_until_next_click](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/timing/repeat_until_next_click/)與[Timing.repeat_until_end_slide](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/timing/repeat_until_end_slide/)，再設定[Timing.repeat_count](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/timing/repeat_count/)，因為設定任一旗標也會改變目前的重複模式。
 
-Aspose.Slides 提供以下屬性，讓您在動畫效果中使用聲音： 
+## **新增與擷取動畫聲音**
 
-- `sound`
-- `stop_previous_sound`
+動畫效果可以透過[Effect.sound](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/effect/sound/) 參照內嵌音訊。[Effect.stop_previous_sound](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/effect/stop_previous_sound/) 可指示效果停止先前效果所啟動的音訊。
 
-### **新增動畫效果聲音**
+### **將聲音加入效果**
 
-以下 Python 程式碼示範如何新增動畫效果聲音，並在下一個效果開始時停止該聲音：
+以下範例預期本機音訊檔案名稱為`animation-sound.wav`。它建立兩個效果，將該檔案嵌入為第一個效果的聲音，並設定第二個效果停止該聲音。它使用[Sequence.add_effect](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/sequence/add_effect/) 回傳的物件，因此不需要序列索引。
 
 ```python
 import aspose.slides as slides
 
-with Presentation("AnimExample_out.pptx") as pres:
-    # 將音訊新增至簡報的音訊集合
-    effect_sound = pres.audios.add_audio(open("sampleaudio.wav", "rb").read())
 
-    first_slide = pres.slides[0]
-
-    # 取得投影片的主要序列。
-    sequence = first_slide.timeline.main_sequence
-
-    # 取得主要序列的第一個效果
-    first_effect = sequence[0]
-
-    # 檢查效果是否為「無聲」
-    if not first_effect.stop_previous_sound and first_effect.sound is None:
-        # 為第一個效果新增聲音
-        first_effect.sound = effect_sound
-
-    # 取得投影片的第一個互動序列。
-    interactive_sequence = first_slide.timeline.interactive_sequences[0]
-
-    # 設定效果的「停止前一個聲音」旗標
-    interactive_sequence[0].stop_previous_sound = True
-
-    # 將 PPTX 檔案寫入磁碟
-    pres.save("AnimExample_Sound_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-### **擷取動畫效果聲音**
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/) 類別的實例。  
-2. 透過索引取得投影片的參照。  
-3. 取得主要的效果序列。  
-4. 擷取嵌入於每個動畫效果的 `sound`。  
-
-以下 Python 程式碼示範如何擷取嵌入於動畫效果中的聲音：
-
-```python
-import aspose.slides as slides
-
-# 實例化一個代表簡報檔案的 Presentation 類別。
-with slides.Presentation("EffectSound.pptx") as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+    first_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 80, 100, 240, 80)
+    second_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 400, 100, 240, 80)
+    first_shape.text_frame.text = "Starts sound"
+    second_shape.text_frame.text = "Stops sound"
 
-    # 取得投影片的主要序列。
     sequence = slide.timeline.main_sequence
+    first_effect = sequence.add_effect(first_shape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+    second_effect = sequence.add_effect(second_shape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
 
+    with open("animation-sound.wav", "rb") as audio_file:
+        effect_sound = presentation.audios.add_audio(audio_file.read())
+
+    first_effect.sound = effect_sound
+    second_effect.stop_previous_sound = True
+
+    presentation.save("shape-animation-sound.pptx", slides.export.SaveFormat.PPTX)
+```
+
+### **擷取內嵌效果聲音**
+
+以下範例預期本機簡報名稱為`presentation-with-animation-sounds.pptx`。它掃描主序列與互動序列，將每個內嵌的效果聲音寫入`extracted-animation-sounds` 目錄。副檔名依據[Audio.content_type](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/audio/content_type/) 所公開的音訊 MIME 類型選取。
+
+```python
+import os
+
+import aspose.slides as slides
+
+
+def get_audio_extension(content_type):
+    normalized_type = "" if content_type is None else content_type.lower()
+
+    if normalized_type == "audio/mpeg":
+        return ".mp3"
+    if normalized_type == "audio/mp4":
+        return ".m4a"
+    if normalized_type == "audio/ogg":
+        return ".ogg"
+    if normalized_type in ("audio/wav", "audio/x-wav"):
+        return ".wav"
+
+    return ".bin"
+
+
+def save_sounds(sequence, output_directory, sound_index):
     for effect in sequence:
         if effect.sound is None:
             continue
 
-        # 以位元組陣列提取效果聲音
-        audio = effect.sound.binary_data
+        extension = get_audio_extension(effect.sound.content_type)
+        output_path = os.path.join(output_directory, f"effect-sound-{sound_index}{extension}")
+        with open(output_path, "wb") as output_file:
+            output_file.write(bytes(effect.sound.binary_data))
+        sound_index += 1
+
+    return sound_index
+
+
+input_path = "presentation-with-animation-sounds.pptx"
+output_directory = "extracted-animation-sounds"
+
+os.makedirs(output_directory, exist_ok=True)
+
+with slides.Presentation(input_path) as presentation:
+    sound_index = 1
+
+    for slide in presentation.slides:
+        sound_index = save_sounds(slide.timeline.main_sequence, output_directory, sound_index)
+
+        for sequence in slide.timeline.interactive_sequences:
+            sound_index = save_sounds(sequence, output_directory, sound_index)
+
+print(f"Extracted {sound_index - 1} sound file(s) to {os.path.abspath(output_directory)}.")
 ```
 
-## **動畫結束後**
+對於大型音訊物件，請使用[Audio.get_stream](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/audio/get_stream/) 並將串流複製至檔案，而非將整個物件載入至位元組陣列。
 
-Aspose.Slides for .NET 允許您變更動畫效果的 After animation（動畫結束後）屬性。
+## **設定動畫結束後行為**
 
-![動畫結束後面板](shape-after-animation.png)
+**After animation** 選項控制形狀在其效果完成後的處理方式。
 
-PowerPoint 效果 **After animation** 下拉選單對應以下屬性：
+![PowerPoint 效果選項對話框顯示「動畫結束後」設定](shape-after-animation.png)
 
-- `after_animation_type` 屬性描述動畫結束後的類型：
-  * PowerPoint **More Colors** 對應 [COLOR](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/afteranimationtype/) 類型；
-  * PowerPoint **Don't Dim** 項目對應 [DO_NOT_DIM](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/afteranimationtype/) 類型（預設的動畫結束後類型）；
-  * PowerPoint **Hide After Animation** 項目對應 [HIDE_AFTER_ANIMATION](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/afteranimationtype/) 類型；
-  * PowerPoint **Hide on Next Mouse Click** 項目對應 [HIDE_ON_NEXT_MOUSE_CLICK](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/afteranimationtype/) 類型；
-- `after_animation_color` 屬性定義動畫結束後的顏色格式。此屬性與 [COLOR](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/afteranimationtype/) 類型共同使用。若將類型更改為其他，動畫結束後的顏色將被清除。
+[AfterAnimationType](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/afteranimationtype/) 列舉支援保持形狀不變、變更其顏色、動畫結束後隱藏，或在下一次點擊時隱藏。當類型為[AfterAnimationType.COLOR](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/afteranimationtype/) 時，亦請設定[Effect.after_animation_color](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/effect/after_animation_color/)。
 
-以下 Python 程式碼示範如何變更動畫結束後的效果：
+此獨立範例建立一個效果，透過回傳的效果物件設定其動畫結束後行為，並儲存結果。
 
 ```python
+import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# 實例化一個代表簡報檔案的 Presentation 類別
-with slides.Presentation("AnimImage_out.pptx") as pres:
-    first_slide = pres.slides[0]
 
-    # 取得主要序列的第一個效果
-    first_effect = first_slide.timeline.main_sequence[0]
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 120, 100, 320, 80)
+    shape.text_frame.text = "Dim after animation"
 
-    # 將動畫結束後類型變更為顏色
-    first_effect.after_animation_type = AfterAnimationType.COLOR
+    effect = slide.timeline.main_sequence.add_effect(shape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+    effect.after_animation_type = slides.animation.AfterAnimationType.COLOR
+    effect.after_animation_color.color = draw.Color.light_gray
 
-    # 設定動畫結束後的暗淡顏色
-    first_effect.after_animation_color.color = Color.alice_blue
-
-    # 將 PPTX 檔案寫入磁碟
-    pres.save("AnimImage_AfterAnimation.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("shape-animation-after-effect.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+將類型從[AfterAnimationType.COLOR](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/afteranimationtype/) 變更為其他類型時，會清除動畫結束後的顏色設定。
 
 ## **動畫文字**
 
-Aspose.Slides 提供以下屬性，讓您操作動畫效果的 *Animate text*（動畫文字）區塊：
+文字動畫有兩個相關的控制項：
 
-- `animate_text_type` 描述效果的動畫文字類型。形狀文字可依以下方式動畫化：
-  - 同時全部 ([ALL_AT_ONCE](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/animatetexttype/) 類型)
-  - 逐字（[BY_WORD](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/animatetexttype/) 類型）
-  - 逐字元（[BY_LETTER](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/animatetexttype/) 類型）
-- `delay_between_text_parts` 設定動畫文字部件（詞或字元）之間的延遲。正值表示效果持續時間的百分比，負值表示以秒為單位的延遲。
+- [TextAnimation.build_type](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/textanimation/build_type/) 控制段落是一起顯示還是逐段落顯示。
+- [Effect.animate_text_type](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/effect/animate_text_type/) 控制文字是一次全部顯示、逐字或逐字元顯示。[Effect.delay_between_text_parts](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/effect/delay_between_text_parts/) 設定字詞或字元之間的延遲。正值為效果持續時間的百分比，負值為秒數延遲。
 
-以下說明如何變更 Effect Animate text（效果動畫文字）屬性：
-
-1. [套用](#apply-animation-to-shape)或取得動畫效果。  
-2. 將 `build_type` 屬性設定為 [AS_ONE_OBJECT](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/buildtype/) 值，以關閉 *By Paragraphs*（逐段落）動畫模式。  
-3. 為 `animate_text_type` 與 `delay_between_text_parts` 屬性設定新值。  
-4. 儲存修改後的 PPTX 檔案。  
-
-以下 Python 程式碼示範此操作：
+以下獨立範例為文字方塊中的單字加入動畫。[BuildType.AS_ONE_OBJECT](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/buildtype/) 會停用逐段落建構，使字單位設定套用於整個文字框。
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("AnimTextBox_out.pptx") as pres:
-    first_slide = pres.slides[0]
 
-    # 取得主要序列的第一個效果
-    first_effect = first_slide.timeline.main_sequence[0]
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 80, 80, 560, 100)
+    text_box.text_frame.text = "Aspose.Slides animates this sentence word by word."
 
-    # 將效果的文字動畫類型變更為「As One Object」
-    first_effect.text_animation.build_type = slides.animation.BuildType.AS_ONE_OBJECT
+    effect = slide.timeline.main_sequence.add_effect(text_box, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+    effect.text_animation.build_type = slides.animation.BuildType.AS_ONE_OBJECT
+    effect.animate_text_type = slides.animation.AnimateTextType.BY_WORD
+    effect.delay_between_text_parts = 20.0
 
-    # 將效果的動畫文字類型變更為「By word」
-    first_effect.animate_text_type = slides.animation.AnimateTextType.BY_WORD
-
-    # 將單字之間的延遲設為效果持續時間的 20%
-    first_effect.delay_between_text_parts = 20
-
-    # 將 PPTX 檔案寫入磁碟
-    pres.save("AnimTextBox_AnimateText.pptx", slides.export.SaveFormat.PPTX)
-
+    presentation.save("animated-text.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+若要逐段落建構文字方塊，請設定[BuildType.BY_LEVEL_PARAGRAPHS1](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/buildtype/)（或其他段落層級）。若要針對單一段落套用自己的效果，請使用接受[IParagraph](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iparagraph/) 的[Sequence.add_effect](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.animation/sequence/add_effect/) 重載。請參閱[Animated Text](/slides/zh-hant/python-net/animated-text/) 以取得段落層級範例。
+
+## **匯出與相容性說明**
+
+- 將檔案儲存為 PPT 或 PPTX 會保留動畫模型，但最終播放由簡報檢視器控制。
+- PDF 及靜態影像不會播放動畫。若輸出必須呈現動態，請使用[HTML5 export](/slides/zh-hant/python-net/export-to-html5/)、動畫 GIF，或[video conversion](/slides/zh-hant/python-net/convert-powerpoint-to-video/)。
+- 若為 HTML5，請啟用[Html5Options.animate_shapes](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.export/html5options/animate_shapes/)，必要時再啟用[Html5Options.animate_transitions](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.export/html5options/animate_transitions/)。
+- 影片轉換支援許多常見的進入、強調、退出與路徑動畫，但並非所有 PowerPoint 效果皆受支援。請檢查目前的[supported animations and effects](/slides/zh-hant/python-net/convert-powerpoint-to-video/#supported-animations-and-effects)，並以目標 Aspose.Slides 版本測試關鍵簡報。
+- 進階自訂效果及從其他簡報格式匯入的效果可能在檔案中保留，但在 PowerPoint、HTML5 或影片中呈現方式不同。請驗證匯出結果，而非僅依據效果名稱。
 
 ## **常見問題**
 
-**如何確保在將簡報發佈至網路時保留動畫？**
+**為何動畫會在 PowerPoint 中顯示，但在 PDF 中不顯示？**
 
-[Export to HTML5](/slides/zh-hant/python-net/export-to-html5/) 並啟用負責[形狀](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.export/html5options/animate_shapes/)與[轉場](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.export/html5options/animate_transitions/)動畫的[選項](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.export/html5options/)。純 HTML 不會播放投影片動畫，而 HTML5 則會。
+PDF 為靜態格式，無法播放動畫與投影片切換。若需保留動作，請匯出為 HTML5、動畫 GIF 或影片。
 
-**變更形狀的 Z 序（圖層順序）會如何影響動畫？**
+**為何效果在影片中播放的方式不同？**
 
-動畫順序與繪製順序是獨立的：效果控制出現/消失的時間與類型，而 [z-order](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shape/z_order_position/) 決定哪個覆蓋哪個。最終的可見結果取決於兩者的組合。（這是一般 PowerPoint 的行為；Aspose.Slides 的效果與形狀模型亦遵循相同邏輯。）
+影片匯出會渲染動畫，而非直接儲存原始 PowerPoint 行為。某些進階效果未受支援或僅為近似。請查閱受支援的效果表，並在正式使用前測試實際簡報。
 
-**將某些動畫效果轉換為影片時是否有限制？**
+**將形狀向前或向後移動會改變其動畫順序嗎？**
 
-一般而言，[動畫受支援](/slides/zh-hant/python-net/convert-powerpoint-to-video/)，但在少數情況或特定效果下可能會以不同方式呈現。建議使用您所使用的效果以及相應的函式庫版本進行測試。
+不會。形狀的 Z 軸順序決定疊蓋關係，序列順序與觸發方式決定動畫播放順序。若需要不同的播放順序，請調整時間軸。

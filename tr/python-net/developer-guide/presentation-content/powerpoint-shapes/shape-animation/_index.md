@@ -1,5 +1,5 @@
 ---
-title: Python ile Sunumlarda Şekil Animasyonlarını Uygulama
+title: Python ile Sunumlarda Şekil Animasyonlarını Uygula
 linktitle: Şekil Animasyonu
 type: docs
 weight: 60
@@ -22,458 +22,367 @@ keywords:
 - sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET ile PowerPoint ve OpenDocument sunumlarında şekil animasyonları oluşturmayı ve özelleştirmeyi keşfedin. Öne çıkın!"
+description: "Aspose.Slides for Python via .NET ile şekil animasyonlarını, zamanlamayı, sesleri, animasyon sonrası davranışı ve animasyonlu metni ekleme, inceleme ve özelleştirme konusunda bilgi edinin."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-Animasyonlar, metinlere, görüntülere, şekillere veya [grafiklere](/slides/tr/python-net/animated-charts/) uygulanabilen görsel efektlerdir. Sunumlara veya bileşenlerine hayat verir. 
+Aspose.Slides for Python via .NET, slayt animasyonlarını bir slayt zaman çizelgesindeki efektler olarak temsil eder. Bir efektin hedef şekli, bir animasyon türü ve alt türü, bir tetikleyicisi, zamanlama ayarları ve ses veya animasyon sonrası davranış gibi isteğe bağlı özellikleri vardır.
 
-## **Sunumlarda Animasyon Kullanmanın Nedenleri?**
+Zaman çizelgesi iki tür dizi içerir:
 
-Animasyonları kullanarak 
+- **Ana dizi** slayt ilerledikçe oynatılır.
+- **Etkileşimli dizi**, tetikleyici şekli tıklandığında başlar.
 
-* bilgi akışını kontrol et
-* önemli noktaları vurgula
-* izleyicileriniz arasında ilgi veya katılımı artır
-* içeriği okumayı, özümsemeyi veya işlemeyi daha kolay hale getir
-* okuyucularınızın veya izleyicilerinizin dikkatini sunumdaki önemli bölümlere çek
+Metin kutuları, resimler, grafikler, tablolar ve diğer slayt nesneleri [IShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ishape/) uyguladığından, çoğu slayt içeriği için aynı [Sequence.add_effect](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/sequence/add_effect/) yöntemini kullanırsınız. Mevcut efektler [EffectType](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/effecttype/) enumerable'ında listelenir.
 
-PowerPoint, **giriş**, **çıkış**, **vurgulama** ve **hareket yolları** kategorileri kapsamında animasyonlar ve animasyon efektleri için birçok seçenek ve araç sunar. 
+## **Şekil Animasyonları Ekle**
 
-## **Aspose.Slides’te Animasyonlar**
+Bir animasyon eklemek için slaytın ana dizisini alın ve [Sequence.add_effect](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/sequence/add_effect/) metodunu hedef şekil, efekt türü, alt tür ve tetikleyiciyle çağırın. Başka bir şekil tıklandığında başlayan bir efekt için, tetikleyicisi o diğer şekil olan bir etkileşimli dizi oluşturun.
 
-* Aspose.Slides, animasyonlarla çalışmak için gereken sınıfları ve türleri [Aspose.Slides.Animation](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/) ad alanı altında sağlar,
-* Aspose.Slides, [EffectType](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/effecttype/) sayımında **150’den fazla animasyon efekti** sunar. Bu efektler, temel olarak PowerPoint'te kullanılan aynı (veya eşdeğer) efektlerdir.
-
-## **Metin Kutusuna Animasyon Uygulama**
-
-Aspose.Slides for Python via .NET, bir şeklin içindeki metne animasyon uygulamanıza olanak tanır. 
-
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Bir slaydın referansını indeksine göre alın.  
-3. `rectangle` tipinde bir [IAutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/iautoshape/) ekleyin.  
-4. `IAutoShape.TextFrame`'e metin ekleyin.  
-5. Efektlerin ana dizisini alın.  
-6. [IAutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/iautoshape/) üzerine bir animasyon efekti ekleyin.  
-7. `TextAnimation.BuildType` özelliğini `BuildType` sayımındaki bir değere ayarlayın.  
-8. Sunumu PPTX dosyası olarak diske yazın.  
-
-Bu Python kodu, `Fade` efektini AutoShape'e nasıl uygulayacağınızı ve metin animasyonunu *By 1st Level Paragraphs* değerine nasıl ayarlayacağınızı gösterir:
+Aşağıdaki örnek her iki tür animasyonu oluşturur ve sonucu `shape-animations.pptx` dosyasına kaydeder.
 
 ```python
 import aspose.slides as slides
 
-# Sunum dosyasını temsil eden bir sunum sınıfını örnekler.
-with slides.Presentation() as pres:
-    sld = pres.slides[0]
-    
-    # Yeni bir AutoShape ekler ve metin ekler
-    autoShape = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 150, 100)
 
-    textFrame = autoShape.text_frame
-    textFrame.text = "First paragraph \nSecond paragraph \n Third paragraph"
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # Slaydın ana dizisini alır.
-    sequence = sld.timeline.main_sequence
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.ROUND_CORNER_RECTANGLE, 120, 100, 320, 80)
+    target_shape.text_frame.text = "Click to animate this shape"
 
-    # Şekle Fade animasyon etkisi ekler
-    effect = sequence.add_effect(autoShape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+    main_sequence = slide.timeline.main_sequence
+    entrance_effect = main_sequence.add_effect(target_shape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+    entrance_effect.timing.duration = 1.5
 
-    # Şekil metnini 1. seviye paragraflara göre canlandırır
-    effect.text_animation.build_type = slides.animation.BuildType.BY_LEVEL_PARAGRAPHS1
+    trigger_shape = slide.shapes.add_auto_shape(slides.ShapeType.BEVEL, 20, 20, 100, 40)
+    trigger_shape.text_frame.text = "Move"
 
-    # PPTX dosyasını diske kaydeder
-    pres.save("AnimText_out.pptx", slides.export.SaveFormat.PPTX)
+    interactive_sequence = slide.timeline.interactive_sequences.add(trigger_shape)
+    interactive_sequence.add_effect(target_shape, slides.animation.EffectType.PATH_FOOTBALL, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+
+    presentation.save("shape-animations.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{%  alert color="primary"  %}} 
+Tetikleyici, bir efektin ne zaman başlayacağını kontrol eder:
 
-Metinlere animasyon uygulamanın yanı sıra, tek bir [Paragraph](https://reference.aspose.com/slides/tr/python-net/aspose.slides/iparagraph/) üzerine de animasyon uygulayabilirsiniz. Bkz [**Animated Text**](/slides/tr/python-net/animated-text/).
+- [EffectTriggerType.ON_CLICK](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/effecttriggertype/) ana dizide bir tıklama ya da etkileşimli dizide tetikleyici şekle bir tıklama bekler.
+- [EffectTriggerType.WITH_PREVIOUS](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/effecttriggertype/) önceki efektle birlikte başlar.
+- [EffectTriggerType.AFTER_PREVIOUS](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/effecttriggertype/) önceki efekt bittiğinde başlar.
 
-{{% /alert %}} 
+Bir resmi, grafiği veya başka bir şekil türünü animasyonlamak için, `target_shape` yerine o nesneyi [Sequence.add_effect](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/sequence/add_effect/) metoduna aktarın. Grafiklere özgü gruplama seçenekleri için [Animated Charts](/slides/tr/python-net/animated-charts/) bölümüne bakın.
 
-## **PictureFrame’e Animasyon Uygulama**
+## **Şekil Animasyonlarını Oku**
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Bir slaydın referansını indeksine göre alın.  
-3. Slayta bir [PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/) ekleyin veya alın.  
-4. Efektlerin ana dizisini alın.  
-5. [PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/) üzerine bir animasyon efekti ekleyin.  
-6. Sunumu PPTX dosyası olarak diske yazın.  
+Hedef şekli bildiğinizde [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/sequence/get_effects_by_shape/) kullanın. Her bir efekti incelemek için ana dizi ve tüm etkileşimli dizileri döngüyle gezinin. Döngü, bir dizinin `0` indeksinde bir efekt olduğu varsayımını önler.
 
-Bu Python kodu, bir picture frame'e `Fly` efektini nasıl uygulayacağınızı gösterir:
-
-```python
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-
-# Bir sunum dosyasını temsil eden sunum sınıfını örnekler.
-with slides.Presentation() as pres:
-    # Sunumun görüntü koleksiyonuna eklenecek görüntüyü yükler
-    img = draw.Bitmap("aspose-logo.jpg")
-    image = pres.images.add_image(img)
-
-    # Slayda bir resim çerçevesi ekler
-    picFrame = pres.slides[0].shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
-
-    # Slaydın ana dizisini alır.
-    sequence = pres.slides[0].timeline.main_sequence
-
-    # Resim çerçevesine Soldan Uçuş animasyon etkisi ekler
-    effect = sequence.add_effect(picFrame, slides.animation.EffectType.FLY,  
-        slides.animation.EffectSubtype.LEFT, 
-        slides.animation.EffectTriggerType.ON_CLICK)
-
-    # PPTX dosyasını diske kaydeder
-    pres.save("AnimImage_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Şekle Animasyon Uygulama**
-
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Bir slaydın referansını indeksine göre alın.  
-3. `rectangle` tipinde bir [IAutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/iautoshape/) ekleyin.  
-4. `Bevel` tipinde bir [IAutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/iautoshape/) ekleyin (bu nesne tıklandığında animasyon çalınır).  
-5. `Bevel` şekli üzerinde bir efekt dizisi oluşturun.  
-6. Özel bir `UserPath` oluşturun.  
-7. `UserPath`'e hareket komutları ekleyin.  
-8. Sunumu PPTX dosyası olarak diske yazın.  
-
-Bu Python kodu, bir şekle `PathFootball` (path football) efektini nasıl uygulayacağınızı gösterir:
-
-```python
-import aspose.slides.animation as anim
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-# Bir PPTX dosyasını temsil eden Presentation sınıfını örnekler.
-with slides.Presentation() as pres:
-    sld = pres.slides[0]
-
-    # Mevcut şekil için sıfırdan PathFootball efekti oluşturur.
-    ashp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 250, 25)
-
-    ashp.add_text_frame("Animated TextBox")
-
-    # PathFootBall animasyon etkisini ekler.
-    pres.slides[0].timeline.main_sequence.add_effect(ashp, 
-        anim.EffectType.PATH_FOOTBALL,
-        anim.EffectSubtype.NONE, 
-        anim.EffectTriggerType.AFTER_PREVIOUS)
-
-    # Bir tür "buton" oluşturur.
-    shapeTrigger = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.BEVEL, 10, 10, 20, 20)
-
-    # Buton için bir efekt dizisi oluşturur.
-    seqInter = pres.slides[0].timeline.interactive_sequences.add(shapeTrigger)
-
-    # Özel bir kullanıcı yolu oluşturur. Nesnemiz sadece butona tıklandıktan sonra hareket edecek.
-    fxUserPath = seqInter.add_effect(ashp, 
-        anim.EffectType.PATH_USER, 
-        anim.EffectSubtype.NONE, 
-        anim.EffectTriggerType.ON_CLICK)
-
-    # Oluşturulan yol boş olduğundan hareket komutları ekler.
-    motionBhv = fxUserPath.behaviors[0]
-
-    pts = [draw.PointF(0.076, 0.59)]
-    motionBhv.path.add(anim.MotionCommandPathType.LINE_TO, pts, anim.MotionPathPointsType.AUTO, True)
-    pts = [draw.PointF(-0.076, -0.59)]
-    motionBhv.path.add(anim.MotionCommandPathType.LINE_TO, pts, anim.MotionPathPointsType.AUTO, False)
-    motionBhv.path.add(anim.MotionCommandPathType.END, None, anim.MotionPathPointsType.AUTO, False)
-
-    # PPTX dosyasını diske yazar.
-    pres.save("AnimExample_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Şekle Uygulanan Animasyon Efektlerini Almak**
-
-Aşağıdaki örnekler, bir şekle uygulanan tüm animasyon efektlerini almak için [Sequence](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/sequence/) sınıfının `get_effects_by_shape` metodunun nasıl kullanılacağını gösterir.
-
-**Örnek 1:** Normal bir slaytta bir şekle uygulanan animasyon efektlerini alın
-
-Daha önce PowerPoint sunumlarında şekillere animasyon efektleri eklemeyi öğrenmiştiniz. Aşağıdaki örnek kod, `AnimExample_out.pptx` sunumundaki ilk normal slayttaki ilk şekle uygulanan efektleri nasıl alacağınızı gösterir:
+Aşağıdaki örnek, ana-dizi ve etkileşimli efektlere sahip bir şekil oluşturur, şekli hedefleyen efektleri alır ve ardından slayttaki her diziyi döngüyle gezerek inceler.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("AnimExample_out.pptx") as presentation:
-    first_slide = presentation.slides[0]
 
-    # Slaydın ana animasyon dizisini alır.
-    sequence = first_slide.timeline.main_sequence
+def print_sequence(label, sequence):
+    print(f"  {label}: {sequence.count} effect(s)")
 
-    # İlk slayttaki ilk şekli alır.
-    shape = first_slide.shapes[0]
+    for effect in sequence:
+        target_name = "unknown" if effect.target_shape is None else effect.target_shape.name
+        effect_description = f"{effect.type.name} {effect.subtype.name}; target: {target_name}; trigger: {effect.timing.trigger_type.name}"
+        print(f"    {effect_description}")
 
-    # Şekle uygulanan animasyon efektlerini alır.
-    shape_effects = sequence.get_effects_by_shape(shape)
 
-    if len(shape_effects) > 0:
-        print("The shape", shape.name, "has", len(shape_effects), "animation effects.")
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 120, 100, 320, 80)
+    target_shape.text_frame.text = "Animated shape"
+
+    main_sequence = slide.timeline.main_sequence
+    main_sequence.add_effect(target_shape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+
+    trigger_shape = slide.shapes.add_auto_shape(slides.ShapeType.BEVEL, 20, 20, 100, 40)
+    trigger_shape.text_frame.text = "Move"
+
+    interactive_sequence = slide.timeline.interactive_sequences.add(trigger_shape)
+    interactive_sequence.add_effect(target_shape, slides.animation.EffectType.PATH_FOOTBALL, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+
+    target_effects = main_sequence.get_effects_by_shape(target_shape)
+    print(f"The main sequence contains {len(target_effects)} effect(s) for {target_shape.name}.")
+
+    print_sequence("Main sequence", main_sequence)
+
+    for interactive_index, sequence in enumerate(slide.timeline.interactive_sequences, start=1):
+        trigger_name = "unknown" if sequence.trigger_shape is None else sequence.trigger_shape.name
+        sequence_label = f"Interactive sequence {interactive_index}, trigger: {trigger_name}"
+        print_sequence(sequence_label, sequence)
 ```
 
-**Örnek 2:** Yer tutuculardan miras alınanlar da dahil olmak üzere tüm animasyon efektlerini alın
+Yalnızca tek bir şeklin efektlerine ihtiyacınız varsa, önce şekli ad, yer tutucu türü veya başka bir sabit özellik ile tanımlayın; ardından [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/sequence/get_effects_by_shape/) çağırın. `0` indeksindeki şeklin her zaman istenen nesne olduğunu varsaymayın.
 
-Normal bir slayttaki bir şeklin, düzen slaydında ve/veya ana slaytta bulunan yer tutucuları varsa ve bu yer tutuculara animasyon efektleri eklenmişse, slayt gösterisi sırasında şeklin tüm efektleri oynatılır; bu, yer tutuculardan miras alınan efektleri de içerir.
+## **Kalıtımlı Yer Tutucu Efektleriyle Çalışma**
 
-Diyelim ki `sample.pptx` adlı bir PowerPoint sunum dosyamız var; tek bir slaytı var ve yalnızca altbilgi şekli içinde “Made with Aspose.Slides” metni bulunuyor ve **Random Bars** efekti bu şekle uygulanmış.
+Normal bir slayttaki yer tutucu, düzen slaytı ve ana slayt üzerindeki karşılık gelen yer tutucudan animasyon davranışını devralabilir. [Shape.get_base_placeholder](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/get_base_placeholder/) bu üst yer tutucusunu döndürür; üst yoksa `None` döner.
 
-![Slayt şekil animasyon efekti](slide-shape-animation.png)
+Aşağıdaki örnek sunumda, altbilgi normal slaytta **Random Bars**, düzen slaytta **Split** ve ana slaytta **Fly In** efektine sahiptir.
 
-Ayrıca **Split** efektinin düzen slaydındaki altbilgi yer tutucusuna uygulandığını varsayalım.
+![Normal slayttaki altbilgi animasyon efekti](slide-shape-animation.png)
 
-![Düzen şekil animasyon efekti](layout-shape-animation.png)
+![Düzen slayttaki altbilgi yer tutucu animasyon efekti](layout-shape-animation.png)
 
-Ve sonunda **Fly In** efektinin ana slayttaki altbilgi yer tutucusuna uygulandığını varsayalım.
+![Ana slayttaki altbilgi yer tutucu animasyon efekti](master-shape-animation.png)
 
-![Ana şablon şekil animasyon efekti](master-shape-animation.png)
+Sonraki örnek, yer tutucu hiyerarşisini kendisi oluşturur. Bir ana yer tutucu, bir düzen yer tutucu ve normal bir slayttaki karşılık gelen yer tutucuya efektler ekler. Döndürülen şekil kullanılmadan önce her [Shape.get_base_placeholder](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/get_base_placeholder/) çağrısı kontrol edilir.
 
-Aşağıdaki örnek kod, [Shape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/) sınıfının `get_base_placeholder` metodunu kullanarak şekil yer tutucularına erişmeyi ve altbilgi şekline, düzen ve ana slaytlardaki yer tutuculardan miras alınanlar da dahil olmak üzere uygulanan animasyon efektlerini almayı gösterir:
-
-```py
+```python
 import aspose.slides as slides
 
-def print_effects(effects):
+
+def find_placeholder_with_base(slide):
+    for shape in slide.shapes:
+        if shape.get_base_placeholder() is not None:
+            return shape
+
+    return None
+
+
+def print_effects(source, effects):
+    print(f"{source}: {len(effects)} effect(s)")
+
     for effect in effects:
-        print(effect.type.name, effect.subtype.name)
+        print(f"  {effect.type.name} {effect.subtype.name}")
+
+
+with slides.Presentation() as presentation:
+    layout_slide = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+    layout_placeholder = layout_slide.placeholder_manager.add_text_placeholder(100, 100, 400, 80)
+    layout_slide.timeline.main_sequence.add_effect(layout_placeholder, slides.animation.EffectType.SPLIT, slides.animation.EffectSubtype.VERTICAL_IN, slides.animation.EffectTriggerType.ON_CLICK)
+
+    master_placeholder = layout_placeholder.get_base_placeholder()
+    if master_placeholder is not None:
+        master_sequence = layout_slide.master_slide.timeline.main_sequence
+        master_sequence.add_effect(master_placeholder, slides.animation.EffectType.FLY, slides.animation.EffectSubtype.BOTTOM, slides.animation.EffectTriggerType.ON_CLICK)
+
+    slide = presentation.slides.add_empty_slide(layout_slide)
+    slide_placeholder = find_placeholder_with_base(slide)
+
+    if slide_placeholder is None:
+        raise RuntimeError("The slide does not contain a placeholder linked to its layout slide.")
+
+    slide.timeline.main_sequence.add_effect(slide_placeholder, slides.animation.EffectType.RANDOM_BARS, slides.animation.EffectSubtype.HORIZONTAL, slides.animation.EffectTriggerType.ON_CLICK)
+    print_effects("Normal slide", slide.timeline.main_sequence.get_effects_by_shape(slide_placeholder))
+
+    base_layout_placeholder = slide_placeholder.get_base_placeholder()
+    if base_layout_placeholder is not None:
+        print_effects("Layout slide", layout_slide.timeline.main_sequence.get_effects_by_shape(base_layout_placeholder))
+
+        base_master_placeholder = base_layout_placeholder.get_base_placeholder()
+        if base_master_placeholder is not None:
+            print_effects("Master slide", layout_slide.master_slide.timeline.main_sequence.get_effects_by_shape(base_master_placeholder))
+
+    presentation.save("placeholder-animations.pptx", slides.export.SaveFormat.PPTX)
 ```
-```py
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
 
-    # Normal slayttaki şeklin animasyon efektlerini al.
-    shape = slide.shapes[0]
-    shape_effects = slide.timeline.main_sequence.get_effects_by_shape(shape)
+## **Animasyon Zamanlamasını Değiştir**
 
-    # Düzen slaydındaki yer tutucunun animasyon efektlerini al.
-    layout_shape = shape.get_base_placeholder()
-    layout_shape_effects = slide.layout_slide.timeline.main_sequence.get_effects_by_shape(layout_shape)
+PowerPoint **Timing** (Zamanlama) iletişim kutusu, [Timing](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/timing/) özelliklerine eşlenir.
 
-    # Ana slayttaki (master) yer tutucunun animasyon efektlerini al.
-    master_shape = layout_shape.get_base_placeholder()
-    master_shape_effects = slide.layout_slide.master_slide.timeline.main_sequence.get_effects_by_shape(master_shape)
+![Bir animasyon efekti için PowerPoint Zamanlama iletişim kutusu](shape-animation.png)
 
-    print("Main sequence of shape effects:")
-    print_effects(master_shape_effects)
-    print_effects(layout_shape_effects)
-    print_effects(shape_effects)
-```
+- **Başlat** [Timing.trigger_type](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/timing/trigger_type/) eşlenir.
+- **Süre** [Timing.duration](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/timing/duration/) eşlenir, saniye cinsinden.
+- **Gecikme** [Timing.trigger_delay_time](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/timing/trigger_delay_time/) eşlenir, saniye cinsinden.
+- **Tekrarlama** [Timing.repeat_count](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/timing/repeat_count/), [Timing.repeat_until_next_click](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/timing/repeat_until_next_click/), veya [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/timing/repeat_until_end_slide/) eşlenir.
+- **Oynatma bittiğinde geri sar** [Timing.rewind](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/timing/rewind/) eşlenir.
 
-Output:
-```text
-Main sequence of shape effects:
-FLY BOTTOM
-SPLIT VERTICAL_IN
-RANDOM_BARS HORIZONTAL
-```
-
-## **Animasyon Efekti Zamanlama Özelliklerini Değiştirme**
-
-Aspose.Slides for Python via .NET, bir animasyon efektinin Zamanlama özelliklerini değiştirmenize olanak tanır.
-
-Bu, Microsoft PowerPoint'teki Animasyon Zamanlama bölmesidir:
-
-![Animasyon Zamanlama paneli](shape-animation.png)
-
-PowerPoint Zamanlama ile `Effect.Timing` özellikleri arasındaki eşleşmeler şunlardır:
-
-- PowerPoint Zamanlama **Start** açılır listesi, [Effect.Timing.TriggerType](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/effecttriggertype/) özelliğiyle eşleşir.  
-- PowerPoint Zamanlama **Duration**, `Effect.Timing.Duration` özelliğiyle eşleşir. Bir animasyonun süresi (saniye cinsinden), animasyonun bir döngüyü tamamlaması için geçen toplam zamandır.  
-- PowerPoint Zamanlama **Delay**, `Effect.Timing.TriggerDelayTime` özelliğiyle eşleşir.  
-
-Effect Timing özelliklerini nasıl değiştirirsiniz:
-
-1. [Uygula](#apply-animation-to-shape) veya animasyon efektini alın.  
-2. Gereken `Effect.Timing` özellikleri için yeni değerler ayarlayın.  
-3. Değiştirilmiş PPTX dosyasını kaydedin.  
-
-Bu Python kodu işlemi gösterir:
+Bu bağımsız örnek bir efekt ekler, zamanlamasını [Sequence.add_effect](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/sequence/add_effect/) tarafından döndürülen nesne aracılığıyla değiştirir ve sonucu kaydeder. Döndürülen [Effect](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/effect/) referansını tutmak, gereksiz bir koleksiyon indeksinden kaçınır.
 
 ```python
 import aspose.slides as slides
 
-# Sunum dosyasını temsil eden bir sunum sınıfını örnekler.
-with slides.Presentation("AnimExample_out.pptx") as pres:
-    # Slaydın ana dizisini alır.
-    sequence = pres.slides[0].timeline.main_sequence
 
-    # Ana dizinin ilk efektini alır.
-    effect = sequence[0]
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 120, 100, 320, 80)
+    shape.text_frame.text = "Timed animation"
 
-    # Etkinin TriggerType özelliğini tıklandığında başlayacak şekilde değiştirir
+    effect = slide.timeline.main_sequence.add_effect(shape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
     effect.timing.trigger_type = slides.animation.EffectTriggerType.ON_CLICK
-
-    # Etkinin Süresini değiştirir
-    effect.timing.duration = 3
-
-    # Etkinin TriggerDelayTime değerini değiştirir
+    effect.timing.duration = 2.0
     effect.timing.trigger_delay_time = 0.5
+    effect.timing.repeat_until_next_click = False
+    effect.timing.repeat_until_end_slide = False
+    effect.timing.repeat_count = 2.0
+    effect.timing.rewind = True
 
-    # PPTX dosyasını diske kaydeder
-    pres.save("AnimExample_changed.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("shape-animation-timing.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Animasyon Efekti Sesi**
+Tek bir tekrar modunu amaçlı olarak kullanın. Tekrar sayısını bir “until” bayrağıyla birleştirmek, farklı görüntüleyicilerde kafa karıştırıcı sonuçlar üretebilir. Tekrar modlarını değiştirirken, [Timing.repeat_until_next_click](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/timing/repeat_until_next_click/) ve [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/timing/repeat_until_end_slide/) ayarlarını [Timing.repeat_count](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/timing/repeat_count/) öncesinde yapın; çünkü bu bayraklardan birini ayarlamak aynı zamanda aktif tekrar modunu değiştirir.
 
-Aspose.Slides, animasyon efektlerinde seslerle çalışmanıza olanak tanıyan aşağıdaki özellikleri sunar: 
+## **Animasyon Seslerini Ekle ve Çıkar**
 
-- `sound`
-- `stop_previous_sound`
+Bir animasyon efekti, gömülü sesleri [Effect.sound](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/effect/sound/) aracılığıyla referans alabilir. [Effect.stop_previous_sound](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/effect/stop_previous_sound/) bir efekti, önceki bir efekt tarafından başlatılan sesi durdurması için söyler.
 
-### **Animasyon Efekti Sesi Ekleme**
+### **Bir Efekte Ses Ekle**
 
-Bu Python kodu, bir animasyon efekti sesi eklemeyi ve bir sonraki efekt başladığında sesi durdurmayı nasıl yapacağınızı gösterir:
+Aşağıdaki örnek, `animation-sound.wav` adlı yerel bir ses dosyası bekler. İki efekt oluşturur, bu dosyayı birinci efektin sesi olarak gömer ve ikinci efekti sesi durduracak şekilde yapılandırır. [Sequence.add_effect](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/sequence/add_effect/) tarafından döndürülen nesneleri kullandığı için bir dizi indeksi gerekmez.
 
 ```python
 import aspose.slides as slides
 
-with Presentation("AnimExample_out.pptx") as pres:
-    # Sunuma ses koleksiyonuna ses ekler
-    effect_sound = pres.audios.add_audio(open("sampleaudio.wav", "rb").read())
 
-    first_slide = pres.slides[0]
-
-    # Slaydın ana dizisini alır.
-    sequence = first_slide.timeline.main_sequence
-
-    # Ana dizinin ilk efektini alır
-    first_effect = sequence[0]
-
-    # Efekti "Ses Yok" için kontrol eder
-    if not first_effect.stop_previous_sound and first_effect.sound is None:
-        # İlk efekt için ses ekler
-        first_effect.sound = effect_sound
-
-    # Slaydın ilk etkileşimli dizisini alır.
-    interactive_sequence = first_slide.timeline.interactive_sequences[0]
-
-    # Efektin "Önceki sesi durdur" bayrağını ayarlar
-    interactive_sequence[0].stop_previous_sound = True
-
-    # PPTX dosyasını diske yazar
-    pres.save("AnimExample_Sound_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-### **Animasyon Efekti Sesini Çıkarma**
-
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Bir slaydın referansını indeksine göre alın.  
-3. Efektlerin ana dizisini alın.  
-4. Her animasyon efektine gömülü `sound` öğesini çıkarın.  
-
-Bu Python kodu, bir animasyon efektine gömülü sesi nasıl çıkaracağınızı gösterir:
-
-```python
-import aspose.slides as slides
-
-# Sunum dosyasını temsil eden bir sunum sınıfını örnekler.
-with slides.Presentation("EffectSound.pptx") as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+    first_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 80, 100, 240, 80)
+    second_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 400, 100, 240, 80)
+    first_shape.text_frame.text = "Starts sound"
+    second_shape.text_frame.text = "Stops sound"
 
-    # Slaydın ana dizisini alır.
     sequence = slide.timeline.main_sequence
+    first_effect = sequence.add_effect(first_shape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+    second_effect = sequence.add_effect(second_shape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
 
+    with open("animation-sound.wav", "rb") as audio_file:
+        effect_sound = presentation.audios.add_audio(audio_file.read())
+
+    first_effect.sound = effect_sound
+    second_effect.stop_previous_sound = True
+
+    presentation.save("shape-animation-sound.pptx", slides.export.SaveFormat.PPTX)
+```
+
+### **Gömülü Efekt Seslerini Çıkar**
+
+Aşağıdaki örnek, `presentation-with-animation-sounds.pptx` adlı yerel bir sunum bekler. Hem ana hem de etkileşimli dizileri tarar ve her gömülü efekt sesini `extracted-animation-sounds` dizinine yazar. Uzantı, [Audio.content_type](https://reference.aspose.com/slides/tr/python-net/aspose.slides/audio/content_type/) tarafından sağlanan ses MIME tipinden seçilir.
+
+```python
+import os
+
+import aspose.slides as slides
+
+
+def get_audio_extension(content_type):
+    normalized_type = "" if content_type is None else content_type.lower()
+
+    if normalized_type == "audio/mpeg":
+        return ".mp3"
+    if normalized_type == "audio/mp4":
+        return ".m4a"
+    if normalized_type == "audio/ogg":
+        return ".ogg"
+    if normalized_type in ("audio/wav", "audio/x-wav"):
+        return ".wav"
+
+    return ".bin"
+
+
+def save_sounds(sequence, output_directory, sound_index):
     for effect in sequence:
         if effect.sound is None:
             continue
 
-        # Efekt sesini bayt dizisi olarak çıkarır
-        audio = effect.sound.binary_data
+        extension = get_audio_extension(effect.sound.content_type)
+        output_path = os.path.join(output_directory, f"effect-sound-{sound_index}{extension}")
+        with open(output_path, "wb") as output_file:
+            output_file.write(bytes(effect.sound.binary_data))
+        sound_index += 1
+
+    return sound_index
+
+
+input_path = "presentation-with-animation-sounds.pptx"
+output_directory = "extracted-animation-sounds"
+
+os.makedirs(output_directory, exist_ok=True)
+
+with slides.Presentation(input_path) as presentation:
+    sound_index = 1
+
+    for slide in presentation.slides:
+        sound_index = save_sounds(slide.timeline.main_sequence, output_directory, sound_index)
+
+        for sequence in slide.timeline.interactive_sequences:
+            sound_index = save_sounds(sequence, output_directory, sound_index)
+
+print(f"Extracted {sound_index - 1} sound file(s) to {os.path.abspath(output_directory)}.")
 ```
 
-## **Animasyondan Sonra**
+Büyük ses nesneleri için, nesneyi bir bayt dizisine yüklemek yerine [Audio.get_stream](https://reference.aspose.com/slides/tr/python-net/aspose.slides/audio/get_stream/) kullanın ve akışı bir dosyaya kopyalayın.
 
-Aspose.Slides for .NET, bir animasyon efektinin **After animation** özelliğini değiştirmenize olanak tanır.
+## **Animasyon Sonrası Davranışı Ayarla**
 
-Bu, Microsoft PowerPoint'teki Animasyon Efekti ve genişletilmiş menüdür:
+**After animation** (Animasyon Sonrası) seçeneği, bir şeklin efekti bittiğinde ne olacağını kontrol eder.
 
-![Animasyon Efekti ve genişletilmiş menü](shape-after-animation.png)
+![PowerPoint Efekt Seçenekleri iletişim kutusu, Animasyon Sonrası ayarlarını gösterir](shape-after-animation.png)
 
-PowerPoint Effect **After animation** açılır listesi aşağıdaki özelliklere karşılık gelir: 
+[AfterAnimationType](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/afteranimationtype/) enum'ı, şekli aynı bırakmayı, rengini değiştirmeyi, animasyon sonrası gizlemeyi veya bir sonraki tıklamada gizlemeyi destekler. Tür [AfterAnimationType.COLOR] ise, ayrıca [Effect.after_animation_color](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/effect/after_animation_color/) ayarlanmalıdır.
 
-- `after_animation_type` özelliği, After animation türünü tanımlar:  
-  * PowerPoint **More Colors** [COLOR](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/afteranimationtype/) tipine karşılık gelir;  
-  * PowerPoint **Don't Dim** öğesi, varsayılan after animation türü olan [DO_NOT_DIM](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/afteranimationtype/) tipine karşılık gelir;  
-  * PowerPoint **Hide After Animation** öğesi, [HIDE_AFTER_ANIMATION](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/afteranimationtype/) tipine karşılık gelir;  
-  * PowerPoint **Hide on Next Mouse Click** öğesi, [HIDE_ON_NEXT_MOUSE_CLICK](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/afteranimationtype/) tipine karşılık gelir;  
-- `after_animation_color` özelliği, bir after animation renk formatı tanımlar. Bu özellik, [COLOR](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/afteranimationtype/) tipiyle birlikte çalışır. Türü başka bir şeye değiştirirseniz, after animation rengi temizlenir.  
+Bu bağımsız örnek bir efekt oluşturur, döndürülen efekt nesnesi aracılığıyla animasyon sonrası davranışını ayarlar ve sonucu kaydeder.
 
-Bu Python kodu, bir after animation efektini nasıl değiştireceğinizi gösterir:
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 120, 100, 320, 80)
+    shape.text_frame.text = "Dim after animation"
+
+    effect = slide.timeline.main_sequence.add_effect(shape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+    effect.after_animation_type = slides.animation.AfterAnimationType.COLOR
+    effect.after_animation_color.color = draw.Color.light_gray
+
+    presentation.save("shape-animation-after-effect.pptx", slides.export.SaveFormat.PPTX)
+```
+
+[AfterAnimationType.COLOR] dışına bir tür değiştirildiğinde, animasyon sonrası renk ayarı temizlenir.
+
+## **Metni Animasyonla**
+
+Metin animasyonu iki ilgili kontrole sahiptir:
+
+- [TextAnimation.build_type](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/textanimation/build_type/) paragrafın birlikte mi yoksa paragraf düzeyinde mi görüneceğini kontrol eder.
+- [Effect.animate_text_type](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/effect/animate_text_type/) metnin bir kerede mi, kelime kelime mi yoksa harf harf mi görüneceğini belirler. [Effect.delay_between_text_parts](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/effect/delay_between_text_parts/) kelimeler veya harfler arasındaki gecikmeyi ayarlar. Pozitif değer, efekt süresinin yüzdesi; negatif değer ise saniye cinsinden gecikmedir.
+
+Aşağıdaki bağımsız örnek bir metin kutusundaki kelimeleri animasyonlar. [BuildType.AS_ONE_OBJECT](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/buildtype/) paragraf‑paragraf oluşturmayı devre dışı bırakır, böylece kelime ayarı tüm metin çerçevesine uygulanır.
 
 ```python
 import aspose.slides as slides
 
-# Sunum dosyasını temsil eden bir sunum sınıfını örnekler.
-with slides.Presentation("AnimImage_out.pptx") as pres:
-    first_slide = pres.slides[0]
 
-    # Ana dizinin ilk efektini alır
-    first_effect = first_slide.timeline.main_sequence[0]
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 80, 80, 560, 100)
+    text_box.text_frame.text = "Aspose.Slides animates this sentence word by word."
 
-    # After animation türünü Color'a değiştirir
-    first_effect.after_animation_type = AfterAnimationType.COLOR
+    effect = slide.timeline.main_sequence.add_effect(text_box, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+    effect.text_animation.build_type = slides.animation.BuildType.AS_ONE_OBJECT
+    effect.animate_text_type = slides.animation.AnimateTextType.BY_WORD
+    effect.delay_between_text_parts = 20.0
 
-    # After animation karartma rengini ayarlar
-    first_effect.after_animation_color.color = Color.alice_blue
-
-    # PPTX dosyasını diske yazar
-    pres.save("AnimImage_AfterAnimation.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("animated-text.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Metni Canlandırma**
+Bir metin kutusunu paragraf bazında oluşturmak için [BuildType.BY_LEVEL_PARAGRAPHS1](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/buildtype/) (veya başka bir paragraf seviyesi) ayarlayın. Tek bir paragrafı kendi efektiyle hedeflemek için, bir [IParagraph] kabul eden [Sequence.add_effect](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/sequence/add_effect/) aşırı yüklemesini kullanın. Paragraf‑seviye örnekleri için [Animated Text](/slides/tr/python-net/animated-text/) bölümüne bakın.
 
-Aspose.Slides, bir animasyon efektinin *Animate text* bloğu ile çalışmanıza olanak tanıyan aşağıdaki özellikleri sağlar:
+## **Dışa Aktarma ve Uyumluluk Notları**
 
-- `animate_text_type` efektin animasyon metni türünü tanımlar. Şekil metni şu şekilde canlandırılabilir:  
-  - Hepsini birden ([ALL_AT_ONCE](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/animatetexttype/) tipi)  
-  - Kelime kelime ([BY_WORD](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/animatetexttype/) tipi)  
-  - Harf harf ([BY_LETTER](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/animatetexttype/) tipi)  
-- `delay_between_text_parts` animasyonlu metin parçaları (kelimeler veya harfler) arasındaki gecikmeyi ayarlar. Pozitif bir değer efekt süresinin yüzdesini, negatif bir değer ise saniye cinsinden gecikmeyi belirtir.  
-
-Effect Animate text özelliklerini şu şekilde değiştirebilirsiniz:
-
-1. [Uygula](#apply-animation-to-shape) veya animasyon efektini alın.  
-2. *By Paragraphs* animasyon modunu kapatmak için `build_type` özelliğini [AS_ONE_OBJECT](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/buildtype/) değerine ayarlayın.  
-3. `animate_text_type` ve `delay_between_text_parts` özellikleri için yeni değerler ayarlayın.  
-4. Değiştirilmiş PPTX dosyasını kaydedin.  
-
-Bu Python kodu işlemi gösterir:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("AnimTextBox_out.pptx") as pres:
-    first_slide = pres.slides[0]
-
-    # Ana dizinin ilk efektini alır
-    first_effect = first_slide.timeline.main_sequence[0]
-
-    # Efektin Metin animasyon türünü "Tek Nesne Olarak" değiştirir
-    first_effect.text_animation.build_type = slides.animation.BuildType.AS_ONE_OBJECT
-
-    # Efektin Metni Canlandır türünü "Kelime Kelime" olarak değiştirir
-    first_effect.animate_text_type = slides.animation.AnimateTextType.BY_WORD
-
-    # Kelimeler arasındaki gecikmeyi efekt süresinin %20'si olarak ayarlar
-    first_effect.delay_between_text_parts = 20
-
-    # PPTX dosyasını diske yazar
-    pres.save("AnimTextBox_AnimateText.pptx", slides.export.SaveFormat.PPTX)
-
-```
+- PPT veya PPTX olarak kaydetmek animasyon modelini korur, ancak nihai oynatma sunum görüntüleyicisi tarafından kontrol edilir.
+- PDF ve statik görseller animasyonları oynatmaz. Çıktının hareket göstermesi gerektiğinde [HTML5 export](/slides/tr/python-net/export-to-html5/), animasyonlu GIF veya [video conversion](/slides/tr/python-net/convert-powerpoint-to-video/) kullanın.
+- HTML5 için, [Html5Options.animate_shapes](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/html5options/animate_shapes/) etkinleştirin ve gerektiğinde [Html5Options.animate_transitions](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/html5options/animate_transitions/) ayarlayın.
+- Video işleme, birçok yaygın giriş, vurgu, çıkış ve hareket yolu efektini destekler, ancak her PowerPoint efekti desteklenmez. Mevcut [supported animations and effects](/slides/tr/python-net/convert-powerpoint-to-video/#supported-animations-and-effects) kontrol edin ve kritik sunumları hedef Aspose.Slides sürümünüzde test edin.
+- Gelişmiş özel efektler ve diğer sunum formatlarından içe aktarılan efektler dosyada korunabilir ancak PowerPoint, HTML5 veya video içinde farklı render edilebilir. Yalnızca efekt adına güvenmek yerine dışa aktarılan sonucu doğrulayın.
 
 ## **SSS**
 
-**Sunumu web’e yayınlarken animasyonların korunmasını nasıl garanti edebilirim?**
+**Neden bir animasyon PowerPoint'te görünür ama PDF'de görünmez?**
 
-[HTML5'e Dışa Aktar](/slides/tr/python-net/export-to-html5/) ve [shape](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/html5options/animate_shapes/) ile [transition](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/html5options/animate_transitions/) animasyonlarını etkinleştiren [options](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/html5options/) ayarlarını açın. Düz HTML slayt animasyonlarını oynatmaz, HTML5 ise oynatır.
+PDF statik bir formattır, bu yüzden animasyonlar ve slayt geçişleri oynatılmaz. Hareketin korunması gerektiğinde HTML5, animasyonlu GIF veya video olarak dışa aktarın.
 
-**Şekillerin z‑order (katman sırası) değişikliği animasyonu nasıl etkiler?**
+**Neden bir efekt video içinde farklı oynatılır?**
 
-Animasyon ve çizim sırası bağımsızdır: bir efekt, görünme/gizlenme zamanını ve tipini kontrol ederken, [z_order](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/z_order_position/) hangi şeyin diğerinin üzerine geleceğini belirler. Görünür sonuç, ikisinin kombinasyonu ile tanımlanır. (Bu, genel PowerPoint davranışıdır; Aspose.Slides efekt‑ve‑şekil modeli aynı mantığı izler.)
+Video dışa aktarımı, animasyonları render eder, orijinal PowerPoint davranışını depolamaz. Bazı gelişmiş efektler desteklenmez veya yaklaşık olarak uygulanır. Desteklenen efektler tablosunu inceleyin ve üretim öncesi gerçek sunumu test edin.
 
-**Belirli efektler için animasyonları videoya dönüştürürken sınırlamalar var mı?**
+**Bir şekli öne veya arkaya taşımak animasyon sırasını değiştirir mi?**
 
-Genel olarak, [animasyonlar desteklenir](/slides/tr/python-net/convert-powerpoint-to-video/), ancak nadir durumlarda veya belirli efektlerde farklı render sonuçları oluşabilir. Kullandığınız efektlerle ve kütüphane sürümüyle test etmeniz önerilir.
+Hayır. Şeklin z-sırası üst üste binmeyi kontrol eder, dizi sırası ve tetikleyiciler animasyon oynatımını kontrol eder. Farklı bir oynatma sırası gerekiyorsa zaman çizelgesini değiştirin.

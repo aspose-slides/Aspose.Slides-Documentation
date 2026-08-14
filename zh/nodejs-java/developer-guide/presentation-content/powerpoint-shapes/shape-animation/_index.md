@@ -1,5 +1,6 @@
 ---
-title: 形状动画
+title: 在演示文稿中使用 JavaScript 应用形状动画
+linktitle: 形状动画
 type: docs
 weight: 60
 url: /zh/nodejs-java/shape-animation/
@@ -7,465 +8,468 @@ keywords:
 - 形状
 - 动画
 - 效果
+- 动画形状
+- 动画文字
+- 添加动画
+- 获取动画
+- 提取动画
 - 添加效果
 - 获取效果
 - 提取效果
+- 效果声音
 - 应用动画
 - PowerPoint
 - 演示文稿
 - Node.js
-- Java
-- Aspose.Slides for Node.js via Java
-description: "在 JavaScript 中应用 PowerPoint 动画"
+- JavaScript
+- Aspose.Slides
+description: "了解如何使用 Aspose.Slides for Node.js via Java 添加、检查和自定义形状动画、时间设置、声音、动画后行为以及动画文本。"
 ---
+## **概述**
 
-动画是可以应用于文本、图像、形状或[图表](/slides/zh/nodejs-java/animated-charts/)的视觉效果。它们为演示文稿或其组成部分赋予活力。
+Aspose.Slides for Node.js via Java 将幻灯片动画表示为幻灯片时间线中的效果。每个效果具有目标形状、动画类型和子类型、触发器、时间设置以及可选属性，例如声音或动画后行为。
 
-## **为什么在演示文稿中使用动画？**
+时间线包含两种序列：
 
-使用动画，您可以
+- **主序列** 在幻灯片前进时播放。
+- **交互序列** 在其触发形状被点击时开始。
 
-* 控制信息流
-* 强调重要要点
-* 提高观众的兴趣或参与度
-* 使内容更易阅读、吸收或处理
-* 吸引读者或观众注意演示文稿中的重要部分
+因为文本框、图片、图表、表格以及其他幻灯片对象都是 [Shape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/shape/) 对象，所以对大多数幻灯片内容使用相同的 [Sequence.addEffect](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/sequence/#addEffect) 方法。可用的效果列在 [EffectType](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/effecttype/) 枚举中。
 
-PowerPoint 在 **入口**、**退出**、**强调** 和 **运动路径** 四类中提供了众多动画选项和工具。
+## **添加形状动画**
 
-## **Aspose.Slides 中的动画**
+要添加动画，获取幻灯片的主序列并调用 [Sequence.addEffect](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/sequence/#addEffect)，传入目标形状、效果类型、子类型和触发器。对于在其他形状被点击时启动的效果，需要创建一个触发器为该其他形状的交互序列。
 
-* Aspose.Slides 在 `Aspose.Slides.Animation` 命名空间下提供了处理动画所需的类和类型，
-* Aspose.Slides 在 [EffectType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effecttype) 枚举中提供了超过 **150 种动画效果**。这些效果本质上与 PowerPoint 中使用的效果相同（或等效）。
+以下示例创建两种类型的动画并将结果保存为 `shape-animations.pptx`。
 
-## **为 TextBox 应用动画**
-
-Aspose.Slides for Node.js via Java 允许您对形状中的文本应用动画。
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) 类的实例。
-2. 通过索引获取幻灯片引用。
-3. 添加一个 `rectangle` [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape)。
-4. 使用 [AutoShape.addTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape#addTextFrame-java.lang.String-) 添加文本。
-5. 获取主效果序列。
-6. 向 [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape) 添加动画效果。
-7. 调用 `TextAnimation.setBuildType` 方法，并使用 `BuildType` 枚举中的值。
-8. 将演示文稿写入磁盘为 PPTX 文件。
-
-下面的 Javascript 代码演示如何将 `Fade` 效果应用于 AutoShape 并将文本动画设置为 *By 1st Level Paragraphs* 值：
 ```javascript
-// 实例化一个表示演示文稿文件的 Presentation 类。
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var sld = pres.getSlides().get_Item(0);
-    // 添加带文本的新 AutoShape
-    var autoShape = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 100);
-    var textFrame = autoShape.getTextFrame();
-    textFrame.setText("First paragraph \nSecond paragraph \n Third paragraph");
-    // 获取幻灯片的主序列。
-    var sequence = sld.getTimeline().getMainSequence();
-    // 为形状添加 Fade 动画效果
-    var effect = sequence.addEffect(autoShape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
-    // 按一级段落对形状文本进行动画
-    effect.getTextAnimation().setBuildType(aspose.slides.BuildType.ByLevelParagraphs1);
-    // 将 PPTX 文件保存到磁盘
-    pres.save(path + "AnimText_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.RoundCornerRectangle, 120, 100, 320, 80);
+    targetShape.addTextFrame("Click to animate this shape");
+
+    const mainSequence = slide.getTimeline().getMainSequence();
+    const entranceEffect = mainSequence.addEffect(targetShape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+    entranceEffect.getTiming().setDuration(java.newFloat(1.5));
+
+    const triggerShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Bevel, 20, 20, 100, 40);
+    triggerShape.addTextFrame("Move");
+
+    const interactiveSequence = slide.getTimeline().getInteractiveSequences().add(triggerShape);
+    interactiveSequence.addEffect(targetShape, aspose.slides.EffectType.PathFootball, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+
+    presentation.save("shape-animations.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+触发器控制效果何时开始：
 
-{{%  alert color="primary"  %}} 
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/effecttriggertype/#OnClick) 在主序列中等待点击，或在交互序列中等待对触发形状的点击。
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/effecttriggertype/#WithPrevious) 与前一个效果同时开始。
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/effecttriggertype/#AfterPrevious) 在前一个效果结束后开始。
 
-除了对文本应用动画外，您还可以对单个[段落](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph)应用动画。参见[**动画文本**](/slides/zh/nodejs-java/animated-text/)。
+要为图片、图表或其他形状类型添加动画，请将该对象传递给 [Sequence.addEffect](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/sequence/#addEffect)，而不是 `targetShape`。有关图表特定的分组选项，请参阅 [Animated Charts](/slides/zh/nodejs-java/animated-charts/)。
 
-{{% /alert %}} 
+## **读取形状动画**
 
-## **为 PictureFrame 应用动画**
+当已知目标形状时，使用 [Sequence.getEffectsByShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/sequence/#getEffectsByShape)。若要检查每个效果，请枚举主序列和所有交互序列。枚举可避免假设序列在索引 `0` 处包含效果。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) 类的实例。
-2. 通过索引获取幻灯片引用。
-3. 在幻灯片上添加或获取一个 [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe)。
-4. 获取主效果序列。
-5. 向 [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe) 添加动画效果。
-6. 将演示文稿写入磁盘为 PPTX 文件。
+以下示例创建一个具有主序列和交互效果的形状，获取针对该形状的效果，然后枚举幻灯片上的所有序列。
 
-下面的 Javascript 代码演示如何将 `Fly` 效果应用于图片框：
 ```javascript
-// 实例化一个表示演示文稿文件的 Presentation 类。
-var pres = new aspose.slides.Presentation();
-try {
-    // 加载要添加到演示文稿图像集合的图片
-    var picture;
-    var image = aspose.slides.Images.fromFile("aspose-logo.jpg");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+function getEnumName(enumType, value) {
+    for (const [name, enumValue] of Object.entries(enumType)) {
+        if (enumValue === value) {
+            return name;
         }
     }
-    // 向幻灯片添加图片框
-    var picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 50, 100, 100, picture);
-    // 获取幻灯片的主序列。
-    var sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
-    // 向图片框添加从左侧飞入动画效果
-    var effect = sequence.addEffect(picFrame, aspose.slides.EffectType.Fly, aspose.slides.EffectSubtype.Left, aspose.slides.EffectTriggerType.OnClick);
-    // 将 PPTX 文件保存到磁盘
-    pres.save(path + "AnimImage_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+
+    return String(value);
+}
+
+function printSequence(label, sequence) {
+    console.log(`  ${label}: ${sequence.getCount()} effect(s)`);
+
+    for (let i = 0; i < sequence.getCount(); i++) {
+        const effect = sequence.get_Item(i);
+        const targetName = effect.getTargetShape() == null ? "unknown" : effect.getTargetShape().getName();
+        const typeName = getEnumName(aspose.slides.EffectType, effect.getType());
+        const subtypeName = getEnumName(aspose.slides.EffectSubtype, effect.getSubtype());
+        const triggerName = getEnumName(aspose.slides.EffectTriggerType, effect.getTiming().getTriggerType());
+        console.log(`    ${typeName} ${subtypeName}; target: ${targetName}; trigger: ${triggerName}`);
     }
 }
-```
 
-
-## **为 Shape 应用动画**
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) 类的实例。
-2. 通过索引获取幻灯片引用。
-3. 添加一个 `rectangle` [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape)。
-4. 添加一个 `Bevel` [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape)（单击此对象时播放动画）。
-5. 在斜面形状上创建效果序列。
-6. 创建自定义 `UserPath`。
-7. 添加移动到 `UserPath` 的命令。
-8. 将演示文稿写入磁盘为 PPTX 文件。
-
-下面的 Javascript 代码演示如何将 `PathFootball`（路径足球）效果应用于形状：
-```javascript
-// 实例化一个表示 PPTX 文件的 Presentation 类。
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var sld = pres.getSlides().get_Item(0);
-    // 为现有形状从头创建 PathFootball 效果。
-    var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 250, 25);
-    ashp.addTextFrame("Animated TextBox");
-    // 添加 PathFootBall 动画效果
-    pres.getSlides().get_Item(0).getTimeline().getMainSequence().addEffect(ashp, aspose.slides.EffectType.PathFootball, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.AfterPrevious);
-    // 创建某种“按钮”。
-    var shapeTrigger = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Bevel, 10, 10, 20, 20);
-    // 为此按钮创建一系列效果。
-    var seqInter = pres.getSlides().get_Item(0).getTimeline().getInteractiveSequences().add(shapeTrigger);
-    // 创建自定义用户路径。我们的对象仅在按钮被点击后才会移动。
-    var fxUserPath = seqInter.addEffect(ashp, aspose.slides.EffectType.PathUser, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
-    // 添加移动命令，因为创建的路径为空。
-    var motionBhv = fxUserPath.getBehaviors().get_Item(0);
-    var pts = java.newArray("com.aspose.slides.Point2DFloat", [java.newInstanceSync("com.aspose.slides.Point2DFloat", 0.076, 0.59)]);
-    motionBhv.getPath().add(aspose.slides.MotionCommandPathType.LineTo, pts, aspose.slides.MotionPathPointsType.Auto, true);
-    pts[0] = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(-0.076), java.newFloat(-0.59));
-    motionBhv.getPath().add(aspose.slides.MotionCommandPathType.LineTo, pts, aspose.slides.MotionPathPointsType.Auto, false);
-    motionBhv.getPath().add(aspose.slides.MotionCommandPathType.End, null, aspose.slides.MotionPathPointsType.Auto, false);
-    // 将 PPTX 文件写入磁盘
-    pres.save("AnimExample_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 120, 100, 320, 80);
+    targetShape.addTextFrame("Animated shape");
+
+    const mainSequence = slide.getTimeline().getMainSequence();
+    mainSequence.addEffect(targetShape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+
+    const triggerShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Bevel, 20, 20, 100, 40);
+    triggerShape.addTextFrame("Move");
+
+    const interactiveSequence = slide.getTimeline().getInteractiveSequences().add(triggerShape);
+    interactiveSequence.addEffect(targetShape, aspose.slides.EffectType.PathFootball, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+
+    const targetEffects = mainSequence.getEffectsByShape(targetShape);
+    console.log(`The main sequence contains ${targetEffects.length} effect(s) for ${targetShape.getName()}.`);
+
+    printSequence("Main sequence", mainSequence);
+
+    const interactiveSequences = slide.getTimeline().getInteractiveSequences();
+    for (let i = 0; i < interactiveSequences.getCount(); i++) {
+        const sequence = interactiveSequences.get_Item(i);
+        const triggerName = sequence.getTriggerShape() == null ? "unknown" : sequence.getTriggerShape().getName();
+        printSequence(`Interactive sequence ${i + 1}, trigger: ${triggerName}`, sequence);
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
+如果只需要某个形状的效果，请先通过名称、占位符类型或其他稳定属性识别该形状；然后调用 [Sequence.getEffectsByShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/sequence/#getEffectsByShape)。不要假设索引 `0` 处的 [ShapeCollection.get_Item](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/shapecollection/#get_Item) 总是所需的对象。
 
-## **获取应用于 Shape 的动画效果**
+## **使用继承的占位符效果**
 
-以下示例演示如何使用 [Sequence](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sequence/) 类的 `getEffectsByShape` 方法获取应用于形状的所有动画效果。
+普通幻灯片上的占位符可以继承其布局幻灯片和母版幻灯片上对应占位符的动画行为。[Shape.getBasePlaceholder](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/shape/#getBasePlaceholder) 返回该父占位符，如果不存在父占位符则返回 `null`。
 
-**示例 1：获取普通幻灯片上形状的动画效果**
+在下面的示例演示文稿中，页脚在普通幻灯片上使用 **Random Bars**，在布局幻灯片上使用 **Split**，在母版幻灯片上使用 **Fly In**。
 
-之前，您已经学习了如何向 PowerPoint 演示文稿中的形状添加动画效果。以下示例代码演示如何获取演示文稿 `AnimExample_out.pptx` 中第一张普通幻灯片上第一个形状所应用的效果。
+![Footer animation effect on the normal slide](slide-shape-animation.png)
+
+![Footer placeholder animation effect on the layout slide](layout-shape-animation.png)
+
+![Footer placeholder animation effect on the master slide](master-shape-animation.png)
+
+下一个示例使用新演示文稿中的占位符层次结构。它向母版占位符、布局占位符以及普通幻灯片上的相应占位符添加效果。在使用返回的形状之前，都会检查对 [Shape.getBasePlaceholder](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/shape/#getBasePlaceholder) 的调用。
+
 ```javascript
-var presentation = new aspose.slides.Presentation("AnimExample_out.pptx");
-try {
-    var firstSlide = presentation.getSlides().get_Item(0);
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-    // 获取幻灯片的主动画序列。
-    var sequence = firstSlide.getTimeline().getMainSequence();
+function findPlaceholderWithBase(baseSlide, expectedBase) {
+    const shapes = baseSlide.getShapes();
 
-    // 获取第一张幻灯片上的第一个形状。
-    var shape = firstSlide.getShapes().get_Item(0);
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        const basePlaceholder = shape.getBasePlaceholder();
 
-    // 获取应用于该形状的动画效果。
-    var shapeEffects = sequence.getEffectsByShape(shape);
+        if (basePlaceholder == null) {
+            continue;
+        }
 
-    if (shapeEffects.length > 0) {
-        console.log("The shape", shape.getName(), "has", shapeEffects.length, "animation effects.");
+        if (expectedBase == null || basePlaceholder.getPlaceholder().getType() === expectedBase.getPlaceholder().getType()) {
+            return shape;
+        }
     }
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+
+    return null;
 }
-```
 
+function getEnumName(enumType, value) {
+    for (const [name, enumValue] of Object.entries(enumType)) {
+        if (enumValue === value) {
+            return name;
+        }
+    }
 
-**示例 2：获取所有动画效果，包括从占位符继承的效果**
+    return String(value);
+}
 
-如果普通幻灯片上的形状具有位于布局幻灯片和/或母版幻灯片的占位符，并且这些占位符已添加动画效果，则在幻灯片放映期间，该形状将播放所有效果，包括来自占位符的继承效果。
+function printEffects(source, effects) {
+    console.log(`${source}: ${effects.length} effect(s)`);
 
-假设我们有一个 PowerPoint 演示文稿文件 `sample.pptx`，其中只有一张幻灯片，仅包含一个文本为 “Made with Aspose.Slides” 的页脚形状，并对该形状应用了 **Random Bars** 效果。
-
-![Slide shape animation effect](slide-shape-animation.png)
-
-再假设在 **布局** 幻灯片的页脚占位符上应用了 **Split** 效果。
-
-![Layout shape animation effect](layout-shape-animation.png)
-
-最后，在 **母版** 幻灯片的页脚占位符上应用了 **Fly In** 效果。
-
-![Master shape animation effect](master-shape-animation.png)
-
-以下示例代码演示如何使用 [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) 类的 `getBasePlaceholder` 方法访问形状占位符，并获取应用于页脚形状的动画效果，包括来自布局和母版幻灯片上占位符的继承效果。
-```js
-var presentation = new aspose.slides.Presentation("sample.pptx");
-
-var slide = presentation.getSlides().get_Item(0);
-
-// 获取普通幻灯片上形状的动画效果。
-var shape = slide.getShapes().get_Item(0);
-var shapeEffects = slide.getTimeline().getMainSequence().getEffectsByShape(shape);
-
-// 获取布局幻灯片上占位符的动画效果。
-var layoutShape = shape.getBasePlaceholder();
-var layoutShapeEffects = slide.getLayoutSlide().getTimeline().getMainSequence().getEffectsByShape(layoutShape);
-
-// 获取母版幻灯片上占位符的动画效果。
-var masterShape = layoutShape.getBasePlaceholder();
-var masterShapeEffects = slide.getLayoutSlide().getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(masterShape);
-
-console.log("Main sequence of shape effects:");
-printEffects(masterShapeEffects);
-printEffects(layoutShapeEffects);
-printEffects(shapeEffects);
-
-presentation.dispose();
-```
-
-```js
-function printEffects(effects) {
     for (const effect of effects) {
-        console.log("Type:", effect.getType() + ", subtype:", effect.getSubtype());
+        const typeName = getEnumName(aspose.slides.EffectType, effect.getType());
+        const subtypeName = getEnumName(aspose.slides.EffectSubtype, effect.getSubtype());
+        console.log(`  ${typeName} ${subtypeName}`);
     }
+}
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const layoutSlide = presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject));
+    const layoutPlaceholder = findPlaceholderWithBase(layoutSlide, null);
+
+    if (layoutPlaceholder == null) {
+        throw new Error("The layout slide does not contain a placeholder linked to its master slide.");
+    }
+
+    const masterPlaceholder = layoutPlaceholder.getBasePlaceholder();
+    layoutSlide.getMasterSlide().getTimeline().getMainSequence().addEffect(masterPlaceholder, aspose.slides.EffectType.Fly, aspose.slides.EffectSubtype.Bottom, aspose.slides.EffectTriggerType.OnClick);
+    layoutSlide.getTimeline().getMainSequence().addEffect(layoutPlaceholder, aspose.slides.EffectType.Split, aspose.slides.EffectSubtype.VerticalIn, aspose.slides.EffectTriggerType.OnClick);
+
+    const slide = presentation.getSlides().addEmptySlide(layoutSlide);
+    const slidePlaceholder = findPlaceholderWithBase(slide, layoutPlaceholder);
+
+    if (slidePlaceholder == null) {
+        throw new Error("The slide does not contain a placeholder linked to its layout slide.");
+    }
+
+    slide.getTimeline().getMainSequence().addEffect(slidePlaceholder, aspose.slides.EffectType.RandomBars, aspose.slides.EffectSubtype.Horizontal, aspose.slides.EffectTriggerType.OnClick);
+    printEffects("Normal slide", slide.getTimeline().getMainSequence().getEffectsByShape(slidePlaceholder));
+
+    const baseLayoutPlaceholder = slidePlaceholder.getBasePlaceholder();
+    if (baseLayoutPlaceholder != null) {
+        printEffects("Layout slide", layoutSlide.getTimeline().getMainSequence().getEffectsByShape(baseLayoutPlaceholder));
+
+        const baseMasterPlaceholder = baseLayoutPlaceholder.getBasePlaceholder();
+        if (baseMasterPlaceholder != null) {
+            printEffects("Master slide", layoutSlide.getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(baseMasterPlaceholder));
+        }
+    }
+
+    presentation.save("placeholder-animations.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
+## **更改动画时间设置**
 
-Output:
-```text
-Main sequence of shape effects:
-Type: 47, subtype: 2              // 飞入, 底部
-Type: 134, subtype: 45            // 拆分, 垂直进入
-Type: 126, subtype: 22            // 随机条形, 水平
-```
+PowerPoint **Timing** 对话框映射到 [Timing](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/timing/) 的属性。
 
+![PowerPoint Timing dialog for an animation effect](shape-animation.png)
 
-## **更改动画效果的时间属性**
+- **开始** 映射到 [Timing.getTriggerType](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/timing/#getTriggerType)。
+- **持续时间** 映射到 [Timing.getDuration](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/timing/#getDuration)，单位为秒。
+- **延迟** 映射到 [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/timing/#getTriggerDelayTime)，单位为秒。
+- **重复** 映射到 [Timing.getRepeatCount](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/timing/#getRepeatCount)、[Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/timing/#getRepeatUntilNextClick) 或 [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/timing/#getRepeatUntilEndSlide)。
+- **播放完成后倒回** 映射到 [Timing.getRewind](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/timing/#getRewind)。
 
-Aspose.Slides for Node.js via Java 允许您更改动画效果的 Timing（时间）属性。
+此独立示例添加一个效果，通过 [Sequence.addEffect](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/sequence/#addEffect) 返回的对象修改其时间设置，并保存结果。保留返回的 [Effect](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/effect/) 引用可避免不必要的集合索引。
 
-这是一张 Microsoft PowerPoint 中的动画时间窗格：
-
-![example1_image](shape-animation.png)
-
-以下是 PowerPoint 时间与 [Effect.Timing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Effect#getTiming--) 属性之间的对应关系：
-
-- PowerPoint 时间 **Start** 下拉列表对应 [Effect.Timing.TriggerType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Timing#getTriggerType--) 属性。
-- PowerPoint 时间 **Duration** 对应 [Effect.Timing.Duration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Timing#getDuration--) 属性。动画的持续时间（以秒为单位）是动画完成一个循环所需的总时间。
-- PowerPoint 时间 **Delay** 对应 [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Timing#getTriggerDelayTime--) 属性。
-
-以下是更改 Effect Timing（效果时间）属性的方法：
-
-1. [Apply](#apply-animation-to-shape) 或获取动画效果。
-2. 为所需的 [Effect.Timing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Effect#getTiming--) 属性设置新值。
-3. 保存修改后的 PPTX 文件。
-
-下面的 Javascript 代码演示此操作：
 ```javascript
-// 实例化一个表示演示文稿文件的 Presentation 类。
-var pres = new aspose.slides.Presentation("AnimExample_out.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // 获取幻灯片的主序列。
-    var sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
-    // 获取主序列的第一个效果。
-    var effect = sequence.get_Item(0);
-    // 将效果的 TriggerType 更改为单击开始
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 120, 100, 320, 80);
+    shape.addTextFrame("Timed animation");
+
+    const effect = slide.getTimeline().getMainSequence().addEffect(shape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
     effect.getTiming().setTriggerType(aspose.slides.EffectTriggerType.OnClick);
-    // 更改效果的持续时间
-    effect.getTiming().setDuration(3.0);
-    // 更改效果的触发延迟时间
-    effect.getTiming().setTriggerDelayTime(0.5);
-    // 将 PPTX 文件保存到磁盘
-    pres.save("AnimExample_changed.pptx", aspose.slides.SaveFormat.Pptx);
+    effect.getTiming().setDuration(java.newFloat(2.0));
+    effect.getTiming().setTriggerDelayTime(java.newFloat(0.5));
+    effect.getTiming().setRepeatUntilNextClick(false);
+    effect.getTiming().setRepeatUntilEndSlide(false);
+    effect.getTiming().setRepeatCount(java.newFloat(2.0));
+    effect.getTiming().setRewind(true);
+
+    presentation.save("shape-animation-timing.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+请有意仅使用一种重复模式。将重复计数与 “until” 标志组合可能在不同的查看器中产生混乱的结果。更改重复模式时，先调用 [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/timing/#setRepeatUntilNextClick) 和 [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/timing/#setRepeatUntilEndSlide)，再调用 [Timing.setRepeatCount](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/timing/#setRepeatCount)，因为设置任一标志都会更改当前的重复模式。
 
-## **动画效果声音**
+## **添加和提取动画声音**
 
-Aspose.Slides 提供以下属性，以便在动画效果中使用声音：
+动画效果可以通过 [Effect.getSound](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/effect/#getSound) 引用嵌入的音频。[Effect.setStopPreviousSound](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/effect/#setStopPreviousSound) 指示效果停止先前效果开始的音频。
 
-- [setSound(IAudio value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effect/#setSound-aspose.slides.IAudio-)
-- [setStopPreviousSound(boolean value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effect/#setStopPreviousSound-boolean-)
+### **向效果添加声音**
 
-### **添加动画效果声音**
+以下示例要求本地音频文件 `animation-sound.wav`。它创建两个效果，将该文件嵌入为第一个效果的声音，并配置第二个效果停止该声音。它使用 [Sequence.addEffect](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/sequence/#addEffect) 返回的对象，因此不需要序列索引。
 
-下面的 Javascript 代码演示如何为动画效果添加声音，并在下一个效果开始时停止它：
 ```javascript
-var pres = new aspose.slides.Presentation("AnimExample_out.pptx");
+const fs = require("fs");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // 将音频添加到演示文稿的音频集合
-    var effectSound = pres.getAudios().addAudio(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "sampleaudio.wav")));
-    var firstSlide = pres.getSlides().get_Item(0);
-    // 获取幻灯片的主序列。
-    var sequence = firstSlide.getTimeline().getMainSequence();
-    // 获取主序列的第一个效果
-    var firstEffect = sequence.get_Item(0);
-    // 检查效果是否为“无声音”
-    if ((!firstEffect.getStopPreviousSound()) && (firstEffect.getSound() == null)) {
-        // 为第一个效果添加声音
-        firstEffect.setSound(effectSound);
-    }
-    // 获取幻灯片的第一个交互序列。
-    var interactiveSequence = firstSlide.getTimeline().getInteractiveSequences().get_Item(0);
-    // 设置效果的“停止先前声音”标志
-    interactiveSequence.get_Item(0).setStopPreviousSound(true);
-    // 将 PPTX 文件写入磁盘
-    pres.save("AnimExample_Sound_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const firstShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 80, 100, 240, 80);
+    const secondShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 400, 100, 240, 80);
+    firstShape.addTextFrame("Starts sound");
+    secondShape.addTextFrame("Stops sound");
+
+    const sequence = slide.getTimeline().getMainSequence();
+    const firstEffect = sequence.addEffect(firstShape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+    const secondEffect = sequence.addEffect(secondShape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+
+    const audioData = java.newArray("byte", Array.from(fs.readFileSync("animation-sound.wav")));
+    const effectSound = presentation.getAudios().addAudio(audioData);
+    firstEffect.setSound(effectSound);
+    secondEffect.setStopPreviousSound(true);
+
+    presentation.save("shape-animation-sound.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+### **提取嵌入的效果声音**
 
-### **提取动画效果声音**
+以下示例要求本地演示文稿 `presentation-with-animation-sounds.pptx`。它扫描主序列和交互序列，并将每个嵌入的效果声音写入 `extracted-animation-sounds` 目录。扩展名根据 [Audio.getContentType](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/audio/#getContentType) 暴露的音频 MIME 类型选择。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) 类的实例。
-2. 通过索引获取幻灯片引用。
-3. 获取主效果序列。
-4. 提取嵌入到每个动画效果中的 [setSound(IAudio value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effect/#setSound-aspose.slides.IAudio-) 声音。
-
-下面的 Javascript 代码演示如何提取嵌入到动画效果中的声音：
 ```javascript
-// 实例化一个表示演示文稿文件的 Presentation 类。
-var presentation = new aspose.slides.Presentation("EffectSound.pptx");
-try {
-    var slide = presentation.getSlides().get_Item(0);
-    // 获取幻灯片的主序列。
-    var sequence = slide.getTimeline().getMainSequence();
-    for (var i = 0; i < sequence.getCount(); i++) {
-        var effect = sequence.get_Item(i);
+const fs = require("fs");
+const path = require("path");
+const aspose = { slides: require("aspose.slides.via.java") };
+
+function getAudioExtension(contentType) {
+    const normalizedType = contentType == null ? "" : contentType.toLowerCase();
+
+    if (normalizedType === "audio/mpeg") {
+        return ".mp3";
+    }
+
+    if (normalizedType === "audio/mp4") {
+        return ".m4a";
+    }
+
+    if (normalizedType === "audio/ogg") {
+        return ".ogg";
+    }
+
+    if (normalizedType === "audio/wav" || normalizedType === "audio/x-wav") {
+        return ".wav";
+    }
+
+    return ".bin";
+}
+
+function saveSounds(sequence, outputDirectory, soundIndex) {
+    for (let i = 0; i < sequence.getCount(); i++) {
+        const effect = sequence.get_Item(i);
+
         if (effect.getSound() == null) {
             continue;
         }
-        // 提取效果声音的字节数组
-        var audio = effect.getSound().getBinaryData();
+
+        const extension = getAudioExtension(effect.getSound().getContentType());
+        const outputPath = path.join(outputDirectory, `effect-sound-${soundIndex}${extension}`);
+        fs.writeFileSync(outputPath, Buffer.from(effect.getSound().getBinaryData()));
+        soundIndex++;
     }
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+
+    return soundIndex;
 }
-```
 
+const outputDirectory = "extracted-animation-sounds";
+fs.mkdirSync(outputDirectory, { recursive: true });
 
-## **动画结束后**
-
-Aspose.Slides for Node.js via Java 允许您更改动画效果的 After animation（动画结束后）属性。
-
-这是 Microsoft PowerPoint 中的 Animation Effect（动画效果）窗格及其扩展菜单：
-
-![example1_image](shape-after-animation.png)
-
-PowerPoint Effect **After animation** 下拉列表对应以下属性：
-
-- [setAfterAnimationType(int value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effect/#setAfterAnimationType-int-) 方法用于描述动画结束后的类型；
-  * PowerPoint **More Colors** 对应 [AfterAnimationType.Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/afteranimationtype/#Color) 类型；
-  * PowerPoint **Don't Dim** 列表项对应 [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/nodejs-java/aspose.slides/afteranimationtype/#DoNotDim) 类型（默认的动画结束后类型）；
-  * PowerPoint **Hide After Animation** 项对应 [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/afteranimationtype/#HideAfterAnimation) 类型；
-  * PowerPoint **Hide on Next Mouse Click** 项对应 [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/afteranimationtype/#HideOnNextMouseClick) 类型；
-- [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effect/#setAfterAnimationColor-aspose.slides.IColorFormat-) 方法用于定义动画结束后的颜色格式。此方法需与 [AfterAnimationType.Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/afteranimationtype/#Color) 类型配合使用。如果将类型更改为其他类型，动画结束后的颜色将被清除。
-
-下面的 Javascript 代码演示如何更改动画结束后的效果：
-```javascript
-// 实例化一个表示演示文稿文件的 Presentation 类
-var pres = new aspose.slides.Presentation("AnimImage_out.pptx");
+const presentation = new aspose.slides.Presentation("presentation-with-animation-sounds.pptx");
 try {
-    var firstSlide = pres.getSlides().get_Item(0);
-    // 获取主序列的第一个效果
-    var firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
-    // 将 after animation 类型更改为 Color
-    firstEffect.setAfterAnimationType(aspose.slides.AfterAnimationType.Color);
-    // 设置 after animation 的暗淡颜色
-    firstEffect.getAfterAnimationColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    // 将 PPTX 文件写入磁盘
-    pres.save("AnimImage_AfterAnimation.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    let soundIndex = 1;
+
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        soundIndex = saveSounds(slide.getTimeline().getMainSequence(), outputDirectory, soundIndex);
+
+        const interactiveSequences = slide.getTimeline().getInteractiveSequences();
+        for (let sequenceIndex = 0; sequenceIndex < interactiveSequences.getCount(); sequenceIndex++) {
+            soundIndex = saveSounds(interactiveSequences.get_Item(sequenceIndex), outputDirectory, soundIndex);
+        }
     }
+
+    console.log(`Extracted ${soundIndex - 1} sound file(s) to ${path.resolve(outputDirectory)}.`);
+} finally {
+    presentation.dispose();
 }
 ```
 
+对于大型音频对象，请使用 [Audio.getStream](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/audio/#getStream) 并将流复制到文件，而不是将整个对象加载到字节数组中。
 
-## **动画文本**
+## **设置动画后行为**
 
-Aspose.Slides 提供以下属性，以便在动画效果的 *Animate text*（动画文本）块中使用：
+**After animation** 选项控制效果完成后形状的处理方式。
 
-- [setAnimateTextType(int value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effect/#setAnimateTextType-int-) 方法用于描述效果的 Animate text（动画文本）类型。形状文本可以按以下方式进行动画：
-  - 一次性全部显示（[AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/nodejs-java/aspose.slides/animatetexttype/#AllAtOnce)）
-  - 按字词显示（[AnimateTextType.ByWord](https://reference.aspose.com/slides/nodejs-java/aspose.slides/animatetexttype/#ByWord)）
-  - 按字母显示（[AnimateTextType.ByLetter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/animatetexttype/#ByLetter)）
-- [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effect/#setDelayBetweenTextParts-float-) 方法设置动画文本部分（字词或字母）之间的延迟。正值表示效果持续时间的百分比，负值表示以秒为单位的延迟。
+![PowerPoint Effect Options dialog showing After animation settings](shape-after-animation.png)
 
-以下是更改 Effect Animate text（效果动画文本）属性的方法：
+[AfterAnimationType](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/afteranimationtype/) 枚举支持保持形状不变、改变其颜色、动画后隐藏或在下次点击时隐藏。当类型为 [AfterAnimationType.Color](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/afteranimationtype/#Color) 时，还需设置 [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/effect/#getAfterAnimationColor)。
 
-1. [Apply](#apply-animation-to-shape) 或获取动画效果。
-2. 将 `setBuildType(int value)` 方法设置为 `BuildType.AsOneObject` 值，以关闭 *By Paragraphs* 动画模式。
-3. 为 `setAnimateTextType(int value)` 和 `setDelayBetweenTextParts(float value)` 属性设置新值。
-4. 保存修改后的 PPTX 文件。
+此独立示例创建一个效果，通过返回的效果对象设置其动画后行为，并保存结果。
 
-下面的 Javascript 代码演示此操作：
 ```javascript
-// 实例化一个表示演示文稿文件的 Presentation 类。
-var pres = new aspose.slides.Presentation("AnimTextBox_out.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var firstSlide = pres.getSlides().get_Item(0);
-    // 获取主序列的第一个效果
-    var firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
-    // 将效果的文本动画类型更改为 “As One Object”
-    firstEffect.getTextAnimation().setBuildType(aspose.slides.BuildType.AsOneObject);
-    // 将效果的动画文本类型更改为 “By word”
-    firstEffect.setAnimateTextType(aspose.slides.AnimateTextType.ByWord);
-    // 将单词之间的延迟设置为效果持续时间的 20%
-    firstEffect.setDelayBetweenTextParts(20.0);
-    // 将 PPTX 文件写入磁盘
-    pres.save("AnimTextBox_AnimateText.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 120, 100, 320, 80);
+    shape.addTextFrame("Dim after animation");
+
+    const effect = slide.getTimeline().getMainSequence().addEffect(shape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+    effect.setAfterAnimationType(aspose.slides.AfterAnimationType.Color);
+    effect.getAfterAnimationColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
+
+    presentation.save("shape-animation-after-effect.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+将类型从 [AfterAnimationType.Color](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/afteranimationtype/#Color) 改为其他，会清除动画后颜色设置。
+
+## **动画文字**
+
+文字动画有两个相关控制：
+
+- [TextAnimation.getBuildType](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textanimation/#getBuildType) 控制段落是一起出现还是按段落级别出现。
+- [Effect.getAnimateTextType](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/effect/#getAnimateTextType) 控制文字是一次全部出现、按词或按字出现。[Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/effect/#getDelayBetweenTextParts) 设置词或字之间的延迟。正值表示效果持续时间的百分比，负值表示以秒为单位的延迟。
+
+以下独立示例为文本框中的词语添加动画。[BuildType.AsOneObject](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/buildtype/#AsOneObject) 禁用按段落构建，使词设置适用于整个文本框。
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 80, 80, 560, 100);
+    textBox.addTextFrame("Aspose.Slides animates this sentence word by word.");
+
+    const effect = slide.getTimeline().getMainSequence().addEffect(textBox, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+    effect.getTextAnimation().setBuildType(aspose.slides.BuildType.AsOneObject);
+    effect.setAnimateTextType(aspose.slides.AnimateTextType.ByWord);
+    effect.setDelayBetweenTextParts(java.newFloat(20.0));
+
+    presentation.save("animated-text.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+若要按段落构建文本框，请设置 [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/buildtype/#ByLevelParagraphs1)（或其他段落级别）。若要为单独段落设置效果，请使用接受 [Paragraph](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraph/) 的 [Sequence.addEffect](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/sequence/#addEffect) 重载。请参阅 [Animated Text](/slides/zh/nodejs-java/animated-text/) 获取段落级别示例。
+
+## **导出和兼容性说明**
+
+- 将 PPT 或 PPTX 保存可保留动画模型，但最终播放由演示文稿查看器控制。
+- PDF 和静态图像不播放动画。若输出必须显示运动，请使用 [HTML5 export](/slides/zh/nodejs-java/export-to-html5/)、动画 GIF 或 [video conversion](/slides/zh/nodejs-java/convert-powerpoint-to-video/)。
+- 对于 HTML5，请启用 [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/html5options/#setAnimateShapes)，必要时还启用 [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/html5options/#setAnimateTransitions)。
+- 视频渲染支持许多常见的进入、强调、退出和运动路径效果，但并非所有 PowerPoint 效果都受支持。请检查当前的 [supported animations and effects](/slides/zh/nodejs-java/convert-powerpoint-to-video/#supported-animations-and-effects) 并使用目标 Aspose.Slides 版本对关键演示文稿进行测试。
+- 高级自定义效果以及从其他演示文稿格式导入的效果可能在文件中保留，但在 PowerPoint、HTML5 或视频中渲染方式不同。请验证导出结果，而不仅仅依赖效果名称。
 
 ## **常见问题**
 
-**如何确保在将演示文稿发布到网页时保留动画？**
+**为什么动画在 PowerPoint 中显示但在 PDF 中不显示？**
 
-[Export to HTML5](/slides/zh/nodejs-java/export-to-html5/) 并启用负责 [shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/setanimateshapes/) 和 [transition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/setanimatetransitions/) 动画的 [options](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/)。普通的 HTML 无法播放幻灯片动画，而 HTML5 可以。
+PDF 是静态格式，动画和幻灯片切换不会播放。需要保持运动时，请导出为 HTML5、动画 GIF 或视频。
 
-**更改形状的 Z 顺序（图层顺序）如何影响动画？**
+**为什么效果在视频中播放情况不同？**
 
-动画顺序和绘制顺序是独立的：效果控制出现/消失的时间和类型，而 [z-order](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/getzorderposition/) 决定哪个在上层。可见的结果由二者的组合决定。（这是 PowerPoint 的通用行为，Aspose.Slides 的效果与形状模型遵循相同的逻辑。）
+视频导出会渲染动画，而不是存储原始 PowerPoint 行为。某些高级效果不受支持或被近似。请查看受支持的效果表，并在生产使用前测试实际演示文稿。
 
-**将动画转换为视频时对某些效果是否有限制？**
+**移动形状的前后层级会改变其动画顺序吗？**
 
-一般情况下，[动画受支持](/slides/zh/nodejs-java/convert-powerpoint-to-video/)，但在少数情况或特定效果下可能呈现不同。建议使用您所用的效果以及相应的库版本进行测试。
+不会。形状的 Z 顺序控制重叠，而序列顺序和触发器控制动画播放。如果需要不同的播放顺序，请修改时间线。
