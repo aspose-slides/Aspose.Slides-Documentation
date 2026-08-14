@@ -22,467 +22,500 @@ keywords:
 - presentation
 - PHP
 - Aspose.Slides
-description: "Discover how to create and customize shape animations in PowerPoint presentations with Aspose.Slides for PHP via Java. Stand out!"
+description: "Learn how to add, inspect, and customize shape animations, timing, sounds, after-animation behavior, and animated text with Aspose.Slides for PHP via Java."
 ---
 
-## **Introduction**
+## **Overview**
 
-Animations are visual effects that can be applied to texts, images, shapes, or [charts](https://docs.aspose.com/slides/php-java/animated-charts/). They give life to presentations or its constituents.
+Aspose.Slides for PHP via Java represents slide animations as effects in a slide timeline. An effect has a target shape, an animation type and subtype, a trigger, timing settings, and optional properties such as sound or after-animation behavior.
 
-## **Why Use Animations in Presentations?**
+The timeline contains two kinds of sequences:
 
-Using animations, you can 
+- The **main sequence** plays as the slide advances.
+- An **interactive sequence** starts when its trigger shape is clicked.
 
-* control the flow of information
-* emphasize important points
-* increase interest or participation among your audience
-* make content easier to read or assimilate or process
-* draw your readers or viewers attention to important parts in a presentation
+Because text boxes, pictures, charts, tables, and other slide objects are shapes, you use the same [Sequence::addEffect](https://reference.aspose.com/slides/php-java/aspose.slides/sequence/addeffect/) method for most slide content. The available effects are listed in the [EffectType](https://reference.aspose.com/slides/php-java/aspose.slides/effecttype/) class.
 
-PowerPoint provides many options and tools for animations and animation effects across the **entrance**, **exit**, **emphasis**, and **motion paths** categories. 
+## **Add Shape Animations**
 
-## **Animations in Aspose.Slides**
+To add an animation, get the slide's main sequence and call [Sequence::addEffect](https://reference.aspose.com/slides/php-java/aspose.slides/sequence/addeffect/) with the target shape, effect type, subtype, and trigger. For an effect that starts when another shape is clicked, create an interactive sequence whose trigger is that other shape.
 
-* Aspose.Slides provides the classes and types you need to work with animations under the `Aspose.Slides.Animation` namespace,
-* Aspose.Slides provides over **150 animation effects** under the [EffectType](https://reference.aspose.com/slides/php-java/aspose.slides/effecttype) enumeration. These effects are essentially the same (or equivalent) effects used in PowerPoint.
-
-## **Apply Animation to a TextBox**
-
-Aspose.Slides for PHP via Java allows you to apply animation to the text in a shape.
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
-2. Obtain a slide reference through its index.
-3. Add a rectangle [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).
-4. Add text to `AutoShape`'s [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#getTextFrame).
-5. Get a main sequence of effects.
-6. Add an animation effect to [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).
-7. Use the `TextAnimation.setBuildType` method and the value from `BuildType` Enumeration.
-8. Write the presentation to disk as a PPTX file.
-
-This PHP code shows you how to apply the `Fade` effect to AutoShape and set the text animation to *By 1st Level Paragraphs* value:
+The following example creates both types of animation and saves the result to `shape-animations.pptx`.
 
 ```php
-  # Instantiates a presentation class that represents a presentation file.
-  $pres = new Presentation();
-  try {
-    $sld = $pres->getSlides()->get_Item(0);
-    # Adds new AutoShape with text
-    $autoShape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 150, 100);
-    $textFrame = $autoShape->getTextFrame();
-    $textFrame->setText("First paragraph \nSecond paragraph \n Third paragraph");
-    # Gets the main sequence of the slide.
-    $sequence = $sld->getTimeline()->getMainSequence();
-    # Adds Fade animation effect to shape
-    $effect = $sequence->addEffect($autoShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
-    # Animates shape text by 1st level paragraphs
-    $effect->getTextAnimation()->setBuildType(BuildType::ByLevelParagraphs1);
-    # Save the PPTX file to disk
-    $pres->save("AnimText_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
-{{%  alert color="info"  %}} 
-
-Besides applying animations to text, you can also apply animations to a single [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/). See [**Animated Text**](/slides/php-java/animated-text/).
-
-{{% /alert %}} 
-
-## **Apply Animation to a PictureFrame**
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
-2. Get a slide's reference through its index.
-3. Add or get a [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe) on the slide.
-4. Get the main sequence of effects.
-5. Add an animation effect to [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe).
-6. Write the presentation to disk as a PPTX file.
-
-This PHP code shows you how to apply the `Fly` effect to a picture frame:
-
-```php
-  # Instantiates a presentation class that represents a presentation file.
-  $pres = new Presentation();
-  try {
-    # Load Image to be added in presentaiton image collection
-    $picture;
-    $image = Images::fromFile("aspose-logo.jpg");
-    try {
-      $picture = $pres->getImages()->addImage($image);
-    } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
-    }
-    # Adds picture frame to slide
-    $picFrame = $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, $picture);
-    # Gets the main sequence of the slide.
-    $sequence = $pres->getSlides()->get_Item(0)->getTimeline()->getMainSequence();
-    # Adds Fly from Left animation effect to picture frame
-    $effect = $sequence->addEffect($picFrame, EffectType::Fly, EffectSubtype::Left, EffectTriggerType::OnClick);
-    # Save the PPTX file to disk
-    $pres->save("AnimImage_out.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Apply Animation to a Shape**
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
-2. Get a slide's reference through its index.
-3. Add a rectangle [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).
-4. Add a bevel [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) (when this object is clicked, the animation gets played).
-5. Create a sequence of effects on the bevel shape.
-6. Create a custom `UserPath`.
-7. Add commands for moving to the `UserPath`.
-8. Write the presentation to disk as a PPTX file.
-
-This PHP code shows you how to apply the `PathFootball` (path football) effect to a shape:
-
-```php
-  # Instantiate a Presentation class that represents a PPTX file.
-  $pres = new Presentation();
-  try {
-    $sld = $pres->getSlides()->get_Item(0);
-    # Creates PathFootball effect for existing shape from scratch.
-    $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 150, 250, 25);
-    $ashp->addTextFrame("Animated TextBox");
-    # Adds the PathFootBall animation effect
-    $pres->getSlides()->get_Item(0)->getTimeline()->getMainSequence()->addEffect($ashp, EffectType::PathFootball, EffectSubtype::None, EffectTriggerType::AfterPrevious);
-    # Creates some kind of "button".
-    $shapeTrigger = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Bevel, 10, 10, 20, 20);
-    # Creates a sequence of effects for this button.
-    $seqInter = $pres->getSlides()->get_Item(0)->getTimeline()->getInteractiveSequences()->add($shapeTrigger);
-    # Creates a custom user path. Our object will be moved only after the button is clicked.
-    $fxUserPath = $seqInter->addEffect($ashp, EffectType::PathUser, EffectSubtype::None, EffectTriggerType::OnClick);
-    # Adds commands for moving since created path is empty.
-    $motionBhv = $fxUserPath->getBehaviors()->get_Item(0);
-    $pts = array(new Point2DFloat(0.076, 0.59));
-    $motionBhv->getPath()->add(MotionCommandPathType::LineTo, $pts, MotionPathPointsType::Auto, true);
-    $pts[0] = new Point2DFloat(-0.076, -0.59);
-    $motionBhv->getPath()->add(MotionCommandPathType::LineTo, $pts, MotionPathPointsType::Auto, false);
-    $motionBhv->getPath()->add(MotionCommandPathType::End, null, MotionPathPointsType::Auto, false);
-    # Writes the PPTX file to disk
-    $pres->save("AnimExample_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Get the Animation Effects Applied to a Shape**
-
-The following examples show you how to use the `getEffectsByShape` method from the [Sequence](https://reference.aspose.com/slides/php-java/aspose.slides/sequence/) class to get all animation effects applied to a shape.
-
-**Example 1: Get animation effects applied to a shape on a normal slide**
-
-Previously, you learned how to add animation effects to shapes in PowerPoint presentations. The following sample code shows you how to get the effects applied to the first shape on the first normal slide in the presentation `AnimExample_out.pptx`.
-
-```php
-  $Array = new java_class("java.lang.reflect.Array");
-  $presentation = new Presentation("AnimExample_out.pptx");
-
-  try {
-    $firstSlide = $presentation->getSlides()->get_Item(0);
-
-    # Gets the main animation sequence of the slide.
-    $sequence = $firstSlide->getTimeline()->getMainSequence();
-
-    # Gets the first shape on the first slide.
-    $shape = $firstSlide->getShapes()->get_Item(0);
-
-    # Gets animation effects applied to the shape.
-    $shapeEffects = $sequence->getEffectsByShape($shape);
-
-    if (java_values($Array->getLength($shapeEffects)) > 0) {
-      echo("The shape " . $shape->getName() . " has " . $Array->getLength($shapeEffects) . " animation effects.");
-    }
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-**Example 2: Get all animation effects, including those inherited from placeholders**
-
-If a shape on a normal slide has placeholders that are on the layout slide and/or master slide, and animation effects have been added to these placeholders, then all effects of the shape will be played during the slide show, including those inherited from the placeholders.
-
-Let's say we have a PowerPoint presentation file `sample.pptx` with one slide containg only a footer shape with the text "Made with Aspose.Slides" and the **Random Bars** effect is applied to the shape.
-
-![Slide shape animation effect](slide-shape-animation.png)
-
-Let's also assume that the **Split** effect is applied to the footer placeholder on the **layout** slide.
-
-![Layout shape animation effect](layout-shape-animation.png)
-
-And finally, the **Fly In** effect is applied to the footer placeholder on the **master** slide.
-
-![Master shape animation effect](master-shape-animation.png)
-
-The following sample code shows you how to use the `getBasePlaceholder` method from the [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) class to access the shape placeholders and get the animation effects applied to the footer shape, including those inherited from placeholders located on the layout and master slides.
-
-```php
-$presentation = new Presentation("sample.pptx");
-
-$slide = $presentation->getSlides()->get_Item(0);
-
-// Get animation effects of the shape on the normal slide.
-$shape = $slide->getShapes()->get_Item(0);
-$shapeEffects = $slide->getTimeline()->getMainSequence()->getEffectsByShape($shape);
-
-// Get animation effects of the placeholder on the layout slide.
-$layoutShape = $shape->getBasePlaceholder();
-$layoutShapeEffects = $slide->getLayoutSlide()->getTimeline()->getMainSequence()->getEffectsByShape($layoutShape);
-
-// Get animation effects of the placeholder on the master slide.
-$masterShape = $layoutShape->getBasePlaceholder();
-$masterShapeEffects = $slide->getLayoutSlide()->getMasterSlide()->getTimeline()->getMainSequence()->getEffectsByShape($masterShape);
-
-echo "Main sequence of shape effects:" . PHP_EOL;
-printEffects($masterShapeEffects);
-printEffects($layoutShapeEffects);
-printEffects($shapeEffects);
-
-$presentation->dispose();
-```
-```php
-function printEffects($effects) {
-    foreach ($effects as $effect) {
-        echo "Type: " . $effect->getType() . ", subtype: " . $effect->getSubtype() . PHP_EOL;
-    }
-}
-```
-
-Output:
-```text
-Main sequence of shape effects:
-Type: 47, subtype: 2              // Fly, Bottom
-Type: 134, subtype: 45            // Split, VerticalIn
-Type: 126, subtype: 22            // RandomBars, Horizontal
-```
-
-## **Change Animation Effect Timing Methods**
-
-Aspose.Slides for PHP via Java allows you to change the Timing properties of an animation effect.
-
-This is the Animation Timing pane in Microsoft PowerPoint:
-
-![example1_image](shape-animation.png)
-
-These are the correspondences between PowerPoint Timing and [Effect Timing](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#getTiming) properties:
-
-- PowerPoint Timing **Start** drop-down list matches the [Timing::getTriggerType](https://reference.aspose.com/slides/php-java/aspose.slides/timing/#getTriggerType) method.
-- PowerPoint Timing **Duration** matches the [Timing::getDuration](https://reference.aspose.com/slides/php-java/aspose.slides/timing/#getDuration) method. The duration of an animation (in seconds) is the total time it takes the animation to complete one cycle.
-- PowerPoint Timing **Delay** matches the [Timing::getTriggerDelayTime](https://reference.aspose.com/slides/php-java/aspose.slides/timing/#getTriggerDelayTime) method.
-
-This is how you change the Effect Timing properties:
-
-1. [Apply](#apply-animation-to-shape) or get the animation effect.
-2. Set new values you need using the [Effect::getTiming](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#getTiming) method.
-3. Save the modified PPTX file.
-
-This PHP code demonstrates the operation:
-
-```php
-  # Instantiates a presentation class that represents a presentation file.
-  $pres = new Presentation("AnimExample_out.pptx");
-  try {
-    # Gets the main sequence of the slide.
-    $sequence = $pres->getSlides()->get_Item(0)->getTimeline()->getMainSequence();
-    # Gets the first effect of main sequence.
-    $effect = $sequence->get_Item(0);
-    # Changes effect TriggerType to start on click
-    $effect->getTiming()->setTriggerType(EffectTriggerType::OnClick);
-    # Changes effect Duration
-    $effect->getTiming()->setDuration(3.0);
-    # Changes effect TriggerDelayTime
-    $effect->getTiming()->setTriggerDelayTime(0.5);
-    # Saves the PPTX file to disk
-    $pres->save("AnimExample_changed.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Animation Effect Sound**
-
-Aspose.Slides provides these methods to allow you to work with sounds in animation effects: 
-
-- [setSound(IAudio value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setSound-com.aspose.slides.IAudio-)
-- [setStopPreviousSound(boolean value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setStopPreviousSound-boolean-)
-
-### **Add an Animation Effect Sound**
-
-This PHP code shows you how to add an animation effect sound and stop it when the next effect starts:
-
-```php
-  $pres = new Presentation("AnimExample_out.pptx");
-  try {
-    # Adds audio to presentation audio collection
-$Array = new JavaClass("java.lang.reflect.Array");
-$Byte = (new JavaClass("java.lang.Byte"))->TYPE;
+$presentation = new Presentation();
 try {
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "sampleaudio.wav"));
-    $bytes = $Array->newInstance($Byte, $dis->available());
-    $dis->readFully($bytes);
-} finally {
-    if (!java_is_null($dis)) $dis->close();
-}
-    $effectSound = $pres->getAudios()->addAudio($bytes);
-
-    $firstSlide = $pres->getSlides()->get_Item(0);
-    # Gets the main sequence of the slide.
-    $sequence = $firstSlide->getTimeline()->getMainSequence();
-    # Gets the first effect of the main sequence
-    $firstEffect = $sequence->get_Item(0);
-    # Сhecks the effect for "No Sound"
-    if (java_is_null(!$firstEffect->getStopPreviousSound() && $firstEffect->getSound())) {
-      # Adds sound for the first effect
-      $firstEffect->setSound($effectSound);
-    }
-    # Gets the first interactive sequence of the slide.
-    $interactiveSequence = $firstSlide->getTimeline()->getInteractiveSequences()->get_Item(0);
-    # Sets the effect "Stop previous sound" flag
-    $interactiveSequence->get_Item(0)->setStopPreviousSound(true);
-    # Writes the PPTX file to disk
-    $pres->save("AnimExample_Sound_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-### **Extract an Animation Effect Sound**
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
-2. Get a slide’s reference through its index. 
-3. Get the main sequence of effects. 
-4. Extract the [setSound(IAudio value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setSound-com.aspose.slides.IAudio-) embedded to each animation effect.
-
-This PHP code shows you how to extract the sound embedded in an animation effect:
-
-```php
-  # Instantiates a presentation class that represents a presentation file.
-  $presentation = new Presentation("EffectSound.pptx");
-  try {
     $slide = $presentation->getSlides()->get_Item(0);
-    # Gets the main sequence of the slide.
-    $sequence = $slide->getTimeline()->getMainSequence();
-    foreach($sequence as $effect) {
-      if (java_is_null($effect->getSound())) {
-        continue;
-      }
-      # Extracts the effect sound in byte array
-      $audio = $effect->getSound()->getBinaryData();
-    }
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::RoundCornerRectangle, 120, 100, 320, 80);
+    $targetShape->addTextFrame("Click to animate this shape");
+
+    $mainSequence = $slide->getTimeline()->getMainSequence();
+    $entranceEffect = $mainSequence->addEffect($targetShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+    $entranceEffect->getTiming()->setDuration(1.5);
+
+    $triggerShape = $slide->getShapes()->addAutoShape(ShapeType::Bevel, 20, 20, 100, 40);
+    $triggerShape->addTextFrame("Move");
+
+    $interactiveSequence = $slide->getTimeline()->getInteractiveSequences()->add($triggerShape);
+    $interactiveSequence->addEffect($targetShape, EffectType::PathFootball, EffectSubtype::None, EffectTriggerType::OnClick);
+
+    $presentation->save("shape-animations.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **After Animation**
+The trigger controls when an effect starts:
 
-Aspose.Slides for PHP via Java allows you to change the After animation property of an animation effect.
+- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/effecttriggertype/) waits for a click in the main sequence, or for a click on the trigger shape in an interactive sequence.
+- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/php-java/aspose.slides/effecttriggertype/) starts with the preceding effect.
+- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/php-java/aspose.slides/effecttriggertype/) starts when the preceding effect finishes.
 
-This is the Animation Effect pane and extended menu in Microsoft PowerPoint:
+To animate a picture, chart, or another shape type, pass that object to [Sequence::addEffect](https://reference.aspose.com/slides/php-java/aspose.slides/sequence/addeffect/) instead of `$targetShape`. For chart-specific grouping options, see [Animated Charts](/slides/php-java/animated-charts/).
 
-![example1_image](shape-after-animation.png)
+## **Read Shape Animations**
 
-PowerPoint Effect **After animation** drop-down list matches these methods: 
+Use [Sequence::getEffectsByShape](https://reference.aspose.com/slides/php-java/aspose.slides/sequence/geteffectsbyshape/) when you know the target shape. To inspect every effect, enumerate the main sequence and every interactive sequence. Enumeration avoids assuming that a sequence contains an effect at index `0`.
 
-- [setAfterAnimationType(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setAfterAnimationType) method which describes the After animation type:
-  * PowerPoint **More Colors** matches the [AfterAnimationType::Color](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#Color) type;
-  * PowerPoint **Don't Dim** list item matches the [AfterAnimationType::DoNotDim](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#DoNotDim) type (default after animation type);
-  * PowerPoint **Hide After Animation** item matches the [AfterAnimationType::HideAfterAnimation](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#HideAfterAnimation) type;
-  * PowerPoint **Hide on Next Mouse Click** item matches the [AfterAnimationType::HideOnNextMouseClick](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#HideOnNextMouseClick) type;
-- [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setAfterAnimationColor) method which defines an after animation color format. This method works in conjunction with the [AfterAnimationType::Color](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#Color) type. If you change the type to another, the after animation color will be cleared.
-
-This PHP code shows you how to change an after animation effect:
+The following example creates a shape with main-sequence and interactive effects, gets the effects that target the shape, and then enumerates every sequence on the slide.
 
 ```php
-  # Instantiates a presentation class that represents a presentation file
-  $pres = new Presentation("AnimImage_out.pptx");
-  try {
-    $firstSlide = $pres->getSlides()->get_Item(0);
-    # Gets the first effect of the main sequence
-    $firstEffect = $firstSlide->getTimeline()->getMainSequence()->get_Item(0);
-    # Changes the after animation type to Color
-    $firstEffect->setAfterAnimationType(AfterAnimationType::Color);
-    # Sets the after animation dim color
-    $firstEffect->getAfterAnimationColor()->setColor(java("java.awt.Color")->BLUE);
-    # Writes the PPTX file to disk
-    $pres->save("AnimImage_AfterAnimation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+function printSequence($label, $sequence)
+{
+    $effectCount = java_values($sequence->getCount());
+
+    echo "  " . $label . ": " . $effectCount . " effect(s)" . PHP_EOL;
+
+    for ($effectIndex = 0; $effectIndex < $effectCount; $effectIndex++) {
+        $effect = $sequence->get_Item($effectIndex);
+        $targetShape = $effect->getTargetShape();
+        $targetName = java_is_null($targetShape) ? "unknown" : java_values($targetShape->getName());
+        $effectType = java_values($effect->getType());
+        $effectSubtype = java_values($effect->getSubtype());
+        $triggerType = java_values($effect->getTiming()->getTriggerType());
+        echo "    type: " . $effectType . "; subtype: " . $effectSubtype . "; target: " . $targetName . "; trigger: " . $triggerType . PHP_EOL;
     }
-  }
+}
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 120, 100, 320, 80);
+    $targetShape->addTextFrame("Animated shape");
+
+    $mainSequence = $slide->getTimeline()->getMainSequence();
+    $mainSequence->addEffect($targetShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+
+    $triggerShape = $slide->getShapes()->addAutoShape(ShapeType::Bevel, 20, 20, 100, 40);
+    $triggerShape->addTextFrame("Move");
+
+    $interactiveSequence = $slide->getTimeline()->getInteractiveSequences()->add($triggerShape);
+    $interactiveSequence->addEffect($targetShape, EffectType::PathFootball, EffectSubtype::None, EffectTriggerType::OnClick);
+
+    $targetEffects = $mainSequence->getEffectsByShape($targetShape);
+    $Array = new JavaClass("java.lang.reflect.Array");
+    echo "The main sequence contains " . java_values($Array->getLength($targetEffects)) . " effect(s) for " . java_values($targetShape->getName()) . "." . PHP_EOL;
+
+    printSequence("Main sequence", $mainSequence);
+
+    $interactiveSequences = $slide->getTimeline()->getInteractiveSequences();
+    $interactiveCount = java_values($interactiveSequences->getCount());
+    for ($interactiveIndex = 0; $interactiveIndex < $interactiveCount; $interactiveIndex++) {
+        $sequence = $interactiveSequences->get_Item($interactiveIndex);
+        $sequenceTrigger = $sequence->getTriggerShape();
+        $triggerName = java_is_null($sequenceTrigger) ? "unknown" : java_values($sequenceTrigger->getName());
+        printSequence("Interactive sequence " . ($interactiveIndex + 1) . ", trigger: " . $triggerName, $sequence);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
+
+If you only need the effects for one shape, first identify the shape by name, placeholder type, or another stable property; then call [Sequence::getEffectsByShape](https://reference.aspose.com/slides/php-java/aspose.slides/sequence/geteffectsbyshape/). Do not assume that [ShapeCollection::get_Item](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/get_item/) at index `0` is always the intended object.
+
+## **Work with Inherited Placeholder Effects**
+
+A placeholder on a normal slide can inherit animation behavior from the corresponding placeholder on its layout slide and master slide. [Shape::getBasePlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getbaseplaceholder/) returns that parent placeholder, or `null` when no parent exists.
+
+In the following example presentation, the footer has **Random Bars** on the normal slide, **Split** on the layout slide, and **Fly In** on the master slide.
+
+![Footer animation effect on the normal slide](slide-shape-animation.png)
+
+![Footer placeholder animation effect on the layout slide](layout-shape-animation.png)
+
+![Footer placeholder animation effect on the master slide](master-shape-animation.png)
+
+The next example uses a placeholder hierarchy from a new presentation. It adds effects to a master placeholder, a layout placeholder, and the corresponding placeholder on a normal slide. Every call to [Shape::getBasePlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getbaseplaceholder/) is checked before the returned shape is used.
+
+```php
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+function findLayoutPlaceholderWithBase($layoutSlide)
+{
+    $shapes = $layoutSlide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        if (!java_is_null($shape->getBasePlaceholder())) {
+            return $shape;
+        }
+    }
+
+    return null;
+}
+
+function findSlidePlaceholderWithBase($slide, $expectedBase)
+{
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $basePlaceholder = $shape->getBasePlaceholder();
+        if (!java_is_null($basePlaceholder) && java_values($basePlaceholder->equals($expectedBase))) {
+            return $shape;
+        }
+    }
+
+    return null;
+}
+
+function printEffects($source, $effects)
+{
+    $Array = new JavaClass("java.lang.reflect.Array");
+    echo $source . ": " . java_values($Array->getLength($effects)) . " effect(s)" . PHP_EOL;
+
+    foreach ($effects as $effect) {
+        echo "  type: " . java_values($effect->getType()) . "; subtype: " . java_values($effect->getSubtype()) . PHP_EOL;
+    }
+}
+
+$presentation = new Presentation();
+try {
+    $layoutSlide = $presentation->getLayoutSlides()->getByType(SlideLayoutType::TitleAndObject);
+    $layoutPlaceholder = findLayoutPlaceholderWithBase($layoutSlide);
+
+    if ($layoutPlaceholder === null) {
+        throw new RuntimeException("The layout slide does not contain a placeholder linked to its master slide.");
+    }
+
+    $masterPlaceholder = $layoutPlaceholder->getBasePlaceholder();
+    $layoutSlide->getMasterSlide()->getTimeline()->getMainSequence()->addEffect($masterPlaceholder, EffectType::Fly, EffectSubtype::Bottom, EffectTriggerType::OnClick);
+    $layoutSlide->getTimeline()->getMainSequence()->addEffect($layoutPlaceholder, EffectType::Split, EffectSubtype::VerticalIn, EffectTriggerType::OnClick);
+
+    $slide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $slidePlaceholder = findSlidePlaceholderWithBase($slide, $layoutPlaceholder);
+
+    if ($slidePlaceholder === null) {
+        throw new RuntimeException("The slide does not contain a placeholder linked to its layout slide.");
+    }
+
+    $slide->getTimeline()->getMainSequence()->addEffect($slidePlaceholder, EffectType::RandomBars, EffectSubtype::Horizontal, EffectTriggerType::OnClick);
+    printEffects("Normal slide", $slide->getTimeline()->getMainSequence()->getEffectsByShape($slidePlaceholder));
+
+    $baseLayoutPlaceholder = $slidePlaceholder->getBasePlaceholder();
+    if (!java_is_null($baseLayoutPlaceholder)) {
+        printEffects("Layout slide", $layoutSlide->getTimeline()->getMainSequence()->getEffectsByShape($baseLayoutPlaceholder));
+
+        $baseMasterPlaceholder = $baseLayoutPlaceholder->getBasePlaceholder();
+        if (!java_is_null($baseMasterPlaceholder)) {
+            printEffects("Master slide", $layoutSlide->getMasterSlide()->getTimeline()->getMainSequence()->getEffectsByShape($baseMasterPlaceholder));
+        }
+    }
+
+    $presentation->save("placeholder-animations.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Change Animation Timing**
+
+The PowerPoint **Timing** dialog maps to the properties of [Timing](https://reference.aspose.com/slides/php-java/aspose.slides/timing/).
+
+![PowerPoint Timing dialog for an animation effect](shape-animation.png)
+
+- **Start** maps to [Timing::getTriggerType](https://reference.aspose.com/slides/php-java/aspose.slides/timing/gettriggertype/).
+- **Duration** maps to [Timing::getDuration](https://reference.aspose.com/slides/php-java/aspose.slides/timing/getduration/), in seconds.
+- **Delay** maps to [Timing::getTriggerDelayTime](https://reference.aspose.com/slides/php-java/aspose.slides/timing/gettriggerdelaytime/), in seconds.
+- **Repeat** maps to [Timing::getRepeatCount](https://reference.aspose.com/slides/php-java/aspose.slides/timing/getrepeatcount/), [Timing::getRepeatUntilNextClick](https://reference.aspose.com/slides/php-java/aspose.slides/timing/getrepeatuntilnextclick/), or [Timing::getRepeatUntilEndSlide](https://reference.aspose.com/slides/php-java/aspose.slides/timing/getrepeatuntilendslide/).
+- **Rewind when done playing** maps to [Timing::getRewind](https://reference.aspose.com/slides/php-java/aspose.slides/timing/getrewind/).
+
+This independent example adds an effect, changes its timing through the object returned by [Sequence::addEffect](https://reference.aspose.com/slides/php-java/aspose.slides/sequence/addeffect/), and saves the result. Keeping the returned [Effect](https://reference.aspose.com/slides/php-java/aspose.slides/effect/) reference avoids an unnecessary collection index.
+
+```php
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 120, 100, 320, 80);
+    $shape->addTextFrame("Timed animation");
+
+    $effect = $slide->getTimeline()->getMainSequence()->addEffect($shape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+    $effect->getTiming()->setTriggerType(EffectTriggerType::OnClick);
+    $effect->getTiming()->setDuration(2.0);
+    $effect->getTiming()->setTriggerDelayTime(0.5);
+    $effect->getTiming()->setRepeatUntilNextClick(false);
+    $effect->getTiming()->setRepeatUntilEndSlide(false);
+    $effect->getTiming()->setRepeatCount(2.0);
+    $effect->getTiming()->setRewind(true);
+
+    $presentation->save("shape-animation-timing.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Use one repeat mode intentionally. Combining a repeat count with an "until" flag can produce confusing results in different viewers. When changing repeat modes, set [Timing::setRepeatUntilNextClick](https://reference.aspose.com/slides/php-java/aspose.slides/timing/setrepeatuntilnextclick/) and [Timing::setRepeatUntilEndSlide](https://reference.aspose.com/slides/php-java/aspose.slides/timing/setrepeatuntilendslide/) before [Timing::setRepeatCount](https://reference.aspose.com/slides/php-java/aspose.slides/timing/setrepeatcount/), because setting either flag also changes the active repeat mode.
+
+## **Add and Extract Animation Sounds**
+
+An animation effect can reference embedded audio through [Effect::getSound](https://reference.aspose.com/slides/php-java/aspose.slides/effect/getsound/). [Effect::setStopPreviousSound](https://reference.aspose.com/slides/php-java/aspose.slides/effect/setstopprevioussound/) tells an effect to stop audio started by an earlier effect.
+
+### **Add a Sound to an Effect**
+
+The following example expects a local audio file named `animation-sound.wav`. It creates two effects, embeds that file as the sound for the first effect, and configures the second effect to stop the sound. It uses the objects returned by [Sequence::addEffect](https://reference.aspose.com/slides/php-java/aspose.slides/sequence/addeffect/), so no sequence index is required.
+
+```php
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$Files = new JavaClass("java.nio.file.Files");
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $firstShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 80, 100, 240, 80);
+    $secondShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 400, 100, 240, 80);
+    $firstShape->addTextFrame("Starts sound");
+    $secondShape->addTextFrame("Stops sound");
+
+    $sequence = $slide->getTimeline()->getMainSequence();
+    $firstEffect = $sequence->addEffect($firstShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+    $secondEffect = $sequence->addEffect($secondShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+
+    $baseDirectory = getcwd();
+    $audioPath = (new Java("java.io.File", $baseDirectory . DIRECTORY_SEPARATOR . "animation-sound.wav"))->toPath();
+    $audioData = $Files->readAllBytes($audioPath);
+    $effectSound = $presentation->getAudios()->addAudio($audioData);
+    $firstEffect->setSound($effectSound);
+    $secondEffect->setStopPreviousSound(true);
+
+    $presentation->save($baseDirectory . DIRECTORY_SEPARATOR . "shape-animation-sound.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Extract Embedded Effect Sounds**
+
+The following example expects a local presentation named `presentation-with-animation-sounds.pptx`. It scans both main and interactive sequences and writes every embedded effect sound to the `extracted-animation-sounds` directory. The extension is selected from the audio MIME type exposed by [Audio::getContentType](https://reference.aspose.com/slides/php-java/aspose.slides/audio/getcontenttype/).
+
+```php
+use aspose\slides\Presentation;
+
+function getAudioExtension($contentType)
+{
+    $normalizedType = strtolower($contentType === null ? "" : java_values($contentType));
+
+    if ($normalizedType === "audio/mpeg") {
+        return ".mp3";
+    }
+
+    if ($normalizedType === "audio/mp4") {
+        return ".m4a";
+    }
+
+    if ($normalizedType === "audio/ogg") {
+        return ".ogg";
+    }
+
+    if ($normalizedType === "audio/wav" || $normalizedType === "audio/x-wav") {
+        return ".wav";
+    }
+
+    return ".bin";
+}
+
+function saveSounds($sequence, $outputDirectory, $soundIndex)
+{
+    $effectCount = java_values($sequence->getCount());
+    for ($effectIndex = 0; $effectIndex < $effectCount; $effectIndex++) {
+        $effect = $sequence->get_Item($effectIndex);
+        $sound = $effect->getSound();
+        if (java_is_null($sound)) {
+            continue;
+        }
+
+        $extension = getAudioExtension($sound->getContentType());
+        $outputPath = $outputDirectory->resolve("effect-sound-" . $soundIndex . $extension);
+        $outputStream = new Java("java.io.FileOutputStream", $outputPath->toFile());
+        try {
+            $outputStream->write($sound->getBinaryData());
+        } finally {
+            $outputStream->close();
+        }
+        $soundIndex++;
+    }
+
+    return $soundIndex;
+}
+
+$baseDirectory = getcwd();
+$inputPath = (new Java("java.io.File", $baseDirectory . DIRECTORY_SEPARATOR . "presentation-with-animation-sounds.pptx"))->toPath();
+$outputDirectoryName = $baseDirectory . DIRECTORY_SEPARATOR . "extracted-animation-sounds";
+if (!is_dir($outputDirectoryName)) {
+    mkdir($outputDirectoryName, 0777, true);
+}
+$outputDirectory = (new Java("java.io.File", $outputDirectoryName))->toPath();
+
+$presentation = new Presentation($inputPath->toString());
+try {
+    $soundIndex = 1;
+
+    $slides = $presentation->getSlides();
+    $slideCount = java_values($slides->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $slides->get_Item($slideIndex);
+        $soundIndex = saveSounds($slide->getTimeline()->getMainSequence(), $outputDirectory, $soundIndex);
+
+        $interactiveSequences = $slide->getTimeline()->getInteractiveSequences();
+        $interactiveCount = java_values($interactiveSequences->getCount());
+        for ($sequenceIndex = 0; $sequenceIndex < $interactiveCount; $sequenceIndex++) {
+            $sequence = $interactiveSequences->get_Item($sequenceIndex);
+            $soundIndex = saveSounds($sequence, $outputDirectory, $soundIndex);
+        }
+    }
+
+    echo "Extracted " . ($soundIndex - 1) . " sound file(s) to " . java_values($outputDirectory->toAbsolutePath()->toString()) . "." . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
+```
+
+For large audio objects, use [Audio::getStream](https://reference.aspose.com/slides/php-java/aspose.slides/audio/getstream/) and copy the stream to a file instead of loading the entire object into a byte array.
+
+## **Set After-Animation Behavior**
+
+The **After animation** option controls what happens to a shape after its effect finishes.
+
+![PowerPoint Effect Options dialog showing After animation settings](shape-after-animation.png)
+
+The [AfterAnimationType](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/) class supports leaving the shape unchanged, changing its color, hiding it after the animation, or hiding it on the next click. When the type is [AfterAnimationType::Color](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/), set [Effect::getAfterAnimationColor](https://reference.aspose.com/slides/php-java/aspose.slides/effect/getafteranimationcolor/) as well.
+
+This independent example creates an effect, sets its after-animation behavior through the returned effect object, and saves the result.
+
+```php
+use aspose\slides\AfterAnimationType;
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 120, 100, 320, 80);
+    $shape->addTextFrame("Dim after animation");
+
+    $effect = $slide->getTimeline()->getMainSequence()->addEffect($shape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+    $effect->setAfterAnimationType(AfterAnimationType::Color);
+    $effect->getAfterAnimationColor()->setColor(java("java.awt.Color")->LIGHT_GRAY);
+
+    $presentation->save("shape-animation-after-effect.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Changing the type away from [AfterAnimationType::Color](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/) clears the after-animation color setting.
 
 ## **Animate Text**
 
-Aspose.Slides provides these methods to allow you to work with an animation effect's *Animate text* block:
+Text animation has two related controls:
 
-- [setAnimateTextType(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setAnimateTextType) which describes an animate text type of the effect. The shape text can be animated:
-  - All at once ([AnimateTextType::AllAtOnce](https://reference.aspose.com/slides/php-java/aspose.slides/animatetexttype/#AllAtOnce) type)
-  - By word ([AnimateTextType::ByWord](https://reference.aspose.com/slides/php-java/aspose.slides/animatetexttype/#ByWord) type)
-  - By letter ([AnimateTextType::ByLetter](https://reference.aspose.com/slides/php-java/aspose.slides/animatetexttype/#ByLetter) type)
-- [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setDelayBetweenTextParts) sets a delay between the animated text parts (words or letters). A positive value specifies the percentage of effect duration. A negative value specifies the delay in seconds.
+- [TextAnimation::getBuildType](https://reference.aspose.com/slides/php-java/aspose.slides/textanimation/getbuildtype/) controls whether paragraphs appear together or by paragraph level.
+- [Effect::getAnimateTextType](https://reference.aspose.com/slides/php-java/aspose.slides/effect/getanimatetexttype/) controls whether text appears all at once, by word, or by letter. [Effect::getDelayBetweenTextParts](https://reference.aspose.com/slides/php-java/aspose.slides/effect/getdelaybetweentextparts/) sets the delay between words or letters. A positive value is a percentage of the effect duration; a negative value is a delay in seconds.
 
-This is how you can change the Effect Animate text properties:
-
-1. [Apply](#apply-animation-to-shape) or get the animation effect.
-2. Use the [setBuildType(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/textanimation/#setBuildType) method and [BuildType::AsOneObject](https://reference.aspose.com/slides/php-java/aspose.slides/buildtype/#AsOneObject) value to turn off the *By Paragraphs* animation mode.
-3. Set new values using the [setAnimateTextType(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setAnimateTextType) and [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setDelayBetweenTextParts) methods.
-4. Save the modified PPTX file.
-
-This PHP code demonstrates the operation:
+The following independent example animates the words in a text box. [BuildType::AsOneObject](https://reference.aspose.com/slides/php-java/aspose.slides/buildtype/) disables paragraph-by-paragraph building so that the word setting applies to the entire text frame.
 
 ```php
-  # Instantiates a presentation class that represents a presentation file.
-  $pres = new Presentation("AnimTextBox_out.pptx");
-  try {
-    $firstSlide = $pres->getSlides()->get_Item(0);
-    # Gets the first effect of the main sequence
-    $firstEffect = $firstSlide->getTimeline()->getMainSequence()->get_Item(0);
-    # Changes the effect Text animation type to "As One Object"
-    $firstEffect->getTextAnimation()->setBuildType(BuildType::AsOneObject);
-    # Changes the effect Animate text type to "By word"
-    $firstEffect->setAnimateTextType(AnimateTextType::ByWord);
-    # Sets the delay between words to 20% of effect duration
-    $firstEffect->setDelayBetweenTextParts(20.0);
-    # Writes the PPTX file to disk
-    $pres->save("AnimTextBox_AnimateText.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\AnimateTextType;
+use aspose\slides\BuildType;
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $textBox = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 80, 80, 560, 100);
+    $textBox->addTextFrame("Aspose.Slides animates this sentence word by word.");
+
+    $effect = $slide->getTimeline()->getMainSequence()->addEffect($textBox, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+    $effect->getTextAnimation()->setBuildType(BuildType::AsOneObject);
+    $effect->setAnimateTextType(AnimateTextType::ByWord);
+    $effect->setDelayBetweenTextParts(20.0);
+
+    $presentation->save("animated-text.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+To build a text box by paragraph, set [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/php-java/aspose.slides/buildtype/) (or another paragraph level). To target a single paragraph with its own effect, use the [Sequence::addEffect](https://reference.aspose.com/slides/php-java/aspose.slides/sequence/addeffect/) overload that accepts a [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/). See [Animated Text](/slides/php-java/animated-text/) for paragraph-level examples.
+
+## **Export and Compatibility Notes**
+
+- Saving to PPT or PPTX preserves the animation model, but the final playback is controlled by the presentation viewer.
+- PDF and static images do not play animations. Use [HTML5 export](/slides/php-java/export-to-html5/), animated GIF, or [video conversion](/slides/php-java/convert-powerpoint-to-video/) when the output must show motion.
+- For HTML5, enable [Html5Options::setAnimateShapes](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/setanimateshapes/) and, when needed, [Html5Options::setAnimateTransitions](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/setanimatetransitions/).
+- Video rendering supports many common entrance, emphasis, exit, and motion-path effects, but not every PowerPoint effect is supported. Check the current [supported animations and effects](/slides/php-java/convert-powerpoint-to-video/#supported-animations-and-effects) and test critical presentations with your target Aspose.Slides version.
+- Advanced custom effects and effects imported from other presentation formats may be preserved in the file but render differently in PowerPoint, HTML5, or video. Validate the exported result rather than relying only on the effect name.
 
 ## **FAQ**
 
-### How can I ensure animations are preserved when publishing the presentation to the web?
+**Why does an animation appear in PowerPoint but not in a PDF?**
 
-[Export to HTML5](/slides/php-java/export-to-html5/) and enable the [options](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/) responsible for [shape](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/setanimateshapes/) and [transition](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/setanimatetransitions/) animations. Plain HTML does not play slide animations, whereas HTML5 does.
+PDF is a static format, so animations and slide transitions do not play. Export to HTML5, animated GIF, or video when motion must be preserved.
 
-### How does changing the z-order (layer order) of shapes affect animation?
+**Why does an effect play differently in a video?**
 
-Animation and drawing order are independent: an effect controls the timing and type of appearing/disappearing, while [z-order](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getzorderposition/) determines what covers what. The visible result is defined by their combination. (This is the general PowerPoint behavior; the Aspose.Slides effects-and-shapes model follows the same logic.)
+Video export renders animations rather than storing the original PowerPoint behavior. Some advanced effects are unsupported or approximated. Review the supported-effects table and test the actual presentation before production use.
 
-### Are there limitations when converting animations to video for certain effects?
+**Does moving a shape forward or backward change its animation order?**
 
-In general, [animations are supported](/slides/php-java/convert-powerpoint-to-video/), but rare cases or specific effects may be rendered differently. It is recommended to test with the effects you use and with the library version.
+No. Shape z-order controls overlap, while sequence order and triggers control animation playback. Change the timeline if you need a different playback order.
