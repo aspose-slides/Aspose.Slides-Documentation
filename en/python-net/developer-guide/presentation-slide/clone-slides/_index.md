@@ -163,6 +163,16 @@ with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_
         target_presentation.save("CloneToAnotherPresentationWithMaster_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### Ensure Matching Slide Size
+
+When cloning slides into another presentation, make sure the destination presentation has the same slide size as the source. Mismatched slide dimensions can cause elements to appear distorted or misaligned after cloning. You can set the slide size of the target presentation to match the source using:
+
+```py
+target_presentation.slide_size = source_presentation.slide_size
+```
+
+Do this before cloning the master and the slide.
+
 ## **Clone at the End in a Specified Section**
 
 With Aspose.Slides for Python via .NET, you can clone a slide from one section of a presentation and insert it into another section within the same presentation. To do this, use the `add_clone(Slide, Section)` method of the [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) class.
