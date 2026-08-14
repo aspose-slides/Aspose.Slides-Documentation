@@ -188,6 +188,21 @@ with slides.Presentation() as presentation:
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Ensure Matching Slide Size**
+
+When cloning slides into another presentation, make sure the destination presentation has the same slide size as the source. If the slide sizes differ, Aspose.Slides does not automatically rescale the cloned shapes—their original coordinates and dimensions are preserved, which may cause the content to appear misaligned or extend beyond the slide boundaries.
+
+You can set the destination presentation's slide size to match the source before cloning the master and slide:
+
+```py
+source_size = source_presentation.slide_size.size
+
+target_presentation.slide_size.set_size(
+    source_size.width, source_size.height, slides.SlideSizeScaleType.DO_NOT_SCALE)
+```
+
+Do this before cloning the master and the slide.
+
 ## **FAQ**
 
 ### Do speaker notes and reviewer comments get cloned?
