@@ -1,14 +1,14 @@
 ---
-title: 在 Android 上於簡報中套用圖形動畫
-linktitle: 圖形動畫
+title: 在 Android 簡報中套用形狀動畫
+linktitle: 形狀動畫
 type: docs
 weight: 60
 url: /zh-hant/androidjava/shape-animation/
 keywords:
-- 圖形
+- 形狀
 - 動畫
 - 效果
-- 動畫圖形
+- 動畫形狀
 - 動畫文字
 - 新增動畫
 - 取得動畫
@@ -16,482 +16,472 @@ keywords:
 - 新增效果
 - 取得效果
 - 擷取效果
-- 效果音效
+- 效果聲音
 - 套用動畫
 - PowerPoint
 - 簡報
 - Android
 - Java
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for Android via Java 在 PowerPoint 簡報中建立與自訂圖形動畫。脫穎而出！"
+description: "了解如何使用 Aspose.Slides for Android via Java 新增、檢查和自訂形狀動畫、時間設定、音效、動畫結束後的行為以及動畫文字。"
 ---
-## **簡介**
+## **概述**
 
-動畫是可套用於文字、圖片、圖形或[圖表](https://docs.aspose.com/slides/zh-hant/androidjava/animated-charts/)的視覺效果。它們為簡報或其組成部分賦予活力。
+Aspose.Slides for Android via Java 將投影片動畫表示為投影片時間軸中的效果。每個效果都有目標形狀、動畫類型與子類型、觸發方式、時間設定，以及可選的屬性，例如聲音或動畫結束後的行為。
 
-## **為何在簡報中使用動畫？**
+時間軸包含兩種序列：
 
-* 控制資訊流向  
-* 強調重點  
-* 提升觀眾的興趣或參與度  
-* 使內容更易閱讀、吸收或處理  
-* 吸引讀者或觀看者注意簡報中的重要部分  
+- **主序列** 在投影片前進時播放。
+- **互動序列** 在其觸發形狀被點擊時開始。
 
-PowerPoint 提供了許多動畫與動畫效果的選項與工具，涵蓋**入口**、**退出**、**強調**和**移動路徑**等類別。
+因為文字方塊、圖片、圖表、表格和其他投影片物件皆實作[IShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/)，您可以對大多數投影片內容使用相同的[ISequence.addEffect](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-)方法。可用的效果列在[EffectType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/effecttype/)類別中。
 
-## **Aspose.Slides 中的動畫**
+## **新增形狀動畫**
 
-* Aspose.Slides 在 `Aspose.Slides.Animation` 命名空間下提供您處理動畫所需的類別與類型，  
-* Aspose.Slides 在 [EffectType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/effecttype) 列舉中提供超過 **150 個動畫效果**。這些效果本質上與 PowerPoint 中使用的效果相同（或等效）。
+要新增動畫，取得投影片的主序列，然後使用目標形狀、效果類型、子類型與觸發方式呼叫[ISequence.addEffect](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-)。若想建立在另一個形狀被點擊時才開始的效果，請建立觸發該形狀的互動序列。
 
-## **將動畫套用至文字方塊**
-
-Aspose.Slides for Android via Java 允許您將動畫套用於圖形中的文字。
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/Presentation) 類別的實例。  
-2. 透過索引取得投影片的參考。  
-3. 加入一個 `rectangle` [IAutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iautoshape)。  
-4. 將文字加入 [IAutoShape.TextFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IAutoShape#addTextFrame-java.lang.String-)。  
-5. 取得主要的效果序列。  
-6. 為 [IAutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iautoshape) 新增動畫效果。  
-7. 將 `TextAnimation.BuildType` 屬性設定為 `BuildType` 列舉中的值。  
-8. 將簡報寫入磁碟，以 PPTX 檔案儲存。  
-
-以下 Java 程式碼示範如何將 `Fade` 效果套用至 AutoShape，並將文字動畫設定為 *By 1st Level Paragraphs* 值：
+以下範例同時建立兩種動畫，並將結果儲存為`shape-animations.pptx`。
 
 ```java
-// 實例化一個表示簡報檔案的簡報類別。
-Presentation pres = new Presentation();
-try {
-    ISlide sld = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // 新增帶文字的 AutoShape
-    IAutoShape autoShape = sld.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 100);
+public class AddShapeAnimations {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
 
-    ITextFrame textFrame = autoShape.getTextFrame();
-    textFrame.setText("First paragraph \nSecond paragraph \n Third paragraph");
+            IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 120, 100, 320, 80);
+            targetShape.addTextFrame("Click to animate this shape");
 
-    // 取得投影片的主要序列。
-    ISequence sequence = sld.getTimeline().getMainSequence();
+            ISequence mainSequence = slide.getTimeline().getMainSequence();
+            IEffect entranceEffect = mainSequence.addEffect(targetShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            entranceEffect.getTiming().setDuration(1.5f);
 
-    // 為圖形新增 Fade 動畫效果
-    IEffect effect = sequence.addEffect(autoShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            IAutoShape triggerShape = slide.getShapes().addAutoShape(ShapeType.Bevel, 20, 20, 100, 40);
+            triggerShape.addTextFrame("Move");
 
-    // 依第一層段落為圖形文字添加動畫
-    effect.getTextAnimation().setBuildType(BuildType.ByLevelParagraphs1);
+            ISequence interactiveSequence = slide.getTimeline().getInteractiveSequences().add(triggerShape);
+            interactiveSequence.addEffect(targetShape, EffectType.PathFootball, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // 將 PPTX 檔案儲存到磁碟
-    pres.save(path + "AnimText_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-{{%  alert color="primary"  %}} 
-除了將動畫套用於文字之外，您還可以將動畫套用至單一[段落](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iparagraph)。請參閱[**動畫文字**](/slides/zh-hant/androidjava/animated-text/)。
-{{% /alert %}} 
-
-## **將動畫套用至圖片框**
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/Presentation) 類別的實例。  
-2. 透過索引取得投影片的參考。  
-3. 在投影片上新增或取得 [PictureFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/pictureframe)。  
-4. 取得主要的效果序列。  
-5. 為 [PictureFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/pictureframe) 新增動畫效果。  
-6. 將簡報寫入磁碟，以 PPTX 檔案儲存。  
-
-以下 Java 程式碼示範如何將 `Fly` 效果套用至圖片框：
-
-```java
-// 實例化一個表示簡報檔案的簡報類別。
-Presentation pres = new Presentation();
-try {
-    // 載入要加入簡報影像集合的圖片
-    IPPImage picture;
-    IImage image = Images.fromFile("aspose-logo.jpg");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-
-    // 將圖片框加入投影片
-    IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, picture);
-
-    // 取得投影片的主要序列。
-    ISequence sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
-
-    // 為圖片框新增從左側飛入的動畫效果
-    IEffect effect = sequence.addEffect(picFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
-
-    // 將 PPTX 檔案儲存到磁碟
-    pres.save(path + "AnimImage_out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **將動畫套用至圖形**
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/Presentation) 類別的實例。  
-2. 透過索引取得投影片的參考。  
-3. 加入一個 `rectangle` [IAutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iautoshape)。  
-4. 加入一個 `Bevel` [IAutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iautoshape)（當點擊此物件時，動畫會播放）。  
-5. 為斜角形狀建立效果序列。  
-6. 建立自訂的 `UserPath`。  
-7. 新增指令以移動至 `UserPath`。  
-8. 將簡報寫入磁碟，以 PPTX 檔案儲存。  
-
-以下 Java 程式碼示範如何將 `PathFootball`（路徑足球）效果套用至圖形：
-
-```java
-// 實例化一個表示 PPTX 檔案的 Presentation 類別。
-Presentation pres = new Presentation();
-try {
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // 為現有圖形從頭建立 PathFootball 效果。
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 250, 25);
-    ashp.addTextFrame("Animated TextBox");
-
-    // 新增 PathFootBall 動畫效果
-    pres.getSlides().get_Item(0).getTimeline().getMainSequence().addEffect(ashp, EffectType.PathFootball,
-            EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-    // 建立某種「按鈕」。
-    IShape shapeTrigger = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Bevel, 10, 10, 20, 20);
-
-    // 為此按鈕建立效果序列。
-    ISequence seqInter = pres.getSlides().get_Item(0).getTimeline().getInteractiveSequences().add(shapeTrigger);
-
-     // 建立自訂使用者路徑。物件僅在按鈕被點擊後移動。
-    IEffect fxUserPath = seqInter.addEffect(ashp, EffectType.PathUser, EffectSubtype.None, EffectTriggerType.OnClick);
-
-     // 加入移動指令，因為建立的路徑是空的。
-    IMotionEffect motionBhv = ((IMotionEffect)fxUserPath.getBehaviors().get_Item(0));
-
-    Point2D.Float[] pts = new Point2D.Float[1];
-    pts[0] = new Point2D.Float(0.076f, 0.59f);
-    motionBhv.getPath().add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, true);
-    pts[0] = new Point2D.Float(-0.076f, -0.59f);
-    motionBhv.getPath().add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, false);
-    motionBhv.getPath().add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
-
-     // 將 PPTX 檔案寫入磁碟
-    pres.save("AnimExample_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **取得套用於圖形的動畫效果**
-
-以下範例說明如何使用 [ISequence](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/isequence/) 介面的 `getEffectsByShape` 方法，以取得套用於圖形的所有動畫效果。
-
-**範例 1：取得普通投影片上圖形的動畫效果**
-
-先前您已學習如何在 PowerPoint 簡報中為圖形新增動畫效果。以下範例程式碼示範如何取得簡報 `AnimExample_out.pptx` 中第一張普通投影片上第一個圖形所套用的效果。
-
-```java
-Presentation presentation = new Presentation("AnimExample_out.pptx");
-try {
-    ISlide firstSlide = presentation.getSlides().get_Item(0);
-
-    // 取得投影片的主要動畫序列。
-    ISequence sequence = firstSlide.getTimeline().getMainSequence();
-
-    // 取得第一張投影片上的第一個圖形。
-    IShape shape = firstSlide.getShapes().get_Item(0);
-
-    // 取得套用於圖形的動畫效果。
-    IEffect[] shapeEffects = sequence.getEffectsByShape(shape);
-
-    if (shapeEffects.length > 0)
-        System.out.println("The shape " + shape.getName() + " has " + shapeEffects.length + " animation effects.");
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-**範例 2：取得所有動畫效果，包括從占位符繼承的效果**
-
-如果普通投影片上的圖形具有位於佈局投影片和/或母片投影片上的占位符，且這些占位符已加入動畫效果，則在投影片放映期間，該圖形的所有效果都會播放，包括繼承自占位符的效果。
-
-假設我們有一個 PowerPoint 簡報檔案 `sample.pptx`，其中只有一張投影片，僅包含一個文字為「Made with Aspose.Slides」的頁腳圖形，且已套用 **Random Bars** 效果。
-
-![投影片圖形動畫效果](slide-shape-animation.png)
-
-再假設在 **layout** 投影片的頁腳占位符上套用 **Split** 效果。
-
-![佈局圖形動畫效果](layout-shape-animation.png)
-
-最後，在 **master** 投影片的頁腳占位符上套用 **Fly In** 效果。
-
-![母片圖形動畫效果](master-shape-animation.png)
-
-以下範例程式碼示範如何使用 [IShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/) 介面的 `getBasePlaceholder` 方法，存取圖形占位符，並取得套用於頁腳圖形的動畫效果，包括來自佈局與母片投影片上占位符的繼承效果。
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-
-ISlide slide = presentation.getSlides().get_Item(0);
-
-// 取得普通投影片上圖形的動畫效果。
-IShape shape = slide.getShapes().get_Item(0);
-IEffect[] shapeEffects = slide.getTimeline().getMainSequence().getEffectsByShape(shape);
-
-// 取得版面投影片上占位符的動畫效果。
-IShape layoutShape = shape.getBasePlaceholder();
-IEffect[] layoutShapeEffects = slide.getLayoutSlide().getTimeline().getMainSequence().getEffectsByShape(layoutShape);
-
-// 取得母片投影片上占位符的動畫效果。
-IShape masterShape = layoutShape.getBasePlaceholder();
-IEffect[] masterShapeEffects = slide.getLayoutSlide().getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(masterShape);
-
-System.out.println("Main sequence of shape effects:");
-printEffects(masterShapeEffects);
-printEffects(layoutShapeEffects);
-printEffects(shapeEffects);
-
-presentation.dispose();
-```
-```java
-static void printEffects(IEffect[] effects)
-{
-    for (IEffect effect : effects)
-    {
-        String typeName = EffectType.getName(EffectType.class, effect.getType());
-        String subtypeName = EffectSubtype.getName(EffectSubtype.class, effect.getSubtype());
-
-        System.out.println(typeName + " " + subtypeName);
+            presentation.save("shape-animations.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
     }
 }
 ```
 
-```text
-Main sequence of shape effects:
-Fly Bottom
-Split VerticalIn
-RandomBars Horizontal
-```
+觸發器決定何時開始效果：
 
-## **變更動畫效果時間屬性**
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/effecttriggertype/#OnClick) 在主序列中等待點擊，或在互動序列中等待觸發形狀的點擊。
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/effecttriggertype/#WithPrevious) 與前一個效果同時開始。
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/effecttriggertype/#AfterPrevious) 在前一個效果結束時開始。
 
-Aspose.Slides for Android via Java 允許您變更動畫效果的 Timing（時間）屬性。
+若要為圖片、圖表或其他形狀類型加入動畫，請將該物件傳遞給[ISequence.addEffect](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-)，而非`targetShape`。有關圖表專屬的分組選項，請參閱[Animated Charts](/slides/zh-hant/androidjava/animated-charts/)。
 
-以下是 Microsoft PowerPoint 中的動畫 Timing 面板：
+## **讀取形狀動畫**
 
-![範例1 圖形動畫](shape-animation.png)
+當您已知目標形狀時，使用[ISequence.getEffectsByShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-)。若要檢視每個效果，請列舉主序列和所有互動序列。列舉可避免假設序列在索引`0`處一定有效果。
 
-以下是 PowerPoint Timing 與 [Effect.Timing](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IEffect#getTiming--) 屬性之對應關係：
-
-- PowerPoint Timing **Start** 下拉式清單對應至 [Effect.Timing.TriggerType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ITiming#getTriggerType--) 屬性。  
-- PowerPoint Timing **Duration** 對應至 [Effect.Timing.Duration](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ITiming#getDuration--) 屬性。動畫的持續時間（以秒為單位）是動畫完成一個循環所需的總時間。  
-- PowerPoint Timing **Delay** 對應至 [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ITiming#getTriggerDelayTime--) 屬性。  
-
-以下示範如何變更 Effect Timing（效果時間）屬性：
-
-1. [套用](#apply-animation-to-shape) 或取得動畫效果。  
-2. 為您需要的 [Effect.Timing](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IEffect#getTiming--) 屬性設定新值。  
-3. 儲存已修改的 PPTX 檔案。  
-
-以下 Java 程式碼示範此操作：
+以下範例建立具有主序列與互動效果的形狀，取得針對該形狀的效果，然後列舉投影片上的每個序列。
 
 ```java
-// 實例化一個表示簡報檔案的簡報類別。
-Presentation pres = new Presentation("AnimExample_out.pptx");
-try {
-    // 取得投影片的主要序列。
-    ISequence sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
+import com.aspose.slides.*;
 
-    // 取得主要序列的第一個效果。
-    IEffect effect = sequence.get_Item(0);
+public class ReadShapeAnimations {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+            targetShape.addTextFrame("Animated shape");
 
-    // 將效果的 TriggerType 更改為點擊開始
-    effect.getTiming().setTriggerType(EffectTriggerType.OnClick);
+            ISequence mainSequence = slide.getTimeline().getMainSequence();
+            mainSequence.addEffect(targetShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // 更改效果的持續時間
-    effect.getTiming().setDuration(3f);
+            IAutoShape triggerShape = slide.getShapes().addAutoShape(ShapeType.Bevel, 20, 20, 100, 40);
+            triggerShape.addTextFrame("Move");
 
-    // 更改效果的 TriggerDelayTime
-    effect.getTiming().setTriggerDelayTime(0.5f);
+            ISequence interactiveSequence = slide.getTimeline().getInteractiveSequences().add(triggerShape);
+            interactiveSequence.addEffect(targetShape, EffectType.PathFootball, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // 將 PPTX 檔案儲存到磁碟
-    pres.save("AnimExample_changed.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+            IEffect[] targetEffects = mainSequence.getEffectsByShape(targetShape);
+            System.out.println("The main sequence contains " + targetEffects.length + " effect(s) for " + targetShape.getName() + ".");
 
-## **動畫效果音效**
+            printSequence("Main sequence", mainSequence);
 
-Aspose.Slides 提供以下屬性，以便您在動畫效果中使用音效：
-
-- [setSound(IAudio value)](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/effect/#setSound-com.aspose.slides.IAudio-)  
-- [setStopPreviousSound(boolean value)](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/effect/#setStopPreviousSound-boolean-)
-
-### **新增動畫效果音效**
-
-以下 Java 程式碼示範如何新增動畫效果音效，並在下一個效果開始時停止它：
-
-```java
-Presentation pres = new Presentation("AnimExample_out.pptx");
-try {
-    // 將音訊新增至簡報的音訊集合
-    IAudio effectSound = pres.getAudios().addAudio(Files.readAllBytes(Paths.get("sampleaudio.wav")));
-
-    ISlide firstSlide = pres.getSlides().get_Item(0);
-
-    // 取得投影片的主要序列。
-    ISequence sequence = firstSlide.getTimeline().getMainSequence();
-
-    // 取得主要序列的第一個效果
-    IEffect firstEffect = sequence.get_Item(0);
-
-    // 檢查效果是否為「無聲音」
-    if (!firstEffect.getStopPreviousSound() && firstEffect.getSound() == null)
-    {
-        // 為第一個效果新增聲音
-        firstEffect.setSound(effectSound);
+            int interactiveIndex = 1;
+            for (ISequence sequence : slide.getTimeline().getInteractiveSequences()) {
+                String triggerName = sequence.getTriggerShape() == null ? "unknown" : sequence.getTriggerShape().getName();
+                String sequenceLabel = "Interactive sequence " + interactiveIndex + ", trigger: " + triggerName;
+                printSequence(sequenceLabel, sequence);
+                interactiveIndex++;
+            }
+        } finally {
+            presentation.dispose();
+        }
     }
 
-    // 取得投影片的第一個互動序列。
-    ISequence interactiveSequence = firstSlide.getTimeline().getInteractiveSequences().get_Item(0);
+    private static void printSequence(String label, ISequence sequence) {
+        System.out.println("  " + label + ": " + sequence.getCount() + " effect(s)");
 
-    // 設定效果「停止先前聲音」旗標
-    interactiveSequence.get_Item(0).setStopPreviousSound(true);
-
-    // 將 PPTX 檔案寫入磁碟
-    pres.save("AnimExample_Sound_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-### **擷取動畫效果音效**
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 類別的實例。  
-2. 透過索引取得投影片的參考。  
-3. 取得主要的效果序列。  
-4. 擷取每個動畫效果所嵌入的 [setSound(IAudio value)](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/effect/#setSound-com.aspose.slides.IAudio-)。  
-
-以下 Java 程式碼示範如何擷取嵌入於動畫效果中的音效：
-
-```java
-// 實例化一個表示簡報檔案的簡報類別。
-Presentation presentation = new Presentation("EffectSound.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-
-    // 取得投影片的主要序列。
-    ISequence sequence = slide.getTimeline().getMainSequence();
-
-    for (IEffect effect : sequence)
-    {
-        if (effect.getSound() == null)
-            continue;
-
-        // 以位元組陣列擷取效果聲音
-        byte[] audio = effect.getSound().getBinaryData();
+        for (IEffect effect : sequence) {
+            String targetName = effect.getTargetShape() == null ? "unknown" : effect.getTargetShape().getName();
+            String typeName = EffectType.getName(EffectType.class, effect.getType());
+            String subtypeName = EffectSubtype.getName(EffectSubtype.class, effect.getSubtype());
+            String triggerName = EffectTriggerType.getName(EffectTriggerType.class, effect.getTiming().getTriggerType());
+            String effectDescription = typeName + " " + subtypeName + "; target: " + targetName + "; trigger: " + triggerName;
+            System.out.println("    " + effectDescription);
+        }
     }
-} finally {
-    if (presentation != null) presentation.dispose();
 }
 ```
 
-## **動畫結束後**
+如果僅需要單一形狀的效果，請先以名稱、佔位元類型或其他穩定屬性識別該形狀；然後呼叫[ISequence.getEffectsByShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-)。不要假設索引`0`的[IShapeCollection.get_Item](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishapecollection/#get_Item-int-)必定是目標物件。
 
-Aspose.Slides for Android via Java 允許您變更動畫效果的 After animation（結束後）屬性。
+## **處理繼承佔位元的效果**
 
-以下是 Microsoft PowerPoint 中的動畫效果面板與擴充功能表：
+一般投影片上的佔位元可以繼承自版面投影片與母片投影片中對應佔位元的動畫行為。[IShape.getBasePlaceholder](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) 會回傳該父佔位元，若不存在則回傳`null`。
 
-![範例1 動畫結束後](shape-after-animation.png)
+在下列範例簡報中，頁腳在一般投影片上使用**Random Bars**，在版面投影片上使用**Split**，在母片上使用**Fly In**。
 
-PowerPoint 效果 **After animation** 下拉式清單對應以下屬性：
+![一般投影片上頁腳的動畫效果](slide-shape-animation.png)
 
-- [setAfterAnimationType(int value)](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ieffect/#setAfterAnimationType-int-) 屬性，用於描述 After animation（結束後）類型：  
-  * PowerPoint **More Colors** 對應至 [AfterAnimationType.Color](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/afteranimationtype/#Color) 類型；  
-  * PowerPoint **Don't Dim** 項目對應至 [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/afteranimationtype/#DoNotDim) 類型（預設的結束後類型）；  
-  * PowerPoint **Hide After Animation** 項目對應至 [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/afteranimationtype/#HideAfterAnimation) 類型；  
-  * PowerPoint **Hide on Next Mouse Click** 項目對應至 [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/afteranimationtype/#HideOnNextMouseClick) 類型；  
-- [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ieffect/#setAfterAnimationColor-com.aspose.slides.IColorFormat-) 屬性，用於定義結束後的顏色格式。此屬性與 [AfterAnimationType.Color](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/afteranimationtype/#Color) 類型共同運作。若將類型變更為其他，則結束後的顏色將被清除。  
+![版面投影片上頁腳的佔位元動畫效果](layout-shape-animation.png)
 
-以下 Java 程式碼示範如何變更結束後的動畫效果：
+![母片投影片上頁腳的佔位元動畫效果](master-shape-animation.png)
+
+接下來的範例使用新簡報中的佔位元層級。它為母片佔位元、版面佔位元以及一般投影片上的相應佔位元加入效果。每次呼叫[IShape.getBasePlaceholder](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) 前皆先檢查回傳的形狀是否為`null`。
 
 ```java
-// 實例化一個表示簡報檔案的簡報類別
-Presentation pres = new Presentation("AnimImage_out.pptx");
-try {
-    ISlide firstSlide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // 取得主要序列的第一個效果
-    IEffect firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
+public class InheritedPlaceholderAnimations {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ILayoutSlide layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.TitleAndObject);
+            IShape layoutPlaceholder = findPlaceholderWithBase(layoutSlide);
 
-    // 將結束後的動畫類型更改為顏色
-    firstEffect.setAfterAnimationType(AfterAnimationType.Color);
+            if (layoutPlaceholder == null) {
+                throw new IllegalStateException("The layout slide does not contain a placeholder linked to its master slide.");
+            }
 
-    // 設定結束後動畫的暗淡顏色
-    firstEffect.getAfterAnimationColor().setColor(Color.BLUE);
+            IShape masterPlaceholder = layoutPlaceholder.getBasePlaceholder();
+            layoutSlide.getMasterSlide().getTimeline().getMainSequence().addEffect(masterPlaceholder, EffectType.Fly, EffectSubtype.Bottom, EffectTriggerType.OnClick);
+            layoutSlide.getTimeline().getMainSequence().addEffect(layoutPlaceholder, EffectType.Split, EffectSubtype.VerticalIn, EffectTriggerType.OnClick);
 
-    // 將 PPTX 檔案寫入磁碟
-    pres.save("AnimImage_AfterAnimation.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+            ISlide slide = presentation.getSlides().addEmptySlide(layoutSlide);
+            IShape slidePlaceholder = findPlaceholderWithBase(slide, layoutPlaceholder);
+
+            if (slidePlaceholder == null) {
+                throw new IllegalStateException("The slide does not contain a placeholder linked to its layout slide.");
+            }
+
+            slide.getTimeline().getMainSequence().addEffect(slidePlaceholder, EffectType.RandomBars, EffectSubtype.Horizontal, EffectTriggerType.OnClick);
+            printEffects("Normal slide", slide.getTimeline().getMainSequence().getEffectsByShape(slidePlaceholder));
+
+            IShape baseLayoutPlaceholder = slidePlaceholder.getBasePlaceholder();
+            if (baseLayoutPlaceholder != null) {
+                printEffects("Layout slide", layoutSlide.getTimeline().getMainSequence().getEffectsByShape(baseLayoutPlaceholder));
+
+                IShape baseMasterPlaceholder = baseLayoutPlaceholder.getBasePlaceholder();
+                if (baseMasterPlaceholder != null) {
+                    printEffects("Master slide", layoutSlide.getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(baseMasterPlaceholder));
+                }
+            }
+
+            presentation.save("placeholder-animations.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
+
+    private static IShape findPlaceholderWithBase(ILayoutSlide layoutSlide) {
+        for (IShape shape : layoutSlide.getShapes()) {
+            if (shape.getBasePlaceholder() != null) {
+                return shape;
+            }
+        }
+
+        return null;
+    }
+
+    private static IShape findPlaceholderWithBase(ISlide slide, IShape expectedBase) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape.getBasePlaceholder() == expectedBase) {
+                return shape;
+            }
+        }
+
+        return null;
+    }
+
+    private static void printEffects(String source, IEffect[] effects) {
+        System.out.println(source + ": " + effects.length + " effect(s)");
+
+        for (IEffect effect : effects) {
+            String typeName = EffectType.getName(EffectType.class, effect.getType());
+            String subtypeName = EffectSubtype.getName(EffectSubtype.class, effect.getSubtype());
+            System.out.println("  " + typeName + " " + subtypeName);
+        }
+    }
 }
 ```
 
-## **動畫文字**
+## **變更動畫時間設定**
 
-Aspose.Slides 提供以下屬性，以便您操作動畫效果的 *Animate text*（動畫文字）區塊：
+PowerPoint的**Timing**對話方塊對應到[ITiming](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/itiming/)的屬性。
 
-- [setAnimateTextType(int value)](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ieffect/#setAnimateTextType-int-) 用於描述動畫文字的類型。圖形文字可以以下列方式呈現動畫：  
-  * 同時全部呈現（[AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/animatetexttype/#AllAtOnce) 類型）  
-  * 逐字（[AnimateTextType.ByWord](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/animatetexttype/#ByWord) 類型）  
-  * 逐字元（[AnimateTextType.ByLetter](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/animatetexttype/#ByLetter) 類型）  
-- [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ieffect/#setDelayBetweenTextParts-float-) 用於設定動畫文字片段（字或字元）之間的延遲。正值表示效果持續時間的百分比，負值則表示以秒為單位的延遲。  
+![PowerPoint動畫效果的Timing對話方塊](shape-animation.png)
 
-以下示範如何變更 Effect Animate text（動畫文字）屬性：
+- **Start** 對應到[ITiming.getTriggerType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/itiming/#getTriggerType--)。
+- **Duration** 對應到[ITiming.getDuration](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/itiming/#getDuration--)（以秒為單位）。
+- **Delay** 對應到[ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/itiming/#getTriggerDelayTime--)（以秒為單位）。
+- **Repeat** 對應到[ITiming.getRepeatCount](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/itiming/#getRepeatCount--)、[ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/itiming/#getRepeatUntilNextClick--)或[ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/itiming/#getRepeatUntilEndSlide--)。
+- **Rewind when done playing** 對應到[ITiming.getRewind](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/itiming/#getRewind--)。
 
-1. [套用](#apply-animation-to-shape) 或取得動畫效果。  
-2. 將 [setBuildType(int value)](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/itextanimation/#setBuildType-int-) 屬性設定為 [BuildType.AsOneObject](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/buildtype/#AsOneObject) 值，以關閉 *By Paragraphs*（依段落）動畫模式。  
-3. 為 [setAnimateTextType(int value)](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ieffect/#setAnimateTextType-int-) 與 [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ieffect/#setDelayBetweenTextParts-float-) 屬性設定新值。  
-4. 儲存已修改的 PPTX 檔案。  
-
-以下 Java 程式碼示範此操作：
+此獨立範例加入一個效果，透過[ISequence.addEffect](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-)取得的物件變更其時間設定，並儲存結果。保留回傳的[IEffect](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ieffect/)參考，可避免不必要的集合索引。
 
 ```java
-// 實例化一個表示簡報檔案的簡報類別。
-Presentation pres = new Presentation("AnimTextBox_out.pptx");
-try {
-    ISlide firstSlide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // 取得主要序列的第一個效果
-    IEffect firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
+public class ChangeAnimationTiming {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+            shape.addTextFrame("Timed animation");
 
-    // 將效果的文字動畫類型更改為「As One Object」
-    firstEffect.getTextAnimation().setBuildType(BuildType.AsOneObject);
+            IEffect effect = slide.getTimeline().getMainSequence().addEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            effect.getTiming().setTriggerType(EffectTriggerType.OnClick);
+            effect.getTiming().setDuration(2.0f);
+            effect.getTiming().setTriggerDelayTime(0.5f);
+            effect.getTiming().setRepeatUntilNextClick(false);
+            effect.getTiming().setRepeatUntilEndSlide(false);
+            effect.getTiming().setRepeatCount(2.0f);
+            effect.getTiming().setRewind(true);
 
-    // 將效果的動畫文字類型更改為「By word」
-    firstEffect.setAnimateTextType(AnimateTextType.ByWord);
-
-    // 設定單字之間的延遲為效果持續時間的 20%
-    firstEffect.setDelayBetweenTextParts(20f);
-
-    // 將 PPTX 檔案寫入磁碟
-    pres.save("AnimTextBox_AnimateText.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+            presentation.save("shape-animation-timing.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
 }
 ```
+
+請只使用一種重複模式。將重複次數與「直到」旗標同時使用可能在不同的檢視器中產生混亂的結果。變更重複模式時，請先設定[ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-)與[ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-)，再設定[ITiming.setRepeatCount](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/itiming/#setRepeatCount-float-)，因為設定任一旗標同時會改變目前的重複模式。
+
+## **新增與擷取動畫聲音**
+
+動畫效果可以透過[IEffect.getSound](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ieffect/#getSound--)參考嵌入的音訊。[IEffect.setStopPreviousSound](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) 可讓效果停止先前效果所啟動的音訊。
+
+### **將聲音加入效果**
+
+以下範例假設本機有名為`animation-sound.wav`的音訊檔案。它建立兩個效果，將該檔案嵌入為第一個效果的聲音，並設定第二個效果停止該聲音。它使用由[ISequence.addEffect](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-)回傳的物件，因此不需要序列索引。
+
+```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+public class AddAnimationSound {
+    public static void main(String[] args) throws IOException {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape firstShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 100, 240, 80);
+            IAutoShape secondShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 400, 100, 240, 80);
+            firstShape.addTextFrame("Starts sound");
+            secondShape.addTextFrame("Stops sound");
+
+            ISequence sequence = slide.getTimeline().getMainSequence();
+            IEffect firstEffect = sequence.addEffect(firstShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect secondEffect = sequence.addEffect(secondShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+
+            byte[] audioData = Files.readAllBytes(Paths.get("animation-sound.wav"));
+            IAudio effectSound = presentation.getAudios().addAudio(audioData);
+            firstEffect.setSound(effectSound);
+            secondEffect.setStopPreviousSound(true);
+
+            presentation.save("shape-animation-sound.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
+}
+```
+
+### **擷取嵌入的效果聲音**
+
+以下範例假設本機有名為`presentation-with-animation-sounds.pptx`的簡報。它同時掃描主序列與互動序列，並將每個嵌入的效果聲音寫入`extracted-animation-sounds`目錄。副檔名取自[IAudio.getContentType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iaudio/#getContentType--)所回傳的音訊MIME類型。
+
+```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Locale;
+
+public class ExtractAnimationSounds {
+    public static void main(String[] args) throws IOException {
+        Path inputPath = Paths.get("presentation-with-animation-sounds.pptx");
+        Path outputDirectory = Paths.get("extracted-animation-sounds");
+
+        Files.createDirectories(outputDirectory);
+
+        Presentation presentation = new Presentation(inputPath.toString());
+        try {
+            int soundIndex = 1;
+
+            for (ISlide slide : presentation.getSlides()) {
+                soundIndex = saveSounds(slide.getTimeline().getMainSequence(), outputDirectory, soundIndex);
+
+                for (ISequence sequence : slide.getTimeline().getInteractiveSequences()) {
+                    soundIndex = saveSounds(sequence, outputDirectory, soundIndex);
+                }
+            }
+
+            System.out.println("Extracted " + (soundIndex - 1) + " sound file(s) to " + outputDirectory.toAbsolutePath() + ".");
+        } finally {
+            presentation.dispose();
+        }
+    }
+
+    private static int saveSounds(ISequence sequence, Path outputDirectory, int soundIndex) throws IOException {
+        for (IEffect effect : sequence) {
+            if (effect.getSound() == null) {
+                continue;
+            }
+
+            String extension = getAudioExtension(effect.getSound().getContentType());
+            Path outputPath = outputDirectory.resolve("effect-sound-" + soundIndex + extension);
+            Files.write(outputPath, effect.getSound().getBinaryData());
+            soundIndex++;
+        }
+
+        return soundIndex;
+    }
+
+    private static String getAudioExtension(String contentType) {
+        String normalizedType = contentType == null ? "" : contentType.toLowerCase(Locale.ROOT);
+
+        if (normalizedType.equals("audio/mpeg")) {
+            return ".mp3";
+        }
+
+        if (normalizedType.equals("audio/mp4")) {
+            return ".m4a";
+        }
+
+        if (normalizedType.equals("audio/ogg")) {
+            return ".ogg";
+        }
+
+        if (normalizedType.equals("audio/wav") || normalizedType.equals("audio/x-wav")) {
+            return ".wav";
+        }
+
+        return ".bin";
+    }
+}
+```
+
+對於大型音訊物件，請使用[IAudio.getStream](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iaudio/#getStream--)並將串流複製至檔案，而不是將整個物件載入至位元組陣列。
+
+## **設定動畫結束後的行為**
+
+**After animation**選項決定形狀在效果結束後的處理方式。
+
+![PowerPoint效果選項對話方塊顯示After animation設定](shape-after-animation.png)
+
+[AfterAnimationType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/afteranimationtype/)類別支援保持形狀不變、變更其顏色、動畫結束後隱藏，或在下一次點擊時隱藏。當類型為[AfterAnimationType.Color](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/afteranimationtype/#Color)時，同時設定[IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ieffect/#getAfterAnimationColor--)。
+
+此獨立範例建立一個效果，透過回傳的效果物件設定其動畫結束後的行為，並儲存結果。
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+public class SetAfterAnimationBehavior {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+            shape.addTextFrame("Dim after animation");
+
+            IEffect effect = slide.getTimeline().getMainSequence().addEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            effect.setAfterAnimationType(AfterAnimationType.Color);
+            effect.getAfterAnimationColor().setColor(Color.LTGRAY);
+
+            presentation.save("shape-animation-after-effect.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
+}
+```
+
+將類型從[AfterAnimationType.Color](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/afteranimationtype/#Color)改變會清除動畫結束後的顏色設定。
+
+## **文字動畫**
+
+文字動畫有兩個相關控制項：
+
+- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/itextanimation/#getBuildType--) 控制段落是一起顯示還是逐段落顯示。
+- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ieffect/#getAnimateTextType--) 控制文字是一次全部顯示、逐字或逐字母顯示。[IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) 設定字或字母之間的延遲。正值為效果持續時間的百分比，負值為秒數延遲。
+
+以下獨立範例為文字方塊中的詞句加入動畫。[BuildType.AsOneObject](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/buildtype/#AsOneObject) 會停用逐段落建立，讓字詞設定套用於整個文字框。
+
+```java
+import com.aspose.slides.*;
+
+public class AnimateTextByWord {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 80, 560, 100);
+            textBox.addTextFrame("Aspose.Slides animates this sentence word by word.");
+
+            IEffect effect = slide.getTimeline().getMainSequence().addEffect(textBox, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            effect.getTextAnimation().setBuildType(BuildType.AsOneObject);
+            effect.setAnimateTextType(AnimateTextType.ByWord);
+            effect.setDelayBetweenTextParts(20.0f);
+
+            presentation.save("animated-text.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
+}
+```
+
+若要逐段落建立文字方塊，請設定[BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/buildtype/#ByLevelParagraphs1)（或其他段落層級）。若要為單一段落指定其自身效果，請使用接受[IParagraph](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iparagraph/)的[ISequence.addEffect](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-)之多載。請參閱[Animated Text](/slides/zh-hant/androidjava/animated-text/)取得段落層級範例。
+
+## **匯出與相容性說明**
+
+- 儲存為 PPT 或 PPTX 會保留動畫模式，但最終播放由簡報檢視器控制。
+- PDF 與靜態圖像不會播放動畫。當需要顯示動作時，請使用[HTML5 export](/slides/zh-hant/androidjava/export-to-html5/)、動畫 GIF 或[video conversion](/slides/zh-hant/androidjava/convert-powerpoint-to-video/)。
+- 若匯出為 HTML5，請啟用[Html5Options.setAnimateShapes](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-)，且在需要時啟用[Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-)。
+- 影片轉換支援許多常見的進入、強調、退出與路徑動畫效果，但並非所有 PowerPoint 效果皆受支援。請檢查目前的[supported animations and effects](/slides/zh-hant/androidjava/convert-powerpoint-to-video/#supported-animations-and-effects)並使用目標 Aspose.Slides 版本測試關鍵簡報。
+- 進階自訂效果與從其他簡報格式匯入的效果可能會在檔案中保留，但在 PowerPoint、HTML5 或影片中呈現方式不同。請驗證匯出結果，而非僅依賴效果名稱。
 
 ## **常見問題**
 
-**如何確保在將簡報發布到 Web 時保留動畫？**  
-[Export to HTML5](/slides/zh-hant/androidjava/export-to-html5/) 並啟用負責 [shape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) 與 [transition](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) 動畫的 [options](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/html5options/) 設定。純 HTML 無法播放投影片動畫，而 HTML5 則可以。
+**為什麼動畫在 PowerPoint 中顯示，但在 PDF 中卻沒有？**
 
-**變更圖形的 Z 軸順序（圖層順序）會如何影響動畫？**  
-動畫與繪製順序互相獨立：效果控制出現/消失的時間與類型，而 [z-order](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/shape/#getZOrderPosition--) 決定哪個圖形覆蓋哪個。最終可見結果由兩者的組合決定。（這是 PowerPoint 的一般行為；Aspose.Slides 的效果與圖形模型遵循相同邏輯。）
+PDF 為靜態格式，故不會播放動畫與投影片過場。若必須保留動作，請匯出為 HTML5、動畫 GIF 或影片。
 
-**將某些動畫效果轉換為影片時是否存在限制？**  
-一般而言，[動畫是受支援的](/slides/zh-hant/androidjava/convert-powerpoint-to-video/)，但在少數情況或特定效果下可能會有不同的呈現方式。建議使用您所使用的效果以及相應的函式庫版本進行測試。
+**為什麼效果在影片中播放方式不同？**
+
+影片匯出會將動畫渲染成影片，而非儲存原始的 PowerPoint 行為。某些進階效果不受支援或會被近似。請檢查受支援的效果表，並在正式使用前測試實際簡報。
+
+**將形狀前移或後移會改變其動畫順序嗎？**
+
+不會。形狀的 Z 順序僅控制重疊，動畫的播放順序由序列順序與觸發方式決定。如需不同的播放順序，請變更時間軸。

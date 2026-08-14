@@ -1,486 +1,574 @@
 ---
-title: 在簡報中使用 C++ 套用圖形動畫
-linktitle: 圖形動畫
+title: 使用 C++ 在簡報中套用形狀動畫
+linktitle: 形狀動畫
 type: docs
 weight: 60
 url: /zh-hant/cpp/shape-animation/
 keywords:
-- 圖形
+- 形狀
 - 動畫
 - 效果
-- 動畫圖形
-- 動畫文字
+- 已動畫化的形狀
+- 已動畫化的文字
 - 新增動畫
 - 取得動畫
-- 擷取動畫
+- 抽取動畫
 - 新增效果
 - 取得效果
-- 擷取效果
+- 抽取效果
 - 效果音效
 - 套用動畫
 - PowerPoint
 - 簡報
 - C++
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for C++ 在 PowerPoint 簡報中建立與自訂圖形動畫。脫穎而出！"
+description: "了解如何使用 Aspose.Slides for C++ 來新增、檢查和自訂形狀動畫、時間設定、音效、動畫結束後的行為，以及已動畫化的文字。"
 ---
-## **簡介**
+## **概述**
 
-動畫是可套用於文字、影像、圖形或[圖表](/slides/zh-hant/cpp/animated-charts/)的視覺效果。它們為簡報或其組成部分賦予活力。
+Aspose.Slides for C++ 將投影片動畫表示為投影片時間軸中的效果。每個效果包括目標形狀、動畫類型與子類型、觸發方式、時間設定，以及可選的屬性（例如音效或動畫結束後的行為）。
 
-## **為何在簡報中使用動畫？**
+時間軸包含兩種序列：
 
-使用動畫，您可以  
+- **主要序列** 會在投影片前進時播放。
+- **互動序列** 會在其觸發形狀被點擊時開始。
 
-* 控制資訊流動  
-* 強調重要重點  
-* 增加觀眾的興趣或參與度  
-* 讓內容更易於閱讀、吸收或處理  
-* 吸引讀者或觀眾注意簡報中的重要部分  
+由於文字方塊、圖片、圖表、表格和其他投影片物件皆實作[IShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ishape/)，您可以對大多數投影片內容使用相同的[ISequence::AddEffect](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/isequence/addeffect/) 方法。可用的效果列於[EffectType](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/effecttype/) 列舉。
 
-PowerPoint 提供眾多選項與工具，用於在**進入**、**退出**、**強調**和**移動路徑**類別中的動畫與動畫效果。
+## **為形狀加入動畫**
 
-## **Aspose.Slides 中的動畫**
+若要加入動畫，取得投影片的主要序列，然後呼叫[ISequence::AddEffect](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/isequence/addeffect/) 並傳入目標形狀、效果類型、子類型與觸發方式。若要建立在點擊其他形狀時開始的效果，請建立觸發形狀為該其他形狀的互動序列。
 
-* Aspose.Slides 在 [Aspose.Slides.Animation](https://reference.aspose.com/slides/zh-hant/cpp/namespace/aspose.slides.animation) 命名空間中提供您處理動畫所需的類別與型別，  
-* Aspose.Slides 在 [EffectType](https://reference.aspose.com/slides/zh-hant/cpp/namespace/aspose.slides.animation#ae0da11508d382465aa4e7a011df1bf31) 列舉中提供超過**150 個動畫效果**。這些效果基本上與 PowerPoint 中使用的效果相同（或等效）。
+以下範例同時建立兩種動畫，並將結果儲存為 `shape-animations.pptx`。
 
-## **將動畫套用至文字方塊**
+```cpp
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ISequenceCollection.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
-Aspose.Slides for C++ 允許您將動畫套用至圖形中的文字。
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.presentation/) 類別的實例。  
-2. 透過索引取得投影片的參考。  
-3. 加入一個 `rectangle` [IAutoShape](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.i_auto_shape)。  
-4. 將文字加入 [IAutoShape.TextFrame](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.i_auto_shape#afb267108fea5ee5a213c162c004fcef3)。  
-5. 取得主要的效果序列。  
-6. 將動畫效果加入 [IAutoShape](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.i_auto_shape)。  
-7. 將 [TextAnimation.BuildType](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.animation.text_animation#afa90da088213f947baf64f8cdddd18b8) 屬性設定為 [BuildType Enumeration](https://reference.aspose.com/slides/zh-hant/cpp/namespace/aspose.slides.animation#a1b0f1615881ac05b1a72c670a125b8e7) 中的值。  
-8. 將簡報寫入磁碟為 PPTX 檔案。
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-以下 C++ 程式碼示範如何將 `Fade` 效果套用至 AutoShape，並將文字動畫設定為 *By 1st Level Paragraphs* 值：
+auto targetShape = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 120.0f, 100.0f, 320.0f, 80.0f);
+targetShape->get_TextFrame()->set_Text(u"Click to animate this shape");
 
-```c++
-// 實例化一個代表簡報檔案的 Presentation 類別。
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+auto mainSequence = slide->get_Timeline()->get_MainSequence();
+auto entranceEffect = mainSequence->AddEffect(targetShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+entranceEffect->get_Timing()->set_Duration(1.5f);
 
-System::SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
+auto triggerShape = slide->get_Shapes()->AddAutoShape(ShapeType::Bevel, 20.0f, 20.0f, 100.0f, 40.0f);
+triggerShape->get_TextFrame()->set_Text(u"Move");
 
-// 新增帶有文字的 AutoShape。
-System::SharedPtr<IAutoShape> autoShape =
-    sld->get_Shapes()->AddAutoShape(Aspose::Slides::ShapeType::Rectangle, 20.0f, 20.0f, 150.0f, 100.0f);
+auto interactiveSequence = slide->get_Timeline()->get_InteractiveSequences()->Add(triggerShape);
+interactiveSequence->AddEffect(targetShape, EffectType::PathFootball, EffectSubtype::None, EffectTriggerType::OnClick);
 
-System::SharedPtr<ITextFrame> textFrame = autoShape->get_TextFrame();
-textFrame->set_Text(u"First paragraph \nSecond paragraph \n Third paragraph");
-
-// 取得投影片的主要序列。
-System::SharedPtr<ISequence> sequence = sld->get_Timeline()->get_MainSequence();
-
-// 為圖形新增 Fade 動畫效果。
-System::SharedPtr<IEffect> effect = sequence->AddEffect(autoShape, Aspose::Slides::Animation::EffectType::Fade,
-    Aspose::Slides::Animation::EffectSubtype::None, Aspose::Slides::Animation::EffectTriggerType::OnClick);
-
-// 依第一層段落為圖形文字添加動畫。
-effect->get_TextAnimation()->set_BuildType(Aspose::Slides::Animation::BuildType::ByLevelParagraphs1);
-
-// 將 PPTX 檔案儲存到磁碟。
-pres->Save(path + u"AnimText_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-{{%  alert color="primary"  %}} 
-
-除了將動畫套用至文字外，您還可以將動畫套用至單一[段落](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.i_paragraph)。請參閱[**Animated Text**](/slides/zh-hant/cpp/animated-text/)。
-
-{{% /alert %}} 
-
-## **將動畫套用至圖片框**
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.presentation/) 類別的實例。  
-2. 透過索引取得投影片的參考。  
-3. 在投影片上加入或取得 [PictureFrame](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.i_picture_frame)。  
-4. 取得主要的效果序列。  
-5. 將動畫效果加入 [PictureFrame](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.i_picture_frame)。  
-6. 將簡報寫入磁碟為 PPTX 檔案。
-
-以下 C++ 程式碼示範如何將 `Fly` 效果套用至圖片框：
-
-```c++
-// 實例化一個代表簡報檔案的 Presentation 類別。
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-
-// 載入要加入簡報影像集合的圖像
-System::SharedPtr<IImage> img = Images::FromFile(u"aspose-logo.jpg");
-System::SharedPtr<IPPImage> image = pres->get_Images()->AddImage(img);
-
-// 將圖片框新增至投影片
-System::SharedPtr<IPictureFrame> picFrame =
-    pres->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(Aspose::Slides::ShapeType::Rectangle, 50.0f, 50.0f, 100.0f, 100.0f, image);
-
-// 取得投影片的主要序列。
-System::SharedPtr<ISequence> sequence = pres->get_Slides()->idx_get(0)->get_Timeline()->get_MainSequence();
-
-// 為圖片框新增從左側飛入的動畫效果
-System::SharedPtr<IEffect> effect = sequence->AddEffect(picFrame, Aspose::Slides::Animation::EffectType::Fly,
-    Aspose::Slides::Animation::EffectSubtype::Left, Aspose::Slides::Animation::EffectTriggerType::OnClick);
-
-// 將 PPTX 檔案儲存至磁碟
-pres->Save(path + u"AnimImage_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **將動畫套用至圖形**
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.presentation/) 類別的實例。  
-2. 透過索引取得投影片的參考。  
-3. 加入一個 `rectangle` [IAutoShape](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.i_auto_shape)。  
-4. 加入一個 `Bevel` [IAutoShape](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.i_auto_shape)（點擊此物件時會播放動畫）。  
-5. 在 Bevel 圖形上建立效果序列。  
-6. 建立自訂的 `UserPath`。  
-7. 加入移動至 `UserPath` 的指令。  
-8. 將簡報寫入磁碟為 PPTX 檔案。
-
-以下 C++ 程式碼示範如何將 `PathFootball`（路徑足球）效果套用至圖形：
-
-```c++
-	// 文件目錄的路徑。
-	const String outPath = u"../out/AnimationsOnShapes_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
-
-	// 載入簡報
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-	// 存取第一張投影片
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-	// 存取所選投影片的圖形集合
-	SharedPtr<IShapeCollection> shapes = slide->get_Shapes();
-
-	// 為現有圖形從頭建立 PathFootball 效果。
-	SharedPtr<IAutoShape> ashp = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 150, 250, 25);
-
-	ashp->AddTextFrame(u"Animated TextBox");
-
-	// 新增 PathFootBall 動畫效果
-	slide->get_Timeline()->get_MainSequence()->AddEffect(ashp, EffectType::PathFootball,
-		EffectSubtype::None, EffectTriggerType::AfterPrevious);
-
-	// 建立類似「按鈕」的圖形。
-	SharedPtr<IAutoShape> shapeTrigger = slide->get_Shapes()->AddAutoShape(ShapeType::Bevel, 10, 10, 20, 20);
-
-	// 為此按鈕建立效果序列。
-	SharedPtr<ISequence> seqInter = slide->get_Timeline()->get_InteractiveSequences()->Add(shapeTrigger);
-	
-	 // 建立自訂使用者路徑。只有在按鈕被點擊後，我們的物件才會移動。
-	SharedPtr<IEffect> fxUserPath = seqInter->AddEffect(ashp, EffectType::PathUser, EffectSubtype::None, EffectTriggerType::OnClick);
-
-	// 新增移動指令，因為建立的路徑目前為空。
-	 SharedPtr<MotionEffect> motionBhv = ExplicitCast<MotionEffect>(fxUserPath->get_Behaviors()->idx_get(0));
-
-	//PointF point = MakeObject<PointF >(0.076, 0.59);
-	 const PointF point = PointF (0.076, 0.59);
-	 System::ArrayPtr<PointF> pts = System::MakeObject<System::Array<PointF>>(1, point);
-	 motionBhv->get_Path()->Add(MotionCommandPathType::LineTo, pts, MotionPathPointsType::Auto, true);
-	 
-	 //PointF point2[1] = { -0.076, -0.59 };
-	const  PointF point2 = PointF(-0.076, -0.59 );
-
-	 System::ArrayPtr<PointF> pts2 = System::MakeObject<System::Array<PointF>>(1, point2);
-	 motionBhv->get_Path()->Add(MotionCommandPathType::LineTo, pts2, MotionPathPointsType::Auto, false);
-	 
-	 motionBhv->get_Path()->Add(MotionCommandPathType::End, nullptr, MotionPathPointsType::Auto, false);
-	 
-	 //將 PPTX 檔案寫入磁碟
-	 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **取得套用於圖形的動畫效果**
-
-以下範例說明如何使用 [ISequence](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/isequence/) 介面中的 `GetEffectsByShape` 方法，以取得套用於圖形的全部動畫效果。
-
-**範例 1：取得套用於普通投影片上圖形的動畫效果**
-
-先前您已學習如何在 PowerPoint 簡報中為圖形加入動畫效果。以下範例程式碼示範如何取得簡報 `AnimExample_out.pptx` 中第一個普通投影片的第一個圖形所套用的效果。
-
-```c++
-SharedPtr<Presentation> presentation = MakeObject<Presentation>(u"AnimExample_out.pptx");
-
-SharedPtr<ISlide> firstSlide = presentation->get_Slide(0);
-
-// Gets the main animation sequence of the slide.
-SharedPtr<ISequence> sequence = firstSlide->get_Timeline()->get_MainSequence();
-
-// Gets the first shape on the first slide.
-SharedPtr<IShape> shape = firstSlide->get_Shape(0);
-
-// Gets animation effects applied to the shape.
-ArrayPtr<SharedPtr<IEffect>> shapeEffects = sequence->GetEffectsByShape(shape);
-
-if (shapeEffects->get_Length() > 0)
-{
-    Console::WriteLine(u"The shape " + shape->get_Name() + u" has " + shapeEffects->get_Length() + u" animation effects.");
-}
-
+presentation->Save(u"shape-animations.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-**範例 2：取得所有動畫效果，包括從佔位元件繼承的效果**
+觸發方式決定效果何時開始：
 
-如果普通投影片上的圖形具有位於版面投影片和/或母版投影片的佔位元件，且這些佔位元件已加入動畫效果，則在投影片放映期間，該圖形的所有效果都會被播放，包含從佔位元件繼承的效果。
+- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/effecttriggertype/) 在主要序列中等待點擊，或在互動序列中等待對觸發形狀的點擊。
+- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/effecttriggertype/) 與前一個效果同時開始。
+- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/effecttriggertype/) 在前一個效果結束後開始。
 
-假設我們有一個 PowerPoint 簡報檔案 `sample.pptx`，其中有一張投影片僅包含一個頁腳圖形，文字為「Made with Aspose.Slides」，且已套用 **Random Bars** 效果。
+若要為圖片、圖表或其他形狀類型進行動畫，只需將該物件傳給[ISequence::AddEffect](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/isequence/addeffect/)，而不是 `targetShape`。圖表專屬的分組選項，請參閱[Animated Charts](/slides/zh-hant/cpp/animated-charts/)。
 
-![投影片圖形動畫效果](slide-shape-animation.png)
+## **讀取形狀動畫**
 
-再假設在 **layout** 投影片的頁腳佔位元件上套用了 **Split** 效果。
+當您已知目標形狀時，使用[ISequence::GetEffectsByShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/isequence/geteffectsbyshape/)。若要檢視每個效果，請列舉主要序列以及所有互動序列。列舉可避免假設序列在索引 `0` 處一定有效果。
 
-![版面圖形動畫效果](layout-shape-animation.png)
-
-最後，在 **master** 投影片的頁腳佔位元件上套用了 **Fly In** 效果。
-
-![母片圖形動畫效果](master-shape-animation.png)
-
-以下範例程式碼示範如何使用 [IShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ishape/) 介面的 `GetBasePlaceholder` 方法，取得圖形佔位元件，並取得套用於頁腳圖形的動畫效果，包含來自版面與母片投影片佔位元件的繼承效果。
+以下範例建立具有主要序列與互動效果的形狀，取得針對該形狀的效果，並列舉投影片上的每個序列。
 
 ```cpp
-void PrintEffects(ArrayPtr<SharedPtr<IEffect>> effects)
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ISequenceCollection.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/console.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace System;
+
+auto printSequence = [](const String& label, const SharedPtr<ISequence>& sequence)
 {
-    for (SharedPtr<IEffect> effect : effects)
+    Console::WriteLine(String::Format(u"  {0}: {1} effect(s)", label, sequence->get_Count()));
+
+    for (const auto& effect : sequence)
     {
-        Console::WriteLine(String::Format(u"Type: {0}, subtype: {1}", effect->get_Type(), effect->get_Subtype()));
+        auto targetName = effect->get_TargetShape() == nullptr ? u"unknown" : effect->get_TargetShape()->get_Name();
+        auto effectDescription = String::Format(u"{0} {1}; target: {2}; trigger: {3}", effect->get_Type(), effect->get_Subtype(), targetName, effect->get_Timing()->get_TriggerType());
+        Console::WriteLine(u"    " + effectDescription);
     }
+};
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto targetShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 120.0f, 100.0f, 320.0f, 80.0f);
+targetShape->get_TextFrame()->set_Text(u"Animated shape");
+
+auto mainSequence = slide->get_Timeline()->get_MainSequence();
+mainSequence->AddEffect(targetShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+
+auto triggerShape = slide->get_Shapes()->AddAutoShape(ShapeType::Bevel, 20.0f, 20.0f, 100.0f, 40.0f);
+triggerShape->get_TextFrame()->set_Text(u"Move");
+
+auto interactiveSequence = slide->get_Timeline()->get_InteractiveSequences()->Add(triggerShape);
+interactiveSequence->AddEffect(targetShape, EffectType::PathFootball, EffectSubtype::None, EffectTriggerType::OnClick);
+
+auto targetEffects = mainSequence->GetEffectsByShape(targetShape);
+Console::WriteLine(String::Format(u"The main sequence contains {0} effect(s) for {1}.", targetEffects->get_Length(), targetShape->get_Name()));
+
+printSequence(u"Main sequence", mainSequence);
+
+int32_t interactiveIndex = 1;
+for (const auto& sequence : slide->get_Timeline()->get_InteractiveSequences())
+{
+    auto triggerName = sequence->get_TriggerShape() == nullptr ? u"unknown" : sequence->get_TriggerShape()->get_Name();
+    auto sequenceLabel = String::Format(u"Interactive sequence {0}, trigger: {1}", interactiveIndex, triggerName);
+    printSequence(sequenceLabel, sequence);
+    interactiveIndex++;
 }
-```
-```cpp
-SharedPtr<Presentation> presentation = MakeObject<Presentation>(u"sample.pptx");
-
-SharedPtr<ISlide> slide = presentation->get_Slide(0);
-
-// 取得普通投影片上圖形的動畫效果。
-SharedPtr<IShape> shape = slide->get_Shape(0);
-ArrayPtr<SharedPtr<IEffect>> shapeEffects = slide->get_Timeline()->get_MainSequence()->GetEffectsByShape(shape);
-
-// 取得版面投影片上佔位元件的動畫效果。
-SharedPtr<IShape> layoutShape = shape->GetBasePlaceholder();
-ArrayPtr<SharedPtr<IEffect>> layoutShapeEffects = slide->get_LayoutSlide()->get_Timeline()->get_MainSequence()->GetEffectsByShape(layoutShape);
-
-// 取得母片投影片上佔位元件的動畫效果。
-SharedPtr<IShape> masterShape = layoutShape->GetBasePlaceholder();
-ArrayPtr<SharedPtr<IEffect>> masterShapeEffects = slide->get_LayoutSlide()->get_MasterSlide()->get_Timeline()->get_MainSequence()->GetEffectsByShape(masterShape);
 
 presentation->Dispose();
-
-Console::WriteLine(u"Main sequence of shape effects:");
-PrintEffects(masterShapeEffects);
-PrintEffects(layoutShapeEffects);
-PrintEffects(shapeEffects);
 ```
 
-Output:
-```text
-Main sequence of shape effects:
-Type: 47, subtype: 2              // 飛入, 底部
-Type: 134, subtype: 45            // 分割, 垂直進入
-Type: 126, subtype: 22            // 隨機條紋, 水平
+如果只需要單一形狀的效果，請先依名稱、佔位符類型或其他穩定屬性識別該形狀，然後呼叫[ISequence::GetEffectsByShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/isequence/geteffectsbyshape/)。不要假設[IShapeCollection::idx_get](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ishapecollection/idx_get/) 在索引 `0` 處一定是目標物件。
+
+## **處理繼承自佔位符的效果**
+
+普通投影片上的佔位符可以繼承其版面投影片與母版投影片中相對佔位符的動畫行為。[IShape::GetBasePlaceholder](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ishape/getbaseplaceholder/) 會回傳該父佔位符，若不存在則回傳 `nullptr`。
+
+在以下範例簡報中，頁腳在普通投影片上具有 **Random Bars**，在版面投影片上具有 **Split**，在母版投影片上具有 **Fly In**。
+
+![普通投影片上的頁腳動畫效果](slide-shape-animation.png)
+
+![版面投影片上的頁腳佔位符動畫效果](layout-shape-animation.png)
+
+![母版投影片上的頁腳佔位符動畫效果](master-shape-animation.png)
+
+接下來的範例自行建立佔位符層級，分別在母版佔位符、版面佔位符與普通投影片上的相對佔位符加入效果。每次呼叫[IShape::GetBasePlaceholder](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ishape/getbaseplaceholder/) 前，都會先檢查回傳的形狀是否為空。
+
+```cpp
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutPlaceholderManager.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto findPlaceholderWithBase = [](const SharedPtr<ISlide>& slide) -> SharedPtr<IShape>
+{
+    for (const auto& shape : slide->get_Shapes())
+    {
+        if (shape->GetBasePlaceholder() != nullptr)
+            return shape;
+    }
+
+    return nullptr;
+};
+
+auto printEffects = [](const String& source, const ArrayPtr<SharedPtr<IEffect>>& effects)
+{
+    Console::WriteLine(String::Format(u"{0}: {1} effect(s)", source, effects->get_Length()));
+
+    for (const auto& effect : effects)
+        Console::WriteLine(String::Format(u"  {0} {1}", effect->get_Type(), effect->get_Subtype()));
+};
+
+auto presentation = MakeObject<Presentation>();
+auto layoutSlide = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+auto layoutPlaceholder = layoutSlide->get_PlaceholderManager()->AddTextPlaceholder(100.0f, 100.0f, 400.0f, 80.0f);
+layoutSlide->get_Timeline()->get_MainSequence()->AddEffect(layoutPlaceholder, EffectType::Split, EffectSubtype::VerticalIn, EffectTriggerType::OnClick);
+
+auto masterPlaceholder = layoutPlaceholder->GetBasePlaceholder();
+if (masterPlaceholder != nullptr)
+{
+    auto masterSequence = layoutSlide->get_MasterSlide()->get_Timeline()->get_MainSequence();
+    masterSequence->AddEffect(masterPlaceholder, EffectType::Fly, EffectSubtype::Bottom, EffectTriggerType::OnClick);
+}
+
+auto slide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+auto slidePlaceholder = findPlaceholderWithBase(slide);
+
+if (slidePlaceholder == nullptr)
+    throw InvalidOperationException(u"The slide does not contain a placeholder linked to its layout slide.");
+
+slide->get_Timeline()->get_MainSequence()->AddEffect(slidePlaceholder, EffectType::RandomBars, EffectSubtype::Horizontal, EffectTriggerType::OnClick);
+printEffects(u"Normal slide", slide->get_Timeline()->get_MainSequence()->GetEffectsByShape(slidePlaceholder));
+
+auto baseLayoutPlaceholder = slidePlaceholder->GetBasePlaceholder();
+if (baseLayoutPlaceholder != nullptr)
+{
+    printEffects(u"Layout slide", layoutSlide->get_Timeline()->get_MainSequence()->GetEffectsByShape(baseLayoutPlaceholder));
+
+    auto baseMasterPlaceholder = baseLayoutPlaceholder->GetBasePlaceholder();
+    if (baseMasterPlaceholder != nullptr)
+        printEffects(u"Master slide", layoutSlide->get_MasterSlide()->get_Timeline()->get_MainSequence()->GetEffectsByShape(baseMasterPlaceholder));
+}
+
+presentation->Save(u"placeholder-animations.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **變更動畫效果時間屬性**
+## **變更動畫時間設定**
 
-Aspose.Slides for C++ 允許您變更動畫效果的時間屬性。
+PowerPoint 的 **Timing** 對話方塊對應至[ITiming](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/itiming/) 的方法。
 
-以下為 Microsoft PowerPoint 中的動畫時間面板：
+![PowerPoint 動畫效果的 Timing 對話方塊](shape-animation.png)
 
-![Animation Timing 面板](shape-animation.png)
+- **Start** 對應 [ITiming::set_TriggerType](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/itiming/set_triggertype/)。
+- **Duration** 對應 [ITiming::set_Duration](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/itiming/set_duration/)，單位為秒。
+- **Delay** 對應 [ITiming::set_TriggerDelayTime](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/itiming/set_triggerdelaytime/)，單位為秒。
+- **Repeat** 對應 [ITiming::set_RepeatCount](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/itiming/set_repeatcount/)、[ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/) 或 [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/)。
+- **Rewind when done playing** 對應 [ITiming::set_Rewind](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/itiming/set_rewind/)。
 
-- PowerPoint 時間 **Start** 下拉式清單對應 [Effect.Timing.TriggerType](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.animation.i_timing#a9cec24d555c39e33f0b71dc2210daab3) 屬性。  
-- PowerPoint 時間 **Duration** 對應 [Effect.Timing.Duration](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.animation.i_timing#a4f5eebdec3b0b2e6d57ee944b5a8a340) 屬性。動畫的持續時間（以秒為單位）是動畫完成一次循環所需的總時間。  
-- PowerPoint 時間 **Delay** 對應 [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.animation.i_timing#a947ac2f79c7310d0276ef17999b7214b) 屬性。  
+此獨立範例加入一個效果，透過[ISequence::AddEffect](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/isequence/addeffect/) 回傳的物件變更其時間設定，並儲存結果。保留回傳的[IEffect](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/ieffect/) 參考可避免不必要的集合索引。
 
-以下說明如何變更 Effect Timing 屬性：
+```cpp
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
-1. 套用（[Apply](#apply-animation-to-shape)）或取得動畫效果。  
-2. 為您需要的 [Effect.Timing](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.animation.effect#a333640cbb8d32c413ccda11c1a7c3b4c) 屬性設定新值。  
-3. 儲存已修改的 PPTX 檔案。  
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-以下 C++ 程式碼示範此操作：
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 120.0f, 100.0f, 320.0f, 80.0f);
+shape->get_TextFrame()->set_Text(u"Timed animation");
 
-```c++
-// 實例化一個代表簡報檔案的 Presentation 類別。
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimExample_out.pptx");
-
-// 取得投影片的主要序列。
-System::SharedPtr<ISequence> sequence = pres->get_Slides()->idx_get(0)->get_Timeline()->get_MainSequence();
-
-// 取得主要序列的第一個效果。
-System::SharedPtr<IEffect> effect = sequence->idx_get(0);
-
-// 將效果的 TriggerType 變更為點擊時開始
-effect->get_Timing()->set_TriggerType(Aspose::Slides::Animation::EffectTriggerType::OnClick);
-
-// 變更效果的持續時間
-effect->get_Timing()->set_Duration(3.f);
-
-// 變更效果的 TriggerDelayTime
+auto effect = slide->get_Timeline()->get_MainSequence()->AddEffect(shape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+effect->get_Timing()->set_TriggerType(EffectTriggerType::OnClick);
+effect->get_Timing()->set_Duration(2.0f);
 effect->get_Timing()->set_TriggerDelayTime(0.5f);
+effect->get_Timing()->set_RepeatUntilNextClick(false);
+effect->get_Timing()->set_RepeatUntilEndSlide(false);
+effect->get_Timing()->set_RepeatCount(2.0f);
+effect->get_Timing()->set_Rewind(true);
 
-// 將 PPTX 檔案儲存至磁碟
-pres->Save(u"AnimExample_changed.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"shape-animation-timing.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **動畫效果音效**
+請僅使用一種重複模式。將重複次數與「until」旗標同時使用，可能在不同檢視器中產生混淆結果。變更重複模式時，請先呼叫[ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/)與[ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/)，再呼叫[ITiming::set_RepeatCount](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/itiming/set_repeatcount/)，因為設定任一旗標都會同時變更目前的重複模式。
 
-Aspose.Slides 提供以下屬性，讓您在動畫效果中使用音效：
+## **加入與擷取動畫音效**
 
-- [set_Sound()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/effect/set_sound/)  
-- [set_StopPreviousSound()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/effect/set_stopprevioussound/)  
+動畫效果可以透過[IEffect::set_Sound](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/ieffect/set_sound/) 參照嵌入的音訊。[IEffect::set_StopPreviousSound](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/ieffect/set_stopprevioussound/) 可指示效果在播放前一個效果的音訊時停止它。
 
-### **新增動畫效果音效**
+### **為效果加入音效**
 
-以下 C++ 程式碼示範如何加入動畫效果音效，並在下一個效果開始時停止該音效：
+以下範例假設本機有名為 `animation-sound.wav` 的音訊檔。它建立兩個效果，將該檔案嵌入為第一個效果的音效，並設定第二個效果停止音效。範例使用[ISequence::AddEffect](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/isequence/addeffect/) 回傳的物件，無需指定序列索引。
 
-```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimExample_out.pptx");
+```cpp
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAudio.h>
+#include <DOM/IAudioCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
 
-// 新增音訊至簡報的音訊集合
-System::SharedPtr<IAudio> effectSound = pres->get_Audios()->AddAudio(System::IO::File::ReadAllBytes(u"sampleaudio.wav"));
-System::SharedPtr<ISlide> firstSlide = pres->get_Slide(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-// 取得投影片的主要序列。
-System::SharedPtr<ISequence> sequence = firstSlide->get_Timeline()->get_MainSequence();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto firstShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 80.0f, 100.0f, 240.0f, 80.0f);
+auto secondShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 400.0f, 100.0f, 240.0f, 80.0f);
+firstShape->get_TextFrame()->set_Text(u"Starts sound");
+secondShape->get_TextFrame()->set_Text(u"Stops sound");
 
-// 取得主要序列的第一個效果
-System::SharedPtr<IEffect> firstEffect = sequence->idx_get(0);
+auto sequence = slide->get_Timeline()->get_MainSequence();
+auto firstEffect = sequence->AddEffect(firstShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+auto secondEffect = sequence->AddEffect(secondShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
 
-// 檢查效果是否為「無音效」
-if (!firstEffect->get_StopPreviousSound() && firstEffect->get_Sound() == nullptr)
+auto audioData = File::ReadAllBytes(u"animation-sound.wav");
+auto effectSound = presentation->get_Audios()->AddAudio(audioData);
+firstEffect->set_Sound(effectSound);
+secondEffect->set_StopPreviousSound(true);
+
+presentation->Save(u"shape-animation-sound.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+### **擷取嵌入的效果音效**
+
+以下範例假設本機有名為 `presentation-with-animation-sounds.pptx` 的簡報。它掃描主要與互動序列，將每個嵌入的效果音效寫入 `extracted-animation-sounds` 目錄。副檔名會根據[IAudio::get_ContentType](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iaudio/get_contenttype/) 回傳的音訊 MIME 類型自動選取。
+
+```cpp
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ISequenceCollection.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAudio.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/io/directory.h>
+#include <system/io/file.h>
+#include <system/io/path.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace System;
+using namespace System::IO;
+
+auto getAudioExtension = [](const String& contentType)
 {
-    // 為第一個效果新增音效
-    firstEffect->set_Sound(effectSound);
+    auto normalizedType = String::IsNullOrEmpty(contentType) ? String::Empty : contentType.ToLowerInvariant();
+
+    if (normalizedType == u"audio/mpeg")
+        return String(u".mp3");
+
+    if (normalizedType == u"audio/mp4")
+        return String(u".m4a");
+
+    if (normalizedType == u"audio/ogg")
+        return String(u".ogg");
+
+    if (normalizedType == u"audio/wav" || normalizedType == u"audio/x-wav")
+        return String(u".wav");
+
+    return String(u".bin");
+};
+
+auto saveSounds = [&getAudioExtension](const SharedPtr<ISequence>& sequence, const String& outputDirectory, int32_t& soundIndex)
+{
+    for (const auto& effect : sequence)
+    {
+        if (effect->get_Sound() == nullptr)
+            continue;
+
+        auto extension = getAudioExtension(effect->get_Sound()->get_ContentType());
+        auto outputPath = Path::Combine(outputDirectory, String::Format(u"effect-sound-{0}{1}", soundIndex, extension));
+        File::WriteAllBytes(outputPath, effect->get_Sound()->get_BinaryData());
+        soundIndex++;
+    }
+};
+
+auto inputPath = String(u"presentation-with-animation-sounds.pptx");
+auto outputDirectory = String(u"extracted-animation-sounds");
+
+Directory::CreateDirectory_(outputDirectory);
+
+auto presentation = MakeObject<Presentation>(inputPath);
+int32_t soundIndex = 1;
+
+for (const auto& slide : presentation->get_Slides())
+{
+    saveSounds(slide->get_Timeline()->get_MainSequence(), outputDirectory, soundIndex);
+
+    for (const auto& sequence : slide->get_Timeline()->get_InteractiveSequences())
+        saveSounds(sequence, outputDirectory, soundIndex);
 }
 
-// 取得投影片的第一個互動序列。
-System::SharedPtr<ISequence> interactiveSequence = firstSlide->get_Timeline()->get_InteractiveSequence(0);
-
-// 設定效果的「停止先前音效」旗標
-interactiveSequence->idx_get(0)->set_StopPreviousSound(true);
-
-// 將 PPTX 檔案寫入磁碟
-pres->Save(u"AnimExample_Sound_out.pptx", SaveFormat::Pptx);
+Console::WriteLine(String::Format(u"Extracted {0} sound file(s) to {1}.", soundIndex - 1, Path::GetFullPath(outputDirectory)));
+presentation->Dispose();
 ```
 
-### **擷取動畫效果音效**
+對於大型音訊物件，請使用[IAudio::GetStream](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iaudio/getstream/) 並將串流複製到檔案，而非將整個物件載入記憶體的位元組陣列。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 類別的實例。  
-2. 透過索引取得投影片的參考。  
-3. 取得主要的效果序列。  
-4. 擷取每個動畫效果所嵌入的 [set_Sound()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/effect/set_sound/)。  
+## **設定動畫結束後的行為**
 
-以下 C++ 程式碼示範如何擷取嵌入於動畫效果中的音效：
+**After animation** 選項控制形狀在效果結束後的狀態。
 
-```c++
-// 實例化一個代表簡報檔案的 Presentation 類別。
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"EffectSound.pptx");
-System::SharedPtr<ISlide> slide = pres->get_Slide(0);
+![PowerPoint 效果選項對話方塊顯示 After animation 設定](shape-after-animation.png)
 
-// 取得投影片的主要序列。
-System::SharedPtr<ISequence> sequence = slide->get_Timeline()->get_MainSequence();
+[AfterAnimationType](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/afteranimationtype/) 列舉支援保持形狀不變、變更顏色、在動畫後隱藏，或在下一次點擊時隱藏。當類型為[AfterAnimationType::Color](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/afteranimationtype/) 時，請呼叫[IEffect::get_AfterAnimationColor](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/ieffect/get_afteranimationcolor/) 以同時設定顏色。
 
-for (auto&& effect : sequence)
-{
-    System::SharedPtr<IAudio> sound = effect->get_Sound();
+此獨立範例建立一個效果，透過回傳的效果物件設定其動畫結束後的行為，並儲存結果。
 
-    if (sound == nullptr)
-        continue;
+```cpp
+#include <DOM/Animation/AfterAnimationType.h>
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
 
-    auto audio = sound->get_BinaryData();
-}
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 120.0f, 100.0f, 320.0f, 80.0f);
+shape->get_TextFrame()->set_Text(u"Dim after animation");
+
+auto effect = slide->get_Timeline()->get_MainSequence()->AddEffect(shape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+effect->set_AfterAnimationType(AfterAnimationType::Color);
+effect->get_AfterAnimationColor()->set_Color(Color::get_LightGray());
+
+presentation->Save(u"shape-animation-after-effect.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **動畫結束後**
+將類型改為非[AfterAnimationType::Color](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/afteranimationtype/) 時，會清除先前設定的 after‑animation 顏色。
 
-Aspose.Slides for C++ 允許您變更動畫效果的 After animation 屬性。
+## **文字動畫**
 
-以下為 Microsoft PowerPoint 中的動畫效果面板與擴充功能表：
+文字動畫有兩個相關控制項：
 
-![Animation Effect 面板](shape-after-animation.png)
+- [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/itextanimation/set_buildtype/) 控制段落是一次顯示還是逐段顯示。
+- [IEffect::set_AnimateTextType](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) 控制文字是一次顯示、逐字或逐詞顯示。[IEffect::set_DelayBetweenTextParts](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) 設定字或詞之間的延遲。正值表示效果持續時間的百分比，負值則是以秒為單位的延遲。
 
-PowerPoint Effect **After animation** 下拉式清單對應以下屬性：
+以下獨立範例對文字方塊內的詞彙進行動畫。[BuildType::AsOneObject](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/buildtype/) 會停用逐段建構，使詞彙設定套用於整個文字框。
 
-- [set_AfterAnimationType()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/ieffect/set_afteranimationtype/) 屬性描述 After animation 類型：
-  * PowerPoint **More Colors** 對應 [AfterAnimationType.Color](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/afteranimationtype/) 類型；  
-  * PowerPoint **Don't Dim** 對應 [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/afteranimationtype/) 類型（預設 after animation 類型）；  
-  * PowerPoint **Hide After Animation** 對應 [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/afteranimationtype/) 類型；  
-  * PowerPoint **Hide on Next Mouse Click** 對應 [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/afteranimationtype/) 類型；  
-- [set_AfterAnimationColor()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/ieffect/set_afteranimationcolor/) 屬性定義 after animation 的顏色格式。此屬性需與 [AfterAnimationType.Color](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/afteranimationtype/) 類型共用。若將類型變更為其他，則 after animation 顏色會被清除。
+```cpp
+#include <DOM/Animation/AnimateTextType.h>
+#include <DOM/Animation/BuildType.h>
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITextAnimation.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
-以下 C++ 程式碼示範如何變更動畫結束後的效果：
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-```c++
-// 實例化一個代表簡報檔案的 Presentation 類別
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimImage_out.pptx");
-System::SharedPtr<ISlide> firstSlide = pres->get_Slide(0);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 80.0f, 80.0f, 560.0f, 100.0f);
+textBox->get_TextFrame()->set_Text(u"Aspose.Slides animates this sentence word by word.");
 
-// 取得主要序列的第一個效果
-System::SharedPtr<IEffect> firstEffect = firstSlide->get_Timeline()->get_MainSequence()->idx_get(0);
+auto effect = slide->get_Timeline()->get_MainSequence()->AddEffect(textBox, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+effect->get_TextAnimation()->set_BuildType(BuildType::AsOneObject);
+effect->set_AnimateTextType(AnimateTextType::ByWord);
+effect->set_DelayBetweenTextParts(20.0f);
 
-// 將 After animation 類型變更為 Color
-firstEffect->set_AfterAnimationType(AfterAnimationType::Color);
-
-// 設定 After animation 的調暗顏色
-firstEffect->get_AfterAnimationColor()->set_Color(System::Drawing::Color::get_AliceBlue());
-
-// 將 PPTX 檔案寫入磁碟
-pres->Save(u"AnimImage_AfterAnimation.pptx", SaveFormat::Pptx);
+presentation->Save(u"animated-text.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **動畫文字**
+若要逐段建構文字方塊，請使用[ITextAnimation::set_BuildType](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/itextanimation/set_buildtype/) 並搭配 [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/buildtype/) 或其他段落層級。若要針對單一段落設定獨立效果，請使用接受[IParagraph](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraph/) 的[ISequence::AddEffect](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/isequence/addeffect/) 重載。相關段落層級範例請參閱[Animated Text](/slides/zh-hant/cpp/animated-text/)。
 
-Aspose.Slides 提供以下屬性，讓您操作動畫效果的 *Animate text* 區塊：
+## **匯出與相容性說明**
 
-- [set_AnimateTextType()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) 描述動畫文字的類型。圖形文字可以以以下方式動畫化：
-  - 全部一次 ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/animatetexttype/) 類型)  
-  - 逐字 ([AnimateTextType.ByWord](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/animatetexttype/) 類型)  
-  - 逐字母 ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/animatetexttype/) 類型)  
-- [set_DelayBetweenTextParts()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) 設定動畫文字部件（字或字母）之間的延遲。正值表示效果持續時間的百分比，負值表示以秒為單位的延遲。
+- 儲存為 PPT 或 PPTX 會保留動畫模型，但最終播放方式取決於簡報檢視器。
+- PDF 與靜態圖片不會播放動畫。若輸出必須展示動態效果，請使用[HTML5 export](/slides/zh-hant/cpp/export-to-html5/)、動畫 GIF 或[video conversion](/slides/zh-hant/cpp/convert-powerpoint-to-video/)。
+- 針對 HTML5，請啟用[Html5Options::set_AnimateShapes](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/html5options/set_animateshapes/)，必要時再啟用[Html5Options::set_AnimateTransitions](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/html5options/set_animatetransitions/)。
+- 影片轉換支援許多常見的進場、強調、退出與路徑動畫，但並非所有 PowerPoint 效果皆受支援。請檢查目前的[Supported animations and effects](/slides/zh-hant/cpp/convert-powerpoint-to-video/#supported-animations-and-effects) 並在目標 Aspose.Slides 版本上測試關鍵簡報。
+- 進階自訂效果以及從其他簡報格式匯入的效果可能會在檔案中保留，但在 PowerPoint、HTML5 或影片中呈現方式可能不同。請驗證匯出結果，而不要僅依賴效果名稱。
 
-以下說明如何變更 Effect Animate text 屬性：
+## **常見問答**
 
-1. 套用（[Apply](#apply-animation-to-shape)）或取得動畫效果。  
-2. 將 [set_BuildType()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation.itextanimation/set_buildtype/) 屬性設定為 [BuildType.AsOneObject](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation/buildtype/) 值，以關閉 *By Paragraphs* 動畫模式。  
-3. 為 [set_AnimateTextType()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation.ieffect/set_animatetexttype/) 及 [set_DelayBetweenTextParts()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.animation.ieffect/set_delaybetweentextparts/) 屬性設定新值。  
-4. 儲存已修改的 PPTX 檔案。  
+**為什麼動畫在 PowerPoint 中能顯示，卻在 PDF 中看不到？**
 
-以下 C++ 程式碼示範此操作：
+PDF 為靜態格式，無法播放動畫和投影片切換。若需保留動態效果，請匯出為 HTML5、動畫 GIF 或影片。
 
-```c++
-// 實例化一個代表簡報檔案的 Presentation 類別。
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimTextBox_out.pptx");
-System::SharedPtr<ISlide> firstSlide = pres->get_Slide(0);
+**為什麼同一效果在影片中播放的結果不同？**
 
-// 取得主要序列的第一個效果
-System::SharedPtr<IEffect> firstEffect = firstSlide->get_Timeline()->get_MainSequence()->idx_get(0);
+影片匯出會將動畫渲染成視訊，而不是保留原始 PowerPoint 行為。某些進階效果不支援或只能近似。請參考支援的效果清單，並在正式使用前測試實際簡報。
 
-// 將效果的文字動畫類型變更為 As One Object
-firstEffect->get_TextAnimation()->set_BuildType(BuildType::AsOneObject);
+**將形狀向前或向後移動會改變動畫的播放順序嗎？**
 
-// 將效果的 Animate text 類型變更為 By word
-firstEffect->set_AnimateTextType(AnimateTextType::ByWord);
-
-// 設定字與字之間的延遲為效果持續時間的 20%
-firstEffect->set_DelayBetweenTextParts(20.0f);
-
-// 將 PPTX 檔案寫入磁碟
-pres->Save(u"AnimTextBox_AnimateText.pptx", SaveFormat::Pptx);
-```
-
-## **常見問題**
-
-**如何在將簡報發佈到網路上時確保動畫被保留？**
-
-[Export to HTML5](/slides/zh-hant/cpp/export-to-html5/) 並啟用負責 [shape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/html5options/set_animateshapes/) 與 [transition](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/html5options/set_animatetransitions/) 動畫的 [options](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/html5options/)。純 HTML 不會播放投影片動畫，而 HTML5 會播放。
-
-**變更圖形的 Z 順序（圖層順序）會如何影響動畫？**
-
-動畫與繪製順序是獨立的：效果控制出現/消失的時間與類型，而 [z-order](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/shape/get_zorderposition/) 決定哪個圖形覆蓋哪個圖形。可見的結果由二者的組合決定。（這是一般 PowerPoint 的行為；Aspose.Slides 的效果與圖形模型遵循相同邏輯。）
-
-**將動畫轉換為影片時，某些效果會有相容性限制嗎？**
-
-一般而言，[動畫受到支援](/slides/zh-hant/cpp/convert-powerpoint-to-video/)，但在少數情況或特定效果下可能會以不同方式呈現。建議使用您所用的效果以及相同版本的函式庫進行測試。
+不會。形狀的 Z‑order 只控制重疊順序，而序列順序與觸發方式才決定動畫播放順序。若需變更播放順序，請調整時間軸。

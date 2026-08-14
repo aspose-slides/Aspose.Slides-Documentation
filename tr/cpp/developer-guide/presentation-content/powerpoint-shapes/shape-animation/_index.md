@@ -1,5 +1,5 @@
 ---
-title: C++ Kullanarak Sunumlarda Şekil Animasyonları Uygulama
+title: C++ Kullanarak Sunumlarda Şekil Animasyonlarını Uygulama
 linktitle: Şekil Animasyonu
 type: docs
 weight: 60
@@ -22,465 +22,553 @@ keywords:
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ ile PowerPoint sunumlarında şekil animasyonları oluşturmayı ve özelleştirmeyi keşfedin. Öne çıkın!"
+description: "Aspose.Slides for C++ ile şekil animasyonlarını, zamanlamayı, sesleri, animasyon sonrası davranışı ve animasyonlu metni ekleme, inceleme ve özelleştirme yöntemlerini öğrenin."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-Animasyonlar, metinlere, görüntülere, şekillere veya [grafiklere](/slides/tr/cpp/animated-charts/) uygulanabilen görsel efektlerdir. Sunumlara ya da bileşenlerine hayat verir. 
+Aspose.Slides for C++ slayt animasyonlarını bir slayt zaman çizelgesindeki efektler olarak temsil eder. Bir efekt hedef şekil, animasyon türü ve alt tür, tetikleyici, zamanlama ayarları ve isteğe bağlı olarak ses ya da animasyon sonrası davranış gibi özelliklere sahiptir.
 
-## **Sunumlarda Animasyonları Neden Kullanmalısınız?**
+Zaman çizelgesi iki tür dizi içerir:
 
-Animasyonları kullanarak
+- **ana dizi** slayt ilerlerken oynatılır.
+- **etkileşimli dizi** tetikleyici şekli tıklandığında başlar.
 
-* bilgi akışını kontrol edin
-* önemli noktaları vurgulayın
-* izleyicilerinizin ilgisini veya katılımını artırın
-* içeriği okumayı, sindirmeyi ya da işlemeyi kolaylaştırın
-* okuyucularınızın ya da izleyicilerinizin bir sunumda önemli bölümlere dikkatini çekin
+Metin kutuları, resimler, grafikler, tablolar ve diğer slayt nesneleri [IShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishape/) uyguladığından, çoğu slayt içeriği için aynı [ISequence::AddEffect](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/isequence/addeffect/) metodunu kullanırsınız. Kullanılabilir efektler [EffectType](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/effecttype/) enumunda listelenmiştir.
 
-PowerPoint, **giriş**, **çıkış**, **vurgulama** ve **hareket yolları** kategorileri kapsamında animasyonlar ve animasyon efektleri için çok sayıda seçenek ve araç sunar. 
+## **Şekil Animasyonları Ekleme**
 
-## **Aspose.Slides'ta Animasyonlar**
+Bir animasyon eklemek için slaytın ana dizisini alın ve hedef şekil, efekt türü, alt tür ve tetikleyiciyle [ISequence::AddEffect](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/isequence/addeffect/) metodunu çağırın. Başka bir şekil tıklandığında başlayan bir efekt için, tetikleyicisi o diğer şekil olan bir etkileşimli dizi oluşturun.
 
-* Aspose.Slides, animasyonlarla çalışmak için gereken sınıfları ve tipleri [Aspose.Slides.Animation](https://reference.aspose.com/slides/tr/cpp/namespace/aspose.slides.animation) ad alanı altında sağlar,
-* Aspose.Slides, [EffectType](https://reference.aspose.com/slides/tr/cpp/namespace/aspose.slides.animation#ae0da11508d382465aa4e7a011df1bf31) enumarasyonu altında **150'den fazla animasyon efekti** sağlar. Bu efektler, temelde PowerPoint'te kullanılan aynı (veya eşdeğer) efektlerdir.
+Aşağıdaki örnek hem ana hem de etkileşimli animasyon türlerini oluşturur ve sonucu `shape-animations.pptx` dosyasına kaydeder.
 
-## **Bir Metin Kutusuna Animasyon Uygulama**
+```cpp
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ISequenceCollection.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
-Aspose.Slides for C++, bir şeklin içindeki metne animasyon uygulamanıza izin verir. 
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation/) sınıfının bir örneğini oluşturun.  
-2. İndeksine göre bir slaytın referansını alın.  
-3. `rectangle` tipinde bir [IAutoShape](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.i_auto_shape) ekleyin.  
-4. [IAutoShape.TextFrame](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.i_auto_shape#afb267108fea5ee5a213c162c004fcef3) öğesine metin ekleyin.  
-5. Efektlerin ana dizisini alın.  
-6. [IAutoShape](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.i_auto_shape) öğesine bir animasyon efekti ekleyin.  
-7. [TextAnimation.BuildType](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.animation.text_animation#afa90da088213f947baf64f8cdddd18b8) özelliğini [BuildType Enumeration](https://reference.aspose.com/slides/tr/cpp/namespace/aspose.slides.animation#a1b0f1615881ac05b1a72c670a125b8e7) değerine ayarlayın.  
-8. Sunumu bir PPTX dosyası olarak diske kaydedin.
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-Bu C++ kodu, `Fade` efektini AutoShape'e uygulamayı ve metin animasyonunu *By 1st Level Paragraphs* değerine ayarlamayı gösterir:
+auto targetShape = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 120.0f, 100.0f, 320.0f, 80.0f);
+targetShape->get_TextFrame()->set_Text(u"Click to animate this shape");
 
-```c++
-// Sunum dosyasını temsil eden bir sunum sınıfı örnekler.
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+auto mainSequence = slide->get_Timeline()->get_MainSequence();
+auto entranceEffect = mainSequence->AddEffect(targetShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+entranceEffect->get_Timing()->set_Duration(1.5f);
 
-System::SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
+auto triggerShape = slide->get_Shapes()->AddAutoShape(ShapeType::Bevel, 20.0f, 20.0f, 100.0f, 40.0f);
+triggerShape->get_TextFrame()->set_Text(u"Move");
 
-// Adds new AutoShape with text
-System::SharedPtr<IAutoShape> autoShape =
-    sld->get_Shapes()->AddAutoShape(Aspose::Slides::ShapeType::Rectangle, 20.0f, 20.0f, 150.0f, 100.0f);
+auto interactiveSequence = slide->get_Timeline()->get_InteractiveSequences()->Add(triggerShape);
+interactiveSequence->AddEffect(targetShape, EffectType::PathFootball, EffectSubtype::None, EffectTriggerType::OnClick);
 
-System::SharedPtr<ITextFrame> textFrame = autoShape->get_TextFrame();
-textFrame->set_Text(u"First paragraph \nSecond paragraph \n Third paragraph");
-
-// Gets the main sequence of the slide.
-System::SharedPtr<ISequence> sequence = sld->get_Timeline()->get_MainSequence();
-
-// Adds Fade animation effect to shape
-System::SharedPtr<IEffect> effect = sequence->AddEffect(autoShape, Aspose::Slides::Animation::EffectType::Fade,
-    Aspose::Slides::Animation::EffectSubtype::None, Aspose::Slides::Animation::EffectTriggerType::OnClick);
-
-// Animates shape text by 1st level paragraphs
-effect->get_TextAnimation()->set_BuildType(Aspose::Slides::Animation::BuildType::ByLevelParagraphs1);
-
-// Save the PPTX file to disk
-pres->Save(path + u"AnimText_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-{{%  alert color="primary"  %}} 
-
-Metne animasyon uygulamanın yanı sıra tek bir [Paragraph](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.i_paragraph) öğesine de animasyon uygulayabilirsiniz. [**Animated Text**](/slides/tr/cpp/animated-text/) bölümüne bakın.
-
-{{% /alert %}} 
-
-## **PictureFrame'e Animasyon Uygulama**
-
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation/) sınıfının örneğini oluşturun.  
-2. İndeksine göre bir slaytın referansını alın.  
-3. Slayta bir [PictureFrame](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.i_picture_frame) ekleyin ya da alın.  
-4. Efektlerin ana dizisini alın.  
-5. [PictureFrame](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.i_picture_frame) öğesine bir animasyon efekti ekleyin.  
-6. Sunumu bir PPTX dosyası olarak diske kaydedin.
-
-Bu C++ kodu, bir resim çerçevesine `Fly` efektini nasıl uygulayacağınızı gösterir:
-
-```c++
-// Sunum dosyasını temsil eden bir sunum sınıfı örnekler.
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-
-// Sunuma eklenecek resmi görüntü koleksiyonuna yükle
-System::SharedPtr<IImage> img = Images::FromFile(u"aspose-logo.jpg");
-System::SharedPtr<IPPImage> image = pres->get_Images()->AddImage(img);
-
-// Slayta resim çerçevesi ekler
-System::SharedPtr<IPictureFrame> picFrame =
-    pres->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(Aspose::Slides::ShapeType::Rectangle, 50.0f, 50.0f, 100.0f, 100.0f, image);
-
-// Slaytın ana dizisini alır.
-System::SharedPtr<ISequence> sequence = pres->get_Slides()->idx_get(0)->get_Timeline()->get_MainSequence();
-
-// Resim çerçevesine soldan gelen Fly animasyon efektini ekler
-System::SharedPtr<IEffect> effect = sequence->AddEffect(picFrame, Aspose::Slides::Animation::EffectType::Fly,
-    Aspose::Slides::Animation::EffectSubtype::Left, Aspose::Slides::Animation::EffectTriggerType::OnClick);
-
-// PPTX dosyasını diske kaydeder
-pres->Save(path + u"AnimImage_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **Bir Şekle Animasyon Uygulama**
-
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation/) sınıfının örneğini oluşturun.  
-2. İndeksine göre bir slaytın referansını alın.  
-3. `rectangle` tipinde bir [IAutoShape](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.i_auto_shape) ekleyin.  
-4. `Bevel` bir [IAutoShape](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.i_auto_shape) ekleyin (bu nesne tıklandığında animasyon oynatılır).  
-5. Bevel şekli üzerinde bir efekt dizisi oluşturun.  
-6. Özel bir `UserPath` oluşturun.  
-7. `UserPath`'e hareket için komutlar ekleyin.  
-8. Sunumu bir PPTX dosyası olarak diske kaydedin.
-
-Bu C++ kodu, bir şekle `PathFootball` (yol futbolu) efektini nasıl uygulayacağınızı gösterir:
-
-```c++
-	// Doküman dizinine giden yol.
-	const String outPath = u"../out/AnimationsOnShapes_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
-
-	// Sunumu yükler
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-	// İlk slayta erişir
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-	// Seçili slayt için şekil koleksiyonuna erişir
-	SharedPtr<IShapeCollection> shapes = slide->get_Shapes();
-
-	// Mevcut şekil için sıfırdan PathFootball efekti oluşturur.
-	SharedPtr<IAutoShape> ashp = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 150, 250, 25);
-
-	ashp->AddTextFrame(u"Animated TextBox");
-
-	// PathFootBall animasyon efektini ekler
-	slide->get_Timeline()->get_MainSequence()->AddEffect(ashp, EffectType::PathFootball,
-		EffectSubtype::None, EffectTriggerType::AfterPrevious);
-
-	// Bir tür "düğme" oluşturur.
-	SharedPtr<IAutoShape> shapeTrigger = slide->get_Shapes()->AddAutoShape(ShapeType::Bevel, 10, 10, 20, 20);
-
-	// Bu düğme için bir efekt dizisi oluşturur.
-	SharedPtr<ISequence> seqInter = slide->get_Timeline()->get_InteractiveSequences()->Add(shapeTrigger);
-	
-	 // Özel bir kullanıcı yolu oluşturur. Nesnemiz yalnızca düğmeye tıklandıktan sonra hareket ettirilecektir.
-	SharedPtr<IEffect> fxUserPath = seqInter->AddEffect(ashp, EffectType::PathUser, EffectSubtype::None, EffectTriggerType::OnClick);
-
-	// Oluşturulan yol boş olduğu için hareket komutları ekler.
-	 SharedPtr<MotionEffect> motionBhv = ExplicitCast<MotionEffect>(fxUserPath->get_Behaviors()->idx_get(0));
-
-	// SharedPtr<PointF> point = MakeObject<PointF >(0.076, 0.59);
-	 const PointF point = PointF (0.076, 0.59);
-	 System::ArrayPtr<PointF> pts = System::MakeObject<System::Array<PointF>>(1, point);
-	 motionBhv->get_Path()->Add(MotionCommandPathType::LineTo, pts, MotionPathPointsType::Auto, true);
-	 
-	 //PointF point2[1] = { -0.076, -0.59 };
-	const  PointF point2 = PointF(-0.076, -0.59 );
-
-	 System::ArrayPtr<PointF> pts2 = System::MakeObject<System::Array<PointF>>(1, point2);
-	 motionBhv->get_Path()->Add(MotionCommandPathType::LineTo, pts2, MotionPathPointsType::Auto, false);
-	 
-	 motionBhv->get_Path()->Add(MotionCommandPathType::End, nullptr, MotionPathPointsType::Auto, false);
-	 
-	 // PPTX dosyasını diske yazar
-	 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **Bir Şekle Uygulanan Animasyon Efektlerini Almak**
-
-Aşağıdaki örnekler, bir şekle uygulanan tüm animasyon efektlerini almak için [ISequence](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/isequence/) arayüzündeki `GetEffectsByShape` yönteminin nasıl kullanılacağını gösterir.
-
-**Örnek 1: Normal bir slaytta bir şekle uygulanan animasyon efektlerini al**
-
-Daha önce, PowerPoint sunumlarındaki şekillere animasyon efektleri eklemeyi öğrenmiştiniz. Aşağıdaki örnek kod, `AnimExample_out.pptx` sunumundaki ilk normal slaytın ilk şekline uygulanan efektleri nasıl alacağınızı gösterir:
-
-```c++
-SharedPtr<Presentation> presentation = MakeObject<Presentation>(u"AnimExample_out.pptx");
-
-SharedPtr<ISlide> firstSlide = presentation->get_Slide(0);
-
-// Slaytın ana animasyon dizisini alır.
-SharedPtr<ISequence> sequence = firstSlide->get_Timeline()->get_MainSequence();
-
-// İlk slayttaki ilk şekli alır.
-SharedPtr<IShape> shape = firstSlide->get_Shape(0);
-
-// Şekle uygulanan animasyon efektlerini alır.
-ArrayPtr<SharedPtr<IEffect>> shapeEffects = sequence->GetEffectsByShape(shape);
-
-if (shapeEffects->get_Length() > 0)
-{
-    Console::WriteLine(u"The shape " + shape->get_Name() + u" has " + shapeEffects->get_Length() + u" animation effects.");
-}
-
+presentation->Save(u"shape-animations.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-**Örnek 2: Yer tutuculardan devralınanlar dahil olmak üzere tüm animasyon efektlerini al**
+Tetikleyici bir efektin ne zaman başlayacağını denetler:
 
-Normal bir slayttaki bir şeklin, düzen slaytı ve/veya ana slaytta bulunan yer tutucuları varsa ve bu yer tutuculara animasyon efektleri eklenmişse, şeklin tüm efektleri slayt gösterisi sırasında, yer tutuculardan devralınanlar da dahil olmak üzere oynatılır.
+- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/effecttriggertype/) ana dizide bir tıklama ya da etkileşimli dizide tetikleyici şekle tıklama bekler.
+- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/effecttriggertype/) önceki efektle birlikte başlar.
+- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/effecttriggertype/) önceki efekt bittiğinde başlar.
 
-Diyelim ki `sample.pptx` adlı bir PowerPoint sunum dosyamız var; bu dosyada yalnızca "Made with Aspose.Slides" metnini içeren bir alt bilgi şekli bulunan bir slayt var ve şekle **Random Bars** efekti uygulanmış.
+Bir resmi, grafiği veya başka bir şekil türünü animasyonlamak için `targetShape` yerine o nesneyi [ISequence::AddEffect](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/isequence/addeffect/) metoduna gönderin. Grafik‑özel grup seçenekleri için [Animated Charts](/slides/tr/cpp/animated-charts/) bölümüne bakın.
 
-![Slayt şekil animasyon efekti](slide-shape-animation.png)
+## **Şekil Animasyonlarını Okuma**
 
-Ayrıca **Split** efektinin düzen slaydındaki alt bilgi yer tutucusuna uygulandığını varsayalım.
+Hedef şekli bildiğinizde [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/isequence/geteffectsbyshape/) kullanın. Tüm efektleri incelemek için ana diziyi ve her etkileşimli diziyi döngüyle gezinin. Dizi içinde `0` indeksinde bir efekt olduğunu varsaymayın.
 
-![Düzen şekil animasyon efekti](layout-shape-animation.png)
-
-Ve nihayet **Fly In** efektinin ana slaydındaki alt bilgi yer tutucusuna uygulandığını varsayalım.
-
-![Ana slayt şekil animasyon efekti](master-shape-animation.png)
-
-Aşağıdaki örnek kod, [IShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishape/) arayüzündeki `GetBasePlaceholder` metodunu kullanarak şekil yer tutucularına erişip alt bilgi şekline uygulanan animasyon efektlerini, düzen ve ana slaytlardaki yer tutuculardan devralınanları da dahil olmak üzere nasıl alacağınızı gösterir:
+Aşağıdaki örnek bir şekle ana‑dizi ve etkileşimli efektler ekler, şekli hedefleyen efektleri alır ve ardından slayttaki tüm dizileri döngüyle listeler.
 
 ```cpp
-void PrintEffects(ArrayPtr<SharedPtr<IEffect>> effects)
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ISequenceCollection.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/console.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace System;
+
+auto printSequence = [](const String& label, const SharedPtr<ISequence>& sequence)
 {
-    for (SharedPtr<IEffect> effect : effects)
+    Console::WriteLine(String::Format(u"  {0}: {1} effect(s)", label, sequence->get_Count()));
+
+    for (const auto& effect : sequence)
     {
-        Console::WriteLine(String::Format(u"Type: {0}, subtype: {1}", effect->get_Type(), effect->get_Subtype()));
+        auto targetName = effect->get_TargetShape() == nullptr ? u"unknown" : effect->get_TargetShape()->get_Name();
+        auto effectDescription = String::Format(u"{0} {1}; target: {2}; trigger: {3}", effect->get_Type(), effect->get_Subtype(), targetName, effect->get_Timing()->get_TriggerType());
+        Console::WriteLine(u"    " + effectDescription);
     }
+};
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto targetShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 120.0f, 100.0f, 320.0f, 80.0f);
+targetShape->get_TextFrame()->set_Text(u"Animated shape");
+
+auto mainSequence = slide->get_Timeline()->get_MainSequence();
+mainSequence->AddEffect(targetShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+
+auto triggerShape = slide->get_Shapes()->AddAutoShape(ShapeType::Bevel, 20.0f, 20.0f, 100.0f, 40.0f);
+triggerShape->get_TextFrame()->set_Text(u"Move");
+
+auto interactiveSequence = slide->get_Timeline()->get_InteractiveSequences()->Add(triggerShape);
+interactiveSequence->AddEffect(targetShape, EffectType::PathFootball, EffectSubtype::None, EffectTriggerType::OnClick);
+
+auto targetEffects = mainSequence->GetEffectsByShape(targetShape);
+Console::WriteLine(String::Format(u"The main sequence contains {0} effect(s) for {1}.", targetEffects->get_Length(), targetShape->get_Name()));
+
+printSequence(u"Main sequence", mainSequence);
+
+int32_t interactiveIndex = 1;
+for (const auto& sequence : slide->get_Timeline()->get_InteractiveSequences())
+{
+    auto triggerName = sequence->get_TriggerShape() == nullptr ? u"unknown" : sequence->get_TriggerShape()->get_Name();
+    auto sequenceLabel = String::Format(u"Interactive sequence {0}, trigger: {1}", interactiveIndex, triggerName);
+    printSequence(sequenceLabel, sequence);
+    interactiveIndex++;
 }
-```
-```cpp
-SharedPtr<Presentation> presentation = MakeObject<Presentation>(u"sample.pptx");
-
-SharedPtr<ISlide> slide = presentation->get_Slide(0);
-
-// Normal slayttaki şeklin animasyon efektlerini al.
-SharedPtr<IShape> shape = slide->get_Shape(0);
-ArrayPtr<SharedPtr<IEffect>> shapeEffects = slide->get_Timeline()->get_MainSequence()->GetEffectsByShape(shape);
-
-// Düzen slaydındaki yer tutucunun animasyon efektlerini al.
-SharedPtr<IShape> layoutShape = shape->GetBasePlaceholder();
-ArrayPtr<SharedPtr<IEffect>> layoutShapeEffects = slide->get_LayoutSlide()->get_Timeline()->get_MainSequence()->GetEffectsByShape(layoutShape);
-
-// Ana slaydındaki yer tutucunun animasyon efektlerini al.
-SharedPtr<IShape> masterShape = layoutShape->GetBasePlaceholder();
-ArrayPtr<SharedPtr<IEffect>> masterShapeEffects = slide->get_LayoutSlide()->get_MasterSlide()->get_Timeline()->get_MainSequence()->GetEffectsByShape(masterShape);
 
 presentation->Dispose();
-
-Console::WriteLine(u"Main sequence of shape effects:");
-PrintEffects(masterShapeEffects);
-PrintEffects(layoutShapeEffects);
-PrintEffects(shapeEffects);
 ```
 
-Çıktı:
-```text
-Main sequence of shape effects:
-Type: 47, subtype: 2              // Uçuş, Alt
-Type: 134, subtype: 45            // Böl, Dikeyİçeri
-Type: 126, subtype: 22            // RastgeleÇubuklar, Yatay
+Yalnızca tek bir şekil için efektlere ihtiyacınız varsa, önce şekli ad, yer tutucu türü veya başka sabit bir özellik ile tanımlayın; ardından [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/isequence/geteffectsbyshape/) metodunu çağırın. [IShapeCollection::idx_get](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishapecollection/idx_get/) metodunun `0` indeksindeki nesnenin her zaman istenen nesne olduğunu varsamamalısınız.
+
+## **Devralınan Yer Tutucu Efektleriyle Çalışma**
+
+Normal bir slayttaki bir yer tutucu, düzen slaytı ve master slayttaki karşılık gelen yer tutucudan animasyon davranışını devralabilir. [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishape/getbaseplaceholder/) bu üst yer tutucuyu döndürür; üst yoksa `nullptr` döner.
+
+Aşağıdaki örnek sunumda altbilgi, normal slaytta **Random Bars**, düzen slaytta **Split**, master slaytta ise **Fly In** efektine sahiptir.
+
+![Normal slayttaki altbilgi animasyon efekti](slide-shape-animation.png)
+
+![Düzen slayttaki altbilgi yer tutucu animasyon efekti](layout-shape-animation.png)
+
+![Master slayttaki altbilgi yer tutucu animasyon efekti](master-shape-animation.png)
+
+Sonraki örnek yer tutucu hiyerarşisini kendisi oluşturur. Bir master yer tutucu, bir düzen yer tutucu ve normal slayttaki karşılık gelen yer tutucuya efekt ekler. Her [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishape/getbaseplaceholder/) çağrısı, dönen şekil kullanılmadan önce kontrol edilir.
+
+```cpp
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutPlaceholderManager.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto findPlaceholderWithBase = [](const SharedPtr<ISlide>& slide) -> SharedPtr<IShape>
+{
+    for (const auto& shape : slide->get_Shapes())
+    {
+        if (shape->GetBasePlaceholder() != nullptr)
+            return shape;
+    }
+
+    return nullptr;
+};
+
+auto printEffects = [](const String& source, const ArrayPtr<SharedPtr<IEffect>>& effects)
+{
+    Console::WriteLine(String::Format(u"{0}: {1} effect(s)", source, effects->get_Length()));
+
+    for (const auto& effect : effects)
+        Console::WriteLine(String::Format(u"  {0} {1}", effect->get_Type(), effect->get_Subtype()));
+};
+
+auto presentation = MakeObject<Presentation>();
+auto layoutSlide = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+auto layoutPlaceholder = layoutSlide->get_PlaceholderManager()->AddTextPlaceholder(100.0f, 100.0f, 400.0f, 80.0f);
+layoutSlide->get_Timeline()->get_MainSequence()->AddEffect(layoutPlaceholder, EffectType::Split, EffectSubtype::VerticalIn, EffectTriggerType::OnClick);
+
+auto masterPlaceholder = layoutPlaceholder->GetBasePlaceholder();
+if (masterPlaceholder != nullptr)
+{
+    auto masterSequence = layoutSlide->get_MasterSlide()->get_Timeline()->get_MainSequence();
+    masterSequence->AddEffect(masterPlaceholder, EffectType::Fly, EffectSubtype::Bottom, EffectTriggerType::OnClick);
+}
+
+auto slide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+auto slidePlaceholder = findPlaceholderWithBase(slide);
+
+if (slidePlaceholder == nullptr)
+    throw InvalidOperationException(u"The slide does not contain a placeholder linked to its layout slide.");
+
+slide->get_Timeline()->get_MainSequence()->AddEffect(slidePlaceholder, EffectType::RandomBars, EffectSubtype::Horizontal, EffectTriggerType::OnClick);
+printEffects(u"Normal slide", slide->get_Timeline()->get_MainSequence()->GetEffectsByShape(slidePlaceholder));
+
+auto baseLayoutPlaceholder = slidePlaceholder->GetBasePlaceholder();
+if (baseLayoutPlaceholder != nullptr)
+{
+    printEffects(u"Layout slide", layoutSlide->get_Timeline()->get_MainSequence()->GetEffectsByShape(baseLayoutPlaceholder));
+
+    auto baseMasterPlaceholder = baseLayoutPlaceholder->GetBasePlaceholder();
+    if (baseMasterPlaceholder != nullptr)
+        printEffects(u"Master slide", layoutSlide->get_MasterSlide()->get_Timeline()->get_MainSequence()->GetEffectsByShape(baseMasterPlaceholder));
+}
+
+presentation->Save(u"placeholder-animations.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Animasyon Efekti Zamanlama Özelliklerini Değiştirme**
+## **Animasyon Zamanlamasını Değiştirme**
 
-Aspose.Slides for C++, bir animasyon efektinin Zamanlama özelliklerini değiştirmenize olanak tanır.
+PowerPoint **Timing** iletişim kutusu, [ITiming](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/itiming/) yöntemlerine karşılık gelir.
 
-Bu, Microsoft PowerPoint'teki Animasyon Zamanlama bölmesidir:
+![Bir animasyon efekti için PowerPoint Zamanlama iletişim kutusu](shape-animation.png)
 
-![example1_image](shape-animation.png)
+- **Start** [ITiming::set_TriggerType](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/itiming/set_triggertype/) ile eşleştirilir.
+- **Duration** [ITiming::set_Duration](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/itiming/set_duration/) ile eşleştirilir, saniye cinsindendir.
+- **Delay** [ITiming::set_TriggerDelayTime](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/itiming/set_triggerdelaytime/) ile eşleştirilir, saniye cinsindendir.
+- **Repeat** [ITiming::set_RepeatCount](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/itiming/set_repeatcount/), [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/) veya [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/) ile eşleştirilir.
+- **Rewind when done playing** [ITiming::set_Rewind](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/itiming/set_rewind/) ile eşleştirilir.
 
-PowerPoint Zamanlama **Start** açılır listesi, [Effect.Timing.TriggerType] özelliğiyle eşleşir.  
-PowerPoint Zamanlama **Duration** özelliği, [Effect.Timing.Duration] özelliğiyle eşleşir. Bir animasyonun süresi (saniye cinsinden), animasyonun bir döngüyü tamamlaması için gereken toplam zamandır.  
-PowerPoint Zamanlama **Delay** özelliği, [Effect.Timing.TriggerDelayTime] özelliğiyle eşleşir. 
+Bu bağımsız örnek bir efekt ekler, [ISequence::AddEffect](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/isequence/addeffect/) tarafından döndürülen nesne üzerinden zamanlamasını değiştirir ve sonucu kaydeder. Döndürülen [IEffect](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/ieffect/) referansını tutmak, gereksiz bir koleksiyon indeksinden kaçınır.
 
-Bu, Effect Timing özelliklerini değiştirme adımlarıdır:
+```cpp
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
-1. [Apply](#apply-animation-to-shape) ya da animasyon efektini alın.  
-2. İhtiyacınız olan [Effect.Timing] özellikleri için yeni değerler ayarlayın.  
-3. Değiştirilmiş PPTX dosyasını kaydedin.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-Bu C++ kodu, işlemi gösterir:
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 120.0f, 100.0f, 320.0f, 80.0f);
+shape->get_TextFrame()->set_Text(u"Timed animation");
 
-```c++
-// Sunum dosyasını temsil eden bir sunum sınıfı örnekler.
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimExample_out.pptx");
-
-// Slaytın ana dizisini alır.
-System::SharedPtr<ISequence> sequence = pres->get_Slides()->idx_get(0)->get_Timeline()->get_MainSequence();
-
-// Ana dizinin ilk etkisini alır.
-System::SharedPtr<IEffect> effect = sequence->idx_get(0);
-
-// Etkinin TriggerType'ını tıklamayla başlatacak şekilde değiştirir
-effect->get_Timing()->set_TriggerType(Aspose::Slides::Animation::EffectTriggerType::OnClick);
-
-// Etkinin süresini değiştirir
-effect->get_Timing()->set_Duration(3.f);
-
-// Etkinin TriggerDelayTime'ını değiştirir
+auto effect = slide->get_Timeline()->get_MainSequence()->AddEffect(shape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+effect->get_Timing()->set_TriggerType(EffectTriggerType::OnClick);
+effect->get_Timing()->set_Duration(2.0f);
 effect->get_Timing()->set_TriggerDelayTime(0.5f);
+effect->get_Timing()->set_RepeatUntilNextClick(false);
+effect->get_Timing()->set_RepeatUntilEndSlide(false);
+effect->get_Timing()->set_RepeatCount(2.0f);
+effect->get_Timing()->set_Rewind(true);
 
-// PPTX dosyasını diske kaydeder
-pres->Save(u"AnimExample_changed.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"shape-animation-timing.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Animasyon Efekti Sesi**
+Tek bir tekrar modunu kasıtlı olarak kullanın. Tekrar sayısı ile “until” bayrağının bir arada kullanılması, farklı görüntüleyicilerde kafa karıştırıcı sonuçlar doğurabilir. Tekrar modunu değiştirirken, önce [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/) ve [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/) ardından [ITiming::set_RepeatCount](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/itiming/set_repeatcount/) çağırın; çünkü bir bayrağın ayarlanması aynı zamanda etkin tekrar modunu değiştirir.
 
-Aspose.Slides, animasyon efektlerinde seslerle çalışmanızı sağlayan aşağıdaki özellikleri sunar: 
+## **Animasyon Seslerini Ekleme ve Çıkarma**
 
-- [set_Sound()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/effect/set_sound/) 
-- [set_StopPreviousSound()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/effect/set_stopprevioussound/) 
+Bir animasyon efekti, [IEffect::set_Sound](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/ieffect/set_sound/) aracılığıyla gömülü ses referansına sahip olabilir. [IEffect::set_StopPreviousSound](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/ieffect/set_stopprevioussound/) bir efektin, önceki bir efekt tarafından başlatılan sesi durdurmasını söyler.
 
-### **Bir Animasyon Efekti Sesi Ekleme**
+### **Bir Efekte Ses Ekleme**
 
-Bu C++ kodu, bir animasyon efekti sesini nasıl ekleyeceğinizi ve bir sonraki efekt başladığında nasıl durdurulacağını gösterir:
+Aşağıdaki örnek, `animation-sound.wav` adlı yerel bir ses dosyası olduğunu varsayar. İki efekt oluşturur, bu dosyayı ilk efektin sesi olarak gömer ve ikinci efektin sesi durdurmasını ayarlar. [ISequence::AddEffect](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/isequence/addeffect/) tarafından döndürülen nesneler kullanıldığı için dizi indeksine ihtiyaç yoktur.
 
-```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimExample_out.pptx");
+```cpp
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAudio.h>
+#include <DOM/IAudioCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
 
-// Sunum ses koleksiyonuna ses ekler
-System::SharedPtr<IAudio> effectSound = pres->get_Audios()->AddAudio(System::IO::File::ReadAllBytes(u"sampleaudio.wav"));
-System::SharedPtr<ISlide> firstSlide = pres->get_Slide(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-// Slaytın ana dizisini alır.
-System::SharedPtr<ISequence> sequence = firstSlide->get_Timeline()->get_MainSequence();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto firstShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 80.0f, 100.0f, 240.0f, 80.0f);
+auto secondShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 400.0f, 100.0f, 240.0f, 80.0f);
+firstShape->get_TextFrame()->set_Text(u"Starts sound");
+secondShape->get_TextFrame()->set_Text(u"Stops sound");
 
-// Ana dizinin ilk etkisini alır
-System::SharedPtr<IEffect> firstEffect = sequence->idx_get(0);
+auto sequence = slide->get_Timeline()->get_MainSequence();
+auto firstEffect = sequence->AddEffect(firstShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+auto secondEffect = sequence->AddEffect(secondShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
 
-// "Ses Yok" için efekti kontrol eder
-if (!firstEffect->get_StopPreviousSound() && firstEffect->get_Sound() == nullptr)
+auto audioData = File::ReadAllBytes(u"animation-sound.wav");
+auto effectSound = presentation->get_Audios()->AddAudio(audioData);
+firstEffect->set_Sound(effectSound);
+secondEffect->set_StopPreviousSound(true);
+
+presentation->Save(u"shape-animation-sound.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+### **Gömülü Efekt Seslerini Çıkarma**
+
+Aşağıdaki örnek, `presentation-with-animation-sounds.pptx` adlı yerel bir sunum olduğunu varsayar. Hem ana hem de etkileşimli dizileri tarar ve her gömülü efekt sesini `extracted-animation-sounds` klasörüne yazar. Uzantı, [IAudio::get_ContentType](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iaudio/get_contenttype/) tarafından sağlanan ses MIME tipinden seçilir.
+
+```cpp
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ISequenceCollection.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAudio.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/io/directory.h>
+#include <system/io/file.h>
+#include <system/io/path.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace System;
+using namespace System::IO;
+
+auto getAudioExtension = [](const String& contentType)
 {
-    // İlk efekt için ses ekler
-    firstEffect->set_Sound(effectSound);
+    auto normalizedType = String::IsNullOrEmpty(contentType) ? String::Empty : contentType.ToLowerInvariant();
+
+    if (normalizedType == u"audio/mpeg")
+        return String(u".mp3");
+
+    if (normalizedType == u"audio/mp4")
+        return String(u".m4a");
+
+    if (normalizedType == u"audio/ogg")
+        return String(u".ogg");
+
+    if (normalizedType == u"audio/wav" || normalizedType == u"audio/x-wav")
+        return String(u".wav");
+
+    return String(u".bin");
+};
+
+auto saveSounds = [&getAudioExtension](const SharedPtr<ISequence>& sequence, const String& outputDirectory, int32_t& soundIndex)
+{
+    for (const auto& effect : sequence)
+    {
+        if (effect->get_Sound() == nullptr)
+            continue;
+
+        auto extension = getAudioExtension(effect->get_Sound()->get_ContentType());
+        auto outputPath = Path::Combine(outputDirectory, String::Format(u"effect-sound-{0}{1}", soundIndex, extension));
+        File::WriteAllBytes(outputPath, effect->get_Sound()->get_BinaryData());
+        soundIndex++;
+    }
+};
+
+auto inputPath = String(u"presentation-with-animation-sounds.pptx");
+auto outputDirectory = String(u"extracted-animation-sounds");
+
+Directory::CreateDirectory_(outputDirectory);
+
+auto presentation = MakeObject<Presentation>(inputPath);
+int32_t soundIndex = 1;
+
+for (const auto& slide : presentation->get_Slides())
+{
+    saveSounds(slide->get_Timeline()->get_MainSequence(), outputDirectory, soundIndex);
+
+    for (const auto& sequence : slide->get_Timeline()->get_InteractiveSequences())
+        saveSounds(sequence, outputDirectory, soundIndex);
 }
 
-// Slaytın ilk etkileşimli dizisini alır.
-System::SharedPtr<ISequence> interactiveSequence = firstSlide->get_Timeline()->get_InteractiveSequence(0);
-
-// Efektin "Önceki sesi durdur" bayrağını ayarlar
-interactiveSequence->idx_get(0)->set_StopPreviousSound(true);
-
-// PPTX dosyasını diske yazar
-pres->Save(u"AnimExample_Sound_out.pptx", SaveFormat::Pptx);
+Console::WriteLine(String::Format(u"Extracted {0} sound file(s) to {1}.", soundIndex - 1, Path::GetFullPath(outputDirectory)));
+presentation->Dispose();
 ```
 
-### **Bir Animasyon Efekti Sesini Çıkarma**
+Büyük ses nesneleri için, tüm nesneyi bayt dizisine yüklemek yerine [IAudio::GetStream](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iaudio/getstream/) kullanıp akışı bir dosyaya kopyayın.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının örneğini oluşturun.  
-2. İndeksine göre bir slaytın referansını alın.  
-3. Efektlerin ana dizisini alın.  
-4. Her animasyon efektine gömülü [set_Sound()] metodunu çıkarın.  
+## **Animasyon Sonrası Davranışı Ayarlama**
 
-Bu C++ kodu, bir animasyon efektine gömülü sesi nasıl çıkartacağınızı gösterir:
+**After animation** seçeneği, bir şeklin efekti bitince ne olacağını belirler.
 
-```c++
-// Sunum dosyasını temsil eden bir sunum sınıfı örnekler.
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"EffectSound.pptx");
-System::SharedPtr<ISlide> slide = pres->get_Slide(0);
+![PowerPoint Efekt Seçenekleri iletişim kutusunda After animation ayarları gösteriliyor](shape-after-animation.png)
 
-// Slaytın ana dizisini alır.
-System::SharedPtr<ISequence> sequence = slide->get_Timeline()->get_MainSequence();
+[AfterAnimationType](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/afteranimationtype/) enumı, şekli değişmeden bırakma, rengini değiştirme, animasyondan sonra gizleme veya bir sonraki tıklamada gizleme seçeneklerini destekler. Tür [AfterAnimationType::Color](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/afteranimationtype/) ise, renk ayarlamasını yapmak için [IEffect::get_AfterAnimationColor](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/ieffect/get_afteranimationcolor/) çağrılır.
 
-for (auto&& effect : sequence)
-{
-    System::SharedPtr<IAudio> sound = effect->get_Sound();
+Bu bağımsız örnek bir efekt oluşturur, dönen efekt nesnesi üzerinden animasyon‑sonrası davranışı ayarlar ve sonucu kaydeder.
 
-    if (sound == nullptr)
-        continue;
+```cpp
+#include <DOM/Animation/AfterAnimationType.h>
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
 
-    auto audio = sound->get_BinaryData();
-}
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 120.0f, 100.0f, 320.0f, 80.0f);
+shape->get_TextFrame()->set_Text(u"Dim after animation");
+
+auto effect = slide->get_Timeline()->get_MainSequence()->AddEffect(shape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+effect->set_AfterAnimationType(AfterAnimationType::Color);
+effect->get_AfterAnimationColor()->set_Color(Color::get_LightGray());
+
+presentation->Save(u"shape-animation-after-effect.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Animasyondan Sonra**
+[AfterAnimationType::Color](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/afteranimationtype/) dışındaki bir türe geçmek, animasyon‑sonrası renk ayarını temizler.
 
-Aspose.Slides for C++, bir animasyon efektinin Animasyondan Sonra özelliğini değiştirmenizi sağlar.
+## **Metin Animasyonu**
 
-Bu, Microsoft PowerPoint'teki Animasyon Efekti bölmesi ve genişletilmiş menüsüdür:
+Metin animasyonunda iki ilgili kontrol bulunur:
 
-![example1_image](shape-after-animation.png)
+- [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/itextanimation/set_buildtype/) paragrafların birlikte mi yoksa paragraf seviyesinde mi görüneceğini belirler.
+- [IEffect::set_AnimateTextType](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) metnin tüm olarak, kelime bazında veya harf bazında görünüp görünmeyeceğini belirler. [IEffect::set_DelayBetweenTextParts](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) kelimeler ya da harfler arasındaki gecikmeyi ayarlar. Pozitif değer efekt süresinin yüzdesi; negatif değer saniye cinsinden gecikmedir.
 
-PowerPoint Effect **After animation** açılır listesi şu özelliklerle eşleşir: 
+Aşağıdaki bağımsız örnek bir metin kutusundaki kelimeleri animasyonlar. [BuildType::AsOneObject](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/buildtype/) paragraf‑bazlı oluşturmayı devre dışı bırakır, böylece kelime ayarı tüm metin çerçevesine uygulanır.
 
-- [set_AfterAnimationType()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/ieffect/set_afteranimationtype/) özelliği, Animasyondan Sonra tipini açıklar:
-  * PowerPoint **More Colors** seçeneği, [AfterAnimationType.Color] tipine karşılık gelir;
-  * PowerPoint **Don't Dim** seçeneği, [AfterAnimationType.DoNotDim] tipine karşılık gelir (varsayılan animasyondan sonra tipi);
-  * PowerPoint **Hide After Animation** seçeneği, [AfterAnimationType.HideAfterAnimation] tipine karşılık gelir;
-  * PowerPoint **Hide on Next Mouse Click** seçeneği, [AfterAnimationType.HideOnNextMouseClick] tipine karşılık gelir;
-- [set_AfterAnimationColor()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/ieffect/set_afteranimationcolor/) özelliği, animasyondan sonraki renk formatını tanımlar. Bu özellik, [AfterAnimationType.Color] tipiyle birlikte çalışır. Tipi başka bir şeye değiştirirseniz, animasyondan sonraki renk temizlenir.
+```cpp
+#include <DOM/Animation/AnimateTextType.h>
+#include <DOM/Animation/BuildType.h>
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITextAnimation.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
-Bu C++ kodu, bir animasyondan sonra efektini nasıl değiştireceğinizi gösterir:
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-```c++
-// Sunum dosyasını temsil eden bir sunum sınıfı örnekler
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimImage_out.pptx");
-System::SharedPtr<ISlide> firstSlide = pres->get_Slide(0);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 80.0f, 80.0f, 560.0f, 100.0f);
+textBox->get_TextFrame()->set_Text(u"Aspose.Slides animates this sentence word by word.");
 
-// Ana dizinin ilk etkisini alır
-System::SharedPtr<IEffect> firstEffect = firstSlide->get_Timeline()->get_MainSequence()->idx_get(0);
+auto effect = slide->get_Timeline()->get_MainSequence()->AddEffect(textBox, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+effect->get_TextAnimation()->set_BuildType(BuildType::AsOneObject);
+effect->set_AnimateTextType(AnimateTextType::ByWord);
+effect->set_DelayBetweenTextParts(20.0f);
 
-// Animasyondan sonraki tipi Renk olarak değiştirir
-firstEffect->set_AfterAnimationType(AfterAnimationType::Color);
-
-// Animasyondan sonraki karartma rengini ayarlar
-firstEffect->get_AfterAnimationColor()->set_Color(System::Drawing::Color::get_AliceBlue());
-
-// PPTX dosyasını diske yazar
-pres->Save(u"AnimImage_AfterAnimation.pptx", SaveFormat::Pptx);
+presentation->Save(u"animated-text.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Metni Animasyonla**
+Metin kutusunu paragraf bazında oluşturmak için [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/itextanimation/set_buildtype/) ile [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/buildtype/) veya başka bir paragraf seviyesi kullanın. Tek bir paragrafı kendi etkisiyle hedeflemek için bir [IParagraph](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iparagraph/) alabilen [ISequence::AddEffect](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/isequence/addeffect/) aşırı yüklemesini kullanın. Paragraf‑seviyesi örnekleri için [Animated Text](/slides/tr/cpp/animated-text/) bölümüne bakın.
 
-Aspose.Slides, bir animasyon efektinin *Animate text* bloğu ile çalışmanızı sağlayan şu özellikleri sunar:
+## **Dışa Aktarma ve Uyumluluk Notları**
 
-- [set_AnimateTextType()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) özelliği, efektin metin animasyon tipini açıklar. Şekil metni şu şekilde animasyonlanabilir:
-  - Hepsi bir anda ([AnimateTextType.AllAtOnce] tipi)
-  - Kelime kelime ([AnimateTextType.ByWord] tipi)
-  - Harfe harf ([AnimateTextType.ByLetter] tipi)
-- [set_DelayBetweenTextParts()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) animasyonlu metin bölümleri (kelimeler ya da harfler) arasındaki gecikmeyi ayarlar. Pozitif bir değer, efekt süresinin yüzde oranını belirtir. Negatif bir değer ise gecikmeyi saniye cinsinden belirtir.
-
-Bu, Effect Animate text özelliklerini değiştirme adımlarıdır:
-
-1. [Apply](#apply-animation-to-shape) ya da animasyon efektini alın.  
-2. *By Paragraphs* animasyon modunu devre dışı bırakmak için [set_BuildType()] özelliğini, [BuildType.AsOneObject] değerine ayarlayın.  
-3. Yeni değerleri [set_AnimateTextType()] ve [set_DelayBetweenTextParts()] özelliklerine ayarlayın.  
-4. Değiştirilmiş PPTX dosyasını kaydedin.
-
-Bu C++ kodu, işlemi gösterir:
-
-```c++
-// Sunum dosyasını temsil eden bir sunum sınıfı örnekler.
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimTextBox_out.pptx");
-System::SharedPtr<ISlide> firstSlide = pres->get_Slide(0);
-
-// Ana dizinin ilk etkisini alır
-System::SharedPtr<IEffect> firstEffect = firstSlide->get_Timeline()->get_MainSequence()->idx_get(0);
-
-// Etkinin Metin animasyon tipini "Tek Nesne Olarak" olarak değiştirir
-firstEffect->get_TextAnimation()->set_BuildType(BuildType::AsOneObject);
-
-// Etkinin Animasyon metin tipini "Kelimeye göre" olarak değiştirir
-firstEffect->set_AnimateTextType(AnimateTextType::ByWord);
-
-// Kelimeler arasındaki gecikmeyi efekt süresinin %20'sine ayarlar
-firstEffect->set_DelayBetweenTextParts(20.0f);
-
-// PPTX dosyasını diske yazar
-pres->Save(u"AnimTextBox_AnimateText.pptx", SaveFormat::Pptx);
-```
+- PPT veya PPTX olarak kaydetmek animasyon modelini korur, ancak nihai oynatma sunum görüntüleyicisi tarafından kontrol edilir.
+- PDF ve statik görüntüler animasyon oynatmaz. Hareketin gösterilmesi gerekiyorsa [HTML5 dışa aktarımı](/slides/tr/cpp/export-to-html5/), animasyonlu GIF veya [video dönüştürme](/slides/tr/cpp/convert-powerpoint-to-video/) kullanın.
+- HTML5 için [Html5Options::set_AnimateShapes](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/html5options/set_animateshapes/) ve gerektiğinde [Html5Options::set_AnimateTransitions](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/html5options/set_animatetransitions/) etkinleştirin.
+- Video işleme, birçok yaygın giriş, vurgu, çıkış ve hareket‑yolu efektini destekler; ancak her PowerPoint efekti desteklenmez. Güncel [desteklenen animasyonlar ve efektler](/slides/tr/cpp/convert-powerpoint-to-video/#supported-animations-and-effects) sayfasını kontrol edin ve kritik sunumları hedef Aspose.Slides sürümünüzle test edin.
+- Gelişmiş özel efektler ve diğer sunum formatlarından içe aktarılan efektler dosyada korunabilir ancak PowerPoint, HTML5 veya video içinde farklı şekilde işlenebilir. Yalnızca efekt adına güvenmek yerine dışa aktarılan sonucu doğrulayın.
 
 ## **SSS**
 
-**Sunumu web'e yayınlarken animasyonların korunmasını nasıl sağlayabilirim?**
+**Bir animasyon PowerPoint’te görünüyor ancak PDF’de neden görünmüyor?**
 
-[Export to HTML5](/slides/tr/cpp/export-to-html5/) ve şekil ([shape]) ve geçiş ([transition]) animasyonlarından sorumlu [options]... seçeneklerini etkinleştirin. Düz HTML slayt animasyonlarını oynatmaz, HTML5 ise oynatır.
+PDF statik bir formattır; animasyonlar ve slayt geçişleri oynatılmaz. Hareketin korunması gerektiğinde HTML5, animasyonlu GIF veya video olarak dışa aktarın.
 
-**Şekillerin z-sırasını (katman sırasını) değiştirmek animasyonu nasıl etkiler?**
+**Bir efekt video içinde farklı nasıl oynatılıyor?**
 
-Animasyon ve çizim sırası bağımsızdır: bir efekt, görünme/görünmez olma zamanlamasını ve tipini kontrol eder, [z-order](https://reference.aspose.com/slides/tr/cpp/aspose.slides/shape/get_zorderposition/) ise neyin neyi örteceğini belirler. Görünür sonuç, birleşimleriyle tanımlanır. (Bu, genel PowerPoint davranışıdır; Aspose.Slides efekt‑ve‑şekil modeli aynı mantığı izler.)
+Video dışa aktarımı animasyonları işler, orijinal PowerPoint davranışını saklamaz. Bazı gelişmiş efektler desteklenmez veya yaklaşık olarak işlenir. Desteklenen‑efektler tablosunu inceleyin ve üretime geçmeden önce gerçek sunumu test edin.
 
-**Belirli efektler için animasyonları videoya dönüştürürken sınırlamalar var mı?**
+**Bir şekli öne veya arkaya taşımak animasyon sırasını değiştirir mi?**
 
-Genel olarak, [animasyonlar desteklenir](/slides/tr/cpp/convert-powerpoint-to-video/), ancak nadir durumlar ya da belirli efektler farklı işlenebilir. Kullandığınız efektleri ve kitaplık sürümünü test etmeniz önerilir.
+Hayır. Şeklin z‑sırası üst üste biniş kontrol eder, dizi sırası ve tetikleyiciler animasyon oynatımını kontrol eder. Farklı bir oynatma sırasına ihtiyacınız varsa zaman çizelgesini değiştirin.

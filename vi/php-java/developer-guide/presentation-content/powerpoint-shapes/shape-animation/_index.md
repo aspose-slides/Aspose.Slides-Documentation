@@ -1,6 +1,6 @@
 ---
-title: Áp dụng Hoạt ảnh Hình dạng trong Bản thuyết trình bằng PHP
-linktitle: Hoạt ảnh Hình dạng
+title: Áp dụng Hoạt Ảnh Hình Dạng trong Bản Trình Chiếu bằng PHP
+linktitle: Hoạt Ảnh Hình Dạng
 type: docs
 weight: 60
 url: /vi/php-java/shape-animation/
@@ -19,470 +19,502 @@ keywords:
 - âm thanh hiệu ứng
 - áp dụng hoạt ảnh
 - PowerPoint
-- bản thuyết trình
+- bản trình chiếu
 - PHP
 - Aspose.Slides
-description: "Khám phá cách tạo và tùy chỉnh hoạt ảnh hình dạng trong bản thuyết trình PowerPoint với Aspose.Slides cho PHP qua Java. Nổi bật!"
+description: "Tìm hiểu cách thêm, kiểm tra và tùy chỉnh hoạt ảnh hình dạng, thời gian, âm thanh, hành vi sau hoạt ảnh và văn bản hoạt ảnh với Aspose.Slides cho PHP qua Java."
 ---
-## **Giới thiệu**
+## **Tổng quan**
 
-Các hoạt ảnh là hiệu ứng hình ảnh có thể được áp dụng cho văn bản, hình ảnh, hình dạng hoặc [biểu đồ](https://docs.aspose.com/slides/vi/php-java/animated-charts/). Chúng mang lại sức sống cho các bài thuyết trình hoặc các thành phần của chúng.
+Aspose.Slides for PHP via Java biểu diễn hoạt ảnh slide dưới dạng các hiệu ứng trong một timeline slide. Một hiệu ứng có hình dạng mục tiêu, loại và phụ loại hoạt ảnh, trình kích hoạt, cài đặt thời gian và các thuộc tính tùy chọn như âm thanh hoặc hành vi sau hoạt ảnh.
 
-## **Tại sao nên sử dụng hoạt ảnh trong bài thuyết trình?**
+Timeline chứa hai loại chuỗi:
 
-Sử dụng hoạt ảnh, bạn có thể 
+- **Chuỗi chính** phát khi slide tiến tới.
+- **Chuỗi tương tác** bắt đầu khi hình dạng kích hoạt của nó được nhấp.
 
-* kiểm soát luồng thông tin
-* nhấn mạnh các điểm quan trọng
-* tăng sự quan tâm hoặc tham gia của khán giả
-* làm cho nội dung dễ đọc, hấp thụ hoặc xử lý hơn
-* thu hút sự chú ý của người đọc hoặc người xem đến các phần quan trọng trong bản thuyết trình
+Vì các hộp văn bản, hình ảnh, biểu đồ, bảng và các đối tượng slide khác đều là hình dạng, bạn sử dụng cùng một phương thức [Sequence::addEffect](https://reference.aspose.com/slides/vi/php-java/aspose.slides/sequence/addeffect/) cho hầu hết nội dung slide. Các hiệu ứng có sẵn được liệt kê trong lớp [EffectType](https://reference.aspose.com/slides/vi/php-java/aspose.slides/effecttype/).
 
-PowerPoint cung cấp nhiều tùy chọn và công cụ cho hoạt ảnh và hiệu ứng hoạt ảnh trong các danh mục **entrance**, **exit**, **emphasis**, và **motion paths**. 
+## **Thêm Hoạt Ảnh Cho Hình Dạng**
 
-## **Hoạt ảnh trong Aspose.Slides**
+Để thêm một hoạt ảnh, lấy chuỗi chính của slide và gọi [Sequence::addEffect](https://reference.aspose.com/slides/vi/php-java/aspose.slides/sequence/addeffect/) với hình dạng mục tiêu, loại hiệu ứng, phụ loại và trình kích hoạt. Đối với hiệu ứng bắt đầu khi một hình dạng khác được nhấp, tạo một chuỗi tương tác mà trình kích hoạt là hình dạng khác đó.
 
-* Aspose.Slides cung cấp các lớp và kiểu bạn cần để làm việc với hoạt ảnh dưới không gian tên `Aspose.Slides.Animation`,
-* Aspose.Slides cung cấp hơn **150 hiệu ứng hoạt ảnh** dưới liệt kê [EffectType](https://reference.aspose.com/slides/vi/php-java/aspose.slides/effecttype). Các hiệu ứng này về cơ bản là các hiệu ứng tương đương được sử dụng trong PowerPoint.
-
-## **Áp dụng hoạt ảnh cho TextBox**
-
-Aspose.Slides for PHP via Java cho phép bạn áp dụng hoạt ảnh cho văn bản trong một hình dạng.
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Presentation).
-2. Lấy tham chiếu slide thông qua chỉ mục của nó.
-3. Thêm một hình chữ nhật [AutoShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/autoshape/).
-4. Thêm văn bản vào [TextFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/autoshape/#getTextFrame) của `AutoShape`.
-5. Lấy chuỗi chính của các hiệu ứng.
-6. Thêm một hiệu ứng hoạt ảnh vào [AutoShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/autoshape/).
-7. Sử dụng phương thức `TextAnimation.setBuildType` và giá trị từ liệt kê `BuildType`.
-8. Ghi bản thuyết trình ra đĩa dưới dạng tệp PPTX.
-
-Đoạn mã PHP này cho bạn xem cách áp dụng hiệu ứng `Fade` cho AutoShape và đặt hoạt ảnh văn bản thành giá trị *By 1st Level Paragraphs*:
+Ví dụ sau tạo cả hai loại hoạt ảnh và lưu kết quả vào `shape-animations.pptx`.
 
 ```php
-  # Tạo một lớp trình bày đại diện cho tệp trình bày.
-  $pres = new Presentation();
-  try {
-    $sld = $pres->getSlides()->get_Item(0);
-    # Thêm AutoShape mới với văn bản
-    $autoShape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 150, 100);
-    $textFrame = $autoShape->getTextFrame();
-    $textFrame->setText("First paragraph \nSecond paragraph \n Third paragraph");
-    # Lấy chuỗi chính của slide.
-    $sequence = $sld->getTimeline()->getMainSequence();
-    # Thêm hiệu ứng hoạt ảnh Fade vào shape
-    $effect = $sequence->addEffect($autoShape, EffectType::Fade, EffectSubType::None, EffectTriggerType::OnClick);
-    # Hoạt ảnh văn bản shape theo các đoạn cấp 1
-    $effect->getTextAnimation()->setBuildType(BuildType::ByLevelParagraphs1);
-    # Lưu tệp PPTX ra đĩa
-    $pres->save($path . "AnimText_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
-{{%  alert color="primary"  %}} 
-
-Ngoài việc áp dụng hoạt ảnh cho văn bản, bạn cũng có thể áp dụng hoạt ảnh cho một [Paragraph](https://reference.aspose.com/slides/vi/php-java/aspose.slides/paragraph/). Xem [**Animated Text**](/slides/vi/php-java/animated-text/).
-
-{{% /alert %}} 
-
-## **Áp dụng hoạt ảnh cho PictureFrame**
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Presentation).
-2. Lấy tham chiếu slide thông qua chỉ mục của nó.
-3. Thêm hoặc lấy một [PictureFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pictureframe) trên slide.
-4. Lấy chuỗi chính của các hiệu ứng.
-5. Thêm một hiệu ứng hoạt ảnh vào [PictureFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pictureframe).
-6. Ghi bản thuyết trình ra đĩa dưới dạng tệp PPTX.
-
-Đoạn mã PHP này cho bạn xem cách áp dụng hiệu ứng `Fly` cho một khung hình:
-
-```php
-  # Tạo một lớp trình bày đại diện cho tệp trình bày.
-  $pres = new Presentation();
-  try {
-    # Tải hình ảnh để thêm vào bộ sưu tập hình ảnh của bản thuyết trình
-    $picture;
-    $image = Images->fromFile("aspose-logo.jpg");
-    try {
-      $picture = $pres->getImages()->addImage($image);
-    } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
-    }
-    # Thêm khung hình ảnh vào slide
-    $picFrame = $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, $picture);
-    # Lấy chuỗi chính của slide.
-    $sequence = $pres->getSlides()->get_Item(0)->getTimeline()->getMainSequence();
-    # Thêm hiệu ứng hoạt ảnh Fly từ trái vào khung hình ảnh
-    $effect = $sequence->addEffect($picFrame, EffectType::Fly, EffectSubType::Left, EffectTriggerType::OnClick);
-    # Lưu tệp PPTX ra đĩa
-    $pres->save($path . "AnimImage_out.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Áp dụng hoạt ảnh cho Shape**
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Presentation).
-2. Lấy tham chiếu slide thông qua chỉ mục của nó.
-3. Thêm một hình chữ nhật [AutoShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/autoshape/).
-4. Thêm một [AutoShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/autoshape/) có góc vát (khi đối tượng này được nhấp, hoạt ảnh sẽ được phát).
-5. Tạo một chuỗi các hiệu ứng cho hình dạng góc vát.
-6. Tạo một `UserPath` tùy chỉnh.
-7. Thêm các lệnh di chuyển tới `UserPath`.
-8. Ghi bản thuyết trình ra đĩa dưới dạng tệp PPTX.
-
-Đoạn mã PHP này cho bạn xem cách áp dụng hiệu ứng `PathFootball` (đường đi bóng đá) cho một hình dạng:
-
-```php
-  # Tạo một lớp Presentation đại diện cho tệp PPTX.
-  $pres = new Presentation();
-  try {
-    $sld = $pres->getSlides()->get_Item(0);
-    # Tạo hiệu ứng PathFootball cho shape hiện có từ đầu.
-    $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 150, 250, 25);
-    $ashp->addTextFrame("Animated TextBox");
-    # Thêm hiệu ứng hoạt ảnh PathFootBall
-    $pres->getSlides()->get_Item(0)->getTimeline()->getMainSequence()->addEffect($ashp, EffectType::PathFootball, EffectSubType::None, EffectTriggerType::AfterPrevious);
-    # Tạo một loại "button" nào đó.
-    $shapeTrigger = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Bevel, 10, 10, 20, 20);
-    # Tạo một chuỗi các hiệu ứng cho nút này.
-    $seqInter = $pres->getSlides()->get_Item(0)->getTimeline()->getInteractiveSequences()->add($shapeTrigger);
-    # Tạo một đường dẫn người dùng tùy chỉnh. Đối tượng của chúng ta sẽ chỉ di chuyển sau khi nút được nhấp.
-    $fxUserPath = $seqInter->addEffect($ashp, EffectType::PathUser, EffectSubType::None, EffectTriggerType::OnClick);
-    # Thêm các lệnh di chuyển vì đường dẫn đã tạo còn trống.
-    $motionBhv = $fxUserPath->getBehaviors()->get_Item(0);
-    $pts = new Point2DFloat[1];
-    $pts[0] = new Point2DFloat(0.076, 0.59);
-    $motionBhv->getPath()->add(MotionCommandPathType::LineTo, $pts, MotionPathPointsType::Auto, true);
-    $pts[0] = new Point2DFloat(-0.076, -0.59);
-    $motionBhv->getPath()->add(MotionCommandPathType::LineTo, $pts, MotionPathPointsType::Auto, false);
-    $motionBhv->getPath()->add(MotionCommandPathType::End, null, MotionPathPointsType::Auto, false);
-    # Ghi tệp PPTX ra đĩa
-    $pres->save("AnimExample_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Lấy các hiệu ứng hoạt ảnh đã áp dụng cho Shape**
-
-Các ví dụ sau cho bạn thấy cách sử dụng phương thức `getEffectsByShape` từ lớp [Sequence](https://reference.aspose.com/slides/vi/php-java/aspose.slides/sequence/) để lấy tất cả các hiệu ứng hoạt ảnh đã áp dụng cho một hình dạng.
-
-**Ví dụ 1: Lấy các hiệu ứng hoạt ảnh đã áp dụng cho một shape trên slide bình thường**
-
-Trước đây, bạn đã học cách thêm các hiệu ứng hoạt ảnh vào shape trong bản thuyết trình PowerPoint. Đoạn mã mẫu dưới đây cho bạn thấy cách lấy các hiệu ứng đã áp dụng cho shape đầu tiên trên slide bình thường đầu tiên trong bản thuyết trình `AnimExample_out.pptx`.
-
-```php
-  $Array = new java_class("java.lang.reflect.Array");
-  $presentation = new Presentation("AnimExample_out.pptx");
-
-  try {
-    $firstSlide = $presentation->getSlides()->get_Item(0);
-
-    # Lấy chuỗi hoạt ảnh chính của slide.
-    $sequence = $firstSlide->getTimeline()->getMainSequence();
-
-    # Lấy shape đầu tiên trên slide đầu tiên.
-    $shape = $firstSlide->getShapes()->get_Item(0);
-
-    # Lấy các hiệu ứng hoạt ảnh đã áp dụng cho shape.
-    $shapeEffects = $sequence->getEffectsByShape($shape);
-
-    if (java_values($Array->getLength($shapeEffects)) > 0) {
-      echo("The shape " . $shape->getName() . " has " . $Array->getLength($shapeEffects) . " animation effects.");
-    }
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-**Ví dụ 2: Lấy tất cả các hiệu ứng hoạt ảnh, bao gồm những hiệu ứng kế thừa từ placeholder**
-
-Nếu một shape trên slide bình thường có placeholder nằm trên slide bố trí và/hoặc slide mẫu, và các hiệu ứng hoạt ảnh đã được thêm vào các placeholder này, thì tất cả các hiệu ứng của shape sẽ được phát trong buổi trình chiếu, bao gồm các hiệu ứng kế thừa từ placeholder.
-
-Giả sử chúng ta có một tệp bản thuyết trình PowerPoint `sample.pptx` với một slide chứa duy nhất một shape chân trang có văn bản "Made with Aspose.Slides" và hiệu ứng **Random Bars** được áp dụng cho shape này.
-
-![Hiệu ứng hoạt ảnh shape trên slide](slide-shape-animation.png)
-
-Giả sử nữa rằng hiệu ứng **Split** được áp dụng cho placeholder chân trang trên slide **layout**.
-
-![Hiệu ứng hoạt ảnh shape trên layout](layout-shape-animation.png)
-
-Và cuối cùng, hiệu ứng **Fly In** được áp dụng cho placeholder chân trang trên slide **master**.
-
-![Hiệu ứng hoạt ảnh shape trên master](master-shape-animation.png)
-
-Đoạn mã mẫu dưới đây cho bạn cách sử dụng phương thức `getBasePlaceholder` từ lớp [Shape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/) để truy cập các placeholder của shape và lấy các hiệu ứng hoạt ảnh đã áp dụng cho shape chân trang, bao gồm cả những hiệu ứng kế thừa từ placeholder nằm trên slide layout và master.
-
-```php
-$presentation = new Presentation("sample.pptx");
-
-$slide = $presentation->getSlides()->get_Item(0);
-
-// Lấy các hiệu ứng hoạt ảnh của shape trên slide bình thường.
-$shape = $slide->getShapes()->get_Item(0);
-$shapeEffects = $slide->getTimeline()->getMainSequence()->getEffectsByShape($shape);
-
-// Lấy các hiệu ứng hoạt ảnh của placeholder trên slide layout.
-$layoutShape = $shape->getBasePlaceholder();
-$layoutShapeEffects = $slide->getLayoutSlide()->getTimeline()->getMainSequence()->getEffectsByShape($layoutShape);
-
-// Lấy các hiệu ứng hoạt ảnh của placeholder trên slide master.
-$masterShape = $layoutShape->getBasePlaceholder();
-$masterShapeEffects = $slide->getLayoutSlide()->getMasterSlide()->getTimeline()->getMainSequence()->getEffectsByShape($masterShape);
-
-echo "Main sequence of shape effects:" . PHP_EOL;
-printEffects($masterShapeEffects);
-printEffects($layoutShapeEffects);
-printEffects($shapeEffects);
-
-$presentation->dispose();
-```
-```php
-function printEffects($effects) {
-    foreach ($effects as $effect) {
-        echo "Type: " . $effect->getType() . ", subtype: " . $effect->getSubtype() . PHP_EOL;
-    }
-}
-```
-
-Output:
-```text
-Main sequence of shape effects:
-Type: 47, subtype: 2              // Bay, Dưới
-Type: 134, subtype: 45            // Tách, Dọc vào
-Type: 126, subtype: 22            // Thanh ngẫu nhiên, Ngang
-```
-
-## **Phương thức thay đổi thời gian hiệu ứng hoạt ảnh**
-
-Aspose.Slides for PHP via Java cho phép bạn thay đổi các thuộc tính Timing của một hiệu ứng hoạt ảnh.
-
-Đây là bảng Timing của hoạt ảnh trong Microsoft PowerPoint:
-
-![example1_image](shape-animation.png)
-
-Đây là các tương quan giữa Timing của PowerPoint và các thuộc tính [Effect Timing](https://reference.aspose.com/slides/vi/php-java/aspose.slides/effect/#getTiming):
-
-- Danh sách thả xuống **Start** của PowerPoint tương ứng với phương thức [Timing::getTriggerType](https://reference.aspose.com/slides/vi/php-java/aspose.slides/timing/#getTriggerType).
-- **Duration** của PowerPoint tương ứng với phương thức [Timing::getDuration](https://reference.aspose.com/slides/vi/php-java/aspose.slides/timing/#getDuration). Thời lượng của một hoạt ảnh (theo giây) là tổng thời gian hoạt ảnh hoàn thành một chu kỳ.
-- **Delay** của PowerPoint tương ứng với phương thức [Timing::getTriggerDelayTime](https://reference.aspose.com/slides/vi/php-java/aspose.slides/timing/#getTriggerDelayTime).
-
-Đây là cách bạn thay đổi các thuộc tính Timing của Effect:
-
-1. [Áp dụng](#apply-animation-to-shape) hoặc lấy hiệu ứng hoạt ảnh.
-2. Đặt các giá trị mới bạn cần bằng phương thức [Effect::getTiming](https://reference.aspose.com/slides/vi/php-java/aspose.slides/effect/#getTiming).
-3. Lưu tệp PPTX đã chỉnh sửa.
-
-Đoạn mã PHP này minh họa quy trình:
-
-```php
-  # Khởi tạo một lớp Presentation đại diện cho tệp trình bày.
-  $pres = new Presentation("AnimExample_out.pptx");
-  try {
-    # Lấy chuỗi chính của slide.
-    $sequence = $pres->getSlides()->get_Item(0)->getTimeline()->getMainSequence();
-    # Lấy hiệu ứng đầu tiên của chuỗi chính.
-    $effect = $sequence->get_Item(0);
-    # Thay đổi TriggerType của hiệu ứng để bắt đầu khi nhấp.
-    $effect->getTiming()->setTriggerType(EffectTriggerType::OnClick);
-    # Thay đổi Duration của hiệu ứng.
-    $effect->getTiming()->setDuration(3.0);
-    # Thay đổi TriggerDelayTime của hiệu ứng.
-    $effect->getTiming()->setTriggerDelayTime(0.5);
-    # Lưu tệp PPTX ra đĩa.
-    $pres->save("AnimExample_changed.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Âm thanh cho hiệu ứng hoạt ảnh**
-
-Aspose.Slides cung cấp các phương thức sau để cho phép bạn làm việc với âm thanh trong các hiệu ứng hoạt ảnh: 
-
-- [setSound(IAudio value)](https://reference.aspose.com/slides/vi/php-java/aspose.slides/effect/#setSound-com.aspose.slides.IAudio-)
-- [setStopPreviousSound(boolean value)](https://reference.aspose.com/slides/vi/php-java/aspose.slides/effect/#setStopPreviousSound-boolean-)
-
-### **Thêm âm thanh cho hiệu ứng hoạt ảnh**
-
-Đoạn mã PHP này cho bạn cách thêm âm thanh cho một hiệu ứng hoạt ảnh và dừng nó khi hiệu ứng tiếp theo bắt đầu:
-
-```php
-  $pres = new Presentation("AnimExample_out.pptx");
-  try {
-    # Thêm âm thanh vào bộ sưu tập âm thanh của bản thuyết trình
-$Array = new JavaClass("java.lang.reflect.Array");
-$Byte = (new JavaClass("java.lang.Byte"))->TYPE;
+$presentation = new Presentation();
 try {
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "sampleaudio.wav"));
-    $bytes = $Array->newInstance($Byte, $dis->available());
-    $dis->readFully($bytes);
-} finally {
-    if (!java_is_null($dis)) $dis->close();
-}
-    $effectSound = $pres->getAudios()->addAudio($bytes);
-
-    $firstSlide = $pres->getSlides()->get_Item(0);
-    # Lấy chuỗi chính của slide.
-    $sequence = $firstSlide->getTimeline()->getMainSequence();
-    # Lấy hiệu ứng đầu tiên của chuỗi chính
-    $firstEffect = $sequence->get_Item(0);
-    # Kiểm tra hiệu ứng cho "No Sound"
-    if (java_is_null(!$firstEffect->getStopPreviousSound() && $firstEffect->getSound())) {
-      # Thêm âm thanh cho hiệu ứng đầu tiên
-      $firstEffect->setSound($effectSound);
-    }
-    # Lấy chuỗi tương tác đầu tiên của slide.
-    $interactiveSequence = $firstSlide->getTimeline()->getInteractiveSequences()->get_Item(0);
-    # Đặt cờ "Stop previous sound" cho hiệu ứng
-    $interactiveSequence->get_Item(0)->setStopPreviousSound(true);
-    # Ghi tệp PPTX ra đĩa
-    $pres->save("AnimExample_Sound_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-### **Trích xuất âm thanh từ hiệu ứng hoạt ảnh**
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/) .
-2. Lấy tham chiếu slide thông qua chỉ mục của nó. 
-3. Lấy chuỗi chính của các hiệu ứng. 
-4. Trích xuất phương thức [setSound(IAudio value)](https://reference.aspose.com/slides/vi/php-java/aspose.slides/effect/#setSound-com.aspose.slides.IAudio-) được nhúng vào mỗi hiệu ứng hoạt ảnh.
-
-Đoạn mã PHP này cho bạn cách trích xuất âm thanh được nhúng trong một hiệu ứng hoạt ảnh:
-
-```php
-  # Khởi tạo một lớp presentation đại diện cho tệp trình bày.
-  $presentation = new Presentation("EffectSound.pptx");
-  try {
     $slide = $presentation->getSlides()->get_Item(0);
-    # Lấy chuỗi chính của slide.
+
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::RoundCornerRectangle, 120, 100, 320, 80);
+    $targetShape->addTextFrame("Click to animate this shape");
+
+    $mainSequence = $slide->getTimeline()->getMainSequence();
+    $entranceEffect = $mainSequence->addEffect($targetShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+    $entranceEffect->getTiming()->setDuration(1.5);
+
+    $triggerShape = $slide->getShapes()->addAutoShape(ShapeType::Bevel, 20, 20, 100, 40);
+    $triggerShape->addTextFrame("Move");
+
+    $interactiveSequence = $slide->getTimeline()->getInteractiveSequences()->add($triggerShape);
+    $interactiveSequence->addEffect($targetShape, EffectType::PathFootball, EffectSubtype::None, EffectTriggerType::OnClick);
+
+    $presentation->save("shape-animations.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Trình kích hoạt quyết định khi nào hiệu ứng bắt đầu:
+
+- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/vi/php-java/aspose.slides/effecttriggertype/) chờ một cú nhấp trong chuỗi chính, hoặc chờ một cú nhấp vào hình dạng kích hoạt trong chuỗi tương tác.
+- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/vi/php-java/aspose.slides/effecttriggertype/) bắt đầu cùng với hiệu ứng trước.
+- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/vi/php-java/aspose.slides/effecttriggertype/) bắt đầu khi hiệu ứng trước kết thúc.
+
+Để hoạt ảnh một hình ảnh, biểu đồ hoặc loại hình dạng khác, truyền đối tượng đó vào [Sequence::addEffect](https://reference.aspose.com/slides/vi/php-java/aspose.slides/sequence/addeffect/) thay vì `$targetShape`. Đối với các tùy chọn nhóm riêng cho biểu đồ, xem [Animated Charts](/slides/vi/php-java/animated-charts/).
+
+## **Đọc Hoạt Ảnh Hình Dạng**
+
+Sử dụng [Sequence::getEffectsByShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/sequence/geteffectsbyshape/) khi bạn biết hình dạng mục tiêu. Để kiểm tra mọi hiệu ứng, duyệt qua chuỗi chính và mọi chuỗi tương tác. Việc duyệt tránh việc giả định một chuỗi chứa hiệu ứng tại chỉ mục `0`.
+
+Ví dụ sau tạo một hình dạng với các hiệu ứng chuỗi chính và chuỗi tương tác, lấy các hiệu ứng mục tiêu hình dạng, và sau đó duyệt mọi chuỗi trên slide.
+
+```php
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+function printSequence($label, $sequence)
+{
+    $effectCount = java_values($sequence->getCount());
+
+    echo "  " . $label . ": " . $effectCount . " effect(s)" . PHP_EOL;
+
+    for ($effectIndex = 0; $effectIndex < $effectCount; $effectIndex++) {
+        $effect = $sequence->get_Item($effectIndex);
+        $targetShape = $effect->getTargetShape();
+        $targetName = java_is_null($targetShape) ? "unknown" : java_values($targetShape->getName());
+        $effectType = java_values($effect->getType());
+        $effectSubtype = java_values($effect->getSubtype());
+        $triggerType = java_values($effect->getTiming()->getTriggerType());
+        echo "    type: " . $effectType . "; subtype: " . $effectSubtype . "; target: " . $targetName . "; trigger: " . $triggerType . PHP_EOL;
+    }
+}
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 120, 100, 320, 80);
+    $targetShape->addTextFrame("Animated shape");
+
+    $mainSequence = $slide->getTimeline()->getMainSequence();
+    $mainSequence->addEffect($targetShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+
+    $triggerShape = $slide->getShapes()->addAutoShape(ShapeType::Bevel, 20, 20, 100, 40);
+    $triggerShape->addTextFrame("Move");
+
+    $interactiveSequence = $slide->getTimeline()->getInteractiveSequences()->add($triggerShape);
+    $interactiveSequence->addEffect($targetShape, EffectType::PathFootball, EffectSubtype::None, EffectTriggerType::OnClick);
+
+    $targetEffects = $mainSequence->getEffectsByShape($targetShape);
+    $Array = new JavaClass("java.lang.reflect.Array");
+    echo "The main sequence contains " . java_values($Array->getLength($targetEffects)) . " effect(s) for " . java_values($targetShape->getName()) . "." . PHP_EOL;
+
+    printSequence("Main sequence", $mainSequence);
+
+    $interactiveSequences = $slide->getTimeline()->getInteractiveSequences();
+    $interactiveCount = java_values($interactiveSequences->getCount());
+    for ($interactiveIndex = 0; $interactiveIndex < $interactiveCount; $interactiveIndex++) {
+        $sequence = $interactiveSequences->get_Item($interactiveIndex);
+        $sequenceTrigger = $sequence->getTriggerShape();
+        $triggerName = java_is_null($sequenceTrigger) ? "unknown" : java_values($sequenceTrigger->getName());
+        printSequence("Interactive sequence " . ($interactiveIndex + 1) . ", trigger: " . $triggerName, $sequence);
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Nếu bạn chỉ cần các hiệu ứng cho một hình dạng, trước tiên xác định hình dạng bằng tên, kiểu placeholder hoặc thuộc tính ổn định khác; sau đó gọi [Sequence::getEffectsByShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/sequence/geteffectsbyshape/). Đừng giả định rằng [ShapeCollection::get_Item](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shapecollection/get_item/) tại chỉ mục `0` luôn là đối tượng mong muốn.
+
+## **Làm việc với Hiệu Ứng Placeholder Kế Thừa**
+
+Một placeholder trên slide bình thường có thể kế thừa hành vi hoạt ảnh từ placeholder tương ứng trên slide bố cục và slide master. [Shape::getBasePlaceholder](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/getbaseplaceholder/) trả về placeholder cha đó, hoặc `null` nếu không có cha.
+
+Trong bản trình chiếu mẫu sau, footer có **Random Bars** trên slide bình thường, **Split** trên slide bố cục, và **Fly In** trên slide master.
+
+![Hiệu ứng hoạt hình Footer trên slide thường](slide-shape-animation.png)
+
+![Hiệu ứng placeholder Footer trên slide bố cục](layout-shape-animation.png)
+
+![Hiệu ứng placeholder Footer trên slide master](master-shape-animation.png)
+
+Ví dụ tiếp theo sử dụng một hệ thống placeholder từ một bản trình chiếu mới. Nó thêm hiệu ứng vào một placeholder master, một placeholder layout, và placeholder tương ứng trên một slide bình thường. Mọi lần gọi [Shape::getBasePlaceholder](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/getbaseplaceholder/) đều được kiểm tra trước khi sử dụng hình dạng được trả về.
+
+```php
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+function findLayoutPlaceholderWithBase($layoutSlide)
+{
+    $shapes = $layoutSlide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        if (!java_is_null($shape->getBasePlaceholder())) {
+            return $shape;
+        }
+    }
+
+    return null;
+}
+
+function findSlidePlaceholderWithBase($slide, $expectedBase)
+{
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $basePlaceholder = $shape->getBasePlaceholder();
+        if (!java_is_null($basePlaceholder) && java_values($basePlaceholder->equals($expectedBase))) {
+            return $shape;
+        }
+    }
+
+    return null;
+}
+
+function printEffects($source, $effects)
+{
+    $Array = new JavaClass("java.lang.reflect.Array");
+    echo $source . ": " . java_values($Array->getLength($effects)) . " effect(s)" . PHP_EOL;
+
+    foreach ($effects as $effect) {
+        echo "  type: " . java_values($effect->getType()) . "; subtype: " . java_values($effect->getSubtype()) . PHP_EOL;
+    }
+}
+
+$presentation = new Presentation();
+try {
+    $layoutSlide = $presentation->getLayoutSlides()->getByType(SlideLayoutType::TitleAndObject);
+    $layoutPlaceholder = findLayoutPlaceholderWithBase($layoutSlide);
+
+    if ($layoutPlaceholder === null) {
+        throw new RuntimeException("The layout slide does not contain a placeholder linked to its master slide.");
+    }
+
+    $masterPlaceholder = $layoutPlaceholder->getBasePlaceholder();
+    $layoutSlide->getMasterSlide()->getTimeline()->getMainSequence()->addEffect($masterPlaceholder, EffectType::Fly, EffectSubtype::Bottom, EffectTriggerType::OnClick);
+    $layoutSlide->getTimeline()->getMainSequence()->addEffect($layoutPlaceholder, EffectType::Split, EffectSubtype::VerticalIn, EffectTriggerType::OnClick);
+
+    $slide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $slidePlaceholder = findSlidePlaceholderWithBase($slide, $layoutPlaceholder);
+
+    if ($slidePlaceholder === null) {
+        throw new RuntimeException("The slide does not contain a placeholder linked to its layout slide.");
+    }
+
+    $slide->getTimeline()->getMainSequence()->addEffect($slidePlaceholder, EffectType::RandomBars, EffectSubtype::Horizontal, EffectTriggerType::OnClick);
+    printEffects("Normal slide", $slide->getTimeline()->getMainSequence()->getEffectsByShape($slidePlaceholder));
+
+    $baseLayoutPlaceholder = $slidePlaceholder->getBasePlaceholder();
+    if (!java_is_null($baseLayoutPlaceholder)) {
+        printEffects("Layout slide", $layoutSlide->getTimeline()->getMainSequence()->getEffectsByShape($baseLayoutPlaceholder));
+
+        $baseMasterPlaceholder = $baseLayoutPlaceholder->getBasePlaceholder();
+        if (!java_is_null($baseMasterPlaceholder)) {
+            printEffects("Master slide", $layoutSlide->getMasterSlide()->getTimeline()->getMainSequence()->getEffectsByShape($baseMasterPlaceholder));
+        }
+    }
+
+    $presentation->save("placeholder-animations.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Thay Đổi Thời Gian Hoạt Ảnh**
+
+Hộp thoại **Timing** của PowerPoint ánh xạ tới các thuộc tính của [Timing](https://reference.aspose.com/slides/vi/php-java/aspose.slides/timing/).
+
+![Hộp thoại Timing của PowerPoint cho một hiệu ứng hoạt ảnh](shape-animation.png)
+
+- **Bắt đầu** ánh xạ tới [Timing::getTriggerType](https://reference.aspose.com/slides/vi/php-java/aspose.slides/timing/gettriggertype/).
+- **Thời lượng** ánh xạ tới [Timing::getDuration](https://reference.aspose.com/slides/vi/php-java/aspose.slides/timing/getduration/), tính bằng giây.
+- **Độ trễ** ánh xạ tới [Timing::getTriggerDelayTime](https://reference.aspose.com/slides/vi/php-java/aspose.slides/timing/gettriggerdelaytime/), tính bằng giây.
+- **Lặp lại** ánh xạ tới [Timing::getRepeatCount](https://reference.aspose.com/slides/vi/php-java/aspose.slides/timing/getrepeatcount/), [Timing::getRepeatUntilNextClick](https://reference.aspose.com/slides/vi/php-java/aspose.slides/timing/getrepeatuntilnextclick/), hoặc [Timing::getRepeatUntilEndSlide](https://reference.aspose.com/slides/vi/php-java/aspose.slides/timing/getrepeatuntilendslide/).
+- **Quay lại khi phát xong** ánh xạ tới [Timing::getRewind](https://reference.aspose.com/slides/vi/php-java/aspose.slides/timing/getrewind/).
+
+Ví dụ độc lập này thêm một hiệu ứng, thay đổi thời gian của nó thông qua đối tượng trả về bởi [Sequence::addEffect](https://reference.aspose.com/slides/vi/php-java/aspose.slides/sequence/addeffect/), và lưu kết quả. Giữ tham chiếu tới [Effect](https://reference.aspose.com/slides/vi/php-java/aspose.slides/effect/) được trả về tránh việc phải truy cập vào chỉ mục bộ sưu tập không cần thiết.
+
+```php
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 120, 100, 320, 80);
+    $shape->addTextFrame("Timed animation");
+
+    $effect = $slide->getTimeline()->getMainSequence()->addEffect($shape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+    $effect->getTiming()->setTriggerType(EffectTriggerType::OnClick);
+    $effect->getTiming()->setDuration(2.0);
+    $effect->getTiming()->setTriggerDelayTime(0.5);
+    $effect->getTiming()->setRepeatUntilNextClick(false);
+    $effect->getTiming()->setRepeatUntilEndSlide(false);
+    $effect->getTiming()->setRepeatCount(2.0);
+    $effect->getTiming()->setRewind(true);
+
+    $presentation->save("shape-animation-timing.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Sử dụng một chế độ lặp lại duy nhất. Kết hợp số lần lặp lại với cờ “until” có thể gây ra kết quả khó hiểu trong các trình xem khác nhau. Khi thay đổi chế độ lặp, đặt [Timing::setRepeatUntilNextClick](https://reference.aspose.com/slides/vi/php-java/aspose.slides/timing/setrepeatuntilnextclick/) và [Timing::setRepeatUntilEndSlide](https://reference.aspose.com/slides/vi/php-java/aspose.slides/timing/setrepeatuntilendslide/) trước [Timing::setRepeatCount](https://reference.aspose.com/slides/vi/php-java/aspose.slides/timing/setrepeatcount/), vì việc đặt bất kỳ cờ nào cũng sẽ thay đổi chế độ lặp hiện tại.
+
+## **Thêm và Trích Xuất Âm Thanh Hoạt Ảnh**
+
+Một hiệu ứng hoạt ảnh có thể tham chiếu tới âm thanh nhúng thông qua [Effect::getSound](https://reference.aspose.com/slides/vi/php-java/aspose.slides/effect/getsound/). [Effect::setStopPreviousSound](https://reference.aspose.com/slides/vi/php-java/aspose.slides/effect/setstopprevioussound/) chỉ thị một hiệu ứng dừng âm thanh đã được khởi động bởi một hiệu ứng trước đó.
+
+### **Thêm Âm Thanh Vào Hiệu Ứng**
+
+Ví dụ dưới đây yêu cầu một tệp âm thanh cục bộ có tên `animation-sound.wav`. Nó tạo hai hiệu ứng, nhúng tệp đó làm âm thanh cho hiệu ứng đầu tiên, và cấu hình hiệu ứng thứ hai để dừng âm thanh. Nó sử dụng các đối tượng trả về bởi [Sequence::addEffect](https://reference.aspose.com/slides/vi/php-java/aspose.slides/sequence/addeffect/), vì vậy không cần chỉ mục chuỗi.
+
+```php
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$Files = new JavaClass("java.nio.file.Files");
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $firstShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 80, 100, 240, 80);
+    $secondShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 400, 100, 240, 80);
+    $firstShape->addTextFrame("Starts sound");
+    $secondShape->addTextFrame("Stops sound");
+
     $sequence = $slide->getTimeline()->getMainSequence();
-    foreach($sequence as $effect) {
-      if (java_is_null($effect->getSound())) {
-        continue;
-      }
-      # Trích xuất âm thanh của hiệu ứng dưới dạng mảng byte
-      $audio = $effect->getSound()->getBinaryData();
-    }
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+    $firstEffect = $sequence->addEffect($firstShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+    $secondEffect = $sequence->addEffect($secondShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+
+    $baseDirectory = getcwd();
+    $audioPath = (new Java("java.io.File", $baseDirectory . DIRECTORY_SEPARATOR . "animation-sound.wav"))->toPath();
+    $audioData = $Files->readAllBytes($audioPath);
+    $effectSound = $presentation->getAudios()->addAudio($audioData);
+    $firstEffect->setSound($effectSound);
+    $secondEffect->setStopPreviousSound(true);
+
+    $presentation->save($baseDirectory . DIRECTORY_SEPARATOR . "shape-animation-sound.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **After Animation**
+### **Trích Xuất Âm Thanh Hiệu Ứng Nhúng**
 
-Aspose.Slides for PHP via Java cho phép bạn thay đổi thuộc tính After animation của một hiệu ứng hoạt ảnh.
-
-Đây là bảng Effect và menu mở rộng trong Microsoft PowerPoint:
-
-![example1_image](shape-after-animation.png)
-
-Danh sách thả xuống **After animation** của PowerPoint tương ứng với các phương thức sau: 
-
-- Phương thức [setAfterAnimationType(int value)](https://reference.aspose.com/slides/vi/php-java/aspose.slides/effect/#setAfterAnimationType) mô tả kiểu After animation:
-  * **More Colors** của PowerPoint tương ứng với kiểu [AfterAnimationType::Color](https://reference.aspose.com/slides/vi/php-java/aspose.slides/afteranimationtype/#Color);
-  * Mục **Don't Dim** của PowerPoint tương ứng với kiểu [AfterAnimationType::DoNotDim](https://reference.aspose.com/slides/vi/php-java/aspose.slides/afteranimationtype/#DoNotDim) (kiểu After animation mặc định);
-  * Mục **Hide After Animation** của PowerPoint tương ứng với kiểu [AfterAnimationType::HideAfterAnimation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/afteranimationtype/#HideAfterAnimation);
-  * Mục **Hide on Next Mouse Click** của PowerPoint tương ứng với kiểu [AfterAnimationType::HideOnNextMouseClick](https://reference.aspose.com/slides/vi/php-java/aspose.slides/afteranimationtype/#HideOnNextMouseClick);
-- Phương thức [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/vi/php-java/aspose.slides/effect/#setAfterAnimationColor) xác định định dạng màu sau hoạt ảnh. Phương thức này hoạt động cùng với kiểu [AfterAnimationType::Color](https://reference.aspose.com/slides/vi/php-java/aspose.slides/afteranimationtype/#Color). Nếu bạn thay đổi kiểu sang khác, màu after animation sẽ bị xoá.
-
-Đoạn mã PHP này cho bạn cách thay đổi một hiệu ứng after animation:
+Ví dụ sau yêu cầu một bản trình chiếu cục bộ có tên `presentation-with-animation-sounds.pptx`. Nó quét cả chuỗi chính và chuỗi tương tác và ghi mọi âm thanh hiệu ứng nhúng vào thư mục `extracted-animation-sounds`. Phần mở rộng được chọn dựa trên kiểu MIME âm thanh được cung cấp bởi [Audio::getContentType](https://reference.aspose.com/slides/vi/php-java/aspose.slides/audio/getcontenttype/).
 
 ```php
-  # Khởi tạo một lớp presentation đại diện cho tệp trình bày
-  $pres = new Presentation("AnimImage_out.pptx");
-  try {
-    $firstSlide = $pres->getSlides()->get_Item(0);
-    # Lấy hiệu ứng đầu tiên của chuỗi chính
-    $firstEffect = $firstSlide->getTimeline()->getMainSequence()->get_Item(0);
-    # Thay đổi kiểu after animation thành Color
-    $firstEffect->setAfterAnimationType(AfterAnimationType::Color);
-    # Đặt màu dim cho after animation
-    $firstEffect->getAfterAnimationColor()->setColor(java("java.awt.Color")->BLUE);
-    # Ghi tệp PPTX ra đĩa
-    $pres->save("AnimImage_AfterAnimation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\Presentation;
+
+function getAudioExtension($contentType)
+{
+    $normalizedType = strtolower($contentType === null ? "" : java_values($contentType));
+
+    if ($normalizedType === "audio/mpeg") {
+        return ".mp3";
     }
-  }
+
+    if ($normalizedType === "audio/mp4") {
+        return ".m4a";
+    }
+
+    if ($normalizedType === "audio/ogg") {
+        return ".ogg";
+    }
+
+    if ($normalizedType === "audio/wav" || $normalizedType === "audio/x-wav") {
+        return ".wav";
+    }
+
+    return ".bin";
+}
+
+function saveSounds($sequence, $outputDirectory, $soundIndex)
+{
+    $effectCount = java_values($sequence->getCount());
+    for ($effectIndex = 0; $effectIndex < $effectCount; $effectIndex++) {
+        $effect = $sequence->get_Item($effectIndex);
+        $sound = $effect->getSound();
+        if (java_is_null($sound)) {
+            continue;
+        }
+
+        $extension = getAudioExtension($sound->getContentType());
+        $outputPath = $outputDirectory->resolve("effect-sound-" . $soundIndex . $extension);
+        $outputStream = new Java("java.io.FileOutputStream", $outputPath->toFile());
+        try {
+            $outputStream->write($sound->getBinaryData());
+        } finally {
+            $outputStream->close();
+        }
+        $soundIndex++;
+    }
+
+    return $soundIndex;
+}
+
+$baseDirectory = getcwd();
+$inputPath = (new Java("java.io.File", $baseDirectory . DIRECTORY_SEPARATOR . "presentation-with-animation-sounds.pptx"))->toPath();
+$outputDirectoryName = $baseDirectory . DIRECTORY_SEPARATOR . "extracted-animation-sounds";
+if (!is_dir($outputDirectoryName)) {
+    mkdir($outputDirectoryName, 0777, true);
+}
+$outputDirectory = (new Java("java.io.File", $outputDirectoryName))->toPath();
+
+$presentation = new Presentation($inputPath->toString());
+try {
+    $soundIndex = 1;
+
+    $slides = $presentation->getSlides();
+    $slideCount = java_values($slides->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $slides->get_Item($slideIndex);
+        $soundIndex = saveSounds($slide->getTimeline()->getMainSequence(), $outputDirectory, $soundIndex);
+
+        $interactiveSequences = $slide->getTimeline()->getInteractiveSequences();
+        $interactiveCount = java_values($interactiveSequences->getCount());
+        for ($sequenceIndex = 0; $sequenceIndex < $interactiveCount; $sequenceIndex++) {
+            $sequence = $interactiveSequences->get_Item($sequenceIndex);
+            $soundIndex = saveSounds($sequence, $outputDirectory, $soundIndex);
+        }
+    }
+
+    echo "Extracted " . ($soundIndex - 1) . " sound file(s) to " . java_values($outputDirectory->toAbsolutePath()->toString()) . "." . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Animate Text**
+Đối với các đối tượng âm thanh lớn, hãy sử dụng [Audio::getStream](https://reference.aspose.com/slides/vi/php-java/aspose.slides/audio/getstream/) và sao chép luồng tới tệp thay vì tải toàn bộ đối tượng vào mảng byte.
 
-Aspose.Slides cung cấp các phương thức sau để cho phép bạn làm việc với khối *Animate text* của một hiệu ứng hoạt ảnh:
+## **Đặt Hành Vi Sau Hoạt Ảnh**
 
-- [setAnimateTextType(int value)](https://reference.aspose.com/slides/vi/php-java/aspose.slides/effect/#setAnimateTextType) mô tả kiểu animate text của hiệu ứng. Văn bản của shape có thể được hoạt ảnh:
-  - Cả một lúc ([AnimateTextType::AllAtOnce](https://reference.aspose.com/slides/vi/php-java/aspose.slides/animatetexttype/#AllAtOnce))
-  - Theo từ ([AnimateTextType::ByWord](https://reference.aspose.com/slides/vi/php-java/aspose.slides/animatetexttype/#ByWord))
-  - Theo ký tự ([AnimateTextType::ByLetter](https://reference.aspose.com/slides/vi/php-java/aspose.slides/animatetexttype/#ByLetter))
-- [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/vi/php-java/aspose.slides/effect/#setDelayBetweenTextParts) đặt độ trễ giữa các phần văn bản được hoạt ảnh (từ hoặc ký tự). Giá trị dương xác định phần trăm thời lượng hiệu ứng. Giá trị âm xác định độ trễ tính bằng giây.
+Tùy chọn **After animation** điều khiển những gì sẽ xảy ra với một hình dạng sau khi hiệu ứng của nó kết thúc.
 
-Đây là cách bạn có thể thay đổi các thuộc tính Animate text của Effect:
+![Hộp thoại Tùy chọn Hiệu Ứng PowerPoint hiển thị cài đặt After animation](shape-after-animation.png)
 
-1. [Áp dụng](#apply-animation-to-shape) hoặc lấy hiệu ứng hoạt ảnh.
-2. Sử dụng phương thức [setBuildType(int value)](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textanimation/#setBuildType) và giá trị [BuildType::AsOneObject](https://reference.aspose.com/slides/vi/php-java/aspose.slides/buildtype/#AsOneObject) để tắt chế độ hoạt ảnh *By Paragraphs*.
-3. Đặt các giá trị mới bằng các phương thức [setAnimateTextType(int value)](https://reference.aspose.com/slides/vi/php-java/aspose.slides/effect/#setAnimateTextType) và [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/vi/php-java/aspose.slides/effect/#setDelayBetweenTextParts).
-4. Lưu tệp PPTX đã chỉnh sửa.
+Lớp [AfterAnimationType](https://reference.aspose.com/slides/vi/php-java/aspose.slides/afteranimationtype/) hỗ trợ để lại hình dạng không đổi, thay đổi màu, ẩn nó sau hoạt ảnh, hoặc ẩn nó khi nhấp tiếp theo. Khi loại là [AfterAnimationType::Color](https://reference.aspose.com/slides/vi/php-java/aspose.slides/afteranimationtype/), cũng cần đặt [Effect::getAfterAnimationColor](https://reference.aspose.com/slides/vi/php-java/aspose.slides/effect/getafteranimationcolor/).
 
-Đoạn mã PHP này minh họa quy trình:
+Ví dụ độc lập này tạo một hiệu ứng, đặt hành vi sau hoạt ảnh qua đối tượng hiệu ứng được trả về, và lưu kết quả.
 
 ```php
-  # Khởi tạo một lớp presentation đại diện cho tệp trình bày.
-  $pres = new Presentation("AnimTextBox_out.pptx");
-  try {
-    $firstSlide = $pres->getSlides()->get_Item(0);
-    # Lấy hiệu ứng đầu tiên của chuỗi chính
-    $firstEffect = $firstSlide->getTimeline()->getMainSequence()->get_Item(0);
-    # Thay đổi kiểu hoạt ảnh Text của hiệu ứng thành "As One Object"
-    $firstEffect->getTextAnimation()->setBuildType(BuildType::AsOneObject);
-    # Thay đổi kiểu Animate text của hiệu ứng thành "By word"
-    $firstEffect->setAnimateTextType(AnimateTextType::ByWord);
-    # Đặt độ trễ giữa các từ thành 20% thời lượng hiệu ứng
-    $firstEffect->setDelayBetweenTextParts(20.0);
-    # Ghi tệp PPTX ra đĩa
-    $pres->save("AnimTextBox_AnimateText.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\AfterAnimationType;
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 120, 100, 320, 80);
+    $shape->addTextFrame("Dim after animation");
+
+    $effect = $slide->getTimeline()->getMainSequence()->addEffect($shape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+    $effect->setAfterAnimationType(AfterAnimationType::Color);
+    $effect->getAfterAnimationColor()->setColor(java("java.awt.Color")->LIGHT_GRAY);
+
+    $presentation->save("shape-animation-after-effect.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Câu hỏi thường gặp**
+Thay đổi loại khỏi [AfterAnimationType::Color](https://reference.aspose.com/slides/vi/php-java/aspose.slides/afteranimationtype/) sẽ xoá cài đặt màu sau hoạt ảnh.
 
-**Làm sao tôi có thể đảm bảo hoạt ảnh được giữ lại khi xuất bản bài thuyết trình lên web?**
+## **Hoạt Ảnh Văn Bản**
 
-[Export to HTML5](/slides/vi/php-java/export-to-html5/) và bật các [tùy chọn](https://reference.aspose.com/slides/vi/php-java/aspose.slides/html5options/) chịu trách nhiệm cho hoạt ảnh [shape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/html5options/setanimateshapes/) và [transition](https://reference.aspose.com/slides/vi/php-java/aspose.slides/html5options/setanimatetransitions/). HTML thuần không phát hoạt ảnh slide, trong khi HTML5 có thể.
+Hoạt ảnh văn bản có hai điều khiển liên quan:
 
-**Thay đổi thứ tự z-order (thứ tự lớp) của các shape ảnh hưởng như thế nào đến hoạt ảnh?**
+- [TextAnimation::getBuildType](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textanimation/getbuildtype/) kiểm soát việc các đoạn văn xuất hiện cùng nhau hay theo mức độ đoạn.
+- [Effect::getAnimateTextType](https://reference.aspose.com/slides/vi/php-java/aspose.slides/effect/getanimatetexttype/) kiểm soát việc văn bản xuất hiện toàn bộ, theo từ hoặc theo ký tự. [Effect::getDelayBetweenTextParts](https://reference.aspose.com/slides/vi/php-java/aspose.slides/effect/getdelaybetweentextparts/) đặt độ trễ giữa các từ hoặc ký tự. Giá trị dương là phần trăm của thời lượng hiệu ứng; giá trị âm là độ trễ tính bằng giây.
 
-Thứ tự hoạt ảnh và thứ tự vẽ là độc lập: một hiệu ứng điều khiển thời gian và kiểu xuất hiện/biến mất, trong khi [z-order](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/getzorderposition/) quyết định gì phủ lên gì. Kết quả hiển thị được xác định bởi sự kết hợp của chúng. (Đây là hành vi chung của PowerPoint; mô hình effects-and-shapes của Aspose.Slides tuân theo logic tương tự.)
+Ví dụ độc lập sau hoạt ảnh các từ trong một hộp văn bản. [BuildType::AsOneObject](https://reference.aspose.com/slides/vi/php-java/aspose.slides/buildtype/) vô hiệu hoá việc xây dựng theo đoạn, vì vậy cài đặt từ áp dụng cho toàn bộ khung văn bản.
 
-**Có hạn chế nào khi chuyển đổi hoạt ảnh sang video đối với một số hiệu ứng không?**
+```php
+use aspose\slides\AnimateTextType;
+use aspose\slides\BuildType;
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
-Nhìn chung, [các hoạt ảnh đều được hỗ trợ](/slides/vi/php-java/convert-powerpoint-to-video/), nhưng trong một số trường hợp hiếm hoặc với các hiệu ứng cụ thể có thể được hiển thị khác nhau. Bạn nên kiểm tra với các hiệu ứng bạn sử dụng và với phiên bản thư viện hiện tại.
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $textBox = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 80, 80, 560, 100);
+    $textBox->addTextFrame("Aspose.Slides animates this sentence word by word.");
+
+    $effect = $slide->getTimeline()->getMainSequence()->addEffect($textBox, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+    $effect->getTextAnimation()->setBuildType(BuildType::AsOneObject);
+    $effect->setAnimateTextType(AnimateTextType::ByWord);
+    $effect->setDelayBetweenTextParts(20.0);
+
+    $presentation->save("animated-text.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Để xây dựng một hộp văn bản theo đoạn, đặt [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/vi/php-java/aspose.slides/buildtype/) (hoặc mức độ đoạn khác). Để mục tiêu một đoạn riêng với hiệu ứng riêng, sử dụng phương thức overload của [Sequence::addEffect](https://reference.aspose.com/slides/vi/php-java/aspose.slides/sequence/addeffect/) chấp nhận một [Paragraph](https://reference.aspose.com/slides/vi/php-java/aspose.slides/paragraph/). Xem [Animated Text](/slides/vi/php-java/animated-text/) để biết các ví dụ ở mức độ đoạn.
+
+## **Ghi Xuất và Ghi Chú Tương Thích**
+
+- Lưu dưới dạng PPT hoặc PPTX giữ nguyên mô hình hoạt ảnh, nhưng việc phát lại cuối cùng được điều khiển bởi trình xem bản trình chiếu.
+- PDF và hình ảnh tĩnh không phát hoạt ảnh. Sử dụng [HTML5 export](/slides/vi/php-java/export-to-html5/), GIF động, hoặc [video conversion](/slides/vi/php-java/convert-powerpoint-to-video/) khi đầu ra phải hiển thị chuyển động.
+- Đối với HTML5, bật [Html5Options::setAnimateShapes](https://reference.aspose.com/slides/vi/php-java/aspose.slides/html5options/setanimateshapes/) và, khi cần, [Html5Options::setAnimateTransitions](https://reference.aspose.com/slides/vi/php-java/aspose.slides/html5options/setanimatetransitions/).
+- Kết xuất video hỗ trợ nhiều hiệu ứng nhập cảnh, nhấn mạnh, thoát và đường chuyển động phổ biến, nhưng không phải mọi hiệu ứng PowerPoint đều được hỗ trợ. Kiểm tra [supported animations and effects](/slides/vi/php-java/convert-powerpoint-to-video/#supported-animations-and-effects) và thử nghiệm các bản trình chiếu quan trọng với phiên bản Aspose.Slides bạn đang sử dụng.
+- Các hiệu ứng tùy chỉnh nâng cao và hiệu ứng nhập từ các định dạng bản trình chiếu khác có thể được giữ trong tệp nhưng hiển thị khác nhau trong PowerPoint, HTML5 hoặc video. Xác thực kết quả đã xuất thay vì chỉ dựa vào tên hiệu ứng.
+
+## **Câu Hỏi Thường Gặp**
+
+**Tại sao một hoạt ảnh xuất hiện trong PowerPoint nhưng không trong PDF?**
+
+PDF là định dạng tĩnh, vì vậy hoạt ảnh và chuyển đổi slide không được phát. Xuất sang HTML5, GIF động, hoặc video khi cần giữ chuyển động.
+
+**Tại sao một hiệu ứng phát khác nhau trong video?**
+
+Xuất video kết xuất hoạt ảnh thay vì lưu lại hành vi gốc của PowerPoint. Một số hiệu ứng nâng cao không được hỗ trợ hoặc chỉ được ước tính. Kiểm tra bảng hiệu ứng được hỗ trợ và thử nghiệm bản trình chiếu thực tế trước khi sử dụng trong sản xuất.
+
+**Việc di chuyển một hình dạng lên hoặc xuống có thay đổi thứ tự hoạt ảnh của nó không?**
+
+Không. Thứ tự z-order của hình dạng chỉ điều khiển chồng lấp, trong khi thứ tự chuỗi và trình kích hoạt quyết định thứ tự phát hoạt ảnh. Thay đổi timeline nếu bạn cần một thứ tự phát khác.

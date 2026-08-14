@@ -1,5 +1,5 @@
 ---
-title: Εφαρμογή Κινήσεων Σχημάτων σε Παρουσιάσεις σε Android
+title: Εφαρμογή Κίνησης Σχημάτων σε Παρουσιάσεις σε Android
 linktitle: Κίνηση Σχήματος
 type: docs
 weight: 60
@@ -8,8 +8,8 @@ keywords:
 - σχήμα
 - κίνηση
 - εφέ
-- Κινούμενο Σχήμα
-- Κινούμενο Κείμενο
+- σχήμα με κίνηση
+- κείμενο με κίνηση
 - προσθήκη κίνησης
 - λήψη κίνησης
 - εξαγωγή κίνησης
@@ -23,477 +23,462 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Ανακαλύψτε πώς να δημιουργήσετε και να προσαρμόσετε κινήσεις σχημάτων σε παρουσιάσεις PowerPoint με το Aspose.Slides για Android μέσω Java. Ξεχωρίστε!"
+description: "Μάθετε πώς να προσθέτετε, να ελέγχετε και να προσαρμόζετε τις κινήσεις σχημάτων, τον χρονισμό, τους ήχους, τη συμπεριφορά μετά την κίνηση και το κείμενο με κίνηση, χρησιμοποιώντας το Aspose.Slides για Android μέσω Java."
 ---
-## **Εισαγωγή**
+## **Επισκόπηση**
 
-Οι κινήσεις είναι οπτικά εφέ που μπορούν να εφαρμοστούν σε κείμενα, εικόνες, σχήματα ή [διαγράμματα](https://docs.aspose.com/slides/el/androidjava/animated-charts/). Δίνουν ζωή στις παρουσιάσεις ή στα συστατικά τους.
+Το Aspose.Slides for Android via Java αντιπροσωπεύει τις κινούμενες εφέ των διαφανειών ως εφέ σε μια χρονογραμμή διαφάνειας. Ένα εφέ έχει ένα σχήμα-στόχο, τύπο και υποτύπο κίνησης, ενεργοποίηση, ρυθμίσεις χρονισμού και προαιρετικές ιδιότητες όπως ήχος ή συμπεριφορά μετά την κίνηση.
 
-## **Γιατί να χρησιμοποιείτε Κινήσεις σε Παρουσιάσεις;**
+Η χρονογραμμή περιέχει δύο είδη ακολουθιών:
 
-Χρησιμοποιώντας κινήσεις, μπορείτε  
+- Η **κύρια ακολουθία** παίζει καθώς προχωρά η διαφάνεια.
+- Μια **διαδραστική ακολουθία** ξεκινά όταν το σχήμα ενεργοποίησης κλικάρεται.
 
-* να ελέγχετε τη ροή των πληροφοριών  
-* να τονίζετε σημαντικά σημεία  
-* να αυξάνετε το ενδιαφέρον ή τη συμμετοχή του κοινού σας  
-* να καταστήσετε το περιεχόμενο πιο εύκολο στην ανάγνωση, απορρόφηση ή επεξεργασία  
-* να κατευθύνετε την προσοχή των αναγνωστών ή των θεατών σας στα σημαντικά τμήματα μιας παρουσίασης  
+Δεδομένου ότι τα πλαίσια κειμένου, οι εικόνες, τα γραφήματα, οι πίνακες και άλλα αντικείμενα διαφάνειας υλοποιούν το [IShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/), χρησιμοποιείτε την ίδια μέθοδο [ISequence.addEffect](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) για το μεγαλύτερο μέρος του περιεχομένου της διαφάνειας. Τα διαθέσιμα εφέ αναφέρονται στην κλάση [EffectType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/effecttype/).
 
-Το PowerPoint παρέχει πολλές επιλογές και εργαλεία για κινήσεις και εφέ κίνησης στις κατηγορίες **είσοδος**, **έξοδος**, **τονισμός** και **διαδρομές κίνησης**. 
+## **Προσθήκη Κινούμενων Εφέ Σχημάτων**
 
-## **Κινήσεις στο Aspose.Slides**
+Για να προσθέσετε μια κίνηση, αποκτήστε την κύρια ακολουθία της διαφάνειας και καλέστε το [ISequence.addEffect](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) με το σχήμα-στόχο, τον τύπο εφέ, τον υποτύπο και την ενεργοποίηση. Για ένα εφέ που ξεκινά όταν κλικάρεται ένα άλλο σχήμα, δημιουργήστε μια διαδραστική ακολουθία της οποίας η ενεργοποίηση είναι αυτό το άλλο σχήμα.
 
-* Το Aspose.Slides παρέχει τις κλάσεις και τους τύπους που χρειάζεστε για εργασία με κινήσεις στο χώρο ονομάτων `Aspose.Slides.Animation`,  
-* Το Aspose.Slides προσφέρει πάνω από **150 εφέ κίνησης** στην απαρίθμηση [EffectType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/effecttype). Αυτά τα εφέ είναι ουσιαστικά τα ίδια (ή ισοδύναμα) εφέ που χρησιμοποιούνται στο PowerPoint.  
-
-## **Εφαρμογή Κίνησης σε Πλαίσιο Κειμένου**
-
-Το Aspose.Slides για Android μέσω Java σας επιτρέπει να εφαρμόσετε κίνηση στο κείμενο ενός σχήματος.
-
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation).  
-2. Αποκτήστε μια αναφορά σε διαφάνεια μέσω του δείκτη της.  
-3. Προσθέστε ένα `rectangle` [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape).  
-4. Προσθέστε κείμενο στο [IAutoShape.TextFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IAutoShape#addTextFrame-java.lang.String-).  
-5. Αποκτήστε τη βασική ακολουθία εφέ.  
-6. Προσθέστε ένα εφέ κίνησης στο [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape).  
-7. Ορίστε την ιδιότητα `TextAnimation.BuildType` στην τιμή από την απαρίθμηση `BuildType`.  
-8. Αποθηκεύστε την παρουσίαση στον δίσκο ως αρχείο PPTX.  
-
-Αυτός ο κώδικας Java δείχνει πώς να εφαρμόσετε το εφέ `Fade` στο AutoShape και να ορίσετε την κίνηση κειμένου στην τιμή *By 1st Level Paragraphs*:
+Το παρακάτω παράδειγμα δημιουργεί και τα δύο είδη κίνησης και αποθηκεύει το αποτέλεσμα στο `shape-animations.pptx`.
 
 ```java
-// Δημιουργεί μια παρουσίαση κλάσης που αντιπροσωπεύει ένα αρχείο παρουσίασης.
-Presentation pres = new Presentation();
-try {
-    ISlide sld = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // Προσθέτει νέο AutoShape με κείμενο
-    IAutoShape autoShape = sld.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 100);
+public class AddShapeAnimations {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
 
-    ITextFrame textFrame = autoShape.getTextFrame();
-    textFrame.setText("First paragraph \nSecond paragraph \n Third paragraph");
+            IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 120, 100, 320, 80);
+            targetShape.addTextFrame("Click to animate this shape");
 
-    // Λαμβάνει την κύρια ακολουθία της διαφάνειας.
-    ISequence sequence = sld.getTimeline().getMainSequence();
+            ISequence mainSequence = slide.getTimeline().getMainSequence();
+            IEffect entranceEffect = mainSequence.addEffect(targetShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            entranceEffect.getTiming().setDuration(1.5f);
 
-    // Προσθέτει εφέ κίνησης Fade στο σχήμα
-    IEffect effect = sequence.addEffect(autoShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            IAutoShape triggerShape = slide.getShapes().addAutoShape(ShapeType.Bevel, 20, 20, 100, 40);
+            triggerShape.addTextFrame("Move");
 
-    // Κινεί το κείμενο του σχήματος με παραγράφους πρώτου επιπέδου
-    effect.getTextAnimation().setBuildType(BuildType.ByLevelParagraphs1);
+            ISequence interactiveSequence = slide.getTimeline().getInteractiveSequences().add(triggerShape);
+            interactiveSequence.addEffect(targetShape, EffectType.PathFootball, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // Αποθηκεύει το αρχείο PPTX στον δίσκο
-    pres.save(path + "AnimText_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-{{%  alert color="primary"  %}} 
-
-Εκτός από την εφαρμογή κινήσεων σε κείμενο, μπορείτε επίσης να εφαρμόσετε κινήσεις σε ένα μόνο [Paragraph](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraph). Δείτε [**Animated Text**](/slides/el/androidjava/animated-text/).
-
-{{% /alert %}} 
-
-## **Εφαρμογή Κίνησης σε PictureFrame**
-
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation).  
-2. Αποκτήστε μια αναφορά σε διαφάνεια μέσω του δείκτη της.  
-3. Προσθέστε ή αποκτήστε ένα [PictureFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/pictureframe) στη διαφάνεια.  
-4. Αποκτήστε τη βασική ακολουθία εφέ.  
-5. Προσθέστε ένα εφέ κίνησης στο [PictureFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/pictureframe).  
-6. Αποθηκεύστε την παρουσίαση στον δίσκο ως αρχείο PPTX.  
-
-Αυτός ο κώδικας Java δείχνει πώς να εφαρμόσετε το εφέ `Fly` σε ένα πλαίσιο εικόνας:
-
-```java
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο παρουσίασης.
-Presentation pres = new Presentation();
-try {
-    // Φορτώνει εικόνα που θα προστεθεί στη συλλογή εικόνων της παρουσίασης
-    IPPImage picture;
-    IImage image = Images.fromFile("aspose-logo.jpg");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-
-    // Προσθέτει πλαίσιο εικόνας στη διαφάνεια
-    IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, picture);
-
-    // Λαμβάνει την κύρια ακολουθία της διαφάνειας.
-    ISequence sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
-
-    // Προσθέτει εφέ κίνησης Fly από τα αριστερά στο πλαίσιο εικόνας
-    IEffect effect = sequence.addEffect(picFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
-
-    // Αποθηκεύει το αρχείο PPTX στον δίσκο
-    pres.save(path + "AnimImage_out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Εφαρμογή Κίνησης σε Σχήμα**
-
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation).  
-2. Αποκτήστε μια αναφορά σε διαφάνεια μέσω του δείκτη της.  
-3. Προσθέστε ένα `rectangle` [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape).  
-4. Προσθέστε ένα `Bevel` [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape) (όταν αυτό το αντικείμενο κλικάρεται, η κίνηση εκτελείται).  
-5. Δημιουργήστε μια ακολουθία εφέ πάνω στο σχήμα Bevel.  
-6. Δημιουργήστε ένα προσαρμοσμένο `UserPath`.  
-7. Προσθέστε εντολές για μετακίνηση στο `UserPath`.  
-8. Αποθηκεύστε την παρουσίαση στον δίσκο ως αρχείο PPTX.  
-
-Αυτός ο κώδικας Java δείχνει πώς να εφαρμόσετε το εφέ `PathFootball` σε ένα σχήμα:
-
-```java
-// Δημιουργεί μια κλάση Presentation που αντιπροσωπεύει ένα αρχείο PPTX.
-Presentation pres = new Presentation();
-try {
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Δημιουργεί το εφέ PathFootball για το υπάρχον σχήμα από την αρχή.
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 250, 25);
-    ashp.addTextFrame("Animated TextBox");
-
-    // Προσθέτει το εφέ κίνησης PathFootball
-    pres.getSlides().get_Item(0).getTimeline().getMainSequence().addEffect(ashp, EffectType.PathFootball,
-            EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-    // Δημιουργεί κάποιο είδος «κουμπιού».
-    IShape shapeTrigger = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Bevel, 10, 10, 20, 20);
-
-    // Δημιουργεί μια ακολουθία εφέ για αυτό το κουμπί.
-    ISequence seqInter = pres.getSlides().get_Item(0).getTimeline().getInteractiveSequences().add(shapeTrigger);
-
-     // Δημιουργεί προσαρμοσμένη διαδρομή χρήστη. Το αντικείμενό μας θα μετακινηθεί μόνο μετά το κλικ του κουμπιού.
-    IEffect fxUserPath = seqInter.addEffect(ashp, EffectType.PathUser, EffectSubtype.None, EffectTriggerType.OnClick);
-
-     // Προσθέτει εντολές κίνησης επειδή η δημιουργημένη διαδρομή είναι κενή.
-    IMotionEffect motionBhv = ((IMotionEffect)fxUserPath.getBehaviors().get_Item(0));
-
-    Point2D.Float[] pts = new Point2D.Float[1];
-    pts[0] = new Point2D.Float(0.076f, 0.59f);
-    motionBhv.getPath().add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, true);
-    pts[0] = new Point2D.Float(-0.076f, -0.59f);
-    motionBhv.getPath().add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, false);
-    motionBhv.getPath().add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
-
-     // Αποθηκεύει το αρχείο PPTX στον δίσκο
-    pres.save("AnimExample_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Λήψη των Εφέ Κίνησης που Εφαρμόζονται σε Σχήμα**
-
-Τα παρακάτω παραδείγματα δείχνουν πώς να χρησιμοποιήσετε τη μέθοδο `getEffectsByShape` από τη διεπαφή [ISequence](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isequence/) για να λάβετε όλα τα εφέ κίνησης που εφαρμόζονται σε ένα σχήμα.
-
-**Παράδειγμα 1: Λήψη εφέ κίνησης που εφαρμόζονται σε σχήμα σε κανονική διαφάνεια**
-
-Στο παρελθόν, μάθατε πώς να προσθέτετε εφέ κίνησης σε σχήματα σε παρουσιάσεις PowerPoint. Ο παρακάτω κώδικας δείχνει πώς να λάβετε τα εφέ που εφαρμόζονται στο πρώτο σχήμα της πρώτης κανονικής διαφάνειας στην παρουσίαση `AnimExample_out.pptx`.
-
-```java
-Presentation presentation = new Presentation("AnimExample_out.pptx");
-try {
-    ISlide firstSlide = presentation.getSlides().get_Item(0);
-
-    // Λαμβάνει την κύρια ακολουθία κίνησης της διαφάνειας.
-    ISequence sequence = firstSlide.getTimeline().getMainSequence();
-
-    // Λαμβάνει το πρώτο σχήμα στην πρώτη διαφάνεια.
-    IShape shape = firstSlide.getShapes().get_Item(0);
-
-    // Λαμβάνει τα εφέ κίνησης που εφαρμόζονται στο σχήμα.
-    IEffect[] shapeEffects = sequence.getEffectsByShape(shape);
-
-    if (shapeEffects.length > 0)
-        System.out.println("The shape " + shape.getName() + " has " + shapeEffects.length + " animation effects.");
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-**Παράδειγμα 2: Λήψη όλων των εφέ κίνησης, συμπεριλαμβανομένων αυτών που κληρονομούνται από placeholders**
-
-Εάν ένα σχήμα σε κανονική διαφάνεια έχει placeholders που βρίσκονται στη διαφάνεια διάταξης και/ή στη κύρια (master) διαφάνεια, και έχουν προστεθεί εφέ κίνησης σε αυτά τα placeholders, τότε όλα τα εφέ του σχήματος θα εκτελούνται κατά τη διάρκεια της παρουσίασης, συμπεριλαμβανομένων των κληρονομημένων από τα placeholders.
-
-Ας υποθέσουμε ότι έχουμε ένα αρχείο παρουσίασης PowerPoint `sample.pptx` με μία διαφάνεια που περιέχει μόνο ένα υποσέλιδο σχήμα με το κείμενο "Made with Aspose.Slides" και το εφέ **Random Bars** έχει εφαρμοστεί στο σχήμα.
-
-![Εφέ κίνησης σχήματος διαφάνειας](slide-shape-animation.png)
-
-Ας υποθέσουμε επίσης ότι το εφέ **Split** έχει εφαρμοστεί στο placeholder του υποσέλιδου στη **διάταξη** διαφάνειας.
-
-![Εφέ κίνησης σχήματος διάταξης](layout-shape-animation.png)
-
-Τέλος, το εφέ **Fly In** έχει εφαρμοστεί στο placeholder του υποσέλιδου στην **κύρια** διαφάνεια.
-
-![Εφέ κίνησης σχήματος κύριας διαφάνειας](master-shape-animation.png)
-
-Ο παρακάτω κώδικας δείχνει πώς να χρησιμοποιήσετε τη μέθοδο `getBasePlaceholder` από τη διεπαφή [IShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/) για να αποκτήσετε πρόσβαση στα placeholders του σχήματος και να λάβετε τα εφέ κίνησης που εφαρμόζονται στο σχήμα υποσέλιδου, συμπεριλαμβανομένων των κληρονομημένων από placeholders που βρίσκονται στις διαφάνειες διάταξης και κύριας.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-
-ISlide slide = presentation.getSlides().get_Item(0);
-
-// Get animation effects of the shape on the normal slide.
-IShape shape = slide.getShapes().get_Item(0);
-IEffect[] shapeEffects = slide.getTimeline().getMainSequence().getEffectsByShape(shape);
-
-// Get animation effects of the placeholder on the layout slide.
-IShape layoutShape = shape.getBasePlaceholder();
-IEffect[] layoutShapeEffects = slide.getLayoutSlide().getTimeline().getMainSequence().getEffectsByShape(layoutShape);
-
-// Get animation effects of the placeholder on the master slide.
-IShape masterShape = layoutShape.getBasePlaceholder();
-IEffect[] masterShapeEffects = slide.getLayoutSlide().getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(masterShape);
-
-System.out.println("Main sequence of shape effects:");
-printEffects(masterShapeEffects);
-printEffects(layoutShapeEffects);
-printEffects(shapeEffects);
-
-presentation.dispose();
-```
-```java
-static void printEffects(IEffect[] effects)
-{
-    for (IEffect effect : effects)
-    {
-        String typeName = EffectType.getName(EffectType.class, effect.getType());
-        String subtypeName = EffectSubtype.getName(EffectSubtype.class, effect.getSubtype());
-
-        System.out.println(typeName + " " + subtypeName);
+            presentation.save("shape-animations.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
     }
 }
 ```
 
-Output:
-```text
-Main sequence of shape effects:
-Fly Bottom
-Split VerticalIn
-RandomBars Horizontal
-```
+Η ενεργοποίηση ελέγχει πότε ξεκινά ένα εφέ:
 
-## **Αλλαγή Ιδιοτήτων Χρονολόγησης Εφέ Κίνησης**
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/effecttriggertype/#OnClick) αναμένει κλικ στην κύρια ακολουθία ή κλικ στο σχήμα ενεργοποίησης σε μια διαδραστική ακολουθία.
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/effecttriggertype/#WithPrevious) ξεκινά με το προηγούμενο εφέ.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/effecttriggertype/#AfterPrevious) ξεκινά όταν ολοκληρωθεί το προηγούμενο εφέ.
 
-Το Aspose.Slides για Android μέσω Java σάς επιτρέπει να αλλάξετε τις ιδιότητες Χρονολόγησης ενός εφέ κίνησης.
+Για να κίνηση μια εικόνα, ένα γράφημα ή άλλο τύπο σχήματος, περάστε αυτό το αντικείμενο στο [ISequence.addEffect](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) αντί για `targetShape`. Για επιλογές ομαδοποίησης συγκεκριμένες στα γραφήματα, δείτε [Animated Charts](/slides/el/androidjava/animated-charts/).
 
-Αυτό είναι το παράθυρο χρονολόγησης κίνησης στο Microsoft PowerPoint:
+## **Ανάγνωση Κινούμενων Εφέ Σχημάτων**
 
-![Παράθυρο χρονολόγησης κίνησης στο Microsoft PowerPoint](shape-animation.png)
+Χρησιμοποιήστε το [ISequence.getEffectsByShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) όταν γνωρίζετε το σχήμα-στόχο. Για να εξετάσετε κάθε εφέ, απαριθμήστε την κύρια ακολουθία και κάθε διαδραστική ακολουθία. Η απαρίθμηση αποτρέπει την υπόθεση ότι μια ακολουθία περιέχει εφέ στη θέση `0`.
 
-Αυτές είναι οι αντιστοιχίες μεταξύ του Timing του PowerPoint και των ιδιοτήτων [Effect.Timing](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IEffect#getTiming--) :
-
-- Η λίστα επιλογής **Start** του PowerPoint Timing ταιριάζει με την ιδιότητα [Effect.Timing.TriggerType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ITiming#getTriggerType--).  
-- Το **Duration** του PowerPoint Timing ταιριάζει με την ιδιότητα [Effect.Timing.Duration](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ITiming#getDuration--). Η διάρκεια μιας κίνησης (σε δευτερόλεπτα) είναι ο συνολικός χρόνος που χρειάζεται η κίνηση για να ολοκληρώσει έναν κύκλο.  
-- Το **Delay** του PowerPoint Timing ταιριάζει με την ιδιότητα [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ITiming#getTriggerDelayTime--).  
-
-Έτσι αλλάζετε τις ιδιότητες Timing του Effect:
-
-1. [Εφαρμόστε](#apply-animation-to-shape) ή λάβετε το εφέ κίνησης.  
-2. Ορίστε νέες τιμές για τις ιδιότητες [Effect.Timing](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IEffect#getTiming--) που χρειάζεστε.  
-3. Αποθηκεύστε το τροποποιημένο αρχείο PPTX.  
+Το παρακάτω παράδειγμα δημιουργεί ένα σχήμα με εφέ κύριας και διαδραστικής ακολουθίας, λαμβάνει τα εφέ που στοχεύουν το σχήμα και στη συνέχεια απαριθμεί κάθε ακολουθία στη διαφάνεια.
 
 ```java
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο παρουσίασης.
-Presentation pres = new Presentation("AnimExample_out.pptx");
-try {
-    // Λαμβάνει την κύρια ακολουθία της διαφάνειας.
-    ISequence sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
+import com.aspose.slides.*;
 
-    // Λαμβάνει το πρώτο εφέ της κύριας ακολουθίας.
-    IEffect effect = sequence.get_Item(0);
+public class ReadShapeAnimations {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+            targetShape.addTextFrame("Animated shape");
 
-    // Αλλάζει το TriggerType του εφέ ώστε να ξεκινά με κλικ
-    effect.getTiming().setTriggerType(EffectTriggerType.OnClick);
+            ISequence mainSequence = slide.getTimeline().getMainSequence();
+            mainSequence.addEffect(targetShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // Αλλάζει τη διάρκεια του εφέ
-    effect.getTiming().setDuration(3f);
+            IAutoShape triggerShape = slide.getShapes().addAutoShape(ShapeType.Bevel, 20, 20, 100, 40);
+            triggerShape.addTextFrame("Move");
 
-    // Αλλάζει το TriggerDelayTime του εφέ
-    effect.getTiming().setTriggerDelayTime(0.5f);
+            ISequence interactiveSequence = slide.getTimeline().getInteractiveSequences().add(triggerShape);
+            interactiveSequence.addEffect(targetShape, EffectType.PathFootball, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // Αποθηκεύει το αρχείο PPTX στον δίσκο
-    pres.save("AnimExample_changed.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+            IEffect[] targetEffects = mainSequence.getEffectsByShape(targetShape);
+            System.out.println("The main sequence contains " + targetEffects.length + " effect(s) for " + targetShape.getName() + ".");
 
-## **Ήχος Εφέ Κίνησης**
+            printSequence("Main sequence", mainSequence);
 
-Το Aspose.Slides παρέχει τις ακόλουθες ιδιότητες ώστε να μπορείτε να εργάζεστε με ήχους σε εφέ κίνησης:
-
-- [setSound(IAudio value)](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/effect/#setSound-com.aspose.slides.IAudio-)  
-- [setStopPreviousSound(boolean value)](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/effect/#setStopPreviousSound-boolean-)  
-
-### **Προσθήκη Ήχου Σε Εφέ Κίνησης**
-
-Αυτός ο κώδικας Java δείχνει πώς να προσθέσετε ήχο σε εφέ κίνησης και να τον σταματήσετε όταν ξεκινά το επόμενο εφέ:
-
-```java
-Presentation pres = new Presentation("AnimExample_out.pptx");
-try {
-    // Προσθέτει ήχο στη συλλογή ήχων της παρουσίασης
-    IAudio effectSound = pres.getAudios().addAudio(Files.readAllBytes(Paths.get("sampleaudio.wav")));
-
-    ISlide firstSlide = pres.getSlides().get_Item(0);
-
-    // Λαμβάνει την κύρια ακολουθία της διαφάνειας.
-    ISequence sequence = firstSlide.getTimeline().getMainSequence();
-
-    // Λαμβάνει το πρώτο εφέ της κύριας ακολουθίας
-    IEffect firstEffect = sequence.get_Item(0);
-
-    // Ελέγχει το εφέ για «Κανέναν Ήχο»
-    if (!firstEffect.getStopPreviousSound() && firstEffect.getSound() == null)
-    {
-        // Προσθέτει ήχο για το πρώτο εφέ
-        firstEffect.setSound(effectSound);
+            int interactiveIndex = 1;
+            for (ISequence sequence : slide.getTimeline().getInteractiveSequences()) {
+                String triggerName = sequence.getTriggerShape() == null ? "unknown" : sequence.getTriggerShape().getName();
+                String sequenceLabel = "Interactive sequence " + interactiveIndex + ", trigger: " + triggerName;
+                printSequence(sequenceLabel, sequence);
+                interactiveIndex++;
+            }
+        } finally {
+            presentation.dispose();
+        }
     }
 
-    // Λαμβάνει την πρώτη διαδραστική ακολουθία της διαφάνειας.
-    ISequence interactiveSequence = firstSlide.getTimeline().getInteractiveSequences().get_Item(0);
+    private static void printSequence(String label, ISequence sequence) {
+        System.out.println("  " + label + ": " + sequence.getCount() + " effect(s)");
 
-    // Ορίζει τη σημαία «Σταμάτημα προηγούμενου ήχου» του εφέ
-    interactiveSequence.get_Item(0).setStopPreviousSound(true);
-
-    // Αποθηκεύει το αρχείο PPTX στον δίσκο
-    pres.save("AnimExample_Sound_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-### **Ανάκτηση Ήχου Εφέ Κίνησης**
-
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/).  
-2. Αποκτήστε μια αναφορά σε διαφάνεια μέσω του δείκτη της.  
-3. Αποκτήστε τη βασική ακολουθία εφέ.  
-4. Εξάγετε το [setSound(IAudio value)](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/effect/#setSound-com.aspose.slides.IAudio-) που είναι ενσωματωμένο σε κάθε εφέ κίνησης.  
-
-```java
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο παρουσίασης.
-Presentation presentation = new Presentation("EffectSound.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-
-    // Λαμβάνει την κύρια ακολουθία της διαφάνειας.
-    ISequence sequence = slide.getTimeline().getMainSequence();
-
-    for (IEffect effect : sequence)
-    {
-        if (effect.getSound() == null)
-            continue;
-
-        // Εξάγει τον ήχο του εφέ σε πίνακα byte
-        byte[] audio = effect.getSound().getBinaryData();
+        for (IEffect effect : sequence) {
+            String targetName = effect.getTargetShape() == null ? "unknown" : effect.getTargetShape().getName();
+            String typeName = EffectType.getName(EffectType.class, effect.getType());
+            String subtypeName = EffectSubtype.getName(EffectSubtype.class, effect.getSubtype());
+            String triggerName = EffectTriggerType.getName(EffectTriggerType.class, effect.getTiming().getTriggerType());
+            String effectDescription = typeName + " " + subtypeName + "; target: " + targetName + "; trigger: " + triggerName;
+            System.out.println("    " + effectDescription);
+        }
     }
-} finally {
-    if (presentation != null) presentation.dispose();
 }
 ```
 
-## **Μετά την Κίνηση**
+Αν χρειάζεστε μόνο τα εφέ για ένα σχήμα, πρώτα προσδιορίστε το σχήμα με το όνομα, τον τύπο placeholder ή άλλη σταθερή ιδιότητα· μετά καλέστε το [ISequence.getEffectsByShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-). Μην υποθέτετε ότι το [IShapeCollection.get_Item](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishapecollection/#get_Item-int-) στη θέση `0` είναι πάντα το επιθυμητό αντικείμενο.
 
-Το Aspose.Slides για Android μέσω Java σάς επιτρέπει να αλλάξετε την ιδιότητα After animation ενός εφέ κίνησης.
+## **Εργασία με Κληρονομημένα Εφέ Συμπληρωμάτων**
 
-Αυτό είναι το παράθυρο εφέ κίνησης και εκτενές μενού στο Microsoft PowerPoint:
+Ένα placeholder σε κανονική διαφάνεια μπορεί να κληρονομήσει τη συμπεριφορά κίνησης από το αντίστοιχο placeholder στο πρότυπο διάταξης και στο master slide. Η μέθοδος [IShape.getBasePlaceholder](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) επιστρέφει αυτό το γονικό placeholder, ή `null` όταν δεν υπάρχει γονέας.
 
-![Παράθυρο εφέ κίνησης και εκτενές μενού στο Microsoft PowerPoint](shape-after-animation.png)
+Στην παρακάτω παρουσίαση, το υποσέλιδο έχει **Random Bars** στην κανονική διαφάνεια, **Split** στο slide layout και **Fly In** στο master slide.
 
-Η λίστα επιλογής **After animation** του PowerPoint ταιριάζει με αυτές τις ιδιότητες:
+![Εφέ κίνησης υποσέλιδου στην κανονική διαφάνεια](slide-shape-animation.png)
 
-- Η ιδιότητα [setAfterAnimationType(int value)](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ieffect/#setAfterAnimationType-int-) περιγράφει το τύπο After animation:  
-  * Το **More Colors** του PowerPoint ταιριάζει με τον τύπο [AfterAnimationType.Color](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/afteranimationtype/#Color).  
-  * Το **Don't Dim** του PowerPoint ταιριάζει με τον τύπο [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/afteranimationtype/#DoNotDim) (προεπιλεγμένος τύπος).  
-  * Το **Hide After Animation** του PowerPoint ταιριάζει με τον τύπο [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/afteranimationtype/#HideAfterAnimation).  
-  * Το **Hide on Next Mouse Click** του PowerPoint ταιριάζει με τον τύπο [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/afteranimationtype/#HideOnNextMouseClick).  
-- Η ιδιότητα [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ieffect/#setAfterAnimationColor-com.aspose.slides.IColorFormat-) ορίζει μια μορφή χρώματος After animation. Αυτή η ιδιότητα λειτουργεί σε συνδυασμό με τον τύπο [AfterAnimationType.Color](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/afteranimationtype/#Color). Αν αλλάξετε τον τύπο σε άλλο, το χρώμα After animation θα καθαριστεί.  
+![Εφέ κίνησης υποσέλιδου στο πρότυπο διάταξης](layout-shape-animation.png)
 
-Αυτός ο κώδικας Java δείχνει πώς να αλλάξετε ένα εφέ After animation:
+![Εφέ κίνησης υποσέλιδου στην κύρια διαφάνεια (master)](master-shape-animation.png)
+
+Το επόμενο παράδειγμα χρησιμοποιεί ιεραρχία placeholder από νέα παρουσίαση. Προσθέτει εφέ σε ένα master placeholder, ένα layout placeholder και το αντίστοιχο placeholder σε κανονική διαφάνεια. Κάθε κλήση στο [IShape.getBasePlaceholder](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) ελέγχεται πριν χρησιμοποιηθεί το επιστρεφόμενο σχήμα.
 
 ```java
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο παρουσίασης
-Presentation pres = new Presentation("AnimImage_out.pptx");
-try {
-    ISlide firstSlide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // Λαμβάνει το πρώτο εφέ της κύριας ακολουθίας
-    IEffect firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
+public class InheritedPlaceholderAnimations {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ILayoutSlide layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.TitleAndObject);
+            IShape layoutPlaceholder = findPlaceholderWithBase(layoutSlide);
 
-    // Αλλάζει τον τύπο μετά‑κίνησης σε Color
-    firstEffect.setAfterAnimationType(AfterAnimationType.Color);
+            if (layoutPlaceholder == null) {
+                throw new IllegalStateException("The layout slide does not contain a placeholder linked to its master slide.");
+            }
 
-    // Ορίζει το χρώμα μετά‑κίνησης
-    firstEffect.getAfterAnimationColor().setColor(Color.BLUE);
+            IShape masterPlaceholder = layoutPlaceholder.getBasePlaceholder();
+            layoutSlide.getMasterSlide().getTimeline().getMainSequence().addEffect(masterPlaceholder, EffectType.Fly, EffectSubtype.Bottom, EffectTriggerType.OnClick);
+            layoutSlide.getTimeline().getMainSequence().addEffect(layoutPlaceholder, EffectType.Split, EffectSubtype.VerticalIn, EffectTriggerType.OnClick);
 
-    // Αποθηκεύει το αρχείο PPTX στον δίσκο
-    pres.save("AnimImage_AfterAnimation.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+            ISlide slide = presentation.getSlides().addEmptySlide(layoutSlide);
+            IShape slidePlaceholder = findPlaceholderWithBase(slide, layoutPlaceholder);
+
+            if (slidePlaceholder == null) {
+                throw new IllegalStateException("The slide does not contain a placeholder linked to its layout slide.");
+            }
+
+            slide.getTimeline().getMainSequence().addEffect(slidePlaceholder, EffectType.RandomBars, EffectSubtype.Horizontal, EffectTriggerType.OnClick);
+            printEffects("Normal slide", slide.getTimeline().getMainSequence().getEffectsByShape(slidePlaceholder));
+
+            IShape baseLayoutPlaceholder = slidePlaceholder.getBasePlaceholder();
+            if (baseLayoutPlaceholder != null) {
+                printEffects("Layout slide", layoutSlide.getTimeline().getMainSequence().getEffectsByShape(baseLayoutPlaceholder));
+
+                IShape baseMasterPlaceholder = baseLayoutPlaceholder.getBasePlaceholder();
+                if (baseMasterPlaceholder != null) {
+                    printEffects("Master slide", layoutSlide.getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(baseMasterPlaceholder));
+                }
+            }
+
+            presentation.save("placeholder-animations.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
+
+    private static IShape findPlaceholderWithBase(ILayoutSlide layoutSlide) {
+        for (IShape shape : layoutSlide.getShapes()) {
+            if (shape.getBasePlaceholder() != null) {
+                return shape;
+            }
+        }
+
+        return null;
+    }
+
+    private static IShape findPlaceholderWithBase(ISlide slide, IShape expectedBase) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape.getBasePlaceholder() == expectedBase) {
+                return shape;
+            }
+        }
+
+        return null;
+    }
+
+    private static void printEffects(String source, IEffect[] effects) {
+        System.out.println(source + ": " + effects.length + " effect(s)");
+
+        for (IEffect effect : effects) {
+            String typeName = EffectType.getName(EffectType.class, effect.getType());
+            String subtypeName = EffectSubtype.getName(EffectSubtype.class, effect.getSubtype());
+            System.out.println("  " + typeName + " " + subtypeName);
+        }
+    }
 }
 ```
+
+## **Αλλαγή Χρόνου Κίνησης**
+
+Ο διάλογος **Timing** του PowerPoint αντιστοιχεί στις ιδιότητες του [ITiming](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itiming/).
+
+![Διάλογος Timing του PowerPoint για εφέ κίνησης](shape-animation.png)
+
+- **Start** αντιστοιχεί στο [ITiming.getTriggerType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itiming/#getTriggerType--).
+- **Duration** αντιστοιχεί στο [ITiming.getDuration](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itiming/#getDuration--), σε δευτερόλεπτα.
+- **Delay** αντιστοιχεί στο [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itiming/#getTriggerDelayTime--), σε δευτερόλεπτα.
+- **Repeat** αντιστοιχεί στα [ITiming.getRepeatCount](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itiming/#getRepeatCount--), [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itiming/#getRepeatUntilNextClick--), ή [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itiming/#getRepeatUntilEndSlide--) .
+- **Rewind when done playing** αντιστοιχεί στο [ITiming.getRewind](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itiming/#getRewind--) .
+
+Αυτό το ανεξάρτητο παράδειγμα προσθέτει ένα εφέ, αλλάζει το χρονισμό του μέσω του αντικειμένου που επιστρέφει το [ISequence.addEffect](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), και αποθηκεύει το αποτέλεσμα. Η διατήρηση της αναφοράς στο επιστρεφόμενο [IEffect](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ieffect/) αποτρέπει την ανάγκη για άσκοπο δείκτη συλλογής.
+
+```java
+import com.aspose.slides.*;
+
+public class ChangeAnimationTiming {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+            shape.addTextFrame("Timed animation");
+
+            IEffect effect = slide.getTimeline().getMainSequence().addEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            effect.getTiming().setTriggerType(EffectTriggerType.OnClick);
+            effect.getTiming().setDuration(2.0f);
+            effect.getTiming().setTriggerDelayTime(0.5f);
+            effect.getTiming().setRepeatUntilNextClick(false);
+            effect.getTiming().setRepeatUntilEndSlide(false);
+            effect.getTiming().setRepeatCount(2.0f);
+            effect.getTiming().setRewind(true);
+
+            presentation.save("shape-animation-timing.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
+}
+```
+
+Χρησιμοποιήστε έναν τρόπο επανάληψης σκόπιμα. Ο συνδυασμός μετρητή επανάληψης με σημαία «until» μπορεί να δώσει παραπλανητικά αποτελέσματα σε διαφορετικούς προγράμματα προβολής. Όταν αλλάζετε τρόπους επανάληψης, ορίστε πρώτα [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) και [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) πριν το [ITiming.setRepeatCount](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itiming/#setRepeatCount-float-), επειδή η ρύθμιση οποιασδήποτε σημαίας αλλάζει επίσης τον ενεργό τρόπο επανάληψης.
+
+## **Προσθήκη και Εξαγωγή Ήχων Κίνησης**
+
+Ένα εφέ κίνησης μπορεί να αναφέρει ενσωματωμένο ήχο μέσω του [IEffect.getSound](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ieffect/#getSound--). Το [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) ορίζει σε ένα εφέ να σταματήσει ήχο που άνοιξε ένα προηγούμενο εφέ.
+
+### **Προσθήκη Ήχου σε Ένα Εφέ**
+
+Το παρακάτω παράδειγμα απαιτεί το τοπικό αρχείο ήχου `animation-sound.wav`. Δημιουργεί δύο εφέ, ενσωματώνει αυτό το αρχείο ως ήχο για το πρώτο εφέ και ρυθμίζει το δεύτερο εφέ να σταματά τον ήχο. Χρησιμοποιεί τα αντικείμενα που επιστρέφει το [ISequence.addEffect](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), επομένως δεν απαιτείται δείκτης ακολουθίας.
+
+```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+public class AddAnimationSound {
+    public static void main(String[] args) throws IOException {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape firstShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 100, 240, 80);
+            IAutoShape secondShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 400, 100, 240, 80);
+            firstShape.addTextFrame("Starts sound");
+            secondShape.addTextFrame("Stops sound");
+
+            ISequence sequence = slide.getTimeline().getMainSequence();
+            IEffect firstEffect = sequence.addEffect(firstShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect secondEffect = sequence.addEffect(secondShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+
+            byte[] audioData = Files.readAllBytes(Paths.get("animation-sound.wav"));
+            IAudio effectSound = presentation.getAudios().addAudio(audioData);
+            firstEffect.setSound(effectSound);
+            secondEffect.setStopPreviousSound(true);
+
+            presentation.save("shape-animation-sound.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
+}
+```
+
+### **Εξαγωγή Ενσωματωμένων Ήχων Εφέ**
+
+Το παρακάτω παράδειγμα απαιτεί την τοπική παρουσίαση `presentation-with-animation-sounds.pptx`. Σαρώνει τόσο τις κύριες όσο και τις διαδραστικές ακολουθίες και γράφει κάθε ενσωματωμένο ήχο εφέ στον φάκελο `extracted-animation-sounds`. Η επέκταση επιλέγεται από τον τύπο MIME του ήχου που εκτίθεται από το [IAudio.getContentType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iaudio/#getContentType--).
+
+```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Locale;
+
+public class ExtractAnimationSounds {
+    public static void main(String[] args) throws IOException {
+        Path inputPath = Paths.get("presentation-with-animation-sounds.pptx");
+        Path outputDirectory = Paths.get("extracted-animation-sounds");
+
+        Files.createDirectories(outputDirectory);
+
+        Presentation presentation = new Presentation(inputPath.toString());
+        try {
+            int soundIndex = 1;
+
+            for (ISlide slide : presentation.getSlides()) {
+                soundIndex = saveSounds(slide.getTimeline().getMainSequence(), outputDirectory, soundIndex);
+
+                for (ISequence sequence : slide.getTimeline().getInteractiveSequences()) {
+                    soundIndex = saveSounds(sequence, outputDirectory, soundIndex);
+                }
+            }
+
+            System.out.println("Extracted " + (soundIndex - 1) + " sound file(s) to " + outputDirectory.toAbsolutePath() + ".");
+        } finally {
+            presentation.dispose();
+        }
+    }
+
+    private static int saveSounds(ISequence sequence, Path outputDirectory, int soundIndex) throws IOException {
+        for (IEffect effect : sequence) {
+            if (effect.getSound() == null) {
+                continue;
+            }
+
+            String extension = getAudioExtension(effect.getSound().getContentType());
+            Path outputPath = outputDirectory.resolve("effect-sound-" + soundIndex + extension);
+            Files.write(outputPath, effect.getSound().getBinaryData());
+            soundIndex++;
+        }
+
+        return soundIndex;
+    }
+
+    private static String getAudioExtension(String contentType) {
+        String normalizedType = contentType == null ? "" : contentType.toLowerCase(Locale.ROOT);
+
+        if (normalizedType.equals("audio/mpeg")) {
+            return ".mp3";
+        }
+
+        if (normalizedType.equals("audio/mp4")) {
+            return ".m4a";
+        }
+
+        if (normalizedType.equals("audio/ogg")) {
+            return ".ogg";
+        }
+
+        if (normalizedType.equals("audio/wav") || normalizedType.equals("audio/x-wav")) {
+            return ".wav";
+        }
+
+        return ".bin";
+    }
+}
+```
+
+Για μεγάλα αντικείμενα ήχου, χρησιμοποιήστε το [IAudio.getStream](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iaudio/#getStream--) και αντιγράψτε το ρεύμα σε αρχείο αντί να φορτώσετε ολόκληρο το αντικείμενο σε πίνακα bytes.
+
+## **Ορισμός Συμπεριφοράς Μετά το Κίνημα**
+
+Η επιλογή **After animation** ελέγχει τι συμβαίνει με ένα σχήμα αφού ολοκληρωθεί το εφέ του.
+
+![Διάλογος Επιλογών Εφέ του PowerPoint που εμφανίζει τις ρυθμίσεις After animation](shape-after-animation.png)
+
+Η κλάση [AfterAnimationType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/afteranimationtype/) υποστηρίζει διατήρηση του σχήματος αμετάβλητου, αλλαγή του χρώματός του, απόκρυψη του μετά την κίνηση ή απόκρυψη του στο επόμενο κλικ. Όταν ο τύπος είναι [AfterAnimationType.Color](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/afteranimationtype/#Color), ορίστε επίσης το [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ieffect/#getAfterAnimationColor--).
+
+Αυτό το ανεξάρτητο παράδειγμα δημιουργεί ένα εφέ, ορίζει τη συμπεριφορά μετά την κίνηση μέσω του επιστρεφόμενου αντικειμένου εφέ, και αποθηκεύει το αποτέλεσμα.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+public class SetAfterAnimationBehavior {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+            shape.addTextFrame("Dim after animation");
+
+            IEffect effect = slide.getTimeline().getMainSequence().addEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            effect.setAfterAnimationType(AfterAnimationType.Color);
+            effect.getAfterAnimationColor().setColor(Color.LTGRAY);
+
+            presentation.save("shape-animation-after-effect.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
+}
+```
+
+Αλλάζοντας τον τύπο από το [AfterAnimationType.Color] αφαιρεί τη ρύθμιση χρώματος μετά την κίνηση.
 
 ## **Κίνηση Κειμένου**
 
-Το Aspose.Slides παρέχει τις ακόλουθες ιδιότητες ώστε να μπορείτε να εργαστείτε με το μπλοκ *Animate text* ενός εφέ κίνησης:
+Η κίνηση κειμένου έχει δύο σχετικούς ελέγχους:
 
-- Η ιδιότητα [setAnimateTextType(int value)](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ieffect/#setAnimateTextType-int-) περιγράφει τον τύπο κίνησης κειμένου του εφέ. Το κείμενο του σχήματος μπορεί να κινείται:  
-  * Όλα ταυτόχρονα ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/animatetexttype/#AllAtOnce)).  
-  * Με λέξη ([AnimateTextType.ByWord](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/animatetexttype/#ByWord)).  
-  * Με γράμμα ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/animatetexttype/#ByLetter)).  
-- Η ιδιότητα [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ieffect/#setDelayBetweenTextParts-float-) ορίζει μια καθυστέρηση μεταξύ των τμημάτων του κειμένου που κινείται (λέξεις ή γράμματα). Μια θετική τιμή καθορίζει το ποσοστό της διάρκειας του εφέ. Μια αρνητική τιμή καθορίζει την καθυστέρηση σε δευτερόλεπτα.  
+- Το [ITextAnimation.getBuildType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itextanimation/#getBuildType--) ελέγχει αν οι παράγραφοι εμφανίζονται μαζί ή ανά παράγραφο.
+- Το [IEffect.getAnimateTextType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ieffect/#getAnimateTextType--) ελέγχει αν το κείμενο εμφανίζεται ολόκληρο, λέξη‑λεπτό ή γράμμα‑γράμμα. Το [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) θέτει την καθυστέρηση μεταξύ λέξεων ή γραμμάτων. Μια θετική τιμή είναι ποσοστό της διάρκειας του εφέ· μια αρνητική τιμή είναι καθυστέρηση σε δευτερόλεπτα.
 
-Έτσι μπορείτε να αλλάξετε τις ιδιότητες Animate text του Effect:
-
-1. [Εφαρμόστε](#apply-animation-to-shape) ή λάβετε το εφέ κίνησης.  
-2. Ορίστε την ιδιότητα [setBuildType(int value)](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itextanimation/#setBuildType-int-) στο τιμή [BuildType.AsOneObject](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/buildtype/#AsOneObject) ώστε να απενεργοποιήσετε τη λειτουργία *By Paragraphs*.  
-3. Ορίστε νέες τιμές για τις ιδιότητες [setAnimateTextType(int value)](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ieffect/#setAnimateTextType-int-) και [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ieffect/#setDelayBetweenTextParts-float-).  
-4. Αποθηκεύστε το τροποποιημένο αρχείο PPTX.  
+Το παρακάτω ανεξάρτητο παράδειγμα κινεί τις λέξεις σε ένα πλαίσιο κειμένου. Το [BuildType.AsOneObject](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/buildtype/#AsOneObject) απενεργοποιεί το κτίσιμο παράγραφο‑από‑παράγραφο ώστε η ρύθμιση λέξης να ισχύει για ολόκληρο το πλαίσιο κειμένου.
 
 ```java
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο παρουσίασης.
-Presentation pres = new Presentation("AnimTextBox_out.pptx");
-try {
-    ISlide firstSlide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // Λαμβάνει το πρώτο εφέ της κύριας ακολουθίας
-    IEffect firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
+public class AnimateTextByWord {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 80, 560, 100);
+            textBox.addTextFrame("Aspose.Slides animates this sentence word by word.");
 
-    // Αλλάζει τον τύπο κίνησης κειμένου του εφέ σε "As One Object"
-    firstEffect.getTextAnimation().setBuildType(BuildType.AsOneObject);
+            IEffect effect = slide.getTimeline().getMainSequence().addEffect(textBox, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            effect.getTextAnimation().setBuildType(BuildType.AsOneObject);
+            effect.setAnimateTextType(AnimateTextType.ByWord);
+            effect.setDelayBetweenTextParts(20.0f);
 
-    // Αλλάζει τον τύπο Animate text του εφέ σε "By word"
-    firstEffect.setAnimateTextType(AnimateTextType.ByWord);
-
-    // Ορίζει την καθυστέρηση μεταξύ των λέξεων στο 20% της διάρκειας του εφέ
-    firstEffect.setDelayBetweenTextParts(20f);
-
-    // Αποθηκεύει το αρχείο PPTX στον δίσκο
-    pres.save("AnimTextBox_AnimateText.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+            presentation.save("animated-text.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
 }
 ```
 
-## **Συχνές Ερωτήσεις**
+Για κτίσιμο πλαισίου κειμένου ανά παράγραφο, ορίστε το [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/buildtype/#ByLevelParagraphs1) (ή άλλο επίπεδο παραγράφου). Για στοχοθέτηση μιας μεμονωμένης παραγράφου με δικό της εφέ, χρησιμοποιήστε την υπερφόρτωση του [ISequence.addEffect](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) που δέχεται ένα [IParagraph](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraph/). Δείτε το [Animated Text](/slides/el/androidjava/animated-text/) για παραδείγματα επιπέδου παραγράφου.
 
-**Πώς μπορώ να διασφαλίσω ότι οι κινήσεις διατηρούνται όταν δημοσιεύω την παρουσίαση στον ιστό;**
+## **Σημειώσεις Εξαγωγής και Συμβατότητας**
 
-[Export to HTML5](/slides/el/androidjava/export-to-html5/) και ενεργοποιήστε τις [options](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/html5options/) που είναι υπεύθυνες για τις [shape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) και [transition](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) κινήσεις. Το απλό HTML δεν εκτελεί κινήσεις διαφανειών, ενώ το HTML5 το κάνει.
+- Η αποθήκευση σε PPT ή PPTX διατηρεί το μοντέλο κίνησης, αλλά η τελική αναπαραγωγή ελέγχεται από το πρόγραμμα προβολής της παρουσίασης.
+- Τα PDF και οι στατικές εικόνες δεν εκτελούν κίνηση. Χρησιμοποιήστε την [HTML5 export](/slides/el/androidjava/export-to-html5/), animated GIF ή τη [video conversion](/slides/el/androidjava/convert-powerpoint-to-video/) όταν η έξοδος πρέπει να δείχνει κίνηση.
+- Για HTML5, ενεργοποιήστε το [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) και, όταν χρειάζεται, το [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).
+- Η απόδοση βίντεο υποστηρίζει πολλά κοινά εφέ εισόδου, έμφασης, εξόδου και διαδρομής κίνησης, αλλά δεν υποστηρίζονται όλα τα εφέ του PowerPoint. Ελέγξτε τις τρέχουσες [supported animations and effects](/slides/el/androidjava/convert-powerpoint-to-video/#supported-animations-and-effects) και δοκιμάστε κρίσιμες παρουσιάσεις με την έκδοση Aspose.Slides που στοχεύετε.
+- Προχωρημένα προσαρμοσμένα εφέ και εφέ που εισάγονται από άλλες μορφές παρουσίασης μπορεί να διατηρηθούν στο αρχείο αλλά να αποδοθούν διαφορετικά σε PowerPoint, HTML5 ή βίντεο. Επικυρώστε το εξαγόμενο αποτέλεσμα αντί να βασίζεστε μόνο στο όνομα του εφέ.
 
-**Πώς η αλλαγή της σειράς z (σειράς επιπέδων) των σχημάτων επηρεάζει τις κινήσεις;**
+## **Συχνές Ερωτήσεις (FAQ)**
 
-Η κίνηση και η σειρά σχεδίασης είναι ανεξάρτητες: ένα εφέ ελέγχει το χρόνο και τον τύπο εμφάνισης/απόκρυψης, ενώ το [z-order](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/shape/#getZOrderPosition--) καθορίζει τι καλύπτει τι. Το ορατό αποτέλεσμα ορίζεται από το συνδυασμό τους. (Αυτό είναι η γενική συμπεριφορά του PowerPoint· το μοντέλο effects-and-shapes του Aspose.Slides ακολουθεί την ίδια λογική.)
+**Γιατί εμφανίζεται μια κίνηση στο PowerPoint αλλά όχι σε PDF;**  
+Το PDF είναι στατική μορφή, επομένως οι κινήσεις και οι μεταβάσεις διαφανειών δεν παίζουν. Εξάγετε σε HTML5, animated GIF ή βίντεο όταν πρέπει να διατηρηθεί η κίνηση.
 
-**Υπάρχουν περιορισμοί κατά τη μετατροπή των κινήσεων σε βίντεο για ορισμένα εφέ;**
+**Γιατί ένα εφέ εκτελείται διαφορετικά σε βίντεο;**  
+Η εξαγωγή βίντεο αποδίδει τις κινήσεις αντί να αποθηκεύει την αρχική συμπεριφορά του PowerPoint. Ορισμένα προχωρημένα εφέ δεν υποστηρίζονται ή προσεγγίζονται. Ελέγξτε τον πίνακα των υποστηριζόμενων εφέ και δοκιμάστε την παρουσίαση πριν την παραγωγική χρήση.
 
-Γενικά, τα [animations are supported](/slides/el/androidjava/convert-powerpoint-to-video/), αλλά σπάνιες περιπτώσεις ή συγκεκριμένα εφέ μπορεί να αποδοθούν διαφορετικά. Συνιστάται να δοκιμάσετε με τα εφέ που χρησιμοποιείτε και με την έκδοση της βιβλιοθήκης.
+**Αλλάζει η μετακίνηση ενός σχήματος προς τα εμπρός ή προς τα πίσω τη σειρά των κινήσεων;**  
+Όχι. Η σειρά z‑order του σχήματος ελέγχει την επικάλυψη, ενώ η σειρά ακολουθίας και οι ενεργοποιήσεις ελέγχουν την αναπαραγωγή των κινήσεων. Αλλάξτε τη χρονογραμμή εάν χρειάζεται διαφορετική σειρά αναπαραγωγής.

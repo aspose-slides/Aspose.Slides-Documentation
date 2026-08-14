@@ -1,480 +1,386 @@
 ---
-title: تطبيق رسوم متحركة للأشكال في العروض التقديمية باستخدام Python
-linktitle: رسوم متحركة للأشكال
+title: تطبيق حركات الأشكال في العروض التقديمية باستخدام بايثون
+linktitle: تحريك الشكل
 type: docs
 weight: 60
 url: /ar/python-net/shape-animation/
 keywords:
 - شكل
-- رسوم متحركة
+- حركة
 - تأثير
 - شكل متحرك
 - نص متحرك
-- إضافة رسوم متحركة
-- الحصول على رسوم متحركة
-- استخراج رسوم متحركة
+- إضافة حركة
+- الحصول على حركة
+- استخراج حركة
 - إضافة تأثير
 - الحصول على تأثير
 - استخراج تأثير
 - صوت التأثير
-- تطبيق رسوم متحركة
+- تطبيق الحركة
 - PowerPoint
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: "اكتشف كيفية إنشاء وتخصيص رسوم متحركة للأشكال في عروض PowerPoint وعروض OpenDocument باستخدام Aspose.Slides للـ Python عبر .NET. تميز!"
+description: "تعلم كيفية إضافة، فحص، وتخصيص حركات الأشكال، التوقيت، الأصوات، سلوك ما بعد الحركة، والنص المتحرك باستخدام Aspose.Slides for Python عبر .NET."
 ---
+## **نظرة عامة**
 
-الرسوم المتحركة هي تأثيرات مرئية يمكن تطبيقها على النصوص أو الصور أو الأشكال أو [المخططات](/slides/ar/python-net/animated-charts/). إنها تضيف الحياة إلى العروض التقديمية أو مكوّناتها. 
+يمثل Aspose.Slides for Python via .NET حركات الشرائح كآثار في جدول زمني للشريحة. يحتوي كل أثر على شكل هدف، نوع حركة وفرعي، مشغّل، إعدادات التوقيت، وخصائص اختيارية مثل الصوت أو سلوك ما بعد الحركة.
 
-## **لماذا نستخدم الرسوم المتحركة في العروض التقديمية؟**
+يتضمن الجدول الزمني نوعين من التسلسلات:
 
-باستخدام الرسوم المتحركة، يمكنك 
+- **التسلسل الرئيسي** يُشغّل عندما تتقدم الشريحة.
+- **التسلسل التفاعلي** يبدأ عندما يتم النقر على شكل المشغّل الخاص به.
 
-* التحكم في تدفق المعلومات
-* تأكيد النقاط المهمة
-* زيادة الاهتمام أو المشاركة لدى الجمهور
-* جعل المحتوى أسهل للقراءة أو الاستيعاب أو المعالجة
-* جذب انتباه القراء أو المشاهدين إلى الأجزاء الهامة في العرض
+نظرًا لأن مربعات النص، الصور، المخططات، الجداول، وغيرها من كائنات الشريحة تنفّذ [IShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ishape/)، يمكنك استخدام نفس طريقة [Sequence.add_effect](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/sequence/add_effect/) لمعظم محتوى الشريحة. تُدرج التأثيرات المتاحة في تعداد [EffectType](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effecttype/).
 
-يوفر PowerPoint العديد من الخيارات والأدوات للرسوم المتحركة وتأثيراتها عبر فئات **الدخول**، **الخروج**، **التأكيد**، و**مسارات الحركة**. 
+## **إضافة حركات الشكل**
 
-## **الرسوم المتحركة في Aspose.Slides**
+لإضافة حركة، احصل على التسلسل الرئيسي للشرائح واستدعِ [Sequence.add_effect](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/sequence/add_effect/) مع شكل الهدف، نوع التأثير، النوع الفرعي، والمشغّل. لتأثير يبدأ عند النقر على شكل آخر، أنشئ تسلسلًا تفاعليًا يكون مشغّله ذلك الشكل الآخر.
 
-* توفر Aspose.Slides الفئات والأنواع التي تحتاجها للعمل مع الرسوم المتحركة ضمن مساحة الاسم [Aspose.Slides.Animation](https://reference.aspose.com/slides/python-net/aspose.slides.animation/) ،
-* توفر Aspose.Slides أكثر من **150 تأثيرًا للرسوم المتحركة** ضمن تعداد [EffectType](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effecttype/). هذه التأثيرات هي في الأساس نفس التأثيرات (أو ما يعادلها) المستخدمة في PowerPoint.
+المثال التالي ينشئ كلا نوعي الحركة ويحفظ النتيجة في `shape-animations.pptx`.
 
-## **تطبيق الرسوم المتحركة على مربع النص**
-
-تتيح Aspose.Slides للـ Python عبر .NET تطبيق الرسوم المتحركة على النص داخل الشكل. 
-
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
-2. الحصول على مرجع الشريحة عبر فهرستها.
-3. إضافة `rectangle` [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) . 
-4. إضافة نص إلى `IAutoShape.TextFrame` .
-5. الحصول على تسلسل رئيسي من التأثيرات.
-6. إضافة تأثير رسوم متحركة إلى [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) . 
-7. ضبط خاصية `TextAnimation.BuildType` إلى القيمة من تعداد `BuildType` .
-8. كتابة العرض التقديمي إلى القرص كملف PPTX .
-
-يعرض هذا الكود Python كيفية تطبيق تأثير `Fade` على AutoShape وتعيين تحريك النص إلى قيمة *By 1st Level Paragraphs* :
 ```python
 import aspose.slides as slides
 
-# ينشئ كائنًا من فئة العرض التقديمي التي تمثل ملف عرض تقديمي.
-with slides.Presentation() as pres:
-    sld = pres.slides[0]
-    
-    # يضيف AutoShape جديدًا مع نص
-    autoShape = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 150, 100)
 
-    textFrame = autoShape.text_frame
-    textFrame.text = "First paragraph \nSecond paragraph \n Third paragraph"
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # يحصل على التسلسل الرئيسي للشريحة.
-    sequence = sld.timeline.main_sequence
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.ROUND_CORNER_RECTANGLE, 120, 100, 320, 80)
+    target_shape.text_frame.text = "Click to animate this shape"
 
-    # يضيف تأثير الرسوم المتحركة Fade إلى الشكل
-    effect = sequence.add_effect(autoShape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+    main_sequence = slide.timeline.main_sequence
+    entrance_effect = main_sequence.add_effect(target_shape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+    entrance_effect.timing.duration = 1.5
 
-    # يُحرك نص الشكل حسب الفقرات من المستوى الأول
-    effect.text_animation.build_type = slides.animation.BuildType.BY_LEVEL_PARAGRAPHS1
+    trigger_shape = slide.shapes.add_auto_shape(slides.ShapeType.BEVEL, 20, 20, 100, 40)
+    trigger_shape.text_frame.text = "Move"
 
-    # يحفظ ملف PPTX على القرص
-    pres.save("AnimText_out.pptx", slides.export.SaveFormat.PPTX)
+    interactive_sequence = slide.timeline.interactive_sequences.add(trigger_shape)
+    interactive_sequence.add_effect(target_shape, slides.animation.EffectType.PATH_FOOTBALL, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+
+    presentation.save("shape-animations.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+المشغّل يتحكم في وقت بدء التأثير:
 
-{{%  alert color="primary"  %}} 
+- [EffectTriggerType.ON_CLICK](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effecttriggertype/) ينتظر النقر في التسلسل الرئيسي، أو النقر على الشكل المشغّل في التسلسل التفاعلي.
+- [EffectTriggerType.WITH_PREVIOUS](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effecttriggertype/) يبدأ مع التأثير السابق.
+- [EffectTriggerType.AFTER_PREVIOUS](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effecttriggertype/) يبدأ عندما ينتهي التأثير السابق.
 
-بالإضافة إلى تطبيق الرسوم المتحركة على النص، يمكنك أيضًا تطبيقها على [Paragraph] واحد. راجع [**Animated Text**](/slides/ar/python-net/animated-text/).
+لتحريك صورة، مخطط، أو نوع آخر من الأشكال، مرّر ذلك الكائن إلى [Sequence.add_effect](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/sequence/add_effect/) بدلاً من `target_shape`. للحصول على خيارات تجميع خاصة بالمخططات، راجع [Animated Charts](/slides/ar/python-net/animated-charts/).
 
-{{% /alert %}} 
+## **قراءة حركات الشكل**
 
-## **تطبيق الرسوم المتحركة على PictureFrame**
+استخدم [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/sequence/get_effects_by_shape/) عندما تعرف شكل الهدف. لتفقد كل تأثير، كرّر عبر التسلسل الرئيسي وكل تسلسل تفاعلي. التكرار يمنع الافتراض بأن التسلسل يحتوي على تأثير في الفهرس `0`.
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
-2. الحصول على مرجع الشريحة عبر فهرستها.
-3. إضافة أو الحصول على [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) على الشريحة. 
-4. الحصول على التسلسل الرئيسي للتأثيرات.
-5. إضافة تأثير رسوم متحركة إلى [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) .
-6. كتابة العرض التقديمي إلى القرص كملف PPTX .
+المثال التالي ينشئ شكلًا مع تأثيرات في التسلسل الرئيسي وتفاعلية، يحصل على التأثيرات التي تستهدف الشكل، ثم يكرّر عبر كل تسلسل في الشريحة.
 
-يعرض هذا الكود Python كيفية تطبيق تأثير `Fly` على إطار صورة :
-```python
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-
-# ينشئ فئة عرض تقديمي تمثل ملف عرض تقديمي.
-with slides.Presentation() as pres:
-    # تحميل الصورة لإضافتها إلى مجموعة صور العرض التقديمي
-    img = draw.Bitmap("aspose-logo.jpg")
-    image = pres.images.add_image(img)
-
-    # يضيف إطار صورة إلى الشريحة
-    picFrame = pres.slides[0].shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
-
-    # يحصل على التسلسل الرئيسي للشريحة.
-    sequence = pres.slides[0].timeline.main_sequence
-
-    # يضيف تأثير التحليق من اليسار إلى إطار الصورة
-    effect = sequence.add_effect(picFrame, slides.animation.EffectType.FLY,  
-        slides.animation.EffectSubtype.LEFT, 
-        slides.animation.EffectTriggerType.ON_CLICK)
-
-    # حفظ ملف PPTX على القرص
-    pres.save("AnimImage_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **تطبيق الرسوم المتحركة على الشكل**
-
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
-2. الحصول على مرجع الشريحة عبر فهرستها.
-3. إضافة `rectangle` [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) . 
-4. إضافة `Bevel` [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) (عند النقر على هذا الكائن، يتم تشغيل الرسوم المتحركة).
-5. إنشاء تسلسل من التأثيرات على شكل الـ Bevel.
-6. إنشاء مسار مخصص `UserPath` .
-7. إضافة أوامر للانتقال إلى `UserPath` .
-8. كتابة العرض التقديمي إلى القرص كملف PPTX .
-
-يعرض هذا الكود Python كيفية تطبيق تأثير `PathFootball` (مسار كرة القدم) على شكل :
-```python
-import aspose.slides.animation as anim
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-# ينشئ فئة عرض تقديمي تمثل ملف PPTX
-with slides.Presentation() as pres:
-    sld = pres.slides[0]
-
-    # ينشئ تأثير PathFootball للشكل الموجود من الصفر.
-    ashp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 250, 25)
-
-    ashp.add_text_frame("Animated TextBox")
-
-    # يضيف تأثير الرسوم المتحركة PathFootBall.
-    pres.slides[0].timeline.main_sequence.add_effect(ashp, 
-        anim.EffectType.PATH_FOOTBALL,
-        anim.EffectSubtype.NONE, 
-        anim.EffectTriggerType.AFTER_PREVIOUS)
-
-    # ينشئ نوعًا من "زر".
-    shapeTrigger = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.BEVEL, 10, 10, 20, 20)
-
-    # ينشئ تسلسلًا من التأثيرات للزر.
-    seqInter = pres.slides[0].timeline.interactive_sequences.add(shapeTrigger)
-
-    # ينشئ مسار مستخدم مخصص. سيتم نقل كائننا فقط بعد النقر على الزر.
-    fxUserPath = seqInter.add_effect(ashp, 
-        anim.EffectType.PATH_USER, 
-        anim.EffectSubtype.NONE, 
-        anim.EffectTriggerType.ON_CLICK)
-
-    # يضيف أوامر للتحريك لأن المسار الذي تم إنشاؤه فارغ.
-    motionBhv = fxUserPath.behaviors[0]
-
-    pts = [draw.PointF(0.076, 0.59)]
-    motionBhv.path.add(anim.MotionCommandPathType.LINE_TO, pts, anim.MotionPathPointsType.AUTO, True)
-    pts = [draw.PointF(-0.076, -0.59)]
-    motionBhv.path.add(anim.MotionCommandPathType.LINE_TO, pts, anim.MotionPathPointsType.AUTO, False)
-    motionBhv.path.add(anim.MotionCommandPathType.END, None, anim.MotionPathPointsType.AUTO, False)
-
-    # يكتب ملف PPTX على القرص
-    pres.save("AnimExample_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **الحصول على تأثيرات الرسوم المتحركة المطبقة على الشكل**
-
-تظهر الأمثلة التالية كيفية استخدام طريقة `get_effects_by_shape` من الفئة [Sequence](https://reference.aspose.com/slides/python-net/aspose.slides.animation/sequence/) للحصول على جميع تأثيرات الرسوم المتحركة المطبقة على شكل.
-
-**المثال 1: الحصول على تأثيرات الرسوم المتحركة المطبقة على شكل في شريحة عادية**
-
-سابقًا، تعلمت كيفية إضافة تأثيرات الرسوم المتحركة إلى الأشكال في عروض PowerPoint. يوضح الكود النموذجي التالي كيفية الحصول على التأثيرات المطبقة على الشكل الأول في الشريحة العادية الأولى في العرض `AnimExample_out.pptx` .
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("AnimExample_out.pptx") as presentation:
-    first_slide = presentation.slides[0]
 
-    # يحصل على التسلسل الرئيسي للرسوم المتحركة للشريحة.
-    sequence = first_slide.timeline.main_sequence
+def print_sequence(label, sequence):
+    print(f"  {label}: {sequence.count} effect(s)")
 
-    # يحصل على الشكل الأول في الشريحة الأولى.
-    shape = first_slide.shapes[0]
+    for effect in sequence:
+        target_name = "unknown" if effect.target_shape is None else effect.target_shape.name
+        effect_description = f"{effect.type.name} {effect.subtype.name}; target: {target_name}; trigger: {effect.timing.trigger_type.name}"
+        print(f"    {effect_description}")
 
-    # يحصل على تأثيرات الرسوم المتحركة المطبقة على الشكل.
-    shape_effects = sequence.get_effects_by_shape(shape)
 
-    if len(shape_effects) > 0:
-        print("The shape", shape.name, "has", len(shape_effects), "animation effects.")
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 120, 100, 320, 80)
+    target_shape.text_frame.text = "Animated shape"
+
+    main_sequence = slide.timeline.main_sequence
+    main_sequence.add_effect(target_shape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+
+    trigger_shape = slide.shapes.add_auto_shape(slides.ShapeType.BEVEL, 20, 20, 100, 40)
+    trigger_shape.text_frame.text = "Move"
+
+    interactive_sequence = slide.timeline.interactive_sequences.add(trigger_shape)
+    interactive_sequence.add_effect(target_shape, slides.animation.EffectType.PATH_FOOTBALL, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+
+    target_effects = main_sequence.get_effects_by_shape(target_shape)
+    print(f"The main sequence contains {len(target_effects)} effect(s) for {target_shape.name}.")
+
+    print_sequence("Main sequence", main_sequence)
+
+    for interactive_index, sequence in enumerate(slide.timeline.interactive_sequences, start=1):
+        trigger_name = "unknown" if sequence.trigger_shape is None else sequence.trigger_shape.name
+        sequence_label = f"Interactive sequence {interactive_index}, trigger: {trigger_name}"
+        print_sequence(sequence_label, sequence)
 ```
 
+إذا كنت تحتاج فقط إلى التأثيرات لشكل واحد، حدد الشكل أولاً بالاسم أو نوع العنصر النائب أو خاصية ثابتة أخرى؛ ثم استدعِ [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/sequence/get_effects_by_shape/). لا تفترض أن الشكل في الفهرس `0` هو دائمًا الكائن المقصود.
 
-**المثال 2: الحصول على جميع تأثيرات الرسوم المتحركة، بما في ذلك تلك الموروثة من العناصر النائبة**
+## **التعامل مع تأثيرات العنصر النائب الموروثة**
 
-إذا كان الشكل في شريحة عادية يحتوي على عناصر نائبة موجودة في شريحة التخطيط و/أو شريحة القالب، وتم إضافة تأثيرات رسوم متحركة إلى هذه العناصر النائبة، فستُعرض جميع تأثيرات الشكل أثناء عرض الشرائح، بما في ذلك تلك الموروثة من العناصر النائبة.
+يمكن للعنصر النائب في شريحة عادية أن يرث سلوك الحركة من العنصر النائب المقابل في شريحة التخطيط والشريحة الرئيسية. تُعيد [Shape.get_base_placeholder](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shape/get_base_placeholder/) ذلك العنصر النائب الأب، أو `None` إذا لم يكن هناك أب.
 
-لنفترض أن لدينا ملف عرض PowerPoint `sample.pptx` يحتوي على شريحة واحدة تحتوي فقط على شكل تذييل بنص "Made with Aspose.Slides" وتم تطبيق تأثير **Random Bars** على الشكل.
+في عرض الشرائح المثال التالي، يحتوي التذييل على **Random Bars** في الشريحة العادية، **Split** في شريحة التخطيط، و**Fly In** في الشريحة الرئيسية.
 
-![تأثير رسوم متحركة لشكل الشريحة](slide-shape-animation.png)
+![تأثير حركة التذييل في الشريحة العادية](slide-shape-animation.png)
+![تأثير حركة عنصر نائب للتذييل في شريحة التخطيط](layout-shape-animation.png)
+![تأثير حركة عنصر نائب للتذييل في الشريحة الرئيسية](master-shape-animation.png)
 
-كما نفترض أن تأثير **Split** تم تطبيقه على عنصر النائب في تذييل شريحة **التخطيط**.
+المثال التالي يبني هيكلية العنصر النائب نفسها. يضيف تأثيرات إلى عنصر نائب رئيسي، عنصر نائب في التخطيط، والعنصر النائب المقابل في شريحة عادية. يتم فحص كل استدعاء لـ [Shape.get_base_placeholder](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shape/get_base_placeholder/) قبل استخدام الشكل المُرجع.
 
-![تأثير رسوم متحركة لشكل التخطيط](layout-shape-animation.png)
-
-وأخيرًا، تم تطبيق تأثير **Fly In** على عنصر النائب في تذييل شريحة **القالب**.
-
-![تأثير رسوم متحركة لشكل القالب](master-shape-animation.png)
-
-يظهر الكود النموذجي التالي كيفية استخدام طريقة `get_base_placeholder` من الفئة [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) للوصول إلى عناصر النائب للشكل والحصول على تأثيرات الرسوم المتحركة المطبقة على شكل التذييل، بما في ذلك تلك الموروثة من العناصر النائبة الموجودة في شريحة التخطيط والقالب .
-```py
+```python
 import aspose.slides as slides
 
-def print_effects(effects):
+
+def find_placeholder_with_base(slide):
+    for shape in slide.shapes:
+        if shape.get_base_placeholder() is not None:
+            return shape
+
+    return None
+
+
+def print_effects(source, effects):
+    print(f"{source}: {len(effects)} effect(s)")
+
     for effect in effects:
-        print(effect.type.name, effect.subtype.name)
+        print(f"  {effect.type.name} {effect.subtype.name}")
+
+
+with slides.Presentation() as presentation:
+    layout_slide = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+    layout_placeholder = layout_slide.placeholder_manager.add_text_placeholder(100, 100, 400, 80)
+    layout_slide.timeline.main_sequence.add_effect(layout_placeholder, slides.animation.EffectType.SPLIT, slides.animation.EffectSubtype.VERTICAL_IN, slides.animation.EffectTriggerType.ON_CLICK)
+
+    master_placeholder = layout_placeholder.get_base_placeholder()
+    if master_placeholder is not None:
+        master_sequence = layout_slide.master_slide.timeline.main_sequence
+        master_sequence.add_effect(master_placeholder, slides.animation.EffectType.FLY, slides.animation.EffectSubtype.BOTTOM, slides.animation.EffectTriggerType.ON_CLICK)
+
+    slide = presentation.slides.add_empty_slide(layout_slide)
+    slide_placeholder = find_placeholder_with_base(slide)
+
+    if slide_placeholder is None:
+        raise RuntimeError("The slide does not contain a placeholder linked to its layout slide.")
+
+    slide.timeline.main_sequence.add_effect(slide_placeholder, slides.animation.EffectType.RANDOM_BARS, slides.animation.EffectSubtype.HORIZONTAL, slides.animation.EffectTriggerType.ON_CLICK)
+    print_effects("Normal slide", slide.timeline.main_sequence.get_effects_by_shape(slide_placeholder))
+
+    base_layout_placeholder = slide_placeholder.get_base_placeholder()
+    if base_layout_placeholder is not None:
+        print_effects("Layout slide", layout_slide.timeline.main_sequence.get_effects_by_shape(base_layout_placeholder))
+
+        base_master_placeholder = base_layout_placeholder.get_base_placeholder()
+        if base_master_placeholder is not None:
+            print_effects("Master slide", layout_slide.master_slide.timeline.main_sequence.get_effects_by_shape(base_master_placeholder))
+
+    presentation.save("placeholder-animations.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-```py
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
+## **تغيير توقيت الحركة**
 
-    # الحصول على تأثيرات الرسوم المتحركة للشكل في الشريحة العادية.
-    shape = slide.shapes[0]
-    shape_effects = slide.timeline.main_sequence.get_effects_by_shape(shape)
+يتطابق مربع حوار **Timing** في PowerPoint مع خصائص [Timing](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/timing/).
 
-    # الحصول على تأثيرات الرسوم المتحركة للعنصر النائب في شريحة التخطيط.
-    layout_shape = shape.get_base_placeholder()
-    layout_shape_effects = slide.layout_slide.timeline.main_sequence.get_effects_by_shape(layout_shape)
+![مربع حوار توقيت PowerPoint لتأثير حركة](shape-animation.png)
 
-    # الحصول على تأثيرات الرسوم المتحركة للعنصر النائب في شريحة القالب.
-    master_shape = layout_shape.get_base_placeholder()
-    master_shape_effects = slide.layout_slide.master_slide.timeline.main_sequence.get_effects_by_shape(master_shape)
+- **ابدأ** يتطابق مع [Timing.trigger_type](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/timing/trigger_type/).
+- **المدة** يتطابق مع [Timing.duration](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/timing/duration/)، بالثواني.
+- **التأخير** يتطابق مع [Timing.trigger_delay_time](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/timing/trigger_delay_time/)، بالثواني.
+- **التكرار** يتطابق مع [Timing.repeat_count](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/timing/repeat_count/)، [Timing.repeat_until_next_click](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/timing/repeat_until_next_click/)، أو [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/timing/repeat_until_end_slide/).
+- **إعادة التشغيل عند الانتهاء** يتطابق مع [Timing.rewind](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/timing/rewind/).
 
-    print("Main sequence of shape effects:")
-    print_effects(master_shape_effects)
-    print_effects(layout_shape_effects)
-    print_effects(shape_effects)
-```
+هذا المثال المستقل يضيف تأثيرًا، يغيّر توقيته عبر الكائن المُرجع من [Sequence.add_effect](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/sequence/add_effect/)، ويحفظ النتيجة. الاحتفاظ بمرجع [Effect](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effect/) المُرجع يتجنب فهرس تجميع غير ضروري.
 
-
-الإخراج:
-```text
-Main sequence of shape effects:
-FLY BOTTOM
-SPLIT VERTICAL_IN
-RANDOM_BARS HORIZONTAL
-```
-
-
-## **تغيير خصائص توقيت تأثير الرسوم المتحركة**
-
-تتيح Aspose.Slides للـ Python عبر .NET تغيير خصائص التوقيت لتأثير الرسوم المتحركة.
-
-هذه هي لوحة توقيت الرسوم المتحركة في Microsoft PowerPoint:
-
-![example1_image](shape-animation.png)
-
-هذه هي العلاقات بين توقيت PowerPoint وخصائص `Effect.Timing` :
-
-- القائمة المنسدلة **Start** في PowerPoint Timing تتطابق مع خاصية [Effect.Timing.TriggerType](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effecttriggertype/) .
-- **Duration** في PowerPoint Timing يتطابق مع خاصية `Effect.Timing.Duration` . مدة الرسوم المتحركة (بالثواني) هي إجمالي الوقت الذي تستغرقه الرسوم المتحركة لإكمال دورة واحدة. 
-- **Delay** في PowerPoint Timing يتطابق مع خاصية `Effect.Timing.TriggerDelayTime` . 
-
-بهذا الشكل يمكنك تغيير خصائص توقيت التأثير:
-
-1. [تطبيق](#apply-animation-to-shape) أو الحصول على تأثير الرسوم المتحركة.
-2. ضبط قيم جديدة لخصائص `Effect.Timing` التي تحتاجها. 
-3. احفظ ملف PPTX المعدل.
-
-يعرض هذا الكود Python العملية :
 ```python
 import aspose.slides as slides
 
-# ينشئ فئة عرض تقديمي تمثل ملف عرض تقديمي.
-with slides.Presentation("AnimExample_out.pptx") as pres:
-    # يحصل على التسلسل الرئيسي للشريحة.
-    sequence = pres.slides[0].timeline.main_sequence
 
-    # يحصل على التأثير الأول في التسلسل الرئيسي.
-    effect = sequence[0]
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 120, 100, 320, 80)
+    shape.text_frame.text = "Timed animation"
 
-    # يغيّر TriggerType للتأثير لجعله يبدأ عند النقر
+    effect = slide.timeline.main_sequence.add_effect(shape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
     effect.timing.trigger_type = slides.animation.EffectTriggerType.ON_CLICK
-
-    # يغيّر مدة التأثير
-    effect.timing.duration = 3
-
-    # يغيّر TriggerDelayTime للتأثير
+    effect.timing.duration = 2.0
     effect.timing.trigger_delay_time = 0.5
+    effect.timing.repeat_until_next_click = False
+    effect.timing.repeat_until_end_slide = False
+    effect.timing.repeat_count = 2.0
+    effect.timing.rewind = True
 
-    # يحفظ ملف PPTX على القرص
-    pres.save("AnimExample_changed.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("shape-animation-timing.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+استخدم وضع تكرار واحد عمدًا. الجمع بين عدد التكرار وعلمية "حتى" قد ينتج نتائج مربكة في مشغلات مختلفة. عند تغيير أوضاع التكرار، اضبط [Timing.repeat_until_next_click](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/timing/repeat_until_next_click/) و[Timing.repeat_until_end_slide](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/timing/repeat_until_end_slide/) قبل [Timing.repeat_count](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/timing/repeat_count/)، لأن ضبط أي من العلمتين يغير وضع التكرار النشط.
 
-## **صوت تأثير الرسوم المتحركة**
+## **إضافة واستخراج أصوات الحركة**
 
-توفر Aspose.Slides هذه الخصائص لتتيح لك العمل مع الأصوات في تأثيرات الرسوم المتحركة: 
+يمكن لتأثير الحركة الإشارة إلى صوت مدمج عبر [Effect.sound](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effect/sound/). يُخبر [Effect.stop_previous_sound](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effect/stop_previous_sound/) تأثيرًا بإيقاف الصوت الذي بدأه تأثير سابق.
 
-- `sound`
-- `stop_previous_sound`
+### **إضافة صوت إلى تأثير**
 
-### **إضافة صوت لتأثير الرسوم المتحركة**
+المثال التالي يتوقع ملف صوت محلي باسم `animation-sound.wav`. ينشئ تأثيرين، يدمج ذلك الملف كصوت للتأثير الأول، ويضبط التأثير الثاني لإيقاف الصوت. يستخدم الكائنات المُرجعة من [Sequence.add_effect](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/sequence/add_effect/)، لذا لا يلزم فهرس تسلسل.
 
-يعرض هذا الكود Python كيفية إضافة صوت لتأثير الرسوم المتحركة وإيقافه عندما يبدأ التأثير التالي :
 ```python
 import aspose.slides as slides
 
-with Presentation("AnimExample_out.pptx") as pres:
-    # يضيف صوتًا إلى مجموعة أصوات العرض التقديمي
-    effect_sound = pres.audios.add_audio(open("sampleaudio.wav", "rb").read())
 
-    first_slide = pres.slides[0]
-
-    # يحصل على التسلسل الرئيسي للشريحة.
-    sequence = first_slide.timeline.main_sequence
-
-    # يحصل على التأثير الأول في التسلسل الرئيسي
-    first_effect = sequence[0]
-
-    # يتحقق من أن التأثير لا يحتوي على صوت
-    if not first_effect.stop_previous_sound and first_effect.sound is None:
-        # يضيف صوتًا للتأثير الأول
-        first_effect.sound = effect_sound
-
-    # يحصل على أول تسلسل تفاعلي في الشريحة.
-    interactive_sequence = first_slide.timeline.interactive_sequences[0]
-
-    # يضبط علامة "إيقاف الصوت السابق" للتأثير
-    interactive_sequence[0].stop_previous_sound = True
-
-    # يحفظ ملف PPTX على القرص
-    pres.save("AnimExample_Sound_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-### **استخراج صوت تأثير الرسوم المتحركة**
-
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
-2. الحصول على مرجع الشريحة عبر فهرستها. 
-3. الحصول على التسلسل الرئيسي للتأثيرات. 
-4. استخراج الصوت `sound` المضمن في كل تأثير رسوم متحركة. 
-
-يعرض هذا الكود Python كيفية استخراج الصوت المضمن في تأثير الرسوم المتحركة :
-```python
-import aspose.slides as slides
-
-# ينشئ كائنًا من فئة العرض التقديمي التي تمثل ملف عرض تقديمي.
-with slides.Presentation("EffectSound.pptx") as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+    first_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 80, 100, 240, 80)
+    second_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 400, 100, 240, 80)
+    first_shape.text_frame.text = "Starts sound"
+    second_shape.text_frame.text = "Stops sound"
 
-    # يحصل على التسلسل الرئيسي للشريحة.
     sequence = slide.timeline.main_sequence
+    first_effect = sequence.add_effect(first_shape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+    second_effect = sequence.add_effect(second_shape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
 
+    with open("animation-sound.wav", "rb") as audio_file:
+        effect_sound = presentation.audios.add_audio(audio_file.read())
+
+    first_effect.sound = effect_sound
+    second_effect.stop_previous_sound = True
+
+    presentation.save("shape-animation-sound.pptx", slides.export.SaveFormat.PPTX)
+```
+
+### **استخراج أصوات التأثير المدمجة**
+
+المثال التالي يتوقع عرضًا محليًا باسم `presentation-with-animation-sounds.pptx`. يقوم بفحص كل من التسلسلات الرئيسية والتفاعلية ويكتب كل صوت تأثير مدمج إلى الدليل `extracted-animation-sounds`. يتم اختيار الامتداد من نوع MIME الصوتي المعروض بواسطة [Audio.content_type](https://reference.aspose.com/slides/ar/python-net/aspose.slides/audio/content_type/).
+
+```python
+import os
+
+import aspose.slides as slides
+
+
+def get_audio_extension(content_type):
+    normalized_type = "" if content_type is None else content_type.lower()
+
+    if normalized_type == "audio/mpeg":
+        return ".mp3"
+    if normalized_type == "audio/mp4":
+        return ".m4a"
+    if normalized_type == "audio/ogg":
+        return ".ogg"
+    if normalized_type in ("audio/wav", "audio/x-wav"):
+        return ".wav"
+
+    return ".bin"
+
+
+def save_sounds(sequence, output_directory, sound_index):
     for effect in sequence:
         if effect.sound is None:
             continue
 
-        # يستخرج صوت التأثير كمصفوفة بايت
-        audio = effect.sound.binary_data
+        extension = get_audio_extension(effect.sound.content_type)
+        output_path = os.path.join(output_directory, f"effect-sound-{sound_index}{extension}")
+        with open(output_path, "wb") as output_file:
+            output_file.write(bytes(effect.sound.binary_data))
+        sound_index += 1
+
+    return sound_index
+
+
+input_path = "presentation-with-animation-sounds.pptx"
+output_directory = "extracted-animation-sounds"
+
+os.makedirs(output_directory, exist_ok=True)
+
+with slides.Presentation(input_path) as presentation:
+    sound_index = 1
+
+    for slide in presentation.slides:
+        sound_index = save_sounds(slide.timeline.main_sequence, output_directory, sound_index)
+
+        for sequence in slide.timeline.interactive_sequences:
+            sound_index = save_sounds(sequence, output_directory, sound_index)
+
+print(f"Extracted {sound_index - 1} sound file(s) to {os.path.abspath(output_directory)}.")
 ```
 
+للكائنات الصوتية الكبيرة، استخدم [Audio.get_stream](https://reference.aspose.com/slides/ar/python-net/aspose.slides/audio/get_stream/) وانسخ الدفق إلى ملف بدلاً من تحميل الكائن بالكامل إلى مصفوفة بايت.
 
-## **بعد الرسوم المتحركة**
+## **تحديد سلوك ما بعد الحركة**
 
-تتيح Aspose.Slides للـ .NET تغيير خاصية After animation لتأثير الرسوم المتحركة.
+خيار **After animation** يتحكم ماذا يحدث للشكل بعد انتهاء تأثيره.
 
-هذه هي لوحة تأثير الرسوم المتحركة والقائمة الموسعة في Microsoft PowerPoint:
+![مربع حوار خيارات تأثير PowerPoint يظهر إعدادات After animation](shape-after-animation.png)
 
-![example1_image](shape-after-animation.png)
+يدعم تعداد [AfterAnimationType](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/afteranimationtype/) ترك الشكل كما هو، تغيير لونه، إخفاؤه بعد الحركة، أو إخفاؤه عند النقر التالي. عندما يكون النوع هو [AfterAnimationType.COLOR](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/afteranimationtype/), اضبط أيضًا [Effect.after_animation_color](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effect/after_animation_color/).
 
-قائمة منسدلة **After animation** في PowerPoint تتطابق مع هذه الخصائص: 
+هذا المثال المستقل ينشئ تأثيرًا، يحدد سلوكه ما بعد الحركة عبر كائن التأثير المُرجع، ويحفظ النتيجة.
 
-- خاصية `after_animation_type` التي تصف نوع بعد الرسوم المتحركة :
-  * **More Colors** في PowerPoint يتطابق مع نوع [COLOR](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/) ;
-  * **Don't Dim** في PowerPoint يتطابق مع نوع [DO_NOT_DIM](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/) (نوع بعد الرسوم المتحركة الافتراضي) ;
-  * **Hide After Animation** في PowerPoint يتطابق مع نوع [HIDE_AFTER_ANIMATION](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/) ;
-  * **Hide on Next Mouse Click** في PowerPoint يتطابق مع نوع [HIDE_ON_NEXT_MOUSE_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/) ;
-- خاصية `after_animation_color` التي تحدد تنسيق لون بعد الرسوم المتحركة. تعمل هذه الخاصية بالتزامن مع نوع [COLOR](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/) . إذا غيرت النوع إلى نوع آخر، سيتم مسح لون بعد الرسوم المتحركة.
-
-يعرض هذا الكود Python كيفية تغيير تأثير بعد الرسوم المتحركة :
 ```python
+import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# ينشئ فئة عرض تقديمي تمثل ملف عرض تقديمي
-with slides.Presentation("AnimImage_out.pptx") as pres:
-    first_slide = pres.slides[0]
 
-    # يحصل على التأثير الأول في التسلسل الرئيسي
-    first_effect = first_slide.timeline.main_sequence[0]
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 120, 100, 320, 80)
+    shape.text_frame.text = "Dim after animation"
 
-    # يغيّر نوع الحركة بعد الرسوم المتحركة إلى اللون
-    first_effect.after_animation_type = AfterAnimationType.COLOR
+    effect = slide.timeline.main_sequence.add_effect(shape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+    effect.after_animation_type = slides.animation.AfterAnimationType.COLOR
+    effect.after_animation_color.color = draw.Color.light_gray
 
-    # يحدد لون التعتيم بعد الرسوم المتحركة
-    first_effect.after_animation_color.color = Color.alice_blue
-
-    # يحفظ ملف PPTX على القرص
-    pres.save("AnimImage_AfterAnimation.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("shape-animation-after-effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+تغيير النوع بعيدًا عن [AfterAnimationType.COLOR](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/afteranimationtype/) يمسح إعداد لون ما بعد الحركة.
 
 ## **تحريك النص**
 
-توفر Aspose.Slides هذه الخصائص لتتيح لك العمل مع قسم *تحريك النص* في تأثير الرسوم المتحركة :
+تحريك النص يحتوي على تحكمين مرتبطين:
 
-- `animate_text_type` التي تصف نوع تحريك النص في التأثير. يمكن تحريك نص الشكل :
-  - كلّها مرة واحدة ([ALL_AT_ONCE](https://reference.aspose.com/slides/python-net/aspose.slides.animation/animatetexttype/) النوع)
-  - حسب الكلمات ([BY_WORD](https://reference.aspose.com/slides/python-net/aspose.slides.animation/animatetexttype/) النوع)
-  - حسب الحرف ([BY_LETTER](https://reference.aspose.com/slides/python-net/aspose.slides.animation/animatetexttype/) النوع)
-- `delay_between_text_parts` تحدد تأخيرًا بين أجزاء النص المتحركة (كلمات أو أحرف). القيمة الموجبة تحدد نسبة مدة التأثير. القيمة السالبة تحدد التأخير بالثواني.
+- [TextAnimation.build_type](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/textanimation/build_type/) يتحكم فيما إذا كانت الفقرات تظهر معًا أو على مستوى الفقرة.
+- [Effect.animate_text_type](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effect/animate_text_type/) يتحكم فيما إذا كان النص يظهر دفعة واحدة، بالكلمة، أو بالحرف. [Effect.delay_between_text_parts](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effect/delay_between_text_parts/) يحدد التأخير بين الكلمات أو الأحرف. القيمة الموجبة هي نسبة مئوية من مدة التأثير؛ القيمة السلبية هي تأخير بالثواني.
 
-بهذا الشكل يمكنك تغيير خصائص تحريك النص في التأثير :
+المثال المستقل التالي يحرك الكلمات في مربع نص. [BuildType.AS_ONE_OBJECT](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/buildtype/) يعطل بناء الفقرة بفقرة بحيث ينطبق إعداد الكلمة على كامل إطار النص.
 
-1. [تطبيق](#apply-animation-to-shape) أو الحصول على تأثير الرسوم المتحركة.
-2. ضبط خاصية `build_type` إلى القيمة [AS_ONE_OBJECT](https://reference.aspose.com/slides/python-net/aspose.slides.animation/buildtype/) لإيقاف وضع التحريك *By Paragraphs*.
-3. ضبط قيم جديدة لخصائص `animate_text_type` و `delay_between_text_parts` .
-4. احفظ ملف PPTX المعدل.
-
-يعرض هذا الكود Python العملية :
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("AnimTextBox_out.pptx") as pres:
-    first_slide = pres.slides[0]
 
-    # يحصل على التأثير الأول في التسلسل الرئيسي
-    first_effect = first_slide.timeline.main_sequence[0]
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 80, 80, 560, 100)
+    text_box.text_frame.text = "Aspose.Slides animates this sentence word by word."
 
-    # يغيّر نوع تحريك النص للتأثير إلى "As One Object"
-    first_effect.text_animation.build_type = slides.animation.BuildType.AS_ONE_OBJECT
+    effect = slide.timeline.main_sequence.add_effect(text_box, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+    effect.text_animation.build_type = slides.animation.BuildType.AS_ONE_OBJECT
+    effect.animate_text_type = slides.animation.AnimateTextType.BY_WORD
+    effect.delay_between_text_parts = 20.0
 
-    # يغيّر نوع تحريك النص للتأثير إلى "By word"
-    first_effect.animate_text_type = slides.animation.AnimateTextType.BY_WORD
-
-    # يحدد التأخير بين الكلمات إلى 20٪ من مدة التأثير
-    first_effect.delay_between_text_parts = 20
-
-    # يحفظ ملف PPTX على القرص
-    pres.save("AnimTextBox_AnimateText.pptx", slides.export.SaveFormat.PPTX)
-
+    presentation.save("animated-text.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+لبناء مربع نص وفقًا للفقرة، اضبط [BuildType.BY_LEVEL_PARAGRAPHS1](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/buildtype/) (أو مستوى فقرة آخر). لاستهداف فقرة واحدة بتأثيرها الخاص، استخدم نسخة [Sequence.add_effect](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/sequence/add_effect/) التي تقبل [IParagraph](https://reference.aspose.com/slides/ar/python-net/aspose.slides/iparagraph/). راجع [Animated Text](/slides/ar/python-net/animated-text/) لأمثلة على مستوى الفقرة.
+
+## **ملاحظات التصدير والتوافق**
+
+- حفظ إلى PPT أو PPTX يحافظ على نموذج الحركة، لكن تشغيله النهائي يتحكم فيه عارض العرض.
+- لا تقوم ملفات PDF والصور الثابتة بتشغيل الحركات. استخدم [تصدير HTML5](/slides/ar/python-net/export-to-html5/)، GIF متحرك، أو [تحويل للفيديو](/slides/ar/python-net/convert-powerpoint-to-video/) عندما يجب أن يظهر الناتج الحركة.
+- بالنسبة إلى HTML5، فعل [Html5Options.animate_shapes](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/html5options/animate_shapes/), وعند الحاجة، [Html5Options.animate_transitions](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/html5options/animate_transitions/).
+- يدعم تصيير الفيديو العديد من تأثيرات الدخول، والتأكيد، والخروج، ومسار الحركة الشائعة، لكن ليس كل تأثير PowerPoint مدعوم. تحقق من [الرسوم المتحركة المدعومة والتأثيرات](/slides/ar/python-net/convert-powerpoint-to-video/#supported-animations-and-effects) الحالي واختبر العروض الحرجة مع نسخة Aspose.Slides المستهدفة.
+- قد تُحافظ التأثيرات المخصصة المتقدمة والتأثيرات المستوردة من صيغ عروض أخرى في الملف، لكنها تُعرض بشكل مختلف في PowerPoint أو HTML5 أو الفيديو. تحقق من النتيجة المصدرة بدلاً من الاعتماد فقط على اسم التأثير.
 
 ## **الأسئلة الشائعة**
 
-**كيف يمكنني ضمان حفظ الرسوم المتحركة عند نشر العرض التقديمي على الويب؟**
+**لماذا تظهر حركة في PowerPoint ولكن ليس في PDF؟**
 
-[التصدير إلى HTML5](/slides/ar/python-net/export-to-html5/) وتفعيل [الخيارات](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/) المسؤولة عن الرسوم المتحركة للأشكال ([shape](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_shapes/)) والانتقالات ([transition](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_transitions/)). لا يقوم HTML العادي بتشغيل رسوم المتحركة للشرائح، في حين يدعم HTML5 ذلك.
+PDF هو تنسيق ثابت، لذلك لا تُشغَّل الحركات وانتقالات الشرائح. صدِّر إلى HTML5، GIF متحرك، أو فيديو عندما يجب الحفاظ على الحركة.
 
-**كيف يؤثر تغيير ترتيب الـ z-order (ترتيب الطبقات) للأشكال على الرسوم المتحركة؟**
+**لماذا يُشغَّل تأثير بشكل مختلف في الفيديو؟**
 
-الرسوم المتحركة وترتيب الرسم مستقلان: يتحكم التأثير في توقيت ونوع الظهور/الاختفاء، بينما يحدد ترتيب الـ z-order ما يغطي ما. النتيجة المرئية تُحدَّد بتواصلهما. (هذا هو سلوك PowerPoint العام؛ نموذج Aspose.Slides للرسوم المتحركة والأشكال يتبع نفس المنطق.)
+يُعيد تصدير الفيديو رسم الحركات بدلاً من تخزين سلوك PowerPoint الأصلي. بعض التأثيرات المتقدمة غير مدعومة أو تُقَرَّب. راجع جدول التأثيرات المدعومة واختبر العرض الفعلي قبل الاستخدام الإنتاجي.
 
-**هل هناك قيود عند تحويل الرسوم المتحركة إلى فيديو لبعض التأثيرات؟**
+**هل يؤثر نقل الشكل للأمام أو للخلف على ترتيب حركته؟**
 
-بشكل عام، يتم دعم [الرسوم المتحركة](/slides/ar/python-net/convert-powerpoint-to-video/)، لكن قد تُعرض حالات نادرة أو تأثيرات محددة بطريقة مختلفة. يوصى باختبار التأثيرات المستخدمة وإصدار المكتبة.
+لا. يتحكم ترتيب z للشكل في التداخل، بينما يتحكم ترتيب التسلسل والمشغلات في تشغيل الحركة. غيّر الجدول الزمني إذا كنت بحاجة إلى ترتيب تشغيل مختلف.

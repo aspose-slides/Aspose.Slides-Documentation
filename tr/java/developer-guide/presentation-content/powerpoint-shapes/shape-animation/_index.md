@@ -1,5 +1,5 @@
 ---
-title: Java Kullanarak Sunumlarda Şekil Animasyonlarını Uygulama
+title: Sunumlarda Java Kullanarak Şekil Animasyonları Uygulama
 linktitle: Şekil Animasyonu
 type: docs
 weight: 60
@@ -8,493 +8,479 @@ keywords:
 - şekil
 - animasyon
 - efekt
-- animasyonlu şekil
-- animasyonlu metin
+- canlandırılmış şekil
+- canlandırılmış metin
 - animasyon ekle
-- animasyonu al
-- animasyonu çıkar
+- animasyon al
+- animasyon çıkar
 - efekt ekle
-- efekti al
-- efekti çıkar
+- efekt al
+- efekt çıkar
 - efekt sesi
-- animasyonu uygula
+- animasyon uygula
 - PowerPoint
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java ile PowerPoint sunumlarında şekil animasyonları oluşturmayı ve özelleştirmeyi keşfedin. Öne çıkın!"
+description: "Aspose.Slides for Java ile şekil animasyonlarını ekleme, inceleme ve özelleştirme, zamanlama, sesler, animasyon sonrası davranış ve canlandırılmış metin konularını öğrenin."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-Animasyonlar, metinlere, görüntülere, şekillere veya [grafiklere](https://docs.aspose.com/slides/tr/java/animated-charts/) uygulanabilen görsel efektlerdir. Sunumlara veya bileşenlerine canlılık katar. 
+Aspose.Slides for Java, slayt animasyonlarını bir slayt zaman çizelgesindeki efektler olarak temsil eder. Bir efektin hedef şekli, bir animasyon türü ve alt türü, bir tetikleyici, zamanlama ayarları ve ses ya da animasyon sonrası davranış gibi isteğe bağlı özellikleri vardır.
 
-## **Sunumlarda Neden Animasyon Kullanılır?**
+Zaman çizelgesi iki tür dizi içerir:
 
-* bilginin akışını kontrol edin  
-* önemli noktaları vurgulayın  
-* izleyicilerinizin ilgisini veya katılımını artırın  
-* içeriğin okunmasını, sindirilmesini veya işlenmesini kolaylaştırın  
-* okuyucularınızın veya izleyicilerinizin dikkatini sunumdaki önemli bölümlere çekin  
+- **Ana dizi**, slayt ilerledikçe oynatılır.
+- **Etkileşimli dizi**, tetikleyici şekli tıklandığında başlar.
 
-PowerPoint, **giriş**, **çıkış**, **vurgulama** ve **hareket yolları** kategorilerinde animasyonlar ve animasyon efektleri için birçok seçenek ve araç sunar. 
+Metin kutuları, resimler, grafikler, tablolar ve diğer slayt nesneleri [IShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishape/) uygular, bu nedenle çoğu slayt içeriği için aynı [ISequence.addEffect](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) yöntemini kullanırsınız. Mevcut efektler [EffectType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/effecttype/) sınıfında listelenir.
 
-## **Aspose.Slides'ta Animasyonlar**
+## **Şekil Animasyonları Ekleme**
 
-* Aspose.Slides, animasyonlarla çalışmanız için gerekli sınıfları ve tipleri `Aspose.Slides.Animation` ad alanı altında sağlar,  
-* Aspose.Slides, [EffectType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/effecttype) enum'ı altında **150'den fazla animasyon efekti** sunar. Bu efektler esasen PowerPoint'te kullanılan aynı (veya eşdeğer) efektlerdir.  
+Bir animasyon eklemek için slaytın ana dizisini alın ve hedef şekil, efekt türü, alt tür ve tetikleyici ile [ISequence.addEffect](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) yöntemini çağırın. Başka bir şekil tıklandığında başlayan bir efekt için, tetikleyicisi o diğer şekil olan bir etkileşimli dizi oluşturun.
 
-## **Metin Kutusuna Animasyon Uygulama**
-
-Aspose.Slides for Java, bir şeklin içindeki metne animasyon uygulamanıza olanak tanır. 
-
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation) sınıfının bir örneğini oluşturun.  
-2. İndeks aracılığıyla bir slayt referansı edinin.  
-3. Bir `rectangle` [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iautoshape) ekleyin.  
-4. [IAutoShape.TextFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IAutoShape#addTextFrame-java.lang.String-) içine metin ekleyin.  
-5. Efektlerin ana dizisini alın.  
-6. [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iautoshape) üzerine bir animasyon efekti ekleyin.  
-7. `TextAnimation.BuildType` özelliğini `BuildType` enum'ından gelen değerle ayarlayın.  
-8. Sunumu bir PPTX dosyası olarak diske yazın.  
-
-Bu Java kodu, AutoShape'e `Fade` efektini nasıl uygulayacağınızı ve metin animasyonunu *1. Düzey Paragraflar* değerine nasıl ayarlayacağınızı gösterir:
+Aşağıdaki örnek hem ana hem de etkileşimli animasyon tiplerini oluşturur ve sonucu `shape-animations.pptx` dosyasına kaydeder.
 
 ```java
-// Sunum dosyasını temsil eden bir sunum sınıfını örnekler.
-Presentation pres = new Presentation();
-try {
-    ISlide sld = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // Metin ile yeni AutoShape ekler
-    IAutoShape autoShape = sld.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 100);
+public class AddShapeAnimations {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
 
-    ITextFrame textFrame = autoShape.getTextFrame();
-    textFrame.setText("First paragraph \nSecond paragraph \n Third paragraph");
+            IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 120, 100, 320, 80);
+            targetShape.addTextFrame("Click to animate this shape");
 
-    // Slaytın ana dizisini alır.
-    ISequence sequence = sld.getTimeline().getMainSequence();
+            ISequence mainSequence = slide.getTimeline().getMainSequence();
+            IEffect entranceEffect = mainSequence.addEffect(targetShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            entranceEffect.getTiming().setDuration(1.5f);
 
-    // Şekle Fade animasyon etkisi ekler
-    IEffect effect = sequence.addEffect(autoShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            IAutoShape triggerShape = slide.getShapes().addAutoShape(ShapeType.Bevel, 20, 20, 100, 40);
+            triggerShape.addTextFrame("Move");
 
-    // Şekil metnini 1. seviye paragraflar ile animasyonlandırır
-    effect.getTextAnimation().setBuildType(BuildType.ByLevelParagraphs1);
+            ISequence interactiveSequence = slide.getTimeline().getInteractiveSequences().add(triggerShape);
+            interactiveSequence.addEffect(targetShape, EffectType.PathFootball, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // PPTX dosyasını diske kaydeder
-    pres.save(path + "AnimText_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-{{%  alert color="primary"  %}} 
-Metne animasyon uygulamanın yanı sıra tek bir [Paragraf](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraph) üzerine de animasyon uygulayabilirsiniz. Bakın [**Animasyonlu Metin**](/slides/tr/java/animated-text/).
-{{% /alert %}} 
-
-## **PictureFrame'e Animasyon Uygulama**
-
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation) sınıfının bir örneğini oluşturun.  
-2. İndeks aracılığıyla bir slayt referansı alın.  
-3. Slayta bir [PictureFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/pictureframe) ekleyin veya alın.  
-4. Efektlerin ana dizisini alın.  
-5. [PictureFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/pictureframe) üzerine bir animasyon efekti ekleyin.  
-6. Sunumu bir PPTX dosyası olarak diske yazın.  
-
-Bu Java kodu, bir picture frame'e `Fly` efektini nasıl uygulayacağınızı gösterir:
-
-```java
-// Sunum dosyasını temsil eden bir sunum sınıfını örnekler.
-Presentation pres = new Presentation();
-try {
-    // Sunum görüntü koleksiyonuna eklenecek resmi yükler
-    IPPImage picture;
-    IImage image = Images.fromFile("aspose-logo.jpg");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-
-    // Slayta resim çerçevesi ekler
-    IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, picture);
-
-    // Slaytın ana dizisini alır.
-    ISequence sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
-
-    // Resim çerçevesine Soldan Uçuş animasyon etkisi ekler
-    IEffect effect = sequence.addEffect(picFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
-
-    // PPTX dosyasını diske kaydeder
-    pres.save(path + "AnimImage_out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Şekle Animasyon Uygulama**
-
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation) sınıfının bir örneğini oluşturun.  
-2. İndeks aracılığıyla bir slayt referansı alın.  
-3. Bir `rectangle` [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iautoshape) ekleyin.  
-4. Bir `Bevel` [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iautoshape) ekleyin (bu nesne tıklandığında animasyon oynatılır).  
-5. Bevel şekli üzerinde bir efekt dizisi oluşturun.  
-6. Özel bir `UserPath` oluşturun.  
-7. `UserPath`'e hareket komutları ekleyin.  
-8. Sunumu bir PPTX dosyası olarak diske yazın.  
-
-Bu Java kodu, bir şekle `PathFootball` (path football) efektini nasıl uygulayacağınızı gösterir:
-
-```java
-// PPTX dosyasını temsil eden bir Presentation sınıfını örnekler.
-Presentation pres = new Presentation();
-try {
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Mevcut şekil için sıfırdan PathFootball etkisi oluşturur.
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 250, 25);
-    ashp.addTextFrame("Animated TextBox");
-
-    // PathFootBall animasyon etkisini ekler
-    pres.getSlides().get_Item(0).getTimeline().getMainSequence().addEffect(ashp, EffectType.PathFootball,
-            EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-    // Bir çeşit "düğme" oluşturur.
-    IShape shapeTrigger = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Bevel, 10, 10, 20, 20);
-
-    // Bu düğme için bir efekt dizisi oluşturur.
-    ISequence seqInter = pres.getSlides().get_Item(0).getTimeline().getInteractiveSequences().add(shapeTrigger);
-
-     // Özel bir kullanıcı yolu oluşturur. Nesnemiz sadece düğmeye tıklandıktan sonra hareket edecektir.
-    IEffect fxUserPath = seqInter.addEffect(ashp, EffectType.PathUser, EffectSubtype.None, EffectTriggerType.OnClick);
-
-     // Oluşturulan yol boş olduğu için hareket komutları ekler.
-    IMotionEffect motionBvh = ((IMotionEffect)fxUserPath.getBehaviors().get_Item(0));
-
-    Point2D.Float[] pts = new Point2D.Float[1];
-    pts[0] = new Point2D.Float(0.076f, 0.59f);
-    motionBvh.getPath().add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, true);
-    pts[0] = new Point2D.Float(-0.076f, -0.59f);
-    motionBvh.getPath().add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, false);
-    motionBvh.getPath().add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
-
-     // PPTX dosyasını diske yazar
-    pres.save("AnimExample_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Bir Şekle Uygulanan Animasyon Efektlerini Alma**
-
-Aşağıdaki örnekler, bir şekle uygulanan tüm animasyon efektlerini almak için [ISequence](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isequence/) arayüzündeki `getEffectsByShape` metodunun nasıl kullanılacağını gösterir.
-
-**Örnek 1: Normal bir slaytta bir şekle uygulanan animasyon efektlerini alma**
-
-Daha önce PowerPoint sunumlarındaki şekillere animasyon efektleri eklemeyi öğrenmiştiniz. Aşağıdaki örnek kod, `AnimExample_out.pptx` sunumundaki ilk normal slayttaki ilk şekle uygulanan efektleri nasıl alacağınızı gösterir:
-
-```java
-Presentation presentation = new Presentation("AnimExample_out.pptx");
-try {
-    ISlide firstSlide = presentation.getSlides().get_Item(0);
-
-    // Slaytın ana animasyon dizisini alır.
-    ISequence sequence = firstSlide.getTimeline().getMainSequence();
-
-    // İlk slayttaki ilk şekli alır.
-    IShape shape = firstSlide.getShapes().get_Item(0);
-
-    // Şekle uygulanan animasyon efektlerini alır.
-    IEffect[] shapeEffects = sequence.getEffectsByShape(shape);
-
-    if (shapeEffects.length > 0)
-        System.out.println("The shape " + shape.getName() + " has " + shapeEffects.length + " animation effects.");
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-**Örnek 2: Yer tutuculardan devralınanlar da dahil olmak üzere tüm animasyon efektlerini alma**
-
-Eğer normal bir slayttaki bir şeklin, yerleşim slaytı ve/veya ana slayt üzerindeki yer tutucuları varsa ve bu yer tutuculara animasyon efektleri eklenmişse, şeklin tüm efektleri slayt gösterisi sırasında oynatılır; bu etkiler yer tutuculardan devralınanları da içerir.
-
-Varsayalım ki `sample.pptx` adlı bir PowerPoint sunum dosyamız var ve tek bir slaytı sadece **Made with Aspose.Slides** metni içeren bir altbilgi şekli içeriyor ve bu şekle **Random Bars** efekti uygulanmış.
-
-![Slayt şekli animasyon efekti](slide-shape-animation.png)
-
-Ayrıca altbilgi yer tutucusuna **layout** slaytında **Split** efekti uygulandığını varsayalım.
-
-![Yerleşim şekli animasyon efekti](layout-shape-animation.png)
-
-Ve son olarak, **master** slaytındaki altbilgi yer tutucusuna **Fly In** efekti uygulanmış.
-
-![Ana slayt şekli animasyon efekti](master-shape-animation.png)
-
-Aşağıdaki örnek kod, [IShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishape/) arayüzündeki `getBasePlaceholder` metodunu kullanarak şekil yer tutucularına erişmeyi ve altbilgi şekline uygulanan animasyon efektlerini, yerleşim ve ana slaytlardaki yer tutuculardan devralınanları da dahil ederek almayı gösterir:
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-
-ISlide slide = presentation.getSlides().get_Item(0);
-
-// Normal slayttaki şeklin animasyon efektlerini al.
-IShape shape = slide.getShapes().get_Item(0);
-IEffect[] shapeEffects = slide.getTimeline().getMainSequence().getEffectsByShape(shape);
-
-// Yerleşim slaydındaki yer tutucunun animasyon efektlerini al.
-IShape layoutShape = shape.getBasePlaceholder();
-IEffect[] layoutShapeEffects = slide.getLayoutSlide().getTimeline().getMainSequence().getEffectsByShape(layoutShape);
-
-// Ana slaydındaki yer tutucunun animasyon efektlerini al.
-IShape masterShape = layoutShape.getBasePlaceholder();
-IEffect[] masterShapeEffects = slide.getLayoutSlide().getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(masterShape);
-
-System.out.println("Main sequence of shape effects:");
-printEffects(masterShapeEffects);
-printEffects(layoutShapeEffects);
-printEffects(shapeEffects);
-
-presentation.dispose();
-```
-```java
-static void printEffects(IEffect[] effects)
-{
-    for (IEffect effect : effects)
-    {
-        String typeName = EffectType.getName(EffectType.class, effect.getType());
-        String subtypeName = EffectSubtype.getName(EffectSubtype.class, effect.getSubtype());
-
-        System.out.println(typeName + " " + subtypeName);
+            presentation.save("shape-animations.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
     }
 }
 ```
 
-Çıktı:
-```text
-Main sequence of shape effects:
-Fly Bottom
-Split VerticalIn
-RandomBars Horizontal
-```
+Tetikleyici, bir efektin ne zaman başlayacağını kontrol eder:
 
-## **Animasyon Efekti Zamanlama Özelliklerini Değiştirme**
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/tr/java/com.aspose.slides/effecttriggertype/#OnClick) ana dizide bir tıklamayı veya etkileşimli dizide tetikleyici şeklin tıklanmasını bekler.
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/tr/java/com.aspose.slides/effecttriggertype/#WithPrevious) önceki efektle birlikte başlar.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/tr/java/com.aspose.slides/effecttriggertype/#AfterPrevious) önceki efekt bittiğinde başlar.
 
-Aspose.Slides for Java, bir animasyon efektinin Zamanlama (Timing) özelliklerini değiştirmenize olanak tanır.
+Bir resmi, grafiği veya başka bir şekil türünü canlandırmak için, `targetShape` yerine o nesneyi [ISequence.addEffect](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) yöntemine geçirin. Grafiklere özgü grup seçenekleri için [Animated Charts](/slides/tr/java/animated-charts/) bölümüne bakın.
 
-Bu, Microsoft PowerPoint'teki Animasyon Zamanlama bölmesidir:
+## **Şekil Animasyonlarını Okuma**
 
-![Animasyon Zamanlama bölmesi](shape-animation.png)
+Hedef şekli bildiğinizde [ISequence.getEffectsByShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) yöntemini kullanın. Her bir efekti incelemek için ana diziyi ve tüm etkileşimli dizileri dolaşın. Dizi içindeki bir efektin `0` indeksinde bulunduğunu varsaymaktan kaçının.
 
-PowerPoint Zamanlama ve [Effect.Timing](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IEffect#getTiming--) özellikleri arasındaki karşılıklar:
-
-- PowerPoint Zamanlama **Start** (Başlat) açılır listesi, [Effect.Timing.TriggerType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ITiming#getTriggerType--) özelliğiyle eşleşir.  
-- PowerPoint Zamanlama **Duration** (Süre), [Effect.Timing.Duration](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ITiming#getDuration--) özelliğiyle eşleşir. Bir animasyonun (saniye cinsinden) süresi, animasyonun bir döngüyü tamamlaması için geçen toplam süredir.  
-- PowerPoint Zamanlama **Delay** (Gecikme), [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ITiming#getTriggerDelayTime--) özelliğiyle eşleşir.  
-
-Effect Timing özelliklerini şu şekilde değiştirirsiniz:
-
-1. [Şekle animasyon uygula](#apply-animation-to-shape) ya da animasyon efektini alın.  
-2. İhtiyacınız olan [Effect.Timing](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IEffect#getTiming--) özelliklerine yeni değerler atayın.  
-3. Değiştirilmiş PPTX dosyasını kaydedin.  
-
-Bu Java kodu işlemi gösterir:
+Aşağıdaki örnek bir şekle ana‑dizi ve etkileşimli efektler ekler, şekli hedefleyen efektleri alır ve ardından slayttaki her diziyi dolaşır.
 
 ```java
-// Sunum dosyasını temsil eden bir presentation sınıfını örnekler.
-Presentation pres = new Presentation("AnimExample_out.pptx");
-try {
-    // Slaytın ana dizisini alır.
-    ISequence sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
+import com.aspose.slides.*;
 
-    // Ana dizinin ilk efektini alır.
-    IEffect effect = sequence.get_Item(0);
+public class ReadShapeAnimations {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+            targetShape.addTextFrame("Animated shape");
 
-    // Efektin TriggerType'ını tıklamayla başlatacak şekilde değiştirir
-    effect.getTiming().setTriggerType(EffectTriggerType.OnClick);
+            ISequence mainSequence = slide.getTimeline().getMainSequence();
+            mainSequence.addEffect(targetShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // Efektin süresini değiştirir
-    effect.getTiming().setDuration(3f);
+            IAutoShape triggerShape = slide.getShapes().addAutoShape(ShapeType.Bevel, 20, 20, 100, 40);
+            triggerShape.addTextFrame("Move");
 
-    // Efektin TriggerDelayTime'ını değiştirir
-    effect.getTiming().setTriggerDelayTime(0.5f);
+            ISequence interactiveSequence = slide.getTimeline().getInteractiveSequences().add(triggerShape);
+            interactiveSequence.addEffect(targetShape, EffectType.PathFootball, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // PPTX dosyasını diske kaydeder
-    pres.save("AnimExample_changed.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+            IEffect[] targetEffects = mainSequence.getEffectsByShape(targetShape);
+            System.out.println("The main sequence contains " + targetEffects.length + " effect(s) for " + targetShape.getName() + ".");
 
-## **Animasyon Efekti Sesleri**
+            printSequence("Main sequence", mainSequence);
 
-Aspose.Slides, animasyon efektlerindeki seslerle çalışmanıza olanak tanıyan aşağıdaki özellikleri sağlar: 
-
-- [setSound(IAudio value)](https://reference.aspose.com/slides/tr/java/com.aspose.slides/effect/#setSound-com.aspose.slides.IAudio-)  
-- [setStopPreviousSound(boolean value)](https://reference.aspose.com/slides/tr/java/com.aspose.slides/effect/#setStopPreviousSound-boolean-) 
-
-### **Animasyon Efekti Sesi Ekleme**
-
-Bu Java kodu, bir animasyon efekti sesini nasıl ekleyeceğinizi ve bir sonraki efekt başladığında sesin durdurulacağını gösterir:
-
-```java
-Presentation pres = new Presentation("AnimExample_out.pptx");
-try {
-    // Sunum ses koleksiyonuna ses ekler
-    IAudio effectSound = pres.getAudios().addAudio(Files.readAllBytes(Paths.get("sampleaudio.wav")));
-
-    ISlide firstSlide = pres.getSlides().get_Item(0);
-
-    // Slaytın ana dizisini alır.
-    ISequence sequence = firstSlide.getTimeline().getMainSequence();
-
-    // Ana dizinin ilk efektini alır
-    IEffect firstEffect = sequence.get_Item(0);
-
-    // Efekti "Ses Yok" için kontrol eder
-    if (!firstEffect.getStopPreviousSound() && firstEffect.getSound() == null)
-    {
-        // İlk efekt için ses ekler
-        firstEffect.setSound(effectSound);
+            int interactiveIndex = 1;
+            for (ISequence sequence : slide.getTimeline().getInteractiveSequences()) {
+                String triggerName = sequence.getTriggerShape() == null ? "unknown" : sequence.getTriggerShape().getName();
+                String sequenceLabel = "Interactive sequence " + interactiveIndex + ", trigger: " + triggerName;
+                printSequence(sequenceLabel, sequence);
+                interactiveIndex++;
+            }
+        } finally {
+            presentation.dispose();
+        }
     }
 
-    // Slaytın ilk etkileşimli dizisini alır.
-    ISequence interactiveSequence = firstSlide.getTimeline().getInteractiveSequences().get_Item(0);
+    private static void printSequence(String label, ISequence sequence) {
+        System.out.println("  " + label + ": " + sequence.getCount() + " effect(s)");
 
-    // Efektin "Önceki sesi durdur" bayrağını ayarlar
-    interactiveSequence.get_Item(0).setStopPreviousSound(true);
-
-    // PPTX dosyasını diske yazar
-    pres.save("AnimExample_Sound_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-### **Animasyon Efekti Sesini Çıkarma**
-
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. İndeks aracılığıyla bir slayt referansı alın.  
-3. Efektlerin ana dizisini edinin.  
-4. Her animasyon efektiyle ilişkili gömülü [setSound(IAudio value)](https://reference.aspose.com/slides/tr/java/com.aspose.slides/effect/#setSound-com.aspose.slides.IAudio-) sesini çıkarın.  
-
-Bu Java kodu, bir animasyon efektine gömülü sesi nasıl çıkaracağınızı gösterir:
-
-```java
-// Sunum dosyasını temsil eden bir Presentation sınıfını örnekler.
-Presentation presentation = new Presentation("EffectSound.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-
-    // Slaytın ana dizisini alır.
-    ISequence sequence = slide.getTimeline().getMainSequence();
-
-    for (IEffect effect : sequence)
-    {
-        if (effect.getSound() == null)
-            continue;
-
-        // Efekt sesini byte dizisi olarak çıkarır
-        byte[] audio = effect.getSound().getBinaryData();
+        for (IEffect effect : sequence) {
+            String targetName = effect.getTargetShape() == null ? "unknown" : effect.getTargetShape().getName();
+            String typeName = EffectType.getName(EffectType.class, effect.getType());
+            String subtypeName = EffectSubtype.getName(EffectSubtype.class, effect.getSubtype());
+            String triggerName = EffectTriggerType.getName(EffectTriggerType.class, effect.getTiming().getTriggerType());
+            String effectDescription = typeName + " " + subtypeName + "; target: " + targetName + "; trigger: " + triggerName;
+            System.out.println("    " + effectDescription);
+        }
     }
-} finally {
-    if (presentation != null) presentation.dispose();
 }
 ```
 
-## **Animasyondan Sonra**
+Yalnızca tek bir şekil için efektlere ihtiyacınız varsa, önce şekli adı, yer tutucu türü veya başka bir sabit özelliğiyle belirleyin; ardından [ISequence.getEffectsByShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) yöntemini çağırın. [IShapeCollection.get_Item](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishapecollection/#get_Item-int-) öğesinin `0` indeksindeki öğenin her zaman istenen nesne olduğunu varsaymayın.
 
-Aspose.Slides for Java, bir animasyon efektinin **After animation** (Animasyondan Sonra) özelliğini değiştirmenize olanak tanır.
+## **Miras Alınan Yer Tutucu Efektleriyle Çalışma**
 
-Bu, Microsoft PowerPoint'teki Animasyon Efekti bölmesi ve genişletilmiş menüsüdür:
+Normal bir slayttaki bir yer tutucu, düzen slaytındaki ve ana slayttaki karşılık gelen yer tutucudan animasyon davranışı miras alabilir. [IShape.getBasePlaceholder](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishape/#getBasePlaceholder--) bu üst yer tutucuyu döndürür; üst yoksa `null` verir.
 
-![Animasyon Efekti bölmesi ve genişletilmiş menü](shape-after-animation.png)
+Aşağıdaki örnek sunumda, normal slaytta altbilgi **Random Bars**, düzen slaytta **Split**, ana slaytta ise **Fly In** efektine sahiptir.
 
-PowerPoint Effect **After animation** (Animasyondan Sonra) açılır listesi aşağıdaki özelliklerle eşleşir: 
+![Normal slayttaki altbilgi animasyon efekti](slide-shape-animation.png)
 
-- [setAfterAnimationType(int value)](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ieffect/#setAfterAnimationType-int-) özelliği, animasyondan sonra türünü tanımlar :
-  * PowerPoint **More Colors** [AfterAnimationType.Color](https://reference.aspose.com/slides/tr/java/com.aspose.slides/afteranimationtype/#Color) tipine eşittir;  
-  * PowerPoint **Don't Dim** öğesi [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/tr/java/com.aspose.slides/afteranimationtype/#DoNotDim) tipine eşittir (varsayılan animasyondan sonra türüdür);  
-  * PowerPoint **Hide After Animation** öğesi [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/afteranimationtype/#HideAfterAnimation) tipine eşittir;  
-  * PowerPoint **Hide on Next Mouse Click** öğesi [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/tr/java/com.aspose.slides/afteranimationtype/#HideOnNextMouseClick) tipine eşittir;  
-- [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ieffect/#setAfterAnimationColor-com.aspose.slides.IColorFormat-) özelliği, bir animasyondan sonra renk formatını tanımlar. Bu özellik, [AfterAnimationType.Color](https://reference.aspose.com/slides/tr/java/com.aspose.slides/afteranimationtype/#Color) tipiyle birlikte çalışır. Türü başka bir tipe değiştirirseniz, animasyondan sonra renk temizlenir.  
+![Düzen slayttaki altbilgi yer tutucu animasyon efekti](layout-shape-animation.png)
 
-Bu Java kodu, bir animasyondan sonra efektini nasıl değiştireceğinizi gösterir:
+![Ana slayttaki altbilgi yer tutucu animasyon efekti](master-shape-animation.png)
+
+Sonraki örnek, yeni bir sunumdan bir yer tutucu hiyerarşisi kullanır. Bir ana yer tutucuya, bir düzen yer tutucuya ve normal slayttaki karşılık gelen yer tutucuya efekt ekler. Her [IShape.getBasePlaceholder](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishape/#getBasePlaceholder--) çağrısı, döndürülen şekil kullanılmadan önce kontrol edilir.
 
 ```java
-    // Sunum dosyasını temsil eden bir Presentation sınıfını örnekler.
-    Presentation pres = new Presentation("AnimImage_out.pptx");
-    try {
-        ISlide firstSlide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-        // Ana dizinin ilk efektini alır
-        IEffect firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
+public class InheritedPlaceholderAnimations {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ILayoutSlide layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.TitleAndObject);
+            IShape layoutPlaceholder = findPlaceholderWithBase(layoutSlide);
 
-        // After animation tipini Color olarak değiştirir
-        firstEffect.setAfterAnimationType(AfterAnimationType.Color);
+            if (layoutPlaceholder == null) {
+                throw new IllegalStateException("The layout slide does not contain a placeholder linked to its master slide.");
+            }
 
-        // After animation karartma rengini ayarlar
-        firstEffect.getAfterAnimationColor().setColor(Color.BLUE);
+            IShape masterPlaceholder = layoutPlaceholder.getBasePlaceholder();
+            layoutSlide.getMasterSlide().getTimeline().getMainSequence().addEffect(masterPlaceholder, EffectType.Fly, EffectSubtype.Bottom, EffectTriggerType.OnClick);
+            layoutSlide.getTimeline().getMainSequence().addEffect(layoutPlaceholder, EffectType.Split, EffectSubtype.VerticalIn, EffectTriggerType.OnClick);
 
-        // PPTX dosyasını diske yazar
-        pres.save("AnimImage_AfterAnimation.pptx", SaveFormat.Pptx);
-    } finally {
-        if (pres != null) pres.dispose();
+            ISlide slide = presentation.getSlides().addEmptySlide(layoutSlide);
+            IShape slidePlaceholder = findPlaceholderWithBase(slide, layoutPlaceholder);
+
+            if (slidePlaceholder == null) {
+                throw new IllegalStateException("The slide does not contain a placeholder linked to its layout slide.");
+            }
+
+            slide.getTimeline().getMainSequence().addEffect(slidePlaceholder, EffectType.RandomBars, EffectSubtype.Horizontal, EffectTriggerType.OnClick);
+            printEffects("Normal slide", slide.getTimeline().getMainSequence().getEffectsByShape(slidePlaceholder));
+
+            IShape baseLayoutPlaceholder = slidePlaceholder.getBasePlaceholder();
+            if (baseLayoutPlaceholder != null) {
+                printEffects("Layout slide", layoutSlide.getTimeline().getMainSequence().getEffectsByShape(baseLayoutPlaceholder));
+
+                IShape baseMasterPlaceholder = baseLayoutPlaceholder.getBasePlaceholder();
+                if (baseMasterPlaceholder != null) {
+                    printEffects("Master slide", layoutSlide.getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(baseMasterPlaceholder));
+                }
+            }
+
+            presentation.save("placeholder-animations.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
     }
-```
 
-## **Metni Animasyonla**
+    private static IShape findPlaceholderWithBase(ILayoutSlide layoutSlide) {
+        for (IShape shape : layoutSlide.getShapes()) {
+            if (shape.getBasePlaceholder() != null) {
+                return shape;
+            }
+        }
 
-Aspose.Slides, bir animasyon efektinin *Animate text* (Metni Animasyonla) bloğuyla çalışmanıza olanak tanıyan aşağıdaki özellikleri sağlar:
+        return null;
+    }
 
-- [setAnimateTextType(int value)](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ieffect/#setAnimateTextType-int-) efekti için bir metin animasyon türünü tanımlar. Şekil metni şu şekilde animasyonlanabilir:
-  - Hepsi bir anda ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/tr/java/com.aspose.slides/animatetexttype/#AllAtOnce) tipi)  
-  - Kelime bazında ([AnimateTextType.ByWord](https://reference.aspose.com/slides/tr/java/com.aspose.slides/animatetexttype/#ByWord) tipi)  
-  - Harf bazında ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/tr/java/com.aspose.slides/animatetexttype/#ByLetter) tipi)  
-- [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ieffect/#setDelayBetweenTextParts-float-) animasyonlu metin parçaları (kelimeler veya harfler) arasındaki gecikmeyi ayarlar. Pozitif değer, efekt süresinin yüzde olarak belirlenmesini sağlar. Negatif değer ise saniye cinsinden gecikmeyi belirtir.  
+    private static IShape findPlaceholderWithBase(ISlide slide, IShape expectedBase) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape.getBasePlaceholder() == expectedBase) {
+                return shape;
+            }
+        }
 
-Effect Animate text (Efekt Metni Animasyonla) özelliklerini şu şekilde değiştirebilirsiniz:
+        return null;
+    }
 
-1. [Şekle animasyon uygula](#apply-animation-to-shape) ya da animasyon efektini alın.  
-2. *By Paragraphs* (Paragraflara Göre) animasyon modunu kapatmak için `setBuildType(int value)` özelliğini [BuildType.AsOneObject](https://reference.aspose.com/slides/tr/java/com.aspose.slides/buildtype/#AsOneObject) değerine ayarlayın.  
-3. [setAnimateTextType(int value)](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ieffect/#setAnimateTextType-int-) ve [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ieffect/#setDelayBetweenTextParts-float-) özelliklerine yeni değerler atayın.  
-4. Değiştirilmiş PPTX dosyasını kaydedin.  
+    private static void printEffects(String source, IEffect[] effects) {
+        System.out.println(source + ": " + effects.length + " effect(s)");
 
-Bu Java kodu işlemi gösterir:
-
-```java
-// Sunum dosyasını temsil eden bir Presentation sınıfını örnekler.
-Presentation pres = new Presentation("AnimTextBox_out.pptx");
-try {
-    ISlide firstSlide = pres.getSlides().get_Item(0);
-
-    // Ana dizinin ilk efektini alır
-    IEffect firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
-
-    // Efektin Metin animasyon tipini "As One Object" olarak değiştirir
-    firstEffect.getTextAnimation().setBuildType(BuildType.AsOneObject);
-
-    // Efektin Metni Animasyon tipini "By word" olarak değiştirir
-    firstEffect.setAnimateTextType(AnimateTextType.ByWord);
-
-    // Kelimeler arasındaki gecikmeyi efekt süresinin %20'si olarak ayarlar
-    firstEffect.setDelayBetweenTextParts(20f);
-
-    // PPTX dosyasını diske yazar
-    pres.save("AnimTextBox_AnimateText.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+        for (IEffect effect : effects) {
+            String typeName = EffectType.getName(EffectType.class, effect.getType());
+            String subtypeName = EffectSubtype.getName(EffectSubtype.class, effect.getSubtype());
+            System.out.println("  " + typeName + " " + subtypeName);
+        }
+    }
 }
 ```
+
+## **Animasyon Zamanlamasını Değiştirme**
+
+PowerPoint **Timing** iletişim kutusu, [ITiming](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itiming/) özelliklerine karşılık gelir.
+
+![Bir animasyon efekti için PowerPoint Zamanlama iletişim kutusu](shape-animation.png)
+
+- **Start** [ITiming.getTriggerType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itiming/#getTriggerType--) ile eşleşir.
+- **Duration** [ITiming.getDuration](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itiming/#getDuration--) ile eşleşir, saniye cinsindendir.
+- **Delay** [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itiming/#getTriggerDelayTime--) ile eşleşir, saniye cinsindendir.
+- **Repeat** [ITiming.getRepeatCount](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itiming/#getRepeatCount--) , [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itiming/#getRepeatUntilNextClick--) veya [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itiming/#getRepeatUntilEndSlide--) ile eşleşir.
+- **Rewind when done playing** [ITiming.getRewind](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itiming/#getRewind--) ile eşleşir.
+
+Bu bağımsız örnek bir efekt ekler, zamanlamasını [ISequence.addEffect](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) tarafından döndürülen nesne üzerinden değiştirir ve sonucu kaydeder. Döndürülen [IEffect](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ieffect/) referansını saklamak, gereksiz bir dizi indeksinden kaçınmayı sağlar.
+
+```java
+import com.aspose.slides.*;
+
+public class ChangeAnimationTiming {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+            shape.addTextFrame("Timed animation");
+
+            IEffect effect = slide.getTimeline().getMainSequence().addEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            effect.getTiming().setTriggerType(EffectTriggerType.OnClick);
+            effect.getTiming().setDuration(2.0f);
+            effect.getTiming().setTriggerDelayTime(0.5f);
+            effect.getTiming().setRepeatUntilNextClick(false);
+            effect.getTiming().setRepeatUntilEndSlide(false);
+            effect.getTiming().setRepeatCount(2.0f);
+            effect.getTiming().setRewind(true);
+
+            presentation.save("shape-animation-timing.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
+}
+```
+
+Tek bir tekrar modunu kasıtlı olarak kullanın. Tekrar sayısını bir “until” bayrağıyla birleştirmek, farklı görüntüleyicilerde karışık sonuçlar doğurabilir. Tekrar modlarını değiştirirken, önce [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) ve [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) ayarlayın, ardından [ITiming.setRepeatCount](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itiming/#setRepeatCount-float-) metodunu çağırın; çünkü bu bayraklardan biri ayarlandığında etkin tekrar modu da değişir.
+
+## **Animasyon Seslerini Ekleme ve Çıkarma**
+
+Bir animasyon efekti, gömülü ses dosyasına [IEffect.getSound](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ieffect/#getSound--) aracılığıyla başvurabilir. [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) bir efektin önceki efekt tarafından başlatılan sesleri durdurmasını sağlar.
+
+### **Bir Efekte Ses Ekleme**
+
+Aşağıdaki örnek, `animation-sound.wav` adlı yerel bir ses dosyası olduğunu varsayar. İki efekt oluşturur, bu dosyayı ilk efektin sesi olarak gömer ve ikinci efekti sesi durduracak şekilde yapılandırır. [ISequence.addEffect](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) tarafından döndürülen nesneler kullanıldığı için dizi indeksi gerekmez.
+
+```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+public class AddAnimationSound {
+    public static void main(String[] args) throws IOException {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape firstShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 100, 240, 80);
+            IAutoShape secondShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 400, 100, 240, 80);
+            firstShape.addTextFrame("Starts sound");
+            secondShape.addTextFrame("Stops sound");
+
+            ISequence sequence = slide.getTimeline().getMainSequence();
+            IEffect firstEffect = sequence.addEffect(firstShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect secondEffect = sequence.addEffect(secondShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+
+            byte[] audioData = Files.readAllBytes(Paths.get("animation-sound.wav"));
+            IAudio effectSound = presentation.getAudios().addAudio(audioData);
+            firstEffect.setSound(effectSound);
+            secondEffect.setStopPreviousSound(true);
+
+            presentation.save("shape-animation-sound.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
+}
+```
+
+### **Gömülü Efekt Seslerini Çıkarma**
+
+Aşağıdaki örnek, `presentation-with-animation-sounds.pptx` adlı yerel bir sunum olduğunu varsayar. Hem ana hem de etkileşimli dizileri tarar ve her gömülü efekt sesini `extracted-animation-sounds` klasörüne yazar. Uzantı, [IAudio.getContentType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iaudio/#getContentType--) tarafından sağlanan ses MIME türünden seçilir.
+
+```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Locale;
+
+public class ExtractAnimationSounds {
+    public static void main(String[] args) throws IOException {
+        Path inputPath = Paths.get("presentation-with-animation-sounds.pptx");
+        Path outputDirectory = Paths.get("extracted-animation-sounds");
+
+        Files.createDirectories(outputDirectory);
+
+        Presentation presentation = new Presentation(inputPath.toString());
+        try {
+            int soundIndex = 1;
+
+            for (ISlide slide : presentation.getSlides()) {
+                soundIndex = saveSounds(slide.getTimeline().getMainSequence(), outputDirectory, soundIndex);
+
+                for (ISequence sequence : slide.getTimeline().getInteractiveSequences()) {
+                    soundIndex = saveSounds(sequence, outputDirectory, soundIndex);
+                }
+            }
+
+            System.out.println("Extracted " + (soundIndex - 1) + " sound file(s) to " + outputDirectory.toAbsolutePath() + ".");
+        } finally {
+            presentation.dispose();
+        }
+    }
+
+    private static int saveSounds(ISequence sequence, Path outputDirectory, int soundIndex) throws IOException {
+        for (IEffect effect : sequence) {
+            if (effect.getSound() == null) {
+                continue;
+            }
+
+            String extension = getAudioExtension(effect.getSound().getContentType());
+            Path outputPath = outputDirectory.resolve("effect-sound-" + soundIndex + extension);
+            Files.write(outputPath, effect.getSound().getBinaryData());
+            soundIndex++;
+        }
+
+        return soundIndex;
+    }
+
+    private static String getAudioExtension(String contentType) {
+        String normalizedType = contentType == null ? "" : contentType.toLowerCase(Locale.ROOT);
+
+        if (normalizedType.equals("audio/mpeg")) {
+            return ".mp3";
+        }
+
+        if (normalizedType.equals("audio/mp4")) {
+            return ".m4a";
+        }
+
+        if (normalizedType.equals("audio/ogg")) {
+            return ".ogg";
+        }
+
+        if (normalizedType.equals("audio/wav") || normalizedType.equals("audio/x-wav")) {
+            return ".wav";
+        }
+
+        return ".bin";
+    }
+}
+```
+
+Büyük ses nesneleri için, tüm nesneyi bayt dizisine yüklemek yerine [IAudio.getStream](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iaudio/#getStream--) kullanıp akışı bir dosyaya kopyayın.
+
+## **Animasyon Sonrası Davranışı Ayarlama**
+
+**After animation** seçeneği, bir şeklin etkisi bittiğinde ne olacağını belirler.
+
+![PowerPoint Etki Seçenekleri iletişim kutusunda After animation ayarları gösteriliyor](shape-after-animation.png)
+
+[AfterAnimationType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/afteranimationtype/) sınıfı, şeklin değişmeden kalması, renginin değiştirilmesi, animasyondan sonra gizlenmesi veya bir sonraki tıklamada gizlenmesi gibi seçenekleri destekler. Tür [AfterAnimationType.Color](https://reference.aspose.com/slides/tr/java/com.aspose.slides/afteranimationtype/#Color) olduğunda, ayrıca [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ieffect/#getAfterAnimationColor--) ayarlanmalıdır.
+
+Bu bağımsız örnek bir efekt oluşturur, after‑animation davranışını döndürülen efekt nesnesi üzerinden ayarlar ve sonucu kaydeder.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+public class SetAfterAnimationBehavior {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+            shape.addTextFrame("Dim after animation");
+
+            IEffect effect = slide.getTimeline().getMainSequence().addEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            effect.setAfterAnimationType(AfterAnimationType.Color);
+            effect.getAfterAnimationColor().setColor(Color.LIGHT_GRAY);
+
+            presentation.save("shape-animation-after-effect.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
+}
+```
+
+[AfterAnimationType.Color](https://reference.aspose.com/slides/tr/java/com.aspose.slides/afteranimationtype/#Color) dışındaki bir türe geçmek, after‑animation renk ayarını temizler.
+
+## **Metni Canlandırma**
+
+Metin animasyonu iki ilgili denetimi içerir:
+
+- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextanimation/#getBuildType--), paragrafların birlikte mi yoksa paragraf seviyesinde mi görüneceğini kontrol eder.
+- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ieffect/#getAnimateTextType--) , metnin tüm olarak, kelime bazında veya harf bazında görünüp görünmeyeceğini kontrol eder. [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) kelime ya da harfler arasındaki gecikmeyi ayarlar. Pozitif bir değer, efekt süresinin yüzdesi; negatif bir değer ise saniye cinsinden gecikmedir.
+
+Aşağıdaki bağımsız örnek bir metin kutusundaki kelimeleri canlandırır. [BuildType.AsOneObject](https://reference.aspose.com/slides/tr/java/com.aspose.slides/buildtype/#AsOneObject) paragraf‑paragraf oluşturmayı devre dışı bırakır, böylece kelime ayarı tüm metin çerçevesine uygulanır.
+
+```java
+import com.aspose.slides.*;
+
+public class AnimateTextByWord {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 80, 560, 100);
+            textBox.addTextFrame("Aspose.Slides animates this sentence word by word.");
+
+            IEffect effect = slide.getTimeline().getMainSequence().addEffect(textBox, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            effect.getTextAnimation().setBuildType(BuildType.AsOneObject);
+            effect.setAnimateTextType(AnimateTextType.ByWord);
+            effect.setDelayBetweenTextParts(20.0f);
+
+            presentation.save("animated-text.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
+}
+```
+
+Paragraflar halinde bir metin kutusu oluşturmak için [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/tr/java/com.aspose.slides/buildtype/#ByLevelParagraphs1) (veya başka bir paragraf seviyesi) ayarlayın. Tek bir paragrafı kendi etkisiyle hedeflemek için, [ISequence.addEffect](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) aşırı yüklemesini kullanın ve bir [IParagraph](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraph/) geçirin. Paragraf‑seviyesi örnekleri için [Animated Text](/slides/tr/java/animated-text/) bölümüne bakın.
+
+## **Dışa Aktarma ve Uyumluluk Notları**
+
+- PPT veya PPTX olarak kaydetmek animasyon modelini korur, ancak nihai oynatma sunum görüntüleyicisi tarafından kontrol edilir.
+- PDF ve statik görüntüler animasyonları oynatmaz. Çıktının hareket göstermesi gerekiyorsa [HTML5 export](/slides/tr/java/export-to-html5/), animasyonlu GIF veya [video conversion](/slides/tr/java/convert-powerpoint-to-video/) kullanın.
+- HTML5 için, gerekli olduğunda [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/tr/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-) ve [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) özelliklerini etkinleştirin.
+- Video oluşturma, pek çok yaygın giriş, vurgu, çıkış ve hareket‑yolu efektini destekler, ancak her PowerPoint efekti desteklenmez. Mevcut [supported animations and effects](/slides/tr/java/convert-powerpoint-to-video/#supported-animations-and-effects) tablosunu kontrol edin ve kritik sunumları hedef Aspose.Slides sürümünüzle test edin.
+- Gelişmiş özel efektler ve diğer sunum formatlarından içe aktarılan efektler dosyada korunabilir ancak PowerPoint, HTML5 veya video ortamlarında farklı şekilde işlenebilir. Yalnızca efekt adını temel alarak değil, dışa aktarılan sonucu doğrulayın.
 
 ## **SSS**
 
-**Sunumu web'e yayınlarken animasyonların korunmasını nasıl sağlarım?**
+**Bir animasyon PowerPoint’te görünüyor ancak PDF’de neden görünmüyor?**
 
-[HTML5'e Dönüştür](/slides/tr/java/export-to-html5/) ve [seçenekleri](https://reference.aspose.com/slides/tr/java/com.aspose.slides/html5options/) etkinleştirerek şekil ve geçiş animasyonlarını aktif hale getirin. Düz HTML slayt animasyonlarını çalıştırmaz, HTML5 ise çalıştırır.
+PDF sabit bir format olduğundan animasyonlar ve slayt geçişleri oynatılamaz. Hareketin korunması gerektiğinde HTML5, animasyonlu GIF veya video olarak dışa aktarın.
 
-**Şekillerin z-order (katman sırası) değişikliği animasyonu nasıl etkiler?**
+**Bir efekt video dosyasında farklı neden oynatılıyor?**
 
-Animasyon ve çizim sırası birbirinden bağımsızdır: bir efekt, görünme/​kaybolma zamanını ve tipini kontrol eder, z-order ise neyin neyin üzerinde olacağını belirler. Görünür sonuç, ikisinin birleşimiyle tanımlanır. (Bu, genel PowerPoint davranışıdır; Aspose.Slides efekti‑ve‑şekil modeli aynı mantığı izler.)
+Video dışa aktarımı, animasyonları orijinal PowerPoint davranışı yerine render eder. Bazı gelişmiş efektler desteklenmez veya yaklaşık olarak uygulanır. Desteklenen efektler tablosunu inceleyin ve üretim öncesinde gerçek sunumu test edin.
 
-**Belirli efektler için animasyonları videoya dönüştürürken sınırlamalar var mı?**
+**Bir şekli öne ya da arkaya taşıma, animasyon sırasını değiştirir mi?**
 
-Genel olarak [animasyonlar desteklenir](/slides/tr/java/convert-powerpoint-to-video/), ancak nadir durumlarda veya belirli efektlerde farklı render sonuçları ortaya çıkabilir. Kullandığınız efektleri ve kütüphane sürümünü test etmeniz önerilir.
+Hayır. Şeklin z‑order’ı üst üste binmeyi kontrol eder, dizi sırası ve tetikleyiciler animasyon oynatımını belirler. Farklı bir oynatma sırası ihtiyacınız varsa zaman çizelgesini değiştirin.
