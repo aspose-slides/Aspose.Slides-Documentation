@@ -1,5 +1,5 @@
 ---
-title: Εφαρμογή ή Αλλαγή διατάξεων διαφάνειας σε Java
+title: Εφαρμογή ή Αλλαγή Διατάξεων Διαφάνειας σε Java
 linktitle: Διάταξη Διαφάνειας
 type: docs
 weight: 60
@@ -7,10 +7,10 @@ url: /el/java/slide-layout/
 keywords:
 - διάταξη διαφάνειας
 - διάταξη περιεχομένου
-- πλαίσιο κράτησης θέσης
+- δεσμευτική θέση
 - σχεδίαση παρουσίασης
 - σχεδίαση διαφάνειας
-- μη χρησιμοποιημένη διάταξη
+- αχρησιμοποίητη διάταξη
 - ορατότητα υποσέλιδου
 - διαφάνεια τίτλου
 - τίτλος και περιεχόμενο
@@ -28,151 +28,129 @@ keywords:
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Διαχειριστείτε και προσαρμόστε τις διατάξεις διαφάνειας στο Aspose.Slides for Java. Εξερευνήστε τύπους διατάξεων, έλεγχο πλαισίων κράτησης θέσης και ορατότητα υποσέλιδου μέσω παραδειγμάτων κώδικα Java."
+description: "Εφαρμόστε, δημιουργήστε και τροποποιήστε διατάξεις διαφάνειας στο Aspose.Slides για Java, προσθέστε δεσμευτικές θέσεις, αφαιρέστε αχρησιμοποίητες διατάξεις και ελέγξτε την ορατότητα του υποσέλιδου."
 ---
-## **Εισαγωγή**
+## **Επισκόπηση**
 
-Μια διάταξη διαφάνειας ορίζει τη διάταξη των πλαισίων κράτησης θέσης και τη μορφοποίηση για το περιεχόμενο σε μια διαφάνεια. Ελέγχει ποια πλαίσια κράτησης θέσης είναι διαθέσιμα και πού εμφανίζονται. Οι διατάξεις διαφάνειας σας βοηθούν να σχεδιάζετε παρουσιάσεις γρήγορα και με συνέπεια — είτε δημιουργείτε κάτι απλό είτε πιο περίπλοκο. Μερικές από τις πιο συνηθισμένες διατάξεις διαφάνειας στο PowerPoint περιλαμβάνουν:
+Η μορφοποίηση μιας διαφάνειας ορίζει τις θέσεις και τη μορφοποίηση των δεσμευτικών θέσεων όπως τίτλους, κείμενο, εικόνες, διαγράμματα και πίνακες. Η εφαρμογή μιας μορφοποίησης παρέχει στις διαφάνειες μια συνεπή δομή, ενώ επιτρέπει σε κάθε διαφάνεια να περιέχει το δικό της περιεχόμενο.
 
-**Title Slide layout** – Περιλαμβάνει δύο πλαίσια κειμένου: ένα για τον τίτλο και ένα για τον υπότιτλο.
+Οι πιο συχνές μορφοποιήσεις περιλαμβάνουν:
 
-**Title and Content layout** – Περιέχει ένα μικρότερο πλαίσιο τίτλου στην κορυφή και ένα μεγαλύτερο από κάτω για το κύριο περιεχόμενο (όπως κείμενο, κουκίδες, διαγράμματα, εικόνες κ.ά.).
+- **Διαφάνεια Τίτλου**: Περιέχει δεσμευτικές θέσεις τίτλου και υποτίτλου.
+- **Τίτλος και Περιεχόμενο**: Περιέχει μια δεσμευτική θέση τίτλου και μια γενικής χρήσης δεσμευτική θέση περιεχομένου.
+- **Κενή**: Δεν περιέχει δεσμευτικές θέσεις περιεχομένου και είναι χρήσιμη όταν κάθε σχήμα θα τοποθετηθεί χειροκίνητα.
 
-**Blank layout** – Δεν περιέχει πλαίσια κράτησης θέσης, δίνοντάς σας πλήρη έλεγχο για το σχεδιασμό της διαφάνειας από το μηδέν.
+## **Κατανόηση της Κληρονομικότητας της Μορφοποίησης**
 
-Οι διατάξεις διαφάνειας αποτελούν μέρος ενός master διαφάνειας, η οποία είναι η ανώτερη διαφάνεια που ορίζει τα στυλ διατάξεων για την παρουσίαση. Μπορείτε να έχετε πρόσβαση και να τροποποιήσετε τις διατάξεις διαφάνειας μέσω του master—είτε με τον τύπο, το όνομα ή το μοναδικό ID. Εναλλακτικά, μπορείτε να επεξεργαστείτε μια συγκεκριμένη διάταξη διαφάνειας απευθείας μέσα στην παρουσίαση.
+Μία παρουσίαση έχει τρία σχετιζόμενα επίπεδα:
 
-Για να εργάζεστε με διατάξεις διαφάνειας στο Aspose.Slides for Java, μπορείτε να χρησιμοποιήσετε:
+1. Μια [master slide](https://reference.aspose.com/slides/el/java/com.aspose.slides/imasterslide/) ορίζει το θέμα, τη κοινή μορφοποίηση, τα παρασκήνια και τα κοινά αντικείμενα.
+1. Μια [layout slide](https://reference.aspose.com/slides/el/java/com.aspose.slides/ilayoutslide/) ανήκει σε μια master και ορίζει μια συγκεκριμένη διάταξη των δεσμευτικών θέσεων.
+1. Μια [normal slide](https://reference.aspose.com/slides/el/java/com.aspose.slides/islide/) χρησιμοποιεί μία διάταξη και αποθηκεύει το περιεχόμενο που εισήχθη για εκείνη τη διαφάνεια.
 
-- Μεθόδους όπως [getLayoutSlides](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/#getLayoutSlides--) και [getMasters](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/#getMasters--) κάτω από την κλάση [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/) 
-- Τύπους όπως [ILayoutSlide](https://reference.aspose.com/slides/el/java/com.aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/el/java/com.aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/el/java/com.aspose.slides/ilayoutplaceholdermanager/), και [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/el/java/com.aspose.slides/ilayoutslideheaderfootermanager/)
+Μια κανονική διαφάνεια κληρονομεί το θέμα και τη μορφοποίηση από τη διάταξη της, και η διάταξη κληρονομεί από τη master της. Μια τιμή που ορίζεται άμεσα στην κανονική διαφάνεια παρακάμπτει την κληρονομημένη τιμή σε αυτό το επίπεδο. Όταν δημιουργείται μια κανονική διαφάνεια, τα σχήματα των δεσμευτικών θέσεων δημιουργούνται από τη επιλεγμένη διάταξη, ενώ το περιεχόμενο που εισάγεται σε αυτές τις δεσμευτικές θέσεις ανήκει στην κανονική διαφάνεια.
 
-{{% alert title="Info" color="info" %}}
-Για να μάθετε περισσότερα για την εργασία με master διαφάνειες, δείτε το άρθρο [Slide Master](/slides/el/java/slide-master/) .
-{{% /alert %}}
+Προσθέστε τις απαιτούμενες δεσμευτικές θέσεις σε μια διάταξη πριν δημιουργήσετε διαφάνειες από αυτήν. Η προσθήκη μιας ακόμη δεσμευτικής θέσης σε μια διάταξη αργότερα δεν προσθέτει αυτόματα το αντίστοιχο σχήμα δεσμευτικής θέσης στις υπάρχουσες κανονικές διαφάνειες.
 
-## **Προσθήκη Διατάξεων Διαφάνειας σε Παρουσιάσεις**
+Αυτή η σχέση έχει δύο σημαντικές συνέπειες:
 
-Για να προσαρμόσετε την εμφάνιση και τη δομή των διαφανειών σας, ίσως χρειαστεί να προσθέσετε νέες διατάξεις σε μια παρουσίαση. Το Aspose.Slides for Java σας επιτρέπει να ελέγξετε αν μια συγκεκριμένη διάταξη υπάρχει ήδη, να προσθέσετε νέα εάν χρειάζεται, και να τη χρησιμοποιήσετε για την εισαγωγή διαφανειών βασισμένων σε αυτήν.
+- Η αλλαγή της κληρονομημένης μορφοποίησης ή της υπάρχουσας γεωμετρίας δεσμευτικής θέσης σε μια διάταξη μπορεί να ενημερώσει κάθε διαφάνεια που εξαρτάται από αυτήν. Πριν επεξεργαστείτε μια διάταξη που ήδη χρησιμοποιείται, ελέγξτε τις εξαρτημένες διαφάνειες της και επανεξετάστε την προκύπτουσα παρουσίαση.
+- Μια διάταξη που εξακολουθεί να χρησιμοποιείται από μια διαφάνεια δεν μπορεί να αφαιρεθεί. Αναπροσαρμόστε πρώτα τις εξαρτημένες διαφάνειές της σε άλλη διάταξη ή αφαιρέστε μόνο τις αχρησιμοποίητες διατάξεις.
 
-1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/) .
-1. Πρόσβαση στην [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/el/java/com.aspose.slides/imasterlayoutslidecollection/) .
-1. Ελέγξτε αν η επιθυμητή διάταξη διαφάνειας υπάρχει ήδη στη συλλογή. Αν όχι, προσθέστε τη διάταξη που χρειάζεστε.
-1. Προσθέστε μια κενή διαφάνεια βασισμένη στη νέα διάταξη.
-1. Αποθηκεύστε την παρουσίαση.
+Για περισσότερες πληροφορίες σχετικά με το ανώτερο επίπεδο αυτής της ιεραρχίας, δείτε το [Slide Master](/slides/el/java/slide-master/).
 
-Ο παρακάτω κώδικας Java δείχνει πώς να προσθέσετε μια διάταξη διαφάνειας σε μια παρουσίαση PowerPoint:
+## **Επιλογή και Εφαρμογή Διατάξεων Διαφάνειας**
+
+Χρησιμοποιήστε έναν τύπο διάταξης όταν η παρουσίαση ακολουθεί τις τυπικές ορισμούς διατάξεων του PowerPoint. Τα ονόματα των διατάξεων μπορούν να επεξεργαστούν από τον χρήστη και μπορούν να τοπικοποιηθούν, έτσι η επιλογή βάσει ονόματος είναι λιγότερο αξιόπιστη εκτός εάν ελέγχετε το πηγαίο πρότυπο.
+
+Το παρακάτω παράδειγμα ψάχνει για **Title and Content** στην πρώτη master. Εάν αυτή η διάταξη δεν είναι διαθέσιμη, επιστρέφει εκ προθέσεως στην **Blank**. Ο δεύτερος έλεγχος null είναι αναγκαίος επειδή μια παρουσίαση μπορεί να περιέχει μόνο προσαρμοσμένες διατάξεις. Η επιλεγμένη διάταξη εφαρμόζεται στη πρώτη κανονική διαφάνεια μέσω της μεθόδου [ISlide.setLayoutSlide](https://reference.aspose.com/slides/el/java/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-).
 
 ```java
-// Δημιουργήστε την κλάση Presentation που αντιπροσωπεύει ένα αρχείο PowerPoint.
-Presentation presentation = new Presentation("Sample.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // Περάστε από τους τύπους διατάξεων διαφάνειας για να επιλέξετε μια διάταξη διαφάνειας.
     IMasterLayoutSlideCollection layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
-    ILayoutSlide layoutSlide = null;
-    if (layoutSlides.getByType(SlideLayoutType.TitleAndObject) != null)
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
-    else
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.Title);
+    ILayoutSlide targetLayout = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
 
-    if (layoutSlide == null) {
-        // Μια κατάσταση όπου η παρουσίαση δεν περιέχει όλους τους τύπους διατάξεων.
-        // Το αρχείο παρουσίασης περιέχει μόνο τους τύπους διατάξεων Blank και Custom.
-        // Ωστόσο, οι διατάξεις διαφάνειας με προσαρμοσμένους τύπους μπορεί να έχουν αναγνωρίσιμα ονόματα,
-        // όπως "Title", "Title and Content", κ.λπ., που μπορούν να χρησιμοποιηθούν για επιλογή διάταξης διαφάνειας.
-        // Μπορείτε επίσης να βασιστείτε σε ένα σύνολο τύπων σχημάτων κράτησης θέσης.
-        // Για παράδειγμα, μια διαφάνεια Τίτλου πρέπει να έχει μόνο τον τύπο κράτησης θέσης Title, κ.ο.κ.
-        for (ILayoutSlide titleAndObjectLayoutSlide : layoutSlides) {
-            if (titleAndObjectLayoutSlide.getName().equals("Title and Object")) {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null) {
-            for (ILayoutSlide titleLayoutSlide : layoutSlides) {
-                if (titleLayoutSlide.getName().equals("Title")) {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(SlideLayoutType.Blank);
-                if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
+    if (targetLayout == null) {
+        targetLayout = layoutSlides.getByType(SlideLayoutType.Blank);
     }
 
-    // Προσθέστε μια κενή διαφάνεια χρησιμοποιώντας τη δοθείσα διάταξη διαφάνειας.
-    presentation.getSlides().insertEmptySlide(0, layoutSlide);
+    if (targetLayout == null) {
+        throw new IllegalStateException("The first master does not contain a suitable layout slide.");
+    }
 
-    // Αποθηκεύστε την παρουσίαση στο δίσκο.
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    presentation.getSlides().get_Item(0).setLayoutSlide(targetLayout);
+    presentation.save("output-with-new-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Κατάργηση Μη Χρησιμοποιούμενων Διατάξεων Διαφάνειας**
+Η αλλαγή της διάταξης μιας διαφάνειας δεν αφαιρεί τα συνηθισμένα σχήματα που προστέθηκαν απευθείας στη διαφάνεια. Ωστόσο, οι θέσεις των δεσμευτικών θέσεων, η κληρονομημένη μορφοποίηση και η αντιστοίχηση μεταξύ των υπαρχουσών δεσμευτικών θέσεων και της νέας διάταξης μπορούν να αλλάξουν, γι' αυτό ελέγξτε το αποτέλεσμα όταν μεταβαίνετε μεταξύ σημαντικά διαφορετικών διατάξεων.
 
-Το Aspose.Slides παρέχει τη μέθοδο [removeUnusedLayoutSlides](https://reference.aspose.com/slides/el/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) από την κλάση [Compress](https://reference.aspose.com/slides/el/java/com.aspose.slides/compress/) για να διαγράψετε ανεπιθύμητες και μη χρησιμοποιούμενες διατάξεις διαφάνειας.
+## **Προσθήκη Διάταξης Διαφάνειας**
 
-Ο παρακάτω κώδικας Java δείχνει πώς να καταργήσετε μια διάταξη διαφάνειας από μια παρουσίαση PowerPoint:
+Η επιλογή και η δημιουργία είναι ξεχωριστές λειτουργίες. Το προηγούμενο παράδειγμα επιλέγει μια υπάρχουσα διάταξη· δεν δημιουργεί νέα. Για να δημιουργήσετε μια διάταξη, καλέστε τη μέθοδο [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/el/java/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) στη συλλογή διατάξεων του επιλεγμένου master.
+
+Το παρακάτω παράδειγμα προσθέτει πάντα μια νέα διάταξη **Title and Content** με όνομα `Report Title and Content`, στη συνέχεια προσθέτει μια κανονική διαφάνεια βασισμένη σε αυτήν. Τα ονόματα των διατάξεων πρέπει να είναι μοναδικά μέσα στη συλλογή.
 
 ```java
-Presentation presentation = new Presentation("Presentation.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    Compress.removeUnusedLayoutSlides(presentation);
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide reportLayout = masterSlide.getLayoutSlides().add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+    presentation.getSlides().addEmptySlide(reportLayout);
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-report-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Προσθήκη Πλαισίων Κράτησης Θέσης σε Διατάξεις Διαφάνειας**
+Προσθέστε μια διάταξη μόνο όταν το πρότυπο πραγματικά χρειάζεται μια άλλη επαναχρησιμοποιήσιμη δομή. Εάν υπάρχει ήδη μια κατάλληλη διάταξη, επιλέξτε τη και επαναχρησιμοποιήστε τη αντί να δημιουργήσετε αντίγραφο.
 
-Το Aspose.Slides παρέχει τη μέθοδο [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/el/java/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) που σας επιτρέπει να προσθέσετε νέα πλαίσια κράτησης θέσης σε μια διάταξη διαφάνειας.
+## **Προσθήκη Δεσμευτικών Θέσεων σε Διάταξη Διαφάνειας**
 
-Αυτός ο διαχειριστής περιέχει μεθόδους για τους ακόλουθους τύπους πλαισίων:
+Η μέθοδος [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/el/java/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) παρέχει ένα [ILayoutPlaceholderManager](https://reference.aspose.com/slides/el/java/com.aspose.slides/ilayoutplaceholdermanager/) για την προσθήκη σχημάτων δεσμευτικών θέσεων σε μια διάταξη.
 
-| Πλαίσιο PowerPoint | Μέθοδος |
-| ------------------- | -------- |
-| ![Περιεχόμενο](content.png) | addContentPlaceholder(float x, float y, float width, float height) |
-| ![Περιεχόμενο (Κατακόρυφα)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Κείμενο](text.png) | addTextPlaceholder(float x, float y, float width, float height) |
-| ![Κείμενο (Κατακόρυφα)](textV.png) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Εικόνα](picture.png) | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![Διάγραμμα](chart.png) | addChartPlaceholder(float x, float y, float width, float height) |
-| ![Πίνακας](table.png) | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Μέσα](media.png) | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![Φωτογραφία στο Διαδίκτυο](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| Δεσμευτική Θέση PowerPoint | `ILayoutPlaceholderManager` Method |
+| -------------------------- | ---------------------------------- |
+| ![Περιεχόμενο](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/java/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
+| ![Περιεχόμενο (Κατακόρυφο)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
+| ![Κείμενο](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/java/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
+| ![Κείμενο (Κατακόρυφο)](textV.png) | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalTextPlaceholder-float-float-float-float-) |
+| ![Εικόνα](picture.png) | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/java/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
+| ![Διάγραμμα](chart.png) | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/java/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
+| ![Πίνακας](table.png) | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/java/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
+| ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/java/com.aspose.slides/ilayoutplaceholdermanager/#addSmartArtPlaceholder-float-float-float-float-) |
+| ![Πολυμέσα](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/java/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
+| ![Διαδικτυακή Εικόνα](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/java/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
 
-Ο παρακάτω κώδικας Java δείχνει πώς να προσθέσετε νέα σχήματα πλαισίων κράτησης θέσης στη διάταξη Blank:
+Το παρακάτω παράδειγμα ελέγχει αν η διάταξη **Blank** υπάρχει, προσθέτει τέσσερις δεσμευτικές θέσεις σε αυτήν, και στη συνέχεια δημιουργεί μια κανονική διαφάνεια που χρησιμοποιεί τη τροποποιημένη διάταξη. Η σειρά είναι σκόπιμη: οι δεσμευτικές θέσεις προστίθενται πριν δημιουργηθεί η κανονική διαφάνεια, ώστε το Aspose.Slides να μπορεί να δημιουργήσει τα αντίστοιχα σχήματα δεσμευτικών θέσεων σε εκείνη τη διαφάνεια.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // Πάρτε τη διάταξη διαφάνειας Blank.
-    ILayoutSlide layout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ILayoutSlide blankLayout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
 
-    // Αποκτήστε τον διαχειριστή πλαισίων κράτησης θέσης της διάταξης διαφάνειας.
-    ILayoutPlaceholderManager placeholderManager = layout.getPlaceholderManager();
+    if (blankLayout == null) {
+        throw new IllegalStateException("The presentation does not contain a Blank layout slide.");
+    }
 
-    // Προσθέστε διαφορετικά πλαίσια κράτησης θέσης στη διάταξη διαφάνειας Blank.
+    ILayoutPlaceholderManager placeholderManager = blankLayout.getPlaceholderManager();
     placeholderManager.addContentPlaceholder(20, 20, 310, 270);
     placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
     placeholderManager.addChartPlaceholder(20, 310, 310, 180);
     placeholderManager.addTablePlaceholder(350, 310, 350, 180);
 
-    // Προσθέστε μια νέα διαφάνεια με τη διάταξη Blank.
-    ISlide newSlide = presentation.getSlides().addEmptySlide(layout);
-
-    presentation.save("Placeholders.pptx", SaveFormat.Pptx);
+    presentation.getSlides().addEmptySlide(blankLayout);
+    presentation.save("output-with-placeholders.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -180,73 +158,79 @@ try {
 
 Το αποτέλεσμα:
 
-![The placeholders on the layout slide](add_placeholders.png)
+![Οι δεσμευτικές θέσεις στη διάταξη διαφάνειας](add_placeholders.png)
 
-## **Ορισμός Ορατότητας Υποσέλιδου για Διάταξη Διαφάνειας**
+{{% alert color="warning" title="Warning" %}}
+Η αλλαγή της κληρονομημένης μορφοποίησης ή της γεωμετρίας των υπαρχουσών δεσμευτικών θέσεων διάταξης μπορεί να επηρεάσει τις εξαρτημένες διαφάνειες. Μια νεοπροστεθείσα δεσμευτική θέση διάταξης δεν προστίθεται αυτόματα στις υπάρχουσες κανονικές διαφάνειες. Δοκιμάστε τις αλλαγές διάταξης σε αντίγραφο της παρουσίασης και ελέγξτε κάθε εξαρτημένη διαφάνεια.
+{{% /alert %}}
 
-Σε παρουσιάσεις PowerPoint, στοιχεία υποσέλιδου όπως ημερομηνία, αριθμός διαφάνειας και προσαρμοσμένο κείμενο μπορούν να εμφανίζονται ή να κρύβονται ανάλογα με τη διάταξη. Το Aspose.Slides for Java σας επιτρέπει να ελέγξετε την ορατότητα αυτών των πλαισίων υποσέλιδου. Αυτό είναι χρήσιμο όταν θέλετε ορισμένες διατάξεις να εμφανίζουν πληροφορίες υποσέλιδου ενώ άλλες παραμένουν καθαρές.
+## **Αφαίρεση Μη Χρησιμοποιούμενων Διατάξεων Διαφάνειας**
 
-1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/) .
-1. Λάβετε μια αναφορά στη διάταξη διαφάνειας με το δείκτη της.
-1. Ορίστε το πλαίσιο υποσέλιδου της διαφάνειας ως ορατό.
-1. Ορίστε το πλαίσιο αριθμού διαφάνειας ως ορατό.
-1. Ορίστε το πλαίσιο ημερομηνίας/ώρας ως ορατό.
-1. Αποθηκεύστε την παρουσίαση.
-
-Ο παρακάτω κώδικας Java δείχνει πώς να ορίσετε την ορατότητα του υποσέλιδου μιας διαφάνειας:
+Χρησιμοποιήστε τη μέθοδο [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/el/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) για να αφαιρέσετε διατάξεις που δεν αναφέρονται σε καμία κανονική διαφάνεια. Η μέθοδος διατηρεί αμετάβλητες τις διατάξεις που εξακολουθούν να χρησιμοποιούνται.
 
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
-
-    if (!headerFooterManager.isFooterVisible()) {
-        headerFooterManager.setFooterVisibility(true);
-    }
-
-    if (!headerFooterManager.isSlideNumberVisible()) {
-        headerFooterManager.setSlideNumberVisibility(true);
-    }
-
-    if (!headerFooterManager.isDateTimeVisible()) {
-        headerFooterManager.setDateTimeVisibility(true);
-    }
-
-    headerFooterManager.setFooterText("Footer text");
-    headerFooterManager.setDateTimeText("Date and time text");
-
-    presentation.save("Presentation.ppt", SaveFormat.Ppt);
+    Compress.removeUnusedLayoutSlides(presentation);
+    presentation.save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Ορισμός Ορατότητας Υποσέλιδου στα Παράγωγα για μια Διαφάνεια**
+Για να αφαιρέσετε μια συγκεκριμένη διάταξη, χρησιμοποιήστε πρώτα τη μέθοδο [hasDependingSlides](https://reference.aspose.com/slides/el/java/com.aspose.slides/ilayoutslide/#hasDependingSlides--) ή [getDependingSlides](https://reference.aspose.com/slides/el/java/com.aspose.slides/ilayoutslide/#getDependingSlides--). Αναπροσαρμόστε τυχόν εξαρτημένες διαφάνειες πριν καλέσετε τη [ILayoutSlide.remove](https://reference.aspose.com/slides/el/java/com.aspose.slides/ilayoutslide/#remove--). Η προσπάθεια αφαίρεσης μιας χρησιμοποιούμενης διάταξης προκαλεί την εξαίρεση [PptxEditException](https://reference.aspose.com/slides/el/java/com.aspose.slides/pptxeditexception/).
 
-Σε παρουσιάσεις PowerPoint, στοιχεία υποσέλιδου όπως ημερομηνία, αριθμός διαφάνειας και προσαρμοσμένο κείμενο μπορούν να ελεγχθούν στο επίπεδο της master διαφάνειας ώστε να εξασφαλιστεί συνέπεια σε όλες τις διατάξεις. Το Aspose.Slides for Java σας επιτρέπει να ορίσετε την ορατότητα και το περιεχόμενο αυτών των πλαίσιων υποσέλιδου στη master διαφάνεια και να διαδράσετε αυτές τις ρυθμίσεις σε όλες τις θυγατρικές διατάξεις διαφάνειας. Αυτή η προσέγγιση εξασφαλίζει ομοιόμορφη πληροφορία υποσέλιδου σε όλη την παρουσίαση.
+## **Έλεγχος Ορατότητας Υποσέλιδου σε Διάταξη Διαφάνειας**
 
-1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/) .
-1. Λάβετε μια αναφορά στη master διαφάνεια με το δείκτη της.
-1. Ορίστε τα πλαίσια υποσέλιδου της master και όλων των θυγατρικών ως ορατά.
-1. Ορίστε τα πλαίσια αριθμού διαφάνειας της master και όλων των θυγατρικών ως ορατά.
-1. Ορίστε τα πλαίσια ημερομηνίας/ώρας της master και όλων των θυγατρικών ως ορατά.
-1. Αποθηκεύστε την παρουσίαση.
-
-Ο παρακάτω κώδικας Java δείχνει αυτή τη λειτουργία:
+Μία διάταξη διαθέτει τις δικές της δεσμευτικές θέσεις υποσέλιδου, αριθμού διαφάνειας και ημερομηνίας‑ ώρας. Χρησιμοποιήστε τη μέθοδο [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/el/java/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) για να ελέγξετε αυτές τις δεσμευτικές θέσεις για μια διάταξη. Αυτό είναι χρήσιμο όταν, για παράδειγμα, οι διατάξεις περιεχομένου πρέπει να εμφανίζουν υποσέλιδα ενώ οι διατάξεις τίτλου όχι.
 
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.TitleAndObject);
+
+    if (layoutSlide == null) {
+        layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    }
+
+    if (layoutSlide == null) {
+        throw new IllegalStateException("The presentation does not contain a suitable layout slide.");
+    }
+
+    ILayoutSlideHeaderFooterManager headerFooterManager = layoutSlide.getHeaderFooterManager();
+    headerFooterManager.setFooterVisibility(true);
+    headerFooterManager.setSlideNumberVisibility(true);
+    headerFooterManager.setDateTimeVisibility(true);
+    headerFooterManager.setFooterText("Footer text");
+    headerFooterManager.setDateTimeText("Date and time text");
+
+    presentation.save("output-with-layout-footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Έλεγχος Ορατότητας Υποσέλιδου σε Master και τις Παράγωγες Διατάξεις της**
+
+Για να εφαρμόσετε συνεπείς ρυθμίσεις υποσέλιδου σε ολόκληρη τη ιεραρχία ενός master, χρησιμοποιήστε τη μέθοδο [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/el/java/com.aspose.slides/imasterslide/#getHeaderFooterManager--). Οι μέθοδοι διάδοσης του [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/el/java/com.aspose.slides/imasterslideheaderfootermanager/) λειτουργούν στο master και στις εξαρτημένες από αυτό διατάξεις διαφάνειας και κανονικές διαφάνειες· δεν στοχεύουν μόνο σε μία κανονική διαφάνεια.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
     IMasterSlideHeaderFooterManager headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-
     headerFooterManager.setFooterAndChildFootersVisibility(true);
     headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
     headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
-
     headerFooterManager.setFooterAndChildFootersText("Footer text");
     headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-master-footers.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -254,14 +238,18 @@ try {
 
 ## **FAQ**
 
-**Ποια είναι η διαφορά μεταξύ μιας master διαφάνειας και μιας διάταξης διαφάνειας;**
+**Ποια είναι η διαφορά μεταξύ μιας Master Slide και μιας Layout Slide;**
 
-Μια master διαφάνεια ορίζει το γενικό θέμα και τη προεπιλεγμένη μορφοποίηση, ενώ οι διατάξεις διαφάνειας ορίζουν συγκεκριμένες διατάξεις πλαισίων για διαφορετικούς τύπους περιεχομένου.
+Μια master slide ορίζει το θέμα της παρουσίασης και τη κοινή μορφοποίηση. Μια layout slide ανήκει σε μια master και ορίζει μία επαναχρησιμοποιήσιμη διάταξη δεσμευτικών θέσεων. Οι κανονικές διαφάνειες χρησιμοποιούν αυτές τις διατάξεις και αποθηκεύουν περιεχόμενο ειδικό για κάθε διαφάνεια.
 
-**Μπορώ να αντιγράψω μια διάταξη διαφάνειας από μια παρουσίαση σε άλλη;**
+**Μπορώ να αντιγράψω μια Layout Slide από μία παρουσίαση σε άλλη;**
 
-Ναι, μπορείτε να κλωνοποιήσετε μια διάταξη διαφάνειας από τη συλλογή διατάξεων μιας παρουσίασης, προσβάσιμη μέσω της μεθόδου [getLayoutSlides](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/#getLayoutSlides--) , και να την εισάγετε σε άλλη παρουσίαση χρησιμοποιώντας τη μέθοδο `addClone`.
+Ναι. Προσθέστε ένα αντίγραφο στη συλλογή προορισμού με τη μέθοδο [addClone](https://reference.aspose.com/slides/el/java/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-). Κατά την αντιγραφή μεταξύ παρουσιάσεων, ελέγξτε επίσης τις γραμματοσειρές, τα θέματα, τις εικόνες και άλλους πόρους που χρησιμοποιεί η πηγαία διάταξη.
 
-**Τι συμβαίνει αν διαγράψω μια διάταξη διαφάνειας που χρησιμοποιείται ακόμη από μια διαφάνεια;**
+**Τι συμβαίνει όταν τροποποιώ μια Διάταξη που χρησιμοποιείται ήδη;**
 
-Αν προσπαθήσετε να διαγράψετε μια διάταξη διαφάνειας που εξακολουθεί να αναφέρεται από τουλάχιστον μία διαφάνεια στην παρουσίαση, το Aspose.Slides θα εγείρει μια [PptxEditException](https://reference.aspose.com/slides/el/java/com.aspose.slides/pptxeditexception/). Για να το αποφύγετε, χρησιμοποιήστε τη [removeUnusedLayoutSlides](https://reference.aspose.com/slides/el/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) η οποία αφαιρεί με ασφάλεια μόνο τις διατάξεις που δεν χρησιμοποιούνται.
+Οι εξαρτημένες διαφάνειες κληρονομούν τις αλλαγές της διάταξης εκτός εάν παρακάμπτουν τη μορφοποίηση ή τα αντικείμενα τοπικά. Η γεωμετρία των δεσμευτικών θέσεων και η κληρονομημένη μορφοποίηση μπορούν έτσι να αλλάξουν σε πολλές διαφάνειες ταυτόχρονα. Χρησιμοποιήστε την [getDependingSlides](https://reference.aspose.com/slides/el/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) για να εντοπίσετε τις επηρεαζόμενες διαφάνειες πριν επεξεργαστείτε τη διάταξη.
+
+**Τι συμβαίνει εάν αφαιρέσω μια Διάταξη που χρησιμοποιείται ακόμη;**
+
+Το Aspose.Slides πετάει μια [PptxEditException](https://reference.aspose.com/slides/el/java/com.aspose.slides/pptxeditexception/). Αναπροσαρμόστε πρώτα τις εξαρτημένες διαφάνειες ή χρησιμοποιήστε τη [removeUnusedLayoutSlides](https://reference.aspose.com/slides/el/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) για να αφαιρέσετε μόνο τις ακατάσχετες διατάξεις.

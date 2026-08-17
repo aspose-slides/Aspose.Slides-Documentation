@@ -1,5 +1,5 @@
 ---
-title: Εφαρμογή ή Αλλαγή Διατάξεων Διαφανειών σε PHP
+title: Εφαρμογή ή Αλλαγή Διατάξεων Διαφάνειας σε PHP
 linktitle: Διάταξη Διαφάνειας
 type: docs
 weight: 60
@@ -7,14 +7,14 @@ url: /el/php-java/slide-layout/
 keywords:
 - διάταξη διαφάνειας
 - διάταξη περιεχομένου
-- θέση κράτησης
-- σχεδίαση παρουσίασης
-- σχεδίαση διαφάνειας
+- δεσμευτική θέση
+- σχεδιασμός παρουσίασης
+- σχεδιασμός διαφάνειας
 - αχρησιμοποίητη διάταξη
 - ορατότητα υποσέλιδου
 - διαφάνεια τίτλου
 - τίτλος και περιεχόμενο
-- επικεφαλίδα ενότητας
+- κεφαλίδα ενότητας
 - δύο περιεχόμενα
 - σύγκριση
 - μόνο τίτλος
@@ -28,151 +28,135 @@ keywords:
 - παρουσίαση
 - PHP
 - Aspose.Slides
-description: "Διαχειριστείτε και προσαρμόστε τις διατάξεις διαφανειών στο Aspose.Slides for PHP μέσω Java. Εξερευνήστε τους τύπους διατάξεων, τον έλεγχο των θέσεων κράτησης και την ορατότητα του υποσέλιδου μέσα από παραδείγματα κώδικα."
+description: "Εφαρμόστε, δημιουργήστε και τροποποιήστε διατάξεις διαφάνειας στο Aspose.Slides για PHP μέσω Java, προσθέστε δεσμευτικές θέσεις, αφαιρέστε αχρησιμοποίητες διατάξεις και ελέγξτε την ορατότητα του υποσέλιδου."
 ---
-## **Εισαγωγή**
+## **Επισκόπηση**
 
-Μια διάταξη διαφάνειας ορίζει τη διάταξη των κουτιών θέσεων κράτησης και τη μορφοποίηση του περιεχομένου σε μια διαφάνεια. Ελέγχει ποιες θέσεις κράτησης είναι διαθέσιμες και πού εμφανίζονται. Οι διατάξεις διαφανειών σας βοηθούν να δημιουργείτε παρουσιάσεις γρήγορα και με συνέπεια — είτε δημιουργείτε κάτι απλό είτε πιο σύνθετο. Μερικές από τις πιο συνηθισμένες διατάξεις διαφανειών στο PowerPoint περιλαμβάνουν:
+Ένα διάταξη διαφάνειας ορίζει τις θέσεις και τη μορφοποίηση των δεσμευτικών θέσεων όπως τίτλοι, κείμενο, εικόνες, διαγράμματα και πίνακες. Η εφαρμογή μιας διάταξης δίνει στις διαφάνειες μια συνεπή δομή ενώ επιτρέπει σε κάθε διαφάνεια να περιέχει το δικό της περιεχόμενο.
 
-**Διάταξη Διαφάνειας Τίτλου** – Περιλαμβάνει δύο θέσεις κράτησης κειμένου: μία για τον τίτλο και μία για τον υπότιτλο.
+Οι πιο συνηθισμένες διατάξεις περιλαμβάνουν:
 
-**Διάταξη Τίτλου και Περιεχομένου** – Διαθέτει μια μικρότερη θέση κράτησης τίτλου στην κορυφή και μια μεγαλύτερη κάτω για το κύριο περιεχόμενο (όπως κείμενο, σημεία λίστας, διαγράμματα, εικόνες και άλλα).
+- **Διαφάνεια Τίτλου**: Περιέχει δεσμευτικές θέσεις τίτλου και υποτίτλου.
+- **Τίτλος και Περιεχόμενο**: Περιέχει μια δεσμευτική θέση τίτλου και μια γενική δεσμευτική θέση περιεχομένου.
+- **Κενό**: Δεν περιέχει δεσμευτικές θέσεις περιεχομένου και είναι χρήσιμο όταν κάθε σχήμα θα τοποθετηθεί χειροκίνητα.
 
-**Κενή διάταξη** – Δεν περιέχει θέσεις κράτησης, δίνοντάς σας πλήρη έλεγχο για να σχεδιάσετε τη διαφάνεια από το μηδέν.
+## **Κατανόηση Κληρονομίας Διατάξεων**
 
-Οι διατάξεις διαφανειών είναι μέρος μιας κύριας διαφάνειας, η οποία είναι η διαφάνεια υψηλότερου επιπέδου που ορίζει τα στυλ διάταξης για την παρουσίαση. Μπορείτε να προσπελάσετε και να τροποποιήσετε τις διατάξεις διαφανειών μέσω της κύριας διαφάνειας — είτε με τον τύπο, το όνομα ή το μοναδικό τους αναγνωριστικό. Εναλλακτικά, μπορείτε να επεξεργαστείτε μια συγκεκριμένη διάταξη διαφάνειας άμεσα μέσα στην παρουσίαση.
+Μια παρουσίαση έχει τρία σχετικά επίπεδα:
 
-Για να εργαστείτε με διατάξεις διαφανειών στο Aspose.Slides for PHP, μπορείτε να χρησιμοποιήσετε:
+1. Μια [κύρια διαφάνεια](https://reference.aspose.com/slides/el/php-java/aspose.slides/masterslide/) ορίζει το θέμα, τη κοινή μορφοποίηση, τα παρασκήνια και τα κοινά αντικείμενα.
+2. Μια [διαφάνεια διάταξης](https://reference.aspose.com/slides/el/php-java/aspose.slides/layoutslide/) ανήκει σε μια κύρια διαφάνεια και ορίζει μια συγκεκριμένη διάταξη δεσμευτικών θέσεων.
+3. Μια [κανονική διαφάνεια](https://reference.aspose.com/slides/el/php-java/aspose.slides/slide/) χρησιμοποιεί μια διάταξη και αποθηκεύει το περιεχόμενο που εισήχθη για αυτή τη διαφάνεια.
 
-- Μεθόδους όπως [getLayoutSlides](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/#getLayoutSlides) και [getMasters](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/#getMasters) στην κλάση [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) 
-- Τύπους όπως [LayoutSlide](https://reference.aspose.com/slides/el/php-java/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/el/php-java/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/el/php-java/aspose.slides/layoutplaceholdermanager/), και [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/el/php-java/aspose.slides/layoutslideheaderfootermanager/)
+Μια κανονική διαφάνεια κληρονομεί το θέμα και τη μορφοποίηση από τη διάταξή της, και η διάταξη κληρονομεί από τη κύρια διαφάνειά της. Μια τιμή που ορίζεται απευθείας σε μια κανονική διαφάνεια αντικαθιστά την κληρονομημένη τιμή σε αυτό το επίπεδο. Όταν δημιουργείται μια κανονική διαφάνεια, τα σχήματα των δεσμευτικών θέσεων παράγονται από τη επιλεγμένη διάταξη, ενώ το περιεχόμενο που εισάγεται σε αυτές τις δεσμευτικές θέσεις ανήκει στην κανονική διαφάνεια.
 
-{{% alert title="Info" color="info" %}}
-Για να μάθετε περισσότερα σχετικά με τη δουλειά με τις κύριες διαφάνειες, δείτε το άρθρο [Slide Master](/slides/el/php-java/slide-master/).
-{{% /alert %}}
+Προσθέστε τις απαιτούμενες δεσμευτικές θέσεις σε μια διάταξη πριν δημιουργήσετε διαφάνειες από αυτήν. Η προσθήκη μιας άλλης δεσμευτικής θέσης σε μια διάταξη αργότερα δεν προσθέτει αυτόματα το αντίστοιχο σχήμα δεσμευτικής θέσης στις υπάρχουσες κανονικές διαφάνειες.
 
-## **Προσθήκη Διατάξεων Διαφανειών σε Παρουσιάσεις**
+Αυτή η σχέση έχει δύο σημαντικές συνέπειες:
 
-Για να προσαρμόσετε την εμφάνιση και τη δομή των διαφανειών σας, ίσως χρειαστεί να προσθέσετε νέες διατάξεις διαφανειών σε μια παρουσίαση. Το Aspose.Slides for PHP σας επιτρέπει να ελέγξετε αν existe ήδη μια συγκεκριμένη διάταξη, να προσθέσετε μια νέα εάν χρειάζεται, και να τη χρησιμοποιήσετε για την εισαγωγή διαφανειών βάσει εκείνης της διάταξης.
+- Αλλαγή της κληρονομημένης μορφοποίησης ή της υπάρχουσας γεωμετρίας δεσμευτικών θέσεων σε μια διάταξη μπορεί να ενημερώσει κάθε διαφάνεια που εξαρτάται από αυτήν. Πριν επεξεργαστείτε μια διάταξη που χρησιμοποιείται ήδη, ελέγξτε τις εξαρτημένες διαφάνειες και εξετάστε την προκύπτουσα παρουσίαση.
+- Μια διάταξη που χρησιμοποιείται ακόμα από κάποια διαφάνεια δεν μπορεί να αφαιρεθεί. Αναθέστε πρώτα τις εξαρτημένες διαφάνειες σε άλλη διάταξη ή αφαιρέστε μόνο τις αχρησιμοποίητες διατάξεις.
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) .
-2. Προσπελάστε τη συλλογή [MasterLayoutSlideCollection](https://reference.aspose.com/slides/el/php-java/aspose.slides/masterlayoutslidecollection/) .
-3. Ελέγξτε αν η επιθυμητή διάταξη διαφάνειας υπάρχει ήδη στη συλλογή. Αν όχι, προσθέστε τη διάταξη διαφάνειας που χρειάζεστε.
-4. Προσθέστε μια κενή διαφάνεια βασισμένη στη νέα διάταξη διαφάνειας.
-5. Αποθηκεύστε την παρουσίαση.
+Για περισσότερες πληροφορίες σχετικά με το ανώτερο επίπεδο αυτής της ιεραρχίας, δείτε το [Κύρια Διαφάνεια](/slides/el/php-java/slide-master/).
 
-Ο ακόλουθος κώδικας PHP δείχνει πώς να προσθέσετε μια διάταξη διαφάνειας σε μια παρουσίαση PowerPoint:
+## **Επιλογή και Εφαρμογή Διάταξης Διαφάνειας**
+
+Χρησιμοποιήστε έναν τύπο διάταξης όταν η παρουσίαση ακολουθεί τις τυπικές ορισμούς διαρρύθμισης του PowerPoint. Τα ονόματα διατάξεων είναι επεξεργάσιμα από τον χρήστη και μπορούν να εντοπιστούν, έτσι η επιλογή με βάση το όνομα είναι λιγότερο αξιόπιστη εκτός εάν ελέγχετε το πρότυπο προέλευσης.
+
+Το παρακάτω παράδειγμα αναζητά το **Τίτλος και Περιεχόμενο** στην πρώτη κύρια διαφάνεια. Εάν αυτή η διάταξη δεν είναι διαθέσιμη, επιστρέφει σκόπιμα στο **Κενό**. Ο δεύτερος έλεγχος για null είναι απαραίτητος επειδή μια παρουσίαση μπορεί να περιέχει μόνο προσαρμοσμένες διαρρυθμίσεις. Η επιλεγμένη διάταξη εφαρμόζεται στη πρώτη κανονική διαφάνεια μέσω της μεθόδου [Slide.setLayoutSlide](https://reference.aspose.com/slides/el/php-java/aspose.slides/slide/#setLayoutSlide).
 
 ```php
-// Δημιουργία αντικειμένου της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PowerPoint.
-$presentation = new Presentation("Sample.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
 try {
-    // Περιηγηθείτε στους τύπους διατάξεων διαφάνειας για να επιλέξετε μια διάταξη διαφάνειας.
     $layoutSlides = $presentation->getMasters()->get_Item(0)->getLayoutSlides();
-    $layoutSlide = null;
-    if (!java_is_null($layoutSlides->getByType(SlideLayoutType::TitleAndObject))) {
-        $layoutSlide = $layoutSlides->getByType(SlideLayoutType::TitleAndObject);
-    } else {
-        $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Title);
+    $targetLayout = $layoutSlides->getByType(SlideLayoutType::TitleAndObject);
+
+    if (java_is_null($targetLayout)) {
+        $targetLayout = $layoutSlides->getByType(SlideLayoutType::Blank);
     }
 
-    if (java_is_null($layoutSlide)) {
-        // Μια κατάσταση όπου η παρουσίαση δεν περιέχει όλους τους τύπους διατάξεων.
-        // Το αρχείο παρουσίασης περιέχει μόνο τύπους διατάξεων Blank και Custom.
-        // Ωστόσο, διατάξεις διαφανειών με προσαρμοσμένους τύπους μπορεί να έχουν αναγνωρίσιμα ονόματα,
-        // όπως "Title", "Title and Content", κλπ., που μπορούν να χρησιμοποιηθούν για την επιλογή διάταξης διαφάνειας.
-        // Μπορείτε επίσης να βασιστείτε σε ένα σύνολο τύπων σχημάτων θέσεων κράτησης.
-        // Για παράδειγμα, μια διαφάνεια τίτλου πρέπει να έχει μόνο τον τύπο θέσης κράτησης Title, κλπ.
-        foreach($layoutSlides as $titleAndObjectLayoutSlide) {
-            if (java_values($titleAndObjectLayoutSlide->getName()) == "Title and Object") {
-                $layoutSlide = $titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (java_is_null($layoutSlide)) {
-            foreach($layoutSlides as $titleLayoutSlide) {
-                if (java_values($titleLayoutSlide->getName()) == "Title") {
-                    $layoutSlide = $titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (java_is_null($layoutSlide)) {
-                $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Blank);
-                if (java_is_null($layoutSlide)) {
-                    $layoutSlide = $layoutSlides->add(SlideLayoutType::TitleAndObject, "Title and Object");
-                }
-            }
-        }
+    if (java_is_null($targetLayout)) {
+        throw new \RuntimeException("The first master does not contain a suitable layout slide.");
     }
 
-    // Προσθήκη κενής διαφάνειας χρησιμοποιώντας τη διαταγή διαφάνειας που προστέθηκε.
-    $presentation->getSlides()->insertEmptySlide(0, $layoutSlide);
-
-    // Αποθήκευση της παρουσίασης στο δίσκο.
-    $presentation->save("output.pptx", SaveFormat::Pptx);
+    $presentation->getSlides()->get_Item(0)->setLayoutSlide($targetLayout);
+    $presentation->save("output-with-new-layout.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Κατάργηση Αχρησιμοποίητων Διατάξεων Διαφανειών**
+Η αλλαγή της διάταξης μιας διαφάνειας δεν αφαιρεί τα συνηθισμένα σχήματα που προστέθηκαν άμεσα στη διαφάνεια. Ωστόσο, οι θέσεις των δεσμευτικών θέσεων, η κληρονομημένη μορφοποίηση και η αντιστοιχία μεταξύ των υπαρχουσών δεσμευτικών θέσεων και της νέας διάταξης μπορούν να αλλάξουν, γι' αυτό ελέγξτε το αποτέλεσμα όταν αλλάζετε μεταξύ σημαντικά διαφορετικών διατάξεων.
 
-Το Aspose.Slides παρέχει τη μέθοδο [removeUnusedLayoutSlides](https://reference.aspose.com/slides/el/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) από την κλάση [Compress](https://reference.aspose.com/slides/el/php-java/aspose.slides/compress/) ώστε να μπορείτε να διαγράψετε ανεπιθύμητες και αχρησιμοποίητες διατάξεις διαφανειών.
+## **Προσθήκη Διάταξης Διαφάνειας**
 
-Ο ακόλουθος κώδικας PHP δείχνει πώς να αφαιρέσετε μια διάταξη διαφάνειας από μια παρουσίαση PowerPoint:
+Η επιλογή και η δημιουργία είναι ξεχωριστές λειτουργίες. Το προηγούμενο παράδειγμα επιλέγει μια υπάρχουσα διάταξη· δεν δημιουργεί μία. Για να δημιουργήσετε μια διάταξη, καλέστε τη μέθοδο [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/el/php-java/aspose.slides/masterlayoutslidecollection/#add) στη συλλογή διατάξεων του στοχευόμενου κυρίου.
+
+Το παρακάτω παράδειγμα προσθέτει πάντα μια νέα διάταξη **Τίτλος και Περιεχόμενο** με όνομα `Report Title and Content`, στη συνέχεια προσθέτει μια κανονική διαφάνεια βασισμένη σε αυτήν. Τα ονόματα των διατάξεων πρέπει να είναι μοναδικά μέσα στη συλλογή.
 
 ```php
-$presentation = new Presentation("Presentation.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
 try {
-    Compress::removeUnusedLayoutSlides($presentation);
-    $presentation->save("Output.pptx", SaveFormat::Pptx);
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $reportLayout = $masterSlide->getLayoutSlides()->add(SlideLayoutType::TitleAndObject, "Report Title and Content");
+    $presentation->getSlides()->addEmptySlide($reportLayout);
+
+    $presentation->save("output-with-report-layout.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Προσθήκη Θέσεων Κράτησης σε Διατάξεις Διαφανειών**
+Προσθέστε μια διάταξη μόνο όταν το πρότυπο πραγματικά χρειάζεται μια ακόμη επαναχρησιμοποιήσιμη δομή. Εάν υπάρχει ήδη μια κατάλληλη διάταξη, επιλέξτε και επαναχρησιμοποιήστε την αντί να δημιουργήσετε ένα αντίγραφο.
 
-Το Aspose.Slides παρέχει τη μέθοδο [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/el/php-java/aspose.slides/layoutslide/#getPlaceholderManager) , η οποία σας επιτρέπει να προσθέτετε νέες θέσεις κράτησης σε μια διάταξη διαφάνειας.
+## **Προσθήκη Δεσμευτικών Θέσεων σε Διάταξη Διαφάνειας**
 
-Αυτός ο διαχειριστής περιέχει μεθόδους για τους παρακάτω τύπους θέσεων κράτησης:
+Η μέθοδος [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/el/php-java/aspose.slides/layoutslide/#getPlaceholderManager) παρέχει έναν [LayoutPlaceholderManager](https://reference.aspose.com/slides/el/php-java/aspose.slides/layoutplaceholdermanager/) για την προσθήκη σχημάτων δεσμευτικών θέσεων σε μια διάταξη.
 
-| Θέση κράτησης PowerPoint | Μέθοδος [LayoutPlaceholderManager](https://reference.aspose.com/slides/el/php-java/aspose.slides/layoutplaceholdermanager/) |
-| ------------------------ | ------------------------------------------------------------ |
-| ![Περιεχόμενο](content.png) | addContentPlaceholder(float x, float y, float width, float height) |
-| ![Περιεχόμενο (Κατακόρυφο)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Κείμενο](text.png) | addTextPlaceholder(float x, float y, float width, float height) |
-| ![Κείμενο (Κατακόρυφο)](textV.png) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Εικόνα](picture.png) | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![Διάγραμμα](chart.png) | addChartPlaceholder(float x, float y, float width, float height) |
-| ![Πίνακας](table.png) | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Μέσα](media.png) | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![Διαδικτυακή Εικόνα](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| Δεσμευτική Θέση PowerPoint | `LayoutPlaceholderManager` Method |
+| --------------------------- | --------------------------------- |
+| ![Περιεχόμενο](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/php-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![Περιεχόμενο (Κατακόρυφο)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![Κείμενο](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/php-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Κείμενο (Κατακόρυφο)](textV.png) | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Εικόνα](picture.png) | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/php-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Διάγραμμα](chart.png) | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/php-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Πίνακας](table.png) | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/php-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/php-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Πολυμέσα](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/php-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Διαδικτυακή Εικόνα](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/el/php-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-Ο ακόλουθος κώδικας PHP δείχνει πώς να προσθέσετε νέα σχήματα θέσης κράτησης στη κενή διάταξη διαφάνειας:
+Το παρακάτω παράδειγμα ελέγχει ότι η διάταξη **Κενό** υπάρχει, προσθέτει τέσσερις δεσμευτικές θέσεις σε αυτήν και στη συνέχεια δημιουργεί μια κανονική διαφάνεια που χρησιμοποιεί τη τροποποιημένη διάταξη. Η σειρά είναι σκόπιμη: οι δεσμευτικές θέσεις προστίθενται πριν δημιουργηθεί η κανονική διαφάνεια, ώστε η Aspose.Slides να μπορεί να δημιουργήσει τα αντίστοιχα σχήματα δεσμευτικών θέσεων σε αυτήν τη διαφάνεια.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
 $presentation = new Presentation();
 try {
-    // Λάβετε τη διαφάνεια διάταξης Blank.
-    $layout = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    $blankLayout = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
 
-    // Λάβετε τον διαχειριστή θέσεων κράτησης της διαφάνειας διάταξης.
-    $placeholderManager = $layout->getPlaceholderManager();
+    if (java_is_null($blankLayout)) {
+        throw new \RuntimeException("The presentation does not contain a Blank layout slide.");
+    }
 
-    // Προσθέστε διαφορετικές θέσεις κράτησης στη διαφάνεια διάταξης Blank.
+    $placeholderManager = $blankLayout->getPlaceholderManager();
     $placeholderManager->addContentPlaceholder(20, 20, 310, 270);
     $placeholderManager->addVerticalTextPlaceholder(350, 20, 350, 270);
     $placeholderManager->addChartPlaceholder(20, 310, 310, 180);
     $placeholderManager->addTablePlaceholder(350, 310, 350, 180);
 
-    // Προσθέστε μια νέα διαφάνεια με τη διάταξη Blank.
-    $newSlide = $presentation->getSlides()->addEmptySlide($layout);
-
-    $presentation->save("Placeholders.pptx", SaveFormat::Pptx);
+    $presentation->getSlides()->addEmptySlide($blankLayout);
+    $presentation->save("output-with-placeholders.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
@@ -180,73 +164,84 @@ try {
 
 Το αποτέλεσμα:
 
-![Οι θέσεις κράτησης στη διάταξη διαφάνειας](add_placeholders.png)
+![Οι δεσμευτικές θέσεις στην διάταξη διαφάνειας](add_placeholders.png)
 
-## **Ορισμός Ορατότητας Υποσέλιδου για Διάταξη Διαφάνειας**
+{{% alert color="warning" title="Warning" %}}
+Η αλλαγή της κληρονομημένης μορφοποίησης ή της γεωμετρίας των υπάρχουσας δεσμευτικών θέσεων της διάταξης μπορεί να επηρεάσει τις εξαρτημένες διαφάνειες. Μια νέα προστιθέμενη δεσμευτική θέση διάταξης δεν προστίθεται αυτόματα στις υπάρχουσες κανονικές διαφάνειες. Δοκιμάστε τις αλλαγές διάταξης σε αντίγραφο της παρουσίασης και ελέγξτε κάθε εξαρτημένη διαφάνεια.
+{{% /alert %}}
 
-Σε παρουσιάσεις PowerPoint, στοιχεία υποσέλιδου όπως η ημερομηνία, ο αριθμός διαφάνειας και προσαρμοσμένο κείμενο μπορούν να εμφανιστούν ή να κρυφτούν ανάλογα με τη διάταξη διαφάνειας. Το Aspose.Slides for PHP σας επιτρέπει να ελέγξετε την ορατότητα αυτών των θέσεων κράτησης υποσέλιδου. Αυτό είναι χρήσιμο όταν θέλετε ορισμένες διατάξεις να εμφανίζουν πληροφορίες υποσέλιδου ενώ άλλες παραμένουν καθαρές και ελάχιστες.
+## **Αφαίρεση Αχρησιμοποίητων Διατάξεων Διαφάνειας**
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) .
-2. Πάρτε μια αναφορά σε διάταξη διαφάνειας με βάση το δείκτη της.
-3. Ορίστε τη θέση κράτησης υποσέλιδου διαφάνειας σε ορατή.
-4. Ορίστε τη θέση κράτησης αριθμού διαφάνειας σε ορατή.
-5. Ορίστε τη θέση κράτησης ημερομηνίας/ώρας σε ορατή.
-6. Αποθηκεύστε την παρουσίαση.
-
-Ο ακόλουθος κώδικας PHP δείχνει πώς να ορίσετε την ορατότητα του υποσέλιδου μιας διαφάνειας και να εκτελέσετε σχετικές ενέργειες:
+Χρησιμοποιήστε τη μέθοδο [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/el/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) για να αφαιρέσετε διατάξεις που δεν αναφέρονται από καμία κανονική διαφάνεια. Η μέθοδος αφήνει αμετάβλητες τις διατάξεις που εξακολουθούν να χρησιμοποιούνται.
 
 ```php
-$presentation = new Presentation("Presentation.ppt");
+use aspose\slides\Compress;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
 try {
-    $headerFooterManager = $presentation->getLayoutSlides()->get_Item(0)->getHeaderFooterManager();
-
-    if (!$headerFooterManager->isFooterVisible()) {
-        $headerFooterManager->setFooterVisibility(true);
-    }
-
-    if (!$headerFooterManager->isSlideNumberVisible()) {
-        $headerFooterManager->setSlideNumberVisibility(true);
-    }
-
-    if (!$headerFooterManager->isDateTimeVisible()) {
-        $headerFooterManager->setDateTimeVisibility(true);
-    }
-
-    $headerFooterManager->setFooterText("Footer text");
-    $headerFooterManager->setDateTimeText("Date and time text");
-
-    $presentation->save("Presentation.ppt", SaveFormat::Ppt);
+    Compress::removeUnusedLayoutSlides($presentation);
+    $presentation->save("output-without-unused-layouts.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Ορισμός Ορατότητας Υποσέλιδου για Παιδί Διαφάνειας**
+Για να αφαιρέσετε μια συγκεκριμένη διάταξη, πρώτα χρησιμοποιήστε τη μέθοδ│ό [hasDependingSlides](https://reference.aspose.com/slides/el/php-java/aspose.slides/layoutslide/#hasDependingSlides) ή [getDependingSlides](https://reference.aspose.com/slides/el/php-java/aspose.slides/layoutslide/#getDependingSlides). Αναθέστε εκ νέου τυχόν εξαρτημένες διαφάνειες πριν καλέσετε [LayoutSlide.remove](https://reference.aspose.com/slides/el/php-java/aspose.slides/layoutslide/#remove). Η προσπάθεια αφαίρεσης μιας χρησιμοποιούμενης διάταξης προκαλεί ένα [PptxEditException](https://reference.aspose.com/slides/el/php-java/aspose.slides/pptxeditexception/).
 
-Σε παρουσιάσεις PowerPoint, στοιχεία υποσέλιδου όπως η ημερομηνία, ο αριθμός διαφάνειας και προσαρμοσμένο κείμενο μπορούν να ελεγχθούν σε επίπεδο κύριας διαφάνειας για να διασφαλιστεί η συνέπεια σε όλες τις διατάξεις διαφανειών. Το Aspose.Slides for PHP επιτρέπει να ορίσετε την ορατότητα και το περιεχόμενο αυτών των θέσεων κράτησης υποσέλιδου στην κύρια διαφάνεια και να προβάλετε αυτές τις ρυθμίσεις σε όλες τις παιδικές διατάξεις διαφανειών. Αυτή η προσέγγιση εξασφαλίζει ομοιόμορφη πληροφορία υποσέλιδου σε όλη την παρουσίαση.
+## **Έλεγχος Ορατότητας Υποσέλιδου σε Διάταξη Διαφάνειας**
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) .
-2. Πάρτε μια αναφορά στη κύρια διαφάνεια με βάση το δείκτη της.
-3. Ορίστε τις θέσεις κράτησης υποσέλιδου της κύριας και όλων των παιδικών διαφανειών σε ορατές.
-4. Ορίστε τις θέσεις κράτησης αριθμού διαφάνειας της κύριας και όλων των παιδικών διαφανειών σε ορατές.
-5. Ορίστε τις θέσεις κράτησης ημερομηνίας/ώρας της κύριας και όλων των παιδικών διαφανειών σε ορατές.
-6. Αποθηκεύστε την παρουσίαση.
-
-Ο ακόλουθος κώδικας PHP δείχνει αυτή τη λειτουργία:
+Μια διάταξη έχει το δικό της υποσέλιδο, αριθμό διαφάνειας και δεσμευτικές θέσεις ημερομηνίας‑ώρας. Χρησιμοποιήστε τη μέθοδο [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/el/php-java/aspose.slides/layoutslide/#getHeaderFooterManager) για να ελέγξετε αυτές τις δεσμευτικές θέσεις για μία διάταξη. Αυτό είναι χρήσιμο όταν, για παράδειγμα, οι διατάξεις περιεχομένου πρέπει να εμφανίζουν υποσέλιδα ενώ οι διατάξεις τίτλου δεν πρέπει.
 
 ```php
-$presentation = new Presentation("presentation.ppt");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $layoutSlide = $presentation->getLayoutSlides()->getByType(SlideLayoutType::TitleAndObject);
+
+    if (java_is_null($layoutSlide)) {
+        $layoutSlide = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    }
+
+    if (java_is_null($layoutSlide)) {
+        throw new \RuntimeException("The presentation does not contain a suitable layout slide.");
+    }
+
+    $headerFooterManager = $layoutSlide->getHeaderFooterManager();
+    $headerFooterManager->setFooterVisibility(true);
+    $headerFooterManager->setSlideNumberVisibility(true);
+    $headerFooterManager->setDateTimeVisibility(true);
+    $headerFooterManager->setFooterText("Footer text");
+    $headerFooterManager->setDateTimeText("Date and time text");
+
+    $presentation->save("output-with-layout-footers.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Έλεγχος Ορατότητας Υποσέλιδου σε Κύρια Διαφάνεια και τις Παιδικές Διατάξεις της**
+
+Για να εφαρμόσετε συνεπείς ρυθμίσεις υποσέλιδου σε όλη τη ιεραρχία μιας κύριας διαφάνειας, χρησιμοποιήστε τη μέθοδο [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/el/php-java/aspose.slides/masterslide/#getHeaderFooterManager). Οι μέθοδοι διάδοσης του [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/el/php-java/aspose.slides/masterslideheaderfootermanager/) λειτουργούν στη κύρια διαφάνεια και στις εξαρτημένες διαρρυθμίσεις διαφάνειας και κανονικές διαφάνειες· δεν απευθύνονται μόνο σε μία κανονική διαφάνεια.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
 try {
     $headerFooterManager = $presentation->getMasters()->get_Item(0)->getHeaderFooterManager();
-
     $headerFooterManager->setFooterAndChildFootersVisibility(true);
     $headerFooterManager->setSlideNumberAndChildSlideNumbersVisibility(true);
     $headerFooterManager->setDateTimeAndChildDateTimesVisibility(true);
-
     $headerFooterManager->setFooterAndChildFootersText("Footer text");
     $headerFooterManager->setDateTimeAndChildDateTimesText("Date and time text");
 
-    $presentation->save("Output.pptx", SaveFormat::Pptx);
+    $presentation->save("output-with-master-footers.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
@@ -254,14 +249,18 @@ try {
 
 ## **Συχνές Ερωτήσεις**
 
-**Ποια είναι η διαφορά μεταξύ μιας κύριας διαφάνειας και μιας διάταξης διαφάνειας;**
+**Ποια είναι η Διαφορά μεταξύ Κύριας Διαφάνειας και Διάταξης Διαφάνειας;**
 
-Μια κύρια διαφάνεια ορίζει το συνολικό θέμα και την προεπιλεγμένη μορφοποίηση, ενώ οι διατάξεις διαφανειών ορίζουν συγκεκριμένες διατάξεις θέσεων κράτησης για διάφορους τύπους περιεχομένου.
+Μια κύρια διαφάνεια ορίζει το θέμα της παρουσίασης και τη κοινή μορφοποίηση. Μια διάταξη διαφάνειας ανήκει σε μια κύρια διαφάνεια και ορίζει μία επαναχρησιμοποιήσιμη διάταξη δεσμευτικών θέσεων. Οι κανονικές διαφάνειες χρησιμοποιούν αυτές τις διατάξεις και αποθηκεύουν περιεχόμενο ειδικό για κάθε διαφάνεια.
 
-**Μπορώ να αντιγράψω μια διάταξη διαφάνειας από μία παρουσίαση σε άλλη;**
+**Μπορώ να Αντιγράψω μια Διάταξη Διαφάνειας από μια Παρουσίαση σε Άλλη;**
 
-Ναι, μπορείτε να κλωνοποιήσετε μια διάταξη διαφάνειας από τη συλλογή διατάξεων μιας παρουσίασης, προσβάσιμη μέσω της μεθόδου [getLayoutSlides](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/#getLayoutSlides) , και να την εισάγετε σε άλλη παρουσίαση χρησιμοποιώντας τη μέθοδο `addClone`.
+Ναί. Προσθέστε ένα αντίγραφο στη συλλογή προορισμού με τη μέθοδο [addClone](https://reference.aspose.com/slides/el/php-java/aspose.slides/globallayoutslidecollection/#addClone). Κατά την αντιγραφή μεταξύ παρουσιάσεων, ελέγξτε επίσης τις γραμματοσειρές, τα θέματα, τις εικόνες και άλλους πόρους που χρησιμοποιούνται από τη διαρρύθμιση προέλευσης.
 
-**Τι συμβαίνει αν διαγράψω μια διάταξη διαφάνειας που χρησιμοποιείται ακόμα από κάποια διαφάνεια;**
+**Τι Συμβαίνει όταν Τροποποιήσω μια Διάταξη που Χρησιμοποιείται Ήδη;**
 
-Αν προσπαθήσετε να διαγράψετε μια διάταξη διαφάνειας που είναι ακόμα αναφορά από τουλάχιστον μία διαφάνεια στην παρουσίαση, το Aspose.Slides θα ρίξει μια [PptxEditException](https://reference.aspose.com/slides/el/php-java/aspose.slides/pptxeditexception/) . Για να το αποφύγετε, χρησιμοποιήστε [removeUnusedLayoutSlides](https://reference.aspose.com/slides/el/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) που αφαιρεί με ασφάλεια μόνο τις διατάξεις που δεν χρησιμοποιούνται.
+Οι εξαρτημένες διαφάνειες κληρονομούν τις αλλαγές της διάταξης εκτός εάν αντικαταστήσουν το επηρεασμένο μορφοποίηση ή τα αντικείμενα τοπικά. Η γεωμετρία των δεσμευτικών θέσεων και η κληρονομημένη μορφοποίηση μπορούν έτσι να αλλάξουν σε πολλές διαφάνειες ταυτόχρονα. Χρησιμοποιήστε [getDependingSlides](https://reference.aspose.com/slides/el/php-java/aspose.slides/layoutslide/#getDependingSlides) για να εντοπίσετε τις επηρεασμένες διαφάνειες πριν επεξεργαστείτε τη διάταξη.
+
+**Τι Συμβαίνει αν Αφαιρέσω μια Διάταξη που Χρησιμοποιείται Ακόμα;**
+
+Το Aspose.Slides προκαλεί ένα [PptxEditException](https://reference.aspose.com/slides/el/php-java/aspose.slides/pptxeditexception/). Αναθέστε πρώτα τις εξαρτημένες διαφάνειες ή χρησιμοποιήστε το [removeUnusedLayoutSlides](https://reference.aspose.com/slides/el/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) για να αφαιρέσετε μόνο τις αδειακές διατάξεις.

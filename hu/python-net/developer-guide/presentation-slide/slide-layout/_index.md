@@ -1,242 +1,228 @@
 ---
-title: "Diaelrendezések alkalmazása vagy módosítása Pythonban"
-linktitle: "Diaelrendezés"
+title: Diaelrendezések alkalmazása vagy módosítása Pythonban
+linktitle: Diaelrendezés
 type: docs
 weight: 60
 url: /hu/python-net/slide-layout/
 keywords:
-- "diaelrendezés"
-- "tartalom elrendezés"
-- "helyőrző"
-- "prezentáció tervezés"
-- "dia tervezés"
-- "használaton kívüli elrendezés"
-- "lábléc láthatóság"
-- "címdiára"
-- "cím és tartalom"
-- "szekciófejléc"
-- "két tartalom"
-- "összehasonlítás"
-- "csak cím"
-- "üres elrendezés"
-- "tartalom felirattal"
-- "kép felirattal"
-- "cím és függőleges szöveg"
-- "függőleges cím és szöveg"
-- "PowerPoint"
-- "OpenDocument"
-- "Python"
-- "Aspose.Slides"
-description: "Ismerje meg, hogyan kezelheti és testre szabhatja a diaelrendezéseket az Aspose.Slides for Python ( .NET ) segítségével. Fedezze fel az elrendezéstípusokat, a helyőrzők vezérlését, a lábléc láthatóságát, valamint az elrendezések manipulálását Pythonkóddal példákon keresztül."
+- diaelrendezés
+- tartalomelrendezés
+- helyőrző
+- prezentáció tervezés
+- diatervezés
+- nem használt elrendezés
+- lábléc láthatóság
+- címlap
+- cím és tartalom
+- szakaszfejléc
+- két tartalom
+- összehasonlítás
+- csak cím
+- üres elrendezés
+- tartalom felirattal
+- kép felirattal
+- cím és függőleges szöveg
+- függőleges cím és szöveg
+- PowerPoint
+- OpenDocument
+- prezentáció
+- Python
+- Aspose.Slides
+description: "Alkalmazza, hozza létre és módosítsa a diaelrendezéseket az Aspose.Slides for Python .NET-en keresztül, adjon hozzá helyőrzőket, távolítson el nem használt elrendezéseket, és vezérelje a lábléc láthatóságát."
 ---
-## **Bevezetés**
+## **Áttekintés**
 
-A diatérelrendezés meghatározza a helyőrződobozok elrendezését és a dián lévő tartalom formázását. Szabályozza, hogy mely helyőrzők érhetők el, és hol jelennek meg. A diatérelrendezések segítenek gyorsan és következetesen tervezni a prezentációkat – legyen szó egyszerű vagy bonyolult anyagról. A PowerPoint leggyakoribb diatérelrendezései közé tartozik:
+A diaelrendezés meghatározza a helyőrzők, például címek, szövegek, képek, diagramok és táblák pozícióját és formázását. Egy elrendezés alkalmazása következetes szerkezetet ad a diákhoz, miközben minden dia saját tartalmát tartalmazhatja.
 
-**Címdiára** – Két szöveghelyőrzőt tartalmaz: egyet a címhez és egyet az alcímhez.
+A leggyakoribb elrendezések:
 
-**Cím és tartalom** – Kisebb címhelyőrző a tetején, alatta nagyobb a fő tartalomhoz (például szöveg, felsorolás, diagramok, képek stb.).
+- **Címlap**: Cím és alcím helyőrzőket tartalmaz.
+- **Cím és tartalom**: Cím helyőrzőt és általános célú tartalom helyőrzőt tartalmaz.
+- **Üres**: Nem tartalmaz tartalomhelyőrzőket, és akkor hasznos, ha minden alakzatot manuálisan helyezünk el.
 
-**Üres elrendezés** – Nem tartalmaz helyőrzőket, teljes szabadságot ad a dia elrendezésének kialakításához.
+## **A layout öröklődésének megértése**
 
-A diatérelrendezések a dia-mester részei, amely a prezentáció elrendezési stílusait definiáló legfelső szintű dia. A diatérelrendezéseket a dia-mesteren keresztül érheted el és módosíthatod – típus, név vagy egyedi azonosító alapján. Alternatívaként egy konkrét diatérelrendezést közvetlenül a prezentáción belül is szerkeszthetsz.
+Egy prezentációnak három kapcsolódó szintje van:
 
-A diatérelrendezésekkel való munka Aspose.Slides for Python‑ban a következőkkel lehetséges:
+1. A [master slide](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masterslide/) meghatározza a témát, a megosztott formázást, a hátteret és a közös objektumokat.
+1. A [layout slide](https://reference.aspose.com/slides/hu/python-net/aspose.slides/layoutslide/) egy mesterhez tartozik, és egy adott helyőrző-eloszlást definiál.
+1. A [normal slide](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slide/) egy elrendezést használ, és tárolja a diához megadott tartalmat.
 
-- Olyan tulajdonságok, mint a [layout_slides](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/layout_slides/) és a [masters](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/masters/) a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályon belül
-- Típusok, mint a [LayoutSlide](https://reference.aspose.com/slides/hu/python-net/aspose.slides/layoutslide/), a [MasterLayoutSlideCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masterlayoutslidecollection/), a [LayoutPlaceholderManager](https://reference.aspose.com/slides/hu/python-net/aspose.slides/layoutplaceholdermanager/) és a [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/hu/python-net/aspose.slides/layoutslideheaderfootermanager/)
+Egy normál dia a témát és a formázást örökli az elrendezéséből, az elrendezés pedig a mesterből. Egy normál dián közvetlenül beállított érték felülírja az örökölt értéket az adott szinten. Amikor egy normál diát hozunk létre, a helyőrző‑alakzatok a kiválasztott elrendezésből generálódnak, míg a helyőrzőkbe beírt tartalom a normál dia része.
 
-{{% alert title="Info" color="info" %}}
-A mesterdiaival kapcsolatos további információkért tekintsd meg a [Manage PowerPoint Slide Masters in Python](/slides/hu/python-net/slide-master/) cikket.
-{{% /alert %}}
+Adjunk szükséges helyőrzőket egy elrendezéshez, mielőtt diákat hoznánk létre belőle. Egy helyőrző későbbi hozzáadása egy elrendezéshez nem ad automatikusan hozzá megfelelő helyőrző‑alakzatot a meglévő normál diákhoz.
 
-## **Diatérelrendezések hozzáadása a prezentációkhoz**
+Ennek a kapcsolatnak két fontos következménye van:
 
-A diák megjelenésének és szerkezetének testreszabásához szükség lehet új diatérelrendezések hozzáadására a prezentációhoz. Az Aspose.Slides for Python lehetővé teszi, hogy ellenőrizd, létezik‑e már egy adott elrendezés, ha szükséges, újat adj hozzá, és ezt felhasználva helyezz be diát az adott elrendezés alapján.
+- Az örökölt formázás vagy egy már létező helyőrző geometria módosítása minden attól függő diát frissíthet. Mielőtt egy már használatban lévő elrendezést szerkesztenénk, ellenőrizzük a függő diák listáját, és tekintsük át a kapott prezentációt.
+- Egy elrendezést, amelyet még használ egy dia, nem lehet eltávolítani. Először rendeljük át a függő diákat egy másik elrendezéshez, vagy csak a nem használt elrendezéseket távolítsuk el.
 
-1. Hozz létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból.
-1. Érj hozzá a [MasterLayoutSlideCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masterlayoutslidecollection/) gyűjteményhez.
-1. Ellenőrizd, hogy a kívánt diatérelrendezés már létezik‑e a gyűjteményben. Ha nem, add hozzá a szükséges elrendezést.
-1. Adj hozzá egy üres diát az új diatérelrendezés alapján.
-1. Mentsd el a prezentációt.
+A hierarchia legfelső szintjéről további információ a [Slide Master](/slides/hu/python-net/slide-master/) oldalon található.
 
-Az alábbi Python‑kód bemutatja, hogyan adhatunk diatérelrendezést egy PowerPoint‑prezentációhoz:
+## **Diaelrendezés kiválasztása és alkalmazása**
+
+Használjunk elrendezéstípusokat, ha a prezentáció a szabványos PowerPoint elrendezésdefiníciókat követi. Az elrendezésneveket a felhasználó szerkesztheti és lokalizálhatja, ezért a név alapú kiválasztás kevésbé megbízható, hacsak nem kontrolláljuk a forrás‑sablont.
+
+Az alábbi példa a **Cím és tartalom** elrendezést keresi az első mesterben. Ha ez az elrendezés nem érhető el, szándékosan a **Üres** elrendezésre tér vissza. A második null‑ellenőrzés szükséges, mert egy prezentáció csak egyedi elrendezéseket tartalmazhat. A kiválasztott elrendezést ezután a [Slide.layout_slide](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slide/layout_slide/) tulajdonságon keresztül alkalmazzuk az első normál diára.
 
 ```python
 import aspose.slides as slides
 
-# A Presentation osztály példányosítása a prezentációfájl megnyitásához.
-with slides.Presentation("sample.pptx") as presentation:
-    # A diatérelrendezés típusokon végigmenve kiválaszt egy diatérelrendezést.
+with slides.Presentation("input.pptx") as presentation:
     layout_slides = presentation.masters[0].layout_slides
-    layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
-    if layout_slide is None:
-         layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE)
+    target_layout = layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
 
-    if layout_slide is None:
-        # Olyan helyzet, amikor a prezentáció nem tartalmaz minden elrendezéstípust.
-        # A prezentációfájl csak Üres és Egyéni elrendezés típusokat tartalmaz.
-        # Azonban az egyéni típusú diatérelrendezéseknek felismerhető neveik lehetnek,
-        # például "Title", "Title and Content", stb., amelyeket a diatérelrendezés kiválasztásához használhat.
-        # Emellett támaszkodhatsz a helyőrző alakzat típusok halmazára.
-        # Például egy Címdiának csak a Cím helyőrzőtípusa kell legyen, és így tovább.
-        for title_and_object_layout_slide in layout_slides:
-            if title_and_object_layout_slide.name == "Title and Object":
-                layout_slide = title_and_object_layout_slide
-                break
+    if target_layout is None:
+        target_layout = layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
 
-        if layout_slide is None:
-            for title_layout_slide in layout_slides:
-                if title_layout_slide.name == "Title":
-                    layout_slide = title_layout_slide
-                    break
+    if target_layout is None:
+        raise RuntimeError("The first master does not contain a suitable layout slide.")
 
-            if layout_slide is None:
-                layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
-                if layout_slide is None:
-                    layout_slide = layout_slides.Add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Title and Object")
-
-    # Üres diát ad hozzá a hozzáadott diatérelrendezés használatával.
-    presentation.slides.insert_empty_slide(0, layout_slide)
-
-    # Mentse a prezentációt a lemezre.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.slides[0].layout_slide = target_layout
+    presentation.save("output-with-new-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Használaton kívüli diatérelrendezések eltávolítása**
+Egy dia elrendezésének módosítása nem távolítja el az a diára közvetlenül hozzáadott szokásos alakzatokat. Ugyanakkor a helyőrző pozíciók, az örökölt formázás és a meglévő helyőrzők megfelelősége az új elrendezéshez változhat, ezért ellenőrizzük a kimenetet, ha jelentősen eltérő elrendezések között váltunk.
 
-Az Aspose.Slides a [remove_unused_layout_slides](https://reference.aspose.com/slides/hu/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) metódust a [Compress](https://reference.aspose.com/slides/hu/python-net/aspose.slides.lowcode/compress/) osztályból biztosítja, amely lehetővé teszi a nem használt diatérelrendezések törlését.
+## **Elrendezésdia hozzáadása**
 
-Az alábbi Python‑kód megmutatja, hogyan távolítható el egy diatérelrendezés egy PowerPoint‑prezentációból:
+A kiválasztás és a létrehozás külön műveletek. Az előző példa egy meglévő elrendezést választ ki; nem hoz létre újat. Elrendezés létrehozásához hívjuk a [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masterlayoutslidecollection/add/) metódust a cél‑mester elrendezésgyűjteményén.
+
+Az alábbi példa mindig hozzáad egy új **Cím és tartalom** elrendezést `Report Title and Content` néven, majd ennek alapján egy normál diát hoz létre. Az elrendezésneveknek egyedieknek kell lenniük a gyűjteményen belül.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    slides.lowcode.Compress.remove_unused_layout_slides(presentation)
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("input.pptx") as presentation:
+    master_slide = presentation.masters[0]
+    report_layout = master_slide.layout_slides.add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Report Title and Content")
+    presentation.slides.add_empty_slide(report_layout)
+
+    presentation.save("output-with-report-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Helyőrzők hozzáadása diatérelrendezésekhez**
+Csak akkor adjunk elrendezést, ha a sablon valóban igényel egy új újrahasználható struktúrát. Ha már létezik megfelelő elrendezés, válasszuk ki és használjuk újra, a duplikálás helyett.
 
-Az Aspose.Slides a [LayoutSlide.placeholder_manager](https://reference.aspose.com/slides/hu/python-net/aspose.slides/layoutslide/placeholder_manager/) tulajdonságot biztosítja, amely lehetővé teszi új helyőrzők hozzáadását egy diatérelrendezéshez.
+## **Helyőrzők hozzáadása egy elrendezésdhióhoz**
 
-Ez a menedzser a következő helyőrzőtípusokhoz kínál metódusokat:
+A [LayoutSlide.placeholder_manager](https://reference.aspose.com/slides/hu/python-net/aspose.slides/layoutslide/placeholder_manager/) tulajdonság egy [LayoutPlaceholderManager](https://reference.aspose.com/slides/hu/python-net/aspose.slides/layoutplaceholdermanager/) objektumot biztosít a helyőrző‑alakzatok elrendezéshez való hozzáadásához.
 
-| PowerPoint helyőrző                | [LayoutPlaceholderManager](https://reference.aspose.com/slides/hu/python-net/aspose.slides/layoutplaceholdermanager/) metódus |
-| ----------------------------------- | ------------------------------------------------------------ |
-| ![Content](content.png)             | add_content_placeholder(x: float, y: float, width: float, height: float) |
-| ![Content (Vertical)](contentV.png) | add_vertical_content_placeholder(x: float, y: float, width: float, height: float) |
-| ![Text](text.png)                   | add_text_placeholder(x: float, y: float, width: float, height: float) |
-| ![Text (Vertical)](textV.png)       | add_vertical_text_placeholder(x: float, y: float, width: float, height: float) |
-| ![Picture](picture.png)             | add_picture_placeholder(x: float, y: float, width: float, height: float) |
-| ![Chart](chart.png)                 | add_chart_placeholder(x: float, y: float, width: float, height: float) |
-| ![Table](table.png)                 | add_table_placeholder(x: float, y: float, width: float, height: float) |
-| ![SmartArt](smartart.png)           | add_smart_art_placeholder(x: float, y: float, width: float, height: float) |
-| ![Media](media.png)                 | add_media_placeholder(x: float, y: float, width: float, height: float) |
-| ![Online Image](onlineimage.png)    | add_online_image_placeholder(x: float, y: float, width: float, height: float) |
+| PowerPoint helyőrzó                | `LayoutPlaceholderManager` metódus |
+| ----------------------------------- | ----------------------------------- |
+| ![Tartalom](content.png)            | [`add_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/layoutplaceholdermanager/add_content_placeholder/) |
+| ![Tartalom (függőleges)](contentV.png) | [`add_vertical_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_content_placeholder/) |
+| ![Szöveg](text.png)                 | [`add_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/layoutplaceholdermanager/add_text_placeholder/) |
+| ![Szöveg (függőleges)](textV.png)   | [`add_vertical_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_text_placeholder/) |
+| ![Kép](picture.png)                 | [`add_picture_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/layoutplaceholdermanager/add_picture_placeholder/) |
+| ![Diagram](chart.png)               | [`add_chart_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/layoutplaceholdermanager/add_chart_placeholder/) |
+| ![Táblázat](table.png)              | [`add_table_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/layoutplaceholdermanager/add_table_placeholder/) |
+| ![SmartArt](smartart.png)           | [`add_smart_art_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/layoutplaceholdermanager/add_smart_art_placeholder/) |
+| ![Média](media.png)                 | [`add_media_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/layoutplaceholdermanager/add_media_placeholder/) |
+| ![Online kép](onlineImage.png)      | [`add_online_image_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/layoutplaceholdermanager/add_online_image_placeholder/) |
 
-Az alábbi Python‑kód bemutatja, hogyan adhatunk új helyőrzőalakzatokat az Üres diatérelrendezéshez:
+Az alábbi példa ellenőrzi, hogy a **Üres** elrendezés létezik-e, négy helyőrzőt ad hozzá, majd egy normál diát hoz létre, amely a módosított elrendezést használja. A sorrend szándékos: a helyőrzőket a normál dia létrehozása előtt adjuk hozzá, így az Aspose.Slides a megfelelő helyőrző‑alakzatokat tudja generálni azon a dián.
 
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    # Lekérjük az Üres elrendezés diát.
-    layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+    blank_layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
 
-    # Lekérjük a diatérelrendezés helyőrzőkezelőjét.
-    placeholder_manager = layout.placeholder_manager
+    if blank_layout is None:
+        raise RuntimeError("The presentation does not contain a Blank layout slide.")
 
-    # Hozzáadunk különböző helyőrzőket az Üres elrendezés diához.
+    placeholder_manager = blank_layout.placeholder_manager
     placeholder_manager.add_content_placeholder(20, 20, 310, 270)
     placeholder_manager.add_vertical_text_placeholder(350, 20, 350, 270)
     placeholder_manager.add_chart_placeholder(20, 310, 310, 180)
     placeholder_manager.add_table_placeholder(350, 310, 350, 180)
 
-    # Hozzáadunk egy új diát az Üres elrendezéssel.
-    new_slide = presentation.slides.add_empty_slide(layout)
-
-    presentation.save("placeholders.pptx", slides.export.SaveFormat.PPTX)
+    presentation.slides.add_empty_slide(blank_layout)
+    presentation.save("output-with-placeholders.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Az eredmény:
 
-![The placeholders on the layout slide](add_placeholders.png)
+![A helyőrzők az elrendezésdién](add_placeholders.png)
 
-## **Lábléc láthatóságának beállítása egy diatérelrendezésnél**
+{{% alert color="warning" title="Warning" %}}
+Az örökölt formázás vagy a meglévő elrendezéshelyőrzők geometriai módosítása befolyásolhatja a függő diákot. Egy újonnan hozzáadott elrendezéshelyőrző nem töltődik be a már létező normál diákba. Tesztelje az elrendezésváltoztatásokat a prezentáció egy másolatán, és ellenőrizze minden függő diát.
+{{% /alert %}}
 
-PowerPoint‑prezentációkban a lábléc elemei, mint a dátum, diaszám és egyéni szöveg, a diatérelrendezéstől függően megjeleníthetők vagy elrejthetők. Az Aspose.Slides for Python lehetővé teszi ezen lábléchelyőrzők láthatóságának vezérlését. Ez hasznos, ha bizonyos elrendezésekben szeretnél lábléc‑információt mutatni, míg másokban tisztán tartani a megjelenést.
+## **Nem használt elrendezésdiák eltávolítása**
 
-1. Hozz létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból.
-1. Szerezd meg a diatérelrendezés referenciáját index alapján.
-1. Állítsd a dia lábléc‑helyőrzőt láthatóvá.
-1. Állítsd a diaszám‑helyőrzőt láthatóvá.
-1. Állítsd a dátum‑idő‑helyőrzőt láthatóvá.
-1. Mentsd el a prezentációt.
-
-Az alábbi Python‑kód megmutatja, hogyan állítható be egy dia láblécének láthatósága és kapcsolódó feladatok:
+Használja a [Compress.remove_unused_layout_slides](https://reference.aspose.com/slides/hu/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) metódust a olyan elrendezések eltávolításához, amelyre egyetlen normál dia sem hivatkozik. A metódus érintetlenül hagyja azon elrendezéseket, amelyek még használatban vannak.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    header_footer_manager = presentation.layout_slides[0].header_footer_manager
-
-    if not header_footer_manager.is_footer_visible: 
-        header_footer_manager.set_footer_visibility(True) 
-
-    if not header_footer_manager.is_slide_number_visible:  
-        header_footer_manager.set_slide_number_visibility(True) 
-
-    if not header_footer_manager.is_date_time_visible: 
-        header_footer_manager.set_date_time_visibility(True)
-
-    header_footer_manager.set_footer_text("Footer text") 
-    header_footer_manager.set_date_time_text("Date and time text") 
-
-    presentation.save("output.ppt", slides.export.SaveFormat.PPT)
+with slides.Presentation("input.pptx") as presentation:
+    slides.lowcode.Compress.remove_unused_layout_slides(presentation)
+    presentation.save("output-without-unused-layouts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Gyermeklábéc láthatóságának beállítása egy dián**
+Egy konkrét elrendezés eltávolításához először ellenőrizze annak [has_depending_slides](https://reference.aspose.com/slides/hu/python-net/aspose.slides/layoutslide/has_depending_slides/) tulajdonságát vagy [get_depending_slides](https://reference.aspose.com/slides/hu/python-net/aspose.slides/layoutslide/get_depending_slides/) metódusát. A [LayoutSlide.remove](https://reference.aspose.com/slides/hu/python-net/aspose.slides/layoutslide/remove/) hívása előtt rendelje át a függő diákat. Egy használt elrendezés eltávolítása [PptxEditException](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pptxeditexception/) kivételt eredményez.
 
-PowerPoint‑prezentációkban a lábléc elemei, például a dátum, a diaszám és az egyéni szöveg, a mesterdia szintjén is szabályozhatók, így konzisztens megjelenést biztosítva az összes diatérelrendezés számára. Az Aspose.Slides for Python lehetővé teszi ezen lábléchelyőrzők láthatóságának és tartalmának beállítását a mesterdian, majd ezek propagálását az összes gyermek‑diatérelrendezésre. Ez egységes lábléc‑információt biztosít a teljes prezentációban.
+## **Lábléc láthatóságának vezérlése egy elrendezésdián**
 
-1. Hozz létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból.
-1. Szerezz referenciát a mesterdira index alapján.
-1. Állítsd a mester és az összes gyermek lábléc‑helyőrzőjét láthatóvá.
-1. Állítsd a mester és az összes gyermek diaszám‑helyőrzőjét láthatóvá.
-1. Állítsd a mester és az összes gyermek dátum‑idő‑helyőrzőjét láthatóvá.
-1. Mentsd el a prezentációt.
+Egy elrendezésnek saját lábléce, dia‑száma és dátum‑idő helyőrzői vannak. Használja a [LayoutSlide.header_footer_manager](https://reference.aspose.com/slides/hu/python-net/aspose.slides/layoutslide/header_footer_manager/) tulajdonságot ezeknek a helyőrzőknek a vezérléséhez egy adott elrendezés esetén. Ez akkor hasznos, ha például a tartalom‑elrendezéseknek láblécük van, a címlapoknak pedig nincs.
 
-Az alábbi Python‑kód demonstrálja ezt a műveletet:
+Az alábbi példa biztonságosan kiválaszt egy elrendezést, és láthatóvá teszi annak lábléc‑elemeit:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation.pptx") as presentation:
-    header_footer_manager = presentation.masters[0].header_footer_manager
+with slides.Presentation("input.pptx") as presentation:
+    layout_slide = presentation.layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
 
+    if layout_slide is None:
+        layout_slide = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+
+    if layout_slide is None:
+        raise RuntimeError("The presentation does not contain a suitable layout slide.")
+
+    header_footer_manager = layout_slide.header_footer_manager
+    header_footer_manager.set_footer_visibility(True)
+    header_footer_manager.set_slide_number_visibility(True)
+    header_footer_manager.set_date_time_visibility(True)
+    header_footer_manager.set_footer_text("Footer text")
+    header_footer_manager.set_date_time_text("Date and time text")
+
+    presentation.save("output-with-layout-footers.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Lábléc láthatóságának vezérlése egy mesteren és annak gyermek‑elrendezésein**
+
+A konzisztens lábléc‑beállítások alkalmazásához a mesterhierarchiában használja a [MasterSlide.header_footer_manager](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masterslide/header_footer_manager/) tulajdonságot. A [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masterslideheaderfootermanager/) terjesztési metódusai a mesterre, annak függő elrendezésdiákra és a normál diákra hatnak; nem csak egyetlen normál diára céloznak.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    header_footer_manager = presentation.masters[0].header_footer_manager
     header_footer_manager.set_footer_and_child_footers_visibility(True)
     header_footer_manager.set_slide_number_and_child_slide_numbers_visibility(True)
     header_footer_manager.set_date_time_and_child_date_times_visibility(True)
-
     header_footer_manager.set_footer_and_child_footers_text("Footer text")
     header_footer_manager.set_date_time_and_child_date_times_text("Date and time text")
 
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output-with-master-footers.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **GYIK**
 
-**Mi a különbség a mesterdia és a diatérelrendezés között?**
+**Mi a különbség a Master Slide és a Layout Slide között?**
 
-A mesterdia meghatározza a teljes témát és az alapértelmezett formázást, míg a diatérelrendezések konkrét helyőrző‑elrendezéseket definiálnak különböző tartalomtípusokhoz.
+A master slide meghatározza a prezentáció témáját és a megosztott formázást. A layout slide egy mesterhez tartozik, és egy újrahasználható helyőrző‑elrendezést definiál. A normál diákok ezeket az elrendezéseket használják, és a diához specifikus tartalmat tárolják.
 
-**Másolhatok‑e egy diatérelrendezést egy prezentációból a másikba?**
+**Másolhatok Layout Slide‑t egy prezentációból egy másikba?**
 
-Igen, egy diatérelrendezést klónozhatsz egy prezentáció [layout_slides](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/layout_slides/) gyűjteményéből, és a `add_clone` metódussal beillesztheted egy másikba.
+Igen. Használja a [add_clone](https://reference.aspose.com/slides/hu/python-net/aspose.slides/globallayoutslidecollection/add_clone/) metódust a célgyűjteményhez való másoláshoz. Másoláskor ellenőrizze a forrás‑elrendezés által használt betűtípusokat, témákat, képeket és egyéb erőforrásokat is.
 
-**Mi történik, ha egy még használatban lévő diatérelrendezést törlök?**
+**Mi történik, ha egy már használatban lévő elrendezést módosítok?**
 
-Ha megpróbálsz törölni egy diatérelrendezést, amelyre legalább egy dia hivatkozik a prezentációban, az Aspose.Slides egy [PptxEditException](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pptxeditexception/) kivételt dob. Ennek elkerülésére használd a [remove_unused_layout_slides](https://reference.aspose.com/slides/hu/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) metódust, amely csak a nem használt elrendezéseket távolítja el biztonságosan.
+A függő diák öröklik az elrendezésváltozásokat, hacsak nem írják felül a érintett formázást vagy objektumokat helyben. A helyőrzők geometriai jellege és az örökölt stílus ezért sok dián egyszerre megváltozhat. Használja a [get_depending_slides](https://reference.aspose.com/slides/hu/python-net/aspose.slides/layoutslide/get_depending_slides/) metódust, hogy szerkesztés előtt azonosítsa az érintett diák listáját.
+
+**Mi történik, ha eltávolítok egy még használatban lévő elrendezést?**
+
+Az Aspose.Slides [PptxEditException](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pptxeditexception/) kivételt dob. Először rendelje át a függő diákat, vagy használja a [remove_unused_layout_slides](https://reference.aspose.com/slides/hu/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) metódust, hogy csak a nem hivatkozott elrendezéseket távolítsa el.

@@ -1,5 +1,5 @@
 ---
-title: اعمال یا تغییر طرح اسلاید در پایتون
+title: اعمال یا تغییر طرح اسلایدها در پایتون
 linktitle: طرح اسلاید
 type: docs
 weight: 60
@@ -7,11 +7,11 @@ url: /fa/python-net/slide-layout/
 keywords:
 - طرح اسلاید
 - طرح محتوا
-- جای‌دار
+- محل‌نگهدار
 - طراحی ارائه
 - طراحی اسلاید
 - طرح استفاده‌نشده
-- نمایان بودن پانوشت
+- قابلیت مشاهده پاورقی
 - اسلاید عنوان
 - عنوان و محتوا
 - سرصفحه بخش
@@ -20,225 +20,209 @@ keywords:
 - فقط عنوان
 - طرح خالی
 - محتوا با کپشن
-- تصویر با کپشن
+- عکس با کپشن
 - عنوان و متن عمودی
 - عنوان عمودی و متن
 - PowerPoint
 - OpenDocument
-- Python
+- ارائه
+- پایتون
 - Aspose.Slides
-description: "یاد بگیرید چگونه طرح‌های اسلاید را در Aspose.Slides برای پایتون از طریق .NET مدیریت و سفارشی کنید. انواع طرح‌ها، کنترل جای‌دارها، نمایان بودن پانوشت و دستکاری طرح‌ها را از طریق مثال‌های کد در پایتون بررسی کنید."
+description: "اعمال، ایجاد و اصلاح طرح‌های اسلاید در Aspose.Slides برای پایتون از طریق .NET، افزودن محل‌نگهدارها، حذف طرح‌های استفاده‌نشده و کنترل نمایش پاورقی."
 ---
-## **مقدمه**
+## **بررسی کلی**
 
-یک طرح اسلاید نحوهٔ چیدمان جعبه‌های جای‌دار و قالب‌بندی محتوا را در یک اسلاید تعریف می‌کند. این طرح کنترل می‌کند که کدام جای‌دارها در دسترس هستند و در کجا ظاهر می‌شوند. طرح‌های اسلاید به شما کمک می‌کنند تا ارائه‌ها را به‌سرعت و به‌صورت یکنواخت طراحی کنید — چه چیزی ساده باشد و چه چیزی پیچیده‌تر. برخی از رایج‌ترین طرح‌های اسلاید در PowerPoint شامل موارد زیر هستند:
+طرح اسلاید موقعیت‌ها و قالب‌بندی مکان‌گذاردهای مختلف مانند عنوان‌ها، متن، تصاویر، نمودارها و جدول‌ها را تعریف می‌کند. اعمال یک طرح، ساختار یکسانی به اسلایدها می‌بخشد در حالی که هر اسلاید می‌تواند محتوای خودش را داشته باشد.
 
-**طرح اسلاید عنوان** – شامل دو جای‌دار متن است: یکی برای عنوان و دیگری برای زیرعنوان.
+متداول‌ترین طرح‌ها عبارتند از:
 
-**طرح عنوان و محتوا** – شامل یک جای‌دار عنوان کوچکتر در بالای اسلاید و یک جای‌دار بزرگتر در زیر آن برای محتوای اصلی (مانند متن، نکات بولت‌دار، نمودارها، تصاویر و غیره) است.
+- **اسلاید عنوان**: شامل مکان‌گذارهای عنوان و زیرعنوان است.
+- **عنوان و محتوا**: شامل یک مکان‌گذار عنوان و یک مکان‌گذار محتوا عمومی است.
+- **خالی**: هیچ مکان‌گذار محتوایی ندارد و زمانی مفید است که همهٔ اشکال به‌صورت دستی موقعیت‌یابی شوند.
 
-**طرح خالی** – هیچ جای‌داری ندارد و به شما اجازه می‌دهد اسلاید را از ابتدا طراحی کنید.
+## **درک وراثت طرح**
 
-طرح‌های اسلاید بخشی از اسلاید اصلی (slide master) هستند، که اسلاید سطح بالایی است که سبک‌های طرح را برای ارائه تعریف می‌کند. می‌توانید طرح‌های اسلاید را از طریق اسلاید اصلی دسترسی و ویرایش کنید — چه بر اساس نوع، نام یا شناسهٔ یکتا. به‌علاوه، می‌توانید یک طرح اسلاید خاص را مستقیماً داخل ارائه ویرایش کنید.
+یک ارائه سه سطح مرتبط دارد:
 
-برای کار با طرح‌های اسلاید در Aspose.Slides for Python، می‌توانید از:
+1. یک [اسلاید اصلی](https://reference.aspose.com/slides/fa/python-net/aspose.slides/masterslide/) تم، قالب‌بندی مشترک، پس‌زمینه‌ها و اشیای عمومی را تعریف می‌کند.
+1. یک [اسلاید طرح](https://reference.aspose.com/slides/fa/python-net/aspose.slides/layoutslide/) به یک اسلاید اصلی تعلق دارد و ترتیب خاصی از مکان‌گذاردها را تعریف می‌کند.
+1. یک [اسلاید عادی](https://reference.aspose.com/slides/fa/python-net/aspose.slides/slide/) از یک طرح استفاده می‌کند و محتوای وارد شده برای آن اسلاید را ذخیره می‌کند.
 
-- ویژگی‌هایی مانند [layout_slides](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/layout_slides/) و [masters](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/masters/) در زیر کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) 
-- انواعی مانند [LayoutSlide](https://reference.aspose.com/slides/fa/python-net/aspose.slides/layoutslide/)، [MasterLayoutSlideCollection](https://reference.aspose.com/slides/fa/python-net/aspose.slides/masterlayoutslidecollection/)، [LayoutPlaceholderManager](https://reference.aspose.com/slides/fa/python-net/aspose.slides/layoutplaceholdermanager/)، و [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/fa/python-net/aspose.slides/layoutslideheaderfootermanager/)
+یک اسلاید عادی تم و قالب‌بندی را از طرح خود به‌ارث می‌برد و طرح نیز از اسلاید اصلی. مقدار تعریف‌شده به‌صورت مستقیم روی اسلاید عادی، مقدار وراثت‌شده را در همان سطح بازنویسی می‌کند. هنگام ایجاد یک اسلاید عادی، اشکال مکان‌گذار آن از طرح انتخاب‌شده تولید می‌شوند، در حالی که محتوای وارد شده در آن مکان‌گذاردها متعلق به اسلاید عادی است.
 
-{{% alert title="Info" color="info" %}}
+قبل از ایجاد اسلایدها، مکان‌گذاردهای لازم را به یک طرح اضافه کنید. افزودن یک مکان‌گذار جدید به طرح بعداً، به‌طور خودکار یک شکل مربوطه به اسلایدهای عادی موجود اضافه نمی‌کند.
 
-To learn more about working with master slides, check out the [Manage PowerPoint Slide Masters in Python](/slides/fa/python-net/slide-master/) article.
+این رابطه دو پیامد مهم دارد:
 
-{{% /alert %}}
+- تغییر قالب‌بندی وراثت‌شده یا هندسه مکان‌گذارهای موجود در یک طرح می‌تواند همهٔ اسلایدهایی را که به آن وابسته‌اند به‌روز کند. قبل از ویرایش طرحی که قبلاً استفاده شده، اسلایدهای وابسته را بررسی و ارائهٔ نهایی را بازبینی کنید.
+- طرحی که هنوز توسط یک اسلاید استفاده می‌شود قابل حذف نیست. قبل از حذف، اسلایدهای وابسته را به طرح دیگری اختصاص دهید یا فقط طرح‌های استفاده‌نشده را حذف کنید.
 
-## **افزودن طرح‌های اسلاید به ارائه‌ها**
+برای اطلاعات بیشتر درباره سطح بالای این سلسله مراتب، به [Slide Master](/slides/fa/python-net/slide-master/) مراجعه کنید.
 
-برای سفارشی‌سازی ظاهر و ساختار اسلایدهای خود، ممکن است نیاز داشته باشید طرح‌های اسلاید جدیدی به یک ارائه اضافه کنید. Aspose.Slides for Python به شما امکان می‌دهد بررسی کنید که آیا یک طرح خاص از قبل وجود دارد یا نه، در صورت نیاز یک طرح جدید اضافه کنید و از آن برای درج اسلایدهای مبتنی بر آن طرح استفاده کنید.
+## **انتخاب و اعمال یک طرح اسلاید**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید.  
-2. به [MasterLayoutSlideCollection](https://reference.aspose.com/slides/fa/python-net/aspose.slides/masterlayoutslidecollection/) دسترسی پیدا کنید.  
-3. بررسی کنید که آیا طرح اسلاید مطلوب در مجموعه وجود دارد یا خیر. اگر وجود نداشته باشد، طرح اسلاید مورد نیاز را اضافه کنید.  
-4. یک اسلاید خالی بر پایهٔ طرح اسلاید جدید اضافه کنید.  
-5. ارائه را ذخیره کنید.
+هنگامی که ارائه از تعاریف استاندارد طرح PowerPoint پیروی می‌کند، از نوع طرح استفاده کنید. نام‌های طرح قابل ویرایش توسط کاربر هستند و می‌توانند بومی‌سازی شوند، بنابراین انتخاب بر پایه نام تا زمانی که قالب منبع را کنترل کنید، کمتر قابل اطمینان است.
 
-کد زیر به زبان Python نشان می‌دهد که چگونه یک طرح اسلاید را به یک ارائه PowerPoint اضافه کنید:
+مثال زیر به دنبال **Title and Content** در اولین اسلاید اصلی می‌گردد. اگر آن طرح موجود نباشد، عمداً به **Blank** بازمی‌گردد. بررسی دوم برای مقدار null ضروری است چون یک ارائه می‌تواند فقط شامل طرح‌های سفارشی باشد. سپس طرح انتخاب‌شده از طریق ویژگی [Slide.layout_slide](https://reference.aspose.com/slides/fa/python-net/aspose.slides/slide/layout_slide/) به اولین اسلاید عادی اعمال می‌شود.
 
 ```python
 import aspose.slides as slides
 
-# یک نمونه از کلاس Presentation برای باز کردن فایل ارائه ایجاد می‌کند.
-with slides.Presentation("sample.pptx") as presentation:
-    # از انواع اسلایدهای طرح عبور می‌کند تا یک اسلاید طرح را انتخاب کند.
+with slides.Presentation("input.pptx") as presentation:
     layout_slides = presentation.masters[0].layout_slides
-    layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
-    if layout_slide is None:
-         layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE)
+    target_layout = layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
 
-    if layout_slide is None:
-        # موقعیتی که در آن ارائه همهٔ انواع طرح را شامل نمی‌شود.
-        # فایل ارائه فقط شامل انواع طرح Blank و Custom است.
-        # اما اسلایدهای طرح با انواع سفارشی ممکن است نام‌های قابل تشخیصی داشته باشند,
-        # مانند "Title", "Title and Content", etc., که می‌توان برای انتخاب اسلاید طرح استفاده کرد.
-        # می‌توانید به مجموعه‌ای از انواع شکل‌های جای‌دار نیز تکیه کنید.
-        # برای مثال، یک اسلاید Title باید فقط نوع جای‌دار Title را داشته باشد و به همین ترتیب.
-        for title_and_object_layout_slide in layout_slides:
-            if title_and_object_layout_slide.name == "Title and Object":
-                layout_slide = title_and_object_layout_slide
-                break
+    if target_layout is None:
+        target_layout = layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
 
-        if layout_slide is None:
-            for title_layout_slide in layout_slides:
-                if title_layout_slide.name == "Title":
-                    layout_slide = title_layout_slide
-                    break
+    if target_layout is None:
+        raise RuntimeError("The first master does not contain a suitable layout slide.")
 
-            if layout_slide is None:
-                layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
-                if layout_slide is None:
-                    layout_slide = layout_slides.Add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Title and Object")
-
-    # یک اسلاید خالی با استفاده از اسلاید طرح اضافه‌شده اضافه کنید.
-    presentation.slides.insert_empty_slide(0, layout_slide)
-
-    # ارائه را به دیسک ذخیره کنید.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.slides[0].layout_slide = target_layout
+    presentation.save("output-with-new-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **حذف طرح‌های اسلاید استفاده‌نشده**
+تغییر طرح یک اسلاید، اشکال عادی اضافه‌شده مستقیم به اسلاید را حذف نمی‌کند. با این حال، موقعیت مکان‌گذاردها، قالب‌بندی وراثت‌شده و تطابق بین مکان‌گذاردهای موجود و طرح جدید می‌تواند تغییر کند، بنابراین هنگام جابجایی بین طرح‌های به‌طور قابل‌توجه متفاوت، خروجی را بررسی کنید.
 
-Aspose.Slides متد [remove_unused_layout_slides](https://reference.aspose.com/slides/fa/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) را از کلاس [Compress](https://reference.aspose.com/slides/fa/python-net/aspose.slides.lowcode/compress/) فراهم می‌کند تا به شما اجازه دهد طرح‌های اسلاید ناخواسته و استفاده‌نشده را حذف کنید.
+## **افزودن یک اسلاید طرح**
 
-کد زیر به زبان Python نشان می‌دهد که چگونه یک طرح اسلاید را از یک ارائه PowerPoint حذف کنید:
+انتخاب و ایجاد عملیات‌های جداگانه‌ای هستند. مثال قبلی یک طرح موجود را انتخاب می‌کرد؛ آن را ایجاد نمی‌کرد. برای ایجاد یک طرح، روش [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/fa/python-net/aspose.slides/masterlayoutslidecollection/add/) را بر روی مجموعهٔ طرح‌های اسلاید اصلی هدف فراخوانی کنید.
+
+مثال زیر همیشه یک طرح جدید **Title and Content** با نام `Report Title and Content` اضافه می‌کند، سپس یک اسلاید عادی بر پایهٔ آن می‌سازد. نام‌های طرح باید در داخل مجموعه منحصر به‌فرد باشند.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    slides.lowcode.Compress.remove_unused_layout_slides(presentation)
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("input.pptx") as presentation:
+    master_slide = presentation.masters[0]
+    report_layout = master_slide.layout_slides.add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Report Title and Content")
+    presentation.slides.add_empty_slide(report_layout)
+
+    presentation.save("output-with-report-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **افزودن جای‌دارها به طرح‌های اسلاید**
+فقط زمانی که قالب واقعاً به ساختار قابل‌استفاده دیگری نیاز دارد، یک طرح اضافه کنید. اگر یک طرح مناسب از پیش موجود باشد، آن را انتخاب و دوباره استفاده کنید نه اینکه نسخهٔ تکراری بسازید.
 
-Aspose.Slides ویژگی [LayoutSlide.placeholder_manager](https://reference.aspose.com/slides/fa/python-net/aspose.slides/layoutslide/placeholder_manager/) را فراهم می‌کند که به شما اجازه می‌دهد جای‌دارهای جدیدی به یک طرح اسلاید اضافه کنید.
+## **افزودن مکان‌گذاردها به یک اسلاید طرح**
 
-این مدیر شامل روش‌هایی برای انواع جای‌دارهای زیر است:
+ویژگی [LayoutSlide.placeholder_manager](https://reference.aspose.com/slides/fa/python-net/aspose.slides/layoutslide/placeholder_manager/) یک [LayoutPlaceholderManager](https://reference.aspose.com/slides/fa/python-net/aspose.slides/layoutplaceholdermanager/) برای افزودن اشکال مکان‌گذار به طرح فراهم می‌کند.
 
-| جای‌دار PowerPoint | روش [LayoutPlaceholderManager](https://reference.aspose.com/slides/fa/python-net/aspose.slides/layoutplaceholdermanager/) |
-| ------------------ | ------------------------------------------------------------ |
-| ![Content](content.png)             | add_content_placeholder(x: float, y: float, width: float, height: float) |
-| ![Content (Vertical)](contentV.png) | add_vertical_content_placeholder(x: float, y: float, width: float, height: float) |
-| ![Text](text.png)                   | add_text_placeholder(x: float, y: float, width: float, height: float) |
-| ![Text (Vertical)](textV.png)       | add_vertical_text_placeholder(x: float, y: float, width: float, height: float) |
-| ![Picture](picture.png)             | add_picture_placeholder(x: float, y: float, width: float, height: float) |
-| ![Chart](chart.png)                 | add_chart_placeholder(x: float, y: float, width: float, height: float) |
-| ![Table](table.png)                 | add_table_placeholder(x: float, y: float, width: float, height: float) |
-| ![SmartArt](smartart.png)           | add_smart_art_placeholder(x: float, y: float, width: float, height: float) |
-| ![Media](media.png)                 | add_media_placeholder(x: float, y: float, width: float, height: float) |
-| ![Online Image](onlineimage.png)    | add_online_image_placeholder(x: float, y: float, width: float, height: float) |
+| مکان‌گذار PowerPoint               | روش `LayoutPlaceholderManager` |
+| ----------------------------------- | ------------------------------ |
+| ![Content](content.png)             | [`add_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/fa/python-net/aspose.slides/layoutplaceholdermanager/add_content_placeholder/) |
+| ![Content (Vertical)](contentV.png) | [`add_vertical_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/fa/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_content_placeholder/) |
+| ![Text](text.png)                   | [`add_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/fa/python-net/aspose.slides/layoutplaceholdermanager/add_text_placeholder/) |
+| ![Text (Vertical)](textV.png)       | [`add_vertical_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/fa/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_text_placeholder/) |
+| ![Picture](picture.png)             | [`add_picture_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/fa/python-net/aspose.slides/layoutplaceholdermanager/add_picture_placeholder/) |
+| ![Chart](chart.png)                 | [`add_chart_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/fa/python-net/aspose.slides/layoutplaceholdermanager/add_chart_placeholder/) |
+| ![Table](table.png)                 | [`add_table_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/fa/python-net/aspose.slides/layoutplaceholdermanager/add_table_placeholder/) |
+| ![SmartArt](smartart.png)           | [`add_smart_art_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/fa/python-net/aspose.slides/layoutplaceholdermanager/add_smart_art_placeholder/) |
+| ![Media](media.png)                 | [`add_media_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/fa/python-net/aspose.slides/layoutplaceholdermanager/add_media_placeholder/) |
+| ![Online Image](onlineImage.png)    | [`add_online_image_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/fa/python-net/aspose.slides/layoutplaceholdermanager/add_online_image_placeholder/) |
 
-کد زیر به زبان Python نشان می‌دهد که چگونه اشکال جای‌دار جدیدی به طرح اسلاید Blank اضافه کنید:
+مثال زیر بررسی می‌کند که آیا طرح **Blank** وجود دارد، چهار مکان‌گذار به آن اضافه می‌کند و سپس اسلاید عادی‌ای می‌سازد که از طرح اصلاح‌شده استفاده می‌کند. ترتیب کار عمدی است: مکان‌گذاردها قبل از ایجاد اسلاید عادی اضافه می‌شوند تا Aspose.Slides بتواند اشکال مکان‌گذار مربوطه را در آن اسلاید تولید کند.
 
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    # دریافت اسلاید طرح خالی.
-    layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+    blank_layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
 
-    # دریافت مدیر جای‌دار اسلاید طرح.
-    placeholder_manager = layout.placeholder_manager
+    if blank_layout is None:
+        raise RuntimeError("The presentation does not contain a Blank layout slide.")
 
-    # اضافه کردن جای‌دارهای مختلف به اسلاید طرح خالی.
+    placeholder_manager = blank_layout.placeholder_manager
     placeholder_manager.add_content_placeholder(20, 20, 310, 270)
     placeholder_manager.add_vertical_text_placeholder(350, 20, 350, 270)
     placeholder_manager.add_chart_placeholder(20, 310, 310, 180)
     placeholder_manager.add_table_placeholder(350, 310, 350, 180)
 
-    # اضافه کردن اسلاید جدید با طرح خالی.
-    new_slide = presentation.slides.add_empty_slide(layout)
-
-    presentation.save("placeholders.pptx", slides.export.SaveFormat.PPTX)
+    presentation.slides.add_empty_slide(blank_layout)
+    presentation.save("output-with-placeholders.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 نتیجه:
 
-![جای‌دارها بر روی اسلاید طرح](add_placeholders.png)
+![مکان‌گذاردهای موجود در اسلاید طرح](add_placeholders.png)
 
-## **تنظیم نمایان بودن پانوشت برای یک طرح اسلاید**
+{{% alert color="warning" title="Warning" %}}
+تغییر قالب‌بندی وراثت‌شده یا هندسهٔ مکان‌گذارهای موجود در طرح می‌تواند اسلایدهای وابسته را تحت تأثیر قرار دهد. یک مکان‌گذار جدید به طرح، به‌صورت خودکار در اسلایدهای عادی موجود پر نمی‌شود. تغییرات طرح را روی یک کپی از ارائه تست کنید و هر اسلاید وابسته را بازبینی کنید.
+{{% /alert %}}
 
-در ارائه‌های PowerPoint، عناصر پانوشت مانند تاریخ، شماره اسلاید و متن سفارشی می‌توانند بسته به طرح اسلاید نشان داده شوند یا مخفی. Aspose.Slides for Python به شما امکان می‌دهد نمایان بودن این جای‌دارهای پانوشت را کنترل کنید. این کار زمانی مفید است که بخواهید برخی طرح‌ها اطلاعات پانوشت را نمایش دهند و دیگران تمیز و ساده باقی بمانند.
+## **حذف اسلایدهای طرح بلااستفاده**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید.  
-2. یک مرجع به طرح اسلاید را بر اساس اندیس آن دریافت کنید.  
-3. جای‌دار پانوشت اسلاید را به حالت قابل مشاهده تنظیم کنید.  
-4. جای‌دار شماره اسلاید را به حالت قابل مشاهده تنظیم کنید.  
-5. جای‌دار تاریخ‑زمان را به حالت قابل مشاهده تنظیم کنید.  
-6. ارائه را ذخیره کنید.
-
-کد زیر به زبان Python نشان می‌دهد که چگونه نمایان بودن پانوشت اسلاید را تنظیم کنید و کارهای مرتبط را انجام دهید:
+از روش [Compress.remove_unused_layout_slides](https://reference.aspose.com/slides/fa/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) برای حذف طرح‌هایی که هیچ اسلاید عادی به آن ارجاع نمی‌دهد استفاده کنید. این روش طرح‌های هنوز در استفادهٔ فعال را دست نخورده می‌گذارد.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    header_footer_manager = presentation.layout_slides[0].header_footer_manager
-
-    if not header_footer_manager.is_footer_visible: 
-        header_footer_manager.set_footer_visibility(True) 
-
-    if not header_footer_manager.is_slide_number_visible:  
-        header_footer_manager.set_slide_number_visibility(True) 
-
-    if not header_footer_manager.is_date_time_visible: 
-        header_footer_manager.set_date_time_visibility(True)
-
-    header_footer_manager.set_footer_text("Footer text") 
-    header_footer_manager.set_date_time_text("Date and time text") 
-
-    presentation.save("output.ppt", slides.export.SaveFormat.PPT)
+with slides.Presentation("input.pptx") as presentation:
+    slides.lowcode.Compress.remove_unused_layout_slides(presentation)
+    presentation.save("output-without-unused-layouts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **تنظیم نمایان بودن پانوشت فرزند برای یک اسلاید**
+برای حذف یک طرح خاص، ابتدا ویژگی [has_depending_slides](https://reference.aspose.com/slides/fa/python-net/aspose.slides/layoutslide/has_depending_slides/) یا روش [get_depending_slides](https://reference.aspose.com/slides/fa/python-net/aspose.slides/layoutslide/get_depending_slides/) آن را بررسی کنید. پیش از فراخوانی [LayoutSlide.remove](https://reference.aspose.com/slides/fa/python-net/aspose.slides/layoutslide/remove/)، هر اسلاید وابسته را به طرح دیگری اختصاص دهید. تلاش برای حذف یک طرح استفاده‌شده منجر به بروز [PptxEditException](https://reference.aspose.com/slides/fa/python-net/aspose.slides/pptxeditexception/) می‌شود.
 
-در ارائه‌های PowerPoint، عناصر پانوشت مانند تاریخ، شماره اسلاید و متن سفارشی می‌توانند در سطح اسلاید اصلی کنترل شوند تا سازگاری در تمام طرح‌های اسلاید حفظ شود. Aspose.Slides for Python به شما امکان می‌دهد نمایان بودن و محتوای این جای‌دارهای پانوشت را در اسلاید اصلی تنظیم کنید و این تنظیمات را به تمام طرح‌های اسلاید فرزند اعمال کنید. این رویکرد اطلاعات پانوشت یکسانی را در سراسر ارائه تضمین می‌کند.
+## **کنترل نمایش پاورقی در یک اسلاید طرح**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید.  
-2. یک مرجع به اسلاید اصلی را بر اساس اندیس آن دریافت کنید.  
-3. جای‌دارهای پانوشت اسلاید اصلی و همه فرزندان آن را به حالت قابل مشاهده تنظیم کنید.  
-4. جای‌دارهای شماره اسلاید اسلاید اصلی و همه فرزندان آن را به حالت قابل مشاهده تنظیم کنید.  
-5. جای‌دارهای تاریخ‑زمان اسلاید اصلی و همه فرزندان آن را به حالت قابل مشاهده تنظیم کنید.  
-6. ارائه را ذخیره کنید.
+هر طرح فوتر، شماره اسلاید و مکان‌گذار تاریخ‑زمان خود را دارد. برای کنترل این مکان‌گذاردها در یک طرح، از ویژگی [LayoutSlide.header_footer_manager](https://reference.aspose.com/slides/fa/python-net/aspose.slides/layoutslide/header_footer_manager/) استفاده کنید. این مفید است زمانی که به عنوان مثال، طرح‌های محتوا باید فوتر داشته باشند ولی طرح‌های عنوان نه.
 
-کد زیر این عملیات را به زبان Python نشان می‌دهد:
+مثال زیر یک طرح را به‌صورت ایمن انتخاب می‌کند و عناصر فوتر آن را قابل مشاهده می‌سازد:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation.pptx") as presentation:
-    header_footer_manager = presentation.masters[0].header_footer_manager
+with slides.Presentation("input.pptx") as presentation:
+    layout_slide = presentation.layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
 
+    if layout_slide is None:
+        layout_slide = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+
+    if layout_slide is None:
+        raise RuntimeError("The presentation does not contain a suitable layout slide.")
+
+    header_footer_manager = layout_slide.header_footer_manager
+    header_footer_manager.set_footer_visibility(True)
+    header_footer_manager.set_slide_number_visibility(True)
+    header_footer_manager.set_date_time_visibility(True)
+    header_footer_manager.set_footer_text("Footer text")
+    header_footer_manager.set_date_time_text("Date and time text")
+
+    presentation.save("output-with-layout-footers.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **کنترل نمایش پاورقی در یک اسلاید اصلی و طرح‌های فرزند آن**
+
+برای اعمال تنظیمات فوتر یکسان در سلسله مراتب یک اسلاید اصلی، از ویژگی [MasterSlide.header_footer_manager](https://reference.aspose.com/slides/fa/python-net/aspose.slides/masterslide/header_footer_manager/) استفاده کنید. روش‌های انتشار [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/fa/python-net/aspose.slides/masterslideheaderfootermanager/) بر روی اسلاید اصلی، طرح‌های وابستهٔ آن و اسلایدهای عادی عمل می‌کند؛ نه فقط بر یک اسلاید عادی.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    header_footer_manager = presentation.masters[0].header_footer_manager
     header_footer_manager.set_footer_and_child_footers_visibility(True)
     header_footer_manager.set_slide_number_and_child_slide_numbers_visibility(True)
     header_footer_manager.set_date_time_and_child_date_times_visibility(True)
-
     header_footer_manager.set_footer_and_child_footers_text("Footer text")
     header_footer_manager.set_date_time_and_child_date_times_text("Date and time text")
 
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output-with-master-footers.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **سوالات متداول**
+## **سؤالات متداول**
 
-**تفاوت بین اسلاید اصلی و طرح اسلاید چیست؟**
+**تفاوت اسلاید اصلی و اسلاید طرح چیست؟**
 
-اسلاید اصلی تم کلی و قالب‌بندی پیش‌فرض را تعریف می‌کند، در حالی که طرح‌های اسلاید چیدمان‌های خاص جای‌دارها برای انواع مختلف محتوا را مشخص می‌کنند.
+اسلاید اصلی تم و قالب‌بندی مشترک ارائه را تعریف می‌کند. اسلاید طرح به یک اسلاید اصلی تعلق دارد و یک ترتیب قابل استفاده مجدد از مکان‌گذاردها را تعریف می‌کند. اسلایدهای عادی از این طرح‌ها استفاده می‌کنند و محتویات خاص خود را ذخیره می‌نمایند.
 
-**آیا می‌توانم یک طرح اسلاید را از یک ارائه به ارائه دیگر کپی کنم؟**
+**آیا می‌توانم یک اسلاید طرح را از یک ارائه به ارائهٔ دیگر کپی کنم؟**
 
-بله، می‌توانید یک طرح اسلاید را از مجموعه [layout_slides](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/layout_slides/) یک ارائه کپی کنید و با استفاده از متد `add_clone` آن را در ارائه دیگر درج کنید.
+بله. با روش [add_clone](https://reference.aspose.com/slides/fa/python-net/aspose.slides/globallayoutslidecollection/add_clone/) یک کپی به مجموعهٔ مقصد اضافه کنید. هنگام کپی بین ارائه‌ها، فونت‌ها، تم‌ها، تصاویر و دیگر منابع مورد استفادهٔ طرح مبدا را نیز بررسی کنید.
 
-**اگر یک طرح اسلاید را حذف کنم که هنوز توسط اسلایدی استفاده می‌شود چه می‌شود؟**
+**اگر یک طرح که در حال استفاده است را تغییر دهم چه می‌شود؟**
 
-اگر سعی کنید یک طرح اسلاید را حذف کنید که هنوز توسط حداقل یک اسلاید در ارائه ارجاع داده شده است، Aspose.Slides یک استثنای [PptxEditException](https://reference.aspose.com/slides/fa/python-net/aspose.slides/pptxeditexception/) را صادر می‌کند. برای جلوگیری از این وضعیت، از متد [remove_unused_layout_slides](https://reference.aspose.com/slides/fa/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) استفاده کنید که به‌صورت ایمن تنها طرح‌های اسلایدی را که استفاده نمی‌شوند حذف می‌کند.
+اسلایدهای وابسته تغییرات طرح را وراثت می‌کنند مگر آنکه قالب‌بندی یا اشیای تحت تأثیر را به‌صورت محلی بازنویسی کرده باشند. بنابراین هندسهٔ مکان‌گذاردها و سبک‌های وراثت‌شده ممکن است در بسیاری از اسلایدها یک‌باره تغییر کند. قبل از ویرایش طرح، با استفاده از [get_depending_slides](https://reference.aspose.com/slides/fa/python-net/aspose.slides/layoutslide/get_depending_slides/) اسلایدهای تحت تأثیر را شناسایی کنید.
+
+**اگر یک طرح هنوز استفاده می‌شود را حذف کنم چه اتفاقی می‌افتد؟**
+
+Aspose.Slides یک [PptxEditException](https://reference.aspose.com/slides/fa/python-net/aspose.slides/pptxeditexception/) پرتاب می‌کند. پیش از حذف، اسلایدهای وابسته را به طرح دیگری اختصاص دهید یا از [remove_unused_layout_slides](https://reference.aspose.com/slides/fa/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) فقط طرح‌های بدون ارجاع را حذف کنید.

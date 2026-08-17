@@ -7,236 +7,224 @@ url: /cs/python-net/slide-layout/
 keywords:
 - rozvržení snímku
 - rozvržení obsahu
-- zástupce
+- zástupný objekt
 - návrh prezentace
 - návrh snímku
 - nepoužité rozvržení
 - viditelnost zápatí
 - úvodní snímek
-- nadpis a obsah
-- záhlaví sekce
-- dva obsahy
-- srovnání
-- pouze nadpis
+- název a obsah
+- hlavička sekce
+- dvě oblasti obsahu
+- porovnání
+- pouze název
 - prázdné rozvržení
-- obsah s popiskem
-- obrázek s popiskem
-- nadpis a vertikální text
-- vertikální nadpis a text
+- obsah s titulkem
+- obrázek s titulkem
+- název a svislý text
+- svislý název a text
 - PowerPoint
 - OpenDocument
+- presentation
 - Python
 - Aspose.Slides
-description: "Zjistěte, jak spravovat a přizpůsobovat rozvržení snímků v Aspose.Slides pro Python pomocí .NET. Prozkoumejte typy rozvržení, řízení zástupců, viditelnost zápatí a manipulaci s rozvržením prostřednictvím ukázkových kódů v Pythonu."
+description: "Použijte, vytvořte a upravte rozvržení snímků v Aspose.Slides pro Python pomocí .NET, přidejte zástupné objekty, odstraňte nepoužitá rozvržení a ovládejte viditelnost zápatí."
 ---
-## **Úvod**
+## **Přehled**
 
-Rozvržení snímku určuje uspořádání zástupných polí a formátování obsahu na snímku. Řídí, které zástupce jsou k dispozici a kde se zobrazují. Rozvržení snímků vám pomáhá rychle a konzistentně navrhovat prezentace – ať už vytváříte něco jednoduchého nebo složitějšího. Mezi nejčastější rozvržení snímků v PowerPointu patří:
+Rozvržení snímku určuje polohy a formátování zástupných objektů, jako jsou názvy, text, obrázky, grafy a tabulky. Použití rozvržení dodává snímkům konzistentní strukturu a zároveň umožňuje, aby každý snímek obsahoval vlastní obsah.
 
-**Rozvržení úvodního snímku** – Obsahuje dvě textová zástupná pole: jedno pro nadpis a jedno pro podnadpis.
+Nejčastější rozvržení zahrnují:
 
-**Rozvržení titulek a obsah** – Obsahuje menší zástupce nadpisu nahoře a větší pod ním pro hlavní obsah (např. text, odrážky, grafy, obrázky a další).
+- **Úvodní snímek**: Obsahuje zástupné objekty názvu a podnadpisu.
+- **Název a obsah**: Obsahuje zástupný objekt názvu a obecný zástupný objekt obsahu.
+- **Prázdný**: Neobsahuje žádné zástupné objekty a je užitečný, když budou všechny tvary umístěny ručně.
 
-**Prázdné rozvržení** – Neobsahuje žádné zástupce, což vám dává plnou kontrolu nad tvorbou snímku od začátku.
+## **Pochopení dědičnosti rozvržení**
 
-Rozvržení snímků je součástí master snímku, což je nejvyšší úroveň snímku, která definuje styly rozvržení pro celou prezentaci. Přístup k rozvržením snímků a jejich úpravy můžete provádět přes master snímek – podle typu, názvu nebo jedinečného ID. Případně můžete konkrétní rozvržení snímku upravit přímo v prezentaci.
+Prezentace má tři související úrovně:
 
-Pro práci s rozvržením snímků v Aspose.Slides pro Python můžete použít:
+1. [hlavní snímek](https://reference.aspose.com/slides/cs/python-net/aspose.slides/masterslide/) určuje motiv, sdílené formátování, pozadí a společné objekty.
+2. [rozvržení snímku](https://reference.aspose.com/slides/cs/python-net/aspose.slides/layoutslide/) patří k hlavnímu snímku a definuje konkrétní uspořádání zástupných objektů.
+3. [normální snímek](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slide/) používá jedno rozvržení a ukládá obsah zadaný pro tento snímek.
 
-- Vlastnosti jako [layout_slides](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/layout_slides/) a [masters](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/masters/) ve třídě [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/)
-- Typy jako [LayoutSlide](https://reference.aspose.com/slides/cs/python-net/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/cs/python-net/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/cs/python-net/aspose.slides/layoutplaceholdermanager/) a [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/cs/python-net/aspose.slides/layoutslideheaderfootermanager/)
+Normální snímek dědí motiv a formátování ze svého rozvržení a rozvržení dědí z hlavního snímku. Hodnota nastavená přímo na normálním snímku přepíše zděděnou hodnotu na této úrovni. Když je vytvořen normální snímek, jeho tvary zástupných objektů jsou generovány z vybraného rozvržení, zatímco obsah zadaný do těchto zástupných objektů patří k normálnímu snímku.
 
-{{% alert title="Info" color="info" %}}
-Chcete-li se dozvědět více o práci s master snímky, podívejte se na článek [Manage PowerPoint Slide Masters in Python](/slides/cs/python-net/slide-master/).
-{{% /alert %}}
+Přidejte požadované zástupné objekty do rozvržení před tím, než z něj budete vytvářet snímky. Přidání dalšího zástupného objektu do rozvržení později automaticky nepřidá odpovídající tvar zástupného objektu do existujících normálních snímků.
 
-## **Přidání rozvržení snímků do prezentací**
+Tento vztah má dvě důležité důsledky:
 
-Chcete‑li přizpůsobit vzhled a strukturu svých snímků, možná budete potřebovat přidat nová rozvržení snímků do prezentace. Aspose.Slides pro Python umožňuje zjistit, zda konkrétní rozvržení již existuje, případně jej přidat a použít k vložení snímků založených na tomto rozvržení.
+- Změna zděděného formátování nebo geometrie existujících zástupných objektů v rozvržení může aktualizovat každý snímek, který na něm závisí. Před úpravou rozvržení, které je již používáno, zkontrolujte jeho závislé snímky a přezkoumejte výslednou prezentaci.
+- Rozvržení, které je stále používáno snímkem, nelze odstranit. Nejprve přiřaďte jeho závislé snímky k jinému rozvržení nebo odstraňte pouze nepoužívaná rozvržení.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
-1. Získejte přístup k [MasterLayoutSlideCollection](https://reference.aspose.com/slides/cs/python-net/aspose.slides/masterlayoutslidecollection/).
-1. Ověřte, zda požadované rozvržení snímku v kolekci již existuje. Pokud ne, přidejte potřebné rozvržení.
-1. Přidejte prázdný snímek založený na novém rozvržení.
-1. Uložte prezentaci.
+Další informace o nejvyšší úrovni této hierarchie najdete v [Slide Master](/slides/cs/python-net/slide-master/).
 
-Následující kód v Pythonu ukazuje, jak přidat rozvržení snímku do PowerPointové prezentace:
+## **Výběr a použití rozvržení snímku**
+
+Použijte typ rozvržení, když prezentace následuje standardní definice rozvržení PowerPointu. Názvy rozvržení jsou editovatelné uživatelem a mohou být lokalizovány, takže výběr podle názvu je méně spolehlivý, pokud nekontrolujete zdrojovou šablonu.
+
+Následující příklad hledá **Název a obsah** na prvním hlavním snímku. Pokud není toto rozvržení k dispozici, úmyslně přejde na **Prázdný**. Druhá kontrola na null je nutná, protože prezentace může obsahovat pouze vlastní rozvržení. Vybrané rozvržení je pak použito na prvním normálním snímku pomocí vlastnosti [Slide.layout_slide](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slide/layout_slide/).
 
 ```python
 import aspose.slides as slides
 
-# Instantiate the Presentation class to open the presentation file.
-with slides.Presentation("sample.pptx") as presentation:
-    # Go through the layout slide types to select a layout slide.
+with slides.Presentation("input.pptx") as presentation:
     layout_slides = presentation.masters[0].layout_slides
-    layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
-    if layout_slide is None:
-        layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE)
+    target_layout = layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
 
-    if layout_slide is None:
-        # Situace, kdy prezentace neobsahuje všechny typy rozvržení.
-        # Soubor prezentace obsahuje pouze typy rozvržení Blank a Custom.
-        # Nicméně rozvržení snímků s vlastním typem mohou mít rozpoznatelné názvy,
-        # jako "Title", "Title and Content" atd., které lze použít pro výběr rozvržení snímku.
-        # Můžete také spoléhat na sadu typů tvarů zástupců.
-        # Například snímek Title by měl mít pouze typ zástupce Title a tak dále.
-        for title_and_object_layout_slide in layout_slides:
-            if title_and_object_layout_slide.name == "Title and Object":
-                layout_slide = title_and_object_layout_slide
-                break
+    if target_layout is None:
+        target_layout = layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
 
-        if layout_slide is None:
-            for title_layout_slide in layout_slides:
-                if title_layout_slide.name == "Title":
-                    layout_slide = title_layout_slide
-                    break
+    if target_layout is None:
+        raise RuntimeError("The first master does not contain a suitable layout slide.")
 
-            if layout_slide is None:
-                layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
-                if layout_slide is None:
-                    layout_slide = layout_slides.Add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Title and Object")
-
-    # Přidejte prázdný snímek pomocí přidaného rozvržení snímku.
-    presentation.slides.insert_empty_slide(0, layout_slide)
-
-    # Uložte prezentaci na disk.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.slides[0].layout_slide = target_layout
+    presentation.save("output-with-new-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Odstranění nepoužívaných rozvržení snímků**
+Změna rozvržení snímku neodstraňuje obyčejné tvary přidané přímo do snímku. Avšak pozice zástupných objektů, zděděné formátování a shoda mezi existujícími zástupnými objekty a novým rozvržením se mohou změnit, takže výstup zkontrolujte při přepínání mezi výrazně odlišnými rozvrženími.
 
-Aspose.Slides poskytuje metodu [remove_unused_layout_slides](https://reference.aspose.com/slides/cs/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) třídy [Compress](https://reference.aspose.com/slides/cs/python-net/aspose.slides.lowcode/compress/), která umožňuje smazat nechtěná a nepoužívaná rozvržení snímků.
+## **Přidání rozvržení snímku**
 
-Následující kód v Pythonu ukazuje, jak odstranit rozvržení snímku z PowerPointové prezentace:
+Výběr a vytvoření jsou oddělené operace. Předchozí příklad vybírá existující rozvržení; nevytváří ho. Pro vytvoření rozvržení zavolejte metodu [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/cs/python-net/aspose.slides/masterlayoutslidecollection/add/) na kolekci rozvržení cílového hlavního snímku.
+
+Následující příklad vždy přidá nové rozvržení **Název a obsah** pojmenované `Report Title and Content` a následně přidá normální snímek založený na něm. Názvy rozvržení musí být v kolekci jedinečné.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    slides.lowcode.Compress.remove_unused_layout_slides(presentation)
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("input.pptx") as presentation:
+    master_slide = presentation.masters[0]
+    report_layout = master_slide.layout_slides.add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Report Title and Content")
+    presentation.slides.add_empty_slide(report_layout)
+
+    presentation.save("output-with-report-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Přidání zástupců do rozvržení snímků**
+Přidávejte rozvržení pouze tehde, když šablona skutečně potřebuje další opakovaně použitelnou strukturu. Pokud již existuje vhodné rozvržení, vyberte jej a znovu použijte místo vytváření duplikátu.
 
-Aspose.Slides poskytuje vlastnost [LayoutSlide.placeholder_manager](https://reference.aspose.com/slides/cs/python-net/aspose.slides/layoutslide/placeholder_manager/), která umožňuje přidávat nové zástupce do rozvržení snímku.
+## **Přidání zástupných objektů do rozvržení snímku**
 
-Tento správce obsahuje metody pro následující typy zástupců:
+Vlastnost [LayoutSlide.placeholder_manager](https://reference.aspose.com/slides/cs/python-net/aspose.slides/layoutslide/placeholder_manager/) poskytuje [LayoutPlaceholderManager](https://reference.aspose.com/slides/cs/python-net/aspose.slides/layoutplaceholdermanager/) pro přidávání tvarů zástupných objektů do rozvržení.
 
-| PowerPoint zástupce                | Metoda [LayoutPlaceholderManager] |
+| Placeholder PowerPointu            | Metoda `LayoutPlaceholderManager` |
 | ----------------------------------- | --------------------------------- |
-| ![Content](content.png)             | add_content_placeholder(x: float, y: float, width: float, height: float) |
-| ![Content (Vertical)](contentV.png) | add_vertical_content_placeholder(x: float, y: float, width: float, height: float) |
-| ![Text](text.png)                   | add_text_placeholder(x: float, y: float, width: float, height: float) |
-| ![Text (Vertical)](textV.png)       | add_vertical_text_placeholder(x: float, y: float, width: float, height: float) |
-| ![Picture](picture.png)             | add_picture_placeholder(x: float, y: float, width: float, height: float) |
-| ![Chart](chart.png)                 | add_chart_placeholder(x: float, y: float, width: float, height: float) |
-| ![Table](table.png)                 | add_table_placeholder(x: float, y: float, width: float, height: float) |
-| ![SmartArt](smartart.png)           | add_smart_art_placeholder(x: float, y: float, width: float, height: float) |
-| ![Media](media.png)                 | add_media_placeholder(x: float, y: float, width: float, height: float) |
-| ![Online Image](onlineimage.png)    | add_online_image_placeholder(x: float, y: float, width: float, height: float) |
+| ![Content](content.png)             | [`add_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/cs/python-net/aspose.slides/layoutplaceholdermanager/add_content_placeholder/) |
+| ![Content (Vertical)](contentV.png) | [`add_vertical_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/cs/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_content_placeholder/) |
+| ![Text](text.png)                   | [`add_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/cs/python-net/aspose.slides/layoutplaceholdermanager/add_text_placeholder/) |
+| ![Text (Vertical)](textV.png)       | [`add_vertical_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/cs/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_text_placeholder/) |
+| ![Picture](picture.png)             | [`add_picture_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/cs/python-net/aspose.slides/layoutplaceholdermanager/add_picture_placeholder/) |
+| ![Chart](chart.png)                 | [`add_chart_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/cs/python-net/aspose.slides/layoutplaceholdermanager/add_chart_placeholder/) |
+| ![Table](table.png)                 | [`add_table_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/cs/python-net/aspose.slides/layoutplaceholdermanager/add_table_placeholder/) |
+| ![SmartArt](smartart.png)           | [`add_smart_art_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/cs/python-net/aspose.slides/layoutplaceholdermanager/add_smart_art_placeholder/) |
+| ![Media](media.png)                 | [`add_media_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/cs/python-net/aspose.slides/layoutplaceholdermanager/add_media_placeholder/) |
+| ![Online Image](onlineImage.png)    | [`add_online_image_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/cs/python-net/aspose.slides/layoutplaceholdermanager/add_online_image_placeholder/) |
 
-Následující kód v Pythonu ukazuje, jak přidat nové tvary zástupců do prázdného rozvržení snímku:
+Následující příklad ověří, že rozvržení **Prázdný** existuje, přidá k němu čtyři zástupné objekty a poté vytvoří normální snímek, který použije upravené rozvržení. Pořadí je záměrné: zástupné objekty jsou přidány před vytvořením normálního snímku, takže Aspose.Slides může vygenerovat odpovídající tvary zástupných objektů na tomto snímku.
 
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    # Získat prázdné rozvržení snímku.
-    layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+    blank_layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
 
-    # Získat správce zástupců rozvržení snímku.
-    placeholder_manager = layout.placeholder_manager
+    if blank_layout is None:
+        raise RuntimeError("The presentation does not contain a Blank layout slide.")
 
-    # Přidat různé zástupce do prázdného rozvržení snímku.
+    placeholder_manager = blank_layout.placeholder_manager
     placeholder_manager.add_content_placeholder(20, 20, 310, 270)
     placeholder_manager.add_vertical_text_placeholder(350, 20, 350, 270)
     placeholder_manager.add_chart_placeholder(20, 310, 310, 180)
     placeholder_manager.add_table_placeholder(350, 310, 350, 180)
 
-    # Přidat nový snímek s prázdným rozvržením.
-    new_slide = presentation.slides.add_empty_slide(layout)
-
-    presentation.save("placeholders.pptx", slides.export.SaveFormat.PPTX)
+    presentation.slides.add_empty_slide(blank_layout)
+    presentation.save("output-with-placeholders.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Výsledek:
 
-![Zástupci na rozvržení snímku](add_placeholders.png)
+![Zástupné objekty na rozvržení snímku](add_placeholders.png)
 
-## **Nastavení viditelnosti zápatí pro rozvržení snímku**
+{{% alert color="warning" title="Warning" %}}
 
-V PowerPointových prezentacích lze prvky zápatí, jako je datum, číslo snímku a vlastní text, zobrazovat nebo skrývat podle rozvržení snímku. Aspose.Slides pro Python umožňuje řídit viditelnost těchto zástupců zápatí. To je užitečné, pokud chcete, aby některá rozvržení zobrazovala informace v zápatí, zatímco jiná zůstala čistá a minimalistická.
+Změna zděděného formátování nebo geometrie existujících zástupných objektů v rozvržení může ovlivnit závislé snímky. Nově přidaný zástupný objekt rozvržení není automaticky doplněn do existujících normálních snímků. Testujte změny rozvržení na kopii prezentace a zkontrolujte každý závislý snímek.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
-1. Získejte referenci na rozvržení snímku podle jeho indexu.
-1. Nastavte zástupce zápatí snímku jako viditelný.
-1. Nastavte zástupce čísla snímku jako viditelný.
-1. Nastavte zástupce data‑času jako viditelný.
-1. Uložte prezentaci.
+{{% /alert %}}
 
-Následující kód v Pythonu ukazuje, jak nastavit viditelnost zápatí snímku a provést související úkoly:
+## **Odstranění nepoužívaných rozvržení snímků**
+
+Použijte metodu [Compress.remove_unused_layout_slides](https://reference.aspose.com/slides/cs/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) k odstranění rozvržení, na která neodkazuje žádný normální snímek. Metoda ponechá rozvržení, která jsou stále používána, nedotčena.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    header_footer_manager = presentation.layout_slides[0].header_footer_manager
-
-    if not header_footer_manager.is_footer_visible: 
-        header_footer_manager.set_footer_visibility(True) 
-
-    if not header_footer_manager.is_slide_number_visible:  
-        header_footer_manager.set_slide_number_visibility(True) 
-
-    if not header_footer_manager.is_date_time_visible: 
-        header_footer_manager.set_date_time_visibility(True)
-
-    header_footer_manager.set_footer_text("Footer text") 
-    header_footer_manager.set_date_time_text("Date and time text") 
-
-    presentation.save("output.ppt", slides.export.SaveFormat.PPT)
+with slides.Presentation("input.pptx") as presentation:
+    slides.lowcode.Compress.remove_unused_layout_slides(presentation)
+    presentation.save("output-without-unused-layouts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Nastavení viditelnosti zápatí potomků pro snímek**
+Pro odstranění konkrétního rozvržení nejprve použijte jeho vlastnost [has_depending_slides](https://reference.aspose.com/slides/cs/python-net/aspose.slides/layoutslide/has_depending_slides/) nebo metodu [get_depending_slides](https://reference.aspose.com/slides/cs/python-net/aspose.slides/layoutslide/get_depending_slides/). Před voláním [LayoutSlide.remove](https://reference.aspose.com/slides/cs/python-net/aspose.slides/layoutslide/remove/) přiřaďte všechny závislé snímky. Pokus o odstranění používaného rozvržení vyvolá výjimku [PptxEditException](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pptxeditexception/).
 
-V PowerPointových prezentacích lze prvky zápatí, jako je datum, číslo snímku a vlastní text, řídit na úrovni master snímku, aby byla zajištěna konzistence napříč všemi rozvrženími snímků. Aspose.Slides pro Python umožňuje nastavit viditelnost a obsah těchto zástupců zápatí na master snímku a propagovat tato nastavení do všech potomků rozvržení. Tento přístup zajišťuje jednotné informace v zápatí po celé prezentaci.
+## **Řízení viditelnosti zápatí na rozvržení snímku**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
-1. Získejte referenci na master snímek podle jeho indexu.
-1. Nastavte všechny master a potomky zápatí jako viditelné.
-1. Nastavte všechny master a potomky čísel snímků jako viditelné.
-1. Nastavte všechny master a potomky datum‑časové zástupce jako viditelné.
-1. Uložte prezentaci.
+Rozvržení má vlastní zástupné objekty zápatí, číslo snímku a datum/čas. Pomocí vlastnosti [LayoutSlide.header_footer_manager](https://reference.aspose.com/slides/cs/python-net/aspose.slides/layoutslide/header_footer_manager/) můžete řídit tyto zástupné objekty pro jedno rozvržení. To je užitečné, například když rozvržení obsahu má zobrazovat zápatí, ale rozvržení titulku ne.
 
-Následující kód v Pythonu demonstruje tuto operaci:
+Následující příklad bezpečně vybere rozvržení a zobrazí jeho prvky zápatí:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation.pptx") as presentation:
-    header_footer_manager = presentation.masters[0].header_footer_manager
+with slides.Presentation("input.pptx") as presentation:
+    layout_slide = presentation.layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
 
+    if layout_slide is None:
+        layout_slide = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+
+    if layout_slide is None:
+        raise RuntimeError("The presentation does not contain a suitable layout slide.")
+
+    header_footer_manager = layout_slide.header_footer_manager
+    header_footer_manager.set_footer_visibility(True)
+    header_footer_manager.set_slide_number_visibility(True)
+    header_footer_manager.set_date_time_visibility(True)
+    header_footer_manager.set_footer_text("Footer text")
+    header_footer_manager.set_date_time_text("Date and time text")
+
+    presentation.save("output-with-layout-footers.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Řízení viditelnosti zápatí na hlavním snímku a jeho podřízených rozvrženích**
+
+Pro aplikaci jednotných nastavení zápatí v celé hierarchii hlavního snímku použijte vlastnost [MasterSlide.header_footer_manager](https://reference.aspose.com/slides/cs/python-net/aspose.slides/masterslide/header_footer_manager/). Metody šíření třídy [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/cs/python-net/aspose.slides/masterslideheaderfootermanager/) působí na hlavní snímek, jeho závislá rozvržení a normální snímky; nezasahují jen jeden konkrétní normální snímek.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    header_footer_manager = presentation.masters[0].header_footer_manager
     header_footer_manager.set_footer_and_child_footers_visibility(True)
     header_footer_manager.set_slide_number_and_child_slide_numbers_visibility(True)
     header_footer_manager.set_date_time_and_child_date_times_visibility(True)
-
     header_footer_manager.set_footer_and_child_footers_text("Footer text")
     header_footer_manager.set_date_time_and_child_date_times_text("Date and time text")
 
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output-with-master-footers.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+## **Často kladené otázky**
 
-**Jaký je rozdíl mezi master snímkem a rozvržením snímku?**
+**Jaký je rozdíl mezi hlavním snímkem a rozvržením snímku?**
 
-Master snímek definuje celkový motiv a výchozí formátování, zatímco rozvržení snímků určuje konkrétní uspořádání zástupců pro různé typy obsahu.
+Hlavní snímek určuje motiv prezentace a sdílené formátování. Rozvržení snímku patří k hlavnímu snímku a definuje jedno opakovaně použitelné uspořádání zástupných objektů. Normální snímky používají tato rozvržení a ukládají obsah specifický pro jednotlivé snímky.
 
-**Mohu zkopírovat rozvržení snímku z jedné prezentace do druhé?**
+**Mohu kopírovat rozvržení snímku z jedné prezentace do druhé?**
 
-Ano, můžete klonovat rozvržení snímku z kolekce [layout_slides](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/layout_slides/) jedné prezentace a vložit jej do jiné pomocí metody `add_clone`.
+Ano. Přidejte kopii do cílové kolekce pomocí metody [add_clone](https://reference.aspose.com/slides/cs/python-net/aspose.slides/globallayoutslidecollection/add_clone/). Při kopírování mezi prezentacemi také ověřte fonty, motivy, obrázky a další prostředky používané zdrojovým rozvržením.
 
-**Co se stane, když smažu rozvržení snímku, které je stále používáno?**
+**Co se stane, když upravím rozvržení, které je již používáno?**
 
-Pokud se pokusíte smazat rozvržení snímku, které je stále odkazováno alespoň jedním snímkem v prezentaci, Aspose.Slides vyvolá výjimku [PptxEditException](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pptxeditexception/). Abyste se tomuto předešli, použijte [remove_unused_layout_slides](https://reference.aspose.com/slides/cs/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/), který bezpečně odstraní jen rozvržení snímků, která nejsou v používání.
+Závislé snímky zdědí změny rozvržení, pokud lokálně nepřepíšou postižené formátování nebo objekty. Geometrie zástupných objektů a zděděné stylování se tak mohou najednou změnit na mnoha snímcích. Použijte [get_depending_slides](https://reference.aspose.com/slides/cs/python-net/aspose.slides/layoutslide/get_depending_slides/) k identifikaci ovlivněných snímků před úpravou rozvržení.
+
+**Co se stane, když odstraním rozvržení, které je stále používáno?**
+
+Aspose.Slides vyvolá výjimku [PptxEditException](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pptxeditexception/). Nejprve přiřaďte závislé snímky, nebo použijte [remove_unused_layout_slides](https://reference.aspose.com/slides/cs/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) k odstranění pouze neodkazovaných rozvržení.

@@ -1,263 +1,243 @@
 ---
-title: تطبيق أو تغيير تخطيط شريحة في C#
-linktitle: تخطيط الشريحة
+title: "تطبيق أو تغيير تخطيطات الشرائح في .NET"
+linktitle: "تخطيط الشريحة"
 type: docs
 weight: 60
 url: /ar/net/slide-layout/
 keywords:
-- تخطيط الشريحة
-- تخطيط المحتوى
-- عنصر نائب
-- تصميم العرض التقديمي
-- تصميم الشريحة
-- تخطيط غير مستخدم
-- رؤية التذييل
-- شريحة العنوان
-- العنوان والمحتوى
-- رأس القسم
-- محتوى مزدوج
-- مقارنة
-- العنوان فقط
-- تخطيط فارغ
-- محتوى مع توضيح
-- صورة مع توضيح
-- العنوان والنص العمودي
-- العنوان العمودي والنص
-- C#
-- .NET
-- Aspose.Slides
-description: "تعرف على كيفية إدارة وتخصيص تخطيطات الشرائح في Aspose.Slides لـ .NET. استكشف أنواع التخطيطات، والتحكم في العناصر النائبة، ورؤية التذييل، وتعديل التخطيط من خلال أمثلة شفرة في C#."
+- "تخطيط الشريحة"
+- "تخطيط المحتوى"
+- "عنصر نائب"
+- "تصميم العرض التقديمي"
+- "تصميم الشريحة"
+- "تخطيط غير مستخدم"
+- "ظهور الفوتر"
+- "شريحة العنوان"
+- "العنوان والمحتوى"
+- "عنوان القسم"
+- "محتوى مزدوج"
+- "مقارنة"
+- "العنوان فقط"
+- "تخطيط فارغ"
+- "محتوى مع شرح"
+- "صورة مع شرح"
+- "العنوان والنص العمودي"
+- "عنوان عمودي ونص"
+- "PowerPoint"
+- "OpenDocument"
+- "عرض تقديمي"
+- "C#"
+- ".NET"
+- "Aspose.Slides"
+description: "تطبيق وإنشاء وتعديل تخطيطات الشرائح في Aspose.Slides لـ .NET، إضافة عناصر نائبة، إزالة التخطيطات غير المستخدمة، والتحكم في ظهور الفوتر."
 ---
-
 ## **نظرة عامة**
 
-يحدد تخطيط الشريحة ترتيب صناديق العنصر النائب وتنسيق المحتوى على الشريحة. يتحكم في العناصر النائبة المتاحة ومكان ظهورها. تساعد تخطيطات الشرائح في تصميم العروض التقديمية بسرعة وبشكل موحد—سواءً كنت تنشئ شيئًا بسيطًا أو أكثر تعقيدًا. بعض أكثر تخطيطات الشرائح شيوعًا في PowerPoint تشمل:
+يحدد تخطيط الشريحة المواقع وتنسيق العناصر النائبة مثل العناوين والنص والصور والرسوم البيانية والجداول. يعطى تطبيق التخطيط الشرائح بنية متسقة مع السماح لكل شريحة بمحتواها الخاص.
 
-**Title Slide layout** – يتضمن عنصرين نصيين نائبين: واحد للعنوان والآخر للعنوان الفرعي.
+تشمل أكثر التخطيطات شيوعًا:
 
-**Title and Content layout** – يضم عنصر نائب للعنوان أصغر في الأعلى وآخر أكبر أسفله للمحتوى الرئيسي (مثل النص، النقاط، المخططات، الصور، والمزيد).
+- **شريحة العنوان**: تحتوي على عناصر نائبة للعنوان والعنوان الفرعي.
+- **العنوان والمحتوى**: تحتوي على عنصر نائب للعنوان وعنصر نائب عام للمحتوى.
+- **فارغة**: لا تحتوي على عناصر نائبة للمحتوى وتكون مفيدة عندما يتم تموضع كل شكل يدويًا.
 
-**Blank layout** – لا يحتوي على عناصر نائب، مما يمنحك السيطرة الكاملة لتصميم الشريحة من الصفر.
+## **فهم توريث التخطيط**
 
-تعد تخطيطات الشرائح جزءًا من الشريحة الرئيسية (slide master)، وهي الشريحة ذات المستوى الأعلى التي تحدد أنماط التخطيط للعرض التقديمي. يمكنك الوصول إلى تخطيطات الشرائح وتعديلها عبر الشريحة الرئيسية—إما حسب النوع أو الاسم أو المعرف الفريد. بدلاً من ذلك، يمكنك تحرير تخطيط شريحة معين مباشرة داخل العرض التقديمي.
+تحتوي العرض التقديمي على ثلاثة مستويات مرتبطة:
 
-للعمل مع تخطيطات الشرائح في Aspose.Slides for .NET، يمكنك استخدام:
+1. [الشريحة الرئيسية](https://reference.aspose.com/slides/ar/net/aspose.slides/imasterslide/) تُعرِّف السمة، التنسيق المشترك، الخلفيات، والكائنات العامة.
+2. [شريحة التخطيط](https://reference.aspose.com/slides/ar/net/aspose.slides/ilayoutslide/) تنتمي إلى شريحة رئيسية وتحدد ترتيبًا معينًا للعناصر النائبة.
+3. [شريحة عادية](https://reference.aspose.com/slides/ar/net/aspose.slides/islide/) تستخدم تخطيطًا واحدًا وتخزن المحتوى المُدخل لتلك الشريحة.
 
-- الخصائص مثل [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) و[Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) ضمن فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)
-- الأنواع مثل [ILayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslide/)، [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterlayoutslidecollection/)، [ILayoutPlaceholderManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutplaceholdermanager/)، و[ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslideheaderfootermanager/)
+تُورّث شريحة عادية السمة والتنسيق من تخطيطها، ويورّث التخطيط من الشريحة الرئيسية. القيمة التي تُحدد مباشرةً على شريحة عادية تتجاوز القيمة الموروثة في ذلك المستوى. عند إنشاء شريحة عادية، تُنشأ أشكال العناصر النائبة منها بناءً على التخطيط المحدد، بينما ينتمي المحتوى المدخل في تلك العناصر النائبة إلى الشريحة العادية.
 
-{{% alert title="Info" color="info" %}}
-لتعلم المزيد حول العمل مع الشرائح الرئيسية، اطلع على مقالة [Slide Master](/slides/ar/net/slide-master/).
-{{% /alert %}}
+أضف العناصر النائبة المطلوبة إلى التخطيط قبل إنشاء الشرائح منه. إضافة عنصر نائب آخر إلى التخطيط في وقت لاحق لا يُضيف تلقائيًا شكل عنصر نائب مماثل إلى الشرائح العادية الموجودة.
 
-## **إضافة تخطيطات الشرائح إلى العروض التقديمية**
+هذا العلاقة لها نتيجتان مهمتان:
 
-لضبط مظهر وهيكل الشرائح الخاصة بك، قد تحتاج إلى إضافة تخطيطات شرائح جديدة إلى عرض تقديمي. يسمح لك Aspose.Slides for .NET بالتحقق مما إذا كان تخطيط معين موجودًا بالفعل، وإضافة واحد جديد إذا لزم الأمر، واستخدامه لإدراج شرائح بناءً على ذلك التخطيط.
+- تغيير التنسيق الموروث أو هندسة العنصر النائب الموجود على التخطيط يمكن أن يُحدّث كل شريحة تعتمد عليه. قبل تعديل تخطيط مُستَخدَم، افحص الشرائح التابعة وراجع العرض الناتج.
+- لا يمكن إزالة تخطيط لا يزال مستخدمًا من قبل شريحة. أعد تعيين الشرائح التابعة إلى تخطيط آخر أولاً، أو احذف فقط التخطيطات غير المستخدمة.
 
-1. أنشئ مثيلًا لفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-1. وصول إلى [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterlayoutslidecollection/).
-1. تحقق مما إذا كان تخطيط الشريحة المطلوب موجودًا بالفعل في المجموعة. إذا لم يكن كذلك، أضف تخطيط الشريحة الذي تحتاجه.
-1. أضف شريحة فارغة تستند إلى تخطيط الشريحة الجديد.
-1. احفظ العرض التقديمي.
+لمزيد من المعلومات حول المستوى الأعلى من هذه الهرمية، راجع [الشريحة الرئيسية](/slides/ar/net/slide-master/).
 
-الكود C# التالي يوضح كيفية إضافة تخطيط شريحة إلى عرض PowerPoint:
-```cs
-// إنشاء كائن من فئة Presentation الذي يمثل ملف PowerPoint.
-using (Presentation presentation = new Presentation("Sample.pptx"))
+## **اختيار وتطبيق تخطيط الشريحة**
+
+استخدم نوعًا من التخطيط عندما يتبع العرض التقديمي تعريفات التخطيط القياسية في PowerPoint. أسماء التخطيطات قابلة للتحرير من قبل المستخدم ويمكن تعريبها، لذا فإن الاختيار القائم على الاسم أقل موثوقية ما لم تتحكم في القالب المصدر.
+
+المثال التالي يبحث عن **العنوان والمحتوى** في أول شريحة رئيسية. إذا كان ذلك التخطيط غير متاح، فإنه ينتقل عمدًا إلى **فارغة**. الفحص الثاني للعنصر الفارغ ضروري لأن العرض التقديمي قد يحتوي فقط على تخطيطات مخصصة. ثم يتم تطبيق التخطيط المختار على أول شريحة عادية عبر خاصية [ISlide.LayoutSlide](https://reference.aspose.com/slides/ar/net/aspose.slides/islide/layoutslide/).
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var layoutSlides = presentation.Masters[0].LayoutSlides;
+var targetLayout = layoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? layoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (targetLayout == null)
 {
-    // استعراض أنواع تخطيطات الش... لاختيار تخطيط شريحة.
-    IMasterLayoutSlideCollection layoutSlides = presentation.Masters[0].LayoutSlides;
-    ILayoutSlide layoutSlide = layoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? layoutSlides.GetByType(SlideLayoutType.Title);
-
-    if (layoutSlide == null)
-    {
-        // حالة لا يحتوي فيها العرض التقديمي على جميع أنواع التخطيطات.
-        // يحتوي ملف العرض التقديمي فقط على أنواع التخطيط Blank و Custom.
-        // ومع ذلك، قد تحتوي شرائح التخطيط ذات الأنواع المخصصة على أسماء يمكن التعرف عليها,
-        // مثل "Title"، "Title and Content"، إلخ، والتي يمكن استخدامها لاختيار تخطيط الشريحة.
-        // يمكنك أيضًا الاعتماد على مجموعة من أنواع أشكال العنصر النائب.
-        // على سبيل المثال، يجب أن تحتوي شريحة العنوان فقط على نوع العنصر النائب Title، وهكذا.
-        foreach (ILayoutSlide titleAndObjectLayoutSlide in layoutSlides)
-        {
-            if (titleAndObjectLayoutSlide.Name == "Title and Object")
-            {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null)
-        {
-            foreach (ILayoutSlide titleLayoutSlide in layoutSlides)
-            {
-                if (titleLayoutSlide.Name == "Title")
-                {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null)
-            {
-                layoutSlide = layoutSlides.GetByType(SlideLayoutType.Blank);
-                if (layoutSlide == null)
-                {
-                    layoutSlide = layoutSlides.Add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
-    }
-
-    // إضافة شريحة فارغة باستخدام تخطيط الشريحة المضاف.
-    presentation.Slides.InsertEmptySlide(0, layoutSlide);
-
-    // حفظ العرض التقديمي إلى القرص.  
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The first master does not contain a suitable layout slide.");
 }
+
+presentation.Slides[0].LayoutSlide = targetLayout;
+presentation.Save("output-with-new-layout.pptx", SaveFormat.Pptx);
 ```
 
+تغيير تخطيط الشريحة لا يزيل الأشكال العادية المضافة مباشرةً إلى الشريحة. ومع ذلك، قد تتغيّر مواضع العناصر النائبة، والتنسيق الموروث، وتطابق العناصر النائبة الموجودة مع التخطيط الجديد، لذا افحص النتيجة عند التبديل بين تخطيطات مختلفة بشكل كبير.
 
-## **إزالة تخطيطات الشرائح غير المستخدمة**
+## **إضافة شريحة تخطيط**
 
-توفر Aspose.Slides الطريقة [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) من فئة [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) لتسمح لك بحذف تخطيطات الشرائح غير المرغوب فيها وغير المستخدمة.
+الاختيار والإنشاء عمليتان منفصلتان. المثال السابق يختار تخطيطًا موجودًا؛ لا ينشئ واحدًا. لإنشاء تخطيط، استدعِ طريقة [IMasterLayoutSlideCollection.Add](https://reference.aspose.com/slides/ar/net/aspose.slides/masterlayoutslidecollection/add/) على مجموعة تخطيطات الشريحة الرئيسية المستهدفة.
 
-الكود C# التالي يوضح كيفية إزالة تخطيط شريحة من عرض PowerPoint:
-```cs
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    Aspose.Slides.LowCode.Compress.RemoveUnusedLayoutSlides(presentation);
-    
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
-}
+المثال التالي يضيف دائمًا تخطيطًا جديدًا **العنوان والمحتوى** يُسمّى `Report Title and Content`، ثم يضيف شريحة عادية تستند إليه. يجب أن تكون أسماء التخطيطات فريدة داخل المجموعة.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var masterSlide = presentation.Masters[0];
+var reportLayout = masterSlide.LayoutSlides.Add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+presentation.Slides.AddEmptySlide(reportLayout);
+
+presentation.Save("output-with-report-layout.pptx", SaveFormat.Pptx);
 ```
 
+أضف تخطيطًا فقط عندما يحتاج القالب فعليًا إلى بنية قابلة لإعادة الاستخدام. إذا كان هناك تخطيط مناسب موجود بالفعل، فاختره وأعد استخدامه بدلاً من إنشاء نسخة مكررة.
 
-## **إضافة عناصر نائب إلى تخطيطات الشرائح**
+## **إضافة عناصر نائبة إلى شريحة تخطيط**
 
-توفر Aspose.Slides الخاصية [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslide/placeholdermanager/)، والتي تتيح لك إضافة عناصر نائب جديدة إلى تخطيط شريحة.
+خاصية [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/ar/net/aspose.slides/ilayoutslide/placeholdermanager/) تُوفِّر كائنًا من النوع [ILayoutPlaceholderManager](https://reference.aspose.com/slides/ar/net/aspose.slides/ilayoutplaceholdermanager/) لإضافة أشكال عناصر نائبة إلى التخطيط.
 
-يحتوي هذا المدير على طرق للأنواع التالية من العناصر النائبة:
+| عنصر نائبة في PowerPoint | طريقة ILayoutPlaceholderManager |
+| -------------------------- | -------------------------------- |
+| ![محتوى](content.png) | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/net/aspose.slides/layoutplaceholdermanager/addcontentplaceholder/) |
+| ![محتوى (عمودي)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/net/aspose.slides/layoutplaceholdermanager/addverticalcontentplaceholder/) |
+| ![نص](text.png) | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/net/aspose.slides/layoutplaceholdermanager/addtextplaceholder/) |
+| ![نص (عمودي)](textV.png) | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/net/aspose.slides/layoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![صورة](picture.png) | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/net/aspose.slides/layoutplaceholdermanager/addpictureplaceholder/) |
+| ![مخطط](chart.png) | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/net/aspose.slides/layoutplaceholdermanager/addchartplaceholder/) |
+| ![جدول](table.png) | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/net/aspose.slides/layoutplaceholdermanager/addtableplaceholder/) |
+| ![SmartArt](smartart.png) | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/net/aspose.slides/layoutplaceholdermanager/addsmartartplaceholder/) |
+| ![وسائط](media.png) | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/net/aspose.slides/layoutplaceholdermanager/addmediaplaceholder/) |
+| ![صورة عبر الإنترنت](onlineImage.png) | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ar/net/aspose.slides/layoutplaceholdermanager/addonlineimageplaceholder/) |
 
-| عنصر نائب في PowerPoint              | طريقة [ILayoutPlaceholderManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutplaceholdermanager/) |
-| ----------------------------------- | ------------------------------------------------------------ |
-| ![المحتوى](content.png)             | AddContentPlaceholder(float x, float y, float width, float height) |
-| ![المحتوى (عمودي)](contentV.png)   | AddVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![نص](text.png)                     | AddTextPlaceholder(float x, float y, float width, float height) |
-| ![نص (عمودي)](textV.png)           | AddVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![صورة](picture.png)                | AddPicturePlaceholder(float x, float y, float width, float height) |
-| ![مخطط](chart.png)                  | AddChartPlaceholder(float x, float y, float width, float height) |
-| ![جدول](table.png)                  | AddTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png)           | AddSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![وسائط](media.png)                 | AddMediaPlaceholder(float x, float y, float width, float height) |
-| ![صورة عبر الإنترنت](onlineimage.png) | AddOnlineImagePlaceholder(float x, float y, float width, float height) |
+المثال التالي يتحقق من وجود التخطيط **فارغة**، يضيف أربع عناصر نائبة إليه، ثم ينشئ شريحة عادية تستخدم التخطيط المعدل. الترتيب مقصود: يتم إضافة العناصر النائبة قبل إنشاء الشريحة العادية، حتى يتمكن Aspose.Slides من توليد أشكال العناصر النائبة المقابلة على تلك الشريحة.
 
-الكود C# التالي يوضح كيفية إضافة أشكال عنصر نائب جديدة إلى تخطيط الشريحة الفارغة:
-```cs
-using (var presentation = new Presentation())
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (blankLayout == null)
 {
-    // احصل على شريحة التخطيط الفارغ.
-    ILayoutSlide layout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
-
-    // احصل على مدير العناصر النائبة لشريحة التخطيط.
-    ILayoutPlaceholderManager placeholderManager = layout.PlaceholderManager;
-
-    // أضف عناصر نائب مختلفة إلى شريحة التخطيط الفارغ.
-    placeholderManager.AddContentPlaceholder(20, 20, 310, 270);
-    placeholderManager.AddVerticalTextPlaceholder(350, 20, 350, 270);
-    placeholderManager.AddChartPlaceholder(20, 310, 310, 180);
-    placeholderManager.AddTablePlaceholder(350, 310, 350, 180);
-
-    // أضف شريحة جديدة باستخدام التخطيط الفارغ.
-    ISlide newSlide = presentation.Slides.AddEmptySlide(layout);
-
-    presentation.Save("Placeholders.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The presentation does not contain a Blank layout slide.");
 }
-```
 
+var placeholderManager = blankLayout.PlaceholderManager;
+placeholderManager.AddContentPlaceholder(20, 20, 310, 270);
+placeholderManager.AddVerticalTextPlaceholder(350, 20, 350, 270);
+placeholderManager.AddChartPlaceholder(20, 310, 310, 180);
+placeholderManager.AddTablePlaceholder(350, 310, 350, 180);
+
+presentation.Slides.AddEmptySlide(blankLayout);
+presentation.Save("output-with-placeholders.pptx", SaveFormat.Pptx);
+```
 
 النتيجة:
 
-![العناصر النائبة على تخطيط الشريحة](add_placeholders.png)
+![العناصر النائبة على شريحة التخطيط](add_placeholders.png)
 
-## **تعيين رؤية التذييل لتخطيط شريحة**
+{{% alert color="warning" title="تحذير" %}}
+تغيير التنسيق الموروث أو هندسة العناصر النائبة الموجودة في التخطيط يمكن أن يؤثر على الشرائح التابعة. العنصر النائب المضاف حديثًا إلى التخطيط لا يُعاد ملء الشرائح العادية الموجودة. اختبر تغييرات التخطيط على نسخة من العرض التقديمي وفحص كل شريحة تابعة.
+{{% /alert %}}
 
-في عروض PowerPoint، يمكن إظهار أو إخفاء عناصر التذييل مثل التاريخ، رقم الشريحة، والنص المخصص اعتمادًا على تخطيط الشريحة. يتيح لك Aspose.Slides for .NET التحكم في رؤية هذه العناصر النائبة للتذييل. هذا مفيد عندما تريد لبعض التخطيطات عرض معلومات التذييل بينما يبقى البعض الآخر نظيفًا وموجزًا.
+## **إزالة شرائح التخطيط غير المستخدمة**
 
-1. أنشئ مثيلًا لفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-1. احصل على مرجع لتخطيط شريحة عبر فهرسه.
-1. عيّن عنصر نائب التذييل في الشريحة إلى ظاهر.
-1. عيّن عنصر نائب رقم الشريحة إلى ظاهر.
-1. عيّن عنصر نائب التاريخ/الوقت إلى ظاهر.
-1. احفظ العرض التقديمي.
+استخدم طريقة [Compress.RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) لإزالة التخطيطات التي لا تشير إليها أي شريحة عادية. تترك الطريقة التخطيطات التي لا تزال قيد الاستخدام كما هي.
 
-الكود C# التالي يوضح كيفية تعيين رؤية تذييل الشريحة وإجراء المهام ذات الصلة:
-```cs
-using (Presentation presentation = new Presentation("Presentation.ppt"))
-{
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.LayoutSlides[0].HeaderFooterManager;
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.LowCode;
 
-    if (!headerFooterManager.IsFooterVisible)
-    {
-        headerFooterManager.SetFooterVisibility(true);
-    }
+using var presentation = new Presentation("input.pptx");
 
-    if (!headerFooterManager.IsSlideNumberVisible)
-    {
-        headerFooterManager.SetSlideNumberVisibility(true);
-    }
-
-    if (!headerFooterManager.IsDateTimeVisible)
-    {
-        headerFooterManager.SetDateTimeVisibility(true);
-    }
-
-    headerFooterManager.SetFooterText("Footer text");
-    headerFooterManager.SetDateTimeText("Date and time text");
-
-    presentation.Save("Presentation.ppt", SaveFormat.Ppt);
-}
+Compress.RemoveUnusedLayoutSlides(presentation);
+presentation.Save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
 ```
 
+لإزالة تخطيط محدد واحد، استخدم أولاً خاصية [HasDependingSlides](https://reference.aspose.com/slides/ar/net/aspose.slides/ilayoutslide/hasdependingslides/) أو طريقة [GetDependingSlides](https://reference.aspose.com/slides/ar/net/aspose.slides/ilayoutslide/getdependingslides/). أعد تعيين أي شرائح تابعة قبل استدعاء [ILayoutSlide.Remove](https://reference.aspose.com/slides/ar/net/aspose.slides/ilayoutslide/remove/). محاولة إزالة تخطيط مُستَخدَم تُثير استثناءً من النوع [PptxEditException](https://reference.aspose.com/slides/ar/net/aspose.slides/pptxeditexception/).
 
-## **تعيين رؤية تذييل الطفل لشريحة**
+## **التحكم في ظهور الفوتر على شريحة التخطيط**
 
-​في عروض PowerPoint، يمكن التحكم في عناصر التذييل مثل التاريخ، رقم الشريحة، والنص المخصص على مستوى الشريحة الرئيسية لضمان الاتساق عبر جميع تخطيطات الشرائح. يتيح لك Aspose.Slides for .NET تعيين رؤية ومحتوى هذه العناصر النائبة للتذييل على الشريحة الرئيسية ونشر هذه الإعدادات إلى جميع تخطيطات الشرائح الفرعية. يضمن هذا النهج توحيد معلومات التذييل في جميع أنحاء العرض التقديمي.​
+يحتوي التخطيط على فوتر خاص به وعناصر نائبة لرقم الشريحة وتاريخ/وقت. استخدم خاصية [ILayoutSlide.HeaderFooterManager](https://reference.aspose.com/slides/ar/net/aspose.slides/ilayoutslide/headerfootermanager/) للتحكم في تلك العناصر النائبة لتخطيط واحد. يكون هذا مفيدًا عندما، على سبيل المثال، يجب أن تُظهر تخطيطات المحتوى الفوترات بينما لا تُظهر تخطيطات العناوين ذلك.
 
-1. أنشئ مثيلًا لفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-1. احصل على مرجع إلى الشريحة الرئيسية عبر فهرستها.
-1. عيّن جميع عناصر نائب التذييل في الرئيسية والطفل إلى ظاهر.
-1. عيّن جميع عناصر نائب رقم الشريحة في الرئيسية والطفل إلى ظاهر.
-1. عيّن جميع عناصر نائب التاريخ/الوقت في الرئيسية والطفل إلى ظاهر.
-1. احفظ العرض التقديمي.
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-الكود C# التالي يوضح هذه العملية:
-```cs
-using (Presentation presentation = new Presentation("Presentation.ppt"))
+using var presentation = new Presentation("input.pptx");
+
+var layoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (layoutSlide == null)
 {
-    IMasterSlideHeaderFooterManager headerFooterManager = presentation.Masters[0].HeaderFooterManager;
-
-    headerFooterManager.SetFooterAndChildFootersVisibility(true);
-    headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
-    headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
-
-    headerFooterManager.SetFooterAndChildFootersText("Footer text");
-    headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
-
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The presentation does not contain a suitable layout slide.");
 }
+
+var headerFooterManager = layoutSlide.HeaderFooterManager;
+headerFooterManager.SetFooterVisibility(true);
+headerFooterManager.SetSlideNumberVisibility(true);
+headerFooterManager.SetDateTimeVisibility(true);
+headerFooterManager.SetFooterText("Footer text");
+headerFooterManager.SetDateTimeText("Date and time text");
+
+presentation.Save("output-with-layout-footers.pptx", SaveFormat.Pptx);
 ```
 
+## **التحكم في ظهور الفوتر على الشريحة الرئيسية وتخطيطاتها الفرعية**
+
+لتطبيق إعدادات فوتر متسقة عبر هيكل الشريحة الرئيسية، استخدم خاصية [IMasterSlide.HeaderFooterManager](https://reference.aspose.com/slides/ar/net/aspose.slides/imasterslide/headerfootermanager/). تعمل طرق النشر في [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/ar/net/aspose.slides/imasterslideheaderfootermanager/) على الشريحة الرئيسية وتخطيطاتها التابعة والشرائح العادية؛ لا تستهدف شريحة عادية واحدة فقط.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var headerFooterManager = presentation.Masters[0].HeaderFooterManager;
+headerFooterManager.SetFooterAndChildFootersVisibility(true);
+headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
+headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
+headerFooterManager.SetFooterAndChildFootersText("Footer text");
+headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
+
+presentation.Save("output-with-master-footers.pptx", SaveFormat.Pptx);
+```
 
 ## **الأسئلة المتكررة**
 
-**ما الفرق بين الشريحة الرئيسية وتخطيط الشريحة؟**
+**ما هو الفرق بين الشريحة الرئيسية وشريحة التخطيط؟**
 
-تحدد الشريحة الرئيسية السمة العامة والتنسيق الافتراضي، بينما تحدد تخطيطات الشرائح ترتيبات محددة للعناصر النائبة لأنواع المحتوى المختلفة.
+تُعرِّف الشريحة الرئيسية سمة العرض وتنسيق العناصر المشتركة. شريحة التخطيط تنتمي إلى شريحة رئيسية وتحدد ترتيبًا قابلاً لإعادة الاستخدام للعناصر النائبة. تستخدم الشرائح العادية هذه التخطيطات وتخزن المحتوى الخاص بكل شريحة.
 
-**هل يمكنني نسخ تخطيط شريحة من عرض تقديمي إلى آخر؟**
+**هل يمكنني نسخ شريحة تخطيط من عرض تقديمي إلى آخر؟**
 
-نعم، يمكنك استنساخ تخطيط شريحة من مجموعة [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) الخاصة بعرض تقديمي وإدراجه في آخر باستخدام طريقة `AddClone`.
+نعم. أضف نسخة إلى مجموعة الوجهة باستخدام طريقة [AddClone](https://reference.aspose.com/slides/ar/net/aspose.slides/globallayoutslidecollection/addclone/). عند النسخ بين العروض، تحقق أيضًا من الخطوط والسمات والصور والموارد الأخرى المستخدمة في التخطيط المصدر.
 
-**ماذا يحدث إذا حذفت تخطيط شريحة لا يزال يُستخدم في شريحة أخرى؟**
+**ماذا يحدث عندما أُعدِّل تخطيطًا مُستَخدَمًا بالفعل؟**
 
-إذا حاولت حذف تخطيط شريحة لا يزال مُشارًا إليه من قبل شريحة واحدة على الأقل في العرض التقديمي، ستستقصي Aspose.Slides استثناءً من نوع [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception/). لتجنب ذلك، استخدم [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) الذي يزيل بأمان فقط تخطيطات الشرائح غير المستخدمة.
+تُورّث الشرائح التابعة تغييرات التخطيط ما لم تُزيل التنسيق أو الكائنات المتأثرة محليًا. يمكن أن يتغيّر شكل العناصر النائبة والأنماط الموروثة على العديد من الشرائح دفعة واحدة. استخدم طريقة [GetDependingSlides](https://reference.aspose.com/slides/ar/net/aspose.slides/ilayoutslide/getdependingslides/) لتحديد الشرائح المتأثرة قبل تعديل التخطيط.
+
+**ماذا يحدث إذا أزلت تخطيطًا لا يزال قيد الاستخدام؟**
+
+يرمي Aspose.Slides استثناءً من النوع [PptxEditException](https://reference.aspose.com/slides/ar/net/aspose.slides/pptxeditexception/). أعد تعيين الشرائح التابعة أولاً، أو استخدم طريقة [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) لإزالة التخطيطات غير المشار إليها فقط.

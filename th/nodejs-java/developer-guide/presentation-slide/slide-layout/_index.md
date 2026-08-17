@@ -1,5 +1,5 @@
 ---
-title: ปรับใช้หรือเปลี่ยนเค้าโครงสไลด์ใน JavaScript
+title: ใช้หรือเปลี่ยนเค้าโครงสไลด์ใน JavaScript
 linktitle: เค้าโครงสไลด์
 type: docs
 weight: 60
@@ -7,174 +7,161 @@ url: /th/nodejs-java/slide-layout/
 keywords:
 - เค้าโครงสไลด์
 - เค้าโครงเนื้อหา
-- ตัวเก็บตำแหน่ง
-- การออกแบบการนำเสนอ
+- ตั๋วตำแหน่ง
+- การออกแบบงานนำเสนอ
 - การออกแบบสไลด์
 - เค้าโครงที่ไม่ได้ใช้
-- การมองเห็นส่วนท้าย
-- สไลด์หัวเรื่อง
-- หัวเรื่องและเนื้อหา
-- ส่วนหัวของหน้าตอน
+- การแสดงผลส่วนท้าย
+- สไลด์ชื่อเรื่อง
+- ชื่อเรื่องและเนื้อหา
+- ส่วนหัวของหัวข้อ
 - สองส่วนเนื้อหา
 - การเปรียบเทียบ
-- หัวเรื่องเท่านั้น
+- ชื่อเรื่องเท่านั้น
 - เค้าโครงว่าง
 - เนื้อหาพร้อมคำอธิบาย
 - รูปภาพพร้อมคำอธิบาย
-- หัวเรื่องและข้อความแนวตั้ง
-- หัวเรื่องแนวตั้งและข้อความ
+- ชื่อเรื่องและข้อความแนวตั้ง
+- ชื่อเรื่องแนวตั้งและข้อความ
 - PowerPoint
 - OpenDocument
-- การนำเสนอ
+- งานนำเสนอ
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "จัดการและปรับแต่งเค้าโครงสไลด์ใน Aspose.Slides สำหรับ Node.js. สำรวจประเภทเค้าโครง, การควบคุมตัวเก็บตำแหน่ง, และการมองเห็นส่วนท้ายผ่านตัวอย่างโค้ด."
+description: "ใช้, สร้าง และแก้ไขเค้าโครงสไลด์ใน Aspose.Slides สำหรับ Node.js ผ่าน Java, เพิ่มตั๋วตำแหน่ง, ลบเค้าโครงที่ไม่ได้ใช้, และควบคุมการแสดงผลส่วนท้าย."
 ---
-## **บทนำ**
+## **ภาพรวม**
 
-เค้าโครงสไลด์กำหนดการจัดเรียงของกล่องตัวเก็บตำแหน่งและการจัดรูปแบบสำหรับเนื้อหาบนสไลด์ มันควบคุมว่าตัวเก็บตำแหน่งใดบ้างที่พร้อมใช้งานและปรากฏที่ใด เค้าโครงสไลด์ช่วยให้คุณออกแบบการนำเสนอได้อย่างรวดเร็วและสม่ำเสมอ—ไม่ว่าคุณจะสร้างอะไรที่ง่ายหรือซับซ้อนบางอย่าง เค้าโครงสไลด์ที่พบบ่อยที่สุดใน PowerPoint ได้แก่:
+เค้าโครงสไลด์กำหนดตำแหน่งและการจัดรูปแบบของตั๋วตำแหน่ง เช่น ชื่อเรื่อง, ข้อความ, รูปภาพ, แผนภูมิ และตาราง การใช้เค้าโครงทำให้สไลด์มีโครงสร้างสอดคล้องกันพร้อมกับให้แต่ละสไลด์มีเนื้อหาเฉพาะของตัวเอง
 
-**เค้าโครงสไลด์หัวเรื่อง** – มีตัวเก็บตำแหน่งข้อความสองอัน: อันหนึ่งสำหรับหัวเรื่องและอีกอันสำหรับหัวข้อรอง
+เค้าโครงที่พบได้บ่อยได้แก่:
 
-**เค้าโครงหัวเรื่องและเนื้อหา** – มีตัวเก็บตำแหน่งหัวเรื่องขนาดเล็กที่ด้านบนและตัวใหญ่กว่าที่ด้านล่างสำหรับเนื้อหาหลัก (เช่น ข้อความ, จุดตัวอักษร, แผนภูมิ, รูปภาพ, และอื่น ๆ)
+- **สไลด์ชื่อเรื่อง**: มีตั๋วตำแหน่งชื่อเรื่องและชื่อย่อย
+- **ชื่อเรื่องและเนื้อหา**: มีตั๋วตำแหน่งชื่อเรื่องและตั๋วตำแหน่งเนื้อหาทั่วไป
+- **ว่าง**: ไม่มีตั๋วตำแหน่งใด ๆ และเหมาะเมื่อทุกรูปร่างจะถูกวางด้วยตนเอง
 
-**เค้าโครงว่าง** – ไม่มีตัวเก็บตำแหน่งใด ๆ ให้คุณควบคุมเต็มที่ในการออกแบบสไลด์ตั้งแต่ต้น
+## **ทำความเข้าใจการสืบทอดเค้าโครง**
 
-เค้าโครงสไลด์เป็นส่วนหนึ่งของมาสเตอร์สไลด์ ซึ่งเป็นสไลด์ระดับบนสุดที่กำหนดสไตล์เค้าโครงสำหรับการนำเสนอ คุณสามารถเข้าถึงและแก้ไขเค้าโครงสไลด์ผ่านมาสเตอร์สไลด์—โดยใช้ประเภท, ชื่อ, หรือรหัสประจำตัวแบบยูนีค หรือคุณสามารถแก้ไขเค้าโครงสไลด์เฉพาะโดยตรงในงานนำเสนอได้
+งานนำเสนอมีระดับที่เกี่ยวข้องกันสามระดับ:
 
-เพื่อทำงานกับเค้าโครงสไลด์ใน Aspose.Slides for Node.js, คุณสามารถใช้:
-- วิธีการเช่น [getLayoutSlides](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/#getLayoutSlides) และ [getMasters](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/#getMasters) ภายใต้คลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/)
-- ชนิดเช่น [LayoutSlide](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/layoutplaceholdermanager/), และ [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/layoutslideheaderfootermanager/)
+1. A [สไลด์แม่](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masterslide/) กำหนดธีม, การจัดรูปแบบที่ใช้ร่วมกัน, พื้นหลัง, และวัตถุทั่วไป
+1. A [สไลด์เค้าโครง](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/layoutslide/) เป็นส่วนหนึ่งของสไลด์แม่และกำหนดการจัดวางตั๋วตำแหน่งเฉพาะ
+1. A [สไลด์ปกติ](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slide/) ใช้เค้าโครงหนึ่งและเก็บเนื้อหาที่ป้อนสำหรับสไลด์นั้น
 
-{{% alert title="Info" color="info" %}}
-หากต้องการเรียนรู้เพิ่มเติมเกี่ยวกับการทำงานกับมาสเตอร์สไลด์, ดูบทความ [Slide Master](/slides/th/nodejs-java/slide-master/)​ 
-{{% /alert %}}
+สไลด์ปกติสืบทอดธีมและการจัดรูปแบบจากเค้าโครงของมัน และเค้าโครงสืบทอดจากสไลด์แม่ ค่าที่ตั้งโดยตรงบนสไลด์ปกติจะทับค่าที่สืบทอดในระดับนั้น เมื่อสร้างสไลด์ปกติ รูปร่างตั๋วตำแหน่งจะถูกสร้างจากเค้าโครงที่เลือก ในขณะที่เนื้อหาที่ป้อนลงในตั๋วตำแหน่งนั้นเป็นของสไลด์ปกติ
 
-## **เพิ่มเค้าโครงสไลด์ไปยังการนำเสนอ**
+เพิ่มตั๋วตำแหน่งที่จำเป็นลงในเค้าโครงก่อนสร้างสไลด์จากมัน การเพิ่มตั๋วตำแหน่งใหม่ในเค้าโครงภายหลังจะไม่ทำให้รูปร่างตั๋วตำแหน่งที่สอดคล้องกันถูกเพิ่มโดยอัตโนมัติในสไลด์ปกติที่มีอยู่แล้ว
 
-เพื่อปรับลักษณะและโครงสร้างของสไลด์ ให้คุณอาจจำเป็นต้องเพิ่มเค้าโครงสไลด์ใหม่ไปยังงานนำเสนอ Aspose.Slides for Node.js ให้คุณตรวจสอบว่าเค้าโครงที่ระบุมีอยู่แล้วหรือไม่ เพิ่มใหม่หากจำเป็น และใช้เพื่อแทรกสไลด์ตามเค้าโครงนั้น
+ความสัมพันธ์นี้มีผลตามมาสองประการที่สำคัญ:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/)
-2. เข้าถึง [MasterLayoutSlideCollection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masterlayoutslidecollection/)
-3. ตรวจสอบว่าเค้าโครงสไลด์ที่ต้องการมีอยู่ในคอลเลกชันแล้วหรือไม่ หากไม่มีให้เพิ่มเค้าโครงสไลด์ที่คุณต้องการ
-4. เพิ่มสไลด์เปล่าตามเค้าโครงสไลด์ใหม่
-5. บันทึกงานนำเสนอ
+- การเปลี่ยนการจัดรูปแบบที่สืบทอดหรือรูปทรงตั๋วตำแหน่งที่มีอยู่บนเค้าโครงอาจอัปเดตทุกสไลด์ที่พึ่งพาเค้าโครงนั้น ก่อนแก้ไขเค้าโครงที่กำลังใช้อยู่ให้ตรวจสอบสไลด์ที่พึ่งพาและทบทวนผลลัพธ์ของงานนำเสนอ
+- เค้าโครงที่ยังคงถูกสไลด์ใช้ไม่สามารถลบได้ ต้องเปลี่ยนสไลด์ที่พึ่งพาไปยังเค้าโครงอื่นก่อน หรือเพียงลบเค้าโครงที่ไม่ได้ใช้งาน
 
-โค้ด JavaScript ต่อไปนี้แสดงวิธีเพิ่มเค้าโครงสไลด์ไปยังงานนำเสนอ PowerPoint:
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับระดับบนสุดของลำดับชั้นนี้ ดูที่ [Slide Master](/slides/th/nodejs-java/slide-master/)
 
-```js
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PowerPoint.
-let presentation = new aspose.slides.Presentation("Sample.pptx");
+## **เลือกและนำไปใช้เค้าโครงสไลด์**
+
+ใช้ค่า [SlideLayoutType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slidelayouttype/) เมื่องานนำปฏิบัติตามคำนิยามเค้าโครง PowerPoint มาตรฐาน ชื่อเค้าโครงสามารถแก้ไขได้โดยผู้ใช้และสามารถแปลเป็นภาษาต่าง ๆ ดังนั้นการเลือกโดยอิงชื่อจึงน้อยกว่าเชื่อถือได้ เว้นแต่คุณจะควบคุมเทมเพลตต้นทาง
+
+ตัวอย่างต่อไปนี้ค้นหา **Title and Content** บนสไลด์แม่แรก หากไม่มีเค้าโครงนั้นจะย้อนกลับไปใช้ **Blank** อย่างเจตนา การตรวจสอบค่า null ครั้งที่สองเป็นสิ่งจำเป็นเพราะงานนำเสนออาจมีเฉพาะเค้าโครงที่กำหนดเองเท่านั้น เค้าโครงที่เลือกจะถูกนำไปใช้กับสไลด์ปกติแรกผ่านวิธี [Slide.setLayoutSlide](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slide/#setLayoutSlide)
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // ตรวจสอบประเภทเค้าโครงสไลด์เพื่อเลือกเค้าโครงสไลด์.
     let layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
-    let layoutSlide = null;
-    if (layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject)) != null) {
-        layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject));
-    } else {
-        layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.Title));
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let targetLayout = layoutSlides.getByType(titleAndObjectLayoutType);
+
+    if (targetLayout === null) {
+        targetLayout = layoutSlides.getByType(blankLayoutType);
     }
 
-    if (layoutSlide == null) {
-        // สถานการณ์ที่งานนำเสนอไม่มีเค้าโครงทุกรูปแบบ.
-        // ไฟล์งานนำเสนอมีเพียงเค้าโครงประเภท Blank และ Custom เท่านั้น.
-        // อย่างไรก็ตาม เค้าโครงสไลด์ที่เป็นประเภท custom อาจมีชื่อที่จำได้,
-        // เช่น "Title", "Title and Content" เป็นต้น ซึ่งสามารถใช้เพื่อเลือกเค้าโครงสไลด์ได้.
-        // คุณยังสามารถอาศัยชุดประเภทรูปร่างตัวเก็บตำแหน่งได้.
-        // ตัวอย่างเช่น สไลด์ Title ควรมีเพียงประเภทตัวเก็บตำแหน่ง Title เท่านั้น เป็นต้น.
-        for (let i = 0; i < layoutSlides.size(); i++) {
-            let titleAndObjectLayoutSlide = layoutSlides.get_Item(i);
-            if (titleAndObjectLayoutSlide.getName() === "Title and Object") {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null) {
-            for (let i = 0; i < layoutSlides.size(); i++) {
-                let titleLayoutSlide = layoutSlides.get_Item(i);
-                if (titleLayoutSlide.getName() === "Title") {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
-                if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject), "Title and Object");
-                }
-            }
-        }
+    if (targetLayout === null) {
+        throw new Error("The first master does not contain a suitable layout slide.");
     }
 
-    // เพิ่มสไลด์เปล่าโดยใช้เค้าโครงสไลด์ที่เพิ่มไว้.
-    presentation.getSlides().insertEmptySlide(0, layoutSlide);
-
-    // บันทึกงานนำเสนอลงดิสก์.
-    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.getSlides().get_Item(0).setLayoutSlide(targetLayout);
+    presentation.save("output-with-new-layout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **ลบเค้าโครงสไลด์ที่ไม่ได้ใช้**
+การเปลี่ยนเค้าโครงของสไลด์จะไม่ลบรูปร่างปกติที่เพิ่มโดยตรงลงบนสไลด์ อย่างไรก็ตามตำแหน่งตั๋วตำแหน่ง, การจัดรูปแบบที่สืบทอด, และความสอดคล้องระหว่างตั๋วตำแหน่งที่มีอยู่กับเค้าโครงใหม่อาจเปลี่ยนแปลง ดังนั้นให้ตรวจสอบผลลัพธ์เมื่อสลับไปมาระหว่างเค้าโครงที่แตกต่างกันอย่างชัดเจน
 
-Aspose.Slides ให้วิธีการ [removeUnusedLayoutSlides](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) จากคลาส [Compress](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/compress/) เพื่อให้คุณลบเค้าโครงสไลด์ที่ไม่ต้องการและไม่ได้ใช้
+## **เพิ่มสไลด์เค้าโครง**
 
-โค้ด JavaScript ต่อไปนี้แสดงวิธีลบเค้าโครงสไลด์จากงานนำเสนอ PowerPoint:
+การเลือกและการสร้างเป็นการดำเนินการแยกกัน ตัวอย่างก่อนหน้านี้เลือกเค้าโครงที่มีอยู่แล้ว; ไม่ได้สร้างเค้าโครงใหม่ เพื่อสร้างเค้าโครงให้เรียกใช้วิธี [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masterlayoutslidecollection/#add) บนคอลเลกชันเค้าโครงของสไลด์แม่เป้าหมาย
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+ตัวอย่างต่อไปนี้จะเพิ่มเค้าโครง **Title and Content** ใหม่ที่ชื่อ `Report Title and Content` เสมอ แล้วจึงเพิ่มสไลด์ปกติที่อิงตามเค้าโครงนั้น ชื่อเค้าโครงต้องไม่ซ้ำในคอลเลกชัน
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    aspose.slides.Compress.removeUnusedLayoutSlides(presentation);
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let reportLayout = masterSlide.getLayoutSlides().add(titleAndObjectLayoutType, "Report Title and Content");
+    presentation.getSlides().addEmptySlide(reportLayout);
+
+    presentation.save("output-with-report-layout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **เพิ่มตัวเก็บตำแหน่งลงในเค้าโครงสไลด์**
+เพิ่มเค้าโครงเฉพาะเมื่อเทมเพลตต้องการโครงสร้างที่ใช้ซ้ำได้จริง หากมีเค้าโครงที่เหมาะสมอยู่แล้ว ให้เลือกและใช้ซ้ำแทนการสร้างสำเนาใหม่
 
-Aspose.Slides ให้วิธีการ [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager) ซึ่งช่วยให้คุณเพิ่มตัวเก็บตำแหน่งใหม่ลงในเค้าโครงสไลด์
+## **เพิ่มตั๋วตำแหน่งลงในสไลด์เค้าโครง**
 
-ผู้จัดการนี้มีวิธีการสำหรับประเภทตัวเก็บตำแหน่งต่อไปนี้:
+วิธี [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager) ให้บริการ [LayoutPlaceholderManager](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/layoutplaceholdermanager/) สำหรับการเพิ่มรูปร่างตั๋วตำแหน่งลงในเค้าโครง
 
-| ตัวเก็บตำแหน่ง PowerPoint | เมธอด [LayoutPlaceholderManager](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/layoutplaceholdermanager/) |
-| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| ![เนื้อหา](content.png) | addContentPlaceholder(float x, float y, float width, float height) |
-| ![เนื้อหา (แนวตั้ง)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![ข้อความ](text.png) | addTextPlaceholder(float x, float y, float width, float height) |
-| ![ข้อความ (แนวตั้ง)](textV.png) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![รูปภาพ](picture.png) | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![แผนภูมิ](chart.png) | addChartPlaceholder(float x, float y, float width, float height) |
-| ![ตาราง](table.png) | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![สื่อ](media.png) | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![รูปภาพออนไลน์](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| Placeholder ของ PowerPoint | วิธีการ `LayoutPlaceholderManager` |
+| ---------------------------- | ----------------------------------- |
+| ![Content](content.png) | [`addContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![Content (Vertical)](contentV.png) | [`addVerticalContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![Text](text.png) | [`addTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Text (Vertical)](textV.png) | [`addVerticalTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Picture](picture.png) | [`addPicturePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Chart](chart.png) | [`addChartPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Table](table.png) | [`addTablePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Media](media.png) | [`addMediaPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Online Image](onlineImage.png) | [`addOnlineImagePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-โค้ด JavaScript ต่อไปนี้แสดงวิธีเพิ่มรูปทรงตัวเก็บตำแหน่งใหม่ลงในเค้าโครงสไลด์ Blank:
+ตัวอย่างต่อไปนี้ตรวจสอบว่าเค้าโครง **Blank** มีอยู่ แล้วเพิ่มตั๋วตำแหน่งสี่รายการลงในเค้าโครงนั้น จากนั้นสร้างสไลด์ปกติที่ใช้เค้าโครงที่แก้ไขแล้ว ลำดับการทำงานตั้งใจให้เพิ่มตั๋วตำแหน่งก่อนสร้างสไลด์ปกติ เพื่อให้ Aspose.Slides สามารถสร้างรูปร่างตั๋วตำแหน่งที่สอดคล้องกันบนสไลด์นั้น
 
-```js
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation();
 try {
-    // รับเค้าโครงสไลด์ Blank.
-    let layout = presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let blankLayout = presentation.getLayoutSlides().getByType(blankLayoutType);
 
-    // รับตัวจัดการตัวเก็บตำแหน่งของเค้าโครงสไลด์.
-    let placeholderManager = layout.getPlaceholderManager();
+    if (blankLayout === null) {
+        throw new Error("The presentation does not contain a Blank layout slide.");
+    }
 
-    // เพิ่มตัวเก็บตำแหน่งต่าง ๆ ลงในเค้าโครงสไลด์ Blank.
+    let placeholderManager = blankLayout.getPlaceholderManager();
     placeholderManager.addContentPlaceholder(20, 20, 310, 270);
     placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
     placeholderManager.addChartPlaceholder(20, 310, 310, 180);
     placeholderManager.addTablePlaceholder(350, 310, 350, 180);
 
-    // เพิ่มสไลด์ใหม่โดยใช้เค้าโครง Blank.
-    let newSlide = presentation.getSlides().addEmptySlide(layout);
-
-    presentation.save("Placeholders.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.getSlides().addEmptySlide(blankLayout);
+    presentation.save("output-with-placeholders.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -182,73 +169,87 @@ try {
 
 ผลลัพธ์:
 
-![ตัวเก็บตำแหน่งบนเค้าโครงสไลด์](add_placeholders.png)
+![The placeholders on the layout slide](add_placeholders.png)
 
-## **ตั้งค่าการมองเห็นส่วนท้ายสำหรับเค้าโครงสไลด์**
+{{% alert color="warning" title="Warning" %}}
+การเปลี่ยนการจัดรูปแบบที่สืบทอดหรือรูปทรงของตั๋วตำแหน่งเค้าโครงที่มีอยู่สามารถส่งผลต่อสไลด์ที่พึ่งพาได้ ตั๋วตำแหน่งเค้าโครงที่เพิ่มใหม่จะไม่ถูกเติมกลับเข้าสู่สไลด์ปกติที่มีอยู่แล้ว ให้ทดสอบการเปลี่ยนแปลงเค้าโครงบนสำเนาของงานนำเสนอและตรวจสอบสไลด์ที่พึ่งพาทุกสไลด์
+{{% /alert %}}
 
-ในงานนำเสนอ PowerPoint, ส่วนท้ายเช่น วันที่, หมายเลขสไลด์, และข้อความที่กำหนดเองสามารถแสดงหรือซ่อนได้ขึ้นอยู่กับเค้าโครงสไลด์ Aspose.Slides for Node.js ให้คุณควบคุมการมองเห็นของตัวเก็บตำแหน่งส่วนท้ายเหล่านี้ ซึ่งเป็นประโยชน์เมื่อคุณต้องการให้บางเค้าโครงแสดงข้อมูลส่วนท้ายในขณะที่เค้าโครงอื่น ๆ ดูสะอาดและเรียบง่าย
+## **ลบสไลด์เค้าโครงที่ไม่ได้ใช้**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/)
-2. รับอ้างอิงเค้าโครงสไลด์ตามดัชนี
-3. ตั้งค่าตัวเก็บตำแหน่งส่วนท้ายของสไลด์ให้เป็นแบบมองเห็น
-4. ตั้งค่าตัวเก็บตำแหน่งหมายเลขสไลด์ให้เป็นแบบมองเห็น
-5. ตั้งค่าตัวเก็บตำแหน่งวันที่‑เวลาให้เป็นแบบมองเห็น
-6. บันทึกงานนำเสนอ
+ใช้วิธี [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) เพื่อลบเค้าโครงที่ไม่มีสไลด์ปกติอ้างอิง วิธีนี้จะละทิ้งเค้าโครงที่ยังคงใช้งานอยู่
 
-โค้ด JavaScript ต่อไปนี้แสดงวิธีตั้งค่าการมองเห็นของส่วนท้ายสไลด์และทำงานที่เกี่ยวข้อง:
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.ppt");
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    let headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
-
-    if (!headerFooterManager.isFooterVisible()) {
-        headerFooterManager.setFooterVisibility(true);
-    }
-
-    if (!headerFooterManager.isSlideNumberVisible()) {
-        headerFooterManager.setSlideNumberVisibility(true);
-    }
-
-    if (!headerFooterManager.isDateTimeVisible()) {
-        headerFooterManager.setDateTimeVisibility(true);
-    }
-
-    headerFooterManager.setFooterText("Footer text");
-    headerFooterManager.setDateTimeText("Date and time text");
-
-    presentation.save("Presentation.ppt", aspose.slides.SaveFormat.Ppt);
+    aspose.slides.Compress.removeUnusedLayoutSlides(presentation);
+    presentation.save("output-without-unused-layouts.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **ตั้งค่าการมองเห็นส่วนท้ายของลูกสำหรับสไลด์**
+เพื่อทำการลบเค้าโครงเฉพาะหนึ่งรายการ ให้ใช้วิธี [hasDependingSlides](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/layoutslide/#hasDependingSlides) หรือ [getDependingSlides](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/layoutslide/#getDependingSlides) ก่อน ย้ายสไลด์ที่พึ่งพาไปยังเค้าโครงอื่นก่อนเรียก [LayoutSlide.remove](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/layoutslide/#remove) การพยายามลบเค้าโครงที่กำลังใช้งานจะทำให้เกิด [PptxEditException](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pptxeditexception/)
 
-ในงานนำเสนอ PowerPoint, ส่วนท้ายเช่น วันที่, หมายเลขสไลด์, และข้อความที่กำหนดเองสามารถควบคุมได้ระดับมาสเตอร์สไลด์เพื่อให้แน่ใจว่ามีความสอดคล้องกันทั่วทั้งเค้าโครงสไลด์ Aspose.Slides for Node.js ช่วยให้คุณตั้งค่าการมองเห็นและเนื้อหาของตัวเก็บตำแหน่งส่วนท้ายเหล่านี้บนมาสเตอร์สไลด์และกระจายการตั้งค่าเหล่านั้นไปยังเค้าโครงสไลด์ลูกทั้งหมด วิธีการนี้ทำให้ข้อมูลส่วนท้ายเป็นแบบเดียวกันทั่วทั้งการนำเสนอ
+## **ควบคุมการแสดงผลส่วนท้ายบนสไลด์เค้าโครง**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/)
-2. รับอ้างอิงมาสเตอร์สไลด์ตามดัชนี
-3. ตั้งค่าตัวเก็บตำแหน่งส่วนท้ายของมาสเตอร์และเค้าโครงลูกให้เป็นแบบมองเห็น
-4. ตั้งค่าตัวเก็บตำแหน่งหมายเลขสไลด์ของมาสเตอร์และเค้าโครงลูกให้เป็นแบบมองเห็น
-5. ตั้งค่าตัวเก็บตำแหน่งวันที่‑เวลาของมาสเตอร์และเค้าโครงลูกให้เป็นแบบมองเห็น
-6. บันทึกงานนำเสนอ
+เค้าโครงมีส่วนท้าย, ตัวเลขสไลด์, และตั๋วตำแหน่งวันที่‑เวลา ของตนเอง ใช้วิธี [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/layoutslide/#getHeaderFooterManager) เพื่อควบคุมตั๋วตำแหน่งเหล่านั้นสำหรับเค้าโครงหนึ่ง ๆ นี่เป็นประโยชน์เมื่อเช่น เค้าโครงเนื้อหาควรแสดงส่วนท้ายแต่เค้าโครงชื่อเรื่องไม่ควรแสดง
 
-โค้ด JavaScript ต่อไปนี้แสดงการดำเนินการนี้:
+ตัวอย่างต่อไปนี้เลือกเค้าโครงอย่างปลอดภัยและทำให้ส่วนท้ายของมันแสดงผล
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.ppt");
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let layoutSlide = presentation.getLayoutSlides().getByType(titleAndObjectLayoutType);
+
+    if (layoutSlide === null) {
+        layoutSlide = presentation.getLayoutSlides().getByType(blankLayoutType);
+    }
+
+    if (layoutSlide === null) {
+        throw new Error("The presentation does not contain a suitable layout slide.");
+    }
+
+    let headerFooterManager = layoutSlide.getHeaderFooterManager();
+    headerFooterManager.setFooterVisibility(true);
+    headerFooterManager.setSlideNumberVisibility(true);
+    headerFooterManager.setDateTimeVisibility(true);
+    headerFooterManager.setFooterText("Footer text");
+    headerFooterManager.setDateTimeText("Date and time text");
+
+    presentation.save("output-with-layout-footers.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **ควบคุมการแสดงผลส่วนท้ายบนสไลด์แม่และเค้าโครงลูกของมัน**
+
+เพื่อใช้การตั้งค่าส่วนท้ายอย่างสอดคล้องกันทั่วทั้งลำดับชั้นสไลด์แม่ ให้ใช้วิธี [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masterslide/#getHeaderFooterManager) วิธีการเผยแพร่ของ [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masterslideheaderfootermanager/) ทำงานบนสไลด์แม่และสไลด์เค้าโครงและสไลด์ปกติที่พึ่งพา; ไม่ได้มุ่งเป้าแค่สไลด์ปกติหนึ่งสไลด์
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
     let headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-
     headerFooterManager.setFooterAndChildFootersVisibility(true);
     headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
     headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
-
     headerFooterManager.setFooterAndChildFootersText("Footer text");
     headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
 
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("output-with-master-footers.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -256,14 +257,20 @@ try {
 
 ## **คำถามที่พบบ่อย**
 
-**ความแตกต่างระหว่างมาสเตอร์สไลด์และเค้าโครงสไลด์คืออะไร?**
+**ความแตกต่างระหว่างสไลด์แม่และสไลด์เค้าโครงคืออะไร?**
 
-มาสเตอร์สไลด์กำหนดธีมโดยรวมและการจัดรูปแบบเริ่มต้น ในขณะที่เค้าโครงสไลด์กำหนดการจัดเรียงเฉพาะของตัวเก็บตำแหน่งสำหรับประเภทเนื้อหาต่าง ๆ
+สไลด์แม่กำหนดธีมและการจัดรูปแบบที่ใช้ร่วมกันของงานนำเสนอ สไลด์เค้าโครงเป็นส่วนหนึ่งของสไลด์แม่และกำหนดการจัดวางตั๋วตำแหน่งที่ใช้ซ้ำได้ สไลด์ปกติใช้เค้าโครงเหล่านั้นและเก็บเนื้อหาเฉพาะสไลด์
 
-**ฉันสามารถคัดลอกเค้าโครงสไลด์จากงานนำเสนอหนึ่งไปยังอีกงานนำเสนอหนึ่งได้หรือไม่?**
+**ฉันสามารถคัดลอกสไลด์เค้าโครงจากงานนำเสนอหนึ่งไปยังอีกงานนำเสนอได้หรือไม่?**
 
-ใช่ คุณสามารถโคลนเค้าโครงสไลด์จากคอลเลกชันเค้าโครงสไลด์ของงานนำเสนอหนึ่งโดยใช้วิธี [getLayoutSlides](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/#getLayoutSlides) แล้วแทรกเข้าไปในงานนำเสนออื่นโดยใช้เมธอด `addClone`
+ทำได้ ให้เพิ่มสำเนาไปยังคอลเลกชันปลายทางด้วยวิธี [addClone](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/globallayoutslidecollection/#addClone) เมื่อคัดลอกระหว่างงานนำเสนอให้ตรวจสอบแบบอักษร, ธีม, รูปภาพและทรัพยากรอื่น ๆ ที่ใช้โดยเค้าโครงต้นทางด้วย
 
-**จะเกิดอะไรขึ้นหากฉันลบเค้าโครงสไลด์ที่ยังถูกสไลด์ใช้งานอยู่?**
+**จะเกิดอะไรขึ้นเมื่อฉันแก้ไขเค้าโครงที่กำลังใช้อยู่แล้ว?**
 
-หากคุณพยายามลบเค้าโครงสไลด์ที่ยังอ้างอิงโดยอย่างน้อยหนึ่งสไลด์ในงานนำเสนอ Aspose.Slides จะโยนข้อยกเว้น [PptxEditException](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pptxeditexception/) เพื่อหลีกเลี่ยงปัญหานี้ ให้ใช้ [removeUnusedLayoutSlides](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) ซึ่งจะลบเค้าโครงสไลด์ที่ไม่ได้ใช้งานอย่างปลอดภัย
+สไลด์ที่พึ่งพาจะสืบทอดการเปลี่ยนแปลงเค้าโครง เว้นแต่พวกเขาจะทับการจัดรูปแบบหรือวัตถุที่ได้รับผลกระทบไว้ในระดับท้องถิ่น รูปร่างตั๋วตำแหน่งและสไตล์ที่สืบทอดอาจเปลี่ยนแปลงบนหลายสไลด์พร้อมกัน ใช้วิธี [getDependingSlides](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/layoutslide/#getDependingSlides) เพื่อระบุสไลด์ที่ได้รับผลกระทบก่อนแก้ไขเค้าโครง
+
+**จะเกิดอะไรขึ้นหากฉันลบเค้าโครงที่ยังคงถูกใช้งานอยู่?**
+
+Aspose.Slides จะโยง [PptxEditException](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pptxeditexception/) ให้ย้ายสไลด์ที่พึ่งพาไปยังเค้าโครงอื่นก่อน หรือตัวเลือกใช้ [removeUnusedLayoutSlides](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) เพื่อลบเฉพาะเค้าโครงที่ไม่มีการอ้างอิง
+
+{{% /alert %}}

@@ -1,178 +1,162 @@
 ---
-title: PHP में स्लाइड लेआउट लागू या बदलें
-linktitle: स्लाइड लेआउट
+title: "PHP में स्लाइड लेआउट लागू करें या बदलें"
+linktitle: "स्लाइड लेआउट"
 type: docs
 weight: 60
 url: /hi/php-java/slide-layout/
 keywords:
 - स्लाइड लेआउट
-- सामग्री लेआउट
+- कंटेंट लेआउट
 - प्लेसहोल्डर
 - प्रस्तुति डिज़ाइन
 - स्लाइड डिज़ाइन
-- अनुपयोगी लेआउट
-- फ़ुटर दृश्यमानता
+- उपयोग न किया गया लेआउट
+- फुटर दृश्यता
 - टाइटल स्लाइड
-- टाइटल और सामग्री
+- टाइटल और कंटेंट
 - सेक्शन हेडर
-- दो सामग्री
+- दो कंटेंट
 - तुलना
-- केवल टाइटल
-- ब्लैंक लेआउट
-- कैप्शन के साथ सामग्री
-- कैप्शन के साथ चित्र
-- टाइटल और ऊर्ध्वाधर टेक्स्ट
-- ऊर्ध्वाधर टाइटल और टेक्स्ट
+- टाइटल केवल
+- खाली लेआउट
+- कैप्शन वाला कंटेंट
+- कैप्शन वाली तस्वीर
+- टाइटल और वर्टिकल टेक्स्ट
+- वर्टिकल टाइटल और टेक्स्ट
 - PowerPoint
 - OpenDocument
 - प्रस्तुति
 - PHP
 - Aspose.Slides
-description: "Java के माध्यम से PHP के लिए Aspose.Slides में स्लाइड लेआउट को प्रबंधित और अनुकूलित करें। कोड उदाहरणों के साथ लेआउट प्रकार, प्लेसहोल्डर नियंत्रण और फ़ुटर दृश्यमानता का अन्वेषण करें।"
+description: "Aspose.Slides for PHP (Java के माध्यम से) में स्लाइड लेआउट लागू करें, बनाएँ और संशोधित करें, प्लेसहोल्डर जोड़ें, उपयोग न किए गए लेआउट हटाएँ, और फुटर दृश्यता नियंत्रित करें।"
 ---
-## **परिचय**
+## **समीक्षा**
 
-एक स्लाइड लेआउट स्लाइड पर सामग्री के लिए प्लेसहोल्डर बॉक्स और फॉर्मेटिंग की व्यवस्था को परिभाषित करता है। यह निर्धारित करता है कि कौन से प्लेसहोल्डर उपलब्ध हैं और वे कहाँ दिखाई देते हैं। स्लाइड लेआउट आपको तेज़ और सुसंगत प्रस्तुति बनाने में मदद करते हैं—चाहे आप कुछ सरल बना रहे हों या अधिक जटिल। PowerPoint में सबसे सामान्य स्लाइड लेआउट में शामिल हैं:
+एक स्लाइड लेआउट प्लेसहोल्डर जैसे शीर्षक, पाठ, चित्र, चार्ट और तालिकाओं की स्थितियों और स्वरूपण को निर्धारित करता है। लेआउट लागू करने से स्लाइड्स में एक समान संरचना बनती है जबकि प्रत्येक स्लाइड अपना स्वयं का सामग्री रख सकता है।
 
-**Title Slide layout** – दो टेक्स्ट प्लेसहोल्डर शामिल करता है: एक शीर्षक के लिए और एक उपशीर्षक के लिए।
+सबसे सामान्य लेआउट शामिल हैं:
 
-**Title and Content layout** – शीर्ष पर एक छोटा शीर्षक प्लेसहोल्डर और नीचे मुख्य सामग्री (जैसे टेक्स्ट, बुलेट पॉइंट, चार्ट, चित्र आदि) के लिए बड़ा प्लेसहोल्डर।
+- **Title Slide**: शीर्षक और उपशीर्षक प्लेसहोल्डर शामिल करता है।
+- **Title and Content**: शीर्षक प्लेसहोल्डर और एक सामान्य प्रयोजन कंटेंट प्लेसहोल्डर शामिल करता है।
+- **Blank**: कोई कंटेंट प्लेसहोल्डर नहीं होता और जब प्रत्येक आकार को हस्तचालित रूप से स्थित किया जाएगा तब यह उपयोगी है।
 
-**Blank layout** – कोई प्लेसहोल्डर नहीं होता, जिससे आप स्लाइड को शुरू से डिज़ाइन कर सकते हैं।
+## **लेआउट विरासत को समझें**
 
-स्लाइड लेआउट स्लाइड मास्टर का हिस्सा होते हैं, जो प्रस्तुति के लिए लेआउट शैलियों को परिभाषित करने वाला शीर्ष‑स्तरीय स्लाइड है। आप स्लाइड मास्टर के माध्यम से लेआउट स्लाइड्स तक पहुँच और उन्हें संशोधित कर सकते हैं—उनके प्रकार, नाम या अद्वितीय ID से। वैकल्पिक रूप से, आप प्रस्तुति के भीतर किसी विशिष्ट लेआउट स्लाइड को सीधे संपादित कर सकते हैं।
+एक प्रस्तुति में तीन संबंधित स्तर होते हैं:
 
-Aspose.Slides for PHP में स्लाइड लेआउट के साथ काम करने के लिए आप उपयोग कर सकते हैं:
+1. एक [master slide](https://reference.aspose.com/slides/hi/php-java/aspose.slides/masterslide/) थीम, साझा स्वरूपण, पृष्ठभूमि, और सामान्य वस्तुओं को परिभाषित करता है।
+1. एक [layout slide](https://reference.aspose.com/slides/hi/php-java/aspose.slides/layoutslide/) मास्टर का भाग होता है और प्लेसहोल्डरों की विशिष्ट व्यवस्था को परिभाषित करता है।
+1. एक [normal slide](https://reference.aspose.com/slides/hi/php-java/aspose.slides/slide/) एक लेआउट का उपयोग करता है और उस स्लाइड के लिए दर्ज किया गया कंटेंट संग्रहीत करता है।
 
-- वह मेथड्स जैसे [getLayoutSlides](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/#getLayoutSlides) और [getMasters](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/#getMasters) जो [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास के तहत उपलब्ध हैं
-- प्रकार जैसे [LayoutSlide](https://reference.aspose.com/slides/hi/php-java/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/hi/php-java/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/hi/php-java/aspose.slides/layoutplaceholdermanager/), और [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/hi/php-java/aspose.slides/layoutslideheaderfootermanager/)
+एक normal slide अपना थीम और स्वरूपण अपने लेआउट से विरासत में प्राप्त करता है, और लेआउट अपने मास्टर से विरासत में प्राप्त करता है। normal slide पर सीधे सेट किया गया मान उस स्तर पर विरासत मान को ओवरराइड करता है। जब एक normal slide बनाई जाती है, तो उसके प्लेसहोल्डर शैलियों को चयनित लेआउट से उत्पन्न किया जाता है, जबकि उन प्लेसहोल्डरों में दर्ज किया गया कंटेंट normal slide का हिस्सा होता है।
 
-{{% alert title="Info" color="info" %}}
-मास्टर स्लाइड्स के साथ काम करने के बारे में अधिक जानने के लिए, [Slide Master](/slides/hi/php-java/slide-master/) लेख देखें।
-{{% /alert %}}
+लेआउट से स्लाइड्स बनाने से पहले आवश्यक प्लेसहोल्डर जोड़ें। बाद में लेआउट में दूसरा प्लेसहोल्डर जोड़ने से मौजूदा normal स्लाइड्स में स्वचालित रूप से संबंधित प्लेसहोल्डर शैलियां नहीं जुड़ती हैं।
 
-## **प्रस्तुति में स्लाइड लेआउट जोड़ें**
+इस संबंध के दो महत्वपूर्ण परिणाम हैं:
 
-अपनी स्लाइड्स की उपस्थिति और संरचना को अनुकूलित करने के लिए आपको नई लेआउट स्लाइड्स जोड़ने की आवश्यकता हो सकती है। Aspose.Slides for PHP आपको यह जांचने की सुविधा देता है कि कोई विशेष लेआउट पहले से मौजूद है या नहीं, आवश्यकता होने पर नया लेआउट जोड़ें, और उसे उपयोग करके उस लेआउट के आधार पर स्लाइड सम्मिलित करें।
+- लेआउट पर विरासत स्वरूपण या मौजूदा प्लेसहोल्डर ज्यामिति बदलने से उन सभी स्लाइड्स को अपडेट किया जा सकता है जो उस पर निर्भर हैं। उपयोग में पहले से मौजूद लेआउट को संपादित करने से पहले, उसकी निर्भर स्लाइड्स की जांच करें और परिणामी प्रस्तुति की समीक्षा करें।
+- वह लेआउट जो अभी भी किसी स्लाइड द्वारा उपयोग में है, उसे हटाया नहीं जा सकता। पहले उसकी निर्भर स्लाइड्स को किसी अन्य लेआउट में पुनः असाइन करें, या केवल अनउपयोगित लेआउट्स को हटाएँ।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-1. [MasterLayoutSlideCollection](https://reference.aspose.com/slides/hi/php-java/aspose.slides/masterlayoutslidecollection/) तक पहुँच प्राप्त करें।
-1. जाँचें कि वांछित लेआउट स्लाइड संग्रह में पहले से मौजूद है या नहीं। यदि नहीं, तो आवश्यक लेआउट स्लाइड जोड़ें।
-1. नई लेआउट स्लाइड के आधार पर एक खाली स्लाइड जोड़ें।
-1. प्रस्तुति को सहेजें।
+इस पदानुक्रम के शीर्ष स्तर के बारे में अधिक जानकारी के लिए, देखें [Slide Master](/slides/hi/php-java/slide-master/)।
 
-नीचे PHP कोड दिखाता है कि PowerPoint प्रस्तुति में स्लाइड लेआउट कैसे जोड़ें:
+## **स्लाइड लेआउट चुनें और लागू करें**
+
+जब प्रस्तुति मानक PowerPoint लेआउट परिभाषाओं का पालन करती है, तो लेआउट प्रकार का उपयोग करें। लेआउट नाम उपयोगकर्ता द्वारा संपादित किए जा सकते हैं और स्थानीयकृत हो सकते हैं, इसलिए स्रोत टेम्पलेट को नियंत्रित न करने पर नाम-आधारित चयन कम भरोसेमंद होता है।
+
+निम्न उदाहरण पहले मास्टर पर **Title and Content** की खोज करता है। यदि वह लेआउट उपलब्ध नहीं है, तो जानबूझकर **Blank** पर वापस जाता है। दूसरा null जांच आवश्यक है क्योंकि एक प्रस्तुति में केवल कस्टम लेआउट हो सकते हैं। चयनित लेआउट फिर पहले normal स्लाइड पर [Slide.setLayoutSlide](https://reference.aspose.com/slides/hi/php-java/aspose.slides/slide/#setLayoutSlide) मेथड द्वारा लागू किया जाता है।
 
 ```php
-// PowerPoint फ़ाइल का प्रतिनिधित्व करने वाले Presentation क्लास का इंस्टैंस बनाएं।
-$presentation = new Presentation("Sample.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
 try {
-    // लेआउट स्लाइड प्रकारों के माध्यम से जाएँ ताकि एक लेआउट स्लाइड चुन सकें।
     $layoutSlides = $presentation->getMasters()->get_Item(0)->getLayoutSlides();
-    $layoutSlide = null;
-    if (!java_is_null($layoutSlides->getByType(SlideLayoutType::TitleAndObject))) {
-        $layoutSlide = $layoutSlides->getByType(SlideLayoutType::TitleAndObject);
-    } else {
-        $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Title);
+    $targetLayout = $layoutSlides->getByType(SlideLayoutType::TitleAndObject);
+
+    if (java_is_null($targetLayout)) {
+        $targetLayout = $layoutSlides->getByType(SlideLayoutType::Blank);
     }
 
-    if (java_is_null($layoutSlide)) {
-        // ऐसी स्थिति जहाँ प्रस्तुति में सभी लेआउट प्रकार शामिल नहीं होते।
-        // प्रस्तुति फ़ाइल में केवल ब्लैंक और कस्टम लेआउट प्रकार होते हैं।
-        // हालाँकि, कस्टम प्रकार वाली लेआउट स्लाइड्स की पहचान योग्य नाम हो सकते हैं,
-        // जैसे "Title", "Title and Content" आदि, जिन्हें लेआउट स्लाइड चयन के लिए उपयोग किया जा सकता है।
-        // आप प्लेसहोल्डर आकार प्रकारों के एक सेट पर भी निर्भर कर सकते हैं।
-        // उदाहरण के लिये, एक Title स्लाइड में केवल Title प्लेसहोल्डर प्रकार होना चाहिए, आदि।
-        foreach($layoutSlides as $titleAndObjectLayoutSlide) {
-            if (java_values($titleAndObjectLayoutSlide->getName()) == "Title and Object") {
-                $layoutSlide = $titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (java_is_null($layoutSlide)) {
-            foreach($layoutSlides as $titleLayoutSlide) {
-                if (java_values($titleLayoutSlide->getName()) == "Title") {
-                    $layoutSlide = $titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (java_is_null($layoutSlide)) {
-                $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Blank);
-                if (java_is_null($layoutSlide)) {
-                    $layoutSlide = $layoutSlides->add(SlideLayoutType::TitleAndObject, "Title and Object");
-                }
-            }
-        }
+    if (java_is_null($targetLayout)) {
+        throw new \RuntimeException("The first master does not contain a suitable layout slide.");
     }
 
-    // जोड़े गए लेआउट स्लाइड का उपयोग करके एक खाली स्लाइड जोड़ें।
-    $presentation->getSlides()->insertEmptySlide(0, $layoutSlide);
-
-    // प्रस्तुति को डिस्क पर सहेजें।
-    $presentation->save("output.pptx", SaveFormat::Pptx);
+    $presentation->getSlides()->get_Item(0)->setLayoutSlide($targetLayout);
+    $presentation->save("output-with-new-layout.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **अनुपयोगी लेआउट स्लाइड हटाएँ**
+स्लाइड का लेआउट बदलने से स्लाइड पर सीधे जोड़े गए सामान्य आकार हटते नहीं हैं। हालांकि, प्लेसहोल्डर स्थितियां, विरासत स्वरूपण, और मौजूदा प्लेसहोल्डर और नए लेआउट के बीच का संबंध बदल सकता है, इसलिए विभिन्न लेआउट्स के बीच स्विच करते समय आउटपुट की जांच करें।
 
-Aspose.Slides [Compress](https://reference.aspose.com/slides/hi/php-java/aspose.slides/compress/) क्लास में उपलब्ध [removeUnusedLayoutSlides](https://reference.aspose.com/slides/hi/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) मेथड आपको अनावश्यक और अप्रयुक्त लेआउट स्लाइड्स को हटाने की सुविधा देता है।
+## **लेआउट स्लाइड जोड़ें**
 
-नीचे PHP कोड दिखाता है कि PowerPoint प्रस्तुति से लेआउट स्लाइड कैसे हटाएँ:
+चयन और निर्माण अलग-अलग संचालन हैं। पिछला उदाहरण मौजूदा लेआउट को चुनता है; यह नहीं बनाता। लेआउट बनाने के लिए लक्ष्य मास्टर के लेआउट संग्रह पर [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/hi/php-java/aspose.slides/masterlayoutslidecollection/#add) मेथड को कॉल करें।
+
+निम्न उदाहरण हमेशा `Report Title and Content` नामक नया **Title and Content** लेआउट जोड़ता है, फिर उस पर आधारित एक normal स्लाइड जोड़ता है। लेआउट नाम संग्रह के भीतर अद्वितीय होने चाहिए।
 
 ```php
-$presentation = new Presentation("Presentation.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
 try {
-    Compress::removeUnusedLayoutSlides($presentation);
-    $presentation->save("Output.pptx", SaveFormat::Pptx);
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $reportLayout = $masterSlide->getLayoutSlides()->add(SlideLayoutType::TitleAndObject, "Report Title and Content");
+    $presentation->getSlides()->addEmptySlide($reportLayout);
+
+    $presentation->save("output-with-report-layout.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
+
+टेम्पलेट को वास्तविक रूप से एक और पुन: प्रयोज्य संरचना की आवश्यकता होने पर ही लेआउट जोड़ें। यदि उपयुक्त लेआउट पहले से मौजूद है, तो नया बनाकर डुप्लिकेट बनाने की बजाय उसे चुनें और पुन: उपयोग करें।
 
 ## **लेआउट स्लाइड में प्लेसहोल्डर जोड़ें**
 
-Aspose.Slides [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/hi/php-java/aspose.slides/layoutslide/#getPlaceholderManager) मेथड प्रदान करता है, जिससे आप लेआउट स्लाइड में नए प्लेसहोल्डर जोड़ सकते हैं।
+[LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/hi/php-java/aspose.slides/layoutslide/#getPlaceholderManager) मेथड एक [LayoutPlaceholderManager](https://reference.aspose.com/slides/hi/php-java/aspose.slides/layoutplaceholdermanager/) प्रदान करता है जिससे लेआउट में प्लेसहोल्डर शैलियां जोड़ी जा सकती हैं।
 
-यह मैनेजर निम्नलिखित प्लेसहोल्डर प्रकारों के लिए मेथड्स शामिल करता है:
+| PowerPoint प्लेसहोल्डर | `LayoutPlaceholderManager` मेथड |
+| ----------------------- | -------------------------------- |
+| ![सामग्री](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/php-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![सामग्री (ऊर्ध्वाधर)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![पाठ](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/php-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![पाठ (ऊर्ध्वाधर)](textV.png) | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![चित्र](picture.png) | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/php-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![चार्ट](chart.png) | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/php-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![तालिका](table.png) | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/php-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/php-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![मीडिया](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/php-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![ऑनलाइन छवि](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/php-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-| PowerPoint प्लेसहोल्डर | [LayoutPlaceholderManager](https://reference.aspose.com/slides/hi/php-java/aspose.slides/layoutplaceholdermanager/) विधि |
-| ----------------------- | ------------------------------------------------------------------- |
-| ![सामग्री](content.png) | addContentPlaceholder(float x, float y, float width, float height) |
-| ![सामग्री (ऊर्ध्वाधर)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![टेक्स्ट](text.png) | addTextPlaceholder(float x, float y, float width, float height) |
-| ![टेक्स्ट (ऊर्ध्वाधर)](textV.png) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![चित्र](picture.png) | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![चार्ट](chart.png) | addChartPlaceholder(float x, float y, float width, float height) |
-| ![टेबल](table.png) | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![मीडिया](media.png) | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![ऑनलाइन चित्र](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
-
-नीचे PHP कोड दिखाता है कि Blank लेआउट स्लाइड में नए प्लेसहोल्डर आकार कैसे जोड़ें:
+निम्न उदाहरण जाँचता है कि **Blank** लेआउट मौजूद है, उसमें चार प्लेसहोल्डर जोड़ता है, और फिर इस संशोधित लेआउट का उपयोग करने वाली एक normal स्लाइड बनाता है। क्रम जानबूझकर रखा गया है: प्लेसहोल्डर को normal स्लाइड बनाने से पहले जोड़ा जाता है, ताकि Aspose.Slides उस स्लाइड पर संबंधित प्लेसहोल्डर शैलियां उत्पन्न कर सके।
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
 $presentation = new Presentation();
 try {
-    // Blank लेआउट स्लाइड प्राप्त करें।
-    $layout = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    $blankLayout = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
 
-    // लेआउट स्लाइड के प्लेसहोल्डर मैनेजर को प्राप्त करें।
-    $placeholderManager = $layout->getPlaceholderManager();
+    if (java_is_null($blankLayout)) {
+        throw new \RuntimeException("The presentation does not contain a Blank layout slide.");
+    }
 
-    // Blank लेआउट स्लाइड में विभिन्न प्लेसहोल्डर जोड़ें।
+    $placeholderManager = $blankLayout->getPlaceholderManager();
     $placeholderManager->addContentPlaceholder(20, 20, 310, 270);
     $placeholderManager->addVerticalTextPlaceholder(350, 20, 350, 270);
     $placeholderManager->addChartPlaceholder(20, 310, 310, 180);
     $placeholderManager->addTablePlaceholder(350, 310, 350, 180);
 
-    // Blank लेआउट के साथ एक नई स्लाइड जोड़ें।
-    $newSlide = $presentation->getSlides()->addEmptySlide($layout);
-
-    $presentation->save("Placeholders.pptx", SaveFormat::Pptx);
+    $presentation->getSlides()->addEmptySlide($blankLayout);
+    $presentation->save("output-with-placeholders.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
@@ -182,71 +166,82 @@ try {
 
 ![लेआउट स्लाइड पर प्लेसहोल्डर](add_placeholders.png)
 
-## **लेआउट स्लाइड के लिए फुटर दृश्यमानता सेट करें**
+{{% alert color="warning" title="चेतावनी" %}}
+विरासत स्वरूपण या मौजूदा लेआउट प्लेसहोल्डर की ज्यामिति बदलने से निर्भर स्लाइड्स प्रभावित हो सकती हैं। नए जोड़े गए लेआउट प्लेसहोल्डर मौजूदा normal स्लाइड्स में बैकफ़िल नहीं होते। लेआउट बदलावों को प्रस्तुति की एक प्रति पर परीक्षण करें और प्रत्येक निर्भर स्लाइड की जांच करें।
+{{% /alert %}}
 
-PowerPoint प्रस्तुतियों में तिथि, स्लाइड नंबर और कस्टम टेक्स्ट जैसी फुटर तत्वों को स्लाइड लेआउट के आधार पर दिखाया या छुपाया जा सकता है। Aspose.Slides for PHP आपको इन फुटर प्लेसहोल्डर की दृश्यमानता को नियंत्रित करने की सुविधा देता है। यह उपयोगी है जब आप कुछ लेआउट में फुटर दिखाना चाहते हैं जबकि अन्य को साफ़ रखना चाहते हैं।
+## **बिना उपयोग के लेआउट स्लाइड्स हटाएँ**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-1. उसके इंडेक्स के आधार पर एक लेआउट स्लाइड रेफ़रेंस प्राप्त करें।
-1. स्लाइड फुटर प्लेसहोल्डर को दृश्यमान के रूप में सेट करें।
-1. स्लाइड नंबर प्लेसहोल्डर को दृश्यमान के रूप में सेट करें।
-1. तिथि‑समय प्लेसहोल्डर को दृश्यमान के रूप में सेट करें।
-1. प्रस्तुति को सहेजें।
-
-नीचे PHP कोड दिखाता है कि स्लाइड फुटर की दृश्यमानता कैसे सेट करें और संबंधित कार्य करें:
+[Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/hi/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) मेथड का उपयोग करके उन लेआउट्स को हटाएँ जिनका कोई normal स्लाइड संदर्भ नहीं देता। यह मेथड उन लेआउट्स को बिना छुए रखता है जो अभी भी उपयोग में हैं।
 
 ```php
-$presentation = new Presentation("Presentation.ppt");
+use aspose\slides\Compress;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
 try {
-    $headerFooterManager = $presentation->getLayoutSlides()->get_Item(0)->getHeaderFooterManager();
-
-    if (!$headerFooterManager->isFooterVisible()) {
-        $headerFooterManager->setFooterVisibility(true);
-    }
-
-    if (!$headerFooterManager->isSlideNumberVisible()) {
-        $headerFooterManager->setSlideNumberVisibility(true);
-    }
-
-    if (!$headerFooterManager->isDateTimeVisible()) {
-        $headerFooterManager->setDateTimeVisibility(true);
-    }
-
-    $headerFooterManager->setFooterText("Footer text");
-    $headerFooterManager->setDateTimeText("Date and time text");
-
-    $presentation->save("Presentation.ppt", SaveFormat::Ppt);
+    Compress::removeUnusedLayoutSlides($presentation);
+    $presentation->save("output-without-unused-layouts.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **स्लाइड के लिए चाइल्ड फुटर दृश्यमानता सेट करें**
+एक विशिष्ट लेआउट हटाने के लिए, पहले उसकी [hasDependingSlides](https://reference.aspose.com/slides/hi/php-java/aspose.slides/layoutslide/#hasDependingSlides) या [getDependingSlides](https://reference.aspose.com/slides/hi/php-java/aspose.slides/layoutslide/#getDependingSlides) मेथड का उपयोग करें। [LayoutSlide.remove](https://reference.aspose.com/slides/hi/php-java/aspose.slides/layoutslide/#remove) को कॉल करने से पहले किसी भी निर्भर स्लाइड को पुनः असाइन करें। उपयोग में लेआउट हटाने का प्रयास करने पर एक [PptxEditException](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pptxeditexception/) उत्पन्न होता है।
 
-PowerPoint प्रस्तुतियों में तिथि, स्लाइड नंबर और कस्टम टेक्स्ट जैसे फुटर तत्वों को मास्टर स्लाइड स्तर पर नियंत्रित किया जा सकता है ताकि सभी लेआउट स्लाइड्स में एकरूपता बनी रहे। Aspose.Slides for PHP आपको मास्टर स्लाइड पर इन फुटर प्लेसहोल्डर की दृश्यमानता और सामग्री सेट करने, और इन्हें सभी चाइल्ड लेआउट स्लाइड्स पर प्रसारित करने की सुविधा देता है। यह आपके प्रस्तुति में समान फुटर जानकारी सुनिश्चित करता है।
+## **लेआउट स्लाइड पर फुटर दृश्यता नियंत्रित करें**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-1. उसके इंडेक्स के आधार पर मास्टर स्लाइड का रेफ़रेंस प्राप्त करें।
-1. मास्टर और सभी चाइल्ड फुटर प्लेसहोल्डर को दृश्यमान सेट करें।
-1. मास्टर और सभी चाइल्ड स्लाइड नंबर प्लेसहोल्डर को दृश्यमान सेट करें।
-1. मास्टर और सभी चाइल्ड तिथि‑समय प्लेसहोल्डर को दृश्यमान सेट करें।
-1. प्रस्तुति को सहेजें।
-
-नीचे PHP कोड इस ऑपरेशन को दर्शाता है:
+एक लेआउट का अपना फुटर, स्लाइड‑नंबर, और तिथि‑समय प्लेसहोल्डर होता है। उन प्लेसहोल्डरों को एक लेआउट के लिए नियंत्रित करने हेतु [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/hi/php-java/aspose.slides/layoutslide/#getHeaderFooterManager) मेथड का उपयोग करें। यह तब उपयोगी होता है जब उदाहरण के तौर पर कंटेंट लेआउट्स को फुटर दिखाना चाहिए लेकिन शीर्षक लेआउट्स को नहीं।
 
 ```php
-$presentation = new Presentation("presentation.ppt");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $layoutSlide = $presentation->getLayoutSlides()->getByType(SlideLayoutType::TitleAndObject);
+
+    if (java_is_null($layoutSlide)) {
+        $layoutSlide = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    }
+
+    if (java_is_null($layoutSlide)) {
+        throw new \RuntimeException("The presentation does not contain a suitable layout slide.");
+    }
+
+    $headerFooterManager = $layoutSlide->getHeaderFooterManager();
+    $headerFooterManager->setFooterVisibility(true);
+    $headerFooterManager->setSlideNumberVisibility(true);
+    $headerFooterManager->setDateTimeVisibility(true);
+    $headerFooterManager->setFooterText("Footer text");
+    $headerFooterManager->setDateTimeText("Date and time text");
+
+    $presentation->save("output-with-layout-footers.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **मास्टर और उसकी संतान लेआउट्स पर फुटर दृश्यता नियंत्रित करें**
+
+मास्टर पदानुक्रम में सुसंगत फुटर सेटिंग्स लागू करने के लिए, [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/hi/php-java/aspose.slides/masterslide/#getHeaderFooterManager) मेथड का उपयोग करें। [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/hi/php-java/aspose.slides/masterslideheaderfootermanager/) के प्रसारण मेथड्स मास्टर और उसकी निर्भर लेआउट स्लाइड्स तथा normal स्लाइड्स पर कार्य करते हैं; वे केवल एक normal स्लाइड को लक्षित नहीं करते।
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
 try {
     $headerFooterManager = $presentation->getMasters()->get_Item(0)->getHeaderFooterManager();
-
     $headerFooterManager->setFooterAndChildFootersVisibility(true);
     $headerFooterManager->setSlideNumberAndChildSlideNumbersVisibility(true);
     $headerFooterManager->setDateTimeAndChildDateTimesVisibility(true);
-
     $headerFooterManager->setFooterAndChildFootersText("Footer text");
     $headerFooterManager->setDateTimeAndChildDateTimesText("Date and time text");
 
-    $presentation->save("Output.pptx", SaveFormat::Pptx);
+    $presentation->save("output-with-master-footers.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
@@ -256,12 +251,16 @@ try {
 
 **मास्टर स्लाइड और लेआउट स्लाइड में क्या अंतर है?**
 
-मास्टर स्लाइड समग्र थीम और डिफ़ॉल्ट फॉर्मेटिंग को परिभाषित करता है, जबकि लेआउट स्लाइड विभिन्न प्रकार की सामग्री के लिए प्लेसहोल्डर की विशिष्ट व्यवस्थाएँ निर्धारित करता है।
+एक master स्लाइड प्रस्तुति की थीम और साझा स्वरूपण को परिभाषित करती है। एक layout स्लाइड master का भाग होती है और प्लेसहोल्डरों की एक पुन: प्रयोज्य व्यवस्था को परिभाषित करती है। normal स्लाइड्स उन लेआउट्स का उपयोग करती हैं और स्लाइड‑विशिष्ट कंटेंट संग्रहीत करती हैं।
 
 **क्या मैं एक लेआउट स्लाइड को एक प्रस्तुति से दूसरी में कॉपी कर सकता हूँ?**
 
-हां, आप किसी प्रस्तुति की लेआउट स्लाइड संग्रह से (जिस तक आप [getLayoutSlides](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/#getLayoutSlides) मेथड से पहुंच सकते हैं) लेआउट स्लाइड को क्लोन करके `addClone` मेथड का उपयोग कर दूसरी प्रस्तुति में सम्मिलित कर सकते हैं।
+हां। लक्ष्य संग्रह में एक कॉपी जोड़ने के लिए [addClone](https://reference.aspose.com/slides/hi/php-java/aspose.slides/globallayoutslidecollection/#addClone) मेथड का उपयोग करें। प्रस्तुतियों के बीच कॉपी करते समय स्रोत लेआउट द्वारा उपयोग किए गए फ़ॉन्ट, थीम, चित्र और अन्य संसाधनों की भी जाँच करें।
 
-**यदि मैं किसी लेआउट स्लाइड को हटाता हूँ जो अभी भी किसी स्लाइड द्वारा उपयोग में है तो क्या होता है?**
+**जब मैं एक लेआउट को संशोधित करता हूँ जो पहले से प्रयोग में है तो क्या होता है?**
 
-यदि आप ऐसी लेआउट स्लाइड को हटाने का प्रयास करते हैं जो कम से कम एक स्लाइड द्वारा अभी भी संदर्भित है, तो Aspose.Slides एक [PptxEditException](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pptxeditexception/) फेंकेगा। इसे रोकने के लिए, आप [removeUnusedLayoutSlides](https://reference.aspose.com/slides/hi/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) का उपयोग कर सकते हैं, जो केवल अनउपयोगी लेआउट स्लाइड्स को सुरक्षित रूप से हटाता है।
+निर्भर स्लाइड्स लेआउट बदलावों को विरासत में लेती हैं जब तक कि वे स्थानीय रूप से प्रभावित स्वरूपण या वस्तुओं को ओवरराइड न करें। प्लेसहोल्डर ज्यामिति और विरासत शैली कई स्लाइड्स पर एक साथ बदल सकती है। लेआउट संपादित करने से पहले प्रभावित स्लाइड्स की पहचान करने हेतु [getDependingSlides](https://reference.aspose.com/slides/hi/php-java/aspose.slides/layoutslide/#getDependingSlides) का उपयोग करें।
+
+**यदि मैं एक लेआउट को हटाता हूँ जो अभी भी उपयोग में है तो क्या होता है?**
+
+Aspose.Slides एक [PptxEditException](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pptxeditexception/) उत्पन्न करता है। पहले निर्भर स्लाइड्स को पुनः असाइन करें, या केवल अनउपयोगित लेआउट्स को हटाने के लिए [removeUnusedLayoutSlides](https://reference.aspose.com/slides/hi/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) का उपयोग करें।

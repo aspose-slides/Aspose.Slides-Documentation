@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides for .NET'te Slayt Düzenlerini Uygula veya Değiştir
+title: .NET'te Slayt Düzenlerini Uygula veya Değiştir
 linktitle: Slayt Düzeni
 type: docs
 weight: 60
@@ -11,13 +11,13 @@ keywords:
 - sunum tasarımı
 - slayt tasarımı
 - kullanılmayan düzen
-- altbilgi görünürlüğü
+- alt bilgi görünürlüğü
 - başlık slaytı
 - başlık ve içerik
 - bölüm başlığı
 - iki içerik
 - karşılaştırma
-- yalnızca başlık
+- sadece başlık
 - boş düzen
 - altyazılı içerik
 - altyazılı resim
@@ -29,231 +29,217 @@ keywords:
 - C#
 - .NET
 - Aspose.Slides
-description: "Aspose.Slides for .NET'te slayt düzenlerini yönetin ve özelleştirin. Düzen tiplerini, yer tutucu kontrolünü ve altbilgi görünürlüğünü C# kod örnekleriyle keşfedin."
+description: "Aspose.Slides for .NET içinde slayt düzenlerini uygulayın, oluşturun ve değiştirin, yer tutucular ekleyin, kullanılmayan düzenleri kaldırın ve alt bilgi görünürlüğünü kontrol edin."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-Bir slayt düzeni, bir slayttaki içerik için yer tutucu kutuların düzenini ve biçimlendirmeyi tanımlar. Hangi yer tutucuların mevcut olduğunu ve nerede görüneceklerini kontrol eder. Slayt düzenleri, ister basit ister daha karmaşık bir şey oluşturuyor olun, sunuları hızlı ve tutarlı bir şekilde tasarlamanıza yardımcı olur. PowerPoint'te en yaygın slayt düzenlerinden bazıları şunlardır:
+Bir slayt düzeni, başlıklar, metin, resimler, grafikler ve tablolar gibi yer tutucuların konumlarını ve biçimlendirmesini tanımlar. Bir düzenin uygulanması, slaytlara tutarlı bir yapı kazandırırken her slaytın kendi içeriğini barındırmasına izin verir.
 
-**Başlık Slaytı düzeni** – İçerik iki metin yer tutucusu içerir: biri başlık, diğeri alt başlık için.
+En yaygın düzenler şunlardır:
 
-**Başlık ve İçerik düzeni** – Üstte daha küçük bir başlık yer tutucusu ve altında metin, madde işaretleri, grafikler, resimler ve daha fazlası gibi ana içerik için daha büyük bir yer tutucu bulunur.
+- **Başlık Slaytı**: Başlık ve alt başlık yer tutucularını içerir.
+- **Başlık ve İçerik**: Bir başlık yer tutucusu ve genel amaçlı bir içerik yer tutucusu içerir.
+- **Boş**: İçerik yer tutucusu içermez ve her şeklin manuel olarak konumlandırılacağı durumlar için kullanışlıdır.
 
-**Boş düzen** – Hiç yer tutucu içermez; slaytı tamamen sıfırdan tasarlamanıza olanak tanır.
+## **Düzen Kalıtımını Anlama**
 
-Slayt düzenleri, sunum için düzen stillerini tanımlayan üst düzey slayt olan slayt ana temasının bir parçasıdır. Slayt ana teması aracılığıyla düzen slaytlarına erişebilir ve bunları değiştirebilirsiniz—tipine, adına veya benzersiz kimliğine göre. Alternatif olarak, belirli bir düzen slaytını doğrudan sunu içinde düzenleyebilirsiniz.
+Bir sunumun üç ilgili seviyesi vardır:
 
-Aspose.Slides for .NET içinde slayt düzenleriyle çalışmak için şunları kullanabilirsiniz:
+1. Bir [ana slayt](https://reference.aspose.com/slides/tr/net/aspose.slides/imasterslide/) temayı, ortak biçimlendirmeyi, arka planları ve ortak nesneleri tanımlar.
+1. Bir [düzen slaytı](https://reference.aspose.com/slides/tr/net/aspose.slides/ilayoutslide/) bir ana slayta aittir ve belirli bir yer tutucu düzenini tanımlar.
+1. Bir [normal slayt](https://reference.aspose.com/slides/tr/net/aspose.slides/islide/) bir düzen kullanır ve o slayt için girilen içeriği depolar.
 
-- Özellikler, [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfı altında bulunan [LayoutSlides](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/layoutslides/) ve [Masters](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/masters/) gibi.
-- Türler, [ILayoutSlide](https://reference.aspose.com/slides/tr/net/aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/tr/net/aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/tr/net/aspose.slides/ilayoutplaceholdermanager/), ve [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/tr/net/aspose.slides/ilayoutslideheaderfootermanager/) gibi.
+Normal bir slayt temayı ve biçimlendirmeyi düzeninden devralır ve düzen de ana slayttan devralır. Normal bir slaytta doğrudan ayarlanan bir değer, o seviyedeki devralınan değeri geçersiz kılar. Bir normal slayt oluşturulduğunda, yer tutucu şekilleri seçili düzenden üretilir; bu yer tutuculara girilen içerik ise normal slayta aittir.
 
-{{% alert title="Info" color="info" %}}
-Ana slaytlarla çalışmak hakkında daha fazla bilgi edinmek için [Slide Master](/slides/tr/net/slide-master/) makalesine göz atın.
-{{% /alert %}}
+Kaydırılardan slayt oluşturulmadan önce bir düzene gerekli yer tutucular eklenmelidir. Daha sonra bir düzene başka bir yer tutucu eklemek, mevcut normal slaytlara otomatik olarak karşılık gelen bir yer tutucu şekli eklemez.
 
-## **Sunulara Slayt Düzenleri Ekleme**
+Bu ilişki iki önemli sonuca sahiptir:
 
-Slaytlarınızın görünümünü ve yapısını özelleştirmek için sunuya yeni düzen slaytları eklemeniz gerekebilir. Aspose.Slides for .NET, belirli bir düzenin zaten mevcut olup olmadığını kontrol etmenizi, gerekirse yeni bir tane eklemenizi ve bu düzeni temel alarak slayt eklemenizi sağlar.
+- Bir düzende devralınan biçimlendirmeyi veya mevcut yer tutucu geometrisini değiştirmek, ona bağlı tüm slaytları güncelleyebilir. Zaten kullanımdaki bir düzeni düzenlemeden önce, bağlı slaytlarını inceleyin ve ortaya çıkan sunumu gözden geçirin.
+- Bir slayt hâlâ kullandığı bir düzen silinemez. Önce bağlı slaytları başka bir düzene yeniden atayın ya da yalnızca kullanılmayan düzenleri kaldırın.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/tr/net/aspose.slides/imasterlayoutslidecollection/)’e erişin.  
-3. İstenen düzen slaytının koleksiyonda zaten bulunup bulunmadığını kontrol edin. Yoksa, ihtiyacınız olan düzen slaytını ekleyin.  
-4. Yeni düzen slaytına dayalı boş bir slayt ekleyin.  
-5. Sunuyu kaydedin.
+Bu hiyerarşinin üst seviyesi hakkında daha fazla bilgi için [Slayt Master](/slides/tr/net/slide-master/) bölümüne bakın.
 
-```cs
-// PowerPoint dosyasını temsil eden Presentation sınıfını örnekleyin.
-using (Presentation presentation = new Presentation("Sample.pptx"))
+## **Bir Slayt Düzeni Seçme ve Uygulama**
+
+Sunum standart PowerPoint düzen tanımlarını takip ediyorsa bir düzen türü kullanın. Düzen adları kullanıcı tarafından düzenlenebilir ve yerelleştirilebilir, bu yüzden kaynak şablonu kontrol etmiyorsanız ad‑temelli seçim daha az güvenilirdir.
+
+Aşağıdaki örnek, ilk ana slaytta **Başlık ve İçerik** arar. Bu düzen mevcut değilse kasıtlı olarak **Boş** a geri döner. İkinci null kontrolü, bir sunumun yalnızca özel düzenler içerebileceği durumlar için gereklidir. Seçilen düzen daha sonra ilk normal slayta [ISlide.LayoutSlide](https://reference.aspose.com/slides/tr/net/aspose.slides/islide/layoutslide/) özelliği aracılığıyla uygulanır.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var layoutSlides = presentation.Masters[0].LayoutSlides;
+var targetLayout = layoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? layoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (targetLayout == null)
 {
-    // Bir düzen slaytı seçmek için düzen slaytı tipleri arasında geçiş yapın.
-    IMasterLayoutSlideCollection layoutSlides = presentation.Masters[0].LayoutSlides;
-    ILayoutSlide layoutSlide = layoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? layoutSlides.GetByType(SlideLayoutType.Title);
-
-    if (layoutSlide == null)
-    {
-        // Sunumun tüm düzen tiplerini içermediği bir durum.
-        // Sunum dosyası yalnızca Boş ve Özel düzen tiplerini içerir.
-        // Ancak, özel tiplerdeki düzen slaytları tanınabilir isimlere sahip olabilir,
-        // örneğin "Title", "Title and Content" gibi, bu isimler düzen slaytı seçimi için kullanılabilir.
-        // Ayrıca bir dizi yer tutucu şekil tipine dayanabilirsiniz.
-        // Örneğin, bir Başlık slaytı yalnızca Title yer tutucu tipine sahip olmalıdır, vb.
-        foreach (ILayoutSlide titleAndObjectLayoutSlide in layoutSlides)
-        {
-            if (titleAndObjectLayoutSlide.Name == "Title and Object")
-            {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null)
-        {
-            foreach (ILayoutSlide titleLayoutSlide in layoutSlides)
-            {
-                if (titleLayoutSlide.Name == "Title")
-                {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null)
-            {
-                layoutSlide = layoutSlides.GetByType(SlideLayoutType.Blank);
-                if (layoutSlide == null)
-                {
-                    layoutSlide = layoutSlides.Add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
-    }
-
-    // Eklenen düzen slaytını kullanarak boş bir slayt ekleyin.
-    presentation.Slides.InsertEmptySlide(0, layoutSlide);
-
-    // Sunumu diske kaydedin.  
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The first master does not contain a suitable layout slide.");
 }
+
+presentation.Slides[0].LayoutSlide = targetLayout;
+presentation.Save("output-with-new-layout.pptx", SaveFormat.Pptx);
 ```
 
-## **Kullanılmayan Düzen Slaytlarını Kaldırma**
+Bir slaytın düzenini değiştirmek, slayta doğrudan eklenmiş olağan şekilleri kaldırmaz. Ancak yer tutucu konumları, devralınan biçimlendirme ve mevcut yer tutucular ile yeni düzen arasındaki eşleşme değişebilir; bu yüzden çok farklı düzenler arasında geçiş yaparken çıktıyı inceleyin.
 
-Aspose.Slides, istenmeyen ve kullanılmayan düzen slaytlarını silmenizi sağlayan [Compress](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/compress/) sınıfındaki [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) metodunu sunar.
+## **Bir Düzen Slaytı Ekleme**
 
-Aşağıdaki C# kodu, bir PowerPoint sunusundan düzen slaytını nasıl kaldıracağınızı gösterir:
+Seçim ve oluşturma ayrı işlemlerdir. Önceki örnek mevcut bir düzeni seçer; yeni bir tane oluşturmaz. Bir düzen oluşturmak için hedef ana slaydın düzen koleksiyonunda [IMasterLayoutSlideCollection.Add](https://reference.aspose.com/slides/tr/net/aspose.slides/masterlayoutslidecollection/add/) yöntemini çağırın.
 
-```cs
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    Aspose.Slides.LowCode.Compress.RemoveUnusedLayoutSlides(presentation);
-    
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
-}
+Aşağıdaki örnek her zaman `Rapor Başlığı ve İçeriği` adında yeni bir **Başlık ve İçerik** düzeni ekler, ardından buna dayalı bir normal slayt ekler. Düzen adları koleksiyon içinde benzersiz olmalıdır.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var masterSlide = presentation.Masters[0];
+var reportLayout = masterSlide.LayoutSlides.Add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+presentation.Slides.AddEmptySlide(reportLayout);
+
+presentation.Save("output-with-report-layout.pptx", SaveFormat.Pptx);
 ```
 
-## **Slayt Düzenlerine Yer Tutucu Ekleme**
+Sadece şablon gerçekten başka bir yeniden kullanılabilir yapıya ihtiyaç duyduğunda bir düzen ekleyin. Uygun bir düzen zaten varsa, bir kopya oluşturmaktan kaçının; bunun yerine mevcut düzeni seçip yeniden kullanın.
 
-Aspose.Slides, bir düzen slaytına yeni yer tutucular eklemenizi sağlayan [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/tr/net/aspose.slides/ilayoutslide/placeholdermanager/) özelliğini sunar.
+## **Bir Düzen Slaytına Yer Tutucular Ekleme**
 
-Bu yönetici, aşağıdaki yer tutucu türleri için yöntemler içerir:
+[ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/tr/net/aspose.slides/ilayoutslide/placeholdermanager/) özelliği, bir düzene yer tutucu şekilleri eklemek için bir [ILayoutPlaceholderManager](https://reference.aspose.com/slides/tr/net/aspose.slides/ilayoutplaceholdermanager/) sağlar.
 
-| PowerPoint Yer Tutucu | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/tr/net/aspose.slides/ilayoutplaceholdermanager/) Method |
-| --------------------- | ------------------------------------------------------------ |
-| ![İçerik](content.png) | AddContentPlaceholder(float x, float y, float width, float height) |
-| ![İçerik (Dikey)](contentV.png) | AddVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Metin](text.png) | AddTextPlaceholder(float x, float y, float width, float height) |
-| ![Metin (Dikey)](textV.png) | AddVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Resim](picture.png) | AddPicturePlaceholder(float x, float y, float width, float height) |
-| ![Grafik](chart.png) | AddChartPlaceholder(float x, float y, float width, float height) |
-| ![Tablo](table.png) | AddTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | AddSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Medya](media.png) | AddMediaPlaceholder(float x, float y, float width, float height) |
-| ![Çevrimiçi Resim](onlineimage.png) | AddOnlineImagePlaceholder(float x, float y, float width, float height) |
+| PowerPoint Yer Tutucusu | `ILayoutPlaceholderManager` Yöntemi |
+| ----------------------- | ----------------------------------- |
+| ![İçerik](content.png) | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/net/aspose.slides/layoutplaceholdermanager/addcontentplaceholder/) |
+| ![İçerik (Dikey)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/net/aspose.slides/layoutplaceholdermanager/addverticalcontentplaceholder/) |
+| ![Metin](text.png) | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/net/aspose.slides/layoutplaceholdermanager/addtextplaceholder/) |
+| ![Metin (Dikey)](textV.png) | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/net/aspose.slides/layoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![Resim](picture.png) | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/net/aspose.slides/layoutplaceholdermanager/addpictureplaceholder/) |
+| ![Grafik](chart.png) | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/net/aspose.slides/layoutplaceholdermanager/addchartplaceholder/) |
+| ![Tablo](table.png) | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/net/aspose.slides/layoutplaceholdermanager/addtableplaceholder/) |
+| ![SmartArt](smartart.png) | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/net/aspose.slides/layoutplaceholdermanager/addsmartartplaceholder/) |
+| ![Medya](media.png) | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/net/aspose.slides/layoutplaceholdermanager/addmediaplaceholder/) |
+| ![Çevrimiçi Görüntü](onlineImage.png) | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/net/aspose.slides/layoutplaceholdermanager/addonlineimageplaceholder/) |
 
-Aşağıdaki C# kodu, Boş düzen slaytına yeni yer tutucu şekilleri nasıl ekleyeceğinizi gösterir:
+Aşağıdaki örnek **Boş** düzeninin var olduğunu doğrular, ona dört yer tutucu ekler ve ardından değiştirilmiş düzeni kullanan bir normal slayt oluşturur. Sıralama kasıtlıdır: yer tutucular normal slayt oluşturulmadan önce eklenir, böylece Aspose.Slides o slaytta karşılık gelen yer tutucu şekillerini üretebilir.
 
-```cs
-using (var presentation = new Presentation())
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (blankLayout == null)
 {
-    // Boş düzen slaytını alın.
-    ILayoutSlide layout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
-
-    // Düzen slaytının yer tutucu yöneticisini alın.
-    ILayoutPlaceholderManager placeholderManager = layout.PlaceholderManager;
-
-    // Boş düzen slaytına farklı yer tutucular ekleyin.
-    placeholderManager.AddContentPlaceholder(20, 20, 310, 270);
-    placeholderManager.AddVerticalTextPlaceholder(350, 20, 350, 270);
-    placeholderManager.AddChartPlaceholder(20, 310, 310, 180);
-    placeholderManager.AddTablePlaceholder(350, 310, 350, 180);
-
-    // Boş düzen ile yeni bir slayt ekleyin.
-    ISlide newSlide = presentation.Slides.AddEmptySlide(layout);
-
-    presentation.Save("Placeholders.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The presentation does not contain a Blank layout slide.");
 }
+
+var placeholderManager = blankLayout.PlaceholderManager;
+placeholderManager.AddContentPlaceholder(20, 20, 310, 270);
+placeholderManager.AddVerticalTextPlaceholder(350, 20, 350, 270);
+placeholderManager.AddChartPlaceholder(20, 310, 310, 180);
+placeholderManager.AddTablePlaceholder(350, 310, 350, 180);
+
+presentation.Slides.AddEmptySlide(blankLayout);
+presentation.Save("output-with-placeholders.pptx", SaveFormat.Pptx);
 ```
 
 Sonuç:
 
-![Düzen slaytındaki yer tutucular](add_placeholders.png)
+![Düzen slaydındaki yer tutucular](add_placeholders.png)
 
-## **Bir Düzen Slaytı İçin Altbilgi Görünürlüğü Ayarlama**
+{{% alert color="warning" title="Uyarı" %}}
+Devralınan biçimlendirmeyi veya mevcut düzen yer tutucularının geometrisini değiştirmek, bağımlı slaytları etkileyebilir. Yeni eklenen bir düzen yer tutucusu mevcut normal slaytlara otomatik olarak geri doldurulmaz. Düzen değişikliklerini bir sunum kopyası üzerinde test edin ve her bağımlı slaytı inceleyin.
+{{% /alert %}}
 
-PowerPoint sunularında, tarih, slayt numarası ve özel metin gibi altbilgi öğeleri slayt düzenine bağlı olarak gösterilebilir veya gizlenebilir. Aspose.Slides for .NET, bu altbilgi yer tutucularının görünürlüğünü kontrol etmenizi sağlar. Bu, belirli düzenlerin altbilgi bilgilerini göstermesini, diğerlerinin ise temiz ve sade kalmasını istediğinizde kullanışlıdır.
+## **Kullanılmayan Düzen Slaytlarını Kaldırma**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Diziniyle bir düzen slaytı referansı alın.  
-3. Slayt altbilgi yer tutucusunu görünür olarak ayarlayın.  
-4. Slayt numarası yer tutucusunu görünür olarak ayarlayın.  
-5. Tarih‑saat yer tutucusunu görünür olarak ayarlayın.  
-6. Sunuyu kaydedin.
+[Compress.RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) yöntemini kullanarak hiçbir normal slayt tarafından referans edilmeyen düzenleri kaldırın. Yöntem hâlâ kullanılan düzenleri olduğu gibi bırakır.
 
-```cs
-using (Presentation presentation = new Presentation("Presentation.ppt"))
-{
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.LayoutSlides[0].HeaderFooterManager;
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.LowCode;
 
-    if (!headerFooterManager.IsFooterVisible)
-    {
-        headerFooterManager.SetFooterVisibility(true);
-    }
+using var presentation = new Presentation("input.pptx");
 
-    if (!headerFooterManager.IsSlideNumberVisible)
-    {
-        headerFooterManager.SetSlideNumberVisibility(true);
-    }
-
-    if (!headerFooterManager.IsDateTimeVisible)
-    {
-        headerFooterManager.SetDateTimeVisibility(true);
-    }
-
-    headerFooterManager.SetFooterText("Footer text");
-    headerFooterManager.SetDateTimeText("Date and time text");
-
-    presentation.Save("Presentation.ppt", SaveFormat.Ppt);
-}
+Compress.RemoveUnusedLayoutSlides(presentation);
+presentation.Save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
 ```
 
-## **Bir Slayt İçin Alt Slayt Altbilgi Görünürlüğünü Ayarlama**
+Belirli bir düzeni kaldırmak için önce [HasDependingSlides](https://reference.aspose.com/slides/tr/net/aspose.slides/ilayoutslide/hasdependingslides/) özelliğini ya da [GetDependingSlides](https://reference.aspose.com/slides/tr/net/aspose.slides/ilayoutslide/getdependingslides/) yöntemini kullanın. [ILayoutSlide.Remove](https://reference.aspose.com/slides/tr/net/aspose.slides/ilayoutslide/remove/) metodunu çağırmadan önce bağlı slaytları yeniden atayın. Kullanılan bir düzeni kaldırmaya çalışmak bir [PptxEditException](https://reference.aspose.com/slides/tr/net/aspose.slides/pptxeditexception/) fırlatır.
 
-PowerPoint sunularında, tarih, slayt numarası ve özel metin gibi altbilgi öğeleri, tüm düzen slaytlarında tutarlılığı sağlamak için ana slayt seviyesinde kontrol edilebilir. Aspose.Slides for .NET, bu altbilgi yer tutucularının görünürlüğünü ve içeriğini ana slaytta ayarlamanıza ve bu ayarları tüm alt düzen slaytlarına yaymanıza olanak tanır. Bu yaklaşım, sununuz boyunca tutarlı altbilgi bilgilerinin olmasını sağlar.
+## **Bir Düzen Slaytında Alt Bilgi Görünürlüğünü Kontrol Etme**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Diziniyle ana slayta bir referans alın.  
-3. Ana slaydın ve tüm alt slaytların altbilgi yer tutucularını görünür olarak ayarlayın.  
-4. Ana slaydın ve tüm alt slaytların slayt numarası yer tutucularını görünür olarak ayarlayın.  
-5. Ana slaydın ve tüm alt slaytların tarih‑saat yer tutucularını görünür olarak ayarlayın.  
-6. Sunuyu kaydedin.
+Bir düzenin kendi alt bilgi, slayt numarası ve tarih‑saat yer tutucuları vardır. Bu yer tutucuları bir düzen için kontrol etmek üzere [ILayoutSlide.HeaderFooterManager](https://reference.aspose.com/slides/tr/net/aspose.slides/ilayoutslide/headerfootermanager/) özelliğini kullanın. Bu, örneğin içerik düzenlerinin alt bilgi göstermesi, başlık düzenlerinin ise göstermemesi gerektiğinde faydalıdır.
 
-```cs
-using (Presentation presentation = new Presentation("Presentation.ppt"))
+Aşağıdaki örnek bir düzeni güvenli bir şekilde seçer ve alt bilgi öğelerini görünür kılar:
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var layoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (layoutSlide == null)
 {
-    IMasterSlideHeaderFooterManager headerFooterManager = presentation.Masters[0].HeaderFooterManager;
-
-    headerFooterManager.SetFooterAndChildFootersVisibility(true);
-    headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
-    headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
-
-    headerFooterManager.SetFooterAndChildFootersText("Footer text");
-    headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
-
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The presentation does not contain a suitable layout slide.");
 }
+
+var headerFooterManager = layoutSlide.HeaderFooterManager;
+headerFooterManager.SetFooterVisibility(true);
+headerFooterManager.SetSlideNumberVisibility(true);
+headerFooterManager.SetDateTimeVisibility(true);
+headerFooterManager.SetFooterText("Footer text");
+headerFooterManager.SetDateTimeText("Date and time text");
+
+presentation.Save("output-with-layout-footers.pptx", SaveFormat.Pptx);
+```
+
+## **Bir Ana Slayt ve Alt Düzenlerinde Alt Bilgi Görünürlüğünü Kontrol Etme**
+
+Bir ana slayt hiyerarşisi boyunca tutarlı alt bilgi ayarları uygulamak için [IMasterSlide.HeaderFooterManager](https://reference.aspose.com/slides/tr/net/aspose.slides/imasterslide/headerfootermanager/) özelliğini kullanın. [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/tr/net/aspose.slides/imasterslideheaderfootermanager/) sınıfının yayma yöntemleri, ana slayt, ona bağlı düzen slaytları ve normal slaytlar üzerinde çalışır; yalnızca tek bir normal slaytı hedef almaz.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var headerFooterManager = presentation.Masters[0].HeaderFooterManager;
+headerFooterManager.SetFooterAndChildFootersVisibility(true);
+headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
+headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
+headerFooterManager.SetFooterAndChildFootersText("Footer text");
+headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
+
+presentation.Save("output-with-master-footers.pptx", SaveFormat.Pptx);
 ```
 
 ## **SSS**
 
-**Ana slayt ile düzen slaytı arasındaki fark nedir?**
+**Bir Ana Slayt ile Bir Düzen Slaytı Arasındaki Fark Nedir?**
 
-Ana slayt, genel temayı ve varsayılan biçimlendirmeyi tanımlarken, düzen slaytları farklı içerik türleri için yer tutucuların belirli düzenlemelerini tanımlar.
+Ana slayt sunumun temasını ve ortak biçimlendirmesini tanımlar. Bir düzen slaytı ana slayta aittir ve bir kez kullanılabilir yer tutucu düzeni tanımlar. Normal slaytlar bu düzenleri kullanır ve slayta özgü içeriği depolar.
 
-**Bir düzen slaytını bir sunudan başka bir sunuya kopyalayabilir miyim?**
+**Bir Düzen Slaytını Bir Sunumdan Başka Bir Sunuma Kopyalayabilir miyim?**
 
-Evet, bir sununun [LayoutSlides](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/layoutslides/) koleksiyonundan bir düzen slaytını klonlayabilir ve `AddClone` yöntemiyle başka birine ekleyebilirsiniz.
+Evet. Hedef koleksiyona [AddClone](https://reference.aspose.com/slides/tr/net/aspose.slides/globallayoutslidecollection/addclone/) yöntemiyle bir kopya ekleyin. Sunumlar arasında kopyalama yaparken, kaynak düzenin kullandığı yazı tiplerini, temaları, resimleri ve diğer kaynakları da doğrulayın.
 
-**Bir slayt tarafından hâlâ kullanılan bir düzen slaytını silersem ne olur?**
+**Kullanımdaki Bir Düzeni Değiştirirsem Ne Olur?**
 
-Eğer bir sunuda en az bir slayt tarafından hâlâ referans edilen bir düzen slaytını silmeye çalışırsanız, Aspose.Slides bir [PptxEditException](https://reference.aspose.com/slides/tr/net/aspose.slides/pptxeditexception/) fırlatır. Bunu önlemek için, yalnızca kullanılmayan düzen slaytlarını güvenli bir şekilde kaldıran [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) yöntemini kullanın.
+Bağlı slaytlar, yerel olarak etkilenmiş biçimlendirme veya nesneleri geçersiz kılmadıkları sürece düzen değişikliklerini devralır. Yer tutucu geometrisi ve devralınan stil birçok slaytta bir anda değişebilir. Düzen üzerinde değişiklik yapmadan önce etkilenen slaytları belirlemek için [GetDependingSlides](https://reference.aspose.com/slides/tr/net/aspose.slides/ilayoutslide/getdependingslides/) yöntemini kullanın.
+
+**Hâlâ Kullanımda Olan Bir Düzeni Kaldırırsam Ne Olur?**
+
+Aspose.Slides bir [PptxEditException](https://reference.aspose.com/slides/tr/net/aspose.slides/pptxeditexception/) fırlatır. Önce bağlı slaytları yeniden atayın veya yalnızca referans edilmeyen düzenleri kaldırmak için [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/tr/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) yöntemini kullanın.

@@ -1,6 +1,6 @@
 ---
-title: "Android पर स्लाइड लेआउट लागू करें या बदलें"
-linktitle: "स्लाइड लेआउट"
+title: Android पर स्लाइड लेआउट लागू या बदलें
+linktitle: स्लाइड लेआउट
 type: docs
 weight: 60
 url: /hi/androidjava/slide-layout/
@@ -8,168 +8,150 @@ keywords:
 - स्लाइड लेआउट
 - सामग्री लेआउट
 - प्लेसहोल्डर
-- प्रेजेंटेशन डिजाइन
+- प्रस्तुति डिजाइन
 - स्लाइड डिजाइन
 - अप्रयुक्त लेआउट
-- फ़ूटर दृश्यता
+- फ़ुटर दृश्यता
 - शीर्षक स्लाइड
 - शीर्षक और सामग्री
-- सेक्शन हेडर
+- अनुभाग शीर्षक
 - दो सामग्री
 - तुलना
 - केवल शीर्षक
 - खाली लेआउट
-- कैप्शन वाली सामग्री
-- कैप्शन वाली चित्र
-- शीर्षक और ऊर्ध्वाधर टेक्स्ट
-- ऊर्ध्वाधर शीर्षक और टेक्स्ट
+- कैप्शन के साथ सामग्री
+- कैप्शन के साथ चित्र
+- शीर्षक और ऊर्ध्वाधर पाठ
+- ऊर्ध्वाधर शीर्षक और पाठ
 - PowerPoint
 - OpenDocument
-- प्रेजेंटेशन
+- प्रस्तुति
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android में स्लाइड लेआउट को प्रबंधित और अनुकूलित करें। लेआउट प्रकार, प्लेसहोल्डर नियंत्रण, और फ़ूटर दृश्यता को Java कोड उदाहरणों के माध्यम से अन्वेषण करें।"
+description: "Aspose.Slides for Android में Java के माध्यम से स्लाइड लेआउट लागू करें, बनाएं और संशोधित करें, प्लेसहोल्डर जोड़ें, अप्रयुक्त लेआउट हटाएँ, और फ़ुटर दृश्यता नियंत्रित करें।"
 ---
 ## **परिचय**
 
-एक स्लाइड लेआउट स्लाइड पर सामग्री के लिए प्लेसहोल्डर बॉक्स और फ़ॉर्मेटिंग की व्यवस्था को परिभाषित करता है। यह नियंत्रित करता है कि कौन से प्लेसहोल्डर उपलब्ध हैं और वे कहां दिखाई देते हैं। स्लाइड लेआउट आपको प्रस्तुतियों को तेज़ और सुसंगत रूप से डिज़ाइन करने में मदद करते हैं— चाहे आप कुछ सरल या अधिक जटिल बना रहे हों। PowerPoint में सबसे सामान्य स्लाइड लेआउट में शामिल हैं:
+एक स्लाइड लेआउट शीर्षक, टेक्स्ट, चित्र, चार्ट, और तालिका जैसे प्लेसहोल्डरों की स्थितियों और स्वरूपण को परिभाषित करता है। लेआउट लागू करने से स्लाइड्स में एकसमान संरचना बनती है जबकि प्रत्येक स्लाइड को अपना सामग्री रखने की अनुमति मिलती है।
 
-**Title Slide layout** – दो टेक्स्ट प्लेसहोल्डर शामिल करता है: एक शीर्षक के लिए और एक उपशीर्षक के लिए।
+सबसे सामान्य लेआउट में शामिल हैं:
 
-**Title and Content layout** – ऊपर एक छोटा शीर्षक प्लेसहोल्डर और नीचे मुख्य सामग्री (जैसे टेक्स्ट, बुलेट पॉइंट, चार्ट, छवियां, आदि) के लिए बड़ा प्लेसहोल्डर प्रस्तुत करता है।
+- **Title Slide**: शीर्षक और उपशीर्षक प्लेसहोल्डर शामिल करता है।
+- **Title and Content**: शीर्षक प्लेसहोल्डर और सामान्य प्रयोजन सामग्री प्लेसहोल्डर शामिल करता है।
+- **Blank**: कोई सामग्री प्लेसहोल्डर नहीं होते और जब सभी आकार मैन्युअल रूप से स्थित किए जाएंगे तब उपयोगी होता है।
 
-**Blank layout** – कोई प्लेसहोल्डर नहीं होता, जिससे आप स्लाइड को ख़ाली स्थित से पूरी तरह नियंत्रित कर सकते हैं।
+## **लेआउट विरासत को समझें**
 
-स्लाइड लेआउट स्लाइड मास्टर का हिस्सा होते हैं, जो प्रस्तुति के लिए लेआउट शैलियों को परिभाषित करने वाला शीर्ष‑स्तर स्लाइड है। आप स्लाइड मास्टर के माध्यम से लेआउट स्लाइड तक पहुंच और उनके संशोधन कर सकते हैं—या तो उनके प्रकार, नाम, या अनूठे आईडी द्वारा। वैकल्पिक रूप से, आप सीधे प्रस्तुति के भीतर किसी विशिष्ट लेआउट स्लाइड को संपादित कर सकते हैं।
+एक प्रस्तुति तीन संबंधित स्तर रखती है:
 
-PowerPoint के लिए Android पर Aspose.Slides के साथ स्लाइड लेआउट पर काम करने हेतु आप उपयोग कर सकते हैं:
+1. A [मास्टर स्लाइड](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imasterslide/) थीम, साझा स्वरूपण, पृष्ठभूमि और सामान्य वस्तुओं को परिभाषित करता है।
+1. A [लेआउट स्लाइड](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ilayoutslide/) एक मास्टर से जुड़ी होती है और प्लेसहोल्डरों की विशिष्ट व्यवस्था को परिभाषित करती है।
+1. A [सामान्य स्लाइड](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/islide/) एक लेआउट का उपयोग करती है और उस स्लाइड के लिए दर्ज सामग्री को संग्रहीत करती है।
 
-- मेथड जैसे [getLayoutSlides](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/#getLayoutSlides--) और [getMasters](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/#getMasters--) जो [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास के तहत उपलब्ध हैं
-- टाइप जैसे [ILayoutSlide](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/), और [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ilayoutslideheaderfootermanager/)
+एक सामान्य स्लाइड अपने लेआउट से थीम और स्वरूपण विरासत में प्राप्त करती है, और लेआउट अपने मास्टर से विरासत में प्राप्त करता है। सामान्य स्लाइड पर सीधे सेट किया गया मान उस स्तर पर विरासत में मिले मान को ओवरराइड करता है। जब एक सामान्य स्लाइड बनाई जाती है, उसकी प्लेसहोल्डर आकार चयनित लेआउट से उत्पन्न होते हैं, जबकि उन प्लेसहोल्डरों में दर्ज सामग्री सामान्य स्लाइड की ही होती है।
 
-{{% alert title="Info" color="info" %}}
-मास्टर स्लाइड के साथ काम करने के बारे में अधिक जानने के लिए, [Slide Master](/slides/hi/androidjava/slide-master/) लेख देखें।
-{{% /alert %}}
+स्लाइड बनाने से पहले लेआउट में आवश्यक प्लेसहोल्डर जोड़ें। बाद में लेआउट में एक नया प्लेसहोल्डर जोड़ने से मौजूदा सामान्य स्लाइड में स्वचालित रूप से संबंधित प्लेसहोल्डर आकार नहीं बनता।
 
-## **प्रेजेंटेशन में स्लाइड लेआउट जोड़ें**
+इस संबंध के दो महत्वपूर्ण परिणाम हैं:
 
-अपनी स्लाइड्स की उपस्थिति और संरचना को अनुकूलित करने के लिए, आपको एक प्रेजेंटेशन में नई लेआउट स्लाइड जोड़ने की आवश्यकता हो सकती है। Aspose.Slides for Android आपको यह जांचने की अनुमति देता है कि कोई विशिष्ट लेआउट पहले से मौजूद है या नहीं, आवश्यकता पड़ने पर नई लेआउट जोड़ें, और उस लेआउट पर आधारित स्लाइड्स सम्मिलित करें।
+- लेआउट पर विरासत में मिला स्वरूपण या मौजूदा प्लेसहोल्डर ज्यामिति बदलने से उस पर निर्भर सभी स्लाइड अपडेट हो सकते हैं। पहले उपयोग में हो रहे लेआउट को संपादित करने से पहले उसके निर्भर स्लाइड की जाँच करें और resulting presentation की समीक्षा करें।
+- एक लेआउट जिसे अभी भी कोई स्लाइड उपयोग कर रही है, उसे हटाया नहीं जा सकता। पहले उसके निर्भर स्लाइड को किसी दूसरे लेआउट पर पुनः असाइन करें, या केवल अनउपयोगी लेआउट को हटाएँ।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएँ।
-1. [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imasterlayoutslidecollection/) तक पहुँचें।
-1. जाँचें कि इच्छित लेआउट स्लाइड संग्रह में पहले से मौजूद है या नहीं। यदि नहीं, तो आवश्यक लेआउट स्लाइड जोड़ें।
-1. नई लेआउट स्लाइड के आधार पर एक खाली स्लाइड जोड़ें।
-1. प्रेजेंटेशन सहेजें।
+इस पदानुक्रम के शीर्ष स्तर के बारे में अधिक जानकारी के लिए देखें [Slide Master](/slides/hi/androidjava/slide-master/)।
+
+## **स्लाइड लेआउट चुनें और लागू करें**
+
+जब प्रस्तुति मानक PowerPoint लेआउट परिभाषाओं का पालन करती है तो लेआउट प्रकार का उपयोग करें। लेआउट नाम उपयोगकर्ता‑संपादन योग्य होते हैं और स्थानीयकृत किए जा सकते हैं, इसलिए स्रोत टेम्पलेट को नियंत्रित न करने पर नाम‑आधारित चयन कम भरोसेमंद होता है।
+
+निम्न उदाहरण पहले मास्टर पर **Title and Content** की खोज करता है। यदि वह लेआउट उपलब्ध नहीं है, तो जानबूझकर **Blank** पर वापसfallback करता है। दूसरा null जाँच आवश्यक है क्योंकि प्रस्तुति में केवल कस्टम लेआउट ही हो सकते हैं। चयनित लेआउट फिर पहले सामान्य स्लाइड पर [ISlide.setLayoutSlide](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-) मेथड के माध्यम से लागू किया जाता है।
 
 ```java
-// PowerPoint फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाएं।
-Presentation presentation = new Presentation("Sample.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // लेआउट स्लाइड प्रकारों के माध्यम से जा कर एक लेआउट स्लाइड चुनें।
     IMasterLayoutSlideCollection layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
-    ILayoutSlide layoutSlide = null;
-    if (layoutSlides.getByType(SlideLayoutType.TitleAndObject) != null)
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
-    else
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.Title);
+    ILayoutSlide targetLayout = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
 
-    if (layoutSlide == null) {
-        // ऐसी स्थिति जहाँ प्रेजेंटेशन में सभी लेआउट प्रकार नहीं हैं।
-        // प्रेजेंटेशन फ़ाइल में केवल Blank और Custom लेआउट प्रकार हैं।
-        // हालांकि, कस्टम प्रकारों वाली लेआउट स्लाइड्स में पहचानने योग्य नाम हो सकते हैं,
-        // जैसे "Title", "Title and Content", आदि, जिन्हें लेआउट स्लाइड चयन के लिए उपयोग किया जा सकता है।
-        // आप प्लेसहोल्डर शैप प्रकारों के सेट पर भी निर्भर कर सकते हैं।
-        // उदाहरण के लिए, एक Title स्लाइड में केवल Title प्लेसहोल्डर प्रकार होना चाहिए, आदि।
-        for (ILayoutSlide titleAndObjectLayoutSlide : layoutSlides) {
-            if (titleAndObjectLayoutSlide.getName().equals("Title and Object")) {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null) {
-            for (ILayoutSlide titleLayoutSlide : layoutSlides) {
-                if (titleLayoutSlide.getName().equals("Title")) {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(SlideLayoutType.Blank);
-                if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
+    if (targetLayout == null) {
+        targetLayout = layoutSlides.getByType(SlideLayoutType.Blank);
     }
 
-    // जोड़ी गई लेआउट स्लाइड का उपयोग करके एक खाली स्लाइड जोड़ें।
-    presentation.getSlides().insertEmptySlide(0, layoutSlide);
+    if (targetLayout == null) {
+        throw new IllegalStateException("The first master does not contain a suitable layout slide.");
+    }
 
-    // प्रेजेंटेशन को डिस्क पर सहेजें।
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    presentation.getSlides().get_Item(0).setLayoutSlide(targetLayout);
+    presentation.save("output-with-new-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **अनुपयोगी लेआउट स्लाइड हटाएँ**
+एक स्लाइड का लेआउट बदलने से सीधे स्लाइड में जोड़ी गई सामान्य आकार नहीं हटते। हालांकि, प्लेसहोल्डर स्थितियों, विरासत में मिले स्वरूपण और मौजूदा प्लेसहोल्डरों व नए लेआउट के बीच का संबंध बदल सकता है, इसलिए विभिन्न लेआउट के बीच स्विच करते समय आउटपुट की जाँच करें।
 
-Aspose.Slides [Compress](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/compress/) क्लास से [removeUnusedLayoutSlides](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) मेथड प्रदान करता है, जिससे आप अनावश्यक और अप्रयुक्त लेआउट स्लाइड को हटा सकते हैं।
+## **लेआउट स्लाइड जोड़ें**
+
+चयन और निर्माण अलग‑अलग कार्य हैं। पिछले उदाहरण ने मौजूदा लेआउट चुना; उसने कोई नया नहीं बनाया। लेआउट बनाने के लिए लक्षित मास्टर की लेआउट कलेक्शन पर [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) मेथड को कॉल करें।
+
+निम्न उदाहरण हमेशा `Report Title and Content` नामक नया **Title and Content** लेआउट जोड़ता है, फिर उस पर आधारित एक सामान्य स्लाइड जोड़ता है। लेआउट नाम संग्रह में अद्वितीय होने चाहिए।
 
 ```java
-Presentation presentation = new Presentation("Presentation.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    Compress.removeUnusedLayoutSlides(presentation);
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide reportLayout = masterSlide.getLayoutSlides().add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+    presentation.getSlides().addEmptySlide(reportLayout);
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-report-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **स्लाइड लेआउट में प्लेसहोल्डर जोड़ें**
+केवल तभी लेआउट जोड़ें जब टेम्पलेट को वास्तव में किसी अतिरिक्त पुन: उपयोग योग्य संरचना की आवश्यकता हो। यदि उपयुक्त लेआउट पहले से मौजूद है, तो उसे चुनें और पुनः उपयोग करें, न कि एक डुप्लीकेट बनाएँ।
 
-Aspose.Slides [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) मेथड प्रदान करता है, जो आपको लेआउट स्लाइड में नए प्लेसहोल्डर जोड़ने की अनुमति देता है।
+## **लेआउट स्लाइड में प्लेसहोल्डर जोड़ें**
 
-यह मैनेजर निम्नलिखित प्लेसहोल्डर प्रकारों के लिए मेथड सम्मिलित करता है:
+[ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) मेथड एक [ILayoutPlaceholderManager](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/) प्रदान करता है जिससे लेआउट में प्लेसहोल्डर आकार जोड़े जा सकते हैं।
 
-| PowerPoint Placeholder | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/) Method |
-| ---------------------- | ------------------------------------------------------------ |
-| ![सामग्री](content.png) | addContentPlaceholder(float x, float y, float width, float height) |
-| ![सामग्री (ऊर्ध्वाधर)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![पाठ](text.png) | addTextPlaceholder(float x, float y, float width, float height) |
-| ![पाठ (ऊर्ध्वाधर)](textV.png) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![चित्र](picture.png) | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![चार्ट](chart.png) | addChartPlaceholder(float x, float y, float width, float height) |
-| ![टेबल](table.png) | addTablePlaceholder(float x, float y, float width, float height) |
-| ![स्मार्टआर्ट](smartart.png) | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![मीडिया](media.png) | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![ऑनलाइन छवि](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| PowerPoint प्लेसहोल्डर              | `ILayoutPlaceholderManager` विधि |
+| ----------------------------------- | -------------------------------- |
+| ![सामग्री](content.png)             | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
+| ![सामग्री (ऊर्ध्वाधर)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
+| ![पाठ](text.png)                   | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
+| ![पाठ (ऊर्ध्वाधर)](textV.png)       | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalTextPlaceholder-float-float-float-float-) |
+| ![चित्र](picture.png)             | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
+| ![चार्ट](chart.png)                 | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
+| ![तालिका](table.png)                 | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
+| ![SmartArt](smartart.png)           | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addSmartArtPlaceholder-float-float-float-float-) |
+| ![मीडिया](media.png)                 | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
+| ![ऑनलाइन छवि](onlineImage.png)    | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
 
-निम्नलिखित Java कोड दिखाता है कि कैसे ब्लैंक लेआउट स्लाइड में नए प्लेसहोल्डर आकार जोड़े जा सकते हैं:
+निम्न उदाहरण सत्यापित करता है कि **Blank** लेआउट मौजूद है, उसमें चार प्लेसहोल्डर जोड़ता है, और फिर संशोधित लेआउट का उपयोग करने वाली एक सामान्य स्लाइड बनाता है। क्रम जानबूझकर है: प्लेसहोल्डर पहले जोड़े जाते हैं, फिर सामान्य स्लाइड बनाई जाती है, ताकि Aspose.Slides उस स्लाइड पर संबंधित प्लेसहोल्डर आकार उत्पन्न कर सके।
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // Blank लेआउट स्लाइड प्राप्त करें.
-    ILayoutSlide layout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ILayoutSlide blankLayout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
 
-    // लेआउट स्लाइड का प्लेसहोल्डर मैनेजर प्राप्त करें.
-    ILayoutPlaceholderManager placeholderManager = layout.getPlaceholderManager();
+    if (blankLayout == null) {
+        throw new IllegalStateException("The presentation does not contain a Blank layout slide.");
+    }
 
-    // Blank लेआउट स्लाइड में विभिन्न प्लेसहोल्डर जोड़ें.
+    ILayoutPlaceholderManager placeholderManager = blankLayout.getPlaceholderManager();
     placeholderManager.addContentPlaceholder(20, 20, 310, 270);
     placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
     placeholderManager.addChartPlaceholder(20, 310, 310, 180);
     placeholderManager.addTablePlaceholder(350, 310, 350, 180);
 
-    // Blank लेआउट के साथ एक नई स्लाइड जोड़ें.
-    ISlide newSlide = presentation.getSlides().addEmptySlide(layout);
-
-    presentation.save("Placeholders.pptx", SaveFormat.Pptx);
+    presentation.getSlides().addEmptySlide(blankLayout);
+    presentation.save("output-with-placeholders.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -179,82 +161,98 @@ try {
 
 ![लेआउट स्लाइड पर प्लेसहोल्डर](add_placeholders.png)
 
-## **लेआउट स्लाइड के लिए फुटर दृश्यमानता सेट करें**
+{{% alert color="warning" title="चेतावनी" %}}
+विरासत में मिला स्वरूपण या मौजूदा लेआउट प्लेसहोल्डर की ज्यामिति बदलने से निर्भर स्लाइड प्रभावित हो सकते हैं। नया जोड़ा गया लेआउट प्लेसहोल्डर मौजूदा सामान्य स्लाइड में बैक‑फ़िल नहीं होता। लेआउट परिवर्तन को प्रस्तुति की एक कॉपी पर टेस्ट करें और हर निर्भर स्लाइड की जाँच करें।
+{{% /alert %}}
 
-PowerPoint प्रस्तुतियों में, तिथि, स्लाइड नंबर, और कस्टम टेक्स्ट जैसे फुटर तत्व स्लाइड लेआउट के आधार पर दिखाए या छुपाए जा सकते हैं। Aspose.Slides for Android आपको इन फुटर प्लेसहोल्डर की दृश्यमानता नियंत्रित करने की सुविधा देता है। यह तब उपयोगी होता है जब आप चाहते हैं कि कुछ लेआउट फुटर जानकारी दिखाएँ जबकि अन्य साफ़ और न्यूनतम रहें।
+## **अप्रयुक्त लेआउट स्लाइड हटाएँ**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएँ।
-1. उसके इंडेक्स द्वारा एक लेआउट स्लाइड रेफ़रेंस प्राप्त करें।
-1. स्लाइड फुटर प्लेसहोल्डर को दृश्यमान सेट करें।
-1. स्लाइड नंबर प्लेसहोल्डर को दृश्यमान सेट करें।
-1. दिनांक‑समय प्लेसहोल्डर को दृश्यमान सेट करें।
-1. प्रेजेंटेशन सहेजें।
+[Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) मेथड का उपयोग करके उन लेआउट को हटाएँ जिनका कोई सामान्य स्लाइड संदर्भ नहीं देता। यह मेथड अभी भी उपयोग में रहने वाले लेआउट को वैसा ही रखता है।
 
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
+    Compress.removeUnusedLayoutSlides(presentation);
+    presentation.save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-    if (!headerFooterManager.isFooterVisible()) {
-        headerFooterManager.setFooterVisibility(true);
+किसी विशिष्ट लेआउट को हटाने के लिए, पहले उसके [hasDependingSlides](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ilayoutslide/#hasDependingSlides--) या [getDependingSlides](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--) मेथड का उपयोग करें। किसी भी निर्भर स्लाइड को पुनः असाइन करें और फिर [ILayoutSlide.remove](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ilayoutslide/#remove--) को कॉल करें। उपयोग में रहे लेआउट को हटाने का प्रयास करने पर एक [PptxEditException](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/pptxeditexception/) उठाया जाता है।
+
+## **लेआउट स्लाइड पर फुटर दृश्यता नियंत्रित करें**
+
+एक लेआउट के अपने फुटर, स्लाइड‑नम्बर और दिनांक‑समय प्लेसहोल्डर होते हैं। इन प्लेसहोल्डरों को किसी एक लेआउट के लिए नियंत्रित करने हेतु [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) मेथड का उपयोग करें। यह तब उपयोगी होता है जब उदाहरण के तौर पर सामग्री लेआउट को फुटर दिखाना हो लेकिन शीर्षक लेआउट को नहीं।
+
+निम्न उदाहरण एक लेआउट को सुरक्षित रूप से चुनता है और उसके फुटर तत्वों को दृश्यमान बनाता है:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.TitleAndObject);
+
+    if (layoutSlide == null) {
+        layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
     }
 
-    if (!headerFooterManager.isSlideNumberVisible()) {
-        headerFooterManager.setSlideNumberVisibility(true);
+    if (layoutSlide == null) {
+        throw new IllegalStateException("The presentation does not contain a suitable layout slide.");
     }
 
-    if (!headerFooterManager.isDateTimeVisible()) {
-        headerFooterManager.setDateTimeVisibility(true);
-    }
-
+    ILayoutSlideHeaderFooterManager headerFooterManager = layoutSlide.getHeaderFooterManager();
+    headerFooterManager.setFooterVisibility(true);
+    headerFooterManager.setSlideNumberVisibility(true);
+    headerFooterManager.setDateTimeVisibility(true);
     headerFooterManager.setFooterText("Footer text");
     headerFooterManager.setDateTimeText("Date and time text");
 
-    presentation.save("Presentation.ppt", SaveFormat.Ppt);
+    presentation.save("output-with-layout-footers.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **स्लाइड के लिए चाइल्ड फुटर दृश्यमानता सेट करें**
+## **मास्टर और इसकी चाइल्ड लेआउट में फुटर दृश्यता नियंत्रित करें**
 
-PowerPoint प्रस्तुतियों में, तिथि, स्लाइड नंबर, और कस्टम टेक्स्ट जैसे फुटर तत्व मास्टर स्लाइड स्तर पर नियंत्रित किए जा सकते हैं ताकि सभी लेआउट स्लाइड में स्थिरता बनी रहे। Aspose.Slides for Android आपको मास्टर स्लाइड पर इन फुटर प्लेसहोल्डर की दृश्यमानता और सामग्री सेट करने और इन सेटिंग्स को सभी चाइल्ड लेआउट स्लाइड पर लागू करने की अनुमति देता है। यह दृष्टिकोण आपके प्रेजेंटेशन में समान फुटर जानकारी सुनिश्चित करता है।
-
-1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएँ।
-1. उसके इंडेक्स द्वारा मास्टर स्लाइड का रेफ़रेंस प्राप्त करें।
-1. मास्टर और सभी चाइल्ड फुटर प्लेसहोल्डर को दृश्यमान सेट करें।
-1. मास्टर और सभी चाइल्ड स्लाइड नंबर प्लेसहोल्डर को दृश्यमान सेट करें।
-1. मास्टर और सभी चाइल्ड दिनांक‑समय प्लेसहोल्डर को दृश्यमान सेट करें।
-1. प्रेजेंटेशन सहेजें।
+मास्टर पदानुक्रम में समान फुटर सेटिंग लागू करने के लिए, [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imasterslide/#getHeaderFooterManager--) मेथड का उपयोग करें। [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imasterslideheaderfootermanager/) की प्रसार मेथड्स मास्टर, उसके निर्भर लेआउट स्लाइड और सामान्य स्लाइड को प्रभावित करती हैं; वे केवल एक सामान्य स्लाइड को लक्षित नहीं करतीं।
 
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
     IMasterSlideHeaderFooterManager headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-
     headerFooterManager.setFooterAndChildFootersVisibility(true);
     headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
     headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
-
     headerFooterManager.setFooterAndChildFootersText("Footer text");
     headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-master-footers.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **FAQ**
 
 **मास्टर स्लाइड और लेआउट स्लाइड में क्या अंतर है?**
 
-मास्टर स्लाइड समग्र थीम और डिफ़ॉल्ट फ़ॉर्मेटिंग को परिभाषित करती है, जबकि लेआउट स्लाइड विभिन्न प्रकार की सामग्री के लिए प्लेसहोल्डर की विशिष्ट व्यवस्था निर्धारित करती है।
+एक मास्टर स्लाइड प्रस्तुति की थीम और साझा स्वरूपण को परिभाषित करती है। एक लेआउट स्लाइड मास्टर से जुड़ी होती है और प्लेसहोल्डरों की एक पुन: उपयोग योग्य व्यवस्था को परिभाषित करती है। सामान्य स्लाइड इन लेआउट को उपयोग करती हैं और स्लाइड‑विशिष्ट सामग्री संग्रहीत करती हैं।
 
-**क्या मैं एक लेआउट स्लाइड को एक प्रेजेंटेशन से दूसरे प्रेजेंटेशन में कॉपी कर सकता हूँ?**
+**क्या मैं एक लेआउट स्लाइड को एक प्रस्तुति से दूसरी में कॉपी कर सकता हूँ?**
 
-हां, आप एक लेआउट स्लाइड को किसी प्रेजेंटेशन की लेआउट स्लाइड कलेक्शन से क्लोन कर सकते हैं, जिसे आप [getLayoutSlides](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/#getLayoutSlides--) मेथड के माध्यम से एक्सेस कर सकते हैं, और फिर `addClone` मेथड का उपयोग करके उसे दूसरे प्रेजेंटेशन में सम्मिलित कर सकते हैं।
+हाँ। गंतव्य संग्रह में कॉपी जोड़ने के लिए [addClone](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) मेथड का उपयोग करें। विभिन्न प्रस्तुति के बीच कॉपी करते समय फ़ॉन्ट, थीम, चित्र और अन्य स्रोत लेआउट द्वारा उपयोग किए गए संसाधनों की भी जाँच करें।
 
-**यदि मैं एक लेआउट स्लाइड को हटाता हूँ जो अभी भी किसी स्लाइड द्वारा उपयोग में है तो क्या होता है?**
+**जब मैं किसी उपयोग में चल रहे लेआउट को संशोधित करता हूँ तो क्या होता है?**
 
-यदि आप किसी लेआउट स्लाइड को हटाने का प्रयास करते हैं जो प्रेजेंटेशन में कम से कम एक स्लाइड द्वारा अभी भी संदर्भित है, तो Aspose.Slides एक [PptxEditException](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/pptxeditexception/) फेंकेगा। इसे टालने के लिए, आप [removeUnusedLayoutSlides](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) का उपयोग कर सकते हैं, जो केवल उन लेआउट स्लाइड्स को सुरक्षित रूप से हटाता है जो उपयोग में नहीं हैं।
+निर्भरत स्लाइडें लेआउट परिवर्तन विरासत में लेती हैं जब तक कि वे स्थानीय रूप से स्वरूपण या वस्तुओं को ओवरराइड न करें। प्लेसहोल्डर ज्यामिति और विरासत में मिला स्टाइल कई स्लाइड पर एक साथ बदल सकता है। लेआउट संपादित करने से पहले प्रभावित स्लाइड की पहचान करने के लिए [getDependingSlides](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--) का उपयोग करें।
+
+**यदि मैं अभी भी उपयोग में रहे लेआउट को हटाने की कोशिश करता हूँ तो क्या होता है?**
+
+Aspose.Slides एक [PptxEditException](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/pptxeditexception/) उत्पन्न करता है। पहले निर्भर स्लाइड को पुनः असाइन करें, या केवल बिना संदर्भ वाले लेआउट को हटाने के लिए [removeUnusedLayoutSlides](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) का उपयोग करें।

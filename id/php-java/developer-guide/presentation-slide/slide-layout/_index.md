@@ -1,6 +1,6 @@
 ---
-title: Menerapkan atau Mengubah Tata Letak Slide di PHP
-linktitle: Tata Letak Slide
+title: "Terapkan atau Ubah Tata Letak Slide di PHP"
+linktitle: "Tata Letak Slide"
 type: docs
 weight: 60
 url: /id/php-java/slide-layout/
@@ -10,7 +10,7 @@ keywords:
 - placeholder
 - desain presentasi
 - desain slide
-- tata letak yang tidak digunakan
+- tata letak tidak terpakai
 - visibilitas footer
 - slide judul
 - judul dan konten
@@ -28,227 +28,222 @@ keywords:
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Kelola dan sesuaikan tata letak slide di Aspose.Slides untuk PHP via Java. Jelajahi tipe tata letak, kontrol placeholder, dan visibilitas footer melalui contoh kode."
+description: "Terapkan, buat, dan ubah tata letak slide di Aspose.Slides untuk PHP melalui Java, tambahkan placeholder, hapus tata letak yang tidak terpakai, dan kontrol visibilitas footer."
 ---
-## **Pendahuluan**
+## **Gambaran Umum**
 
-Tata letak slide menentukan susunan kotak placeholder dan pemformatan untuk konten pada sebuah slide. Tata letak mengontrol placeholder apa saja yang tersedia dan di mana mereka muncul. Tata letak slide membantu Anda merancang presentasi dengan cepat dan konsisten—baik ketika Anda membuat sesuatu yang sederhana maupun yang lebih kompleks. Beberapa tata letak slide yang paling umum di PowerPoint meliputi:
+Tata letak slide menentukan posisi dan pemformatan placeholder seperti judul, teks, gambar, diagram, dan tabel. Menerapkan tata letak memberi slide struktur yang konsisten sekaligus memungkinkan setiap slide memiliki kontennya sendiri.
 
-**Tata letak Slide Judul** – Menyertakan dua placeholder teks: satu untuk judul dan satu untuk subjudul.
+Tata letak yang paling umum meliputi:
 
-**Tata letak Judul dan Konten** – Menampilkan placeholder judul yang lebih kecil di bagian atas dan placeholder yang lebih besar di bawahnya untuk konten utama (seperti teks, poin-poin, diagram, gambar, dan lain‑lain).
+- **Slide Judul**: Berisi placeholder judul dan subjudul.
+- **Judul dan Konten**: Berisi placeholder judul dan placeholder konten umum.
+- **Kosong**: Tidak berisi placeholder konten dan berguna ketika setiap bentuk akan ditempatkan secara manual.
 
-**Tata letak Kosong** – Tidak berisi placeholder, memberikan Anda kontrol penuh untuk merancang slide dari nol.
+## **Pahami Pewarisan Tata Letak**
 
-Tata letak slide merupakan bagian dari master slide, yaitu slide tingkat atas yang mendefinisikan gaya tata letak untuk seluruh presentasi. Anda dapat mengakses dan memodifikasi slide tata letak melalui master slide—baik berdasarkan tipe, nama, atau ID uniknya. Atau, Anda dapat menyunting tata letak slide tertentu secara langsung dalam presentasi.
+Presentasi memiliki tiga tingkatan terkait:
 
-Untuk bekerja dengan tata letak slide di Aspose.Slides untuk PHP, Anda dapat menggunakan:
+1. Sebuah [slide master](https://reference.aspose.com/slides/id/php-java/aspose.slides/masterslide/) mendefinisikan tema, pemformatan bersama, latar belakang, dan objek umum.
+2. Sebuah [slide tata letak](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutslide/) termasuk dalam master dan mendefinisikan susunan khusus placeholder.
+3. Sebuah [slide normal](https://reference.aspose.com/slides/id/php-java/aspose.slides/slide/) menggunakan satu tata letak dan menyimpan konten yang dimasukkan untuk slide tersebut.
 
-- Metode seperti [getLayoutSlides](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/#getLayoutSlides) dan [getMasters](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/#getMasters) pada kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/)
-- Tipe seperti [LayoutSlide](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/id/php-java/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutplaceholdermanager/), dan [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutslideheaderfootermanager/)
+Slide normal mewarisi tema dan pemformatan dari tata letaknya, dan tata letak mewarisi dari masternya. Nilai yang ditetapkan secara langsung pada slide normal akan menggantikan nilai yang diwariskan pada tingkat tersebut. Ketika slide normal dibuat, bentuk placeholder‑nya dihasilkan dari tata letak yang dipilih, sementara konten yang dimasukkan ke dalam placeholder tersebut menjadi milik slide normal.
 
-{{% alert title="Info" color="info" %}}
+Tambahkan placeholder yang diperlukan ke sebuah tata letak sebelum membuat slide darinya. Menambahkan placeholder lain ke tata letak kemudian tidak secara otomatis menambahkan bentuk placeholder yang sesuai ke slide normal yang sudah ada.
 
-Untuk mempelajari lebih lanjut tentang penggunaan master slide, lihat artikel [Slide Master](/slides/id/php-java/slide-master/).
+Hubungan ini memiliki dua konsekuensi penting:
 
-{{% /alert %}}
+- Mengubah pemformatan yang diwariskan atau geometri placeholder yang ada pada tata letak dapat memperbarui setiap slide yang bergantung padanya. Sebelum mengedit tata letak yang sudah digunakan, periksa slide yang bergantung padanya dan tinjau presentasi yang dihasilkan.
+- Tata letak yang masih digunakan oleh sebuah slide tidak dapat dihapus. Alihkan slide yang bergantung padanya ke tata letak lain terlebih dahulu, atau hapus hanya tata letak yang tidak terpakai.
 
-## **Menambahkan Tata Letak Slide ke Presentasi**
+Untuk informasi lebih lanjut tentang tingkat teratas hierarki ini, lihat [Slide Master](/slides/id/php-java/slide-master/).
 
-Untuk menyesuaikan tampilan dan struktur slide Anda, mungkin Anda perlu menambahkan slide tata letak baru ke sebuah presentasi. Aspose.Slides untuk PHP memungkinkan Anda memeriksa apakah sebuah tata letak tertentu sudah ada, menambahkannya jika diperlukan, dan menggunakannya untuk menyisipkan slide berdasarkan tata letak tersebut.
+## **Pilih dan Terapkan Tata Letak Slide**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/).
-1. Akses [MasterLayoutSlideCollection](https://reference.aspose.com/slides/id/php-java/aspose.slides/masterlayoutslidecollection/).
-1. Periksa apakah slide tata letak yang diinginkan sudah ada dalam koleksi. Jika belum, tambahkan slide tata letak yang diperlukan.
-1. Tambahkan slide kosong berdasarkan tata letak baru.
-1. Simpan presentasi.
+Gunakan tipe tata letak ketika presentasi mengikuti definisi tata letak standar PowerPoint. Nama tata letak dapat diedit pengguna dan dapat dilokalisasi, sehingga pemilihan berdasarkan nama kurang dapat diandalkan kecuali Anda mengendalikan templat sumber.
 
-Kode PHP berikut menunjukkan cara menambahkan tata letak slide ke presentasi PowerPoint:
+Contoh berikut mencari **Judul dan Konten** pada master pertama. Jika tata letak tersebut tidak tersedia, secara sengaja beralih ke **Kosong**. Pemeriksaan null kedua diperlukan karena sebuah presentasi dapat berisi hanya tata letak khusus. Tata letak yang dipilih kemudian diterapkan ke slide normal pertama melalui metode [Slide.setLayoutSlide](https://reference.aspose.com/slides/id/php-java/aspose.slides/slide/#setLayoutSlide) .
 
 ```php
-// Instansiasi kelas Presentation yang mewakili file PowerPoint.
-$presentation = new Presentation("Sample.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
 try {
-    // Lalui tipe slide tata letak untuk memilih slide tata letak.
     $layoutSlides = $presentation->getMasters()->get_Item(0)->getLayoutSlides();
-    $layoutSlide = null;
-    if (!java_is_null($layoutSlides->getByType(SlideLayoutType::TitleAndObject))) {
-        $layoutSlide = $layoutSlides->getByType(SlideLayoutType::TitleAndObject);
-    } else {
-        $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Title);
+    $targetLayout = $layoutSlides->getByType(SlideLayoutType::TitleAndObject);
+
+    if (java_is_null($targetLayout)) {
+        $targetLayout = $layoutSlides->getByType(SlideLayoutType::Blank);
     }
 
-    if (java_is_null($layoutSlide)) {
-        // Situasi di mana presentasi tidak berisi semua tipe tata letak.
-        // File presentasi hanya berisi tipe tata letak Blank dan Custom.
-        // Namun, slide tata letak dengan tipe kustom mungkin memiliki nama yang dapat dikenali,
-        // seperti "Title", "Title and Content", dll., yang dapat digunakan untuk pemilihan slide tata letak.
-        // Anda juga dapat mengandalkan sekumpulan tipe bentuk placeholder.
-        // Sebagai contoh, slide Judul seharusnya hanya memiliki tipe placeholder Title, dan seterusnya.
-        foreach($layoutSlides as $titleAndObjectLayoutSlide) {
-            if (java_values($titleAndObjectLayoutSlide->getName()) == "Title and Object") {
-                $layoutSlide = $titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (java_is_null($layoutSlide)) {
-            foreach($layoutSlides as $titleLayoutSlide) {
-                if (java_values($titleLayoutSlide->getName()) == "Title") {
-                    $layoutSlide = $titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (java_is_null($layoutSlide)) {
-                $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Blank);
-                if (java_is_null($layoutSlide)) {
-                    $layoutSlide = $layoutSlides->add(SlideLayoutType::TitleAndObject, "Title and Object");
-                }
-            }
-        }
+    if (java_is_null($targetLayout)) {
+        throw new \RuntimeException("The first master does not contain a suitable layout slide.");
     }
 
-    // Tambahkan slide kosong menggunakan slide tata letak yang telah ditambahkan.
-    $presentation->getSlides()->insertEmptySlide(0, $layoutSlide);
-
-    // Simpan presentasi ke disk.
-    $presentation->save("output.pptx", SaveFormat::Pptx);
+    $presentation->getSlides()->get_Item(0)->setLayoutSlide($targetLayout);
+    $presentation->save("output-with-new-layout.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Menghapus Slide Tata Letak yang Tidak Digunakan**
+Mengubah tata letak slide tidak menghapus bentuk biasa yang ditambahkan langsung ke slide. Namun, posisi placeholder, pemformatan yang diwariskan, dan kesesuaian antara placeholder yang ada dengan tata letak baru dapat berubah, sehingga periksa hasilnya saat beralih antara tata letak yang secara signifikan berbeda.
 
-Aspose.Slides menyediakan metode [removeUnusedLayoutSlides](https://reference.aspose.com/slides/id/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) dari kelas [Compress](https://reference.aspose.com/slides/id/php-java/aspose.slides/compress/) untuk memungkinkan Anda menghapus slide tata letak yang tidak diinginkan dan tidak terpakai.
+## **Tambahkan Slide Tata Letak**
 
-Kode PHP berikut memperlihatkan cara menghapus slide tata letak dari presentasi PowerPoint:
+Pemilihan dan pembuatan adalah operasi terpisah. Contoh sebelumnya memilih tata letak yang sudah ada; tidak membuat yang baru. Untuk membuat tata letak, panggil metode [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/id/php-java/aspose.slides/masterlayoutslidecollection/#add) pada koleksi tata letak master target.
+
+Contoh berikut selalu menambahkan tata letak **Judul dan Konten** baru dengan nama `Report Title and Content`, lalu menambahkan slide normal yang berdasarkan tata letak itu. Nama tata letak harus unik dalam koleksi.
 
 ```php
-$presentation = new Presentation("Presentation.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
 try {
-    Compress::removeUnusedLayoutSlides($presentation);
-    $presentation->save("Output.pptx", SaveFormat::Pptx);
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $reportLayout = $masterSlide->getLayoutSlides()->add(SlideLayoutType::TitleAndObject, "Report Title and Content");
+    $presentation->getSlides()->addEmptySlide($reportLayout);
+
+    $presentation->save("output-with-report-layout.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Menambahkan Placeholder ke Tata Letak Slide**
+Tambahkan tata letak hanya ketika templat memang membutuhkan struktur dapat pakai ulang lain. Jika tata letak yang cocok sudah ada, pilih dan gunakan kembali daripada membuat duplikat.
 
-Aspose.Slides menyediakan metode [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutslide/#getPlaceholderManager) yang memungkinkan Anda menambahkan placeholder baru ke sebuah slide tata letak.
+## **Tambahkan Placeholder ke Slide Tata Letak**
 
-Manajer ini berisi metode untuk tipe placeholder berikut:
+Metode [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutslide/#getPlaceholderManager) menyediakan sebuah [LayoutPlaceholderManager](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutplaceholdermanager/) untuk menambahkan bentuk placeholder ke sebuah tata letak.
 
-| Placeholder PowerPoint              | Metode [LayoutPlaceholderManager](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutplaceholdermanager/) |
-| ----------------------------------- | ------------------------------------------------------------ |
-| ![Content](content.png)             | addContentPlaceholder(float x,float y,float width,float height) |
-| ![Content (Vertical)](contentV.png) | addVerticalContentPlaceholder(float x,float y,float width,float height) |
-| ![Text](text.png)                   | addTextPlaceholder(float x,float y,float width,float height) |
-| ![Text (Vertical)](textV.png)       | addVerticalTextPlaceholder(float x,float y,float width,float height) |
-| ![Picture](picture.png)             | addPicturePlaceholder(float x,float y,float width,float height) |
-| ![Chart](chart.png)                 | addChartPlaceholder(float x,float y,float width,float height) |
-| ![Table](table.png)                 | addTablePlaceholder(float x,float y,float width,float height) |
-| ![SmartArt](smartart.png)           | addSmartArtPlaceholder(float x,float y,float width,float height) |
-| ![Media](media.png)                 | addMediaPlaceholder(float x,float y,float width,float height) |
-| ![Online Image](onlineimage.png)    | addOnlineImagePlaceholder(float x,float y,float width,float height) |
+| Placeholder PowerPoint              | Metode `LayoutPlaceholderManager` |
+| ----------------------------------- | --------------------------------- |
+| ![Konten](content.png)             | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![Konten (Vertikal)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![Teks](text.png)                  | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Teks (Vertikal)](textV.png)      | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Gambar](picture.png)             | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Diagram](chart.png)               | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Tabel](table.png)                 | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png)           | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Media](media.png)                 | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Gambar Online](onlineImage.png)  | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-Kode PHP berikut menunjukkan cara menambahkan bentuk placeholder baru ke slide tata letak Blank:
+Contoh berikut memverifikasi bahwa tata letak **Kosong** ada, menambahkan empat placeholder ke dalamnya, dan kemudian membuat slide normal yang menggunakan tata letak yang dimodifikasi. Urutannya disengaja: placeholder ditambahkan sebelum slide normal dibuat, sehingga Aspose.Slides dapat menghasilkan bentuk placeholder yang sesuai pada slide tersebut.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
 $presentation = new Presentation();
 try {
-    // Dapatkan slide tata letak Blank.
-    $layout = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    $blankLayout = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
 
-    // Dapatkan manajer placeholder dari slide tata letak.
-    $placeholderManager = $layout->getPlaceholderManager();
+    if (java_is_null($blankLayout)) {
+        throw new \RuntimeException("The presentation does not contain a Blank layout slide.");
+    }
 
-    // Tambahkan berbagai placeholder ke slide tata letak Blank.
+    $placeholderManager = $blankLayout->getPlaceholderManager();
     $placeholderManager->addContentPlaceholder(20, 20, 310, 270);
     $placeholderManager->addVerticalTextPlaceholder(350, 20, 350, 270);
     $placeholderManager->addChartPlaceholder(20, 310, 310, 180);
     $placeholderManager->addTablePlaceholder(350, 310, 350, 180);
 
-    // Tambahkan slide baru dengan tata letak Blank.
-    $newSlide = $presentation->getSlides()->addEmptySlide($layout);
-
-    $presentation->save("Placeholders.pptx", SaveFormat::Pptx);
+    $presentation->getSlides()->addEmptySlide($blankLayout);
+    $presentation->save("output-with-placeholders.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-Hasilnya:
+Hasil:
 
-![The placeholders on the layout slide](add_placeholders.png)
+![Placeholder pada slide tata letak](add_placeholders.png)
 
-## **Mengatur Visibilitas Footer untuk Slide Tata Letak**
+{{% alert color="warning" title="Warning" %}}
+Mengubah pemformatan yang diwariskan atau geometri placeholder tata letak yang ada dapat memengaruhi slide yang bergantung. Placeholder tata letak yang baru ditambahkan tidak secara otomatis dimasukkan ke slide normal yang sudah ada. Uji perubahan tata letak pada salinan presentasi dan periksa setiap slide yang bergantung.
+{{% /alert %}}
 
-Dalam presentasi PowerPoint, elemen footer seperti tanggal, nomor slide, dan teks khusus dapat ditampilkan atau disembunyikan tergantung pada tata letak slide. Aspose.Slides untuk PHP memungkinkan Anda mengontrol visibilitas placeholder footer ini. Hal ini berguna ketika Anda ingin beberapa tata letak menampilkan informasi footer sementara yang lain tetap bersih dan minimal.
+## **Hapus Slide Tata Letak yang Tidak Digunakan**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/).
-1. Dapatkan referensi slide tata letak berdasarkan indeksnya.
-1. Atur placeholder footer slide agar terlihat.
-1. Atur placeholder nomor slide agar terlihat.
-1. Atur placeholder tanggal‑waktu agar terlihat.
-1. Simpan presentasi.
-
-Kode PHP berikut memperlihatkan cara mengatur visibilitas footer slide dan melakukan tugas terkait:
+Gunakan metode [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/id/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) untuk menghapus tata letak yang tidak direferensikan oleh slide normal mana pun. Metode ini membiarkan tata letak yang masih digunakan tetap tidak berubah.
 
 ```php
-$presentation = new Presentation("Presentation.ppt");
+use aspose\slides\Compress;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
 try {
-    $headerFooterManager = $presentation->getLayoutSlides()->get_Item(0)->getHeaderFooterManager();
+    Compress::removeUnusedLayoutSlides($presentation);
+    $presentation->save("output-without-unused-layouts.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
 
-    if (!$headerFooterManager->isFooterVisible()) {
-        $headerFooterManager->setFooterVisibility(true);
+Untuk menghapus satu tata letak tertentu, pertama gunakan metode [hasDependingSlides](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutslide/#hasDependingSlides) atau [getDependingSlides](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutslide/#getDependingSlides) miliknya. Alihkan slide yang bergantung sebelum memanggil [LayoutSlide.remove](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutslide/#remove). Mencoba menghapus tata letak yang masih digunakan akan menghasilkan [PptxEditException](https://reference.aspose.com/slides/id/php-java/aspose.slides/pptxeditexception/).
+
+## **Kontrol Visibilitas Footer pada Slide Tata Letak**
+
+Sebuah tata letak memiliki footer, placeholder nomor slide, dan tanggal‑waktu sendiri. Gunakan metode [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutslide/#getHeaderFooterManager) untuk mengontrol placeholder tersebut pada satu tata letak. Ini berguna ketika, misalnya, tata letak konten harus menampilkan footer tetapi tata letak judul tidak.
+
+Contoh berikut memilih tata letak dengan aman dan membuat elemen footernya terlihat:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $layoutSlide = $presentation->getLayoutSlides()->getByType(SlideLayoutType::TitleAndObject);
+
+    if (java_is_null($layoutSlide)) {
+        $layoutSlide = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
     }
 
-    if (!$headerFooterManager->isSlideNumberVisible()) {
-        $headerFooterManager->setSlideNumberVisibility(true);
+    if (java_is_null($layoutSlide)) {
+        throw new \RuntimeException("The presentation does not contain a suitable layout slide.");
     }
 
-    if (!$headerFooterManager->isDateTimeVisible()) {
-        $headerFooterManager->setDateTimeVisibility(true);
-    }
-
+    $headerFooterManager = $layoutSlide->getHeaderFooterManager();
+    $headerFooterManager->setFooterVisibility(true);
+    $headerFooterManager->setSlideNumberVisibility(true);
+    $headerFooterManager->setDateTimeVisibility(true);
     $headerFooterManager->setFooterText("Footer text");
     $headerFooterManager->setDateTimeText("Date and time text");
 
-    $presentation->save("Presentation.ppt", SaveFormat::Ppt);
+    $presentation->save("output-with-layout-footers.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Mengatur Visibilitas Footer Anak untuk Slide**
+## **Kontrol Visibilitas Footer pada Master dan Tata Letak Anaknya**
 
-​Dalam presentasi PowerPoint, elemen footer seperti tanggal, nomor slide, dan teks khusus dapat dikontrol pada tingkat master slide untuk memastikan konsistensi di semua slide tata letak. Aspose.Slides untuk PHP memungkinkan Anda mengatur visibilitas dan isi placeholder footer pada master slide dan menyebarkan pengaturan ini ke semua slide tata letak anak. Pendekatan ini memastikan informasi footer yang seragam di seluruh presentasi.​
-
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/).
-1. Dapatkan referensi ke master slide berdasarkan indeksnya.
-1. Atur semua placeholder footer master dan anak agar terlihat.
-1. Atur semua placeholder nomor slide master dan anak agar terlihat.
-1. Atur semua placeholder tanggal‑waktu master dan anak agar terlihat.
-1. Simpan presentasi.
-
-Kode PHP berikut mendemonstrasikan operasi tersebut:
+Untuk menerapkan pengaturan footer yang konsisten di seluruh hierarki master, gunakan metode [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/id/php-java/aspose.slides/masterslide/#getHeaderFooterManager). Metode propagasi dari [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/id/php-java/aspose.slides/masterslideheaderfootermanager/) beroperasi pada master serta slide tata letak dan slide normal yang bergantung; mereka tidak menargetkan hanya satu slide normal.
 
 ```php
-$presentation = new Presentation("presentation.ppt");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
 try {
     $headerFooterManager = $presentation->getMasters()->get_Item(0)->getHeaderFooterManager();
-
     $headerFooterManager->setFooterAndChildFootersVisibility(true);
     $headerFooterManager->setSlideNumberAndChildSlideNumbersVisibility(true);
     $headerFooterManager->setDateTimeAndChildDateTimesVisibility(true);
-
     $headerFooterManager->setFooterAndChildFootersText("Footer text");
     $headerFooterManager->setDateTimeAndChildDateTimesText("Date and time text");
 
-    $presentation->save("Output.pptx", SaveFormat::Pptx);
+    $presentation->save("output-with-master-footers.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
@@ -256,14 +251,18 @@ try {
 
 ## **FAQ**
 
-**Apa perbedaan antara master slide dan layout slide?**
+**Apa Perbedaan antara Slide Master dan Slide Tata Letak?**
 
-Master slide mendefinisikan tema keseluruhan dan pemformatan default, sementara layout slide menentukan susunan placeholder spesifik untuk berbagai jenis konten.
+Slide master mendefinisikan tema dan pemformatan bersama presentasi. Slide tata letak termasuk dalam master dan mendefinisikan satu susunan placeholder yang dapat dipakai ulang. Slide normal menggunakan tata letak tersebut dan menyimpan konten khusus slide.
 
-**Apakah saya dapat menyalin layout slide dari satu presentasi ke presentasi lain?**
+**Bisakah Saya Menyalin Slide Tata Letak dari Satu Presentasi ke Presentasi Lain?**
 
-Ya, Anda dapat mengkloning layout slide dari koleksi layout slide sebuah presentasi, yang dapat diakses melalui metode [getLayoutSlides](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/#getLayoutSlides), dan menyisipkannya ke presentasi lain dengan metode `addClone`.
+Ya. Tambahkan salinan ke koleksi tujuan dengan metode [addClone](https://reference.aspose.com/slides/id/php-java/aspose.slides/globallayoutslidecollection/#addClone). Saat menyalin antar presentasi, periksa juga font, tema, gambar, dan sumber daya lain yang digunakan oleh tata letak sumber.
 
-**Apa yang terjadi jika saya menghapus layout slide yang masih digunakan oleh sebuah slide?**
+**Apa yang Terjadi Ketika Saya Memodifikasi Tata Letak yang Sudah Digunakan?**
 
-Jika Anda mencoba menghapus layout slide yang masih direferensikan oleh setidaknya satu slide dalam presentasi, Aspose.Slides akan melempar [PptxEditException](https://reference.aspose.com/slides/id/php-java/aspose.slides/pptxeditexception/). Untuk menghindarinya, gunakan [removeUnusedLayoutSlides](https://reference.aspose.com/slides/id/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) yang secara aman menghapus hanya tata letak slide yang tidak sedang dipakai.
+Slide yang bergantung mewarisi perubahan tata letak kecuali mereka menimpa pemformatan atau objek yang terpengaruh secara lokal. Geometri placeholder dan gaya yang diwariskan dapat berubah pada banyak slide sekaligus. Gunakan [getDependingSlides](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutslide/#getDependingSlides) untuk mengidentifikasi slide yang terpengaruh sebelum mengedit tata letak.
+
+**Apa yang Terjadi Jika Saya Menghapus Tata Letak yang Masih Digunakan?**
+
+Aspose.Slides akan melempar [PptxEditException](https://reference.aspose.com/slides/id/php-java/aspose.slides/pptxeditexception/). Alihkan slide yang bergantung terlebih dahulu, atau gunakan [removeUnusedLayoutSlides](https://reference.aspose.com/slides/id/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) untuk menghapus hanya tata letak yang tidak direferensikan.

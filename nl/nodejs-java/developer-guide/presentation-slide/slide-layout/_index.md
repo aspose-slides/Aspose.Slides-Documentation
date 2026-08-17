@@ -1,24 +1,24 @@
 ---
-title: Dia‑indelingen toepassen of wijzigen in JavaScript
-linktitle: Dia‑indeling
+title: Toepassen of wijzigen van dia‑lay-outs in JavaScript
+linktitle: Dia‑lay-out
 type: docs
 weight: 60
 url: /nl/nodejs-java/slide-layout/
 keywords:
-- dia‑indeling
-- inhoudsindeling
+- dia‑lay-out
+- inhoudslay-out
 - placeholder
 - presentatie‑ontwerp
 - dia‑ontwerp
-- ongebruikte indeling
-- voettekst‑zichtbaarheid
-- titeldia
+- ongebruikte lay-out
+- zichtbaarheid van voettekst
+- titel‑dia
 - titel en inhoud
 - sectiekop
 - twee inhoud
 - vergelijking
 - alleen titel
-- lege indeling
+- lege lay-out
 - inhoud met bijschrift
 - afbeelding met bijschrift
 - titel en verticale tekst
@@ -29,149 +29,139 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Beheer en pas dia‑indelingen aan in Aspose.Slides voor Node.js. Ontdek indelingstypen, placeholder‑beheer en voettekst‑zichtbaarheid aan de hand van codevoorbeelden."
+description: "Toepassen, maken en wijzigen van dia‑lay-outs in Aspose.Slides voor Node.js via Java, placeholders toevoegen, ongebruikte lay-outs verwijderen en de zichtbaarheid van de voettekst regelen."
 ---
-## **Introductie**
+## **Overzicht**
 
-Een dia‑indeling bepaalt de rangschikking van placeholder‑vakken en de opmaak van de inhoud op een dia. Ze regelt welke placeholders beschikbaar zijn en waar ze verschijnen. Dia‑indelingen helpen u presentaties snel en consistent te ontwerpen—of u nu iets eenvoudigs of complexers maakt. Enkele van de meest voorkomende dia‑indelingen in PowerPoint zijn:
+Een dia‑lay-out definieert de posities en opmaak van tijdelijke aanduidingen zoals titels, tekst, afbeeldingen, diagrammen en tabellen. Het toepassen van een lay-out geeft dia's een consistente structuur, terwijl elke dia zijn eigen inhoud kan bevatten.
 
-**Titel‑dia‑indeling** – Bevat twee tekst‑placeholders: één voor de titel en één voor de ondertitel.
+De meest voorkomende lay-outs omvatten:
 
-**Titel‑en‑inhoud‑indeling** – Beschikt over een kleinere titel‑placeholder bovenaan en een grotere eronder voor de hoofdinhoud (zoals tekst, opsommingstekens, grafieken, afbeeldingen enzovoort).
+- **Titel‑dia**: Bevat tijdelijke aanduidingen voor titel en ondertitel.
+- **Titel en inhoud**: Bevat een titel‑placeholder en een algemene inhouds‑placeholder.
+- **Leeg**: Bevat geen inhouds‑placeholders en is nuttig wanneer elke vorm handmatig wordt gepositioneerd.
 
-**Lege indeling** – Bevat geen placeholders, zodat u de dia volledig zelf kunt ontwerpen vanaf nul.
+## **Begrijp lay-out‑erfenis**
 
-Dia‑indelingen maken deel uit van een dia‑master, de bovenste dia die de indelingsstijlen voor de presentatie bepaalt. U kunt indelingsdia's benaderen en aanpassen via de dia‑master—op type, naam of unieke ID. Alternatief kunt u een specifieke indelingsdia rechtstreeks in de presentatie bewerken.
+Een presentatie heeft drie gerelateerde niveaus:
 
-Om te werken met dia‑indelingen in Aspose.Slides for Node.js, kunt u gebruiken:
+1. Een [masterdia](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/masterslide/) definieert het thema, gedeelde opmaak, achtergronden en gemeenschappelijke objecten.
+2. Een [layoutdia](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/layoutslide/) behoort tot een master en definieert een specifieke ordening van placeholders.
+3. Een [normale dia](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/slide/) gebruikt één lay-out en slaat de ingevoerde inhoud voor die dia op.
 
-- Methoden zoals [getLayoutSlides](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/#getLayoutSlides) en [getMasters](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/#getMasters) onder de klasse [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/).
-- Typen zoals [LayoutSlide](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/layoutplaceholdermanager/) en [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/layoutslideheaderfootermanager/).
+Een normale dia erft thema en opmaak van zijn lay-out, en de lay-out erft van de master. Een waarde die rechtstreeks op een normale dia wordt ingesteld, overschrijft de geërfde waarde op dat niveau. Wanneer een normale dia wordt aangemaakt, worden de placeholder‑vormen gegenereerd vanuit de geselecteerde lay-out, terwijl de ingevoerde inhoud in die placeholders toebehoort aan de normale dia.
 
-{{% alert title="Info" color="info" %}}
-Om meer te weten te komen over het werken met masterslides, bekijk het artikel [Slide Master](/slides/nl/nodejs-java/slide-master/).
-{{% /alert %}}
+Voeg de benodigde placeholders toe aan een lay-out vóór het maken van dia's daarvan. Een later toegevoegde placeholder aan een lay-out voegt niet automatisch een overeenkomstige placeholder‑vorm toe aan bestaande normale dia's.
 
-## **Dia‑indelingen toevoegen aan presentaties**
+Deze relatie heeft twee belangrijke consequenties:
 
-Om het uiterlijk en de structuur van uw dia's aan te passen, moet u mogelijk nieuwe indelingsdia's aan een presentatie toevoegen. Aspose.Slides voor Node.js stelt u in staat te controleren of een bepaalde indeling al bestaat, deze indien nodig toe te voegen, en te gebruiken om dia's in te voegen op basis van die indeling.
+- Het wijzigen van geërfde opmaak of de bestaande placeholder‑geometrie op een lay-out kan elke afhankelijke dia bijwerken. Voordat u een lay-out bewerkt die al in gebruik is, inspecteert u de afhankelijke dia's en controleert u de resulterende presentatie.
+- Een lay-out die nog door een dia wordt gebruikt, kan niet worden verwijderd. Wijs eerst haar afhankelijke dia's toe aan een andere lay-out, of verwijder alleen ongebruikte lay-outs.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/).
-1. Benader de [MasterLayoutSlideCollection](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/masterlayoutslidecollection/).
-1. Controleer of de gewenste indelingsdia al bestaat in de collectie. Zo niet, voeg dan de benodigde indelingsdia toe.
-1. Voeg een lege dia toe op basis van de nieuwe indelingsdia.
-1. Sla de presentatie op.
+Voor meer informatie over het hoogste niveau van deze hiërarchie, zie [Dia‑master](/slides/nl/nodejs-java/slide-master/).
 
-```js
-// Instantieer de Presentation‑klasse die een PowerPoint‑bestand vertegenwoordigt.
-let presentation = new aspose.slides.Presentation("Sample.pptx");
+## **Selecteer en pas een dia‑lay-out toe**
+
+Gebruik een [SlideLayoutType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/slidelayouttype/) wanneer de presentatie de standaard PowerPoint‑lay-outdefinities volgt. Lay-outnamen zijn door de gebruiker bewerkbaar en kunnen worden gelokaliseerd, waardoor selectie op naam minder betrouwbaar is, tenzij u de bron‑template beheert.
+
+Het volgende voorbeeld zoekt naar **Titel en inhoud** op de eerste master. Als die lay-out niet beschikbaar is, valt het opzettelijk terug op **Leeg**. De tweede null‑check is noodzakelijk omdat een presentatie alleen aangepaste lay-outs kan bevatten. De geselecteerde lay-out wordt vervolgens toegepast op de eerste normale dia via de [Slide.setLayoutSlide](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/slide/#setLayoutSlide) methode.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Doorloop de indelingsdia‑typen om een indelingsdia te selecteren.
     let layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
-    let layoutSlide = null;
-    if (layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject)) != null) {
-        layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject));
-    } else {
-        layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.Title));
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let targetLayout = layoutSlides.getByType(titleAndObjectLayoutType);
+
+    if (targetLayout === null) {
+        targetLayout = layoutSlides.getByType(blankLayoutType);
     }
 
-    if (layoutSlide == null) {
-        // Een situatie waarin de presentatie niet alle indelingstypen bevat.
-        // Het presentiebestand bevat alleen lege en aangepaste indelingstypen.
-        // Echter kunnen indelingsdia's met aangepaste typen herkenbare namen hebben,
-        // zoals "Title", "Title and Content", enz., die gebruikt kunnen worden voor het selecteren van een indelingsdia.
-        // U kunt ook vertrouwen op een reeks placeholder‑vormtypen.
-        // Bijvoorbeeld moet een Titeldia alleen het Title‑placeholder‑type hebben, enzovoort.
-        for (let i = 0; i < layoutSlides.size(); i++) {
-            let titleAndObjectLayoutSlide = layoutSlides.get_Item(i);
-            if (titleAndObjectLayoutSlide.getName() === "Title and Object") {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null) {
-            for (let i = 0; i < layoutSlides.size(); i++) {
-                let titleLayoutSlide = layoutSlides.get_Item(i);
-                if (titleLayoutSlide.getName() === "Title") {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
-                if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject), "Title and Object");
-                }
-            }
-        }
+    if (targetLayout === null) {
+        throw new Error("The first master does not contain a suitable layout slide.");
     }
 
-    // Voeg een lege dia toe met de toegevoegde indelingsdia.
-    presentation.getSlides().insertEmptySlide(0, layoutSlide);
-
-    // Sla de presentatie op naar schijf.
-    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.getSlides().get_Item(0).setLayoutSlide(targetLayout);
+    presentation.save("output-with-new-layout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Ongebruikte indelingsdia's verwijderen**
+Het wijzigen van de lay-out van een dia verwijdert niet de gewone vormen die rechtstreeks aan de dia zijn toegevoegd. Echter, placeholder‑posities, geërfde opmaak en de correspondentie tussen bestaande placeholders en de nieuwe lay-out kunnen wijzigen, dus controleer de output wanneer u overschakelt tussen duidelijk verschillende lay-outs.
 
-Aspose.Slides biedt de methode [removeUnusedLayoutSlides](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) van de klasse [Compress](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/compress/) aan om ongewenste en ongebruikte indelingsdia's te verwijderen.
+## **Voeg een layoutdia toe**
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+Selectie en creatie zijn afzonderlijke handelingen. Het vorige voorbeeld selecteert een bestaande lay-out; het creëert er geen. Om een lay-out te maken, roep de [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/masterlayoutslidecollection/#add) methode aan op de lay-outcollectie van de doel‑master.
+
+Het volgende voorbeeld voegt altijd een nieuwe **Titel en inhoud** lay-out toe met de naam `Report Title and Content`, waarna een normale dia gebaseerd op die lay-out wordt toegevoegd. Lay-outnamen moeten uniek zijn binnen de collectie.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    aspose.slides.Compress.removeUnusedLayoutSlides(presentation);
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let reportLayout = masterSlide.getLayoutSlides().add(titleAndObjectLayoutType, "Report Title and Content");
+    presentation.getSlides().addEmptySlide(reportLayout);
+
+    presentation.save("output-with-report-layout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Placeholders toevoegen aan dia‑indelingen**
+Voeg alleen een lay-out toe wanneer de template echt een extra herbruikbare structuur nodig heeft. Als er al een geschikte lay-out bestaat, selecteer en hergebruik die in plaats van een duplicaat te maken.
 
-Aspose.Slides biedt de methode [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager) die u in staat stelt nieuwe placeholders toe te voegen aan een indelingsdia.
+## **Voeg placeholders toe aan een layoutdia**
 
-Deze manager bevat methoden voor de volgende placeholder‑typen:
+De [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager) methode levert een [LayoutPlaceholderManager](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/layoutplaceholdermanager/) voor het toevoegen van placeholder‑vormen aan een lay‑out.
 
-| PowerPoint‑placeholder              | [LayoutPlaceholderManager](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/layoutplaceholdermanager/) Methode |
-| ----------------------------------- | ------------------------------------------------------------ |
-| ![Content](content.png)             | addContentPlaceholder(float x, float y, float width, float height) |
-| ![Content (Vertical)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Text](text.png)                   | addTextPlaceholder(float x, float y, float width, float height) |
-| ![Text (Vertical)](textV.png)       | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Picture](picture.png)             | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![Chart](chart.png)                 | addChartPlaceholder(float x, float y, float width, float height) |
-| ![Table](table.png)                 | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png)           | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Media](media.png)                 | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![Online Image](onlineimage.png)    | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| PowerPoint Placeholder | `LayoutPlaceholderManager` Method |
+| ---------------------- | --------------------------------- |
+| ![Inhoud](content.png) | [`addContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![Inhoud (verticaal)](contentV.png) | [`addVerticalContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![Tekst](text.png) | [`addTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Tekst (verticaal)](textV.png) | [`addVerticalTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Afbeelding](picture.png) | [`addPicturePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Diagram](chart.png) | [`addChartPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Tabel](table.png) | [`addTablePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Media](media.png) | [`addMediaPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Online‑afbeelding](onlineImage.png) | [`addOnlineImagePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-De volgende JavaScript‑code toont hoe u nieuwe placeholder‑vormen kunt toevoegen aan de lege indelingsdia:
+Het volgende voorbeeld controleert of de **Leeg** lay-out bestaat, voegt vier placeholders toe aan deze lay-out, en maakt vervolgens een normale dia die de aangepaste lay-out gebruikt. De volgorde is opzettelijk: de placeholders worden toegevoegd vóórdat de normale dia wordt aangemaakt, zodat Aspose.Slides de overeenkomstige placeholder‑vormen op die dia kan genereren.
 
-```js
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation();
 try {
-    // Haal de lege indelingsdia op.
-    let layout = presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let blankLayout = presentation.getLayoutSlides().getByType(blankLayoutType);
 
-    // Haal de placeholder‑manager van de indelingsdia op.
-    let placeholderManager = layout.getPlaceholderManager();
+    if (blankLayout === null) {
+        throw new Error("The presentation does not contain a Blank layout slide.");
+    }
 
-    // Voeg verschillende placeholders toe aan de lege indelingsdia.
+    let placeholderManager = blankLayout.getPlaceholderManager();
     placeholderManager.addContentPlaceholder(20, 20, 310, 270);
     placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
     placeholderManager.addChartPlaceholder(20, 310, 310, 180);
     placeholderManager.addTablePlaceholder(350, 310, 350, 180);
 
-    // Voeg een nieuwe dia toe met de lege indeling.
-    let newSlide = presentation.getSlides().addEmptySlide(layout);
-
-    presentation.save("Placeholders.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.getSlides().addEmptySlide(blankLayout);
+    presentation.save("output-with-placeholders.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -179,84 +169,106 @@ try {
 
 Het resultaat:
 
-![De placeholders op de indelingsdia](add_placeholders.png)
+![De placeholders op de layoutdia](add_placeholders.png)
 
-## **Voettekst‑zichtbaarheid instellen voor een indelingsdia**
+{{% alert color="warning" title="Waarschuwing" %}}
+Het wijzigen van geërfde opmaak of de geometrie van bestaande layout‑placeholders kan de afhankelijke dia's beïnvloeden. Een nieuw toegevoegde layout‑placeholder wordt niet teruggevuld in bestaande normale dia's. Test lay-outwijzigingen op een kopie van de presentatie en inspecteer elke afhankelijke dia.
+{{% /alert %}}
 
-In PowerPoint‑presentaties kunnen voettekstelementen zoals datum, dia‑nummer en aangepaste tekst worden weergegeven of verborgen, afhankelijk van de dia‑indeling. Aspose.Slides voor Node.js stelt u in staat de zichtbaarheid van deze voettekst‑placeholders te beheren. Dit is handig wanneer u wilt dat bepaalde indelingen voettekstinformatie tonen, terwijl andere strak en minimaal blijven.
+## **Verwijder ongebruikte layoutdia's**
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/).
-1. Haal een referentie naar een indelingsdia op basis van de index op.
-1. Stel de voettekst‑placeholder van de dia in op zichtbaar.
-1. Stel de placeholder voor het dia‑nummer in op zichtbaar.
-1. Stel de datum‑tijd‑placeholder in op zichtbaar.
-1. Sla de presentatie op.
+Gebruik de [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) methode om lay-outs te verwijderen die door geen enkele normale dia worden gerefereerd. De methode laat lay-outs die nog in gebruik zijn ongewijzigd.
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.ppt");
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    let headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
+    aspose.slides.Compress.removeUnusedLayoutSlides(presentation);
+    presentation.save("output-without-unused-layouts.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-    if (!headerFooterManager.isFooterVisible()) {
-        headerFooterManager.setFooterVisibility(true);
+Om een specifieke lay-out te verwijderen, gebruikt u eerst haar [hasDependingSlides](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/layoutslide/#hasDependingSlides) of [getDependingSlides](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/layoutslide/#getDependingSlides) methode. Wijs eventuele afhankelijke dia's opnieuw toe vóór het aanroepen van [LayoutSlide.remove](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/layoutslide/#remove). Poging tot het verwijderen van een gebruikte lay-out veroorzaakt een [PptxEditException](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pptxeditexception/).
+
+## **Regel de zichtbaarheid van voettekst op een layoutdia**
+
+Een lay-out heeft zijn eigen voettekst‑, dia‑nummer‑ en datum‑tijd‑placeholders. Gebruik de [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/layoutslide/#getHeaderFooterManager) methode om die placeholders voor één lay-out te beheren. Dit is handig wanneer bijvoorbeeld inhoudslay-outs voetnoten moeten tonen, maar titel‑lay-outs dat niet moeten.
+
+Het volgende voorbeeld selecteert veilig een lay-out en maakt de voettekst‑elementen zichtbaar:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let layoutSlide = presentation.getLayoutSlides().getByType(titleAndObjectLayoutType);
+
+    if (layoutSlide === null) {
+        layoutSlide = presentation.getLayoutSlides().getByType(blankLayoutType);
     }
 
-    if (!headerFooterManager.isSlideNumberVisible()) {
-        headerFooterManager.setSlideNumberVisibility(true);
+    if (layoutSlide === null) {
+        throw new Error("The presentation does not contain a suitable layout slide.");
     }
 
-    if (!headerFooterManager.isDateTimeVisible()) {
-        headerFooterManager.setDateTimeVisibility(true);
-    }
-
+    let headerFooterManager = layoutSlide.getHeaderFooterManager();
+    headerFooterManager.setFooterVisibility(true);
+    headerFooterManager.setSlideNumberVisibility(true);
+    headerFooterManager.setDateTimeVisibility(true);
     headerFooterManager.setFooterText("Footer text");
     headerFooterManager.setDateTimeText("Date and time text");
 
-    presentation.save("Presentation.ppt", aspose.slides.SaveFormat.Ppt);
+    presentation.save("output-with-layout-footers.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Voettekst‑zichtbaarheid voor onderliggende dia's instellen**
+## **Regel de zichtbaarheid van voettekst op een master en de onderliggende lay-outs**
 
-In PowerPoint‑presentaties kunnen voettekstelementen zoals datum, dia‑nummer en aangepaste tekst op het niveau van de masterslide worden beheerd om consistentie over alle indelingsdia's te waarborgen. Aspose.Slides voor Node.js stelt u in staat de zichtbaarheid en inhoud van deze voettekst‑placeholders op de masterslide in te stellen en deze instellingen door te geven aan alle onderliggende indelingsdia's. Deze aanpak garandeert uniforme voettekst‑informatie in de gehele presentatie.
+Om consistente voettekstinstellingen toe te passen binnen een master‑hiërarchie, gebruikt u de [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/masterslide/#getHeaderFooterManager) methode. De propagatiemethoden van [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/masterslideheaderfootermanager/) werken op de master en haar afhankelijke layout‑dia's en normale dia's; ze richten zich niet uitsluitend op één normale dia.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/).
-1. Haal een referentie naar de masterslide op basis van de index op.
-1. Stel de voettekst‑placeholders van de master en alle onderliggende dia's in op zichtbaar.
-1. Stel de dia‑nummer‑placeholders van de master en alle onderliggende dia's in op zichtbaar.
-1. Stel de datum‑tijd‑placeholders van de master en alle onderliggende dia's in op zichtbaar.
-1. Sla de presentatie op.
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.ppt");
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
     let headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-
     headerFooterManager.setFooterAndChildFootersVisibility(true);
     headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
     headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
-
     headerFooterManager.setFooterAndChildFootersText("Footer text");
     headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
 
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("output-with-master-footers.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **Veelgestelde vragen**
 
-**Wat is het verschil tussen een masterslide en een indelingsdia?**
+**Wat is het verschil tussen een masterdia en een layoutdia?**
 
-Een masterslide bepaalt het globale thema en de standaardopmaak, terwijl indelingsdia's specifieke rangschikkingen van placeholders voor verschillende soorten inhoud definiëren.
+Een masterdia definieert het thema van de presentatie en gedeelde opmaak. Een layoutdia behoort tot een master en definieert één herbruikbare ordening van placeholders. Normale dia's gebruiken die lay-outs en slaan dia‑specifieke inhoud op.
 
-**Kan ik een indelingsdia van de ene presentatie naar de andere kopiëren?**
+**Kan ik een layoutdia van de ene presentatie naar de andere kopiëren?**
 
-Ja, u kunt een indelingsdia klonen uit de indelingsdia‑collectie van een presentatie, toegankelijk via de methode [getLayoutSlides](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/#getLayoutSlides), en deze in een andere presentatie invoegen met de `addClone`‑methode.
+Ja. Voeg een kopie toe aan de doel‑collectie met de [addClone](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/globallayoutslidecollection/#addClone) methode. Bij het kopiëren tussen presentaties controleert u bovendien lettertypen, thema's, afbeeldingen en andere bronnen die door de bron‑lay-out worden gebruikt.
 
-**Wat gebeurt er als ik een indelingsdia verwijder die nog door een dia wordt gebruikt?**
+**Wat gebeurt er als ik een lay-out wijzig die al in gebruik is?**
 
-Als u probeert een indelingsdia te verwijderen die nog door ten minste één dia in de presentatie wordt gebruikt, zal Aspose.Slides een [PptxEditException](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pptxeditexception/) werpen. Gebruik in plaats daarvan [removeUnusedLayoutSlides](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides), die veilig alleen de niet‑gebruikte indelingsdia's verwijdert.
+Afhankelijke dia's erven de lay-outwijzigingen tenzij ze de betreffende opmaak of objecten lokaal overschrijven. Placeholder‑geometrie en geërfde styling kunnen daardoor in veel dia's tegelijk wijzigen. Gebruik [getDependingSlides](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/layoutslide/#getDependingSlides) om de getroffen dia's te identificeren vóór het bewerken van de lay-out.
+
+**Wat gebeurt er als ik een lay-out verwijder die nog in gebruik is?**
+
+Aspose.Slides werpt een [PptxEditException](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pptxeditexception/). Wijs eerst de afhankelijke dia's opnieuw toe, of gebruik [removeUnusedLayoutSlides](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) om alleen niet‑gerefereerde lay-outs te verwijderen.

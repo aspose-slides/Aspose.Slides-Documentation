@@ -1,177 +1,160 @@
 ---
-title: Áp dụng hoặc Thay đổi bố cục slide trong PHP
-linktitle: Bố cục Slide
+title: "Áp dụng hoặc Thay đổi Bố cục Slide trong PHP"
+linktitle: "Bố cục Slide"
 type: docs
 weight: 60
 url: /vi/php-java/slide-layout/
 keywords:
-  - bố cục slide
-  - bố cục nội dung
-  - chỗ giữ chỗ
-  - thiết kế bản trình bày
-  - thiết kế slide
-  - bố cục không sử dụng
-  - hiển thị chân trang
-  - slide tiêu đề
-  - tiêu đề và nội dung
-  - tiêu đề phần
-  - hai nội dung
-  - so sánh
-  - chỉ tiêu đề
-  - bố cục trống
-  - nội dung có chú thích
-  - hình ảnh có chú thích
-  - tiêu đề và văn bản dọc
-  - tiêu đề dọc và văn bản
-  - PowerPoint
-  - OpenDocument
-  - bản trình bày
-  - PHP
-  - Aspose.Slides
-description: "Quản lý và tùy chỉnh bố cục slide trong Aspose.Slides cho PHP thông qua Java. Khám phá các loại bố cục, kiểm soát chỗ giữ chỗ và hiển thị chân trang qua các ví dụ mã."
+- "bố cục slide"
+- "bố cục nội dung"
+- "phần giữ chỗ"
+- "thiết kế bản trình bày"
+- "thiết kế slide"
+- "bố cục không sử dụng"
+- "hiển thị chân trang"
+- "slide tiêu đề"
+- "tiêu đề và nội dung"
+- "đầu mục phần"
+- "hai nội dung"
+- "so sánh"
+- "chỉ tiêu đề"
+- "bố cục trống"
+- "nội dung có chú thích"
+- "hình ảnh có chú thích"
+- "tiêu đề và văn bản dọc"
+- "tiêu đề dọc và văn bản"
+- "PowerPoint"
+- "OpenDocument"
+- "bản trình bày"
+- "PHP"
+- "Aspose.Slides"
+description: "Áp dụng, tạo và sửa đổi bố cục slide trong Aspose.Slides cho PHP qua Java, thêm phần giữ chỗ, xóa các bố cục không sử dụng và kiểm soát hiển thị chân trang."
 ---
-## **Giới thiệu**
+## **Tổng quan**
 
-Bố cục slide xác định cách sắp xếp các hộp chỗ giữ chỗ và định dạng cho nội dung trên một slide. Nó kiểm soát các chỗ giữ chỗ nào khả dụng và chúng xuất hiện ở đâu. Bố cục slide giúp bạn thiết kế bản trình bày nhanh chóng và nhất quán—dù bạn đang tạo một thứ đơn giản hay phức tạp hơn. Một số bố cục slide phổ biến nhất trong PowerPoint bao gồm:
+Bố cục slide xác định vị trí và định dạng của các phần giữ chỗ như tiêu đề, văn bản, hình ảnh, biểu đồ và bảng. Áp dụng một bố cục mang lại cấu trúc nhất quán cho các slide đồng thời cho phép mỗi slide chứa nội dung riêng của nó.
 
-**Bố cục Slide Tiêu đề** – Bao gồm hai chỗ giữ chỗ văn bản: một cho tiêu đề và một cho phụ đề.
+- **Title Slide**: Chứa các phần giữ chỗ tiêu đề và phụ đề.
+- **Title and Content**: Chứa một phần giữ chỗ tiêu đề và một phần giữ chỗ nội dung đa mục đích.
+- **Blank**: Không chứa phần giữ chỗ nội dung và hữu ích khi mọi hình dạng sẽ được định vị thủ công.
 
-**Bố cục Tiêu đề và Nội dung** – Có chỗ giữ chỗ tiêu đề nhỏ hơn ở trên cùng và chỗ giữ chỗ lớn hơn bên dưới cho nội dung chính (như văn bản, dấu đầu dòng, biểu đồ, hình ảnh và hơn nữa).
+## **Hiểu về kế thừa bố cục**
 
-**Bố cục Trống** – Không chứa chỗ giữ chỗ nào, cho phép bạn kiểm soát hoàn toàn để thiết kế slide từ đầu.
+Một bản trình bày có ba cấp độ liên quan:
 
-Bố cục slide là một phần của slide master, là slide cấp cao nhất xác định kiểu bố cục cho bản trình bày. Bạn có thể truy cập và sửa đổi các slide bố cục thông qua slide master—bằng kiểu, tên hoặc ID duy nhất. Ngoài ra, bạn có thể chỉnh sửa một slide bố cục cụ thể trực tiếp trong bản trình bày.
+1. A [master slide](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masterslide/) xác định chủ đề, định dạng chung, nền và các đối tượng chung.
+1. A [layout slide](https://reference.aspose.com/slides/vi/php-java/aspose.slides/layoutslide/) thuộc về master và xác định một bố trí cụ thể của các phần giữ chỗ.
+1. A [normal slide](https://reference.aspose.com/slides/vi/php-java/aspose.slides/slide/) sử dụng một bố cục và lưu trữ nội dung đã nhập cho slide đó.
 
-Để làm việc với bố cục slide trong Aspose.Slides for PHP, bạn có thể sử dụng:
-- Các phương thức như [getLayoutSlides](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#getLayoutSlides) và [getMasters](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#getMasters) trong lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/) 
-- Các kiểu như [LayoutSlide](https://reference.aspose.com/slides/vi/php-java/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/vi/php-java/aspose.slides/layoutplaceholdermanager/), và [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/vi/php-java/aspose.slides/layoutslideheaderfootermanager/)
+Một normal slide kế thừa chủ đề và định dạng từ layout của nó, và layout kế thừa từ master. Giá trị được đặt trực tiếp trên normal slide sẽ ghi đè giá trị kế thừa ở mức đó. Khi một normal slide được tạo, các hình dạng phần giữ chỗ của nó được tạo ra từ layout đã chọn, trong khi nội dung nhập vào các phần giữ chỗ thuộc về normal slide.
 
-{{% alert title="Info" color="info" %}}
-Để tìm hiểu thêm về cách làm việc với slide master, hãy xem bài viết [Slide Master](/slides/vi/php-java/slide-master/).
-{{% /alert %}}
+Thêm các phần giữ chỗ cần thiết vào một layout trước khi tạo slide từ nó. Thêm một phần giữ chỗ khác vào layout sau này không tự động thêm hình dạng phần giữ chỗ tương ứng vào các normal slide hiện có.
 
-## **Thêm Bố cục Slide vào Bản Trình Bày**
+Mối quan hệ này có hai hậu quả quan trọng:
 
-Để tùy chỉnh giao diện và cấu trúc của các slide, bạn có thể cần thêm các slide bố cục mới vào bản trình bày. Aspose.Slides for PHP cho phép bạn kiểm tra xem một bố cục cụ thể đã tồn tại chưa, thêm mới nếu cần, và sử dụng nó để chèn các slide dựa trên bố cục đó.
+- Thay đổi định dạng kế thừa hoặc hình học của phần giữ chỗ hiện có trên một bố cục có thể cập nhật mọi slide phụ thuộc vào nó. Trước khi chỉnh sửa một bố cục đã được sử dụng, kiểm tra các slide phụ thuộc và xem xét bản trình bày kết quả.
+- Một bố cục vẫn đang được một slide sử dụng không thể bị xóa. Hãy chuyển các slide phụ thuộc sang một bố cục khác trước, hoặc chỉ xóa các bố cục không được sử dụng.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/).
-1. Truy cập vào [MasterLayoutSlideCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masterlayoutslidecollection/).
-1. Kiểm tra xem slide bố cục mong muốn đã tồn tại trong bộ sưu tập hay chưa. Nếu chưa, thêm slide bố cục bạn cần.
-1. Thêm một slide trống dựa trên slide bố cục mới.
-1. Lưu bản trình bày.
+Để biết thêm thông tin về cấp cao nhất của cấu trúc này, xem [Slide Master](/slides/vi/php-java/slide-master/).
 
-Đoạn mã PHP sau đây minh họa cách thêm một bố cục slide vào bản trình bày PowerPoint:
+## **Chọn và Áp dụng Bố cục Slide**
+
+Sử dụng một loại layout khi bản trình bày tuân theo các định nghĩa bố cục chuẩn của PowerPoint. Tên layout có thể chỉnh sửa bởi người dùng và có thể được bản địa hoá, vì vậy việc chọn dựa trên tên ít đáng tin cậy trừ khi bạn kiểm soát mẫu nguồn.
+
+Ví dụ sau tìm **Title and Content** trên master đầu tiên. Nếu layout đó không có, nó sẽ cố ý quay lại **Blank**. Kiểm tra null thứ hai là cần thiết vì một bản trình bày có thể chỉ chứa các layout tùy chỉnh. Layout đã chọn sau đó được áp dụng cho normal slide đầu tiên thông qua phương thức [Slide.setLayoutSlide](https://reference.aspose.com/slides/vi/php-java/aspose.slides/slide/#setLayoutSlide).
 
 ```php
-// Khởi tạo lớp Presentation đại diện cho một tệp PowerPoint.
-$presentation = new Presentation("Sample.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
 try {
-    // Duyệt các loại slide bố cục để chọn một slide bố cục.
     $layoutSlides = $presentation->getMasters()->get_Item(0)->getLayoutSlides();
-    $layoutSlide = null;
-    if (!java_is_null($layoutSlides->getByType(SlideLayoutType::TitleAndObject))) {
-        $layoutSlide = $layoutSlides->getByType(SlideLayoutType::TitleAndObject);
-    } else {
-        $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Title);
+    $targetLayout = $layoutSlides->getByType(SlideLayoutType::TitleAndObject);
+
+    if (java_is_null($targetLayout)) {
+        $targetLayout = $layoutSlides->getByType(SlideLayoutType::Blank);
     }
 
-    if (java_is_null($layoutSlide)) {
-        // Trường hợp bản trình bày không chứa mọi loại bố cục.
-        // Tệp bản trình bày chỉ chứa các loại bố cục Blank và Custom.
-        // Tuy nhiên, các slide bố cục với loại tùy chỉnh có thể có tên nhận dạng được,
-        // chẳng hạn như "Title", "Title and Content", v.v., có thể dùng để lựa chọn slide bố cục.
-        // Bạn cũng có thể dựa vào một tập hợp các loại hình dạng chỗ giữ chỗ.
-        // Ví dụ, một slide Title chỉ nên có loại chỗ giữ chỗ Title, và tương tự.
-        foreach($layoutSlides as $titleAndObjectLayoutSlide) {
-            if (java_values($titleAndObjectLayoutSlide->getName()) == "Title and Object") {
-                $layoutSlide = $titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (java_is_null($layoutSlide)) {
-            foreach($layoutSlides as $titleLayoutSlide) {
-                if (java_values($titleLayoutSlide->getName()) == "Title") {
-                    $layoutSlide = $titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (java_is_null($layoutSlide)) {
-                $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Blank);
-                if (java_is_null($layoutSlide)) {
-                    $layoutSlide = $layoutSlides->add(SlideLayoutType::TitleAndObject, "Title and Object");
-                }
-            }
-        }
+    if (java_is_null($targetLayout)) {
+        throw new \RuntimeException("The first master does not contain a suitable layout slide.");
     }
 
-    // Thêm một slide trống sử dụng slide bố cục đã thêm.
-    $presentation->getSlides()->insertEmptySlide(0, $layoutSlide);
-
-    // Lưu bản trình bày vào đĩa.
-    $presentation->save("output.pptx", SaveFormat::Pptx);
+    $presentation->getSlides()->get_Item(0)->setLayoutSlide($targetLayout);
+    $presentation->save("output-with-new-layout.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Xóa Các Slide Bố Cục Không Sử Dụng**
+Thay đổi layout của một slide không xóa các hình dạng thường được thêm trực tiếp vào slide. Tuy nhiên, vị trí phần giữ chỗ, định dạng kế thừa và sự tương ứng giữa các phần giữ chỗ hiện có và layout mới có thể thay đổi, vì vậy hãy kiểm tra đầu ra khi chuyển đổi giữa các layout khác nhau đáng kể.
 
-Aspose.Slides cung cấp phương thức [removeUnusedLayoutSlides](https://reference.aspose.com/slides/vi/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) từ lớp [Compress](https://reference.aspose.com/slides/vi/php-java/aspose.slides/compress/) để cho phép bạn xóa các slide bố cục không mong muốn và không được sử dụng.
+## **Thêm Bố cục Slide**
 
-Đoạn mã PHP sau đây cho thấy cách xóa một slide bố cục khỏi bản trình bày PowerPoint:
+Việc lựa chọn và tạo mới là các thao tác riêng biệt. Ví dụ trước chọn một layout có sẵn; nó không tạo ra một layout mới. Để tạo một layout, gọi phương thức [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masterlayoutslidecollection/#add) trên bộ sưu tập layout của master mục tiêu.
+
+Ví dụ sau luôn thêm một layout **Title and Content** mới có tên `Report Title and Content`, sau đó thêm một normal slide dựa trên nó. Tên layout phải là duy nhất trong bộ sưu tập.
 
 ```php
-$presentation = new Presentation("Presentation.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
 try {
-    Compress::removeUnusedLayoutSlides($presentation);
-    $presentation->save("Output.pptx", SaveFormat::Pptx);
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $reportLayout = $masterSlide->getLayoutSlides()->add(SlideLayoutType::TitleAndObject, "Report Title and Content");
+    $presentation->getSlides()->addEmptySlide($reportLayout);
+
+    $presentation->save("output-with-report-layout.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Thêm Chỗ Giữ Chỗ Vào Bố Cục Slide**
+Chỉ thêm layout khi mẫu thực sự cần một cấu trúc tái sử dụng khác. Nếu đã tồn tại một layout phù hợp, hãy chọn và tái sử dụng nó thay vì tạo bản sao trùng lặp.
 
-Aspose.Slides cung cấp phương thức [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/vi/php-java/aspose.slides/layoutslide/#getPlaceholderManager) cho phép bạn thêm các chỗ giữ chỗ mới vào một slide bố cục.
+## **Thêm Phần giữ chỗ vào Bố cục Slide**
 
-Trình quản lý này chứa các phương thức cho các loại chỗ giữ chỗ sau:
+Phương thức [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/vi/php-java/aspose.slides/layoutslide/#getPlaceholderManager) cung cấp một [LayoutPlaceholderManager](https://reference.aspose.com/slides/vi/php-java/aspose.slides/layoutplaceholdermanager/) để thêm các hình dạng phần giữ chỗ vào layout.
 
-| Chỗ giữ chỗ PowerPoint | Phương thức [LayoutPlaceholderManager](https://reference.aspose.com/slides/vi/php-java/aspose.slides/layoutplaceholdermanager/) |
-| ---------------------- | ------------------------------------------------------------ |
-| ![Content](content.png) | addContentPlaceholder(float x, float y, float width, float height) |
-| ![Content (Vertical)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Text](text.png) | addTextPlaceholder(float x, float y, float width, float height) |
-| ![Text (Vertical)](textV.png) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Picture](picture.png) | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![Chart](chart.png) | addChartPlaceholder(float x, float y, float width, float height) |
-| ![Table](table.png) | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Media](media.png) | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![Online Image](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| Phần giữ chỗ PowerPoint | `LayoutPlaceholderManager` Method |
+| ----------------------- | --------------------------------- |
+| ![Nội dung](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![Nội dung (Dọc)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![Văn bản](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Văn bản (Dọc)](textV.png) | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Hình ảnh](picture.png) | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Biểu đồ](chart.png) | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Bảng](table.png) | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Phương tiện](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Hình ảnh trực tuyến](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-Đoạn mã PHP sau đây minh họa cách thêm các hình dạng chỗ giữ chỗ mới vào slide bố cục Trống:
+Ví dụ sau xác nhận rằng layout **Blank** tồn tại, thêm bốn phần giữ chỗ vào nó, và sau đó tạo một normal slide sử dụng layout đã sửa đổi. Thứ tự này có chủ đích: các phần giữ chỗ được thêm trước khi normal slide được tạo, vì Aspose.Slides có thể tạo các hình dạng phần giữ chỗ tương ứng trên slide đó.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
 $presentation = new Presentation();
 try {
-    // Lấy slide bố cục Blank.
-    $layout = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    $blankLayout = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
 
-    // Lấy trình quản lý chỗ giữ chỗ của slide bố cục.
-    $placeholderManager = $layout->getPlaceholderManager();
+    if (java_is_null($blankLayout)) {
+        throw new \RuntimeException("The presentation does not contain a Blank layout slide.");
+    }
 
-    // Thêm các chỗ giữ chỗ khác nhau vào slide bố cục Blank.
+    $placeholderManager = $blankLayout->getPlaceholderManager();
     $placeholderManager->addContentPlaceholder(20, 20, 310, 270);
     $placeholderManager->addVerticalTextPlaceholder(350, 20, 350, 270);
     $placeholderManager->addChartPlaceholder(20, 310, 310, 180);
     $placeholderManager->addTablePlaceholder(350, 310, 350, 180);
 
-    // Thêm một slide mới với bố cục Blank.
-    $newSlide = $presentation->getSlides()->addEmptySlide($layout);
-
-    $presentation->save("Placeholders.pptx", SaveFormat::Pptx);
+    $presentation->getSlides()->addEmptySlide($blankLayout);
+    $presentation->save("output-with-placeholders.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
@@ -179,88 +162,105 @@ try {
 
 Kết quả:
 
-![Các chỗ giữ chỗ trên slide bố cục](add_placeholders.png)
+![Các phần giữ chỗ trên bố cục slide](add_placeholders.png)
 
-## **Đặt Hiển Thị Chân Trang cho Slide Bố Cục**
+{{% alert color="warning" title="Warning" %}}
 
-Trong bản trình bày PowerPoint, các thành phần chân trang như ngày tháng, số slide và văn bản tùy chỉnh có thể được hiển thị hoặc ẩn tùy thuộc vào bố cục slide. Aspose.Slides for PHP cho phép bạn điều khiển việc hiển thị của các chỗ giữ chỗ chân trang này. Điều này hữu ích khi bạn muốn một số bố cục hiển thị thông tin chân trang trong khi các bố cục khác giữ sạch sẽ và tối giản.
+Thay đổi định dạng kế thừa hoặc hình học của các phần giữ chỗ layout hiện có có thể ảnh hưởng đến các slide phụ thuộc. Một phần giữ chỗ layout mới được thêm vào sẽ không tự động được đưa vào các normal slide hiện có. Hãy thử các thay đổi layout trên một bản sao của bản trình bày và kiểm tra mọi slide phụ thuộc.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/).
-1. Lấy tham chiếu slide bố cục bằng chỉ mục của nó.
-1. Đặt chỗ giữ chỗ chân trang slide thành hiển thị.
-1. Đặt chỗ giữ chỗ số slide thành hiển thị.
-1. Đặt chỗ giữ chỗ ngày‑giờ thành hiển thị.
-1. Lưu bản trình bày.
+{{% /alert %}}
 
-Đoạn mã PHP sau đây cho thấy cách đặt hiển thị của chân trang slide và thực hiện các tác vụ liên quan:
+## **Xóa Bố cục Slide không sử dụng**
+
+Sử dụng phương thức [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/vi/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) để xóa các layout mà không có normal slide nào tham chiếu. Phương thức này giữ nguyên các layout vẫn đang được sử dụng.
 
 ```php
-$presentation = new Presentation("Presentation.ppt");
+use aspose\slides\Compress;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
 try {
-    $headerFooterManager = $presentation->getLayoutSlides()->get_Item(0)->getHeaderFooterManager();
+    Compress::removeUnusedLayoutSlides($presentation);
+    $presentation->save("output-without-unused-layouts.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
 
-    if (!$headerFooterManager->isFooterVisible()) {
-        $headerFooterManager->setFooterVisibility(true);
+Để xóa một layout cụ thể, trước hết sử dụng phương thức [hasDependingSlides](https://reference.aspose.com/slides/vi/php-java/aspose.slides/layoutslide/#hasDependingSlides) hoặc [getDependingSlides](https://reference.aspose.com/slides/vi/php-java/aspose.slides/layoutslide/#getDependingSlides). Chuyển các slide phụ thuộc sang layout khác trước khi gọi [LayoutSlide.remove](https://reference.aspose.com/slides/vi/php-java/aspose.slides/layoutslide/#remove). Cố gắng xóa một layout đang được sử dụng sẽ gây ra ngoại lệ [PptxEditException](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pptxeditexception/).
+
+## **Kiểm soát Hiển thị Chân trang trên Bố cục Slide**
+
+Một layout có các phần giữ chỗ chân trang, số slide và ngày‑giờ riêng. Sử dụng phương thức [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/vi/php-java/aspose.slides/layoutslide/#getHeaderFooterManager) để kiểm soát các phần giữ chỗ này cho một layout. Điều này hữu ích khi, ví dụ, các layout nội dung nên hiển thị chân trang nhưng các layout tiêu đề không.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $layoutSlide = $presentation->getLayoutSlides()->getByType(SlideLayoutType::TitleAndObject);
+
+    if (java_is_null($layoutSlide)) {
+        $layoutSlide = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
     }
 
-    if (!$headerFooterManager->isSlideNumberVisible()) {
-        $headerFooterManager->setSlideNumberVisibility(true);
+    if (java_is_null($layoutSlide)) {
+        throw new \RuntimeException("The presentation does not contain a suitable layout slide.");
     }
 
-    if (!$headerFooterManager->isDateTimeVisible()) {
-        $headerFooterManager->setDateTimeVisibility(true);
-    }
-
+    $headerFooterManager = $layoutSlide->getHeaderFooterManager();
+    $headerFooterManager->setFooterVisibility(true);
+    $headerFooterManager->setSlideNumberVisibility(true);
+    $headerFooterManager->setDateTimeVisibility(true);
     $headerFooterManager->setFooterText("Footer text");
     $headerFooterManager->setDateTimeText("Date and time text");
 
-    $presentation->save("Presentation.ppt", SaveFormat::Ppt);
+    $presentation->save("output-with-layout-footers.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Đặt Hiển Thị Chân Trang Con cho Slide**
+## **Kiểm soát Hiển thị Chân trang trên Master và các Bố cục Con của nó**
 
-Trong bản trình bày PowerPoint, các thành phần chân trang như ngày tháng, số slide và văn bản tùy chỉnh có thể được kiểm soát ở mức slide master để đảm bảo tính nhất quán trên tất cả các slide bố cục. Aspose.Slides for PHP cho phép bạn đặt hiển thị và nội dung của các chỗ giữ chỗ chân trang này trên slide master và lan truyền các thiết lập này tới tất cả các slide bố cục con. Cách tiếp cận này đảm bảo thông tin chân trang đồng nhất trong suốt bản trình bày.
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/).
-1. Lấy tham chiếu tới slide master bằng chỉ mục của nó.
-1. Đặt các chỗ giữ chỗ chân trang của master và tất cả các slide con thành hiển thị.
-1. Đặt các chỗ giữ chỗ số slide của master và tất cả các slide con thành hiển thị.
-1. Đặt các chỗ giữ chỗ ngày‑giờ của master và tất cả các slide con thành hiển thị.
-1. Lưu bản trình bày.
-
-Đoạn mã PHP sau đây minh họa thao tác này:
+Để áp dụng cài đặt chân trang nhất quán trên toàn bộ cấu trúc master, sử dụng phương thức [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masterslide/#getHeaderFooterManager). Các phương thức truyền đạt của [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masterslideheaderfootermanager/) hoạt động trên master và các layout slide và normal slide phụ thuộc; chúng không chỉ nhắm tới một normal slide duy nhất.
 
 ```php
-$presentation = new Presentation("presentation.ppt");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
 try {
     $headerFooterManager = $presentation->getMasters()->get_Item(0)->getHeaderFooterManager();
-
     $headerFooterManager->setFooterAndChildFootersVisibility(true);
     $headerFooterManager->setSlideNumberAndChildSlideNumbersVisibility(true);
     $headerFooterManager->setDateTimeAndChildDateTimesVisibility(true);
-
     $headerFooterManager->setFooterAndChildFootersText("Footer text");
     $headerFooterManager->setDateTimeAndChildDateTimesText("Date and time text");
 
-    $presentation->save("Output.pptx", SaveFormat::Pptx);
+    $presentation->save("output-with-master-footers.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **CÂU HỎI THƯỜNG GẶP**
+## **Câu hỏi thường gặp**
 
-**Sự khác nhau giữa slide master và slide bố cục là gì?**
+**Sự khác nhau giữa Master Slide và Layout Slide là gì?**
 
-Slide master xác định chủ đề tổng thể và định dạng mặc định, trong khi các slide bố cục xác định cách sắp xếp cụ thể các chỗ giữ chỗ cho các loại nội dung khác nhau.
+Master slide định nghĩa chủ đề và định dạng chung của bản trình bày. Layout slide thuộc về master và xác định một cách bố trí phần giữ chỗ có thể tái sử dụng. Normal slide sử dụng những layout này và lưu trữ nội dung riêng của từng slide.
 
-**Tôi có thể sao chép một slide bố cục từ bản trình bày này sang bản trình bày khác không?**
+**Tôi có thể sao chép Layout Slide từ một bản trình bày sang bản khác không?**
 
-Đúng, bạn có thể sao chép một slide bố cục từ bộ sưu tập slide bố cục của một bản trình bày, có thể truy cập thông qua phương thức [getLayoutSlides](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#getLayoutSlides), và chèn nó vào một bản trình bày khác bằng phương thức `addClone`.
+Có. Thêm một bản sao vào bộ sưu tập đích bằng phương thức [addClone](https://reference.aspose.com/slides/vi/php-java/aspose.slides/globallayoutslidecollection/#addClone). Khi sao chép giữa các bản trình bày, cũng cần kiểm tra phông chữ, chủ đề, hình ảnh và các tài nguyên khác mà layout nguồn sử dụng.
 
-**Điều gì xảy ra nếu tôi xóa một slide bố cục mà vẫn đang được một slide khác sử dụng?**
+**Điều gì xảy ra khi tôi sửa đổi một Layout đang được sử dụng?**
 
-Nếu bạn cố gắng xóa một slide bố cục vẫn được ít nhất một slide trong bản trình bày tham chiếu, Aspose.Slides sẽ ném ra một ngoại lệ [PptxEditException](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pptxeditexception/). Để tránh điều này, hãy sử dụng [removeUnusedLayoutSlides](https://reference.aspose.com/slides/vi/php-java/aspose.slides/compress/#removeUnusedLayoutSlides), phương thức này sẽ an toàn xóa chỉ các slide bố cục không được sử dụng.
+Các slide phụ thuộc sẽ kế thừa các thay đổi layout trừ khi chúng đã ghi đè định dạng hoặc đối tượng ảnh hưởng ở mức local. Vì vậy hình học phần giữ chỗ và kiểu dáng kế thừa có thể thay đổi trên nhiều slide cùng lúc. Sử dụng [getDependingSlides](https://reference.aspose.com/slides/vi/php-java/aspose.slides/layoutslide/#getDependingSlides) để xác định các slide bị ảnh hưởng trước khi chỉnh sửa layout.
+
+**Điều gì xảy ra nếu tôi xóa một Layout vẫn đang được sử dụng?**
+
+Aspose.Slides sẽ ném ngoại lệ [PptxEditException](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pptxeditexception/). Hãy chuyển các slide phụ thuộc sang layout khác trước, hoặc dùng [removeUnusedLayoutSlides](https://reference.aspose.com/slides/vi/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) để chỉ xóa các layout không được tham chiếu.
