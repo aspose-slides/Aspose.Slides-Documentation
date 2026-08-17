@@ -28,160 +28,130 @@ keywords:
 - presentation
 - Java
 - Aspose.Slides
-description: "Manage and customize slide layouts in Aspose.Slides for Java. Explore layout types, placeholder control, and footer visibility through Java code examples."
+description: "Apply, create, and modify slide layouts in Aspose.Slides for Java, add placeholders, remove unused layouts, and control footer visibility."
 ---
 
-## **Introduction**
+## **Overview**
 
-A slide layout defines the arrangement of placeholder boxes and formatting for the content on a slide. It controls which placeholders are available and where they appear. Slide layouts help you design presentations quickly and consistently—whether you're creating something simple or more complex. Some of the most common slide layouts in PowerPoint include:
+A slide layout defines the positions and formatting of placeholders such as titles, text, pictures, charts, and tables. Applying a layout gives slides a consistent structure while allowing each slide to contain its own content.
 
-**Title Slide layout** – Includes two text placeholders: one for the title and one for the subtitle.
+The most common layouts include:
 
-**Title and Content layout** – Features a smaller title placeholder at the top and a larger one below for main content (such as text, bullet points, charts, images, and more).
+- **Title Slide**: Contains title and subtitle placeholders.
+- **Title and Content**: Contains a title placeholder and a general-purpose content placeholder.
+- **Blank**: Contains no content placeholders and is useful when every shape will be positioned manually.
 
-**Blank layout** – Contains no placeholders, giving you full control to design the slide from scratch.
+## **Understand Layout Inheritance**
 
-Slide layouts are part of a slide master, which is the top-level slide that defines layout styles for the presentation. You can access and modify layout slides through the slide master—either by their type, name, or unique ID. Alternatively, you can edit a specific layout slide directly within the presentation.
+A presentation has three related levels:
 
-To work with slide layouts in Aspose.Slides for Java, you can use:
+1. A [master slide](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/) defines the theme, shared formatting, backgrounds, and common objects.
+1. A [layout slide](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutslide/) belongs to a master and defines a particular arrangement of placeholders.
+1. A [normal slide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/) uses one layout and stores the content entered for that slide.
 
-- Methods such as [getLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getLayoutSlides--) and [getMasters](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) under the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class
-- Types like [ILayoutSlide](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutplaceholdermanager/), and [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutslideheaderfootermanager/)
+A normal slide inherits theme and formatting from its layout, and the layout inherits from its master. A value set directly on a normal slide overrides the inherited value at that level. When a normal slide is created, its placeholder shapes are generated from the selected layout, while the content entered into those placeholders belongs to the normal slide.
 
-{{% alert title="Info" color="info" %}}
+Add required placeholders to a layout before creating slides from it. Adding another placeholder to a layout later does not automatically add a corresponding placeholder shape to existing normal slides.
 
-To learn more about working with master slides, check out the [Slide Master](/slides/java/slide-master/) article.
+This relationship has two important consequences:
 
-{{% /alert %}}
+- Changing inherited formatting or existing placeholder geometry on a layout can update every slide that depends on it. Before editing a layout that is already in use, inspect its dependent slides and review the resulting presentation.
+- A layout that is still used by a slide cannot be removed. Reassign its dependent slides to another layout first, or remove only unused layouts.
 
-## **Add Slide Layouts to Presentations**
+For more information about the top level of this hierarchy, see [Slide Master](/slides/java/slide-master/).
 
-To customize the appearance and structure of your slides, you may need to add new layout slides to a presentation. Aspose.Slides for Java allows you to check whether a specific layout already exists, add a new one if needed, and use it to insert slides based on that layout.
+## **Select and Apply a Slide Layout**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
-1. Access the [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/imasterlayoutslidecollection/).
-1. Check whether the desired layout slide already exists in the collection. If not, add the layout slide you need.
-1. Add an empty slide based on the new layout slide.
-1. Save the presentation.
+Use a layout type when the presentation follows standard PowerPoint layout definitions. Layout names are user-editable and can be localized, so name-based selection is less reliable unless you control the source template.
 
-The following Java code demonstrates how to add a slide layout to a PowerPoint presentation:
+The following example looks for **Title and Content** on the first master. If that layout is unavailable, it deliberately falls back to **Blank**. The second null check is necessary because a presentation can contain only custom layouts. The selected layout is then applied to the first normal slide through the [ISlide.setLayoutSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-) method.
 
 ```java
 import com.aspose.slides.*;
 
-// Instantiate the Presentation class that represents a PowerPoint file.
-Presentation presentation = new Presentation("Sample.pptx");
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // Go through the layout slide types to select a layout slide.
     IMasterLayoutSlideCollection layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
-    ILayoutSlide layoutSlide = null;
-    if (layoutSlides.getByType(SlideLayoutType.TitleAndObject) != null)
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
-    else
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.Title);
+    ILayoutSlide targetLayout = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
 
-    if (layoutSlide == null) {
-        // A situation where the presentation doesn't contain all layout types.
-        // The presentation file contains only Blank and Custom layout types.
-        // However, layout slides with custom types may have recognizable names,
-        // such as "Title", "Title and Content", etc., which can be used for layout slide selection.
-        // You can also rely on a set of placeholder shape types.
-        // For example, a Title slide should have only the Title placeholder type, and so on.
-        for (ILayoutSlide titleAndObjectLayoutSlide : layoutSlides) {
-            if (titleAndObjectLayoutSlide.getName().equals("Title and Object")) {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null) {
-            for (ILayoutSlide titleLayoutSlide : layoutSlides) {
-                if (titleLayoutSlide.getName().equals("Title")) {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(SlideLayoutType.Blank);
-                if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
+    if (targetLayout == null) {
+        targetLayout = layoutSlides.getByType(SlideLayoutType.Blank);
     }
 
-    // Add an empty slide using the added layout slide.
-    presentation.getSlides().insertEmptySlide(0, layoutSlide);
+    if (targetLayout == null) {
+        throw new IllegalStateException("The first master does not contain a suitable layout slide.");
+    }
 
-    // Save the presentation to disk.
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    presentation.getSlides().get_Item(0).setLayoutSlide(targetLayout);
+    presentation.save("output-with-new-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Remove Unused Layout Slides**
+Changing a slide's layout does not remove ordinary shapes added directly to the slide. However, placeholder positions, inherited formatting, and the correspondence between existing placeholders and the new layout can change, so inspect the output when switching between substantially different layouts.
 
-Aspose.Slides provides the [removeUnusedLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) method from the [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/) class to allow you to delete unwanted and unused layout slides.
+## **Add a Layout Slide**
 
-The following Java code shows how to remove a layout slide from a PowerPoint presentation:
+Selection and creation are separate operations. The previous example selects an existing layout; it does not create one. To create a layout, call the [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/java/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) method on the target master's layout collection.
+
+The following example always adds a new **Title and Content** layout named `Report Title and Content`, then adds a normal slide based on it. Layout names must be unique within the collection.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation presentation = new Presentation("Presentation.pptx");
+Presentation presentation = new Presentation("input.pptx");
 try {
-    Compress.removeUnusedLayoutSlides(presentation);
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide reportLayout = masterSlide.getLayoutSlides().add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+    presentation.getSlides().addEmptySlide(reportLayout);
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-report-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Add Placeholders To Slide Layouts**
+Add a layout only when the template genuinely needs another reusable structure. If a suitable layout already exists, select and reuse it instead of creating a duplicate.
 
-Aspose.Slides provides the [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) method, which allows you to add new placeholders to a layout slide.
+## **Add Placeholders to a Layout Slide**
 
-This manager contains methods for the following placeholder types:
+The [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) method provides an [ILayoutPlaceholderManager](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutplaceholdermanager/) for adding placeholder shapes to a layout.
 
-| PowerPoint Placeholder              | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutplaceholdermanager/) Method |
-| ----------------------------------- | ------------------------------------------------------------ |
-| ![Content](content.png)             | addContentPlaceholder(float x, float y, float width, float height) |
-| ![Content (Vertical)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Text](text.png)                   | addTextPlaceholder(float x, float y, float width, float height) |
-| ![Text (Vertical)](textV.png)       | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Picture](picture.png)             | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![Chart](chart.png)                 | addChartPlaceholder(float x, float y, float width, float height) |
-| ![Table](table.png)                 | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png)           | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Media](media.png)                 | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![Online Image](onlineimage.png)    | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| PowerPoint Placeholder              | `ILayoutPlaceholderManager` Method |
+| ----------------------------------- | ---------------------------------- |
+| ![Content](content.png)             | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
+| ![Content (Vertical)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
+| ![Text](text.png)                   | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
+| ![Text (Vertical)](textV.png)       | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalTextPlaceholder-float-float-float-float-) |
+| ![Picture](picture.png)             | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
+| ![Chart](chart.png)                 | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
+| ![Table](table.png)                 | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
+| ![SmartArt](smartart.png)           | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutplaceholdermanager/#addSmartArtPlaceholder-float-float-float-float-) |
+| ![Media](media.png)                 | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
+| ![Online Image](onlineImage.png)    | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
 
-The following Java code demonstrates how to add new placeholder shapes to the Blank layout slide:
+The following example verifies that the **Blank** layout exists, adds four placeholders to it, and then creates a normal slide that uses the modified layout. The order is intentional: the placeholders are added before the normal slide is created, so Aspose.Slides can generate the corresponding placeholder shapes on that slide.
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
 try {
-    // Get the Blank layout slide.
-    ILayoutSlide layout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ILayoutSlide blankLayout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
 
-    // Get the placeholder manager of the layout slide.
-    ILayoutPlaceholderManager placeholderManager = layout.getPlaceholderManager();
+    if (blankLayout == null) {
+        throw new IllegalStateException("The presentation does not contain a Blank layout slide.");
+    }
 
-    // Add different placeholders to the Blank layout slide.
+    ILayoutPlaceholderManager placeholderManager = blankLayout.getPlaceholderManager();
     placeholderManager.addContentPlaceholder(20, 20, 310, 270);
     placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
     placeholderManager.addChartPlaceholder(20, 310, 310, 180);
     placeholderManager.addTablePlaceholder(350, 310, 350, 180);
 
-    // Add a new slide with the Blank layout.
-    ISlide newSlide = presentation.getSlides().addEmptySlide(layout);
-
-    presentation.save("Placeholders.pptx", SaveFormat.Pptx);
+    presentation.getSlides().addEmptySlide(blankLayout);
+    presentation.save("output-with-placeholders.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -191,75 +161,81 @@ The result:
 
 ![The placeholders on the layout slide](add_placeholders.png)
 
-## **Set Footer Visibility for a Layout Slide**
+{{% alert color="warning" title="Warning" %}}
 
-In PowerPoint presentations, footer elements like date, slide number, and custom text can be shown or hidden depending on the slide layout. Aspose.Slides for Java allows you to control the visibility of these footer placeholders. This is useful when you want certain layouts to display footer information while others remain clean and minimal.
+Changing inherited formatting or the geometry of existing layout placeholders can affect dependent slides. A newly added layout placeholder is not backfilled into existing normal slides. Test layout changes on a copy of the presentation and inspect every dependent slide.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
-1. Get a layout slide reference by its index.
-1. Set the slide footer placeholder to visible.
-1. Set the slide number placeholder to visible.
-1. Set the date-time placeholder to visible.
-1. Save the presentation.
+{{% /alert %}}
 
-The following Java code shows how to set the visibility of a slide footer and perform related tasks:
+## **Remove Unused Layout Slides**
+
+Use the [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) method to remove layouts that no normal slide references. The method leaves layouts that are still in use intact.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation presentation = new Presentation("Presentation.ppt");
+Presentation presentation = new Presentation("input.pptx");
 try {
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
-
-    if (!headerFooterManager.isFooterVisible()) {
-        headerFooterManager.setFooterVisibility(true);
-    }
-
-    if (!headerFooterManager.isSlideNumberVisible()) {
-        headerFooterManager.setSlideNumberVisibility(true);
-    }
-
-    if (!headerFooterManager.isDateTimeVisible()) {
-        headerFooterManager.setDateTimeVisibility(true);
-    }
-
-    headerFooterManager.setFooterText("Footer text");
-    headerFooterManager.setDateTimeText("Date and time text");
-
-    presentation.save("Presentation.ppt", SaveFormat.Ppt);
+    Compress.removeUnusedLayoutSlides(presentation);
+    presentation.save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Set Child Footer Visibility for a Slide**
+To remove one specific layout, first use its [hasDependingSlides](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutslide/#hasDependingSlides--) or [getDependingSlides](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) method. Reassign any dependent slides before calling [ILayoutSlide.remove](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutslide/#remove--). Attempting to remove a used layout raises a [PptxEditException](https://reference.aspose.com/slides/java/com.aspose.slides/pptxeditexception/).
 
-​In PowerPoint presentations, footer elements such as date, slide number, and custom text can be controlled at the master slide level to ensure consistency across all layout slides. Aspose.Slides for Java enables you to set the visibility and content of these footer placeholders on the master slide and propagate these settings to all child layout slides. This approach ensures uniform footer information throughout your presentation.​
+## **Control Footer Visibility on a Layout Slide**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
-1. Get a reference to the master slide by its index.
-1. Set the master’s and all child footer placeholders to visible.
-1. Set the master’s and all child slide number placeholders to visible.
-1. Set the master’s and all child date-time placeholders to visible.
-1. Save the presentation.
+A layout has its own footer, slide-number, and date-time placeholders. Use the [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) method to control those placeholders for one layout. This is useful when, for example, content layouts should show footers but title layouts should not.
 
-The following Java code demonstrates this operation:
+The following example selects a layout safely and makes its footer elements visible:
 
 ```java
 import com.aspose.slides.*;
 
-Presentation presentation = new Presentation("Presentation.ppt");
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.TitleAndObject);
+
+    if (layoutSlide == null) {
+        layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    }
+
+    if (layoutSlide == null) {
+        throw new IllegalStateException("The presentation does not contain a suitable layout slide.");
+    }
+
+    ILayoutSlideHeaderFooterManager headerFooterManager = layoutSlide.getHeaderFooterManager();
+    headerFooterManager.setFooterVisibility(true);
+    headerFooterManager.setSlideNumberVisibility(true);
+    headerFooterManager.setDateTimeVisibility(true);
+    headerFooterManager.setFooterText("Footer text");
+    headerFooterManager.setDateTimeText("Date and time text");
+
+    presentation.save("output-with-layout-footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Control Footer Visibility on a Master and Its Child Layouts**
+
+To apply consistent footer settings across a master hierarchy, use the [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/#getHeaderFooterManager--) method. The propagation methods of [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslideheaderfootermanager/) operate on the master and its dependent layout slides and normal slides; they do not target just one normal slide.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
     IMasterSlideHeaderFooterManager headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-
     headerFooterManager.setFooterAndChildFootersVisibility(true);
     headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
     headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
-
     headerFooterManager.setFooterAndChildFootersText("Footer text");
     headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-master-footers.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -267,14 +243,18 @@ try {
 
 ## **FAQ**
 
-### What’s the difference between a master slide and a layout slide?
+**What Is the Difference Between a Master Slide and a Layout Slide?**
 
-A master slide defines the overall theme and default formatting, while layout slides define specific arrangements of placeholders for different types of content.
+A master slide defines the presentation's theme and shared formatting. A layout slide belongs to a master and defines one reusable arrangement of placeholders. Normal slides use those layouts and store slide-specific content.
 
-### Can I copy a layout slide from one presentation to another?
+**Can I Copy a Layout Slide from One Presentation to Another?**
 
-Yes, you can clone a layout slide from one presentation’s layout slide collection, accessible via the [getLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getLayoutSlides--) method, and insert it into another presentation using the `addClone` method.
+Yes. Add a copy to the destination collection with the [addClone](https://reference.aspose.com/slides/java/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) method. When copying between presentations, also verify fonts, themes, images, and other resources used by the source layout.
 
-### What happens if I delete a layout slide that's still used by a slide?
+**What Happens When I Modify a Layout That Is Already in Use?**
 
-If you try to delete a layout slide that is still referenced by at least one slide in the presentation, Aspose.Slides will throw a [PptxEditException](https://reference.aspose.com/slides/java/com.aspose.slides/pptxeditexception/). To avoid this, use [removeUnusedLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) which safely removes only the layout slides that are not in use.
+Dependent slides inherit the layout changes unless they override the affected formatting or objects locally. Placeholder geometry and inherited styling can therefore change on many slides at once. Use [getDependingSlides](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) to identify the affected slides before editing the layout.
+
+**What Happens If I Remove a Layout That Is Still in Use?**
+
+Aspose.Slides throws a [PptxEditException](https://reference.aspose.com/slides/java/com.aspose.slides/pptxeditexception/). Reassign the dependent slides first, or use [removeUnusedLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) to remove only unreferenced layouts.
