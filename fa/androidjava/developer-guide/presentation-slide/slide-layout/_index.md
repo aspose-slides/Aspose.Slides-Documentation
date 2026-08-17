@@ -1,5 +1,5 @@
 ---
-title: اعمال یا تغییر طرح‌های اسلاید در Android
+title: اعمال یا تغییر طرح اسلایدها در اندروید
 linktitle: طرح اسلاید
 type: docs
 weight: 60
@@ -7,11 +7,11 @@ url: /fa/androidjava/slide-layout/
 keywords:
 - طرح اسلاید
 - طرح محتوا
-- جای‌گیر
+- مبدل
 - طراحی ارائه
 - طراحی اسلاید
-- طرح استفاده‌نشده
-- قابلیت نمایش پاورقی
+- طرح بلااستفاده
+- قابلیت مشاهده پاورقی
 - اسلاید عنوان
 - عنوان و محتوا
 - سرصفحه بخش
@@ -19,8 +19,8 @@ keywords:
 - مقایسه
 - فقط عنوان
 - طرح خالی
-- محتوا با توضیح
-- عکس با توضیح
+- محتوا با عنوان فرعی
+- تصویر با عنوان فرعی
 - عنوان و متن عمودی
 - عنوان عمودی و متن
 - PowerPoint
@@ -29,151 +29,129 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "مدیریت و سفارشی‌سازی طرح‌های اسلاید در Aspose.Slides برای Android. انواع طرح‌ها، کنترل جای‌گیرها و قابلیت نمایش پاورقی را از طریق مثال‌های کد Java بررسی کنید."
+description: "اعمال، ایجاد و تغییر طرح اسلایدها در Aspose.Slides برای اندروید با استفاده از جاوا، افزودن مبدل‌ها، حذف طرح‌های بلااستفاده و کنترل قابلیت مشاهده پاورقی."
 ---
-## **معرفی**
+## **بررسی کلی**
 
-طرح اسلاید نحوهٔ چیدمان جعبه‌های جای‌گیر و قالب‌بندی محتوای یک اسلاید را تعریف می‌کند. این طرح تعیین می‌کند که کدام جای‌گیرها در دسترس هستند و در کجا ظاهر می‌شوند. طرح‌های اسلاید به شما کمک می‌کنند تا ارائه‌ها را به‌سرعت و به‌صورت یکنواخت طراحی کنید — چه در حال ساخت چیزی ساده باشید و چه پیچیده. برخی از رایج‌ترین طرح‌های اسلاید در PowerPoint عبارتند از:
+یک طرح اسلاید موقعیت‌ها و قالب‌بندی مبدل‌های متنی مانند عنوان‌ها، متن، تصاویر، نمودارها و جداول را تعریف می‌کند. اعمال یک طرح به اسلایدها ساختار ثابتی می‌بخشد در حالی که هر اسلاید می‌تواند محتوای خود را داشته باشد.
 
-**Title Slide layout** – شامل دو جای‌گیر متنی است: یکی برای عنوان و دیگری برای زیرعنوان.
+متداول‌ترین طرح‌ها عبارتند از:
 
-**Title and Content layout** – یک جای‌گیر عنوان کوچکتر در بالا و یک جای‌گیر بزرگتر در زیر برای محتوای اصلی (متن، نکات بولت‌دار، نمودارها، تصاویر و غیره) دارد.
+- **اسلاید عنوان**: شامل مبدل‌های عنوان و زیرعنوان است.
+- **عنوان و محتوا**: شامل یک مبدل عنوان و یک مبدل محتوای عمومی است.
+- **خالی**: شامل هیچ مبدل محتوایی نیست و هنگامی که هر شکل به‌صورت دستی موقعیت‌یابی می‌شود مفید است.
 
-**Blank layout** – هیچ جای‌گیری ندارد و به شما امکان می‌دهد اسلاید را از ابتدا طراحی کنید.
+## **درک وراثت طرح**
 
-طرح‌های اسلاید بخشی از یک اسلاید مستر هستند، که اسلاید سطح بالایی است و سبک‌های طرح را برای کل ارائه تعریف می‌کند. می‌توانید به طرح‌های اسلاید از طریق اسلاید مستر دسترسی پیدا کنید و آن‌ها را تغییر دهید — چه بر اساس نوع، نام یا شناسهٔ یکتا. یا می‌توانید یک طرح اسلاید خاص را مستقیماً در داخل ارائه ویرایش کنید.
+یک ارائه دارای سه سطح مرتبط است:
 
-برای کار با طرح‌های اسلاید در Aspose.Slides برای Android می‌توانید از موارد زیر استفاده کنید:
+1. یک [اسلاید اصلی](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasterslide/) تم، قالب‌بندی مشترک، پس‌زمینه و اشیای عمومی را تعریف می‌کند.
+2. یک [اسلاید طرح](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilayoutslide/) متعلق به یک اسلاید اصلی است و یک چیدمان خاص از مبدل‌ها را مشخص می‌کند.
+3. یک [اسلاید عادی](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islide/) از یک طرح استفاده می‌کند و محتوای وارد شده برای آن اسلاید را ذخیره می‌نماید.
 
-- متدهایی مانند [getLayoutSlides](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/#getLayoutSlides--) و [getMasters](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/#getMasters--) در زیر کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/)  
-- انواعی مانند [ILayoutSlide](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilayoutslide/)، [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasterlayoutslidecollection/)، [ILayoutPlaceholderManager](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilayoutplaceholdermanager/)، و [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilayoutslideheaderfootermanager/)
+یک اسلاید عادی تم و قالب‌بندی را از طرح خود به ارث می‌برد و طرح نیز از اسلاید اصلی وراثت می‌گیرد. مقدار تنظیم‌شده مستقیم بر روی اسلاید عادی، مقدار ارث‌برده را در همان سطح بازنویسی می‌کند. هنگام ایجاد یک اسلاید عادی، اشکال مبدل آن از طرح انتخاب شده تولید می‌شوند، در حالی که محتوای وارد شده در آن مبدل‌ها به اسلاید عادی تعلق دارد.
 
-{{% alert title="Info" color="info" %}}
-برای یادگیری بیشتر درباره کار با اسلایدهای مستر، مقاله [Slide Master](/slides/fa/androidjava/slide-master/) را بررسی کنید.
-{{% /alert %}}
+پیش از ایجاد اسلایدها، مبدل‌های لازم را به طرح اضافه کنید. افزودن مبدل جدید به یک طرح بعداً به‌صورت خودکار مبدل متناظر را به اسلایدهای عادی موجود اضافه نمی‌کند.
 
-## **افزودن طرح‌های اسلاید به ارائه‌ها**
+این رابطه دو پیامد مهم دارد:
 
-برای سفارشی‌سازی ظاهر و ساختار اسلایدهای خود، ممکن است نیاز داشته باشید طرح‌های اسلاید جدیدی به یک ارائه اضافه کنید. Aspose.Slides برای Android به شما امکان می‌دهد بررسی کنید آیا یک طرح خاص از قبل وجود دارد یا نه، در صورت نیاز یک طرح جدید اضافه کنید و از آن برای درج اسلایدهایی بر پایهٔ آن طرح استفاده کنید.
+- تغییر قالب‌بندی وراثت‌شده یا شکل جئومتری مبدل‌های موجود در یک طرح می‌تواند تمام اسلایدهای وابسته به آن را به‌روز کند. قبل از ویرایش طرحی که در حال حاضر استفاده می‌شود، اسلایدهای وابسته آن را بررسی کنید و ارائه نهایی را مرور نمایید.
+- طرحی که هنوز توسط اسلایدی استفاده می‌شود نمی‌تواند حذف شود. ابتدا اسلایدهای وابسته آن را به طرح دیگری انتساب دهید یا فقط طرح‌های بلا استفاده را حذف کنید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.  
-2. به [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasterlayoutslidecollection/) دسترسی پیدا کنید.  
-3. بررسی کنید آیا طرح اسلاید موردنظر در مجموعه موجود است یا خیر. اگر نیست، طرح اسلاید موردنیاز را اضافه کنید.  
-4. یک اسلاید خالی بر پایهٔ طرح اسلاید جدید اضافه کنید.  
-5. ارائه را ذخیره کنید.
+برای اطلاعات بیشتر درباره سطح بالای این سلسله‌مراتبی، به [اسلاید اصلی](/slides/fa/androidjava/slide-master/) مراجعه کنید.
 
-کد جاوای زیر نحوهٔ افزودن یک طرح اسلاید به یک ارائه PowerPoint را نشان می‌دهد:
+## **انتخاب و اعمال یک طرح اسلاید**
+
+هنگامی که ارائه از تعاریف استاندارد طرح پاورپوینت پیروی می‌کند، از نوع طرح استفاده کنید. نام‌های طرح قابل ویرایش توسط کاربر هستند و می‌توانند بومی‌سازی شوند، بنابراین انتخاب بر پایه نام کمتر قابل اطمینان است مگر آنکه قالب منبع را کنترل کنید.
+
+مثال زیر به دنبال **عنوان و محتوا** در اولین اسلاید اصلی می‌گردد. اگر آن طرح موجود نباشد، عمداً به **خالی** باز می‌گردد. بررسی دوم `null` ضرورت دارد زیرا یک ارائه ممکن است فقط شامل طرح‌های سفارشی باشد. سپس طرح انتخاب‌شده با استفاده از متد [ISlide.setLayoutSlide](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-) به اولین اسلاید عادی اعمال می‌شود.
 
 ```java
-// نمونه‌سازی کلاس Presentation که نمایانگر یک فایل PowerPoint است.
-Presentation presentation = new Presentation("Sample.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // از انواع اسلایدهای طرح عبور کنید تا یک اسلاید طرح را انتخاب کنید.
     IMasterLayoutSlideCollection layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
-    ILayoutSlide layoutSlide = null;
-    if (layoutSlides.getByType(SlideLayoutType.TitleAndObject) != null)
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
-    else
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.Title);
+    ILayoutSlide targetLayout = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
 
-    if (layoutSlide == null) {
-        // یک وضعیت که در آن ارائه همهٔ انواع طرح را شامل نمی‌شود.
-        // فایل ارائه فقط شامل انواع طرح Blank و Custom است.
-        // اما اسلایدهای طرح با انواع سفارشی ممکن است نام‌های قابل شناسایی داشته باشند،
-        // مانند "Title"، "Title and Content" و غیره که می‌توانند برای انتخاب اسلاید طرح استفاده شوند.
-        // همچنین می‌توانید به مجموعه‌ای از انواع شکل‌های جای‌گیر تکیه کنید.
-        // به‌ عنوان مثال، یک اسلاید Title باید فقط نوع جای‌گیر Title را داشته باشد و به همین ترتیب.
-        for (ILayoutSlide titleAndObjectLayoutSlide : layoutSlides) {
-            if (titleAndObjectLayoutSlide.getName().equals("Title and Object")) {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null) {
-            for (ILayoutSlide titleLayoutSlide : layoutSlides) {
-                if (titleLayoutSlide.getName().equals("Title")) {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(SlideLayoutType.Blank);
-                if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
+    if (targetLayout == null) {
+        targetLayout = layoutSlides.getByType(SlideLayoutType.Blank);
     }
 
-    // یک اسلاید خالی با استفاده از اسلاید طرح اضافه‌شده اضافه کنید.
-    presentation.getSlides().insertEmptySlide(0, layoutSlide);
+    if (targetLayout == null) {
+        throw new IllegalStateException("The first master does not contain a suitable layout slide.");
+    }
 
-    // ارائه را روی دیسک ذخیره کنید.
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    presentation.getSlides().get_Item(0).setLayoutSlide(targetLayout);
+    presentation.save("output-with-new-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **حذف طرح‌های اسلاید استفاده‌نشده**
+تغییر طرح اسلاید، اشکال عادی اضافه‌شده مستقیم به اسلاید را حذف نمی‌کند. اما موقعیت مبدل‌ها، قالب‌بندی وراثت‌شده و تطابق مبدل‌های موجود با طرح جدید ممکن است تغییر کند، بنابراین هنگام جابجایی بین طرح‌های به‌طرز قابل‌تفاوت، خروجی را بررسی کنید.
 
-Aspose.Slides متد [removeUnusedLayoutSlides](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) را از کلاس [Compress](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/compress/) فراهم می‌کند تا بتوانید طرح‌های اسلاید ناخواسته و استفاده‌نشده را حذف کنید.
+## **اضافه کردن یک اسلاید طرح**
 
-کد جاوای زیر نشان می‌دهد چگونه یک طرح اسلاید را از یک ارائه PowerPoint حذف کنید:
+انتخاب و ایجاد عملیات‌های جداگانه‌ای هستند. مثال قبلی یک طرح موجود را انتخاب کرد؛ آن را ایجاد نکرد. برای ایجاد یک طرح، متد [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) را بر روی مجموعهٔ طرح‌های اسلاید اصلی هدف فراخوانی کنید.
+
+مثال زیر همیشه یک طرح **عنوان و محتوا** جدید به نام `Report Title and Content` اضافه می‌کند، سپس یک اسلاید عادی بر پایهٔ آن می‌سازد. نام‌های طرح باید در مجموعه یکتا باشند.
 
 ```java
-Presentation presentation = new Presentation("Presentation.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    Compress.removeUnusedLayoutSlides(presentation);
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide reportLayout = masterSlide.getLayoutSlides().add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+    presentation.getSlides().addEmptySlide(reportLayout);
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-report-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **افزودن جای‌گیرها به طرح‌های اسلاید**
+یک طرح را تنها زمانی اضافه کنید که قالب واقعاً به ساختار قابل‌استفادهٔ دیگری نیاز داشته باشد. اگر یک طرح مناسب از پیش وجود دارد، آن را انتخاب و مجدداً استفاده کنید به‌جای ایجاد یک نسخهٔ تکراری.
 
-Aspose.Slides متد [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) را فراهم می‌کند که به شما امکان می‌دهد جای‌گیرهای جدیدی به یک طرح اسلاید اضافه کنید.
+## **اضافه کردن مبدل‌ها به یک اسلاید طرح**
 
-این مدیر شامل متدهایی برای انواع جای‌گیرهای زیر است:
+متد [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) یک [ILayoutPlaceholderManager](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilayoutplaceholdermanager/) برای افزودن اشکال مبدل به طرح فراهم می‌کند.
 
-| جای‌گیر PowerPoint | متد [ILayoutPlaceholderManager](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilayoutplaceholdermanager/) |
-| ----------------- | ------------------------------------------------------------ |
-| ![Content](content.png) | addContentPlaceholder(float x, float y, float width, float height) |
-| ![Content (Vertical)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Text](text.png) | addTextPlaceholder(float x, float y, float width, float height) |
-| ![Text (Vertical)](textV.png) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Picture](picture.png) | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![Chart](chart.png) | addChartPlaceholder(float x, float y, float width, float height) |
-| ![Table](table.png) | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Media](media.png) | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![Online Image](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| مبدل پاورپوینت                     | متد `ILayoutPlaceholderManager` |
+| ----------------------------------- | -------------------------------- |
+| ![محتوا](content.png)               | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
+| ![محتوا (عمودی)](contentV.png)     | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
+| ![متن](text.png)                    | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
+| ![متن (عمودی)](textV.png)           | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalTextPlaceholder-float-float-float-float-) |
+| ![تصویر](picture.png)               | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
+| ![نمودار](chart.png)                | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
+| ![جدول](table.png)                  | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
+| ![SmartArt](smartart.png)           | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addSmartArtPlaceholder-float-float-float-float-) |
+| ![رسانه](media.png)                 | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
+| ![تصویر آنلاین](onlineImage.png)    | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
 
-کد جاوای زیر نحوهٔ افزودن اشکال جای‌گیر جدید به طرح اسلاید Blank را نشان می‌دهد:
+مثال زیر بررسی می‌کند که طرح **خالی** وجود دارد، چهار مبدل به آن اضافه می‌کند و سپس یک اسلاید عادی که از طرح اصلاح‌شده استفاده می‌کند را می‌سازد. ترتیب کار عمدی است: مبدل‌ها قبل از ایجاد اسلاید عادی اضافه می‌شوند تا Aspose.Slides بتواند اشکال مبدل متناظر را روی آن اسلاید تولید کند.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // دریافت اسلاید طرح Blank.
-    ILayoutSlide layout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ILayoutSlide blankLayout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
 
-    // دریافت مدیر جای‌گیرهای اسلاید طرح.
-    ILayoutPlaceholderManager placeholderManager = layout.getPlaceholderManager();
+    if (blankLayout == null) {
+        throw new IllegalStateException("The presentation does not contain a Blank layout slide.");
+    }
 
-    // افزودن جای‌گیرهای مختلف به اسلاید طرح Blank.
+    ILayoutPlaceholderManager placeholderManager = blankLayout.getPlaceholderManager();
     placeholderManager.addContentPlaceholder(20, 20, 310, 270);
     placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
     placeholderManager.addChartPlaceholder(20, 310, 310, 180);
     placeholderManager.addTablePlaceholder(350, 310, 350, 180);
 
-    // افزودن اسلاید جدید با طرح Blank.
-    ISlide newSlide = presentation.getSlides().addEmptySlide(layout);
-
-    presentation.save("Placeholders.pptx", SaveFormat.Pptx);
+    presentation.getSlides().addEmptySlide(blankLayout);
+    presentation.save("output-with-placeholders.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -181,88 +159,102 @@ try {
 
 نتیجه:
 
-![The placeholders on the layout slide](add_placeholders.png)
+![مبدل‌ها روی اسلاید طرح](add_placeholders.png)
 
-## **تنظیم نمایش پاورقی برای یک طرح اسلاید**
+{{% alert color="warning" title="Warning" %}}
 
-در ارائه‌های PowerPoint، عناصر پاورقی مانند تاریخ، شماره اسلاید و متن سفارشی می‌توانند بسته به طرح اسلاید نمایش داده شوند یا مخفی شوند. Aspose.Slides برای Android به شما امکان می‌دهد نمایش این جای‌گیرهای پاورقی را کنترل کنید. این امر زمانی مفید است که بخواهید برخی از طرح‌ها اطلاعات پاورقی را نشان دهند در حالی که دیگران تمیز و کمینه باقی بمانند.
+تغییر قالب‌بندی وراثت‌شده یا شکل جئومتری مبدل‌های موجود در طرح می‌تواند اسلایدهای وابسته را تحت تأثیر قرار دهد. یک مبدل طرح تازه اضافه‌شده به‌صورت خودکار به اسلایدهای عادی موجود بازگردانی نمی‌شود. تغییرات طرح را روی یک نسخهٔ копی از ارائه تست کنید و هر اسلاید وابسته را با دقت بررسی نمایید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.  
-2. یک اشاره‌گر به طرح اسلاید موردنظر براساس ایندکس آن دریافت کنید.  
-3. جای‌گیر پاورقی اسلاید را قابل مشاهده کنید.  
-4. جای‌گیر شماره اسلاید را قابل مشاهده کنید.  
-5. جای‌گیر تاریخ‑زمان را قابل مشاهده کنید.  
-6. ارائه را ذخیره کنید.
+{{% /alert %}}
 
-کد جاوای زیر نحوهٔ تنظیم نمایش پاورقی اسلاید و انجام کارهای مرتبط را نشان می‌دهد:
+## **حذف اسلایدهای طرح بلااستفاده**
+
+از متد [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) برای حذف طرح‌هایی که هیچ اسلاید عادی به آن‌ها ارجاع نمی‌دهد استفاده کنید. این متد طرح‌های همچنان مورد استفاده را دست نخورده می‌گذارد.
 
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
+    Compress.removeUnusedLayoutSlides(presentation);
+    presentation.save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-    if (!headerFooterManager.isFooterVisible()) {
-        headerFooterManager.setFooterVisibility(true);
+برای حذف یک طرح خاص، ابتدا از متدهای [hasDependingSlides](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilayoutslide/#hasDependingSlides--) یا [getDependingSlides](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--) آن استفاده کنید. قبل از فراخوانی [ILayoutSlide.remove](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilayoutslide/#remove--) اسلایدهای وابسته را مجدداً اختصاص دهید. تلاش برای حذف یک طرح در حال استفاده، یک [PptxEditException](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/pptxeditexception/) را به‌وجود می‌آورد.
+
+## **کنترل قابلیت مشاهده پاورقی در یک اسلاید طرح**
+
+یک طرح پاورقی، شماره اسلاید و مبدل تاریخ‑زمان خود را دارد. برای کنترل این مبدل‌ها برای یک طرح، از متد [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) استفاده کنید. این موضوع زمانی مفید است که به‌عنوان مثال طرح‌های محتوا بخواهند پاورقی نشان دهند ولی طرح‌های عنوان نه.
+
+مثال زیر یک طرح را به‌صورت ایمن انتخاب کرده و عناصر پاورقی آن را قابل مشاهده می‌کند:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.TitleAndObject);
+
+    if (layoutSlide == null) {
+        layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
     }
 
-    if (!headerFooterManager.isSlideNumberVisible()) {
-        headerFooterManager.setSlideNumberVisibility(true);
+    if (layoutSlide == null) {
+        throw new IllegalStateException("The presentation does not contain a suitable layout slide.");
     }
 
-    if (!headerFooterManager.isDateTimeVisible()) {
-        headerFooterManager.setDateTimeVisibility(true);
-    }
-
+    ILayoutSlideHeaderFooterManager headerFooterManager = layoutSlide.getHeaderFooterManager();
+    headerFooterManager.setFooterVisibility(true);
+    headerFooterManager.setSlideNumberVisibility(true);
+    headerFooterManager.setDateTimeVisibility(true);
     headerFooterManager.setFooterText("Footer text");
     headerFooterManager.setDateTimeText("Date and time text");
 
-    presentation.save("Presentation.ppt", SaveFormat.Ppt);
+    presentation.save("output-with-layout-footers.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **تنظیم نمایش پاورقی فرزند برای یک اسلاید**
+## **کنترل قابلیت مشاهده پاورقی در یک اسلاید اصلی و طرح‌های فرزند آن**
 
-در ارائه‌های PowerPoint، عناصر پاورقی مانند تاریخ، شماره اسلاید و متن سفارشی می‌توانند در سطح اسلاید مستر کنترل شوند تا سازگاری در تمام طرح‌های اسلاید حفظ شود. Aspose.Slides برای Android به شما امکان می‌دهد نمایش و محتوای این جای‌گیرهای پاورقی را در اسلاید مستر تنظیم کنید و این تنظیمات را به تمام طرح‌های اسلاید فرزند اعمال کنید. این روش اطلاعات پاورقی یکنواختی را در سراسر ارائه تضمین می‌کند.
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.  
-2. به اسلاید مستر براساس ایندکس آن دسترسی پیدا کنید.  
-3. تمام جای‌گیرهای پاورقی مستر و فرزندها را قابل مشاهده کنید.  
-4. تمام جای‌گیرهای شماره اسلاید مستر و فرزندها را قابل مشاهده کنید.  
-5. تمام جای‌گیرهای تاریخ‑زمان مستر و فرزندها را قابل مشاهده کنید.  
-6. ارائه را ذخیره کنید.
-
-کد جاوای زیر این عملیات را نشان می‌دهد:
+برای اعمال تنظیمات پاورقی یکدست در تمام سلسله‌مراتبی اسلاید اصلی، از متد [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasterslide/#getHeaderFooterManager--) استفاده کنید. متدهای انتشار [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasterslideheaderfootermanager/) بر روی اسلاید اصلی و اسلایدهای طرح و اسلایدهای عادی وابسته به آن عمل می‌کنند؛ آن‌ها فقط یک اسلاید عادی را هدف نمی‌گیرند.
 
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
     IMasterSlideHeaderFooterManager headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-
     headerFooterManager.setFooterAndChildFootersVisibility(true);
     headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
     headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
-
     headerFooterManager.setFooterAndChildFootersText("Footer text");
     headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-master-footers.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **پرسش‌های متداول**
+## **سؤالات متداول**
 
-**تفاوت بین اسلاید مستر و اسلاید طرح چیست؟**
+**تفاوت بین اسلاید اصلی و اسلاید طرح چیست؟**
 
-اسلاید مستر تم کلی و قالب‌بندی پیش‌فرض را تعریف می‌کند، در حالی که اسلایدهای طرح چیدمان‌های خاصی از جای‌گیرها را برای انواع مختلف محتوا تعیین می‌کنند.
+اسلاید اصلی تم و قالب‌بندی مشترک ارائه را تعریف می‌کند. اسلاید طرح به یک اسلاید اصلی تعلق دارد و یک چیدمان قابل‌استفادهٔ مبدل‌ها را تعریف می‌کند. اسلایدهای عادی از این طرح‌ها استفاده می‌کنند و محتوای خاص خود را ذخیره می‌نمایند.
 
-**آیا می‌توانم یک اسلاید طرح را از یک ارائه به ارائهٔ دیگر کپی کنم؟**
+**آیا می‌توانم یک اسلاید طرح را از یک ارائه به ارائه دیگر کپی کنم؟**
 
-بله، می‌توانید یک اسلاید طرح را از مجموعهٔ اسلایدهای طرح یک ارائه (دسترس‌پذیر از طریق متد [getLayoutSlides](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/#getLayoutSlides--)) کلون کنید و با استفاده از متد `addClone` آن را به ارائهٔ دیگر اضافه کنید.
+بله. با استفاده از متد [addClone](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) یک نسخه به مجموعهٔ مقصد اضافه کنید. هنگام کپی بین ارائه‌ها، فونت‌ها، تم‌ها، تصاویر و سایر منابع استفاده‌شده توسط طرح منبع را نیز بررسی کنید.
 
-**اگر یک اسلاید طرح که هنوز توسط اسلایدی استفاده می‌شود را حذف کنم چه اتفاقی می‌افتد؟**
+**وقتی یک طرح که در حال استفاده است را ویرایش می‌کنم چه اتفاقی می‌افتد؟**
 
-اگر سعی کنید یک اسلاید طرح را حذف کنید که هنوز توسط حداقل یک اسلاید در ارائه ارجاع داده شده است، Aspose.Slides یک استثنای [PptxEditException](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/pptxeditexception/) را پرتاب می‌کند. برای جلوگیری از این مشکل، از متد [removeUnusedLayoutSlides](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) استفاده کنید که به‌صورت ایمن فقط طرح‌های اسلایدی که استفاده نشده‌اند را حذف می‌کند.
+اسلایدهای وابسته تغییرات طرح را به ارث می‌برند مگر اینکه قالب‌بندی یا اشیای موردنظر را به‌صورت محلی بازنویسی کرده باشند. بنابراین شکل جئومتری مبدل‌ها و استایل‌های وراثت‌شده می‌تواند یک‌باره در بسیاری از اسلایدها تغییر کند. قبل از ویرایش طرح، با استفاده از [getDependingSlides](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--) اسلایدهای تحت‌اثر را شناسایی کنید.
+
+**اگر یک طرح هنوز در حال استفاده باشد را حذف کنم چه می‌شود؟**
+
+Aspose.Slides یک [PptxEditException](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/pptxeditexception/) پرتاب می‌کند. ابتدا اسلایدهای وابسته را به طرح دیگری انتساب دهید یا از [removeUnusedLayoutSlides](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) برای حذف تنها طرح‌های بدون ارجاع استفاده کنید.

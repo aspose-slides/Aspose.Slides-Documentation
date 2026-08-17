@@ -1,5 +1,5 @@
 ---
-title: Applicera eller ändra bildlayouter på Android
+title: Tillämpa eller ändra bildlayouter på Android
 linktitle: Bildlayout
 type: docs
 weight: 60
@@ -12,7 +12,7 @@ keywords:
 - bilddesign
 - oanvänd layout
 - sidfotssynlighet
-- titelsida
+- titelbild
 - titel och innehåll
 - sektionrubrik
 - två innehåll
@@ -29,151 +29,129 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: Hantera och anpassa bildlayouter i Aspose.Slides för Android. Utforska layouttyper, kontroll av platshållare och sidfotssynlighet med Java-kodexempel.
+description: "Tillämpa, skapa och modifiera bildlayouter i Aspose.Slides för Android via Java, lägg till platshållare, ta bort oanvända layouter och kontrollera sidfotssynlighet."
 ---
-## **Introduktion**
+## **Översikt**
 
-Ett bildlayout definierar arrangemanget av platshållarbokser och formatering för innehållet på en bild. Det styr vilka platshållare som är tillgängliga och var de visas. Bildlayouter hjälper dig att designa presentationer snabbt och konsekvent—oavsett om du skapar något enkelt eller mer komplext. Några av de vanligaste bildlayouterna i PowerPoint är:
+En bildlayout definierar positionerna och formateringen av platshållare såsom titlar, text, bilder, diagram och tabeller. Att använda en layout ger bilder en konsekvent struktur samtidigt som varje bild kan innehålla sitt eget innehåll.
 
-**Titelbildlayout** – Inkluderar två textplatshållare: en för rubriken och en för undertiteln.
+De vanligaste layouterna inkluderar:
 
-**Titel- och innehållslayout** – Har en mindre titelplatshållare högst upp och en större nedanför för huvudinnehållet (såsom text, punktlistor, diagram, bilder och mer).
+- **Titelslide**: Innehåller platshållare för titel och undertitel.
+- **Titel och innehåll**: Innehåller en titel‑platshållare och en allmän innehållsplatshållare.
+- **Tom**: Innehåller inga innehållsplatshållare och är användbar när varje form placeras manuellt.
 
-**Tom layout** – Innehåller inga platshållare, vilket ger dig full kontroll att designa bilden från grunden.
+## **Förstå layoutarv**
 
-Bildlayouter är en del av en bildmaster, som är den översta bilden som definierar layoutstilar för presentationen. Du kan komma åt och ändra layoutbilder via bildmastern—antingen efter deras typ, namn eller unika ID. Alternativt kan du redigera en specifik layoutbild direkt i presentationen.
+En presentation har tre relaterade nivåer:
 
-För att arbeta med bildlayouter i Aspose.Slides för Android kan du använda:
+1. En [master slide](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imasterslide/) definierar temat, gemensam formatering, bakgrunder och vanliga objekt.
+2. En [layout slide](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilayoutslide/) tillhör en master och definierar en specifik placering av platshållare.
+3. En [normal slide](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/islide/) använder en layout och lagrar innehållet som matats in för den bilden.
 
-- Metoder som [getLayoutSlides](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/#getLayoutSlides--) och [getMasters](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/#getMasters--) under klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/) 
-- Typer som [ILayoutSlide](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilayoutplaceholdermanager/), och [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilayoutslideheaderfootermanager/)
+En normal bild ärver tema och formatering från sin layout, och layouten ärver från sin master. Ett värde som sätts direkt på en normal bild åsidosätter det ärvda värdet på den nivån. När en normal bild skapas genereras dess platshållarformer från den valda layouten, medan innehållet som matats in i dessa platshållare tillhör den normala bilden.
 
-{{% alert title="Info" color="info" %}}
-För att lära dig mer om att arbeta med masternbilder, kolla in artikeln [Slide Master](/slides/sv/androidjava/slide-master/) .
-{{% /alert %}}
+Lägg till nödvändiga platshållare i en layout innan du skapar bilder från den. Att senare lägga till en ytterligare platshållare i en layout lägger inte automatiskt till motsvarande platshållarform i befintliga normala bilder.
 
-## **Lägg till bildlayouter i presentationer**
+Detta förhållande har två viktiga konsekvenser:
 
-För att anpassa utseendet och strukturen på dina bilder kan du behöva lägga till nya layoutbilder i en presentation. Aspose.Slides för Android låter dig kontrollera om en specifik layout redan finns, lägga till en ny om det behövs och använda den för att infoga bilder baserade på den layouten.
+- Att ändra ärvd formatering eller befintlig platshållargeometri i en layout kan uppdatera varje bild som beror på den. Innan du redigerar en layout som redan används, inspektera dess beroende bilder och granska den resulterande presentationen.
+- En layout som fortfarande används av en bild kan inte tas bort. Tilldela först dess beroende bilder till en annan layout, eller ta bara bort oanvända layouter.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/) .
-1. Hämta [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imasterlayoutslidecollection/) .
-1. Kontrollera om den önskade layoutbilden redan finns i samlingen. Om inte, lägg till den layoutbild du behöver.
-1. Lägg till en tom bild baserad på den nya layoutbilden.
-1. Spara presentationen.
+För mer information om översta nivån i denna hierarki, se [Slide Master](/slides/sv/androidjava/slide-master/).
 
-Följande Java‑kod visar hur man lägger till en bildlayout i en PowerPoint‑presentation:
+## **Välj och tillämpa en bildlayout**
+
+Använd en layouttyp när presentationen följer standard PowerPoint‑layoutdefinitioner. Layoutnamn kan redigeras av användaren och kan lokalanpassas, så namn‑baserad urval är mindre pålitligt om du inte styr källmallen.
+
+Det följande exemplet söker efter **Titel och innehåll** på den första masteren. Om den layouten inte finns, faller det avsiktligt tillbaka till **Tom**. Den andra null‑kontrollen är nödvändig eftersom en presentation kan innehålla endast anpassade layouter. Den valda layouten tillämpas sedan på den första normala bilden via metoden [ISlide.setLayoutSlide](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-) .
 
 ```java
-// Skapa en instans av Presentation-klassen som representerar en PowerPoint-fil.
-Presentation presentation = new Presentation("Sample.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // Gå igenom layoutbildstyperna för att välja en layoutbild.
     IMasterLayoutSlideCollection layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
-    ILayoutSlide layoutSlide = null;
-    if (layoutSlides.getByType(SlideLayoutType.TitleAndObject) != null)
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
-    else
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.Title);
+    ILayoutSlide targetLayout = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
 
-    if (layoutSlide == null) {
-        // Ett fall där presentationen inte innehåller alla layouttyper.
-        // Presentationsfilen innehåller bara tomma och anpassade layouttyper.
-        // Dock kan layoutbilder med anpassade typer ha igenkännbara namn,
-        // såsom "Title", "Title and Content" osv., vilka kan användas för att välja layoutbild.
-        // Du kan även förlita dig på en uppsättning av platshållarformtyper.
-        // Till exempel bör en titelsida bara ha Title-platshållartypen, och så vidare.
-        for (ILayoutSlide titleAndObjectLayoutSlide : layoutSlides) {
-            if (titleAndObjectLayoutSlide.getName().equals("Title and Object")) {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null) {
-            for (ILayoutSlide titleLayoutSlide : layoutSlides) {
-                if (titleLayoutSlide.getName().equals("Title")) {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(SlideLayoutType.Blank);
-                if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
+    if (targetLayout == null) {
+        targetLayout = layoutSlides.getByType(SlideLayoutType.Blank);
     }
 
-    // Lägg till en tom bild med den tillagda layoutbilden.
-    presentation.getSlides().insertEmptySlide(0, layoutSlide);
+    if (targetLayout == null) {
+        throw new IllegalStateException("The first master does not contain a suitable layout slide.");
+    }
 
-    // Spara presentationen till disk.
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    presentation.getSlides().get_Item(0).setLayoutSlide(targetLayout);
+    presentation.save("output-with-new-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Ta bort oanvända layoutbilder**
+Att ändra en bilds layout tar inte bort vanliga former som lagts till direkt på bilden. Däremot kan platshållarpositioner, ärvd formatering och motsvarigheten mellan befintliga platshållare och den nya layouten förändras, så inspektera resultatet när du växlar mellan avsevärt olika layouter.
 
-Aspose.Slides tillhandahåller metoden [removeUnusedLayoutSlides](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) från klassen [Compress](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/compress/) för att låta dig radera oönskade och oanvända layoutbilder.
+## **Lägg till en layoutbild**
 
-Följande Java‑kod visar hur man tar bort en layoutbild från en PowerPoint‑presentation:
+Urval och skapande är separata operationer. Det föregående exemplet väljer en befintlig layout; den skapar ingen. För att skapa en layout, anropa metoden [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) på mål‑masterens layoutsamling.
+
+Det följande exemplet lägger alltid till en ny **Titel och innehåll**‑layout med namnet `Report Title and Content`, och lägger sedan till en normal bild baserad på den. Layoutnamn måste vara unika inom samlingen.
 
 ```java
-Presentation presentation = new Presentation("Presentation.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    Compress.removeUnusedLayoutSlides(presentation);
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide reportLayout = masterSlide.getLayoutSlides().add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+    presentation.getSlides().addEmptySlide(reportLayout);
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-report-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Lägg till platshållare i bildlayouter**
+Lägg bara till en layout när mallen verkligen behöver en ytterligare återanvändbar struktur. Om en lämplig layout redan finns, välj och återanvänd den istället för att skapa en duplicat.
 
-Aspose.Slides tillhandahåller metoden [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) som låter dig lägga till nya platshållare i en layoutbild.
+## **Lägg till platshållare i en layoutbild**
 
-Denna manager innehåller metoder för följande platshållartyper:
+Metoden [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) tillhandahåller en [ILayoutPlaceholderManager](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilayoutplaceholdermanager/) för att lägga till platshållarformer i en layout.
 
-| PowerPoint‑platshållare | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilayoutplaceholdermanager/) Method |
-| ----------------------- | ------------------------------------------------------------ |
-| ![Innehåll](content.png) | addContentPlaceholder(float x, float y, float width, float height) |
-| ![Innehåll (Vertikal)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Text](text.png) | addTextPlaceholder(float x, float y, float width, float height) |
-| ![Text (Vertikal)](textV.png) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Bild](picture.png) | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![Diagram](chart.png) | addChartPlaceholder(float x, float y, float width, float height) |
-| ![Tabell](table.png) | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Media](media.png) | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![Online‑bild](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| PowerPoint‑platshållare | `ILayoutPlaceholderManager` Method |
+| ----------------------- | ---------------------------------- |
+| ![Innehåll](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
+| ![Innehåll (Vertikal)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
+| ![Text](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
+| ![Text (Vertikal)](textV.png) | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalTextPlaceholder-float-float-float-float-) |
+| ![Bild](picture.png) | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
+| ![Diagram](chart.png) | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
+| ![Tabell](table.png) | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
+| ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addSmartArtPlaceholder-float-float-float-float-) |
+| ![Media](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
+| ![Online‑bild](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
 
-Följande Java‑kod visar hur man lägger till nya platshållarformer i den Tomma layoutbilden:
+Det följande exemplet verifierar att **Tom**‑layouten finns, lägger till fyra platshållare i den och skapar sedan en normal bild som använder den modifierade layouten. Ordningen är avsiktlig: platshållarna läggs till innan den normala bilden skapas, så att Aspose.Slides kan generera motsvarande platshållarformer på den bilden.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // Hämta den tomma layoutbilden.
-    ILayoutSlide layout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ILayoutSlide blankLayout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
 
-    // Hämta platshållarhanteraren för layoutbilden.
-    ILayoutPlaceholderManager placeholderManager = layout.getPlaceholderManager();
+    if (blankLayout == null) {
+        throw new IllegalStateException("The presentation does not contain a Blank layout slide.");
+    }
 
-    // Lägg till olika platshållare i den tomma layoutbilden.
+    ILayoutPlaceholderManager placeholderManager = blankLayout.getPlaceholderManager();
     placeholderManager.addContentPlaceholder(20, 20, 310, 270);
     placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
     placeholderManager.addChartPlaceholder(20, 310, 310, 180);
     placeholderManager.addTablePlaceholder(350, 310, 350, 180);
 
-    // Lägg till en ny bild med den tomma layouten.
-    ISlide newSlide = presentation.getSlides().addEmptySlide(layout);
-
-    presentation.save("Placeholders.pptx", SaveFormat.Pptx);
+    presentation.getSlides().addEmptySlide(blankLayout);
+    presentation.save("output-with-placeholders.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -181,88 +159,100 @@ try {
 
 Resultatet:
 
-![Platshållarna på layoutbilden](add_placeholders.png)
+![The placeholders on the layout slide](add_placeholders.png)
 
-## **Ställ in sidfotssynlighet för en layoutbild**
+{{% alert color="warning" title="Varning" %}}
+Att ändra ärvd formatering eller geometrin för befintliga layout‑platshållare kan påverka beroende bilder. En nylagd layout‑platshållare fylls inte retroaktivt i befintliga normala bilder. Testa layout‑ändringar på en kopia av presentationen och inspektera varje beroende bild.
+{{% /alert %}}
 
-I PowerPoint‑presentationer kan sidfotelement som datum, bildnummer och anpassad text visas eller döljas beroende på bildlayouten. Aspose.Slides för Android låter dig styra synligheten för dessa sidfotplatshållare. Detta är användbart när du vill att vissa layouter ska visa sidfotinformation medan andra förblir rena och enkla.
+## **Ta bort oanvända layoutbilder**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/) .
-2. Hämta en referens till en layoutbild enligt dess index.
-3. Ställ in bildens sidfotplatshållare till synlig.
-4. Ställ in bildens nummerplatshållare till synlig.
-5. Ställ in datum‑tid‑platshållaren till synlig.
-6. Spara presentationen.
-
-Följande Java‑kod visar hur man ställer in synligheten för en bildsidfot och utför relaterade uppgifter:
+Använd metoden [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) för att ta bort layouter som ingen normal bild refererar till. Metoden lämnar intakta de layouter som fortfarande är i bruk.
 
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
+    Compress.removeUnusedLayoutSlides(presentation);
+    presentation.save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-    if (!headerFooterManager.isFooterVisible()) {
-        headerFooterManager.setFooterVisibility(true);
+För att ta bort en specifik layout, använd först dess [hasDependingSlides](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilayoutslide/#hasDependingSlides--)‑ eller [getDependingSlides](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--)‑metod. Tilldela om eventuella beroende bilder innan du anropar [ILayoutSlide.remove](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilayoutslide/#remove--). Att försöka ta bort en layout som används kastar ett [PptxEditException](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/pptxeditexception/).
+
+## **Styr synlighet för sidfot på en layoutbild**
+
+En layout har sina egna sidfot-, bildnummer- och datum‑tid‑platshållare. Använd metoden [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) för att styra dessa platshållare för en layout. Detta är användbart när exempelvis innehållslayouter ska visa sidfötter men titellayouter inte ska göra det.
+
+Det följande exemplet väljer en layout på ett säkert sätt och gör dess sidfotelement synliga:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.TitleAndObject);
+
+    if (layoutSlide == null) {
+        layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
     }
 
-    if (!headerFooterManager.isSlideNumberVisible()) {
-        headerFooterManager.setSlideNumberVisibility(true);
+    if (layoutSlide == null) {
+        throw new IllegalStateException("The presentation does not contain a suitable layout slide.");
     }
 
-    if (!headerFooterManager.isDateTimeVisible()) {
-        headerFooterManager.setDateTimeVisibility(true);
-    }
-
+    ILayoutSlideHeaderFooterManager headerFooterManager = layoutSlide.getHeaderFooterManager();
+    headerFooterManager.setFooterVisibility(true);
+    headerFooterManager.setSlideNumberVisibility(true);
+    headerFooterManager.setDateTimeVisibility(true);
     headerFooterManager.setFooterText("Footer text");
     headerFooterManager.setDateTimeText("Date and time text");
 
-    presentation.save("Presentation.ppt", SaveFormat.Ppt);
+    presentation.save("output-with-layout-footers.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Ställ in underordnad sidfotssynlighet för en bild**
+## **Styr sidfotssynlighet på en master och dess underliggande layouter**
 
-I PowerPoint‑presentationer kan sidfotelement som datum, bildnummer och anpassad text styras på masternivå för att säkerställa konsistens över alla layoutbilder. Aspose.Slides för Android låter dig ange synlighet och innehåll för dessa sidfotplatshållare på mastern och sprida dessa inställningar till alla underordnade layoutbilder. Detta tillvägagångssätt säkerställer enhetlig sidfotinformation i hela din presentation.
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/) .
-2. Hämta en referens till mastern enligt dess index.
-3. Ställ in masterns och alla underordnade sidfotplatshållare till synliga.
-4. Ställ in masterns och alla underordnade bildnummerplatshållare till synliga.
-5. Ställ in masterns och alla underordnade datum‑tid‑platshållare till synliga.
-6. Spara presentationen.
-
-Följande Java‑kod demonstrerar denna operation:
+För att tillämpa enhetliga sidfotinställningar över en master‑hierarki, använd metoden [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imasterslide/#getHeaderFooterManager--). Spridningsmetoderna i [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imasterslideheaderfootermanager/) verkar på masteren samt dess beroende layout‑bilder och normala bilder; de riktar sig inte bara mot en enskild normal bild.
 
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
     IMasterSlideHeaderFooterManager headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-
     headerFooterManager.setFooterAndChildFootersVisibility(true);
     headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
     headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
-
     headerFooterManager.setFooterAndChildFootersText("Footer text");
     headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-master-footers.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **Vanliga frågor**
 
-**Vad är skillnaden mellan en mastern och en layoutbild?**
+**Vad är skillnaden mellan en master slide och en layout slide?**
 
-En mastern definierar det övergripande temat och standardformateringen, medan layoutbilder definierar specifika arrangemang av platshållare för olika typer av innehåll.
+En master slide definierar presentationens tema och delad formatering. En layout slide tillhör en master och definierar ett återanvändbart arrangemang av platshållare. Normala slides använder dessa layouter och lagrar bildspecifikt innehåll.
 
-**Kan jag kopiera en layoutbild från en presentation till en annan?**
+**Kan jag kopiera en layout slide från en presentation till en annan?**
 
-Ja, du kan klona en layoutbild från en presentations layoutsamling, som är åtkomlig via metoden [getLayoutSlides](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/#getLayoutSlides--) , och infoga den i en annan presentation med metoden `addClone`.
+Ja. Lägg till en kopia i destinationssamlingen med metoden [addClone](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-). När du kopierar mellan presentationer, verifiera även teckensnitt, teman, bilder och andra resurser som används av källlayouten.
 
-**Vad händer om jag tar bort en layoutbild som fortfarande används av en bild?**
+**Vad händer när jag modifierar en layout som redan är i bruk?**
 
-Om du försöker ta bort en layoutbild som fortfarande refereras av minst en bild i presentationen, kommer Aspose.Slides att kasta ett [PptxEditException](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/pptxeditexception/). Undvik detta genom att använda [removeUnusedLayoutSlides](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) som säkert tar bort endast de layoutbilder som inte används.
+Beroende bilder ärver layout‑ändringarna om de inte åsidosätter den påverkade formateringen eller objekten lokalt. Platshållargeometri och ärvd stil kan därför förändras på många bilder samtidigt. Använd [getDependingSlides](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--) för att identifiera de påverkade bilderna innan du redigerar layouten.
+
+**Vad händer om jag tar bort en layout som fortfarande är i bruk?**
+
+Aspose.Slides kastar ett [PptxEditException](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/pptxeditexception/). Tilldela om de beroende bilderna först, eller använd [removeUnusedLayoutSlides](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) för att bara ta bort orefererade layouter.

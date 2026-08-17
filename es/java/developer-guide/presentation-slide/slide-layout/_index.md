@@ -1,5 +1,5 @@
 ---
-title: Aplicar o Cambiar diseños de diapositiva en Java
+title: Aplicar o cambiar diseños de diapositiva en Java
 linktitle: Diseño de diapositiva
 type: docs
 weight: 60
@@ -10,7 +10,7 @@ keywords:
 - marcador de posición
 - diseño de presentación
 - diseño de diapositiva
-- diseño no usado
+- diseño no utilizado
 - visibilidad del pie de página
 - diapositiva de título
 - título y contenido
@@ -19,8 +19,8 @@ keywords:
 - comparación
 - solo título
 - diseño en blanco
-- contenido con subtítulo
-- imagen con subtítulo
+- contenido con leyenda
+- imagen con leyenda
 - título y texto vertical
 - título vertical y texto
 - PowerPoint
@@ -28,241 +28,230 @@ keywords:
 - presentación
 - Java
 - Aspose.Slides
-description: "Administre y personalice los diseños de diapositiva en Aspose.Slides para Java. Explore tipos de diseños, control de marcadores de posición y visibilidad del pie de página mediante ejemplos de código Java."
+description: "Aplicar, crear y modificar diseños de diapositiva en Aspose.Slides para Java, añadir marcadores de posición, eliminar diseños no utilizados y controlar la visibilidad del pie de página."
 ---
-
 ## **Visión general**
 
-Un diseño de diapositiva define la disposición de los cuadros de marcadores de posición y el formato del contenido en una diapositiva. Controla qué marcadores de posición están disponibles y dónde aparecen. Los diseños de diapositiva le ayudan a crear presentaciones de forma rápida y coherente, ya sea que esté creando algo simple o más complejo. Algunos de los diseños de diapositiva más comunes en PowerPoint incluyen:
+Un diseño de diapositiva define las posiciones y el formato de los marcadores de posición como títulos, texto, imágenes, gráficos y tablas. Aplicar un diseño otorga a las diapositivas una estructura coherente mientras permite que cada diapositiva contenga su propio contenido.
 
-**Diseño de diapositiva de título** – Incluye dos marcadores de posición de texto: uno para el título y otro para el subtítulo.
+Los diseños más comunes incluyen:
 
-**Diseño de título y contenido** – Presenta un marcador de posición de título más pequeño en la parte superior y uno más grande debajo para el contenido principal (como texto, viñetas, gráficos, imágenes y más).
+- **Diapositiva de título**: Contiene marcadores de posición de título y subtítulo.
+- **Título y contenido**: Contiene un marcador de posición de título y un marcador de posición de contenido de uso general.
+- **En blanco**: No contiene marcadores de posición de contenido y es útil cuando cada forma se posicionará manualmente.
 
-**Diseño en blanco** – No contiene marcadores de posición, dándole control total para diseñar la diapositiva desde cero.
+## **Comprender la herencia de diseños**
 
-Los diseños de diapositiva forman parte de una diapositiva maestra, que es la diapositiva de nivel superior que define los estilos de diseño para la presentación. Puede acceder y modificar las diapositivas de diseño a través de la diapositiva maestra, ya sea por su tipo, nombre o ID único. Alternativamente, puede editar una diapositiva de diseño específica directamente dentro de la presentación.
+Una presentación tiene tres niveles relacionados:
 
-Para trabajar con diseños de diapositiva en Aspose.Slides for Java, puede usar:
+1. Una [diapositiva maestra](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasterslide/) define el tema, el formato compartido, los fondos y los objetos comunes.
+1. Una [diapositiva de diseño](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutslide/) pertenece a una maestra y define una disposición particular de marcadores de posición.
+1. Una [diapositiva normal](https://reference.aspose.com/slides/es/java/com.aspose.slides/islide/) utiliza un diseño y almacena el contenido introducido para esa diapositiva.
 
-- Métodos como [getLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getLayoutSlides--) y [getMasters](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) bajo la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)
-- Tipos como [ILayoutSlide](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutplaceholdermanager/), y [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutslideheaderfootermanager/)
+Una diapositiva normal hereda el tema y el formato de su diseño, y el diseño hereda de su maestra. Un valor establecido directamente en una diapositiva normal sobrescribe el valor heredado en ese nivel. Cuando se crea una diapositiva normal, sus formas de marcador de posición se generan a partir del diseño seleccionado, mientras que el contenido introducido en esos marcadores pertenece a la diapositiva normal.
 
-{{% alert title="Info" color="info" %}}
-Para obtener más información sobre cómo trabajar con diapositivas maestras, consulte el artículo [Slide Master](/slides/es/java/slide-master/).
-{{% /alert %}}
+Añada los marcadores de posición requeridos a un diseño antes de crear diapositivas a partir de él. Añadir otro marcador de posición a un diseño más adelante no agrega automáticamente una forma de marcador de posición correspondiente a las diapositivas normales existentes.
 
-## **Agregar diseños de diapositiva a presentaciones**
+Esta relación tiene dos consecuencias importantes:
 
-Para personalizar la apariencia y la estructura de sus diapositivas, puede que necesite agregar nuevas diapositivas de diseño a una presentación. Aspose.Slides for Java le permite comprobar si un diseño específico ya existe, agregar uno nuevo si es necesario y usarlo para insertar diapositivas basadas en ese diseño.
+- Cambiar el formato heredado o la geometría de los marcadores de posición existentes en un diseño puede actualizar cada diapositiva que dependa de él. Antes de editar un diseño que ya está en uso, inspeccione sus diapositivas dependientes y revise la presentación resultante.
+- Un diseño que aún es utilizado por una diapositiva no puede eliminarse. Reasigne sus diapositivas dependientes a otro diseño primero, o elimine solo los diseños no utilizados.
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-1. Acceda a la [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/imasterlayoutslidecollection/).
-1. Verifique si la diapositiva de diseño deseada ya existe en la colección. Si no, agregue la diapositiva de diseño que necesite.
-1. Agregue una diapositiva vacía basada en la nueva diapositiva de diseño.
-1. Guarde la presentación.
+Para obtener más información sobre el nivel superior de esta jerarquía, consulte [Slide Master](/slides/es/java/slide-master/).
 
-El siguiente código Java muestra cómo agregar un diseño de diapositiva a una presentación de PowerPoint:
+## **Seleccionar y aplicar un diseño de diapositiva**
+
+Utilice un tipo de diseño cuando la presentación siga las definiciones estándar de diseños de PowerPoint. Los nombres de los diseños son editables por el usuario y pueden localizarse, por lo que la selección basada en el nombre es menos fiable a menos que controle la plantilla de origen.
+
+El siguiente ejemplo busca **Título y contenido** en la primera maestra. Si ese diseño no está disponible, recurre deliberadamente a **En blanco**. La segunda comprobación de nulo es necesaria porque una presentación puede contener solo diseños personalizados. El diseño seleccionado se aplica luego a la primera diapositiva normal mediante el método [ISlide.setLayoutSlide](https://reference.aspose.com/slides/es/java/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-).
+
 ```java
-// Instanciar la clase Presentation que representa un archivo PowerPoint.
-Presentation presentation = new Presentation("Sample.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // Recorrer los tipos de diapositiva de diseño para seleccionar una diapositiva de diseño.
     IMasterLayoutSlideCollection layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
-    ILayoutSlide layoutSlide = null;
-    if (layoutSlides.getByType(SlideLayoutType.TitleAndObject) != null)
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
-    else
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.Title);
+    ILayoutSlide targetLayout = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
 
-    if (layoutSlide == null) {
-        // Una situación en la que la presentación no contiene todos los tipos de diseño.
-        // El archivo de presentación contiene solo los tipos de diseño en blanco y personalizados.
-        // Sin embargo, las diapositivas de diseño con tipos personalizados pueden tener nombres reconocibles,
-        // como "Title", "Title and Content", etc., que pueden usarse para la selección de la diapositiva de diseño.
-        // También puedes confiar en un conjunto de tipos de forma de marcador de posición.
-        // Por ejemplo, una diapositiva de Título debería tener solo el tipo de marcador de posición Título, y así sucesivamente.
-        for (ILayoutSlide titleAndObjectLayoutSlide : layoutSlides) {
-            if (titleAndObjectLayoutSlide.getName().equals("Title and Object")) {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null) {
-            for (ILayoutSlide titleLayoutSlide : layoutSlides) {
-                if (titleLayoutSlide.getName().equals("Title")) {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(SlideLayoutType.Blank);
-                if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
+    if (targetLayout == null) {
+        targetLayout = layoutSlides.getByType(SlideLayoutType.Blank);
     }
 
-    // Agregar una diapositiva vacía usando la diapositiva de diseño añadida.
-    presentation.getSlides().insertEmptySlide(0, layoutSlide);
+    if (targetLayout == null) {
+        throw new IllegalStateException("The first master does not contain a suitable layout slide.");
+    }
 
-    // Guardar la presentación en disco.
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    presentation.getSlides().get_Item(0).setLayoutSlide(targetLayout);
+    presentation.save("output-with-new-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+Cambiar el diseño de una diapositiva no elimina las formas ordinarias añadidas directamente a la diapositiva. Sin embargo, las posiciones de los marcadores de posición, el formato heredado y la correspondencia entre los marcadores existentes y el nuevo diseño pueden cambiar, por lo que inspeccione el resultado al cambiar entre diseños sustancialmente diferentes.
 
-## **Eliminar diseños de diapositiva no utilizados**
+## **Agregar una diapositiva de diseño**
 
-Aspose.Slides proporciona el método [removeUnusedLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) de la clase [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/) para permitirle eliminar los diseños de diapositiva no deseados y no utilizados.
+La selección y la creación son operaciones separadas. El ejemplo anterior selecciona un diseño existente; no crea uno. Para crear un diseño, llame al método [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) en la colección de diseños de la maestra objetivo.
 
-El siguiente código Java muestra cómo eliminar un diseño de diapositiva de una presentación de PowerPoint:
+El siguiente ejemplo siempre agrega un nuevo diseño **Título y contenido** llamado `Report Title and Content`, y luego agrega una diapositiva normal basada en él. Los nombres de los diseños deben ser únicos dentro de la colección.
+
 ```java
-Presentation presentation = new Presentation("Presentation.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    Compress.removeUnusedLayoutSlides(presentation);
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide reportLayout = masterSlide.getLayoutSlides().add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+    presentation.getSlides().addEmptySlide(reportLayout);
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-report-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+Agregue un diseño solo cuando la plantilla realmente necesite otra estructura reutilizable. Si ya existe un diseño adecuado, selecciónelo y reutilícelo en lugar de crear un duplicado.
 
-## **Agregar marcadores de posición a los diseños de diapositiva**
+## **Agregar marcadores de posición a una diapositiva de diseño**
 
-Aspose.Slides proporciona el método [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) que permite agregar nuevos marcadores de posición a una diapositiva de diseño.
+El método [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) proporciona un [ILayoutPlaceholderManager](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutplaceholdermanager/) para añadir formas de marcador de posición a un diseño.
 
-Este administrador contiene métodos para los siguientes tipos de marcadores de posición:
+| Marcador de posición de PowerPoint | `ILayoutPlaceholderManager` Method |
+| ----------------------------------- | ---------------------------------- |
+| ![Contenido](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
+| ![Contenido (vertical)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
+| ![Texto](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
+| ![Texto (vertical)](textV.png) | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalTextPlaceholder-float-float-float-float-) |
+| ![Imagen](picture.png) | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
+| ![Gráfico](chart.png) | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
+| ![Tabla](table.png) | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
+| ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutplaceholdermanager/#addSmartArtPlaceholder-float-float-float-float-) |
+| ![Multimedia](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
+| ![Imagen en línea](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
 
-| Marcador de posición de PowerPoint | Método [ILayoutPlaceholderManager] |
-| ----------------------------------- | ----------------------------------- |
-| ![Content](content.png)             | addContentPlaceholder(float x, float y, float width, float height) |
-| ![Content (Vertical)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Text](text.png)                   | addTextPlaceholder(float x, float y, float width, float height) |
-| ![Text (Vertical)](textV.png)       | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Picture](picture.png)             | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![Chart](chart.png)                 | addChartPlaceholder(float x, float y, float width, float height) |
-| ![Table](table.png)                 | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png)           | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Media](media.png)                 | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![Online Image](onlineimage.png)    | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+El siguiente ejemplo verifica que el diseño **En blanco** exista, agrega cuatro marcadores de posición a él y luego crea una diapositiva normal que utiliza el diseño modificado. El orden es intencional: los marcadores de posición se añaden antes de crear la diapositiva normal, de modo que Aspose.Slides pueda generar las formas de marcador de posición correspondientes en esa diapositiva.
 
-El siguiente código Java muestra cómo agregar nuevas formas de marcador de posición al diseño en blanco:
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // Obtener la diapositiva de diseño en blanco.
-    ILayoutSlide layout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ILayoutSlide blankLayout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
 
-    // Obtener el administrador de marcadores de posición de la diapositiva de diseño.
-    ILayoutPlaceholderManager placeholderManager = layout.getPlaceholderManager();
+    if (blankLayout == null) {
+        throw new IllegalStateException("The presentation does not contain a Blank layout slide.");
+    }
 
-    // Agregar diferentes marcadores de posición a la diapositiva de diseño en blanco.
+    ILayoutPlaceholderManager placeholderManager = blankLayout.getPlaceholderManager();
     placeholderManager.addContentPlaceholder(20, 20, 310, 270);
     placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
     placeholderManager.addChartPlaceholder(20, 310, 310, 180);
     placeholderManager.addTablePlaceholder(350, 310, 350, 180);
 
-    // Agregar una nueva diapositiva con el diseño en blanco.
-    ISlide newSlide = presentation.getSlides().addEmptySlide(layout);
-
-    presentation.save("Placeholders.pptx", SaveFormat.Pptx);
+    presentation.getSlides().addEmptySlide(blankLayout);
+    presentation.save("output-with-placeholders.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
-
 
 El resultado:
 
 ![Los marcadores de posición en la diapositiva de diseño](add_placeholders.png)
 
-## **Establecer la visibilidad del pie de página para una diapositiva de diseño**
+{{% alert color="warning" title="Warning" %}}
+Cambiar el formato heredado o la geometría de los marcadores de posición del diseño existentes puede afectar a las diapositivas dependientes. Un marcador de posición de diseño añadido recientemente no se retroalimenta en las diapositivas normales existentes. Pruebe los cambios de diseño en una copia de la presentación e inspeccione cada diapositiva dependiente.
+{{% /alert %}}
 
-En presentaciones de PowerPoint, los elementos del pie de página como la fecha, el número de diapositiva y el texto personalizado pueden mostrarse u ocultarse según el diseño de la diapositiva. Aspose.Slides for Java le permite controlar la visibilidad de estos marcadores de posición de pie de página. Esto es útil cuando desea que ciertos diseños muestren información del pie de página mientras que otros permanecen limpios y minimalistas.
+## **Eliminar diseños de diapositiva no utilizados**
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-1. Obtenga una referencia a la diapositiva de diseño por su índice.
-1. Establezca el marcador de posición del pie de página de la diapositiva como visible.
-1. Establezca el marcador de posición del número de diapositiva como visible.
-1. Establezca el marcador de posición de fecha y hora como visible.
-1. Guarde la presentación.
+Utilice el método [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/es/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) para eliminar los diseños que no son referenciados por ninguna diapositiva normal. El método deja intactos los diseños que aún se están usando.
 
-El siguiente código Java muestra cómo establecer la visibilidad del pie de página de una diapositiva y realizar tareas relacionadas:
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
+    Compress.removeUnusedLayoutSlides(presentation);
+    presentation.save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-    if (!headerFooterManager.isFooterVisible()) {
-        headerFooterManager.setFooterVisibility(true);
+Para eliminar un diseño específico, primero utilice su método [hasDependingSlides](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutslide/#hasDependingSlides--) o [getDependingSlides](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutslide/#getDependingSlides--). Reasigne cualquier diapositiva dependiente antes de llamar a [ILayoutSlide.remove](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutslide/#remove--). Intentar eliminar un diseño en uso genera una [PptxEditException](https://reference.aspose.com/slides/es/java/com.aspose.slides/pptxeditexception/).
+
+## **Controlar la visibilidad del pie de página en una diapositiva de diseño**
+
+Un diseño tiene sus propios marcadores de posición de pie de página, número de diapositiva y fecha‑hora. Utilice el método [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) para controlar esos marcadores de posición en un diseño. Esto es útil cuando, por ejemplo, los diseños de contenido deben mostrar pies de página pero los diseños de título no.
+
+El siguiente ejemplo selecciona un diseño de forma segura y hace visibles sus elementos de pie de página:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.TitleAndObject);
+
+    if (layoutSlide == null) {
+        layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
     }
 
-    if (!headerFooterManager.isSlideNumberVisible()) {
-        headerFooterManager.setSlideNumberVisibility(true);
+    if (layoutSlide == null) {
+        throw new IllegalStateException("The presentation does not contain a suitable layout slide.");
     }
 
-    if (!headerFooterManager.isDateTimeVisible()) {
-        headerFooterManager.setDateTimeVisibility(true);
-    }
-
+    ILayoutSlideHeaderFooterManager headerFooterManager = layoutSlide.getHeaderFooterManager();
+    headerFooterManager.setFooterVisibility(true);
+    headerFooterManager.setSlideNumberVisibility(true);
+    headerFooterManager.setDateTimeVisibility(true);
     headerFooterManager.setFooterText("Footer text");
     headerFooterManager.setDateTimeText("Date and time text");
 
-    presentation.save("Presentation.ppt", SaveFormat.Ppt);
+    presentation.save("output-with-layout-footers.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+## **Controlar la visibilidad del pie de página en una maestra y sus diseños hijos**
 
-## **Establecer la visibilidad del pie de página hijo para una diapositiva**
+Para aplicar configuraciones de pie de página coherentes en toda una jerarquía de maestras, utilice el método [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasterslide/#getHeaderFooterManager--). Los métodos de propagación de [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasterslideheaderfootermanager/) actúan sobre la maestra y sus diapositivas de diseño dependientes y diapositivas normales; no se enfocan en una sola diapositiva normal.
 
-En presentaciones de PowerPoint, los elementos del pie de página como la fecha, el número de diapositiva y el texto personalizado pueden controlarse a nivel de la diapositiva maestra para garantizar la consistencia en todas las diapositivas de diseño. Aspose.Slides for Java le permite establecer la visibilidad y el contenido de estos marcadores de posición de pie de página en la diapositiva maestra y propagar estas configuraciones a todas las diapositivas de diseño hijas. Este enfoque asegura información uniforme del pie de página en toda la presentación.
-
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-1. Obtenga una referencia a la diapositiva maestra por su índice.
-1. Establezca los marcadores de posición del pie de página de la maestra y de todas las diapositivas hijas como visibles.
-1. Establezca los marcadores de posición del número de diapositiva de la maestra y de todas las hijas como visibles.
-1. Establezca los marcadores de posición de fecha y hora de la maestra y de todas las hijas como visibles.
-1. Guarde la presentación.
-
-El siguiente código Java demuestra esta operación:
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
     IMasterSlideHeaderFooterManager headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-
     headerFooterManager.setFooterAndChildFootersVisibility(true);
     headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
     headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
-
     headerFooterManager.setFooterAndChildFootersText("Footer text");
     headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-master-footers.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
-
 
 ## **Preguntas frecuentes**
 
 **¿Cuál es la diferencia entre una diapositiva maestra y una diapositiva de diseño?**
 
-Una diapositiva maestra define el tema general y el formato predeterminado, mientras que las diapositivas de diseño definen disposiciones específicas de marcadores de posición para diferentes tipos de contenido.
+Una diapositiva maestra define el tema y el formato compartido de la presentación. Una diapositiva de diseño pertenece a una maestra y define una disposición reutilizable de marcadores de posición. Las diapositivas normales utilizan esos diseños y almacenan contenido específico de cada diapositiva.
 
 **¿Puedo copiar una diapositiva de diseño de una presentación a otra?**
 
-Sí, puede clonar una diapositiva de diseño de la colección de diseños de una presentación, accesible mediante el método [getLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getLayoutSlides--), e insertarla en otra presentación usando el método `addClone`.
+Sí. Añada una copia a la colección de destino con el método [addClone](https://reference.aspose.com/slides/es/java/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-). Al copiar entre presentaciones, también verifique fuentes, temas, imágenes y otros recursos utilizados por el diseño de origen.
 
-**¿Qué sucede si elimino una diapositiva de diseño que aún es utilizada por una diapositiva?**
+**¿Qué ocurre cuando modifico un diseño que ya está en uso?**
 
-Si intenta eliminar una diapositiva de diseño que todavía está referenciada por al menos una diapositiva en la presentación, Aspose.Slides lanzará una [PptxEditException](https://reference.aspose.com/slides/java/com.aspose.slides/pptxeditexception/). Para evitarlo, use [removeUnusedLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) que elimina de forma segura solo los diseños que no están en uso.
+Las diapositivas dependientes heredan los cambios del diseño a menos que anulen localmente el formato o los objetos afectados. Por lo tanto, la geometría de los marcadores de posición y el estilo heredado pueden cambiar en muchas diapositivas a la vez. Utilice [getDependingSlides](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) para identificar las diapositivas afectadas antes de editar el diseño.
+
+**¿Qué ocurre si elimino un diseño que todavía está en uso?**
+
+Aspose.Slides lanza una [PptxEditException](https://reference.aspose.com/slides/es/java/com.aspose.slides/pptxeditexception/). Reasigne primero las diapositivas dependientes, o utilice [removeUnusedLayoutSlides](https://reference.aspose.com/slides/es/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) para eliminar solo los diseños sin referencias.

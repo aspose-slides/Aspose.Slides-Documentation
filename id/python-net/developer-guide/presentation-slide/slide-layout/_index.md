@@ -1,5 +1,5 @@
 ---
-title: Menerapkan atau Mengubah Tata Letak Slide di Python
+title: Terapkan atau Ubah Tata Letak Slide dalam Python
 linktitle: Tata Letak Slide
 type: docs
 weight: 60
@@ -14,7 +14,7 @@ keywords:
 - visibilitas footer
 - slide judul
 - judul dan konten
-- tajuk bagian
+- header bagian
 - dua konten
 - perbandingan
 - hanya judul
@@ -25,218 +25,204 @@ keywords:
 - judul vertikal dan teks
 - PowerPoint
 - OpenDocument
+- presentasi
 - Python
 - Aspose.Slides
-description: "Pelajari cara mengelola dan menyesuaikan tata letak slide di Aspose.Slides untuk Python melalui .NET. Jelajahi jenis tata letak, kontrol placeholder, visibilitas footer, dan manipulasi tata letak melalui contoh kode dalam Python."
+description: "Terapkan, buat, dan modifikasi tata letak slide di Aspose.Slides untuk Python via .NET, tambahkan placeholder, hapus tata letak yang tidak terpakai, dan kontrol visibilitas footer."
 ---
-## **Pendahuluan**
+## **Ikhtisar**
 
-Sebuah tata letak slide mendefinisikan pengaturan kotak placeholder dan pemformatan untuk konten pada slide. Ini mengontrol placeholder mana yang tersedia dan di mana mereka muncul. Tata letak slide membantu Anda merancang presentasi dengan cepat dan konsisten—baik Anda membuat sesuatu yang sederhana maupun yang lebih kompleks. Beberapa tata letak slide yang paling umum di PowerPoint meliputi:
+Tata letak slide menentukan posisi dan pemformatan placeholder seperti judul, teks, gambar, diagram, dan tabel. Menerapkan tata letak memberikan slide struktur yang konsisten sambil memungkinkan setiap slide memiliki kontennya sendiri.
 
-**Title Slide layout** – Mencakup dua placeholder teks: satu untuk judul dan satu untuk subtitel.
+Tata letak yang paling umum meliputi:
 
-**Title and Content layout** – Menampilkan placeholder judul yang lebih kecil di bagian atas dan yang lebih besar di bawah untuk konten utama (seperti teks, poin-poin, bagan, gambar, dan lainnya).
+- **Title Slide**: Berisi placeholder judul dan subjudul.
+- **Title and Content**: Berisi placeholder judul dan placeholder konten serbaguna.
+- **Blank**: Tidak berisi placeholder konten dan berguna ketika setiap bentuk akan diposisikan secara manual.
 
-**Blank layout** – Tidak berisi placeholder, memberikan Anda kontrol penuh untuk merancang slide dari awal.
+## **Memahami Pewarisan Tata Letak**
 
-Tata letak slide merupakan bagian dari slide master, yang merupakan slide tingkat atas yang mendefinisikan gaya tata letak untuk presentasi. Anda dapat mengakses dan memodifikasi tata letak slide melalui slide master—baik berdasarkan tipe, nama, atau ID uniknya. Alternatifnya, Anda dapat mengedit tata letak slide tertentu secara langsung dalam presentasi.
+Sebuah presentasi memiliki tiga tingkatan terkait:
 
-Untuk bekerja dengan tata letak slide di Aspose.Slides for Python, Anda dapat menggunakan:
+1. Sebuah [master slide](https://reference.aspose.com/slides/id/python-net/aspose.slides/masterslide/) mendefinisikan tema, pemformatan bersama, latar belakang, dan objek umum.
+2. Sebuah [layout slide](https://reference.aspose.com/slides/id/python-net/aspose.slides/layoutslide/) milik master dan mendefinisikan susunan placeholder tertentu.
+3. Sebuah [normal slide](https://reference.aspose.com/slides/id/python-net/aspose.slides/slide/) menggunakan satu tata letak dan menyimpan konten yang dimasukkan untuk slide tersebut.
 
-- Properti seperti [layout_slides](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/layout_slides/) dan [masters](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/masters/) di bawah kelas [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/) 
-- Tipe seperti [LayoutSlide](https://reference.aspose.com/slides/id/python-net/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/id/python-net/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/id/python-net/aspose.slides/layoutplaceholdermanager/), dan [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/id/python-net/aspose.slides/layoutslideheaderfootermanager/)
+Sebuah normal slide mewarisi tema dan pemformatan dari tata letaknya, dan tata letak mewarisi dari masternya. Nilai yang ditetapkan langsung pada normal slide akan menggantikan nilai yang diwariskan pada tingkat itu. Ketika sebuah normal slide dibuat, bentuk placeholdernya dihasilkan dari tata letak yang dipilih, sementara konten yang dimasukkan ke dalam placeholder tersebut menjadi milik normal slide.
 
-{{% alert title="Info" color="info" %}}
-Untuk mempelajari lebih lanjut tentang bekerja dengan slide master, lihat artikel [Kelola Slide Master PowerPoint di Python](/slides/id/python-net/slide-master/).
-{{% /alert %}}
+Tambahkan placeholder yang diperlukan ke tata letak sebelum membuat slide darinya. Menambahkan placeholder lain ke tata letak kemudian tidak otomatis menambah bentuk placeholder yang bersesuaian pada slide normal yang sudah ada.
 
-## **Menambahkan Tata Letak Slide ke Presentasi**
+Hubungan ini memiliki dua konsekuensi penting:
 
-Untuk menyesuaikan tampilan dan struktur slide Anda, Anda mungkin perlu menambahkan tata letak slide baru ke sebuah presentasi. Aspose.Slides for Python memungkinkan Anda memeriksa apakah tata letak tertentu sudah ada, menambahkan yang baru jika diperlukan, dan menggunakannya untuk menyisipkan slide berdasarkan tata letak tersebut.
+- Mengubah pemformatan yang diwariskan atau geometri placeholder yang ada pada tata letak dapat memperbarui setiap slide yang bergantung padanya. Sebelum mengedit tata letak yang sudah digunakan, periksa slide yang bergantung padanya dan tinjau presentasi yang dihasilkan.
+- Tata letak yang masih digunakan oleh slide tidak dapat dihapus. Alihkan slide yang bergantung padanya ke tata letak lain terlebih dahulu, atau hapus hanya tata letak yang tidak digunakan.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/).
-2. Akses [MasterLayoutSlideCollection](https://reference.aspose.com/slides/id/python-net/aspose.slides/masterlayoutslidecollection/).
-3. Periksa apakah tata letak slide yang diinginkan sudah ada dalam koleksi. Jika tidak, tambahkan tata letak slide yang Anda butuhkan.
-4. Tambahkan slide kosong berdasarkan tata letak slide baru.
-5. Simpan presentasi.
+Untuk informasi lebih lanjut tentang tingkat atas hierarki ini, lihat [Slide Master](/slides/id/python-net/slide-master/).
 
-Kode Python berikut menunjukkan cara menambahkan tata letak slide ke presentasi PowerPoint:
+## **Pilih dan Terapkan Tata Letak Slide**
+
+Gunakan tipe tata letak ketika presentasi mengikuti definisi tata letak PowerPoint standar. Nama tata letak dapat diedit pengguna dan dapat dilokalisasi, sehingga pemilihan berdasarkan nama kurang dapat diandalkan kecuali Anda mengendalikan templat sumber.
+
+Contoh berikut mencari **Title and Content** pada master pertama. Jika tata letak tersebut tidak tersedia, secara sengaja beralih ke **Blank**. Pemeriksaan null kedua diperlukan karena sebuah presentasi dapat berisi hanya tata letak khusus. Tata letak yang dipilih kemudian diterapkan ke slide normal pertama melalui properti [Slide.layout_slide](https://reference.aspose.com/slides/id/python-net/aspose.slides/slide/layout_slide/).
 
 ```python
 import aspose.slides as slides
 
-# Membuat instance kelas Presentation untuk membuka file presentasi.
-with slides.Presentation("sample.pptx") as presentation:
-    # Melalui semua tipe slide tata letak untuk memilih slide tata letak.
+with slides.Presentation("input.pptx") as presentation:
     layout_slides = presentation.masters[0].layout_slides
-    layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
-    if layout_slide is None:
-         layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE)
+    target_layout = layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
 
-    if layout_slide is None:
-        # Situasi di mana presentasi tidak berisi semua tipe tata letak.
-        # File presentasi hanya berisi tipe tata letak Blank dan Custom.
-        # Namun, slide tata letak dengan tipe khusus mungkin memiliki nama yang dapat dikenali,
-        # seperti "Title", "Title and Content", dll., yang dapat digunakan untuk pemilihan slide tata letak.
-        # Anda juga dapat mengandalkan sekumpulan tipe bentuk placeholder.
-        # Sebagai contoh, slide Title seharusnya hanya memiliki tipe placeholder Title, dan seterusnya.
-        for title_and_object_layout_slide in layout_slides:
-            if title_and_object_layout_slide.name == "Title and Object":
-                layout_slide = title_and_object_layout_slide
-                break
+    if target_layout is None:
+        target_layout = layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
 
-        if layout_slide is None:
-            for title_layout_slide in layout_slides:
-                if title_layout_slide.name == "Title":
-                    layout_slide = title_layout_slide
-                    break
+    if target_layout is None:
+        raise RuntimeError("The first master does not contain a suitable layout slide.")
 
-            if layout_slide is None:
-                layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
-                if layout_slide is None:
-                    layout_slide = layout_slides.Add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Title and Object")
-
-    # Menambahkan slide kosong menggunakan slide tata letak yang ditambahkan.
-    presentation.slides.insert_empty_slide(0, layout_slide)
-
-    # Menyimpan presentasi ke disk.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.slides[0].layout_slide = target_layout
+    presentation.save("output-with-new-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Menghapus Tata Letak Slide yang Tidak Digunakan**
+Mengubah tata letak slide tidak menghapus bentuk biasa yang ditambahkan langsung ke slide. Namun, posisi placeholder, pemformatan yang diwariskan, dan korespondensi antara placeholder yang ada dengan tata letak baru dapat berubah, jadi periksa hasilnya saat beralih antara tata letak yang secara signifikan berbeda.
 
-Aspose.Slides menyediakan metode [remove_unused_layout_slides](https://reference.aspose.com/slides/id/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) dari kelas [Compress](https://reference.aspose.com/slides/id/python-net/aspose.slides.lowcode/compress/) untuk memungkinkan Anda menghapus tata letak slide yang tidak diinginkan dan tidak terpakai.
+## **Tambahkan Slide Tata Letak**
 
-Kode Python berikut menunjukkan cara menghapus tata letak slide dari presentasi PowerPoint:
+Pemilihan dan pembuatan adalah operasi terpisah. Contoh sebelumnya memilih tata letak yang ada; tidak membuat yang baru. Untuk membuat tata letak, panggil metode [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/id/python-net/aspose.slides/masterlayoutslidecollection/add/) pada koleksi tata letak master target.
+
+Contoh berikut selalu menambahkan tata letak **Title and Content** baru bernama `Report Title and Content`, kemudian menambahkan slide normal yang menggunakannya. Nama tata letak harus unik dalam koleksi.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    slides.lowcode.Compress.remove_unused_layout_slides(presentation)
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("input.pptx") as presentation:
+    master_slide = presentation.masters[0]
+    report_layout = master_slide.layout_slides.add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Report Title and Content")
+    presentation.slides.add_empty_slide(report_layout)
+
+    presentation.save("output-with-report-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Menambahkan Placeholder ke Tata Letak Slide**
+Tambahkan tata letak hanya ketika templat memang membutuhkan struktur dapat pakai ulang lainnya. Jika tata letak yang cocok sudah ada, pilih dan gunakan kembali alih-alih membuat duplikat.
 
-Aspose.Slides menyediakan properti [LayoutSlide.placeholder_manager](https://reference.aspose.com/slides/id/python-net/aspose.slides/layoutslide/placeholder_manager/), yang memungkinkan Anda menambahkan placeholder baru ke sebuah tata letak slide.
+## **Tambahkan Placeholder ke Slide Tata Letak**
 
-Manajer ini berisi metode untuk tipe placeholder berikut:
+Properti [LayoutSlide.placeholder_manager](https://reference.aspose.com/slides/id/python-net/aspose.slides/layoutslide/placeholder_manager/) menyediakan [LayoutPlaceholderManager](https://reference.aspose.com/slides/id/python-net/aspose.slides/layoutplaceholdermanager/) untuk menambahkan bentuk placeholder ke tata letak.
 
-| Placeholder PowerPoint | Metode [LayoutPlaceholderManager](https://reference.aspose.com/slides/id/python-net/aspose.slides/layoutplaceholdermanager/) |
-| ---------------------- | ------------------------------------------------------------ |
-| ![Konten](content.png) | add_content_placeholder(x: float, y: float, width: float, height: float) |
-| ![Konten (Vertikal)](contentV.png) | add_vertical_content_placeholder(x: float, y: float, width: float, height: float) |
-| ![Teks](text.png) | add_text_placeholder(x: float, y: float, width: float, height: float) |
-| ![Teks (Vertikal)](textV.png) | add_vertical_text_placeholder(x: float, y: float, width: float, height: float) |
-| ![Gambar](picture.png) | add_picture_placeholder(x: float, y: float, width: float, height: float) |
-| ![Diagram](chart.png) | add_chart_placeholder(x: float, y: float, width: float, height: float) |
-| ![Tabel](table.png) | add_table_placeholder(x: float, y: float, width: float, height: float) |
-| ![SmartArt](smartart.png) | add_smart_art_placeholder(x: float, y: float, width: float, height: float) |
-| ![Media](media.png) | add_media_placeholder(x: float, y: float, width: float, height: float) |
-| ![Gambar Online](onlineimage.png) | add_online_image_placeholder(x: float, y: float, width: float, height: float) |
+| Placeholder PowerPoint | Metode `LayoutPlaceholderManager` |
+| ---------------------- | --------------------------------- |
+| ![Content](content.png) | [`add_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/id/python-net/aspose.slides/layoutplaceholdermanager/add_content_placeholder/) |
+| ![Content (Vertical)](contentV.png) | [`add_vertical_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/id/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_content_placeholder/) |
+| ![Text](text.png) | [`add_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/id/python-net/aspose.slides/layoutplaceholdermanager/add_text_placeholder/) |
+| ![Text (Vertical)](textV.png) | [`add_vertical_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/id/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_text_placeholder/) |
+| ![Picture](picture.png) | [`add_picture_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/id/python-net/aspose.slides/layoutplaceholdermanager/add_picture_placeholder/) |
+| ![Chart](chart.png) | [`add_chart_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/id/python-net/aspose.slides/layoutplaceholdermanager/add_chart_placeholder/) |
+| ![Table](table.png) | [`add_table_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/id/python-net/aspose.slides/layoutplaceholdermanager/add_table_placeholder/) |
+| ![SmartArt](smartart.png) | [`add_smart_art_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/id/python-net/aspose.slides/layoutplaceholdermanager/add_smart_art_placeholder/) |
+| ![Media](media.png) | [`add_media_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/id/python-net/aspose.slides/layoutplaceholdermanager/add_media_placeholder/) |
+| ![Online Image](onlineImage.png) | [`add_online_image_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/id/python-net/aspose.slides/layoutplaceholdermanager/add_online_image_placeholder/) |
 
-Kode Python berikut menunjukkan cara menambahkan bentuk placeholder baru ke tata letak Blank:
+Contoh berikut memverifikasi bahwa tata letak **Blank** ada, menambahkan empat placeholder ke dalamnya, dan kemudian membuat slide normal yang menggunakan tata letak yang dimodifikasi. Urutannya disengaja: placeholder ditambahkan sebelum slide normal dibuat, sehingga Aspose.Slides dapat menghasilkan bentuk placeholder yang bersesuaian pada slide tersebut.
 
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    # Dapatkan slide tata letak Blank.
-    layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+    blank_layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
 
-    # Dapatkan manajer placeholder dari slide tata letak.
-    placeholder_manager = layout.placeholder_manager
+    if blank_layout is None:
+        raise RuntimeError("The presentation does not contain a Blank layout slide.")
 
-    # Tambahkan placeholder berbeda ke slide tata letak Blank.
+    placeholder_manager = blank_layout.placeholder_manager
     placeholder_manager.add_content_placeholder(20, 20, 310, 270)
     placeholder_manager.add_vertical_text_placeholder(350, 20, 350, 270)
     placeholder_manager.add_chart_placeholder(20, 310, 310, 180)
     placeholder_manager.add_table_placeholder(350, 310, 350, 180)
 
-    # Tambahkan slide baru dengan tata letak Blank.
-    new_slide = presentation.slides.add_empty_slide(layout)
-
-    presentation.save("placeholders.pptx", slides.export.SaveFormat.PPTX)
+    presentation.slides.add_empty_slide(blank_layout)
+    presentation.save("output-with-placeholders.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Hasilnya:
 
-![The placeholders on the layout slide](add_placeholders.png)
+![Placeholder pada slide tata letak](add_placeholders.png)
 
-## **Mengatur Visibilitas Footer untuk Tata Letak Slide**
+{{% alert color="warning" title="Warning" %}}
+Mengubah pemformatan yang diwariskan atau geometri placeholder tata letak yang ada dapat memengaruhi slide yang bergantung. Placeholder tata letak yang baru ditambahkan tidak otomatis ditambahkan ke slide normal yang sudah ada. Uji perubahan tata letak pada salinan presentasi dan periksa setiap slide yang bergantung.
+{{% /alert %}}
 
-Dalam presentasi PowerPoint, elemen footer seperti tanggal, nomor slide, dan teks khusus dapat ditampilkan atau disembunyikan tergantung pada tata letak slide. Aspose.Slides for Python memungkinkan Anda mengontrol visibilitas placeholder footer ini. Hal ini berguna ketika Anda ingin tata letak tertentu menampilkan informasi footer sementara yang lain tetap bersih dan minimal.
+## **Hapus Slide Tata Letak yang Tidak Digunakan**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/).
-2. Dapatkan referensi tata letak slide berdasarkan indeksnya.
-3. Atur placeholder footer slide menjadi terlihat.
-4. Atur placeholder nomor slide menjadi terlihat.
-5. Atur placeholder tanggal-waktu menjadi terlihat.
-Simpan presentasi.
-
-Kode Python berikut menunjukkan cara mengatur visibilitas footer slide dan melakukan tugas terkait:
+Gunakan metode [Compress.remove_unused_layout_slides](https://reference.aspose.com/slides/id/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) untuk menghapus tata letak yang tidak direferensikan oleh slide normal mana pun. Metode ini membiarkan tata letak yang masih digunakan tetap utuh.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    header_footer_manager = presentation.layout_slides[0].header_footer_manager
-
-    if not header_footer_manager.is_footer_visible: 
-        header_footer_manager.set_footer_visibility(True) 
-
-    if not header_footer_manager.is_slide_number_visible:  
-        header_footer_manager.set_slide_number_visibility(True) 
-
-    if not header_footer_manager.is_date_time_visible: 
-        header_footer_manager.set_date_time_visibility(True)
-
-    header_footer_manager.set_footer_text("Footer text") 
-    header_footer_manager.set_date_time_text("Date and time text") 
-
-    presentation.save("output.ppt", slides.export.SaveFormat.PPT)
+with slides.Presentation("input.pptx") as presentation:
+    slides.lowcode.Compress.remove_unused_layout_slides(presentation)
+    presentation.save("output-without-unused-layouts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Mengatur Visibilitas Footer Anak untuk Slide**
+Untuk menghapus satu tata letak tertentu, pertama gunakan properti [has_depending_slides](https://reference.aspose.com/slides/id/python-net/aspose.slides/layoutslide/has_depending_slides/) atau metode [get_depending_slides](https://reference.aspose.com/slides/id/python-net/aspose.slides/layoutslide/get_depending_slides/) miliknya. Alihkan slide yang bergantung sebelum memanggil [LayoutSlide.remove](https://reference.aspose.com/slides/id/python-net/aspose.slides/layoutslide/remove/). Mencoba menghapus tata letak yang sedang digunakan akan memicu [PptxEditException](https://reference.aspose.com/slides/id/python-net/aspose.slides/pptxeditexception/).
 
-Dalam presentasi PowerPoint, elemen footer seperti tanggal, nomor slide, dan teks khusus dapat dikontrol pada tingkat slide master untuk memastikan konsistensi di semua tata letak slide. Aspose.Slides for Python memungkinkan Anda mengatur visibilitas dan konten placeholder footer ini pada slide master dan menyebarkan pengaturan tersebut ke semua tata letak slide anak. Pendekatan ini memastikan informasi footer yang seragam di seluruh presentasi.
+## **Kontrol Visibilitas Footer pada Slide Tata Letak**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/).
-2. Dapatkan referensi ke slide master berdasarkan indeksnya.
-3. Atur placeholder footer master dan semua anak menjadi terlihat.
-4. Atur placeholder nomor slide master dan semua anak menjadi terlihat.
-5. Atur placeholder tanggal-waktu master dan semua anak menjadi terlihat.
-Simpan presentasi.
+Sebuah tata letak memiliki footer, nomor slide, dan placeholder tanggal-waktu sendiri. Gunakan properti [LayoutSlide.header_footer_manager](https://reference.aspose.com/slides/id/python-net/aspose.slides/layoutslide/header_footer_manager/) untuk mengontrol placeholder tersebut pada satu tata letak. Ini berguna ketika, misalnya, tata letak konten harus menampilkan footer tetapi tata letak judul tidak.
 
-Kode Python berikut mendemonstrasikan operasi ini:
+Contoh berikut memilih tata letak dengan aman dan membuat elemen footernya terlihat:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation.pptx") as presentation:
-    header_footer_manager = presentation.masters[0].header_footer_manager
+with slides.Presentation("input.pptx") as presentation:
+    layout_slide = presentation.layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
 
+    if layout_slide is None:
+        layout_slide = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+
+    if layout_slide is None:
+        raise RuntimeError("The presentation does not contain a suitable layout slide.")
+
+    header_footer_manager = layout_slide.header_footer_manager
+    header_footer_manager.set_footer_visibility(True)
+    header_footer_manager.set_slide_number_visibility(True)
+    header_footer_manager.set_date_time_visibility(True)
+    header_footer_manager.set_footer_text("Footer text")
+    header_footer_manager.set_date_time_text("Date and time text")
+
+    presentation.save("output-with-layout-footers.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Kontrol Visibilitas Footer pada Master dan Tata Letak Turunannya**
+
+Untuk menerapkan pengaturan footer yang konsisten di seluruh hierarki master, gunakan properti [MasterSlide.header_footer_manager](https://reference.aspose.com/slides/id/python-net/aspose.slides/masterslide/header_footer_manager/). Metode propagasi dari [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/id/python-net/aspose.slides/masterslideheaderfootermanager/) beroperasi pada master serta slide tata letak dan slide normal yang bergantung padanya; mereka tidak menargetkan hanya satu slide normal.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    header_footer_manager = presentation.masters[0].header_footer_manager
     header_footer_manager.set_footer_and_child_footers_visibility(True)
     header_footer_manager.set_slide_number_and_child_slide_numbers_visibility(True)
     header_footer_manager.set_date_time_and_child_date_times_visibility(True)
-
     header_footer_manager.set_footer_and_child_footers_text("Footer text")
     header_footer_manager.set_date_time_and_child_date_times_text("Date and time text")
 
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output-with-master-footers.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **FAQ**
 
-**Apa perbedaan antara slide master dan slide tata letak?**
+**Apa Perbedaan antara Master Slide dan Layout Slide?**
 
-Sebuah slide master mendefinisikan tema keseluruhan dan pemformatan default, sementara slide tata letak mendefinisikan pengaturan spesifik placeholder untuk berbagai jenis konten.
+Master slide mendefinisikan tema dan pemformatan bersama presentasi. Layout slide milik master dan mendefinisikan satu susunan placeholder yang dapat dipakai ulang. Slide normal menggunakan tata letak tersebut dan menyimpan konten khusus slide.
 
-**Apakah saya dapat menyalin slide tata letak dari satu presentasi ke presentasi lain?**
+**Bisakah Saya Menyalin Layout Slide dari Satu Presentasi ke Presentasi Lain?**
 
-Ya, Anda dapat mengkloning slide tata letak dari koleksi [layout_slides](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/layout_slides/) sebuah presentasi dan menyisipkannya ke presentasi lain menggunakan metode `add_clone`.
+Ya. Tambahkan salinan ke koleksi tujuan dengan metode [add_clone](https://reference.aspose.com/slides/id/python-net/aspose.slides/globallayoutslidecollection/add_clone/). Saat menyalin antar presentasi, juga verifikasi font, tema, gambar, dan sumber daya lain yang digunakan oleh layout sumber.
 
-**Apa yang terjadi jika saya menghapus slide tata letak yang masih digunakan oleh slide lain?**
+**Apa yang Terjadi Ketika Saya Memodifikasi Layout yang Sudah Digunakan?**
 
-Jika Anda mencoba menghapus slide tata letak yang masih direferensikan oleh setidaknya satu slide dalam presentasi, Aspose.Slides akan melempar [PptxEditException](https://reference.aspose.com/slides/id/python-net/aspose.slides/pptxeditexception/). Untuk menghindarinya, gunakan [remove_unused_layout_slides](https://reference.aspose.com/slides/id/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) yang secara aman menghapus hanya tata letak slide yang tidak digunakan.
+Slide yang bergantung mewarisi perubahan tata letak kecuali mereka mengganti pemformatan atau objek yang terpengaruh secara lokal. Geometri placeholder dan gaya yang diwariskan dapat berubah pada banyak slide sekaligus. Gunakan [get_depending_slides](https://reference.aspose.com/slides/id/python-net/aspose.slides/layoutslide/get_depending_slides/) untuk mengidentifikasi slide yang terpengaruh sebelum mengedit tata letak.
+
+**Apa yang Terjadi Jika Saya Menghapus Layout yang Masih Digunakan?**
+
+Aspose.Slides akan memunculkan [PptxEditException](https://reference.aspose.com/slides/id/python-net/aspose.slides/pptxeditexception/). Alihkan slide yang bergantung terlebih dahulu, atau gunakan [remove_unused_layout_slides](https://reference.aspose.com/slides/id/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) untuk menghapus hanya layout yang tidak direferensikan.

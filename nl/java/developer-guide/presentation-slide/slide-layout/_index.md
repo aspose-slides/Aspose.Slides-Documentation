@@ -1,180 +1,156 @@
 ---
-title: "Dia‑indelingen toepassen of wijzigen in Java"
-linktitle: "Dia‑indeling"
+title: Dia-indelingen toepassen of wijzigen in Java
+linktitle: Dia-indeling
 type: docs
 weight: 60
 url: /nl/java/slide-layout/
 keywords:
-- "dia‑indeling"
-- "inhoudsindeling"
-- "plaatshouder"
-- "presentatieontwerp"
-- "diaontwerp"
-- "ongebruikte indeling"
-- "voettekst‑zichtbaarheid"
-- "titeldia"
-- "titel en inhoud"
-- "sectiekop"
-- "twee inhoud"
-- "vergelijking"
-- "alleen titel"
-- "lege indeling"
-- "inhoud met bijschrift"
-- "afbeelding met bijschrift"
-- "titel en verticale tekst"
-- "verticale titel en tekst"
-- "PowerPoint"
-- "OpenDocument"
-- "presentatie"
-- "Java"
-- "Aspose.Slides"
-description: "Beheer en pas dia‑indelingen aan in Aspose.Slides voor Java. Verken indelingstypen, beheer van plaatshouders en voettekst‑zichtbaarheid via Java‑codevoorbeelden."
+- dia-indeling
+- inhoudsindeling
+- placeholder
+- presentatie-ontwerp
+- dia-ontwerp
+- ongebruikte indeling
+- voettekst-zichtbaarheid
+- titel-dia
+- titel en inhoud
+- sectiekop
+- twee inhoud
+- vergelijking
+- alleen titel
+- lege indeling
+- inhoud met bijschrift
+- afbeelding met bijschrift
+- titel en verticale tekst
+- verticale titel en tekst
+- PowerPoint
+- OpenDocument
+- presentatie
+- Java
+- Aspose.Slides
+description: "Dia-indelingen toepassen, maken en wijzigen in Aspose.Slides voor Java, placeholders toevoegen, ongebruikte indelingen verwijderen en de voettekst-zichtbaarheid beheren."
 ---
-## **Introductie**
+## **Overzicht**
 
-Een dia‑indeling bepaalt de rangschikking van plaatshoudervakken en de opmaak van de inhoud op een dia. Ze regelt welke plaatshouders beschikbaar zijn en waar ze verschijnen. Dia‑indelingen helpen je presentaties snel en consistent te ontwerpen—of je nu iets eenvoudigs of complexere maakt. Enkele van de meest voorkomende dia‑indelingen in PowerPoint zijn:
+Een dia‑indeling bepaalt de posities en opmaak van placeholders zoals titels, tekst, afbeeldingen, diagrammen en tabellen. Het toepassen van een indeling geeft dia’s een consistente structuur, terwijl elke dia zijn eigen inhoud kan bevatten.
 
-**Title Slide layout** – Bevat twee tekst‑plaatshouders: één voor de titel en één voor de ondertitel.
+De meest voorkomende indelingen omvatten:
 
-**Title and Content layout** – Heeft een kleinere titel‑plaatshouder bovenaan en een grotere eronder voor de hoofdinhoud (zoals tekst, opsomming, grafieken, afbeeldingen, enz.).
+- **Titel‑dia**: Bevat titel‑ en subtitel‑placeholders.
+- **Titel en inhoud**: Bevat een titel‑placeholder en een algemene inhouds‑placeholder.
+- **Leeg**: Bevat geen inhouds‑placeholders en is handig wanneer elke vorm handmatig wordt gepositioneerd.
 
-**Blank layout** – Bevat geen plaatshouders, zodat je volledige controle hebt om de dia vanaf nul te ontwerpen.
+## **Begrijp indeling‑erfenis**
 
-Dia‑indelingen maken deel uit van een dia‑master, de bovenliggende dia die de indelingsstijlen voor de presentatie definieert. Je kunt indelingsdia’s benaderen en aanpassen via de dia‑master—op type, naam of unieke ID. Alternatief kun je een specifieke indelingsdia rechtstreeks in de presentatie bewerken.
+Een presentatie heeft drie gerelateerde niveaus:
 
-Om met dia‑indelingen te werken in Aspose.Slides for Java, kun je gebruiken:
+1. Een [master-dia](https://reference.aspose.com/slides/nl/java/com.aspose.slides/imasterslide/) definieert het thema, gedeelde opmaak, achtergronden en gemeenschappelijke objecten.
+2. Een [layout-dia](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutslide/) behoort tot een master en definieert een specifieke indeling van placeholders.
+3. Een [normale dia](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islide/) gebruikt één indeling en slaat de ingevoerde inhoud voor die dia op.
 
-- Methodes zoals [getLayoutSlides](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/#getLayoutSlides--) en [getMasters](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/#getMasters--) onder de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/)‑klasse
-- Types zoals [ILayoutSlide](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/nl/java/com.aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/) en [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutslideheaderfootermanager/)
+Een normale dia erft thema en opmaak van zijn layout, en de layout erft van de master. Een waarde die rechtstreeks op een normale dia wordt ingesteld, overschrijft de geërfde waarde op dat niveau. Wanneer een normale dia wordt gemaakt, worden de placeholder‑vormen gegenereerd uit de geselecteerde layout, terwijl de inhoud die in die placeholders wordt ingevoerd, toebehoort aan de normale dia.
 
-{{% alert title="Info" color="info" %}}
+Voeg vereiste placeholders toe aan een layout voordat je er dia’s van maakt. Een later toegevoegde placeholder aan een layout wordt niet automatisch toegevoegd aan bestaande normale dia’s.
 
-Om meer te leren over het werken met master‑dia’s, bekijk het artikel [Slide Master](/slides/nl/java/slide-master/).
+Deze relatie heeft twee belangrijke gevolgen:
 
-{{% /alert %}}
+- Het wijzigen van geërfde opmaak of bestaande placeholder‑geometrie op een layout kan elke dia die ervan afhankelijk is bijwerken. Controleer vóór het bewerken van een layout die al in gebruik is, de afhankelijke dia’s en bekijk de resulterende presentatie.
+- Een layout die nog door een dia wordt gebruikt, kan niet worden verwijderd. Ken eerst de afhankelijke dia’s opnieuw toe aan een andere layout, of verwijder alleen ongebruikte layouts.
 
-## **Dia‑indelingen toevoegen aan presentaties**
+Voor meer informatie over het top‑niveau van deze hiërarchie, zie [Slide‑master](/slides/nl/java/slide-master/).
 
-Om het uiterlijk en de structuur van je dia’s aan te passen, moet je mogelijk nieuwe indelingsdia’s aan een presentatie toevoegen. Aspose.Slides for Java stelt je in staat te controleren of een bepaalde indeling al bestaat, er een nieuwe toe te voegen indien nodig, en deze te gebruiken om dia’s in te voegen op basis van die indeling.
+## **Selecteer en pas een dia‑indeling toe**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/)‑klasse.
-2. Benader de [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/nl/java/com.aspose.slides/imasterlayoutslidecollection/).
-3. Controleer of de gewenste indelingsdia al bestaat in de collectie. Zo niet, voeg de benodigde indelingsdia toe.
-4. Voeg een lege dia toe gebaseerd op de nieuwe indelingsdia.
-5. Sla de presentatie op.
+Gebruik een layouttype wanneer de presentatie de standaard PowerPoint‑layoutdefinities volgt. Layoutnamen zijn door de gebruiker bewerkbaar en kunnen worden gelokaliseerd, dus selectie op basis van naam is minder betrouwbaar tenzij je de bron‑template beheert.
 
-De volgende Java‑code laat zien hoe je een dia‑indeling toevoegt aan een PowerPoint‑presentatie:
+Het volgende voorbeeld zoekt **Titel en inhoud** op de eerste master. Als die layout niet beschikbaar is, valt het expres terug op **Leeg**. De tweede null‑check is nodig omdat een presentatie alleen aangepaste layouts kan bevatten. De geselecteerde layout wordt vervolgens toegepast op de eerste normale dia via de [ISlide.setLayoutSlide](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-)‑methode.
 
 ```java
-// Instantieer de Presentation‑klasse die een PowerPoint‑bestand vertegenwoordigt.
-Presentation presentation = new Presentation("Sample.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // Doorloop de indelingsdia‑typen om een indelingsdia te selecteren.
     IMasterLayoutSlideCollection layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
-    ILayoutSlide layoutSlide = null;
-    if (layoutSlides.getByType(SlideLayoutType.TitleAndObject) != null)
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
-    else
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.Title);
+    ILayoutSlide targetLayout = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
 
-    if (layoutSlide == null) {
-        // Een situatie waarin de presentatie niet alle indelingstypen bevat.
-        // Het presentatie‑bestand bevat alleen de typen Blank en Custom.
-        // Echter, indelingsdia's met aangepaste typen kunnen herkenbare namen hebben,
-        // zoals "Title", "Title and Content", enz., die gebruikt kunnen worden voor het selecteren van een indelingsdia.
-        // Je kunt ook vertrouwen op een set van plaatshouder‑vormtypen.
-        // Bijvoorbeeld, een Titeldia moet alleen het Title‑plaatshoudertype hebben, enzovoort.
-        for (ILayoutSlide titleAndObjectLayoutSlide : layoutSlides) {
-            if (titleAndObjectLayoutSlide.getName().equals("Title and Object")) {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null) {
-            for (ILayoutSlide titleLayoutSlide : layoutSlides) {
-                if (titleLayoutSlide.getName().equals("Title")) {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(SlideLayoutType.Blank);
-                if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
+    if (targetLayout == null) {
+        targetLayout = layoutSlides.getByType(SlideLayoutType.Blank);
     }
 
-    // Voeg een lege dia toe met behulp van de toegevoegde indelingsdia.
-    presentation.getSlides().insertEmptySlide(0, layoutSlide);
+    if (targetLayout == null) {
+        throw new IllegalStateException("The first master does not contain a suitable layout slide.");
+    }
 
-    // Sla de presentatie op schijf.
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    presentation.getSlides().get_Item(0).setLayoutSlide(targetLayout);
+    presentation.save("output-with-new-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Ongebruikte indelingsdia’s verwijderen**
+Het wijzigen van de layout van een dia verwijdert niet de gewone vormen die direct aan de dia zijn toegevoegd. Echter, placeholder‑posities, geërfde opmaak en de correspondentie tussen bestaande placeholders en de nieuwe layout kunnen veranderen, dus inspecteer de uitvoer bij het wisselen tussen wezenlijk verschillende layouts.
 
-Aspose.Slides biedt de [removeUnusedLayoutSlides](https://reference.aspose.com/slides/nl/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-)‑methode van de [Compress](https://reference.aspose.com/slides/nl/java/com.aspose.slides/compress/)‑klasse om ongewenste en ongebruikte indelingsdia’s te verwijderen.
+## **Voeg een layout‑dia toe**
 
-De volgende Java‑code toont hoe je een indelingsdia uit een PowerPoint‑presentatie verwijdert:
+Selectie en creatie zijn afzonderlijke handelingen. Het vorige voorbeeld selecteert een bestaande layout; het maakt er geen nieuwe aan. Om een layout te maken, roep je de [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/nl/java/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-)‑methode aan op de layout‑collectie van de doel‑master.
+
+Het volgende voorbeeld voegt altijd een nieuwe **Titel en inhoud**‑layout met de naam `Report Title and Content` toe, en voegt daarna een normale dia toe die daarop is gebaseerd. Layoutnamen moeten uniek zijn binnen de collectie.
 
 ```java
-Presentation presentation = new Presentation("Presentation.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    Compress.removeUnusedLayoutSlides(presentation);
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide reportLayout = masterSlide.getLayoutSlides().add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+    presentation.getSlides().addEmptySlide(reportLayout);
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-report-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Plaatshouders toevoegen aan dia‑indelingen**
+Voeg een layout alleen toe wanneer de template echt een extra herbruikbare structuur nodig heeft. Als er al een geschikte layout bestaat, selecteer en hergebruik die in plaats van een duplicaat te maken.
 
-Aspose.Slides biedt de [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutslide/#getPlaceholderManager--)‑methode, waarmee je nieuwe plaatshouders kunt toevoegen aan een indelingsdia.
+## **Voeg placeholders toe aan een layout‑dia**
 
-Deze manager bevat methodes voor de volgende plaatshouder‑typen:
+De [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutslide/#getPlaceholderManager--)‑methode levert een [ILayoutPlaceholderManager](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/) voor het toevoegen van placeholder‑vormen aan een layout.
 
-| PowerPoint‑plaatshouder | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/) Methode |
-| ---------------------- | ----------------------------------------------------------------------------- |
-| ![Inhoud](content.png) | addContentPlaceholder(float x, float y, float width, float height) |
-| ![Inhoud (Verticaal)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Tekst](text.png) | addTextPlaceholder(float x, float y, float width, float height) |
-| ![Tekst (Verticaal)](textV.png) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Afbeelding](picture.png) | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![Grafiek](chart.png) | addChartPlaceholder(float x, float y, float width, float height) |
-| ![Tabel](table.png) | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Media](media.png) | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![Online‑afbeelding](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| PowerPoint‑placeholder              | `ILayoutPlaceholderManager` Method |
+| ----------------------------------- | ---------------------------------- |
+| ![Inhoud](content.png)             | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
+| ![Inhoud (Verticaal)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
+| ![Tekst](text.png)                   | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
+| ![Tekst (Verticaal)](textV.png)       | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalTextPlaceholder-float-float-float-float-) |
+| ![Afbeelding](picture.png)             | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
+| ![Grafiek](chart.png)                 | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
+| ![Tabel](table.png)                 | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
+| ![SmartArt](smartart.png)           | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/#addSmartArtPlaceholder-float-float-float-float-) |
+| ![Media](media.png)                 | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
+| ![Online‑afbeelding](onlineImage.png)    | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
 
-De volgende Java‑code laat zien hoe je nieuwe plaatshouder‑vormen toevoegt aan de lege indelingsdia:
+Het volgende voorbeeld controleert of de **Leeg**‑layout bestaat, voegt er vier placeholders aan toe en maakt daarna een normale dia aan die de gewijzigde layout gebruikt. De volgorde is opzettelijk: de placeholders worden toegevoegd voordat de normale dia wordt aangemaakt, zodat Aspose.Slides de corresponderende placeholder‑vormen op die dia kan genereren.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // Haal de lege indelingsdia op.
-    ILayoutSlide layout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ILayoutSlide blankLayout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
 
-    // Haal de plaatshouder‑manager van de indelingsdia op.
-    ILayoutPlaceholderManager placeholderManager = layout.getPlaceholderManager();
+    if (blankLayout == null) {
+        throw new IllegalStateException("The presentation does not contain a Blank layout slide.");
+    }
 
-    // Voeg verschillende plaatshouders toe aan de lege indelingsdia.
+    ILayoutPlaceholderManager placeholderManager = blankLayout.getPlaceholderManager();
     placeholderManager.addContentPlaceholder(20, 20, 310, 270);
     placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
     placeholderManager.addChartPlaceholder(20, 310, 310, 180);
     placeholderManager.addTablePlaceholder(350, 310, 350, 180);
 
-    // Voeg een nieuwe dia toe met de lege indeling.
-    ISlide newSlide = presentation.getSlides().addEmptySlide(layout);
-
-    presentation.save("Placeholders.pptx", SaveFormat.Pptx);
+    presentation.getSlides().addEmptySlide(blankLayout);
+    presentation.save("output-with-placeholders.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -182,73 +158,79 @@ try {
 
 Het resultaat:
 
-![De plaatshouders op de indelingsdia](add_placeholders.png)
+![De placeholders op de layout‑dia](add_placeholders.png)
 
-## **Voettekst‑zichtbaarheid instellen voor een indelingsdia**
+{{% alert color="warning" title="Waarschuwing" %}}
+Het wijzigen van geërfde opmaak of de geometrie van bestaande layout‑placeholders kan afhankelijke dia’s beïnvloeden. Een nieuw toegevoegde layout‑placeholder wordt niet automatisch toegevoegd aan bestaande normale dia’s. Test layout‑wijzigingen op een kopie van de presentatie en inspecteer elke afhankelijke dia.
+{{% /alert %}}
 
-In PowerPoint‑presentaties kunnen voettekst‑elementen zoals datum, dia‑nummer en aangepaste tekst worden getoond of verborgen afhankelijk van de dia‑indeling. Aspose.Slides for Java stelt je in staat de zichtbaarheid van deze voettekst‑plaatshouders te regelen. Dit is handig wanneer je wilt dat bepaalde indelingen voettekst‑informatie tonen, terwijl andere juist minimalistisch blijven.
+## **Verwijder ongebruikte layout‑dia’s**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/)‑klasse.
-2. Haal een indelingsdia‑referentie op via de index.
-3. Stel de voettekst‑plaatshouder van de dia in op zichtbaar.
-4. Stel de dia‑nummer‑plaatshouder in op zichtbaar.
-5. Stel de datum‑tijd‑plaatshouder in op zichtbaar.
-6. Sla de presentatie op.
-
-De volgende Java‑code toont hoe je de zichtbaarheid van een dia‑voettekst instelt en verwante taken uitvoert:
+Gebruik de [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/nl/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-)‑methode om layouts te verwijderen die door geen enkele normale dia worden gerefereerd. De methode laat layouts die nog in gebruik zijn ongewijzigd.
 
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
-
-    if (!headerFooterManager.isFooterVisible()) {
-        headerFooterManager.setFooterVisibility(true);
-    }
-
-    if (!headerFooterManager.isSlideNumberVisible()) {
-        headerFooterManager.setSlideNumberVisibility(true);
-    }
-
-    if (!headerFooterManager.isDateTimeVisible()) {
-        headerFooterManager.setDateTimeVisibility(true);
-    }
-
-    headerFooterManager.setFooterText("Footer text");
-    headerFooterManager.setDateTimeText("Date and time text");
-
-    presentation.save("Presentation.ppt", SaveFormat.Ppt);
+    Compress.removeUnusedLayoutSlides(presentation);
+    presentation.save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Kind‑voettekst‑zichtbaarheid instellen voor een dia**
+Om een specifieke layout te verwijderen, gebruik eerst de [hasDependingSlides](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutslide/#hasDependingSlides--)‑ of [getDependingSlides](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutslide/#getDependingSlides--)‑methode. Ken eventuele afhankelijke dia’s opnieuw toe voordat je [ILayoutSlide.remove](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutslide/#remove--) aanroept. Het proberen te verwijderen van een gebruikte layout veroorzaakt een [PptxEditException](https://reference.aspose.com/slides/nl/java/com.aspose.slides/pptxeditexception/).
 
-​In PowerPoint‑presentaties kunnen voettekst‑elementen zoals datum, dia‑nummer en aangepaste tekst worden beheerd op master‑dia‑niveau om consistentie over alle indelingsdia’s te waarborgen. Aspose.Slides for Java maakt het mogelijk om de zichtbaarheid en inhoud van deze voettekst‑plaatshouders op de master‑dia in te stellen en die instellingen door te geven aan alle onderliggende indelingsdia’s. Deze aanpak garandeert uniforme voettekst‑informatie in de hele presentatie.​
+## **Beheer voettekst‑zichtbaarheid op een layout‑dia**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/)‑klasse.
-2. Haal een referentie naar de master‑dia op via de index.
-3. Stel de master‑ en alle onderliggende voettekst‑plaatshouders in op zichtbaar.
-4. Stel de master‑ en alle onderliggende dia‑nummer‑plaatshouders in op zichtbaar.
-5. Stel de master‑ en alle onderliggende datum‑tijd‑plaatshouders in op zichtbaar.
-6. Sla de presentatie op.
-
-De volgende Java‑code demonstreert deze bewerking:
+Een layout heeft zijn eigen voettekst‑, dia‑nummer‑ en datum‑tijd‑placeholders. Gebruik de [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--)‑methode om die placeholders voor één layout te beheren. Dit is handig wanneer bijvoorbeeld inhoud‑layouts wel voetteksten moeten tonen maar titel‑layouts niet.
 
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.TitleAndObject);
+
+    if (layoutSlide == null) {
+        layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    }
+
+    if (layoutSlide == null) {
+        throw new IllegalStateException("The presentation does not contain a suitable layout slide.");
+    }
+
+    ILayoutSlideHeaderFooterManager headerFooterManager = layoutSlide.getHeaderFooterManager();
+    headerFooterManager.setFooterVisibility(true);
+    headerFooterManager.setSlideNumberVisibility(true);
+    headerFooterManager.setDateTimeVisibility(true);
+    headerFooterManager.setFooterText("Footer text");
+    headerFooterManager.setDateTimeText("Date and time text");
+
+    presentation.save("output-with-layout-footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Beheer voettekst‑zichtbaarheid op een master‑ en diens onderliggende layout‑dia’s**
+
+Om consistente voettekst‑instellingen toe te passen over een master‑hiërarchie, gebruik de [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/nl/java/com.aspose.slides/imasterslide/#getHeaderFooterManager--)‑methode. De propagatiemethoden van [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/nl/java/com.aspose.slides/imasterslideheaderfootermanager/) werken op de master en zijn afhankelijke layout‑dia’s en normale dia’s; ze richten zich niet alleen op één normale dia.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
     IMasterSlideHeaderFooterManager headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-
     headerFooterManager.setFooterAndChildFootersVisibility(true);
     headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
     headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
-
     headerFooterManager.setFooterAndChildFootersText("Footer text");
     headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-master-footers.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -256,14 +238,18 @@ try {
 
 ## **FAQ**
 
-**Wat is het verschil tussen een master‑dia en een indelingsdia?**
+**Wat is het verschil tussen een master‑dia en een layout‑dia?**
 
-Een master‑dia definieert het algemene thema en de standaardopmaak, terwijl indelingsdia’s specifieke rangschikkingen van plaatshouders voor verschillende soorten inhoud bepalen.
+Een master‑dia definieert het thema en de gedeelde opmaak van de presentatie. Een layout‑dia behoort tot een master en definieert één herbruikbare indeling van placeholders. Normale dia’s gebruiken die layouts en slaan dia‑specifieke inhoud op.
 
-**Kan ik een indelingsdia van de ene presentatie naar de andere kopiëren?**
+**Kan ik een layout‑dia van de ene presentatie naar de andere kopiëren?**
 
-Ja, je kunt een indelingsdia klonen vanuit de indelingsdia‑collectie van een presentatie, toegankelijk via de [getLayoutSlides](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/#getLayoutSlides--)‑methode, en deze invoegen in een andere presentatie met de `addClone`‑methode.
+Ja. Voeg een kopie toe aan de doel‑collectie met de [addClone](https://reference.aspose.com/slides/nl/java/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-)‑methode. Bij het kopiëren tussen presentaties moet je ook lettertypen, thema’s, afbeeldingen en andere resources die door de bron‑layout worden gebruikt verifiëren.
 
-**Wat gebeurt er als ik een indelingsdia verwijder die nog door een dia wordt gebruikt?**
+**Wat gebeurt er als ik een layout wijzig die al in gebruik is?**
 
-Als je probeert een indelingsdia te verwijderen die nog door ten minste één dia in de presentatie wordt gerefereerd, zal Aspose.Slides een [PptxEditException](https://reference.aspose.com/slides/nl/java/com.aspose.slides/pptxeditexception/) werpen. Gebruik in plaats daarvan [removeUnusedLayoutSlides](https://reference.aspose.com/slides/nl/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) om veilig alleen de ongebruikte indelingsdia’s te verwijderen.
+Afhankelijke dia’s erven de layout‑wijzigingen tenzij ze de aangetaste opmaak of objecten lokaal overschrijven. Placeholder‑geometrie en geërfde styling kunnen daardoor in één keer op veel dia’s veranderen. Gebruik [getDependingSlides](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) om de getroffen dia’s te identificeren voordat je de layout bewerkt.
+
+**Wat gebeurt er als ik een layout verwijder die nog in gebruik is?**
+
+Aspose.Slides gooit een [PptxEditException](https://reference.aspose.com/slides/nl/java/com.aspose.slides/pptxeditexception/). Ken eerst de afhankelijke dia’s opnieuw toe, of gebruik [removeUnusedLayoutSlides](https://reference.aspose.com/slides/nl/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) om alleen niet‑gerefereerde layouts te verwijderen.

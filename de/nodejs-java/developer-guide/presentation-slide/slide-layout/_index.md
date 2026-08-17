@@ -1,16 +1,16 @@
 ---
-title: Folienlayout in JavaScript anwenden oder ändern
-linktitle: Folienlayout
+title: Slide-Layouts in JavaScript anwenden oder ändern
+linktitle: Slide-Layout
 type: docs
 weight: 60
 url: /de/nodejs-java/slide-layout/
 keywords:
-- Folienlayout
-- Inhaltslayout
+- Slide-Layout
+- Inhalts-Layout
 - Platzhalter
 - Präsentationsdesign
-- Foliengestaltung
-- unbenutztes Layout
+- Folienlayout
+- Unbenutztes Layout
 - Fußzeilen-Sichtbarkeit
 - Titelfolie
 - Titel und Inhalt
@@ -21,248 +21,252 @@ keywords:
 - Leeres Layout
 - Inhalt mit Beschriftung
 - Bild mit Beschriftung
-- Titel und vertikaler Text
+- Titel und Vertikaler Text
 - Vertikaler Titel und Text
+- PowerPoint
+- OpenDocument
+- Präsentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Folienlayouts in Aspose.Slides für Node.js verwalten und anpassen. Erkunden Sie Layout-Typen, die Steuerung von Platzhaltern, die Sichtbarkeit von Fußzeilen und die Manipulation von Layouts anhand von Code-Beispielen in JavaScript."
+description: "Slide-Layouts in Aspose.Slides für Node.js über Java anwenden, erstellen und ändern, Platzhalter hinzufügen, unbenutzte Layouts entfernen und die Sichtbarkeit der Fußzeile steuern."
 ---
-
 ## **Übersicht**
 
-Ein Folienlayout definiert die Anordnung von Platzhalterfeldern und die Formatierung des Inhalts einer Folie. Es steuert, welche Platzhalter verfügbar sind und wo sie erscheinen. Folienlayouts helfen Ihnen, Präsentationen schnell und einheitlich zu erstellen – egal, ob Sie etwas Einfaches oder Komplexeres gestalten. Einige der häufigsten Folienlayouts in PowerPoint sind:
+Ein Folienlayout definiert die Positionen und Formatierungen von Platzhaltern wie Titeln, Text, Bildern, Diagrammen und Tabellen. Das Anwenden eines Layouts verleiht Folien eine konsistente Struktur, während jede Folie ihren eigenen Inhalt enthalten kann.
 
-**Titelfolienlayout** – Enthält zwei Textplatzhalter: einen für den Titel und einen für den Untertitel.
+Die gebräuchlichsten Layouts sind:
 
-**Titel‑und‑Inhalt‑Layout** – Enthält einen kleineren Titelplatzhalter oben und darunter einen größeren für den Hauptinhalt (wie Text, Aufzählungspunkte, Diagramme, Bilder und mehr).
+- **Titelfolie**: Enthält Platzhalter für Titel und Untertitel.
+- **Titel und Inhalt**: Enthält einen Titel‑Platzhalter und einen allgemeinen Inhalts‑Platzhalter.
+- **Leer**: Enthält keine Inhaltsplatzhalter und ist nützlich, wenn jede Form manuell positioniert wird.
 
-**Leeres Layout** – Enthält keine Platzhalter, sodass Sie die Folie von Grund auf selbst gestalten können.
+## **Verstehen der Layout‑Vererbung**
 
-Folienlayouts sind Teil einer Folienmaster, die die übergeordnete Folie ist und die Layout‑Stile für die Präsentation definiert. Sie können Layout‑Folien über den Folienmaster abrufen und ändern – entweder nach Typ, Name oder eindeutiger ID. Alternativ können Sie eine bestimmte Layout‑Folie direkt in der Präsentation bearbeiten.
+Eine Präsentation hat drei verwandte Ebenen:
 
-Um mit Folienlayouts in Aspose.Slides für Node.js zu arbeiten, können Sie verwenden:
+1. Eine [Masterfolie](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/masterslide/) definiert das Design, die gemeinsam genutzte Formatierung, Hintergründe und gemeinsame Objekte.
+1. Eine [Layoutfolie](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/layoutslide/) gehört zu einem Master und definiert eine bestimmte Anordnung von Platzhaltern.
+1. Eine [Normalfolie](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/slide/) verwendet ein Layout und speichert den für diese Folie eingegebenen Inhalt.
 
-- Methoden wie [getLayoutSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getLayoutSlides) und [getMasters](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getMasters) unter der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-- Typen wie [LayoutSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutplaceholdermanager/) und [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslideheaderfootermanager/).
+Eine Normalfolie erbt Design und Formatierung von ihrem Layout, und das Layout erbt vom Master. Ein direkt auf einer Normalfolie gesetzter Wert überschreibt den geerbten Wert auf dieser Ebene. Beim Erstellen einer Normalfolie werden ihre Platzhalterformen aus dem ausgewählten Layout generiert, während der in diese Platzhalter eingegebene Inhalt zur Normalfolie gehört.
 
-{{% alert title="Info" color="info" %}}
-Um mehr über die Arbeit mit Masterfolien zu erfahren, lesen Sie den Artikel [Slide Master](/slides/de/nodejs-java/slide-master/).
-{{% /alert %}}
+Fügen Sie erforderliche Platzhalter einem Layout hinzu, bevor Sie Folien daraus erstellen. Das spätere Hinzufügen eines weiteren Platzhalters zu einem Layout fügt nicht automatisch eine entsprechende Platzhalterform zu bereits vorhandenen Normalfolien hinzu.
 
-## **Folienlayouts zu Präsentationen hinzufügen**
+Diese Beziehung hat zwei wichtige Konsequenzen:
 
-Um das Aussehen und die Struktur Ihrer Folien anzupassen, müssen Sie möglicherweise neue Layout‑Folien zu einer Präsentation hinzufügen. Aspose.Slides für Node.js ermöglicht es Ihnen, zu prüfen, ob ein bestimmtes Layout bereits existiert, bei Bedarf ein neues hinzuzufügen und es zu verwenden, um Folien basierend auf diesem Layout einzufügen.
+- Das Ändern der geerbten Formatierung oder der vorhandenen Platzhaltergeometrie in einem Layout kann jede davon abhängige Folie aktualisieren. Vor dem Bearbeiten eines bereits verwendeten Layouts sollten Sie dessen abhängige Folien prüfen und die resultierende Präsentation überprüfen.
+- Ein Layout, das noch von einer Folie verwendet wird, kann nicht entfernt werden. Ordnen Sie seine abhängigen Folien zunächst einem anderen Layout zu oder entfernen Sie nur ungenutzte Layouts.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-1. Greifen Sie auf die [MasterLayoutSlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterlayoutslidecollection/) zu.
-1. Überprüfen Sie, ob die gewünschte Layout‑Folie bereits in der Sammlung vorhanden ist. Falls nicht, fügen Sie die benötigte Layout‑Folie hinzu.
-1. Fügen Sie eine leere Folie basierend auf der neuen Layout‑Folie hinzu.
-1. Speichern Sie die Präsentation.
+Weitere Informationen zur obersten Ebene dieser Hierarchie finden Sie unter [Folienmaster](/slides/de/nodejs-java/slide-master/).
 
-Der folgende JavaScript‑Code zeigt, wie ein Folienlayout zu einer PowerPoint‑Präsentation hinzugefügt wird:
-```js
-// Instanziiere die Presentation-Klasse, die eine PowerPoint-Datei darstellt.
-let presentation = new aspose.slides.Presentation("Sample.pptx");
+## **Auswahl und Anwendung eines Folienlayouts**
+
+Verwenden Sie einen [SlideLayoutType](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/slidelayouttype/)‑Wert, wenn die Präsentation den standardmäßigen PowerPoint‑Layout‑Definitionen folgt. Layout‑Namen sind vom Benutzer editierbar und können lokalisiert werden, sodass die Auswahl basierend auf Namen weniger zuverlässig ist, es sei denn, Sie kontrollieren die Ausgangsvorlage.
+
+Das folgende Beispiel sucht **Titel und Inhalt** im ersten Master. Ist dieses Layout nicht verfügbar, wird bewusst auf **Leer** zurückgegriffen. Die zweite Null‑Prüfung ist nötig, weil eine Präsentation nur benutzerdefinierte Layouts enthalten kann. Das ausgewählte Layout wird dann über die [Slide.setLayoutSlide](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/slide/#setLayoutSlide)‑Methode auf die erste Normalfolie angewendet.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Durchlaufe die Layout‑Folientypen, um eine Layout‑Folie auszuwählen.
     let layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
-    let layoutSlide = null;
-    if (layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject)) != null) {
-        layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject));
-    } else {
-        layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.Title));
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let targetLayout = layoutSlides.getByType(titleAndObjectLayoutType);
+
+    if (targetLayout === null) {
+        targetLayout = layoutSlides.getByType(blankLayoutType);
     }
 
-    if (layoutSlide == null) {
-        // Ein Fall, bei dem die Präsentation nicht alle Layout‑Typen enthält.
-        // Die Präsentationsdatei enthält nur leere und benutzerdefinierte Layout‑Typen.
-        // Allerdings können Layout‑Folien mit benutzerdefinierten Typen erkennbare Namen haben,
-        // wie "Title", "Title and Content" usw., die für die Auswahl von Layout‑Folien verwendet werden können.
-        // Sie können sich auch auf eine Menge von Platzhalter‑Formtypen verlassen.
-        // Zum Beispiel sollte eine Titelfolie nur den Titel‑Platzhaltertyp besitzen, usw.
-        for (let i = 0; i < layoutSlides.size(); i++) {
-            let titleAndObjectLayoutSlide = layoutSlides.get_Item(i);
-            if (titleAndObjectLayoutSlide.getName() === "Title and Object") {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null) {
-            for (let i = 0; i < layoutSlides.size(); i++) {
-                let titleLayoutSlide = layoutSlides.get_Item(i);
-                if (titleLayoutSlide.getName() === "Title") {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
-                if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject), "Title and Object");
-                }
-            }
-        }
+    if (targetLayout === null) {
+        throw new Error("The first master does not contain a suitable layout slide.");
     }
 
-    // Füge eine leere Folie mit der hinzugefügten Layout‑Folie ein.
-    presentation.getSlides().insertEmptySlide(0, layoutSlide);
-
-    // Speichere die Präsentation auf die Festplatte.
-    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.getSlides().get_Item(0).setLayoutSlide(targetLayout);
+    presentation.save("output-with-new-layout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+Das Ändern des Layouts einer Folie entfernt nicht die normalen Formen, die direkt zur Folie hinzugefügt wurden. Platzhalterpositionen, geerbte Formatierung und die Zuordnung zwischen bestehenden Platzhaltern und dem neuen Layout können sich jedoch ändern, sodass das Ergebnis beim Wechsel zwischen stark unterschiedlichen Layouts geprüft werden sollte.
 
-## **Unbenutzte Layout‑Folien entfernen**
+## **Hinzufügen einer Layoutfolie**
 
-Aspose.Slides stellt die Methode [removeUnusedLayoutSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) aus der Klasse [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/) bereit, mit der Sie unerwünschte und ungenutzte Layout‑Folien löschen können.
+Auswahl und Erstellung sind getrennte Vorgänge. Das vorherige Beispiel wählt ein vorhandenes Layout aus; es erstellt keines. Um ein Layout zu erstellen, rufen Sie die [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/masterlayoutslidecollection/#add)‑Methode auf der Layout‑Sammlung des Ziel‑Masters auf.
 
-Der folgende JavaScript‑Code demonstriert, wie eine Layout‑Folie aus einer PowerPoint‑Präsentation entfernt wird:
-```js
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+Das folgende Beispiel fügt stets ein neues **Titel und Inhalt**‑Layout mit dem Namen `Report Title and Content` hinzu und legt anschließend eine Normalfolie darauf an. Layout‑Namen müssen innerhalb der Sammlung eindeutig sein.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    aspose.slides.Compress.removeUnusedLayoutSlides(presentation);
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let reportLayout = masterSlide.getLayoutSlides().add(titleAndObjectLayoutType, "Report Title and Content");
+    presentation.getSlides().addEmptySlide(reportLayout);
+
+    presentation.save("output-with-report-layout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+Fügen Sie ein Layout nur hinzu, wenn die Vorlage wirklich eine weitere wiederverwendbare Struktur benötigt. Existiert ein geeignetes Layout bereits, wählen Sie es aus und verwenden Sie es erneut, anstatt ein Duplikat zu erstellen.
 
-## **Platzhalter zu Folienlayouts hinzufügen**
+## **Platzhalter zu einer Layoutfolie hinzufügen**
 
-Aspose.Slides bietet die Methode [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager) mit der Sie neue Platzhalter zu einer Layout‑Folie hinzufügen können.
+Die [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager)‑Methode liefert einen [LayoutPlaceholderManager](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/layoutplaceholdermanager/) zum Hinzufügen von Platzhalterformen zu einem Layout.
 
-Dieser Manager enthält Methoden für die folgenden Platzhaltertypen:
+| PowerPoint‑Platzhalter               | LayoutPlaceholderManager‑Methode |
+| ------------------------------------ | --------------------------------- |
+| ![Inhalt](content.png)               | [`addContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![Inhalt (Vertikal)](contentV.png)   | [`addVerticalContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![Text](text.png)                    | [`addTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Text (Vertikal)](textV.png)        | [`addVerticalTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Bild](picture.png)                 | [`addPicturePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Diagramm](chart.png)               | [`addChartPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Tabelle](table.png)                | [`addTablePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png)            | [`addSmartArtPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Medium](media.png)                 | [`addMediaPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Online‑Bild](onlineImage.png)      | [`addOnlineImagePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-| PowerPoint‑Platzhalter | [LayoutPlaceholderManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutplaceholdermanager/) Methode |
-| ---------------------- | ------------------------------------------------------------ |
-| ![Inhalt](content.png) | addContentPlaceholder(float x, float y, float width, float height) |
-| ![Inhalt (vertikal)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Text](text.png) | addTextPlaceholder(float x, float y, float width, float height) |
-| ![Text (vertikal)](textV.png) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Bild](picture.png) | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![Diagramm](chart.png) | addChartPlaceholder(float x, float y, float width, float height) |
-| ![Tabelle](table.png) | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Medien](media.png) | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![Online‑Bild](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+Das folgende Beispiel prüft, ob das **Leer**‑Layout existiert, fügt vier Platzhalter hinzu und erstellt anschließend eine Normalfolie, die das geänderte Layout verwendet. Die Reihenfolge ist beabsichtigt: Die Platzhalter werden hinzugefügt, bevor die Normalfolie erzeugt wird, sodass Aspose.Slides die entsprechenden Platzhalterformen auf dieser Folie erzeugen kann.
 
-Der folgende JavaScript‑Code zeigt, wie neue Platzhalterformen zur leeren Layout‑Folie hinzugefügt werden:
-```js
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation();
 try {
-    // Hole die leere Layout-Folie.
-    let layout = presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let blankLayout = presentation.getLayoutSlides().getByType(blankLayoutType);
 
-    // Hole den Platzhalter-Manager der Layout-Folie.
-    let placeholderManager = layout.getPlaceholderManager();
+    if (blankLayout === null) {
+        throw new Error("The presentation does not contain a Blank layout slide.");
+    }
 
-    // Füge verschiedene Platzhalter zur leeren Layout-Folie hinzu.
+    let placeholderManager = blankLayout.getPlaceholderManager();
     placeholderManager.addContentPlaceholder(20, 20, 310, 270);
     placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
     placeholderManager.addChartPlaceholder(20, 310, 310, 180);
     placeholderManager.addTablePlaceholder(350, 310, 350, 180);
 
-    // Füge eine neue Folie mit dem leeren Layout hinzu.
-    let newSlide = presentation.getSlides().addEmptySlide(layout);
-
-    presentation.save("Placeholders.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.getSlides().addEmptySlide(blankLayout);
+    presentation.save("output-with-placeholders.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
-
 
 Das Ergebnis:
 
-![Die Platzhalter auf der Layout‑Folie](add_placeholders.png)
+![Die Platzhalter auf der Layoutfolie](add_placeholders.png)
 
-## **Fußzeilen‑Sichtbarkeit für eine Layout‑Folie festlegen**
+{{% alert color="warning" title="Warnung" %}}
+Das Ändern geerbter Formatierung oder der Geometrie bestehender Layout‑Platzhalter kann abhängige Folien beeinflussen. Ein neu hinzugefügter Layout‑Platzhalter wird nicht rückwirkend in bereits vorhandene Normalfolien übernommen. Testen Sie Layout‑Änderungen an einer Kopie der Präsentation und prüfen Sie jede abhängige Folie.
+{{% /alert %}}
 
-In PowerPoint‑Präsentationen können Fußzeilenelemente wie Datum, Foliennummer und benutzerdefinierter Text je nach Folienlayout ein- oder ausgeblendet werden. Aspose.Slides für Node.js ermöglicht die Steuerung der Sichtbarkeit dieser Fußzeilen‑Platzhalter. Dies ist nützlich, wenn Sie möchten, dass bestimmte Layouts Fußzeileninformationen anzeigen, während andere sauber und minimal bleiben.
+## **Unbenutzte Layoutfolien entfernen**
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-1. Holen Sie eine Referenz auf eine Layout‑Folie über ihren Index.
-1. Setzen Sie den Fußzeilen‑Platzhalter der Folie auf sichtbar.
-1. Setzen Sie den Foliennummer‑Platzhalter auf sichtbar.
-1. Setzen Sie den Datum‑Uhrzeit‑Platzhalter auf sichtbar.
-1. Speichern Sie die Präsentation.
+Verwenden Sie die [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides)‑Methode, um Layouts zu entfernen, auf die keine Normalfolie verweist. Layouts, die noch verwendet werden, bleiben unverändert.
 
-Der folgende JavaScript‑Code zeigt, wie die Sichtbarkeit einer Folienfußzeile festgelegt und verwandte Aufgaben ausgeführt werden:
-```js
-let presentation = new aspose.slides.Presentation("Presentation.ppt");
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    let headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
+    aspose.slides.Compress.removeUnusedLayoutSlides(presentation);
+    presentation.save("output-without-unused-layouts.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-    if (!headerFooterManager.isFooterVisible()) {
-        headerFooterManager.setFooterVisibility(true);
+Um ein bestimmtes Layout zu entfernen, nutzen Sie zuerst dessen [hasDependingSlides](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/layoutslide/#hasDependingSlides)‑ oder [getDependingSlides](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/layoutslide/#getDependingSlides)‑Methode. Ordnen Sie alle abhängigen Folien neu zu, bevor Sie [LayoutSlide.remove](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/layoutslide/#remove) aufrufen. Der Versuch, ein noch verwendetes Layout zu entfernen, löst eine [PptxEditException](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/pptxeditexception/) aus.
+
+## **Steuerung der Fußzeilen‑Sichtbarkeit auf einer Layoutfolie**
+
+Ein Layout besitzt eigene Fußzeilen‑, Folien‑Nummer‑ und Datums‑Zeit‑Platzhalter. Verwenden Sie die [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/layoutslide/#getHeaderFooterManager)‑Methode, um diese Platzhalter für ein Layout zu steuern. Das ist nützlich, wenn z. B. Inhalts‑Layouts Fußzeilen anzeigen sollen, Titel‑Layouts jedoch nicht.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let layoutSlide = presentation.getLayoutSlides().getByType(titleAndObjectLayoutType);
+
+    if (layoutSlide === null) {
+        layoutSlide = presentation.getLayoutSlides().getByType(blankLayoutType);
     }
 
-    if (!headerFooterManager.isSlideNumberVisible()) {
-        headerFooterManager.setSlideNumberVisibility(true);
+    if (layoutSlide === null) {
+        throw new Error("The presentation does not contain a suitable layout slide.");
     }
 
-    if (!headerFooterManager.isDateTimeVisible()) {
-        headerFooterManager.setDateTimeVisibility(true);
-    }
-
+    let headerFooterManager = layoutSlide.getHeaderFooterManager();
+    headerFooterManager.setFooterVisibility(true);
+    headerFooterManager.setSlideNumberVisibility(true);
+    headerFooterManager.setDateTimeVisibility(true);
     headerFooterManager.setFooterText("Footer text");
     headerFooterManager.setDateTimeText("Date and time text");
 
-    presentation.save("Presentation.ppt", aspose.slides.SaveFormat.Ppt);
+    presentation.save("output-with-layout-footers.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+## **Steuerung der Fußzeilen‑Sichtbarkeit auf einem Master und dessen untergeordneten Layouts**
 
-## **Fußzeilen‑Sichtbarkeit für untergeordnete Folien festlegen**
+Um konsistente Fußzeilen‑Einstellungen über eine Master‑Hierarchie hinweg anzuwenden, nutzen Sie die [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/masterslide/#getHeaderFooterManager)‑Methode. Die Propagations‑Methoden von [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/masterslideheaderfootermanager/) wirken auf den Master sowie dessen abhängige Layout‑ und Normalfolien; sie richten sich nicht nur an eine einzelne Normalfolie.
 
-In PowerPoint‑Präsentationen können Fußzeilenelemente wie Datum, Foliennummer und benutzerdefinierter Text auf der Ebene der Master‑Folie gesteuert werden, um Konsistenz über alle Layout‑Folien hinweg sicherzustellen. Aspose.Slides für Node.js ermöglicht es Ihnen, die Sichtbarkeit und den Inhalt dieser Fußzeilen‑Platzhalter auf der Master‑Folie festzulegen und diese Einstellungen auf alle untergeordneten Layout‑Folien zu übertragen. Dieser Ansatz gewährleistet einheitliche Fußzeileninformationen in Ihrer gesamten Präsentation.
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-1. Holen Sie eine Referenz auf die Master‑Folie über ihren Index.
-1. Setzen Sie die Fußzeilen‑Platzhalter des Masters und aller untergeordneten Folien auf sichtbar.
-1. Setzen Sie die Foliennummer‑Platzhalter des Masters und aller untergeordneten Folien auf sichtbar.
-1. Setzen Sie die Datum‑Uhrzeit‑Platzhalter des Masters und aller untergeordneten Folien auf sichtbar.
-1. Speichern Sie die Präsentation.
-
-Der folgende JavaScript‑Code demonstriert diesen Vorgang:
-```js
-let presentation = new aspose.slides.Presentation("Presentation.ppt");
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
     let headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-
     headerFooterManager.setFooterAndChildFootersVisibility(true);
     headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
     headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
-
     headerFooterManager.setFooterAndChildFootersText("Footer text");
     headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
 
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("output-with-master-footers.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-
 ## **FAQ**
 
-**Was ist der Unterschied zwischen einer Master‑Folie und einer Layout‑Folie?**
+**Was ist der Unterschied zwischen einer Masterfolie und einer Layoutfolie?**
 
-Eine Master‑Folie definiert das Gesamtthema und die Standardformatierung, während Layout‑Folien spezifische Anordnungen von Platzhaltern für verschiedene Inhaltstypen festlegen.
+Eine Masterfolie definiert das Design und die gemeinsam genutzte Formatierung der gesamten Präsentation. Eine Layoutfolie gehört zu einem Master und definiert eine wiederverwendbare Anordnung von Platzhaltern. Normalfolien verwenden diese Layouts und speichern den folienspezifischen Inhalt.
 
-**Kann ich eine Layout‑Folie von einer Präsentation in eine andere kopieren?**
+**Kann ich eine Layoutfolie von einer Präsentation in eine andere kopieren?**
 
-Ja, Sie können eine Layout‑Folie aus der Layout‑Folien‑Sammlung einer Präsentation, die über die Methode [getLayoutSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getLayoutSlides) zugänglich ist, klonen und sie mit der Methode `addClone` in eine andere Präsentation einfügen.
+Ja. Fügen Sie eine Kopie zur Ziel‑Sammlung mit der [addClone](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/globallayoutslidecollection/#addClone)‑Methode hinzu. Beim Kopieren zwischen Präsentationen sollten Sie zudem Schriftarten, Designs, Bilder und weitere Ressourcen des Quell‑Layouts prüfen.
 
-**Was passiert, wenn ich eine Layout‑Folie lösche, die noch von einer Folie verwendet wird?**
+**Was passiert, wenn ich ein bereits verwendetes Layout ändere?**
 
-Wenn Sie versuchen, eine Layout‑Folie zu löschen, die noch von mindestens einer Folie in der Präsentation referenziert wird, wirft Aspose.Slides eine [PptxEditException](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pptxeditexception/). Um dies zu vermeiden, verwenden Sie [removeUnusedLayoutSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides), das nur die nicht verwendeten Layout‑Folien sicher entfernt.
+Abhängige Folien erben die Layout‑Änderungen, sofern sie die betroffenen Formatierungen oder Objekte nicht lokal überschrieben haben. Platzhaltergeometrie und vererbtes Styling können daher auf vielen Folien gleichzeitig geändert werden. Verwenden Sie [getDependingSlides](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/layoutslide/#getDependingSlides), um die betroffenen Folien vor dem Bearbeiten des Layouts zu identifizieren.
+
+**Was passiert, wenn ich ein Layout entferne, das noch verwendet wird?**
+
+Aspose.Slides wirft eine [PptxEditException](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/pptxeditexception/). Ordnen Sie die abhängigen Folien zuvor neu zu, oder nutzen Sie [removeUnusedLayoutSlides](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides), um nur nicht referenzierte Layouts zu entfernen.

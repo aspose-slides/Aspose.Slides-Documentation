@@ -1,6 +1,6 @@
 ---
-title: "C++'ta Slayt Düzenlerini Uygulama veya Değiştirme"
-linktitle: "Slayt Düzeni"
+title: C++'ta Slayt Düzenlerini Uygulama veya Değiştirme
+linktitle: Slayt Düzeni
 type: docs
 weight: 60
 url: /tr/cpp/slide-layout/
@@ -11,7 +11,7 @@ keywords:
 - sunum tasarımı
 - slayt tasarımı
 - kullanılmayan düzen
-- altbilgi görünürlüğü
+- alt bilgi görünürlüğü
 - başlık slaytı
 - başlık ve içerik
 - bölüm başlığı
@@ -19,8 +19,8 @@ keywords:
 - karşılaştırma
 - sadece başlık
 - boş düzen
-- başlıklı içerik
-- başlıklı resim
+- altyazılı içerik
+- altyazılı resim
 - başlık ve dikey metin
 - dikey başlık ve metin
 - PowerPoint
@@ -28,163 +28,163 @@ keywords:
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++'ta slayt düzenlerini yönetin ve özelleştirin. Layout türlerini, yer tutucu kontrolünü ve altbilgi görünürlüğünü C++ kod örnekleriyle keşfedin."
+description: "Aspose.Slides for C++ içinde slayt düzenlerini uygulama, oluşturma ve düzenleme, yer tutucular ekleme, kullanılmayan düzenleri kaldırma ve alt bilgi görünürlüğünü kontrol etme."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-Bir slayt düzeni, bir slayttaki yer tutucu kutuların düzenini ve içerik biçimlendirmesini tanımlar. Hangi yer tutucuların mevcut olduğunu ve nerede görüneceklerini kontrol eder. Slayt düzenleri, basit ya da daha karmaşık bir şey oluşturuyor olsanız da, sunumları hızlı ve tutarlı bir şekilde tasarlamanıza yardımcı olur. PowerPoint’te en yaygın slayt düzenlerinden bazıları şunlardır:
+Bir slayt düzeni, başlık, metin, resim, grafik ve tablo gibi yer tutucuların konumlarını ve biçimlendirmesini tanımlar. Bir düzenin uygulanması, slaytlara tutarlı bir yapı kazandırırken her slaytın kendi içeriğini barındırmasına izin verir.
 
-**Başlık Slaytı düzeni** – Başlık ve alt başlık için iki metin yer tutucu içerir.
+En yaygın düzenler şunlardır:
 
-**Başlık ve İçerik düzeni** – Üstte daha küçük bir başlık yer tutucu ve aşağıda metin, madde işaretleri, grafikler, resimler ve daha fazlası gibi ana içerik için daha büyük bir yer tutucu bulunur.
+- **Başlık Slaytı**: Başlık ve alt başlık yer tutucularını içerir.
+- **Başlık ve İçerik**: Bir başlık yer tutucusu ve genel amaçlı bir içerik yer tutucusu içerir.
+- **Boş**: İçerik yer tutucusu içermez ve tüm şekillerin manuel olarak konumlandırılacağı durumlarda kullanışlıdır.
 
-**Boş düzen** – Hiç yer tutucu içermez; slaytı sıfırdan tasarlamak için tam kontrol sağlar.
+## **Düzen Kalıtımını Anlamak**
 
-Slayt düzenleri, sunumun düzen stillerini tanımlayan en üst seviye slayt olan bir slayt ustasının parçasıdır. Düzen slaytlarına slayt ustası aracılığıyla—tipine, adına ya da benzersiz kimliğine göre—erişebilir ve bunları değiştirebilirsiniz. Alternatif olarak, belirli bir düzen slaytını doğrudan sunum içinde düzenleyebilirsiniz.
+Bir sunum üç ilişkili seviyeye sahiptir:
 
-Aspose.Slides for Android’da slayt düzenleriyle çalışmak için şunları kullanabilirsiniz:
+1. Bir [master slayt](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasterslide/) temayı, ortak biçimlendirmeyi, arka planları ve ortak nesneleri tanımlar.
+1. Bir [düzen slaytı](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilayoutslide/) bir mastera aittir ve belirli bir yer tutucu düzenini tanımlar.
+1. Bir [normal slayt](https://reference.aspose.com/slides/tr/cpp/aspose.slides/islide/) bir düzen kullanır ve o slayt için girilen içeriği depolar.
 
-- **[Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/)** sınıfı altında **[get_LayoutSlides](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/get_layoutslides/)** ve **[get_Masters](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/get_masters/)** gibi yöntemler
-- **[ILayoutSlide](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilayoutslide/)**, **[IMasterLayoutSlideCollection](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasterlayoutslidecollection/)**, **[ILayoutPlaceholderManager](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilayoutplaceholdermanager/)** ve **[ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilayoutslideheaderfootermanager/)** gibi tipler
+Normal bir slayt temayı ve biçimlendirmeyi düzeninden devralır; düzen ise masterından devralır. Normal bir slaytta doğrudan ayarlanan bir değer, o seviyedeki devralınan değeri geçersiz kılar. Normal bir slayt oluşturulduğunda, yer tutucu şekilleri seçilen düzen üzerinden üretilir; bu yer tutuculara girilen içerik ise normal slayta aittir.
 
-{{% alert title="Info" color="info" %}}
-Ana slaytlarla çalışma hakkında daha fazla bilgi edinmek için [Slide Master](/slides/tr/cpp/slide-master/) makalesine göz atın.
-{{% /alert %}}
+Bir slayttan önce düzene gerekli yer tutucuları ekleyin. Daha sonra bir yer tutucu eklemek, mevcut normal slaytlara otomatik olarak karşılık gelen bir yer tutucu şekli eklemez.
 
-## **Sunumlara Slayt Düzenleri Ekleme**
+Bu ilişki iki önemli sonuca sahiptir:
 
-Slaytlarınızın görünümünü ve yapısını özelleştirmek için sunuma yeni düzen slaytları eklemeniz gerekebilir. Aspose.Slides for Android, belirli bir düzenin zaten var olup olmadığını kontrol etmenize, gerekirse yeni bir tane eklemenize ve bu düzeni kullanarak slayt eklemenize olanak tanır.
+- Bir düzen üzerindeki devralınan biçimlendirmeyi veya mevcut yer tutucu geometrisini değiştirmek, ona bağlı tüm slaytları güncelleyebilir. Zaten kullanımdaki bir düzeni düzenlemeden önce, bağımlı slaytlarını inceleyin ve ortaya çıkan sunumu gözden geçirin.
+- Bir slayt hâlâ kullandığı bir düzen silinemez. Önce bu slaytları başka bir düzene yönlendirin veya yalnızca kullanılmayan düzenleri kaldırın.
 
-1. Bir **[Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/)** sınıfının örneğini oluşturun.  
-1. **[IMasterLayoutSlideCollection](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasterlayoutslidecollection/)**'e erişin.  
-1. İstenen düzen slaytının koleksiyonda zaten var olup olmadığını kontrol edin. Yoksa ihtiyaç duyduğunuz düzen slaytını ekleyin.  
-1. Yeni düzen slaytına dayalı boş bir slayt ekleyin.  
-1. Sunumu kaydedin.
+Bu hiyerarşinin üst seviyesi hakkında daha fazla bilgi için [Slide Master](/slides/tr/cpp/slide-master/) bölümüne bakın.
 
-Aşağıdaki C++ kodu, bir PowerPoint sunumuna slayt düzeni eklemeyi gösterir:
+## **Bir Slayt Düzeni Seçme ve Uygulama**
+
+Sunum standart PowerPoint düzen tanımlarını takip ediyorsa bir düzen türü kullanın. Düzen adları kullanıcı tarafından düzenlenebilir ve yerelleştirilebilir, bu yüzden ad‑bazlı seçim, kaynak şablonu kontrol etmiyorsanız güvenilir olmayabilir.
+
+Aşağıdaki örnek, ilk masterda **Başlık ve İçerik** düzenini arar. Bu düzen mevcut değilse, bilerek **Boş** düzenine geri döner. İkinci null kontrolü, bir sunumun yalnızca özel düzenler içerebileceği durumlar için gereklidir. Seçilen düzen, ardından [ISlide::set_LayoutSlide](https://reference.aspose.com/slides/tr/cpp/aspose.slides/islide/set_layoutslide/) yöntemiyle ilk normal slayta uygulanır.
 
 ```cpp
-// PowerPoint dosyasını temsil eden Presentation sınıfını örnekleyin.
-auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/smart_ptr.h>
 
-// Go through the layout slide types to select a layout slide.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
 auto layoutSlides = presentation->get_Master(0)->get_LayoutSlides();
-SharedPtr<ILayoutSlide> layoutSlide;
-if (layoutSlides->GetByType(SlideLayoutType::TitleAndObject) != nullptr)
+auto targetLayout = layoutSlides->GetByType(SlideLayoutType::TitleAndObject);
+
+if (targetLayout == nullptr)
 {
-    layoutSlide = layoutSlides->GetByType(SlideLayoutType::TitleAndObject);
-}
-else if (layoutSlides->GetByType(SlideLayoutType::Title) != nullptr)
-{
-    layoutSlide = layoutSlides->GetByType(SlideLayoutType::Title);
+    targetLayout = layoutSlides->GetByType(SlideLayoutType::Blank);
 }
 
-if (layoutSlide == nullptr)
+if (targetLayout == nullptr)
 {
-    // Sunumun tüm düzen türlerini içermediği bir durum.
-    // Sunum dosyası sadece Boş ve Özel düzen türlerini içerir.
-    // Ancak, özel türlere sahip düzen slaytları tanınabilir isimlere sahip olabilir,
-    // örneğin "Title", "Title and Content" gibi, bu isimler düzen slaytı seçimi için kullanılabilir.
-    // Ayrıca bir dizi yer tutucu şekil türüne güvenebilirsiniz.
-    // Örneğin, bir Başlık slaytının yalnızca Başlık yer tutucu türüne sahip olması gerekir vb.
-    for (int i = 0; i < layoutSlides->get_Count(); i++)
-    {
-        auto titleAndObjectLayoutSlide = layoutSlides->idx_get(i);
-
-        if (titleAndObjectLayoutSlide->get_Name().Equals(u"Title and Object"))
-        {
-            layoutSlide = titleAndObjectLayoutSlide;
-            break;
-        }
-    }
-
-    if (layoutSlide == nullptr)
-    {
-        for (int i = 0; i < layoutSlides->get_Count(); i++)
-        {
-            auto titleLayoutSlide = layoutSlides->idx_get(i);
-
-            if (titleLayoutSlide->get_Name() == u"Title")
-            {
-                layoutSlide = titleLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == nullptr)
-        {
-            layoutSlide = layoutSlides->GetByType(SlideLayoutType::Blank);
-            if (layoutSlide == nullptr)
-            {
-                layoutSlide = layoutSlides->Add(SlideLayoutType::TitleAndObject, u"Title and Object");
-            }
-        }
-    }
+    throw InvalidOperationException(u"The first master does not contain a suitable layout slide.");
 }
 
-// Eklenen düzen slaytını kullanarak boş bir slayt ekleyin.
-presentation->get_Slides()->InsertEmptySlide(0, layoutSlide);
-
-// Sunumu diske kaydedin.
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->get_Slide(0)->set_LayoutSlide(targetLayout);
+presentation->Save(u"output-with-new-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Kullanılmayan Düzen Slaytlarını Kaldırma**
+Bir slaydın düzenini değiştirmek, doğrudan slayta eklenen sıradan şekilleri kaldırmaz. Ancak yer tutucu konumları, devralınan biçimlendirme ve mevcut yer tutucularla yeni düzen arasındaki eşleşme değişebilir; bu nedenle çok farklı düzenler arasında geçiş yaparken çıktıyı inceleyin.
 
-Aspose.Slides, istenmeyen ve kullanılmayan düzen slaytlarını silmenizi sağlayan **[Compress](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/compress/)** sınıfındaki **[RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/)** yöntemini sunar.
+## **Bir Düzen Slaytı Ekleme**
 
-Aşağıdaki C++ kodu, bir PowerPoint sunumundan bir düzen slaytının nasıl kaldırılacağını gösterir:
+Seçim ve oluşturma ayrı işlemlerdir. Önceki örnek mevcut bir düzeni seçer; yeni bir tane oluşturmaz. Bir düzen oluşturmak için hedef masterın düzen koleksiyonunda [IMasterLayoutSlideCollection::Add](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasterlayoutslidecollection/add/) yöntemini çağırın.
+
+Aşağıdaki örnek her zaman `Report Title and Content` adlı yeni bir **Başlık ve İçerik** düzeni ekler, ardından buna dayalı bir normal slayt ekler. Düzen adları koleksiyon içinde benzersiz olmalıdır.
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
 
-Compress::RemoveUnusedLayoutSlides(presentation);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+auto masterSlide = presentation->get_Master(0);
+auto reportLayout = masterSlide->get_LayoutSlides()->Add(SlideLayoutType::TitleAndObject, u"Report Title and Content");
+presentation->get_Slides()->AddEmptySlide(reportLayout);
+
+presentation->Save(u"output-with-report-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Slayt Düzenlerine Yer Tutucular Ekleme**
+Bir şablon gerçekten başka bir yeniden kullanılabilir yapıya ihtiyaç duyduğunda bir düzen ekleyin. Uygun bir düzen zaten varsa, bir kopya oluşturmak yerine onu seçip yeniden kullanın.
 
-Aspose.Slides, bir düzen slaytına yeni yer tutucular eklemenizi sağlayan **[ILayoutSlide.get_PlaceholderManager](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/)** yöntemini sunar.
+## **Bir Düzen Slaytına Yer Tutucular Ekleme**
 
-Bu yönetici aşağıdaki yer tutucu türleri için yöntemler içerir:
+[ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) yöntemi, bir düzene yer tutucu şekilleri eklemek için bir [ILayoutPlaceholderManager](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilayoutplaceholdermanager/) sağlar.
 
-| PowerPoint Yer Tutucu               | **[ILayoutPlaceholderManager](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilayoutplaceholdermanager/)** Yöntemi |
-| ----------------------------------- | ------------------------------------------------------------ |
-| ![İçerik](content.png)              | AddContentPlaceholder(float x, float y, float width, float height) |
-| ![İçerik (Dikey)](contentV.png)    | AddVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Metin](text.png)                  | AddTextPlaceholder(float x, float y, float width, float height) |
-| ![Metin (Dikey)](textV.png)        | AddVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Resim](picture.png)               | AddPicturePlaceholder(float x, float y, float width, float height) |
-| ![Grafik](chart.png)                | AddChartPlaceholder(float x, float y, float width, float height) |
-| ![Tablo](table.png)                 | AddTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png)           | AddSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Medya](media.png)                 | AddMediaPlaceholder(float x, float y, float width, float height) |
-| ![Çevrimiçi Resim](onlineimage.png)| AddOnlineImagePlaceholder(float x, float y, float width, float height) |
+| PowerPoint Yer Tutucu               | `ILayoutPlaceholderManager` Yöntemi |
+| ----------------------------------- | ------------------------------------ |
+| ![Content](content.png)             | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilayoutplaceholdermanager/addcontentplaceholder/) |
+| ![Content (Vertical)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilayoutplaceholdermanager/addverticalcontentplaceholder/) |
+| ![Text](text.png)                   | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilayoutplaceholdermanager/addtextplaceholder/) |
+| ![Text (Vertical)](textV.png)       | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilayoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![Picture](picture.png)             | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilayoutplaceholdermanager/addpictureplaceholder/) |
+| ![Chart](chart.png)                 | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilayoutplaceholdermanager/addchartplaceholder/) |
+| ![Table](table.png)                 | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilayoutplaceholdermanager/addtableplaceholder/) |
+| ![SmartArt](smartart.png)           | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilayoutplaceholdermanager/addsmartartplaceholder/) |
+| ![Media](media.png)                 | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilayoutplaceholdermanager/addmediaplaceholder/) |
+| ![Online Image](onlineImage.png)    | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilayoutplaceholdermanager/addonlineimageplaceholder/) |
 
-Aşağıdaki C++ kodu, Boş düzen slaytına yeni yer tutucu şekilleri eklemeyi gösterir:
+Aşağıdaki örnek, **Boş** düzeninin var olduğunu doğrular, ona dört yer tutucu ekler ve ardından değiştirilmiş düzeni kullanan bir normal slayt oluşturur. Sıra kasıtlıdır: yer tutucular normal slayt oluşturulmadan önce eklenir, böylece Aspose.Slides o slayt için karşılık gelen yer tutucu şekillerini üretebilir.
 
 ```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutPlaceholderManager.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>();
 
-// Boş düzen slaytını al.
-auto layout = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+auto blankLayout = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
 
-// Get the placeholder manager of the layout slide.
-auto placeholderManager = layout->get_PlaceholderManager();
+if (blankLayout == nullptr)
+{
+    throw InvalidOperationException(u"The presentation does not contain a Blank layout slide.");
+}
 
-// Add different placeholders to the Blank layout slide.
-placeholderManager->AddContentPlaceholder(20, 20, 310, 270);
-placeholderManager->AddVerticalTextPlaceholder(350, 20, 350, 270);
-placeholderManager->AddChartPlaceholder(20, 310, 310, 180);
-placeholderManager->AddTablePlaceholder(350, 310, 350, 180);
+auto placeholderManager = blankLayout->get_PlaceholderManager();
+placeholderManager->AddContentPlaceholder(20.0f, 20.0f, 310.0f, 270.0f);
+placeholderManager->AddVerticalTextPlaceholder(350.0f, 20.0f, 350.0f, 270.0f);
+placeholderManager->AddChartPlaceholder(20.0f, 310.0f, 310.0f, 180.0f);
+placeholderManager->AddTablePlaceholder(350.0f, 310.0f, 350.0f, 180.0f);
 
-// Add a new slide with the Blank layout.
-auto newSlide = presentation->get_Slides()->AddEmptySlide(layout);
-
-presentation->Save(u"Placeholders.pptx", SaveFormat::Pptx);
+presentation->get_Slides()->AddEmptySlide(blankLayout);
+presentation->Save(u"output-with-placeholders.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
@@ -192,84 +192,121 @@ Sonuç:
 
 ![Düzen slaydındaki yer tutucular](add_placeholders.png)
 
-## **Bir Düzen Slaytı İçin Altbilgi Görünürlüğünü Ayarlama**
+{{% alert color="warning" title="Uyarı" %}}
+Devralınan biçimlendirme ya da mevcut düzen yer tutucularının geometrisinin değiştirilmesi, bağımlı slaytları etkileyebilir. Yeni eklenen bir düzen yer tutucusu mevcut normal slaytlara otomatik olarak eklenmez. Düzen değişikliklerini bir sunum kopyası üzerinde test edin ve her bağımlı slaytı inceleyin.
+{{% /alert %}}
 
-PowerPoint sunumlarında tarih, slayt numarası ve özel metin gibi altbilgi öğeleri, slayt düzenine bağlı olarak gösterilebilir ya da gizlenebilir. Aspose.Slides for Android, bu altbilgi yer tutucularının görünürlüğünü kontrol etmenizi sağlar. Bu, belirli düzenlerin altbilgi bilgilerinin gösterilmesini, diğerlerinin ise temiz ve sade kalmasını istediğinizde kullanışlıdır.
+## **Kullanılmayan Düzen Slaytlarını Kaldırma**
 
-1. Bir **[Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/)** sınıfının örneğini oluşturun.  
-1. Diziniyle bir düzen slaytı referansı alın.  
-1. Slayt altbilgi yer tutucusunu görünür yapın.  
-1. Slayt numarası yer tutucusunu görünür yapın.  
-1. Tarih‑zaman yer tutucusunu görünür yapın.  
-1. Sunumu kaydedin.
-
-Aşağıdaki C++ kodu, bir slayt altbilgisinin görünürlüğünü ayarlamayı ve ilgili işlemleri göstermektedir:
+[Kompres::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) yöntemini kullanarak hiçbir normal slayt tarafından referans edilmeyen düzenleri kaldırın. Yöntem, hâlâ kullanımdaki düzenleri olduğu gibi bırakır.
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"Presentation.ppt");
-auto headerFooterManager = presentation->get_LayoutSlides()->idx_get(0)->get_HeaderFooterManager();
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <LowCode/Compress.h>
+#include <system/smart_ptr.h>
 
-if (!headerFooterManager->get_IsFooterVisible())
-{
-    headerFooterManager->SetFooterVisibility(true);
-}
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::LowCode;
+using namespace System;
 
-if (!headerFooterManager->get_IsSlideNumberVisible())
-{
-    headerFooterManager->SetSlideNumberVisibility(true);
-}
+auto presentation = MakeObject<Presentation>(u"input.pptx");
 
-if (!headerFooterManager->get_IsDateTimeVisible())
-{
-    headerFooterManager->SetDateTimeVisibility(true);
-}
-
-headerFooterManager->SetFooterText(u"Footer text");
-headerFooterManager->SetDateTimeText(u"Date and time text");
-
-presentation->Save(u"Presentation.ppt", SaveFormat::Pptx);
+Compress::RemoveUnusedLayoutSlides(presentation);
+presentation->Save(u"output-without-unused-layouts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Bir Slayt İçin Alt Slayt Altbilgi Görünürlüğünü Ayarlama**
+Tek bir belirli düzeni kaldırmak için önce onun [get_HasDependingSlides](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilayoutslide/get_hasdependingslides/) ya da [GetDependingSlides](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilayoutslide/getdependingslides/) yöntemini kullanın. Bağımlı slaytları yeniden atadıktan sonra [ILayoutSlide::Remove](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilayoutslide/remove/) yöntemini çağırın. Kullanılan bir düzeni kaldırmaya çalışmak bir [PptxEditException](https://reference.aspose.com/slides/tr/cpp/aspose.slides/pptxeditexception/) oluşturur.
 
-PowerPoint sunumlarında tarih, slayt numarası ve özel metin gibi altbilgi öğeleri, tüm düzen slaytları arasında tutarlılığı sağlamak için ana slayt seviyesinde kontrol edilebilir. Aspose.Slides for Android, bu altbilgi yer tutucularının görünürlüğünü ve içeriğini ana slaytta ayarlamanıza ve bu ayarları tüm alt düzen slaytlarına yaymanıza olanak tanır. Bu yaklaşım, sunumunuz boyunca tutarlı altbilgi bilgileri sağlar.
+## **Bir Düzen Slaytında Alt Bilgi Görünürlüğünü Kontrol Etme**
 
-1. Bir **[Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/)** sınıfının örneğini oluşturun.  
-1. Diziniyle ana slayta bir referans alın.  
-1. Ana slaydın ve tüm alt slaytların altbilgi yer tutucularını görünür yapın.  
-1. Ana slaydın ve tüm alt slaytların slayt numarası yer tutucularını görünür yapın.  
-1. Ana slaydın ve tüm alt slaytların tarih‑zaman yer tutucularını görünür yapın.  
-1. Sunumu kaydedin.
+Bir düzenin kendi alt bilgi, slayt numarası ve tarih‑zaman yer tutucuları vardır. Bu yer tutucuları bir düzen için kontrol etmek üzere [ILayoutSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilayoutslide/get_headerfootermanager/) yöntemini kullanın. Bu, örneğin içerik düzenlerinin alt bilgi göstermesi, başlık düzenlerinin ise göstermemesi gerektiğinde faydalıdır.
 
-Aşağıdaki C++ kodu bu işlemi göstermektedir:
+Aşağıdaki örnek bir düzeni güvenli bir şekilde seçer ve alt bilgi öğelerini görünür yapar:
 
 ```cpp
-auto presentation = MakeObject<Presentation>();
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILayoutSlideHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+auto layoutSlide = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::TitleAndObject);
+
+if (layoutSlide == nullptr)
+{
+    layoutSlide = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+}
+
+if (layoutSlide == nullptr)
+{
+    throw InvalidOperationException(u"The presentation does not contain a suitable layout slide.");
+}
+
+auto headerFooterManager = layoutSlide->get_HeaderFooterManager();
+headerFooterManager->SetFooterVisibility(true);
+headerFooterManager->SetSlideNumberVisibility(true);
+headerFooterManager->SetDateTimeVisibility(true);
+headerFooterManager->SetFooterText(u"Footer text");
+headerFooterManager->SetDateTimeText(u"Date and time text");
+
+presentation->Save(u"output-with-layout-footers.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **Bir Master ve Alt Düzenlerinde Alt Bilgi Görünürlüğünü Kontrol Etme**
+
+Master hiyerarşisi boyunca tutarlı alt bilgi ayarları uygulamak için [IMasterSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasterslide/get_headerfootermanager/) yöntemini kullanın. [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasterslideheaderfootermanager/) sınıfının yayılım yöntemleri, master ve ona bağlı düzen slaytları ile normal slaytlar üzerinde çalışır; yalnızca tek bir normal slaytı hedef almaz.
+
+```cpp
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
 
 auto headerFooterManager = presentation->get_Master(0)->get_HeaderFooterManager();
-
 headerFooterManager->SetFooterAndChildFootersVisibility(true);
 headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
 headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
-
 headerFooterManager->SetFooterAndChildFootersText(u"Footer text");
 headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
 
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->Save(u"output-with-master-footers.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
 ## **SSS**
 
-**Ana slayt ile düzen slaytı arasındaki fark nedir?**
+**Master Slayt ile Düzen Slaytı Arasındaki Fark Nedir?**
 
-Ana slayt genel temayı ve varsayılan biçimlendirmeyi tanımlarken, düzen slaytları farklı içerik türleri için belirli yer tutucu düzenlerini tanımlar.
+Master slayt, sunumun temasını ve ortak biçimlendirmesini tanımlar. Düzen slaytı bir mastera aittir ve yeniden kullanılabilir bir yer tutucu düzeni tanımlar. Normal slaytlar bu düzenleri kullanır ve slayta özgü içeriği depolar.
 
-**Bir düzen slaytını bir sunumdan başka bir sunuma kopyalayabilir miyim?**
+**Bir Düzen Slaytını Bir Sunumdan Başka Bir Sunuma Kopyalayabilir miyim?**
 
-Evet, bir sunumun **[get_LayoutSlides](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/get_layoutslides/)** yöntemiyle erişilebilen düzen slayt koleksiyonundan bir düzen slaytını klonlayabilir ve `AddClone` yöntemiyle başka bir sunuma ekleyebilirsiniz.
+Evet. [IGlobalLayoutSlideCollection::AddClone](https://reference.aspose.com/slides/tr/cpp/aspose.slides/igloballayoutslidecollection/addclone/) yöntemiyle kopyayı hedef koleksiyona ekleyin. Sunumlar arasında kopyalarken, kaynak düzenin kullandığı yazı tiplerini, temaları, resimleri ve diğer kaynakları da doğrulayın.
 
-**Bir slayt tarafından hâlâ kullanılan bir düzen slaytını silersem ne olur?**
+**Kullanımdaki Bir Düzeni Değiştirirsem Ne Olur?**
 
-Bir düzen slaytı, sunumdaki en az bir slayt tarafından hâlâ referans alınıyorsa silmeye çalıştığınızda Aspose.Slides **[PptxEditException](https://reference.aspose.com/slides/tr/cpp/aspose.slides/pptxeditexception/)** fırlatır. Bunu önlemek için, yalnızca kullanılmayan düzen slaytlarını güvenli bir şekilde kaldıran **[RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/)** yöntemini kullanın.
+Bağımlı slaytlar, yerel olarak etkilenilen biçimlendirmeyi veya nesneleri geçersiz kılmazlarsa, düzen değişikliklerini devralır. Yer tutucu geometrisi ve devralınan stil, birçok slaytta bir anda değişebilir. Düzeni düzenlemeden önce etkilenen slaytları belirlemek için [GetDependingSlides](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilayoutslide/getdependingslides/) yöntemini kullanın.
+
+**Hâlâ Kullanımda Olan Bir Düzeni Kaldırırsam Ne Olur?**
+
+Aspose.Slides bir [PptxEditException](https://reference.aspose.com/slides/tr/cpp/aspose.slides/pptxeditexception/) fırlatır. Önce bağımlı slaytları yeniden atayın veya yalnızca referans edilmeyen düzenleri kaldırmak için [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) yöntemini kullanın.

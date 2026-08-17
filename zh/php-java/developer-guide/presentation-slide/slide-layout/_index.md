@@ -14,13 +14,13 @@ keywords:
 - 页脚可见性
 - 标题幻灯片
 - 标题和内容
-- 部分标题
+- 章节标题
 - 双内容
 - 比较
 - 仅标题
 - 空白布局
-- 带说明的内容
-- 带说明的图片
+- 带标题的内容
+- 带标题的图片
 - 标题和垂直文本
 - 垂直标题和文本
 - PowerPoint
@@ -28,241 +28,241 @@ keywords:
 - 演示文稿
 - PHP
 - Aspose.Slides
-description: "通过 Java 在 Aspose.Slides for PHP 中管理和自定义幻灯片布局。探索布局类型、占位符控制以及通过代码示例实现的页脚可见性。"
+description: "通过 Java 在 Aspose.Slides for PHP 中应用、创建和修改幻灯片布局，添加占位符，删除未使用的布局，并控制页脚可见性。"
 ---
-
 ## **概述**
 
-幻灯片布局定义了占位框的排列方式以及幻灯片内容的格式化。它控制哪些占位符可用以及它们出现的位置。幻灯片布局帮助您快速且一致地设计演示文稿——无论是创建简单的还是更复杂的内容。PowerPoint 中最常见的幻灯片布局包括：
+幻灯片布局定义了标题、文本、图片、图表和表格等占位符的位置和格式。应用布局可为幻灯片提供一致的结构，同时允许每张幻灯片包含各自的内容。
 
-**标题幻灯片布局** – 包含两个文本占位符：一个用于标题，一个用于副标题。
+最常见的布局包括：
 
-**标题和内容布局** – 在顶部有较小的标题占位符，在下面有较大的主体内容占位符（如文本、项目符号、图表、图像等）。
+- **标题幻灯片**：包含标题和副标题占位符。  
+- **标题和内容**：包含标题占位符和通用内容占位符。  
+- **空白**：不包含任何内容占位符，适用于需要手动定位所有形状的情况。
 
-**空白布局** – 不包含任何占位符，您可以完全自行设计幻灯片。
+## **了解布局继承**
 
-幻灯片布局是幻灯片母版的一部分，母版是定义演示文稿布局样式的顶层幻灯片。您可以通过母版访问并修改布局幻灯片——按类型、名称或唯一 ID。或者，您也可以直接在演示文稿中编辑特定的布局幻灯片。
+演示文稿有三个相关层级：
 
-要在 Aspose.Slides for PHP 中使用幻灯片布局，您可以使用：
+1. 一个[母版幻灯片](https://reference.aspose.com/slides/zh/php-java/aspose.slides/masterslide/)定义主题、共享格式、背景和公共对象。  
+1. 一个[布局幻灯片](https://reference.aspose.com/slides/zh/php-java/aspose.slides/layoutslide/)属于母版，定义特定的占位符排列。  
+1. 一个[普通幻灯片](https://reference.aspose.com/slides/zh/php-java/aspose.slides/slide/)使用一种布局，并存储该幻灯片的内容。
 
-- 在[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)类下的方法，例如[getLayoutSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getLayoutSlides)和[getMasters](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getMasters)
-- 类型如[LayoutSlide](https://reference.aspose.com/slides/php-java/aspose.slides/layoutslide/)、[MasterLayoutSlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/masterlayoutslidecollection/)、[LayoutPlaceholderManager](https://reference.aspose.com/slides/php-java/aspose.slides/layoutplaceholdermanager/)以及[LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/php-java/aspose.slides/layoutslideheaderfootermanager/)
+普通幻灯片从其布局继承主题和格式，布局又从其母版继承。直接在普通幻灯片上设置的值会覆盖该层级继承的值。创建普通幻灯片时，其占位符形状会根据所选布局生成，而填入这些占位符的内容属于普通幻灯片。
 
-{{% alert title="Info" color="info" %}}
-欲了解更多关于母版幻灯片的使用，请查看[Slide Master](/slides/zh/php-java/slide-master/)文章。
-{{% /alert %}}
+在从布局创建幻灯片之前，请先向布局添加必需的占位符。随后向布局添加新占位符不会自动为已有的普通幻灯片添加对应的占位符形状。
 
-## **向演示文稿添加幻灯片布局**
+此关系有两个重要后果：
 
-为了自定义幻灯片的外观和结构，您可能需要向演示文稿添加新的布局幻灯片。Aspose.Slides for PHP 允许您检查特定布局是否已存在，必要时添加新布局，并使用该布局插入幻灯片。
+- 更改布局上继承的格式或已有占位符的几何形状会更新所有依赖该布局的幻灯片。在编辑已在使用的布局前，请检查其依赖的幻灯片并预览生成的演示文稿。  
+- 正在被幻灯片使用的布局无法被删除。请先将其依赖的幻灯片重新指派到其他布局，或仅删除未使用的布局。
 
-1. 创建一个[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)类的实例。  
-2. 访问[MasterLayoutSlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/masterlayoutslidecollection/)。  
-3. 检查所需的布局幻灯片是否已经存在于集合中。如果不存在，则添加所需的布局幻灯片。  
-4. 基于新布局幻灯片添加一个空白幻灯片。  
-5. 保存演示文稿。
+有关此层级顶部的更多信息，请参阅[幻灯片母版](/slides/zh/php-java/slide-master/)。
 
-下面的 PHP 代码演示了如何向 PowerPoint 演示文稿添加幻灯片布局：
+## **选择并应用幻灯片布局**
+
+当演示文稿遵循标准 PowerPoint 布局定义时，请使用布局类型。布局名称可以编辑并本地化，因此除非您能够控制源模板，否则基于名称的选择可靠性较低。
+
+下面的示例在第一个母版上查找**标题和内容**布局。如果该布局不可用，则有意回退到**空白**。第二个空检查是必需的，因为演示文稿可能只包含自定义布局。随后通过[Slide.setLayoutSlide](https://reference.aspose.com/slides/zh/php-java/aspose.slides/slide/#setLayoutSlide)方法将选中的布局应用到第一张普通幻灯片。
+
 ```php
-// 实例化表示 PowerPoint 文件的 Presentation 类。
-$presentation = new Presentation("Sample.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
 try {
-    // 遍历布局幻灯片类型以选择布局幻灯片。
     $layoutSlides = $presentation->getMasters()->get_Item(0)->getLayoutSlides();
-    $layoutSlide = null;
-    if (!java_is_null($layoutSlides->getByType(SlideLayoutType::TitleAndObject))) {
-        $layoutSlide = $layoutSlides->getByType(SlideLayoutType::TitleAndObject);
-    } else {
-        $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Title);
+    $targetLayout = $layoutSlides->getByType(SlideLayoutType::TitleAndObject);
+
+    if (java_is_null($targetLayout)) {
+        $targetLayout = $layoutSlides->getByType(SlideLayoutType::Blank);
     }
 
-    if (java_is_null($layoutSlide)) {
-        // 演示文稿不包含所有布局类型的情况。
-        // 演示文稿文件仅包含空白和自定义布局类型。
-        // 但是，具有自定义类型的布局幻灯片可能有可识别的名称，
-        // 如 “Title”、 “Title and Content”等，可用于布局幻灯片选择。
-        // 也可以依赖一组占位符形状类型。
-        // 例如，标题幻灯片应仅包含 Title 占位符类型，依此类推。
-        foreach($layoutSlides as $titleAndObjectLayoutSlide) {
-            if (java_values($titleAndObjectLayoutSlide->getName()) == "Title and Object") {
-                $layoutSlide = $titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (java_is_null($layoutSlide)) {
-            foreach($layoutSlides as $titleLayoutSlide) {
-                if (java_values($titleLayoutSlide->getName()) == "Title") {
-                    $layoutSlide = $titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (java_is_null($layoutSlide)) {
-                $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Blank);
-                if (java_is_null($layoutSlide)) {
-                    $layoutSlide = $layoutSlides->add(SlideLayoutType::TitleAndObject, "Title and Object");
-                }
-            }
-        }
+    if (java_is_null($targetLayout)) {
+        throw new \RuntimeException("The first master does not contain a suitable layout slide.");
     }
 
-    // 使用添加的布局幻灯片插入一个空白幻灯片。
-    $presentation->getSlides()->insertEmptySlide(0, $layoutSlide);
-
-    // 将演示文稿保存到磁盘。
-    $presentation->save("output.pptx", SaveFormat::Pptx);
+    $presentation->getSlides()->get_Item(0)->setLayoutSlide($targetLayout);
+    $presentation->save("output-with-new-layout.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
+更改幻灯片的布局不会删除直接添加到幻灯片的普通形状。然而，占位符位置、继承的格式以及现有占位符与新布局之间的对应关系可能会改变，因此在切换显著不同的布局时请检查输出。
 
-## **删除未使用的布局幻灯片**
+## **添加布局幻灯片**
 
-Aspose.Slides 提供了来自[Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/)类的[removeUnusedLayoutSlides](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#removeUnusedLayoutSlides)方法，以便您删除不需要且未使用的布局幻灯片。
+选择和创建是分开的操作。前面的示例仅选择了已有布局，并未创建新布局。要创建布局，请对目标母版的布局集合调用[MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/zh/php-java/aspose.slides/masterlayoutslidecollection/#add)方法。
 
-下面的 PHP 代码展示了如何从 PowerPoint 演示文稿中删除布局幻灯片：
+下面的示例始终添加一个名为`Report Title and Content`的新**标题和内容**布局，然后基于它添加一张普通幻灯片。布局名称在集合内必须唯一。
+
 ```php
-$presentation = new Presentation("Presentation.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
 try {
-    Compress::removeUnusedLayoutSlides($presentation);
-    $presentation->save("Output.pptx", SaveFormat::Pptx);
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $reportLayout = $masterSlide->getLayoutSlides()->add(SlideLayoutType::TitleAndObject, "Report Title and Content");
+    $presentation->getSlides()->addEmptySlide($reportLayout);
+
+    $presentation->save("output-with-report-layout.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
+仅在模板真正需要另一个可复用结构时才添加布局。如果已经存在合适的布局，请选择并复用它，而不是创建重复的布局。
 
-## **向幻灯片布局添加占位符**
+## **向布局幻灯片添加占位符**
 
-Aspose.Slides 提供了[LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/php-java/aspose.slides/layoutslide/#getPlaceholderManager)方法，您可以使用它向布局幻灯片添加新的占位符。
+[LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/zh/php-java/aspose.slides/layoutslide/#getPlaceholderManager)方法提供一个[LayoutPlaceholderManager](https://reference.aspose.com/slides/zh/php-java/aspose.slides/layoutplaceholdermanager/)用于向布局添加占位符形状。
 
-此管理器包含以下占位符类型的方法：
+| PowerPoint 占位符                | `LayoutPlaceholderManager` 方法 |
+| --------------------------------- | -------------------------------- |
+| ![Content](content.png)           | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh/php-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![Content (Vertical)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![Text](text.png)                 | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh/php-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Text (Vertical)](textV.png)     | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Picture](picture.png)           | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh/php-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Chart](chart.png)               | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh/php-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Table](table.png)               | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh/php-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png)         | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh/php-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Media](media.png)               | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh/php-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Online Image](onlineImage.png)  | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh/php-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-| PowerPoint 占位符                | [LayoutPlaceholderManager](https://reference.aspose.com/slides/php-java/aspose.slides/layoutplaceholdermanager/) 方法 |
-| --------------------------------- | ------------------------------------------------------------ |
-| ![内容](content.png)             | addContentPlaceholder(float x, float y, float width, float height) |
-| ![内容（垂直）](contentV.png)    | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![文本](text.png)                | addTextPlaceholder(float x, float y, float width, float height) |
-| ![文本（垂直）](textV.png)       | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![图片](picture.png)             | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![图表](chart.png)               | addChartPlaceholder(float x, float y, float width, float height) |
-| ![表格](table.png)               | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png)        | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![媒体](media.png)               | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![在线图片](onlineimage.png)     | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+下面的示例先验证**空白**布局是否存在，向其添加四个占位符，然后创建使用该修改后布局的普通幻灯片。顺序是有意为之：先添加占位符，再创建普通幻灯片，以便 Aspose.Slides 能在该幻灯片上生成相应的占位符形状。
 
-下面的 PHP 代码演示了如何向空白布局幻灯片添加新的占位符形状：
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
 $presentation = new Presentation();
 try {
-    // 获取空白布局幻灯片。
-    $layout = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    $blankLayout = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
 
-    // 获取布局幻灯片的占位符管理器。
-    $placeholderManager = $layout->getPlaceholderManager();
+    if (java_is_null($blankLayout)) {
+        throw new \RuntimeException("The presentation does not contain a Blank layout slide.");
+    }
 
-    // 向空白布局幻灯片添加不同的占位符。
+    $placeholderManager = $blankLayout->getPlaceholderManager();
     $placeholderManager->addContentPlaceholder(20, 20, 310, 270);
     $placeholderManager->addVerticalTextPlaceholder(350, 20, 350, 270);
     $placeholderManager->addChartPlaceholder(20, 310, 310, 180);
     $placeholderManager->addTablePlaceholder(350, 310, 350, 180);
 
-    // 使用空白布局添加新幻灯片。
-    $newSlide = $presentation->getSlides()->addEmptySlide($layout);
-
-    $presentation->save("Placeholders.pptx", SaveFormat::Pptx);
+    $presentation->getSlides()->addEmptySlide($blankLayout);
+    $presentation->save("output-with-placeholders.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
-
 
 结果：
 
 ![布局幻灯片上的占位符](add_placeholders.png)
 
-## **设置布局幻灯片的页脚可见性**
+{{% alert color="warning" title="警告" %}}
+更改继承的格式或已有布局占位符的几何形状可能影响依赖的幻灯片。新添加的布局占位符不会回填到已有的普通幻灯片。请在演示文稿的副本上测试布局更改，并检查每一张依赖幻灯片。
+{{% /alert %}}
 
-在 PowerPoint 演示文稿中，页脚元素（如日期、页码和自定义文本）可以根据幻灯片布局显示或隐藏。Aspose.Slides for PHP 允许您控制这些页脚占位符的可见性。这在您希望某些布局显示页脚信息而其他布局保持简洁时非常有用。
+## **删除未使用的布局幻灯片**
 
-1. 创建一个[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)类的实例。  
-2. 按索引获取布局幻灯片引用。  
-3. 将幻灯片页脚占位符设为可见。  
-4. 将页码占位符设为可见。  
-5. 将日期时间占位符设为可见。  
-6. 保存演示文稿。
+使用[Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/zh/php-java/aspose.slides/compress/#removeUnusedLayoutSlides)方法删除所有普通幻灯片未引用的布局。该方法会保留仍在使用的布局。
 
-下面的 PHP 代码展示了如何设置幻灯片页脚的可见性以及相关操作：
 ```php
-$presentation = new Presentation("Presentation.ppt");
+use aspose\slides\Compress;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
 try {
-    $headerFooterManager = $presentation->getLayoutSlides()->get_Item(0)->getHeaderFooterManager();
+    Compress::removeUnusedLayoutSlides($presentation);
+    $presentation->save("output-without-unused-layouts.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
 
-    if (!$headerFooterManager->isFooterVisible()) {
-        $headerFooterManager->setFooterVisibility(true);
+若要删除特定布局，请先调用其[hasDependingSlides](https://reference.aspose.com/slides/zh/php-java/aspose.slides/layoutslide/#hasDependingSlides)或[getDependingSlides](https://reference.aspose.com/slides/zh/php-java/aspose.slides/layoutslide/#getDependingSlides)方法。重新指派任何依赖幻灯片后，再调用[LayoutSlide.remove](https://reference.aspose.com/slides/zh/php-java/aspose.slides/layoutslide/#remove)。尝试删除仍在使用的布局会抛出[PptxEditException](https://reference.aspose.com/slides/zh/php-java/aspose.slides/pptxeditexception/)。
+
+## **在布局幻灯片上控制页脚可见性**
+
+布局拥有自己的页脚、幻灯片编号和日期时间占位符。使用[LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/zh/php-java/aspose.slides/layoutslide/#getHeaderFooterManager)方法可对单个布局的这些占位符进行控制。例如，内容布局需要显示页脚，而标题布局则不需要。
+
+下面的示例安全地选择一个布局并使其页脚元素可见：
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $layoutSlide = $presentation->getLayoutSlides()->getByType(SlideLayoutType::TitleAndObject);
+
+    if (java_is_null($layoutSlide)) {
+        $layoutSlide = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
     }
 
-    if (!$headerFooterManager->isSlideNumberVisible()) {
-        $headerFooterManager->setSlideNumberVisibility(true);
+    if (java_is_null($layoutSlide)) {
+        throw new \RuntimeException("The presentation does not contain a suitable layout slide.");
     }
 
-    if (!$headerFooterManager->isDateTimeVisible()) {
-        $headerFooterManager->setDateTimeVisibility(true);
-    }
-
+    $headerFooterManager = $layoutSlide->getHeaderFooterManager();
+    $headerFooterManager->setFooterVisibility(true);
+    $headerFooterManager->setSlideNumberVisibility(true);
+    $headerFooterManager->setDateTimeVisibility(true);
     $headerFooterManager->setFooterText("Footer text");
     $headerFooterManager->setDateTimeText("Date and time text");
 
-    $presentation->save("Presentation.ppt", SaveFormat::Ppt);
+    $presentation->save("output-with-layout-footers.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
+## **在母版及其子布局上控制页脚可见性**
 
-## **为幻灯片设置子页脚的可见性**
+若需在整个母版层级中统一页脚设置，请使用[MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/zh/php-java/aspose.slides/masterslide/#getHeaderFooterManager)方法。[MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/zh/php-java/aspose.slides/masterslideheaderfootermanager/)的传播方法作用于母版、本层级的布局幻灯片以及普通幻灯片；它们不会只针对单个普通幻灯片。
 
-在 PowerPoint 演示文稿中，页脚元素（如日期、页码和自定义文本）可以在母版幻灯片级别进行控制，以确保所有布局幻灯片的一致性。Aspose.Slides for PHP 使您能够在母版幻灯片上设置这些页脚占位符的可见性和内容，并将这些设置传播到所有子布局幻灯片，从而在整个演示文稿中保持统一的页脚信息。
-
-1. 创建一个[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)类的实例。  
-2. 按索引获取母版幻灯片引用。  
-3. 将母版及其所有子页脚占位符设为可见。  
-4. 将母版及其所有子页码占位符设为可见。  
-5. 将母版及其所有子日期时间占位符设为可见。  
-6. 保存演示文稿。
-
-下面的 PHP 代码演示了此操作：
 ```php
-$presentation = new Presentation("presentation.ppt");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
 try {
     $headerFooterManager = $presentation->getMasters()->get_Item(0)->getHeaderFooterManager();
-
     $headerFooterManager->setFooterAndChildFootersVisibility(true);
     $headerFooterManager->setSlideNumberAndChildSlideNumbersVisibility(true);
     $headerFooterManager->setDateTimeAndChildDateTimesVisibility(true);
-
     $headerFooterManager->setFooterAndChildFootersText("Footer text");
     $headerFooterManager->setDateTimeAndChildDateTimesText("Date and time text");
 
-    $presentation->save("Output.pptx", SaveFormat::Pptx);
+    $presentation->save("output-with-master-footers.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
-
 
 ## **常见问题**
 
 **母版幻灯片和布局幻灯片有什么区别？**
 
-母版幻灯片定义整体主题和默认格式，而布局幻灯片为不同类型的内容定义特定的占位符排列。
+母版幻灯片定义演示文稿的主题和共享格式。布局幻灯片属于母版，用于定义可复用的占位符排列。普通幻灯片使用这些布局并存储特定于幻灯片的内容。
 
-**我能把布局幻灯片从一个演示文稿复制到另一个吗？**
+**我可以将布局幻灯片从一个演示文稿复制到另一个吗？**
 
-可以，您可以通过[getLayoutSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getLayoutSlides)方法访问的布局幻灯片集合克隆一个布局幻灯片，并使用`addClone`方法将其插入到另一个演示文稿中。
+可以。使用[addClone](https://reference.aspose.com/slides/zh/php-java/aspose.slides/globallayoutslidecollection/#addClone)方法将副本添加到目标集合。跨演示文稿复制时，还需检查字体、主题、图像及其他资源是否在源布局中使用。
 
-**如果我删除仍被幻灯片使用的布局幻灯片会怎样？**
+**当我修改已在使用的布局时会发生什么？**
 
-如果尝试删除仍被至少一张幻灯片引用的布局幻灯片，Aspose.Slides 将抛出[PptxEditException](https://reference.aspose.com/slides/php-java/aspose.slides/pptxeditexception/)。为避免此问题，请使用[removeUnusedLayoutSlides](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#removeUnusedLayoutSlides)，它只安全地删除未使用的布局幻灯片。
+依赖幻灯片会继承布局的更改，除非它们在本地覆盖了受影响的格式或对象。占位符的几何形状和继承的样式可能一次性在多张幻灯片上改变。编辑布局前，请使用[getDependingSlides](https://reference.aspose.com/slides/zh/php-java/aspose.slides/layoutslide/#getDependingSlides)确定受影响的幻灯片。
+
+**如果我删除仍在使用的布局会怎样？**
+
+Aspose.Slides 会抛出[PptxEditException](https://reference.aspose.com/slides/zh/php-java/aspose.slides/pptxeditexception/)。请先重新指派依赖的幻灯片，或使用[removeUnusedLayoutSlides](https://reference.aspose.com/slides/zh/php-java/aspose.slides/compress/#removeUnusedLayoutSlides)仅删除未被引用的布局。

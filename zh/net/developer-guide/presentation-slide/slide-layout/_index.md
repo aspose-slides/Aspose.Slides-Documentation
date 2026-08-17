@@ -1,5 +1,5 @@
 ---
-title: 在 C# 中应用或更改幻灯片布局
+title: 在 .NET 中应用或更改幻灯片布局
 linktitle: 幻灯片布局
 type: docs
 weight: 60
@@ -23,241 +23,223 @@ keywords:
 - 带标题的图片
 - 标题和垂直文本
 - 垂直标题和文本
+- PowerPoint
+- OpenDocument
+- 演示文稿
 - C#
 - .NET
 - Aspose.Slides
-description: "了解如何在 Aspose.Slides for .NET 中管理和自定义幻灯片布局。通过 C# 示例代码探索布局类型、占位符控制、页脚可见性以及布局操作。"
+description: "在 Aspose.Slides for .NET 中应用、创建和修改幻灯片布局，添加占位符，删除未使用的布局，并控制页脚可见性。"
 ---
+## **概览**
 
-## **概述**
+幻灯片布局定义了标题、文本、图片、图表和表格等占位符的位置和格式。应用布局可为幻灯片提供一致的结构，同时允许每张幻灯片包含其自己的内容。
 
-幻灯片布局定义了占位框的排列方式以及幻灯片内容的格式。它控制哪些占位符可用以及它们出现的位置。幻灯片布局帮助您快速且一致地设计演示文稿——无论是创建简单还是更复杂的内容。PowerPoint 中最常见的幻灯片布局包括：
+最常见的布局包括：
 
-**标题幻灯片布局** – 包含两个文本占位符：一个用于标题，另一个用于副标题。
+- **标题幻灯片**：包含标题和副标题占位符。
+- **标题和内容**：包含标题占位符和通用内容占位符。
+- **空白**：不包含内容占位符，适用于所有形状将手动定位的情况。
 
-**标题和内容布局** – 顶部有较小的标题占位符，下方有较大的内容占位符（如文本、项目符号、图表、图像等）。
+## **了解布局继承**
 
-**空白布局** – 不包含任何占位符，允许您从头自行设计幻灯片。
+演示文稿具有三个相关层级：
 
-幻灯片布局是母版幻灯片的一部分，母版幻灯片是定义演示文稿布局样式的顶层幻灯片。您可以通过母版幻灯片访问和修改布局幻灯片——可以按类型、名称或唯一 ID 进行操作。或者，您也可以直接在演示文稿中编辑特定的布局幻灯片。
+1. 一个[母版幻灯片](https://reference.aspose.com/slides/zh/net/aspose.slides/imasterslide/)定义主题、共享格式、背景和公共对象。
+2. 一个[布局幻灯片](https://reference.aspose.com/slides/zh/net/aspose.slides/ilayoutslide/)属于母版，定义特定的占位符排列。
+3. 一个[普通幻灯片](https://reference.aspose.com/slides/zh/net/aspose.slides/islide/)使用一种布局，并存储该幻灯片的内容。
 
-要在 Aspose.Slides for .NET 中使用幻灯片布局，您可以使用：
+普通幻灯片从其布局继承主题和格式，布局又从其母版继承。直接在普通幻灯片上设置的值会覆盖该层级继承的值。创建普通幻灯片时，其占位符形状会根据所选布局生成，而填入这些占位符的内容属于普通幻灯片。
 
-- 属性，例如 [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) 和 [Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) 位于 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类下
-- 类型，如 [ILayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslide/)、[IMasterLayoutSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterlayoutslidecollection/)、[ILayoutPlaceholderManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutplaceholdermanager/)、以及 [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslideheaderfootermanager/)
+在从布局创建幻灯片之前，请先向布局添加所需的占位符。以后向布局添加其他占位符不会自动在已有的普通幻灯片中添加相应的占位符形状。
 
-{{% alert title="Info" color="info" %}}
-要了解更多关于使用母版幻灯片的内容，请查看 [Slide Master](/slides/zh/net/slide-master/) 文章。
-{{% /alert %}}
+此关系有两个重要后果：
 
-## **向演示文稿添加幻灯片布局**
+- 更改布局上继承的格式或现有占位符的几何形状可以更新所有依赖于该布局的幻灯片。编辑已在使用的布局之前，请检查其依赖的幻灯片并查看生成的演示文稿。
+- 仍被幻灯片使用的布局无法删除。请先将其依赖的幻灯片重新分配到其他布局，或仅删除未使用的布局。
 
-为了自定义幻灯片的外观和结构，您可能需要向演示文稿添加新的布局幻灯片。Aspose.Slides for .NET 允许您检查特定布局是否已经存在，必要时添加新布局，并使用该布局插入幻灯片。
+有关此层级顶部的更多信息，请参阅[幻灯片母版](/slides/zh/net/slide-master/)。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类的实例。
-1. 访问 [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterlayoutslidecollection/)。
-1. 检查所需的布局幻灯片是否已经存在于集合中。如果不存在，添加所需的布局幻灯片。
-1. 基于新布局幻灯片添加一个空白幻灯片。
-1. 保存演示文稿。
+## **选择并应用幻灯片布局**
 
-以下 C# 代码演示了如何向 PowerPoint 演示文稿添加幻灯片布局：
-```cs
-// 实例化表示 PowerPoint 文件的 Presentation 类。
-using (Presentation presentation = new Presentation("Sample.pptx"))
+当演示文稿遵循标准 PowerPoint 布局定义时，请使用布局类型。布局名称可由用户编辑并可本地化，因此基于名称的选择不够可靠，除非您控制源模板。
+
+下面的示例在第一个母版上查找**标题和内容**。如果该布局不可用，则会有意回退到**空白**。第二个空检查是必要的，因为演示文稿可能仅包含自定义布局。随后通过[ISlide.LayoutSlide](https://reference.aspose.com/slides/zh/net/aspose.slides/islide/layoutslide/)属性将选定的布局应用于第一张普通幻灯片。
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var layoutSlides = presentation.Masters[0].LayoutSlides;
+var targetLayout = layoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? layoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (targetLayout == null)
 {
-    // 遍历布局幻灯片类型以选择布局幻灯片。
-    IMasterLayoutSlideCollection layoutSlides = presentation.Masters[0].LayoutSlides;
-    ILayoutSlide layoutSlide = layoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? layoutSlides.GetByType(SlideLayoutType.Title);
-
-    if (layoutSlide == null)
-    {
-        // 演示文稿不包含所有布局类型的情况。
-        // 演示文稿文件仅包含空白和自定义布局类型。
-        // 但是，具有自定义类型的布局幻灯片可能有可识别的名称，
-        // 如 “Title”、“Title and Content”等，可用于布局幻灯片选择。
-        // 你也可以依赖一组占位符形状类型。
-        // 例如，标题幻灯片应仅包含 Title 占位符类型，依此类推。
-        foreach (ILayoutSlide titleAndObjectLayoutSlide in layoutSlides)
-        {
-            if (titleAndObjectLayoutSlide.Name == "Title and Object")
-            {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null)
-        {
-            foreach (ILayoutSlide titleLayoutSlide in layoutSlides)
-            {
-                if (titleLayoutSlide.Name == "Title")
-                {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null)
-            {
-                layoutSlide = layoutSlides.GetByType(SlideLayoutType.Blank);
-                if (layoutSlide == null)
-                {
-                    layoutSlide = layoutSlides.Add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
-    }
-
-    // 使用添加的布局幻灯片插入一个空白幻灯片。
-    presentation.Slides.InsertEmptySlide(0, layoutSlide);
-
-    // 将演示文稿保存到磁盘。  
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The first master does not contain a suitable layout slide.");
 }
+
+presentation.Slides[0].LayoutSlide = targetLayout;
+presentation.Save("output-with-new-layout.pptx", SaveFormat.Pptx);
 ```
 
+更改幻灯片的布局不会删除直接添加到幻灯片的普通形状。然而，占位符位置、继承的格式以及现有占位符与新布局之间的对应关系可能会发生变化，因此在切换差异较大的布局时请检查输出。
 
-## **移除未使用的布局幻灯片**
+## **添加布局幻灯片**
 
-Aspose.Slides 在 [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) 类中提供了 [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) 方法，帮助您删除不需要且未使用的布局幻灯片。
+选择和创建是分开的操作。前面的示例仅选择了现有布局，并未创建新的。要创建布局，请在目标母版的布局集合上调用[IMasterLayoutSlideCollection.Add](https://reference.aspose.com/slides/zh/net/aspose.slides/masterlayoutslidecollection/add/)方法。
 
-以下 C# 代码展示了如何从 PowerPoint 演示文稿中移除布局幻灯片：
-```cs
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    Aspose.Slides.LowCode.Compress.RemoveUnusedLayoutSlides(presentation);
-    
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
-}
+下面的示例始终添加一个名为 `Report Title and Content` 的新**标题和内容**布局，然后基于该布局添加一张普通幻灯片。布局名称在集合中必须唯一。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var masterSlide = presentation.Masters[0];
+var reportLayout = masterSlide.LayoutSlides.Add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+presentation.Slides.AddEmptySlide(reportLayout);
+
+presentation.Save("output-with-report-layout.pptx", SaveFormat.Pptx);
 ```
 
+仅在模板确实需要另一个可重用结构时才添加布局。如果已存在合适的布局，请选择并复用，而不是创建重复的布局。
 
-## **向幻灯片布局添加占位符**
+## **向布局幻灯片添加占位符**
 
-Aspose.Slides 提供了 [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslide/placeholdermanager/) 属性，可用于向布局幻灯片添加新的占位符。
+[ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/zh/net/aspose.slides/ilayoutslide/placeholdermanager/)属性提供一个[ILayoutPlaceholderManager](https://reference.aspose.com/slides/zh/net/aspose.slides/ilayoutplaceholdermanager/)，用于向布局添加占位符形状。
 
-此管理器包含以下占位符类型的方法：
+| PowerPoint 占位符 | `ILayoutPlaceholderManager` Method |
+| ----------------------------------- | ---------------------------------- |
+| ![内容](content.png) | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh/net/aspose.slides/layoutplaceholdermanager/addcontentplaceholder/) |
+| ![内容（垂直）](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh/net/aspose.slides/layoutplaceholdermanager/addverticalcontentplaceholder/) |
+| ![文本](text.png) | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh/net/aspose.slides/layoutplaceholdermanager/addtextplaceholder/) |
+| ![文本（垂直）](textV.png) | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh/net/aspose.slides/layoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![图片](picture.png) | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh/net/aspose.slides/layoutplaceholdermanager/addpictureplaceholder/) |
+| ![图表](chart.png) | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh/net/aspose.slides/layoutplaceholdermanager/addchartplaceholder/) |
+| ![表格](table.png) | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh/net/aspose.slides/layoutplaceholdermanager/addtableplaceholder/) |
+| ![SmartArt](smartart.png) | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh/net/aspose.slides/layoutplaceholdermanager/addsmartartplaceholder/) |
+| ![媒体](media.png) | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh/net/aspose.slides/layoutplaceholdermanager/addmediaplaceholder/) |
+| ![在线图片](onlineImage.png) | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh/net/aspose.slides/layoutplaceholdermanager/addonlineimageplaceholder/) |
 
-| PowerPoint 占位符 | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutplaceholdermanager/) 方法 |
-| ------------------ | ------------------------------------------------------------ |
-| ![内容](content.png) | AddContentPlaceholder(float x, float y, float width, float height) |
-| ![内容（垂直）](contentV.png) | AddVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![文本](text.png) | AddTextPlaceholder(float x, float y, float width, float height) |
-| ![文本（垂直）](textV.png) | AddVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![图片](picture.png) | AddPicturePlaceholder(float x, float y, float width, float height) |
-| ![图表](chart.png) | AddChartPlaceholder(float x, float y, float width, float height) |
-| ![表格](table.png) | AddTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | AddSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![媒体](media.png) | AddMediaPlaceholder(float x, float y, float width, float height) |
-| ![在线图片](onlineimage.png) | AddOnlineImagePlaceholder(float x, float y, float width, float height) |
+下面的示例验证 **空白** 布局是否存在，向其添加四个占位符，然后创建使用该修改后布局的普通幻灯片。顺序有意为之：占位符在创建普通幻灯片之前添加，以便 Aspose.Slides 能在该幻灯片上生成相应的占位符形状。
 
-以下 C# 代码演示了如何向空白布局幻灯片添加新的占位符形状：
-```cs
-using (var presentation = new Presentation())
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (blankLayout == null)
 {
-    // 获取空白布局幻灯片。
-    ILayoutSlide layout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
-
-    // 获取布局幻灯片的占位符管理器。
-    ILayoutPlaceholderManager placeholderManager = layout.PlaceholderManager;
-
-    // 向空白布局幻灯片添加不同的占位符。
-    placeholderManager.AddContentPlaceholder(20, 20, 310, 270);
-    placeholderManager.AddVerticalTextPlaceholder(350, 20, 350, 270);
-    placeholderManager.AddChartPlaceholder(20, 310, 310, 180);
-    placeholderManager.AddTablePlaceholder(350, 310, 350, 180);
-
-    // 使用空白布局添加新幻灯片。
-    ISlide newSlide = presentation.Slides.AddEmptySlide(layout);
-
-    presentation.Save("Placeholders.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The presentation does not contain a Blank layout slide.");
 }
-```
 
+var placeholderManager = blankLayout.PlaceholderManager;
+placeholderManager.AddContentPlaceholder(20, 20, 310, 270);
+placeholderManager.AddVerticalTextPlaceholder(350, 20, 350, 270);
+placeholderManager.AddChartPlaceholder(20, 310, 310, 180);
+placeholderManager.AddTablePlaceholder(350, 310, 350, 180);
+
+presentation.Slides.AddEmptySlide(blankLayout);
+presentation.Save("output-with-placeholders.pptx", SaveFormat.Pptx);
+```
 
 结果：
 
 ![布局幻灯片上的占位符](add_placeholders.png)
 
-## **设置布局幻灯片的页脚可见性**
+{{% alert color="warning" title="Warning" %}}
+更改继承的格式或现有布局占位符的几何形状可能会影响依赖的幻灯片。新添加的布局占位符不会回填到已有的普通幻灯片中。请在演示文稿的副本上测试布局更改，并检查每个依赖的幻灯片。
+{{% /alert %}}
 
-在 PowerPoint 演示文稿中，日期、幻灯片编号和自定义文本等页脚元素可以根据幻灯片布局显示或隐藏。Aspose.Slides for .NET 允许您控制这些页脚占位符的可见性。此功能在希望某些布局显示页脚信息，而其他布局保持简洁时非常有用。
+## **删除未使用的布局幻灯片**
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类的实例。
-1. 按索引获取布局幻灯片的引用。
-1. 将幻灯片页脚占位符设为可见。
-1. 将幻灯片编号占位符设为可见。
-1. 将日期时间占位符设为可见。
-1. 保存演示文稿。
+使用[Compress.RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/zh/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/)方法删除未被任何普通幻灯片引用的布局。该方法会保留仍在使用中的布局。
 
-以下 C# 代码展示了如何设置幻灯片页脚的可见性以及相关操作：
-```cs
-using (Presentation presentation = new Presentation("Presentation.ppt"))
-{
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.LayoutSlides[0].HeaderFooterManager;
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.LowCode;
 
-    if (!headerFooterManager.IsFooterVisible)
-    {
-        headerFooterManager.SetFooterVisibility(true);
-    }
+using var presentation = new Presentation("input.pptx");
 
-    if (!headerFooterManager.IsSlideNumberVisible)
-    {
-        headerFooterManager.SetSlideNumberVisibility(true);
-    }
-
-    if (!headerFooterManager.IsDateTimeVisible)
-    {
-        headerFooterManager.SetDateTimeVisibility(true);
-    }
-
-    headerFooterManager.SetFooterText("Footer text");
-    headerFooterManager.SetDateTimeText("Date and time text");
-
-    presentation.Save("Presentation.ppt", SaveFormat.Ppt);
-}
+Compress.RemoveUnusedLayoutSlides(presentation);
+presentation.Save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
 ```
 
+要删除特定布局，首先使用其[HasDependingSlides](https://reference.aspose.com/slides/zh/net/aspose.slides/ilayoutslide/hasdependingslides/)属性或[GetDependingSlides](https://reference.aspose.com/slides/zh/net/aspose.slides/ilayoutslide/getdependingslides/)方法。在调用[ILayoutSlide.Remove](https://reference.aspose.com/slides/zh/net/aspose.slides/ilayoutslide/remove/)之前，请重新分配所有依赖的幻灯片。尝试删除正在使用的布局会抛出[PptxEditException](https://reference.aspose.com/slides/zh/net/aspose.slides/pptxeditexception/)。
 
-## **设置子幻灯片的页脚可见性**
+## **控制布局幻灯片的页脚可见性**
 
-在 PowerPoint 演示文稿中，日期、幻灯片编号和自定义文本等页脚元素可以在母版幻灯片层面进行控制，以确保所有布局幻灯片的一致性。Aspose.Slides for .NET 使您能够在母版幻灯片上设置这些页脚占位符的可见性和内容，并将这些设置传播到所有子布局幻灯片，从而在整个演示文稿中保持统一的页脚信息。
+布局拥有自己的页脚、幻灯片编号和日期时间占位符。使用[ILayoutSlide.HeaderFooterManager](https://reference.aspose.com/slides/zh/net/aspose.slides/ilayoutslide/headerfootermanager/)属性可为单个布局控制这些占位符。例如，内容布局应显示页脚，而标题布局则不应显示时，这非常有用。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类的实例。
-1. 按索引获取母版幻灯片的引用。
-1. 将母版及所有子页脚占位符设为可见。
-1. 将母版及所有子幻灯片编号占位符设为可见。
-1. 将母版及所有子日期时间占位符设为可见。
-1. 保存演示文稿。
+下面的示例安全地选择一个布局并使其页脚元素可见：
 
-以下 C# 代码演示了此操作：
-```cs
-using (Presentation presentation = new Presentation("Presentation.ppt"))
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var layoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (layoutSlide == null)
 {
-    IMasterSlideHeaderFooterManager headerFooterManager = presentation.Masters[0].HeaderFooterManager;
-
-    headerFooterManager.SetFooterAndChildFootersVisibility(true);
-    headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
-    headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
-
-    headerFooterManager.SetFooterAndChildFootersText("Footer text");
-    headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
-
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The presentation does not contain a suitable layout slide.");
 }
+
+var headerFooterManager = layoutSlide.HeaderFooterManager;
+headerFooterManager.SetFooterVisibility(true);
+headerFooterManager.SetSlideNumberVisibility(true);
+headerFooterManager.SetDateTimeVisibility(true);
+headerFooterManager.SetFooterText("Footer text");
+headerFooterManager.SetDateTimeText("Date and time text");
+
+presentation.Save("output-with-layout-footers.pptx", SaveFormat.Pptx);
 ```
 
+## **控制母版及其子布局的页脚可见性**
+
+要在母版层级中应用一致的页脚设置，请使用[IMasterSlide.HeaderFooterManager](https://reference.aspose.com/slides/zh/net/aspose.slides/imasterslide/headerfootermanager/)属性。[IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/zh/net/aspose.slides/imasterslideheaderfootermanager/)的传播方法作用于母版及其依赖的布局幻灯片和普通幻灯片；它们不会仅针对单个普通幻灯片。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var headerFooterManager = presentation.Masters[0].HeaderFooterManager;
+headerFooterManager.SetFooterAndChildFootersVisibility(true);
+headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
+headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
+headerFooterManager.SetFooterAndChildFootersText("Footer text");
+headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
+
+presentation.Save("output-with-master-footers.pptx", SaveFormat.Pptx);
+```
 
 ## **常见问题**
 
-**母版幻灯片和布局幻灯片有什么区别？**
+**母版幻灯片与布局幻灯片有何区别？**
 
-母版幻灯片定义整体主题和默认格式，而布局幻灯片为不同类型的内容定义占位符的具体排列方式。
+母版幻灯片定义演示文稿的主题和共享格式。布局幻灯片属于母版，定义一种可重复使用的占位符排列。普通幻灯片使用这些布局并存储特定于幻灯片的内容。
 
 **我可以将布局幻灯片从一个演示文稿复制到另一个吗？**
 
-可以，您可以从一个演示文稿的 [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) 集合中克隆布局幻灯片，然后使用 `AddClone` 方法将其插入到另一个演示文稿中。
+可以。使用[AddClone](https://reference.aspose.com/slides/zh/net/aspose.slides/globallayoutslidecollection/addclone/)方法将副本添加到目标集合中。在跨演示文稿复制时，还需检查源布局使用的字体、主题、图像及其他资源。
 
-**如果删除仍被幻灯片使用的布局幻灯片会怎样？**
+**当我修改已在使用的布局时会发生什么？**
 
-如果尝试删除仍被至少一张幻灯片引用的布局幻灯片，Aspose.Slides 将抛出 [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception/)。为避免此问题，请使用 [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/)，该方法仅安全地移除未使用的布局幻灯片。
+除非依赖的幻灯片在本地覆盖了受影响的格式或对象，否则它们会继承布局的更改。因此，占位符的几何形状和继承的样式可能会一次性在多个幻灯片上发生变化。编辑布局前，请使用[GetDependingSlides](https://reference.aspose.com/slides/zh/net/aspose.slides/ilayoutslide/getdependingslides/)确定受影响的幻灯片。
+
+**如果删除仍在使用的布局会怎样？**
+
+Aspose.Slides 会抛出[PptxEditException](https://reference.aspose.com/slides/zh/net/aspose.slides/pptxeditexception/)。请先重新分配依赖的幻灯片，或使用[RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/zh/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/)仅删除未被引用的布局。

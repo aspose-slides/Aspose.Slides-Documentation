@@ -1,268 +1,274 @@
 ---
-title: تطبيق أو تغيير تخطيط الشريحة في JavaScript
+title: تطبيق أو تغيير تخطيطات الشرائح في JavaScript
 linktitle: تخطيط الشريحة
 type: docs
 weight: 60
 url: /ar/nodejs-java/slide-layout/
 keywords:
-- تخطيط الشريحة
+- تخطيط الشرائح
 - تخطيط المحتوى
 - عنصر نائب
-- تصميم العرض التقديمي
+- تصميم العرض
 - تصميم الشريحة
 - تخطيط غير مستخدم
 - رؤية التذييل
 - شريحة العنوان
 - العنوان والمحتوى
-- رأس القسم
+- عنوان القسم
 - محتوى مزدوج
 - مقارنة
 - عنوان فقط
 - تخطيط فارغ
-- محتوى مع تسمية
-- صورة مع تسمية
-- العنوان والنص العمودي
+- محتوى مع توضيح
+- صورة مع توضيح
+- عنوان ونص عمودي
 - عنوان عمودي ونص
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "تعرّف على كيفية إدارة وتخصيص تخطيطات الشرائح في Aspose.Slides لـ Node.js. استكشف أنواع التخطيطات، التحكم في العناصر النائبة، رؤية التذييل، ومعالجة التخطيطات من خلال أمثلة برمجية بلغة JavaScript."
+description: "تطبيق وإنشاء وتعديل تخطيطات الشرائح في Aspose.Slides لـ Node.js عبر Java، إضافة عناصر نائب، إزالة التخطيطات غير المستخدمة، والتحكم في رؤية التذييل."
 ---
-
 ## **نظرة عامة**
 
-يحدد تخطيط الشريحة ترتيب مربعات العناصر النائبة وتنسيق المحتوى على الشريحة. يتحكم في العناصر النائبة المتاحة وأماكن ظهورها. تساعد تخطيطات الشرائح في تصميم العروض التقديمية بسرعة وبشكل متسق — سواء كنت تنشئ شيئًا بسيطًا أو أكثر تعقيدًا. بعض أكثر تخطيطات الشرائح شيوعًا في PowerPoint تشمل:
+يحدد تخطيط الشريحة مواضع وتنسيق العناصر النائبة مثل العناوين، النص، الصور، المخططات، والجداول. تطبيق تخطيط يمنح الشرائح بنية ثابتة مع السماح لكل شريحة باحتواء محتواها الخاص.
 
-**تخطيط شريحة العنوان** – يتضمن عنصرين نائبين للنص: أحدهما للعنوان والآخر للعنوان الفرعي.
+تشمل التخطيطات الأكثر شيوعًا:
 
-**تخطيط العنوان والمحتوى** – يحتوي على عنصر نائب للعنوان أصغر في الأعلى وآخر أكبر أسفله للمحتوى الرئيسي (مثل النص، النقاط، المخططات، الصور، والمزيد).
+- **شريحة العنوان**: تحتوي على عناصر نائب للعنوان والعنوان الفرعي.
+- **العنوان والمحتوى**: يحتوي على عنصر نائب للعنوان وعنصر نائب عام للمحتوى.
+- **فارغ**: لا يحتوي على عناصر نائب للمحتوى وهو مفيد عندما يتم وضع كل شكل يدويًا.
 
-**تخطيط فارغ** – لا يحتوي على أي عناصر نائبة، مما يمنحك السيطرة الكاملة لتصميم الشريحة من الصفر.
+## **فهم وراثة التخطيط**
 
-تعد تخطيطات الشرائح جزءًا من نموذج الشريحة (Slide Master)، وهو الشريحة العليا التي تحدد أنماط التخطيط للعرض التقديمي. يمكنك الوصول إلى تخطيطات الشرائح وتعديلها عبر نموذج الشريحة — إما حسب النوع أو الاسم أو المعرف الفريد. بدلاً من ذلك، يمكنك تحرير تخطيط شريحة محدد مباشرة داخل العرض التقديمي.
+للعرض التقديمي ثلاثة مستويات مرتبطة:
 
-للتعامل مع تخطيطات الشرائح في Aspose.Slides لـ Node.js، يمكنك استخدام:
+1. A [master slide](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/masterslide/) defines the theme, shared formatting, backgrounds, and common objects. => يحدد [شريحة رئيسية](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/masterslide/) السمة، التنسيق المشترك، الخلفيات، والكائنات العامة.
+1. A [layout slide](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/layoutslide/) belongs to a master and defines a particular arrangement of placeholders. => تنتمي [شريحة التخطيط](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/layoutslide/) إلى شريحة رئيسية وتحدد ترتيبًا معينًا لعناصر نائب.
+1. A [normal slide](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slide/) uses one layout and stores the content entered for that slide. => تستخدم [شريحة عادية](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slide/) تخطيطًا واحدًا وتخزن المحتوى المدخل لتلك الشريحة.
 
-- طرق مثل [getLayoutSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getLayoutSlides) و[getMasters](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getMasters) ضمن فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)
-- أنواع مثل [LayoutSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslide/)، [MasterLayoutSlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterlayoutslidecollection/)، [LayoutPlaceholderManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutplaceholdermanager/)، و[LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslideheaderfootermanager/)
+تُورث الشريحة العادية السمة والتنسيق من تخطيطها، ويورث التخطيط من شريحة رئيسية. القيمة التي تُعيّن مباشرةً على شريحة عادية تتجاوز القيمة الموروثة في ذلك المستوى. عند إنشاء شريحة عادية، تُنشأ أشكال العناصر النائبة من التخطيط المختار، بينما المحتوى المدخل في تلك العناصر النائبة يُنتمي إلى الشريحة العادية.
 
-{{% alert title="Info" color="info" %}}
-للتعرف على المزيد حول التعامل مع نماذج الشرائح، راجع مقالة [Slide Master](/slides/ar/nodejs-java/slide-master/).
-{{% /alert %}}
+أضف العناصر النائبة المطلوبة إلى تخطيط قبل إنشاء شرائح منه. إضافة عنصر نائب آخر إلى التخطيط لاحقًا لا يضيف بشكل تلقائي شكل عنصر نائب مماثل إلى الشرائح العادية الموجودة.
 
-## **إضافة تخطيطات شرائح إلى العروض التقديمية**
+لِهذه العلاقة نتيجتان مهمتان:
 
-لتخصيص مظهر وهيكل الشرائح الخاصة بك، قد تحتاج إلى إضافة تخطيطات شرائح جديدة إلى العرض التقديمي. يتيح لك Aspose.Slides لـ Node.js التحقق مما إذا كان تخطيط معين موجودًا بالفعل، إضافة تخطيط جديد إذا لزم الأمر، واستخدامه لإدراج شرائح بناءً على ذلك التخطيط.
+- قد يؤدي تغيير التنسيق الموروث أو هندسة عنصر نائب موجود في التخطيط إلى تحديث كل الشريحة التي تعتمد عليه. قبل تعديل تخطيط يتم استخدامه بالفعل، افحص الشرائح التابعة له وراجع العرض الناتج.
+- لا يمكن إزالة تخطيط لا يزال مستخدمًا من قبل شريحة. أعد تعيين الشرائح التابعة له إلى تخطيط آخر أولاً، أو احذف فقط التخطيطات غير المستخدمة.
 
-1. أنشئ كائنًا من فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-1. احصل على مجموعة [MasterLayoutSlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterlayoutslidecollection/).
-1. تحقق مما إذا كان تخطيط الشريحة المطلوب موجودًا بالفعل في المجموعة. إذا لم يكن موجودًا، أضف تخطيط الشريحة الذي تحتاجه.
-1. أضف شريحة فارغة تعتمد على تخطيط الشريحة الجديد.
-1. احفظ العرض التقديمي.
+لمزيد من المعلومات حول المستوى العلوي من هذه الهيكلية، راجع [Slide Master](/slides/ar/nodejs-java/slide-master/).
 
-الكود JavaScript التالي يوضح كيفية إضافة تخطيط شريحة إلى عرض PowerPoint:
-```js
-// إنشاء كائن من فئة Presentation الذي يمثل ملف PowerPoint.
-let presentation = new aspose.slides.Presentation("Sample.pptx");
+## **اختيار وتطبيق تخطيط الشريحة**
+
+استخدم قيمة [SlideLayoutType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slidelayouttype/) عندما يتبع العرض تعريفات تخطيط PowerPoint القياسية. أسماء التخطيطات قابلة للتحرير من قبل المستخدم ويمكن ترجمتها، لذا فإن الاختيار القائم على الاسم أقل موثوقية ما لم تتحكم في قالب المصدر.
+
+المثال التالي يبحث عن **العنوان والمحتوى** على أول شريحة رئيسية. إذا لم يتوفر هذا التخطيط، يتم الرجوع عمدًا إلى **فارغ**. الفحص الثاني للـnull ضروري لأن العرض قد يحتوي فقط على تخطيطات مخصصة. ثم يُطبق التخطيط المختار على أول شريحة عادية عبر طريقة [Slide.setLayoutSlide](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slide/#setLayoutSlide).
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // المرور عبر أنواع شرائح التخطيط لاختيار شريحة تخطيط.
     let layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
-    let layoutSlide = null;
-    if (layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject)) != null) {
-        layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject));
-    } else {
-        layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.Title));
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let targetLayout = layoutSlides.getByType(titleAndObjectLayoutType);
+
+    if (targetLayout === null) {
+        targetLayout = layoutSlides.getByType(blankLayoutType);
     }
 
-    if (layoutSlide == null) {
-        // حالة حيث لا يحتوي العرض التقديمي على جميع أنواع التخطيط.
-        // ملف العرض التقديمي يحتوي فقط على نوعي التخطيط Blank و Custom.
-        // ومع ذلك، قد تحتوي شرائح التخطيط ذات الأنواع المخصصة على أسماء يمكن التعرف عليها،
-        // مثل "Title"، "Title and Content"، إلخ، والتي يمكن استخدامها لاختيار شريحة التخطيط.
-        // يمكنك أيضًا الاعتماد على مجموعة من أنواع الأشكال النائبة.
-        // على سبيل المثال، يجب أن تحتوي شريحة العنوان فقط على نوع العنصر النائب Title، وما إلى ذلك.
-        for (let i = 0; i < layoutSlides.size(); i++) {
-            let titleAndObjectLayoutSlide = layoutSlides.get_Item(i);
-            if (titleAndObjectLayoutSlide.getName() === "Title and Object") {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null) {
-            for (let i = 0; i < layoutSlides.size(); i++) {
-                let titleLayoutSlide = layoutSlides.get_Item(i);
-                if (titleLayoutSlide.getName() === "Title") {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
-                if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject), "Title and Object");
-                }
-            }
-        }
+    if (targetLayout === null) {
+        throw new Error("The first master does not contain a suitable layout slide.");
     }
 
-    // إضافة شريحة فارغة باستخدام شريحة التخطيط المضافة.
-    presentation.getSlides().insertEmptySlide(0, layoutSlide);
-
-    // حفظ العرض التقديمي إلى القرص.
-    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.getSlides().get_Item(0).setLayoutSlide(targetLayout);
+    presentation.save("output-with-new-layout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+تغيير تخطيط الشريحة لا يزيل الأشكال العادية التي أضيفت مباشرةً إلى الشريحة. ومع ذلك، قد تتغير مواضع العناصر النائبة، التنسيق الموروث، والارتباط بين العناصر النائبة الحالية والتخطيط الجديد، لذا يجب فحص المخرجات عند التحول بين تخطيطات مختلفة اختلافًا كبيرًا.
 
-## **إزالة تخطيطات الشرائح غير المستخدمة**
+## **إضافة شريحة تخطيط**
 
-يوفر Aspose.Slides الطريقة [removeUnusedLayoutSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) من فئة [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/) للسماح لك بحذف تخطيطات الشرائح غير المرغوب فيها وغير المستخدمة.
+الاختيار والإنشاء عمليتان منفصلتان. المثال السابق يختار تخطيطًا موجودًا؛ لا ينشئ واحدًا. لإنشاء تخطيط، استدع طريقة [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/masterlayoutslidecollection/#add) على مجموعة تخطيطات الشريحة الرئيسة المستهدفة.
 
-الكود JavaScript التالي يوضح كيفية إزالة تخطيط شريحة من عرض PowerPoint:
-```js
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+المثال التالي يضيف دائمًا تخطيطًا جديدًا **العنوان والمحتوى** باسم `Report Title and Content`، ثم يضيف شريحة عادية تعتمد عليه. يجب أن تكون أسماء التخطيطات فريدة داخل المجموعة.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    aspose.slides.Compress.removeUnusedLayoutSlides(presentation);
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let reportLayout = masterSlide.getLayoutSlides().add(titleAndObjectLayoutType, "Report Title and Content");
+    presentation.getSlides().addEmptySlide(reportLayout);
+
+    presentation.save("output-with-report-layout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+أضف تخطيطًا فقط عندما يحتاج القالب إلى بنية قابلة لإعادة الاستخدام أخرى. إذا كان هناك تخطيط مناسب بالفعل، فاختره واستخدمه بدلاً من إنشاء نسخة مكررة.
 
-## **إضافة عناصر نائبة إلى تخطيطات الشرائح**
+## **إضافة عناصر نائب إلى شريحة التخطيط**
 
-يوفر Aspose.Slides الطريقة [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager) التي تتيح لك إضافة عناصر نائبة جديدة إلى تخطيط الشريحة.
+توفر طريقة [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager) كائنًا من نوع [LayoutPlaceholderManager](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/layoutplaceholdermanager/) لإضافة أشكال عناصر نائب إلى التخطيط.
 
-هذا المدير يحتوي على طرق لأنواع العناصر النائبة التالية:
+| عنصر نائب في PowerPoint | طريقة `LayoutPlaceholderManager` |
+| ----------------------- | -------------------------------- |
+| ![المحتوى](content.png) | [`addContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![المحتوى (عمودي)](contentV.png) | [`addVerticalContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![نص](text.png) | [`addTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![نص (عمودي)](textV.png) | [`addVerticalTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![صورة](picture.png) | [`addPicturePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![مخطط](chart.png) | [`addChartPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![جدول](table.png) | [`addTablePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![وسائط](media.png) | [`addMediaPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![صورة عبر الإنترنت](onlineImage.png) | [`addOnlineImagePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-| عنصر نائب في PowerPoint | طريقة [LayoutPlaceholderManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutplaceholdermanager/) |
-| ----------------------- | ------------------------------------------------------------ |
-| ![Content](content.png) | addContentPlaceholder(float x, float y, float width, float height) |
-| ![Content (Vertical)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Text](text.png) | addTextPlaceholder(float x, float y, float width, float height) |
-| ![Text (Vertical)](textV.png) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Picture](picture.png) | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![Chart](chart.png) | addChartPlaceholder(float x, float y, float width, float height) |
-| ![Table](table.png) | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Media](media.png) | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![Online Image](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+البرنامج التالي يتحقق من وجود تخطيط **فارغ**، يضيف أربعة عناصر نائب إليه، ثم ينشئ شريحة عادية تستخدم التخطيط المعدل. الترتيب مقصود: تُضاف العناصر النائبة قبل إنشاء الشريحة العادية، بحيث يمكن Aspose.Slides توليد أشكال العناصر النائبة المقابلة على تلك الشريحة.
 
-الكود JavaScript التالي يوضح كيفية إضافة أشكال عناصر نائبة جديدة إلى تخطيط الشريحة الفارغة:
-```js
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation();
 try {
-    // احصل على شريحة التخطيط الفارغة.
-    let layout = presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let blankLayout = presentation.getLayoutSlides().getByType(blankLayoutType);
 
-    // احصل على مدير العناصر النائبة لشريحة التخطيط.
-    let placeholderManager = layout.getPlaceholderManager();
+    if (blankLayout === null) {
+        throw new Error("The presentation does not contain a Blank layout slide.");
+    }
 
-    // أضف عناصر نائبة مختلفة إلى شريحة التخطيط الفارغة.
+    let placeholderManager = blankLayout.getPlaceholderManager();
     placeholderManager.addContentPlaceholder(20, 20, 310, 270);
     placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
     placeholderManager.addChartPlaceholder(20, 310, 310, 180);
     placeholderManager.addTablePlaceholder(350, 310, 350, 180);
 
-    // أضف شريحة جديدة باستخدام التخطيط الفارغ.
-    let newSlide = presentation.getSlides().addEmptySlide(layout);
-
-    presentation.save("Placeholders.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.getSlides().addEmptySlide(blankLayout);
+    presentation.save("output-with-placeholders.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
-
 
 النتيجة:
 
-![العناصر النائبة على تخطيط الشريحة](add_placeholders.png)
+![عناصر نائب على شريحة التخطيط](add_placeholders.png)
 
-## **تعيين رؤية تذييل الشريحة لتخطيط معين**
+{{% alert color="warning" title="Warning" %}}
+تغيير التنسيق الموروث أو هندسة عناصر نائب التخطيط الموجودة يمكن أن يؤثر على الشرائح التابعة. عنصر نائب تخطيط مضاف حديثًا لا يُملأ تلقائيًا في الشرائح العادية الموجودة. اختبر تغييرات التخطيط على نسخة من العرض وراجع كل شريحة تابعة.
+{{% /alert %}}
 
-في عروض PowerPoint، يمكن إظهار أو إخفاء عناصر التذييل مثل التاريخ ورقم الشريحة والنص المخصص اعتمادًا على تخطيط الشريحة. يتيح لك Aspose.Slides لـ Node.js التحكم في رؤية هذه العناصر النائبة للتذييل. هذا مفيد عندما تريد أن تعرض بعض التخطيطات معلومات التذييل بينما تبقى أخرى نظيفة وبسيطة.
+## **إزالة شرائح التخطيط غير المستخدمة**
 
-1. أنشئ كائنًا من فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-1. احصل على مرجع لتخطيط الشريحة عبر فهرسته.
-1. اضبط عنصر التذييل في الشريحة ليكون مرئيًا.
-1. اضبط عنصر رقم الشريحة ليكون مرئيًا.
-1. اضبط عنصر التاريخ والوقت ليكون مرئيًا.
-1. احفظ العرض التقديمي.
+استخدم طريقة [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) لإزالة التخطيطات التي لا تشير إليها أي شريحة عادية. تُبقي الطريقة التخطيطات التي لا تزال قيد الاستخدام كما هي.
 
-الكود JavaScript التالي يوضح كيفية تعيين رؤية تذييل الشريحة وتنفيذ المهام المرتبطة:
-```js
-let presentation = new aspose.slides.Presentation("Presentation.ppt");
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    let headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
+    aspose.slides.Compress.removeUnusedLayoutSlides(presentation);
+    presentation.save("output-without-unused-layouts.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-    if (!headerFooterManager.isFooterVisible()) {
-        headerFooterManager.setFooterVisibility(true);
+لإزالة تخطيط محدد، استخدم أولاً طريقة [hasDependingSlides](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/layoutslide/#hasDependingSlides) أو [getDependingSlides](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/layoutslide/#getDependingSlides). أعد تعيين أي شرائح تابعة قبل استدعاء [LayoutSlide.remove](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/layoutslide/#remove). محاولة إزالة تخطيط مستخدم تُسبب استثناءً من نوع [PptxEditException](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pptxeditexception/).
+
+## **التحكم في ظهور تذييل الصفحة على شريحة التخطيط**
+
+للتخطيط تذييل خاص به، رقم شريحة، وعناصر نائب للوقت والتاريخ. استخدم طريقة [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/layoutslide/#getHeaderFooterManager) للتحكم في تلك العناصر النائبة لتخطيط واحد. هذا مفيد عندما يجب أن تُظهر تخطيطات المحتوى تذييلات بينما لا تُظهر تخطيطات العناوين ذلك.
+
+المثال التالي يختار تخطيطًا بأمان ويجعل عناصر التذييل الخاصة به مرئية:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let layoutSlide = presentation.getLayoutSlides().getByType(titleAndObjectLayoutType);
+
+    if (layoutSlide === null) {
+        layoutSlide = presentation.getLayoutSlides().getByType(blankLayoutType);
     }
 
-    if (!headerFooterManager.isSlideNumberVisible()) {
-        headerFooterManager.setSlideNumberVisibility(true);
+    if (layoutSlide === null) {
+        throw new Error("The presentation does not contain a suitable layout slide.");
     }
 
-    if (!headerFooterManager.isDateTimeVisible()) {
-        headerFooterManager.setDateTimeVisibility(true);
-    }
-
+    let headerFooterManager = layoutSlide.getHeaderFooterManager();
+    headerFooterManager.setFooterVisibility(true);
+    headerFooterManager.setSlideNumberVisibility(true);
+    headerFooterManager.setDateTimeVisibility(true);
     headerFooterManager.setFooterText("Footer text");
     headerFooterManager.setDateTimeText("Date and time text");
 
-    presentation.save("Presentation.ppt", aspose.slides.SaveFormat.Ppt);
+    presentation.save("output-with-layout-footers.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+## **التحكم في ظهور تذييل الصفحة على الشريحة الرئيسية وتخطيطاتها الفرعية**
 
-## **تعيين رؤية تذييل العنصر الفرعي لشريحة**
+لتطبيق إعدادات تذييل موحدة عبر هيكلية الشريحة الرئيسية، استخدم طريقة [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/masterslide/#getHeaderFooterManager). طرق النشر في [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/masterslideheaderfootermanager/) تعمل على الشريحة الرئيسية وتخطيطاتها الفرعية والشرائح العادية؛ ولا تستهدف شريحة عادية واحدة فقط.
 
-​في عروض PowerPoint، يمكن التحكم في عناصر التذييل مثل التاريخ ورقم الشريحة والنص المخصص على مستوى نموذج الشريحة لضمان التناسق عبر جميع تخطيطات الشرائح. يتيح لك Aspose.Slides لـ Node.js تعيين رؤية ومحتوى هذه العناصر النائبة للتذييل على نموذج الشريحة ونشر هذه الإعدادات إلى جميع تخطيطات الشرائح الفرعية. يضمن هذا النهج توحيد معلومات التذييل في جميع أنحاء العرض التقديمي.​
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
 
-1. أنشئ كائنًا من فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-1. احصل على مرجع لنموذج الشريحة عبر فهرسته.
-1. اضبط جميع عناصر التذييل في النموذج وجميع التخطيطات الفرعية لتكون مرئية.
-1. اضبط جميع عناصر رقم الشريحة في النموذج وجميع التخطيطات الفرعية لتكون مرئية.
-1. اضبط جميع عناصر التاريخ والوقت في النموذج وجميع التخطيطات الفرعية لتكون مرئية.
-1. احفظ العرض التقديمي.
-
-الكود JavaScript التالي يوضح هذه العملية:
-```js
-let presentation = new aspose.slides.Presentation("Presentation.ppt");
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
     let headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-
     headerFooterManager.setFooterAndChildFootersVisibility(true);
     headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
     headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
-
     headerFooterManager.setFooterAndChildFootersText("Footer text");
     headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
 
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("output-with-master-footers.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+## **الأسئلة المتكررة**
 
-## **الأسئلة المتداولة**
+**ما الفرق بين الشريحة الرئيسية وشريحة التخطيط؟**
 
-**ما الفرق بين نموذج الشريحة وتخطيط الشريحة؟**
+تُعرّف الشريحة الرئيسية سمة العرض وتنسيقها المشترك. شريحة التخطيط تنتمي إلى شريحة رئيسية وتحدد ترتيبًا قابلاً لإعادة الاستخدام لعناصر نائب. تستخدم الشرائح العادية تلك التخطيطات وتخزن محتوى كل شريحة على حدة.
 
-يحدد نموذج الشريحة السمة العامة وتنسيق القيم الافتراضية، بينما تحدد تخطيطات الشرائح ترتيبًا محددًا للعناصر النائبة لأنواع المحتوى المختلفة.
+**هل يمكنني نسخ شريحة تخطيط من عرض تقديمي إلى آخر؟**
 
-**هل يمكنني نسخ تخطيط شريحة من عرض تقديمي إلى آخر؟**
+نعم. أضف نسخة إلى مجموعة الهدف باستخدام طريقة [addClone](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/globallayoutslidecollection/#addClone). عند النسخ بين عروض تقديمية، تحقق أيضًا من الخطوط، السمات، الصور، وغيرها من الموارد المستخدمة في التخطيط المصدر.
 
-نعم، يمكنك استنساخ تخطيط شريحة من مجموعة تخطيطات عرض تقديمي باستخدام طريقة [getLayoutSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getLayoutSlides)، ثم إدراجها في عرض تقديمي آخر باستخدام الطريقة `addClone`.
+**ماذا يحدث عندما أقوم بتعديل تخطيط قيد الاستخدام؟**
 
-**ماذا يحدث إذا حذفت تخطيط شريحة لا يزال مستخدمًا بواسطة شريحة؟**
+تُورّث الشرائح التابعة تغييرات التخطيط ما لم تقم بتجاوز التنسيق أو الكائنات المتأثرة محليًا. قد تتغير هندسة العناصر النائبة والتنسيق الموروث على العديد من الشرائح دفعة واحدة. استخدم طريقة [getDependingSlides](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/layoutslide/#getDependingSlides) لتحديد الشرائح المتأثرة قبل تعديل التخطيط.
 
-إذا حاولت حذف تخطيط شريحة لا يزال مُشارًًا إليه من قبل شريحة واحدة على الأقل في العرض التقديمي، سيُطلق Aspose.Slides استثناءً من نوع [PptxEditException](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pptxeditexception/). لتجنب ذلك، استخدم طريقة [removeUnusedLayoutSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) التي تزيل بأمان فقط تخطيطات الشرائح غير المستخدمة.
+**ماذا يحدث إذا قمت بإزالة تخطيط لا يزال قيد الاستخدام؟**
+
+يرمي Aspose.Slides استثناءً من نوع [PptxEditException](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pptxeditexception/). أعد تعيين الشرائح التابعة أولاً، أو استخدم طريقة [removeUnusedLayoutSlides](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) لإزالة التخطيطات غير المشار إليها فقط.

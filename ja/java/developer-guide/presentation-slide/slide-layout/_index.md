@@ -11,7 +11,7 @@ keywords:
 - プレゼンテーションデザイン
 - スライドデザイン
 - 未使用レイアウト
-- フッター表示
+- フッターの表示
 - タイトルスライド
 - タイトルとコンテンツ
 - セクションヘッダー
@@ -28,241 +28,228 @@ keywords:
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java でスライドレイアウトを管理およびカスタマイズします。レイアウトタイプ、プレースホルダー制御、フッター表示を Java のコード例で確認できます。"
+description: "Aspose.Slides for Java でスライドレイアウトを適用、作成、変更し、プレースホルダーを追加、未使用レイアウトを削除、フッターの表示を制御します。"
 ---
-
 ## **概要**
 
-スライドレイアウトは、スライド上のプレースホルダーボックスの配置とコンテンツの書式設定を定義します。利用可能なプレースホルダーとその表示位置を制御します。スライドレイアウトを使用すると、シンプルなものから複雑なものまで、プレゼンテーションを迅速かつ一貫してデザインできます。PowerPoint で最も一般的なスライドレイアウトは次のとおりです。
+スライドレイアウトは、タイトル、テキスト、画像、チャート、テーブルなどのプレースホルダーの位置と書式設定を定義します。レイアウトを適用すると、スライド全体に一貫した構造が与えられ、各スライドは独自のコンテンツを保持できます。
 
-**Title Slide layout** – タイトル用プレースホルダーとサブタイトル用プレースホルダーの 2 つが含まれます。
+最も一般的なレイアウトは次のとおりです：
 
-**Title and Content layout** – 上部に小さなタイトルプレースホルダー、下部にテキスト、箇条書き、チャート、画像などのメインコンテンツ用の大きなプレースホルダーが配置されます。
+- **タイトル スライド**: タイトルとサブタイトルのプレースホルダーが含まれます。
+- **タイトルとコンテンツ**: タイトルのプレースホルダーと汎用コンテンツプレースホルダーが含まれます。
+- **空白**: コンテンツプレースホルダーがなく、すべての形状を手動で配置する場合に便利です。
 
-**Blank layout** – プレースホルダーがなく、スライドを一から設計するための完全なコントロールが提供されます。
+## **レイアウト継承の理解**
 
-スライドレイアウトはスライドマスターの一部であり、プレゼンテーション全体のレイアウトスタイルを定義する最上位スライドです。スライドマスターを通じてレイアウトスライドにアクセスし、種類、名前、または一意の ID で変更できます。または、プレゼンテーション内で特定のレイアウトスライドを直接編集することも可能です。
+プレゼンテーションには、次の3つの関連レベルがあります：
 
-Aspose.Slides for Java でスライドレイアウトを操作するには、次を使用します。
+1. A [master slide](https://reference.aspose.com/slides/ja/java/com.aspose.slides/imasterslide/) はテーマ、共有書式設定、背景、共通オブジェクトを定義します。
+1. A [layout slide](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilayoutslide/) はマスターに属し、特定のプレースホルダー配置を定義します。
+1. A [normal slide](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islide/) は1つのレイアウトを使用し、そのスライドに入力されたコンテンツを保存します。
 
-- [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスの [getLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getLayoutSlides--) と [getMasters](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) メソッド
-- [ILayoutSlide](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutslide/)、[IMasterLayoutSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/imasterlayoutslidecollection/)、[ILayoutPlaceholderManager](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutplaceholdermanager/)、[ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutslideheaderfootermanager/) などの型
+標準スライドはレイアウトからテーマと書式設定を継承し、レイアウトはマスターから継承します。標準スライド上で直接設定された値は、そのレベルで継承された値を上書きします。標準スライドが作成されると、選択されたレイアウトからプレースホルダー形状が生成され、プレースホルダーに入力されたコンテンツは標準スライドに属します。
 
-{{% alert title="Info" color="info" %}}
-マスタースライドの操作方法の詳細については、[Slide Master](/slides/ja/java/slide-master/) 記事をご覧ください。
-{{% /alert %}}
+レイアウトからスライドを作成する前に、必要なプレースホルダーをレイアウトに追加してください。後からレイアウトに別のプレースホルダーを追加しても、既存の標準スライドに対応するプレースホルダー形状は自動的に追加されません。
 
-## **プレゼンテーションへのスライドレイアウトの追加**
+この関係には 2 つの重要な結果があります：
 
-スライドの外観と構造をカスタマイズするために、新しいレイアウトスライドをプレゼンテーションに追加する必要があります。Aspose.Slides for Java は、特定のレイアウトが既に存在するかどうかを確認し、必要に応じて新規作成し、そのレイアウトに基づいてスライドを挿入する機能を提供します。
+- レイアウト上の継承された書式設定や既存プレースホルダーのジオメトリを変更すると、該当レイアウトに依存するすべてのスライドが更新される可能性があります。使用中のレイアウトを編集する前に、依存スライドを確認し、結果のプレゼンテーションをレビューしてください。
+- スライドで使用中のレイアウトは削除できません。先に依存スライドを別のレイアウトに再割り当てするか、未使用のレイアウトだけを削除してください。
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/imasterlayoutslidecollection/) にアクセスします。
-1. コレクション内に目的のレイアウトスライドが既に存在するか確認します。存在しない場合は必要なレイアウトスライドを追加します。
-1. 新しいレイアウトスライドに基づく空のスライドを追加します。
-1. プレゼンテーションを保存します。
+この階層の最上位レベルの詳細については、[Slide Master](/slides/ja/java/slide-master/) を参照してください。
 
-以下の Java コードは、PowerPoint プレゼンテーションにスライドレイアウトを追加する方法を示しています。
+## **スライドレイアウトの選択と適用**
+
+プレゼンテーションが標準的な PowerPoint レイアウト定義に従っている場合にレイアウトタイプを使用します。レイアウト名はユーザーが編集可能でローカライズできるため、ソーステンプレートを管理していない限り名前ベースの選択はあまり信頼できません。
+
+次の例は最初のマスター上で **Title and Content** を探します。そのレイアウトが利用できない場合は意図的に **Blank** にフォールバックします。2 番目の null チェックは、プレゼンテーションにカスタムレイアウトしか含まれない可能性があるために必要です。選択されたレイアウトは、[ISlide.setLayoutSlide](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-) メソッドを介して最初の標準スライドに適用されます。
+
 ```java
-// PowerPoint ファイルを表す Presentation クラスのインスタンスを作成します。
-Presentation presentation = new Presentation("Sample.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // レイアウトスライドの種類を順に確認し、レイアウトスライドを選択します。
     IMasterLayoutSlideCollection layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
-    ILayoutSlide layoutSlide = null;
-    if (layoutSlides.getByType(SlideLayoutType.TitleAndObject) != null)
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
-    else
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.Title);
+    ILayoutSlide targetLayout = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
 
-    if (layoutSlide == null) {
-        // プレゼンテーションにすべてのレイアウトタイプが含まれていない状況です。
-        // プレゼンテーションファイルには Blank と Custom のレイアウトタイプのみが含まれています。
-        // ただし、カスタムタイプのレイアウトスライドは認識可能な名前を持つ場合があります、
-        // 例えば "Title"、"Title and Content" などで、レイアウトスライドの選択に使用できます。
-        // プレースホルダー形状の種類セットに依存することもできます。
-        // 例として、Title スライドは Title プレースホルダーのみを持つべきです、など。
-        for (ILayoutSlide titleAndObjectLayoutSlide : layoutSlides) {
-            if (titleAndObjectLayoutSlide.getName().equals("Title and Object")) {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null) {
-            for (ILayoutSlide titleLayoutSlide : layoutSlides) {
-                if (titleLayoutSlide.getName().equals("Title")) {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(SlideLayoutType.Blank);
-                if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
+    if (targetLayout == null) {
+        targetLayout = layoutSlides.getByType(SlideLayoutType.Blank);
     }
 
-    // 追加したレイアウトスライドを使用して空のスライドを追加します。
-    presentation.getSlides().insertEmptySlide(0, layoutSlide);
+    if (targetLayout == null) {
+        throw new IllegalStateException("The first master does not contain a suitable layout slide.");
+    }
 
-    // プレゼンテーションをディスクに保存します。
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    presentation.getSlides().get_Item(0).setLayoutSlide(targetLayout);
+    presentation.save("output-with-new-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+スライドのレイアウトを変更しても、スライドに直接追加された普通のシェイプは削除されません。ただし、プレースホルダー位置、継承された書式設定、および既存プレースホルダーと新レイアウト間の対応関係が変わる可能性があるため、レイアウトが大きく異なる場合は出力を必ず確認してください。
 
-## **未使用レイアウトスライドの削除**
+## **レイアウトスライドの追加**
 
-Aspose.Slides は、[Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/) クラスの [removeUnusedLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) メソッドを提供し、不要または未使用のレイアウトスライドを削除できます。
+選択と作成は別々の操作です。前の例は既存のレイアウトを選択しただけで、作成は行っていません。レイアウトを作成するには、対象マスターのレイアウトコレクション上で [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/ja/java/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) メソッドを呼び出します。
 
-以下の Java コードは、PowerPoint プレゼンテーションからレイアウトスライドを削除する方法を示しています。
+次の例は常に新しい **Title and Content** レイアウト `Report Title and Content` を追加し、そのレイアウトを基に標準スライドを追加します。レイアウト名はコレクション内で一意である必要があります。
+
 ```java
-Presentation presentation = new Presentation("Presentation.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    Compress.removeUnusedLayoutSlides(presentation);
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide reportLayout = masterSlide.getLayoutSlides().add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+    presentation.getSlides().addEmptySlide(reportLayout);
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-report-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+テンプレートが実際に別の再利用可能構造を必要とする場合にのみレイアウトを追加してください。適切なレイアウトがすでに存在する場合は、重複作成せずに選択して再利用してください。
 
-## **スライドレイアウトへのプレースホルダーの追加**
+## **レイアウトスライドへのプレースホルダーの追加**
 
-Aspose.Slides は、[ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) メソッドを提供し、レイアウトスライドに新しいプレースホルダーを追加できます。
+[ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) メソッドは、レイアウトにプレースホルダー形状を追加するための [ILayoutPlaceholderManager](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilayoutplaceholdermanager/) を提供します。
 
-このマネージャーには、次のプレースホルダータイプに対応するメソッドがあります。
-
-| PowerPoint プレースホルダー | ILayoutPlaceholderManager メソッド |
+| PowerPoint プレースホルダー | `ILayoutPlaceholderManager` メソッド |
 | --------------------------- | ----------------------------------- |
-| ![コンテンツ](content.png) | addContentPlaceholder(float x, float y, float width, float height) |
-| ![コンテンツ (縦)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![テキスト](text.png) | addTextPlaceholder(float x, float y, float width, float height) |
-| ![テキスト (縦)](textV.png) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![画像](picture.png) | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![チャート](chart.png) | addChartPlaceholder(float x, float y, float width, float height) |
-| ![表](table.png) | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![メディア](media.png) | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![オンライン画像](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| ![コンテンツ](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
+| ![コンテンツ (縦)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
+| ![テキスト](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
+| ![テキスト (縦)](textV.png) | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalTextPlaceholder-float-float-float-float-) |
+| ![画像](picture.png) | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
+| ![チャート](chart.png) | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
+| ![テーブル](table.png) | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
+| ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilayoutplaceholdermanager/#addSmartArtPlaceholder-float-float-float-float-) |
+| ![メディア](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
+| ![オンライン画像](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
 
-以下の Java コードは、Blank レイアウトスライドに新しいプレースホルダーシェイプを追加する方法を示しています。
+次の例は **Blank** レイアウトが存在することを確認し、4 つのプレースホルダーを追加した後、変更されたレイアウトを使用する標準スライドを作成します。順序は意図的で、プレースホルダーは標準スライド作成前に追加されるため、Aspose.Slides がそのスライド上に対応するプレースホルダー形状を生成できます。
+
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // Blankレイアウトスライドを取得します。
-    ILayoutSlide layout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ILayoutSlide blankLayout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
 
-    // レイアウトスライドのプレースホルダーマネージャーを取得します。
-    ILayoutPlaceholderManager placeholderManager = layout.getPlaceholderManager();
+    if (blankLayout == null) {
+        throw new IllegalStateException("The presentation does not contain a Blank layout slide.");
+    }
 
-    // Blankレイアウトスライドにさまざまなプレースホルダーを追加します。
+    ILayoutPlaceholderManager placeholderManager = blankLayout.getPlaceholderManager();
     placeholderManager.addContentPlaceholder(20, 20, 310, 270);
     placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
     placeholderManager.addChartPlaceholder(20, 310, 310, 180);
     placeholderManager.addTablePlaceholder(350, 310, 350, 180);
 
-    // Blankレイアウトを使用して新しいスライドを追加します。
-    ISlide newSlide = presentation.getSlides().addEmptySlide(layout);
-
-    presentation.save("Placeholders.pptx", SaveFormat.Pptx);
+    presentation.getSlides().addEmptySlide(blankLayout);
+    presentation.save("output-with-placeholders.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+結果：
 
-結果:
+![レイアウトスライド上のプレースホルダー](add_placeholders.png)
 
-![The placeholders on the layout slide](add_placeholders.png)
+{{% alert color="warning" title="警告" %}}
+継承された書式設定や既存レイアウトプレースホルダーのジオメトリを変更すると、依存スライドに影響を与える可能性があります。新しく追加されたレイアウトプレースホルダーは既存の標準スライドには自動で反映されません。レイアウト変更はプレゼンテーションのコピーでテストし、すべての依存スライドを確認してください。
+{{% /alert %}}
 
-## **レイアウトスライドのフッター表示設定**
+## **未使用レイアウトスライドの削除**
 
-PowerPoint プレゼンテーションでは、日付、スライド番号、カスタムテキストなどのフッター要素は、スライドレイアウトに応じて表示・非表示を切り替えることができます。Aspose.Slides for Java は、これらフッタープレースホルダーの表示状態を制御でき、特定のレイアウトだけフッター情報を表示し、他のレイアウトはクリーンに保つことが可能です。
+[Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/ja/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) メソッドを使用して、標準スライドが参照していないレイアウトを削除します。使用中のレイアウトはそのまま残ります。
 
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. インデックスでレイアウトスライドを取得します。
-1. スライドフッタープレースホルダーを表示に設定します。
-1. スライド番号プレースホルダーを表示に設定します。
-1. 日付・時刻プレースホルダーを表示に設定します。
-1. プレゼンテーションを保存します。
-
-以下の Java コードは、スライドフッターの表示状態を設定する方法を示しています。
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
+    Compress.removeUnusedLayoutSlides(presentation);
+    presentation.save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-    if (!headerFooterManager.isFooterVisible()) {
-        headerFooterManager.setFooterVisibility(true);
+特定のレイアウトを削除するには、まずその [hasDependingSlides](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilayoutslide/#hasDependingSlides--) または [getDependingSlides](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) メソッドを使用します。[ILayoutSlide.remove](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilayoutslide/#remove--) を呼び出す前に依存スライドを再割り当てしてください。使用中のレイアウトを削除しようとすると [PptxEditException](https://reference.aspose.com/slides/ja/java/com.aspose.slides/pptxeditexception/) がスローされます。
+
+## **レイアウトスライドでのフッター表示の制御**
+
+レイアウトには独自のフッター、スライド番号、日付時刻プレースホルダーがあります。これらのプレースホルダーを 1 つのレイアウトで制御するには、[ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) メソッドを使用します。たとえば、コンテンツレイアウトはフッターを表示し、タイトルレイアウトは表示しないといったシナリオで便利です。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.TitleAndObject);
+
+    if (layoutSlide == null) {
+        layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
     }
 
-    if (!headerFooterManager.isSlideNumberVisible()) {
-        headerFooterManager.setSlideNumberVisibility(true);
+    if (layoutSlide == null) {
+        throw new IllegalStateException("The presentation does not contain a suitable layout slide.");
     }
 
-    if (!headerFooterManager.isDateTimeVisible()) {
-        headerFooterManager.setDateTimeVisibility(true);
-    }
-
+    ILayoutSlideHeaderFooterManager headerFooterManager = layoutSlide.getHeaderFooterManager();
+    headerFooterManager.setFooterVisibility(true);
+    headerFooterManager.setSlideNumberVisibility(true);
+    headerFooterManager.setDateTimeVisibility(true);
     headerFooterManager.setFooterText("Footer text");
     headerFooterManager.setDateTimeText("Date and time text");
 
-    presentation.save("Presentation.ppt", SaveFormat.Ppt);
+    presentation.save("output-with-layout-footers.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+## **マスターとその子レイアウトでのフッター表示の制御**
 
-## **スライドの子フッター表示設定**
+マスターヒエラルキー全体で一貫したフッター設定を適用するには、[IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ja/java/com.aspose.slides/imasterslide/#getHeaderFooterManager--) メソッドを使用します。[IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/ja/java/com.aspose.slides/imasterslideheaderfootermanager/) の伝搬メソッドは、マスターとその依存レイアウトスライドおよび標準スライドに対して動作し、単一の標準スライドだけを対象にすることはできません。
 
-PowerPoint プレゼンテーションでは、日付、スライド番号、カスタムテキストなどのフッター要素は、マスタースライドレベルで制御でき、すべてのレイアウトスライドに一貫したフッター情報を提供します。Aspose.Slides for Java は、マスタースライド上のこれらフッタープレースホルダーの表示と内容を設定し、すべての子レイアウトスライドへその設定を伝搬させることができます。
-
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. インデックスでマスタースライドを取得します。
-1. マスターとすべての子フッタープレースホルダーを表示に設定します。
-1. マスターとすべての子スライド番号プレースホルダーを表示に設定します。
-1. マスターとすべての子日付・時刻プレースホルダーを表示に設定します。
-1. プレゼンテーションを保存します。
-
-以下の Java コードは、この操作を実演しています。
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
     IMasterSlideHeaderFooterManager headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-
     headerFooterManager.setFooterAndChildFootersVisibility(true);
     headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
     headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
-
     headerFooterManager.setFooterAndChildFootersText("Footer text");
     headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-master-footers.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
-
 
 ## **FAQ**
 
 **マスタースライドとレイアウトスライドの違いは何ですか？**
 
-マスタースライドは全体のテーマとデフォルトの書式設定を定義し、レイアウトスライドはさまざまなコンテンツタイプに対するプレースホルダーの具体的な配置を定義します。
+マスタースライドはプレゼンテーションのテーマと共有書式設定を定義します。レイアウトスライドはマスターに属し、プレースホルダーの再利用可能な配置を 1 つ定義します。標準スライドはこれらのレイアウトを使用し、スライド固有のコンテンツを保存します。
 
-**レイアウトスライドを別のプレゼンテーションにコピーできますか？**
+**レイアウトスライドをあるプレゼンテーションから別のプレゼンテーションにコピーできますか？**
 
-はい、[getLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getLayoutSlides--) メソッドで取得できるレイアウトスライドコレクションからレイアウトスライドをクローンし、`addClone` メソッドを使用して別のプレゼンテーションに挿入できます。
+はい。目的のコレクションに対して [addClone](https://reference.aspose.com/slides/ja/java/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) メソッドを使用してコピーを追加します。プレゼンテーション間でコピーする場合は、フォント、テーマ、画像、その他のリソースがソースレイアウトで使用されていることも確認してください。
 
-**使用中のレイアウトスライドを削除するとどうなりますか？**
+**すでに使用中のレイアウトを変更するとどうなりますか？**
 
-プレゼンテーション内で少なくとも 1 つのスライドが参照しているレイアウトスライドを削除しようとすると、Aspose.Slides は [PptxEditException](https://reference.aspose.com/slides/java/com.aspose.slides/pptxeditexception/) をスローします。この問題を回避するには、使用されていないレイアウトスライドだけを安全に削除できる [removeUnusedLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) を使用してください。
+依存スライドはレイアウトの変更を継承します（ローカルで書式設定やオブジェクトを上書きしていない限り）。そのため、プレースホルダーのジオメトリや継承されたスタイルが多数のスライドで同時に変化する可能性があります。レイアウトを編集する前に、[getDependingSlides](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) を使用して影響を受けるスライドを特定してください。
+
+**使用中のレイアウトを削除しようとするとどうなりますか？**
+
+Aspose.Slides は [PptxEditException](https://reference.aspose.com/slides/ja/java/com.aspose.slides/pptxeditexception/) をスローします。まず依存スライドを再割り当てるか、[removeUnusedLayoutSlides](https://reference.aspose.com/slides/ja/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) を使用して未参照のレイアウトだけを削除してください。
