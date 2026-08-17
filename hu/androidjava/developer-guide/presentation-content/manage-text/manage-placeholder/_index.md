@@ -1,137 +1,377 @@
 ---
-title: Prezentációhelykitöltők kezelése Androidon
-linktitle: Helykitöltők kezelése
+title: Prezentáció placeholder-ek kezelése Androidon
+linktitle: Placeholder-ek kezelése
 type: docs
 weight: 10
 url: /hu/androidjava/manage-placeholder/
 keywords:
 - helykitöltő
-- szöveges helykitöltő
-- kép helykitöltő
-- diagram helykitöltő
+- szöveghelykitöltő
+- képhelykitöltő
+- diagramhelykitöltő
+- tartalomhelykitöltő
 - utasító szöveg
 - PowerPoint
-- OpenDocument
 - prezentáció
 - Android
 - Java
 - Aspose.Slides
-description: "Könnyedén kezelheti a helykitöltőket az Aspose.Slides for Android via Java segítségével: szöveg cseréje, promptok testreszabása és kép átlátszóság beállítása PowerPointban és OpenDocumentban."
+description: "Ismerje meg, hogyan ellenőrizheti és szerkesztheti a szöveg, kép, diagram és tartalom helykitöltőket, valamint hogyan értheti meg a placeholder öröklődést az Aspose.Slides for Android Java segítségével."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides lehetővé teszi a prezentációhelykitöltők programozott kezelését. Ez a cikk bemutatja, hogyan találhatók meg a helykitöltők a diákon, hogyan módosítható a szövegük, hogyan állítható be egyedi prompt szöveg a helykitöltő elrendezésekhez, valamint hogyan szabályozható a helykitöltő háttérként használt kép átlátszósága. Tartalmaz egy rövid GYIK-ot is, amely tisztázza az alaphelykitöltők és a helyi alakzatok közötti különbséget, elmagyarázza, hogyan alkalmazhatók a helykitöltő változtatások elrendezéseken vagy mester fájlokon keresztül, és hivatkozik a fejléc és lábléc helykitöltőinek kezelésére.
+A placeholder egy alakzat, amely helyet foglal egy adott típusú tartalom számára egy prezentációs sablonban. Gyakori példák a cím, a törzs, a kép, a diagram és az általános célú tartalomplaceholder-ek. A szokásos alakzattal ellentétben a placeholder örökölheti a pozícióját, méretét, formázását és egyéb beállításait egy elrendezés vagy mesterdia alapján.
 
-## **Szöveg módosítása egy helykitöltőben**
-A [Aspose.Slides for Android via Java](/slides/hu/androidjava/) segítségével megtalálhatja és módosíthatja a helykitöltőket a prezentációk diáin. Az Aspose.Slides lehetővé teszi a helykitöltő szövegének módosítását.
+Az Aspose.Slides a placeholder információkat a [IShape.getPlaceholder](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/) metóduson keresztül teszi elérhetővé. A metódus egy [IPlaceholder](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/placeholder/) objektumot vagy `null`-t ad vissza egy normál alakzat esetén. Használd a [IPlaceholder.getType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/placeholder/) metódust annak meghatározására, hogy a placeholder milyen tartalmat kell tartalmazzon.
 
-**Előfeltétel**: Szüksége van egy olyan prezentációra, amely helykitöltőt tartalmaz. Ilyen prezentációt létrehozhat a standard Microsoft PowerPoint alkalmazásban.
+Az alakzat interfész még mindig fontos, miután ismered a placeholder típusát:
 
-Ez a módja, ahogyan az Aspose.Slides-t használva kicserélheti a helykitöltő szövegét abban a prezentációban:
+- Egy üres szöveg, kép, diagram vagy tartalom placeholder általában egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) által van reprezentálva.
+- Egy feltöltött képpel rendelkező placeholder reprezentálható egy [IPictureFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipictureframe/).
+- Egy feltöltött diagram placeholder reprezentálható egy [IChart](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichart/).
+- Egy tartalom placeholder többféle tartalmat is tartalmazhat. Ellenőrizd mind a [IPlaceholder.getType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/placeholder/) mind a futási időben lévő alakzat interfészt, ahelyett, hogy azt feltételeznéd, hogy minden placeholder egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/).
 
-1. Hozza létre a [`Presentation`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztály egy példányát, és adja át a prezentációt argumentumként.
-2. Szerezzen meg egy diareferenciát az indexe alapján.
-3. Iteráljon a formák között, hogy megtalálja a helykitöltőt.
-4. Alakítsa át a helykitöltő alakzatot egy [`AutoShape`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/AutoShape) típusra, és módosítsa a szöveget a hozzá tartozó [`TextFrame`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/TextFrame) használatával, amely a [`AutoShape`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/AutoShape)-hez van társítva.
-5. Mentse el a módosított prezentációt.
+{{% alert color="warning" title="Warning" %}}
+[IPlaceholder.getType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/placeholder/) leírja a placeholder szerepét; nem garantálja az alakzat futási időbeli típusát. Mindig végezz típusellenőrzést, mielőtt szöveghez, képhez, diagramhoz, táblához vagy média‑specifikus tagokhoz férnél hozzá.
+{{% /alert %}}
 
-Ez a Java kód bemutatja, hogyan módosítható a szöveg egy helykitöltőben:
+## **A placeholder öröklődés megértése**
+
+A placeholder-ek hierarchiát alkotnak:
+
+1. A mesterdia meghatározza az újrahasználható stílusokat, és bizonyos esetekben a mester szintű placeholder-eket.
+2. Az elrendezésdia meghatározza az elrendezést, amelyet egy vagy több normál dia használ, és örökölhet a mestertől.
+3. A normál dia tartalmazza az adott dia placeholder-eit, és örökölhet az elrendezéséből.
+
+Hívd meg az [IShape.getBasePlaceholder](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/) metódust, hogy egy szinttel feljebb lépj ebben a hierarchiában. Egy dia placeholder általában visszaadja az elrendezés placeholder‑ét; egy elrendezés placeholder visszaadhatja a mester placeholder‑ét. A metódus `null`‑t ad vissza, ha az alakzatnak nincs alapplaceholder‑je.
+
+A következő példában felsorolja az első dián lévő placeholder-eket, és jelentést készít azok alapplaceholder‑eiről:
 
 ```java
-// Példányosít egy Presentation osztályt
-Presentation pres = new Presentation("ReplacingText.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
 try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Eléri az első diát
-    ISlide sld = pres.getSlides().get_Item(0);
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
 
-    // Iterál a formákon, hogy megtalálja a helykitöltőt
-    for (IShape shp : sld.getShapes()) 
-    {
-        if (shp.getPlaceholder() != null) {
-            // Módosítja a szöveget minden helykitöltőben
-            ((IAutoShape) shp).getTextFrame().setText("This is Placeholder");
+        byte placeholderType = placeholder.getType();
+        String typeName = shape.getClass().getSimpleName();
+        String slidePlaceholderMessage = "Slide placeholder: " + placeholderType + "; shape interface: " + typeName;
+        System.out.println(slidePlaceholderMessage);
+
+        IShape layoutPlaceholder = shape.getBasePlaceholder();
+        if (layoutPlaceholder != null) {
+            IPlaceholder layoutPlaceholderInfo = layoutPlaceholder.getPlaceholder();
+            Byte layoutPlaceholderType = layoutPlaceholderInfo == null ? null : layoutPlaceholderInfo.getType();
+            String layoutPlaceholderMessage = "  Layout placeholder: " + layoutPlaceholderType;
+            System.out.println(layoutPlaceholderMessage);
+
+            IShape masterPlaceholder = layoutPlaceholder.getBasePlaceholder();
+            if (masterPlaceholder != null) {
+                IPlaceholder masterPlaceholderInfo = masterPlaceholder.getPlaceholder();
+                Byte masterPlaceholderType = masterPlaceholderInfo == null ? null : masterPlaceholderInfo.getType();
+                String masterPlaceholderMessage = "  Master placeholder: " + masterPlaceholderType;
+                System.out.println(masterPlaceholderMessage);
+            }
         }
     }
-
-    // Elmenti a prezentációt a lemezre
-    pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Prompt szöveg beállítása egy helykitöltőben**
-A szabványos és előre épített elrendezések tartalmaznak helykitöltő prompt szövegeket, például ***Click to add a title*** vagy ***Click to add a subtitle***. Az Aspose.Slides segítségével beillesztheti saját preferált prompt szövegeit a helykitöltő elrendezésekbe.
+Egy placeholder szerkesztése egy normál dián helyi felülírást hoz létre vagy módosít azon a dián. A kapcsolódó elrendezés vagy mester szerkesztése minden olyan diát befolyásolhat, amely még örökli ezt a beállítást. Egy helyi szokásos alakzatnak nincs alapplaceholder‑je, és nem kezd öröklődni csak azért, mert ugyanazokat a koordinátákat foglalja el.
 
-Ez a Java kód azt mutatja, hogyan állítható be a prompt szöveg egy helykitöltőben:
+## **Szöveg módosítása placeholder-ben**
+
+A cím, középre igazított cím, alcím, törzs és szöveg placeholder-ek általában támogatják a szöveget. Ellenőrizd, hogy az alakzat [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/), mielőtt a [getTextFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) metódusát használnád.
+
+Ez a példa frissíti az első cím placeholder‑t az első dián, és elmenti az eredményt:
 
 ```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    for (IShape shape : slide.getSlide().getShapes()) // Iterál a dián
-    {
-        if (shape.getPlaceholder() != null && shape instanceof AutoShape)
-        {
-            String text = "";
-            if (shape.getPlaceholder().getType() == PlaceholderType.CenteredTitle) // PowerPoint megjeleníti a "Kattintson a cím hozzáadásához" szöveget
-            {
-                text = "Add Title";
-            }
-            else if (shape.getPlaceholder().getType() == PlaceholderType.Subtitle) // Alcím hozzáadása
-            {
-                text = "Add Subtitle";
-            }
+import com.aspose.slides.*;
 
-            ((IAutoShape)shape).getTextFrame().setText(text);
-            System.out.println("Placeholder with text: " + text);
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape titleShape = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IAutoShape)) {
+            continue;
+        }
+
+        IAutoShape autoShape = (IAutoShape) shape;
+        IPlaceholder placeholder = autoShape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+        if (placeholderType == PlaceholderType.Title || placeholderType == PlaceholderType.CenteredTitle) {
+            titleShape = autoShape;
+            break;
         }
     }
 
-    pres.save("Placeholders_PromptText.pptx", SaveFormat.Pptx);
+    if (titleShape == null) {
+        throw new IllegalStateException("The first slide does not contain a title placeholder.");
+    }
+
+    titleShape.getTextFrame().setText("Quarterly Business Review");
+    presentation.save("title-placeholder-updated.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Helykitöltő kép átlátszóságának beállítása**
-Az Aspose.Slides lehetővé teszi a háttérkép átlátszóságának beállítását egy szöveghelykitöltőben. A kép átlátszóságának szabályozásával egy ilyen keretben kiemelheti a szöveget vagy a képet (a szöveg és a kép színétől függően).
+Ez a minta elkerüli a kép, diagram, tábla vagy média placeholder-ek [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/)-re való átkonvertálását. Emellett a placeholder‑t a célja szerint azonosítja, ahelyett, hogy egy törékeny alakzat indexre hagyatkozna.
 
-Ez a Java kód bemutatja, hogyan állítható be egy kép háttér (alakzaton belül) átlátszósága:
+## **Prompt szöveg beállítása elrendezésben**
+
+A prompt szöveg egy tervezési időbeli utasítás, amely egy üres placeholder‑ben jelenik meg, például *Kattintson a cím hozzáadásához*. Egyedi prompt szöveget állíts be az elrendezés placeholder‑én, ahelyett, hogy a normál dia alakzatgyűjteményén keresztül próbálnád elérni. Az elrendezéshez férj hozzá az [ISlide.getLayoutSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islide/) metódussal, és iterálj a [ILayoutSlide.getShapes](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibaseslide/) által visszaadott gyűjteményen.
+
+A következő példa megváltoztatja a cím és az alcím prompt szövegeit az első dián használt elrendezésen:
 
 ```java
-Presentation presentation = new Presentation("example.pptx");
+import com.aspose.slides.*;
 
-IAutoShape shape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ILayoutSlide layoutSlide = presentation.getSlides().get_Item(0).getLayoutSlide();
 
-IImageTransformOperationCollection operationCollection = shape.getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
-for (int i = 0; i < operationCollection.size(); i++)
-{
-    if(operationCollection.get_Item(i) instanceof AlphaModulateFixed)
-    {
-        AlphaModulateFixed alphaModulate = (AlphaModulateFixed)operationCollection.get_Item(i);
-        float currentValue = 100 - alphaModulate.getAmount();
-        System.out.println("Current transparency value: " + currentValue);
+    for (IShape shape : layoutSlide.getShapes()) {
+        if (!(shape instanceof IAutoShape)) {
+            continue;
+        }
 
-        int alphaValue = 40;
-        alphaModulate.setAmount(100 - alphaValue);
+        IAutoShape autoShape = (IAutoShape) shape;
+        IPlaceholder placeholder = autoShape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+
+        if (placeholderType == PlaceholderType.Title || placeholderType == PlaceholderType.CenteredTitle) {
+            autoShape.getTextFrame().setText("Enter a concise slide title");
+        } else if (placeholderType == PlaceholderType.Subtitle) {
+            autoShape.getTextFrame().setText("Enter a subtitle or reporting period");
+        }
     }
-}
 
-presentation.save("example_out.pptx", SaveFormat.Pptx);
+    presentation.save("custom-placeholder-prompts.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+A prompt szöveg nem normál dia tartalom. Üres placeholder-ekben szerkesztőalkalmazások, például a PowerPoint számára szolgál utasításként. Amint a felhasználó vagy program valódi tartalmat ad meg, a prompt már nem jelenik meg. A prompt módosítása nem ír felül meglévő szöveget azokat a diákon, amelyek az elrendezést használják.
+
+## **Kép placeholder frissítése**
+
+Két esetet kell kezelni:
+
+- Ha a kép placeholder már fel van töltve és egy [IPictureFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipictureframe/) reprezentálja, cseréld le a képet a [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipicturefillformat/) és az [ISlidesPicture.setImage](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islidespicture/) metódusokkal.
+- Ha még üres placeholder‑ről van szó, adj hozzá egy képkeretet a placeholder koordinátáihoz a [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapecollection/) segítségével, majd távolítsd el az üres placeholder‑t.
+
+A következő példa mindkét esetet támogatja, és elmenti a prezentációt:
+
+```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
+Presentation presentation = new Presentation("picture-template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape picturePlaceholder = null;
+
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder != null && placeholder.getType() == PlaceholderType.Picture) {
+            picturePlaceholder = shape;
+            break;
+        }
+    }
+
+    if (picturePlaceholder == null) {
+        throw new IllegalStateException("The first slide does not contain a picture placeholder.");
+    }
+
+    IPPImage image;
+    try (FileInputStream imageStream = new FileInputStream("replacement.png")) {
+        image = presentation.getImages().addImage(imageStream);
+    }
+
+    if (picturePlaceholder instanceof IPictureFrame) {
+        IPictureFrame pictureFrame = (IPictureFrame) picturePlaceholder;
+        pictureFrame.getPictureFormat().getPicture().setImage(image);
+    } else {
+        slide.getShapes().addPictureFrame(ShapeType.Rectangle, picturePlaceholder.getX(), picturePlaceholder.getY(), picturePlaceholder.getWidth(), picturePlaceholder.getHeight(), image);
+        slide.getShapes().remove(picturePlaceholder);
+    }
+
+    presentation.save("picture-placeholder-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Az üres placeholder számára létrehozott helyettesítés egy helyi képkeret, nem új placeholder, mivel az [IShape.getPlaceholder](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/) nem biztosít beállítót. Megtartja a lefoglalt pozíciót, de már nem örököl placeholder‑specifikus viselkedést. Ha a placeholder‑kapcsolat megtartása lényeges, előbb készítsd el és töltsd fel a placeholder‑t PowerPointban, majd frissítsd a kapott [IPictureFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipictureframe/) objektumot az Aspose.Slides‑kel.
+
+Képarányosság, vágás és egyéb kép‑specifikus hatások tekintetében lásd a [Manage Picture Frames](/slides/hu/androidjava/picture-frame/) cikket. Ezek a műveletek a képkerethez vagy a képkitöltéshez tartoznak, nem a placeholder metaadatokhoz.
+
+## **Diagram és tartalom placeholder-ek kezelése**
+
+Egy feltöltött diagram placeholder reprezentálható egy [IChart](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichart/) segítségével. Ez a példa megtalálja az ilyen diagramot a placeholder típusa és a futási időbeli interfész alapján, módosítja a címét, majd elmenti a fájlt:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("chart-template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart placeholderChart = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IChart)) {
+            continue;
+        }
+
+        IChart chart = (IChart) shape;
+        IPlaceholder placeholder = chart.getPlaceholder();
+        if (placeholder != null && placeholder.getType() == PlaceholderType.Chart) {
+            placeholderChart = chart;
+            break;
+        }
+    }
+
+    if (placeholderChart == null) {
+        throw new IllegalStateException("The first slide does not contain a populated chart placeholder.");
+    }
+
+    placeholderChart.setTitle(true);
+    placeholderChart.getChartTitle().addTextFrameForOverriding("Quarterly Revenue");
+    presentation.save("chart-placeholder-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Egy általános tartalom placeholder általában a [PlaceholderType.Object](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/placeholdertype/) értékkel rendelkezik. A PowerPointban ez többféle tartalomtípus—diagramok, táblák, diagramok, képek és média—elindítására szolgál. Miután fel lett töltve, vizsgáld meg a tényleges alakzat interfészt, hogy megtudd, mit tartalmaz. Specializált elrendezések a [PlaceholderType.Chart](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/placeholdertype/), vagy [PlaceholderType.Diagram](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/placeholdertype/) értékeket is fel tudnak mutatni.
+
+Az Aspose.Slides nem konvertál egy üres [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) placeholder‑t egy [IChart](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichart/) objektummá csupán a [IPlaceholder.getType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/placeholder/) módosításával; a típust a felület nem engedi megváltoztatni. Egy üres diagram vagy tartalomterület programból való kitöltéséhez add hozzá a szükséges objektumot a placeholder koordinátáihoz, majd távolítsd el az üres placeholder‑t. A következő példa ezt teszi egy diagram esetén:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("content-template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape targetPlaceholder = null;
+
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+        if (placeholderType == PlaceholderType.Chart || placeholderType == PlaceholderType.Object) {
+            targetPlaceholder = shape;
+            break;
+        }
+    }
+
+    if (targetPlaceholder == null) {
+        throw new IllegalStateException("The first slide does not contain a chart or content placeholder.");
+    }
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, targetPlaceholder.getX(), targetPlaceholder.getY(), targetPlaceholder.getWidth(), targetPlaceholder.getHeight());
+    chart.setTitle(true);
+    chart.getChartTitle().addTextFrameForOverriding("Quarterly Revenue");
+    slide.getShapes().remove(targetPlaceholder);
+    presentation.save("content-placeholder-replaced-with-chart.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+A hozzáadott diagram egy egyszerű helyi diagram. Kitölti a placeholder területét, de nem örököl az elrendezés placeholder‑éből. Használd a dedikált [chart management articles](/slides/hu/androidjava/powerpoint-charts/) anyagot, ha cserélni kell a kategóriákat, sorozatokat vagy a munkafüzet adatokat.
+
+## **Teljes példa: Szöveg vagy kép tartalom frissítése**
+
+A következő end‑to‑end példa megnyit egy sablont, keres az első dián cím vagy kép placeholder‑t, ellenőrzi a placeholder és az alakzat típusát, frissíti a megfelelő tartalmat, majd elmenti a kimenetet. A példa szándékosan kerüli a alakzat index feltételezését vagy minden placeholder közös interfészre való átkonvertálását.
+
+```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    boolean updated = false;
+
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+
+        if ((placeholderType == PlaceholderType.Title || placeholderType == PlaceholderType.CenteredTitle) && shape instanceof IAutoShape) {
+            IAutoShape titleShape = (IAutoShape) shape;
+            titleShape.getTextFrame().setText("Quarterly Business Review");
+            updated = true;
+            break;
+        }
+
+        if (placeholderType == PlaceholderType.Picture) {
+            IPPImage image;
+            try (FileInputStream imageStream = new FileInputStream("replacement.png")) {
+                image = presentation.getImages().addImage(imageStream);
+            }
+
+            if (shape instanceof IPictureFrame) {
+                IPictureFrame pictureFrame = (IPictureFrame) shape;
+                pictureFrame.getPictureFormat().getPicture().setImage(image);
+            } else {
+                slide.getShapes().addPictureFrame(ShapeType.Rectangle, shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), image);
+                slide.getShapes().remove(shape);
+            }
+
+            updated = true;
+            break;
+        }
+    }
+
+    if (!updated) {
+        throw new IllegalStateException("No supported title or picture placeholder was found on the first slide.");
+    }
+
+    presentation.save("placeholder-content-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
 ## **GYIK**
 
-**Mi az az alaphelykitöltő, és miben különbözik egy helyi alakzattól a dián?**
+**Mi az alap placeholder?**
 
-Egy alaphelykitöltő a layouton vagy a mesteren található eredeti alakzat, amelyből a dia alakzata örököl (típusa, pozíciója és egyes formázási beállításai innen származnak). A helyi alakzat önálló; ha nincs alaphelykitöltő, az öröklődés nem érvényesül.
+Az alap placeholder az elrendezésen vagy mesterdión található megfelelő alakzat, amelyből egy másik placeholder örököl. Használd az [IShape.getBasePlaceholder](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/) metódust a lekéréséhez. Egy helyi szokásos alakzat `null`‑t ad vissza, mert nem része a placeholder hierarchiának.
 
-**Hogyan frissíthetem az összes címet vagy feliratot egy prezentációban anélkül, hogy minden dián iterálnék?**
+**Meg tudom változtatni az összes dia címét egy elrendezés placeholder szerkesztésével?**
 
-Szerkessze a megfelelő helykitöltőt a layouton vagy a mesteren. A azok alapján létrehozott diák automatikusan örökölni fogják a módosítást.
+Az örökölt formázást vagy a prompt szöveget egy elrendezésen keresztül módosíthatod, de a meglévő cím tartalom a normál diákon van tárolva. A tényleges cím szövegének cseréjéhez iterálj a diákon, és frissítsd minden cím placeholder‑t.
 
-**Hogyan vezérelhetem a szabványos fejléc/lábléc helykitöltőket - dátum & idő, dia száma és lábléc szöveg?**
+**Hogyan kezelem a dátum, dia‑szám, fejléc és lábléc placeholder‑eket?**
 
-Használja a HeaderFooter kezelőket a megfelelő hatókörben (normál diák, layoutok, mester, jegyzetek/előlapok), hogy be- vagy kikapcsolja ezeket a helykitöltőket, és beállítsa a tartalmukat.
+Használd a fejléc és lábléc kezelőket a megfelelő dián, elrendezésen, masteren, jegyzet vagy szórólap szintjén. Tekintsd meg a [Manage Presentation Header and Footer](/slides/hu/androidjava/presentation-header-and-footer/) cikket a teljes példákért.
