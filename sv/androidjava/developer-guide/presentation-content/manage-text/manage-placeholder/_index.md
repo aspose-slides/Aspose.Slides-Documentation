@@ -1,5 +1,5 @@
 ---
-title: Hantera presentationsplatshållare på Android
+title: Hantera presentationens platshållare på Android
 linktitle: Hantera platshållare
 type: docs
 weight: 10
@@ -9,130 +9,369 @@ keywords:
 - textplatshållare
 - bildplatshållare
 - diagramplatshållare
+- innehållsplatshållare
 - prompttext
 - PowerPoint
-- OpenDocument
 - presentation
 - Android
 - Java
 - Aspose.Slides
-description: "Hantera enkelt platshållare i Aspose.Slides för Android via Java: ersätt text, anpassa prompttexter och ställ in bildgenomskinlighet i PowerPoint och OpenDocument."
+description: "Lär dig hur du inspekterar och redigerar text-, bild-, diagram- och innehållsplatshållare samt förstår ärvning av platshållare med Aspose.Slides för Android via Java."
 ---
-## **Overview**
+## **Översikt**
 
-Aspose.Slides låter dig hantera platshållare i presentationer programmässigt. Den här artikeln förklarar hur du hittar platshållare på bilder och ändrar deras text, anger anpassad prompttext för platshållarlayouter samt justerar genomskinligheten för en bild som används som bakgrund för en platshållare. Den innehåller också en kort FAQ som klargör skillnaden mellan grundläggande platshållare och lokala former, förklarar hur ändringar av platshållare kan tillämpas via layouter eller masterbilder och pekar på hantering av huvud‑ och sidfotplatshållare.
+En platshållare är en form som reserverar en position för en viss typ av innehåll i en presentationsmall. Vanliga exempel är titel, brödtext, bild, diagram och allmänna innehållsplatshållare. Till skillnad från en vanlig form kan en platshållare ärva sin position, storlek, formatering och andra inställningar från en layoutbild eller mastern.
 
-## **Change Text in a Placeholder**
-Med [Aspose.Slides for Android via Java](/slides/sv/androidjava/) kan du hitta och ändra platshållare på bilder i presentationer. Aspose.Slides låter dig göra ändringar i texten i en platshållare.
+Aspose.Slides exponerar information om platshållare via metoden [IShape.getPlaceholder](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/) . Metoden returnerar ett [IPlaceholder](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/placeholder/)‑objekt eller `null` för en normal form. Använd [IPlaceholder.getType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/placeholder/) för att avgöra vad platshållaren är avsedd att innehålla.
 
-**Prerequisite**: Du behöver en presentation som innehåller en platshållare. Du kan skapa en sådan presentation i den vanliga Microsoft PowerPoint‑appen.
+Formgränssnittet är fortfarande viktigt när du känner till platshållartypen:
 
-Så här använder du Aspose.Slides för att ersätta texten i platshållaren i den presentationen:
+- En tom text‑, bild‑, diagram‑ eller innehållsplatshållare representeras vanligtvis av en [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/) .
+- En ifylld bildplatshållare kan representeras av en [IPictureFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipictureframe/) .
+- En ifylld diagramplatshållare kan representeras av en [IChart](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichart/) .
+- En innehållsplatshållare kan innehålla flera typer av innehåll. Kontrollera både [IPlaceholder.getType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/placeholder/) och runtime‑formgränssnittet istället för att anta att varje platshållare är en [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/) .
 
-1. Skapa en instans av klassen [`Presentation`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation) och skicka presentationen som argument.
-2. Hämta en bildreferens via dess index.
-3. Iterera genom formerna för att hitta platshållaren.
-4. Typkonvertera platshållarformen till en [`AutoShape`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/AutoShape) och ändra texten med hjälp av [`TextFrame`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/TextFrame) som är associerad med [`AutoShape`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/AutoShape).
-5. Spara den ändrade presentationen.
+{{% alert color="warning" title="Varning" %}}
+[IPlaceholder.getType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/placeholder/) beskriver en platshållares roll; den garanterar inte formens runtime‑typ. Använd alltid en typkontroll innan du kommer åt text‑, bild‑, diagram‑, tabell‑ eller mediavarianta medlemmar.
+{{% /alert %}}
 
-Denna Java‑kod visar hur du ändrar texten i en platshållare:
+## **Förstå ärvning av platshållare**
+
+Platshållare bildar en hierarki:
+
+1. En mastern bild definierar återanvändbara stilar och i vissa fall masternivåns platshållare.
+2. En layout‑bild definierar den layout som används av en eller flera vanliga bilder och kan ärva från mastern.
+3. En normal bild innehåller platshållarna för den bilden och kan ärva från sin layout.
+
+Anropa [IShape.getBasePlaceholder](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/) för att gå ett nivå upp i hierarkin. En bildplatshållare returnerar normalt sin layout‑platshållare; en layout‑platshållare kan returnera sin master‑platshållare. Metoden returnerar `null` när formen saknar en bas‑platshållare.
+
+Följande exempel listar platshållare på den första bilden och rapporterar deras bas‑platshållare:
 
 ```java
-// Skapar en Presentation‑klass
-Presentation pres = new Presentation("ReplacingText.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
 try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Hämtar den första bilden
-    ISlide sld = pres.getSlides().get_Item(0);
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
 
-    // Itererar genom former för att hitta platshållaren
-    for (IShape shp : sld.getShapes()) 
-    {
-        if (shp.getPlaceholder() != null) {
-            // Ändrar texten i varje platshållare
-            ((IAutoShape) shp).getTextFrame().setText("This is Placeholder");
+        byte placeholderType = placeholder.getType();
+        String typeName = shape.getClass().getSimpleName();
+        String slidePlaceholderMessage = "Slide placeholder: " + placeholderType + "; shape interface: " + typeName;
+        System.out.println(slidePlaceholderMessage);
+
+        IShape layoutPlaceholder = shape.getBasePlaceholder();
+        if (layoutPlaceholder != null) {
+            IPlaceholder layoutPlaceholderInfo = layoutPlaceholder.getPlaceholder();
+            Byte layoutPlaceholderType = layoutPlaceholderInfo == null ? null : layoutPlaceholderInfo.getType();
+            String layoutPlaceholderMessage = "  Layout placeholder: " + layoutPlaceholderType;
+            System.out.println(layoutPlaceholderMessage);
+
+            IShape masterPlaceholder = layoutPlaceholder.getBasePlaceholder();
+            if (masterPlaceholder != null) {
+                IPlaceholder masterPlaceholderInfo = masterPlaceholder.getPlaceholder();
+                Byte masterPlaceholderType = masterPlaceholderInfo == null ? null : masterPlaceholderInfo.getType();
+                String masterPlaceholderMessage = "  Master placeholder: " + masterPlaceholderType;
+                System.out.println(masterPlaceholderMessage);
+            }
         }
     }
-
-    // Sparar presentationen till disk
-    pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Set Prompt Text in a Placeholder**
-Standard‑ och färdigbyggda layouter innehåller prompttexter för platshållare såsom ***Click to add a title*** eller ***Click to add a subtitle***. Med Aspose.Slides kan du infoga dina föredragna prompttexter i platshållarlayouter.
+Att redigera en platshållare på en normal bild skapar eller ändrar ett lokalt överskrifts‑värde för den bilden. Att redigera den relaterade layouten eller mastern kan påverka alla bilder som fortfarande ärver den inställningen. En lokal vanlig form har ingen bas‑platshållare och börjar inte ärva bara för att den upptar samma koordinater.
 
-Denna Java‑kod visar hur du anger prompttext i en platshållare:
+## **Ändra text i en platshållare**
+
+Titel‑, centrerad‑titel‑, undertitel‑, brödtext‑ och text‑platshållare stödjer normalt text. Kontrollera att det är en [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/) innan du använder dess [getTextFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/)‑metod.
+
+Detta exempel uppdaterar den första titel‑platshållaren på den första bilden och sparar resultatet:
 
 ```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    for (IShape shape : slide.getSlide().getShapes()) // Itererar genom bilden
-    {
-        if (shape.getPlaceholder() != null && shape instanceof AutoShape)
-        {
-            String text = "";
-            if (shape.getPlaceholder().getType() == PlaceholderType.CenteredTitle) // PowerPoint visar "Click to add title" 
-            {
-                text = "Add Title";
-            }
-            else if (shape.getPlaceholder().getType() == PlaceholderType.Subtitle) // Lägger till undertext
-            {
-                text = "Add Subtitle";
-            }
+import com.aspose.slides.*;
 
-            ((IAutoShape)shape).getTextFrame().setText(text);
-            System.out.println("Placeholder with text: " + text);
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape titleShape = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IAutoShape)) {
+            continue;
+        }
+
+        IAutoShape autoShape = (IAutoShape) shape;
+        IPlaceholder placeholder = autoShape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+        if (placeholderType == PlaceholderType.Title || placeholderType == PlaceholderType.CenteredTitle) {
+            titleShape = autoShape;
+            break;
         }
     }
 
-    pres.save("Placeholders_PromptText.pptx", SaveFormat.Pptx);
+    if (titleShape == null) {
+        throw new IllegalStateException("The first slide does not contain a title placeholder.");
+    }
+
+    titleShape.getTextFrame().setText("Quarterly Business Review");
+    presentation.save("title-placeholder-updated.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Set Placeholder Image Transparency**
+Detta mönster undviker att kasta bild‑, diagram‑, tabell‑ eller mediaplatshållare till [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/) . Det identifierar också platshållaren efter dess syfte istället för att förlita sig på ett skört form‑index.
 
-Aspose.Slides låter dig ställa in genomskinligheten för bakgrundsbilden i en textplatshållare. Genom att justera genomskinligheten för bilden i en sådan ram kan du få texten eller bilden att sticka ut (beroende på textens och bildens färger).
+## **Ange prompttext på en layout**
 
-Denna Java‑kod visar hur du ställer in genomskinligheten för en bildbakgrund (inuti en form):
+Prompttext är den design‑tidsinstruktion som visas i en tom platshållare, till exempel *Klicka för att lägga till titel*. Ange anpassad prompttext på layout‑platshållaren istället för att försöka nå den via en normal bilds form‑samling. Åtkomst till layouten sker via [ISlide.getLayoutSlide](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/islide/) och iterera över samlingen som returneras av [ILayoutSlide.getShapes](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ibaseslide/) .
+
+Följande exempel ändrar titel‑ och undertitel‑promptarna på den layout som används av den första bilden:
 
 ```java
-Presentation presentation = new Presentation("example.pptx");
+import com.aspose.slides.*;
 
-IAutoShape shape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ILayoutSlide layoutSlide = presentation.getSlides().get_Item(0).getLayoutSlide();
 
-IImageTransformOperationCollection operationCollection = shape.getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
-for (int i = 0; i < operationCollection.size(); i++)
-{
-    if(operationCollection.get_Item(i) instanceof AlphaModulateFixed)
-    {
-        AlphaModulateFixed alphaModulate = (AlphaModulateFixed)operationCollection.get_Item(i);
-        float currentValue = 100 - alphaModulate.getAmount();
-        System.out.println("Current transparency value: " + currentValue);
+    for (IShape shape : layoutSlide.getShapes()) {
+        if (!(shape instanceof IAutoShape)) {
+            continue;
+        }
 
-        int alphaValue = 40;
-        alphaModulate.setAmount(100 - alphaValue);
+        IAutoShape autoShape = (IAutoShape) shape;
+        IPlaceholder placeholder = autoShape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+
+        if (placeholderType == PlaceholderType.Title || placeholderType == PlaceholderType.CenteredTitle) {
+            autoShape.getTextFrame().setText("Enter a concise slide title");
+        } else if (placeholderType == PlaceholderType.Subtitle) {
+            autoShape.getTextFrame().setText("Enter a subtitle or reporting period");
+        }
     }
-}
 
-presentation.save("example_out.pptx", SaveFormat.Pptx);
+    presentation.save("custom-placeholder-prompts.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Prompttext är inte vanligt bildinnehåll. Den är avsedd för tomma platshållare i redigeringsprogram som PowerPoint. När en användare eller ett program tillhandahåller verkligt innehåll visas prompten inte längre. Att ändra en prompt ersätter inte heller befintlig text på bilder som använder layouten.
+
+## **Uppdatera en bildplatshållare**
+
+Det finns två fall att hantera:
+
+- Om bild‑platshållaren redan är ifylld och representeras av en [IPictureFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipictureframe/) , ersätt bilden via [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipicturefillformat/) och [ISlidesPicture.setImage](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/islidespicture/) .
+- Om den fortfarande är en tom platshållare, lägg till en bildram på platshållarens koordinater med [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishapecollection/) och ta bort den tomma platshållaren.
+
+Nästa exempel hanterar båda fallen och sparar presentationen:
+
+```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
+Presentation presentation = new Presentation("picture-template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape picturePlaceholder = null;
+
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder != null && placeholder.getType() == PlaceholderType.Picture) {
+            picturePlaceholder = shape;
+            break;
+        }
+    }
+
+    if (picturePlaceholder == null) {
+        throw new IllegalStateException("The first slide does not contain a picture placeholder.");
+    }
+
+    IPPImage image;
+    try (FileInputStream imageStream = new FileInputStream("replacement.png")) {
+        image = presentation.getImages().addImage(imageStream);
+    }
+
+    if (picturePlaceholder instanceof IPictureFrame) {
+        IPictureFrame pictureFrame = (IPictureFrame) picturePlaceholder;
+        pictureFrame.getPictureFormat().getPicture().setImage(image);
+    } else {
+        slide.getShapes().addPictureFrame(ShapeType.Rectangle, picturePlaceholder.getX(), picturePlaceholder.getY(), picturePlaceholder.getWidth(), picturePlaceholder.getHeight(), image);
+        slide.getShapes().remove(picturePlaceholder);
+    }
+
+    presentation.save("picture-placeholder-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Ersättningen som skapas för en tom platshållare är en lokal bildram, inte en ny platshållare, eftersom [IShape.getPlaceholder](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/) inte har en setter. Den behåller den reserverade positionen men ärver inte längre platshållarspecifikt beteende. Om det är viktigt att behålla platshållarrelationen, förbered och fyll i platshållaren i PowerPoint först, och uppdatera sedan den resulterande [IPictureFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipictureframe/) med Aspose.Slides.
+
+För bildtransparens, beskärning och andra bildspecifika effekter, se [Manage Picture Frames](/slides/sv/androidjava/picture-frame/) . Dessa operationer gäller bildramen eller bildfyllning, inte platshållarmetadata.
+
+## **Arbeta med diagram‑ och innehållsplatshållare**
+
+En ifylld diagramplatshållare kan representeras av en [IChart](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichart/) . Detta exempel hittar ett sådant diagram både via platshållartyp och runtime‑gränssnitt, ändrar dess titel och sparar filen:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("chart-template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart placeholderChart = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IChart)) {
+            continue;
+        }
+
+        IChart chart = (IChart) shape;
+        IPlaceholder placeholder = chart.getPlaceholder();
+        if (placeholder != null && placeholder.getType() == PlaceholderType.Chart) {
+            placeholderChart = chart;
+            break;
+        }
+    }
+
+    if (placeholderChart == null) {
+        throw new IllegalStateException("The first slide does not contain a populated chart placeholder.");
+    }
+
+    placeholderChart.setTitle(true);
+    placeholderChart.getChartTitle().addTextFrameForOverriding("Quarterly Revenue");
+    presentation.save("chart-placeholder-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+En allmän innehållsplatshållare har vanligtvis [PlaceholderType.Object](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/placeholdertype/) . I PowerPoint fungerar den som en startpunkt för flera innehållstyper, inklusive diagram, tabeller, diagram, bilder och media. Efter att den har fyllts i, inspektera det faktiska form‑gränssnittet för att ta reda på vad den innehåller. Specialiserade layouter kan också exponera [PlaceholderType.Chart](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/placeholdertype/) , [PlaceholderType.Table](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/placeholdertype/) , [PlaceholderType.Picture](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/placeholdertype/) , [PlaceholderType.Media](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/placeholdertype/) eller [PlaceholderType.Diagram](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/placeholdertype/) .
+
+Aspose.Slides konverterar inte en tom [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/)‑platshållare till en [IChart](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichart/) enbart genom att ändra [IPlaceholder.getType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/placeholder/) ; typen kan inte ändras via gränssnittet. För att fylla ett tomt diagram‑ eller innehållsområde programmässigt, lägg till det erforderliga objektet på platshållarens koordinater och ta sedan bort den tomma platshållaren. Följande exempel gör detta för ett diagram:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("content-template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape targetPlaceholder = null;
+
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+        if (placeholderType == PlaceholderType.Chart || placeholderType == PlaceholderType.Object) {
+            targetPlaceholder = shape;
+            break;
+        }
+    }
+
+    if (targetPlaceholder == null) {
+        throw new IllegalStateException("The first slide does not contain a chart or content placeholder.");
+    }
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, targetPlaceholder.getX(), targetPlaceholder.getY(), targetPlaceholder.getWidth(), targetPlaceholder.getHeight());
+    chart.setTitle(true);
+    chart.getChartTitle().addTextFrameForOverriding("Quarterly Revenue");
+    slide.getShapes().remove(targetPlaceholder);
+    presentation.save("content-placeholder-replaced-with-chart.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Det tillagda diagrammet är ett vanligt lokalt diagram. Det upptar platshållarens område men ärver inte från layout‑platshållaren. Använd de dedikerade [chart management articles](/slides/sv/androidjava/powerpoint-charts/) när du behöver ersätta dess kategorier, serier eller arbetsbok‑data.
+
+## **Fullständigt exempel: Uppdatera text‑ eller bildinnehåll**
+
+Följande helomfattande exempel öppnar en mall, söker på den första bilden efter antingen en titel‑ eller bildplatshållare, kontrollerar platshållar‑ och formtyper, uppdaterar lämpligt innehåll och sparar utdata. Exemplet undviker medvetet att anta ett form‑index eller att kasta varje platshållare till samma gränssnitt.
+
+```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    boolean updated = false;
+
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+
+        if ((placeholderType == PlaceholderType.Title || placeholderType == PlaceholderType.CenteredTitle) && shape instanceof IAutoShape) {
+            IAutoShape titleShape = (IAutoShape) shape;
+            titleShape.getTextFrame().setText("Quarterly Business Review");
+            updated = true;
+            break;
+        }
+
+        if (placeholderType == PlaceholderType.Picture) {
+            IPPImage image;
+            try (FileInputStream imageStream = new FileInputStream("replacement.png")) {
+                image = presentation.getImages().addImage(imageStream);
+            }
+
+            if (shape instanceof IPictureFrame) {
+                IPictureFrame pictureFrame = (IPictureFrame) shape;
+                pictureFrame.getPictureFormat().getPicture().setImage(image);
+            } else {
+                slide.getShapes().addPictureFrame(ShapeType.Rectangle, shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), image);
+                slide.getShapes().remove(shape);
+            }
+
+            updated = true;
+            break;
+        }
+    }
+
+    if (!updated) {
+        throw new IllegalStateException("No supported title or picture placeholder was found on the first slide.");
+    }
+
+    presentation.save("placeholder-content-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
 ## **FAQ**
 
-**Vad är en grundläggande platshållare, och hur skiljer den sig från en lokal form på en bild?**
+**Vad är en bas‑platshållare?**
 
-En grundläggande platshållare är den ursprungliga formen på en layout eller master som bildens form ärver från — typ, position och viss formatering kommer från den. En lokal form är oberoende; om det inte finns någon grundläggande platshållare gäller ingen arv.
+En bas‑platshållare är den motsvarande formen på layouten eller mastern som en annan platshållare ärver från. Använd [IShape.getBasePlaceholder](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/) för att hämta den. En vanlig lokal form returnerar `null` eftersom den inte är del av platshållar‑hierarkin.
 
-**Hur kan jag uppdatera alla rubriker eller bildtexter i en presentation utan att iterera över varje bild?**
+**Kan jag ändra alla bildtitlar genom att redigera en layout‑platshållare?**
 
-Redigera den motsvarande platshållaren på layouten eller masterbilden. Bilder som baseras på dessa layouter/master kommer automatiskt att ärva förändringen.
+Du kan ändra ärvd formatering eller prompt‑text via en layout, men befintligt titelinnehåll lagras på de vanliga bilderna. För att ersätta den faktiska titeltexten i hela presentationen, iterera över bilderna och uppdatera varje titel‑platshållare.
 
-**Hur kontrollerar jag de standardiserade huvud‑-/sidfotplatshållarna — datum och tid, bildnummer och sidfotstext?**
+**Hur hanterar jag datum‑, sidnummer‑, sidhuvud‑ och sidfot‑platshållare?**
 
-Använd HeaderFooter‑hanterarna i lämplig omfattning (vanliga bilder, layouter, master, anteckningar/handouts) för att slå på eller av dessa platshållare och för att ange deras innehåll.
+Använd header‑ och footer‑hanterarna på lämplig bild, layout, master, anteckningar eller utdelnings‑omfång. Se [Manage Presentation Header and Footer](/slides/sv/androidjava/presentation-header-and-footer/) för kompletta exempel.

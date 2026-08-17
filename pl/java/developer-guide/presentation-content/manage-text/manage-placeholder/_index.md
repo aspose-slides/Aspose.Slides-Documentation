@@ -1,137 +1,378 @@
 ---
-title: Zarządzanie polami zastępczymi w prezentacji w Java
-linktitle: Zarządzaj polami zastępczymi
+title: Zarządzanie placeholderami prezentacji w Javie
+linktitle: Zarządzaj placeholderami
 type: docs
 weight: 10
 url: /pl/java/manage-placeholder/
 keywords:
-- pole zastępcze
-- pole zastępcze tekstu
-- pole zastępcze obrazu
-- pole zastępcze wykresu
+- symbol zastępczy
+- placeholder tekstowy
+- placeholder obrazu
+- placeholder wykresu
+- placeholder treści
 - tekst podpowiedzi
 - PowerPoint
-- OpenDocument
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Bezproblemowo zarządzaj polami zastępczymi w Aspose.Slides dla Java: zamieniaj tekst, dostosowuj podpowiedzi i ustawiaj przezroczystość obrazu w PowerPoint i OpenDocument."
+description: "Dowiedz się, jak przeglądać i edytować placeholdery tekstu, obrazu, wykresu i treści oraz zrozumieć dziedziczenie placeholderów w Aspose.Slides dla Javy."
 ---
 ## **Przegląd**
 
-Aspose.Slides umożliwia programowe zarządzanie polami zastępczymi prezentacji. Ten artykuł wyjaśnia, jak znajdować pola zastępcze na slajdach i zmieniać ich tekst, ustawiać własny tekst podpowiedzi dla układów pól zastępczych oraz regulować przezroczystość obrazu używanego jako tło pola zastępczego. Zawiera także krótkie FAQ, które wyjaśnia różnicę między podstawowymi polami zastępczymi a lokalnymi kształtami, opisuje, jak zmiany pól zastępczych mogą być stosowane poprzez układy lub wzorce, oraz wskazuje na zarządzanie polami zastępczymi nagłówka i stopki.
+Placeholder jest kształtem, który rezerwuje pozycję dla określonego rodzaju treści w szablonie prezentacji. Typowe przykłady to placeholdery tytułu, treści, obrazu, wykresu i ogólnego przeznaczenia. W przeciwieństwie do zwykłego kształtu, placeholder może dziedziczyć swoją pozycję, rozmiar, formatowanie i inne ustawienia z slajdu układu lub slajdu master.
 
-## **Zmienianie tekstu w polu zastępczym**
-Korzystając z [Aspose.Slides for Java](/slides/pl/java/), możesz znajdować i modyfikować pola zastępcze na slajdach w prezentacjach. Aspose.Slides pozwala na wprowadzanie zmian w tekście pola zastępczego.
+Aspose.Slides udostępnia informacje o placeholderze poprzez metodę [IShape.getPlaceholder](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/). Metoda zwraca obiekt [IPlaceholder](https://reference.aspose.com/slides/pl/java/com.aspose.slides/placeholder/) lub `null` dla zwykłego kształtu. Użyj [IPlaceholder.getType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/placeholder/), aby określić, co placeholder ma zawierać.
 
-**Wymaganie wstępne**: Potrzebujesz prezentacji zawierającej pole zastępcze. Taką prezentację możesz utworzyć w standardowej aplikacji Microsoft PowerPoint.
+Interfejs kształtu nadal ma znaczenie po określeniu typu placeholdera:
 
-Oto jak używać Aspose.Slides do zastąpienia tekstu w polu zastępczym w tej prezentacji:
+- Pusty placeholder tekstu, obrazu, wykresu lub treści jest zazwyczaj reprezentowany przez [IAutoShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iautoshape/).
+- Wypełniony placeholder obrazu może być reprezentowany przez [IPictureFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ipictureframe/).
+- Wypełniony placeholder wykresu może być reprezentowany przez [IChart](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichart/).
+- Placeholder treści może zawierać kilka rodzajów treści. Sprawdź zarówno [IPlaceholder.getType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/placeholder/), jak i interfejs kształtu w czasie wykonywania, zamiast zakładać, że każdy placeholder jest [IAutoShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iautoshape/).
 
-1. Utwórz instancję klasy [`Presentation`](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation) i przekaż prezentację jako argument.
-2. Pobierz odwołanie do slajdu za pośrednictwem jego indeksu.
-3. Przejdź przez wszystkie kształty, aby znaleźć pole zastępcze.
-4. Rzutuj kształt pola zastępczego na [`AutoShape`](https://reference.aspose.com/slides/pl/java/com.aspose.slides/AutoShape) i zmień tekst przy użyciu [`TextFrame`](https://reference.aspose.com/slides/pl/java/com.aspose.slides/TextFrame) powiązanego z [`AutoShape`](https://reference.aspose.com/slides/pl/java/com.aspose.slides/AutoShape).
-5. Zapisz zmodyfikowaną prezentację.
+{{% alert color="warning" title="Ostrzeżenie" %}}
+[IPlaceholder.getType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/placeholder/) opisuje rolę placeholdera; nie gwarantuje on typu kształtu w czasie wykonywania. Zawsze wykonuj sprawdzenie typu przed dostępem do członków specyficznych dla tekstu, obrazu, wykresu, tabeli lub mediów.
+{{% /alert %}}
 
-Ten kod w języku Java pokazuje, jak zmienić tekst w polu zastępczym:
+## **Zrozumienie dziedziczenia placeholderów**
+
+Placeholdery tworzą hierarchię:
+
+1. Slajd master definiuje wielokrotnego użytku style i, w niektórych przypadkach, placeholdery na poziomie master.
+2. Slajd układu definiuje rozmieszczenie używane przez jeden lub więcej normalnych slajdów i może dziedziczyć z master.
+3. Normalny slajd zawiera placeholdery dla tego slajdu i może dziedziczyć z jego układu.
+
+Wywołaj [IShape.getBasePlaceholder](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/), aby przejść o poziom wyżej w tej hierarchii. Placeholder slajdu zwykle zwraca swój placeholder układu; placeholder układu może zwrócić swój placeholder master. Metoda zwraca `null`, gdy kształt nie ma bazowego placeholdera.
+
+Poniższy przykład wymienia placeholdery na pierwszym slajdzie i raportuje ich bazowe placeholdery:
 
 ```java
-// Tworzy instancję klasy Presentation
-Presentation pres = new Presentation("ReplacingText.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
 try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Uzyskuje dostęp do pierwszego slajdu
-    ISlide sld = pres.getSlides().get_Item(0);
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
 
-    // Iteruje po kształtach, aby znaleźć pole zastępcze
-    for (IShape shp : sld.getShapes()) 
-    {
-        if (shp.getPlaceholder() != null) {
-            // Zmienia tekst w każdym polu zastępczym
-            ((IAutoShape) shp).getTextFrame().setText("This is Placeholder");
+        byte placeholderType = placeholder.getType();
+        String typeName = shape.getClass().getSimpleName();
+        String slidePlaceholderMessage = "Slide placeholder: " + placeholderType + "; shape interface: " + typeName;
+        System.out.println(slidePlaceholderMessage);
+
+        IShape layoutPlaceholder = shape.getBasePlaceholder();
+        if (layoutPlaceholder != null) {
+            IPlaceholder layoutPlaceholderInfo = layoutPlaceholder.getPlaceholder();
+            Byte layoutPlaceholderType = layoutPlaceholderInfo == null ? null : layoutPlaceholderInfo.getType();
+            String layoutPlaceholderMessage = "  Layout placeholder: " + layoutPlaceholderType;
+            System.out.println(layoutPlaceholderMessage);
+
+            IShape masterPlaceholder = layoutPlaceholder.getBasePlaceholder();
+            if (masterPlaceholder != null) {
+                IPlaceholder masterPlaceholderInfo = masterPlaceholder.getPlaceholder();
+                Byte masterPlaceholderType = masterPlaceholderInfo == null ? null : masterPlaceholderInfo.getType();
+                String masterPlaceholderMessage = "  Master placeholder: " + masterPlaceholderType;
+                System.out.println(masterPlaceholderMessage);
+            }
         }
     }
-
-    // Zapisuje prezentację na dysku
-    pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Ustawianie tekstu podpowiedzi w polu zastępczym**
-Standardowe i wbudowane układy zawierają teksty podpowiedzi, takie jak ***Click to add a title*** lub ***Click to add a subtitle***. Korzystając z Aspose.Slides, możesz wstawić własne teksty podpowiedzi do układów pól zastępczych.
+Edycja placeholdera na normalnym slajdzie tworzy lub zmienia lokalne nadpisanie dla tego slajdu. Edycja powiązanego układu lub mastera może wpłynąć na wszystkie slajdy, które nadal dziedziczą to ustawienie. Zwykły lokalny kształt nie ma bazowego placeholdera i nie zaczyna dziedziczyć tylko dlatego, że zajmuje te same współrzędne.
 
-Ten kod w języku Java pokazuje, jak ustawić tekst podpowiedzi w polu zastępczym:
+## **Zmienianie tekstu w placeholderze**
+
+Placeholdery tytułu, wyśrodkowanego tytułu, podtytułu, treści i tekstu zazwyczaj obsługują tekst. Sprawdź, czy to [IAutoShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iautoshape/), zanim użyjesz jego metody [getTextFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iautoshape/).
+
+Ten przykład aktualizuje pierwszy placeholder tytułu na pierwszym slajdzie i zapisuje wynik:
 
 ```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    for (IShape shape : slide.getSlide().getShapes()) // Iteruje po slajdzie
-    {
-        if (shape.getPlaceholder() != null && shape instanceof AutoShape)
-        {
-            String text = "";
-            if (shape.getPlaceholder().getType() == PlaceholderType.CenteredTitle) // PowerPoint wyświetla "Click to add title"
-            {
-                text = "Add Title";
-            }
-            else if (shape.getPlaceholder().getType() == PlaceholderType.Subtitle) // Dodaje podtytuł
-            {
-                text = "Add Subtitle";
-            }
+import com.aspose.slides.*;
 
-            ((IAutoShape)shape).getTextFrame().setText(text);
-            System.out.println("Placeholder with text: " + text);
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape titleShape = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IAutoShape)) {
+            continue;
+        }
+
+        IAutoShape autoShape = (IAutoShape) shape;
+        IPlaceholder placeholder = autoShape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+        if (placeholderType == PlaceholderType.Title || placeholderType == PlaceholderType.CenteredTitle) {
+            titleShape = autoShape;
+            break;
         }
     }
 
-    pres.save("Placeholders_PromptText.pptx", SaveFormat.Pptx);
+    if (titleShape == null) {
+        throw new IllegalStateException("The first slide does not contain a title placeholder.");
+    }
+
+    titleShape.getTextFrame().setText("Quarterly Business Review");
+    presentation.save("title-placeholder-updated.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Ustawianie przezroczystości obrazu w polu zastępczym**
+Ten wzorzec unika rzutowania placeholderów obrazu, wykresu, tabeli lub mediów do [IAutoShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iautoshape/). Identyfikuje również placeholder po przeznaczeniu, zamiast polegać na kruchym indeksie kształtu.
 
-Aspose.Slides pozwala ustawić przezroczystość obrazu tła w polu zastępczym tekstowym. Dostosowując przezroczystość obrazu w takim ramce, możesz podkreślić tekst lub obraz (w zależności od kolorów tekstu i obrazu).
+## **Ustaw tekst podpowiedzi w układzie**
 
-Ten kod w języku Java pokazuje, jak ustawić przezroczystość tła obrazu (wewnątrz kształtu):
+Tekst podpowiedzi to instrukcja wyświetlana w pustym placeholderze w czasie projektowania, np. *Kliknij, aby dodać tytuł*. Ustaw niestandardowy tekst podpowiedzi na placeholderze układu, zamiast próbować sięgnąć po niego przez kolekcję kształtów normalnego slajdu. Dostęp do układu uzyskaj przez [ISlide.getLayoutSlide](https://reference.aspose.com/slides/pl/java/com.aspose.slides/islide/) i iteruj po kolekcji zwróconej przez [ILayoutSlide.getShapes](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibaseslide/).
+
+Poniższy przykład zmienia podpowiedzi tytułu i podtytułu w układzie używanym przez pierwszy slajd:
 
 ```java
-Presentation presentation = new Presentation("example.pptx");
+import com.aspose.slides.*;
 
-IAutoShape shape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ILayoutSlide layoutSlide = presentation.getSlides().get_Item(0).getLayoutSlide();
 
-IImageTransformOperationCollection operationCollection = shape.getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
-for (int i = 0; i < operationCollection.size(); i++)
-{
-    if(operationCollection.get_Item(i) instanceof AlphaModulateFixed)
-    {
-        AlphaModulateFixed alphaModulate = (AlphaModulateFixed)operationCollection.get_Item(i);
-        float currentValue = 100 - alphaModulate.getAmount();
-        System.out.println("Current transparency value: " + currentValue);
+    for (IShape shape : layoutSlide.getShapes()) {
+        if (!(shape instanceof IAutoShape)) {
+            continue;
+        }
 
-        int alphaValue = 40;
-        alphaModulate.setAmount(100 - alphaValue);
+        IAutoShape autoShape = (IAutoShape) shape;
+        IPlaceholder placeholder = autoShape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+
+        if (placeholderType == PlaceholderType.Title || placeholderType == PlaceholderType.CenteredTitle) {
+            autoShape.getTextFrame().setText("Enter a concise slide title");
+        } else if (placeholderType == PlaceholderType.Subtitle) {
+            autoShape.getTextFrame().setText("Enter a subtitle or reporting period");
+        }
     }
-}
 
-presentation.save("example_out.pptx", SaveFormat.Pptx);
+    presentation.save("custom-placeholder-prompts.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Tekst podpowiedzi nie jest zwykłą treścią slajdu. Jest przeznaczony dla pustych placeholderów w aplikacjach edycyjnych, takich jak PowerPoint. Gdy użytkownik lub program dostarczy prawdziwą treść, podpowiedź przestaje być wyświetlana. Zmiana podpowiedzi nie zastępuje istniejącego tekstu na slajdach, które używają tego układu.
+
+## **Aktualizacja placeholdera obrazu**
+
+Istnieją dwa przypadki do obsłużenia:
+
+- Jeśli placeholder obrazu jest już wypełniony i reprezentowany przez [IPictureFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ipictureframe/), zamień obraz przez [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ipicturefillformat/) i [ISlidesPicture.setImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/islidespicture/).
+- Jeśli jest nadal pustym placeholderem, dodaj ramkę obrazu w współrzędnych placeholdera przy użyciu [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishapecollection/) i usuń pusty placeholder.
+
+Następny przykład obsługuje oba przypadki i zapisuje prezentację:
+
+```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation("picture-template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape picturePlaceholder = null;
+
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder != null && placeholder.getType() == PlaceholderType.Picture) {
+            picturePlaceholder = shape;
+            break;
+        }
+    }
+
+    if (picturePlaceholder == null) {
+        throw new IllegalStateException("The first slide does not contain a picture placeholder.");
+    }
+
+    Path imagePath = Paths.get("replacement.png");
+    byte[] imageBytes = Files.readAllBytes(imagePath);
+    IPPImage image = presentation.getImages().addImage(imageBytes);
+
+    if (picturePlaceholder instanceof IPictureFrame) {
+        IPictureFrame pictureFrame = (IPictureFrame) picturePlaceholder;
+        pictureFrame.getPictureFormat().getPicture().setImage(image);
+    } else {
+        slide.getShapes().addPictureFrame(ShapeType.Rectangle, picturePlaceholder.getX(), picturePlaceholder.getY(), picturePlaceholder.getWidth(), picturePlaceholder.getHeight(), image);
+        slide.getShapes().remove(picturePlaceholder);
+    }
+
+    presentation.save("picture-placeholder-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Zastąpienie utworzone dla pustego placeholdera jest lokalną ramką obrazu, a nie nowym placeholderem, ponieważ [IShape.getPlaceholder](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/) nie udostępnia setteru. Zachowuje ono zarezerwowaną pozycję, ale nie dziedziczy już zachowania specyficznego dla placeholdera. Jeśli zachowanie relacji placeholdera jest kluczowe, przygotuj i wypełnij placeholder w PowerPoint najpierw, a następnie zaktualizuj powstały [IPictureFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ipictureframe/) przy użyciu Aspose.Slides.
+
+W sprawie przeźroczystości obrazu, przycinania i innych efektów specyficznych dla obrazu zobacz [Manage Picture Frames](/slides/pl/java/picture-frame/). Te operacje należą do ramki obrazu lub wypełnienia obrazu, nie do metadanych placeholdera.
+
+## **Praca z placeholderami wykresów i treści**
+
+Wypełniony placeholder wykresu może być reprezentowany przez [IChart](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichart/). Ten przykład znajduje taki wykres zarówno po typie placeholdera, jak i po interfejsie w czasie wykonywania, zmienia jego tytuł i zapisuje plik:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("chart-template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart placeholderChart = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IChart)) {
+            continue;
+        }
+
+        IChart chart = (IChart) shape;
+        IPlaceholder placeholder = chart.getPlaceholder();
+        if (placeholder != null && placeholder.getType() == PlaceholderType.Chart) {
+            placeholderChart = chart;
+            break;
+        }
+    }
+
+    if (placeholderChart == null) {
+        throw new IllegalStateException("The first slide does not contain a populated chart placeholder.");
+    }
+
+    placeholderChart.setTitle(true);
+    placeholderChart.getChartTitle().addTextFrameForOverriding("Quarterly Revenue");
+    presentation.save("chart-placeholder-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Ogólny placeholder treści zwykle ma [PlaceholderType.Object](https://reference.aspose.com/slides/pl/java/com.aspose.slides/placeholdertype/). W PowerPoint działa jako uruchamiacz dla kilku typów treści, w tym wykresów, tabel, diagramów, obrazów i mediów. Po wypełnieniu, sprawdź rzeczywisty interfejs kształtu, aby dowiedzieć się, co zawiera. Specjalistyczne układy mogą także udostępniać [PlaceholderType.Chart](https://reference.aspose.com/slides/pl/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/pl/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/pl/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/pl/java/com.aspose.slides/placeholdertype/), lub [PlaceholderType.Diagram](https://reference.aspose.com/slides/pl/java/com.aspose.slides/placeholdertype/).
+
+Aspose.Slides nie konwertuje pustego placeholdera [IAutoShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iautoshape/) w [IChart](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichart/) jedynie przez zmianę [IPlaceholder.getType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/placeholder/); typ nie może być zmieniony przez interfejs. Aby programowo wypełnić pusty obszar wykresu lub treści, dodaj wymagany obiekt w współrzędnych placeholdera, a następnie usuń pusty placeholder. Poniższy przykład robi to dla wykresu:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("content-template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape targetPlaceholder = null;
+
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+        if (placeholderType == PlaceholderType.Chart || placeholderType == PlaceholderType.Object) {
+            targetPlaceholder = shape;
+            break;
+        }
+    }
+
+    if (targetPlaceholder == null) {
+        throw new IllegalStateException("The first slide does not contain a chart or content placeholder.");
+    }
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, targetPlaceholder.getX(), targetPlaceholder.getY(), targetPlaceholder.getWidth(), targetPlaceholder.getHeight());
+    chart.setTitle(true);
+    chart.getChartTitle().addTextFrameForOverriding("Quarterly Revenue");
+    slide.getShapes().remove(targetPlaceholder);
+    presentation.save("content-placeholder-replaced-with-chart.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Dodany wykres jest zwykłym lokalnym wykresem. Zajmuje obszar placeholdera, ale nie dziedziczy z placeholdera układu. Używaj dedykowanych [artykułów o zarządzaniu wykresami](/slides/pl/java/powerpoint-charts/), gdy potrzebujesz zastąpić jego kategorie, serie lub dane skoroszytu.
+
+## **Pełny przykład: aktualizacja tekstu lub obrazu**
+
+Poniższy przykład end‑to‑end otwiera szablon, przeszukuje pierwszy slajd w poszukiwaniu placeholdera tytułu lub obrazu, sprawdza typy placeholdera i kształtu, aktualizuje odpowiednią treść i zapisuje wynik. Przykład celowo unika zakładania indeksu kształtu lub rzutowania każdego placeholdera na ten sam interfejs.
+
+```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    boolean updated = false;
+
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+
+        if ((placeholderType == PlaceholderType.Title || placeholderType == PlaceholderType.CenteredTitle) && shape instanceof IAutoShape) {
+            IAutoShape titleShape = (IAutoShape) shape;
+            titleShape.getTextFrame().setText("Quarterly Business Review");
+            updated = true;
+            break;
+        }
+
+        if (placeholderType == PlaceholderType.Picture) {
+            Path imagePath = Paths.get("replacement.png");
+            byte[] imageBytes = Files.readAllBytes(imagePath);
+            IPPImage image = presentation.getImages().addImage(imageBytes);
+
+            if (shape instanceof IPictureFrame) {
+                IPictureFrame pictureFrame = (IPictureFrame) shape;
+                pictureFrame.getPictureFormat().getPicture().setImage(image);
+            } else {
+                slide.getShapes().addPictureFrame(ShapeType.Rectangle, shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), image);
+                slide.getShapes().remove(shape);
+            }
+
+            updated = true;
+            break;
+        }
+    }
+
+    if (!updated) {
+        throw new IllegalStateException("No supported title or picture placeholder was found on the first slide.");
+    }
+
+    presentation.save("placeholder-content-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
 ## **FAQ**
 
-**Czym jest podstawowe pole zastępcze i jak różni się od lokalnego kształtu na slajdzie?**
+**Czym jest bazowy placeholder?**
 
-Podstawowe pole zastępcze jest oryginalnym kształtem w układzie lub wzorcu, z którego dziedziczy kształt slajdu — typ, pozycja i niektóre formatowania pochodzą z niego. Lokalny kształt jest niezależny; jeśli nie ma podstawowego pola zastępczego, dziedziczenie nie ma zastosowania.
+Bazowy placeholder to odpowiadający mu kształt na układzie lub masterze, z którego inny placeholder dziedziczy. Użyj [IShape.getBasePlaceholder](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/), aby go pobrać. Zwykły lokalny kształt zwraca `null`, ponieważ nie jest częścią hierarchii placeholderów.
 
-**Jak mogę zaktualizować wszystkie tytuły lub podpisy w całej prezentacji bez iterowania po każdym slajdzie?**
+**Czy mogę zmienić wszystkie tytuły slajdów, edytując placeholder układu?**
 
-Edytuj odpowiednie pole zastępcze w układzie lub wzorcu. Slajdy oparte na tych układach/wzorcu automatycznie odziedziczą zmianę.
+Możesz zmienić dziedziczone formatowanie lub tekst podpowiedzi przez układ, ale istniejąca treść tytułu jest przechowywana na normalnych slajdach. Aby zastąpić rzeczywisty tekst tytułu w całej prezentacji, iteruj po slajdach i zaktualizuj każdy placeholder tytułu.
 
-**Jak kontrolować standardowe pola zastępcze nagłówka/stopki — datę i godzinę, numer slajdu oraz tekst stopki?**
+**Jak zarządzać placeholderami daty, numeru slajdu, nagłówka i stopki?**
 
-Użyj menedżerów HeaderFooter w odpowiednim zasięgu (zwykłe slajdy, układy, wzorzec, notatki/ulotki), aby włączać lub wyłączać te pola zastępcze i ustawiać ich zawartość.
+Użyj menedżerów nagłówka i stopki w odpowiednim zakreślonym slajdzie, układzie, masterze, notatkach lub materiałach rozdawniczych. Zobacz [Manage Presentation Header and Footer](/slides/pl/java/presentation-header-and-footer/) po pełne przykłady.

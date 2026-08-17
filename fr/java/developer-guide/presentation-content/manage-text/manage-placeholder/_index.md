@@ -1,5 +1,5 @@
 ---
-title: Gérer les espaces réservés de présentation en Java
+title: Gestion des espaces réservés de présentation en Java
 linktitle: Gérer les espaces réservés
 type: docs
 weight: 10
@@ -9,122 +9,370 @@ keywords:
 - espace réservé de texte
 - espace réservé d'image
 - espace réservé de graphique
+- espace réservé de contenu
 - texte d'invite
 - PowerPoint
-- OpenDocument
 - présentation
 - Java
 - Aspose.Slides
-description: "Gérez facilement les espaces réservés dans Aspose.Slides pour Java: remplacez le texte, personnalisez les invites et définissez la transparence des images dans PowerPoint et OpenDocument."
+description: "Apprenez à inspecter et modifier les espaces réservés de texte, d'image, de graphique et de contenu et à comprendre l'héritage des espaces réservés avec Aspose.Slides pour Java."
 ---
+## **Vue d'ensemble**
 
-## **Modifier le texte dans un espace réservé**
-En utilisant [Aspose.Slides for Java](/slides/fr/java/), vous pouvez rechercher et modifier les espaces réservés sur les diapositives des présentations. Aspose.Slides vous permet de modifier le texte d'un espace réservé.
+Un espace réservé est une forme qui réserve une position pour un type particulier de contenu dans un modèle de présentation. Les exemples courants sont les espaces réservés de titre, de corps, d'image, de graphique et de contenu à usage général. Contrairement à une forme ordinaire, un espace réservé peut hériter de sa position, de sa taille, de son formatage et d'autres paramètres d'une diapositive de mise en page ou d'une diapositive maîtresse.
 
-**Prérequis** : vous avez besoin d'une présentation contenant un espace réservé. Vous pouvez créer une telle présentation dans l'application Microsoft PowerPoint standard.
+Aspose.Slides expose les informations d'espace réservé via la méthode [IShape.getPlaceholder](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ishape/). La méthode renvoie un objet [IPlaceholder](https://reference.aspose.com/slides/fr/java/com.aspose.slides/placeholder/) ou `null` pour une forme normale. Utilisez [IPlaceholder.getType](https://reference.aspose.com/slides/fr/java/com.aspose.slides/placeholder/) pour déterminer ce que l'espace réservé est censé contenir.
 
-Voici comment utiliser Aspose.Slides pour remplacer le texte dans l'espace réservé de cette présentation :
+L'interface de forme reste importante après avoir connu le type d'espace réservé :
 
-1. Instanciez la classe [`Presentation`](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) et transmettez la présentation en argument.
-2. Obtenez une référence de diapositive via son index.
-3. Parcourez les formes pour trouver l'espace réservé.
-4. Convertissez la forme de l'espace réservé en [`AutoShape`](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) et modifiez le texte à l'aide du [`TextFrame`](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) associé à la [`AutoShape`](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape).
-5. Enregistrez la présentation modifiée.
+- Un espace réservé de texte, d'image, de graphique ou de contenu vide est généralement représenté par un [IAutoShape](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iautoshape/).
+- Un espace réservé d'image rempli peut être représenté par un [IPictureFrame](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ipictureframe/).
+- Un espace réservé de graphique rempli peut être représenté par un [IChart](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ichart/).
+- Un espace réservé de contenu peut contenir plusieurs types de contenu. Vérifiez à la fois [IPlaceholder.getType](https://reference.aspose.com/slides/fr/java/com.aspose.slides/placeholder/) et l'interface de forme à l'exécution au lieu de supposer que chaque espace réservé est un [IAutoShape](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iautoshape/).
 
-Ce code Java montre comment modifier le texte dans un espace réservé :
+{{% alert color="warning" title="Avertissement" %}}
+[IPlaceholder.getType](https://reference.aspose.com/slides/fr/java/com.aspose.slides/placeholder/) décrit le rôle d'un espace réservé ; il ne garantit pas le type d'exécution de la forme. Utilisez toujours une vérification de type avant d'accéder aux membres spécifiques au texte, à l'image, au graphique, au tableau ou aux médias.
+{{% /alert %}}
+
+## **Comprendre l'héritage des espaces réservés**
+
+Les espaces réservés forment une hiérarchie :
+
+1. Une diapositive maîtresse définit des styles réutilisables et, dans certains cas, des espaces réservés au niveau maître.
+2. Une diapositive de mise en page définit la disposition utilisée par une ou plusieurs diapositives normales et peut hériter du maître.
+3. Une diapositive normale contient les espaces réservés pour cette diapositive et peut hériter de sa mise en page.
+
+Appelez [IShape.getBasePlaceholder](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ishape/) pour monter d'un niveau dans cette hiérarchie. Un espace réservé de diapositive renvoie normalement son espace réservé de mise en page ; un espace réservé de mise en page peut renvoyer son espace réservé maître. La méthode renvoie `null` lorsque la forme n'a aucun espace réservé de base.
+
+L'exemple suivant répertorie les espaces réservés sur la première diapositive et indique leurs espaces réservés de base :
+
 ```java
-// Instancie une classe Presentation
-Presentation pres = new Presentation("ReplacingText.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
 try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Accède à la première diapositive
-    ISlide sld = pres.getSlides().get_Item(0);
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
 
-    // Itère à travers les formes pour trouver l'espace réservé
-    for (IShape shp : sld.getShapes()) 
-    {
-        if (shp.getPlaceholder() != null) {
-            // Modifie le texte de chaque espace réservé
-            ((IAutoShape) shp).getTextFrame().setText("This is Placeholder");
+        byte placeholderType = placeholder.getType();
+        String typeName = shape.getClass().getSimpleName();
+        String slidePlaceholderMessage = "Slide placeholder: " + placeholderType + "; shape interface: " + typeName;
+        System.out.println(slidePlaceholderMessage);
+
+        IShape layoutPlaceholder = shape.getBasePlaceholder();
+        if (layoutPlaceholder != null) {
+            IPlaceholder layoutPlaceholderInfo = layoutPlaceholder.getPlaceholder();
+            Byte layoutPlaceholderType = layoutPlaceholderInfo == null ? null : layoutPlaceholderInfo.getType();
+            String layoutPlaceholderMessage = "  Layout placeholder: " + layoutPlaceholderType;
+            System.out.println(layoutPlaceholderMessage);
+
+            IShape masterPlaceholder = layoutPlaceholder.getBasePlaceholder();
+            if (masterPlaceholder != null) {
+                IPlaceholder masterPlaceholderInfo = masterPlaceholder.getPlaceholder();
+                Byte masterPlaceholderType = masterPlaceholderInfo == null ? null : masterPlaceholderInfo.getType();
+                String masterPlaceholderMessage = "  Master placeholder: " + masterPlaceholderType;
+                System.out.println(masterPlaceholderMessage);
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Modifier un espace réservé sur une diapositive normale crée ou modifie un remplacement local pour cette diapositive. Modifier la mise en page ou le maître associé peut affecter toutes les diapositives qui héritent encore de ce paramètre. Une forme ordinaire locale n'a pas d'espace réservé de base et ne commence pas à hériter simplement parce qu'elle occupe les mêmes coordonnées.
+
+## **Modifier le texte d'un espace réservé**
+
+Les espaces réservés de titre, de titre centré, de sous‑titre, de corps et de texte prennent généralement en charge le texte. Vérifiez la présence d'un [IAutoShape](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iautoshape/) avant d'utiliser sa méthode [getTextFrame](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iautoshape/).
+
+Cet exemple met à jour le premier espace réservé de titre sur la première diapositive et enregistre le résultat :
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape titleShape = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IAutoShape)) {
+            continue;
+        }
+
+        IAutoShape autoShape = (IAutoShape) shape;
+        IPlaceholder placeholder = autoShape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+        if (placeholderType == PlaceholderType.Title || placeholderType == PlaceholderType.CenteredTitle) {
+            titleShape = autoShape;
+            break;
         }
     }
 
-    // Enregistre la présentation sur le disque
-    pres.save("output.pptx", SaveFormat.Pptx);
+    if (titleShape == null) {
+        throw new IllegalStateException("The first slide does not contain a title placeholder.");
+    }
+
+    titleShape.getTextFrame().setText("Quarterly Business Review");
+    presentation.save("title-placeholder-updated.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Ce modèle évite de caster les espaces réservés d'image, de graphique, de tableau ou de média en [IAutoShape](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iautoshape/). Il identifie également l'espace réservé par son but plutôt que de se fier à un indice de forme fragile.
 
-## **Définir le texte d'invite dans un espace réservé**
-Les dispositions standard et préconstruites contiennent des textes d'invite d'espace réservé tels que ***Cliquez pour ajouter un titre*** ou ***Cliquez pour ajouter un sous‑titre***. Avec Aspose.Slides, vous pouvez insérer vos propres textes d'invite dans les dispositions d'espaces réservés.
+## **Définir le texte d'invite sur une mise en page**
 
-Ce code Java vous montre comment définir le texte d'invite dans un espace réservé :
+Le texte d'invite est l'instruction affichée en mode conception dans un espace réservé vide, par exemple *Cliquez pour ajouter un titre*. Définissez du texte d'invite personnalisé sur l'espace réservé de la mise en page plutôt que d'essayer d'y accéder via la collection de formes d'une diapositive normale. Accédez à la mise en page via [ISlide.getLayoutSlide](https://reference.aspose.com/slides/fr/java/com.aspose.slides/islide/) et parcourez la collection renvoyée par [ILayoutSlide.getShapes](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ibaseslide/).
+
+L'exemple suivant modifie les invites de titre et de sous‑titre sur la mise en page utilisée par la première diapositive :
+
 ```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    for (IShape shape : slide.getSlide().getShapes()) // Itère à travers la diapositive
-    {
-        if (shape.getPlaceholder() != null && shape instanceof AutoShape)
-        {
-            String text = "";
-            if (shape.getPlaceholder().getType() == PlaceholderType.CenteredTitle) // PowerPoint affiche "Cliquez pour ajouter un titre"
-            {
-                text = "Add Title";
-            }
-            else if (shape.getPlaceholder().getType() == PlaceholderType.Subtitle) // Ajoute le sous-titre
-            {
-                text = "Add Subtitle";
-            }
+import com.aspose.slides.*;
 
-            ((IAutoShape)shape).getTextFrame().setText(text);
-            System.out.println("Placeholder with text: " + text);
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ILayoutSlide layoutSlide = presentation.getSlides().get_Item(0).getLayoutSlide();
+
+    for (IShape shape : layoutSlide.getShapes()) {
+        if (!(shape instanceof IAutoShape)) {
+            continue;
+        }
+
+        IAutoShape autoShape = (IAutoShape) shape;
+        IPlaceholder placeholder = autoShape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+
+        if (placeholderType == PlaceholderType.Title || placeholderType == PlaceholderType.CenteredTitle) {
+            autoShape.getTextFrame().setText("Enter a concise slide title");
+        } else if (placeholderType == PlaceholderType.Subtitle) {
+            autoShape.getTextFrame().setText("Enter a subtitle or reporting period");
         }
     }
 
-    pres.save("Placeholders_PromptText.pptx", SaveFormat.Pptx);
+    presentation.save("custom-placeholder-prompts.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Le texte d'invite n'est pas un contenu de diapositive normal. Il est destiné aux espaces réservés vides dans les applications d'édition comme PowerPoint. Une fois qu'un utilisateur ou un programme fournit du contenu réel, l'invite n'est plus affichée. Modifier une invite ne remplace pas non plus le texte existant sur les diapositives qui utilisent la mise en page.
 
-## **Définir la transparence de l'image d'un espace réservé**
-Aspose.Slides vous permet de définir la transparence de l'image d'arrière‑plan dans un espace réservé de texte. En ajustant la transparence de l'image dans ce cadre, vous pouvez faire ressortir le texte ou l'image (selon les couleurs du texte et de l'image).
+## **Mettre à jour un espace réservé d'image**
 
-Ce code Java montre comment définir la transparence d'une image d'arrière‑plan (à l'intérieur d'une forme) :
+Il y a deux cas à gérer :
+
+- Si l'espace réservé d'image est déjà rempli et représenté par un [IPictureFrame](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ipictureframe/), remplacez l'image via [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ipicturefillformat/) et [ISlidesPicture.setImage](https://reference.aspose.com/slides/fr/java/com.aspose.slides/islidespicture/).
+- S'il s'agit toujours d'un espace réservé vide, ajoutez un cadre d'image aux coordonnées de l'espace réservé avec [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ishapecollection/) et supprimez l'espace réservé vide.
+
+L'exemple suivant prend en charge les deux cas et enregistre la présentation :
+
 ```java
-Presentation presentation = new Presentation("example.pptx");
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-IAutoShape shape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+Presentation presentation = new Presentation("picture-template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape picturePlaceholder = null;
 
-IImageTransformOperationCollection operationCollection = shape.getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
-for (int i = 0; i < operationCollection.size(); i++)
-{
-    if(operationCollection.get_Item(i) instanceof AlphaModulateFixed)
-    {
-        AlphaModulateFixed alphaModulate = (AlphaModulateFixed)operationCollection.get_Item(i);
-        float currentValue = 100 - alphaModulate.getAmount();
-        System.out.println("Current transparency value: " + currentValue);
-
-        int alphaValue = 40;
-        alphaModulate.setAmount(100 - alphaValue);
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder != null && placeholder.getType() == PlaceholderType.Picture) {
+            picturePlaceholder = shape;
+            break;
+        }
     }
-}
 
-presentation.save("example_out.pptx", SaveFormat.Pptx);
+    if (picturePlaceholder == null) {
+        throw new IllegalStateException("The first slide does not contain a picture placeholder.");
+    }
+
+    Path imagePath = Paths.get("replacement.png");
+    byte[] imageBytes = Files.readAllBytes(imagePath);
+    IPPImage image = presentation.getImages().addImage(imageBytes);
+
+    if (picturePlaceholder instanceof IPictureFrame) {
+        IPictureFrame pictureFrame = (IPictureFrame) picturePlaceholder;
+        pictureFrame.getPictureFormat().getPicture().setImage(image);
+    } else {
+        slide.getShapes().addPictureFrame(ShapeType.Rectangle, picturePlaceholder.getX(), picturePlaceholder.getY(), picturePlaceholder.getWidth(), picturePlaceholder.getHeight(), image);
+        slide.getShapes().remove(picturePlaceholder);
+    }
+
+    presentation.save("picture-placeholder-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
+Le remplacement créé pour un espace réservé vide est un cadre d'image local, pas un nouvel espace réservé, car [IShape.getPlaceholder](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ishape/) ne fournit pas de mutateur. Il conserve la position réservée mais n'hérite plus du comportement spécifique à l'espace réservé. Si la conservation de la relation d'espace réservé est essentielle, préparez et remplissez d'abord l'espace réservé dans PowerPoint, puis mettez à jour le [IPictureFrame](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ipictureframe/) résultant avec Aspose.Slides.
+
+Pour la transparence d'image, le recadrage et d'autres effets spécifiques aux images, voir [Manage Picture Frames](/slides/fr/java/picture-frame/). Ces opérations appartiennent au cadre d'image ou au remplissage d'image, pas aux métadonnées de l'espace réservé.
+
+## **Travailler avec les espaces réservés de graphique et de contenu**
+
+Un espace réservé de graphique rempli peut être représenté par un [IChart](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ichart/). Cet exemple trouve un tel graphique à la fois par le type d'espace réservé et par l'interface d'exécution, modifie son titre et enregistre le fichier :
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("chart-template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart placeholderChart = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IChart)) {
+            continue;
+        }
+
+        IChart chart = (IChart) shape;
+        IPlaceholder placeholder = chart.getPlaceholder();
+        if (placeholder != null && placeholder.getType() == PlaceholderType.Chart) {
+            placeholderChart = chart;
+            break;
+        }
+    }
+
+    if (placeholderChart == null) {
+        throw new IllegalStateException("The first slide does not contain a populated chart placeholder.");
+    }
+
+    placeholderChart.setTitle(true);
+    placeholderChart.getChartTitle().addTextFrameForOverriding("Quarterly Revenue");
+    presentation.save("chart-placeholder-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Un espace réservé de contenu général possède généralement [PlaceholderType.Object](https://reference.aspose.com/slides/fr/java/com.aspose.slides/placeholdertype/). Dans PowerPoint, il sert de lanceur pour plusieurs types de contenu, y compris les graphiques, les tableaux, les diagrammes, les images et les médias. Après qu'il a été rempli, inspectez l'interface de forme réelle pour savoir ce qu'il contient. Des mises en page spécialisées peuvent également exposer [PlaceholderType.Chart](https://reference.aspose.com/slides/fr/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/fr/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/fr/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/fr/java/com.aspose.slides/placeholdertype/), ou [PlaceholderType.Diagram](https://reference.aspose.com/slides/fr/java/com.aspose.slides/placeholdertype/).
+
+Aspose.Slides ne convertit pas un espace réservé vide [IAutoShape](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iautoshape/) en [IChart](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ichart/) simplement en modifiant [IPlaceholder.getType](https://reference.aspose.com/slides/fr/java/com.aspose.slides/placeholder/); le type ne peut pas être changé via l'interface. Pour remplir un graphique ou une zone de contenu vide de façon programmatique, ajoutez l'objet requis aux coordonnées de l'espace réservé puis supprimez l'espace réservé vide. L'exemple suivant fait cela pour un graphique :
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("content-template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape targetPlaceholder = null;
+
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+        if (placeholderType == PlaceholderType.Chart || placeholderType == PlaceholderType.Object) {
+            targetPlaceholder = shape;
+            break;
+        }
+    }
+
+    if (targetPlaceholder == null) {
+        throw new IllegalStateException("The first slide does not contain a chart or content placeholder.");
+    }
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, targetPlaceholder.getX(), targetPlaceholder.getY(), targetPlaceholder.getWidth(), targetPlaceholder.getHeight());
+    chart.setTitle(true);
+    chart.getChartTitle().addTextFrameForOverriding("Quarterly Revenue");
+    slide.getShapes().remove(targetPlaceholder);
+    presentation.save("content-placeholder-replaced-with-chart.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Le graphique ajouté est un graphique local ordinaire. Il occupe la zone de l'espace réservé mais n'hérite pas de l'espace réservé de la mise en page. Utilisez les [articles de gestion des graphiques](/slides/fr/java/powerpoint-charts/) lorsqu'il faut remplacer ses catégories, séries ou données de classeur.
+
+## **Exemple complet : mettre à jour le texte ou le contenu d'image**
+
+L'exemple complet suivant ouvre un modèle, recherche la première diapositive pour un espace réservé de titre ou d'image, vérifie les types d'espace réservé et de forme, met à jour le contenu approprié et enregistre le résultat. L'exemple évite délibérément de supposer un indice de forme ou de caster chaque espace réservé à la même interface.
+
+```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    boolean updated = false;
+
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+
+        if ((placeholderType == PlaceholderType.Title || placeholderType == PlaceholderType.CenteredTitle) && shape instanceof IAutoShape) {
+            IAutoShape titleShape = (IAutoShape) shape;
+            titleShape.getTextFrame().setText("Quarterly Business Review");
+            updated = true;
+            break;
+        }
+
+        if (placeholderType == PlaceholderType.Picture) {
+            Path imagePath = Paths.get("replacement.png");
+            byte[] imageBytes = Files.readAllBytes(imagePath);
+            IPPImage image = presentation.getImages().addImage(imageBytes);
+
+            if (shape instanceof IPictureFrame) {
+                IPictureFrame pictureFrame = (IPictureFrame) shape;
+                pictureFrame.getPictureFormat().getPicture().setImage(image);
+            } else {
+                slide.getShapes().addPictureFrame(ShapeType.Rectangle, shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), image);
+                slide.getShapes().remove(shape);
+            }
+
+            updated = true;
+            break;
+        }
+    }
+
+    if (!updated) {
+        throw new IllegalStateException("No supported title or picture placeholder was found on the first slide.");
+    }
+
+    presentation.save("placeholder-content-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **FAQ**
 
-**Qu'est‑ce qu'un espace réservé de base, et en quoi diffère‑t‑il d'une forme locale sur une diapositive ?**  
-Un espace réservé de base est la forme originale sur une disposition ou un maître dont la forme de la diapositive hérite — le type, la position et certains formatages en proviennent. Une forme locale est indépendante ; s'il n'existe aucun espace réservé de base, l'héritage ne s'applique pas.
+**Qu'est‑ce qu'un espace réservé de base ?**
 
-**Comment mettre à jour tous les titres ou légendes d'une présentation sans parcourir chaque diapositive ?**  
-Modifiez l'espace réservé correspondant sur la disposition ou le maître. Les diapositives basées sur ces dispositions/ce maître hériteront automatiquement de la modification.
+Un espace réservé de base est la forme correspondante sur la mise en page ou le maître dont hérite un autre espace réservé. Utilisez [IShape.getBasePlaceholder](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ishape/) pour le récupérer. Une forme locale ordinaire renvoie `null` car elle ne fait pas partie de la hiérarchie des espaces réservés.
 
-**Comment contrôler les espaces réservés d'en‑tête/pied de page standard — date et heure, numéro de diapositive et texte du pied de page ?**  
-Utilisez les gestionnaires HeaderFooter au niveau approprié (diapositives normales, dispositions, maître, notes/feuillets) pour activer ou désactiver ces espaces réservés et définir leur contenu.
+**Puis‑je modifier tous les titres de diapositives en modifiant un espace réservé de mise en page ?**
+
+Vous pouvez modifier le formatage hérité ou le texte d'invite via une mise en page, mais le contenu réel des titres est stocké sur les diapositives normales. Pour remplacer le texte des titres dans toute la présentation, parcourez les diapositives et mettez à jour chaque espace réservé de titre.
+
+**Comment gérer les espaces réservés de date, de numéro de diapositive, d’en‑tête et de pied de page ?**
+
+Utilisez les gestionnaires d’en‑tête et de pied de page au niveau de la diapositive, de la mise en page, du maître, des notes ou du fascicule. Consultez [Manage Presentation Header and Footer](/slides/fr/java/presentation-header-and-footer/) pour des exemples complets.
