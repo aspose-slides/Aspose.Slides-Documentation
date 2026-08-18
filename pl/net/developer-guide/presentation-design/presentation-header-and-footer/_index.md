@@ -11,7 +11,7 @@ keywords:
 - tekst stopki
 - ustaw nagłówek
 - ustaw stopkę
-- wersja robocza
+- materiały rozdawnicze
 - notatki
 - PowerPoint
 - OpenDocument
@@ -19,134 +19,224 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Użyj Aspose.Slides for .NET, aby dodać i dostosować nagłówki oraz stopki w prezentacjach PowerPoint i OpenDocument, zapewniając profesjonalny wygląd."
+description: "Dowiedz się, jak zarządzać polami zastępczymi stopki, daty i godziny, numeru slajdu oraz nagłówka na slajdach, stronach notatek i materiałach rozdawniczych przy użyciu Aspose.Slides dla .NET."
 ---
 ## **Przegląd**
 
-Aspose.Slides umożliwia zarządzanie ustawieniami nagłówka i stopki w prezentacjach PowerPoint. Nagłówki i stopki są obsługiwane na poziomie mastera prezentacji, a API udostępnia metody do ustawiania tekstu stopki, zmiany widoczności stopki oraz aktualizacji tekstu nagłówka na slajdach notatek mastera.
+PowerPoint używa różnych pól zastępczych nagłówka i stopki w zależności od typu strony. Aspose.Slides dla .NET umożliwia kontrolowanie tekstu i widoczności tych pól zastępczych za pomocą interfejsów menedżera nagłówka/stopki.
 
-Możesz także zarządzać nagłówkami i stopkami dla slajdów notatek i wersji roboczych. Obejmuje to zmianę widoczności i tekstu pól nagłówka, stopki, numeru slajdu oraz daty i czasu dla mastera notatek, wszystkich podrzędnych slajdów notatek lub pojedynczego slajdu notatek.
+Dostępne pola zastępcze zależą od zakresu:
 
-## **Zarządzanie tekstem nagłówka i stopki**
+| Zakres | Nagłówek | Stopka | Data/godzina | Numer slajdu/strony |
+|---|---|---|---|---|
+| Zwykły slajd | Nie | Tak | Tak | Tak |
+| Mistrz notatek | Tak | Tak | Tak | Tak |
+| Slajd notatek | Tak | Tak | Tak | Tak |
+| Mistrz materiałów rozdawniczych | Tak | Tak | Tak | Tak |
 
-Notatki niektórych konkretnych slajdów mogą być zaktualizowane, jak pokazano w poniższym przykładzie:
+Zwykły slajd prezentacji nie posiada pola zastępczego nagłówka. Nagłówki są dostępne na stronach notatek i materiałach rozdawniczych. Dla zwykłych slajdów należy używać pól zastępczych stopki, daty/godziny oraz numeru slajdu.
 
-```c#
-// Wczytaj prezentację
-Presentation pres = new Presentation("headerTest.pptx");
+Zakres zmiany zależy od używanego menedżera. Interfejs [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/pl/net/aspose.slides/islideheaderfootermanager/) kontroluje jeden zwykły slajd. Interfejs [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/pl/net/aspose.slides/inotesslideheaderfootermanager/) kontroluje jeden slajd notatek. Menedżerowie mistrza i układu mogą także propagować ustawienia do slajdów zależnych, podczas gdy interfejs [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/pl/net/aspose.slides/imasterhandoutslideheaderfootermanager/) kontroluje mistrz materiałów rozdawniczych.
 
-// Ustawianie stopki
-pres.HeaderFooterManager.SetAllFootersText("My Footer text");
-pres.HeaderFooterManager.SetAllFootersVisibility(true);
+## **Ustaw stopkę, datę/godzinę i numery slajdów na zwykłych slajdach**
 
-// Dostęp i aktualizacja nagłówka
-IMasterNotesSlide masterNotesSlide = pres.MasterNotesSlideManager.MasterNotesSlide;
-if (null != masterNotesSlide)
-{
-	UpdateHeaderFooterText(masterNotesSlide);
-}
+Dla zwykłych slajdów podstawowy przepływ pracy polega na uzyskaniu menedżera nagłówka/stopki każdego slajdu, ustawieniu tekstu stopki i daty/godziny, włączeniu wymaganych pól zastępczych oraz zapisaniu prezentacji. Numery slajdów są generowane przez prezentację, więc wystarczy kontrolować ich widoczność.
 
-// Zapisz prezentację
-pres.Save("HeaderFooterJava.pptx", SaveFormat.Pptx);
-```
+Użyj [`SetFooterText`](https://reference.aspose.com/slides/pl/net/aspose.slides/baseslideheaderfootermanager/setfootertext/) i [`SetDateTimeText`](https://reference.aspose.com/slides/pl/net/aspose.slides/baseslideheaderfootermanager/setdatetimetext/), aby ustawić tekst, oraz [`SetFooterVisibility`](https://reference.aspose.com/slides/pl/net/aspose.slides/baseslideheaderfootermanager/setfootervisibility/), [`SetDateTimeVisibility`](https://reference.aspose.com/slides/pl/net/aspose.slides/baseslideheaderfootermanager/setdatetimevisibility/), i [`SetSlideNumberVisibility`](https://reference.aspose.com/slides/pl/net/aspose.slides/baseslideheaderfootermanager/setslidenumbervisibility/), aby wyświetlić odpowiednie pola zastępcze.
 
-
+Poniższy przykład end‑to‑end stosuje tę samą stopkę, tekst daty/godziny oraz widoczność numeru slajdu do wszystkich zwykłych slajdów:
 
 ```c#
-// Metoda ustawiająca tekst nagłówka/stopki
-public static void UpdateHeaderFooterText(IBaseSlide master)
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    foreach (IShape shape in master.Shapes)
-    {
-        if (shape.Placeholder != null)
-        {
-            if (shape.Placeholder.Type == PlaceholderType.Header)
-            {
-                ((IAutoShape)shape).TextFrame.Text = "HI there new header";
-            }
-        }
-    }
+    var headerFooterManager = slide.HeaderFooterManager;
+
+    headerFooterManager.SetFooterText("Company Confidential");
+    headerFooterManager.SetFooterVisibility(true);
+
+    headerFooterManager.SetDateTimeText("Date and time text");
+    headerFooterManager.SetDateTimeVisibility(true);
+
+    headerFooterManager.SetSlideNumberVisibility(true);
 }
+
+presentation.Save("presentation_with_slide_footers.pptx", SaveFormat.Pptx);
 ```
 
+Jeśli musisz zaktualizować tylko jeden slajd, uzyskaj dostęp do tego slajdu bezpośrednio poprzez kolekcję [`Slides`](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/slides/pl/), zamiast iterować po całej kolekcji.
 
+## **Ustaw nagłówki i stopki w mistrzu notatek**
 
+Mistrz notatek definiuje wspólne formatowanie i zachowanie pól zastępczych dla stron notatek. Użyj interfejsu [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/pl/net/aspose.slides/imasternotesslideheaderfootermanager/) gdy chcesz zmienić tylko sam mistrz notatek.
 
-## **Zarządzanie nagłówkami i stopkami na wersjach roboczych i slajdach notatek**
-Aspose.Slides for .NET obsługuje nagłówki i stopki w wersjach roboczych i slajdach notatek. Proszę postępować zgodnie z poniższymi krokami:
-
-- Wczytaj [Presentation ](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation) zawierający wideo.
-- Zmień ustawienia nagłówka i stopki dla mastera notatek i wszystkich slajdów notatek.
-- Ustaw widoczność pól stopki w masterze notatek oraz we wszystkich podrzędnych slajdach.
-- Ustaw widoczność pól daty i czasu w masterze notatek oraz we wszystkich podrzędnych slajdach.
-- Zmień ustawienia nagłówka i stopki tylko dla pierwszego slajdu notatek.
-- Ustaw widoczność pola nagłówka w slajdzie notatek.
-- Ustaw tekst w polu nagłówka slajdu notatek.
-- Ustaw tekst w polu daty i czasu slajdu notatek.
-- Zapisz zmodyfikowany plik prezentacji.
-
-Fragment kodu podany w poniższym przykładzie.
+Poniższy przykład ustawia nagłówek, stopkę i tekst daty/godziny w mistrzu notatek oraz sprawia, że wszystkie obsługiwane pola zastępcze są widoczne w tym mistrzu:
 
 ```c#
-using (Presentation presentation = new Presentation("presentation.pptx"))
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var masterNotesSlide = presentation.MasterNotesSlideManager.MasterNotesSlide;
+
+if (masterNotesSlide != null)
 {
-	// Zmień ustawienia nagłówka i stopki dla mastera notatek i wszystkich slajdów notatek
-	IMasterNotesSlide masterNotesSlide = presentation.MasterNotesSlideManager.MasterNotesSlide;
-	if (masterNotesSlide != null)
-	{
-		IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.HeaderFooterManager;
+    var headerFooterManager = masterNotesSlide.HeaderFooterManager;
 
-		headerFooterManager.SetHeaderAndChildHeadersVisibility(true); // spraw, aby master slajd notatek i wszystkie podrzędne pola stopki były widoczne
-		headerFooterManager.SetFooterAndChildFootersVisibility(true); // spraw, aby master slajd notatek i wszystkie podrzędne pola nagłówka były widoczne
-		headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true); // spraw, aby master slajd notatek i wszystkie podrzędne pola numeru slajdu były widoczne
-		headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true); // spraw, aby master slajd notatek i wszystkie podrzędne pola daty i czasu były widoczne
+    headerFooterManager.SetHeaderText("Notes header");
+    headerFooterManager.SetHeaderVisibility(true);
 
-		headerFooterManager.SetHeaderAndChildHeadersText("Header text"); // ustaw tekst w master slajdzie notatek oraz wszystkich podrzędnych polach nagłówka
-		headerFooterManager.SetFooterAndChildFootersText("Footer text"); // ustaw tekst w master slajdzie notatek oraz wszystkich podrzędnych polach stopki
-		headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text"); // ustaw tekst w master slajdzie notatek oraz wszystkich podrzędnych polach daty i czasu
-	}
+    headerFooterManager.SetFooterText("Notes footer");
+    headerFooterManager.SetFooterVisibility(true);
 
-	// Zmień ustawienia nagłówka i stopki tylko dla pierwszego slajdu notatek
-	INotesSlide notesSlide = presentation.Slides[0].NotesSlideManager.NotesSlide;
-	if (notesSlide != null)
-	{
-		INotesSlideHeaderFooterManager headerFooterManager = notesSlide.HeaderFooterManager;
-		if (!headerFooterManager.IsHeaderVisible)
-			headerFooterManager.SetHeaderVisibility(true); // spraw, aby pole nagłówka tego slajdu notatek było widoczne
+    headerFooterManager.SetDateTimeText("Date and time text");
+    headerFooterManager.SetDateTimeVisibility(true);
 
-		if (!headerFooterManager.IsFooterVisible)
-			headerFooterManager.SetFooterVisibility(true); // spraw, aby pole stopki tego slajdu notatek było widoczne
-
-		if (!headerFooterManager.IsSlideNumberVisible)
-			headerFooterManager.SetSlideNumberVisibility(true); // spraw, aby pole numeru slajdu tego slajdu notatek było widoczne
-
-		if (!headerFooterManager.IsDateTimeVisible)
-			headerFooterManager.SetDateTimeVisibility(true); // spraw, aby pole daty i czasu tego slajdu notatek było widoczne
-
-		headerFooterManager.SetHeaderText("New header text"); // ustaw tekst w polu nagłówka slajdu notatek
-		headerFooterManager.SetFooterText("New footer text"); // ustaw tekst w polu stopki slajdu notatek
-		headerFooterManager.SetDateTimeText("New date and time text"); // ustaw tekst w polu daty i czasu slajdu notatek
-	}
-	presentation.Save("testresult.pptx",SaveFormat.Pptx);
+    headerFooterManager.SetSlideNumberVisibility(true);
 }
-		
- }
+
+presentation.Save("presentation_with_notes_master_footers.pptx", SaveFormat.Pptx);
 ```
+
+Właściwość [`MasterNotesSlide`](https://reference.aspose.com/slides/pl/net/aspose.slides/imasternotesslidemanager/masternotesslide/) zwraca `null`, gdy prezentacja nie zawiera mistrza notatek.
+
+## **Zastosuj ustawienia mistrza notatek do podrzędnych slajdów notatek**
+
+Mistrz notatek może zastosować ustawienia nagłówka i stopki do siebie oraz do wszystkich zależnych slajdów notatek. Użyj dedykowanych metod propagacji w interfejsie [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/pl/net/aspose.slides/imasternotesslideheaderfootermanager/) gdy te same ustawienia mają być zastosowane w całej hierarchii notatek.
+
+Na przykład, [`SetHeaderAndChildHeadersText`](https://reference.aspose.com/slides/pl/net/aspose.slides/masternotesslideheaderfootermanager/setheaderandchildheaderstext/) i [`SetHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/pl/net/aspose.slides/masternotesslideheaderfootermanager/setheaderandchildheadersvisibility/) aktualizują nagłówek mistrza notatek oraz wszystkie nagłówki podrzędne. Równoważne metody są dostępne dla stopek, daty/godziny i numerów slajdów.
+
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var masterNotesSlide = presentation.MasterNotesSlideManager.MasterNotesSlide;
+
+if (masterNotesSlide != null)
+{
+    var headerFooterManager = masterNotesSlide.HeaderFooterManager;
+
+    headerFooterManager.SetHeaderAndChildHeadersText("Notes header");
+    headerFooterManager.SetHeaderAndChildHeadersVisibility(true);
+
+    headerFooterManager.SetFooterAndChildFootersText("Notes footer");
+    headerFooterManager.SetFooterAndChildFootersVisibility(true);
+
+    headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
+    headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
+
+    headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
+}
+
+presentation.Save("presentation_with_child_notes_footers.pptx", SaveFormat.Pptx);
+```
+
+Metody propagacji użyte powyżej to [`SetFooterAndChildFootersText`](https://reference.aspose.com/slides/pl/net/aspose.slides/masternotesslideheaderfootermanager/setfooterandchildfooterstext/), [`SetFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/pl/net/aspose.slides/masternotesslideheaderfootermanager/setfooterandchildfootersvisibility/), [`SetDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/pl/net/aspose.slides/masternotesslideheaderfootermanager/setdatetimeandchilddatetimestext/), [`SetDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/pl/net/aspose.slides/masternotesslideheaderfootermanager/setdatetimeandchilddatetimesvisibility/), i [`SetSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/pl/net/aspose.slides/masternotesslideheaderfootermanager/setslidenumberandchildslidenumbersvisibility/).
+
+## **Ustaw nagłówki i stopki na pojedynczym slajdzie notatek**
+
+Slajd notatek należy do konkretnego zwykłego slajdu. Użyj jego interfejsu [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/pl/net/aspose.slides/inotesslideheaderfootermanager/) gdy chcesz spersonalizować tylko tę stronę notatek.
+
+Metoda [`AddNotesSlide`](https://reference.aspose.com/slides/pl/net/aspose.slides/inotesslidemanager/addnotesslide/) zwraca slajd notatek dla bieżącego slajdu i tworzy go, jeśli jeszcze nie istnieje. Poniższy przykład konfiguruje stronę notatek powiązaną z pierwszym slajdem prezentacji:
+
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var notesSlide = presentation.Slides[0].NotesSlideManager.AddNotesSlide();
+var headerFooterManager = notesSlide.HeaderFooterManager;
+
+headerFooterManager.SetHeaderText("Header for the first notes page");
+headerFooterManager.SetHeaderVisibility(true);
+
+headerFooterManager.SetFooterText("Footer for the first notes page");
+headerFooterManager.SetFooterVisibility(true);
+
+headerFooterManager.SetDateTimeText("Date and time text");
+headerFooterManager.SetDateTimeVisibility(true);
+
+headerFooterManager.SetSlideNumberVisibility(true);
+
+presentation.Save("presentation_with_custom_notes_footers.pptx", SaveFormat.Pptx);
+```
+
+Jeśli najpierw rozpowszechnisz ustawienia z mistrza notatek, a następnie zmienisz pojedynczy slajd notatek, późniejsze ustawienia indywidualne umożliwiają niezależną modyfikację tej strony notatek.
+
+## **Ustaw nagłówki i stopki w mistrzu materiałów rozdawniczych**
+
+Strony materiałów rozdawniczych używają mistrza materiałów rozdawniczych jako pola zastępcze nagłówka, stopki, daty/godziny i numeru strony. W przeciwieństwie do stron notatek, ustawienia materiałów rozdawniczych są zarządzane przez mistrza materiałów rozdawniczych, a nie przez pojedyncze slajdy rozdawnicze.
+
+Użyj własności [`MasterHandoutSlide`](https://reference.aspose.com/slides/pl/net/aspose.slides/imasterhandoutslidemanager/masterhandoutslide/), aby uzyskać dostęp do mistrza materiałów rozdawniczych. Jeśli nie istnieje, wywołaj [`SetDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/pl/net/aspose.slides/imasterhandoutslidemanager/setdefaultmasterhandoutslide/), aby utworzyć domyślnego mistrza materiałów rozdawniczych.
+
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var masterHandoutSlide = presentation.MasterHandoutSlideManager.MasterHandoutSlide;
+
+if (masterHandoutSlide == null)
+{
+    presentation.MasterHandoutSlideManager.SetDefaultMasterHandoutSlide();
+    masterHandoutSlide = presentation.MasterHandoutSlideManager.MasterHandoutSlide;
+}
+
+if (masterHandoutSlide != null)
+{
+    var headerFooterManager = masterHandoutSlide.HeaderFooterManager;
+
+    headerFooterManager.SetHeaderText("Handout header");
+    headerFooterManager.SetHeaderVisibility(true);
+
+    headerFooterManager.SetFooterText("Handout footer");
+    headerFooterManager.SetFooterVisibility(true);
+
+    headerFooterManager.SetDateTimeText("Date and time text");
+    headerFooterManager.SetDateTimeVisibility(true);
+
+    headerFooterManager.SetSlideNumberVisibility(true);
+}
+
+presentation.Save("presentation_with_handout_footers.pptx", SaveFormat.Pptx);
+```
+
+## **Zrozum zakres i dziedziczenie**
+
+Wybierz menedżera nagłówka/stopki odpowiadającego zakresowi, który chcesz zmienić:
+
+- [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/pl/net/aspose.slides/islideheaderfootermanager/) zmienia ustawienia stopki, daty/godziny i numeru slajdu dla jednego zwykłego slajdu.
+- [`ILayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/pl/net/aspose.slides/ilayoutslideheaderfootermanager/) kontroluje slajd układu i może propagować obsługiwane ustawienia do slajdów zależnych.
+- [`IMasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/pl/net/aspose.slides/imasterslideheaderfootermanager/) kontroluje zwykły szablon slajdów i może propagować obsługiwane ustawienia do slajdów zależnych.
+- [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/pl/net/aspose.slides/imasternotesslideheaderfootermanager/) kontroluje mistrz notatek i może propagować ustawienia do wszystkich zależnych slajdów notatek.
+- [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/pl/net/aspose.slides/inotesslideheaderfootermanager/) zmienia jeden slajd notatek i obsługuje pole zastępcze nagłówka oprócz stopki, daty/godziny i numeru slajdu.
+- [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/pl/net/aspose.slides/imasterhandoutslideheaderfootermanager/) zmienia mistrz materiałów rozdawniczych i obsługuje wszystkie cztery typy pól zastępczych.
+
+Użyj propagacji z mistrza lub układu, gdy to samo ustawienie ma obowiązywać w całej jego hierarchii. Użyj menedżera pojedynczego slajdu lub slajdu notatek, gdy potrzebne jest lokalne ustawienie dla jednej strony.
 
 ## **FAQ**
 
-**Czy mogę dodać „nagłówek” do zwykłych slajdów?**
+**Czy mogę dodać nagłówek do zwykłego slajdu?**
 
-W programie PowerPoint „nagłówek” istnieje tylko w notatkach i wersjach roboczych; na zwykłych slajdach obsługiwane elementy to stopka, data/godzina oraz numer slajdu. W Aspose.Slides obowiązują te same ograniczenia: nagłówek tylko dla notatek/wersji roboczych, a na slajdach — stopka/data‑czas/numery slajdów.
+Nie. PowerPoint nie definiuje pola zastępczego nagłówka dla zwykłych slajdów. Na zwykłych slajdach użyj pól zastępczych stopki, daty/godziny i numeru slajdu. Pola zastępcze nagłówka są dostępne na stronach notatek i materiałach rozdawniczych.
 
-**Co zrobić, jeśli układ nie zawiera obszaru stopki — czy mogę „włączyć” jej widoczność?**
+**Co zrobić, jeśli pole zastępcze stopki, daty/godziny lub numeru slajdu nie jest widoczne?**
 
-Tak. Sprawdź widoczność za pomocą menedżera nagłówka/stopki i włącz ją w razie potrzeby. Te wskaźniki i metody API są przeznaczone do sytuacji, gdy pole jest brakujące lub ukryte.
+Użyj odpowiedniego menedżera nagłówka/stopki, aby sprawdzić jego widoczność i w razie potrzeby ją włączyć. Na przykład [`IsFooterVisible`](https://reference.aspose.com/slides/pl/net/aspose.slides/baseslideheaderfootermanager/isfootervisible/) informuje, czy pole zastępcze stopki jest obecne, a [`SetFooterVisibility`](https://reference.aspose.com/slides/pl/net/aspose.slides/baseslideheaderfootermanager/setfootervisibility/) zmienia jego widoczność.
 
-**Jak ustawić, aby numeracja slajdów zaczynała się od wartości innej niż 1?**
+**Jak rozpocząć numerację slajdów od wartości innej niż 1?**
 
-Ustaw [pierwszy numer slajdu](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/firstslidenumber/) prezentacji; po tym wszystkie numery zostaną przeliczone. Na przykład możesz rozpocząć od 0 lub 10 oraz ukryć numer na slajdzie tytułowym.
+Ustaw właściwość [`FirstSlideNumber`](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/firstslidenumber/) prezentacji. Pola zastępcze numeru slajdu będą wtedy używać zaktualizowanej sekwencji numeracji.
 
-**Co się dzieje z nagłówkami/stopkami podczas eksportu do PDF/obrazów/HTML?**
+**Co się dzieje z nagłówkami i stopkami podczas eksportu do PDF, obrazów lub HTML?**
 
-Są renderowane jako zwykłe elementy tekstowe prezentacji. Oznacza to, że jeśli elementy są widoczne na slajdach lub stronach notatek, pojawią się również w formacie wyjściowym wraz z resztą treści.
+Widoczne elementy nagłówka i stopki są renderowane wraz z resztą treści prezentacji w formacie wyjściowym. Ich wygląd zależy od eksportowanego typu strony oraz odpowiednich ustawień widoczności pól zastępczych.

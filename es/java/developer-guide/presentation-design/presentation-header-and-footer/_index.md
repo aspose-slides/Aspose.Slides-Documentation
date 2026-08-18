@@ -1,5 +1,5 @@
 ---
-title: Administrar encabezados y pies de página de presentaciones en Java
+title: Gestionar encabezados y pies de página de presentaciones en Java
 linktitle: Encabezado y pie de página
 type: docs
 weight: 140
@@ -11,141 +11,236 @@ keywords:
 - texto de pie de página
 - establecer encabezado
 - establecer pie de página
-- folleto
+- hoja de distribución
 - notas
 - PowerPoint
 - OpenDocument
 - presentación
 - Java
 - Aspose.Slides
-description: "Use Aspose.Slides for Java para agregar y personalizar encabezados y pies de página en presentaciones de PowerPoint y OpenDocument para un aspecto profesional."
+description: "Aprenda a gestionar los marcadores de posición de pie de página, fecha y hora, número de diapositiva y encabezado en diapositivas, páginas de notas y hojas de distribución con Aspose.Slides para Java."
 ---
+## **Visión general**
 
-{{% alert color="primary" %}} 
+PowerPoint utiliza diferentes marcadores de posición de encabezado y pie de página según el tipo de página. Aspose.Slides for Java permite controlar el texto y la visibilidad de estos marcadores mediante las interfaces de gestión de encabezado/pie de página.
 
-[Aspose.Slides](/slides/es/java/) proporciona soporte para trabajar con los encabezados y pies de página de las diapositivas cuyo texto se mantiene en el nivel del maestro de diapositivas.
+Los marcadores de posición disponibles dependen del ámbito:
 
-{{% /alert %}} 
+| Ámbito | Encabezado | Pie de página | Fecha/hora | Número de diapositiva/página |
+|---|---|---|---|---|
+| Diapositiva normal | No | Sí | Sí | Sí |
+| Patrón de notas | Sí | Sí | Sí | Sí |
+| Diapositiva de notas | Sí | Sí | Sí | Sí |
+| Patrón de hoja de distribución | Sí | Sí | Sí | Sí |
 
-[Aspose.Slides for Java](/slides/es/java/) proporciona la función para gestionar encabezados y pies de página dentro de las diapositivas de la presentación. Estos se gestionan de hecho a nivel del maestro de la presentación.
+Una diapositiva normal de la presentación no tiene un marcador de posición de encabezado. Los encabezados están disponibles en páginas de notas y hojas de distribución. En diapositivas normales, utilice los marcadores de pie de página, fecha/hora y número de diapositiva.
 
-## **Administrar encabezados y pies de página en una presentación**
-Las notas de una diapositiva específica pueden eliminarse como se muestra en el ejemplo a continuación:
+El ámbito de un cambio depende del gestor que utilice. La interfaz [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/es/java/com.aspose.slides/islideheaderfootermanager/) controla una diapositiva normal. La interfaz [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/es/java/com.aspose.slides/inotesslideheaderfootermanager/) controla una diapositiva de notas. Los gestores de patrón y diseño también pueden propagar la configuración a las diapositivas dependientes, mientras que la interfaz [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasterhandoutslideheaderfootermanager/) controla el patrón de hoja de distribución.
+
+## **Establecer pie de página, fecha/hora y número de diapositiva en diapositivas normales**
+
+Para diapositivas normales, el flujo de trabajo básico consiste en acceder al gestor de encabezado/pie de página de cada diapositiva, establecer el texto del pie de página y de fecha/hora, activar los marcadores de posición requeridos y guardar la presentación. Los números de diapositiva los genera la presentación, por lo que sólo es necesario controlar su visibilidad.
+
+Utilice [`setFooterText`](https://reference.aspose.com/slides/es/java/com.aspose.slides/baseslideheaderfootermanager/#setFooterText-java.lang.String-) y [`setDateTimeText`](https://reference.aspose.com/slides/es/java/com.aspose.slides/baseslideheaderfootermanager/#setDateTimeText-java.lang.String-) para fijar el texto, y emplee [`setFooterVisibility`](https://reference.aspose.com/slides/es/java/com.aspose.slides/baseslideheaderfootermanager/#setFooterVisibility-boolean-), [`setDateTimeVisibility`](https://reference.aspose.com/slides/es/java/com.aspose.slides/baseslideheaderfootermanager/#setDateTimeVisibility-boolean-), y [`setSlideNumberVisibility`](https://reference.aspose.com/slides/es/java/com.aspose.slides/baseslideheaderfootermanager/#setSlideNumberVisibility-boolean-) para mostrar los marcadores de posición correspondientes.
+
+El siguiente ejemplo completo aplica el mismo pie de página, texto de fecha/hora y visibilidad del número de diapositiva a todas las diapositivas normales:
+
 ```java
-// Cargar presentación
-Presentation pres = new Presentation("headerTest.pptx");
-try {
-    // Establecer pie de página
-    pres.getHeaderFooterManager().setAllFootersText("My Footer text");
-    pres.getHeaderFooterManager().setAllFootersVisibility(true);
+import com.aspose.slides.*;
 
-    // Acceder y actualizar encabezado
-    IMasterNotesSlide masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (null != masterNotesSlide)
-    {
-        updateHeaderFooterText(masterNotesSlide);
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideHeaderFooterManager headerFooterManager = slide.getHeaderFooterManager();
+
+        headerFooterManager.setFooterText("Company Confidential");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
 
-    // Guardar presentación
-    pres.save("HeaderFooterJava.pptx", SaveFormat.Pptx);
+    presentation.save("presentation_with_slide_footers.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Si necesita actualizar sólo una diapositiva, acceda a esa diapositiva directamente mediante el método [`getSlides`](https://reference.aspose.com/slides/es/java/com.aspose.slides/presentation/#getSlides--) en lugar de iterar sobre toda la colección.
+
+## **Establecer encabezados y pies de página en el patrón de notas**
+
+El patrón de notas define el formato común y el comportamiento de los marcadores de posición para las páginas de notas. Utilice la interfaz [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasternotesslideheaderfootermanager/) cuando quiera modificar sólo el propio patrón de notas.
+
+El siguiente ejemplo establece el encabezado, el pie de página y el texto de fecha/hora en el patrón de notas y hace visibles todos los marcadores de posición admitidos en ese patrón:
+
 ```java
-// Método para establecer texto de encabezado/pie de página
-public static void updateHeaderFooterText(IBaseSlide master)
-{
-    for (IShape shape : master.getShapes())
-    {
-        if (shape.getPlaceholder() != null)
-        {
-            if (shape.getPlaceholder().getType() == PlaceholderType.Header)
-            {
-                ((IAutoShape)shape).getTextFrame().setText("HI there new header");
-            }
-        }
-    }
-}
-```
+import com.aspose.slides.*;
 
-
-## **Administrar encabezados y pies de página en diapositivas de folleto y notas**
-Aspose.Slides for Java admite encabezados y pies de página en diapositivas de folleto y notas. Siga los pasos a continuación:
-
-- Cargue una [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) que contenga un video.
-- Cambie la configuración de encabezado y pie de página para el maestro de notas y todas las diapositivas de notas.
-- Establezca la diapositiva maestra de notas y todos los marcadores de posición de pie de página secundarios como visibles.
-- Establezca la diapositiva maestra de notas y todos los marcadores de posición de fecha y hora secundarios como visibles.
-- Cambie la configuración de encabezado y pie de página solo para la primera diapositiva de notas.
-- Establezca el marcador de posición de encabezado de la diapositiva de notas como visible.
-- Establezca el texto del marcador de posición de encabezado de la diapositiva de notas.
-- Establezca el texto del marcador de posición de fecha y hora de la diapositiva de notas.
-- Escriba el archivo de presentación modificado.
-
-Fragmento de código proporcionado en el ejemplo a continuación.
-```java
-Presentation pres = new Presentation("presentation.pptx");
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    // Cambiar la configuración de encabezado y pie de página para el maestro de notas y todas las diapositivas de notas
-    IMasterNotesSlide masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (masterNotesSlide != null)
-    {
+    IMasterNotesSlide masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide != null) {
         IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.getHeaderFooterManager();
 
-        headerFooterManager.setHeaderAndChildHeadersVisibility(true); // hacer visible la diapositiva maestra de notas y todos los marcadores de posición de pie de página secundarios
-        headerFooterManager.setFooterAndChildFootersVisibility(true); // hacer visible la diapositiva maestra de notas y todos los marcadores de posición de encabezado secundarios
-        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true); // hacer visible la diapositiva maestra de notas y todos los marcadores de posición de número de diapositiva secundarios
-        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true); // hacer visible la diapositiva maestra de notas y todos los marcadores de posición de fecha y hora secundarios
+        headerFooterManager.setHeaderText("Notes header");
+        headerFooterManager.setHeaderVisibility(true);
 
-        headerFooterManager.setHeaderAndChildHeadersText("Header text"); // establecer texto en la diapositiva maestra de notas y todos los marcadores de posición de encabezado secundarios
-        headerFooterManager.setFooterAndChildFootersText("Footer text"); // establecer texto en la diapositiva maestra de notas y todos los marcadores de posición de pie de página secundarios
-        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text"); // establecer texto en la diapositiva maestra de notas y todos los marcadores de posición de fecha y hora secundarios
+        headerFooterManager.setFooterText("Notes footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
 
-    // Cambiar la configuración de encabezado y pie de página solo para la primera diapositiva de notas
-    INotesSlide notesSlide = pres.getSlides().get_Item(0).getNotesSlideManager().getNotesSlide();
-    if (notesSlide != null)
-    {
-        INotesSlideHeaderFooterManager headerFooterManager = notesSlide.getHeaderFooterManager();
-        if (!headerFooterManager.isHeaderVisible())
-            headerFooterManager.setHeaderVisibility(true); // hacer visible este marcador de posición de encabezado en la diapositiva de notas
-
-        if (!headerFooterManager.isFooterVisible())
-            headerFooterManager.setFooterVisibility(true); // hacer visible este marcador de posición de pie de página en la diapositiva de notas
-
-        if (!headerFooterManager.isSlideNumberVisible())
-            headerFooterManager.setSlideNumberVisibility(true); // hacer visible este marcador de posición de número de diapositiva en la diapositiva de notas
-
-        if (!headerFooterManager.isDateTimeVisible())
-            headerFooterManager.setDateTimeVisibility(true); // hacer visible este marcador de posición de fecha y hora en la diapositiva de notas
-
-        headerFooterManager.setHeaderText("New header text"); // establecer texto en el marcador de posición de encabezado de la diapositiva de notas
-        headerFooterManager.setFooterText("New footer text"); // establecer texto en el marcador de posición de pie de página de la diapositiva de notas
-        headerFooterManager.setDateTimeText("New date and time text"); // establecer texto en el marcador de posición de fecha y hora de la diapositiva de notas
-    }
-    pres.save("testresult.pptx",SaveFormat.Pptx);
+    presentation.save("presentation_with_notes_master_footers.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+El método [`getMasterNotesSlide`](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasternotesslidemanager/#getMasterNotesSlide--) devuelve `null` cuando la presentación no contiene un patrón de notas.
+
+## **Aplicar la configuración del patrón de notas a las diapositivas de notas secundarias**
+
+Un patrón de notas puede aplicar la configuración de encabezado y pie de página a sí mismo y a todas las diapositivas de notas dependientes. Utilice los métodos de propagación dedicados en [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasternotesslideheaderfootermanager/) cuando los mismos ajustes deban aplicarse a lo largo de la jerarquía de notas.
+
+Por ejemplo, [`setHeaderAndChildHeadersText`](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setHeaderAndChildHeadersText-java.lang.String-) y [`setHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setHeaderAndChildHeadersVisibility-boolean-) actualizan el encabezado del patrón de notas y todos los encabezados secundarios. Existen métodos equivalentes para pies de página, fecha/hora y números de diapositiva.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterNotesSlide masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide != null) {
+        IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderAndChildHeadersText("Notes header");
+        headerFooterManager.setHeaderAndChildHeadersVisibility(true);
+
+        headerFooterManager.setFooterAndChildFootersText("Notes footer");
+        headerFooterManager.setFooterAndChildFootersVisibility(true);
+
+        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
+        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
+
+        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
+    }
+
+    presentation.save("presentation_with_child_notes_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Los métodos de propagación utilizados arriba son [`setFooterAndChildFootersText`](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setFooterAndChildFootersText-java.lang.String-), [`setFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setFooterAndChildFootersVisibility-boolean-), [`setDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesText-java.lang.String-), [`setDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesVisibility-boolean-), y [`setSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setSlideNumberAndChildSlideNumbersVisibility-boolean-).
+
+## **Establecer encabezados y pies de página en una diapositiva de notas individual**
+
+Una diapositiva de notas pertenece a una diapositiva normal concreta. Utilice su interfaz [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/es/java/com.aspose.slides/inotesslideheaderfootermanager/) cuando quiera personalizar sólo esa página de notas.
+
+El método [`addNotesSlide`](https://reference.aspose.com/slides/es/java/com.aspose.slides/inotesslidemanager/#addNotesSlide--) devuelve la diapositiva de notas para la diapositiva actual y crea una si aún no existe. El siguiente ejemplo configura la página de notas asociada a la primera diapositiva de la presentación:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    INotesSlide notesSlide = slide.getNotesSlideManager().addNotesSlide();
+    INotesSlideHeaderFooterManager headerFooterManager = notesSlide.getHeaderFooterManager();
+
+    headerFooterManager.setHeaderText("Header for the first notes page");
+    headerFooterManager.setHeaderVisibility(true);
+
+    headerFooterManager.setFooterText("Footer for the first notes page");
+    headerFooterManager.setFooterVisibility(true);
+
+    headerFooterManager.setDateTimeText("Date and time text");
+    headerFooterManager.setDateTimeVisibility(true);
+
+    headerFooterManager.setSlideNumberVisibility(true);
+
+    presentation.save("presentation_with_custom_notes_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Si primero propaga la configuración desde el patrón de notas y luego modifica una diapositiva de notas individual, los ajustes posteriores por diapositiva le permiten personalizar esa página de notas de forma independiente.
+
+## **Establecer encabezados y pies de página en el patrón de hoja de distribución**
+
+Las páginas de hoja de distribución usan el patrón de hoja de distribución para sus marcadores de encabezado, pie de página, fecha/hora y número de página. A diferencia de las páginas de notas, la configuración de las hojas de distribución se gestiona a través del patrón de hoja de distribución y no mediante diapositivas de hoja de distribución individuales.
+
+Utilice el método [`getMasterHandoutSlide`](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasterhandoutslidemanager/#getMasterHandoutSlide--) para acceder al patrón de hoja de distribución. Si no está presente, llame a [`setDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasterhandoutslidemanager/#setDefaultMasterHandoutSlide--) para crear el patrón de hoja de distribución predeterminado.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterHandoutSlide masterHandoutSlide = presentation.getMasterHandoutSlideManager().getMasterHandoutSlide();
+
+    if (masterHandoutSlide == null) {
+        masterHandoutSlide = presentation.getMasterHandoutSlideManager().setDefaultMasterHandoutSlide();
+    }
+
+    if (masterHandoutSlide != null) {
+        IMasterHandoutSlideHeaderFooterManager headerFooterManager = masterHandoutSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Handout header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Handout footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
+    }
+
+    presentation.save("presentation_with_handout_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Entender el ámbito y la herencia**
+
+Elija el gestor de encabezado/pie de página que coincida con el ámbito que desea modificar:
+
+- [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/es/java/com.aspose.slides/islideheaderfootermanager/) cambia la configuración de pie de página, fecha/hora y número de diapositiva para una diapositiva normal.
+- [`ILayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/es/java/com.aspose.slides/ilayoutslideheaderfootermanager/) controla una diapositiva de diseño y puede propagar los ajustes compatibles a las diapositivas dependientes.
+- [`IMasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasterslideheaderfootermanager/) controla un patrón de diapositiva normal y puede propagar los ajustes compatibles a las diapositivas dependientes.
+- [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasternotesslideheaderfootermanager/) controla el patrón de notas y puede propagar la configuración a todas las diapositivas de notas dependientes.
+- [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/es/java/com.aspose.slides/inotesslideheaderfootermanager/) cambia una diapositiva de notas y admite un marcador de encabezado además del pie de página, fecha/hora y número de diapositiva.
+- [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasterhandoutslideheaderfootermanager/) cambia el patrón de hoja de distribución y admite los cuatro tipos de marcadores.
+
+Utilice la propagación desde un patrón o diseño cuando el mismo ajuste deba aplicarse en toda su jerarquía. Utilice un gestor de diapositiva individual o de diapositiva de notas cuando necesite un ajuste local para una sola página.
 
 ## **Preguntas frecuentes**
 
-**¿Puedo agregar un "encabezado" a diapositivas normales?**
+**¿Puedo añadir un encabezado a una diapositiva normal?**
 
-En PowerPoint, el "encabezado" solo existe para notas y folletos; en diapositivas normales, los elementos compatibles son el Footer, la DateTime y el SlideNumber. En Aspose.Slides esto coincide con las mismas limitaciones: encabezado solo para Notes/Handout, y en diapositivas—Footer/DateTime/SlideNumber.
+No. PowerPoint no define un marcador de posición de encabezado para diapositivas normales. En diapositivas normales, use los marcadores de pie de página, fecha/hora y número de diapositiva. Los marcadores de encabezado están disponibles en páginas de notas y hojas de distribución.
 
-**¿Qué pasa si el diseño no contiene un área de pie de página—puedo "activarla"?**
+**¿Qué ocurre si un marcador de pie de página, fecha/hora o número de diapositiva no es visible?**
 
-Sí. Verifique la visibilidad mediante el gestor de encabezado/footer y actívela si es necesario. Estos indicadores y métodos de la API están diseñados para casos en que el marcador de posición falta o está oculto.
+Utilice el gestor de encabezado/pie de página correspondiente para comprobar su visibilidad y habilitarlo cuando sea necesario. Por ejemplo, [`isFooterVisible`](https://reference.aspose.com/slides/es/java/com.aspose.slides/baseslideheaderfootermanager/#isFooterVisible--) indica si existe un marcador de pie de página, y [`setFooterVisibility`](https://reference.aspose.com/slides/es/java/com.aspose.slides/baseslideheaderfootermanager/#setFooterVisibility-boolean-) cambia su visibilidad.
 
-**¿Cómo hago que el número de diapositiva comience en un valor distinto de 1?**
+**¿Cómo puedo iniciar la numeración de diapositivas a partir de un valor distinto de 1?**
 
-Establezca el [first slide number](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#setFirstSlideNumber-int-) de la presentación; después de eso, toda la numeración se recalcula. Por ejemplo, puede comenzar en 0 o 10, y ocultar el número en la diapositiva de título.
+Llame al método [`setFirstSlideNumber`](https://reference.aspose.com/slides/es/java/com.aspose.slides/presentation/#setFirstSlideNumber-int-) de la presentación. Los marcadores de número de diapositiva usarán entonces la secuencia de numeración actualizada.
 
-**¿Qué ocurre con los encabezados/pies de página al exportar a PDF/imagenes/HTML?**
+**¿Qué ocurre con los encabezados y pies de página al exportar a PDF, imágenes o HTML?**
 
-Se renderizan como elementos de texto normales de la presentación. Es decir, si los elementos son visibles en las diapositivas/páginas de notas, también aparecerán en el formato de salida junto con el resto del contenido.
+Los elementos visibles de encabezado y pie de página se renderizan junto con el resto del contenido de la presentación en el formato de salida. Su apariencia depende del tipo de página que se exporta y de la configuración de visibilidad de los marcadores correspondientes.

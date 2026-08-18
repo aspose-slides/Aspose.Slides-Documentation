@@ -1,5 +1,5 @@
 ---
-title: Prezentáció fejlécek és láblécek kezelése PHP-ben
+title: Presentáció fejlécének és láblécének kezelése PHP-ben
 linktitle: Fejléc és lábléc
 type: docs
 weight: 140
@@ -11,136 +11,241 @@ keywords:
 - lábléc szöveg
 - fejléc beállítása
 - lábléc beállítása
-- szórólap
+- elosztó
 - jegyzetek
 - PowerPoint
 - OpenDocument
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "Használja az Aspose.Slides for PHP via Java-t, hogy fejléceket és lábléceket adjon hozzá, és testreszabja azokat PowerPoint és OpenDocument prezentációkban, professzionális megjelenés érdekében."
+description: "Ismerje meg, hogyan kezelheti a lábléc, dátum-idő, dia-szám és fejléc helyfoglalókat diákon, jegyzetoldalakon és elosztókon az Aspose.Slides for PHP via Java segítségével."
 ---
 ## **Áttekintés**
 
-Aspose.Slides lehetővé teszi a fejléc és lábléc beállításainak kezelését PowerPoint‑prezentációkban. A fejlécek és láblécek a prezentáció mester szintjén kezelhetők, és az API metódusokat biztosít a lábléc szövegének beállításához, a lábléc láthatóságának módosításához, valamint a mester‑jegyzet diák fejléc szövegének frissítéséhez.
+A PowerPoint különböző fejléc- és lábléchelyfoglalókat használ az oldaltípus függvényében. Az Aspose.Slides for PHP via Java lehetővé teszi ezen helyfoglalók szövegének és láthatóságának kezelését fejléc/lábléckezelő osztályok segítségével.
 
-A fejléceket és lábléceket a szórólap‑ és jegyzet‑diákon is kezelheti. Ez magában foglalja a fejléc, lábléc, dia‑szám és dátum‑idő helyőrzők láthatóságának és szövegének módosítását a jegyzet‑mesterben, minden gyermek‑jegyzet‑dián vagy egy adott jegyzet‑dián.
+A rendelkezésre álló helyfoglalók a hatókörtől függenek:
 
-## **Fejlécek és láblécek kezelése egy prezentációban**
+| Hatókör | Fejléc | Lábléc | Dátum/idő | Dia/oldalszám |
+|---|---|---|---|---|
+| Általános dia | Nem | Igen | Igen | Igen |
+| Jegyzetmester | Igen | Igen | Igen | Igen |
+| Jegyzetdia | Igen | Igen | Igen | Igen |
+| Elosztó mester | Igen | Igen | Igen | Igen |
 
-Egyes diák jegyzetei eltávolíthatók, ahogyan az alábbi példában szerepel:
+Az általános prezentációs diának nincs fejléchelyfoglalója. A fejléc a jegyzetoldalakon és az elosztókon érhető el. Általános diák esetén a lábléc, a dátum/idő és a dia-szám helyfoglalókat kell használni.
 
-```php
-  # Prezentáció betöltése
-  $pres = new Presentation("headerTest.pptx");
-  try {
-    # Lábléc beállítása
-    $pres->getHeaderFooterManager()->setAllFootersText("My Footer text");
-    $pres->getHeaderFooterManager()->setAllFootersVisibility(true);
-    # Fejléc elérése és frissítése
-    $masterNotesSlide = $pres->getMasterNotesSlideManager()->getMasterNotesSlide();
-    if (null != $masterNotesSlide) {
-      updateHeaderFooterText($masterNotesSlide);
-    }
-    # Prezentáció mentése
-    $pres->save("HeaderFooterJava.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-```php
+A változtatás hatóköre attól a menedzsertől függ, amelyet használ. A [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/slideheaderfootermanager/) osztály egy általános diát kezel. A [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/notesslideheaderfootermanager/) osztály egy jegyzetdiát kezel. A mester- és elrendezésmenedzserek szintén képesek a beállításokat a függő diákra továbbadni, míg a [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterhandoutslideheaderfootermanager/) osztály az elosztó mestert kezeli.
 
-```
+## **Lábléc, Dátum/Idő és Diákszámok beállítása általános diákon**
 
-## **Fejlécek és láblécek kezelése a szórólap‑ és jegyzet‑diákon**
+Általános diák esetén az alapmunkafolyamat a következő: minden dia fejléc/lábléckezelőjének elérése, a lábléc és a dátum/idő szövegének beállítása, a szükséges helyfoglalók engedélyezése, majd a prezentáció mentése. A diákszámokat a prezentáció generálja, ezért csak a láthatóságukat kell szabályozni.
 
-Az Aspose.Slides for PHP via Java támogatja a fejlécek és láblécek használatát a szórólap‑ és jegyzet‑diákon. Kérjük, kövesse az alábbi lépéseket:
+Használja a [`setFooterText`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/baseslideheaderfootermanager/setfootertext/) és a [`setDateTimeText`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/baseslideheaderfootermanager/setdatetimetext/) metódusokat a szöveg beállításához, illetve a [`setFooterVisibility`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/baseslideheaderfootermanager/setfootervisibility/), [`setDateTimeVisibility`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/baseslideheaderfootermanager/setdatetimevisibility/) és [`setSlideNumberVisibility`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/baseslideheaderfootermanager/setslidenumbervisibility/) metódusokat a megfelelő helyfoglalók megjelenítéséhez.
 
-- Töltsön be egy [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) videót tartalmazó prezentációt.
-- Változtassa meg a fejléc és lábléc beállításait a jegyzet‑mesteren és az összes jegyzet‑dián.
-- Állítsa be a mester‑jegyzet dia és minden gyermek lábléc helyőrző láthatóvá.
-- Állítsa be a mester‑jegyzet dia és minden gyermek dátum‑ és időhelyőrző láthatóvá.
-- Csak az első jegyzet‑dia fejléc és lábléc beállításait módosítsa.
-- Állítsa be a jegyzet‑dia fejléc helyőrzőjét láthatóvá.
-- Állítsa be a szöveget a jegyzet‑dia fejléc helyőrzőjébe.
-- Állítsa be a szöveget a jegyzet‑dia dátum‑idő helyőrzőjébe.
-- Írja ki a módosított prezentációfájlt.
-
-A kódrészlet a lenti példában érhető el.
+Az alábbi vég-az-vegén példakód ugyanazt a láblécet, dátum/idő szöveget és dia-szám láthatóságot alkalmazza minden általános diára:
 
 ```php
-  $pres = new Presentation("presentation.pptx");
-  try {
-    # A főcím és lábléc beállításainak módosítása a jegyzet‑mesterhez és az összes jegyzet‑diához
-    $masterNotesSlide = $pres->getMasterNotesSlideManager()->getMasterNotesSlide();
-    if (!java_is_null($masterNotesSlide)) {
-      $headerFooterManager = $masterNotesSlide->getHeaderFooterManager();
-      $headerFooterManager->setHeaderAndChildHeadersVisibility(true);// a mester‑jegyzet diát és az összes gyermek lábléc helyőrzőt láthatóvá teszi
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-      $headerFooterManager->setFooterAndChildFootersVisibility(true);// a mester‑jegyzet diát és az összes gyermek fejléc helyőrzőt láthatóvá teszi
+$presentation = new Presentation("presentation.pptx");
+try {
+    foreach ($presentation->getSlides() as $slide) {
+        $headerFooterManager = $slide->getHeaderFooterManager();
 
-      $headerFooterManager->setSlideNumberAndChildSlideNumbersVisibility(true);// a mester‑jegyzet diát és az összes gyermek dia‑szám helyőrzőt láthatóvá teszi
-
-      $headerFooterManager->setDateTimeAndChildDateTimesVisibility(true);// a mester‑jegyzet diát és az összes gyermek dátum‑ és időhelyőrzőt láthatóvá teszi
-
-      $headerFooterManager->setHeaderAndChildHeadersText("Header text");// szöveget állít be a mester‑jegyzet dián és az összes gyermek fejléc helyőrzőkben
-
-      $headerFooterManager->setFooterAndChildFootersText("Footer text");// szöveget állít be a mester‑jegyzet dián és az összes gyermek lábléc helyőrzőkben
-
-      $headerFooterManager->setDateTimeAndChildDateTimesText("Date and time text");// szöveget állít be a mester‑jegyzet dián és az összes gyermek dátum‑ és időhelyőrzőkben
-
-    }
-    # A fejléc és lábléc beállításainak módosítása csak az első jegyzet‑diára
-    $notesSlide = $pres->getSlides()->get_Item(0)->getNotesSlideManager()->getNotesSlide();
-    if (!java_is_null($notesSlide)) {
-      $headerFooterManager = $notesSlide->getHeaderFooterManager();
-      if (!$headerFooterManager->isHeaderVisible()) {
-        $headerFooterManager->setHeaderVisibility(true);
-      }// ezt a jegyzet‑diát a fejléc helyőrző láthatóvá teszi
-
-      if (!$headerFooterManager->isFooterVisible()) {
+        $headerFooterManager->setFooterText("Company Confidential");
         $headerFooterManager->setFooterVisibility(true);
-      }// ezt a jegyzet‑diát a lábléc helyőrző láthatóvá teszi
 
-      if (!$headerFooterManager->isSlideNumberVisible()) {
-        $headerFooterManager->setSlideNumberVisibility(true);
-      }// ezt a jegyzet‑diát a dia‑szám helyőrző láthatóvá teszi
-
-      if (!$headerFooterManager->isDateTimeVisible()) {
+        $headerFooterManager->setDateTimeText("Date and time text");
         $headerFooterManager->setDateTimeVisibility(true);
-      }// ezt a jegyzet‑diát a dátum‑idő helyőrző láthatóvá teszi
 
-      $headerFooterManager->setHeaderText("New header text");// szöveget állít be a jegyzet‑dia fejléc helyőrzőjében
-
-      $headerFooterManager->setFooterText("New footer text");// szöveget állít be a jegyzet‑dia lábléc helyőrzőjében
-
-      $headerFooterManager->setDateTimeText("New date and time text");// szöveget állít be a jegyzet‑dia dátum‑idő helyőrzőjében
-
+        $headerFooterManager->setSlideNumberVisibility(true);
     }
-    $pres->save("testresult.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("presentation_with_slide_footers.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+Ha csak egy diát szeretne frissíteni, a teljes gyűjtemény bejárása helyett a [`getSlides`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/getslides/) metódussal közvetlenül érje el azt a diát.
+
+## **Fejlécek és láblécek beállítása a Jegyzetmesteren**
+
+A jegyzetmester határozza meg a jegyzetoldalak közös formázását és helyfoglaló‑viselkedését. Használja a [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masternotesslideheaderfootermanager/) osztályt, ha csak a jegyzetmestert szeretné megváltoztatni.
+
+Az alábbi példa beállítja a fejlécet, láblécet és a dátum/idő szöveget a jegyzetmesteren, és láthatóvá teszi az összes támogatott helyfoglalót azon a mesteren:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("presentation.pptx");
+try {
+    $masterNotesSlide = $presentation->getMasterNotesSlideManager()->getMasterNotesSlide();
+
+    if (!java_is_null($masterNotesSlide)) {
+        $headerFooterManager = $masterNotesSlide->getHeaderFooterManager();
+
+        $headerFooterManager->setHeaderText("Notes header");
+        $headerFooterManager->setHeaderVisibility(true);
+
+        $headerFooterManager->setFooterText("Notes footer");
+        $headerFooterManager->setFooterVisibility(true);
+
+        $headerFooterManager->setDateTimeText("Date and time text");
+        $headerFooterManager->setDateTimeVisibility(true);
+
+        $headerFooterManager->setSlideNumberVisibility(true);
+    }
+
+    $presentation->save("presentation_with_notes_master_footers.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+A [`getMasterNotesSlide`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masternotesslidemanager/getmasternotesslide/) metódus `null`‑t ad vissza, ha a prezentáció nem tartalmaz jegyzetmestert.
+
+## **Jegyzetmester beállításainak alkalmazása a gyermek jegyzetdiákra**
+
+A jegyzetmester képes a fejléc‑ és láblécbeállításokat saját magára és az összes függő jegyzetdiara alkalmazni. Használja a [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masternotesslideheaderfootermanager/) dedikált propagációs metódusait, ha ugyanazokat a beállításokat kell alkalmazni a jegyzet‑hierarchián belül.
+
+Például a [`setHeaderAndChildHeadersText`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masternotesslideheaderfootermanager/setheaderandchildheaderstext/) és a [`setHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masternotesslideheaderfootermanager/setheaderandchildheadersvisibility/) frissíti a jegyzetmester fejléceit és az összes gyermekfejlécet. Hasonló metódusok érhetők el a láblécek, a dátum/idő és a dia‑számok esetében is.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("presentation.pptx");
+try {
+    $masterNotesSlide = $presentation->getMasterNotesSlideManager()->getMasterNotesSlide();
+
+    if (!java_is_null($masterNotesSlide)) {
+        $headerFooterManager = $masterNotesSlide->getHeaderFooterManager();
+
+        $headerFooterManager->setHeaderAndChildHeadersText("Notes header");
+        $headerFooterManager->setHeaderAndChildHeadersVisibility(true);
+
+        $headerFooterManager->setFooterAndChildFootersText("Notes footer");
+        $headerFooterManager->setFooterAndChildFootersVisibility(true);
+
+        $headerFooterManager->setDateTimeAndChildDateTimesText("Date and time text");
+        $headerFooterManager->setDateTimeAndChildDateTimesVisibility(true);
+
+        $headerFooterManager->setSlideNumberAndChildSlideNumbersVisibility(true);
+    }
+
+    $presentation->save("presentation_with_child_notes_footers.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+A fent használt propagációs metódusok: [`setFooterAndChildFootersText`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masternotesslideheaderfootermanager/setfooterandchildfooterstext/), [`setFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masternotesslideheaderfootermanager/setfooterandchildfootersvisibility/), [`setDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masternotesslideheaderfootermanager/setdatetimeandchilddatetimestext/), [`setDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masternotesslideheaderfootermanager/setdatetimeandchilddatetimesvisibility/), és a [`setSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masternotesslideheaderfootermanager/setslidenumberandchildslidenumbersvisibility/).
+
+## **Fejlécek és láblécek beállítása egy egyedi jegyzetdián**
+
+Egy jegyzetdia egy adott általános diához tartozik. Használja a [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/notesslideheaderfootermanager/) osztályt, ha csak azt a jegyzetoldalt szeretné testre szabni.
+
+A [`addNotesSlide`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/notesslidemanager/addnotesslide/) metódus visszaadja az aktuális dia jegyzetdiáját, és létrehozza azt, ha még nem létezik. Az alábbi példa az első prezentációs diahoz tartozó jegyzetoldalt konfigurálja:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("presentation.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $notesSlide = $slide->getNotesSlideManager()->addNotesSlide();
+    $headerFooterManager = $notesSlide->getHeaderFooterManager();
+
+    $headerFooterManager->setHeaderText("Header for the first notes page");
+    $headerFooterManager->setHeaderVisibility(true);
+
+    $headerFooterManager->setFooterText("Footer for the first notes page");
+    $headerFooterManager->setFooterVisibility(true);
+
+    $headerFooterManager->setDateTimeText("Date and time text");
+    $headerFooterManager->setDateTimeVisibility(true);
+
+    $headerFooterManager->setSlideNumberVisibility(true);
+
+    $presentation->save("presentation_with_custom_notes_footers.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Ha először a jegyzetmestertől propagálja a beállításokat, majd egyedi jegyzetdiát módosít, a későbbi diánkénti beállítások lehetővé teszik az adott jegyzetoldal önálló testreszabását.
+
+## **Fejlécek és láblécek beállítása az Elosztó Mesteren**
+
+Az elosztóoldalak a elosztó mestert használják fejlécek, láblécek, dátum/idő és oldalszám helyfoglalóikhoz. A jegyzetoldalakkal ellentétben az elosztó beállításait az elosztó mester kezeli, nem pedig az egyedi elosztó diák.
+
+Használja a [`getMasterHandoutSlide`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterhandoutslidemanager/getmasterhandoutslide/) metódust az elosztó mester eléréséhez. Ha nincs jelen, hívja a [`setDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterhandoutslidemanager/setdefaultmasterhandoutslide/) metódust a alapértelmezett elosztó mester létrehozásához.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("presentation.pptx");
+try {
+    $masterHandoutSlide = $presentation->getMasterHandoutSlideManager()->getMasterHandoutSlide();
+
+    if (java_is_null($masterHandoutSlide)) {
+        $masterHandoutSlide = $presentation->getMasterHandoutSlideManager()->setDefaultMasterHandoutSlide();
+    }
+
+    if (!java_is_null($masterHandoutSlide)) {
+        $headerFooterManager = $masterHandoutSlide->getHeaderFooterManager();
+
+        $headerFooterManager->setHeaderText("Handout header");
+        $headerFooterManager->setHeaderVisibility(true);
+
+        $headerFooterManager->setFooterText("Handout footer");
+        $headerFooterManager->setFooterVisibility(true);
+
+        $headerFooterManager->setDateTimeText("Date and time text");
+        $headerFooterManager->setDateTimeVisibility(true);
+
+        $headerFooterManager->setSlideNumberVisibility(true);
+    }
+
+    $presentation->save("presentation_with_handout_footers.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Hatókör és öröklődés megértése**
+
+Válassza ki azt a fejléc/lábléc menedzsert, amely a kívánt hatókörnek megfelel:
+
+- [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/slideheaderfootermanager/) egy általános dián módosítja a lábléc, dátum/idő és dia‑szám beállításait.
+- [`LayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutslideheaderfootermanager/) egy elrendezésdiát kezel, és a támogatott beállításokat propagálhatja a függő diákra.
+- [`MasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterslideheaderfootermanager/) egy szabványos dia mestert kezel, és a támogatott beállításokat propagálhatja a függő diákra.
+- [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masternotesslideheaderfootermanager/) a jegyzetmestert kezeli, és a beállításokat az összes függő jegyzetdiára terjeszti ki.
+- [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/notesslideheaderfootermanager/) egy jegyzetdiát módosít, és a fejléchelyfoglalót is támogatja a lábléc, dátum/idő és dia‑szám mellett.
+- [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterhandoutslideheaderfootermanager/) az elosztó mestert módosítja, és mind a négy helyfoglalót támogatja.
+
+Használjon propagációt egy mester‑ vagy elrendezésmenedzserből, ha ugyanazt a beállítást kell alkalmazni a teljes hierarchiára. Használjon egyedi diamenedzsert vagy jegyzet‑diamenedzsert, ha helyi beállításra van szükség egy adott oldalon.
 
 ## **GYIK**
 
-**Hozzáadhatok "fejlécet" a normál diákhoz?**
+**Hozzáadhatok fejlécet egy általános diához?**
 
-A PowerPoint‑ban a "Header" csak a jegyzetekhez és szórólapokhoz létezik; a normál diákon a támogatott elemek a lábléc, a dátum/idő és a dia‑szám. Az Aspose.Slides esetében ez ugyanazokat a korlátozásokat jelenti: fejléc csak a Notes/Handout számára, a diákon — Footer/DateTime/SlideNumber.
+Nem. A PowerPoint nem határoz meg fejléchelyfoglalót az általános diákhoz. Általános diákon használja a lábléc, a dátum/idő és a dia‑szám helyfoglalókat. Fejléchelyfoglalók csak a jegyzetoldalakon és az elosztókon érhetők el.
 
-**Mi a teendő, ha a layout nem tartalmaz láblécet—bekapcsolhatom a láthatóságát?**
+**Mi a helyzet, ha egy lábléc, dátum/idő vagy dia‑szám helyfoglaló nem látszik?**
 
-Igen. Ellenőrizze a láthatóságot a fejléc/lábléc kezelővel, és szükség esetén engedélyezze. Ezek az API‑jelzők és metódusok olyan esetekre lettek tervezve, amikor a helyőrző hiányzik vagy rejtve van.
+Használja a megfelelő fejléc/lábléc menedzsert a láthatóság ellenőrzéséhez, és engedélyezze szükség szerint. Például a [`isFooterVisible`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/baseslideheaderfootermanager/isfootervisible/) azt jelzi, hogy a lábléc helyfoglaló jelen van-e, a [`setFooterVisibility`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/baseslideheaderfootermanager/setfootervisibility/) pedig megváltoztatja a láthatóságát.
 
-**Hogyan állíthatom be, hogy a dia‑szám 1‑nél más értékről induljon?**
+**Hogyan indíthatom a diákszámozást 1‑nél eltérő értékkel?**
 
-Állítsa be a prezentáció [first slide number](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/setfirstslidenumber/) értékét; ezután az összes számozás újraszámításra kerül. Például kezdheti 0‑val vagy 10‑zel, és elrejtheti a számot a címdian.
+Hívja meg a prezentáció [`setFirstSlideNumber`](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/setfirstslidenumber/) metódusát. Ezután a dia‑szám helyfoglalók az új számozási sorozatot használják.
 
-**Mi történik a fejlécekkel/láblécekkel PDF-/képek/HTML‑export során?**
+**Mi történik a fejlécekkel és láblécekkel PDF‑re, képekre vagy HTML‑re exportáláskor?**
 
-Akkor ezek a prezentáció szabványos szövegelemként kerülnek renderelésre. Vagyis ha az elemek láthatóak a diákon/jegyzet‑oldalakon, akkor a kimeneti formátumbban is megjelennek a többi tartalommal együtt.
+A látható fejléc‑ és lábléc elemek a prezentáció tartalmával együtt kerülnek renderelésre a kimeneti formátumban. Megjelenésük az exportált oldaltípustól és a megfelelő helyfoglaló láthatósági beállításoktól függ.

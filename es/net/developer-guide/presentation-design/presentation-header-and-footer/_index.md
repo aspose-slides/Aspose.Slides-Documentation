@@ -1,6 +1,6 @@
 ---
-title: Administrar encabezados y pies de página de la presentación en .NET
-linktitle: Encabezado y Pie de página
+title: Administrar encabezados y pies de página de presentaciones en .NET
+linktitle: Encabezado y pie de página
 type: docs
 weight: 140
 url: /es/net/presentation-header-and-footer/
@@ -19,133 +19,224 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Utilice Aspose.Slides para .NET para añadir y personalizar encabezados y pies de página en presentaciones de PowerPoint y OpenDocument, logrando un aspecto profesional."
+description: "Aprenda cómo gestionar los marcadores de posición de pie de página, fecha y hora, número de diapositiva y encabezado en diapositivas, páginas de notas y folletos con Aspose.Slides para .NET."
 ---
+## **Visión general**
 
-{{% alert color="primary" %}} 
+PowerPoint utiliza diferentes marcadores de posición de encabezado y pie de página según el tipo de página. Aspose.Slides for .NET le permite controlar el texto y la visibilidad de estos marcadores de posición mediante interfaces de administrador de encabezado/pie de página.
 
-[Aspose.Slides](/slides/es/net/) proporciona soporte para trabajar con el texto de encabezados y pies de página de las diapositivas, que se mantienen realmente a nivel del maestro de diapositivas.
+Los marcadores de posición disponibles dependen del ámbito:
 
-{{% /alert %}} 
+| Ámbito | Encabezado | Pie de página | Fecha/hora | Número de diapositiva/página |
+|---|---|---|---|---|
+| Diapositiva regular | No | Sí | Sí | Sí |
+| Patrón de notas | Sí | Sí | Sí | Sí |
+| Diapositiva de notas | Sí | Sí | Sí | Sí |
+| Patrón de folletos | Sí | Sí | Sí | Sí |
 
-[Aspose.Slides for .NET](/slides/es/net/) ofrece la funcionalidad para administrar encabezados y pies de página dentro de las diapositivas de la presentación. De hecho, se gestionan a nivel del maestro de la presentación.
-## **Administrar texto de encabezado y pie de página**
-Las notas de alguna diapositiva específica pueden actualizarse como se muestra en el siguiente ejemplo:
-```c#
- // Cargar presentación
- Presentation pres = new Presentation("headerTest.pptx");
+Una diapositiva de presentación regular no tiene un marcador de posición de encabezado. Los encabezados están disponibles en las páginas de notas y en los folletos. Para diapositivas regulares, utilice los marcadores de posición de pie de página, fecha/hora y número de diapositiva.
 
-// Establecer pie de página
- pres.HeaderFooterManager.SetAllFootersText("My Footer text");
- pres.HeaderFooterManager.SetAllFootersVisibility(true);
+El ámbito de un cambio depende del administrador que utilice. La interfaz [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/es/net/aspose.slides/islideheaderfootermanager/) controla una única diapositiva regular. La interfaz [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/es/net/aspose.slides/inotesslideheaderfootermanager/) controla una única diapositiva de notas. Los administradores de patrón y de diseño también pueden propagar la configuración a diapositivas dependientes, mientras que la interfaz [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/es/net/aspose.slides/imasterhandoutslideheaderfootermanager/) controla el patrón de folletos.
 
-// Acceder y actualizar encabezado
- IMasterNotesSlide masterNotesSlide = pres.MasterNotesSlideManager.MasterNotesSlide;
- if (null != masterNotesSlide)
- {
-     UpdateHeaderFooterText(masterNotesSlide);
- }
+## **Establecer pie de página, fecha/hora y números de diapositiva en diapositivas regulares**
 
-// Guardar presentación
- pres.Save("HeaderFooterJava.pptx", SaveFormat.Pptx);
-```
+Para diapositivas regulares, el flujo de trabajo básico consiste en acceder al administrador de encabezado/pie de página de cada diapositiva, establecer el texto del pie de página y de la fecha/hora, habilitar los marcadores de posición requeridos y guardar la presentación. Los números de diapositiva los genera la presentación, por lo que solo necesita controlar su visibilidad.
+
+Utilice [`SetFooterText`](https://reference.aspose.com/slides/es/net/aspose.slides/baseslideheaderfootermanager/setfootertext/) y [`SetDateTimeText`](https://reference.aspose.com/slides/es/net/aspose.slides/baseslideheaderfootermanager/setdatetimetext/) para establecer el texto, y use [`SetFooterVisibility`](https://reference.aspose.com/slides/es/net/aspose.slides/baseslideheaderfootermanager/setfootervisibility/), [`SetDateTimeVisibility`](https://reference.aspose.com/slides/es/net/aspose.slides/baseslideheaderfootermanager/setdatetimevisibility/) y [`SetSlideNumberVisibility`](https://reference.aspose.com/slides/es/net/aspose.slides/baseslideheaderfootermanager/setslidenumbervisibility/) para mostrar los marcadores de posición correspondientes.
+
+El siguiente ejemplo completo aplica el mismo pie de página, texto de fecha/hora y visibilidad del número de diapositiva a todas las diapositivas regulares:
 
 ```c#
- // Método para establecer el texto del encabezado/pie de página
- public static void UpdateHeaderFooterText(IBaseSlide master)
- {
-     foreach (IShape shape in master.Shapes)
-     {
-         if (shape.Placeholder != null)
-         {
-             if (shape.Placeholder.Type == PlaceholderType.Header)
-             {
-                 ((IAutoShape)shape).TextFrame.Text = "HI there new header";
-             }
-         }
-     }
- }
-```
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
+using var presentation = new Presentation("presentation.pptx");
 
-
-
-
-## **Administrar encabezados y pies de página en diapositivas de folleto y notas**
-Aspose.Slides for .NET admite encabezados y pies de página en diapositivas de folleto y notas. Siga los pasos a continuación:
-
-- Cargue una [Presentación ](https://reference.aspose.com/slides/net/aspose.slides/presentation)que contenga un video.
-- Cambie la configuración de encabezado y pie de página para el maestro de notas y todas las diapositivas de notas.
-- Haga visibles los marcadores de posición de pie de página del maestro de notas y de todos los hijos.
-- Haga visibles los marcadores de posición de fecha y hora del maestro de notas y de todos los hijos.
-- Cambie la configuración de encabezado y pie de página solo para la primera diapositiva de notas.
-- Haga visible el marcador de posición de encabezado de la diapositiva de notas.
-- Asigne texto al marcador de posición de encabezado de la diapositiva de notas.
-- Asigne texto al marcador de posición de fecha y hora de la diapositiva de notas.
-- Guarde el archivo de presentación modificado.
-
-Fragmento de código proporcionado en el siguiente ejemplo.
-```c#
-using (Presentation presentation = new Presentation("presentation.pptx"))
+foreach (var slide in presentation.Slides)
 {
-	// Cambiar la configuración de encabezado y pie de página para el maestro de notas y todas las diapositivas de notas
-	IMasterNotesSlide masterNotesSlide = presentation.MasterNotesSlideManager.MasterNotesSlide;
-	if (masterNotesSlide != null)
-	{
-		IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.HeaderFooterManager;
+    var headerFooterManager = slide.HeaderFooterManager;
 
-		headerFooterManager.SetHeaderAndChildHeadersVisibility(true); // hacer visibles la diapositiva maestra de notas y todos los marcadores de posición de pie de página hijos
-		headerFooterManager.SetFooterAndChildFootersVisibility(true); // hacer visibles la diapositiva maestra de notas y todos los marcadores de posición de encabezado hijos
-		headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true); // hacer visibles la diapositiva maestra de notas y todos los marcadores de posición de número de diapositiva hijos
-		headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true); // hacer visibles la diapositiva maestra de notas y todos los marcadores de posición de fecha y hora hijos
+    headerFooterManager.SetFooterText("Company Confidential");
+    headerFooterManager.SetFooterVisibility(true);
 
-		headerFooterManager.SetHeaderAndChildHeadersText("Header text"); // establecer texto en la diapositiva maestra de notas y todos los marcadores de posición de encabezado hijos
-		headerFooterManager.SetFooterAndChildFootersText("Footer text"); // establecer texto en la diapositiva maestra de notas y todos los marcadores de posición de pie de página hijos
-		headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text"); // establecer texto en la diapositiva maestra de notas y todos los marcadores de posición de fecha y hora hijos
-	}
+    headerFooterManager.SetDateTimeText("Date and time text");
+    headerFooterManager.SetDateTimeVisibility(true);
 
-	// Cambiar la configuración de encabezado y pie de página solo para la primera diapositiva de notas
-	INotesSlide notesSlide = presentation.Slides[0].NotesSlideManager.NotesSlide;
-	if (notesSlide != null)
-	{
-		INotesSlideHeaderFooterManager headerFooterManager = notesSlide.HeaderFooterManager;
-		if (!headerFooterManager.IsHeaderVisible)
-			headerFooterManager.SetHeaderVisibility(true); // hacer visible este marcador de posición de encabezado de la diapositiva de notas
-
-		if (!headerFooterManager.IsFooterVisible)
-			headerFooterManager.SetFooterVisibility(true); // hacer visible este marcador de posición de pie de página de la diapositiva de notas
-
-		if (!headerFooterManager.IsSlideNumberVisible)
-			headerFooterManager.SetSlideNumberVisibility(true); // hacer visible este marcador de posición de número de diapositiva de la diapositiva de notas
-
-		if (!headerFooterManager.IsDateTimeVisible)
-			headerFooterManager.SetDateTimeVisibility(true); // hacer visible este marcador de posición de fecha y hora de la diapositiva de notas
-
-		headerFooterManager.SetHeaderText("New header text"); // establecer texto en el marcador de posición de encabezado de la diapositiva de notas
-		headerFooterManager.SetFooterText("New footer text"); // establecer texto en el marcador de posición de pie de página de la diapositiva de notas
-		headerFooterManager.SetDateTimeText("New date and time text"); // establecer texto en el marcador de posición de fecha y hora de la diapositiva de notas
-	}
-	presentation.Save("testresult.pptx",SaveFormat.Pptx);
+    headerFooterManager.SetSlideNumberVisibility(true);
 }
-		
- }
+
+presentation.Save("presentation_with_slide_footers.pptx", SaveFormat.Pptx);
 ```
 
+Si necesita actualizar solo una diapositiva, acceda a esa diapositiva directamente a través de la colección [`Slides`](https://reference.aspose.com/slides/es/net/aspose.slides/presentation/slides/es/) en lugar de iterar por toda la colección.
+
+## **Establecer encabezados y pies de página en el patrón de notas**
+
+El patrón de notas define el formato común y el comportamiento de los marcadores de posición para las páginas de notas. Utilice la interfaz [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/es/net/aspose.slides/imasternotesslideheaderfootermanager/) cuando desee modificar solo el propio patrón de notas.
+
+El siguiente ejemplo establece el encabezado, pie de página y texto de fecha/hora en el patrón de notas y hace visibles todos los marcadores de posición admitidos en ese patrón:
+
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var masterNotesSlide = presentation.MasterNotesSlideManager.MasterNotesSlide;
+
+if (masterNotesSlide != null)
+{
+    var headerFooterManager = masterNotesSlide.HeaderFooterManager;
+
+    headerFooterManager.SetHeaderText("Notes header");
+    headerFooterManager.SetHeaderVisibility(true);
+
+    headerFooterManager.SetFooterText("Notes footer");
+    headerFooterManager.SetFooterVisibility(true);
+
+    headerFooterManager.SetDateTimeText("Date and time text");
+    headerFooterManager.SetDateTimeVisibility(true);
+
+    headerFooterManager.SetSlideNumberVisibility(true);
+}
+
+presentation.Save("presentation_with_notes_master_footers.pptx", SaveFormat.Pptx);
+```
+
+La propiedad [`MasterNotesSlide`](https://reference.aspose.com/slides/es/net/aspose.slides/imasternotesslidemanager/masternotesslide/) devuelve `null` cuando la presentación no contiene un patrón de notas.
+
+## **Aplicar la configuración del patrón de notas a diapositivas de notas hijas**
+
+Un patrón de notas puede aplicar la configuración de encabezado y pie de página a sí mismo y a todas las diapositivas de notas dependientes. Utilice los métodos de propagación dedicados en [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/es/net/aspose.slides/imasternotesslideheaderfootermanager/) cuando la misma configuración deba aplicarse a lo largo de la jerarquía de notas.
+
+Por ejemplo, [`SetHeaderAndChildHeadersText`](https://reference.aspose.com/slides/es/net/aspose.slides/masternotesslideheaderfootermanager/setheaderandchildheaderstext/) y [`SetHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/es/net/aspose.slides/masternotesslideheaderfootermanager/setheaderandchildheadersvisibility/) actualizan el encabezado del patrón de notas y todos los encabezados hijos. Existen métodos equivalentes para pies de página, fecha/hora y números de diapositiva.
+
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var masterNotesSlide = presentation.MasterNotesSlideManager.MasterNotesSlide;
+
+if (masterNotesSlide != null)
+{
+    var headerFooterManager = masterNotesSlide.HeaderFooterManager;
+
+    headerFooterManager.SetHeaderAndChildHeadersText("Notes header");
+    headerFooterManager.SetHeaderAndChildHeadersVisibility(true);
+
+    headerFooterManager.SetFooterAndChildFootersText("Notes footer");
+    headerFooterManager.SetFooterAndChildFootersVisibility(true);
+
+    headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
+    headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
+
+    headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
+}
+
+presentation.Save("presentation_with_child_notes_footers.pptx", SaveFormat.Pptx);
+```
+
+Los métodos de propagación utilizados arriba son [`SetFooterAndChildFootersText`](https://reference.aspose.com/slides/es/net/aspose.slides/masternotesslideheaderfootermanager/setfooterandchildfooterstext/), [`SetFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/es/net/aspose.slides/masternotesslideheaderfootermanager/setfooterandchildfootersvisibility/), [`SetDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/es/net/aspose.slides/masternotesslideheaderfootermanager/setdatetimeandchilddatetimestext/), [`SetDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/es/net/aspose.slides/masternotesslideheaderfootermanager/setdatetimeandchilddatetimesvisibility/) y [`SetSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/es/net/aspose.slides/masternotesslideheaderfootermanager/setslidenumberandchildslidenumbersvisibility/).
+
+## **Establecer encabezados y pies de página en una diapositiva de notas individual**
+
+Una diapositiva de notas pertenece a una diapositiva regular concreta. Utilice su interfaz [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/es/net/aspose.slides/inotesslideheaderfootermanager/) cuando desee personalizar solo esa página de notas.
+
+El método [`AddNotesSlide`](https://reference.aspose.com/slides/es/net/aspose.slides/inotesslidemanager/addnotesslide/) devuelve la diapositiva de notas para la diapositiva actual y crea una si aún no existe. El siguiente ejemplo configura la página de notas asociada a la primera diapositiva de la presentación:
+
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var notesSlide = presentation.Slides[0].NotesSlideManager.AddNotesSlide();
+var headerFooterManager = notesSlide.HeaderFooterManager;
+
+headerFooterManager.SetHeaderText("Header for the first notes page");
+headerFooterManager.SetHeaderVisibility(true);
+
+headerFooterManager.SetFooterText("Footer for the first notes page");
+headerFooterManager.SetFooterVisibility(true);
+
+headerFooterManager.SetDateTimeText("Date and time text");
+headerFooterManager.SetDateTimeVisibility(true);
+
+headerFooterManager.SetSlideNumberVisibility(true);
+
+presentation.Save("presentation_with_custom_notes_footers.pptx", SaveFormat.Pptx);
+```
+
+Si primero propaga la configuración desde el patrón de notas y luego modifica una diapositiva de notas individual, la configuración posterior por diapositiva le permite personalizar esa página de notas de forma independiente.
+
+## **Establecer encabezados y pies de página en el patrón de folletos**
+
+Las páginas de folletos utilizan el patrón de folletos para sus marcadores de posición de encabezado, pie de página, fecha/hora y número de página. A diferencia de las páginas de notas, la configuración de los folletos se gestiona a través del patrón de folletos y no mediante diapositivas de folleto individuales.
+
+Utilice la propiedad [`MasterHandoutSlide`](https://reference.aspose.com/slides/es/net/aspose.slides/imasterhandoutslidemanager/masterhandoutslide/) para acceder al patrón de folletos. Si no está presente, llame a [`SetDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/es/net/aspose.slides/imasterhandoutslidemanager/setdefaultmasterhandoutslide/) para crear el patrón de folletos predeterminado.
+
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var masterHandoutSlide = presentation.MasterHandoutSlideManager.MasterHandoutSlide;
+
+if (masterHandoutSlide == null)
+{
+    presentation.MasterHandoutSlideManager.SetDefaultMasterHandoutSlide();
+    masterHandoutSlide = presentation.MasterHandoutSlideManager.MasterHandoutSlide;
+}
+
+if (masterHandoutSlide != null)
+{
+    var headerFooterManager = masterHandoutSlide.HeaderFooterManager;
+
+    headerFooterManager.SetHeaderText("Handout header");
+    headerFooterManager.SetHeaderVisibility(true);
+
+    headerFooterManager.SetFooterText("Handout footer");
+    headerFooterManager.SetFooterVisibility(true);
+
+    headerFooterManager.SetDateTimeText("Date and time text");
+    headerFooterManager.SetDateTimeVisibility(true);
+
+    headerFooterManager.SetSlideNumberVisibility(true);
+}
+
+presentation.Save("presentation_with_handout_footers.pptx", SaveFormat.Pptx);
+```
+
+## **Comprender el ámbito y la herencia**
+
+Elija el administrador de encabezado/pie de página que coincida con el ámbito que desea modificar:
+
+- [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/es/net/aspose.slides/islideheaderfootermanager/) cambia la configuración de pie de página, fecha/hora y número de diapositiva para una sola diapositiva regular.
+- [`ILayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/es/net/aspose.slides/ilayoutslideheaderfootermanager/) controla una diapositiva de diseño y puede propagar la configuración admitida a las diapositivas dependientes.
+- [`IMasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/es/net/aspose.slides/imasterslideheaderfootermanager/) controla un patrón de diapositiva regular y puede propagar la configuración admitida a las diapositivas dependientes.
+- [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/es/net/aspose.slides/imasternotesslideheaderfootermanager/) controla el patrón de notas y puede propagar la configuración a todas las diapositivas de notas dependientes.
+- [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/es/net/aspose.slides/inotesslideheaderfootermanager/) cambia una diapositiva de notas y admite un marcador de posición de encabezado además de pie de página, fecha/hora y número de diapositiva.
+- [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/es/net/aspose.slides/imasterhandoutslideheaderfootermanager/) cambia el patrón de folletos y admite los cuatro tipos de marcadores de posición.
+
+Utilice la propagación desde un patrón o un diseño cuando la misma configuración deba aplicarse a lo largo de su jerarquía. Utilice un administrador de diapositiva individual o de diapositiva de notas cuando necesite una configuración local para una sola página.
 
 ## **Preguntas frecuentes**
 
-**¿Puedo añadir un "encabezado" a diapositivas normales?**
+**¿Puedo añadir un encabezado a una diapositiva regular?**
 
-En PowerPoint, el "encabezado" solo existe para notas y folletos; en diapositivas normales, los elementos compatibles son el pie de página, la fecha/hora y el número de diapositiva. En Aspose.Slides esto coincide con las mismas limitaciones: encabezado solo para notas/folletos, y en las diapositivas—pie de página/fecha‑hora/número‑de‑diapositiva.
+No. PowerPoint no define un marcador de posición de encabezado para diapositivas regulares. En diapositivas regulares, utilice los marcadores de posición de pie de página, fecha/hora y número de diapositiva. Los marcadores de posición de encabezado están disponibles en las páginas de notas y en los folletos.
 
-**¿Qué pasa si el diseño no contiene un área de pie de página, puedo "activar" su visibilidad?**
+**¿Qué ocurre si un marcador de posición de pie de página, fecha/hora o número de diapositiva no es visible?**
 
-Sí. Verifique la visibilidad mediante el gestor de encabezado/pie de página y habilítela si es necesario. Estos indicadores y métodos de la API están diseñados para los casos en que el marcador de posición falta o está oculto.
+Utilice el administrador de encabezado/pie de página correspondiente para comprobar su visibilidad y habilitarlo cuando sea necesario. Por ejemplo, [`IsFooterVisible`](https://reference.aspose.com/slides/es/net/aspose.slides/baseslideheaderfootermanager/isfootervisible/) indica si existe un marcador de posición de pie de página, y [`SetFooterVisibility`](https://reference.aspose.com/slides/es/net/aspose.slides/baseslideheaderfootermanager/setfootervisibility/) modifica su visibilidad.
 
-**¿Cómo hago que la numeración de diapositivas comience desde un valor distinto de 1?**
+**¿Cómo comienzo la numeración de diapositivas a partir de un valor distinto de 1?**
 
-Establezca el [primer número de diapositiva](https://reference.aspose.com/slides/net/aspose.slides/presentation/firstslidenumber/) de la presentación; después de eso, toda la numeración se recalcula. Por ejemplo, puede iniciar en 0 o 10, y ocultar el número en la diapositiva de título.
+Establezca la propiedad [`FirstSlideNumber`](https://reference.aspose.com/slides/es/net/aspose.slides/presentation/firstslidenumber/) de la presentación. Los marcadores de posición de número de diapositiva usarán entonces la secuencia de numeración actualizada.
 
-**¿Qué ocurre con los encabezados/pies de página al exportar a PDF/imagenes/HTML?**
+**¿Qué ocurre con los encabezados y pies de página al exportar a PDF, imágenes o HTML?**
 
-Se renderizan como elementos de texto normales de la presentación. Es decir, si los elementos son visibles en las diapositivas/páginas de notas, también aparecerán en el formato de salida junto con el resto del contenido.
+Los elementos visibles de encabezado y pie de página se renderizan junto con el resto del contenido de la presentación en el formato de salida. Su apariencia depende del tipo de página que se exporta y de la configuración de visibilidad de los marcadores de posición correspondientes.

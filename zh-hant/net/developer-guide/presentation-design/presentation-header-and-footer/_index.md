@@ -1,150 +1,242 @@
 ---
-title: 在 .NET 中管理簡報的標頭與頁腳
-linktitle: 標頭與頁腳
+title: 在 .NET 中管理簡報的標題與頁腳
+linktitle: 標題與頁腳
 type: docs
 weight: 140
 url: /zh-hant/net/presentation-header-and-footer/
 keywords:
-- 標頭
-- 標頭文字
+- 標題
+- 標題文字
 - 頁腳
 - 頁腳文字
-- 設定標頭
+- 設定標題
 - 設定頁腳
 - 講義
-- 備註
+- 註記
 - PowerPoint
 - OpenDocument
 - 簡報
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 Aspose.Slides for .NET 在 PowerPoint 與 OpenDocument 簡報中新增並自訂標頭與頁腳，以獲得專業外觀。"
+description: "了解如何使用 Aspose.Slides for .NET 在投影片、註記頁面與講義上管理頁腳、日期時間、投影片編號與標題佔位符。"
 ---
-## **概覽**
+## **概述**
 
-Aspose.Slides 讓您可以在 PowerPoint 簡報中管理標頭與頁腳設定。標頭與頁腳在簡報母版層級處理，API 提供設定頁腳文字、變更頁腳可見性以及在母片備註投影片上更新標頭文字的方法。
+PowerPoint 會根據頁面類型使用不同的標題和頁腳佔位符。Aspose.Slides for .NET 讓您透過標題/頁腳管理介面控制這些佔位符的文字與可見性。
 
-您也可以管理講義和備註投影片的標頭與頁腳。這包括變更備註母片、所有子備註投影片或單一備註投影片的標頭、頁腳、投影片編號與日期時間佔位符的可見性和文字。
+可用的佔位符取決於範圍：
 
-## **管理標頭與頁腳文字**
+| 範圍 | 標題 | 頁腳 | 日期/時間 | 投影片/頁碼 |
+|---|---|---|---|---|
+| 一般投影片 | 否 | 是 | 是 | 是 |
+| 註記母片 | 是 | 是 | 是 | 是 |
+| 註記投影片 | 是 | 是 | 是 | 是 |
+| 講義母片 | 是 | 是 | 是 | 是 |
 
-某些特定投影片的備註可以如以下範例所示進行更新：
+一般投影片沒有標題佔位符。標題佔位符僅在註記頁面與講義上可用。對於一般投影片，請改用頁腳、日期/時間及投影片號碼佔位符。
 
-```c#
-// 載入簡報
-Presentation pres = new Presentation("headerTest.pptx");
+變更的範圍取決於您使用的管理器。[`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/islideheaderfootermanager/) 介面控制單一一般投影片。[`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/inotesslideheaderfootermanager/) 介面控制單一註記投影片。母片與版面配置管理器也可以將設定傳播至相依投影片，而 [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imasterhandoutslideheaderfootermanager/) 介面則控制講義母片。
 
-// 設定頁腳
-pres.HeaderFooterManager.SetAllFootersText("My Footer text");
-pres.HeaderFooterManager.SetAllFootersVisibility(true);
+## **在一般投影片上設定頁腳、日期/時間與投影片編號**
 
-// 存取並更新標頭
-IMasterNotesSlide masterNotesSlide = pres.MasterNotesSlideManager.MasterNotesSlide;
-if (null != masterNotesSlide)
-{
-	UpdateHeaderFooterText(masterNotesSlide);
-}
+對於一般投影片，基本工作流程是存取每張投影片的標題/頁腳管理器、設定頁腳與日期/時間文字、啟用所需的佔位符，然後儲存簡報。投影片編號由簡報自動產生，因此您僅需控制其可見性。
 
-// 儲存簡報
-pres.Save("HeaderFooterJava.pptx", SaveFormat.Pptx);
-```
+使用 [`SetFooterText`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/baseslideheaderfootermanager/setfootertext/) 與 [`SetDateTimeText`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/baseslideheaderfootermanager/setdatetimetext/) 設定文字，並使用 [`SetFooterVisibility`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/baseslideheaderfootermanager/setfootervisibility/)、[`SetDateTimeVisibility`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/baseslideheaderfootermanager/setdatetimevisibility/)、[`SetSlideNumberVisibility`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/baseslideheaderfootermanager/setslidenumbervisibility/) 來顯示相對應的佔位符。
 
-
+以下完整範例會將相同的頁腳、日期/時間文字與投影片編號可見性套用至所有一般投影片：
 
 ```c#
-// 設定標頭/頁腳文字的方法
-public static void UpdateHeaderFooterText(IBaseSlide master)
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    foreach (IShape shape in master.Shapes)
-    {
-        if (shape.Placeholder != null)
-        {
-            if (shape.Placeholder.Type == PlaceholderType.Header)
-            {
-                ((IAutoShape)shape).TextFrame.Text = "HI there new header";
-            }
-        }
-    }
+    var headerFooterManager = slide.HeaderFooterManager;
+
+    headerFooterManager.SetFooterText("Company Confidential");
+    headerFooterManager.SetFooterVisibility(true);
+
+    headerFooterManager.SetDateTimeText("Date and time text");
+    headerFooterManager.SetDateTimeVisibility(true);
+
+    headerFooterManager.SetSlideNumberVisibility(true);
 }
+
+presentation.Save("presentation_with_slide_footers.pptx", SaveFormat.Pptx);
 ```
 
+如果只需更新單一投影片，請直接透過 [`Slides`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/slides/zh-hant/) 集合存取該投影片，而非遍歷整個集合。
 
+## **在註記母片上設定標題與頁腳**
 
+註記母片定義註記頁面的共用格式與佔位符行為。當您只想變更註記母片本身時，請使用 [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imasternotesslideheaderfootermanager/) 介面。
 
-## **在講義與備註投影片上管理標頭與頁腳**
-Aspose.Slides for .NET 在講義與備註投影片上支援標頭與頁腳。請依照以下步驟操作：
-
-- 載入包含影片的[Presentation ](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation)。
-- 變更備註母片與所有備註投影片的標頭與頁腳設定。
-- 設定母片備註投影片與所有子投影片的頁腳佔位符可見。
-- 設定母片備註投影片與所有子投影片的日期與時間佔位符可見。
-- 僅變更第一張備註投影片的標頭與頁腳設定。
-- 設定備註投影片的標頭佔位符可見。
-- 為備註投影片的標頭佔位符設定文字。
-- 為備註投影片的日期時間佔位符設定文字。
-- 寫入已修改的簡報檔案。
+以下範例會在註記母片上設定標題、頁腳與日期/時間文字，並使該母片上所有支援的佔位符可見：
 
 ```c#
-using (Presentation presentation = new Presentation("presentation.pptx"))
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var masterNotesSlide = presentation.MasterNotesSlideManager.MasterNotesSlide;
+
+if (masterNotesSlide != null)
 {
-	// 更改備註母片與所有備註投影片的標頭與頁腳設定
-	IMasterNotesSlide masterNotesSlide = presentation.MasterNotesSlideManager.MasterNotesSlide;
-	if (masterNotesSlide != null)
-	{
-		IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.HeaderFooterManager;
+    var headerFooterManager = masterNotesSlide.HeaderFooterManager;
 
-		headerFooterManager.SetHeaderAndChildHeadersVisibility(true); // 使母片備註投影片與所有子頁腳佔位符可見
-		headerFooterManager.SetFooterAndChildFootersVisibility(true); // 使母片備註投影片與所有子標頭佔位符可見
-		headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true); // 使母片備註投影片與所有子投影片編號佔位符可見
-		headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true); // 使母片備註投影片與所有子日期與時間佔位符可見
+    headerFooterManager.SetHeaderText("Notes header");
+    headerFooterManager.SetHeaderVisibility(true);
 
-		headerFooterManager.SetHeaderAndChildHeadersText("Header text"); // 設定文字至母片備註投影片與所有子標頭佔位符
-		headerFooterManager.SetFooterAndChildFootersText("Footer text"); // 設定文字至母片備註投影片與所有子頁腳佔位符
-		headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text"); // 設定文字至母片備註投影片與所有子日期與時間佔位符
-	}
+    headerFooterManager.SetFooterText("Notes footer");
+    headerFooterManager.SetFooterVisibility(true);
 
-	// 僅更改第一張備註投影片的標頭與頁腳設定
-	INotesSlide notesSlide = presentation.Slides[0].NotesSlideManager.NotesSlide;
-	if (notesSlide != null)
-	{
-		INotesSlideHeaderFooterManager headerFooterManager = notesSlide.HeaderFooterManager;
-		if (!headerFooterManager.IsHeaderVisible)
-			headerFooterManager.SetHeaderVisibility(true); // 使此備註投影片的標頭佔位符可見
+    headerFooterManager.SetDateTimeText("Date and time text");
+    headerFooterManager.SetDateTimeVisibility(true);
 
-		if (!headerFooterManager.IsFooterVisible)
-			headerFooterManager.SetFooterVisibility(true); // 使此備註投影片的頁腳佔位符可見
-
-		if (!headerFooterManager.IsSlideNumberVisible)
-			headerFooterManager.SetSlideNumberVisibility(true); // 使此備註投影片的投影片編號佔位符可見
-
-		if (!headerFooterManager.IsDateTimeVisible)
-			headerFooterManager.SetDateTimeVisibility(true); // 使此備註投影片的日期時間佔位符可見
-
-		headerFooterManager.SetHeaderText("New header text"); // 設定文字至備註投影片的標頭佔位符
-		headerFooterManager.SetFooterText("New footer text"); // 設定文字至備註投影片的頁腳佔位符
-		headerFooterManager.SetDateTimeText("New date and time text"); // 設定文字至備註投影片的日期時間佔位符
-	}
-	presentation.Save("testresult.pptx",SaveFormat.Pptx);
+    headerFooterManager.SetSlideNumberVisibility(true);
 }
-		
- }
+
+presentation.Save("presentation_with_notes_master_footers.pptx", SaveFormat.Pptx);
 ```
 
-## **常見問答**
+當簡報不包含註記母片時，[`MasterNotesSlide`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imasternotesslidemanager/masternotesslide/) 屬性會回傳 `null`。
 
-**我可以在一般投影片上添加「標頭」嗎？**
+## **將註記母片設定套用至子註記投影片**
 
-在 PowerPoint 中，「標頭」僅存在於備註與講義；在普通投影片上支援的元素只有頁腳、日期/時間以及投影片編號。Aspose.Slides 的限制與此相同：標頭僅限於備註/講義，投影片則只能使用頁腳、日期時間或投影片編號。
+註記母片可以將標題與頁腳設定套用於自身及所有相依的註記投影片。當相同設定需套用於整個註記階層時，請使用 [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imasternotesslideheaderfootermanager/) 上的專屬傳播方法。
 
-**如果版面配置不包含頁腳區域，我可以「開啟」其可見性嗎？**
+例如，[`SetHeaderAndChildHeadersText`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/masternotesslideheaderfootermanager/setheaderandchildheaderstext/) 與 [`SetHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/masternotesslideheaderfootermanager/setheaderandchildheadersvisibility/) 會更新註記母片的標題與所有子標題。對於頁腳、日期/時間與投影片編號亦提供等效的方法。
 
-可以。透過標頭/頁腳管理器檢查可見性，必要時將其啟用。這些 API 指標與方法專為佔位符缺失或被隱藏的情況設計。
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-**如何讓投影片編號從非 1 的數值開始？**
+using var presentation = new Presentation("presentation.pptx");
 
-設定簡報的[first slide number](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/firstslidenumber/)；之後所有編號會重新計算。例如可以從 0 或 10 開始，並在標題投影片上隱藏編號。
+var masterNotesSlide = presentation.MasterNotesSlideManager.MasterNotesSlide;
 
-**匯出為 PDF、圖像或 HTML 時，標頭/頁腳會發生什麼情況？**
+if (masterNotesSlide != null)
+{
+    var headerFooterManager = masterNotesSlide.HeaderFooterManager;
 
-它們會作為簡報的普通文字元素呈現。也就是說，只要這些元素在投影片或備註頁面上是可見的，輸出為 PDF、圖像或 HTML 時也會一併顯示。
+    headerFooterManager.SetHeaderAndChildHeadersText("Notes header");
+    headerFooterManager.SetHeaderAndChildHeadersVisibility(true);
+
+    headerFooterManager.SetFooterAndChildFootersText("Notes footer");
+    headerFooterManager.SetFooterAndChildFootersVisibility(true);
+
+    headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
+    headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
+
+    headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
+}
+
+presentation.Save("presentation_with_child_notes_footers.pptx", SaveFormat.Pptx);
+```
+
+上述使用的傳播方法包括 [`SetFooterAndChildFootersText`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/masternotesslideheaderfootermanager/setfooterandchildfooterstext/)、[`SetFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/masternotesslideheaderfootermanager/setfooterandchildfootersvisibility/)、[`SetDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/masternotesslideheaderfootermanager/setdatetimeandchilddatetimestext/)、[`SetDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/masternotesslideheaderfootermanager/setdatetimeandchilddatetimesvisibility/)、[`SetSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/masternotesslideheaderfootermanager/setslidenumberandchildslidenumbersvisibility/)。
+
+## **在單一註記投影片上設定標題與頁腳**
+
+註記投影片隸屬於特定的一般投影片。當您只想自訂該註記頁面時，請使用其 [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/inotesslideheaderfootermanager/) 介面。
+
+[`AddNotesSlide`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/inotesslidemanager/addnotesslide/) 方法會回傳目前投影片的註記投影片，若不存在則會建立。以下範例會設定與第一張簡報投影片關聯的註記頁面：
+
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var notesSlide = presentation.Slides[0].NotesSlideManager.AddNotesSlide();
+var headerFooterManager = notesSlide.HeaderFooterManager;
+
+headerFooterManager.SetHeaderText("Header for the first notes page");
+headerFooterManager.SetHeaderVisibility(true);
+
+headerFooterManager.SetFooterText("Footer for the first notes page");
+headerFooterManager.SetFooterVisibility(true);
+
+headerFooterManager.SetDateTimeText("Date and time text");
+headerFooterManager.SetDateTimeVisibility(true);
+
+headerFooterManager.SetSlideNumberVisibility(true);
+
+presentation.Save("presentation_with_custom_notes_footers.pptx", SaveFormat.Pptx);
+```
+
+如果您先從註記母片傳播設定，然後再變更單一註記投影片，後續的逐投影片設定即可讓您獨立自訂該註記頁面。
+
+## **在講義母片上設定標題與頁腳**
+
+講義頁面使用講義母片來放置標題、頁腳、日期/時間與頁碼佔位符。與註記頁面不同，講義的設定是透過講義母片管理，而非個別的講義投影片。
+
+使用 [`MasterHandoutSlide`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imasterhandoutslidemanager/masterhandoutslide/) 屬性存取講義母片。若不存在，請呼叫 [`SetDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imasterhandoutslidemanager/setdefaultmasterhandoutslide/) 以建立預設的講義母片。
+
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var masterHandoutSlide = presentation.MasterHandoutSlideManager.MasterHandoutSlide;
+
+if (masterHandoutSlide == null)
+{
+    presentation.MasterHandoutSlideManager.SetDefaultMasterHandoutSlide();
+    masterHandoutSlide = presentation.MasterHandoutSlideManager.MasterHandoutSlide;
+}
+
+if (masterHandoutSlide != null)
+{
+    var headerFooterManager = masterHandoutSlide.HeaderFooterManager;
+
+    headerFooterManager.SetHeaderText("Handout header");
+    headerFooterManager.SetHeaderVisibility(true);
+
+    headerFooterManager.SetFooterText("Handout footer");
+    headerFooterManager.SetFooterVisibility(true);
+
+    headerFooterManager.SetDateTimeText("Date and time text");
+    headerFooterManager.SetDateTimeVisibility(true);
+
+    headerFooterManager.SetSlideNumberVisibility(true);
+}
+
+presentation.Save("presentation_with_handout_footers.pptx", SaveFormat.Pptx);
+```
+
+## **了解範圍與繼承**
+
+選擇與您欲變更的範圍相符的標題/頁腳管理器：
+
+- [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/islideheaderfootermanager/) 會變更單一一般投影片的頁腳、日期/時間與投影片編號設定。
+- [`ILayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ilayoutslideheaderfootermanager/) 控制版面配置投影片，且可將支援的設定傳播至相依投影片。
+- [`IMasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imasterslideheaderfootermanager/) 控制一般投影片母片，並可將支援的設定傳播至相依投影片。
+- [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imasternotesslideheaderfootermanager/) 控制註記母片，且可將設定傳播至所有相依的註記投影片。
+- [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/inotesslideheaderfootermanager/) 會變更單一註記投影片，並支援標題佔位符，此外亦支援頁腳、日期/時間與投影片編號。
+- [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imasterhandoutslideheaderfootermanager/) 會變更講義母片，且支援全部四種佔位符類型。
+
+當相同設定需套用於整個階層時，請使用母片或版面配置的傳播。若只需要單一頁面的局部設定，請使用個別投影片或註記投影片管理器。
+
+## **常見問題**
+
+**我可以在一般投影片上新增標題嗎？**
+
+不能。PowerPoint 並未為一般投影片定義標題佔位符。一般投影片請使用頁腳、日期/時間與投影片號碼佔位符。標題佔位符僅在註記頁面與講義上可用。
+
+**如果頁腳、日期/時間或投影片號碼佔位符未顯示該怎麼辦？**
+
+請使用相對應的標題/頁腳管理器檢查其可見性，並在需要時啟用。例如，[`IsFooterVisible`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/baseslideheaderfootermanager/isfootervisible/) 會回報頁腳佔位符是否存在，而 [`SetFooterVisibility`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/baseslideheaderfootermanager/setfootervisibility/) 則變更其可見性。
+
+**如何讓投影片編號從非 1 的值開始？**
+
+設定簡報的 [`FirstSlideNumber`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/firstslidenumber/) 屬性。投影片編號佔位符便會使用更新後的編號序列。
+
+**將簡報匯出為 PDF、圖像或 HTML 時，標題與頁腳會發生什麼情況？**
+
+可見的標題與頁腳元素會與簡報內容一同在輸出格式中呈現。其外觀取決於匯出的頁面類型以及相對應的佔位符可見性設定。

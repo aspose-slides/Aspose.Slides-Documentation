@@ -1,17 +1,17 @@
 ---
-title: Beheer presentatie-headers en -footers in .NET
+title: Beheer van presentatiekoppen en -voetteksten in .NET
 linktitle: Koptekst en voettekst
 type: docs
 weight: 140
 url: /nl/net/presentation-header-and-footer/
 keywords:
 - koptekst
-- koptekst tekst
+- koptekst
 - voettekst
-- voettekst tekst
+- voetteksttekst
 - koptekst instellen
 - voettekst instellen
-- hand-out
+- handout
 - notities
 - PowerPoint
 - OpenDocument
@@ -19,134 +19,224 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Gebruik Aspose.Slides voor .NET om kopteksten en voetteksten toe te voegen en aan te passen in PowerPoint- en OpenDocument-presentaties voor een professionele uitstraling."
+description: "Leer hoe u voettekst-, datum-tijd-, dia-nummer- en koptekst-plaatshouders op dia's, notitiepagina's en handouts kunt beheren met Aspose.Slides voor .NET."
 ---
 ## **Overzicht**
 
-Aspose.Slides biedt u de mogelijkheid om de header‑ en footersettings in PowerPoint‑presentaties te beheren. Headers en footers worden op het master‑nivo van de presentatie afgehandeld, en de API levert methoden om footertekst in te stellen, de zichtbaarheid van de footer te wijzigen en headertekst op master‑notitieslides bij te werken.
+PowerPoint gebruikt verschillende kop‑ en voettekst‑plaatshouders afhankelijk van het paginatype. Aspose.Slides for .NET laat u de tekst en zichtbaarheid van deze plaatshouders beheren via kop‑/voettekst‑manager‑interfaces.
 
-U kunt ook headers en footers beheren voor handout‑ en notitieslides. Dit omvat het wijzigen van de zichtbaarheid en tekst van header, footer, slidennummer en datum‑tijd‑plaatsaanduidingen voor de notities‑master, alle onderliggende notitieslides of een individuele notitieslide.
+De beschikbare plaatshouders hangen af van de scope:
 
-## **Beheer Header- en Footertekst**
+| Scope | Kop | Voettekst | Datum/tijd | Dia-/paginanummer |
+|---|---|---|---|---|
+| Reguliere dia | Nee | Ja | Ja | Ja |
+| Notitie‑master | Ja | Ja | Ja | Ja |
+| Notities‑dia | Ja | Ja | Ja | Ja |
+| Handout‑master | Ja | Ja | Ja | Ja |
 
-Notities van een specifieke slide kunnen worden bijgewerkt zoals weergegeven in het voorbeeld hieronder:
+Een reguliere presentatiedia heeft geen kop‑plaatshouder. Koppen zijn beschikbaar op notitie‑pagina’s en handouts. Voor reguliere dia’s gebruikt u de voettekst‑, datum/tijd‑ en dia‑nummer‑plaatshouders.
 
-```c#
-// Presentatie laden
-Presentation pres = new Presentation("headerTest.pptx");
+De scope van een wijziging hangt af van de manager die u gebruikt. De[`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/nl/net/aspose.slides/islideheaderfootermanager/)‑interface beheert één reguliere dia. De[`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/nl/net/aspose.slides/inotesslideheaderfootermanager/)‑interface beheert één notities‑dia. Master‑ en lay‑out‑managers kunnen instellingen ook doorvoeren naar afhankelijke dia’s, terwijl de[`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/nl/net/aspose.slides/imasterhandoutslideheaderfootermanager/)‑interface het handout‑master beheert.
 
-// Voettekst instellen
-pres.HeaderFooterManager.SetAllFootersText("My Footer text");
-pres.HeaderFooterManager.SetAllFootersVisibility(true);
+## **Voettekst, datum/tijd en dia‑nummers instellen op reguliere dia’s**
 
-// Header openen en bijwerken
-IMasterNotesSlide masterNotesSlide = pres.MasterNotesSlideManager.MasterNotesSlide;
-if (null != masterNotesSlide)
-{
-	UpdateHeaderFooterText(masterNotesSlide);
-}
+Voor reguliere dia’s is de basisworkflow om de header/footer‑manager van elke dia te benaderen, de voettekst‑ en datum/tijd‑tekst in te stellen, de benodigde plaatshouders in te schakelen en de presentatie op te slaan. Dia‑nummers worden door de presentatie gegenereerd, dus u hoeft alleen de zichtbaarheid te regelen.
 
-// Presentatie opslaan
-pres.Save("HeaderFooterJava.pptx", SaveFormat.Pptx);
-```
+Gebruik[`SetFooterText`](https://reference.aspose.com/slides/nl/net/aspose.slides/baseslideheaderfootermanager/setfootertext/) en[`SetDateTimeText`](https://reference.aspose.com/slides/nl/net/aspose.slides/baseslideheaderfootermanager/setdatetimetext/) om tekst in te stellen, en[`SetFooterVisibility`](https://reference.aspose.com/slides/nl/net/aspose.slides/baseslideheaderfootermanager/setfootervisibility/),[`SetDateTimeVisibility`](https://reference.aspose.com/slides/nl/net/aspose.slides/baseslideheaderfootermanager/setdatetimevisibility/) en[`SetSlideNumberVisibility`](https://reference.aspose.com/slides/nl/net/aspose.slides/baseslideheaderfootermanager/setslidenumbervisibility/) om de overeenkomstige plaatshouders te tonen.
 
-
+Het volgende end‑to‑end‑voorbeeld past dezelfde voettekst, datum/tijd‑tekst en dia‑nummervisibiliteit toe op alle reguliere dia’s:
 
 ```c#
-// Methode om Header/Footer-tekst in te stellen
-public static void UpdateHeaderFooterText(IBaseSlide master)
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    foreach (IShape shape in master.Shapes)
-    {
-        if (shape.Placeholder != null)
-        {
-            if (shape.Placeholder.Type == PlaceholderType.Header)
-            {
-                ((IAutoShape)shape).TextFrame.Text = "HI there new header";
-            }
-        }
-    }
+    var headerFooterManager = slide.HeaderFooterManager;
+
+    headerFooterManager.SetFooterText("Company Confidential");
+    headerFooterManager.SetFooterVisibility(true);
+
+    headerFooterManager.SetDateTimeText("Date and time text");
+    headerFooterManager.SetDateTimeVisibility(true);
+
+    headerFooterManager.SetSlideNumberVisibility(true);
 }
+
+presentation.Save("presentation_with_slide_footers.pptx", SaveFormat.Pptx);
 ```
 
+Als u slechts één dia wilt bijwerken, benader die dia direct via de[`Slides`](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/slides/nl/)‑collectie in plaats van door de volledige collectie te itereren.
 
+## **Koppen en voetteksten instellen op de notitie‑master**
 
+De notitie‑master definieert gemeenschappelijke opmaak en plaatshouder‑gedrag voor notitie‑pagina’s. Gebruik de[`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/nl/net/aspose.slides/imasternotesslideheaderfootermanager/)‑interface wanneer u alleen de notitie‑master zelf wilt wijzigen.
 
-## **Beheer Headers en Footers op Handout- en Notitieslides**
-Aspose.Slides voor .NET ondersteunt Header en Footer in handout‑ en notitieslides. Volg de onderstaande stappen:
-
-- Laad een [Presentation ](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) dat een video bevat.
-- Wijzig Header‑ en Footer‑instellingen voor de notities‑master en alle notitieslides.
-- Maak de Footer‑plaatsaanduidingen op de master‑notitieslide en alle onderliggende slides zichtbaar.
-- Maak de Datum‑en‑tijd‑plaatsaanduidingen op de master‑notitieslide en alle onderliggende slides zichtbaar.
-- Wijzig Header‑ en Footer‑instellingen alleen voor de eerste notitieslide.
-- Maak de Header‑plaatsaanduiding op de notitieslide zichtbaar.
-- Stel tekst in voor de Header‑plaatsaanduiding op de notitieslide.
-- Stel tekst in voor de Datum‑tijd‑plaatsaanduiding op de notitieslide.
-- Schrijf het gewijzigde presentatie‑bestand weg.
-
-Codevoorbeeld wordt hieronder gegeven.
+Het volgende voorbeeld stelt kop, voettekst en datum/tijd‑tekst in op de notitie‑master en maakt alle ondersteunde plaatshouders zichtbaar op die master:
 
 ```c#
-using (Presentation presentation = new Presentation("presentation.pptx"))
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var masterNotesSlide = presentation.MasterNotesSlideManager.MasterNotesSlide;
+
+if (masterNotesSlide != null)
 {
-	// Wijzig header- en footersettings voor de notitiesmaster en alle notitieslides
-	IMasterNotesSlide masterNotesSlide = presentation.MasterNotesSlideManager.MasterNotesSlide;
-	if (masterNotesSlide != null)
-	{
-		IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.HeaderFooterManager;
+    var headerFooterManager = masterNotesSlide.HeaderFooterManager;
 
-		headerFooterManager.SetHeaderAndChildHeadersVisibility(true); // maak de master notitieslide en alle onderliggende Footer-plaatsaanduidingen zichtbaar
-		headerFooterManager.SetFooterAndChildFootersVisibility(true); // maak de master notitieslide en alle onderliggende Header-plaatsaanduidingen zichtbaar
-		headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true); // maak de master notitieslide en alle onderliggende SlideNumber-plaatsaanduidingen zichtbaar
-		headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true); // maak de master notitieslide en alle onderliggende Datum-tijd-plaatsaanduidingen zichtbaar
+    headerFooterManager.SetHeaderText("Notes header");
+    headerFooterManager.SetHeaderVisibility(true);
 
-		headerFooterManager.SetHeaderAndChildHeadersText("Header text"); // stel tekst in voor de master notitieslide en alle onderliggende Header-plaatsaanduidingen
-		headerFooterManager.SetFooterAndChildFootersText("Footer text"); // stel tekst in voor de master notitieslide en alle onderliggende Footer-plaatsaanduidingen
-		headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text"); // stel tekst in voor de master notitieslide en alle onderliggende Datum-tijd-plaatsaanduidingen
-	}
+    headerFooterManager.SetFooterText("Notes footer");
+    headerFooterManager.SetFooterVisibility(true);
 
-	// Wijzig header- en footersettings alleen voor de eerste notitieslide
-	INotesSlide notesSlide = presentation.Slides[0].NotesSlideManager.NotesSlide;
-	if (notesSlide != null)
-	{
-		INotesSlideHeaderFooterManager headerFooterManager = notesSlide.HeaderFooterManager;
-		if (!headerFooterManager.IsHeaderVisible)
-			headerFooterManager.SetHeaderVisibility(true); // maak deze notitieslide Header-plaatsaanduiding zichtbaar
+    headerFooterManager.SetDateTimeText("Date and time text");
+    headerFooterManager.SetDateTimeVisibility(true);
 
-		if (!headerFooterManager.IsFooterVisible)
-			headerFooterManager.SetFooterVisibility(true); // maak deze notitieslide Footer-plaatsaanduiding zichtbaar
-
-		if (!headerFooterManager.IsSlideNumberVisible)
-			headerFooterManager.SetSlideNumberVisibility(true); // maak deze notitieslide SlideNumber-plaatsaanduiding zichtbaar
-
-		if (!headerFooterManager.IsDateTimeVisible)
-			headerFooterManager.SetDateTimeVisibility(true); // maak deze notitieslide Datum-tijd-plaatsaanduiding zichtbaar
-
-		headerFooterManager.SetHeaderText("New header text"); // stel tekst in voor notitieslide Header-plaatsaanduiding
-		headerFooterManager.SetFooterText("New footer text"); // stel tekst in voor notitieslide Footer-plaatsaanduiding
-		headerFooterManager.SetDateTimeText("New date and time text"); // stel tekst in voor notitieslide Datum-tijd-plaatsaanduiding
-	}
-	presentation.Save("testresult.pptx",SaveFormat.Pptx);
+    headerFooterManager.SetSlideNumberVisibility(true);
 }
-		
- }
+
+presentation.Save("presentation_with_notes_master_footers.pptx", SaveFormat.Pptx);
 ```
+
+De[`MasterNotesSlide`](https://reference.aspose.com/slides/nl/net/aspose.slides/imasternotesslidemanager/masternotesslide/)‑eigenschap geeft `null` terug wanneer de presentatie geen notitie‑master bevat.
+
+## **Instellingen van de notitie‑master toepassen op onderliggende notities‑dia’s**
+
+Een notitie‑master kan kop‑ en voettekst‑instellingen doorvoeren naar zichzelf en naar alle afhankelijke notities‑dia’s. Gebruik de speciale propagatiemethoden op[`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/nl/net/aspose.slides/imasternotesslideheaderfootermanager/) wanneer dezelfde instellingen door de hele notitie‑hiërarchie moeten gelden.
+
+Bijvoorbeeld[`SetHeaderAndChildHeadersText`](https://reference.aspose.com/slides/nl/net/aspose.slides/masternotesslideheaderfootermanager/setheaderandchildheaderstext/) en[`SetHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/nl/net/aspose.slides/masternotesslideheaderfootermanager/setheaderandchildheadersvisibility/) updaten de notitie‑master‑kop en alle onderliggende koppen. Gelijksoortige methoden zijn beschikbaar voor voetteksten, datum/tijd en dia‑nummers.
+
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var masterNotesSlide = presentation.MasterNotesSlideManager.MasterNotesSlide;
+
+if (masterNotesSlide != null)
+{
+    var headerFooterManager = masterNotesSlide.HeaderFooterManager;
+
+    headerFooterManager.SetHeaderAndChildHeadersText("Notes header");
+    headerFooterManager.SetHeaderAndChildHeadersVisibility(true);
+
+    headerFooterManager.SetFooterAndChildFootersText("Notes footer");
+    headerFooterManager.SetFooterAndChildFootersVisibility(true);
+
+    headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
+    headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
+
+    headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
+}
+
+presentation.Save("presentation_with_child_notes_footers.pptx", SaveFormat.Pptx);
+```
+
+De hierboven gebruikte propagatiemethoden zijn[`SetFooterAndChildFootersText`](https://reference.aspose.com/slides/nl/net/aspose.slides/masternotesslideheaderfootermanager/setfooterandchildfooterstext/),[`SetFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/nl/net/aspose.slides/masternotesslideheaderfootermanager/setfooterandchildfootersvisibility/),[`SetDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/nl/net/aspose.slides/masternotesslideheaderfootermanager/setdatetimeandchilddatetimestext/),[`SetDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/nl/net/aspose.slides/masternotesslideheaderfootermanager/setdatetimeandchilddatetimesvisibility/), en[`SetSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/nl/net/aspose.slides/masternotesslideheaderfootermanager/setslidenumberandchildslidenumbersvisibility/).
+
+## **Koppen en voetteksten instellen op een individuele notities‑dia**
+
+Een notities‑dia behoort tot een specifieke reguliere dia. Gebruik de[`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/nl/net/aspose.slides/inotesslideheaderfootermanager/)‑interface wanneer u alleen die notitie‑pagina wilt aanpassen.
+
+De[`AddNotesSlide`](https://reference.aspose.com/slides/nl/net/aspose.slides/inotesslidemanager/addnotesslide/)‑methode retourneert de notities‑dia voor de huidige dia en maakt er één aan als deze nog niet bestaat. Het volgende voorbeeld configureert de notitie‑pagina die gekoppeld is aan de eerste presentatiedia:
+
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var notesSlide = presentation.Slides[0].NotesSlideManager.AddNotesSlide();
+var headerFooterManager = notesSlide.HeaderFooterManager;
+
+headerFooterManager.SetHeaderText("Header for the first notes page");
+headerFooterManager.SetHeaderVisibility(true);
+
+headerFooterManager.SetFooterText("Footer for the first notes page");
+headerFooterManager.SetFooterVisibility(true);
+
+headerFooterManager.SetDateTimeText("Date and time text");
+headerFooterManager.SetDateTimeVisibility(true);
+
+headerFooterManager.SetSlideNumberVisibility(true);
+
+presentation.Save("presentation_with_custom_notes_footers.pptx", SaveFormat.Pptx);
+```
+
+Als u eerst instellingen van de notitie‑master doorvoert en daarna een individuele notities‑dia wijzigt, laten de latere per‑dia‑instellingen u die notitie‑pagina onafhankelijk aanpassen.
+
+## **Koppen en voetteksten instellen op het handout‑master**
+
+Handout‑pagina’s gebruiken het handout‑master voor hun kop‑, voettekst‑, datum/tijd‑ en paginanummer‑plaatshouders. In tegenstelling tot notitie‑pagina’s worden handout‑instellingen beheerd via het handout‑master in plaats van via individuele handout‑dia’s.
+
+Gebruik de[`MasterHandoutSlide`](https://reference.aspose.com/slides/nl/net/aspose.slides/imasterhandoutslidemanager/masterhandoutslide/)‑eigenschap om toegang te krijgen tot het handout‑master. Als deze niet aanwezig is, roep[`SetDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/nl/net/aspose.slides/imasterhandoutslidemanager/setdefaultmasterhandoutslide/) aan om het standaard handout‑master aan te maken.
+
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var masterHandoutSlide = presentation.MasterHandoutSlideManager.MasterHandoutSlide;
+
+if (masterHandoutSlide == null)
+{
+    presentation.MasterHandoutSlideManager.SetDefaultMasterHandoutSlide();
+    masterHandoutSlide = presentation.MasterHandoutSlideManager.MasterHandoutSlide;
+}
+
+if (masterHandoutSlide != null)
+{
+    var headerFooterManager = masterHandoutSlide.HeaderFooterManager;
+
+    headerFooterManager.SetHeaderText("Handout header");
+    headerFooterManager.SetHeaderVisibility(true);
+
+    headerFooterManager.SetFooterText("Handout footer");
+    headerFooterManager.SetFooterVisibility(true);
+
+    headerFooterManager.SetDateTimeText("Date and time text");
+    headerFooterManager.SetDateTimeVisibility(true);
+
+    headerFooterManager.SetSlideNumberVisibility(true);
+}
+
+presentation.Save("presentation_with_handout_footers.pptx", SaveFormat.Pptx);
+```
+
+## **Begrijpen van scope en overerving**
+
+Kies de kop‑/voettekst‑manager die overeenkomt met de scope die u wilt wijzigen:
+
+- [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/nl/net/aspose.slides/islideheaderfootermanager/) wijzigt voettekst-, datum/tijd‑ en dia‑nummersetting voor één reguliere dia.
+- [`ILayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/nl/net/aspose.slides/ilayoutslideheaderfootermanager/) beheert een lay‑out‑dia en kan ondersteunde instellingen doorvoeren naar afhankelijke dia’s.
+- [`IMasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/nl/net/aspose.slides/imasterslideheaderfootermanager/) beheert een reguliere slide‑master en kan ondersteunde instellingen doorvoeren naar afhankelijke dia’s.
+- [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/nl/net/aspose.slides/imasternotesslideheaderfootermanager/) beheert de notitie‑master en kan instellingen doorvoeren naar alle afhankelijke notities‑dia’s.
+- [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/nl/net/aspose.slides/inotesslideheaderfootermanager/) wijzigt één notities‑dia en ondersteunt een kop‑plaatshouder naast voettekst, datum/tijd en dia‑nummer.
+- [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/nl/net/aspose.slides/imasterhandoutslideheaderfootermanager/) wijzigt het handout‑master en ondersteunt alle vier de plaatshoudertypes.
+
+Gebruik propagatie vanaf een master of lay‑out wanneer dezelfde instelling door de gehele hiërarchie moet gelden. Gebruik een individuele dia‑ of notities‑dia‑manager wanneer u een lokale instelling voor één pagina nodig hebt.
 
 ## **FAQ**
 
-**Kan ik een “header” toevoegen aan gewone slides?**
+**Kan ik een kop toevoegen aan een reguliere dia?**
 
-In PowerPoint bestaat een “Header” alleen voor notities en handouts; op gewone slides zijn de ondersteunde elementen de footer, datum/tijd en slidennummer. In Aspose.Slides gelden dezelfde beperkingen: header alleen voor Notities/Handout, en op slides — Footer/DateTime/SlideNumber.
+Nee. PowerPoint definieert geen kop‑plaatshouder voor reguliere dia’s. Gebruik op reguliere dia’s de voettekst‑, datum/tijd‑ en dia‑nummervoorzieningen. Kop‑plaatshouders zijn beschikbaar op notitie‑pagina’s en handouts.
 
-**Wat als de lay-out geen footer‑gebied bevat—kan ik de zichtbaarheid “inschakelen”?**
+**Wat als een voettekst‑, datum/tijd‑ of dia‑nummervoorziening niet zichtbaar is?**
 
-Ja. Controleer de zichtbaarheid via de header/footer‑manager en activeer deze indien nodig. Deze API‑indicatoren en methoden zijn ontworpen voor situaties waarin de plaatsaanduiding ontbreekt of verborgen is.
+Gebruik de overeenkomstige kop‑/voettekst‑manager om de zichtbaarheid te controleren en schakel deze in wanneer nodig. Bijvoorbeeld[`IsFooterVisible`](https://reference.aspose.com/slides/nl/net/aspose.slides/baseslideheaderfootermanager/isfootervisible/) geeft aan of een voettekst‑plaatshouder aanwezig is, en[`SetFooterVisibility`](https://reference.aspose.com/slides/nl/net/aspose.slides/baseslideheaderfootermanager/setfootervisibility/) wijzigt de zichtbaarheid.
 
-**Hoe laat ik het slidennummer beginnen bij een andere waarde dan 1?**
+**Hoe begin ik met dia‑nummering vanaf een andere waarde dan 1?**
 
-Stel het [first slide number](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/firstslidenumber/) van de presentatie in; daarna wordt alle nummering opnieuw berekend. U kunt bijvoorbeeld beginnen bij 0 of 10, en het nummer op de titel‑slide verbergen.
+Stel de[`FirstSlideNumber`](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/firstslidenumber/)‑eigenschap van de presentatie in. De dia‑nummervoorzieningen gebruiken dan de bijgewerkte nummeringsreeks.
 
-**Wat gebeurt er met headers/footers bij exporteren naar PDF/afbeeldingen/HTML?**
+**Wat gebeurt er met koppen en voetteksten bij het exporteren naar PDF, afbeeldingen of HTML?**
 
-Ze worden gerenderd als gewone textelementen van de presentatie. Dat wil zeggen, als de elementen zichtbaar zijn op slides/notitiepagina’s, verschijnen ze ook in het geëxporteerde formaat samen met de rest van de inhoud.
+Zichtbare kop‑ en voettekst‑elementen worden samen met de rest van de presentatiewaarde gerenderd in het uitvoerformaat. Hun weergave hangt af van het type pagina dat wordt geëxporteerd en de bijbehorende plaatshouder‑zichtbaarheidsinstellingen.

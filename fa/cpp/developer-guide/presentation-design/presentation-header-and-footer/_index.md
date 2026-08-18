@@ -11,155 +11,260 @@ keywords:
 - متن پاورقی
 - تنظیم سرصفحه
 - تنظیم پاورقی
-- توزیع
-- یادداشت
-- PowerPoint
+- برگه چاپی
+- یادداشت‌ها
+- پاورپوینت
 - OpenDocument
 - ارائه
 - C++
 - Aspose.Slides
-description: "از Aspose.Slides برای C++ برای افزودن و تنظیم سفارشی سرصفحه‌ها و پاورقی‌ها در ارائه‌های PowerPoint و OpenDocument استفاده کنید تا ظاهر حرفه‌ای داشته باشید."
+description: "یاد بگیرید چگونه متغیرهای پاورقی، تاریخ‑زمان، شماره اسلاید و سرصفحه را در اسلایدها، صفحات یادداشت و برگه‌های چاپی با Aspose.Slides برای C++ مدیریت کنید."
 ---
-## **بررسی کلی**
+## **مرور کلی**
 
-Aspose.Slides به شما امکان مدیریت تنظیمات سرصفحه و پاورقی را در ارائه‌های PowerPoint می‌دهد. سرصفحه‌ها و پاورقی‌ها در سطح مستر ارائه مدیریت می‌شوند و API متدهایی برای تنظیم متن پاورقی، تغییر قابلیت نمایش پاورقی و به‌روزرسانی متن سرصفحه در اسلایدهای مستر یادداشت فراهم می‌کند.
+PowerPoint بسته به نوع صفحه از متغیرهای سرصفحه و پاورقی متفاوتی استفاده می‌کند. Aspose.Slides for C++ به شما امکان کنترل متن و نمایش این متغیرها را از طریق رابط‌های مدیر سرصفحه/پاورقی می‌دهد.
 
-شما همچنین می‌توانید سرصفحه‌ها و پاورقی‌ها را برای اسلایدهای توزیع و یادداشت مدیریت کنید. این شامل تغییر قابلیت نمایش و متن جای‌دارهای سرصفحه، پاورقی، شماره اسلاید و تاریخ‑زمان برای مستر یادداشت، تمام اسلایدهای فرزند یادداشت یا یک اسلاید یادداشت خاص می‌شود.
+متغیرهای موجود بسته به محدوده متفاوت هستند:
 
-## **مدیریت متن سرصفحه و پاورقی**
+| دامنه | سرصفحه | پاورقی | تاریخ/زمان | شماره اسلاید/صفحه |
+|---|---|---|---|---|
+| اسلاید عادی | خیر | بلی | بلی | بلی |
+| مستر یادداشت | بلی | بلی | بلی | بلی |
+| اسلاید یادداشت | بلی | بلی | بلی | بلی |
+| مستر خروجی | بلی | بلی | بلی | بلی |
 
-نکات برخی اسلایدهای خاص می‌توانند همانند مثال زیر به‌روزرسانی شوند:
+یک اسلاید ارائه عادی متغیر سرصفحه ندارد. سرصفحه‌ها در صفحات یادداشت و خروجی وجود دارند. برای اسلایدهای عادی از متغیرهای پاورقی، تاریخ/زمان و شماره اسلاید استفاده کنید.
 
-``` cpp
-// تابع برای تنظیم متن سرصفحه/پاورقی
-void UpdateHeaderFooterText(System::SharedPtr<IBaseSlide> master)
-{
-    for (const auto& shape : System::IterateOver(master->get_Shapes()))
-    {
-        if (shape->get_Placeholder() != nullptr)
-        {
-            if (shape->get_Placeholder()->get_Type() == PlaceholderType::Header)
-            {
-                (System::ExplicitCast<IAutoShape>(shape))->get_TextFrame()->set_Text(u"HI there new header");
-            }
-        }
-    }
-}
-```
+محدودهٔ تغییر بسته به مدیر (manager) مورد استفاده متفاوت است. رابط [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/islideheaderfootermanager/) یک اسلاید عادی را کنترل می‌کند. رابط [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/inotesslideheaderfootermanager/) یک اسلاید یادداشت را کنترل می‌کند. مدیران مستر و لایوت می‌توانند تنظیمات را به اسلایدهای وابسته منتقل کنند، در حالی که رابط [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasterhandoutslideheaderfootermanager/) مستر خروجی را کنترل می‌کند.
 
-``` cpp
-// بارگذاری ارائه
-auto pres = System::MakeObject<Presentation>(u"headerTest.pptx");
+## **تنظیم پاورقی، تاریخ/زمان و شماره اسلاید در اسلایدهای عادی**
 
-// تنظیم پاورقی
-pres->get_HeaderFooterManager()->SetAllFootersText(u"My Footer text");
-pres->get_HeaderFooterManager()->SetAllFootersVisibility(true);
+برای اسلایدهای عادی، جریان کاری پایه این است که به مدیر سرصفحه/پاورقی هر اسلاید دسترسی پیدا کنید، متن پاورقی و تاریخ/زمان را تنظیم کنید، متغیرهای مورد نیاز را فعال کنید و ارائه را ذخیره کنید. شماره اسلایدها توسط ارائه تولید می‌شوند، بنابراین فقط باید نمایش آن‌ها را کنترل کنید.
 
-// دسترسی و به‌روزرسانی سرصفحه
-auto masterNotesSlide = pres->get_MasterNotesSlideManager()->get_MasterNotesSlide();
-if (nullptr != masterNotesSlide)
-{
-	UpdateHeaderFooterText(masterNotesSlide);
-}
+از [`SetFooterText`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseslideheaderfootermanager/setfootertext/) و [`SetDateTimeText`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseslideheaderfootermanager/setdatetimetext/) برای تنظیم متن استفاده کنید و از [`SetFooterVisibility`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseslideheaderfootermanager/setfootervisibility/)، [`SetDateTimeVisibility`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseslideheaderfootermanager/setdatetimevisibility/) و [`SetSlideNumberVisibility`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseslideheaderfootermanager/setslidenumbervisibility/) برای نمایش متغیرهای مربوطه بهره ببرید.
 
-// ذخیره ارائه
-pres->Save(u"HeaderFooterJava.pptx", SaveFormat::Pptx);
-```
+مثال کامل زیر، همان پاورقی، متن تاریخ/زمان و نمایش شماره اسلاید را برای تمام اسلایدهای عادی اعمال می‌کند:
 
-## **مدیریت سرصفحه‌ها و پاورقی‌ها در اسلایدهای توزیع و یادداشت**
-Aspose.Slides for C++ از سرصفحه و پاورقی در اسلایدهای توزیع و یادداشت پشتیبانی می‌کند. لطفاً مراحل زیر را دنبال کنید:
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/enumerator_adapter.h>
 
-- یک [Presentation ](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.presentation) حاوی ویدیو را بارگذاری کنید.
-- تنظیمات سرصفحه و پاورقی را برای مستر یادداشت و تمام اسلایدهای یادداشت تغییر دهید.
-- قابلیت نمایش محل‌نگهدارنده‌های پاورقی را در اسلاید مستر یادداشت و تمام فرزندان آن فعال کنید.
-- قابلیت نمایش محل‌نگهدارنده‌های تاریخ و زمان را در اسلاید مستر یادداشت و تمام فرزندان آن فعال کنید.
-- تنظیمات سرصفحه و پاورقی را فقط برای اولین اسلاید یادداشت تغییر دهید.
-- قابلیت نمایش محل‌نگهدارندهٔ سرصفحه در اسلاید یادداشت را فعال کنید.
-- متن را برای محل‌نگهدارندهٔ سرصفحه اسلاید یادداشت تنظیم کنید.
-- متن را برای محل‌نگهدارندهٔ تاریخ‑زمان اسلاید یادداشت تنظیم کنید.
-- فایل ارائهٔ اصلاح‌شده را بنویسید.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-کد نمونه در مثال زیر ارائه شده است.
-
-``` cpp
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
-// تغییر تنظیمات سرصفحه و پاورقی برای مستر یادداشت و تمام اسلایدهای یادداشت
+
+for (const auto& slide : System::IterateOver(presentation->get_Slides()))
+{
+    auto headerFooterManager = slide->get_HeaderFooterManager();
+
+    headerFooterManager->SetFooterText(u"Company Confidential");
+    headerFooterManager->SetFooterVisibility(true);
+
+    headerFooterManager->SetDateTimeText(u"Date and time text");
+    headerFooterManager->SetDateTimeVisibility(true);
+
+    headerFooterManager->SetSlideNumberVisibility(true);
+}
+
+presentation->Save(u"presentation_with_slide_footers.pptx", SaveFormat::Pptx);
+```
+
+اگر فقط می‌خواهید یک اسلاید را به‌روزرسانی کنید، به‌جای پیمایش تمام مجموعه اسلایدها، مستقیماً از طریق [`Presentation::get_Slide`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/get_slide/) به آن اسلاید دسترسی پیدا کنید.
+
+## **تنظیم سرصفحه و پاورقی در مستر یادداشت**
+
+مستر یادداشت قالب‌بندی مشترک و رفتار متغیرهای صفحات یادداشت را تعریف می‌کند. هنگامی که می‌خواهید فقط مستر یادداشت را تغییر دهید، از رابط [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasternotesslideheaderfootermanager/) استفاده کنید.
+
+مثال زیر سرصفحه، پاورقی و متن تاریخ/زمان را در مستر یادداشت تنظیم می‌کند و تمام متغیرهای پشتیبانی شده را در آن مستر قابل مشاهده می‌سازد:
+
+```cpp
+#include <DOM/IMasterNotesSlide.h>
+#include <DOM/IMasterNotesSlideHeaderFooterManager.h>
+#include <DOM/IMasterNotesSlideManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 auto masterNotesSlide = presentation->get_MasterNotesSlideManager()->get_MasterNotesSlide();
+
 if (masterNotesSlide != nullptr)
 {
-	auto headerFooterManager = masterNotesSlide->get_HeaderFooterManager();
+    auto headerFooterManager = masterNotesSlide->get_HeaderFooterManager();
 
-	// قابل مشاهده کردن اسلاید یادداشت مستر و تمام جای‌دارهای پاورقی فرزند
-	headerFooterManager->SetHeaderAndChildHeadersVisibility(true);
-	// قابل مشاهده کردن اسلاید یادداشت مستر و تمام جای‌دارهای سرصفحه فرزند
-	headerFooterManager->SetFooterAndChildFootersVisibility(true);
-	// قابل مشاهده کردن اسلاید یادداشت مستر و تمام جای‌دارهای شماره اسلاید فرزند
-	headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
-	// قابل مشاهده کردن اسلاید یادداشت مستر و تمام جای‌دارهای تاریخ و زمان فرزند
-	headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
+    headerFooterManager->SetHeaderText(u"Notes header");
+    headerFooterManager->SetHeaderVisibility(true);
 
-	// تنظیم متن برای اسلاید یادداشت مستر و تمام جای‌دارهای سرصفحه فرزند
-	headerFooterManager->SetHeaderAndChildHeadersText(u"Header text");
-	// تنظیم متن برای اسلاید یادداشت مستر و تمام جای‌دارهای پاورقی فرزند
-	headerFooterManager->SetFooterAndChildFootersText(u"Footer text");
-	// تنظیم متن برای اسلاید یادداشت مستر و تمام جای‌دارهای تاریخ و زمان فرزند
-	headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
+    headerFooterManager->SetFooterText(u"Notes footer");
+    headerFooterManager->SetFooterVisibility(true);
+
+    headerFooterManager->SetDateTimeText(u"Date and time text");
+    headerFooterManager->SetDateTimeVisibility(true);
+
+    headerFooterManager->SetSlideNumberVisibility(true);
 }
 
-// تغییر تنظیمات سرصفحه و پاورقی فقط برای اولین اسلاید یادداشت
-auto notesSlide = presentation->get_Slides()->idx_get(0)->get_NotesSlideManager()->get_NotesSlide();
-if (notesSlide != nullptr)
-{
-	auto headerFooterManager = notesSlide->get_HeaderFooterManager();
-	if (!headerFooterManager->get_IsHeaderVisible())
-	{
-		// قابل مشاهده کردن جای‌دار سرصفحه این اسلاید یادداشت
-		headerFooterManager->SetHeaderVisibility(true);
-	}
-
-	if (!headerFooterManager->get_IsFooterVisible())
-	{
-		// قابل مشاهده کردن جای‌دار پاورقی این اسلاید یادداشت
-		headerFooterManager->SetFooterVisibility(true);
-	}
-
-	if (!headerFooterManager->get_IsSlideNumberVisible())
-	{
-		// قابل مشاهده کردن جای‌دار شماره اسلاید این اسلاید یادداشت
-		headerFooterManager->SetSlideNumberVisibility(true);
-	}
-	
-	if (!headerFooterManager->get_IsDateTimeVisible())
-	{
-		// قابل مشاهده کردن جای‌دار تاریخ‑زمان این اسلاید یادداشت
-		headerFooterManager->SetDateTimeVisibility(true);
-	}
-	
-	// تنظیم متن برای جای‌دار سرصفحه اسلاید یادداشت
-	headerFooterManager->SetHeaderText(u"New header text");
-	// تنظیم متن برای جای‌دار پاورقی اسلاید یادداشت
-	headerFooterManager->SetFooterText(u"New footer text");
-	// تنظیم متن برای جای‌دار تاریخ‑زمان اسلاید یادداشت
-	headerFooterManager->SetDateTimeText(u"New date and time text");
-}
-
-presentation->Save(u"testresult.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation_with_notes_master_footers.pptx", SaveFormat::Pptx);
 ```
 
-## **پرسش‌های متداول**
+متد [`IMasterNotesSlideManager::get_MasterNotesSlide`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasternotesslidemanager/get_masternotesslide/) زمانی که ارائه مستر یادداشت نداشته باشد، `nullptr` برمی‌گرداند.
 
-**آیا می‌توانم "سرصفحه" را به اسلایدهای عادی اضافه کنم؟**
+## **اعمال تنظیمات مستر یادداشت به اسلایدهای فرزند یادداشت**
 
-در PowerPoint، "سرصفحه" تنها برای یادداشت‌ها و توزیع‌ها وجود دارد؛ در اسلایدهای عادی، عناصر پشتیبانی‌شده پاورقی، تاریخ/زمان و شماره اسلاید هستند. در Aspose.Slides این محدودیت‌ها همان‌گونه است: سرصفحه فقط برای یادداشت/توزیع و در اسلایدها—پاورقی/DateTime/SlideNumber.
+یک مستر یادداشت می‌تواند تنظیمات سرصفحه و پاورقی را به خود و تمام اسلایدهای یادداشت وابسته اعمال کند. هنگام نیاز به اعمال یکسان تنظیمات در سراسر سلسله‌مراتب یادداشت‌ها، از متدهای انتقال اختصاصی روی [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasternotesslideheaderfootermanager/) استفاده کنید.
 
-**اگر طرح‌بندی ناحیهٔ پاورقی نداشته باشد—آیا می‌توانم قابلیت نمایش آن را "فعال" کنم؟**
+به عنوان مثال، متدهای [`SetHeaderAndChildHeadersText`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasternotesslideheaderfootermanager/setheaderandchildheaderstext/) و [`SetHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasternotesslideheaderfootermanager/setheaderandchildheadersvisibility/) سرصفحهٔ مستر یادداشت و تمام سرصفحه‌های فرزند را به‌روزرسانی می‌کنند. متدهای معادل برای پاورقی، تاریخ/زمان و شماره اسلاید نیز موجود است.
 
-بله. از طریق مدیر سرصفحه/پاورقی قابلیت نمایش را بررسی کنید و در صورت نیاز آن را فعال کنید. این نشانگرها و متدهای API برای موقعیت‌هایی که جای‌دار موجود نیست یا مخفی است طراحی شده‌اند.
+```cpp
+#include <DOM/IMasterNotesSlide.h>
+#include <DOM/IMasterNotesSlideHeaderFooterManager.h>
+#include <DOM/IMasterNotesSlideManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 
-**چگونه می‌توانم شماره اسلاید را از مقداری غیر از 1 شروع کنم؟**
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-عدد اولین اسلاید ارائه را با استفاده از متد [first slide number](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/set_firstslidenumber/) تنظیم کنید؛ پس از آن تمام شماره‌گذاری‌ها بازمحاسبه می‌شوند. به‌عنوان مثال می‌توانید از 0 یا 10 شروع کنید و شماره را در اسلاید عنوان مخفی کنید.
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto masterNotesSlide = presentation->get_MasterNotesSlideManager()->get_MasterNotesSlide();
 
-**در هنگام خروجی گرفتن به PDF/تصاویر/HTML چه اتفاقی برای سرصفحه‌ها/پاورقی‌ها می‌افتد؟**
+if (masterNotesSlide != nullptr)
+{
+    auto headerFooterManager = masterNotesSlide->get_HeaderFooterManager();
 
-آنها به عنوان عناصر متنی معمولی در ارائه رندر می‌شوند. به این معنی که اگر این عناصر در اسلایدها/صفحات یادداشت قابل مشاهده باشند، در قالب خروجی نیز همراه با بقیه محتوا ظاهر می‌شوند.
+    headerFooterManager->SetHeaderAndChildHeadersText(u"Notes header");
+    headerFooterManager->SetHeaderAndChildHeadersVisibility(true);
+
+    headerFooterManager->SetFooterAndChildFootersText(u"Notes footer");
+    headerFooterManager->SetFooterAndChildFootersVisibility(true);
+
+    headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
+    headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
+
+    headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
+}
+
+presentation->Save(u"presentation_with_child_notes_footers.pptx", SaveFormat::Pptx);
+```
+
+متدهای انتقال استفاده‌شده در بالا عبارتند از [`SetFooterAndChildFootersText`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasternotesslideheaderfootermanager/setfooterandchildfooterstext/)، [`SetFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasternotesslideheaderfootermanager/setfooterandchildfootersvisibility/)، [`SetDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasternotesslideheaderfootermanager/setdatetimeandchilddatetimestext/)، [`SetDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasternotesslideheaderfootermanager/setdatetimeandchilddatetimesvisibility/) و [`SetSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasternotesslideheaderfootermanager/setslidenumberandchildslidenumbersvisibility/).
+
+## **تنظیم سرصفحه و پاورقی در یک اسلاید یادداشت منفرد**
+
+یک اسلاید یادداشت به یک اسلاید عادی خاص تعلق دارد. زمانی که می‌خواهید فقط همان صفحهٔ یادداشت را سفارشی کنید، از رابط [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/inotesslideheaderfootermanager/) استفاده کنید.
+
+متد [`INotesSlideManager::AddNotesSlide`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/inotesslidemanager/addnotesslide/) اسلاید یادداشت مربوط به اسلاید فعلی را برمی‌گرداند و در صورت عدم وجود، یک اسلاید جدید ایجاد می‌کند. مثال زیر صفحهٔ یادداشت مرتبط با اولین اسلاید ارائه را پیکربندی می‌کند:
+
+```cpp
+#include <DOM/INotesSlide.h>
+#include <DOM/INotesSlideHeaderFooterManager.h>
+#include <DOM/INotesSlideManager.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto slide = presentation->get_Slide(0);
+auto notesSlide = slide->get_NotesSlideManager()->AddNotesSlide();
+auto headerFooterManager = notesSlide->get_HeaderFooterManager();
+
+headerFooterManager->SetHeaderText(u"Header for the first notes page");
+headerFooterManager->SetHeaderVisibility(true);
+
+headerFooterManager->SetFooterText(u"Footer for the first notes page");
+headerFooterManager->SetFooterVisibility(true);
+
+headerFooterManager->SetDateTimeText(u"Date and time text");
+headerFooterManager->SetDateTimeVisibility(true);
+
+headerFooterManager->SetSlideNumberVisibility(true);
+
+presentation->Save(u"presentation_with_custom_notes_footers.pptx", SaveFormat::Pptx);
+```
+
+اگر ابتدا تنظیمات را از مستر یادداشت انتقال دهید و سپس یک اسلاید یادداشت منفرد را تغییر دهید، تنظیمات بعدی به‌صورت مستقل بر آن صفحهٔ یادداشت اعمال می‌شود.
+
+## **تنظیم سرصفحه و پاورقی در مستر خروجی**
+
+صفحات خروجی از مستر خروجی برای متغیرهای سرصفحه، پاورقی، تاریخ/زمان و شماره صفحه استفاده می‌کنند. بر خلاف صفحات یادداشت، تنظیمات خروجی از طریق مستر خروجی مدیریت می‌شود نه از طریق اسلایدهای خروجی منفرد.
+
+از [`IMasterHandoutSlideManager::get_MasterHandoutSlide`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasterhandoutslidemanager/get_masterhandoutslide/) برای دسترسی به مستر خروجی استفاده کنید. اگر موجود نباشد، با فراخوانی [`IMasterHandoutSlideManager::SetDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasterhandoutslidemanager/setdefaultmasterhandoutslide/) مستر خروجی پیش‌فرض را ایجاد کنید.
+
+```cpp
+#include <DOM/IMasterHandoutSlide.h>
+#include <DOM/IMasterHandoutSlideHeaderFooterManager.h>
+#include <DOM/IMasterHandoutSlideManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto masterHandoutSlideManager = presentation->get_MasterHandoutSlideManager();
+auto masterHandoutSlide = masterHandoutSlideManager->get_MasterHandoutSlide();
+
+if (masterHandoutSlide == nullptr)
+{
+    masterHandoutSlide = masterHandoutSlideManager->SetDefaultMasterHandoutSlide();
+}
+
+if (masterHandoutSlide != nullptr)
+{
+    auto headerFooterManager = masterHandoutSlide->get_HeaderFooterManager();
+
+    headerFooterManager->SetHeaderText(u"Handout header");
+    headerFooterManager->SetHeaderVisibility(true);
+
+    headerFooterManager->SetFooterText(u"Handout footer");
+    headerFooterManager->SetFooterVisibility(true);
+
+    headerFooterManager->SetDateTimeText(u"Date and time text");
+    headerFooterManager->SetDateTimeVisibility(true);
+
+    headerFooterManager->SetSlideNumberVisibility(true);
+}
+
+presentation->Save(u"presentation_with_handout_footers.pptx", SaveFormat::Pptx);
+```
+
+## **درک محدوده و وراثت**
+
+مدیری را انتخاب کنید که با محدودهٔ مورد نظر شما مطابقت داشته باشد:
+
+- [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/islideheaderfootermanager/) تنظیمات پاورقی، تاریخ/زمان و شماره اسلاید را برای یک اسلاید عادی تغییر می‌دهد.
+- [`ILayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutslideheaderfootermanager/) یک اسلاید لایوت را کنترل می‌کند و می‌تواند تنظیمات پشتیبانی‌شده را به اسلایدهای وابسته منتقل کند.
+- [`IMasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasterslideheaderfootermanager/) یک مستر اسلاید عادی را کنترل می‌کند و می‌تواند تنظیمات پشتیبانی‌شده را به اسلایدهای وابسته منتقل کند.
+- [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasternotesslideheaderfootermanager/) مستر یادداشت را کنترل می‌کند و می‌تواند تنظیمات را به تمام اسلایدهای یادداشت وابسته منتقل کند.
+- [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/inotesslideheaderfootermanager/) یک اسلاید یادداشت را تغییر می‌دهد و علاوه بر پاورقی، تاریخ/زمان و شماره اسلاید، یک متغیر سرصفحه را نیز پشتیبانی می‌کند.
+- [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasterhandoutslideheaderfootermanager/) مستر خروجی را تغییر می‌دهد و از چهار نوع متغیر پشتیبانی می‌کند.
+
+از انتقال از یک مستر یا لایوت استفاده کنید وقتی تنظیم یکسان باید در تمام سطوح سلسله‌مراتب آن اعمال شود. برای تنظیم محلی یک صفحه، از مدیر اسلاید یا اسلاید‑یادداشت منفرد بهره ببرید.
+
+## **سؤالات متداول**
+
+**آیا می‌توانم سرصفحه‌ای به اسلاید عادی اضافه کنم؟**
+
+خیر. PowerPoint برای اسلایدهای عادی متغیر سرصفحه‌ای تعریف نمی‌کند. در اسلایدهای عادی از متغیرهای پاورقی، تاریخ/زمان و شماره اسلاید استفاده کنید. سرصفحه‌ها فقط در صفحات یادداشت و خروجی موجود هستند.
+
+**اگر متغیر پاورقی، تاریخ/زمان یا شماره اسلاید دیده نشود چه کار کنم؟**
+
+از مدیر سرصفحه/پاورقی مربوطه برای بررسی وضعیت نمایش آن استفاده کنید و در صورت نیاز آن را فعال کنید. به عنوان مثال، متد [`get_IsFooterVisible`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseslideheaderfootermanager/get_isfootervisible/) نشان می‌دهد آیا متغیر پاورقی موجود است و متد [`SetFooterVisibility`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseslideheaderfootermanager/setfootervisibility/) وضعیت نمایش آن را تغییر می‌دهد.
+
+**چگونه می‌توانم شماره‌گذاری اسلایدها را از عددی غیر از ۱ شروع کنم؟**
+
+از متد [`Presentation::set_FirstSlideNumber`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/set_firstslidenumber/) برای تعیین شمارهٔ اولین اسلاید استفاده کنید. سپس متغیرهای شماره اسلاید از دنبالهٔ به‌روزرسانی شده استفاده می‌کنند.
+
+**در هنگام خروجی گرفتن به PDF، تصویر یا HTML، سرصفحه و پاورقی چه اتفاقی می‌افتند؟**
+
+عناصر قابل مشاهدهٔ سرصفحه و پاورقی همراه با بقیهٔ محتوای ارائه در فرمت خروجی رندر می‌شوند. نمایش آن‌ها بستگی به نوع صفحه‌ای که خروجی گرفته می‌شود و تنظیمات مربوط به متغیرهای قابل مشاهده دارد.

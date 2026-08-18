@@ -1,6 +1,6 @@
 ---
 title: Διαχείριση Κεφαλίδων και Υποσέλιδων Παρουσίασης σε JavaScript
-linktitle: Κεφαλίδα & Υποσέλιδο
+linktitle: Κεφαλίδα και Υποσέλιδο
 type: docs
 weight: 140
 url: /el/nodejs-java/presentation-header-and-footer/
@@ -11,7 +11,7 @@ keywords:
 - κείμενο υποσέλιδου
 - ορισμός κεφαλίδας
 - ορισμός υποσέλιδου
-- φυλλάδι
+- φυλλάδιο
 - σημειώσεις
 - PowerPoint
 - OpenDocument
@@ -19,124 +19,229 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Χρησιμοποιήστε τη JavaScript και το Aspose.Slides για Node.js για να προσθέσετε και να προσαρμόσετε κεφαλίδες και υποσέλιδα σε παρουσιάσεις PowerPoint και OpenDocument, προσφέροντας επαγγελματική εμφάνιση."
+description: "Μάθετε πώς να διαχειρίζεστε τους δεσμευτικούς χαρακτήρες υποσέλιδου, ημερομηνίας-ώρας, αριθμού διαφάνειας και κεφαλίδας σε διαφάνειες, σελίδες σημειώσεων και φυλλάδια με το Aspose.Slides για Node.js μέσω Java."
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides σας επιτρέπει να διαχειρίζεστε τις ρυθμίσεις κεφαλίδας και υποσέλιδου σε παρουσιάσεις PowerPoint. Οι κεφαλίδες και τα υποσέλιδα διαχειρίζονται στο επίπεδο του κύριου προτύπου παρουσίασης, και το API παρέχει μεθόδους για ορισμό κειμένου υποσέλιδου, αλλαγή της ορατότητας του υποσέλιδου και ενημέρωση κειμένου κεφαλίδας σε κύριες διαφάνειες σημειώσεων.
+Το PowerPoint χρησιμοποιεί διαφορετικούς δεσμευτικούς χαρακτήρες κεφαλίδας και υποσέλιδου ανάλογα με τον τύπο σελίδας. Το Aspose.Slides για Node.js μέσω Java σας επιτρέπει να ελέγχετε το κείμενο και την ορατότητα αυτών των δεσμευτικών χαρακτήρων μέσω των κλάσεων διαχειριστή κεφαλίδας/υποσέλιδου.
 
-Μπορείτε επίσης να διαχειριστείτε τις κεφαλίδες και τα υποσέλιδα για τις διαφάνειες φυλλάδων και σημειώσεων. Αυτό περιλαμβάνει την αλλαγή της ορατότητας και του κειμένου των θέσεων κράτησης κεφαλίδας, υποσέλιδου, αριθμού διαφάνειας και ημερομηνίας/ώρας για το κύριο σημειώσεων, όλες τις θυγατρικές διαφάνειες σημειώσεων ή μια μεμονωμένη διαφάνεια σημειώσεων.
+Οι διαθέσιμοι δεσμευτικοί χαρακτήρες εξαρτώνται από το εύρος:
 
-## **Διαχείριση Κεφαλίδας και Υποσέλιδου στην Παρουσίαση**
+| Εύρος | Κεφαλίδα | Υποσέλιδο | Ημερομηνία/ώρα | Αριθμός διαφάνειας/σελίδας |
+|---|---|---|---|---|
+| Κανονική διαφάνεια | Όχι | Ναι | Ναι | Ναι |
+| Κύριος σημειώσεων | Ναι | Ναι | Ναι | Ναι |
+| Διαφάνεια σημειώσεων | Ναι | Ναι | Ναι | Ναι |
+| Κύριος φυλλαδίου | Ναι | Ναι | Ναι | Ναι |
 
-Οι σημειώσεις κάποιων συγκεκριμένων διαφανειών ενδέχεται να αφαιρεθούν, όπως φαίνεται στο παρακάτω παράδειγμα:
+Μια κανονική διαφάνεια παρουσίασης δεν διαθέτει δεσμευτικό χαρακτήρα κεφαλίδας. Οι κεφαλίδες είναι διαθέσιμες σε σελίδες σημειώσεων και φυλλάδια. Για κανονικές διαφάνειες, χρησιμοποιήστε αντίθετα τους δεσμευτικούς χαρακτήρες υποσέλιδου, ημερομηνίας/ώρας και αριθμού διαφάνειας.
+
+Το εύρος μιας αλλαγής εξαρτάται από τον διαχειριστή που χρησιμοποιείτε. Η κλάση [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/slideheaderfootermanager/) ελέγχει μία κανονική διαφάνεια. Η κλάση [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/notesslideheaderfootermanager/) ελέγχει μία διαφάνεια σημειώσεων. Οι διαχειριστές master και layout μπορούν επίσης να διαδώσουν τις ρυθμίσεις σε εξαρτώμενες διαφάνειες, ενώ η κλάση [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/masterhandoutslideheaderfootermanager/) ελέγχει το master του φυλλαδίου.
+
+## **Ορισμός Υποσέλιδου, Ημερομηνίας/Ώρας και Αριθμών Διαφάνειας σε Κανονικές Διαφάνειες**
+
+Για κανονικές διαφάνειες, η βασική ροή εργασίας είναι να προσπελάσετε τον διαχειριστή κεφαλίδας/υποσέλιδου κάθε διαφάνειας, να ορίσετε το κείμενο του υποσέλιδου και της ημερομηνίας/ώρας, να ενεργοποιήσετε τους απαιτούμενους δεσμευτικούς χαρακτήρες και να αποθηκεύσετε την παρουσίαση. Οι αριθμοί διαφάνειας παράγονται από την παρουσίαση, οπότε χρειάζεται μόνο να ελέγξετε την ορατότητά τους.
+
+Χρησιμοποιήστε το [`setFooterText`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterText) και το [`setDateTimeText`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setDateTimeText) για να ορίσετε το κείμενο, και χρησιμοποιήστε τα [`setFooterVisibility`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterVisibility), [`setDateTimeVisibility`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setDateTimeVisibility) και [`setSlideNumberVisibility`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setSlideNumberVisibility) για να εμφανίσετε τους αντίστοιχους δεσμευτικούς χαρακτήρες.
+
+Το παρακάτω πλήρες παράδειγμα εφαρμόζει το ίδιο υποσέλιδο, κείμενο ημερομηνίας/ώρας και ορατότητα αριθμού διαφάνειας σε όλες τις κανονικές διαφάνειες:
 
 ```javascript
-// Φόρτωση Παρουσίασης
-var pres = new aspose.slides.Presentation("headerTest.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
 try {
-    // Ορισμός Υποσέλιδου
-    pres.getHeaderFooterManager().setAllFootersText("My Footer text");
-    pres.getHeaderFooterManager().setAllFootersVisibility(true);
-    // Πρόσβαση και Ενημέρωση Κεφαλίδας
-    var masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (null != masterNotesSlide) {
-        updateHeaderFooterText(masterNotesSlide);
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        const headerFooterManager = slide.getHeaderFooterManager();
+
+        headerFooterManager.setFooterText("Company Confidential");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
-    // Αποθήκευση παρουσίασης
-    pres.save("HeaderFooterJava.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("presentation_with_slide_footers.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-```javascript
-function updateHeaderFooterText(master) {
-    let shapes = master.getShapes();
-    for (let i = 0; i < shapes.size(); i++) {
-        let shape = shapes.get_Item(i); 
-        if (shape.getPlaceholder() !== null) {
-            if (shape.getPlaceholder().getType() === aspose.PlaceholderType.Header) {
-                shape.getTextFrame().setText("HI there new header");
-            }
-        }
-    }
+    presentation.dispose();
 }
 ```
 
-## **Διαχείριση Κεφαλίδας και Υποσέλιδου στις Φυλλάδια και Διαφάνειες Σημειώσεων**
-Aspose.Slides for Node.js via Java υποστηρίζει Header και Footer σε φυλλάδια και διαφάνειες σημειώσεων. Ακολουθήστε τα παρακάτω βήματα:
+Εάν χρειάζεται να ενημερώσετε μόνο μία διαφάνεια, προσπελάστε τη διαφάνεια άμεσα μέσω της μεθόδου [`getSlides`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/getslides/) αντί να διατρέξετε ολόκληρη τη συλλογή.
 
-- Φορτώστε μια [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation) που περιέχει βίντεο.
-- Αλλάξτε τις ρυθμίσεις Header και Footer για το master notes και όλες τις διαφάνειες σημειώσεων.
-- Ορίστε το master notes slide και όλες τις θυγατρικές θέσεις κράτησης Footer ορατές.
-- Ορίστε το master notes slide και όλες τις θυγατρικές θέσεις κράτησης Date και time ορατές.
-- Αλλάξτε τις ρυθμίσεις Header και Footer μόνο για την πρώτη διαφάνεια σημειώσεων.
-- Ορίστε τη θέση κράτησης Header της διαφάνειας σημειώσεων ορατή.
-- Ορίστε κείμενο στη θέση κράτησης Header της διαφάνειας σημειώσεων.
-- Ορίστε κείμενο στη θέση κράτησης Date-time της διαφάνειας σημειώσεων.
-- Γράψτε το τροποποιημένο αρχείο παρουσίασης.
+## **Ορισμός Κεφαλίδων και Υποσέλιδων στο Master Σημειώσεων**
 
-Το απόσπασμα κώδικα παρέχεται στο παρακάτω Παράδειγμα.
+Το master σημειώσεων ορίζει κοινή μορφοποίηση και συμπεριφορά δεσμευτικών χαρακτήρων για τις σελίδες σημειώσεων. Χρησιμοποιήστε την κλάση [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) όταν θέλετε να αλλάξετε μόνο το ίδιο το master σημειώσεων.
+
+Το παρακάτω παράδειγμα ορίζει την κεφαλίδα, το υποσέλιδο και το κείμενο ημερομηνίας/ώρας στο master σημειώσεων και κάνει όλους τους υποστηριζόμενους δεσμευτικούς χαρακτήρες ορατούς σε αυτό το master:
 
 ```javascript
-var pres = new aspose.slides.Presentation("presentation.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
 try {
-    // Αλλαγή ρυθμίσεων κεφαλίδας και υποσέλιδου για το κύριο σημειώσεων και όλες τις διαφάνειες σημειώσεων
-    var masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (masterNotesSlide != null) {
-        var headerFooterManager = masterNotesSlide.getHeaderFooterManager();
-        headerFooterManager.setHeaderAndChildHeadersVisibility(true);// κάντε ορατή τη διαφάνεια κύριου σημειώσεων και όλες τις θυγατρικές θέσεις κράτησης Υποσέλιδου
-        headerFooterManager.setFooterAndChildFootersVisibility(true);// κάντε ορατή τη διαφάνεια κύριου σημειώσεων και όλες τις θυγατρικές θέσεις κράτησης Κεφαλίδας
-        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);// κάντε ορατή τη διαφάνεια κύριου σημειώσεων και όλες τις θυγατρικές θέσεις κράτησης Αριθμού διαφάνειας
-        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);// κάντε ορατή τη διαφάνεια κύριου σημειώσεων και όλες τις θυγατρικές θέσεις κράτησης Ημερομηνίας και ώρας
-        headerFooterManager.setHeaderAndChildHeadersText("Header text");// ορίστε κείμενο στη διαφάνεια κύριου σημειώσεων και όλες τις θυγατρικές θέσεις κράτησης Κεφαλίδας
-        headerFooterManager.setFooterAndChildFootersText("Footer text");// ορίστε κείμενο στη διαφάνεια κύριου σημειώνων και όλες τις θυγατρικές θέσεις κράτησης Υποσέλιδου
-        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");// ορίστε κείμενο στη διαφάνεια κύριου σημειώνων και όλες τις θυγατρικές θέσεις κράτησης Ημερομηνίας και ώρας
+    const masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide !== null) {
+        const headerFooterManager = masterNotesSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Notes header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Notes footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
-    // Αλλαγή ρυθμίσεων κεφαλίδας και υποσέλιδου μόνο για την πρώτη διαφάνεια σημειώσεων
-    var notesSlide = pres.getSlides().get_Item(0).getNotesSlideManager().getNotesSlide();
-    if (notesSlide != null) {
-        var headerFooterManager = notesSlide.getHeaderFooterManager();
-        if (!headerFooterManager.isHeaderVisible()) {
-            headerFooterManager.setHeaderVisibility(true);
-        }// κάντε αυτή τη θέση κράτησης Κεφαλίδας της διαφάνειας σημειώσεων ορατή
-        if (!headerFooterManager.isFooterVisible()) {
-            headerFooterManager.setFooterVisibility(true);
-        }// κάντε αυτή τη θέση κράτησης Υποσέλιδου της διαφάνειας σημειώσεων ορατή
-        if (!headerFooterManager.isSlideNumberVisible()) {
-            headerFooterManager.setSlideNumberVisibility(true);
-        }// κάντε αυτή τη θέση κράτησης Αριθμού διαφάνειας της διαφάνειας σημειώσεων ορατή
-        if (!headerFooterManager.isDateTimeVisible()) {
-            headerFooterManager.setDateTimeVisibility(true);
-        }// κάντε αυτή τη θέση κράτησης Ημερομηνίας-ώρας της διαφάνειας σημειώσεων ορατή
-        headerFooterManager.setHeaderText("New header text");// ορίστε κείμενο στη θέση κράτησης Κεφαλίδας της διαφάνειας σημειώσεων
-        headerFooterManager.setFooterText("New footer text");// ορίστε κείμενο στη θέση κράτησης Υποσέλιδου της διαφάνειας σημειώσεων
-        headerFooterManager.setDateTimeText("New date and time text");// ορίστε κείμενο στη θέση κράτησης Ημερομηνίας-ώρας της διαφάνειας σημειώσεων
-    }
-    pres.save("testresult.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("presentation_with_notes_master_footers.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+Η μέθοδος [`getMasterNotesSlide`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/masternotesslidemanager/#getMasterNotesSlide) επιστρέφει `null` όταν η παρουσίαση δεν περιέχει master σημειώσεων.
+
+## **Εφαρμογή Ρυθμίσεων Master Σημειώσεων σε Παράγωγες Διαφάνειες Σημειώσεων**
+
+Ένα master σημειώσεων μπορεί να εφαρμόσει τις ρυθμίσεις κεφαλίδας και υποσέλιδου στον εαυτό του και σε όλες τις εξαρτώμενες διαφάνειες σημειώσεων. Χρησιμοποιήστε τις ειδικές μεθόδους διάδοσης στην κλάση [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) όταν οι ίδιες ρυθμίσεις πρέπει να εφαρμοστούν σε όλη τη ιεραρχία σημειώσεων.
+
+Για παράδειγμα, τα [`setHeaderAndChildHeadersText`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setHeaderAndChildHeadersText) και [`setHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setHeaderAndChildHeadersVisibility) ενημερώνουν την κεφαλίδα του master σημειώσεων και όλες τις θυγατρικές κεφαλίδες. Ισότιμες μέθοδοι διατίθενται για τα υποσέλιδα, την ημερομηνία/ώρα και τους αριθμούς διαφάνειας.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    const masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide !== null) {
+        const headerFooterManager = masterNotesSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderAndChildHeadersText("Notes header");
+        headerFooterManager.setHeaderAndChildHeadersVisibility(true);
+
+        headerFooterManager.setFooterAndChildFootersText("Notes footer");
+        headerFooterManager.setFooterAndChildFootersVisibility(true);
+
+        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
+        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
+
+        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
+    }
+
+    presentation.save("presentation_with_child_notes_footers.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Οι μέθοδοι διάδοσης που χρησιμοποιήθηκαν παραπάνω είναι τα [`setFooterAndChildFootersText`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setFooterAndChildFootersText), [`setFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setFooterAndChildFootersVisibility), [`setDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesText), [`setDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesVisibility) και [`setSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setSlideNumberAndChildSlideNumbersVisibility).
+
+## **Ορισμός Κεφαλίδων και Υποσέλιδων σε Ατομική Διαφάνεια Σημειώσεων**
+
+Μια διαφάνεια σημειώσεων ανήκει σε μια συγκεκριμένη κανονική διαφάνεια. Χρησιμοποιήστε την κλάση [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/notesslideheaderfootermanager/) όταν θέλετε να προσαρμόσετε μόνο αυτή τη σελίδα σημειώσεων.
+
+Η μέθοδος [`addNotesSlide`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/notesslidemanager/#addNotesSlide) επιστρέφει τη διαφάνεια σημειώσεων για τη τρέχουσα διαφάνεια και δημιουργεί μία αν δεν υπάρχει ήδη. Το παρακάτω παράδειγμα ρυθμίζει τη σελίδα σημειώσεων που συνδέεται με την πρώτη διαφάνεια της παρουσίασης:
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const headerFooterManager = slide.getNotesSlideManager().addNotesSlide().getHeaderFooterManager();
+
+    headerFooterManager.setHeaderText("Header for the first notes page");
+    headerFooterManager.setHeaderVisibility(true);
+
+    headerFooterManager.setFooterText("Footer for the first notes page");
+    headerFooterManager.setFooterVisibility(true);
+
+    headerFooterManager.setDateTimeText("Date and time text");
+    headerFooterManager.setDateTimeVisibility(true);
+
+    headerFooterManager.setSlideNumberVisibility(true);
+
+    presentation.save("presentation_with_custom_notes_footers.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Εάν πρώτα διαδώσετε τις ρυθμίσεις από το master σημειώσεων και μετά αλλάξετε μια ατομική διαφάνεια σημειώσεων, οι μεταγενέστερες ρυθμίσεις ανά διαφάνεια σας επιτρέπουν να προσαρμόσετε αυτή τη σελίδα σημειώσεων ανεξάρτητα.
+
+## **Ορισμός Κεφαλίδων και Υποσέλιδων στο Master Φυλλαδίου**
+
+Οι σελίδες φυλλαδίου χρησιμοποιούν το master φυλλαδίου για τους δεσμευτικούς χαρακτήρες κεφαλίδας, υποσέλιδου, ημερομηνίας/ώρας και αριθμού σελίδας. Σε αντίθεση με τις σελίδες σημειώσεων, οι ρυθμίσεις φυλλαδίου διαχειρίζονται μέσω του master φυλλαδίου αντί για ατομικές διαφάνειες φυλλαδίου.
+
+Χρησιμοποιήστε το [`getMasterHandoutSlide`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/masterhandoutslidemanager/#getMasterHandoutSlide) για να προσπελάσετε το master φυλλαδίου. Αν δεν υπάρχει, καλέστε το [`setDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/masterhandoutslidemanager/#setDefaultMasterHandoutSlide) για να δημιουργήσετε το προεπιλεγμένο master φυλλαδίου.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    let masterHandoutSlide = presentation.getMasterHandoutSlideManager().getMasterHandoutSlide();
+
+    if (masterHandoutSlide === null) {
+        masterHandoutSlide = presentation.getMasterHandoutSlideManager().setDefaultMasterHandoutSlide();
+    }
+
+    if (masterHandoutSlide !== null) {
+        const headerFooterManager = masterHandoutSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Handout header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Handout footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
+    }
+
+    presentation.save("presentation_with_handout_footers.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Κατανόηση Εύρους και Κληρονομικότητας**
+
+Επιλέξτε τον διαχειριστή κεφαλίδας/υποσέλιδου που ταιριάζει με το εύρος που θέλετε να αλλάξετε:
+
+- [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/slideheaderfootermanager/) αλλάζει τις ρυθμίσεις υποσέλιδου, ημερομηνίας/ώρας και αριθμού διαφάνειας για μία κανονική διαφάνεια.
+- [`LayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/layoutslideheaderfootermanager/) ελέγχει μια διαφάνεια διάταξης και μπορεί να διαδώσει τις υποστηριζόμενες ρυθμίσεις σε εξαρτώμενες διαφάνειες.
+- [`MasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/masterslideheaderfootermanager/) ελέγχει ένα master κανονικής διαφάνειας και μπορεί να διαδώσει τις υποστηριζόμενες ρυθμίσεις σε εξαρτώμενες διαφάνειες.
+- [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) ελέγχει το master σημειώσεων και μπορεί να διαδώσει τις ρυθμίσεις σε όλες τις εξαρτώμενες διαφάνειες σημειώσεων.
+- [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/notesslideheaderfootermanager/) αλλάζει μία διαφάνεια σημειώσεων και υποστηρίζει δεσμευτικό χαρακτήρα κεφαλίδας εκτός από υποσέλιδο, ημερομηνία/ώρα και αριθμό διαφάνειας.
+- [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/masterhandoutslideheaderfootermanager/) αλλάζει το master φυλλαδίου και υποστηρίζει όλους τους τέσσερις τύπους δεσμευτικών χαρακτήρων.
+
+Χρησιμοποιήστε προβολή από ένα master ή layout όταν η ίδια ρύθμιση πρέπει να ισχύει σε όλη τη ιεραρχία του. Χρησιμοποιήστε διαχειριστή ατομικής διαφάνειας ή διαφάνειας σημειώσεων όταν χρειάζεστε τοπική ρύθμιση για μία σελίδα.
 
 ## **Συχνές Ερωτήσεις**
 
-**Μπορώ να προσθέσω "header" σε κανονικές διαφάνειες;**
+**Μπορώ να προσθέσω κεφαλίδα σε κανονική διαφάνεια;**
 
-Στο PowerPoint, η "Header" υπάρχει μόνο για σημειώσεις και φυλλάδια· σε κανονικές διαφάνειες τα υποστηριζόμενα στοιχεία είναι το υποσέλιδο, η ημερομηνία/ώρα και ο αριθμός διαφάνειας. Στο Aspose.Slides αυτό αντανακλά τις ίδιες περιορισμούς: header μόνο για Notes/Handout, και στις διαφάνειες—Footer/DateTime/SlideNumber.
+Όχι. Το PowerPoint δεν ορίζει δεσμευτικό χαρακτήρα κεφαλίδας για κανονικές διαφάνειες. Στις κανονικές διαφάνειες, χρησιμοποιήστε τους δεσμευτικούς χαρακτήρες υποσέλιδου, ημερομηνίας/ώρας και αριθμού διαφάνειας. Οι δεσμευτικοί χαρακτήρες κεφαλίδας είναι διαθέσιμοι σε σελίδες σημειώσεων και φυλλάδια.
 
-**Τι γίνεται αν η διάταξη δεν περιέχει περιοχή υποσέλιδου—μπορώ να "turn on" την ορατότητά της;**
+**Τι γίνεται αν ένας δεσμευτικός χαρακτήρας υποσέλιδου, ημερομηνίας/ώρας ή αριθμού διαφάνειας δεν είναι ορατός;**
 
-Ναι. Ελέγξτε την ορατότητα μέσω του διαχειριστή κεφαλίδας/υποσέλιδου και ενεργοποιήστε την αν χρειάζεται. Αυτοί οι δείκτες και οι μέθοδοι του API έχουν σχεδιαστεί για περιπτώσεις όπου η θέση κράτησης λείπει ή είναι κρυφή.
+Χρησιμοποιήστε τον αντίστοιχο διαχειριστή κεφαλίδας/υποσέλιδου για να ελέγξετε την ορατότητά του και να τον ενεργοποιήσετε όταν χρειάζεται. Για παράδειγμα, το [`isFooterVisible`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/baseslideheaderfootermanager/#isFooterVisible) αναφέρει αν υπάρχει δεσμευτικό χαρακτήρα υποσέλιδου, και το [`setFooterVisibility`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterVisibility) αλλάζει την ορατότητά του.
 
-**Πώς μπορώ να κάνω τον αριθμό διαφάνειας να αρχίζει από τιμή διαφορετική από 1;**
+**Πώς μπορώ να ξεκινήσω την αρίθμηση των διαφανειών από τιμή διαφορετική από το 1;**
 
-Ορίστε τον [first slide number](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/setfirstslidenumber/); μετά από αυτό, όλα τα νούμερα επαναϋπολογίζονται. Για παράδειγμα, μπορείτε να ξεκινήσετε από 0 ή 10 και να κρύψετε τον αριθμό στη διαφάνεια τίτλου.
+Καλέστε τη μέθοδο [`setFirstSlideNumber`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/setfirstslidenumber/) της παρουσίασης. Οι δεσμευτικοί χαρακτήρες αριθμού διαφάνειας θα χρησιμοποιήσουν τότε την ενημερωμένη ακολουθία αρίθμησης.
 
-**Τι συμβαίνει με τις κεφαλίδες/υποσέλιδα όταν εξάγετε σε PDF/εικόνες/HTML;**
+**Τι γίνεται με τις κεφαλίδες και τα υποσέλιδα κατά την εξαγωγή σε PDF, εικόνες ή HTML;**
 
-Αυτά αποδίδονται ως τακτικά κείμενα της παρουσίασης. Δηλαδή, αν τα στοιχεία είναι ορατά στις διαφάνειες/σελίδες σημειώσεων, θα εμφανιστούν επίσης και στην εξαγόμενη μορφή μαζί με το υπόλοιπο περιεχόμενο.
+Τα ορατά στοιχεία κεφαλίδας και υποσέλιδου αποδίδονται μαζί με το υπόλοιπο περιεχόμενο της παρουσίασης στη μορφή εξόδου. Η εμφάνισή τους εξαρτάται από τον τύπο σελίδας που εξάγεται και τις αντίστοιχες ρυθμίσεις ορατότητας των δεσμευτικών χαρακτήρων.

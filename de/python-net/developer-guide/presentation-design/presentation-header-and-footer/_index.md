@@ -1,6 +1,6 @@
 ---
-title: Verwalten von Headern und Footern in Präsentationen mit Python
-linktitle: Header und Footer
+title: Verwalten von Präsentationskopf- und -fußzeilen mit Python
+linktitle: Kopf- und Fußzeile
 type: docs
 weight: 140
 url: /de/python-net/presentation-header-and-footer/
@@ -9,128 +9,213 @@ keywords:
 - Kopfzeilentext
 - Fußzeile
 - Fußzeilentext
-- Kopfzeile setzen
-- Fußzeile setzen
-- Handzettel
+- Kopfzeile festlegen
+- Fußzeile festlegen
+- Handout
 - Notizen
 - PowerPoint
+- OpenDocument
 - Präsentation
 - Python
 - Aspose.Slides
-description: "Verwenden Sie Aspose.Slides für Python über .NET, um Header und Footer in PowerPoint- und OpenDocument-Präsentationen hinzuzufügen und anzupassen, damit sie professionell aussehen."
+description: "Erfahren Sie, wie Sie Fußzeilen-, Datum-Uhrzeit-, Folien-Nummern- und Kopfzeilen-Platzhalter auf Folien, Notizseiten und Handouts mit Aspose.Slides für Python über .NET verwalten."
 ---
-
 ## **Übersicht**
 
-Aspose.Slides für Python ermöglicht es Ihnen, Header‑ und Footer‑Platzhalter in einer Präsentation mit präzisem Geltungsbereich zu steuern. Footer‑Text, Datum/Uhrzeit und Foliennummern auf den Folien werden auf Master‑Ebene verwaltet und können global angewendet oder pro Folie angepasst werden. Header werden in Notizen und Handouts unterstützt, wobei Sie die Sichtbarkeit umschalten und Text für Header, Footer, Datum/Uhrzeit und Seitenzahlen über den dedizierten Header‑&‑Footer‑Manager auf der Master‑Notizfolie oder einzelnen Notizfolien festlegen können. Dieser Artikel beschreibt die wichtigsten Muster zum Aktualisieren dieser Platzhalter und zum konsistenten Durchsetzen von Änderungen in Ihrer Präsentation.
+PowerPoint verwendet je nach Folientyp unterschiedliche Kopf‑ und Fußzeilen‑Platzhalter. Aspose.Slides für Python über .NET ermöglicht es Ihnen, den Text und die Sichtbarkeit dieser Platzhalter über Klassen des Kopf‑/Fußzeilen‑Managers zu steuern.
 
-## **Kopf‑ und Fußzeilentext verwalten**
+Die verfügbaren Platzhalter hängen vom Geltungsbereich ab:
 
-In diesem Abschnitt erfahren Sie, wie Sie Header‑ und Footer‑Inhalte in einer Präsentation verwalten – den Footer, Datum und Uhrzeit sowie die Foliennummern aktivieren oder ändern. Wir skizzieren kurz die Geltungsbereiche für die Anwendung dieser Einstellungen (die gesamte Präsentation, einzelne Folien und Notiz/Handout‑Ansichten) und zeigen, wie Sie die Aspose.Slides‑API nutzen, um sie schnell und konsistent zu aktualisieren.
+| Umfang | Kopfzeile | Fußzeile | Datum/Uhrzeit | Folien-/Seitenzahl |
+|---|---|---|---|---|
+| Normale Folie | Nein | Ja | Ja | Ja |
+| Notizen‑Master | Ja | Ja | Ja | Ja |
+| Notizen‑Folie | Ja | Ja | Ja | Ja |
+| Handout‑Master | Ja | Ja | Ja | Ja |
 
-Das folgende Codebeispiel öffnet eine Präsentation, aktiviert und setzt den Footer‑Text, aktualisiert den Header‑Text auf der Master‑Notizfolie und speichert die Datei.
-```py
+Eine normale Präsentationsfolie hat keinen Kopfzeilen‑Platzhalter. Kopfzeilen sind auf Notizseiten und Handouts verfügbar. Für normale Folien verwenden Sie stattdessen die Fußzeilen‑, Datum‑/Uhrzeit‑ und Folien‑Nummern‑Platzhalter.
+
+Der Geltungsbereich einer Änderung hängt vom verwendeten Manager ab. Die [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/de/python-net/aspose.slides/slideheaderfootermanager/)‑Klasse steuert eine normale Folie. Die [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/de/python-net/aspose.slides/notesslideheaderfootermanager/)‑Klasse steuert eine Notizen‑Folie. Master‑ und Layout‑Manager können Einstellungen zudem an abhängige Folien weitergeben, während die [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/de/python-net/aspose.slides/masterhandoutslideheaderfootermanager/)‑Klasse den Handout‑Master kontrolliert.
+
+## **Fußzeile, Datum/Uhrzeit und Folienzahlen auf normalen Folien festlegen**
+
+Für normale Folien besteht der grundlegende Ablauf darin, den Kopf‑/Fußzeilen‑Manager jeder Folie aufzurufen, den Fußzeilen‑ und Datum/Uhrzeit‑Text zu setzen, die benötigten Platzhalter zu aktivieren und die Präsentation zu speichern. Folienzahlen werden von der Präsentation erzeugt, daher müssen Sie nur deren Sichtbarkeit steuern.
+
+Verwenden Sie [`set_footer_text`](https://reference.aspose.com/slides/de/python-net/aspose.slides/baseslideheaderfootermanager/set_footer_text/) und [`set_date_time_text`](https://reference.aspose.com/slides/de/python-net/aspose.slides/baseslideheaderfootermanager/set_date_time_text/), um Text zu setzen, und [`set_footer_visibility`](https://reference.aspose.com/slides/de/python-net/aspose.slides/baseslideheaderfootermanager/set_footer_visibility/), [`set_date_time_visibility`](https://reference.aspose.com/slides/de/python-net/aspose.slides/baseslideheaderfootermanager/set_date_time_visibility/), sowie [`set_slide_number_visibility`](https://reference.aspose.com/slides/de/python-net/aspose.slides/baseslideheaderfootermanager/set_slide_number_visibility/), um die entsprechenden Platzhalter anzuzeigen.
+
+Das folgende End‑to‑End‑Beispiel wendet dieselbe Fußzeile, denselben Datum/Uhrzeit‑Text und dieselbe Folien‑Nummern‑Sichtbarkeit auf alle normalen Folien an:
+
+```python
 import aspose.slides as slides
 
-# Funktion zum Festlegen des Header-Textes.
-def update_header_footer_text(master):
-    for shape in master.shapes:
-        if shape.placeholder is not None:
-            if shape.placeholder.type == slides.PlaceholderType.HEADER:
-                shape.text_frame.text = "Hi, there is a header"
+with slides.Presentation("presentation.pptx") as presentation:
+    for slide in presentation.slides:
+        header_footer_manager = slide.header_footer_manager
 
+        header_footer_manager.set_footer_text("Company Confidential")
+        header_footer_manager.set_footer_visibility(True)
 
-# Präsentation laden.
-with slides.Presentation("sample.pptx") as presentation:
-    # Footer festlegen.
-    presentation.header_footer_manager.set_all_footers_text("My Footer text")
-    presentation.header_footer_manager.set_all_footers_visibility(True)
+        header_footer_manager.set_date_time_text("Date and time text")
+        header_footer_manager.set_date_time_visibility(True)
 
-    # Zugriff auf den Header und Aktualisierung.
-    master_notes_slide = presentation.master_notes_slide_manager.master_notes_slide
-    if master_notes_slide is not None:
-        update_header_footer_text(master_notes_slide)
+        header_footer_manager.set_slide_number_visibility(True)
 
-    # Präsentation speichern.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("presentation_with_slide_footers.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Wenn Sie nur eine einzelne Folie aktualisieren müssen, greifen Sie direkt über die [`slides`](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/slides/de/)‑Sammlung auf diese Folie zu, anstatt die gesamte Sammlung zu durchlaufen.
 
-## **Kopf‑ und Fußzeilen in Notizfolien verwalten**
+## **Kopf‑ und Fußzeilen im Notizen‑Master festlegen**
 
-In diesem Abschnitt lernen Sie, wie Sie Header und Footer speziell für Notizfolien in Aspose.Slides verwalten. Wir behandeln das Aktivieren der entsprechenden Platzhalter, das Setzen von Text für Footer, Datum/Uhrzeit und Seitenzahlen und das konsistente Anwenden dieser Änderungen auf dem Notiz‑Master und einzelnen Notizseiten.
+Der Notizen‑Master definiert ein gemeinsames Layout und das Verhalten der Platzhalter für Notizseiten. Verwenden Sie die [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/de/python-net/aspose.slides/masternotesslideheaderfootermanager/)‑Klasse, wenn Sie ausschließlich den Notizen‑Master ändern möchten.
 
-Folgen Sie den untenstehenden Schritten:
+Das folgende Beispiel setzt Kopfzeile, Fußzeile und Datum/Uhrzeit‑Text im Notizen‑Master und macht alle unterstützten Platzhalter auf diesem Master sichtbar:
 
-1. Laden Sie eine Präsentationsdatei.
-2. Holen Sie die Master‑Notizfolie und deren [header & footer manager](https://reference.aspose.com/slides/python-net/aspose.slides/masternotesslideheaderfootermanager/).
-3. Aktivieren Sie auf der Master‑Notizfolie die Sichtbarkeit von Header, Footer, Foliennummer und Datum/Uhrzeit für den Master und alle untergeordneten Notizfolien.
-4. Setzen Sie auf der Master‑Notizfolie den Text für Header, Footer und Datum/Uhrzeit für den Master und alle untergeordneten Notizfolien.
-5. Holen Sie die Notizfolie für die erste Präsentationsfolie und deren [header & footer manager](https://reference.aspose.com/slides/python-net/aspose.slides/notesslideheaderfootermanager/).
-6. Stellen Sie nur für diese erste Notizfolie sicher, dass Header, Footer, Foliennummer und Datum/Uhrzeit sichtbar sind (schalten Sie ggf. ausstehende ein).
-7. Setzen Sie nur für diese erste Notizfolie den Text für Header, Footer und Datum/Uhrzeit.
-8. Speichern Sie die Präsentation im PPTX-Format.
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
+with slides.Presentation("presentation.pptx") as presentation:
     master_notes_slide = presentation.master_notes_slide_manager.master_notes_slide
+
     if master_notes_slide is not None:
         header_footer_manager = master_notes_slide.header_footer_manager
 
-        # Machen Sie die Master-Notizfolie und alle untergeordneten Header-, Footer-, Foliennummer- und Datum/Uhrzeit-Platzhalter sichtbar.
-        header_footer_manager.set_header_and_child_headers_visibility(True)
-        header_footer_manager.set_footer_and_child_footers_visibility(True)
-        header_footer_manager.set_slide_number_and_child_slide_numbers_visibility(True)
-        header_footer_manager.set_date_time_and_child_date_times_visibility(True)
+        header_footer_manager.set_header_text("Notes header")
+        header_footer_manager.set_header_visibility(True)
 
-        # Text auf der Master-Notizfolie und allen untergeordneten Header-, Footer- und Datum/Uhrzeit-Platzhaltern setzen.
-        header_footer_manager.set_header_and_child_headers_text("Header text")
-        header_footer_manager.set_footer_and_child_footers_text("Footer text")
-        header_footer_manager.set_date_time_and_child_date_times_text("Date and time text")
+        header_footer_manager.set_footer_text("Notes footer")
+        header_footer_manager.set_footer_visibility(True)
 
-    # Header-, Footer-, Foliennummer- und Datum/Uhrzeit-Einstellungen nur für die erste Notizfolie ändern.
-    notesSlide = presentation.slides[0].notes_slide_manager.notes_slide
-    if notesSlide is not None:
-        header_footer_manager = notesSlide.header_footer_manager
+        header_footer_manager.set_date_time_text("Date and time text")
+        header_footer_manager.set_date_time_visibility(True)
 
-        # Sicherstellen, dass die Header-, Footer-, Foliennummer- und Datum/Uhrzeit-Platzhalter sichtbar sind.
-        if not header_footer_manager.is_header_visible:
-            header_footer_manager.set_header_visibility(True)
+        header_footer_manager.set_slide_number_visibility(True)
 
-        if not header_footer_manager.is_footer_visible:
-            header_footer_manager.set_footer_visibility(True)
-
-        if not header_footer_manager.is_slide_number_visible:
-            header_footer_manager.set_slide_number_visibility(True)
-
-        if not header_footer_manager.is_date_time_visible:
-            header_footer_manager.set_date_time_visibility(True)
-
-        # Text auf den Header-, Footer- und Datum/Uhrzeit-Platzhaltern der Notizfolie setzen.
-        header_footer_manager.set_header_text("New header text")
-        header_footer_manager.set_footer_text("New footer text")
-        header_footer_manager.set_date_time_text("New date and time text")
-
-    # Präsentation speichern.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("presentation_with_notes_master_footers.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Eine Präsentation kann keinen Notizen‑Master enthalten; prüfen Sie daher den zurückgegebenen Wert auf `None`, bevor Sie Änderungen vornehmen.
+
+## **Notizen‑Master‑Einstellungen auf untergeordnete Notizen‑Folien anwenden**
+
+Ein Notizen‑Master kann Kopf‑ und Fußzeileneinstellungen sowohl für sich selbst als auch für alle abhängigen Notizen‑Folien übernehmen. Verwenden Sie die dedizierten Propagations‑Methoden der [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/de/python-net/aspose.slides/masternotesslideheaderfootermanager/), wenn dieselben Einstellungen über die gesamte Notizen‑Hierarchie hinweg gelten sollen.
+
+Beispielsweise aktualisieren [`set_header_and_child_headers_text`](https://reference.aspose.com/slides/de/python-net/aspose.slides/masternotesslideheaderfootermanager/set_header_and_child_headers_text/) und [`set_header_and_child_headers_visibility`](https://reference.aspose.com/slides/de/python-net/aspose.slides/masternotesslideheaderfootermanager/set_header_and_child_headers_visibility/) die Kopfzeile des Notizen‑Masters und aller untergeordneten Kopfzeilen. Entsprechende Methoden gibt es für Fußzeilen, Datum/Uhrzeit und Folienzahlen.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    master_notes_slide = presentation.master_notes_slide_manager.master_notes_slide
+
+    if master_notes_slide is not None:
+        header_footer_manager = master_notes_slide.header_footer_manager
+
+        header_footer_manager.set_header_and_child_headers_text("Notes header")
+        header_footer_manager.set_header_and_child_headers_visibility(True)
+
+        header_footer_manager.set_footer_and_child_footers_text("Notes footer")
+        header_footer_manager.set_footer_and_child_footers_visibility(True)
+
+        header_footer_manager.set_date_time_and_child_date_times_text("Date and time text")
+        header_footer_manager.set_date_time_and_child_date_times_visibility(True)
+
+        header_footer_manager.set_slide_number_and_child_slide_numbers_visibility(True)
+
+    presentation.save("presentation_with_child_notes_footers.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Die oben verwendeten Propagations‑Methoden sind [`set_footer_and_child_footers_text`](https://reference.aspose.com/slides/de/python-net/aspose.slides/masternotesslideheaderfootermanager/set_footer_and_child_footers_text/), [`set_footer_and_child_footers_visibility`](https://reference.aspose.com/slides/de/python-net/aspose.slides/masternotesslideheaderfootermanager/set_footer_and_child_footers_visibility/), [`set_date_time_and_child_date_times_text`](https://reference.aspose.com/slides/de/python-net/aspose.slides/masternotesslideheaderfootermanager/set_date_time_and_child_date_times_text/), [`set_date_time_and_child_date_times_visibility`](https://reference.aspose.com/slides/de/python-net/aspose.slides/masternotesslideheaderfootermanager/set_date_time_and_child_date_times_visibility/), und [`set_slide_number_and_child_slide_numbers_visibility`](https://reference.aspose.com/slides/de/python-net/aspose.slides/masternotesslideheaderfootermanager/set_slide_number_and_child_slide_numbers_visibility/).
+
+## **Kopf‑ und Fußzeilen auf einer einzelnen Notizen‑Folie festlegen**
+
+Eine Notizen‑Folie gehört zu einer bestimmten normalen Folie. Verwenden Sie deren [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/de/python-net/aspose.slides/notesslideheaderfootermanager/)‑Klasse, wenn Sie nur diese Notizenseite anpassen möchten.
+
+Die Methode [`add_notes_slide`](https://reference.aspose.com/slides/de/python-net/aspose.slides/notesslidemanager/add_notes_slide/) liefert die Notizen‑Folie für die aktuelle Folie und erzeugt sie, falls sie noch nicht existiert. Das folgende Beispiel konfiguriert die Notizenseite, die mit der ersten Präsentationsfolie verknüpft ist:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    notes_slide = presentation.slides[0].notes_slide_manager.add_notes_slide()
+    header_footer_manager = notes_slide.header_footer_manager
+
+    header_footer_manager.set_header_text("Header for the first notes page")
+    header_footer_manager.set_header_visibility(True)
+
+    header_footer_manager.set_footer_text("Footer for the first notes page")
+    header_footer_manager.set_footer_visibility(True)
+
+    header_footer_manager.set_date_time_text("Date and time text")
+    header_footer_manager.set_date_time_visibility(True)
+
+    header_footer_manager.set_slide_number_visibility(True)
+
+    presentation.save("presentation_with_custom_notes_footers.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Wenn Sie zuerst Einstellungen vom Notizen‑Master propagieren und anschließend eine einzelne Notizen‑Folie ändern, ermöglichen die nachträglichen Folien‑spezifischen Einstellungen eine unabhängige Anpassung dieser Notizenseite.
+
+## **Kopf‑ und Fußzeilen auf dem Handout‑Master festlegen**
+
+Handout‑Seiten verwenden den Handout‑Master für ihre Kopf‑, Fußzeilen‑, Datum/Uhrzeit‑ und Seitenzahlen‑Platzhalter. Im Gegensatz zu Notizenseiten werden Handout‑Einstellungen über den Handout‑Master und nicht über einzelne Handout‑Folien verwaltet.
+
+Verwenden Sie die Eigenschaft [`master_handout_slide`](https://reference.aspose.com/slides/de/python-net/aspose.slides/imasterhandoutslidemanager/master_handout_slide/), um auf den Handout‑Master zuzugreifen. Falls er nicht vorhanden ist, rufen Sie [`set_default_master_handout_slide`](https://reference.aspose.com/slides/de/python-net/aspose.slides/imasterhandoutslidemanager/set_default_master_handout_slide/) auf, um den Standard‑Handout‑Master zu erstellen.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    master_handout_slide = presentation.master_handout_slide_manager.master_handout_slide
+
+    if master_handout_slide is None:
+        presentation.master_handout_slide_manager.set_default_master_handout_slide()
+        master_handout_slide = presentation.master_handout_slide_manager.master_handout_slide
+
+    if master_handout_slide is not None:
+        header_footer_manager = master_handout_slide.header_footer_manager
+
+        header_footer_manager.set_header_text("Handout header")
+        header_footer_manager.set_header_visibility(True)
+
+        header_footer_manager.set_footer_text("Handout footer")
+        header_footer_manager.set_footer_visibility(True)
+
+        header_footer_manager.set_date_time_text("Date and time text")
+        header_footer_manager.set_date_time_visibility(True)
+
+        header_footer_manager.set_slide_number_visibility(True)
+
+    presentation.save("presentation_with_handout_footers.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Umfang und Vererbung verstehen**
+
+Wählen Sie den Kopf‑/Fußzeilen‑Manager, der dem gewünschten Umfang entspricht:
+
+- [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/de/python-net/aspose.slides/slideheaderfootermanager/) ändert Fußzeile, Datum/Uhrzeit und Folien‑Nummer‑Einstellungen für eine normale Folie.
+- [`LayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/de/python-net/aspose.slides/layoutslideheaderfootermanager/) steuert eine Layout‑Folie und kann unterstützte Einstellungen an abhängige Folien weitergeben.
+- [`MasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/de/python-net/aspose.slides/masterslideheaderfootermanager/) steuert einen regulären Folien‑Master und kann unterstützte Einstellungen an abhängige Folien weitergeben.
+- [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/de/python-net/aspose.slides/masternotesslideheaderfootermanager/) steuert den Notizen‑Master und kann Einstellungen an alle abhängigen Notizen‑Folien weitergeben.
+- [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/de/python-net/aspose.slides/notesslideheaderfootermanager/) ändert eine Notizen‑Folie und unterstützt neben Fußzeile, Datum/Uhrzeit und Folienzahl auch einen Kopfzeilen‑Platzhalter.
+- [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/de/python-net/aspose.slides/masterhandoutslideheaderfootermanager/) ändert den Handout‑Master und unterstützt alle vier Platzhalter‑Typen.
+
+Verwenden Sie die Propagation von einem Master‑ oder Layout‑Manager, wenn dieselbe Einstellung für die gesamte Hierarchie gelten soll. Nutzen Sie einen einzelnen Folien‑ oder Notizen‑Slide‑Manager, wenn Sie eine lokale Einstellung für eine Seite benötigen.
 
 ## **FAQ**
 
-**Kann ich einen „Header“ zu normalen Folien hinzufügen?**
+**Kann ich einer normalen Folie eine Kopfzeile hinzufügen?**
 
-In PowerPoint existiert ein „Header“ nur für Notizen und Handouts; bei normalen Folien werden nur Footer, Datum/Uhrzeit und Foliennummer unterstützt. In Aspose.Slides gilt dieselbe Einschränkung: Header nur für Notizen/Handouts, und auf Folien – Footer/DateTime/SlideNumber.
+Nein. PowerPoint definiert keinen Kopfzeilen‑Platzhalter für normale Folien. Verwenden Sie auf normalen Folien die Fußzeilen‑, Datum/Uhrzeit‑ und Folien‑Nummern‑Platzhalter. Kopfzeilen‑Platzhalter stehen nur auf Notizseiten und Handouts zur Verfügung.
 
-**Was, wenn das Layout keinen Fußzeilenbereich enthält—kann ich dessen Sichtbarkeit aktivieren?**
+**Was tun, wenn ein Fußzeilen‑, Datum/Uhrzeit‑ oder Folien‑Nummern‑Platzhalter nicht sichtbar ist?**
 
-Ja. Überprüfen Sie die Sichtbarkeit mit dem Header‑/Footer‑Manager und aktivieren Sie sie bei Bedarf. Diese API‑Indikatoren und Methoden sind für Fälle gedacht, in denen der Platzhalter fehlt oder ausgeblendet ist.
+Verwenden Sie den entsprechenden Kopf‑/Fußzeilen‑Manager, um die Sichtbarkeit zu prüfen und bei Bedarf zu aktivieren. Beispielsweise gibt [`is_footer_visible`](https://reference.aspose.com/slides/de/python-net/aspose.slides/baseslideheaderfootermanager/is_footer_visible/) an, ob ein Fußzeilen‑Platzhalter vorhanden ist, und [`set_footer_visibility`](https://reference.aspose.com/slides/de/python-net/aspose.slides/baseslideheaderfootermanager/set_footer_visibility/) ändert dessen Sichtbarkeit.
 
-**Wie kann ich die Foliennummerierung bei einem Wert ungleich 1 beginnen lassen?**
+**Wie starte ich die Foliennummerierung mit einem anderen Wert als 1?**
 
-Setzen Sie die [erste Foliennummer](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/first_slide_number/) der Präsentation; danach wird die gesamte Nummerierung neu berechnet. Beispielsweise können Sie bei 0 oder 10 beginnen und die Nummer auf der Titel­folie ausblenden.
+Setzen Sie die Eigenschaft [`first_slide_number`](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/first_slide_number/) der Präsentation. Die Folien‑Nummern‑Platzhalter verwenden dann die aktualisierte Nummerierungssequenz.
 
-**Was geschieht mit Headern/Fußzeilen beim Export in PDF/Bilder/HTML?**
+**Was passiert mit Kopf‑ und Fußzeilen beim Exportieren in PDF, Bilder oder HTML?**
 
-Sie werden als reguläre Textelemente der Präsentation gerendert. Das heißt, wenn die Elemente auf Folien/Notizseiten sichtbar sind, erscheinen sie auch im Ausgabeformat zusammen mit dem übrigen Inhalt.
+Sichtbare Kopf‑ und Fußzeilen‑Elemente werden zusammen mit dem restlichen Präsentationsinhalt im Ausgabeformat gerendert. Das Aussehen hängt vom zu exportierenden Folientyp und den jeweiligen Sichtbarkeitseinstellungen der Platzhalter ab.

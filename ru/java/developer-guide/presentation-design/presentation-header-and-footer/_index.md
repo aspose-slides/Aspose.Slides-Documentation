@@ -1,6 +1,6 @@
 ---
-title: Управление заголовками и нижними колонтитулами презентаций на Java
-linktitle: Заголовок и нижний колонтитул
+title: Управление заголовками и нижними колонтитулами презентации в Java
+linktitle: Заголовок и Нижний колонтитул
 type: docs
 weight: 140
 url: /ru/java/presentation-header-and-footer/
@@ -11,141 +11,236 @@ keywords:
 - текст нижнего колонтитула
 - установить заголовок
 - установить нижний колонтитул
-- раздаточный материал
+- раздатка
 - заметки
 - PowerPoint
 - OpenDocument
 - презентация
 - Java
 - Aspose.Slides
-description: "Используйте Aspose.Slides для Java, чтобы добавлять и настраивать заголовки и нижние колонтитулы в презентациях PowerPoint и OpenDocument, обеспечивая профессиональный вид."
+description: "Узнайте, как управлять заполнителями нижнего колонтитула, даты‑времени, номера слайда и заголовка на слайдах, страницах заметок и раздатках с помощью Aspose.Slides for Java."
 ---
+## **Обзор**
 
-{{% alert color="primary" %}} 
+PowerPoint использует разные заполнители заголовков и нижних колонтитулов в зависимости от типа страницы. Aspose.Slides for Java позволяет управлять текстом и видимостью этих заполнителей через интерфейсы менеджеров заголовков/нижних колонтитулов.
 
-[Aspose.Slides](/slides/ru/java/) предоставляет возможность работать с текстом заголовков и нижних колонтитулов слайдов, которые фактически управляются на уровне шаблона слайда.
+Доступные заполнители зависят от области:
 
-{{% /alert %}} 
+| Область | Заголовок | Нижний колонтитул | Дата/время | Номер слайда/страницы |
+|---|---|---|---|---|
+| Обычный слайд | Нет | Да | Да | Да |
+| Мастер заметок | Да | Да | Да | Да |
+| Слайд заметок | Да | Да | Да | Да |
+| Мастер раздатки | Да | Да | Да | Да |
 
-[Aspose.Slides for Java](/slides/ru/java/) предоставляет возможность управления заголовками и нижними колонтитулами внутри презентационных слайдов. На самом деле они управляются на уровне мастер‑шаблона презентации.
+Обычный слайд презентации не имеет заполнителя заголовка. Заголовки доступны на страницах заметок и раздатках. Для обычных слайдов используйте заполнители нижнего колонтитула, даты/времени и номера слайда.
 
-## **Управление заголовками и нижними колонтитулами в презентации**
-Примечания отдельного слайда могут быть удалены, как показано в примере ниже:
+Область изменения зависит от используемого менеджера. Интерфейс [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/islideheaderfootermanager/) управляет одним обычным слайдом. Интерфейс [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/inotesslideheaderfootermanager/) управляет одним слайдом заметок. Менеджеры мастеров и раскладок также могут распространять параметры на зависимые слайды, а интерфейс [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imasterhandoutslideheaderfootermanager/) управляет мастером раздатки.
+
+## **Установка нижнего колонтитула, даты/времени и номеров слайдов на обычных слайдах**
+
+Для обычных слайдов базовый процесс состоит в доступе к менеджеру заголовков/нижних колонтитулов каждого слайда, установке текста нижнего колонтитула и даты/времени, включении необходимых заполнителей и сохранении презентации. Номера слайдов генерируются презентацией, поэтому нужно лишь контролировать их видимость.
+
+Используйте [`setFooterText`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/baseslideheaderfootermanager/#setFooterText-java.lang.String-) и [`setDateTimeText`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/baseslideheaderfootermanager/#setDateTimeText-java.lang.String-) для задания текста, а также [`setFooterVisibility`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/baseslideheaderfootermanager/#setFooterVisibility-boolean-), [`setDateTimeVisibility`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/baseslideheaderfootermanager/#setDateTimeVisibility-boolean-), и [`setSlideNumberVisibility`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/baseslideheaderfootermanager/#setSlideNumberVisibility-boolean-) для отображения соответствующих заполнителей.
+
+Следующий сквозной пример применяет одинаковый нижний колонтитул, текст даты/времени и видимость номера слайда ко всем обычным слайдам:
+
 ```java
-// Загрузить презентацию
-Presentation pres = new Presentation("headerTest.pptx");
-try {
-    // Установка нижнего колонтитула
-    pres.getHeaderFooterManager().setAllFootersText("My Footer text");
-    pres.getHeaderFooterManager().setAllFootersVisibility(true);
+import com.aspose.slides.*;
 
-    // Доступ и обновление заголовка
-    IMasterNotesSlide masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (null != masterNotesSlide)
-    {
-        updateHeaderFooterText(masterNotesSlide);
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideHeaderFooterManager headerFooterManager = slide.getHeaderFooterManager();
+
+        headerFooterManager.setFooterText("Company Confidential");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
 
-    // Сохранить презентацию
-    pres.save("HeaderFooterJava.pptx", SaveFormat.Pptx);
+    presentation.save("presentation_with_slide_footers.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Если нужно обновить только один слайд, обратитесь к этому слайду напрямую через метод [`getSlides`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#getSlides--) вместо перебора всей коллекции.
+
+## **Установка заголовков и нижних колонтитулов в мастере заметок**
+
+Мастер заметок определяет общие параметры форматирования и поведения заполнителей для страниц заметок. Используйте интерфейс [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imasternotesslideheaderfootermanager/) когда необходимо изменить только сам мастер заметок.
+
+Следующий пример задает текст заголовка, нижнего колонтитула и даты/времени в мастере заметок и делает все поддерживаемые заполнители видимыми в этом мастере:
+
 ```java
-// Метод для установки текста заголовка/нижнего колонтитула
-public static void updateHeaderFooterText(IBaseSlide master)
-{
-    for (IShape shape : master.getShapes())
-    {
-        if (shape.getPlaceholder() != null)
-        {
-            if (shape.getPlaceholder().getType() == PlaceholderType.Header)
-            {
-                ((IAutoShape)shape).getTextFrame().setText("HI there new header");
-            }
-        }
-    }
-}
-```
+import com.aspose.slides.*;
 
-
-## **Управление заголовками и нижними колонтитулами в раздаточных материалах и слайдах заметок**
-Aspose.Slides for Java поддерживает заголовки и нижние колонтитулы в раздаточных материалах и слайдах заметок. Пожалуйста, выполните следующие шаги:
-
-- Загрузите [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) содержащий видео.
-- Измените настройки заголовка и нижнего колонтитула для мастер‑страницы заметок и всех слайдов заметок.
-- Сделайте видимыми заполнители нижних колонтитулов на мастер‑слайде заметок и всех дочерних слайдах.
-- Сделайте видимыми заполнители даты и времени на мастер‑слайде заметок и всех дочерних слайдах.
-- Измените настройки заголовка и нижнего колонтитула только для первого слайда заметок.
-- Сделайте видимым заполнитель заголовка на слайде заметок.
-- Установите текст в заполнитель заголовка слайда заметок.
-- Установите текст в заполнитель даты и времени слайда заметок.
-- Сохраните изменённый файл презентации.
-
-Пример кода приведён ниже.
-```java
-Presentation pres = new Presentation("presentation.pptx");
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    // Изменить настройки заголовка и нижнего колонтитула для мастер‑страницы заметок и всех слайдов заметок
-    IMasterNotesSlide masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (masterNotesSlide != null)
-    {
+    IMasterNotesSlide masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide != null) {
         IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.getHeaderFooterManager();
 
-        headerFooterManager.setHeaderAndChildHeadersVisibility(true); // сделать мастер‑слайд заметок и все дочерние заполнители нижних колонтитулов видимыми
-        headerFooterManager.setFooterAndChildFootersVisibility(true); // сделать мастер‑слайд заметок и все дочерние заполнители заголовков видимыми
-        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true); // сделать мастер‑слайд заметок и все дочерние заполнители номеров слайдов видимыми
-        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true); // сделать мастер‑слайд заметок и все дочерние заполнители даты и времени видимыми
+        headerFooterManager.setHeaderText("Notes header");
+        headerFooterManager.setHeaderVisibility(true);
 
-        headerFooterManager.setHeaderAndChildHeadersText("Header text"); // задать текст мастер‑слайду заметок и всем дочерним заполнителям заголовков
-        headerFooterManager.setFooterAndChildFootersText("Footer text"); // задать текст мастер‑слайду заметок и всем дочерним заполнителям нижних колонтитулов
-        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text"); // задать текст мастер‑слайду заметок и всем дочерним заполнителям даты и времени
+        headerFooterManager.setFooterText("Notes footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
 
-    // Изменить настройки заголовка и нижнего колонтитула только для первого слайда заметок
-    INotesSlide notesSlide = pres.getSlides().get_Item(0).getNotesSlideManager().getNotesSlide();
-    if (notesSlide != null)
-    {
-        INotesSlideHeaderFooterManager headerFooterManager = notesSlide.getHeaderFooterManager();
-        if (!headerFooterManager.isHeaderVisible())
-            headerFooterManager.setHeaderVisibility(true); // сделать этот заполнитель заголовка слайда заметок видимым
-
-        if (!headerFooterManager.isFooterVisible())
-            headerFooterManager.setFooterVisibility(true); // сделать этот заполнитель нижнего колонтитула слайда заметок видимым
-
-        if (!headerFooterManager.isSlideNumberVisible())
-            headerFooterManager.setSlideNumberVisibility(true); // сделать этот заполнитель номера слайда заметок видимым
-
-        if (!headerFooterManager.isDateTimeVisible())
-            headerFooterManager.setDateTimeVisibility(true); // сделать этот заполнитель даты и времени слайда заметок видимым
-
-        headerFooterManager.setHeaderText("New header text"); // задать текст заполнителю заголовка слайда заметок
-        headerFooterManager.setFooterText("New footer text"); // задать текст заполнителю нижнего колонтитула слайда заметок
-        headerFooterManager.setDateTimeText("New date and time text"); // задать текст заполнителю даты и времени слайда заметок
-    }
-    pres.save("testresult.pptx",SaveFormat.Pptx);
+    presentation.save("presentation_with_notes_master_footers.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Метод [`getMasterNotesSlide`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imasternotesslidemanager/#getMasterNotesSlide--) возвращает `null`, если презентация не содержит мастер заметок.
+
+## **Применение настроек мастера заметок к дочерним слайдам заметок**
+
+Мастер заметок может применять настройки заголовка и нижнего колонтитула к себе и ко всем зависимым слайдам заметок. Используйте специальные методы распространения в [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imasternotesslideheaderfootermanager/) когда одинаковые параметры должны быть применены по всей иерархии заметок.
+
+Например, методы [`setHeaderAndChildHeadersText`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setHeaderAndChildHeadersText-java.lang.String-) и [`setHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setHeaderAndChildHeadersVisibility-boolean-) обновляют заголовок мастера заметок и все дочерние заголовки. Эквивалентные методы доступны для нижних колонтитулов, даты/времени и номеров слайдов.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterNotesSlide masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide != null) {
+        IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderAndChildHeadersText("Notes header");
+        headerFooterManager.setHeaderAndChildHeadersVisibility(true);
+
+        headerFooterManager.setFooterAndChildFootersText("Notes footer");
+        headerFooterManager.setFooterAndChildFootersVisibility(true);
+
+        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
+        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
+
+        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
+    }
+
+    presentation.save("presentation_with_child_notes_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Методы распространения, использованные выше, это [`setFooterAndChildFootersText`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setFooterAndChildFootersText-java.lang.String-), [`setFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setFooterAndChildFootersVisibility-boolean-), [`setDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesText-java.lang.String-), [`setDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesVisibility-boolean-), и [`setSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setSlideNumberAndChildSlideNumbersVisibility-boolean-).
+
+## **Установка заголовков и нижних колонтитулов на отдельном слайде заметок**
+
+Слайд заметок принадлежит определенному обычному слайду. Используйте его интерфейс [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/inotesslideheaderfootermanager/) когда нужно настроить только эту страницу заметок.
+
+Метод [`addNotesSlide`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/inotesslidemanager/#addNotesSlide--) возвращает слайд заметок для текущего слайда и создает его, если он еще не существует. Следующий пример настраивает страницу заметок, связанную с первым слайдом презентации:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    INotesSlide notesSlide = slide.getNotesSlideManager().addNotesSlide();
+    INotesSlideHeaderFooterManager headerFooterManager = notesSlide.getHeaderFooterManager();
+
+    headerFooterManager.setHeaderText("Header for the first notes page");
+    headerFooterManager.setHeaderVisibility(true);
+
+    headerFooterManager.setFooterText("Footer for the first notes page");
+    headerFooterManager.setFooterVisibility(true);
+
+    headerFooterManager.setDateTimeText("Date and time text");
+    headerFooterManager.setDateTimeVisibility(true);
+
+    headerFooterManager.setSlideNumberVisibility(true);
+
+    presentation.save("presentation_with_custom_notes_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Если сначала распространить настройки из мастера заметок, а затем изменить отдельный слайд заметок, последующие настройки конкретного слайда позволяют независимо кастомизировать эту страницу заметок.
+
+## **Установка заголовков и нижних колонтитулов в мастере раздатки**
+
+Страницы раздатки используют мастер раздатки для своих заполнителей заголовка, нижнего колонтитула, даты/времени и номера страницы. В отличие от страниц заметок, параметры раздатки управляются через мастер раздатки, а не через отдельные слайды раздатки.
+
+Используйте метод [`getMasterHandoutSlide`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imasterhandoutslidemanager/#getMasterHandoutSlide--) для доступа к мастеру раздатки. Если он отсутствует, вызовите [`setDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imasterhandoutslidemanager/#setDefaultMasterHandoutSlide--) для создания мастера раздатки по умолчанию.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterHandoutSlide masterHandoutSlide = presentation.getMasterHandoutSlideManager().getMasterHandoutSlide();
+
+    if (masterHandoutSlide == null) {
+        masterHandoutSlide = presentation.getMasterHandoutSlideManager().setDefaultMasterHandoutSlide();
+    }
+
+    if (masterHandoutSlide != null) {
+        IMasterHandoutSlideHeaderFooterManager headerFooterManager = masterHandoutSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Handout header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Handout footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
+    }
+
+    presentation.save("presentation_with_handout_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Понимание области и наследования**
+
+Выберите менеджер заголовков/нижних колонтитулов, соответствующий области, которую нужно изменить:
+
+- [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/islideheaderfootermanager/) изменяет параметры нижнего колонтитула, даты/времени и номера слайда для одного обычного слайда.
+- [`ILayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ilayoutslideheaderfootermanager/) управляет слайдом раскладки и может распространять поддерживаемые настройки на зависимые слайды.
+- [`IMasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imasterslideheaderfootermanager/) контролирует обычный мастер слайдов и может распространять поддерживаемые настройки на зависимые слайды.
+- [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imasternotesslideheaderfootermanager/) управляет мастером заметок и может распространять настройки на все зависимые слайды заметок.
+- [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/inotesslideheaderfootermanager/) изменяет один слайд заметок и поддерживает заполнитель заголовка в дополнение к нижнему колонтитулу, дате/времени и номеру слайда.
+- [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imasterhandoutslideheaderfootermanager/) изменяет мастер раздатки и поддерживает все четыре типа заполнителей.
+
+Используйте распространение из мастера или раскладки, когда одинаковая настройка должна применяться по всей иерархии. Используйте отдельный слайд или менеджер слайда заметок, когда требуется локальная настройка для одной страницы.
 
 ## **FAQ**
 
-**Могу ли я добавить "заголовок" на обычные слайды?**
+**Можно ли добавить заголовок к обычному слайду?**
 
-В PowerPoint "заголовок" существует только для заметок и раздаточных материалов; на обычных слайдах поддерживаемыми элементами являются нижний колонтитул, дата/время и номер слайда. В Aspose.Slides эти ограничения такие же: заголовок доступен только для заметок/раздаточных материалов, а на слайдах — нижний колонтитул/дата‑время/номер слайда.
+Нет. PowerPoint не определяет заполнитель заголовка для обычных слайдов. На обычных слайдах используйте заполнители нижнего колонтитула, даты/времени и номера слайда. Заполнители заголовков доступны на страницах заметок и раздатках.
 
-**Что если в макете нет области нижнего колонтитула — могу ли я включить её видимость?**
+**Что делать, если заполнители нижнего колонтитула, даты/времени или номера слайда не видны?**
 
-Да. Проверьте видимость через менеджер заголовков/нижних колонтитулов и включите её при необходимости. Эти индикаторы и методы API предназначены для случаев, когда заполнитель отсутствует или скрыт.
+Используйте соответствующий менеджер заголовков/нижних колонтитулов, чтобы проверить его видимость и при необходимости включить её. Например, метод [`isFooterVisible`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/baseslideheaderfootermanager/#isFooterVisible--) сообщает, присутствует ли заполнитель нижнего колонтитула, а [`setFooterVisibility`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/baseslideheaderfootermanager/#setFooterVisibility-boolean-) изменяет его видимость.
 
-**Как установить начальный номер слайда, отличный от 1?**
+**Как начать нумерацию слайдов с значения, отличного от 1?**
 
-Установите у презентации [первый номер слайда](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#setFirstSlideNumber-int-); после этого нумерация будет пересчитана. Например, можно начать с 0 или 10 и скрыть номер на титульном слайде.
+Вызовите метод презентации [`setFirstSlideNumber`](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#setFirstSlideNumber-int-) . После этого заполнители номеров слайдов используют обновлённую последовательность нумерации.
 
-**Что происходит с заголовками/нижними колонтитулами при экспорте в PDF/изображения/HTML?**
+**Что происходит с заголовками и нижними колонтитулами при экспорте в PDF, изображения или HTML?**
 
-Они отображаются как обычные текстовые элементы презентации. То есть, если эти элементы видимы на слайдах/страницах заметок, они также появятся в выходном формате вместе с остальным содержанием.
+Видимые элементы заголовков и нижних колонтитулов рендерятся вместе с остальным содержимым презентации в целевом формате. Их отображение зависит от типа экспортируемой страницы и соответствующих параметров видимости заполнителей.

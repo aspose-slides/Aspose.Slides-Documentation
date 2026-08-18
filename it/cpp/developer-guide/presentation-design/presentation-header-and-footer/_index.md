@@ -1,6 +1,6 @@
 ---
-title: Gestire intestazioni e piè di pagina della presentazione in C++
-linktitle: Intestazione e piè di pagina
+title: Gestisci intestazioni e piè di pagina della presentazione in C++
+linktitle: Intestazione e Piè di pagina
 type: docs
 weight: 140
 url: /it/cpp/presentation-header-and-footer/
@@ -9,157 +9,262 @@ keywords:
 - testo intestazione
 - piè di pagina
 - testo piè di pagina
-- impostare intestazione
-- impostare piè di pagina
-- dispense
+- imposta intestazione
+- imposta piè di pagina
+- opuscolo
 - note
 - PowerPoint
 - OpenDocument
 - presentazione
 - C++
 - Aspose.Slides
-description: "Utilizza Aspose.Slides per C++ per aggiungere e personalizzare intestazioni e piè di pagina nelle presentazioni PowerPoint e OpenDocument per un aspetto professionale."
+description: "Scopri come gestire i segnaposti di piè di pagina, data/ora, numero diapositiva e intestazione su diapositive, pagine delle note e opuscoli con Aspose.Slides per C++."
 ---
 ## **Panoramica**
 
-Aspose.Slides consente di gestire le impostazioni di intestazione e piè di pagina nelle presentazioni PowerPoint. Le intestazioni e i piè di pagina sono gestiti a livello del master della presentazione e l'API fornisce metodi per impostare il testo del piè di pagina, modificare la visibilità del piè di pagina e aggiornare il testo dell'intestazione nelle diapositive master delle note.
+PowerPoint utilizza segnaposti di intestazione e piè di pagina diversi a seconda del tipo di pagina. Aspose.Slides per C++ consente di controllare il testo e la visibilità di questi segnaposti tramite le interfacce del gestore intestazione/piè di pagina.
 
-È inoltre possibile gestire intestazioni e piè di pagina per le diapositive di handout e note. Questo include la modifica della visibilità e del testo dei segnaposto di intestazione, piè di pagina, numero diapositiva e data/ora per il master delle note, tutte le diapositive di note figlie o una singola diapositiva di note.
+I segnaposti disponibili dipendono dall'ambito:
 
-## **Gestire testo intestazione e piè di pagina**
+| Ambito | Intestazione | Piè di pagina | Data/ora | Numero diapositiva/pagina |
+|---|---|---|---|---|
+| Diapositiva regolare | No | Sì | Sì | Sì |
+| Master delle note | Sì | Sì | Sì | Sì |
+| Diapositiva delle note | Sì | Sì | Sì | Sì |
+| Master degli opuscoli | Sì | Sì | Sì | Sì |
 
-Le note di alcune diapositive specifiche possono essere aggiornate come mostrato nell'esempio seguente:
+Una diapositiva di presentazione regolare non ha un segnaposto di intestazione. Le intestazioni sono disponibili nelle pagine delle note e negli opuscoli. Per le diapositive regolari, utilizzare invece i segnaposti di piè di pagina, data/ora e numero diapositiva.
 
-``` cpp
-// Funzione per impostare il testo intestazione/piè di pagina
-void UpdateHeaderFooterText(System::SharedPtr<IBaseSlide> master)
-{
-    for (const auto& shape : System::IterateOver(master->get_Shapes()))
-    {
-        if (shape->get_Placeholder() != nullptr)
-        {
-            if (shape->get_Placeholder()->get_Type() == PlaceholderType::Header)
-            {
-                (System::ExplicitCast<IAutoShape>(shape))->get_TextFrame()->set_Text(u"HI there new header");
-            }
-        }
-    }
-}
-```
+L'ambito di una modifica dipende dal gestore che si utilizza. L'interfaccia [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/it/cpp/aspose.slides/islideheaderfootermanager/) controlla una diapositiva regolare. L'interfaccia [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/it/cpp/aspose.slides/inotesslideheaderfootermanager/) controlla una diapositiva delle note. I gestori master e layout possono anche propagare le impostazioni alle diapositive dipendenti, mentre l'interfaccia [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/it/cpp/aspose.slides/imasterhandoutslideheaderfootermanager/) controlla il master degli opuscoli.
 
-``` cpp
-// Carica presentazione
-auto pres = System::MakeObject<Presentation>(u"headerTest.pptx");
+## **Imposta Piè di pagina, Data/Ora e Numeri Diapositiva su Diapositive Regolari**
 
-// Imposta piè di pagina
-pres->get_HeaderFooterManager()->SetAllFootersText(u"My Footer text");
-pres->get_HeaderFooterManager()->SetAllFootersVisibility(true);
+Per le diapositive regolari, il flusso di lavoro di base consiste nell'accedere al gestore intestazione/piè di pagina di ciascuna diapositiva, impostare il testo del piè di pagina e della data/ora, abilitare i segnaposti richiesti e salvare la presentazione. I numeri di diapositiva sono generati dalla presentazione, quindi è necessario controllare solo la loro visibilità.
 
-// Accedi e aggiorna intestazione
-auto masterNotesSlide = pres->get_MasterNotesSlideManager()->get_MasterNotesSlide();
-if (nullptr != masterNotesSlide)
-{
-	UpdateHeaderFooterText(masterNotesSlide);
-}
+Utilizzare [`SetFooterText`](https://reference.aspose.com/slides/it/cpp/aspose.slides/ibaseslideheaderfootermanager/setfootertext/) e [`SetDateTimeText`](https://reference.aspose.com/slides/it/cpp/aspose.slides/ibaseslideheaderfootermanager/setdatetimetext/) per impostare il testo, e utilizzare [`SetFooterVisibility`](https://reference.aspose.com/slides/it/cpp/aspose.slides/ibaseslideheaderfootermanager/setfootervisibility/), [`SetDateTimeVisibility`](https://reference.aspose.com/slides/it/cpp/aspose.slides/ibaseslideheaderfootermanager/setdatetimevisibility/), e [`SetSlideNumberVisibility`](https://reference.aspose.com/slides/it/cpp/aspose.slides/ibaseslideheaderfootermanager/setslidenumbervisibility/) per mostrare i corrispondenti segnaposti.
 
-// Salva presentazione
-pres->Save(u"HeaderFooterJava.pptx", SaveFormat::Pptx);
-```
+Il seguente esempio completo applica lo stesso piè di pagina, testo data/ora e visibilità del numero diapositiva a tutte le diapositive regolari:
 
-## **Gestire intestazioni e piè di pagina su diapositive Handout e Note**
-Aspose.Slides per C++ supporta intestazione e piè di pagina nelle diapositive Handout e Note. Segui i passaggi seguenti:
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/enumerator_adapter.h>
 
-- Carica una [Presentazione](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.presentation)contenente un video.
-- Modifica le impostazioni di intestazione e piè di pagina per il master delle note e tutte le diapositive di note.
-- Imposta il master delle note e tutti i segnaposto Footer figlio come visibili.
-- Imposta il master delle note e tutti i segnaposto Date and time figlio come visibili.
-- Modifica le impostazioni di intestazione e piè di pagina solo per la prima diapositiva di note.
-- Imposta il segnaposto Header della diapositiva di note come visibile.
-- Imposta il testo nel segnaposto Header della diapositiva di note.
-- Imposta il testo nel segnaposto Date-time della diapositiva di note.
-- Scrivi il file di presentazione modificato.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-Snippet di codice fornito nell'esempio seguente.
-
-``` cpp
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
-// Modifica le impostazioni di intestazione e piè di pagina per il master delle note e tutte le diapositive di note
+
+for (const auto& slide : System::IterateOver(presentation->get_Slides()))
+{
+    auto headerFooterManager = slide->get_HeaderFooterManager();
+
+    headerFooterManager->SetFooterText(u"Company Confidential");
+    headerFooterManager->SetFooterVisibility(true);
+
+    headerFooterManager->SetDateTimeText(u"Date and time text");
+    headerFooterManager->SetDateTimeVisibility(true);
+
+    headerFooterManager->SetSlideNumberVisibility(true);
+}
+
+presentation->Save(u"presentation_with_slide_footers.pptx", SaveFormat::Pptx);
+```
+
+Se è necessario aggiornare solo una diapositiva, accedere direttamente a quella diapositiva tramite [`Presentation::get_Slide`](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/get_slide/) invece di iterare l'intera collezione di diapositive.
+
+## **Imposta Intestazioni e Piè di pagina sul Master delle Note**
+
+Il master delle note definisce la formattazione comune e il comportamento dei segnaposti per le pagine delle note. Utilizzare l'interfaccia [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/it/cpp/aspose.slides/imasternotesslideheaderfootermanager/) quando si desidera modificare solo il master delle note.
+
+Il seguente esempio imposta intestazione, piè di pagina e testo data/ora sul master delle note e rende visibili tutti i segnaposti supportati su quel master:
+
+```cpp
+#include <DOM/IMasterNotesSlide.h>
+#include <DOM/IMasterNotesSlideHeaderFooterManager.h>
+#include <DOM/IMasterNotesSlideManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 auto masterNotesSlide = presentation->get_MasterNotesSlideManager()->get_MasterNotesSlide();
+
 if (masterNotesSlide != nullptr)
 {
-	auto headerFooterManager = masterNotesSlide->get_HeaderFooterManager();
+    auto headerFooterManager = masterNotesSlide->get_HeaderFooterManager();
 
-	// rendi visibili la diapositiva master delle note e tutti i segnaposto Footer dei figli
-	headerFooterManager->SetHeaderAndChildHeadersVisibility(true);
-	// rendi visibili la diapositiva master delle note e tutti i segnaposto Header dei figli
-	headerFooterManager->SetFooterAndChildFootersVisibility(true);
-	// rendi visibili la diapositiva master delle note e tutti i segnaposto SlideNumber dei figli
-	headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
-	// rendi visibili la diapositiva master delle note e tutti i segnaposto Data e ora dei figli
-	headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
+    headerFooterManager->SetHeaderText(u"Notes header");
+    headerFooterManager->SetHeaderVisibility(true);
 
-	// imposta il testo sulla diapositiva master delle note e su tutti i segnaposto Header dei figli
-	headerFooterManager->SetHeaderAndChildHeadersText(u"Header text");
-	// imposta il testo sulla diapositiva master delle note e su tutti i segnaposto Footer dei figli
-	headerFooterManager->SetFooterAndChildFootersText(u"Footer text");
-	// imposta il testo sulla diapositiva master delle note e su tutti i segnaposto Data e ora dei figli
-	headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
+    headerFooterManager->SetFooterText(u"Notes footer");
+    headerFooterManager->SetFooterVisibility(true);
+
+    headerFooterManager->SetDateTimeText(u"Date and time text");
+    headerFooterManager->SetDateTimeVisibility(true);
+
+    headerFooterManager->SetSlideNumberVisibility(true);
 }
 
-// Modifica le impostazioni di intestazione e piè di pagina solo per la prima diapositiva di note
-auto notesSlide = presentation->get_Slides()->idx_get(0)->get_NotesSlideManager()->get_NotesSlide();
-if (notesSlide != nullptr)
-{
-	auto headerFooterManager = notesSlide->get_HeaderFooterManager();
-	if (!headerFooterManager->get_IsHeaderVisible())
-	{
-		// rendi visibile il segnaposto Header di questa diapositiva di note
-		headerFooterManager->SetHeaderVisibility(true);
-	}
-
-	if (!headerFooterManager->get_IsFooterVisible())
-	{
-		// rendi visibile il segnaposto Footer di questa diapositiva di note
-		headerFooterManager->SetFooterVisibility(true);
-	}
-
-	if (!headerFooterManager->get_IsSlideNumberVisible())
-	{
-		// rendi visibile il segnaposto SlideNumber di questa diapositiva di note
-		headerFooterManager->SetSlideNumberVisibility(true);
-	}
-	
-	if (!headerFooterManager->get_IsDateTimeVisible())
-	{
-		// rendi visibile il segnaposto Data-ora di questa diapositiva di note
-		headerFooterManager->SetDateTimeVisibility(true);
-	}
-	
-	// imposta il testo sul segnaposto Header della diapositiva di note
-	headerFooterManager->SetHeaderText(u"New header text");
-	// imposta il testo sul segnaposto Footer della diapositiva di note
-	headerFooterManager->SetFooterText(u"New footer text");
-	// imposta il testo sul segnaposto Date-time della diapositiva di note
-	headerFooterManager->SetDateTimeText(u"New date and time text");
-}
-
-presentation->Save(u"testresult.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation_with_notes_master_footers.pptx", SaveFormat::Pptx);
 ```
+
+Il metodo [`IMasterNotesSlideManager::get_MasterNotesSlide`](https://reference.aspose.com/slides/it/cpp/aspose.slides/imasternotesslidemanager/get_masternotesslide/) restituisce `nullptr` quando la presentazione non contiene un master delle note.
+
+## **Applica le Impostazioni del Master delle Note alle Diapositive Note Figlie**
+
+Un master delle note può applicare le impostazioni di intestazione e piè di pagina a se stesso e a tutte le diapositive delle note dipendenti. Utilizzare i metodi di propagazione dedicati su [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/it/cpp/aspose.slides/imasternotesslideheaderfootermanager/) quando le stesse impostazioni devono essere applicate all'intera gerarchia delle note.
+
+Ad esempio, [`SetHeaderAndChildHeadersText`](https://reference.aspose.com/slides/it/cpp/aspose.slides/imasternotesslideheaderfootermanager/setheaderandchildheaderstext/) e [`SetHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/it/cpp/aspose.slides/imasternotesslideheaderfootermanager/setheaderandchildheadersvisibility/) aggiornano l'intestazione del master delle note e tutte le intestazioni figlie. Metodi equivalenti sono disponibili per i piè di pagina, data/ora e numeri di diapositiva.
+
+```cpp
+#include <DOM/IMasterNotesSlide.h>
+#include <DOM/IMasterNotesSlideHeaderFooterManager.h>
+#include <DOM/IMasterNotesSlideManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto masterNotesSlide = presentation->get_MasterNotesSlideManager()->get_MasterNotesSlide();
+
+if (masterNotesSlide != nullptr)
+{
+    auto headerFooterManager = masterNotesSlide->get_HeaderFooterManager();
+
+    headerFooterManager->SetHeaderAndChildHeadersText(u"Notes header");
+    headerFooterManager->SetHeaderAndChildHeadersVisibility(true);
+
+    headerFooterManager->SetFooterAndChildFootersText(u"Notes footer");
+    headerFooterManager->SetFooterAndChildFootersVisibility(true);
+
+    headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
+    headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
+
+    headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
+}
+
+presentation->Save(u"presentation_with_child_notes_footers.pptx", SaveFormat::Pptx);
+```
+
+I metodi di propagazione usati sopra sono [`SetFooterAndChildFootersText`](https://reference.aspose.com/slides/it/cpp/aspose.slides/imasternotesslideheaderfootermanager/setfooterandchildfooterstext/), [`SetFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/it/cpp/aspose.slides/imasternotesslideheaderfootermanager/setfooterandchildfootersvisibility/), [`SetDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/it/cpp/aspose.slides/imasternotesslideheaderfootermanager/setdatetimeandchilddatetimestext/), [`SetDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/it/cpp/aspose.slides/imasternotesslideheaderfootermanager/setdatetimeandchilddatetimesvisibility/), e [`SetSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/it/cpp/aspose.slides/imasternotesslideheaderfootermanager/setslidenumberandchildslidenumbersvisibility/).
+
+## **Imposta Intestazioni e Piè di pagina su una Diapositiva Note Individuale**
+
+Una diapositiva delle note appartiene a una specifica diapositiva regolare. Utilizzare la sua interfaccia [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/it/cpp/aspose.slides/inotesslideheaderfootermanager/) quando si desidera personalizzare solo quella pagina delle note.
+
+Il metodo [`INotesSlideManager::AddNotesSlide`](https://reference.aspose.com/slides/it/cpp/aspose.slides/inotesslidemanager/addnotesslide/) restituisce la diapositiva delle note per la diapositiva corrente e ne crea una se non esiste già. Il seguente esempio configura la pagina delle note associata alla prima diapositiva della presentazione:
+
+```cpp
+#include <DOM/INotesSlide.h>
+#include <DOM/INotesSlideHeaderFooterManager.h>
+#include <DOM/INotesSlideManager.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto slide = presentation->get_Slide(0);
+auto notesSlide = slide->get_NotesSlideManager()->AddNotesSlide();
+auto headerFooterManager = notesSlide->get_HeaderFooterManager();
+
+headerFooterManager->SetHeaderText(u"Header for the first notes page");
+headerFooterManager->SetHeaderVisibility(true);
+
+headerFooterManager->SetFooterText(u"Footer for the first notes page");
+headerFooterManager->SetFooterVisibility(true);
+
+headerFooterManager->SetDateTimeText(u"Date and time text");
+headerFooterManager->SetDateTimeVisibility(true);
+
+headerFooterManager->SetSlideNumberVisibility(true);
+
+presentation->Save(u"presentation_with_custom_notes_footers.pptx", SaveFormat::Pptx);
+```
+
+Se prima si propagano le impostazioni dal master delle note e poi si modifica una diapositiva delle note individuale, le impostazioni successive per diapositiva consentono di personalizzare quella pagina delle note in modo indipendente.
+
+## **Imposta Intestazioni e Piè di pagina sul Master degli Opuscoli**
+
+Le pagine degli opuscoli utilizzano il master degli opuscoli per i segnaposti di intestazione, piè di pagina, data/ora e numero di pagina. A differenza delle pagine delle note, le impostazioni degli opuscoli sono gestite attraverso il master degli opuscoli anziché tramite diapositive di opuscolo individuali.
+
+Utilizzare [`IMasterHandoutSlideManager::get_MasterHandoutSlide`](https://reference.aspose.com/slides/it/cpp/aspose.slides/imasterhandoutslidemanager/get_masterhandoutslide/) per accedere al master degli opuscoli. Se non è presente, chiamare [`IMasterHandoutSlideManager::SetDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/it/cpp/aspose.slides/imasterhandoutslidemanager/setdefaultmasterhandoutslide/) per creare il master degli opuscoli predefinito.
+
+```cpp
+#include <DOM/IMasterHandoutSlide.h>
+#include <DOM/IMasterHandoutSlideHeaderFooterManager.h>
+#include <DOM/IMasterHandoutSlideManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto masterHandoutSlideManager = presentation->get_MasterHandoutSlideManager();
+auto masterHandoutSlide = masterHandoutSlideManager->get_MasterHandoutSlide();
+
+if (masterHandoutSlide == nullptr)
+{
+    masterHandoutSlide = masterHandoutSlideManager->SetDefaultMasterHandoutSlide();
+}
+
+if (masterHandoutSlide != nullptr)
+{
+    auto headerFooterManager = masterHandoutSlide->get_HeaderFooterManager();
+
+    headerFooterManager->SetHeaderText(u"Handout header");
+    headerFooterManager->SetHeaderVisibility(true);
+
+    headerFooterManager->SetFooterText(u"Handout footer");
+    headerFooterManager->SetFooterVisibility(true);
+
+    headerFooterManager->SetDateTimeText(u"Date and time text");
+    headerFooterManager->SetDateTimeVisibility(true);
+
+    headerFooterManager->SetSlideNumberVisibility(true);
+}
+
+presentation->Save(u"presentation_with_handout_footers.pptx", SaveFormat::Pptx);
+```
+
+## **Comprendere Ambito ed Ereditarietà**
+
+Scegliere il gestore intestazione/piè di pagina che corrisponde all'ambito che si desidera modificare:
+
+- `ISlideHeaderFooterManager` modifica le impostazioni di piè di pagina, data/ora e numero diapositiva per una diapositiva regolare.
+- `ILayoutSlideHeaderFooterManager` controlla una diapositiva layout e può propagare le impostazioni supportate alle diapositive dipendenti.
+- `IMasterSlideHeaderFooterManager` controlla un master di diapositive regolari e può propagare le impostazioni supportate alle diapositive dipendenti.
+- `IMasterNotesSlideHeaderFooterManager` controlla il master delle note e può propagare le impostazioni a tutte le diapositive delle note dipendenti.
+- `INotesSlideHeaderFooterManager` modifica una diapositiva delle note e supporta un segnaposto di intestazione oltre a piè di pagina, data/ora e numero diapositiva.
+- `IMasterHandoutSlideHeaderFooterManager` modifica il master degli opuscoli e supporta tutti e quattro i tipi di segnaposto.
+
+Utilizzare la propagazione da un master o layout quando la stessa impostazione deve essere applicata lungo tutta la gerarchia. Utilizzare un gestore di diapositiva individuale o di diapositiva delle note quando è necessaria un'impostazione locale per una singola pagina.
 
 ## **FAQ**
 
-**Posso aggiungere un "header" alle diapositive normali?**
+**Posso aggiungere un'intestazione a una diapositiva regolare?**
 
-In PowerPoint, "Header" esiste solo per le note e gli handout; nelle diapositive normali, gli elementi supportati sono il footer, date/time e slide number. In Aspose.Slides questa corrisponde alle stesse limitazioni: header solo per Notes/Handout, e nelle diapositive—Footer/DateTime/SlideNumber.
+No. PowerPoint non definisce un segnaposto di intestazione per le diapositive regolari. Su diapositive regolari, utilizzare i segnaposti di piè di pagina, data/ora e numero diapositiva. I segnaposti di intestazione sono disponibili nelle pagine delle note e negli opuscoli.
 
-**Cosa succede se il layout non contiene un'area piè di pagina—posso "attivare" la sua visibilità?**
+**Cosa succede se un segnaposto di piè di pagina, data/ora o numero diapositiva non è visibile?**
 
-Sì. Controlla la visibilità tramite il gestore di header/footer e abilitala se necessario. Questi indicatori e metodi dell'API sono progettati per i casi in cui il segnaposto è mancante o nascosto.
+Utilizzare il gestore intestazione/piè di pagina corrispondente per verificare la sua visibilità e abilitarla quando necessario. Ad esempio, [`get_IsFooterVisible`](https://reference.aspose.com/slides/it/cpp/aspose.slides/ibaseslideheaderfootermanager/get_isfootervisible/) indica se è presente un segnaposto di piè di pagina, e [`SetFooterVisibility`](https://reference.aspose.com/slides/it/cpp/aspose.slides/ibaseslideheaderfootermanager/setfootervisibility/) ne modifica la visibilità.
 
-**Come posso far partire il numero della diapositiva da un valore diverso da 1?**
+**Come avvio la numerazione delle diapositive da un valore diverso da 1?**
 
-Imposta il [first slide number](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/set_firstslidenumber/) della presentazione; dopo di che, tutta la numerazione viene ricalcolata. Per esempio, puoi iniziare da 0 o 10 e nascondere il numero nella diapositiva titolo.
+Utilizzare [`Presentation::set_FirstSlideNumber`](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/set_firstslidenumber/) per impostare il numero della prima diapositiva. I segnaposti di numero diapositiva utilizzeranno quindi la sequenza di numerazione aggiornata.
 
-**Cosa succede a intestazioni/piè di pagina quando si esporta in PDF/immagini/HTML?**
+**Cosa succede alle intestazioni e ai piè di pagina durante l'esportazione in PDF, immagini o HTML?**
 
-Vengono renderizzati come normali elementi di testo della presentazione. Cioè, se gli elementi sono visibili nelle diapositive/pagine delle note, appariranno anche nel formato di output insieme al resto del contenuto.
+Gli elementi di intestazione e piè di pagina visibili vengono renderizzati insieme al resto del contenuto della presentazione nel formato di output. Il loro aspetto dipende dal tipo di pagina esportata e dalle impostazioni di visibilità dei corrispondenti segnaposti.

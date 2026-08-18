@@ -1,5 +1,5 @@
 ---
-title: Kelola Header dan Footer Presentasi dalam C++
+title: Kelola Header dan Footer Presentasi di C++
 linktitle: Header dan Footer
 type: docs
 weight: 140
@@ -18,148 +18,253 @@ keywords:
 - presentasi
 - C++
 - Aspose.Slides
-description: "Gunakan Aspose.Slides untuk C++ untuk menambahkan dan menyesuaikan header serta footer di presentasi PowerPoint dan OpenDocument agar tampilan profesional."
+description: "Pelajari cara mengelola placeholder footer, tanggal-waktu, nomor slide, dan header pada slide, halaman catatan, serta handout dengan Aspose.Slides untuk C++."
 ---
 ## **Ikhtisar**
 
-Aspose.Slides memungkinkan Anda mengelola pengaturan header dan footer dalam presentasi PowerPoint. Header dan footer ditangani pada tingkat master presentasi, dan API menyediakan metode untuk mengatur teks footer, mengubah visibilitas footer, dan memperbarui teks header pada slide catatan master.
+PowerPoint menggunakan placeholder header dan footer yang berbeda tergantung pada jenis halaman. Aspose.Slides untuk C++ memungkinkan Anda mengontrol teks dan visibilitas placeholder ini melalui antarmuka manajer header/footer.
 
-Anda juga dapat mengelola header dan footer untuk slide handout dan catatan. Ini mencakup mengubah visibilitas dan teks placeholder header, footer, nomor slide, dan tanggal-waktu untuk master catatan, semua slide catatan anak, atau slide catatan tunggal.
+Placeholder yang tersedia tergantung pada ruang lingkup:
 
-## **Kelola Teks Header dan Footer**
+| Ruang Lingkup | Header | Footer | Tanggal/waktu | Nomor slide/halaman |
+|---|---|---|---|---|
+| Slide reguler | Tidak | Ya | Ya | Ya |
+| Master catatan | Ya | Ya | Ya | Ya |
+| Slide catatan | Ya | Ya | Ya | Ya |
+| Master handout | Ya | Ya | Ya | Ya |
 
-Catatan pada beberapa slide tertentu dapat diperbarui seperti yang ditunjukkan pada contoh di bawah ini:
+Slide presentasi reguler tidak memiliki placeholder header. Header tersedia pada halaman catatan dan handout. Untuk slide reguler, gunakan placeholder footer, tanggal/waktu, dan nomor slide sebagai gantinya.
 
-``` cpp
-// Fungsi untuk mengatur Teks Header/Footer
-void UpdateHeaderFooterText(System::SharedPtr<IBaseSlide> master)
-{
-    for (const auto& shape : System::IterateOver(master->get_Shapes()))
-    {
-        if (shape->get_Placeholder() != nullptr)
-        {
-            if (shape->get_Placeholder()->get_Type() == PlaceholderType::Header)
-            {
-                (System::ExplicitCast<IAutoShape>(shape))->get_TextFrame()->set_Text(u"HI there new header");
-            }
-        }
-    }
-}
-```
+Ruang lingkup perubahan tergantung pada manajer yang Anda gunakan. Antarmuka [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/id/cpp/aspose.slides/islideheaderfootermanager/) mengontrol satu slide reguler. Antarmuka [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/id/cpp/aspose.slides/inotesslideheaderfootermanager/) mengontrol satu slide catatan. Manajer master dan tata letak juga dapat menyebarkan pengaturan ke slide yang bergantung, sementara antarmuka [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasterhandoutslideheaderfootermanager/) mengontrol master handout.
 
-``` cpp
-// Muat Presentasi
-auto pres = System::MakeObject<Presentation>(u"headerTest.pptx");
+## **Atur Footer, Tanggal/Waktu, dan Nomor Slide pada Slide Reguler**
 
-// Mengatur Footer
-pres->get_HeaderFooterManager()->SetAllFootersText(u"My Footer text");
-pres->get_HeaderFooterManager()->SetAllFootersVisibility(true);
+Untuk slide reguler, alur kerja dasar adalah mengakses manajer header/footer tiap slide, mengatur teks footer dan tanggal/waktu, mengaktifkan placeholder yang diperlukan, dan menyimpan presentasi. Nomor slide dihasilkan oleh presentasi, jadi Anda hanya perlu mengontrol visibilitasnya.
 
-// Akses dan Perbarui Header
-auto masterNotesSlide = pres->get_MasterNotesSlideManager()->get_MasterNotesSlide();
-if (nullptr != masterNotesSlide)
-{
-	UpdateHeaderFooterText(masterNotesSlide);
-}
+Gunakan [`SetFooterText`](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibaseslideheaderfootermanager/setfootertext/) dan [`SetDateTimeText`](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibaseslideheaderfootermanager/setdatetimetext/) untuk mengatur teks, serta [`SetFooterVisibility`](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibaseslideheaderfootermanager/setfootervisibility/), [`SetDateTimeVisibility`](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibaseslideheaderfootermanager/setdatetimevisibility/), dan [`SetSlideNumberVisibility`](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibaseslideheaderfootermanager/setslidenumbervisibility/) untuk menampilkan placeholder yang bersangkutan.
 
-// Simpan presentasi
-pres->Save(u"HeaderFooterJava.pptx", SaveFormat::Pptx);
-```
+Contoh end-to-end berikut menerapkan footer, teks tanggal/waktu, dan visibilitas nomor slide yang sama pada semua slide reguler:
 
-## **Kelola Header dan Footer pada Slide Handout dan Catatan**
-Aspose.Slides untuk C++ mendukung Header dan Footer pada slide Handout dan catatan. Silakan ikuti langkah-langkah di bawah ini:
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/enumerator_adapter.h>
 
-- Muat sebuah [Presentation ](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation)yang berisi video.
-- Ubah pengaturan Header dan Footer untuk master catatan dan semua slide catatan.
-- Jadikan placeholder Footer pada master catatan dan semua anaknya terlihat.
-- Jadikan placeholder Tanggal dan waktu pada master catatan dan semua anaknya terlihat.
-- Ubah pengaturan Header dan Footer hanya untuk slide catatan pertama.
-- Atur placeholder Header pada slide catatan menjadi terlihat.
-- Atur teks pada placeholder Header slide catatan.
-- Atur teks pada placeholder Tanggal-waktu slide catatan.
-- Tulis file presentasi yang telah dimodifikasi.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-Potongan kode disediakan pada Contoh di bawah ini.
-
-``` cpp
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
-// Ubah pengaturan Header dan Footer untuk master catatan dan semua slide catatan
+
+for (const auto& slide : System::IterateOver(presentation->get_Slides()))
+{
+    auto headerFooterManager = slide->get_HeaderFooterManager();
+
+    headerFooterManager->SetFooterText(u"Company Confidential");
+    headerFooterManager->SetFooterVisibility(true);
+
+    headerFooterManager->SetDateTimeText(u"Date and time text");
+    headerFooterManager->SetDateTimeVisibility(true);
+
+    headerFooterManager->SetSlideNumberVisibility(true);
+}
+
+presentation->Save(u"presentation_with_slide_footers.pptx", SaveFormat::Pptx);
+```
+
+Jika Anda hanya perlu memperbarui satu slide, akses slide tersebut langsung melalui [`Presentation::get_Slide`](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/get_slide/) alih-alih menelusuri seluruh koleksi slide.
+
+## **Atur Header dan Footer pada Master Catatan**
+
+Master catatan mendefinisikan pemformatan umum dan perilaku placeholder untuk halaman catatan. Gunakan antarmuka [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasternotesslideheaderfootermanager/) ketika Anda ingin mengubah hanya master catatan itu sendiri.
+
+Contoh berikut mengatur header, footer, dan teks tanggal/waktu pada master catatan serta membuat semua placeholder yang didukung terlihat pada master tersebut:
+
+```cpp
+#include <DOM/IMasterNotesSlide.h>
+#include <DOM/IMasterNotesSlideHeaderFooterManager.h>
+#include <DOM/IMasterNotesSlideManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 auto masterNotesSlide = presentation->get_MasterNotesSlideManager()->get_MasterNotesSlide();
+
 if (masterNotesSlide != nullptr)
 {
-	auto headerFooterManager = masterNotesSlide->get_HeaderFooterManager();
+    auto headerFooterManager = masterNotesSlide->get_HeaderFooterManager();
 
-	// buat slide catatan master dan semua placeholder Footer anak terlihat
-	headerFooterManager->SetHeaderAndChildHeadersVisibility(true);
-	// buat slide catatan master dan semua placeholder Header anak terlihat
-	headerFooterManager->SetFooterAndChildFootersVisibility(true);
-	// buat slide catatan master dan semua placeholder NomorSlide anak terlihat
-	headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
-	// buat slide catatan master dan semua placeholder Tanggal dan waktu anak terlihat
-	headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
+    headerFooterManager->SetHeaderText(u"Notes header");
+    headerFooterManager->SetHeaderVisibility(true);
 
-	// setel teks ke slide catatan master dan semua placeholder Header anak
-	headerFooterManager->SetHeaderAndChildHeadersText(u"Header text");
-	// setel teks ke slide catatan master dan semua placeholder Footer anak
-	headerFooterManager->SetFooterAndChildFootersText(u"Footer text");
-	// setel teks ke slide catatan master dan semua placeholder Tanggal dan waktu anak
-	headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
+    headerFooterManager->SetFooterText(u"Notes footer");
+    headerFooterManager->SetFooterVisibility(true);
+
+    headerFooterManager->SetDateTimeText(u"Date and time text");
+    headerFooterManager->SetDateTimeVisibility(true);
+
+    headerFooterManager->SetSlideNumberVisibility(true);
 }
 
-// Ubah pengaturan Header dan Footer hanya untuk slide catatan pertama
-auto notesSlide = presentation->get_Slides()->idx_get(0)->get_NotesSlideManager()->get_NotesSlide();
-if (notesSlide != nullptr)
-{
-	auto headerFooterManager = notesSlide->get_HeaderFooterManager();
-	if (!headerFooterManager->get_IsHeaderVisible())
-	{
-		// buat placeholder Header slide catatan ini terlihat
-		headerFooterManager->SetHeaderVisibility(true);
-	}
-
-	if (!headerFooterManager->get_IsFooterVisible())
-	{
-		// buat placeholder Footer slide catatan ini terlihat
-		headerFooterManager->SetFooterVisibility(true);
-	}
-
-	if (!headerFooterManager->get_IsSlideNumberVisible())
-	{
-		// buat placeholder NomorSlide slide catatan ini terlihat
-		headerFooterManager->SetSlideNumberVisibility(true);
-	}
-	
-	if (!headerFooterManager->get_IsDateTimeVisible())
-	{
-		// buat placeholder Tanggal-waktu slide catatan ini terlihat
-		headerFooterManager->SetDateTimeVisibility(true);
-	}
-	
-	// setel teks ke placeholder Header slide catatan
-	headerFooterManager->SetHeaderText(u"New header text");
-	// setel teks ke placeholder Footer slide catatan
-	headerFooterManager->SetFooterText(u"New footer text");
-	// setel teks ke placeholder Tanggal-waktu slide catatan
-	headerFooterManager->SetDateTimeText(u"New date and time text");
-}
-
-presentation->Save(u"testresult.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation_with_notes_master_footers.pptx", SaveFormat::Pptx);
 ```
+
+Metode [`IMasterNotesSlideManager::get_MasterNotesSlide`](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasternotesslidemanager/get_masternotesslide/) mengembalikan `nullptr` ketika presentasi tidak berisi master catatan.
+
+## **Terapkan Pengaturan Master Catatan ke Slide Catatan Anak**
+
+Master catatan dapat menerapkan pengaturan header dan footer pada dirinya sendiri serta semua slide catatan yang bergantung. Gunakan metode propagasi khusus pada [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasternotesslideheaderfootermanager/) ketika pengaturan yang sama harus diterapkan di seluruh hirarki catatan.
+
+Sebagai contoh, [`SetHeaderAndChildHeadersText`](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasternotesslideheaderfootermanager/setheaderandchildheaderstext/) dan [`SetHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasternotesslideheaderfootermanager/setheaderandchildheadersvisibility/) memperbarui header master catatan dan semua header anak. Metode setara tersedia untuk footer, tanggal/waktu, dan nomor slide.
+
+```cpp
+#include <DOM/IMasterNotesSlide.h>
+#include <DOM/IMasterNotesSlideHeaderFooterManager.h>
+#include <DOM/IMasterNotesSlideManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto masterNotesSlide = presentation->get_MasterNotesSlideManager()->get_MasterNotesSlide();
+
+if (masterNotesSlide != nullptr)
+{
+    auto headerFooterManager = masterNotesSlide->get_HeaderFooterManager();
+
+    headerFooterManager->SetHeaderAndChildHeadersText(u"Notes header");
+    headerFooterManager->SetHeaderAndChildHeadersVisibility(true);
+
+    headerFooterManager->SetFooterAndChildFootersText(u"Notes footer");
+    headerFooterManager->SetFooterAndChildFootersVisibility(true);
+
+    headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
+    headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
+
+    headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
+}
+
+presentation->Save(u"presentation_with_child_notes_footers.pptx", SaveFormat::Pptx);
+```
+
+Metode propagasi yang digunakan di atas adalah [`SetFooterAndChildFootersText`](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasternotesslideheaderfootermanager/setfooterandchildfooterstext/), [`SetFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasternotesslideheaderfootermanager/setfooterandchildfootersvisibility/), [`SetDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasternotesslideheaderfootermanager/setdatetimeandchilddatetimestext/), [`SetDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasternotesslideheaderfootermanager/setdatetimeandchilddatetimesvisibility/), dan [`SetSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasternotesslideheaderfootermanager/setslidenumberandchildslidenumbersvisibility/).
+
+## **Atur Header dan Footer pada Slide Catatan Individual**
+
+Slide catatan terkait dengan slide reguler tertentu. Gunakan antarmuka [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/id/cpp/aspose.slides/inotesslideheaderfootermanager/) ketika Anda ingin menyesuaikan hanya halaman catatan tersebut.
+
+Metode [`INotesSlideManager::AddNotesSlide`](https://reference.aspose.com/slides/id/cpp/aspose.slides/inotesslidemanager/addnotesslide/) mengembalikan slide catatan untuk slide saat ini dan membuatnya jika belum ada. Contoh berikut mengonfigurasi halaman catatan yang terkait dengan slide presentasi pertama:
+
+```cpp
+#include <DOM/INotesSlide.h>
+#include <DOM/INotesSlideHeaderFooterManager.h>
+#include <DOM/INotesSlideManager.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto slide = presentation->get_Slide(0);
+auto notesSlide = slide->get_NotesSlideManager()->AddNotesSlide();
+auto headerFooterManager = notesSlide->get_HeaderFooterManager();
+
+headerFooterManager->SetHeaderText(u"Header for the first notes page");
+headerFooterManager->SetHeaderVisibility(true);
+
+headerFooterManager->SetFooterText(u"Footer for the first notes page");
+headerFooterManager->SetFooterVisibility(true);
+
+headerFooterManager->SetDateTimeText(u"Date and time text");
+headerFooterManager->SetDateTimeVisibility(true);
+
+headerFooterManager->SetSlideNumberVisibility(true);
+
+presentation->Save(u"presentation_with_custom_notes_footers.pptx", SaveFormat::Pptx);
+```
+
+Jika Anda pertama-tama menyebarkan pengaturan dari master catatan lalu mengubah slide catatan individual, pengaturan per‑slide berikutnya memungkinkan Anda menyesuaikan halaman catatan tersebut secara terpisah.
+
+## **Atur Header dan Footer pada Master Handout**
+
+Halaman handout menggunakan master handout untuk placeholder header, footer, tanggal/waktu, dan nomor halaman mereka. Tidak seperti halaman catatan, pengaturan handout dikelola melalui master handout, bukan melalui slide handout individual.
+
+Gunakan [`IMasterHandoutSlideManager::get_MasterHandoutSlide`](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasterhandoutslidemanager/get_masterhandoutslide/) untuk mengakses master handout. Jika tidak ada, panggil [`IMasterHandoutSlideManager::SetDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasterhandoutslidemanager/setdefaultmasterhandoutslide/) untuk membuat master handout default.
+
+```cpp
+#include <DOM/IMasterHandoutSlide.h>
+#include <DOM/IMasterHandoutSlideHeaderFooterManager.h>
+#include <DOM/IMasterHandoutSlideManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto masterHandoutSlideManager = presentation->get_MasterHandoutSlideManager();
+auto masterHandoutSlide = masterHandoutSlideManager->get_MasterHandoutSlide();
+
+if (masterHandoutSlide == nullptr)
+{
+    masterHandoutSlide = masterHandoutSlideManager->SetDefaultMasterHandoutSlide();
+}
+
+if (masterHandoutSlide != nullptr)
+{
+    auto headerFooterManager = masterHandoutSlide->get_HeaderFooterManager();
+
+    headerFooterManager->SetHeaderText(u"Handout header");
+    headerFooterManager->SetHeaderVisibility(true);
+
+    headerFooterManager->SetFooterText(u"Handout footer");
+    headerFooterManager->SetFooterVisibility(true);
+
+    headerFooterManager->SetDateTimeText(u"Date and time text");
+    headerFooterManager->SetDateTimeVisibility(true);
+
+    headerFooterManager->SetSlideNumberVisibility(true);
+}
+
+presentation->Save(u"presentation_with_handout_footers.pptx", SaveFormat::Pptx);
+```
+
+## **Pahami Ruang Lingkup dan Pewarisan**
+
+Pilih manajer header/footer yang sesuai dengan ruang lingkup yang ingin Anda ubah:
+
+- [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/id/cpp/aspose.slides/islideheaderfootermanager/) mengubah pengaturan footer, tanggal/waktu, dan nomor slide untuk satu slide reguler.
+- [`ILayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilayoutslideheaderfootermanager/) mengontrol slide tata letak dan dapat menyebarkan pengaturan yang didukung ke slide yang bergantung.
+- [`IMasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasterslideheaderfootermanager/) mengontrol master slide reguler dan dapat menyebarkan pengaturan yang didukung ke slide yang bergantung.
+- [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasternotesslideheaderfootermanager/) mengontrol master catatan dan dapat menyebarkan pengaturan ke semua slide catatan yang bergantung.
+- [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/id/cpp/aspose.slides/inotesslideheaderfootermanager/) mengubah satu slide catatan dan mendukung placeholder header selain footer, tanggal/waktu, dan nomor slide.
+- [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/id/cpp/aspose.slides/imasterhandoutslideheaderfootermanager/) mengubah master handout dan mendukung keempat tipe placeholder.
+
+Gunakan propagasi dari master atau tata letak ketika pengaturan yang sama harus diterapkan di seluruh hirarki. Gunakan manajer slide individual atau slide‑catatan ketika Anda membutuhkan pengaturan lokal untuk satu halaman.
 
 ## **FAQ**
 
-**Apakah saya dapat menambahkan "header" pada slide reguler?**
+**Apakah saya dapat menambahkan header pada slide reguler?**
 
-Di PowerPoint, “Header” hanya ada untuk catatan dan handout; pada slide reguler, elemen yang didukung adalah footer, tanggal/waktu, dan nomor slide. Di Aspose.Slides hal ini memiliki batasan yang sama: header hanya untuk Notes/Handout, dan pada slide—Footer/DateTime/SlideNumber.
+Tidak. PowerPoint tidak mendefinisikan placeholder header untuk slide reguler. Pada slide reguler, gunakan placeholder footer, tanggal/waktu, dan nomor slide. Placeholder header tersedia pada halaman catatan dan handout.
 
-**Bagaimana jika tata letak tidak memiliki area footer—apakah saya dapat “mengaktifkan” visibilitasnya?**
+**Bagaimana jika placeholder footer, tanggal/waktu, atau nomor slide tidak terlihat?**
 
-Ya. Periksa visibilitas melalui manajer header/footer dan aktifkan jika diperlukan. Indikator dan metode API ini dirancang untuk situasi ketika placeholder tidak ada atau disembunyikan.
+Gunakan manajer header/footer yang bersangkutan untuk memeriksa visibilitasnya dan aktifkan bila diperlukan. Misalnya, [`get_IsFooterVisible`](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibaseslideheaderfootermanager/get_isfootervisible/) melaporkan apakah placeholder footer ada, dan [`SetFooterVisibility`](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibaseslideheaderfootermanager/setfootervisibility/) mengubah visibilitasnya.
 
-**Bagaimana cara membuat nomor slide dimulai dari nilai selain 1?**
+**Bagaimana cara memulai penomoran slide dari nilai selain 1?**
 
-Atur [nomor slide pertama](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/set_firstslidenumber/) pada presentasi; setelah itu, semua penomoran dihitung ulang. Misalnya, Anda dapat memulai dari 0 atau 10, dan menyembunyikan nomor pada slide judul.
+Gunakan [`Presentation::set_FirstSlideNumber`](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/set_firstslidenumber/) untuk mengatur nomor slide pertama. Placeholder nomor slide kemudian akan menggunakan urutan penomoran yang diperbarui.
 
-**Apa yang terjadi pada header/footer saat mengekspor ke PDF/gambar/HTML?**
+**Apa yang terjadi pada header dan footer saat mengekspor ke PDF, gambar, atau HTML?**
 
-Mereka dirender sebagai elemen teks biasa dalam presentasi. Artinya, jika elemen tersebut terlihat pada slide/halaman catatan, mereka juga akan muncul dalam format output bersama konten lainnya.
+Elemen header dan footer yang terlihat dirender bersama dengan konten presentasi lainnya dalam format output. Penampilannya tergantung pada jenis halaman yang diekspor dan pengaturan visibilitas placeholder yang bersangkutan.

@@ -1,131 +1,249 @@
 ---
-title: PHP'de Sunum Başlık ve Altbilgilerini Yönetme
-linktitle: Başlık ve Altbilgi
+title: PHP'de Sunum Üst Bilgi ve Alt Bilgileri Yönetme
+linktitle: Üst Bilgi ve Alt Bilgi
 type: docs
 weight: 140
 url: /tr/php-java/presentation-header-and-footer/
 keywords:
-- başlık
-- başlık metni
-- altbilgi
-- altbilgi metni
-- başlık ayarla
-- altbilgi ayarla
-- el ilanı
+- üst bilgi
+- üst bilgi metni
+- alt bilgi
+- alt bilgi metni
+- üst bilgi ayarla
+- alt bilgi ayarla
+- dağıtım
 - notlar
 - PowerPoint
 - OpenDocument
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java'ı kullanarak PowerPoint ve OpenDocument sunumlarına profesyonel bir görünüm kazandırmak için başlık ve altbilgileri ekleyin ve özelleştirin."
+description: "Aspose.Slides for PHP via Java ile slaytlarda, not sayfalarında ve dağıtımlarda alt bilgi, tarih-saat, slayt numarası ve üst bilgi tutamacılarını nasıl yöneteceğinizi öğrenin."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, PowerPoint sunumlarında başlık ve altbilgi ayarlarını yönetmenizi sağlar. Başlıklar ve altbilgiler sunum ana şablonu düzeyinde işlenir ve API, altbilgi metnini ayarlama, altbilgi görünürlüğünü değiştirme ve ana not slaytlarındaki başlık metnini güncelleme yöntemleri sunar.
+PowerPoint, sayfa türüne bağlı olarak farklı üst bilgi ve alt bilgi tutamacı (placeholder) kullanır. Aspose.Slides for PHP via Java, bu tutamacıların metnini ve görünürlüğünü üst bilgi/alt bilgi yöneticisi sınıfları aracılığıyla kontrol etmenizi sağlar.
 
-Ayrıca el ilanı ve not slaytları için başlık ve altbilgileri yönetebilirsiniz. Bu, not ana şablonu, tüm alt not slaytları veya tek bir not slaytı için başlık, altbilgi, slayt numarası ve tarih‑saat yer tutucularının görünürlüğünü ve metnini değiştirmeyi içerir.
+| Kapsam | Üst Bilgi | Alt Bilgi | Tarih/Zaman | Slayt/Sayfa Numarası |
+|---|---|---|---|---|
+| Normal slayt | Hayır | Evet | Evet | Evet |
+| Notlar ana taslağı | Evet | Evet | Evet | Evet |
+| Not slaytı | Evet | Evet | Evet | Evet |
+| Dağıtım ana taslağı | Evet | Evet | Evet | Evet |
 
-## **Bir Sunumda Başlık ve Altbilgileri Yönetme**
+Normal bir sunum slaytının üst bilgi tutamacı yoktur. Üst bilgiler not sayfalarında ve dağıtımlarda bulunur. Normal slaytlar için alt bilgi, tarih/zaman ve slayt numarası tutamacı kullanılmalıdır.
 
-Belirli bir slaytın notları aşağıdaki örnekte gösterildiği gibi kaldırılabilir:
+Bir değişikliğin kapsamı kullandığınız yöneticisine bağlıdır. [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slideheaderfootermanager/) sınıfı tek bir normal slaytı kontrol eder. [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/notesslideheaderfootermanager/) sınıfı tek bir not slaytını kontrol eder. Ana taslak ve düzen yöneticileri ayarları bağımlı slaytlara da yayabilir, [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masterhandoutslideheaderfootermanager/) sınıfı ise dağıtım ana taslağını kontrol eder.
 
-```php
-  # Sunumu Yükle
-  $pres = new Presentation("headerTest.pptx");
-  try {
-    # Altbilgi Ayarlama
-    $pres->getHeaderFooterManager()->setAllFootersText("My Footer text");
-    $pres->getHeaderFooterManager()->setAllFootersVisibility(true);
-    # Başlığa Eriş ve Güncelle
-    $masterNotesSlide = $pres->getMasterNotesSlideManager()->getMasterNotesSlide();
-    if (null != $masterNotesSlide) {
-      updateHeaderFooterText($masterNotesSlide);
-    }
-    # Sunumu Kaydet
-    $pres->save("HeaderFooterJava.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-```php
+## **Normal Slaytlarda Alt Bilgi, Tarih/Zaman ve Slayt Numaralarını Ayarlama**
 
-```
+Normal slaytlar için temel iş akışı, her slaytın üst bilgi/alt bilgi yöneticisine erişmek, alt bilgi ve tarih/zaman metnini ayarlamak, gerekli tutamacı etkinleştirmek ve sunumu kaydetmektir. Slayt numaraları sunum tarafından oluşturulur, bu yüzden yalnızca görünürlüklerini kontrol etmeniz yeterlidir.
 
-## **El İlanı ve Not Slaytlarında Başlık ve Altbilgileri Yönetme**
-Aspose.Slides for PHP via Java, El İlanı ve not slaytlarında Başlık ve Altbilgi desteği sağlar. Lütfen aşağıdaki adımları izleyin:
+[`setFooterText`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/baseslideheaderfootermanager/setfootertext/) ve [`setDateTimeText`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/baseslideheaderfootermanager/setdatetimetext/) ile metin ayarlayın, [`setFooterVisibility`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/baseslideheaderfootermanager/setfootervisibility/), [`setDateTimeVisibility`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/baseslideheaderfootermanager/setdatetimevisibility/) ve [`setSlideNumberVisibility`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/baseslideheaderfootermanager/setslidenumbervisibility/) ile ilgili tutamacı gösterin.
 
-- Videoyu içeren bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) yükleyin.
-- Not ana şablonu ve tüm not slaytları için Başlık ve Altbilgi ayarlarını değiştirin.
-- Ana not slaytındaki ve tüm alt Footer yer tutucularını görünür olarak ayarlayın.
-- Ana not slaytındaki ve tüm alt Tarih ve saat yer tutucularını görünür olarak ayarlayın.
-- Yalnızca ilk not slaytı için Başlık ve Altbilgi ayarlarını değiştirin.
-- Not slaytı Başlık yer tutucusunu görünür yapın.
-- Not slaytı Başlık yer tutucusuna metin ayarlayın.
-- Not slaytı Tarih‑saat yer tutucusuna metin ayarlayın.
-- Değiştirilmiş sunum dosyasını yazın.
-
-Aşağıdaki örnekte kod parçacığı sağlanmıştır.
+Aşağıdaki uçtan uca örnek, aynı alt bilgi, tarih/zaman metni ve slayt numarası görünürlüğünü tüm normal slaytlara uygular:
 
 ```php
-  $pres = new Presentation("presentation.pptx");
-  try {
-    # Not ana slaytı ve tüm not slaytları için Başlık ve Altbilgi ayarlarını değiştir
-    $masterNotesSlide = $pres->getMasterNotesSlideManager()->getMasterNotesSlide();
-    if (!java_is_null($masterNotesSlide)) {
-      $headerFooterManager = $masterNotesSlide->getHeaderFooterManager();
-      $headerFooterManager->setHeaderAndChildHeadersVisibility(true);// master not slaytını ve tüm alt Footer yer tutucularını görünür yap
-      $headerFooterManager->setFooterAndChildFootersVisibility(true);// master not slaytını ve tüm alt Header yer tutucularını görünür yap
-      $headerFooterManager->setSlideNumberAndChildSlideNumbersVisibility(true);// master not slaytını ve tüm alt SlideNumber yer tutucularını görünür yap
-      $headerFooterManager->setDateTimeAndChildDateTimesVisibility(true);// master not slaytını ve tüm alt Tarih ve saat yer tutucularını görünür yap
-      $headerFooterManager->setHeaderAndChildHeadersText("Header text");// master not slaytına ve tüm alt Header yer tutucularına metin ayarla
-      $headerFooterManager->setFooterAndChildFootersText("Footer text");// master not slaytına ve tüm alt Footer yer tutucularına metin ayarla
-      $headerFooterManager->setDateTimeAndChildDateTimesText("Date and time text");// master not slaytına ve tüm alt Tarih ve saat yer tutucularına metin ayarla
-    }
-    # İlk not slaytı için yalnızca Başlık ve Altbilgi ayarlarını değiştir
-    $notesSlide = $pres->getSlides()->get_Item(0)->getNotesSlideManager()->getNotesSlide();
-    if (!java_is_null($notesSlide)) {
-      $headerFooterManager = $notesSlide->getHeaderFooterManager();
-      if (!$headerFooterManager->isHeaderVisible()) {
-        $headerFooterManager->setHeaderVisibility(true);
-      }// bu not slaytının Header yer tutucusunu görünür yap
-      if (!$headerFooterManager->isFooterVisible()) {
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("presentation.pptx");
+try {
+    foreach ($presentation->getSlides() as $slide) {
+        $headerFooterManager = $slide->getHeaderFooterManager();
+
+        $headerFooterManager->setFooterText("Company Confidential");
         $headerFooterManager->setFooterVisibility(true);
-      }// bu not slaytının Footer yer tutucusunu görünür yap
-      if (!$headerFooterManager->isSlideNumberVisible()) {
-        $headerFooterManager->setSlideNumberVisibility(true);
-      }// bu not slaytının SlideNumber yer tutucusunu görünür yap
-      if (!$headerFooterManager->isDateTimeVisible()) {
+
+        $headerFooterManager->setDateTimeText("Date and time text");
         $headerFooterManager->setDateTimeVisibility(true);
-      }// bu not slaytının Date-time yer tutucusunu görünür yap
-      $headerFooterManager->setHeaderText("New header text");// not slaytı Header yer tutucusuna metin ayarla
-      $headerFooterManager->setFooterText("New footer text");// not slaytı Footer yer tutucusuna metin ayarla
-      $headerFooterManager->setDateTimeText("New date and time text");// not slaytı Date-time yer tutucusuna metin ayarla
+
+        $headerFooterManager->setSlideNumberVisibility(true);
     }
-    $pres->save("testresult.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("presentation_with_slide_footers.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+Yalnızca bir slaytı güncellemeniz gerekiyorsa, tüm koleksiyonu döngüyle gezmek yerine [`getSlides`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/getslides/) yöntemini kullanarak o slayta doğrudan erişin.
+
+## **Notlar Ana Taslağında Üst Bilgi ve Alt Bilgi Ayarlama**
+
+Notlar ana taslağı, not sayfaları için ortak biçimlendirme ve tutamacı davranışlarını tanımlar. Sadece notlar ana taslağını değiştirmek istediğinizde [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masternotesslideheaderfootermanager/) sınıfını kullanın.
+
+Aşağıdaki örnek, notlar ana taslağında üst bilgi, alt bilgi ve tarih/zaman metnini ayarlar ve o ana taslaktaki tüm desteklenen tutamacı görünür hâle getirir:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("presentation.pptx");
+try {
+    $masterNotesSlide = $presentation->getMasterNotesSlideManager()->getMasterNotesSlide();
+
+    if (!java_is_null($masterNotesSlide)) {
+        $headerFooterManager = $masterNotesSlide->getHeaderFooterManager();
+
+        $headerFooterManager->setHeaderText("Notes header");
+        $headerFooterManager->setHeaderVisibility(true);
+
+        $headerFooterManager->setFooterText("Notes footer");
+        $headerFooterManager->setFooterVisibility(true);
+
+        $headerFooterManager->setDateTimeText("Date and time text");
+        $headerFooterManager->setDateTimeVisibility(true);
+
+        $headerFooterManager->setSlideNumberVisibility(true);
+    }
+
+    $presentation->save("presentation_with_notes_master_footers.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+[`getMasterNotesSlide`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masternotesslidemanager/getmasternotesslide/) yöntemi, sunumda bir notlar ana taslağı bulunmadığında `null` döndürür.
+
+## **Notlar Ana Taslağı Ayarlarını Çocuk Not Slaytlarına Uygulama**
+
+Bir notlar ana taslağı, üst bilgi ve alt bilgi ayarlarını kendisine ve tüm bağımlı not slaytlarına uygulayabilir. Aynı ayarların notlar hiyerarşisi boyunca uygulanması gerektiğinde [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masternotesslideheaderfootermanager/) üzerindeki özel yayma yöntemlerini kullanın.
+
+Örneğin, [`setHeaderAndChildHeadersText`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masternotesslideheaderfootermanager/setheaderandchildheaderstext/) ve [`setHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masternotesslideheaderfootermanager/setheaderandchildheadersvisibility/) notlar ana taslağı üst bilgisini ve tüm çocuk üst bilgilerini günceller. Alt bilgiler, tarih/zaman ve slayt numaraları için eşdeğer yöntemler mevcuttur.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("presentation.pptx");
+try {
+    $masterNotesSlide = $presentation->getMasterNotesSlideManager()->getMasterNotesSlide();
+
+    if (!java_is_null($masterNotesSlide)) {
+        $headerFooterManager = $masterNotesSlide->getHeaderFooterManager();
+
+        $headerFooterManager->setHeaderAndChildHeadersText("Notes header");
+        $headerFooterManager->setHeaderAndChildHeadersVisibility(true);
+
+        $headerFooterManager->setFooterAndChildFootersText("Notes footer");
+        $headerFooterManager->setFooterAndChildFootersVisibility(true);
+
+        $headerFooterManager->setDateTimeAndChildDateTimesText("Date and time text");
+        $headerFooterManager->setDateTimeAndChildDateTimesVisibility(true);
+
+        $headerFooterManager->setSlideNumberAndChildSlideNumbersVisibility(true);
+    }
+
+    $presentation->save("presentation_with_child_notes_footers.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Yukarıda kullanılan yayma yöntemleri şunlardır: [`setFooterAndChildFootersText`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masternotesslideheaderfootermanager/setfooterandchildfooterstext/), [`setFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masternotesslideheaderfootermanager/setfooterandchildfootersvisibility/), [`setDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masternotesslideheaderfootermanager/setdatetimeandchilddatetimestext/), [`setDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masternotesslideheaderfootermanager/setdatetimeandchilddatetimesvisibility/), ve [`setSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masternotesslideheaderfootermanager/setslidenumberandchildslidenumbersvisibility/).
+
+## **Bireysel Not Slaytında Üst Bilgi ve Alt Bilgi Ayarlama**
+
+Bir not slaytı, belirli bir normal slayta aittir. Sadece o not sayfasını özelleştirmek istediğinizde [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/notesslideheaderfootermanager/) sınıfını kullanın.
+
+[`addNotesSlide`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/notesslidemanager/addnotesslide/) yöntemi, geçerli slayt için not slaytını döndürür ve henüz mevcut değilse bir tane oluşturur. Aşağıdaki örnek, ilk sunum slaytıyla ilişkili not sayfasını yapılandırır:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("presentation.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $notesSlide = $slide->getNotesSlideManager()->addNotesSlide();
+    $headerFooterManager = $notesSlide->getHeaderFooterManager();
+
+    $headerFooterManager->setHeaderText("Header for the first notes page");
+    $headerFooterManager->setHeaderVisibility(true);
+
+    $headerFooterManager->setFooterText("Footer for the first notes page");
+    $headerFooterManager->setFooterVisibility(true);
+
+    $headerFooterManager->setDateTimeText("Date and time text");
+    $headerFooterManager->setDateTimeVisibility(true);
+
+    $headerFooterManager->setSlideNumberVisibility(true);
+
+    $presentation->save("presentation_with_custom_notes_footers.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Önce notlar ana taslağından ayarları yayar, ardından bireysel bir not slaytını değiştirirseniz, sonraki slayt‑başına‑başına ayarlar o not sayfasını bağımsız olarak özelleştirmenizi sağlar.
+
+## **Dağıtım Ana Taslağında Üst Bilgi ve Alt Bilgi Ayarlama**
+
+Dağıtım sayfaları, üst bilgi, alt bilgi, tarih/zaman ve sayfa numarası tutamacı için dağıtım ana taslağını kullanır. Not sayfalarından farklı olarak, dağıtım ayarları bireysel dağıtım slaytları yerine dağıtım ana taslağı üzerinden yönetilir.
+
+[`getMasterHandoutSlide`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masterhandoutslidemanager/getmasterhandoutslide/) yöntemi ile dağıtım ana taslağına erişin. Mevcut değilse, varsayılan dağıtım ana taslağını oluşturmak için [`setDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masterhandoutslidemanager/setdefaultmasterhandoutslide/) metodunu çağırın.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("presentation.pptx");
+try {
+    $masterHandoutSlide = $presentation->getMasterHandoutSlideManager()->getMasterHandoutSlide();
+
+    if (java_is_null($masterHandoutSlide)) {
+        $masterHandoutSlide = $presentation->getMasterHandoutSlideManager()->setDefaultMasterHandoutSlide();
+    }
+
+    if (!java_is_null($masterHandoutSlide)) {
+        $headerFooterManager = $masterHandoutSlide->getHeaderFooterManager();
+
+        $headerFooterManager->setHeaderText("Handout header");
+        $headerFooterManager->setHeaderVisibility(true);
+
+        $headerFooterManager->setFooterText("Handout footer");
+        $headerFooterManager->setFooterVisibility(true);
+
+        $headerFooterManager->setDateTimeText("Date and time text");
+        $headerFooterManager->setDateTimeVisibility(true);
+
+        $headerFooterManager->setSlideNumberVisibility(true);
+    }
+
+    $presentation->save("presentation_with_handout_footers.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Kapsam ve Kalıtımı Anlamak**
+
+Değiştirmek istediğiniz kapsamla eşleşen üst bilgi/alt bilgi yöneticisini seçin:
+
+- [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slideheaderfootermanager/) bir normal slayt için alt bilgi, tarih/zaman ve slayt numarası ayarlarını değiştirir.
+- [`LayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutslideheaderfootermanager/) bir düzen slaytını kontrol eder ve desteklenen ayarları bağımlı slaytlara yayabilir.
+- [`MasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masterslideheaderfootermanager/) bir normal slayt ana taslağını kontrol eder ve desteklenen ayarları bağımlı slaytlara yayabilir.
+- [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masternotesslideheaderfootermanager/) notlar ana taslağını kontrol eder ve tüm bağımlı not slaytlarına ayarları yayabilir.
+- [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/notesslideheaderfootermanager/) bir not slaytını değiştirir ve üst bilgi tutamacını, alt bilgi, tarih/zaman ve slayt numarasını destekler.
+- [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masterhandoutslideheaderfootermanager/) dağıtım ana taslağını değiştirir ve dört tutamacı da destekler.
+
+Aynı ayarın hiyerarşinin tamamında uygulanması gerektiğinde bir ana taslak veya düzen üzerinden yayma kullanın. Tek bir sayfa için yerel bir ayar gerektiğinde bireysel slayt veya not‑slayt yöneticisini kullanın.
 
 ## **SSS**
 
-**Düzenli slaytlara bir "header" ekleyebilir miyim?**
+**Normal bir slayta üst bilgi ekleyebilir miyim?**
 
-PowerPoint'te "Header" yalnızca notlar ve el ilanları için mevcuttur; düzenli slaytlarda desteklenen öğeler altbilgi, tarih/saat ve slayt numarasıdır. Aspose.Slides'te bu aynı sınırlamaları yansıtır: header yalnızca Notes/Handout için, slaytlarda ise Footer/DateTime/SlideNumber.
+Hayır. PowerPoint, normal slaytlar için bir üst bilgi tutamacı tanımlamaz. Normal slaytlarda alt bilgi, tarih/zaman ve slayt‑numarası tutamacı kullanılmalıdır. Üst bilgi tutamacı not sayfalarında ve dağıtımlarda mevcuttur.
 
-**Düzen bir altbilgi alanı içermiyorsa—görünürlüğünü "aç"abilir miyim?**
+**Bir alt bilgi, tarih/zaman veya slayt‑numarası tutamacı görünür değilse ne yapmalıyım?**
 
-Evet. Görünürlüğü başlık/altbilgi yöneticisi aracılığıyla kontrol edin ve gerekirse etkinleştirin. Bu API göstergeleri ve yöntemleri, yer tutucu eksik ya da gizli olduğunda kullanılmak üzere tasarlanmıştır.
+İlgili üst bilgi/alt bilgi yöneticisini kullanarak görünürlüğünü kontrol edin ve gerektiğinde etkinleştirin. Örneğin, [`isFooterVisible`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/baseslideheaderfootermanager/isfootervisible/) bir alt bilgi tutamacının mevcut olup olmadığını bildirir, [`setFooterVisibility`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/baseslideheaderfootermanager/setfootervisibility/) ise görünürlüğünü değiştirir.
 
-**Slayt numarasını 1 dışında bir değerden nasıl başlatırım?**
+**Slayt numaralandırmasını 1 yerine farklı bir değerden başlatabilir miyim?**
 
-Sunumun [first slide number](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/setfirstslidenumber/) özelliğini ayarlayın; ardından tüm numaralandırma yeniden hesaplanır. Örneğin, 0 veya 10'dan başlayabilir ve başlık slaytındaki numarayı gizleyebilirsiniz.
+Sunumun [`setFirstSlideNumber`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/setfirstslidenumber/) metodunu çağırın. Slayt‑numarası tutamacı daha sonra güncellenen numaralandırma sırasını kullanır.
 
-**PDF/görseller/HTML'ye dışa aktarırken başlıklar/altbilgiler ne olur?**
+**PDF, görüntüler veya HTML olarak dışa aktarırken üst bilgi ve alt bilgi ne olur?**
 
-Başlık ve altbilgiler, sunumun normal metin öğeleri olarak işlenir. Yani, bu öğeler slaytlar/not sayfalarında görünürse, çıktı formatında da içerikle birlikte görünürler.
+Görünür üst bilgi ve alt bilgi öğeleri, çıktının formatında sunum içeriğiyle birlikte işlenir. Görünüm, dışa aktarılan sayfa tipine ve ilgili tutamacı görünürlük ayarlarına bağlıdır.
