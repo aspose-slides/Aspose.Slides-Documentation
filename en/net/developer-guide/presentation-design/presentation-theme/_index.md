@@ -27,297 +27,370 @@ description: "Master presentation themes in Aspose.Slides for .NET to create, cu
 
 ## **Introduction**
 
-A presentation theme defines the properties of design elements. When you select a presentation theme, you are essentially choosing a specific set of visual elements and their properties.
+A presentation theme defines a coordinated set of colors, fonts, background styles, fills, lines, and effects. Theme-aware objects refer to these shared definitions instead of storing every visual property as a fixed value, so a theme change can update many objects at once.
 
-In PowerPoint, a theme comprises colors, [fonts](/slides/net/powerpoint-fonts/), [background styles](/slides/net/presentation-background/), and effects.
+In Aspose.Slides, the presentation-level theme is available through the [Presentation.MasterTheme](https://reference.aspose.com/slides/net/aspose.slides/presentation/mastertheme/) property. A presentation can also contain theme overrides at lower levels. A master can override the presentation theme through [MasterThemeManager.OverrideTheme](https://reference.aspose.com/slides/net/aspose.slides.theme/masterthememanager/overridetheme/), a layout can override its inherited theme through [BaseOverrideThemeManager.OverrideTheme](https://reference.aspose.com/slides/net/aspose.slides.theme/baseoverridethememanager/overridetheme/), and an individual slide can do the same. In practice, the effective theme for a slide is resolved through this inheritance chain: presentation theme, master override, layout override, and slide override.
 
-![theme-constituents](theme-constituents.png)
+![Theme components: colors, fonts, background styles, and effects](theme-constituents.png)
 
-## **Change Theme Color**
+The sections below show the most common theme workflows: inspect a theme, change colors and fonts, copy or apply a theme, update background and effect styles, and read effective values after inheritance and overrides have been resolved.
 
-A PowerPoint theme uses a specific set of colors for different elements on a slide. If you don't like the colors, you change them colors by applying new colors for the theme. To allow you select a new theme color, Aspose.Slides provides values under the [SchemeColor](https://reference.aspose.com/slides/net/aspose.slides/schemecolor/) enumeration.
+## **Inspect a Theme**
 
-This C# code shows you how to change the accent color for a theme:
+The [MasterTheme](https://reference.aspose.com/slides/net/aspose.slides.theme/mastertheme/) object exposes the theme's [ColorScheme](https://reference.aspose.com/slides/net/aspose.slides.theme/mastertheme/colorscheme/), [FontScheme](https://reference.aspose.com/slides/net/aspose.slides.theme/mastertheme/fontscheme/), and [FormatScheme](https://reference.aspose.com/slides/net/aspose.slides.theme/mastertheme/formatscheme/). Inspecting these collections before changing them is especially useful when a presentation comes from an external source because the number and content of style entries can vary.
 
-```c#
+The following example reads the main theme properties and reports how many background, fill, line, and effect styles are stored in the theme:
+
+```csharp
+using System;
 using Aspose.Slides;
 
-using (Presentation pres = new Presentation())
-    
-{
-    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+using var presentation = new Presentation("input.pptx");
+var theme = presentation.MasterTheme;
 
-    shape.FillFormat.FillType = FillType.Solid;
-
-    shape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
-}
+Console.WriteLine($"Theme name: {theme.Name}");
+Console.WriteLine($"Accent 1: {theme.ColorScheme.Accent1.Color}");
+Console.WriteLine($"Major Latin font: {theme.FontScheme.Major.LatinFont.FontName}");
+Console.WriteLine($"Minor Latin font: {theme.FontScheme.Minor.LatinFont.FontName}");
+Console.WriteLine($"Background fill styles: {theme.FormatScheme.BackgroundFillStyles.Count}");
+Console.WriteLine($"Fill styles: {theme.FormatScheme.FillStyles.Count}");
+Console.WriteLine($"Line styles: {theme.FormatScheme.LineStyles.Count}");
+Console.WriteLine($"Effect styles: {theme.FormatScheme.EffectStyles.Count}");
 ```
 
-You can determine the resulting color's effective value this way:
+If a file uses multiple masters, do not assume that every slide has the same effective theme. Inspect the master associated with the slide, and use the effective-theme workflow shown later in this article when layout or slide overrides may be present.
 
-```c#
-using Aspose.Slides;
+## **Change Theme Colors**
 
-using (Presentation pres = new Presentation())
-{
-    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+Theme-aware fills, lines, and text can refer to a logical color from the [SchemeColor](https://reference.aspose.com/slides/net/aspose.slides/schemecolor/) enumeration. When you change the corresponding entry in the theme's [IColorScheme](https://reference.aspose.com/slides/net/aspose.slides.theme/icolorscheme/), all objects that still reference that theme color are resolved against the new value. Objects that use a direct RGB color are not changed by a theme-color update.
 
-    shape.FillFormat.FillType = FillType.Solid;
+The following end-to-end example creates a shape that uses `Accent4`, changes the theme's `Accent4` color to red, saves the presentation, reopens it, and prints the effective fill color:
 
-    shape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
-
-    var fillEffective = shape.FillFormat.GetEffective();
-
-    Console.WriteLine($"{fillEffective.SolidFillColor.Name} ({fillEffective.SolidFillColor})"); // ff8064a2 (Color [A=255, R=128, G=100, B=162])
-}
-```
-
-To further demonstrate the color change operation, we create another element and assign the accent color (from the initial operation) to it. Then we change the color in the theme:
-
-```c#
+```csharp
+using System;
 using System.Drawing;
-using Aspose.Slides;
-
-using (Presentation pres = new Presentation())
-{
-    IAutoShape otherShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
-
-    otherShape.FillFormat.FillType = FillType.Solid;
-
-    otherShape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
-
-    pres.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
-}
-```
-
-The new color is applied automatically on both elements.
-
-### **Set Theme Color from an Additional Palette**
-
-When you apply luminance transformations to the main theme color(1), colors from the additional palette(2) are formed. You can then set and get those theme colors. 
-
-![additional-palette-colors](additional-palette-colors.png)
-
-**1** - Main theme colors
-
-**2** - Colors from the additional palette.
-
-This C# code demonstrates an operation where additional palette colors are obtained from the main theme color and then used in shapes:
-
-```c#
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+shape.FillFormat.FillType = FillType.Solid;
+shape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+presentation.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
+presentation.Save("theme-color.pptx", SaveFormat.Pptx);
 
-    // Accent 4
-    IShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 50, 50);
-
-    shape1.FillFormat.FillType = FillType.Solid;
-    shape1.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
-
-    // Accent 4, Lighter 80%
-    IShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 70, 50, 50);
-
-    shape2.FillFormat.FillType = FillType.Solid;
-    shape2.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
-    shape2.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.2f);
-    shape2.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.8f);
-
-    // Accent 4, Lighter 60%
-    IShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 130, 50, 50);
-
-    shape3.FillFormat.FillType = FillType.Solid;
-    shape3.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
-    shape3.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.4f);
-    shape3.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.6f);
-
-    // Accent 4, Lighter 40%
-    IShape shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 190, 50, 50);
-
-    shape4.FillFormat.FillType = FillType.Solid;
-    shape4.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
-    shape4.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.6f);
-    shape4.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.4f);
-
-    // Accent 4, Darker 25%
-    IShape shape5 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 250, 50, 50);
-
-    shape5.FillFormat.FillType = FillType.Solid;
-    shape5.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
-    shape5.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.75f);
-
-    // Accent 4, Darker 50%
-    IShape shape6 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 310, 50, 50);
-
-    shape6.FillFormat.FillType = FillType.Solid;
-    shape6.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
-    shape6.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.5f);
-
-    presentation.Save("example.pptx", SaveFormat.Pptx);
-}
+using var savedPresentation = new Presentation("theme-color.pptx");
+var savedSlide = savedPresentation.Slides[0];
+var savedShape = savedSlide.Shapes[0];
+var effectiveFill = savedShape.FillFormat.GetEffective();
+Console.WriteLine($"Effective fill color: {effectiveFill.SolidFillColor}");
 ```
 
-### **Map `SchemeColor` to `IColorScheme` Colors**
+Because the rectangle remains linked to `Accent4`, its visible color becomes red after the theme is changed. If you replace the scheme color with a direct color on the shape, later changes to `Accent4` will no longer affect that fill.
 
-When you work with [SchemeColor](https://reference.aspose.com/slides/net/aspose.slides/schemecolor/), you may notice that it contains the following theme color values:
+### **Use Colors from the Additional Palette**
 
-`Background1`, `Background2`, `Text1`, and `Text2`.
+PowerPoint derives lighter and darker variants from a theme color by applying color transformations. Aspose.Slides exposes these transformations through [ColorTransformOperation](https://reference.aspose.com/slides/net/aspose.slides/colortransformoperation/).
 
-However, `Presentation.MasterTheme.ColorScheme` returns [IColorScheme](https://reference.aspose.com/slides/net/aspose.slides.theme/icolorscheme/), which exposes the corresponding colors as:
+![Main theme colors and lighter and darker colors generated from the additional palette](additional-palette-colors.png)
 
-`Dark1`, `Dark2`, `Light1`, and `Light2`.
+**1** - Main theme colors.
 
-This difference is only in naming. These values refer to the same theme color slots and the mapping is fixed:
+**2** - Lighter and darker variants produced from the main theme colors.
+
+The following example creates six rectangles based on `Accent4`, applies luminance transformations to five of them, and saves the result:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 50, 50);
+shape1.FillFormat.FillType = FillType.Solid;
+shape1.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+
+var shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 70, 50, 50);
+shape2.FillFormat.FillType = FillType.Solid;
+shape2.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+shape2.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.2f);
+shape2.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.8f);
+
+var shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 130, 50, 50);
+shape3.FillFormat.FillType = FillType.Solid;
+shape3.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+shape3.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.4f);
+shape3.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.6f);
+
+var shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 190, 50, 50);
+shape4.FillFormat.FillType = FillType.Solid;
+shape4.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+shape4.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.6f);
+shape4.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.4f);
+
+var shape5 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 250, 50, 50);
+shape5.FillFormat.FillType = FillType.Solid;
+shape5.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+shape5.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.75f);
+
+var shape6 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 310, 50, 50);
+shape6.FillFormat.FillType = FillType.Solid;
+shape6.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+shape6.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.5f);
+
+presentation.Save("theme-color-palette.pptx", SaveFormat.Pptx);
+```
+
+These variants remain based on the theme color. If `Accent4` changes later, the transformed colors are recalculated from the new `Accent4` value.
+
+### **Map `SchemeColor` Values to `IColorScheme` Slots**
+
+The [SchemeColor](https://reference.aspose.com/slides/net/aspose.slides/schemecolor/) enumeration uses `Text1`, `Background1`, `Text2`, and `Background2`, while [IColorScheme](https://reference.aspose.com/slides/net/aspose.slides.theme/icolorscheme/) exposes the same theme slots as `Dark1`, `Light1`, `Dark2`, and `Light2`. The mapping is fixed:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-There is no dynamic conversion between `Text`/`Background` and `Dark`/`Light`. They are simply alternate names for the same theme colors.
+These are alternate names for the same theme slots; they are not values that are dynamically converted from one form to another.
 
-This naming difference comes from Microsoft Office terminology. Older Office versions used `Dark 1`, `Light 1`, `Dark 2`, and `Light 2`, while newer UI versions display the same slots as `Text 1`, `Background 1`, `Text 2`, and `Background 2`.
+## **Change Theme Fonts**
 
-## **Change Theme Font**
+A theme font scheme contains a major font set for headings and a minor font set for body text. The [FontScheme.Major](https://reference.aspose.com/slides/net/aspose.slides.theme/fontscheme/major/) and [FontScheme.Minor](https://reference.aspose.com/slides/net/aspose.slides.theme/fontscheme/minor/) properties expose those sets.
 
-To allow you select fonts for themes and other purposes, Aspose.Slides uses these special identifiers (similar to those used in PowerPoint):
+PowerPoint-compatible theme font identifiers can be used in text formatting:
 
-* **+mn-lt** - Body Font Latin (Minor Latin Font)
-* **+mj-lt** -Heading Font Latin (Major Latin Font)
-* **+mn-ea** - Body Font East Asian (Minor East Asian Font)
-* **+mj-ea** - Body Font East Asian (Minor East Asian Font)
+* `+mn-lt` - Body Font Latin (Minor Latin Font)
+* `+mj-lt` - Heading Font Latin (Major Latin Font)
+* `+mn-ea` - Body Font East Asian (Minor East Asian Font)
+* `+mj-ea` - Heading Font East Asian (Major East Asian Font)
 
-This C# code shows you how to assign the Latin font to a theme element:
+The following example creates one heading that uses the major Latin theme font and one body line that uses the minor Latin theme font. It then changes the theme fonts and saves the result:
 
-```c#
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation())
-{
-    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    Paragraph paragraph = new Paragraph();
+var heading = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 500, 60);
+heading.TextFrame.Text = "Theme heading";
+heading.TextFrame.Paragraphs[0].Portions[0].PortionFormat.LatinFont = new FontData("+mj-lt");
 
-    Portion portion = new Portion("Theme text format");
+var body = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 120, 500, 60);
+body.TextFrame.Text = "Theme body text";
+body.TextFrame.Paragraphs[0].Portions[0].PortionFormat.LatinFont = new FontData("+mn-lt");
 
-    paragraph.Portions.Add(portion);
+presentation.MasterTheme.FontScheme.Major.LatinFont = new FontData("Aptos Display");
+presentation.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
 
-    shape.TextFrame.Paragraphs.Add(paragraph);
-
-    portion.PortionFormat.LatinFont = new FontData("+mn-lt");
-}
+presentation.Save("theme-fonts.pptx", SaveFormat.Pptx);
 ```
 
-This C# code shows you how to change the presentation theme font:
+The heading follows the major font and the body text follows the minor font. Text that has an explicit font name instead of a theme identifier will not automatically switch when the theme font scheme changes.
 
-```c#
-using Aspose.Slides;
+{{% alert color="info" title="Tip" %}}
 
-using (Presentation pres = new Presentation())
-{
-    pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
-}
-```
-
-The font in all text boxes will be updated.
-
-{{% alert color="info" title="TIP" %}} 
-
-You may want to see [PowerPoint fonts](/slides/net/powerpoint-fonts/).
+For more information about presentation fonts, see [PowerPoint Fonts](/slides/net/powerpoint-fonts/).
 
 {{% /alert %}}
 
-## **Change Theme Background Style**
+## **Copy or Apply a Theme**
 
-By default, the PowerPoint app provides 12 predefined backgrounds but only 3 from those 12 backgrounds are saved in a typical presentation. 
+There are two common workflows, and they solve different problems.
 
-![todo:image_alt_text](presentation-design_8.png)
+### **Preserve a Source Theme When Moving Slides**
 
-For example, after you save a presentation in the PowerPoint app, you can run this C# code to find out the number predefined backgrounds in the presentation:
+If you want to move a slide to another presentation and preserve its original design, clone the source master into the target presentation with [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection/addclone/), then clone the slide with [ISlideCollection.AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/addclone/) and the cloned master. This carries the master, its layouts, and the associated theme together.
 
-```c#
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation("pres.pptx"))
+using var source = new Presentation("source-theme.pptx");
+using var target = new Presentation("target.pptx");
 
-{
-    int numberOfBackgroundFills = pres.MasterTheme.FormatScheme.BackgroundFillStyles.Count;
+var sourceSlide = source.Slides[0];
+var sourceMaster = sourceSlide.LayoutSlide.MasterSlide;
+var clonedMaster = target.Masters.AddClone(sourceMaster);
+target.Slides.AddClone(sourceSlide, clonedMaster, true);
 
-    Console.WriteLine($"Number of background fill styles for theme is {numberOfBackgroundFills}");
-}
+target.Save("theme-preserved.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="warning" %}} 
+This is the preferred workflow when the source slide must look the same in the destination. Simply cloning content onto an unrelated destination master can change theme-driven colors, fonts, backgrounds, and effects.
 
-Using the [BackgroundFillStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/backgroundfillstyles/) property from the [FormatScheme](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/) class, you can add or access the background style in a PowerPoint theme. 
+### **Apply Theme Values to an Existing Slide**
+
+If the target slide must stay on its current master and layout, initialize a slide-level override from the source theme. The [OverrideTheme.InitColorSchemeFrom](https://reference.aspose.com/slides/net/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme.InitFontSchemeFrom](https://reference.aspose.com/slides/net/aspose.slides.theme/overridetheme/initfontschemefrom/), and [OverrideTheme.InitFormatSchemeFrom](https://reference.aspose.com/slides/net/aspose.slides.theme/overridetheme/initformatschemefrom/) methods copy the three main theme components into the override.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var source = new Presentation("source-theme.pptx");
+using var target = new Presentation("target.pptx");
+
+var targetSlide = target.Slides[0];
+var overrideTheme = targetSlide.ThemeManager.OverrideTheme;
+overrideTheme.InitColorSchemeFrom(source.MasterTheme.ColorScheme);
+overrideTheme.InitFontSchemeFrom(source.MasterTheme.FontScheme);
+overrideTheme.InitFormatSchemeFrom(source.MasterTheme.FormatScheme);
+
+target.Save("theme-applied-to-slide.pptx", SaveFormat.Pptx);
+```
+
+This changes the theme used by that slide without changing the theme inherited by other slides. To remove the local override and return to inherited values, call [OverrideTheme.Clear](https://reference.aspose.com/slides/net/aspose.slides.theme/overridetheme/clear/).
+
+### **Apply a Theme Override to a Layout**
+
+A layout-level override applies to slides that use that layout, unless a particular slide has its own override. The same initialization methods can be used through the layout's [LayoutSlideThemeManager](https://reference.aspose.com/slides/net/aspose.slides.theme/layoutslidethememanager/):
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var source = new Presentation("source-theme.pptx");
+using var target = new Presentation("target.pptx");
+
+var targetLayout = target.Slides[0].LayoutSlide;
+var overrideTheme = targetLayout.ThemeManager.OverrideTheme;
+overrideTheme.InitColorSchemeFrom(source.MasterTheme.ColorScheme);
+overrideTheme.InitFontSchemeFrom(source.MasterTheme.FontScheme);
+overrideTheme.InitFormatSchemeFrom(source.MasterTheme.FormatScheme);
+
+target.Save("theme-applied-to-layout.pptx", SaveFormat.Pptx);
+```
+
+Use a master or presentation-level theme when many layouts and slides should share the same base design, a layout override when one layout family needs different styling, and a slide override only for true exceptions. Excessive slide-level overrides make later global theme changes harder to predict.
+
+## **Update Theme Background Styles**
+
+The theme's background fills are stored in [FormatScheme.BackgroundFillStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/backgroundfillstyles/). PowerPoint can present more background choices in its UI than the number of fill definitions physically stored in this collection because the UI can combine theme fills with theme colors and other style references.
+
+![PowerPoint background style gallery for a presentation theme](presentation-design_8.png)
+
+Before using a background style, inspect the stored collection and the current [Background.StyleIndex](https://reference.aspose.com/slides/net/aspose.slides/background/styleindex/). `StyleIndex` uses `0` for no themed fill; positive values are theme background-style references. This is different from indexing the .NET collection directly, where `[0]` means the first stored item. Do not assume that every presentation contains the same number of background fill styles.
+
+The following example reports the available background fill count, assigns a themed background reference to the first master, and saves the presentation:
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+var backgroundStyles = presentation.MasterTheme.FormatScheme.BackgroundFillStyles;
+Console.WriteLine($"Background fill styles: {backgroundStyles.Count}");
+
+if (backgroundStyles.Count == 0)
+{
+    throw new InvalidOperationException("The presentation theme does not contain background fill styles.");
+}
+
+presentation.Masters[0].Background.Type = BackgroundType.Themed;
+presentation.Masters[0].Background.StyleIndex = 1;
+
+presentation.Save("theme-background.pptx", SaveFormat.Pptx);
+```
+
+The visible result depends on the theme entry referenced by the master and on any background overrides at the layout or slide level. If a slide uses its own background, changing only the master background may not change that slide. Use [Background.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/background/geteffective/) when you need to know the final background after inheritance has been applied.
+
+{{% alert color="warning" title="Warning" %}}
+
+Do not treat `StyleIndex` as a zero-based collection index. Also avoid hard-coding a style number from one file and assuming it has the same appearance in another file; theme style definitions are presentation-specific.
 
 {{% /alert %}}
 
-This C# code shows you how to set the background for a presentation:
+{{% alert color="info" title="Tip" %}}
 
-```c#
-using Aspose.Slides;
-
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    pres.Masters[0].Background.StyleIndex = 2;
-}
-```
-
-**Index guide**: 0 is used for no fill. The index starts from 1.
-
-{{% alert color="info" title="TIP" %}} 
-
-You may want to see [PowerPoint Background](/slides/net/presentation-background/).
+For direct background formatting and background inheritance, see [Presentation Background](/slides/net/presentation-background/).
 
 {{% /alert %}}
 
-## **Change Theme Effect**
+## **Update Theme Effects**
 
-A PowerPoint theme usually contains 3 values for each style array. Those arrays are combined into these 3 effects: subtle, moderate, and intense. For example, this is the outcome when the effects are applied to a specific shape:
+A theme format scheme contains separate [FillStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/fillstyles/), [LineStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/linestyles/), and [EffectStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/effectstyles/) collections. Typical Office themes often contain three principal style entries that correspond visually to subtle, moderate, and intense formatting, but code should inspect each collection instead of assuming a fixed count.
 
-![todo:image_alt_text](presentation-design_10.png)
+![Subtle, moderate, and intense theme effects applied to the same shape](presentation-design_10.png)
 
-Using 3 properties ([FillStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/fillstyles), [LineStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/linestyles), [EffectStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/effectstyles)) from the [FormatScheme](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme) class you can change the elements in a theme (even more flexibly than the options in PowerPoint).
+When you access these collections in C#, the collection index is zero-based: `[0]` is the first stored style and `[2]` is the third. A shape's style-reference indexes are a separate concept, exposed through [IShapeStyle](https://reference.aspose.com/slides/net/aspose.slides/ishapestyle/). Modifying a theme style affects shapes that reference that theme style; shapes with direct formatting may remain unchanged.
 
-This C# code shows you how to change a theme effect by altering parts of elements:
+The following example checks that the required style entries exist, changes the first line style, changes the third fill style, enables an outer shadow in the third effect style, and saves the result:
 
-```c#
+```csharp
+using System;
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx"))
+using var presentation = new Presentation("Subtle_Moderate_Intense.pptx");
+var formatScheme = presentation.MasterTheme.FormatScheme;
+
+if (formatScheme.LineStyles.Count < 1 || formatScheme.FillStyles.Count < 3 || formatScheme.EffectStyles.Count < 3)
 {
-    pres.MasterTheme.FormatScheme.LineStyles[0].FillFormat.SolidFillColor.Color = Color.Red;
+    throw new InvalidOperationException("The theme does not contain the style entries required by this example.");
+}
 
-    pres.MasterTheme.FormatScheme.FillStyles[2].FillType = FillType.Solid;
+formatScheme.LineStyles[0].FillFormat.FillType = FillType.Solid;
+formatScheme.LineStyles[0].FillFormat.SolidFillColor.Color = Color.Red;
+formatScheme.FillStyles[2].FillType = FillType.Solid;
+formatScheme.FillStyles[2].SolidFillColor.Color = Color.ForestGreen;
+formatScheme.EffectStyles[2].EffectFormat.EnableOuterShadowEffect();
+formatScheme.EffectStyles[2].EffectFormat.OuterShadowEffect.Distance = 10f;
 
-    pres.MasterTheme.FormatScheme.FillStyles[2].SolidFillColor.Color = Color.ForestGreen;
+presentation.Save("theme-effects.pptx", SaveFormat.Pptx);
+```
 
-    pres.MasterTheme.FormatScheme.EffectStyles[2].EffectFormat.OuterShadowEffect.Distance = 10f;
+For shapes that reference these slots, the first theme line style becomes red, the third theme fill style becomes solid forest green, and the third effect style gains an outer shadow with a distance of 10 points. The exact visual result still depends on which style slots each shape references and whether direct formatting overrides the theme.
 
-    pres.Save("Design_04_Subtle_Moderate_Intense-out.pptx", SaveFormat.Pptx);
+![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
+
+## **Read Effective Theme Values**
+
+Raw theme objects tell you what is defined at a particular level. Effective values tell you what a slide or shape actually uses after inheritance and local overrides are resolved. For a slide, call [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/). For a background, use [Background.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/background/geteffective/), and for a fill, use [FillFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/fillformat/geteffective/).
+
+The following example reads the effective theme, background, and first shape fill from a slide:
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+var effectiveTheme = slide.ThemeManager.CreateThemeEffective();
+var effectiveBackground = slide.Background.GetEffective();
+
+Console.WriteLine($"Effective major Latin font: {effectiveTheme.FontScheme.Major.LatinFont.FontName}");
+Console.WriteLine($"Effective minor Latin font: {effectiveTheme.FontScheme.Minor.LatinFont.FontName}");
+Console.WriteLine($"Effective background fill type: {effectiveBackground.FillFormat.FillType}");
+
+if (slide.Shapes.Count > 0)
+{
+    var effectiveFill = slide.Shapes[0].FillFormat.GetEffective();
+    Console.WriteLine($"First shape effective fill type: {effectiveFill.FillType}");
+    if (effectiveFill.FillType == FillType.Solid)
+    {
+        Console.WriteLine($"First shape effective fill color: {effectiveFill.SolidFillColor}");
+    }
 }
 ```
 
-The resulting changes in fill color, fill type, shadow effect, etc:
-
-![todo:image_alt_text](presentation-design_11.png)
+Use effective data for rendering diagnostics, validation, and comparisons. If you inspect only [Presentation.MasterTheme](https://reference.aspose.com/slides/net/aspose.slides/presentation/mastertheme/), you can miss a master, layout, slide, or shape override that changes the final appearance.
 
 ## **FAQ**
 
-### Can I apply a theme to a single slide without changing the master?
+**Can I apply a theme to a single slide without changing the master?**
 
-Yes. Aspose.Slides support slide-level theme overrides, so you can apply a local theme to just that slide while keeping the master theme intact (via the [SlideThemeManager](https://reference.aspose.com/slides/net/aspose.slides.theme/slidethememanager/)).
+Yes. Use the slide's [SlideThemeManager](https://reference.aspose.com/slides/net/aspose.slides.theme/slidethememanager/) and initialize its override theme. The change remains local to that slide; other slides continue to inherit their existing themes.
 
-### What’s the safest way to carry a theme from one presentation to another?
+**What is the safest way to carry a theme from one presentation to another?**
 
-[Clone slides](/slides/net/clone-slides/) together with their master into the target presentation. This preserves the original master, layouts, and the associated theme so the appearance remains consistent.
+When moving a slide and preserving its source appearance, clone the source master into the destination and clone the slide with that master using [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection/addclone/) and [ISlideCollection.AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/addclone/). This keeps the master, layouts, and theme together.
 
-### How can I see the "effective" values after all inheritance and overrides?
+**How can I see the effective values after inheritance and overrides?**
 
-Use the API’s ["effective" views](/slides/net/shape-effective-properties/) for theme/color/font/effect. These return the resolved, final properties after applying the master plus any local overrides.
+Use [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/) for a slide or layout theme and the corresponding effective-data methods for format objects such as [Background.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/background/geteffective/) and [FillFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/fillformat/geteffective/). These APIs return the resolved values after inheritance and overrides are applied.
