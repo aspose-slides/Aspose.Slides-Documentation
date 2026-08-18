@@ -10,34 +10,35 @@ keywords:
 - حفظ شريحة
 - PowerPoint
 - OpenDocument
-- عرض تقديمي
+- العرض التقديمي
 - PHP
 - Aspose.Slides
-description: "استنسخ شرائح PowerPoint بسرعة باستخدام Aspose.Slides لِـ PHP. اتبع أمثلة الشيفرة الواضحة لأتمتة إنشاء ملفات PPT في ثوانٍ وإزالة العمل اليدوي."
+description: "قم بنسخ شرائح PowerPoint بسرعة باستخدام Aspose.Slides for PHP. اتبع أمثلة الكود الواضحة لدينا لأتمتة إنشاء العروض التقديمية خلال ثوانٍ وإزالة العمل اليدوي."
 ---
+## **المقدمة**
 
-## **استنساخ الشرائح في عرض تقديمي**
-الاستنساخ هو عملية إنشاء نسخة مطابقة أو مماثلة لشيء ما. Aspose.Slides for PHP via Java يجعل من الممكن أيضًا عمل نسخة أو استنساخ لأي شريحة ثم إدراج تلك الشريحة المستنسخة في العرض التقديمي الحالي أو أي عرض تم فتحه. عملية استنساخ الشريحة تُنشئ شريحة جديدة يمكن للمطورين تعديلها دون تغيير الشريحة الأصلية. هناك عدة طرق ممكنة لاستنساخ شريحة:
+الاستنساخ هو عملية إنشاء نسخة مطابقة أو نسخة طبق الأصل من شيء ما. تجعل Aspose.Slides for PHP via Java من الممكن إنشاء نسخة أو استنساخ لأي شريحة ثم إدراج تلك الشريحة المستنسخة في العرض الحالي أو أي عرض آخر مفتوح. عملية استنساخ الشرائح تنشئ شريحة جديدة يمكن للمطورين تعديلها دون تغيير الشريحة الأصلية. هناك عدة طرق ممكنة لاستنساخ شريحة:
 
 - استنساخ في النهاية داخل عرض تقديمي.
-- استنساخ في موضع آخر داخل عرض تقديمي.
+- استنساخ في موقع آخر داخل عرض تقديمي.
 - استنساخ في النهاية في عرض تقديمي آخر.
-- استنساخ في موضع آخر في عرض تقديمي آخر.
-- استنساخ في موضع محدد في عرض تقديمي آخر.
+- استنساخ في موقع آخر في عرض تقديمي آخر.
+- استنساخ في موقع محدد في عرض تقديمي آخر.
 
-في Aspose.Slides for PHP via Java، (مجموعة من [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/Slide) objects) التي يُظهرها كائن [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) توفر الطريقتين [addClone](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection/#addClone) و[insertClone](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection/#insertClone) لتنفيذ الأنواع المذكورة أعلاه من استنساخ الشرائح
+في Aspose.Slides for PHP via Java، (مجموعة من كائنات [Slide](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Slide)) التي يوفرها كائن [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Presentation) توفر طريقتي [addClone](https://reference.aspose.com/slides/ar/php-java/aspose.slides/SlideCollection/#addClone) و [insertClone](https://reference.aspose.com/slides/ar/php-java/aspose.slides/SlideCollection/#insertClone) لتنفيذ الأنواع المذكورة أعلاه من استنساخ الشرائح
 
 ## **استنساخ شريحة في نهاية عرض تقديمي**
-إذا أردت استنساخ شريحة ثم استخدامها داخل نفس ملف العرض التقديمي في نهاية الشرائح الموجودة، استخدم طريقة [addClone](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection/#addClone) وفقًا للخطوات المذكورة أدناه:
+إذا كنت تريد استنساخ شريحة ثم استخدامها داخل نفس ملف العرض في نهاية الشرائح الموجودة، استخدم طريقة [addClone](https://reference.aspose.com/slides/ar/php-java/aspose.slides/SlideCollection/#addClone) وفقًا للخطوات المذكورة أدناه:
 
-1. أنشئ مثيلًا من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. احصل على كائن [SlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation/#getSlides) بالإشارة إلى مجموعة الشرائح التي يُظهرها كائن [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. استدعِ طريقة [addClone](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection/#addClone) التي يُظهرها كائن [SlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation/#getSlides) ومرّر الشريحة التي تريد استنساخها كمعامل إلى طريقة [addClone](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection/#addClone).
-1. احفظ ملف العرض التقديمي المعدل.
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Presentation).
+1. الحصول على كائن [SlideCollection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Presentation/#getSlides) بالإشارة إلى مجموعة الشرائح التي يوفرها كائن [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Presentation).
+1. استدعاء طريقة [addClone](https://reference.aspose.com/slides/ar/php-java/aspose.slides/SlideCollection/#addClone) التي يوفرها كائن [SlideCollection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Presentation/#getSlides) وتمرير الشريحة المراد استنساخها كمعامل إلى طريقة [addClone](https://reference.aspose.com/slides/ar/php-java/aspose.slides/SlideCollection/#addClone).
+1. حفظ ملف العرض المعدل.
 
-في المثال أدناه، قمنا باستنساخ شريحة (تقع في الموضع الأول – الفهرس صفر – من العرض التقديمي) إلى نهاية العرض التقديمي.
+في المثال أدناه، قمنا باستنساخ شريحة (تقع في الموضع الأول – الفهرس صفر – من العرض) إلى نهاية العرض.
+
 ```php
-  # إنشاء كائن فئة Presentation الذي يمثل ملف عرض تقديمي
+  # إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي
   $pres = new Presentation("CloneWithinSamePresentationToEnd.pptx");
   try {
     # استنساخ الشريحة المطلوبة إلى نهاية مجموعة الشرائح في نفس العرض التقديمي
@@ -50,18 +51,18 @@ description: "استنسخ شرائح PowerPoint بسرعة باستخدام Asp
   }
 ```
 
+## **استنساخ شريحة إلى موقع آخر داخل عرض تقديمي**
+إذا كنت تريد استنساخ شريحة ثم استخدامها داخل نفس ملف العرض ولكن في موضع مختلف، استخدم طريقة [insertClone](https://reference.aspose.com/slides/ar/php-java/aspose.slides/SlideCollection/#insertClone):
 
-## **استنساخ شريحة إلى موضع آخر داخل عرض تقديمي**
-إذا أردت استنساخ شريحة ثم استخدامها داخل نفس ملف العرض التقديمي لكن في موضع مختلف، استخدم طريقة [insertClone](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection/#insertClone):
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Presentation).
+1. الحصول على كائن [SlideCollection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/SlideCollection) بالإشارة إلى مجموعة [Slides](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Presentation/#getSlides) التي يوفرها كائن [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Presentation).
+1. استدعاء طريقة [insertClone](https://reference.aspose.com/slides/ar/php-java/aspose.slides/SlideCollection/#insertClone) التي يوفرها كائن [SlideCollection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Presentation/#getSlides) وتمرير الشريحة المراد استنساخها مع الفهرس للموقع الجديد كمعامل إلى طريقة [insertClone](https://reference.aspose.com/slides/ar/php-java/aspose.slides/SlideCollection/#insertClone).
+1. حفظ العرض المعدل كملف PPTX.
 
-1. أنشئ مثيلًا من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. احصل على كائن [SlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection) بالإشارة إلى مجموعة [**Slides**](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation/#getSlides) التي يُظهرها كائن [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. استدعِ طريقة [insertClone](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection/#insertClone) التي يُظهرها كائن [SlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation/#getSlides) ومرّر الشريحة التي تريد استنساخها مع الفهرس للموضع الجديد كمعامل إلى طريقة [insertClone](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection/#insertClone).
-1. احفظ العرض التقديمي المعدل كملف PPTX.
+في المثال أدناه، قمنا باستنساخ شريحة (تقع في الفهرس صفر – الموضع 1 – من العرض) إلى الفهرس 1 – الموضع 2 – من العرض.
 
-في المثال أدناه، قمنا باستنساخ شريحة (تقع في الفهرس صفر – الموضع 1 – من العرض التقديمي) إلى الفهرس 1 – الموضع 2 – من العرض التقديمي.
 ```php
-  # إنشاء كائن فئة Presentation الذي يمثل ملف عرض تقديمي
+  # إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي
   $pres = new Presentation("CloneWithInSamePresentation.pptx");
   try {
     # استنساخ الشريحة المطلوبة إلى نهاية مجموعة الشرائح في نفس العرض التقديمي
@@ -75,28 +76,28 @@ description: "استنسخ شرائح PowerPoint بسرعة باستخدام Asp
   }
 ```
 
-
 ## **استنساخ شريحة في نهاية عرض تقديمي آخر**
-إذا كنت بحاجة إلى استنساخ شريحة من عرض تقديمي واستخدامها في عرض تقديمي آخر، في نهاية الشرائح الموجودة:
+إذا كنت بحاجة إلى استنساخ شريحة من عرض تقديمي واستخدامها في ملف عرض تقديمي آخر، في نهاية الشرائح الموجودة:
 
-1. أنشئ مثيلًا من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) الذي يحتوي على العرض التقديمي الذي ستُستنسخ منه الشريحة.
-1. أنشئ مثيلًا من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) الذي يحتوي على العرض التقديمي الهدف الذي ستُضاف إليه الشريحة.
-1. احصل على كائن [SlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection) بالإشارة إلى مجموعة [**Slides**](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation/#getSlides) التي يُظهرها كائن Presentation للعرض التقديمي الهدف.
-1. استدعِ طريقة [addClone](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection/#addClone) التي يُظهرها كائن [SlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation/#getSlides) ومرّر الشريحة من العرض التقديمي المصدر كمعامل إلى طريقة [addClone](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection/#addClone).
-1. احفظ ملف العرض التقديمي الهدف المعدل.
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Presentation) التي تحتوي على العرض الذي سيتم استنساخ الشريحة منه.
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Presentation) التي تحتوي على العرض الهدف الذي ستُضاف إليه الشريحة.
+1. الحصول على كائن [SlideCollection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/SlideCollection) بالإشارة إلى مجموعة [Slides](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Presentation/#getSlides) التي يوفرها كائن Presentation الخاص بالعرض الهدف.
+1. استدعاء طريقة [addClone](https://reference.aspose.com/slides/ar/php-java/aspose.slides/SlideCollection/#addClone) التي يوفرها كائن [SlideCollection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Presentation/#getSlides) وتمرير الشريحة من العرض المصدر كمعامل إلى طريقة [addClone](https://reference.aspose.com/slides/ar/php-java/aspose.slides/SlideCollection/#addClone).
+1. حفظ ملف العرض الهدف المعدل.
 
-في المثال أدناه، قمنا باستنساخ شريحة (من الفهرس الأول للعرض التقديمي المصدر) إلى نهاية العرض التقديمي الهدف.
+في المثال أدناه، قمنا باستنساخ شريحة (من الفهرس الأول للعرض المصدر) إلى نهاية العرض الهدف.
+
 ```php
-  # إنشاء كائن فئة Presentation لتحميل ملف العرض التقديمي المصدر
+  # إنشاء كائن من فئة Presentation لتحميل ملف العرض التقديمي المصدر
   $srcPres = new Presentation("CloneAtEndOfAnother.pptx");
   try {
-    # إنشاء كائن فئة Presentation للـ PPTX الهدف (حيث ستُستنسخ الشريحة)
+    # إنشاء كائن من فئة Presentation لملف PPTX الوجهة (حيث سيتم استنساخ الشريحة)
     $destPres = new Presentation();
     try {
-      # استنساخ الشريحة المطلوبة من العرض التقديمي المصدر إلى نهاية مجموعة الشرائح في العرض التقديمي الهدف
+      # استنساخ الشريحة المطلوبة من العرض التقديمي المصدر إلى نهاية مجموعة الشرائح في العرض التقديمي الوجهة
       $slds = $destPres->getSlides();
       $slds->addClone($srcPres->getSlides()->get_Item(0));
-      # حفظ العرض التقديمي الهدف إلى القرص
+      # حفظ العرض التقديمي الوجهة إلى القرص
       $destPres->save("Aspose2_out.pptx", SaveFormat::Pptx);
     } finally {
       $destPres->dispose();
@@ -106,28 +107,28 @@ description: "استنسخ شرائح PowerPoint بسرعة باستخدام Asp
   }
 ```
 
+## **استنساخ شريحة إلى موقع آخر في عرض تقديمي آخر**
+إذا كنت بحاجة إلى استنساخ شريحة من عرض تقديمي واستخدامها في ملف عرض تقديمي آخر، في موقع محدد:
 
-## **استنساخ شريحة إلى موضع آخر في عرض تقديمي آخر**
-إذا كنت بحاجة إلى استنساخ شريحة من عرض تقديمي واستخدامها في عرض تقديمي آخر، في موضع محدد:
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Presentation) التي تحتوي على العرض المصدر الذي ستُستنسخ منه الشريحة.
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Presentation) التي تحتوي على العرض الذي ستُضاف إليه الشريحة.
+1. الحصول على فئة [SlideCollection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Presentation/#getSlides) بالإشارة إلى مجموعة الشرائح التي يوفرها كائن Presentation الخاص بالعرض الهدف.
+1. استدعاء طريقة [insertClone](https://reference.aspose.com/slides/ar/php-java/aspose.slides/SlideCollection/#insertClone) التي يوفرها كائن [SlideCollection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Presentation/#getSlides) وتمرير الشريحة من العرض المصدر مع الموضع المطلوب كمعامل إلى طريقة [insertClone](https://reference.aspose.com/slides/ar/php-java/aspose.slides/SlideCollection/#insertClone).
+1. حفظ ملف العرض الهدف المعدل.
 
-1. أنشئ مثيلًا من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) الذي يحتوي على العرض التقديمي المصدر الذي ستُستنسخ منه الشريحة.
-1. أنشئ مثيلًا من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) الذي يحتوي على العرض التقديمي الذي ستُضاف إليه الشريحة.
-1. احصل على الفئة [SlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation/#getSlides) بالإشارة إلى مجموعة Slides التي يُظهرها كائن Presentation للعرض التقديمي الهدف.
-1. استدعِ طريقة [insertClone](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection/#insertClone) التي يُظهرها كائن [SlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation/#getSlides) ومرّر الشريحة من العرض التقديمي المصدر مع الموضع المطلوب كمعامل إلى طريقة [insertClone](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection/#insertClone).
-1. احفظ ملف العرض التقديمي الهدف المعدل.
+في المثال أدناه، قمنا باستنساخ شريحة (من الفهرس صفر للعرض المصدر) إلى الفهرس 1 (الموضع 2) من العرض الهدف.
 
-في المثال أدناه، قمنا باستنساخ شريحة (من الفهرس صفر للعرض التقديمي المصدر) إلى الفهرس 1 (الموضع 2) من العرض التقديمي الهدف.
 ```php
-  # إنشاء كائن فئة Presentation لتحميل ملف العرض التقديمي المصدر
+  # إنشاء كائن من فئة Presentation لتحميل ملف العرض التقديمي المصدر
   $srcPres = new Presentation("CloneAtEndOfAnother.pptx");
   try {
-    # إنشاء كائن فئة Presentation للـ PPTX الهدف (حيث ستُستنسخ الشريحة)
+    # إنشاء كائن من فئة Presentation لملف PPTX الوجهة (حيث سيتم استنساخ الشريحة)
     $destPres = new Presentation();
     try {
-      # استنساخ الشريحة المطلوبة من العرض التقديمي المصدر إلى نهاية مجموعة الشرائح في العرض التقديمي الهدف
+      # استنساخ الشريحة المطلوبة من العرض التقديمي المصدر إلى نهاية مجموعة الشرائح في العرض التقديمي الوجهة
       $slds = $destPres->getSlides();
       $slds->insertClone(2, $srcPres->getSlides()->get_Item(0));
-      # حفظ العرض التقديمي الهدف إلى القرص
+      # حفظ العرض التقديمي الوجهة إلى القرص
       $destPres->save("Aspose2_out.pptx", SaveFormat::Pptx);
     } finally {
       $destPres->dispose();
@@ -137,43 +138,43 @@ description: "استنسخ شرائح PowerPoint بسرعة باستخدام Asp
   }
 ```
 
+## **استنساخ شريحة في موقع محدد في عرض تقديمي آخر**
+إذا كنت بحاجة إلى استنساخ شريحة مع شريحة رئيسية من عرض تقديمي واستخدامها في عرض تقديمي آخر، يجب أولاً استنساخ الشريحة الرئيسية المطلوبة من العرض المصدر إلى العرض الهدف. ثم استخدام تلك الشريحة الرئيسية لاستنساخ الشريحة مع الشريحة الرئيسية. طريقة [addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slidecollection/addclone/) تتوقع شريحة رئيسية من العرض الهدف وليس من العرض المصدر. لاستنساخ الشريحة مع رئيسية، يرجى اتباع الخطوات أدناه:
 
-## **استنساخ شريحة في موضع محدد في عرض تقديمي آخر**
-إذا كنت بحاجة إلى استنساخ شريحة مع شريحة رئيسية من عرض تقديمي واستخدامها في عرض تقديمي آخر، يجب أولاً استنساخ الشريحة الرئيسية المطلوبة من العرض المصدر إلى العرض الهدف. ثم تحتاج إلى استخدام تلك الشريحة الرئيسية لاستنساخ الشريحة مع الشريحة الرئيسية. الطريقة [**addClone(Slide, MasterSlide, boolean)**](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/addclone/) تتوقع شريحة رئيسية من العرض الهدف بدلاً من العرض المصدر. لاستنساخ الشريحة مع الرئيسية، يرجى اتباع الخطوات التالية:
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Presentation) التي تحتوي على العرض المصدر الذي ستُستنسخ منه الشريحة.
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Presentation) التي تحتوي على العرض الهدف الذي ستُستنسخ إليه الشريحة.
+1. الوصول إلى الشريحة المراد استنساخها مع الشريحة الرئيسية.
+1. إنشاء كائن [MasterSlideCollection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/MasterSlideCollection) بالإشارة إلى مجموعة Masters التي يوفرها كائن [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Presentation) الخاص بالعرض الهدف.
+1. استدعاء طريقة [addClone](https://reference.aspose.com/slides/ar/php-java/aspose.slides/SlideCollection/#addClone) التي يوفرها كائن [MasterSlideCollection] وتمرير الشريحة الرئيسية من العرض المصدر لتستنسخ كمعامل إلى طريقة [addClone].
+1. إنشاء كائن [SlideCollection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Presentation/#getSlides) بالإشارة إلى مجموعة Slides التي يوفرها كائن [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Presentation) الخاص بالعرض الهدف.
+1. استدعاء طريقة [addClone](https://reference.aspose.com/slides/ar/php-java/aspose.slides/SlideCollection/#addClone) التي يوفرها كائن [SlideCollection] وتمرير الشريحة من العرض المصدر لتستنسخها مع الشريحة الرئيسية كمعامل إلى طريقة [addClone].
+1. حفظ ملف العرض الهدف المعدل.
 
-1. أنشئ مثيلًا من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) الذي يحتوي على العرض التقديمي المصدر الذي ستُستنسخ منه الشريحة.
-1. أنشئ مثيلًا من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) الذي يحتوي على العرض التقديمي الهدف الذي ستُستنسخ إليه الشريحة.
-1. وصول إلى الشريحة التي ستُستنسخ مع الشريحة الرئيسية.
-1. أنشئ كائنًا من الفئة [MasterSlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlideCollection) بالإشارة إلى مجموعة Masters التي يُظهرها كائن [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) للعرض الهدف.
-1. استدعِ طريقة [addClone](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection/#addClone) التي يُظهرها كائن [MasterSlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlideCollection) ومرّر الشريحة الرئيسية من العرض المصدر لتستنسخها كمعامل إلى طريقة [addClone](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection/#addClone).
-1. أنشئ كائنًا من الفئة [SlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation/#getSlides) بتعيين الإشارة إلى مجموعة Slides التي يُظهرها كائن [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) للعرض الهدف.
-1. استدعِ طريقة [addClone](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection/#addClone) التي يُظهرها كائن [SlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation/#getSlides) ومرّر الشريحة من العرض المصدر لتستنسخها والشريحة الرئيسية كمعامل إلى طريقة [addClone](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection/#addClone).
-1. احفظ ملف العرض التقديمي الهدف المعدل.
+في المثال أدناه، قمنا باستنساخ شريحة مع رئيسية (تقع في الفهرس صفر للعرض المصدر) إلى نهاية العرض الهدف باستخدام رئيسية من الشريحة المصدر.
 
-في المثال أدناه، قمنا باستنساخ شريحة مع شريحة رئيسية (تقع في الفهرس صفر للعرض المصدر) إلى نهاية العرض الهدف باستخدام شريحة رئيسية من الشريحة المصدر.
 ```php
-  # إنشاء كائن فئة Presentation لتحميل ملف العرض التقديمي المصدر
+  # إنشاء كائن من فئة Presentation لتحميل ملف العرض التقديمي المصدر
   $srcPres = new Presentation("CloneToAnotherPresentationWithMaster.pptx");
   try {
-    # إنشاء كائن فئة Presentation للعرض التقديمي الهدف (حيث ستُستنسخ الشريحة)
+    # إنشاء كائن من فئة Presentation للعرض التقديمي الوجهة (حيث سيتم استنساخ الشريحة)
     $destPres = new Presentation();
     try {
-      # إنشاء كائن ISlide من مجموعة الشرائح في العرض التقديمي المصدر مع
-      # شريحة رئيسية
+      # إنشاء ISlide من مجموعة الشرائح في العرض التقديمي المصدر مع
+      # الشريحة الرئيسية
       $SourceSlide = $srcPres->getSlides()->get_Item(0);
       $SourceMaster = $SourceSlide->getLayoutSlide()->getMasterSlide();
-      # استنساخ شريحة الماستر المطلوبة من العرض التقديمي المصدر إلى مجموعة الماسترز في الـ
+      # استنساخ الشريحة الرئيسية المطلوبة من العرض التقديمي المصدر إلى مجموعة الشرائح الرئيسية في
       # العرض التقديمي الهدف
       $masters = $destPres->getMasters();
       $DestMaster = $SourceSlide->getLayoutSlide()->getMasterSlide();
-      # استنساخ شريحة الماستر المطلوبة من العرض التقديمي المصدر إلى مجموعة الماسترز في الـ
+      # استنساخ الشريحة الرئيسية المطلوبة من العرض التقديمي المصدر إلى مجموعة الشرائح الرئيسية في
       # العرض التقديمي الهدف
       $iSlide = $masters->addClone($SourceMaster);
-      # استنساخ الشريحة المطلوبة من العرض التقديمي المصدر مع الماستر المطلوب إلى نهاية الـ
-      # مجموعة الشرائح في العرض التقديمي الهدف
+      # استنساخ الشريحة المطلوبة من العرض التقديمي المصدر مع الشريحة الرئيسية المطلوبة إلى نهاية
+      # مجموعة الشرائح في العرض التقديمي الوجهة
       $slds = $destPres->getSlides();
       $slds->addClone($SourceSlide, $iSlide, true);
-      # حفظ العرض التقديمي الهدف إلى القرص
+      # حفظ العرض التقديمي الوجهة إلى القرص
       $destPres->save("CloneToAnotherPresentationWithMaster_out.pptx", SaveFormat::Pptx);
     } finally {
       $destPres->dispose();
@@ -183,11 +184,11 @@ description: "استنسخ شرائح PowerPoint بسرعة باستخدام Asp
   }
 ```
 
-
 ## **استنساخ شريحة في نهاية قسم محدد**
-إذا كنت تريد استنساخ شريحة ثم استخدامها داخل نفس ملف العرض التقديمي لكن في قسم مختلف، استخدم طريقة [addClone](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection/#addClone) التي يُظهرها كائن [SlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection). Aspose.Slides for PHP via Java يتيح استنساخ شريحة من القسم الأول ثم إدراج تلك الشريحة المستنسخة إلى القسم الثاني من نفس العرض التقديمي.
+إذا أردت استنساخ شريحة ثم استخدامها داخل نفس ملف العرض ولكن في قسم مختلف، استخدم طريقة [addClone](https://reference.aspose.com/slides/ar/php-java/aspose.slides/SlideCollection/#addClone) التي يوفرها كائن [SlideCollection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/SlideCollection). تجعل Aspose.Slides for PHP via Java من الممكن استنساخ شريحة من القسم الأول ثم إدراج تلك الشريحة المستنسخة إلى القسم الثاني من نفس العرض.
 
-المقتطف البرمجي التالي يوضح كيفية استنساخ شريحة وإدراج الشريحة المستنسخة في قسم محدد.
+المقتطف البرمجي التالي يوضح كيفية استنساخ شريحة وإدخال الشريحة المستنسخة في قسم محدد.
+
 ```php
   $presentation = new Presentation();
   try {
@@ -195,8 +196,8 @@ description: "استنسخ شرائح PowerPoint بسرعة باستخدام Asp
     $presentation->getSections()->addSection("Section 1", $presentation->getSlides()->get_Item(0));
     $section2 = $presentation->getSections()->appendEmptySection("Section 2");
     $presentation->getSlides()->addClone($presentation->getSlides()->get_Item(0), $section2);
-    # حفظ العرض التقديمي الهدف إلى القرص
-    $presentation->save($dataDir . "CloneSlideIntoSpecifiedSection.pptx", SaveFormat::Pptx);
+    # حفظ العرض التقديمي الوجهة إلى القرص
+    $presentation->save("CloneSlideIntoSpecifiedSection.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($presentation)) {
       $presentation->dispose();
@@ -204,17 +205,31 @@ description: "استنسخ شرائح PowerPoint بسرعة باستخدام Asp
   }
 ```
 
+## **التأكد من تطابق حجم الشريحة**
+
+عند استنساخ الشرائح إلى عرض آخر، تأكد من أن عرض الوجهة له نفس حجم الشريحة مثل المصدر. إذا اختلف حجم الشرائح، لا تقوم Aspose.Slides بتحجيم الأشكال المستنسخة تلقائيًا—تبقى إحداثياتها وأبعادها الأصلية، ما قد يؤدي إلى عدم محاذاة المحتوى أو امتداده خارج حدود الشريحة.
+
+يمكنك ضبط حجم شريحة العرض الهدف ليتطابق مع المصدر قبل استنساخ الرئيسة والشريحة:
+
+```php
+$sourceSize = $sourcePresentation->getSlideSize()->getSize();
+
+$targetPresentation->getSlideSize()->setSize(
+    $sourceSize->getWidth(), $sourceSize->getHeight(), SlideSizeScaleType::DoNotScale);
+```
+
+قم بذلك قبل استنساخ الرئيسة والشريحة.
 
 ## **الأسئلة الشائعة**
 
 **هل يتم استنساخ ملاحظات المتحدث وتعليقات المراجعين؟**
 
-نعم. يتم تضمين صفحة الملاحظات وتعليقات المراجعة في النسخة المستنسخة. إذا لم ترغب في ذلك، قم بـ[إزالتها](/slides/ar/php-java/presentation-notes/) بعد الإدراج.
+نعم. يتم تضمين صفحة الملاحظات وتعليقات المراجعة في النسخة المستنسخة. إذا لم ترغب فيها، [احذفها](/slides/ar/php-java/presentation-notes/) بعد الإدراج.
 
 **كيف يتم التعامل مع المخططات ومصادر بياناتها؟**
 
-يتم نسخ كائن المخطط وتنسيقه والبيانات المضمنة. إذا كان المخطط مرتبطًا بمصدر خارجي (مثل دفتر عمل مضمن كـ OLE)، يتم الحفاظ على هذا الارتباط كـ[كائن OLE](/slides/ar/php-java/manage-ole/). بعد النقل بين الملفات، تحقق من توفر البيانات وسلوك التحديث.
+يتم نسخ كائن المخطط، وتنسيقه، والبيانات المضمَّنة. إذا كان المخطط مرتبطًا بمصدر خارجي (مثل مصنف OLE مضمّن)، يتم الحفاظ على هذا الارتباط ككائن [OLE](/slides/ar/php-java/manage-ole/). بعد النقل بين الملفات، تأكد من توفر البيانات وسلوك التحديث.
 
-**هل يمكنني التحكم في موضع الإدراج والأقسام للنسخة المستنسخة؟**
+**هل يمكن التحكم في موضع الإدراج والأقسام للنسخة المستنسخة؟**
 
-نعم. يمكنك إدراج النسخة في فهرس شريحة محدد ووضعها في [قسم](/slides/ar/php-java/slide-section/) مختار. إذا لم يكن القسم الهدف موجودًا، أنشئه أولاً ثم انقل الشريحة إليه.
+نعم. يمكنك إدراج النسخة المستنسخة عند فهرس شريحة معين ووضعها في [قسم](/slides/ar/php-java/slide-section/) محدد. إذا لم يكن القسم الهدف موجودًا، أنشئه أولًا ثم انقل الشريحة إليه.

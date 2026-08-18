@@ -1,6 +1,6 @@
 ---
-title: "जावा में प्रेज़ेंटेशन स्लाइड्स क्लोन करें"
-linktitle: "स्लाइड क्लोन करें"
+title: जावा में प्रेज़ेंटेशन स्लाइड्स क्लोन करें
+linktitle: स्लाइड्स क्लोन करें
 type: docs
 weight: 35
 url: /hi/java/clone-slides/
@@ -13,97 +13,103 @@ keywords:
 - प्रेज़ेंटेशन
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java के साथ PowerPoint स्लाइड्स को जल्दी से डुप्लिकेट करें। सेकंड में PPT निर्माण को स्वचालित करने के लिए हमारे स्पष्ट कोड उदाहरणों का पालन करें और मैनुअल कार्य को समाप्त करें।"
+description: "Aspose.Slides for Java के साथ PowerPoint स्लाइड्स को शीघ्रता से डुप्लिकेट करें। सेकंडों में PPT निर्माण को स्वचालित करने और मैन्युअल काम को समाप्त करने के लिए हमारे स्पष्ट कोड उदाहरणों का पालन करें।"
 ---
 ## **परिचय**
 
-क्लोनिंग वह प्रक्रिया है जिसके द्वारा किसी वस्तु की सटीक प्रतिलिपि या नकल बनाई जाती है। Aspose.Slides for Java भी किसी भी स्लाइड की कॉपी या क्लोन बनाना और फिर उस क्लोन की गई स्लाइड को वर्तमान या किसी अन्य खुले प्रेजेंटेशन में सम्मिलित करना संभव बनाता है। स्लाइड क्लोनिंग की प्रक्रिया एक नई स्लाइड बनाती है जिसे डेवलपर्स मूल स्लाइड को बदले बिना संशोधित कर सकते हैं। स्लाइड को क्लोन करने के कई संभावित तरीके हैं:
+क्लोनिंग वह प्रक्रिया है जिसमें किसी वस्तु की सटीक प्रतिलिपि या दोहराव बनाया जाता है। Aspose.Slides for Java किसी भी स्लाइड की कॉपी या क्लोन बनाना और फिर उस क्लोन की गई स्लाइड को वर्तमान या किसी अन्य खुले प्रेज़ेंटेशन में सम्मिलित करना संभव बनाता है। स्लाइड क्लोनिंग प्रक्रिया एक नई स्लाइड बनाती है जिसे डेवलपर्स मूल स्लाइड को बदले बिना संशोधित कर सकते हैं। स्लाइड क्लोन करने के कई संभावित तरीके हैं:
 
-- प्रेजेंटेशन के भीतर अंत में क्लोन करें।
-- प्रेजेंटेशन के भीतर किसी अन्य स्थान पर क्लोन करें।
-- दूसरे प्रेजेंटेशन में अंत में क्लोन करें।
-- दूसरे प्रेजेंटेशन में किसी अन्य स्थान पर क्लोन करें।
-- दूसरे प्रेजेंटेशन में एक विशिष्ट स्थान पर क्लोन करें।
+- प्रस्तुतिकरण के भीतर अंत में क्लोन करें।
+- प्रस्तुतिकरण के भीतर दूसरे स्थान पर क्लोन करें।
+- किसी अन्य प्रस्तुतिकरण के अंत में क्लोन करें।
+- किसी अन्य प्रस्तुतिकरण में दूसरे स्थान पर क्लोन करें।
+- उसकी मास्टर स्लाइड के साथ क्लोन करके किसी अन्य प्रस्तुतिकरण में ले जाएँ।
 
-Aspose.Slides for Java में, (एक संग्रह [ISlide](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlide) ऑब्जेक्ट्स का) जिसे [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) ऑब्जेक्ट द्वारा उजागर किया गया है, वह [addClone](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) और [insertClone](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) मेथड्स प्रदान करता है जिससे उपर्युक्त प्रकार के स्लाइड क्लोन किए जा सकते हैं।
+Aspose.Slides for Java में, (एक संग्रह जिसमें [ISlide](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlide) ऑब्जेक्ट होते हैं) जो [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) ऑब्जेक्ट द्वारा उजागर किया गया है, वह ऊपर बताई गई स्लाइड क्लोनिंग प्रकारों को करने के लिए [addClone](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) और [insertClone](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) मेथड्स प्रदान करता है।
 
-## **प्रेजेंटेशन के अंत में एक स्लाइड क्लोन करें**
-यदि आप एक स्लाइड को क्लोन करना चाहते हैं और फिर उसे उसी प्रेजेंटेशन फ़ाइल में मौजूदा स्लाइडों के अंत में उपयोग करना चाहते हैं, तो नीचे सूचीबद्ध चरणों के अनुसार [addClone](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) मेथड का उपयोग करें:
+## **प्रेज़ेंटेशन के अंत में स्लाइड क्लोन करें**
+यदि आप एक स्लाइड को क्लोन करके उसी प्रेज़ेंटेशन फ़ाइल में मौजूदा स्लाइडों के अंत में उपयोग करना चाहते हैं, तो नीचे दिए गए चरणों के अनुसार [addClone](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) मेथड का उपयोग करें:
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) क्लास का इंस्टेंस बनाएँ।
-1. [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) ऑब्जेक्ट द्वारा उजागर किए गए Slides संग्रह का संदर्भ देकर [ISlideCollection](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation#getSlides--) क्लास का इंस्टेंस बनाएँ।
-1. [ISlideCollection](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation#getSlides--) ऑब्जेक्ट द्वारा उजागर किए गए [addClone](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) मेथड को कॉल करें और क्लोन की जाने वाली स्लाइड को [addClone](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) मेथड के पैरामीटर के रूप में पास करें।
-1. संशोधित प्रेजेंटेशन फ़ाइल लिखें।
+1. [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) क्लास का एक इंस्टेंस बनाएँ।
+1. [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) ऑब्जेक्ट द्वारा उजागर किए गए Slides संग्रह को संदर्भित करके [ISlideCollection](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation#getSlides--) क्लास का इंस्टेंस बनाएँ।
+1. [ISlideCollection](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation#getSlides--) ऑब्जेक्ट द्वारा उजागर किए गए [addClone](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) मेथड को कॉल करें और क्लोन की जाने वाली स्लाइड को पैरामीटर के रूप में पास करें।
+1. संशोधित प्रेज़ेंटेशन फ़ाइल लिखें।
 
-नीचे दिए गए उदाहरण में, हमने प्रेजेंटेशन की पहली स्थिति—शून्य इंडेक्स—पर स्थित स्लाइड को प्रेजेंटेशन के अंत में क्लोन किया है।
+नीचे दिए गए उदाहरण में, हमने एक स्लाइड (जो प्रेज़ेंटेशन में पहले स्थान – शून्य इंडेक्स – पर थी) को प्रेज़ेंटेशन के अंत में क्लोन किया है।
 
 ```java
-// प्रेज़ेंटेशन फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाएं
+import com.aspose.slides.*;
+
+// एक प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास को इंस्टैंसिएट करें
 Presentation pres = new Presentation("CloneWithinSamePresentationToEnd.pptx");
 try {
-    // इच्छित स्लाइड को उसी प्रेज़ेंटेशन में स्लाइड्स संग्रह के अंत में क्लोन करें
+    // इच्छित स्लाइड को उसी प्रस्तुति में स्लाइड संग्रह के अंत में क्लोन करें
     ISlideCollection slds = pres.getSlides();
 
     slds.addClone(pres.getSlides().get_Item(0));
 
-    // संशोधित प्रेज़ेंटेशन को डिस्क पर लिखें
+    // परिवर्तित प्रस्तुति को डिस्क पर लिखें
     pres.save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", SaveFormat.Pptx);
 } finally {
     pres.dispose();
 }
 ```
 
-## **प्रेजेंटेशन के भीतर किसी अन्य स्थान पर स्लाइड क्लोन करें**
-यदि आप एक स्लाइड को क्लोन करना चाहते हैं और फिर उसे उसी प्रेजेंटेशन फ़ाइल में लेकिन किसी अलग स्थान पर उपयोग करना चाहते हैं, तो [insertClone](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) मेथड का उपयोग करें:
+## **प्रेज़ेंटेशन के भीतर किसी अन्य स्थान पर स्लाइड क्लोन करें**
+यदि आप एक स्लाइड को क्लोन करके उसी प्रेज़ेंटेशन फ़ाइल में लेकिन अलग स्थान पर उपयोग करना चाहते हैं, तो [insertClone](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) मेथड का उपयोग करें:
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) क्लास का इंस्टेंस बनाएँ।
-1. [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) ऑब्जेक्ट द्वारा उजागर किए गए **Slides** संग्रह का संदर्भ देकर क्लास का इंस्टेंस बनाएँ।
-1. [ISlideCollection](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation#getSlides--) ऑब्जेक्ट द्वारा उजागर किए गए [insertClone](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) मेथड को कॉल करें और क्लोन की जाने वाली स्लाइड को नए स्थान के सूचकांक के साथ [insertClone](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) मेथड के पैरामीटर में पास करें।
-1. संशोधित प्रेजेंटेशन को PPTX फ़ाइल के रूप में लिखें।
+1. [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) क्लास का एक इंस्टेंस बनाएँ।
+1. [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) ऑब्जेक्ट द्वारा उजागर किए गए **Slides** संग्रह को संदर्भित करके क्लास का इंस्टेंस बनाएँ।
+1. [ISlideCollection](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation#getSlides--) ऑब्जेक्ट द्वारा उजागर किए गए [insertClone](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) मेथड को कॉल करें और क्लोन की जाने वाली स्लाइड तथा नए स्थान के इंडेक्स को पैरामीटर के रूप में पास करें।
+1. संशोधित प्रेज़ेंटेशन को PPTX फ़ाइल के रूप में लिखें।
 
-नीचे दिए गए उदाहरण में, हमने प्रेजेंटेशन के शून्य इंडेक्स—स्थिति 1—पर स्थित स्लाइड को इंडेक्स 1—स्थिति 2—पर क्लोन किया है।
+नीचे दिए गए उदाहरण में, हमने एक स्लाइड (जो प्रेज़ेंटेशन में इंडेक्स 1 – स्थान 2 – पर थी) को इंडेक्स 2 – स्थान 3 – पर क्लोन किया है।
 
 ```java
-// प्रेज़ेंटेशन फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाएं
+import com.aspose.slides.*;
+
+// एक प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास को इंस्टैंसिएट करें
 Presentation pres = new Presentation("CloneWithInSamePresentation.pptx");
 try {
-    // इच्छित स्लाइड को उसी प्रेज़ेंटेशन में स्लाइड्स संग्रह के अंत में क्लोन करें
+    // प्रेज़ेंटेशन में स्लाइड्स का संग्रह प्राप्त करें
     ISlideCollection slds = pres.getSlides();
 
     // इच्छित स्लाइड को उसी प्रेज़ेंटेशन में निर्दिष्ट इंडेक्स पर क्लोन करें
     slds.insertClone(2, pres.getSlides().get_Item(1));
 
-    // संशोधित प्रेज़ेंटेशन को डिस्क पर लिखें
+    // परिवर्तित प्रेज़ेंटेशन को डिस्क पर लिखें
     pres.save("Aspose_CloneWithInSamePresentation_out.pptx", SaveFormat.Pptx);
 } finally {
     pres.dispose();
 }
 ```
 
-## **दूसरे प्रेजेंटेशन के अंत में स्लाइड क्लोन करें**
-यदि आपको एक प्रेजेंटेशन से स्लाइड को क्लोन करके दूसरे प्रेजेंटेशन फ़ाइल में, मौजूदा स्लाइडों के अंत में उपयोग करने की आवश्यकता है:
+## **किसी अन्य प्रेज़ेंटेशन के अंत में स्लाइड क्लोन करें**
+यदि आपको एक प्रेज़ेंटेशन से स्लाइड क्लोन करके उसे दूसरे प्रेज़ेंटेशन फ़ाइल में, मौजूदा स्लाइडों के अंत में सम्मिलित करना है:
 
-1. उस प्रेजेंटेशन को सम्मिलित करने वाले [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) क्लास का इंस्टेंस बनाएँ जिससे स्लाइड क्लोन किया जाएगा।
-1. उस लक्ष्य प्रेजेंटेशन को सम्मिलित करने वाले [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) क्लास का इंस्टेंस बनाएँ जिसमें स्लाइड जोड़ी जाएगी।
-1. लक्ष्य प्रेजेंटेशन के Presentation ऑब्जेक्ट द्वारा उजागर किए गए **Slides** संग्रह का संदर्भ देकर [ISlideCollection](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection) क्लास का इंस्टेंस बनाएँ।
-1. [ISlideCollection](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation#getSlides--) ऑब्जेक्ट द्वारा उजागर किए गए [addClone](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) मेथड को कॉल करें और स्रोत प्रेजेंटेशन से स्लाइड को [addClone](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) मेथड के पैरामीटर के रूप में पास करें।
-1. संशोधित लक्ष्य प्रेजेंटेशन फ़ाइल लिखें।
+1. उस प्रेज़ेंटेशन को सम्मिलित करने वाले [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) क्लास का एक इंस्टेंस बनाएँ जिससे स्लाइड क्लोन की जाएगी।
+1. लक्ष्य प्रेज़ेंटेशन को सम्मिलित करने वाले [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) क्लास का एक इंस्टेंस बनाएँ।
+1. लक्ष्य प्रेज़ेंटेशन के Presentation ऑब्जेक्ट द्वारा उजागर किए गए **Slides** संग्रह को संदर्भित करके [ISlideCollection](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection) क्लास का इंस्टेंस बनाएँ।
+1. [ISlideCollection](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation#getSlides--) ऑब्जेक्ट द्वारा उजागर किए गए [addClone](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) मेथड को कॉल करें और स्रोत प्रेज़ेंटेशन से स्लाइड को पैरामीटर के रूप में पास करें।
+1. संशोधित लक्ष्य प्रेज़ेंटेशन फ़ाइल लिखें।
 
-नीचे दिए गए उदाहरण में, हमने स्रोत प्रेजेंटेशन के पहले इंडेक्स से स्लाइड को लक्ष्य प्रेजेंटेशन के अंत में क्लोन किया है।
+नीचे दिए गए उदाहरण में, हमने स्रोत प्रेज़ेंटेशन के पहले इंडेक्स से एक स्लाइड को लक्ष्य प्रेज़ेंटेशन के अंत में क्लोन किया है।
 
 ```java
-// स्रोत प्रेज़ेंटेशन फ़ाइल को लोड करने के लिए Presentation क्लास का इंस्टेंस बनाएं
+import com.aspose.slides.*;
+
+// स्रोत प्रस्तुति फ़ाइल को लोड करने के लिए Presentation क्लास को इंस्टैंसिएट करें
 Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx");
 try {
-    // गंतव्य PPTX (जहां स्लाइड को क्लोन किया जाएगा) के लिए Presentation क्लास का इंस्टेंस बनाएं
+    // गंतव्य PPTX (जहाँ स्लाइड क्लोन की जाएगी) के लिए Presentation क्लास को इंस्टैंसिएट करें
     Presentation destPres = new Presentation();
     try {
-        // स्रोत प्रेज़ेंटेशन से इच्छित स्लाइड को गंतव्य प्रेज़ेंटेशन में स्लाइड्स संग्रह के अंत में क्लोन करें
+        // स्रोत प्रस्तुति से इच्छित स्लाइड को गंतव्य प्रस्तुति में स्लाइड संग्रह के अंत में क्लोन करें
         ISlideCollection slds = destPres.getSlides();
 
         slds.addClone(srcPres.getSlides().get_Item(0));
 
-        // गंतव्य प्रेज़ेंटेशन को डिस्क पर लिखें
+        // गंतव्य प्रस्तुति को डिस्क पर लिखें
         destPres.save("Aspose2_out.pptx", SaveFormat.Pptx);
     } finally {
         destPres.dispose();
@@ -113,30 +119,32 @@ try {
 }
 ```
 
-## **दूसरे प्रेजेंटेशन में किसी अन्य स्थान पर स्लाइड क्लोन करें**
-यदि आपको एक प्रेजेंटेशन से स्लाइड को क्लोन करके दूसरे प्रेजेंटेशन फ़ाइल में, एक विशिष्ट स्थान पर उपयोग करने की आवश्यकता है:
+## **किसी अन्य प्रेज़ेंटेशन में किसी अन्य स्थान पर स्लाइड क्लोन करें**
+यदि आपको एक प्रेज़ेंटेशन से स्लाइड क्लोन करके उसे किसी अन्य प्रेज़ेंटेशन फ़ाइल में, किसी विशिष्ट स्थान पर उपयोग करना है:
 
-1. स्लाइड को स्रोत प्रेजेंटेशन से क्लोन करने वाले [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) क्लास का इंस्टेंस बनाएँ।
-1. स्लाइड को लक्ष्य प्रेजेंटेशन में जोड़ने वाले [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) क्लास का इंस्टेंस बनाएँ।
-1. लक्ष्य प्रेजेंटेशन के Presentation ऑब्जेक्ट द्वारा उजागर किए गए Slides संग्रह का संदर्भ देकर [ISlideCollection](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation#getSlides--) क्लास का इंस्टेंस बनाएँ।
-1. [ISlideCollection](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation#getSlides--) ऑब्जेक्ट द्वारा उजागर किए गए [insertClone](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) मेथड को कॉल करें और स्रोत प्रेजेंटेशन से स्लाइड को इच्छित स्थान के साथ [insertClone](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) मेथड के पैरामीटर में पास करें।
-1. संशोधित लक्ष्य प्रेजेंटेशन फ़ाइल लिखें।
+1. स्रोत प्रेज़ेंटेशन को सम्मिलित करने वाले [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) क्लास का एक इंस्टेंस बनाएँ।
+1. लक्ष्य प्रेज़ेंटेशन को सम्मिलित करने वाले [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) क्लास का एक इंस्टेंस बनाएँ।
+1. लक्ष्य प्रेज़ेंटेशन के Presentation ऑब्जेक्ट द्वारा उजागर किए गए Slides संग्रह को संदर्भित करके [ISlideCollection](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation#getSlides--) क्लास का इंस्टेंस बनाएँ।
+1. [ISlideCollection](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation#getSlides--) ऑब्जेक्ट द्वारा उजागर किए गए [insertClone](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) मेथड को कॉल करें और स्रोत प्रेज़ेंटेशन से स्लाइड के साथ वांछित स्थान को पैरामीटर के रूप में पास करें।
+1. संशोधित लक्ष्य प्रेज़ेंटेशन फ़ाइल लिखें।
 
-नीचे दिए गए उदाहरण में, हमने स्रोत प्रेजेंटेशन के शून्य इंडेक्स से स्लाइड को लक्ष्य प्रेजेंटेशन के इंडेक्स 1 (स्थिति 2) पर क्लोन किया है।
+नीचे दिए गए उदाहरण में, हमने स्रोत प्रेज़ेंटेशन के शून्य इंडेक्स से एक स्लाइड को लक्ष्य प्रेज़ेंटेशन के इंडेक्स 1 (स्थान 2) पर क्लोन किया है।
 
 ```java
-// स्रोत प्रेज़ेंटेशन फ़ाइल को लोड करने के लिए Presentation क्लास का इंस्टेंस बनाएं
+import com.aspose.slides.*;
+
+// स्रोत प्रस्तुति फ़ाइल को लोड करने के लिए Presentation क्लास को इंस्टैंसिएट करें
 Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx");
 try {
-    // गंतव्य PPTX (जहां स्लाइड को क्लोन किया जाएगा) के लिए Presentation क्लास का इंस्टेंस बनाएं
+    // गंतव्य PPTX (जहाँ स्लाइड क्लोन की जाएगी) के लिए Presentation क्लास को इंस्टैंसिएट करें
     Presentation destPres = new Presentation();
     try {
-        // स्रोत प्रेज़ेंटेशन से इच्छित स्लाइड को गंतव्य प्रेज़ेंटेशन में स्लाइड्स संग्रह के अंत में क्लोन करें
+        // स्रोत प्रस्तुति से इच्छित स्लाइड को गंतव्य प्रस्तुति में निर्दिष्ट इंडेक्स पर क्लोन करें
         ISlideCollection slds = destPres.getSlides();
 
-        slds.insertClone(2, srcPres.getSlides().get_Item(0));
+        slds.insertClone(1, srcPres.getSlides().get_Item(0));
 
-        // गंतव्य प्रेज़ेंटेशन को डिस्क पर लिखें
+        // गंतव्य प्रस्तुति को डिस्क पर लिखें
         destPres.save("Aspose2_out.pptx", SaveFormat.Pptx);
     } finally {
         destPres.dispose();
@@ -146,47 +154,45 @@ try {
 }
 ```
 
-## **दूसरे प्रेजेंटेशन में विशिष्ट स्थान पर स्लाइड क्लोन करें**
-यदि आपको एक प्रेजेंटेशन से मास्टर स्लाइड के साथ स्लाइड को क्लोन करके दूसरे प्रेजेंटेशन में उपयोग करने की आवश्यकता है, तो पहले आपको स्रोत प्रेजेंटेशन से वांछित मास्टर स्लाइड को लक्ष्य प्रेजेंटेशन में क्लोन करना होगा। फिर उस मास्टर स्लाइड का उपयोग करके स्लाइड क्लोन करें। [addClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) मेथड लक्ष्य प्रेजेंटेशन के मास्टर स्लाइड की अपेक्षा करता है, न कि स्रोत प्रेजेंटेशन की। मास्टर के साथ स्लाइड क्लोन करने के लिए नीचे दिए गए चरणों का पालन करें:
+## **क्लोन के साथ उसकी मास्टर स्लाइड को किसी अन्य प्रेज़ेंटेशन में ले जाएँ**
+यदि आपको एक प्रेज़ेंटेशन से स्लाइड और उसकी मास्टर स्लाइड को क्लोन करके किसी अन्य प्रेज़ेंटेशन में उपयोग करना है, तो पहले स्रोत प्रेज़ेंटेशन से वांछित मास्टर स्लाइड को लक्ष्य प्रेज़ेंटेशन में क्लोन करना होगा। फिर उस मास्टर स्लाइड का उपयोग करके स्लाइड को क्लोन किया जाता है। [**addClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) मेथड लक्ष्य प्रेज़ेंटेशन की मास्टर स्लाइड की अपेक्षा करता है, न कि स्रोत की। स्लाइड को मास्टर के साथ क्लोन करने के लिए नीचे दिए गए चरणों का पालन करें:
 
-1. स्लाइड को स्रोत प्रेजेंटेशन से क्लोन करने वाले [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) क्लास का इंस्टेंस बनाएँ।
-1. स्लाइड को लक्ष्य प्रेजेंटेशन में क्लोन करने वाले [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) क्लास का इंस्टेंस बनाएँ।
-1. मास्टर स्लाइड के साथ क्लोन की जाने वाली स्लाइड तक पहुंचें।
-1. लक्ष्य प्रेजेंटेशन के Presentation ऑब्जेक्ट द्वारा उजागर किए गए Masters संग्रह का संदर्भ देकर [IMasterSlideCollection](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IMasterSlideCollection) क्लास का इंस्टेंस बनाएँ।
-1. [IMasterSlideCollection](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IMasterSlideCollection) ऑब्जेक्ट द्वारा उजागर किए गए [addClone](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) मेथड को कॉल करें और स्रोत PPTX से क्लोन किए जाने वाले मास्टर को [addClone](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) मेथड के पैरामीटर में पास करें।
-1. लक्ष्य प्रेजेंटेशन के Presentation ऑब्जेक्ट द्वारा उजागर किए गए Slides संग्रह का संदर्भ सेट करके [ISlideCollection](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation#getSlides--) क्लास का इंस्टेंस बनाएँ।
-1. [ISlideCollection](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation#getSlides--) ऑब्जेक्ट द्वारा उजागर किए गए [addClone](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) मेथड को कॉल करें और स्रोत प्रेजेंटेशन से क्लोन की जाने वाली स्लाइड तथा मास्टर स्लाइड को [addClone](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) मेथड के पैरामीटर में पास करें।
-1. संशोधित लक्ष्य प्रेजेंटेशन फ़ाइल लिखें।
+1. स्रोत प्रेज़ेंटेशन को सम्मिलित करने वाले [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) क्लास का एक इंस्टेंस बनाएँ।
+1. लक्ष्य प्रेज़ेंटेशन को सम्मिलित करने वाले [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) क्लास का एक इंस्टेंस बनाएँ।
+1. क्लोन की जाने वाली स्लाइड को उसकी मास्टर स्लाइड के साथ एक्सेस करें।
+1. लक्ष्य प्रेज़ेंटेशन के Presentation ऑब्जेक्ट द्वारा उजागर किए गए Masters संग्रह को संदर्भित करके [IMasterSlideCollection](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IMasterSlideCollection) क्लास का इंस्टेंस बनाएँ।
+1. [IMasterSlideCollection](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IMasterSlideCollection) ऑब्जेक्ट द्वारा उजागर किए गए [addClone](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) मेथड को कॉल करें और स्रोत PPTX से क्लोन की जाने वाली मास्टर स्लाइड को पैरामीटर के रूप में पास करें।
+1. लक्ष्य प्रेज़ेंटेशन के Presentation ऑब्जेक्ट द्वारा उजागर किए गए Slides संग्रह को संदर्भित करके [ISlideCollection](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation#getSlides--) क्लास का इंस्टेंस बनाएँ।
+1. [ISlideCollection](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation#getSlides--) ऑब्जेक्ट द्वारा उजागर किए गए [addClone](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) मेथड को कॉल करें और स्रोत प्रेज़ेंटेशन से स्लाइड तथा मास्टर स्लाइड को पैरामीटर के रूप में पास करें।
+1. संशोधित लक्ष्य प्रेज़ेंटेशन फ़ाइल लिखें।
 
-नीचे दिया गया उदाहरण स्रोत प्रेजेंटेशन के शून्य इंडेक्स से मास्टर के साथ स्लाइड को लक्ष्य प्रेजेंटेशन के अंत में क्लोन करता है।
+नीचे दिए गए उदाहरण में, हमने स्रोत प्रेज़ेंटेशन के शून्य इंडेक्स पर स्थित स्लाइड को उसकी मास्टर के साथ लक्ष्य प्रेज़ेंटेशन के अंत में क्लोन किया है, जहाँ स्रोत स्लाइड की मास्टर का उपयोग किया गया है।
 
 ```java
-// स्रोत प्रेज़ेंटेशन फ़ाइल को लोड करने के लिए Presentation क्लास का इंस्टेंस बनाएं
+import com.aspose.slides.*;
+
+// स्रोत प्रस्तुति फ़ाइल को लोड करने के लिए Presentation क्लास को इंस्टैंसिएट करें
 Presentation srcPres = new Presentation("CloneToAnotherPresentationWithMaster.pptx");
 try {
-    // गंतव्य प्रेज़ेंटेशन (जहां स्लाइड को क्लोन किया जाएगा) के लिए Presentation क्लास का इंस्टेंस बनाएं
+    // गंतव्य प्रस्तुति (जहाँ स्लाइड क्लोन की जाएगी) के लिए Presentation क्लास को इंस्टैंसिएट करें
     Presentation destPres = new Presentation();
     try {
-        // स्रोत प्रेज़ेंटेशन में स्लाइड्स संग्रह से ISlide को बनाएं साथ में
-        // मास्टर स्लाइड
+        // स्रोत प्रस्तुति में स्लाइड संग्रह से ISlide को साथ में
+        // मास्टर स्लाइड के साथ इंस्टैंसिएट करें
         ISlide SourceSlide = srcPres.getSlides().get_Item(0);
         IMasterSlide SourceMaster = SourceSlide.getLayoutSlide().getMasterSlide();
 
-        // स्रोत प्रेज़ेंटेशन से इच्छित मास्टर स्लाइड को गंतव्य प्रेज़ेंटेशन के मास्टर्स संग्रह में क्लोन करें
-        // गंतव्य प्रेज़ेंटेशन
+        // स्रोत प्रस्तुति से इच्छित मास्टर स्लाइड को गंतव्य प्रस्तुति के मास्टर संग्रह में क्लोन करें
+        // गंतव्य प्रस्तुति
         IMasterSlideCollection masters = destPres.getMasters();
-        IMasterSlide DestMaster = SourceSlide.getLayoutSlide().getMasterSlide();
+        IMasterSlide DestMaster = masters.addClone(SourceMaster);
 
-        // स्रोत प्रेज़ेंटेशन से इच्छित मास्टर स्लाइड को गंतव्य प्रेज़ेंटेशन के मास्टर्स संग्रह में क्लोन करें
-        // गंतव्य प्रेज़ेंटेशन
-        IMasterSlide iSlide = masters.addClone(SourceMaster);
-
-        // स्रोत प्रेज़ेंटेशन से इच्छित स्लाइड को इच्छित मास्टर के साथ गंतव्य प्रेज़ेंटेशन में स्लाइड्स संग्रह के अंत में क्लोन करें
-        // गंतव्य प्रेज़ेंटेशन में स्लाइड्स संग्रह
+        // स्रोत प्रस्तुति से इच्छित स्लाइड को इच्छित मास्टर के साथ गंतव्य प्रस्तुति के स्लाइड संग्रह के अंत में क्लोन करें
+        // गंतव्य प्रस्तुति
         ISlideCollection slds = destPres.getSlides();
-        slds.addClone(SourceSlide, iSlide, true);
+        slds.addClone(SourceSlide, DestMaster, true);
 
-        // गंतव्य प्रेज़ेंटेशन को डिस्क पर सेव करें
+        // गंतव्य प्रस्तुति को डिस्क पर सहेजें
         destPres.save("CloneToAnotherPresentationWithMaster_out.pptx", SaveFormat.Pptx);
     } finally {
         destPres.dispose();
@@ -197,11 +203,13 @@ try {
 ```
 
 ## **निर्दिष्ट सेक्शन के अंत में स्लाइड क्लोन करें**
-यदि आप एक स्लाइड को क्लोन करके उसी प्रेजेंटेशन फ़ाइल में लेकिन किसी अलग सेक्शन में उपयोग करना चाहते हैं, तो [addClone](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-) मेथड का उपयोग करें जिसे [ISlideCollection](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection) इंटरफ़ेस द्वारा उजागर किया गया है। Aspose.Slides for Java पहली सेक्शन से स्लाइड क्लोन करके उसी प्रेजेंटेशन की दूसरी सेक्शन में सम्मिलित करने की सुविधा प्रदान करता है।
+यदि आप एक स्लाइड को क्लोन करके उसी प्रेज़ेंटेशन फ़ाइल में लेकिन किसी अलग सेक्शन में उपयोग करना चाहते हैं, तो [**addClone**](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-) मेथड का उपयोग करें जो [**ISlideCollection**](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ISlideCollection) इंटरफ़ेस द्वारा प्रदान किया गया है। Aspose.Slides for Java आपको पहले सेक्शन से स्लाइड क्लोन करके उसी प्रेज़ेंटेशन के दूसरे सेक्शन में सम्मिलित करने की सुविधा देता है।
 
-निम्न कोड स्निपेट दर्शाता है कि कैसे स्लाइड को क्लोन किया जाए और क्लोन की गई स्लाइड को निर्दिष्ट सेक्शन में सम्मिलित किया जाए।
+निम्नलिखित कोड स्निपेट दर्शाता है कि कैसे स्लाइड को क्लोन करके क्लोन की गई स्लाइड को निर्दिष्ट सेक्शन में डालें।
 
 ```java
+import com.aspose.slides.*;
+
 IPresentation presentation = new Presentation();
 try {
     presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 50, 300, 100);
@@ -209,24 +217,39 @@ try {
 
     ISection section2 = presentation.getSections().appendEmptySection("Section 2");
     presentation.getSlides().addClone(presentation.getSlides().get_Item(0), section2);
-    
-	// गंतव्य प्रेज़ेंटेशन को डिस्क पर सहेजें
-    presentation.save(dataDir + "CloneSlideIntoSpecifiedSection.pptx", SaveFormat.Pptx);
+
+    // गंतव्य प्रस्तुति को डिस्क पर सहेजें
+    presentation.save("CloneSlideIntoSpecifiedSection.pptx", SaveFormat.Pptx);
 } finally {
     if (presentation != null) presentation.dispose();
 }
 ```
 
+## **स्लाइड आकार का मिलान सुनिश्चित करें**
+
+जब स्लाइडों को किसी अन्य प्रेज़ेंटेशन में क्लोन किया जाता है, तो सुनिश्चित करें कि लक्ष्य प्रेज़ेंटेशन का स्लाइड आकार स्रोत के समान हो। यदि स्लाइड आकार भिन्न हैं, तो Aspose.Slides क्लोन की गई शैप्स को स्वतः रिस्केल नहीं करता—उनके मूल निर्देशांक और आयाम बरकरार रहते हैं, जिससे सामग्री असमान रूप से दिखाई दे सकती है या स्लाइड सीमाओं से बाहर निकल सकती है।
+
+क्लोन करने से पहले स्रोत के साथ मिलाने के लिए लक्ष्य प्रेज़ेंटेशन का स्लाइड आकार इस प्रकार सेट कर सकते हैं:
+
+```java
+Dimension2D sourceSize = sourcePresentation.getSlideSize().getSize();
+
+targetPresentation.getSlideSize().setSize(
+        sourceSize.getWidth(), sourceSize.getHeight(), SlideSizeScaleType.DoNotScale);
+```
+
+क्लोन करने से पहले मास्टर और स्लाइड के आकार को मिलाएँ।
+
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
 **क्या स्पीकर नोट्स और रिव्यूअर कमेंट्स क्लोन होते हैं?**
 
-हाँ। नोट्स पेज और रिव्यू कमेंट्स क्लोन में शामिल होते हैं। यदि आप इन्हें नहीं चाहते, तो सम्मिलित करने के बाद [उन्हें हटाएँ](/slides/hi/java/presentation-notes/)।
+हँ। नोट्स पेज और रिव्यू कमेंट्स क्लोन में शामिल होते हैं। यदि आप इन्हें नहीं चाहते तो सम्मिलन के बाद इन्हें [हटा](/slides/hi/java/presentation-notes/) दें।
 
-**चार्ट और उनके डेटा स्रोतों को कैसे संभाला जाता है?**
+**चार्ट और उनके डेटा स्रोत कैसे संभाले जाते हैं?**
 
-चार्ट ऑब्जेक्ट, फॉर्मेटिंग, और एम्बेडेड डेटा कॉपी किया जाता है। यदि चार्ट किसी बाहरी स्रोत (जैसे OLE-एम्बेडेड वर्कबुक) से जुड़ा था, तो वह लिंक एक [OLE ऑब्जेक्ट](/slides/hi/java/manage-ole/) के रूप में संरक्षित रहता है। फ़ाइलों के बीच स्थानांतरण के बाद डेटा उपलब्धता और रीफ्रेश व्यवहार की पुष्टि करें।
+चार्ट ऑब्जेक्ट, फॉर्मेटिंग और एम्बेडेड डेटा कॉपी हो जाता है। यदि चार्ट बाहरी स्रोत (जैसे OLE-एम्बेडेड वर्कबुक) से जुड़ा था, तो वह लिंक एक [OLE ऑब्जेक्ट](/slides/hi/java/manage-ole/) के रूप में संरक्षित रहता है। फ़ाइलों के बीच स्थानांतरित होने के बाद डेटा उपलब्धता और रिफ़्रेश व्यवहार की जाँच करें।
 
-**क्या मैं क्लोन के सम्मिलन स्थान और सेक्शन को नियंत्रित कर सकता हूँ?**
+**क्या मैं क्लोन की इन्सर्शन पोज़िशन और सेक्शन को नियंत्रित कर सकता हूँ?**
 
-हाँ। आप क्लोन को विशिष्ट स्लाइड इंडेक्स पर सम्मिलित कर सकते हैं और उसे चुने हुए [सेक्शन](/slides/hi/java/slide-section/) में रख सकते हैं। यदि लक्ष्य सेक्शन मौजूद नहीं है, तो पहले उसे बनाएँ और फिर स्लाइड को उसमें ले जाएँ।
+हँ। आप क्लोन को विशिष्ट स्लाइड इंडेक्स पर इन्सर्ट कर सकते हैं और उसे चुने हुए [सेक्शन](/slides/hi/java/slide-section/) में रख सकते हैं। यदि लक्ष्य सेक्शन मौजूद नहीं है, तो पहले उसे बनाएं और फिर स्लाइड को उसमें ले जाएँ।

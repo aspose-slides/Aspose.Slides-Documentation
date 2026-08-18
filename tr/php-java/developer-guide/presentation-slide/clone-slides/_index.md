@@ -5,99 +5,99 @@ type: docs
 weight: 35
 url: /tr/php-java/clone-slides/
 keywords:
-- slaytı klonla
-- slaytı kopyala
-- slaytı kaydet
+- slayt klonlama
+- slayt kopyalama
+- slayt kaydetme
 - PowerPoint
 - OpenDocument
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP ile PowerPoint slaytlarını hızlıca çoğaltın. Saniyeler içinde PPT oluşturmayı otomatikleştirmek ve manuel işi ortadan kaldırmak için net kod örneklerimizi izleyin."
+description: "Aspose.Slides for PHP ile PowerPoint slaytlarını hızlı bir şekilde çoğaltın. Saniyeler içinde PPT oluşturmayı otomatikleştirmek ve manuel çalışmayı ortadan kaldırmak için net kod örneklerimizi izleyin."
 ---
 ## **Giriş**
 
-Cloning bir şeyin tam kopyasını veya replikasını oluşturma işlemidir. Aspose.Slides for PHP via Java ayrıca herhangi bir slaytın bir kopyasını veya klonunu oluşturmayı ve ardından bu klonlanmış slaytı mevcut veya başka bir açık sunuma eklemeyi mümkün kılar. Slayt klonlama süreci, geliştiricilerin orijinal slaytı değiştirmeden değiştirebileceği yeni bir slayt oluşturur. Bir slaytı klonlamanın birkaç olası yolu vardır:
+Klonlama, bir şeyin tam bir kopyasını veya replikasını oluşturma sürecidir. Aspose.Slides for PHP via Java, herhangi bir slaytı kopyalama veya klonlama ve ardından bu klonlanmış slaytı mevcut veya başka bir açık sunuma ekleme olanağı sağlar. Slayt klonlama süreci, orijinal slaytı değiştirmeden geliştiriciler tarafından değiştirilebilecek yeni bir slayt oluşturur. Bir slaytı klonlamanın birkaç olası yolu vardır:
 
-- Sunum içinde sona kopyala.
-- Sunum içinde başka bir konuma kopyala.
-- Başka bir sunumda sona kopyala.
-- Başka bir sunumda başka bir konuma kopyala.
-- Başka bir sunumda belirli bir konuma kopyala.
+- Sunum içinde Sona Klonla.
+- Sunum içinde Farklı Bir Konuma Klonla.
+- Başka Bir Sunumda Sona Klonla.
+- Başka Bir Sunumda Farklı Bir Konuma Klonla.
+- Başka Bir Sunumda Belirli Bir Konuma Klonla.
 
-Aspose.Slides for PHP via Java'da, [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) nesnesi tarafından sunulan (bir [Slide](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Slide) nesnesi koleksiyonu) [addClone](https://reference.aspose.com/slides/tr/php-java/aspose.slides/SlideCollection/#addClone) ve [insertClone](https://reference.aspose.com/slides/tr/php-java/aspose.slides/SlideCollection/#insertClone) metodlarını sağlayarak yukarıdaki slayt klonlama türlerini gerçekleştirir.
+Aspose.Slides for PHP via Java’da, [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) nesnesi tarafından sağlanan (bir [Slide](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Slide) nesnesi koleksiyonu) [addClone](https://reference.aspose.com/slides/tr/php-java/aspose.slides/SlideCollection/#addClone) ve [insertClone](https://reference.aspose.com/slides/tr/php-java/aspose.slides/SlideCollection/#insertClone) yöntemlerini sunar ve bu yöntemlerle yukarıdaki slayt klonlama türleri gerçekleştirilir.
 
-## **Bir Sunumun Sonunda Slaytı Klonla**
-If you want to clone a slide and then use it within the same presentation file at the end of the existing slides, use the [addClone](https://reference.aspose.com/slides/tr/php-java/aspose.slides/SlideCollection/#addClone) method according to the steps listed below:
+## **Bir Sunumun Sonuna Slayt Klonla**
+Bir slaytı klonlamak ve ardından aynı sunum dosyasında mevcut slaytların sonuna eklemek istiyorsanız, aşağıdaki adımlara göre [addClone](https://reference.aspose.com/slides/tr/php-java/aspose.slides/SlideCollection/#addClone) yöntemini kullanın:
 
-1. [Presentation] sınıfının bir örneğini oluşturun.
-1. [Presentation] nesnesi tarafından sunulan slayt koleksiyonuna başvurarak [SlideCollection] nesnesini alın.
-1. [SlideCollection] nesnesi tarafından sunulan [addClone] metodunu çağırın ve klonlanacak slaytı [addClone] metoduna parametre olarak geçirin.
-1. Değiştirilmiş sunum dosyasını kaydedin.
+1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
+1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) nesnesi tarafından açığa çıkarılan slayt koleksiyonuna başvurarak [SlideCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation/#getSlides) nesnesini alın.
+1. [SlideCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation/#getSlides) nesnesi tarafından sağlanan [addClone](https://reference.aspose.com/slides/tr/php-java/aspose.slides/SlideCollection/#addClone) yöntemini çağırın ve klonlanacak slaytı parametre olarak geçin.
+1. Değiştirilmiş sunum dosyasını yazın.
 
-Aşağıda verilen örnekte, bir slaytı (sunumun ilk konumunda – sıfır indeks – bulunan) sunumun sonuna klonladık.
+Aşağıdaki örnekte, sunumun ilk konumunda (sıfır indeks) bulunan bir slaytı sunumun sonuna klonladık.
 
 ```php
-  # Sunum dosyasını temsil eden Presentation sınıfını örnekleyin
+  # Sunum dosyasını temsil eden Presentation sınıfını örnekle
   $pres = new Presentation("CloneWithinSamePresentationToEnd.pptx");
   try {
-    # İstenen slaytı aynı sunumdaki slayt koleksiyonunun sonuna klonlayın
+    # İstenen slaytı aynı sunumdaki slayt koleksiyonunun sonuna klonla
     $slds = $pres->getSlides();
     $slds->addClone($pres->getSlides()->get_Item(0));
-    # Değiştirilmiş sunumu diske kaydedin
+    # Değiştirilmiş sunumu diske yaz
     $pres->save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
   }
 ```
 
-## **Bir Sunum içinde Başka Bir Konuma Slaytı Klonla**
-If you want to clone a slide and then use it within the same presentation file but at a different position, use the [insertClone](https://reference.aspose.com/slides/tr/php-java/aspose.slides/SlideCollection/#insertClone) method:
+## **Bir Sunum İçinde Başka Bir Konuma Slayt Klonla**
+Bir slaytı klonlamak ve aynı sunum dosyasında farklı bir konuma eklemek istiyorsanız, [insertClone](https://reference.aspose.com/slides/tr/php-java/aspose.slides/SlideCollection/#insertClone) yöntemini kullanın:
 
-1. [Presentation] sınıfının bir örneğini oluşturun.
-1. [Presentation] nesnesi tarafından sunulan [**Slides**] koleksiyonuna başvurarak [SlideCollection] nesnesini alın.
-1. [insertClone] metodunu çağırın ve klonlanacak slaytı yeni konum için indeksle birlikte [insertClone] metoduna parametre olarak geçirin.
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
+1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) nesnesi tarafından açığa çıkarılan **[Slides](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation/#getSlides)** koleksiyonuna başvurarak [SlideCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/SlideCollection) nesnesini alın.
+1. [SlideCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation/#getSlides) nesnesi tarafından sağlanan [insertClone](https://reference.aspose.com/slides/tr/php-java/aspose.slides/SlideCollection/#insertClone) yöntemini çağırın ve klonlanacak slaytı yeni konumun indeks’i ile birlikte parametre olarak geçin.
+1. Değiştirilmiş sunumu bir PPTX dosyası olarak yazın.
 
-Aşağıda verilen örnekte, bir slaytı (sunumun sıfır indeksinde – konum 1 – bulunan) indeks 1 – Konum 2 – üzerine klonladık.
+Aşağıdaki örnekte, sunumun sıfır indeksindeki (konum 1) bir slaytı indeks 1 – Konum 2 – ye klonladık.
 
 ```php
-  # Sunum dosyasını temsil eden Presentation sınıfını örnekleyin
+  # Sunum dosyasını temsil eden Presentation sınıfını örnekle
   $pres = new Presentation("CloneWithInSamePresentation.pptx");
   try {
-    # İstenen slaytı aynı sunumdaki slayt koleksiyonunun sonuna klonlayın
+    # İstenen slaytı aynı sunumdaki slayt koleksiyonunun sonuna klonla
     $slds = $pres->getSlides();
-    # İstenen slaytı aynı sunumdaki belirtilen indekse klonlayın
+    # İstenen slaytı aynı sunumdaki belirtilen indekse klonla
     $slds->insertClone(2, $pres->getSlides()->get_Item(1));
-    # Değiştirilmiş sunumu diske kaydedin
+    # Değiştirilmiş sunumu diske yaz
     $pres->save("Aspose_CloneWithInSamePresentation_out.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
   }
 ```
 
-## **Başka Bir Sunumun Sonunda Slaytı Klonla**
-If you need to clone a slide from one presentation and use it in another presentation file, at the end of the existing slides:
+## **Başka Bir Sunumun Sonuna Slayt Klonla**
+Bir slaytı bir sunumdan alıp başka bir sunum dosyasının mevcut slaytlarının sonuna eklemeniz gerektiğinde:
 
-1. [Presentation] sınıfının bir örneğini oluşturun; bu sınıf slaytın klonlanacağı sunumu içerir.
-1. Slaytın ekleneceği hedef sunumu içeren bir [Presentation] sınıfının örneğini oluşturun.
-1. Hedef sunumun [Presentation] nesnesi tarafından sunulan [**Slides**] koleksiyonuna başvurarak [SlideCollection] nesnesini alın.
-1. [addClone] metodunu çağırın ve kaynak sunumdan slaytı [addClone] metoduna parametre olarak geçirin.
-1. Değiştirilmiş hedef sunum dosyasını kaydedin.
+1. Slaytı klonlanacak kaynak sunumu içeren bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) örneği oluşturun.
+1. Slaytın ekleneceği hedef sunumu içeren bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) örneği oluşturun.
+1. Hedef sunumun [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) nesnesi tarafından açığa çıkarılan **[Slides](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation/#getSlides)** koleksiyonuna başvurarak [SlideCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/SlideCollection) nesnesini alın.
+1. [SlideCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation/#getSlides) nesnesi tarafından sağlanan [addClone](https://reference.aspose.com/slides/tr/php-java/aspose.slides/SlideCollection/#addClone) yöntemini çağırın ve kaynak sunumdan slaytı parametre olarak geçin.
+1. Değiştirilmiş hedef sunum dosyasını yazın.
 
-Aşağıda verilen örnekte, bir slaytı (kaynak sunumun ilk indeksinden) hedef sunumun sonuna klonladık.
+Aşağıdaki örnekte, kaynak sunumun ilk indeksindeki bir slaytı hedef sunumun sonuna klonladık.
 
 ```php
-  # Kaynak sunum dosyasını yüklemek için Presentation sınıfını örnekleyin
+  # Kaynak sunum dosyasını yüklemek için Presentation sınıfını örnekle
   $srcPres = new Presentation("CloneAtEndOfAnother.pptx");
   try {
-    # Hedef PPTX için Presentation sınıfını örnekleyin (slaytın klonlanacağı yer)
+    # Slaytın klonlanacağı hedef PPTX için Presentation sınıfını örnekle
     $destPres = new Presentation();
     try {
-      # Kaynak sunumdan istenen slaytı hedef sunumdaki slayt koleksiyonunun sonuna klonlayın
+      # İstenen slaytı kaynak sunumdan hedef sunumdaki slayt koleksiyonunun sonuna klonla
       $slds = $destPres->getSlides();
       $slds->addClone($srcPres->getSlides()->get_Item(0));
-      # Hedef sunumu diske kaydedin
+      # Hedef sunumu diske kaydet
       $destPres->save("Aspose2_out.pptx", SaveFormat::Pptx);
     } finally {
       $destPres->dispose();
@@ -107,28 +107,28 @@ Aşağıda verilen örnekte, bir slaytı (kaynak sunumun ilk indeksinden) hedef 
   }
 ```
 
-## **Başka Bir Sunumda Başka Bir Konuma Slaytı Klonla**
-If you need to clone a slide from one presentation and use it in another presentation file, at a specific position:
+## **Başka Bir Sunumda Başka Bir Konuma Slayt Klonla**
+Bir slaytı bir sunumdan alıp başka bir sunum dosyasında belirli bir konuma eklemeniz gerektiğinde:
 
-1. Kaynak sunumu içeren ve slaytın klonlanacağı [Presentation] sınıfının bir örneğini oluşturun.
-1. Slaytın ekleneceği sunumu içeren bir [Presentation] sınıfının örneğini oluşturun.
-1. Hedef sunumun [Presentation] nesnesi tarafından sunulan Slides koleksiyonuna başvurarak [SlideCollection] sınıfını alın.
-1. [insertClone] metodunu çağırın ve kaynak sunumdan slaytı istediğiniz konumla birlikte [insertClone] metoduna parametre olarak geçirin.
-1. Değiştirilmiş hedef sunum dosyasını kaydedin.
+1. Slaytı klonlanacak kaynak sunumu içeren bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) örneği oluşturun.
+1. Slaytın ekleneceği hedef sunumu içeren bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) örneği oluşturun.
+1. Hedef sunumun [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) nesnesi tarafından açığa çıkarılan Slides koleksiyonuna başvurarak [SlideCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation/#getSlides) sınıfını alın.
+1. [SlideCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation/#getSlides) nesnesi tarafından sağlanan [insertClone](https://reference.aspose.com/slides/tr/php-java/aspose.slides/SlideCollection/#insertClone) yöntemini çağırın ve kaynak sunumdan slaytı istediğiniz konumla birlikte parametre olarak geçin.
+1. Değiştirilmiş hedef sunum dosyasını yazın.
 
-Aşağıda verilen örnekte, bir slaytı (kaynak sunumun sıfır indeksinden) hedef sunumun 1. indeksine (konum 2) klonladık.
+Aşağıdaki örnekte, kaynak sunumun sıfır indeksindeki bir slaytı hedef sunumun indeks 1 (konum 2) konumuna klonladık.
 
 ```php
-  # Kaynak sunum dosyasını yüklemek için Presentation sınıfını örnekleyin
+  # Kaynak sunum dosyasını yüklemek için Presentation sınıfını örnekle
   $srcPres = new Presentation("CloneAtEndOfAnother.pptx");
   try {
-    # Hedef PPTX için Presentation sınıfını örnekleyin (slaytın klonlanacağı yer)
+    # Slaytın klonlanacağı hedef PPTX için Presentation sınıfını örnekle
     $destPres = new Presentation();
     try {
-      # Kaynak sunumdan istenen slaytı hedef sunumdaki slayt koleksiyonunun sonuna klonlayın
+      # İstenen slaytı kaynak sunumdan hedef sunumdaki slayt koleksiyonunun sonuna klonla
       $slds = $destPres->getSlides();
       $slds->insertClone(2, $srcPres->getSlides()->get_Item(0));
-      # Hedef sunumu diske kaydedin
+      # Hedef sunumu diske kaydet
       $destPres->save("Aspose2_out.pptx", SaveFormat::Pptx);
     } finally {
       $destPres->dispose();
@@ -138,42 +138,43 @@ Aşağıda verilen örnekte, bir slaytı (kaynak sunumun sıfır indeksinden) he
   }
 ```
 
-## **Başka Bir Sunumda Belirli Bir Konuma Slaytı Klonla**
-If you need to clone a slide with a master slide from one presentation from and use it in another presentation, you need to clone the desired master slide from source presentation to destination presentation first. Then you need to use that master slide for cloning slide with master slide. The [**addClone(Slide, MasterSlide, boolean)**](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slidecollection/addclone/) expects a master slide from destination presentation rather than from source presentation. In order to clone the slide with a master, please follow the steps below:
+## **Başka Bir Sunumda Belirli Bir Konuma Slayt Klonla**
+Bir sunumdan ana slaytı olan bir slaytı başka bir sunuma klonlamanız gerektiğinde, önce kaynak sunumdan hedef sunuma istediğiniz ana slaytı klonlamalısınız. Ardından bu ana slaytı, ana slaytı olan slaytı klonlamak için kullanmalısınız. [**addClone(Slide, MasterSlide, boolean)**](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slidecollection/addclone/) yöntemi, kaynak sunumdan değil, hedef sunumdan bir ana slayt bekler. Ana slaytı klonlamak için aşağıdaki adımları izleyin:
 
-1. Kaynak sunumu içeren ve slaytın klonlanacağı [Presentation] sınıfının bir örneğini oluşturun.
-1. Hedef sunumu içeren ve slaytın klonlanacağı [Presentation] sınıfının bir örneğini oluşturun.
-1. Klonlanacak slayta ve onun master slaytına erişin.
-1. Hedef sunumun [Presentation] nesnesi tarafından sunulan Masters koleksiyonuna başvurarak [MasterSlideCollection] sınıfını örnekleyin.
-1. [MasterSlideCollection] nesnesi tarafından sunulan [addClone] metodunu çağırın ve kaynak PPTX'ten klonlanacak master'ı [addClone] metoduna parametre olarak geçirin.
-1. Hedef sunumun [Presentation] nesnesi tarafından sunulan Slides koleksiyonuna başvurarak [SlideCollection] sınıfını örnekleyin.
-1. [SlideCollection] nesnesi tarafından sunulan [addClone] metodunu çağırın ve kaynak sunumdan slaytı ve master slaytı [addClone] metoduna parametre olarak geçirin.
-1. Değiştirilmiş hedef sunum dosyasını kaydedin.
+1. Slaytı klonlanacak kaynak sunumu içeren bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) örneği oluşturun.
+1. Slaytı klonlayacağınız hedef sunumu içeren bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) örneği oluşturun.
+1. Klonlanacak slayta ve ona ait ana slayta erişin.
+1. Hedef sunumun [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) nesnesi tarafından açığa çıkarılan Masters koleksiyonuna başvurarak [MasterSlideCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/MasterSlideCollection) sınıfını örnekleyin.
+1. [MasterSlideCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/MasterSlideCollection) nesnesi tarafından sağlanan [addClone](https://reference.aspose.com/slides/tr/php-java/aspose.slides/SlideCollection/#addClone) yöntemini çağırın ve kaynak PPTX’ten klonlanacak ana slaytı parametre olarak geçin.
+1. Hedef sunumun [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) nesnesi tarafından açığa çıkarılan Slides koleksiyonuna başvurarak [SlideCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation/#getSlides) sınıfını örnekleyin.
+1. [SlideCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation/#getSlides) nesnesi tarafından sağlanan [addClone](https://reference.aspose.com/slides/tr/php-java/aspose.slides/SlideCollection/#addClone) yöntemini çağırın ve kaynak sunumdan klonlanacak slaytı ve ana slaytı parametre olarak geçin.
+1. Değiştirilmiş hedef sunum dosyasını yazın.
 
-Aşağıda verilen örnekte, bir slaytı (kaynak sunumun sıfır indeksinde bulunan) bir master ile birlikte hedef sunumun sonuna, kaynak slayttan alınan bir master kullanarak klonladık.
+Aşağıdaki örnekte, kaynak sunumun sıfır indeksindeki bir slaytı ve ana slaytı hedef sunumun sonuna, kaynak slayttan alınan bir ana slaytı kullanarak klonladık.
 
 ```php
-  # Kaynak sunum dosyasını yüklemek için Presentation sınıfını örnekleyin
+  # Kaynak sunum dosyasını yüklemek için Presentation sınıfını örnekle
   $srcPres = new Presentation("CloneToAnotherPresentationWithMaster.pptx");
   try {
-    # Hedef sunum (slaytın klonlanacağı yer) için Presentation sınıfını örnekleyin
+    # Slaytın klonlanacağı hedef sunum için Presentation sınıfını örnekle
     $destPres = new Presentation();
     try {
       # Kaynak sunumdaki slayt koleksiyonundan ISlide'ı ve
-      # Master slaytı
+      # Ana slaytı oluştur
       $SourceSlide = $srcPres->getSlides()->get_Item(0);
       $SourceMaster = $SourceSlide->getLayoutSlide()->getMasterSlide();
-      # İstenen master slaytı kaynak sunumdan hedef sunumdaki master koleksiyonuna klonlayın
-      # Hedef sunuma
+      # Kaynak sunumdan istenen ana slaytı hedef sunumdaki ana slayt koleksiyonuna klonla
+      # Hedef sunum
       $masters = $destPres->getMasters();
       $DestMaster = $SourceSlide->getLayoutSlide()->getMasterSlide();
-      # İstenen master slaytı kaynak sunumdan hedef sunumdaki master koleksiyonuna klonlayın
-      # Hedef sunuma
+      # Kaynak sunumdan istenen ana slaytı hedef sunumdaki ana slayt koleksiyonuna klonla
+      # Hedef sunum
       $iSlide = $masters->addClone($SourceMaster);
-      # İstenen master ile kaynak sunumdaki istenen slaytı hedef sunumdaki slayt koleksiyonunun sonuna klonlayın
+      # Kaynak sunumdan istenen slaytı istenen ana slayt ile hedef sunumdaki slayt koleksiyonunun sonuna klonla
+      # Hedef sunumdaki slayt koleksiyonunun sonuna
       $slds = $destPres->getSlides();
       $slds->addClone($SourceSlide, $iSlide, true);
-      # Hedef sunumu diske kaydedin
+      # Hedef sunumu diske kaydet
       $destPres->save("CloneToAnotherPresentationWithMaster_out.pptx", SaveFormat::Pptx);
     } finally {
       $destPres->dispose();
@@ -183,10 +184,10 @@ Aşağıda verilen örnekte, bir slaytı (kaynak sunumun sıfır indeksinde bulu
   }
 ```
 
-## **Belirli Bir Bölümün Sonunda Slaytı Klonla**
-If you want to clone a slide and then use it within the same presentation file but at a different section, then use the [addClone](https://reference.aspose.com/slides/tr/php-java/aspose.slides/SlideCollection/#addClone) method exposed by the [SlideCollection] class. Aspose.Slides for PHP via Java makes it possible to clone a slide from the first section and then insert that cloned slide to the second section of the same presentation.
+## **Belirli Bir Bölümün Sonuna Slayt Klonla**
+Bir slaytı klonlamak ve aynı sunum dosyasında farklı bir bölüme eklemek istiyorsanız, [SlideCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/SlideCollection) sınıfı tarafından sağlanan [addClone](https://reference.aspose.com/slides/tr/php-java/aspose.slides/SlideCollection/#addClone) yöntemini kullanın. Aspose.Slides for PHP via Java, bir slaytı ilk bölümden klonlayıp aynı sunumun ikinci bölümüne eklemenizi sağlar.
 
-The following code snippet shows you how to clone a slide and insert the cloned slide into a specified section.
+Aşağıdaki kod örneği, bir slaytı klonlayıp klonlanmış slaytı belirtilen bir bölüme nasıl ekleyeceğinizi gösterir.
 
 ```php
   $presentation = new Presentation();
@@ -195,8 +196,8 @@ The following code snippet shows you how to clone a slide and insert the cloned 
     $presentation->getSections()->addSection("Section 1", $presentation->getSlides()->get_Item(0));
     $section2 = $presentation->getSections()->appendEmptySection("Section 2");
     $presentation->getSlides()->addClone($presentation->getSlides()->get_Item(0), $section2);
-    # Hedef sunumu diske kaydedin
-    $presentation->save($dataDir . "CloneSlideIntoSpecifiedSection.pptx", SaveFormat::Pptx);
+    # Hedef sunumu diske kaydet
+    $presentation->save("CloneSlideIntoSpecifiedSection.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($presentation)) {
       $presentation->dispose();
@@ -204,16 +205,31 @@ The following code snippet shows you how to clone a slide and insert the cloned 
   }
 ```
 
+## **Eşleşen Slayt Boyutunu Sağlayın**
+
+Slaytları başka bir sunuma klonlarken, hedef sunumun slayt boyutunun kaynakla aynı olduğundan emin olun. Slayt boyutları farklıysa, Aspose.Slides klonlanan şekilleri otomatik olarak yeniden ölçeklendirmez—orijinal koordinat ve boyutları korunur; bu da içeriğin kayması veya slayt sınırlarının dışına taşmasına neden olabilir.
+
+Ana slaytı ve slaytı klonlamadan önce hedef sunumun slayt boyutunu kaynakla eşleştirebilirsiniz:
+
+```php
+$sourceSize = $sourcePresentation->getSlideSize()->getSize();
+
+$targetPresentation->getSlideSize()->setSize(
+    $sourceSize->getWidth(), $sourceSize->getHeight(), SlideSizeScaleType::DoNotScale);
+```
+
+Bunu ana slaytı ve slaytı klonlamadan önce yapın.
+
 ## **SSS**
 
-**Konuşmacı notları ve inceleme yorumları klonlanır mı?**
+**Konuşmacı notları ve inceleme yorumları da klonlanır mı?**
 
-Evet. Not sayfası ve inceleme yorumları klona dahil edilir. Eğer istemiyorsanız, eklemeden sonra [kaldırın](/slides/tr/php-java/presentation-notes/).
+Evet. Not sayfası ve inceleme yorumları klona dahil edilir. Eğer istemiyorsanız, ekledikten sonra [kaldırın](/slides/tr/php-java/presentation-notes/).
 
 **Grafikler ve veri kaynakları nasıl ele alınır?**
 
-Grafik nesnesi, biçimlendirme ve gömülü veriler kopyalanır. Grafik dış bir kaynağa (ör. OLE gömülü çalışma kitabı) bağlanmışsa, bu bağlantı bir [OLE object](/slides/tr/php-java/manage-ole/) olarak korunur. Dosyalar arasında taşıma sonrası veri kullanılabilirliğini ve yenileme davranışını doğrulayın.
+Grafik nesnesi, biçimlendirmesi ve gömülü verileri kopyalanır. Grafik harici bir kaynağa (ör. OLE gömülü bir çalışma kitabı) bağlıysa, bu bağlantı bir [OLE nesnesi](/slides/tr/php-java/manage-ole/) olarak korunur. Dosyalar arasında taşıdıktan sonra veri kullanılabilirliğini ve yenileme davranışını doğrulayın.
 
-**Klonun ekleme konumunu ve bölümlerini kontrol edebilir miyim?**
+**Klona ekleme konumu ve bölümlerini kontrol edebilir miyim?**
 
-Evet. Klonu belirli bir slayt indeksine ekleyebilir ve seçtiğiniz bir [section](/slides/tr/php-java/slide-section/) içine yerleştirebilirsiniz. Hedef bölüm mevcut değilse, önce onu oluşturun ve ardından slaytı ona taşıyın.
+Evet. Klonu belirli bir slayt indeksine ekleyebilir ve seçtiğiniz bir [bölüm](/slides/tr/php-java/slide-section/) içine yerleştirebilirsiniz. Hedef bölüm mevcut değilse, önce bölümü oluşturun ve ardından slaytı ona taşıyın.

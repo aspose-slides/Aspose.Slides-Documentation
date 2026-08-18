@@ -1,6 +1,6 @@
 ---
-title: Prezentáció diáinak klónozása .NET-ben
-linktitle: Diák klónozása
+title: Prezentáció diák klónozása .NET-ben
+linktitle: Dia klónozása
 type: docs
 weight: 40
 url: /hu/net/clone-slides/
@@ -14,70 +14,76 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Az Aspose.Slides for .NET segítségével gyorsan duplikálhatja a PowerPoint diákat. Kövesse átlátható kódpéldáinkat, hogy másodperc alatt automatizálja a PPT létrehozását és megszüntesse a manuális munkát."
+description: "Gyorsan duplikálja a PowerPoint diákat az Aspose.Slides for .NET segítségével. Kövesse egyértelmű kódrészleteinket, hogy másodpercek alatt automatizálja a PPT létrehozását és megszüntesse a manuális munkát."
 ---
 ## **Bevezetés**
 
-A klónozás egy folyamat, amelynek során egy pontos másolat vagy replikát készítünk valamiről. Az Aspose.Slides lehetővé teszi, hogy bármely diát másolj (klónozz) és aztán a klónozott diát beilleszd az aktuális prezentációba vagy bármely más nyitott prezentációba. A diakléonál egy új dia jön létre, amelyet a fejlesztők módosíthatnak anélkül, hogy az eredeti diát befolyásolnák. Többféleképpen lehet klónozni egy diát:
+A klónozás egy dolog pontos másolatának vagy replikájának létrehozási folyamata. Az Aspose.Slides lehetővé teszi, hogy bármely diát lemásolja (klónozza), majd a klónozott diát beillessze az aktuális prezentációba vagy bármely más megnyitott prezentációba. A diáklónozás új diát hoz létre, amelyet a fejlesztők módosíthatnak anélkül, hogy az eredeti dia változna. Többféleképpen lehet egy diát klónozni:
 
 - Klónozás a prezentáció végén.
-- Klónozás egy másik pozícióban a prezentáción belül.
+- Klónozás egy másik pozícióba a prezentáción belül.
 - Klónozás egy másik prezentáció végén.
-- Klónozás egy másik pozícióban egy másik prezentációban.
-- Klónozás egy meghatározott pozícióban egy másik prezentációban.
+- Klónozás egy másik pozícióba egy másik prezentációban.
+- Klónozás a saját mesterdiájával együtt egy másik prezentációba.
 
-Az Aspose.Slides for .NET-ben a diakollekció (egy [ISlide](https://reference.aspose.com/slides/hu/net/aspose.slides/islide/) objektumok gyűjteménye), amelyet a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) objektum tesz elérhetővé, biztosítja a [AddClone](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection/addclone/) és [InsertClone](https://reference.aspose.com/slides/hu/net/aspose.slides/ishapecollection/insertclone/) metódusokat a fent leírt diaklónál műveletek végrehajtásához.
+Az Aspose.Slides for .NET-ben a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) objektum által biztosított dia gyűjtemény (az [ISlide](https://reference.aspose.com/slides/hu/net/aspose.slides/islide/) objektumok gyűjteménye) tartalmazza az [AddClone](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection/addclone/) és az [InsertClone](https://reference.aspose.com/slides/hu/net/aspose.slides/ishapecollection/insertclone/) metódusokat a fent leírt diáklónozási műveletek végrehajtásához.
 
 ## **Dia klónozása a prezentáció végén**
 
-Ha egy diát szeretnél klónozni, majd ugyanabban a prezentációfájlban használni a meglévő diák végén, használd a [AddClone](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection/methods/addclone/index) metódust az alábbi lépések szerint:
+Ha egy diát szeretne klónozni, és azt ugyanabban a prezentációfájlban a meglévő diák végén használni, használja az [AddClone](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection/methods/addclone/index) metódust az alábbi lépések szerint:
 
-1. Hozz létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból.
-1. Példányosítsd a [ISlideCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection) osztályt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) objektum által biztosított Slides gyűjtemény hivatkozásával.
-1. Hívd meg a [AddClone](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection/methods/addclone/index) metódust, amelyet a [ISlideCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection) objektum biztosít, és add meg a klónozandó diát paraméterként a [AddClone](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection/methods/addclone/index) metódusnak.
-1. Írd ki a módosított prezentációfájlt.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból.
+1. Hozza létre az [ISlideCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection) osztály példányát a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) objektum által biztosított Slides gyűjtemény hivatkozásával.
+1. Hívja meg az [AddClone](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection/methods/addclone/index) metódust az [ISlideCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection) objektumon, és adja át a klónozandó diát paraméterként az [AddClone](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection/methods/addclone/index) metódusnak.
+1. Írja ki a módosított prezentációfájlt.
 
-Az alább bemutatott példában egy diát (ami a prezentáció első pozíciójában – nulla index – helyezkedik el) klónoztunk a prezentáció végére.
+Az alábbi példában egy diát (a prezentáció első pozíciójában – nulla indexen – lévő) klónoztunk a prezentáció végére.
 
 ```c#
- // A Presentation osztály példányosítása, amely egy prezentációs fájlt képvisel
- using (Presentation pres = new Presentation("CloneWithinSamePresentationToEnd.pptx"))
- {
- 
-     // A kívánt dia klónozása a diák gyűjteményének végére ugyanabban a prezentációban
-     ISlideCollection slds = pres.Slides;
- 
-     slds.AddClone(pres.Slides[0]);
- 
-     // A módosított prezentáció mentése lemezre
-     pres.Save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", SaveFormat.Pptx);
- 
- }
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Példányosít egy Presentation osztályt, amely egy prezentációfájlt képvisel
+using (Presentation pres = new Presentation("CloneWithinSamePresentationToEnd.pptx"))
+{
+
+    // Klónozza a kívánt diát a ugyanabban a prezentációban lévő diák gyűjteményének végére
+    ISlideCollection slds = pres.Slides;
+
+    slds.AddClone(pres.Slides[0]);
+
+    // Kiírja a módosított prezentációt a lemezre
+    pres.Save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", SaveFormat.Pptx);
+
+}
 ```
 
-## **Dia klónozása egy másik pozícióba a prezentáción belül**
+## **Dia klónozása egy másik pozícióba egy prezentáción belül**
 
-Ha egy diát szeretnél klónozni, majd ugyanabban a prezentációfájlban, de egy másik pozícióban használni, használd a [InsertClone](https://reference.aspose.com/slides/hu/net/aspose.slides.ishapecollection/insertclone/methods/1) metódust:
+Ha egy diát szeretne klónozni, és azt ugyanabban a prezentációfájlban, de más pozícióban használni, használja az [InsertClone](https://reference.aspose.com/slides/hu/net/aspose.slides.ishapecollection/insertclone/methods/1) metódust:
 
-1. Hozz létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból.
-1. Példányosítsd az osztályt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) objektum által biztosított **Slides** gyűjtemény hivatkozásával.
-1. Hívd meg a [InsertClone](https://reference.aspose.com/slides/hu/net/aspose.slides.ishapecollection/insertclone/methods/1) metódust, amelyet a [ISlideCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection) objektum biztosít, és add meg a klónozandó diát a kívánt új pozíció indexével együtt paraméterként a [InsertClone](https://reference.aspose.com/slides/hu/net/aspose.slides.ishapecollection/insertclone/methods/1) metódusnak.
-1. Írd ki a módosított prezentációt PPTX fájlként.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból.
+1. Hozzon létre egy példányt a **Slides** gyűjteményre hivatkozva, amelyet a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) objektum biztosít.
+1. Hívja meg az [InsertClone](https://reference.aspose.com/slides/hu/net/aspose.slides.ishapecollection/insertclone/methods/1) metódust az [ISlideCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection) objektumon, és adja át a klónozandó diát a kívánt új pozíció indexével együtt paraméterként az [InsertClone](https://reference.aspose.com/slides/hu/net/aspose.slides.ishapecollection/insertclone/methods/1) metódusnak.
+1. Írja ki a módosított prezentációt PPTX fájlként.
 
-Az alább bemutatott példában egy diát (ami a prezentáció nulla indexén – 1. pozíció – van) klónoztunk az 1. indexre – 2. pozícióra – a prezentációban.
+Az alábbi példában egy diát (a prezentáció 1-es indexén – 2. pozíció – lévő) klónoztunk a 2-es indexre – 3. pozícióra – a prezentációban.
 
 ```c#
-// A Presentation osztály példányosítása, amely egy prezentációs fájlt képvisel
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Példányosít egy Presentation osztályt, amely egy prezentációfájlt képvisel
 using (Presentation pres = new Presentation("CloneWithInSamePresentation.pptx"))
 {
 
-    // A kívánt dia klónozása a diák gyűjteményének végére ugyanabban a prezentációban
+    // Klónozza a kívánt diát a ugyanabban a prezentációban lévő diák gyűjteményének végére
     ISlideCollection slds = pres.Slides;
 
-    // A kívánt dia klónozása a megadott indexre ugyanabban a prezentációban
+    // Klónozza a kívánt diát a megadott indexre ugyanabban a prezentációban
     slds.InsertClone(2, pres.Slides[1]);
 
-    // A módosított prezentáció mentése lemezre
+    // Kiírja a módosított prezentációt a lemezre
     pres.Save("Aspose_CloneWithInSamePresentation_out.pptx", SaveFormat.Pptx);
 
 }
@@ -85,121 +91,132 @@ using (Presentation pres = new Presentation("CloneWithInSamePresentation.pptx"))
 
 ## **Dia klónozása egy másik prezentáció végén**
 
-Ha egy diát kell klónozni egy prezentációból, és egy másik prezentációfájlban használni, a meglévő diák végén:
+Ha egy diát szeretne klónozni, és azt egy másik prezentáció fájljában a meglévő diák végén használni:
 
-1. Hozz létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból, amely a forrás prezentációt tartalmazza, ahonnan a diát klónozni fogjuk.
-1. Hozz létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból, amely a cél prezentációt tartalmazza, amelyhez a diát hozzáadjuk.
-1. Példányosítsd a [ISlideCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection) osztályt a cél prezentáció Presentation objektuma által biztosított **Slides** gyűjtemény hivatkozásával.
-1. Hívd meg a [AddClone](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection/methods/addclone/index) metódust, amelyet a [ISlideCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection) objektum biztosít, és add meg a forrás prezentáció diáját paraméterként a [AddClone](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection/methods/addclone/index) metódusnak.
-1. Írd ki a módosított célprezentáció fájlt.
+1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztály példányt, amely tartalmazza azt a prezentációt, amelyből a diát klónozni kívánja.
+1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztály példányt, amely a célprezentációt tartalmazza, amelyhez a diát hozzáadja.
+1. Hozza létre az [ISlideCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection) osztály példányát a célprezentáció [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) objektuma által biztosított **Slides** gyűjtemény hivatkozásával.
+1. Hívja meg az [AddClone](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection/methods/addclone/index) metódust az [ISlideCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection) objektumon, és adja át a forrásprezentáció diáját paraméterként az [AddClone](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection/methods/addclone/index) metódusnak.
+1. Írja ki a módosított célprezentáció fájlt.
 
-Az alább bemutatott példában egy diát (a forrás prezentáció első indexéből) klónoztunk a célprezentáció végére.
-
-```c#
- // A Presentation osztály példányosítása a forrás prezentációs fájl betöltéséhez
- using (Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx"))
- {
-     // A Presentation osztály példányosítása a cél PPTX-hez (ahová a dia klónozva lesz)
-     using (Presentation destPres = new Presentation())
-     {
-         // A kívánt dia klónozása a forrás prezentációból a cél prezentáció diagyűjteményének végére
-         ISlideCollection slds = destPres.Slides;
-
-         slds.AddClone(srcPres.Slides[0]);
-
-         // A cél prezentáció mentése lemezre
-         destPres.Save("Aspose2_out.pptx", SaveFormat.Pptx);
-     }
- }
-```
-
-## **Dia klónozása egy másik pozícióba egy másik prezentációban**
-
-Ha egy diát kell klónozni egy prezentációból, és egy másik prezentációfájlban, egy meghatározott pozícióban használni:
-
-1. Hozz létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból, amely a forrás prezentációt tartalmazza, ahonnan a diát klónozni fogjuk.
-1. Hozz létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból, amely a cél prezentációt tartalmazza, amelyhez a diát hozzáadjuk.
-1. Példányosítsd a [ISlideCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection) osztályt a cél prezentáció Presentation objektuma által biztosított Slides gyűjtemény hivatkozásával.
-1. Hívd meg a [InsertClone](https://reference.aspose.com/slides/hu/net/aspose.slides.ishapecollection/insertclone/methods/1) metódust, amelyet a [ISlideCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection) objektum biztosít, és add meg a forrás prezentáció diáját a kívánt pozícióval együtt paraméterként a [InsertClone](https://reference.aspose.com/slides/hu/net/aspose.slides.ishapecollection/insertclone/methods/1) metódusnak.
-1. Írd ki a módosított célprezentáció fájlt.
-
-Az alább bemutatott példában egy diát (a forrás prezentáció nulla indexéről) klónoztunk az 1. indexre (2. pozíció) a célprezentációban.
+Az alábbi példában egy diát (a forrásprezentáció első indexéről) klónoztunk a célprezentáció végére.
 
 ```c#
-// A Presentation osztály példányosítása a forrás prezentációs fájl betöltéséhez
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Példányosít egy Presentation osztályt a forrás prezentációfájl betöltéséhez
 using (Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx"))
 {
-    // A Presentation osztály példányosítása a cél PPTX-hez (ahová a diát klónozni fogják)
+    // Példányosít egy Presentation osztályt a cél PPTX-hez (ahová a diát klónozni kell)
+    using (Presentation destPres = new Presentation())
+    {
+        // Klónozza a kívánt diát a forrás prezentációból a cél prezentáció diagyűjteményének végére
+        ISlideCollection slds = destPres.Slides;
+
+        slds.AddClone(srcPres.Slides[0]);
+
+        // Kiírja a cél prezentációt a lemezre
+        destPres.Save("Aspose2_out.pptx", SaveFormat.Pptx);
+    }
+}
+```
+
+## **Dia klónozása egy másik prezentációban egy másik pozícióba**
+
+Ha egy diát szeretne klónozni, és azt egy másik prezentáció fájljában egy meghatározott pozícióban használni:
+
+1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztály példányt, amely a forrásprezentációt tartalmazza, amelyből a diát klónozni kívánja.
+1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztály példányt, amely a célprezentációt tartalmazza, amelyhez a diát hozzáadja.
+1. Hozza létre az [ISlideCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection) osztály példányát a célprezentáció [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) objektuma által biztosított Slides gyűjtemény hivatkozásával.
+1. Hívja meg az [InsertClone](https://reference.aspose.com/slides/hu/net/aspose.slides.ishapecollection/insertclone/methods/1) metódust az [ISlideCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection) objektumon, és adja át a forrásprezentáció diáját a kívánt pozícióval együtt paraméterként az [InsertClone](https://reference.aspose.com/slides/hu/net/aspose.slides.ishapecollection/insertclone/methods/1) metódusnak.
+1. Írja ki a módosított célprezentáció fájlt.
+
+Az alábbi példában egy diát (a forrásprezentáció nulla indexéről) klónoztunk a célprezentáció 1-es indexére (2. pozícióra).
+
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Példányosít egy Presentation osztályt a forrás prezentációfájl betöltéséhez
+using (Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx"))
+{
+    // Példányosít egy Presentation osztályt a cél PPTX-hez (ahová a diát klónozni kell)
     using (Presentation destPres = new Presentation())
     {
         ISlideCollection slds = destPres.Slides;
 
         slds.InsertClone(2, srcPres.Slides[0]);
 
-        // A cél prezentáció mentése lemezre
+        // Kiírja a cél prezentációt a lemezre
         destPres.Save("Aspose2_out.pptx", SaveFormat.Pptx);
     }
 }
 ```
 
-## **Dia klónozása egy meghatározott pozícióba egy másik prezentációban**
+## **Dia és mesterdia klónozása egy másik prezentációba**
 
-Ha egy diát kell klónozni egy mesterdiával egy prezentációból, és egy másik prezentációban használni, először a kívánt mesterdiát kell klónozni a forrás prezentációból a cél prezentációba. Ezután ezt a mesterdiát kell használni a mesterdiás dia klónozásához. A **AddClone(ISlide, IMasterSlide)** egy a cél prezentációból származó mesterdiát vár, nem a forrásból. A mesterdiával rendelkező dia klónozásához kövesd az alábbi lépéseket:
+Ha egy diát a hozzá tartozó mesterdiával kíván klónozni egy prezentációból, és egy másik prezentációban használni, először a kívánt mesterdiát kell a forrásprezentációból a célprezentációba klónozni. Ezután ezt a mesterdiát kell használni a diák mesterrel történő klónozásához. A **AddClone(ISlide, IMasterSlide)** egy a célprezentációból származó mesterdiát vár, nem a forrásprezentációból. A diák mesterrel való klónozásához kövesse az alábbi lépéseket:
 
-1. Hozz létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból, amely a forrás prezentációt tartalmazza, ahonnan a diát klónozni fogjuk.
-1. Hozz létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból, amely a cél prezentációt tartalmazza, amelyhez a diát hozzáadjuk.
-1. Érd el a klónozandó diát a hozzá tartozó mesterdiával.
-1. Példányosítsd a [IMasterSlideCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/imasterslidecollection) osztályt a cél prezentáció [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) objektuma által biztosított Masters gyűjtemény hivatkozásával.
-1. Hívd meg a [AddClone](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection/methods/addclone/index) metódust, amelyet az [IMasterSlideCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/imasterslidecollection) objektum biztosít, és add meg a forrás PPTX‑ből származó, klónozandó mesterdiát paraméterként a [AddClone](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection/methods/addclone/index) metódusnak.
-1. Példányosítsd a [ISlideCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection) osztályt a cél prezentáció [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) objektuma által biztosított Slides gyűjtemény hivatkozásával.
-1. Hívd meg a [AddClone](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection/methods/addclone/index) metódust, amelyet az [ISlideCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection) objektum biztosít, és add meg a forrás prezentációból származó, klónozandó diát és mesterdiát paraméterként a [AddClone](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection/methods/addclone/index) metódusnak.
-1. Írd ki a módosított célprezentáció fájlt.
+1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztály példányt, amely a forrásprezentációt tartalmazza, amelyből a diát klónozni kívánja.
+1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztály példányt, amely a célprezentációt tartalmazza, amelyhez a diát klónozni kívánja.
+1. Keresse meg a klónozandó diát a hozzá tartozó mesterdiával együtt.
+1. Hozza létre az [IMasterSlideCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/imasterslidecollection) osztály példányát a célprezentáció [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) objektuma által biztosított Masters gyűjtemény hivatkozásával.
+1. Hívja meg az [AddClone](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection/methods/addclone/index) metódust az [IMasterSlideCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/imasterslidecollection) objektumon, és adja át a forrás PPTX-ből származó, klónozandó mesterdiát paraméterként az [AddClone](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection/methods/addclone/index) metódusnak.
+1. Hozza létre az [ISlideCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection) osztály példányát a célprezentáció [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) objektuma által biztosított Slides gyűjtemény hivatkozásával.
+1. Hívja meg az [AddClone](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection/methods/addclone/index) metódust az [ISlideCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection) objektumon, és adja át a forrásprezentációból származó, klónozandó diát és a mesterdiát paraméterként az [AddClone](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection/methods/addclone/index) metódusnak.
+1. Írja ki a módosított célprezentáció fájlt.
 
-Az alább bemutatott példában egy mesterdiával rendelkező diát (a forrás prezentáció nulla indexén) klónoztunk a célprezentáció végére, a forrás diából származó mesterdiát használva.
+Az alábbi példában egy diát mesterdiával együtt (a forrásprezentáció nulla indexén) klónoztunk a célprezentáció végére a forrásdiáról származó mesterdia használatával.
 
 ```c#
- // A Presentation osztály példányosítása a forrás prezentációs fájl betöltéséhez
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
+// Instantiate Presentation class to load the source presentation file
 using (Presentation srcPres = new Presentation("CloneToAnotherPresentationWithMaster.pptx"))
 {
-    // A Presentation osztály példányosítása a cél prezentációhoz (ahová a diát klónozni kell)
+    // Instantiate Presentation class for destination presentation (where slide is to be cloned)
     using (Presentation destPres = new Presentation())
     {
 
-        // ISlide példányosítása a forrás prezentáció diagyűjteményéből, együtt
-        // Mesterdia
+        // Instantiate ISlide from the collection of slides in source presentation along with
+        // Master slide
         ISlide SourceSlide = srcPres.Slides[0];
         IMasterSlide SourceMaster = SourceSlide.LayoutSlide.MasterSlide;
 
-        // A kívánt mesterdia klónozása a forrás prezentációból a mestergyűjteménybe a
-        // cél prezentációban
+        // Clone the desired master slide from the source presentation to the collection of masters in the
+        // Destination presentation
         IMasterSlideCollection masters = destPres.Masters;
         IMasterSlide DestMaster = SourceSlide.LayoutSlide.MasterSlide;
 
-        // A kívánt mesterdia klónozása a forrás prezentációból a mestergyűjteménybe a
-        // cél prezentációban
+        // Clone the desired master slide from the source presentation to the collection of masters in the
+        // Destination presentation
         IMasterSlide iSlide = masters.AddClone(SourceMaster);
 
-        // A kívánt dia klónozása a forrás prezentációból a kívánt mesterrel a végére
-        // a cél prezentáció diagyűjteményébe
+        // Clone the desired slide from the source presentation with the desired master to the end of the
+        // Collection of slides in the destination presentation
         ISlideCollection slds = destPres.Slides;
         slds.AddClone(SourceSlide, iSlide, true);
       
-        // A kívánt mesterdia klónozása a forrás prezentációból a mestergyűjteménybe a cél prezentációban
-        // A cél prezentáció mentése lemezre
+        // Clone the desired master slide from the source presentation to the collection of masters in the // Destination presentation
+        // Save the destination presentation to disk
         destPres.Save("CloneToAnotherPresentationWithMaster_out.pptx", SaveFormat.Pptx);
 
     }
 }
 ```
 
-## **Dia klónozása egy meghatározott szakasz végén**
+## **Dia klónozása egy megadott szekció végén**
 
-Az Aspose.Slides for .NET segítségével egy diát klónozhatsz egy prezentáció egy szakaszából, és beillesztheted azt egy másik szakaszba ugyanabban a prezentációban. Ebben az esetben az [ISlideCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection) interfész [AddClone](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection/methods/addclone/index) metódusát kell használnod.
+Az Aspose.Slides for .NET segítségével egy prezentáció egy szekciójából klónozhat diát, és beillesztheti azt ugyanabban a prezentációban egy másik szekcióba. Ebben az esetben az [AddClone](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection/methods/addclone/index) metódust kell használni az [ISlideCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection) interfészből. 
 
-Ez a C# kód megmutatja, hogyan lehet egy diát klónozni és a klónozott diát egy meghatározott szakaszba beilleszteni:
+Ez a C# kód bemutatja, hogyan lehet egy diát klónozni és a klónozott diát egy megadott szekcióba beilleszteni:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
@@ -214,16 +231,31 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **GYIK**
+## **A megfelelő dia méret biztosítása**
 
-**A jegyzetek és a felülvizsgáló kommentárok klónozva vannak?**
+Dia klónozásakor egy másik prezentációba ügyeljen arra, hogy a célprezentáció dia mérete megegyezzen a forráséval. Ha a dia méretek eltérnek, az Aspose.Slides nem méretezi át automatikusan a klónozott alakzatokat – azok eredeti koordinátái és méretei megmaradnak, ami azt eredményezheti, hogy a tartalom eltolódik vagy a dia határain kívül helyezkedik el.
 
-Igen. A jegyzetoldal és a felülvizsgáló kommentárok belekerülnek a klónba. Ha nem akarod őket, [vedd el őket](/slides/hu/net/presentation-notes/) a beillesztés után.
+A mester és a dia klónozása előtt beállíthatja a célprezentáció dia méretét, hogy az egyezzen a forráséval:
 
-**A diagramok és adatforrásaik hogyan kezelődnek?**
+```cs
+SizeF sourceSize = sourcePresentation.SlideSize.Size;
 
-A diagram objektum, a formázás és a beágyazott adatok másolásra kerülnek. Ha a diagram külső forráshoz volt kapcsolva (például egy OLE‑beágyazott munkafüzethez), ezt a kapcsolatot [OLE objektum](/slides/hu/net/manage-ole/) formájában megőrzik. Fájlok közti áthelyezés után ellenőrizd az adatok elérhetőségét és a frissítési viselkedést.
+targetPresentation.SlideSize.SetSize(
+    sourceSize.Width, sourceSize.Height, SlideSizeScaleType.DoNotScale);
+```
 
-**Szabályozhatom a beillesztés pozícióját és a szakaszokat a klón számára?**
+Ezt a mester és a dia klónozása előtt végezze.
 
-Igen. A klónt egy meghatározott diaindexre szúrhatod be, és egy kiválasztott [szakasz](/slides/hu/net/slide-section/)ba helyezheted. Ha a cél szakasz nem létezik, előbb hozd létre, majd helyezd bele a diát.
+## **FAQ**
+
+**A beszélői jegyzetek és a recenziós megjegyzések klónozódnak?**
+
+Igen. A jegyzetoldal és a felülvizsgálati megjegyzések a klónba kerülnek. Ha nem szeretné, akkor a beillesztés után [távolítsa el őket](/slides/hu/net/presentation-notes/).
+
+**Hogyan kezelik a diagramok és azok adatforrásai?**
+
+A diagram objektuma, formázása és a beágyazott adatok másolásra kerülnek. Ha a diagram egy külső forráshoz (például OLE-beágyazott munkafüzethez) volt kapcsolva, ez a kapcsolat egy [OLE objektum](/slides/hu/net/manage-ole/) formájában megmarad. Fájlok közti áthelyezés után ellenőrizze az adatok elérhetőségét és a frissítési viselkedést.
+
+**Korlátozhatom a klón beszúrási pozícióját és szekcióit?**
+
+Igen. A klón beilleszthető egy adott dia indexre, és elhelyezhető egy kiválasztott [szekcióba](/slides/hu/net/slide-section/). Ha a cél szekció nem létezik, előbb hozza létre, majd mozgassa át a diát.
