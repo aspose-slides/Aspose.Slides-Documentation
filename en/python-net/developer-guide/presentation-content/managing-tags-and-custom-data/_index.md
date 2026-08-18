@@ -340,6 +340,31 @@ Tags added through the `custom_data.tags` collection are stored only in the Powe
 
 **Workaround**: You can store a custom identifier in the object's **Alt Text** (for example, `shape.alternative_text = "MyId"`). After exporting to PDF, the Alt Text may appear in the PDF tag structure.
 
+### Enable UI Editing via Tags
+
+If you need to let users make minor edits to a generated PPTX in the browser, you can use Aspose.Slides to extract information about editable objects and store an identifier in each shape’s tags or custom data. The backend can return this information to the frontend together with the rendered PNG preview.
+
+**Typical workflow**
+1. Backend iterates over shapes on a slide and extracts properties such as type, position, size, and current text.
+2. For each shape, store a unique identifier in a tag (e.g., `shape.custom_data.tags.add("id", "slide_title")`).
+3. Return a JSON array of objects containing the extracted properties. Example element:
+```json
+{
+  "id": "slide_title",
+  "type": "text",
+  "x": 50,
+  "y": 30,
+  "width": 500,
+  "height": 60,
+  "text": "Current title"
+}
+```
+4. Frontend renders the PNG preview and overlays editable controls at the specified coordinates.
+5. When the user modifies a value, send the updated fields back to the backend.
+6. Backend locates the shape by the stored tag identifier and applies the changes with Aspose.Slides, then regenerates the PNG preview.
+
+Using tags for the identifier ensures a reliable association between the UI element and the shape in the PPTX.
+
 ## **FAQ**
 
 **Can I remove all tags from a presentation, slide, or shape in one operation?**
