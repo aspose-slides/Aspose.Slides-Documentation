@@ -1,75 +1,75 @@
 ---
-title: "Prezentációs diák klónozása PHP-ben"
-linktitle: "Dia klónozása"
+title: Prezentáció diák klónozása PHP-ben
+linktitle: Dia klónozása
 type: docs
 weight: 35
 url: /hu/php-java/clone-slides/
 keywords:
-- "dia klónozása"
-- "dia másolása"
-- "dia mentése"
-- "PowerPoint"
-- "OpenDocument"
-- "prezentáció"
-- "PHP"
-- "Aspose.Slides"
-description: "Az Aspose.Slides for PHP segítségével gyorsan duplikálhatja a PowerPoint diákat. Kövesse a világos kódpéldáinkat a PPT létrehozásának másodpercek alatt automatizálásához és a manuális munka megszüntetéséhez."
+- dia klónozása
+- dia másolása
+- dia mentése
+- PowerPoint
+- OpenDocument
+- prezentáció
+- PHP
+- Aspose.Slides
+description: "Gyorsan duplikálja a PowerPoint diákat az Aspose.Slides for PHP segítségével. Kövesse egyértelmű kódpéldáinkat, hogy másodpercek alatt automatizálja a PPT létrehozását és megszüntesse a manuális munkát."
 ---
 ## **Bevezetés**
 
-A klónozás egy pontos másolat vagy replikáció készítésének folyamata. Az Aspose.Slides for PHP via Java lehetővé teszi, hogy bármely dia másolatát vagy klónját elkészítsük, majd azt a klónozott diát a jelenlegi vagy bármely más megnyitott prezentációba illesszük. A diaklónozási folyamat egy új diát hoz létre, amelyet a fejlesztők módosíthatnak az eredeti dia megváltoztatása nélkül. Többféle módja van a dia klónozásának:
+Klónozás a pontos másolat vagy replikáció elkészítésének folyamata. Az Aspose.Slides for PHP via Java lehetővé teszi, hogy bármely diát lemásoljuk vagy klónozzuk, majd a klónozott diát beilleszthessük az aktuális vagy bármely más nyitott bemutatóba. A diaklónozás folyamata egy új diát hoz létre, amelyet a fejlesztők módosíthatnak anélkül, hogy az eredeti diát megváltoztatnák. Többféle módon lehet egy diát klónozni:
 
 - Klónozás a prezentáció végén.
-- Klónozás a prezentáció másik pozíciójában.
+- Klónozás a prezentáción belül egy másik pozícióban.
 - Klónozás egy másik prezentáció végén.
-- Klónozás egy másik prezentáció másik pozíciójában.
-- Klónozás egy adott pozícióban egy másik prezentációban.
+- Klónozás egy másik prezentációban egy másik pozícióban.
+- Klónozás egy másik prezentációban egy adott pozícióban.
 
-Az Aspose.Slides for PHP via Java-ban a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) objektum által kiadott (a [Slide](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Slide) objektumok gyűjteménye) biztosítja a [addClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#addClone) és a [insertClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#insertClone) metódusokat a fenti diaklónozási típusok végrehajtásához.
+Az Aspose.Slides for PHP via Java-ban a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) objektum által biztosított (a [Dia](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Slide) objektumok gyűjteménye) a [addClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#addClone) és a [insertClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#insertClone) metódusokat kínálja a fenti diaklónozási típusok végrehajtásához
 
 ## **Dia klónozása a prezentáció végén**
-Ha egy diát szeretne klónozni, majd ugyanabban a prezentációs fájlban a meglévő diák végén használni, használja a [addClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#addClone) metódust az alább felsorolt lépések szerint:
+Ha egy diát szeretne klónozni, és azt ugyanabban a prezentációfájlban a meglévő diák végén használni, használja a [addClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#addClone) metódust az alábbi lépések szerint:
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) osztályból.
-1. Szerezze meg a [SlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation/#getSlides) objektumot a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) objektum által kiadott dia gyűjtemény hivatkozásával.
-1. Hívja meg a [addClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#addClone) metódust, amely a [SlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation/#getSlides) objektum által ki van adva, és adja át a klónozandó diát paraméterként a [addClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#addClone) metódusnak.
-1. Írja ki a módosított prezentációfájlt.
+2. Szerezze be a [SlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation/#getSlides) objektumot a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) objektum által biztosított dia gyűjtemény hivatkozásával.
+3. Hívja meg a [addClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#addClone) metódust a [SlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation/#getSlides) objektumon, és adja át a klónozandó diát paraméterként a [addClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#addClone) metódusnak.
+4. Írja ki a módosított prezentációfájlt.
 
-Az alábbi példában egy diát (amely a prezentáció első pozíciójában – nulla index – helyezkedik) klónoztunk a prezentáció végére.
+Az alábbi példában egy diát (a prezentáció első pozíciójában – nulla indexen – elhelyezkedő) a prezentáció végére klónoztuk.
 
 ```php
   # Példányosítsa a Presentation osztályt, amely egy prezentációs fájlt képvisel
   $pres = new Presentation("CloneWithinSamePresentationToEnd.pptx");
   try {
-    # Klónozza a kívánt diát a ugyanabban a prezentációban lévő diák gyűjteményének végére
+    # Klónozza a kívánt diát a prezentációban lévő diák gyűjteményének végére
     $slds = $pres->getSlides();
     $slds->addClone($pres->getSlides()->get_Item(0));
-    # Írja a módosított prezentációt a lemezre
+    # Írja a módosított prezentációt lemezre
     $pres->save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
   }
 ```
 
-## **Dia klónozása egy másik pozícióba a prezentációon belül**
-Ha egy diát szeretne klónozni, majd ugyanabban a prezentációs fájlban, de másik pozícióban használni, használja a [insertClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#insertClone) metódust:
+## **Dia klónozása egy másik pozícióba ugyanabban a prezentációban**
+Ha egy diát szeretne klónozni, és azt ugyanabban a prezentációfájlban más pozícióban használni, használja a [insertClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#insertClone) metódust:
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) osztályból.
-1. Szerezze meg a [SlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection) objektumot a [**Slides**](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation/#getSlides) gyűjtemény hivatkozásával, amelyet a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) objektum tesz elérhetővé.
-1. Hívja meg a [insertClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#insertClone) metódust, amely a [SlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation/#getSlides) objektum által ki van adva, és adja át a klónozandó diát a kívánt új pozíció indexével együtt paraméterként a [insertClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#insertClone) metódusnak.
-1. Írja ki a módosított prezentációt PPTX fájlként.
+2. Szerezze be a [SlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection) objektumot a [**Slides**](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation/#getSlides) gyűjtemény hivatkozásával, amelyet a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) objektum biztosít.
+3. Hívja meg a [insertClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#insertClone) metódust a [SlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation/#getSlides) objektumon, és adja át a klónozandó diát valamint az új pozíció indexét paraméterként a [insertClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#insertClone) metódusnak.
+4. Írja ki a módosított prezentációt PPTX fájlként.
 
-Az alábbi példában egy diát (amely a nulla index – 1. pozíció – helyén van a prezentációban) klónoztunk az 1-es indexre – 2. pozícióra – a prezentációban.
+Az alábbi példában egy diát (a prezentáció nulla indexén – 1. pozíció – elhelyezkedő) az 1-es indexre – 2. pozícióra – klónoztuk.
 
 ```php
   # Példányosítsa a Presentation osztályt, amely egy prezentációs fájlt képvisel
   $pres = new Presentation("CloneWithInSamePresentation.pptx");
   try {
-    # Klónozza a kívánt diát a ugyanabban a prezentációban lévő diák gyűjteményének végére
+    # Klónozza a kívánt diát a prezentációban lévő diák gyűjteményének végére
     $slds = $pres->getSlides();
-    # Klónozza a kívánt diát a ugyanabban a prezentációban a megadott indexen
+    # Klónozza a kívánt diát a megadott indexre ugyanabban a prezentációban
     $slds->insertClone(2, $pres->getSlides()->get_Item(1));
-    # Írja a módosított prezentációt a lemezre
+    # Írja a módosított prezentációt lemezre
     $pres->save("Aspose_CloneWithInSamePresentation_out.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
@@ -77,27 +77,27 @@ Az alábbi példában egy diát (amely a nulla index – 1. pozíció – helyé
 ```
 
 ## **Dia klónozása egy másik prezentáció végén**
-Ha egy diát egy prezentációból kell klónozni, és egy másik prezentációban, a meglévő diák végén szeretné használni:
+Ha egy diát egy prezentációból kell klónozni, és azt egy másik prezentációfájlban a meglévő diák végén használni:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) osztályból, amely a forrás prezentációt tartalmazza.
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) osztályból, amely a cél prezentációt tartalmazza, amelyhez a dia hozzá lesz adva.
-1. Szerezze meg a [SlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection) objektumot a [**Slides**](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation/#getSlides) gyűjtemény hivatkozásával, amelyet a cél prezentáció Presentation objektuma tesz elérhetővé.
-1. Hívja meg a [addClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#addClone) metódust, amely a [SlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation/#getSlides) objektum által ki van adva, és adja át a forrás prezentációból származó diát paraméterként a [addClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#addClone) metódusnak.
-1. Írja ki a módosított célprezentáció fájlt.
+1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) osztályú példányt, amely tartalmazza azt a prezentációt, amelyből a diát klónozni fogja.
+2. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) osztályú példányt, amely a célprezentációt tartalmazza, amelyhez a diát hozzá fogja adni.
+3. Szerezze be a [SlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection) objektumot a célprezentáció [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) objektuma által biztosított [**Slides**](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation/#getSlides) gyűjtemény hivatkozásával.
+4. Hívja meg a [addClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#addClone) metódust a [SlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation/#getSlides) objektumon, és adja át a forrásprezentációból származó diát paraméterként a [addClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#addClone) metódusnak.
+5. Írja ki a módosított célprezentáció fájlt.
 
-Az alábbi példában egy diát (a forrás prezentáció első indexéből) klónoztunk a célprezentáció végére.
+Az alábbi példában egy diát (a forrásprezentáció első indexéről) a célprezentáció végére klónoztuk.
 
 ```php
-  # A Presentation osztály példányosítása a forrás prezentációs fájl betöltéséhez
+  # Példányosítsa a Presentation osztályt a forrás prezentációs fájl betöltéséhez
   $srcPres = new Presentation("CloneAtEndOfAnother.pptx");
   try {
-    # A Presentation osztály példányosítása a cél PPTX-hez (ahová a dia klónozandó)
+    # Példányosítsa a Presentation osztályt a cél PPTX-hez (ahová a diát klónozni fogjuk)
     $destPres = new Presentation();
     try {
       # Klónozza a kívánt diát a forrás prezentációból a cél prezentáció diagyűjteményének végére
       $slds = $destPres->getSlides();
       $slds->addClone($srcPres->getSlides()->get_Item(0));
-      # Írja a cél prezentációt a lemezre
+      # Írja a cél prezentációt lemezre
       $destPres->save("Aspose2_out.pptx", SaveFormat::Pptx);
     } finally {
       $destPres->dispose();
@@ -108,27 +108,27 @@ Az alábbi példában egy diát (a forrás prezentáció első indexéből) kló
 ```
 
 ## **Dia klónozása egy másik pozícióba egy másik prezentációban**
-Ha egy diát egy prezentációból kell klónozni, és egy másik prezentációban, egy adott pozícióban szeretné használni:
+Ha egy diát egy prezentációból kell klónozni, és azt egy másik prezentációfájlban egy adott pozícióban használni:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) osztályból, amely a forrás prezentációt tartalmazza, ahonnan a diát klónozni kell.
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) osztályból, amely a cél prezentációt tartalmazza, amelyhez a dia hozzá lesz adva.
-1. Szerezze meg a [SlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation/#getSlides) osztályt a Slides gyűjtemény hivatkozásával, amelyet a cél prezentáció Presentation objektuma tesz elérhetővé.
-1. Hívja meg a [insertClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#insertClone) metódust, amely a [SlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation/#getSlides) objektum által ki van adva, és adja át a forrás prezentációból származó diát a kívánt pozícióval együtt paraméterként a [insertClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#insertClone) metódusnak.
-1. Írja ki a módosított célprezentáció fájlt.
+1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) osztályú példányt, amely a forrásprezentációt tartalmazza, amelyből a diát klónozni fogja.
+2. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) osztályú példányt, amely a célprezentációt tartalmazza, amelyhez a diát hozzá fogja adni.
+3. Szerezze be a [SlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation/#getSlides) osztályt a célprezentáció [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) objektuma által biztosított Slides gyűjtemény hivatkozásával.
+4. Hívja meg a [insertClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#insertClone) metódust a [SlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation/#getSlides) objektumon, és adja át a forrásprezentációból származó diát valamint a kívánt pozíciót paraméterként a [insertClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#insertClone) metódusnak.
+5. Írja ki a módosított célprezentáció fájlt.
 
-Az alábbi példában egy diát (a forrás prezentáció nulla indexéből) klónoztunk az 1-es indexre (2. pozíció) a célprezentációban.
+Az alábbi példában egy diát (a forrásprezentáció nulla indexéről) az 1-es indexre (2. pozíció) a célprezentációban klónoztuk.
 
 ```php
-  # A Presentation osztály példányosítása a forrás prezentációs fájl betöltéséhez
+  # Példányosítsa a Presentation osztályt a forrás prezentációs fájl betöltéséhez
   $srcPres = new Presentation("CloneAtEndOfAnother.pptx");
   try {
-    # A Presentation osztály példányosítása a cél PPTX-hez (ahová a dia klónozandó)
+    # Példányosítsa a Presentation osztályt a cél PPTX-hez (ahová a diát klónozni fogjuk)
     $destPres = new Presentation();
     try {
       # Klónozza a kívánt diát a forrás prezentációból a cél prezentáció diagyűjteményének végére
       $slds = $destPres->getSlides();
       $slds->insertClone(2, $srcPres->getSlides()->get_Item(0));
-      # Írja a cél prezentációt a lemezre
+      # Írja a cél prezentációt lemezre
       $destPres->save("Aspose2_out.pptx", SaveFormat::Pptx);
     } finally {
       $destPres->dispose();
@@ -138,43 +138,43 @@ Az alábbi példában egy diát (a forrás prezentáció nulla indexéből) kló
   }
 ```
 
-## **Dia klónozása egy adott pozícióban egy másik prezentációban**
-Ha egy diát master diával együtt kell klónozni egy prezentációból, és egy másik prezentációba szeretné helyezni, először a kívánt master diát kell klónozni a forrás prezentációból a cél prezentációba. Ezután ezt a master diát kell használni a masteres dia klónozásához. A [**addClone(Slide, MasterSlide, boolean)**](https://reference.aspose.com/slides/hu/php-java/aspose.slides/slidecollection/addclone/) egy a cél prezentációból származó master diát vár, nem a forrásból. A masteres dia klónozásához kövesse az alábbi lépéseket:
+## **Dia klónozása egy adott pozícióba egy másik prezentációban**
+Ha egy diát fő diával (master slide) kell klónozni egy prezentációból egy másikba, először a kívánt fő diát kell klónozni a forrásprezentációból a célprezentációba. Ezután ezt a fő diát kell használni a diák fő diával történő klónozásához. A [**addClone(Slide, MasterSlide, boolean)**](https://reference.aspose.com/slides/hu/php-java/aspose.slides/slidecollection/addclone/) egy a célprezentációból származó fő diát vár, nem a forrásból. A diák fő diával történő klónozáshoz kövesse az alábbi lépéseket:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) osztályból, amely a forrás prezentációt tartalmazza, ahonnan a diát klónozni kell.
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) osztályból, amely a cél prezentációt tartalmazza, ahová a dia klónozva lesz.
-1. Hozzáférés a klónozandó diához a master diával együtt.
-1. Hozza létre a [MasterSlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/MasterSlideCollection) osztályt a cél prezentáció [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) objektuma által kitetts Masters gyűjtemény hivatkozásával.
-1. Hívja meg a [addClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#addClone) metódust, amely a [MasterSlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/MasterSlideCollection) objektum által ki van adva, és adja át a forrás PPTX‑ből származó master diát paraméterként a [addClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#addClone) metódusnak.
-1. Hozza létre a [SlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation/#getSlides) osztályt a Slides gyűjtemény hivatkozásával, amelyet a cél prezentáció [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) objektuma tesz elérhetővé.
-1. Hívja meg a [addClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#addClone) metódust, amely a [SlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation/#getSlides) objektum által ki van adva, és adja át a forrás prezentációból származó diát és a master diát paraméterként a [addClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#addClone) metódusnak.
-1. Írja ki a módosított célprezentáció fájlt.
+1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) osztályú példányt, amely a forrásprezentációt tartalmazza, amelyből a diát klónozni fogja.
+2. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) osztályú példányt, amely a célprezentációt tartalmazza, amelyhez a diát hozzá fogja adni.
+3. Hozzáférés a klónozandó diához a fő diával együtt.
+4. Példányosítsa a [MasterSlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/MasterSlideCollection) osztályt a célprezentáció [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) objektuma által biztosított Masters gyűjtemény hivatkozásával.
+5. Hívja meg a [addClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#addClone) metódust a [MasterSlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/MasterSlideCollection) objektumon, és adja át a forrás PPTX-ből származó klónozandó fő diát paraméterként a [addClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#addClone) metódusnak.
+6. Példányosítsa a [SlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation/#getSlides) osztályt a célprezentáció [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) objektuma által biztosított Slides gyűjtemény hivatkozásával.
+7. Hívja meg a [addClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#addClone) metódust a [SlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation/#getSlides) objektumon, és adja át a forrásprezentációból származó klónozandó diát és a fő diát paraméterként a [addClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#addClone) metódusnak.
+8. Írja ki a módosított célprezentáció fájlt.
 
-Az alábbi példában egy masteres diát (a forrás prezentáció nulla indexén) klónoztunk a célprezentáció végére a forrás diából származó master használatával.
+Az alábbi példában egy fő diával rendelkező diát (a forrásprezentáció nulla indexén elhelyezkedő) a célprezentáció végére klónoztuk a forrásdiából származó fő diát felhasználva.
 
 ```php
-  # A Presentation osztály példányosítása a forrás prezentációs fájl betöltéséhez
+  # Példányosítsa a Presentation osztályt a forrás prezentációs fájl betöltéséhez
   $srcPres = new Presentation("CloneToAnotherPresentationWithMaster.pptx");
   try {
-    # A Presentation osztály példányosítása a cél prezentációhoz (ahová a diát klónozni kell)
+    # Példányosítsa a Presentation osztályt a célprezentációhoz (ahová a diát klónozni fogjuk)
     $destPres = new Presentation();
     try {
-      # ISlide példányosítása a forrás prezentáció diagyűjteményéből együtt
-      # Master dia
+      # Példányosítsa az ISlide-ot a forrás prezentáció diagyűjteményéből együtt
+      # Mester dia
       $SourceSlide = $srcPres->getSlides()->get_Item(0);
       $SourceMaster = $SourceSlide->getLayoutSlide()->getMasterSlide();
-      # A kívánt master dia klónozása a forrás prezentációból a masterek gyűjteményébe a
-      # Cél prezentációban
+      # Klónozza a kívánt mester diát a forrás prezentációból a mester gyűjteménybe a
+      # Célprezentáció
       $masters = $destPres->getMasters();
       $DestMaster = $SourceSlide->getLayoutSlide()->getMasterSlide();
-      # A kívánt master dia klónozása a forrás prezentációból a masterek gyűjteményébe a
-      # Cél prezentációban
+      # Klónozza a kívánt mester diát a forrás prezentációból a mester gyűjteménybe a
+      # Célprezentáció
       $iSlide = $masters->addClone($SourceMaster);
-      # A kívánt dia klónozása a forrás prezentációból a kívánt masterrel a végére a
-      # Dia gyűjteménynek a cél prezentációban
+      # Klónozza a kívánt diát a forrás prezentációból a kívánt mesterrel a végére a
+      # A célprezentáció diagyűjteménye
       $slds = $destPres->getSlides();
       $slds->addClone($SourceSlide, $iSlide, true);
-      # A cél prezentáció mentése a lemezre
+      # Mentse a célprezentációt lemezre
       $destPres->save("CloneToAnotherPresentationWithMaster_out.pptx", SaveFormat::Pptx);
     } finally {
       $destPres->dispose();
@@ -184,10 +184,10 @@ Az alábbi példában egy masteres diát (a forrás prezentáció nulla indexén
   }
 ```
 
-## **Dia klónozása egy megadott szekció végén**
-Ha egy diát szeretne klónozni, majd ugyanabban a prezentációs fájlban, de egy másik szekcióban használni, használja a [addClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#addClone) metódust, amely a [SlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection) osztály által ki van adva. Az Aspose.Slides for PHP via Java lehetővé teszi, hogy egy diát az első szekcióból klónozzunk, majd a klónozott diát a második szekcióba illesszük ugyanabban a prezentációban.
+## **Dia klónozása egy megadott szakasz végén**
+Ha egy diát szeretne klónozni, és azt ugyanabban a prezentációfájlban egy másik szakaszba beilleszteni, használja a [addClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection/#addClone) metódust, amelyet a [SlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideCollection) osztály biztosít. Az Aspose.Slides for PHP via Java lehetővé teszi, hogy egy diát az első szakaszból klónozzunk, majd azt a klónozott diát a ugyanazon prezentáció második szakaszába illesszük be.
 
-Az alábbi kódrészlet bemutatja, hogyan lehet egy diát klónozni, és a klónozott diát egy megadott szekcióba illeszteni.
+Az alábbi kódrészlet bemutatja, hogyan lehet egy diát klónozni, és a klónozott diát egy megadott szakaszba beilleszteni.
 
 ```php
   $presentation = new Presentation();
@@ -196,8 +196,8 @@ Az alábbi kódrészlet bemutatja, hogyan lehet egy diát klónozni, és a klón
     $presentation->getSections()->addSection("Section 1", $presentation->getSlides()->get_Item(0));
     $section2 = $presentation->getSections()->appendEmptySection("Section 2");
     $presentation->getSlides()->addClone($presentation->getSlides()->get_Item(0), $section2);
-    # A cél prezentáció mentése a lemezre
-    $presentation->save($dataDir . "CloneSlideIntoSpecifiedSection.pptx", SaveFormat::Pptx);
+    # Mentse a célprezentációt lemezre
+    $presentation->save("CloneSlideIntoSpecifiedSection.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($presentation)) {
       $presentation->dispose();
@@ -205,16 +205,30 @@ Az alábbi kódrészlet bemutatja, hogyan lehet egy diát klónozni, és a klón
   }
 ```
 
+## **A diaméret egyezésének biztosítása**
+Diák egy másik prezentációba történő klónozásakor győződjön meg arról, hogy a célprezentáció diamérete megegyezik a forrással. Ha a diaméretek eltérnek, az Aspose.Slides nem méretezi át automatikusan a klónozott alakzatokat – eredeti koordinátáik és méreteik megmaradnak, ami azt eredményezheti, hogy a tartalom eltolódik vagy a diák határain túlra nyúlik.
+
+Beállíthatja a célprezentáció diaméretét, hogy egyezzen a forrásával, mielőtt a fő dia és a dia klónozná:
+
+```php
+$sourceSize = $sourcePresentation->getSlideSize()->getSize();
+
+$targetPresentation->getSlideSize()->setSize(
+    $sourceSize->getWidth(), $sourceSize->getHeight(), SlideSizeScaleType::DoNotScale);
+```
+
+Ezt tegye a fő dia és a dia klónozása előtt.
+
 ## **GYIK**
 
-**A beszédjegyzetek és a felülvizsgáló megjegyzések klónozódnak?**
+**A beszélői jegyzetek és a lektorálási megjegyzések klónozódnak?**
 
-Igen. A jegyzetoldal és a felülvizsgálati megjegyzések benne vannak a klónban. Ha nem szeretné őket, [remove them](/slides/hu/php-java/presentation-notes/) a beillesztés után.
+Igen. A jegyzetoldal és a lektorálási megjegyzések szerepelnek a klónban. Ha nem szeretné őket, a beillesztés után [távolítsa el őket](/slides/hu/php-java/presentation-notes/).
 
-**A diagramok és adatforrásaik hogyan kezelődnek?**
+**Hogyan kezelik a diagramok és adatforrásaik?**
 
-A diagramobjektum, a formázás és a beágyazott adatok másolva vannak. Ha a diagram külső forráshoz volt kapcsolva (például egy OLE‑beágyazott munkafüzethez), ez a kapcsolat megmarad egy [OLE object](/slides/hu/php-java/manage-ole/) formájában. Fájlok közötti áthelyezés után ellenőrizze az adatok elérhetőségét és a frissítési viselkedést.
+A diagram objektuma, formázása és a beágyazott adatok másolásra kerülnek. Ha a diagram egy külső forráshoz (például OLE-beágyazott munkafüzethez) volt kapcsolva, ez a kapcsolat [OLE objektum](/slides/hu/php-java/manage-ole/)ként marad meg. A fájlok közötti áthelyezés után ellenőrizze az adatok elérhetőségét és a frissítési viselkedést.
 
-**A klón beillesztési pozícióját és szekcióit irányíthatom?**
+**Szabályozhatom a klón beszúrási pozícióját és szekcióit?**
 
-Igen. A klónt beillesztheti egy adott dia indexre, és elhelyezheti egy választott [section](/slides/hu/php-java/slide-section/)‑ben. Ha a cél szekció nem létezik, először hozza létre, majd mozgassa a diát oda.
+Igen. A klónt beszúrhatja egy adott diaindexre, és egy kiválasztott [szakasz](/slides/hu/php-java/slide-section/)ba helyezheti. Ha a cél szakasz nem létezik, előbb hozza létre, majd mozgassa át a diát oda.

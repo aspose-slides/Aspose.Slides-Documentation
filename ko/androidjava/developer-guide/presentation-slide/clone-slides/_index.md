@@ -1,6 +1,6 @@
 ---
-title: Android에서 프레젠테이션 슬라이드 복제
-linktitle: 슬라이드 복제
+title: Android에서 프레젠테이션 슬라이드 클론
+linktitle: 슬라이드 클론
 type: docs
 weight: 35
 url: /ko/androidjava/clone-slides/
@@ -18,31 +18,31 @@ description: "Aspose.Slides for Android를 사용하여 PowerPoint 슬라이드�
 ---
 ## **소개**
 
-복제는 무언가를 정확히 복사하거나 복제하는 과정입니다. Aspose.Slides for Android via Java를 사용하면 슬라이드 전체를 복사하거나 복제한 뒤 현재 프레젠테이션이나 다른 열린 프레젠테이션에 삽입할 수 있습니다. 슬라이드 복제 과정은 원본 슬라이드를 변경하지 않고 개발자가 수정할 수 있는 새 슬라이드를 생성합니다. 슬라이드를 복제하는 방법에는 여러 가지가 있습니다.
+클론은 무언가를 정확히 복사하거나 복제하는 과정입니다. Aspose.Slides for Android via Java은 또한 어떤 슬라이드든 복사하거나 클론을 만든 다음 해당 클론된 슬라이드를 현재 프레젠테이션이나 다른 열려 있는 프레젠테이션에 삽입할 수 있게 합니다. 슬라이드 클론 과정은 원본 슬라이드를 변경하지 않고 개발자가 수정할 수 있는 새 슬라이드를 생성합니다. 슬라이드를 클론하는 몇 가지 방법이 있습니다:
 
-- 프레젠테이션 내에서 끝에 복제.
-- 프레젠테이션 내에서 다른 위치에 복제.
-- 다른 프레젠테이션의 끝에 복제.
-- 다른 프레젠테이션의 다른 위치에 복제.
-- 다른 프레젠테이션의 특정 위치에 복제.
+- 프레젠테이션 내에서 끝에 클론하기.
+- 프레젠테이션 내 다른 위치에 클론하기.
+- 다른 프레젠테이션의 끝에 클론하기.
+- 다른 프레젠테이션의 다른 위치에 클론하기.
+- 다른 프레젠테이션의 특정 위치에 클론하기.
 
-Aspose.Slides for Android via Java에서는 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation) 개체가 노출하는 (ISlide) 객체 컬렉션을 통해 위와 같은 슬라이드 복제 유형을 수행하는 [addClone](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) 및 [insertClone](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) 메서드를 제공합니다.
+Aspose.Slides for Android via Java에서는 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation) 객체가 노출하는 ( [ISlide](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ISlide) 객체들의 컬렉션) 이 위의 슬라이드 클론 유형을 수행하기 위해 [addClone](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) 및 [insertClone](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) 메서드를 제공합니다.
 
-## **프레젠테이션 끝에 슬라이드 복제**
-동일한 프레젠테이션 파일 내에서 기존 슬라이드 끝에 복제된 슬라이드를 사용하려면 아래 단계에 따라 [addClone](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) 메서드를 사용합니다.
+## **프레젠테이션 끝에 슬라이드 클론하기**
+동일한 프레젠테이션 파일 내에서 기존 슬라이드 끝에 슬라이드를 클론하고 사용하려면 아래 단계에 따라 [addClone](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) 메서드를 사용하십시오.
 
-1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.  
-1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation) 개체가 노출하는 Slides 컬렉션을 참조하여 [ISlideCollection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation#getSlides--) 클래스를 인스턴스화합니다.  
-1. [ISlideCollection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation#getSlides--) 객체가 제공하는 [addClone](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) 메서드를 호출하고 복제할 슬라이드를 매개변수로 전달합니다.  
+1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
+1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation) 객체가 노출하는 Slides 컬렉션을 참조하여 [ISlideCollection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation#getSlides--) 클래스를 인스턴스화합니다.
+1. [ISlideCollection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation#getSlides--) 객체가 노출하는 [addClone](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) 메서드를 호출하고 클론할 슬라이드를 파라미터로 전달합니다.
 1. 수정된 프레젠테이션 파일을 저장합니다.
 
-아래 예제에서는 프레젠테이션의 첫 번째 위치(인덱스 0)에 있는 슬라이드를 프레젠테이션 끝으로 복제했습니다.
-
 ```java
+import com.aspose.slides.*;
+
 // 프레젠테이션 파일을 나타내는 Presentation 클래스를 인스턴스화합니다
 Presentation pres = new Presentation("CloneWithinSamePresentationToEnd.pptx");
 try {
-    // 동일한 프레젠테이션의 슬라이드 컬렉션 끝에 원하는 슬라이드를 복제합니다
+    // 동일한 프레젠테이션 내 슬라이드 컬렉션의 끝에 원하는 슬라이드를 클론합니다
     ISlideCollection slds = pres.getSlides();
 
     slds.addClone(pres.getSlides().get_Item(0));
@@ -54,24 +54,24 @@ try {
 }
 ```
 
-## **프레젠테이션 내 다른 위치에 슬라이드 복제**
-동일한 프레젠테이션 파일 내에서 다른 위치에 복제된 슬라이드를 사용하려면 [insertClone](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) 메서드를 사용합니다.
+## **프레젠테이션 내 다른 위치에 슬라이드 클론하기**
+동일한 프레젠테이션 파일 내에서 다른 위치에 슬라이드를 클론하고 사용하려면 [insertClone](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) 메서드를 사용하십시오:
 
-1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.  
-1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation) 개체가 노출하는 **Slides** 컬렉션을 참조하여 클래스를 인스턴스화합니다.  
-1. [ISlideCollection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation#getSlides--) 객체가 제공하는 [insertClone](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) 메서드를 호출하고 복제할 슬라이드와 새 위치 인덱스를 매개변수로 전달합니다.  
+1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
+1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation) 객체가 노출하는 **Slides** 컬렉션을 참조하여 클래스를 인스턴스화합니다.
+1. [ISlideCollection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation#getSlides--) 객체가 노출하는 [insertClone](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) 메서드를 호출하고 클론할 슬라이드와 새 위치 인덱스를 파라미터로 전달합니다.
 1. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
 
-아래 예제에서는 프레젠테이션의 첫 번째 위치(인덱스 0, 실제 위치 1)에 있는 슬라이드를 인덱스 1(위치 2)으로 복제했습니다.
-
 ```java
+import com.aspose.slides.*;
+
 // 프레젠테이션 파일을 나타내는 Presentation 클래스를 인스턴스화합니다
 Presentation pres = new Presentation("CloneWithInSamePresentation.pptx");
 try {
-    // 동일한 프레젠테이션의 슬라이드 컬렉션 끝에 원하는 슬라이드를 복제합니다
+    // 동일한 프레젠테이션에서 슬라이드 컬렉션을 가져옵니다
     ISlideCollection slds = pres.getSlides();
 
-    // 동일한 프레젠테이션의 지정된 인덱스로 원하는 슬라이드를 복제합니다
+    // 동일한 프레젠테이션에서 원하는 슬라이드를 지정된 인덱스로 클론합니다
     slds.insertClone(2, pres.getSlides().get_Item(1));
 
     // 수정된 프레젠테이션을 디스크에 저장합니다
@@ -81,25 +81,25 @@ try {
 }
 ```
 
-## **다른 프레젠테이션 끝에 슬라이드 복제**
-한 프레젠테이션의 슬라이드를 다른 프레젠테이션 파일 끝에 복제하려면 다음과 같이 진행합니다.
+## **다른 프레젠테이션 끝에 슬라이드 클론하기**
+한 프레젠테이션에서 슬라이드를 클론하여 다른 프레젠테이션 파일의 기존 슬라이드 끝에 사용하려면:
 
-1. 복제할 슬라이드가 포함된 원본 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.  
-1. 복제본을 추가할 대상 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.  
-1. 대상 프레젠테이션의 Presentation 개체가 노출하는 **Slides** 컬렉션을 참조하여 [ISlideCollection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ISlideCollection) 클래스를 인스턴스화합니다.  
-1. 대상 [ISlideCollection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation#getSlides--) 객체가 제공하는 [addClone](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) 메서드를 호출하고 원본 프레젠테이션의 슬라이드를 매개변수로 전달합니다.  
+1. 슬라이드를 클론할 원본 프레젠테이션을 포함하는 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
+1. 슬라이드를 추가할 대상 프레젠테이션을 포함하는 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
+1. 대상 프레젠테이션의 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation) 객체가 노출하는 **Slides** 컬렉션을 참조하여 [ISlideCollection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ISlideCollection) 클래스를 인스턴스화합니다.
+1. [ISlideCollection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation#getSlides--) 객체가 노출하는 [addClone](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) 메서드를 호출하고 원본 프레젠테이션의 슬라이드를 파라미터로 전달합니다.
 1. 수정된 대상 프레젠테이션 파일을 저장합니다.
 
-아래 예제에서는 원본 프레젠테이션의 첫 번째 인덱스에 있는 슬라이드를 대상 프레젠테이션 끝으로 복제했습니다.
-
 ```java
+import com.aspose.slides.*;
+
 // 소스 프레젠테이션 파일을 로드하기 위해 Presentation 클래스를 인스턴스화합니다
 Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx");
 try {
-    // 슬라이드가 복제될 대상 PPTX를 위해 Presentation 클래스를 인스턴스화합니다
+    // 슬라이드를 클론할 대상 PPTX용 Presentation 클래스를 인스턴스화합니다
     Presentation destPres = new Presentation();
     try {
-        // 소스 프레젠테이션에서 원하는 슬라이드를 대상 프레젠테이션의 슬라이드 컬렉션 끝에 복제합니다
+        // 소스 프레젠테이션에서 원하는 슬라이드를 대상 프레젠테이션의 슬라이드 컬렉션 끝에 클론합니다
         ISlideCollection slds = destPres.getSlides();
 
         slds.addClone(srcPres.getSlides().get_Item(0));
@@ -114,28 +114,28 @@ try {
 }
 ```
 
-## **다른 프레젠테이션의 다른 위치에 슬라이드 복제**
-한 프레젠테이션의 슬라이드를 다른 프레젠테이션 파일의 특정 위치에 복제하려면 다음과 같이 진행합니다.
+## **다른 프레젠테이션의 다른 위치에 슬라이드 클론하기**
+한 프레젠테이션에서 슬라이드를 클론하여 다른 프레젠테이션 파일의 특정 위치에 사용하려면:
 
-1. 슬라이드를 복제할 원본 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.  
-1. 슬라이드를 추가할 대상 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.  
-1. 대상 프레젠테이션의 Presentation 개체가 노출하는 Slides 컬렉션을 참조하여 [ISlideCollection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation#getSlides--) 클래스를 인스턴스화합니다.  
-1. 대상 [ISlideCollection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation#getSlides--) 객체가 제공하는 [insertClone](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) 메서드를 호출하고 원본 프레젠테이션의 슬라이드와 원하는 위치 인덱스를 매개변수로 전달합니다.  
+1. 슬라이드를 클론할 원본 프레젠테이션을 포함하는 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
+1. 슬라이드를 추가할 대상 프레젠테이션을 포함하는 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
+1. 대상 프레젠테이션의 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation) 객체가 노출하는 Slides 컬렉션을 참조하여 [ISlideCollection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation#getSlides--) 클래스를 인스턴스화합니다.
+1. [ISlideCollection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation#getSlides--) 객체가 노출하는 [insertClone](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) 메서드를 호출하고 원본 프레젠테이션의 슬라이드와 원하는 위치 인덱스를 파라미터로 전달합니다.
 1. 수정된 대상 프레젠테이션 파일을 저장합니다.
 
-아래 예제에서는 원본 프레젠테이션의 인덱스 0에 있는 슬라이드를 대상 프레젠테이션의 인덱스 1(위치 2)으로 복제했습니다.
-
 ```java
+import com.aspose.slides.*;
+
 // 소스 프레젠테이션 파일을 로드하기 위해 Presentation 클래스를 인스턴스화합니다
 Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx");
 try {
-    // 슬라이드가 복제될 대상 PPTX를 위해 Presentation 클래스를 인스턴스화합니다
+    // 슬라이드를 클론할 대상 PPTX용 Presentation 클래스를 인스턴스화합니다
     Presentation destPres = new Presentation();
     try {
-        // 소스 프레젠테이션에서 원하는 슬라이드를 대상 프레젠테이션의 슬라이드 컬렉션 끝에 복제합니다
+        // 소스 프레젠테이션에서 원하는 슬라이드를 대상 프레젠테이션의 지정된 인덱스로 클론합니다
         ISlideCollection slds = destPres.getSlides();
 
-        slds.insertClone(2, srcPres.getSlides().get_Item(0));
+        slds.insertClone(1, srcPres.getSlides().get_Item(0));
 
         // 대상 프레젠테이션을 디스크에 저장합니다
         destPres.save("Aspose2_out.pptx", SaveFormat.Pptx);
@@ -147,43 +147,39 @@ try {
 }
 ```
 
-## **다른 프레젠테이션의 지정된 섹션 끝에 슬라이드 복제**
-마스터 슬라이드가 포함된 슬라이드를 한 프레젠테이션에서 다른 프레젠테이션으로 복제하려면 먼저 원본 프레젠테이션에서 대상 프레젠테이션으로 원하는 마스터 슬라이드를 복제해야 합니다. 그런 다음 해당 마스터 슬라이드를 사용해 슬라이드를 복제합니다. [addClone(ISlide,IMasterSlide,boolean)](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) 메서드는 대상 프레젠테이션의 마스터 슬라이드를 요구합니다. 아래 단계에 따라 진행하십시오.
+## **다른 프레젠테이션의 특정 위치에 슬라이드 클론하기**
+마스터 슬라이드를 포함한 슬라이드를 한 프레젠테이션에서 다른 프레젠테이션으로 클론하려면 먼저 원본 프레젠테이션에서 원하는 마스터 슬라이드를 대상 프레젠테이션에 클론해야 합니다. 그런 다음 해당 마스터 슬라이드를 사용해 마스터가 있는 슬라이드를 클론합니다. [addClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) 메서드는 대상 프레젠테이션의 마스터 슬라이드를 필요로 합니다. 마스터와 함께 슬라이드를 클론하려면 아래 단계에 따라 진행하십시오:
 
-1. 슬라이드를 복제할 원본 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.  
-1. 슬라이드를 복제할 대상 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.  
-1. 복제할 슬라이드와 해당 마스터 슬라이드에 접근합니다.  
-1. 대상 프레젠테이션의 Presentation 개체가 노출하는 Masters 컬렉션을 참조하여 [IMasterSlideCollection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/IMasterSlideCollection) 클래스를 인스턴스화합니다.  
-1. [IMasterSlideCollection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/IMasterSlideCollection) 객체가 제공하는 [addClone](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) 메서드를 호출하고 원본 PPTX에서 복제할 마스터를 매개변수로 전달합니다.  
-1. 대상 프레젠테이션의 Presentation 개체가 노출하는 Slides 컬렉션을 참조하여 [ISlideCollection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation#getSlides--) 클래스를 설정합니다.  
-1. [ISlideCollection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation#getSlides--) 객체가 제공하는 [addClone](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) 메서드를 호출하고 원본 프레젠테이션의 슬라이드와 복제된 마스터 슬라이드를 매개변수로 전달합니다.  
+1. 슬라이드를 클론할 원본 프레젠테이션을 포함하는 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
+1. 슬라이드를 클론할 대상 프레젠테이션을 포함하는 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
+1. 클론할 슬라이드와 해당 마스터 슬라이드에 접근합니다.
+1. 대상 프레젠테이션의 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation) 객체가 노출하는 Masters 컬렉션을 참조하여 [IMasterSlideCollection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/IMasterSlideCollection) 클래스를 인스턴스화합니다.
+1. [IMasterSlideCollection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/IMasterSlideCollection) 객체가 노출하는 [addClone](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) 메서드를 호출하고 원본 PPTX의 마스터를 파라미터로 전달합니다.
+1. 대상 프레젠테이션의 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation) 객체가 노출하는 Slides 컬렉션을 참조하도록 설정하여 [ISlideCollection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation#getSlides--) 클래스를 인스턴스화합니다.
+1. [ISlideCollection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation#getSlides--) 객체가 노출하는 [addClone](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) 메서드를 호출하고 원본 프레젠테이션의 슬라이드와 마스터 슬라이드를 파라미터로 전달합니다.
 1. 수정된 대상 프레젠테이션 파일을 저장합니다.
 
-아래 예제에서는 원본 프레젠테이션의 인덱스 0에 있는 마스터가 포함된 슬라이드를 대상 프레젠테이션 끝에 복제했습니다(마스터는 원본 슬라이드에서 가져옴).
-
 ```java
+import com.aspose.slides.*;
+
 // 소스 프레젠테이션 파일을 로드하기 위해 Presentation 클래스를 인스턴스화합니다
 Presentation srcPres = new Presentation("CloneToAnotherPresentationWithMaster.pptx");
 try {
-    // 슬라이드가 복제될 대상 프레젠테이션을 위해 Presentation 클래스를 인스턴스화합니다
+    // 슬라이드를 클론할 대상 프레젠테이션(슬라이드가 클론될 위치)용 Presentation 클래스를 인스턴스화합니다
     Presentation destPres = new Presentation();
     try {
-        // 소스 프레젠테이션의 슬라이드 컬렉션에서 ISlide를 인스턴스화하고
-        // 마스터 슬라이드
+        // 소스 프레젠테이션의 슬라이드 컬렉션에서 ISlide를
+        // 마스터 슬라이드와 함께 인스턴스화합니다
         ISlide SourceSlide = srcPres.getSlides().get_Item(0);
         IMasterSlide SourceMaster = SourceSlide.getLayoutSlide().getMasterSlide();
 
-        // 소스 프레젠테이션에서 원하는 마스터 슬라이드를 대상 프레젠테이션의 마스터 컬렉션에 복제합니다
+        // 소스 프레젠테이션에서 원하는 마스터 슬라이드를 대상 프레젠테이션의 마스터 컬렉션에 클론합니다
         // 대상 프레젠테이션
         IMasterSlideCollection masters = destPres.getMasters();
-        IMasterSlide DestMaster = SourceSlide.getLayoutSlide().getMasterSlide();
-
-        // 소스 프레젠테이션에서 원하는 마스터 슬라이드를 대상 프레젠테이션의 마스터 컬렉션에 복제합니다
-        // 대상 프레젠테이션
         IMasterSlide iSlide = masters.addClone(SourceMaster);
 
-        // 소스 프레젠테이션의 원하는 슬라이드를 원하는 마스터와 함께 대상 프레젠테이션 슬라이드 컬렉션 끝에 복제합니다
-        // 대상 프레젠테이션의 슬라이드 컬렉션
+        // 소스 프레젠테이션에서 원하는 마스터와 함께 원하는 슬라이드를 대상 프레젠테이션의
+        // 슬라이드 컬렉션 끝으로 클론합니다
         ISlideCollection slds = destPres.getSlides();
         slds.addClone(SourceSlide, iSlide, true);
 
@@ -197,12 +193,14 @@ try {
 }
 ```
 
-## **지정된 섹션 끝에 슬라이드 복제**
-동일한 프레젠테이션 파일 내에서 다른 섹션에 복제된 슬라이드를 사용하려면 [**addClone**](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-) 메서드를 사용합니다. Aspose.Slides for Android via Java를 사용하면 첫 번째 섹션에서 슬라이드를 복제한 뒤 같은 프레젠테이션의 두 번째 섹션에 삽입할 수 있습니다.
+## **지정된 섹션 끝에 슬라이드 클론하기**
+같은 프레젠테이션 파일 내에서 다른 섹션에 슬라이드를 클론하고 사용하려면 [**addClone**](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-) 메서드를 사용하십시오. Aspose.Slides for Android via Java은 첫 번째 섹션에서 슬라이드를 클론한 뒤 동일한 프레젠테이션의 두 번째 섹션에 삽입할 수 있게 합니다.
 
-다음 코드 조각은 슬라이드를 복제하고 지정된 섹션에 삽입하는 방법을 보여 줍니다.
+다음 코드 스니펫은 슬라이드를 클론하고 지정된 섹션에 삽입하는 방법을 보여줍니다.
 
 ```java
+import com.aspose.slides.*;
+
 IPresentation presentation = new Presentation();
 try {
     presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 50, 300, 100);
@@ -212,22 +210,37 @@ try {
     presentation.getSlides().addClone(presentation.getSlides().get_Item(0), section2);
     
 	// 대상 프레젠테이션을 디스크에 저장합니다
-    presentation.save(dataDir + "CloneSlideIntoSpecifiedSection.pptx", SaveFormat.Pptx);
+    presentation.save("CloneSlideIntoSpecifiedSection.pptx", SaveFormat.Pptx);
 } finally {
     if (presentation != null) presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **슬라이드 크기 일치 확인**
 
-**강연자 메모와 검토자 코멘트도 복제되나요?**
+슬라이드를 다른 프레젠테이션에 클론할 때 대상 프레젠테이션의 슬라이드 크기가 원본과 동일한지 확인하십시오. 슬라이드 크기가 다르면 Aspose.Slides는 클론된 도형을 자동으로 재조정하지 않으며, 원래 좌표와 크기가 그대로 유지되어 내용이 정렬되지 않거나 슬라이드 경계를 넘어 표시될 수 있습니다.
 
-네. 메모 페이지와 검토 코멘트가 복제에 포함됩니다. 삽입 후 필요 없으면 [/slides/ko/androidjava/presentation-notes/](/slides/ko/androidjava/presentation-notes/)에서 제거하십시오.
+마스터와 슬라이드를 클론하기 전에 대상 프레젠테이션의 슬라이드 크기를 원본과 일치하도록 설정할 수 있습니다:
 
-**차트와 데이터 원본은 어떻게 처리되나요?**
+```java
+Dimension2D sourceSize = sourcePresentation.getSlideSize().getSize();
 
-차트 개체, 서식 및 포함된 데이터가 복사됩니다. 차트가 외부 소스(예: OLE 삽입 워크북)에 연결되어 있으면 해당 연결이 [OLE 객체](/slides/ko/androidjava/manage-ole/)로 보존됩니다. 파일 간 이동 후 데이터 가용성과 새로 고침 동작을 확인하십시오.
+targetPresentation.getSlideSize().setSize(
+        sourceSize.getWidth(), sourceSize.getHeight(), SlideSizeScaleType.DoNotScale);
+```
 
-**복제 위치와 섹션을 제어할 수 있나요?**
+마스터와 슬라이드를 클론하기 전에 수행하십시오.
 
-네. 특정 슬라이드 인덱스에 복제를 삽입하고 원하는 [섹션](/slides/ko/androidjava/slide-section/)에 배치할 수 있습니다. 대상 섹션이 없으면 먼저 생성한 뒤 슬라이드를 이동하십시오.
+## **자주 묻는 질문**
+
+**연설자 노트와 검토자 댓글도 클론되나요?**
+
+예. 노트 페이지와 검토 댓글이 클론에 포함됩니다. 원하지 않으시면 삽입 후 [제거](/slides/ko/androidjava/presentation-notes/) 합니다.
+
+**차트와 데이터 소스는 어떻게 처리되나요?**
+
+차트 개체, 서식 및 포함된 데이터가 복사됩니다. 차트가 외부 소스(예: OLE 삽입 워크북)와 연결되어 있었다면 해당 연결이 [OLE object](/slides/ko/androidjava/manage-ole/) 로 보존됩니다. 파일 간 이동 후 데이터 가용성과 새로 고침 동작을 확인하십시오.
+
+**클론의 삽입 위치와 섹션을 제어할 수 있나요?**
+
+예. 클론을 특정 슬라이드 인덱스에 삽입하고 원하는 [섹션](/slides/ko/androidjava/slide-section/)에 배치할 수 있습니다. 대상 섹션이 존재하지 않으면 먼저 섹션을 생성한 후 슬라이드를 이동하십시오.

@@ -8,96 +8,96 @@ keywords:
 - کلون اسلاید
 - کپی اسلاید
 - ذخیره اسلاید
-- پاورپوینت
+- PowerPoint
 - OpenDocument
 - ارائه
 - PHP
 - Aspose.Slides
-description: "اسلایدهای PowerPoint را به سرعت با Aspose.Slides برای PHP تکثیر کنید. با مثال‌های کد واضح ما، ایجاد فایل‌های PPT را در چند ثانیه خودکار کنید و کارهای دستی را حذف کنید."
+description: "به سرعت اسلایدهای PowerPoint را با Aspose.Slides برای PHP تکثیر کنید. مثال‌های کد واضح ما را دنبال کنید تا ایجاد PPT را در ثانیه‌ها خودکار کنید و کار دستی را حذف کنید."
 ---
-## **معرفی**
+## **مقدمه**
 
-کلون کردن فرآیندی است که یک کپی دقیق یا نسخه‌ای مشابه از چیزی ایجاد می‌کند. Aspose.Slides for PHP via Java همچنین امکان ایجاد یک کپی یا کلون از هر اسلایدی و سپس وارد کردن آن اسلاید کلون‌شده به ارائهٔ فعلی یا هر ارائه باز دیگری را فراهم می‌کند. فرآیند کلون‌سازی اسلاید، اسلاید جدیدی ایجاد می‌کند که می‌تواند توسط توسعه‌دهندگان بدون تغییر اسلاید اصلی، اصلاح شود. چندین روش ممکن برای کلون‌سازی یک اسلاید وجود دارد:
+کلون‌سازی فرآیند ساخت یک کپی دقیق یا نسخه‌ای مشابه از چیزی است. Aspose.Slides for PHP via Java همچنین امکان ساخت یک کپی یا کلون از هر اسلایدی و سپس درج آن اسلاید کلون‌شده به ارائه‌ی جاری یا هر ارائه‌ی دیگری که باز باشد را فراهم می‌کند. فرآیند کلون‌سازی اسلاید یک اسلاید جدید ایجاد می‌کند که می‌توان آن را توسط توسعه‌دهندگان بدون تغییر اسلاید اصلی اصلاح کرد. چندین روش ممکن برای کلون‌کردن یک اسلاید وجود دارد:
 
-- کلون در انتهای یک ارائه.
-- کلون در موقعیت دیگر داخل ارائه.
-- کلون در انتهای یک ارائه دیگر.
-- کلون در موقعیت دیگر در یک ارائه دیگر.
-- کلون در موقعیت مشخصی در یک ارائه دیگر.
+- کلون در انتها داخل یک ارائه.
+- کلون در موقعیت دیگری داخل ارائه.
+- کلون در انتها در یک ارائه دیگر.
+- کلون در موقعیت دیگری در یک ارائه دیگر.
+- کلون در موقعیت خاصی در یک ارائه دیگر.
 
-در Aspose.Slides for PHP via Java، (یک مجموعه از اشیای [Slide](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Slide)) که توسط شیء [ارائه](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) نمایان می‌شود، متدهای [addClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection/#addClone) و [insertClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection/#insertClone) را برای انجام انواع کلون‌سازی اسلاید فوق ارائه می‌کند.
+در Aspose.Slides for PHP via Java، (مجموعه‌ای از اشیاء [Slide](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Slide) ) که توسط شیء [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) آشکار می‌شود، متدهای [addClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection/#addClone) و [insertClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection/#insertClone) را برای انجام انواع کلون‌سازی اسلاید فوق ارائه می‌دهد.
 
 ## **کلون یک اسلاید در انتهای یک ارائه**
-اگر می‌خواهید یک اسلاید را کلون کنید و سپس در همان فایل ارائهٔ موجود در انتهای اسلایدهای فعلی استفاده کنید، متد [addClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection/#addClone) را طبق مراحل زیر به کار ببرید:
+اگر می‌خواهید یک اسلاید را کلون کنید و سپس آن را در همان فایل ارائه، در انتهای اسلایدهای موجود استفاده کنید، بر اساس مراحل زیر از متد [addClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection/#addClone) استفاده کنید:
 
-1. یک نمونه از کلاس [ارائه](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) ایجاد کنید.  
-1. شیء [SlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation/#getSlides) را با ارجاع به مجموعه اسلایدهای ارائه که توسط شیء [ارائه](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) باز می‌شود دریافت کنید.  
-1. متد [addClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection/#addClone) را که توسط شیء [SlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation/#getSlides) ارائه می‌شود فراخوانی کنید و اسلاید مورد نظر برای کلون را به عنوان پارامتر به متد [addClone] پاس دهید.  
-1. فایل ارائهٔ تغییر یافته را بنویسید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) ایجاد کنید.
+1. شیء [SlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation/#getSlides) را با ارجاع به مجموعه اسلایدهای ارائه‌ای که توسط شیء [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) ارائه می‌شود، دریافت کنید.
+1. متد [addClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection/#addClone) را که توسط شیء [SlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation/#getSlides) ارائه می‌شود، فراخوانی کنید و اسلایدی که باید کلون شود را به عنوان پارامتر به متد [addClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection/#addClone) پاس دهید.
+1. فایل ارائه‌ی تغییر یافته را بنویسید.
 
-در مثال زیر، ما اسلایدی (که در اولین موقعیت – اندیس صفر – ارائه قرار داشت) را به انتهای ارائه کلون کرده‌ایم.
+در مثال زیر، یک اسلاید (در موقعیت اول – شاخص صفر – ارائه) را تا انتهای ارائه کلون کرده‌ایم.
 
 ```php
-  # ایجاد یک شیء از کلاس Presentation که نمایانگر یک فایل ارائه است
+  # نمونه‌سازی کلاس Presentation که نمایانگر یک فایل ارائه است
   $pres = new Presentation("CloneWithinSamePresentationToEnd.pptx");
   try {
-    # کلون اسلاید مورد نظر به انتهای مجموعه اسلایدها در همان ارائه
+    # اسلاید موردنظر را به انتهای مجموعه اسلایدها در همان ارائه کلون کنید
     $slds = $pres->getSlides();
     $slds->addClone($pres->getSlides()->get_Item(0));
-    # نوشتن ارائهٔ تغییر یافته به دیسک
+    # ارائه تغییر یافته را روی دیسک ذخیره کنید
     $pres->save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
   }
 ```
 
-## **کلون یک اسلاید به موقعیت دیگری داخل همان ارائه**
-اگر می‌خواهید یک اسلاید را کلون کنید و سپس در همان فایل ارائه اما در موقعیتی متفاوت استفاده کنید، از متد [insertClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection/#insertClone) استفاده کنید:
+## **کلون یک اسلاید به موقعیت دیگری داخل یک ارائه**
+اگر می‌خواهید یک اسلاید را کلون کنید و سپس آن را در همان فایل ارائه اما در موقعیت متفاوتی استفاده کنید، از متد [insertClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection/#insertClone) استفاده کنید:
 
-1. یک نمونه از کلاس [ارائه](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) ایجاد کنید.  
-1. شیء [SlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection) را با ارجاع به مجموعه [اسلایدها](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation/#getSlides) که توسط شیء [ارائه](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) باز می‌شود دریافت کنید.  
-1. متد [insertClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection/#insertClone) را که توسط شیء [SlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation/#getSlides) ارائه می‌شود فراخوانی کنید و اسلاید مورد نظر برای کلون به همراه اندیس موقعیت جدید را به عنوان پارامتر به متد [insertClone] پاس دهید.  
-1. ارائهٔ تغییر یافته را به قالب PPTX بنویسید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) ایجاد کنید.
+1. شیء [SlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection) را با ارجاع به مجموعه [**Slides**](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation/#getSlides) که توسط شیء [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) ارائه می‌شود، دریافت کنید.
+1. متد [insertClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection/#insertClone) را که توسط شیء [SlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation/#getSlides) ارائه می‌شود فراخوانی کنید و اسلایدی که باید کلون شود همراه با شاخص موقعیت جدید را به عنوان پارامتر به متد [insertClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection/#insertClone) پاس دهید.
+1. فایل ارائه‌ی تغییر یافته را به صورت PPTX بنویسید.
 
-در مثال زیر، ما اسلایدی (که در اندیس صفر – موقعیت 1 – ارائه قرار داشت) را به اندیس 1 – موقعیت 2 – ارائه منتقل کرده‌ایم.
+در مثال زیر، یک اسلاید (در شاخص صفر – موقعیت 1 – ارائه) را به شاخص 1 – موقعیت 2 – ارائه کلون کرده‌ایم.
 
 ```php
-  # ایجاد یک شیء از کلاس Presentation که نمایانگر یک فایل ارائه است
+  # نمونه‌سازی کلاس Presentation که نمایانگر یک فایل ارائه است
   $pres = new Presentation("CloneWithInSamePresentation.pptx");
   try {
-    # کلون اسلاید مورد نظر به انتهای مجموعه اسلایدها در همان ارائه
+    # اسلاید موردنظر را به انتهای مجموعه اسلایدها در همان ارائه کلون کنید
     $slds = $pres->getSlides();
-    # کلون اسلاید مورد نظر به اندیس مشخص شده در همان ارائه
+    # اسلاید موردنظر را به شاخص مشخص شده در همان ارائه کلون کنید
     $slds->insertClone(2, $pres->getSlides()->get_Item(1));
-    # نوشتن ارائهٔ تغییر یافته به دیسک
+    # ارائه تغییر یافته را روی دیسک ذخیره کنید
     $pres->save("Aspose_CloneWithInSamePresentation_out.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
   }
 ```
 
-## **کلون یک اسلاید در انتهای یک ارائهٔ دیگر**
-اگر می‌خواهید اسلایدی را از یک ارائه کلون کرده و در انتهای اسلایدهای یک ارائهٔ دیگر قرار دهید:
+## **کلون یک اسلاید در انتهای یک ارائه دیگر**
+اگر نیاز دارید یک اسلاید را از یک ارائه کلون کنید و در فایل ارائه دیگری، در انتهای اسلایدهای موجود استفاده کنید:
 
-1. یک نمونه از کلاس [ارائه](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) که شامل ارائه منبع است، ایجاد کنید.  
-1. یک نمونه از کلاس [ارائه](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) که شامل ارائه مقصد است، ایجاد کنید.  
-1. شیء [SlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection) را با ارجاع به مجموعه [اسلایدها](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation/#getSlides) ارائه مقصد دریافت کنید.  
-1. متد [addClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection/#addClone) را که توسط شیء [SlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation/#getSlides) ارائه مقصد ارائه می‌شود فراخوانی کنید و اسلاید منبع را به عنوان پارامتر به این متد پاس دهید.  
-1. فایل ارائهٔ مقصد را بنویسید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) که شامل ارائه‌ای است که اسلاید از آن کلون می‌شود، ایجاد کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) که شامل ارائه مقصدی است که اسلاید به آن اضافه می‌شود، ایجاد کنید.
+1. شیء [SlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection) را با ارجاع به مجموعه [**Slides**](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation/#getSlides) که توسط شیء Presentation ارائه مقصد ارائه می‌شود، دریافت کنید.
+1. متد [addClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection/#addClone) را که توسط شیء [SlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation/#getSlides) ارائه می‌شود فراخوانی کنید و اسلاید از ارائه منبع را به عنوان پارامتر به متد [addClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection/#addClone) پاس دهید.
+1. فایل ارائه مقصد تغییر یافته را بنویسید.
 
-در مثال زیر، ما اسلایدی (از اولین اندیس ارائه منبع) را به انتهای ارائهٔ مقصد کلون کرده‌ایم.
+در مثال زیر، یک اسلاید (از شاخص اول ارائه منبع) را به انتهای ارائه مقصد کلون کرده‌ایم.
 
 ```php
-  # ایجاد یک شیء از کلاس Presentation برای بارگذاری فایل ارائه منبع
+  # نمونه‌سازی کلاس Presentation برای بارگذاری فایل ارائه منبع
   $srcPres = new Presentation("CloneAtEndOfAnother.pptx");
   try {
-    # ایجاد یک شیء از کلاس Presentation برای فایل PPTX مقصد (جایی که اسلاید باید کلون شود)
+    # نمونه‌سازی کلاس Presentation برای فایل PPTX مقصد (جایی که اسلاید باید کلون شود)
     $destPres = new Presentation();
     try {
-      # کلون اسلاید مورد نظر از ارائه منبع به انتهای مجموعه اسلایدهای ارائه مقصد
+      # کلون اسلاید موردنظر از ارائه منبع به انتهای مجموعه اسلایدها در ارائه مقصد
       $slds = $destPres->getSlides();
       $slds->addClone($srcPres->getSlides()->get_Item(0));
-      # نوشتن ارائهٔ مقصد به دیسک
+      # ارائه مقصد را روی دیسک ذخیره کنید
       $destPres->save("Aspose2_out.pptx", SaveFormat::Pptx);
     } finally {
       $destPres->dispose();
@@ -107,28 +107,28 @@ description: "اسلایدهای PowerPoint را به سرعت با Aspose.Slide
   }
 ```
 
-## **کلون یک اسلاید به موقعیت دیگری در یک ارائهٔ دیگر**
-اگر می‌خواهید اسلایدی را از یک ارائه کلون کرده و در موقعیتی مشخص در ارائهٔ دیگری قرار دهید:
+## **کلون یک اسلاید به موقعیت دیگری در یک ارائه دیگر**
+اگر نیاز دارید یک اسلاید را از یک ارائه کلون کنید و در فایل ارائه دیگری در موقعیت خاصی استفاده کنید:
 
-1. یک نمونه از کلاس [ارائه](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) که شامل ارائه منبع است، ایجاد کنید.  
-1. یک نمونه از کلاس [ارائه](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) که شامل ارائه مقصد است، ایجاد کنید.  
-1. کلاس [SlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation/#getSlides) را با ارجاع به مجموعه اسلایدهای ارائه مقصد دریافت کنید.  
-1. متد [insertClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection/#insertClone) را که توسط شیء [SlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation/#getSlides) ارائه مقصد ارائه می‌شود فراخوانی کنید و اسلاید منبع به همراه موقعیت دلخواه را به عنوان پارامتر به این متد پاس دهید.  
-1. فایل ارائهٔ مقصد را بنویسید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) که شامل ارائه منبع است که اسلاید از آن کلون می‌شود، ایجاد کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) که شامل ارائه‌ای است که اسلاید به آن اضافه می‌شود، ایجاد کنید.
+1. کلاس [SlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation/#getSlides) را با ارجاع به مجموعه Slides که توسط شیء Presentation ارائه مقصد ارائه می‌شود، دریافت کنید.
+1. متد [insertClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection/#insertClone) را که توسط شیء [SlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation/#getSlides) ارائه می‌شود فراخوانی کنید و اسلاید از ارائه منبع همراه با موقعیت مورد نظر را به عنوان پارامتر به متد [insertClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection/#insertClone) پاس دهید.
+1. فایل ارائه مقصد تغییر یافته را بنویسید.
 
-در مثال زیر، ما اسلایدی (از اندیس صفر ارائه منبع) را به اندیس 1 (موقعیت 2) ارائهٔ مقصد کلون کرده‌ایم.
+در مثال زیر، یک اسلاید (از شاخص صفر ارائه منبع) را به شاخص 1 (موقعیت 2) ارائه مقصد کلون کرده‌ایم.
 
 ```php
-  # ایجاد یک شیء از کلاس Presentation برای بارگذاری فایل ارائه منبع
+  # نمونه‌سازی کلاس Presentation برای بارگذاری فایل ارائه منبع
   $srcPres = new Presentation("CloneAtEndOfAnother.pptx");
   try {
-    # ایجاد یک شیء از کلاس Presentation برای فایل PPTX مقصد (جایی که اسلاید باید کلون شود)
+    # نمونه‌سازی کلاس Presentation برای فایل PPTX مقصد (جایی که اسلاید باید کلون شود)
     $destPres = new Presentation();
     try {
-      # کلون اسلاید مورد نظر از ارائه منبع به انتهای مجموعه اسلایدهای ارائه مقصد
+      # کلون اسلاید موردنظر از ارائه منبع به انتهای مجموعه اسلایدها در ارائه مقصد
       $slds = $destPres->getSlides();
       $slds->insertClone(2, $srcPres->getSlides()->get_Item(0));
-      # نوشتن ارائه مقصد به دیسک
+      # ذخیره ارائه مقصد بر روی دیسک
       $destPres->save("Aspose2_out.pptx", SaveFormat::Pptx);
     } finally {
       $destPres->dispose();
@@ -138,43 +138,43 @@ description: "اسلایدهای PowerPoint را به سرعت با Aspose.Slide
   }
 ```
 
-## **کلون یک اسلاید در موقعیت مشخصی در یک ارائهٔ دیگر**
-اگر می‌خواهید اسلایدی همراه با اسلاید اصلی (master) را از یک ارائه کلون کرده و در ارائهٔ دیگری استفاده کنید، ابتدا باید اسلاید اصلی موردنظر را از ارائه منبع به ارائه مقصد کلون کنید. سپس برای کلون اسلاید با اسلاید اصلی، متد [addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/fa/php-java/aspose.slides/slidecollection/addclone/) یک اسلاید اصلی از ارائه مقصد را می‌طلبد، نه از منبع. برای کلون اسلاید با اسلاید اصلی، مراحل زیر را دنبال کنید:
+## **کلون یک اسلاید در موقعیت خاصی در یک ارائه دیگر**
+اگر نیاز دارید یک اسلاید همراه با اسلاید مستر را از یک ارائه کلون کنید و در ارائه دیگری استفاده کنید، ابتدا باید اسلاید مستر مورد نظر را از ارائه منبع به ارائه مقصد کلون کنید. سپس باید از آن اسلاید مستر برای کلون کردن اسلاید با مستر استفاده کنید. متد [**addClone(Slide, MasterSlide, boolean)**](https://reference.aspose.com/slides/fa/php-java/aspose.slides/slidecollection/addclone/) یک اسلاید مستر از ارائه مقصد را به‌جای ارائه منبع انتظار دارد. برای کلون کردن اسلاید با مستر، لطفاً مراحل زیر را دنبال کنید:
 
-1. یک نمونه از کلاس [ارائه](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) که شامل ارائه منبع است، ایجاد کنید.  
-1. یک نمونه از کلاس [ارائه](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) که شامل ارائه مقصد است، ایجاد کنید.  
-1. به اسلایدی که می‌خواهید کلون کنید به همراه اسلاید اصلی آن دسترسی پیدا کنید.  
-1. شیء [MasterSlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/MasterSlideCollection) را با ارجاع به مجموعه Masters ارائه مقصد ایجاد کنید.  
-1. متد [addClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection/#addClone) را که توسط شیء [MasterSlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/MasterSlideCollection) ارائه می‌شود فراخوانی کنید و اسلاید اصلی منبع را به عنوان پارامتر به این متد پاس دهید.  
-1. شیء [SlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation/#getSlides) را با ارجاع به مجموعه اسلایدهای ارائه مقصد تنظیم کنید.  
-1. متد [addClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection/#addClone) را که توسط شیء [SlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation/#getSlides) ارائه می‌شود فراخوانی کنید و اسلاید منبع همراه با اسلاید اصلی را به عنوان پارامتر به این متد پاس دهید.  
-1. فایل ارائهٔ مقصد را بنویسید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) که شامل ارائه منبع است که اسلاید از آن کلون می‌شود، ایجاد کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) که شامل ارائه مقصد است که اسلاید به آن کلون می‌شود، ایجاد کنید.
+1. به اسلایدی که باید کلون شود همراه با اسلاید مستر دسترسی پیدا کنید.
+1. کلاس [MasterSlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/MasterSlideCollection) را با ارجاع به مجموعه Masters که توسط شیء [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) ارائه مقصد ارائه می‌شود، نمونه‌سازی کنید.
+1. متد [addClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection/#addClone) را که توسط شیء [MasterSlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/MasterSlideCollection) ارائه می‌شود فراخوانی کنید و مستری که از PPTX منبع باید کلون شود را به عنوان پارامتر به متد [addClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection/#addClone) پاس دهید.
+1. کلاس [SlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation/#getSlides) را با تنظیم ارجاع به مجموعه Slides که توسط شیء [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) ارائه مقصد ارائه می‌شود، نمونه‌سازی کنید.
+1. متد [addClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection/#addClone) را که توسط شیء [SlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation/#getSlides) ارائه می‌شود فراخوانی کنید و اسلایدی که از ارائه منبع باید کلون شود همراه با اسلاید مستر را به عنوان پارامتر به متد [addClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection/#addClone) پاس دهید.
+1. فایل ارائه مقصد تغییر یافته را بنویسید.
 
-در مثال زیر، ما اسلایدی همراه با اسلاید اصلی (که در اندیس صفر ارائه منبع قرار داشت) را با استفاده از اسلاید اصلی منبع به انتهای ارائهٔ مقصد کلون کرده‌ایم.
+در مثال زیر، یک اسلاید همراه با مستر (در شاخص صفر ارائه منبع) را به انتهای ارائه مقصد با استفاده از مستر اسلاید منبع کلون کرده‌ایم.
 
 ```php
-  # ایجاد یک شیء از کلاس Presentation برای بارگذاری فایل ارائه منبع
+  # ایجاد نمونه کلاس Presentation برای بارگذاری فایل ارائه منبع
   $srcPres = new Presentation("CloneToAnotherPresentationWithMaster.pptx");
   try {
-    # ایجاد یک شیء از کلاس Presentation برای ارائه مقصد (جایی که اسلاید باید کلون شود)
+    # ایجاد نمونه کلاس Presentation برای ارائه مقصد (جایی که اسلاید باید کلون شود)
     $destPres = new Presentation();
     try {
-      # ایجاد یک شیء ISlide از مجموعه اسلایدها در ارائه منبع همراه با
-      # اسلاید اصلی
+      # ایجاد ISlide از مجموعه اسلایدها در ارائه منبع همراه با
+      # اسلاید مستر
       $SourceSlide = $srcPres->getSlides()->get_Item(0);
       $SourceMaster = $SourceSlide->getLayoutSlide()->getMasterSlide();
-      # کلون اسلاید اصلی موردنظر از ارائه منبع به مجموعه اسلایدهای اصلی در
+      # کلون اسلاید مستر موردنظر از ارائه منبع به مجموعه مسترها در
       # ارائه مقصد
       $masters = $destPres->getMasters();
       $DestMaster = $SourceSlide->getLayoutSlide()->getMasterSlide();
-      # کلون اسلاید اصلی موردنظر از ارائه منبع به مجموعه اسلایدهای اصلی در
+      # کلون اسلاید مستر موردنظر از ارائه منبع به مجموعه مسترها در
       # ارائه مقصد
       $iSlide = $masters->addClone($SourceMaster);
-      # کلون اسلاید موردنظر از ارائه منبع با اسلاید اصلی موردنظر به انتهای
+      # کلون اسلاید موردنظر از ارائه منبع با مستر موردنظر به انتهای
       # مجموعه اسلایدها در ارائه مقصد
       $slds = $destPres->getSlides();
       $slds->addClone($SourceSlide, $iSlide, true);
-      # ذخیرهٔ ارائه مقصد به دیسک
+      # ذخیره ارائه مقصد بر روی دیسک
       $destPres->save("CloneToAnotherPresentationWithMaster_out.pptx", SaveFormat::Pptx);
     } finally {
       $destPres->dispose();
@@ -185,9 +185,9 @@ description: "اسلایدهای PowerPoint را به سرعت با Aspose.Slide
 ```
 
 ## **کلون یک اسلاید در انتهای یک بخش مشخص**
-اگر می‌خواهید اسلایدی را کلون کنید و سپس در همان فایل ارائه اما در بخش متفاوتی استفاده کنید، از متد [addClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection/#addClone) که توسط کلاس [SlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection) ارائه می‌شود استفاده کنید. Aspose.Slides for PHP via Java امکان کلون یک اسلاید از اولین بخش و سپس درج آن اسلاید کلون‌شده در بخش دوم همان ارائه را فراهم می‌کند.
+اگر می‌خواهید یک اسلاید را کلون کنید و سپس آن را در همان فایل ارائه اما در بخش متفاوتی استفاده کنید، از متد [addClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection/#addClone) که توسط کلاس [SlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/SlideCollection) ارائه می‌شود استفاده کنید. Aspose.Slides for PHP via Java امکان کلون کردن اسلایدی از بخش اول و سپس درج آن اسلاید کلون‌شده در بخش دوم همان ارائه را فراهم می‌کند.
 
-کد نمونه زیر نشان می‌دهد چگونه اسلایدی را کلون کنید و اسلاید کلون‌شده را در یک بخش مشخص وارد کنید.
+کد زیر نشان می‌دهد چگونه یک اسلاید را کلون کنید و اسلاید کلون‌شده را در یک بخش مشخص درج کنید.
 
 ```php
   $presentation = new Presentation();
@@ -196,8 +196,8 @@ description: "اسلایدهای PowerPoint را به سرعت با Aspose.Slide
     $presentation->getSections()->addSection("Section 1", $presentation->getSlides()->get_Item(0));
     $section2 = $presentation->getSections()->appendEmptySection("Section 2");
     $presentation->getSlides()->addClone($presentation->getSlides()->get_Item(0), $section2);
-    # ذخیرهٔ ارائه مقصد به دیسک
-    $presentation->save($dataDir . "CloneSlideIntoSpecifiedSection.pptx", SaveFormat::Pptx);
+    # ذخیرهٔ ارائه مقصد بر روی دیسک
+    $presentation->save("CloneSlideIntoSpecifiedSection.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($presentation)) {
       $presentation->dispose();
@@ -205,16 +205,31 @@ description: "اسلایدهای PowerPoint را به سرعت با Aspose.Slide
   }
 ```
 
-## **سوالات متداول**
+## **اطمینان از سازگاری اندازه اسلاید**
 
-**آیا یادداشت‌های سخنران و نظرات مرورگر نیز کلون می‌شوند؟**
+هنگام کلون کردن اسلایدها به یک ارائه دیگر، اطمینان حاصل کنید که اندازه اسلاید ارائه مقصد با ارائه منبع یکسان باشد. اگر اندازه اسلایدها متفاوت باشد، Aspose.Slides به‌صورت خودکار اشکال کلون‌شده را بازسازی نمی‌کند—مختصات و ابعاد اصلی آن‌ها حفظ می‌شود، که ممکن است منجر به عدم هم‌راستایی محتوا یا خروج آن از مرزهای اسلاید شود.
 
-بله. صفحهٔ یادداشت‌ها و نظرات مرورگر در کلون گنجانده می‌شوند. اگر نمی‌خواهید آنها را داشته باشید، پس از درج آن‌ها را[remove them](/slides/fa/php-java/presentation-notes/) کنید.
+می‌توانید قبل از کلون کردن مستر و اسلاید، اندازه اسلاید ارائه مقصد را به اندازه منبع تنظیم کنید:
 
-**نمودارها و منابع داده‌ای آنها چگونه مدیریت می‌شوند؟**
+```php
+$sourceSize = $sourcePresentation->getSlideSize()->getSize();
 
-شیء نمودار، قالب‌بندی و داده‌های داخلی کپی می‌شوند. اگر نمودار به منبع خارجی (مانند یک کتاب‌کار OLE‑embedded) پیوند داشته باشد، این پیوند به عنوان یک [OLE object](/slides/fa/php-java/manage-ole/) حفظ می‌شود. پس از انتقال بین فایل‌ها، در دسترس بودن داده‌ها و رفتار تازه‌سازی را بررسی کنید.
+$targetPresentation->getSlideSize()->setSize(
+    $sourceSize->getWidth(), $sourceSize->getHeight(), SlideSizeScaleType::DoNotScale);
+```
+
+این کار را قبل از کلون کردن مستر و اسلاید انجام دهید.
+
+## **FAQ**
+
+**آیا یادداشت‌های گوینده و نظرات مرورگر کلون می‌شوند؟**
+
+بله. صفحه یادداشت‌ها و نظرات مرورگر در کلون گنجانده می‌شوند. اگر آن‌ها را نمی‌خواهید، پس از درج [آن‌ها را حذف کنید](/slides/fa/php-java/presentation-notes/).
+
+**چگونه نمودارها و منابع داده آن‌ها مدیریت می‌شوند؟**
+
+شیء نمودار، قالب‌بندی و داده‌های داخلی کپی می‌شوند. اگر نمودار به منبع خارجی (مثلاً یک کتاب‌کار OLE‑embedded) پیوند داده شده باشد، آن پیوند به‌عنوان یک [OLE object](/slides/fa/php-java/manage-ole/) حفظ می‌شود. پس از انتقال بین فایل‌ها، دسترسی به داده‌ها و رفتار تازه‌سازی را بررسی کنید.
 
 **آیا می‌توانم موقعیت درج و بخش‌های کلون را کنترل کنم؟**
 
-بله. می‌توانید کلون را در یک اندیس اسلاید خاص درج کنید و آن را به یک [section](/slides/fa/php-java/slide-section/) انتخابی منتقل کنید. اگر بخش هدف وجود نداشته باشد، ابتدا آن را ایجاد کنید و سپس اسلاید را به آن بخش منتقل کنید.
+بله. می‌توانید کلون را در یک شاخص اسلاید خاص درج کنید و در یک [section](/slides/fa/php-java/slide-section/) انتخابی قرار دهید. اگر بخش هدف وجود نداشته باشد، ابتدا آن را ایجاد کنید و سپس اسلاید را به آن انتقال دهید.

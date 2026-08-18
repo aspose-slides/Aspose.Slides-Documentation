@@ -1,5 +1,5 @@
 ---
-title: Clonar slides de apresentação em PHP
+title: Clonar Slides de Apresentação em PHP
 linktitle: Clonar Slides
 type: docs
 weight: 35
@@ -13,27 +13,27 @@ keywords:
 - apresentação
 - PHP
 - Aspose.Slides
-description: "Duplique rapidamente slides do PowerPoint com Aspose.Slides para PHP. Siga nossos exemplos de código claros para automatizar a criação de PPT em segundos e eliminar o trabalho manual."
+description: "Duplique rapidamente slides de PowerPoint com Aspose.Slides for PHP. Siga nossos claros exemplos de código para automatizar a criação de PPT em segundos e eliminar o trabalho manual."
 ---
 ## **Introdução**
 
-Clonar é o processo de fazer uma cópia exata ou réplica de algo. Aspose.Slides for PHP via Java também permite criar uma cópia ou clone de qualquer slide e inseri‑lo na apresentação atual ou em qualquer outra apresentação aberta. O processo de clonagem de slide cria um novo slide que pode ser modificado pelos desenvolvedores sem alterar o slide original. Existem diversas maneiras de clonar um slide:
+Clonagem é o processo de fazer uma cópia exata ou réplica de algo. Aspose.Slides for PHP via Java também possibilita fazer uma cópia ou clone de qualquer slide e então inserir esse slide clonado na apresentação atual ou em qualquer outra apresentação aberta. O processo de clonagem de slide cria um novo slide que pode ser modificado pelos desenvolvedores sem alterar o slide original. Existem várias maneiras possíveis de clonar um slide:
 
-- Clonar ao final dentro de uma apresentação.
-- Clonar em outra posição dentro da mesma apresentação.
-- Clonar ao final em outra apresentação.
+- Clonar no final dentro de uma apresentação.
+- Clonar em outra posição dentro da apresentação.
+- Clonar no final em outra apresentação.
 - Clonar em outra posição em outra apresentação.
 - Clonar em uma posição específica em outra apresentação.
 
-Em Aspose.Slides for PHP via Java, (uma coleção de [Slide](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Slide) objects) exposta pelo objeto [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation) fornece os métodos [addClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#addClone) e [insertClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#insertClone) para executar os tipos de clonagem acima descritos.
+No Aspose.Slides for PHP via Java, (uma coleção de [Slide](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Slide) objetos) exposta pelo objeto [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation) fornece os métodos [addClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#addClone) e [insertClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#insertClone) para executar os tipos de clonagem de slide acima.
 
-## **Clonar um slide ao final de uma apresentação**
-Se quiser clonar um slide e utilizá‑lo dentro do mesmo arquivo de apresentação ao final dos slides existentes, use o método [addClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#addClone) conforme os passos abaixo:
+## **Clonar um slide no final de uma apresentação**
+Se você deseja clonar um slide e então usá‑lo dentro do mesmo arquivo de apresentação ao final dos slides existentes, use o método [addClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#addClone) de acordo com os passos listados abaixo:
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation).
-1. Obtenha o objeto [SlideCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation/#getSlides) referenciando a coleção de slides exposta pelo objeto [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation).
-1. Chame o método [addClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#addClone) exposto pelo objeto [SlideCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation/#getSlides) e passe o slide a ser clonado como parâmetro para o método [addClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#addClone).
-1. Grave o arquivo de apresentação modificado.
+2. Obtenha o objeto [SlideCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation/#getSlides) referenciando a coleção de slides exposta pelo objeto [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation).
+3. Chame o método [addClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#addClone) exposto pelo objeto [SlideCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation/#getSlides) e passe o slide a ser clonado como parâmetro ao método [addClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#addClone).
+4. Grave o arquivo de apresentação modificado.
 
 No exemplo abaixo, clonamos um slide (localizado na primeira posição – índice zero – da apresentação) para o final da apresentação.
 
@@ -52,14 +52,14 @@ No exemplo abaixo, clonamos um slide (localizado na primeira posição – índi
 ```
 
 ## **Clonar um slide para outra posição dentro de uma apresentação**
-Se quiser clonar um slide e utilizá‑lo dentro do mesmo arquivo de apresentação, porém em outra posição, use o método [insertClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#insertClone):
+Se você deseja clonar um slide e então usá‑lo dentro do mesmo arquivo de apresentação, mas em outra posição, use o método [insertClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#insertClone):
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation).
-1. Obtenha o objeto [SlideCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection) referenciando a coleção **[Slides](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation/#getSlides)** exposta pelo objeto [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation).
-1. Chame o método [insertClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#insertClone) exposto pelo objeto [SlideCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation/#getSlides) e passe o slide a ser clonado juntamente com o índice da nova posição como parâmetros para o método [insertClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#insertClone).
-1. Grave a apresentação modificada como um arquivo PPTX.
+2. Obtenha o objeto [SlideCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection) referenciando a coleção **Slides** exposta pelo objeto [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation).
+3. Chame o método [insertClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#insertClone) exposto pelo objeto [SlideCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation/#getSlides) e passe o slide a ser clonado junto com o índice da nova posição como parâmetro ao método [insertClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#insertClone).
+4. Grave a apresentação modificada como um arquivo PPTX.
 
-No exemplo abaixo, clonamos um slide (localizado no índice zero – posição 1 – da apresentação) para o índice 1 – Posição 2 – da apresentação.
+No exemplo abaixo, clonamos um slide (localizado no índice zero – posição 1 – da apresentação) para o índice 1 – posição 2 – da apresentação.
 
 ```php
   # Instanciar a classe Presentation que representa um arquivo de apresentação
@@ -76,14 +76,14 @@ No exemplo abaixo, clonamos um slide (localizado no índice zero – posição 1
   }
 ```
 
-## **Clonar um slide ao final de outra apresentação**
-Se precisar clonar um slide de uma apresentação e usá‑lo em outra apresentação, ao final dos slides existentes:
+## **Clonar um slide no final de outra apresentação**
+Se precisar clonar um slide de uma apresentação e usá‑lo em outra apresentação, no final dos slides existentes:
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation) que contém a apresentação de origem do slide.
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation) que contém a apresentação de destino para a qual o slide será adicionado.
-1. Obtenha o objeto [SlideCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection) referenciando a coleção **[Slides](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation/#getSlides)** exposta pelo objeto Presentation da apresentação de destino.
-1. Chame o método [addClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#addClone) exposto pelo objeto [SlideCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation/#getSlides) e passe o slide da apresentação de origem como parâmetro para o método [addClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#addClone).
-1. Grave o arquivo da apresentação de destino modificado.
+2. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation) que contém a apresentação de destino onde o slide será adicionado.
+3. Obtenha o objeto [SlideCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection) referenciando a coleção **Slides** exposta pelo objeto Presentation da apresentação de destino.
+4. Chame o método [addClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#addClone) exposto pelo objeto [SlideCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation/#getSlides) e passe o slide da apresentação de origem como parâmetro ao método [addClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#addClone).
+5. Grave o arquivo da apresentação de destino modificado.
 
 No exemplo abaixo, clonamos um slide (do primeiro índice da apresentação de origem) para o final da apresentação de destino.
 
@@ -111,10 +111,10 @@ No exemplo abaixo, clonamos um slide (do primeiro índice da apresentação de o
 Se precisar clonar um slide de uma apresentação e usá‑lo em outra apresentação, em uma posição específica:
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation) que contém a apresentação de origem do slide.
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation) que contém a apresentação de destino à qual o slide será adicionado.
-1. Obtenha a classe [SlideCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation/#getSlides) referenciando a coleção Slides exposta pelo objeto Presentation da apresentação de destino.
-1. Chame o método [insertClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#insertClone) exposto pelo objeto [SlideCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation/#getSlides) e passe o slide da apresentação de origem juntamente com a posição desejada como parâmetros para o método [insertClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#insertClone).
-1. Grave o arquivo da apresentação de destino modificado.
+2. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation) que contém a apresentação de destino onde o slide será adicionado.
+3. Obtenha a classe [SlideCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation/#getSlides) referenciando a coleção Slides exposta pelo objeto Presentation da apresentação de destino.
+4. Chame o método [insertClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#insertClone) exposto pelo objeto [SlideCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation/#getSlides) e passe o slide da apresentação de origem juntamente com a posição desejada como parâmetro ao método [insertClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#insertClone).
+5. Grave o arquivo da apresentação de destino modificado.
 
 No exemplo abaixo, clonamos um slide (do índice zero da apresentação de origem) para o índice 1 (posição 2) da apresentação de destino.
 
@@ -139,18 +139,18 @@ No exemplo abaixo, clonamos um slide (do índice zero da apresentação de orige
 ```
 
 ## **Clonar um slide em uma posição específica em outra apresentação**
-Se precisar clonar um slide com um master slide de uma apresentação e usá‑lo em outra apresentação, primeiro clone o master slide desejado da apresentação de origem para a de destino. Em seguida, use esse master slide ao clonar o slide com master. O método [**addClone(Slide, MasterSlide, boolean)**](https://reference.aspose.com/slides/pt/php-java/aspose.slides/slidecollection/addclone/) espera um master slide da apresentação de destino, e não da de origem. Para clonar o slide com master, siga os passos abaixo:
+Se precisar clonar um slide com um slide mestre de uma apresentação e usá‑lo em outra apresentação, primeiro clone o slide mestre desejado da apresentação de origem para a de destino. Em seguida, use esse slide mestre ao clonar o slide com mestre. O método [**addClone(Slide, MasterSlide, boolean)**](https://reference.aspose.com/slides/pt/php-java/aspose.slides/slidecollection/addclone/) espera um slide mestre da apresentação de destino, e não da apresentação de origem. Para clonar o slide com mestre, siga os passos abaixo:
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation) que contém a apresentação de origem do slide.
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation) que contém a apresentação de destino para a qual o slide será clonado.
-1. Acesse o slide a ser clonado juntamente com o master slide.
-1. Instancie a classe [MasterSlideCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/MasterSlideCollection) referenciando a coleção Masters exposta pelo objeto [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation) da apresentação de destino.
-1. Chame o método [addClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#addClone) exposto pelo objeto [MasterSlideCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/MasterSlideCollection) e passe o master da apresentação de origem a ser clonado como parâmetro para o método [addClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#addClone).
-1. Instancie a classe [SlideCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation/#getSlides) definindo a referência para a coleção Slides exposta pelo objeto [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation) da apresentação de destino.
-1. Chame o método [addClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#addClone) exposto pelo objeto [SlideCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation/#getSlides) e passe o slide da apresentação de origem a ser clonado e o master slide como parâmetros para o método [addClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#addClone).
-1. Grave o arquivo da apresentação de destino modificado.
+2. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation) que contém a apresentação de destino onde o slide será clonado.
+3. Acesse o slide a ser clonado junto com seu slide mestre.
+4. Instancie a classe [MasterSlideCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/MasterSlideCollection) referenciando a coleção Masters exposta pelo objeto [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation) da apresentação de destino.
+5. Chame o método [addClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#addClone) exposto pelo objeto [MasterSlideCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/MasterSlideCollection) e passe o mestre da apresentação de origem a ser clonado como parâmetro ao método [addClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#addClone).
+6. Instancie a classe [SlideCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation/#getSlides) definindo a referência para a coleção Slides exposta pelo objeto [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation) da apresentação de destino.
+7. Chame o método [addClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#addClone) exposto pelo objeto [SlideCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation/#getSlides) e passe o slide da apresentação de origem a ser clonado e o slide mestre como parâmetros ao método [addClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#addClone).
+8. Grave o arquivo da apresentação de destino modificado.
 
-No exemplo abaixo, clonamos um slide com master (localizado no índice zero da apresentação de origem) para o final da apresentação de destino usando um master da apresentação de origem.
+No exemplo abaixo, clonamos um slide com mestre (localizado no índice zero da apresentação de origem) para o final da apresentação de destino usando o mestre do slide de origem.
 
 ```php
   # Instanciar a classe Presentation para carregar o arquivo de apresentação de origem
@@ -159,7 +159,7 @@ No exemplo abaixo, clonamos um slide com master (localizado no índice zero da a
     # Instanciar a classe Presentation para a apresentação de destino (onde o slide será clonado)
     $destPres = new Presentation();
     try {
-      # Instanciar ISlide a partir da coleção de slides na apresentação de origem junto com
+      # Instanciar ISlide a partir da coleção de slides da apresentação de origem juntamente com
       # Slide mestre
       $SourceSlide = $srcPres->getSlides()->get_Item(0);
       $SourceMaster = $SourceSlide->getLayoutSlide()->getMasterSlide();
@@ -184,10 +184,10 @@ No exemplo abaixo, clonamos um slide com master (localizado no índice zero da a
   }
 ```
 
-## **Clonar um slide ao final de uma seção especificada**
-Se quiser clonar um slide e utilizá‑lo dentro do mesmo arquivo de apresentação, porém em outra seção, use o método [addClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#addClone) exposto pela classe [SlideCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection). Aspose.Slides for PHP via Java permite clonar um slide da primeira seção e inseri‑lo na segunda seção da mesma apresentação.
+## **Clonar um slide no final de uma seção especificada**
+Se você deseja clonar um slide e então usá‑lo dentro do mesmo arquivo de apresentação, mas em outra seção, use o método [addClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection/#addClone) exposto pela classe [SlideCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/SlideCollection). Aspose.Slides for PHP via Java possibilita clonar um slide da primeira seção e inseri‑lo na segunda seção da mesma apresentação.
 
-O trecho de código a seguir demonstra como clonar um slide e inserir o slide clonado em uma seção especificada.
+O trecho de código a seguir mostra como clonar um slide e inserir o slide clonado em uma seção especificada.
 
 ```php
   $presentation = new Presentation();
@@ -197,7 +197,7 @@ O trecho de código a seguir demonstra como clonar um slide e inserir o slide cl
     $section2 = $presentation->getSections()->appendEmptySection("Section 2");
     $presentation->getSlides()->addClone($presentation->getSlides()->get_Item(0), $section2);
     # Salvar a apresentação de destino no disco
-    $presentation->save($dataDir . "CloneSlideIntoSpecifiedSection.pptx", SaveFormat::Pptx);
+    $presentation->save("CloneSlideIntoSpecifiedSection.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($presentation)) {
       $presentation->dispose();
@@ -205,16 +205,31 @@ O trecho de código a seguir demonstra como clonar um slide e inserir o slide cl
   }
 ```
 
-## **Perguntas frequentes**
+## **Garantir correspondência de tamanho de slide**
 
-**As notas do apresentador e os comentários do revisor são clonados?**
+Ao clonar slides para outra apresentação, certifique‑se de que a apresentação de destino possua o mesmo tamanho de slide da origem. Se os tamanhos forem diferentes, o Aspose.Slides não redimensiona automaticamente as formas clonadas – suas coordenadas e dimensões originais são preservadas, o que pode fazer com que o conteúdo fique desalinhado ou ultrapasse os limites do slide.
 
-Sim. A página de notas e os comentários de revisão são incluídos no clone. Se não quiser mantê‑los, [remova‑os](/slides/pt/php-java/presentation-notes/) após a inserção.
+Você pode definir o tamanho do slide da apresentação de destino para corresponder ao da origem antes de clonar o mestre e o slide:
+
+```php
+$sourceSize = $sourcePresentation->getSlideSize()->getSize();
+
+$targetPresentation->getSlideSize()->setSize(
+    $sourceSize->getWidth(), $sourceSize->getHeight(), SlideSizeScaleType::DoNotScale);
+```
+
+Faça isso antes de clonar o mestre e o slide.
+
+## **FAQ**
+
+**As notas do apresentador e os comentários dos revisores são clonados?**
+
+Sim. A página de notas e os comentários de revisão são incluídos no clone. Se não quiser mantê‑los, [removê‑los](/slides/pt/php-java/presentation-notes/) após a inserção.
 
 **Como os gráficos e suas fontes de dados são tratados?**
 
-O objeto gráfico, sua formatação e os dados incorporados são copiados. Se o gráfico estava vinculado a uma fonte externa (por exemplo, uma planilha incorporada via OLE), esse vínculo é mantido como um [objeto OLE](/slides/pt/php-java/manage-ole/). Após a movimentação entre arquivos, verifique a disponibilidade dos dados e o comportamento de atualização.
+O objeto do gráfico, sua formatação e os dados incorporados são copiados. Se o gráfico estiver vinculado a uma fonte externa (por exemplo, uma pasta de trabalho incorporada via OLE), esse vínculo é preservado como um [OLE object](/slides/pt/php-java/manage-ole/). Após mover entre arquivos, verifique a disponibilidade dos dados e o comportamento de atualização.
 
 **Posso controlar a posição de inserção e as seções do clone?**
 
-Sim. Você pode inserir o clone em um índice de slide específico e colocá‑lo em uma [seção](/slides/pt/php-java/slide-section/) escolhida. Se a seção de destino não existir, crie‑a primeiro e então mova o slide para ela.
+Sim. Você pode inserir o clone em um índice de slide específico e colocá‑lo em uma [section](/slides/pt/php-java/slide-section/) escolhida. Se a seção de destino não existir, crie‑a primeiro e então mova o slide para ela.

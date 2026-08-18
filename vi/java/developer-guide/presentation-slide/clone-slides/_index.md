@@ -1,109 +1,115 @@
 ---
-title: Sao chép slide trình chiếu bằng Java
-linktitle: Sao chép Slide
+title: Sao chép các slide trình chiếu trong Java
+linktitle: Sao chép Slides
 type: docs
 weight: 35
 url: /vi/java/clone-slides/
 keywords:
 - sao chép slide
-- chép slide
+- sao chép slide
 - lưu slide
 - PowerPoint
 - OpenDocument
-- bài thuyết trình
+- bản trình chiếu
 - Java
 - Aspose.Slides
-description: "Nhanh chóng sao chép các slide PowerPoint bằng Aspose.Slides cho Java. Theo dõi các ví dụ mã rõ ràng của chúng tôi để tự động tạo PPT trong vài giây và loại bỏ công việc thủ công."
+description: "Nhanh chóng nhân bản các slide PowerPoint với Aspose.Slides cho Java. Thực hiện theo các ví dụ mã rõ ràng của chúng tôi để tự động tạo PPT trong vài giây và loại bỏ công việc thủ công."
 ---
 ## **Giới thiệu**
 
-Sao chép là quá trình tạo một bản sao chính xác hoặc bản sao của một vật gì đó. Aspose.Slides for Java cũng cho phép tạo một bản sao hoặc bản sao của bất kỳ slide nào và sau đó chèn slide đã sao chép đó vào presentation hiện tại hoặc bất kỳ presentation nào khác đang mở. Quá trình sao chép slide tạo ra một slide mới có thể được nhà phát triển sửa đổi mà không thay đổi slide gốc. Có một số cách để sao chép một slide:
+Cloning là quá trình tạo một bản sao chính xác hoặc bản sao của một thứ gì đó. Aspose.Slides for Java cũng cho phép tạo bản sao hoặc clone của bất kỳ slide nào và sau đó chèn slide đã clone vào bản trình chiếu hiện tại hoặc bất kỳ bản trình chiếu nào khác đã mở. Quá trình clone slide tạo ra một slide mới có thể được các nhà phát triển chỉnh sửa mà không làm thay đổi slide gốc. Có một vài cách để clone một slide:
 
-- Sao chép ở cuối trong một Presentation.
-- Sao chép ở vị trí khác trong Presentation.
-- Sao chép ở cuối trong một Presentation khác.
-- Sao chép ở vị trí khác trong một Presentation khác.
-- Sao chép ở vị trí cụ thể trong một Presentation khác.
+- Clone ở vị trí cuối trong một bản trình chiếu.
+- Clone ở vị trí khác trong bản trình chiếu.
+- Clone ở vị trí cuối trong một bản trình chiếu khác.
+- Clone ở vị trí khác trong một bản trình chiếu khác.
+- Clone cùng với master slide của nó vào một bản trình chiếu khác.
 
-Trong Aspose.Slides for Java, (một tập hợp các đối tượng [ISlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlide) ) được công bố bởi đối tượng [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) cung cấp các phương thức [addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) và [insertClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) để thực hiện các kiểu sao chép slide nêu trên
+Trong Aspose.Slides for Java, (một bộ sưu tập các đối tượng [ISlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlide)) được cung cấp bởi đối tượng [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) cung cấp các phương thức [addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) và [insertClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) để thực hiện các kiểu clone slide nêu trên
 
-## **Sao chép một Slide ở cuối một Presentation**
-Nếu bạn muốn sao chép một slide và sau đó sử dụng nó trong cùng một tệp presentation ở cuối các slide hiện có, hãy dùng phương thức [addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) theo các bước sau:
+## **Clone một slide ở cuối bản trình chiếu**
+Nếu bạn muốn clone một slide và sau đó sử dụng nó trong cùng một tệp bản trình chiếu ở cuối các slide hiện có, hãy sử dụng phương thức [addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) theo các bước sau:
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation).
-1. Khởi tạo lớp [ISlideCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation#getSlides--) bằng cách tham chiếu tới tập Slides được công bố bởi đối tượng [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation).
-1. Gọi phương thức [addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) được công bố bởi đối tượng [ISlideCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation#getSlides--) và truyền slide cần sao chép làm tham số cho phương thức [addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-).
-1. Ghi tệp presentation đã sửa đổi.
+2. Khởi tạo lớp [ISlideCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation#getSlides--) bằng cách tham chiếu đến bộ sưu tập Slides được cung cấp bởi đối tượng [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation).
+3. Gọi phương thức [addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) được cung cấp bởi đối tượng [ISlideCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation#getSlides--) và truyền slide cần được clone làm tham số cho phương thức [addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-).
+4. Ghi tệp bản trình chiếu đã chỉnh sửa.
 
-Trong ví dụ dưới đây, chúng tôi đã sao chép một slide (nằm ở vị trí đầu tiên – chỉ mục 0 – của presentation) tới cuối presentation.
+Trong ví dụ dưới đây, chúng tôi đã clone một slide (nằm ở vị trí đầu tiên – chỉ số 0 – của bản trình chiếu) tới cuối bản trình chiếu.
 
 ```java
-// Khởi tạo lớp Presentation đại diện cho một tệp presentation
+import com.aspose.slides.*;
+
+// Khởi tạo lớp Presentation đại diện cho tệp trình chiếu
 Presentation pres = new Presentation("CloneWithinSamePresentationToEnd.pptx");
 try {
-    // Sao chép slide mong muốn tới cuối bộ sưu tập các slide trong cùng một presentation
+    // Clone slide mong muốn tới cuối bộ sưu tập các slide trong cùng một bản trình chiếu
     ISlideCollection slds = pres.getSlides();
 
     slds.addClone(pres.getSlides().get_Item(0));
 
-    // Ghi presentation đã sửa đổi vào đĩa
+    // Ghi bản trình chiếu đã chỉnh sửa vào đĩa
     pres.save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", SaveFormat.Pptx);
 } finally {
     pres.dispose();
 }
 ```
 
-## **Sao chép một Slide tới vị trí khác trong một Presentation**
-Nếu bạn muốn sao chép một slide và sau đó sử dụng nó trong cùng một tệp presentation nhưng ở vị trí khác, hãy dùng phương thức [insertClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-):
+## **Clone một slide tới vị trí khác trong cùng một bản trình chiếu**
+Nếu bạn muốn clone một slide và sau đó sử dụng nó trong cùng một tệp bản trình chiếu nhưng ở vị trí khác, hãy sử dụng phương thức [insertClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-):
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation).
-1. Khởi tạo lớp bằng cách tham chiếu tới tập **Slides**([https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation#getSlides--](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation#getSlides--)) được công bố bởi đối tượng [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation).
-1. Gọi phương thức [insertClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) được công bố bởi đối tượng [ISlideCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation#getSlides--) và truyền slide cần sao chép cùng với chỉ mục cho vị trí mới làm tham số cho phương thức [insertClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-).
-1. Ghi presentation đã sửa đổi dưới dạng tệp PPTX.
+2. Khởi tạo lớp bằng cách tham chiếu đến bộ sưu tập **Slides**([https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation#getSlides--](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation#getSlides--)) được cung cấp bởi đối tượng [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation).
+3. Gọi phương thức [insertClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) được cung cấp bởi đối tượng [ISlideCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation#getSlides--) và truyền slide cần clone cùng với chỉ số vị trí mới làm tham số cho phương thức [insertClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-).
+4. Ghi bản trình chiếu đã chỉnh sửa dưới dạng tệp PPTX.
 
-Trong ví dụ dưới đây, chúng tôi đã sao chép một slide (nằm ở chỉ mục 0 – vị trí 1 – của presentation) tới chỉ mục 1 – Vị trí 2 – của presentation.
+Trong ví dụ dưới đây, chúng tôi đã clone một slide (nằm ở chỉ số 1 – vị trí 2 – của bản trình chiếu) tới chỉ số 2 – vị trí 3 – của bản trình chiếu.
 
 ```java
-// Khởi tạo lớp Presentation đại diện cho một tệp presentation
+import com.aspose.slides.*;
+
+// Khởi tạo lớp Presentation đại diện cho tệp trình chiếu
 Presentation pres = new Presentation("CloneWithInSamePresentation.pptx");
 try {
-    // Sao chép slide mong muốn tới cuối bộ sưu tập các slide trong cùng một presentation
+    // Lấy bộ sưu tập các slide trong bản trình chiếu
     ISlideCollection slds = pres.getSlides();
 
-    // Sao chép slide mong muốn tới chỉ mục được chỉ định trong cùng một presentation
+    // Clone slide mong muốn tới chỉ mục đã chỉ định trong cùng một bản trình chiếu
     slds.insertClone(2, pres.getSlides().get_Item(1));
 
-    // Ghi presentation đã sửa đổi vào đĩa
+    // Ghi bản trình chiếu đã chỉnh sửa vào đĩa
     pres.save("Aspose_CloneWithInSamePresentation_out.pptx", SaveFormat.Pptx);
 } finally {
     pres.dispose();
 }
 ```
 
-## **Sao chép một Slide ở cuối một Presentation khác**
-Nếu bạn cần sao chép một slide từ một presentation và sử dụng nó trong một presentation khác, ở cuối các slide hiện có:
+## **Clone một slide ở cuối một bản trình chiếu khác**
+Nếu bạn cần clone một slide từ một bản trình chiếu và sử dụng nó trong một bản trình chiếu khác, ở cuối các slide hiện có:
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) chứa presentation mà slide sẽ được sao chép từ đó.
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) chứa presentation đích mà slide sẽ được thêm vào.
-1. Khởi tạo lớp [ISlideCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection) bằng cách tham chiếu tới tập **Slides**([https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation#getSlides--](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation#getSlides--)) được công bố bởi đối tượng Presentation của presentation đích.
-1. Gọi phương thức [addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) được công bố bởi đối tượng [ISlideCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation#getSlides--) và truyền slide từ presentation nguồn làm tham số cho phương thức [addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-).
-1. Ghi tệp presentation đích đã sửa đổi.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) chứa bản trình chiếu nguồn mà slide sẽ được clone từ đó.
+2. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) chứa bản trình chiếu đích mà slide sẽ được thêm vào.
+3. Khởi tạo lớp [ISlideCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection) bằng cách tham chiếu đến bộ sưu tập **Slides**([https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation#getSlides--](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation#getSlides--)) được cung cấp bởi đối tượng Presentation của bản trình chiếu đích.
+4. Gọi phương thức [addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) được cung cấp bởi đối tượng [ISlideCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation#getSlides--) và truyền slide từ bản trình chiếu nguồn làm tham số cho phương thức [addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-).
+5. Ghi tệp bản trình chiếu đích đã chỉnh sửa.
 
-Trong ví dụ dưới đây, chúng tôi đã sao chép một slide (từ chỉ mục đầu tiên của presentation nguồn) tới cuối presentation đích.
+Trong ví dụ dưới đây, chúng tôi đã clone một slide (từ chỉ số đầu tiên của bản trình chiếu nguồn) tới cuối bản trình chiếu đích.
 
 ```java
-// Khởi tạo lớp Presentation để tải tệp presentation nguồn
+import com.aspose.slides.*;
+
+// Khởi tạo lớp Presentation để tải tệp trình chiếu nguồn
 Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx");
 try {
-    // Khởi tạo lớp Presentation cho PPTX đích (nơi slide sẽ được sao chép)
+    // Khởi tạo lớp Presentation cho PPTX đích (nơi slide sẽ được clone)
     Presentation destPres = new Presentation();
     try {
-        // Sao chép slide mong muốn từ presentation nguồn tới cuối bộ sưu tập các slide trong presentation đích
+        // Clone slide mong muốn từ bản trình chiếu nguồn tới cuối bộ sưu tập các slide trong bản trình chiếu đích
         ISlideCollection slds = destPres.getSlides();
 
         slds.addClone(srcPres.getSlides().get_Item(0));
 
-        // Ghi presentation đích vào đĩa
+        // Ghi bản trình chiếu đích vào đĩa
         destPres.save("Aspose2_out.pptx", SaveFormat.Pptx);
     } finally {
         destPres.dispose();
@@ -113,30 +119,32 @@ try {
 }
 ```
 
-## **Sao chép một Slide tới vị trí khác trong một Presentation khác**
-Nếu bạn cần sao chép một slide từ một presentation và sử dụng nó trong một presentation khác, ở một vị trí cụ thể:
+## **Clone một slide tới vị trí khác trong một bản trình chiếu khác**
+Nếu bạn cần clone một slide từ một bản trình chiếu và sử dụng nó trong một bản trình chiếu khác, ở vị trí cụ thể:
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) chứa presentation nguồn mà slide sẽ được sao chép từ đó.
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) chứa presentation mà slide sẽ được thêm vào.
-1. Khởi tạo lớp [ISlideCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation#getSlides--) bằng cách tham chiếu tới tập Slides được công bố bởi đối tượng Presentation của presentation đích.
-1. Gọi phương thức [insertClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) được công bố bởi đối tượng [ISlideCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation#getSlides--) và truyền slide từ presentation nguồn cùng với vị trí mong muốn làm tham số cho phương thức [insertClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-).
-1. Ghi tệp presentation đích đã sửa đổi.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) chứa bản trình chiếu nguồn mà slide sẽ được clone từ đó.
+2. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) chứa bản trình chiếu đích mà slide sẽ được thêm vào.
+3. Khởi tạo lớp [ISlideCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation#getSlides--) bằng cách tham chiếu đến bộ sưu tập Slides được cung cấp bởi đối tượng Presentation của bản trình chiếu đích.
+4. Gọi phương thức [insertClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-) được cung cấp bởi đối tượng [ISlideCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation#getSlides--) và truyền slide từ bản trình chiếu nguồn cùng với vị trí mong muốn làm tham số cho phương thức [insertClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#insertClone-int-com.aspose.slides.ISlide-).
+5. Ghi tệp bản trình chiếu đích đã chỉnh sửa.
 
-Trong ví dụ dưới đây, chúng tôi đã sao chép một slide (từ chỉ mục 0 của presentation nguồn) tới chỉ mục 1 (vị trí 2) của presentation đích.
+Trong ví dụ dưới đây, chúng tôi đã clone một slide (từ chỉ số 0 của bản trình chiếu nguồn) tới chỉ số 1 (vị trí 2) của bản trình chiếu đích.
 
 ```java
-// Khởi tạo lớp Presentation để tải tệp presentation nguồn
+import com.aspose.slides.*;
+
+// Khởi tạo lớp Presentation để tải tệp trình chiếu nguồn
 Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx");
 try {
-    // Khởi tạo lớp Presentation cho PPTX đích (nơi slide sẽ được sao chép)
+    // Khởi tạo lớp Presentation cho PPTX đích (nơi slide sẽ được clone)
     Presentation destPres = new Presentation();
     try {
-        // Sao chép slide mong muốn từ presentation nguồn tới cuối bộ sưu tập các slide trong presentation đích
+        // Clone slide mong muốn từ bản trình chiếu nguồn tới chỉ mục đã chỉ định trong bản trình chiếu đích
         ISlideCollection slds = destPres.getSlides();
 
-        slds.insertClone(2, srcPres.getSlides().get_Item(0));
+        slds.insertClone(1, srcPres.getSlides().get_Item(0));
 
-        // Ghi presentation đích vào đĩa
+        // Ghi bản trình chiếu đích vào đĩa
         destPres.save("Aspose2_out.pptx", SaveFormat.Pptx);
     } finally {
         destPres.dispose();
@@ -146,47 +154,45 @@ try {
 }
 ```
 
-## **Sao chép một Slide ở vị trí cụ thể trong một Presentation khác**
-Nếu bạn cần sao chép một slide có master slide từ một presentation và sử dụng nó trong một presentation khác, trước tiên bạn phải sao chép master slide mong muốn từ presentation nguồn sang presentation đích. Sau đó, bạn sử dụng master slide đó để sao chép slide có master. Phương thức [**addClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) yêu cầu một master slide từ presentation đích chứ không phải từ presentation nguồn. Để sao chép slide có master, vui lòng làm theo các bước dưới đây:
+## **Clone một slide cùng master slide của nó tới một bản trình chiếu khác**
+Nếu bạn cần clone một slide cùng master slide từ một bản trình chiếu và sử dụng nó trong một bản trình chiếu khác, trước tiên bạn phải clone master slide mong muốn từ bản trình chiếu nguồn sang bản trình chiếu đích. Sau đó bạn cần sử dụng master slide đó để clone slide cùng master. Phương thức [**addClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) yêu cầu một master slide từ bản trình chiếu đích thay vì từ bản trình chiếu nguồn. Để clone slide cùng master, vui lòng làm theo các bước sau:
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) chứa presentation nguồn mà slide sẽ được sao chép từ đó.
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) chứa presentation đích mà slide sẽ được sao chép tới.
-1. Truy cập slide cần sao chép cùng với master slide.
-1. Khởi tạo lớp [IMasterSlideCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IMasterSlideCollection) bằng cách tham chiếu tới tập Masters được công bố bởi đối tượng [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) của presentation đích.
-1. Gọi phương thức [addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) được công bố bởi đối tượng [IMasterSlideCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IMasterSlideCollection) và truyền master từ PPTX nguồn cần sao chép làm tham số cho phương thức [addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-).
-1. Khởi tạo lớp [ISlideCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation#getSlides--) bằng cách đặt tham chiếu tới tập Slides được công bố bởi đối tượng [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) của presentation đích.
-1. Gọi phương thức [addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) được công bố bởi đối tượng [ISlideCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation#getSlides--) và truyền slide từ presentation nguồn cần sao chép và master slide làm tham số cho phương thức [addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-).
-1. Ghi tệp presentation đích đã sửa đổi.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) chứa bản trình chiếu nguồn mà slide sẽ được clone từ đó.
+2. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) chứa bản trình chiếu đích mà slide sẽ được clone tới.
+3. Truy cập slide cần clone cùng với master slide.
+4. Khởi tạo lớp [IMasterSlideCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IMasterSlideCollection) bằng cách tham chiếu đến bộ sưu tập Masters được cung cấp bởi đối tượng [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) của bản trình chiếu đích.
+5. Gọi phương thức [addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) được cung cấp bởi đối tượng [IMasterSlideCollection] và truyền master từ PPTX nguồn cần clone làm tham số cho phương thức [addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-).
+6. Khởi tạo lớp [ISlideCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation#getSlides--) bằng cách thiết lập tham chiếu tới bộ sưu tập Slides được cung cấp bởi đối tượng [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) của bản trình chiếu đích.
+7. Gọi phương thức [addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) được cung cấp bởi đối tượng [ISlideCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation#getSlides--) và truyền slide từ bản trình chiếu nguồn cần clone cùng với master slide làm tham số cho phương thức [addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-).
+8. Ghi tệp bản trình chiếu đích đã chỉnh sửa.
 
-Trong ví dụ dưới đây, chúng tôi đã sao chép một slide có master (nằm ở chỉ mục 0 của presentation nguồn) tới cuối presentation đích bằng master từ slide nguồn.
+Trong ví dụ dưới đây, chúng tôi đã clone một slide cùng master (nằm ở chỉ số 0 của bản trình chiếu nguồn) tới cuối bản trình chiếu đích bằng cách sử dụng master từ slide nguồn.
 
 ```java
-// Khởi tạo lớp Presentation để tải tệp presentation nguồn
+import com.aspose.slides.*;
+
+// Khởi tạo lớp Presentation để tải tệp trình chiếu nguồn
 Presentation srcPres = new Presentation("CloneToAnotherPresentationWithMaster.pptx");
 try {
-    // Khởi tạo lớp Presentation cho presentation đích (nơi slide sẽ được sao chép)
+    // Khởi tạo lớp Presentation cho bản trình chiếu đích (nơi slide sẽ được clone)
     Presentation destPres = new Presentation();
     try {
-        // Khởi tạo ISlide từ bộ sưu tập các slide trong presentation nguồn cùng với
-        // Slide master
+        // Khởi tạo ISlide từ bộ sưu tập các slide trong bản trình chiếu nguồn cùng với
+        // slide master
         ISlide SourceSlide = srcPres.getSlides().get_Item(0);
         IMasterSlide SourceMaster = SourceSlide.getLayoutSlide().getMasterSlide();
 
-        // Sao chép slide master mong muốn từ presentation nguồn tới bộ sưu tập các master trong
-        // presentation đích
+        // Clone slide master mong muốn từ bản trình chiếu nguồn tới bộ sưu tập các master trong
+        // bản trình chiếu đích
         IMasterSlideCollection masters = destPres.getMasters();
-        IMasterSlide DestMaster = SourceSlide.getLayoutSlide().getMasterSlide();
+        IMasterSlide DestMaster = masters.addClone(SourceMaster);
 
-        // Sao chép slide master mong muốn từ presentation nguồn tới bộ sưu tập các master trong
-        // presentation đích
-        IMasterSlide iSlide = masters.addClone(SourceMaster);
-
-        // Sao chép slide mong muốn từ presentation nguồn với master mong muốn tới cuối của
-        // bộ sưu tập các slide trong presentation đích
+        // Clone slide mong muốn từ bản trình chiếu nguồn với master mong muốn tới cuối
+        // bộ sưu tập các slide trong bản trình chiếu đích
         ISlideCollection slds = destPres.getSlides();
-        slds.addClone(SourceSlide, iSlide, true);
+        slds.addClone(SourceSlide, DestMaster, true);
 
-        // Lưu presentation đích vào đĩa
+        // Lưu bản trình chiếu đích vào đĩa
         destPres.save("CloneToAnotherPresentationWithMaster_out.pptx", SaveFormat.Pptx);
     } finally {
         destPres.dispose();
@@ -196,12 +202,14 @@ try {
 }
 ```
 
-## **Sao chép một Slide ở cuối một Section được chỉ định**
-Nếu bạn muốn sao chép một slide và sau đó sử dụng nó trong cùng một tệp presentation nhưng ở một section khác, thì sử dụng [**addClone**](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-) được công bố bởi giao diện [**ISlideCollection**](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection). Aspose.Slides cho Java cho phép sao chép một slide từ section đầu tiên và sau đó chèn slide đã sao chép vào section thứ hai của cùng một presentation.
+## **Clone một slide ở cuối một phần (section) xác định**
+Nếu bạn muốn clone một slide và sau đó sử dụng nó trong cùng một tệp bản trình chiếu nhưng ở một phần (section) khác, hãy sử dụng [**addClone**](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-) được cung cấp bởi giao diện [**ISlideCollection**](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISlideCollection). Aspose.Slides for Java cho phép clone một slide từ phần đầu tiên và sau đó chèn slide đã clone vào phần thứ hai của cùng một bản trình chiếu.
 
-Đoạn mã sau cho thấy cách sao chép một slide và chèn slide đã sao chép vào một section được chỉ định.
+Đoạn mã sau cho thấy cách clone một slide và chèn slide đã clone vào một phần xác định.
 
 ```java
+import com.aspose.slides.*;
+
 IPresentation presentation = new Presentation();
 try {
     presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 50, 300, 100);
@@ -209,24 +217,39 @@ try {
 
     ISection section2 = presentation.getSections().appendEmptySection("Section 2");
     presentation.getSlides().addClone(presentation.getSlides().get_Item(0), section2);
-    
-	// Lưu presentation đích vào đĩa
-    presentation.save(dataDir + "CloneSlideIntoSpecifiedSection.pptx", SaveFormat.Pptx);
+
+    // Lưu bản trình chiếu đích vào đĩa
+    presentation.save("CloneSlideIntoSpecifiedSection.pptx", SaveFormat.Pptx);
 } finally {
     if (presentation != null) presentation.dispose();
 }
 ```
 
+## **Đảm bảo kích thước slide khớp nhau**
+
+Khi clone slide vào một bản trình chiếu khác, hãy chắc chắn rằng bản trình chiếu đích có cùng kích thước slide với bản nguồn. Nếu kích thước slide khác nhau, Aspose.Slides sẽ không tự động thay đổi tỷ lệ các hình dạng đã clone—tọa độ và kích thước gốc của chúng sẽ được giữ nguyên, có thể khiến nội dung bị lệch hoặc vượt ra ngoài ranh giới slide.
+
+Bạn có thể đặt kích thước slide của bản trình chiếu đích sao cho khớp với bản nguồn trước khi clone master và slide:
+
+```java
+Dimension2D sourceSize = sourcePresentation.getSlideSize().getSize();
+
+targetPresentation.getSlideSize().setSize(
+        sourceSize.getWidth(), sourceSize.getHeight(), SlideSizeScaleType.DoNotScale);
+```
+
+Thực hiện bước này trước khi clone master và slide.
+
 ## **Câu hỏi thường gặp**
 
-**Ghi chú người thuyết trình và bình luận của người xem có được sao chép không?**
+**Các ghi chú người thuyết trình và bình luận đánh giá có được clone không?**
 
-Có. Trang ghi chú và bình luận đánh giá đều được bao gồm trong bản sao. Nếu bạn không muốn chúng, [xóa chúng](/slides/vi/java/presentation-notes/) sau khi chèn.
+Có. Trang ghi chú và các bình luận đánh giá đều được bao gồm trong bản clone. Nếu bạn không muốn chúng, hãy [xóa chúng](/slides/vi/java/presentation-notes/) sau khi chèn.
 
 **Biểu đồ và nguồn dữ liệu của chúng được xử lý như thế nào?**
 
-Đối tượng biểu đồ, định dạng và dữ liệu nhúng đều được sao chép. Nếu biểu đồ được liên kết tới nguồn bên ngoài (ví dụ: một workbook OLE nhúng), liên kết đó được giữ lại dưới dạng [đối tượng OLE](/slides/vi/java/manage-ole/). Sau khi di chuyển giữa các tệp, hãy kiểm tra tính sẵn có của dữ liệu và hành vi làm mới.
+Đối tượng biểu đồ, định dạng và dữ liệu nhúng được sao chép. Nếu biểu đồ được liên kết tới nguồn bên ngoài (ví dụ: một workbook nhúng OLE), liên kết đó sẽ được giữ lại dưới dạng [đối tượng OLE](/slides/vi/java/manage-ole/). Sau khi di chuyển giữa các tệp, hãy kiểm tra tính khả dụng của dữ liệu và hành vi làm mới.
 
-**Tôi có thể kiểm soát vị trí chèn và các section cho bản sao không?**
+**Tôi có thể kiểm soát vị trí chèn và phần cho bản clone không?**
 
-Có. Bạn có thể chèn bản sao ở chỉ mục slide cụ thể và đặt nó vào một [phần](/slides/vi/java/slide-section/) đã chọn. Nếu section đích không tồn tại, hãy tạo nó trước và sau đó di chuyển slide vào đó.
+Có. Bạn có thể chèn bản clone tại một chỉ số slide cụ thể và đặt nó vào một [section](/slides/vi/java/slide-section/) đã chọn. Nếu phần đích chưa tồn tại, hãy tạo nó trước và sau đó di chuyển slide vào đó.

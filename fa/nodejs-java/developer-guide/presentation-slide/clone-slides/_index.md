@@ -8,44 +8,47 @@ keywords:
 - کلون اسلاید
 - کپی اسلاید
 - ذخیره اسلاید
-- پاورپوینت
-- سند باز
+- PowerPoint
+- OpenDocument
 - ارائه
 - Node.js
 - جاوااسکریپت
 - Aspose.Slides
-description: "به سرعت اسلایدهای پاورپوینت را با Aspose.Slides برای Node.js تکثیر کنید. مثال‌های کد ما را دنبال کنید تا ایجاد PPT را در ثانیه‌ها خودکار کنید و کارهای دستی را حذف کنید."
+description: "به سرعت اسلایدهای PowerPoint را با Aspose.Slides برای Node.js کپی کنید. نمونه‌های کد ما را دنبال کنید تا ایجاد PPT را در ثانیه‌ها خودکار کرده و کار دستی را حذف کنید."
 ---
-## **مقدمه**
+## **معرفی**
 
-کلون کردن فرآیند ایجاد یک کپی دقیق یا نسخهٔ مشابه از چیزی است. Aspose.Slides برای Node.js از طریق Java همچنین امکان ایجاد یک کپی یا کلون از هر اسلایدی را فراهم می‌کند و سپس آن اسلاید کلون‌شده را به ارائهٔ فعلی یا هر ارائهٔ دیگری که باز است، درج می‌کند. فرآیند کلون‌سازی اسلاید یک اسلاید جدید ایجاد می‌کند که می‌تواند توسط توسعه‌دهندگان بدون تغییر اسلاید اصلی، اصلاح شود. چند روش مختلف برای کلون کردن یک اسلاید وجود دارد:
+کلون‌کردن فرآیند ساخت یک نسخه دقیق یا تکثیر چیزی است. Aspose.Slides برای Node.js از طریق Java همچنین امکان ساخت یک کپی یا کلون از هر اسلاید را فراهم می‌کند و سپس آن اسلاید کلون‌شده را به ارائهٔ جاری یا هر ارائهٔ دیگری که باز است، درج می‌نماید. فرآیند کلون‌کردن اسلاید یک اسلاید جدید خلق می‌کند که برنامه‌نویسان می‌توانند بدون تغییر اسلاید اصلی، آن را اصلاح کنند. چندین روش ممکن برای کلون‌کردن اسلاید وجود دارد:
 
-- کلون در انتها درون یک ارائه.
-- کلون در موقعیت دیگری درون ارائه.
-- کلون در انتها در یک ارائهٔ دیگر.
+- کلون در انتهای یک ارائه.
+- کلون در موقعیت دیگری درون همان ارائه.
+- کلون در انتهای یک ارائهٔ دیگر.
 - کلون در موقعیت دیگری در یک ارائهٔ دیگر.
-- کلون در موقعیت خاصی در یک ارائهٔ دیگر.
+- کلون در موقعیت مشخصی در یک ارائهٔ دیگر.
 
-در Aspose.Slides برای Node.js از طریق Java، (مجموعه‌ای از اشیاء [Slide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Slide) که توسط شیء [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) نمایان می‌شود) متدهای [addClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) و [insertClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#insertClone-int-aspose.slides.ISlide-) را برای انجام انواع کلون‌سازی اسلاید فوق‌الذکر فراهم می‌کند
+در Aspose.Slides برای Node.js از طریق Java، (مجموعه‌ای از [Slide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Slide) objects) که توسط شیء [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) عرضه می‌شود، متدهای [addClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) و [insertClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#insertClone-int-aspose.slides.ISlide-) را برای انجام انواع کلون‌کردن اسلاید ارائه می‌دهد.
 
-## **کلون در انتها درون یک ارائه**
-اگر می‌خواهید یک اسلاید را کلون کنید و سپس آن را در همان فایل ارائه در انتهای اسلایدهای موجود استفاده کنید، متد [addClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) را طبق مراحل زیر به کار ببرید:
+## **کلون در انتهای یک ارائه**
+اگر می‌خواهید اسلایدی را کلون کنید و سپس در همان فایل ارائه در انتهای اسلایدهای موجود استفاده کنید، مطابق گام‌های زیر از متد [addClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) استفاده کنید:
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ایجاد کنید.
-1. کلاس [SlideCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation#getSlides--) را با ارجاع به مجموعه Slides که توسط شیء [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) نمایان می‌شود، نمونه‌سازی کنید.
-1. متد [addClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) را که توسط شیء [SlideCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation#getSlides--) نمایان می‌شود، فراخوانی کنید و اسلایدی که باید کلون شود را به‌عنوان پارامتر به متد [addClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) پاس دهید.
+1. کلاس [SlideCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation#getSlides--) را با ارجاع به مجموعه Slides که توسط شیء [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) فراهم شده است، نمونه‌سازی کنید.
+1. متد [addClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) را که توسط شیء [SlideCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation#getSlides--) ارائه شده است، فراخوانی کنید و اسلایدی که باید کلون شود را به عنوان پارامتر به این متد پاس بدهید.
 1. فایل ارائهٔ اصلاح‌شده را بنویسید.
 
-در مثال زیر، یک اسلاید (که در اولین موقعیت – ایندکس صفر – ارائه قرار داشت) را به انتهای ارائه کلون کرده‌ایم.
+در مثال زیر، اسلایدی که در موقعیت اول (شاخص صفر) ارائه قرار دارد، به انتهای ارائه کلون شده است.
 
 ```javascript
-// نمونه‌سازی کلاس Presentation که نمایانگر یک فایل ارائه است
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// نمونه‌سازی کلاس Presentation که یک فایل ارائه را نشان می‌دهد
 var pres = new aspose.slides.Presentation("CloneWithinSamePresentationToEnd.pptx");
 try {
-    // کلون اسلاید موردنظر به انتهای مجموعه اسلایدها در همان ارائه
+    // اسلاید موردنظر را به انتهای مجموعه اسلایدهای همان ارائه کلون کنید
     var slds = pres.getSlides();
     slds.addClone(pres.getSlides().get_Item(0));
-    // نوشتن ارائهٔ اصلاح‌شده به دیسک
+    // ارائهٔ اصلاح‌شده را در دیسک ذخیره کنید
     pres.save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     pres.dispose();
@@ -53,52 +56,58 @@ try {
 ```
 
 ## **کلون در موقعیت دیگری درون ارائه**
-اگر می‌خواهید یک اسلاید را کلون کنید و سپس آن را در همان فایل ارائه اما در موقعیت متفاوتی استفاده کنید، از متد [insertClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#insertClone-int-aspose.slides.ISlide-) استفاده کنید:
+اگر می‌خواهید اسلایدی را کلون کنید و سپس در همان فایل ارائه اما در موقعیتی متفاوت استفاده کنید، از متد [insertClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#insertClone-int-aspose.slides.ISlide-) استفاده کنید:
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ایجاد کنید.
-1. کلاس را با ارجاع به مجموعه [**Slides**](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation#getSlides--) که توسط شیء [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) نمایان می‌شود، نمونه‌سازی کنید.
-1. متد [insertClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#insertClone-int-aspose.slides.ISlide-) را که توسط شیء [SlideCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation#getSlides--) نمایان می‌شود، فراخوانی کنید و اسلایدی که باید کلون شود را به همراه ایندکس موقعیت جدید به‌عنوان پارامتر به متد [insertClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#insertClone-int-aspose.slides.ISlide-) پاس دهید.
-1. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX بنویسید.
+1. کلاس را با ارجاع به مجموعه [**Slides**](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation#getSlides--) که توسط شیء [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) فراهم شده است، نمونه‌سازی کنید.
+1. متد [insertClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#insertClone-int-aspose.slides.ISlide-) که توسط شیء [SlideCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation#getSlides--) عرضه شده است، فراخوانی کنید و اسلایدی که باید کلون شود همراه با اندیس موقعیت جدید را به عنوان پارامتر به این متد پاس بدهید.
+1. ارائهٔ اصلاح‌شده را به صورت فایل PPTX بنویسید.
 
-در مثال زیر، یک اسلاید (که در ایندکس صفر – موقعیت 1 – ارائه قرار داشت) را به ایندکس 1 – موقعیت 2 – ارائه کلون کرده‌ایم.
+در مثال زیر، اسلایدی که در شاخص 1 (موقعیت 2) ارائه قرار دارد، به شاخص 2 (موقعیت 3) انتقال پیدا کرده است.
 
 ```javascript
-// نمونه‌سازی کلاس Presentation که نمایانگر یک فایل ارائه است
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// نمونه‌سازی کلاس Presentation که یک فایل ارائه را نشان می‌دهد
 var pres = new aspose.slides.Presentation("CloneWithInSamePresentation.pptx");
 try {
-    // کلون اسلاید موردنظر به انتهای مجموعه اسلایدها در همان ارائه
+    // اسلاید موردنظر را به انتهای مجموعه اسلایدهای همان ارائه کلون کنید
     var slds = pres.getSlides();
-    // کلون اسلاید موردنظر به ایندکس مشخص در همان ارائه
+    // اسلاید موردنظر را به اندیس مشخص شده در همان ارائه کلون کنید
     slds.insertClone(2, pres.getSlides().get_Item(1));
-    // نوشتن ارائهٔ اصلاح‌شده به دیسک
+    // ارائهٔ اصلاح‌شده را در دیسک ذخیره کنید
     pres.save("Aspose_CloneWithInSamePresentation_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     pres.dispose();
 }
 ```
 
-## **کلون در انتها در یک ارائهٔ دیگر**
-اگر نیاز دارید یک اسلاید را از یک ارائه کلون کنید و در فایل ارائهٔ دیگری، در انتهای اسلایدهای موجود استفاده کنید:
+## **کلون در انتهای یک ارائهٔ دیگر**
+اگر نیاز دارید اسلایدی را از یک ارائه بخوانید و در یک ارائهٔ دیگر، در انتهای اسلایدهای موجود، استفاده کنید:
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) که شامل ارائه‌ای است که اسلاید از آن کلون خواهد شد، ایجاد کنید.
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) که شامل ارائهٔ مقصد است که اسلاید به آن اضافه خواهد شد، ایجاد کنید.
-1. کلاس [SlideCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection) را با ارجاع به مجموعه [**Slides**](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation#getSlides--) که توسط شیء Presentation ارائهٔ مقصد نمایان می‌شود، نمونه‌سازی کنید.
-1. متد [addClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) را که توسط شیء [SlideCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation#getSlides--) نمایان می‌شود، فراخوانی کنید و اسلاید از ارائهٔ منبع را به‌عنوان پارامتر به متد [addClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) پاس دهید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ایجاد کنید که شامل ارائهٔ مبداء باشد.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ایجاد کنید که شامل ارائهٔ مقصد باشد.
+1. کلاس [SlideCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection) را با ارجاع به مجموعه [**Slides**](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation#getSlides--) که توسط شیء Presentation ارائهٔ مقصد فراهم شده است، نمونه‌سازی کنید.
+1. متد [addClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) را که توسط شیء [SlideCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation#getSlides--) ارائه شده است، فراخوانی کنید و اسلاید مبداء را به عنوان پارامتر به این متد پاس بدهید.
 1. فایل ارائهٔ مقصد اصلاح‌شده را بنویسید.
 
-در مثال زیر، یک اسلاید (از ایندکس اول ارائهٔ منبع) را به انتهای ارائهٔ مقصد کلون کرده‌ایم.
+در مثال زیر، اسلایدی که از شاخص اول ارائهٔ مبداء بوده، به انتهای ارائهٔ مقصد کلون شده است.
 
 ```javascript
-// نمونه‌سازی کلاس Presentation برای بارگذاری فایل ارائه منبع
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// نمونه‌سازی کلاس Presentation برای بارگذاری فایل ارائه مبداء
 var srcPres = new aspose.slides.Presentation("CloneAtEndOfAnother.pptx");
 try {
-    // نمونه‌سازی کلاس Presentation برای PPTX مقصد (جایی که اسلاید باید کلون شود)
+    // نمونه‌سازی کلاس Presentation برای فایل PPTX مقصد (جایی که اسلاید باید کلون شود)
     var destPres = new aspose.slides.Presentation();
     try {
-        // کلون اسلاید موردنظر از ارائه منبع به انتهای مجموعه اسلایدها در ارائه مقصد
+        // اسلاید موردنظر را از ارائه مبداء به انتهای مجموعه اسلایدهای ارائه مقصد کلون کنید
         var slds = destPres.getSlides();
         slds.addClone(srcPres.getSlides().get_Item(0));
-        // نوشتن ارائه مقصد به دیسک
+        // ارائهٔ مقصد را بر روی دیسک ذخیره کنید
         destPres.save("Aspose2_out.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         destPres.dispose();
@@ -109,27 +118,30 @@ try {
 ```
 
 ## **کلون در موقعیت دیگری در یک ارائهٔ دیگر**
-اگر نیاز دارید یک اسلاید را از یک ارائه کلون کنید و در فایل ارائهٔ دیگری، در موقعیت خاصی استفاده کنید:
+اگر نیاز دارید اسلایدی را از یک ارائه بخوانید و در یک ارائهٔ دیگر، در موقعیت مشخصی استفاده کنید:
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) که شامل ارائهٔ منبع است که اسلاید از آن کلون می‌شود، ایجاد کنید.
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) که شامل ارائه‌ای است که اسلاید به آن اضافه می‌شود، ایجاد کنید.
-1. کلاس [SlideCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation#getSlides--) را با ارجاع به مجموعه Slides که توسط شیء Presentation ارائهٔ مقصد نمایان می‌شود، نمونه‌سازی کنید.
-1. متد [insertClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#insertClone-int-aspose.slides.ISlide-) را که توسط شیء [SlideCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation#getSlides--) نمایان می‌شود، فراخوانی کنید و اسلاید از ارائهٔ منبع را به همراه موقعیت موردنظر به‌عنوان پارامتر به متد [insertClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#insertClone-int-aspose.slides.ISlide-) پاس دهید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ایجاد کنید که شامل ارائهٔ مبداء باشد.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ایجاد کنید که شامل ارائهٔ مقصد باشد.
+1. کلاس [SlideCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation#getSlides--) را با ارجاع به مجموعه Slides که توسط شیء Presentation ارائهٔ مقصد فراهم شده است، نمونه‌سازی کنید.
+1. متد [insertClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#insertClone-int-aspose.slides.ISlide-) را که توسط شیء [SlideCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation#getSlides--) ارائه شده است، فراخوانی کنید و اسلاید مبداء را همراه با موقعیت دلخواه به عنوان پارامتر به این متد پاس بدهید.
 1. فایل ارائهٔ مقصد اصلاح‌شده را بنویسید.
 
-در مثال زیر، یک اسلاید (از ایندکس صفر ارائهٔ منبع) را به ایندکس 1 (موقعیت 2) ارائهٔ مقصد کلون کرده‌ایم.
+در مثال زیر، اسلایدی که از شاخص صفر ارائهٔ مبداء بود، به شاخص 1 (موقعیت 2) ارائهٔ مقصد منتقل شده است.
 
 ```javascript
-// نمونه‌سازی کلاس Presentation برای بارگذاری فایل ارائه منبع
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// نمونه‌سازی کلاس Presentation برای بارگذاری فایل ارائه مبداء
 var srcPres = new aspose.slides.Presentation("CloneAtEndOfAnother.pptx");
 try {
-    // نمونه‌سازی کلاس Presentation برای PPTX مقصد (جایی که اسلاید باید کلون شود)
+    // نمونه‌سازی کلاس Presentation برای فایل PPTX مقصد (جایی که اسلاید باید کلون شود)
     var destPres = new aspose.slides.Presentation();
     try {
-        // کلون اسلاید موردنظر از ارائه منبع به انتهای مجموعه اسلایدها در ارائه مقصد
+        // اسلاید موردنظر را از ارائه مبداء به انتهای مجموعه اسلایدهای ارائه مقصد کلون کنید
         var slds = destPres.getSlides();
-        slds.insertClone(2, srcPres.getSlides().get_Item(0));
-        // نوشتن ارائه مقصد به دیسک
+        slds.insertClone(1, srcPres.getSlides().get_Item(0));
+        // ارائهٔ مقصد را بر روی دیسک ذخیره کنید
         destPres.save("Aspose2_out.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         destPres.dispose();
@@ -139,43 +151,43 @@ try {
 }
 ```
 
-## **کلون در موقعیت خاص در یک ارائهٔ دیگر**
-اگر نیاز دارید یک اسلاید همراه با اسلاید مادر را از یک ارائه کلون کنید و در ارائهٔ دیگری استفاده کنید، ابتدا باید اسلاید مادر موردنظر را از ارائهٔ منبع به ارائهٔ مقصد کلون کنید. سپس باید از آن اسلاید مادر برای کلون اسلاید همراه با اسلاید مادر استفاده کنید. متد [**addClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) انتظار دارد اسلاید مادر از ارائهٔ مقصد باشد، نه از ارائهٔ منبع. برای کلون اسلاید همراه با اسلاید مادر، مراحل زیر را دنبال کنید:
+## **کلون در موقعیت مشخصی در یک ارائهٔ دیگر**
+اگر نیاز دارید اسلایدی همراه با اسلاید مستر را از یک ارائه بخوانید و در یک ارائهٔ دیگر استفاده کنید، ابتدا باید اسلاید مستر موردنظر را از ارائهٔ مبداء به ارائهٔ مقصد کلون کنید. سپس برای کلون‌کردن اسلاید با مستر، باید از مستر کلون‌شدهٔ مقصد استفاده کنید. متد [**addClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) انتظار دارد مستر اسلاید از ارائهٔ مقصد باشد نه مبداء. برای کلون‌کردن اسلاید با مستر، مراحل زیر را دنبال کنید:
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) که شامل ارائهٔ منبع است که اسلاید از آن کلون می‌شود، ایجاد کنید.
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) که شامل ارائهٔ مقصد است که اسلاید به آن کلون می‌شود، ایجاد کنید.
-1. به اسلایدی که باید کلون شود به همراه اسلاید مادر دسترسی پیدا کنید.
-1. کلاس [MasterSlideCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/MasterSlideCollection) را با ارجاع به مجموعه Masters که توسط شیء [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ارائهٔ مقصد نمایان می‌شود، نمونه‌سازی کنید.
-1. متد [addClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) را که توسط شیء [MasterSlideCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/MasterSlideCollection) نمایان می‌شود، فراخوانی کنید و اسلاید مادر از فایل PPTX منبع که باید کلون شود را به‌عنوان پارامتر به متد [addClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) پاس دهید.
-1. کلاس [SlideCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation#getSlides--) را با تنظیم ارجاع به مجموعه Slides که توسط شیء [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ارائهٔ مقصد نمایان می‌شود، نمونه‌سازی کنید.
-1. متد [addClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) را که توسط شیء [SlideCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation#getSlides--) نمایان می‌شود، فراخوانی کنید و اسلاید از ارائهٔ منبع که باید کلون شود و اسلاید مادر را به‌عنوان پارامتر به متد [addClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) پاس دهید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ایجاد کنید که شامل ارائهٔ مبداء باشد.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ایجاد کنید که شامل ارائهٔ مقصد باشد.
+1. به اسلایدی که باید کلون شود به همراه مستر آن دسترسی پیدا کنید.
+1. کلاس [MasterSlideCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/MasterSlideCollection) را با ارجاع به مجموعه Masters که توسط شیء [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ارائهٔ مقصد فراهم شده است، نمونه‌سازی کنید.
+1. متد [addClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) را که توسط شیء [MasterSlideCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/MasterSlideCollection) عرضه شده است، فراخوانی کنید و مستر مبداء را به عنوان پارامتر به این متد پاس بدهید.
+1. کلاس [SlideCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation#getSlides--) را با ارجاع به مجموعه Slides که توسط شیء [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ارائهٔ مقصد فراهم شده است، نمونه‌سازی کنید.
+1. متد [addClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) را که توسط شیء [SlideCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation#getSlides--) عرضه شده است، فراخوانی کنید و اسلاید مبداء به همراه مستر مقصد را به عنوان پارامتر به این متد پاس بدهید.
 1. فایل ارائهٔ مقصد اصلاح‌شده را بنویسید.
 
-در مثال زیر، یک اسلاید همراه با اسلاید مادر (در ایندکس صفر ارائهٔ منبع) را به انتهای ارائهٔ مقصد با استفاده از اسلاید مادر از اسلاید منبع کلون کرده‌ایم.
+در مثال زیر، اسلایدی همراه با مستر (در شاخص صفر ارائهٔ مبداء) به انتهای ارائهٔ مقصد، با استفاده از مستر مبداء کلون شده است.
 
 ```javascript
-// نمونه‌سازی کلاس Presentation برای بارگذاری فایل ارائه منبع
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// نمونه‌سازی کلاس Presentation برای بارگذاری فایل ارائه مبداء
 var srcPres = new aspose.slides.Presentation("CloneToAnotherPresentationWithMaster.pptx");
 try {
     // نمونه‌سازی کلاس Presentation برای ارائه مقصد (جایی که اسلاید باید کلون شود)
     var destPres = new aspose.slides.Presentation();
     try {
-        // نمونه‌سازی ISlide از مجموعه اسلایدها در ارائه منبع همراه با
-        // اسلاید مادر
+        // نمونه‌سازی ISlide از مجموعه اسلایدهای ارائه مبداء همراه با
+        // اسلاید مستر
         var SourceSlide = srcPres.getSlides().get_Item(0);
         var SourceMaster = SourceSlide.getLayoutSlide().getMasterSlide();
-        // کلون اسلاید مادر موردنظر از ارائه منبع به مجموعهٔ اسلایدهای مادر در
+        // کلون اسلاید مستر موردنظر از ارائه مبداء به مجموعه مسترها در
         // ارائه مقصد
         var masters = destPres.getMasters();
-        var DestMaster = SourceSlide.getLayoutSlide().getMasterSlide();
-        // کلون اسلاید مادر موردنظر از ارائه منبع به مجموعهٔ اسلایدهای مادر در
-        // ارائه مقصد
-        var iSlide = masters.addClone(SourceMaster);
-        // کلون اسلاید موردنظر از ارائه منبع با اسلاید مادر موردنظر به انتهای
-        // مجموعهٔ اسلایدها در ارائه مقصد
+        var DestMaster = masters.addClone(SourceMaster);
+        // کلون اسلاید موردنظر از ارائه مبداء با مستر موردنظر به انتهای
+        // مجموعه اسلایدهای ارائه مقصد
         var slds = destPres.getSlides();
-        slds.addClone(SourceSlide, iSlide, true);
-        // ذخیرهٔ ارائه مقصد به دیسک
+        slds.addClone(SourceSlide, DestMaster, true);
+        // ذخیرهٔ ارائه مقصد روی دیسک
         destPres.save("CloneToAnotherPresentationWithMaster_out.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         destPres.dispose();
@@ -185,20 +197,23 @@ try {
 }
 ```
 
-## **کلون در انتها در بخش مشخصی**
-اگر می‌خواهید یک اسلاید را کلون کنید و سپس آن را در همان فایل ارائه اما در بخش متفاوتی استفاده کنید، متد [**addClone**](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.ISection-) را که توسط کلاس [**SlideCollection**](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection) نمایان می‌شود، به‌کار ببرید. Aspose.Slides برای Node.js از طریق Java امکان کلون اسلاید از بخش اول و سپس درج آن اسلاید کلون‌شده در بخش دوم همان ارائه را فراهم می‌کند.
+## **کلون در انتهای یک بخش مشخص**
+اگر می‌خواهید اسلایدی را کلون کنید و سپس در همان فایل ارائه اما در بخش متفاوتی استفاده کنید، متد [**addClone**](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.ISection-) را که توسط کلاس [**SlideCollection**](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection) ارائه می‌شود، به کار ببرید. Aspose.Slides برای Node.js از طریق Java امکان کلون‌کردن اسلاید از بخش اول و سپس درج آن در بخش دوم همان ارائه را فراهم می‌کند.
 
-کد نمونه زیر نشان می‌دهد چگونه یک اسلاید را کلون کنید و اسلاید کلون‌شده را در یک بخش مشخص درج کنید.
+کد زیر نشان می‌دهد چگونه اسلایدی را کلون کرده و کلون را در یک بخش مشخص وارد کنید.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var presentation = new aspose.slides.Presentation();
 try {
     presentation.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 50, 300, 100);
     presentation.getSections().addSection("Section 1", presentation.getSlides().get_Item(0));
     var section2 = presentation.getSections().appendEmptySection("Section 2");
     presentation.getSlides().addClone(presentation.getSlides().get_Item(0), section2);
-    // ذخیرهٔ ارائه مقصد به دیسک
-    presentation.save(dataDir + "CloneSlideIntoSpecifiedSection.pptx", aspose.slides.SaveFormat.Pptx);
+    // ذخیرهٔ ارائه مقصد روی دیسک
+    presentation.save("CloneSlideIntoSpecifiedSection.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (presentation != null) {
         presentation.dispose();
@@ -206,16 +221,31 @@ try {
 }
 ```
 
+## **اطمینان از تطابق اندازه اسلاید**
+
+هنگام کلون‌کردن اسلایدها به ارائه‌ای دیگر، اطمینان حاصل کنید که اندازهٔ اسلاید ارائهٔ مقصد با مبداء یکسان باشد. اگر اندازه‌ها متفاوت باشند، Aspose.Slides به‌صورت خودکار شکل‌های کلون‌شده را بازنشانی نمی‌کند؛ مختصات و ابعاد اصلی آن‌ها حفظ می‌شود که ممکن است محتوا به‌صورت نامرتب یا خارج از مرزهای اسلاید نمایش داده شود.
+
+قبل از کلون‌کردن مستر و اسلاید می‌توانید اندازهٔ اسلاید ارائهٔ مقصد را برای تطابق با مبداء تنظیم کنید:
+
+```javascript
+const sourceSize = sourcePresentation.getSlideSize().getSize();
+
+targetPresentation.getSlideSize().setSize(
+        sourceSize.getWidth(), sourceSize.getHeight(), aspose.slides.SlideSizeScaleType.DoNotScale);
+```
+
+این کار را پیش از کلون‌کردن مستر و اسلاید انجام دهید.
+
 ## **سوالات متداول**
 
 **آیا یادداشت‌های سخنران و نظرات مرورگر کلون می‌شوند؟**
 
-بله. صفحه یادداشت‌ها و نظرات مرور در کلون گنجانده می‌شوند. اگر نمی‌خواهید آن‌ها را داشته باشید، پس از درج، [آن‌ها را حذف کنید](/slides/fa/nodejs-java/presentation-notes/).
+بله. صفحهٔ یادداشت‌ها و نظرات مرورگر در کلون گنجانده می‌شوند. اگر نمی‌خواهید آن‌ها را داشته باشید، پس از درج [آنها را حذف کنید](/slides/fa/nodejs-java/presentation-notes/).
 
-**نمودارها و منابع داده آن‌ها چگونه مدیریت می‌شوند؟**
+**نمودارها و منابع داده‌ای آن‌ها چگونه مدیریت می‌شوند؟**
 
-شیء نمودار، قالب‌بندی و داده‌های جاسازی‌شده کپی می‌شوند. اگر نمودار به منبع خارجی (مثلاً یک کتاب‌کار OLE جاسازی‌شده) لینک شده باشد، آن لینک به‌صورت یک [OLE object](/slides/fa/nodejs-java/manage-ole/) حفظ می‌شود. پس از جابجایی بین فایل‌ها، در دسترس بودن داده‌ها و رفتار تازه‌سازی را بررسی کنید.
+شیء نمودار، قالب‌بندی و داده‌های داخلی کپی می‌شوند. اگر نمودار به منبع خارجی (مثلاً یک کتاب‌کار OLE-ادغام‌شده) لینک داشته باشد، این لینک به‌عنوان یک [شیء OLE](/slides/fa/nodejs-java/manage-ole/) حفظ می‌شود. پس از انتقال بین فایل‌ها، موجودیت داده‌ها و رفتار تازه‌سازی را بررسی کنید.
 
 **آیا می‌توانم موقعیت درج و بخش‌های کلون را کنترل کنم؟**
 
-بله. می‌توانید کلون را در یک ایندکس اسلاید خاص وارد کنید و آن را در یک [section](/slides/fa/nodejs-java/slide-section/) انتخابی قرار دهید. اگر بخش هدف وجود نداشت، ابتدا آن را ایجاد کنید و سپس اسلاید را به آن منتقل کنید.
+بله. می‌توانید کلون را در یک شاخص اسلاید خاص درج کرده و آن را به یک [بخش](/slides/fa/nodejs-java/slide-section/) انتخابی منتقل کنید. اگر بخش هدف وجود نداشته باشد، ابتدا آن را ایجاد کنید و سپس اسلاید را به آن منتقل نمایید.
