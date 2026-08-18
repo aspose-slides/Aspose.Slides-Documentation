@@ -1,278 +1,415 @@
 ---
-title: 管理 Java 中的簡報主題
-linktitle: 簡報主題
+title: 在 Java 中管理簡報佈景主題
+linktitle: 簡報佈景主題
 type: docs
 weight: 10
 url: /zh-hant/java/presentation-theme/
 keywords:
-- PowerPoint 主題
-- 簡報主題
-- 投影片主題
-- 設定主題
-- 變更主題
-- 管理主題
-- 主題顏色
-- 附加調色板
-- 主題字型
-- 主題樣式
-- 主題效果
+- PowerPoint 佈景主題
+- 簡報佈景主題
+- 投影片佈景主題
+- 設定佈景主題
+- 變更佈景主題
+- 管理佈景主題
+- 佈景顏色
+- 額外調色盤
+- 佈景字型
+- 佈景樣式
+- 佈景效果
 - PowerPoint
 - OpenDocument
 - 簡報
 - Java
 - Aspose.Slides
-description: "在 Aspose.Slides for Java 中掌握簡報主題，以建立、客製化及轉換 PowerPoint 檔案，確保品牌一致性。"
+description: "在 Aspose.Slides for Java 中掌握簡報佈景主題，以建立、自訂及轉換具一致品牌形象的 PowerPoint 檔案。"
 ---
 ## **簡介**
 
-簡報主題定義設計元素的屬性。當您選取簡報主題時，實際上是選擇了一組特定的視覺元素及其屬性。
+簡報佈景主題定義了一套協調的顏色、字型、背景樣式、填色、線條與效果。具備佈景感知的物件會參照這些共享的定義，而不是將每個視覺屬性儲存為固定值，因而可在變更佈景時一次更新許多物件。
 
-在 PowerPoint 中，主題包括顏色、[fonts](/slides/zh-hant/java/powerpoint-fonts/)、[background styles](/slides/zh-hant/java/presentation-background/) 與效果。
+在 Aspose.Slides 中，簡報層級的佈景主題可透過 [Presentation.getMasterTheme](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 取得。簡報也可以在較低層級包含佈景覆寫。母片可透過 [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/masterthememanager/) 覆寫簡報佈景，而版面配置或個別投影片可透過 [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/baseoverridethememanager/) 覆寫其繼承的佈景。實務上，投影片的有效佈景是透過此繼承鏈解析：簡報佈景、母片覆寫、版面覆寫與投影片覆寫。
 
-![主題構成要素](theme-constituents.png)
+![佈景組件：顏色、字型、背景樣式與效果](theme-constituents.png)
 
-## **變更主題顏色**
+以下各節說明最常見的佈景工作流程：檢視佈景、變更顏色與字型、複製或套用佈景、更新背景與效果樣式，並在繼承與覆寫解析後讀取有效值。
 
-PowerPoint 主題為投影片上的不同元素使用特定的顏色組合。如果您不喜歡這些顏色，可透過套用新顏色來變更主題顏色。為了讓您選取新的主題顏色，Aspose.Slides 在 [SchemeColor](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/SchemeColor) 列舉中提供了相應的值。
+## **檢視佈景**
 
-此 Java 程式碼示範如何變更主題的重點顏色：
+透過 [MasterTheme](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/mastertheme/) 物件可取得佈景的色彩配置、字型配置與格式配置，分別使用 [MasterTheme.getColorScheme](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/mastertheme/)、[MasterTheme.getFontScheme](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/mastertheme/)、與 [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/mastertheme/)。在變更之前先檢查這些集合特別有用，尤其當簡報來自外部來源時，樣式項目的數量與內容可能會有所不同。
+
+下列範例讀取主要佈景屬性，並回報佈景中儲存了多少個背景、填色、線條與效果樣式：
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
-
-    shape.getFillFormat().setFillType(FillType.Solid);
-
-    shape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+    IMasterTheme theme = presentation.getMasterTheme();
+    System.out.println("Theme name: " + theme.getName());
+    System.out.println("Accent 1: " + theme.getColorScheme().getAccent1().getColor());
+    System.out.println("Major Latin font: " + theme.getFontScheme().getMajor().getLatinFont().getFontName());
+    System.out.println("Minor Latin font: " + theme.getFontScheme().getMinor().getLatinFont().getFontName());
+    System.out.println("Background fill styles: " + theme.getFormatScheme().getBackgroundFillStyles().size());
+    System.out.println("Fill styles: " + theme.getFormatScheme().getFillStyles().size());
+    System.out.println("Line styles: " + theme.getFormatScheme().getLineStyles().size());
+    System.out.println("Effect styles: " + theme.getFormatScheme().getEffectStyles().size());
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-您可以透過以下方式取得結果顏色的實際值：
+如果檔案使用多個母片，請勿假設每張投影片都有相同的有效佈景。檢查與投影片相關聯的母片，且在版面或投影片可能有覆寫時，請使用本文後面說明的有效佈景工作流程。
+
+## **變更佈景顏色**
+
+具備佈景感知的填色、線條與文字可以參照 [SchemeColor](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/schemecolor/) 列舉中的邏輯顏色。當您在 [IColorScheme](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/icolorscheme/) 中變更相應的項目時，仍引用該佈景顏色的所有物件都會以新值重新解析。直接使用 RGB 顏色的物件則不會因佈景顏色更新而改變。
+
+以下端對端範例建立一個使用 `Accent4` 的形狀，將佈景的 `Accent4` 顏色變更為紅色，儲存簡報、重新開啟，並列印有效的填色顏色：
 
 ```java
-IFillFormatEffectiveData fillEffective = shape.getFillFormat().getEffective();
+import com.aspose.slides.*;
+import java.awt.Color;
 
-Color effectiveColor = fillEffective.getSolidFillColor();
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+    shape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+    presentation.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED);
+    presentation.save("theme-color.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 
-System.out.println(String.format("Color [A=%d, R=%d, G=%d, B=%d]", 
-        effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
+Presentation savedPresentation = new Presentation("theme-color.pptx");
+try {
+    ISlide savedSlide = savedPresentation.getSlides().get_Item(0);
+    IShape savedShape = savedSlide.getShapes().get_Item(0);
+    IFillFormatEffectiveData effectiveFill = savedShape.getFillFormat().getEffective();
+    System.out.println("Effective fill color: " + effectiveFill.getSolidFillColor());
+} finally {
+    savedPresentation.dispose();
+}
 ```
 
-為了進一步說明顏色變更操作，我們建立另一個元素，並將（從最初操作取得的）重點顏色指派給它。然後在主題中變更顏色：
+由於矩形仍連結至 `Accent4`，佈景變更後其可見顏色會變為紅色。如果您在形狀上以直接顏色取代此方案顏色，之後對 `Accent4` 的變更將不再影響該填色。
+
+### **使用額外調色盤中的顏色**
+
+PowerPoint 透過套用顏色變換，從佈景顏色衍生出較亮與較暗的變體。Aspose.Slides 以 [ColorTransformOperation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/colortransformoperation/) 列舉公開這些變換。
+
+![主要佈景顏色與由額外調色盤產生的較亮與較暗顏色](additional-palette-colors.png)
+
+**1** - 主要佈景顏色。
+
+**2** - 從主要佈景顏色產生的較亮與較暗變體。
+
+下列範例根據 `Accent4` 建立六個矩形，對其中五個套用亮度變換，並儲存結果：
 
 ```java
-IAutoShape otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
+import com.aspose.slides.*;
 
-otherShape.getFillFormat().setFillType(FillType.Solid);
-
-otherShape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
-
-pres.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED);
-```
-
-新顏色會自動套用至兩個元素。
-
-### **從附加調色板設定主題顏色**
-
-當您對主要主題顏色(1)套用亮度變換時，會產生來自附加調色板(2)的顏色。之後您即可設定或取得這些主題顏色。
-
-![附加調色板顏色](additional-palette-colors.png)
-
-**1** - 主要主題顏色  
-
-**2** - 來自附加調色板的顏色。
-
-此 Java 程式碼示範如何從主要主題顏色取得附加調色板顏色，並在圖形中使用：
-
-```java
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 強調色 4
     IShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 50, 50);
-
     shape1.getFillFormat().setFillType(FillType.Solid);
     shape1.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
 
-    // 強調色 4，較亮 80%
     IShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 70, 50, 50);
-
     shape2.getFillFormat().setFillType(FillType.Solid);
     shape2.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape2.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.2f);
     shape2.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.8f);
 
-    // 強調色 4，較亮 60%
     IShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 130, 50, 50);
-
     shape3.getFillFormat().setFillType(FillType.Solid);
     shape3.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape3.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.4f);
     shape3.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.6f);
 
-    // 強調色 4，較亮 40%
     IShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 190, 50, 50);
-
     shape4.getFillFormat().setFillType(FillType.Solid);
     shape4.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape4.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.6f);
     shape4.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.4f);
 
-    // 強調色 4，較暗 25%
     IShape shape5 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 250, 50, 50);
-
     shape5.getFillFormat().setFillType(FillType.Solid);
     shape5.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape5.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.75f);
 
-    // 強調色 4，較暗 50%
     IShape shape6 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 310, 50, 50);
-
     shape6.getFillFormat().setFillType(FillType.Solid);
     shape6.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape6.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.5f);
 
-    presentation.save(path + "example_accent4.pptx", SaveFormat.Pptx);
+    presentation.save("theme-color-palette.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-### **將 `SchemeColor` 映射到 `IColorScheme` 顏色**
+這些變體仍基於佈景顏色。若稍後 `Accent4` 變更，變換後的顏色會根據新的 `Accent4` 值重新計算。
 
-使用 [SchemeColor](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/schemecolor/) 時，您會注意到它包含以下主題顏色值：
+### **將 `SchemeColor` 值對映至 `IColorScheme` 槽位**
 
-`Background1`、`Background2`、`Text1` 與 `Text2`。
+[SchemeColor](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/schemecolor/) 列舉使用 `Text1`、`Background1`、`Text2` 與 `Background2`，而 [IColorScheme](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/icolorscheme/) 將相同的佈景槽位顯示為 `Dark1`、`Light1`、`Dark2`、`Light2`。對映是固定的：
 
-然而，`Presentation.getMasterTheme().getColorScheme()` 會回傳 [IColorScheme](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/icolorscheme/)，其對應的顏色名稱為：
-
-`Dark1`、`Dark2`、`Light1` 與 `Light2`。
-
-這僅是命名上的差異。這些值指向相同的主題顏色槽，對映關係固定：
-
-* `Text1` = `Dark1`  
-* `Background1` = `Light1`  
-* `Text2` = `Dark2`  
+* `Text1` = `Dark1`
+* `Background1` = `Light1`
+* `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-`Text`/`Background` 與 `Dark`/`Light` 之間沒有動態轉換，它們只是同一主題顏色的替代名稱。
+這些是相同佈景槽位的別名；它們不是會動態相互轉換的值。
 
-此命名差異來源於 Microsoft Office 的術語。較舊的 Office 版本使用 `Dark 1`、`Light 1`、`Dark 2`、`Light 2`，而較新的 UI 版本則顯示為 `Text 1`、`Background 1`、`Text 2`、`Background 2`。
+## **變更佈景字型**
 
-## **變更主題字型**
+佈景字型方案包含用於標題的主要字型集合與用於內文的次要字型集合。[IFontScheme.getMajor](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ifontscheme/) 與 [IFontScheme.getMinor](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ifontscheme/) 方法可取得這兩個集合。
 
-為了讓您為主題及其他用途選擇字型，Aspose.Slides 使用以下特殊識別碼（類似 PowerPoint 中的使用方式）：
+可在文字格式設定中使用相容於 PowerPoint 的佈景字型識別碼：
 
-* **+mn-lt** - 正文字型 Latin（次要 Latin 字型）  
-* **+mj-lt** - 標題字型 Latin（主要 Latin 字型）  
-* **+mn-ea** - 正文字型 東亞（次要 東亞 字型）  
-* **+mj-ea** - 標題字型 東亞（主要 東亞 字型）
+* `+mn-lt` - 正文字型 Latin（次要 Latin 字型）
+* `+mj-lt` - 標題字型 Latin（主要 Latin 字型）
+* `+mn-ea` - 正文字型 East Asian（次要 East Asian 字型）
+* `+mj-ea` - 標題字型 East Asian（主要 East Asian 字型）
 
-此 Java 程式碼示範如何將 Latin 字型指派給主題元素：
-
-```java
-IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
-
-Paragraph paragraph = new Paragraph();
-
-Portion portion = new Portion("Theme text format");
-
-paragraph.getPortions().add(portion);
-
-shape.getTextFrame().getParagraphs().add(paragraph);
-
-portion.getPortionFormat().setLatinFont(new FontData("+mn-lt"));
-```
-
-此 Java 程式碼示範如何變更簡報的主題字型：
+下列範例建立一個使用主要 Latin 佈景字型的標題，以及一行使用次要 Latin 佈景字型的正文。接著變更佈景字型並儲存結果：
 
 ```java
-pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
-```
+import com.aspose.slides.*;
 
-所有文字方塊的字型都會被更新。
-
-{{% alert color="primary" title="TIP" %}}  
-您可能想參考 [PowerPoint fonts](/slides/zh-hant/java/powerpoint-fonts/)。  
-{{% /alert %}}
-
-## **變更主題背景樣式**
-
-預設情況下，PowerPoint 應用程式提供 12 種預設背景，但在一般簡報中僅會儲存其中的 3 種。
-
-![todo:image_alt_text](presentation-design_8.png)
-
-例如，當您在 PowerPoint 應用程式中儲存簡報後，您可以執行以下 Java 程式碼，以找出簡報中包含的預設背景數量：
-
-```java
-Presentation pres = new Presentation("pres.pptx");
+Presentation presentation = new Presentation();
 try {
-    int numberOfBackgroundFills = pres.getMasterTheme().getFormatScheme().getBackgroundFillStyles().size();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    System.out.println("Number of background fill styles for theme is " + numberOfBackgroundFills);
+    IAutoShape heading = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 500, 60);
+    heading.getTextFrame().setText("Theme heading");
+    heading.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setLatinFont(new FontData("+mj-lt"));
+
+    IAutoShape body = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 120, 500, 60);
+    body.getTextFrame().setText("Theme body text");
+    body.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setLatinFont(new FontData("+mn-lt"));
+
+    presentation.getMasterTheme().getFontScheme().getMajor().setLatinFont(new FontData("Aptos Display"));
+    presentation.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
+    presentation.save("theme-fonts.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert color="warning" %}}  
-使用來自 [FormatScheme](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/FormatScheme) 類別的 [BackgroundFillStyles](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/FormatScheme#getBackgroundFillStyles--) 屬性，您可以在 PowerPoint 主題中新增或存取背景樣式。  
-{{% /alert %}}  
+標題使用主要字型，正文則使用次要字型。若文字使用明確的字型名稱而非佈景識別碼，則在佈景字型方案變更時不會自動切換。
 
-此 Java 程式碼示範如何為簡報設定背景：
-
-```java
-pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
-```
-
-**索引說明**：0 代表「無填色」。索引值從 1 開始。
-
-{{% alert color="primary" title="TIP" %}}  
-您可能想參考 [PowerPoint Background](/slides/zh-hant/java/presentation-background/)。  
+{{% alert color="info" title="Tip" %}}
+欲取得有關簡報字型的更多資訊，請參閱 [PowerPoint Fonts](/slides/zh-hant/java/powerpoint-fonts/)。
 {{% /alert %}}
 
-## **變更主題效果**
+## **複製或套用佈景**
 
-PowerPoint 主題通常為每個樣式陣列包含 3 個值。這些陣列會結合成三種效果：微妙、適中與強烈。例如，以下示意圖顯示將效果套用於特定圖形時的結果：
+有兩種常見的工作流程，且它們解決不同的問題。
 
-![todo:image_alt_text](presentation-design_10.png)
+### **搬移投影片時保留來源佈景**
 
-使用來自 [FormatScheme](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/FormatScheme) 類別的三個屬性（[FillStyles](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/FormatScheme#getFillStyles--)、[LineStyles](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/FormatScheme#getLineStyles--)、[EffectStyles](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/FormatScheme#getEffectStyles--)），您可以比 PowerPoint 提供的選項更彈性地變更主題中的元素。
-
-此 Java 程式碼示範如何透過調整元素的部分屬性來變更主題效果：
+若要將投影片移至另一份簡報並保留其原始設計，可使用 [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imasterslidecollection/) 將來源母片克隆至目標簡報，然後使用 [ISlideCollection.addClone](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/islidecollection/) 及該克隆的母片克隆投影片。這會一起攜帶母片、其版面配置以及相關的佈景。
 
 ```java
-Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx");
+import com.aspose.slides.*;
+
+Presentation source = new Presentation("source-theme.pptx");
 try {
-    pres.getMasterTheme().getFormatScheme().getLineStyles().get_Item(0).getFillFormat().getSolidFillColor().setColor(Color.RED);
-
-    pres.getMasterTheme().getFormatScheme().getFillStyles().get_Item(2).setFillType(FillType.Solid);
-
-    pres.getMasterTheme().getFormatScheme().getFillStyles().get_Item(2).getSolidFillColor().setColor(Color.GREEN);
-
-    pres.getMasterTheme().getFormatScheme().getEffectStyles().get_Item(2).getEffectFormat().getOuterShadowEffect().setDistance(10f);
-
-    pres.save("Design_04_Subtle_Moderate_Intense-out.pptx", SaveFormat.Pptx);
+    Presentation target = new Presentation("target.pptx");
+    try {
+        ISlide sourceSlide = source.getSlides().get_Item(0);
+        IMasterSlide sourceMaster = sourceSlide.getLayoutSlide().getMasterSlide();
+        IMasterSlide clonedMaster = target.getMasters().addClone(sourceMaster);
+        target.getSlides().addClone(sourceSlide, clonedMaster, true);
+        target.save("theme-preserved.pptx", SaveFormat.Pptx);
+    } finally {
+        target.dispose();
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    source.dispose();
 }
 ```
 
- resulting changes 的示意圖（填色、填充類型、陰影效果等）：
+當來源投影片必須在目標中保持相同外觀時，此為首選工作流程。僅將內容克隆至不相關的目標母片可能會變更受佈景驅動的顏色、字型、背景與效果。
 
-![todo:image_alt_text](presentation-design_11.png)
+### **將佈景值套用至現有投影片**
+
+如果目標投影片必須保留在其現有的母片與版面上，請從來源佈景初始化投影片層級的覆寫。[OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/overridetheme/)、[OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/overridetheme/) 與 [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/overridetheme/) 方法會將三個主要佈景組件複製到覆寫中。
+
+```java
+import com.aspose.slides.*;
+
+Presentation source = new Presentation("source-theme.pptx");
+try {
+    Presentation target = new Presentation("target.pptx");
+    try {
+        ISlide targetSlide = presentation.getSlides().get_Item(0);
+        IOverrideTheme overrideTheme = targetSlide.getThemeManager().getOverrideTheme();
+        overrideTheme.initColorSchemeFrom(source.getMasterTheme().getColorScheme());
+        overrideTheme.initFontSchemeFrom(source.getMasterTheme().getFontScheme());
+        overrideTheme.initFormatSchemeFrom(source.getMasterTheme().getFormatScheme());
+        target.save("theme-applied-to-slide.pptx", SaveFormat.Pptx);
+    } finally {
+        target.dispose();
+    }
+} finally {
+    source.dispose();
+}
+```
+
+這會變更該投影片使用的佈景，而不會更動其他投影片繼承的佈景。若要移除本地覆寫並回復至繼承值，請呼叫 [OverrideTheme.clear](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/overridetheme/)。
+
+### **將佈景覆寫套用至版面**
+
+版面層級的覆寫會套用至使用該版面的投影片，除非特定投影片有自己的覆寫。相同的初始化方法可透過 [LayoutSlideThemeManager](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/layoutslidethememanager/) 使用：
+
+```java
+import com.aspose.slides.*;
+
+Presentation source = new Presentation("source-theme.pptx");
+try {
+    Presentation target = new Presentation("target.pptx");
+    try {
+        ISlide targetSlide = presentation.getSlides().get_Item(0);
+        ILayoutSlide targetLayout = targetSlide.getLayoutSlide();
+        IOverrideTheme overrideTheme = targetLayout.getThemeManager().getOverrideTheme();
+        overrideTheme.initColorSchemeFrom(source.getMasterTheme().getColorScheme());
+        overrideTheme.initFontSchemeFrom(source.getMasterTheme().getFontScheme());
+        overrideTheme.initFormatSchemeFrom(source.getMasterTheme().getFormatScheme());
+        target.save("theme-applied-to-layout.pptx", SaveFormat.Pptx);
+    } finally {
+        target.dispose();
+    }
+} finally {
+    source.dispose();
+}
+```
+
+當多個版面與投影片應共享相同的基礎設計時，使用母片或簡報層級的佈景；當某個版面系列需要不同樣式時，使用版面覆寫；僅在真正例外的情況下才使用投影片覆寫。過度的投影片層級覆寫會使之後的全域佈景變更難以預測。
+
+## **更新佈景背景樣式**
+
+佈景的背景填色儲存在 [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iformatscheme/) 中。PowerPoint 在 UI 中可呈現的背景選項比此集合實際儲存的填色定義更多，因為 UI 能將佈景填色與佈景顏色以及其他樣式參照結合。
+
+![PowerPoint 簡報佈景的背景樣式圖庫](presentation-design_8.png)
+
+在使用背景樣式前，請檢查儲存的集合與目前的 [Background.getStyleIndex](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/background/)。樣式索引為 `0` 表示無佈景填色；正值代表佈景背景樣式的參照。這與直接以 Java 集合索引不同，`get_Item(0)` 代表第一個儲存的項目。請勿假設每份簡報都有相同數量的背景填色樣式。
+
+下列範例回報可用的背景填色計數，將佈景背景參照指派給第一個母片，並儲存簡報：
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    IFillFormatCollection backgroundStyles = presentation.getMasterTheme().getFormatScheme().getBackgroundFillStyles();
+    System.out.println("Background fill styles: " + backgroundStyles.size());
+    if (backgroundStyles.size() == 0) {
+        throw new IllegalStateException("The presentation theme does not contain background fill styles.");
+    }
+
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    masterSlide.getBackground().setType(BackgroundType.Themed);
+    masterSlide.getBackground().setStyleIndex(1);
+    presentation.save("theme-background.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+可見結果取決於母片參照的佈景項目以及版面或投影片層級的任何背景覆寫。若投影片使用自己的背景，僅變更母片背景可能不會影響該投影片。當需要得知套用繼承後的最終背景時，請使用 [Background.getEffective](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/background/)。
+
+{{% alert color="warning" title="Warning" %}}
+請勿把樣式索引視為零基集合索引。亦避免硬編碼某個檔案的樣式編號，並假設在另一個檔案中會呈現相同外觀；佈景樣式定義是依簡報而異的。
+{{% /alert %}}
+
+{{% alert color="info" title="Tip" %}}
+欲了解直接背景格式設定與背景繼承，請參閱 [Presentation Background](/slides/zh-hant/java/presentation-background/)。
+{{% /alert %}}
+
+## **更新佈景效果**
+
+佈景格式方案包含透過 [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iformatscheme/)、[IFormatScheme.getLineStyles](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iformatscheme/)、與 [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iformatscheme/) 取得的分別填色、線條與效果樣式集合。一般 Office 佈景常包含三個主要樣式項目，視覺上對應微妙、適中與強烈的格式設定，但程式碼應檢查每個集合，而非假設固定數量。
+
+![對同一形狀套用的微妙、適中與強烈佈景效果](presentation-design_10.png)
+
+在 Java 中存取這些集合時，集合索引為零基：`get_Item(0)` 為第一個儲存的樣式，`get_Item(2)` 為第三個。形狀的樣式參照索引是另一概念，透過 [IShapeStyle](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ishapestyle/) 可取得。修改佈景樣式會影響參照該佈景樣式的形狀；直接格式設定的形狀則可能保持不變。
+
+下列範例檢查所需的樣式項目是否存在，變更第一個線條樣式、變更第三個填色樣式、在第三個效果樣式中啟用外部陰影，並儲存結果：
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation("Subtle_Moderate_Intense.pptx");
+try {
+    IFormatScheme formatScheme = presentation.getMasterTheme().getFormatScheme();
+    if (formatScheme.getLineStyles().size() < 1 || formatScheme.getFillStyles().size() < 3 || formatScheme.getEffectStyles().size() < 3) {
+        throw new IllegalStateException("The theme does not contain the style entries required by this example.");
+    }
+    formatScheme.getLineStyles().get_Item(0).getFillFormat().setFillType(FillType.Solid);
+    formatScheme.getLineStyles().get_Item(0).getFillFormat().getSolidFillColor().setColor(Color.RED);
+    formatScheme.getFillStyles().get_Item(2).setFillType(FillType.Solid);
+    formatScheme.getFillStyles().get_Item(2).getSolidFillColor().setColor(new Color(34, 139, 34));
+    IEffectFormat effectFormat = formatScheme.getEffectStyles().get_Item(2).getEffectFormat();
+    effectFormat.enableOuterShadowEffect();
+    effectFormat.getOuterShadowEffect().setDistance(10f);
+    presentation.save("theme-effects.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+對於參照這些槽位的形狀而言，第一個佈景線條樣式會變為紅色，第三個佈景填色樣式會變為實心森林綠，第三個效果樣式則會新增外部陰影，距離為 10 點。最終的視覺結果仍取決於每個形狀參照的樣式槽位以及是否有直接格式設定覆寫佈景。
+
+![變更線條、填色與陰影設定後的佈景效果樣式](presentation-design_11.png)
+
+## **讀取有效佈景值**
+
+原始佈景物件告訴您在特定層級定義了什麼。有效值則告訴您投影片或形狀在繼承與本地覆寫解析後實際使用的內容。對於投影片，請呼叫 [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/baseoverridethememanager/)。對於背景，使用 [Background.getEffective](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/background/)，對於填色，使用 [FillFormat.getEffective](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/fillformat/)。
+
+下列範例從投影片讀取有效佈景、背景與第一個形狀的填色：
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IThemeEffectiveData effectiveTheme = slide.getThemeManager().createThemeEffective();
+    IBackgroundEffectiveData effectiveBackground = slide.getBackground().getEffective();
+    System.out.println("Effective major Latin font: " + effectiveTheme.getFontScheme().getMajor().getLatinFont().getFontName());
+    System.out.println("Effective minor Latin font: " + effectiveTheme.getFontScheme().getMinor().getLatinFont().getFontName());
+    System.out.println("Effective background fill type: " + effectiveBackground.getFillFormat().getFillType());
+    if (slide.getShapes().size() > 0) {
+        IFillFormatEffectiveData effectiveFill = slide.getShapes().get_Item(0).getFillFormat().getEffective();
+        System.out.println("First shape effective fill type: " + effectiveFill.getFillType());
+        if (effectiveFill.getFillType() == FillType.Solid) {
+            System.out.println("First shape effective fill color: " + effectiveFill.getSolidFillColor());
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+使用有效資料進行呈現診斷、驗證與比較。若僅檢查 [Presentation.getMasterTheme](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/)，可能會錯過會改變最終外觀的母片、版面、投影片或形狀覆寫。
 
 ## **常見問題**
 
-**我可以在不更改母版的情況下，僅對單一投影片套用主題嗎？**  
-可以。Aspose.Slides 支援投影片層級的主題覆寫，您可以僅為該投影片套用本地主題，同時保留母版主題不變（透過 [SlideThemeManager](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/slidethememanager/)）。
+**我可以在不變更母片的情況下將佈景套用到單一投影片嗎？**
 
-**將主題從一個簡報安全地搬移到另一個簡報的最佳方式是什麼？**  
-將投影片（連同其母版）[Clone slides](/slides/zh-hant/java/clone-slides/) 到目標簡報。這樣會保留原始母版、版面配置以及相關的主題，確保外觀保持一致。
+可以。使用投影片的 [SlideThemeManager](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/slidethememanager/) 並初始化其覆寫佈景。變更僅限於該投影片；其他投影片仍會繼承其現有的佈景。
 
-**如何查看在所有繼承與覆寫後的「實際」值？**  
-使用 API 的「[effective]」檢視（/slides/zh-hant/java/shape-effective-properties/）取得主題、顏色、字型、效果等的最終解析屬性。
+**從一個簡報搬移佈景到另一個簡報，最安全的做法是什麼？**
+
+在搬移投影片且保留來源外觀時，使用 [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imasterslidecollection/) 將來源母片克隆至目標，並使用 [ISlideCollection.addClone](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/islidecollection/) 搭配該克隆的母片克隆投影片。這會一起保留母片、版面與佈景。
+
+**如何在繼承與覆寫後查看有效值？**
+
+對於投影片或版面佈景，使用 [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/baseoverridethememanager/)；對於格式物件如 [Background.getEffective](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/background/) 與 [FillFormat.getEffective](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/fillformat/)，使用相應的有效資料方法。這些 API 會回傳套用繼承與覆寫後的解析值。

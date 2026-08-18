@@ -1,282 +1,421 @@
 ---
-title: Správa motivů prezentací na Androidu
-linktitle: Motiv prezentace
+title: Správa témat prezentace na Androidu
+linktitle: Téma prezentace
 type: docs
 weight: 10
 url: /cs/androidjava/presentation-theme/
 keywords:
-- Motiv PowerPoint
-- Motiv prezentace
-- Motiv snímku
-- Nastavit motiv
-- Změnit motiv
-- Spravovat motiv
-- Barva motivu
-- Další paleta
-- Písmo motivu
-- Styl motivu
-- Efekt motivu
+- téma PowerPoint
+- téma prezentace
+- téma snímku
+- nastavit téma
+- změnit téma
+- spravovat téma
+- barva tématu
+- další paleta
+- písmo tématu
+- styl tématu
+- efekt tématu
 - PowerPoint
 - OpenDocument
 - prezentace
 - Android
 - Java
 - Aspose.Slides
-description: "Spravujte motivy prezentací v Aspose.Slides pro Android pomocí Javy k vytváření, přizpůsobení a převodu souborů PowerPoint s konzistentní značkou."
+description: "Hlavní témata prezentací v Aspose.Slides pro Android pomocí Javy pro vytváření, přizpůsobení a konverzi souborů PowerPoint s jednotným firemním vzhledem."
 ---
 ## **Úvod**
 
-Motiv prezentace určuje vlastnosti návrhových prvků. Když vyberete motiv prezentace, v podstatě zvolíte konkrétní sadu vizuálních prvků a jejich vlastností.
+Téma prezentace definuje koordinovaný soubor barev, fontů, stylů pozadí, výplní, čar a efektů. Objektům, které jsou „tema‑aware“, se odkazuje na tyto sdílené definice místo uložení každé vizuální vlastnosti jako pevné hodnoty, takže změna tématu může najednou aktualizovat mnoho objektů.
 
-V PowerPointu motiv zahrnuje barvy, [fonts](/slides/cs/androidjava/powerpoint-fonts/), [background styles](/slides/cs/androidjava/presentation-background/) a efekty.
+V Aspose.Slides je téma na úrovni prezentace dostupné přes [Presentation.getMasterTheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/). Prezentace může také obsahovat přepisování tématu na nižších úrovních. Master může přepsat téma prezentace pomocí [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/masterthememanager/), zatímco rozložení nebo jednotlivý snímek může přepsat své zděděné téma pomocí [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/baseoverridethememanager/). V praxi je efektivní téma pro snímek vyřešeno tímto řetězcem dědičnosti: téma prezentace, přepisování masteru, přepisování rozložení a přepisování snímku.
 
-![theme-constituents](theme-constituents.png)
+![Komponenty tématu: barvy, fonty, styly pozadí a efekty](theme-constituents.png)
 
-## **Změna barvy motivu**
+Níže uvedené sekce ukazují nejčastější pracovní postupy s tématy: prohlédnout téma, změnit barvy a fonty, zkopírovat nebo použít téma, aktualizovat styly pozadí a efektů a načíst efektivní hodnoty po vyřešení dědičnosti a přepisování.
 
-Motiv PowerPointu používá konkrétní sadu barev pro různé prvky na snímku. Pokud se vám barvy nelíbí, můžete je změnit aplikací nových barev pro motiv. Aby bylo možné vybrat novou barvu motivu, Aspose.Slides poskytuje hodnoty v enumeraci [SchemeColor](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/SchemeColor).
+## **Prohlédnutí tématu**
 
-Tento Java kód ukazuje, jak změnit akcentní barvu motivu:
+Objekt [MasterTheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/mastertheme/) zveřejňuje schéma barev, schéma fontů a schéma formátů tématu pomocí [MasterTheme.getColorScheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/mastertheme/) a [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/mastertheme/). Prohlédnutí těchto kolekcí před jejich změnou je zvláště užitečné, když prezentace pochází z externího zdroje, protože počet a obsah položek stylu se může lišit.
+
+Následující příklad načte hlavní vlastnosti tématu a nahlásí, kolik stylů pozadí, výplní, čar a efektů je v tématu uloženo:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
-
-    shape.getFillFormat().setFillType(FillType.Solid);
-
-    shape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+    IMasterTheme theme = presentation.getMasterTheme();
+    int accent1 = theme.getColorScheme().getAccent1().getColor();
+    System.out.println("Theme name: " + theme.getName());
+    System.out.println(String.format("Accent 1: Color [A=%d, R=%d, G=%d, B=%d]", Color.alpha(accent1), Color.red(accent1), Color.green(accent1), Color.blue(accent1)));
+    System.out.println("Major Latin font: " + theme.getFontScheme().getMajor().getLatinFont().getFontName());
+    System.out.println("Minor Latin font: " + theme.getFontScheme().getMinor().getLatinFont().getFontName());
+    System.out.println("Background fill styles: " + theme.getFormatScheme().getBackgroundFillStyles().size());
+    System.out.println("Fill styles: " + theme.getFormatScheme().getFillStyles().size());
+    System.out.println("Line styles: " + theme.getFormatScheme().getLineStyles().size());
+    System.out.println("Effect styles: " + theme.getFormatScheme().getEffectStyles().size());
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Efektivní hodnotu výsledné barvy můžete zjistit takto:
+Pokud soubor používá více masterů, nepředpokládejte, že každý snímek má stejné efektivní téma. Prohlédněte si master přiřazený ke snímku a použijte workflow efektivního tématu ukázané níže v tomto článku, když mohou být přítomny přepsání rozložení nebo snímku.
+
+## **Změna barev tématu**
+
+Tema‑aware výplně, čáry a text mohou odkazovat na logickou barvu ze výčtu [SchemeColor](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/schemecolor/). Když změníte odpovídající položku v [IColorScheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icolorscheme/), všechny objekty, které stále odkazují na tuto barvu tématu, jsou vyhodnoceny vůči nové hodnotě. Objektům, které používají přímou RGB barvu, se změna barvy tématu neaplikuje.
+
+Následující end‑to‑end příklad vytvoří tvar, který používá `Accent4`, změní barvu tématu `Accent4` na červenou, uloží prezentaci, znovu ji otevře a vytiskne efektivní barvu výplně:
 
 ```java
-IFillFormatEffectiveData fillEffective = shape.getFillFormat().getEffective();
+import com.aspose.slides.*;
+import android.graphics.Color;
 
-Color effectiveColor = fillEffective.getSolidFillColor();
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+    shape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+    presentation.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED);
+    presentation.save("theme-color.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 
-System.out.println(String.format("Color [A=%d, R=%d, G=%d, B=%d]", 
-        effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
+Presentation savedPresentation = new Presentation("theme-color.pptx");
+try {
+    ISlide savedSlide = savedPresentation.getSlides().get_Item(0);
+    IShape savedShape = savedSlide.getShapes().get_Item(0);
+    IFillFormatEffectiveData effectiveFill = savedShape.getFillFormat().getEffective();
+    int effectiveColor = effectiveFill.getSolidFillColor();
+    System.out.println(String.format("Effective fill color: Color [A=%d, R=%d, G=%d, B=%d]", Color.alpha(effectiveColor), Color.red(effectiveColor), Color.green(effectiveColor), Color.blue(effectiveColor)));
+} finally {
+    savedPresentation.dispose();
+}
 ```
 
-Pro další demonstraci operace změny barvy vytvoříme další prvek a přiřadíme mu akcentní barvu (z počáteční operace). Pak změníme barvu v motivu:
+Protože obdélník zůstává propojený s `Accent4`, jeho viditelná barva se po změně tématu stane červenou. Pokud nahradíte schématickou barvu přímou barvou na tvaru, pozdější změny `Accent4` už tento výplň neovlivní.
+
+### **Použít barvy z doplňkové palety**
+
+PowerPoint odvozuje světlejší a tmavší varianty z barvy tématu aplikací transformací barev. Aspose.Slides zveřejňuje tyto transformace pomocí výčtu [ColorTransformOperation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/colortransformoperation/).
+
+![Hlavní barvy tématu a světlejší a tmavší barvy generované z doplňkové palety](additional-palette-colors.png)
+
+**1** – Hlavní barvy tématu.
+
+**2** – Světlejší a tmavší varianty vytvořené z hlavních barev tématu.
+
+Následující příklad vytvoří šest obdélníků založených na `Accent4`, na pět z nich použije transformace luminance a výsledek uloží:
 
 ```java
-IAutoShape otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
+import com.aspose.slides.*;
 
-otherShape.getFillFormat().setFillType(FillType.Solid);
-
-otherShape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
-
-pres.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED);
-```
-
-Nová barva se automaticky použije na oba prvky.
-
-### **Nastavení barvy motivu z další palety**
-
-Když aplikujete transformace jasu na hlavní barvu motivu(1), vznikají barvy z další palety(2). Tyto barvy motivu pak můžete nastavit a získat.
-
-![additional-palette-colors](additional-palette-colors.png)
-
-**1** – Hlavní barvy motivu  
-
-**2** – Barvy z další palety.
-
-Tento Java kód demonstruje operaci, kde jsou barvy další palety získány z hlavní barvy motivu a poté použity ve tvarech:
-
-```java
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Akcent 4
     IShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 50, 50);
-
     shape1.getFillFormat().setFillType(FillType.Solid);
     shape1.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
 
-    // Akcent 4, světlejší 80%
     IShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 70, 50, 50);
-
     shape2.getFillFormat().setFillType(FillType.Solid);
     shape2.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape2.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.2f);
     shape2.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.8f);
 
-    // Akcent 4, světlejší 60%
     IShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 130, 50, 50);
-
     shape3.getFillFormat().setFillType(FillType.Solid);
     shape3.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape3.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.4f);
     shape3.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.6f);
 
-    // Akcent 4, světlejší 40%
     IShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 190, 50, 50);
-
     shape4.getFillFormat().setFillType(FillType.Solid);
     shape4.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape4.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.6f);
     shape4.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.4f);
 
-    // Akcent 4, tmavší 25%
     IShape shape5 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 250, 50, 50);
-
     shape5.getFillFormat().setFillType(FillType.Solid);
     shape5.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape5.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.75f);
 
-    // Akcent 4, tmavší 50%
     IShape shape6 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 310, 50, 50);
-
     shape6.getFillFormat().setFillType(FillType.Solid);
     shape6.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape6.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.5f);
 
-    presentation.save(path + "example_accent4.pptx", SaveFormat.Pptx);
+    presentation.save("theme-color-palette.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-### **Mapování `SchemeColor` na barvy `IColorScheme`**
+Tyto varianty zůstávají založeny na barvě tématu. Pokud se `Accent4` později změní, transformované barvy se přepočítají z nové hodnoty `Accent4`.
 
-Když pracujete s [SchemeColor](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/schemecolor/), můžete si všimnout, že obsahuje následující hodnoty barvy motivu:
+### **Mapovat hodnoty `SchemeColor` na sloty `IColorScheme`**
 
-`Background1`, `Background2`, `Text1` a `Text2`.
-
-Nicméně `Presentation.getMasterTheme().getColorScheme()` vrací [IColorScheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icolorscheme/), který vystavuje odpovídající barvy jako:
-
-`Dark1`, `Dark2`, `Light1` a `Light2`.
-
-Tento rozdíl je jen v pojmenování. Tyto hodnoty odkazují na stejné sloty barvy motivu a mapování je pevné:
+Výčet [SchemeColor](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/schemecolor/) používá `Text1`, `Background1`, `Text2` a `Background2`, zatímco [IColorScheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icolorscheme/) zveřejňuje stejné sloty tématu jako `Dark1`, `Light1`, `Dark2` a `Light2`. Mapování je pevně dané:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Mezi `Text`/`Background` a `Dark`/`Light` neexistuje žádná dynamická konverze. Jedná se jen o alternativní názvy pro stejné barvy motivu.
+Jedná se o alternativní názvy pro stejné sloty tématu; nejsou to hodnoty, které se dynamicky převádějí z jedné podoby do druhé.
 
-Tento rozdíl v názvech pochází z terminologie Microsoft Office. Starší verze Office používaly `Dark 1`, `Light 1`, `Dark 2` a `Light 2`, zatímco novější UI verze zobrazují stejné sloty jako `Text 1`, `Background 1`, `Text 2` a `Background 2`.
+## **Změna fontů tématu**
 
-## **Změna písma motivu**
+Schéma fontů tématu obsahuje hlavní sadu fontů pro nadpisy a vedlejší sadu pro text těla. Metody [IFontScheme.getMajor](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ifontscheme/) a [IFontScheme.getMinor](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ifontscheme/) zpřístupňují tyto sady.
 
-Aby bylo možné vybrat písma pro motivy a další účely, Aspose.Slides používá tyto speciální identifikátory (podobné těm, které jsou použity v PowerPointu):
+Identifikátory fontů kompatibilní s PowerPoint mohou být použity při formátování textu:
 
-* **+mn-lt** – Body Font Latin (Minor Latin Font)
-* **+mj-lt** – Heading Font Latin (Major Latin Font)
-* **+mn-ea** – Body Font East Asian (Minor East Asian Font)
-* **+mj-ea** – Body Font East Asian (Major East Asian Font)
+* `+mn-lt` – Tělo font Latin (Minor Latin Font)
+* `+mj-lt` – Nadpis font Latin (Major Latin Font)
+* `+mn-ea` – Tělo font East Asian (Minor East Asian Font)
+* `+mj-ea` – Nadpis font East Asian (Major East Asian Font)
 
-Tento Java kód ukazuje, jak přiřadit latinské písmo k prvku motivu:
-
-```java
-IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
-
-Paragraph paragraph = new Paragraph();
-
-Portion portion = new Portion("Theme text format");
-
-paragraph.getPortions().add(portion);
-
-shape.getTextFrame().getParagraphs().add(paragraph);
-
-portion.getPortionFormat().setLatinFont(new FontData("+mn-lt"));
-```
-
-Tento Java kód ukazuje, jak změnit písmo motivu prezentace:
+Následující příklad vytvoří jeden nadpis používající hlavní latinský font tématu a jeden řádek těla používající vedlejší latinský font. Poté změní fonty tématu a výsledek uloží:
 
 ```java
-pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
-```
+import com.aspose.slides.*;
 
-Písmo ve všech textových polích bude aktualizováno.
-
-{{% alert color="primary" title="TIP" %}} 
-Můžete si také prohlédnout [PowerPoint fonts](/slides/cs/androidjava/powerpoint-fonts/).
-{{% /alert %}}
-
-## **Změna stylu pozadí motivu**
-
-Ve výchozím nastavení aplikace PowerPoint poskytuje 12 předdefinovaných pozadí, ale ve typické prezentaci jsou uloženy jen 3 z těchto 12 pozadí.
-
-![todo:image_alt_text](presentation-design_8.png)
-
-Například po uložení prezentace v aplikaci PowerPoint můžete spustit tento Java kód a zjistit počet předdefinovaných pozadí v prezentaci:
-
-```java
-Presentation pres = new Presentation("pres.pptx");
+Presentation presentation = new Presentation();
 try {
-    int numberOfBackgroundFills = pres.getMasterTheme().getFormatScheme().getBackgroundFillStyles().size();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    System.out.println("Number of background fill styles for theme is " + numberOfBackgroundFills);
+    IAutoShape heading = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 500, 60);
+    heading.getTextFrame().setText("Theme heading");
+    heading.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setLatinFont(new FontData("+mj-lt"));
+
+    IAutoShape body = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 120, 500, 60);
+    body.getTextFrame().setText("Theme body text");
+    body.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setLatinFont(new FontData("+mn-lt"));
+
+    presentation.getMasterTheme().getFontScheme().getMajor().setLatinFont(new FontData("Aptos Display"));
+    presentation.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
+    presentation.save("theme-fonts.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert color="warning" %}} 
-Pomocí vlastnosti [BackgroundFillStyles](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/FormatScheme#getBackgroundFillStyles--) třídy [FormatScheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/FormatScheme) můžete přidat nebo přistupovat ke stylu pozadí v motivu PowerPoint.
-{{% /alert %}} 
+Nadpis sleduje hlavní font a text těla sleduje vedlejší font. Text, který má explicitní název fontu místo identifikátoru tématu, se automaticky nepřepne, když se změní schéma fontů tématu.
 
-Tento Java kód ukazuje, jak nastavit pozadí pro prezentaci:
-
-```java
-pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
-```
-
-**Průvodce indexy**: 0 znamená žádnou výplň. Index začíná od 1.
-
-{{% alert color="primary" title="TIP" %}} 
-Můžete si také prohlédnout [PowerPoint Background](/slides/cs/androidjava/presentation-background/).
+{{% alert color="info" title="Tip" %}}
+Pro více informací o fontech v prezentacích viz [PowerPoint Fonts](/slides/cs/androidjava/powerpoint-fonts/).
 {{% /alert %}}
 
-## **Změna efektu motivu**
+## **Kopírovat nebo použít téma**
 
-Motiv PowerPointu obvykle obsahuje 3 hodnoty pro každý pole stylů. Tyto pole jsou kombinovány do 3 efektů: subtilní, střední a intenzivní. Například takto vypadá výsledek, když jsou efekty aplikovány na konkrétní tvar:
+Existují dva běžné pracovní postupy, a řeší různé problémy.
 
-![todo:image_alt_text](presentation-design_10.png)
+### **Zachovat zdrojové téma při přesunu snímků**
 
-Pomocí 3 vlastností ([FillStyles](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/FormatScheme#getEffectStyles--)) třídy [FormatScheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/FormatScheme) můžete měnit prvky v motivu (ještě flexibilněji než možnosti v PowerPointu).
-
-Tento Java kód ukazuje, jak změnit efekt motivu úpravou částí prvků:
+Pokud chcete přesunout snímek do jiné prezentace a zachovat jeho původní design, naklonujte zdrojový master do cílové prezentace pomocí [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imasterslidecollection/), poté naklonujte snímek pomocí [ISlideCollection.addClone](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islidecollection/) a naklonovaného masteru. Tím se přenesou master, jeho rozložení i přiřazené téma.
 
 ```java
-Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx");
+import com.aspose.slides.*;
+
+Presentation source = new Presentation("source-theme.pptx");
 try {
-    pres.getMasterTheme().getFormatScheme().getLineStyles().get_Item(0).getFillFormat().getSolidFillColor().setColor(Color.RED);
-
-    pres.getMasterTheme().getFormatScheme().getFillStyles().get_Item(2).setFillType(FillType.Solid);
-
-    pres.getMasterTheme().getFormatScheme().getFillStyles().get_Item(2).getSolidFillColor().setColor(Color.GREEN);
-
-    pres.getMasterTheme().getFormatScheme().getEffectStyles().get_Item(2).getEffectFormat().getOuterShadowEffect().setDistance(10f);
-
-    pres.save("Design_04_Subtle_Moderate_Intense-out.pptx", SaveFormat.Pptx);
+    Presentation target = new Presentation("target.pptx");
+    try {
+        ISlide sourceSlide = source.getSlides().get_Item(0);
+        IMasterSlide sourceMaster = sourceSlide.getLayoutSlide().getMasterSlide();
+        IMasterSlide clonedMaster = target.getMasters().addClone(sourceMaster);
+        target.getSlides().addClone(sourceSlide, clonedMaster, true);
+        target.save("theme-preserved.pptx", SaveFormat.Pptx);
+    } finally {
+        target.dispose();
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    source.dispose();
 }
 ```
 
-Výsledné změny ve výplňové barvě, typu výplně, stínovacím efektu atd.:
+Toto je preferovaný postup, když musí zdrojový snímek v cíli vypadat stejně. Pouze klonování obsahu na nesouvisející cílový master může změnit barvy, fonty, pozadí a efekty řízené tématem.
 
-![todo:image_alt_text](presentation-design_11.png)
+### **Použít hodnoty tématu na existující snímek**
+
+Pokud cílový snímek musí zůstat na svém aktuálním masteru a rozložení, inicializujte přepisování na úrovni snímku ze zdrojového tématu. Metody [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/overridetheme/) a [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/overridetheme/) zkopírují tři hlavní komponenty tématu do přepisu.
+
+```java
+import com.aspose.slides.*;
+
+Presentation source = new Presentation("source-theme.pptx");
+try {
+    Presentation target = new Presentation("target.pptx");
+    try {
+        ISlide targetSlide = target.getSlides().get_Item(0);
+        IOverrideTheme overrideTheme = targetSlide.getThemeManager().getOverrideTheme();
+        overrideTheme.initColorSchemeFrom(source.getMasterTheme().getColorScheme());
+        overrideTheme.initFontSchemeFrom(source.getMasterTheme().getFontScheme());
+        overrideTheme.initFormatSchemeFrom(source.getMasterTheme().getFormatScheme());
+        target.save("theme-applied-to-slide.pptx", SaveFormat.Pptx);
+    } finally {
+        target.dispose();
+    }
+} finally {
+    source.dispose();
+}
+```
+
+Tím se změní téma použité tímto snímkem, aniž by se změnilo téma zděděné ostatními snímky. Chcete‑li odstranit místní přepis a vrátit se k zděděným hodnotám, zavolejte [OverrideTheme.clear](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/overridetheme/).
+
+### **Použít přepis tématu na rozložení**
+
+Přepis na úrovni rozložení se vztahuje na snímky, které používají dané rozložení, pokud konkrétní snímek nemá vlastní přepis. Stejné inicializační metody lze použít přes [LayoutSlideThemeManager](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/layoutslidethememanager/):
+
+```java
+import com.aspose.slides.*;
+
+Presentation source = new Presentation("source-theme.pptx");
+try {
+    Presentation target = new Presentation("target.pptx");
+    try {
+        ISlide targetSlide = target.getSlides().get_Item(0);
+        ILayoutSlide targetLayout = targetSlide.getLayoutSlide();
+        IOverrideTheme overrideTheme = targetLayout.getThemeManager().getOverrideTheme();
+        overrideTheme.initColorSchemeFrom(source.getMasterTheme().getColorScheme());
+        overrideTheme.initFontSchemeFrom(source.getMasterTheme().getFontScheme());
+        overrideTheme.initFormatSchemeFrom(source.getMasterTheme().getFormatScheme());
+        target.save("theme-applied-to-layout.pptx", SaveFormat.Pptx);
+    } finally {
+        target.dispose();
+    }
+} finally {
+    source.dispose();
+}
+```
+
+Použijte master nebo téma na úrovni prezentace, když má mnoho rozložení a snímků sdílet stejný základní design, přepis rozložení, když jedna rodina rozložení potřebuje odlišné stylování, a přepis snímku jen pro skutečné výjimky. Nadměrné přepisy na úrovni snímku ztěžují předvídání pozdějších globálních změn tématu.
+
+## **Aktualizace stylů pozadí tématu**
+
+Výplně pozadí tématu jsou uloženy v [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iformatscheme/). PowerPoint může v UI nabídnout více možností pozadí, než kolik výplňových definic je fyzicky uloženo v této kolekci, protože UI může kombinovat výplně tématu s barvami tématu a dalšími odkazy na styly.
+
+![Galerie stylů pozadí PowerPointu pro téma prezentace](presentation-design_8.png)
+
+Před použitím stylu pozadí prohlédněte uloženou kolekci a aktuální [Background.getStyleIndex](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/background/). Index stylu `0` znamená žádnou výplň z tématu; kladné hodnoty jsou odkazy na styly pozadí tématu. To se liší od indexování Java kolekce přímo, kde `get_Item(0)` označuje první uloženou položku. Nepředpokládejte, že každá prezentace obsahuje stejný počet stylů výplní pozadí.
+
+Následující příklad nahlásí počet dostupných výplní pozadí, přiřadí tematický odkaz na pozadí prvnímu masteru a uloží prezentaci:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    IFillFormatCollection backgroundStyles = presentation.getMasterTheme().getFormatScheme().getBackgroundFillStyles();
+    System.out.println("Background fill styles: " + backgroundStyles.size());
+    if (backgroundStyles.size() == 0) {
+        throw new IllegalStateException("The presentation theme does not contain background fill styles.");
+    }
+
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    masterSlide.getBackground().setType(BackgroundType.Themed);
+    masterSlide.getBackground().setStyleIndex(1);
+    presentation.save("theme-background.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Viditelný výsledek závisí na položce tématu, na kterou odkazuje master, a na případných přepsáních pozadí na úrovni rozložení nebo snímku. Pokud snímek používá vlastní pozadí, změna pouze pozadí masteru nemusí tento snímek změnit. Použijte [Background.getEffective](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/background/), když potřebujete znát finální pozadí po aplikaci dědičnosti.
+
+{{% alert color="warning" title="Warning" %}}
+Nevnímejte index stylu jako index kolekce začínající od nuly. Také se vyhněte hard‑codování čísla stylu z jednoho souboru a předpokládání, že bude mít stejný vzhled v jiném souboru; definice stylu tématu jsou specifické pro prezentaci.
+{{% /alert %}}
+
+{{% alert color="info" title="Tip" %}}
+Pro přímé formátování pozadí a dědičnost pozadí viz [Presentation Background](/slides/cs/androidjava/presentation-background/).
+{{% /alert %}}
+
+## **Aktualizace efektů tématu**
+
+Schéma formátů tématu obsahuje samostatné kolekce výplní, čar a efektů, které jsou zpřístupněny pomocí [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iformatscheme/), [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iformatscheme/) a [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iformatscheme/). Typické Office témata často obsahují tři hlavní položky stylu, které vizuálně odpovídají jemnému, střednímu a intenzivnímu formátování, ale kód by měl každou kolekci prohlížet místo předpokládání pevného počtu.
+
+![Jemné, střední a intenzivní efekty tématu aplikované na stejný tvar](presentation-design_10.png)
+
+Když přistupujete k těmto kolekcím v Javě, index kolekce je nulový: `get_Item(0)` je první uložený styl a `get_Item(2)` je třetí. Indexy odkazů stylu tvaru jsou samostatný koncept, zpřístupněný přes [IShapeStyle](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapestyle/). Úprava stylu tématu ovlivní tvary, které na něj odkazují; tvary s přímým formátováním mohou zůstat nezměněny.
+
+Následující příklad zkontroluje, že požadované položky stylu existují, změní první styl čáry, třetí styl výplně, povolí vnější stín ve třetím stylu efektu a výsledek uloží:
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation("Subtle_Moderate_Intense.pptx");
+try {
+    IFormatScheme formatScheme = presentation.getMasterTheme().getFormatScheme();
+    if (formatScheme.getLineStyles().size() < 1 || formatScheme.getFillStyles().size() < 3 || formatScheme.getEffectStyles().size() < 3) {
+        throw new IllegalStateException("The theme does not contain the style entries required by this example.");
+    }
+    formatScheme.getLineStyles().get_Item(0).getFillFormat().setFillType(FillType.Solid);
+    formatScheme.getLineStyles().get_Item(0).getFillFormat().getSolidFillColor().setColor(Color.RED);
+    formatScheme.getFillStyles().get_Item(2).setFillType(FillType.Solid);
+    formatScheme.getFillStyles().get_Item(2).getSolidFillColor().setColor(Color.rgb(34, 139, 34));
+    IEffectFormat effectFormat = formatScheme.getEffectStyles().get_Item(2).getEffectFormat();
+    effectFormat.enableOuterShadowEffect();
+    effectFormat.getOuterShadowEffect().setDistance(10f);
+    presentation.save("theme-effects.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Pro tvary, které odkazují na tyto sloty, se první styl čáry tématu stane červeným, třetí styl výplně tématu se stane plnou lesní zelenou a třetí styl efektu získá vnější stín s vzdáleností 10 bodů. Přesný vizuální výsledek stále závisí na tom, na které sloty každý tvar odkazuje a zda přímé formátování nepřepisuje téma.
+
+![Styly efektů tématu po změně nastavení čáry, výplně a stínu](presentation-design_11.png)
+
+## **Načtení efektivních hodnot tématu**
+
+Surové objekty tématu vám říkají, co je definováno na konkrétní úrovni. Efektivní hodnoty vám říkají, co snímek nebo tvar skutečně používá po vyřešení dědičnosti a místních přepisů. Pro snímek zavolejte [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/baseoverridethememanager/). Pro pozadí použijte [Background.getEffective](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/background/), a pro výplň [FillFormat.getEffective](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fillformat/).
+
+Následující příklad načte efektivní téma, pozadí a první výplň tvaru ze snímku:
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IThemeEffectiveData effectiveTheme = slide.getThemeManager().createThemeEffective();
+    IBackgroundEffectiveData effectiveBackground = slide.getBackground().getEffective();
+    System.out.println("Effective major Latin font: " + effectiveTheme.getFontScheme().getMajor().getLatinFont().getFontName());
+    System.out.println("Effective minor Latin font: " + effectiveTheme.getFontScheme().getMinor().getLatinFont().getFontName());
+    System.out.println("Effective background fill type: " + effectiveBackground.getFillFormat().getFillType());
+    if (slide.getShapes().size() > 0) {
+        IFillFormatEffectiveData effectiveFill = slide.getShapes().get_Item(0).getFillFormat().getEffective();
+        System.out.println("First shape effective fill type: " + effectiveFill.getFillType());
+        if (effectiveFill.getFillType() == FillType.Solid) {
+            int effectiveColor = effectiveFill.getSolidFillColor();
+            System.out.println(String.format("First shape effective fill color: Color [A=%d, R=%d, G=%d, B=%d]", Color.alpha(effectiveColor), Color.red(effectiveColor), Color.green(effectiveColor), Color.blue(effectiveColor)));
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Používejte efektivní data pro diagnostiku vykreslování, validaci a porovnání. Pokud prohlížíte jen [Presentation.getMasterTheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/), můžete přehlédnout master, rozložení, snímek nebo přepis tvaru, který mění konečný vzhled.
 
 ## **Často kladené otázky**
 
-**Mohu aplikovat motiv na jediný snímek bez změny masteru?**
+**Mohu použít téma na jediný snímek bez změny masteru?**
 
-Ano. Aspose.Slides podporuje přepis motivu na úrovni snímku, takže můžete aplikovat lokální motiv jen na tento snímek a zároveň ponechat master motiv nezměněný (prostřednictvím [SlideThemeManager](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/slidethememanager/)).
+Ano. Použijte [SlideThemeManager](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/slidethememanager/) snímku a inicializujte jeho přepisované téma. Změna zůstane lokální pro tento snímek; ostatní snímky budou nadále zdědit své existující témata.
 
-**Jaký je nejoblíbenější způsob, jak přenést motiv z jedné prezentace do druhé?**
+**Jaký je nejbezpečnější způsob, jak převést téma z jedné prezentace do druhé?**
 
-[Clone slides](/slides/cs/androidjava/clone-slides/) spolu s jejich masterem do cílové prezentace. Tím se zachová původní master, rozvržení a související motiv, takže vzhled zůstane konzistentní.
+Při přesunu snímku a zachování vzhledu zdroje naklonujte zdrojový master do cíle a naklonujte snímek s tímto masterem pomocí [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imasterslidecollection/) a [ISlideCollection.addClone](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islidecollection/). Tím se master, rozložení i téma přenesou společně.
 
-**Jak mohu zobrazit „efektivní“ hodnoty po veškerém dědění a přepsání?**
+**Jak mohu vidět efektivní hodnoty po dědičnosti a přepsání?**
 
-Použijte API „effective“ pohledy](/slides/cs/androidjava/shape-effective-properties/) pro motiv/barvu/písmo/efekt. Vrací vyřešené, finální vlastnosti po aplikaci masteru a všech lokálních přepisů.
+Použijte [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/baseoverridethememanager/) pro téma snímku nebo rozložení a odpovídající metody efektivních dat pro objekty formátu, jako jsou [Background.getEffective](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/background/) a [FillFormat.getEffective](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fillformat/). Tyto API vrací vyřešené hodnoty po aplikaci dědičnosti a přepisů.
