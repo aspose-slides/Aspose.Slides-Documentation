@@ -1,6 +1,6 @@
 ---
-title: Verwaltung von Präsentations-Kopf- und Fußzeilen in C++
-linktitle: Kopf- und Fußzeile
+title: Verwalten von Präsentationskopf‑ und Fußzeilen in C++
+linktitle: Kopf‑ und Fußzeile
 type: docs
 weight: 140
 url: /de/cpp/presentation-header-and-footer/
@@ -11,154 +11,260 @@ keywords:
 - Fußzeilentext
 - Kopfzeile festlegen
 - Fußzeile festlegen
-- Handout
+- Handzettel
 - Notizen
 - PowerPoint
 - OpenDocument
 - Präsentation
 - C++
 - Aspose.Slides
-description: "Verwenden Sie Aspose.Slides für C++, um Kopf- und Fußzeilen in PowerPoint- und OpenDocument-Präsentationen hinzuzufügen und anzupassen, um ein professionelles Aussehen zu erzielen."
+description: "Erfahren Sie, wie Sie Platzhalter für Fußzeile, Datum‑Uhrzeit, Foliennummer und Kopfzeile auf Folien, Notizseiten und Handzetteln mit Aspose.Slides für C++ verwalten."
 ---
+## **Übersicht**
 
-{{% alert color="primary" %}} 
-[Aspose.Slides](/slides/de/cpp/) bietet Unterstützung für die Arbeit mit Kopf‑ und Fußzeilentexten von Folien, die tatsächlich auf der Folienmaster‑Ebene verwaltet werden.
-{{% /alert %}} 
+PowerPoint verwendet je nach Folientyp unterschiedliche Platzhalter für Kopf‑ und Fußzeile. Aspose.Slides für C++ ermöglicht die Steuerung von Text und Sichtbarkeit dieser Platzhalter über die Kopf‑/Fußzeilen‑Manager‑Schnittstellen.
 
-[Aspose.Slides for C++](/slides/de/cpp/) bietet die Möglichkeit, Kopf‑ und Fußzeilen in Präsentationsfolien zu verwalten. Diese werden tatsächlich auf der Präsentationsmaster‑Ebene verwaltet.
-## **Kopf‑ und Fußzeilentext verwalten**
-Notizen einer bestimmten Folie können wie im folgenden Beispiel aktualisiert werden:
-``` cpp
-// Funktion zum Setzen des Kopf-/Fußzeilentextes
-void UpdateHeaderFooterText(System::SharedPtr<IBaseSlide> master)
-{
-    for (const auto& shape : System::IterateOver(master->get_Shapes()))
-    {
-        if (shape->get_Placeholder() != nullptr)
-        {
-            if (shape->get_Placeholder()->get_Type() == PlaceholderType::Header)
-            {
-                (System::ExplicitCast<IAutoShape>(shape))->get_TextFrame()->set_Text(u"HI there new header");
-            }
-        }
-    }
-}
-```
+Die verfügbaren Platzhalter hängen vom Geltungsbereich ab:
 
-``` cpp
-// Präsentation laden
-auto pres = System::MakeObject<Presentation>(u"headerTest.pptx");
+| Geltungsbereich | Kopfzeile | Fußzeile | Datum/Uhrzeit | Folien‑/Seitennummer |
+|---|---|---|---|---|
+| Normale Folie | Nein | Ja | Ja | Ja |
+| Notizen‑Master | Ja | Ja | Ja | Ja |
+| Notizfolie | Ja | Ja | Ja | Ja |
+| Handzettel‑Master | Ja | Ja | Ja | Ja |
 
-// Fußzeile festlegen
-pres->get_HeaderFooterManager()->SetAllFootersText(u"My Footer text");
-pres->get_HeaderFooterManager()->SetAllFootersVisibility(true);
+Eine reguläre Präsentationsfolie besitzt keinen Kopfzeilen‑Platzhalter. Kopfzeilen sind auf Notizseiten und Handzetteln verfügbar. Für normale Folien verwenden Sie stattdessen die Platzhalter für Fußzeile, Datum/Uhrzeit und Foliennummer.
 
-// Header zugreifen und aktualisieren
-auto masterNotesSlide = pres->get_MasterNotesSlideManager()->get_MasterNotesSlide();
-if (nullptr != masterNotesSlide)
-{
-	UpdateHeaderFooterText(masterNotesSlide);
-}
+Der Geltungsbereich einer Änderung hängt vom verwendeten Manager ab. Die [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/de/cpp/aspose.slides/islideheaderfootermanager/)‑Schnittstelle steuert **eine** normale Folie. Die [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/de/cpp/aspose.slides/inotesslideheaderfootermanager/)‑Schnittstelle steuert **eine** Notizfolie. Master‑ und Layout‑Manager können Einstellungen zudem auf abhängige Folien übertragen, während die [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/de/cpp/aspose.slides/imasterhandoutslideheaderfootermanager/)‑Schnittstelle den Handzettel‑Master steuert.
 
-// Präsentation speichern
-pres->Save(u"HeaderFooterJava.pptx", SaveFormat::Pptx);
-```
+## **Fußzeile, Datum/Uhrzeit und Foliennummern auf normalen Folien festlegen**
 
+Für normale Folien besteht der typische Ablauf darin, den jeweiligen Folien‑Header/Footer‑Manager zu öffnen, den Fußzeilen‑ und Datum/Uhrzeit‑Text zu setzen, die benötigten Platzhalter zu aktivieren und die Präsentation zu speichern. Foliennummern werden von der Präsentation generiert, daher muss nur deren Sichtbarkeit gesteuert werden.
 
-## **Kopf‑ und Fußzeilen in Handout‑ und Notizfolien verwalten**
-Aspose.Slides for C++ unterstützt Kopf‑ und Fußzeilen in Handout‑ und Notizfolien. Bitte folgen Sie den nachstehenden Schritten:
+Verwenden Sie [`SetFooterText`](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibaseslideheaderfootermanager/setfootertext/) und [`SetDateTimeText`](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibaseslideheaderfootermanager/setdatetimetext/), um den Text zu setzen, und [`SetFooterVisibility`](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibaseslideheaderfootermanager/setfootervisibility/), [`SetDateTimeVisibility`](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibaseslideheaderfootermanager/setdatetimevisibility/) sowie [`SetSlideNumberVisibility`](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibaseslideheaderfootermanager/setslidenumbervisibility/), um die jeweiligen Platzhalter sichtbar zu machen.
 
-- Laden Sie eine [Präsentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation), die ein Video enthält.
-- Ändern Sie die Einstellungen für Kopf‑ und Fußzeile für den Notizmaster und alle Notizfolien.
-- Machen Sie den Master‑Notizfolien‑ und alle untergeordneten Fußzeilen‑Platzhalter sichtbar.
-- Machen Sie den Master‑Notizfolien‑ und alle untergeordneten Datums‑ und Zeit‑Platzhalter sichtbar.
-- Ändern Sie die Kopf‑ und Fußzeileneinstellungen nur für die erste Notizfolie.
-- Machen Sie den Kopfzeilen‑Platzhalter der Notizfolie sichtbar.
-- Setzen Sie den Text für den Kopfzeilen‑Platzhalter der Notizfolie.
-- Setzen Sie den Text für den Datums‑Zeit‑Platzhalter der Notizfolie.
-- Schreiben Sie die modifizierte Präsentationsdatei.
+Das folgende End‑zu‑Ende‑Beispiel wendet dieselbe Fußzeile, denselben Datum/Uhrzeit‑Text und dieselbe Folien‑Nummer‑Sichtbarkeit auf **alle** normalen Folien an:
 
-Code‑Snippet im nachstehenden Beispiel bereitgestellt.
-``` cpp
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/enumerator_adapter.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
-// Header- und Fußzeileneinstellungen für Notizen-Master und alle Notizfolien ändern
+
+for (const auto& slide : System::IterateOver(presentation->get_Slides()))
+{
+    auto headerFooterManager = slide->get_HeaderFooterManager();
+
+    headerFooterManager->SetFooterText(u"Company Confidential");
+    headerFooterManager->SetFooterVisibility(true);
+
+    headerFooterManager->SetDateTimeText(u"Date and time text");
+    headerFooterManager->SetDateTimeVisibility(true);
+
+    headerFooterManager->SetSlideNumberVisibility(true);
+}
+
+presentation->Save(u"presentation_with_slide_footers.pptx", SaveFormat::Pptx);
+```
+
+Falls Sie nur **eine** Folie aktualisieren möchten, greifen Sie direkt über [`Presentation::get_Slide`](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/get_slide/) auf diese Folie zu, anstatt die gesamte Folien‑Sammlung zu durchlaufen.
+
+## **Kopf‑ und Fußzeilen im Notizen‑Master festlegen**
+
+Der Notizen‑Master definiert einheitliche Formatierung und Platzhalter‑Verhalten für Notizseiten. Verwenden Sie die [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/de/cpp/aspose.slides/imasternotesslideheaderfootermanager/)‑Schnittstelle, wenn Sie ausschließlich den Notizen‑Master ändern möchten.
+
+Das folgende Beispiel setzt Kopf‑, Fußzeilen‑ und Datum/Uhrzeit‑Text im Notizen‑Master und macht alle unterstützten Platzhalter auf diesem Master sichtbar:
+
+```cpp
+#include <DOM/IMasterNotesSlide.h>
+#include <DOM/IMasterNotesSlideHeaderFooterManager.h>
+#include <DOM/IMasterNotesSlideManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 auto masterNotesSlide = presentation->get_MasterNotesSlideManager()->get_MasterNotesSlide();
+
 if (masterNotesSlide != nullptr)
 {
-	auto headerFooterManager = masterNotesSlide->get_HeaderFooterManager();
+    auto headerFooterManager = masterNotesSlide->get_HeaderFooterManager();
 
-	// Master-Notizfolie und alle untergeordneten Footer-Platzhalter sichtbar machen
-	headerFooterManager->SetHeaderAndChildHeadersVisibility(true);
-	// Master-Notizfolie und alle untergeordneten Header-Platzhalter sichtbar machen
-	headerFooterManager->SetFooterAndChildFootersVisibility(true);
-	// Master-Notizfolie und alle untergeordneten Foliennummer-Platzhalter sichtbar machen
-	headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
-	// Master-Notizfolie und alle untergeordneten Datum‑und‑Uhrzeit-Platzhalter sichtbar machen
-	headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
+    headerFooterManager->SetHeaderText(u"Notes header");
+    headerFooterManager->SetHeaderVisibility(true);
 
-	// Text für Master-Notizfolie und alle untergeordneten Header-Platzhalter festlegen
-	headerFooterManager->SetHeaderAndChildHeadersText(u"Header text");
-	// Text für Master-Notizfolie und alle untergeordneten Footer-Platzhalter festlegen
-	headerFooterManager->SetFooterAndChildFootersText(u"Footer text");
-	// Text für Master-Notizfolie und alle untergeordneten Datum‑und‑Uhrzeit-Platzhalter festlegen
-	headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
+    headerFooterManager->SetFooterText(u"Notes footer");
+    headerFooterManager->SetFooterVisibility(true);
+
+    headerFooterManager->SetDateTimeText(u"Date and time text");
+    headerFooterManager->SetDateTimeVisibility(true);
+
+    headerFooterManager->SetSlideNumberVisibility(true);
 }
 
-// Change Header and Footer settings for first notes slide only
-auto notesSlide = presentation->get_Slides()->idx_get(0)->get_NotesSlideManager()->get_NotesSlide();
-if (notesSlide != nullptr)
-{
-	auto headerFooterManager = notesSlide->get_HeaderFooterManager();
-	if (!headerFooterManager->get_IsHeaderVisible())
-	{
-		// Header-Platzhalter dieser Notizfolie sichtbar machen
-		headerFooterManager->SetHeaderVisibility(true);
-	}
-
-	if (!headerFooterManager->get_IsFooterVisible())
-	{
-		// Footer-Platzhalter dieser Notizfolie sichtbar machen
-		headerFooterManager->SetFooterVisibility(true);
-	}
-
-	if (!headerFooterManager->get_IsSlideNumberVisible())
-	{
-		// Foliennummer-Platzhalter dieser Notizfolie sichtbar machen
-		headerFooterManager->SetSlideNumberVisibility(true);
-	}
-	
-	if (!headerFooterManager->get_IsDateTimeVisible())
-	{
-		// Datum‑Uhrzeit-Platzhalter dieser Notizfolie sichtbar machen
-		headerFooterManager->SetDateTimeVisibility(true);
-	}
-	
-	// Text für Header-Platzhalter der Notizfolie festlegen
-	headerFooterManager->SetHeaderText(u"New header text");
-	// Text für Footer-Platzhalter der Notizfolie festlegen
-	headerFooterManager->SetFooterText(u"New footer text");
-	// Text für Datum‑Uhrzeit-Platzhalter der Notizfolie festlegen
-	headerFooterManager->SetDateTimeText(u"New date and time text");
-}
-
-presentation->Save(u"testresult.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation_with_notes_master_footers.pptx", SaveFormat::Pptx);
 ```
 
+Die Methode [`IMasterNotesSlideManager::get_MasterNotesSlide`](https://reference.aspose.com/slides/de/cpp/aspose.slides/imasternotesslidemanager/get_masternotesslide/) liefert `nullptr`, wenn die Präsentation keinen Notizen‑Master enthält.
+
+## **Notizen‑Master‑Einstellungen auf untergeordnete Notizfolien anwenden**
+
+Ein Notizen‑Master kann Kopf‑ und Fußzeileneinstellungen sowohl auf sich selbst als auch auf alle abhängigen Notizfolien übertragen. Verwenden Sie die dafür vorgesehenen Propagations‑Methoden der [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/de/cpp/aspose.slides/imasternotesslideheaderfootermanager/), wenn dieselben Einstellungen über die gesamte Notiz‑Hierarchie hinweg gelten sollen.
+
+Beispielsweise aktualisieren [`SetHeaderAndChildHeadersText`](https://reference.aspose.com/slides/de/cpp/aspose.slides/imasternotesslideheaderfootermanager/setheaderandchildheaderstext/) und [`SetHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/de/cpp/aspose.slides/imasternotesslideheaderfootermanager/setheaderandchildheadersvisibility/) die Kopfzeile des Notizen‑Masters und aller untergeordneten Kopfzeilen. Entsprechende Methoden stehen für Fußzeilen, Datum/Uhrzeit und Foliennummern bereit.
+
+```cpp
+#include <DOM/IMasterNotesSlide.h>
+#include <DOM/IMasterNotesSlideHeaderFooterManager.h>
+#include <DOM/IMasterNotesSlideManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto masterNotesSlide = presentation->get_MasterNotesSlideManager()->get_MasterNotesSlide();
+
+if (masterNotesSlide != nullptr)
+{
+    auto headerFooterManager = masterNotesSlide->get_HeaderFooterManager();
+
+    headerFooterManager->SetHeaderAndChildHeadersText(u"Notes header");
+    headerFooterManager->SetHeaderAndChildHeadersVisibility(true);
+
+    headerFooterManager->SetFooterAndChildFootersText(u"Notes footer");
+    headerFooterManager->SetFooterAndChildFootersVisibility(true);
+
+    headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
+    headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
+
+    headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
+}
+
+presentation->Save(u"presentation_with_child_notes_footers.pptx", SaveFormat::Pptx);
+```
+
+Die oben genannten Propagations‑Methoden sind [`SetFooterAndChildFootersText`](https://reference.aspose.com/slides/de/cpp/aspose.slides/imasternotesslideheaderfootermanager/setfooterandchildfooterstext/), [`SetFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/de/cpp/aspose.slides/imasternotesslideheaderfootermanager/setfooterandchildfootersvisibility/), [`SetDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/de/cpp/aspose.slides/imasternotesslideheaderfootermanager/setdatetimeandchilddatetimestext/), [`SetDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/de/cpp/aspose.slides/imasternotesslideheaderfootermanager/setdatetimeandchilddatetimesvisibility/) sowie [`SetSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/de/cpp/aspose.slides/imasternotesslideheaderfootermanager/setslidenumberandchildslidenumbersvisibility/).
+
+## **Kopf‑ und Fußzeilen auf einer einzelnen Notizfolie festlegen**
+
+Eine Notizfolie ist einer bestimmten regulären Folie zugeordnet. Verwenden Sie deren [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/de/cpp/aspose.slides/inotesslideheaderfootermanager/)‑Schnittstelle, wenn Sie ausschließlich diese Notizseite anpassen möchten.
+
+Die Methode [`INotesSlideManager::AddNotesSlide`](https://reference.aspose.com/slides/de/cpp/aspose.slides/inotesslidemanager/addnotesslide/) liefert die Notizfolie zur aktuellen Folie und erstellt sie, falls sie noch nicht existiert. Das folgende Beispiel konfiguriert die Notizseite, die mit der ersten Präsentationsfolie verknüpft ist:
+
+```cpp
+#include <DOM/INotesSlide.h>
+#include <DOM/INotesSlideHeaderFooterManager.h>
+#include <DOM/INotesSlideManager.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto slide = presentation->get_Slide(0);
+auto notesSlide = slide->get_NotesSlideManager()->AddNotesSlide();
+auto headerFooterManager = notesSlide->get_HeaderFooterManager();
+
+headerFooterManager->SetHeaderText(u"Header for the first notes page");
+headerFooterManager->SetHeaderVisibility(true);
+
+headerFooterManager->SetFooterText(u"Footer for the first notes page");
+headerFooterManager->SetFooterVisibility(true);
+
+headerFooterManager->SetDateTimeText(u"Date and time text");
+headerFooterManager->SetDateTimeVisibility(true);
+
+headerFooterManager->SetSlideNumberVisibility(true);
+
+presentation->Save(u"presentation_with_custom_notes_footers.pptx", SaveFormat::Pptx);
+```
+
+Wenn Sie zuerst Einstellungen vom Notizen‑Master propagieren und anschließend eine einzelne Notizfolie ändern, ermöglichen die nachträglichen Folien‑spezifischen Einstellungen eine unabhängige Anpassung dieser Notizseite.
+
+## **Kopf‑ und Fußzeilen im Handzettel‑Master festlegen**
+
+Handzettel‑Seiten verwenden den Handzettel‑Master für ihre Kopf‑, Fußzeilen‑, Datum/Uhrzeit‑ und Seiten‑Nummer‑Platzhalter. Im Gegensatz zu Notizseiten werden Handzettel‑Einstellungen über den Handzettel‑Master verwaltet, nicht über einzelne Handzettel‑Folien.
+
+Verwenden Sie [`IMasterHandoutSlideManager::get_MasterHandoutSlide`](https://reference.aspose.com/slides/de/cpp/aspose.slides/imasterhandoutslidemanager/get_masterhandoutslide/), um auf den Handzettel‑Master zuzugreifen. Falls er nicht vorhanden ist, rufen Sie [`IMasterHandoutSlideManager::SetDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/de/cpp/aspose.slides/imasterhandoutslidemanager/setdefaultmasterhandoutslide/) auf, um den Standard‑Handzettel‑Master zu erzeugen.
+
+```cpp
+#include <DOM/IMasterHandoutSlide.h>
+#include <DOM/IMasterHandoutSlideHeaderFooterManager.h>
+#include <DOM/IMasterHandoutSlideManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto masterHandoutSlideManager = presentation->get_MasterHandoutSlideManager();
+auto masterHandoutSlide = masterHandoutSlideManager->get_MasterHandoutSlide();
+
+if (masterHandoutSlide == nullptr)
+{
+    masterHandoutSlide = masterHandoutSlideManager->SetDefaultMasterHandoutSlide();
+}
+
+if (masterHandoutSlide != nullptr)
+{
+    auto headerFooterManager = masterHandoutSlide->get_HeaderFooterManager();
+
+    headerFooterManager->SetHeaderText(u"Handout header");
+    headerFooterManager->SetHeaderVisibility(true);
+
+    headerFooterManager->SetFooterText(u"Handout footer");
+    headerFooterManager->SetFooterVisibility(true);
+
+    headerFooterManager->SetDateTimeText(u"Date and time text");
+    headerFooterManager->SetDateTimeVisibility(true);
+
+    headerFooterManager->SetSlideNumberVisibility(true);
+}
+
+presentation->Save(u"presentation_with_handout_footers.pptx", SaveFormat::Pptx);
+```
+
+## **Geltungsbereich und Vererbung verstehen**
+
+Wählen Sie den Header/Footer‑Manager, der dem gewünschten Geltungsbereich entspricht:
+
+- [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/de/cpp/aspose.slides/islideheaderfootermanager/) ändert Fußzeile, Datum/Uhrzeit und Folien‑Nummer‑Einstellungen für **eine** normale Folie.
+- [`ILayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/de/cpp/aspose.slides/ilayoutslideheaderfootermanager/) steuert eine Layout‑Folie und kann unterstützte Einstellungen auf abhängige Folien übertragen.
+- [`IMasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/de/cpp/aspose.slides/imasterslideheaderfootermanager/) steuert einen regulären Folien‑Master und kann unterstützte Einstellungen auf abhängige Folien übertragen.
+- [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/de/cpp/aspose.slides/imasternotesslideheaderfootermanager/) steuert den Notizen‑Master und kann Einstellungen auf **alle** abhängigen Notizfolien übertragen.
+- [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/de/cpp/aspose.slides/inotesslideheaderfootermanager/) ändert **eine** Notizfolie und unterstützt neben Fußzeile und Datum/Uhrzeit auch einen Kopfzeilen‑Platzhalter.
+- [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/de/cpp/aspose.slides/imasterhandoutslideheaderfootermanager/) ändert den Handzettel‑Master und unterstützt alle vier Platzhalter‑Typen.
+
+Verwenden Sie die Propagation von einem Master‑ oder Layout‑Manager, wenn dieselbe Einstellung in der gesamten Hierarchie gelten soll. Nutzen Sie einen einzelnen Folien‑ bzw. Notiz‑Slide‑Manager, wenn eine lokale Einstellung nur für **eine** Seite erforderlich ist.
 
 ## **FAQ**
 
-**Kann ich einer normalen Folie einen „Kopfzeile“ hinzufügen?**
+**Kann ich einer normalen Folie eine Kopfzeile hinzufügen?**
 
-In PowerPoint gibt es „Kopfzeilen“ nur für Notizen und Handouts; auf normalen Folien sind die unterstützten Elemente Fußzeile, Datum/Uhrzeit und Foliennummer. In Aspose.Slides gilt dieselbe Einschränkung: Kopfzeile nur für Notizen/Handouts und auf Folien – Fußzeile/DatumUhrzeit/Foliennummer.
+Nein. PowerPoint definiert keinen Kopfzeilen‑Platzhalter für normale Folien. Auf normalen Folien verwenden Sie die Platzhalter für Fußzeile, Datum/Uhrzeit und Folien‑Nummer. Kopfzeilen‑Platzhalter stehen nur auf Notizseiten und Handzetteln zur Verfügung.
 
-**Was, wenn das Layout keinen Fußzeilenbereich enthält – kann ich die Sichtbarkeit „aktivieren“?**
+**Was tun, wenn ein Fußzeilen‑, Datum/Uhrzeit‑ oder Folien‑Nummer‑Platzhalter nicht sichtbar ist?**
 
-Ja. Prüfen Sie die Sichtbarkeit über den Kopf‑/Fußzeilen‑Manager und aktivieren Sie sie bei Bedarf. Diese API‑Indikatoren und -Methoden sind für Fälle vorgesehen, in denen der Platzhalter fehlt oder ausgeblendet ist.
+Verwenden Sie den entsprechenden Header/Footer‑Manager, um die Sichtbarkeit zu prüfen und bei Bedarf zu aktivieren. Zum Beispiel gibt [`get_IsFooterVisible`](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibaseslideheaderfootermanager/get_isfootervisible/) an, ob ein Fußzeilen‑Platzhalter vorhanden ist, und [`SetFooterVisibility`](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibaseslideheaderfootermanager/setfootervisibility/) ändert seine Sichtbarkeit.
 
-**Wie kann ich die Foliennummerierung ab einem anderen Wert als 1 beginnen lassen?**
+**Wie starte ich die Folien‑Nummerierung ab einem anderen Wert als 1?**
 
-Setzen Sie die [erste Foliennummer](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/set_firstslidenumber/) der Präsentation; danach wird die gesamte Nummerierung neu berechnet. Zum Beispiel können Sie bei 0 oder 10 beginnen und die Nummer auf der Titelfolie ausblenden.
+Verwenden Sie [`Presentation::set_FirstSlideNumber`](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/set_firstslidenumber/), um die erste Folien‑Nummer festzulegen. Die Folien‑Nummer‑Platzhalter verwenden dann die aktualisierte Numerierungs‑Sequenz.
 
-**Was passiert mit Kopf‑ und Fußzeilen beim Exportieren zu PDF/Bildern/HTML?**
+**Was passiert mit Kopf‑ und Fußzeilen beim Exportieren nach PDF, Bildern oder HTML?**
 
-Sie werden als reguläre Textelemente der Präsentation gerendert. Das heißt, wenn die Elemente auf Folien/Notizseiten sichtbar sind, erscheinen sie auch im Ausgabedokument zusammen mit dem übrigen Inhalt.
+Sichtbare Kopf‑ und Fußzeilen‑Elemente werden zusammen mit dem restlichen Präsentationsinhalt im Ausgabemedium gerendert. Ihr Aussehen hängt vom zu exportierenden Seitentyp und den jeweiligen Platzhalter‑Sichtbarkeitseinstellungen ab.

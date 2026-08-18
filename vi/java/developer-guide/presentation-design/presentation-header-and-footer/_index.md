@@ -1,5 +1,5 @@
 ---
-title: Quản lý Tiêu đề và Chân trang Bản trình chiếu trong Java
+title: Quản lý Tiêu đề và Chân trang trong Java
 linktitle: Tiêu đề và Chân trang
 type: docs
 weight: 140
@@ -11,137 +11,236 @@ keywords:
 - văn bản chân trang
 - đặt tiêu đề
 - đặt chân trang
-- tài liệu phát tay
+- tài liệu phát
 - ghi chú
 - PowerPoint
 - OpenDocument
 - bản trình chiếu
 - Java
 - Aspose.Slides
-description: "Sử dụng Aspose.Slides cho Java để thêm và tùy chỉnh tiêu đề và chân trang trong các bản trình chiếu PowerPoint và OpenDocument, mang lại giao diện chuyên nghiệp."
+description: "Tìm hiểu cách quản lý các trình giữ chỗ chân trang, ngày‑giờ, số slide và tiêu đề trên các slide, trang ghi chú và tài liệu phát bằng Aspose.Slides cho Java."
 ---
 ## **Tổng quan**
 
-Aspose.Slides cho phép bạn quản lý các cài đặt tiêu đề và chân trang trong bản trình chiếu PowerPoint. Tiêu đề và chân trang được xử lý ở cấp độ master của bản trình chiếu và API cung cấp các phương thức để đặt văn bản chân trang, thay đổi hiển thị chân trang và cập nhật văn bản tiêu đề trên các slide ghi chú master.
+PowerPoint sử dụng các trình giữ chỗ tiêu đề và chân trang khác nhau tùy theo loại trang. Aspose.Slides cho Java cho phép bạn kiểm soát văn bản và khả năng hiển thị của các trình giữ chỗ này thông qua các giao diện quản lý tiêu đề/chân trang.
 
-Bạn cũng có thể quản lý tiêu đề và chân trang cho các slide tài liệu phát tay và ghi chú. Điều này bao gồm việc thay đổi hiển thị và văn bản của các placeholder tiêu đề, chân trang, số slide và ngày‑giờ cho notes master, tất cả các slide ghi chú con, hoặc một slide ghi chú riêng lẻ.
+Các trình giữ chỗ khả dụng phụ thuộc vào phạm vi:
 
-## **Quản lý Tiêu đề và Chân trang trong Bản trình chiếu**
-Ghi chú của một số slide cụ thể có thể được xóa như được minh họa trong ví dụ dưới đây:
+| Phạm vi | Tiêu đề | Chân trang | Ngày/giờ | Số slide/trang |
+|---|---|---|---|---|
+| Slide thường | Không | Có | Có | Có |
+| Mẫu ghi chú | Có | Có | Có | Có |
+| Slide ghi chú | Có | Có | Có | Có |
+| Mẫu tài liệu phát | Có | Có | Có | Có |
+
+Slide trình chiếu thường không có trình giữ chỗ tiêu đề. Tiêu đề chỉ có trên các trang ghi chú và tài liệu phát. Đối với slide thường, hãy sử dụng các trình giữ chỗ chân trang, ngày/giờ và số slide.
+
+Phạm vi của một thay đổi phụ thuộc vào trình quản lý bạn sử dụng. Giao diện [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islideheaderfootermanager/) điều khiển một slide thường. Giao diện [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/inotesslideheaderfootermanager/) điều khiển một slide ghi chú. Các trình quản lý master và layout cũng có thể truyền cài đặt tới các slide phụ thuộc, trong khi giao diện [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterhandoutslideheaderfootermanager/) điều khiển master tài liệu phát.
+
+## **Đặt Chân trang, Ngày/Giờ và Số slide trên Slide Thường**
+
+Đối với slide thường, quy trình cơ bản là truy cập trình quản lý tiêu đề/chân trang của mỗi slide, đặt văn bản chân trang và ngày/giờ, kích hoạt các trình giữ chỗ cần thiết, và lưu bản trình chiếu. Số slide được tạo tự động bởi bản trình chiếu, vì vậy bạn chỉ cần kiểm soát khả năng hiển thị của chúng.
+
+Sử dụng [`setFooterText`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/baseslideheaderfootermanager/#setFooterText-java.lang.String-) và [`setDateTimeText`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/baseslideheaderfootermanager/#setDateTimeText-java.lang.String-) để đặt văn bản, và sử dụng [`setFooterVisibility`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/baseslideheaderfootermanager/#setFooterVisibility-boolean-), [`setDateTimeVisibility`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/baseslideheaderfootermanager/#setDateTimeVisibility-boolean-), và [`setSlideNumberVisibility`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/baseslideheaderfootermanager/#setSlideNumberVisibility-boolean-) để hiển thị các trình giữ chỗ tương ứng.
+
+Ví dụ toàn diện dưới đây áp dụng cùng một chân trang, văn bản ngày/giờ và khả năng hiển thị số slide cho tất cả các slide thường:
 
 ```java
-// Tải bản trình chiếu
-Presentation pres = new Presentation("headerTest.pptx");
-try {
-    // Đặt chân trang
-    pres.getHeaderFooterManager().setAllFootersText("My Footer text");
-    pres.getHeaderFooterManager().setAllFootersVisibility(true);
+import com.aspose.slides.*;
 
-    // Truy cập và cập nhật tiêu đề
-    IMasterNotesSlide masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (null != masterNotesSlide)
-    {
-        updateHeaderFooterText(masterNotesSlide);
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideHeaderFooterManager headerFooterManager = slide.getHeaderFooterManager();
+
+        headerFooterManager.setFooterText("Company Confidential");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
 
-    // Lưu bản trình chiếu
-    pres.save("HeaderFooterJava.pptx", SaveFormat.Pptx);
+    presentation.save("presentation_with_slide_footers.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
-}
-```
-```java
-// Phương thức để đặt văn bản Tiêu đề/Chân trang
-public static void updateHeaderFooterText(IBaseSlide master)
-{
-    for (IShape shape : master.getShapes())
-    {
-        if (shape.getPlaceholder() != null)
-        {
-            if (shape.getPlaceholder().getType() == PlaceholderType.Header)
-            {
-                ((IAutoShape)shape).getTextFrame().setText("HI there new header");
-            }
-        }
-    }
+    presentation.dispose();
 }
 ```
 
-## **Quản lý Tiêu đề và Chân trang trên Slide Tài liệu Phát tay và Ghi chú**
-Aspose.Slides for Java hỗ trợ Tiêu đề và Chân trang trong slide Tài liệu phát tay và ghi chú. Vui lòng thực hiện các bước sau:
+Nếu bạn chỉ cần cập nhật một slide, truy cập slide đó trực tiếp qua phương thức [`getSlides`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#getSlides--) thay vì duyệt toàn bộ bộ sưu tập.
 
-- Tải một [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) có chứa video.
-- Thay đổi cài đặt Tiêu đề và Chân trang cho notes master và tất cả các slide ghi chú.
-- Đặt các placeholder Chân trang của master notes slide và tất cả các placeholder con hiển thị.
-- Đặt các placeholder Ngày và Giờ của master notes slide và tất cả các placeholder con hiển thị.
-- Thay đổi cài đặt Tiêu đề và Chân trang chỉ cho slide ghi chú đầu tiên.
-- Đặt placeholder Tiêu đề của slide ghi chú hiển thị.
-- Đặt văn bản cho placeholder Tiêu đề của slide ghi chú.
-- Đặt văn bản cho placeholder Ngày‑giờ của slide ghi chú.
-- Ghi file bản trình chiếu đã sửa đổi.
+## **Đặt Tiêu đề và Chân trang trên Mẫu Ghi chú**
 
-Đoạn mã mẫu được cung cấp trong ví dụ dưới đây.
+Mẫu ghi chú định nghĩa định dạng chung và hành vi của các trình giữ chỗ cho các trang ghi chú. Sử dụng giao diện [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasternotesslideheaderfootermanager/) khi bạn muốn thay đổi chỉ riêng mẫu ghi chú.
+
+Ví dụ sau đặt tiêu đề, chân trang và văn bản ngày/giờ trên mẫu ghi chú và làm cho tất cả các trình giữ chỗ được hỗ trợ hiển thị trên mẫu đó:
 
 ```java
-Presentation pres = new Presentation("presentation.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    // Thay đổi cài đặt Tiêu đề và Chân trang cho master ghi chú và tất cả các slide ghi chú
-    IMasterNotesSlide masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (masterNotesSlide != null)
-    {
+    IMasterNotesSlide masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide != null) {
         IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.getHeaderFooterManager();
 
-        headerFooterManager.setHeaderAndChildHeadersVisibility(true); // hiển thị master notes slide và tất cả các placeholder Footer con
-        headerFooterManager.setFooterAndChildFootersVisibility(true); // hiển thị master notes slide và tất cả các placeholder Header con
-        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true); // hiển thị master notes slide và tất cả các placeholder SlideNumber con
-        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true); // hiển thị master notes slide và tất cả các placeholder Ngày và giờ con
+        headerFooterManager.setHeaderText("Notes header");
+        headerFooterManager.setHeaderVisibility(true);
 
-        headerFooterManager.setHeaderAndChildHeadersText("Header text"); // đặt văn bản cho master notes slide và tất cả các placeholder Header con
-        headerFooterManager.setFooterAndChildFootersText("Footer text"); // đặt văn bản cho master notes slide và tất cả các placeholder Footer con
-        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text"); // đặt văn bản cho master notes slide và tất cả các placeholder Ngày và giờ con
+        headerFooterManager.setFooterText("Notes footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
 
-    // Thay đổi cài đặt Tiêu đề và Chân trang chỉ cho slide ghi chú đầu tiên
-    INotesSlide notesSlide = pres.getSlides().get_Item(0).getNotesSlideManager().getNotesSlide();
-    if (notesSlide != null)
-    {
-        INotesSlideHeaderFooterManager headerFooterManager = notesSlide.getHeaderFooterManager();
-        if (!headerFooterManager.isHeaderVisible())
-            headerFooterManager.setHeaderVisibility(true); // hiển thị placeholder Header của slide ghi chú này
-
-        if (!headerFooterManager.isFooterVisible())
-            headerFooterManager.setFooterVisibility(true); // hiển thị placeholder Footer của slide ghi chú này
-
-        if (!headerFooterManager.isSlideNumberVisible())
-            headerFooterManager.setSlideNumberVisibility(true); // hiển thị placeholder SlideNumber của slide ghi chú này
-
-        if (!headerFooterManager.isDateTimeVisible())
-            headerFooterManager.setDateTimeVisibility(true); // hiển thị placeholder Ngày-giờ của slide ghi chú này
-
-        headerFooterManager.setHeaderText("New header text"); // đặt văn bản cho placeholder Header của slide ghi chú
-        headerFooterManager.setFooterText("New footer text"); // đặt văn bản cho placeholder Footer của slide ghi chú
-        headerFooterManager.setDateTimeText("New date and time text"); // đặt văn bản cho placeholder Ngày-giờ của slide ghi chú
-    }
-    pres.save("testresult.pptx",SaveFormat.Pptx);
+    presentation.save("presentation_with_notes_master_footers.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Câu hỏi thường gặp**
+Phương thức [`getMasterNotesSlide`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasternotesslidemanager/#getMasterNotesSlide--) trả về `null` khi bản trình chiếu không chứa mẫu ghi chú.
 
-**Tôi có thể thêm “header” vào các slide thường không?**
+## **Áp dụng Cài đặt Mẫu Ghi chú cho Các Slide Ghi chú Con**
 
-Trong PowerPoint, “Header” chỉ tồn tại cho ghi chú và tài liệu phát tay; trên các slide thường, các thành phần được hỗ trợ là chân trang, ngày/giờ và số slide. Trong Aspose.Slides, điều này tương tự: header chỉ dành cho Notes/Handout, và trên slide—Footer/DateTime/SlideNumber.
+Mẫu ghi chú có thể áp dụng cài đặt tiêu đề và chân trang cho chính nó và cho tất cả các slide ghi chú phụ thuộc. Sử dụng các phương thức truyền đạt chuyên biệt trên [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasternotesslideheaderfootermanager/) khi cùng một cài đặt cần được áp dụng trên toàn bộ cấu trúc ghi chú.
 
-**Nếu bố cục không chứa khu vực chân trang — tôi có thể “bật” hiển thị của nó không?**
+Ví dụ, [`setHeaderAndChildHeadersText`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setHeaderAndChildHeadersText-java.lang.String-) và [`setHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setHeaderAndChildHeadersVisibility-boolean-) cập nhật tiêu đề mẫu ghi chú và mọi tiêu đề con. Các phương thức tương đương cũng có sẵn cho chân trang, ngày/giờ và số slide.
 
-Có. Kiểm tra trạng thái hiển thị thông qua trình quản lý header/footer và bật nó nếu cần. Các chỉ báo và phương thức API này được thiết kế cho các trường hợp placeholder bị thiếu hoặc ẩn.
+```java
+import com.aspose.slides.*;
 
-**Làm thế nào để đặt số slide bắt đầu từ giá trị khác 1?**
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterNotesSlide masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
 
-Đặt [số slide đầu tiên](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#setFirstSlideNumber-int-) của bản trình chiếu; sau đó, toàn bộ đánh số sẽ được tính lại. Ví dụ, bạn có thể bắt đầu từ 0 hoặc 10, và ẩn số trên slide tiêu đề.
+    if (masterNotesSlide != null) {
+        IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.getHeaderFooterManager();
 
-**Điều gì xảy ra với tiêu đề/chân trang khi xuất ra PDF/hình ảnh/HTML?**
+        headerFooterManager.setHeaderAndChildHeadersText("Notes header");
+        headerFooterManager.setHeaderAndChildHeadersVisibility(true);
 
-Chúng được hiển thị như các yếu tố văn bản thông thường của bản trình chiếu. Nghĩa là, nếu các yếu tố này hiển thị trên các slide/trang ghi chú, chúng cũng sẽ xuất hiện trong định dạng đầu ra cùng với các nội dung còn lại.
+        headerFooterManager.setFooterAndChildFootersText("Notes footer");
+        headerFooterManager.setFooterAndChildFootersVisibility(true);
+
+        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
+        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
+
+        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
+    }
+
+    presentation.save("presentation_with_child_notes_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Các phương thức truyền đạt được sử dụng ở trên là [`setFooterAndChildFootersText`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setFooterAndChildFootersText-java.lang.String-), [`setFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setFooterAndChildFootersVisibility-boolean-), [`setDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesText-java.lang.String-), [`setDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesVisibility-boolean-), và [`setSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setSlideNumberAndChildSlideNumbersVisibility-boolean-).
+
+## **Đặt Tiêu đề và Chân trang trên Một Slide Ghi chú Cá nhân**
+
+Một slide ghi chú thuộc về một slide thường cụ thể. Sử dụng giao diện [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/inotesslideheaderfootermanager/) khi bạn muốn tùy chỉnh chỉ riêng trang ghi chú đó.
+
+Phương thức [`addNotesSlide`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/inotesslidemanager/#addNotesSlide--) trả về slide ghi chú cho slide hiện tại và tạo mới nếu chưa tồn tại. Ví dụ sau cấu hình trang ghi chú liên kết với slide trình chiếu đầu tiên:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    INotesSlide notesSlide = slide.getNotesSlideManager().addNotesSlide();
+    INotesSlideHeaderFooterManager headerFooterManager = notesSlide.getHeaderFooterManager();
+
+    headerFooterManager.setHeaderText("Header for the first notes page");
+    headerFooterManager.setHeaderVisibility(true);
+
+    headerFooterManager.setFooterText("Footer for the first notes page");
+    headerFooterManager.setFooterVisibility(true);
+
+    headerFooterManager.setDateTimeText("Date and time text");
+    headerFooterManager.setDateTimeVisibility(true);
+
+    headerFooterManager.setSlideNumberVisibility(true);
+
+    presentation.save("presentation_with_custom_notes_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Nếu bạn đầu tiên truyền cài đặt từ mẫu ghi chú rồi sau đó thay đổi một slide ghi chú cá nhân, các cài đặt per‑slide sau này cho phép bạn tùy chỉnh trang ghi chú đó một cách độc lập.
+
+## **Đặt Tiêu đề và Chân trang trên Mẫu Tài liệu phát**
+
+Các trang tài liệu phát sử dụng master tài liệu phát cho các trình giữ chỗ tiêu đề, chân trang, ngày/giờ và số trang. Khác với các trang ghi chú, cài đặt tài liệu phát được quản lý thông qua master tài liệu phát thay vì qua các slide tài liệu phát riêng lẻ.
+
+Sử dụng phương thức [`getMasterHandoutSlide`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterhandoutslidemanager/#getMasterHandoutSlide--) để truy cập master tài liệu phát. Nếu không tồn tại, gọi [`setDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterhandoutslidemanager/#setDefaultMasterHandoutSlide--) để tạo master tài liệu phát mặc định.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterHandoutSlide masterHandoutSlide = presentation.getMasterHandoutSlideManager().getMasterHandoutSlide();
+
+    if (masterHandoutSlide == null) {
+        masterHandoutSlide = presentation.getMasterHandoutSlideManager().setDefaultMasterHandoutSlide();
+    }
+
+    if (masterHandoutSlide != null) {
+        IMasterHandoutSlideHeaderFooterManager headerFooterManager = masterHandoutSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Handout header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Handout footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
+    }
+
+    presentation.save("presentation_with_handout_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Hiểu Phạm vi và Kế thừa**
+
+Chọn trình quản lý tiêu đề/chân trang phù hợp với phạm vi bạn muốn thay đổi:
+
+- [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islideheaderfootermanager/) thay đổi cài đặt chân trang, ngày/giờ và số slide cho một slide thường.
+- [`ILayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ilayoutslideheaderfootermanager/) điều khiển một slide layout và có thể truyền cài đặt hỗ trợ tới các slide phụ thuộc.
+- [`IMasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterslideheaderfootermanager/) điều khiển một master slide thường và có thể truyền cài đặt hỗ trợ tới các slide phụ thuộc.
+- [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasternotesslideheaderfootermanager/) điều khiển master ghi chú và có thể truyền cài đặt tới tất cả các slide ghi chú phụ thuộc.
+- [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/inotesslideheaderfootermanager/) thay đổi một slide ghi chú và hỗ trợ một trình giữ chỗ tiêu đề bên cạnh chân trang, ngày/giờ và số slide.
+- [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterhandoutslideheaderfootermanager/) thay đổi master tài liệu phát và hỗ trợ cả bốn loại trình giữ chỗ.
+
+Sử dụng truyền đạt từ một master hoặc layout khi cùng một cài đặt cần áp dụng trên toàn bộ hierarchy của nó. Sử dụng trình quản lý slide cá nhân hoặc notes‑slide khi bạn cần một cài đặt cục bộ cho một trang duy nhất.
+
+## **FAQ**
+
+**Tôi có thể thêm tiêu đề vào slide thường không?**
+
+Không. PowerPoint không định nghĩa trình giữ chỗ tiêu đề cho các slide thường. Trên các slide thường, hãy sử dụng các trình giữ chỗ chân trang, ngày/giờ và số slide. Trình giữ chỗ tiêu đề chỉ có trên các trang ghi chú và tài liệu phát.
+
+**Nếu trình giữ chỗ chân trang, ngày/giờ hoặc số slide không hiển thị thì sao?**
+
+Sử dụng trình quản lý tiêu đề/chân trang tương ứng để kiểm tra khả năng hiển thị và bật nó khi cần. Ví dụ, [`isFooterVisible`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/baseslideheaderfootermanager/#isFooterVisible--) báo cáo liệu một trình giữ chỗ chân trang có tồn tại hay không, và [`setFooterVisibility`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/baseslideheaderfootermanager/#setFooterVisibility-boolean-) thay đổi khả năng hiển thị của nó.
+
+**Làm thế nào để bắt đầu đánh số slide từ giá trị khác 1?**
+
+Gọi phương thức [`setFirstSlideNumber`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#setFirstSlideNumber-int-) của bản trình chiếu. Các trình giữ chỗ số slide sau đó sẽ sử dụng chuỗi đánh số đã cập nhật.
+
+**Điều gì xảy ra với tiêu đề và chân trang khi xuất sang PDF, hình ảnh hoặc HTML?**
+
+Các yếu tố tiêu đề và chân trang hiển thị sẽ được vẽ cùng với phần còn lại của nội dung trình chiếu trong định dạng đầu ra. Hiển thị của chúng phụ thuộc vào loại trang đang được xuất và cài đặt hiển thị trình giữ chỗ tương ứng.

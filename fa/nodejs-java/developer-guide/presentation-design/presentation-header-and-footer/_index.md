@@ -1,6 +1,6 @@
 ---
-title: مدیریت سرصفحه‌ها و پاورقی‌های ارائه در جاوااسکریپت
-linktitle: سرصفحه & پاورقی
+title: مدیریت سرصفحه‌ها و پاورقی‌های ارائه در JavaScript
+linktitle: سرصفحه و پاورقی
 type: docs
 weight: 140
 url: /fa/nodejs-java/presentation-header-and-footer/
@@ -11,133 +11,237 @@ keywords:
 - متن پاورقی
 - تنظیم سرصفحه
 - تنظیم پاورقی
-- جزوه
-- یادداشت‌ها
+- سند‑پیش‌نمایش
+- یادداشت
 - PowerPoint
 - OpenDocument
 - ارائه
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "از JavaScript و Aspose.Slides برای Node.js برای افزودن و سفارشی‌سازی سرصفحه‌ها و پاورقی‌ها در ارائه‌های PowerPoint و OpenDocument جهت داشتن ظاهر حرفه‌ای استفاده کنید."
+description: "یاد بگیرید چگونه مکان‌نگهدارهای پاورقی، تاریخ‑زمان، شماره اسلاید و سرصفحه را در اسلایدها، صفحات یادداشت و سند‑پیش‌نمایش با Aspose.Slides برای Node.js از طریق Java مدیریت کنید."
 ---
-## **بررسی کلی**
+## **نمایش کلی**
 
-Aspose.Slides به شما امکان مدیریت تنظیمات سرصفحه و پاورقی را در ارائه‌های PowerPoint می‌دهد. سرصفحه‌ها و پاورقی‌ها در سطح مستر ارائه کنترل می‌شوند و API روش‌هایی برای تنظیم متن پاورقی، تغییر قابلیت مشاهده پاورقی و به‌روزرسانی متن سرصفحه در اسلایدهای یادداشت مستر فراهم می‌کند.
+PowerPoint بسته به نوع صفحه از مکان‌نگهدارهای سرصفحه و پاورقی متفاوتی استفاده می‌کند. Aspose.Slides برای Node.js از طریق Java به شما امکان می‌دهد متن و قابلیت مشاهده این مکان‌نگهدارها را از طریق کلاس‌های مدیریت سرصفحه/پاورقی کنترل کنید.
 
-همچنین می‌توانید سرصفحه و پاورقی‌های اسلایدهای جزوه و یادداشت را مدیریت کنید. این شامل تغییر قابلیت مشاهده و متن جای‌دارهای سرصفحه، پاورقی، شماره اسلاید و تاریخ‑زمان برای مستر یادداشت‌ها، تمام اسلایدهای فرزند یادداشت یا یک اسلاید یادداشت منفرد می‌شود.
+مکان‌نگهدارهای موجود بسته به دامنه متفاوت هستند:
 
-## **مدیریت سرصفحه و پاورقی در ارائه**
+| دامنه | سرصفحه | پاورقی | تاریخ/زمان | شماره اسلاید/صفحه |
+|---|---|---|---|---|
+| اسلاید معمولی | خیر | بله | بله | بله |
+| یادداشت‑مستری | بله | بله | بله | بله |
+| اسلاید یادداشت | بله | بله | بله | بله |
+| سند‑پیش‌نمایش مستری | بله | بله | بله | بله |
 
-یادداشت‌های برخی اسلایدهای خاص می‌توانند همان‌طور که در مثال زیر نشان داده شده است حذف شوند:
+یک اسلاید ارائهٔ معمولی سرصفحه ندارد. سرصفحه‌ها فقط در صفحات یادداشت و سند‑پیش‌نمایش موجود هستند. برای اسلایدهای معمولی از مکان‌نگهدارهای پاورقی، تاریخ/زمان و شمارهٔ اسلاید استفاده کنید.
+
+دامنهٔ تغییر بستگی به مدیری دارد که استفاده می‌کنید. کلاس [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slideheaderfootermanager/) یک اسلاید معمولی را کنترل می‌کند. کلاس [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/notesslideheaderfootermanager/) یک اسلاید یادداشت را کنترل می‌کند. مدیران مستر و طرح‌بند نیز می‌توانند تنظیمات را به اسلایدهای وابستهٔ خود propagate کنند، در حالی که کلاس [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterhandoutslideheaderfootermanager/) مستر سند‑پیش‌نمایش را کنترل می‌کند.
+
+## **تنظیم پاورقی، تاریخ/زمان و شمارهٔ اسلاید در اسلایدهای معمولی**
+
+برای اسلایدهای معمولی، جریان کار پایه این است که به هر اسلاید دسترسی پیدا کنید، مدیر سرصفحه/پاورقی آن را فراخوانی کنید، متن پاورقی و تاریخ/زمان را تنظیم کنید، مکان‌نگهدارهای مورد نیاز را فعال کنید و ارائه را ذخیره کنید. شمارهٔ اسلایدها توسط ارائه تولید می‌شوند، بنابراین تنها کافی است قابلیت مشاهده آن‌ها را کنترل کنید.
+
+از [`setFooterText`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterText) و [`setDateTimeText`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setDateTimeText) برای تنظیم متن استفاده کنید و از [`setFooterVisibility`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterVisibility)، [`setDateTimeVisibility`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setDateTimeVisibility) و [`setSlideNumberVisibility`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setSlideNumberVisibility) برای نمایش مکان‌نگهدارهای مربوطه بهره بگیرید.
+
+مثال انتها‑به‑انتها زیر همان پاورقی، متن تاریخ/زمان و قابلیت مشاهده شماره اسلاید را برای همهٔ اسلایدهای معمولی اعمال می‌کند:
 
 ```javascript
-// بارگذاری ارائه
-var pres = new aspose.slides.Presentation("headerTest.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
 try {
-    // تنظیم پاورقی
-    pres.getHeaderFooterManager().setAllFootersText("My Footer text");
-    pres.getHeaderFooterManager().setAllFootersVisibility(true);
-    // دسترسی و به‌روزرسانی سرصفحه
-    var masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (null != masterNotesSlide) {
-        updateHeaderFooterText(masterNotesSlide);
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        const headerFooterManager = slide.getHeaderFooterManager();
+
+        headerFooterManager.setFooterText("Company Confidential");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
-    // ذخیره ارائه
-    pres.save("HeaderFooterJava.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("presentation_with_slide_footers.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-```javascript
-function updateHeaderFooterText(master) {
-    let shapes = master.getShapes();
-    for (let i = 0; i < shapes.size(); i++) {
-        let shape = shapes.get_Item(i); 
-        if (shape.getPlaceholder() !== null) {
-            if (shape.getPlaceholder().getType() === aspose.PlaceholderType.Header) {
-                shape.getTextFrame().setText("HI there new header");
-            }
-        }
-    }
+    presentation.dispose();
 }
 ```
 
-## **مدیریت سرصفحه و پاورقی در اسلایدهای جزوه و یادداشت**
+اگر فقط می‌خواهید یک اسلاید را به‌روز کنید، به جای پیمایش کل مجموعه از متد [`getSlides`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/getslides/) برای دسترسی مستقیم به آن اسلاید استفاده کنید.
 
-Aspose.Slides برای Node.js از طریق Java از سرصفحه و پاورقی در اسلایدهای جزوه و یادداشت پشتیبانی می‌کند. لطفاً مراحل زیر را دنبال کنید:
+## **تنظیم سرصفحه و پاورقی در مستر یادداشت‌ها**
 
-- یک [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) حاوی ویدیو را بارگذاری کنید.
-- تنظیمات سرصفحه و پاورقی را برای مستر یادداشت‌ها و تمام اسلایدهای یادداشت تغییر دهید.
-- نمایش جای‌دارهای پاورقی برای اسلاید مستر یادداشت و تمام اسلایدهای فرزند را فعال کنید.
-- نمایش جای‌دارهای تاریخ و زمان برای اسلاید مستر یادداشت و تمام اسلایدهای فرزند را فعال کنید.
-- تنظیمات سرصفحه و پاورقی را فقط برای اولین اسلاید یادداشت تغییر دهید.
-- نمایش جای‌دار سرصفحه برای اسلاید یادداشت را فعال کنید.
-- متن را به جای‌دار سرصفحه اسلاید یادداشت تنظیم کنید.
-- متن را به جای‌دار تاریخ‑زمان اسلاید یادداشت تنظیم کنید.
-- فایل ارائه تغییر یافته را بنویسید.
+مستر یادداشت‌ها قالب‌بندی مشترک و رفتار مکان‌نگهدارهای صفحات یادداشت را تعریف می‌کند. زمانی که می‌خواهید فقط مستر یادداشت‌ها را تغییر دهید، از کلاس [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) استفاده کنید.
 
-کد نمونه در مثال زیر ارائه شده است.
+مثال زیر سرصفحه، پاورقی و متن تاریخ/زمان را در مستر یادداشت‌ها تنظیم می‌کند و تمام مکان‌نگهدارهای پشتیبانی‌شده را در آن مستر قابل مشاهده می‌سازد:
 
 ```javascript
-var pres = new aspose.slides.Presentation("presentation.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
 try {
-    // تنظیمات سرصفحه و پاورقی را برای مستر یادداشت‌ها و تمام اسلایدهای یادداشت تغییر دهید
-    var masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (masterNotesSlide != null) {
-        var headerFooterManager = masterNotesSlide.getHeaderFooterManager();
-        headerFooterManager.setHeaderAndChildHeadersVisibility(true);// اسلاید مستر یادداشت و تمام جای‌دارهای Footer فرزند را قابل مشاهده کنید
-        headerFooterManager.setFooterAndChildFootersVisibility(true);// اسلاید مستر یادداشت و تمام جای‌دارهای Header فرزند را قابل مشاهده کنید
-        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);// اسلاید مستر یادداشت و تمام جای‌دارهای SlideNumber فرزند را قابل مشاهده کنید
-        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);// اسلاید مستر یادداشت و تمام جای‌دارهای Date and time فرزند را قابل مشاهده کنید
-        headerFooterManager.setHeaderAndChildHeadersText("Header text");// متن را برای اسلاید مستر یادداشت و تمام جای‌دارهای Header فرزند تنظیم کنید
-        headerFooterManager.setFooterAndChildFootersText("Footer text");// متن را برای اسلاید مستر یادداشت و تمام جای‌دارهای Footer فرزند تنظیم کنید
-        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");// متن را برای اسلاید مستر یادداشت و تمام جای‌دارهای Date and time فرزند تنظیم کنید
+    const masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide !== null) {
+        const headerFooterManager = masterNotesSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Notes header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Notes footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
-    // تنظیمات سرصفحه و پاورقی را فقط برای اولین اسلاید یادداشت تغییر دهید
-    var notesSlide = pres.getSlides().get_Item(0).getNotesSlideManager().getNotesSlide();
-    if (notesSlide != null) {
-        var headerFooterManager = notesSlide.getHeaderFooterManager();
-        if (!headerFooterManager.isHeaderVisible()) {
-            headerFooterManager.setHeaderVisibility(true);
-        }// این جای‌دار Header اسلاید یادداشت را قابل مشاهده کنید
-        if (!headerFooterManager.isFooterVisible()) {
-            headerFooterManager.setFooterVisibility(true);
-        }// این جای‌دار Footer اسلاید یادداشت را قابل مشاهده کنید
-        if (!headerFooterManager.isSlideNumberVisible()) {
-            headerFooterManager.setSlideNumberVisibility(true);
-        }// این جای‌دار SlideNumber اسلاید یادداشت را قابل مشاهده کنید
-        if (!headerFooterManager.isDateTimeVisible()) {
-            headerFooterManager.setDateTimeVisibility(true);
-        }// این جای‌دار Date-time اسلاید یادداشت را قابل مشاهده کنید
-        headerFooterManager.setHeaderText("New header text");// متن را برای جای‌دار Header اسلاید یادداشت تنظیم کنید
-        headerFooterManager.setFooterText("New footer text");// متن را برای جای‌دار Footer اسلاید یادداشت تنظیم کنید
-        headerFooterManager.setDateTimeText("New date and time text");// متن را برای جای‌دار Date-time اسلاید یادداشت تنظیم کنید
-    }
-    pres.save("testresult.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("presentation_with_notes_master_footers.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+متد [`getMasterNotesSlide`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masternotesslidemanager/#getMasterNotesSlide) هنگام عدم حضور مستر یادداشت‌ها مقدار `null` برمی‌گرداند.
+
+## **اعمال تنظیمات مستر یادداشت‌ها به اسلایدهای یادداشت فرزند**
+
+یک مستر یادداشت می‌تواند تنظیمات سرصفحه و پاورقی را خود و همهٔ اسلایدهای یادداشت وابسته اعمال کند. هنگامی که می‌خواهید همان تنظیمات در سرتاسر سلسله مراتب یادداشت‌ها اعمال شود، از متدهای propagation موجود در [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) استفاده کنید.
+
+به عنوان مثال، متدهای [`setHeaderAndChildHeadersText`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setHeaderAndChildHeadersText) و [`setHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setHeaderAndChildHeadersVisibility) سرصفحهٔ مستر یادداشت و تمام سرصفحه‌های فرزند را به‌روزرسانی می‌کنند. متدهای معادل برای پاورقی، تاریخ/زمان و شمارهٔ اسلاید نیز موجود هستند.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    const masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide !== null) {
+        const headerFooterManager = masterNotesSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderAndChildHeadersText("Notes header");
+        headerFooterManager.setHeaderAndChildHeadersVisibility(true);
+
+        headerFooterManager.setFooterAndChildFootersText("Notes footer");
+        headerFooterManager.setFooterAndChildFootersVisibility(true);
+
+        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
+        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
+
+        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
+    }
+
+    presentation.save("presentation_with_child_notes_footers.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+متدهای propagation مورد استفاده در بالا عبارتند از [`setFooterAndChildFootersText`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setFooterAndChildFootersText)، [`setFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setFooterAndChildFootersVisibility)، [`setDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesText)، [`setDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesVisibility) و [`setSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setSlideNumberAndChildSlideNumbersVisibility).
+
+## **تنظیم سرصفحه و پاورقی در یک اسلاید یادداشت تک‌تکه**
+
+یک اسلاید یادداشت متعلق به یک اسلاید معمولی خاص است. زمانی که می‌خواهید فقط آن صفحهٔ یادداشت را سفارشی کنید، از کلاس [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/notesslideheaderfootermanager/) استفاده کنید.
+
+متد [`addNotesSlide`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/notesslidemanager/#addNotesSlide) اسلاید یادداشت مرتبط با اسلاید جاری را برمی‌گرداند و در صورت عدم وجود یک اسلاید جدید ایجاد می‌کند. مثال زیر صفحهٔ یادداشت مرتبط با اولین اسلاید ارائه را پیکربندی می‌کند:
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const headerFooterManager = slide.getNotesSlideManager().addNotesSlide().getHeaderFooterManager();
+
+    headerFooterManager.setHeaderText("Header for the first notes page");
+    headerFooterManager.setHeaderVisibility(true);
+
+    headerFooterManager.setFooterText("Footer for the first notes page");
+    headerFooterManager.setFooterVisibility(true);
+
+    headerFooterManager.setDateTimeText("Date and time text");
+    headerFooterManager.setDateTimeVisibility(true);
+
+    headerFooterManager.setSlideNumberVisibility(true);
+
+    presentation.save("presentation_with_custom_notes_footers.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+اگر ابتدا تنظیمات را از مستر یادداشت‌ها propagate کنید و سپس یک اسلاید یادداشت تک‌تکه را تغییر دهید، تنظیمات پس‌از‑اسلاید به شما امکان می‌دهد آن صفحهٔ یادداشت را به‌صورت مستقل سفارشی کنید.
+
+## **تنظیم سرصفحه و پاورقی در مستر سند‑پیش‌نمایش**
+
+صفحات سند‑پیش‌نمایش از مستر سند‑پیش‌نمایش برای سرصفحه، پاورقی، تاریخ/زمان و مکان‌نگهدار شمارهٔ صفحه استفاده می‌کنند. بر خلاف صفحات یادداشت، تنظیمات سند‑پیش‌نمایش از طریق مستر سند‑پیش‌نمایش مدیریت می‌شوند، نه اسلایدهای تک‌تکهٔ سند‑پیش‌نمایش.
+
+برای دسترسی به مستر سند‑پیش‌نمایش از متد [`getMasterHandoutSlide`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterhandoutslidemanager/#getMasterHandoutSlide) استفاده کنید. اگر موجود نبود، با فراخوانی [`setDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterhandoutslidemanager/#setDefaultMasterHandoutSlide) مستر پیش‌فرض را ایجاد کنید.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    let masterHandoutSlide = presentation.getMasterHandoutSlideManager().getMasterHandoutSlide();
+
+    if (masterHandoutSlide === null) {
+        masterHandoutSlide = presentation.getMasterHandoutSlideManager().setDefaultMasterHandoutSlide();
+    }
+
+    if (masterHandoutSlide !== null) {
+        const headerFooterManager = masterHandoutSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Handout header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Handout footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
+    }
+
+    presentation.save("presentation_with_handout_footers.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **درک دامنه و وراثت**
+
+مدیری سرصفحه/پاورقی را انتخاب کنید که با دامنهٔ مورد نظر شما مطابقت دارد:
+
+- [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slideheaderfootermanager/) تنظیمات پاورقی، تاریخ/زمان و شماره اسلاید را برای یک اسلاید معمولی تغییر می‌دهد.
+- [`LayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/layoutslideheaderfootermanager/) یک اسلاید طرح‌بندی را کنترل می‌کند و می‌تواند تنظیمات پشتیبانی‌شده را به اسلایدهای وابسته propagate کند.
+- [`MasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterslideheaderfootermanager/) مستر اسلایدهای معمولی را کنترل می‌کند و می‌تواند تنظیمات پشتیبانی‌شده را به اسلایدهای وابسته propagate کند.
+- [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) مستر یادداشت‌ها را کنترل می‌کند و می‌تواند تنظیمات را به همهٔ اسلایدهای یادداشت وابسته propagate کند.
+- [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/notesslideheaderfootermanager/) یک اسلاید یادداشت را تغییر می‌دهد و علاوه بر پاورقی، تاریخ/زمان و شماره اسلاید، یک سرصفحه را نیز پشتیبانی می‌کند.
+- [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterhandoutslideheaderfootermanager/) مستر سند‑پیش‌نمایش را تغییر می‌دهد و تمام چهار نوع مکان‌نگهدار را پشتیبانی می‌کند.
+
+زمانی که همان تنظیم باید در سرتاسر سلسله مراتب مستر یا طرح‌بندی اعمال شود، از propagation استفاده کنید. هنگامی که نیاز به تنظیم محلی برای یک صفحه دارید، از مدیر اسلاید یا اسلاید‑یادداشت تک‌تکه استفاده کنید.
 
 ## **سوالات متداول**
 
-**آیا می‌توانم "سرصفحه" را به اسلایدهای عادی اضافه کنم؟**
+**آیا می‌توانم سرصفحه‌ای به یک اسلاید معمولی اضافه کنم؟**
 
-در PowerPoint، "سرصفحه" فقط برای یادداشت‌ها و جزوه‌ها وجود دارد؛ در اسلایدهای عادی، عناصر پشتیبانی‌شده شامل پاورقی، تاریخ/زمان و شماره اسلاید هستند. در Aspose.Slides نیز همین محدودیت‌ها اعمال می‌شود: سرصفحه تنها برای یادداشت‌ها/جزوه‌ها، و در اسلایدها—پاورقی/تاریخ‑زمان/شماره‌اسلاید.
+خیر. PowerPoint برای اسلایدهای معمولی مکان‌نگهدار سرصفحه تعریف نمی‌کند. در اسلایدهای معمولی از مکان‌نگهدارهای پاورقی، تاریخ/زمان و شمارهٔ اسلاید استفاده کنید. مکان‌نگهدارهای سرصفحه فقط در صفحات یادداشت و سند‑پیش‌نمایش موجود هستند.
 
-**اگر طرح‌بندی شامل ناحیهٔ پاورقی نباشد—آیا می‌توانم قابلیت مشاهده آن را "فعال" کنم؟**
+**اگر مکان‌نگهدار پاورقی، تاریخ/زمان یا شمارهٔ اسلاید قابل مشاهده نباشد چه کار کنم؟**
 
-بله. قابلیت مشاهده را از طریق مدیر سرصفحه/پاورقی بررسی کنید و در صورت نیاز آن را فعال کنید. این شاخص‌ها و روش‌های API برای مواردی طراحی شده‌اند که جای‌دار موجود نیست یا پنهان شده است.
+از مدیر سرصفحه/پاورقی مربوطه استفاده کنید تا قابلیت مشاهده آن را بررسی و در صورت نیاز فعال کنید. به عنوان مثال، متد [`isFooterVisible`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/baseslideheaderfootermanager/#isFooterVisible) نشان می‌دهد آیا مکان‌نگهدار پاورقی موجود است و متد [`setFooterVisibility`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterVisibility) قابلیت مشاهده آن را تغییر می‌دهد.
 
-**چگونه شماره اسلاید را از مقدار دیگری به جز 1 شروع کنم؟**
+**چگونه شماره‌گذاری اسلایدها را از مقداری غیر از 1 شروع کنم؟**
 
-عدد [first slide number](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/setfirstslidenumber/) ارائه را تنظیم کنید؛ پس از آن، تمام شماره‌گذاری‌ها دوباره محاسبه می‌شوند. به عنوان مثال می‌توانید از 0 یا 10 شروع کنید و شماره را در اسلاید عنوان پنهان کنید.
+متد [`setFirstSlideNumber`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/setfirstslidenumber/) ارائه را فراخوانی کنید. پس از آن مکان‌نگهدارهای شماره اسلاید از توالی شماره‌گذاری به‌روزرسانی‌شده استفاده می‌کنند.
 
-**وقتی به PDF/تصاویر/HTML صادر می‌کنم، سرصفحه/پاورقی‌ها چه اتفاقی می‌افتند؟**
+**هنگام خروجی گرفتن به PDF، تصویر یا HTML، سرصفحه و پاورقی چه می‌شوند؟**
 
-آنها به‌عنوان عناصر متنی معمولی در ارائه رندر می‌شوند. به این معنی که اگر این عناصر در اسلایدها/صفحات یادداشت قابل مشاهده باشند، در قالب خروجی نیز همراه با بقیه محتوا نمایش داده می‌شوند.
+عناصر قابل مشاهدهٔ سرصفحه و پاورقی همراه با بقیهٔ محتوای ارائه در قالب خروجی رندر می‌شوند. ظاهر آن‌ها به نوع صفحه‌ای که صادر می‌شود و تنظیمات قابلیت مشاهده مکان‌نگهدار مربوطه وابسته است.

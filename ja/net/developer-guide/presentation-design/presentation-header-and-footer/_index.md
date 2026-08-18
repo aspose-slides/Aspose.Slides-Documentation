@@ -19,130 +19,224 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "プロフェッショナルな外観を実現するために、Aspose.Slides for .NET を使用して PowerPoint および OpenDocument のプレゼンテーションにヘッダーとフッターを追加およびカスタマイズします。"
+description: "Aspose.Slides for .NET を使用して、スライド、ノートページ、配布資料のフッター、日付時刻、スライド番号、ヘッダープレースホルダーを管理する方法を学びます。"
 ---
+## **概要**
 
-{{% alert color="primary" %}} 
-[Aspose.Slides](/slides/ja/net/) は、スライドのヘッダーおよびフッターテキストを操作するサポートを提供します。これらは実際にスライドマスターレベルで管理されています。
-{{% /alert %}} 
-[Aspose.Slides for .NET](/slides/ja/net/) は、プレゼンテーションスライド内のヘッダーとフッターを管理する機能を提供します。これらは実際にプレゼンテーションマスターレベルで管理されています。
-## **ヘッダーおよびフッターテキストの管理**
-特定のスライドのノートは以下の例のように更新できます:
+PowerPoint はページの種類に応じて異なるヘッダーおよびフッタープレースホルダーを使用します。Aspose.Slides for .NET を使用すると、ヘッダー/フッターマネージャーインターフェイスを介してこれらのプレースホルダーのテキストと表示状態を制御できます。
+
+利用可能なプレースホルダーはスコープによって異なります。
+
+| スコープ | ヘッダー | フッター | 日付/時刻 | スライド/ページ番号 |
+|---|---|---|---|---|
+| 標準スライド | なし | あり | あり | あり |
+| ノートマスタ | あり | あり | あり | あり |
+| ノートスライド | すべて | すべて | すべて | すべて |
+| 配布資料マスタ | すべて | すべて | すべて | すべて |
+
+標準のプレゼンテーション スライドにはヘッダー プレースホルダーがありません。ヘッダーはノート ページと配布資料で利用できます。標準スライドでは、代わりにフッター、日付/時刻、スライド番号のプレースホルダーを使用してください。
+
+変更のスコープは使用するマネージャーによって決まります。[`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/ja/net/aspose.slides/islideheaderfootermanager/) インターフェイスは 1 つの標準スライドを制御します。[`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ja/net/aspose.slides/inotesslideheaderfootermanager/) インターフェイスは 1 つのノートスライドを制御します。マスタおよびレイアウト マネージャーは設定を従属スライドに伝搬させることができ、[`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/ja/net/aspose.slides/imasterhandoutslideheaderfootermanager/) インターフェイスは配布資料マスタを制御します。
+
+## **標準スライドのフッター、日付/時刻、およびスライド番号の設定**
+
+標準スライドの場合、基本的な手順は各スライドのヘッダー/フッターマネージャーにアクセスし、フッターと日付/時刻のテキストを設定し、必要なプレースホルダーを有効にしてプレゼンテーションを保存することです。スライド番号はプレゼンテーションによって自動生成されるため、表示状態だけを制御すればよいです。
+
+テキストの設定には[`SetFooterText`](https://reference.aspose.com/slides/ja/net/aspose.slides/baseslideheaderfootermanager/setfootertext/) と[`SetDateTimeText`](https://reference.aspose.com/slides/ja/net/aspose.slides/baseslideheaderfootermanager/setdatetimetext/) を使用し、対応するプレースホルダーの表示は[`SetFooterVisibility`](https://reference.aspose.com/slides/ja/net/aspose.slides/baseslideheaderfootermanager/setfootervisibility/)、[`SetDateTimeVisibility`](https://reference.aspose.com/slides/ja/net/aspose.slides/baseslideheaderfootermanager/setdatetimevisibility/)、[`SetSlideNumberVisibility`](https://reference.aspose.com/slides/ja/net/aspose.slides/baseslideheaderfootermanager/setslidenumbervisibility/) で制御します。
+
+以下のエンドツーエンドの例は、すべての標準スライドに同じフッター、日付/時刻テキスト、およびスライド番号の表示を適用します。
+
 ```c#
-// プレゼンテーションをロード
-Presentation pres = new Presentation("headerTest.pptx");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// フッターを設定
-pres.HeaderFooterManager.SetAllFootersText("My Footer text");
-pres.HeaderFooterManager.SetAllFootersVisibility(true);
+using var presentation = new Presentation("presentation.pptx");
 
-// ヘッダーにアクセスして更新
-IMasterNotesSlide masterNotesSlide = pres.MasterNotesSlideManager.MasterNotesSlide;
-if (null != masterNotesSlide)
+foreach (var slide in presentation.Slides)
 {
-	UpdateHeaderFooterText(masterNotesSlide);
+    var headerFooterManager = slide.HeaderFooterManager;
+
+    headerFooterManager.SetFooterText("Company Confidential");
+    headerFooterManager.SetFooterVisibility(true);
+
+    headerFooterManager.SetDateTimeText("Date and time text");
+    headerFooterManager.SetDateTimeVisibility(true);
+
+    headerFooterManager.SetSlideNumberVisibility(true);
 }
 
-// プレゼンテーションを保存
-pres.Save("HeaderFooterJava.pptx", SaveFormat.Pptx);
+presentation.Save("presentation_with_slide_footers.pptx", SaveFormat.Pptx);
 ```
+
+1 つのスライドだけを更新したい場合は、コレクション全体を走査する代わりに [`Slides`](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/slides/ja/) コレクションから対象スライドに直接アクセスしてください。
+
+## **ノートマスタのヘッダーとフッターの設定**
+
+ノートマスタはノートページ全体の共通書式とプレースホルダー動作を定義します。ノートマスタ自体だけを変更したいときは、[`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ja/net/aspose.slides/imasternotesslideheaderfootermanager/) インターフェイスを使用します。
+
+次の例はノートマスタにヘッダー、フッター、日付/時刻テキストを設定し、サポートされているすべてのプレースホルダーを表示可能にします。
 
 ```c#
-// ヘッダー/フッターテキストを設定するメソッド
-public static void UpdateHeaderFooterText(IBaseSlide master)
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var masterNotesSlide = presentation.MasterNotesSlideManager.MasterNotesSlide;
+
+if (masterNotesSlide != null)
 {
-    foreach (IShape shape in master.Shapes)
-    {
-        if (shape.Placeholder != null)
-        {
-            if (shape.Placeholder.Type == PlaceholderType.Header)
-            {
-                ((IAutoShape)shape).TextFrame.Text = "HI there new header";
-            }
-        }
-    }
+    var headerFooterManager = masterNotesSlide.HeaderFooterManager;
+
+    headerFooterManager.SetHeaderText("Notes header");
+    headerFooterManager.SetHeaderVisibility(true);
+
+    headerFooterManager.SetFooterText("Notes footer");
+    headerFooterManager.SetFooterVisibility(true);
+
+    headerFooterManager.SetDateTimeText("Date and time text");
+    headerFooterManager.SetDateTimeVisibility(true);
+
+    headerFooterManager.SetSlideNumberVisibility(true);
 }
+
+presentation.Save("presentation_with_notes_master_footers.pptx", SaveFormat.Pptx);
 ```
 
+プレゼンテーションにノートマスタが含まれていない場合、[`MasterNotesSlide`](https://reference.aspose.com/slides/ja/net/aspose.slides/imasternotesslidemanager/masternotesslide/) プロパティは `null` を返します。
 
+## **ノートマスタ設定の子ノートスライドへの適用**
 
+ノートマスタはヘッダーとフッターの設定を自身とすべての従属ノートスライドに適用できます。同一設定をノート階層全体に適用する場合は、[`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ja/net/aspose.slides/imasternotesslideheaderfootermanager/) の専用伝搬メソッドを使用します。
 
+たとえば、[`SetHeaderAndChildHeadersText`](https://reference.aspose.com/slides/ja/net/aspose.slides/masternotesslideheaderfootermanager/setheaderandchildheaderstext/) と[`SetHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/ja/net/aspose.slides/masternotesslideheaderfootermanager/setheaderandchildheadersvisibility/) はノートマスタのヘッダーとすべての子ヘッダーを更新します。フッター、日付/時刻、スライド番号にも同等のメソッドが用意されています。
 
-## **配布資料およびノートスライドのヘッダーとフッターの管理**
-Aspose.Slides for .NET は配布資料とノートスライドのヘッダーとフッターをサポートしています。以下の手順に従ってください:
-
-- ビデオを含む[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)を読み込みます。
-- ノートマスターとすべてのノートスライドのヘッダーとフッター設定を変更します。
-- マスターノートスライドとすべての子フッタープレースホルダーを表示状態に設定します。
-- マスターノートスライドとすべての子日付と時刻のプレースホルダーを表示状態に設定します。
-- 最初のノートスライドのみのヘッダーとフッター設定を変更します。
-- ノートスライドのヘッダープレースホルダーを表示に設定します。
-- ノートスライドのヘッダープレースホルダーにテキストを設定します。
-- ノートスライドの日付・時刻プレースホルダーにテキストを設定します。
-- 変更されたプレゼンテーションファイルを書き込みます。
-
-以下の例でコードスニペットが提供されています。
 ```c#
-using (Presentation presentation = new Presentation("presentation.pptx"))
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var masterNotesSlide = presentation.MasterNotesSlideManager.MasterNotesSlide;
+
+if (masterNotesSlide != null)
 {
-	// ノートマスターとすべてのノートスライドのヘッダーとフッター設定を変更
-	IMasterNotesSlide masterNotesSlide = presentation.MasterNotesSlideManager.MasterNotesSlide;
-	if (masterNotesSlide != null)
-	{
-		IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.HeaderFooterManager;
+    var headerFooterManager = masterNotesSlide.HeaderFooterManager;
 
-		headerFooterManager.SetHeaderAndChildHeadersVisibility(true); // マスターノートスライドとすべての子フッタープレースホルダーを表示
-		headerFooterManager.SetFooterAndChildFootersVisibility(true); // マスターノートスライドとすべての子ヘッダープレースホルダーを表示
-		headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true); // マスターノートスライドとすべての子スライド番号プレースホルダーを表示
-		headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true); // マスターノートスライドとすべての子日付と時刻プレースホルダーを表示
+    headerFooterManager.SetHeaderAndChildHeadersText("Notes header");
+    headerFooterManager.SetHeaderAndChildHeadersVisibility(true);
 
-		headerFooterManager.SetHeaderAndChildHeadersText("Header text"); // マスターノートスライドとすべての子ヘッダープレースホルダーにテキストを設定
-		headerFooterManager.SetFooterAndChildFootersText("Footer text"); // マスターノートスライドとすべての子フッタープレースホルダーにテキストを設定
-		headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text"); // マスターノートスライドとすべての子日付と時刻プレースホルダーにテキストを設定
-	}
+    headerFooterManager.SetFooterAndChildFootersText("Notes footer");
+    headerFooterManager.SetFooterAndChildFootersVisibility(true);
 
-	// 最初のノートスライドだけのヘッダーとフッター設定を変更
-	INotesSlide notesSlide = presentation.Slides[0].NotesSlideManager.NotesSlide;
-	if (notesSlide != null)
-	{
-		INotesSlideHeaderFooterManager headerFooterManager = notesSlide.HeaderFooterManager;
-		if (!headerFooterManager.IsHeaderVisible)
-			headerFooterManager.SetHeaderVisibility(true); // このノートスライドのヘッダープレースホルダーを表示
+    headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
+    headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
 
-		if (!headerFooterManager.IsFooterVisible)
-			headerFooterManager.SetFooterVisibility(true); // このノートスライドのフッタープレースホルダーを表示
-
-		if (!headerFooterManager.IsSlideNumberVisible)
-			headerFooterManager.SetSlideNumberVisibility(true); // このノートスライドのスライド番号プレースホルダーを表示
-
-		if (!headerFooterManager.IsDateTimeVisible)
-			headerFooterManager.SetDateTimeVisibility(true); // このノートスライドの日付時刻プレースホルダーを表示
-
-		headerFooterManager.SetHeaderText("New header text"); // ノートスライドのヘッダープレースホルダーにテキストを設定
-		headerFooterManager.SetFooterText("New footer text"); // ノートスライドのフッタープレースホルダーにテキストを設定
-		headerFooterManager.SetDateTimeText("New date and time text"); // ノートスライドの日付時刻プレースホルダーにテキストを設定
-	}
-	presentation.Save("testresult.pptx",SaveFormat.Pptx);
+    headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
 }
-		
- }
+
+presentation.Save("presentation_with_child_notes_footers.pptx", SaveFormat.Pptx);
 ```
 
+上記で使用した伝搬メソッドは [`SetFooterAndChildFootersText`](https://reference.aspose.com/slides/ja/net/aspose.slides/masternotesslideheaderfootermanager/setfooterandchildfooterstext/)、[`SetFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/ja/net/aspose.slides/masternotesslideheaderfootermanager/setfooterandchildfootersvisibility/)、[`SetDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/ja/net/aspose.slides/masternotesslideheaderfootermanager/setdatetimeandchilddatetimestext/)、[`SetDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/ja/net/aspose.slides/masternotesslideheaderfootermanager/setdatetimeandchilddatetimesvisibility/)、[`SetSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/ja/net/aspose.slides/masternotesslideheaderfootermanager/setslidenumberandchildslidenumbersvisibility/) です。
+
+## **個別ノートスライドのヘッダーとフッターの設定**
+
+ノートスライドは特定の標準スライドに属します。そのノートページだけをカスタマイズしたい場合は、[`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ja/net/aspose.slides/inotesslideheaderfootermanager/) インターフェイスを使用してください。
+
+[`AddNotesSlide`](https://reference.aspose.com/slides/ja/net/aspose.slides/inotesslidemanager/addnotesslide/) メソッドは現在のスライドに対するノートスライドを返し、存在しない場合は新しく作成します。次の例は最初のプレゼンテーション スライドに関連付けられたノートページを構成します。
+
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var notesSlide = presentation.Slides[0].NotesSlideManager.AddNotesSlide();
+var headerFooterManager = notesSlide.HeaderFooterManager;
+
+headerFooterManager.SetHeaderText("Header for the first notes page");
+headerFooterManager.SetHeaderVisibility(true);
+
+headerFooterManager.SetFooterText("Footer for the first notes page");
+headerFooterManager.SetFooterVisibility(true);
+
+headerFooterManager.SetDateTimeText("Date and time text");
+headerFooterManager.SetDateTimeVisibility(true);
+
+headerFooterManager.SetSlideNumberVisibility(true);
+
+presentation.Save("presentation_with_custom_notes_footers.pptx", SaveFormat.Pptx);
+```
+
+まずノートマスタから設定を伝搬させ、次に個別ノートスライドを変更すると、後者のスライド単位設定によりそのノートページを独立してカスタマイズできます。
+
+## **配布資料マスタのヘッダーとフッターの設定**
+
+配布資料ページは配布資料マスタのヘッダー、フッター、日付/時刻、ページ番号プレースホルダーを使用します。ノートページとは異なり、配布資料の設定は個別の配布資料スライドではなく配布資料マスタを介して管理されます。
+
+[`MasterHandoutSlide`](https://reference.aspose.com/slides/ja/net/aspose.slides/imasterhandoutslidemanager/masterhandoutslide/) プロパティで配布資料マスタにアクセスします。存在しない場合は、[`SetDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/ja/net/aspose.slides/imasterhandoutslidemanager/setdefaultmasterhandoutslide/) を呼び出してデフォルトの配布資料マスタを作成してください。
+
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var masterHandoutSlide = presentation.MasterHandoutSlideManager.MasterHandoutSlide;
+
+if (masterHandoutSlide == null)
+{
+    presentation.MasterHandoutSlideManager.SetDefaultMasterHandoutSlide();
+    masterHandoutSlide = presentation.MasterHandoutSlideManager.MasterHandoutSlide;
+}
+
+if (masterHandoutSlide != null)
+{
+    var headerFooterManager = masterHandoutSlide.HeaderFooterManager;
+
+    headerFooterManager.SetHeaderText("Handout header");
+    headerFooterManager.SetHeaderVisibility(true);
+
+    headerFooterManager.SetFooterText("Handout footer");
+    headerFooterManager.SetFooterVisibility(true);
+
+    headerFooterManager.SetDateTimeText("Date and time text");
+    headerFooterManager.SetDateTimeVisibility(true);
+
+    headerFooterManager.SetSlideNumberVisibility(true);
+}
+
+presentation.Save("presentation_with_handout_footers.pptx", SaveFormat.Pptx);
+```
+
+## **スコープと継承の理解**
+
+変更したいスコープに合わせて適切なヘッダー/フッターマネージャーを選択してください。
+
+- [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/ja/net/aspose.slides/islideheaderfootermanager/) は 1 つの標準スライドのフッター、日付/時刻、スライド番号設定を変更します。
+- [`ILayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/ja/net/aspose.slides/ilayoutslideheaderfootermanager/) はレイアウトスライドを制御し、サポートされている設定を従属スライドに伝搬できます。
+- [`IMasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/ja/net/aspose.slides/imasterslideheaderfootermanager/) は標準スライドマスタを制御し、同様に設定を従属スライドに伝搬します。
+- [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ja/net/aspose.slides/imasternotesslideheaderfootermanager/) はノートマスタを制御し、すべての従属ノートスライドに設定を伝搬できます。
+- [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ja/net/aspose.slides/inotesslideheaderfootermanager/) は 1 つのノートスライドを変更し、ヘッダープレースホルダーに加えてフッター、日付/時刻、スライド番号をサポートします。
+- [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/ja/net/aspose.slides/imasterhandoutslideheaderfootermanager/) は配布資料マスタを変更し、4 種類すべてのプレースホルダーをサポートします。
+
+同一設定を階層全体に適用したい場合はマスタまたはレイアウトから伝搬させます。1 ページだけのローカル設定が必要なときは個別スライドまたはノートスライドマネージャーを使用してください。
 
 ## **FAQ**
 
-**通常のスライドに「ヘッダー」を追加できますか？**
+**標準スライドにヘッダーを追加できますか？**
 
-PowerPoint では「ヘッダー」はノートと配布資料にのみ存在し、通常のスライドではサポートされている要素はフッター、日付/時刻、スライド番号です。Aspose.Slides でも同様の制限があり、ヘッダーはノート/配布資料にのみ使用でき、スライド上ではフッター、日付/時刻、スライド番号が使用できます。
+できません。PowerPoint は標準スライド用のヘッダープレースホルダーを定義していません。標準スライドではフッター、日付/時刻、スライド番号のプレースホルダーを使用してください。ヘッダーはノートページと配布資料で利用可能です。
 
-**レイアウトにフッター領域が含まれていない場合、表示を「オン」にできますか？**
+**フッター、日付/時刻、またはスライド番号のプレースホルダーが表示されない場合はどうすればよいですか？**
 
-はい。ヘッダー/フッターマネージャーで表示状態を確認し、必要に応じて有効にしてください。これらの API 指標とメソッドは、プレースホルダーが欠落しているか非表示の場合に対応するよう設計されています。
+該当するヘッダー/フッターマネージャーで表示状態を確認し、必要に応じて有効化します。たとえば [`IsFooterVisible`](https://reference.aspose.com/slides/ja/net/aspose.slides/baseslideheaderfootermanager/isfootervisible/) はフッタープレースホルダーが存在するかを返し、[`SetFooterVisibility`](https://reference.aspose.com/slides/ja/net/aspose.slides/baseslideheaderfootermanager/setfootervisibility/) で表示状態を変更できます。
 
-**スライド番号を 1 以外の値から開始するにはどうすればよいですか？**
+**スライド番号を 1 以外の値から開始させるには？**
 
-プレゼンテーションの[first slide number](https://reference.aspose.com/slides/net/aspose.slides/presentation/firstslidenumber/)を設定します。その後、すべての番号付けが再計算されます。たとえば、0 や 10 から開始でき、タイトルスライドの番号を非表示にすることも可能です。
+プレゼンテーションの [`FirstSlideNumber`](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/firstslidenumber/) プロパティを設定します。スライド番号プレースホルダーはこの更新された番号付けシーケンスを使用します。
 
-**PDF/画像/HTML にエクスポートするとき、ヘッダー/フッターはどうなりますか？**
+**PDF、画像、HTML へエクスポートするときにヘッダーとフッターはどうなりますか？**
 
-ヘッダー/フッターはプレゼンテーションの通常のテキスト要素としてレンダリングされます。つまり、スライドやノートページで要素が表示されていれば、出力形式でも他のコンテンツと同様に表示されます。
+表示されているヘッダーとフッターの要素は、出力形式のプレゼンテーションコンテンツとともにレンダリングされます。その外観はエクスポート対象のページタイプと対応するプレースホルダーの表示設定に依存します。

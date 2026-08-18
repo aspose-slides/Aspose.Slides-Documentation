@@ -1,6 +1,6 @@
 ---
-title: Gestisci intestazioni e piè di pagina della presentazione in JavaScript
-linktitle: Intestazione & Piè di pagina
+title: Gestire Intestazioni e Piè di pagina della Presentazione in JavaScript
+linktitle: Intestazione e Piè di pagina
 type: docs
 weight: 140
 url: /it/nodejs-java/presentation-header-and-footer/
@@ -11,7 +11,7 @@ keywords:
 - testo piè di pagina
 - imposta intestazione
 - imposta piè di pagina
-- dispensa
+- documento
 - note
 - PowerPoint
 - OpenDocument
@@ -19,123 +19,229 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Usa JavaScript e Aspose.Slides per Node.js per aggiungere e personalizzare intestazioni e piè di pagina in presentazioni PowerPoint e OpenDocument per un aspetto professionale."
+description: "Scopri come gestire i segnaposti di piè di pagina, data-ora, numero diapositiva e intestazione su diapositive, pagine note e documenti con Aspose.Slides per Node.js tramite Java."
 ---
 ## **Panoramica**
 
-Aspose.Slides consente di gestire le impostazioni di intestazione e piè di pagina nelle presentazioni PowerPoint. Le intestazioni e i piè di pagina sono gestiti a livello del master della presentazione e l'API fornisce metodi per impostare il testo del piè di pagina, modificare la visibilità del piè di pagina e aggiornare il testo dell'intestazione nelle diapositive master delle note.
+PowerPoint utilizza segnaposti di intestazione e piè di pagina diversi a seconda del tipo di pagina. Aspose.Slides per Node.js tramite Java consente di controllare il testo e la visibilità di questi segnaposti tramite le classi manager di intestazione/piè di pagina.
 
-È inoltre possibile gestire intestazioni e piè di pagina per le diapositive di dispensa e di note. Questo include la modifica della visibilità e del testo dei segnaposto di intestazione, piè di pagina, numero diapositiva e data/ora per il master delle note, tutte le diapositive figlio delle note o una singola diapositiva delle note.
+I segnaposti disponibili dipendono dall’ambito:
 
-## **Gestisci Intestazione e Piè di pagina nella Presentazione**
-Le note di alcune diapositive specifiche possono essere rimosse come mostrato nell'esempio seguente:
+| Ambito | Intestazione | Piè di pagina | Data/ora | Numero diapositiva/pagina |
+|---|---|---|---|---|
+| Diapositiva normale | No | Sì | Sì | Sì |
+| Master note | Sì | Sì | Sì | Sì |
+| Diapositiva note | Sì | Sì | Sì | Sì |
+| Master documento | Sì | Sì | Sì | Sì |
+
+Una diapositiva normale della presentazione non ha un segnaposto di intestazione. Le intestazioni sono disponibili nelle pagine note e nei documenti. Per le diapositive normali, utilizzare i segnaposti di piè di pagina, data/ora e numero diapositiva.
+
+L’ambito di una modifica dipende dal manager che si utilizza. La classe [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/slideheaderfootermanager/) controlla una singola diapositiva normale. La classe [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/notesslideheaderfootermanager/) controlla una singola diapositiva note. I manager master e layout possono inoltre propagare le impostazioni alle diapositive dipendenti, mentre la classe [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/masterhandoutslideheaderfootermanager/) controlla il master documento.
+
+## **Imposta Piè di pagina, Data/Ora e Numeri Diapositiva su Diapositive Normali**
+
+Per le diapositive normali, il flusso di lavoro di base consiste nell’accedere al manager di intestazione/piè di pagina di ciascuna diapositiva, impostare il testo del piè di pagina e della data/ora, abilitare i segnaposti richiesti e salvare la presentazione. I numeri di diapositiva sono generati dalla presentazione, quindi è necessario controllarne solo la visibilità.
+
+Utilizzare [`setFooterText`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterText) e [`setDateTimeText`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setDateTimeText) per impostare il testo, e utilizzare [`setFooterVisibility`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterVisibility), [`setDateTimeVisibility`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setDateTimeVisibility) e [`setSlideNumberVisibility`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setSlideNumberVisibility) per mostrare i corrispondenti segnaposti.
+
+Il seguente esempio end‑to‑end applica lo stesso piè di pagina, testo data/ora e visibilità del numero di diapositiva a tutte le diapositive normali:
 
 ```javascript
-// Carica presentazione
-var pres = new aspose.slides.Presentation("headerTest.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
 try {
-    // Impostazione del piè di pagina
-    pres.getHeaderFooterManager().setAllFootersText("My Footer text");
-    pres.getHeaderFooterManager().setAllFootersVisibility(true);
-    // Accesso e aggiornamento intestazione
-    var masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (null != masterNotesSlide) {
-        updateHeaderFooterText(masterNotesSlide);
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        const headerFooterManager = slide.getHeaderFooterManager();
+
+        headerFooterManager.setFooterText("Company Confidential");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
-    // Salva presentazione
-    pres.save("HeaderFooterJava.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("presentation_with_slide_footers.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-```javascript
-function updateHeaderFooterText(master) {
-    let shapes = master.getShapes();
-    for (let i = 0; i < shapes.size(); i++) {
-        let shape = shapes.get_Item(i); 
-        if (shape.getPlaceholder() !== null) {
-            if (shape.getPlaceholder().getType() === aspose.PlaceholderType.Header) {
-                shape.getTextFrame().setText("HI there new header");
-            }
-        }
-    }
+    presentation.dispose();
 }
 ```
 
-## **Gestisci Intestazione e Piè di pagina nelle diapositive di dispensa e note**
-Aspose.Slides for Node.js via Java supporta Intestazione e Piè di pagina nelle diapositive di dispensa e note. Segui i passaggi seguenti:
+Se è necessario aggiornare una sola diapositiva, accedere a quella diapositiva direttamente tramite il metodo [`getSlides`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/getslides/) invece di iterare sull’intera collezione.
 
-- Carica una [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Presentation) contenente un video.
-- Modifica le impostazioni di Intestazione e Piè di pagina per il master delle note e per tutte le diapositive delle note.
-- Imposta i segnaposti Footer della diapositiva master delle note e di tutti i figli come visibili.
-- Imposta i segnaposti Date e Time della diapositiva master delle note e di tutti i figli come visibili.
-- Modifica le impostazioni di Intestazione e Piè di pagina solo per la prima diapositiva delle note.
-- Imposta il segnaposto Header della diapositiva delle note come visibile.
-- Imposta il testo del segnaposto Header della diapositiva delle note.
-- Imposta il testo del segnaposto Date-time della diapositiva delle note.
-- Scrivi il file di presentazione modificato.
+## **Imposta Intestazioni e Piè di pagina sul Master Note**
 
-Snippet di codice fornito nell'esempio sottostante.
+Il master note definisce formattazione comune e comportamento dei segnaposti per le pagine note. Utilizzare la classe [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) quando si desidera modificare solo il master note stesso.
+
+Il seguente esempio imposta intestazione, piè di pagina e testo data/ora sul master note e rende visibili tutti i segnaposti supportati su quel master:
 
 ```javascript
-var pres = new aspose.slides.Presentation("presentation.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
 try {
-    // Modifica le impostazioni di intestazione e piè di pagina per il master delle note e tutte le diapositive delle note
-    var masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (masterNotesSlide != null) {
-        var headerFooterManager = masterNotesSlide.getHeaderFooterManager();
-        headerFooterManager.setHeaderAndChildHeadersVisibility(true);// rendi visibili il master delle note e tutti i segnaposti Footer dei figli
-        headerFooterManager.setFooterAndChildFootersVisibility(true);// rendi visibili il master delle note e tutti i segnaposti Header dei figli
-        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);// rendi visibili il master delle note e tutti i segnaposti SlideNumber dei figli
-        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);// rendi visibili il master delle note e tutti i segnaposti Data e ora dei figli
-        headerFooterManager.setHeaderAndChildHeadersText("Header text");// imposta il testo sul master delle note e su tutti i segnaposti Header dei figli
-        headerFooterManager.setFooterAndChildFootersText("Footer text");// imposta il testo sul master delle note e su tutti i segnaposti Footer dei figli
-        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");// imposta il testo sul master delle note e su tutti i segnaposti Data e ora dei figli
+    const masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide !== null) {
+        const headerFooterManager = masterNotesSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Notes header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Notes footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
-    // Modifica le impostazioni di intestazione e piè di pagina per la prima diapositiva delle note soltanto
-    var notesSlide = pres.getSlides().get_Item(0).getNotesSlideManager().getNotesSlide();
-    if (notesSlide != null) {
-        var headerFooterManager = notesSlide.getHeaderFooterManager();
-        if (!headerFooterManager.isHeaderVisible()) {
-            headerFooterManager.setHeaderVisibility(true);
-        }// rendi visibile il segnaposto Header di questa diapositiva delle note
-        if (!headerFooterManager.isFooterVisible()) {
-            headerFooterManager.setFooterVisibility(true);
-        }// rendi visibile il segnaposto Footer di questa diapositiva delle note
-        if (!headerFooterManager.isSlideNumberVisible()) {
-            headerFooterManager.setSlideNumberVisibility(true);
-        }// rendi visibile il segnaposto SlideNumber di questa diapositiva delle note
-        if (!headerFooterManager.isDateTimeVisible()) {
-            headerFooterManager.setDateTimeVisibility(true);
-        }// rendi visibile il segnaposto Date-time di questa diapositiva delle note
-        headerFooterManager.setHeaderText("New header text");// imposta il testo sul segnaposto Header della diapositiva delle note
-        headerFooterManager.setFooterText("New footer text");// imposta il testo sul segnaposto Footer della diapositiva delle note
-        headerFooterManager.setDateTimeText("New date and time text");// imposta il testo sul segnaposto Date-time della diapositiva delle note
-    }
-    pres.save("testresult.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("presentation_with_notes_master_footers.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+Il metodo [`getMasterNotesSlide`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/masternotesslidemanager/#getMasterNotesSlide) restituisce `null` quando la presentazione non contiene un master note.
+
+## **Applica le impostazioni del Master Note alle Diapositive Note Figlie**
+
+Un master note può applicare le impostazioni di intestazione e piè di pagina a sé stesso e a tutte le diapositive note dipendenti. Utilizzare i metodi di propagazione dedicati su [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) quando le stesse impostazioni devono essere applicate all’intera gerarchia note.
+
+Ad esempio, [`setHeaderAndChildHeadersText`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setHeaderAndChildHeadersText) e [`setHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setHeaderAndChildHeadersVisibility) aggiornano l’intestazione del master note e tutte le intestazioni figlie. Metodi equivalenti sono disponibili per i piè di pagina, data/ora e numeri di diapositiva.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    const masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide !== null) {
+        const headerFooterManager = masterNotesSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderAndChildHeadersText("Notes header");
+        headerFooterManager.setHeaderAndChildHeadersVisibility(true);
+
+        headerFooterManager.setFooterAndChildFootersText("Notes footer");
+        headerFooterManager.setFooterAndChildFootersVisibility(true);
+
+        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
+        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
+
+        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
+    }
+
+    presentation.save("presentation_with_child_notes_footers.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+I metodi di propagazione usati sopra sono [`setFooterAndChildFootersText`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setFooterAndChildFootersText), [`setFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setFooterAndChildFootersVisibility), [`setDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesText), [`setDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesVisibility) e [`setSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setSlideNumberAndChildSlideNumbersVisibility).
+
+## **Imposta Intestazioni e Piè di pagina su una Diapositiva Note Individuale**
+
+Una diapositiva note appartiene a una specifica diapositiva normale. Utilizzare la sua classe [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/notesslideheaderfootermanager/) quando si desidera personalizzare solo quella pagina note.
+
+Il metodo [`addNotesSlide`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/notesslidemanager/#addNotesSlide) restituisce la diapositiva note per la diapositiva corrente e ne crea una se non esiste già. Il seguente esempio configura la pagina note associata alla prima diapositiva della presentazione:
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const headerFooterManager = slide.getNotesSlideManager().addNotesSlide().getHeaderFooterManager();
+
+    headerFooterManager.setHeaderText("Header for the first notes page");
+    headerFooterManager.setHeaderVisibility(true);
+
+    headerFooterManager.setFooterText("Footer for the first notes page");
+    headerFooterManager.setFooterVisibility(true);
+
+    headerFooterManager.setDateTimeText("Date and time text");
+    headerFooterManager.setDateTimeVisibility(true);
+
+    headerFooterManager.setSlideNumberVisibility(true);
+
+    presentation.save("presentation_with_custom_notes_footers.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Se prima si propagano le impostazioni dal master note e poi si modifica una diapositiva note individuale, le impostazioni successive per diapositiva consentono di personalizzare quella pagina note in modo indipendente.
+
+## **Imposta Intestazioni e Piè di pagina sul Master Documento**
+
+Le pagine documento utilizzano il master documento per i loro segnaposti di intestazione, piè di pagina, data/ora e numero di pagina. A differenza delle pagine note, le impostazioni del documento vengono gestite tramite il master documento anziché tramite le singole diapositive documento.
+
+Utilizzare [`getMasterHandoutSlide`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/masterhandoutslidemanager/#getMasterHandoutSlide) per accedere al master documento. Se non è presente, chiamare [`setDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/masterhandoutslidemanager/#setDefaultMasterHandoutSlide) per creare il master documento predefinito.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    let masterHandoutSlide = presentation.getMasterHandoutSlideManager().getMasterHandoutSlide();
+
+    if (masterHandoutSlide === null) {
+        masterHandoutSlide = presentation.getMasterHandoutSlideManager().setDefaultMasterHandoutSlide();
+    }
+
+    if (masterHandoutSlide !== null) {
+        const headerFooterManager = masterHandoutSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Handout header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Handout footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
+    }
+
+    presentation.save("presentation_with_handout_footers.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Comprendere Ambito ed Ereditarietà**
+
+Scegliere il manager di intestazione/piè di pagina che corrisponde all’ambito che si desidera modificare:
+
+- [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/slideheaderfootermanager/) modifica le impostazioni di piè di pagina, data/ora e numero diapositiva per una singola diapositiva normale.
+- [`LayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/layoutslideheaderfootermanager/) controlla una diapositiva layout e può propagare le impostazioni supportate alle diapositive dipendenti.
+- [`MasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/masterslideheaderfootermanager/) controlla un master diapositiva normale e può propagare le impostazioni supportate alle diapositive dipendenti.
+- [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) controlla il master note e può propagare le impostazioni a tutte le diapositive note dipendenti.
+- [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/notesslideheaderfootermanager/) modifica una singola diapositiva note e supporta un segnaposto di intestazione oltre a piè di pagina, data/ora e numero diapositiva.
+- [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/masterhandoutslideheaderfootermanager/) modifica il master documento e supporta tutti e quattro i tipi di segnaposto.
+
+Utilizzare la propagazione da un master o layout quando la stessa impostazione deve essere applicata a tutta la gerarchia. Utilizzare un manager di diapositiva o di diapositiva note individuale quando è necessaria un’impostazione locale per una singola pagina.
 
 ## **FAQ**
 
-**Posso aggiungere un "header" alle diapositive regolari?**
+**Posso aggiungere un'intestazione a una diapositiva normale?**
 
-In PowerPoint, "Header" esiste solo per le note e le dispense; nelle diapositive regolari, gli elementi supportati sono il piè di pagina, data/ora e numero diapositiva. In Aspose.Slides ciò corrisponde alle stesse limitazioni: intestazione solo per Note/Dispensa, e nelle diapositive—Footer/DateTime/SlideNumber.
+No. PowerPoint non definisce un segnaposto di intestazione per le diapositive normali. Su queste diapositive, utilizzare i segnaposti di piè di pagina, data/ora e numero diapositiva. I segnaposti di intestazione sono disponibili su pagine note e documenti.
 
-**E se il layout non contiene un'area piè di pagina—posso "attivarne" la visibilità?**
+**Cosa succede se un segnaposto di piè di pagina, data/ora o numero diapositiva non è visibile?**
 
-Sì. Controlla la visibilità tramite il gestore di intestazione/piè di pagina e abilitala se necessario. Questi indicatori e metodi API sono progettati per i casi in cui il segnaposto è mancante o nascosto.
+Utilizzare il corrispondente manager di intestazione/piè di pagina per verificarne la visibilità e abilitarlo quando necessario. Ad esempio, [`isFooterVisible`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/baseslideheaderfootermanager/#isFooterVisible) indica se è presente un segnaposto di piè di pagina, e [`setFooterVisibility`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterVisibility) ne modifica la visibilità.
 
-**Come faccio a far iniziare la numerazione delle diapositive da un valore diverso da 1?**
+**Come posso iniziare la numerazione delle diapositive da un valore diverso da 1?**
 
-Imposta il [first slide number](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/setfirstslidenumber/) della presentazione; dopo di ciò, tutta la numerazione viene ricalcolata. Per esempio, puoi iniziare da 0 o 10 e nascondere il numero nella diapositiva del titolo.
+Chiamare il metodo [`setFirstSlideNumber`](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/setfirstslidenumber/) della presentazione. I segnaposti di numero diapositiva utilizzeranno quindi la sequenza di numerazione aggiornata.
 
-** Cosa succede a intestazioni/ piè di pagina quando si esporta in PDF/immagini/HTML?**
+**Cosa accade a intestazioni e piè di pagina quando si esporta in PDF, immagini o HTML?**
 
-Vengono renderizzati come normali elementi di testo della presentazione. Cioè, se gli elementi sono visibili su diapositive/pagine delle note, appariranno anche nel formato di output insieme al resto del contenuto.
+Gli elementi di intestazione e piè di pagina visibili vengono renderizzati insieme al resto del contenuto della presentazione nel formato di output. La loro apparizione dipende dal tipo di pagina esportata e dalle impostazioni di visibilità dei relativi segnaposti.

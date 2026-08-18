@@ -1,5 +1,5 @@
 ---
-title: Verwalten von Präsentationskopf‑ und ‑fußzeilen in Java
+title: Verwalten von Präsentationskopf- und -fußzeilen in Java
 linktitle: Kopf‑ und Fußzeile
 type: docs
 weight: 140
@@ -9,8 +9,8 @@ keywords:
 - Kopfzeilentext
 - Fußzeile
 - Fußzeilentext
-- Kopfzeile setzen
-- Fußzeile setzen
+- Kopfzeile festlegen
+- Fußzeile festlegen
 - Handzettel
 - Notizen
 - PowerPoint
@@ -18,134 +18,229 @@ keywords:
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Verwenden Sie Aspose.Slides für Java, um Kopf‑ und Fußzeilen in PowerPoint‑ und OpenDocument‑Präsentationen hinzuzufügen und anzupassen, um ein professionelles Aussehen zu erzielen."
+description: "Erfahren Sie, wie Sie Fußzeilen-, Datum‑Uhrzeit-, Folienzahl‑ und Kopfzeilen‑Platzhalter auf Folien, Notizenseiten und Handzetteln mit Aspose.Slides für Java verwalten."
 ---
+## **Übersicht**
 
-{{% alert color="primary" %}} 
+PowerPoint verwendet je nach Seitentyp unterschiedliche Kopf‑ und Fußzeilen‑Platzhalter. Aspose.Slides for Java ermöglicht die Steuerung von Text und Sichtbarkeit dieser Platzhalter über Kopf‑/Fußzeilen‑Manager‑Schnittstellen.
 
-[Aspose.Slides](/slides/de/java/) bietet Unterstützung für die Arbeit mit Kopf‑ und Fußzeilentexten von Folien, die tatsächlich auf Folienmaster‑Ebene verwaltet werden.
+Die verfügbaren Platzhalter hängen vom Geltungsbereich ab:
 
-{{% /alert %}} 
+| Geltungsbereich | Kopfzeile | Fußzeile | Datum/Uhrzeit | Folien‑/Seitenzahl |
+|---|---|---|---|---|
+| Reguläre Folie | Nein | Ja | Ja | Ja |
+| Notizen‑Master | Ja | Ja | Ja | Ja |
+| Notizen‑Folie | Ja | Ja | Ja | Ja |
+| Handzettel‑Master | Ja | Ja | Ja | Ja |
 
-[Aspose.Slides for Java](/slides/de/java/) bietet die Funktion zum Verwalten von Kopf‑ und Fußzeilen innerhalb von Präsentationsfolien. Diese werden tatsächlich auf Präsentationsmaster‑Ebene verwaltet.
+Eine reguläre Präsentationsfolie hat keinen Kopfzeilen‑Platzhalter. Kopfzeilen sind auf Notizenseiten und Handzetteln verfügbar. Für reguläre Folien verwenden Sie stattdessen die Fußzeilen‑, Datum/Uhrzeit‑ und Folien‑Nummer‑Platzhalter.
 
-## **Kopf‑ und Fußzeilen in einer Präsentation verwalten**
-Notizen einer bestimmten Folie können wie im folgenden Beispiel entfernt werden:
+Der Geltungsbereich einer Änderung hängt vom verwendeten Manager ab. Die [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/de/java/com.aspose.slides/islideheaderfootermanager/)‑Schnittstelle steuert eine reguläre Folie. Die [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/de/java/com.aspose.slides/inotesslideheaderfootermanager/)‑Schnittstelle steuert eine Notizfolie. Master‑ und Layout‑Manager können Einstellungen auch an abhängige Folien weitergeben, während die [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/de/java/com.aspose.slides/imasterhandoutslideheaderfootermanager/)‑Schnittstelle den Handzettel‑Master steuert.
+
+## **Fußzeile, Datum/Uhrzeit und Folienzahlen auf regulären Folien festlegen**
+
+Für reguläre Folien besteht der grundlegende Arbeitsablauf darin, den Kopf‑/Fußzeilen‑Manager jeder Folie aufzurufen, den Fußzeilen‑ und Datum/Uhrzeit‑Text festzulegen, die benötigten Platzhalter zu aktivieren und die Präsentation zu speichern. Folienzahlen werden von der Präsentation generiert, sodass Sie nur deren Sichtbarkeit steuern müssen.
+
+Verwenden Sie [`setFooterText`](https://reference.aspose.com/slides/de/java/com.aspose.slides/baseslideheaderfootermanager/#setFooterText-java.lang.String-) und [`setDateTimeText`](https://reference.aspose.com/slides/de/java/com.aspose.slides/baseslideheaderfootermanager/#setDateTimeText-java.lang.String-), um den Text festzulegen, und [`setFooterVisibility`](https://reference.aspose.com/slides/de/java/com.aspose.slides/baseslideheaderfootermanager/#setFooterVisibility-boolean-), [`setDateTimeVisibility`](https://reference.aspose.com/slides/de/java/com.aspose.slides/baseslideheaderfootermanager/#setDateTimeVisibility-boolean-), sowie [`setSlideNumberVisibility`](https://reference.aspose.com/slides/de/java/com.aspose.slides/baseslideheaderfootermanager/#setSlideNumberVisibility-boolean-), um die entsprechenden Platzhalter anzuzeigen.
+
+Das folgende End‑to‑End‑Beispiel wendet dieselbe Fußzeile, Datum/Uhrzeit‑Text und Folienzahl‑Sichtbarkeit auf alle regulären Folien an:
+
 ```java
-// Präsentation laden
-Presentation pres = new Presentation("headerTest.pptx");
-try {
-    // Fußzeile setzen
-    pres.getHeaderFooterManager().setAllFootersText("My Footer text");
-    pres.getHeaderFooterManager().setAllFootersVisibility(true);
+import com.aspose.slides.*;
 
-    // Zugriff und Aktualisierung der Kopfzeile
-    IMasterNotesSlide masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (null != masterNotesSlide)
-    {
-        updateHeaderFooterText(masterNotesSlide);
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideHeaderFooterManager headerFooterManager = slide.getHeaderFooterManager();
+
+        headerFooterManager.setFooterText("Company Confidential");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
 
-    // Präsentation speichern
-    pres.save("HeaderFooterJava.pptx", SaveFormat.Pptx);
+    presentation.save("presentation_with_slide_footers.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Wenn Sie nur eine Folie aktualisieren müssen, greifen Sie direkt über die [`getSlides`](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/#getSlides--)‑Methode auf diese Folie zu, anstatt die gesamte Sammlung zu durchlaufen.
+
+## **Kopf‑ und Fußzeilen auf dem Notizen‑Master festlegen**
+
+Der Notizen‑Master definiert ein gemeinsames Format und das Platzhalterverhalten für Notizenseiten. Verwenden Sie die [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/de/java/com.aspose.slides/imasternotesslideheaderfootermanager/)‑Schnittstelle, wenn Sie nur den Notizen‑Master selbst ändern möchten.
+
+Das folgende Beispiel legt Kopfzeile, Fußzeile und Datum/Uhrzeit‑Text im Notizen‑Master fest und macht alle unterstützten Platzhalter auf diesem Master sichtbar:
+
 ```java
-// Methode zum Setzen von Header-/Footer-Text
-public static void updateHeaderFooterText(IBaseSlide master)
-{
-    for (IShape shape : master.getShapes())
-    {
-        if (shape.getPlaceholder() != null)
-        {
-            if (shape.getPlaceholder().getType() == PlaceholderType.Header)
-            {
-                ((IAutoShape)shape).getTextFrame().setText("HI there new header");
-            }
-        }
-    }
-}
-```
+import com.aspose.slides.*;
 
-
-## **Kopf‑ und Fußzeilen in Handouts und Notizfolien verwalten**
-Aspose.Slides for Java unterstützt Kopf‑ und Fußzeilen in Handouts und Notizfolien. Bitte folgen Sie den nachstehenden Schritten:
-
-- Laden Sie eine [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) mit einem Video.
-- Ändern Sie die Kopf‑ und Fußzeileneinstellungen für den Notizen‑Master und alle Notizfolien.
-- Setzen Sie den Master‑Notizfolien‑ und alle untergeordneten Fußzeilen‑Platzhalter sichtbar.
-- Setzen Sie den Master‑Notizfolien‑ und alle untergeordneten Datums‑ und Zeit‑Platzhalter sichtbar.
-- Ändern Sie die Kopf‑ und Fußzeileneinstellungen nur für die erste Notizfolie.
-- Setzen Sie den Notizfolien‑Kopfzeilen‑Platzhalter sichtbar.
-- Setzen Sie den Text im Notizfolien‑Kopfzeilen‑Platzhalter.
-- Setzen Sie den Text im Notizfolien‑Datum‑Zeit‑Platzhalter.
-- Schreiben Sie die geänderte Präsentationsdatei.
-
-Code‑Snippet im nachstehenden Beispiel bereitgestellt.
-```java
-Presentation pres = new Presentation("presentation.pptx");
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    // Header- und Fußzeileneinstellungen für den Notizen-Master und alle Notizfolien ändern
-    IMasterNotesSlide masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (masterNotesSlide != null)
-    {
+    IMasterNotesSlide masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide != null) {
         IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.getHeaderFooterManager();
 
-        headerFooterManager.setHeaderAndChildHeadersVisibility(true); // macht den Master-Notizen-Slide und alle untergeordneten Footer-Platzhalter sichtbar
-        headerFooterManager.setFooterAndChildFootersVisibility(true); // macht den Master-Notizen-Slide und alle untergeordneten Header-Platzhalter sichtbar
-        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true); // macht den Master-Notizen-Slide und alle untergeordneten Foliennummer-Platzhalter sichtbar
-        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true); // macht den Master-Notizen-Slide und alle untergeordneten Datums- und Zeit-Platzhalter sichtbar
+        headerFooterManager.setHeaderText("Notes header");
+        headerFooterManager.setHeaderVisibility(true);
 
-        headerFooterManager.setHeaderAndChildHeadersText("Header text"); // setzt Text für den Master-Notizen-Slide und alle untergeordneten Header-Platzhalter
-        headerFooterManager.setFooterAndChildFootersText("Footer text"); // setzt Text für den Master-Notizen-Slide und alle untergeordneten Footer-Platzhalter
-        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text"); // setzt Text für den Master-Notizen-Slide und alle untergeordneten Datums- und Zeit-Platzhalter
+        headerFooterManager.setFooterText("Notes footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
 
-    // Header- und Fußzeileneinstellungen nur für die erste Notizfolie ändern
-    INotesSlide notesSlide = pres.getSlides().get_Item(0).getNotesSlideManager().getNotesSlide();
-    if (notesSlide != null)
-    {
-        INotesSlideHeaderFooterManager headerFooterManager = notesSlide.getHeaderFooterManager();
-        if (!headerFooterManager.isHeaderVisible())
-            headerFooterManager.setHeaderVisibility(true); // macht diesen Notizen-Slide Header-Platzhalter sichtbar
-
-        if (!headerFooterManager.isFooterVisible())
-            headerFooterManager.setFooterVisibility(true); // macht diesen Notizen-Slide Footer-Platzhalter sichtbar
-
-        if (!headerFooterManager.isSlideNumberVisible())
-            headerFooterManager.setSlideNumberVisibility(true); // macht diesen Notizen-Slide Foliennummer-Platzhalter sichtbar
-
-        if (!headerFooterManager.isDateTimeVisible())
-            headerFooterManager.setDateTimeVisibility(true); // macht diesen Notizen-Slide Datum‑Zeit-Platzhalter sichtbar
-
-        headerFooterManager.setHeaderText("New header text"); // setzt Text für den Notizen-Slide Header-Platzhalter
-        headerFooterManager.setFooterText("New footer text"); // setzt Text für den Notizen-Slide Footer-Platzhalter
-        headerFooterManager.setDateTimeText("New date and time text"); // setzt Text für den Notizen-Slide Datum‑Zeit-Platzhalter
-    }
-    pres.save("testresult.pptx",SaveFormat.Pptx);
+    presentation.save("presentation_with_notes_master_footers.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Die [`getMasterNotesSlide`](https://reference.aspose.com/slides/de/java/com.aspose.slides/imasternotesslidemanager/#getMasterNotesSlide--)‑Methode liefert `null`, wenn die Präsentation keinen Notizen‑Master enthält.
+
+## **Notizen‑Master‑Einstellungen auf untergeordnete Notizfolien anwenden**
+
+Ein Notizen‑Master kann Kopf‑ und Fußzeileneinstellungen sowohl auf sich selbst als auch auf alle abhängigen Notizfolien anwenden. Verwenden Sie die dedizierten Propagationsmethoden der [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/de/java/com.aspose.slides/imasternotesslideheaderfootermanager/), wenn dieselben Einstellungen über die Notizen‑Hierarchie hinweg gelten sollen.
+
+Zum Beispiel aktualisieren [`setHeaderAndChildHeadersText`](https://reference.aspose.com/slides/de/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setHeaderAndChildHeadersText-java.lang.String-) und [`setHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/de/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setHeaderAndChildHeadersVisibility-boolean-) die Notizen‑Master‑Kopfzeile und alle untergeordneten Kopfzeilen. Entsprechende Methoden stehen für Fußzeilen, Datum/Uhrzeit und Folienzahlen zur Verfügung.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterNotesSlide masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide != null) {
+        IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderAndChildHeadersText("Notes header");
+        headerFooterManager.setHeaderAndChildHeadersVisibility(true);
+
+        headerFooterManager.setFooterAndChildFootersText("Notes footer");
+        headerFooterManager.setFooterAndChildFootersVisibility(true);
+
+        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
+        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
+
+        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
+    }
+
+    presentation.save("presentation_with_child_notes_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Die oben verwendeten Propagationsmethoden sind [`setFooterAndChildFootersText`](https://reference.aspose.com/slides/de/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setFooterAndChildFootersText-java.lang.String-), [`setFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/de/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setFooterAndChildFootersVisibility-boolean-), [`setDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/de/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesText-java.lang.String-), [`setDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/de/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesVisibility-boolean-), und [`setSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/de/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setSlideNumberAndChildSlideNumbersVisibility-boolean-).
+
+## **Kopf‑ und Fußzeilen auf einer einzelnen Notizfolie festlegen**
+
+Eine Notizfolie gehört zu einer bestimmten regulären Folie. Verwenden Sie deren [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/de/java/com.aspose.slides/inotesslideheaderfootermanager/)‑Schnittstelle, wenn Sie nur diese Notizseite anpassen möchten.
+
+Die [`addNotesSlide`](https://reference.aspose.com/slides/de/java/com.aspose.slides/inotesslidemanager/#addNotesSlide--)‑Methode gibt die Notizfolie für die aktuelle Folie zurück und erstellt eine, falls noch keine vorhanden ist. Das folgende Beispiel konfiguriert die Notizseite, die mit der ersten Präsentationsfolie verknüpft ist:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    INotesSlide notesSlide = slide.getNotesSlideManager().addNotesSlide();
+    INotesSlideHeaderFooterManager headerFooterManager = notesSlide.getHeaderFooterManager();
+
+    headerFooterManager.setHeaderText("Header for the first notes page");
+    headerFooterManager.setHeaderVisibility(true);
+
+    headerFooterManager.setFooterText("Footer for the first notes page");
+    headerFooterManager.setFooterVisibility(true);
+
+    headerFooterManager.setDateTimeText("Date and time text");
+    headerFooterManager.setDateTimeVisibility(true);
+
+    headerFooterManager.setSlideNumberVisibility(true);
+
+    presentation.save("presentation_with_custom_notes_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Wenn Sie zunächst Einstellungen vom Notizen‑Master propagieren und danach eine einzelne Notizfolie ändern, ermöglichen die späteren Folien‑spezifischen Einstellungen, diese Notizseite unabhängig zu bearbeiten.
+
+## **Kopf‑ und Fußzeilen auf dem Handzettel‑Master festlegen**
+
+Handzettelseiten verwenden den Handzettel‑Master für ihre Kopf‑, Fußzeilen‑, Datum/Uhrzeit‑ und Seitenzahlen‑Platzhalter. Im Gegensatz zu Notizenseiten werden Handzettel‑Einstellungen über den Handzettel‑Master und nicht über einzelne Handzettelfolien verwaltet.
+
+Verwenden Sie die [`getMasterHandoutSlide`](https://reference.aspose.com/slides/de/java/com.aspose.slides/imasterhandoutslidemanager/#getMasterHandoutSlide--)‑Methode, um auf den Handzettel‑Master zuzugreifen. Falls dieser nicht vorhanden ist, rufen Sie [`setDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/de/java/com.aspose.slides/imasterhandoutslidemanager/#setDefaultMasterHandoutSlide--) auf, um den Standard‑Handzettel‑Master zu erstellen.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterHandoutSlide masterHandoutSlide = presentation.getMasterHandoutSlideManager().getMasterHandoutSlide();
+
+    if (masterHandoutSlide == null) {
+        masterHandoutSlide = presentation.getMasterHandoutSlideManager().setDefaultMasterHandoutSlide();
+    }
+
+    if (masterHandoutSlide != null) {
+        IMasterHandoutSlideHeaderFooterManager headerFooterManager = masterHandoutSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Handout header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Handout footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
+    }
+
+    presentation.save("presentation_with_handout_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Geltungsbereich und Vererbung verstehen**
+
+Wählen Sie den Kopf‑/Fußzeilen‑Manager, der dem Geltungsbereich entspricht, den Sie ändern möchten:
+
+- `ISlideHeaderFooterManager` ändert Fußzeilen‑, Datum/Uhrzeit‑ und Folienzahl‑Einstellungen für eine reguläre Folie.
+- `ILayoutSlideHeaderFooterManager` steuert eine Layout‑Folie und kann unterstützte Einstellungen an abhängige Folien weitergeben.
+- `IMasterSlideHeaderFooterManager` steuert einen regulären Folien‑Master und kann unterstützte Einstellungen an abhängige Folien weitergeben.
+- `IMasterNotesSlideHeaderFooterManager` steuert den Notizen‑Master und kann Einstellungen an alle abhängigen Notizfolien weitergeben.
+- `INotesSlideHeaderFooterManager` ändert eine Notizfolie und unterstützt einen Kopfzeilen‑Platzhalter zusätzlich zu Fußzeile, Datum/Uhrzeit und Folienzahl.
+- `IMasterHandoutSlideHeaderFooterManager` ändert den Handzettel‑Master und unterstützt alle vier Platzhaltertypen.
+
+Verwenden Sie die Propagation von einem Master oder Layout, wenn dieselbe Einstellung in der gesamten Hierarchie gelten soll. Verwenden Sie einen einzelnen Folien‑ oder Notizfolien‑Manager, wenn Sie eine lokale Einstellung für eine Seite benötigen.
 
 ## **FAQ**
 
-**Kann ich einer normalen Folie eine "Kopfzeile" hinzufügen?**
+**Kann ich einer regulären Folie eine Kopfzeile hinzufügen?**
 
-In PowerPoint existiert "Header" nur für Notizen und Handouts; in normalen Folien sind die unterstützten Elemente die Fußzeile, Datum/Uhrzeit und Foliennummer. In Aspose.Slides entspricht dies denselben Einschränkungen: Header nur für Notes/Handout und in Folien — Footer/DateTime/SlideNumber.
+Nein. PowerPoint definiert keinen Kopfzeilen‑Platzhalter für reguläre Folien. Verwenden Sie auf regulären Folien die Fußzeilen‑, Datum/Uhrzeit‑ und Folienzahl‑Platzhalter. Kopfzeilen‑Platzhalter stehen auf Notizenseiten und Handzetteln zur Verfügung.
 
-**Was ist, wenn das Layout keinen Fußzeilenbereich enthält – kann ich dessen Sichtbarkeit "einschalten"?**
+**Was ist, wenn ein Fußzeilen-, Datum/Uhrzeit- oder Folienzahl‑Platzhalter nicht sichtbar ist?**
 
-Ja. Überprüfen Sie die Sichtbarkeit über den Kopf‑/Fußzeilen‑Manager und aktivieren Sie sie bei Bedarf. Diese API‑Indikatoren und Methoden sind für Fälle vorgesehen, in denen der Platzhalter fehlt oder ausgeblendet ist.
+Verwenden Sie den entsprechenden Kopf-/Fußzeilen‑Manager, um dessen Sichtbarkeit zu prüfen und bei Bedarf zu aktivieren. Zum Beispiel gibt [`isFooterVisible`](https://reference.aspose.com/slides/de/java/com.aspose.slides/baseslideheaderfootermanager/#isFooterVisible--) an, ob ein Fußzeilen‑Platzhalter vorhanden ist, und [`setFooterVisibility`](https://reference.aspose.com/slides/de/java/com.aspose.slides/baseslideheaderfootermanager/#setFooterVisibility-boolean-) ändert dessen Sichtbarkeit.
 
-**Wie kann ich die Foliennummer von einem Wert anders als 1 starten lassen?**
+**Wie starte ich die Foliennummerierung mit einem Wert ungleich 1?**
 
-Setzen Sie die [erste Foliennummer](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#setFirstSlideNumber-int-) der Präsentation; danach wird die gesamte Nummerierung neu berechnet. Beispielsweise können Sie bei 0 oder 10 beginnen und die Nummer auf der Titelfolie ausblenden.
+Rufen Sie die [`setFirstSlideNumber`](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/#setFirstSlideNumber-int-)‑Methode der Präsentation auf. Die Folienzahl‑Platzhalter verwenden dann die aktualisierte Nummerierungssequenz.
 
-**Was passiert mit Kopf‑ und Fußzeilen beim Exportieren nach PDF/Bildern/HTML?**
+**Was passiert mit Kopf‑ und Fußzeilen beim Exportieren nach PDF, Bildern oder HTML?**
 
-Sie werden als reguläre Textelemente der Präsentation gerendert. Das bedeutet, wenn die Elemente auf Folien/Notizseiten sichtbar sind, erscheinen sie auch im Ausgabeformat zusammen mit dem restlichen Inhalt.
+Sichtbare Kopf‑ und Fußzeilenelemente werden zusammen mit dem restlichen Präsentationsinhalt im Ausgabeformat gerendert. Ihr Erscheinungsbild hängt vom zu exportierenden Seitentyp und den jeweiligen Sichtbarkeitseinstellungen der Platzhalter ab.

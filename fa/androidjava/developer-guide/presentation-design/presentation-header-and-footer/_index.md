@@ -1,150 +1,247 @@
 ---
-title: مدیریت سرصفحه‌ها و پاورقی‌های ارائه در اندروید
-linktitle: سرصفحه & پاورقی
+title: "مدیریت سربرگ‌ها و پابرگ‌های ارائه در اندروید"
+linktitle: "سربرگ و پابرگ"
 type: docs
 weight: 140
 url: /fa/androidjava/presentation-header-and-footer/
 keywords:
-- سرصفحه
-- متن سرصفحه
-- پاورقی
-- متن پاورقی
-- تنظیم سرصفحه
-- تنظیم پاورقی
-- نسخه توزیع
-- یادداشت‌ها
+- سربرگ
+- متن سربرگ
+- پابرگ
+- متن پابرگ
+- تنظیم سربرگ
+- تنظیم پابرگ
+- جزوه
+- یادداشت
 - پاورپوینت
 - OpenDocument
 - ارائه
 - اندروید
-- Java
+- جاوا
 - Aspose.Slides
-description: "از Aspose.Slides برای Android از طریق Java استفاده کنید تا سرصفحه‌ها و پاورقی‌ها را در ارائه‌های PowerPoint و OpenDocument اضافه و سفارشی‌سازی کنید و ظاهری حرفه‌ای داشته باشید."
+description: "دریابید چگونه فضاهای نگهدارندهٔ پابرگ، تاریخ‑زمان، شماره اسلاید و سربرگ را در اسلایدها، صفحات یادداشت و جزوه‌ها با Aspose.Slides برای اندروید از طریق جاوا مدیریت کنید."
 ---
-## **بررسی کلی**
+## **نمای کلی**
 
-Aspose.Slides به شما امکان می‌دهد تنظیمات سرصفحه و پاورقی را در ارائه‌های PowerPoint مدیریت کنید. سرصفحه‌ها و پاورقی‌ها در سطح مستر ارائه کنترل می‌شوند و API متدهایی برای تنظیم متن پاورقی، تغییر قابلیت نمایش پاورقی و به‌روزرسانی متن سرصفحه در اسلایدهای یادداشت مستر ارائه می‌دهد.
+PowerPoint بسته به نوع صفحه از فضاهای نگهدارنده (placeholder) مختلف سربرگ و پابرگ استفاده می‌کند. Aspose.Slides برای Android از طریق Java به شما امکان کنترل متن و نمایش این فضاهای نگهدارنده را از طریق رابط‌های مدیریت سربرگ/پابرگ می‌دهد.
 
-همچنین می‌توانید سرصفحه و پاورقی را برای اسلایدهای توزیع و یادداشت مدیریت کنید. این شامل تغییر قابلیت نمایش و متن مکان‌گیرهای سرصفحه، پاورقی، شماره اسلاید و تاریخ‑زمان برای مستر یادداشت، تمام اسلایدهای فرزند یادداشت یا یک اسلاید یادداشت به‌صورت جداگانه می‌شود.
+فضاهای نگهدارنده موجود بسته به دامنه متفاوت هستند:
 
-## **مدیریت سرصفحه‌ها و پاورقی‌ها در یک ارائه**
+| دامنه | سربرگ | پابرگ | تاریخ/زمان | شماره اسلاید/صفحه |
+|---|---|---|---|---|
+| اسلاید معمولی | خیر | بله | بله | بله |
+| نقشه یادداشت | بله | بله | بله | بله |
+| اسلاید یادداشت | بله | بله | بله | بله |
+| نقشه جزوه | بله | بله | بله | بله |
 
-یادداشت‌های برخی اسلایدهای خاص می‌توانند همان‌طور که در مثال زیر نشان داده شده است حذف شوند:
+یک اسلاید معمولی ارائه دارای فضا نگهدارندهٔ سربرگ نیست. سربرگ‌ها در صفحات یادداشت و جزوه‌ها موجود هستند. برای اسلایدهای معمولی، به جای آن از فضاهای نگهدارندهٔ پابرگ، تاریخ/زمان و شمارهٔ اسلاید استفاده کنید.
+
+دامنهٔ یک تغییر بستگی به مدیری دارد که استفاده می‌کنید. اینترفیس [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islideheaderfootermanager/) یک اسلید معمولی را کنترل می‌کند. اینترفیس [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/inotesslideheaderfootermanager/) یک اسلاید یادداشت را کنترل می‌کند. مدیران مستر و چیدمان می‌توانند تنظیمات را به اسلایدهای وابسته propagate کنند، در حالی که اینترفیس [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasterhandoutslideheaderfootermanager/) مستر جزوه را کنترل می‌کند.
+
+## **تنظیم پابرگ، تاریخ/زمان و شماره اسلایدها در اسلایدهای معمولی**
+
+برای اسلایدهای معمولی، جریان کاری پایه این است که مدیر سربرگ/پابرگ هر اسلاید را دسترسی پیدا کنید، متن پابرگ و تاریخ/زمان را تنظیم کنید، فضاهای نگهدارندهٔ مورد نیاز را فعال کنید و ارائه را ذخیره نمایید. شمارهٔ اسلایدها توسط ارائه تولید می‌شوند، بنابراین فقط نیاز به کنترل نمایش آن‌ها دارید.
+
+از [`setFooterText`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setFooterText-java.lang.String-) و [`setDateTimeText`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setDateTimeText-java.lang.String-) برای تنظیم متن استفاده کنید، و از [`setFooterVisibility`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setFooterVisibility-boolean-), [`setDateTimeVisibility`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setDateTimeVisibility-boolean-), و [`setSlideNumberVisibility`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setSlideNumberVisibility-boolean-) برای نمایش فضاهای نگهدارندهٔ مربوطه استفاده کنید.
+
+مثال انتها به انتهای زیر همان پابرگ، متن تاریخ/زمان و نمایش شماره اسلاید را برای تمام اسلایدهای معمولی اعمال می‌کند:
 
 ```java
-// بارگذاری ارائه
-Presentation pres = new Presentation("headerTest.pptx");
-try {
-    // تنظیم پاورقی
-    pres.getHeaderFooterManager().setAllFootersText("My Footer text");
-    pres.getHeaderFooterManager().setAllFootersVisibility(true);
+import com.aspose.slides.*;
 
-    // دسترسی و به‌روزرسانی سرصفحه
-    IMasterNotesSlide masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (null != masterNotesSlide)
-    {
-        updateHeaderFooterText(masterNotesSlide);
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideHeaderFooterManager headerFooterManager = slide.getHeaderFooterManager();
+
+        headerFooterManager.setFooterText("Company Confidential");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
 
-    // ذخیره ارائه
-    pres.save("HeaderFooterJava.pptx", SaveFormat.Pptx);
+    presentation.save("presentation_with_slide_footers.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
-}
-```
-```java
-// متد برای تنظیم متن سرصفحه/پاورقی
-public static void updateHeaderFooterText(IBaseSlide master)
-{
-    for (IShape shape : master.getShapes())
-    {
-        if (shape.getPlaceholder() != null)
-        {
-            if (shape.getPlaceholder().getType() == PlaceholderType.Header)
-            {
-                ((IAutoShape)shape).getTextFrame().setText("HI there new header");
-            }
-        }
-    }
+    presentation.dispose();
 }
 ```
 
-## **مدیریت سرصفحه‌ها و پاورقی‌ها در اسلایدهای توزیع و یادداشت**
+اگر نیاز به به‌روزرسانی فقط یک اسلاید دارید، به جای مرور کل مجموعه، مستقیم از طریق متد [`getSlides`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/#getSlides--) به آن اسلاید دسترسی پیدا کنید.
 
-Aspose.Slides برای Android از طریق Java از سرصفحه و پاورقی در اسلایدهای توزیع و یادداشت پشتیبانی می‌کند. لطفاً مراحل زیر را دنبال کنید:
+## **تنظیم سربرگ و پابرگ در مستر یادداشت‌ها**
 
-- یک [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) شامل ویدیو بارگذاری کنید.
-- تنظیمات سرصفحه و پاورقی را برای مستر یادداشت و تمام اسلایدهای یادداشت تغییر دهید.
-- قابلیت نمایش مکان‌گیرهای پاورقی در اسلاید مستر یادداشت و تمام فرزندان آن را فعال کنید.
-- قابلیت نمایش مکان‌گیرهای تاریخ و زمان در اسلاید مستر یادداشت و تمام فرزندان آن را فعال کنید.
-- تنظیمات سرصفحه و پاورقی را فقط برای اولین اسلاید یادداشت تغییر دهید.
-- قابلیت نمایش مکان‌گیر سرصفحه در اسلاید یادداشت را فعال کنید.
-- متن را به مکان‌گیر سرصفحه اسلاید یادداشت اختصاص دهید.
-- متن را به مکان‌گیر تاریخ‑زمان اسلاید یادداشت اختصاص دهید.
-- فایل ارائهٔ اصلاح‌شده را بنویسید.
+مستر یادداشت‌ها قالب‌بندی مشترک و رفتار فضاهای نگهدارنده برای صفحات یادداشت را تعریف می‌کند. وقتی فقط می‌خواهید مستر یادداشت‌ها را تغییر دهید، از اینترفیس [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/) استفاده کنید.
 
-کد نمونه در مثال زیر ارائه شده است.
+مثال زیر سربرگ، پابرگ و متن تاریخ/زمان را در مستر یادداشت‌ها تنظیم می‌کند و تمام فضاهای نگهدارندهٔ پشتیبانی‌شده را در آن مستر قابل مشاهده می‌سازد:
 
 ```java
-Presentation pres = new Presentation("presentation.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    // تغییر تنظیمات سرصفحه و پاورقی برای مستر یادداشت‌ها و تمام اسلایدهای یادداشت
-    IMasterNotesSlide masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (masterNotesSlide != null)
-    {
+    IMasterNotesSlide masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide != null) {
         IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.getHeaderFooterManager();
 
-        headerFooterManager.setHeaderAndChildHeadersVisibility(true); // اسلاید مستر یادداشت و تمام مکان‌گیرهای پاورقی فرزند قابل مشاهده شوند
-        headerFooterManager.setFooterAndChildFootersVisibility(true); // اسلاید مستر یادداشت و تمام مکان‌گیرهای سرصفحه فرزند قابل مشاهده شوند
-        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true); // اسلاید مستر یادداشت و تمام مکان‌گیرهای شماره اسلاید فرزند قابل مشاهده شوند
-        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true); // اسلاید مستر یادداشت و تمام مکان‌گیرهای تاریخ و زمان فرزند قابل مشاهده شوند
+        headerFooterManager.setHeaderText("Notes header");
+        headerFooterManager.setHeaderVisibility(true);
 
-        headerFooterManager.setHeaderAndChildHeadersText("Header text"); // متن را برای اسلاید مستر یادداشت و تمام مکان‌گیرهای سرصفحه فرزند تنظیم کنید
-        headerFooterManager.setFooterAndChildFootersText("Footer text"); // متن را برای اسلاید مستر یادداشت و تمام مکان‌گیرهای پاورقی فرزند تنظیم کنید
-        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text"); // متن را برای اسلاید مستر یادداشت و تمام مکان‌گیرهای تاریخ و زمان فرزند تنظیم کنید
+        headerFooterManager.setFooterText("Notes footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
 
-    // تغییر تنظیمات سرصفحه و پاورقی فقط برای اولین اسلاید یادداشت
-    INotesSlide notesSlide = pres.getSlides().get_Item(0).getNotesSlideManager().getNotesSlide();
-    if (notesSlide != null)
-    {
-        INotesSlideHeaderFooterManager headerFooterManager = notesSlide.getHeaderFooterManager();
-        if (!headerFooterManager.isHeaderVisible())
-            headerFooterManager.setHeaderVisibility(true); // این مکان‌گیر سرصفحه اسلاید یادداشت قابل مشاهده شود
-
-        if (!headerFooterManager.isFooterVisible())
-            headerFooterManager.setFooterVisibility(true); // این مکان‌گیر پاورقی اسلاید یادداشت قابل مشاهده شود
-
-        if (!headerFooterManager.isSlideNumberVisible())
-            headerFooterManager.setSlideNumberVisibility(true); // این مکان‌گیر شماره اسلاید اسلاید یادداشت قابل مشاهده شود
-
-        if (!headerFooterManager.isDateTimeVisible())
-            headerFooterManager.setDateTimeVisibility(true); // این مکان‌گیر تاریخ‑زمان اسلاید یادداشت قابل مشاهده شود
-
-        headerFooterManager.setHeaderText("New header text"); // متن را برای مکان‌گیر سرصفحه اسلاید یادداشت تنظیم کنید
-        headerFooterManager.setFooterText("New footer text"); // متن را برای مکان‌گیر پاورقی اسلاید یادداشت تنظیم کنید
-        headerFooterManager.setDateTimeText("New date and time text"); // متن را برای مکان‌گیر تاریخ‑زمان اسلاید یادداشت تنظیم کنید
-    }
-    pres.save("testresult.pptx",SaveFormat.Pptx);
+    presentation.save("presentation_with_notes_master_footers.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **پرسش‌های متداول**
+متد [`getMasterNotesSlide`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasternotesslidemanager/#getMasterNotesSlide--) زمانی که ارائه حاوی مستر یادداشت‌ها نباشد، `null` برمی‌گرداند.
 
-**آیا می‌توانم «سرصفحه» را به اسلایدهای عادی اضافه کنم؟**
+## **اعمال تنظیمات مستر یادداشت‌ها بر اسلایدهای فرزند یادداشت**
 
-در PowerPoint، «سرصفحه» فقط برای یادداشت‌ها و توزیع‌ها وجود دارد؛ در اسلایدهای عادی، عناصر پشتیبانی‌شده فقط پاورقی، تاریخ‑زمان و شماره اسلاید هستند. در Aspose.Slides این محدودیت‌ها همانند است: سرصفحه فقط برای یادداشت‌ها/توزیع‌ها و در اسلایدها—پاورقی/تاریخ‑زمان/شماره اسلاید.
+مستر یادداشت‌ها می‌تواند تنظیمات سربرگ و پابرگ را به خود و تمام اسلایدهای یادداشت وابسته اعمال کند. وقتی تنظیمات یکسان باید در سراسر سلسله‌مراتب یادداشت‌ها اعمال شود، از روش‌های propagation اختصاصی در [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/) استفاده کنید.
 
-**اگر چیدمان ناحیهٔ پاورقی نداشته باشد، آیا می‌توانم نمایش آن را «روشن» کنم؟**
+برای مثال، [`setHeaderAndChildHeadersText`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setHeaderAndChildHeadersText-java.lang.String-) و [`setHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setHeaderAndChildHeadersVisibility-boolean-) سربرگ مستر یادداشت‌ها و تمام سربرگ‌های فرزند را به‌روز می‌کند. روش‌های معادل برای پابرگ‌ها، تاریخ/زمان و شماره اسلایدها نیز موجود است.
 
-بله. با استفاده از مدیر سرصفحه/پاورقی قابلیت نمایش را بررسی کنید و در صورت نیاز آن را فعال کنید. این شاخص‌ها و متدهای API برای مواقعی طراحی شده‌اند که مکان‌گیر وجود نداشته یا مخفی باشد.
+```java
+import com.aspose.slides.*;
 
-**چگونه می‌توانم شماره اسلاید را از مقداری غیر از 1 شروع کنم؟**
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterNotesSlide masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
 
-عدد اولین اسلاید ارائه را با استفاده از [عدد اولین اسلاید](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/#setFirstSlideNumber-int-) تنظیم کنید؛ پس از آن، تمام شماره‌گذاری‌ها بازمحاسبه می‌شوند. به‌عنوان مثال می‌توانید از 0 یا 10 شروع کنید و شماره را در اسلاید عنوان مخفی کنید.
+    if (masterNotesSlide != null) {
+        IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.getHeaderFooterManager();
 
-**هنگام خروجی‌گیری به PDF/تصاویر/HTML چه می‌شود برای سرصفحه‌ها/پاورقی‌ها؟**
+        headerFooterManager.setHeaderAndChildHeadersText("Notes header");
+        headerFooterManager.setHeaderAndChildHeadersVisibility(true);
 
-آن‌ها به‌عنوان عناصر متنی معمولی ارائه رندر می‌شوند. به این معنی که اگر این عناصر در اسلایدها/صفحات یادداشت قابل مشاهده باشند، در قالب خروجی نیز همراه با سایر محتوا ظاهر می‌شوند.
+        headerFooterManager.setFooterAndChildFootersText("Notes footer");
+        headerFooterManager.setFooterAndChildFootersVisibility(true);
+
+        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
+        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
+
+        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
+    }
+
+    presentation.save("presentation_with_child_notes_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+روش‌های propagation استفاده‌شده در بالا عبارتند از [`setFooterAndChildFootersText`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setFooterAndChildFootersText-java.lang.String-), [`setFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setFooterAndChildFootersVisibility-boolean-), [`setDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesText-java.lang.String-), [`setDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesVisibility-boolean-), و [`setSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setSlideNumberAndChildSlideNumbersVisibility-boolean-).
+
+## **تنظیم سربرگ و پابرگ در یک اسلاید یادداشت تک‌فردی**
+
+یک اسلاید یادداشت به یک اسلاید معمولی خاص تعلق دارد. وقتی می‌خواهید فقط آن صفحهٔ یادداشت را سفارشی کنید، از اینترفیس [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/inotesslideheaderfootermanager/) آن استفاده کنید.
+
+متد [`addNotesSlide`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/inotesslidemanager/#addNotesSlide--) اسلاید یادداشت مربوط به اسلاید جاری را برمی‌گرداند و در صورتی که وجود نداشته باشد، یک اسلاید جدید ایجاد می‌کند. مثال زیر صفحهٔ یادداشت مرتبط با اولین اسلاید ارائه را پیکربندی می‌کند:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    INotesSlide notesSlide = slide.getNotesSlideManager().addNotesSlide();
+    INotesSlideHeaderFooterManager headerFooterManager = notesSlide.getHeaderFooterManager();
+
+    headerFooterManager.setHeaderText("Header for the first notes page");
+    headerFooterManager.setHeaderVisibility(true);
+
+    headerFooterManager.setFooterText("Footer for the first notes page");
+    headerFooterManager.setFooterVisibility(true);
+
+    headerFooterManager.setDateTimeText("Date and time text");
+    headerFooterManager.setDateTimeVisibility(true);
+
+    headerFooterManager.setSlideNumberVisibility(true);
+
+    presentation.save("presentation_with_custom_notes_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+اگر ابتدا تنظیمات را از مستر یادداشت‌ها propagation کنید و سپس یک اسلاید یادداشت تک‌فردی را تغییر دهید، تنظیمات بعدی برای هر اسلاید به شما امکان می‌دهد آن صفحهٔ یادداشت را به‌صورت مستقل سفارشی کنید.
+
+## **تنظیم سربرگ و پابرگ در مستر جزوه**
+
+صفحات جزوه از مستر جزوه برای فضاهای نگهدارندهٔ سربرگ، پابرگ، تاریخ/زمان و شمارهٔ صفحه استفاده می‌کنند. بر خلاف صفحات یادداشت، تنظیمات جزوه از طریق مستر جزوه مدیریت می‌شود نه از طریق اسلایدهای جزوهٔ تک‌تک.
+
+از متد [`getMasterHandoutSlide`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasterhandoutslidemanager/#getMasterHandoutSlide--) برای دسترسی به مستر جزوه استفاده کنید. اگر موجود نباشد، با فراخوانی [`setDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasterhandoutslidemanager/#setDefaultMasterHandoutSlide--) مستر جزوهٔ پیش‌فرض را ایجاد کنید.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterHandoutSlide masterHandoutSlide = presentation.getMasterHandoutSlideManager().getMasterHandoutSlide();
+
+    if (masterHandoutSlide == null) {
+        masterHandoutSlide = presentation.getMasterHandoutSlideManager().setDefaultMasterHandoutSlide();
+    }
+
+    if (masterHandoutSlide != null) {
+        IMasterHandoutSlideHeaderFooterManager headerFooterManager = masterHandoutSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Handout header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Handout footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
+    }
+
+    presentation.save("presentation_with_handout_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **درک دامنه و ارث‌بری**
+
+مدیر سربرگ/پابرگی را انتخاب کنید که با دامنه‌ای که می‌خواهید تغییر دهید مطابقت داشته باشد:
+
+- [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islideheaderfootermanager/) تنظیمات پابرگ، تاریخ/زمان و شماره اسلاید را برای یک اسلاید معمولی تغییر می‌دهد.
+- [`ILayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilayoutslideheaderfootermanager/) یک اسلاید چیدمان را کنترل می‌کند و می‌تواند تنظیمات پشتیبانی‌شده را به اسلایدهای وابسته propagate کند.
+- [`IMasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasterslideheaderfootermanager/) یک مستر اسلاید عادی را کنترل می‌کند و می‌تواند تنظیمات پشتیبانی‌شده را به اسلایدهای وابسته propagate کند.
+- [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/) مستر یادداشت‌ها را کنترل می‌کند و می‌تواند تنظیمات را به تمام اسلایدهای یادداشت وابسته propagate کند.
+- [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/inotesslideheaderfootermanager/) یک اسلاید یادداشت را تغییر می‌دهد و علاوه بر پابرگ، تاریخ/زمان و شماره اسلاید، یک فضا نگهدارندهٔ سربرگ را نیز پشتیبانی می‌کند.
+- [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasterhandoutslideheaderfootermanager/) مستر جزوه را تغییر می‌دهد و از چهار نوع فضا نگهدارنده پشتیبانی می‌کند.
+
+وقتی تنظیم یکسان باید در سراسر سلسله‌مراتب یک مستر یا چیدمان اعمال شود، از propagation استفاده کنید. وقتی نیاز به تنظیم محلی برای یک صفحه دارید، از مدیر اسلاید تک‌فرد یا notes‑slide استفاده کنید.
+
+## **سوالات متداول**
+
+**آیا می‌توانم سربرگ به یک اسلاید معمولی اضافه کنم؟**
+
+خیر. PowerPoint فضا نگهدارندهٔ سربرگ برای اسلایدهای معمولی تعریف نکرده است. در اسلایدهای معمولی، از فضاهای نگهدارندهٔ پابرگ، تاریخ/زمان و شماره اسلاید استفاده کنید. فضاهای نگهدارندهٔ سربرگ در صفحات یادداشت و جزوه موجود هستند.
+
+**اگر فضا نگهدارندهٔ پابرگ، تاریخ/زمان یا شماره اسلاید قابل مشاهده نباشد چه؟**
+
+از مدیر مربوط به سربرگ/پابرگ برای بررسی قابلیت نمایش آن استفاده کنید و در صورت نیاز آن را فعال کنید. برای مثال، [`isFooterVisible`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/baseslideheaderfootermanager/#isFooterVisible--) گزارش می‌دهد که آیا فضا نگهدارندهٔ پابرگ موجود است یا نه، و [`setFooterVisibility`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setFooterVisibility-boolean-) قابلیت نمایش آن را تغییر می‌دهد.
+
+**چگونه شماره‌گذاری اسلایدها را از مقداری غیر از ۱ شروع کنم؟**
+
+متد [`setFirstSlideNumber`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/#setFirstSlideNumber-int-) ارائه را صدا بزنید. سپس فضاهای نگهدارندهٔ شماره اسلاید از دنباله شماره‌گذاری به‌روز شده استفاده می‌کنند.
+
+**وقتی به PDF، تصویر یا HTML صادر می‌شود، چه اتفاقی برای سربرگ‌ها و پابرگ‌ها می‌افتد؟**
+
+عناصر قابل مشاهدهٔ سربرگ و پابرگ همراه با بقیه محتوای ارائه در قالب خروجی رندر می‌شوند. ظاهر آن‌ها بسته به نوع صفحه‌ای که صادر می‌شود و تنظیمات قابلیت نمایش فضاهای نگهدارندهٔ مرتبط متفاوت است.

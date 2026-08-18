@@ -1,6 +1,6 @@
 ---
-title: إدارة رؤوس وتذييلات العروض التقديمية على Android
-linktitle: رأس & تذييل
+title: إدارة رؤوس وتذييلات العرض التقديمي على Android
+linktitle: رأس وتذييل
 type: docs
 weight: 140
 url: /ar/androidjava/presentation-header-and-footer/
@@ -9,8 +9,8 @@ keywords:
 - نص الرأس
 - تذييل
 - نص التذييل
-- تعيين رأس
-- تعيين تذييل
+- تعيين الرأس
+- تعيين التذييل
 - نشرة
 - ملاحظات
 - PowerPoint
@@ -19,134 +19,229 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "استخدم Aspose.Slides لأندرويد عبر Java لإضافة وتخصيص الرؤوس والتذييلات في عروض PowerPoint وOpenDocument للحصول على مظهر احترافي."
+description: "تعلم كيفية إدارة نواِب التذييل، التاريخ/الوقت، رقم الشريحة، والرأس على الشرائح، صفحات الملاحظات، والنشرات باستخدام Aspose.Slides لنظام Android عبر Java."
 ---
+## **نظرة عامة**
 
-{{% alert color="primary" %}} 
+يستخدم PowerPoint نائِبات رأس وتذييل مختلفة حسب نوع الصفحة. يتيح Aspose.Slides لنظام Android عبر Java التحكم في النص ورؤية هذه النائِبات من خلال واجهات مدير رأس/تذييل.
 
-يوفر [Aspose.Slides](/slides/ar/androidjava/) الدعم للعمل مع نص رؤوس وتذييلات الشرائح التي يتم الحفاظ عليها فعليًا على مستوى ماستر الشريحة.
+تعتمد النائِبات المتاحة على النطاق:
 
-{{% /alert %}} 
+| النطاق | رأس | تذييل | التاريخ/الوقت | رقم الشريحة/الصفحة |
+|---|---|---|---|---|
+| شريحة عادية | لا | نعم | نعم | نعم |
+| قالب ملاحظات | نعم | نعم | نعم | نعم |
+| شريحة ملاحظات | نعم | نعم | نعم | نعم |
+| قالب توزيع | نعم | نعم | نعم | نعم |
 
-يوفر [Aspose.Slides for Android via Java](/slides/ar/androidjava/) ميزة إدارة الرؤوس والتذييلات داخل شرائح العرض. يتم إدارة هذه في الواقع على مستوى ماستر العرض.
+ليس لدى شريحة عرض عادية نائِب رأس. يتوفر الرأس في صفحات الملاحظات والنشرات. بالنسبة للشرائح العادية، استخدم نائِبات التذييل، التاريخ/الوقت، ورقم الشريحة بدلاً من ذلك.
 
-## **إدارة الرؤوس والتذييلات في العرض التقديمي**
-يمكن إزالة ملاحظات بعض الشرائح المحددة كما هو موضح في المثال أدناه:
+يعتمد نطاق التغيير على المدير الذي تستخدمه. واجهة [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islideheaderfootermanager/) تتحكم في شريحة عادية واحدة. واجهة [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/inotesslideheaderfootermanager/) تتحكم في شريحة ملاحظات واحدة. يمكن لمديري القالب وتخطيط الشرائح أيضًا نشر الإعدادات إلى الشرائح التابعة، بينما تتحكم واجهة [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasterhandoutslideheaderfootermanager/) في قالب النشرة.
+
+## **تعيين التذييل، التاريخ/الوقت، وأرقام الشرائح في الشرائح العادية**
+
+بالنسبة للشرائح العادية، يكون سير العمل الأساسي هو الوصول إلى مدير رأس/تذييل كل شريحة، تعيين نص التذييل والتاريخ/الوقت، تمكين النائِبات المطلوبة، ثم حفظ العرض التقديمي. تُولّد أرقام الشرائح من قبل العرض التقديمي، لذلك تحتاج فقط للتحكم في رؤيتها.
+
+استخدم [`setFooterText`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setFooterText-java.lang.String-) و[`setDateTimeText`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setDateTimeText-java.lang.String-) لتعيين النص، واستخدم [`setFooterVisibility`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setFooterVisibility-boolean-)،[`setDateTimeVisibility`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setDateTimeVisibility-boolean-)، و[`setSlideNumberVisibility`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setSlideNumberVisibility-boolean-) لإظهار النائِبات المقابلة.
+
+المثال الكامل التالي يطبق نفس التذييل، نص التاريخ/الوقت، ورؤية رقم الشريحة على جميع الشرائح العادية:
+
 ```java
-// تحميل العرض التقديمي
-Presentation pres = new Presentation("headerTest.pptx");
-try {
-    // تعيين التذييل
-    pres.getHeaderFooterManager().setAllFootersText("My Footer text");
-    pres.getHeaderFooterManager().setAllFootersVisibility(true);
+import com.aspose.slides.*;
 
-    // الوصول إلى الرأس وتحديثه
-    IMasterNotesSlide masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (null != masterNotesSlide)
-    {
-        updateHeaderFooterText(masterNotesSlide);
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideHeaderFooterManager headerFooterManager = slide.getHeaderFooterManager();
+
+        headerFooterManager.setFooterText("Company Confidential");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
 
-    // حفظ العرض التقديمي
-    pres.save("HeaderFooterJava.pptx", SaveFormat.Pptx);
+    presentation.save("presentation_with_slide_footers.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+إذا كنت بحاجة لتحديث شريحة واحدة فقط، يمكنك الوصول إلى تلك الشريحة مباشرة عبر طريقة [`getSlides`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/#getSlides--) بدلاً من التكرار عبر المجموعة بأكملها.
+
+## **تعيين الرؤوس والتذييلات في قالب الملاحظات**
+
+يحدد قالب الملاحظات التنسيق المشترك وسلوك النائب لصفحات الملاحظات. استخدم واجهة [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/) عندما تريد تغيير قالب الملاحظات نفسه فقط.
+
+المثال التالي يضبط رأس، تذييل، ونص التاريخ/الوقت في قالب الملاحظات ويجعل جميع النوابئ المدعومة مرئية في ذلك القالب:
+
 ```java
-// طريقة لتعيين نص الرأس/التذييل
-public static void updateHeaderFooterText(IBaseSlide master)
-{
-    for (IShape shape : master.getShapes())
-    {
-        if (shape.getPlaceholder() != null)
-        {
-            if (shape.getPlaceholder().getType() == PlaceholderType.Header)
-            {
-                ((IAutoShape)shape).getTextFrame().setText("HI there new header");
-            }
-        }
-    }
-}
-```
+import com.aspose.slides.*;
 
-
-## **إدارة الرؤوس والتذييلات في شرائح النشرات والملاحظات**
-يدعم Aspose.Slides for Android عبر Java الرؤوس والتذييلات في شرائح النشرات والملاحظات. يرجى اتباع الخطوات التالية:
-
-- تحميل [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) يحتوي على فيديو.
-- تغيير إعدادات الرؤوس والتذييلات للماستر الخاص بالملاحظات وجميع شرائح الملاحظات.
-- ضبط ظهور شريحة الملاحظات الرئيسية وجميع العنصر النائب للتذييل الفرعي.
-- ضبط ظهور شريحة الملاحظات الرئيسية وجميع العنصر النائب للتاريخ والوقت الفرعي.
-- تغيير إعدادات الرؤوس والتذييلات لشريحة الملاحظات الأولى فقط.
-- ضبط ظهور عنصر النائب للرأس في شريحة الملاحظات.
-- إدخال النص في عنصر النائب للرأس في شريحة الملاحظات.
-- إدخال النص في عنصر النائب للتاريخ/الوقت في شريحة الملاحظات.
-- كتابة ملف العرض التقديمي المعدل.
-
-القطعة البرمجية مقدمة في المثال أدناه.
-```java
-Presentation pres = new Presentation("presentation.pptx");
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    // تغيير إعدادات الرأس والتذييل لماستر الملاحظات وجميع شرائح الملاحظات
-    IMasterNotesSlide masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (masterNotesSlide != null)
-    {
+    IMasterNotesSlide masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide != null) {
         IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.getHeaderFooterManager();
 
-        headerFooterManager.setHeaderAndChildHeadersVisibility(true); // اجعل شريحة ماستر الملاحظات وجميع عناصر النائب للتذييل التابعة مرئية
-        headerFooterManager.setFooterAndChildFootersVisibility(true); // اجعل شريحة ماستر الملاحظات وجميع عناصر النائب للرأس التابعة مرئية
-        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true); // اجعل شريحة ماستر الملاحظات وجميع عناصر النائب لرقم الشريحة التابعة مرئية
-        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true); // اجعل شريحة ماستر الملاحظات وجميع عناصر النائب للتاريخ والوقت التابعة مرئية
+        headerFooterManager.setHeaderText("Notes header");
+        headerFooterManager.setHeaderVisibility(true);
 
-        headerFooterManager.setHeaderAndChildHeadersText("Header text"); // ضع النص في شريحة ماستر الملاحظات وجميع عناصر النائب للرأس التابعة
-        headerFooterManager.setFooterAndChildFootersText("Footer text"); // ضع النص في شريحة ماستر الملاحظات وجميع عناصر النائب للتذييل التابعة
-        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text"); // ضع النص في شريحة ماستر الملاحظات وجميع عناصر النائب للتاريخ والوقت التابعة
+        headerFooterManager.setFooterText("Notes footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
 
-    // تغيير إعدادات الرأس والتذييل لشريحة الملاحظات الأولى فقط
-    INotesSlide notesSlide = pres.getSlides().get_Item(0).getNotesSlideManager().getNotesSlide();
-    if (notesSlide != null)
-    {
-        INotesSlideHeaderFooterManager headerFooterManager = notesSlide.getHeaderFooterManager();
-        if (!headerFooterManager.isHeaderVisible())
-            headerFooterManager.setHeaderVisibility(true); // اجعل عنصر نائب الرأس لهذه الشريحة مرئياً
-
-        if (!headerFooterManager.isFooterVisible())
-            headerFooterManager.setFooterVisibility(true); // اجعل عنصر نائب التذييل لهذه الشريحة مرئياً
-
-        if (!headerFooterManager.isSlideNumberVisible())
-            headerFooterManager.setSlideNumberVisibility(true); // اجعل عنصر نائب رقم الشريحة لهذه الشريحة مرئياً
-
-        if (!headerFooterManager.isDateTimeVisible())
-            headerFooterManager.setDateTimeVisibility(true); // اجعل عنصر نائب التاريخ والوقت لهذه الشريحة مرئياً
-
-        headerFooterManager.setHeaderText("New header text"); // ضع النص في عنصر نائب الرأس لشريحة الملاحظات
-        headerFooterManager.setFooterText("New footer text"); // ضع النص في عنصر نائب التذييل لشريحة الملاحظات
-        headerFooterManager.setDateTimeText("New date and time text"); // ضع النص في عنصر نائب التاريخ والوقت لشريحة الملاحظات
-    }
-    pres.save("testresult.pptx",SaveFormat.Pptx);
+    presentation.save("presentation_with_notes_master_footers.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+طريقة [`getMasterNotesSlide`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasternotesslidemanager/#getMasterNotesSlide--) تُرجع `null` عندما لا يحتوي العرض التقديمي على قالب ملاحظات.
 
-## **FAQ**
+## **تطبيق إعدادات قالب الملاحظات على الشرائح التابعة**
 
-**هل يمكنني إضافة "رأس" إلى الشرائح العادية؟**
+يمكن لقالب الملاحظات تطبيق إعدادات الرأس والتذييل على نفسه وعلى جميع الشرائح التابعة. استخدم طرق النشر المخصصة في [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/) عندما يجب تطبيق نفس الإعدادات عبر شجرة الملاحظات.
 
-في PowerPoint، لا يوجد "رأس" إلا للملاحظات والنشرات؛ في الشرائح العادية، العناصر المدعومة هي التذييل، التاريخ/الوقت، ورقم الشريحة. في Aspose.Slides يتطابق ذلك مع نفس القيود: الرأس متاح فقط للملاحظات/النشرات، وعلى الشرائح—التذييل/التاريخ والوقت/رقم الشريحة.
+على سبيل المثال، تقوم طريقتا [`setHeaderAndChildHeadersText`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setHeaderAndChildHeadersText-java.lang.String-) و[`setHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setHeaderAndChildHeadersVisibility-boolean-) بتحديث رأس قالب الملاحظات وجميع رؤوس الأطفال. تتوفر طرق مماثلة للتذييلات، التاريخ/الوقت، وأرقام الشرائح.
 
-**ماذا لو لم يحتوي التخطيط على منطقة تذييل—هل يمكنني "تفعيل" رؤيتها؟**
+```java
+import com.aspose.slides.*;
 
-نعم. تحقق من الرؤية عبر مدير الرأس/التذييل وقم بتمكينه إذا لزم الأمر. تم تصميم مؤشرات و طرق API هذه للحالات التي يكون فيها العنصر النائب مفقودًا أو مخفيًا.
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterNotesSlide masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
 
-**كيف أجعل رقم الشريحة يبدأ من قيمة غير 1؟**
+    if (masterNotesSlide != null) {
+        IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.getHeaderFooterManager();
 
-حدد [رقم الشريحة الأول](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#setFirstSlideNumber-int-) للعرض التقديمي؛ بعد ذلك يتم إعادة حساب جميع أرقام الشرائح. على سبيل المثال، يمكنك البدء من 0 أو 10، وإخفاء الرقم على شريحة العنوان.
+        headerFooterManager.setHeaderAndChildHeadersText("Notes header");
+        headerFooterManager.setHeaderAndChildHeadersVisibility(true);
 
-**ماذا يحدث للرؤوس/التذييلات عند التصدير إلى PDF/صُور/HTML؟**
+        headerFooterManager.setFooterAndChildFootersText("Notes footer");
+        headerFooterManager.setFooterAndChildFootersVisibility(true);
 
-يتم عرضها كعناصر نصية عادية في العرض التقديمي. أي إذا كانت العناصر مرئية على الشرائح/صفحات الملاحظات، فستظهر أيضًا في صيغة الإخراج إلى جانب باقي المحتوى.
+        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
+        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
+
+        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
+    }
+
+    presentation.save("presentation_with_child_notes_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+طرق النشر المستخدمة أعلاه هي [`setFooterAndChildFootersText`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setFooterAndChildFootersText-java.lang.String-)،[`setFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setFooterAndChildFootersVisibility-boolean-)،[`setDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesText-java.lang.String-)،[`setDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesVisibility-boolean-)، و[`setSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setSlideNumberAndChildSlideNumbersVisibility-boolean-).
+
+## **تعيين الرؤوس والتذييلات في شريحة ملاحظات فردية**
+
+تنتمي شريحة الملاحظات إلى شريحة عرض عادية محددة. استخدم واجهة [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/inotesslideheaderfootermanager/) عندما تريد تخصيص تلك الصفحة الملاحظة فقط.
+
+طريقة [`addNotesSlide`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/inotesslidemanager/#addNotesSlide--) تُرجع شريحة الملاحظات للشريحة الحالية وتُنشئ واحدة إذا لم تكن موجودة. المثال التالي يكوّن صفحة الملاحظات المرتبطة بأول شريحة عرض:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    INotesSlide notesSlide = slide.getNotesSlideManager().addNotesSlide();
+    INotesSlideHeaderFooterManager headerFooterManager = notesSlide.getHeaderFooterManager();
+
+    headerFooterManager.setHeaderText("Header for the first notes page");
+    headerFooterManager.setHeaderVisibility(true);
+
+    headerFooterManager.setFooterText("Footer for the first notes page");
+    headerFooterManager.setFooterVisibility(true);
+
+    headerFooterManager.setDateTimeText("Date and time text");
+    headerFooterManager.setDateTimeVisibility(true);
+
+    headerFooterManager.setSlideNumberVisibility(true);
+
+    presentation.save("presentation_with_custom_notes_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+إذا قمت أولاً بنشر الإعدادات من قالب الملاحظات ثم غيرت شريحة ملاحظات فردية، فإن الإعدادات الخاصة بالشرائح الفردية تسمح لك بتخصيص تلك الصفحة بشكل مستقل.
+
+## **تعيين الرؤوس والتذييلات في قالب النشرة**
+
+تستخدم صفحات النشرة قالب النشرة لرؤوسها، تذييلها، تاريخ/وقت، ورقم الصفحة. على عكس صفحات الملاحظات، تُدار إعدادات النشرة عبر قالب النشرة وليس عبر شرائح النشرة الفردية.
+
+استخدم طريقة [`getMasterHandoutSlide`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasterhandoutslidemanager/#getMasterHandoutSlide--) للوصول إلى قالب النشرة. إذا لم يكن موجودًا، استدعِ [`setDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasterhandoutslidemanager/#setDefaultMasterHandoutSlide--) لإنشاء قالب النشرة الافتراضي.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterHandoutSlide masterHandoutSlide = presentation.getMasterHandoutSlideManager().getMasterHandoutSlide();
+
+    if (masterHandoutSlide == null) {
+        masterHandoutSlide = presentation.getMasterHandoutSlideManager().setDefaultMasterHandoutSlide();
+    }
+
+    if (masterHandoutSlide != null) {
+        IMasterHandoutSlideHeaderFooterManager headerFooterManager = masterHandoutSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Handout header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Handout footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
+    }
+
+    presentation.save("presentation_with_handout_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **فهم النطاق والوراثة**
+
+اختر مدير الرأس/التذييل الذي يتناسب مع النطاق الذي تريد تغييره:
+
+- [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islideheaderfootermanager/) يغيّر إعدادات التذييل، التاريخ/الوقت، ورقم الشريحة لشريحة عادية واحدة.
+- [`ILayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilayoutslideheaderfootermanager/) يتحكم في شريحة تخطيط ويمكنه نشر الإعدادات المدعومة إلى الشرائح التابعة.
+- [`IMasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasterslideheaderfootermanager/) يتحكم في قالب شريحة عرض عادي ويمكنه نشر الإعدادات المدعومة إلى الشرائح التابعة.
+- [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/) يتحكم في قالب الملاحظات ويمكنه نشر الإعدادات إلى جميع الشرائح التابعة.
+- [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/inotesslideheaderfootermanager/) يغيّر شريحة ملاحظات واحدة ويدعم نائِب رأس بالإضافة إلى التذييل، التاريخ/الوقت، ورقم الشريحة.
+- [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasterhandoutslideheaderfootermanager/) يغيّر قالب النشرة ويدعم جميع أنواع النوابئ الأربعة.
+
+استخدم النشر من قالب أو تخطيط عندما يجب أن يُطبق الإعداد نفسه عبر كامل الهيكل. استخدم مدير شريحة فردية أو شريحة ملاحظات عندما تحتاج إلى إعداد محلي لصفحة واحدة.
+
+## **الأسئلة المتكررة**
+
+**هل يمكنني إضافة رأس إلى شريحة عادية؟**
+
+لا. لا يعرف PowerPoint نائِب رأس للشرائح العادية. في الشرائح العادية، استخدم نواِب التذييل، التاريخ/الوقت، ورقم الشريحة. نواِب الرأس متوفرة في صفحات الملاحظات والنشرات.
+
+**ماذا إذا لم يكن نائِب التذييل أو التاريخ/الوقت أو رقم الشريحة مرئيًا؟**
+
+استخدم مدير الرأس/التذييل المقابل للتحقق من رؤيته وتمكينه عند الحاجة. على سبيل المثال، [`isFooterVisible`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/baseslideheaderfootermanager/#isFooterVisible--) يوضح ما إذا كان نائِب التذييل موجودًا، و[`setFooterVisibility`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setFooterVisibility-boolean-) يغيّر رؤيته.
+
+**كيف أبدأ ترقيم الشرائح من قيمة غير 1؟**
+
+استدعِ طريقة [`setFirstSlideNumber`](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/#setFirstSlideNumber-int-) في العرض التقديمي. ثم تستخدم نواِب رقم الشريحة تسلسل الترقيم المحدث.
+
+**ماذا يحدث للرؤوس والتذييلات عند التصدير إلى PDF أو صور أو HTML؟**
+
+العناصر المرئية للرأس والتذييل تُرسم مع باقي محتوى العرض في صيغة الإخراج. مظهرها يعتمد على نوع الصفحة التي يتم تصديرها وإعدادات رؤية النائب المقابلة.

@@ -1,135 +1,221 @@
 ---
-title: Python के साथ प्रस्तुति हेडर और फ़ूटर प्रबंधित करें
-linktitle: हेडर और फ़ूटर
+title: Python के साथ प्रस्तुति हेडर और फुटर प्रबंधित करें
+linktitle: हेडर और फुटर
 type: docs
 weight: 140
 url: /hi/python-net/presentation-header-and-footer/
 keywords:
 - हेडर
-- हेडर पाठ
-- फ़ूटर
-- फ़ूटर पाठ
+- हेडर टेक्स्ट
+- फुटर
+- फुटर टेक्स्ट
 - हेडर सेट करें
-- फ़ूटर सेट करें
+- फुटर सेट करें
 - हैंडआउट
 - नोट्स
 - PowerPoint
+- OpenDocument
 - प्रस्तुति
 - Python
 - Aspose.Slides
-description: "PowerPoint और OpenDocument प्रस्तुतियों में हेडर और फ़ूटर को जोड़ने और अनुकूलित करने के लिए .NET के माध्यम से Python के लिए Aspose.Slides का उपयोग करें, जिससे पेशेवर रूप मिले।"
+description: "Aspose.Slides for Python via .NET का उपयोग करके स्लाइड्स, नोट्स पेज़ और हैंडआउट्स पर फुटर, तारीख‑समय, स्लाइड‑नंबर और हेडर प्लेसहोल्डर को कैसे प्रबंधित करें, जानें।"
 ---
-## **अवलोकन**
+## **परिचय**
 
-Aspose.Slides for Python आपको प्रस्तुति में हेडर और फ़ूटर प्लेसहोल्डर्स को सटीक दायरे के साथ नियंत्रित करने देता है। स्लाइड्स पर फ़ूटर टेक्स्ट, तिथि/समय, और स्लाइड नंबर मास्टर लेवल से प्रबंधित होते हैं और इन्हें वैश्विक रूप से लागू या प्रत्येक स्लाइड के अनुसार समायोजित किया जा सकता है। हेडर नोट्स और हैंडआउट्स में समर्थित हैं, जहाँ आप दृश्यता को टॉगल कर सकते हैं और हेडर, फ़ूटर, तिथि/समय, और पेज नंबर के लिए टेक्स्ट सेट कर सकते हैं, जो समर्पित हेडर & फ़ूटर प्रबंधक के माध्यम से मास्टर नोट्स स्लाइड या व्यक्तिगत नोट्स स्लाइड्स पर किया जाता है। यह लेख इन प्लेसहोल्डर्स को अपडेट करने और आपके डेक में लगातार बदलावों को प्रसारित करने के प्रमुख पैटर्न को रेखांकित करता है।
+PowerPoint विभिन्न पृष्ठ प्रकारों के आधार पर अलग‑अलग हेडर और फुटर प्लेसहोल्डर का उपयोग करता है। Aspose.Slides for Python via .NET आपको इन प्लेसहोल्डर के टेक्स्ट और दृश्यता को हेडर/फुटर मैनेजर क्लासों के माध्यम से नियंत्रित करने देता है।
 
-## **हेडर और फ़ूटर पाठ को प्रबंधित करें**
+उपलब्ध प्लेसहोल्डर क्षेत्र पर निर्भर करते हैं:
 
-इस अनुभाग में, आप सीखेंगे कि प्रस्तुति में हेडर और फ़ूटर सामग्री को कैसे प्रबंधित किया जाए—फ़ूटर, तिथि और समय, और स्लाइड नंबर को सक्षम या संशोधित करना। हम इन सेटिंग्स को लागू करने के दायरे (पूरी प्रस्तुति, व्यक्तिगत स्लाइड्स, और नोट्स/हैंडआउट दृश्य) को संक्षेप में रेखांकित करेंगे और Aspose.Slides API का उपयोग करके उन्हें तेज़ और लगातार अपडेट करने का तरीका दिखाएंगे।
+| क्षेत्र | हेडर | फुटर | तारीख/समय | स्लाइड/पृष्ठ संख्या |
+|---|---|---|---|---|
+| Regular slide | नहीं | हाँ | हाँ | हाँ |
+| Notes master | हाँ | हाँ | हाँ | हाँ |
+| Notes slide | हाँ | हाँ | हाँ | हाँ |
+| Handout master | हाँ | हाँ | हाँ | हाँ |
 
-नीचे दिया गया कोड उदाहरण एक प्रस्तुति खोलता है, फ़ूटर टेक्स्ट को सक्षम और सेट करता है, मास्टर नोट्स स्लाइड पर हेडर टेक्स्ट को अपडेट करता है, और फ़ाइल को सहेजता है।
+एक नियमित प्रस्तुति स्लाइड में हेडर प्लेसहोल्डर नहीं होता। हेडर नोट पृष्ठों और हैंडआउट्स में उपलब्ध होते हैं। नियमित स्लाइड्स के लिए फुटर, तारीख/समय, और स्लाइड‑नंबर प्लेसहोल्डर का उपयोग करें।
 
-```py
+परिवर्तन का दायरा उस मैनेजर पर निर्भर करता है जिसका आप उपयोग करते हैं। [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/slideheaderfootermanager/) क्लास एक नियमित स्लाइड को नियंत्रित करती है। [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/notesslideheaderfootermanager/) क्लास एक नोट्स स्लाइड को नियंत्रित करती है। मास्टर और लेआउट मैनेजर्स भी सेटिंग्स को निर्भर स्लाइड्स तक पहुँचाने में सक्षम होते हैं, जबकि [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/masterhandoutslideheaderfootermanager/) क्लास हैंडआउट मास्टर को नियंत्रित करती है।
+
+## **नियमित स्लाइड्स पर फुटर, तारीख/समय, और स्लाइड नंबर सेट करना**
+
+नियमित स्लाइड्स के लिए बुनियादी वर्कफ़्लो यह है कि प्रत्येक स्लाइड के हेडर/फुटर मैनेजर तक पहुँचें, फुटर और तारीख/समय टेक्स्ट सेट करें, आवश्यक प्लेसहोल्डर को सक्षम करें, और प्रस्तुति सहेजें। स्लाइड नंबर प्रस्तुति द्वारा उत्पन्न होते हैं, इसलिए आपको केवल उनकी दृश्यता को नियंत्रित करना होता है।
+
+टेक्स्ट सेट करने के लिए [`set_footer_text`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/baseslideheaderfootermanager/set_footer_text/) और [`set_date_time_text`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/baseslideheaderfootermanager/set_date_time_text/) का उपयोग करें, और संबंधित प्लेसहोल्डर दिखाने के लिए [`set_footer_visibility`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/baseslideheaderfootermanager/set_footer_visibility/), [`set_date_time_visibility`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/baseslideheaderfootermanager/set_date_time_visibility/), और [`set_slide_number_visibility`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/baseslideheaderfootermanager/set_slide_number_visibility/) का उपयोग करें।
+
+नीचे दिया गया एंड‑टू‑एंड उदाहरण सभी नियमित स्लाइड्स पर समान फुटर, तारीख/समय टेक्स्ट, और स्लाइड‑नंबर दृश्यता लागू करता है:
+
+```python
 import aspose.slides as slides
 
-# हेडर टेक्स्ट सेट करने वाला फ़ंक्शन।
-def update_header_footer_text(master):
-    for shape in master.shapes:
-        if shape.placeholder is not None:
-            if shape.placeholder.type == slides.PlaceholderType.HEADER:
-                shape.text_frame.text = "Hi, there is a header"
+with slides.Presentation("presentation.pptx") as presentation:
+    for slide in presentation.slides:
+        header_footer_manager = slide.header_footer_manager
 
+        header_footer_manager.set_footer_text("Company Confidential")
+        header_footer_manager.set_footer_visibility(True)
 
-# प्रस्तुति लोड करें।
-with slides.Presentation("sample.pptx") as presentation:
-    # फ़ूटर सेट करें।
-    presentation.header_footer_manager.set_all_footers_text("My Footer text")
-    presentation.header_footer_manager.set_all_footers_visibility(True)
+        header_footer_manager.set_date_time_text("Date and time text")
+        header_footer_manager.set_date_time_visibility(True)
 
-    # हेडर तक पहुँचें और अपडेट करें।
-    master_notes_slide = presentation.master_notes_slide_manager.master_notes_slide
-    if master_notes_slide is not None:
-        update_header_footer_text(master_notes_slide)
+        header_footer_manager.set_slide_number_visibility(True)
 
-    # प्रस्तुति सहेजें।
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("presentation_with_slide_footers.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **नोट्स स्लाइड्स पर हेडर और फ़ूटर को प्रबंधित करें**
+यदि आपको केवल एक स्लाइड को अद्यतन करना है, तो पूरी कलेक्शन को इटररेट करने के बजाय सीधे उस स्लाइड को [`slides`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/slides/hi/) कलेक्शन से एक्सेस करें।
 
-इस अनुभाग में, आप Aspose.Slides में नोट्स स्लाइड्स के लिए हेडर और फ़ूटर को विशेष रूप से कैसे प्रबंधित किया जाए, सीखेंगे। हम संबंधित प्लेसहोल्डर्स को सक्षम करने, फ़ूटर, तिथि/समय, और पेज नंबर के लिए टेक्स्ट सेट करने, और इन बदलावों को नोट्स मास्टर और व्यक्तिगत नोट्स पेजों में लगातार लागू करने को कवर करेंगे।
+## **Notes Master पर हेडर और फुटर सेट करना**
 
-नीचे दिए गए चरणों का पालन करें:
+Notes master नोट्स पृष्ठों के लिये सामान्य फॉर्मेटिंग और प्लेसहोल्डर व्यवहार को परिभाषित करता है। जब आप केवल नोट्स मास्टर को बदलना चाहते हैं, तो [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/masternotesslideheaderfootermanager/) क्लास का प्रयोग करें।
 
-1. एक प्रस्तुति फ़ाइल लोड करें।
-1. Get the master notes slide and its [हेडर और फ़ूटर प्रबंधक](https://reference.aspose.com/slides/hi/python-net/aspose.slides/masternotesslideheaderfootermanager/)।
-1. मास्टर नोट्स स्लाइड पर, मास्टर और सभी चाइल्ड नोट्स स्लाइड्स के लिए हेडर, फ़ूटर, स्लाइड नंबर, और तिथि-समय की दृश्यता सक्षम करें।
-1. मास्टर नोट्स स्लाइड पर, मास्टर और सभी चाइल्ड नोट्स स्लाइड्स के लिए हेडर, फ़ूटर, और तिथि-समय का टेक्स्ट सेट करें।
-1. पहली प्रस्तुति स्लाइड के लिए नोट्स स्लाइड और उसका [हेडर और फ़ूटर प्रबंधक](https://reference.aspose.com/slides/hi/python-net/aspose.slides/notesslideheaderfootermanager/) प्राप्त करें।
-1. केवल इस पहली नोट्स स्लाइड के लिए, हेडर, फ़ूटर, स्लाइड नंबर, और तिथि-समय को दृश्य सुनिश्चित करें (जो बंद हों उन्हें चालू करें)।
-1. केवल इस पहली नोट्स स्लाइड के लिए, हेडर, फ़ूटर, और तिथि-समय का टेक्स्ट सेट करें।
-1. प्रस्तुति को PPTX फ़ॉर्मेट में सहेजें।
+निम्न उदाहरण notes master पर हेडर, फुटर, और तारीख/समय टेक्स्ट सेट करता है और उस मास्टर पर सभी समर्थित प्लेसहोल्डर को दिखाई देने योग्य बनाता है:
 
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
+with slides.Presentation("presentation.pptx") as presentation:
     master_notes_slide = presentation.master_notes_slide_manager.master_notes_slide
+
     if master_notes_slide is not None:
         header_footer_manager = master_notes_slide.header_footer_manager
 
-        # मास्टर नोट्स स्लाइड और सभी चाइल्ड हेडर, फ़ूटर, स्लाइड नंबर, और तिथि/समय प्लेसहोल्डर्स को दृश्यमान बनाएं।
+        header_footer_manager.set_header_text("Notes header")
+        header_footer_manager.set_header_visibility(True)
+
+        header_footer_manager.set_footer_text("Notes footer")
+        header_footer_manager.set_footer_visibility(True)
+
+        header_footer_manager.set_date_time_text("Date and time text")
+        header_footer_manager.set_date_time_visibility(True)
+
+        header_footer_manager.set_slide_number_visibility(True)
+
+    presentation.save("presentation_with_notes_master_footers.pptx", slides.export.SaveFormat.PPTX)
+```
+
+प्रस्तुति में notes master मौजूद नहीं हो सकता, इसलिए इसे बदलने से पहले `None` के लिये लौटाए गए मान की जाँच करें।
+
+## **Child Notes Slides पर Notes Master सेटिंग्स लागू करना**
+
+Notes master स्वयं और सभी निर्भर नोट्स स्लाइड्स पर हेडर और फुटर सेटिंग्स लागू कर सकता है। जब समान सेटिंग्स को नोट्स पदानुक्रम में सभी स्तरों पर लागू करना हो, तो [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/masternotesslideheaderfootermanager/) की समर्पित प्रसारण विधियों का उपयोग करें।
+
+उदाहरण के लिये, [`set_header_and_child_headers_text`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/masternotesslideheaderfootermanager/set_header_and_child_headers_text/) और [`set_header_and_child_headers_visibility`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/masternotesslideheaderfootermanager/set_header_and_child_headers_visibility/) notes master हेडर और सभी चाइल्ड हेडर को अपडेट करते हैं। फुटर, तारीख/समय, और स्लाइड नंबर के लिये समकक्ष विधियाँ उपलब्ध हैं।
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    master_notes_slide = presentation.master_notes_slide_manager.master_notes_slide
+
+    if master_notes_slide is not None:
+        header_footer_manager = master_notes_slide.header_footer_manager
+
+        header_footer_manager.set_header_and_child_headers_text("Notes header")
         header_footer_manager.set_header_and_child_headers_visibility(True)
+
+        header_footer_manager.set_footer_and_child_footers_text("Notes footer")
         header_footer_manager.set_footer_and_child_footers_visibility(True)
-        header_footer_manager.set_slide_number_and_child_slide_numbers_visibility(True)
+
+        header_footer_manager.set_date_time_and_child_date_times_text("Date and time text")
         header_footer_manager.set_date_time_and_child_date_times_visibility(True)
 
-        # मास्टर नोट्स स्लाइड और सभी चाइल्ड हेडर, फ़ूटर, और तिथि/समय प्लेसहोल्डर्स पर टेक्स्ट सेट करें।
-        header_footer_manager.set_header_and_child_headers_text("Header text")
-        header_footer_manager.set_footer_and_child_footers_text("Footer text")
-        header_footer_manager.set_date_time_and_child_date_times_text("Date and time text")
+        header_footer_manager.set_slide_number_and_child_slide_numbers_visibility(True)
 
-    # केवल पहले नोट्स स्लाइड के लिए हेडर, फ़ूटर, स्लाइड नंबर, और तिथि/समय सेटिंग्स बदलें।
-    notesSlide = presentation.slides[0].notes_slide_manager.notes_slide
-    if notesSlide is not None:
-        header_footer_manager = notesSlide.header_footer_manager
-
-        # सुनिश्चित करें कि हेडर, फ़ूटर, स्लाइड नंबर, और तिथि/समय प्लेसहोल्डर्स दृश्यमान हैं।
-        if not header_footer_manager.is_header_visible:
-            header_footer_manager.set_header_visibility(True)
-
-        if not header_footer_manager.is_footer_visible:
-            header_footer_manager.set_footer_visibility(True)
-
-        if not header_footer_manager.is_slide_number_visible:
-            header_footer_manager.set_slide_number_visibility(True)
-
-        if not header_footer_manager.is_date_time_visible:
-            header_footer_manager.set_date_time_visibility(True)
-
-        # नोट्स स्लाइड हेडर, फ़ूटर, और तिथि/समय प्लेसहोल्डर्स पर टेक्स्ट सेट करें।
-        header_footer_manager.set_header_text("New header text")
-        header_footer_manager.set_footer_text("New footer text")
-        header_footer_manager.set_date_time_text("New date and time text")
-
-    # प्रस्तुति सहेजें।
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("presentation_with_child_notes_footers.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+उपरोक्त प्रसारण विधियाँ हैं [`set_footer_and_child_footers_text`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/masternotesslideheaderfootermanager/set_footer_and_child_footers_text/), [`set_footer_and_child_footers_visibility`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/masternotesslideheaderfootermanager/set_footer_and_child_footers_visibility/), [`set_date_time_and_child_date_times_text`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/masternotesslideheaderfootermanager/set_date_time_and_child_date_times_text/), [`set_date_time_and_child_date_times_visibility`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/masternotesslideheaderfootermanager/set_date_time_and_child_date_times_visibility/), और [`set_slide_number_and_child_slide_numbers_visibility`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/masternotesslideheaderfootermanager/set_slide_number_and_child_slide_numbers_visibility/)।
+
+## **व्यक्तिगत नोट्स स्लाइड पर हेडर और फुटर सेट करना**
+
+एक नोट्स स्लाइड विशेष नियमित स्लाइड से जुड़ी होती है। जब आप केवल उसी नोट्स पृष्ठ को अनुकूलित करना चाहते हैं, तो उसकी [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/notesslideheaderfootermanager/) क्लास का प्रयोग करें।
+
+[`add_notes_slide`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/notesslidemanager/add_notes_slide/) मेथड वर्तमान स्लाइड के लिये नोट्स स्लाइड लौटाता है और यदि वह पहले से मौजूद नहीं है तो नई बनाता है। निम्न उदाहरण प्रथम प्रस्तुति स्लाइड से संबंधित नोट्स पृष्ठ को कॉन्फ़िगर करता है:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    notes_slide = presentation.slides[0].notes_slide_manager.add_notes_slide()
+    header_footer_manager = notes_slide.header_footer_manager
+
+    header_footer_manager.set_header_text("Header for the first notes page")
+    header_footer_manager.set_header_visibility(True)
+
+    header_footer_manager.set_footer_text("Footer for the first notes page")
+    header_footer_manager.set_footer_visibility(True)
+
+    header_footer_manager.set_date_time_text("Date and time text")
+    header_footer_manager.set_date_time_visibility(True)
+
+    header_footer_manager.set_slide_number_visibility(True)
+
+    presentation.save("presentation_with_custom_notes_footers.pptx", slides.export.SaveFormat.PPTX)
+```
+
+यदि आप पहले नोट्स मास्टर से सेटिंग्स प्रसारित करें और फिर व्यक्तिगत नोट्स स्लाइड को बदलें, तो बाद की प्रति‑स्लाइड सेटिंग्स आपको उस नोट्स पृष्ठ को स्वतंत्र रूप से अनुकूलित करने देती हैं।
+
+## **Handout Master पर हेडर और फुटर सेट करना**
+
+Handout पृष्ठ अपने हेडर, फुटर, तारीख/समय, और पृष्ठ‑संख्या प्लेसहोल्डर के लिये handout master का उपयोग करते हैं। नोट्स पृष्ठों के विपरीत, handout सेटिंग्स व्यक्तिगत handout स्लाइड्स के बजाय handout master के माध्यम से प्रबंधित की जाती हैं।
+
+हैंडआउट मास्टर तक पहुँचने के लिये [`master_handout_slide`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/imasterhandoutslidemanager/master_handout_slide/) प्रॉपर्टी का उपयोग करें। यदि यह मौजूद नहीं है, तो डिफ़ॉल्ट handout master बनाने के लिये [`set_default_master_handout_slide`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/imasterhandoutslidemanager/set_default_master_handout_slide/) को कॉल करें।
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    master_handout_slide = presentation.master_handout_slide_manager.master_handout_slide
+
+    if master_handout_slide is None:
+        presentation.master_handout_slide_manager.set_default_master_handout_slide()
+        master_handout_slide = presentation.master_handout_slide_manager.master_handout_slide
+
+    if master_handout_slide is not None:
+        header_footer_manager = master_handout_slide.header_footer_manager
+
+        header_footer_manager.set_header_text("Handout header")
+        header_footer_manager.set_header_visibility(True)
+
+        header_footer_manager.set_footer_text("Handout footer")
+        header_footer_manager.set_footer_visibility(True)
+
+        header_footer_manager.set_date_time_text("Date and time text")
+        header_footer_manager.set_date_time_visibility(True)
+
+        header_footer_manager.set_slide_number_visibility(True)
+
+    presentation.save("presentation_with_handout_footers.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **दायरा और विरासत को समझना**
+
+उस हेडर/फुटर मैनेजर को चुनें जो आपके परिवर्तन के दायरे से मेल खाता हो:
+
+- [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/slideheaderfootermanager/) एक नियमित स्लाइड के लिये फुटर, तारीख/समय, और स्लाइड‑नंबर सेटिंग्स बदलता है।
+- [`LayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/layoutslideheaderfootermanager/) लेआउट स्लाइड को नियंत्रित करता है और समर्थित सेटिंग्स को निर्भर स्लाइड्स तक प्रसारित कर सकता है।
+- [`MasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/masterslideheaderfootermanager/) नियमित स्लाइड मास्टर को नियंत्रित करता है और समर्थित सेटिंग्स को निर्भर स्लाइड्स तक प्रसारित कर सकता है।
+- [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/masternotesslideheaderfootermanager/) नोट्स मास्टर को नियंत्रित करता है और सभी निर्भर नोट्स स्लाइड्स को सेटिंग्स प्रसारित कर सकता है।
+- [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/notesslideheaderfootermanager/) एक नोट्स स्लाइड को बदलता है तथा फुटर, तारीख/समय, और स्लाइड‑नंबर के अतिरिक्त हेडर प्लेसहोल्डर का समर्थन करता है।
+- [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/masterhandoutslideheaderfootermanager/) handout मास्टर को बदलता है और सभी चार प्रकार के प्लेसहोल्डर का समर्थन करता है।
+
+जब एक ही सेटिंग पूरी पदानुक्रम में लागू होनी चाहिए, तो मास्टर या लेआउट से प्रसारण उपयोग करें। जब आपको एक पृष्ठ के लिये स्थानीय सेटिंग चाहिए, तो व्यक्तिगत स्लाइड या नोट्स‑स्लाइड मैनेजर का प्रयोग करें।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या मैं नियमित स्लाइड्स में "header" जोड़ सकता हूँ?**
+**क्या मैं नियमित स्लाइड में हेडर जोड़ सकता हूँ?**
 
-PowerPoint में, "Header" केवल नोट्स और हैंडआउट्स के लिए उपलब्ध है; सामान्य स्लाइड्स में समर्थित तत्व फ़ूटर, तिथि/समय, और स्लाइड नंबर होते हैं। Aspose.Slides में यह वही सीमाएँ हैं: हेडर केवल नोट्स/हैंडआउट के लिए, और स्लाइड्स पर—फ़ूटर/DateTime/SlideNumber।
+नहीं। PowerPoint नियमित स्लाइड्स के लिये हेडर प्लेसहोल्डर परिभाषित नहीं करता। नियमित स्लाइड्स पर फुटर, तारीख/समय, और स्लाइड‑नंबर प्लेसहोल्डर का उपयोग करें। हेडर प्लेसहोल्डर नोट पृष्ठों और हैंडआउट्स में उपलब्ध होते हैं।
 
-**यदि लेआउट में फ़ूटर क्षेत्र नहीं है—क्या मैं उसकी दृश्यता सक्रिय कर सकता हूँ?**
+**यदि फुटर, तारीख/समय, या स्लाइड‑नंबर प्लेसहोल्डर दृश्यमान नहीं है तो क्या करना चाहिए?**
 
-हाँ। हेडर/फ़ूटर प्रबंधक के माध्यम से दृश्यता जाँचें और आवश्यक होने पर इसे सक्षम करें। ये API संकेतक और मेथड्स उन मामलों के लिए डिज़ाइन किए गए हैं जब प्लेसहोल्डर गायब या छिपा हो।
+संबंधित हेडर/फुटर मैनेजर का उपयोग करके उसकी दृश्यता जाँचें और आवश्यकता पड़ने पर सक्षम करें। उदाहरण के लिये, [`is_footer_visible`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/baseslideheaderfootermanager/is_footer_visible/) यह बताता है कि फुटर प्लेसहोल्डर मौजूद है या नहीं, और [`set_footer_visibility`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/baseslideheaderfootermanager/set_footer_visibility/) उसकी दृश्यता बदलता है।
 
-**मैं स्लाइड नंबर को 1 के अलावा अन्य मान से शुरू कैसे करूँ?**
+**मैं स्लाइड नंबरिंग को 1 के अलावा किसी अन्य मान से कैसे शुरू करूँ?**
 
-प्रस्तुति का [first slide number](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/first_slide_number/) सेट करें; उसके बाद सभी क्रमांक पुनः गणना किए जाते हैं। उदाहरण के रूप में, आप 0 या 10 से शुरू कर सकते हैं, और शीर्षक स्लाइड पर नंबर को छिपा सकते हैं।
+प्रस्तुति की [`first_slide_number`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/first_slide_number/) प्रॉपर्टी सेट करें। स्लाइड‑नंबर प्लेसहोल्डर तब अद्यतन क्रम का उपयोग करेंगे।
 
-**PDF/छवियों/HTML में निर्यात करते समय हेडर/फ़ूटर क्या होते हैं?**
+**PDF, इमेज, या HTML में निर्यात करते समय हेडर और फुटर क्या होते हैं?**
 
-वे प्रस्तुति के सामान्य टेक्स्ट एलिमेंट्स के रूप में रेंडर होते हैं। अर्थात, यदि तत्व स्लाइड्स/नोट्स पेजों पर दृश्य हैं, तो वे आउटपुट फ़ॉर्मेट में बाकी सामग्री के साथ प्रदर्शित होंगे।
+दृश्यमान हेडर और फुटर तत्व आउटपुट फॉर्मेट में प्रस्तुति सामग्री के साथ रेंडर होते हैं। उनका स्वरूप निर्यात किए जा रहे पृष्ठ प्रकार और संबंधित प्लेसहोल्डर की दृश्यता सेटिंग्स पर निर्भर करता है।

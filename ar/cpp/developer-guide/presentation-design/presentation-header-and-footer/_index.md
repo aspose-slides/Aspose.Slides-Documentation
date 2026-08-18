@@ -1,6 +1,6 @@
 ---
-title: إدارة رؤوس وتذييلات العروض التقديمية في C++
-linktitle: رأس وتذييل
+title: إدارة رؤوس وتذييلات العرض التقديمي في C++
+linktitle: الرأس والتذييل
 type: docs
 weight: 140
 url: /ar/cpp/presentation-header-and-footer/
@@ -9,156 +9,262 @@ keywords:
 - نص الرأس
 - تذييل
 - نص التذييل
-- تعيين رأس
-- تعيين تذييل
-- نسخة مطبوعة
+- تعيين الرأس
+- تعيين التذييل
+- نشرة
 - ملاحظات
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - C++
 - Aspose.Slides
-description: "استخدم Aspose.Slides لـ C++ لإضافة وتخصيص الرؤوس والتذييلات في عروض PowerPoint وOpenDocument للحصول على مظهر احترافي."
+description: "تعلم كيفية إدارة عناصر التذييل، التاريخ/الوقت، رقم الشريحة، والرأس في الشرائح، صفحات الملاحظات، والنشرات باستخدام Aspose.Slides للـ C++."
 ---
+## **نظرة عامة**
 
-{{% alert color="primary" %}} 
-[Aspose.Slides](/slides/ar/cpp/) يوفر الدعم للعمل مع نص رؤوس وتذييلات الشرائح التي يتم صيانتها فعلياً على مستوى ماستر الشريحة.
-{{% /alert %}} 
+يستخدم PowerPoint عناصر نائب مختلفة للرأس والتذييل بناءً على نوع الصفحة. يتيح Aspose.Slides للـ C++ التحكم في النص ورؤية هذه العناصر النائبة عبر واجهات مدير الرأس/التذييل.
 
-[Aspose.Slides for C++](/slides/ar/cpp/) يوفر ميزة إدارة رؤوس وتذييلات داخل شرائح العرض. يتم إدارة هذه فعلياً على مستوى ماستر العرض.
-## **إدارة نص رأس وتذييل الشريحة**
-يمكن تحديث ملاحظات بعض الشرائح المحددة كما هو موضح في المثال أدناه:
-``` cpp
-// وظيفة لتعيين نص الرأس/التذييل
-void UpdateHeaderFooterText(System::SharedPtr<IBaseSlide> master)
-{
-    for (const auto& shape : System::IterateOver(master->get_Shapes()))
-    {
-        if (shape->get_Placeholder() != nullptr)
-        {
-            if (shape->get_Placeholder()->get_Type() == PlaceholderType::Header)
-            {
-                (System::ExplicitCast<IAutoShape>(shape))->get_TextFrame()->set_Text(u"HI there new header");
-            }
-        }
-    }
-}
-```
+العناصر النائبة المتاحة تعتمد على النطاق:
 
-``` cpp
-// تحميل العرض التقديمي
-auto pres = System::MakeObject<Presentation>(u"headerTest.pptx");
+| النطاق | الرأس | التذييل | التاريخ/الوقت | رقم الشريحة/الصفحة |
+|---|---|---|---|---|
+| شريحة عادية | لا | نعم | نعم | نعم |
+| قالب ملاحظات | نعم | نعم | نعم | نعم |
+| شريحة ملاحظات | نعم | نعم | نعم | نعم |
+| قالب توزيع | نعم | نعم | نعم | نعم |
 
-// تعيين التذييل
-pres->get_HeaderFooterManager()->SetAllFootersText(u"My Footer text");
-pres->get_HeaderFooterManager()->SetAllFootersVisibility(true);
+الشريحة العادية في العرض التقديمي لا تحتوي على عنصر نائب للرأس. تتوفر عناصر الرأس في صفحات الملاحظات والتوزيع. بالنسبة للشرائح العادية، استخدم عناصر التذييل، التاريخ/الوقت، ورقم الشريحة بدلاً من ذلك.
 
-// الوصول إلى الرأس وتحديثه
-auto masterNotesSlide = pres->get_MasterNotesSlideManager()->get_MasterNotesSlide();
-if (nullptr != masterNotesSlide)
-{
-    UpdateHeaderFooterText(masterNotesSlide);
-}
+نطاق التغيير يعتمد على المدير الذي تستخدمه. يتحكم واجهة [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islideheaderfootermanager/) في شريحة عادية واحدة. تتحكم واجهة [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/inotesslideheaderfootermanager/) في شريحة ملاحظات واحدة. يمكن لمديري القالب والتخطيط أيضًا نشر الإعدادات إلى الشرائح التابعة، بينما تتحكم واجهة [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasterhandoutslideheaderfootermanager/) في قالب التوزيع.
 
-// حفظ العرض التقديمي
-pres->Save(u"HeaderFooterJava.pptx", SaveFormat::Pptx);
-```
+## **تعيين التذييل، التاريخ/الوقت، وأرقام الشرائح على الشرائح العادية**
 
+بالنسبة للشرائح العادية، سير العمل الأساسي هو الوصول إلى مدير الرأس/التذييل لكل شريحة، تعيين نص التذييل والتاريخ/الوقت، تمكين العناصر النائبة المطلوبة، ثم حفظ العرض التقديمي. يتم توليد أرقام الشرائح تلقائيًا، لذلك يلزمك فقط التحكم في ظهورها.
 
-## **إدارة رؤوس وتذييلات الشرائح المطبوعات والملاحظات**
-يدعم Aspose.Slides for C++ رؤوس وتذييلات في الشرائح المطبوعات والملاحظات. يرجى اتباع الخطوات أدناه:
+استخدم [`SetFooterText`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibaseslideheaderfootermanager/setfootertext/) و[`SetDateTimeText`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibaseslideheaderfootermanager/setdatetimetext/) لتعيين النص، واستخدم [`SetFooterVisibility`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibaseslideheaderfootermanager/setfootervisibility/)، [`SetDateTimeVisibility`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibaseslideheaderfootermanager/setdatetimevisibility/)، و[`SetSlideNumberVisibility`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibaseslideheaderfootermanager/setslidenumbervisibility/) لإظهار العناصر النائبة المقابلة.
 
-- تحميل [Presentation ](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) يحتوي على فيديو.
-- تغيير إعدادات الرأس والتذييل للماستر الملاحظات وجميع شرائح الملاحظات.
-- تعيين ظهور العناصر النائبة للتذييل في شريحة الملاحظات الرئيسية وجميع العناصر النائبة التابعة.
-- تعيين ظهور العناصر النائبة للتاريخ والوقت في شريحة الملاحظات الرئيسية وجميع العناصر النائبة التابعة.
-- تغيير إعدادات الرأس والتذييل لشريحة الملاحظات الأولى فقط.
-- تعيين ظهور العنصر النائب للرأس في شريحة الملاحظات.
-- تعيين النص للعنصر النائب للرأس في شريحة الملاحظات.
-- تعيين النص للعنصر النابع للتاريخ والوقت في شريحة الملاحظات.
-- كتابة ملف العرض المعدل.
+المثال التالي يطبق نفس التذييل، نص التاريخ/الوقت، ورؤية رقم الشريحة على جميع الشرائح العادية:
 
-يتم توفير مقتطف الشفرة في المثال أدناه.
-``` cpp
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/enumerator_adapter.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
-// تغيير إعدادات الرأس والتذييل للماستر الملاحظات وجميع شرائح الملاحظات
+
+for (const auto& slide : System::IterateOver(presentation->get_Slides()))
+{
+    auto headerFooterManager = slide->get_HeaderFooterManager();
+
+    headerFooterManager->SetFooterText(u"Company Confidential");
+    headerFooterManager->SetFooterVisibility(true);
+
+    headerFooterManager->SetDateTimeText(u"Date and time text");
+    headerFooterManager->SetDateTimeVisibility(true);
+
+    headerFooterManager->SetSlideNumberVisibility(true);
+}
+
+presentation->Save(u"presentation_with_slide_footers.pptx", SaveFormat::Pptx);
+```
+
+إذا كنت بحاجة لتحديث شريحة واحدة فقط، عُد إلى تلك الشريحة مباشرة عبر [`Presentation::get_Slide`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/get_slide/) بدلاً من iterating عبر مجموعة الشرائح بالكامل.
+
+## **تعيين الرؤوس والتذييلات على قالب الملاحظات**
+
+يحدد قالب الملاحظات تنسيقًا مشتركًا وسلوك العناصر النائبة لصفحات الملاحظات. استخدم واجهة [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasternotesslideheaderfootermanager/) عندما تريد تغيير قالب الملاحظات نفسه فقط.
+
+المثال التالي يضع رأسًا، تذييلًا، ونص تاريخ/وقت على قالب الملاحظات ويجعل جميع العناصر النائبة المدعومة مرئية في ذلك القالب:
+
+```cpp
+#include <DOM/IMasterNotesSlide.h>
+#include <DOM/IMasterNotesSlideHeaderFooterManager.h>
+#include <DOM/IMasterNotesSlideManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 auto masterNotesSlide = presentation->get_MasterNotesSlideManager()->get_MasterNotesSlide();
+
 if (masterNotesSlide != nullptr)
 {
-	auto headerFooterManager = masterNotesSlide->get_HeaderFooterManager();
+    auto headerFooterManager = masterNotesSlide->get_HeaderFooterManager();
 
-	// جعل شريحة الملاحظات الرئيسية وجميع العناصر النائبة للتذييل الفرعية مرئية
-	headerFooterManager->SetHeaderAndChildHeadersVisibility(true);
-	// جعل شريحة الملاحظات الرئيسية وجميع العناصر النائبة للرأس الفرعية مرئية
-	headerFooterManager->SetFooterAndChildFootersVisibility(true);
-	// جعل شريحة الملاحظات الرئيسية وجميع العناصر النائبة لأرقام الشرائح الفرعية مرئية
-	headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
-	// جعل شريحة الملاحظات الرئيسية وجميع العناصر النائبة للتاريخ والوقت الفرعية مرئية
-	headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
+    headerFooterManager->SetHeaderText(u"Notes header");
+    headerFooterManager->SetHeaderVisibility(true);
 
-	// تعيين النص لشريحة الملاحظات الرئيسية وجميع العناصر النائبة للرأس الفرعية
-	headerFooterManager->SetHeaderAndChildHeadersText(u"Header text");
-	// تعيين النص لشريحة الملاحظات الرئيسية وجميع العناصر النائبة للتذييل الفرعية
-	headerFooterManager->SetFooterAndChildFootersText(u"Footer text");
-	// تعيين النص لشريحة الملاحظات الرئيسية وجميع العناصر النائبة للتاريخ والوقت الفرعية
-	headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
+    headerFooterManager->SetFooterText(u"Notes footer");
+    headerFooterManager->SetFooterVisibility(true);
+
+    headerFooterManager->SetDateTimeText(u"Date and time text");
+    headerFooterManager->SetDateTimeVisibility(true);
+
+    headerFooterManager->SetSlideNumberVisibility(true);
 }
 
-// تغيير إعدادات الرأس والتذييل لشريحة الملاحظات الأولى فقط
-auto notesSlide = presentation->get_Slides()->idx_get(0)->get_NotesSlideManager()->get_NotesSlide();
-if (notesSlide != nullptr)
-{
-	auto headerFooterManager = notesSlide->get_HeaderFooterManager();
-	if (!headerFooterManager->get_IsHeaderVisible())
-	{
-		// جعل عنصر نائب الرأس في هذه الشريحة مرئياً
-		headerFooterManager->SetHeaderVisibility(true);
-	}
-
-	if (!headerFooterManager->get_IsFooterVisible())
-	{
-		// جعل عنصر نائب التذييل في هذه الشريحة مرئياً
-		headerFooterManager->SetFooterVisibility(true);
-	}
-
-	if (!headerFooterManager->get_IsSlideNumberVisible())
-	{
-		// جعل عنصر نائب رقم الشريحة في هذه الشريحة مرئياً
-		headerFooterManager->SetSlideNumberVisibility(true);
-	}
-	
-	if (!headerFooterManager->get_IsDateTimeVisible())
-	{
-		// جعل عنصر نائب التاريخ‑الوقت في هذه الشريحة مرئياً
-		headerFooterManager->SetDateTimeVisibility(true);
-	}
-	
-	// تعيين النص لعنصر نائب الرأس في شريحة الملاحظات
-	headerFooterManager->SetHeaderText(u"New header text");
-	// تعيين النص لعنصر نائب التذييل في شريحة الملاحظات
-	headerFooterManager->SetFooterText(u"New footer text");
-	// تعيين النص لعنصر نائب التاريخ‑الوقت في شريحة الملاحظات
-	headerFooterManager->SetDateTimeText(u"New date and time text");
-}
-
-presentation->Save(u"testresult.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation_with_notes_master_footers.pptx", SaveFormat::Pptx);
 ```
 
+طريقة [`IMasterNotesSlideManager::get_MasterNotesSlide`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasternotesslidemanager/get_masternotesslide/) تُعيد `nullptr` عندما لا يحتوي العرض التقديمي على قالب ملاحظات.
 
-## **الأسئلة المتكررة**
+## **تطبيق إعدادات قالب الملاحظات على شرائح الملاحظات التابعة**
 
-**هل يمكنني إضافة "رأس" إلى الشرائح العادية؟**
+يمكن لقالب الملاحظات تطبيق إعدادات الرأس والتذييل على نفسه وعلى جميع شرائح الملاحظات التابعة. استخدم طرق النشر المخصصة على [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasternotesslideheaderfootermanager/) عندما يجب تطبيق نفس الإعدادات عبر هيكل الملاحظات.
 
-في PowerPoint، يُوجد "الرأس" فقط للملاحظات والنسخ المطبوعة؛ في الشرائح العادية، العناصر المدعومة هي التذييل، التاريخ/الوقت، ورقم الشريحة. في Aspose.Slides يتطابق ذلك مع نفس القيود: الرأس فقط للملاحظات/النسخ المطبوعة، وعلى الشرائح—التذييل/التاريخ‑الوقت/رقم الشريحة.
+على سبيل المثال، تُحدّث كل من [`SetHeaderAndChildHeadersText`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasternotesslideheaderfootermanager/setheaderandchildheaderstext/) و[`SetHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasternotesslideheaderfootermanager/setheaderandchildheadersvisibility/) رأس قالب الملاحظات وجميع رؤوس الأطفال. تتوفر طرق مماثلة للتذييل، التاريخ/الوقت، وأرقام الشرائح.
 
-**ماذا لو كان التخطيط لا يحتوي على منطقة تذييل—هل يمكنني "تشغيل" ظهورها؟**
+```cpp
+#include <DOM/IMasterNotesSlide.h>
+#include <DOM/IMasterNotesSlideHeaderFooterManager.h>
+#include <DOM/IMasterNotesSlideManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 
-نعم. تحقق من الظهور عبر مدير الرأس/التذييل وقم بتمكينه إذا لزم الأمر. تم تصميم مؤشرات هذه API وطرقها لحالات عدم وجود العنصر النائب أو إخفائه.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-**كيف أجعل رقم الشريحة يبدأ من قيمة غير 1؟**
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto masterNotesSlide = presentation->get_MasterNotesSlideManager()->get_MasterNotesSlide();
 
-قم بتعيين [first slide number](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/set_firstslidenumber/) للعرض؛ بعد ذلك يتم إعادة حساب جميع الأرقام. على سبيل المثال، يمكنك البدء من 0 أو 10، وإخفاء الرقم على شريحة العنوان.
+if (masterNotesSlide != nullptr)
+{
+    auto headerFooterManager = masterNotesSlide->get_HeaderFooterManager();
 
-**ماذا يحدث للرؤوس/التذييلات عند التصدير إلى PDF/صور/HTML؟**
+    headerFooterManager->SetHeaderAndChildHeadersText(u"Notes header");
+    headerFooterManager->SetHeaderAndChildHeadersVisibility(true);
 
-يتم تصويرها كعناصر نصية عادية في العرض. أي إذا كانت العناصر مرئية على الشرائح/صفحات الملاحظات، فستظهر أيضاً في صيغة الإخراج مع باقي المحتوى.
+    headerFooterManager->SetFooterAndChildFootersText(u"Notes footer");
+    headerFooterManager->SetFooterAndChildFootersVisibility(true);
+
+    headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
+    headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
+
+    headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
+}
+
+presentation->Save(u"presentation_with_child_notes_footers.pptx", SaveFormat::Pptx);
+```
+
+طرق النشر المستخدمة أعلاه هي [`SetFooterAndChildFootersText`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasternotesslideheaderfootermanager/setfooterandchildfooterstext/)، [`SetFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasternotesslideheaderfootermanager/setfooterandchildfootersvisibility/)، [`SetDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasternotesslideheaderfootermanager/setdatetimeandchilddatetimestext/)، [`SetDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasternotesslideheaderfootermanager/setdatetimeandchilddatetimesvisibility/)، و[`SetSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasternotesslideheaderfootermanager/setslidenumberandchildslidenumbersvisibility/).
+
+## **تعيين الرؤوس والتذييلات على شريحة ملاحظات فردية**
+
+تنتمي شريحة الملاحظات إلى شريحة عادية محددة. استخدم واجهة [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/inotesslideheaderfootermanager/) عندما تريد تخصيص تلك الصفحة الملاحظة فقط.
+
+طريقة [`INotesSlideManager::AddNotesSlide`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/inotesslidemanager/addnotesslide/) تُعيد شريحة الملاحظات للشفرة الحالية وتُنشئ واحدة إذا لم تكن موجودة. المثال التالي يضبط صفحة الملاحظات المرتبطة بأول شريحة في العرض التقديمي:
+
+```cpp
+#include <DOM/INotesSlide.h>
+#include <DOM/INotesSlideHeaderFooterManager.h>
+#include <DOM/INotesSlideManager.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto slide = presentation->get_Slide(0);
+auto notesSlide = slide->get_NotesSlideManager()->AddNotesSlide();
+auto headerFooterManager = notesSlide->get_HeaderFooterManager();
+
+headerFooterManager->SetHeaderText(u"Header for the first notes page");
+headerFooterManager->SetHeaderVisibility(true);
+
+headerFooterManager->SetFooterText(u"Footer for the first notes page");
+headerFooterManager->SetFooterVisibility(true);
+
+headerFooterManager->SetDateTimeText(u"Date and time text");
+headerFooterManager->SetDateTimeVisibility(true);
+
+headerFooterManager->SetSlideNumberVisibility(true);
+
+presentation->Save(u"presentation_with_custom_notes_footers.pptx", SaveFormat::Pptx);
+```
+
+إذا قمت أولاً بنشر الإعدادات من قالب الملاحظات ثم غيرت شريحة ملاحظات فردية، فإن إعدادات الشريحة اللاحقة تسمح لك بتخصيص تلك الصفحة بشكل مستقل.
+
+## **تعيين الرؤوس والتذييلات على قالب التوزيع**
+
+تستخدم صفحات التوزيع قالب التوزيع لعناصر الرأس، التذييل، التاريخ/الوقت، ورقم الصفحة. على عكس صفحات الملاحظات، تُدار إعدادات التوزيع من خلال قالب التوزيع وليس من خلال شرائح التوزيع الفردية.
+
+استخدم [`IMasterHandoutSlideManager::get_MasterHandoutSlide`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasterhandoutslidemanager/get_masterhandoutslide/) للوصول إلى قالب التوزيع. إذا لم يكن موجودًا، استدعِ [`IMasterHandoutSlideManager::SetDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasterhandoutslidemanager/setdefaultmasterhandoutslide/) لإنشاء قالب التوزيع الافتراضي.
+
+```cpp
+#include <DOM/IMasterHandoutSlide.h>
+#include <DOM/IMasterHandoutSlideHeaderFooterManager.h>
+#include <DOM/IMasterHandoutSlideManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto masterHandoutSlideManager = presentation->get_MasterHandoutSlideManager();
+auto masterHandoutSlide = masterHandoutSlideManager->get_MasterHandoutSlide();
+
+if (masterHandoutSlide == nullptr)
+{
+    masterHandoutSlide = masterHandoutSlideManager->SetDefaultMasterHandoutSlide();
+}
+
+if (masterHandoutSlide != nullptr)
+{
+    auto headerFooterManager = masterHandoutSlide->get_HeaderFooterManager();
+
+    headerFooterManager->SetHeaderText(u"Handout header");
+    headerFooterManager->SetHeaderVisibility(true);
+
+    headerFooterManager->SetFooterText(u"Handout footer");
+    headerFooterManager->SetFooterVisibility(true);
+
+    headerFooterManager->SetDateTimeText(u"Date and time text");
+    headerFooterManager->SetDateTimeVisibility(true);
+
+    headerFooterManager->SetSlideNumberVisibility(true);
+}
+
+presentation->Save(u"presentation_with_handout_footers.pptx", SaveFormat::Pptx);
+```
+
+## **فهم النطاق والوراثة**
+
+اختر مدير الرأس/التذييل الذي يطابق النطاق الذي تريد تغييره:
+
+- [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islideheaderfootermanager/) يغيّر إعدادات التذييل، التاريخ/الوقت، ورقم الشريحة لشريحة عادية واحدة.
+- [`ILayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutslideheaderfootermanager/) يتحكم في شريحة تخطيط ويمكنه نشر الإعدادات المدعومة إلى الشرائح التابعة.
+- [`IMasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasterslideheaderfootermanager/) يتحكم في قالب شريحة عادي ويمكنه نشر الإعدادات المدعومة إلى الشرائح التابعة.
+- [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasternotesslideheaderfootermanager/) يتحكم في قالب الملاحظات ويمكنه نشر الإعدادات إلى جميع شرائح الملاحظات التابعة.
+- [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/inotesslideheaderfootermanager/) يغيّر شريحة ملاحظات واحدة ويدعم عنصر نائب للرأس بالإضافة إلى التذييل، التاريخ/الوقت، ورقم الشريحة.
+- [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasterhandoutslideheaderfootermanager/) يغيّر قالب التوزيع ويدعم جميع الأنواع الأربعة من العناصر النائبة.
+
+استخدم النشر من قالب أو تخطيط عندما يجب تطبيق الإعداد نفسه عبر هيكله. استخدم مدير شريحة أو شريحة ملاحظات فردية عندما تحتاج إلى إعداد محلي لصفحة واحدة.
+
+## **الأسئلة المتداولة**
+
+**هل يمكنني إضافة رأس إلى شريحة عادية؟**
+
+لا. لا يُعرّف PowerPoint عنصرًا نائبًا للرأس للشرائح العادية. استخدم التذييل، التاريخ/الوقت، ورقم الشريحة على الشرائح العادية. تتوفر عناصر رأس في صفحات الملاحظات والتوزيع.
+
+**ماذا إذا لم يكن عنصر التذييل أو التاريخ/الوقت أو رقم الشريحة مرئيًا؟**
+
+استخدم مدير الرأس/التذييل المقابل للتحقق من رؤيته وتمكينه عند الحاجة. على سبيل المثال، يُظهر [`get_IsFooterVisible`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibaseslideheaderfootermanager/get_isfootervisible/) ما إذا كان عنصر التذييل موجودًا، وتغيّر [`SetFooterVisibility`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibaseslideheaderfootermanager/setfootervisibility/) رؤيته.
+
+**كيف أبدأ ترقيم الشرائح من قيمة غير 1؟**
+
+استخدم [`Presentation::set_FirstSlideNumber`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/set_firstslidenumber/) لتعيين رقم الشريحة الأول. ثم تستخدم عناصر رقم الشريحة التسلسل المحدث.
+
+**ماذا يحدث للرؤوس والتذييلات عند التصدير إلى PDF أو صور أو HTML؟**
+
+العناصر المرئية للرأس والتذييل تُرسم مع باقي محتوى العرض التقديمي في تنسيق الخرج. مظهرها يعتمد على نوع الصفحة التي يتم تصديرها وإعدادات رؤية العناصر النائبة المقابلة.

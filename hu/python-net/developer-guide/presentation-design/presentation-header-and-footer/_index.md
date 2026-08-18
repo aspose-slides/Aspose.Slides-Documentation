@@ -1,6 +1,6 @@
 ---
-title: "Kezelje a bemutató fejléceit és lábléceit Pythonban"
-linktitle: "Fejléc és lábléc"
+title: Prezentáció fejléceinek és lábléceinek kezelése Pythonban
+linktitle: Fejléc és lábléc
 type: docs
 weight: 140
 url: /hu/python-net/presentation-header-and-footer/
@@ -11,125 +11,211 @@ keywords:
 - lábléc szöveg
 - fejléc beállítása
 - lábléc beállítása
-- szórólap
+- elosztó
 - jegyzetek
 - PowerPoint
-- bemutató
+- OpenDocument
+- prezentáció
 - Python
 - Aspose.Slides
-description: "Használja az Aspose.Slides for Python .NET-en keresztül, hogy fejléceket és lábléceket adjon hozzá, és testre szabja őket PowerPoint és OpenDocument bemutatókban a professzionális megjelenés érdekében."
+description: "Ismerje meg, hogyan kezelheti a lábléc, dátum-idő, dia-szám és fejléc helyfoglalókat a diákon, jegyzetoldalakon és elosztókon az Aspose.Slides for Python via .NET segítségével."
 ---
 ## **Áttekintés**
 
-Aspose.Slides for Python segítségével precíz hatókörrel vezérelheti a fejlécek és láblécek helyfoglalóit a teljes bemutatóban. A lábléc szövegét, a dátum/idő értékét és a diák számát a mester szinten kezelik, és globálisan alkalmazhatók vagy egyes diákra szabhatók. A fejlécek a jegyzeteken és a szórólapokon támogatottak, ahol a láthatóságot be- vagy kikapcsolhatja, és a fejléc, lábléc, dátum/idő és oldal számok szövegét beállíthatja a dedikált header & footer manager segítségével a mester jegyzetdia vagy az egyes jegyzetdiákon. Ez a cikk ismerteti a fő mintákat ezeknek a helyfoglalóknak a frissítéséhez és a változások következetes terjesztéséhez a bemutatóban.
+A PowerPoint a lap típusa szerint különböző fej- és lábléchelyfoglalókat használ. Az Aspose.Slides for Python via .NET lehetővé teszi ezen helyfoglalók szövegének és láthatóságának vezérlését fej/lábléckezelő osztályok segítségével.
 
-## **Fejléc és lábléc szöveg kezelése**
+Az elérhető helyfoglalók a hatókör függvényében változnak:
 
-Ebben a részben megtanulja, hogyan kezelje a fejléc és a lábléc tartalmát egy bemutatóban – hogyan engedélyezze vagy módosítsa a láblécet, a dátumot és időt, valamint a diaszámokat. Röviden bemutatjuk a beállítások alkalmazásának hatókörét (az egész bemutató, egyes diák, valamint a jegyzet/szórólap nézetek) és megmutatjuk, hogyan használja az Aspose.Slides API-t azok gyors és következetes frissítéséhez.
+| Hatókör | Fejléc | Lábléc | Dátum/idő | Dia/oldalszám |
+|---|---|---|---|---|
+| Normál dia | Nem | Igen | Igen | Igen |
+| Jegyzetmester | Igen | Igen | Igen | Igen |
+| Jegyzetdia | Igen | Igen | Igen | Igen |
+| Eloszlásmester | Igen | Igen | Igen | Igen |
 
-Az alábbi kódrészlet megnyit egy bemutatót, engedélyezi és beállítja a lábléc szövegét, frissíti a fejléc szövegét a mester jegyzetdián, majd elmenti a fájlt.
+Egy normál prezentációs diának nincs fejléchez tartozó helyfoglalója. A fejlécek a jegyzetoldalakon és az elosztásokon érhetők el. Normál diáknál a láblécet, a dátum/idő és a dia‑szám helyfoglalókat kell használni.
 
-```py
+A változtatás hatóköre attól függ, melyik kezelőt használja. A [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slideheaderfootermanager/) osztály egy normál diát vezérel. A [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/notesslideheaderfootermanager/) osztály egy jegyzetdiát vezérel. A mester‑ és elrendezéskezelők is képesek a beállításokat a függő diákra továbbadni, míg a [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masterhandoutslideheaderfootermanager/) osztály az eloszlás mestert kezeli.
+
+## **Állítsa be a láblécet, dátum/időt és a dia számait normál diákon**
+
+Normál diák esetén az alapmunkafolyamat: hozzáfér a dia fejléc/lábléckezelőjéhez, beállítja a lábléc és dátum/idő szöveget, engedélyezi a szükséges helyfoglalókat, és elmenti a prezentációt. A dia‑számok a prezentáció generálja, így csak a láthatóságukat kell szabályozni.
+
+Használja a [`set_footer_text`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/baseslideheaderfootermanager/set_footer_text/) és a [`set_date_time_text`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/baseslideheaderfootermanager/set_date_time_text/) metódusokat a szöveg beállításához, valamint a [`set_footer_visibility`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/baseslideheaderfootermanager/set_footer_visibility/), [`set_date_time_visibility`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/baseslideheaderfootermanager/set_date_time_visibility/), és a [`set_slide_number_visibility`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/baseslideheaderfootermanager/set_slide_number_visibility/) metódusokat a megfelelő helyfoglalók megjelenítéséhez.
+
+Az alábbi végponti példa azonos láblécet, dátum/idő szöveget és dia‑szám láthatóságot alkalmaz az összes normál diára:
+
+```python
 import aspose.slides as slides
 
-# Függvény a fejléc szövegének beállításához.
-def update_header_footer_text(master):
-    for shape in master.shapes:
-        if shape.placeholder is not None:
-            if shape.placeholder.type == slides.PlaceholderType.HEADER:
-                shape.text_frame.text = "Hi, there is a header"
+with slides.Presentation("presentation.pptx") as presentation:
+    for slide in presentation.slides:
+        header_footer_manager = slide.header_footer_manager
 
+        header_footer_manager.set_footer_text("Company Confidential")
+        header_footer_manager.set_footer_visibility(True)
 
-# Load the presentation.
-with slides.Presentation("sample.pptx") as presentation:
-    # Állítsa be a láblécet.
-    presentation.header_footer_manager.set_all_footers_text("My Footer text")
-    presentation.header_footer_manager.set_all_footers_visibility(True)
+        header_footer_manager.set_date_time_text("Date and time text")
+        header_footer_manager.set_date_time_visibility(True)
 
-    # Hozzáférés és a fejléc frissítése.
-    master_notes_slide = presentation.master_notes_slide_manager.master_notes_slide
-    if master_notes_slide is not None:
-        update_header_footer_text(master_notes_slide)
+        header_footer_manager.set_slide_number_visibility(True)
 
-    # Mentse el a bemutatót.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("presentation_with_slide_footers.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Fejléc és lábléc kezelése jegyzetdiákon**
+Ha csak egyetlen diát szeretne frissíteni, közvetlenül férjen hozzá ahhoz a diához a [`slides`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/slides/hu/) gyűjteményen keresztül, a teljes gyűjtemény bejárása helyett.
 
-Ebben a részben megtanulja, hogyan kezelje a fejléceket és lábléceket kifejezetten a jegyzetdiákon az Aspose.Slides-ben. Kiterjedünk a releváns helyfoglalók engedélyezésére, a lábléc, a dátum/idő és az oldal számok szövegének beállítására, valamint a változások következetes alkalmazására a jegyzetmester és az egyes jegyzetoldalak között.
+## **Fejlécek és láblécek beállítása a Jegyzetmesten**
 
-Kövesse az alábbi lépéseket:
+A jegyzetmester közös formázást és helyfoglaló‑viselkedést határoz meg a jegyzetoldalak számára. Használja a [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masternotesslideheaderfootermanager/) osztályt, ha csak a jegyzetmestert szeretné módosítani.
 
-1. Töltsön be egy bemutató fájlt.
-2. Szerezze meg a mester jegyzetdiát és annak [header & footer manager](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masternotesslideheaderfootermanager/).
-3. A mester jegyzetdián engedélyezze a Header, Footer, Slide number és Date-time láthatóságát a mester és az összes gyerek jegyzetdia esetén.
-4. A mester jegyzetdián állítsa be a Header, Footer és Date-time szövegét a mester és az összes gyerek jegyzetdia számára.
-5. Szerezze meg az első bemutató dia jegyzetdiáját és annak [header & footer manager](https://reference.aspose.com/slides/hu/python-net/aspose.slides/notesslideheaderfootermanager/).
-6. Csak ezen az első jegyzetdián ellenőrizze, hogy a Header, Footer, Slide number és Date-time látható legyen (kapcsolja be a ki van kapcsoltakat).
-7. Csak ezen az első jegyzetdián állítsa be a Header, Footer és Date-time szövegét.
-8. Mentse el a bemutatót PPTX formátumban.
+Az alábbi példa beállítja a fejlécet, láblécet és dátum/idő szöveget a jegyzetmestre, és az összes támogatott helyfoglalót láthatóvá teszi azon a mesteren:
 
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
+with slides.Presentation("presentation.pptx") as presentation:
     master_notes_slide = presentation.master_notes_slide_manager.master_notes_slide
+
     if master_notes_slide is not None:
         header_footer_manager = master_notes_slide.header_footer_manager
 
-        # Tegye láthatóvá a mester jegyzet diát és az összes gyermek fejléc, lábléc, dia szám és dátum/idő helyfoglalót.
+        header_footer_manager.set_header_text("Notes header")
+        header_footer_manager.set_header_visibility(True)
+
+        header_footer_manager.set_footer_text("Notes footer")
+        header_footer_manager.set_footer_visibility(True)
+
+        header_footer_manager.set_date_time_text("Date and time text")
+        header_footer_manager.set_date_time_visibility(True)
+
+        header_footer_manager.set_slide_number_visibility(True)
+
+    presentation.save("presentation_with_notes_master_footers.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Egy prezentáció nem feltétlenül tartalmaz jegyzetmestert, ezért a módosítás előtt ellenőrizze, hogy a visszaadott érték nem `None`.
+
+## **Jegyzetmester beállításainak alkalmazása a gyermek‑jegyzet diákra**
+
+A jegyzetmester képes a fej‑ és láblécbeállításokat saját magára és az összes függő jegyzetdiára alkalmazni. Használja a [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masternotesslideheaderfootermanager/) dedikált propagációs metódusait, ha ugyanazokat a beállításokat akarja a jegyzet‑hierarchiában alkalmazni.
+
+Például a [`set_header_and_child_headers_text`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masternotesslideheaderfootermanager/set_header_and_child_headers_text/) és a [`set_header_and_child_headers_visibility`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masternotesslideheaderfootermanager/set_header_and_child_headers_visibility/) frissíti a jegyzetmester fejlécét és az összes gyermekfejlécet. Hasonló metódusok érhetők el a láblécek, dátum/idő és dia‑számok számára is.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    master_notes_slide = presentation.master_notes_slide_manager.master_notes_slide
+
+    if master_notes_slide is not None:
+        header_footer_manager = master_notes_slide.header_footer_manager
+
+        header_footer_manager.set_header_and_child_headers_text("Notes header")
         header_footer_manager.set_header_and_child_headers_visibility(True)
+
+        header_footer_manager.set_footer_and_child_footers_text("Notes footer")
         header_footer_manager.set_footer_and_child_footers_visibility(True)
-        header_footer_manager.set_slide_number_and_child_slide_numbers_visibility(True)
+
+        header_footer_manager.set_date_time_and_child_date_times_text("Date and time text")
         header_footer_manager.set_date_time_and_child_date_times_visibility(True)
 
-        # Állítson be szöveget a mester jegyzet dián és az összes gyermek fejléc, lábléc és dátum/idő helyfoglalón.
-        header_footer_manager.set_header_and_child_headers_text("Header text")
-        header_footer_manager.set_footer_and_child_footers_text("Footer text")
-        header_footer_manager.set_date_time_and_child_date_times_text("Date and time text")
+        header_footer_manager.set_slide_number_and_child_slide_numbers_visibility(True)
 
-    # Módosítsa a fejléc, lábléc, dia szám és dátum/idő beállításait csak az első jegyzet dián.
-    notesSlide = presentation.slides[0].notes_slide_manager.notes_slide
-    if notesSlide is not None:
-        header_footer_manager = notesSlide.header_footer_manager
-
-        # Győződjön meg róla, hogy a fejléc, lábléc, dia szám és dátum/idő helyfoglalók láthatóak.
-        if not header_footer_manager.is_header_visible:
-            header_footer_manager.set_header_visibility(True)
-
-        if not header_footer_manager.is_footer_visible:
-            header_footer_manager.set_footer_visibility(True)
-
-        if not header_footer_manager.is_slide_number_visible:
-            header_footer_manager.set_slide_number_visibility(True)
-
-        if not header_footer_manager.is_date_time_visible:
-            header_footer_manager.set_date_time_visibility(True)
-
-        # Állítson be szöveget a jegyzet dia fejlécén, láblécén és dátum/idő helyfoglalóin.
-        header_footer_manager.set_header_text("New header text")
-        header_footer_manager.set_footer_text("New footer text")
-        header_footer_manager.set_date_time_text("New date and time text")
-
-    # Mentse el a bemutatót.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("presentation_with_child_notes_footers.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+A fent használt propagációs metódusok: [`set_footer_and_child_footers_text`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masternotesslideheaderfootermanager/set_footer_and_child_footers_text/), [`set_footer_and_child_footers_visibility`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masternotesslideheaderfootermanager/set_footer_and_child_footers_visibility/), [`set_date_time_and_child_date_times_text`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masternotesslideheaderfootermanager/set_date_time_and_child_date_times_text/), [`set_date_time_and_child_date_times_visibility`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masternotesslideheaderfootermanager/set_date_time_and_child_date_times_visibility/), és a [`set_slide_number_and_child_slide_numbers_visibility`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masternotesslideheaderfootermanager/set_slide_number_and_child_slide_numbers_visibility/).
+
+## **Fejlécek és láblécek beállítása egy egyedi jegyzet dián**
+
+Egy jegyzetdia egy adott normál diahoz tartozik. Használja a [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/notesslideheaderfootermanager/) osztályt, ha csak azt a jegyzetoldalt kívánja testreszabni.
+
+A [`add_notes_slide`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/notesslidemanager/add_notes_slide/) metódus visszaadja az aktuális dia jegyzetdiáját, és létrehozza, ha még nem létezik. Az alábbi példa az első prezentációs diához tartozó jegyzetoldalt konfigurálja:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    notes_slide = presentation.slides[0].notes_slide_manager.add_notes_slide()
+    header_footer_manager = notes_slide.header_footer_manager
+
+    header_footer_manager.set_header_text("Header for the first notes page")
+    header_footer_manager.set_header_visibility(True)
+
+    header_footer_manager.set_footer_text("Footer for the first notes page")
+    header_footer_manager.set_footer_visibility(True)
+
+    header_footer_manager.set_date_time_text("Date and time text")
+    header_footer_manager.set_date_time_visibility(True)
+
+    header_footer_manager.set_slide_number_visibility(True)
+
+    presentation.save("presentation_with_custom_notes_footers.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Ha először a jegyzetmester beállításait propagálja, majd egyedi jegyzetdián változtat, a későbbi per‑dia beállítások lehetővé teszik a jegyzetoldal független testreszabását.
+
+## **Fejlécek és láblécek beállítása az Eloszlás Mesteren**
+
+Az eloszlás oldalak az eloszlás mestert használják a fejléc, lábléc, dátum/idő és oldal‑szám helyfoglalókhoz. A jegyzetoldalakkal ellentétben az eloszlás beállításait az eloszlás mester kezeli, nem az egyedi eloszlás diák.
+
+Használja a [`master_handout_slide`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/imasterhandoutslidemanager/master_handout_slide/) tulajdonságot az eloszlás mester eléréséhez. Ha nincs jelen, hívja a [`set_default_master_handout_slide`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/imasterhandoutslidemanager/set_default_master_handout_slide/) metódust a alapértelmezett eloszlás mester létrehozásához.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    master_handout_slide = presentation.master_handout_slide_manager.master_handout_slide
+
+    if master_handout_slide is None:
+        presentation.master_handout_slide_manager.set_default_master_handout_slide()
+        master_handout_slide = presentation.master_handout_slide_manager.master_handout_slide
+
+    if master_handout_slide is not None:
+        header_footer_manager = master_handout_slide.header_footer_manager
+
+        header_footer_manager.set_header_text("Handout header")
+        header_footer_manager.set_header_visibility(True)
+
+        header_footer_manager.set_footer_text("Handout footer")
+        header_footer_manager.set_footer_visibility(True)
+
+        header_footer_manager.set_date_time_text("Date and time text")
+        header_footer_manager.set_date_time_visibility(True)
+
+        header_footer_manager.set_slide_number_visibility(True)
+
+    presentation.save("presentation_with_handout_footers.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **A hatókör és az öröklődés megértése**
+
+Válassza ki a kívánt hatókörnek megfelelő fej/lábléckezelőt:
+
+- [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slideheaderfootermanager/) módosítja a láblécet, dátum/időt és dia‑szám beállításokat egy normál dián.
+- [`LayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/layoutslideheaderfootermanager/) egy elrendezésdiát vezérel, és a támogatott beállításokat a függő diákra továbbíthatja.
+- [`MasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masterslideheaderfootermanager/) egy normál dia mestert vezérel, és a támogatott beállításokat a függő diákra továbbíthatja.
+- [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masternotesslideheaderfootermanager/) a jegyzetmestert vezérli, és a beállításokat az összes függő jegyzetdiára terjeszti.
+- [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/notesslideheaderfootermanager/) egy jegyzetdiát módosít, és a fejléchelyfoglalót a lábléc, dátum/idő és dia‑szám mellett támogatja.
+- [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masterhandoutslideheaderfootermanager/) az eloszlás mestert módosítja, és a négy helyfoglalót egyaránt támogatja.
+
+Használjon propagációt egy mester vagy elrendezés esetén, ha ugyanazt a beállítást szeretné alkalmazni a teljes hierarchián. Egyéni dia vagy jegyzetdia‑kezelő használata akkor indokolt, ha helyi beállításra van szükség egyetlen oldalhoz.
 
 ## **GYIK**
 
-**Hozhatok "header"-t a normál diákra?**
+**Hozzáadhatok fejlécet egy normál diához?**
 
-PowerPointban a "Header" csak a jegyzeteken és a szórólapokon létezik; a szokásos diákon a támogatott elemek a "Footer", a "DateTime" és a "SlideNumber". Az Aspose.Slides-ben ez ugyanazokkal a korlátozásokkal egyezik: "Header" csak a Notes/Handout esetén, a diákon—"Footer"/"DateTime"/"SlideNumber".
+Nem. A PowerPoint nem definiál fejléchelyfoglalót normál diákra. Normál diák esetén a lábléc, dátum/idő és dia‑szám helyfoglalókat kell használni. Fejléchelyfoglalók csak a jegyzetoldalakon és elosztásokon érhetők el.
 
-**Mi van, ha a elrendezés nem tartalmaz lábléc területet—bekapcsolhatom a láthatóságát?**
+**Mi van, ha egy lábléc, dátum/idő vagy dia‑szám helyfoglaló nem látható?**
 
-Igen. Ellenőrizze a láthatóságot a header/footer manager segítségével, és ha szükséges, engedélyezze. Ezek az API jelzők és módszerek olyan esetekre lettek tervezve, amikor a helyfoglaló hiányzik vagy rejtve van.
+Használja a megfelelő fej/lábléckezelőt a láthatóság ellenőrzéséhez és szükség esetén engedélyezéséhez. Például a [`is_footer_visible`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/baseslideheaderfootermanager/is_footer_visible/) jelzi, hogy a lábléchelyfoglaló jelen van‑e, a [`set_footer_visibility`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/baseslideheaderfootermanager/set_footer_visibility/) pedig módosítja a láthatóságát.
 
-**Hogyan állíthatom be, hogy a dia száma 1 helyett más értékről induljon?**
+**Hogyan indíthatom a dia‑számozást 1‑nél eltérő értékről?**
 
-Állítsa be a bemutató [first slide number](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/first_slide_number/) értékét; ezután az összes számozás újraszámításra kerül. Például kezdhet 0‑nál vagy 10‑nél, és elrejtheti a számot a címdián.
+Állítsa be a prezentáció [`first_slide_number`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/first_slide_number/) tulajdonságát. Ezután a dia‑szám helyfoglalók az új számozási sorozatot használják.
 
-**Mi történik a fejlécekkel/láblécekkel PDF/képek/HTML exportálásakor?**
+**Mi történik a fejlécekkel és láblécekkel PDF‑re, képekre vagy HTML‑re exportáláskor?**
 
-A fejlécek és láblécek a bemutató szokásos szövegelemeként kerülnek renderelésre. Vagyis ha az elemek láthatóak a diákon/jegyzet oldalakon, akkor azok a kimeneti formátumban is megjelennek a többi tartalommal együtt.
+A látható fej‑ és láblécelemek a prezentáció tartalmával együtt kerülnek renderelésre a kimeneti formátumban. Megjelenésük a exportált lap típusától és a megfelelő helyfoglaló láthatósági beállításoktól függ.

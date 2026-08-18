@@ -9,143 +9,238 @@ keywords:
 - نص الرأس
 - تذييل
 - نص التذييل
-- ضبط الرأس
-- ضبط التذييل
-- نسخة مطبوعة
+- تعيين رأس
+- تعيين تذييل
+- نشرة
 - ملاحظات
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - Java
 - Aspose.Slides
-description: "استخدم Aspose.Slides for Java لإضافة وتخصيص رؤوس وتذييلات في عروض PowerPoint وOpenDocument للحصول على مظهر احترافي."
+description: "تعلم كيفية إدارة نوازل التذييل، التاريخ والوقت، رقم الشريحة، والرأس على الشرائح، صفحات الملاحظات، والنشرات باستخدام Aspose.Slides for Java."
 ---
+## **نظرة عامة**
 
-{{% alert color="primary" %}} 
+يستخدم PowerPoint نوازل رأس وتذييل مختلفة حسب نوع الصفحة. يتيح Aspose.Slides for Java التحكم في النص وإمكانية رؤية هذه النوازل من خلال واجهات مدير الرأس/التذييل.
 
-[Aspose.Slides](/slides/ar/java/) يوفر دعماً للعمل مع نص رؤوس وتذييلات الشرائح والتي تُحافظ عليها فعلياً على مستوى ماستر الشريحة.
+تعتمد النوازل المتاحة على النطاق:
 
-{{% /alert %}} 
+| النطاق | الرأس | التذييل | التاريخ/الوقت | رقم الشريحة/الصفحة |
+|---|---|---|---|---|
+| شريحة عادية | لا | نعم | نعم | نعم |
+| قالب الملاحظات | نعم | نعم | نعم | نعم |
+| شريحة ملاحظات | نعم | نعم | نعم | نعم |
+| قالب النشرة | نعم | نعم | نعم | نعم |
 
-[Aspose.Slides for Java](/slides/ar/java/) يقدم ميزة إدارة الرؤوس والتذييلات داخل شرائح العرض. تُدار هذه في الواقع على مستوى ماستر العرض.
+لا تحتوي الشريحة العادية في العرض التقديمي على نقش رأس. تتوفر رؤوس الصفحات على صفحات الملاحظات والنشرات. بالنسبة للشرائح العادية، استخدم نوازل التذييل، التاريخ/الوقت، ورقم الشريحة بدلاً من ذلك.
 
-## **إدارة الرؤوس والتذييلات في عرض تقديمي**
-يمكن إزالة ملاحظات بعض الشرائح المحددة كما هو موضح في المثال أدناه:
+يعتمد نطاق التغيير على المدير الذي تستخدمه. تتحكم واجهة [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islideheaderfootermanager/) في شريحة عادية واحدة. تتحكم واجهة [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/inotesslideheaderfootermanager/) في شريحة ملاحظات واحدة. يمكن لمديري القالب وتخطيط الشريحة أيضًا نشر الإعدادات إلى الشرائح التابعة، بينما تتحكم واجهة [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imasterhandoutslideheaderfootermanager/) في قالب النشرة.
+
+## **تعيين التذييل، التاريخ/الوقت، وأرقام الشرائح على الشرائح العادية**
+
+بالنسبة للشرائح العادية، تدفق العمل الأساسي هو الوصول إلى مدير الرأس/التذييل لكل شريحة، ضبط نص التذييل والتاريخ/الوقت، تمكين النوازل المطلوبة، ثم حفظ العرض التقديمي. يتم توليد أرقام الشرائح بواسطة العرض التقديمي، لذا يكفي التحكم في رؤيتها فقط.
+
+استخدم [`setFooterText`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/baseslideheaderfootermanager/#setFooterText-java.lang.String-) و[`setDateTimeText`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/baseslideheaderfootermanager/#setDateTimeText-java.lang.String-) لتعيين النص، واستخدم [`setFooterVisibility`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/baseslideheaderfootermanager/#setFooterVisibility-boolean-)، [`setDateTimeVisibility`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/baseslideheaderfootermanager/#setDateTimeVisibility-boolean-)، و[`setSlideNumberVisibility`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/baseslideheaderfootermanager/#setSlideNumberVisibility-boolean-) لإظهار النوازل المقابلة.
+
+المثال التالي يطبق نفس التذييل، نص التاريخ/الوقت، ورؤية رقم الشريحة على جميع الشرائح العادية:
+
 ```java
-// تحميل العرض التقديمي
-Presentation pres = new Presentation("headerTest.pptx");
-try {
-    // ضبط التذييل
-    pres.getHeaderFooterManager().setAllFootersText("My Footer text");
-    pres.getHeaderFooterManager().setAllFootersVisibility(true);
+import com.aspose.slides.*;
 
-    // الوصول إلى وتحديث الرأس
-    IMasterNotesSlide masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (null != masterNotesSlide)
-    {
-        updateHeaderFooterText(masterNotesSlide);
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideHeaderFooterManager headerFooterManager = slide.getHeaderFooterManager();
+
+        headerFooterManager.setFooterText("Company Confidential");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
 
-    // حفظ العرض
-    pres.save("HeaderFooterJava.pptx", SaveFormat.Pptx);
+    presentation.save("presentation_with_slide_footers.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+إذا كنت بحاجة إلى تحديث شريحة واحدة فقط، يمكنك الوصول إلى تلك الشريحة مباشرة عبر طريقة [`getSlides`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/#getSlides--) بدلاً من التنقل عبر المجموعة بأكملها.
+
+## **تعيين الرؤوس والتذييلات على قالب الملاحظات**
+
+يحدد قالب الملاحظات تنسيقًا مشتركًا وسلوك النوازل لصفحات الملاحظات. استخدم واجهة [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imasternotesslideheaderfootermanager/) عندما تريد تغيير قالب الملاحظات نفسه فقط.
+
+المثال التالي يضبط رأس، تذييل، ونص التاريخ/الوقت على قالب الملاحظات ويجعل جميع النوازل المدعومة مرئية على ذلك القالب:
+
 ```java
-// طريقة لتعيين نص الرأس/التذييل
-public static void updateHeaderFooterText(IBaseSlide master)
-{
-    for (IShape shape : master.getShapes())
-    {
-        if (shape.getPlaceholder() != null)
-        {
-            if (shape.getPlaceholder().getType() == PlaceholderType.Header)
-            {
-                ((IAutoShape)shape).getTextFrame().setText("HI there new header");
-            }
-        }
-    }
-}
-```
+import com.aspose.slides.*;
 
-
-## **إدارة الرؤوس والتذييلات في شرائح النسخة المطبوعة والملاحظات**
-يدعم Aspose.Slides for Java الرؤوس والتذييلات في شرائح النسخة المطبوعة والملاحظات. يرجى اتباع الخطوات أدناه:
-
-- حمّل [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) يحتوي على فيديو.
-- غيّر إعدادات الرأس والتذييل لِماستر الملاحظات وجميع شرائح الملاحظات.
-- اجعل موضع تذييل ماستر الملاحظات وجميع التذييلات الفرعية مرئية.
-- اجعل موضع التاريخ والوقت في ماستر الملاحظات وجميع المواضع الفرعية مرئية.
-- غيّر إعدادات الرأس والتذييل للشرحة الملاحظة الأولى فقط.
-- اجعل موضع الرأس في شريحة الملاحظات مرئياً.
-- ضع النص في موضع الرأس بشريحة الملاحظات.
-- ضع النص في موضع التاريخ/الوقت بشريحة الملاحظات.
-- احفظ ملف العرض المعدل.
-
-مقتطف الكود موفر في المثال أدناه.
-```java
-Presentation pres = new Presentation("presentation.pptx");
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    // تغيير إعدادات الرأس والتذييل لماستر الملاحظات وجميع شرائح الملاحظات
-    IMasterNotesSlide masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (masterNotesSlide != null)
-    {
+    IMasterNotesSlide masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide != null) {
         IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.getHeaderFooterManager();
 
-        headerFooterManager.setHeaderAndChildHeadersVisibility(true); // جعل شريحة الملاحظات الرئيسية وجميع عناصر العنصر الفرعي للتذييل مرئية
-        headerFooterManager.setFooterAndChildFootersVisibility(true); // جعل شريحة الملاحظات الرئيسية وجميع عناصر العنصر الفرعي للرأس مرئية
-        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true); // جعل شريحة الملاحظات الرئيسية وجميع عناصر العنصر الفرعي لرقم الشريحة مرئية
-        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true); // جعل شريحة الملاحظات الرئيسية وجميع عناصر العنصر الفرعي للتاريخ والوقت مرئية
+        headerFooterManager.setHeaderText("Notes header");
+        headerFooterManager.setHeaderVisibility(true);
 
-        headerFooterManager.setHeaderAndChildHeadersText("Header text"); // ضبط النص على شريحة الملاحظات الرئيسية وجميع عناصر العنصر الفرعي للرأس
-        headerFooterManager.setFooterAndChildFootersText("Footer text"); // ضبط النص على شريحة الملاحظات الرئيسية وجميع عناصر العنصر الفرعي للتذييل
-        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text"); // ضبط النص على شريحة الملاحظات الرئيسية وجميع عناصر العنصر الفرعي للتاريخ والوقت
+        headerFooterManager.setFooterText("Notes footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
 
-    // تغيير إعدادات الرأس والتذييل لشرحة الملاحظات الأولى فقط
-    INotesSlide notesSlide = pres.getSlides().get_Item(0).getNotesSlideManager().getNotesSlide();
-    if (notesSlide != null)
-    {
-        INotesSlideHeaderFooterManager headerFooterManager = notesSlide.getHeaderFooterManager();
-        if (!headerFooterManager.isHeaderVisible())
-            headerFooterManager.setHeaderVisibility(true); // جعل موضع رأس شريحة الملاحظات هذه مرئياً
-
-        if (!headerFooterManager.isFooterVisible())
-            headerFooterManager.setFooterVisibility(true); // جعل موضع تذييل شريحة الملاحظات هذه مرئياً
-
-        if (!headerFooterManager.isSlideNumberVisible())
-            headerFooterManager.setSlideNumberVisibility(true); // جعل موضع رقم الشريحة في شريحة الملاحظات هذه مرئياً
-
-        if (!headerFooterManager.isDateTimeVisible())
-            headerFooterManager.setDateTimeVisibility(true); // جعل موضع التاريخ والوقت في شريحة الملاحظات هذه مرئياً
-
-        headerFooterManager.setHeaderText("New header text"); // ضبط النص على عنصر رأس شريحة الملاحظات
-        headerFooterManager.setFooterText("New footer text"); // ضبط النص على عنصر تذييل شريحة الملاحظات
-        headerFooterManager.setDateTimeText("New date and time text"); // ضبط النص على عنصر التاريخ والوقت في شريحة الملاحظات
-    }
-    pres.save("testresult.pptx",SaveFormat.Pptx);
+    presentation.save("presentation_with_notes_master_footers.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+طريقة [`getMasterNotesSlide`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imasternotesslidemanager/#getMasterNotesSlide--) تُرجع `null` عندما لا يحتوي العرض التقديمي على قالب ملاحظات.
 
-## **الأسئلة المتداولة**
+## **تطبيق إعدادات قالب الملاحظات على شرائح الملاحظات الفرعية**
 
-**هل يمكنني إضافة "رأس" إلى الشرائح العادية؟**
+يمكن لقالب الملاحظات تطبيق إعدادات الرأس والتذييل على نفسه وعلى جميع شرائح الملاحظات التابعة. استخدم طرق النشر المخصصة على [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imasternotesslideheaderfootermanager/) عندما يجب تطبيق نفس الإعدادات عبر هيكل الملاحظات.
 
-في PowerPoint، لا يوجد "رأس" إلا في الملاحظات والنسخ المطبوعة؛ في الشرائح العادية، العناصر المدعومة هي التذييل، التاريخ/الوقت، ورقم الشريحة. في Aspose.Slides تتطابق هذه القيود: الرأس متاح فقط للملاحظات/النسخ المطبوعة، وعلى الشرائح—التذييل/التاريخ والوقت/رقم الشريحة.
+على سبيل المثال، تقوم كل من [`setHeaderAndChildHeadersText`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setHeaderAndChildHeadersText-java.lang.String-) و[`setHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setHeaderAndChildHeadersVisibility-boolean-) بتحديث رأس قالب الملاحظات وجميع رؤوس الأطفال. تتوفر طرق مكافئة للتذييلات، التاريخ/الوقت، وأرقام الشرائح.
 
-**ماذا لو لم يحتوي التخطيط على مساحة تذييل—هل يمكنني "تفعيل" رؤيته؟**
+```java
+import com.aspose.slides.*;
 
-نعم. تحقق من رؤية العنصر عبر مدير الرأس/التذييل وقم بتمكينه إذا لزم الأمر. تم تصميم مؤشرات API وهذه الطرق للتعامل مع الحالات التي يكون فيها العنصر المخصص مفقوداً أو مخفياً.
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterNotesSlide masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
 
-**كيف يمكن جعل رقم الشريحة يبدأ من قيمة غير 1؟**
+    if (masterNotesSlide != null) {
+        IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.getHeaderFooterManager();
 
-اضبط [رقم الشريحة الأولى](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#setFirstSlideNumber-int-) للعرض؛ بعد ذلك، يُعاد حساب جميع الأرقام. على سبيل المثال، يمكنك البدء من 0 أو 10، وإخفاء الرقم في شريحة العنوان.
+        headerFooterManager.setHeaderAndChildHeadersText("Notes header");
+        headerFooterManager.setHeaderAndChildHeadersVisibility(true);
 
-**ماذا يحدث للرؤوس/التذييلات عند التصدير إلى PDF/صور/HTML؟**
+        headerFooterManager.setFooterAndChildFootersText("Notes footer");
+        headerFooterManager.setFooterAndChildFootersVisibility(true);
 
-يتم عرضها كعناصر نصية عادية في العرض. أي إذا كانت العناصر مرئية على الشرائح/صفحات الملاحظات، فستظهر أيضاً في تنسيق الإخراج مع باقي المحتوى.
+        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
+        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
+
+        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
+    }
+
+    presentation.save("presentation_with_child_notes_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+طرق النشر المستخدمة أعلاه هي [`setFooterAndChildFootersText`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setFooterAndChildFootersText-java.lang.String-)، [`setFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setFooterAndChildFootersVisibility-boolean-)، [`setDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesText-java.lang.String-)، [`setDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesVisibility-boolean-)، و[`setSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setSlideNumberAndChildSlideNumbersVisibility-boolean-).
+
+## **تعيين الرؤوس والتذييلات على شريحة ملاحظات فردية**
+
+تنتمي شريحة الملاحظات إلى شريحة عادية محددة. استخدم واجهة [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/inotesslideheaderfootermanager/) عندما تريد تخصيص تلك الصفحة الملاحظة فقط.
+
+طريقة [`addNotesSlide`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/inotesslidemanager/#addNotesSlide--) تُرجع شريحة الملاحظات للشريحة الحالية وتُنشئ واحدة إذا لم تكن موجودة مسبقًا. المثال التالي يكوّن صفحة الملاحظات المرتبطة بأول شريحة في العرض التقديمي:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    INotesSlide notesSlide = slide.getNotesSlideManager().addNotesSlide();
+    INotesSlideHeaderFooterManager headerFooterManager = notesSlide.getHeaderFooterManager();
+
+    headerFooterManager.setHeaderText("Header for the first notes page");
+    headerFooterManager.setHeaderVisibility(true);
+
+    headerFooterManager.setFooterText("Footer for the first notes page");
+    headerFooterManager.setFooterVisibility(true);
+
+    headerFooterManager.setDateTimeText("Date and time text");
+    headerFooterManager.setDateTimeVisibility(true);
+
+    headerFooterManager.setSlideNumberVisibility(true);
+
+    presentation.save("presentation_with_custom_notes_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+إذا قمت أولاً بنشر الإعدادات من قالب الملاحظات ثم غيرت شريحة ملاحظات فردية، فإن الإعدادات اللاحقة لكل شريحة تسمح لك بتخصيص تلك الصفحة بشكل مستقل.
+
+## **تعيين الرؤوس والتذييلات على قالب النشرة**
+
+تستخدم صفحات النشرة قالب النشرة لنوازل الرأس، التذييل، التاريخ/الوقت، ورقم الصفحة. على عكس صفحات الملاحظات، تُدار إعدادات النشرة عبر قالب النشرة بدلاً من الشرائح الفردية.
+
+استخدم طريقة [`getMasterHandoutSlide`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imasterhandoutslidemanager/#getMasterHandoutSlide--) للوصول إلى قالب النشرة. إذا لم يكن موجودًا، استدعِ [`setDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imasterhandoutslidemanager/#setDefaultMasterHandoutSlide--) لإنشاء قالب النشرة الافتراضي.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterHandoutSlide masterHandoutSlide = presentation.getMasterHandoutSlideManager().getMasterHandoutSlide();
+
+    if (masterHandoutSlide == null) {
+        masterHandoutSlide = presentation.getMasterHandoutSlideManager().setDefaultMasterHandoutSlide();
+    }
+
+    if (masterHandoutSlide != null) {
+        IMasterHandoutSlideHeaderFooterManager headerFooterManager = masterHandoutSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Handout header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Handout footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
+    }
+
+    presentation.save("presentation_with_handout_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **فهم النطاق والوراثة**
+
+اختر مدير الرأس/التذييل الذي يتطابق مع النطاق الذي تريد تغييره:
+
+- [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islideheaderfootermanager/) يغيّر إعدادات التذييل، التاريخ/الوقت، ورقم الشريحة لشريحة عادية واحدة.
+- [`ILayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ilayoutslideheaderfootermanager/) يتحكم في شريحة تخطيط ويمكنه نشر الإعدادات المدعومة إلى الشرائح التابعة.
+- [`IMasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imasterslideheaderfootermanager/) يتحكم في قالب شريحة عادية ويمكنه نشر الإعدادات المدعومة إلى الشرائح التابعة.
+- [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imasternotesslideheaderfootermanager/) يتحكم في قالب الملاحظات ويمكنه نشر الإعدادات إلى جميع الشرائح التابعة للملاحظات.
+- [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/inotesslideheaderfootermanager/) يغيّر شريحة ملاحظات واحدة ويدعم نقش رأس بالإضافة إلى التذييل، التاريخ/الوقت، ورقم الشريحة.
+- [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imasterhandoutslideheaderfootermanager/) يغيّر قالب النشرة ويدعم جميع أنواع النوازل الأربعة.
+
+استخدم النشر من قالب أو تخطيط عندما يجب أن يُطبق الإعداد نفسه عبر هيكله. استخدم مدير شريحة فردية أو شريحة ملاحظات عندما تحتاج إلى إعداد محلي لصفحة واحدة.
+
+## **الأسئلة المتكررة**
+
+**هل يمكنني إضافة رأس إلى شريحة عادية؟**
+
+لا. لا يحدد PowerPoint نقش رأس للشريحة العادية. على الشرائح العادية، استخدم نوازل التذييل، التاريخ/الوقت، ورقم الشريحة. نوازل الرأس متوفرة على صفحات الملاحظات والنشرات.
+
+**ماذا يحدث إذا لم يكن نقش التذييل، أو التاريخ/الوقت، أو رقم الشريحة مرئيًا؟**
+
+استخدم مدير الرأس/التذييل المقابل للتحقق من رؤيته وتمكينه عند الحاجة. على سبيل المثال، تُظهر الطريقة [`isFooterVisible`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/baseslideheaderfootermanager/#isFooterVisible--) ما إذا كان نقش التذييل موجودًا، وتغيّر الطريقة [`setFooterVisibility`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/baseslideheaderfootermanager/#setFooterVisibility-boolean-) رؤيته.
+
+**كيف أبدأ ترقيم الشرائح من قيمة غير 1؟**
+
+استدعِ طريقة [`setFirstSlideNumber`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/#setFirstSlideNumber-int-) في العرض التقديمي. ثم تستخدم نوازل رقم الشريحة تسلسل الترقيم المحدث.
+
+**ماذا يحدث للرؤوس والتذييلات عند التصدير إلى PDF أو صور أو HTML؟**
+
+يتم تضمين عناصر الرأس والتذييل المرئية مع محتوى العرض التقديمي في صيغة الإخراج. يحدد نوع الصفحة التي يتم تصديرها وإعدادات رؤية النوازل المظهر النهائي.

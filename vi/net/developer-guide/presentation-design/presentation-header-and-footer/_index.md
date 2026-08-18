@@ -1,5 +1,5 @@
 ---
-title: Quản lý tiêu đề và chân trang của bài thuyết trình trong .NET
+title: Quản lý tiêu đề và chân trang trong .NET
 linktitle: Tiêu đề và Chân trang
 type: docs
 weight: 140
@@ -11,139 +11,232 @@ keywords:
 - văn bản chân trang
 - đặt tiêu đề
 - đặt chân trang
-- bản phát tay
+- tài liệu phát tay
 - ghi chú
 - PowerPoint
 - OpenDocument
-- bài thuyết trình
+- bản trình chiếu
 - .NET
 - C#
 - Aspose.Slides
-description: "Sử dụng Aspose.Slides cho .NET để thêm và tùy chỉnh tiêu đề và chân trang trong các bài thuyết trình PowerPoint và OpenDocument, mang lại vẻ ngoài chuyên nghiệp."
+description: "Tìm hiểu cách quản lý các vị trí giữ chỗ chân trang, ngày-giờ, số slide và tiêu đề trên slide, trang ghi chú và tài liệu phát tay với Aspose.Slides cho .NET."
 ---
 ## **Tổng quan**
 
-Aspose.Slides cho phép bạn quản lý cài đặt header và footer trong các bài thuyết trình PowerPoint. Header và footer được xử lý ở mức master của bài thuyết trình, và API cung cấp các phương thức để đặt văn bản footer, thay đổi hiển thị footer, và cập nhật văn bản header trên các slide ghi chú master.
+PowerPoint sử dụng các vị trí giữ chỗ tiêu đề và chân trang khác nhau tùy theo loại trang. Aspose.Slides for .NET cho phép bạn kiểm soát văn bản và khả năng hiển thị của các vị trí giữ chỗ này thông qua các giao diện quản lý tiêu đề/chân trang.
 
-Bạn cũng có thể quản lý header và footer cho các slide handout và notes. Điều này bao gồm việc thay đổi hiển thị và văn bản của các placeholder header, footer, số slide, và ngày‑giờ cho notes master, tất cả các slide notes con, hoặc một slide notes riêng lẻ.
+Các vị trí giữ chỗ có sẵn phụ thuộc vào phạm vi:
 
-## **Quản lý Văn bản Header và Footer**
+| Phạm vi | Đầu đề | Chân trang | Ngày/giờ | Số slide/trang |
+|---|---|---|---|---|
+| Slide thông thường | Không | Có | Có | Có |
+| Master ghi chú | Có | Có | Có | Có |
+| Slide ghi chú | Có | Có | Có | Có |
+| Master tài liệu phát tay | Có | Có | Có | Có |
 
-Ghi chú của một số slide cụ thể có thể được cập nhật như trong ví dụ dưới đây:
+Một slide trình chiếu thông thường không có vị trí giữ chỗ đầu đề. Đầu đề chỉ có trên các trang ghi chú và tài liệu phát tay. Đối với các slide thông thường, sử dụng các vị trí giữ chỗ chân trang, ngày/giờ và số slide thay vì đầu đề.
 
-```c#
-// Tải bài thuyết trình
-Presentation pres = new Presentation("headerTest.pptx");
+Phạm vi của một thay đổi phụ thuộc vào trình quản lý bạn sử dụng. Giao diện [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/net/aspose.slides/islideheaderfootermanager/) điều khiển một slide thông thường. Giao diện [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/net/aspose.slides/inotesslideheaderfootermanager/) điều khiển một slide ghi chú. Các trình quản lý master và layout cũng có thể truyền các cài đặt tới các slide phụ thuộc, trong khi giao diện [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterhandoutslideheaderfootermanager/) điều khiển master tài liệu phát tay.
 
-// Đặt chân trang
-pres.HeaderFooterManager.SetAllFootersText("My Footer text");
-pres.HeaderFooterManager.SetAllFootersVisibility(true);
+## **Đặt chân trang, ngày/giờ và số slide trên các slide thông thường**
 
-// Truy cập và cập nhật tiêu đề
-IMasterNotesSlide masterNotesSlide = pres.MasterNotesSlideManager.MasterNotesSlide;
-if (null != masterNotesSlide)
-{
-    UpdateHeaderFooterText(masterNotesSlide);
-}
+Đối với các slide thông thường, quy trình cơ bản là truy cập trình quản lý tiêu đề/chân trang của từng slide, đặt văn bản chân trang và ngày/giờ, kích hoạt các vị trí giữ chỗ cần thiết và lưu bản trình chiếu. Số slide được tạo tự động bởi bản trình chiếu, vì vậy bạn chỉ cần kiểm soát khả năng hiển thị của chúng.
 
-// Lưu bài thuyết trình
-pres.Save("HeaderFooterJava.pptx", SaveFormat.Pptx);
-```
+Sử dụng [`SetFooterText`](https://reference.aspose.com/slides/vi/net/aspose.slides/baseslideheaderfootermanager/setfootertext/) và [`SetDateTimeText`](https://reference.aspose.com/slides/vi/net/aspose.slides/baseslideheaderfootermanager/setdatetimetext/) để đặt văn bản, và sử dụng [`SetFooterVisibility`](https://reference.aspose.com/slides/vi/net/aspose.slides/baseslideheaderfootermanager/setfootervisibility/), [`SetDateTimeVisibility`](https://reference.aspose.com/slides/vi/net/aspose.slides/baseslideheaderfootermanager/setdatetimevisibility/), và [`SetSlideNumberVisibility`](https://reference.aspose.com/slides/vi/net/aspose.slides/baseslideheaderfootermanager/setslidenumbervisibility/) để hiển thị các vị trí giữ chỗ tương ứng.
 
+Ví dụ toàn diện dưới đây áp dụng cùng một chân trang, văn bản ngày/giờ và khả năng hiển thị số slide cho tất cả các slide thông thường:
 
 ```c#
-// Phương thức để đặt Văn bản Header/Footer
-public static void UpdateHeaderFooterText(IBaseSlide master)
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    foreach (IShape shape in master.Shapes)
-    {
-        if (shape.Placeholder != null)
-        {
-            if (shape.Placeholder.Type == PlaceholderType.Header)
-            {
-                ((IAutoShape)shape).TextFrame.Text = "HI there new header";
-            }
-        }
-    }
+    var headerFooterManager = slide.HeaderFooterManager;
+
+    headerFooterManager.SetFooterText("Company Confidential");
+    headerFooterManager.SetFooterVisibility(true);
+
+    headerFooterManager.SetDateTimeText("Date and time text");
+    headerFooterManager.SetDateTimeVisibility(true);
+
+    headerFooterManager.SetSlideNumberVisibility(true);
 }
+
+presentation.Save("presentation_with_slide_footers.pptx", SaveFormat.Pptx);
 ```
 
-## **Quản lý Header và Footer trên Slide Handout và Notes**
+Nếu bạn chỉ cần cập nhật một slide, truy cập trực tiếp slide đó thông qua bộ sưu tập [`Slides`](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/slides/vi/) thay vì lặp qua toàn bộ bộ sưu tập.
 
-Aspose.Slides cho .NET hỗ trợ Header và Footer trên các slide Handout và notes. Vui lòng làm theo các bước dưới đây:
+## **Đặt đầu đề và chân trang trên Master ghi chú**
 
-- Tải một [Presentation ](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation)chứa video.
-- Thay đổi cài đặt Header và Footer cho notes master và tất cả các slide notes.
-- Đặt các placeholder Footer trên master notes slide và tất cả các slide con hiển thị.
-- Đặt các placeholder Date và time trên master notes slide và tất cả các slide con hiển thị.
-- Thay đổi cài đặt Header và Footer chỉ cho slide notes đầu tiên.
-- Đặt placeholder Header của slide notes hiển thị.
-- Đặt văn bản cho placeholder Header của slide notes.
-- Đặt văn bản cho placeholder Date-time của slide notes.
-- Ghi file bài thuyết trình đã chỉnh sửa.
+Master ghi chú xác định định dạng chung và hành vi vị trí giữ chỗ cho các trang ghi chú. Sử dụng giao diện [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/net/aspose.slides/imasternotesslideheaderfootermanager/) khi bạn muốn thay đổi chỉ master ghi chú.
 
-Đoạn mã mẫu được cung cấp trong ví dụ dưới đây.
+Ví dụ sau đặt đầu đề, chân trang và văn bản ngày/giờ trên master ghi chú và làm cho tất cả các vị trí giữ chỗ được hỗ trợ hiển thị trên master đó:
 
 ```c#
-using (Presentation presentation = new Presentation("presentation.pptx"))
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var masterNotesSlide = presentation.MasterNotesSlideManager.MasterNotesSlide;
+
+if (masterNotesSlide != null)
 {
-	// Thay đổi cài đặt Header và Footer cho notes master và tất cả các slide ghi chú
-	IMasterNotesSlide masterNotesSlide = presentation.MasterNotesSlideManager.MasterNotesSlide;
-	if (masterNotesSlide != null)
-	{
-		IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.HeaderFooterManager;
+    var headerFooterManager = masterNotesSlide.HeaderFooterManager;
 
-		headerFooterManager.SetHeaderAndChildHeadersVisibility(true); // làm cho slide ghi chú master và tất cả các placeholder Footer con hiển thị
-		headerFooterManager.SetFooterAndChildFootersVisibility(true); // làm cho slide ghi chú master và tất cả các placeholder Header con hiển thị
-		headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true); // làm cho slide ghi chú master và tất cả các placeholder SlideNumber con hiển thị
-		headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true); // làm cho slide ghi chú master và tất cả các placeholder Date và time con hiển thị
+    headerFooterManager.SetHeaderText("Notes header");
+    headerFooterManager.SetHeaderVisibility(true);
 
-		headerFooterManager.SetHeaderAndChildHeadersText("Header text"); // đặt văn bản cho slide ghi chú master và tất cả các placeholder Header con
-		headerFooterManager.SetFooterAndChildFootersText("Footer text"); // đặt văn bản cho slide ghi chú master và tất cả các placeholder Footer con
-		headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text"); // đặt văn bản cho slide ghi chú master và tất cả các placeholder Date và time con
-	}
+    headerFooterManager.SetFooterText("Notes footer");
+    headerFooterManager.SetFooterVisibility(true);
 
-	// Thay đổi cài đặt Header và Footer chỉ cho slide ghi chú đầu tiên
-	INotesSlide notesSlide = presentation.Slides[0].NotesSlideManager.NotesSlide;
-	if (notesSlide != null)
-	{
-		INotesSlideHeaderFooterManager headerFooterManager = notesSlide.HeaderFooterManager;
-		if (!headerFooterManager.IsHeaderVisible)
-			headerFooterManager.SetHeaderVisibility(true); // làm cho placeholder Header của slide ghi chú này hiển thị
+    headerFooterManager.SetDateTimeText("Date and time text");
+    headerFooterManager.SetDateTimeVisibility(true);
 
-		if (!headerFooterManager.IsFooterVisible)
-			headerFooterManager.SetFooterVisibility(true); // làm cho placeholder Footer của slide ghi chú này hiển thị
-
-		if (!headerFooterManager.IsSlideNumberVisible)
-			headerFooterManager.SetSlideNumberVisibility(true); // làm cho placeholder SlideNumber của slide ghi chú này hiển thị
-
-		if (!headerFooterManager.IsDateTimeVisible)
-			headerFooterManager.SetDateTimeVisibility(true); // làm cho placeholder Date-time của slide ghi chú này hiển thị
-
-		headerFooterManager.SetHeaderText("New header text"); // đặt văn bản cho placeholder Header của slide ghi chú
-		headerFooterManager.SetFooterText("New footer text"); // đặt văn bản cho placeholder Footer của slide ghi chú
-		headerFooterManager.SetDateTimeText("New date and time text"); // đặt văn bản cho placeholder Date-time của slide ghi chú
-	}
-	presentation.Save("testresult.pptx",SaveFormat.Pptx);
+    headerFooterManager.SetSlideNumberVisibility(true);
 }
-		
- }
+
+presentation.Save("presentation_with_notes_master_footers.pptx", SaveFormat.Pptx);
 ```
+
+Thuộc tính [`MasterNotesSlide`](https://reference.aspose.com/slides/vi/net/aspose.slides/imasternotesslidemanager/masternotesslide/) sẽ trả về `null` khi bản trình chiếu không chứa master ghi chú.
+
+## **Áp dụng cài đặt Master ghi chú cho các Slide ghi chú con**
+
+Master ghi chú có thể áp dụng cài đặt đầu đề và chân trang cho chính nó và cho tất cả các slide ghi chú phụ thuộc. Sử dụng các phương pháp truyền tải chuyên biệt trên [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/net/aspose.slides/imasternotesslideheaderfootermanager/) khi cùng một cài đặt cần được áp dụng trên toàn bộ cây ghi chú.
+
+Ví dụ, [`SetHeaderAndChildHeadersText`](https://reference.aspose.com/slides/vi/net/aspose.slides/masternotesslideheaderfootermanager/setheaderandchildheaderstext/) và [`SetHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/vi/net/aspose.slides/masternotesslideheaderfootermanager/setheaderandchildheadersvisibility/) cập nhật đầu đề master ghi chú và tất cả các đầu đề con. Các phương pháp tương đương cũng có sẵn cho chân trang, ngày/giờ và số slide.
+
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var masterNotesSlide = presentation.MasterNotesSlideManager.MasterNotesSlide;
+
+if (masterNotesSlide != null)
+{
+    var headerFooterManager = masterNotesSlide.HeaderFooterManager;
+
+    headerFooterManager.SetHeaderAndChildHeadersText("Notes header");
+    headerFooterManager.SetHeaderAndChildHeadersVisibility(true);
+
+    headerFooterManager.SetFooterAndChildFootersText("Notes footer");
+    headerFooterManager.SetFooterAndChildFootersVisibility(true);
+
+    headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
+    headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
+
+    headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
+}
+
+presentation.Save("presentation_with_child_notes_footers.pptx", SaveFormat.Pptx);
+```
+
+Các phương pháp truyền tải được sử dụng ở trên là [`SetFooterAndChildFootersText`](https://reference.aspose.com/slides/vi/net/aspose.slides/masternotesslideheaderfootermanager/setfooterandchildfooterstext/), [`SetFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/vi/net/aspose.slides/masternotesslideheaderfootermanager/setfooterandchildfootersvisibility/), [`SetDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/vi/net/aspose.slides/masternotesslideheaderfootermanager/setdatetimeandchilddatetimestext/), [`SetDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/vi/net/aspose.slides/masternotesslideheaderfootermanager/setdatetimeandchilddatetimesvisibility/), và [`SetSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/vi/net/aspose.slides/masternotesslideheaderfootermanager/setslidenumberandchildslidenumbersvisibility/).
+
+## **Đặt đầu đề và chân trang trên một Slide ghi chú cá nhân**
+
+Một slide ghi chú thuộc về một slide thông thường cụ thể. Sử dụng giao diện [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/net/aspose.slides/inotesslideheaderfootermanager/) khi bạn muốn tùy chỉnh chỉ trang ghi chú đó.
+
+Phương pháp [`AddNotesSlide`](https://reference.aspose.com/slides/vi/net/aspose.slides/inotesslidemanager/addnotesslide/) trả về slide ghi chú cho slide hiện tại và tạo mới nếu chưa tồn tại. Ví dụ sau cấu hình trang ghi chú liên kết với slide trình chiếu đầu tiên:
+
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var notesSlide = presentation.Slides[0].NotesSlideManager.AddNotesSlide();
+var headerFooterManager = notesSlide.HeaderFooterManager;
+
+headerFooterManager.SetHeaderText("Header for the first notes page");
+headerFooterManager.SetHeaderVisibility(true);
+
+headerFooterManager.SetFooterText("Footer for the first notes page");
+headerFooterManager.SetFooterVisibility(true);
+
+headerFooterManager.SetDateTimeText("Date and time text");
+headerFooterManager.SetDateTimeVisibility(true);
+
+headerFooterManager.SetSlideNumberVisibility(true);
+
+presentation.Save("presentation_with_custom_notes_footers.pptx", SaveFormat.Pptx);
+```
+
+Nếu bạn trước tiên truyền tải cài đặt từ master ghi chú và sau đó thay đổi một slide ghi chú cá nhân, các cài đặt theo slide sau này cho phép bạn tùy chỉnh trang ghi chú đó một cách độc lập.
+
+## **Đặt đầu đề và chân trang trên Master tài liệu phát tay**
+
+Các trang tài liệu phát tay sử dụng master tài liệu phát tay cho các vị trí giữ chỗ đầu đề, chân trang, ngày/giờ và số trang. Không giống như các trang ghi chú, cài đặt tài liệu phát tay được quản lý thông qua master tài liệu phát tay chứ không phải từng slide tài liệu phát tay riêng lẻ.
+
+Sử dụng thuộc tính [`MasterHandoutSlide`](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterhandoutslidemanager/masterhandoutslide/) để truy cập master tài liệu phát tay. Nếu không tồn tại, gọi [`SetDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterhandoutslidemanager/setdefaultmasterhandoutslide/) để tạo master tài liệu phát tay mặc định.
+
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var masterHandoutSlide = presentation.MasterHandoutSlideManager.MasterHandoutSlide;
+
+if (masterHandoutSlide == null)
+{
+    presentation.MasterHandoutSlideManager.SetDefaultMasterHandoutSlide();
+    masterHandoutSlide = presentation.MasterHandoutSlideManager.MasterHandoutSlide;
+}
+
+if (masterHandoutSlide != null)
+{
+    var headerFooterManager = masterHandoutSlide.HeaderFooterManager;
+
+    headerFooterManager.SetHeaderText("Handout header");
+    headerFooterManager.SetHeaderVisibility(true);
+
+    headerFooterManager.SetFooterText("Handout footer");
+    headerFooterManager.SetFooterVisibility(true);
+
+    headerFooterManager.SetDateTimeText("Date and time text");
+    headerFooterManager.SetDateTimeVisibility(true);
+
+    headerFooterManager.SetSlideNumberVisibility(true);
+}
+
+presentation.Save("presentation_with_handout_footers.pptx", SaveFormat.Pptx);
+```
+
+## **Hiểu về phạm vi và kế thừa**
+
+Chọn trình quản lý đầu đề/chân trang phù hợp với phạm vi bạn muốn thay đổi:
+
+- [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/net/aspose.slides/islideheaderfootermanager/) thay đổi cài đặt chân trang, ngày/giờ và số slide cho một slide thông thường.
+- [`ILayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/net/aspose.slides/ilayoutslideheaderfootermanager/) điều khiển một slide layout và có thể truyền các cài đặt được hỗ trợ tới các slide phụ thuộc.
+- [`IMasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterslideheaderfootermanager/) điều khiển một master slide thông thường và có thể truyền các cài đặt được hỗ trợ tới các slide phụ thuộc.
+- [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/net/aspose.slides/imasternotesslideheaderfootermanager/) điều khiển master ghi chú và có thể truyền cài đặt tới tất cả các slide ghi chú phụ thuộc.
+- [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/net/aspose.slides/inotesslideheaderfootermanager/) thay đổi một slide ghi chú và hỗ trợ vị trí giữ chỗ đầu đề bên cạnh chân trang, ngày/giờ và số slide.
+- [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterhandoutslideheaderfootermanager/) thay đổi master tài liệu phát tay và hỗ trợ cả bốn loại vị trí giữ chỗ.
+
+Sử dụng việc truyền tải từ một master hoặc layout khi cùng một cài đặt phải áp dụng trên toàn bộ cây của nó. Sử dụng một slide cá nhân hoặc trình quản lý slide‑ghi chú khi bạn cần một cài đặt cục bộ cho một trang.
 
 ## **Câu hỏi thường gặp**
 
-**Tôi có thể thêm "header" vào các slide thường không?**
+**Có thể thêm đầu đề vào slide thông thường không?**
 
-Trong PowerPoint, "Header" chỉ tồn tại cho notes và handouts; trên các slide thường, các yếu tố được hỗ trợ là footer, ngày/giờ và số slide. Trong Aspose.Slides điều này cũng giống nhau: header chỉ áp dụng cho Notes/Handout, và trên các slide—Footer/DateTime/SlideNumber.
+Không. PowerPoint không định nghĩa vị trí giữ chỗ đầu đề cho các slide thông thường. Trên các slide thông thường, sử dụng các vị trí giữ chỗ chân trang, ngày/giờ và số slide. Vị trí giữ chỗ đầu đề chỉ có trên các trang ghi chú và tài liệu phát tay.
 
-**Nếu bố cục không chứa khu vực footer—tôi có thể "bật" hiển thị của nó không?**
+**Nếu vị trí giữ chỗ chân trang, ngày/giờ hoặc số slide không hiển thị thì sao?**
 
-Có. Kiểm tra tính hiển thị thông qua trình quản lý header/footer và bật nó nếu cần. Các chỉ báo và phương thức API này được thiết kế cho trường hợp placeholder bị thiếu hoặc ẩn.
+Sử dụng trình quản lý tiêu đề/chân trang tương ứng để kiểm tra khả năng hiển thị và bật nó khi cần. Ví dụ, [`IsFooterVisible`](https://reference.aspose.com/slides/vi/net/aspose.slides/baseslideheaderfootermanager/isfootervisible/) báo cáo liệu vị trí giữ chỗ chân trang có tồn tại hay không, và [`SetFooterVisibility`](https://reference.aspose.com/slides/vi/net/aspose.slides/baseslideheaderfootermanager/setfootervisibility/) thay đổi khả năng hiển thị của nó.
 
-**Làm sao để số slide bắt đầu từ giá trị khác 1?**
+**Làm thế nào để bắt đầu đánh số slide từ giá trị khác 1?**
 
-Đặt [first slide number](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/firstslidenumber/) của bài thuyết trình; sau đó, tất cả các số sẽ được tính lại. Ví dụ, bạn có thể bắt đầu từ 0 hoặc 10, và ẩn số trên slide tiêu đề.
+Đặt thuộc tính [`FirstSlideNumber`](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/firstslidenumber/) của bản trình chiếu. Các vị trí giữ chỗ số slide sau đó sẽ sử dụng chuỗi đánh số đã cập nhật.
 
-**Điều gì xảy ra với header/footer khi xuất sang PDF/hình ảnh/HTML?**
+**Điều gì xảy ra với đầu đề và chân trang khi xuất ra PDF, ảnh hoặc HTML?**
 
-Chúng được render như các yếu tố văn bản thông thường của bài thuyết trình. Nghĩa là, nếu các yếu tố này hiển thị trên slide/notes, chúng cũng sẽ xuất hiện trong định dạng đầu ra cùng với phần nội dung còn lại.
+Các yếu tố đầu đề và chân trang hiện ra sẽ được vẽ cùng với phần còn lại của nội dung bản trình chiếu trong định dạng đầu ra. Diện mạo của chúng phụ thuộc vào loại trang đang được xuất và các cài đặt khả năng hiển thị vị trí giữ chỗ tương ứng.

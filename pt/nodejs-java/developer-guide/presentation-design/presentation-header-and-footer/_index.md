@@ -1,6 +1,6 @@
 ---
 title: Gerenciar cabeçalhos e rodapés de apresentação em JavaScript
-linktitle: Cabeçalho & Rodapé
+linktitle: Cabeçalho e Rodapé
 type: docs
 weight: 140
 url: /pt/nodejs-java/presentation-header-and-footer/
@@ -19,123 +19,229 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Use JavaScript e Aspose.Slides para Node.js para adicionar e personalizar cabeçalhos e rodapés em apresentações PowerPoint e OpenDocument, proporcionando um visual profissional."
+description: "Saiba como gerenciar marcadores de rodapé, data/hora, número de slide e cabeçalho em slides, páginas de notas e folhetos com Aspose.Slides para Node.js via Java."
 ---
 ## **Visão geral**
 
-Aspose.Slides permite que você gerencie as configurações de cabeçalho e rodapé em apresentações do PowerPoint. Cabeçalhos e rodapés são tratados no nível do mestre da apresentação, e a API fornece métodos para definir o texto do rodapé, alterar a visibilidade do rodapé e atualizar o texto do cabeçalho nos slides mestres de notas.
+O PowerPoint usa diferentes marcadores de cabeçalho e rodapé dependendo do tipo de página. Aspose.Slides for Node.js via Java permite controlar o texto e a visibilidade desses marcadores através das classes de gerenciamento de cabeçalho/rodapé.
 
-Você também pode gerenciar cabeçalhos e rodapés para slides de folheto e notas. Isso inclui alterar a visibilidade e o texto dos espaços reservados de cabeçalho, rodapé, número de slide e data/hora para o mestre de notas, todos os slides de notas filhos ou um slide de notas individual.
+Os marcadores disponíveis dependem do escopo:
 
-## **Gerenciar cabeçalho e rodapé na apresentação**
-As notas de alguns slides específicos podem ser removidas, conforme mostrado no exemplo abaixo:
+| Escopo | Cabeçalho | Rodapé | Data/hora | Número do slide/página |
+|---|---|---|---|---|
+| Slide regular | Não | Sim | Sim | Sim |
+| Mestre de notas | Sim | Sim | Sim | Sim |
+| Slide de notas | Sim | Sim | Sim | Sim |
+| Mestre de folheto | Sim | Sim | Sim | Sim |
+
+Um slide de apresentação regular não possui um marcador de cabeçalho. Os cabeçalhos estão disponíveis em páginas de notas e folhetos. Para slides regulares, use os marcadores de rodapé, data/hora e número do slide.
+
+O escopo de uma alteração depende do gerenciador que você usa. A [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slideheaderfootermanager/) controla um slide regular. A [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/notesslideheaderfootermanager/) controla um slide de notas. Gerenciadores mestre e layout também podem propagar configurações para slides dependentes, enquanto a [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/masterhandoutslideheaderfootermanager/) controla o mestre de folhetos.
+
+## **Definir rodapé, data/hora e números de slide em Slides Regulares**
+
+Para slides regulares, o fluxo básico consiste em acessar o gerenciador de cabeçalho/rodapé de cada slide, definir o texto do rodapé e da data/hora, ativar os marcadores necessários e salvar a apresentação. Os números de slide são gerados pela apresentação, portanto você só precisa controlar sua visibilidade.
+
+Use [`setFooterText`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterText) e [`setDateTimeText`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setDateTimeText) para definir o texto, e use [`setFooterVisibility`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterVisibility), [`setDateTimeVisibility`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setDateTimeVisibility) e [`setSlideNumberVisibility`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setSlideNumberVisibility) para exibir os marcadores correspondentes.
+
+O exemplo completo a seguir aplica o mesmo rodapé, texto de data/hora e visibilidade do número de slide a todos os slides regulares:
 
 ```javascript
-// Carregar apresentação
-var pres = new aspose.slides.Presentation("headerTest.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
 try {
-    // Definindo rodapé
-    pres.getHeaderFooterManager().setAllFootersText("My Footer text");
-    pres.getHeaderFooterManager().setAllFootersVisibility(true);
-    // Acessar e atualizar cabeçalho
-    var masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (null != masterNotesSlide) {
-        updateHeaderFooterText(masterNotesSlide);
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        const headerFooterManager = slide.getHeaderFooterManager();
+
+        headerFooterManager.setFooterText("Company Confidential");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
-    // Salvar apresentação
-    pres.save("HeaderFooterJava.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("presentation_with_slide_footers.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-```javascript
-function updateHeaderFooterText(master) {
-    let shapes = master.getShapes();
-    for (let i = 0; i < shapes.size(); i++) {
-        let shape = shapes.get_Item(i); 
-        if (shape.getPlaceholder() !== null) {
-            if (shape.getPlaceholder().getType() === aspose.PlaceholderType.Header) {
-                shape.getTextFrame().setText("HI there new header");
-            }
-        }
-    }
+    presentation.dispose();
 }
 ```
 
-## **Gerenciar cabeçalho e rodapé em slides de folheto e notas**
-Aspose.Slides para Node.js via Java oferece suporte a Header e Footer em slides de folheto e notas. Siga os passos abaixo:
+Se precisar atualizar apenas um slide, acesse esse slide diretamente através do método [`getSlides`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/getslides/) em vez de iterar por toda a coleção.
 
-- Carregue uma [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/Presentation) contendo um vídeo.
-- Altere as configurações de Header e Footer para o mestre de notas e todos os slides de notas.
-- Defina o slide mestre de notas e todos os espaços reservados de Footer filhos como visíveis.
-- Defina o slide mestre de notas e todos os espaços reservados de Date and time filhos como visíveis.
-- Altere as configurações de Header e Footer apenas para o primeiro slide de notas.
-- Defina o espaço reservado de Header do slide de notas como visível.
-- Defina o texto no espaço reservado de Header do slide de notas.
-- Defina o texto no espaço reservado de Date-time do slide de notas.
-- Grave o arquivo de apresentação modificado.
+## **Definir cabeçalhos e rodapés no Mestre de Notas**
 
-Trecho de código fornecido no exemplo abaixo.
+O mestre de notas define formatação comum e comportamento dos marcadores para páginas de notas. Use a [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) quando quiser alterar apenas o próprio mestre de notas.
+
+O exemplo a seguir define cabeçalho, rodapé e texto de data/hora no mestre de notas e torna todos os marcadores suportados visíveis nesse mestre:
 
 ```javascript
-var pres = new aspose.slides.Presentation("presentation.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
 try {
-    // Alterar configurações de Cabeçalho e Rodapé para o mestre de notas e todos os slides de notas
-    var masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (masterNotesSlide != null) {
-        var headerFooterManager = masterNotesSlide.getHeaderFooterManager();
-        headerFooterManager.setHeaderAndChildHeadersVisibility(true);// torna o slide mestre de notas e todos os marcadores de posição de Rodapé filhos visíveis
-        headerFooterManager.setFooterAndChildFootersVisibility(true);// torna o slide mestre de notas e todos os marcadores de posição de Cabeçalho filhos visíveis
-        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);// torna o slide mestre de notas e todos os marcadores de posição de Número de slide filhos visíveis
-        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);// torna o slide mestre de notas e todos os marcadores de posição de Data e hora filhos visíveis
-        headerFooterManager.setHeaderAndChildHeadersText("Header text");// define o texto no slide mestre de notas e em todos os marcadores de posição de Cabeçalho filhos
-        headerFooterManager.setFooterAndChildFootersText("Footer text");// define o texto no slide mestre de notas e em todos os marcadores de posição de Rodapé filhos
-        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");// define o texto no slide mestre de notas e em todos os marcadores de posição de Data e hora filhos
+    const masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide !== null) {
+        const headerFooterManager = masterNotesSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Notes header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Notes footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
-    // Alterar configurações de Cabeçalho e Rodapé apenas para o primeiro slide de notas
-    var notesSlide = pres.getSlides().get_Item(0).getNotesSlideManager().getNotesSlide();
-    if (notesSlide != null) {
-        var headerFooterManager = notesSlide.getHeaderFooterManager();
-        if (!headerFooterManager.isHeaderVisible()) {
-            headerFooterManager.setHeaderVisibility(true);
-        }// torna este marcador de posição de Cabeçalho do slide de notas visível
-        if (!headerFooterManager.isFooterVisible()) {
-            headerFooterManager.setFooterVisibility(true);
-        }// torna este marcador de posição de Rodapé do slide de notas visível
-        if (!headerFooterManager.isSlideNumberVisible()) {
-            headerFooterManager.setSlideNumberVisibility(true);
-        }// torna este marcador de posição de Número de slide do slide de notas visível
-        if (!headerFooterManager.isDateTimeVisible()) {
-            headerFooterManager.setDateTimeVisibility(true);
-        }// torna este marcador de posição de Data e hora do slide de notas visível
-        headerFooterManager.setHeaderText("New header text");// define o texto no marcador de posição de Cabeçalho do slide de notas
-        headerFooterManager.setFooterText("New footer text");// define o texto no marcador de posição de Rodapé do slide de notas
-        headerFooterManager.setDateTimeText("New date and time text");// define o texto no marcador de posição de Data e hora do slide de notas
-    }
-    pres.save("testresult.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("presentation_with_notes_master_footers.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+O método [`getMasterNotesSlide`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/masternotesslidemanager/#getMasterNotesSlide) retorna `null` quando a apresentação não contém um mestre de notas.
+
+## **Aplicar Configurações do Mestre de Notas a Slides de Notas Filhos**
+
+Um mestre de notas pode aplicar as configurações de cabeçalho e rodapé a ele próprio e a todos os slides de notas dependentes. Use os métodos de propagação dedicados em [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) quando as mesmas configurações devem ser aplicadas em toda a hierarquia de notas.
+
+Por exemplo, [`setHeaderAndChildHeadersText`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setHeaderAndChildHeadersText) e [`setHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setHeaderAndChildHeadersVisibility) atualizam o cabeçalho do mestre de notas e todos os cabeçalhos filhos. Métodos equivalentes estão disponíveis para rodapés, data/hora e números de slide.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    const masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide !== null) {
+        const headerFooterManager = masterNotesSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderAndChildHeadersText("Notes header");
+        headerFooterManager.setHeaderAndChildHeadersVisibility(true);
+
+        headerFooterManager.setFooterAndChildFootersText("Notes footer");
+        headerFooterManager.setFooterAndChildFootersVisibility(true);
+
+        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
+        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
+
+        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
+    }
+
+    presentation.save("presentation_with_child_notes_footers.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Os métodos de propagação usados acima são [`setFooterAndChildFootersText`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setFooterAndChildFootersText), [`setFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setFooterAndChildFootersVisibility), [`setDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesText), [`setDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesVisibility) e [`setSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setSlideNumberAndChildSlideNumbersVisibility).
+
+## **Definir cabeçalhos e rodapés em um Slide de Notas Individual**
+
+Um slide de notas pertence a um slide regular específico. Use sua [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/notesslideheaderfootermanager/) quando quiser personalizar apenas aquela página de notas.
+
+O método [`addNotesSlide`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/notesslidemanager/#addNotesSlide) retorna o slide de notas para o slide atual e cria um caso ainda não exista. O exemplo a seguir configura a página de notas associada ao primeiro slide da apresentação:
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const headerFooterManager = slide.getNotesSlideManager().addNotesSlide().getHeaderFooterManager();
+
+    headerFooterManager.setHeaderText("Header for the first notes page");
+    headerFooterManager.setHeaderVisibility(true);
+
+    headerFooterManager.setFooterText("Footer for the first notes page");
+    headerFooterManager.setFooterVisibility(true);
+
+    headerFooterManager.setDateTimeText("Date and time text");
+    headerFooterManager.setDateTimeVisibility(true);
+
+    headerFooterManager.setSlideNumberVisibility(true);
+
+    presentation.save("presentation_with_custom_notes_footers.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Se você primeiro propagar as configurações do mestre de notas e depois alterar um slide de notas individual, as configurações posteriores por slide permitem personalizar aquela página de notas de forma independente.
+
+## **Definir cabeçalhos e rodapés no Mestre de Folhetos**
+
+As páginas de folhetos usam o mestre de folhetos para seus marcadores de cabeçalho, rodapé, data/hora e número de página. Diferentemente das páginas de notas, as configurações de folheto são gerenciadas através do mestre de folhetos e não por slides de folheto individuais.
+
+Use [`getMasterHandoutSlide`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/masterhandoutslidemanager/#getMasterHandoutSlide) para acessar o mestre de folhetos. Se ele não estiver presente, chame [`setDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/masterhandoutslidemanager/#setDefaultMasterHandoutSlide) para criar o mestre de folhetos padrão.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    let masterHandoutSlide = presentation.getMasterHandoutSlideManager().getMasterHandoutSlide();
+
+    if (masterHandoutSlide === null) {
+        masterHandoutSlide = presentation.getMasterHandoutSlideManager().setDefaultMasterHandoutSlide();
+    }
+
+    if (masterHandoutSlide !== null) {
+        const headerFooterManager = masterHandoutSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Handout header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Handout footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
+    }
+
+    presentation.save("presentation_with_handout_footers.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Entender Escopo e Herança**
+
+Escolha o gerenciador de cabeçalho/rodapé que corresponde ao escopo que você deseja alterar:
+
+- [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slideheaderfootermanager/) altera as configurações de rodapé, data/hora e número de slide para um slide regular.
+- [`LayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/layoutslideheaderfootermanager/) controla um slide de layout e pode propagar configurações suportadas para slides dependentes.
+- [`MasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/masterslideheaderfootermanager/) controla um mestre de slide regular e pode propagar configurações suportadas para slides dependentes.
+- [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) controla o mestre de notas e pode propagar configurações para todos os slides de notas dependentes.
+- [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/notesslideheaderfootermanager/) altera um slide de notas e suporta um marcador de cabeçalho além de rodapé, data/hora e número de slide.
+- [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/masterhandoutslideheaderfootermanager/) altera o mestre de folhetos e suporta os quatro tipos de marcadores.
+
+Use a propagação a partir de um mestre ou layout quando a mesma configuração deve ser aplicada em toda a hierarquia. Use um gerenciador de slide individual ou de slide de notas quando precisar de uma configuração local para uma única página.
 
 ## **FAQ**
 
-**Posso adicionar um "header" a slides normais?**
+**Posso adicionar um cabeçalho a um slide regular?**
 
-No PowerPoint, “Header” existe apenas para notes e handouts; em slides normais, os elementos suportados são o Footer, date/time e slide number. No Aspose.Slides isso corresponde às mesmas limitações: header apenas para Notes/Handout, e nos slides — Footer/DateTime/SlideNumber.
+Não. O PowerPoint não define um marcador de cabeçalho para slides regulares. Em slides regulares, use os marcadores de rodapé, data/hora e número do slide. Os marcadores de cabeçalho estão disponíveis em páginas de notas e folhetos.
 
-**E se o layout não contiver uma área de footer—posso “ativar” sua visibilidade?**
+**E se um marcador de rodapé, data/hora ou número de slide não estiver visível?**
 
-Sim. Verifique a visibilidade através do gerenciador de header/footer e habilite-a, se necessário. Esses indicadores e métodos da API foram projetados para casos em que o placeholder está ausente ou oculto.
+Use o gerenciador de cabeçalho/rodapé correspondente para verificar sua visibilidade e habilitá-la quando necessário. Por exemplo, [`isFooterVisible`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/baseslideheaderfootermanager/#isFooterVisible) informa se um marcador de rodapé está presente, e [`setFooterVisibility`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterVisibility) altera sua visibilidade.
 
-**Como faço o slide number começar a partir de um valor diferente de 1?**
+**Como iniciar a numeração de slides a partir de um valor diferente de 1?**
 
-Defina o [first slide number](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/setfirstslidenumber/); depois disso, toda a numeração é recalculada. Por exemplo, você pode iniciar em 0 ou 10 e ocultar o número no slide de título.
+Chame o método [`setFirstSlideNumber`](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/setfirstslidenumber/) da apresentação. Os marcadores de número de slide então usarão a sequência de numeração atualizada.
 
-**O que acontece com headers/footers ao exportar para PDF/images/HTML?**
+**O que acontece com cabeçalhos e rodapés ao exportar para PDF, imagens ou HTML?**
 
-Eles são renderizados como elementos de texto normais da apresentação. Ou seja, se os elementos estiverem visíveis nas páginas de slides/notes, eles também aparecerão no formato de saída junto com o restante do conteúdo.
+Os elementos de cabeçalho e rodapé visíveis são renderizados junto com o restante do conteúdo da apresentação no formato de saída. Sua aparência depende do tipo de página que está sendo exportado e das configurações de visibilidade dos marcadores correspondentes.
