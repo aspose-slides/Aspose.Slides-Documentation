@@ -1,210 +1,449 @@
 ---
-title: Presentations में C++ का उपयोग करके चार्ट वर्कशीट फ़ॉर्मूले लागू करें
-linktitle: वर्कशीट फ़ॉर्मूले
+title: C++ का उपयोग करके प्रस्तुतियों में चार्ट वर्कशीट फॉर्मूले लागू करें
+linktitle: वर्कशीट फॉर्मूले
 type: docs
 weight: 70
 url: /hi/cpp/chart-worksheet-formulas/
 keywords:
 - चार्ट स्प्रेडशीट
 - चार्ट वर्कशीट
-- चार्ट फ़ॉर्मूला
-- वर्कशीट फ़ॉर्मूला
-- स्प्रेडशीट फ़ॉर्मूला
-- डेटा स्रोत
+- चार्ट फॉर्मूला
+- वर्कशीट फॉर्मूला
+- स्प्रेडशीट फॉर्मूला
+- चार्ट डेटा वर्कबुक
+- फॉर्मूला गणना
 - तार्किक स्थिरांक
-- संख्यात्मक स्थिरांक
-- स्ट्रिंग स्थिरांक
-- त्रुटि स्थिरांक
-- अंकगणितीय स्थिरांक
-- तुलना ऑपरेटर
-- A1 शैली
-- R1C1 शैली
-- पूर्वनिर्धारित फ़ंक्शन
-- PowerPoint
-- प्रस्तुतीकरण
-- С++
-- Aspose.Slides
-description: "Aspose.Slides में Excel‑शैली के फ़ॉर्मूले लागू करें C++ चार्ट वर्कशीट्स के लिए और PPT तथा PPTX फ़ाइलों में रिपोर्ट को स्वचालित करें।"
----
-## **परिचय**
-
-एक चार्ट वर्कशीट प्रस्तुतीकरण में चार्ट के पीछे का डेटा स्रोत होती है। यह श्रेणी और श्रृंखला के नामों को उन संख्यात्मक मूल्यों के साथ संग्रहीत करती है जो चार्ट में प्रदर्शित होते हैं। Aspose.Slides में यह वर्कशीट चार्ट डेटा वर्कबुक के माध्यम से उपलब्ध होती है, जिससे आप प्रोग्रामेटिक रूप से चार्ट डेटा के साथ कार्य कर सकते हैं।
-
-यह लेख दिखाता है कि कैसे चार्ट डेटा में वर्कशीट फ़ॉर्मूले का उपयोग किया जाए ताकि सेल मानों की गणना और अपडेट स्वतः हो सके, मैन्युअल रूप से दर्ज करने के बजाय। यह फ़ॉर्मूले असाइन करने, A1‑स्टाइल और R1C1‑स्टाइल दोनों रेफ़रेंसेज़ उपयोग करने, वर्कबुक फ़ॉर्मूले री‑कैल्कुलेट करने, और प्रस्तुतीकरण में चार्ट वर्कशीट के लिए उपलब्ध स्थिरांक, ऑपरेटर, सेल रेफ़रेंसेज़ तथा पूर्वनिर्धारित फ़ंक्शन्स के साथ काम करने को दर्शाता है।
-
-## **प्रेज़ेंटेशन में चार्ट स्प्रेडशीट फ़ॉर्मूले के बारे में**
-**चार्ट स्प्रेडशीट** (या चार्ट वर्कशीट) प्रस्तुतीकरण में चार्ट का डेटा स्रोत होती है। चार्ट स्प्रेडशीट में वह डेटा रहता है जिसे ग्राफ़िक रूप में चार्ट पर दर्शाया जाता है। जब आप PowerPoint में एक चार्ट बनाते हैं, तो इस चार्ट से जुड़ी वर्कशीट भी स्वचालित रूप से बन जाती है। चार्ट वर्कशीट सभी प्रकार के चार्ट्स के लिए बनायी़ जाती है: लाइन चार्ट, बार चार्ट, सनबर्स्ट चार्ट, पाई चार्ट आदि। PowerPoint में चार्ट स्प्रेडशीट को देखने के लिए आपको चार्ट पर डबल‑क्लिक करना चाहिए:
-
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
-
-चार्ट स्प्रेडशीट में चार्ट तत्वों के नाम (Category Name: *Category1*, Serie Name) और इन श्रेणियों तथा श्रृंखलाओं के अनुकूल संख्यात्मक डेटा वाली तालिका होती है। डिफ़ॉल्ट रूप से, जब आप नया चार्ट बनाते हैं तो चार्ट स्प्रेडशीट डेटा डिफ़ॉल्ट डेटा के साथ सेट होता है। फिर आप वर्कशीट में डेटा को मैन्युअल रूप से बदल सकते हैं।
-
-आमतौर पर, चार्ट जटिल डेटा (जैसे वित्तीय विश्लेषकों, वैज्ञानिक विश्लेषकों) का प्रतिनिधित्व करता है, जहाँ कोशिकाएँ अन्य कोशिकाओं के मानों या अन्य गतिशील डेटा से गणना की जाती हैं। सेल वैल्यू को मैन्युअली गणना कर उसे हार्ड‑कोड करने से भविष्य में उसे बदलना कठिन हो जाता है। यदि आप किसी विशेष सेल का मान बदलते हैं, तो उस पर निर्भर सभी सेलों को भी अपडेट करना पड़ेगा। इसके अलावा, तालिका डेटा अन्य तालिकाओं के डेटा पर निर्भर हो सकता है, जिससे प्रस्तुतीकरण डेटा योजना जटिल हो जाती है और इसे सहज तथा लचीले तरीके से अपडेट करने की आवश्यकता होती है।
-
-**चार्ट स्प्रेडशीट फ़ॉर्मूला** प्रस्तुतीकरण में एक अभिव्यक्ति है जो चार्ट स्प्रेडशीट डेटा को स्वतः गणना और अपडेट करती है। स्प्रेडशीट फ़ॉर्मूला किसी विशिष्ट सेल या सेल समूह के लिए डेटा गणना तर्क को निर्धारित करता है। स्प्रेडशीट फ़ॉर्मूला एक गणितीय फ़ॉर्मूला या लॉजिकल फ़ॉर्मूला हो सकता है, जिसमें उपयोग होते हैं: सेल रेफ़रेंसेज़, गणितीय फ़ंक्शन, लॉजिकल ऑपरेटर, अंकगणितीय ऑपरेटर, रूपांतरण फ़ंक्शन, स्ट्रिंग स्थिरांक आदि। फ़ॉर्मूला की परिभाषा एक सेल में लिखी जाती है, और यह सेल साधारण मान नहीं रखती। स्प्रेडशीट फ़ॉर्मूला मान को गणना कर वापस देता है, फिर यह मान सेल को असाइन किया जाता है। प्रस्तुतीकरण में चार्ट स्प्रेडशीट फ़ॉर्मूले वास्तव में एक्सेल फ़ॉर्मूले के समान हैं, और इनके कार्यान्वयन के लिए वही डिफ़ॉल्ट फ़ंक्शन, ऑपरेटर और स्थिरांक समर्थित हैं।
-
-[**Aspose.Slides**](https://products.aspose.com/slides/hi/cpp/) में चार्ट स्प्रेडशीट को 
-[**ChartData::get_ChartDataWorkbook()**](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.charts.chart_data#a32097093561723a10df0a57dc91acaea) मेथड के माध्यम से प्रतिनिधित्व किया जाता है,
-जो कि [**IChartDataWorkbook**](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.charts.i_chart_data_workbook) प्रकार से संबंधित है। 
-स्प्रेडशीट फ़ॉर्मूला को असाइन और बदलाया जा सकता है 
-[**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692) मेथड द्वारा। 
-Aspose.Slides में फ़ॉर्मूलों के लिए निम्नलिखित कार्यक्षमता समर्थित है:
-
-- लॉजिकल स्थिरांक
 - संख्यात्मक स्थिरांक
 - स्ट्रिंग स्थिरांक
 - त्रुटि स्थिरांक
 - अंकगणितीय ऑपरेटर
 - तुलना ऑपरेटर
-- A1‑स्टाइल सेल रेफ़रेंसेज़
-- R1C1‑स्टाइल सेल रेफ़रेंसेज़
+- A1 शैली
+- R1C1 शैली
 - पूर्वनिर्धारित फ़ंक्शन
+- PowerPoint
+- प्रस्तुति
+- C++
+- Aspose.Slides
+description: "Aspose.Slides for C++ चार्ट वर्कशीट्स में Excel-शैली के फॉर्मूले लागू करें, मानों की पुनः गणना करें, और परिणामों को PowerPoint चार्ट्स में उपयोग करें।"
+---
+## **अवलोकन**
 
-आमतौर पर, स्प्रेडशीट अंतिम गणना किए गए फ़ॉर्मूला मानों को सहेजते हैं। यदि प्रस्तुतीकरण लोड करने के बाद चार्ट डेटा नहीं बदला गया हो, तो **IChartDataCell.get_Value()** मेथड इन मानों को पढ़ते समय लौटाता है। लेकिन यदि स्प्रेडशीट डेटा बदला गया हो, तो पढ़ते समय **ChartDataCell.get_Value()** मेथड **CellUnsupportedDataException** उत्पन्न करता है क्योंकि असमर्थित फ़ॉर्मूले होते हैं। यह इसलिए है क्योंकि फ़ॉर्मूले सफलतापूर्वक पार्स होने पर सेल निर्भरताएँ निर्धारित की जाती हैं और अंतिम मानों की शुद्धता तय होती है। यदि फ़ॉर्मूला पार्स नहीं हो पाता, तो सेल मान की शुद्धता की गारंटी नहीं दी जा सकती।
+PowerPoint चार्ट आमतौर पर अपने स्रोत डेटा को एक एम्बेडेड वर्कशीट में संग्रहीत करते हैं। Aspose.Slides for C++ में, आप चार्ट डेटा वर्कबुक के माध्यम से उस वर्कशीट तक पहुँच सकते हैं, इनपुट मान लिख सकते हैं, कोशिकाओं को फॉर्मूले असाइन कर सकते हैं, समर्थित फॉर्मूले की गणना कर सकते हैं, और गणना की गई कोशिकाओं को चार्ट डेटा के रूप में उपयोग कर सकते हैं।
 
-## **प्रेज़ेंटेशन में चार्ट स्प्रेडशीट फ़ॉर्मूला जोड़ें**
-पहले, नई प्रस्तुतीकरण की पहली स्लाइड में 
-[IShapeCollection::AddChart()](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.i_shape_collection#a2cd4d47fc5c536012ee15b3a69486374) 
-के माध्यम से एक चार्ट जोड़ें। चार्ट की वर्कशीट स्वचालित रूप से बन जाती है और इसे 
-[**ChartData::get_ChartDataWorkbook()**](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.charts.chart_data#a32097093561723a10df0a57dc91acaea) 
-मेथड से एक्सेस किया जा सकता है:
+यह लेख पूर्ण फॉर्मूला वर्कफ़्लो समझाता है: एक चार्ट बनाना, उसकी वर्कशीट भरना, A1‑स्टाइल या R1C1‑स्टाइल फॉर्मूले असाइन करना, उन्हें पुनः गणना करना, गणना किए गए मान पढ़ना, उन कोशिकाओं को चार्ट सीरीज़ से जोड़ना, और प्रस्तुति को सहेजना। इसमें समर्थित फॉर्मूला सिंटैक्स, बिल्ट‑इन फ़ंक्शन उपसमुच्चय, कैश किए हुए मान, असमर्थित फॉर्मूले, और स्प्रेडशीट‑विशिष्ट त्रुटियों का विवरण भी दिया गया है।
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>();
-    
-auto chart = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::ClusteredColumn, 150.0f, 150.0f, 500.0f, 300.0f);
+## **चार्ट वर्कशीट्स और फॉर्मूले**
+
+एक चार्ट वर्कशीट में उन श्रेणियों, सीरीज़ नामों और मानों को संग्रहित किया जाता है जो चार्ट द्वारा उपयोग किए जाते हैं। PowerPoint में, आप चार्ट डेटा एडिटर खोलकर वर्कशीट की जाँच कर सकते हैं:
+
+![PowerPoint चार्ट जिसमें उसका एम्बेडेड वर्कशीट खुला हुआ है, श्रेणी और सीरीज़ डेटा दिखा रहा है](chart-worksheet-formulas_1.png)
+
+Aspose.Slides में, वर्कशीट को [IChartDataWorkbook](https://reference.aspose.com/slides/hi/cpp/aspose.slides.charts/ichartdataworkbook/) इंटरफ़ेस के माध्यम से उजागर किया गया है। A1‑स्टाइल फॉर्मूले के लिए [IChartDataCell::set_Formula](https://reference.aspose.com/slides/hi/cpp/aspose.slides.charts/ichartdatacell/set_formula/) और R1C1‑स्टाइल फॉर्मूले के लिए [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/hi/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) का उपयोग करें। इनपुट कोशिकाओं या फॉर्मूलों को बदलने के बाद, समर्थित फॉर्मूले को पुनः गणना करने और संबंधित कोशिका मानों को अपडेट करने के लिए [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/hi/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) को कॉल करें।
+
+एक गणना की गई कोशिका अपना परिणाम अभी भी [IChartDataCell::get_Value](https://reference.aspose.com/slides/hi/cpp/aspose.slides.charts/ichartdatacell/get_value/) के माध्यम से प्रकट करती है। यह तब महत्वपूर्ण होता है जब आपको कोड में फॉर्मूला परिणाम की जाँच करनी हो या कोशिका को चार्ट डेटा पॉइंट के रूप में उपयोग करना हो।
+
+## **एक चार्ट बनाएं और वर्कशीट फॉर्मूले गणना करें**
+
+निम्न उदाहरण एक एंड‑टू‑एंड वर्कफ़्लो दर्शाता है। यह एक क्लस्टर्ड कॉलम चार्ट बनाता है, सैंपल डेटा साफ़ करता है, त्रैमासिक राजस्व और खर्च मान लिखता है, फॉर्मूले के साथ लाभ की गणना करता है, परिणाम पढ़ता है, गणना की गई कोशिकाओं को चार्ट मानों के रूप में उपयोग करता है, और प्रस्तुति को सहेजता है।
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 350.0f);
+auto chartData = chart->get_ChartData();
+auto workbook = chartData->get_ChartDataWorkbook();
+const int32_t worksheetIndex = 0;
+
+chartData->get_Series()->Clear();
+chartData->get_Categories()->Clear();
+workbook->Clear(worksheetIndex);
+
+auto category1 = workbook->GetCell(worksheetIndex, u"A2", ObjectExt::Box<String>(u"Q1"));
+auto category2 = workbook->GetCell(worksheetIndex, u"A3", ObjectExt::Box<String>(u"Q2"));
+auto category3 = workbook->GetCell(worksheetIndex, u"A4", ObjectExt::Box<String>(u"Q3"));
+
+workbook->GetCell(worksheetIndex, u"B1", ObjectExt::Box<String>(u"Revenue"));
+workbook->GetCell(worksheetIndex, u"C1", ObjectExt::Box<String>(u"Expenses"));
+workbook->GetCell(worksheetIndex, u"D1", ObjectExt::Box<String>(u"Profit"));
+
+workbook->GetCell(worksheetIndex, u"B2")->set_Value(ObjectExt::Box<double>(120.0));
+workbook->GetCell(worksheetIndex, u"C2")->set_Value(ObjectExt::Box<double>(80.0));
+workbook->GetCell(worksheetIndex, u"B3")->set_Value(ObjectExt::Box<double>(150.0));
+workbook->GetCell(worksheetIndex, u"C3")->set_Value(ObjectExt::Box<double>(95.0));
+workbook->GetCell(worksheetIndex, u"B4")->set_Value(ObjectExt::Box<double>(135.0));
+workbook->GetCell(worksheetIndex, u"C4")->set_Value(ObjectExt::Box<double>(110.0));
+
+auto profit1 = workbook->GetCell(worksheetIndex, u"D2");
+auto profit2 = workbook->GetCell(worksheetIndex, u"D3");
+auto profit3 = workbook->GetCell(worksheetIndex, u"D4");
+
+profit1->set_Formula(u"B2-C2");
+profit2->set_Formula(u"B3-C3");
+profit3->set_Formula(u"B4-C4");
+
+workbook->CalculateFormulas();
+
+auto q1Profit = profit1->get_Value(); // 40
+auto q2Profit = profit2->get_Value(); // 55
+auto q3Profit = profit3->get_Value(); // 25
+
+chartData->get_Categories()->Add(category1);
+chartData->get_Categories()->Add(category2);
+chartData->get_Categories()->Add(category3);
+
+auto profitSeries = chartData->get_Series()->Add(workbook->GetCell(worksheetIndex, u"D1"), chart->get_Type());
+profitSeries->get_DataPoints()->AddDataPointForBarSeries(profit1);
+profitSeries->get_DataPoints()->AddDataPointForBarSeries(profit2);
+profitSeries->get_DataPoints()->AddDataPointForBarSeries(profit3);
+profitSeries->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
+
+presentation->Save(u"chart-formulas.pptx", SaveFormat::Pptx);
+```
+
+चार्ट डेटा पॉइंट `D2:D4` को संदर्भित करते हैं, इसलिए चार्ट गणना किए गए लाभ मानों का उपयोग करता है। इस वर्कफ़्लो में कोई अलग चार्ट‑रिफ्रेश कॉल नहीं है: पहले वर्कबुक को पुनः गणना करें, फिर गणना किए गए कोशिकाओं की ओर इशारा करने वाले चार्ट डेटा का उपयोग या सहेजें।
+
+## **A1‑स्टाइल फॉर्मूले का उपयोग करें**
+
+A1 नोटेशन कॉलम को अक्षरों से और पंक्तियों को संख्याओं से पहचानता है। A1‑स्टाइल अभिव्यक्तियों को [IChartDataCell::set_Formula](https://reference.aspose.com/slides/hi/cpp/aspose.slides.charts/ichartdatacell/set_formula/) द्वारा असाइन करें।
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 500.0f, 300.0f);
 auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
-// ...
+workbook->GetCell(0, u"C3")->set_Value(ObjectExt::Box<int32_t>(10));
+workbook->GetCell(0, u"F2")->set_Value(ObjectExt::Box<int32_t>(2));
+workbook->GetCell(0, u"G2")->set_Value(ObjectExt::Box<int32_t>(3));
+workbook->GetCell(0, u"H2")->set_Value(ObjectExt::Box<int32_t>(4));
+
+auto cell = workbook->GetCell(0, u"A2");
+cell->set_Formula(u"C3+SUM(F2:H2)");
+
+workbook->CalculateFormulas();
+
+auto value = cell->get_Value(); // 19
 ```
 
-अब **Object** प्रकार की 
-[**IChartDataCell.set_Value()**](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.charts.i_chart_data_cell#ad85809f520195e09225abae9002635ec) 
-मेथड से कुछ मान सेल्स में लिखें, जिससे आप मेथड में कोई भी मान पास कर सकते हैं:
+सामान्य A1 रेफ़रेंस रूप इस प्रकार हैं:
 
-``` cpp
-workbook->GetCell(0, u"F2")->set_Value(System::ObjectExt::Box<double>(-2.5));
-workbook->GetCell(0, u"G3")->set_Value(System::ObjectExt::Box<double>(6.3));
-workbook->GetCell(0, u"H4")->set_Value(System::ObjectExt::Box<int32_t>(3));
+| रेफ़रेंस | रिलेटिव | एब्सोल्यूट | मिश्रित |
+|---|---|---|---|
+| सेल | `A2` | `$A$2` | `A$2`, `$A2` |
+| पंक्ति | `2:2` | `$2:$2` | — |
+| स्तम्भ | `A:A` | `$A:$A` | — |
+| रेंज | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
+
+रिलेटिव रेफ़रेंस स्प्रेडशीट एप्लिकेशन द्वारा फॉर्मूला को स्थानांतरित या कॉपी करने पर बदल सकते हैं। एब्सोल्यूट रेफ़रेंस दोनों निर्देशांक को स्थिर रखते हैं, जबकि मिश्रित रेफ़रेंस केवल पंक्ति या कॉलम को स्थिर करता है।
+
+## **R1C1‑स्टाइल फॉर्मूले का उपयोग करें**
+
+R1C1 नोटेशन पंक्तियों और कॉलमों दोनों को संख्यात्मक रूप से पहचानता है। रिलेटिव रेफ़रेंस वर्ग कोष्ठकों में ऑफ़सेट का उपयोग करते हैं। यह सिंटैक्स [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/hi/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) द्वारा असाइन करें।
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 500.0f, 300.0f);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+
+workbook->GetCell(0, u"B2")->set_Value(ObjectExt::Box<int32_t>(12));
+workbook->GetCell(0, u"C2")->set_Value(ObjectExt::Box<int32_t>(5));
+
+auto cell = workbook->GetCell(0, u"D2");
+cell->set_R1C1Formula(u"RC[-2]-RC[-1]");
+
+workbook->CalculateFormulas();
+
+auto value = cell->get_Value(); // 7
 ```
 
-अब सेल में फ़ॉर्मूला लिखने के लिए, आप 
-[**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692) 
-मेथड उपयोग कर सकते हैं:
+सामान्य R1C1 रेफ़रेंस रूप इस प्रकार हैं:
 
-*Note*: [**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692) मेथड A1‑स्टाइल सेल रेफ़रेंसेज़ सेट करने के लिए उपयोग किया जाता है।  
+| रेफ़रेंस | रिलेटिव | एब्सोल्यूट | मिश्रित |
+|---|---|---|---|
+| सेल | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| पंक्ति | `R[2]` | `R2` | — |
+| स्तम्भ | `C[3]` | `C3` | — |
+| रेंज | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
 
-R1C1Formula सेल रेफ़रेंस सेट करने के लिए, आप 
-[**IChartDataCell::set_R1C1Formula()**](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.charts.i_chart_data_cell#a47f5825dd38d0dddb11ecc3a43d388c7) 
-मेथड उपयोग कर सकते हैं:
+उदाहरण के लिए, सेल `D2` में, `RC[-2]` का अर्थ है उसी पंक्ति में दो कॉलम बाएँ स्थित सेल (`B2`)।
 
-फिर यदि आप B2 और C2 सेल्स के मान पढ़ते हैं, तो वे गणना किए जाएंगे:
+## **फॉर्मूला स्थिरांक और ऑपरेटर**
 
-``` cpp
-auto value1 = cell1->get_Value(); // 7.8
-auto value2 = cell2->get_Value(); // 2.1
+बिल्ट‑इन फॉर्मूला मूल्यांकनकर्ता तार्किक मान, संख्यात्मक लिटरल, स्ट्रिंग, स्प्रेडशीट त्रुटि मान, अंकगणितीय ऑपरेटर और तुलना ऑपरेटर को समर्थन देता है।
+
+### **स्थिरांक और लिटरेल्स**
+
+| प्रकार | उदाहरण | नोट |
+|---|---|---|
+| लॉजिकल | `TRUE`, `FALSE` | सीधे लॉजिकल अभिव्यक्तियों जैसे `A2=TRUE` में उपयोग किया जा सकता है। |
+| संख्यात्मक | `1`, `0.5`, `.3`, `1E-2` | सामान्य और वैज्ञानिक नोटेशन दोनों समर्थित हैं। |
+| स्ट्रिंग | `"abc"`, `"2/3/2020 12:00"` | स्ट्रिंग लिटरल्स को फॉर्मूले के भीतर दोहरे उद्धरण में रखा जाता है। |
+| त्रुटि परिणाम | `#DIV/0!`, `#N/A`, `#REF!` | वैध फॉर्मूला सामान्य परिणाम के बजाय स्प्रेडशीट त्रुटि मान भी दे सकता है। |
+
+यह उदाहरण कई स्थिरांक प्रकारों का उपयोग करता है:
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 500.0f, 300.0f);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+
+workbook->GetCell(0, u"A2")->set_Value(ObjectExt::Box<bool>(false));
+workbook->GetCell(0, u"B2")->set_Formula(u"A2=TRUE");
+workbook->GetCell(0, u"C2")->set_Formula(u"1+0.5");
+workbook->GetCell(0, u"D2")->set_Formula(u".3*1E-2");
+workbook->GetCell(0, u"E2")->set_Formula(u"\"abc\"");
+workbook->GetCell(0, u"F2")->set_Formula(u"2/0");
+
+workbook->CalculateFormulas();
+
+auto logicalValue = workbook->GetCell(0, u"B2")->get_Value(); // फ़ॉल्स
+auto numericValue = workbook->GetCell(0, u"C2")->get_Value(); // 1.5
+auto scientificValue = workbook->GetCell(0, u"D2")->get_Value(); // 0.003
+auto stringValue = workbook->GetCell(0, u"E2")->get_Value(); // abc
+auto errorValue = workbook->GetCell(0, u"F2")->get_Value(); // #DIV/0!
 ```
 
-## **लॉजिकल स्थिरांक**
-आप सेल फ़ॉर्मूलों में *FALSE* और *TRUE* जैसे लॉजिकल स्थिरांक उपयोग कर सकते हैं:
+### **अंकगणितीय ऑपरेटर**
 
-## **संख्यात्मक स्थिरांक**
-संख्याओं को सामान्य या वैज्ञानिक नोटेशन में उपयोग कर चार्ट स्प्रेडशीट फ़ॉर्मूला बनाया जा सकता है:
+| ऑपरेटर | अर्थ | उदाहरण |
+|---|---|---|
+| `+` | जोड़ या यूनरी प्लस | `2+3` |
+| `-` | घटाव या नेगेशन | `2-3`, `-3` |
+| `*` | गुणा | `2*3` |
+| `/` | भाग | `2/3` |
+| `%` | प्रतिशत | `30%` |
+| `^` | घातांक | `2^3` |
 
-## **स्ट्रिंग स्थिरांक**
-स्ट्रिंग (या लिटेरल) स्थिरांक वह विशिष्ट मान है जो जैसा है वैसा ही उपयोग होता है और नहीं बदलता। स्ट्रिंग स्थिरांक हो सकते हैं: तिथि, पाठ, संख्या आदि:
+मूल्यांकन क्रम स्पष्ट करने के लिए कोष्ठकों का प्रयोग करें, जैसे `(A2+B2)*C2`।
 
-## **त्रुटि स्थिरांक**
-कभी‑कभी फ़ॉर्मूले द्वारा परिणाम की गणना संभव नहीं रहती। उस स्थिति में, त्रुटि कोड सेल में उसके मान के स्थान पर दिखाया जाता है। प्रत्येक प्रकार की त्रुटि का एक विशिष्ट कोड होता है:
+### **तुलना ऑपरेटर**
 
-- #DIV/0! - फ़ॉर्मूला शून्य से विभाजन करने की कोशिश करता है।
-- #GETTING_DATA - सेल में दिख सकता है जबकि उसका मान अभी गणना हो रहा है।
-- #N/A - सूचना अनुपलब्ध या उपलब्ध नहीं है। कुछ कारण हो सकते हैं: फ़ॉर्मूले में उपयोग किए गए सेल खाली हों, अतिरिक्त स्पेस वर्ण, टाइपो आदि।
-- #NAME? - कोई निश्चित सेल या अन्य फ़ॉर्मूला ऑब्जेक्ट उसके नाम से नहीं मिला।
-- #NULL! - फ़ॉर्मूले में त्रुटि के कारण दिख सकता है, जैसे:  (,) या कोलन (:) के स्थान पर स्पेस।
-- #NUM! - फ़ॉर्मूले में संख्या अमान्य, बहुत बड़ी या बहुत छोटी हो सकती है।
-- #REF! - अमान्य सेल रेफ़रेंस।
-- #VALUE! - अप्रत्याशित मान प्रकार। उदाहरण के लिये, स्ट्रिंग मान को संख्यात्मक सेल में सेट करना।
+तुलना अभिव्यक्तियां लॉजिकल मान लौटाती हैं।
 
-## **अंकगणितीय ऑपरेटर**
-आप चार्ट वर्कशीट फ़ॉर्मूलों में सभी अंकगणितीय ऑपरेटर उपयोग कर सकते हैं:
+| ऑपरेटर | अर्थ | उदाहरण |
+|---|---|---|
+| `=` | बराबर | `A2=3` |
+| `<>` | बराबर नहीं | `A2<>3` |
+| `>` | बड़ा | `A2>3` |
+| `>=` | बड़ा या बराबर | `A2>=3` |
+| `<` | छोटा | `A2<3` |
+| `<=` | छोटा या बराबर | `A2<=3` |
 
-|**ऑपरेटर**|**अर्थ**|**उदाहरण**|
-| :- | :- | :- |
-|+ (प्लस चिह्न)|जोड़ या यूनरी प्लस|2 + 3|
-|- (माइनस चिह्न)|घटाव या नेगेशन|2 - 3<br>-3|
-|* (एस्टेरिस्क)|गुणा|2 * 3|
-|/ (फ़ॉरवर्ड स्लैश)|भाजन|2 / 3|
-|% (परसेंट चिह्न)|प्रतिशत|30%|
-|^ (केरेट)|घातांक|2 ^ 3|
+## **समर्थित पूर्वनिर्धारित फ़ंक्शन**
 
-*Note*: मूल्यांकन क्रम बदलने के लिए वह भाग को कोष्ठकों में रखें जिसे पहले गणना करनी है।
+Aspose.Slides में चार्ट वर्कशीट्स के लिए एक बिल्ट‑इन फॉर्मूला मूल्यांकनकर्ता शामिल है, लेकिन यह पूर्ण Excel गणना इंजन नहीं है। दस्तावेज़ीकृत फ़ंक्शन सेट नीचे दिए गए फ़ंक्शनों तक सीमित है। यह मानें नहीं कि कोई भी Excel फ़ंक्शन [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/hi/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) द्वारा पुनः गणना किया जा सकेगा।
 
-## **तुलना ऑपरेटर**
-आप तुलना ऑपरेटरों द्वारा सेल मानों की तुलना कर सकते हैं। जब दो मानों की इन ऑपरेटरों से तुलना की जाती है, तो परिणाम एक लॉजिकल मान होता है, *TRUE* या *FALSE*:
+| फ़ंक्शन | उद्देश्य या समर्थित रूप | उदाहरण |
+|---|---|---|
+| `ABS` | निरपेक्ष मान | `ABS(A2)` |
+| `AVERAGE` | अंकगणितीय माध्य | `AVERAGE(B2:B5)` |
+| `CEILING` | संख्या को ऊपर की ओर निकटतम गुणज तक गोल करना | `CEILING(A2,5)` |
+| `CHOOSE` | सूचकांक के आधार पर मान चुनना | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | टेक्स्ट मानों को जोड़ना | `CONCAT(A2,B2)` |
+| `CONCATENATE` | टेक्स्ट मानों को जोड़ना | `CONCATENATE(A2," ",B2)` |
+| `DATE` | 1900 तिथि प्रणाली का उपयोग करके तिथि बनाना | `DATE(2026,8,19)` |
+| `DAYS` | दो तिथियों के बीच दिनों की संख्या लौटाना | `DAYS(B2,A2)` |
+| `FIND` | एक टेक्स्ट मान को दूसरे में ढूँढना | `FIND("-",A2)` |
+| `FINDB` | बाइट‑ओरिएंटेड टेक्स्ट खोज | `FINDB("a",A2)` |
+| `IF` | शर्तीय परिणाम | `IF(A2>0,A2,0)` |
+| `INDEX` | रेफ़रेंस रूप | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | वेक्टर रूप | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | वेक्टर रूप | `MATCH(A2,B2:B5,0)` |
+| `MAX` | अधिकतम मान | `MAX(B2:B5)` |
+| `SUM` | मानों का योग | `SUM(B2:B5)` |
+| `VLOOKUP` | वर्गीय लुकअप | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-|**ऑपरेटर**|**अर्थ**|**उदाहरण**|
-| :- | :- | :- |
-|= (इक्वल साइन)|बराबर|A2 = 3|
-|<> (नॉट इक्वल साइन)|बराबर नहीं|A2 <> 3|
-|> (ग्रेटर दैन साइन)|से बड़ा|A2 > 3|
-|>= (ग्रेटर दैन या इक्वल साइन)|से बड़ा या बराबर|A2 >= 3|
-|< (लेस दैन साइन)|से छोटा|A2 < 3|
-|<= (लेस दैन या इक्वल साइन)|से छोटा या बराबर|A2 <= 3|
+तालिका में दिखाए गए प्रतिबंध महत्वपूर्ण हैं: `INDEX` को रेफ़रेंस रूप में दस्तावेज़ित किया गया है, जबकि `LOOKUP` और `MATCH` को उनके वेक्टर रूप में। `DATE` 1900 तिथि प्रणाली का उपयोग करता है। यहाँ सूचीबद्ध न होने वाले फ़ंक्शन Aspose.Slides के फॉर्मूला मूल्यांकनकर्ता द्वारा असमर्थित माने जाएंगे, जब तक कि वे अलग से दस्तावेज़ित न हों।
 
-## **A1‑स्टाइल सेल रेफ़रेंसेज़**
-**A1‑स्टाइल सेल रेफ़रेंसेज़** उन वर्कशीट्स के लिए उपयोग होते हैं, जहाँ कॉलम का पहचानकर्ता एक अक्षर (उदा. "*A*") होता है और पंक्ति का पहचानकर्ता एक संख्या (उदा. "*1*")। A1‑स्टाइल सेल रेफ़रेंसेज़ को निम्नलिखित प्रकार से उपयोग किया जा सकता है:
+## **पुनः गणना और कैश किए हुए मान**
 
-|**सेल रेफ़रेंस**|**उदाहरण**| | |
-| :- | :- | :- | :- |
-| |Absolute|Relative|Mixed|
-|Cell|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|Row|$2:$2|2:2|-|
-|Column|$A:$A|A:A|-|
-|Range|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
+स्प्रेडशीट फ़ाइलें सामान्यतः फॉर्मूला और उसके अंतिम गणना किए हुए मान दोनों को संग्रहीत करती हैं। Aspose.Slides इसलिए प्रस्तुति लोड होने पर और संबंधित चार्ट डेटा में परिवर्तन न किए गए हों तो [IChartDataCell::get_Value](https://reference.aspose.com/slides/hi/cpp/aspose.slides.charts/ichartdatacell/get_value/) से कैश किया हुआ मान पढ़ सकता है।
 
-यहां एक उदाहरण है कि कैसे A1‑स्टाइल सेल रेफ़रेंस को फ़ॉर्मूले में उपयोग किया जाता है:
+इनपुट कोशिकाओं या फॉर्मूलों को बदलने के बाद, पुराने कैश किए हुए परिणाम पर भरोसा न करें। गणना किए हुए मान पढ़ने या उन पर निर्भर चार्ट डेटा को सहेजने से पहले [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/hi/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) को कॉल करें।
 
-## **R1C1‑स्टाइल सेल रेफ़रेंसेज़**
-**R1C1‑स्टाइल सेल रेफ़रेंसेज़** उन वर्कशीट्स के लिए उपयोग होते हैं, जहाँ पंक्ति और कॉलम दोनों का पहचानकर्ता संख्यात्मक होता है। R1C1‑स्टाइल सेल रेफ़रेंसेज़ को निम्नलिखित प्रकार से उपयोग किया जा सकता है:
+समर्थित उपसमुच्चय के बाहर के फॉर्मूले के लिए, Aspose.Slides फॉर्मूला को पार्स नहीं कर पाता या उसकी निर्भरताओं को स्थापित नहीं कर पाता। यदि वर्कबुक संशोधित की गई है, तो पहले का कैश किया हुआ मान अब विश्वसनीय नहीं रहता। ऐसे स्थिति में, असमर्थित डेटा वाली कोशिका का मान पढ़ने से [CellUnsupportedDataException](https://reference.aspose.com/slides/hi/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/) उठ सकता है।
 
-|**सेल रेफ़रेंस**|**उदाहरण**| | |
-| :- | :- | :- | :- |
-| |Absolute|Relative|Mixed|
-|Cell|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Row|R2|R[2]|-|
-|Column|C3|C[3]|-|
-|Range|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
+यदि आपका चार्ट ऐसे Excel फ़ंक्शन पर निर्भर है जिन्हें Aspose.Slides मूल्यांकन नहीं करता, तो उन फ़ंक्शनों को किसी ऐसे स्प्रेडशीट इंजन से गणना करें जो उनका समर्थन करता हो और परिणाम वापस चार्ट वर्कबुक में लिखें। असमर्थित फॉर्मूलों को अनुमानित मानों से प्रतिस्थापित न करें।
 
-यहां एक उदाहरण है कि कैसे R1C1‑स्टाइल सेल रेफ़रेंस को फ़ॉर्मूले में उपयोग किया जाता है:
+## **फॉर्मूला त्रुटियों को संभालें**
 
-## **पूर्वनिर्धारित फ़ंक्शन**
-फ़ॉर्मूलों में उपयोग के लिए कुछ पूर्वनिर्धारित फ़ंक्शन मौजूद हैं जो उनके कार्यान्वयन को सरल बनाते हैं। ये फ़ंक्शन अक्सर उपयोग किए जाने वाले ऑपरेशनों को सम्मिलित करते हैं, जैसे:
+दो प्रकार की समस्याएँ अलग‑अलग पहचानने योग्य हैं।
 
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (1900 तिथि प्रणाली)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (रेफ़रेंस फॉर्म)
-- LOOKUP (वेक्टर फॉर्म)
-- MATCH (वेक्टर फॉर्म)
-- MAX
-- SUM
-- VLOOKUP
+एक फॉर्मूला वैध हो सकता है लेकिन स्प्रेडशीट त्रुटि परिणाम दे सकता है, जैसे `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!`, या `#VALUE!`। इस स्थिति में, त्रुटि टोकन एक कोशिका परिणाम है और इसे [IChartDataCell::get_Value](https://reference.aspose.com/slides/hi/cpp/aspose.slides.charts/ichartdatacell/get_value/) के माध्यम से लौटाया जा सकता है।
 
-## **FAQ**
+एक फॉर्मूला पार्सिंग, रेफ़रेंस, निर्भरता, या समर्थित‑डेटा स्तर पर भी विफल हो सकता है। Aspose.Slides इन मामलों के लिए स्प्रेडशीट‑विशिष्ट अपवाद प्रदान करता है: [CellInvalidFormulaException](https://reference.aspose.com/slides/hi/cpp/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/hi/cpp/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/hi/cpp/aspose.slides.spreadsheet/cellcircularreferenceexception/), और [CellUnsupportedDataException](https://reference.aspose.com/slides/hi/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/)।
 
-**क्या चार्ट के फ़ॉर्मूलों के साथ बाहरी Excel फ़ाइलों को डेटा स्रोत के रूप में समर्थित किया जाता है?**
+जब फॉर्मूले टेम्प्लेट या उपयोगकर्ता इनपुट से आते हैं, तो पुनः गणना और मान पहुँच के आसपास इन अपवादों को संभालें:
 
-हाँ। Aspose.Slides बाहरी वर्कबुक को [चार्ट के डेटा स्रोत](https://reference.aspose.com/slides/hi/cpp/aspose.slides.charts/chartdatasourcetype/) के रूप में समर्थन करता है, जिससे आप प्रस्तुतीकरण के बाहर एक XLSX से फ़ॉर्मूले उपयोग कर सकते हैं।
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Spreadsheet/CellCircularReferenceException.h>
+#include <Spreadsheet/CellInvalidFormulaException.h>
+#include <Spreadsheet/CellInvalidReferenceException.h>
+#include <Spreadsheet/CellUnsupportedDataException.h>
 
-**क्या चार्ट फ़ॉर्मूले समान वर्कबुक में शीट नाम द्वारा शीट्स को संदर्भित कर सकते हैं?**
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Spreadsheet;
+using namespace System;
 
-हाँ। फ़ॉर्मूले मानक Excel रेफ़रेंस मॉडल का पालन करते हैं, इसलिए आप समान वर्कबुक की अन्य शीट्स या बाहरी वर्कबुक को संदर्भित कर सकते हैं। बाहरी संदर्भों के लिए, Excel सिंटैक्स के अनुसार पथ और वर्कबुक नाम शामिल करें।
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 500.0f, 300.0f);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+auto cell = workbook->GetCell(0, u"A2");
+cell->set_Formula(u"SUM(B2:B5)");
+
+try
+{
+    workbook->CalculateFormulas();
+    auto value = cell->get_Value();
+}
+catch (CellInvalidFormulaException&)
+{
+    // अमान्य फ़ॉर्मूले को संभालें।
+}
+catch (CellInvalidReferenceException&)
+{
+    // अमान्य सेल रेफ़रेंस को संभालें।
+}
+catch (CellCircularReferenceException&)
+{
+    // परिचक्र रेफ़रेंस को संभालें।
+}
+catch (CellUnsupportedDataException&)
+{
+    // असमर्थित स्प्रेडशीट डेटा को संभालें।
+}
+```
+
+## **व्यावहारिक सीमाएँ**
+
+चार्ट वर्कशीट्स में फॉर्मूला समर्थन एक सीमित उपसमुच्चय के लिए डिज़ाइन किया गया है, न कि पूर्ण Excel संगतता के लिए। रिपोर्टिंग वर्कफ़्लो डिज़ाइन करते समय इन प्रतिबंधों को ध्यान में रखें:
+
+- Aspose.Slides को फॉर्मूला पुनः गणना करने के लिए केवल दस्तावेज़ित स्थिरांक, ऑपरेटर, रेफ़रेंस और फ़ंक्शन उपयोग करें।
+- उन कोशिकाओं को बदलने के बाद पुनः गणना करें जिन पर फॉर्मूला परिणाम निर्भर करते हैं।
+- लोड की गई प्रस्तुति से प्राप्त कैश किए हुए मान स्नैपशॉट हैं, संपादन के बाद पुनः गणना के विकल्प नहीं।
+- मौजूदा टेम्प्लेट से फॉर्मूले का परीक्षण करें, विशेषकर जब वे दस्तावेज़ित सूची से बाहर के फ़ंक्शन उपयोग करते हों।
+- पूर्ण स्प्रेडशीट गणना इंजन की आवश्यकता वाले फॉर्मूले को बाहरी रूप से गणना करें और फिर चार्ट वर्कबुक को अपडेट करें।
+
+## **अक्सर पूछे जाने वाले प्रश्न**
+
+**`set_Formula` और `set_R1C1Formula` में क्या अंतर है?**
+
+[IChartDataCell::set_Formula](https://reference.aspose.com/slides/hi/cpp/aspose.slides.charts/ichartdatacell/set_formula/) A1‑स्टाइल अभिव्यक्ति जैसे `B2-C2` को संग्रहित करता है। [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/hi/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) R1C1‑स्टाइल अभिव्यक्ति जैसे `RC[-2]-RC[-1]` को संग्रहित करता है। उस नोटेशन का उपयोग करें जो आपके फॉर्मूला उत्पन्न करने या कॉपी करने के तरीके से बेहतर मेल खाता हो।
+
+**गणना के बाद मुझे स्वयं कोशिका पढ़नी चाहिए या उसका मान?**
+
+[IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/hi/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) एक `IChartDataCell` लौटाता है। गणना के बाद, उस कोशिका के [IChartDataCell::get_Value](https://reference.aspose.com/slides/hi/cpp/aspose.slides.charts/ichartdatacell/get_value/) मान को पढ़ें।
+
+**`CalculateFormulas` कब कॉल करना चाहिए?**
+
+इनपुट मान या फॉर्मूले बदलने के बाद और गणना किए गए परिणामों पर निर्भर होने से पहले [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/hi/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) को कॉल करें। यह बिल्ट‑इन मूल्यांकनकर्ता द्वारा समर्थित फॉर्मूले के मान अपडेट करता है।
+
+**क्या Aspose.Slides हर Excel फ़ंक्शन का समर्थन करता है?**
+
+नहीं। बिल्ट‑इन मूल्यांकनकर्ता फ़ंक्शनों का एक दस्तावेज़ित उपसमुच्चय समर्थन करता है। इस उपसमुच्चय से बाहर के फ़ंक्शन को सही ढंग से पुनः गणना करने का अनुमान न लगाएँ। यदि पूर्ण Excel फ़ॉर्मूला संगतता चाहिए, तो उचित स्प्रेडशीट इंजन से गणना करें और अंतिम मान चार्ट वर्कबुक में लिखें।
+
+**यदि लोड की गई प्रस्तुति में एक असमर्थित फॉर्मूला हो तो क्या होगा?**
+
+यदि चार्ट डेटा नहीं बदला है, तो वर्कबुक में पहले से गणना किया गया कैश्ड मान रह सकता है। संबंधित डेटा बदलने के बाद वह कैश्ड मान मान्य नहीं रह सकता। असमर्थित फॉर्मूला वाली कोशिका तक पहुँचने से [CellUnsupportedDataException](https://reference.aspose.com/slides/hi/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/) उत्पन्न हो सकता है।
+
+**क्या फॉर्मूला त्रुटि मान C++ अपवादों के समान हैं?**
+
+नहीं। `#DIV/0!` जैसे परिणाम वैध गणना द्वारा निर्मित स्प्रेडशीट मान होते हैं। [CellInvalidFormulaException](https://reference.aspose.com/slides/hi/cpp/aspose.slides.spreadsheet/cellinvalidformulaexception/) या [CellCircularReferenceException](https://reference.aspose.com/slides/hi/cpp/aspose.slides.spreadsheet/cellcircularreferenceexception/) जैसे अपवाद दर्शाते हैं कि फॉर्मूला सामान्य रूप से प्रोसेस नहीं हो सका।
+
+**क्या फॉर्मूला कोशिका बदलने पर चार्ट स्वतः अपडेट होता है?**
+
+एक चार्ट सीरीज़ वर्कबुक कोशिकाओं को संदर्भित कर सकती है। पहले वर्कबुक को पुनः गणना करें, फिर प्रस्तुति को सहेजें या रेंडर करें। यदि चार्ट डेटा पॉइंट गणना की गई कोशिकाओं की ओर इशारा करता है, तो चार्ट उन अपडेटेड मानों का उपयोग करेगा; इस वर्कफ़्लो के लिए कोई अलग चार्ट‑रिफ्रेश मेथड आवश्यक नहीं है।
+
+**क्या चार्ट बाहरी Excel वर्कबुक का उपयोग कर सकते हैं?**
+
+हां, चार्ट डेटा को चार्ट डेटा API के माध्यम से बाहरी वर्कबुक के उपयोग के लिए कॉन्फ़िगर किया जा सकता है। हालांकि, इस लेख में वर्णित फॉर्मूला गणना वर्कफ़्लो केवल चार्ट डेटा वर्कबुक और Aspose.Slides द्वारा मूल्यांकित फॉर्मूला उपसमुच्चय से संबंधित है। यह मानें कि [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/hi/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) बाहरी XLSX फ़ाइल में मनमाने फॉर्मूलों की पूरी पुनः गणना प्रदान करता है।
+
+**क्या मैं ऐसे फॉर्मूले उपयोग कर सकता हूँ जो दूसरे वर्कशीट या वर्कबुक को संदर्भित करें?**
+
+Excel‑स्टाइल रेफ़रेंस चार्ट वर्कबुक में मौजूद हो सकते हैं, लेकिन फॉर्मूला मूल्यांकन समर्थित पार्सर और फ़ंक्शन सेट द्वारा सीमित है। यदि क्रॉस‑शीट या बाहरी रेफ़रेंस आवश्यक हो, तो अपने लक्ष्य Aspose.Slides संस्करण के साथ सटीक फॉर्मूले की पुष्टि करें। व्यापक Excel रेफ़रेंस संगतता की आवश्यकता वाले वर्कफ़्लो के लिए, वर्कबुक को बाहरी रूप से गणना करें और हल किए गए मानों को चार्ट डेटा में लिखें।
+
+**क्या फॉर्मूला स्ट्रिंग्स को `=` से शुरू करना चाहिए?**
+
+Aspose.Slides API उदाहरण `B2-C2` या `SUM(B2:B5)` जैसी अभिव्यक्तियों को बिना अग्रणी `=` के असाइन करते हैं। इस रूप का उपयोग करने से जनरेट किए गए फॉर्मूले API उदाहरणों के साथ सुसंगत रहते हैं।

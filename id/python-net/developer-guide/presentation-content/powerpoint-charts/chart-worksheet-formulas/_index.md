@@ -1,218 +1,371 @@
 ---
-title: Terapkan Formula Worksheet Diagram dalam Presentasi dengan Python
-linktitle: Formula Worksheet
+title: "Terapkan Rumus Lembar Kerja Diagram dalam Presentasi dengan Python"
+linktitle: "Rumus Lembar Kerja"
 type: docs
 weight: 70
 url: /id/python-net/chart-worksheet-formulas/
 keywords:
 - spreadsheet diagram
-- worksheet diagram
-- formula diagram
-- formula worksheet
-- formula spreadsheet
-- sumber data
+- lembar kerja diagram
+- rumus diagram
+- rumus lembar kerja
+- rumus spreadsheet
+- buku kerja data diagram
+- perhitungan rumus
 - konstanta logika
 - konstanta numerik
 - konstanta string
-- konstanta error
-- konstanta aritmetika
+- konstanta kesalahan
+- operator aritmetika
 - operator perbandingan
 - gaya A1
 - gaya R1C1
 - fungsi bawaan
 - PowerPoint
-- OpenDocument
 - presentasi
 - Python
 - Aspose.Slides
-description: "Terapkan formula bergaya Excel di Aspose.Slides untuk Python melalui worksheet diagram .NET dan otomatisasikan laporan di seluruh file PPT, PPTX, dan ODP."
+description: "Terapkan rumus bergaya Excel di lembar kerja diagram Aspose.Slides untuk Python via .NET, hitung ulang nilai, dan gunakan hasilnya dalam diagram PowerPoint."
 ---
 ## **Gambaran Umum**
 
-Sebuah worksheet diagram adalah sumber data di balik sebuah diagram dalam presentasi. Worksheet ini menyimpan nama kategori dan seri bersama dengan nilai numerik yang ditampilkan oleh diagram. Di Aspose.Slides, worksheet ini tersedia melalui chart data workbook, yang memungkinkan Anda bekerja dengan data diagram secara programatis.
+Diagram PowerPoint biasanya menyimpan data sumbernya di lembar kerja yang tersemat. Dalam Aspose.Slides untuk Python via .NET, Anda dapat mengakses lembar kerja tersebut melalui **buku kerja data diagram**, menulis nilai masukan, menetapkan rumus ke sel, menghitung rumus yang didukung, dan menggunakan sel yang telah dihitung sebagai data diagram.
 
-Artikel ini menjelaskan cara menggunakan formula worksheet dalam data diagram sehingga nilai sel dapat dihitung dan diperbarui secara otomatis alih-alih dimasukkan secara manual. Artikel ini menunjukkan cara menetapkan formula, menggunakan referensi gaya A1 dan R1C1, menghitung ulang formula workbook, dan bekerja dengan konstanta, operator, referensi sel, serta fungsi bawaan yang didukung untuk worksheet diagram dalam presentasi.
+Artikel ini menjelaskan alur kerja rumus secara lengkap: membuat diagram, mengisi lembar kerja, menetapkan rumus gaya A1 atau R1C1, menghitung ulang, membaca nilai yang dihitung, menghubungkan sel tersebut ke seri diagram, dan menyimpan presentasi. Artikel ini juga menggambarkan sintaks rumus yang didukung, subset fungsi bawaan, nilai yang di‑cache, rumus yang tidak didukung, dan kesalahan spesifik spreadsheet.
 
-## **Tentang Formula Spreadsheet Diagram dalam Presentasi**
-**Spreadsheet diagram** (atau chart worksheet) dalam presentasi adalah sumber data diagram. Spreadsheet diagram berisi data yang ditampilkan pada diagram secara grafis. Saat Anda membuat diagram di PowerPoint, worksheet yang terkait dengan diagram tersebut juga otomatis dibuat. Worksheet diagram dibuat untuk semua jenis diagram: diagram garis, diagram batang, diagram sunburst, diagram lingkaran, dll. Untuk melihat spreadsheet diagram di PowerPoint, cukup klik ganda pada diagram:
+## **Lembar Kerja Diagram dan Rumus**
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+Lembar kerja diagram berisi kategori, nama seri, dan nilai yang digunakan oleh diagram. Di PowerPoint, Anda dapat memeriksa lembar kerja dengan membuka editor data diagram:
 
+![Diagram PowerPoint dengan lembar kerja tersemat terbuka, menampilkan data kategori dan seri](chart-worksheet-formulas_1.png)
 
+Di Aspose.Slides, lembar kerja diekspos melalui [buku kerja data diagram](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/ichartdataworkbook/). Gunakan properti [formula](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/ichartdatacell/formula/) untuk rumus gaya A1 dan properti [r1c1_formula](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/) untuk rumus gaya R1C1. Setelah mengubah sel masukan atau rumus, panggil [calculate_formulas](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) untuk menghitung ulang rumus yang didukung dan memperbarui nilai sel yang bersesuaian.
 
-Spreadsheet diagram berisi nama elemen diagram (Category Name: *Category1*, Serie Name) dan tabel dengan data numerik yang sesuai dengan kategori dan seri tersebut. Secara default, ketika Anda membuat diagram baru – data spreadsheet diagram diatur dengan data default. Selanjutnya Anda dapat mengubah data spreadsheet di worksheet secara manual.
+Sebuah sel yang telah dihitung tetap mengekspos hasilnya melalui properti [value](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/ichartdatacell/value/). Ini penting saat Anda perlu memeriksa hasil rumus dalam kode atau menggunakan sel sebagai titik data diagram.
 
-Biasanya, diagram merepresentasikan data yang rumit (misalnya analis keuangan, analis ilmiah), dengan sel-sel yang dihitung dari nilai di sel lain atau dari data dinamis lainnya. Menghitung nilai sel secara manual dan mengkodekannya secara tetap ke dalam sel, membuatnya sulit untuk diubah di masa depan. Jika Anda mengubah nilai suatu sel, semua sel yang bergantung padanya juga harus diperbarui. Lebih lagi, data tabel dapat bergantung pada data dari tabel lain, menciptakan skema data presentasi yang kompleks dengan kebutuhan untuk diperbarui secara mudah dan fleksibel.
+## **Membuat Diagram dan Menghitung Rumus Lembar Kerja**
 
-**Formula spreadsheet diagram** dalam presentasi adalah sebuah ekspresi untuk secara otomatis menghitung dan memperbarui data spreadsheet diagram. Formula spreadsheet mendefinisikan logika perhitungan data untuk sel tertentu atau kumpulan sel. Formula spreadsheet merupakan formula matematika atau logika, yang menggunakan: referensi sel, fungsi matematika, operator logika, operator aritmetika, fungsi konversi, konstanta string, dll. Definisi formula dituliskan ke dalam sebuah sel, dan sel tersebut tidak berisi nilai sederhana. Formula spreadsheet menghitung nilai dan mengembalikannya, kemudian nilai tersebut diberikan ke sel. Formula spreadsheet diagram dalam presentasi sebenarnya sama dengan formula Excel, dan mendukung fungsi, operator, serta konstanta default yang sama untuk implementasinya.
+Contoh berikut memperlihatkan alur kerja menyeluruh. Ia membuat diagram kolom berkelompok, menghapus data contoh, menulis nilai pendapatan dan biaya kuartalan, menghitung laba dengan rumus, membaca hasilnya, menggunakan sel yang dihitung sebagai nilai diagram, dan menyimpan presentasi.
 
-Di [**Aspose.Slides**](https://products.aspose.com/slides/id/python-net/) spreadsheet diagram direpresentasikan dengan properti 
-[**Chart.ChartData.ChartDataWorkbook**](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/ichartdata/) dari tipe
-[**IChartDataWorkbook**](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/ichartdataworkbook/). 
-Formula spreadsheet dapat ditetapkan dan diubah dengan properti 
-[**formula**](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/ichartdatacell/). 
-Fungsionalitas berikut didukung untuk formula dalam Aspose.Slides:
-
-- Konstanta logika
-- Konstanta numerik
-- Konstanta string
-- Konstanta error
-- Operator aritmetika
-- Operator perbandingan
-- Referensi sel gaya A1
-- Referensi sel gaya R1C1
-- Fungsi bawaan
-
-Biasanya, spreadsheet menyimpan nilai formula yang terakhir dihitung. Jika setelah pemuatan presentasi, data diagram tidak diubah – properti **IChartDataCell.Value** mengembalikan nilai tersebut saat dibaca. Namun, jika data spreadsheet telah diubah, saat membaca properti **ChartDataCell.Value** akan melempar **CellUnsupportedDataException** untuk formula yang tidak didukung. Hal ini karena ketika formula berhasil diparsing, ketergantungan sel ditentukan dan kebenaran nilai terakhir ditetapkan. Tetapi, jika formula tidak dapat diparsing, kebenaran nilai sel tidak dapat dijamin.
-
-## **Menambahkan Formula Spreadsheet Diagram ke Presentasi**
-Pertama, tambahkan sebuah diagram dengan beberapa data contoh ke slide pertama dari presentasi baru menggunakan [add_chart](https://reference.aspose.com/slides/id/python-net/aspose.slides/ishapecollection/). 
-Worksheet diagram secara otomatis dibuat dan dapat diakses dengan properti 
-[**chart_data_workbook**](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/ichartdata/) :
-
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
-    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 150, 150, 500, 300)
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 350)
     workbook = chart.chart_data.chart_data_workbook
-    # ...
-```
+    worksheet_index = 0
 
-Mari tuliskan beberapa nilai ke sel dengan properti 
-[**value**](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/ichartdatacell/) 
-dari tipe **Object**, yang berarti Anda dapat menetapkan nilai apa pun ke properti tersebut:
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+    workbook.clear(worksheet_index)
 
-```py
-    workbook.get_cell(0, "F2").value = -2.5
-    workbook.get_cell(0, "G3").value = 6.3
-    workbook.get_cell(0, "H4").value = 3
-```
+    category1 = workbook.get_cell(worksheet_index, "A2", "Q1")
+    category2 = workbook.get_cell(worksheet_index, "A3", "Q2")
+    category3 = workbook.get_cell(worksheet_index, "A4", "Q3")
 
-Sekarang untuk menulis formula ke sel, Anda dapat menggunakan properti 
-[**formula**](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/ichartdatacell/) :
+    workbook.get_cell(worksheet_index, "B1", "Revenue")
+    workbook.get_cell(worksheet_index, "C1", "Expenses")
+    workbook.get_cell(worksheet_index, "D1", "Profit")
 
-```py
-    workbook.get_cell(0, "B2").formula = "F2+G3+H4+1"
-```
+    workbook.get_cell(worksheet_index, "B2").value = 120.0
+    workbook.get_cell(worksheet_index, "C2").value = 80.0
+    workbook.get_cell(worksheet_index, "B3").value = 150.0
+    workbook.get_cell(worksheet_index, "C3").value = 95.0
+    workbook.get_cell(worksheet_index, "B4").value = 135.0
+    workbook.get_cell(worksheet_index, "C4").value = 110.0
 
-*Catatan*: Properti [**IChartDataCell.Formula**](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/ichartdatacell/) digunakan untuk menetapkan referensi sel gaya A1.
+    profit1 = workbook.get_cell(worksheet_index, "D2")
+    profit2 = workbook.get_cell(worksheet_index, "D3")
+    profit3 = workbook.get_cell(worksheet_index, "D4")
 
-Untuk menetapkan referensi sel [r1c1_formula](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/ichartdatacell/), Anda dapat menggunakan properti [**r1c1_formula**](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/ichartdatacell/) :
+    profit1.formula = "B2-C2"
+    profit2.formula = "B3-C3"
+    profit3.formula = "B4-C4"
 
-```py
-    workbook.get_cell(0, "C2").r1c1_formula = "R[1]C[4]/R[2]C[5]"
-```
-
-Selanjutnya gunakan metode [**calculate_formulas**](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdataworkbook/) untuk menghitung semua formula dalam workbook dan memperbarui nilai sel yang bersesuaian:
-
-```py
     workbook.calculate_formulas()
-    print(workbook.get_cell(0, "B2").value) # 7.8
-    print(workbook.get_cell(0, "C2").value) # 2.1
+
+    q1_profit = profit1.value  # 40
+    q2_profit = profit2.value  # 55
+    q3_profit = profit3.value  # 25
+
+    print(f"Q1 profit: {q1_profit}")
+    print(f"Q2 profit: {q2_profit}")
+    print(f"Q3 profit: {q3_profit}")
+
+    chart.chart_data.categories.add(category1)
+    chart.chart_data.categories.add(category2)
+    chart.chart_data.categories.add(category3)
+
+    profit_series = chart.chart_data.series.add(workbook.get_cell(worksheet_index, "D1"), chart.type)
+    profit_series.data_points.add_data_point_for_bar_series(profit1)
+    profit_series.data_points.add_data_point_for_bar_series(profit2)
+    profit_series.data_points.add_data_point_for_bar_series(profit3)
+    profit_series.labels.default_data_label_format.show_value = True
+
+    presentation.save("chart-formulas.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Konstanta Logika**
-Anda dapat menggunakan konstanta logika seperti *FALSE* dan *TRUE* dalam formula sel:
+Titik data diagram merujuk ke `D2:D4`, sehingga diagram menggunakan nilai laba yang dihitung. Tidak ada pemanggilan penyegaran diagram terpisah dalam alur kerja ini: hitung ulang buku kerja terlebih dahulu, kemudian gunakan atau simpan data diagram yang menunjuk ke sel yang telah dihitung.
 
-## **Konstanta Numerik**
-Angka dapat digunakan dalam notasi umum atau ilmiah untuk membuat formula spreadsheet diagram:
+## **Menggunakan Rumus Gaya A1**
 
-## **Konstanta String**
-Konstanta string (atau literal) adalah nilai spesifik yang digunakan apa adanya dan tidak berubah. Konstanta string dapat berupa: tanggal, teks, angka, dll.:
+Notasi A1 mengidentifikasi kolom dengan huruf dan baris dengan angka. Tetapkan ekspresi gaya A1 melalui [IChartDataCell.formula](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/ichartdatacell/formula/).
 
-## **Konstanta Error**
-Terkadang tidak memungkinkan menghitung hasil dengan formula. Dalam kasus tersebut, kode error ditampilkan di sel alih-alih nilainya. Setiap tipe error memiliki kode spesifik:
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
 
-- #DIV/0! - formula mencoba membagi dengan nol.
-- #GETTING_DATA - dapat ditampilkan pada sel, sementara nilainya masih dalam proses perhitungan.
-- #N/A - informasi tidak tersedia atau hilang. Beberapa penyebabnya dapat berupa: sel yang digunakan dalam formula kosong, ada karakter spasi ekstra, salah ketik, dll.
-- #NAME? - sel tertentu atau objek formula lain tidak dapat ditemukan berdasarkan namanya.
-- #NULL! - dapat muncul ketika ada kesalahan dalam formula, seperti:  (,) atau karakter spasi digunakan alih-alih titik dua (:).
-- #NUM! - nilai numerik dalam formula mungkin tidak valid, terlalu panjang atau terlalu kecil, dll.
-- #REF! - referensi sel tidak valid.
-- #VALUE! - tipe nilai tidak diharapkan. Misalnya, nilai string ditempatkan pada sel numerik.
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
 
-## **Operator Aritmetika**
-Anda dapat menggunakan semua operator aritmetika dalam formula worksheet diagram:
+    workbook.get_cell(0, "C3").value = 10
+    workbook.get_cell(0, "F2").value = 2
+    workbook.get_cell(0, "G2").value = 3
+    workbook.get_cell(0, "H2").value = 4
 
-|**Operator**|**Arti**|**Contoh**|
-| :- | :- | :- |
-|+ (tanda plus)|Penjumlahan atau plus unary|2 + 3|
-|- (tanda minus)|Pengurangan atau negasi|2 - 3<br>-3|
-|* (asterisk)|Perkalian|2 * 3|
-|/ (garis miring)|Pembagian|2 / 3|
-|% (tanda persen)|Persen|30%|
-|^ (caret)|Eksponensial|2 ^ 3|
+    cell = workbook.get_cell(0, "A2")
+    cell.formula = "C3+SUM(F2:H2)"
 
-*Catatan*: Untuk mengubah urutan evaluasi, letakkan bagian formula yang ingin dihitung pertama dalam tanda kurung.
+    workbook.calculate_formulas()
 
-## **Operator Perbandingan**
-Anda dapat membandingkan nilai-nilai sel dengan operator perbandingan. Ketika dua nilai dibandingkan menggunakan operator ini, hasilnya adalah nilai logika *TRUE* atau FALSE:
+    value = cell.value  # 19
+```
 
-|**Operator**|**Arti**|**Contoh**|
-| :- | :- | :- |
-|= (tanda sama dengan)|Sama dengan|A2 = 3|
-|<> (tanda tidak sama)|Tidak sama dengan|A2 <> 3|
-|> (tanda lebih besar)|Lebih besar dari|A2 > 3|
-|>= (tanda lebih besar atau sama dengan)|Lebih besar atau sama dengan|A2 >= 3|
-|< (tanda lebih kecil)|Lebih kecil dari|A2 < 3|
-|<= (tanda lebih kecil atau sama dengan)|Lebih kecil atau sama dengan|A2 <= 3|
+Bentuk referensi A1 yang umum adalah:
 
-## **Referensi Sel Gaya A1**
-**Referensi sel gaya A1** digunakan untuk worksheet, di mana kolom memiliki identifier huruf (misalnya "*A*") dan baris memiliki identifier numerik (misalnya "*1*"). Referensi sel gaya A1 dapat digunakan dengan cara berikut:
+| Referensi | Relatif | Absolut | Campuran |
+|---|---|---|---|
+| Sel | `A2` | `$A$2` | `A$2`, `$A2` |
+| Baris | `2:2` | `$2:$2` | — |
+| Kolom | `A:A` | `$A:$A` | — |
+| Rentang | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-|**Referensi Sel**|**Contoh**|||
-| :- | :- | :- | :- |
-||Absolut|Relatif|Campuran|
-|Cell|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|Row|$2:$2|2:2|-|
-|Column|$A:$A|A:A|-|
-|Range|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
+Referensi relatif dapat berubah ketika rumus dipindahkan atau disalin oleh aplikasi spreadsheet. Referensi absolut menjaga kedua koordinat tetap, sementara referensi campuran memperbaiki hanya baris atau kolom saja.
 
-Berikut contoh cara menggunakan referensi sel gaya A1 dalam formula:
+## **Menggunakan Rumus Gaya R1C1**
 
-## **Referensi Sel Gaya R1C1**
-**Referensi sel gaya R1C1** digunakan untuk worksheet, di mana baik baris maupun kolom memiliki identifier numerik. Referensi sel gaya R1C1 dapat digunakan dengan cara berikut:
+Notasi R1C1 mengidentifikasi baris dan kolom secara numerik. Referensi relatif menggunakan offset dalam tanda kurung siku. Tetapkan sintaks ini melalui [IChartDataCell.r1c1_formula](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/).
 
-|**Referensi Sel**|**Contoh**|||
-| :- | :- | :- | :- |
-||Absolut|Relatif|Campuran|
-|Cell|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Row|R2|R[2]|-|
-|Column|C3|C[3]|-|
-|Range|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
 
-Berikut contoh cara menggunakan referensi sel gaya R1C1 dalam formula:
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
 
-## **Fungsi Bawaan**
-Ada fungsi bawaan yang dapat digunakan dalam formula untuk menyederhanakan implementasinya. Fungsi-fungsi ini mencakup operasi yang paling sering digunakan, seperti:
+    workbook.get_cell(0, "B2").value = 12
+    workbook.get_cell(0, "C2").value = 5
 
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (1900 date system)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (reference form)
-- LOOKUP (vector form)
-- MATCH (vector form)
-- MAX
-- SUM
-- VLOOKUP
+    cell = workbook.get_cell(0, "D2")
+    cell.r1c1_formula = "RC[-2]-RC[-1]"
+
+    workbook.calculate_formulas()
+
+    value = cell.value  # 7
+```
+
+Bentuk referensi R1C1 yang umum adalah:
+
+| Referensi | Relatif | Absolut | Campuran |
+|---|---|---|---|
+| Sel | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| Baris | `R[2]` | `R2` | — |
+| Kolom | `C[3]` | `C3` | — |
+| Rentang | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+
+Sebagai contoh, di sel `D2`, `RC[-2]` berarti sel pada baris yang sama dua kolom ke kiri (`B2`).
+
+## **Konstanta dan Operator Rumus**
+
+Evaluator rumus bawaan mendukung nilai logika, literal numerik, string, nilai kesalahan spreadsheet, operator aritmetika, dan operator perbandingan.
+
+### **Konstanta dan Literal**
+
+| Tipe | Contoh | Catatan |
+|---|---|---|
+| Logika | `TRUE`, `FALSE` | Dapat digunakan langsung dalam ekspresi logika seperti `A2=TRUE`. |
+| Numerik | `1`, `0.5`, `.3`, `1E-2` | Notasi umum dan ilmiah didukung. |
+| String | `"abc"`, `"2/3/2020 12:00"` | Literal teks ditempatkan dalam tanda kutip ganda di dalam rumus. |
+| Hasil kesalahan | `#DIV/0!`, `#N/A`, `#REF!` | Rumus yang valid dapat menghasilkan nilai kesalahan spreadsheet alih‑alih hasil normal. |
+
+Contoh ini menggunakan beberapa tipe konstanta:
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
+
+    workbook.get_cell(0, "A2").value = False
+    workbook.get_cell(0, "B2").formula = "A2=TRUE"
+    workbook.get_cell(0, "C2").formula = "1+0.5"
+    workbook.get_cell(0, "D2").formula = ".3*1E-2"
+    workbook.get_cell(0, "E2").formula = "\"abc\""
+    workbook.get_cell(0, "F2").formula = "2/0"
+
+    workbook.calculate_formulas()
+
+    logical_value = workbook.get_cell(0, "B2").value  # Salah
+    numeric_value = workbook.get_cell(0, "C2").value  # 1.5
+    scientific_value = workbook.get_cell(0, "D2").value  # 0.003
+    string_value = workbook.get_cell(0, "E2").value  # abc
+    error_value = workbook.get_cell(0, "F2").value  # #DIV/0!
+```
+
+### **Operator Aritmetika**
+
+| Operator | Arti | Contoh |
+|---|---|---|
+| `+` | Penjumlahan atau plus unari | `2+3` |
+| `-` | Pengurangan atau negasi | `2-3`, `-3` |
+| `*` | Perkalian | `2*3` |
+| `/` | Pembagian | `2/3` |
+| `%` | Persen | `30%` |
+| `^` | Pangkat | `2^3` |
+
+Gunakan tanda kurung untuk membuat urutan evaluasi eksplisit, misalnya `(A2+B2)*C2`.
+
+### **Operator Perbandingan**
+
+Ekspresi perbandingan mengembalikan nilai logika.
+
+| Operator | Arti | Contoh |
+|---|---|---|
+| `=` | Sama dengan | `A2=3` |
+| `<>` | Tidak sama dengan | `A2<>3` |
+| `>` | Lebih besar dari | `A2>3` |
+| `>=` | Lebih besar atau sama dengan | `A2>=3` |
+| `<` | Lebih kecil dari | `A2<3` |
+| `<=` | Lebih kecil atau sama dengan | `A2<=3` |
+
+## **Fungsi Bawaan yang Didukung**
+
+Aspose.Slides menyertakan evaluator rumus bawaan untuk lembar kerja diagram, tetapi bukan mesin kalkulasi Excel yang lengkap. Set fungsi yang terdokumentasi terbatas pada fungsi di bawah ini. Jangan mengasumsikan bahwa fungsi Excel arbitrer dapat dihitung ulang oleh [calculate_formulas](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/).
+
+| Fungsi | Tujuan atau bentuk yang didukung | Contoh |
+|---|---|---|
+| `ABS` | Nilai absolut | `ABS(A2)` |
+| `AVERAGE` | Rata‑rata aritmetika | `AVERAGE(B2:B5)` |
+| `CEILING` | Membulatkan angka ke atas ke kelipatan | `CEILING(A2,5)` |
+| `CHOOSE` | Memilih nilai berdasarkan indeks | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | Menggabungkan nilai teks | `CONCAT(A2,B2)` |
+| `CONCATENATE` | Menggabungkan nilai teks | `CONCATENATE(A2," ",B2)` |
+| `DATE` | Membuat nilai tanggal menggunakan sistem tanggal 1900 | `DATE(2026,8,19)` |
+| `DAYS` | Mengembalikan jumlah hari antar tanggal | `DAYS(B2,A2)` |
+| `FIND` | Menemukan satu nilai teks di dalam yang lain | `FIND("-",A2)` |
+| `FINDB` | Pencarian teks berbasis byte | `FINDB("a",A2)` |
+| `IF` | Hasil bersyarat | `IF(A2>0,A2,0)` |
+| `INDEX` | Bentuk referensi | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | Bentuk vektor | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | Bentuk vektor | `MATCH(A2,B2:B5,0)` |
+| `MAX` | Nilai maksimum | `MAX(B2:B5)` |
+| `SUM` | Menjumlahkan nilai | `SUM(B2:B5)` |
+| `VLOOKUP` | Pencarian vertikal | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+
+Pembatasan dalam tabel tersebut signifikan: `INDEX` didokumentasikan dalam bentuk referensi, sementara `LOOKUP` dan `MATCH` didokumentasikan dalam bentuk vektornya. `DATE` menggunakan sistem tanggal 1900. Fitur dan fungsi yang tidak tercantum di sini harus dianggap tidak didukung oleh evaluator rumus Aspose.Slides kecuali mereka didokumentasikan secara terpisah.
+
+## **Perhitungan Ulang dan Nilai yang Di‑Cache**
+
+File spreadsheet biasanya menyimpan baik rumus maupun nilai terakhir yang dihitung. Aspose.Slides dapat membaca nilai yang di‑cache dari [IChartDataCell.value](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/ichartdatacell/value/) ketika presentasi dimuat dan data diagram terkait belum diubah.
+
+Setelah mengubah sel masukan atau rumus, jangan mengandalkan hasil cache lama. Panggil [ChartDataWorkbook.calculate_formulas](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) sebelum membaca nilai yang dihitung atau menyimpan data diagram yang bergantung padanya.
+
+Untuk rumus di luar subset yang didukung, Aspose.Slides mungkin tidak dapat mengurai rumus atau menentukan dependensinya. Jika buku kerja telah dimodifikasi, nilai cache sebelumnya tidak lagi dapat diandalkan. Dalam situasi tersebut, membaca nilai sel dengan data yang tidak didukung dapat memicu [CellUnsupportedDataException](https://reference.aspose.com/slides/id/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+
+Jika diagram Anda bergantung pada fungsi Excel yang tidak dievaluasi oleh Aspose.Slides, hitung rumus tersebut dengan mesin spreadsheet yang mendukungnya dan tulis kembali nilai hasil ke buku kerja diagram. Jangan mengganti rumus yang tidak didukung dengan nilai tebak‑tebakan.
+
+## **Menangani Kesalahan Rumus**
+
+Ada dua jenis masalah yang perlu dibedakan.
+
+Sebuah rumus dapat valid tetapi menghasilkan nilai kesalahan spreadsheet seperti `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!`, atau `#VALUE!`. Dalam kasus ini, token kesalahan adalah hasil sel dan dapat dikembalikan melalui `value`.
+
+Sebuah rumus juga dapat gagal pada level parsing, referensi, dependensi, atau data yang didukung. Aspose.Slides menyediakan pengecualian spesifik spreadsheet untuk kasus ini: [CellInvalidFormulaException](https://reference.aspose.com/slides/id/python-net/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/id/python-net/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/id/python-net/aspose.slides.spreadsheet/cellcircularreferenceexception/), dan [CellUnsupportedDataException](https://reference.aspose.com/slides/id/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+
+Ketika rumus berasal dari templat atau masukan pengguna, tangani pengecualian ini di sekitar perhitungan ulang dan akses nilai:
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+import aspose.slides.spreadsheet as spreadsheet
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
+    cell = workbook.get_cell(0, "A2")
+    cell.formula = "SUM(B2:B5)"
+
+    try:
+        workbook.calculate_formulas()
+        print(cell.value)
+    except spreadsheet.CellInvalidFormulaException as ex:
+        print(f"Invalid formula: {ex}")
+    except spreadsheet.CellInvalidReferenceException as ex:
+        print(f"Invalid cell reference: {ex}")
+    except spreadsheet.CellCircularReferenceException as ex:
+        print(f"Circular reference: {ex}")
+    except spreadsheet.CellUnsupportedDataException as ex:
+        print(f"Unsupported spreadsheet data: {ex}")
+```
+
+## **Batasan Praktis**
+
+Dukungan rumus dalam lembar kerja diagram ditujukan untuk subset perhitungan spreadsheet yang terdefinisi, bukan kompatibilitas Excel penuh. Ingat batasan ini saat merancang alur kerja pelaporan:
+
+- Gunakan hanya konstanta, operator, referensi, dan fungsi yang terdokumentasi ketika Anda memerlukan Aspose.Slides untuk menghitung ulang rumus.
+- Hitung ulang setelah mengubah sel yang memengaruhi hasil rumus.
+- Anggap nilai yang di‑cache dari presentasi yang dimuat sebagai snapshot, bukan pengganti perhitungan ulang setelah penyuntingan.
+- Uji rumus dari templat yang ada sebelum mengandalkan nilai yang dihitung, terutama bila mereka menggunakan fungsi di luar daftar yang terdokumentasi.
+- Untuk rumus yang memerlukan mesin perhitungan spreadsheet lengkap, hitunglah secara eksternal lalu perbarui buku kerja diagram dengan nilai hasil.
 
 ## **FAQ**
 
-**Apakah file Excel eksternal didukung sebagai sumber data untuk diagram dengan formula?**
+**Apa perbedaan antara `formula` dan `r1c1_formula`?**
 
-Ya. Aspose.Slides mendukung workbook eksternal sebagai [sumber data diagram](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdatasourcetype/), yang memungkinkan Anda menggunakan formula dari file XLSX di luar presentasi.
+[formula](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/ichartdatacell/formula/) menyimpan ekspresi gaya A1 seperti `B2-C2`. [r1c1_formula](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/) menyimpan ekspresi gaya R1C1 seperti `RC[-2]-RC[-1]`. Gunakan notasi yang paling sesuai dengan cara Anda menghasilkan atau menyalin rumus.
 
-**Apakah formula diagram dapat merujuk ke sheet dalam workbook yang sama dengan nama sheet?**
+**Apakah saya perlu membaca sel itu sendiri atau nilai setelah perhitungan?**
 
-Ya. Formula mengikuti model referensi Excel standar, sehingga Anda dapat merujuk ke sheet lain dalam workbook yang sama atau workbook eksternal. Untuk referensi eksternal, sertakan jalur dan nama workbook menggunakan sintaks Excel.
+[ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) mengembalikan sebuah `IChartDataCell`. Untuk memperoleh hasil yang dihitung, baca properti [value](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/ichartdatacell/value/) sel tersebut setelah perhitungan ulang.
+
+**Kapan saya harus memanggil `calculate_formulas`?**
+
+Panggil [calculate_formulas](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) setelah mengubah nilai masukan atau rumus dan sebelum Anda bergantung pada hasil yang dihitung. Ini memperbarui nilai rumus yang didukung oleh evaluator bawaan.
+
+**Apakah Aspose.Slides mendukung setiap fungsi Excel?**
+
+Tidak. Evaluator bawaan mendukung subset fungsi yang terdokumentasi. Fungsi di luar subset tersebut tidak boleh dianggap dapat dihitung ulang dengan benar. Jika kompatibilitas rumus Excel penuh diperlukan, lakukan perhitungan dengan mesin spreadsheet yang sesuai dan tulis nilai akhir ke buku kerja diagram.
+
+**Apa yang terjadi jika presentasi yang dimuat berisi rumus yang tidak didukung?**
+
+Jika data diagram tidak berubah, buku kerja mungkin masih berisi nilai cache yang dihitung sebelumnya. Setelah data terkait diubah, nilai cache tersebut mungkin tidak lagi valid. Mengakses sel yang rumusnya tidak dapat ditangani dapat memicu [CellUnsupportedDataException](https://reference.aspose.com/slides/id/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+
+**Apakah nilai kesalahan rumus sama dengan pengecualian Python?**
+
+Tidak. Nilai seperti `#DIV/0!` adalah nilai spreadsheet yang dihasilkan oleh perhitungan yang valid. Pengecualian seperti [CellInvalidFormulaException](https://reference.aspose.com/slides/id/python-net/aspose.slides.spreadsheet/cellinvalidformulaexception/) atau [CellCircularReferenceException](https://reference.aspose.com/slides/id/python-net/aspose.slides.spreadsheet/cellcircularreferenceexception/) menunjukkan bahwa rumus tidak dapat diproses secara normal.
+
+**Apakah diagram memperbarui otomatis ketika sel rumus berubah?**
+
+Seri diagram dapat merujuk ke sel buku kerja. Hitung ulang buku kerja terlebih dahulu, lalu simpan atau render presentasi. Jika titik data diagram merujuk ke sel yang dihitung, diagram akan menggunakan nilai sel yang telah diperbarui; tidak diperlukan metode penyegaran diagram terpisah untuk alur kerja ini.
+
+**Dapatkah diagram menggunakan buku kerja Excel eksternal?**
+
+Ya, data diagram dapat dikonfigurasi untuk menggunakan buku kerja eksternal melalui API data diagram. Namun, alur kerja perhitungan rumus yang dijelaskan dalam artikel ini berkaitan dengan buku kerja data diagram dan subset rumus yang dievaluasi oleh Aspose.Slides. Jangan mengasumsikan bahwa [calculate_formulas](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) menyediakan perhitungan lengkap untuk rumus arbitrer dalam file XLSX eksternal.
+
+**Bisakah saya menggunakan rumus yang merujuk ke lembar kerja atau buku kerja lain?**
+
+Referensi gaya Excel dapat muncul dalam buku kerja diagram, tetapi evaluasi rumus terbatas pada parser dan set fungsi yang didukung. Jika referensi silang lembar atau eksternal penting, validasi rumus tersebut dengan versi Aspose.Slides yang Anda gunakan. Untuk alur kerja yang memerlukan kompatibilitas referensi Excel yang luas, hitung buku kerja secara eksternal dan tulis kembali nilai yang terurai ke data diagram.
+
+**Apakah string rumus harus diawali dengan `=`?**
+
+Contoh API Aspose.Slides menetapkan ekspresi seperti `B2-C2` atau `SUM(B2:B5)` tanpa `=` di depannya. Menggunakan bentuk itu menjaga konsistensi rumus yang dihasilkan dengan contoh API yang terdokumentasi.

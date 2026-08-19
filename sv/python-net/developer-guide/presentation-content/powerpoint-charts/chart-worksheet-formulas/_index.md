@@ -1,208 +1,371 @@
 ---
-title: Tillämpa diagrambladformler i presentationer med Python
-linktitle: Bladformler
+title: Använd diagramkalkylbladsformler i presentationer med Python
+linktitle: Kalkylbladsformler
 type: docs
 weight: 70
 url: /sv/python-net/chart-worksheet-formulas/
 keywords:
 - diagramkalkylblad
-- diagramblad
+- diagramarbetsblad
 - diagramformel
-- bladformel
 - kalkylbladsformel
-- datakälla
+- kalkylbladsformel
+- diagramdataarbetsbok
+- formelberäkning
 - logisk konstant
 - numerisk konstant
 - strängkonstant
 - felkonstant
-- aritmetisk konstant
+- aritmetisk operator
 - jämförelseoperator
 - A1-stil
 - R1C1-stil
 - fördefinierad funktion
 - PowerPoint
-- OpenDocument
 - presentation
 - Python
 - Aspose.Slides
-description: "Använd Excel-liknande formler i Aspose.Slides för Python via .NET diagramblad och automatisera rapporter i PPT-, PPTX- och ODP-filer."
+description: "Använd Excel-liknande formler i Aspose.Slides för Python via .NET-diagramkalkylblad, beräkna om värden och använd resultaten i PowerPoint-diagram."
 ---
 ## **Översikt**
 
-Ett diagramblad är datakällan bakom ett diagram i en presentation. Det lagrar kategori- och serienamn tillsammans med de numeriska värden som visas i diagrammet. I Aspose.Slides är detta blad tillgängligt via diagramdataboken, vilket gör att du kan arbeta med diagramdata programatiskt.
+PowerPoint‑diagram lagrar vanligtvis sina källdata i ett inbäddat kalkylblad. I Aspose.Slides for Python via .NET kan du komma åt det kalkylbladet via diagramdata‑arbetsboken, skriva in värden, tilldela formler till celler, beräkna stödda formler och använda de beräknade cellerna som diagramdata.
 
-Den här artikeln förklarar hur du använder bladformler i diagramdata så att cellvärden kan beräknas och uppdateras automatiskt i stället för att anges manuellt. Den visar hur man tilldelar formler, använder både A1‑stil‑ och R1C1‑stil‑referenser, omberäknar arbetsboksformler samt arbetar med de stödjade konstanterna, operatorerna, cellreferenserna och fördefinierade funktionerna som finns tillgängliga för diagramblad i presentationer.
+Denna artikel förklarar hela formelarbetsflödet: skapa ett diagram, fyll i dess kalkylblad, tilldela A1‑ eller R1C1‑formler, beräkna om dem, läs de beräknade värdena, anslut dessa celler till en diagramserie och spara presentationen. Den beskriver också stödd formelsyntax, den inbyggda funktionsuppsättningen, cachade värden, osupporterade formler och kalkylblads‑specifika fel.
 
-## **Om diagramkalkylbladsformel i en presentation**
-**Diagramkalkylblad** (eller diagramblad) i en presentation är diagrammets datakälla. Diagramkalkylbladet innehåller data som visas i diagrammet på ett grafiskt sätt. När du skapar ett diagram i PowerPoint skapas bladet som är kopplat till diagrammet automatiskt också. Diagramblad skapas för alla diagramtyper: linjediagram, stapeldiagram, solutspridd diagram, cirkeldiagram osv. För att se diagramkalkylbladet i PowerPoint ska du dubbelklicka på diagrammet:
+## **Diagram‑kalkylblad och formler**
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+Ett diagram‑kalkylblad innehåller de kategorier, serienamn och värden som används av ett diagram. I PowerPoint kan du inspektera kalkylbladet genom att öppna diagramdata‑redigeraren:
 
+![PowerPoint‑diagram med sitt inbäddade kalkylblad öppet, visar kategori‑ och seriedata](chart-worksheet-formulas_1.png)
 
+I Aspose.Slides exponeras kalkylbladet via [chart data workbook](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/ichartdataworkbook/). Använd egenskapen [formula](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/ichartdatacell/formula/) för A1‑formler och egenskapen [r1c1_formula](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/) för R1C1‑formler. Efter att du ändrat inmatningsceller eller formler, anropa [calculate_formulas](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) för att beräkna om stödda formler och uppdatera motsvarande cellvärden.
 
-Diagramkalkylbladet innehåller namnen på diagrammets element (Kategorinamn: *Category1*, Serienamn) och en tabell med numeriska data som motsvarar dessa kategorier och serier. Som standard, när du skapar ett nytt diagram – sätts diagramkalkylbladsdata till standarddata. Därefter kan du ändra kalkylbladsdata i bladet manuellt.
+En beräknad cell exponerar fortfarande sitt resultat via egenskapen [value](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/ichartdatacell/value/). Detta är viktigt när du behöver inspektera ett formelresultat i kod eller använda cellen som ett diagramdatapunkt.
 
-Vanligtvis representerar diagrammet komplicerade data (t.ex. finansiella analytiker, vetenskapliga analytiker) med celler som beräknas från värden i andra celler eller från annan dynamisk data. Att beräkna en cells värde manuellt och hårdkoda det i cellen gör det svårt att ändra i framtiden. Om du ändrar värdet i en viss cell, måste alla celler som är beroende av den också uppdateras. Dessutom kan tabelldata bero på data från andra tabeller, vilket skapar ett komplext presentationsdataskema som behöver uppdateras på ett enkelt och flexibelt sätt.
+## **Skapa ett diagram och beräkna kalkylblads‑formler**
 
-**Diagramkalkylbladsformel** i en presentation är ett uttryck som automatiskt beräknar och uppdaterar diagramkalkylbladsdata. Kalkylbladsformeln definierar databeräkningslogiken för en viss cell eller en uppsättning celler. En kalkylbladsformel är en matematikformel eller en logisk formel som använder: cellreferenser, matematiska funktioner, logiska operatorer, aritmetiska operatorer, konverteringsfunktioner, strängkonstanter osv. Formelförklaringen skrivs in i en cell, och den cellen innehåller inte ett enkelt värde. Kalkylbladsformeln beräknar värdet och returnerar det, varpå detta värde tilldelas cellen. Diagramkalkylbladsformler i presentationer är i själva verket samma som Excel‑formler, och de stöder samma standardfunktioner, operatorer och konstanter för sin implementering.
+Följande exempel visar ett end‑to‑end‑arbetsflöde. Det skapar ett staplat kolumndiagram, rensar exempeldata, skriver kvartalsvisa intäkts‑ och kostnadsvärden, beräknar vinst med formler, läser resultaten, använder de beräknade cellerna som diagramvärden och sparar presentationen.
 
-I [**Aspose.Slides**](https://products.aspose.com/slides/sv/python-net/) representeras diagramkalkylbladet med egenskapen [**Chart.ChartData.ChartDataWorkbook**](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/ichartdata/) av typen [**IChartDataWorkbook**](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/ichartdataworkbook/). Kalkylbladsformeln kan tilldelas och ändras med egenskapen [**formula**](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/ichartdatacell/). Följande funktionalitet stöds för formler i Aspose.Slides:
-
-- Logiska konstanter
-- Numeriska konstanter
-- Strängkonstanter
-- Felkonstanter
-- Aritmetiska operatorer
-- Jämförelseoperatorer
-- A1‑stil‑cellreferenser
-- R1C1‑stil‑cellreferenser
-- Fördefinierade funktioner
-
-Vanligtvis lagrar kalkylblad de senast beräknade formelvärdena. Om diagramdata inte har ändrats efter att presentationen laddats – returnerar egenskapen **IChartDataCell.Value** dessa värden vid läsning. Men om kalkylbladsdata har ändrats, så kastar egenskapen **ChartDataCell.Value** ett **CellUnsupportedDataException** för de icke‑stödda formlerna. Detta beror på att när formler har parsats korrekt bestäms cellberoenden och korrektheten för de senaste värdena. Men om formeln inte kan parsas kan korrektheten för cellvärdet inte garanteras.
-
-## **Lägg till diagramkalkylbladsformel i en presentation**
-Börja med att lägga till ett diagram med några exempeldata på den första bilden i en ny presentation med [add_chart](https://reference.aspose.com/slides/sv/python-net/aspose.slides/ishapecollection/). Diagrammets blad skapas automatiskt och kan nås med egenskapen [**chart_data_workbook**](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/ichartdata/).
-
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
-    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 150, 150, 500, 300)
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 350)
     workbook = chart.chart_data.chart_data_workbook
-    # ...
-```
+    worksheet_index = 0
 
-Låt oss skriva några värden i celler med egenskapen [**value**](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/ichartdatacell/) av typen **Object**, vilket betyder att du kan sätta vilket värde som helst på egenskapen:
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+    workbook.clear(worksheet_index)
 
-```py
-    workbook.get_cell(0, "F2").value = -2.5
-    workbook.get_cell(0, "G3").value = 6.3
-    workbook.get_cell(0, "H4").value = 3
-```
+    category1 = workbook.get_cell(worksheet_index, "A2", "Q1")
+    category2 = workbook.get_cell(worksheet_index, "A3", "Q2")
+    category3 = workbook.get_cell(worksheet_index, "A4", "Q3")
 
-För att nu skriva en formel till cellen kan du använda egenskapen [**formula**](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/ichartdatacell/):
+    workbook.get_cell(worksheet_index, "B1", "Revenue")
+    workbook.get_cell(worksheet_index, "C1", "Expenses")
+    workbook.get_cell(worksheet_index, "D1", "Profit")
 
-```py
-    workbook.get_cell(0, "B2").formula = "F2+G3+H4+1"
-```
+    workbook.get_cell(worksheet_index, "B2").value = 120.0
+    workbook.get_cell(worksheet_index, "C2").value = 80.0
+    workbook.get_cell(worksheet_index, "B3").value = 150.0
+    workbook.get_cell(worksheet_index, "C3").value = 95.0
+    workbook.get_cell(worksheet_index, "B4").value = 135.0
+    workbook.get_cell(worksheet_index, "C4").value = 110.0
 
-*Obs*: [**IChartDataCell.Formula**](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/ichartdatacell/) egenskapen används för att ange A1‑stil‑cellreferenser.
+    profit1 = workbook.get_cell(worksheet_index, "D2")
+    profit2 = workbook.get_cell(worksheet_index, "D3")
+    profit3 = workbook.get_cell(worksheet_index, "D4")
 
-För att ange cellreferensen [r1c1_formula](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/ichartdatacell/) kan du använda egenskapen [**r1c1_formula**](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/ichartdatacell/):
+    profit1.formula = "B2-C2"
+    profit2.formula = "B3-C3"
+    profit3.formula = "B4-C4"
 
-```py
-    workbook.get_cell(0, "C2").r1c1_formula = "R[1]C[4]/R[2]C[5]"
-```
-
-Använd sedan metoden [**calculate_formulas**](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdataworkbook/) för att beräkna alla formler i arbetsboken och uppdatera motsvarande cellvärden:
-
-```py
     workbook.calculate_formulas()
-    print(workbook.get_cell(0, "B2").value) # 7.8
-    print(workbook.get_cell(0, "C2").value) # 2.1
+
+    q1_profit = profit1.value  # 40
+    q2_profit = profit2.value  # 55
+    q3_profit = profit3.value  # 25
+
+    print(f"Q1 profit: {q1_profit}")
+    print(f"Q2 profit: {q2_profit}")
+    print(f"Q3 profit: {q3_profit}")
+
+    chart.chart_data.categories.add(category1)
+    chart.chart_data.categories.add(category2)
+    chart.chart_data.categories.add(category3)
+
+    profit_series = chart.chart_data.series.add(workbook.get_cell(worksheet_index, "D1"), chart.type)
+    profit_series.data_points.add_data_point_for_bar_series(profit1)
+    profit_series.data_points.add_data_point_for_bar_series(profit2)
+    profit_series.data_points.add_data_point_for_bar_series(profit3)
+    profit_series.labels.default_data_label_format.show_value = True
+
+    presentation.save("chart-formulas.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Logiska konstanter**
-Du kan använda logiska konstanter såsom *FALSE* och *TRUE* i cellformler:
+Diagramdatapunkterna refererar `D2:D4`, så diagrammet använder de beräknade vinstvärdena. Det finns inget separat diagram‑uppdateringsanrop i detta arbetsflöde: beräkna arbetsboken först, använd eller spara sedan diagramdata som pekar på de beräknade cellerna.
 
-## **Numeriska konstanter**
-Tal kan användas i vanlig eller vetenskaplig notation för att skapa diagramkalkylbladsformler:
+## **Använd A1‑stil‑formler**
 
-## **Strängkonstanter**
-En sträng‑ (eller litteral) konstant är ett specifikt värde som används som det är och inte förändras. Strängkonstanter kan vara: datum, texter, tal osv.:
+A1‑notation identifierar kolumner med bokstäver och rader med siffror. Tilldela A1‑stil‑uttryck via [IChartDataCell.formula](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/ichartdatacell/formula/).
 
-## **Felkonstanter**
-Ibland är det inte möjligt att beräkna resultatet med formeln. I så fall visas felkoden i cellen i stället för dess värde. Varje feltyp har en specifik kod:
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
 
-- #DIV/0! – formeln försöker dividera med noll.
-- #GETTING_DATA – kan visas i en cell medan dess värde fortfarande beräknas.
-- #N/A – information saknas eller är otillgänglig. Några orsaker kan vara: cellerna som används i formeln är tomma, ett extra mellanslag, felstavning osv.
-- #NAME? – en viss cell eller annat formelobjekt kan inte hittas enligt dess namn.
-- #NULL! – kan uppstå när det finns ett fel i formeln, t.ex. (,) eller ett mellanslag används i stället för ett kolon (:).
-- #NUM! – den numeriska värdet i formeln kan vara ogiltigt, för långt eller för kort osv.
-- #REF! – ogiltig cellreferens.
-- #VALUE! – oväntad värdetyp. Till exempel, en strängvärde som sätts i en numerisk cell.
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
 
-## **Aritmetiska operatorer**
-Du kan använda alla aritmetiska operatorer i diagrambladets formler:
+    workbook.get_cell(0, "C3").value = 10
+    workbook.get_cell(0, "F2").value = 2
+    workbook.get_cell(0, "G2").value = 3
+    workbook.get_cell(0, "H2").value = 4
 
-|**Operator**|**Betydelse**|**Exempel**|
-| :- | :- | :- |
-|+ (plustecken)|Addition eller unär plus|2 + 3|
-|- (minustecken)|Subtraktion eller negation|2 - 3<br>-3|
-|* (asterisk)|Multiplikation|2 * 3|
-|/ (snedstreck)|Division|2 / 3|
-|% (procenttecken)|Procent|30%|
-|^ (caret)|Exponentiering|2 ^ 3|
+    cell = workbook.get_cell(0, "A2")
+    cell.formula = "C3+SUM(F2:H2)"
 
-*Obs*: För att ändra utvärderingsordningen, omge den del av formeln som ska beräknas först med parenteser.
+    workbook.calculate_formulas()
 
-## **Jämförelseoperatorer**
-Du kan jämföra cellvärden med jämförelseoperatorerna. När två värden jämförs med dessa operatorer blir resultatet ett logiskt värde, antingen *TRUE* eller *FALSE*:
+    value = cell.value  # 19
+```
 
-|**Operator**|**Betydelse**|**Exempel**|
-| :- | :- | :- |
-|= (likhetstecken)|Lika med|A2 = 3|
-|<> (inte lika med)|Inte lika med|A2 <> 3|
-|> (större‑än‑tecken)|Större än|A2 > 3|
-|>= (större‑eller‑lika‑tecken)|Större än eller lika med|A2 >= 3|
-|< (mindre‑än‑tecken)|Mindre än|A2 < 3|
-|<= (mindre‑eller‑lika‑tecken)|Mindre än eller lika med|A2 <= 3|
+Vanliga A1‑referensformer är:
 
-## **A1‑stil‑cellreferenser**
-**A1‑stil‑cellreferenser** används för kalkylblad där kolumnen har en bokstavsidentifierare (t.ex. "*A*") och raden har en numerisk identifierare (t.ex. "*1*"). A1‑stil‑cellreferenser kan användas på följande sätt:
+| Referens | Relativ | Absolut | Blandet |
+|---|---|---|---|
+| Cell | `A2` | `$A$2` | `A$2`, `$A2` |
+| Rad | `2:2` | `$2:$2` | — |
+| Kolumn | `A:A` | `$A:$A` | — |
+| Område | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-|**Cellreferens**|**Exempel**|||
-| :- | :- | :- | :- |
-||Absolut|Relativ|Blandad|
-|Cell|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|Row|$2:$2|2:2|-|
-|Column|$A:$A|A:A|-|
-|Range|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
+Relativa referenser kan ändras när en formel flyttas eller kopieras i ett kalkylbladsprogram. Absoluta referenser håller båda koordinaterna fasta, medan blandade referenser fixar endast en rad eller en kolumn.
 
-Här är ett exempel på hur man använder en A1‑stil‑cellreferens i en formel:
+## **Använd R1C1‑stil‑formler**
 
-## **R1C1‑stil‑cellreferenser**
-**R1C1‑stil‑cellreferenser** används för kalkylblad där både rad och kolumn har numerisk identifierare. R1C1‑stil‑cellreferenser kan användas på följande sätt:
+R1C1‑notation identifierar både rader och kolumner numeriskt. Relativa referenser använder avstånd i hakparenteser. Tilldela denna syntax via [IChartDataCell.r1c1_formula](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/).
 
-|**Cellreferens**|**Exempel**|||
-| :- | :- | :- | :- |
-||Absolut|Relativ|Blandad|
-|Cell|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Row|R2|R[2]|-|
-|Column|C3|C[3]|-|
-|Range|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
 
-Här är ett exempel på hur man använder en A1‑stil‑cellreferens i en formel:
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
 
-## **Fördefinierade funktioner**
-Det finns fördefinierade funktioner som kan användas i formler för att förenkla deras implementation. Dessa funktioner kapslar in de mest använda operationerna, såsom:
+    workbook.get_cell(0, "B2").value = 12
+    workbook.get_cell(0, "C2").value = 5
 
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (1900 date system)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (reference form)
-- LOOKUP (vector form)
-- MATCH (vector form)
-- MAX
-- SUM
-- VLOOKUP
+    cell = workbook.get_cell(0, "D2")
+    cell.r1c1_formula = "RC[-2]-RC[-1]"
+
+    workbook.calculate_formulas()
+
+    value = cell.value  # 7
+```
+
+Vanliga R1C1‑referensformer är:
+
+| Referens | Relativ | Absolut | Blandet |
+|---|---|---|---|
+| Cell | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| Rad | `R[2]` | `R2` | — |
+| Kolumn | `C[3]` | `C3` | — |
+| Område | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+
+Till exempel, i cell `D2` betyder `RC[-2]` cellen i samma rad två kolumner åt vänster (`B2`).
+
+## **Formelkonstanter och operatorer**
+
+Den inbyggda formelutvärderaren stödjer logiska värden, numeriska literalvärden, strängar, kalkylblads‑felvärden, aritmetiska operatorer och jämförelseoperatorer.
+
+### **Konstanter och literaler**
+
+| Typ | Exempel | Kommentar |
+|---|---|---|
+| Logisk | `TRUE`, `FALSE` | Kan användas direkt i logiska uttryck såsom `A2=TRUE`. |
+| Numerisk | `1`, `0.5`, `.3`, `1E-2` | Vanlig och vetenskaplig notation stöds. |
+| Sträng | `"abc"`, `"2/3/2020 12:00"` | Textliteral omsluts av dubbla citationstecken i formeln. |
+| Felresultat | `#DIV/0!`, `#N/A`, `#REF!` | En giltig formel kan utvärderas till ett kalkylblads‑felvärde istället för ett normalt resultat. |
+
+Detta exempel använder flera konstanttyper:
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
+
+    workbook.get_cell(0, "A2").value = False
+    workbook.get_cell(0, "B2").formula = "A2=TRUE"
+    workbook.get_cell(0, "C2").formula = "1+0.5"
+    workbook.get_cell(0, "D2").formula = ".3*1E-2"
+    workbook.get_cell(0, "E2").formula = "\"abc\""
+    workbook.get_cell(0, "F2").formula = "2/0"
+
+    workbook.calculate_formulas()
+
+    logical_value = workbook.get_cell(0, "B2").value  # Falskt
+    numeric_value = workbook.get_cell(0, "C2").value  # 1.5
+    scientific_value = workbook.get_cell(0, "D2").value  # 0.003
+    string_value = workbook.get_cell(0, "E2").value  # abc
+    error_value = workbook.get_cell(0, "F2").value  # #DIV/0!
+```
+
+### **Aritmetiska operatorer**
+
+| Operator | Betydelse | Exempel |
+|---|---|---|
+| `+` | Addition eller unärt plustecken | `2+3` |
+| `-` | Subtraktion eller negation | `2-3`, `-3` |
+| `*` | Multiplikation | `2*3` |
+| `/` | Division | `2/3` |
+| `%` | Procent | `30%` |
+| `^` | Upphöjning | `2^3` |
+
+Använd parenteser för att göra utvärderingsordningen explicit, t.ex. `(A2+B2)*C2`.
+
+### **Jämförelseoperatorer**
+
+Jämförelseuttryck returnerar logiska värden.
+
+| Operator | Betydelse | Exempel |
+|---|---|---|
+| `=` | Lika med | `A2=3` |
+| `<>` | Inte lika med | `A2<>3` |
+| `>` | Större än | `A2>3` |
+| `>=` | Större än eller lika med | `A2>=3` |
+| `<` | Mindre än | `A2<3` |
+| `<=` | Mindre än eller lika med | `A2<=3` |
+
+## **Stödda fördefinierade funktioner**
+
+Aspose.Slides innehåller en inbyggd formelutvärderare för diagram‑kalkylblad, men den är inte en komplett Excel‑beräkningsmotor. Den dokumenterade funktionsuppsättningen är begränsad till funktionerna nedan. Anta inte att en godtycklig Excel‑funktion kan omberäknas av [calculate_formulas](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/).
+
+| Funktion | Syfte eller stödform | Exempel |
+|---|---|---|
+| `ABS` | Absolutvärde | `ABS(A2)` |
+| `AVERAGE` | Aritmetiskt medelvärde | `AVERAGE(B2:B5)` |
+| `CEILING` | Runda upp till ett multipel | `CEILING(A2,5)` |
+| `CHOOSE` | Välj ett värde efter index | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | Sammanfoga textvärden | `CONCAT(A2,B2)` |
+| `CONCATENATE` | Sammanfoga textvärden | `CONCATENATE(A2," ",B2)` |
+| `DATE` | Skapa ett datumvärde med 1900‑datumsystemet | `DATE(2026,8,19)` |
+| `DAYS` | Returnera antal dagar mellan datum | `DAYS(B2,A2)` |
+| `FIND` | Hitta en textsträng i en annan | `FIND("-",A2)` |
+| `FINDB` | Byte‑orienterad textsökning | `FINDB("a",A2)` |
+| `IF` | Villkorligt resultat | `IF(A2>0,A2,0)` |
+| `INDEX` | Referensform | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | Vektorform | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | Vektorform | `MATCH(A2,B2:B5,0)` |
+| `MAX` | Maximumvärde | `MAX(B2:B5)` |
+| `SUM` | Summera värden | `SUM(B2:B5)` |
+| `VLOOKUP` | Vertikal uppslagning | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+
+Begränsningarna i tabellen är betydande: `INDEX` är dokumenterad i referensform, medan `LOOKUP` och `MATCH` är dokumenterade i sina vektorformer. `DATE` använder 1900‑datumsystemet. Funktioner och funktioner som inte listas här bör betraktas som osupporterade av Aspose.Slides‑formelutvärderaren, såvida de inte är dokumenterade separat.
+
+## **Ombedning och cachade värden**
+
+Kalkylbladsfiler lagrar ofta både en formel och dess senast beräknade värde. Aspose.Slides kan därför läsa ett cachat värde från [IChartDataCell.value](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/ichartdatacell/value/) när en presentation laddas och den relevanta diagramdatan inte har ändrats.
+
+Efter att du har ändrat inmatningsceller eller formler, förlita dig inte på ett gammalt cachat resultat. Anropa [ChartDataWorkbook.calculate_formulas](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) innan du läser beräknade värden eller sparar diagramdata som beror på dem.
+
+För formler utanför den stödda uppsättningen kan Aspose.Slides misslyckas med att parsra formeln eller fastställa dess beroenden. Om arbetsboken har modifierats kan det tidigare cachade värdet inte längre anses pålitligt. I sådana situationer kan läsning av värdet i en cell med osupporterad data kasta [CellUnsupportedDataException](https://reference.aspose.com/slides/sv/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+
+Om ditt diagram är beroende av Excel‑funktioner som Aspose.Slides inte utvärderar, beräkna dessa formler med en kalkylblads‑motor som stödjer dem och skriv tillbaka de resulterande värdena till diagramarbetsboken. Ersätt inte osupporterade formler med gissade värden.
+
+## **Hantera formelfel**
+
+Det finns två olika typer av problem att skilja på.
+
+En formel kan vara giltig men producera ett kalkylblads‑felresultat såsom `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` eller `#VALUE!`. I så fall är fel‑tokenen ett cellresultat och kan returneras via `value`.
+
+En formel kan också misslyckas vid parsning, referens, beroende eller stödd‑datatnivå. Aspose.Slides tillhandahåller kalkylblads‑specifika undantag för dessa fall: [CellInvalidFormulaException](https://reference.aspose.com/slides/sv/python-net/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/sv/python-net/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/sv/python-net/aspose.slides.spreadsheet/cellcircularreferenceexception/) och [CellUnsupportedDataException](https://reference.aspose.com/slides/sv/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+
+När formler kommer från mallar eller användarinmatning, hantera dessa undantag runt omberäkning och värdeåtkomst:
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+import aspose.slides.spreadsheet as spreadsheet
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
+    cell = workbook.get_cell(0, "A2")
+    cell.formula = "SUM(B2:B5)"
+
+    try:
+        workbook.calculate_formulas()
+        print(cell.value)
+    except spreadsheet.CellInvalidFormulaException as ex:
+        print(f"Invalid formula: {ex}")
+    except spreadsheet.CellInvalidReferenceException as ex:
+        print(f"Invalid cell reference: {ex}")
+    except spreadsheet.CellCircularReferenceException as ex:
+        print(f"Circular reference: {ex}")
+    except spreadsheet.CellUnsupportedDataException as ex:
+        print(f"Unsupported spreadsheet data: {ex}")
+```
+
+## **Praktiska begränsningar**
+
+Formelstödet i diagram‑kalkylblad är avsett för en definierad delmängd av kalkylbladsberäkningar, inte för fullständig Excel‑kompatibilitet. Ha dessa begränsningar i åtanke när du designar ett rapporterings‑arbetsflöde:
+
+- Använd endast de dokumenterade konstanterna, operatorerna, referenserna och funktionerna när du vill att Aspose.Slides skall omberäkna formler.
+- Omberäkna efter att du har ändrat celler som formelresultaten beror på.
+- Betrakta cachade värden från laddade presentationer som ögonblicksbilder, inte som en ersättning för omberäkning efter redigering.
+- Testa formler från befintliga mallar innan du förlitar dig på deras beräknade värden, särskilt om de använder funktioner utanför den dokumenterade listan.
+- För formler som kräver en fullständig kalkylblads­beräkningsmotor, beräkna dem externt och uppdatera sedan diagramarboken med de resulterande värdena.
 
 ## **FAQ**
 
-**Stöds externa Excel‑filer som datakälla för ett diagram med formler?**
+**Vad är skillnaden mellan `formula` och `r1c1_formula`?**
 
-Ja. Aspose.Slides stöder externa arbetsböcker som ett [diagramdatakälla](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatasourcetype/), vilket låter dig använda formler från en XLSX utanför presentationen.
+[formula](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/ichartdatacell/formula/) lagrar ett A1‑stilsuttryck såsom `B2-C2`. [r1c1_formula](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/) lagrar ett R1C1‑stilsuttryck såsom `RC[-2]-RC[-1]`. Använd den notation som bäst matchar hur du genererar eller kopierar formler.
 
-**Kan diagramformler referera till blad inom samma arbetsbok med bladnamn?**
+**Behöver jag läsa själva cellen eller dess värde efter beräkning?**
 
-Ja. Formler följer den standardiserade Excel‑referensmodellen, så du kan referera till andra blad i samma arbetsbok eller en extern arbetsbok. För externa referenser inkluderas sökväg och arbetsboksnamn enligt Excel‑syntax.
+[ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) returnerar en `IChartDataCell`. För att få det beräknade resultatet, läs den cellens [value](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/ichartdatacell/value/)‑egenskap efter omberäkning.
+
+**När ska jag anropa `calculate_formulas`?**
+
+Anropa [calculate_formulas](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) efter att du har ändrat inmatningsvärden eller formler och innan du är beroende av de beräknade resultaten. Detta uppdaterar värdena för formler som den inbyggda utvärderaren stödjer.
+
+**Stöder Aspose.Slides alla Excel‑funktioner?**
+
+Nej. Den inbyggda utvärderaren stödjer en dokumenterad delmängd av funktioner. Funktioner utanför den delmängden bör inte antas omberäknas korrekt. Om full Excel‑formelkompatibilitet krävs, utför beräkningen med en lämplig kalkylblads‑motor och skriv de sista värdena till diagramarboken.
+
+**Vad händer om en laddad presentation innehåller en osupporterad formel?**
+
+Om diagramdata inte har förändrats kan arbetsboken fortfarande innehålla ett tidigare beräknat cachat värde. Efter att relaterad data har ändrats kan det cachade värdet vara ogiltigt. Att komma åt en cell vars formel inte kan hanteras kan kasta [CellUnsupportedDataException](https://reference.aspose.com/slides/sv/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+
+**Är formelfelvärden samma sak som Python‑undantag?**
+
+Nej. Ett resultat som `#DIV/0!` är ett kalkylblads‑värde som produceras av en giltig beräkning. Undantag såsom [CellInvalidFormulaException](https://reference.aspose.com/slides/sv/python-net/aspose.slides.spreadsheet/cellinvalidformulaexception/) eller [CellCircularReferenceException](https://reference.aspose.com/slides/sv/python-net/aspose.slides.spreadsheet/cellcircularreferenceexception/) indikerar att formeln inte kan bearbetas normalt.
+
+**Uppdateras ett diagram automatiskt när en formelcell ändras?**
+
+En diagramserie kan referera till arbetsbokens celler. Omberäkna arbetsboken först, spara eller rendera sedan presentationen. Om diagramdatapunkterna refererar till de beräknade cellerna använder diagrammet de uppdaterade cellvärdena; inget separat diagram‑uppdateringsmetod krävs för detta arbetsflöde.
+
+**Kan diagram använda ett externt Excel‑arbetsbok?**
+
+Ja, diagramdata kan konfigureras att använda en extern arbetsbok via diagram‑data‑API:et. Dock avser arbetsflödet som beskrivs i denna artikel diagramarboken och formelunderuppsättningen som utvärderas av Aspose.Slides. Anta inte att [calculate_formulas](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) ger fullständig omberäkning av godtyckliga formler i en extern XLSX‑fil.
+
+**Kan jag använda formler som refererar till ett annat kalkylblad eller arbetsbok?**
+
+Excel‑stil‑referenser kan finnas i diagramarböcker, men formelutvärderingen är begränsad av den stödjande parsern och funktionsuppsättningen. Om en tvär‑blad‑ eller extern referens är nödvändig, verifiera exakt formel med din målversion av Aspose.Slides. För arbetsflöden som kräver bred Excel‑referenskompatibilitet, beräkna arbetsboken externt och skriv tillbaka de lösta värdena till diagramdatan.
+
+**Ska formelsträngar börja med `=`?**
+
+Aspose.Slides‑API‑exemplen tilldelar uttryck såsom `B2-C2` eller `SUM(B2:B5)` utan inledande `=`. Att använda den formen håller genererade formler i linje med de dokumenterade API‑exemplen.

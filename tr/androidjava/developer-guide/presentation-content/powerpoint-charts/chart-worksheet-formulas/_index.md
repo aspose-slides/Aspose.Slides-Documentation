@@ -5,246 +5,383 @@ type: docs
 weight: 70
 url: /tr/androidjava/chart-worksheet-formulas/
 keywords:
-- grafik çalışma sayfası
+- grafik elektronik tablo
 - grafik çalışma sayfası
 - grafik formülü
 - çalışma sayfası formülü
 - elektronik tablo formülü
-- veri kaynağı
+- grafik veri çalışma kitabı
+- formül hesaplaması
 - mantıksal sabit
 - sayısal sabit
 - dize sabiti
 - hata sabiti
-- aritmetik sabit
+- aritmetik operatör
 - karşılaştırma operatörü
 - A1 stili
 - R1C1 stili
-- öncedefinir fonksiyon
+- önceden tanımlı fonksiyon
 - PowerPoint
 - sunum
 - Android
 - Java
 - Aspose.Slides
-description: "Excel tarzı formülleri Android için Aspose.Slides'ta Java grafik çalışma sayfaları aracılığıyla uygulayın ve PPT ile PPTX dosyaları arasında raporları otomatikleştirin."
+description: "Aspose.Slides for Android via Java grafik çalışma sayfalarında Excel tarzı formülleri uygulayın, değerleri yeniden hesaplayın ve sonuçları PowerPoint grafiklerinde kullanın."
 ---
 ## **Genel Bakış**
 
-Bir grafik çalışma sayfası, bir sunumdaki grafiğin arkasındaki veri kaynağıdır. Kategori ve seri adlarını, grafiğin gösterdiği sayısal değerlerle birlikte depolar. Aspose.Slides'ta bu çalışma sayfası, grafik veri çalışma kitabı aracılığıyla kullanılabilir ve grafik verileriyle programlı olarak çalışmanıza olanak tanır.
+PowerPoint grafikleri genellikle kaynak verilerini gömülü bir çalışma sayfasında saklar. Aspose.Slides for Android via Java’da bu çalışma sayfasına grafik veri çalışma kitabı aracılığıyla erişebilir, giriş değerleri yazabilir, hücrelere formül atayabilir, desteklenen formülleri hesaplayabilir ve hesaplanan hücreleri grafik verisi olarak kullanabilirsiniz.
 
-Bu makale, hücre değerlerinin manuel olarak girilmesi yerine otomatik olarak hesaplanıp güncellenebilmesi için grafik verilerinde çalışma sayfası formüllerinin nasıl kullanılacağını açıklar. Formüllerin nasıl atanacağını, A1‑stili ve R1C1‑stili referansların her ikisinin nasıl kullanılacağını, çalışma kitabı formüllerinin nasıl yeniden hesaplanacağını ve sunumlardaki grafik çalışma sayfalarında kullanılabilen desteklenen sabitler, operatörler, hücre referansları ve öncedefinir fonksiyonlarla nasıl çalışılacağını gösterir.
+Bu makale tam formül iş akışını açıklar: bir grafik oluşturma, çalışma sayfasını doldurma, A1‑stilinde veya R1C1‑stilinde formüller atama, bunları yeniden hesaplama, hesaplanan değerleri okuma, bu hücreleri bir grafik serisine bağlama ve sunumu kaydetme. Ayrıca desteklenen formül sözdizimini, yerleşik fonksiyon alt kümesini, önbelleğe alınmış değerleri, desteklenmeyen formülleri ve elektronik tabloya özgü hataları tanımlar.
 
-## **Grafik Çalışma Sayfası Formülleri Hakkında Sunumlarda**
-**Grafik çalışma sayfası** (veya chart worksheet) sunumda grafiğin veri kaynağıdır. Grafik çalışma sayfası, grafikte grafiksel olarak temsil edilen verileri içerir. PowerPoint’te bir grafik oluşturduğunuzda bu grafikle ilişkili çalışma sayfası da otomatik olarak oluşturulur. Grafik çalışma sayfası, çizgi grafiği, çubuk grafiği, sunburst grafiği, pasta grafiği vb. tüm grafik türleri için oluşturulur. PowerPoint’te grafik çalışma sayfasını görmek için grafiğe çift‑tıklamalısınız:
+## **Grafik Çalışma Sayfaları ve Formüller**
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+Bir grafik çalışma sayfası, bir grafik tarafından kullanılan kategori, seri adları ve değerleri içerir. PowerPoint’te, grafik veri düzenleyicisini açarak çalışma sayfasını inceleyebilirsiniz:
 
+![Gömülü çalışma sayfası açık PowerPoint grafiği, kategori ve seri verilerini gösterir](chart-worksheet-formulas_1.png)
 
-Grafik çalışma sayfası, grafik öğelerinin adlarını (Kategori Adı: *Category1*, Seri Adı) ve bu kategorilere ve serilere uygun sayısal verileri içeren bir tabloyu barındırır. Varsayılan olarak yeni bir grafik oluşturduğunuzda – grafik çalışma sayfası verileri varsayılan değerlerle ayarlanır. Ardından çalışma sayfası verilerini manuel olarak değiştirebilirsiniz.
+Aspose.Slides’ta, çalışma sayfası [IChartDataWorkbook](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichartdataworkbook/) arayüzü aracılığıyla ortaya çıkar. A1 tarzı formüller için [IChartDataCell.setFormula](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) , R1C1 tarzı formüller için [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) kullanın. Giriş hücrelerini veya formülleri değiştirdikten sonra, desteklenen formülleri yeniden hesaplamak ve ilgili hücre değerlerini güncellemek için [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) çağırın.
 
-Genellikle grafik, karmaşık verileri (ör. finansal analizler, bilimsel analizler) temsil eder; bu hücreler diğer hücrelerdeki değerlerden ya da başka dinamik verilerden hesaplanır. Hücrenin değeri manuel olarak hesaplanıp hücreye sabit kodlanırsa gelecekte değişiklik yapmak zorlaşır. Belirli bir hücrenin değerini değiştirirseniz, ona bağımlı tüm hücrelerin de güncellenmesi gerekir. Ayrıca tablo verileri diğer tablolardaki verilere dayanabilir, bu da kolay ve esnek bir şekilde güncellenmesi gereken karmaşık bir sunum veri şeması oluşturur.
+Hesaplanmış bir hücre, sonucunu hâlâ [IChartDataCell.getValue](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichartdatacell/#getValue--) yoluyla sunar. Bu, kod içinde bir formül sonucunu incelemeniz veya hücreyi bir grafik veri noktası olarak kullanmanız gerektiğinde önemlidir.
 
-**Grafik çalışma sayfası formülü** sunumda, grafik çalışma sayfası verilerini otomatik olarak hesaplamak ve güncellemek için bir ifadedir. Çalışma sayfası formülü, belirli bir hücre ya da hücre kümesi için veri hesaplama mantığını tanımlar. Çalışma sayfası formülü, hücre referansları, matematik fonksiyonları, mantıksal operatörler, aritmetik operatörler, dönüşüm fonksiyonları, dize sabitleri vb. kullanan bir matematik ya da mantıksal formüldür. Formül tanımı bir hücreye yazılır ve bu hücre basit bir değer içermez. Çalışma sayfası formülü değeri hesaplar ve geri döndürür, ardından bu değer hücreye atanır. Sunumlardaki grafik çalışma sayfası formülleri aslında Excel formülleriyle aynıdır ve aynı varsayılan fonksiyonlar, operatörler ve sabitler desteklenir.
+## **Grafik Oluşturma ve Çalışma Sayfası Formüllerini Hesaplama**
 
-[**Aspose.Slides**](https://products.aspose.com/slides/tr/androidjava/) grafik çalışma sayfası,
-[**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IChartData#getChartDataWorkbook--) yöntemiyle
-[**IChartDataWorkbook**](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IChartDataWorkbook) tipi üzerinden temsil edilir.
-Çalışma sayfası formülü, 
-[**IChartDataCell.setFormula**](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-) yöntemiyle atanabilir ve değiştirilebilir.
-Aspose.Slides’ta formüller için aşağıdaki işlevsellik desteklenir:
-
-- Mantıksal sabitler
-- Sayısal sabitler
-- Dize sabitleri
-- Hata sabitleri
-- Aritmetik operatörler
-- Karşılaştırma operatörleri
-- A1‑stili hücre referansları
-- R1C1‑stili hücre referansları
-- Öncedefinir fonksiyonlar
-
-
-Genellikle çalışma sayfaları son hesaplanan formül değerlerini saklar. Sunum yüklendikten sonra grafik verileri değiştirilmemişse [**IChartDataCell.getValue**](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IChartDataCell#getValue--) yöntemi bu değerleri okuma sırasında döndürür. Ancak çalışma sayfası verileri değiştirilmişse, **ChartDataCell.Value** özelliği okuma sırasında desteklenmeyen formüller için [**CellUnsupportedDataException**](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/CellUnsupportedDataException)’ı fırlatır. Bunun nedeni, formüller başarıyla ayrıştırıldığında hücre bağımlılıklarının belirlenmesi ve son değerlerin doğruluğunun teyit edilmesidir. Formül ayrıştırılamazsa hücre değerinin doğruluğu garanti edilemez.
-
-## **Sunuma Bir Grafik Çalışma Sayfası Formülü Ekleme**
-İlk slayta yeni bir sunumda bir grafik eklemek için 
-[IShapeCollection.getShapes.addChart](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IShapeCollection#addChart-int-float-float-float-float-) yöntemini kullanın. 
-Grafiğin çalışma sayfası otomatik olarak oluşturulur ve şu yöntemle erişilebilir:
-[**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IChartData#getChartDataWorkbook--) yöntemi:
+Aşağıdaki örnek uçtan uca bir iş akışını gösterir. Küme sütun grafiği oluşturur, örnek veriyi temizler, çeyrek bazında gelir ve gider değerlerini yazar, formüllerle karı hesaplar, sonuçları okur, hesaplanan hücreleri grafik değerleri olarak kullanır ve sunumu kaydeder.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 150, 150, 500, 300);
-
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 350);
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    int worksheetIndex = 0;
 
-    // ...
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    workbook.clear(worksheetIndex);
+
+    IChartDataCell category1 = workbook.getCell(worksheetIndex, "A2", "Q1");
+    IChartDataCell category2 = workbook.getCell(worksheetIndex, "A3", "Q2");
+    IChartDataCell category3 = workbook.getCell(worksheetIndex, "A4", "Q3");
+
+    workbook.getCell(worksheetIndex, "B1", "Revenue");
+    workbook.getCell(worksheetIndex, "C1", "Expenses");
+    workbook.getCell(worksheetIndex, "D1", "Profit");
+
+    workbook.getCell(worksheetIndex, "B2").setValue(120.0);
+    workbook.getCell(worksheetIndex, "C2").setValue(80.0);
+    workbook.getCell(worksheetIndex, "B3").setValue(150.0);
+    workbook.getCell(worksheetIndex, "C3").setValue(95.0);
+    workbook.getCell(worksheetIndex, "B4").setValue(135.0);
+    workbook.getCell(worksheetIndex, "C4").setValue(110.0);
+
+    IChartDataCell profit1 = workbook.getCell(worksheetIndex, "D2");
+    IChartDataCell profit2 = workbook.getCell(worksheetIndex, "D3");
+    IChartDataCell profit3 = workbook.getCell(worksheetIndex, "D4");
+
+    profit1.setFormula("B2-C2");
+    profit2.setFormula("B3-C3");
+    profit3.setFormula("B4-C4");
+
+    workbook.calculateFormulas();
+
+    double q1Profit = ((Number) profit1.getValue()).doubleValue(); // 40
+    double q2Profit = ((Number) profit2.getValue()).doubleValue(); // 55
+    double q3Profit = ((Number) profit3.getValue()).doubleValue(); // 25
+
+    System.out.println("Q1 profit: " + q1Profit);
+    System.out.println("Q2 profit: " + q2Profit);
+    System.out.println("Q3 profit: " + q3Profit);
+
+    chart.getChartData().getCategories().add(category1);
+    chart.getChartData().getCategories().add(category2);
+    chart.getChartData().getCategories().add(category3);
+
+    IChartSeries profitSeries = chart.getChartData().getSeries().add(workbook.getCell(worksheetIndex, "D1"), chart.getType());
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit1);
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit2);
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit3);
+    profitSeries.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("chart-formulas.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Hücrelere bazı değerler yazmak için 
-[**IChartDataCell.setValue**](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IChartDataCell#setValue-java.lang.Object-) özelliğini 
-**Object** tipinde kullanabilirsiniz; bu, özelliğe herhangi bir değeri atayabileceğiniz anlamına gelir:
+Grafik veri noktaları `D2:D4` aralığını referans alır, bu nedenle grafik hesaplanan kar değerlerini kullanır. Bu iş akışında ayrı bir grafik‑yenileme çağrısı yoktur: önce çalışma kitabını yeniden hesaplayın, ardından hesaplanan hücrelere işaret eden grafik verisini kullanın veya kaydedin.
+
+## **A1‑ Stilinde Formüller Kullanma**
+
+A1 notasyonu sütunları harflerle, satırları sayılarla tanımlar. A1‑stilindeki ifadeleri [IChartDataCell.setFormula](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) aracılığıyla atayın.
 
 ```java
-workbook.getCell(0, "F2").setValue(-2.5);
+import com.aspose.slides.*;
 
-workbook.getCell(0, "G3").setValue(6.3);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-workbook.getCell(0, "H4").setValue(3);
+    workbook.getCell(0, "C3").setValue(10);
+    workbook.getCell(0, "F2").setValue(2);
+    workbook.getCell(0, "G2").setValue(3);
+    workbook.getCell(0, "H2").setValue(4);
+
+    IChartDataCell cell = workbook.getCell(0, "A2");
+    cell.setFormula("C3+SUM(F2:H2)");
+
+    workbook.calculateFormulas();
+
+    Object value = cell.getValue(); // 19
+} finally {
+    presentation.dispose();
+}
 ```
 
-Şimdi hücreye formül yazmak için 
-[**IChartDataCell.setFormula**](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-) yöntemini kullanabilirsiniz:
+Yaygın A1 referans formları şunlardır:
 
-*Not*: [**IChartDataCell.setFormula**](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-) yöntemi A1‑stili hücre referanslarını ayarlamak için kullanılır. 
+| Referans | Göreceli | Mutlak | Karışık |
+|---|---|---|---|
+| Hücre | `A2` | `$A$2` | `A$2`, `$A2` |
+| Satır | `2:2` | `$2:$2` | — |
+| Sütun | `A:A` | `$A:$A` | — |
+| Aralık | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-[R1C1Formula](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IChartDataCell#getR1C1Formula--) hücre referansını ayarlamak için 
-[**IChartDataCell.setR1C1Formula**](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IChartDataCell#setR1C1Formula-java.lang.String-) yöntemini kullanabilirsiniz:
+Göreceli referanslar, bir formül bir elektronik tablo uygulaması tarafından taşındığında veya kopyalandığında değişebilir. Mutlak referanslar her iki koordinatı da sabit tutar, karışık referanslar ise yalnızca bir satırı ya da bir sütunu sabitler.
 
-Ardından B2 ve C2 hücrelerinin değerlerini okursanız, bunlar hesaplanmış olur:
+## **R1C1‑Stilinde Formüller Kullanma**
+
+R1C1 notasyonu hem satırları hem sütunları sayısal olarak tanımlar. Göreceli referanslar köşeli parantez içinde ofsetler kullanır. Bu sözdizimini [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) aracılığıyla atayın.
 
 ```java
-Object value1 = cell1.getValue(); // 7.8
+import com.aspose.slides.*;
 
-Object value2 = cell2.getValue(); // 2.1
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "B2").setValue(12);
+    workbook.getCell(0, "C2").setValue(5);
+
+    IChartDataCell cell = workbook.getCell(0, "D2");
+    cell.setR1C1Formula("RC[-2]-RC[-1]");
+
+    workbook.calculateFormulas();
+
+    Object value = cell.getValue(); // 7
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Mantıksal Sabitler**
-Hücre formüllerinde *FALSE* ve *TRUE* gibi mantıksal sabitleri kullanabilirsiniz:
+Yaygın R1C1 referans formları şunlardır:
+
+| Referans | Göreceli | Mutlak | Karışık |
+|---|---|---|---|
+| Hücre | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| Satır | `R[2]` | `R2` | — |
+| Sütun | `C[3]` | `C3` | — |
+| Aralık | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+
+Örneğin, `D2` hücresinde `RC[-2]` aynı satırda iki sütun sola (`B2`) olan hücreyi ifade eder.
+
+## **Formül Sabitleri ve Operatörleri**
+
+Yerleşik formül değerlendiricisi mantıksal değerleri, sayısal sabitleri, dizeleri, elektronik tablo hata değerlerini, aritmetik operatörleri ve karşılaştırma operatörlerini destekler.
+
+### **Sabitler ve Literaller**
+
+| Tür | Örnekler | Notlar |
+|---|---|---|
+| Mantıksal | `TRUE`, `FALSE` | `A2=TRUE` gibi mantıksal ifadelerde doğrudan kullanılabilir. |
+| Sayısal | `1`, `0.5`, `.3`, `1E-2` | Yaygın ve bilimsel gösterimler desteklenir. |
+| Dize | `"abc"`, `"2/3/2020 12:00"` | Metin sabitleri formül içinde çift tırnak içinde yer alır. |
+| Hata sonucu | `#DIV/0!`, `#N/A`, `#REF!` | Geçerli bir formül, normal bir sonuç yerine bir elektronik tablo hata değeri döndürebilir. |
+
+Bu örnek birkaç sabit türünü gösterir:
 
 ```java
-workbook.getCell(0, "A2").setValue(false);
-IChartDataCell cell = workbook.getCell(0, "B2");
-cell.setFormula("A2 = TRUE");
-Object value = cell.getValue(); // değer boolean "false" içerir
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "A2").setValue(false);
+    workbook.getCell(0, "B2").setFormula("A2=TRUE");
+    workbook.getCell(0, "C2").setFormula("1+0.5");
+    workbook.getCell(0, "D2").setFormula(".3*1E-2");
+    workbook.getCell(0, "E2").setFormula("\"abc\"");
+    workbook.getCell(0, "F2").setFormula("2/0");
+
+    workbook.calculateFormulas();
+
+    Object logicalValue = workbook.getCell(0, "B2").getValue(); // false
+    Object numericValue = workbook.getCell(0, "C2").getValue(); // 1.5
+    Object scientificValue = workbook.getCell(0, "D2").getValue(); // 0.003
+    Object stringValue = workbook.getCell(0, "E2").getValue(); // abc
+    Object errorValue = workbook.getCell(0, "F2").getValue(); // #DIV/0!
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Sayısal Sabitler**
-Sayılar, ortak veya bilimsel gösterimlerde grafik çalışma sayfası formülü oluşturmak için kullanılabilir:
+### **Aritmetik Operatörler**
+
+| Operatör | Anlamı | Örnek |
+|---|---|---|
+| `+` | Toplama veya tekli artı | `2+3` |
+| `-` | Çıkarma veya negatif | `2-3`, `-3` |
+| `*` | Çarpma | `2*3` |
+| `/` | Bölme | `2/3` |
+| `%` | Yüzde | `30%` |
+| `^` | Üs alma | `2^3` |
+
+Değerlendirme sırasını açıkça belirtmek için parantez kullanın, örneğin `(A2+B2)*C2`.
+
+### **Karşılaştırma Operatörleri**
+
+Karşılaştırma ifadeleri mantıksal değer döndürür.
+
+| Operatör | Anlamı | Örnek |
+|---|---|---|
+| `=` | Eşittir | `A2=3` |
+| `<>` | Eşit değildir | `A2<>3` |
+| `>` | Büyüktür | `A2>3` |
+| `>=` | Büyük veya eşittir | `A2>=3` |
+| `<` | Küçüktür | `A2<3` |
+| `<=` | Küçük veya eşittir | `A2<=3` |
+
+## **Desteklenen Önceden Tanımlı Fonksiyonlar**
+
+Aspose.Slides, grafik çalışma sayfaları için yerleşik bir formül değerlendiricisi içerir, ancak bu tam bir Excel hesaplama motoru değildir. Belgelendirilen fonksiyon seti aşağıdaki fonksiyonlarla sınırlıdır. [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) aracılığıyla rastgele bir Excel fonksiyonunun yeniden hesaplanabileceğini varsaymayın.
+
+| Fonksiyon | Amacı ya da desteklenen form | Örnek |
+|---|---|---|
+| `ABS` | Mutlak değer | `ABS(A2)` |
+| `AVERAGE` | Aritmetik ortalama | `AVERAGE(B2:B5)` |
+| `CEILING` | Bir sayıyı yukarı doğru bir katına yuvarla | `CEILING(A2,5)` |
+| `CHOOSE` | İndexe göre bir değer seç | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | Metin değerlerini birleştir | `CONCAT(A2,B2)` |
+| `CONCATENATE` | Metin değerlerini birleştir | `CONCATENATE(A2," ",B2)` |
+| `DATE` | 1900 tarih sistemini kullanarak bir tarih değeri oluştur | `DATE(2026,8,19)` |
+| `DAYS` | Tarihler arasındaki gün sayısını döndür | `DAYS(B2,A2)` |
+| `FIND` | Bir metin değerini diğerinin içinde bul | `FIND("-",A2)` |
+| `FINDB` | Bayt yönelimli metin araması | `FINDB("a",A2)` |
+| `IF` | Koşullu sonuç | `IF(A2>0,A2,0)` |
+| `INDEX` | Referans biçimi | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | Vektör biçimi | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | Vektör biçimi | `MATCH(A2,B2:B5,0)` |
+| `MAX` | Maksimum değer | `MAX(B2:B5)` |
+| `SUM` | Değerleri toplar | `SUM(B2:B5)` |
+| `VLOOKUP` | Dikey arama | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+
+Tabloda gösterilen kısıtlamalar önemlidir: `INDEX` referans biçiminde belgelenirken, `LOOKUP` ve `MATCH` vektör biçimlerinde belgelenir. `DATE` 1900 tarih sistemini kullanır. Burada listelenmeyen özellikler ve fonksiyonlar, Aspose.Slides formül değerlendiricisi tarafından desteklenmiyormuş gibi ele alınmalıdır.
+
+## **Yeniden Hesaplama ve Önbellek Değerleri**
+
+Elektronik tablo dosyaları genellikle bir formül ile onun son hesaplanmış değerini birlikte depolar. Aspose.Slides, bir sunum yüklendiğinde ve ilgili grafik verisi değiştirilmediğinde, [IChartDataCell.getValue](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichartdatacell/#getValue--) aracılığıyla önbelleğe alınmış bir değeri okuyabilir.
+
+Giriş hücrelerini veya formülleri değiştirdikten sonra eski bir önbellek sonucuna güvenmeyin. Hesaplanan değerleri okumadan veya onlara bağlı grafik verisini kaydetmeden önce [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) çağırın.
+
+Desteklenen alt kümenin dışındaki formüller için Aspose.Slides formülü ayrıştıramayabilir veya bağımlılıklarını belirleyemeyebilir. Çalışma kitabı değiştirilmişse, önceki önbellek değeri artık güvenilir sayılmaz. Bu durumda, desteklenmeyen veriye sahip bir hücrenin değerini okumak [CellUnsupportedDataException](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/cellunsupporteddataexception/) hatasına yol açabilir.
+
+Grafiğiniz Aspose.Slides’ın değerlendirmediği Excel fonksiyonlarına dayanıyorsa, bu formülleri bu fonksiyonları destekleyen bir elektronik tablo motoruyla hesaplayın ve elde edilen değerleri grafik çalışma kitabına geri yazın. Desteklenmeyen formülleri tahmini değerlerle değiştirmeyin.
+
+## **Formül Hatalarını Ele Alma**
+
+Ayırt edilmesi gereken iki farklı problem türü vardır.
+
+Bir formül geçerli olabilir ancak `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` veya `#VALUE!` gibi bir elektronik tablo hata sonucu üretebilir. Bu durumda hata belirteci bir hücre sonucudur ve [IChartDataCell.getValue](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichartdatacell/#getValue--) aracılığıyla döndürülebilir.
+
+Bir formül ayrıca ayrıştırma, referans, bağımlılık veya desteklenen‑veri seviyesinde başarısız olabilir. Aspose.Slides bu durumlar için elektronik tablo‑özel istisnalar sağlar: [CellInvalidFormulaException](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/cellcircularreferenceexception/) ve [CellUnsupportedDataException](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/cellunsupporteddataexception/).
+
+Şablonlardan veya kullanıcı girişlerinden gelen formüllerle çalışırken, yeniden hesaplama ve değer erişimi etrafında bu istisnaları yakalayın:
 
 ```java
-workbook.getCell(0, "A2").setFormula("1 + 0.5");
-workbook.getCell(0, "B2").setFormula(".3 * 1E-2");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell cell = workbook.getCell(0, "A2");
+    cell.setFormula("SUM(B2:B5)");
+
+    try {
+        workbook.calculateFormulas();
+        System.out.println(cell.getValue());
+    } catch (CellInvalidFormulaException ex) {
+        System.err.println("Invalid formula: " + ex.getMessage());
+    } catch (CellInvalidReferenceException ex) {
+        System.err.println("Invalid cell reference: " + ex.getMessage());
+    } catch (CellCircularReferenceException ex) {
+        System.err.println("Circular reference: " + ex.getMessage());
+    } catch (CellUnsupportedDataException ex) {
+        System.err.println("Unsupported spreadsheet data: " + ex.getMessage());
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Dize Sabitleri**
-Dize (veya literal) sabiti, olduğu gibi kullanılan ve değişmeyen belirli bir değerdir. Dize sabitleri şunlar olabilir: tarih, metin, sayı vb.:
+## **Pratik Sınırlamalar**
 
-```java
-workbook.getCell(0, "A2").setFormula("\"abc\"");
-workbook.getCell(0, "B2").setFormula("\"2/3/2020 12:00\"");
-```
+Grafik çalışma sayfalarındaki formül desteği, tam Excel uyumluluğu değil, tanımlı bir elektronik tablo hesaplama alt kümesi için tasarlanmıştır. Raporlama iş akışınızı tasarlarken şu kısıtlamaları aklınızda tutun:
 
-## **Hata Sabitleri**
-Bazen formül sonucu hesaplanamaz. Bu durumda hücrede değeri yerine hata kodu gösterilir. Her hata türünün belirli bir kodu vardır:
-
-- #DIV/0! - formül sıfıra bölmeye çalışır.
-- #GETTING_DATA - değeri hâlâ hesaplanırken bir hücrede görünebilir.
-- #N/A - bilgi eksik ya da mevcut değil. Nedenler: formülde kullanılan hücreler boş, ekstra boşluk karakteri, yazım hatası vb.
-- #NAME? - belirli bir hücre ya da diğer formül nesneleri adıyla bulunamıyor. 
-- #NULL! - formülde hata olduğunda ortaya çıkabilir; örneğin  (,) ya da iki nokta üstüstü (:) yerine boşluk karakteri kullanılması.
-- #NUM! - formüldeki sayı geçersiz, çok uzun ya da çok kısa vb.
-- #REF! - geçersiz hücre referansı.
-- #VALUE! - beklenmedik değer türü. Örneğin, sayı hücresine dize değeri atanması.
-
-```java
-IChartDataCell cell = workbook.getCell(0, "A2");
-cell.setFormula("2 / 0");
-Object value = cell.getValue(); // değer string "#DIV/0!" içerir
-```
-
-## **Aritmetik Operatörler**
-Grafik çalışma sayfası formüllerinde tüm aritmetik operatörleri kullanabilirsiniz:
-
-|**Operatör**|**Anlam**|**Örnek**|
-| :- | :- | :- |
-|+ (artı işareti)|Toplama veya tekli artı|2 + 3|
-|- (eksi işareti)|Çıkarma veya negatif|2 - 3<br>-3|
-|* (yıldız)|Çarpma|2 * 3|
-|/ (bölü işareti)|Bölme|2 / 3|
-|% (yüzde işareti)|Yüzde|30%|
-|^ (caret)|Üs alma|2 ^ 3|
-
-*Not*: Değerlendirme sırasını değiştirmek için, önce hesaplanması gereken formül kısmını parantez içine alın.
-
-## **Karşılaştırma Operatörleri**
-Hücre değerlerini karşılaştırma operatörleriyle karşılaştırabilirsiniz. Bu operatörlerle iki değer karşılaştırıldığında sonuç mantıksal bir değer, yani *TRUE* ya da FALSE olur:
-
-|**Operatör**|**Anlam**|**Anlam**|
-| :- | :- | :- |
-|= (eşittir işareti)|Eşittir|A2 = 3|
-|<> (eşit değildir işareti)|Eşit değildir|A2 <> 3|
-|> (büyük işareti)|Büyüktür|A2 > 3|
-|>= (büyük veya eşittir işareti)|Büyük veya eşittir|A2 >= 3|
-|< (küçük işareti)|Küçüktür|A2 < 3|
-|<= (küçük veya eşittir işareti)|Küçük veya eşittir|A2 <= 3|
-
-## **A1‑stili Hücre Referansları**
-**A1‑stili hücre referansları**, sütunun harf (ör. "*A*") ve satırın sayısal (ör. "*1*") tanımlayıcıya sahip olduğu çalışma sayfalarında kullanılır. A1‑stili hücre referansları aşağıdaki şekilde kullanılabilir:
-
-|**Hücre referansı**|**Örnek**|||
-| :- | :- | :- | :- |
-||Mutlak|Göreceli|Karışık|
-|Hücre|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|Satır|$2:$2|2:2|-|
-|Sütun|$A:$A|A:A|-|
-|Aralık|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
-
-
-A1‑stili hücre referansının formülde nasıl kullanılacağına bir örnek:
-
-```java
-workbook.getCell(0, "A2").setFormula("C3 + SUM(F2:H5)");
-```
-
-## **R1C1‑stili Hücre Referansları**
-**R1C1‑stili hücre referansları**, hem satır hem de sütunun sayısal kimlik taşıdığı çalışma sayfalarında kullanılır. R1C1‑stili hücre referansları aşağıdaki şekilde kullanılabilir:
-
-|**Hücre referansı**|**Örnek**|||
-| :- | :- | :- | :- |
-||Mutlak|Göreceli|Karışık|
-|Hücre|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Satır|R2|R[2]|-|
-|Sütun|C3|C[3]|-|
-|Aralık|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
-
-
-R1C1‑stili hücre referansının formülde nasıl kullanılacağına bir örnek:
-
-```java
-workbook.getCell(0, "A2").setR1C1Formula("R2C4 + SUM(R5C6:R7C9)");
-```
-
-## **Öncedefinir Fonksiyonlar**
-Formüllerde uygulanmasını basitleştirmek için kullanılabilen öncedefinir fonksiyonlar vardır. Bu fonksiyonlar en sık kullanılan işlemleri kapsar, örneğin:
-
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (1900 tarih sistemi)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (referans formu)
-- LOOKUP (vektör formu)
-- MATCH (vektör formu)
-- MAX
-- SUM
-- VLOOKUP
+- Aspose.Slides’ın formülleri yeniden hesaplamasını istediğinizde yalnızca belgelenen sabitleri, operatörleri, referansları ve fonksiyonları kullanın.
+- Formül sonuçlarının bağımlı olduğu hücreleri değiştirdikten sonra yeniden hesaplayın.
+- Yüklenmiş sunumlardan gelen önbellek değerlerini bir anlık görüntü olarak değerlendirin; düzenlemelerden sonra yeniden hesaplamanın yerini tutmaz.
+- Mevcut şablonlardaki formülleri, belgelenen listenin dışındaki fonksiyonları kullandıklarında, hesaplanan değerlerine güvenmeden önce test edin.
+- Tam bir elektronik tablo hesaplama motoru gerektiren formüller için bunları dışarıda hesaplayın ve ardından elde edilen değerlerle grafik çalışma kitabını güncelleyin.
 
 ## **SSS**
 
-**Formüllü bir grafik için dış Excel dosyaları veri kaynağı olarak destekleniyor mu?**
+**[IChartDataCell.setFormula](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) ile [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) arasındaki fark nedir?**
 
-Evet. Aspose.Slides, bir grafiğin veri kaynağı olarak dış çalışma kitaplarını [chart's data source](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/chartdatasourcetype/) destekler; böylece sunum dışındaki bir XLSX dosyasından formüller kullanılabilir.
+[IChartDataCell.setFormula](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) `B2-C2` gibi bir A1‑stil ifadesi depolar. [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) ise `RC[-2]-RC[-1]` gibi bir R1C1‑stil ifadesi depolar. Formülleri oluşturma veya kopyalama yönteminizle en iyi eşleşen notasyonu kullanın.
 
-**Grafik formülleri, aynı çalışma kitabındaki sayfalara sayfa adıyla başvurabilir mi?**
+**Hesaplamadan sonra hücrenin kendisini mi yoksa değerini mi okumam gerekir?**
 
-Evet. Formüller standart Excel referans modelini izler, bu yüzden aynı çalışma kitabındaki ya da dış bir çalışma kitabındaki diğer sayfalara başvurabilirsiniz. Dış başvurular için Excel sözdizimini kullanarak yolu ve çalışma kitabı adını ekleyin.
+[IChartDataWorkbook.getCell](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-java.lang.String-) bir [IChartDataCell](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichartdatacell/) döndürür. Hesaplanmış sonucu elde etmek için, yeniden hesaplamadan sonra o hücrenin [IChartDataCell.getValue](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichartdatacell/#getValue--) metodunu çağırın.
+
+**[IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) ne zaman çağrılmalı?**
+
+Giriş değerlerini veya formülleri değiştirdikten sonra ve hesaplanan sonuçlara bağlı olmadan önce [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) çağırın. Bu, yerleşik değerlendiricinin desteklediği formüllerin değerlerini günceller.
+
+**Aspose.Slides her Excel fonksiyonunu destekliyor mu?**
+
+Hayır. Yerleşik değerlendirici belgelenen bir fonksiyon alt kümesini destekler. Bu alt kümenin dışındaki fonksiyonların doğru bir şekilde yeniden hesaplanacağını varsaymayın. Tam Excel formül uyumluluğu gerekiyorsa, hesaplamayı uygun bir elektronik tablo motoruyla yapın ve nihai değerleri grafik çalışma kitabına yazın.
+
+**Yüklenmiş bir sunum desteklenmeyen bir formül içeriyorsa ne olur?**
+
+Grafik verisi değişmemişse, çalışma kitabı hâlâ daha önce hesaplanmış bir önbellek değeri içerebilir. İlgili veri değiştirildiğinde, bu önbellek değeri artık geçerli olmayabilir. Formülü işlenemeyen bir hücreye erişmek [CellUnsupportedDataException](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/cellunsupporteddataexception/) hatasına yol açabilir.
+
+**Formül hata değerleri Java istisnalarıyla aynı mı?**
+
+Hayır. `#DIV/0!` gibi bir sonuç, geçerli bir hesaplamanın ürettiği bir elektronik tablo değeridir. [CellInvalidFormulaException](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/cellinvalidformulaexception/) veya [CellCircularReferenceException](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/cellcircularreferenceexception/) gibi istisnalar, formülün normal şekilde işlenemediğini gösterir.
+
+**Bir formül hücresi değiştiğinde grafik otomatik olarak güncellenir mi?**
+
+Bir grafik serisi, çalışma kitabı hücrelerine referans verebilir. Önce çalışma kitabını yeniden hesaplayın, ardından sunumu kaydedin veya oluşturun. Grafik veri noktaları hesaplanan hücrelere referans veriyorsa, grafik bu güncellenmiş hücre değerlerini kullanır; bu iş akışı için ayrı bir grafik‑yenileme yöntemi gerekmez.
+
+**Grafikler harici bir Excel çalışma kitabı kullanabilir mi?**
+
+Evet, grafik verisi dış bir çalışma kitabını grafik veri API’si aracılığıyla yapılandırılabilir. Ancak bu makalede açıklanan formül hesaplama iş akışı, grafik veri çalışma kitabı ve Aspose.Slides tarafından değerlendirilen formül alt kümesiyle ilgilidir. [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) dış bir XLSX dosyasındaki rastgele formüllerin tam yeniden hesaplamasını sağlayacağını varsaymayın.
+
+**Başka bir çalışma sayfasına veya çalışma kitabına referans veren formüller kullanabilir miyim?**
+
+Excel‑stil referanslar grafik çalışma kitaplarında bulunabilir, ancak formül değerlendirmesi desteklenen ayrıştırıcı ve fonksiyon setiyle sınırlıdır. Çapraz‑sayfa veya dış referans kritikse, hedef Aspose.Slides sürümünüzle tam formülü doğrulayın. Geniş Excel referans uyumluluğu gerektiren iş akışları için, çalışma kitabını dışarıda hesaplayın ve çözülen değerleri grafik verisine geri yazın.
+
+**Formül dizeleri `=` ile başlamalı mı?**
+
+Aspose.Slides API örnekleri `B2-C2` veya `SUM(B2:B5)` gibi başında `=` olmadan ifadeler atar. Bu biçimi kullanmak, oluşturulan formüllerin belgelenen API örnekleriyle tutarlı kalmasını sağlar.

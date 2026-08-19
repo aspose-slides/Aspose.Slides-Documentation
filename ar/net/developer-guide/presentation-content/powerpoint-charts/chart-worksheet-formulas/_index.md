@@ -5,17 +5,18 @@ type: docs
 weight: 70
 url: /ar/net/chart-worksheet-formulas/
 keywords:
-- جدول بيانات المخطط
+- مخطط جدول بيانات
 - ورقة عمل المخطط
 - صيغة المخطط
 - صيغة ورقة العمل
 - صيغة جدول البيانات
-- مصدر البيانات
+- دفتر عمل بيانات المخطط
+- حساب الصيغة
 - ثابت منطقي
-- ثابت رقمي
+- ثابت عددي
 - ثابت نصي
 - ثابت خطأ
-- ثابت حسابي
+- عامل حسابي
 - عامل مقارنة
 - نمط A1
 - نمط R1C1
@@ -25,207 +26,365 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "تطبيق صيغ بنمط Excel في Aspose.Slides لورقات عمل مخططات .NET وتلقائية التقارير عبر ملفات PPT و PPTX."
+description: "تطبيق صيغ بنمط Excel في أوراق عمل المخطط في Aspose.Slides لـ .NET، إعادة حساب القيم، واستخدام النتائج في مخططات PowerPoint."
 ---
+## **نظرة عامة**
 
-## **حول صيغ جدول بيانات المخطط في العروض التقديمية**
-**Chart spreadsheet** (أو ورقة عمل المخطط) في العرض التقديمي هي مصدر البيانات للمخطط. يحتوي جدول بيانات المخطط على البيانات التي يتم تمثيلها على المخطط بصورة رسومية. عند إنشاء مخطط في PowerPoint، يتم إنشاء ورقة العمل المرتبطة بهذا المخطط تلقائيًا أيضًا. يتم إنشاء ورقة عمل المخطط لجميع أنواع المخططات: مخطط خطي، مخطط شريطي، مخطط متسلسل، مخطط دائري، إلخ. لرؤية جدول بيانات المخطط في PowerPoint يجب النقر مزدوجًا على المخطط:
+عادةً ما تخزن مخططات PowerPoint بياناتها المصدرية في ورقة عمل مدمجة. في Aspose.Slides لـ .NET، يمكنك الوصول إلى تلك الورقة عبر دفتر عمل بيانات المخطط، كتابة القيم المدخلة، تعيين صيغ للخلايا، حساب الصيغ المدعومة، واستخدام الخلايا المحسوبة كبيانات للمخطط.
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+تشرح هذه المقالة سير عمل الصيغ بالكامل: إنشاء مخطط، تعبئة ورقة عمله، تعيين صيغ بنمط A1 أو R1C1، إعادة حسابها، قراءة القيم المحسوبة، ربط تلك الخلايا بسلسلة مخطط، وحفظ العرض التقديمي. كما تصف بنية الصيغة المدعومة، مجموعة الدوال المدمجة، القيم المخزنة مؤقتًا، الصيغ غير المدعومة، وأخطاء الورقة الخاصة بالإكسل.
 
+## **أوراق عمل المخططات والصيغ**
 
+ورقة عمل المخطط تحتوي على الفئات وأسماء السلاسل والقيم المستخدمة في المخطط. في PowerPoint، يمكنك فحص ورقة العمل بفتح محرر بيانات المخطط:
 
-يحتوي جدول بيانات المخطط على أسماء عناصر المخطط (اسم الفئة: *Category1*، اسم السلسلة) وجدول بالبيانات الرقمية المناسبة لتلك الفئات والسلسلات. بشكل افتراضي، عندما تنشئ مخططًا جديدًا – يتم ضبط بيانات جدول بيانات المخطط بالبيانات الافتراضية. ثم يمكنك تعديل بيانات الجدول يدويًا في ورقة العمل.
+![مخطط PowerPoint مع ورقة عمل مدمجة مفتوحة، يُظهر بيانات الفئات والسلاسل](chart-worksheet-formulas_1.png)
 
-عادةً ما يمثل المخطط بيانات معقدة (مثل المحللين الماليين أو العلماء)، تحتوي على خلايا تُحسب من القيم في خلايا أخرى أو من بيانات ديناميكية أخرى. حساب قيمة الخلية يدويًا وتسجيلها صلبًا داخل الخلية يجعل من الصعب تغييرها في المستقبل. إذا قمت بتغيير قيمة خلية معينة، سيتطلب تحديث جميع الخلايا المعتمدة على تلك القيمة أيضًا. علاوة على ذلك، قد تعتمد بيانات الجدول على بيانات جداول أخرى، مما يخلق مخطط بيانات عرض تقديمي معقد يحتاج إلى تحديث بطريقة سهلة ومرنة.
+في Aspose.Slides، تُعرض ورقة العمل من خلال [chart data workbook](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdataworkbook/). استخدم خاصية [Formula](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdatacell/formula/) لصيغ نمط A1 وخاصية [R1C1Formula](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdatacell/r1c1formula/) لصيغ نمط R1C1. بعد تغيير خلايا الإدخال أو الصيغ، اتصل بـ [CalculateFormulas](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) لإعادة حساب الصيغ المدعومة وتحديث قيم الخلايا المقابلة.
 
-**Chart spreadsheet formula** في العرض التقديمي هي تعبير لحساب وتحديث بيانات جدول بيانات المخطط تلقائيًا. تحدد صيغة الجدول المنطقية حساب البيانات لخلية معينة أو لمجموعة خلايا. صيغة الجدول هي صيغة رياضية أو منطقية تستخدم: مراجع خلايا، دوال رياضية، معاملات منطقية، معاملات حسابية، دوال تحويل، ثوابت نصية، إلخ. يتم كتابة تعريف الصيغة داخل خلية، وهذه الخلية لا تحتوي على قيمة بسيطة. تحسب صيغة الجدول القيمة وتعيدها، ثم تُعيَّن هذه القيمة إلى الخلية. صيغ جدول بيانات المخطط في العروض التقديمية هي نفسها صيغ Excel، وتُدعم نفس الدوال الافتراضية، المعاملات والثوابت لتنفيذها.
+لا يزال الخلية المحسوبة تُظهر نتيجتها من خلال خاصية [Value](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdatacell/value/). هذا مهم عندما تحتاج إلى فحص نتيجة الصيغة في الكود أو استخدام الخلية كنقطة بيانات للمخطط.
 
-في [**Aspose.Slides**](https://products.aspose.com/slides/net/) يُمثَّل جدول بيانات المخطط بـ
-[**Chart.ChartData.ChartDataWorkbook**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/properties/chartdataworkbook) الخاص بـ
-[**IChartDataWorkbook**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook). 
-يمكن تعيين صيغة الجدول وتغييرها باستخدام
-[**IChartDataCell.Formula**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/formula). 
-الوظائف التالية مدعومة للصيغ في Aspose.Slides:
+## **إنشاء مخطط وحساب صيغ ورقة العمل**
 
-- ثوابت منطقية
-- ثوابت رقمية
-- ثوابت نصية
-- ثوابت أخطاء
-- معاملات حسابية
-- معاملات مقارنة
-- مراجع خلايا بنمط A1
-- مراجع خلايا بنمط R1C1
-- دوال معرفة مسبقًا
+المثال التالي يُظهر سير عمل من البداية إلى النهاية. فهو ينشئ مخطط عمودي مُجَمَّع، يمسح البيانات التجريبية، يكتب قيم الإيرادات والنفقات ربع السنوية، يحسب الربح باستخدام صيغ، يقرأ النتائج، يستخدم الخلايا المحسوبة كقيم للمخطط، ويحفظ العرض التقديمي.
 
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
+using var presentation = new Presentation();
 
-عادةً ما تخزن الجداول قيم الصيغ المحسوبة الأخيرة. إذا لم تتغير بيانات المخطط بعد تحميل العرض التقديمي – تُعيد خاصية **IChartDataCell.Value** تلك القيم أثناء القراءة. لكن، إذا تم تغيير بيانات جدول البيانات، فإن قراءة خاصية **ChartDataCell.Value** تُلقي استثناء **CellUnsupportedDataException** للصيغ غير المدعومة. يحدث هذا لأن الصيغ التي تُحلل بنجاح تُحدِّد تبعيات الخلايا وتتحقق من صحة القيم الأخيرة. أما إذا لم تُحلل الصيغة، فلا يمكن ضمان صحة قيمة الخلية.
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 350);
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
 
-## **إضافة صيغة جدول بيانات المخطط إلى عرض تقديمي**
-أولاً، أضف مخططًا مع بعض البيانات التجريبية إلى الشريحة الأولى من عرض تقديمي جديد باستخدام
-[IShapeCollection.Shapes.AddChart](https://reference.aspose.com/slides/net/aspose.slides.ishapecollection/addchart/methods/1). 
-تُنشأ ورقة عمل المخطط تلقائيًا ويمكن الوصول إليها عبر
-[**Chart.ChartData.ChartDataWorkbook**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/properties/chartdataworkbook) الخاص بها:
-``` csharp
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+workbook.Clear(worksheetIndex);
 
-using (var presentation = new Presentation())
+var category1 = workbook.GetCell(worksheetIndex, "A2", "Q1");
+var category2 = workbook.GetCell(worksheetIndex, "A3", "Q2");
+var category3 = workbook.GetCell(worksheetIndex, "A4", "Q3");
 
-{
+workbook.GetCell(worksheetIndex, "B1", "Revenue");
+workbook.GetCell(worksheetIndex, "C1", "Expenses");
+workbook.GetCell(worksheetIndex, "D1", "Profit");
 
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 150, 150, 500, 300);
+workbook.GetCell(worksheetIndex, "B2").Value = 120.0;
+workbook.GetCell(worksheetIndex, "C2").Value = 80.0;
+workbook.GetCell(worksheetIndex, "B3").Value = 150.0;
+workbook.GetCell(worksheetIndex, "C3").Value = 95.0;
+workbook.GetCell(worksheetIndex, "B4").Value = 135.0;
+workbook.GetCell(worksheetIndex, "C4").Value = 110.0;
 
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+var profit1 = workbook.GetCell(worksheetIndex, "D2");
+var profit2 = workbook.GetCell(worksheetIndex, "D3");
+var profit3 = workbook.GetCell(worksheetIndex, "D4");
 
-    // ...
+profit1.Formula = "B2-C2";
+profit2.Formula = "B3-C3";
+profit3.Formula = "B4-C4";
 
-}
-
-```
-
-
-لنكتب بعض القيم في الخلايا باستخدام
-[**IChartDataCell.Value**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/value) الخاص
-بنوع **Object**، مما يعني أنه يمكنك تعيين أي قيمة لهذه الخاصية:
-``` csharp
-
-workbook.GetCell(0, "F2").Value = -2.5;
-
-workbook.GetCell(0, "G3").Value = 6.3;
-
-workbook.GetCell(0, "H4").Value = 3;
-
-```
-
-
-الآن لكتابة صيغة إلى الخلية، يمكنك استخدام
-[**IChartDataCell.Formula**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/formula) الخاص بها:
-``` csharp
-workbook.GetCell(0, "B2").Formula = "F2+G3+H4+1";
-```
-
-
-*ملاحظة*: خاصية [**IChartDataCell.Formula**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/formula) تُستخدم لتعيين مراجع خلايا بنمط A1.
-
-لتعيين مرجع الخلية بـ[R1C1Formula](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/r1c1formula)، يمكنك استخدام خاصية
-[**IChartDataCell.R1C1Formula**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/properties/r1c1formula):
-``` csharp
-workbook.GetCell(0, "C2").R1C1Formula = "R[1]C[4]/R[2]C[5]";
-```
-
-
-بعد ذلك استخدم طريقة
-[**IChartDataWorkbook.CalculateFormulas**](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdataworkbook/methods/calculateformulas) لحساب جميع الصيغ داخل دفتر العمل وتحديث قيم الخلايا المقابلة:
-``` csharp
 workbook.CalculateFormulas();
 
-object value1 = workbook.GetCell(0, "B2"); // 7.8
+var q1Profit = Convert.ToDouble(profit1.Value); // 40
+var q2Profit = Convert.ToDouble(profit2.Value); // 55
+var q3Profit = Convert.ToDouble(profit3.Value); // 25
 
-object value2 = workbook.GetCell(0, "C2"); // 2.1
+Console.WriteLine($"Q1 profit: {q1Profit}");
+Console.WriteLine($"Q2 profit: {q2Profit}");
+Console.WriteLine($"Q3 profit: {q3Profit}");
 
+chart.ChartData.Categories.Add(category1);
+chart.ChartData.Categories.Add(category2);
+chart.ChartData.Categories.Add(category3);
+
+var profitSeries = chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, "D1"), chart.Type);
+profitSeries.DataPoints.AddDataPointForBarSeries(profit1);
+profitSeries.DataPoints.AddDataPointForBarSeries(profit2);
+profitSeries.DataPoints.AddDataPointForBarSeries(profit3);
+profitSeries.Labels.DefaultDataLabelFormat.ShowValue = true;
+
+presentation.Save("chart-formulas.pptx", SaveFormat.Pptx);
 ```
 
+تشير نقاط بيانات المخطط إلى `D2:D4`، لذا يستخدم المخطط قيم الربح المحسوبة. لا توجد دعوة منفصلة لتحديث المخطط في سير العمل هذا: أعد حساب دفتر العمل أولاً، ثم استخدم أو احفظ بيانات المخطط التي تشير إلى الخلايا المحسوبة.
 
-## **الثوابت المنطقية**
-يمكنك استخدام الثوابت المنطقية مثل *FALSE* و *TRUE* في صيغ الخلايا:
+## **استخدام صيغ بنمط A1**
 
-## **الثوابت الرقمية**
-يمكن استخدام الأرقام بصيغ عادية أو علمية لإنشاء صيغ جدول بيانات المخطط:
+يحدد تدوين A1 الأعمدة بالحروف والصفوف بالأرقام. عين تعبيرات بنمط A1 عبر [IChartDataCell.Formula](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdatacell/formula/).
 
-## **الثوابت النصية**
-الثابت النصي (أو الحرفي) هو قيمة محددة تُستخدم كما هي ولا تتغير. قد تكون الثوابت النصية: تواريخ، نصوص، أرقام، إلخ:
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
 
-## **ثوابت الأخطاء**
-أحيانًا لا يمكن حساب النتيجة باستخدام الصيغة. في تلك الحالة يُظهر رمز الخطأ في الخلية بدلًا من قيمتها. لكل نوع من الأخطاء رمز محدد:
+using var presentation = new Presentation();
 
-- #DIV/0! - تحاول الصيغة القسمة على الصفر.
-- #GETTING_DATA - قد يُظهر على خلية بينما لا تزال قيمتها تُحسب.
-- #N/A - المعلومات مفقودة أو غير متوفرة. بعض الأسباب قد تكون: الخلايا المستخدمة في الصيغة فارغة، وجود مساحة إضافية، كتابة خطأ، إلخ.
-- #NAME? - لا يمكن العثور على خلية معينة أو كائن صيغة آخر بالاسم.
-- #NULL! - قد يظهر عندما يكون هناك خطأ في الصيغة، مثل:  (,) أو مساحة بدلاً من نقطتين (:).
-- #NUM! - الرقم في الصيغة قد يكون غير صالح، طويل جدًا أو قصير جدًا، إلخ.
-- #REF! - مرجع خلية غير صالح.
-- #VALUE! - نوع قيمة غير متوقع. على سبيل المثال، قيمة نصية مضبوطة في خلية عددية.
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+var workbook = chart.ChartData.ChartDataWorkbook;
 
-## **العوامل الحسابية**
-يمكنك استخدام جميع العوامل الحسابية في صيغ ورقة عمل المخطط:
+workbook.GetCell(0, "C3").Value = 10;
+workbook.GetCell(0, "F2").Value = 2;
+workbook.GetCell(0, "G2").Value = 3;
+workbook.GetCell(0, "H2").Value = 4;
 
-|**العامل**|**المعنى**|**مثال**|
-| :- | :- | :- |
-|+ (إشارة الجمع)|الجمع أو جمع أحادي|2 + 3|
-|- (إشارة الطرح)|الطرح أو السالب|2 - 3<br>-3|
-|* (نجمة)|الضرب|2 * 3|
-|/ (شرطة مائلة)|القسمة|2 / 3|
-|% (نسبة مئوية)|النسبة المئوية|30%|
-|^ (ق caret)|الأس|2 ^ 3|
+var cell = workbook.GetCell(0, "A2");
+cell.Formula = "C3+SUM(F2:H2)";
 
-*ملاحظة*: لتغيير ترتيب التقييم، ضع الجزء الذي تريد حسابه أولاً بين أقواس.
+workbook.CalculateFormulas();
 
-## **العوامل المقارنة**
-يمكنك مقارنة قيم الخلايا باستخدام عوامل المقارنة. عند مقارنة قيمتين باستخدام هذه العوامل، تكون النتيجة قيمة منطقية إما *TRUE* أو FALSE:
+var value = cell.Value; // 19
+```
 
-|**العامل**|**المعنى**|**المعنى**|
-| :- | :- | :- |
-|= (علامة المساواة)|مساوي لـ|A2 = 3|
-|<> (علامة عدم المساواة)|ليس مساويًا لـ|A2 <> 3|
-|> (علامة أكبر من)|أكبر من|A2 > 3|
-|>= (علامة أكبر من أو يساوي)|أكبر من أو يساوي|A2 >= 3|
-|< (علامة أصغر من)|أصغر من|A2 < 3|
-|<= (علامة أصغر من أو يساوي)|أصغر من أو يساوي|A2 <= 3|
+الأشكال الشائعة للمرجع بنمط A1 هي:
 
-## **مراجع خلايا بنمط A1**
-**مراجع خلايا بنمط A1** تُستخدم في أوراق العمل التي يكون فيها العمود معرفًا بحرف (مثل "*A*") والصف معرفًا رقمًا (مثل "*1*"). يمكن استخدام مراجع خلايا نمط A1 بالطريقة التالية:
+| المرجع | نسبي | مطلق | مختلط |
+|---|---|---|---|
+| خلية | `A2` | `$A$2` | `A$2`, `$A2` |
+| صف | `2:2` | `$2:$2` | — |
+| عمود | `A:A` | `$A:$A` | — |
+| نطاق | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-|**مرجع الخلية**|**مثال**|||
-| :- | :- | :- | :- |
-||مطلق|نسبي|مختلط|
-|خلية|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|صف|$2:$2|2:2|-|
-|عمود|$A:$A|A:A|-|
-|نطاق|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
+يمكن أن تتغير المراجع النسبية عندما يتم نقل الصيغة أو نسخها بواسطة تطبيق ورقة عمل. المراجع المطلقة تُبقي كلا الإحداثيين ثابتين، بينما المراجع المختلطة تُثبت إما الصف أو العمود فقط.
 
-فيما يلي مثال على كيفية استخدام مرجع خلايا بنمط A1 في صيغة:
+## **استخدام صيغ بنمط R1C1**
 
-## **مراجع خلايا بنمط R1C1**
-**مراجع خلايا بنمط R1C1** تُستخدم في أوراق العمل التي يكون فيها كل من الصف والعمود معرفين رقميًا. يمكن استخدام مراجع خلايا نمط R1C1 بالطريقة التالية:
+يحدد تدوين R1C1 كلًا من الصفوف والأعمدة رقمياً. تستخدم المراجع النسبية إزاحات داخل أقواس مربعة. عين هذا النحو عبر [IChartDataCell.R1C1Formula](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdatacell/r1c1formula/).
 
-|**مرجع الخلية**|**مثال**|||
-| :- | :- | :- | :- |
-||مطلق|نسبي|مختلط|
-|خلية|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|صف|R2|R[2]|-|
-|عمود|C3|C[3]|-|
-|نطاق|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
 
-فيما يلي مثال على كيفية استخدام مرجع خلايا بنمط A1 في صيغة:
+using var presentation = new Presentation();
 
-## **الدوال المعرفة مسبقًا**
-هناك دوال معرفة مسبقًا يمكن استخدامها في الصيغ لتبسيط تنفيذها. تُغلق هذه الدوال أكثر العمليات المستخدمة شيوعًا، مثل:
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+var workbook = chart.ChartData.ChartDataWorkbook;
 
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (نظام تاريخ 1900)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (نموذج مرجع)
-- LOOKUP (نموذج متجه)
-- MATCH (نموذج متجه)
-- MAX
-- SUM
-- VLOOKUP
+workbook.GetCell(0, "B2").Value = 12;
+workbook.GetCell(0, "C2").Value = 5;
 
-## **الأسئلة المتكررة**
+var cell = workbook.GetCell(0, "D2");
+cell.R1C1Formula = "RC[-2]-RC[-1]";
 
-**هل تدعم ملفات Excel الخارجية كمصدر بيانات لمخطط يحتوي على صيغ؟**
+workbook.CalculateFormulas();
 
-نعم. يدعم Aspose.Slides دفاتر عمل خارجية كمصدر بيانات [للمخطط](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatasourcetype/)، مما يتيح لك استخدام صيغ من ملف XLSX خارج العرض التقديمي.
+var value = cell.Value; // 7
+```
 
-**هل يمكن لصيغ المخطط الإشارة إلى أوراق داخل نفس دفتر العمل باسم الورقة؟**
+الأشكال الشائعة للمرجع بنمط R1C1 هي:
 
-نعم. تتبع الصيغ نموذج مرجع Excel القياسي، لذا يمكنك الإشارة إلى أوراق أخرى داخل نفس دفتر العمل أو دفتر عمل خارجي. بالنسبة للإشارات الخارجية، تضمّن المسار واسم دفتر العمل باستخدام صيغة Excel.
+| المرجع | نسبي | مطلق | مختلط |
+|---|---|---|---|
+| خلية | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| صف | `R[2]` | `R2` | — |
+| عمود | `C[3]` | `C3` | — |
+| نطاق | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+
+على سبيل المثال، في الخلية `D2`، يعني `RC[-2]` الخلية في نفس الصف عمودين إلى اليسار (`B2`).
+
+## **ثوابت الصيغة والعوامل**
+
+يدعم مُقَيِّم الصيغ المدمج القيم المنطقية، الأعداد الحرفية، السلاسل النصية، قيم أخطاء الورقة، العوامل الحسابية، وعوامل المقارنة.
+
+### **الثوابت والقيم الحرفية**
+
+| النوع | أمثلة | ملاحظات |
+|---|---|---|
+| منطقي | `TRUE`, `FALSE` | يمكن استخدامها مباشرةً في تعبيرات منطقية مثل `A2=TRUE`. |
+| عددي | `1`, `0.5`, `.3`, `1E-2` | يدعم الترميز العادي والعلمي. |
+| سلسلة | `"abc"`, `"2/3/2020 12:00"` | تُطَوَّق النصوص داخل الصيغة بأقواس اقتباس مزدوجة. |
+| نتيجة خطأ | `#DIV/0!`, `#N/A`, `#REF!` | يمكن لصيغة صالحة أن تُقيم إلى قيمة خطأ في الورقة بدلاً من نتيجة عادية. |
+
+يستخدم هذا المثال عدة أنواع من الثوابت:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+using var presentation = new Presentation();
+
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+var workbook = chart.ChartData.ChartDataWorkbook;
+
+workbook.GetCell(0, "A2").Value = false;
+workbook.GetCell(0, "B2").Formula = "A2=TRUE";
+workbook.GetCell(0, "C2").Formula = "1+0.5";
+workbook.GetCell(0, "D2").Formula = ".3*1E-2";
+workbook.GetCell(0, "E2").Formula = "\"abc\"";
+workbook.GetCell(0, "F2").Formula = "2/0";
+
+workbook.CalculateFormulas();
+
+var logicalValue = workbook.GetCell(0, "B2").Value; // خطأ
+var numericValue = workbook.GetCell(0, "C2").Value; // 1.5
+var scientificValue = workbook.GetCell(0, "D2").Value; // 0.003
+var stringValue = workbook.GetCell(0, "E2").Value; // abc
+var errorValue = workbook.GetCell(0, "F2").Value; // #DIV/0!
+```
+
+### **العوامل الحسابية**
+
+| العامل | المعنى | مثال |
+|---|---|---|
+| `+` | جمع أو زائد أحادي | `2+3` |
+| `-` | طرح أو سالب أحادي | `2-3`, `-3` |
+| `*` | ضرب | `2*3` |
+| `/` | قسمة | `2/3` |
+| `%` | نسبة مئوية | `30%` |
+| `^` | أس | `2^3` |
+
+استخدم الأقواس لتحديد ترتيب التقييم صراحةً، مثلاً `(A2+B2)*C2`.
+
+### **عوامل المقارنة**
+
+تُعيد تعبيرات المقارنة قيمًا منطقية.
+
+| العامل | المعنى | مثال |
+|---|---|---|
+| `=` | يساوي | `A2=3` |
+| `<>` | لا يساوي | `A2<>3` |
+| `>` | أكبر من | `A2>3` |
+| `>=` | أكبر من أو يساوي | `A2>=3` |
+| `<` | أصغر من | `A2<3` |
+| `<=` | أصغر من أو يساوي | `A2<=3` |
+
+## **الدوال المعرفة مسبقًا المدعومة**
+
+يتضمن Aspose.Slides مُقَيِّم صيغ مدمج لأوراق عمل المخططات، لكنه ليس محرك حساب إكسل كامل. مجموعة الدوال الموثقة محدودة إلى الدوال أدناه. لا تفترض أن أي دالة إكسل عشوائية يمكن إعادة حسابها بواسطة [CalculateFormulas](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/).
+
+| الدالة | الغرض أو الشكل المدعوم | مثال |
+|---|---|---|
+| `ABS` | القيمة المطلقة | `ABS(A2)` |
+| `AVERAGE` | المتوسط الحسابي | `AVERAGE(B2:B5)` |
+| `CEILING` | تقريب العدد إلى أعلى مضاعف | `CEILING(A2,5)` |
+| `CHOOSE` | اختيار قيمة حسب الفهرس | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | دمج قيم نصية | `CONCAT(A2,B2)` |
+| `CONCATENATE` | دمج قيم نصية | `CONCATENATE(A2," ",B2)` |
+| `DATE` | إنشاء قيمة تاريخ باستخدام نظام تاريخ 1900 | `DATE(2026,8,19)` |
+| `DAYS` | إرجاع عدد الأيام بين التاريخين | `DAYS(B2,A2)` |
+| `FIND` | العثور على قيمة نص داخل أخرى | `FIND("-",A2)` |
+| `FINDB` | بحث نص بتركيز بايت | `FINDB("a",A2)` |
+| `IF` | نتيجة شرطية | `IF(A2>0,A2,0)` |
+| `INDEX` | شكل مرجعي | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | شكل متجه | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | شكل متجه | `MATCH(A2,B2:B5,0)` |
+| `MAX` | القيمة القصوى | `MAX(B2:B5)` |
+| `SUM` | جمع القيم | `SUM(B2:B5)` |
+| `VLOOKUP` | بحث عمودي | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+
+القيود الموضحة في الجدول ذات أهمية: `INDEX` موثّق في الشكل المرجعي، بينما `LOOKUP` و `MATCH` موثّقان في أشكالهما المتجهية. `DATE` يستخدم نظام تاريخ 1900. يجب اعتبار أي ميزات أو دوال غير مُدرجة هنا غير مدعومة من قبل مُقَيِّم صيغ Aspose.Slides ما لم تُوثَّق بشكل منفصل.
+
+## **إعادة الحساب والقيم المخزنة مؤقتًا**
+
+عادةً ما تخزن ملفات الأوراق كلًا من الصيغة وقيمتها الأخيرة المحسوبة. لذا يمكن لـ Aspose.Slides قراءة قيمة مخزنة من [IChartDataCell.Value](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdatacell/value/) عند تحميل عرض تقديمي ولم تُغيّر بيانات المخطط ذات الصلة.
+
+بعد تغيير خلايا الإدخال أو الصيغ، لا تعتمد على نتيجة مخزنة قديمة. استدعِ [IChartDataWorkbook.CalculateFormulas](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) قبل قراءة القيم المحسوبة أو حفظ بيانات المخطط التي تعتمد عليها.
+
+بالنسبة للصيغ خارج المجموعة المدعومة، قد لا يتمكن Aspose.Slides من تحليل الصيغة أو تحديد تبعياتها. إذا تم تعديل دفتر العمل، لا يمكن الاعتماد على القيمة المخزنة السابقة. في هذه الحالة، قد يثير قراءة قيمة خلية ذات بيانات غير مدعومة الاستثناء [CellUnsupportedDataException](https://reference.aspose.com/slides/ar/net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+
+إذا كان المخطط يعتمد على دوال إكسل لا تُقيمها Aspose.Slides، احسب تلك الصيغ باستخدام محرك ورقة عمل يدعمها واكتب القيم الناتجة مرة أخرى إلى دفتر عمل المخطط. لا تستبدل الصيغ غير المدعومة بقيم مُخَمنَة.
+
+## **معالجة أخطاء الصيغ**
+
+هناك نوعان مختلفان من المشكلات يجب التمييز بينهما.
+
+يمكن أن تكون الصيغة صالحة ولكن تُنتج نتيجة خطأ في الورقة مثل `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!`, أو `#VALUE!`. في هذه الحالة، يكون رمز الخطأ نتيجة خلية ويمكن إرجاعه عبر `Value`.
+
+يمكن أن تفشل الصيغة أيضًا في مرحلة التحليل أو الإشارة أو التبعيات أو مستوى البيانات المدعومة. يقدم Aspose.Slides استثناءات خاصة بالورقة لهذه الحالات: [CellInvalidFormulaException](https://reference.aspose.com/slides/ar/net/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/ar/net/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/ar/net/aspose.slides.spreadsheet/cellcircularreferenceexception/), و [CellUnsupportedDataException](https://reference.aspose.com/slides/ar/net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+
+عند جلب الصيغ من القوالب أو مدخلات المستخدم، عالج هذه الاستثناءات حول إعادة الحساب والوصول إلى القيمة:
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Spreadsheet;
+
+using var presentation = new Presentation();
+
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+var workbook = chart.ChartData.ChartDataWorkbook;
+var cell = workbook.GetCell(0, "A2");
+cell.Formula = "SUM(B2:B5)";
+
+try
+{
+    workbook.CalculateFormulas();
+    Console.WriteLine(cell.Value);
+}
+catch (CellInvalidFormulaException ex)
+{
+    Console.Error.WriteLine($"Invalid formula: {ex.Message}");
+}
+catch (CellInvalidReferenceException ex)
+{
+    Console.Error.WriteLine($"Invalid cell reference: {ex.Message}");
+}
+catch (CellCircularReferenceException ex)
+{
+    Console.Error.WriteLine($"Circular reference: {ex.Message}");
+}
+catch (CellUnsupportedDataException ex)
+{
+    Console.Error.WriteLine($"Unsupported spreadsheet data: {ex.Message}");
+}
+```
+
+## **القيود العملية**
+
+تم تصميم دعم الصيغ في أوراق عمل المخططات لمجموعة محددة من عمليات حساب الورقة، وليس لتوافق كامل مع إكسل. ضع هذه القيود في الاعتبار عند تصميم سير عمل التقارير:
+
+- استخدم فقط الثوابت، العوامل، المراجع، والدوال الموثقة عندما تحتاج إلى أن تُعيد Aspose.Slides حساب الصيغ.
+- أعد الحساب بعد تعديل الخلايا التي تعتمد عليها نتائج الصيغ.
+- اعتبر القيم المخزنة من العروض المحملة لقطات سريعة، وليس بديلاً عن إعادة الحساب بعد التعديلات.
+- اختبر الصيغ من القوالب الموجودة قبل الاعتماد على قيمها المحسوبة، خصوصًا إذا كانت تستخدم دوالًا خارج القائمة الموثقة.
+- بالنسبة للصيغ التي تتطلب محرك حساب ورقة عمل كامل، احسبها خارجيًا ثم حدّث دفتر عمل المخطط بالقيم الناتجة.
+
+## **الأسئلة الشائعة**
+
+**ما الفرق بين `Formula` و `R1C1Formula`؟**
+
+[Formula](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdatacell/formula/) يخزن تعبيرًا بنمط A1 مثل `B2-C2`. [R1C1Formula](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdatacell/r1c1formula/) يخزن تعبيرًا بنمط R1C1 مثل `RC[-2]-RC[-1]`. استخدم النحو الذي يتناسب مع طريقة إنشاء أو نسخ الصيغ لديك.
+
+**هل يجب علي قراءة الخلية نفسها أم قيمتها بعد الحساب؟**
+
+[IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdataworkbook/getcell/) يُعيد كائنًا من نوع `IChartDataCell`. للحصول على النتيجة المحسوبة، اقرأ خاصية [Value](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdatacell/value/) لذلك بعد إعادة الحساب.
+
+**متى يجب استدعاء `CalculateFormulas`؟**
+
+استدعِ [CalculateFormulas](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) بعد تغيير قيم الإدخال أو الصيغ وقبل الاعتماد على النتائج المحسوبة. هذا يحدّث قيم الصيغ التي يدعمها المُقَيِّم المدمج.
+
+**هل يدعم Aspose.Slides كل دالة إكسل؟**
+
+لا. يدعم المُقَيِّم المدمج مجموعة مُوثقة من الدوال. لا ينبغي افتراض أن أي دالة إكسل يمكن إعادة حسابها بشكل صحيح. إذا كان مطلوبًا توافق كامل مع صيغ إكسل، قم بالحساب باستخدام محرك ورقة عمل مناسب واكتب القيم النهائية إلى دفتر عمل المخطط.
+
+**ماذا يحدث إذا كان العرض التقديمي المحمل يحتوي على صيغة غير مدعومة؟**
+
+إذا لم تتغيّر بيانات المخطط، قد يظل دفتر العمل يحتوي على قيمة مخزنة سابقة محسوبة. بعد تعديل البيانات ذات الصلة، قد لا تكون هذه القيمة المخزنة صالحة. الوصول إلى خلية لا يمكن معالجة صيغتها قد يرفع الاستثناء [CellUnsupportedDataException](https://reference.aspose.com/slides/ar/net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+
+**هل قيم أخطاء الصيغ هي نفسها استثناءات .NET؟**
+
+لا. النتيجة مثل `#DIV/0!` هي قيمة ورقة عمل تُنتج عن عملية حساب صالحة. الاستثناءات مثل [CellInvalidFormulaException](https://reference.aspose.com/slides/ar/net/aspose.slides.spreadsheet/cellinvalidformulaexception/) أو [CellCircularReferenceException](https://reference.aspose.com/slides/ar/net/aspose.slides.spreadsheet/cellcircularreferenceexception/) تدل على أن الصيغة لا يمكن معالجتها بصورة طبيعية.
+
+**هل يحدث تحديث تلقائي للمخطط عندما تتغيّر خلية الصيغة؟**
+
+يمكن لسلسلة مخطط أن تشير إلى خلايا دفتر العمل. أعد حساب دفتر العمل أولاً، ثم احفظ أو عرض العرض التقديمي. إذا كانت نقاط بيانات المخطط تشير إلى الخلايا المحسوبة، يستخدم المخطط القيم المحدثة؛ لا يلزم طريقة منفصلة لتحديث المخطط في هذا سير العمل.
+
+**هل يمكن للمخططات استخدام دفتر إكسل خارجي؟**
+
+نعم، يمكن تكوين بيانات المخطط لاستخدام دفتر عمل خارجي عبر API بيانات المخطط. ومع ذلك، يقتصر سير عمل حساب الصيغ الموضح في هذه المقالة على دفتر عمل بيانات المخطط ومجموعة الصيغ التي يقيمها Aspose.Slides. لا تفترض أن [CalculateFormulas](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) توفر إعادة حساب كاملة للصيغ العشوائية في ملف XLSX خارجي.
+
+**هل يمكنني استخدام صيغ تشير إلى ورقة عمل أو دفتر عمل آخر؟**
+
+قد توجد مراجع بنمط إكسل في دفاتر عمل المخططات، لكن تقييم الصيغة يقتصر على المحلل ومجموعة الدوال المدعومة. إذا كان مرجع عبر ورقة أو مرجع خارجي ضروريًا، تحقق من صلاحية الصيغة مع إصدار Aspose.Slides المستهدف. بالنسبة لسير العمل الذي يتطلب توافقًا واسعًا مع مراجع إكسل، احسب دفتر العمل خارجيًا واكتب القيم المحلولة مرة أخرى إلى بيانات المخطط.
+
+**هل يجب أن تبدأ سلاسل الصيغ بـ `=`؟**
+
+تُظهر أمثلة API في Aspose.Slides تعيين تعبيرات مثل `B2-C2` أو `SUM(B2:B5)` دون علامة `=` الأولية. استخدام هذا الشكل يبقي الصيغ المُولَّدة متسقة مع أمثلة API الموثقة.
