@@ -1,6 +1,6 @@
 ---
-title: به صورت کارآمد ارائه‌ها را در .NET ترکیب کنید
-linktitle: ترکیب ارائه‌ها
+title: ادغام کارآمد ارائه‌ها در .NET
+linktitle: ادغام ارائه‌ها
 type: docs
 weight: 40
 url: /fa/net/merge-presentation/
@@ -20,239 +20,316 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "به راحتی ارائه‌های PowerPoint (PPT, PPTX) و OpenDocument (ODP) را با Aspose.Slides برای .NET ترکیب کنید و جریان کاری خود را ساده کنید."
+description: "نحوه ادغام ارائه‌های PowerPoint و OpenDocument در .NET را با کلون کردن اسلایدها، کنترل مسترها و چینش‌ها، تغییر اندازه محتوای اسلاید، حفظ بخش‌ها و مدیریت فایل‌های محافظت‌شده یا بزرگ یاد بگیرید."
 ---
 ## **نمای کلی**
 
-Aspose.Slides به شما امکان می‌دهد ارائه‌ها را با کلون کردن اسلایدها از یک ارائه به ارائه دیگر ترکیب کنید. این مقاله توضیح می‌دهد چگونه کل ارائه‌ها یا اسلایدهای منتخب را ترکیب کنید، هنگام ترکیب از یک اسلاید مستر یا یک طرح‌بندی خاص استفاده کنید، ارائه‌هایی با اندازه اسلاید متفاوت را مدیریت کنید و اسلایدهای ترکیب‌شده را به بخش یک ارائه اضافه کنید. همچنین نکات عملی مرتبط با محتوای ترکیب‌شده، از جمله یادداشت‌های گوینده، نظرات، فایل‌های منبع محافظت‌شده با رمز عبور و استفاده از نخ‌ها را پوشش می‌دهد.
+Aspose.Slides برای .NET ارائه‌ها را با کلون کردن اسلایدها از یک [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) به دیگری ادغام می‌کند. عملیات اصلی [ISlideCollection.AddClone](https://reference.aspose.com/slides/fa/net/aspose.slides/islidecollection/addclone/) است که می‌تواند قالب‌بندی اسلاید منبع را حفظ کند یا اسلاید کلون‌شده را به یک مستر یا چینش در ارائه مقصد متصل کند.
 
-## **بهینه‌سازی ترکیب ارائه‌ها**
+این مقاله رایج‌ترین جریان‌های کاری ادغام را پوشش می‌دهد:
 
-با [Aspose.Slides for .NET](https://products.aspose.com/slides/fa/net/)، به‌راحتی ارائه‌های PowerPoint را ترکیب کنید در حالی که سبک‌ها، طرح‌ها و تمام عناصر حفظ می‌شوند. برخلاف ابزارهای دیگر، Aspose.Slides ارائه‌ها را بدون کاهش کیفیت یا از دست رفتن داده‌ها ادغام می‌کند. می‌توانید کل ارائه‌ها، اسلایدهای خاص و حتی فرمت‌های مختلف فایل (PPT به PPTX و غیره) را ترکیب کنید.
+- کل اسلایدها را با حفظ قالب‌بندی منبع ادغام کنید؛
+- اسلایدهای انتخابی را ادغام کنید؛
+- یک مستر از ارائه مقصد اعمال کنید؛
+- یک چینش خاص از ارائه مقصد اعمال کنید؛
+- قبل از ادغام، اندازه‌های مختلف اسلایدها را نرمال کنید؛
+- اسلایدهای کلون‌شده را به یک بخش اضافه کنید؛
+- چندین ارائه را در یک جریان کاری انتها به انتها ادغام کنید؛
+- مسترها، منابع، یادداشت‌ها، نظرات، رسانه‌ها، فونت‌ها، گذرواژه‌ها، فایل‌های بزرگ و نگرانی‌های چندنخی را مدیریت کنید.
 
-### **ویژگی‌های ترکیب**
+## **نحوهٔ تأثیر کلون‌کردن اسلاید بر مسترها و چینش‌ها**
 
-- **Full Presentation Merge:** تمام اسلایدها را در یک فایل واحد جمع‌آوری کنید.
-- **Specific Slide Merge:** اسلایدهای انتخابی را انتخاب و ترکیب کنید.
-- **Cross-Format Merge:** ارائه‌های با فرمت‌های متفاوت را یکپارچه کنید و یکپارچگی را حفظ کنید.
+یک اسلاید بسیاری از ظاهر خود را از چینش و مستر خود به ارث می‌برد. به همین دلیل، overload کلون‌کردنی که انتخاب می‌کنید تعیین می‌کند اسلاید ادغام‌شده چگونه در ارائه مقصد یکپارچه می‌شود.
 
-{{% alert title="نکته" color="primary" %}}  
-به دنبال یک ابزار **آسان و رایگان آنلاین** برای **ادغام ارائه‌های PowerPoint** هستید؟ [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/fa/merger) را امتحان کنید.  
+از [ISlideCollection.AddClone](https://reference.aspose.com/slides/fa/net/aspose.slides/islidecollection/addclone/) به یکی از روش‌های زیر استفاده کنید:
 
-- **به راحتی فایل‌های PowerPoint را ادغام کنید**: چندین ارائه **PPT, PPTX, ODP** را در یک فایل ترکیب کنید.  
-- **پشتیبانی از فرمت‌های مختلف**: **PPT به PPTX**, **PPTX به ODP** و غیره.  
-- **بدون نیاز به نصب**: مستقیماً در مرورگر شما کار می‌کند، سریع و ایمن.  
+- `AddClone(sourceSlide)` — قالب‌بندی و چینش اسلاید منبع را نگه می‌دارد. در صورت نیاز، مستر منبع می‌تواند به‌صورت خودکار به ارائه مقصد کلون شود. Aspose.Slides مسترهای کلون‌شده به‌صورت خودکار را پیگیری می‌کند تا اسلایدهای تکراری که از همان مستر منبع استفاده می‌کنند، مستر را چندین بار کلون نکنند.
+- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — اسلاید کلون‌شده را به یک [IMasterSlide](https://reference.aspose.com/slides/fa/net/aspose.slides/imasterslide/) مخصوص در مقصد متصل می‌کند. Aspose.Slides یک چینش مطابقت‌دار زیر آن مستر را بر اساس نوع یا نام چینش جستجو می‌کند.
+- `AddClone(sourceSlide, destinationLayout)` — اسلاید کلون‌شده را مستقیماً به یک [ILayoutSlide](https://reference.aspose.com/slides/fa/net/aspose.slides/ilayoutslide/) مخصوص در مقصد متصل می‌کند.
 
-[![ادغام فایل‌های پاورپوینت آنلاین](slides-merger.png)](https://products.aspose.app/slides/fa/merger)  
+مستر یا چینشی که به یک overload `AddClone` پاس می‌شود باید متعلق به ارائه **مقصد** باشد، نه ارائه منبع.
 
-امروز با **ابزار رایگان آنلاین Aspose** شروع به ادغام فایل‌های PowerPoint خود کنید!  
-{{% /alert %}}
+## **ادغام کل ارائه‌ها و حفظ قالب‌بندی منبع**
 
-## **ترکیب ارائه‌ها**
+ساده‌ترین روش ادغام، کپی تمام اسلایدها از ارائه منبع به ارائه مقصد است. این گزینه زمانی مناسب است که اسلایدهای واردشده باید تم، مستر و روابط چینش اصلی خود را حفظ کنند.
 
-وقتی شما [یک ارائه را به ارائه دیگر ادغام می‌کنید](https://products.aspose.com/slides/fa/net/merger/ppt/)، در واقع اسلایدهای آن‌ها را در یک ارائه ترکیب می‌کنید تا یک فایل به‌دست آورید. 
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-{{% alert title="اطلاعات" color="info" %}}  
-اکثر برنامه‌های ارائه (PowerPoint یا OpenOffice) قابلیت ترکیب ارائه‌ها به این شکل را ندارند. 
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
 
-[**Aspose.Slides for .NET**](https://products.aspose.com/slides/fa/net/)، با این حال، به شما امکان می‌دهد ارائه‌ها را به روش‌های مختلف ترکیب کنید. می‌توانید ارائه‌ها را با تمام اشکال، سبک‌ها، متون، قالب‌بندی‌ها، نظرات، انیمیشن‌ها و غیره ترکیب کنید بدون اینکه نگران از دست رفتن کیفیت یا داده‌ها باشید. 
-
-**همچنین ببینید**  
-
-[Clone Slides](https://docs.aspose.com/slides/fa/net/cloning-commenting-and-manipulating-slides/#cloning-commentingandmanipulatingslides-cloningslides)*.* 
-{{% /alert %}}
-
-### **چه چیزهایی می‌توان ترکیب کرد**
-
-با Aspose.Slides می‌توانید:
-
-* کل ارائه‌ها را ترکیب کنید. تمام اسلایدهای ارائه‌ها در یک ارائه نهایی قرار می‌گیرند
-* اسلایدهای خاص را ترکیب کنید. اسلایدهای انتخابی در یک ارائه نهایی قرار می‌گیرند
-* ارائه‌ها را در یک فرمت (PPT به PPT، PPTX به PPTX و غیره) و در فرمت‌های مختلف (PPT به PPTX، PPTX به ODP و غیره) به یکدیگر متصل کنید. 
-
-{{% alert title="یادداشت" color="warning" %}} 
-به جز ارائه‌ها، Aspose.Slides به شما امکان می‌دهد فایل‌های دیگر را نیز ترکیب کنید:
-
-* [تصاویر](https://products.aspose.com/slides/fa/net/merger/image-to-image/)، مانند [JPG به JPG](https://products.aspose.com/slides/fa/net/merger/jpg-to-jpg/) یا [PNG به PNG](https://products.aspose.com/slides/fa/net/merger/png-to-png/)
-* اسناد، مانند [PDF به PDF](https://products.aspose.com/slides/fa/net/merger/pdf-to-pdf/) یا [HTML به HTML](https://products.aspose.com/slides/fa/net/merger/html-to-html/)
-* و دو فایل متفاوت مانند [image to PDF](https://products.aspose.com/slides/fa/net/merger/image-to-pdf/) یا [JPG به PDF](https://products.aspose.com/slides/fa/net/merger/jpg-to-pdf/) یا [TIFF به PDF](https://products.aspose.com/slides/fa/net/merger/tiff-to-pdf/). 
-{{% /alert %}}
-
-### **گزینه‌های ترکیب**
-
-می‌توانید گزینه‌هایی اعمال کنید که تعیین می‌کنند:
-
-* هر اسلاید در ارائه خروجی سبک منحصر به‌فرد خود را حفظ کند
-* یک سبک خاص برای تمام اسلایدهای ارائه خروجی استفاده شود. 
-
-برای ترکیب ارائه‌ها، Aspose.Slides متدهای [AddClone](https://reference.aspose.com/slides/fa/net/aspose.slides/islidecollection/methods/addclone) را ارائه می‌دهد (از رابط [ISlideCollection](https://reference.aspose.com/slides/fa/net/aspose.slides/islidecollection)). چندین پیاده‌سازی از متدهای `AddClone` وجود دارد که پارامترهای فرآیند ترکیب ارائه را تعریف می‌کنند. هر شیء Presentation دارای مجموعه [Slides](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/properties/slides) است، بنابراین می‌توانید متد `AddClone` را از ارائه‌ای که می‌خواهید اسلایدها را به آن ترکیب کنید فراخوانی کنید. 
-
-متد `AddClone` یک شیء `ISlide` را برمی‌گرداند که کلون اسلاید منبع است. اسلایدهای یک ارائه خروجی به سادگی کپی اسلایدهای منبع هستند. بنابراین می‌توانید بدون نگرانی از اثر بر ارائه‌های منبع، تغییراتی روی اسلایدهای حاصل اعمال کنید (مثلاً اعمال سبک یا گزینه‌های قالب‌بندی یا طرح). 
-
-## **ادغام ارائه‌ها** 
-
-Aspose.Slides متد [**AddClone (ISlide)**](https://reference.aspose.com/slides/fa/net/aspose.slides/islidecollection/methods/addclone) را فراهم می‌کند که به شما اجازه می‌دهد اسلایدها را ترکیب کنید در حالی که اسلایدها طرح‌بندی و سبک‌های خود را حفظ می‌کنند (پارامترهای پیش‌فرض). 
-
-این کد C# نشان می‌دهد چگونه ارائه‌ها را ترکیب کنید:
-
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
+foreach (var slide in source.Slides)
 {
-    foreach (ISlide slide in pres2.Slides)
+    destination.Slides.AddClone(slide);
+}
+
+destination.Save("merged.pptx", SaveFormat.Pptx);
+```
+
+ارائه حاصل ممکن است حاوی چندین مستر باشد زمانی که منبع و مقصد از طرح‌های متفاوتی استفاده می‌کنند. این رفتار زمانی که قالب‌بندی منبع به‌صورت عمدی حفظ می‌شود، قابل انتظار است.
+
+## **ادغام اسلایدهای انتخابی**
+
+نیاز نیست هر اسلایدی را کلون کنید. مثال زیر تنها ایندکس‌های اسلایدهای انتخابی را از ارائه منبع وارد می‌کند.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var slideIndexes = new[] { 0, 2, 4 };
+
+foreach (var index in slideIndexes)
+{
+    destination.Slides.AddClone(source.Slides[index]);
+}
+
+destination.Save("merged-selected-slides.pptx", SaveFormat.Pptx);
+```
+
+قبل از کلون‌کردن، ایندکس‌های اسلاید را وقتی از ورودی کاربر یا پیکربندی خارجی می‌آیند، اعتبارسنجی کنید.
+
+## **ادغام اسلایدها با استفاده از مستر مقصد**
+
+وقتی اسلایدهای واردشده باید از مستری استفاده کنند که در حال حاضر به ارائه مقصد تعلق دارد، از overload [AddClone(ISlide, IMasterSlide, Boolean)](https://reference.aspose.com/slides/fa/net/aspose.slides/islidecollection/addclone/) استفاده کنید.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var destinationMaster = destination.Masters[0];
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide, destinationMaster, allowCloneMissingLayout: true);
+}
+
+destination.Save("merged-with-destination-master.pptx", SaveFormat.Pptx);
+```
+
+Aspose.Slides یک چینش مناسب زیر مستر مشخص شده را بر اساس تطبیق نوع یا نام چینش منبع انتخاب می‌کند. اگر چینش مناسبی وجود نداشته باشد و `allowCloneMissingLayout` برابر `true` باشد، چینش منبع کلون می‌شود تا اسلاید اضافه شود. اگر `false` باشد، یک [PptxEditException](https://reference.aspose.com/slides/fa/net/aspose.slides/pptxeditexception/) پرتاب می‌شود.
+
+اگر می‌خواهید در صورت عدم وجود چینش، ادغام شکست بخورد و یک چینش جدید به مستر مقصد اضافه نشود، مقدار `false` را استفاده کنید.
+
+## **ادغام اسلایدها با استفاده از یک چینش مقصد خاص**
+
+وقتی دقیقاً می‌دانید اسلایدهای واردشده باید از چه چینش مقصدی استفاده کنند، از overload [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/fa/net/aspose.slides/islidecollection/addclone/) استفاده کنید.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var destinationLayout = destination.LayoutSlides[0];
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide, destinationLayout);
+}
+
+destination.Save("merged-with-destination-layout.pptx", SaveFormat.Pptx);
+```
+
+اعمال یک چینش مقصد رابطهٔ چینش ارث‌بری را تغییر می‌دهد؛ محتویات اسلاید منبع را بازطراحی نمی‌کند. اگر چینش‌های منبع و مقصد ساختارهای جای‌دار متفاوتی داشته باشند، نتیجه را بررسی کنید تا اطمینان حاصل کنید قالب‌بندی ارث‌بری و رفتار جای‌دار مناسب است.
+
+## **ادغام ارائه‌ها با اندازه‌های اسلاید متفاوت**
+
+ارائه‌هایی با ابعاد اسلاید متفاوت می‌توانند ادغام شوند، اما کلون‌کردن یک اسلاید به ارائه‌ای با اندازه اسلاید دیگر به‌صورت خودکار محتویات آن را برای بوم جدید بازطراحی نمی‌کند. بنابراین اشکال ممکن است جابجا، مقیاس‌گذاری غیرمنتظره یا خارج از ناحیه قابل مشاهده اسلاید ظاهر شوند.
+
+یک روش عملی این است که قبل از کلون‌کردن، ارائه منبع را تغییر اندازه دهید. متد [SlideSize.SetSize](https://reference.aspose.com/slides/fa/net/aspose.slides/slidesize/setsize/) می‌تواند محتویات موجود را هنگام تغییر ابعاد اسلاید مقیاس‌بندی کند. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/fa/net/aspose.slides/slidesizescaletype/) محتویات را برای قرارگیری در اندازهٔ مورد درخواست مقیاس می‌کند.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+if (source.SlideSize.Size.Width != destination.SlideSize.Size.Width || 
+    source.SlideSize.Size.Height != destination.SlideSize.Size.Height)
+{
+    source.SlideSize.SetSize(
+        destination.SlideSize.Size.Width, 
+        destination.SlideSize.Size.Height, 
+        SlideSizeScaleType.EnsureFit);
+}
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide);
+}
+
+destination.Save("merged-same-slide-size.pptx", SaveFormat.Pptx);
+```
+
+تغییر اندازه، شیء ارائه منبع را در حافظه تغییر می‌دهد. اگر به ارائه منبع اصلی برای عملیات دیگر نیاز دارید بدون تغییر بماند، یک نمونهٔ جداگانه برای ادغام باز کنید.
+
+## **ادغام اسلایدها در یک بخش از ارائه**
+
+حلقهٔ اساسی کلون‌کردن اسلایدها سلسله‌مراتبی بخش‌های ارائه منبع را بازسازی نمی‌کند. اگر بخش‌ها در خروجی مهم باشند، بخش‌ها را در ارائه مقصد ایجاد یا انتخاب کنید و اسلایدها را به‌صورت صریح با [AddClone(ISlide, ISection)](https://reference.aspose.com/slides/fa/net/aspose.slides/islidecollection/addclone/) کلون کنید.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var importedSection = destination.Sections.AppendEmptySection("Imported slides");
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide, importedSection);
+}
+
+destination.Save("merged-with-section.pptx", SaveFormat.Pptx);
+```
+
+اسلایدهای کلون‌شده به بخش مقصد مشخص‌شده اضافه می‌شوند. برای حفظ چندین بخش منبع، آن بخش‌ها را در مقصد بازسازی کنید و هر اسلاید منبع را به بخش مقصد متناظرش نگاشت کنید.
+
+## **ادغام ایمن چندین ارائه**
+
+مثال انتها به انتهای زیر، اولین ارائه را به‌عنوان مقصد استفاده می‌کند، اندازه اسلاید هر منبع اضافی را نرمال می‌کند، هر منبع را فقط در هنگام کپی باز نگه می‌دارد و در نهایت یک‌بار فایل نهایی را ذخیره می‌کند.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var inputFiles = new[] { "part1.pptx", "part2.pptx", "part3.pptx" };
+
+using var merged = new Presentation(inputFiles[0]);
+
+for (var fileIndex = 1; fileIndex < inputFiles.Length; fileIndex++)
+{
+    using var source = new Presentation(inputFiles[fileIndex]);
+
+    if (source.SlideSize.Size.Width != merged.SlideSize.Size.Width || 
+        source.SlideSize.Size.Height != merged.SlideSize.Size.Height)
     {
-        pres1.Slides.AddClone(slide);
+        source.SlideSize.SetSize(
+            merged.SlideSize.Size.Width, 
+            merged.SlideSize.Size.Height, 
+            SlideSizeScaleType.EnsureFit);
     }
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
-
-## **ادغام ارائه‌ها با اسلاید مستر** 
-
-Aspose.Slides متد [**AddClone (ISlide, IMasterSlide, Boolean)**](https://reference.aspose.com/slides/fa/net/aspose.slides.islidecollection/addclone/methods/2) را ارائه می‌دهد که به شما اجازه می‌دهد اسلایدها را ترکیب کنید در حالی که قالب اسلاید مستر ارائه مورد استفاده قرار می‌گیرد. به این ترتیب، در صورت نیاز می‌توانید سبک اسلایدهای ارائه خروجی را تغییر دهید. 
-
-این کد C# عملیات توضیح داده‌شده را نشان می‌دهد:
-
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    foreach (ISlide slide in pres2.Slides)
+    foreach (var slide in source.Slides)
     {
-        pres1.Slides.AddClone(slide, pres2.Masters[0], allowCloneMissingLayout: true);
+        merged.Slides.AddClone(slide);
     }
-
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
 }
+
+merged.Save("merged.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert title="یادداشت" color="warning" %}} 
-طرح‌بندی اسلاید برای اسلاید مستر به‌صورت خودکار تعیین می‌شود. هنگامی که یک طرح‌بندی مناسب پیدا نشود، اگر پارامتر بولی `allowCloneMissingLayout` متد `AddClone` بر روی true تنظیم شود، طرح‌بندی اسلاید منبع استفاده می‌شود. در غیر این صورت، استثنای [PptxEditException](https://reference.aspose.com/slides/fa/net/aspose.slides/pptxeditexception) رخ خواهد داد. 
-{{% /alert %}}
+این یک پایهٔ مفید برای حفظ قالب‌بندی منبع اسلایدهای واردشده است. اگر خروجی شما باید یک تم واحد مقصد داشته باشد، فراخوانی سادهٔ `AddClone(slide)` را با overload مناسب مستر یا چینش مقصد که پیشتر نشان داده شد، جایگزین کنید.
 
-اگر می‌خواهید اسلایدهای ارائه خروجی طرح‌بندی متفاوتی داشته باشند، هنگام ترکیب از متد [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/fa/net/aspose.slides.islidecollection/addclone/methods/1) استفاده کنید. 
+## **موارد عملی**
 
-## **ادغام اسلایدهای مخصوص از ارائه‌ها** 
+### **مسترها، چینش‌ها و صحت قالب‌بندی**
 
-ادغام اسلایدهای خاص از چندین ارائه برای ایجاد مجموعه اسلایدهای سفارشی مفید است. Aspose.Slides for .NET به شما امکان می‌دهد فقط اسلایدهای مورد نیاز را انتخاب و وارد کنید. API قالب‌بندی، طرح‌بندی و طراحی اسلایدهای اصلی را حفظ می‌کند. 
+کلون‌کردن پیش‌فرض اسلاید می‌تواند مستر لازم از منبع را به‌صورت خودکار به ارائه مقصد بیاورد. Aspose.Slides یک رجیستری داخلی برای مسترهای کلون‌شده به‌صورت خودکار نگه می‌دارد تا از کلون مکرر یک مستر جلوگیری کند. مسترهای کلون‌شده به‌صورت دستی توسط آن رجیستری پیگیری نمی‌شوند، بنابراین از پیش‌کلون کردن مسترها خودداری کنید مگر اینکه به کنترل صریح بر ساختار مستر نیاز داشته باشید.
 
-کد C# زیر یک ارائه جدید ایجاد می‌کند، اسلایدهای عنوان را از دو ارائه دیگر اضافه می‌کند و نتیجه را در فایلی ذخیره می‌کند:
+فرض نکنید دو مستر یا چینش با نام یکسان بصورت بصری یکسان هستند. اگر یک الگوی سازمانی باید ظاهر نهایی را کنترل کند، مستر یا چینش مقصد را به‌صورت صریح انتخاب کنید و پس از ادغام نتیجه را بررسی کنید.
 
-```cs
-using (Presentation presentation = new Presentation())
-using (Presentation presentation1 = new Presentation("presentation1.pptx"))
-using (Presentation presentation2 = new Presentation("presentation2.pptx"))
-{
-    presentation.Slides.RemoveAt(0);
+### **یادداشت‌ها و نظرات**
 
-    ISlide slide1 = GetTitleSlide(presentation1);
+یادداشت‌های سخنران و نظرات اسلاید با محتوای اسلاید مرتبط هستند و هنگام کلون‌کردن اسلاید کپی می‌شوند. Aspose.Slides همچنین APIهای اختصاصی برای [presentation notes](https://docs.aspose.com/slides/fa/net/presentation-notes/) و [presentation comments](https://docs.aspose.com/slides/fa/net/presentation-comments/) ارائه می‌دهد.
 
-    if (slide1 != null)
-        presentation.Slides.AddClone(slide1);
+اگر قالب‌بندی صفحهٔ یادداشت‌ها مهم است، ارائه ادغام‌شده را بررسی کنید زیرا مسترهای یادداشت‌ها اشیا در سطح ارائه هستند و ممکن است بین فایل‌های منبع متفاوت باشند. برای جریان‌های کاری بازبینی، همچنین نویسندگان نظرات و نظرات زنجیره‌ای را پس از ترکیب فایل‌ها از نویسندگان یا الگوهای مختلف بررسی کنید.
 
-    ISlide slide2 = GetTitleSlide(presentation2);
+### **تصاویر، صدا، ویدئو، اشیای OLE و پیوندهای خارجی**
 
-    if (slide2 != null)
-        presentation.Slides.AddClone(slide2);
+اسلایدها می‌توانند به منابع سطح ارائه مانند تصاویر، صوت جاسازی‌شده، ویدئوی جاسازی‌شده و داده‌های OLE ارجاع دهند. به‌جای کپی کردن فقط شکل‌های قابل مشاهده، کل اسلاید را کلون کنید تا Aspose.Slides بتواند روابط اسلاید با منابع آن را نگه دارد.
 
-    presentation.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
-```cs
-static ISlide GetTitleSlide(IPresentation presentation)
-{
-    foreach (ISlide slide in presentation.Slides)
-    {
-        if (slide.LayoutSlide.LayoutType == SlideLayoutType.Title)
-        {
-            return slide;
-        }
-    }
-    return null;
-}
+منابع جاسازی‌شده و پیوند شده باید به‌صورت متفاوتی رفتار شوند. یک صوت، ویدئو، شیء OLE یا پیوند خارجی همچنان به هدف خارجی خود وابسته است؛ کلون‌کردن اسلاید یک پیوند خارجی را به محتویات جاسازی‌شده تبدیل نمی‌کند. مسیرها و URLهای منابع پیوندی را در محیطی که ارائه ادغام‌شده باز خواهد شد، آزمایش کنید.
+
+Aspose.Slides به‌طور صریح مسترهای کلون‌شده به‌صورت خودکار را ردیابی می‌کند، اما این نباید به‌عنوان تضمین کلی برای حذف تکرر منابع باینری یکسان از ارائه‌های منبع نامرتبط تلقی شود. اگر حجم فایل خروجی مهم است، بستهٔ ادغام‌شده را بررسی کنید و نتیجه را اندازه‌گیری کنید به‌جای اتکا به حذف تکرر ضمنی.
+
+### **فونت‌های جاسازی‌شده و در دسترس بودن فونت‌ها**
+
+فونت‌ها در سطح ارائه مدیریت می‌شوند. اگر تایپوگرافی باید در تمام دستگاه‌ها ثابت بماند، فرض نکنید کلون‌کردن اسلایدها به‌تنهایی تضمین می‌کند هر فونت مورد نیاز در محیط مقصد در دسترس است. می‌توانید فونت‌های جاسازی‌شده را با [FontsManager.GetEmbeddedFonts](https://reference.aspose.com/slides/fa/net/aspose.slides/fontsmanager/getembeddedfonts/) بررسی کنید و به‌صورت صریح همان‌طور که در [Embed Fonts in Presentations](https://docs.aspose.com/slides/fa/net/embedded-font/) توصیف شده، جا‌گذاری را مدیریت کنید.
+
+همچنین اطمینان حاصل کنید که اجازه جاسازی فونت‌های استفاده‌شده در فایل‌های منبع را دارید. مجوزهای فونت می‌توانند جاسازی را محدود کنند.
+
+### **ارائه‌های دارای رمز عبور**
+
+یک منبع دارای رمز عبور باید قبل از کلون‌کردن اسلایدهای آن با موفقیت باز شود. رمز عبور را از طریق [LoadOptions.Password](https://reference.aspose.com/slides/fa/net/aspose.slides/loadoptions/password/) ارائه دهید.
+
+```csharp
+using Aspose.Slides;
+
+var loadOptions = new LoadOptions { Password = "YOUR_PASSWORD" };
+
+using var source = new Presentation("protected.pptx", loadOptions);
 ```
 
-## **ادغام ارائه‌ها با طرح‌بندی اسلاید** 
+باز کردن منبع رمزنگاری‌شده به‌صورت خودکار حفاظت مشابه را به ارائه مقصد اعمال نمی‌کند. در صورت نیاز، حفاظت خروجی را به‌صورت جداگانه پیکربندی کنید.
 
-این کد C# نشان می‌دهد چگونه اسلایدها را از ارائه‌ها ترکیب کنید در حالی که طرح‌بندی اسلاید دلخواه خود را بر روی آن‌ها اعمال می‌کنید تا یک ارائه خروجی به‌دست آورید:
+### **ارائه‌های بزرگ و استفاده از حافظه**
 
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    foreach (ISlide slide in pres2.Slides)
-    {
-        pres1.Slides.AddClone(slide, pres2.LayoutSlides[0]);
-    }
+ارائه‌های بزرگ حاوی تصاویر با وضوح بالا، صدا، ویدئو یا سایر اشیای باینری بزرگ می‌توانند حافظه قابل‌توجهی مصرف کنند. [LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/fa/net/aspose.slides/loadoptions/blobmanagementoptions/) ابزارهایی برای مدیریت BLOB و استفاده از فایل‌های موقت فراهم می‌کند. برای استراتژی‌های فایل‌های بزرگ به [Manage Presentation BLOBs](https://docs.aspose.com/slides/fa/net/manage-blob/) مراجعه کنید.
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
+برای فایل‌های بزرگ، در صورت امکان ترجیحاً از مسیرهای فایل بارگذاری کنید، هر ارائه منبع را به‌محض ادغام شدن آزاد کنید و از ذخیرهٔ مکرر نتایج میانی خودداری کنید مگر اینکه جریان کاری به نقطه‌بازگشت‌ها نیاز داشته باشد.
 
-## **ادغام ارائه‌ها با اندازه اسلایدهای متفاوت** 
+### **ایمنی در پردازش چندنخی**
 
-{{% alert title="یادداشت" color="warning" %}} 
-شما نمی‌توانید ارائه‌ها را با اندازه اسلایدهای متفاوت ترکیب کنید. 
-{{% /alert %}} 
+از بارگذاری، اصلاح، ذخیره یا کلون‌کردن همزمان یک نمونهٔ [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) از چندین نخ خودداری کنید. هر نمونهٔ ارائه را به یک عملیات ادغام محدود کنید. اگر کارهای مستقل را به‌صورت موازی انجام می‌دهید، از نمونه‌های مستقل ارائه استفاده کنید و راهنمایی‌های چندنخی Aspose.Slides را مطابق با [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/fa/net/multithreading/) دنبال کنید.
 
-برای ترکیب 2 ارائه با اندازه اسلایدهای متفاوت، باید یکی از ارائه‌ها را تغییر اندازه دهید تا اندازه آن با ارائه دیگر منطبق شود. 
+## **سوالات متداول**
 
-این کد نمونه عملیات توضیح داده‌شده را نشان می‌دهد:
+**چگونه طراحی اصلی هر ارائه منبع را حفظ کنم؟**
 
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-   pres2 = new Presentation("pres2.pptx"))
-{
-   pres2.SlideSize.SetSize(pres1.SlideSize.Size.Width, pres1.SlideSize.Size.Height, SlideSizeScaleType.EnsureFit);
- 
-   foreach (ISlide slide in pres2.Slides)
-   {
-       pres1.Slides.AddClone(slide);
-   }
- 
-   pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
+از [`AddClone(sourceSlide)`](https://reference.aspose.com/slides/fa/net/aspose.slides/islidecollection/addclone/) بدون ارائه مستر یا چینش مقصد استفاده کنید. Aspose.Slides می‌تواند مستر منبع را به‌صورت خودکار کلون کند وقتی اسلاید واردشده به آن نیاز دارد.
 
-## **ادغام اسلایدها به بخش ارائه** 
+**چگونه اسلایدهای واردشده از تم مقصد استفاده کنند؟**
 
-این کد C# نشان می‌دهد چگونه یک اسلاید خاص را به یک بخش در یک ارائه ترکیب کنید:
+از overloadی که مستر مقصد را می‌پذیرد استفاده کنید. مستری از ارائه مقصد (نه منبع) پاس کنید. Aspose.Slides سعی می‌کند هر اسلاید منبع را به یک چینش مناسب زیر آن مستر انتساب دهد.
 
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    for (var index = 0; index < pres2.Slides.Count; index++)
-    {
-        ISlide slide = pres2.Slides[index];
-        pres1.Slides.AddClone(slide, pres1.Sections[0]);
-    }
+**چه زمانی باید به‌جای مستر مقصد از یک چینش مقصد مشخص استفاده کنم؟**
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
+وقتی هر اسلاید واردشده باید از یک چینش شناخته‌شده استفاده کند، از یک چینش خاص استفاده کنید. وقتی می‌خواهید Aspose.Slides بر اساس نوع یا نام چینش منبع، بین چینش‌های مستر انتخاب کند، از مستر استفاده کنید.
 
-اسلاید در انتهای بخش اضافه می‌شود. 
+**آیا می‌توانم ارائه‌هایی با اندازه‌های اسلاید متفاوت را ادغام کنم؟**
 
-{{% alert title="نکته" color="primary" %}} 
-Aspose یک برنامه وب **رایگان Collage** ارائه می‌دهد ([FREE Collage web app](https://products.aspose.app/slides/fa/collage)). با استفاده از این سرویس آنلاین می‌توانید [JPG به JPG](https://products.aspose.app/slides/fa/collage/jpg) یا PNG به PNG را ترکیب کنید، گریدهای عکس ایجاد کنید و غیره. 
-{{% /alert %}}
+بله، اما محتویات اسلاید به‌صورت خودکار برای ابعاد مقصد بازطراحی نمی‌شوند. زمانی که به مکان‌یابی پیش‌بینی‌شده نیاز دارید، ابتدا ارائه منبع را تغییر اندازه دهید، برای مثال با [SlideSize.SetSize](https://reference.aspose.com/slides/fa/net/aspose.slides/slidesize/setsize/) و [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/fa/net/aspose.slides/slidesizescaletype/).
 
-## **سوالات متداول** 
+**آیا می‌توانم ارائه‌های PPT، PPTX و ODP را در یک فایل ادغام کنم؟**
 
-**آیا یادداشت‌های گوینده در هنگام ترکیب حفظ می‌شوند؟**  
+بله. هر ارائه منبع را بارگذاری کنید، اسلایدهای مورد نیاز را به یک مقصد کلون کنید و مقصد را در یک قالب خروجی پشتیبانی‌شده ذخیره کنید. از آنجا که فرمت‌های ارائه دقیقاً همان مجموعه ویژگی‌ها را پشتیبانی نمی‌کنند، پس از ادغام بین‌فرمتی محتویات پیچیده را بررسی کنید. به [Supported File Formats](https://docs.aspose.com/slides/fa/net/supported-file-formats/) نگاه کنید.
 
-بله. هنگام کلون کردن اسلایدها، Aspose.Slides تمام عناصر اسلاید از جمله یادداشت‌ها، قالب‌بندی و انیمیشن‌ها را منتقل می‌کند.  
+**آیا بخش‌های منبع به‌صورت خودکار حفظ می‌شوند؟**
 
-**آیا نظرات و نویسندگان آن‌ها منتقل می‌شود؟**  
+نه، با یک حلقهٔ ساده که فقط اسلایدها را کلون می‌کند، بخش‌های منبع حفظ نمی‌شوند. بخش‌های مورد نیاز را در مقصد بازسازی کنید و هنگام نیاز به حفظ ساختار بخش، از overload بخشِ [AddClone](https://reference.aspose.com/slides/fa/net/aspose.slides/islidecollection/addclone/) استفاده کنید.
 
-نظرات به‌عنوان بخشی از محتوای اسلاید کپی می‌شوند. برچسب‌های نویسندهٔ نظر به عنوان آبجکت‌های نظر در ارائهٔ حاصل حفظ می‌شوند.  
+**آیا یادداشت‌های سخنران و نظرات حفظ می‌شوند؟**
 
-**اگر ارائه منبع با رمز عبور حفاظت شده باشد چه می‌شود؟**  
+آنها همراه با اسلاید کلون‌شده کپی می‌شوند. برای جریان‌های کاری که به سبک مستر یادداشت‌ها، نویسندگان نظرات یا داده‌های بازبینی زنجیره‌ای وابسته‌اند، نتیجهٔ ادغام را بررسی کنید زیرا این سناریوها شامل ساختارهای سطح ارائه و همچنین محتویات سطح اسلاید هستند.
 
-باید با استفاده از [LoadOptions.Password](https://reference.aspose.com/slides/fa/net/aspose.slides/loadoptions/password/) و مسیر [باز کردن با رمز عبور](/slides/fa/net/password-protected-presentation/) آن را باز کنید؛ پس از بارگذاری، می‌توانید آن اسلایدها را به‌صورت امن به یک فایل هدف بدون حفاظت (یا حتی با حفاظت) کلون کنید.  
+**چه اتفاقی برای صدا، ویدئو، اشیای OLE و پیوندهای ابرمتنی می‌افتد؟**
 
-**عملیات ترکیب تا چه حد ایمن در مقابل نخ‌ها است؟**  
+محتویات جاسازی‌شده به‌عنوان بخشی از روابط منابع اسلاید کلون‌شده منتقل می‌شود. پیوندهای خارجی همچنان خارجی می‌مانند، بنابراین فایل‌ها یا URLهای هدف آنها باید پس از ادغام در دسترس باشند.
 
-از استفادهٔ همزمان از یک شیء [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) در [چندین نخ](/slides/fa/net/multithreading/) خودداری کنید. قاعدهٔ پیشنهادی این است که «یک سند — یک نخ»؛ فایل‌های مختلف می‌توانند به‌صورت موازی در نخ‌های جداگانه پردازش شوند.
+**آیا فونت‌های جاسازی‌شده از هر منبع تضمین می‌شود که در ارائه ادغام‌شده در دسترس باشند؟**
+
+به‌تنهای کلون‌کردن اسلایدها برای توزیع فونت تکیه نکنید. فونت‌های جاسازی‌شدهٔ مقصد را بررسی کنید و هنگام اهمیت تایپوگرافی، جاسازی فونت یا در دسترس بودن فونت‌های خارجی را به‌صورت صریح مدیریت کنید.
+
+**چگونه یک فایل دارای رمز عبور را ادغام کنم؟**
+
+آن را با [LoadOptions.Password](https://reference.aspose.com/slides/fa/net/aspose.slides/loadoptions/password/) صحیح باز کنید، سپس اسلایدهای آن را به‌صورت معمولی کلون کنید. حفاظت خروجی به‌صورت جداگانه پیکربندی می‌شود.
+
+**چگونه باید ارائه‌های بسیار بزرگ را مدیریت کنم؟**
+
+وقتی اشیای باینری بزرگ مصرف حافظه را dominate می‌کنند از مدیریت BLOB استفاده کنید، برای فایل‌های بسیار بزرگ ترجیحاً از بارگذاری مسیرهای فایل استفاده کنید، ارائه‌های منبع را به‌سرعت آزاد کنید و فقط در زمان لازم نتیجهٔ نهایی را ذخیره کنید.
+
+**آیا می‌توانم اسلایدها را از چندین نخ ادغام کنم؟**
+
+از یک نمونهٔ [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) به‌صورت همزمان در چندین نخ استفاده نکنید. هر عملیات ادغام را به‌صورت جداگانه در نمونه‌های اختصاصی خود ارائه نگه دارید.

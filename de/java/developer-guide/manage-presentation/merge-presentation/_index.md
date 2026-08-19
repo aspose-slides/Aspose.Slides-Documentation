@@ -1,5 +1,5 @@
 ---
-title: Präsentationen effizient in Java zusammenführen
+title: Präsentationen in Java effizient zusammenführen
 linktitle: Präsentationen zusammenführen
 type: docs
 weight: 40
@@ -19,227 +19,344 @@ keywords:
 - ODP kombinieren
 - Java
 - Aspose.Slides
-description: "Mergen Sie mühelos PowerPoint (PPT, PPTX) und OpenDocument (ODP) Präsentationen mit Aspose.Slides für Java und optimieren Sie Ihren Arbeitsablauf."
+description: "Erfahren Sie, wie Sie PowerPoint- und OpenDocument-Präsentationen in Java durch Klonen von Folien, Steuerung von Mastern und Layouts, Ändern der Foliengröße, Beibehalten von Abschnitten und den Umgang mit geschützten oder großen Dateien zusammenführen."
 ---
-
 ## **Übersicht**
 
-Das Zusammenführen von PowerPoint- und OpenDocument‑Präsentationen ist eine gängige Aufgabe in vielen Java‑Anwendungen, insbesondere beim Erstellen von Berichten, Kombinieren von Folien aus verschiedenen Quellen oder Automatisieren von Präsentations‑Workflows. Aspose.Slides für Java bietet eine leistungsstarke und einfach zu nutzende API, um mehrere PPT-, PPTX- oder ODP‑Dateien zu einer einzigen Präsentation zu kombinieren, ohne Microsoft PowerPoint, LibreOffice oder OpenOffice installieren zu müssen.
+Aspose.Slides für Java verbindet Präsentationen, indem es Folien von einer [Präsentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/) in eine andere klont. Die Hauptoperation ist [ISlideCollection.addClone](https://reference.aspose.com/slides/de/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-), die das Format der Quellfolie beibehalten oder die geklonte Folie einem Master oder Layout in der Zielpräsentation zuweisen kann.
 
-In diesem Leitfaden lernen Sie, wie Sie PowerPoint‑ und OpenDocument‑Präsentationen mit nur wenigen Zeilen Java‑Code zusammenführen. Wir stellen fertige Beispiele bereit und zeigen, wie Sie die Folienformatierung, Layouts und andere Präsentationselemente während des Zusammenführens erhalten.
+Dieser Artikel behandelt die häufigsten Zusammenführungs‑Workflows:
 
-Egal, ob Sie eine Unternehmensanwendung oder ein einfaches Automatisierungstool bauen – Aspose.Slides macht das Zusammenführen von Präsentationen in Java schnell, zuverlässig und skalierbar. Aspose.Slides für Java ermöglicht das Zusammenführen von Präsentationen auf verschiedene Arten. Sie können Präsentationen mit allen Formen, Stilen, Texten, Formatierungen, Kommentaren, Animationen und mehr kombinieren – ohne Qualitäts‑ oder Datenverlust.
+- Alle Folien zusammenführen und dabei das Quellformat beibehalten;
+- Ausgewählte Folien zusammenführen;
+- Einen Master aus der Zielpräsentation anwenden;
+- Ein bestimmtes Layout aus der Zielpräsentation anwenden;
+- Unterschiedliche Foliengrößen vor dem Zusammenführen normalisieren;
+- Geklonte Folien zu einem Abschnitt hinzufügen;
+- Mehrere Präsentationen in einem End‑zu‑Ende‑Workflow zusammenführen;
+- Master, Ressourcen, Notizen, Kommentare, Medien, Schriftarten, Passwörter, große Dateien und Multithreading‑Probleme behandeln.
 
-{{% alert color="primary" %}}
-Siehe auch: [Clone Slides](https://docs.aspose.com/slides/java/clone-slides/)
-{{% /alert %}}
+## **Wie das Klonen von Folien Master und Layouts beeinflusst**
 
-### **Was kann zusammengeführt werden?**
+Eine Folie erbt vieles von ihrem Aussehen von ihrem Layout und Master. Aus diesem Grund bestimmt die von Ihnen gewählte Überladung des Klonens, wie die zusammengeführte Folie in die Zielpräsentation integriert wird.
 
-Mit Aspose.Slides können Sie Folgendes zusammenführen:
+Verwenden Sie [ISlideCollection.addClone](https://reference.aspose.com/slides/de/java/com.aspose.slides/islidecollection/) auf eine der folgenden Arten:
 
-**Komplette Präsentationen** – alle Folien aus mehreren Präsentationen werden zu einer einzigen kombiniert.
+- `addClone(sourceSlide)` — Beibehaltung des Layouts und Formats der Quellfolie. Bei Bedarf kann der Quell‑Master automatisch in die Zielpräsentation geklont werden. Aspose.Slides verfolgt automatisch geklonte Master, sodass wiederholte Folien, die denselben Quell‑Master verwenden, diesen nicht mehrfach klonen.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — Die geklonte Folie einem bestimmten Ziel-[IMasterSlide](https://reference.aspose.com/slides/de/java/com.aspose.slides/imasterslide/) zuordnen. Aspose.Slides sucht unter diesem Master nach einem passenden Layout anhand des Layout‑Typs oder Namens.
+- `addClone(sourceSlide, destinationLayout)` — Die geklonte Folie direkt einem bestimmten Ziel-[ILayoutSlide](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutslide/) zuordnen.
 
-**Bestimmte Folien** – nur ausgewählte Folien werden zu einer einzigen Präsentation zusammengeführt.
+Der an eine `addClone`‑Überladung übergebene Master oder Layout muss zur **Ziel**‑Präsentation gehören, nicht zur Quellpräsentation.
 
-**Präsentationen im gleichen Format** (z. B. PPT zu PPT, PPTX zu PPTX) und **in unterschiedlichen Formaten** (z. B. PPT zu PPTX, PPTX zu ODP).
+## **Gesamte Präsentationen zusammenführen und Quellformat beibehalten**
 
-### **Zusammenführungsoptionen**
+Die einfachste Zusammenführung kopiert jede Folie aus der Quellpräsentation in die Zielpräsentation. Dies ist die geeignete Wahl, wenn die importierten Folien ihr ursprüngliches Design, ihren Master und ihre Layout‑Beziehungen beibehalten sollen.
 
-Sie können Optionen festlegen, die bestimmen, ob:
-
-- Jede Folie in der Ausgabepäsentation ihren ursprünglichen Stil beibehält
-- Ein bestimmter Stil auf alle Folien in der Ausgabepäsentation angewendet wird
-
-Um Präsentationen zusammenzuführen, stellt Aspose.Slides die `AddClone`‑Methoden der [ISlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/)-Schnittstelle bereit. Es gibt mehrere Überladungen der `AddClone`‑Methode, die das Verhalten des Zusammenführungsprozesses definieren. Jedes [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)-Objekt verfügt über eine Slides‑Collection. Sie können also die `AddClone`‑Methode auf der Zielpräsentation aufrufen, in die Sie Folien einfügen möchten.
-
-Die `AddClone`‑Methode gibt ein [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/)-Objekt zurück, das ein Klon der Quellfolie ist. Die resultierenden Folien in der Ausgabepäsentation sind einfach Kopien der Originalfolien. Das bedeutet, dass Sie die geklonten Folien sicher ändern können – etwa Stile, Formatierungsoptionen oder Layouts anzuwenden – ohne die Quellpräsentation zu beeinflussen.
-
-## **Präsentationen zusammenführen**
-
-Aspose.Slides stellt die [AddClone(ISlide)](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-)‑Methode bereit, die das Kombinieren von Folien bei Beibehaltung ihrer ursprünglichen Layouts und Stile ermöglicht (Standardverhalten).
-
-Der folgende Java‑Code zeigt, wie Präsentationen zusammengeführt werden:
 ```java
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    for (ISlide slide : presentation2.getSlides()) {
-        presentation1.getSlides().addClone(slide);
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide);
     }
-    presentation1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged.pptx", SaveFormat.Pptx);
 } finally {
-    presentation2.dispose();
-    presentation1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+Die resultierende Präsentation kann mehrere Master enthalten, wenn Quell‑ und Zielpräsentation unterschiedliche Designs verwenden. Das ist zu erwarten, wenn das Quellformat bewusst erhalten bleibt.
 
-## **Präsentationen mit einem Folienmaster zusammenführen**
+## **Ausgewählte Folien zusammenführen**
 
-Aspose.Slides stellt die [AddClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-)‑Methode bereit, die das Kombinieren von Folien unter Anwendung eines Folienmasters aus einer Präsentationsvorlage ermöglicht. Auf diese Weise können Sie bei Bedarf den Stil der Folien in der Ausgabepäsentation ändern.
+Sie müssen nicht jede Folie klonen. Im folgenden Beispiel werden nur ausgewählte Folien‑Indizes aus der Quellpräsentation importiert.
 
-Der folgende Java‑Code demonstriert diesen Vorgang:
 ```java
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    for (ISlide slide : presentation2.getSlides()) {
-        IMasterSlide masterSlide = presentation2.getMasters().get_Item(0);
-        presentation1.getSlides().addClone(slide, masterSlide, true);
+    int[] slideIndexes = { 0, 2, 4 };
+
+    for (int index : slideIndexes) {
+        destination.getSlides().addClone(source.getSlides().get_Item(index));
     }
-    presentation1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged-selected-slides.pptx", SaveFormat.Pptx);
 } finally {
-    presentation2.dispose();
-    presentation1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+Validieren Sie Folien‑Indizes vor dem Klonen, wenn sie aus Benutzereingaben oder externer Konfiguration stammen.
 
-{{% alert title="Hinweis" color="warning" %}}
-Das Folienlayout wird automatisch ermittelt. Wenn kein passendes Layout gefunden werden kann und der boolesche Parameter `allowCloneMissingLayout` der `AddClone`‑Methode auf `true` gesetzt ist, wird das Layout der Quellfolie verwendet. Andernfalls wird eine [PptxEditException](https://reference.aspose.com/slides/java/com.aspose.slides/pptxeditexception/) ausgelöst.
-{{% /alert %}}
+## **Folien mit einem Ziel‑Master zusammenführen**
 
-## **Bestimmte Folien aus Präsentationen zusammenführen**
+Verwenden Sie die Überladung [addClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/de/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-), wenn importierte Folien einem Master folgen sollen, der bereits zur Zielpräsentation gehört.
 
-Das Zusammenführen bestimmter Folien aus mehreren Präsentationen ist nützlich, um individuelle Foliensätze zu erstellen. Aspose.Slides für Java ermöglicht es Ihnen, nur die benötigten Folien auszuwählen und zu importieren. Die API erhält Formatierung, Layout und Design der Originalfolien.
-
-Der folgende Java‑Code erstellt eine neue Präsentation, fügt Titelfolien aus zwei anderen Präsentationen hinzu und speichert das Ergebnis in einer Datei:
 ```java
-Presentation presentation = new Presentation();
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    presentation.getSlides().removeAt(0);
-    
-    ISlide slide1 = getTitleSlide(presentation1);
+    IMasterSlide destinationMaster = destination.getMasters().get_Item(0);
 
-    if (slide1 != null)
-        presentation.getSlides().addClone(slide1);
-
-    ISlide slide2 = getTitleSlide(presentation2);
-
-    if (slide2 != null)
-        presentation.getSlides().addClone(slide2);
-
-    presentation.save("combined.pptx", SaveFormat.Pptx);
-} finally {
-    presentation2.dispose();
-    presentation1.dispose();
-    presentation.dispose();
-}
-```
-
-```java
-static ISlide getTitleSlide(IPresentation presentation) {
-    for (ISlide slide : presentation.getSlides()) {
-        if (slide.getLayoutSlide().getLayoutType() == SlideLayoutType.Title) {
-            return slide;
-        }
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, destinationMaster, true);
     }
-    return null;
+
+    destination.save("merged-with-destination-master.pptx", SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+Aspose.Slides wählt unter dem angegebenen Master ein passendes Layout aus, indem es den Layout‑Typ oder Namen der Quellfolie abgleicht. Wenn kein geeignetes Layout existiert und `allowCloneMissingLayout` **true** ist, wird das Quell‑Layout geklont, sodass die Folie hinzugefügt werden kann. Ist es **false**, wird eine [PptxEditException](https://reference.aspose.com/slides/de/java/com.aspose.slides/pptxeditexception/) ausgelöst.
 
-## **Präsentationen mit einem Folienlayout zusammenführen**
+Verwenden Sie **false**, wenn der Merge fehlschlagen soll, anstatt ein zusätzliches Layout in den Ziel‑Master einzufügen.
 
-Um während des Zusammenführens ein anderes Folienlayout auf die Ausgabefolien anzuwenden, verwenden Sie die [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-)‑Methode.
+## **Folien mit einem bestimmten Ziel‑Layout zusammenführen**
 
-Der folgende Java‑Code zeigt, wie Folien aus mehreren Präsentationen kombiniert werden, während das bevorzugte Folienlayout angewendet wird, sodass ein einzelnes Ausgabedokument entsteht:
+Verwenden Sie die Überladung [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/de/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-), wenn Sie genau wissen, welches Ziel‑Layout die importierten Folien verwenden sollen.
+
 ```java
-int layoutIndex = 0;
+import com.aspose.slides.*;
 
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    for (ISlide slide : presentation2.getSlides()) {
-        ILayoutSlide layoutSlide = presentation2.getLayoutSlides().get_Item(layoutIndex);
-        presentation1.getSlides().addClone(slide, layoutSlide);
+    ILayoutSlide destinationLayout = destination.getLayoutSlides().get_Item(0);
+
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, destinationLayout);
     }
-    presentation1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged-with-destination-layout.pptx", SaveFormat.Pptx);
 } finally {
-    presentation2.dispose();
-    presentation1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+Das Anwenden eines Ziel‑Layouts ändert die geerbte Layout‑Beziehung; es wird nicht das Layout des Quell‑Folieninhalts neu gestaltet. Haben Quell‑ und Ziel‑Layout unterschiedliche Platzhalterstrukturen, prüfen Sie das Ergebnis, um sicherzustellen, dass das geerbte Format und das Platzhalter‑Verhalten passend sind.
 
 ## **Präsentationen mit unterschiedlichen Foliengrößen zusammenführen**
 
-Um zwei Präsentationen mit unterschiedlichen Foliengrößen zusammenzuführen, sollten Sie eine der Präsentationen so skalieren, dass sie der Foliengröße der anderen Präsentation entspricht.
+Präsentationen mit unterschiedlichen Folienabmessungen können zusammengeführt werden, aber das Klonen einer Folie in eine Präsentation mit anderer Foliengröße gestaltet den Inhalt nicht automatisch für die neue Leinwand neu. Formen können daher verschoben, unerwartet skaliert oder außerhalb des sichtbaren Folienbereichs erscheinen.
 
-Der folgende Java‑Code demonstriert diesen Vorgang:
+Ein praktikabler Ansatz besteht darin, die Quellpräsentation vor dem Klonen zu skalieren. Die Methode [SlideSize.setSize](https://reference.aspose.com/slides/de/java/com.aspose.slides/slidesize/#setSize-float-float-int-) kann vorhandenen Inhalt skalieren, während die Folienabmessungen geändert werden. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/de/java/com.aspose.slides/slidesizescaletype/) skaliert den Inhalt, sodass er in die gewünschte Größe passt.
+
 ```java
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
-try {
-    Dimension2D slideSize = presentation1.getSlideSize().getSize();
-    float slideWidth = (float) slideSize.getWidth();
-    float slideHeight = (float) slideSize.getHeight();
-    
-    presentation2.getSlideSize().setSize(slideWidth, slideHeight, SlideSizeScaleType.EnsureFit);
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
 
-    for (ISlide slide : presentation2.getSlides()) {
-        presentation1.getSlides().addClone(slide);
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
+try {
+    Dimension2D sourceSize = source.getSlideSize().getSize();
+    Dimension2D destinationSize = destination.getSlideSize().getSize();
+
+    if (sourceSize.getWidth() != destinationSize.getWidth() || 
+        sourceSize.getHeight() != destinationSize.getHeight()) {
+        source.getSlideSize().setSize(
+            (float) destinationSize.getWidth(), 
+            (float) destinationSize.getHeight(), 
+            SlideSizeScaleType.EnsureFit);
     }
-    presentation1.save("combined.pptx", SaveFormat.Pptx);
+
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide);
+    }
+
+    destination.save("merged-same-slide-size.pptx", SaveFormat.Pptx);
 } finally {
-    presentation2.dispose();
-    presentation1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+Das Skalieren verändert das Quell‑Präsentations‑Objekt im Speicher. Wenn Sie die ursprüngliche Quellpräsentation für weitere Vorgänge unverändert benötigen, öffnen Sie für den Merge eine separate Instanz.
 
-## **Folien zu einem Präsentationsabschnitt hinzufügen**
+## **Folien in einen Präsentations‑Abschnitt einfügen**
 
-Das Zusammenführen von Folien in einem bestimmten Präsentationsabschnitt erleichtert die Organisation von Inhalten und verbessert die Navigation. Aspose.Slides ermöglicht das Hinzufügen von Folien zu bestehenden Abschnitten. Dadurch entsteht eine klare Struktur, während die ursprüngliche Formatierung jeder Folie erhalten bleibt.
+Die grundlegende Folien‑Klon‑Schleife reproduziert die Abschnittshierarchie der Quellpräsentation nicht. Wenn Abschnitte im Ergebnis wichtig sind, erstellen oder wählen Sie Abschnitte in der Zielpräsentation aus und klonen Sie Folien explizit mit [addClone(ISlide, ISection)](https://reference.aspose.com/slides/de/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-).
 
-Der folgende Java‑Code zeigt, wie eine bestimmte Folie zu einem Abschnitt in einer Präsentation hinzugefügt wird:
 ```java
-int sectionIndex = 0;
+import com.aspose.slides.*;
 
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    for (ISlide slide : presentation2.getSlides()) {
-        ISection section = presentation1.getSections().get_Item(sectionIndex);
-        presentation1.getSlides().addClone(slide, section);
+    ISection importedSection = destination.getSections().appendEmptySection("Imported slides");
+
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, importedSection);
     }
-    presentation1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged-with-section.pptx", SaveFormat.Pptx);
 } finally {
-    presentation2.dispose();
-    presentation1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+Die geklonten Folien werden an den angegebenen Zielabschnitt angehängt. Um mehrere Quellabschnitte zu erhalten, reproduzieren Sie diese Abschnitte in der Zielpräsentation und ordnen jedem Quell‑Slide den entsprechenden Zielabschnitt zu.
 
-Die Folie wird am Ende des Abschnitts eingefügt.
+## **Mehrere Präsentationen sicher zusammenführen**
 
-## **Siehe auch**
+Das folgende End‑zu‑Ende‑Beispiel verwendet die erste Präsentation als Ziel, normalisiert die Foliengröße jeder zusätzlichen Quelle, hält jede Quelle nur solange geöffnet, wie sie kopiert wird, und speichert die endgültige Datei einmalig.
 
-Aspose bietet einen [KOSTENLOSEN Online‑Collage‑Maker](https://products.aspose.app/slides/collage). Mit diesem Online‑Dienst können Sie [JPG zu JPG](https://products.aspose.app/slides/collage/jpg) bzw. PNG zu PNG Bilder zusammenführen, [Fotogitter](https://products.aspose.app/slides/collage/photo-grid) erstellen und mehr.
+```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
 
-Probieren Sie den [Aspose KOSTENLOSEN Online‑Merger](https://products.aspose.app/slides/merger). Er ermöglicht das Zusammenführen von PowerPoint‑Präsentationen im gleichen Format (z. B. PPT zu PPT, PPTX zu PPTX) oder über verschiedene Formate hinweg (z. B. PPT zu PPTX, PPTX zu ODP).
+String[] inputFiles = { "part1.pptx", "part2.pptx", "part3.pptx" };
 
-[![Aspose FREE Online Merger](slides-merger.png)](https://products.aspose.app/slides/merger)
+Presentation merged = new Presentation(inputFiles[0]);
+try {
+    Dimension2D mergedSize = merged.getSlideSize().getSize();
 
-Neben Präsentationen erlaubt Aspose.Slides das Zusammenführen weiterer Dateitypen:
+    for (int fileIndex = 1; fileIndex < inputFiles.length; fileIndex++) {
+        Presentation source = new Presentation(inputFiles[fileIndex]);
+        try {
+            Dimension2D sourceSize = source.getSlideSize().getSize();
 
-- [**Bilder**](https://products.aspose.com/slides/java/merger/image-to-image/), z. B. [JPG zu JPG](https://products.aspose.com/slides/java/merger/jpg-to-jpg/) oder [PNG zu PNG](https://products.aspose.com/slides/java/merger/png-to-png/)
-- **Dokumente**, z. B. [PDF zu PDF](https://products.aspose.com/slides/java/merger/pdf-to-pdf/) oder [HTML zu HTML](https://products.aspose.com/slides/java/merger/html-to-html/)
-- **Gemischte Dateitypen**, z. B. [Bild zu PDF](https://products.aspose.com/slides/java/merger/image-to-pdf/), [JPG zu PDF](https://products.aspose.com/slides/java/merger/jpg-to-pdf/) oder [TIFF zu PDF](https://products.aspose.com/slides/java/merger/tiff-to-pdf/)
+            if (sourceSize.getWidth() != mergedSize.getWidth() || 
+                sourceSize.getHeight() != mergedSize.getHeight()) {
+                source.getSlideSize().setSize(
+                    (float) mergedSize.getWidth(), 
+                    (float) mergedSize.getHeight(), 
+                    SlideSizeScaleType.EnsureFit);
+            }
+
+            for (ISlide slide : source.getSlides()) {
+                merged.getSlides().addClone(slide);
+            }
+        } finally {
+            source.dispose();
+        }
+    }
+
+    merged.save("merged.pptx", SaveFormat.Pptx);
+} finally {
+    merged.dispose();
+}
+```
+
+Dies ist ein nützliches Grundgerüst, um das Quellformat importierter Folien zu erhalten. Wenn Ihr Ergebnis ein einheitliches Ziel‑Design verwenden muss, ersetzen Sie den einfachen Aufruf `addClone(slide)` durch die zuvor gezeigte Überladung für Ziel‑Master oder Ziel‑Layout.
+
+## **Praktische Überlegungen**
+
+### **Master, Layouts und Format‑Treue**
+
+Das Standard‑Klonen von Folien kann einen erforderlichen Quell‑Master automatisch in die Zielpräsentation übernehmen. Aspose.Slides führt ein internes Register für automatisch geklonte Master, um zu vermeiden, dass derselbe Master mehrfach geklont wird. Manuell geklonte Master werden von diesem Register nicht erfasst; vermeiden Sie daher ein Vor‑Klonen von Master, sofern Sie nicht explizit die Masterstruktur steuern müssen.
+
+Gehen Sie nicht davon aus, dass zwei Master oder Layouts mit demselben Namen visuell äquivalent sind. Wenn ein Unternehmens‑Template das endgültige Erscheinungsbild bestimmen muss, wählen Sie einen Ziel‑Master oder ein Ziel‑Layout ausdrücklich und prüfen Sie das Ergebnis nach dem Zusammenführen.
+
+### **Notizen und Kommentare**
+
+Sprechernotizen und Folienkommentare sind mit dem Folieninhalt verknüpft und werden kopiert, wenn eine Folie geklont wird. Aspose.Slides stellt zudem spezielle APIs für [Presentation‑Notes](https://docs.aspose.com/slides/de/java/presentation-notes/) und [Presentation‑Comments](https://docs.aspose.com/slides/de/java/presentation-comments/) bereit.
+
+Ist die Formatierung der Notiz‑Seite wichtig, prüfen Sie die zusammengeführte Präsentation, da Notiz‑Master Objekte auf Präsentationsebene sind und zwischen Quell‑Dateien variieren können. Für Review‑Workflows prüfen Sie außerdem die Autoren von Kommentaren und verschachtelte Kommentare nach dem Kombinieren von Dateien verschiedener Autoren oder Templates.
+
+### **Bilder, Audio, Video, OLE‑Objekte und externe Links**
+
+Folien können auf Präsentations‑Ressourcen wie Bilder, eingebettetes Audio, eingebettetes Video und OLE‑Daten verweisen. Klonen Sie die Folie selbst statt nur die sichtbaren Formen, damit Aspose.Slides die Beziehungen der Folie zu ihren Ressourcen beibehalten kann.
+
+Eingebettete und verlinkte Ressourcen sollten unterschiedlich behandelt werden. Ein verlinktes Audio, Video, OLE‑Objekt oder Hyperlink bleibt abhängig von seinem externen Ziel; das Klonen einer Folie macht einen externen Link nicht zu eingebettetem Inhalt. Testen Sie Pfade und URLs verlinkter Ressourcen in der Umgebung, in der die zusammengeführte Präsentation geöffnet wird.
+
+Aspose.Slides verfolgt automatisch geklonte Master, das bedeutet jedoch keine generelle Garantie, dass identische Binär‑Ressourcen aus unabhängigen Quellpräsentationen immer dedupliziert werden. Wenn die Dateigröße wichtig ist, prüfen Sie das zusammengeführte Paket und messen Sie das Ergebnis, statt sich auf implizite Deduplikation zu verlassen.
+
+### **Eingebettete Schriftarten und Schriftartenverfügbarkeit**
+
+Schriftarten werden auf Präsentationsebene verwaltet. Wenn die Typografie über verschiedene Geräte hinweg konsistent sein muss, gehen Sie nicht davon aus, dass das reine Klonen von Folien garantiert, dass jede benötigte Schriftart im Zielumfeld verfügbar ist. Sie können eingebettete Schriftarten mit [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/de/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) inspizieren und das Einbetten explizit verwalten, wie in [Embed Fonts in Presentations](https://docs.aspose.com/slides/de/java/embedded-font/) beschrieben.
+
+Prüfen Sie zudem, ob Sie das Einbetten der in den Quell‑Dateien verwendeten Schriftarten überhaupt dürfen. Lizenzbedingungen können das Einbetten einschränken.
+
+### **Passwortgeschützte Präsentationen**
+
+Eine passwortgeschützte Quelle muss erfolgreich geöffnet werden, bevor ihre Folien geklont werden können. Das Passwort wird über [LoadOptions.setPassword](https://reference.aspose.com/slides/de/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) übergeben.
+
+```java
+import com.aspose.slides.*;
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("YOUR_PASSWORD");
+
+Presentation source = new Presentation("protected.pptx", loadOptions);
+try {
+    // Arbeiten mit der entschlüsselten Präsentation.
+} finally {
+    source.dispose();
+}
+```
+
+Das Öffnen einer verschlüsselten Quelle wendet den Schutz nicht automatisch auf die Zielpräsentation an. Konfigurieren Sie den Ausgabeschutz bei Bedarf separat.
+
+### **Große Präsentationen und Speicherverbrauch**
+
+Große Präsentationen mit hochauflösenden Bildern, Audio, Video oder anderen umfangreichen Binär‑Objekten können erheblichen Speicher beanspruchen. [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/de/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) bietet Steuerungen für BLOB‑Verarbeitung und temporäre Dateien. Siehe [Manage Presentation BLOBs](https://docs.aspose.com/slides/de/java/manage-blob/) für Strategien bei großen Dateien.
+
+Bei großen Dateien bevorzugen Sie das Laden über Dateipfade, wenn möglich, entsorgen jede Quellpräsentation, sobald sie zusammengeführt wurde, und vermeiden Sie wiederholtes Speichern von Zwischenergebnissen, es sei denn, der Workflow erfordert Prüfstellen.
+
+### **Thread‑Sicherheit**
+
+Laden, ändern, speichern oder klonen Sie nicht dieselbe [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/)-Instanz gleichzeitig aus mehreren Threads. Halten Sie jede Präsentations‑Instanz auf einen Merge‑Vorgang beschränkt. Wenn Sie unabhängige Jobs parallelisieren, verwenden Sie unabhängige Präsentations‑Instanzen und folgen Sie den [Aspose.Slides Multithreading‑Richtlinien](https://docs.aspose.com/slides/de/java/multithreading/).
 
 ## **FAQ**
 
-**Gibt es Beschränkungen für die Folienzahl beim Zusammenführen von Präsentationen?**
+**Wie behalte ich das ursprüngliche Design jeder Quellpräsentation bei?**
 
-Keine festen Beschränkungen. Aspose.Slides kann große Dateien verarbeiten, jedoch hängt die Leistung von Dateigröße und Systemressourcen ab. Für sehr große Präsentationen wird empfohlen, eine 64‑Bit‑JVM zu verwenden und ausreichend Heap‑Speicher zuzuweisen.
+Verwenden Sie [`addClone(sourceSlide)`](https://reference.aspose.com/slides/de/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) ohne Angabe eines Ziel‑Masters oder -Layouts. Aspose.Slides kann den Quell‑Master automatisch klonen, wenn er von der importierten Folie benötigt wird.
 
-**Kann ich Präsentationen mit eingebetteten Video‑ oder Audiodateien zusammenführen?**
+**Wie lasse ich importierte Folien das Ziel‑Theme verwenden?**
 
-Ja, Aspose.Slides erhält multimediale Inhalte, die in Folien eingebettet sind, wobei die resultierende Präsentation deutlich größer werden kann.
+Verwenden Sie die Überladung, die einen Ziel‑Master akzeptiert. Übergeben Sie einen Master aus der Zielpräsentation, nicht aus der Quelle. Aspose.Slides versucht, jede Quellfolie einem passenden Layout unter diesem Master zuzuordnen.
 
-**Werden Schriften beim Zusammenführen von Präsentationen erhalten?**
+**Wann sollte ich ein bestimmtes Ziel‑Layout statt eines Ziel‑Masters verwenden?**
 
-Ja. Schriften, die in den Quellpräsentationen verwendet werden, bleiben im Ausgabedokument erhalten, vorausgesetzt, sie sind auf dem System installiert oder [eingebettet](/slides/de/java/embedded-font/).
+Verwenden Sie ein spezifisches Layout, wenn jede importierte Folie ein bekanntes Layout verwenden soll. Verwenden Sie einen Master, wenn Sie Aspose.Slides die Auswahl unter den Layouts dieses Masters anhand des Quell‑Layout‑Typs oder Namens überlassen möchten.
+
+**Können Präsentationen mit unterschiedlichen Foliengrößen zusammengeführt werden?**
+
+Ja, aber der Folieninhalt wird nicht automatisch für die Zielabmessungen neu gestaltet. Skalieren Sie die Quellpräsentation zuerst, wenn Sie eine vorhersehbare Platzierung benötigen, beispielsweise mit [SlideSize.setSize](https://reference.aspose.com/slides/de/java/com.aspose.slides/slidesize/#setSize-float-float-int-) und [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/de/java/com.aspose.slides/slidesizescaletype/).
+
+**Kann ich PPT, PPTX und ODP Präsentationen zu einer Datei zusammenführen?**
+
+Ja. Laden Sie jede Quellpräsentation, klonen Sie die benötigten Folien in eine Zielpräsentation und speichern Sie das Ziel in einem unterstützten Ausgabeformat. Da die Formate nicht exakt denselben Funktionsumfang bieten, prüfen Sie komplexe Inhalte nach einem Format‑übergreifenden Merge. Siehe [Supported File Formats](https://docs.aspose.com/slides/de/java/supported-file-formats/).
+
+**Werden Quell‑Abschnitte automatisch erhalten?**
+
+Nicht durch eine einfache Schleife, die nur Folien klont. Replizieren Sie die benötigten Abschnitte in der Zielpräsentation und verwenden Sie die Abschnitt‑Überladung von [addClone](https://reference.aspose.com/slides/de/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-), wenn die Abschnittsstruktur erhalten bleiben muss.
+
+**Werden Sprecher‑Notizen und Kommentare erhalten?**
+
+Sie werden zusammen mit der geklonten Folie kopiert. Für Workflows, die von Notiz‑Master‑Styling, Kommentar‑Autoren oder verschachtelten Review‑Daten abhängen, prüfen Sie das zusammengeführte Ergebnis, da diese Szenarien ebenfalls Präsentation‑level‑Strukturen betreffen.
+
+**Was passiert mit Audio, Video, OLE‑Objekten und Hyperlinks?**
+
+Eingebettete Inhalte werden als Teil der Ressourcen‑Beziehungen der geklonten Folie übernommen. Externe Links bleiben extern, sodass ihre Ziel‑Dateien oder URLs nach dem Merge weiterhin verfügbar sein müssen.
+
+**Sind eingebettete Schriftarten aus jeder Quelle garantiert im Merge‑Dokument verfügbar?**
+
+Verlassen Sie sich nicht allein auf das Klonen von Folien für die Schriftarten‑Bereitstellung. Inspizieren Sie die eingebetteten Schriftarten des Ziels und verwalten Sie das Einbetten bzw. die externe Verfügbarkeit von Schriftarten explizit, wenn Typografie wichtig ist.
+
+**Wie merge ich eine passwortgeschützte Datei?**
+
+Öffnen Sie sie mit dem korrekten [LoadOptions.setPassword](https://reference.aspose.com/slides/de/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-), dann klonen Sie die Folien wie gewohnt. Der Ausgabeschutz wird separat konfiguriert.
+
+**Wie gehe ich mit sehr großen Präsentationen um?**
+
+Verwenden Sie BLOB‑Management, wenn große Binär‑Objekte den Speicherverbrauch dominieren, bevorzugen Sie das Laden über Dateipfade für sehr große Dateien, entsorgen Sie Quellpräsentationen sofort nach dem Merge und speichern Sie das Endergebnis nur bei Bedarf.
+
+**Kann ich Folien aus mehreren Threads zusammenführen?**
+
+Verwenden Sie nicht dieselbe [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/)-Instanz gleichzeitig aus mehreren Threads. Halten Sie jede Merge‑Operation auf eigene Präsentations‑Instanzen beschränkt.

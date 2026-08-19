@@ -1,272 +1,363 @@
 ---
-title: รวมพรีเซนเทชันอย่างมีประสิทธิภาพใน JavaScript
-linktitle: รวมพรีเซนเทชัน
+title: รวมชุดนำเสนออย่างมีประสิทธิภาพด้วย JavaScript
+linktitle: รวมชุดนำเสนอ
 type: docs
 weight: 40
 url: /th/nodejs-java/merge-presentation/
 keywords:
 - รวม PowerPoint
-- รวมพรีเซนเทชัน
+- รวมชุดนำเสนอ
 - รวมสไลด์
 - รวม PPT
 - รวม PPTX
 - รวม ODP
-- รวม PowerPoint
-- รวมพรีเซนเทชัน
-- รวมสไลด์
-- รวม PPT
-- รวม PPTX
-- รวม ODP
+- ผสาน PowerPoint
+- ผสานชุดนำเสนอ
+- ผสานสไลด์
+- ผสาน PPT
+- ผสาน PPTX
+- ผสาน ODP
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "ผสานพรีเซนเทชัน PowerPoint (PPT, PPTX) และ OpenDocument (ODP) อย่างง่ายดายใน JavaScript ด้วย Aspose.Slides สำหรับ Node.js เพื่อปรับกระบวนการทำงานของคุณให้ราบรื่น"
+description: "เรียนรู้วิธีรวมชุดนำเสนอ PowerPoint และ OpenDocument ด้วย JavaScript โดยคัดลอกสไลด์, ควบคุมมาสเตอร์และเลเอาต์, ปรับขนาดเนื้อหาสไลด์, คงส่วนต่างๆ, และจัดการไฟล์ที่ถูกป้องกันหรือขนาดใหญ่."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides ช่วยให้คุณรวมพรีเซนเทชันโดยทำการคัดลอกสไลด์จากพรีเซนเทชันหนึ่งไปยังอีกพรีเซนเทชันหนึ่ง บทความนี้อธิบายวิธีการรวมพรีเซนเทชันทั้งหมดหรือสไลด์ที่เลือกใช้ พรีเซนเทชันมาสเตอร์หรือเค้าโครงเฉพาะในระหว่างการรวม การจัดการพรีเซนเทชันที่มีขนาดสไลด์แตกต่างกัน และการเพิ่มสไลด์ที่รวมแล้วเข้าไปในส่วนของพรีเซนเทชัน นอกจากนี้ยังครอบคลุมโน้ตสำคัญที่เกี่ยวข้องกับเนื้อหาที่รวมไว้รวมถึงโน้ตผู้พูด ความคิดเห็น ไฟล์ต้นฉบับที่ป้องกันด้วยรหัสผ่าน และการใช้เธรด
+Aspose.Slides for Node.js via Java merges presentations by cloning slides from one [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/) into another. The main operation is [SlideCollection.addClone](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-), which can preserve the source slide's formatting or attach the cloned slide to a master or layout in the destination presentation.
 
-## **การรวมพรีเซนเทชัน**
+This article covers the most common merging workflows:
 
-เมื่อคุณรวมพรีเซนเทชันหนึ่งไปยังอีกพรีเซนเทชันหนึ่ง คุณกำลังผสานสไลด์ของพวกมันเข้าด้วยกันในพรีเซนเทชันเดียวเพื่อให้ได้ไฟล์เดียว
+- merge all slides while preserving their source formatting;
+- merge selected slides;
+- apply a master from the destination presentation;
+- apply a specific layout from the destination presentation;
+- normalize different slide sizes before merging;
+- add cloned slides to a section;
+- merge several presentations in one end-to-end workflow;
+- handle masters, resources, notes, comments, media, fonts, passwords, large files, and multithreading concerns.
 
-{{% alert title="Info" color="info" %}}
-หลายโปรแกรมพรีเซนเทชัน (PowerPoint หรือ OpenOffice) ขาดฟังก์ชันที่อนุญาตให้ผู้ใช้รวมพรีเซนเทชันในลักษณะนี้
-[**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/th/nodejs-java/), อย่างไรก็ตาม ให้คุณรวมพรีเซนเทชันในหลายรูปแบบ คุณสามารถรวมพรีเซนเทชันพร้อมกับรูปร่าง สไตล์ ข้อความ การจัดรูปแบบ ความคิดเห็น แอนิเมชัน ฯลฯ โดยไม่ต้องกังวลเรื่องการสูญเสียคุณภาพหรือข้อมูล
-**See also**
-[Clone Slides](https://docs.aspose.com/slides/th/nodejs-java/clone-slides/).
-{{% /alert %}}
+## **การคัดลอกสไลด์มีผลต่อมาสเตอร์และเลเอาต์อย่างไร**
 
-### **สิ่งที่สามารถรวมได้**
+A slide inherits much of its appearance from its layout and master. For that reason, the cloning overload you choose determines how the merged slide is integrated into the destination presentation.
 
-* พรีเซนเทชันทั้งหมด ทั้งหมดของสไลด์จากพรีเซนเทชันจะอยู่ในพรีเซนเทชันเดียว
-* สไลด์เฉพาะ สไลด์ที่เลือกจะอยู่ในพรีเซนเทชันเดียว
-* พรีเซนเทชันในรูปแบบเดียวกัน (PPT ไปยัง PPT, PPTX ไปยัง PPTX ฯลฯ) หรือในรูปแบบต่างกัน (PPT ไปยัง PPTX, PPTX ไปยัง ODP ฯลฯ) ไปยังกันและกัน
+Use [SlideCollection.addClone](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slidecollection/) in one of these ways:
 
-### **ตัวเลือกการรวม**
+- `addClone(sourceSlide)` — preserve the source slide's layout and formatting. When required, the source master can be cloned into the destination presentation automatically. Aspose.Slides tracks automatically cloned masters so repeated slides that use the same source master do not cause that master to be cloned repeatedly.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — attach the cloned slide to a specific destination [MasterSlide](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masterslide/). Aspose.Slides looks for a matching layout under that master by layout type or name.
+- `addClone(sourceSlide, destinationLayout)` — attach the cloned slide directly to a specific destination [LayoutSlide](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/layoutslide/).
 
-คุณสามารถกำหนดตัวเลือกที่บ่งบอกว่า
+The master or layout passed to an `addClone` overload must belong to the **destination** presentation, not the source presentation.
 
-* สไลด์แต่ละสไลด์ในพรีเซนเทชันผลลัพธ์จะรักษาสไตล์ที่เป็นเอกลักษณ์
-* หรือสไตล์เฉพาะจะใช้กับสไลด์ทั้งหมดในพรีเซนเทชันผลลัพธ์
+## **รวมชุดนำเสนอทั้งหมดและคงรูปแบบต้นทาง**
 
-เพื่อรวมพรีเซนเทชัน Aspose.Slides มีเมธอด [addClone](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) (จากคลาส [SlideCollection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/SlideCollection)) มีการนำไปใช้หลายรูปแบบที่กำหนดพารามิเตอร์ของกระบวนการรวมพรีเซนเทชัน ทุกอ็อบเจ็กต์ Presentation จะมีคอลเลกชัน [Slides](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation#getSlides--) ดังนั้นคุณจึงสามารถเรียกเมธอด `addClone` จากพรีเซนเทชันที่ต้องการรวมสไลด์เข้าไป
-
-เมธอด `addClone` จะคืนค่าอ็อบเจ็กต์ `Slide` ซึ่งเป็นสำเนาของสไลด์ต้นฉบับ สไลด์ในพรีเซนเทชันผลลัพธ์จึงเป็นสำเนาของสไลด์จากแหล่งต้นทาง ดังนั้นคุณจึงสามารถเปลี่ยนแปลงสไลด์ที่ได้ (เช่น ใช้สไตล์หรือออพชันการจัดรูปแบบหรือเค้าโครง) ได้โดยไม่กระทบต่อพรีเซนเทชันต้นฉบับ
-
-## **รวมพรีเซนเทชัน**
-
-Aspose.Slides มีเมธอด [**AddClone(ISlide)**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) ที่ให้คุณผสานสไลด์ในขณะที่สไลด์ยังคงเค้าโครงและสไตล์เดิม (พารามิเตอร์เริ่มต้น)
-
-โค้ด JavaScript นี้แสดงวิธีการรวมพรีเซนเทชัน:
+The simplest merge copies every slide from the source presentation to the destination presentation. This is the appropriate choice when the imported slides should keep their original theme, master, and layout relationships.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i));
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **รวมพรีเซนเทชันด้วย Slide Master**
+The resulting presentation may contain multiple masters when the source and destination use different designs. This is expected when source formatting is intentionally preserved.
 
-Aspose.Slides มีเมธอด [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) ที่ให้คุณผสานสไลด์พร้อมกับการใช้เทมเพลต Slide Master ของพรีเซนเทชัน ดังนั้นหากต้องการคุณสามารถเปลี่ยนสไตล์ของสไลด์ในพรีเซนเทชันผลลัพธ์ได้
+## **รวมสไลด์ที่เลือก**
 
-โค้ด JavaScript นี้แสดงการดำเนินการที่อธิบายไว้:
+You do not have to clone every slide. The following example imports only selected slide indexes from the source presentation.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres2.getMasters().get_Item(0), true);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const slideIndexes = [0, 2, 4];
+
+    for (const index of slideIndexes) {
+        destination.getSlides().addClone(source.getSlides().get_Item(index));
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-selected-slides.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-เค้าโครงสไลด์สำหรับ Slide Master จะกำหนดโดยอัตโนมัติ หากไม่สามารถกำหนดเค้าโครงที่เหมาะสมได้ และพารามิเตอร์ `allowCloneMissingLayout` ของเมธอด `addClone` ถูกตั้งเป็น true จะใช้เค้าโครงของสไลด์ต้นทาง มิฉะนั้นจะเกิดข้อผิดพลาด [PptxEditException](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/PptxEditException)
-{{% /alert %}}
+Validate slide indexes before cloning when they come from user input or external configuration.
 
-หากต้องการให้สไลด์ในพรีเซนเทชันผลลัพธ์มีเค้าโครงสไลด์ที่แตกต่าง ให้ใช้เมธอด [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.ILayoutSlide-) แทนเมื่อต้องการรวม
+## **รวมสไลด์โดยใช้มาสเตอร์ปลายทาง**
 
-## **รวมสไลด์เฉพาะจากพรีเซนเทชัน**
-
-การรวมสไลด์เฉพาะจากหลายพรีเซนเทชันเป็นประโยชน์สำหรับการสร้างชุดสไลด์แบบกำหนดเอง Aspose.Slides for Node.js via Java อนุญาตให้คุณเลือกและนำเข้าเฉพาะสไลด์ที่ต้องการ API จะรักษาการจัดรูปแบบ เค้าโครง และการออกแบบของสไลด์ต้นฉบับไว้
-
-โค้ด JavaScript ด้านล่างสร้างพรีเซนเทชันใหม่ เพิ่มสไลด์ชื่อเรื่องจากสองพรีเซนเทชันอื่น และบันทึกผลลัพธ์เป็นไฟล์:
-
-```js
-function getTitleSlide(presentation) {
-  for (let i = 0; i < presentation.getSlides().size(); i++) {
-    let slide = presentation.getSlides().get_Item(i);
-    if (slide.getLayoutSlide().getLayoutType() == aspose.slides.SlideLayoutType.Title) {
-      return slide;
-    }
-  }
-  return null;
-}
-```
-```js
-let presentation = new aspose.slides.Presentation();
-let presentation1 = new aspose.slides.Presentation("presentation1.pptx");
-let presentation2 = new aspose.slides.Presentation("presentation2.pptx");
-try {
-    presentation.getSlides().removeAt(0);
-    
-    let slide1 = getTitleSlide(presentation1);
-
-    if (slide1 != null)
-        presentation.getSlides().addClone(slide1);
-
-    let slide2 = getTitleSlide(presentation2);
-
-    if (slide2 != null)
-        presentation.getSlides().addClone(slide2);
-
-    presentation.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    presentation2.dispose();
-    presentation1.dispose();
-    presentation.dispose();
-}
-```
-
-## **รวมพรีเซนเทชันด้วย Slide Layout**
-
-โค้ด JavaScript นี้แสดงวิธีการผสานสไลด์จากพรีเซนเทชันพร้อมกับการใช้เค้าโครงสไลด์ที่คุณต้องการเพื่อให้ได้พรีเซนเทชันผลลัพธ์เดียว:
+Use the [addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) overload when imported slides should follow a master that already belongs to the destination presentation.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const destinationMaster = destination.getMasters().get_Item(0);
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), destinationMaster, true);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-with-destination-master.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **รวมพรีเซนเทชันที่มีขนาดสไลด์ต่างกัน**
+Aspose.Slides selects an appropriate layout under the specified master by matching the source layout's type or name. If no suitable layout exists and `allowCloneMissingLayout` is `true`, the source layout is cloned so the slide can be added. If it is `false`, a [PptxEditException](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pptxeditexception/) is thrown.
 
-{{% alert title="Note" color="warning" %}} 
-คุณไม่สามารถรวมพรีเซนเทชันที่มีขนาดสไลด์ต่างกันได้ 
-{{% /alert %}}
+Use `false` when you want the merge to fail instead of introducing an additional layout into the destination master.
 
-เพื่อรวมพรีเซนเทชัน 2 ฉบับที่มีขนาดสไลด์ต่างกัน คุณต้องปรับขนาดหนึ่งในพรีเซนเทชันให้ตรงกับอีกฉบับหนึ่ง
+## **รวมสไลด์โดยใช้เลเอ็ตปลายทางเฉพาะ**
 
-ตัวอย่างโค้ดต่อไปนี้แสดงการดำเนินการดังกล่าว:
+Use the [addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ILayoutSlide-) overload when you know exactly which destination layout the imported slides should use.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        pres2.getSlideSize().setSize(pres1.getSlideSize().getSize().getWidth(), pres1.getSlideSize().getSize().getHeight(), aspose.slides.SlideSizeScaleType.EnsureFit);
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const destinationLayout = destination.getLayoutSlides().get_Item(0);
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), destinationLayout);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-with-destination-layout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **รวมสไลด์ไปยังส่วนของพรีเซนเทชัน**
+Applying a destination layout changes the inherited layout relationship; it does not redesign the source slide content. If the source and destination layouts have different placeholder structures, inspect the result to confirm that the inherited formatting and placeholder behavior are appropriate.
 
-โค้ด JavaScript นี้แสดงวิธีการรวมสไลด์เฉพาะเข้าสู่ส่วนในพรีเซนเทชัน:
+## **รวมชุดนำเสนอที่มีขนาดสไลด์ต่างกัน**
+
+Presentations with different slide dimensions can be merged, but cloning a slide into a presentation with another slide size does not automatically redesign its content for the new canvas. Shapes may therefore appear shifted, scaled unexpectedly, or outside the visible slide area.
+
+A practical approach is to resize the source presentation before cloning. The [SlideSize.setSize](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slidesize/#setSize-float-float-int-) method can scale existing content while changing the slide dimensions. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slidesizescaletype/) scales content to fit within the requested size.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres1.getSections().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const sourceSize = source.getSlideSize().getSize();
+    const destinationSize = destination.getSlideSize().getSize();
+    const sizesDiffer = sourceSize.getWidth() !== destinationSize.getWidth() || 
+                        sourceSize.getHeight() !== destinationSize.getHeight();
+
+    if (sizesDiffer) {
+        source.getSlideSize().setSize(
+            destinationSize.getWidth(), 
+            destinationSize.getHeight(), 
+            aspose.slides.SlideSizeScaleType.EnsureFit);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i));
+    }
+
+    destination.save("merged-same-slide-size.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-สไลด์จะถูกเพิ่มที่ส่วนท้ายของเซ็กชันนั้น
+Resizing changes the source presentation object in memory. If you need the original source presentation unchanged for other operations, open a separate instance for the merge.
 
-## **FAQ**
+## **รวมสไลด์เข้าส่วนของชุดนำเสนอ**
 
-**โน้ตผู้พูดจะถูกเก็บรักษาไว้ระหว่างการรวมหรือไม่?**
+The basic slide-cloning loop does not recreate the source presentation's section hierarchy. If sections matter in the output, create or select sections in the destination presentation and clone slides into them explicitly with [addClone(Slide, Section)](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ISection-).
 
-ใช่ เมื่อนำสไลด์มาโคล Clone, Aspose.Slides จะคัดลอกองค์ประกอบสไลด์ทั้งหมดรวมถึงโน้ต การจัดรูปแบบ และแอนิเมชัน
+```javascript
+const aspose = require("aspose.slides.via.java");
 
-**ความคิดเห็นและผู้เขียนของความคิดเห็นจะถูกย้ายไปด้วยหรือไม่?**
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
+try {
+    const importedSection = destination.getSections().appendEmptySection("Imported slides");
 
-ความคิดเห็นซึ่งเป็นส่วนหนึ่งของเนื้อหาสไลด์จะถูกคัดลอกพร้อมสไลด์ ป้ายผู้เขียนความคิดเห็นจะถูกเก็บเป็นอ็อบเจ็กต์คอมเมนต์ในพรีเซนเทชันผลลัพธ์
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), importedSection);
+    }
 
-**หากพรีเซนเทชันต้นทางมีการป้องกันด้วยรหัสผ่านจะทำอย่างไร?**
+    destination.save("merged-with-section.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
+}
+```
 
-ต้อง [เปิดด้วยรหัสผ่าน](/slides/th/nodejs-java/password-protected-presentation/) ผ่าน [LoadOptions.setPassword](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/loadoptions/setpassword/) หลังจากโหลดแล้วสไลด์เหล่านั้นสามารถโคล Clone ไปยังไฟล์ปลายทางที่ไม่มีการป้องกัน (หรือไฟล์ที่ป้องกันด้วยรหัสผ่านได้เช่นกัน)
+The cloned slides are appended to the specified destination section. To preserve several source sections, recreate those sections in the destination and map each source slide to the corresponding destination section.
 
-**การดำเนินการรวมมีความปลอดภัยต่อเธรดแค่ไหน?**
+## **รวมหลายชุดนำเสนออย่างปลอดภัย**
 
-ห้ามใช้อินสแตนซ์ [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/) เดียวกันจากหลายเธรด (/slides/th/nodejs-java/multithreading/) คำแนะนำคือ “หนึ่งเอกสาร — หนึ่งเธรด” สามารถประมวลผลไฟล์ต่าง ๆ พร้อมกันในเธรดแยกต่างหากได้
+The following end-to-end example uses the first presentation as the destination, normalizes the slide size of each additional source, keeps each source open only while it is being copied, and saves the final file once.
 
-## **ดูเพิ่มเติม**
+```javascript
+const aspose = require("aspose.slides.via.java");
 
-Aspose ให้บริการ [FREE Online Collage Maker](https://products.aspose.app/slides/th/collage) ออนไลน์ ซึ่งคุณสามารถรวมภาพ [JPG ไปยัง JPG](https://products.aspose.app/slides/th/collage/jpg) หรือ PNG ไปยัง PNG, สร้าง [photo grids](https://products.aspose.app/slides/th/collage/photo-grid) และอื่น ๆ
+const inputFiles = ["part1.pptx", "part2.pptx", "part3.pptx"];
 
-ลองใช้ [Aspose FREE Online Merger](https://products.aspose.app/slides/th/merger) ซึ่งช่วยให้คุณรวมพรีเซนเทชัน PowerPoint ในรูปแบบเดียวกัน (เช่น PPT ไป PPT, PPTX ไป PPTX) หรือข้ามรูปแบบต่าง ๆ (เช่น PPT ไป PPTX, PPTX ไป ODP)
+const merged = new aspose.slides.Presentation(inputFiles[0]);
+try {
+    const mergedSize = merged.getSlideSize().getSize();
 
-[![Aspose FREE Online Merger](slides-merger.png)](https://products.aspose.app/slides/th/merger)
+    for (let fileIndex = 1; fileIndex < inputFiles.length; fileIndex++) {
+        const source = new aspose.slides.Presentation(inputFiles[fileIndex]);
+        try {
+            const sourceSize = source.getSlideSize().getSize();
+            const sizesDiffer = sourceSize.getWidth() !== mergedSize.getWidth() || 
+                                sourceSize.getHeight() !== mergedSize.getHeight();
+
+            if (sizesDiffer) {
+                source.getSlideSize().setSize(
+                    mergedSize.getWidth(), 
+                    mergedSize.getHeight(), 
+                    aspose.slides.SlideSizeScaleType.EnsureFit);
+            }
+
+            for (let slideIndex = 0; slideIndex < source.getSlides().size(); slideIndex++) {
+                merged.getSlides().addClone(source.getSlides().get_Item(slideIndex));
+            }
+        } finally {
+            source.dispose();
+        }
+    }
+
+    merged.save("merged.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    merged.dispose();
+}
+```
+
+This is a useful baseline for preserving the source formatting of imported slides. If your output must use a single destination theme, replace the simple `addClone(sourceSlide)` call with the appropriate destination-master or destination-layout overload shown earlier.
+
+## **ข้อควรพิจารณาเชิงปฏิบัติ**
+
+### **มาสเตอร์, เลเอ็ต, และความแม่นยำของการจัดรูปแบบ**
+
+Default slide cloning can automatically bring a required source master into the destination presentation. Aspose.Slides keeps an internal registry for automatically cloned masters to avoid cloning the same master repeatedly. Manually cloned masters are not tracked by that registry, so avoid pre-cloning masters unless you need explicit control over the master structure.
+
+Do not assume that two masters or layouts with the same name are visually equivalent. If a corporate template must control the final appearance, choose a destination master or layout explicitly and verify the result after merging.
+
+### **โน้ตและคอมเมนต์**
+
+Speaker notes and slide comments are associated with slide content and are copied when a slide is cloned. Aspose.Slides also exposes dedicated APIs for [presentation notes](https://docs.aspose.com/slides/th/nodejs-java/presentation-notes/) and [presentation comments](https://docs.aspose.com/slides/th/nodejs-java/presentation-comments/).
+
+If notes-page formatting is important, verify the merged presentation because notes masters are presentation-level objects and may differ between source files. For review workflows, also verify comment authors and threaded comments after combining files from different authors or templates.
+
+### **รูปภาพ, เสียง, วิดีโอ, วัตถุ OLE, และลิงก์ภายนอก**
+
+Slides can reference presentation-level resources such as images, embedded audio, embedded video, and OLE data. Clone the slide itself rather than copying only its visible shapes so Aspose.Slides can maintain the slide's relationships to its resources.
+
+Embedded and linked resources should be treated differently. A linked audio, video, OLE object, or hyperlink remains dependent on its external target; cloning a slide does not turn an external link into embedded content. Test linked-resource paths and URLs in the environment where the merged presentation will be opened.
+
+Aspose.Slides explicitly tracks automatically cloned masters, but this should not be treated as a general guarantee that identical binary resources from unrelated source presentations will always be deduplicated. If output file size is important, inspect the merged package and measure the result instead of relying on implicit deduplication.
+
+### **ฟอนต์ฝังและการเข้าถึงฟอนต์**
+
+Fonts are managed at the presentation level. If typography must remain consistent across machines, do not assume that cloning slides alone guarantees that every required font is available in the destination environment. You can inspect embedded fonts with [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/fontsmanager/#getEmbeddedFonts--) and manage embedding explicitly as described in [Embed Fonts in Presentations](https://docs.aspose.com/slides/th/nodejs-java/embedded-font/).
+
+Also verify that you are permitted to embed the fonts used by the source files. Font licenses can restrict embedding.
+
+### **ชุดนำเสนอที่ป้องกันด้วยรหัสผ่าน**
+
+A password-protected source must be opened successfully before its slides can be cloned. Supply the password through [LoadOptions.setPassword](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/loadoptions/#setPassword-String-).
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const loadOptions = new aspose.slides.LoadOptions();
+loadOptions.setPassword("YOUR_PASSWORD");
+
+const source = new aspose.slides.Presentation("protected.pptx", loadOptions);
+try {
+    // ทำงานกับชุดนำเสนอที่ถอดรหัสแล้ว.
+} finally {
+    source.dispose();
+}
+```
+
+Opening an encrypted source does not automatically apply the same protection to the destination presentation. Configure output protection separately when required.
+
+### **ชุดนำเสนอขนาดใหญ่และการใช้หน่วยความจำ**
+
+Large presentations containing high-resolution images, audio, video, or other large binary objects can consume significant memory. [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions--) provides controls for BLOB handling and temporary-file usage. See [Manage Presentation BLOBs](https://docs.aspose.com/slides/th/nodejs-java/manage-blob/) for large-file strategies.
+
+For large files, prefer loading from file paths when possible, dispose each source presentation as soon as it has been merged, and avoid repeatedly saving intermediate results unless the workflow requires checkpoints.
+
+### **ความปลอดภัยของเธรด**
+
+Do not load, save, or clone a [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/) instance in multiple threads. These operations are not supported for multithreaded use. If you need to parallelize independent merge jobs, use several single-threaded processes, each with its own presentation instances, and follow the [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/th/nodejs-java/multithreading/).
+
+## **คำถามที่พบบ่อย**
+
+**ฉันจะรักษาการออกแบบดั้งเดิมของแต่ละชุดนำเสนอต้นทางได้อย่างไร?**
+
+Use [`addClone(sourceSlide)`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-) without supplying a destination master or layout. Aspose.Slides can automatically clone the source master when it is needed by the imported slide.
+
+**ฉันจะทำให้สไลด์ที่นำเข้าใช้ธีมปลายทางได้อย่างไร?**
+
+Use the overload that accepts a destination master. Pass a master from the destination presentation, not from the source. Aspose.Slides will try to map each source slide to an appropriate layout under that master.
+
+**ควรใช้เลเอ็ตปลายทางเฉพาะแทนมาสเตอร์ปลายทางเมื่อใด?**
+
+Use a specific layout when every imported slide should use one known layout. Use a master when you want Aspose.Slides to select among that master's layouts based on the source layout type or name.
+
+**ชุดนำเสนอที่มีขนาดสไลด์ต่างกันสามารถรวมได้หรือไม่?**
+
+Yes, but slide content is not automatically redesigned for the destination dimensions. Resize the source presentation first when you need predictable placement, for example with [SlideSize.setSize](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slidesize/#setSize-float-float-int-) and [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slidesizescaletype/).
+
+**ฉันสามารถรวมไฟล์ PPT, PPTX, และ ODP เป็นไฟล์เดียวได้หรือไม่?**
+
+Yes. Load each source presentation, clone the required slides into one destination, and save the destination in a supported output format. Because presentation formats do not support exactly the same feature set, verify complex content after cross-format merges. See [Supported File Formats](https://docs.aspose.com/slides/th/nodejs-java/supported-file-formats/).
+
+**ส่วนของต้นทางจะถูกคงไว้โดยอัตโนมัติหรือไม่?**
+
+Not by a basic loop that only clones slides. Recreate the required sections in the destination and use the section overload of [addClone](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ISection-) when section structure must be preserved.
+
+**โน้ตของผู้พูดและคอมเมนต์จะถูกคงไว้หรือไม่?**
+
+They are copied with the cloned slide. For workflows that depend on notes-master styling, comment authors, or threaded review data, verify the merged result because those scenarios involve presentation-level structures as well as slide-level content.
+
+**จะเกิดอะไรกับเสียง, วิดีโอ, วัตถุ OLE, และไฮเปอร์ลิงก์?**
+
+Embedded content is carried as part of the cloned slide's resource relationships. External links remain external, so their target files or URLs must still be available after the merge.
+
+**ฟอนต์ฝังจากทุกแหล่งต้นถูกรับประกันว่าจะพร้อมใช้งานในชุดนำเสนอที่รวมหรือไม่?**
+
+Do not rely on slide cloning alone for font deployment. Inspect the destination's embedded fonts and explicitly manage font embedding or external font availability when typography is important.
+
+**ฉันจะรวมไฟล์ที่ป้องกันด้วยรหัสผ่านอย่างไร?**
+
+Open it with the correct [LoadOptions.setPassword](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/loadoptions/#setPassword-String-), then clone its slides normally. Output protection is configured separately.
+
+**ฉันควรจัดการชุดนำเสนอขนาดใหญ่อย่างไร?**
+
+Use BLOB management when large binary objects dominate memory usage, prefer file-path loading for very large files, dispose source presentations promptly, and save the final result only when needed.
+
+**ฉันสามารถรวมสไลด์จากหลายเธรดได้หรือไม่?**
+
+Do not load, save, or clone presentation instances in multiple threads. For parallel merge jobs, use separate single-threaded processes and independent presentation instances.

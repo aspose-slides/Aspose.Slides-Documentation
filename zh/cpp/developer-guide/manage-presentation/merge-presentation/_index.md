@@ -19,229 +19,363 @@ keywords:
 - 组合 ODP
 - C++
 - Aspose.Slides
-description: "使用 Aspose.Slides for C++，轻松合并 PowerPoint（PPT、PPTX）和 OpenDocument（ODP）演示文稿，简化工作流程。"
+description: "了解如何在 C++ 中通过克隆幻灯片、控制母版和布局、调整幻灯片内容大小、保留章节以及处理受保护或大型文件来合并 PowerPoint 和 OpenDocument 演示文稿。"
 ---
+## **概述**
 
-{{% alert  title="Tip" color="primary" %}} 
+Aspose.Slides for C++ 通过克隆幻灯片将一个 [Presentation](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/) 合并到另一个。主要操作是 [ISlideCollection::AddClone](https://reference.aspose.com/slides/zh/cpp/aspose.slides/islidecollection/addclone/)，它可以保留源幻灯片的格式，或将克隆的幻灯片附加到目标演示文稿的母版或布局中。
 
-您可能想查看 **Aspose free online** [Merger app](https://products.aspose.app/slides/merger)。它允许用户在相同格式（PPT 转 PPT、PPTX 转 PPTX 等）下合并 PowerPoint 演示文稿，也可以在不同格式（PPT 转 PPTX、PPTX 转 ODP 等）之间合并演示文稿。
+本文介绍了最常见的合并工作流：
 
-[![todo:image_alt_text](slides-merger.png)](https://products.aspose.app/slides/merger)
+- 在保留源格式的情况下合并所有幻灯片；
+- 合并选定的幻灯片；
+- 使用目标演示文稿的母版；
+- 使用目标演示文稿的特定布局；
+- 在合并前统一不同的幻灯片尺寸；
+- 将克隆的幻灯片添加到章节；
+- 在一个端到端工作流中合并多个演示文稿；
+- 处理母版、资源、备注、注释、媒体、字体、密码、大文件和多线程等问题。
 
-{{% /alert %}} 
+## **幻灯片克隆对母版和布局的影响**
 
+幻灯片的大部分外观继承自其布局和母版。因此，你选择的克隆重载决定了合并后的幻灯片如何集成到目标演示文稿中。
 
-## **演示文稿合并**
+可以通过以下方式使用 [ISlideCollection::AddClone](https://reference.aspose.com/slides/zh/cpp/aspose.slides/islidecollection/addclone/)：
 
-当您将一个演示文稿合并到另一个时，实际上是将它们的幻灯片合并到单个演示文稿中，以获得一个文件。 
+- `AddClone(sourceSlide)` — 保留源幻灯片的布局和格式。必要时，源母版可以自动克隆到目标演示文稿中。Aspose.Slides 会跟踪自动克隆的母版，以免使用相同源母版的重复幻灯片导致母版被多次克隆。
+- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — 将克隆的幻灯片附加到特定的目标 [IMasterSlide](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imasterslide/)。Aspose.Slides 会根据布局类型或名称在该母版下查找匹配的布局。
+- `AddClone(sourceSlide, destinationLayout)` — 将克隆的幻灯片直接附加到特定的目标 [ILayoutSlide](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ilayoutslide/)。
 
-{{% alert title="Info" color="info" %}}
+传递给 `AddClone` 重载的母版或布局必须属于 **目标** 演示文稿，而不是源演示文稿。
 
-大多数演示文稿程序（PowerPoint 或 OpenOffice）缺少允许用户以这种方式合并演示文稿的功能。 
+## **合并整个演示文稿并保留源格式**
 
-[**Aspose.Slides for C++**](https://products.aspose.com/slides/cpp/)，然而，允许您以不同方式合并演示文稿。您可以合并演示文稿的所有形状、样式、文本、格式、注释、动画等，而无需担心质量或数据的丢失。 
+最简单的合并是将源演示文稿的每一张幻灯片复制到目标演示文稿。当导入的幻灯片需要保留其原始主题、母版和布局关系时，这是一种合适的选择。
 
-**另请参阅**
-
-[Clone Slides](https://docs.aspose.com/slides/cpp/clone-slides/)*.* 
-
-{{% /alert %}}
-
-### **可以合并的内容**
-
-使用 Aspose.Slides，您可以合并 
-
-* 整个演示文稿。所有演示文稿中的幻灯片会合并到一个演示文稿中  
-* 特定幻灯片。选定的幻灯片会合并到一个演示文稿中  
-* 同一格式的演示文稿（PPT 转 PPT、PPTX 转 PPTX 等）以及不同格式的演示文稿（PPT 转 PPTX、PPTX 转 ODP 等）相互合并。 
-
-{{% alert title="Note" color="warning" %}} 
-
-除了演示文稿，Aspose.Slides 还支持合并其它文件：
-
-* [Images](https://products.aspose.com/slides/cpp/merger/image-to-image/)，例如 [JPG to JPG](https://products.aspose.com/slides/cpp/merger/jpg-to-jpg/) 或 [PNG to PNG](https://products.aspose.com/slides/cpp/merger/png-to-png/)  
-* 文档，例如 [PDF to PDF](https://products.aspose.com/slides/cpp/merger/pdf-to-pdf/) 或 [HTML to HTML](https://products.aspose.com/slides/cpp/merger/html-to-html/)  
-* 以及两种不同类型的文件，例如 [image to PDF](https://products.aspose.com/slides/cpp/merger/image-to-pdf/) 或 [JPG to PDF](https://products.aspose.com/slides/cpp/merger/jpg-to-pdf/) 或 [TIFF to PDF](https://products.aspose.com/slides/cpp/merger/tiff-to-pdf/)。 
-
-{{% /alert %}}
-
-### **合并选项**
-
-您可以应用以下选项，以决定：
-
-* 输出演示文稿中的每一张幻灯片是否保留唯一的样式  
-* 是否对输出演示文稿中的所有幻灯片使用相同的样式  
-
-要合并演示文稿，Aspose.Slides 提供了来自 [ISlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection) 接口的 [AddClone](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) 方法。`AddClone` 方法有多种实现，定义了演示文稿合并过程的参数。每个 Presentation 对象都有一个 [Slides](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c) 集合，因此您可以从目标演示文稿调用 `AddClone` 方法以合并幻灯片。 
-
-`AddClone` 方法返回一个 `ISlide` 对象，即源幻灯片的克隆。输出演示文稿中的幻灯片仅是源幻灯片的副本。因此，您可以对生成的幻灯片进行更改（例如应用样式、格式选项或布局），而无需担心源演示文稿受到影响。 
-
-## **合并演示文稿** 
-
-Aspose.Slides 提供了 [**AddClone (ISlide)**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) 方法，允许在保留原始布局和样式（默认参数）的情况下合并幻灯片。 
-
-以下 C++ 代码演示了如何合并演示文稿：
 ```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+for (const auto& slide : source->get_Slides())
 {
-    pres1->get_Slides()->AddClone(slide);
+    destination->get_Slides()->AddClone(slide);
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+destination->Save(u"merged.pptx", SaveFormat::Pptx);
 ```
 
+当源和目标使用不同的设计时，生成的演示文稿可能包含多个母版。这是源格式被有意保留时的预期行为。
 
-## **使用幻灯片母版合并演示文稿** 
+## **合并选定的幻灯片**
 
-Aspose.Slides 提供了 [**AddClone (ISlide, IMasterSlide, bool)**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a6b040e6b30f52ab4644fafdbc650b640) 方法，允许在应用幻灯片母版模板的情况下合并幻灯片。这样，必要时您可以更改输出演示文稿中幻灯片的样式。 
+并非必须克隆所有幻灯片。下面的示例仅从源演示文稿中导入选定的幻灯片索引。
 
-以下 C++ 代码演示了上述操作：
 ```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+int32_t slideIndexes[] = {0, 2, 4};
+
+for (auto index : slideIndexes)
 {
-    pres1->get_Slides()->AddClone(slide, pres2->get_Masters()->idx_get(0), true);
+    destination->get_Slides()->AddClone(source->get_Slide(index));
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+destination->Save(u"merged-selected-slides.pptx", SaveFormat::Pptx);
 ```
 
+当幻灯片索引来自用户输入或外部配置时，请在克隆前进行验证。
 
-{{% alert title="Note" color="warning" %}} 
+## **使用目标母版合并幻灯片**
 
-幻灯片母版的布局会自动确定。当无法确定合适的布局时，如果 `AddClone` 方法的 `allowCloneMissingLayout` 布尔参数设为 true，则使用源幻灯片的布局。否则，将抛出 [PptxEditException](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d)。 
+当导入的幻灯片应使用已属于目标演示文稿的母版时，请使用 [AddClone(ISlide, IMasterSlide, bool)](https://reference.aspose.com/slides/zh/cpp/aspose.slides/islidecollection/addclone/) 重载。
 
-{{% /alert %}}
-
-如果希望输出演示文稿中的幻灯片使用不同的布局，请在合并时改用 [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0ed5909b2d92555159007046760ff2f1) 方法。 
-
-## **从演示文稿中合并特定幻灯片** 
-
-从多个演示文稿中合并特定幻灯片对于创建自定义幻灯片集非常有用。Aspose.Slides C++ 允许您只选择并导入所需的幻灯片。API 会保留原始幻灯片的格式、布局和设计。 
-
-下面的 C++ 代码创建一个新演示文稿，从两个其他演示文稿中添加标题幻灯片，并将结果保存为文件：
 ```cpp
-SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation)
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto destinationMaster = destination->get_Master(0);
+
+for (const auto& slide : source->get_Slides())
 {
-    for (auto&& slide : presentation->get_Slides())
+    destination->get_Slides()->AddClone(slide, destinationMaster, true);
+}
+
+destination->Save(u"merged-with-destination-master.pptx", SaveFormat::Pptx);
+```
+
+Aspose.Slides 会通过匹配源布局的类型或名称，在指定的母版下选择合适的布局。如果不存在合适的布局且 `allowCloneMissingLayout` 为 `true`，则会克隆源布局以便添加幻灯片。若为 `false`，则会抛出 [PptxEditException](https://reference.aspose.com/slides/zh/cpp/aspose.slides/details_pptxeditexception/)。
+
+如果希望合并失败而不是在目标母版中引入额外布局，请使用 `false`。
+
+## **使用特定目标布局合并幻灯片**
+
+当明确知道导入的幻灯片应使用哪个目标布局时，请使用 [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/zh/cpp/aspose.slides/islidecollection/addclone/) 重载。
+
+```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto destinationLayout = destination->get_LayoutSlide(0);
+
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide, destinationLayout);
+}
+
+destination->Save(u"merged-with-destination-layout.pptx", SaveFormat::Pptx);
+```
+
+应用目标布局会改变继承的布局关系，但不会重新设计源幻灯片的内容。如果源和目标布局的占位符结构不同，请检查结果以确认继承的格式和占位符行为是否合适。
+
+## **合并不同幻灯片尺寸的演示文稿**
+
+不同幻灯片尺寸的演示文稿可以合并，但将幻灯片克隆到尺寸不同的演示文稿时，内容不会自动为新的画布重新设计。因此形状可能会出现偏移、意外缩放，或超出可见的幻灯片区域。
+
+一种实用的方法是在克隆之前调整源演示文稿的尺寸。[SlideSize::SetSize](https://reference.aspose.com/slides/zh/cpp/aspose.slides/slidesize/setsize/) 方法可以在更改幻灯片尺寸的同时缩放现有内容。[SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/zh/cpp/aspose.slides/slidesizescaletype/) 会将内容缩放以适应指定的大小。
+
+```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto destinationSize = destination->get_SlideSize()->get_Size();
+auto sourceSize = source->get_SlideSize()->get_Size();
+
+if (sourceSize.get_Width() != destinationSize.get_Width() || 
+    sourceSize.get_Height() != destinationSize.get_Height())
+{
+    source->get_SlideSize()->SetSize(
+        destinationSize.get_Width(), 
+        destinationSize.get_Height(), 
+        SlideSizeScaleType::EnsureFit);
+}
+
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide);
+}
+
+destination->Save(u"merged-same-slide-size.pptx", SaveFormat::Pptx);
+```
+
+调整大小会修改内存中的源演示文稿对象。如果需要保持原始源演示文稿不变以供其他操作，请为合并打开一个独立的实例。
+
+## **将幻灯片合并到演示文稿章节**
+
+基本的幻灯片克隆循环不会重新创建源演示文稿的章节层次结构。如果输出需要保留章节，请在目标演示文稿中创建或选择章节，并使用 [AddClone(ISlide, ISection)](https://reference.aspose.com/slides/zh/cpp/aspose.slides/islidecollection/addclone/) 将幻灯片显式克隆进去。
+
+```cpp
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto importedSection = destination->get_Sections()->AppendEmptySection(u"Imported slides");
+
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide, importedSection);
+}
+
+destination->Save(u"merged-with-section.pptx", SaveFormat::Pptx);
+```
+
+克隆的幻灯片会追加到指定的目标章节中。若要保留多个源章节，请在目标中重新创建这些章节，并将每个源幻灯片映射到相应的目标章节。
+
+## **安全地合并多个演示文稿**
+
+以下端到端示例使用第一个演示文稿作为目标，对每个后续源演示文稿的幻灯片尺寸进行统一，仅在复制时保持源打开，最后一次性保存文件。
+
+```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+System::String inputFiles[] = {u"part1.pptx", u"part2.pptx", u"part3.pptx"};
+const int32_t inputFileCount = 3;
+
+auto merged = System::MakeObject<Presentation>(inputFiles[0]);
+auto mergedSize = merged->get_SlideSize()->get_Size();
+
+for (int32_t fileIndex = 1; fileIndex < inputFileCount; fileIndex++)
+{
+    auto source = System::MakeObject<Presentation>(inputFiles[fileIndex]);
+    auto sourceSize = source->get_SlideSize()->get_Size();
+
+    if (sourceSize.get_Width() != mergedSize.get_Width() || 
+        sourceSize.get_Height() != mergedSize.get_Height())
     {
-        if (slide->get_LayoutSlide()->get_LayoutType() == SlideLayoutType::Title)
-        {
-            return slide;
-        }
+        source->get_SlideSize()->SetSize(
+            mergedSize.get_Width(), 
+            mergedSize.get_Height(), 
+            SlideSizeScaleType::EnsureFit);
     }
-    return nullptr;
-}
-```
 
-```cpp
-auto presentation = MakeObject<Presentation>();
-auto presentation1 = MakeObject<Presentation>(u"presentation1.pptx");
-auto presentation2 = MakeObject<Presentation>(u"presentation2.pptx");
-
-presentation->get_Slides()->RemoveAt(0);
-
-auto slide1 = GetTitleSlide(presentation1);
-
-if (slide1 != nullptr)
-    presentation->get_Slides()->AddClone(slide1);
-
-auto slide2 = GetTitleSlide(presentation2);
-
-if (slide2 != nullptr)
-    presentation->get_Slides()->AddClone(slide2);
-
-presentation->Save(u"combined.pptx", SaveFormat::Pptx);
-
-presentation2->Dispose();
-presentation1->Dispose();
-presentation->Dispose();
-```
-
-
-## **使用幻灯片布局合并演示文稿** 
-
-此 C++ 代码展示了如何在合并幻灯片时应用您首选的幻灯片布局，以生成一个输出演示文稿：
-```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
-{
-    pres1->get_Slides()->AddClone(slide, pres2->get_LayoutSlides()->idx_get(0));
+    for (const auto& slide : source->get_Slides())
+    {
+        merged->get_Slides()->AddClone(slide);
+    }
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+merged->Save(u"merged.pptx", SaveFormat::Pptx);
 ```
 
+这是一种有用的基准，用于保留导入幻灯片的源格式。如果输出必须使用单一的目标主题，请将简单的 `AddClone(slide)` 调用替换为前面示例中的目标母版或目标布局重载。
 
-## **合并不同尺寸幻灯片的演示文稿** 
+## **实际注意事项**
 
-{{% alert title="Note" color="warning" %}} 
+### **母版、布局和格式保真度**
 
-无法合并尺寸不同的演示文稿。 
+默认的幻灯片克隆可以自动将所需的源母版带入目标演示文稿。Aspose.Slides 为自动克隆的母版维护内部注册表，以避免重复克隆同一母版。手动克隆的母版不会被该注册表跟踪，因此除非需要对母版结构进行显式控制，否则请避免预先克隆母版。
 
-{{% /alert %}} 
+不要假设具有相同名称的两个母版或布局在视觉上是等价的。如果企业模板必须控制最终外观，请明确选择目标母版或布局，并在合并后验证结果。
 
-若要合并尺寸不同的两个演示文稿，必须将其中一个演示文稿的尺寸调整为与另一个相同。 
+### **备注和注释**
 
-以下示例代码演示了此操作：
+演讲者备注和幻灯片批注与幻灯片内容关联，克隆幻灯片时会一起复制。Aspose.Slides 还提供了专门的 API 用于 [presentation notes](https://docs.aspose.com/slides/zh/cpp/presentation-notes/) 和 [presentation comments](https://docs.aspose.com/slides/zh/cpp/presentation-comments/)。
+
+如果备注页的格式很重要，请检查合并后的演示文稿，因为备注母版是演示文稿级对象，可能在源文件之间不同。对于审阅工作流，还应在合并来自不同作者或模板的文件后验证批注作者和线程批注。
+
+### **图片、音频、视频、OLE 对象和外部链接**
+
+幻灯片可以引用演示文稿级资源，如图片、嵌入式音频、嵌入式视频和 OLE 数据。请克隆幻灯片本身，而不是仅复制其可见形状，以便 Aspose.Slides 能维护幻灯片与资源的关联。
+
+嵌入式和链接资源应区别对待。链接的音频、视频、OLE 对象或超链接仍依赖其外部目标；克隆幻灯片并不会将外部链接转为嵌入内容。请在合并后打开演示文稿的环境中测试链接资源的路径和 URL。
+
+Aspose.Slides 明确跟踪自动克隆的母版，但这不应被视为对来自不同源演示文稿的相同二进制资源始终去重的通用保证。如果输出文件大小很重要，请检查合并后的包并测量结果，而不要依赖隐式去重。
+
+### **嵌入字体及字体可用性**
+
+字体在演示文稿级别进行管理。如果排版必须在不同机器上保持一致，请不要假设仅克隆幻灯片就能保证目标环境中拥有所有必需的字体。您可以使用 [FontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/zh/cpp/aspose.slides/fontsmanager/getembeddedfonts/) 检查嵌入的字体，并按 [Embed Fonts in Presentations](https://docs.aspose.com/slides/zh/cpp/embedded-font/) 中的说明显式管理嵌入。
+
+同时请确认您有权嵌入源文件使用的字体。字体许可证可能限制嵌入。
+
+### **受密码保护的演示文稿**
+
+必须先成功打开受密码保护的源文件，才能克隆其幻灯片。请通过 [LoadOptions::set_Password](https://reference.aspose.com/slides/zh/cpp/aspose.slides/loadoptions/set_password/) 提供密码。
+
 ```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres1Size = pres1->get_SlideSize()->get_Size();
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
 
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-pres2->get_SlideSize()->SetSize(pres1Size.get_Width(), pres1Size.get_Height(), SlideSizeScaleType::EnsureFit);
+using namespace Aspose::Slides;
 
-for (const auto& slide : pres2->get_Slides())
-{
-    pres1->get_Slides()->AddClone(slide);
-}
+auto loadOptions = System::MakeObject<LoadOptions>();
+loadOptions->set_Password(u"YOUR_PASSWORD");
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+auto source = System::MakeObject<Presentation>(u"protected.pptx", loadOptions);
 ```
 
+打开加密的源文件并不会自动将相同的保护应用于目标演示文稿。需要时请单独配置输出保护。
 
-## **将幻灯片合并到演示文稿章节** 
+### **大型演示文稿和内存使用**
 
-此 C++ 代码展示了如何将特定幻灯片合并到演示文稿的某个章节：
-```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (int32_t index = 0; index < pres2->get_Slides()->get_Count(); index++)
-{
-    auto slide = pres2->get_Slides()->idx_get(index);
-    pres1->get_Slides()->AddClone(slide, pres1->get_Sections()->idx_get(0));
-}
+包含高分辨率图片、音频、视频或其他大型二进制对象的大型演示文稿可能会消耗大量内存。[LoadOptions::set_BlobManagementOptions](https://reference.aspose.com/slides/zh/cpp/aspose.slides/loadoptions/set_blobmanagementoptions/) 提供了对 BLOB 处理和临时文件使用的控制。请参阅 [Manage Presentation BLOBs](https://docs.aspose.com/slides/zh/cpp/manage-blob/) 获取大文件策略。
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
-```
+对于大型文件，尽可能使用文件路径加载，合并后及时释放每个源演示文稿，并避免频繁保存中间结果，除非工作流需要检查点。
 
+### **线程安全**
 
-该幻灯片会被添加到章节的末尾。 
+请勿在多个线程中同时加载、修改、保存或克隆同一个 [Presentation](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/) 实例。每个演示文稿实例应仅用于一次合并操作。如果并行独立任务，请使用独立的演示文稿实例，并遵循 [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/zh/cpp/multithreading/)。
 
-{{% alert title="Tip" color="primary" %}}
+## **常见问题**
 
-Aspose 提供了免费的 [Collage web app](https://products.aspose.app/slides/collage)。使用此在线服务，您可以合并 [JPG to JPG](https://products.aspose.app/slides/collage/jpg) 或 PNG 到 PNG 的图片，创建 [photo grids](https://products.aspose.app/slides/collage/photo-grid)，等等。 
+**如何保留每个源演示文稿的原始设计？**
 
-{{% /alert %}}
+使用 [`AddClone(sourceSlide)`](https://reference.aspose.com/slides/zh/cpp/aspose.slides/islidecollection/addclone/) 而不提供目标母版或布局。Aspose.Slides 可以在导入的幻灯片需要时自动克隆源母版。
 
-## **FAQ**
+**如何让导入的幻灯片使用目标主题？**
 
-**合并时是否保留演讲者备注？**
+使用接受目标母版的重载。传入目标演示文稿中的母版，而不是源演示文稿的。Aspose.Slides 将尝试将每个源幻灯片映射到该母版下的合适布局。
 
-是的。克隆幻灯片时，Aspose.Slides 会保留所有幻灯片元素，包括备注、格式和动画。
+**何时应使用特定目标布局而非目标母版？**
 
-**评论及其作者会被转移吗？**
+当所有导入的幻灯片都应使用同一已知布局时使用特定布局。当希望 Aspose.Slides 根据源布局的类型或名称在该母版的布局中进行选择时使用母版。
 
-评论作为幻灯片内容的一部分，会随幻灯片一起复制。评论作者标签会以评论对象的形式保留在生成的演示文稿中。
+**不同幻灯片尺寸的演示文稿可以合并吗？**
 
-**如果源演示文稿受密码保护怎么办？**
+可以，但幻灯片内容不会自动为目标尺寸重新设计。当需要可预测的布局时，请先调整源演示文稿的尺寸，例如使用 [SlideSize::SetSize](https://reference.aspose.com/slides/zh/cpp/aspose.slides/slidesize/setsize/) 和 [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/zh/cpp/aspose.slides/slidesizescaletype/)。
 
-必须使用密码通过 [LoadOptions::set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/) 打开（参见 [/slides/cpp/password-protected-presentation/]），加载后，这些幻灯片可以安全地克隆到未受保护的目标文件（或同样受保护的文件）中。
+**我可以将 PPT、PPTX 和 ODP 演示文稿合并为一个文件吗？**
 
-**合并操作的线程安全性如何？**
+可以。加载每个源演示文稿，将所需幻灯片克隆到同一目标中，并以受支持的输出格式保存目标。由于不同演示文稿格式的功能集并不完全相同，跨格式合并后请验证复杂内容。参见 [Supported File Formats](https://docs.aspose.com/slides/zh/cpp/supported-file-formats/)。
 
-请勿在 **多个线程** 中使用同一个 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 实例。推荐的规则是 “一个文档 — 一个线程”；不同的文件可以在独立线程中并行处理。
+**源章节会自动保留吗？**
+
+基本仅克隆幻灯片的循环不会自动保留章节。若需保留章节结构，请在目标中重新创建所需章节，并在需要时使用 [AddClone](https://reference.aspose.com/slides/zh/cpp/aspose.slides/islidecollection/addclone/) 的章节重载。
+
+**演讲者备注和批注会被保留吗？**
+
+它们会随克隆的幻灯片一起复制。对于依赖备注母版样式、批注作者或线程审阅数据的工作流，请验证合并结果，因为这些场景涉及演示文稿级结构以及幻灯片级内容。
+
+**音频、视频、OLE 对象和超链接会怎样处理？**
+
+嵌入的内容会随克隆幻灯片的资源关系一起保留。外部链接仍保持外部，因此在合并后仍需确保其目标文件或 URL 可用。
+
+**每个源的嵌入字体是否保证在合并后的演示文稿中可用？**
+
+不要仅依赖幻灯片克隆来部署字体。请检查目标的嵌入字体，并在排版重要时显式管理字体嵌入或外部字体可用性。
+
+**如何合并受密码保护的文件？**
+
+使用正确的 [LoadOptions::set_Password](https://reference.aspose.com/slides/zh/cpp/aspose.slides/loadoptions/set_password/) 打开文件，然后正常克隆其幻灯片。输出保护需单独配置。
+
+**如何处理非常大的演示文稿？**
+
+当大型二进制对象占用内存较多时，请使用 BLOB 管理；对极大文件优先使用文件路径加载；及时释放源演示文稿；仅在需要时才保存最终结果。
+
+**我可以在多个线程中合并幻灯片吗？**
+
+请勿在多个线程中并发使用同一个 [Presentation](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/) 实例。每个合并操作应使用独立的演示文稿实例。

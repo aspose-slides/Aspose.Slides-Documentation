@@ -1,6 +1,6 @@
 ---
-title: دمج العروض التقديمية بفعالية في جافا
-linktitle: دمج العروض التقديمية
+title: دمج العروض تقديميًا بفعالية في Java
+linktitle: دمج العروض تقديميًا
 type: docs
 weight: 40
 url: /ar/java/merge-presentation/
@@ -17,229 +17,346 @@ keywords:
 - دمج PPT
 - دمج PPTX
 - دمج ODP
-- جافا
+- Java
 - Aspose.Slides
-description: "دمج عروض PowerPoint (PPT, PPTX) وOpenDocument (ODP) بسهولة باستخدام Aspose.Slides for Java، مما يبسط سير عملك."
+description: "تعلم كيفية دمج عروض PowerPoint وOpenDocument في Java عن طريق استنساخ الشرائح، والتحكم في الماسترات والتخطيطات، وتغيير حجم محتوى الشرائح، والحفاظ على الأقسام، والتعامل مع الملفات المحمية أو الكبيرة."
 ---
-
 ## **نظرة عامة**
 
-يُعد دمج عروض PowerPoint وOpenDocument مهمة شائعة في العديد من تطبيقات Java، خاصةً عند إنشاء تقارير، تجميع شرائح من مصادر مختلفة، أو أتمتة سير عمل العروض التقديمية. يوفر Aspose.Slides for Java واجهة برمجة تطبيقات قوية وسهلة الاستخدام لدمج ملفات PPT وPPTX أو ODP متعددة في عرض تقديمي واحد دون الحاجة لتثبيت Microsoft PowerPoint أو LibreOffice أو OpenOffice.
+Aspose.Slides for Java يدمج العروض التقديمية عن طريق استنساخ الشرائح من [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/) إلى أخرى. العملية الرئيسية هي [ISlideCollection.addClone](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) التي يمكنها الحفاظ على تنسيق الشريحة المصدر أو إرفاق الشريحة المستنسخة إلى ماستر أو تخطيط في العرض التقديمي الهدف.
 
-في هذا الدليل، ستتعلم كيفية دمج عروض PowerPoint وOpenDocument باستخدام بضع أسطر فقط من كود Java. سنوفر أمثلة جاهزة للاستخدام، ونظهر كيفية الحفاظ على تنسيق الشرائح وتخطيطاتها والعناصر الأخرى للعرض أثناء عملية الدمج.
+تغطي هذه المقالة أكثر سيناريوهات الدمج شيوعًا:
 
-سواءً كنت تبني تطبيقًا على مستوى المؤسسات أو أداة أتمتة بسيطة، يجعل Aspose.Slides دمج العروض التقديمية في Java سريعًا، موثوقًا، وقابلاً للتوسع. يتيح Aspose.Slides for Java دمج العروض بطرق مختلفة. يمكنك دمج العروض مع جميع الأشكال، الأنماط، النصوص، التنسيقات، التعليقات، الرسوم المتحركة، وأكثر—دون القلق بشأن فقدان الجودة أو البيانات.
+- دمج جميع الشرائح مع الحفاظ على تنسيقها الأصلي;
+- دمج الشرائح المحددة;
+- تطبيق ماستر من العرض التقديمي الهدف;
+- تطبيق تخطيط معين من العرض التقديمي الهدف;
+- توحيد أحجام الشرائح المختلفة قبل الدمج;
+- إضافة الشرائح المستنسخة إلى قسم;
+- دمج عدة عروض تقديمية في سير عمل شامل من البداية إلى النهاية;
+- التعامل مع الماسترات والموارد والملاحظات والتعليقات والوسائط والخطوط وكلمات المرور والملفات الكبيرة ومقضايا التعددية الخيطية.
 
-{{% alert color="primary" %}}
-انظر أيضًا: [استنساخ الشرائح](https://docs.aspose.com/slides/java/clone-slides/)
-{{% /alert %}}
+## **كيف يؤثر استنساخ الشرائح على الماسترات والتخطيطات**
 
-### **ما الذي يمكن دمجه؟**
+تستمد الشريحة كثيرًا من مظهرها من التخطيط والماستر الخاص بها. لذلك، الاختيار الذي تقوم به للتحميل الزائد لتقنية الاستنساخ يحدد كيفية دمج الشريحة المدمجة في العرض التقديمي الهدف.
 
-مع Aspose.Slides، يمكنك دمج:
+استخدم [ISlideCollection.addClone](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islidecollection/) بأحد الطرق التالية:
 
-**العروض التقديمية بالكامل** – تُدمج جميع الشرائح من عروض متعددة في عرض واحد.
+- `addClone(sourceSlide)` — حافظ على تخطيط وتنسيق الشريحة المصدر. عند الحاجة، يمكن استنساخ ماستر المصدر إلى العرض التقديمي الهدف تلقائيًا. يتعقب Aspose.Slides الماسترات المستنسخة تلقائيًا بحيث لا يتم استنساخ نفس الماستر مرارًا عند وجود شرائح مكررة تستخدمه.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — إرفاق الشريحة المستنسخة إلى ماستر هدف محدد [IMasterSlide](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imasterslide/). يبحث Aspose.Slides عن تخطيط مطابق تحت ذلك الماستر حسب نوع التخطيط أو اسمه.
+- `addClone(sourceSlide, destinationLayout)` — إرفاق الشريحة المستنسخة مباشرةً إلى تخطيط هدف محدد [ILayoutSlide](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ilayoutslide/).
 
-**شرائح محددة** – تُدمج فقط الشرائح المختارة في عرض تقديمي واحد.
+يجب أن يكون الماستر أو التخطيط الممرر إلى تحميل زائد `addClone` جزءًا من العرض التقديمي **الهدف**، وليس من العرض التقديمي المصدر.
 
-**العروض بنفس التنسيق** (مثل PPT إلى PPT، PPTX إلى PPTX) **وبتنسيقات مختلفة** (مثل PPT إلى PPTX، PPTX إلى ODP).
+## **دمج العروض التقديمية بالكامل مع الحفاظ على تنسيق المصدر**
 
-### **خيارات الدمج**
+أبسط طريقة دمج هي نسخ كل شريحة من العرض التقديمي المصدر إلى العرض التقديمي الهدف. هذا هو الاختيار المناسب عندما يجب على الشرائح المستوردة الاحتفاظ بالثيم والماستر وعلاقات التخطيط الأصلية.
 
-يمكنك تطبيق خيارات تحدد ما إذا:
-
-- تحتفظ كل شريحة في العرض الناتج بنمطها الأصلي
-- يُطبق نمط محدد على جميع الشرائح في العرض الناتج
-
-لدمج العروض، يقدم Aspose.Slides طرق `AddClone` من واجهة [ISlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/). هناك عدة إصدارات مفرطة لـ `AddClone` تحدد سلوك عملية الدمج. كل كائن [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) يحتوي على مجموعة Slides. لذا يمكنك استدعاء طريقة `AddClone` على العرض الهدف الذي تريد دمج الشرائح فيه.
-
-تُعيد طريقة `AddClone` كائنًا من نوع [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/)، وهو نسخة مستنسخة من الشريحة المصدر. الشرائح الناتجة في العرض النهائي هي نسخ بسيطة من الشرائح الأصلية. هذا يعني أنه يمكنك تعديل الشرائح المستنسخة بأمان—مثل تطبيق الأنماط أو خيارات التنسيق أو التخطيطات—دون التأثير على العرض المصدر.
-
-## **دمج العروض التقديمية**
-
-يوفر Aspose.Slides طريقة [AddClone(ISlide)](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) التي تسمح بدمج الشرائح مع الحفاظ على تخطيطاتها وأنماطها الأصلية (السلوك الافتراضي).
-
-الكود التالي Java يوضح كيفية دمج العروض التقديمية:
 ```java
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    for (ISlide slide : presentation2.getSlides()) {
-        presentation1.getSlides().addClone(slide);
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide);
     }
-    presentation1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged.pptx", SaveFormat.Pptx);
 } finally {
-    presentation2.dispose();
-    presentation1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+قد يحتوي العرض الناتج على عدة ماسترات عندما يستخدم المصدر والهدف تصاميم مختلفة. هذا متوقع عندما يتم الحفاظ على تنسيق المصدر عن عمد.
 
-## **دمج العروض التقديمية مع شريحة رئيسية**
+## **دمج الشرائح المحددة**
 
-يوفر Aspose.Slides طريقة [AddClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) التي تسمح بدمج الشرائح مع تطبيق شريحة رئيسية من قالب عرض تقديمي. بهذه الطريقة، إذا لزم الأمر، يمكنك تغيير نمط الشرائح في العرض الناتج.
+ليس عليك استنساخ كل شريحة. المثال التالي يستورد فقط مؤشرات الشرائح المحددة من العرض التقديمي المصدر.
 
-الكود التالي Java يوضح هذا العملية:
 ```java
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    for (ISlide slide : presentation2.getSlides()) {
-        IMasterSlide masterSlide = presentation2.getMasters().get_Item(0);
-        presentation1.getSlides().addClone(slide, masterSlide, true);
+    int[] slideIndexes = { 0, 2, 4 };
+
+    for (int index : slideIndexes) {
+        destination.getSlides().addClone(source.getSlides().get_Item(index));
     }
-    presentation1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged-selected-slides.pptx", SaveFormat.Pptx);
 } finally {
-    presentation2.dispose();
-    presentation1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+تحقق من صحة مؤشرات الشرائح قبل الاستنساخ عندما تكون مأخوذة من إدخال المستخدم أو تكوين خارجي.
 
-{{% alert title="ملاحظة" color="warning" %}}
-يتم تحديد تخطيط الشريحة تلقائيًا. عندما لا يمكن العثور على تخطيط مناسب، وإذا تم تعيين المعامل المنطقي `allowCloneMissingLayout` في طريقة `AddClone` إلى `true`، يُستخدم التخطيط من الشريحة المصدر. وإلا، يُرمى استثناء [PptxEditException](https://reference.aspose.com/slides/java/com.aspose.slides/pptxeditexception/).
-{{% /alert %}}
+## **دمج الشرائح باستخدام ماستر هدف**
 
-## **دمج شرائح محددة من العروض التقديمية**
+استخدم تحميل زائد [addClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) عندما يجب أن تتبع الشرائح المستوردة ماسترًا ينتمي بالفعل إلى العرض التقديمي الهدف.
 
-يعد دمج شرائح محددة من عدة عروض مفيدًا لإنشاء مجموعات شرائح مخصصة. يتيح Aspose.Slides for Java اختيار واستيراد الشرائح التي تحتاجها فقط. يحافظ API على تنسيق وتخطيط وتصميم الشرائح الأصلية.
-
-الكود التالي Java ينشئ عرضًا تقديميًا جديدًا، يضيف شرائح عنوان من عرضين آخرين، ويحفظ النتيجة في ملف:
 ```java
-Presentation presentation = new Presentation();
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    presentation.getSlides().removeAt(0);
-    
-    ISlide slide1 = getTitleSlide(presentation1);
+    IMasterSlide destinationMaster = destination.getMasters().get_Item(0);
 
-    if (slide1 != null)
-        presentation.getSlides().addClone(slide1);
-
-    ISlide slide2 = getTitleSlide(presentation2);
-
-    if (slide2 != null)
-        presentation.getSlides().addClone(slide2);
-
-    presentation.save("combined.pptx", SaveFormat.Pptx);
-} finally {
-    presentation2.dispose();
-    presentation1.dispose();
-    presentation.dispose();
-}
-```
-
-```java
-static ISlide getTitleSlide(IPresentation presentation) {
-    for (ISlide slide : presentation.getSlides()) {
-        if (slide.getLayoutSlide().getLayoutType() == SlideLayoutType.Title) {
-            return slide;
-        }
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, destinationMaster, true);
     }
-    return null;
+
+    destination.save("merged-with-destination-master.pptx", SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+يقوم Aspose.Slides باختيار تخطيط مناسب تحت الماستر المحدد عن طريق مطابقة نوع أو اسم التخطيط المصدر. إذا لم يكن هناك تخطيط مناسب وكان `allowCloneMissingLayout` يساوي `true`، يتم استنساخ التخطيط المصدر حتى يمكن إضافة الشريحة. إذا كان `false`، يتم إلقاء استثناء [PptxEditException](https://reference.aspose.com/slides/ar/java/com.aspose.slides/pptxeditexception/).
 
-## **دمج العروض التقديمية مع تخطيط شريحة**
+استخدم `false` عندما تريد فشل عملية الدمج بدلاً من إضافة تخطيط إضافي إلى ماستر الهدف.
 
-لتطبيق تخطيط شريحة مختلف على الشرائح الناتجة أثناء الدمج، استخدم طريقة [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) بدلاً من ذلك.
+## **دمج الشرائح باستخدام تخطيط هدف محدد**
 
-الكود التالي Java يوضح كيفية دمج الشرائح من عدة عروض مع تطبيق تخطيط شريحة مفضل لديك، لينتج عرضًا تقديميًا واحدًا:
+استخدم تحميل زائد [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) عندما تعرف بالضبط أي تخطيط هدف يجب أن تستخدمه الشرائح المستوردة.
+
 ```java
-int layoutIndex = 0;
+import com.aspose.slides.*;
 
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    for (ISlide slide : presentation2.getSlides()) {
-        ILayoutSlide layoutSlide = presentation2.getLayoutSlides().get_Item(layoutIndex);
-        presentation1.getSlides().addClone(slide, layoutSlide);
+    ILayoutSlide destinationLayout = destination.getLayoutSlides().get_Item(0);
+
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, destinationLayout);
     }
-    presentation1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged-with-destination-layout.pptx", SaveFormat.Pptx);
 } finally {
-    presentation2.dispose();
-    presentation1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+تطبيق تخطيط هدف يغيّر علاقة التخطيط الموروثة؛ لا يعيد تصميم محتوى الشريحة المصدر. إذا كان للتخطيطات المصدر والهدف هياكل مربعات نائبة مختلفة، فافحص النتيجة للتأكد من أن التنسيق الموروث وسلوك المربعات النائبة مناسبين.
 
 ## **دمج العروض التقديمية بأحجام شرائح مختلفة**
 
-لدمج عرضين بحجم شريحة مختلف، يجب تعديل أحدهما ليتطابق مع حجم شريحة العرض الآخر.
+يمكن دمج العروض التقديمية ذات أبعاد شرائح مختلفة، لكن استنساخ شريحة إلى عرض تقديمي بأبعاد شريحة أخرى لا يعيد تصميم محتواها تلقائيًا لتناسب القماشة الجديدة. قد تظهر الأشكال متقلبة أو محجمة بشكل غير متوقع أو خارج مساحة الشريحة الظاهرة.
 
-الكود التالي Java يوضح هذه العملية:
+نهج عملي هو تعديل حجم العرض التقديمي المصدر قبل الاستنساخ. طريقة [SlideSize.setSize](https://reference.aspose.com/slides/ar/java/com.aspose.slides/slidesize/#setSize-float-float-int-) يمكنها تحجيم المحتوى الحالي مع تغيير أبعاد الشريحة. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/ar/java/com.aspose.slides/slidesizescaletype/) تحجم المحتوى ليتناسب مع الحجم المطلوب.
+
 ```java
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
-try {
-    Dimension2D slideSize = presentation1.getSlideSize().getSize();
-    float slideWidth = (float) slideSize.getWidth();
-    float slideHeight = (float) slideSize.getHeight();
-    
-    presentation2.getSlideSize().setSize(slideWidth, slideHeight, SlideSizeScaleType.EnsureFit);
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
 
-    for (ISlide slide : presentation2.getSlides()) {
-        presentation1.getSlides().addClone(slide);
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
+try {
+    Dimension2D sourceSize = source.getSlideSize().getSize();
+    Dimension2D destinationSize = destination.getSlideSize().getSize();
+
+    if (sourceSize.getWidth() != destinationSize.getWidth() || 
+        sourceSize.getHeight() != destinationSize.getHeight()) {
+        source.getSlideSize().setSize(
+            (float) destinationSize.getWidth(), 
+            (float) destinationSize.getHeight(), 
+            SlideSizeScaleType.EnsureFit);
     }
-    presentation1.save("combined.pptx", SaveFormat.Pptx);
+
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide);
+    }
+
+    destination.save("merged-same-slide-size.pptx", SaveFormat.Pptx);
 } finally {
-    presentation2.dispose();
-    presentation1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+تغيير الحجم يغيّر كائن العرض التقديمي المصدر في الذاكرة. إذا كنت تحتاج إلى الحفاظ على العرض التقديمي المصدر الأصلي دون تغيير لعمليات أخرى، افتح نسخة منفصلة للدمج.
 
-## **دمج الشرائح إلى قسم في العرض التقديمي**
+## **دمج الشرائح في قسم من العرض التقديمي**
 
-يساعد دمج الشرائح في قسم محدد من العرض على تنظيم المحتوى وتحسين تنقل الشرائح. يسمح Aspose.Slides بدمج الشرائح إلى أقسام موجودة، مما يضمن بنية واضحة مع الحفاظ على تنسيق كل شريحة أصلي.
+حلقة استنساخ الشرائح الأساسية لا تعيد إنشاء هيكلية أقسام العرض التقديمي المصدر. إذا كانت الأقسام مهمة في النتيجة، أنشئ أو اختر أقسامًا في العرض التقديمي الهدف واستنسخ الشرائح إليها صراحةً باستخدام [addClone(ISlide, ISection)](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-).
 
-الكود التالي Java يوضح كيفية دمج شريحة محددة إلى قسم في عرض تقديمي:
 ```java
-int sectionIndex = 0;
+import com.aspose.slides.*;
 
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    for (ISlide slide : presentation2.getSlides()) {
-        ISection section = presentation1.getSections().get_Item(sectionIndex);
-        presentation1.getSlides().addClone(slide, section);
+    ISection importedSection = destination.getSections().appendEmptySection("Imported slides");
+
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, importedSection);
     }
-    presentation1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged-with-section.pptx", SaveFormat.Pptx);
 } finally {
-    presentation2.dispose();
-    presentation1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+يتم إلحاق الشرائح المستنسخة بالقسم الهدف المحدد. للحفاظ على عدة أقسام مصدر، أعد إنشاء تلك الأقسام في العرض الهدف واربط كل شريحة مصدر بالقسم الهدف المقابل.
 
-تُضاف الشريحة إلى نهاية القسم.
+## **دمج عروض تقديمية متعددة بأمان**
 
-## **انظر أيضًا**
+يستخدم المثال التالي الشامل العرض التقديمي الأول كهدف، ويُقنّن حجم الشرائح لكل مصدر إضافي، ويحتفظ بكل مصدر مفتوحًا فقط أثناء النسخ، ثم يحفظ الملف النهائي مرة واحدة.
 
-توفر Aspose أداة **صانع كولاج مجاني عبر الإنترنت**(https://products.aspose.app/slides/collage). باستخدام هذه الخدمة على الإنترنت، يمكنك دمج [JPG إلى JPG](https://products.aspose.app/slides/collage/jpg) أو PNG إلى PNG، وإنشاء [شبكات صور](https://products.aspose.app/slides/collage/photo-grid)، وأكثر.
+```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
 
-جرب **أداة الدمج المجانية عبر الإنترنت**(https://products.aspose.app/slides/merger). تتيح لك دمج عروض PowerPoint بنفس التنسيق (مثل PPT إلى PPT، PPTX إلى PPTX) أو عبر تنسيقات مختلفة (مثل PPT إلى PPTX، PPTX إلى ODP).
+String[] inputFiles = { "part1.pptx", "part2.pptx", "part3.pptx" };
 
-[![Aspose أداة دمج مجانية عبر الإنترنت](slides-merger.png)](https://products.aspose.app/slides/merger)
+Presentation merged = new Presentation(inputFiles[0]);
+try {
+    Dimension2D mergedSize = merged.getSlideSize().getSize();
 
-إلى جانب العروض التقديمية، يتيح Aspose.Slides دمج ملفات أخرى:
+    for (int fileIndex = 1; fileIndex < inputFiles.length; fileIndex++) {
+        Presentation source = new Presentation(inputFiles[fileIndex]);
+        try {
+            Dimension2D sourceSize = source.getSlideSize().getSize();
 
-- [**الصور**](https://products.aspose.com/slides/java/merger/image-to-image/)، مثل [JPG إلى JPG](https://products.aspose.com/slides/java/merger/jpg-to-jpg/) أو [PNG إلى PNG](https://products.aspose.com/slides/java/merger/png-to-png/)
-- **المستندات**، مثل [PDF إلى PDF](https://products.aspose.com/slides/java/merger/pdf-to-pdf/) أو [HTML إلى HTML](https://products.aspose.com/slides/java/merger/html-to-html/)
-- **أنواع ملفات مختلطة**، مثل [صورة إلى PDF](https://products.aspose.com/slides/java/merger/image-to-pdf/)، [JPG إلى PDF](https://products.aspose.com/slides/java/merger/jpg-to-pdf/)، أو [TIFF إلى PDF](https://products.aspose.com/slides/java/merger/tiff-to-pdf/)
+            if (sourceSize.getWidth() != mergedSize.getWidth() || 
+                sourceSize.getHeight() != mergedSize.getHeight()) {
+                source.getSlideSize().setSize(
+                    (float) mergedSize.getWidth(), 
+                    (float) mergedSize.getHeight(), 
+                    SlideSizeScaleType.EnsureFit);
+            }
+
+            for (ISlide slide : source.getSlides()) {
+                merged.getSlides().addClone(slide);
+            }
+        } finally {
+            source.dispose();
+        }
+    }
+
+    merged.save("merged.pptx", SaveFormat.Pptx);
+} finally {
+    merged.dispose();
+}
+```
+
+هذا أساس مفيد للحفاظ على تنسيق المصدر للشرائح المستوردة. إذا كان يجب أن يستخدم الناتج ثيم هدف واحد، استبدل استدعاء `addClone(slide)` البسيط بتحميل زائد للماستر الهدف أو التخطيط الهدف المناسب كما هو موضح سابقًا.
+
+## **اعتبارات عملية**
+
+### **الماسترات والتخطيطات ودقة التنسيق**
+
+يمكن لاستنساخ الشرائح الافتراضي أن يجلب الماستر المصدر المطلوب تلقائيًا إلى العرض التقديمي الهدف. يحتفظ Aspose.Slides بسجل داخلي للماسترات المستنسخة تلقائيًا لتجنب استنساخ نفس الماستر بشكل متكرر. الماسترات المستنسخة يدويًا لا يتم تتبعها في ذلك السجل، لذا تجنب استنساخ الماسترات مسبقًا إلا إذا كان لديك حاجة للتحكم الصريح في هيكلة الماستر.
+
+لا تفترض أن ماسترين أو تخطيطين يحملان نفس الاسم متساويان بصريًا. إذا كان القالب المؤسسي يجب أن يتحكم في المظهر النهائي، اختر ماستر أو تخطيط هدف صراحةً وتحقق من النتيجة بعد الدمج.
+
+### **الملاحظات والتعليقات**
+
+ملاحظات المتحدث وتعليقات الشريحة مرتبطة بمحتوى الشريحة وتُنسخ عند استنساخ الشريحة. كما يوفر Aspose.Slides واجهات برمجة تطبيقات مخصصة لـ [presentation notes](https://docs.aspose.com/slides/ar/java/presentation-notes/) و[presentation comments](https://docs.aspose.com/slides/ar/java/presentation-comments/).
+
+إذا كان تنسيق صفحة الملاحظات مهمًا، تحقق من العرض المدمج لأن ماسترات الملاحظات هي كائنات على مستوى العرض وقد تختلف بين الملفات المصدر. في عمليات المراجعة، تحقق أيضًا من مؤلفي التعليقات والتعليقات المتسلسلة بعد دمج ملفات لمؤلفين أو قوالب مختلفة.
+
+### **الصور والصوت والفيديو وكائنات OLE والروابط الخارجية**
+
+يمكن للشرائح الإشارة إلى موارد على مستوى العرض مثل الصور، والصوت المدمج، والفيديو المدمج، وبيانات OLE. استنسخ الشريحة نفسها بدلاً من نسخ الأشكال المرئية فقط حتى يتمكن Aspose.Slides من الحفاظ على علاقات الشريحة بمواردها.
+
+يجب التعامل مع الموارد المدمجة والمرتبطة بشكل مختلف. يبقى الصوت أو الفيديو أو كائن OLE أو الارتباط التشعبي المرتبط يعتمد على هدفه الخارجي؛ استنساخ شريحة لا يحول الرابط الخارجي إلى محتوى مدمج. اختبر مسارات الموارد المرتبطة وعناوين URL في البيئة التي سيفتح فيها العرض المدمج.
+
+يتتبع Aspose.Slides صراحة الماسترات المستنسخة تلقائيًا، لكن لا ينبغي اعتبار ذلك ضمانًا عامًّا أن الموارد الثنائية المتطابقة من عروض تقديمية مصدرية غير مرتبطة ستتم دائمًا إلغاء تكرارها. إذا كان حجم ملف الإخراج مهمًا، فافحص الحزمة المدمجة وقم بقياس النتيجة بدلاً من الاعتماد على إلغاء التكرار الضمني.
+
+### **الخطوط المدمجة وتوافر الخطوط**
+
+تُدار الخطوط على مستوى العرض التقديمي. إذا كان يجب أن تكون الطباعة متسقة عبر الأجهزة، لا تفترض أن استنساخ الشرائح وحده يضمن توافر كل خط مطلوب في بيئة الهدف. يمكنك فحص الخطوط المدمجة باستخدام [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/ar/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) وإدارة الإدماج صراحةً كما هو موضح في [Embed Fonts in Presentations](https://docs.aspose.com/slides/ar/java/embedded-font/).
+
+تحقق أيضًا من أنك مسموح لك بإدماج الخطوط المستخدمة في الملفات المصدرية. قد تقيد تراخيص الخطوط عملية الإدماج.
+
+### **العروض التقديمية المحمية بكلمة مرور**
+
+يجب فتح المصدر المحمي بكلمة مرور بنجاح قبل أن يتم استنساخ شرائحه. قدم كلمة المرور عبر [LoadOptions.setPassword](https://reference.aspose.com/slides/ar/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-).
+
+```java
+import com.aspose.slides.*;
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("YOUR_PASSWORD");
+
+Presentation source = new Presentation("protected.pptx", loadOptions);
+try {
+    // العمل مع العرض التقديمي المفكوك.
+} finally {
+    source.dispose();
+}
+```
+
+فتح مصدر مشفر لا يطبق نفس الحماية تلقائيًا على العرض التقديمي الهدف. قم بتكوين حماية الإخراج بشكل منفصل عند الحاجة.
+
+### **العروض التقديمية الكبيرة واستخدام الذاكرة**
+
+العروض التقديمية الكبيرة التي تحتوي على صور عالية الدقة أو صوت أو فيديو أو كائنات ثنائية أخرى قد تستهلك ذاكرة كبيرة. توفر [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/ar/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) أدوات للتحكم في معالجة الـ BLOB واستخدام الملفات المؤقتة. راجع [Manage Presentation BLOBs](https://docs.aspose.com/slides/ar/java/manage-blob/) لاستراتيجيات الملفات الكبيرة.
+
+بالنسبة للملفات الكبيرة، فضل تحميلها من مسارات الملفات عندما يكون ذلك ممكنًا، وتخلص من كل عرض تقديمي مصدر بمجرد دمجه، وتجنب حفظ النتائج الوسيطة بشكل متكرر ما لم يتطلب سير العمل نقاط تحقق.
+
+### **أمان الخيوط**
+
+لا تقوم بتحميل أو تعديل أو حفظ أو استنساخ نفس كائن [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/) بشكل متزامن من عدة خيوط. احتفظ بكل كائن عرض تقديمي محصورًا في عملية دمج واحدة. إذا قمت بتوازية وظائف مستقلة، استخدم كائنات عرض تقديمي مستقلة واتبع إرشادات [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/ar/java/multithreading/).
 
 ## **الأسئلة المتكررة**
 
-**هل هناك أي حدود لعدد الشرائح عند دمج العروض التقديمية؟**
+**كيف أحافظ على التصميم الأصلي لكل عرض تقديمي مصدر؟**
 
-ليس هناك حدود صارمة. يمكن لـ Aspose.Slides التعامل مع ملفات كبيرة، لكن الأداء يعتمد على حجم الملف وموارد النظام. بالنسبة للعروض الكبيرة جدًا، يُنصح باستخدام JVM بنسخة 64‑bit وتخصيص ذاكرة كافية.
+استخدم [`addClone(sourceSlide)`](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) دون توفير ماستر أو تخطيط هدف. يمكن لـ Aspose.Slides استنساخ ماستر المصدر تلقائيًا عندما تحتاجه الشريحة المستوردة.
 
-**هل يمكنني دمج عروض تحتوي على فيديو أو صوت مدمج؟**
+**كيف أجعل الشرائح المستوردة تستخدم ثيم الهدف؟**
 
-نعم، يحافظ Aspose.Slides على المحتوى متعدد الوسائط المدمج في الشرائح، لكن قد يصبح حجم العرض النهائي أكبر بكثير.
+استخدم التحميل الزائد الذي يقبل ماستر هدف. مرر ماسترًا من العرض التقديمي الهدف، وليس من المصدر. سيحاول Aspose.Slides ربط كل شريحة مصدر بتخطيط مناسب تحت ذلك الماستر.
 
-**هل يتم الحفاظ على الخطوط عند دمج العروض؟**
+**متى يجب استخدام تخطيط هدف محدد بدلاً من ماستر هدف؟**
 
-نعم. تُحافظ الخطوط المستخدمة في العروض المصدر في الملف الناتج، شريطة أن تكون مثبتة على النظام أو [مضمنة](/slides/ar/java/embedded-font/).
+استخدم تخطيطًا محددًا عندما يجب أن تستخدم كل شريحة مستوردة تخطيطًا واحدًا معروفًا. استخدم ماسترًا عندما تريد من Aspose.Slides اختيار أحد تخطيطات ذلك الماستر بناءً على نوع أو اسم التخطيط المصدر.
+
+**هل يمكن دمج عروض تقديمية بأحجام شرائح مختلفة؟**
+
+نعم، لكن محتوى الشريحة لا يعاد تصميمه تلقائيًا لأبعاد الهدف. قم بتعديل حجم العرض التقديمي المصدر أولاً عندما تحتاج إلى وضعية متوقعة، على سبيل المثال باستخدام [SlideSize.setSize](https://reference.aspose.com/slides/ar/java/com.aspose.slides/slidesize/#setSize-float-float-int-) و[SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/ar/java/com.aspose.slides/slidesizescaletype/).
+
+**هل يمكن دمج عروض PPT و PPTX و ODP في ملف واحد؟**
+
+نعم. حمّل كل عرض تقديمي مصدر، استنسخ الشرائح المطلوبة إلى هدف واحد، واحفظ الهدف بتنسيق إخراج مدعوم. نظرًا لأن تنسيقات العروض لا تدعم مجموعة الميزات نفسها تمامًا، تحقق من المحتوى المعقد بعد عمليات الدمج عبر التنسيقات. راجع [Supported File Formats](https://docs.aspose.com/slides/ar/java/supported-file-formats/).
+
+**هل يتم الحفاظ على أقسام المصدر تلقائيًا؟**
+
+ليس عبر حلقة أساسية تستنسخ الشرائح فقط. أعد إنشاء الأقسام المطلوبة في الهدف واستخدم التحميل الزائد للقسم في [addClone](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-) عندما يجب الحفاظ على هيكل الأقسام.
+
+**هل يتم الحفاظ على ملاحظات المتحدث والتعليقات؟**
+
+يتم نسخها مع الشريحة المستنسخة. بالنسبة للعمليات التي تعتمد على تنسيق ماستر الملاحظات أو مؤلفي التعليقات أو بيانات المراجعة المتسلسلة، تحقق من النتيجة المدمجة لأن هذه السيناريوهات تشمل هياكل على مستوى العرض بالإضافة إلى محتوى الشريحة.
+
+**ماذا يحدث للملفات الصوتية والفيديوية وكائنات OLE والروابط التشعبية؟**
+
+يتم نقل المحتوى المدمج كجزء من علاقات موارد الشريحة المستنسخة. الروابط الخارجية تظل خارجية، لذا يجب أن تظل ملفات الهدف أو عناوين URL متاحة بعد الدمج.
+
+**هل تضمن الخطوط المدمجة من كل مصدر توافرها في العرض المدمج؟**
+
+لا تعتمد على استنساخ الشرائح وحده لتوزيع الخطوط. افحص الخطوط المدمجة في الهدف وأدر إدماج الخطوط صراحةً أو توافر الخطوط الخارجية عندما تكون الطباعة مهمة.
+
+**كيف أدمج ملفًا محميًا بكلمة مرور؟**
+
+افتحه باستخدام [LoadOptions.setPassword](https://reference.aspose.com/slides/ar/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) الصحيح، ثم استنسخ شرائحه كالمعتاد. تُضبط حماية الإخراج بشكل منفصل.
+
+**كيف يجب أن أتعامل مع العروض التقديمية الكبيرة جدًا؟**
+
+استخدم إدارة BLOB عندما تهيمن الكائنات الثنائية الكبيرة على استهلاك الذاكرة، وفضِّل تحميل الملفات من مساراتها للملفات الضخمة جدًا، وتخلص من العروض المصدرية بسرعة، واحفظ النتيجة النهائية فقط عند الحاجة.
+
+**هل يمكن دمج الشرائح من خيوط متعددة؟**
+
+لا تستخدم كائن [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/) واحدًا بشكل متزامن من عدة خيوط. احفظ كل عملية دمج معزولة على كائنات عرض تقديمي مستقلة.

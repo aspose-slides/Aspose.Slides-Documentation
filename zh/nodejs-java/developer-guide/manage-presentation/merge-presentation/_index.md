@@ -1,5 +1,5 @@
 ---
-title: 在 JavaScript 中高效合并演示文稿
+title: 高效在 JavaScript 中合并演示文稿
 linktitle: 合并演示文稿
 type: docs
 weight: 40
@@ -20,262 +20,344 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "使用 Aspose.Slides for Node.js，在 JavaScript 中轻松合并 PowerPoint (PPT、PPTX) 和 OpenDocument (ODP) 演示文稿，简化工作流。"
+description: "了解如何在 JavaScript 中通过克隆幻灯片、控制母版和布局、调整幻灯片内容大小、保留章节以及处理受保护或大型文件，来合并 PowerPoint 和 OpenDocument 演示文稿。"
 ---
+## **概述**
 
-## **演示文稿合并**
+Aspose.Slides for Node.js via Java 通过克隆幻灯片的方式，将一个 [Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/) 合并到另一个演示文稿中。主要操作是 [SlideCollection.addClone](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-)，它可以保留源幻灯片的格式，或者将克隆的幻灯片附加到目标演示文稿的母版或布局中。
 
-当您将一个演示文稿合并到另一个演示文稿时，实际上是在单个演示文稿中合并它们的幻灯片以获得一个文件。
+本文介绍了最常用的合并工作流：
 
-{{% alert title="信息" color="info" %}}
+- 合并所有幻灯片并保留其源格式；
+- 合并选定的幻灯片；
+- 使用目标演示文稿的母版；
+- 使用目标演示文稿的特定布局；
+- 在合并前统一不同的幻灯片尺寸；
+- 将克隆的幻灯片添加到章节；
+- 在一个端到端工作流中合并多个演示文稿；
+- 处理母版、资源、备注、评论、媒体、字体、密码、大文件和多线程等问题。
 
-大多数演示文稿程序（PowerPoint 或 OpenOffice）缺少允许用户以此方式合并演示文稿的功能。
+## **幻灯片克隆如何影响母版和布局**
 
-[**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/nodejs-java/)，然而，Aspose.Slides for Node.js via Java 允许您以不同方式合并演示文稿。您可以合并包含所有形状、样式、文本、格式、注释、动画等的演示文稿，而无需担心质量或数据丢失。
+幻灯片的大部分外观继承自其布局和母版。因此，选择的克隆重载决定了合并后的幻灯片在目标演示文稿中的集成方式。
 
-**另见**
+以以下方式使用 [SlideCollection.addClone](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slidecollection/)：
 
-[克隆幻灯片](https://docs.aspose.com/slides/nodejs-java/clone-slides/).
+- `addClone(sourceSlide)` — 保留源幻灯片的布局和格式。必要时，源母版会自动克隆到目标演示文稿中。Aspose.Slides 会跟踪自动克隆的母版，避免对使用相同源母版的幻灯片重复克隆。
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — 将克隆的幻灯片附加到特定的目标 [MasterSlide](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/masterslide/)。Aspose.Slides 会根据布局类型或名称在该母版下查找匹配的布局。
+- `addClone(sourceSlide, destinationLayout)` — 将克隆的幻灯片直接附加到特定的目标 [LayoutSlide](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/layoutslide/)。
 
-{{% /alert %}}
+传递给 `addClone` 重载的母版或布局必须属于 **目标** 演示文稿，而不是源演示文稿。
 
-### **可以合并的内容**
+## **合并整个演示文稿并保留源格式**
 
-使用 Aspose.Slides，您可以合并  
+最简单的合并方式是将源演示文稿的每一张幻灯片复制到目标演示文稿中。当导入的幻灯片应保持原始主题、母版和布局关系时，这是合适的选择。
 
-* 整个演示文稿。所有演示文稿的幻灯片最终汇集到一个演示文稿中  
-* 特定幻灯片。所选幻灯片最终汇集到一个演示文稿中  
-* 同一格式的演示文稿（PPT 到 PPT、PPTX 到 PPTX 等）以及不同格式的演示文稿（PPT 到 PPTX、PPTX 到 ODP 等）相互合并。  
-
-### **合并选项**
-
-您可以应用以下选项来确定  
-
-* 输出演示文稿中的每个幻灯片保持唯一样式  
-* 为输出演示文稿中的所有幻灯片使用特定样式  
-
-要合并演示文稿，Aspose.Slides 提供了 [addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) 方法（来自 [SlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection) 类）。`addClone` 方法有多种实现形式，可定义演示文稿合并过程的参数。每个 Presentation 对象都有一个 [Slides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getSlides--) 集合，因此可以从目标演示文稿调用 `addClone` 方法以合并幻灯片。
-
-`addClone` 方法返回一个 `Slide` 对象，该对象是源幻灯片的克隆。输出演示文稿中的幻灯片仅是源幻灯片的副本。因此，您可以更改生成的幻灯片（例如，应用样式、格式选项或布局），而无需担心源演示文稿受到影响。
-
-## **合并演示文稿**
-
-Aspose.Slides 提供 [**AddClone(ISlide)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) 方法，允许您在保留幻灯片布局和样式（默认参数）的情况下合并幻灯片。
-
-此 JavaScript 代码展示了如何合并演示文稿：
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i));
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+如果源和目标使用不同的设计，生成的演示文稿可能包含多个母版。这是因为有意保留源格式时的预期行为。
 
-## **使用幻灯片母版合并演示文稿**
+## **合并选定的幻灯片**
 
-Aspose.Slides 提供 [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) 方法，允许您在应用幻灯片母版模板的同时合并幻灯片。这样，必要时可以更改输出演示文稿中幻灯片的样式。
+并非必须克隆所有幻灯片。下面的示例仅从源演示文稿中导入选定的幻灯片索引。
 
-此 JavaScript 代码演示了上述操作：
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres2.getMasters().get_Item(0), true);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const slideIndexes = [0, 2, 4];
+
+    for (const index of slideIndexes) {
+        destination.getSlides().addClone(source.getSlides().get_Item(index));
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-selected-slides.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+在克隆之前验证幻灯片索引，尤其是当它们来源于用户输入或外部配置时。
 
-{{% alert title="注意" color="warning" %}} 
+## **使用目标母版合并幻灯片**
 
-幻灯片母版的布局会自动确定。当无法确定合适的布局时，如果 `addClone` 方法的 `allowCloneMissingLayout` 布尔参数设置为 true，则使用源幻灯片的布局。否则，将抛出 [PptxEditException](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PptxEditException)。 
+当导入的幻灯片应遵循已属于目标演示文稿的母版时，使用 [addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) 重载。
 
-{{% /alert %}}
-
-如果希望输出演示文稿中的幻灯片采用不同的布局，请在合并时改用 [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.ILayoutSlide-) 方法。
-
-## **从演示文稿合并特定幻灯片**
-
-从多个演示文稿合并特定幻灯片对于创建自定义幻灯片组非常有用。Aspose.Slides for Node.js via Java 允许您只选择并导入所需的幻灯片。API 保留原始幻灯片的格式、布局和设计。
-
-以下 JavaScript 代码创建一个新演示文稿，添加来自两个其他演示文稿的标题幻灯片，并将结果保存为文件：
-```js
-function getTitleSlide(presentation) {
-  for (let i = 0; i < presentation.getSlides().size(); i++) {
-    let slide = presentation.getSlides().get_Item(i);
-    if (slide.getLayoutSlide().getLayoutType() == aspose.slides.SlideLayoutType.Title) {
-      return slide;
-    }
-  }
-  return null;
-}
-```
-
-```js
-let presentation = new aspose.slides.Presentation();
-let presentation1 = new aspose.slides.Presentation("presentation1.pptx");
-let presentation2 = new aspose.slides.Presentation("presentation2.pptx");
-try {
-    presentation.getSlides().removeAt(0);
-    
-    let slide1 = getTitleSlide(presentation1);
-
-    if (slide1 != null)
-        presentation.getSlides().addClone(slide1);
-
-    let slide2 = getTitleSlide(presentation2);
-
-    if (slide2 != null)
-        presentation.getSlides().addClone(slide2);
-
-    presentation.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    presentation2.dispose();
-    presentation1.dispose();
-    presentation.dispose();
-}
-```
-
-
-## **使用幻灯片布局合并演示文稿**
-
-此 JavaScript 代码展示了如何在合并演示文稿时为幻灯片应用首选布局，以获得一个输出演示文稿：
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const destinationMaster = destination.getMasters().get_Item(0);
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), destinationMaster, true);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-with-destination-master.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+Aspose.Slides 会通过匹配源布局的类型或名称，在指定的母版下选择合适的布局。如果不存在合适的布局且 `allowCloneMissingLayout` 为 `true`，则会克隆源布局以便添加幻灯片；如果为 `false`，则会抛出 [PptxEditException](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/pptxeditexception/)。
+
+当希望合并在缺少布局时失败而不是向目标母版添加额外布局时，请使用 `false`。
+
+## **使用特定目标布局合并幻灯片**
+
+当您明确知道导入的幻灯片应使用哪个目标布局时，使用 [addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ILayoutSlide-) 重载。
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
+try {
+    const destinationLayout = destination.getLayoutSlides().get_Item(0);
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), destinationLayout);
+    }
+
+    destination.save("merged-with-destination-layout.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
+}
+```
+
+应用目标布局仅更改继承的布局关系；不会重新设计源幻灯片的内容。如果源布局和目标布局的占位符结构不同，请检查结果，确保继承的格式和占位符行为符合预期。
 
 ## **合并不同幻灯片尺寸的演示文稿**
 
-{{% alert title="注意" color="warning" %}} 
+不同幻灯片尺寸的演示文稿可以合并，但将幻灯片克隆到尺寸不同的演示文稿时，内容不会自动为新画布重新设计。形状可能会出现位置偏移、意外缩放或超出可见幻灯片区域的情况。
 
-无法合并尺寸不同的演示文稿。 
+实用的做法是先调整源演示文稿的尺寸再进行克隆。`[SlideSize.setSize](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slidesize/#setSize-float-float-int-)` 方法可以在改变幻灯片尺寸的同时缩放现有内容。`[SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slidesizescaletype/)` 会将内容缩放以适应指定大小。
 
-{{% /alert %}}
-
-要合并尺寸不同的两个演示文稿，需要先调整其中一个演示文稿的尺寸，使其与另一个演示文稿的尺寸匹配。
-
-此示例代码演示了上述操作：
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        pres2.getSlideSize().setSize(pres1.getSlideSize().getSize().getWidth(), pres1.getSlideSize().getSize().getHeight(), aspose.slides.SlideSizeScaleType.EnsureFit);
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const sourceSize = source.getSlideSize().getSize();
+    const destinationSize = destination.getSlideSize().getSize();
+    const sizesDiffer = sourceSize.getWidth() !== destinationSize.getWidth() || 
+                        sourceSize.getHeight() !== destinationSize.getHeight();
+
+    if (sizesDiffer) {
+        source.getSlideSize().setSize(
+            destinationSize.getWidth(), 
+            destinationSize.getHeight(), 
+            aspose.slides.SlideSizeScaleType.EnsureFit);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i));
+    }
+
+    destination.save("merged-same-slide-size.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+重新尺寸会在内存中修改源演示文稿对象。如果需要保持原始源演示文稿不变以供其他操作，请为合并打开一个单独的实例。
 
 ## **将幻灯片合并到演示文稿章节**
 
-此 JavaScript 代码展示了如何将特定幻灯片合并到演示文稿的某个章节：
+基本的幻灯片克隆循环不会重新创建源演示文稿的章节层次结构。如果章节在输出中很重要，请在目标演示文稿中创建或选择章节，并使用 `[addClone(Slide, Section)](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ISection-)` 将幻灯片显式克隆进去。
+
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres1.getSections().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const importedSection = destination.getSections().appendEmptySection("Imported slides");
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), importedSection);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-with-section.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+克隆的幻灯片会追加到指定的目标章节。若需保留多个源章节，请在目标中重新创建这些章节，并将每个源幻灯片映射到相应的目标章节。
 
-该幻灯片将被添加到章节的末尾。
+## **安全合并多个演示文稿**
 
-## **常见问题**
+下面的端到端示例以第一个演示文稿作为目标，规范化每个后续源的幻灯片尺寸，仅在复制期间保持源打开，并在最后一次保存文件。
 
-**合并时会保留演讲者备注吗？**
+```javascript
+const aspose = require("aspose.slides.via.java");
 
-会的。克隆幻灯片时，Aspose.Slides 会保留所有幻灯片元素，包括备注、格式和动画。
+const inputFiles = ["part1.pptx", "part2.pptx", "part3.pptx"];
 
-**评论及其作者会被转移吗？**
+const merged = new aspose.slides.Presentation(inputFiles[0]);
+try {
+    const mergedSize = merged.getSlideSize().getSize();
 
-评论作为幻灯片内容的一部分会随幻灯片一起复制。评论作者标签会以评论对象的形式保留在生成的演示文稿中。
+    for (let fileIndex = 1; fileIndex < inputFiles.length; fileIndex++) {
+        const source = new aspose.slides.Presentation(inputFiles[fileIndex]);
+        try {
+            const sourceSize = source.getSlideSize().getSize();
+            const sizesDiffer = sourceSize.getWidth() !== mergedSize.getWidth() || 
+                                sourceSize.getHeight() !== mergedSize.getHeight();
 
-**如果源演示文稿受密码保护怎么办？**
+            if (sizesDiffer) {
+                source.getSlideSize().setSize(
+                    mergedSize.getWidth(), 
+                    mergedSize.getHeight(), 
+                    aspose.slides.SlideSizeScaleType.EnsureFit);
+            }
 
-必须通过 [LoadOptions.setPassword](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/setpassword/) 使用密码打开 [/slides/nodejs-java/password-protected-presentation/](/slides/zh/nodejs-java/password-protected-presentation/)。加载后，这些幻灯片可以安全地克隆到未受保护的目标文件（或同样受保护的文件）中。
+            for (let slideIndex = 0; slideIndex < source.getSlides().size(); slideIndex++) {
+                merged.getSlides().addClone(source.getSlides().get_Item(slideIndex));
+            }
+        } finally {
+            source.dispose();
+        }
+    }
 
-**合并操作的线程安全性如何？**
+    merged.save("merged.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    merged.dispose();
+}
+```
 
-请勿在 [多个线程](/slides/zh/nodejs-java/multithreading/) 中使用同一个 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) 实例。推荐的规则是“一个文档‑一个线程”；不同文件可以在各自的线程中并行处理。
+这是一种保持导入幻灯片源格式的实用基线。如果输出必须使用单一目标主题，请用前面示例中的目标母版或目标布局重载替换简单的 `addClone(sourceSlide)` 调用。
 
-## **另见**
+## **实用注意事项**
 
-Aspose 提供了一个 [FREE Online Collage Maker](https://products.aspose.app/slides/collage)。使用该在线服务，您可以合并 [JPG to JPG](https://products.aspose.app/slides/collage/jpg) 或 PNG 到 PNG 的图像，创建 [photo grids](https://products.aspose.app/slides/collage/photo-grid) 等。
+### **母版、布局与格式保真度**
 
-请查看 [Aspose FREE Online Merger](https://products.aspose.app/slides/merger)。它允许您在相同格式（例如 PPT 到 PPT、PPTX 到 PPTX）或跨不同格式（例如 PPT 到 PPTX、PPTX 到 ODP）之间合并 PowerPoint 演示文稿。
+默认的幻灯片克隆可以自动将所需的源母版带入目标演示文稿。Aspose.Slides 为自动克隆的母版维护内部注册表，以避免对同一母版重复克隆。手动克隆的母版不在该注册表中跟踪，因此除非需要显式控制母版结构，否则避免预先克隆母版。
 
-[![Aspose FREE Online Merger](slides-merger.png)](https://products.aspose.app/slides/merger)
+不要假设名称相同的两个母版或布局在视觉上等价。如果公司模板必须控制最终外观，请显式选择目标母版或布局，并在合并后验证结果。
+
+### **备注和评论**
+
+演讲者备注和幻灯片评论与幻灯片内容关联，克隆幻灯片时会一起复制。Aspose.Slides 还提供专用 API 用于[演示文稿备注](https://docs.aspose.com/slides/zh/nodejs-java/presentation-notes/)和[演示文稿评论](https://docs.aspose.com/slides/zh/nodejs-java/presentation-comments/)。
+
+如果备注页格式重要，请检查合并后的演示文稿，因为备注母版是演示文稿级对象，可能在源文件之间存在差异。对于审阅工作流，也请在合并来自不同作者或模板的文件后验证评论作者和线程评论。
+
+### **图像、音频、视频、OLE 对象和外部链接**
+
+幻灯片可能引用演示文稿级资源，如图像、嵌入音频、嵌入视频和 OLE 数据。请克隆整个幻灯片，而不是仅复制可见形状，这样 Aspose.Slides 才能维护幻灯片与其资源的关联。
+
+嵌入资源和链接资源应区别处理。链接的音频、视频、OLE 对象或超链接仍然依赖其外部目标；克隆幻灯片不会将外部链接转换为嵌入内容。请在合并后在实际运行环境中测试链接资源的路径和 URL。
+
+Aspose.Slides 明确跟踪自动克隆的母版，但这并不等同于对来自不同源演示文稿的相同二进制资源始终进行去重。如果文件大小重要，请检查合并后的包并自行测量，而不是依赖隐式去重。
+
+### **嵌入字体与字体可用性**
+
+字体在演示文稿级别管理。如果必须在不同机器上保持排版一致，请不要仅凭克隆幻灯片就假设所有必需字体已在目标环境中可用。您可以使用 `[FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/fontsmanager/#getEmbeddedFonts--)` 检查嵌入字体，并按照[在演示文稿中嵌入字体](https://docs.aspose.com/slides/zh/nodejs-java/embedded-font/)的说明显式管理嵌入。
+
+同时请确认您有权限嵌入源文件使用的字体。字体授权可能会限制嵌入。
+
+### **受密码保护的演示文稿**
+
+在克隆幻灯片之前，必须成功打开受密码保护的源文件。请通过 `[LoadOptions.setPassword](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/loadoptions/#setPassword-String-)` 提供密码。
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const loadOptions = new aspose.slides.LoadOptions();
+loadOptions.setPassword("YOUR_PASSWORD");
+
+const source = new aspose.slides.Presentation("protected.pptx", loadOptions);
+try {
+    // 使用已解密的演示文稿。
+} finally {
+    source.dispose();
+}
+```
+
+打开加密的源文件并不会自动对目标演示文稿施加相同的保护。需要时请单独配置输出的保护措施。
+
+### **大文件演示文稿与内存使用**
+
+包含高分辨率图像、音频、视频或其他大型二进制对象的大型演示文稿会消耗大量内存。`[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions--)` 提供对 BLOB 处理和临时文件使用的控制。参见[管理演示文稿 BLOB](https://docs.aspose.com/slides/zh/nodejs-java/manage-blob/)了解大文件策略。
+
+对于大文件，尽可能使用文件路径加载，在合并完毕后立即释放每个源演示文稿，并避免频繁保存中间结果，除非工作流需要检查点。
+
+### **线程安全**
+
+不要在多个线程中加载、保存或克隆同一个 [Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/) 实例。这些操作不支持多线程使用。如果需要并行处理独立的合并任务，请使用多个单线程进程，每个进程拥有自己的演示文稿实例，并遵循 [Aspose.Slides 多线程指南](https://docs.aspose.com/slides/zh/nodejs-java/multithreading/)。
+
+## **常见问题解答**
+
+**如何保持每个源演示文稿的原始设计？**
+
+使用 [`addClone(sourceSlide)`](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-)，不提供目标母版或布局。Aspose.Slides 会在导入的幻灯片需要时自动克隆源母版。
+
+**如何让导入的幻灯片使用目标主题？**
+
+使用接受目标母版的重载。传入目标演示文稿中的母版，而不是源演示文稿的母版。Aspose.Slides 将尝试将每个源幻灯片映射到该母版下的适当布局。
+
+**何时应使用特定的目标布局而不是目标母版？**
+
+当所有导入的幻灯片都应使用同一已知布局时使用特定布局。若希望 Aspose.Slides 根据源布局的类型或名称在该母版的多个布局之间进行选择，则使用母版。
+
+**不同幻灯片尺寸的演示文稿可以合并吗？**
+
+可以，但幻灯片内容不会自动为目标尺寸重新设计。需要可预测的布局时，请先使用 `[SlideSize.setSize](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slidesize/#setSize-float-float-int-)` 和 `[SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slidesizescaletype/)` 调整源演示文稿。
+
+**可以将 PPT、PPTX 和 ODP 演示文稿合并为一个文件吗？**
+
+可以。加载每个源演示文稿，将所需幻灯片克隆到同一个目标中，并以受支持的输出格式保存。由于不同演示文稿格式的功能集不完全相同，跨格式合并后请验证复杂内容。参见[受支持的文件格式](https://docs.aspose.com/slides/zh/nodejs-java/supported-file-formats/)。
+
+**源章节是否会自动保留？**
+
+基本的只克隆幻灯片的循环不会保留章节。若必须保留章节结构，请在目标中重新创建相应章节，并使用 `[addClone](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ISection-)` 的章节重载。
+
+**演讲者备注和评论会被保留吗？**
+
+它们会随克隆的幻灯片一起复制。针对依赖备注母版样式、评论作者或线程审阅数据的工作流，请在合并后验证结果，因为这些场景涉及演示文稿级结构以及幻灯片级内容。
+
+**音频、视频、OLE 对象和超链接会怎样处理？**
+
+嵌入的内容会作为克隆幻灯片的资源关系一起携带。外部链接仍保持外部状态，合并后其目标文件或 URL 必须仍然可用。
+
+**是否保证每个源的嵌入字体都在合并后的演示文稿中可用？**
+
+不要仅依赖幻灯片克隆来部署字体。请检查目标演示文稿的嵌入字体，并在排版重要时显式管理字体嵌入或外部字体可用性。
+
+**如何合并受密码保护的文件？**
+
+使用正确的 `[LoadOptions.setPassword](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/loadoptions/#setPassword-String-)` 打开文件，然后正常克隆其幻灯片。输出保护需另行配置。
+
+**如何处理非常大的演示文稿？**
+
+当大型二进制对象占用大量内存时，使用 BLOB 管理；对超大文件优先采用文件路径加载；及时释放源演示文稿实例；仅在必要时保存最终结果。
+
+**可以从多个线程合并幻灯片吗？**
+
+不要在多个线程中加载、保存或克隆演示文稿实例。若需并行合并任务，请使用独立的单线程进程和各自的演示文稿实例。

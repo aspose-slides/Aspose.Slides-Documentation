@@ -1,6 +1,6 @@
 ---
-title: Эффективное объединение презентаций на C++
-linktitle: Объединение презентаций
+title: Эффективное объединение презентаций в C++
+linktitle: Объединить презентации
 type: docs
 weight: 40
 url: /ru/cpp/merge-presentation/
@@ -19,229 +19,364 @@ keywords:
 - комбинировать ODP
 - C++
 - Aspose.Slides
-description: "Легко объединяйте презентации PowerPoint (PPT, PPTX) и OpenDocument (ODP) с помощью Aspose.Slides для C++, оптимизируя ваш рабочий процесс."
+description: "Узнайте, как объединять презентации PowerPoint и OpenDocument в C++, клонируя слайды, управляя мастерами и макетами, изменяя размер содержимого слайдов, сохраняя разделы и обрабатывая защищённые или крупные файлы."
 ---
+## **Обзор**
 
-{{% alert  title="Tip" color="primary" %}} 
+Aspose.Slides for C++ объединяет презентации, клонируя слайды из одного [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/) в другой. Основная операция — [ISlideCollection::AddClone](https://reference.aspose.com/slides/ru/cpp/aspose.slides/islidecollection/addclone/), которая может сохранять форматирование исходного слайда или присваивать клонированный слайд мастеру или макету в целевой презентации.
 
-Возможно, вам будет интересно ознакомиться с **Aspose бесплатным онлайн** [Merger app](https://products.aspose.app/slides/merger). Приложение позволяет объединять презентации PowerPoint в одинаковом формате (PPT в PPT, PPTX в PPTX и т.д.) и в разных форматах (PPT в PPTX, PPTX в ODP и т.д.).
+В этой статье рассматриваются наиболее распространённые сценарии объединения:
 
-[![todo:image_alt_text](slides-merger.png)](https://products.aspose.app/slides/merger)
+- объединение всех слайдов с сохранением их исходного форматирования;
+- объединение выбранных слайдов;
+- применение мастера из целевой презентации;
+- применение конкретного макета из целевой презентации;
+- нормализация разных размеров слайдов перед объединением;
+- добавление клонированных слайдов в раздел;
+- объединение нескольких презентаций в один сквозной процесс;
+- работа с мастерами, ресурсами, заметками, комментариями, медиа, шрифтами, паролями, большими файлами и вопросами многопоточности.
 
-{{% /alert %}} 
+## **Как клонирование слайдов влияет на мастеры и макеты**
 
+Слайд наследует большую часть внешнего вида от своего макета и мастера. По этой причине выбранная перегрузка клонирования определяет, как объединённый слайд будет интегрирован в целевую презентацию.
 
-## **Presentation Merging**
+Используйте [ISlideCollection::AddClone](https://reference.aspose.com/slides/ru/cpp/aspose.slides/islidecollection/addclone/) одним из следующих способов:
 
-При объединении одной презентации с другой вы фактически комбинируете их слайды в одну презентацию, получая один файл. 
+- `AddClone(sourceSlide)` — сохраняет макет и форматирование исходного слайда. При необходимости исходный мастер может быть автоматически клонирован в целевую презентацию. Aspose.Slides отслеживает автоматически клонированные мастера, поэтому повторяющиеся слайды, использующие один и тот же исходный мастер, не приводят к многократному клонированию этого мастера.
+- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — присваивает клонированный слайд конкретному целевому [IMasterSlide](https://reference.aspose.com/slides/ru/cpp/aspose.slides/imasterslide/). Aspose.Slides ищет подходящий макет под этим мастером по типу макета или имени.
+- `AddClone(sourceSlide, destinationLayout)` — напрямую присваивает клонированный слайд конкретному целевому [ILayoutSlide](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ilayoutslide/).
 
-{{% alert title="Info" color="info" %}}
+Мастер или макет, передаваемый в перегрузку `AddClone`, должен принадлежать **целевой** презентации, а не исходной.
 
-Большинство программ для работы с презентациями (PowerPoint или OpenOffice) не предоставляют функций, позволяющих пользователям комбинировать презентации таким образом. 
+## **Объединение полностью презентаций с сохранением исходного форматирования**
 
-[**Aspose.Slides for C++**](https://products.aspose.com/slides/cpp/) , однако, позволяет выполнять слияние презентаций различными способами. Вы можете объединять презентации со всеми их фигурами, стилями, текстом, форматированием, комментариями, анимациями и т.п., не опасаясь потери качества или данных. 
+Самый простой способ — скопировать каждый слайд из исходной презентации в целевую. Это подходящий выбор, когда импортированные слайды должны сохранять свою оригинальную тему, мастер и связи с макетами.
 
-**See also**
-
-[Clone Slides](https://docs.aspose.com/slides/cpp/clone-slides/)*.* 
-
-{{% /alert %}}
-
-### **What Can Be Merged**
-
-С помощью Aspose.Slides можно объединять 
-
-* целые презентации. Все слайды из исходных презентаций попадают в одну презентацию  
-* отдельные слайды. Выбранные слайды складываются в одну презентацию  
-* презентации в одном формате (PPT в PPT, PPTX в PPTX и т.д.) и в разных форматах (PPT в PPTX, PPTX в ODP и т.д.) друг с другом. 
-
-{{% alert title="Note" color="warning" %}} 
-
-Помимо презентаций, Aspose.Slides позволяет объединять и другие типы файлов:
-
-* [Images](https://products.aspose.com/slides/cpp/merger/image-to-image/), например [JPG to JPG](https://products.aspose.com/slides/cpp/merger/jpg-to-jpg/) или [PNG to PNG](https://products.aspose.com/slides/cpp/merger/png-to-png/)  
-* Документы, такие как [PDF to PDF](https://products.aspose.com/slides/cpp/merger/pdf-to-pdf/) или [HTML to HTML](https://products.aspose.com/slides/cpp/merger/html-to-html/)  
-* А также два разных файла, например [image to PDF](https://products.aspose.com/slides/cpp/merger/image-to-pdf/), [JPG to PDF](https://products.aspose.com/slides/cpp/merger/jpg-to-pdf/) или [TIFF to PDF](https://products.aspose.com/slides/cpp/merger/tiff-to-pdf/). 
-
-{{% /alert %}}
-
-### **Merging Options**
-
-Можно задать параметры, определяющие, будет ли
-
-* каждый слайд в результирующей презентации сохранять уникальный стиль  
-* один общий стиль применяться ко всем слайдам в результирующей презентации. 
-
-Для объединения презентаций Aspose.Slides предоставляет методы [AddClone](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) (из интерфейса [ISlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection)). Существует несколько перегрузок метода `AddClone`, определяющих параметры процесса объединения. Каждый объект `Presentation` имеет коллекцию [Slides](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c), поэтому вы можете вызвать `AddClone` у презентации, в которую хотите добавить слайды. 
-
-Метод `AddClone` возвращает объект `ISlide`, являющийся клоном исходного слайда. Слайды в результирующей презентации представляют собой просто копию слайдов из источника. Поэтому вы можете изменять полученные слайды (например, применять стили, параметры форматирования или макеты), не опасаясь влияния на исходные презентации. 
-
-## **Merge Presentations** 
-
-Aspose.Slides предоставляет метод [**AddClone (ISlide)**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee), позволяющий объединять слайды, сохраняя их макеты и стили (параметры по умолчанию). 
-
-В этом примере на C++ показано, как объединить презентации:
 ```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+for (const auto& slide : source->get_Slides())
 {
-    pres1->get_Slides()->AddClone(slide);
+    destination->get_Slides()->AddClone(slide);
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+destination->Save(u"merged.pptx", SaveFormat::Pptx);
 ```
 
+Полученная презентация может содержать несколько мастеров, если у исходной и целевой презентаций разные дизайны. Это ожидаемое поведение при намеренном сохранении исходного форматирования.
 
-## **Merge Presentations with a Slide Master**
+## **Объединение выбранных слайдов**
 
-Aspose.Slides предоставляет метод [**AddClone (ISlide, IMasterSlide, bool)**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a6b040e6b30f52ab4644fafdbc650b640), позволяющий объединять слайды с применением шаблона мастер‑презентации. Таким образом при необходимости вы можете изменить стиль слайдов в результирующей презентации. 
+Необязательно клонировать каждый слайд. Ниже приведён пример, импортирующий только выбранные индексы слайдов из исходной презентации.
 
-Следующий код на C++ демонстрирует описанную операцию:
 ```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+int32_t slideIndexes[] = {0, 2, 4};
+
+for (auto index : slideIndexes)
 {
-    pres1->get_Slides()->AddClone(slide, pres2->get_Masters()->idx_get(0), true);
+    destination->get_Slides()->AddClone(source->get_Slide(index));
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+destination->Save(u"merged-selected-slides.pptx", SaveFormat::Pptx);
 ```
 
+Проверяйте индексы слайдов перед клонированием, если они поступают от пользователя или из внешней конфигурации.
 
-{{% alert title="Note" color="warning" %}} 
+## **Объединение слайдов с использованием мастера целевой презентации**
 
-Макет слайда для мастера определяется автоматически. Если подходящий макет определить не удаётся и параметр `allowCloneMissingLayout` метода `AddClone` установлен в `true`, используется макет исходного слайда. В противном случае будет выброшено исключение [PptxEditException](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d). 
+Используйте перегрузку [AddClone(ISlide, IMasterSlide, bool)](https://reference.aspose.com/slides/ru/cpp/aspose.slides/islidecollection/addclone/), когда импортированные слайды должны использовать мастер, уже принадлежащий целевой презентации.
 
-{{% /alert %}}
-
-Если вы хотите, чтобы слайды в результирующей презентации имели иной макет, используйте метод [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0ed5909b2d92555159007046760ff2f1) при объединении. 
-
-## **Merge Specific Slides from Presentations**
-
-Объединение конкретных слайдов из нескольких презентаций удобно для создания пользовательских наборов слайдов. Aspose.Slides C++ позволяет выбрать и импортировать только нужные слайды, при этом сохраняются форматирование, макет и дизайн оригинальных слайдов.
-
-В следующем примере на C++ создаётся новая презентация, в неё добавляются титульные слайды из двух других презентаций, после чего результат сохраняется в файл:
 ```cpp
-SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation)
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto destinationMaster = destination->get_Master(0);
+
+for (const auto& slide : source->get_Slides())
 {
-    for (auto&& slide : presentation->get_Slides())
+    destination->get_Slides()->AddClone(slide, destinationMaster, true);
+}
+
+destination->Save(u"merged-with-destination-master.pptx", SaveFormat::Pptx);
+```
+
+Aspose.Slides выбирает подходящий макет под указанным мастером, сопоставляя тип или имя макета источника. Если подходящего макета нет и `allowCloneMissingLayout` равно `true`, макет источника клонируется, чтобы слайд мог быть добавлен. Если оно `false`, генерируется [PptxEditException](https://reference.aspose.com/slides/ru/cpp/aspose.slides/details_pptxeditexception/).
+
+Устанавливайте `false`, когда хотите, чтобы объединение завершилось ошибкой, а не добавляло дополнительный макет в целевой мастер.
+
+## **Объединение слайдов с использованием конкретного макета целевой презентации**
+
+Используйте перегрузку [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/ru/cpp/aspose.slides/islidecollection/addclone/), когда точно знаете, какой макет целевой презентации должны использовать импортированные слайды.
+
+```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto destinationLayout = destination->get_LayoutSlide(0);
+
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide, destinationLayout);
+}
+
+destination->Save(u"merged-with-destination-layout.pptx", SaveFormat::Pptx);
+```
+
+Применение макета целевой презентации меняет наследуемую связь с макетом; оно не изменяет содержание исходного слайда. Если у исходного и целевого макетов различная структура заполнителей, проверьте результат, чтобы убедиться, что наследуемое форматирование и поведение заполнителей соответствуют ожиданиям.
+
+## **Объединение презентаций с разными размерами слайдов**
+
+Презентации с разными размерами слайдов можно объединять, но клонирование слайда в презентацию с другим размером не переоформляет его содержимое под новое полотно. Формы могут сместиться, масштабироваться неожиданно или выйти за пределы видимой области слайда.
+
+Практический подход — изменить размер исходной презентации перед клонированием. Метод [SlideSize::SetSize](https://reference.aspose.com/slides/ru/cpp/aspose.slides/slidesize/setsize/) может масштабировать существующее содержимое при изменении размеров слайда. [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/ru/cpp/aspose.slides/slidesizescaletype/) масштабирует содержимое так, чтобы оно вписалось в требуемый размер.
+
+```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto destinationSize = destination->get_SlideSize()->get_Size();
+auto sourceSize = source->get_SlideSize()->get_Size();
+
+if (sourceSize.get_Width() != destinationSize.get_Width() || 
+    sourceSize.get_Height() != destinationSize.get_Height())
+{
+    source->get_SlideSize()->SetSize(
+        destinationSize.get_Width(), 
+        destinationSize.get_Height(), 
+        SlideSizeScaleType::EnsureFit);
+}
+
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide);
+}
+
+destination->Save(u"merged-same-slide-size.pptx", SaveFormat::Pptx);
+```
+
+Изменение размера меняет объект исходной презентации в памяти. Если вам нужны оригинальные исходные файлы без изменений для других операций, откройте отдельный экземпляр для объединения.
+
+## **Объединение слайдов в раздел презентации**
+
+Базовый цикл клонирования слайдов не воссоздаёт иерархию разделов исходной презентации. Если разделы важны в результате, создайте или выберите разделы в целевой презентации и явно клонируйте слайды в них с помощью [AddClone(ISlide, ISection)](https://reference.aspose.com/slides/ru/cpp/aspose.slides/islidecollection/addclone/).
+
+```cpp
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto importedSection = destination->get_Sections()->AppendEmptySection(u"Imported slides");
+
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide, importedSection);
+}
+
+destination->Save(u"merged-with-section.pptx", SaveFormat::Pptx);
+```
+
+Клонированные слайды добавляются в указанный целевой раздел. Чтобы сохранить несколько исходных разделов, создайте эти разделы в целевой презентации и сопоставьте каждый исходный слайд с соответствующим целевым разделом.
+
+## **Безопасное объединение нескольких презентаций**
+
+Ниже приведён сквозной пример, использующий первую презентацию в качестве целевой, нормализующий размер слайдов каждого дополнительного источника, открывающий каждый источник только на время копирования и сохраняющий конечный файл один раз.
+
+```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+System::String inputFiles[] = {u"part1.pptx", u"part2.pptx", u"part3.pptx"};
+const int32_t inputFileCount = 3;
+
+auto merged = System::MakeObject<Presentation>(inputFiles[0]);
+auto mergedSize = merged->get_SlideSize()->get_Size();
+
+for (int32_t fileIndex = 1; fileIndex < inputFileCount; fileIndex++)
+{
+    auto source = System::MakeObject<Presentation>(inputFiles[fileIndex]);
+    auto sourceSize = source->get_SlideSize()->get_Size();
+
+    if (sourceSize.get_Width() != mergedSize.get_Width() || 
+        sourceSize.get_Height() != mergedSize.get_Height())
     {
-        if (slide->get_LayoutSlide()->get_LayoutType() == SlideLayoutType::Title)
-        {
-            return slide;
-        }
+        source->get_SlideSize()->SetSize(
+            mergedSize.get_Width(), 
+            mergedSize.get_Height(), 
+            SlideSizeScaleType::EnsureFit);
     }
-    return nullptr;
-}
-```
 
-```cpp
-auto presentation = MakeObject<Presentation>();
-auto presentation1 = MakeObject<Presentation>(u"presentation1.pptx");
-auto presentation2 = MakeObject<Presentation>(u"presentation2.pptx");
-
-presentation->get_Slides()->RemoveAt(0);
-
-auto slide1 = GetTitleSlide(presentation1);
-
-if (slide1 != nullptr)
-    presentation->get_Slides()->AddClone(slide1);
-
-auto slide2 = GetTitleSlide(presentation2);
-
-if (slide2 != nullptr)
-    presentation->get_Slides()->AddClone(slide2);
-
-presentation->Save(u"combined.pptx", SaveFormat::Pptx);
-
-presentation2->Dispose();
-presentation1->Dispose();
-presentation->Dispose();
-```
-
-
-## **Merge Presentations with a Slide Layout**
-
-Этот код на C++ показывает, как объединять слайды из презентаций с применением выбранного макета, получая одну итоговую презентацию:
-```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
-{
-    pres1->get_Slides()->AddClone(slide, pres2->get_LayoutSlides()->idx_get(0));
+    for (const auto& slide : source->get_Slides())
+    {
+        merged->get_Slides()->AddClone(slide);
+    }
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+merged->Save(u"merged.pptx", SaveFormat::Pptx);
 ```
 
+Это хорошая отправная точка для сохранения исходного форматирования импортированных слайдов. Если ваш результат должен использовать единую тему назначения, замените простой вызов `AddClone(slide)` соответствующей перегрузкой мастера или макета, показанной ранее.
 
-## **Merge Presentations with Different Slide Sizes**
+## **Практические соображения**
 
-{{% alert title="Note" color="warning" %}} 
+### **Мастера, макеты и точность форматирования**
 
-Нельзя объединять презентации с разными размерами слайдов. 
+Клонирование слайдов по умолчанию может автоматически добавить требуемый мастер источника в целевую презентацию. Aspose.Slides ведёт внутренний реестр автоматически клонированных мастеров, чтобы избежать многократного клонирования одного и того же мастера. Мастера, клонированные вручную, в реестр не попадают, поэтому избегайте предварительного клонирования мастеров, если только вам не нужен явный контроль над их структурой.
 
-{{% /alert %}}
+Не предполагайте, что два мастера или макета с одинаковым именем визуально эквивалентны. Если корпоративный шаблон должен контролировать окончательный внешний вид, явно выбирайте мастер или макет назначения и проверяйте результат после объединения.
 
-Чтобы объединить две презентации с различными размерами слайдов, необходимо изменить размер одной из них, чтобы он соответствовал размеру другой презентации. 
+### **Заметки и комментарии**
 
-Пример кода, демонстрирующий описанную операцию:
+Заметки докладчика и комментарии к слайдам связаны с содержимым слайда и копируются при его клонировании. Aspose.Slides также предоставляет отдельные API для [presentation notes](https://docs.aspose.com/slides/ru/cpp/presentation-notes/) и [presentation comments](https://docs.aspose.com/slides/ru/cpp/presentation-comments/).
+
+Если важен дизайн страницы заметок, проверьте объединённую презентацию, поскольку мастера заметок — это объекты уровня презентации и могут различаться между исходными файлами. Для сценариев рецензирования также проверяйте авторов комментариев и ветвление комментариев после объединения файлов разных авторов или шаблонов.
+
+### **Изображения, аудио, видео, OLE‑объекты и внешние ссылки**
+
+Слайды могут ссылаться на ресурсы уровня презентации, такие как изображения, встроенный аудио, встроенное видео и OLE‑данные. Клонируйте сам слайд, а не только видимые формы, чтобы Aspose.Slides мог поддерживать связи слайда с его ресурсами.
+
+Встроенные и связанные ресурсы следует обрабатывать по‑разному. Связанное аудио, видео, OLE‑объект или гиперссылка остаются зависимыми от внешнего ресурса; клонирование слайда не превращает внешнюю ссылку во встроенный контент. Тестируйте пути и URL связанных ресурсов в среде, где будет открываться объединённая презентация.
+
+Aspose.Slides явно отслеживает автоматически клонированные мастера, но это не гарантирует, что одинаковые бинарные ресурсы из разных исходных презентаций всегда будут дедуплицированы. Если важен размер выходного файла, проверьте объединённый пакет и измерьте результат, а не полагайтесь на неявную дедупликацию.
+
+### **Встроенные шрифты и их доступность**
+
+Шрифты управляются на уровне презентации. Если типография должна оставаться одинаковой на разных устройствах, не полагайтесь только на клонирование слайдов как гарантию наличия всех необходимых шрифтов в целевой среде. Вы можете просмотреть встроенные шрифты с помощью [FontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/ru/cpp/aspose.slides/fontsmanager/getembeddedfonts/) и управлять их внедрением, как описано в [Embed Fonts in Presentations](https://docs.aspose.com/slides/ru/cpp/embedded-font/).
+
+Также убедитесь, что у вас есть право встраивать шрифты, используемые в исходных файлах. Лицензии на шрифты могут ограничивать их встраивание.
+
+### **Парольно защищённые презентации**
+
+Для клонирования слайдов парольно защищённый источник необходимо успешно открыть. Укажите пароль через [LoadOptions::set_Password](https://reference.aspose.com/slides/ru/cpp/aspose.slides/loadoptions/set_password/).
+
 ```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres1Size = pres1->get_SlideSize()->get_Size();
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
 
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-pres2->get_SlideSize()->SetSize(pres1Size.get_Width(), pres1Size.get_Height(), SlideSizeScaleType::EnsureFit);
+using namespace Aspose::Slides;
 
-for (const auto& slide : pres2->get_Slides())
-{
-    pres1->get_Slides()->AddClone(slide);
-}
+auto loadOptions = System::MakeObject<LoadOptions>();
+loadOptions->set_Password(u"YOUR_PASSWORD");
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+auto source = System::MakeObject<Presentation>(u"protected.pptx", loadOptions);
 ```
 
+Открытие зашифрованного источника не приводит к автоматическому применению той же защиты к целевой презентации. Защиту выходного файла настраивайте отдельно, если это требуется.
 
-## **Merge Slides to a Presentation Section**
+### **Большие презентации и использование памяти**
 
-В этом примере на C++ показано, как добавить конкретный слайд в раздел презентации:
-```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (int32_t index = 0; index < pres2->get_Slides()->get_Count(); index++)
-{
-    auto slide = pres2->get_Slides()->idx_get(index);
-    pres1->get_Slides()->AddClone(slide, pres1->get_Sections()->idx_get(0));
-}
+Большие презентации с изображениями высокого разрешения, аудио, видео или другими крупными бинарными объектами могут потреблять значительное количество памяти. [LoadOptions::set_BlobManagementOptions](https://reference.aspose.com/slides/ru/cpp/aspose.slides/loadoptions/set_blobmanagementoptions/) предоставляет параметры управления BLOB‑ами и временными файлами. См. [Manage Presentation BLOBs](https://docs.aspose.com/slides/ru/cpp/manage-blob/) для стратегий работы с большими файлами.
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
-```
+Для больших файлов предпочтительно загружать их по путям к файлам, как только это возможно, освобождать каждый источник сразу после его объединения и избегать многократного сохранения промежуточных результатов, если только процесс не требует контрольных точек.
 
+### **Потокобезопасность**
 
-Слайд будет добавлен в конец раздела. 
-
-{{% alert title="Tip" color="primary" %}}
-
-Aspose предлагает [БЕСПЛАТНОЕ веб‑приложение Collage](https://products.aspose.app/slides/collage). С помощью этого онлайн‑сервиса вы можете объединять [JPG в JPG](https://products.aspose.app/slides/collage/jpg) или PNG в PNG, создавать [фото‑решётки](https://products.aspose.app/slides/collage/photo-grid) и т.д. 
-
-{{% /alert %}}
+Не загружайте, не изменяйте, не сохраняйте и не клонируйте один и тот же [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/) одновременно из нескольких потоков. Держите каждый экземпляр презентации в рамках одной операции объединения. Если вы параллелите независимые задачи, используйте независимые экземпляры презентаций и следуйте [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/ru/cpp/multithreading/).
 
 ## **FAQ**
 
-**Сохраняются ли примечания докладчика при слиянии?**
+**Как сохранить оригинальный дизайн каждой исходной презентации?**
 
-Да. При клонировании слайдов Aspose.Slides переносит все элементы слайда, включая примечания, форматирование и анимацию.
+Используйте [`AddClone(sourceSlide)`](https://reference.aspose.com/slides/ru/cpp/aspose.slides/islidecollection/addclone/) без указания мастера или макета назначения. Aspose.Slides может автоматически клонировать мастер источника, когда он нужен импортированному слайду.
 
-**Переносятся ли комментарии и их авторы?**
+**Как заставить импортированные слайды использовать тему назначения?**
 
-Комментарии, как часть содержимого слайда, копируются вместе со слайдом. Метки авторов сохраняются в виде объектов комментариев в полученной презентации.
+Используйте перегрузку, принимающую мастер назначения. Передайте мастер из целевой презентации, а не из исходной. Aspose.Slides постарается сопоставить каждый исходный слайд с подходящим макетом под этим мастером.
 
-**Что если исходная презентация защищена паролем?**
+**Когда следует использовать конкретный макет назначения вместо мастера?**
 
-Её необходимо [открыть с паролем](/slides/ru/cpp/password-protected-presentation/) через [LoadOptions::set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/); после загрузки такие слайды можно безопасно клонировать в незащищённый целевой файл (или в защищённый).
+Используйте конкретный макет, когда каждый импортированный слайд должен использовать один известный макет. Используйте мастер, когда хотите, чтобы Aspose.Slides выбирал среди макетов этого мастера на основе типа или имени макета источника.
 
-**Насколько потокобезопасна операция слияния?**
+**Можно ли объединять презентации с разными размерами слайдов?**
 
-Не используйте один и тот же экземпляр [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) из нескольких потоков [/slides/cpp/multithreading/]. Рекомендуемое правило — «один документ — один поток»; разные файлы можно обрабатывать параллельно в отдельных потоках.
+Да, но содержимое слайда не переоформляется автоматически под размеры назначения. При необходимости предсказуемого размещения сначала измените размер исходной презентации, например с помощью [SlideSize::SetSize](https://reference.aspose.com/slides/ru/cpp/aspose.slides/slidesize/setsize/) и [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/ru/cpp/aspose.slides/slidesizescaletype/).
+
+
+**Можно ли объединить PPT, PPTX и ODP в один файл?**
+
+Да. Загрузите каждую исходную презентацию, клонируйте требуемые слайды в одну целевую и сохраните её в поддерживаемом формате вывода. Поскольку форматы презентаций не поддерживают одинаковый набор функций, проверьте сложный контент после кросс‑форматных объединений. См. [Supported File Formats](https://docs.aspose.com/slides/ru/cpp/supported-file-formats/).
+
+**Сохраняются ли исходные разделы автоматически?**
+
+Нет, базовый цикл, который только клонирует слайды, этого не делает. Воссоздайте необходимые разделы в целевой презентации и используйте перегрузку раздела [AddClone](https://reference.aspose.com/slides/ru/cpp/aspose.slides/islidecollection/addclone/), когда структура разделов должна быть сохранена.
+
+**Сохраняются ли заметки докладчика и комментарии?**
+
+Они копируются вместе с клонированным слайдом. Для сценариев, зависящих от стилей мастера заметок, авторов комментариев или ветвления данных ревью, проверьте объединённый результат, поскольку эти сценарии затрагивают структуры уровня презентации, а не только содержимое слайдов.
+
+**Что происходит с аудио, видео, OLE‑объектами и гиперссылками?**
+
+Встроенный контент переносится как часть связей ресурсов клонированного слайда. Внешние ссылки остаются внешними, поэтому их целевые файлы или URL должны оставаться доступными после объединения.
+
+**Гарантировано ли наличие всех встроенных шрифтов из каждого источника в объединённой презентации?**
+
+Не полагайтесь только на клонирование слайдов для развертывания шрифтов. Проверьте встроенные шрифты в целевой презентации и явно управляйте их внедрением или внешней доступностью, когда типография важна.
+
+**Как объединить файл, защищённый паролем?**
+
+Откройте его с помощью правильного [LoadOptions::set_Password](https://reference.aspose.com/slides/ru/cpp/aspose.slides/loadoptions/set_password/), затем обычным способом клонируйте его слайды. Защита вывода настраивается отдельно.
+
+**Как работать с очень большими презентациями?**
+
+Используйте управление BLOB‑ами, когда крупные бинарные объекты доминируют в потреблении памяти, предпочтительно загружайте большие файлы по пути, быстро освобождайте источники после их использования и сохраняйте окончательный результат только при необходимости.
+
+**Можно ли объединять слайды из нескольких потоков?**
+
+Не используйте один [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/) одновременно из нескольких потоков. Держите каждую операцию объединения изолированной в собственных экземплярах презентаций.
