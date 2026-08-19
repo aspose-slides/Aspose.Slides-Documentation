@@ -1,207 +1,449 @@
 ---
-title: Terapkan Rumus Worksheet Bagan dalam Presentasi Menggunakan C++
-linktitle: Rumus Worksheet
+title: Terapkan Formula Lembar Kerja Diagram dalam Presentasi Menggunakan C++
+linktitle: Formula Lembar Kerja
 type: docs
 weight: 70
 url: /id/cpp/chart-worksheet-formulas/
 keywords:
-- spreadsheet bagan
-- worksheet bagan
-- rumus bagan
-- rumus worksheet
-- rumus spreadsheet
-- sumber data
+- spreadsheet diagram
+- lembar kerja diagram
+- formula diagram
+- formula lembar kerja
+- formula spreadsheet
+- buku kerja data diagram
+- perhitungan formula
 - konstanta logika
 - konstanta numerik
 - konstanta string
-- konstanta error
-- konstanta aritmetika
+- konstanta kesalahan
+- operator aritmetika
 - operator perbandingan
 - gaya A1
 - gaya R1C1
-- fungsi bawaan
+- fungsi pradefinisi
 - PowerPoint
 - presentasi
 - C++
 - Aspose.Slides
-description: "Terapkan rumus bergaya Excel di Aspose.Slides untuk worksheet bagan C++ dan otomatisasi laporan pada file PPT dan PPTX."
+description: "Terapkan formula bergaya Excel dalam lembar kerja diagram Aspose.Slides untuk C++, hitung ulang nilai, dan gunakan hasilnya dalam diagram PowerPoint."
 ---
 ## **Gambaran Umum**
 
-Worksheet bagan adalah sumber data di balik bagan dalam presentasi. Worksheet ini menyimpan nama kategori dan seri bersama nilai numerik yang ditampilkan oleh bagan. Dalam Aspose.Slides, worksheet ini tersedia melalui chart data workbook, yang memungkinkan Anda bekerja dengan data bagan secara programatik.
+Diagram PowerPoint biasanya menyimpan data sumbernya dalam lembar kerja yang disisipkan. Dalam Aspose.Slides untuk C++, Anda dapat mengakses lembar kerja tersebut melalui workbook data diagram, menulis nilai input, menetapkan formula ke sel, menghitung formula yang didukung, dan menggunakan sel yang dihitung sebagai data diagram.
 
-Artikel ini menjelaskan cara menggunakan rumus worksheet dalam data bagan sehingga nilai sel dapat dihitung dan diperbarui secara otomatis alih‑alih dimasukkan secara manual. Artikel ini menunjukkan cara menetapkan rumus, menggunakan referensi gaya A1 dan R1C1, menghitung ulang rumus workbook, serta bekerja dengan konstanta, operator, referensi sel, dan fungsi bawaan yang didukung untuk worksheet bagan dalam presentasi.
+Artikel ini menjelaskan alur kerja formula lengkap: membuat diagram, mengisi lembar kerjanya, menetapkan formula gaya A1 atau R1C1, menghitung ulang formula, membaca nilai yang dihitung, menghubungkan sel tersebut ke seri diagram, dan menyimpan presentasi. Artikel ini juga menjelaskan sintaks formula yang didukung, subset fungsi bawaan, nilai cache, formula yang tidak didukung, dan kesalahan khusus spreadsheet.
 
-## **Tentang Rumus Spreadsheet Bagan dalam Presentasi**
-**Spreadsheet bagan** (atau worksheet bagan) dalam presentasi adalah sumber data bagan. Spreadsheet bagan berisi data, yang ditampilkan pada bagan dalam bentuk grafis. Saat Anda membuat bagan di PowerPoint, worksheet yang terkait dengan bagan ini juga dibuat secara otomatis. Worksheet bagan dibuat untuk semua tipe bagan: bagan garis, bagan batang, bagan sunburst, bagan lingkaran, dll. Untuk melihat spreadsheet bagan di PowerPoint, cukup klik ganda pada bagan:
+## **Lembar Kerja Diagram dan Formula**
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+Lembar kerja diagram berisi kategori, nama seri, dan nilai yang digunakan oleh sebuah diagram. Di PowerPoint, Anda dapat memeriksa lembar kerja dengan membuka penyunting data diagram:
 
-Spreadsheet bagan berisi nama elemen bagan (Category Name: *Category1*, Serie Name) dan tabel dengan data numerik yang sesuai dengan kategori dan seri tersebut. Secara default, saat Anda membuat bagan baru – data spreadsheet bagan diatur dengan data bawaan. Kemudian Anda dapat mengubah data spreadsheet secara manual di worksheet.
+![Diagram PowerPoint dengan lembar kerja tersemat terbuka, menampilkan data kategori dan seri](chart-worksheet-formulas_1.png)
 
-Umumnya, bagan menggambarkan data yang kompleks (mis. analis keuangan, analis ilmiah), dengan sel yang dihitung dari nilai sel lain atau dari data dinamis lainnya. Menghitung nilai sel secara manual dan menuliskannya secara tetap ke dalam sel menyulitkan perubahan di masa mendatang. Jika Anda mengubah nilai suatu sel, semua sel yang bergantung padanya juga harus diperbarui. Lebih lagi, data tabel dapat bergantung pada data dari tabel lain, sehingga menciptakan skema data presentasi yang kompleks dengan kebutuhan pembaruan yang mudah dan fleksibel.
+Di Aspose.Slides, lembar kerja diekspos melalui antarmuka [IChartDataWorkbook](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdataworkbook/). Gunakan [IChartDataCell::set_Formula](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdatacell/set_formula/) untuk formula gaya A1 dan [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) untuk formula gaya R1C1. Setelah mengubah sel input atau formula, panggil [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) untuk menghitung ulang formula yang didukung dan memperbarui nilai sel yang bersangkutan.
 
-**Rumus spreadsheet bagan** dalam presentasi adalah ekspresi untuk secara otomatis menghitung dan memperbarui data spreadsheet bagan. Rumus spreadsheet mendefinisikan logika perhitungan data untuk suatu sel atau sekumpulan sel. Rumus spreadsheet merupakan rumus matematis atau logis, yang menggunakan: referensi sel, fungsi matematika, operator logika, operator aritmetika, fungsi konversi, konstanta string, dll. Definisi rumus ditulis ke dalam sel, dan sel tersebut tidak berisi nilai sederhana. Rumus spreadsheet menghitung nilai dan mengembalikannya, kemudian nilai ini ditempatkan ke sel. Rumus spreadsheet bagan dalam presentasi sebenarnya sama dengan rumus Excel, dan mendukung fungsi, operator, serta konstanta bawaan yang sama untuk implementasinya.
+Sel yang dihitung tetap mengekspos hasilnya melalui [IChartDataCell::get_Value](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdatacell/get_value/). Hal ini penting ketika Anda perlu memeriksa hasil formula dalam kode atau menggunakan sel sebagai titik data diagram.
 
-Dalam [**Aspose.Slides**](https://products.aspose.com/slides/id/cpp/) spreadsheet bagan direpresentasikan dengan
-[**ChartData::get_ChartDataWorkbook()**](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.charts.chart_data#a32097093561723a10df0a57dc91acaea) metode dari tipe
-[**IChartDataWorkbook**](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.charts.i_chart_data_workbook).
-Rumus spreadsheet dapat ditetapkan dan diubah dengan
-[**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692) metode.
-Fungsionalitas berikut didukung untuk rumus dalam Aspose.Slides:
+## **Buat Diagram dan Hitung Formula Lembar Kerja**
 
-- Konstanta logika
-- Konstanta numerik
-- Konstanta string
-- Konstanta error
-- Operator aritmetika
-- Operator perbandingan
-- Referensi sel gaya A1
-- Referensi sel gaya R1C1
-- Fungsi bawaan
+Contoh berikut memperlihatkan alur kerja menyeluruh. Ia membuat diagram kolom berkelompok, membersihkan data contoh, menulis nilai pendapatan dan pengeluaran kuartalan, menghitung laba dengan formula, membaca hasilnya, menggunakan sel yang dihitung sebagai nilai diagram, dan menyimpan presentasi.
 
-Umumnya, spreadsheet menyimpan nilai rumus yang terakhir dihitung. Jika setelah memuat presentasi, data bagan tidak diubah – metode **IChartDataCell.get_Value()** mengembalikan nilai‑nilai tersebut saat dibaca. Namun, jika data spreadsheet telah diubah, saat membaca **ChartDataCell.get_Value()** metode akan melempar **CellUnsupportedDataException** untuk rumus yang tidak didukung. Hal ini disebabkan karena ketika rumus berhasil di‑parsing, ketergantungan sel ditentukan dan keabsahan nilai terakhir diverifikasi. Jika rumus tidak dapat di‑parsing, keabsahan nilai sel tidak dapat dijamin.
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/string.h>
 
-## **Menambahkan Rumus Spreadsheet Bagan ke Presentasi**
-Pertama, tambahkan bagan ke slide pertama dari presentasi baru dengan
-[IShapeCollection::AddChart()](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_shape_collection#a2cd4d47fc5c536012ee15b3a69486374).
-Worksheet bagan dibuat secara otomatis dan dapat diakses dengan
-[**ChartData::get_ChartDataWorkbook()**](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.charts.chart_data#a32097093561723a10df0a57dc91acaea) metode:
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>();
-    
-auto chart = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::ClusteredColumn, 150.0f, 150.0f, 500.0f, 300.0f);
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 350.0f);
+auto chartData = chart->get_ChartData();
+auto workbook = chartData->get_ChartDataWorkbook();
+const int32_t worksheetIndex = 0;
+
+chartData->get_Series()->Clear();
+chartData->get_Categories()->Clear();
+workbook->Clear(worksheetIndex);
+
+auto category1 = workbook->GetCell(worksheetIndex, u"A2", ObjectExt::Box<String>(u"Q1"));
+auto category2 = workbook->GetCell(worksheetIndex, u"A3", ObjectExt::Box<String>(u"Q2"));
+auto category3 = workbook->GetCell(worksheetIndex, u"A4", ObjectExt::Box<String>(u"Q3"));
+
+workbook->GetCell(worksheetIndex, u"B1", ObjectExt::Box<String>(u"Revenue"));
+workbook->GetCell(worksheetIndex, u"C1", ObjectExt::Box<String>(u"Expenses"));
+workbook->GetCell(worksheetIndex, u"D1", ObjectExt::Box<String>(u"Profit"));
+
+workbook->GetCell(worksheetIndex, u"B2")->set_Value(ObjectExt::Box<double>(120.0));
+workbook->GetCell(worksheetIndex, u"C2")->set_Value(ObjectExt::Box<double>(80.0));
+workbook->GetCell(worksheetIndex, u"B3")->set_Value(ObjectExt::Box<double>(150.0));
+workbook->GetCell(worksheetIndex, u"C3")->set_Value(ObjectExt::Box<double>(95.0));
+workbook->GetCell(worksheetIndex, u"B4")->set_Value(ObjectExt::Box<double>(135.0));
+workbook->GetCell(worksheetIndex, u"C4")->set_Value(ObjectExt::Box<double>(110.0));
+
+auto profit1 = workbook->GetCell(worksheetIndex, u"D2");
+auto profit2 = workbook->GetCell(worksheetIndex, u"D3");
+auto profit3 = workbook->GetCell(worksheetIndex, u"D4");
+
+profit1->set_Formula(u"B2-C2");
+profit2->set_Formula(u"B3-C3");
+profit3->set_Formula(u"B4-C4");
+
+workbook->CalculateFormulas();
+
+auto q1Profit = profit1->get_Value(); // 40
+auto q2Profit = profit2->get_Value(); // 55
+auto q3Profit = profit3->get_Value(); // 25
+
+chartData->get_Categories()->Add(category1);
+chartData->get_Categories()->Add(category2);
+chartData->get_Categories()->Add(category3);
+
+auto profitSeries = chartData->get_Series()->Add(workbook->GetCell(worksheetIndex, u"D1"), chart->get_Type());
+profitSeries->get_DataPoints()->AddDataPointForBarSeries(profit1);
+profitSeries->get_DataPoints()->AddDataPointForBarSeries(profit2);
+profitSeries->get_DataPoints()->AddDataPointForBarSeries(profit3);
+profitSeries->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
+
+presentation->Save(u"chart-formulas.pptx", SaveFormat::Pptx);
+```
+
+Titik data diagram merujuk ke `D2:D4`, sehingga diagram menggunakan nilai laba yang dihitung. Tidak ada panggilan penyegaran diagram terpisah dalam alur kerja ini: hitung ulang workbook terlebih dahulu, kemudian gunakan atau simpan data diagram yang menunjuk ke sel yang dihitung.
+
+## **Gunakan Formula Gaya A1**
+
+Notasi A1 mengidentifikasi kolom dengan huruf dan baris dengan angka. Tetapkan ekspresi gaya A1 melalui [IChartDataCell::set_Formula](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdatacell/set_formula/).
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 500.0f, 300.0f);
 auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
-// ...
+workbook->GetCell(0, u"C3")->set_Value(ObjectExt::Box<int32_t>(10));
+workbook->GetCell(0, u"F2")->set_Value(ObjectExt::Box<int32_t>(2));
+workbook->GetCell(0, u"G2")->set_Value(ObjectExt::Box<int32_t>(3));
+workbook->GetCell(0, u"H2")->set_Value(ObjectExt::Box<int32_t>(4));
+
+auto cell = workbook->GetCell(0, u"A2");
+cell->set_Formula(u"C3+SUM(F2:H2)");
+
+workbook->CalculateFormulas();
+
+auto value = cell->get_Value(); // 19
 ```
 
-Mari tulis beberapa nilai dalam sel dengan
-[**IChartDataCell.set_Value()**](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.charts.i_chart_data_cell#ad85809f520195e09225abae9002635ec) metode
-dari tipe **Object**, yang berarti Anda dapat melewatkan nilai apa pun ke metode tersebut:
+Bentuk referensi A1 yang umum adalah:
 
-``` cpp
-workbook->GetCell(0, u"F2")->set_Value(System::ObjectExt::Box<double>(-2.5));
-workbook->GetCell(0, u"G3")->set_Value(System::ObjectExt::Box<double>(6.3));
-workbook->GetCell(0, u"H4")->set_Value(System::ObjectExt::Box<int32_t>(3));
+| Referensi | Relatif | Absolut | Campuran |
+|---|---|---|---|
+| Sel | `A2` | `$A$2` | `A$2`, `$A2` |
+| Baris | `2:2` | `$2:$2` | — |
+| Kolom | `A:A` | `$A:$A` | — |
+| Rentang | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
+
+Referensi relatif dapat berubah ketika formula dipindahkan atau disalin oleh aplikasi spreadsheet. Referensi absolut menjaga kedua koordinat tetap tetap, sedangkan referensi campuran hanya mengunci baris atau kolom.
+
+## **Gunakan Formula Gaya R1C1**
+
+Notasi R1C1 mengidentifikasi baik baris maupun kolom secara numerik. Referensi relatif menggunakan offset dalam tanda kurung siku. Tetapkan sintaks ini melalui [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/).
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 500.0f, 300.0f);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+
+workbook->GetCell(0, u"B2")->set_Value(ObjectExt::Box<int32_t>(12));
+workbook->GetCell(0, u"C2")->set_Value(ObjectExt::Box<int32_t>(5));
+
+auto cell = workbook->GetCell(0, u"D2");
+cell->set_R1C1Formula(u"RC[-2]-RC[-1]");
+
+workbook->CalculateFormulas();
+
+auto value = cell->get_Value(); // 7
 ```
 
-Sekarang untuk menulis rumus ke sel, Anda dapat menggunakan
-[**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692) metode:
+Bentuk referensi R1C1 yang umum adalah:
 
-*Catatan*: [**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692) metode digunakan untuk menetapkan referensi sel gaya A1.
+| Referensi | Relatif | Absolut | Campuran |
+|---|---|---|---|
+| Sel | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| Baris | `R[2]` | `R2` | — |
+| Kolom | `C[3]` | `C3` | — |
+| Rentang | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
 
-Untuk menetapkan referensi sel **R1C1Formula**, Anda dapat menggunakan
-[**IChartDataCell::set_R1C1Formula()**](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.charts.i_chart_data_cell#a47f5825dd38d0dddb11ecc3a43d388c7) metode:
+Sebagai contoh, pada sel `D2`, `RC[-2]` berarti sel di baris yang sama dua kolom ke kiri (`B2`).
 
-Kemudian jika Anda mencoba membaca nilai dari sel B2 dan C2, nilai tersebut akan dihitung:
+## **Konstanta dan Operator Formula**
 
-``` cpp
-auto value1 = cell1->get_Value(); // 7.8
-auto value2 = cell2->get_Value(); // 2.1
+Penilai formula bawaan mendukung nilai logika, literal numerik, string, nilai kesalahan spreadsheet, operator aritmetika, dan operator perbandingan.
+
+### **Konstanta dan Literal**
+
+| Tipe | Contoh | Catatan |
+|---|---|---|
+| Logika | `TRUE`, `FALSE` | Dapat digunakan langsung dalam ekspresi logika seperti `A2=TRUE`. |
+| Numerik | `1`, `0.5`, `.3`, `1E-2` | Notasi umum dan ilmiah didukung. |
+| String | `"abc"`, `"2/3/2020 12:00"` | Literal teks dikelilingi tanda kutip ganda di dalam formula. |
+| Hasil kesalahan | `#DIV/0!`, `#N/A`, `#REF!` | Formula yang valid dapat mengevaluasi menjadi nilai kesalahan spreadsheet alih-alih hasil normal. |
+
+Contoh ini menggunakan beberapa tipe konstanta:
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 500.0f, 300.0f);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+
+workbook->GetCell(0, u"A2")->set_Value(ObjectExt::Box<bool>(false));
+workbook->GetCell(0, u"B2")->set_Formula(u"A2=TRUE");
+workbook->GetCell(0, u"C2")->set_Formula(u"1+0.5");
+workbook->GetCell(0, u"D2")->set_Formula(u".3*1E-2");
+workbook->GetCell(0, u"E2")->set_Formula(u"\"abc\"");
+workbook->GetCell(0, u"F2")->set_Formula(u"2/0");
+
+workbook->CalculateFormulas();
+
+auto logicalValue = workbook->GetCell(0, u"B2")->get_Value(); // False
+auto numericValue = workbook->GetCell(0, u"C2")->get_Value(); // 1.5
+auto scientificValue = workbook->GetCell(0, u"D2")->get_Value(); // 0.003
+auto stringValue = workbook->GetCell(0, u"E2")->get_Value(); // abc
+auto errorValue = workbook->GetCell(0, u"F2")->get_Value(); // #DIV/0!
 ```
 
-## **Konstanta Logika**
-Anda dapat menggunakan konstanta logika seperti *FALSE* dan *TRUE* dalam rumus sel:
+### **Operator Aritmatika**
 
-## **Konstanta Numerik**
-Angka dapat digunakan dalam notasi biasa atau ilmiah untuk membuat rumus spreadsheet bagan:
+| Operator | Makna | Contoh |
+|---|---|---|
+| `+` | Penjumlahan atau plus unary | `2+3` |
+| `-` | Pengurangan atau negasi | `2-3`, `-3` |
+| `*` | Perkalian | `2*3` |
+| `/` | Pembagian | `2/3` |
+| `%` | Persen | `30%` |
+| `^` | Eksponensial | `2^3` |
 
-## **Konstanta String**
-Konstanta string (atau literal) adalah nilai spesifik yang digunakan apa adanya dan tidak berubah. Konstanta string dapat berupa: tanggal, teks, angka, dll.:
+Gunakan tanda kurung untuk membuat urutan evaluasi eksplisit, misalnya `(A2+B2)*C2`.
 
-## **Konstanta Error**
-Terkadang tidak mungkin menghitung hasil dengan rumus. Dalam kasus tersebut, kode error ditampilkan di sel alih‑alih nilainya. Setiap tipe error memiliki kode khusus:
+### **Operator Perbandingan**
 
-- #DIV/0! – rumus mencoba membagi dengan nol.
-- #GETTING_DATA – dapat muncul pada sel sementara nilainya masih dihitung.
-- #N/A – informasi hilang atau tidak tersedia. Beberapa penyebabnya: sel yang digunakan dalam rumus kosong, ada karakter spasi ekstra, salah ketik, dll.
-- #NAME? – sel atau objek rumus lain tidak dapat ditemukan berdasarkan namanya.
-- #NULL! – dapat muncul ketika ada kesalahan dalam rumus, seperti:  (,) atau karakter spasi yang digunakan alih‑alih titik dua (:).
-- #NUM! – nilai numerik dalam rumus tidak valid, terlalu panjang atau terlalu pendek, dll.
-- #REF! – referensi sel tidak valid.
-- #VALUE! – tipe nilai tidak terduga. Misalnya, nilai string ditempatkan pada sel numerik.
+Ekspresi perbandingan mengembalikan nilai logika.
 
-## **Operator Aritmetika**
-Anda dapat menggunakan semua operator aritmetika dalam rumus worksheet bagan:
+| Operator | Makna | Contoh |
+|---|---|---|
+| `=` | Sama dengan | `A2=3` |
+| `<>` | Tidak sama dengan | `A2<>3` |
+| `>` | Lebih besar dari | `A2>3` |
+| `>=` | Lebih besar atau sama dengan | `A2>=3` |
+| `<` | Kurang dari | `A2<3` |
+| `<=` | Kurang atau sama dengan | `A2<=3` |
 
-|**Operator**|**Arti**|**Contoh**|
-| :- | :- | :- |
-|+ (tanda plus)|Penjumlahan atau plus unary|2 + 3|
-|- (tanda minus)|Pengurangan atau negasi|2 - 3<br>-3|
-|* (asterisk)|Perkalian|2 * 3|
-|/ (garis miring)|Pembagian|2 / 3|
-|% (tanda persen)|Persen|30%|
-|^ (caret)|Eksponensiasi|2 ^ 3|
+## **Fungsi Pradefinisi yang Didukung**
 
-*Catatan*: Untuk mengubah urutan evaluasi, letakkan bagian rumus yang ingin dihitung terlebih dahulu dalam tanda kurung.
+Aspose.Slides mencakup penilai formula bawaan untuk lembar kerja diagram, tetapi bukan mesin perhitungan Excel lengkap. Set fungsi yang didokumentasikan terbatas pada fungsi di bawah ini. Jangan mengasumsikan bahwa fungsi Excel arbitrer dapat dihitung ulang oleh [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/).
 
-## **Operator Perbandingan**
-Anda dapat membandingkan nilai sel dengan operator perbandingan. Ketika dua nilai dibandingkan dengan operator ini, hasilnya adalah nilai logika *TRUE* atau *FALSE*:
+| Fungsi | Tujuan atau bentuk yang didukung | Contoh |
+|---|---|---|
+| `ABS` | Nilai absolut | `ABS(A2)` |
+| `AVERAGE` | Rata‑rata aritmetika | `AVERAGE(B2:B5)` |
+| `CEILING` | Membulatkan angka ke atas ke kelipatan | `CEILING(A2,5)` |
+| `CHOOSE` | Memilih nilai berdasarkan indeks | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | Menggabungkan nilai teks | `CONCAT(A2,B2)` |
+| `CONCATENATE` | Menggabungkan nilai teks | `CONCATENATE(A2," ",B2)` |
+| `DATE` | Membuat nilai tanggal menggunakan sistem tanggal 1900 | `DATE(2026,8,19)` |
+| `DAYS` | Mengembalikan jumlah hari antara tanggal | `DAYS(B2,A2)` |
+| `FIND` | Menemukan satu nilai teks di dalam nilai lain | `FIND("-",A2)` |
+| `FINDB` | Pencarian teks berbasis byte | `FINDB("a",A2)` |
+| `IF` | Hasil kondisional | `IF(A2>0,A2,0)` |
+| `INDEX` | Bentuk referensi | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | Bentuk vektor | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | Bentuk vektor | `MATCH(A2,B2:B5,0)` |
+| `MAX` | Nilai maksimum | `MAX(B2:B5)` |
+| `SUM` | Menjumlahkan nilai | `SUM(B2:B5)` |
+| `VLOOKUP` | Pencarian vertikal | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-|**Operator**|**Arti**|**Arti**|
-| :- | :- | :- |
-|= (tanda sama dengan)|Sama dengan|A2 = 3|
-|<> (tanda tidak sama dengan)|Tidak sama dengan|A2 <> 3|
-|> (tanda lebih besar)|Lebih besar|A2 > 3|
-|>= (tanda lebih besar atau sama dengan)|Lebih besar atau sama dengan|A2 >= 3|
-|< (tanda lebih kecil)|Lebih kecil|A2 < 3|
-|<= (tanda lebih kecil atau sama dengan)|Lebih kecil atau sama dengan|A2 <= 3|
+Pembatasan yang ditunjukkan dalam tabel signifikan: `INDEX` didokumentasikan dalam bentuk referensi, sementara `LOOKUP` dan `MATCH` didokumentasikan dalam bentuk vektornya. `DATE` menggunakan sistem tanggal 1900. Fitur dan fungsi yang tidak tercantum di sini harus dianggap tidak didukung oleh penilai formula Aspose.Slides kecuali mereka didokumentasikan secara terpisah.
 
-## **Referensi Sel Gaya A1**
-**Referensi sel gaya A1** digunakan untuk worksheet, di mana kolom memiliki identifier huruf (mis. "*A*") dan baris memiliki identifier numerik (mis. "*1*"). Referensi sel gaya A1 dapat digunakan sebagai berikut:
+## **Perhitungan Ulang dan Nilai Cache**
 
-|**Referensi sel**|**Contoh**|||
-| :- | :- | :- | :- |
-||Mutlak|Relatif|Campuran|
-|Sel|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|Baris|$2:$2|2:2|-|
-|Kolom|$A:$A|A:A|-|
-|Rentang|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
+File spreadsheet biasanya menyimpan baik formula maupun nilai terakhir yang dihitung. Aspose.Slides dapat membaca nilai cache dari [IChartDataCell::get_Value](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdatacell/get_value/) ketika presentasi dimuat dan data diagram terkait belum diubah.
 
-Berikut contoh cara menggunakan referensi sel gaya A1 dalam rumus:
+Setelah mengubah sel input atau formula, jangan mengandalkan hasil cache lama. Panggil [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) sebelum membaca nilai yang dihitung atau menyimpan data diagram yang bergantung padanya.
 
-## **Referensi Sel Gaya R1C1**
-**Referensi sel gaya R1C1** digunakan untuk worksheet, di mana baik baris maupun kolom memiliki identifier numerik. Referensi sel gaya R1C1 dapat digunakan sebagai berikut:
+Untuk formula di luar subset yang didukung, Aspose.Slides mungkin tidak dapat menguraikan formula atau menentukan dependensinya. Jika workbook telah dimodifikasi, nilai cache sebelumnya tidak lagi dapat dianggap dapat diandalkan. Dalam situasi ini, membaca nilai sel dengan data yang tidak didukung dapat memicu [CellUnsupportedDataException](https://reference.aspose.com/slides/id/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/).
 
-|**Referensi sel**|**Contoh**|||
-| :- | :- | :- | :- |
-||Mutlak|Relatif|Campuran|
-|Sel|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Baris|R2|R[2]|-|
-|Kolom|C3|C[3]|-|
-|Rentang|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
+Jika diagram Anda bergantung pada fungsi Excel yang tidak dievaluasi oleh Aspose.Slides, hitung formula tersebut dengan mesin spreadsheet yang mendukungnya dan tuliskan nilai hasilnya kembali ke workbook diagram. Jangan mengganti formula yang tidak didukung dengan nilai dugaan.
 
-Berikut contoh cara menggunakan referensi sel gaya A1 dalam rumus:
+## **Tangani Kesalahan Formula**
 
-## **Fungsi Bawaan**
-Ada fungsi bawaan yang dapat digunakan dalam rumus untuk menyederhanakan implementasinya. Fungsi‑fungsi ini mencakup operasi paling umum, seperti:
+Ada dua jenis masalah yang perlu dibedakan.
 
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (sistem tanggal 1900)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (bentuk referensi)
-- LOOKUP (bentuk vektor)
-- MATCH (bentuk vektor)
-- MAX
-- SUM
-- VLOOKUP
+Sebuah formula dapat valid tetapi menghasilkan nilai kesalahan spreadsheet seperti `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!`, atau `#VALUE!`. Dalam kasus ini, token kesalahan adalah hasil sel dan dapat dikembalikan melalui [IChartDataCell::get_Value](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdatacell/get_value/).
+
+Sebuah formula juga dapat gagal pada tingkat penguraian, referensi, dependensi, atau data yang didukung. Aspose.Slides menyediakan pengecualian khusus spreadsheet untuk kasus ini: [CellInvalidFormulaException](https://reference.aspose.com/slides/id/cpp/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/id/cpp/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/id/cpp/aspose.slides.spreadsheet/cellcircularreferenceexception/), dan [CellUnsupportedDataException](https://reference.aspose.com/slides/id/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+
+Ketika formula berasal dari templat atau masukan pengguna, tangani pengecualian ini di sekitar perhitungan ulang dan akses nilai:
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Spreadsheet/CellCircularReferenceException.h>
+#include <Spreadsheet/CellInvalidFormulaException.h>
+#include <Spreadsheet/CellInvalidReferenceException.h>
+#include <Spreadsheet/CellUnsupportedDataException.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Spreadsheet;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 500.0f, 300.0f);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+auto cell = workbook->GetCell(0, u"A2");
+cell->set_Formula(u"SUM(B2:B5)");
+
+try
+{
+    workbook->CalculateFormulas();
+    auto value = cell->get_Value();
+}
+catch (CellInvalidFormulaException&)
+{
+    // Tangani formula yang tidak valid.
+}
+catch (CellInvalidReferenceException&)
+{
+    // Tangani referensi sel yang tidak valid.
+}
+catch (CellCircularReferenceException&)
+{
+    // Tangani referensi sirkular.
+}
+catch (CellUnsupportedDataException&)
+{
+    // Tangani data spreadsheet yang tidak didukung.
+}
+```
+
+## **Batasan Praktis**
+
+Dukungan formula pada lembar kerja diagram ditujukan untuk subset perhitungan spreadsheet yang terdefinisi, bukan untuk kompatibilitas Excel penuh. Ingat batasan ini saat merancang alur kerja pelaporan:
+
+- Gunakan hanya konstanta, operator, referensi, dan fungsi yang didokumentasikan ketika Anda membutuhkan Aspose.Slides untuk menghitung ulang formula.
+- Hitung ulang setelah mengubah sel yang menjadi dasar hasil formula.
+- Anggap nilai cache dari presentasi yang dimuat sebagai snapshot, bukan sebagai pengganti perhitungan ulang setelah penyuntingan.
+- Uji formula dari templat yang ada sebelum mengandalkan nilai yang dihitung, terutama bila mereka memakai fungsi di luar daftar yang didokumentasikan.
+- Untuk formula yang memerlukan mesin perhitungan spreadsheet lengkap, hitunglah secara eksternal lalu perbarui workbook diagram dengan nilai hasilnya.
 
 ## **FAQ**
 
-**Apakah file Excel eksternal didukung sebagai sumber data untuk bagan dengan rumus?**
+**Apa perbedaan antara `set_Formula` dan `set_R1C1Formula`?**
 
-Ya. Aspose.Slides mendukung workbook eksternal sebagai [sumber data bagan](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/chartdatasourcetype/), yang memungkinkan Anda menggunakan rumus dari file XLSX di luar presentasi.
+[IChartDataCell::set_Formula](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdatacell/set_formula/) menyimpan ekspresi gaya A1 seperti `B2-C2`. [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) menyimpan ekspresi gaya R1C1 seperti `RC[-2]-RC[-1]`. Gunakan notasi yang paling cocok dengan cara Anda menghasilkan atau menyalin formula.
 
-**Apakah rumus bagan dapat mereferensikan lembar kerja dalam workbook yang sama dengan nama lembar?**
+**Apakah saya perlu membaca sel itu sendiri atau nilai sel setelah perhitungan?**
 
-Ya. Rumus mengikuti model referensi Excel standar, sehingga Anda dapat mereferensikan lembar lain dalam workbook yang sama atau workbook eksternal. Untuk referensi eksternal, sertakan jalur dan nama workbook menggunakan sintaks Excel.
+[IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) mengembalikan sebuah `IChartDataCell`. Untuk memperoleh hasil yang dihitung, baca nilai [IChartDataCell::get_Value](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdatacell/get_value/) sel tersebut setelah perhitungan ulang.
+
+**Kapan saya harus memanggil `CalculateFormulas`?**
+
+Panggil [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) setelah mengubah nilai input atau formula dan sebelum Anda bergantung pada hasil yang dihitung. Ini memperbarui nilai formula yang didukung oleh penilai bawaan.
+
+**Apakah Aspose.Slides mendukung semua fungsi Excel?**
+
+Tidak. Penilai bawaan mendukung subset fungsi yang didokumentasikan. Fungsi di luar subset tersebut tidak boleh dianggap dapat dihitung ulang dengan benar. Jika kompatibilitas formula Excel penuh diperlukan, lakukan perhitungan dengan mesin spreadsheet yang sesuai dan tuliskan nilai akhir ke workbook diagram.
+
+**Apa yang terjadi jika presentasi yang dimuat berisi formula yang tidak didukung?**
+
+Jika data diagram belum berubah, workbook mungkin masih berisi nilai cache yang dihitung sebelumnya. Setelah data terkait dimodifikasi, nilai cache tersebut mungkin tidak lagi valid. Mengakses sel yang formulanya tidak dapat ditangani dapat memicu [CellUnsupportedDataException](https://reference.aspose.com/slides/id/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+
+**Apakah nilai kesalahan formula sama dengan pengecualian C++?**
+
+Tidak. Hasil seperti `#DIV/0!` adalah nilai spreadsheet yang dihasilkan oleh perhitungan yang valid. Pengecualian seperti [CellInvalidFormulaException](https://reference.aspose.com/slides/id/cpp/aspose.slides.spreadsheet/cellinvalidformulaexception/) atau [CellCircularReferenceException](https://reference.aspose.com/slides/id/cpp/aspose.slides.spreadsheet/cellcircularreferenceexception/) menunjukkan bahwa formula tidak dapat diproses secara normal.
+
+**Apakah diagram memperbarui secara otomatis ketika sel formula berubah?**
+
+Seri diagram dapat merujuk ke sel workbook. Hitung ulang workbook terlebih dahulu, lalu simpan atau render presentasi. Jika titik data diagram merujuk ke sel yang dihitung, diagram akan menggunakan nilai sel yang telah diperbarui; tidak diperlukan metode penyegaran diagram terpisah untuk alur kerja ini.
+
+**Dapatkah diagram menggunakan workbook Excel eksternal?**
+
+Ya, data diagram dapat dikonfigurasi untuk menggunakan workbook eksternal melalui API data diagram. Namun, alur kerja perhitungan formula yang dijelaskan dalam artikel ini berkaitan dengan workbook data diagram dan subset formula yang dievaluasi oleh Aspose.Slides. Jangan mengasumsikan bahwa [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) menyediakan perhitungan penuh untuk formula arbitrer dalam file XLSX eksternal.
+
+**Bisakah saya menggunakan formula yang merujuk ke lembar kerja atau workbook lain?**
+
+Referensi gaya Excel mungkin ada dalam workbook diagram, tetapi evaluasi formula dibatasi oleh parser dan set fungsi yang didukung. Jika referensi lintas lembar atau eksternal penting, validasi formula tersebut dengan versi Aspose.Slides yang Anda gunakan. Untuk alur kerja yang memerlukan kompatibilitas referensi Excel yang luas, hitung workbook secara eksternal dan tuliskan nilai yang telah diselesaikan kembali ke data diagram.
+
+**Apakah string formula harus diawali dengan `=`?**
+
+Contoh API Aspose.Slides menetapkan ekspresi seperti `B2-C2` atau `SUM(B2:B5)` tanpa awalan `=`. Menggunakan bentuk ini menjaga konsistensi formula dengan contoh API yang didokumentasikan.

@@ -1,5 +1,5 @@
 ---
-title: जावास्क्रिप्ट का उपयोग करके प्रस्तुतियों में चार्ट वर्कशीट फ़ॉर्मूले लागू करें
+title: JavaScript का उपयोग करके प्रस्तुतियों में चार्ट वर्कशीट फ़ॉर्मूले लागू करें
 linktitle: वर्कशीट फ़ॉर्मूले
 type: docs
 weight: 70
@@ -10,12 +10,13 @@ keywords:
 - चार्ट फ़ॉर्मूला
 - वर्कशीट फ़ॉर्मूला
 - स्प्रेडशीट फ़ॉर्मूला
-- डेटा स्रोत
-- लॉजिकल नियतांक
-- संख्यात्मक नियतांक
-- स्ट्रिंग नियतांक
-- त्रुटि नियतांक
-- अंकगणितीय नियतांक
+- चार्ट डेटा वर्कबुक
+- फ़ॉर्मूला गणना
+- तार्किक स्थिरांक
+- संख्यात्मक स्थिरांक
+- स्ट्रिंग स्थिरांक
+- त्रुटि स्थिरांक
+- अंकगणितीय ऑपरेटर
 - तुलना ऑपरेटर
 - A1 शैली
 - R1C1 शैली
@@ -25,213 +26,361 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides के लिए Node.js में जावास्क्रिप्ट द्वारा जावा चार्ट वर्कशीट के माध्यम से Excel‑शैली फ़ॉर्मूले लागू करें और PPT तथा PPTX फ़ाइलों में रिपोर्ट को स्वचालित करें।"
+description: "Aspose.Slides for Node.js में Java चार्ट वर्कशीट के माध्यम से Excel-शैली के फ़ॉर्मूले लागू करें, मानों को पुनः गणना करें, और परिणामों को PowerPoint चार्ट में उपयोग करें।"
 ---
 ## **अवलोकन**
 
-एक चार्ट वर्कशीट प्रस्तुति में चार्ट के पीछे का डेटा स्रोत है। यह श्रेणी और श्रृंखला नामों को संख्यात्मक मानों के साथ संग्रहीत करता है जो चार्ट द्वारा प्रदर्शित होते हैं। Aspose.Slides में यह वर्कशीट चार्ट डेटा वर्कबुक के माध्यम से उपलब्ध होती है, जिससे आप प्रोग्रामेटिक रूप से चार्ट डेटा के साथ काम कर सकते हैं।
+PowerPoint चार्ट आमतौर पर अपना स्रोत डेटा एम्बेडेड वर्कशीट में संग्रहीत करते हैं। Aspose.Slides for Node.js via Java में, आप उस वर्कशीट को चार्ट डेटा वर्कबुक के माध्यम से एक्सेस कर सकते हैं, इनपुट मान लिख सकते हैं, सेल्स को फ़ॉर्मूले असाइन कर सकते हैं, समर्थित फ़ॉर्मूले की गणना कर सकते हैं, और गणना किए गए सेल्स को चार्ट डेटा के रूप में उपयोग कर सकते हैं।
 
-यह लेख बताता है कि चार्ट डेटा में वर्कशीट फ़ॉर्मूले कैसे उपयोग किए जाएँ ताकि सेल मानों की गणना और अपडेट स्वतः हो सके, न कि मैन्युअल रूप से दर्ज किए जाएँ। यह फ़ॉर्मूले असाइन करने, A1-स्टाइल और R1C1-स्टाइल रेफ़रेंसेज़ का उपयोग करने, वर्कबुक फ़ॉर्मूले को पुनः‑गणना करने, और प्रस्तुति में चार्ट वर्कशीट के लिए उपलब्ध नियतांक, ऑपरेटर, सेल रेफ़रेंसेज़ और पूर्वनिर्धारित फ़ंक्शन के साथ काम करने को दिखाता है।
+यह लेख पूर्ण फ़ॉर्मूला वर्कफ़्लो समझाता है: एक चार्ट बनाना, उसकी वर्कशीट भरना, A1‑स्टाइल या R1C1‑स्टाइल फ़ॉर्मूले असाइन करना, उन्हें पुनःगणना करना, गणना किए गए मान पढ़ना, उन सेल्स को चार्ट सीरीज़ से जोड़ना, और प्रस्तुति सहेजना। यह समर्थित फ़ॉर्मूला सिंटैक्स, बिल्ट‑इन फ़ंक्शन उपसमुच्चय, कैश्ड मान, असमर्थित फ़ॉर्मूले, और स्प्रेडशीट‑विशिष्ट त्रुटियों का भी वर्णन करता है।
 
-## **प्रेजेंटेशन में चार्ट स्प्रेडशीट फ़ॉर्मूला के बारे में**
-**चार्ट स्प्रेडशीट** (या चार्ट वर्कशीट) प्रस्तुति में चार्ट का डेटा स्रोत है। चार्ट स्प्रेडशीट में वह डेटा होता है जो ग्राफ़िक रूप में चार्ट पर दिखाया जाता है। जब आप PowerPoint में एक चार्ट बनाते हैं, तो इस चार्ट से जुड़ी वर्कशीट स्वचालित रूप से बनती है। सभी प्रकार के चार्ट—लाइन चार्ट, बार चार्ट, सनबर्स्ट चार्ट, पाई चार्ट आदि—के लिए चार्ट वर्कशीट बनाई जाती है। PowerPoint में चार्ट स्प्रेडशीट देखने के लिए आपको चार्ट पर डबल‑क्लिक करना होगा:
+## **चार्ट वर्कशीट और फ़ॉर्मूले**
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+एक चार्ट वर्कशीट में उन श्रेणियों, सीरीज़ नामों, और मानों का समावेश होता है जो चार्ट द्वारा प्रयोग किए जाते हैं। PowerPoint में, आप चार्ट डेटा एडिटर खोलकर वर्कशीट का निरीक्षण कर सकते हैं:
 
+![एम्बेडेड वर्कशीट खुली हुई PowerPoint चार्ट, जिसमें श्रेणी और श्रृंखला डेटा दिखाया गया है](chart-worksheet-formulas_1.png)
 
-चार्ट स्प्रेडशीट में चार्ट तत्वों के नाम होते हैं (Category Name: *Category1*, Serie Name) और इन श्रेणी तथा श्रृंखलाओं के अनुरूप संख्यात्मक डेटा की एक तालिका होती है। डिफ़ॉल्ट रूप से, जब आप नया चार्ट बनाते हैं तो चार्ट स्प्रेडशीट डेटा डिफ़ॉल्ट डेटा के साथ सेट होते हैं। फिर आप वर्कशीट डेटा को मैन्युअल रूप से बदल सकते हैं।
+Aspose.Slides में, वर्कशीट को [ChartDataWorkbook](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdataworkbook/) क्लास के माध्यम से एक्सपोज़ किया जाता है। A1‑स्टाइल फ़ॉर्मूले के लिए [ChartDataCell.setFormula](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-) और R1C1‑स्टाइल फ़ॉर्मूले के लिए [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-) का उपयोग करें। इनपुट सेल्स या फ़ॉर्मूले बदलने के बाद, समर्थित फ़ॉर्मूले को पुनःगणना करने और संबंधित सेल मानों को अपडेट करने के लिए [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) को कॉल करें।
 
-आमतौर पर, चार्ट जटिल डेटा (जैसे वित्तीय विश्लेषण, वैज्ञानिक विश्लेषण) को दर्शाता है, जहाँ सेल्स अन्य सेल्स के मानों या अन्य गतिशील डेटा से गणना की जाती हैं। सेल का मान मैन्युअल रूप से गणना कर उसे हार्ड‑कोड करने से भविष्य में परिवर्तन कठिन हो जाता है। यदि आप किसी सेल का मान बदलते हैं, तो उससे निर्भरतावान सभी सेल्स को भी अद्यतन करने की आवश्यकता होती है। इसके अतिरिक्त, तालिका डेटा अन्य तालिकाओं के डेटा पर निर्भर कर सकता है, जिससे प्रस्तुति डेटा योजना जटिल हो जाती है और उसे आसान तथा लचीले तरीके से अपडेट करने की आवश्यकता होती है।
+गणना किया गया सेल अपना परिणाम अभी भी [ChartDataCell.getValue](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdatacell/#getValue--) के माध्यम से प्रकट करता है। यह तभी महत्वपूर्ण है जब आपको कोड में फ़ॉर्मूला परिणाम का निरीक्षण करना हो या सेल को चार्ट डेटा पॉइंट के रूप में उपयोग करना हो।
 
-**चार्ट स्प्रेडशीट फ़ॉर्मूला** प्रस्तुति में एक अभिव्यक्ति है जो चार्ट स्प्रेडशीट डेटा को स्वचालित रूप से गणना और अपडेट करती है। स्प्रेडशीट फ़ॉर्मूला किसी विशिष्ट सेल या सेल सेट के लिए डेटा गणना तर्क को परिभाषित करता है। यह गणितीय या तर्कशील फ़ॉर्मूला हो सकता है, जो उपयोग करता है: सेल रेफ़रेंसेज़, गणितीय फ़ंक्शन, तर्कीय ऑपरेटर, अंकगणितीय ऑपरेटर, रूपांतरण फ़ंक्शन, स्ट्रिंग नियतांक आदि। फ़ॉर्मूला की परिभाषा एक सेल में लिखी जाती है, और यह सेल केवल साधारण मान नहीं रखता। स्प्रेडशीट फ़ॉर्मूला मान की गणना करता है और उसे वापस देता है, फिर यह मान सेल को असाइन किया जाता है। प्रेजेंटेशन में चार्ट स्प्रेडशीट फ़ॉर्मूले मूल रूप से Excel फ़ॉर्मूले समान होते हैं, और उनके कार्यान्वयन के लिए समान डिफ़ॉल्ट फ़ंक्शन, ऑपरेटर और नियतांक समर्थित हैं।
+## **चार्ट बनाना और वर्कशीट फ़ॉर्मूले गणना करना**
 
-[**Aspose.Slides**](https://products.aspose.com/slides/hi/nodejs-java/) में चार्ट स्प्रेडशीट प्रतिनिधित्व किया जाता है
-[**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ChartData#getChartDataWorkbook--) मेथड द्वारा
-[**ChartDataWorkbook**](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ChartDataWorkbook) प्रकार का।  
-स्प्रेडशीट फ़ॉर्मूला असाइन और बदलने के लिए उपयोग किया जाता है  
-[**ChartDataCell.setFormula**](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ChartDataCell#setFormula-java.lang.String-) मेथड।  
-Aspose.Slides में फ़ॉर्मूलों के लिए निम्न कार्यक्षमता समर्थित है:
-
-- लॉजिकल नियतांक
-- संख्यात्मक नियतांक
-- स्ट्रिंग नियतांक
-- त्रुटि नियतांक
-- अंकगणितीय ऑपरेटर
-- तुलना ऑपरेटर
-- A1‑स्टाइल सेल रेफ़रेंसेज़
-- R1C1‑स्टाइल सेल रेफ़रेंसेज़
-- पूर्वनिर्धारित फ़ंक्शन
-
-आमतौर पर, स्प्रेडशीट अंतिम गणना किए गए फ़ॉर्मूला मानों को संग्रहीत करती है। यदि प्रस्तुति लोड होने के बाद चार्ट डेटा नहीं बदला गया, तो [**ChartDataCell.getValue**](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ChartDataCell#getValue--) मेथड उन मानों को पढ़ते समय लौटाता है। लेकिन यदि स्प्रेडशीट डेटा बदला गया, तो **ChartDataCell.Value** प्रॉपर्टी पढ़ते समय [**CellUnsupportedDataException**](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/CellUnsupportedDataException) फ़ेंकता है, क्योंकि असमर्थित फ़ॉर्मूले के लिए यह अपवाद उत्पन्न होता है। यह इसलिए है क्योंकि फ़ॉर्मूले सफलतापूर्वक पार्स होने पर सेल निर्भरताएँ निर्धारित हो जाती हैं और अंतिम मानों की शुद्धता जाँच ली जाती है। यदि फ़ॉर्मूला पार्स नहीं किया जा सकता, तो सेल मान की शुद्धता सुनिश्चित नहीं की जा सकती।
-
-## **प्रेजेंटेशन में चार्ट स्प्रेडशीट फ़ॉर्मूला जोड़ें**
-सबसे पहले, नई प्रस्तुति की पहली स्लाइड पर [ShapeCollection.getShapes.addChart](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ShapeCollection#addChart-int-float-float-float-float-) का उपयोग करके एक चार्ट जोड़ें। चार्ट की वर्कशीट स्वचालित रूप से बनती है और आप इसे [**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ChartData#getChartDataWorkbook--) मेथड से एक्सेस कर सकते हैं:
+निम्न उदाहरण एक अंत‑से‑अंत वर्कफ़्लो दर्शाता है। यह एक क्लस्टर्ड कॉलम चार्ट बनाता है, सैंपल डेटा को साफ़ करता है, तिमाही राजस्व और खर्च मान लिखता है, फ़ॉर्मूले के साथ लाभ की गणना करता है, परिणाम पढ़ता है, गणना किए गए सेल्स को चार्ट मानों के रूप में उपयोग करता है, और प्रस्तुति को सहेजता है।
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 150, 150, 500, 300);
-    var workbook = chart.getChartData().getChartDataWorkbook();
-    // ...
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 350);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const worksheetIndex = 0;
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    workbook.clear(worksheetIndex);
+
+    const category1 = workbook.getCell(worksheetIndex, "A2", "Q1");
+    const category2 = workbook.getCell(worksheetIndex, "A3", "Q2");
+    const category3 = workbook.getCell(worksheetIndex, "A4", "Q3");
+
+    workbook.getCell(worksheetIndex, "B1", "Revenue");
+    workbook.getCell(worksheetIndex, "C1", "Expenses");
+    workbook.getCell(worksheetIndex, "D1", "Profit");
+
+    workbook.getCell(worksheetIndex, "B2").setValue(120.0);
+    workbook.getCell(worksheetIndex, "C2").setValue(80.0);
+    workbook.getCell(worksheetIndex, "B3").setValue(150.0);
+    workbook.getCell(worksheetIndex, "C3").setValue(95.0);
+    workbook.getCell(worksheetIndex, "B4").setValue(135.0);
+    workbook.getCell(worksheetIndex, "C4").setValue(110.0);
+
+    const profit1 = workbook.getCell(worksheetIndex, "D2");
+    const profit2 = workbook.getCell(worksheetIndex, "D3");
+    const profit3 = workbook.getCell(worksheetIndex, "D4");
+
+    profit1.setFormula("B2-C2");
+    profit2.setFormula("B3-C3");
+    profit3.setFormula("B4-C4");
+
+    workbook.calculateFormulas();
+
+    const q1Profit = profit1.getValue(); // 40
+    const q2Profit = profit2.getValue(); // 55
+    const q3Profit = profit3.getValue(); // 25
+
+    console.log("Q1 profit: " + q1Profit);
+    console.log("Q2 profit: " + q2Profit);
+    console.log("Q3 profit: " + q3Profit);
+
+    chart.getChartData().getCategories().add(category1);
+    chart.getChartData().getCategories().add(category2);
+    chart.getChartData().getCategories().add(category3);
+
+    const profitSeries = chart.getChartData().getSeries().add(workbook.getCell(worksheetIndex, "D1"), chart.getType());
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit1);
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit2);
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit3);
+    profitSeries.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("chart-formulas.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-चलिए [**ChartDataCell.setValue**](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ChartDataCell#setValue-java.lang.Object-) प्रॉपर्टी **Object** टाइप की मदद से कुछ मान सेल्स में लिखते हैं, जिसका अर्थ है कि आप किसी भी प्रकार का मान इस प्रॉपर्टी में सेट कर सकते हैं:
+चार्ट डेटा पॉइंट `D2:D4` को संदर्भित करते हैं, इसलिए चार्ट गणना किए गए लाभ मानों को उपयोग करता है। इस वर्कफ़्लो में कोई अलग चार्ट‑रिफ्रेश कॉल नहीं है: पहले वर्कबुक को पुनःगणना करें, फिर गणना किए गए सेल्स को उपयोग या सहेजें।
+
+## **A1‑स्टाइल फ़ॉर्मूले उपयोग करना**
+
+A1 नोटेशन कॉलम को अक्षरों से और पंक्तियों को संख्याओं से पहचानता है। A1‑स्टाइल अभिव्यक्तियाँ [ChartDataCell.setFormula](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-) के माध्यम से असाइन करें।
 
 ```javascript
-workbook.getCell(0, "F2").setValue(-2.5);
-workbook.getCell(0, "G3").setValue(6.3);
-workbook.getCell(0, "H4").setValue(3);
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 300);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "C3").setValue(10);
+    workbook.getCell(0, "F2").setValue(2);
+    workbook.getCell(0, "G2").setValue(3);
+    workbook.getCell(0, "H2").setValue(4);
+
+    const cell = workbook.getCell(0, "A2");
+    cell.setFormula("C3+SUM(F2:H2)");
+
+    workbook.calculateFormulas();
+
+    const value = cell.getValue(); // 19
+} finally {
+    presentation.dispose();
+}
 ```
 
-अब फ़ॉर्मूला सेल में लिखने के लिए आप [**ChartDataCell.setFormula**](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ChartDataCell#setFormula-java.lang.String-) मेथड का उपयोग कर सकते हैं:
+आम A1 रेफरेंस रूप:
 
-*Note*: [**ChartDataCell.setFormula**](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ChartDataCell#setFormula-java.lang.String-) मेथड A1‑स्टाइल सेल रेफ़रेंसेज़ सेट करने के लिए उपयोग किया जाता है।  
+| संदर्भ | सापेक्ष | निरपेक्ष | मिश्रित |
+|---|---|---|---|
+| सेल | `A2` | `$A$2` | `A$2`, `$A2` |
+| पंक्ति | `2:2` | `$2:$2` | — |
+| स्तंभ | `A:A` | `$A:$A` | — |
+| रेंज | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-R1C1‑फ़ॉर्मूला सेल रेफ़रेंस सेट करने के लिए आप [**ChartDataCell.setR1C1Formula**](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ChartDataCell#setR1C1Formula-java.lang.String-) मेथड का उपयोग कर सकते हैं:
+सापेक्ष रेफरेंसेज़ को स्प्रेडशीट एप्लिकेशन में फ़ॉर्मूला को स्थानांतरित या कॉपी करने पर बदल सकता है। निरपेक्ष रेफरेंसेज़ दोनों निर्देशांक को स्थिर रखती हैं, जबकि मिश्रित रेफरेंसेज़ केवल पंक्ति या कॉलम को स्थिर करती हैं।
 
-फ़िर यदि आप सेल B2 और C2 के मान पढ़ते हैं, तो वे गणना किए जाएंगे:
+## **R1C1‑स्टाइल फ़ॉर्मूले उपयोग करना**
+
+R1C1 नोटेशन पंक्तियों और कॉलम दोनों को संख्यात्मक रूप से पहचानता है। सापेक्ष रेफरेंसेज़ को वर्ग कोष्ठकों में ऑफ़सेट द्वारा दर्शाया जाता है। इस सिंटैक्स को [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-) के माध्यम से असाइन करें।
 
 ```javascript
-var value1 = cell1.getValue();// 7.8
-var value2 = cell2.getValue();// 2.1
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 300);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "B2").setValue(12);
+    workbook.getCell(0, "C2").setValue(5);
+
+    const cell = workbook.getCell(0, "D2");
+    cell.setR1C1Formula("RC[-2]-RC[-1]");
+
+    workbook.calculateFormulas();
+
+    const value = cell.getValue(); // 7
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **लॉजिकल नियतांक**
-आप सेल फ़ॉर्मूलों में *FALSE* और *TRUE* जैसे लॉजिकल नियतांक का उपयोग कर सकते हैं:
+आम R1C1 रेफरेंस रूप:
+
+| संदर्भ | सापेक्ष | निरपेक्ष | मिश्रित |
+|---|---|---|---|
+| सेल | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| पंक्ति | `R[2]` | `R2` | — |
+| स्तंभ | `C[3]` | `C3` | — |
+| रेंज | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+
+उदाहरण के लिए, सेल `D2` में, `RC[-2]` का अर्थ है उसी पंक्ति में दो कॉलम बाएँ वाला सेल (`B2`)।
+
+## **फ़ॉर्मूला स्थिरांक और ऑपरेटर**
+
+बिल्ट‑इन फ़ॉर्मूला इवैल्युएटर तर्कात्मक मान, संख्यात्मक लिटरेल, स्ट्रिंग, स्प्रेडशीट त्रुटि मान, अंकगणितीय ऑपरेटर, और तुलना ऑपरेटर का समर्थन करता है।
+
+### **स्थिरांक और लिटरेल**
+
+| प्रकार | उदाहरण | नोट्स |
+|---|---|---|
+| तर्कात्मक | `TRUE`, `FALSE` | `A2=TRUE` जैसी तर्कात्मक अभिव्यक्तियों में सीधे उपयोग किया जा सकता है। |
+| संख्यात्मक | `1`, `0.5`, `.3`, `1E-2` | सामान्य और वैज्ञानिक संकेतन दोनों समर्थित हैं। |
+| स्ट्रिंग | `"abc"`, `"2/3/2020 12:00"` | स्ट्रिंग लिटरेल को फ़ॉर्मूला के भीतर डबल कोट्स में रखा जाता है। |
+| त्रुटि परिणाम | `#DIV/0!`, `#N/A`, `#REF!` | वैध फ़ॉर्मूला सामान्य परिणाम के बजाय स्प्रेडशीट त्रुटि मान दे सकता है। |
+
+यह उदाहरण कई स्थिरांक प्रकारों का उपयोग करता है:
 
 ```javascript
-workbook.getCell(0, "A2").setValue(false);
-var cell = workbook.getCell(0, "B2");
-cell.setFormula("A2 = TRUE");
-var value = cell.getValue();// मान में बूलियन "false" शामिल है
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 300);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "A2").setValue(false);
+    workbook.getCell(0, "B2").setFormula("A2=TRUE");
+    workbook.getCell(0, "C2").setFormula("1+0.5");
+    workbook.getCell(0, "D2").setFormula(".3*1E-2");
+    workbook.getCell(0, "E2").setFormula("\"abc\"");
+    workbook.getCell(0, "F2").setFormula("2/0");
+
+    workbook.calculateFormulas();
+
+    const logicalValue = workbook.getCell(0, "B2").getValue(); // false
+    const numericValue = workbook.getCell(0, "C2").getValue(); // 1.5
+    const scientificValue = workbook.getCell(0, "D2").getValue(); // 0.003
+    const stringValue = workbook.getCell(0, "E2").getValue(); // abc
+    const errorValue = workbook.getCell(0, "F2").getValue(); // #DIV/0!
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **संख्यात्मक नियतांक**
-संख्याओं का उपयोग सामान्य या वैज्ञानिक संकेतन में करके चार्ट स्प्रेडशीट फ़ॉर्मूला बनाया जा सकता है:
+### **अंकगणितीय ऑपरेटर**
+
+| ऑपरेटर | अर्थ | उदाहरण |
+|---|---|---|
+| `+` | जोड़ या यूनरी प्लस | `2+3` |
+| `-` | घटाव या निगेटिव | `2-3`, `-3` |
+| `*` | गुणा | `2*3` |
+| `/` | भाग | `2/3` |
+| `%` | प्रतिशत | `30%` |
+| `^` | घात | `2^3` |
+
+मूल्यांकन क्रम स्पष्ट करने के लिए कोष्ठक प्रयोग करें, उदाहरण स्वरूप `(A2+B2)*C2`।
+
+### **तुलना ऑपरेटर**
+
+तुलना अभिव्यक्तियों के परिणाम तर्कात्मक होते हैं।
+
+| ऑपरेटर | अर्थ | उदाहरण |
+|---|---|---|
+| `=` | बराबर | `A2=3` |
+| `<>` | बराबर नहीं | `A2<>3` |
+| `>` | बड़ा | `A2>3` |
+| `>=` | बड़ा या बराबर | `A2>=3` |
+| `<` | छोटा | `A2<3` |
+| `<=` | छोटा या बराबर | `A2<=3` |
+
+## **समर्थित पूर्वनिर्धारित फ़ंक्शन**
+
+Aspose.Slides चार्ट वर्कशीट के लिए एक बिल्ट‑इन फ़ॉर्मूला इवैल्युएटर शामिल करता है, लेकिन यह पूर्ण Excel गणना इंजन नहीं है। दस्तावेज़ित फ़ंक्शन सेट नीचे दिए गए फ़ंक्शनों तक सीमित है। यह मानें नहीं कि कोई भी Excel फ़ंक्शन [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) द्वारा पुनःगणना किया जाएगा।
+
+| फ़ंक्शन | उद्देश्य या समर्थित रूप | उदाहरण |
+|---|---|---|
+| `ABS` | निरपेक्ष मान | `ABS(A2)` |
+| `AVERAGE` | औसत | `AVERAGE(B2:B5)` |
+| `CEILING` | संख्या को ऊपर की बहुता तक राउंड | `CEILING(A2,5)` |
+| `CHOOSE` | इंडेक्स द्वारा मान चुनना | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | टेक्स्ट मान जोड़ना | `CONCAT(A2,B2)` |
+| `CONCATENATE` | टेक्स्ट मान जोड़ना | `CONCATENATE(A2," ",B2)` |
+| `DATE` | 1900 डेट सिस्टम का उपयोग करके तिथि बनाना | `DATE(2026,8,19)` |
+| `DAYS` | दो तिथियों के बीच दिन गिनना | `DAYS(B2,A2)` |
+| `FIND` | एक टेक्स्ट को दूसरे में खोजना | `FIND("-",A2)` |
+| `FINDB` | बाइट‑उन्मुख टेक्स्ट खोज | `FINDB("a",A2)` |
+| `IF` | शर्तीय परिणाम | `IF(A2>0,A2,0)` |
+| `INDEX` | रेफरेंस रूप | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | वेक्टर रूप | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | वेक्टर रूप | `MATCH(A2,B2:B5,0)` |
+| `MAX` | अधिकतम मान | `MAX(B2:B5)` |
+| `SUM` | योग | `SUM(B2:B5)` |
+| `VLOOKUP` | वर्टिकल लुकअप | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+
+टेबल में दिखाए गए प्रतिबंध महत्वपूर्ण हैं: `INDEX` रेफरेंस रूप में दस्तावेज़ित है, जबकि `LOOKUP` और `MATCH` उनके वेक्टर रूप में। `DATE` 1900 डेट सिस्टम का उपयोग करता है। यहाँ नहीं सूचीबद्ध विशेषताएँ और फ़ंक्शन Aspose.Slides फ़ॉर्मूला इवैल्युएटर द्वारा असमर्थित माने जाने चाहिए जब तक कि वे अलग से प्रलेखित न हों।
+
+## **पुनःगणना और कैश्ड मान**
+
+स्प्रेडशीट फ़ाइलें आमतौर पर एक फ़ॉर्मूला और उसका अंतिम गणना किया गया मान दोनों संग्रहीत करती हैं। Aspose.Slides इसलिए प्रस्तुति लोड होने पर और संबंधित चार्ट डेटा बदला न गया हो तो [ChartDataCell.getValue](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdatacell/#getValue--) से एक कैश्ड मान पढ़ सकता है।
+
+इनपुट सेल्स या फ़ॉर्मूले बदलने के बाद, पुराने कैश्ड परिणाम पर भरोसा न रखें। गणना किए गए मान पढ़ने या उन पर निर्भर रहने से पहले [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) को कॉल करें।
+
+समर्थित उपसमुच्चय के बाहर के फ़ॉर्मूले के लिए, Aspose.Slides फ़ॉर्मूला को पार्स करने या उसकी निर्भरताओं को स्थापित करने में असमर्थ हो सकता है। यदि वर्कबुक संशोधित की गई है, तो पूर्व कैश्ड मान अब विश्वसनीय नहीं रहेगा। इस स्थिति में, असमर्थित डेटा वाले सेल के मान को पढ़ने पर [CellUnsupportedDataException](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/cellunsupporteddataexception/) उठाया जा सकता है।
+
+यदि आपका चार्ट ऐसे Excel फ़ंक्शन पर निर्भर करता है जिन्हें Aspose.Slides मूल्यांकित नहीं करता, तो उन फ़ॉर्मूलों को किसी ऐसे स्प्रेडशीट इंजन से गणना करें जो उनका समर्थन करता हो और परिणामित मानों को चार्ट वर्कबुक में लिखें। असमर्थित फ़ॉर्मूलों को अनुमानित मानों से बदलना न करें।
+
+## **फ़ॉर्मूला त्रुटियों को संभालना**
+
+दो प्रकार की समस्याओं में अंतर करना आवश्यक है।
+
+एक फ़ॉर्मूला वैध हो सकता है लेकिन स्प्रेडशीट त्रुटि परिणाम दे सकता है, जैसे `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!`, या `#VALUE!`। इस मामले में त्रुटि टोकन एक सेल परिणाम है और इसे [ChartDataCell.getValue](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdatacell/#getValue--) के माध्यम से लौटाया जा सकता है।
+
+एक फ़ॉर्मूला पार्सिंग, रेफरेंस, निर्भरता, या समर्थित‑डेटा स्तर पर भी विफल हो सकता है। इन मामलों के लिए Aspose.Slides स्प्रेडशीट‑विशिष्ट अपवाद प्रदान करता है: [CellInvalidFormulaException](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/cellcircularreferenceexception/), और [CellUnsupportedDataException](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/cellunsupporteddataexception/)।
+
+जब फ़ॉर्मूले टेम्पलेट या उपयोगकर्ता इनपुट से आते हैं, तो पुनःगणना और मान पहुँच के आसपास त्रुटियों को पकड़ें। त्रुटि विवरण आधारभूत स्प्रेडशीट समस्या की पहचान करता है:
 
 ```javascript
-workbook.getCell(0, "A2").setFormula("1 + 0.5");
-workbook.getCell(0, "B2").setFormula(".3 * 1E-2");
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 300);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const cell = workbook.getCell(0, "A2");
+    cell.setFormula("SUM(B2:B5)");
+
+    try {
+        workbook.calculateFormulas();
+        console.log(cell.getValue());
+    } catch (error) {
+        console.error("Formula processing error: " + error.message);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **स्ट्रिंग नियतांक**
-स्ट्रिंग (या लिटरल) नियतांक वह विशिष्ट मान है जिसे जैसा है वैसा ही उपयोग किया जाता है और वह बदलता नहीं है। स्ट्रिंग नियतांक में तारीखें, टेक्स्ट, संख्याएँ आदि शामिल हो सकते हैं:
+## **व्यावहारिक सीमाएँ**
 
-```javascript
-workbook.getCell(0, "A2").setFormula("\"abc\"");
-workbook.getCell(0, "B2").setFormula("\"2/3/2020 12:00\"");
-```
+चार्ट वर्कशीट में फ़ॉर्मूला समर्थन एक परिभाषित उपसमुच्चय के लिए निर्धारित है, न कि पूर्ण Excel संगतता के लिए। रिपोर्टिंग वर्कफ़्लो डिजाइन करते समय इन प्रतिबंधों को ध्यान में रखें:
 
-## **त्रुटि नियतांक**
-कभी‑कभी फ़ॉर्मूले के परिणाम की गणना संभव नहीं होती। ऐसे में सेल में त्यागी मान के बजाय त्रुटि कोड प्रदर्शित होता है। प्रत्येक प्रकार की त्रुटि का विशिष्ट कोड होता है:
+- दस्तावेज़ित स्थिरांक, ऑपरेटर, रेफरेंस और फ़ंक्शन ही उपयोग करें जब आप चाहते हैं कि Aspose.Slides फ़ॉर्मूले पुनःगणना करे।
+- उन सेल्स को बदलने के बाद पुनःगणना करें जिन पर फ़ॉर्मूला परिणाम निर्भर करता है।
+- लोड की गई प्रस्तुतियों से प्राप्त कैश्ड मान केवल स्नैपशॉट हैं, संपादन के बाद पुनःगणना का विकल्प नहीं।
+- मौजूदा टेम्पलेट से फ़ॉर्मूले का परीक्षण करें, विशेषकर जब वे दस्तावेज़ित सूची के बाहर के फ़ंक्शन उपयोग करते हों।
+- पूर्ण स्प्रेडशीट गणना इंजन की आवश्यकता वाले फ़ॉर्मूले को बाहरी रूप से गणना करें और फिर चार्ट वर्कबुक को अद्यतन करें।
 
-- #DIV/0! - फ़ॉर्मूला शून्य से भाग देने की कोशिश कर रहा है।
-- #GETTING_DATA - सेल पर दिख सकता है, जबकि उसका मान अभी गणना में है।
-- #N/A - जानकारी अनुपलब्ध या उपलब्ध नहीं है। कारण हो सकते हैं: फ़ॉर्मूले में प्रयुक्त सेल खाली होना, अतिरिक्त स्पेस, टाइपो आदि।
-- #NAME? - किसी सेल या अन्य फ़ॉर्मूले ऑब्जेक्ट को उसका नाम नहीं मिलने पर।
-- #NULL! - फ़ॉर्मूले में त्रुटि के कारण दिख सकता है, जैसे (,) या कॉलन (:) की जगह स्पेस का उपयोग।
-- #NUM! - फ़ॉर्मूले में नंबर्स अमान्य, बहुत बड़े या बहुत छोटे हो सकते हैं।
-- #REF! - अवैध सेल रेफ़रेंस।
-- #VALUE! - अप्रत्याशित मान प्रकार। उदाहरण के तौर पर, स्ट्रिंग मान को संख्यात्मक सेल में सेट करना।
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-```javascript
-var cell = workbook.getCell(0, "A2");
-cell.setFormula("2 / 0");
-var value = cell.getValue();// मान में स्ट्रिंग "#DIV/0!" शामिल है
-```
+**[ChartDataCell.setFormula](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-) और [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-) में क्या अंतर है?**
 
-## **अंकगणितीय ऑपरेटर**
-आप चार्ट वर्कशीट फ़ॉर्मूलों में सभी अंकगणितीय ऑपरेटरों का उपयोग कर सकते हैं:
+[ChartDataCell.setFormula](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-) A1‑स्टाइल अभिव्यक्ति जैसे `B2-C2` को संग्रहीत करता है। [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-) R1C1‑स्टाइल अभिव्यक्ति जैसे `RC[-2]-RC[-1]` को संग्रहीत करता है। वह नोटेशन चुनें जो आपके फ़ॉर्मूले जेनरेशन या कॉपी करने के तरीके से बेहतर मेल खाता हो।
 
-|**ऑपरेटर**|**अर्थ**|**उदाहरण**|
-| :- | :- | :- |
-|+ (प्लस चिन्ह)|जोड़ या यूनरी प्लस|2 + 3|
-|- (माइनस चिन्ह)|घटाव या नेगेशन|2 - 3<br>-3|
-|* (ऐस्टेरिस्क)|गुणा|2 * 3|
-|/ (फ़ॉरवर्ड स्लैश)|भाजन|2 / 3|
-|% (परसेंट चिन्ह)|प्रतिशत|30%|
-|^ (कैरट)|घातांक|2 ^ 3|
+**पुनःगणना के बाद क्या मुझे सेल खुद पढ़ना चाहिए या उसका मान?**
 
-*Note*: मूल्यांकन क्रम बदलने के लिए उस भाग को कोष्ठकों में घेरें जिसे पहले गणना करना है।
+[ChartDataWorkbook.getCell](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdataworkbook/#getCell-int-java.lang.String-) एक [ChartDataCell](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdatacell/) लौटाता है। गणना के बाद, उस सेल के [ChartDataCell.getValue](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdatacell/#getValue--) मेथड को कॉल करके गणना परिणाम प्राप्त करें।
 
-## **तुलनात्मक ऑपरेटर**
-आप तुलना ऑपरेटरों के माध्यम से सेल मानों की तुलना कर सकते हैं। जब दो मानों की इन ऑपरेटरों से तुलना की जाती है, तो परिणाम एक लॉजिकल मान *TRUE* या *FALSE* होता है:
+**किस स्थिति में मुझे [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) को कॉल करना चाहिए?**
 
-|**ऑपरेटर**|**अर्थ**|**अर्थ**|
-| :- | :- | :- |
-|= (इक्वल साइन)|बराबर|A2 = 3|
-|<> (नॉट इक्वल साइन)|बराबर नहीं|A2 <> 3|
-|> (ग्रेटर थैन साइन)|बड़ा|A2 > 3|
-|>= (ग्रेटर थैन या इक्वल साइन)|बड़ा या बराबर|A2 >= 3|
-|< (लेस थैन साइन)|छोटा|A2 < 3|
-|<= (लेस थैन या इक्वल साइन)|छोटा या बराबर|A2 <= 3|
+इनपुट मान या फ़ॉर्मूले बदलने के बाद और गणना किए गए परिणामों पर निर्भर होने से पहले [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) को कॉल करें। यह बिल्ट‑इन इवैल्युएटर द्वारा समर्थित फ़ॉर्मूले के मानों को अपडेट करता है।
 
-## **A1‑स्टाइल सेल रेफ़रेंसेज़**
-**A1‑स्टाइल सेल रेफ़रेंसेज़** उन वर्कशीट्स के लिए उपयोग की जाती हैं जहाँ कॉलम का पहचानकर्ता अक्षर (जैसे "*A*") और पंक्ति का पहचानकर्ता संख्या (जैसे "*1*") होता है। A1‑स्टाइल सेल रेफ़रेंसेज़ को इस प्रकार उपयोग किया जा सकता है:
+**क्या Aspose.Slides हर Excel फ़ंक्शन का समर्थन करता है?**
 
-|**सेल रेफ़रेंस**|**उदाहरण**|||
-| :- | :- | :- | :- |
-||Absolute|Relative|Mixed|
-|Cell|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|Row|$2:$2|2:2|-|
-|Column|$A:$A|A:A|-|
-|Range|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C$4</p>|
+नहीं। बिल्ट‑इन इवैल्युएटर दस्तावेज़ित फ़ंक्शन उपसमुच्चय का समर्थन करता है। उस उपसमुच्चय के बाहर के फ़ंक्शन को सही ढंग से पुनःगणना किया जाएगा, इसका अनुमान न लगाएँ। यदि पूर्ण Excel फ़ॉर्मूला संगतता आवश्यक है, तो गणना को उपयुक्त स्प्रेडशीट इंजन से करवाएँ और अंतिम मानों को चार्ट वर्कबुक में लिखें।
 
-यहाँ एक उदाहरण है जो फ़ॉर्मूले में A1‑स्टाइल सेल रेफ़रेंस का उपयोग दर्शाता है:
+**यदि लोड की गई प्रस्तुति में असमर्थित फ़ॉर्मूला मौजूद हो तो क्या होता है?**
 
-```javascript
-workbook.getCell(0, "A2").setFormula("C3 + SUM(F2:H5)");
-```
+यदि चार्ट डेटा नहीं बदला गया है, तो वर्कबुक में पहले से गणना किया हुआ कैश्ड मान रह सकता है। संबंधित डेटा बदलने पर वह कैश्ड मान अब वैध नहीं रहेगा। ऐसी स्थिति में, जिसमें फ़ॉर्मूला असमर्थित है, उस सेल को एक्सेस करने पर [CellUnsupportedDataException](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/cellunsupporteddataexception/) उठाया जा सकता है।
 
-## **R1C1‑स्टाइल सेल रेफ़रेंसेज़**
-**R1C1‑स्टाइल सेल रेफ़रेंसेज़** उन वर्कशीट्स के लिए उपयोग की जाती हैं जहाँ पंक्ति और कॉलम दोनों का पहचानकर्ता संख्यात्मक होता है। R1C1‑स्टाइल सेल रेफ़रेंसेज़ को इस प्रकार उपयोग किया जा सकता है:
+**क्या फ़ॉर्मूला त्रुटि मान अपवादों के समान होते हैं?**
 
-|**सेल रेफ़रेंस**|**उदाहरण**|||
-| :- | :- | :- | :- |
-||Absolute|Relative|Mixed|
-|Cell|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Row|R2|R[2]|-|
-|Column|C3|C[3]|-|
-|Range|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
+नहीं। `#DIV/0!` जैसी त्रुटि मान वैध गणना द्वारा उत्पन्न स्प्रेडशीट मान है। [CellInvalidFormulaException](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/cellinvalidformulaexception/) या [CellCircularReferenceException](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/cellcircularreferenceexception/) जैसे अपवाद दर्शाते हैं कि फ़ॉर्मूले को सामान्य रूप से प्रोसेस नहीं किया जा सका।
 
-यहाँ एक उदाहरण है जो फ़ॉर्मूले में A1‑स्टाइल सेल रेफ़रेंस का उपयोग दर्शाता है:
+**क्या फ़ॉर्मूला सेल बदलने पर चार्ट स्वचालित रूप से अपडेट होता है?**
 
-```javascript
-workbook.getCell(0, "A2").setR1C1Formula("R2C4 + SUM(R5C6:R7C9)");
-```
+चार्ट सीरीज़ वर्कबुक सेल्स को संदर्भित कर सकते हैं। पहले वर्कबुक को पुनःगणना करें, फिर प्रस्तुति को सहेजें या रेंडर करें। यदि चार्ट डेटा पॉइंट्स गणना किए गए सेल्स को संदर्भित करते हैं, तो चार्ट उन अपडेटेड मानों का उपयोग करता है; इस वर्कफ़्लो के लिए कोई अलग चार्ट‑रिफ्रेश मेथड आवश्यक नहीं है।
 
-## **पूर्वनिर्धारित फ़ंक्शन**
-फ़ॉर्मूलों में उपयोग के लिए पूर्वनिर्धारित फ़ंक्शन उपलब्ध हैं जो उनके कार्यान्वयन को सरल बनाते हैं। ये फ़ंक्शन सामान्यतः प्रयुक्त ऑपरेशनों को समेटे होते हैं, जैसे:
+**क्या चार्ट बाहरी Excel वर्कबुक का उपयोग कर सकते हैं?**
 
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (1900 डेट सिस्टम)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (रेफ़रेंस फ़ॉर्म)
-- LOOKUP (वेक्टर फ़ॉर्म)
-- MATCH (वेक्टर फ़ॉर्म)
-- MAX
-- SUM
-- VLOOKUP
+हां, चार्ट डेटा को चार्ट डेटा API के माध्यम से बाहरी वर्कबुक इस्तेमाल करने के लिए कॉन्फ़िगर किया जा सकता है। हालांकि, इस लेख में वर्णित फ़ॉर्मूला गणना वर्कफ़्लो केवल चार्ट डेटा वर्कबुक और Aspose.Slides द्वारा मूल्यांकित फ़ॉर्मूला उपसमुच्चय से संबंधित है। यह मानें नहीं कि [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) किसी भी बाहरी XLSX फ़ाइल में सभी फ़ॉर्मूले की पूर्ण पुनःगणना प्रदान करता है।
 
-## **FAQ**
+**क्या मैं ऐसे फ़ॉर्मूले उपयोग कर सकता हूं जो दूसरी वर्कशीट या वर्कबुक को संदर्भित करते हों?**
 
-**क्या फ़ॉर्मूलों वाले चार्ट के डेटा स्रोत के रूप में बाहरी Excel फ़ाइलें समर्थित हैं?**
+Excel‑स्टाइल रेफरेंसेज़ चार्ट वर्कबुक में मौजूद हो सकते हैं, लेकिन फ़ॉर्मूला मूल्यांकन समर्थित पार्सर और फ़ंक्शन सेट द्वारा सीमित है। यदि क्रॉस‑शीट या बाहरी रेफरेंस आवश्यक है, तो अपने लक्ष्य Aspose.Slides संस्करण के साथ उस फ़ॉर्मूले को सत्यापित करें। व्यापक Excel रेफरेंस संगतता की आवश्यकता वाले वर्कफ़्लो के लिए, वर्कबुक को बाहरी रूप से गणना करें और हल किए गए मानों को चार्ट डेटा में लिखें।
 
-हाँ। Aspose.Slides बाहरी वर्कबुक को [chart’s data source](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdatasourcetype/) के रूप में समर्थन देता है, जिससे आप प्रस्तुति के बाहर स्थित XLSX फ़ाइल के फ़ॉर्मूलों का उपयोग कर सकते हैं।
+**क्या फ़ॉर्मूला स्ट्रिंग्स को `=` से शुरू होना चाहिए?**
 
-**क्या चार्ट फ़ॉर्मूले उसी वर्कबुक में शीट नाम द्वारा अन्य शीट्स को रेफ़र कर सकते हैं?**
-
-हाँ। फ़ॉर्मूले standard Excel रेफ़रेंस मॉडल का पालन करते हैं, इसलिए आप उसी वर्कबुक या बाहरी वर्कबुक की अन्य शीट्स को रेफ़र कर सकते हैं। बाहरी रेफ़रेंस के लिए, Excel सिंटैक्स का उपयोग करके पाथ और वर्कबुक नाम शामिल करें।
+Aspose.Slides API उदाहरण `B2-C2` या `SUM(B2:B5)` जैसी अभिव्यक्तियों को बिना अग्रणी `=` के असाइन करते हैं। इस रूप का उपयोग करने से जेनरेट किए गए फ़ॉर्मूले दस्तावेज़ित API उदाहरणों के साथ संगत रहते हैं।

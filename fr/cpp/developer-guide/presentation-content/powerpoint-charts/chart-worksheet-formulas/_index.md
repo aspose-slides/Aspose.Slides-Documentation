@@ -1,188 +1,449 @@
 ---
-title: "Appliquer les formules de feuille de calcul de graphique dans les présentations avec C++"
-linktitle: "Formules de feuille de calcul"
+title: Appliquer des formules de feuille de calcul de graphique dans les présentations en C++
+linktitle: Formules de feuille de calcul
 type: docs
 weight: 70
 url: /fr/cpp/chart-worksheet-formulas/
 keywords:
-- feuille de calcul de graphique
+- tableur de graphique
 - feuille de calcul du graphique
 - formule de graphique
 - formule de feuille de calcul
-- formule de feuille de calcul
-- source de données
+- formule de tableau
+- cahier de donnees du graphique
+- calcul de formule
 - constante logique
-- constante numérique
-- constante de chaîne
-- constante d’erreur
-- constante arithmétique
-- opérateur de comparaison
+- constante numerique
+- constante chaine
+- constante d'erreur
+- operateur arithmetique
+- operateur de comparaison
 - style A1
 - style R1C1
-- fonction prédéfinie
+- fonction predefinie
 - PowerPoint
-- présentation
+- presentation
 - C++
 - Aspose.Slides
-description: "Appliquer des formules de style Excel dans Aspose.Slides pour les feuilles de calcul de graphiques C++ et automatiser les rapports dans les fichiers PPT et PPTX."
+description: "Appliquer des formules de type Excel dans les feuilles de calcul de graphiques Aspose.Slides pour C++, recalculer les valeurs et utiliser les resultats dans les graphiques PowerPoint."
 ---
+## **Vue d'ensemble**
 
-## **À propos des formules de feuille de calcul de graphique dans les présentations**
-**Chart spreadsheet** (ou feuille de calcul de graphique) dans une présentation est la source de données du graphique. Chart spreadsheet contient des données, qui sont représentées sur le graphique sous forme graphique. Lorsque vous créez un graphique dans PowerPoint, la feuille de calcul associée à ce graphique est également créée automatiquement. La feuille de calcul est créée pour tous les types de graphiques : graphique en ligne, graphique à barres, graphique en explosion, graphique circulaire, etc. Pour voir la feuille de calcul dans PowerPoint, double‑cliquez sur le graphique :
+Les graphiques PowerPoint stockent généralement leurs données sources dans une feuille de calcul intégrée. Dans Aspose.Slides pour C++, vous pouvez accéder à cette feuille via le classeur de données du graphique, écrire des valeurs d’entrée, affecter des formules aux cellules, calculer les formules prises en charge et utiliser les cellules calculées comme données de graphique.
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+Cet article explique le flux complet des formules : créer un graphique, remplir sa feuille de calcul, affecter des formules de style A1 ou R1C1, les recalculer, lire les valeurs calculées, connecter ces cellules à une série de graphique et enregistrer la présentation. Il décrit également la syntaxe des formules prises en charge, le sous‑ensemble de fonctions intégré, les valeurs en cache, les formules non prises en charge et les erreurs spécifiques aux feuilles de calcul.
 
-Chart spreadsheet contient les noms des éléments du graphique (Nom de catégorie : *Category1*, Nom de série) et un tableau avec des données numériques correspondant à ces catégories et séries. Par défaut, lorsque vous créez un nouveau graphique, les données de la feuille de calcul sont définies avec les données par défaut. Vous pouvez ensuite modifier les données de la feuille de calcul manuellement dans la feuille.
+## **Feuilles de calcul et formules de graphiques**
 
-En général, le graphique représente des données complexes (par ex. analystes financiers, scientifiques), avec des cellules calculées à partir des valeurs d’autres cellules ou d’autres données dynamiques. Calculer manuellement la valeur d’une cellule et la coder en dur rend difficile sa modification ultérieure. Si vous modifiez la valeur d’une cellule donnée, toutes les cellules qui en dépendent devront également être mises à jour. De plus, les données du tableau peuvent dépendre des données d’autres tableaux, créant un schéma de données de présentation complexe qui doit pouvoir être mis à jour de manière souple et simple.
+Une feuille de calcul de graphique contient les catégories, les noms de séries et les valeurs utilisés par un graphique. Dans PowerPoint, vous pouvez inspecter la feuille en ouvrant l’éditeur de données du graphique :
 
-**Chart spreadsheet formula** dans une présentation est une expression permettant de calculer et de mettre à jour automatiquement les données de la feuille de calcul. La formule de feuille de calcul définit la logique de calcul des données pour une cellule ou un ensemble de cellules. Une formule de feuille de calcul est une formule mathématique ou logique, qui utilise : références de cellules, fonctions mathématiques, opérateurs logiques, opérateurs arithmétiques, fonctions de conversion, constantes de chaîne, etc. La définition de la formule est écrite dans une cellule, et cette cellule ne contient pas de valeur simple. La formule calcule la valeur et la renvoie, puis cette valeur est assignée à la cellule. Les formules de feuille de calcul dans les présentations sont en fait les mêmes que les formules Excel, et les mêmes fonctions, opérateurs et constantes par défaut sont pris en charge pour leur implémentation.
+![Graphique PowerPoint avec sa feuille de calcul intégrée ouverte, affichant les données de catégorie et de série](chart-worksheet-formulas_1.png)
 
-Dans [**Aspose.Slides**](https://products.aspose.com/slides/cpp/) la feuille de calcul de graphique est représentée par la méthode [**ChartData::get_ChartDataWorkbook()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.chart_data#a32097093561723a10df0a57dc91acaea) du type [**IChartDataWorkbook**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_workbook). La formule peut être assignée et modifiée avec la méthode [**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692). Les fonctionnalités suivantes sont prises en charge pour les formules dans Aspose.Slides :
+Dans Aspose.Slides, la feuille est exposée via l’interface [IChartDataWorkbook](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/ichartdataworkbook/). Utilisez [IChartDataCell::set_Formula](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/ichartdatacell/set_formula/) pour les formules de style A1 et [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) pour les formules de style R1C1. Après avoir modifié les cellules d’entrée ou les formules, appelez [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) pour recalculer les formules prises en charge et mettre à jour les valeurs correspondantes.
 
-- Constantes logiques
-- Constantes numériques
-- Constantes de chaîne
-- Constantes d’erreur
-- Opérateurs arithmétiques
-- Opérateurs de comparaison
-- Références de cellule de style A1
-- Références de cellule de style R1C1
-- Fonctions prédéfinies
+Une cellule calculée expose toujours son résultat via [IChartDataCell::get_Value](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/ichartdatacell/get_value/). C’est important lorsque vous devez inspecter le résultat d’une formule dans le code ou utiliser la cellule comme point de données du graphique.
 
-Typiquement, les feuilles de calcul stockent les dernières valeurs calculées des formules. Si, après le chargement de la présentation, les données du graphique n’ont pas été modifiées, la méthode **IChartDataCell.get_Value()** renvoie ces valeurs lors de la lecture. En revanche, si les données de la feuille de calcul ont été modifiées, la lecture avec **ChartDataCell.get_Value()** lève l’exception **CellUnsupportedDataException** pour les formules non prises en charge. En effet, lorsque les formules sont correctement analysées, les dépendances des cellules sont déterminées et la validité des dernières valeurs est confirmée. Si la formule ne peut pas être analysée, la validité de la valeur de la cellule ne peut pas être garantie.
+## **Créer un graphique et calculer les formules de la feuille**
 
-## **Ajouter une formule de feuille de calcul de graphique à une présentation**
-Tout d’abord, ajoutez un graphique à la première diapositive d’une nouvelle présentation avec [IShapeCollection::AddChart()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection#a2cd4d47fc5c536012ee15b3a69486374). La feuille de calcul du graphique est créée automatiquement et peut être accédée avec la méthode [**ChartData::get_ChartDataWorkbook()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.chart_data#a32097093561723a10df0a57dc91acaea) :
-``` cpp
-auto presentation = System::MakeObject<Presentation>();
-    
-auto chart = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::ClusteredColumn, 150.0f, 150.0f, 500.0f, 300.0f);
+L’exemple suivant montre un flux de travail complet. Il crée un graphique à colonnes groupées, efface les données d’exemple, écrit les valeurs de revenu et de dépense trimestriels, calcule le bénéfice avec des formules, lit les résultats, utilise les cellules calculées comme valeurs du graphique et enregistre la présentation.
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 350.0f);
+auto chartData = chart->get_ChartData();
+auto workbook = chartData->get_ChartDataWorkbook();
+const int32_t worksheetIndex = 0;
+
+chartData->get_Series()->Clear();
+chartData->get_Categories()->Clear();
+workbook->Clear(worksheetIndex);
+
+auto category1 = workbook->GetCell(worksheetIndex, u"A2", ObjectExt::Box<String>(u"Q1"));
+auto category2 = workbook->GetCell(worksheetIndex, u"A3", ObjectExt::Box<String>(u"Q2"));
+auto category3 = workbook->GetCell(worksheetIndex, u"A4", ObjectExt::Box<String>(u"Q3"));
+
+workbook->GetCell(worksheetIndex, u"B1", ObjectExt::Box<String>(u"Revenue"));
+workbook->GetCell(worksheetIndex, u"C1", ObjectExt::Box<String>(u"Expenses"));
+workbook->GetCell(worksheetIndex, u"D1", ObjectExt::Box<String>(u"Profit"));
+
+workbook->GetCell(worksheetIndex, u"B2")->set_Value(ObjectExt::Box<double>(120.0));
+workbook->GetCell(worksheetIndex, u"C2")->set_Value(ObjectExt::Box<double>(80.0));
+workbook->GetCell(worksheetIndex, u"B3")->set_Value(ObjectExt::Box<double>(150.0));
+workbook->GetCell(worksheetIndex, u"C3")->set_Value(ObjectExt::Box<double>(95.0));
+workbook->GetCell(worksheetIndex, u"B4")->set_Value(ObjectExt::Box<double>(135.0));
+workbook->GetCell(worksheetIndex, u"C4")->set_Value(ObjectExt::Box<double>(110.0));
+
+auto profit1 = workbook->GetCell(worksheetIndex, u"D2");
+auto profit2 = workbook->GetCell(worksheetIndex, u"D3");
+auto profit3 = workbook->GetCell(worksheetIndex, u"D4");
+
+profit1->set_Formula(u"B2-C2");
+profit2->set_Formula(u"B3-C3");
+profit3->set_Formula(u"B4-C4");
+
+workbook->CalculateFormulas();
+
+auto q1Profit = profit1->get_Value(); // 40
+auto q2Profit = profit2->get_Value(); // 55
+auto q3Profit = profit3->get_Value(); // 25
+
+chartData->get_Categories()->Add(category1);
+chartData->get_Categories()->Add(category2);
+chartData->get_Categories()->Add(category3);
+
+auto profitSeries = chartData->get_Series()->Add(workbook->GetCell(worksheetIndex, u"D1"), chart->get_Type());
+profitSeries->get_DataPoints()->AddDataPointForBarSeries(profit1);
+profitSeries->get_DataPoints()->AddDataPointForBarSeries(profit2);
+profitSeries->get_DataPoints()->AddDataPointForBarSeries(profit3);
+profitSeries->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
+
+presentation->Save(u"chart-formulas.pptx", SaveFormat::Pptx);
+```
+
+Les points de données du graphique font référence à `D2:D4`, de sorte que le graphique utilise les valeurs de profit calculées. Aucun appel de rafraîchissement de graphique séparé n’est nécessaire dans ce flux : recalculer d’abord le classeur, puis utiliser ou enregistrer les données du graphique qui pointent vers les cellules calculées.
+
+## **Utiliser des formules de style A1**
+
+La notation A1 identifie les colonnes par des lettres et les lignes par des chiffres. Affectez des expressions de style A1 via [IChartDataCell::set_Formula](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/ichartdatacell/set_formula/).
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 500.0f, 300.0f);
 auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
-// ...
+workbook->GetCell(0, u"C3")->set_Value(ObjectExt::Box<int32_t>(10));
+workbook->GetCell(0, u"F2")->set_Value(ObjectExt::Box<int32_t>(2));
+workbook->GetCell(0, u"G2")->set_Value(ObjectExt::Box<int32_t>(3));
+workbook->GetCell(0, u"H2")->set_Value(ObjectExt::Box<int32_t>(4));
+
+auto cell = workbook->GetCell(0, u"A2");
+cell->set_Formula(u"C3+SUM(F2:H2)");
+
+workbook->CalculateFormulas();
+
+auto value = cell->get_Value(); // 19
 ```
 
+Les formes de référence A1 courantes sont :
 
-Écrivons quelques valeurs dans des cellules avec la méthode [**IChartDataCell.set_Value()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_cell#ad85809f520195e09225abae9002635ec) du type **Object**, ce qui signifie que vous pouvez passer n’importe quelle valeur à la méthode :
-``` cpp
-workbook->GetCell(0, u"F2")->set_Value(System::ObjectExt::Box<double>(-2.5));
-workbook->GetCell(0, u"G3")->set_Value(System::ObjectExt::Box<double>(6.3));
-workbook->GetCell(0, u"H4")->set_Value(System::ObjectExt::Box<int32_t>(3));
+| Référence | Relatif | Absolu | Mixte |
+|---|---|---|---|
+| Cellule | `A2` | `$A$2` | `A$2`, `$A2` |
+| Ligne | `2:2` | `$2:$2` | — |
+| Colonne | `A:A` | `$A:$A` | — |
+| Plage | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
+
+Les références relatives peuvent changer lorsqu’une formule est déplacée ou copiée par une application de feuille de calcul. Les références absolues maintiennent les deux coordonnées fixes, tandis que les références mixtes ne fixent qu’une ligne ou une colonne.
+
+## **Utiliser des formules de style R1C1**
+
+La notation R1C1 identifie les lignes et les colonnes numériquement. Les références relatives utilisent des décalages entre crochets. Affectez cette syntaxe via [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/).
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 500.0f, 300.0f);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+
+workbook->GetCell(0, u"B2")->set_Value(ObjectExt::Box<int32_t>(12));
+workbook->GetCell(0, u"C2")->set_Value(ObjectExt::Box<int32_t>(5));
+
+auto cell = workbook->GetCell(0, u"D2");
+cell->set_R1C1Formula(u"RC[-2]-RC[-1]");
+
+workbook->CalculateFormulas();
+
+auto value = cell->get_Value(); // 7
 ```
 
+Les formes de référence R1C1 courantes sont :
 
-Pour écrire une formule dans la cellule, vous pouvez utiliser la méthode [**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692) :
+| Référence | Relatif | Absolu | Mixte |
+|---|---|---|---|
+| Cellule | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| Ligne | `R[2]` | `R2` | — |
+| Colonne | `C[3]` | `C3` | — |
+| Plage | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
 
-*Note* : la méthode [**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692) est utilisée pour définir des références de cellule de style A1.
+Par exemple, dans la cellule `D2`, `RC[-2]` désigne la cellule de la même ligne deux colonnes à gauche (`B2`).
 
-Pour définir une référence de cellule R1C1Formula, vous pouvez utiliser la méthode [**IChartDataCell::set_R1C1Formula()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_cell#a47f5825dd38d0dddb11ecc3a43d388c7) :
+## **Constantes et opérateurs de formule**
 
-Ensuite, si vous lisez les valeurs des cellules B2 et C2, elles seront calculées :
-``` cpp
-auto value1 = cell1->get_Value(); // 7.8
-auto value2 = cell2->get_Value(); // 2.1
+L’évaluateur de formules intégré prend en charge les valeurs logiques, les littéraux numériques, les chaînes, les valeurs d’erreur de feuille de calcul, les opérateurs arithmétiques et les opérateurs de comparaison.
+
+### **Constantes et littéraux**
+
+| Type | Exemples | Remarques |
+|---|---|---|
+| Logique | `TRUE`, `FALSE` | Peut être utilisé directement dans des expressions logiques telles que `A2=TRUE`. |
+| Numérique | `1`, `0.5`, `.3`, `1E-2` | La notation décimale et scientifique sont prises en charge. |
+| Chaîne | `"abc"`, `"2/3/2020 12:00"` | Les littéraux texte sont entourés de guillemets doubles dans la formule. |
+| Résultat d’erreur | `#DIV/0!`, `#N/A`, `#REF!` | Une formule valide peut évaluer à une valeur d’erreur de feuille de calcul plutôt qu’à un résultat normal. |
+
+Cet exemple utilise plusieurs types de constantes :
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 500.0f, 300.0f);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+
+workbook->GetCell(0, u"A2")->set_Value(ObjectExt::Box<bool>(false));
+workbook->GetCell(0, u"B2")->set_Formula(u"A2=TRUE");
+workbook->GetCell(0, u"C2")->set_Formula(u"1+0.5");
+workbook->GetCell(0, u"D2")->set_Formula(u".3*1E-2");
+workbook->GetCell(0, u"E2")->set_Formula(u"\"abc\"");
+workbook->GetCell(0, u"F2")->set_Formula(u"2/0");
+
+workbook->CalculateFormulas();
+
+auto logicalValue = workbook->GetCell(0, u"B2")->get_Value(); // Faux
+auto numericValue = workbook->GetCell(0, u"C2")->get_Value(); // 1.5
+auto scientificValue = workbook->GetCell(0, u"D2")->get_Value(); // 0.003
+auto stringValue = workbook->GetCell(0, u"E2")->get_Value(); // abc
+auto errorValue = workbook->GetCell(0, u"F2")->get_Value(); // #DIV/0!
 ```
 
+### **Opérateurs arithmétiques**
 
-## **Constantes logiques**
-Vous pouvez utiliser les constantes logiques telles que *FALSE* et *TRUE* dans les formules de cellule :
+| Opérateur | Signification | Exemple |
+|---|---|---|
+| `+` | Addition ou signe plus unaire | `2+3` |
+| `-` | Soustraction ou négation | `2-3`, `-3` |
+| `*` | Multiplication | `2*3` |
+| `/` | Division | `2/3` |
+| `%` | Pourcentage | `30%` |
+| `^` | Exponentiation | `2^3` |
 
-## **Constantes numériques**
-Des nombres peuvent être utilisés en notation décimale ou scientifique pour créer une formule de feuille de calcul de graphique :
+Utilisez des parenthèses pour rendre explicite l’ordre d’évaluation, par exemple `(A2+B2)*C2`.
 
-## **Constantes de chaîne**
-Une constante de chaîne (ou littérale) est une valeur spécifique utilisée telle quelle et qui ne change pas. Les constantes de chaîne peuvent être : dates, textes, nombres, etc. :
+### **Opérateurs de comparaison**
 
-## **Constantes d’erreur**
-Parfois il n’est pas possible de calculer le résultat d’une formule. Dans ce cas, le code d’erreur est affiché dans la cellule à la place de sa valeur. Chaque type d’erreur possède un code spécifique :
+Les expressions de comparaison renvoient des valeurs logiques.
 
-- #DIV/0! - la formule tente de diviser par zéro.
-- #GETTING_DATA - peut s’afficher dans une cellule pendant que sa valeur est encore en cours de calcul.
-- #N/A - l’information est manquante ou indisponible. Les raisons peuvent être : cellules utilisées dans la formule vides, espace supplémentaire, faute de frappe, etc.
-- #NAME? - une certaine cellule ou un autre objet de formule est introuvable par son nom.
-- #NULL! - peut apparaître lorsqu’il y a une erreur dans la formule, par ex. (,) ou un espace utilisé à la place d’un deux‑points (:).
-- #NUM! - la valeur numérique de la formule est invalide, trop grande ou trop petite, etc.
-- #REF! - référence de cellule invalide.
-- #VALUE! - type de valeur inattendu. Par exemple, une chaîne de caractères assignée à une cellule numérique.
+| Opérateur | Signification | Exemple |
+|---|---|---|
+| `=` | Égal à | `A2=3` |
+| `<>` | Différent de | `A2<>3` |
+| `>` | Supérieur à | `A2>3` |
+| `>=` | Supérieur ou égal à | `A2>=3` |
+| `<` | Inférieur à | `A2<3` |
+| `<=` | Inférieur ou égal à | `A2<=3` |
 
-## **Opérateurs arithmétiques**
-Vous pouvez utiliser tous les opérateurs arithmétiques dans les formules de feuille de calcul :
+## **Fonctions prédéfinies prises en charge**
 
-|**Opérateur**|**Signification**|**Exemple**|
-| :- | :- | :- |
-|+ (signe plus)|Addition ou signe unaire|2 + 3|
-|- (signe moins)|Soustraction ou négation|2 - 3<br>-3|
-|* (astérisque)|Multiplication|2 * 3|
-|/ (slash)|Division|2 / 3|
-|% (pourcentage)|Pourcentage|30%|
-|^ (accent circonflexe)|Exponentiation|2 ^ 3|
+Aspose.Slides comprend un évaluateur de formules intégré pour les feuilles de calcul de graphiques, mais ce n’est pas un moteur complet de calcul Excel. L’ensemble de fonctions documenté se limite à celles-ci. Ne supposez pas qu’une fonction Excel arbitraire puisse être recalculée par [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/).
 
-*Note* : pour modifier l’ordre d’évaluation, encadrez la partie de la formule à calculer en premier avec des parenthèses.
+| Fonction | But ou forme prise en charge | Exemple |
+|---|---|---|
+| `ABS` | Valeur absolue | `ABS(A2)` |
+| `AVERAGE` | Moyenne arithmétique | `AVERAGE(B2:B5)` |
+| `CEILING` | Arrondir un nombre vers le haut à un multiple | `CEILING(A2,5)` |
+| `CHOOSE` | Sélectionner une valeur par index | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | Concaténer des valeurs texte | `CONCAT(A2,B2)` |
+| `CONCATENATE` | Concaténer des valeurs texte | `CONCATENATE(A2," ",B2)` |
+| `DATE` | Créer une valeur date avec le système 1900 | `DATE(2026,8,19)` |
+| `DAYS` | Retourner le nombre de jours entre deux dates | `DAYS(B2,A2)` |
+| `FIND` | Rechercher une valeur texte dans une autre | `FIND("-",A2)` |
+| `FINDB` | Recherche texte orientée octet | `FINDB("a",A2)` |
+| `IF` | Résultat conditionnel | `IF(A2>0,A2,0)` |
+| `INDEX` | Forme de référence | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | Forme vectorielle | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | Forme vectorielle | `MATCH(A2,B2:B5,0)` |
+| `MAX` | Valeur maximale | `MAX(B2:B5)` |
+| `SUM` | Somme des valeurs | `SUM(B2:B5)` |
+| `VLOOKUP` | Recherche verticale | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-## **Opérateurs de comparaison**
-Vous pouvez comparer les valeurs de cellules avec les opérateurs de comparaison. Lorsque deux valeurs sont comparées à l’aide de ces opérateurs, le résultat est une valeur logique soit *TRUE* soit FALSE :
+Les restrictions indiquées dans le tableau sont importantes : `INDEX` est documenté sous forme de référence, tandis que `LOOKUP` et `MATCH` sont documentés sous forme vectorielle. `DATE` utilise le système de date 1900. Les fonctionnalités et fonctions non listées ici doivent être considérées comme non prises en charge par l’évaluateur de formules d’Aspose.Slides, sauf indication contraire.
 
-|**Opérateur**|**Signification**|**Exemple**|
-| :- | :- | :- |
-|= (égal)|Égal à|A2 = 3|
-|<> (différent)|Différent de|A2 <> 3|
-|> (supérieur)|Supérieur à|A2 > 3|
-|>= (supérieur ou égal)|Supérieur ou égal à|A2 >= 3|
-|< (inférieur)|Inférieur à|A2 < 3|
-|<= (inférieur ou égal)|Inférieur ou égal à|A2 <= 3|
+## **Recalcul et valeurs en cache**
 
-## **Références de cellule de style A1**
-**Les références de cellule de style A1** sont utilisées pour les feuilles où la colonne possède un identifiant lettre (par ex. "*A*") et la ligne un identifiant numérique (par ex. "*1*"). Les références de style A1 peuvent être utilisées de la façon suivante :
+Les fichiers de feuille de calcul stockent généralement à la fois une formule et sa dernière valeur calculée. Aspose.Slides peut donc lire une valeur en cache via [IChartDataCell::get_Value](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/ichartdatacell/get_value/) lorsqu’une présentation est chargée et que les données de graphique pertinentes n’ont pas été modifiées.
 
-|**Référence de cellule**|**Exemple**|**Absolue**|**Relative**|**Mixte**|
-| :- | :- | :- | :- | :- |
-|Cellule|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|Ligne|$2:$2|2:2|-|
-|Colonne|$A:$A|A:A|-|
-|Plage|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
+Après avoir modifié des cellules d’entrée ou des formules, ne vous fiez pas à un ancien résultat en cache. Appelez [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) avant de lire les valeurs calculées ou d’enregistrer les données du graphique qui en dépendent.
 
-Voici un exemple d’utilisation d’une référence de cellule de style A1 dans une formule :
+Pour les formules hors du sous‑ensemble pris en charge, Aspose.Slides peut être incapable d’analyser la formule ou d’établir ses dépendances. Si le classeur a été modifié, la valeur en cache précédente ne peut plus être considérée comme fiable. Dans cette situation, la lecture de la valeur d’une cellule contenant des données non prises en charge peut lever [CellUnsupportedDataException](https://reference.aspose.com/slides/fr/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/).
 
-## **Références de cellule de style R1C1**
-**Les références de cellule de style R1C1** sont utilisées pour les feuilles où à la fois la ligne et la colonne ont un identifiant numérique. Elles peuvent être utilisées de la façon suivante :
+Si votre graphique dépend de fonctions Excel qu’Aspose.Slides n’évalue pas, calculez ces formules avec un moteur de feuille de calcul qui les supporte et écrivez les valeurs résultantes dans le classeur du graphique. Ne remplacez pas les formules non prises en charge par des valeurs supposées.
 
-|**Référence de cellule**|**Exemple**|**Absolue**|**Relative**|**Mixte**|
-| :- | :- | :- | :- | :- |
-|Cellule|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Ligne|R2|R[2]|-|
-|Colonne|C3|C[3]|-|
-|Plage|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
+## **Gestion des erreurs de formule**
 
-Voici un exemple d’utilisation d’une référence de cellule de style A1 dans une formule :
+Il existe deux types de problèmes à distinguer.
 
-## **Fonctions prédéfinies**
-Il existe des fonctions prédéfinies qui peuvent être utilisées dans les formules pour simplifier leur implémentation. Ces fonctions encapsulent les opérations les plus couramment utilisées, telles que :
+Une formule peut être valide mais produire un résultat d’erreur de feuille de calcul tel que `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` ou `#VALUE!`. Dans ce cas, le jeton d’erreur est un résultat de cellule et peut être renvoyé via [IChartDataCell::get_Value](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/ichartdatacell/get_value/).
 
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (système de date 1900)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (forme de référence)
-- LOOKUP (forme vectorielle)
-- MATCH (forme vectorielle)
-- MAX
-- SUM
-- VLOOKUP
+Une formule peut également échouer lors de l’analyse, de la référence, de la dépendance ou du niveau de données prises en charge. Aspose.Slides fournit des exceptions spécifiques aux feuilles de calcul pour ces cas : [CellInvalidFormulaException](https://reference.aspose.com/slides/fr/cpp/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/fr/cpp/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/fr/cpp/aspose.slides.spreadsheet/cellcircularreferenceexception/) et [CellUnsupportedDataException](https://reference.aspose.com/slides/fr/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+
+Lorsque les formules proviennent de modèles ou d’entrées utilisateur, gérez ces exceptions autour du recalcul et de l’accès aux valeurs :
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Spreadsheet/CellCircularReferenceException.h>
+#include <Spreadsheet/CellInvalidFormulaException.h>
+#include <Spreadsheet/CellInvalidReferenceException.h>
+#include <Spreadsheet/CellUnsupportedDataException.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Spreadsheet;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 500.0f, 300.0f);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+auto cell = workbook->GetCell(0, u"A2");
+cell->set_Formula(u"SUM(B2:B5)");
+
+try
+{
+    workbook->CalculateFormulas();
+    auto value = cell->get_Value();
+}
+catch (CellInvalidFormulaException&)
+{
+    // Gérer une formule invalide.
+}
+catch (CellInvalidReferenceException&)
+{
+    // Gérer une référence de cellule invalide.
+}
+catch (CellCircularReferenceException&)
+{
+    // Gérer une référence circulaire.
+}
+catch (CellUnsupportedDataException&)
+{
+    // Gérer des données de feuille de calcul non prises en charge.
+}
+```
+
+## **Limitations pratiques**
+
+La prise en charge des formules dans les feuilles de calcul de graphiques est destinée à un sous‑ensemble défini de calculs de feuille, pas à une compatibilité totale avec Excel. Gardez ces contraintes à l’esprit lors de la conception d’un flux de travail de reporting :
+
+- Utilisez uniquement les constantes, opérateurs, références et fonctions documentés lorsque vous avez besoin qu’Aspose.Slides recalcule les formules.
+- Recalculez après avoir modifié les cellules dont les résultats de formule dépendent.
+- Considérez les valeurs en cache des présentations chargées comme des instantanés, pas comme un remplacement du recalcul après modification.
+- Testez les formules des modèles existants avant de vous fier à leurs valeurs calculées, surtout si elles utilisent des fonctions hors de la liste documentée.
+- Pour les formules qui nécessitent un moteur complet de calcul de feuille, calculez‑les à l’extérieur puis mettez à jour le classeur du graphique avec les valeurs résultantes.
 
 ## **FAQ**
 
-**Les fichiers Excel externes sont‑ils pris en charge comme source de données pour un graphique avec des formules ?**
+**Quelle est la différence entre `set_Formula` et `set_R1C1Formula` ?**
 
-Oui. Aspose.Slides prend en charge les classeurs externes comme [source de données d’un graphique](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatasourcetype/), ce qui vous permet d’utiliser des formules provenant d’un XLSX hors de la présentation.
+[IChartDataCell::set_Formula](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/ichartdatacell/set_formula/) stocke une expression de style A1 telle que `B2-C2`. [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) stocke une expression de style R1C1 telle que `RC[-2]-RC[-1]`. Utilisez la notation qui correspond le mieux à votre façon de générer ou de copier les formules.
 
-**Les formules de graphique peuvent‑elles référencer des feuilles du même classeur par leur nom ?**
+**Dois‑je lire la cellule elle‑même ou sa valeur après le calcul ?**
 
-Oui. Les formules suivent le modèle de référence standard d’Excel, vous pouvez donc référencer d’autres feuilles du même classeur ou d’un classeur externe. Pour les références externes, incluez le chemin et le nom du classeur en utilisant la syntaxe Excel.
+[IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) renvoie un `IChartDataCell`. Pour obtenir le résultat calculé, lisez la valeur de cette cellule via [IChartDataCell::get_Value](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/ichartdatacell/get_value/) après le recalcul.
+
+**Quand dois‑je appeler `CalculateFormulas` ?**
+
+Appelez [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) après avoir modifié des valeurs d’entrée ou des formules et avant de dépendre des résultats calculés. Cela met à jour les valeurs des formules que l’évaluateur intégré prend en charge.
+
+**Aspose.Slides prend‑il en charge toutes les fonctions Excel ?**
+
+Non. L’évaluateur intégré ne prend en charge qu’un sous‑ensemble documenté de fonctions. Les fonctions en dehors de ce sous‑ensemble ne doivent pas être supposées être recalculées correctement. Si une compatibilité totale avec les formules Excel est requise, effectuez le calcul avec un moteur de feuille approprié et écrivez les valeurs finales dans le classeur du graphique.
+
+**Que se passe‑t‑il si une présentation chargée contient une formule non prise en charge ?**
+
+Si les données du graphique n’ont pas changé, le classeur peut encore contenir une valeur en cache précédemment calculée. Après modification des données connexes, cette valeur en cache peut ne plus être valide. L’accès à une cellule dont la formule ne peut pas être gérée peut lever [CellUnsupportedDataException](https://reference.aspose.com/slides/fr/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+
+**Les valeurs d’erreur de formule sont‑elles identiques aux exceptions C++ ?**
+
+Non. Un résultat tel que `#DIV/0!` est une valeur de feuille de calcul produite par un calcul valide. Les exceptions telles que [CellInvalidFormulaException](https://reference.aspose.com/slides/fr/cpp/aspose.slides.spreadsheet/cellinvalidformulaexception/) ou [CellCircularReferenceException](https://reference.aspose.com/slides/fr/cpp/aspose.slides.spreadsheet/cellcircularreferenceexception/) indiquent que la formule ne peut pas être traitée normalement.
+
+**Un graphique se met‑il à jour automatiquement lorsqu’une cellule de formule change ?**
+
+Une série de graphique peut référencer des cellules du classeur. Recalculez d’abord le classeur, puis enregistrez ou rendez la présentation. Si les points de données du graphique référencent les cellules calculées, le graphique utilise ces valeurs de cellule mises à jour ; aucune méthode de rafraîchissement de graphique distincte n’est requise pour ce flux.
+
+**Les graphiques peuvent‑ils utiliser un classeur Excel externe ?**
+
+Oui, les données du graphique peuvent être configurées pour utiliser un classeur externe via l’API de données du graphique. Cependant, le flux de calcul des formules décrit dans cet article concerne le classeur de données du graphique et le sous‑ensemble de formules évalué par Aspose.Slides. Ne supposez pas que [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/fr/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) fournit un recalcul complet des formules arbitraires dans un fichier XLSX externe.
+
+**Puis‑je utiliser des formules qui référencent une autre feuille ou un autre classeur ?**
+
+Des références de style Excel peuvent exister dans les classeurs de graphiques, mais l’évaluation des formules est limitée par le parseur et le jeu de fonctions pris en charge. Si une référence inter‑feuille ou externe est essentielle, validez la formule exacte avec votre version cible d’Aspose.Slides. Pour les flux nécessitant une large compatibilité des références Excel, calculez le classeur à l’extérieur et écrivez les valeurs résolues dans les données du graphique.
+
+**Les chaînes de formule doivent‑elles commencer par `=` ?**
+
+Les exemples d’API Aspose.Slides assignent des expressions telles que `B2-C2` ou `SUM(B2:B5)` sans le signe `=` initial. Utiliser cette forme maintient les formules générées cohérentes avec les exemples d’API documentés.

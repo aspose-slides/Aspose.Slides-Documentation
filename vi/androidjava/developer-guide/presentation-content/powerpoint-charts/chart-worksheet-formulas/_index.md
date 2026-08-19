@@ -1,6 +1,6 @@
 ---
 title: Áp dụng công thức worksheet biểu đồ trong bản trình chiếu trên Android
-linktitle: Công thức Worksheet
+linktitle: Công thức worksheet
 type: docs
 weight: 70
 url: /vi/androidjava/chart-worksheet-formulas/
@@ -10,232 +10,378 @@ keywords:
 - công thức biểu đồ
 - công thức worksheet
 - công thức bảng tính
-- nguồn dữ liệu
+- workbook dữ liệu biểu đồ
+- tính toán công thức
 - hằng số logic
 - hằng số số
 - hằng số chuỗi
 - hằng số lỗi
-- hằng số số học
+- toán tử số học
 - toán tử so sánh
 - kiểu A1
 - kiểu R1C1
-- hàm định nghĩa sẵn
+- hàm đã định nghĩa trước
 - PowerPoint
 - bản trình chiếu
 - Android
 - Java
 - Aspose.Slides
-description: "Áp dụng công thức kiểu Excel trong Aspose.Slides cho Android qua các worksheet biểu đồ Java và tự động hoá báo cáo trên các tệp PPT và PPTX."
+description: "Áp dụng công thức kiểu Excel trong các worksheet biểu đồ của Aspose.Slides cho Android qua Java, tính lại giá trị và sử dụng kết quả trong các biểu đồ PowerPoint."
 ---
 ## **Tổng quan**
 
-Một chart worksheet là nguồn dữ liệu phía sau một biểu đồ trong bản trình chiếu. Nó lưu trữ tên danh mục và tên chuỗi cùng với các giá trị số được biểu đồ hiển thị. Trong Aspose.Slides, worksheet này được truy cập thông qua chart data workbook, cho phép bạn làm việc với dữ liệu biểu đồ một cách chương trình.
+Biểu đồ PowerPoint thường lưu trữ dữ liệu nguồn của chúng trong một bảng tính được nhúng. Trong Aspose.Slides for Android via Java, bạn có thể truy cập bảng tính đó thông qua workbook dữ liệu biểu đồ, ghi các giá trị đầu vào, gán công thức cho các ô, tính các công thức được hỗ trợ và sử dụng các ô đã tính làm dữ liệu biểu đồ.
 
-Bài viết này giải thích cách sử dụng công thức trong worksheet để các giá trị ô có thể được tính toán và cập nhật tự động thay vì nhập thủ công. Nó chỉ ra cách gán công thức, sử dụng tham chiếu kiểu A1 và R1C1, tính lại công thức workbook, và làm việc với các hằng số, toán tử, tham chiếu ô và hàm được hỗ trợ cho chart worksheet trong bản trình chiếu.
+Bài viết này giải thích quy trình công thức đầy đủ: tạo biểu đồ, điền dữ liệu vào bảng tính, gán công thức kiểu A1 hoặc R1C1, tính lại chúng, đọc các giá trị đã tính, kết nối các ô đó với một chuỗi biểu đồ và lưu bản trình bày. Nó cũng mô tả cú pháp công thức được hỗ trợ, tập hợp hàm tích hợp, giá trị đã lưu trong bộ nhớ đệm, các công thức không được hỗ trợ và các lỗi đặc thù của bảng tính.
 
-## **Về công thức bảng tính biểu đồ trong bản trình chiếu**
-**Chart spreadsheet** (hoặc chart worksheet) trong bản trình chiếu là nguồn dữ liệu của biểu đồ. Chart spreadsheet chứa dữ liệu, được biểu diễn trên biểu đồ dưới dạng đồ họa. Khi bạn tạo một biểu đồ trong PowerPoint, worksheet liên kết với biểu đồ này cũng được tạo tự động. Chart worksheet được tạo cho mọi loại biểu đồ: line chart, bar chart, sunburst chart, pie chart, v.v. Để xem chart spreadsheet trong PowerPoint, bạn nhấp đúp vào biểu đồ:
+## **Bảng tính biểu đồ và công thức**
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+Bảng tính biểu đồ chứa các danh mục, tên chuỗi và giá trị được sử dụng bởi biểu đồ. Trong PowerPoint, bạn có thể kiểm tra bảng tính bằng cách mở trình chỉnh sửa dữ liệu biểu đồ:
 
+![Biểu đồ PowerPoint với bảng tính được nhúng đang mở, hiển thị dữ liệu danh mục và chuỗi](chart-worksheet-formulas_1.png)
 
-Chart spreadsheet chứa tên các thành phần biểu đồ (Category Name: *Category1*, Serie Name) và một bảng dữ liệu số phù hợp với các danh mục và chuỗi này. Theo mặc định, khi bạn tạo một biểu đồ mới – dữ liệu chart spreadsheet được đặt với dữ liệu mặc định. Sau đó bạn có thể thay đổi dữ liệu spreadsheet trong worksheet một cách thủ công.
+Trong Aspose.Slides, bảng tính được mở rộng thông qua giao diện [IChartDataWorkbook](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdataworkbook/). Sử dụng [IChartDataCell.setFormula](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) cho công thức kiểu A1 và [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) cho công thức kiểu R1C1. Sau khi thay đổi các ô đầu vào hoặc công thức, gọi [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) để tính lại các công thức được hỗ trợ và cập nhật giá trị ô tương ứng.
 
-Thông thường, biểu đồ thể hiện dữ liệu phức tạp (ví dụ: nhà phân tích tài chính, nhà phân tích khoa học), có các ô được tính từ giá trị của các ô khác hoặc từ dữ liệu động khác. Tính giá trị ô bằng tay và ghi cứng vào ô khiến việc thay đổi trong tương lai trở nên khó khăn. Nếu bạn thay đổi giá trị của một ô nào đó, tất cả các ô phụ thuộc vào nó cũng sẽ cần được cập nhật. Hơn nữa, dữ liệu bảng có thể phụ thuộc vào dữ liệu từ các bảng khác, tạo ra một sơ đồ dữ liệu bản trình chiếu phức tạp cần được cập nhật một cách dễ dàng và linh hoạt.
+Một ô đã tính vẫn cung cấp kết quả của nó thông qua [IChartDataCell.getValue](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatacell/#getValue--). Điều này quan trọng khi bạn cần kiểm tra kết quả công thức trong mã hoặc sử dụng ô làm điểm dữ liệu biểu đồ.
 
-**Công thức chart spreadsheet** trong bản trình chiếu là biểu thức để tự động tính toán và cập nhật dữ liệu chart spreadsheet. Công thức spreadsheet xác định logic tính toán dữ liệu cho một ô hoặc một tập hợp ô. Công thức spreadsheet là công thức toán học hoặc logic, sử dụng: tham chiếu ô, hàm toán học, toán tử logic, toán tử số học, hàm chuyển đổi, hằng số chuỗi, v.v. Định nghĩa công thức được ghi vào một ô, ô này không chứa giá trị đơn giản. Công thức spreadsheet tính giá trị và trả về, sau đó giá trị này được gán cho ô. Công thức chart spreadsheet trong bản trình chiếu thực chất giống với công thức Excel, và hỗ trợ cùng các hàm, toán tử và hằng số mặc định.
+## **Tạo biểu đồ và tính công thức bảng tính**
 
-Trong [**Aspose.Slides**](https://products.aspose.com/slides/vi/androidjava/) chart spreadsheet được biểu diễn bằng phương thức [**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IChartData#getChartDataWorkbook--) của kiểu [**IChartDataWorkbook**](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IChartDataWorkbook). Công thức spreadsheet có thể được gán và thay đổi bằng [**IChartDataCell.setFormula**](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-) . Các chức năng sau được hỗ trợ cho công thức trong Aspose.Slides:
-
-- Logical constants
-- Numerical constants
-- String constants
-- Error constants
-- Arithmetic operators
-- Comparison operators
-- A1-style cell references
-- R1C1-style cell references
-- Predefined functions
-
-
-Thông thường, các spreadsheet lưu trữ giá trị công thức đã tính cuối cùng. Nếu sau khi tải bản trình chiếu, dữ liệu biểu đồ không thay đổi – [**IChartDataCell.getValue**](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IChartDataCell#getValue--) trả về các giá trị đó khi đọc. Nhưng, nếu dữ liệu spreadsheet đã được thay đổi, khi đọc thuộc tính **ChartDataCell.Value** nó sẽ ném ra [**CellUnsupportedDataException**](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/CellUnsupportedDataException) vì các công thức không được hỗ trợ. Điều này xảy ra vì khi công thức được phân tích thành công, các phụ thuộc ô được xác định và tính đúng đắn của các giá trị cuối cùng được kiểm tra. Ngược lại, nếu công thức không thể phân tích, tính đúng đắn của giá trị ô không thể được đảm bảo.
-
-## **Thêm công thức chart spreadsheet vào bản trình chiếu**
-Đầu tiên, thêm một biểu đồ vào slide đầu tiên của bản trình chiếu mới bằng 
-[IShapeCollection.getShapes.addChart](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IShapeCollection#addChart-int-float-float-float-float-). 
-Worksheet của biểu đồ được tạo tự động và có thể truy cập bằng [**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IChartData#getChartDataWorkbook--) :
+Ví dụ sau đây minh họa quy trình làm việc từ đầu đến cuối. Nó tạo một biểu đồ cột nhóm, xóa dữ liệu mẫu, ghi giá trị doanh thu và chi phí quý, tính lợi nhuận bằng công thức, đọc kết quả, sử dụng các ô đã tính làm giá trị biểu đồ và lưu bản trình bày.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 150, 150, 500, 300);
-
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 350);
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    int worksheetIndex = 0;
 
-    // ...
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    workbook.clear(worksheetIndex);
+
+    IChartDataCell category1 = workbook.getCell(worksheetIndex, "A2", "Q1");
+    IChartDataCell category2 = workbook.getCell(worksheetIndex, "A3", "Q2");
+    IChartDataCell category3 = workbook.getCell(worksheetIndex, "A4", "Q3");
+
+    workbook.getCell(worksheetIndex, "B1", "Revenue");
+    workbook.getCell(worksheetIndex, "C1", "Expenses");
+    workbook.getCell(worksheetIndex, "D1", "Profit");
+
+    workbook.getCell(worksheetIndex, "B2").setValue(120.0);
+    workbook.getCell(worksheetIndex, "C2").setValue(80.0);
+    workbook.getCell(worksheetIndex, "B3").setValue(150.0);
+    workbook.getCell(worksheetIndex, "C3").setValue(95.0);
+    workbook.getCell(worksheetIndex, "B4").setValue(135.0);
+    workbook.getCell(worksheetIndex, "C4").setValue(110.0);
+
+    IChartDataCell profit1 = workbook.getCell(worksheetIndex, "D2");
+    IChartDataCell profit2 = workbook.getCell(worksheetIndex, "D3");
+    IChartDataCell profit3 = workbook.getCell(worksheetIndex, "D4");
+
+    profit1.setFormula("B2-C2");
+    profit2.setFormula("B3-C3");
+    profit3.setFormula("B4-C4");
+
+    workbook.calculateFormulas();
+
+    double q1Profit = ((Number) profit1.getValue()).doubleValue(); // 40
+    double q2Profit = ((Number) profit2.getValue()).doubleValue(); // 55
+    double q3Profit = ((Number) profit3.getValue()).doubleValue(); // 25
+
+    System.out.println("Q1 profit: " + q1Profit);
+    System.out.println("Q2 profit: " + q2Profit);
+    System.out.println("Q3 profit: " + q3Profit);
+
+    chart.getChartData().getCategories().add(category1);
+    chart.getChartData().getCategories().add(category2);
+    chart.getChartData().getCategories().add(category3);
+
+    IChartSeries profitSeries = chart.getChartData().getSeries().add(workbook.getCell(worksheetIndex, "D1"), chart.getType());
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit1);
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit2);
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit3);
+    profitSeries.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("chart-formulas.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Hãy ghi một số giá trị vào các ô bằng [**IChartDataCell.setValue**](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IChartDataCell#setValue-java.lang.Object-) thuộc tính của kiểu **Object**, nghĩa là bạn có thể đặt bất kỳ giá trị nào cho thuộc tính:
+Các điểm dữ liệu biểu đồ tham chiếu `D2:D4`, vì vậy biểu đồ sử dụng các giá trị lợi nhuận đã tính. Không có cuộc gọi làm mới biểu đồ riêng trong quy trình này: tính lại workbook trước, sau đó sử dụng hoặc lưu dữ liệu biểu đồ trỏ tới các ô đã tính.
+
+## **Sử dụng công thức kiểu A1**
+
+Cú pháp A1 xác định cột bằng chữ và hàng bằng số. Gán biểu thức kiểu A1 thông qua [IChartDataCell.setFormula](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-).
 
 ```java
-workbook.getCell(0, "F2").setValue(-2.5);
+import com.aspose.slides.*;
 
-workbook.getCell(0, "G3").setValue(6.3);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-workbook.getCell(0, "H4").setValue(3);
+    workbook.getCell(0, "C3").setValue(10);
+    workbook.getCell(0, "F2").setValue(2);
+    workbook.getCell(0, "G2").setValue(3);
+    workbook.getCell(0, "H2").setValue(4);
+
+    IChartDataCell cell = workbook.getCell(0, "A2");
+    cell.setFormula("C3+SUM(F2:H2)");
+
+    workbook.calculateFormulas();
+
+    Object value = cell.getValue(); // 19
+} finally {
+    presentation.dispose();
+}
 ```
 
-Bây giờ để ghi công thức vào ô, bạn có thể sử dụng phương thức 
-[**IChartDataCell.setFormula**](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-):
+Các dạng tham chiếu A1 thường gặp:
 
-*Note*: [**IChartDataCell.setFormula**](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-) được dùng để đặt tham chiếu ô kiểu A1. 
+| Tham chiếu | Tương đối | Tuyệt đối | Hỗn hợp |
+|---|---|---|---|
+| Ô | `A2` | `$A$2` | `A$2`, `$A2` |
+| Hàng | `2:2` | `$2:$2` | — |
+| Cột | `A:A` | `$A:$A` | — |
+| Vùng | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-Để đặt tham chiếu ô [R1C1Formula](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IChartDataCell#getR1C1Formula--) , bạn có thể dùng phương thức [**IChartDataCell.setR1C1Formula**](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IChartDataCell#setR1C1Formula-java.lang.String-):
+Tham chiếu tương đối có thể thay đổi khi công thức được di chuyển hoặc sao chép bởi ứng dụng bảng tính. Tham chiếu tuyệt đối giữ cố định cả hai tọa độ, trong khi tham chiếu hỗn hợp chỉ cố định một hàng hoặc một cột.
 
-Sau đó nếu bạn đọc giá trị từ các ô B2 và C2, chúng sẽ được tính:
+## **Sử dụng công thức kiểu R1C1**
+
+Cú pháp R1C1 xác định cả hàng và cột bằng số. Tham chiếu tương đối sử dụng độ dịch trong dấu ngoặc vuông. Gán cú pháp này thông qua [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-).
 
 ```java
-Object value1 = cell1.getValue(); // 7.8
+import com.aspose.slides.*;
 
-Object value2 = cell2.getValue(); // 2.1
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "B2").setValue(12);
+    workbook.getCell(0, "C2").setValue(5);
+
+    IChartDataCell cell = workbook.getCell(0, "D2");
+    cell.setR1C1Formula("RC[-2]-RC[-1]");
+
+    workbook.calculateFormulas();
+
+    Object value = cell.getValue(); // 7
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Logical Constants**
-Bạn có thể dùng các hằng số logic như *FALSE* và *TRUE* trong công thức ô:
+Các dạng tham chiếu R1C1 thường gặp:
+
+| Tham chiếu | Tương đối | Tuyệt đối | Hỗn hợp |
+|---|---|---|---|
+| Ô | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| Hàng | `R[2]` | `R2` | — |
+| Cột | `C[3]` | `C3` | — |
+| Vùng | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+
+Ví dụ, trong ô `D2`, `RC[-2]` có nghĩa là ô cùng hàng, hai cột về bên trái (`B2`).
+
+## **Hằng số và toán tử công thức**
+
+Bộ đánh giá công thức tích hợp hỗ trợ giá trị logic, số nguyên, chuỗi, giá trị lỗi bảng tính, toán tử số học và toán tử so sánh.
+
+### **Hằng số và literal**
+
+| Kiểu | Ví dụ | Ghi chú |
+|---|---|---|
+| Logic | `TRUE`, `FALSE` | Có thể dùng trực tiếp trong biểu thức logic như `A2=TRUE`. |
+| Số | `1`, `0.5`, `.3`, `1E-2` | Hỗ trợ ký hiệu thập phân và khoa học. |
+| Chuỗi | `"abc"`, `"2/3/2020 12:00"` | Literal văn bản được bao trong dấu ngoặc kép trong công thức. |
+| Kết quả lỗi | `#DIV/0!`, `#N/A`, `#REF!` | Một công thức hợp lệ có thể đánh giá thành giá trị lỗi bảng tính thay vì kết quả bình thường. |
+
+Ví dụ này sử dụng một số loại hằng số:
 
 ```java
-workbook.getCell(0, "A2").setValue(false);
-IChartDataCell cell = workbook.getCell(0, "B2");
-cell.setFormula("A2 = TRUE");
-Object value = cell.getValue(); // giá trị chứa boolean "false"
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "A2").setValue(false);
+    workbook.getCell(0, "B2").setFormula("A2=TRUE");
+    workbook.getCell(0, "C2").setFormula("1+0.5");
+    workbook.getCell(0, "D2").setFormula(".3*1E-2");
+    workbook.getCell(0, "E2").setFormula("\"abc\"");
+    workbook.getCell(0, "F2").setFormula("2/0");
+
+    workbook.calculateFormulas();
+
+    Object logicalValue = workbook.getCell(0, "B2").getValue(); // false
+    Object numericValue = workbook.getCell(0, "C2").getValue(); // 1.5
+    Object scientificValue = workbook.getCell(0, "D2").getValue(); // 0.003
+    Object stringValue = workbook.getCell(0, "E2").getValue(); // abc
+    Object errorValue = workbook.getCell(0, "F2").getValue(); // #DIV/0!
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Numerical Constants**
-Số có thể được dùng ở dạng thông thường hoặc dạng khoa học để tạo công thức chart spreadsheet:
+### **Toán tử số học**
+
+| Toán tử | Ý nghĩa | Ví dụ |
+|---|---|---|
+| `+` | Cộng hoặc dấu cộng đơn | `2+3` |
+| `-` | Trừ hoặc dấu trừ đơn | `2-3`, `-3` |
+| `*` | Nhân | `2*3` |
+| `/` | Chia | `2/3` |
+| `%` | Phần trăm | `30%` |
+| `^` | Lũy thừa | `2^3` |
+
+Sử dụng dấu ngoặc để làm rõ thứ tự tính, ví dụ `(A2+B2)*C2`.
+
+### **Toán tử so sánh**
+
+Các biểu thức so sánh trả về giá trị logic.
+
+| Toán tử | Ý nghĩa | Ví dụ |
+|---|---|---|
+| `=` | Bằng | `A2=3` |
+| `<>` | Không bằng | `A2<>3` |
+| `>` | Lớn hơn | `A2>3` |
+| `>=` | Lớn hơn hoặc bằng | `A2>=3` |
+| `<` | Nhỏ hơn | `A2<3` |
+| `<=` | Nhỏ hơn hoặc bằng | `A2<=3` |
+
+## **Các hàm được định nghĩa trước được hỗ trợ**
+
+Aspose.Slides bao gồm một bộ đánh giá công thức tích hợp cho các bảng tính biểu đồ, nhưng nó không phải là một động cơ tính toán Excel đầy đủ. Tập hợp hàm được tài liệu giới hạn ở các hàm dưới đây. Đừng cho rằng một hàm Excel bất kỳ có thể được tính lại bằng [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--).
+
+| Hàm | Mục đích hoặc dạng được hỗ trợ | Ví dụ |
+|---|---|---|
+| `ABS` | Giá trị tuyệt đối | `ABS(A2)` |
+| `AVERAGE` | Trung bình cộng | `AVERAGE(B2:B5)` |
+| `CEILING` | Làm tròn lên đến bội số | `CEILING(A2,5)` |
+| `CHOOSE` | Chọn giá trị theo chỉ số | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | Nối các giá trị văn bản | `CONCAT(A2,B2)` |
+| `CONCATENATE` | Nối các giá trị văn bản | `CONCATENATE(A2," ",B2)` |
+| `DATE` | Tạo giá trị ngày theo hệ thống ngày 1900 | `DATE(2026,8,19)` |
+| `DAYS` | Trả về số ngày giữa hai ngày | `DAYS(B2,A2)` |
+| `FIND` | Tìm một chuỗi trong chuỗi khác | `FIND("-",A2)` |
+| `FINDB` | Tìm văn bản dựa trên byte | `FINDB("a",A2)` |
+| `IF` | Kết quả có điều kiện | `IF(A2>0,A2,0)` |
+| `INDEX` | Dạng tham chiếu | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | Dạng vector | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | Dạng vector | `MATCH(A2,B2:B5,0)` |
+| `MAX` | Giá trị lớn nhất | `MAX(B2:B5)` |
+| `SUM` | Tổng các giá trị | `SUM(B2:B5)` |
+| `VLOOKUP` | Tìm ngang | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+
+Các hạn chế trong bảng trên là quan trọng: `INDEX` được tài liệu dưới dạng tham chiếu, trong khi `LOOKUP` và `MATCH` được tài liệu dưới dạng vector. `DATE` sử dụng hệ thống ngày 1900. Các tính năng và hàm không được liệt kê ở đây nên được xem là không được hỗ trợ bởi bộ đánh giá công thức Aspose.Slides trừ khi chúng được tài liệu riêng.
+
+## **Tính lại và giá trị đã lưu trong bộ nhớ đệm**
+
+Các tệp bảng tính thường lưu cả công thức và giá trị đã tính cuối cùng. Do đó Aspose.Slides có thể đọc giá trị đã lưu từ [IChartDataCell.getValue](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatacell/#getValue--) khi một bản trình bày được tải và dữ liệu biểu đồ liên quan chưa thay đổi.
+
+Sau khi thay đổi các ô đầu vào hoặc công thức, đừng dựa vào kết quả đã lưu cũ. Gọi [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) trước khi đọc các giá trị đã tính hoặc lưu dữ liệu biểu đồ phụ thuộc vào chúng.
+
+Đối với các công thức nằm ngoài tập hợp được hỗ trợ, Aspose.Slides có thể không phân tích được công thức hoặc xác định các phụ thuộc. Nếu workbook đã được sửa đổi, giá trị đã lưu trước đó không còn đáng tin cậy. Trong trường hợp này, việc đọc giá trị của ô có dữ liệu không được hỗ trợ có thể gây ra [CellUnsupportedDataException](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/cellunsupporteddataexception/).
+
+Nếu biểu đồ của bạn phụ thuộc vào các hàm Excel mà Aspose.Slides không đánh giá, hãy tính các công thức đó bằng một động cơ bảng tính hỗ trợ và ghi lại các giá trị kết quả vào workbook biểu đồ. Đừng thay thế các công thức không được hỗ trợ bằng giá trị ước tính.
+
+## **Xử lý lỗi công thức**
+
+Có hai loại vấn đề cần phân biệt.
+
+Một công thức có thể hợp lệ nhưng tạo ra kết quả lỗi bảng tính như `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` hoặc `#VALUE!`. Trong trường hợp này, token lỗi là kết quả của ô và có thể được trả về qua [IChartDataCell.getValue](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatacell/#getValue--).
+
+Một công thức cũng có thể thất bại ở mức phân tích, tham chiếu, phụ thuộc hoặc dữ liệu không được hỗ trợ. Aspose.Slides cung cấp các ngoại lệ đặc thù cho bảng tính cho những trường hợp này: [CellInvalidFormulaException](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/cellcircularreferenceexception/) và [CellUnsupportedDataException](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/cellunsupporteddataexception/).
+
+Khi công thức đến từ mẫu hoặc đầu vào người dùng, hãy bắt các ngoại lệ này xung quanh quá trình tính lại và truy cập giá trị:
 
 ```java
-workbook.getCell(0, "A2").setFormula("1 + 0.5");
-workbook.getCell(0, "B2").setFormula(".3 * 1E-2");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell cell = workbook.getCell(0, "A2");
+    cell.setFormula("SUM(B2:B5)");
+
+    try {
+        workbook.calculateFormulas();
+        System.out.println(cell.getValue());
+    } catch (CellInvalidFormulaException ex) {
+        System.err.println("Invalid formula: " + ex.getMessage());
+    } catch (CellInvalidReferenceException ex) {
+        System.err.println("Invalid cell reference: " + ex.getMessage());
+    } catch (CellCircularReferenceException ex) {
+        System.err.println("Circular reference: " + ex.getMessage());
+    } catch (CellUnsupportedDataException ex) {
+        System.err.println("Unsupported spreadsheet data: " + ex.getMessage());
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **String Constants**
-Hằng số chuỗi (hoặc literal) là giá trị cụ thể được sử dụng nguyên trạng và không thay đổi. Hằng số chuỗi có thể là: ngày tháng, văn bản, số, v.v.:
+## **Các hạn chế thực tế**
 
-```java
-workbook.getCell(0, "A2").setFormula("\"abc\"");
-workbook.getCell(0, "B2").setFormula("\"2/3/2020 12:00\"");
-```
+Hỗ trợ công thức trong bảng tính biểu đồ được thiết kế cho một tập hợp con đã định của các phép tính bảng tính, không phải cho khả năng tương thích đầy đủ với Excel. Hãy lưu ý các ràng buộc này khi thiết kế quy trình báo cáo:
 
-## **Error Constants**
-Đôi khi không thể tính kết quả bằng công thức. Trong trường hợp đó, mã lỗi sẽ hiển thị trong ô thay vì giá trị. Mỗi loại lỗi có mã riêng:
+- Chỉ sử dụng các hằng số, toán tử, tham chiếu và hàm được tài liệu khi bạn cần Aspose.Slides tính lại công thức.
+- Tính lại sau khi thay đổi các ô mà kết quả công thức phụ thuộc vào.
+- Xem các giá trị đã lưu trong bộ nhớ đệm từ các bản trình bày đã tải như là ảnh chụp nhanh, không thay thế cho việc tính lại sau khi chỉnh sửa.
+- Kiểm tra các công thức từ mẫu hiện có trước khi tin cậy vào giá trị đã tính, đặc biệt khi chúng sử dụng các hàm ngoài danh sách được tài liệu.
+- Đối với các công thức yêu cầu một động cơ tính toán bảng tính đầy đủ, hãy tính chúng bên ngoài và sau đó cập nhật workbook biểu đồ với các giá trị kết quả.
 
-- #DIV/0! - công thức cố gắng chia cho zero.
-- #GETTING_DATA - có thể hiển thị trên ô khi giá trị vẫn đang được tính.
-- #N/A - thông tin thiếu hoặc không khả dụng. Một số nguyên nhân: các ô dùng trong công thức rỗng, có ký tự khoảng trắng thừa, lỗi chính tả, v.v.
-- #NAME? - không tìm thấy một ô hoặc đối tượng công thức nào đó theo tên.
-- #NULL! - có thể xuất hiện khi công thức có lỗi, như:  (,) hoặc ký tự khoảng trắng dùng thay cho dấu hai chấm (:).
-- #NUM! - số trong công thức không hợp lệ, quá dài hoặc quá ngắn, v.v.
-- #REF! - tham chiếu ô không hợp lệ.
-- #VALUE! - kiểu giá trị không mong đợi. Ví dụ, giá trị chuỗi được đặt vào ô số.
+## **Câu hỏi thường gặp**
 
-```java
-IChartDataCell cell = workbook.getCell(0, "A2");
-cell.setFormula("2 / 0");
-Object value = cell.getValue(); // giá trị chứa chuỗi "#DIV/0!"
-```
+**Sự khác biệt giữa [IChartDataCell.setFormula](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) và [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) là gì?**
 
-## **Arithmetic Operators**
-Bạn có thể dùng tất cả các toán tử số học trong công thức worksheet:
+[IChartDataCell.setFormula](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) lưu một biểu thức kiểu A1 như `B2-C2`. [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) lưu một biểu thức kiểu R1C1 như `RC[-2]-RC[-1]`. Sử dụng cú pháp phù hợp nhất với cách bạn tạo hoặc sao chép công thức.
 
-|**Toán tử**|**Ý nghĩa**|**Ví dụ**|
-| :- | :- | :- |
-|+ (dấu cộng)|Cộng hoặc dấu cộng một phần tử|2 + 3|
-|- (dấu trừ)|Trừ hoặc phủ định|2 - 3<br>-3|
-|* (dấu sao)|Nhân|2 * 3|
-|/ (dấu gạch chéo)|Chia|2 / 3|
-|% (dấu phần trăm)|Phần trăm|30%|
-|^ (dấu mũ)|Lũy thừa|2 ^ 3|
+**Tôi có cần đọc ô selbst hay giá trị của nó sau khi tính toán không?**
 
-*Note*: Để thay đổi thứ tự tính toán, đặt phần cần tính trước vào ngoặc.
+[IChartDataWorkbook.getCell](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-java.lang.String-) trả về một [IChartDataCell](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatacell/). Để lấy kết quả đã tính, gọi phương thức [IChartDataCell.getValue](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdatacell/#getValue--) của ô đó sau khi tính lại.
 
-## **Comparison Operators**
-Bạn có thể so sánh giá trị các ô bằng các toán tử so sánh. Khi hai giá trị được so sánh bằng các toán tử này, kết quả là giá trị logic *TRUE* hoặc FALSE:
+**Khi nào tôi nên gọi [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--)?**
 
-|**Toán tử**|**Ý nghĩa**|**Ví dụ**|
-| :- | :- | :- |
-|= (dấu bằng)|Bằng|A2 = 3|
-|<> (dấu không bằng)|Không bằng|A2 <> 3|
-|> (dấu lớn hơn)|Lớn hơn|A2 > 3|
-|>= (dấu lớn hơn hoặc bằng)|Lớn hơn hoặc bằng|A2 >= 3|
-|< (dấu nhỏ hơn)|Nhỏ hơn|A2 < 3|
-|<= (dấu nhỏ hơn hoặc bằng)|Nhỏ hơn hoặc bằng|A2 <= 3|
+Gọi [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) sau khi thay đổi giá trị đầu vào hoặc công thức và trước khi bạn phụ thuộc vào các kết quả đã tính. Điều này sẽ cập nhật các giá trị của các công thức mà bộ đánh giá tích hợp hỗ trợ.
 
-## **A1-style Cell References**
-**A1-style cell references** được dùng cho các worksheet, trong đó cột có ký tự định danh (ví dụ "*A*") và hàng có số định danh (ví dụ "*1*"). Tham chiếu ô kiểu A1 có thể được sử dụng như sau:
+**Aspose.Slides có hỗ trợ mọi hàm Excel không?**
 
-|**Tham chiếu ô**|**Ví dụ**| | |
-| :- | :- | :- | :- |
-| |Tuyệt đối|Tương đối|Hỗn hợp|
-|Ô|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|Hàng|$2:$2|2:2|-|
-|Cột|$A:$A|A:A|-|
-|Phạm vi|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
+Không. Bộ đánh giá tích hợp chỉ hỗ trợ một tập hợp hàm đã được tài liệu. Các hàm nằm ngoài tập hợp này không nên được cho là sẽ tính lại đúng. Nếu cần khả năng tương thích công thức Excel đầy đủ, thực hiện tính toán bằng một động cơ bảng tính thích hợp và ghi lại các giá trị cuối cùng vào workbook biểu đồ.
 
+**Điều gì xảy ra nếu một bản trình bày đã tải chứa công thức không được hỗ trợ?**
 
-Ví dụ sử dụng tham chiếu ô kiểu A1 trong công thức:
+Nếu dữ liệu biểu đồ không thay đổi, workbook có thể vẫn chứa giá trị đã lưu được tính trước đó. Sau khi dữ liệu liên quan được sửa đổi, giá trị đã lưu đó có thể không còn hợp lệ. Truy cập một ô có công thức không thể xử lý có thể gây ra [CellUnsupportedDataException](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/cellunsupporteddataexception/).
 
-```java
-workbook.getCell(0, "A2").setFormula("C3 + SUM(F2:H5)");
-```
+**Giá trị lỗi công thức có giống như ngoại lệ Java không?**
 
-## **R1C1-style Cell References**
-**R1C1-style cell references** được dùng cho các worksheet, trong đó cả hàng và cột đều có định danh số. Tham chiếu ô kiểu R1C1 có thể được sử dụng như sau:
+Không. Một kết quả như `#DIV/0!` là một giá trị bảng tính được tạo ra bởi một phép tính hợp lệ. Các ngoại lệ như [CellInvalidFormulaException](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/cellinvalidformulaexception/) hoặc [CellCircularReferenceException](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/cellcircularreferenceexception/) cho biết công thức không thể được xử lý bình thường.
 
-|**Tham chiếu ô**|**Ví dụ**| | |
-| :- | :- | :- | :- |
-| |Tuyệt đối|Tương đối|Hỗn hợp|
-|Ô|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Hàng|R2|R[2]|-|
-|Cột|C3|C[3]|-|
-|Phạm vi|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
+**Biểu đồ có tự động cập nhật khi ô công thức thay đổi không?**
 
+Một chuỗi biểu đồ có thể tham chiếu các ô trong workbook. Tính lại workbook trước, sau đó lưu hoặc render bản trình bày. Nếu các điểm dữ liệu biểu đồ tham chiếu các ô đã tính, biểu đồ sẽ sử dụng các giá trị ô đã cập nhật; không cần gọi phương thức làm mới biểu đồ riêng.
 
-Ví dụ sử dụng tham chiếu ô kiểu R1C1 trong công thức:
+**Biểu đồ có thể sử dụng workbook Excel bên ngoài không?**
 
-```java
-workbook.getCell(0, "A2").setR1C1Formula("R2C4 + SUM(R5C6:R7C9)");
-```
+Có, dữ liệu biểu đồ có thể được cấu hình để sử dụng một workbook bên ngoài thông qua API dữ liệu biểu đồ. Tuy nhiên, quy trình tính công thức mô tả trong bài viết này liên quan đến workbook dữ liệu biểu đồ và tập hợp công thức được Aspose.Slides đánh giá. Đừng cho rằng [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) cung cấp việc tính lại đầy đủ các công thức tùy ý trong một tệp XLSX bên ngoài.
 
-## **Predefined Functions**
-Có các hàm được định nghĩa sẵn, có thể dùng trong công thức để đơn giản hoá việc triển khai. Những hàm này bao gồm các thao tác thường dùng nhất, như:
+**Tôi có thể sử dụng công thức tham chiếu đến một worksheet hoặc workbook khác không?**
 
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (hệ thống ngày 1900)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (dạng tham chiếu)
-- LOOKUP (dạng vector)
-- MATCH (dạng vector)
-- MAX
-- SUM
-- VLOOKUP
+Các tham chiếu kiểu Excel có thể xuất hiện trong workbook biểu đồ, nhưng việc đánh giá công thức bị giới hạn bởi bộ phân tích và tập hợp hàm được hỗ trợ. Nếu một tham chiếu chéo sheet hoặc bên ngoài là bắt buộc, hãy xác nhận công thức đó với phiên bản Aspose.Slides mục tiêu của bạn. Đối với các quy trình cần khả năng tương thích tham chiếu Excel rộng, hãy tính workbook bên ngoài và ghi lại các giá trị đã giải quyết trở lại dữ liệu biểu đồ.
 
-## **FAQ**
+**Chuỗi công thức có bắt đầu bằng `=` không?**
 
-**Liệu các tệp Excel bên ngoài có được hỗ trợ làm nguồn dữ liệu cho biểu đồ có công thức không?**
-
-Có. Aspose.Slides hỗ trợ workbooks bên ngoài như một [chart's data source](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/chartdatasourcetype/), cho phép bạn sử dụng công thức từ file XLSX nằm ngoài bản trình chiếu.
-
-**Công thức biểu đồ có thể tham chiếu các sheet trong cùng một workbook bằng tên sheet không?**
-
-Có. Công thức tuân theo mô hình tham chiếu chuẩn của Excel, vì vậy bạn có thể tham chiếu các sheet khác trong cùng workbook hoặc workbook bên ngoài. Đối với tham chiếu bên ngoài, bao gồm đường dẫn và tên workbook theo cú pháp Excel.
+Các ví dụ API Aspose.Slides gán các biểu thức như `B2-C2` hoặc `SUM(B2:B5)` mà không có dấu `=` phía trước. Sử dụng dạng này giúp công thức được tạo ra nhất quán với các ví dụ trong tài liệu API.

@@ -1,234 +1,390 @@
 ---
-title: ใช้สูตรแผ่นงานแผนภูมิในงานนำเสนอด้วย .NET
-linktitle: สูตรแผ่นงาน
+title: ใช้สูตร Worksheet ของแผนภูมิในงานนำเสนอด้วย .NET
+linktitle: สูตร Worksheet
 type: docs
 weight: 70
 url: /th/net/chart-worksheet-formulas/
 keywords:
-- สเปรดชีตแผนภูมิ
+- แผนภูมิ สเปรดชีต
 - แผ่นงานแผนภูมิ
 - สูตรแผนภูมิ
 - สูตรแผ่นงาน
 - สูตรสเปรดชีต
-- แหล่งข้อมูล
-- ค่าคงที่ตรรกะ
-- ค่าคงที่เชิงตัวเลข
-- ค่าคงที่สตริง
-- ค่าคงที่ข้อผิดพลาด
-- ค่าคงที่คณิตศาสตร์
+- workbook ข้อมูลแผนภูมิ
+- การคำนวนสูตร
+- คอนสแตนต์ตรรกะ
+- คอนสแตนต์เชิงตัวเลข
+- คอนสแตนต์สตริง
+- คอนสแตนต์ข้อผิดพลาด
+- ตัวดำเนินการคณิตศาสตร์
 - ตัวดำเนินการเปรียบเทียบ
 - สไตล์ A1
 - สไตล์ R1C1
-- ฟังก์ชันที่กำหนดล่วงหน้า
+- ฟังก์ชันที่กำหนดไว้ล่วงหน้า
 - PowerPoint
 - งานนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "ใช้สูตรแบบ Excel ใน Aspose.Slides สำหรับแผ่นงานแผนภูมิ .NET และอัตโนมัติรายงานในไฟล์ PPT และ PPTX"
+description: "ใช้สูตรสไตล์ Excel ใน Aspose.Slides สำหรับแผ่นงานแผนภูมิ .NET, คำนวนค่าใหม่, และใช้ผลลัพธ์ในแผนภูมิ PowerPoint."
 ---
 ## **ภาพรวม**
 
-แผ่นงานแผนภูมิคือแหล่งข้อมูลที่อยู่ด้านหลังแผนภูมิในงานนำเสนอ มันเก็บชื่อหมวดหมู่และชื่อชุดข้อมูลพร้อมกับค่าตัวเลขที่แผนภูมิแสดงผล ใน Aspose.Slides แผ่นงานนี้สามารถเข้าถึงได้ผ่าน workbook ข้อมูลแผนภูมิ ซึ่งให้คุณทำงานกับข้อมูลแผนภูมิแบบโปรแกรมได้
+แผนภูมิ PowerPoint โดยทั่วไปจะเก็บข้อมูลต้นทางไว้ในเวิร์กชีตแบบฝังตัว ใน Aspose.Slides สำหรับ .NET คุณสามารถเข้าถึงเวิร์กชีตนั้นผ่าน chart data workbook เขียนค่าข้อมูลเข้า กำหนดสูตรให้กับเซลล์ คำนวณสูตรที่สนับสนุน และใช้เซลล์ที่คำนวณแล้วเป็นข้อมูลของแผนภูมิ
 
-บทความนี้อธิบายวิธีใช้สูตรในแผ่นงานแผนภูมิเพื่อให้ค่าของเซลล์คำนวณและอัปเดตโดยอัตโนมัติ แทนการใส่ค่าด้วยตนเอง โดยแสดงวิธีกำหนดสูตร ใช้การอ้างอิงแบบ A1‑style และ R1C1‑style คำนวณสูตรใน workbook ใหม่ และทำงานกับค่าคงที่ ตัวดำเนินการ การอ้างอิงเซลล์ และฟังก์ชันที่กำหนดล่วงหน้าที่รองรับสำหรับแผ่นงานแผนภูมิในงานนำเสนอ
+บทความนี้อธิบายขั้นตอนการทำงานของสูตรอย่างครบถ้วน: สร้างแผนภูมิ เติมข้อมูลในเวิร์กชีต กำหนดสูตรแบบ A1‑style หรือ R1C1‑style คำนวนสูตรใหม่ อ่านค่าที่คำนวนแล้ว เชื่อมเซลล์เหล่านั้นกับชุดข้อมูลของแผนภูมิ และบันทึกงานนำเสนอ นอกจากนี้ยังอธิบายไวยากรณ์สูตรที่สนับสนุน ชุดฟังก์ชันในตัว ค่าที่แคชไว้ สูตรที่ไม่สนับสนุนและข้อผิดพลาดเฉพาะสเปรดชีต
 
-## **เกี่ยวกับสูตรสเปรดชีตแผนภูมิในงานนำเสนอ**
-**สเปรดชีตแผนภูมิ** (หรือแผ่นงานแผนภูมิ) ในงานนำเสนอคือแหล่งข้อมูลของแผนภูมิ สเปรดชีตแผนภูมิมีข้อมูลที่แสดงบนแผนภูมิในรูปแบบกราฟิก เมื่อคุณสร้างแผนภูมิใน PowerPoint แผ่นงานที่เชื่อมโยงกับแผนภูมินี้จะถูกสร้างโดยอัตโนมัติเช่นกัน แผ่นงานแผนภูมิถูกสร้างสำหรับแผนภูมิทุกประเภท: แผนภูมิเส้น, แผนภูมิคอลัมน์, แผนภูมิ Sunburst, แผนภูมิวงกลม ฯลฯ เพื่อดูสเปรดชีตแผนภูมิใน PowerPoint คุณควรดับเบิล‑คลิกที่แผนภูมิ:
+## **เวิร์กชีตและสูตรของแผนภูมิ**
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+เวิร์กชีตของแผนภูมิประกอบด้วยประเภท แถวชื่อชุดข้อมูล และค่าที่แผนภูมิต้องการ ใน PowerPoint คุณสามารถตรวจสอบเวิร์กชีตได้โดยเปิด chart data editor:
 
+![PowerPoint chart with its embedded worksheet open, showing category and series data](chart-worksheet-formulas_1.png)
 
+ใน Aspose.Slides เวิร์กชีตถูกเปิดเผยผ่าน [chart data workbook](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdataworkbook/)。ใช้คุณสมบัติ [Formula](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdatacell/formula/) สำหรับสูตรแบบ A1‑style และคุณสมบัติ [R1C1Formula](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdatacell/r1c1formula/) สำหรับสูตรแบบ R1C1‑style หลังจากเปลี่ยนเซลล์อินพุตหรือสูตร ให้เรียกใช้ [CalculateFormulas](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) เพื่อคำนวณสูตรที่สนับสนุนและอัปเดตค่าของเซลล์ที่สอดคล้องกัน
 
-สเปรดชีตแผนภูมิประกอบด้วยชื่อขององค์ประกอบแผนภูมิ (ชื่อหมวดหมู่: *Category1*, ชื่อชุดข้อมูล) และตารางข้อมูลตัวเลขที่สอดคล้องกับหมวดหมู่และชุดข้อมูลเหล่านั้น โดยค่าเริ่มต้นเมื่อคุณสร้างแผนภูมิใหม่ – ข้อมูลสเปรดชีตแผนภูมิจะตั้งค่าเป็นค่าดีฟอลต์ จากนั้นคุณสามารถเปลี่ยนแปลงข้อมูลสเปรดชีตในแผ่นงานด้วยตนเองได้
+เซลล์ที่คำนวณแล้วยังคงเปิดเผยผลลัพธ์ผ่านคุณสมบัติ [Value](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdatacell/value/) นี่สำคัญเมื่อคุณต้องตรวจสอบผลลัพธ์ของสูตรในโค้ดหรือใช้เซลล์เป็นจุดข้อมูลของแผนภูมิ
 
-โดยทั่วไปแผนภูมิแทนข้อมูลที่ซับซ้อน (เช่น นักวิเคราะห์การเงิน, นักวิทยาศาสตร์) ที่มีเซลล์คำนวณจากค่าในเซลล์อื่นหรือจากข้อมูลไดนามิกอื่น การคำนวณค่าของเซลล์ด้วยตนเองและทำฮาร์ด‑โค้ดลงในเซลล์ทำให้ยากต่อการเปลี่ยนแปลงในภายหลัง หากคุณเปลี่ยนค่าของเซลล์หนึ่ง เซลล์ที่ขึ้นกับมันทั้งหมดก็ต้องอัปเดตด้วย นอกจากนี้ข้อมูลตารางอาจพึ่งพาข้อมูลจากตารางอื่น ๆ ทำให้เกิดแผนผังข้อมูลงานนำเสนอที่ซับซ้อนซึ่งต้องอัปเดตอย่างง่ายและยืดหยุ่น
+## **สร้างแผนภูมิและคำนวณสูตรในเวิร์กชีต**
 
-**สูตรสเปรดชีตแผนภูมิ** ในงานนำเสนอคือ นิพจน์ที่คำนวณและอัปเดตข้อมูลสเปรดชีตแผนภูมิโดยอัตโนมัติ สูตรสเปรดชีตกำหนดตรรกะการคำนวณข้อมูลสำหรับเซลล์หรือชุดของเซลล์ สูตรสเปรดชีตอาจเป็นสูตรคณิตศาสตร์หรือสูตรตรรกะ โดยใช้: การอ้างอิงเซลล์, ฟังก์ชันคณิตศาสตร์, ตัวดำเนินการตรรกะ, ตัวดำเนินการคณิตศาสตร์, ฟังก์ชันแปลงค่า, ค่าคงที่สตริง ฯลฯ นิยามของสูตรจะถูกเขียนลงในเซลล์และเซลล์นั้นจึงไม่ใช่ค่าธรรมดา สูตรสเปรดชีตคำนวณค่าและส่งค่ากลับ จากนั้นค่านั้นจะถูกกำหนดให้กับเซลล์ สูตรสเปรดชีตแผนภูมิในงานนำเสนอจริง ๆ แล้วเหมือนสูตรใน Excel และสนับสนุนฟังก์ชัน, ตัวดำเนินการและค่าคงที่เริ่มต้นเดียวกันสำหรับการใช้งาน
+ตัวอย่างต่อไปนี้แสดงกระบวนการทำงานแบบจากต้นจนจบ มันสร้างแผนภูมิคอลัมน์แบบ clustered ล้างข้อมูลตัวอย่าง เขียนค่ารายได้และค่าใช้จ่ายรายไตรมาส คำนวนกำไรด้วยสูตร อ่านผลลัพธ์ ใช้เซลล์ที่คำนวนแล้วเป็นค่าของแผนภูมิ และบันทึกงานนำเสนอ
 
-ใน [**Aspose.Slides**](https://products.aspose.com/slides/th/net/) สเปรดชีตแผนภูมิแสดงด้วยคุณสมบัติ 
-[**Chart.ChartData.ChartDataWorkbook**](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdata/properties/chartdataworkbook) ของ 
-[**IChartDataWorkbook**](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdataworkbook) 
-สูตรสเปรดชีตสามารถกำหนดและเปลี่ยนแปลงได้ด้วยคุณสมบัติ 
-[**IChartDataCell.Formula**](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdatacell/properties/formula) 
-ฟังก์ชันต่อไปนี้ได้รับการสนับสนุนสำหรับสูตรใน Aspose.Slides:
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-- ค่าคงที่ตรรกะ
-- ค่าคงที่เชิงตัวเลข
-- ค่าคงที่สตริง
-- ค่าคงที่ข้อผิดพลาด
-- ตัวดำเนินการคณิตศาสตร์
-- ตัวดำเนินการเปรียบเทียบ
-- การอ้างอิงเซลล์แบบ A1‑style
-- การอ้างอิงเซลล์แบบ R1C1‑style
-- ฟังก์ชันที่กำหนดล่วงหน้า
+using var presentation = new Presentation();
 
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 350);
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
 
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+workbook.Clear(worksheetIndex);
 
-โดยทั่วไปสเปรดชีตจะเก็บค่าของสูตรที่คำนวณล่าสุด หากหลังจากโหลดงานนำเสนอแล้วข้อมูลแผนภูมิไม่ได้เปลี่ยนแปลง – คุณสมบัติ **IChartDataCell.Value** จะคืนค่าที่เก็บไว้เมื่ออ่านค่า แต่หากข้อมูลสเปรดชีตมีการเปลี่ยนแปลงขณะอ่าน **ChartDataCell.Value** จะโยน **CellUnsupportedDataException** สำหรับสูตรที่ไม่รองรับ สาเหตุคือเมื่อสูตรถูกพาร์สสำเร็จ การพึ่งพาเซลล์จะถูกกำหนดและความถูกต้องของค่าล่าสุดจะถูกยืนยัน แต่หากสูตรไม่สามารถพาร์สได้ ความถูกต้องของค่าเซลล์ไม่สามารถรับประกันได้
+var category1 = workbook.GetCell(worksheetIndex, "A2", "Q1");
+var category2 = workbook.GetCell(worksheetIndex, "A3", "Q2");
+var category3 = workbook.GetCell(worksheetIndex, "A4", "Q3");
 
-## **เพิ่มสูตรสเปรดชีตแผนภูมิลงในงานนำเสนอ**
-แรกเริ่มให้เพิ่มแผนภูมิพร้อมข้อมูลตัวอย่างลงในสไลด์แรกของงานนำเสนอใหม่ด้วย 
-[IShapeCollection.Shapes.AddChart](https://reference.aspose.com/slides/th/net/aspose.slides.ishapecollection/addchart/methods/1) 
-แผ่นงานของแผนภูมิจะถูกสร้างอัตโนมัติและสามารถเข้าถึงได้ด้วยคุณสมบัติ 
-[**Chart.ChartData.ChartDataWorkbook**](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdata/properties/chartdataworkbook) :
+workbook.GetCell(worksheetIndex, "B1", "Revenue");
+workbook.GetCell(worksheetIndex, "C1", "Expenses");
+workbook.GetCell(worksheetIndex, "D1", "Profit");
 
-``` csharp
+workbook.GetCell(worksheetIndex, "B2").Value = 120.0;
+workbook.GetCell(worksheetIndex, "C2").Value = 80.0;
+workbook.GetCell(worksheetIndex, "B3").Value = 150.0;
+workbook.GetCell(worksheetIndex, "C3").Value = 95.0;
+workbook.GetCell(worksheetIndex, "B4").Value = 135.0;
+workbook.GetCell(worksheetIndex, "C4").Value = 110.0;
 
-using (var presentation = new Presentation())
+var profit1 = workbook.GetCell(worksheetIndex, "D2");
+var profit2 = workbook.GetCell(worksheetIndex, "D3");
+var profit3 = workbook.GetCell(worksheetIndex, "D4");
 
-{
+profit1.Formula = "B2-C2";
+profit2.Formula = "B3-C3";
+profit3.Formula = "B4-C4";
 
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 150, 150, 500, 300);
-
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-
-    // ...
-
-}
-
-```
-
-ให้เขียนค่าบางอย่างลงในเซลล์ด้วยคุณสมบัติ 
-[**IChartDataCell.Value**](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdatacell/properties/value) 
-ของชนิด **Object** ซึ่งหมายความว่าคุณสามารถกำหนดค่าใด ๆ ให้กับคุณสมบัตินี้ได้ :
-
-``` csharp
-
-workbook.GetCell(0, "F2").Value = -2.5;
-
-workbook.GetCell(0, "G3").Value = 6.3;
-
-workbook.GetCell(0, "H4").Value = 3;
-
-```
-
-ต่อไปเพื่อเขียนสูตรลงในเซลล์ คุณสามารถใช้คุณสมบัติ 
-[**IChartDataCell.Formula**](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdatacell/properties/formula) :
-
-``` csharp
-workbook.GetCell(0, "B2").Formula = "F2+G3+H4+1";
-```
-
-*หมายเหตุ*: คุณสมบัติ [**IChartDataCell.Formula**](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdatacell/properties/formula) ใช้ตั้งการอ้างอิงเซลล์แบบ A1‑style .
-
-เพื่อกำหนดการอ้างอิงเซลล์ [R1C1Formula](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdatacell/properties/r1c1formula) ให้ใช้คุณสมบัติ [**IChartDataCell.R1C1Formula**](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdatacell/properties/r1c1formula) :
-
-``` csharp
-workbook.GetCell(0, "C2").R1C1Formula = "R[1]C[4]/R[2]C[5]";
-```
-
-จากนั้นใช้เมธอด [**IChartDataWorkbook.CalculateFormulas**](https://reference.aspose.com/slides/th/net/aspose.slides.charts/chartdataworkbook/methods/calculateformulas) เพื่อคำนวณสูตรทั้งหมดภายใน workbook และอัปเดตค่าของเซลล์ที่สอดคล้องกัน :
-
-``` csharp
 workbook.CalculateFormulas();
 
-object value1 = workbook.GetCell(0, "B2"); // 7.8
+var q1Profit = Convert.ToDouble(profit1.Value); // 40
+var q2Profit = Convert.ToDouble(profit2.Value); // 55
+var q3Profit = Convert.ToDouble(profit3.Value); // 25
 
-object value2 = workbook.GetCell(0, "C2"); // 2.1
+Console.WriteLine($"Q1 profit: {q1Profit}");
+Console.WriteLine($"Q2 profit: {q2Profit}");
+Console.WriteLine($"Q3 profit: {q3Profit}");
 
+chart.ChartData.Categories.Add(category1);
+chart.ChartData.Categories.Add(category2);
+chart.ChartData.Categories.Add(category3);
+
+var profitSeries = chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, "D1"), chart.Type);
+profitSeries.DataPoints.AddDataPointForBarSeries(profit1);
+profitSeries.DataPoints.AddDataPointForBarSeries(profit2);
+profitSeries.DataPoints.AddDataPointForBarSeries(profit3);
+profitSeries.Labels.DefaultDataLabelFormat.ShowValue = true;
+
+presentation.Save("chart-formulas.pptx", SaveFormat.Pptx);
 ```
 
-## **ค่าคงที่ตรรกะ**
-คุณสามารถใช้ค่าคงที่ตรรกะเช่น *FALSE* และ *TRUE* ในสูตรของเซลล์ได้ :
+จุดข้อมูลของแผนภูมิอ้างอิง `D2:D4` ดังนั้นแผนภูมิใช้ค่ากำไรที่คำนวนแล้ว ไม่ต้องเรียกเมธอดรีเฟรชแผนภูมิแยกต่างหากในกระบวนการนี้: คำนวนเวิร์กชีตก่อน แล้วจึงใช้หรือบันทึกข้อมูลแผนภูมิที่ชี้ไปยังเซลล์ที่คำนวนแล้ว
 
-## **ค่าคงที่เชิงตัวเลข**
-สามารถใช้ตัวเลขในรูปแบบทั่วไปหรือแบบวิทยาศาสตร์เพื่อสร้างสูตรสเปรดชีตแผนภูมิได้ :
+## **ใช้สูตรแบบ A1‑Style**
 
-## **ค่าคงที่สตริง**
-ค่าคงที่สตริง (หรือ literal) คือค่าที่ใช้ตามที่เป็นและไม่เปลี่ยนแปลง ค่าคงที่สตริงอาจเป็น: วันที่, ข้อความ, ตัวเลข ฯลฯ :
+การเขียนแบบ A1 ระบุคอลัมน์ด้วยตัวอักษรและแถวด้วยตัวเลข กำหนดนิพจน์แบบ A1 ผ่าน [IChartDataCell.Formula](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdatacell/formula/)  
 
-## **ค่าคงที่ข้อผิดพลาด**
-บางครั้งสูตรไม่สามารถคำนวณผลลัพธ์ได้ ในกรณีนั้นรหัสข้อผิดพลาดจะแสดงในเซลล์แทนค่าของมัน แต่ละประเภทของข้อผิดพลาดมีรหัสเฉพาะ:
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
 
-- #DIV/0! – สูตรพยายามหารด้วยศูนย์
-- #GETTING_DATA – อาจแสดงในเซลล์ขณะที่ค่ากำลังคำนวณอยู่
-- #N/A – ข้อมูลหายหรือไม่มีอยู่ ตัวอย่างเช่น เซลล์ที่ใช้ในสูตรว่างเปล่า, มีอักขระช่องว่างเพิ่มเติม, พิมพ์ผิด ฯลฯ
-- #NAME? – ไม่พบเซลล์หรือวัตถุสูตรอื่นตามชื่อ
-- #NULL! – เกิดเมื่อสูตรมีข้อผิดพลาด เช่น (,) หรือใช้ช่องว่างแทนเครื่องหมายโคลอน (:)
-- #NUM! – ตัวเลขในสูตรอาจไม่ถูกต้อง, ยาวเกินไปหรือสั้นเกินไป ฯลฯ
-- #REF! – การอ้างอิงเซลล์ไม่ถูกต้อง
-- #VALUE! – ชนิดค่าที่ไม่คาดคิด เช่น ค่าสตริงถูกตั้งให้กับเซลล์ตัวเลข
+using var presentation = new Presentation();
 
-## **ตัวดำเนินการคณิตศาสตร์**
-คุณสามารถใช้ตัวดำเนินการคณิตศาสตร์ทั้งหมดในสูตรแผ่นงานแผนภูมิได้ :
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+var workbook = chart.ChartData.ChartDataWorkbook;
 
-|**ตัวดำเนินการ**|**ความหมาย**|**ตัวอย่าง**|
-| :- | :- | :- |
-|+ (เครื่องหมายบวก)|การบวกหรือบวกเชิงยูเนอรี|2 + 3|
-|- (เครื่องหมายลบ)|การลบหรือการปฏิเสธ|2 - 3<br>-3|
-|* (ดอกจัน)|การคูณ|2 * 3|
-|/ (เส้นทแยง)|การหาร|2 / 3|
-|% (เปอร์เซ็นต์)|เปอร์เซ็นต์|30%|
-|^ (เครื่องหมาย caret)|ยกกำลัง|2 ^ 3|
+workbook.GetCell(0, "C3").Value = 10;
+workbook.GetCell(0, "F2").Value = 2;
+workbook.GetCell(0, "G2").Value = 3;
+workbook.GetCell(0, "H2").Value = 4;
 
-*หมายเหตุ*: หากต้องการเปลี่ยนลำดับการประเมิน ให้ใส่วงเล็บล้อมส่วนของสูตรที่ต้องคำนวณก่อน
+var cell = workbook.GetCell(0, "A2");
+cell.Formula = "C3+SUM(F2:H2)";
 
-## **ตัวดำเนินการเปรียบเทียบ**
-คุณสามารถเปรียบเทียบค่าของเซลล์ด้วยตัวดำเนินการเปรียบเทียบได้ เมื่อเปรียบเทียบสองค่าโดยใช้ตัวดำเนินการเหล่านี้ ผลลัพธ์จะเป็นค่าตรรกะ *TRUE* หรือ FALSE :
+workbook.CalculateFormulas();
 
-|**ตัวดำเนินการ**|**ความหมาย**|**ตัวอย่าง**|
-| :- | :- | :- |
-|= (เครื่องหมายเท่ากับ)|เท่ากับ|A2 = 3|
-|<> (เครื่องหมายไม่เท่ากับ)|ไม่เท่ากับ|A2 <> 3|
-|> (เครื่องหมายมากกว่า)|มากกว่า|A2 > 3|
-|>= (เครื่องหมายมากกว่าหรือเท่ากับ)|มากกว่าหรือเท่ากับ|A2 >= 3|
-|< (เครื่องหมายน้อยกว่า)|น้อยกว่า|A2 < 3|
-|<= (เครื่องหมายน้อยกว่าหรือเท่ากับ)|น้อยกว่าหรือเท่ากับ|A2 <= 3|
+var value = cell.Value; // 19
+```
 
-## **การอ้างอิงเซลล์แบบ A1‑style**
-**การอ้างอิงเซลล์แบบ A1‑style** ใช้กับแผ่นงานที่คอลัมน์มีตัวอักษรระบุ (เช่น "*A*") และแถวมีตัวเลขระบุ (เช่น "*1*") การอ้างอิงแบบ A1‑style สามารถใช้ได้ดังนี้ :
+รูปแบบการอ้างอิงแบบ A1 ที่พบบ่อยคือ:
 
-|**การอ้างอิงเซลล์**|**ตัวอย่าง**| | |
-| :- | :- | :- | :- |
-| |Absolute|Relative|Mixed|
-|Cell|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|Row|$2:$2|2:2|-|
-|Column|$A:$A|A:A|-|
-|Range|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
+| อ้างอิง | สัมพัทธ์ | เชิงอัตตา | ผสม |
+|---|---|---|---|
+| เซลล์ | `A2` | `$A$2` | `A$2`, `$A2` |
+| แถว | `2:2` | `$2:$2` | — |
+| คอลัมน์ | `A:A` | `$A:$A` | — |
+| ช่วง | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-ต่อไปเป็นตัวอย่างการใช้การอ้างอิงเซลล์แบบ A1‑style ในสูตร :
+การอ้างอิงสัมพัทธ์อาจเปลี่ยนเมื่อสูตรถูกย้ายหรือคัดลอกโดยแอปพลิเคชันสเปรดชีต การอ้างอิงเชิงอัตตาจะคงพิกัดทั้งสองคงที่ ส่วนการอ้างอิงผสมจะคงแค่แถวหรือคอลัมน์หนึ่งเท่านั้น
 
-## **การอ้างอิงเซลล์แบบ R1C1‑style**
-**การอ้างอิงเซลล์แบบ R1C1‑style** ใช้กับแผ่นงานที่ทั้งแถวและคอลัมน์มีตัวเลขระบุ การอ้างอิงแบบ R1C1‑style สามารถใช้ได้ดังนี้ :
+## **ใช้สูตรแบบ R1C1‑Style**
 
-|**การอ้างอิงเซลล์**|**ตัวอย่าง**| | |
-| :- | :- | :- | :- |
-| |Absolute|Relative|Mixed|
-|Cell|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Row|R2|R[2]|-|
-|Column|C3|C[3]|-|
-|Range|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
+การเขียนแบบ R1C1 ระบุทั้งแถวและคอลัมน์เป็นตัวเลข การอ้างอิงสัมพัทธ์ใช้การเลื่อนในวงเล็บเหลี่ยม กำหนดไวยากรณ์นี้ผ่าน [IChartDataCell.R1C1Formula](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdatacell/r1c1formula/)  
 
-ต่อไปเป็นตัวอย่างการใช้การอ้างอิงเซลล์แบบ R1C1‑style ในสูตร :
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
 
-## **ฟังก์ชันที่กำหนดล่วงหน้า**
-มีฟังก์ชันที่กำหนดล่วงหน้า ซึ่งสามารถใช้ในสูตรเพื่อทำให้การใช้งานง่ายขึ้น ฟังก์ชันเหล่านี้สรุปการทำงานที่ใช้บ่อยที่สุด เช่น :
+using var presentation = new Presentation();
 
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (ระบบวันที่ 1900)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (รูปแบบอ้างอิง)
-- LOOKUP (รูปแบบเวกเตอร์)
-- MATCH (รูปแบบเวกเตอร์)
-- MAX
-- SUM
-- VLOOKUP
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+var workbook = chart.ChartData.ChartDataWorkbook;
+
+workbook.GetCell(0, "B2").Value = 12;
+workbook.GetCell(0, "C2").Value = 5;
+
+var cell = workbook.GetCell(0, "D2");
+cell.R1C1Formula = "RC[-2]-RC[-1]";
+
+workbook.CalculateFormulas();
+
+var value = cell.Value; // 7
+```
+
+รูปแบบการอ้างอิงแบบ R1C1 ที่พบบ่อยคือ:
+
+| อ้างอิง | สัมพัทธ์ | เชิงอัตตา | ผสม |
+|---|---|---|---|
+| เซลล์ | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| แถว | `R[2]` | `R2` | — |
+| คอลัมน์ | `C[3]` | `C3` | — |
+| ช่วง | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+
+เช่น ในเซลล์ `D2` คำว่า `RC[-2]` หมายถึงเซลล์ที่อยู่ในแถวเดียวกันสองคอลัมน์ทางซ้าย (`B2`)
+
+## **คอนสแตนต์และตัวดำเนินการของสูตร**
+
+เครื่องประเมินสูตรในตัวสนับสนุนค่าตรรกะ, ลิตเทรัลเชิงตัวเลข, สตริง, ค่าข้อผิดพลาดของสเปรดชีต, ตัวดำเนินการคณิตศาสตร์และตัวดำเนินการเปรียบเทียบ
+
+### **คอนสแตนต์และลิตเทรัล**
+
+| ประเภท | ตัวอย่าง | หมายเหตุ |
+|---|---|---|
+| ตรรกะ | `TRUE`, `FALSE` | สามารถใช้โดยตรงในนิพจน์ตรรกะ เช่น `A2=TRUE` |
+| จำนวน | `1`, `0.5`, `.3`, `1E-2` | รองรับรูปแบบทั่วไปและรูปแบบวิทยาศาสตร์ |
+| สตริง | `"abc"`, `"2/3/2020 12:00"` | ลิตเทรัลข้อความต้องอยู่ในเครื่องหมายอัญประกาศคู่ภายในสูตร |
+| ผลลัพธ์ข้อผิดพลาด | `#DIV/0!`, `#N/A`, `#REF!` | สูตรที่ถูกต้องอาจประเมินเป็นค่าข้อผิดพลาดของสเปรดชีตแทนผลลัพธ์ปกติ |
+
+ตัวอย่างนี้ใช้คอนสแตนต์หลายประเภท:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+using var presentation = new Presentation();
+
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+var workbook = chart.ChartData.ChartDataWorkbook;
+
+workbook.GetCell(0, "A2").Value = false;
+workbook.GetCell(0, "B2").Formula = "A2=TRUE";
+workbook.GetCell(0, "C2").Formula = "1+0.5";
+workbook.GetCell(0, "D2").Formula = ".3*1E-2";
+workbook.GetCell(0, "E2").Formula = "\"abc\"";
+workbook.GetCell(0, "F2").Formula = "2/0";
+
+workbook.CalculateFormulas();
+
+var logicalValue = workbook.GetCell(0, "B2").Value; // เท็จ
+var numericValue = workbook.GetCell(0, "C2").Value; // 1.5
+var scientificValue = workbook.GetCell(0, "D2").Value; // 0.003
+var stringValue = workbook.GetCell(0, "E2").Value; // abc
+var errorValue = workbook.GetCell(0, "F2").Value; // #DIV/0!
+```
+
+### **ตัวดำเนินการคณิตศาสตร์**
+
+| ตัวดำเนินการ | ความหมาย | ตัวอย่าง |
+|---|---|---|
+| `+` | การบวกหรือบวกเชิงเอกภาพ | `2+3` |
+| `-` | การลบหรือการลบเชิงเอกภาพ | `2-3`, `-3` |
+| `*` | การคูณ | `2*3` |
+| `/` | การหาร | `2/3` |
+| `%` | เปอร์เซ็นต์ | `30%` |
+| `^` | ยกกำลัง | `2^3` |
+
+ใช้วงเล็บเพื่อกำหนดลำดับการประเมินอย่างชัดเจน เช่น `(A2+B2)*C2`
+
+### **ตัวดำเนินการเปรียบเทียบ**
+
+นิพจน์เปรียบเทียบจะคืนค่าตรรกะ
+
+| ตัวดำเนินการ | ความหมาย | ตัวอย่าง |
+|---|---|---|
+| `=` | เท่ากับ | `A2=3` |
+| `<>` | ไม่เท่ากับ | `A2<>3` |
+| `>` | มากกว่า | `A2>3` |
+| `>=` | มากกว่าหรือเท่ากับ | `A2>=3` |
+| `<` | น้อยกว่า | `A2<3` |
+| `<=` | น้อยกว่าหรือเท่ากับ | `A2<=3` |
+
+## **ฟังก์ชันที่กำหนดไว้ล่วงหน้าที่รองรับ**
+
+Aspose.Slides มีเครื่องประเมินสูตรในตัวสำหรับเวิร์กชีตของแผนภูมิ แต่ไม่ได้เป็นเอนจินคำนวน Excel เต็มรูปแบบ ชุดฟังก์ชันที่เอกสารอ้างอิงมีเพียงฟังก์ชันต่อไปนี้ ไม่ควรสันนิษฐานว่าฟังก์ชัน Excel ใด ๆ สามารถคำนวนใหม่ด้วย [CalculateFormulas](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) ได้
+
+| ฟังก์ชัน | วัตถุประสงค์หรือรูปแบบที่รองรับ | ตัวอย่าง |
+|---|---|---|
+| `ABS` | ค่าต absoluto | `ABS(A2)` |
+| `AVERAGE` | ค่าเฉลี่ยเลขคณิต | `AVERAGE(B2:B5)` |
+| `CEILING` | ปัดขึ้นเป็นหลายเท่า | `CEILING(A2,5)` |
+| `CHOOSE` | เลือกค่าตามดัชนี | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | รวมข้อความ | `CONCAT(A2,B2)` |
+| `CONCATENATE` | รวมข้อความ | `CONCATENATE(A2," ",B2)` |
+| `DATE` | สร้างค่าที่เป็นวันที่โดยใช้ระบบวันที่ 1900 | `DATE(2026,8,19)` |
+| `DAYS` | คืนจำนวนวันระหว่างวันที่ | `DAYS(B2,A2)` |
+| `FIND` | ค้นหาข้อความหนึ่งในอีกข้อความ | `FIND("-",A2)` |
+| `FINDB` | ค้นหาข้อความแบบไบต์ | `FINDB("a",A2)` |
+| `IF` | ผลลัพธ์ตามเงื่อนไข | `IF(A2>0,A2,0)` |
+| `INDEX` | รูปแบบการอ้างอิง | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | รูปแบบเวกเตอร์ | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | รูปแบบเวกเตอร์ | `MATCH(A2,B2:B5,0)` |
+| `MAX` | ค่าสูงสุด | `MAX(B2:B5)` |
+| `SUM` | ผลรวม | `SUM(B2:B5)` |
+| `VLOOKUP` | ค้นหาแนวตั้ง | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+
+ข้อจำกัดที่แสดงในตารางมีนัยสำคัญ: `INDEX` ระบุในรูปแบบการอ้างอิง ส่วน `LOOKUP` และ `MATCH` ระบุในรูปแบบเวกเตอร์ `DATE` ใช้ระบบวันที่ 1900 ฟังก์ชันและคุณลักษณะที่ไม่ได้ระบุในที่นี้ควรถือว่าไม่รองรับโดยเครื่องประเมินสูตรของ Aspose.Slides เว้นแต่จะมีเอกสารแยกต่างหาก
+
+## **การคำนวนใหม่และค่าที่แคชไว้**
+
+ไฟล์สเปรดชีตมักจะเก็บทั้งสูตรและค่าที่คำนวนล่าสุด Aspose.Slides จึงสามารถอ่านค่าที่แคชจาก [IChartDataCell.Value](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdatacell/value/) เมื่อโหลดงานนำเสนอและข้อมูลแผนภูมิที่เกี่ยวข้องยังไม่ได้เปลี่ยน
+
+หลังจากเปลี่ยนเซลล์อินพุตหรือสูตร อย่าอ้างอิงผลลัพธ์ที่แคชเก่า ให้เรียก [IChartDataWorkbook.CalculateFormulas](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) ก่อนอ่านค่าที่คำนวนหรือบันทึกข้อมูลแผนภูมิที่ขึ้นกับค่านั้น
+
+สำหรับสูตรที่อยู่นอกชุดที่สนับสนุน Aspose.Slides อาจไม่สามารถพาร์สสูตรหรือกำหนดการพึ่งพาได้ หากเวิร์กชีตถูกแก้ไข ค่าที่แคชไว้เดิมจะไม่ถือว่าเชื่อถือได้ ในสถานการณ์นั้น การอ่านค่าของเซลล์ที่มีข้อมูลไม่สนับสนุนอาจทำให้เกิด [CellUnsupportedDataException](https://reference.aspose.com/slides/th/net/aspose.slides.spreadsheet/cellunsupporteddataexception/)
+
+หากแผนภูมิของคุณพึ่งพาฟังก์ชัน Excel ที่ Aspose.Slides ไม่ประเมิน ให้คำนวนสูตรเหล่านั้นด้วยเอนจินสเปรดชีตที่สนับสนุนและเขียนค่าที่ได้กลับไปยัง chart workbook อย่าทดแทนสูตรที่ไม่สนับสนุนด้วยค่าที่คาดเดา
+
+## **จัดการข้อผิดพลาดของสูตร**
+
+มีสองประเภทของปัญหาที่ต้องแยกแยะ
+
+สูตรอาจถูกต้องแต่ให้ผลลัพธ์เป็นค่าข้อผิดพลาดของสเปรดชีต เช่น `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!`, หรือ `#VALUE!` ในกรณีนี้ โทเค็นข้อผิดพลาดคือผลลัพธ์ของเซลล์และสามารถคืนค่าผ่าน `Value` ได้
+
+สูตรอาจล้มเหลวที่ระดับการพาร์ส, การอ้างอิง, การพึ่งพา หรือระดับข้อมูลที่สนับสนุน Aspose.Slides มีข้อยกเว้นเฉพาะสเปรดชีตสำหรับกรณีเหล่านี้: [CellInvalidFormulaException](https://reference.aspose.com/slides/th/net/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/th/net/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/th/net/aspose.slides.spreadsheet/cellcircularreferenceexception/), และ [CellUnsupportedDataException](https://reference.aspose.com/slides/th/net/aspose.slides.spreadsheet/cellunsupporteddataexception/)
+
+เมื่อสูตรมาจากเทมเพลตหรือการป้อนข้อมูลโดยผู้ใช้ ให้จัดการข้อยกเว้นเหล่านี้รอบการคำนวนใหม่และการเข้าถึงค่า:
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Spreadsheet;
+
+using var presentation = new Presentation();
+
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+var workbook = chart.ChartData.ChartDataWorkbook;
+var cell = workbook.GetCell(0, "A2");
+cell.Formula = "SUM(B2:B5)";
+
+try
+{
+    workbook.CalculateFormulas();
+    Console.WriteLine(cell.Value);
+}
+catch (CellInvalidFormulaException ex)
+{
+    Console.Error.WriteLine($"Invalid formula: {ex.Message}");
+}
+catch (CellInvalidReferenceException ex)
+{
+    Console.Error.WriteLine($"Invalid cell reference: {ex.Message}");
+}
+catch (CellCircularReferenceException ex)
+{
+    Console.Error.WriteLine($"Circular reference: {ex.Message}");
+}
+catch (CellUnsupportedDataException ex)
+{
+    Console.Error.WriteLine($"Unsupported spreadsheet data: {ex.Message}");
+}
+```
+
+## **ข้อจำกัดเชิงปฏิบัติ**
+
+การสนับสนุนสูตรในเวิร์กชีตของแผนภูมิมีเจตนาจำกัดไว้สำหรับชุดย่อยของการคำนวนสเปรดชีต ไม่ใช่การเข้ากันได้เต็มรูปแบบกับ Excel คำนึงถึงข้อจำกัดเหล่านี้เมื่อนำไปใช้ในกระบวนการรายงาน:
+
+- ใช้เฉพาะคอนสแตนต์, ตัวดำเนินการ, การอ้างอิงและฟังก์ชันที่ระบุในเอกสารเมื่อคุณต้องการให้ Aspose.Slides คำนวนสูตรใหม่
+- คำนวนใหม่หลังจากเปลี่ยนเซลล์ที่สูตรอิงถึง
+- ให้ถือว่าค่าแคชจากงานนำเสนอที่โหลดเป็นภาพสแนปช็อต ไม่ใช่การทดแทนการคำนวนใหม่หลังแก้ไข
+- ทดสอบสูตรจากเทมเพลตที่มีอยู่ก่อนพึ่งพาค่าที่คำนวนแล้ว โดยเฉพาะอย่างยิ่งเมื่อใช้ฟังก์ชันที่อยู่นอกรายการที่ระบุ
+- สำหรับสูตรที่ต้องการเอนจินคำนวนสเปรดชีตเต็มรูปแบบ ให้คำนวนสูตรนั้นภายนอกแล้วอัปเดตค่าใน chart workbook
 
 ## **คำถามที่พบบ่อย**
 
-**ไฟล์ Excel ภายนอกรองรับเป็นแหล่งข้อมูลสำหรับแผนภูมิที่มีสูตรหรือไม่?**
+**ความแตกต่างระหว่าง `Formula` กับ `R1C1Formula` คืออะไร?**
 
-ใช่ Aspose.Slides รองรับเวิร์กบุ๊กภายนอกเป็น [แหล่งข้อมูลของแผนภูมิ](https://reference.aspose.com/slides/th/net/aspose.slides.charts/chartdatasourcetype/) ซึ่งทำให้คุณใช้สูตรจากไฟล์ XLSX นอกงานนำเสนอได้
+[Formula](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdatacell/formula/) เก็บนิพจน์แบบ A1‑style เช่น `B2-C2` ส่วน [R1C1Formula](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdatacell/r1c1formula/) เก็บนิพจน์แบบ R1C1‑style เช่น `RC[-2]-RC[-1]` ใช้รูปแบบที่ตรงกับวิธีที่คุณสร้างหรือคัดลอกสูตร
 
-**สูตรแผนภูมิสามารถอ้างอิงชีตภายในเวิร์กบุ๊กเดียวกันโดยใช้ชื่อชีตได้หรือไม่?**
+**หลังการคำนวนแล้ว ฉันต้องอ่านเซลล์เองหรือค่า (`Value`) ของมัน?**
 
-ได้ สูตรทำตามโมเดลการอ้างอิงของ Excel มาตรฐาน ดังนั้นคุณสามารถอ้างอิงชีตอื่นในเวิร์กบุ๊กเดียวกันหรือเวิร์กบุ๊กภายนอกได้ สำหรับการอ้างอิงภายนอก ให้รวมพาธและชื่อเวิร์กบุ๊กโดยใช้ไวยากรณ์ของ Excel
+[IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdataworkbook/getcell/) คืนค่า `IChartDataCell` เพื่อนำผลลัพธ์ที่คำนวนแล้วให้อ่านคุณสมบัติ [Value](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdatacell/value/) ของเซลล์นั้นหลังการคำนวนใหม่
+
+**ควรเรียก `CalculateFormulas` เมื่อใด?**
+
+เรียก [CalculateFormulas](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) หลังจากเปลี่ยนค่าข้อมูลเข้าหรือสูตรและก่อนที่คุณจะพึ่งพาผลลัพธ์ที่คำนวน นี่จะอัปเดตค่าของสูตรที่เครื่องประเมินในตัวรองรับ
+
+**Aspose.Slides รองรับฟังก์ชัน Excel ทุกตัวหรือไม่?**
+
+ไม่ เครื่องประเมินในตัวรองรับเพียงชุดฟังก์ชันที่ระบุไว้ในเอกสาร ฟังก์ชันที่อยู่นอกชุดนั้นไม่ควรสันนิษฐานว่าจะคำนวนได้อย่างถูกต้อง หากต้องการความเข้ากันได้เต็มรูปแบบของสูตร Excel ให้ใช้เอนจินสเปรดชีตที่เหมาะสมแล้วเขียนค่าผลลัพธ์สุดท้ายไปยัง chart workbook
+
+**ถ้างานนำเสนอที่โหลดมามีสูตรที่ไม่สนับสนุนจะเกิดอะไรขึ้น?**
+
+หากข้อมูลแผนภูมิไม่ได้เปลี่ยน ค่าแคชที่คำนวนไว้ก่อนหน้าอาจยังคงอยู่ หลังจากข้อมูลที่เกี่ยวข้องถูกแก้ไข ค่าแคชอาจไม่ถูกต้องอีกต่อไป การเข้าถึงเซลล์ที่สูตรไม่สามารถจัดการได้อาจทำให้เกิด [CellUnsupportedDataException](https://reference.aspose.com/slides/th/net/aspose.slides.spreadsheet/cellunsupporteddataexception/)
+
+**ค่าข้อผิดพลาดของสูตรเป็นเช่นเดียวกับข้อยกเว้นของ .NET หรือไม่?**
+
+ไม่ ค่าผลลัพธ์เช่น `#DIV/0!` เป็นค่าของสเปรดชีตที่ได้จากการคำนวนที่ถูกต้อง ส่วนข้อยกเว้นเช่น [CellInvalidFormulaException](https://reference.aspose.com/slides/th/net/aspose.slides.spreadsheet/cellinvalidformulaexception/) หรือ [CellCircularReferenceException](https://reference.aspose.com/slides/th/net/aspose.slides.spreadsheet/cellcircularreferenceexception/) แสดงว่าระบบไม่สามารถประมวลผลสูตรได้ตามปกติ
+
+**แผนภูมิจะอัปเดตโดยอัตโนมัติเมื่อสูตรในเซลล์เปลี่ยนหรือไม่?**
+
+ชุดข้อมูลของแผนภูมิสามารถอ้างอิงเซลล์ในเวิร์กชีตได้ ให้คำนวนเวิร์กชีตก่อน จากนั้นบันทึกหรือเรนเดอร์งานนำเสนอ ถ้าจุดข้อมูลของแผนภูมิอ้างอิงเซลล์ที่คำนวนแล้ว แผนภูมิจะใช้ค่าที่อัปเดตนั้นโดยไม่ต้องเรียกเมธอดรีเฟรชแผนภูมิแยกต่างหาก
+
+**แผนภูมิสามารถใช้เวิร์กบุ๊ก Excel ภายนอกได้หรือไม่?**
+
+ได้ ข้อมูลแผนภูมิสามารถกำหนดให้ใช้เวิร์กบุ๊กภายนอกผ่าน API ของ chart data อย่างไรก็ตาม ขั้นตอนการคำนวนสูตรที่อธิบายในบทความนี้เกี่ยวกับ chart data workbook และชุดสูตรที่ Aspose.Slides ประเมิน ไม่ควรสันนิษฐานว่า [CalculateFormulas](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) ให้การคำนวนเต็มรูปแบบของสูตรใด ๆ ในไฟล์ XLSX ภายนอก
+
+**ฉันสามารถใช้สูตรที่อ้างอิงเวิร์กชีตหรือเวิร์กบุ๊กอื่นได้หรือไม่?**
+
+การอ้างอิงสไตล์ Excel อาจปรากฏใน chart workbook แต่การประเมินสูตรจะจำกัดโดยพาร์สเซอร์และชุดฟังก์ชันที่สนับสนุน หากการอ้างอิงข้ามชีตหรือภายนอกเป็นสิ่งจำเป็น ให้ตรวจสอบสูตรนั้นกับเวอร์ชัน Aspose.Slides ที่คุณใช้ สำหรับกระบวนการที่ต้องการความเข้ากันได้ของการอ้างอิง Excel อย่างกว้าง คำนวนเวิร์กบุ๊กภายนอกแล้วเขียนค่าที่แก้ไขแล้วกลับไปยังข้อมูลแผนภูมิ
+
+**สูตรควรเริ่มด้วยเครื่องหมาย `=` หรือไม่?**
+
+ตัวอย่าง API ของ Aspose.Slides กำหนดนิพจน์เช่น `B2-C2` หรือ `SUM(B2:B5)` โดยไม่มีเครื่องหมาย `=` นำรูปแบบนั้นไปใช้จะทำให้สูตรที่สร้างสอดคลากับตัวอย่าง API ที่ระบุ**
