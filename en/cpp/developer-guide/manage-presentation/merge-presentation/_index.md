@@ -19,211 +19,151 @@ keywords:
 - combine ODP
 - C++
 - Aspose.Slides
-description: "Effortlessly merge PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations with Aspose.Slides for C++, streamlining your workflow."
+description: "Learn how to merge PowerPoint and OpenDocument presentations in C++ by cloning slides, controlling masters and layouts, resizing slide content, preserving sections, and handling protected or large files."
 ---
 
 ## **Overview**
 
-Aspose.Slides allows you to merge presentations by cloning slides from one presentation into another. This article explains how to merge entire presentations or selected slides, use a slide master or a specific layout during the merge, handle presentations with different slide sizes, and add merged slides to a presentation section. It also covers practical notes related to merged content, including speaker notes, comments, password-protected source files, and thread usage.
+Aspose.Slides for C++ merges presentations by cloning slides from one [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) into another. The main operation is [ISlideCollection::AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/), which can preserve the source slide's formatting or attach the cloned slide to a master or layout in the destination presentation.
 
-## **Presentation Merging**
+This article covers the most common merging workflows:
 
-When you merge one presentation to another, you are effectively combining their slides in a single presentation to obtain one file. 
+- merge all slides while preserving their source formatting;
+- merge selected slides;
+- apply a master from the destination presentation;
+- apply a specific layout from the destination presentation;
+- normalize different slide sizes before merging;
+- add cloned slides to a section;
+- merge several presentations in one end-to-end workflow;
+- handle masters, resources, notes, comments, media, fonts, passwords, large files, and multithreading concerns.
 
-{{% alert title="Info" color="info" %}}
+## **How Slide Cloning Affects Masters and Layouts**
 
-Most presentation programs (PowerPoint or OpenOffice) lack functions that allow users to combine presentations in such manner. 
+A slide inherits much of its appearance from its layout and master. For that reason, the cloning overload you choose determines how the merged slide is integrated into the destination presentation.
 
-[**Aspose.Slides for C++**](https://products.aspose.com/slides/cpp/) , however, allows you merge to presentations in different ways. You get to merge presentations with all their shapes, styles, texts, formatting, comments, animations, etc. without having to worry about loss of quality or data. 
+Use [ISlideCollection::AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) in one of these ways:
 
-**See also**
+- `AddClone(sourceSlide)` — preserve the source slide's layout and formatting. When required, the source master can be cloned into the destination presentation automatically. Aspose.Slides tracks automatically cloned masters so repeated slides that use the same source master do not cause that master to be cloned repeatedly.
+- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — attach the cloned slide to a specific destination [IMasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslide/). Aspose.Slides looks for a matching layout under that master by layout type or name.
+- `AddClone(sourceSlide, destinationLayout)` — attach the cloned slide directly to a specific destination [ILayoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutslide/).
 
-[Clone Slides](https://docs.aspose.com/slides/cpp/clone-slides/)*.* 
+The master or layout passed to an `AddClone` overload must belong to the **destination** presentation, not the source presentation.
 
-{{% /alert %}}
+## **Merge Entire Presentations and Preserve Source Formatting**
 
-### **What Can Be Merged**
-
-With Aspose.Slides, you can merge 
-
-* entire presentations. All the slides from the presentations end up in one presentation
-* specific slides. Selected slides end up in one presentation
-* presentations in one format (PPT to PPT, PPTX to PPTX, etc) and in different formats (PPT to PPTX, PPTX to ODP, etc) to one another. 
-
-{{% alert title="Note" color="warning" %}} 
-
-Besides presentations, Aspose.Slides allows you to merge other files:
-
-* [Images](https://products.aspose.com/slides/cpp/merger/image-to-image/), such as [JPG to JPG](https://products.aspose.com/slides/cpp/merger/jpg-to-jpg/) or [PNG to PNG](https://products.aspose.com/slides/cpp/merger/png-to-png/)
-* Documents, such as [PDF to PDF](https://products.aspose.com/slides/cpp/merger/pdf-to-pdf/) or [HTML to HTML](https://products.aspose.com/slides/cpp/merger/html-to-html/)
-* And two different files such as [image to PDF](https://products.aspose.com/slides/cpp/merger/image-to-pdf/) or [JPG to PDF](https://products.aspose.com/slides/cpp/merger/jpg-to-pdf/) or [TIFF to PDF](https://products.aspose.com/slides/cpp/merger/tiff-to-pdf/).
-
-{{% /alert %}}
-
-### **Merging Options**
-
-You can apply options that determine whether
-
-* each slide in the output presentation retains a unique style
-* a specific style is used for all the slides in the output presentation. 
-
-To merge presentations, Aspose.Slides provides [AddClone](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) methods (from the [ISlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection) interface). There are several implementations of the `AddClone` methods that define the presentation merging process parameters. Every Presentation object has a [Slides](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c) collection, so you can call a `AddClone` method from the presentation to which you want to merge slides. 
-
-The `AddClone` method returns an `ISlide` object, which is a clone of the source slide. The slides in an output presentation are simply a copy of the slides from the source. Therefore, you can make changes the resulting slides (for example, apply styles or formatting options or layouts) without worrying about the source presentations becoming affected. 
-
-## **Merge Presentations** 
-
-Aspose.Slides provides the [**AddClone (ISlide)**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) method that allows you to combine slides while the slides retain their layouts and styles (default parameters). 
-
-This C++ code shows you how to merge presentations:
+The simplest merge copies every slide from the source presentation to the destination presentation. This is the appropriate choice when the imported slides should keep their original theme, master, and layout relationships.
 
 ```cpp
 #include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+for (const auto& slide : source->get_Slides())
 {
-    pres1->get_Slides()->AddClone(slide);
+    destination->get_Slides()->AddClone(slide);
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+destination->Save(u"merged.pptx", SaveFormat::Pptx);
 ```
 
-## **Merge Presentations with a Slide Master**
+The resulting presentation may contain multiple masters when the source and destination use different designs. This is expected when source formatting is intentionally preserved.
 
-Aspose.Slides provides the [**AddClone (ISlide, IMasterSlide, bool)**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a6b040e6b30f52ab4644fafdbc650b640) method that allows you to combine slides while applying a slide master presentation template. This way, if necessary, you get to change the style for slides in the output presentation. 
+## **Merge Selected Slides**
 
-This code in C++ demonstrates the described operation:
+You do not have to clone every slide. The following example imports only selected slide indexes from the source presentation.
 
 ```cpp
-#include <DOM/IMasterSlideCollection.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+int32_t slideIndexes[] = {0, 2, 4};
+
+for (auto index : slideIndexes)
 {
-    pres1->get_Slides()->AddClone(slide, pres2->get_Masters()->idx_get(0), true);
+    destination->get_Slides()->AddClone(source->get_Slide(index));
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+destination->Save(u"merged-selected-slides.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert title="Note" color="warning" %}} 
+Validate slide indexes before cloning when they come from user input or external configuration.
 
-The slide layout for the slide master is determined automatically. When an appropriate layout can't be determined, if the `allowCloneMissingLayout` boolean parameter of the `AddClone` method is set to true, the layout for the source slide is used. Otherwise, [PptxEditException](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d) will be thrown. 
+## **Merge Slides Using a Destination Master**
 
-{{% /alert %}}
+Use the [AddClone(ISlide, IMasterSlide, bool)](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) overload when imported slides should follow a master that already belongs to the destination presentation.
 
-If you want the slides in the output presentation to have a different slide layout, use the [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0ed5909b2d92555159007046760ff2f1) method instead when merging. 
+```cpp
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 
-## **Merge Specific Slides from Presentations**
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-Merging specific slides from multiple presentations is useful for creating custom slide decks. Aspose.Slides C++ allows you to select and import only the slides you need. The API preserves formatting, layout, and design of the original slides.
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
 
-The following C++ code creates a new presentation, adds title slides from two other presentations, and saves the result to a file:
+auto destinationMaster = destination->get_Master(0);
+
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide, destinationMaster, true);
+}
+
+destination->Save(u"merged-with-destination-master.pptx", SaveFormat::Pptx);
+```
+
+Aspose.Slides selects an appropriate layout under the specified master by matching the source layout's type or name. If no suitable layout exists and `allowCloneMissingLayout` is `true`, the source layout is cloned so the slide can be added. If it is `false`, a [PptxEditException](https://reference.aspose.com/slides/cpp/aspose.slides/details_pptxeditexception/) is thrown.
+
+Use `false` when you want the merge to fail instead of introducing an additional layout into the destination master.
+
+## **Merge Slides Using a Specific Destination Layout**
+
+Use the [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) overload when you know exactly which destination layout the imported slides should use.
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
-#include <DOM/IPresentation.h>
-#include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/SlideLayoutType.h>
-#include <system/smart_ptr.h>
-using namespace Aspose::Slides;
-using namespace System;
-
-SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation)
-{
-    for (auto&& slide : presentation->get_Slides())
-    {
-        if (slide->get_LayoutSlide()->get_LayoutType() == SlideLayoutType::Title)
-        {
-            return slide;
-        }
-    }
-    return nullptr;
-}
-```
-```cpp
-#include <DOM/IPresentation.h>
-#include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
-#include <system/smart_ptr.h>
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
-using namespace System;
 
-// Declared in the code above.
-SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation);
-
-auto presentation = MakeObject<Presentation>();
-auto presentation1 = MakeObject<Presentation>(u"presentation1.pptx");
-auto presentation2 = MakeObject<Presentation>(u"presentation2.pptx");
-
-presentation->get_Slides()->RemoveAt(0);
-
-auto slide1 = GetTitleSlide(presentation1);
-
-if (slide1 != nullptr)
-    presentation->get_Slides()->AddClone(slide1);
-
-auto slide2 = GetTitleSlide(presentation2);
-
-if (slide2 != nullptr)
-    presentation->get_Slides()->AddClone(slide2);
-
-presentation->Save(u"combined.pptx", SaveFormat::Pptx);
-
-presentation2->Dispose();
-presentation1->Dispose();
-presentation->Dispose();
-```
-
-## **Merge Presentations with a Slide Layout**
-
-This C++ code shows you how to combine slides from presentations while applying your preferred slide layout to them to get one output presentation:
-
-```cpp
-#include <DOM/IGlobalLayoutSlideCollection.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/Presentation.h>
-#include <Export/SaveFormat.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto destinationLayout = destination->get_LayoutSlide(0);
+
+for (const auto& slide : source->get_Slides())
 {
-    pres1->get_Slides()->AddClone(slide, pres2->get_LayoutSlides()->idx_get(0));
+    destination->get_Slides()->AddClone(slide, destinationLayout);
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+destination->Save(u"merged-with-destination-layout.pptx", SaveFormat::Pptx);
 ```
+
+Applying a destination layout changes the inherited layout relationship; it does not redesign the source slide content. If the source and destination layouts have different placeholder structures, inspect the result to confirm that the inherited formatting and placeholder behavior are appropriate.
 
 ## **Merge Presentations with Different Slide Sizes**
 
-{{% alert title="Note" color="warning" %}} 
+Presentations with different slide dimensions can be merged, but cloning a slide into a presentation with another slide size does not automatically redesign its content for the new canvas. Shapes may therefore appear shifted, scaled unexpectedly, or outside the visible slide area.
 
-You cannot merge presentations with different slide sizes. 
-
-{{% /alert %}}
-
-To merge 2 presentations with different slide sizes, you have to resize one of the presentations to make its size match that of the other presentation. 
-
-This sample code demonstrates the described operation:
+A practical approach is to resize the source presentation before cloning. The [SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/) method can scale existing content while changing the slide dimensions. [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/cpp/aspose.slides/slidesizescaletype/) scales content to fit within the requested size.
 
 ```cpp
 #include <DOM/ISlideCollection.h>
@@ -232,68 +172,212 @@ This sample code demonstrates the described operation:
 #include <DOM/SlideSizeScaleType.h>
 #include <Export/SaveFormat.h>
 #include <drawing/size_f.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres1Size = pres1->get_SlideSize()->get_Size();
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
 
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-pres2->get_SlideSize()->SetSize(pres1Size.get_Width(), pres1Size.get_Height(), SlideSizeScaleType::EnsureFit);
+auto destinationSize = destination->get_SlideSize()->get_Size();
+auto sourceSize = source->get_SlideSize()->get_Size();
 
-for (const auto& slide : pres2->get_Slides())
+if (sourceSize.get_Width() != destinationSize.get_Width() || 
+    sourceSize.get_Height() != destinationSize.get_Height())
 {
-    pres1->get_Slides()->AddClone(slide);
+    source->get_SlideSize()->SetSize(
+        destinationSize.get_Width(), 
+        destinationSize.get_Height(), 
+        SlideSizeScaleType::EnsureFit);
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide);
+}
+
+destination->Save(u"merged-same-slide-size.pptx", SaveFormat::Pptx);
 ```
 
-## **Merge Slides to a Presentation Section**
+Resizing changes the source presentation object in memory. If you need the original source presentation unchanged for other operations, open a separate instance for the merge.
 
-This C++ code shows you how to merge a specific slide to a section in a presentation:
+## **Merge Slides into a Presentation Section**
+
+The basic slide-cloning loop does not recreate the source presentation's section hierarchy. If sections matter in the output, create or select sections in the destination presentation and clone slides into them explicitly with [AddClone(ISlide, ISection)](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/).
 
 ```cpp
 #include <DOM/ISectionCollection.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (int32_t index = 0; index < pres2->get_Slides()->get_Count(); index++)
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto importedSection = destination->get_Sections()->AppendEmptySection(u"Imported slides");
+
+for (const auto& slide : source->get_Slides())
 {
-    auto slide = pres2->get_Slides()->idx_get(index);
-    pres1->get_Slides()->AddClone(slide, pres1->get_Sections()->idx_get(0));
+    destination->get_Slides()->AddClone(slide, importedSection);
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+destination->Save(u"merged-with-section.pptx", SaveFormat::Pptx);
 ```
 
-The slide is added at the end of the section. 
+The cloned slides are appended to the specified destination section. To preserve several source sections, recreate those sections in the destination and map each source slide to the corresponding destination section.
 
-{{% alert title="Tip" color="info" %}}
+## **Merge Multiple Presentations Safely**
 
-Aspose provides a [FREE Collage web app](https://products.aspose.app/slides/collage). Using this online service, you can merge [JPG to JPG](https://products.aspose.app/slides/collage/jpg) or PNG to PNG images, create [photo grids](https://products.aspose.app/slides/collage/photo-grid), and so on. 
+The following end-to-end example uses the first presentation as the destination, normalizes the slide size of each additional source, keeps each source open only while it is being copied, and saves the final file once.
 
-{{% /alert %}}
+```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+System::String inputFiles[] = {u"part1.pptx", u"part2.pptx", u"part3.pptx"};
+const int32_t inputFileCount = 3;
+
+auto merged = System::MakeObject<Presentation>(inputFiles[0]);
+auto mergedSize = merged->get_SlideSize()->get_Size();
+
+for (int32_t fileIndex = 1; fileIndex < inputFileCount; fileIndex++)
+{
+    auto source = System::MakeObject<Presentation>(inputFiles[fileIndex]);
+    auto sourceSize = source->get_SlideSize()->get_Size();
+
+    if (sourceSize.get_Width() != mergedSize.get_Width() || 
+        sourceSize.get_Height() != mergedSize.get_Height())
+    {
+        source->get_SlideSize()->SetSize(
+            mergedSize.get_Width(), 
+            mergedSize.get_Height(), 
+            SlideSizeScaleType::EnsureFit);
+    }
+
+    for (const auto& slide : source->get_Slides())
+    {
+        merged->get_Slides()->AddClone(slide);
+    }
+}
+
+merged->Save(u"merged.pptx", SaveFormat::Pptx);
+```
+
+This is a useful baseline for preserving the source formatting of imported slides. If your output must use a single destination theme, replace the simple `AddClone(slide)` call with the appropriate destination-master or destination-layout overload shown earlier.
+
+## **Practical Considerations**
+
+### **Masters, Layouts, and Formatting Fidelity**
+
+Default slide cloning can automatically bring a required source master into the destination presentation. Aspose.Slides keeps an internal registry for automatically cloned masters to avoid cloning the same master repeatedly. Manually cloned masters are not tracked by that registry, so avoid pre-cloning masters unless you need explicit control over the master structure.
+
+Do not assume that two masters or layouts with the same name are visually equivalent. If a corporate template must control the final appearance, choose a destination master or layout explicitly and verify the result after merging.
+
+### **Notes and Comments**
+
+Speaker notes and slide comments are associated with slide content and are copied when a slide is cloned. Aspose.Slides also exposes dedicated APIs for [presentation notes](https://docs.aspose.com/slides/cpp/presentation-notes/) and [presentation comments](https://docs.aspose.com/slides/cpp/presentation-comments/).
+
+If notes-page formatting is important, verify the merged presentation because notes masters are presentation-level objects and may differ between source files. For review workflows, also verify comment authors and threaded comments after combining files from different authors or templates.
+
+### **Images, Audio, Video, OLE Objects, and External Links**
+
+Slides can reference presentation-level resources such as images, embedded audio, embedded video, and OLE data. Clone the slide itself rather than copying only its visible shapes so Aspose.Slides can maintain the slide's relationships to its resources.
+
+Embedded and linked resources should be treated differently. A linked audio, video, OLE object, or hyperlink remains dependent on its external target; cloning a slide does not turn an external link into embedded content. Test linked-resource paths and URLs in the environment where the merged presentation will be opened.
+
+Aspose.Slides explicitly tracks automatically cloned masters, but this should not be treated as a general guarantee that identical binary resources from unrelated source presentations will always be deduplicated. If output file size is important, inspect the merged package and measure the result instead of relying on implicit deduplication.
+
+### **Embedded Fonts and Font Availability**
+
+Fonts are managed at the presentation level. If typography must remain consistent across machines, do not assume that cloning slides alone guarantees that every required font is available in the destination environment. You can inspect embedded fonts with [FontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/getembeddedfonts/) and manage embedding explicitly as described in [Embed Fonts in Presentations](https://docs.aspose.com/slides/cpp/embedded-font/).
+
+Also verify that you are permitted to embed the fonts used by the source files. Font licenses can restrict embedding.
+
+### **Password-Protected Presentations**
+
+A password-protected source must be opened successfully before its slides can be cloned. Supply the password through [LoadOptions::set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/).
+
+```cpp
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+
+using namespace Aspose::Slides;
+
+auto loadOptions = System::MakeObject<LoadOptions>();
+loadOptions->set_Password(u"YOUR_PASSWORD");
+
+auto source = System::MakeObject<Presentation>(u"protected.pptx", loadOptions);
+```
+
+Opening an encrypted source does not automatically apply the same protection to the destination presentation. Configure output protection separately when required.
+
+### **Large Presentations and Memory Use**
+
+Large presentations containing high-resolution images, audio, video, or other large binary objects can consume significant memory. [LoadOptions::set_BlobManagementOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_blobmanagementoptions/) provides controls for BLOB handling and temporary-file usage. See [Manage Presentation BLOBs](https://docs.aspose.com/slides/cpp/manage-blob/) for large-file strategies.
+
+For large files, prefer loading from file paths when possible, dispose each source presentation as soon as it has been merged, and avoid repeatedly saving intermediate results unless the workflow requires checkpoints.
+
+### **Thread Safety**
+
+Do not load, modify, save, or clone the same [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) instance concurrently from multiple threads. Keep each presentation instance confined to one merge operation. If you parallelize independent jobs, use independent presentation instances and follow the [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/cpp/multithreading/).
 
 ## **FAQ**
 
-### Are speaker notes preserved during merge?
+**How do I keep each source presentation's original design?**
 
-Yes. When cloning slides, Aspose.Slides carries over all slide elements, including notes, formatting, and animations.
+Use [`AddClone(sourceSlide)`](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) without supplying a destination master or layout. Aspose.Slides can automatically clone the source master when it is needed by the imported slide.
 
-### Are comments and their authors transferred?
+**How do I make imported slides use the destination theme?**
 
-Comments, as part of slide content, are copied with the slide. Comment author labels are preserved as comment objects in the resulting presentation.
+Use the overload that accepts a destination master. Pass a master from the destination presentation, not from the source. Aspose.Slides will try to map each source slide to an appropriate layout under that master.
 
-### What if the source presentation is password-protected?
+**When should I use a specific destination layout instead of a destination master?**
 
-It must be [opened with the password](/slides/cpp/password-protected-presentation/) via [LoadOptions::set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/); after loading, those slides can be safely cloned into an unprotected target file (or a protected one as well).
+Use a specific layout when every imported slide should use one known layout. Use a master when you want Aspose.Slides to select among that master's layouts based on the source layout type or name.
 
-### How thread-safe is the merge operation?
+**Can presentations with different slide sizes be merged?**
 
-Do not use the same [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) instance from [multiple threads](/slides/cpp/multithreading/). The recommended rule is "one document — one thread"; different files can be processed in parallel in separate threads.
+Yes, but slide content is not automatically redesigned for the destination dimensions. Resize the source presentation first when you need predictable placement, for example with [SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/) and [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/cpp/aspose.slides/slidesizescaletype/).
+
+
+**Can I merge PPT, PPTX, and ODP presentations into one file?**
+
+Yes. Load each source presentation, clone the required slides into one destination, and save the destination in a supported output format. Because presentation formats do not support exactly the same feature set, verify complex content after cross-format merges. See [Supported File Formats](https://docs.aspose.com/slides/cpp/supported-file-formats/).
+
+**Are source sections preserved automatically?**
+
+Not by a basic loop that only clones slides. Recreate the required sections in the destination and use the section overload of [AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) when section structure must be preserved.
+
+**Are speaker notes and comments preserved?**
+
+They are copied with the cloned slide. For workflows that depend on notes-master styling, comment authors, or threaded review data, verify the merged result because those scenarios involve presentation-level structures as well as slide-level content.
+
+**What happens to audio, video, OLE objects, and hyperlinks?**
+
+Embedded content is carried as part of the cloned slide's resource relationships. External links remain external, so their target files or URLs must still be available after the merge.
+
+**Are embedded fonts from every source guaranteed to be available in the merged presentation?**
+
+Do not rely on slide cloning alone for font deployment. Inspect the destination's embedded fonts and explicitly manage font embedding or external font availability when typography is important.
+
+**How do I merge a password-protected file?**
+
+Open it with the correct [LoadOptions::set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/), then clone its slides normally. Output protection is configured separately.
+
+**How should I handle very large presentations?**
+
+Use BLOB management when large binary objects dominate memory usage, prefer file-path loading for very large files, dispose source presentations promptly, and save the final result only when needed.
+
+**Can I merge slides from multiple threads?**
+
+Do not use one [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) instance concurrently from multiple threads. Keep each merge operation isolated to its own presentation instances.
