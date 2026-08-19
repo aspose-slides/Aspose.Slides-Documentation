@@ -19,257 +19,390 @@ keywords:
 - συνδυασμός ODP
 - PHP
 - Aspose.Slides
-description: "Συγχωνεύστε εύκολα παρουσιάσεις PowerPoint (PPT, PPTX) και OpenDocument (ODP) με το Aspose.Slides για PHP μέσω Java, βελτιώνοντας τη ροή εργασίας σας."
+description: "Μάθετε πώς να συγχωνεύετε παρουσιάσεις PowerPoint και OpenDocument σε PHP κλωνοποιώντας διαφάνειες, ελέγχοντας master και διατάξεις, αλλάζοντας το μέγεθος του περιεχομένου των διαφανειών, διατηρώντας ενότητες και διαχειριζόμενοι προστατευμένα ή μεγάλα αρχεία."
 ---
 ## **Επισκόπηση**
 
-Aspose.Slides σάς επιτρέπει να συγχωνεύετε παρουσιάσεις κλωνοποιώντας διαφάνειες από μία παρουσίαση σε άλλη. Αυτό το άρθρο εξηγεί πώς να συγχωνεύετε ολόκληρες παρουσιάσεις ή επιλεγμένες διαφάνειες, να χρησιμοποιείτε κύριο πρότυπο διαφάνειας ή μια συγκεκριμένη διάταξη κατά τη συγχώνευση, πώς να διαχειρίζεστε παρουσιάσεις με διαφορετικά μεγέθη διαφάνειας και πώς να προσθέτετε τις συγχωνευμένες διαφάνειες σε ενότητα παρουσίασης. Καλύπτει επίσης πρακτικές σημειώσεις σχετικά με το συγχωνευμένο περιεχόμενο, όπως σημειώσεις ομιλητή, σχόλια, αρχεία πηγής με κωδικό πρόσβασης και χρήση νήματος.
+Το Aspose.Slides for PHP μέσω Java συγχωνεύει παρουσιάσεις κλωνοποιώντας διαφάνειες από μία [Παρουσίαση](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) σε άλλη. Η κύρια λειτουργία είναι [SlideCollection::addClone()](https://reference.aspose.com/slides/el/php-java/aspose.slides/slidecollection/addclone/), η οποία μπορεί να διατηρήσει τη μορφοποίηση της διαφάνειας προέλευσης ή να συνημάνει τη κλωνοποιημένη διαφάνεια σε ένα master ή layout στην παρουσίαση προορισμού.
 
-## **Συγχώνευση Παρουσιάσεων**
+Αυτό το άρθρο καλύπτει τις πιο συνηθισμένες ροές συγχώνευσης:
 
-Όταν συγχωνεύετε μία παρουσίαση με άλλη, συνδυάζετε ουσιαστικά τις διαφάνειές τους σε μία ενιαία παρουσίαση για να δημιουργήσετε ένα αρχείο.
+- συγχώνευση όλων των διαφανειών διατηρώντας τη μορφοποίηση της προέλευσης·  
+- συγχώνευση επιλεγμένων διαφανειών·  
+- εφαρμογή master από την παρουσίαση προορισμού·  
+- εφαρμογή συγκεκριμένης διάταξης από την παρουσίαση προορισμού·  
+- κανονικοποίηση διαφορετικών μεγεθών διαφάνειας πριν τη συγχώνευση·  
+- προσθήκη κλωνοποιημένων διαφανειών σε ενότητα·  
+- συγχώνευση πολλαπλών παρουσιάσεων σε μία ολοκληρωμένη ροή εργασίας·  
+- διαχείριση master, πόρων, σημειώσεων, σχολίων, πολυμέσων, γραμματοσειρών, κωδικών πρόσβασης, μεγάλων αρχείων και θεμάτων πολυνηματικότητας.
 
-{{% alert title="Info" color="info" %}}
-Οι περισσότερες εφαρμογές παρουσιάσεων (PowerPoint ή OpenOffice) δεν διαθέτουν λειτουργίες που επιτρέπουν στους χρήστες να συνδυάζουν παρουσιάσεις με αυτόν τον τρόπο.
-{{% /alert %}}
+## **Πώς η κλωνοποίηση διαφανειών επηρεάζει τα Master και τις Διατάξεις**
 
-[**Aspose.Slides for PHP via Java**](https://products.aspose.com/slides/el/php-java/), όμως, σας επιτρέπει να συγχωνεύετε παρουσιάσεις με διάφορους τρόπους. Μπορείτε να συγχωνεύσετε παρουσιάσεις με όλα τα σχήματά τους, στυλ, κείμενα, μορφοποίηση, σχόλια, κινούμενα στοιχεία κ.λπ., χωρίς να ανησυχείτε για απώλεια ποιότητας ή δεδομένων.
+Μια διαφάνεια κληρονομεί μεγάλο μέρος της εμφάνισής της από τη διάταξη και το master της. Για αυτόν τον λόγο, η παραλλαγή κλωνοποίησης που επιλέγετε καθορίζει πώς η συγχωνευμένη διαφάνεια ενσωματώνεται στην παρουσίαση προορισμού.
 
-**Δείτε επίσης**
+Χρησιμοποιήστε το [SlideCollection::addClone()](https://reference.aspose.com/slides/el/php-java/aspose.slides/slidecollection/addclone/) με έναν από τους παρακάτω τρόπους:
 
-[Αντιγραφή Διαφανειών](/slides/el/php-java/clone-slides/).
+- `addClone(sourceSlide)` — διατηρεί τη διάταξη και τη μορφοποίηση της διαφάνειας προέλευσης. Εάν απαιτηθεί, το master της προέλευσης μπορεί να κλωνοποιηθεί αυτόματα στην παρουσίαση προορισμού. Το Aspose.Slides παρακολουθεί αυτόματα κλωνοποιημένα master ώστε οι επαναλαμβανόμενες διαφάνειες που χρησιμοποιούν το ίδιο master προέλευσης να μην κλωνοποιούν το master επανειλημμένα.  
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — συνημάνει τη κλωνοποιημένη διαφάνεια σε ένα συγκεκριμένο [MasterSlide](https://reference.aspose.com/slides/el/php-java/aspose.slides/masterslide/). Το Aspose.Slides ψάχνει για αντίστοιχη διάταξη υπό αυτό το master βάσει τύπου ή ονόματος διάταξης.  
+- `addClone(sourceSlide, destinationLayout)` — συνημάνει τη κλωνοποιημένη διαφάνεια απευθείας σε μια συγκεκριμένη [LayoutSlide](https://reference.aspose.com/slides/el/php-java/aspose.slides/layoutslide/).
 
-### **Τι μπορεί να συγχωνευτεί**
+Το master ή η διάταξη που περνιούνται σε μια υπερφόρτωση `addClone` πρέπει να ανήκει στην **προορισμού** παρουσίαση, όχι στην παρουσίαση προέλευσης.
 
-Με το Aspose.Slides, μπορείτε να συγχωνεύετε 
+## **Συγχώνευση Ολόκληρων Παρουσιάσεων και Διατήρηση Μορφοποίησης Προέλευσης**
 
-* ολόκληρες παρουσιάσεις. Όλες οι διαφάνειες από τις παρουσιάσεις καταλήγουν σε μία παρουσίαση
-* συγκεκριμένες διαφάνειες. Οι επιλεγμένες διαφάνειες καταλήγουν σε μία παρουσίαση
-* παρουσιάσεις σε μία μορφή (PPT σε PPT, PPTX σε PPTX κ.λπ.) και σε διαφορετικές μορφές (PPT σε PPTX, PPTX σε ODP κ.λπ.) μεταξύ τους. 
-
-{{% alert title="Note" color="warning" %}} 
-Εκτός από παρουσιάσεις, το Aspose.Slides σας επιτρέπει να συγχωνεύετε και άλλα αρχεία:
-
-* [Εικόνες](https://products.aspose.com/slides/el/php-java/merger/image-to-image/), όπως [JPG to JPG](https://products.aspose.com/slides/el/php-java/merger/jpg-to-jpg/) ή [PNG to PNG](https://products.aspose.com/slides/el/php-java/merger/png-to-png/)
-* Έγγραφα, όπως [PDF to PDF](https://products.aspose.com/slides/el/php-java/merger/pdf-to-pdf/) ή [HTML to HTML](https://products.aspose.com/slides/el/php-java/merger/html-to-html/)
-* Και δύο διαφορετικά αρχεία, όπως [image to PDF](https://products.aspose.com/slides/el/php-java/merger/image-to-pdf/), [JPG to PDF](https://products.aspose.com/slides/el/php-java/merger/jpg-to-pdf/) ή [TIFF to PDF](https://products.aspose.com/slides/el/php-java/merger/tiff-to-pdf/).
-{{% /alert %}}
-
-### **Επιλογές Συγχώνευσης**
-
-Μπορείτε να εφαρμόσετε επιλογές που καθορίζουν εάν
-
-* κάθε διαφάνεια στην τελική παρουσίαση διατηρεί ένα μοναδικό στυλ
-* ένα συγκεκριμένο στυλ χρησιμοποιείται για όλες τις διαφάνειες στην τελική παρουσίαση. 
-
-Για να συγχωνεύσετε παρουσιάσεις, το Aspose.Slides παρέχει μεθόδους [addClone](https://reference.aspose.com/slides/el/php-java/aspose.slides/slidecollection/addclone/) (από την κλάση [SlideCollection](https://reference.aspose.com/slides/el/php-java/aspose.slides/slidecollection/)). Υπάρχουν πολλές υλοποιήσεις των μεθόδων `addClone` που ορίζουν τις παραμέτρους της διαδικασίας συγχώνευσης παρουσίασης. Κάθε αντικείμενο Presentation έχει μια συλλογή [slide](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/getslides/), έτσι μπορείτε να καλέσετε μια μέθοδο `addClone` από την παρουσίαση στην οποία θέλετε να συγχωνεύσετε διαφάνειες.
-
-Η μέθοδος `addClone` επιστρέφει ένα αντικείμενο `Slide`, το οποίο είναι κλώνος της πηγαίας διαφάνειας. Οι διαφάνειες στην έξοδο είναι απλώς αντίγραφο των διαφανειών της πηγής. Επομένως, μπορείτε να κάνετε αλλαγές στις προκύπτουσες διαφάνειες (π.χ. να εφαρμόσετε στυλ, επιλογές μορφοποίησης ή διατάξεις) χωρίς να ανησυχείτε για πιθανές επιπτώσεις στις πηγαίες παρουσιάσεις.
-
-## **Συγχώνευση Παρουσιάσεων** 
-
-Το Aspose.Slides παρέχει τη μέθοδο [addClone(Slide)](https://reference.aspose.com/slides/el/php-java/aspose.slides/slidecollection/addclone/) η οποία επιτρέπει το συνδυασμό διαφανειών ενώ αυτές διατηρούν τις διατάξεις και τα στυλ τους (προεπιλεγμένες παράμετροι).
-
-Αυτός ο κώδικας PHP δείχνει πώς να συγχωνεύσετε παρουσιάσεις:
+Η πιο απλή συγχώνευση αντιγράφει κάθε διαφάνεια από την παρουσίαση προέλευσης στην παρουσίαση προορισμού. Αυτή είναι η κατάλληλη επιλογή όταν οι εισαχθείσες διαφάνειες πρέπει να διατηρήσουν το αρχικό θέμα, το master και τις σχέσεις διάταξης.
 
 ```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
     try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide);
-      }
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide);
+        }
     } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
+        $source->dispose();
     }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
+
+    $destination->save("merged.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
 ```
 
-## **Συγχώνευση Παρουσιάσεων με Κύριο Πρότυπο Διαφάνειας** 
+Η προκύπτουσα παρουσίαση μπορεί να περιέχει πολλαπλά master όταν η προέλευση και ο προορισμός χρησιμοποιούν διαφορετικά σχέδια. Αυτό είναι αναμενόμενο όταν η μορφοποίηση της προέλευσης διατηρείται εσκεμμένα.
 
-Το Aspose.Slides παρέχει τη μέθοδο [addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/el/php-java/aspose.slides/slidecollection/addclone/) η οποία επιτρέπει το συνδυασμό διαφανειών εφαρμόζοντας ένα κύριο πρότυπο παρουσίασης. Με αυτόν τον τρόπο, αν χρειαστεί, μπορείτε να αλλάξετε το στυλ των διαφανειών στην τελική παρουσίαση.
+## **Συγχώνευση Επιλεγμένων Διαφανειών**
 
-Αυτός ο κώδικας παρουσιάζει τη λειτουργία:
+Δεν χρειάζεται να κλωνοποιήσετε κάθε διαφάνεια. Το παρακάτω παράδειγμα εισάγει μόνο τις επιλεγμένες θέσεις διαφάνειας από την παρουσίαση προέλευσης.
 
 ```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
     try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide, $pres2->getMasters()->get_Item(0), true);
-      }
+        $slideIndexes = [0, 2, 4];
+
+        foreach ($slideIndexes as $index) {
+            $destination->getSlides()->addClone($source->getSlides()->get_Item($index));
+        }
     } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
+        $source->dispose();
     }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
+
+    $destination->save("merged-selected-slides.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
 ```
 
-{{% alert title="Note" color="warning" %}} 
-Η διάταξη της διαφάνειας για το κύριο πρότυπο προσδιορίζεται αυτόματα. Όταν δεν μπορεί να προσδιοριστεί κατάλληλη διάταξη, εάν η λογική παράμετρος `allowCloneMissingLayout` της μεθόδου `addClone` οριστεί σε true, χρησιμοποιείται η διάταξη της πηγαίας διαφάνειας. Διαφορετικά, θα προκληθεί εξαίρεση [PptxEditException](https://reference.aspose.com/slides/el/php-java/aspose.slides/PptxEditException).
-{{% /alert %}}
+Επικυρώστε τις θέσεις διαφάνειας πριν την κλωνοποίηση όταν προέρχονται από είσοδο χρήστη ή εξωτερική διαμόρφωση.
 
-Αν θέλετε οι διαφάνειες στην έξοδο να έχουν διαφορετική διάταξη, χρησιμοποιήστε τη μέθοδο [addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/el/php-java/aspose.slides/slidecollection/addclone/) αντί αυτού κατά τη συγχώνευση.
+## **Συγχώνευση Διαφανειών Χρησιμοποιώντας Master Προορισμού**
 
-## **Συγχώνευση Συγκεκριμένων Διαφανειών από Παρουσιάσεις** 
-
-Η συγχώνευση συγκεκριμένων διαφανειών από πολλαπλές παρουσιάσεις είναι χρήσιμη για τη δημιουργία προσαρμοσμένων συλλογών διαφανειών. Το Aspose.Slides for PHP via Java σας επιτρέπει να επιλέγετε και να εισάγετε μόνο τις διαφάνειες που χρειάζεστε. Το API διατηρεί τη μορφοποίηση, τη διάταξη και το σχεδιασμό των αρχικών διαφανειών.
-
-Ο παρακάτω κώδικας PHP δημιουργεί μια νέα παρουσίαση, προσθέτει διαφάνειες τίτλου από δύο άλλες παρουσιάσεις και αποθηκεύει το αποτέλεσμα σε αρχείο:
+Χρησιμοποιήστε την υπερφόρτωση [addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/el/php-java/aspose.slides/slidecollection/addclone/) όταν οι εισαχθείσες διαφάνειες πρέπει να ακολουθούν ένα master που ήδη ανήκει στην παρουσίαση προορισμού.
 
 ```php
-function getTitleSlide(Presentation $presentation) {
-    for ($i = 0; $i < java_values($presentation->getSlides()->size()); $i++) {
-        $slide = $presentation->getSlides()->get_Item($i);
-        if (java_values($slide->getLayoutSlide()->getLayoutType()) === SlideLayoutType::Title) {
-            return $slide;
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
+    try {
+        $destinationMaster = $destination->getMasters()->get_Item(0);
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide, $destinationMaster, true);
+        }
+    } finally {
+        $source->dispose();
+    }
+
+    $destination->save("merged-with-destination-master.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
+```
+
+Το Aspose.Slides επιλέγει την κατάλληλη διάταξη κάτω από το καθορισμένο master ταιριάζοντας με τον τύπο ή το όνομα της διάταξης προέλευσης. Εάν δεν υπάρχει κατάλληλη διάταξη και το `allowCloneMissingLayout` είναι `true`, η διάταξη προέλευσης κλωνοποιείται ώστε η διαφάνεια να προστεθεί. Εάν είναι `false`, ρίχνεται μια [PptxEditException](https://reference.aspose.com/slides/el/php-java/aspose.slides/pptxeditexception/).
+
+Χρησιμοποιήστε `false` όταν θέλετε η συγχώνευση να αποτύχει αντί να εισάγει πρόσθετη διάταξη στο master προορισμού.
+
+## **Συγχώνευση Διαφανειών Χρησιμοποιώντας Συγκεκριμένη Διάταξη Προορισμού**
+
+Χρησιμοποιήστε την υπερφόρτωση [addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/el/php-java/aspose.slides/slidecollection/addclone/) όταν γνωρίζετε ακριβώς ποια διάταξη προορισμού πρέπει να χρησιμοποιούν οι εισαχθείσες διαφάνειες.
+
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
+    try {
+        $destinationLayout = $destination->getLayoutSlides()->get_Item(0);
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide, $destinationLayout);
+        }
+    } finally {
+        $source->dispose();
+    }
+
+    $destination->save("merged-with-destination-layout.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
+```
+
+Η εφαρμογή μιας διάταξης προορισμού αλλάζει τη σχέση κληρονομικής διάταξης· δεν επανασχεδιάζει το περιεχόμενο της διαφάνειας προέλευσης. Εάν οι διατάξεις προέλευσης και προορισμού έχουν διαφορετικές δομές placeholder, ελέγξτε το αποτέλεσμα για να βεβαιωθείτε ότι η κληρονομημένη μορφοποίηση και η συμπεριφορά placeholder είναι κατάλληλες.
+
+## **Συγχώνευση Παρουσιάσεων με Διαφορετικά Μεγέθη Διαφάνειας**
+
+Παρουσιάσεις με διαφορετικές διαστάσεις διαφάνειας μπορούν να συγχωνευτούν, αλλά η κλωνοποίηση μιας διαφάνειας σε μια παρουσίαση με διαφορετικό μέγεθος δεν επανασχεδιάζει αυτόματα το περιεχόμενό της για τον νέο καμβά. Τα σχήματα μπορεί να εμφανιστούν μετατοπισμένα, κλιμακωμένα απροσδόκητα ή εκτός του ορατού πεδίου διαφάνειας.
+
+Μια πρακτική προσέγγιση είναι να αλλάξετε το μέγεθος της παρουσίασης προέλευσης πριν την κλωνοποίηση. Η μέθοδος [SlideSize::setSize()](https://reference.aspose.com/slides/el/php-java/aspose.slides/slidesize/setsize/) μπορεί να κλιμακώσει το υπάρχον περιεχόμενο ενώ αλλάζει τις διαστάσεις της διαφάνειας. Το [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/el/php-java/aspose.slides/slidesizescaletype/) κλιμακώνει το περιεχόμενο ώστε να ταιριάζει στο ζητούμενο μέγεθος.
+
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideSizeScaleType;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
+    try {
+        $sourceWidth = java_values($source->getSlideSize()->getSize()->getWidth());
+        $sourceHeight = java_values($source->getSlideSize()->getSize()->getHeight());
+        $destinationWidth = java_values($destination->getSlideSize()->getSize()->getWidth());
+        $destinationHeight = java_values($destination->getSlideSize()->getSize()->getHeight());
+
+        if ($sourceWidth != $destinationWidth || $sourceHeight != $destinationHeight) {
+            $source->getSlideSize()->setSize($destinationWidth, $destinationHeight, SlideSizeScaleType::EnsureFit);
+        }
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide);
+        }
+    } finally {
+        $source->dispose();
+    }
+
+    $destination->save("merged-same-slide-size.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
+```
+
+Η αλλαγή μεγέθους τροποποιεί το αντικείμενο της παρουσίασης προέλευσης στη μνήμη. Εάν χρειάζεστε την αρχική παρουσίαση προέλευσης αμετάβλητη για άλλες λειτουργίες, ανοίξτε ένα ξεχωριστό αντίγραφο για τη συγχώνευση.
+
+## **Συγχώνευση Διαφανειών σε Ενότητα Παρουσίασης**
+
+Ο βασικός βρόχος κλωνοποίησης διαφανειών δεν αναδημιουργεί την ιεραρχία ενοτήτων της παρουσίασης προέλευσης. Εάν οι ενότητες έχουν σημασία στο τελικό αποτέλεσμα, δημιουργήστε ή επιλέξτε ενότητες στην παρουσίαση προορισμού και κλωνοποιήστε τις διαφάνειες σε αυτές ρητά με την [addClone(Slide, Section)](https://reference.aspose.com/slides/el/php-java/aspose.slides/slidecollection/addclone/).
+
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
+    try {
+        $importedSection = $destination->getSections()->appendEmptySection("Imported slides");
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide, $importedSection);
+        }
+    } finally {
+        $source->dispose();
+    }
+
+    $destination->save("merged-with-section.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
+```
+
+Οι κλωνοποιημένες διαφάνειες προσαρτώνται στην καθορισμένη ενότητα προορισμού. Για να διατηρήσετε πολλές ενότητες προέλευσης, δημιουργήστε ξανά αυτές τις ενότητες στον προορισμό και αντιστοιχίστε κάθε διαφάνεια προέλευσης στην αντίστοιχη ενότητα προορισμού.
+
+## **Ασφαλής Συγχώνευση Πολλαπλών Παρουσιάσεων**
+
+Το παρακάτω παράδειγμα end-to-end χρησιμοποιεί την πρώτη παρουσίαση ως προορισμό, κανονικοποιεί το μέγεθος διαφάνειας κάθε επιπλέον προέλευσης, κρατά κάθε προέλευση ανοιχτή μόνο όσο αντιγράφεται, και αποθηκεύει το τελικό αρχείο μία φορά.
+
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideSizeScaleType;
+
+$inputFiles = ["part1.pptx", "part2.pptx", "part3.pptx"];
+
+$merged = new Presentation($inputFiles[0]);
+try {
+    $mergedWidth = java_values($merged->getSlideSize()->getSize()->getWidth());
+    $mergedHeight = java_values($merged->getSlideSize()->getSize()->getHeight());
+
+    for ($fileIndex = 1; $fileIndex < count($inputFiles); $fileIndex++) {
+        $source = new Presentation($inputFiles[$fileIndex]);
+        try {
+            $sourceWidth = java_values($source->getSlideSize()->getSize()->getWidth());
+            $sourceHeight = java_values($source->getSlideSize()->getSize()->getHeight());
+
+            if ($sourceWidth != $mergedWidth || $sourceHeight != $mergedHeight) {
+                $source->getSlideSize()->setSize($mergedWidth, $mergedHeight, SlideSizeScaleType::EnsureFit);
+            }
+
+            foreach ($source->getSlides() as $slide) {
+                $merged->getSlides()->addClone($slide);
+            }
+        } finally {
+            $source->dispose();
         }
     }
-    return null;
-}
-```
-```php
-$presentation = new Presentation();
-$presentation1 = new Presentation($folderPath . "presentation1.pptx");
-$presentation2 = new Presentation($folderPath . "presentation2.pptx");
-try {
-    $presentation->getSlides()->removeAt(0);
-    
-    $slide1 = getTitleSlide($presentation1);
 
-    if ($slide1 != null)
-        $presentation->getSlides()->addClone($slide1);
-
-    $slide2 = getTitleSlide($presentation2);
-
-    if ($slide2 != null)
-        $presentation->getSlides()->addClone($slide2);
-
-    $presentation->save($folderPath . "combined.pptx", SaveFormat::Pptx);
+    $merged->save("merged.pptx", SaveFormat::Pptx);
 } finally {
-    $presentation2->dispose();
-    $presentation1->dispose();
-    $presentation->dispose();
+    $merged->dispose();
 }
 ```
 
-## **Συγχώνευση Παρουσιάσεων με Διάταξη Διαφάνειας** 
+Αυτό αποτελεί μία χρήσιμη βάση για τη διατήρηση της μορφοποίησης της προέλευσης των εισαχθέντων διαφανειών. Εάν η έξοδός σας πρέπει να χρησιμοποιεί ένα ενιαίο θέμα προορισμού, αντικαταστήστε την απλή κλήση `addClone($slide)` με την κατάλληλη υπερφόρτωση master ή layout προορισμού που εμφανίστηκε νωρίτερα.
 
-Αυτός ο κώδικας PHP δείχνει πώς να συνδυάσετε διαφάνειες από παρουσιάσεις εφαρμόζοντας την προτιμώμενη διάταξη διαφάνειας για να παραχθεί μία τελική παρουσίαση:
+## **Πρακτικές Παρατηρήσεις**
 
-```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
-    try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide, $pres2->getLayoutSlides()->get_Item(0));
-      }
-    } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
-    }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
-```
+### **Master, Διατάξεις και Πιστότητα Μορφοποίησης**
 
-## **Συγχώνευση Παρουσιάσεων με Διαφορετικά Μεγέθη Διαφανειών** 
+Η προεπιλεγμένη κλωνοποίηση διαφανειών μπορεί αυτόματα να φέρει ένα απαιτούμενο master προέλευσης στην παρουσίαση προορισμού. Το Aspose.Slides διατηρεί ένα εσωτερικό μητρώο για αυτόματα κλωνοποιημένα master ώστε να αποφεύγεται η επανειλημμένη κλωνοποίηση του ίδιου master. Τα χειροκίνητα κλωνοποιημένα master δεν παρακολουθούνται από αυτό το μητρώο, γι’ αυτό αποφύγετε την προ-κλωνοποίηση master εκτός εάν χρειάζεστε ρητό έλεγχο της δομής του master.
 
-{{% alert title="Note" color="warning" %}} 
-Δεν μπορείτε να συγχωνεύσετε παρουσιάσεις με διαφορετικά μεγέθη διαφανειών. 
-{{% /alert %}}
+Μην υποθέτετε ότι δύο master ή διατάξεις με το ίδιο όνομα είναι οπτικά ισοδύναμα. Εάν ένα εταιρικό πρότυπο πρέπει να ελέγχει την τελική εμφάνιση, επιλέξτε ρητά ένα master ή διάταξη προορισμού και επαληθεύστε το αποτέλεσμα μετά τη συγχώνευση.
 
-Για να συγχωνεύσετε 2 παρουσιάσεις με διαφορετικά μεγέθη διαφανειών, πρέπει να αλλάξετε το μέγεθος μιας από τις παρουσιάσεις ώστε να ταιριάζει με το μέγεθος της άλλης.
+### **Σημειώσεις και Σχόλια**
 
-Αυτό το δείγμα κώδικα δείχνει τη λειτουργία:
+Οι σημειώσεις ομιλητή και τα σχόλια διαφάνειας είναι συσχετισμένα με το περιεχόμενο της διαφάνειας και αντιγράφονται όταν η διαφάνεια κλωνοποιείται. Το Aspose.Slides παρέχει επίσης εξειδικευμένα APIs για [presentation notes](https://docs.aspose.com/slides/el/php-java/presentation-notes/) και [presentation comments](https://docs.aspose.com/slides/el/php-java/presentation-comments/).
 
-```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
-    try {
-      $pres2->getSlideSize()->setSize($pres1->getSlideSize()->getSize()->getWidth(), $pres1->getSlideSize()->getSize()->getHeight(), SlideSizeScaleType::EnsureFit);
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide);
-      }
-    } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
-    }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
-```
+Εάν η μορφοποίηση της σελίδας σημειώσεων είναι σημαντική, ελέγξτε τη συγχωνευμένη παρουσίαση επειδή τα notes master είναι αντικείμενα επιπέδου παρουσίασης και μπορεί να διαφέρουν μεταξύ των αρχείων προέλευσης. Για ροές ελέγχου, επαληθεύστε επίσης τους συγγραφείς σχολίων και τα νήματα σχολίων μετά το συνδυασμό αρχείων από διαφορετικούς συγγραφείς ή πρότυπα.
 
-## **Συγχώνευση Διαφανειών σε Ενότητα Παρουσίασης** 
+### **Εικόνες, Ήχος, Βίντεο, Αντικείμενα OLE και Εξωτερικοί Σύνδεσμοι**
 
-Αυτός ο κώδικας PHP δείχνει πώς να συγχωνεύσετε μια συγκεκριμένη διαφάνεια σε ενότητα παρουσίασης:
+Οι διαφάνειες μπορούν να αναφέρονται σε πόρους επιπέδου παρουσίασης όπως εικόνες, ενσωματωμένο ήχο, ενσωματωμένο βίντεο και δεδομένα OLE. Κλωνοποιήστε τη διαφάνεια ίδιαν αντί να αντιγράφετε μόνο τα ορατά σχήματα ώστε το Aspose.Slides να διατηρήσει τις σχέσεις της διαφάνειας με τους πόρους της.
+
+Οι ενσωματωμένοι και οι συνδεδεμένοι πόροι πρέπει να αντιμετωπίζονται διαφορετικά. Ένας συνδεδεμένος ήχος, βίντεο, αντικείμενο OLE ή υπερσύνδεσμος παραμένει εξαρτημένος από το εξωτερικό του στόχο· η κλωνοποίηση μιας διαφάνειας δεν μετατρέπει έναν εξωτερικό σύνδεσμο σε ενσωματωμένο περιεχόμενο. Δοκιμάστε τις διαδρομές των συνδεδεμένων πόρων και τα URLs στο περιβάλλον όπου θα ανοιχθεί η συγχωνευμένη παρουσίαση.
+
+Το Aspose.Slides παρακολουθεί ρητά αυτόματα κλωνοποιημένα master, αλλά αυτό δεν πρέπει να θεωρείται γενική εγγύηση ότι παρόμοιο δυαδικό περιεχόμενο από ανεξάρτητες παρουσιάσεις προέλευσης θα αφαιρεθεί πάντα. Εάν το μέγεθος του αρχείου εξόδου είναι σημαντικό, εξετάστε το συγχωνευμένο πακέτο και μετρήστε το αποτέλεσμα αντί να βασίζεστε στην εσωτερική αφαίρεση διπλοτύπων.
+
+### **Ενσωματωμένες Γραμματοσειρές και Διαθεσιμότητα Γραμματοσειρών**
+
+Οι γραμματοσειρές διαχειρίζονται σε επίπεδο παρουσίασης. Εάν η τυπογραφία πρέπει να παραμείνει συνεπής σε διαφορετικούς υπολογιστές, μην υποθέτετε ότι η κλωνοποίηση διαφανειών από μόνη της εγγυάται ότι κάθε απαιτούμενη γραμματοσειρά είναι διαθέσιμη στο περιβάλλον προορισμού. Μπορείτε να ελέγξετε τις ενσωματωμένες γραμματοσειρές με το [FontsManager::getEmbeddedFonts()](https://reference.aspose.com/slides/el/php-java/aspose.slides/fontsmanager/getembeddedfonts/) και να διαχειριστείτε την ενσωμάτωση ρητά όπως περιγράφεται στο [Embed Fonts in Presentations](https://docs.aspose.com/slides/el/php-java/embedded-font/).
+
+Επιβεβαιώστε επίσης ότι έχετε δικαίωμα ενσωμάτωσης των γραμματοσειρών που χρησιμοποιούνται στα αρχεία προέλευσης. Οι άδειες γραμματοσειρών μπορεί να περιορίζουν την ενσωμάτωση.
+
+### **Παρουσιάσεις με Προστασία Κωδικού**
+
+Μια πηγή προστατευμένη με κωδικό πρέπει να ανοίξει επιτυχώς πριν τις διαφάνειές της κλωνοποιήσετε. Παρέχετε τον κωδικό μέσω του [LoadOptions::setPassword()](https://reference.aspose.com/slides/el/php-java/aspose.slides/loadoptions/setpassword/).
 
 ```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
-    try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide, $pres1->getSections()->get_Item(0));
-      }
-    } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
-    }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("YOUR_PASSWORD");
+
+$source = new Presentation("protected.pptx", $loadOptions);
+try {
+    // Δουλέψτε με την αποκρυπτογραφημένη παρουσίαση.
+} finally {
+    $source->dispose();
+}
 ```
 
-Η διαφάνεια προστίθεται στο τέλος της ενότητας. 
+Το άνοιγμα μιας κρυπτογραφημένης πηγής δεν εφαρμόζει αυτόματα την ίδια προστασία στην παρουσίαση προορισμού. Ρυθμίστε την προστασία εξόδου ξεχωριστά όταν απαιτείται.
 
-## **Δείτε επίσης**
+### **Μεγάλες Παρουσιάσεις και Χρήση Μνήμης**
 
-Η Aspose παρέχει ένα [FREE Online Collage Maker](https://products.aspose.app/slides/el/collage). Χρησιμοποιώντας αυτήν την online υπηρεσία, μπορείτε να συγχωνεύσετε εικόνες [JPG to JPG](https://products.aspose.app/slides/el/collage/jpg) ή PNG σε PNG, να δημιουργήσετε [photo grids](https://products.aspose.app/slides/el/collage/photo-grid) και πολλά άλλα.
+Μεγάλες παρουσιάσεις που περιέχουν εικόνες υψηλής ανάλυσης, ήχο, βίντεο ή άλλα μεγάλα δυαδικά αντικείμενα μπορούν να καταναλώσουν σημαντική μνήμη. Το [LoadOptions::getBlobManagementOptions()](https://reference.aspose.com/slides/el/php-java/aspose.slides/loadoptions/getblobmanagementoptions/) παρέχει ελέγχους για τη διαχείριση BLOB και τη χρήση προσωρινών αρχείων. Δείτε το [Open Presentations](https://docs.aspose.com/slides/el/php-java/open-presentation/#open-large-presentations) για ένα παράδειγμα μεγάλου αρχείου PHP μέσω Java.
 
-Δείτε το [Aspose FREE Online Merger](https://products.aspose.app/slides/el/merger). Σας επιτρέπει να συγχωνεύσετε παρουσιάσεις PowerPoint στην ίδια μορφή (π.χ. PPT σε PPT, PPTX σε PPTX) ή μεταξύ διαφορετικών μορφών (π.χ. PPT σε PPTX, PPTX σε ODP).
+Για μεγάλα αρχεία, προτιμήστε τη φόρτωση από διαδρομές αρχείων όποτε είναι δυνατόν, απελευθερώστε κάθε παρουσίαση προέλευσης αμέσως μετά τη συγχώνευση και αποφύγετε την επανειλημμένη αποθήκευση ενδιάμεσων αποτελεσμάτων εκτός εάν η ροή εργασίας απαιτεί σημεία ελέγχου.
 
-[![Aspose FREE Online Merger](slides-merger.png)](https://products.aspose.app/slides/el/merger)
+### **Ασφάλεια Νημάτων**
+
+Μη φορτώνετε, τροποποιείτε, αποθηκεύετε ή κλωνοποιείτε αντικείμενα [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) σε πολλαπλά νήματα. Αυτές οι λειτουργίες δεν υποστηρίζονται για πολυνηματική χρήση σε PHP μέσω Java. Εάν χρειάζεστε παράλληλες εργασίες συγχώνευσης, τρέξτε τις σε ξεχωριστές διαδικασίες μονόνημα, με κάθε διαδικασία να χρησιμοποιεί τις δικές της παρουσίες παρουσίασης, και ακολουθήστε τις οδηγίες [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/el/php-java/multithreading/).
 
 ## **Συχνές Ερωτήσεις**
 
-**Υπάρχουν περιορισμοί στον αριθμό των διαφανειών όταν συγχωνεύετε παρουσιάσεις;**
+**Πώς μπορώ να διατηρήσω το αρχικό σχέδιο κάθε παρουσίασης προέλευσης;**
 
-Δεν υπάρχουν αυστηροί περιορισμοί. Το Aspose.Slides μπορεί να διαχειριστεί μεγάλα αρχεία, αλλά η απόδοση εξαρτάται από το μέγεθος και τους πόρους του συστήματος. Για πολύ μεγάλες παρουσιάσεις, συνιστάται η χρήση 64‑bit JVM και η εκχώρηση επαρκούς μνήμης heap.
+Χρησιμοποιήστε `addClone(sourceSlide)` χωρίς να παρέχετε master ή layout προορισμού. Το Aspose.Slides μπορεί αυτόματα να κλωνοποιήσει το master προέλευσης όταν χρειάζεται από την εισαχθείσα διαφάνεια.
 
-**Μπορώ να συγχωνεύσω παρουσιάσεις με ενσωματωμένο βίντεο ή ήχο;**
+**Πώς μπορώ να κάνω τις εισαχθείσες διαφάνειες να χρησιμοποιούν το θέμα του προορισμού;**
 
-Ναι, το Aspose.Slides διατηρεί το πολυμέσο περιεχόμενο που είναι ενσωματωμένο στις διαφάνειες, αλλά η τελική παρουσίαση μπορεί να γίνει σημαντικά μεγαλύτερη.
+Χρησιμοποιήστε την υπερφόρτωση που δέχεται ένα master προορισμού. Παρέχετε ένα master από την παρουσίαση προορισμού, όχι από την προέλευση. Το Aspose.Slides θα προσπαθήσει να αντιστοιχίσει κάθε διαφάνεια προέλευσης σε μια κατάλληλη διάταξη κάτω από αυτό το master.
 
-**Θα διατηρηθούν οι γραμματοσειρές κατά τη συγχώνευση παρουσιάσεων;**
+**Πότε πρέπει να χρησιμοποιήσω μια συγκεκριμένη διάταξη προορισμού αντί για ένα master προορισμού;**
 
-Ναι. Οι γραμματοσειρές που χρησιμοποιούνται στις πηγαίες παρουσιάσεις διατηρούνται στο αρχείο εξόδου, υπό την προϋπόθεση ότι είναι εγκατεστημένες στο σύστημα ή [ενσωματωμένες](/slides/el/php-java/embedded-font/).
+Χρησιμοποιήστε μια συγκεκριμένη διάταξη όταν κάθε εισαχθείσα διαφάνεια πρέπει να χρησιμοποιεί μια γνωστή διάταξη. Χρησιμοποιήστε master όταν θέλετε το Aspose.Slides να επιλέξει μεταξύ των διατάξεων του master βάσει του τύπου ή του ονόματος διάταξης προέλευσης.
+
+**Μπορούν οι παρουσιάσεις με διαφορετικά μεγέθη διαφάνειας να συγχωνευτούν;**
+
+Ναι, αλλά το περιεχόμενο της διαφάνειας δεν επανασχεδιάζεται αυτόματα για τις νέες διαστάσεις. Αλλάξτε το μέγεθος της παρουσίασης προέλευσης πρώτα όταν χρειάζεστε προβλέψιμη τοποθέτηση, π.χ. με το [SlideSize::setSize()](https://reference.aspose.com/slides/el/php-java/aspose.slides/slidesize/setsize/) και το [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/el/php-java/aspose.slides/slidesizescaletype/).
+
+**Μπορώ να συγχωνεύσω παρουσιάσεις PPT, PPTX και ODP σε ένα αρχείο;**
+
+Ναι. Φορτώστε κάθε παρουσίαση προέλευσης, κλωνοποιήστε τις απαιτούμενες διαφάνειες σε έναν προορισμό και αποθηκεύστε τον προορισμό σε μια υποστηριζόμενη μορφή εξόδου. Επειδή οι μορφές παρουσίασης δεν υποστηρίζουν ακριβώς το ίδιο σύνολο δυνατοτήτων, ελέγξτε το σύνθετο περιεχόμενο μετά από διαμορφώσεις μεταξύ διαφορετικών τύπων αρχείων. Δείτε τις [Supported File Formats](https://docs.aspose.com/slides/el/php-java/supported-file-formats/).
+
+**Διατηρούνται αυτόματα οι ενότητες προέλευσης;**
+
+Όχι από έναν βασικό βρόχο που κλωνοποιεί μόνο διαφάνειες. Δημιουργήστε ξανά τις απαιτούμενες ενότητες στον προορισμό και χρησιμοποιήστε την υπερφόρτωση ενότητας του [addClone](https://reference.aspose.com/slides/el/php-java/aspose.slides/slidecollection/addclone/) όταν η δομή των ενοτήτων πρέπει να διατηρηθεί.
+
+**Διατηρούνται οι σημειώσεις ομιλητή και τα σχόλια;**
+
+Αντιγράφονται μαζί με την κλωνοποιημένη διαφάνεια. Για ροές εργασίας που εξαρτώνται από το στυλ του notes‑master, τους συγγραφείς σχολίων ή τα νήματα αξιολογήσεων, επαληθεύστε το συγχωνευμένο αποτέλεσμα, καθώς αυτά τα σενάρια περιλαμβάνουν δομές επιπέδου παρουσίασης καθώς και περιεχόμενο διαφάνειας.
+
+**Τι συμβαίνει με ήχο, βίντεο, αντικείμενα OLE και υπερσυνδέσμους;**
+
+Το ενσωματωμένο περιεχόμενο μεταφέρεται ως μέρος των σχέσεων πόρων της κλωνοποιημένης διαφάνειας. Οι εξωτερικοί σύνδεσμοι παραμένουν εξωτερικοί, οπότε τα αρχεία ή οι διευθύνσεις URL στόχου πρέπει να είναι διαθέσιμες μετά τη συγχώνευση.
+
+**Εγγυάνονται οι ενσωματωμένες γραμματοσειρές από κάθε πηγή να είναι διαθέσιμες στη συγχωνευμένη παρουσίαση;**
+
+Μην βασίζεστε μόνο στην κλωνοποίηση διαφανειών για την ανάπτυξη γραμματοσειρών. Ελέγξτε τις ενσωματωμένες γραμματοσειρές του προορισμού και διαχειριστείτε ρητά την ενσωμάτωση ή τη διαθεσιμότητα εξωτερικών γραμματοσειρών όταν η τυπογραφία είναι σημαντική.
+
+**Πώς μπορώ να συγχωνεύσω ένα αρχείο με προστασία κωδικού;**
+
+Ανοίξτε το με το σωστό [LoadOptions::setPassword()](https://reference.aspose.com/slides/el/php-java/aspose.slides/loadoptions/setpassword/), κατόπιν κλωνοποιήστε τις διαφάνειές του κανονικά. Η προστασία εξόδου ρυθμίζεται ξεχωριστά.
+
+**Πώς πρέπει να διαχειριστώ πολύ μεγάλες παρουσιάσεις;**
+
+Χρησιμοποιήστε τη διαχείριση BLOB όταν μεγάλα δυαδικά αντικείμενα κυριαρχούν στη χρήση μνήμης, προτιμήστε τη φόρτωση από διαδρομές αρχείων για πολύ μεγάλα αρχεία, απελευθερώστε γρήγορα τις παρουσίες προέλευσης και αποθηκεύστε το τελικό αποτέλεσμα μόνο όταν είναι απαραίτητο.
+
+**Μπορώ να συγχωνεύσω διαφάνειες από πολλαπλά νήματα;**
+
+Η φόρτωση, η αποθήκευση ή η κλωνοποίηση παρουσιάσεων σε πολλά νήματα δεν υποστηρίζεται σε PHP μέσω Java. Για παράλληλη εργασία, χρησιμοποιήστε ξεχωριστές διαδικασίες μονόνημα και διατηρήστε τις παρουσίες παρουσίασης απομονωμένες σε κάθε διαδικασία.

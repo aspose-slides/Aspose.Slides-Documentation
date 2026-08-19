@@ -1,240 +1,381 @@
 ---
-title: ترکیب کارآمد ارائه‌ها در C++
-linktitle: ترکیب ارائه‌ها
+title: ادغام کارآمد ارائه‌ها در C++
+linktitle: ادغام ارائه‌ها
 type: docs
 weight: 40
 url: /fa/cpp/merge-presentation/
 keywords:
-- ترکیب PowerPoint
-- ترکیب ارائه‌ها
-- ترکیب اسلایدها
-- ترکیب PPT
-- ترکیب PPTX
-- ترکیب ODP
 - ادغام PowerPoint
 - ادغام ارائه‌ها
 - ادغام اسلایدها
 - ادغام PPT
 - ادغام PPTX
 - ادغام ODP
+- ترکیب PowerPoint
+- ترکیب ارائه‌ها
+- ترکیب اسلایدها
+- ترکیب PPT
+- ترکیب PPTX
+- ترکیب ODP
 - C++
 - Aspose.Slides
-description: "به‌راحتی ارائه‌های PowerPoint (PPT, PPTX) و OpenDocument (ODP) را با Aspose.Slides برای C++ ترکیب کنید و جریان کار خود را بهبود بخشید."
+description: "بیاموزید چگونه در C++ با کلون‌کردن اسلایدها، کنترل مسترها و لایه‌ها، تغییر اندازه محتوای اسلاید، حفظ بخش‌ها و مدیریت فایل‌های محافظت‌شده یا بزرگ، ارائه‌های PowerPoint و OpenDocument را ادغام کنید."
 ---
-## **نمای کلی**
+## **مرور کلی**
 
-Aspose.Slides به شما امکان می‌دهد ارائه‌ها را با کلون کردن اسلایدها از یک ارائه به ارائه دیگر ادغام کنید. این مقاله توضیح می‌دهد چگونه می‌توانید کل ارائه‌ها یا اسلایدهای منتخب را ادغام کنید، در حین ادغام از یک اسلاید مستر یا طرح‌بندی خاص استفاده کنید، با ارائه‌های دارای اندازه اسلاید متفاوت برخورد کنید و اسلایدهای ادغام‌شده را به یک بخش از ارائه اضافه کنید. همچنین نکات عملی مربوط به محتویات ادغام‌شده شامل یادداشت‌های سخنران، نظرات، فایل‌های منبع محافظت‌شده با رمز عبور و استفاده از رشته‌ها را پوشش می‌دهد.
+Aspose.Slides for C++ ارائه‌ها را با کلون‌کردن اسلایدها از یک [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) به دیگری ادغام می‌کند. عملیات اصلی [ISlideCollection::AddClone](https://reference.aspose.com/slides/fa/cpp/aspose.slides/islidecollection/addclone/) است که می‌تواند قالب‌بندی اسلاید منبع را حفظ کند یا اسلاید کلون‌شده را به یک مستر یا لایه در ارائه مقصد متصل کند.
 
-## **ادغام ارائه‌ها**
+این مقاله رایج‌ترین جریان‌های ادغام را پوشش می‌دهد:
 
-وقتی یک ارائه را به ارائه دیگر ادغام می‌کنید، عملاً اسلایدهای آن‌ها را در یک ارائه ترکیب می‌کنید تا یک فایل به دست آورید.
+- تمام اسلایدها را با حفظ قالب‌بندی منبعشان ادغام کنید؛
+- ادغام اسلایدهای انتخاب‌شده؛
+- اعمال یک مستر از ارائه مقصد؛
+- اعمال یک لایه خاص از ارائه مقصد؛
+- نرمال‌سازی اندازه‌های مختلف اسلاید قبل از ادغام؛
+- افزودن اسلایدهای کلون‌شده به یک بخش؛
+- ادغام چندین ارائه در یک جریان کار انتها به انتها؛
+- مدیریت مسترها، منابع، یادداشت‌ها، نظرات، رسانه‌ها، فونت‌ها، رمزهای عبور، فایل‌های بزرگ و مسائل مربوط به چندنخی.
 
-{{% alert title="اطلاعات" color="info" %}}
+## **چگونگی تأثیر کلون‌کردن اسلاید بر مسترها و لایه‌ها**
 
-اکثریت برنامه‌های ارائه (PowerPoint یا OpenOffice) عملکردی برای ترکیب ارائه‌ها به این شکل ندارند.
+یک اسلاید ظاهر زیادی از لایه و مستر خود به ارث می‌برد. به همین دلیل، نسخهٔ Overloadی که انتخاب می‌کنید تعیین می‌کند اسلاید ادغام‌شده چگونه در ارائه مقصد یکپارچه می‌شود.
 
-[**Aspose.Slides for C++**](https://products.aspose.com/slides/fa/cpp/)، اما به شما امکان می‌دهد ارائه‌ها را به روش‌های مختلف ادغام کنید. می‌توانید ارائه‌ها را با تمام اشکال، سبک‌ها، متن‌ها، قالب‌بندی، نظرات، انیمیشن‌ها و غیره ادغام کنید بدون اینکه نگران از دست رفتن کیفیت یا داده‌ها باشید.
+از [ISlideCollection::AddClone](https://reference.aspose.com/slides/fa/cpp/aspose.slides/islidecollection/addclone/) به یکی از روش‌های زیر استفاده کنید:
 
-**همچنین ببینید**
+- `AddClone(sourceSlide)` — قالب‌بندی و لایه اسلاید منبع را حفظ می‌کند. در صورت نیاز، مستر منبع می‌تواند به‌صورت خودکار به ارائه مقصد کلون شود. Aspose.Slides مسترهای کلون‌شده به‌صورت خودکار را پیگیری می‌کند تا اسلایدهای مکرری که از همان مستر منبع استفاده می‌کنند، مستر را چندین بار کلون نکنند.
+- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — اسلاید کلون‌شده را به یک [IMasterSlide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasterslide/) خاص در مقصد متصل می‌کند. Aspose.Slides برای آن مستر، لایهٔ مطابقتی را بر اساس نوع یا نام لایهٔ منبع جستجو می‌کند.
+- `AddClone(sourceSlide, destinationLayout)` — اسلاید کلون‌شده را مستقیماً به یک [ILayoutSlide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutslide/) خاص در مقصد متصل می‌کند.
 
-[Clone Slides](https://docs.aspose.com/slides/fa/cpp/clone-slides/)*.*
+مستر یا لایه‌ای که به یک overload از `AddClone` پاس می‌دهید باید متعلق به **ارائه مقصد** باشد، نه ارائه منبع.
 
-{{% /alert %}}
+## **ادغام کل ارائه‌ها و حفظ قالب‌بندی منبع**
 
-### **چه چیزهایی می‌توان ادغام کرد**
-
-با Aspose.Slides می‌توانید
-
-* کل ارائه‌ها را ادغام کنید. تمام اسلایدهای ارائه‌ها در یک ارائه جمع می‌شوند
-* اسلایدهای خاصی را ادغام کنید. اسلایدهای انتخاب‌شده در یک ارائه قرار می‌گیرند
-* ارائه‌ها را در یک قالب (PPT به PPT، PPTX به PPTX و غیره) و در قالب‌های مختلف (PPT به PPTX، PPTX به ODP و غیره) به یکدیگر متصل کنید.
-
-{{% alert title="تذکر" color="warning" %}} 
-
-علاوه بر ارائه‌ها، Aspose.Slides به شما امکان می‌دهد سایر فایل‌ها را نیز ادغام کنید:
-
-* [Images](https://products.aspose.com/slides/fa/cpp/merger/image-to-image/)، مانند [JPG to JPG](https://products.aspose.com/slides/fa/cpp/merger/jpg-to-jpg/) یا [PNG to PNG](https://products.aspose.com/slides/fa/cpp/merger/png-to-png/)
-* اسناد، مانند [PDF to PDF](https://products.aspose.com/slides/fa/cpp/merger/pdf-to-pdf/) یا [HTML to HTML](https://products.aspose.com/slides/fa/cpp/merger/html-to-html/)
-* و دو فایل متفاوت مانند [image to PDF](https://products.aspose.com/slides/fa/cpp/merger/image-to-pdf/) یا [JPG to PDF](https://products.aspose.com/slides/fa/cpp/merger/jpg-to-pdf/) یا [TIFF to PDF](https://products.aspose.com/slides/fa/cpp/merger/tiff-to-pdf/).
-
-{{% /alert %}}
-
-### **گزینه‌های ادغام**
-
-می‌توانید گزینه‌هایی اعمال کنید که تعیین می‌کند
-
-* هر اسلاید در ارائه خروجی یک سبک منحصربه‌فرد داشته باشد
-* یک سبک مشخص برای تمام اسلایدهای ارائه خروجی استفاده شود.
-
-برای ادغام ارائه‌ها، Aspose.Slides متدهای [AddClone](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) را (از رابط [ISlideCollection](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.i_slide_collection)) ارائه می‌دهد. چندین پیاده‌سازی از متدهای `AddClone` وجود دارد که پارامترهای فرآیند ادغام ارائه را تعریف می‌کند. هر شیء Presentation دارای مجموعه‌ای به نام [Slides](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c) است، بنابراین می‌توانید یک متد `AddClone` را از ارائه‌ای که می‌خواهید اسلایدها به آن اضافه شوند، فراخوانی کنید.
-
-متد `AddClone` یک شیء `ISlide` را برمی‌گرداند که یک کلون از اسلاید منبع است. اسلایدهای موجود در ارائه خروجی به سادگی نسخه‌ای از اسلایدهای منبع هستند. بنابراین می‌توانید اسلایدهای حاصل را (مثلاً اعمال سبک‌ها یا گزینه‌های قالب‌بندی یا طرح‌ها) بدون نگرانی از تأثیر بر ارائه‌های منبع، تغییر دهید.
-
-## **ادغام ارائه‌ها**
-
-Aspose.Slides متد [**AddClone (ISlide)**](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) را فراهم می‌کند که اجازه می‌دهد اسلایدها را ترکیب کنید در حالی که اسلایدها طرح‌بندی و سبک‌های خود را حفظ می‌کنند (پارامترهای پیش‌فرض).
-
-این کد C++ نشان می‌دهد چگونه ارائه‌ها را ادغام کنید:
+ساده‌ترین روش ادغام، کپی تمام اسلایدها از ارائه منبع به ارائه مقصد است. این گزینه زمانی مناسب است که اسلایدهای وارد‌شده باید تم، مستر و روابط لایهٔ اصلی خود را حفظ کنند.
 
 ```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+for (const auto& slide : source->get_Slides())
 {
-    pres1->get_Slides()->AddClone(slide);
+    destination->get_Slides()->AddClone(slide);
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+destination->Save(u"merged.pptx", SaveFormat::Pptx);
 ```
 
-## **ادغام ارائه‌ها با یک اسلاید مستر**
+ارائه حاصل ممکن است چندین مستر داشته باشد زمانی که ارائه منبع و مقصد از طرح‌های متفاوتی استفاده می‌کنند. این رفتار هنگام حفظ عمداً قالب‌بندی منبع طبیعی است.
 
-Aspose.Slides متد [**AddClone (ISlide, IMasterSlide, bool)**](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.i_slide_collection#a6b040e6b30f52ab4644fafdbc650b640) را فراهم می‌کند که اجازه می‌دهد اسلایدها را ترکیب کنید در حالی که یک الگو (تم) اسلاید مستر اعمال می‌شود. به این ترتیب، در صورت نیاز می‌توانید سبک اسلایدهای ارائه خروجی را تغییر دهید.
+## **ادغام اسلایدهای انتخاب‌شده**
 
-این کد C++ عمل شرح‌داده‌شده را نشان می‌دهد:
+لازم نیست هر اسلاید را کلون کنید. مثال زیر فقط ایندکس‌های اسلاید انتخاب‌شده از ارائه منبع را وارد می‌کند.
 
 ```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+int32_t slideIndexes[] = {0, 2, 4};
+
+for (auto index : slideIndexes)
 {
-    pres1->get_Slides()->AddClone(slide, pres2->get_Masters()->idx_get(0), true);
+    destination->get_Slides()->AddClone(source->get_Slide(index));
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+destination->Save(u"merged-selected-slides.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert title="تذکر" color="warning" %}} 
+قبل از کلون کردن ایندکس‌های اسلاید را هنگامی که از ورودی کاربر یا پیکربندی خارجی دریافت می‌شوند، اعتبارسنجی کنید.
 
-طرح‌بندی اسلاید برای اسلاید مستر به‌صورت خودکار تعیین می‌شود. وقتی طرح‌بندی مناسب پیدا نشود، اگر پارامتر بولی `allowCloneMissingLayout` متد `AddClone` برابر `true` باشد، از طرح‌بندی اسلاید منبع استفاده می‌شود. در غیر این صورت، استثنای [PptxEditException](https://reference.aspose.com/slides/fa/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d) پرتاب خواهد شد.
+## **ادغام اسلایدها با استفاده از مستر مقصد**
 
-{{% /alert %}}
-
-اگر می‌خواهید اسلایدهای ارائه خروجی دارای طرح‌بندی متفاوتی باشند، به‌جای آن هنگام ادغام از متد [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.i_slide_collection#a0ed5909b2d92555159007046760ff2f1) استفاده کنید.
-
-## **ادغام اسلایدهای خاص از ارائه‌ها**
-
-ادغام اسلایدهای خاص از چندین ارائه برای ایجاد مجموعه اسلایدهای سفارشی مفید است. Aspose.Slides C++ به شما امکان می‌دهد فقط اسلایدهایی که نیاز دارید را انتخاب و وارد کنید. API قالب‌بندی، طرح‌بندی و طراحی اسلایدهای اصلی را حفظ می‌کند.
-
-کد C++ زیر یک ارائه جدید ایجاد می‌کند، اسلایدهای عنوان را از دو ارائه دیگر اضافه می‌کند و نتیجه را در فایلی ذخیره می‌نماید:
+وقتی اسلایدهای وارد‌شده باید از یک مستری که قبلاً به ارائه مقصد تعلق دارد استفاده کنند، overload [AddClone(ISlide, IMasterSlide, bool)](https://reference.aspose.com/slides/fa/cpp/aspose.slides/islidecollection/addclone/) را به کار بگیرید.
 
 ```cpp
-SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation)
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto destinationMaster = destination->get_Master(0);
+
+for (const auto& slide : source->get_Slides())
 {
-    for (auto&& slide : presentation->get_Slides())
+    destination->get_Slides()->AddClone(slide, destinationMaster, true);
+}
+
+destination->Save(u"merged-with-destination-master.pptx", SaveFormat::Pptx);
+```
+
+Aspose.Slides لایهٔ مناسب زیر مستر مشخص‌شده را بر اساس نوع یا نام لایهٔ منبع انتخاب می‌کند. اگر لایهٔ مناسب موجود نباشد و `allowCloneMissingLayout` برابر `true` باشد، لایهٔ منبع کلون می‌شود تا اسلاید اضافه شود. اگر برابر `false` باشد، یک [PptxEditException](https://reference.aspose.com/slides/fa/cpp/aspose.slides/details_pptxeditexception/) پرتاب می‌شود.
+
+از `false` استفاده کنید وقتی می‌خواهید ادغام به‌جای افزودن لایهٔ اضافی به مستر مقصد، شکست بخورد.
+
+## **ادغام اسلایدها با استفاده از یک لایهٔ مشخص در مقصد**
+
+وقتی دقیقاً می‌دانید هر اسلاید وارد‌شده باید از کدام لایهٔ مقصد استفاده کند، overload [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/fa/cpp/aspose.slides/islidecollection/addclone/) را بکار ببرید.
+
+```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto destinationLayout = destination->get_LayoutSlide(0);
+
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide, destinationLayout);
+}
+
+destination->Save(u"merged-with-destination-layout.pptx", SaveFormat::Pptx);
+```
+
+اعمال لایهٔ مقصد رابطهٔ لایهٔ ارث‌برده را تغییر می‌دهد؛ محتوای اسلاید منبع را بازطراحی نمی‌کند. اگر لایه‌های منبع و مقصد ساختارهای نگه‌دارندهٔ متفاوتی داشته باشند، نتیجه را بررسی کنید تا اطمینان حاصل شود قالب‌بندی و رفتار نگه‌دارندهٔ ارث‌برده مناسب است.
+
+## **ادغام ارائه‌ها با اندازه‌های متفاوت اسلاید**
+
+ارائه‌هایی با ابعاد اسلاید متفاوت می‌توانند ادغام شوند، اما کلون یک اسلاید به ارائه‌ای با اندازهٔ اسلاید دیگر به‌صورت خودکار محتوا را برای بوم جدید بازطراحی نمی‌کند. بنابراین اشکال ممکن است به‌صورت جابجا، مقیاس‌گذاری نامناسب یا خارج از ناحیهٔ قابل مشاهده ظاهر شوند.
+
+یک روش عملی این است که پیش از کلون کردن، اندازهٔ ارائه منبع را تغییر دهید. متد [SlideSize::SetSize](https://reference.aspose.com/slides/fa/cpp/aspose.slides/slidesize/setsize/) می‌تواند محتوا را در حین تغییر ابعاد اسلاید مقیاس‌بندی کند. [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/fa/cpp/aspose.slides/slidesizescaletype/) محتوا را برای متناسب شدن با اندازهٔ درخواستی مقیاس می‌کند.
+
+```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto destinationSize = destination->get_SlideSize()->get_Size();
+auto sourceSize = source->get_SlideSize()->get_Size();
+
+if (sourceSize.get_Width() != destinationSize.get_Width() || 
+    sourceSize.get_Height() != destinationSize.get_Height())
+{
+    source->get_SlideSize()->SetSize(
+        destinationSize.get_Width(), 
+        destinationSize.get_Height(), 
+        SlideSizeScaleType::EnsureFit);
+}
+
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide);
+}
+
+destination->Save(u"merged-same-slide-size.pptx", SaveFormat::Pptx);
+```
+
+تغییر اندازه، شیء ارائهٔ منبع را در حافظه تغییر می‌دهد. اگر به ارائهٔ منبع اصلی برای عملیات دیگر نیاز دارید، نمونهٔ جداگانه‌ای برای ادغام باز کنید.
+
+## **ادغام اسلایدها در یک بخش ارائه**
+
+حلقهٔ پایهٔ کلون اسلایدها ساختار بخش‌های ارائهٔ منبع را بازتولید نمی‌کند. اگر بخش‌ها در خروجی اهمیت دارند، در ارائه مقصد بخش‌ها را ایجاد یا انتخاب کنید و اسلایدها را به‌طور صریح با [AddClone(ISlide, ISection)](https://reference.aspose.com/slides/fa/cpp/aspose.slides/islidecollection/addclone/) در آن‌ها کلون کنید.
+
+```cpp
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto importedSection = destination->get_Sections()->AppendEmptySection(u"Imported slides");
+
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide, importedSection);
+}
+
+destination->Save(u"merged-with-section.pptx", SaveFormat::Pptx);
+```
+
+اسلایدهای کلون‌شده به بخش مقصد مشخص‌شده اضافه می‌شوند. برای حفظ چندین بخش منبع، آن بخش‌ها را در مقصد دوباره ایجاد کنید و هر اسلاید منبع را به بخش مقصد متناظر نگاشت کنید.
+
+## **ادغام چندین ارائه به‌صورت ایمن**
+
+مثال انتها‑به‑انتها زیر از اولین ارائه به‌عنوان مقصد استفاده می‌کند، اندازهٔ اسلاید هر منبع اضافی را نرمال‌سازی می‌کند، هر منبع را فقط در زمانی که در حال کپی است باز نگه می‌دارد و در پایان یک بار فایل نهایی را ذخیره می‌کند.
+
+```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+System::String inputFiles[] = {u"part1.pptx", u"part2.pptx", u"part3.pptx"};
+const int32_t inputFileCount = 3;
+
+auto merged = System::MakeObject<Presentation>(inputFiles[0]);
+auto mergedSize = merged->get_SlideSize()->get_Size();
+
+for (int32_t fileIndex = 1; fileIndex < inputFileCount; fileIndex++)
+{
+    auto source = System::MakeObject<Presentation>(inputFiles[fileIndex]);
+    auto sourceSize = source->get_SlideSize()->get_Size();
+
+    if (sourceSize.get_Width() != mergedSize.get_Width() || 
+        sourceSize.get_Height() != mergedSize.get_Height())
     {
-        if (slide->get_LayoutSlide()->get_LayoutType() == SlideLayoutType::Title)
-        {
-            return slide;
-        }
+        source->get_SlideSize()->SetSize(
+            mergedSize.get_Width(), 
+            mergedSize.get_Height(), 
+            SlideSizeScaleType::EnsureFit);
     }
-    return nullptr;
-}
-```
-```cpp
-auto presentation = MakeObject<Presentation>();
-auto presentation1 = MakeObject<Presentation>(u"presentation1.pptx");
-auto presentation2 = MakeObject<Presentation>(u"presentation2.pptx");
 
-presentation->get_Slides()->RemoveAt(0);
-
-auto slide1 = GetTitleSlide(presentation1);
-
-if (slide1 != nullptr)
-    presentation->get_Slides()->AddClone(slide1);
-
-auto slide2 = GetTitleSlide(presentation2);
-
-if (slide2 != nullptr)
-    presentation->get_Slides()->AddClone(slide2);
-
-presentation->Save(u"combined.pptx", SaveFormat::Pptx);
-
-presentation2->Dispose();
-presentation1->Dispose();
-presentation->Dispose();
-```
-
-## **ادغام ارائه‌ها با یک طرح‌بندی اسلاید**
-
-این کد C++ نشان می‌دهد چگونه اسلایدها را از ارائه‌ها ترکیب کنید در حالی که طرح‌بندی دلخواه خود را برای آنها اعمال کنید تا یک ارائه خروجی به‌دست آورید:
-
-```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
-{
-    pres1->get_Slides()->AddClone(slide, pres2->get_LayoutSlides()->idx_get(0));
+    for (const auto& slide : source->get_Slides())
+    {
+        merged->get_Slides()->AddClone(slide);
+    }
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+merged->Save(u"merged.pptx", SaveFormat::Pptx);
 ```
 
-## **ادغام ارائه‌ها با اندازه‌های اسلاید متفاوت**
+این یک پایهٔ مفید برای حفظ قالب‌بندی منبع اسلایدهای وارد‌شده است. اگر خروجی شما باید از یک تم واحد استفاده کند، فراخوانی سادهٔ `AddClone(slide)` را با overload مناسب مستر یا لایهٔ مقصد که پیش‌تر نشان داده شد، جایگزین کنید.
 
-{{% alert title="تذکر" color="warning" %}} 
+## **ملاحظات عملی**
 
-شما نمی‌توانید ارائه‌ها با اندازه‌های اسلاید متفاوت را ادغام کنید.
+### **مسترها، لایه‌ها و دقت قالب‌بندی**
 
-{{% /alert %}}
+کلون‌کردن پیش‌فرض اسلاید می‌تواند مستر لازم از منبع را به‌صورت خودکار به ارائه مقصد بیاورد. Aspose.Slides یک رجیستری داخلی برای مسترهای کلون‌شده به‌صورت خودکار نگهداری می‌کند تا از کلون مکرر همان مستر جلوگیری شود. مسترهای کلون‌شده به‌صورت دستی در آن رجیستری پیگیری نمی‌شوند، بنابراین از پیش‌کلون کردن مسترها اجتناب کنید مگر اینکه کنترل صریحی بر ساختار مستر نیاز داشته باشید.
 
-برای ادغام 2 ارائه با اندازه اسلاید متفاوت، باید یکی از ارائه‌ها را تغییر اندازه دهید تا اندازه‌ آن با ارائه دیگر برابر شود.
+فرض نکنید دو مستر یا لایه با نام یکسان بصری برابر هستند. اگر یک الگوی شرکتی باید ظاهر نهایی را کنترل کند، مستر یا لایهٔ مقصد را صریحاً انتخاب کنید و پس از ادغام نتیجه را بررسی کنید.
 
-این نمونه کد عملیات شرح‌داده‌شده را نشان می‌دهد:
+### **یادداشت‌ها و نظرات**
+
+یادداشت‌های گوینده و نظرات اسلاید به محتوی اسلاید مرتبط هستند و هنگام کلون اسلاید کپی می‌شوند. Aspose.Slides همچنین APIهای اختصاصی برای [presentation notes](https://docs.aspose.com/slides/fa/cpp/presentation-notes/) و [presentation comments](https://docs.aspose.com/slides/fa/cpp/presentation-comments/) فراهم می‌کند.
+
+اگر قالب‌بندی صفحهٔ یادداشت مهم است، ارائهٔ ادغام‌شده را بررسی کنید زیرا مسترهای یادداشت در سطح ارائه هستند و ممکن است بین فایل‌های منبع متفاوت باشند. برای جریان‌های بازبینی، نویسندگان نظرات و نظرات زنجیره‌ای را پس از ترکیب فایل‌های مختلف نیز بررسی کنید.
+
+### **تصاویر، صدا، ویدئو، اشیاء OLE و لینک‌های خارجی**
+
+اسلایدها می‌توانند به منابع سطح ارائه مانند تصاویر، صداهای داخلی، ویدئوهای داخلی و داده‌های OLE ارجاع دهند. به‌جای کپی فقط شکل‌های قابل مشاهده، کل اسلاید را کلون کنید تا Aspose.Slides روابط اسلاید با منابعش را حفظ کند.
+
+منابع داخلی و لینک‌شده باید به‌صورت متفاوتی مدیریت شوند. یک صدا، ویدئو، شیء OLE یا لینک هیپرمتنی که لینک‌شده باشد، همچنان به هدف خارجی خود وابسته است؛ کلون اسلاید لینک را به محتوی داخلی تبدیل نمی‌کند. مسیرها و URLهای منابع لینک‌شده را در محیطی که ارائهٔ ادغام‌شده باز می‌شود، تست کنید.
+
+Aspose.Slides مسترهای کلون‌شده به‌صورت خودکار را پیگیری می‌کند، اما این به‌عنوان تضمینی کلی برای حذف تکراری منابع باینری یکسان از ارائه‌های متفاوت تلقی نشود. اگر حجم فایل خروجی مهم است، بستهٔ ادغام‌شده را بررسی کنید و نتیجه را اندازه‌گیری کنید، نه اینکه به حذف تکراری ضمنی اعتماد داشته باشید.
+
+### **فونت‌های توکار و دسترسی به فونت‌ها**
+
+فونت‌ها در سطح ارائه مدیریت می‌شوند. اگر تایپوگرافی باید در ماشین‌های مختلف سازگار بماند، فرض نکنید کلون اسلایدها به‌تنهایی تضمین می‌کند همه فونت‌های مورد نیاز در محیط مقصد موجود باشد. می‌توانید با [FontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/fa/cpp/aspose.slides/fontsmanager/getembeddedfonts/) فونت‌های توکار را بررسی کنید و همان‌طور که در [Embed Fonts in Presentations](https://docs.aspose.com/slides/fa/cpp/embedded-font/) توضیح داده شده است، به‌صورت صریح آن‌ها را توکار کنید.
+
+همچنین اطمینان حاصل کنید مجاز به توکار کردن فونت‌های استفاده‌شده در فایل‌های منبع هستید. مجوزهای فونت ممکن است توکار شدن را محدود کنند.
+
+### **ارائه‌های دارای رمز عبور**
+
+یک منبع محافظت‌شده با رمز عبور باید قبل از کلون اسلایدها با موفقیت باز شود. رمز عبور را از طریق [LoadOptions::set_Password](https://reference.aspose.com/slides/fa/cpp/aspose.slides/loadoptions/set_password/) ارائه دهید.
 
 ```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres1Size = pres1->get_SlideSize()->get_Size();
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
 
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-pres2->get_SlideSize()->SetSize(pres1Size.get_Width(), pres1Size.get_Height(), SlideSizeScaleType::EnsureFit);
+using namespace Aspose::Slides;
 
-for (const auto& slide : pres2->get_Slides())
-{
-    pres1->get_Slides()->AddClone(slide);
-}
+auto loadOptions = System::MakeObject<LoadOptions>();
+loadOptions->set_Password(u"YOUR_PASSWORD");
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+auto source = System::MakeObject<Presentation>(u"protected.pptx", loadOptions);
 ```
 
-## **ادغام اسلایدها به یک بخش از ارائه**
+باز کردن منبع رمزگذاری‌شده به‌صورت خودکار همان حفاظت را به ارائه مقصد اعمال نمی‌کند. در صورت نیاز حفاظت خروجی را جداگانه پیکربندی کنید.
 
-این کد C++ نشان می‌دهد چگونه یک اسلاید خاص را به یک بخش در ارائه ادغام کنید:
+### **ارائه‌های بزرگ و مصرف حافظه**
 
-```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (int32_t index = 0; index < pres2->get_Slides()->get_Count(); index++)
-{
-    auto slide = pres2->get_Slides()->idx_get(index);
-    pres1->get_Slides()->AddClone(slide, pres1->get_Sections()->idx_get(0));
-}
+ارائه‌های بزرگ حاوی تصاویر با وضوح بالا، صدا، ویدئو یا اشیای باینری بزرگ می‌توانند حافظهٔ قابل توجهی مصرف کنند. [LoadOptions::set_BlobManagementOptions](https://reference.aspose.com/slides/fa/cpp/aspose.slides/loadoptions/set_blobmanagementoptions/) کنترل‌هایی برای مدیریت BLOB و استفاده از فایل‌های موقت فراهم می‌کند. برای استراتژی‌های فایل بزرگ، به [Manage Presentation BLOBs](https://docs.aspose.com/slides/fa/cpp/manage-blob/) مراجعه کنید.
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
-```
+برای فایل‌های بزرگ، تا جایی که ممکن است از مسیرهای فایل برای بارگذاری استفاده کنید، هر ارائه منبع را به‌محض ادغام شدن آزاد کنید و از ذخیرهٔ مکرر نتایج میانی خودداری کنید مگر اینکه جریان کار نیاز به نقطه‌های بازرسی داشته باشد.
 
-اسلاید در انتهای بخش اضافه می‌شود.
+### **ایمنی در چندنخی**
 
-{{% alert title="نکته" color="primary" %}}
+نحوهٔ بارگذاری، تغییر، ذخیره یا کلون همان نمونهٔ [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) را به‌صورت همزمان از چندین رشته انجام ندهید. هر نمونهٔ ارائه را به یک عملیات ادغام محدود کنید. اگر کارهای مستقل را موازی می‌کنید، از نمونه‌های جداگانهٔ ارائه استفاده کنید و راهنمایی‌های چندنخی Aspose.Slides را دنبال کنید: [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/fa/cpp/multithreading/).
 
-Aspose یک برنامه وب FREE Collage را ارائه می‌دهد ([https://products.aspose.app/slides/fa/collage](https://products.aspose.app/slides/fa/collage)). با استفاده از این سرویس آنلاین می‌توانید [JPG to JPG](https://products.aspose.app/slides/fa/collage/jpg) یا PNG به PNG را ادغام کنید، [شبکه‌های عکس](https://products.aspose.app/slides/fa/collage/photo-grid) بسازید و غیره.
+## **سؤالات متداول**
 
-{{% /alert %}}
+**چگونه می‌توانم طرح اصلی هر ارائه منبع را حفظ کنم؟**
 
-## **سوالات متداول**
+از [`AddClone(sourceSlide)`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/islidecollection/addclone/) بدون ارائه مستر یا لایه مقصد استفاده کنید. Aspose.Slides می‌تواند مستر منبع را به‌صورت خودکار وقتی اسلاید وارد‌شده به آن نیاز دارد، کلون کند.
 
-**آیا یادداشت‌های سخنران هنگام ادغام حفظ می‌شوند؟**
+**چگونه اسلایدهای وارد‌شده را به تم مقصد بپیوندم؟**
 
-بله. هنگام کلون کردن اسلایدها، Aspose.Slides همه عناصر اسلاید، از جمله یادداشت‌ها، قالب‌بندی و انیمیشن‌ها را منتقل می‌کند.
+overloadی را که مستر مقصد را می‌گیرد استفاده کنید. مستری از ارائهٔ مقصد، نه منبع، پاس کنید. Aspose.Slides سعی می‌کند هر اسلاید منبع را به یک لایهٔ مناسب تحت آن مستر مطابقت دهد.
 
-**آیا نظرات و نویسندگان آن‌ها منتقل می‌شوند؟**
+**چه زمانی باید به‌جای مستر مقصد از لایهٔ خاصی استفاده کنم؟**
 
-نظرات، به عنوان بخشی از محتوای اسلاید، همراه با اسلاید کپی می‌شوند. برچسب‌های نویسنده نظرات به‌عنوان اشیاء نظر در ارائه حاصل حفظ می‌شوند.
+وقتی هر اسلاید وارد‌شده باید از یک لایهٔ شناخته‌شده استفاده کند، لایهٔ خاص را انتخاب کنید. وقتی می‌خواهید Aspose.Slides بر اساس نوع یا نام لایهٔ منبع، میان لایه‌های مستر انتخاب کند، مستر را استفاده کنید.
 
-**اگر ارائه منبع با رمز عبور محافظت شده باشد چه می‌شود؟**
+**آیا می‌توان ارائه‌های با اندازهٔ اسلاید متفاوت را ادغام کرد؟**
 
-باید با استفاده از [گزینه‌های بارگذاری](https://reference.aspose.com/slides/fa/cpp/aspose.slides/loadoptions/set_password/) و متد `LoadOptions::set_Password` باز شود (لینک: /slides/fa/cpp/password-protected-presentation/). پس از بارگذاری، آن اسلایدها می‌توانند به‌صورت ایمن به یک فایل هدف بدون محافظت (یا حتی محافظت‌شده) کلون شوند.
+بله، اما محتوی اسلاید به‌صورت خودکار برای ابعاد مقصد بازطراحی نمی‌شود. برای داشتن موقعیت‌بندی قابل پیش‌بینی، پیش از ادغام اندازهٔ ارائه منبع را با [SlideSize::SetSize](https://reference.aspose.com/slides/fa/cpp/aspose.slides/slidesize/setsize/) و [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/fa/cpp/aspose.slides/slidesizescaletype/) تغییر دهید.
 
-**عملیات ادغام تا چه اندازه ایمن نسبت به رشته‌ها است؟**
+**آیا می‌توانم فایل‌های PPT، PPTX و ODP را در یک فایل ترکیب کنم؟**
 
-از همان شیء [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) در [چندین رشته](https://products.aspose.com/slides/fa/cpp/multithreading/) استفاده نکنید. قانون پیشنهادی این است: «یک سند — یک رشته»؛ فایل‌های مختلف می‌توانند به‌صورت موازی در رشته‌های جداگانه پردازش شوند.
+بله. هر ارائه منبع را بارگذاری کنید، اسلایدهای موردنیاز را به یک مقصد کلون کنید و مقصد را در فرمتی پشتیبانی‌شده ذخیره کنید. از آنجا که مجموعه ویژگی‌های فرمت‌های ارائه متفاوت است، پس از ادغام‌های میان‌فرمت محتویات پیچیده را بررسی کنید. برای لیست فرمت‌های پشتیبانی‌شده ببینید [Supported File Formats](https://docs.aspose.com/slides/fa/cpp/supported-file-formats/).
+
+**آیا بخش‌های منبع به‌صورت خودکار حفظ می‌شوند؟**
+
+نه توسط حلقهٔ ساده‌ای که فقط اسلایدها را کلون می‌کند. برای حفظ بخش‌ها، آن‌ها را در مقصد دوباره ایجاد کنید و از overload بخش‌دار [AddClone](https://reference.aspose.com/slides/fa/cpp/aspose.slides/islidecollection/addclone/) استفاده کنید.
+
+**آیا یادداشت‌های گوینده و نظرات حفظ می‌شوند؟**
+
+آن‌ها همراه با اسلاید کلون‌شده کپی می‌شوند. برای جریان کاری که به استایل مستر یادداشت، نویسندگان نظرات یا داده‌های مرور زنجیره‌ای وابسته است، نتیجه ادغام را بررسی کنید، زیرا این موارد شامل ساختارهای سطح ارائه در کنار محتوی اسلاید هستند.
+
+**چه اتفاقی برای صداها، ویدئوها، اشیاء OLE و پیوندها می‌افتد؟**
+
+محتویات توکار به‌عنوان بخشی از روابط منبع اسلاید کلون‌شده منتقل می‌شوند. لینک‌های خارجی همچنان خارجی می‌مانند، بنابراین فایل‌های هدف یا URLهای آن‌ها باید پس از ادغام در دسترس باشند.
+
+**آیا فونت‌های توکار از هر منبع به‌صورت خودکار در ارائهٔ نهایی موجود خواهند شد؟**
+
+به‌تنهایی کلون اسلاید برای استقرار فونت‌ها اطمینان نمی‌دهد. فونت‌های توکار مقصد را بررسی کنید و توکارسازی یا دسترسی به فونت‌های خارجی را به‌صورت صریح مدیریت کنید.
+
+**چگونه یک فایل دارای رمز عبور را ادغام کنم؟**
+
+با استفاده از [LoadOptions::set_Password](https://reference.aspose.com/slides/fa/cpp/aspose.slides/loadoptions/set_password/) آن را باز کنید، سپس اسلایدهایش را به‌صورت معمول کلون کنید. محافظت خروجی به‌صورت جداگانه پیکربندی می‌شود.
+
+**چگونه باید با ارائه‌های بسیار بزرگ برخورد کنم؟**
+
+از مدیریت BLOB استفاده کنید، ترجیحاً از مسیرهای فایل برای بارگذاری استفاده کنید، هر ارائه منبع را به‌محض اتمام ادغام آزاد کنید و نتیجهٔ نهایی را فقط در زمان نیاز ذخیره کنید.
+
+**آیا می‌توانم اسلایدها را از چندین رشته ادغام کنم؟**
+
+از یک نمونهٔ [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) همزمان در چندین رشته استفاده نکنید. هر عملیات ادغام را به نمونه‌های جداگانهٔ ارائه محدود کنید.

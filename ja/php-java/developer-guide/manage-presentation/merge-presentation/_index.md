@@ -1,282 +1,408 @@
 ---
-title: PHPでプレゼンテーションを効率的にマージ
-linktitle: プレゼンテーションをマージ
+title: PHPでプレゼンテーションを効率的に結合する
+linktitle: プレゼンテーションの結合
 type: docs
 weight: 40
 url: /ja/php-java/merge-presentation/
 keywords:
-- PowerPointをマージ
-- プレゼンテーションをマージ
-- スライドをマージ
-- PPTをマージ
-- PPTXをマージ
-- ODPをマージ
 - PowerPointを結合
 - プレゼンテーションを結合
 - スライドを結合
 - PPTを結合
 - PPTXを結合
 - ODPを結合
+- PowerPointを統合
+- プレゼンテーションを統合
+- スライドを統合
+- PPTを統合
+- PPTXを統合
+- ODPを統合
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java を使用して、PowerPoint（PPT、PPTX）および OpenDocument（ODP）プレゼンテーションを手軽にマージし、ワークフローを効率化します。"
+description: "スライドをクローンし、マスターとレイアウトを制御し、スライドコンテンツのサイズを変更し、セクションを保持し、保護されたファイルや大容量ファイルを処理することで、PHPでPowerPointおよびOpenDocumentプレゼンテーションを結合する方法を学びます。"
 ---
+## **概要**
 
-## **プレゼンテーションのマージ**
+Aspose.Slides for PHP via Java は、1 つの [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) から別のプレゼンテーションへスライドをクローンしてプレゼンテーションを結合します。主な操作は [SlideCollection::addClone()](https://reference.aspose.com/slides/ja/php-java/aspose.slides/slidecollection/addclone/) で、元のスライドの書式を保持したままコピーしたり、結合先プレゼンテーションのマスターまたはレイアウトにクローンされたスライドを割り当てたりできます。
 
-プレゼンテーションを別のプレゼンテーションにマージすると、スライドを単一のプレゼンテーションに結合し、1つのファイルにすることができます。
+本記事では、最も一般的な結合ワークフローを取り上げます。
 
-{{% alert title="Info" color="info" %}}
+- ソース書式を保持しながらすべてのスライドを結合
+- 選択したスライドだけを結合
+- 結合先プレゼンテーションのマスターを適用
+- 結合先プレゼンテーションの特定レイアウトを適用
+- 結合前に異なるスライドサイズを正規化
+- クローンしたスライドをセクションに追加
+- 複数のプレゼンテーションを 1 つのエンドツーエンド ワークフローで結合
+- マスター、リソース、ノート、コメント、メディア、フォント、パスワード、巨大ファイル、マルチスレッドに関する考慮事項を処理
 
-ほとんどのプレゼンテーションソフト（PowerPoint または OpenOffice）には、ユーザーがこのようにプレゼンテーションを結合する機能がありません。
+## **スライド クローンがマスターとレイアウトに与える影響**
 
-[**Aspose.Slides for PHP via Java**](https://products.aspose.com/slides/php-java/) は、さまざまな方法でプレゼンテーションをマージできるようにします。形状、スタイル、テキスト、書式設定、コメント、アニメーションなどを失うことなく、プレゼンテーション全体をマージできます。
+スライドはレイアウトおよびマスターから外観の多くを継承します。そのため、選択するクローンのオーバーロードにより、結合されたスライドが結合先プレゼンテーションにどのように統合されるかが決まります。
 
-**参照**  
+以下のいずれかの方法で [SlideCollection::addClone()](https://reference.aspose.com/slides/ja/php-java/aspose.slides/slidecollection/addclone/) を使用します。
 
-[スライドの複製](/slides/ja/php-java/clone-slides/).
+- `addClone(sourceSlide)` — ソーススライドのレイアウトと書式を保持します。必要に応じて、ソースマスターが自動的に結合先プレゼンテーションにクローンされます。Aspose.Slides は自動クローンされたマスターを追跡し、同じマスターを使用するスライドが繰り返しクローンされることを防ぎます。
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — クローンされたスライドを特定の結合先 [MasterSlide](https://reference.aspose.com/slides/ja/php-java/aspose.slides/masterslide/) に割り当てます。Aspose.Slides はマスター内でレイアウトタイプまたは名前に基づいて一致するレイアウトを探します。
+- `addClone(sourceSlide, destinationLayout)` — クローンされたスライドを直接特定の結合先 [LayoutSlide](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutslide/) に割り当てます。
 
-{{% /alert %}}
+`addClone` のオーバーロードに渡すマスターまたはレイアウトは、**結合先** プレゼンテーションに属している必要があり、ソースプレゼンテーションのものではありません。
 
-### **マージできるもの**
+## **プレゼンテーション全体を結合し、ソース書式を保持**
 
-Aspose.Slides を使用すると、次のものをマージできます。
+最も簡単な結合は、ソースプレゼンテーションのすべてのスライドを結合先プレゼンテーションにコピーすることです。インポートされたスライドが元のテーマ、マスター、レイアウトの関係を保持すべき場合に適しています。
 
-* プレゼンテーション全体。すべてのスライドが 1 つのプレゼンテーションにまとめられます。  
-* 特定のスライド。選択したスライドだけが 1 つのプレゼンテーションにまとめられます。  
-* 同じ形式のプレゼンテーション（PPT → PPT、PPTX → PPTX など）や、異なる形式（PPT → PPTX、PPTX → ODP など）同士のマージ。
-
-{{% alert title="Note" color="warning" %}} 
-
-プレゼンテーションに加えて、Aspose.Slides は次のファイルのマージもサポートします。
-
-* [画像](https://products.aspose.com/slides/php-java/merger/image-to-image/)（例: [JPG から JPG](https://products.aspose.com/slides/php-java/merger/jpg-to-jpg/) や [PNG から PNG](https://products.aspose.com/slides/php-java/merger/png-to-png/)）  
-* 文書（例: [PDF から PDF](https://products.aspose.com/slides/php-java/merger/pdf-to-pdf/) や [HTML から HTML](https://products.aspose.com/slides/php-java/merger/html-to-html/)）  
-* 異なる種類のファイルの組み合わせ（例: [画像から PDF](https://products.aspose.com/slides/php-java/merger/image-to-pdf/)、[JPG から PDF](https://products.aspose.com/slides/php-java/merger/jpg-to-pdf/)、[TIFF から PDF](https://products.aspose.com/slides/php-java/merger/tiff-to-pdf/)）。
-
-{{% /alert %}}
-
-### **マージオプション**
-
-次のようなオプションを指定できます。
-
-* 出力プレゼンテーションの各スライドが固有のスタイルを保持するか  
-* 出力プレゼンテーションのすべてのスライドが同一のスタイルを使用するか  
-
-プレゼンテーションをマージするには、Aspose.Slides は [addClone](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/addclone/) メソッド（[SlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/) クラス）を提供します。`addClone` メソッドにはさまざまな実装があり、マージ処理のパラメータを指定できます。各 Presentation オブジェクトは [slide](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getslides/) コレクションを持つため、スライドをマージしたいプレゼンテーションから `addClone` メソッドを呼び出せます。
-
-`addClone` メソッドは、ソーススライドのクローンとなる `Slide` オブジェクトを返します。出力プレゼンテーションのスライドは、ソースのスライドのコピーです。そのため、元のプレゼンテーションに影響を与えることなく、結果として得られたスライドにスタイルや書式設定、レイアウトなどの変更を加えることができます。
-
-## **プレゼンテーションのマージ** 
-
-Aspose.Slides は、スライドのレイアウトとスタイルを保持したままスライドを結合できる [addClone(Slide)](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/addclone/) メソッドを提供します（デフォルト パラメータ）。
-
-この PHP コードはプレゼンテーションのマージ方法を示しています。
 ```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
     try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide);
-      }
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide);
+        }
     } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
+        $source->dispose();
     }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
+
+    $destination->save("merged.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
 ```
 
+ソースと結合先でデザインが異なる場合、結果のプレゼンテーションに複数のマスターが含まれることがあります。これはソース書式を意図的に保持した場合の予想通りの動作です。
 
-## **スライドマスターを使用したプレゼンテーションのマージ** 
+## **選択したスライドだけを結合**
 
-Aspose.Slides は、[addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/addclone/) メソッドを提供し、スライドマスターテンプレートを適用しながらスライドを結合できます。これにより、必要に応じて出力プレゼンテーションのスライドのスタイルを変更できます。
+すべてのスライドをクローンする必要はありません。以下の例は、ソースプレゼンテーションから特定のスライドインデックスだけをインポートします。
 
-このコードは上記の操作を示しています。
 ```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
     try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide, $pres2->getMasters()->get_Item(0), true);
-      }
+        $slideIndexes = [0, 2, 4];
+
+        foreach ($slideIndexes as $index) {
+            $destination->getSlides()->addClone($source->getSlides()->get_Item($index));
+        }
     } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
+        $source->dispose();
     }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
+
+    $destination->save("merged-selected-slides.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
 ```
 
+ユーザー入力や外部設定から取得したインデックスの場合は、クローン前にスライドインデックスの有効性を確認してください。
 
-{{% alert title="Note" color="warning" %}} 
+## **結合先マスターを使用してスライドを結合**
 
-スライドマスターのレイアウトは自動的に決定されます。適切なレイアウトが判断できない場合、`addClone` メソッドの `allowCloneMissingLayout` ブールパラメータが true に設定されていれば、ソーススライドのレイアウトが使用されます。そうでなければ、[PptxEditException](https://reference.aspose.com/slides/php-java/aspose.slides/PptxEditException) がスローされます。
+インポートされたスライドが、すでに結合先プレゼンテーションに存在するマスターに従うべき場合は、[addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/ja/php-java/aspose.slides/slidecollection/addclone/) オーバーロードを使用します。
 
-{{% /alert %}}
-
-出力プレゼンテーションのスライドに別のレイアウトを使用したい場合は、マージ時に [addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/addclone/) メソッドを使用してください。
-
-## **プレゼンテーションから特定のスライドをマージ** 
-
-複数のプレゼンテーションから特定のスライドをマージすると、カスタム スライド デックの作成に便利です。Aspose.Slides for PHP via Java を使用すると、必要なスライドだけを選択してインポートできます。API は元のスライドの書式設定、レイアウト、デザインを保持します。
-
-次の PHP コードは新しいプレゼンテーションを作成し、2 つの別のプレゼンテーションからタイトルスライドを追加して、結果をファイルに保存します。
 ```php
-function getTitleSlide(Presentation $presentation) {
-    for ($i = 0; $i < java_values($presentation->getSlides()->size()); $i++) {
-        $slide = $presentation->getSlides()->get_Item($i);
-        if (java_values($slide->getLayoutSlide()->getLayoutType()) === SlideLayoutType::Title) {
-            return $slide;
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
+    try {
+        $destinationMaster = $destination->getMasters()->get_Item(0);
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide, $destinationMaster, true);
+        }
+    } finally {
+        $source->dispose();
+    }
+
+    $destination->save("merged-with-destination-master.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
+```
+
+Aspose.Slides は、ソースレイアウトのタイプまたは名前と一致する適切なレイアウトを指定されたマスターの下で選択します。該当レイアウトが存在せず `allowCloneMissingLayout` が `true` の場合、ソースレイアウトがクローンされスライドが追加されます。`false` の場合は [PptxEditException](https://reference.aspose.com/slides/ja/php-java/aspose.slides/pptxeditexception/) がスローされます。
+
+追加レイアウトを結合先マスターに導入したくない場合は、`false` を使用して結合を失敗させます。
+
+## **特定の結合先レイアウトを使用してスライドを結合**
+
+インポートされたスライドが使用すべき結合先レイアウトが明確に決まっている場合は、[addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/ja/php-java/aspose.slides/slidecollection/addclone/) オーバーロードを使用します。
+
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
+    try {
+        $destinationLayout = $destination->getLayoutSlides()->get_Item(0);
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide, $destinationLayout);
+        }
+    } finally {
+        $source->dispose();
+    }
+
+    $destination->save("merged-with-destination-layout.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
+```
+
+結合先レイアウトを適用すると、継承されたレイアウトの関係が変わりますが、ソーススライドのコンテンツ自体は再設計されません。ソースと結合先のレイアウトでプレースホルダー構造が異なる場合は、結果を確認し、継承された書式とプレースホルダーの動作が適切かどうかを検証してください。
+
+## **スライドサイズが異なるプレゼンテーションを結合**
+
+スライド寸法が異なるプレゼンテーションでも結合は可能ですが、別サイズのプレゼンテーションへスライドをクローンしただけではコンテンツが新しいキャンバスに自動で再設計されません。そのため、シェイプがずれたり、スケーリングが予期せず変わったり、スライド領域外に出ることがあります。
+
+実用的な方法は、クローン前にソースプレゼンテーションのサイズを変更することです。[SlideSize::setSize()](https://reference.aspose.com/slides/ja/php-java/aspose.slides/slidesize/setsize/) メソッドは、スライド寸法を変更しながら既存コンテンツをスケーリングできます。[SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/ja/php-java/aspose.slides/slidesizescaletype/) はコンテンツを要求サイズに収めるようにスケーリングします。
+
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideSizeScaleType;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
+    try {
+        $sourceWidth = java_values($source->getSlideSize()->getSize()->getWidth());
+        $sourceHeight = java_values($source->getSlideSize()->getSize()->getHeight());
+        $destinationWidth = java_values($destination->getSlideSize()->getSize()->getWidth());
+        $destinationHeight = java_values($destination->getSlideSize()->getSize()->getHeight());
+
+        if ($sourceWidth != $destinationWidth || $sourceHeight != $destinationHeight) {
+            $source->getSlideSize()->setSize($destinationWidth, $destinationHeight, SlideSizeScaleType::EnsureFit);
+        }
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide);
+        }
+    } finally {
+        $source->dispose();
+    }
+
+    $destination->save("merged-same-slide-size.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
+```
+
+リサイズはメモリ上のソースプレゼンテーションオブジェクトを変更します。別の操作で元のソースプレゼンテーションを保持したい場合は、結合用に別インスタンスを開いてください。
+
+## **スライドをセクションに結合**
+
+基本的なスライドクローンループは、ソースプレゼンテーションのセクション階層を再現しません。出力でセクションが重要な場合は、結合先プレゼンテーションにセクションを作成または選択し、[addClone(Slide, Section)](https://reference.aspose.com/slides/ja/php-java/aspose.slides/slidecollection/addclone/) を使用して明示的にスライドをセクションへクローンします。
+
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
+    try {
+        $importedSection = $destination->getSections()->appendEmptySection("Imported slides");
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide, $importedSection);
+        }
+    } finally {
+        $source->dispose();
+    }
+
+    $destination->save("merged-with-section.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
+```
+
+クローンされたスライドは指定された結合先セクションに追加されます。複数のソースセクションを保持したい場合は、結合先に同様のセクションを再作成し、各ソーススライドを対応する結合先セクションへマッピングしてください。
+
+## **複数プレゼンテーションを安全に結合**
+
+以下のエンドツーエンド例は、最初のプレゼンテーションを結合先として使用し、追加の各ソースのスライドサイズを正規化し、コピー中だけソースを開き、最終的に一度だけファイルを保存します。
+
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideSizeScaleType;
+
+$inputFiles = ["part1.pptx", "part2.pptx", "part3.pptx"];
+
+$merged = new Presentation($inputFiles[0]);
+try {
+    $mergedWidth = java_values($merged->getSlideSize()->getSize()->getWidth());
+    $mergedHeight = java_values($merged->getSlideSize()->getSize()->getHeight());
+
+    for ($fileIndex = 1; $fileIndex < count($inputFiles); $fileIndex++) {
+        $source = new Presentation($inputFiles[$fileIndex]);
+        try {
+            $sourceWidth = java_values($source->getSlideSize()->getSize()->getWidth());
+            $sourceHeight = java_values($source->getSlideSize()->getSize()->getHeight());
+
+            if ($sourceWidth != $mergedWidth || $sourceHeight != $mergedHeight) {
+                $source->getSlideSize()->setSize($mergedWidth, $mergedHeight, SlideSizeScaleType::EnsureFit);
+            }
+
+            foreach ($source->getSlides() as $slide) {
+                $merged->getSlides()->addClone($slide);
+            }
+        } finally {
+            $source->dispose();
         }
     }
-    return null;
-}
-```
 
-```php
-$presentation = new Presentation();
-$presentation1 = new Presentation($folderPath . "presentation1.pptx");
-$presentation2 = new Presentation($folderPath . "presentation2.pptx");
-try {
-    $presentation->getSlides()->removeAt(0);
-    
-    $slide1 = getTitleSlide($presentation1);
-
-    if ($slide1 != null)
-        $presentation->getSlides()->addClone($slide1);
-
-    $slide2 = getTitleSlide($presentation2);
-
-    if ($slide2 != null)
-        $presentation->getSlides()->addClone($slide2);
-
-    $presentation->save($folderPath . "combined.pptx", SaveFormat::Pptx);
+    $merged->save("merged.pptx", SaveFormat::Pptx);
 } finally {
-    $presentation2->dispose();
-    $presentation1->dispose();
-    $presentation->dispose();
+    $merged->dispose();
 }
 ```
 
+これはインポートされたスライドのソース書式を保持するための有用な基本形です。出力で単一の結合先テーマを使用したい場合は、単純な `addClone($slide)` 呼び出しを前述の結合先マスターまたは結合先レイアウトオーバーロードに置き換えてください。
 
-## **スライドレイアウトを指定したプレゼンテーションのマージ** 
+## **実践的な考慮事項**
 
-この PHP コードは、プレゼンテーションからスライドを結合し、希望するスライドレイアウトを適用して 1 つの出力プレゼンテーションを作成する方法を示しています。
+### **マスター、レイアウト、書式忠実度**
+
+デフォルトのスライドクローンは、必要に応じてソースマスターを自動的に結合先プレゼンテーションに持ち込みます。Aspose.Slides は自動クローンされたマスターを内部レジストリで管理し、同一マスターの重複クローンを防止します。手動でクローンしたマスターはこのレジストリに登録されないため、明示的に制御しない限り事前にマスターをクローンしないでください。
+
+名前が同じでも、2 つのマスターやレイアウトが視覚的に同等であるとは限りません。企業テンプレートで最終的な外観を制御する必要がある場合は、結合先マスターまたはレイアウトを明示的に選択し、結合後に結果を検証してください。
+
+### **ノートとコメント**
+
+スピーカーノートとスライドコメントはスライドのコンテンツに紐づいており、スライドがクローンされると同時にコピーされます。Aspose.Slides には [presentation notes](https://docs.aspose.com/slides/ja/php-java/presentation-notes/) と [presentation comments](https://docs.aspose.com/slides/ja/php-java/presentation-comments/) 用の専用 API も用意されています。
+
+ノートページの書式が重要な場合、結合されたプレゼンテーションでノートマスターが異なることがあるため、結果を確認してください。レビュー作業では、コメントの作成者やスレッド構造も結合後に検証することを推奨します。
+
+### **画像、音声、動画、OLE オブジェクト、外部リンク**
+
+スライドは画像や埋め込み音声・動画、OLE データなどのプレゼンテーションレベルのリソースを参照できます。スライド自体をクローンし、可視シェイプだけをコピーしないことで、Aspose.Slides がこれらリソースとの関係を保持できます。
+
+埋め込みリソースとリンクリソースは扱いが異なります。リンクされた音声、動画、OLE オブジェクト、ハイパーリンクは外部ターゲットに依存したままであり、スライドをクローンしても外部リンクが埋め込みコンテンツに変換されることはありません。結合後にプレゼンテーションを開く環境で、リンクリソースのパスや URL が有効かテストしてください。
+
+Aspose.Slides は自動クローンされたマスターを追跡しますが、無関係なソースプレゼンテーション間で同一バイナリリソースが常に重複除去されるという保証ではありません。ファイルサイズが重要な場合は、結合パッケージを検査し、結果を測定して重複除去の有無を確認してください。
+
+### **埋め込みフォントとフォントの可用性**
+
+フォントはプレゼンテーションレベルで管理されます。機械間でタイポグラフィの一貫性が必要な場合、スライドだけをクローンしただけでは目的のフォントが結合先環境に存在するとは限りません。[FontsManager::getEmbeddedFonts()](https://reference.aspose.com/slides/ja/php-java/aspose.slides/fontsmanager/getembeddedfonts/) で埋め込みフォントを確認し、[Embed Fonts in Presentations](https://docs.aspose.com/slides/ja/php-java/embedded-font/) に従って明示的に埋め込みを管理してください。
+
+また、ソースファイルで使用されているフォントの埋め込みが許可されているか確認してください。フォントライセンスに埋め込み制限がある場合があります。
+
+### **パスワード保護されたプレゼンテーション**
+
+パスワードで保護されたソースは、スライドをクローンできるようにまず正常に開く必要があります。パスワードは [LoadOptions::setPassword()](https://reference.aspose.com/slides/ja/php-java/aspose.slides/loadoptions/setpassword/) で指定します。
+
 ```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
-    try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide, $pres2->getLayoutSlides()->get_Item(0));
-      }
-    } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
-    }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("YOUR_PASSWORD");
+
+$source = new Presentation("protected.pptx", $loadOptions);
+try {
+    // 復号化されたプレゼンテーションで作業します。
+} finally {
+    $source->dispose();
+}
 ```
 
+暗号化されたソースを開いても、同じ保護が自動的に結合先プレゼンテーションに適用されることはありません。必要に応じて出力保護を別途設定してください。
 
-## **異なるスライドサイズのプレゼンテーションのマージ** 
+### **巨大プレゼンテーションとメモリ使用量**
 
-{{% alert title="Note" color="warning" %}} 
+高解像度画像、音声、動画、その他大容量バイナリオブジェクトを含む巨大プレゼンテーションは、かなりのメモリを消費します。[LoadOptions::getBlobManagementOptions()](https://reference.aspose.com/slides/ja/php-java/aspose.slides/loadoptions/getblobmanagementoptions/) で BLOB の取り扱いと一時ファイル使用を制御できます。大容量ファイルのサンプルは [Open Presentations](https://docs.aspose.com/slides/ja/php-java/open-presentation/#open-large-presentations) を参照してください。
 
-スライドサイズが異なるプレゼンテーションはマージできません。 
+大きなファイルの場合は、可能な限りファイルパスから読み込み、ソースプレゼンテーションは結合が完了したら速やかに破棄し、ワークフローでチェックポイントが不要なら中間結果の保存を繰り返さないようにしてください。
 
-{{% /alert %}}
+### **スレッド安全性**
 
-サイズが異なる 2 つのプレゼンテーションをマージするには、どちらかのプレゼンテーションのサイズをもう一方に合わせてリサイズする必要があります。
-
-このサンプルコードは上記の操作を示しています。
-```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
-    try {
-      $pres2->getSlideSize()->setSize($pres1->getSlideSize()->getSize()->getWidth(), $pres1->getSlideSize()->getSize()->getHeight(), SlideSizeScaleType::EnsureFit);
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide);
-      }
-    } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
-    }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
-```
-
-
-## **スライドをプレゼンテーション セクションにマージ** 
-
-この PHP コードは、特定のスライドをプレゼンテーションのセクションにマージする方法を示しています。
-```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
-    try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide, $pres1->getSections()->get_Item(0));
-      }
-    } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
-    }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
-```
-
-
-スライドはセクションの末尾に追加されます。
-
-## **関連項目**
-
-
-Aspose は、[FREE Online Collage Maker](https://products.aspose.app/slides/collage) を提供しています。このオンラインサービスを使用すると、[JPG から JPG](https://products.aspose.app/slides/collage/jpg) や PNG から PNG の画像をマージしたり、[フォトグリッド](https://products.aspose.app/slides/collage/photo-grid) を作成したりできます。
-
-[Aspose FREE Online Merger](https://products.aspose.app/slides/merger) をチェックしてください。同じ形式（例: PPT → PPT、PPTX → PPTX）または異なる形式（例: PPT → PPTX、PPTX → ODP）間で PowerPoint プレゼンテーションをマージできます。
-
-[![Aspose FREE Online Merger](slides-merger.png)](https://products.aspose.app/slides/merger)
+[Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) インスタンスを複数スレッドで同時にロード、変更、保存、クローンしないでください。PHP via Java ではこれらの操作はマルチスレッド使用をサポートしていません。並列結合ジョブが必要な場合は、各プロセスが単一スレッドで独立したプレゼンテーションインスタンスを使用するようにし、[Aspose.Slides マルチスレッド ガイダンス](https://docs.aspose.com/slides/ja/php-java/multithreading/) に従ってください。
 
 ## **FAQ**
 
-**プレゼンテーションをマージする際のスライド数に制限はありますか？**
+**各ソースプレゼンテーションの元のデザインを保持するには？**
 
-厳密な制限はありません。Aspose.Slides は大容量ファイルを処理できますが、パフォーマンスはファイルサイズとシステムリソースに依存します。非常に大きなプレゼンテーションの場合は、64 ビット JVM を使用し、十分なヒープメモリを割り当てることを推奨します。
+`addClone(sourceSlide)` を使用し、結合先マスターやレイアウトを指定しません。必要に応じて Aspose.Slides がソースマスターを自動的にクローンします。
 
-**埋め込み動画や音声を含むプレゼンテーションをマージできますか？**
+**インポートされたスライドに結合先テーマを適用するには？**
 
-はい。Aspose.Slides はスライドに埋め込まれたマルチメディア コンテンツを保持しますが、最終的なプレゼンテーションは大幅にサイズが大きくなる可能性があります。
+結合先マスターを受け取るオーバーロードを使用します。ソースではなく結合先プレゼンテーションのマスターを渡してください。Aspose.Slides は各ソーススライドをそのマスターの適切なレイアウトにマップしようとします。
 
-**フォントはマージ時に保持されますか？**
+**結合先マスターではなく特定の結合先レイアウトを使用すべきはいつですか？**
 
-はい。ソースプレゼンテーションで使用されたフォントは、システムにインストールされているか[埋め込み](/slides/ja/php-java/embedded-font/)されていることを前提に、出力ファイルに保持されます。
+すべてのインポートスライドが同一の既知レイアウトを使用すべき場合は、特定レイアウトを選択します。ソースレイアウトのタイプや名前に応じてマスター内のレイアウトを自動選択させたい場合は、マスターを使用してください。
+
+**スライドサイズが異なるプレゼンテーションは結合できますか？**
+
+はい。ただし、スライドコンテンツは結合先サイズに自動で再設計されません。予測可能な配置が必要な場合は、[SlideSize::setSize()](https://reference.aspose.com/slides/ja/php-java/aspose.slides/slidesize/setsize/) と [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/ja/php-java/aspose.slides/slidesizescaletype/) を使用してソースプレゼンテーションを先にリサイズしてください。
+
+**PPT、PPTX、ODP のプレゼンテーションを 1 つのファイルに結合できますか？**
+
+できます。各ソースプレゼンテーションを読み込み、必要なスライドを 1 つの結合先にクローンし、サポートされている出力形式で保存します。フォーマット間で機能セットが完全に一致しない場合があるため、複合形式の結合後は複雑なコンテンツを確認してください。[Supported File Formats](https://docs.aspose.com/slides/ja/php-java/supported-file-formats/) を参照してください。
+
+**ソースのセクションは自動で保持されますか？**
+
+スライドだけをクローンする基本ループでは保持されません。結合先で必要なセクションを再作成し、[addClone](https://reference.aspose.com/slides/ja/php-java/aspose.slides/slidecollection/addclone/) のセクションオーバーロードを使用してください。
+
+**スピーカーノートとコメントは保持されますか？**
+
+クローンされたスライドと共にコピーされます。ノートマスターの書式やコメント作者、スレッド構造に依存するワークフローでは、結合結果を必ず検証してください。
+
+**音声、動画、OLE オブジェクト、ハイパーリンクはどうなりますか？**
+
+埋め込みコンテンツはクローンされたスライドのリソース関係として保持されます。外部リンクは外部のままで、結合後もリンク先のファイルや URL が利用可能である必要があります。
+
+**すべてのソースから埋め込まれたフォントは結合後に利用可能ですか？**
+
+スライドクローンだけに依存してフォント展開を保証しないでください。結合先の埋め込みフォントを確認し、タイポグラフィが重要な場合はフォント埋め込みまたは外部フォントの配置を明示的に管理してください。
+
+**パスワード保護されたファイルを結合するには？**
+
+正しい [LoadOptions::setPassword()](https://reference.aspose.com/slides/ja/php-java/aspose.slides/loadoptions/setpassword/) で開き、通常通りスライドをクローンしてください。出力の保護は別途設定します。
+
+**非常に大きなプレゼンテーションはどう扱うべきですか？**
+
+BLOB 管理オプションを使用し、大容量ファイルは可能な限りファイルパスから読み込み、ソースプレゼンテーションは結合が終わったら速やかに破棄し、最終結果の保存は必要なときだけ行ってください。
+
+**複数スレッドでスライドを結合できますか？**
+
+PHP via Java では、プレゼンテーションの読み込み、保存、クローンを複数スレッドで実行することはサポートされていません。並列作業が必要な場合は、各プロセスを単一スレッドで実行し、プレゼンテーションインスタンスをプロセス間で共有しないようにしてください。

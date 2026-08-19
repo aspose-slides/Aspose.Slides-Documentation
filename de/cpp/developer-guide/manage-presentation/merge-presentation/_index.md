@@ -19,229 +19,363 @@ keywords:
 - ODP kombinieren
 - C++
 - Aspose.Slides
-description: "Müheloses Zusammenführen von PowerPoint (PPT, PPTX) und OpenDocument (ODP) Präsentationen mit Aspose.Slides für C++, um Ihren Arbeitsablauf zu optimieren."
+description: "Erfahren Sie, wie Sie PowerPoint- und OpenDocument-Präsentationen in C++ durch Klonen von Folien, Steuern von Mastern und Layouts, Anpassen der Foliengröße, Erhalten von Abschnitten und Umgang mit geschützten oder großen Dateien zusammenführen."
 ---
+## **Übersicht**
 
-{{% alert  title="Tip" color="primary" %}} 
+Aspose.Slides für C++ kombiniert Präsentationen, indem Folien von einer [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/) in eine andere geklont werden. Der Hauptvorgang ist [ISlideCollection::AddClone](https://reference.aspose.com/slides/de/cpp/aspose.slides/islidecollection/addclone/), der die Formatierung der Quellfolie beibehalten oder die geklonte Folie an einen Master oder ein Layout in der Zielpräsentation anhängen kann.
 
-Vielleicht möchten Sie sich die **Aspose kostenlose Online** [Merger-App](https://products.aspose.app/slides/merger) ansehen. Sie ermöglicht es, PowerPoint-Präsentationen im gleichen Format (PPT zu PPT, PPTX zu PPTX usw.) zusammenzuführen und Präsentationen in verschiedenen Formaten (PPT zu PPTX, PPTX zu ODP usw.) zu kombinieren.
+Dieser Artikel behandelt die gebräuchlichsten Zusammenführungs‑Workflows:
 
-[![todo:image_alt_text](slides-merger.png)](https://products.aspose.app/slides/merger)
+- Alle Folien zusammenführen und dabei die Formatierung der Quelle beibehalten;
+- Ausgewählte Folien zusammenführen;
+- Einen Master aus der Zielpräsentation anwenden;
+- Ein bestimmtes Layout aus der Zielpräsentation anwenden;
+- Unterschiedliche Foliengrößen vor dem Zusammenführen normalisieren;
+- Geklonte Folien zu einem Abschnitt hinzufügen;
+- Mehrere Präsentationen in einem End‑to‑End‑Workflow zusammenführen;
+- Master, Ressourcen, Notizen, Kommentare, Medien, Schriftarten, Passwörter, große Dateien und Multithreading‑Probleme handhaben.
 
-{{% /alert %}} 
+## **Wie das Klonen von Folien Master und Layouts beeinflusst**
 
+Eine Folie erbt einen Großteil ihres Aussehens von ihrem Layout und Master. Aus diesem Grund bestimmt die von Ihnen gewählte Überladung, wie die zusammengeführte Folie in die Zielpräsentation integriert wird.
 
-## **Präsentationszusammenführung**
+Verwenden Sie [ISlideCollection::AddClone](https://reference.aspose.com/slides/de/cpp/aspose.slides/islidecollection/addclone/) auf eine der folgenden Arten:
 
-Wenn Sie eine Präsentation mit einer anderen zusammenführen, kombinieren Sie deren Folien zu einer einzigen Präsentation, um eine Datei zu erhalten. 
+- `AddClone(sourceSlide)` — bewahrt das Layout und die Formatierung der Quellfolie. Bei Bedarf kann der Quell‑Master automatisch in die Zielpräsentation geklont werden. Aspose.Slides verfolgt automatisch geklonte Master, sodass wiederholte Folien, die denselben Quell‑Master verwenden, nicht mehrfach geklont werden.
+- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — hängt die geklonte Folie an einen bestimmten Ziel‑[IMasterSlide](https://reference.aspose.com/slides/de/cpp/aspose.slides/imasterslide/). Aspose.Slides sucht unter diesem Master nach einem passenden Layout anhand des Layout‑Typs oder Namens.
+- `AddClone(sourceSlide, destinationLayout)` — hängt die geklonte Folie direkt an ein bestimmtes Ziel‑[ILayoutSlide](https://reference.aspose.com/slides/de/cpp/aspose.slides/ilayoutslide/).
 
-{{% alert title="Info" color="info" %}}
+Der an einen `AddClone`‑Überladung übergebene Master oder das Layout muss zur **Ziel**‑Präsentation gehören, nicht zur Quell‑Präsentation.
 
-Die meisten Präsentationsprogramme (PowerPoint oder OpenOffice) verfügen nicht über Funktionen, mit denen Benutzer Präsentationen auf diese Weise kombinieren können. 
+## **Gesamte Präsentationen zusammenführen und Quell‑Formatierung beibehalten**
 
-[**Aspose.Slides for C++**](https://products.aspose.com/slides/cpp/) ermöglicht jedoch das Zusammenführen von Präsentationen auf verschiedene Arten. Sie können Präsentationen mit all ihren Formen, Stilen, Texten, Formatierungen, Kommentaren, Animationen usw. zusammenführen, ohne sich um Qualitäts- oder Datenverlust sorgen zu müssen. 
+Die einfachste Zusammenführung kopiert jede Folie der Quellpräsentation in die Zielpräsentation. Dies ist die geeignete Wahl, wenn die importierten Folien ihr ursprüngliches Thema, ihren Master und ihre Layout‑Beziehungen beibehalten sollen.
 
-**Siehe auch**
-
-[Clone Slides](https://docs.aspose.com/slides/cpp/clone-slides/)*.* 
-
-{{% /alert %}}
-
-### **Was kann zusammengeführt werden**
-
-Mit Aspose.Slides können Sie zusammenführen 
-
-* gesamte Präsentationen. Alle Folien aus den Präsentationen landen in einer Präsentation
-* bestimmte Folien. Ausgewählte Folien landen in einer Präsentation
-* Präsentationen in einem Format (PPT zu PPT, PPTX zu PPTX usw.) und in verschiedenen Formaten (PPT zu PPTX, PPTX zu ODP usw.) miteinander. 
-
-{{% alert title="Note" color="warning" %}} 
-
-Neben Präsentationen ermöglicht Aspose.Slides das Zusammenführen anderer Dateien:
-
-* [Bilder](https://products.aspose.com/slides/cpp/merger/image-to-image/), wie [JPG zu JPG](https://products.aspose.com/slides/cpp/merger/jpg-to-jpg/) oder [PNG zu PNG](https://products.aspose.com/slides/cpp/merger/png-to-png/)
-* [Dokumente](https://products.aspose.com/slides/cpp/merger/pdf-to-pdf/), wie [PDF zu PDF](https://products.aspose.com/slides/cpp/merger/pdf-to-pdf/) oder [HTML zu HTML](https://products.aspose.com/slides/cpp/merger/html-to-html/)
-* Und zwei unterschiedliche Dateien wie [Bild zu PDF](https://products.aspose.com/slides/cpp/merger/image-to-pdf/), [JPG zu PDF](https://products.aspose.com/slides/cpp/merger/jpg-to-pdf/) oder [TIFF zu PDF](https://products.aspose.com/slides/cpp/merger/tiff-to-pdf/).
-
-{{% /alert %}}
-
-### **Zusammenführungsoptionen**
-
-Sie können Optionen anwenden, die bestimmen, ob
-
-* jede Folie in der Ausgabepäsentation einen eindeutigen Stil behält
-* ein bestimmter Stil für alle Folien in der Ausgabepäsentation verwendet wird. 
-
-Zum Zusammenführen von Präsentationen stellt Aspose.Slides die [AddClone](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee)‑Methoden (aus dem [ISlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection)‑Interface) bereit. Es gibt mehrere Implementierungen der `AddClone`‑Methoden, die die Parameter des Präsentationszusammenführungsprozesses festlegen. Jedes Presentation‑Objekt besitzt eine [Slides](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c)‑Sammlung, sodass Sie die `AddClone`‑Methode der Präsentation aufrufen können, in die Sie Folien einfügen möchten. 
-
-Die `AddClone`‑Methode gibt ein `ISlide`‑Objekt zurück, das ein Klon der Quellfolie ist. Die Folien in einer Ausgabepäsentation sind einfach eine Kopie der Folien aus der Quelle. Daher können Sie die resultierenden Folien ändern (z. B. Stile, Formatierungsoptionen oder Layouts anwenden), ohne dass die Quellpräsentationen beeinflusst werden. 
-
-## **Präsentationen zusammenführen** 
-
-Aspose.Slides stellt die [**AddClone (ISlide)**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee)‑Methode bereit, mit der Sie Folien kombinieren können, wobei die Folien ihre Layouts und Stile beibehalten (Standardparameter). 
-
-Dieser C++‑Code zeigt, wie Sie Präsentationen zusammenführen:
 ```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+for (const auto& slide : source->get_Slides())
 {
-    pres1->get_Slides()->AddClone(slide);
+    destination->get_Slides()->AddClone(slide);
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+destination->Save(u"merged.pptx", SaveFormat::Pptx);
 ```
 
+Die resultierende Präsentation kann mehrere Master enthalten, wenn Quell‑ und Zielpräsentation unterschiedliche Designs verwenden. Das ist zu erwarten, wenn die Quell‑Formatierung bewusst beibehalten wird.
 
-## **Präsentationen mit einer Folienmaster zusammenführen** 
+## **Ausgewählte Folien zusammenführen**
 
-Aspose.Slides stellt die [**AddClone (ISlide, IMasterSlide, bool)**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a6b040e6b30f52ab4644fafdbc650b640)‑Methode bereit, mit der Sie Folien kombinieren können, während ein Folienmaster‑Präsentations‑Template angewendet wird. Auf diese Weise können Sie bei Bedarf den Stil für die Folien in der Ausgabepäsentation ändern. 
+Sie müssen nicht jede Folie klonen. Das folgende Beispiel importiert nur ausgewählte Folienindizes aus der Quellpräsentation.
 
-Dieser C++‑Code demonstriert den beschriebenen Vorgang:
 ```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+int32_t slideIndexes[] = {0, 2, 4};
+
+for (auto index : slideIndexes)
 {
-    pres1->get_Slides()->AddClone(slide, pres2->get_Masters()->idx_get(0), true);
+    destination->get_Slides()->AddClone(source->get_Slide(index));
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+destination->Save(u"merged-selected-slides.pptx", SaveFormat::Pptx);
 ```
 
+Validieren Sie Folienindizes vor dem Klonen, wenn sie aus Benutzereingaben oder externer Konfiguration stammen.
 
-{{% alert title="Note" color="warning" %}} 
+## **Folien mit einem Ziel‑Master zusammenführen**
 
-Das Folienlayout für den Folienmaster wird automatisch ermittelt. Wenn kein passendes Layout ermittelt werden kann und der boolesche Parameter `allowCloneMissingLayout` der `AddClone`‑Methode auf true gesetzt ist, wird das Layout der Quellfolie verwendet. Andernfalls wird eine [PptxEditException](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d) ausgelöst. 
+Verwenden Sie die Überladung [AddClone(ISlide, IMasterSlide, bool)](https://reference.aspose.com/slides/de/cpp/aspose.slides/islidecollection/addclone/), wenn importierte Folien einem Master folgen sollen, der bereits zur Zielpräsentation gehört.
 
-{{% /alert %}}
-
-Wenn Sie möchten, dass die Folien in der Ausgabepäsentation ein anderes Folienlayout haben, verwenden Sie stattdessen die [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0ed5909b2d92555159007046760ff2f1)‑Methode beim Zusammenführen. 
-
-## **Spezifische Folien aus Präsentationen zusammenführen** 
-
-Das Zusammenführen bestimmter Folien aus mehreren Präsentationen ist nützlich, um benutzerdefinierte Foliensätze zu erstellen. Aspose.Slides C++ ermöglicht das Auswählen und Importieren nur der benötigten Folien. Die API bewahrt Formatierung, Layout und Design der Originalfolien. 
-
-Der folgende C++‑Code erstellt eine neue Präsentation, fügt Titelfolien aus zwei anderen Präsentationen hinzu und speichert das Ergebnis in einer Datei:
 ```cpp
-SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation)
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto destinationMaster = destination->get_Master(0);
+
+for (const auto& slide : source->get_Slides())
 {
-    for (auto&& slide : presentation->get_Slides())
+    destination->get_Slides()->AddClone(slide, destinationMaster, true);
+}
+
+destination->Save(u"merged-with-destination-master.pptx", SaveFormat::Pptx);
+```
+
+Aspose.Slides wählt ein passendes Layout unter dem angegebenen Master aus, indem es den Layout‑Typ oder Namen des Quell‑Layouts vergleicht. Wenn kein geeignetes Layout existiert und `allowCloneMissingLayout` ist `true`, wird das Quell‑Layout geklont, sodass die Folie hinzugefügt werden kann. Ist es `false`, wird eine [PptxEditException](https://reference.aspose.com/slides/de/cpp/aspose.slides/details_pptxeditexception/) ausgelöst.
+
+Verwenden Sie `false`, wenn die Zusammenführung fehlschlagen soll, anstatt ein zusätzliches Layout in den Ziel‑Master einzufügen.
+
+## **Folien mit einem bestimmten Ziel‑Layout zusammenführen**
+
+Verwenden Sie die Überladung [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/de/cpp/aspose.slides/islidecollection/addclone/), wenn Sie genau wissen, welches Ziel‑Layout die importierten Folien verwenden sollen.
+
+```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto destinationLayout = destination->get_LayoutSlide(0);
+
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide, destinationLayout);
+}
+
+destination->Save(u"merged-with-destination-layout.pptx", SaveFormat::Pptx);
+```
+
+Das Anwenden eines Ziel‑Layouts ändert die geerbte Layout‑Beziehung; es gestaltet den Inhalt der Quellfolie nicht neu. Wenn Quell‑ und Ziel‑Layouts unterschiedliche Platzhalterstrukturen besitzen, prüfen Sie das Ergebnis, um sicherzustellen, dass die geerbte Formatierung und das Platzhalter‑Verhalten passend sind.
+
+## **Präsentationen mit unterschiedlichen Foliengrößen zusammenführen**
+
+Präsentationen mit unterschiedlichen Folienabmessungen können zusammengeführt werden, jedoch gestaltet das Klonen einer Folie in eine Präsentation mit anderer Foliengröße deren Inhalt nicht automatisch neu für die neue Leinwand. Formen können daher verschoben, unerwartet skaliert oder außerhalb des sichtbaren Folienbereichs erscheinen.
+
+Ein praktikabler Ansatz ist, die Quellpräsentation vor dem Klonen zu skalieren. Die Methode [SlideSize::SetSize](https://reference.aspose.com/slides/de/cpp/aspose.slides/slidesize/setsize/) kann bestehenden Inhalt skalieren, während die Folienabmessungen geändert werden. [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/de/cpp/aspose.slides/slidesizescaletype/) skaliert den Inhalt, damit er in die gewünschte Größe passt.
+
+```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto destinationSize = destination->get_SlideSize()->get_Size();
+auto sourceSize = source->get_SlideSize()->get_Size();
+
+if (sourceSize.get_Width() != destinationSize.get_Width() || 
+    sourceSize.get_Height() != destinationSize.get_Height())
+{
+    source->get_SlideSize()->SetSize(
+        destinationSize.get_Width(), 
+        destinationSize.get_Height(), 
+        SlideSizeScaleType::EnsureFit);
+}
+
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide);
+}
+
+destination->Save(u"merged-same-slide-size.pptx", SaveFormat::Pptx);
+```
+
+Das Skalieren ändert das Quell‑Präsentationsobjekt im Speicher. Wenn Sie die ursprüngliche Quellpräsentation unverändert für weitere Vorgänge benötigen, öffnen Sie eine separate Instanz für die Zusammenführung.
+
+## **Folien in einen Präsentationsabschnitt zusammenführen**
+
+Die grundlegende Folien‑Klon‑Schleife reproduziert nicht die Abschnittshierarchie der Quellpräsentation. Wenn Abschnitte im Ergebnis wichtig sind, erstellen oder wählen Sie Abschnitte in der Zielpräsentation und klonen Sie Folien explizit mit [AddClone(ISlide, ISection)](https://reference.aspose.com/slides/de/cpp/aspose.slides/islidecollection/addclone/).
+
+```cpp
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto importedSection = destination->get_Sections()->AppendEmptySection(u"Imported slides");
+
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide, importedSection);
+}
+
+destination->Save(u"merged-with-section.pptx", SaveFormat::Pptx);
+```
+
+Die geklonten Folien werden an den angegebenen Zielabschnitt angehängt. Um mehrere Quellabschnitte zu erhalten, reproduzieren Sie diese Abschnitte in der Zielpräsentation und ordnen Sie jede Quellfolie dem entsprechenden Zielabschnitt zu.
+
+## **Mehrere Präsentationen sicher zusammenführen**
+
+Das folgende End‑to‑End‑Beispiel verwendet die erste Präsentation als Ziel, normalisiert die Foliengröße jeder zusätzlichen Quelle, hält jede Quelle nur solange offen, wie sie kopiert wird, und speichert die endgültige Datei einmalig.
+
+```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+System::String inputFiles[] = {u"part1.pptx", u"part2.pptx", u"part3.pptx"};
+const int32_t inputFileCount = 3;
+
+auto merged = System::MakeObject<Presentation>(inputFiles[0]);
+auto mergedSize = merged->get_SlideSize()->get_Size();
+
+for (int32_t fileIndex = 1; fileIndex < inputFileCount; fileIndex++)
+{
+    auto source = System::MakeObject<Presentation>(inputFiles[fileIndex]);
+    auto sourceSize = source->get_SlideSize()->get_Size();
+
+    if (sourceSize.get_Width() != mergedSize.get_Width() || 
+        sourceSize.get_Height() != mergedSize.get_Height())
     {
-        if (slide->get_LayoutSlide()->get_LayoutType() == SlideLayoutType::Title)
-        {
-            return slide;
-        }
+        source->get_SlideSize()->SetSize(
+            mergedSize.get_Width(), 
+            mergedSize.get_Height(), 
+            SlideSizeScaleType::EnsureFit);
     }
-    return nullptr;
-}
-```
 
-```cpp
-auto presentation = MakeObject<Presentation>();
-auto presentation1 = MakeObject<Presentation>(u"presentation1.pptx");
-auto presentation2 = MakeObject<Presentation>(u"presentation2.pptx");
-
-presentation->get_Slides()->RemoveAt(0);
-
-auto slide1 = GetTitleSlide(presentation1);
-
-if (slide1 != nullptr)
-    presentation->get_Slides()->AddClone(slide1);
-
-auto slide2 = GetTitleSlide(presentation2);
-
-if (slide2 != nullptr)
-    presentation->get_Slides()->AddClone(slide2);
-
-presentation->Save(u"combined.pptx", SaveFormat::Pptx);
-
-presentation2->Dispose();
-presentation1->Dispose();
-presentation->Dispose();
-```
-
-
-## **Präsentationen mit einem Folienlayout zusammenführen** 
-
-Dieser C++‑Code zeigt, wie Sie Folien aus Präsentationen kombinieren, während Sie Ihr bevorzugtes Folienlayout darauf anwenden, um eine Ausgabepäsentation zu erhalten:
-```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
-{
-    pres1->get_Slides()->AddClone(slide, pres2->get_LayoutSlides()->idx_get(0));
+    for (const auto& slide : source->get_Slides())
+    {
+        merged->get_Slides()->AddClone(slide);
+    }
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+merged->Save(u"merged.pptx", SaveFormat::Pptx);
 ```
 
+Dies ist ein nützlicher Ausgangspunkt, um die Quell‑Formatierung importierter Folien beizubehalten. Wenn Ihr Ergebnis ein einziges Ziel‑Theme verwenden muss, ersetzen Sie den einfachen Aufruf `AddClone(slide)` durch die zuvor gezeigte Überladung für Ziel‑Master oder Ziel‑Layout.
 
-## **Präsentationen mit unterschiedlichen Foliengrößen zusammenführen** 
+## **Praktische Überlegungen**
 
-{{% alert title="Note" color="warning" %}} 
+### **Master, Layouts und Formattreue**
 
-Sie können Präsentationen mit unterschiedlichen Foliengrößen nicht zusammenführen. 
+Standard‑Folien‑Klonen kann bei Bedarf einen erforderlichen Quell‑Master automatisch in die Zielpräsentation übernehmen. Aspose.Slides führt ein internes Register für automatisch geklonte Master, um ein wiederholtes Klonen desselben Masters zu vermeiden. Manuell geklonte Master werden von diesem Register nicht erfasst, daher sollten Sie Master nicht vorab klonen, es sei denn, Sie benötigen explizite Kontrolle über die Master‑Struktur.
 
-{{% /alert %}}
+Gehen Sie nicht davon aus, dass zwei Master oder Layouts mit gleichem Namen visuell identisch sind. Wenn ein Unternehmens‑Template das endgültige Aussehen steuern muss, wählen Sie einen Ziel‑Master oder ein Ziel‑Layout eindeutig aus und prüfen Sie das Ergebnis nach der Zusammenführung.
 
-Um 2 Präsentationen mit unterschiedlichen Foliengrößen zusammenzuführen, müssen Sie eine der Präsentationen so skalieren, dass ihre Größe der der anderen Präsentation entspricht. 
+### **Notizen und Kommentare**
 
-Dieser Beispielcode demonstriert den beschriebenen Vorgang:
+Sprechernotizen und Folienkommentare sind mit dem Folieninhalt verknüpft und werden beim Klonen einer Folie kopiert. Aspose.Slides bietet zudem dedizierte APIs für [presentation notes](https://docs.aspose.com/slides/de/cpp/presentation-notes/) und [presentation comments](https://docs.aspose.com/slides/de/cpp/presentation-comments/).
+
+Wenn das Format der Notizseite wichtig ist, überprüfen Sie die zusammengeführte Präsentation, da Notizen‑Master Präsentations‑Objekte sind und zwischen Quell‑Dateien variieren können. Für Überprüfungs‑Workflows prüfen Sie zudem die Kommentar‑Autoren und verschachtelten Kommentare nach dem Kombinieren von Dateien verschiedener Autoren oder Templates.
+
+### **Bilder, Audio, Video, OLE‑Objekte und externe Links**
+
+Folien können Präsentations‑Ressourcen wie Bilder, eingebettete Audios, eingebettete Videos und OLE‑Daten referenzieren. Klonen Sie die Folie selbst und nicht nur die sichtbaren Formen, damit Aspose.Slides die Beziehungen der Folie zu ihren Ressourcen erhalten kann.
+
+Eingebettete und verknüpfte Ressourcen sollten unterschiedlich behandelt werden. Ein verknüpfter Audio‑, Video‑, OLE‑Objekt‑ oder Hyperlink bleibt von seinem externen Ziel abhängig; das Klonen einer Folie wandelt einen externen Link nicht in eingebetteten Inhalt um. Prüfen Sie verknüpfte Ressourcenknoten und URLs in der Umgebung, in der die zusammengeführte Präsentation geöffnet wird.
+
+Aspose.Slides verfolgt automatisch geklonte Master, dies sollte jedoch nicht als generelle Garantie dafür verstanden werden, dass identische Binär‑Ressourcen aus unabhängigen Quellpräsentationen immer dedupliziert werden. Ist die Dateigröße wichtig, inspizieren Sie das zusammengeführte Paket und messen Sie das Ergebnis, anstatt sich auf implizite Deduplizierung zu verlassen.
+
+### **Eingebettete Schriftarten und Verfügbarkeit**
+
+Schriftarten werden auf Präsentationsebene verwaltet. Wenn die Typografie über verschiedene Rechner hinweg konsistent bleiben muss, gehen Sie nicht davon aus, dass das reine Klonen von Folien garantiert, dass jede erforderliche Schriftart in der Zielumgebung verfügbar ist. Sie können eingebettete Schriftarten mit [FontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/de/cpp/aspose.slides/fontsmanager/getembeddedfonts/) inspizieren und das Einbetten explizit verwalten, wie in [Embed Fonts in Presentations](https://docs.aspose.com/slides/de/cpp/embedded-font/) beschrieben.
+
+Prüfen Sie außerdem, ob Sie die Lizenz haben, die in den Quell‑Dateien verwendeten Schriftarten einzubetten. Schriftlizenzbedingungen können das Einbetten einschränken.
+
+### **Passwortgeschützte Präsentationen**
+
+Eine passwortgeschützte Quelle muss erfolgreich geöffnet werden, bevor ihre Folien geklont werden können. Das Passwort wird über [LoadOptions::set_Password](https://reference.aspose.com/slides/de/cpp/aspose.slides/loadoptions/set_password/) übergeben.
+
 ```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres1Size = pres1->get_SlideSize()->get_Size();
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
 
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-pres2->get_SlideSize()->SetSize(pres1Size.get_Width(), pres1Size.get_Height(), SlideSizeScaleType::EnsureFit);
+using namespace Aspose::Slides;
 
-for (const auto& slide : pres2->get_Slides())
-{
-    pres1->get_Slides()->AddClone(slide);
-}
+auto loadOptions = System::MakeObject<LoadOptions>();
+loadOptions->set_Password(u"YOUR_PASSWORD");
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+auto source = System::MakeObject<Presentation>(u"protected.pptx", loadOptions);
 ```
 
+Das Öffnen einer verschlüsselten Quelle wendet nicht automatisch denselben Schutz auf die Zielpräsentation an. Konfigurieren Sie den Ausgabeschutz bei Bedarf separat.
 
-## **Folien in einen Präsentationsabschnitt einfügen** 
+### **Große Präsentationen und Speicherverbrauch**
 
-Dieser C++‑Code zeigt, wie Sie eine bestimmte Folie in einen Abschnitt einer Präsentation einfügen:
-```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (int32_t index = 0; index < pres2->get_Slides()->get_Count(); index++)
-{
-    auto slide = pres2->get_Slides()->idx_get(index);
-    pres1->get_Slides()->AddClone(slide, pres1->get_Sections()->idx_get(0));
-}
+Große Präsentationen mit hochauflösenden Bildern, Audio, Video oder anderen großen Binärobjekten können erheblichen Speicher beanspruchen. [LoadOptions::set_BlobManagementOptions](https://reference.aspose.com/slides/de/cpp/aspose.slides/loadoptions/set_blobmanagementoptions/) bietet Steuerungen für BLOB‑Verarbeitung und temporäre Dateinutzung. Siehe [Manage Presentation BLOBs](https://docs.aspose.com/slides/de/cpp/manage-blob/) für Strategien bei großen Dateien.
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
-```
+Bei großen Dateien bevorzugen Sie das Laden über Dateipfade, entsorgen Sie jede Quellpräsentation, sobald sie zusammengeführt wurde, und vermeiden Sie wiederholtes Speichern von Zwischenergebnissen, es sei denn, der Workflow erfordert Checkpoints.
 
+### **Thread‑Sicherheit**
 
-Die Folie wird am Ende des Abschnitts hinzugefügt. 
-
-{{% alert title="Tip" color="primary" %}}
-
-Aspose bietet eine [FREE Collage web app](https://products.aspose.app/slides/collage). Mit diesem Online‑Dienst können Sie [JPG zu JPG](https://products.aspose.app/slides/collage/jpg) oder PNG‑zu‑PNG‑Bilder zusammenführen, [Fotogitter](https://products.aspose.app/slides/collage/photo-grid) erstellen und mehr. 
-
-{{% /alert %}}
+Laden, ändern, speichern oder klonen Sie nicht dieselbe [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/)‑Instanz gleichzeitig aus mehreren Threads. Halten Sie jede Präsentationsinstanz auf einen Zusammenführungs‑Vorgang beschränkt. Wenn Sie unabhängige Aufgaben parallelisieren, verwenden Sie unabhängige Präsentationsinstanzen und folgen Sie der [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/de/cpp/multithreading/).
 
 ## **FAQ**
 
-**Werden Notizen beim Zusammenführen erhalten?**
+**Wie behalte ich das ursprüngliche Design jeder Quellpräsentation bei?**
 
-Ja. Beim Klonen von Folien übernimmt Aspose.Slides alle Folienelemente, einschließlich Notizen, Formatierungen und Animationen.
+Verwenden Sie [`AddClone(sourceSlide)`](https://reference.aspose.com/slides/de/cpp/aspose.slides/islidecollection/addclone/) ohne Angabe eines Ziel‑Masters oder -Layouts. Aspose.Slides kann den Quell‑Master automatisch klonen, wenn er von der importierten Folie benötigt wird.
 
-**Werden Kommentare und deren Autoren übertragen?**
+**Wie lassen sich importierte Folien an das Ziel‑Theme anpassen?**
 
-Kommentare, als Teil des Folieninhalts, werden mit der Folie kopiert. Die Autorbezeichnungen der Kommentare bleiben als Kommentarobjekte in der resultierenden Präsentation erhalten.
+Verwenden Sie die Überladung, die einen Ziel‑Master akzeptiert. Übergeben Sie einen Master aus der Zielpräsentation, nicht aus der Quelle. Aspose.Slides versucht, jede Quellfolie einem geeigneten Layout unter diesem Master zuzuordnen.
 
-**Was ist, wenn die Quellpräsentation passwortgeschützt ist?**
+**Wann sollte ich ein bestimmtes Ziel‑Layout anstelle eines Ziel‑Masters verwenden?**
 
-Sie muss [mit dem Passwort geöffnet werden](/slides/de/cpp/password-protected-presentation/) über [LoadOptions::set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/); nach dem Laden können diese Folien sicher in eine ungeschützte Zieldatei (oder ebenfalls in eine geschützte) geklont werden.
+Verwenden Sie ein spezifisches Layout, wenn jede importierte Folie ein bekanntes Layout benutzen soll. Verwenden Sie einen Master, wenn Sie Aspose.Slides die Auswahl unter den Layouts dieses Masters basierend auf Layout‑Typ oder Namen der Quellfolie überlassen möchten.
 
-**Wie thread‑sicher ist der Zusammenführungs‑Vorgang?**
+**Können Präsentationen mit unterschiedlichen Foliengrößen zusammengeführt werden?**
 
-Verwenden Sie nicht dieselbe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)‑Instanz aus [mehreren Threads](/slides/de/cpp/multithreading/). Die empfohlene Regel lautet „ein Dokument – ein Thread“; verschiedene Dateien können parallel in separaten Threads verarbeitet werden.
+Ja, jedoch wird der Folieninhalt nicht automatisch für die Zielabmessungen neu gestaltet. Skalieren Sie die Quellpräsentation zuerst, wenn Sie eine vorhersehbare Platzierung benötigen, zum Beispiel mit [SlideSize::SetSize](https://reference.aspose.com/slides/de/cpp/aspose.slides/slidesize/setsize/) und [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/de/cpp/aspose.slides/slidesizescaletype/).
+
+**Kann ich PPT-, PPTX- und ODP‑Präsentationen in einer Datei zusammenführen?**
+
+Ja. Laden Sie jede Quellpräsentation, klonen Sie die erforderlichen Folien in eine Zielpräsentation und speichern Sie die Zielpräsentation in einem unterstützten Ausgabeformat. Da die Formate nicht exakt denselben Funktionsumfang bieten, prüfen Sie komplexe Inhalte nach formatübergreifenden Zusammenführungen. Siehe [Supported File Formats](https://docs.aspose.com/slides/de/cpp/supported-file-formats/).
+
+**Werden Quellabschnitte automatisch erhalten?**
+
+Nicht durch eine einfache Schleife, die nur Folien klont. Reproduzieren Sie die erforderlichen Abschnitte in der Zielpräsentation und verwenden Sie die Abschnitt‑Überladung von [AddClone](https://reference.aspose.com/slides/de/cpp/aspose.slides/islidecollection/addclone/), wenn die Abschnittsstruktur erhalten bleiben muss.
+
+**Werden Sprecher‑Notizen und Kommentare übernommen?**
+
+Sie werden zusammen mit der geklonten Folie kopiert. Für Workflows, die das Styling des Notizen‑Masters, Kommentar‑Autoren oder verschachtelte Review‑Daten betreffen, prüfen Sie das Ergebnis, da diese Szenarien Präsentations‑ und nicht nur Folien‑Strukturen betreffen.
+
+**Was geschieht mit Audio, Video, OLE‑Objekten und Hyperlinks?**
+
+Eingebettete Inhalte werden als Teil der Ressourcen‑Beziehungen der geklonten Folie übernommen. Externe Links bleiben extern, sodass deren Ziel‑Dateien oder URLs nach der Zusammenführung weiterhin verfügbar sein müssen.
+
+**Sind eingebettete Schriftarten aus allen Quellen garantiert in der zusammengeführten Präsentation vorhanden?**
+
+Verlassen Sie sich nicht ausschließlich auf das Klonen von Folien für die Schriftart‑Verteilung. Inspizieren Sie die eingebetteten Schriftarten der Zielpräsentation und verwalten Sie das Einbetten oder die Verfügbarkeit externer Schriftarten explizit, wenn die Typografie wichtig ist.
+
+**Wie füge ich eine passwortgeschützte Datei zusammen?**
+
+Öffnen Sie sie mit dem korrekten [LoadOptions::set_Password](https://reference.aspose.com/slides/de/cpp/aspose.slides/loadoptions/set_password/), dann klonen Sie die Folien wie gewohnt. Der Ausgabeschutz wird separat konfiguriert.
+
+**Wie gehe ich mit sehr großen Präsentationen um?**
+
+Nutzen Sie das BLOB‑Management, wenn große Binärobjekte den Speicherverbrauch dominieren, bevorzugen Sie das Laden über Dateipfade für sehr große Dateien, entsorgen Sie Quellpräsentationen umgehend nach ihrer Verwendung und speichern Sie das Endergebnis nur bei Bedarf.
+
+**Kann ich Folien aus mehreren Threads zusammenführen?**
+
+Verwenden Sie nicht dieselbe [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/)‑Instanz gleichzeitig aus mehreren Threads. Halten Sie jede Zusammenführungs‑Operation auf eigene Präsentationsinstanzen beschränkt.

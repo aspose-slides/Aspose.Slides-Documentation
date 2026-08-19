@@ -20,262 +20,344 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Легко объединяйте презентации PowerPoint (PPT, PPTX) и OpenDocument (ODP) на JavaScript с помощью Aspose.Slides для Node.js, упрощая ваш рабочий процесс."
+description: "Узнайте, как объединять презентации PowerPoint и OpenDocument в JavaScript с помощью клонирования слайдов, управления мастерами и макетами, изменения размера содержимого слайдов, сохранения разделов и обработки защищённых или больших файлов."
 ---
+## **Обзор**
 
-## **Объединение презентаций**
+Aspose.Slides for Node.js via Java объединяет презентации, клонируя слайды из одной [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/) в другую. Основная операция — [SlideCollection.addClone](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-), которая может сохранять форматирование исходного слайда или присоединять клонированный слайд к мастеру или макету в целевой презентации.
 
-Когда вы объединяете одну презентацию с другой, вы фактически комбинируете их слайды в одну презентацию, получая один файл. 
+В этой статье рассматриваются наиболее распространённые сценарии объединения:
 
-{{% alert title="Info" color="info" %}}
+- объединить все слайды, сохранив их исходное форматирование;
+- объединить выбранные слайды;
+- применить мастер из целевой презентации;
+- применить конкретный макет из целевой презентации;
+- нормализовать разные размеры слайдов перед объединением;
+- добавить клонированные слайды в раздел;
+- объединить несколько презентаций в одном сквозном рабочем процессе;
+- обработать мастеры, ресурсы, заметки, комментарии, медиа, шрифты, пароли, большие файлы и вопросы многопоточности.
 
-Большинство программ для презентаций (PowerPoint или OpenOffice) не имеют функций, позволяющих пользователям объединять презентации таким образом. 
+## **Как клонирование слайдов влияет на мастеров и макеты**
 
-[**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/nodejs-java/) однако позволяет объединять презентации различными способами. Вы можете объединять презентации со всеми их объектами, стилями, текстом, форматированием, комментариями, анимациями и т.д., не опасаясь потери качества или данных.
+Слайд наследует большую часть внешнего вида от своего макета и мастера. По этой причине выбранная перегрузка клонирования определяет, как объединённый слайд будет интегрирован в целевую презентацию.
 
-**См. также**
+Используйте [SlideCollection.addClone](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/slidecollection/) одним из следующих способов:
 
-[Clone Slides](https://docs.aspose.com/slides/nodejs-java/clone-slides/).
+- `addClone(sourceSlide)` — сохраняет макет и форматирование исходного слайда. При необходимости исходный мастер может быть автоматически склонирован в целевую презентацию. Aspose.Slides автоматически отслеживает склонированные мастера, чтобы повторяющиеся слайды, использующие один и тот же исходный мастер, не приводили к многократному клонированию этого мастера.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — присоединяет клонированный слайд к конкретному целевому [MasterSlide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/masterslide/). Aspose.Slides ищет соответствующий макет под этим мастером по типу макета или имени.
+- `addClone(sourceSlide, destinationLayout)` — напрямую присоединяет клонированный слайд к конкретному целевому [LayoutSlide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutslide/).
 
-{{% /alert %}}
+Мастер или макет, передаваемый в перегрузку `addClone`, должен принадлежать **целевой** презентации, а не исходной.
 
-### **Что можно объединять**
+## **Объединение целых презентаций с сохранением исходного форматирования**
 
-С помощью Aspose.Slides вы можете объединять
+Самый простой способ объединения копирует каждый слайд из исходной презентации в целевую. Это правильный выбор, когда импортированные слайды должны сохранять свою оригинальную тему, мастер и связи с макетами.
 
-* целые презентации. Все слайды из презентаций оказываются в одной презентации
-* отдельные слайды. Выбранные слайды оказываются в одной презентации
-* презентации в одном формате (PPT в PPT, PPTX в PPTX и т.д.) и в разных форматах (PPT в PPTX, PPTX в ODP и т.д.) друг с другом. 
-
-### **Параметры объединения**
-
-Вы можете задать параметры, определяющие, будет ли
-
-* каждый слайд в результирующей презентации сохранять уникальный стиль
-* один конкретный стиль применяться ко всем слайдам в результирующей презентации. 
-
-Для объединения презентаций Aspose.Slides предоставляет методы [addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) (из класса [SlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection)). Существует несколько перегрузок методов `addClone`, определяющих параметры процесса объединения презентаций. Каждый объект Presentation имеет коллекцию [Slides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getSlides--), поэтому вы можете вызвать метод `addClone` у презентации, в которую хотите добавить слайды.
-
-`addClone` возвращает объект `Slide`, являющийся клоном исходного слайда. Слайды в результирующей презентации являются просто копией слайдов из исходной презентации. Поэтому вы можете вносить изменения в полученные слайды (например, применять стили, параметры форматирования или макеты), не беспокоясь о влиянии на исходные презентации. 
-
-## **Объединение презентаций** 
-
-Aspose.Slides предоставляет метод [**AddClone(ISlide)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) , позволяющий объединять слайды, при этом слайды сохраняют свои макеты и стили (параметры по умолчанию).
-
-Этот код JavaScript демонстрирует, как объединить презентации:
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i));
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+Получившаяся презентация может содержать несколько мастеров, если в исходной и целевой презентациях использованы разные дизайны. Это ожидаемо, когда исходное форматирование сохраняется намеренно.
 
-## **Объединение презентаций с мастер‑слайдом**
+## **Объединение выбранных слайдов**
 
-Aspose.Slides предоставляет метод [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) , позволяющий объединять слайды с применением шаблона мастер‑презентации. Таким образом, при необходимости вы можете изменить стиль слайдов в результирующей презентации.
+Не обязательно клонировать каждый слайд. В следующем примере импортируются только выбранные индексы слайдов из исходной презентации.
 
-Этот код JavaScript демонстрирует описанную операцию:
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres2.getMasters().get_Item(0), true);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const slideIndexes = [0, 2, 4];
+
+    for (const index of slideIndexes) {
+        destination.getSlides().addClone(source.getSlides().get_Item(index));
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-selected-slides.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+Проверяйте индексы слайдов перед клонированием, если они получены от пользователя или из внешней конфигурации.
 
-{{% alert title="Note" color="warning" %}} 
+## **Объединение слайдов с использованием мастера целевой презентации**
 
-Макет слайда для мастер‑слайда определяется автоматически. Если подходящий макет нельзя определить, и параметр `allowCloneMissingLayout` метода `addClone` установлен в true, используется макет исходного слайда. В противном случае будет выброшено исключение [PptxEditException](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PptxEditException). 
+Используйте перегрузку [addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-), когда импортированные слайды должны соответствовать мастеру, уже находящемуся в целевой презентации.
 
-{{% /alert %}}
-
-Если вы хотите, чтобы слайды в результирующей презентации имели иной макет, используйте метод [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.ILayoutSlide-) при объединении.
-
-## **Объединение конкретных слайдов из презентаций**
-
-Объединение конкретных слайдов из нескольких презентаций полезно для создания пользовательских наборов слайдов. Aspose.Slides for Node.js via Java позволяет выбирать и импортировать только необходимые слайды. API сохраняет форматирование, макет и дизайн оригинальных слайдов.
-
-Следующий код JavaScript создает новую презентацию, добавляет титульные слайды из двух других презентаций и сохраняет результат в файл:
-```js
-function getTitleSlide(presentation) {
-  for (let i = 0; i < presentation.getSlides().size(); i++) {
-    let slide = presentation.getSlides().get_Item(i);
-    if (slide.getLayoutSlide().getLayoutType() == aspose.slides.SlideLayoutType.Title) {
-      return slide;
-    }
-  }
-  return null;
-}
-```
-
-```js
-let presentation = new aspose.slides.Presentation();
-let presentation1 = new aspose.slides.Presentation("presentation1.pptx");
-let presentation2 = new aspose.slides.Presentation("presentation2.pptx");
-try {
-    presentation.getSlides().removeAt(0);
-    
-    let slide1 = getTitleSlide(presentation1);
-
-    if (slide1 != null)
-        presentation.getSlides().addClone(slide1);
-
-    let slide2 = getTitleSlide(presentation2);
-
-    if (slide2 != null)
-        presentation.getSlides().addClone(slide2);
-
-    presentation.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    presentation2.dispose();
-    presentation1.dispose();
-    presentation.dispose();
-}
-```
-
-
-## **Объединение презентаций с макетом слайда**
-
-Этот код JavaScript демонстрирует, как объединять слайды из презентаций, применяя к ним выбранный вами макет слайда, чтобы получить одну результирующую презентацию:
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const destinationMaster = destination.getMasters().get_Item(0);
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), destinationMaster, true);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-with-destination-master.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+Aspose.Slides выбирает подходящий макет под указанным мастером, сопоставляя тип или имя исходного макета. Если подходящего макета нет и `allowCloneMissingLayout` равно `true`, исходный макет клонируется, чтобы слайд можно было добавить. Если `false`, генерируется [PptxEditException](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pptxeditexception/).
 
-## **Объединение презентаций с разными размерами слайдов**
+Используйте `false`, когда хотите, чтобы объединение завершалось ошибкой, а не добавляло дополнительный макет в целевой мастер.
 
-{{% alert title="Note" color="warning" %}} 
+## **Объединение слайдов с использованием конкретного макета целевой презентации**
 
-Невозможно объединять презентации с разными размерами слайдов. 
+Используйте перегрузку [addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ILayoutSlide-), когда точно знаете, какой целевой макет должны использовать импортированные слайды.
 
-{{% /alert %}}
-
-Чтобы объединить две презентации с разными размерами слайдов, необходимо изменить размер одной из презентаций, чтобы её размер соответствовал размеру другой.
-
-Пример кода демонстрирует описанную операцию:
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        pres2.getSlideSize().setSize(pres1.getSlideSize().getSize().getWidth(), pres1.getSlideSize().getSize().getHeight(), aspose.slides.SlideSizeScaleType.EnsureFit);
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const destinationLayout = destination.getLayoutSlides().get_Item(0);
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), destinationLayout);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-with-destination-layout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+Применение целевого макета меняет унаследованную связь с макетом; это не изменяет дизайн содержимого исходного слайда. Если у исходного и целевого макетов разная структура заполнителей, проверьте результат, чтобы убедиться, что унаследованное форматирование и поведение заполнителей соответствуют ожиданиям.
+
+## **Объединение презентаций с различными размерами слайдов**
+
+Презентации с разными размерами слайдов можно объединять, но клонирование слайда в презентацию с другим размером не переразрабатывает его содержимое под новый холст. Поэтому фигуры могут оказаться смещёнными, масштабированными неожиданно или находиться вне видимой области слайда.
+
+Практический подход — изменить размер исходной презентации перед клонированием. Метод [SlideSize.setSize](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/slidesize/#setSize-float-float-int-) может масштабировать существующее содержимое одновременно с изменением размеров слайда. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/slidesizescaletype/) масштабирует содержимое так, чтобы оно вписалось в требуемый размер.
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
+try {
+    const sourceSize = source.getSlideSize().getSize();
+    const destinationSize = destination.getSlideSize().getSize();
+    const sizesDiffer = sourceSize.getWidth() !== destinationSize.getWidth() || 
+                        sourceSize.getHeight() !== destinationSize.getHeight();
+
+    if (sizesDiffer) {
+        source.getSlideSize().setSize(
+            destinationSize.getWidth(), 
+            destinationSize.getHeight(), 
+            aspose.slides.SlideSizeScaleType.EnsureFit);
+    }
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i));
+    }
+
+    destination.save("merged-same-slide-size.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
+}
+```
+
+Изменение размера меняет объект исходной презентации в памяти. Если вам нужен оригинальный исходный файл без изменений для других операций, откройте отдельный экземпляр для объединения.
 
 ## **Объединение слайдов в раздел презентации**
 
-Этот код JavaScript демонстрирует, как объединить конкретный слайд в раздел презентации:
+Базовый цикл клонирования слайдов не воссоздаёт иерархию разделов исходной презентации. Если разделы важны в окончательном результате, создайте или выберите разделы в целевой презентации и явно клонируйте слайды в них с помощью [addClone(Slide, Section)](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ISection-).
+
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres1.getSections().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const importedSection = destination.getSections().appendEmptySection("Imported slides");
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), importedSection);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-with-section.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+Клонированные слайды добавляются в указанный целевой раздел. Чтобы сохранить несколько исходных разделов, воссоздайте эти разделы в целевой презентации и сопоставьте каждый исходный слайд с соответствующим целевым разделом.
 
-Слайд добавляется в конец раздела. 
+## **Безопасное объединение нескольких презентаций**
+
+В следующем сквозном примере первая презентация используется как целевая, размер слайдов каждого дополнительного источника нормализуется, каждый источник открывается только на время копирования, а окончательный файл сохраняется один раз.
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const inputFiles = ["part1.pptx", "part2.pptx", "part3.pptx"];
+
+const merged = new aspose.slides.Presentation(inputFiles[0]);
+try {
+    const mergedSize = merged.getSlideSize().getSize();
+
+    for (let fileIndex = 1; fileIndex < inputFiles.length; fileIndex++) {
+        const source = new aspose.slides.Presentation(inputFiles[fileIndex]);
+        try {
+            const sourceSize = source.getSlideSize().getSize();
+            const sizesDiffer = sourceSize.getWidth() !== mergedSize.getWidth() || 
+                                sourceSize.getHeight() !== mergedSize.getHeight();
+
+            if (sizesDiffer) {
+                source.getSlideSize().setSize(
+                    mergedSize.getWidth(), 
+                    mergedSize.getHeight(), 
+                    aspose.slides.SlideSizeScaleType.EnsureFit);
+            }
+
+            for (let slideIndex = 0; slideIndex < source.getSlides().size(); slideIndex++) {
+                merged.getSlides().addClone(source.getSlides().get_Item(slideIndex));
+            }
+        } finally {
+            source.dispose();
+        }
+    }
+
+    merged.save("merged.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    merged.dispose();
+}
+```
+
+Это хороший базовый вариант для сохранения исходного форматирования импортированных слайдов. Если ваш результат должен использовать одну общую тему, замените простой вызов `addClone(sourceSlide)` на соответствующую перегрузку с мастером или макетом, показанную выше.
+
+## **Практические соображения**
+
+### **Мастера, макеты и точность форматирования**
+
+По умолчанию клонирование слайдов может автоматически добавить требуемый исходный мастер в целевую презентацию. Aspose.Slides ведёт внутренний реестр автоматически клонированных мастеров, чтобы избежать многократного клонирования одного и того же мастера. Мастера, клонированные вручную, в этот реестр не попадают, поэтому избегайте предварительного клонирования мастеров, если только вам не нужен строгий контроль над их структурой.
+
+Не полагайтесь на то, что два мастера или макета с одинаковым именем визуально эквивалентны. Если корпоративный шаблон обязан контролировать окончательный вид, явно выбирайте целевой мастер или макет и проверяйте результат после объединения.
+
+### **Заметки и комментарии**
+
+Заметки выступающего и комментарии к слайдам привязаны к содержимому слайда и копируются при его клонировании. Aspose.Slides также предоставляет отдельные API для [presentation notes](https://docs.aspose.com/slides/ru/nodejs-java/presentation-notes/) и [presentation comments](https://docs.aspose.com/slides/ru/nodejs-java/presentation-comments/).
+
+Если форматирование страницы заметок важно, проверьте объединённую презентацию, потому что мастера заметок — это объекты уровня презентации и могут различаться между исходными файлами. Для процессов рецензирования также проверяйте авторов комментариев и ветвящиеся обсуждения после объединения файлов разных авторов или шаблонов.
+
+### **Изображения, аудио, видео, OLE‑объекты и внешние ссылки**
+
+Слайды могут ссылаться на ресурсы уровня презентации, такие как изображения, встроенный аудио, встроенное видео и OLE‑данные. Клонируйте сам слайд, а не только его видимые фигуры, чтобы Aspose.Slides могла сохранить связи с этими ресурсами.
+
+Встроенные и связанные ресурсы следует обрабатывать по‑разному. Связанное аудио, видео, OLE‑объект или гиперссылка остаются зависимыми от внешнего ресурса; клонирование слайда не превращает внешнюю ссылку во встроенный контент. Тестируйте пути и URL связанных ресурсов в той среде, где будет открываться объединённая презентация.
+
+Aspose.Slides явно отслеживает автоматически клонированные мастера, но это не гарантия того, что одинаковые бинарные ресурсы из разных исходных презентаций всегда будут дедуплицированы. Если важен размер выходного файла, проверьте состав объединённого пакета и измерьте результат вместо полагания на неявную дедупликацию.
+
+### **Встроенные шрифты и их доступность**
+
+Шрифты управляются на уровне презентации. Если типографика должна оставаться одинаковой на разных машинах, не рассчитывайте, что клонирование слайдов автоматически обеспечивает наличие всех нужных шрифтов в целевой среде. Вы можете проверить встроенные шрифты с помощью [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/fontsmanager/#getEmbeddedFonts--) и управлять их встраиванием, как описано в [Embed Fonts in Presentations](https://docs.aspose.com/slides/ru/nodejs-java/embedded-font/).
+
+Также убедитесь, что у вас есть право встраивать шрифты, используемые в исходных файлах. Лицензии на шрифты могут ограничивать их встраивание.
+
+### **Презентации, защищённые паролем**
+
+Защищённый паролем источник должен быть успешно открыт перед тем, как его слайды можно будет клонировать. Укажите пароль через [LoadOptions.setPassword](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/loadoptions/#setPassword-String-).
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const loadOptions = new aspose.slides.LoadOptions();
+loadOptions.setPassword("YOUR_PASSWORD");
+
+const source = new aspose.slides.Presentation("protected.pptx", loadOptions);
+try {
+    // Работа с расшифрованной презентацией.
+} finally {
+    source.dispose();
+}
+```
+
+Открытие зашифрованного источника не приводит к автоматическому применению той же защиты к целевой презентации. При необходимости конфигурируйте защиту вывода отдельно.
+
+### **Большие презентации и использование памяти**
+
+Большие презентации, содержащие изображения высокого разрешения, аудио, видео или другие крупные бинарные объекты, могут потреблять значительный объём памяти. [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions--) предоставляет параметры управления BLOB‑ами и временными файлами. См. [Manage Presentation BLOBs](https://docs.aspose.com/slides/ru/nodejs-java/manage-blob/) для стратегий работы с большими файлами.
+
+Для больших файлов предпочтительно загружать их по путям к файлам, по возможности освобождать каждый исходный объект презентации сразу после его объединения и избегать многократного сохранения промежуточных результатов, если только процесс не требует точек контроля.
+
+### **Потокобезопасность**
+
+Не загружайте, сохраняйте и не клонируйте экземпляр [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/) в нескольких потоках. Эти операции не поддерживаются в многопоточной среде. Если необходимо параллельно выполнять независимые задачи объединения, используйте несколько однопоточных процессов, каждый со своими экземплярами презентаций, и следуйте [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/ru/nodejs-java/multithreading/).
 
 ## **FAQ**
 
-**Сохраняются ли заметки докладчика при объединении?**
+**Как сохранить оригинальный дизайн каждой исходной презентации?**
 
-Да. При клонировании слайдов Aspose.Slides переносит все элементы слайда, включая заметки, форматирование и анимацию.
+Используйте [`addClone(sourceSlide)`](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-) без указания целевого мастера или макета. Aspose.Slides может автоматически клонировать исходный мастер, когда он нужен импортированному слайду.
 
-**Переносятся ли комментарии и их авторы?**
+**Как заставить импортированные слайды использовать тему целевой презентации?**
 
-Комментарии, как часть содержимого слайда, копируются вместе со слайдом. Метки авторов комментариев сохраняются как объекты комментариев в результирующей презентации.
+Используйте перегрузку, принимающую целевой мастер. Передайте мастер из целевой презентации, а не из исходной. Aspose.Slides попытается сопоставить каждый исходный слайд с подходящим макетом под этим мастером.
 
-**Что делать, если исходная презентация защищена паролем?**
+**Когда следует использовать конкретный целевой макет вместо целевого мастера?**
 
-Её необходимо [открыть с паролем](/slides/ru/nodejs-java/password-protected-presentation/) с помощью [LoadOptions.setPassword](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/setpassword/); после загрузки эти слайды можно безопасно клонировать в незапароленный файл‑цель (или в защищённый файл).
+Используйте конкретный макет, когда каждый импортированный слайд должен использовать один известный макет. Используйте мастер, когда хотите, чтобы Aspose.Slides выбирал среди макетов этого мастера на основе типа или имени исходного макета.
 
-**Насколько потокобезопасна операция объединения?**
+**Можно ли объединять презентации с разными размерами слайдов?**
 
-Не используйте один и тот же объект [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) из [нескольких потоков](/slides/ru/nodejs-java/multithreading/). Рекомендуемое правило: «один документ — один поток»; разные файлы могут обрабатываться параллельно в отдельных потоках.
+Да, но содержание слайдов не будет автоматически переработано под новые размеры. При необходимости предсказуемого размещения сначала измените размер исходной презентации, например с помощью [SlideSize.setSize](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/slidesize/#setSize-float-float-int-) и [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/slidesizescaletype/).
 
-## **Смотрите также**
+**Можно ли объединять PPT, PPTX и ODP в один файл?**
 
-Aspose предоставляет [БЕСПЛАТНЫЙ онлайн‑создатель коллажей](https://products.aspose.app/slides/collage). С помощью этого онлайн‑сервиса вы можете объединять изображения [JPG в JPG](https://products.aspose.app/slides/collage/jpg) или PNG в PNG, создавать [фото‑гриды](https://products.aspose.app/slides/collage/photo-grid) и многое другое.
+Да. Загрузите каждую исходную презентацию, клонируйте необходимые слайды в одну целевую и сохраните её в поддерживаемом выходном формате. Поскольку форматы презентаций поддерживают не полностью одинаковый набор функций, проверяйте сложное содержимое после кросс‑форматных объединений. См. [Supported File Formats](https://docs.aspose.com/slides/ru/nodejs-java/supported-file-formats/).
 
-Ознакомьтесь с [Aspose FREE Online Merger](https://products.aspose.app/slides/merger). Он позволяет объединять презентации PowerPoint в одном формате (например, PPT в PPT, PPTX в PPTX) или в разных форматах (например, PPT в PPTX, PPTX в ODP).
+**Сохраняются ли исходные разделы автоматически?**
 
-[![Aspose FREE Online Merger](slides-merger.png)](https://products.aspose.app/slides/merger)
+Нет, базовый цикл, который только клонирует слайды, этого не делает. Воссоздайте требуемые разделы в целевой презентации и используйте перегрузку раздела [addClone](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ISection-), когда структура разделов должна быть сохранена.
+
+**Сохраняются ли заметки выступающего и комментарии?**
+
+Они копируются вместе с клонированным слайдом. Для процессов, зависящих от стилей мастера заметок, авторов комментариев или ветвящихся обсуждений, проверяйте объединённый результат, так как эти сценарии затрагивают структуры уровня презентации, а не только уровень слайда.
+
+**Что происходит с аудио, видео, OLE‑объектами и гиперссылками?**
+
+Встроенный контент переносится как часть связей ресурсов клонированного слайда. Внешние ссылки остаются внешними, поэтому их целевые файлы или URL должны быть доступны после объединения.
+
+**Гарантировано ли, что встроенные шрифты из всех источников будут доступны в объединённой презентации?**
+
+Не полагайтесь только на клонирование слайдов для раздачи шрифтов. Проверьте встроенные шрифты в целевой презентации и явно управляйте их встраиванием или доступностью внешних шрифтов, когда типографика важна.
+
+**Как объединить файл, защищённый паролем?**
+
+Откройте его с помощью правильного [LoadOptions.setPassword](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/loadoptions/#setPassword-String-), затем клонируйте его слайды обычным способом. Защита вывода настраивается отдельно.
+
+**Как работать с очень большими презентациями?**
+
+Используйте управление BLOB, когда большие бинарные объекты преобладают в потреблении памяти, предпочтительно загружайте большие файлы по пути к файлу, своевременно освобождайте исходные презентации и сохраняйте окончательный результат только при необходимости.
+
+**Можно ли объединять слайды из нескольких потоков?**
+
+Не загружайте, сохраняйте и не клонируйте экземпляры презентаций в нескольких потоках. Для параллельных задач объединения используйте отдельные однопоточные процессы и независимые экземпляры презентаций.

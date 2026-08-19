@@ -19,222 +19,363 @@ keywords:
 - ODP combineren
 - C++
 - Aspose.Slides
-description: "Voeg moeiteloos PowerPoint-presentaties (PPT, PPTX) en OpenDocument-presentaties (ODP) samen met Aspose.Slides voor C++, waardoor uw workflow wordt vereenvoudigd."
+description: "Leer hoe u PowerPoint- en OpenDocument-presentaties in C++ kunt samenvoegen door dia's te klonen, masters en lay-outs te beheersen, dia-inhoud te verkleinen, secties te behouden en beveiligde of grote bestanden te verwerken."
 ---
 ## **Overzicht**
 
-Aspose.Slides stelt u in staat presentaties te combineren door dia’s te klonen van de ene presentatie naar de andere. In dit artikel wordt uitgelegd hoe u volledige presentaties of geselecteerde dia’s kunt samenvoegen, een slide‑master of een specifieke lay‑out kunt gebruiken tijdens het samenvoegen, hoe u presentaties met verschillende dia‑formaten afhandelt en hoe u samengevoegde dia’s aan een presentatiesectie toevoegt. Het behandelt ook praktische opmerkingen met betrekking tot samengevoegde inhoud, inclusief sprekernotities, opmerkingen, wachtwoordbeveiligde bronbestanden en threadgebruik.
+Aspose.Slides for C++ voegt presentaties samen door dia's te klonen van één [Presentatie](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/) naar een andere. De belangrijkste bewerking is [ISlideCollection::AddClone](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islidecollection/addclone/), die de opmaak van de bron‑dia kan behouden of de gekloonde dia kan koppelen aan een master of lay-out in de bestemmingspresentatie.
 
-## **Presentatie samenvoegen**
+Dit artikel behandelt de meest voorkomende samenvoeg‑workflows:
 
-Wanneer u de ene presentatie met de andere samenvoegt, combineert u effectief hun dia’s in één presentatie om één bestand te verkrijgen. 
+- alle dia's samenvoegen met behoud van hun bronopmaak;
+- geselecteerde dia's samenvoegen;
+- een master uit de bestemmingspresentatie toepassen;
+- een specifieke lay-out uit de bestemmingspresentatie toepassen;
+- verschillende diaformaten normaliseren vóór het samenvoegen;
+- gekloonde dia's aan een sectie toevoegen;
+- meerdere presentaties veilig in één end‑to‑end workflow samenvoegen;
+- masters, resources, notities, opmerkingen, media, lettertypen, wachtwoorden, grote bestanden en multithreading‑aspecten afhandelen.
 
-{{% alert title="Info" color="info" %}}
+## **Hoe dia‑klooning masters en lay‑outs beïnvloedt**
 
-De meeste presentatiesoftware (PowerPoint of OpenOffice) beschikt niet over functies waarmee gebruikers presentaties op deze manier kunnen combineren. 
+Een dia erft een groot deel van zijn uiterlijk van de lay‑out en master. Om die reden bepaalt de overload die je kiest hoe de samengevoegde dia in de bestemmingspresentatie wordt geïntegreerd.
 
-[**Aspose.Slides for C++**](https://products.aspose.com/slides/nl/cpp/), maakt echter wel verschillende manieren van samenvoegen mogelijk. U kunt presentaties samenvoegen met al hun vormen, stijlen, teksten, opmaak, opmerkingen, animaties, enz., zonder u zorgen te maken over kwaliteits- of gegevensverlies. 
+Gebruik [ISlideCollection::AddClone](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islidecollection/addclone/) op een van de volgende manieren:
 
-**Zie ook**
+- `AddClone(sourceSlide)` — behoudt de lay‑out en opmaak van de bron‑dia. Indien nodig kan de bron‑master automatisch in de bestemmingspresentatie worden gekloond. Aspose.Slides houdt automatisch gekloonde masters bij, zodat herhaalde dia's die dezelfde bron‑master gebruiken die master niet herhaaldelijk klonen.
+- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — koppelt de gekloonde dia aan een specifieke bestemmings[IMasterSlide](https://reference.aspose.com/slides/nl/cpp/aspose.slides/imasterslide/). Aspose.Slides zoekt onder die master naar een passende lay‑out op basis van lay‑outtype of naam.
+- `AddClone(sourceSlide, destinationLayout)` — koppelt de gekloonde dia direct aan een specifieke bestemmings[ILayoutSlide](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ilayoutslide/).
 
-[Clone Slides](https://docs.aspose.com/slides/nl/cpp/clone-slides/)*.* 
+De master of lay‑out die aan een `AddClone`‑overload wordt doorgegeven, moet behoren tot de **bestemmings**‑presentatie, niet tot de bron‑presentatie.
 
-{{% /alert %}}
+## **Volledige presentaties samenvoegen en bronopmaak behouden**
 
-### **Wat kan worden samengevoegd**
-
-Met Aspose.Slides kunt u 
-
-* volledige presentaties. Alle dia’s uit de presentaties komen in één presentatie terecht  
-* specifieke dia’s. Geselecteerde dia’s komen in één presentatie terecht  
-* presentaties in één formaat (PPT naar PPT, PPTX naar PPTX, enz.) en in verschillende formaten (PPT naar PPTX, PPTX naar ODP, enz.) naar elkaar toe. 
-
-{{% alert title="Note" color="warning" %}} 
-
-Naast presentaties maakt Aspose.Slides het mogelijk andere bestanden samen te voegen:
-
-* [Afbeeldingen](https://products.aspose.com/slides/nl/cpp/merger/image-to-image/), zoals [JPG naar JPG](https://products.aspose.com/slides/nl/cpp/merger/jpg-to-jpg/) of [PNG naar PNG](https://products.aspose.com/slides/nl/cpp/merger/png-to-png/)  
-* Documenten, zoals [PDF naar PDF](https://products.aspose.com/slides/nl/cpp/merger/pdf-to-pdf/) of [HTML naar HTML](https://products.aspose.com/slides/nl/cpp/merger/html-to-html/)  
-* En twee verschillende bestanden, zoals [afbeelding naar PDF](https://products.aspose.com/slides/nl/cpp/merger/image-to-pdf/), [JPG naar PDF](https://products.aspose.com/slides/nl/cpp/merger/jpg-to-pdf/) of [TIFF naar PDF](https://products.aspose.com/slides/nl/cpp/merger/tiff-to-pdf/). 
-
-{{% /alert %}}
-
-### **Samenvoegopties**
-
-U kunt opties toepassen die bepalen of
-
-* elke dia in de resultaatpresentatie een unieke stijl behoudt  
-* een specifieke stijl wordt gebruikt voor alle dia’s in de resultaatpresentatie. 
-
-Om presentaties samen te voegen, biedt Aspose.Slides de [AddClone](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee)-methoden (van de [ISlideCollection](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_slide_collection)-interface). Er zijn verschillende implementaties van de `AddClone`‑methoden die de parameters van het samenvoegproces definiëren. Elk Presentation‑object heeft een [Slides](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c)-collectie, dus u kunt een `AddClone`‑methode aanroepen vanuit de presentatie waarin u dia’s wilt samenvoegen. 
-
-De `AddClone`‑methode retourneert een `ISlide`‑object, dat een kloon van de bron‑dia is. De dia’s in een output‑presentatie zijn simpelweg een kopie van de dia’s uit de bron. Daarom kunt u de resulterende dia’s wijzigen (bijvoorbeeld stijlen, opmaakopties of lay‑outs toepassen) zonder dat de bronpresentaties worden beïnvloed. 
-
-## **Presentaties samenvoegen** 
-
-Aspose.Slides biedt de [**AddClone (ISlide)**](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee)-methode die u in staat stelt dia’s te combineren terwijl de dia’s hun lay‑outs en stijlen behouden (standaardparameters). 
-
-Deze C++‑code laat zien hoe presentaties worden samengevoegd:
+De eenvoudigste samenvoeging kopieert elke dia van de bron‑presentatie naar de bestemmingspresentatie. Dit is de juiste keuze wanneer de geïmporteerde dia's hun oorspronkelijke thema, master en lay‑outrelaties moeten behouden.
 
 ```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+for (const auto& slide : source->get_Slides())
 {
-    pres1->get_Slides()->AddClone(slide);
+    destination->get_Slides()->AddClone(slide);
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+destination->Save(u"merged.pptx", SaveFormat::Pptx);
 ```
 
-## **Presentaties samenvoegen met een slide‑master**
+De resulterende presentatie kan meerdere masters bevatten wanneer bron‑ en bestemmingspresentatie verschillende ontwerpen gebruiken. Dit is te verwachten wanneer bronopmaak bewust behouden wordt.
 
-Aspose.Slides biedt de [**AddClone (ISlide, IMasterSlide, bool)**](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_slide_collection#a6b040e6b30f52ab4644fafdbc650b640)-methode die u in staat stelt dia’s te combineren met toepassing van een slide‑master‑presentatiesjabloon. Op deze manier kunt u, indien nodig, de stijl van de dia’s in de output‑presentatie wijzigen. 
+## **Geselecteerde dia's samenvoegen**
 
-Deze C++‑code demonstreert de beschreven bewerking:
+Je hoeft niet elke dia te klonen. Het volgende voorbeeld importeert alleen geselecteerde dia‑indexen uit de bron‑presentatie.
 
 ```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+int32_t slideIndexes[] = {0, 2, 4};
+
+for (auto index : slideIndexes)
 {
-    pres1->get_Slides()->AddClone(slide, pres2->get_Masters()->idx_get(0), true);
+    destination->get_Slides()->AddClone(source->get_Slide(index));
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+destination->Save(u"merged-selected-slides.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert title="Note" color="warning" %}} 
+Controleer dia‑indexen vóór het klonen wanneer ze afkomstig zijn van gebruikersinvoer of een externe configuratie.
 
-De slide‑lay‑out voor de slide‑master wordt automatisch bepaald. Wanneer er geen passende lay‑out kan worden bepaald, wordt – indien de booleaanse parameter `allowCloneMissingLayout` van de `AddClone`‑methode op true staat – de lay‑out van de bron‑dia gebruikt. Anders wordt een [PptxEditException](https://reference.aspose.com/slides/nl/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d) gegooid. 
+## **Dia's samenvoegen met een bestemmingsmaster**
 
-{{% /alert %}}
-
-Wilt u dat de dia’s in de output‑presentatie een andere slide‑lay‑out hebben, gebruik dan de [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_slide_collection#a0ed5909b2d92555159007046760ff2f1)-methode tijdens het samenvoegen. 
-
-## **Specifieke dia’s uit presentaties samenvoegen**
-
-Het samenvoegen van specifieke dia’s uit meerdere presentaties is handig voor het maken van aangepaste dia‑sets. Aspose.Slides C++ stelt u in staat alleen de dia’s te selecteren en te importeren die u nodig heeft. De API behoudt de opmaak, lay‑out en het ontwerp van de oorspronkelijke dia’s.
-
-De volgende C++‑code maakt een nieuwe presentatie, voegt titeldia’s toe uit twee andere presentaties en slaat het resultaat op in een bestand:
+Gebruik de [AddClone(ISlide, IMasterSlide, bool)](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islidecollection/addclone/) overload wanneer geïmporteerde dia's een master moeten volgen die al behoort tot de bestemmingspresentatie.
 
 ```cpp
-SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation)
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto destinationMaster = destination->get_Master(0);
+
+for (const auto& slide : source->get_Slides())
 {
-    for (auto&& slide : presentation->get_Slides())
+    destination->get_Slides()->AddClone(slide, destinationMaster, true);
+}
+
+destination->Save(u"merged-with-destination-master.pptx", SaveFormat::Pptx);
+```
+
+Aspose.Slides kiest een passende lay‑out onder de opgegeven master door de bron‑lay‑out te vergelijken op type of naam. Als er geen geschikte lay‑out bestaat en `allowCloneMissingLayout` is `true`, wordt de bron‑lay‑out gekloond zodat de dia kan worden toegevoegd. Als deze `false` is, wordt een [PptxEditException](https://reference.aspose.com/slides/nl/cpp/aspose.slides/details_pptxeditexception/) opgegooid.
+
+Gebruik `false` wanneer je wilt dat de samenvoeging faalt in plaats van een extra lay‑out aan de bestemmingsmaster toe te voegen.
+
+## **Dia's samenvoegen met een specifieke bestemmingslay‑out**
+
+Gebruik de [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islidecollection/addclone/) overload wanneer je precies weet welke bestemmingslay‑out de geïmporteerde dia's moeten gebruiken.
+
+```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto destinationLayout = destination->get_LayoutSlide(0);
+
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide, destinationLayout);
+}
+
+destination->Save(u"merged-with-destination-layout.pptx", SaveFormat::Pptx);
+```
+
+Het toepassen van een bestemmingslay‑out verandert de geërfde lay‑outrelatie; het ontwerpt de inhoud van de bron‑dia niet opnieuw. Als de bron‑ en bestemmingslay‑outs verschillende placeholder‑structuren hebben, inspecteer dan het resultaat om te bevestigen dat de geërfde opmaak en placeholder‑gedrag passend zijn.
+
+## **Presentaties met verschillende diaformaten samenvoegen**
+
+Presentaties met verschillende dia‑afmetingen kunnen worden samengevoegd, maar een dia klonen naar een presentatie met een andere dia‑grootte herschept de inhoud niet automatisch voor het nieuwe canvas. Vormen kunnen daardoor verschoven, onverwacht geschaald of buiten het zichtbare dia‑gebied verschijnen.
+
+Een praktische aanpak is om de bron‑presentatie vóór het klonen te herschalen. De [SlideSize::SetSize](https://reference.aspose.com/slides/nl/cpp/aspose.slides/slidesize/setsize/) methode kan bestaande inhoud schalen terwijl de dia‑afmetingen worden gewijzigd. [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/nl/cpp/aspose.slides/slidesizescaletype/) schaalt inhoud zodat deze binnen de gewenste grootte past.
+
+```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto destinationSize = destination->get_SlideSize()->get_Size();
+auto sourceSize = source->get_SlideSize()->get_Size();
+
+if (sourceSize.get_Width() != destinationSize.get_Width() || 
+    sourceSize.get_Height() != destinationSize.get_Height())
+{
+    source->get_SlideSize()->SetSize(
+        destinationSize.get_Width(), 
+        destinationSize.get_Height(), 
+        SlideSizeScaleType::EnsureFit);
+}
+
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide);
+}
+
+destination->Save(u"merged-same-slide-size.pptx", SaveFormat::Pptx);
+```
+
+Het herschalen wijzigt het bron‑presentatie‑object in het geheugen. Als je de oorspronkelijke bron‑presentatie ongewijzigd nodig hebt voor andere bewerkingen, open dan een afzonderlijke instantie voor de samenvoeging.
+
+## **Dia's samenvoegen in een presentatiesectie**
+
+De basis‑dia‑kloonlus maakt de sectie‑hiërarchie van de bron‑presentatie niet opnieuw. Als secties belangrijk zijn in de output, maak of selecteer dan secties in de bestemmingspresentatie en kloon dia's expliciet naar die secties met [AddClone(ISlide, ISection)](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islidecollection/addclone/).
+
+```cpp
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto importedSection = destination->get_Sections()->AppendEmptySection(u"Imported slides");
+
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide, importedSection);
+}
+
+destination->Save(u"merged-with-section.pptx", SaveFormat::Pptx);
+```
+
+De gekloonde dia's worden toegevoegd aan de opgegeven bestemmingssectie. Om meerdere bron‑secties te behouden, maak die secties opnieuw aan in de bestemming en koppel elke bron‑dia aan de overeenkomstige bestemmingssectie.
+
+## **Meerdere presentaties veilig samenvoegen**
+
+Het volgende end‑to‑end voorbeeld gebruikt de eerste presentatie als bestemming, normaliseert de dia‑grootte van elke extra bron, houdt elke bron alleen open zolang deze wordt gekopieerd, en slaat het uiteindelijke bestand één keer op.
+
+```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+System::String inputFiles[] = {u"part1.pptx", u"part2.pptx", u"part3.pptx"};
+const int32_t inputFileCount = 3;
+
+auto merged = System::MakeObject<Presentation>(inputFiles[0]);
+auto mergedSize = merged->get_SlideSize()->get_Size();
+
+for (int32_t fileIndex = 1; fileIndex < inputFileCount; fileIndex++)
+{
+    auto source = System::MakeObject<Presentation>(inputFiles[fileIndex]);
+    auto sourceSize = source->get_SlideSize()->get_Size();
+
+    if (sourceSize.get_Width() != mergedSize.get_Width() || 
+        sourceSize.get_Height() != mergedSize.get_Height())
     {
-        if (slide->get_LayoutSlide()->get_LayoutType() == SlideLayoutType::Title)
-        {
-            return slide;
-        }
+        source->get_SlideSize()->SetSize(
+            mergedSize.get_Width(), 
+            mergedSize.get_Height(), 
+            SlideSizeScaleType::EnsureFit);
     }
-    return nullptr;
-}
-```
-```cpp
-auto presentation = MakeObject<Presentation>();
-auto presentation1 = MakeObject<Presentation>(u"presentation1.pptx");
-auto presentation2 = MakeObject<Presentation>(u"presentation2.pptx");
 
-presentation->get_Slides()->RemoveAt(0);
-
-auto slide1 = GetTitleSlide(presentation1);
-
-if (slide1 != nullptr)
-    presentation->get_Slides()->AddClone(slide1);
-
-auto slide2 = GetTitleSlide(presentation2);
-
-if (slide2 != nullptr)
-    presentation->get_Slides()->AddClone(slide2);
-
-presentation->Save(u"combined.pptx", SaveFormat::Pptx);
-
-presentation2->Dispose();
-presentation1->Dispose();
-presentation->Dispose();
-```
-
-## **Presentaties samenvoegen met een slide‑lay‑out**
-
-Deze C++‑code laat zien hoe u dia’s uit presentaties combineert met toepassing van uw gewenste slide‑lay‑out om één output‑presentatie te verkrijgen:
-
-```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
-{
-    pres1->get_Slides()->AddClone(slide, pres2->get_LayoutSlides()->idx_get(0));
+    for (const auto& slide : source->get_Slides())
+    {
+        merged->get_Slides()->AddClone(slide);
+    }
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+merged->Save(u"merged.pptx", SaveFormat::Pptx);
 ```
 
-## **Presentaties samenvoegen met verschillende dia‑groottes**
+Dit vormt een nuttige basislijn voor het behouden van de bronopmaak van geïmporteerde dia's. Als je output een enkel bestemmings‑thema moet gebruiken, vervang dan de eenvoudige `AddClone(slide)`‑aanroep door de geschikte bestemmings‑master‑ of bestemmings‑lay‑out‑overload die eerder werd getoond.
 
-{{% alert title="Note" color="warning" %}} 
+## **Praktische overwegingen**
 
-U kunt geen presentaties met verschillende dia‑groottes samenvoegen. 
+### **Masters, lay‑outs en opmaakgetrouwheid**
 
-{{% /alert %}}
+Standaard dia‑klooning kan automatisch een benodigde bron‑master in de bestemmingspresentatie brengen. Aspose.Slides houdt een intern register bij voor automatisch gekloonde masters om te voorkomen dat dezelfde master herhaaldelijk wordt gekloond. Handmatig gekloonde masters worden niet door dat register gevolgd, dus vermijd het vooraf klonen van masters tenzij je expliciete controle over de master‑structuur nodig hebt.
 
-Om 2 presentaties met verschillende dia‑groottes samen te voegen, moet u één van de presentaties schalen zodat de grootte overeenkomt met die van de andere presentatie. 
+Ga er niet van uit dat twee masters of lay‑outs met dezelfde naam visueel gelijk zijn. Als een corporate‑template het eindresultaat moet bepalen, kies dan expliciet een bestemmings‑master of -lay‑out en controleer het resultaat na het samenvoegen.
 
-Deze voorbeeldcode demonstreert de beschreven bewerking:
+### **Aantekeningen en opmerkingen**
+
+Sprekers‑notities en dia‑opmerkingen zijn gekoppeld aan de dia‑inhoud en worden gekopieerd wanneer een dia wordt gekloond. Aspose.Slides biedt daarnaast speciale API’s voor [presentatienotities](https://docs.aspose.com/slides/nl/cpp/presentation-notes/) en [presentatie‑opmerkingen](https://docs.aspose.com/slides/nl/cpp/presentation-comments/).
+
+Als de opmaak van de notitie‑pagina belangrijk is, controleer dan de samengevoegde presentatie omdat notitie‑masters objecten op presentatieniveau zijn en kunnen verschillen tussen bron‑bestanden. Voor review‑workflows, controleer ook de auteurs van opmerkingen en gepaarde discussies na het combineren van bestanden van verschillende auteurs of templates.
+
+### **Afbeeldingen, audio, video, OLE‑objecten en externe koppelingen**
+
+Dia's kunnen verwijzen naar resources op presentatieniveau, zoals afbeeldingen, ingebedde audio, ingebedde video en OLE‑data. Kloon de hele dia in plaats van alleen de zichtbare vormen, zodat Aspose.Slides de relaties van de dia met zijn resources kan behouden.
+
+Ingesloten en gekoppelde resources moeten verschillend worden behandeld. Een gekoppelde audio‑, video‑, OLE‑object‑ of hyperlink blijft afhankelijk van het externe doel; een dia‑kloon verandert een externe link niet in ingesloten inhoud. Test paden en URL’s van gekoppelde resources in de omgeving waarin de samengevoegde presentatie wordt geopend.
+
+Aspose.Slides houdt automatisch gekloonde masters expliciet bij, maar dit moet niet worden gezien als een algemene garantie dat identieke binaire resources uit niet‑gerelateerde bron‑presentaties altijd worden gededupliceerd. Als de grootte van het uitvoerbestand belangrijk is, inspecteer dan het samengevoegde pakket en meet het resultaat in plaats van te vertrouwen op impliciete deduplicatie.
+
+### **Ingesloten lettertypen en beschikbaarheid van lettertypen**
+
+Lettertypen worden beheerd op presentatieniveau. Als typografie consistent moet blijven over verschillende machines, ga er niet van uit dat het alleen klonen van dia's garandeert dat elk vereist lettertype beschikbaar is in de bestemmingsomgeving. Je kunt ingesloten lettertypen inspecteren met [FontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/nl/cpp/aspose.slides/fontsmanager/getembeddedfonts/) en het insluiten expliciet beheren zoals beschreven in [Lettertypen insluiten in presentaties](https://docs.aspose.com/slides/nl/cpp/embedded-font/).
+
+Controleer ook dat je toestemming hebt om de lettertypen die in de bronbestanden worden gebruikt in te sluiten. Lettertype‑licenties kunnen insluiting beperken.
+
+### **Wachtwoord‑beveiligde presentaties**
+
+Een wachtwoord‑beveiligde bron moet succesvol worden geopend voordat de dia's kunnen worden gekloond. Geef het wachtwoord door via [LoadOptions::set_Password](https://reference.aspose.com/slides/nl/cpp/aspose.slides/loadoptions/set_password/).
 
 ```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres1Size = pres1->get_SlideSize()->get_Size();
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
 
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-pres2->get_SlideSize()->SetSize(pres1Size.get_Width(), pres1Size.get_Height(), SlideSizeScaleType::EnsureFit);
+using namespace Aspose::Slides;
 
-for (const auto& slide : pres2->get_Slides())
-{
-    pres1->get_Slides()->AddClone(slide);
-}
+auto loadOptions = System::MakeObject<LoadOptions>();
+loadOptions->set_Password(u"YOUR_PASSWORD");
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+auto source = System::MakeObject<Presentation>(u"protected.pptx", loadOptions);
 ```
 
-## **Dia’s samenvoegen naar een presentatiesectie**
+Het openen van een versleutelde bron past de bescherming niet automatisch toe op de bestemmingspresentatie. Stel de output‑beveiliging apart in wanneer dat vereist is.
 
-Deze C++‑code laat zien hoe u een specifieke dia aan een sectie in een presentatie toevoegt:
+### **Grote presentaties en geheugengebruik**
 
-```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (int32_t index = 0; index < pres2->get_Slides()->get_Count(); index++)
-{
-    auto slide = pres2->get_Slides()->idx_get(index);
-    pres1->get_Slides()->AddClone(slide, pres1->get_Sections()->idx_get(0));
-}
+Grote presentaties met hoge‑resolutie afbeeldingen, audio, video of andere grote binaire objecten kunnen aanzienlijk geheugen verbruiken. [LoadOptions::set_BlobManagementOptions](https://reference.aspose.com/slides/nl/cpp/aspose.slides/loadoptions/set_blobmanagementoptions/) biedt controle over BLOB‑afhandeling en het gebruik van tijdelijke bestanden. Zie [Presentatie‑BLOB’s beheren](https://docs.aspose.com/slides/nl/cpp/manage-blob/) voor strategieën bij grote bestanden.
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
-```
+Voor grote bestanden, laad bij voorkeur via bestands‑paden, sluit elke bron‑presentatie zodra deze is samengevoegd, en vermijd herhaaldelijk opslaan van tussenresultaten tenzij de workflow checkpoints vereist.
 
-De dia wordt aan het einde van de sectie toegevoegd. 
+### **Thread‑veiligheid**
 
-{{% alert title="Tip" color="primary" %}}
+Laad, wijzig, sla op of kloon dezelfde [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/)‑instantie niet gelijktijdig vanuit meerdere threads. Houd elke presentatiewinstandigheid beperkt tot één samenvoeg‑operatie. Als je onafhankelijke taken paralleliseert, gebruik dan onafhankelijke presentatiewinstandigheden en volg de [Aspose.Slides multithreading‑richtlijnen](https://docs.aspose.com/slides/nl/cpp/multithreading/).
 
-Aspose biedt een [GRATIS Collage‑webapp](https://products.aspose.app/slides/nl/collage). Met deze online service kunt u [JPG naar JPG](https://products.aspose.app/slides/nl/collage/jpg) of PNG naar PNG‑afbeeldingen samenvoegen, [fotogalerijen](https://products.aspose.app/slides/nl/collage/photo-grid) maken, enzovoort. 
+## **Veelgestelde vragen**
 
-{{% /alert %}}
+**Hoe houd ik het oorspronkelijke ontwerp van elke bronpresentatie behouden?**
 
-## **FAQ**
+Gebruik [`AddClone(sourceSlide)`](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islidecollection/addclone/) zonder een bestemmings‑master of -lay‑out op te geven. Aspose.Slides kan automatisch de bron‑master klonen wanneer deze door de geïmporteerde dia nodig is.
 
-**Worden sprekernotities behouden tijdens het samenvoegen?**
+**Hoe laat ik geïmporteerde dia's het bestemmings‑thema gebruiken?**
 
-Ja. Bij het klonen van dia’s neemt Aspose.Slides alle dia‑elementen mee, inclusief notities, opmaak en animaties.
+Gebruik de overload die een bestemmings‑master accepteert. Geef een master uit de bestemmingspresentatie op, niet uit de bron. Aspose.Slides probeert elke bron‑dia te koppelen aan een passende lay‑out onder die master.
 
-**Worden opmerkingen en hun auteurs overgedragen?**
+**Wanneer moet ik een specifieke bestemmingslay‑out gebruiken in plaats van een bestemmingsmaster?**
 
-Opmerkingen, als onderdeel van de dia‑inhoud, worden meegekopieerd. De auteurslabels van opmerkingen blijven behouden als opmerking‑objecten in de resulterende presentatie.
+Gebruik een specifieke lay‑out wanneer elke geïmporteerde dia één bekende lay‑out moet gebruiken. Gebruik een master wanneer je wilt dat Aspose.Slides een lay‑out kiest uit die master op basis van het type of de naam van de bron‑lay‑out.
 
-**Wat gebeurt er als de bron‑presentatie wachtwoordbeveiligd is?**
+**Kunnen presentaties met verschillende diaformaten worden samengevoegd?**
 
-Deze moet worden [geopend met het wachtwoord](/slides/nl/cpp/password-protected-presentation/) via [LoadOptions::set_Password](https://reference.aspose.com/slides/nl/cpp/aspose.slides/loadoptions/set_password/); na het laden kunnen die dia’s veilig worden gekloond naar een onbeveiligd doelbestand (of ook naar een beveiligd bestand).
+Ja, maar de inhoud van de dia wordt niet automatisch aangepast aan de dimensies van de bestemming. Schaal de bron‑presentatie eerst wanneer je voorspelbare plaatsing nodig hebt, bijvoorbeeld met [SlideSize::SetSize](https://reference.aspose.com/slides/nl/cpp/aspose.slides/slidesize/setsize/) en [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/nl/cpp/aspose.slides/slidesizescaletype/).
 
-**Hoe thread‑veilig is de samenvoegbewerking?**
+**Kan ik PPT‑, PPTX‑ en ODP‑presentaties in één bestand samenvoegen?**
 
-Gebruik dezelfde [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/)-instantie niet vanuit [meerdere threads](/slides/nl/cpp/multithreading/). De aanbevolen regel is “één document — één thread”; verschillende bestanden kunnen parallel in afzonderlijke threads worden verwerkt.
+Ja. Laad elke bron‑presentatie, kloon de benodigde dia's naar één bestemming, en sla de bestemming op in een ondersteund uitvoerformaat. Omdat presentatiespecifieke formaten niet exact dezelfde functionaliteit bieden, controleer complexe inhoud na cross‑format samenvoegingen. Zie [Ondersteunde bestandsindelingen](https://docs.aspose.com/slides/nl/cpp/supported-file-formats/).
+
+**Worden bronsecties automatisch bewaard?**
+
+Niet door een eenvoudige lus die alleen dia's kloont. Maak de vereiste secties opnieuw aan in de bestemming en gebruik de sectie‑overload van [AddClone](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islidecollection/addclone/) wanneer de sectiestructuur behouden moet blijven.
+
+**Worden aantekeningen en opmerkingen bewaard?**
+
+Ze worden gekopieerd met de gekloonde dia. Voor workflows die afhankelijk zijn van de styling van notitie‑masters, auteurs van opmerkingen of gepaarde review‑gegevens, controleer het samengevoegde resultaat omdat deze scenario's zowel presentatieniveau‑structuren als dia‑niveau‑inhoud omvatten.
+
+**Wat gebeurt er met audio, video, OLE‑objecten en hyperlinks?**
+
+Ingesloten inhoud wordt meegenomen als onderdeel van de resource‑relaties van de gekloonde dia. Externe links blijven extern, dus hun doelbestanden of URL’s moeten nog steeds beschikbaar zijn na de samenvoeging.
+
+**Zijn ingesloten lettertypen van elke bron gegarandeerd beschikbaar in de samengevoegde presentatie?**
+
+Vertrouw niet alleen op dia‑klooning voor font‑distributie. Inspecteer de ingesloten lettertypen van de bestemming en beheer expliciet het insluiten of de beschikbaarheid van externe lettertypen wanneer typografie belangrijk is.
+
+**Hoe voeg ik een wachtwoord‑beveiligd bestand samen?**
+
+Open het met de juiste [LoadOptions::set_Password](https://reference.aspose.com/slides/nl/cpp/aspose.slides/loadoptions/set_password/), kloon daarna de dia's normaal. De bescherming van de output wordt apart geconfigureerd.
+
+**Hoe moet ik zeer grote presentaties verwerken?**
+
+Gebruik BLOB‑beheer wanneer grote binaire objecten het geheugen aanzienlijk belasten, geef de voorkeur aan bestands‑pad‑laden voor zeer grote bestanden, sluit bron‑presentaties direct na het samenvoegen en sla het eindresultaat alleen op wanneer dat nodig is.
+
+**Kan ik dia's vanuit meerdere threads samenvoegen?**
+
+Gebruik geen enkele [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/)‑instantie gelijktijdig vanuit meerdere threads. Houd elke samenvoeg‑operatie geïsoleerd tot eigen presentatiewinstandigheden.

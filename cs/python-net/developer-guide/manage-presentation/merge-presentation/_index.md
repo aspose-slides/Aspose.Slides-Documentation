@@ -1,5 +1,5 @@
 ---
-title: Efektivní sloučení prezentací s Pythonem
+title: Efektivně sloučit prezentace v Pythonu
 linktitle: Sloučit prezentace
 type: docs
 weight: 40
@@ -19,201 +19,287 @@ keywords:
 - kombinovat ODP
 - Python
 - Aspose.Slides
-description: "Jednoduše sloučte prezentace PowerPoint (PPT, PPTX) a OpenDocument (ODP) pomocí Aspose.Slides pro Python na platformě .NET, čímž zoptimalizujete svůj pracovní postup."
+description: "Naučte se, jak v Pythonu sloučit prezentace PowerPoint a OpenDocument klonováním snímků, řízením masterů a rozvržení, změnou velikosti obsahu snímků, zachováním sekcí a zpracováním chráněných nebo velkých souborů."
 ---
 ## **Přehled**
 
-Aspose.Slides vám umožňuje sloučit prezentace klonováním snímků z jedné prezentace do druhé. Tento článek vysvětluje, jak sloučit celé prezentace nebo vybrané snímky, použít hlavní snímek nebo konkrétní rozložení během slučování, pracovat s prezentacemi s různými velikostmi snímků a přidat sloučené snímky do sekce prezentace. Také se zabývá praktickými poznámkami souvisejícími se sloučeným obsahem, včetně poznámek k řečníkovi, komentářů, souborů chráněných heslem a používání vláken.
+Aspose.Slides pro Python přes .NET slučuje prezentace klonováním snímků z jedné [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/) do druhé. Hlavní operací je [SlideCollection.add_clone](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slidecollection/add_clone/), která může zachovat formátování zdrojového snímku nebo přiřadit klonovaný snímek ke konkrétnímu masteru či rozvržení v cílové prezentaci.
 
-## **Optimalizujte slučování prezentací**
+Tento článek popisuje nejčastější postupy slučování:
 
-S [Aspose.Slides pro Python](https://products.aspose.com/slides/cs/python-net/) můžete bezproblémově kombinovat PowerPoint prezentace při zachování stylů, rozvržení a všech prvků. Na rozdíl od jiných nástrojů Aspose.Slides slučuje prezentace bez ztráty kvality či dat. Sloučte celé sady, konkrétní snímky nebo dokonce různé formáty souborů (např. PPT na PPTX).
+- sloučit všechny snímky při zachování jejich zdrojového formátování;
+- sloučit vybrané snímky;
+- použít master z cílové prezentace;
+- použít konkrétní rozvržení z cílové prezentace;
+- normalizovat různé velikosti snímků před sloučením;
+- přidat klonované snímky do sekce;
+- sloučit několik prezentací v jednom end‑to‑end scénáři;
+- řešit mastery, zdroje, poznámky, komentáře, média, fonty, hesla, velké soubory a problémy s vícevláknovým zpracováním.
 
-### **Funkce slučování**
+## **Jak klonování snímků ovlivňuje mastery a rozvržení**
 
-- **Plné sloučení prezentace:** Sestavte všechny snímky do jediného souboru.  
-- **Sloučení konkrétních snímků:** Vyberte a spojte vybrané snímky.  
-- **Slučování napříč formáty:** Integrujte prezentace v různých formátech při zachování integrity.
+Snímek dědí velkou část svého vzhledu z rozvržení a masteru. Z tohoto důvodu volba přetížení klonování určuje, jak bude sloučený snímek integrován do cílové prezentace.
 
-## **Slučování prezentací**
+Použijte [SlideCollection.add_clone](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slidecollection/add_clone/) jedním z následujících způsobů:
 
-Když sloučíte jednu prezentaci do druhé, efektivně kombinujete jejich snímky do jedné prezentace tak, aby vznikl jediný soubor. Většina programů pro prezentace – jako PowerPoint nebo OpenOffice – neobsahuje funkce, které by vám umožnily takové sloučení provést.
+- `add_clone(source_slide)` — zachovat rozvržení a formátování zdrojového snímku. V případě potřeby může být zdrojový master automaticky klonován do cílové prezentace. Aspose.Slides automaticky sleduje klonované mastery, takže opakované snímky používající ten samý zdrojový master nevedou k opakovanému klonování masteru.
+- `add_clone(source_slide, destination_master, allow_clone_missing_layout)` — přiřadit klonovaný snímek k určitému cílovému [IMasterSlide](https://reference.aspose.com/slides/cs/python-net/aspose.slides/imasterslide/). Aspose.Slides hledá odpovídající rozvržení pod tímto masterem podle typu nebo názvu rozvržení.
+- `add_clone(source_slide, destination_layout)` — přiřadit klonovaný snímek přímo k určitému cílovému [ILayoutSlide](https://reference.aspose.com/slides/cs/python-net/aspose.slides/ilayoutslide/).
 
-Nicméně [Aspose.Slides pro Python](https://products.aspose.com/slides/cs/python-net/) umožňuje sloučit prezentace několika způsoby. Můžete sloučit prezentace se všemi jejich tvary, styly, textem, formátováním, komentáři a animacemi, aniž by došlo ke ztrátě kvality nebo dat.
+Master nebo rozvržení předané přetížení `add_clone` musí patřit **cílové** prezentaci, nikoli zdrojové prezentaci.
 
-**Viz také**
+## **Sloučení celých prezentací a zachování zdrojového formátování**
 
-[Klónovat snímky PowerPoint v Pythonu](/slides/cs/python-net/clone-slides/)
+Nejjednodušší sloučení zkopíruje každý snímek ze zdrojové prezentace do cílové prezentace. Toto je vhodná volba, když mají importované snímky zachovat své původní téma, master a vztahy rozvržení.
 
-### **Co lze sloučit**
-
-S Aspose.Slides můžete sloučit:
-
-- Celé prezentace: všechny snímky ze zdrojových sad jsou spojeny do jedné prezentace.  
-- Konkrétní snímky: pouze vybrané snímky jsou spojeny do jedné prezentace.  
-- Prezentace ve stejném formátu (např. PPT→PPT, PPTX→PPTX) nebo napříč různými formáty (např. PPT→PPTX, PPTX→ODP).
-
-### **Možnosti slučování**
-
-Můžete určit, zda:
-
-- Každý snímek ve výstupní prezentaci zachová svůj původní styl, nebo  
-- Na všechny snímky ve výstupní prezentaci bude použita jednotná stylizace.
-
-Pro sloučení prezentací poskytuje Aspose.Slides metodu [add_clone](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slidecollection/add_clone/) na třídě [SlideCollection](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slidecollection/). Tyto přetížené metody určují, jak je sloučení provedeno. Každý objekt [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/) exposeuje kolekci [slides](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/slides/cs/), takže voláte `add_clone` na kolekci snímků cílové prezentace.
-
-Metoda `add_clone` vrací objekt `Slide` – klon zdrojového snímku. Snímky ve výstupní prezentaci jsou kopií originálů, takže můžete výsledné snímky (např. aplikovat styly, formátování nebo rozvržení) měnit bez ovlivnění zdrojových prezentací.
-
-## **Sloučit prezentace**
-
-Aspose.Slides poskytuje metodu [add_clone(ISlide)](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slidecollection/add_clone/#asposeslidesislide) , která umožňuje kombinovat snímky při zachování jejich rozvržení a stylů (pomocí výchozích parametrů).
-
-Následující příklad v Pythonu ukazuje, jak sloučit prezentace:
-
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide)
-        presentation1.save("combined.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        for slide in source.slides:
+            destination.slides.add_clone(slide)
+
+        destination.save("merged.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Sloučit prezentace s hlavním snímkem**
+Výsledná prezentace může obsahovat více masterů, pokud zdroj i cíl používají odlišné návrhy. To je očekávané, když se úmyslně zachovává zdrojové formátování.
 
-Aspose.Slides poskytuje metodu [add_clone(ISlide, IMasterSlide, Boolean)](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slidecollection/add_clone/#asposeslidesislide-asposeslidesimasterslide-bool), která umožňuje sloučit snímky při aplikaci hlavního snímku z šablony. Tímto způsobem můžete dle potřeby přestylovat snímky ve výstupní prezentaci.
+## **Sloučení vybraných snímků**
 
-Následující příklad v Pythonu demonstruje tuto operaci:
+Nemusíte klonovat každý snímek. Následující příklad importuje pouze vybrané indexy snímků ze zdrojové prezentace.
 
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide, presentation1.masters[0], True)
-        presentation1.save("combined_with_master.pptx", slides.export.SaveFormat.PPTX) 
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        slide_indexes = [0, 2, 4]
+
+        for index in slide_indexes:
+            destination.slides.add_clone(source.slides[index])
+
+        destination.save("merged-selected-slides.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Poznámka" color="warning" %}}
-Vhodné rozložení pod zadaným hlavním snímkem je určeno automaticky. Pokud není nalezeno vhodné rozložení a parametr `allow_clone_missing_layout` metody `add_clone` je nastaven na `True`, použije se rozložení zdrojového snímku. V opačném případě je vyhozena výjimka [PptxEditException](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pptxeditexception/).
-{{% /alert %}}
+Před klonováním ověřte indexy snímků, pokud pocházejí od uživatele nebo z externí konfigurace.
 
-Pro aplikaci jiného rozložení snímku ve výstupní prezentaci použijte metodu [add_clone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slidecollection/add_clone/#asposeslidesislide-asposeslidesilayoutslide) při sloučení.
+## **Sloučení snímků pomocí cílového masteru**
 
-## **Sloučit konkrétní snímky z prezentací**
+Použijte přetížení [add_clone(source_slide, destination_master, allow_clone_missing_layout)](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slidecollection/add_clone/) když mají importované snímky následovat master, který již patří cílové prezentaci.
 
-Sloučení konkrétních snímků z více prezentací je užitečné při tvorbě vlastních sad snímků. Aspose.Slides vám umožní vybrat a importovat jen snímky, které potřebujete, přičemž zachová formátování, rozložení a design původních snímků.
-
-Následující příklad v Pythonu vytvoří novou prezentaci, přidá titulní snímky ze dvou dalších prezentací a výsledek uloží do souboru:
-
-```py
-def get_title_slide(pres):
-    for slide in pres.slides:
-        if slide.layout_slide.layout_type == slides.SlideLayoutType.TITLE:
-            return slide
-    return None
-
-
-with slides.Presentation() as presentation, \
-        slides.Presentation("presentation1.pptx") as presentation1, \
-        slides.Presentation("presentation2.pptx") as presentation2:
-    presentation.slides.remove_at(0)
-
-    slide1 = get_title_slide(presentation1)
-    if slide1 is not None:
-        presentation.slides.add_clone(slide1)
-
-    slide2 = get_title_slide(presentation2)
-    if slide2 is not None:
-        presentation.slides.add_clone(slide2)
-
-    presentation.save("combined.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Sloučit prezentace s rozložením snímku**
-
-Následující příklad v Pythonu ukazuje, jak sloučit snímky z více prezentací při aplikaci konkrétního rozložení snímku, aby vznikla jedna výstupní prezentace:
-
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide, presentation1.layout_slides[0])
-        presentation1.save("combined_with_layout.pptx", slides.export.SaveFormat.PPTX) 
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        destination_master = destination.masters[0]
+
+        for slide in source.slides:
+            destination.slides.add_clone(slide, destination_master, True)
+
+        destination.save("merged-with-destination-master.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Sloučit prezentace s různými velikostmi snímků**
+Aspose.Slides vybere vhodné rozvržení pod zadaným masterem podle typu nebo názvu rozvržení zdrojového snímku. Pokud neexistuje vhodné rozvržení a `allow_clone_missing_layout` je `True`, zdrojové rozvržení se klonuje, aby mohl být snímek přidán. Pokud je `False`, vyvolá se [PptxEditException](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pptxeditexception/).
 
-{{% alert title="Poznámka" color="warning" %}}
-Nemůžete přímo sloučit prezentace, které mají různé velikosti snímků.
-{{% /alert %}}
+Použijte `False`, když chcete, aby sloučení selhalo místo toho, aby se do cílového masteru přidalo další rozvržení.
 
-Pro sloučení dvou prezentací s různými velikostmi snímků nejprve změňte velikost jedné prezentace tak, aby její velikost snímku odpovídala té druhé.
+## **Sloučení snímků pomocí konkrétního cílového rozvržení**
 
-Následující ukázkový kód demonstruje tento postup:
+Použijte přetížení [add_clone(source_slide, destination_layout)](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slidecollection/add_clone/) když přesně víte, které cílové rozvržení mají importované snímky použít.
 
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    slide_size = presentation1.slide_size.size
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        presentation2.slide_size.set_size(slide_size.width, slide_size.height, slides.SlideSizeScaleType.ENSURE_FIT)
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide)
-        presentation1.save("combined_size.pptx", slides.export.SaveFormat.PPTX) 
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        destination_layout = destination.layout_slides[0]
+
+        for slide in source.slides:
+            destination.slides.add_clone(slide, destination_layout)
+
+        destination.save("merged-with-destination-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Sloučit snímky do sekce prezentace**
+Použití cílového rozvržení mění zděděný vztah rozvržení; nepřetváří obsah zdrojového snímku. Pokud mají zdrojové a cílové rozvržení odlišnou strukturu zástupných objektů, zkontrolujte výsledek, aby byly zděděné formátování a chování zástupných objektů vhodné.
 
-Následující příklad v Pythonu ukazuje, jak sloučit konkrétní snímek do sekce prezentace:
+## **Sloučení prezentací s různými velikostmi snímků**
 
-```py
+Prezentace s odlišnými rozměry snímků lze sloučit, ale klonování snímku do prezentace s jinou velikostí automaticky nepřetvoří jeho obsah na novém plátně. Tvary se tak mohou jevit posunuté, neočekávaně změněné nebo mimo viditelnou oblast snímku.
+
+Praktický přístup je před klonováním změnit velikost zdrojové prezentace. Metoda [SlideSize.set_size](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slidesize/set_size/) může měřítkem upravit existující obsah při změně rozměrů snímku. [SlideSizeScaleType.ENSURE_FIT](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slidesizescaletype/) škáluje obsah tak, aby se vešel do požadované velikosti.
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide, presentation1.sections[0])
-        presentation1.save("combined_sections.pptx", slides.export.SaveFormat.PPTX) 
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        if (
+            source.slide_size.size.width != destination.slide_size.size.width
+            or source.slide_size.size.height != destination.slide_size.size.height
+        ):
+            source.slide_size.set_size(
+                destination.slide_size.size.width,
+                destination.slide_size.size.height,
+                slides.SlideSizeScaleType.ENSURE_FIT)
+
+        for slide in source.slides:
+            destination.slides.add_clone(slide)
+
+        destination.save("merged-same-slide-size.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Snímek je přidán na konci sekce. 
+Změna velikosti upravuje objekt zdrojové prezentace v paměti. Pokud potřebujete původní zdrojovou prezentaci beze změny pro další operace, otevřete pro sloučení samostatnou instanci.
 
-{{% alert title="Tip" color="primary" %}}
-Hledáte rychlý a **bezplatný online nástroj** pro **sloučení PowerPoint prezentací**? Vyzkoušejte [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/cs/merger).
+## **Sloučení snímků do sekce prezentace**
 
-- **Jednoduché sloučení souborů PowerPoint**: Kombinujte více **PPT, PPTX, ODP** prezentací do jediného souboru.  
-- **Podpora různých formátů**: Sloučte **PPT na PPTX**, **PPTX na ODP** a další.  
-- **Žádná instalace není potřeba**: Funguje přímo ve vašem prohlížeči, rychle a bezpečně.  
+Základní smyčka klonování snímků nevytváří hierarchii sekcí zdrojové prezentace. Pokud jsou sekce důležité ve výstupu, vytvořte nebo vyberte sekce v cílové prezentaci a explicitně do nich klonujte snímky pomocí [SlideCollection.add_clone](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slidecollection/add_clone/).
 
-[![Sloučit soubory PowerPoint online](slides-merger.png)](https://products.aspose.app/slides/cs/merger)  
+```python
+import aspose.slides as slides
 
-Začněte dnes sloučit své PowerPoint soubory pomocí **Aspose bezplatného online nástroje**!  
-{{% /alert %}}
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        imported_section = destination.sections.append_empty_section("Imported slides")
 
-{{% alert title="Tip" color="primary" %}}
-Aspose poskytuje [ZDARMA Collage webovou aplikaci](https://products.aspose.app/slides/cs/collage). Touto online službou můžete sloučit [JPG na JPG](https://products.aspose.app/slides/cs/collage/jpg) nebo PNG na PNG obrázky, vytvořit [foto mřížky](https://products.aspose.app/slides/cs/collage/photo-grid) a podobně. 
-{{% /alert %}}
+        for slide in source.slides:
+            destination.slides.add_clone(slide, imported_section)
+
+        destination.save("merged-with-section.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Klonované snímky jsou připojeny ke specifikované cílové sekci. Pro zachování několika zdrojových sekcí je znovu vytvořte v cíli pomocí [SectionCollection.append_empty_section](https://reference.aspose.com/slides/cs/python-net/aspose.slides/sectioncollection/append_empty_section/) a mapujte každý zdrojový snímek na odpovídající cílovou sekci.
+
+## **Bezpečné sloučení více prezentací**
+
+Následující end‑to‑end příklad používá první prezentaci jako cílovou, normalizuje velikost snímku každého dalšího zdroje, udržuje každý zdroj otevřený pouze po dobu kopírování a výsledný soubor uloží jednou.
+
+```python
+import aspose.slides as slides
+
+input_files = ["part1.pptx", "part2.pptx", "part3.pptx"]
+
+with slides.Presentation(input_files[0]) as merged:
+    for file_index in range(1, len(input_files)):
+        with slides.Presentation(input_files[file_index]) as source:
+            if (
+                source.slide_size.size.width != merged.slide_size.size.width
+                or source.slide_size.size.height != merged.slide_size.size.height
+            ):
+                source.slide_size.set_size(
+                    merged.slide_size.size.width,
+                    merged.slide_size.size.height,
+                    slides.SlideSizeScaleType.ENSURE_FIT)
+
+            for slide in source.slides:
+                merged.slides.add_clone(slide)
+
+    merged.save("merged.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Jedná se o užitečný výchozí scénář pro zachování formátování importovaných snímků. Pokud váš výstup musí používat jednotné téma cíle, nahraďte jednoduché volání `add_clone(slide)` přetížením pro cílový master nebo cílové rozvržení, jak bylo ukázáno dříve.
+
+## **Praktické úvahy**
+
+### **Mastery, rozvržení a věrnost formátování**
+
+Výchozí klonování snímků může automaticky přenést požadovaný zdrojový master do cílové prezentace. Aspose.Slides udržuje interní registr pro automaticky klonované mastery, aby nedocházelo k opakovanému klonování stejného masteru. Manuálně klonované mastery nejsou tímto registrem sledovány, proto se vyhněte předklonování masterů, pokud nepotřebujete explicitní kontrolu nad strukturou masteru.
+
+Neočekávejte, že dva mastery nebo rozvržení se stejným názvem jsou vizuálně ekvivalentní. Pokud firemní šablona musí řídit finální vzhled, vyberte explicitně cílový master nebo rozvržení a po sloučení výsledek ověřte.
+
+### **Poznámky a komentáře**
+
+Poznámky přednášejícího a komentáře ke snímkům jsou svázány s obsahem snímku a jsou kopírovány při klonování. Aspose.Slides také poskytuje dedikovaná API pro [presentation notes](https://docs.aspose.com/slides/cs/python-net/presentation-notes/) a [presentation comments](https://docs.aspose.com/slides/cs/python-net/presentation-comments/).
+
+Pokud je formátování stránky s poznámkami důležité, ověřte sloučenou prezentaci, protože mastery poznámek jsou objekty úrovně prezentace a mohou se mezi zdrojovými soubory lišit. Pro recenzní scénáře také ověřte autory komentářů a vlákna komentářů po kombinaci souborů od různých autorů či šablon.
+
+### **Obrázky, audio, video, OLE objekty a externí odkazy**
+
+Snímky mohou odkazovat na zdroje úrovně prezentace, jako jsou obrázky, vložené audio, vložené video a OLE data. Klonujte celý snímek místo kopírování jen viditelných tvarů, aby Aspose.Slides mohl udržet vztahy snímku k jeho zdrojům.
+
+Vložené a odkazované zdroje by měly být zpracovány odlišně. Odkazovaný audio, video, OLE objekt nebo hypertextový odkaz zůstává závislý na externím cíli; klonování snímku nepromění externí odkaz na vložený obsah. Otestujte cesty a URL odkazovaných zdrojů v prostředí, kde bude sloučená prezentace otevřena.
+
+Aspose.Slides explicitně sleduje automaticky klonované mastery, ale to by nemělo být považováno za obecnou záruku, že identické binární zdroje z nesouvisejících zdrojových prezentací budou vždy deduplikovány. Pokud je velikost výstupního souboru podstatná, prozkoumejte sloučený balíček a změřte výsledek místo spoléhaní se na implicitní deduplikaci.
+
+### **Vložené fonty a dostupnost fontů**
+
+Fonty jsou spravovány na úrovni prezentace. Pokud musí typografie zůstat konzistentní napříč stroji, neočekávejte, že samotné klonování snímků zajistí dostupnost každého potřebného fontu v cílovém prostředí. Vložené fonty můžete zkontrolovat pomocí [FontsManager.get_embedded_fonts](https://reference.aspose.com/slides/cs/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) a spravovat vložení explicitně, jak je popsáno v [Embed Fonts in Presentations](https://docs.aspose.com/slides/cs/python-net/embedded-font/).
+
+Také ověřte, že máte oprávnění k vložení fontů použitého ve zdrojových souborech. Licenční podmínky fontů mohou vložení omezovat.
+
+### **Prezentace chráněné heslem**
+
+Zdroj chráněný heslem musí být úspěšně otevřen, než lze jeho snímky klonovat. Heslo zadejte pomocí [LoadOptions.password](https://reference.aspose.com/slides/cs/python-net/aspose.slides/loadoptions/password/).
+
+```python
+import aspose.slides as slides
+
+load_options = slides.LoadOptions()
+load_options.password = "YOUR_PASSWORD"
+
+with slides.Presentation("protected.pptx", load_options) as source:
+    print(len(source.slides))
+```
+
+Otevření šifrovaného zdroje automaticky nepřenáší stejnou ochranu na cílovou prezentaci. Ochranu výstupu konfigurujte samostatně, pokud je potřeba.
+
+### **Velké prezentace a využití paměti**
+
+Velké prezentace obsahující vysoce rozlišené obrázky, audio, video či jiné velké binární objekty mohou spotřebovat značnou paměť. [LoadOptions.blob_management_options](https://reference.aspose.com/slides/cs/python-net/aspose.slides/loadoptions/blob_management_options/) nabízí řízení BLOB a dočasných souborů. Viz [Manage Presentation BLOBs](https://docs.aspose.com/slides/cs/python-net/manage-blob/) pro strategie práce s velkými soubory.
+
+U velkých souborů upřednostněte načítání z cest k souborům, co nejdříve uzavírejte každou zdrojovou prezentaci po jejím sloučení a vyhněte se opakovanému ukládání mezivýsledků, pokud workflow nevyžaduje kontrolní body. Použití `with slides.Presentation(...)` zajišťuje uvolnění zdrojů prezentace při opuštění kontextu.
+
+### **Bezpečnost při vícevláknovém zpracování**
+
+Nenačítejte, neukládejte ani neklonujte instance [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/) současně z více vláken. Každou operaci sloučení provádějte v jednom vlákně. Pokud paralelizujete nezávislé úlohy sloučení, použijte samostatné jednovláknové procesy a nezávislé instance prezentací, jak je popsáno v [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/cs/python-net/multithreading/).
 
 ## **Často kladené otázky**
 
-**Jsou poznámky k řečníkovi zachovány při sloučení?**
+**Jak zachovat původní návrh každé zdrojové prezentace?**
 
-Ano. Při klonování snímků Aspose.Slides přenáší všechny prvky snímku, včetně poznámek, formátování a animací.
+Použijte [`add_clone(source_slide)`](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slidecollection/add_clone/) bez zadání cílového masteru nebo rozvržení. Aspose.Slides může automaticky klonovat zdrojový master, pokud je importovaným snímkem potřeba.
 
-**Jsou komentáře a jejich autoři přeneseni?**
+**Jak zajistit, aby importované snímky používaly téma cíle?**
 
-Komentáře jako součást obsahu snímku jsou zkopírovány spolu se snímkem. Štítky autorů komentářů jsou zachovány jako objekty komentářů ve výsledné prezentaci.
+Použijte přetížení, které přijímá cílový master. Předávejte master z cílové prezentace, ne ze zdrojové. Aspose.Slides se pokusí přiřadit každý zdrojový snímek k vhodnému rozvržení pod tímto masterem.
 
-**Co když je zdrojová prezentace chráněna heslem?**
+**Kdy použít konkrétní cílové rozvržení místo cílového masteru?**
 
-Musí být [otevřena pomocí hesla](/slides/cs/python-net/password-protected-presentation/) přes [LoadOptions.password](https://reference.aspose.com/slides/cs/python-net/aspose.slides/loadoptions/password/); po načtení lze tyto snímky bezpečně klonovat do nechráněného cílového souboru (nebo také do chráněného).
+Použijte konkrétní rozvržení, když mají všechny importované snímky použít jedno známé rozvržení. Použijte master, když chcete, aby Aspose.Slides vybral mezi rozvrženími toho masteru na základě typu nebo názvu zdrojového rozvržení.
 
-**Jak bezpečná je operace sloučení pro více vláken?**
+**Lze sloučit prezentace s různými velikostmi snímků?**
 
-Nepožívejte stejnou instanci [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/) z [více vláken](/slides/cs/python-net/multithreading/). Doporučené pravidlo je „jeden dokument — jedno vlákno“; různé soubory lze zpracovávat paralelně v oddělených vláknech.
+Ano, ale obsah snímku se automaticky nepřetváří pro rozměry cíle. Před sloučením změňte velikost zdrojové prezentace, například pomocí [SlideSize.set_size](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slidesize/set_size/) a [SlideSizeScaleType.ENSURE_FIT](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slidesizescaletype/).
+
+**Mohu sloučit PPT, PPTX a ODP prezentace do jednoho souboru?**
+
+Ano. Načtěte každou zdrojovou prezentaci, klonujte požadované snímky do jedné cílové a uložte ji v podporovaném výstupním formátu. Protože formáty prezentací nepodporují zcela stejný soubor funkcí, po meziformátovém sloučení ověřte složitý obsah. Viz [Supported File Formats](https://docs.aspose.com/slides/cs/python-net/supported-file-formats/).
+
+**Zachovají se automaticky zdrojové sekce?**
+
+Ne při základní smyčce, která pouze klonuje snímky. Vytvořte požadované sekce v cíli a použijte přetížení sekce metody [add_clone](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slidecollection/add_clone/), pokud musí být struktura sekcí zachována.
+
+**Zachovají se poznámky a komentáře?**
+
+Ano, jsou zkopírovány spolu s klonovaným snímkem. Pro workflow, které závisí na stylu masteru poznámek, autorech komentářů nebo vláknech revizí, ověřte sloučený výsledek, protože tyto scénáře zahrnují struktury na úrovni prezentace i snímku.
+
+**Co se stane s audiem, videem, OLE objekty a hypertextovými odkazy?**
+
+Vložený obsah je součástí vztahů zdrojového snímku a je přenášen. Externí odkazy zůstávají externí, takže jejich cílové soubory nebo URL musí být i po sloučení dostupné.
+
+**Jsou vložené fonty ze všech zdrojů zaručeně dostupné v sloučené prezentaci?**
+
+Nespoléhejte se jen na klonování snímků pro nasazení fontů. Prohlédněte vložené fonty v cíli a explicitně spravujte vložení fontů nebo jejich externí dostupnost, pokud je typografie důležitá.
+
+**Jak sloučit soubor chráněný heslem?**
+
+Otevřete jej s správným [LoadOptions.password](https://reference.aspose.com/slides/cs/python-net/aspose.slides/loadoptions/password/), poté klonujte jeho snímky normálně. Ochrana výstupu se konfiguruje odděleně.
+
+**Jak postupovat u velmi velkých prezentací?**
+
+Používejte správu BLOB, pokud velké binární objekty dominují paměťovému využití, upřednostňujte načítání z cest k souborům, rychle uzavírejte zdrojové prezentace a finální výsledek ukládejte jen jednou.
+
+**Mohu sloučit snímky z více vláken?**
+
+Nenačítejte, neukládejte ani neklonujte instance [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/) v několika vláknech současně. Každou operaci sloučení provádějte jednovláknově; pro paralelizaci samostatných úloh použijte nezávislé jednovláknové procesy.

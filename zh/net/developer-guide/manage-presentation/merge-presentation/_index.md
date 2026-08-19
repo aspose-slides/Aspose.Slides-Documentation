@@ -1,5 +1,5 @@
 ---
-title: 高效合并 .NET 中的演示文稿
+title: 高效地在 .NET 中合并演示文稿
 linktitle: 合并演示文稿
 type: docs
 weight: 40
@@ -20,249 +20,316 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 Aspose.Slides for .NET 轻松合并 PowerPoint（PPT、PPTX）和 OpenDocument（ODP）演示文稿，简化工作流程。"
+description: "了解如何在 .NET 中通过克隆幻灯片、控制母版和布局、调整幻灯片内容大小、保留章节以及处理受保护或大型文件，来合并 PowerPoint 和 OpenDocument 演示文稿。"
 ---
+## **概述**
 
-## **优化您的演示文稿合并**
+Aspose.Slides for .NET 通过克隆幻灯片将一个 [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/) 的演示文稿合并到另一个中。主要操作是 [ISlideCollection.AddClone](https://reference.aspose.com/slides/zh/net/aspose.slides/islidecollection/addclone/)，它可以保留源幻灯片的格式，或将克隆的幻灯片附加到目标演示文稿的母版或布局。
 
-使用[ Aspose.Slides for .NET](https://products.aspose.com/slides/net/)，在保留样式、布局和所有元素的同时，轻松合并 PowerPoint 演示文稿。与其他工具不同，Aspose.Slides 在合并演示文稿时不会降低质量或丢失数据。支持合并整个演示文稿、特定幻灯片，甚至不同文件格式（PPT 转 PPTX 等）。
+本文介绍了最常见的合并工作流：
 
-### **合并功能**
+- 合并所有幻灯片并保留其源格式；
+- 合并选定的幻灯片；
+- 使用目标演示文稿的母版；
+- 使用目标演示文稿的特定布局；
+- 在合并前统一不同的幻灯片尺寸；
+- 将克隆的幻灯片添加到章节；
+- 在一个端到端工作流中合并多个演示文稿；
+- 处理母版、资源、备注、评论、媒体、字体、密码、大文件和多线程相关问题。
 
-- **完整演示合并：** 将所有幻灯片组装到一个文件中。  
-- **特定幻灯片合并：** 选择并合并选定的幻灯片。  
-- **跨格式合并：** 合并不同格式的演示文稿，保持完整性。
+## **幻灯片克隆对母版和布局的影响**
 
-{{% alert title="Tip" color="primary" %}}  
+幻灯片的外观在很大程度上继承自其布局和母版。因此，您选择的克隆重载决定了合并后的幻灯片如何嵌入目标演示文稿。
 
-寻找快速且**免费在线工具**来**合并 PowerPoint 演示文稿**？尝试[**Aspose PowerPoint Merger**](https://products.aspose.app/slides/merger)。  
+可通过以下方式使用 [ISlideCollection.AddClone](https://reference.aspose.com/slides/zh/net/aspose.slides/islidecollection/addclone/)：
 
-- **轻松合并 PowerPoint 文件**：将多个**PPT、PPTX、ODP**演示文稿合并为一个文件。  
-- **支持不同格式**：合并**PPT 到 PPTX**、**PPTX 到 ODP**等。  
-- **无需安装**：直接在浏览器中运行，快速安全。  
+- `AddClone(sourceSlide)` — 保留源幻灯片的布局和格式。如有需要，源母版会自动克隆到目标演示文稿中。Aspose.Slides 会跟踪自动克隆的母版，以防使用相同源母版的重复幻灯片导致母版被多次克隆。
+- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — 将克隆的幻灯片附加到特定的目标 [IMasterSlide](https://reference.aspose.com/slides/zh/net/aspose.slides/imasterslide/)。Aspose.Slides 会根据布局类型或名称在该母版下查找匹配的布局。
+- `AddClone(sourceSlide, destinationLayout)` — 将克隆的幻灯片直接附加到特定的目标 [ILayoutSlide](https://reference.aspose.com/slides/zh/net/aspose.slides/ilayoutslide/)。
 
-[![Merge PowerPoint Files Online](slides-merger.png)](https://products.aspose.app/slides/merger)  
+传递给 `AddClone` 重载的母版或布局必须属于 **目标** 演示文稿，而不是源演示文稿。
 
-立即使用**Aspose 免费在线工具**合并您的 PowerPoint 文件！  
+## **合并整个演示文稿并保留源格式**
 
-{{% /alert %}}
+最简单的合并方式是将源演示文稿的每张幻灯片复制到目标演示文稿中。当导入的幻灯片应保持其原始主题、母版和布局关系时，这是一种合适的选择。
 
-## **演示文稿合并**
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-当您[将一个演示文稿合并到另一个](https://products.aspose.com/slides/net/merger/ppt/)时，实际上是将它们的幻灯片组合到同一个演示文稿中，以获得一个文件。
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
 
-{{% alert title="Info" color="info" %}}
-
-大多数演示文稿程序（PowerPoint 或 OpenOffice）都缺少能够以此方式合并演示文稿的功能。
-
-[**Aspose.Slides for .NET**](https://products.aspose.com/slides/net/) 允许您以不同方式合并演示文稿。您可以在不担心质量或数据丢失的情况下，合并演示文稿的所有形状、样式、文本、格式、批注、动画等。
-
-**另请参见**
-
-[克隆幻灯片](https://docs.aspose.com/slides/net/cloning-commenting-and-manipulating-slides/#cloning-commentingandmanipulatingslides-cloningslides)*.* 
-
-{{% /alert %}}
-
-### **可以合并的内容**
-
-使用 Aspose.Slides，您可以合并  
-
-* 整个演示文稿。所有演示文稿中的幻灯片最终汇聚到一个演示文稿中。  
-* 特定幻灯片。选定的幻灯片汇聚到一个演示文稿中。  
-* 同一格式的演示文稿（PPT 到 PPT、PPTX 到 PPTX 等）以及不同格式的演示文稿（PPT 到 PPTX、PPTX 到 ODP 等）相互合并。  
-
-{{% alert title="Note" color="warning" %}} 
-
-除了演示文稿，Aspose.Slides 还允许您合并其他文件：
-
-* [图像](https://products.aspose.com/slides/net/merger/image-to-image/)，例如[JPG 到 JPG](https://products.aspose.com/slides/net/merger/jpg-to-jpg/)或[PNG 到 PNG](https://products.aspose.com/slides/net/merger/png-to-png/)  
-* 文档，例如[PDF 到 PDF](https://products.aspose.com/slides/net/merger/pdf-to-pdf/)或[HTML 到 HTML](https://products.aspose.com/slides/net/merger/html-to-html/)  
-* 以及两种不同类型的文件，例如[图像到 PDF](https://products.aspose.com/slides/net/merger/image-to-pdf/)、[JPG 到 PDF](https://products.aspose.com/slides/net/merger/jpg-to-pdf/)或[TIFF 到 PDF](https://products.aspose.com/slides/net/merger/tiff-to-pdf/)。  
-
-{{% /alert %}}
-
-### **合并选项**
-
-您可以应用以下选项来决定  
-
-* 输出演示文稿中的每一张幻灯片是否保留唯一的样式  
-* 是否对输出演示文稿中的所有幻灯片使用特定样式  
-
-要合并演示文稿，Aspose.Slides 提供了[AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone)方法（来自[ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection)接口）。`AddClone` 方法有多种实现，定义了演示文稿合并过程的参数。每个 Presentation 对象都有一个[Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides)集合，因此您可以在希望合并幻灯片的目标演示文稿上调用 `AddClone` 方法。
-
-`AddClone` 方法返回一个 `ISlide` 对象，它是源幻灯片的克隆。输出演示文稿中的幻灯片实际上是源幻灯片的副本。因此，您可以对生成的幻灯片进行更改（例如应用样式、格式选项或布局），而不必担心影响源演示文稿。
-
-## **合并演示文稿** 
-
-Aspose.Slides 提供了[**AddClone (ISlide)**](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone)方法，允许您在保留布局和样式的情况下合并幻灯片（默认参数）。 
-
-以下 C# 代码演示了如何合并演示文稿：
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
+foreach (var slide in source.Slides)
 {
-    foreach (ISlide slide in pres2.Slides)
+    destination.Slides.AddClone(slide);
+}
+
+destination.Save("merged.pptx", SaveFormat.Pptx);
+```
+
+如果源和目标使用不同的设计，生成的演示文稿可能包含多个母版。这在有意保留源格式时是预期的行为。
+
+## **合并选定的幻灯片**
+
+您不必克隆每张幻灯片。以下示例只导入源演示文稿中选定的幻灯片索引。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var slideIndexes = new[] { 0, 2, 4 };
+
+foreach (var index in slideIndexes)
+{
+    destination.Slides.AddClone(source.Slides[index]);
+}
+
+destination.Save("merged-selected-slides.pptx", SaveFormat.Pptx);
+```
+
+在克隆之前，请验证幻灯片索引的有效性，特别是当它们来源于用户输入或外部配置时。
+
+## **使用目标母版合并幻灯片**
+
+当导入的幻灯片应使用已属于目标演示文稿的母版时，请使用 [AddClone(ISlide, IMasterSlide, Boolean)](https://reference.aspose.com/slides/zh/net/aspose.slides/islidecollection/addclone/) 重载。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var destinationMaster = destination.Masters[0];
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide, destinationMaster, allowCloneMissingLayout: true);
+}
+
+destination.Save("merged-with-destination-master.pptx", SaveFormat.Pptx);
+```
+
+Aspose.Slides 会通过匹配源布局的类型或名称，在指定的母版下选择相应的布局。如果不存在合适的布局且 `allowCloneMissingLayout` 为 `true`，则会克隆源布局以添加幻灯片。如果为 `false`，则会抛出 [PptxEditException](https://reference.aspose.com/slides/zh/net/aspose.slides/pptxeditexception/)。
+
+当您希望合并失败而不是在目标母版中引入额外布局时，请使用 `false`。
+
+## **使用特定目标布局合并幻灯片**
+
+当您明确知道导入的幻灯片应使用哪个目标布局时，请使用 [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/zh/net/aspose.slides/islidecollection/addclone/) 重载。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var destinationLayout = destination.LayoutSlides[0];
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide, destinationLayout);
+}
+
+destination.Save("merged-with-destination-layout.pptx", SaveFormat.Pptx);
+```
+
+应用目标布局会更改继承的布局关系；但不会重新设计源幻灯片的内容。如果源布局和目标布局的占位符结构不同，请检查结果以确认继承的格式和占位符行为是否合适。
+
+## **合并不同幻灯片尺寸的演示文稿**
+
+不同幻灯片尺寸的演示文稿可以合并，但将幻灯片克隆到尺寸不同的演示文稿时，内容不会自动为新画布重新布局。因此，形状可能出现偏移、意外缩放或超出可视幻灯片区域。
+
+一种实用方法是先调整源演示文稿的尺寸再进行克隆。[SlideSize.SetSize](https://reference.aspose.com/slides/zh/net/aspose.slides/slidesize/setsize/) 方法在更改幻灯片尺寸的同时可以缩放现有内容。[SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/zh/net/aspose.slides/slidesizescaletype/) 会将内容缩放以适应所请求的尺寸。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+if (source.SlideSize.Size.Width != destination.SlideSize.Size.Width || 
+    source.SlideSize.Size.Height != destination.SlideSize.Size.Height)
+{
+    source.SlideSize.SetSize(
+        destination.SlideSize.Size.Width, 
+        destination.SlideSize.Size.Height, 
+        SlideSizeScaleType.EnsureFit);
+}
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide);
+}
+
+destination.Save("merged-same-slide-size.pptx", SaveFormat.Pptx);
+```
+
+调整尺寸会在内存中修改源演示文稿对象。如果需要保持原始源演示文稿不变以用于其他操作，请为合并打开一个单独的实例。
+
+## **将幻灯片合并到演示文稿章节**
+
+基本的幻灯片克隆循环不会重新创建源演示文稿的章节层次结构。如果输出中需要保留章节，请在目标演示文稿中创建或选择章节，并使用 [AddClone(ISlide, ISection)](https://reference.aspose.com/slides/zh/net/aspose.slides/islidecollection/addclone/) 将幻灯片显式克隆到这些章节中。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var importedSection = destination.Sections.AppendEmptySection("Imported slides");
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide, importedSection);
+}
+
+destination.Save("merged-with-section.pptx", SaveFormat.Pptx);
+```
+
+克隆的幻灯片会追加到指定的目标章节。若要保留多个源章节，请在目标中重新创建这些章节，并将每个源幻灯片映射到相应的目标章节。
+
+## **安全合并多个演示文稿**
+
+以下端到端示例将第一个演示文稿用作目标，对每个后续源演示文稿的幻灯片尺寸进行统一，仅在复制时打开每个源，并一次性保存最终文件。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var inputFiles = new[] { "part1.pptx", "part2.pptx", "part3.pptx" };
+
+using var merged = new Presentation(inputFiles[0]);
+
+for (var fileIndex = 1; fileIndex < inputFiles.Length; fileIndex++)
+{
+    using var source = new Presentation(inputFiles[fileIndex]);
+
+    if (source.SlideSize.Size.Width != merged.SlideSize.Size.Width || 
+        source.SlideSize.Size.Height != merged.SlideSize.Size.Height)
     {
-        pres1.Slides.AddClone(slide);
+        source.SlideSize.SetSize(
+            merged.SlideSize.Size.Width, 
+            merged.SlideSize.Size.Height, 
+            SlideSizeScaleType.EnsureFit);
     }
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
-
-
-## **使用母版幻灯片合并演示文稿** 
-
-Aspose.Slides 提供了[**AddClone (ISlide, IMasterSlide, Boolean)**](https://reference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/2)方法，允许您在应用母版幻灯片模板的情况下合并幻灯片。如此一来，必要时即可更改输出演示文稿中幻灯片的样式。 
-
-以下 C# 代码演示了上述操作：
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    foreach (ISlide slide in pres2.Slides)
+    foreach (var slide in source.Slides)
     {
-        pres1.Slides.AddClone(slide, pres2.Masters[0], allowCloneMissingLayout: true);
+        merged.Slides.AddClone(slide);
     }
-
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
 }
+
+merged.Save("merged.pptx", SaveFormat.Pptx);
 ```
 
+这是一种保留导入幻灯片源格式的实用基准。如果输出必须使用单一的目标主题，请将简单的 `AddClone(slide)` 调用替换为前面示例中的适当目标母版或目标布局重载。
 
-{{% alert title="Note" color="warning" %}} 
+## **实际注意事项**
 
-母版的幻灯片布局会自动确定。当无法确定合适的布局时，如果将 `AddClone` 方法的 `allowCloneMissingLayout` 布尔参数设为 true，则使用源幻灯片的布局。否则，将抛出 [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception)。 
+### **母版、布局和格式保真度**
 
-{{% /alert %}}
+默认的幻灯片克隆会自动将所需的源母版带入目标演示文稿。Aspose.Slides 为自动克隆的母版维护内部注册表，以避免重复克隆同一母版。手动克隆的母版不会被该注册表跟踪，因此除非需要显式控制母版结构，否则请避免预先克隆母版。
 
-如果希望输出演示文稿中的幻灯片使用不同的幻灯片布局，请在合并时改用[AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/1)方法。
+不要假设名称相同的两个母版或布局在视觉上等价。如果企业模板必须控制最终外观，请显式选择目标母版或布局，并在合并后验证结果。
 
-## **从演示文稿中合并特定幻灯片** 
+### **备注和评论**
 
-从多个演示文稿中合并特定幻灯片对于创建自定义幻灯片集非常有用。Aspose.Slides for .NET 允许您仅选择并导入所需的幻灯片。API 会保留原始幻灯片的格式、布局和设计。
+演讲者备注和幻灯片评论与幻灯片内容关联，在克隆幻灯片时会被复制。Aspose.Slides 还提供了专用的 API 用于 [presentation notes](https://docs.aspose.com/slides/zh/net/presentation-notes/) 和 [presentation comments](https://docs.aspose.com/slides/zh/net/presentation-comments/)。
 
-以下 C# 代码创建一个新演示文稿，从两个其他演示文稿中添加标题幻灯片，并将结果保存为文件：
-```cs
-using (Presentation presentation = new Presentation())
-using (Presentation presentation1 = new Presentation("presentation1.pptx"))
-using (Presentation presentation2 = new Presentation("presentation2.pptx"))
-{
-    presentation.Slides.RemoveAt(0);
+如果备注页的格式很重要，请检查合并后的演示文稿，因为备注母版是演示文稿级别的对象，可能在源文件之间有所不同。对于审阅工作流，在合并来自不同作者或模板的文件后，还需验证评论作者和线程化评论。
 
-    ISlide slide1 = GetTitleSlide(presentation1);
+### **图像、音频、视频、OLE 对象和外部链接**
 
-    if (slide1 != null)
-        presentation.Slides.AddClone(slide1);
+幻灯片可以引用演示文稿级别的资源，如图像、嵌入式音频、嵌入式视频和 OLE 数据。请克隆整个幻灯片，而不是仅复制可见形状，以便 Aspose.Slides 能维护幻灯片与这些资源的关系。
 
-    ISlide slide2 = GetTitleSlide(presentation2);
+嵌入式资源和链接资源应区别对待。链接的音频、视频、OLE 对象或超链接仍依赖其外部目标；克隆幻灯片不会把外部链接转换为嵌入内容。请在合并后打开的环境中测试链接资源的路径和 URL。
 
-    if (slide2 != null)
-        presentation.Slides.AddClone(slide2);
+Aspose.Slides 明确跟踪自动克隆的母版，但这并不意味着来自不相关源演示文稿的相同二进制资源一定会被去重。如果输出文件大小重要，请检查合并后的包并测量结果，而不要依赖隐式去重。
 
-    presentation.Save("combined.pptx", SaveFormat.Pptx);
-}
+### **嵌入字体和字体可用性**
+
+字体在演示文稿级别进行管理。如果排版必须在不同机器上保持一致，请不要假设仅克隆幻灯片就能保证目标环境中拥有所有必需的字体。您可以使用 [FontsManager.GetEmbeddedFonts](https://reference.aspose.com/slides/zh/net/aspose.slides/fontsmanager/getembeddedfonts/) 检查嵌入的字体，并按 [Embed Fonts in Presentations](https://docs.aspose.com/slides/zh/net/embedded-font/) 中的说明显式管理字体嵌入。
+
+还请确认您有权嵌入源文件使用的字体。字体许可可能会限制嵌入。
+
+### **受密码保护的演示文稿**
+
+受密码保护的源文件必须成功打开后才能克隆其幻灯片。请通过 [LoadOptions.Password](https://reference.aspose.com/slides/zh/net/aspose.slides/loadoptions/password/) 提供密码。
+
+```csharp
+using Aspose.Slides;
+
+var loadOptions = new LoadOptions { Password = "YOUR_PASSWORD" };
+
+using var source = new Presentation("protected.pptx", loadOptions);
 ```
 
-```cs
-static ISlide GetTitleSlide(IPresentation presentation)
-{
-    foreach (ISlide slide in presentation.Slides)
-    {
-        if (slide.LayoutSlide.LayoutType == SlideLayoutType.Title)
-        {
-            return slide;
-        }
-    }
-    return null;
-}
-```
+打开加密的源文件并不会自动对目标演示文稿应用相同的保护。必要时请单独配置输出保护。
 
+### **大型演示文稿和内存使用**
 
-## **使用幻灯片布局合并演示文稿** 
+包含高分辨率图像、音频、视频或其他大型二进制对象的大型演示文稿可能会消耗大量内存。[LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/zh/net/aspose.slides/loadoptions/blobmanagementoptions/) 提供了 BLOB 处理和临时文件使用的控制。请参阅 [Manage Presentation BLOBs](https://docs.aspose.com/slides/zh/net/manage-blob/) 了解大文件策略。
 
-以下 C# 代码演示了在合并演示文稿时如何为幻灯片应用首选布局，以生成一个输出演示文稿：
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    foreach (ISlide slide in pres2.Slides)
-    {
-        pres1.Slides.AddClone(slide, pres2.LayoutSlides[0]);
-    }
+对于大文件，尽可能使用文件路径加载，合并完毕后立即释放每个源演示文稿，并避免反复保存中间结果，除非工作流需要检查点。
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
+### **线程安全**
 
+不要在多个线程中同时加载、修改、保存或克隆同一个 [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/) 实例。每个演示文稿实例应仅用于一次合并操作。如果并行处理独立任务，请使用独立的演示文稿实例并遵循 [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/zh/net/multithreading/)。
 
-## **使用不同幻灯片尺寸合并演示文稿** 
+## **常见问题**
 
-{{% alert title="Note" color="warning" %}} 
+**如何保留每个源演示文稿的原始设计？**
 
-无法合并尺寸不同的演示文稿。 
+使用 [`AddClone(sourceSlide)`](https://reference.aspose.com/slides/zh/net/aspose.slides/islidecollection/addclone/) 且不提供目标母版或布局。Aspose.Slides 会在导入的幻灯片需要时自动克隆源母版。
 
-{{% /alert %}}
+**如何让导入的幻灯片使用目标主题？**
 
-要合并尺寸不同的两个演示文稿，必须先调整其中一个演示文稿的尺寸，使其与另一个演示文稿的尺寸匹配。 
+使用接受目标母版的重载。传入目标演示文稿中的母版，而不是源演示文稿的母版。Aspose.Slides 将尝试将每个源幻灯片映射到该母版下的适当布局。
 
-以下示例代码演示了上述操作：
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-   pres2 = new Presentation("pres2.pptx"))
-{
-   pres2.SlideSize.SetSize(pres1.SlideSize.Size.Width, pres1.SlideSize.Size.Height, SlideSizeScaleType.EnsureFit);
- 
-   foreach (ISlide slide in pres2.Slides)
-   {
-       pres1.Slides.AddClone(slide);
-   }
- 
-   pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
+**何时应使用特定的目标布局而不是目标母版？**
 
+当每个导入的幻灯片都应使用已知的单一布局时，使用特定布局。若希望 Aspose.Slides 根据源布局的类型或名称在该母版的布局中进行选择，则使用母版。
 
-## **将幻灯片合并到演示文稿章节** 
+**不同幻灯片尺寸的演示文稿可以合并吗？**
 
-以下 C# 代码演示了如何将特定幻灯片合并到演示文稿的某个章节中：
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    for (var index = 0; index < pres2.Slides.Count; index++)
-    {
-        ISlide slide = pres2.Slides[index];
-        pres1.Slides.AddClone(slide, pres1.Sections[0]);
-    }
+可以，但幻灯片内容不会自动为目标尺寸重新布局。需要可预测的放置时，请先调整源演示文稿的尺寸，例如使用 [SlideSize.SetSize](https://reference.aspose.com/slides/zh/net/aspose.slides/slidesize/setsize/) 和 [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/zh/net/aspose.slides/slidesizescaletype/)。
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
+**可以将 PPT、PPTX 和 ODP 演示文稿合并为一个文件吗？**
 
+可以。加载每个源演示文稿，将所需幻灯片克隆到同一个目标中，并以受支持的输出格式保存目标。由于各演示文稿格式的功能集并非完全相同，跨格式合并后请验证复杂内容。参见 [Supported File Formats](https://docs.aspose.com/slides/zh/net/supported-file-formats/)。
 
-该幻灯片会被添加到该章节的末尾。 
+**源章节会自动保留吗？**
 
-{{% alert title="Tip" color="primary" %}}
+仅克隆幻灯片的基本循环不会自动保留章节。若需保留章节结构，请在目标中重新创建所需章节，并在需要时使用 [AddClone](https://reference.aspose.com/slides/zh/net/aspose.slides/islidecollection/addclone/) 的章节重载。
 
-Aspose 提供了一个[免费拼贴 Web 应用](https://products.aspose.app/slides/collage)。使用此在线服务，您可以合并[JPG 到 JPG](https://products.aspose.app/slides/collage/jpg)或 PNG 到 PNG 图像，创建[照片网格](https://products.aspose.app/slides/collage/photo-grid)等。 
+**演讲者备注和评论会被保留吗？**
 
-{{% /alert %}}
+它们会随克隆的幻灯片一起复制。对于依赖备注母版样式、评论作者或线程化审阅数据的工作流，请验证合并结果，因为这些情况涉及演示文稿级别结构以及幻灯片级别内容。
 
-## **常见问题** 
+**音频、视频、OLE 对象和超链接会怎样？**
 
-**合并时是否会保留演讲者备注？**  
+嵌入的内容作为克隆幻灯片资源关系的一部分被保留。外部链接仍保持外部状态，合并后仍需确保其目标文件或 URL 可用。
 
-会。克隆幻灯片时，Aspose.Slides 会将所有幻灯片元素一起复制，包括备注、格式和动画。  
+**每个源的嵌入字体是否保证在合并后可用？**
 
-**评论及其作者会被转移吗？**  
+不要仅依赖幻灯片克隆来部署字体。请检查目标的嵌入字体，并在排版重要时显式管理字体嵌入或外部字体的可用性。
 
-评论作为幻灯片内容的一部分会随幻灯片一起复制，评论作者标签也会保留为结果演示文稿中的评论对象。  
+**如何合并受密码保护的文件？**
 
-**如果源演示文稿受密码保护怎么办？**  
+使用正确的 [LoadOptions.Password](https://reference.aspose.com/slides/zh/net/aspose.slides/loadoptions/password/) 打开文件，然后正常克隆其幻灯片。输出的保护需单独配置。
 
-必须使用[密码打开](/slides/zh/net/password-protected-presentation/)（通过 [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/)）后，才能安全地将这些幻灯片克隆到未受保护的目标文件（或同样受保护的文件）中。  
+**如何处理非常大的演示文稿？**
 
-**合并操作的线程安全性如何？**  
+当大型二进制对象占用大量内存时，请使用 BLOB 管理；对于极大的文件，尽量使用文件路径加载，及时释放源演示文稿，并仅在需要时保存最终结果。
 
-请勿在[多个线程](/slides/zh/net/multithreading/)中使用同一个[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)实例。推荐的规则是“一个文档‑一个线程”；不同文件可以在各自的线程中并行处理。
+**可以从多个线程合并幻灯片吗？**
+
+不要在多个线程中并发使用同一个 [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/) 实例。每次合并操作应使用各自独立的演示文稿实例。

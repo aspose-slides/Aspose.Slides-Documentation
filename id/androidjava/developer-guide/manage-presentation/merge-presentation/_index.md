@@ -1,244 +1,363 @@
 ---
 title: Menggabungkan Presentasi Secara Efisien di Android
-linktitle: Gabungkan Presentasi
+linktitle: Menggabungkan Presentasi
 type: docs
 weight: 40
 url: /id/androidjava/merge-presentation/
 keywords:
-- gabungkan PowerPoint
-- gabungkan presentasi
-- gabungkan slide
-- gabungkan PPT
-- gabungkan PPTX
-- gabungkan ODP
-- kombinasikan PowerPoint
-- kombinasikan presentasi
-- kombinasikan slide
-- kombinasikan PPT
-- kombinasikan PPTX
-- kombinasikan ODP
+- menggabungkan PowerPoint
+- menggabungkan presentasi
+- menggabungkan slide
+- menggabungkan PPT
+- menggabungkan PPTX
+- menggabungkan ODP
+- menggabungkan PowerPoint
+- menggabungkan presentasi
+- menggabungkan slide
+- menggabungkan PPT
+- menggabungkan PPTX
+- menggabungkan ODP
 - Android
 - Java
 - Aspose.Slides
-description: "Gabungkan PowerPoint (PPT, PPTX) dan presentasi OpenDocument (ODP) dengan mudah menggunakan Aspose.Slides untuk Android via Java, menyederhanakan alur kerja Anda."
+description: "Pelajari cara menggabungkan presentasi PowerPoint dan OpenDocument di Android dengan menyalin slide, mengontrol master dan layout, mengubah ukuran konten slide, mempertahankan bagian, serta menangani file yang dilindungi atau berukuran besar."
 ---
 ## **Ikhtisar**
 
-Menggabungkan presentasi PowerPoint dan OpenDocument adalah tugas umum dalam banyak aplikasi Android, terutama saat membuat laporan, mengompilasi slide dari sumber yang berbeda, atau mengotomatiskan alur kerja presentasi. Aspose.Slides menyediakan API yang kuat dan mudah digunakan untuk menggabungkan beberapa file PPT, PPTX, atau ODP menjadi satu presentasi tanpa harus menginstal Microsoft PowerPoint, LibreOffice, atau OpenOffice.
+Aspose.Slides for Android via Java menggabungkan presentasi dengan menyalin slide dari satu [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/) ke yang lain. Operasi utama adalah [ISlideCollection.addClone](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-), yang dapat mempertahankan format slide sumber atau menempelkan slide yang disalin ke master atau layout dalam presentasi tujuan.
 
-Dalam panduan ini, Anda akan mempelajari cara menggabungkan presentasi PowerPoint dan OpenDocument hanya dengan beberapa baris kode. Kami akan menyediakan contoh siap pakai, dan menunjukkan cara mempertahankan pemformatan slide, tata letak, serta elemen presentasi lainnya selama proses penggabungan.
+Artikel ini mencakup alur kerja penggabungan yang paling umum:
 
-Apakah Anda membangun aplikasi tingkat perusahaan atau alat otomatisasi sederhana, Aspose.Slides membuat penggabungan presentasi menjadi cepat, andal, dan skalabel. Aspose.Slides memungkinkan Anda menggabungkan presentasi dengan berbagai cara. Anda dapat menggabungkan presentasi beserta semua bentuk, gaya, teks, pemformatan, komentar, animasi, dan lainnya—tanpa khawatir kehilangan kualitas atau data.
+- menggabungkan semua slide sambil mempertahankan format sumbernya;
+- menggabungkan slide yang dipilih;
+- menerapkan master dari presentasi tujuan;
+- menerapkan layout tertentu dari presentasi tujuan;
+- menormalkan ukuran slide yang berbeda sebelum menggabungkan;
+- menambahkan slide yang disalin ke sebuah bagian;
+- menggabungkan beberapa presentasi dalam satu alur kerja end-to-end;
+- menangani master, sumber daya, catatan, komentar, media, font, kata sandi, file besar, dan masalah multithreading.
 
-{{% alert color="primary" %}}
-Lihat juga: [Salin Slide](https://docs.aspose.com/slides/id/androidjava/clone-slides/)
-{{% /alert %}}
+## **Bagaimana Penyalinan Slide Mempengaruhi Master dan Layout**
 
-### **Apa yang Dapat Digabungkan**
+Sebuah slide mewarisi banyak penampilannya dari layout dan master. Karena itu, overload penyalinan yang Anda pilih menentukan bagaimana slide yang digabungkan diintegrasikan ke dalam presentasi tujuan.
 
-Dengan Aspose.Slides, Anda dapat menggabungkan 
+Gunakan [ISlideCollection.addClone](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/islidecollection/) dengan salah satu cara berikut:
 
-* seluruh presentasi. Semua slide dari presentasi akan muncul dalam satu presentasi
-* slide tertentu. Slide yang dipilih akan muncul dalam satu presentasi
-* presentasi dalam satu format (PPT ke PPT, PPTX ke PPTX, dll) dan dalam format berbeda (PPT ke PPTX, PPTX ke ODP, dll) satu sama lain. 
+- `addClone(sourceSlide)` — mempertahankan layout dan format slide sumber. Jika diperlukan, master sumber dapat disalin secara otomatis ke dalam presentasi tujuan. Aspose.Slides melacak master yang disalin secara otomatis sehingga slide berulang yang menggunakan master sumber yang sama tidak menyebabkan master tersebut disalin berulang kali.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — menempelkan slide yang disalin ke [IMasterSlide](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imasterslide/) tujuan tertentu. Aspose.Slides mencari layout yang cocok di bawah master tersebut berdasarkan tipe atau nama layout.
+- `addClone(sourceSlide, destinationLayout)` — menempelkan slide yang disalin langsung ke [ILayoutSlide](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilayoutslide/) tujuan tertentu.
 
-### **Opsi Penggabungan**
+Master atau layout yang diberikan ke overload `addClone` harus berasal dari presentasi **tujuan**, bukan presentasi sumber.
 
-Anda dapat menerapkan opsi yang menentukan apakah
+## **Gabungkan Seluruh Presentasi dan Pertahankan Format Sumber**
 
-* setiap slide dalam presentasi keluaran mempertahankan gaya unik
-* gaya tertentu digunakan untuk semua slide dalam presentasi keluaran. 
-
-Untuk menggabungkan presentasi, Aspose.Slides menyediakan metode [AddClone](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) (dari antarmuka [ISlideCollection](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ISlideCollection)). Ada beberapa implementasi metode `AddClone` yang menentukan parameter proses penggabungan presentasi. Setiap objek Presentation memiliki koleksi [Slides](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/Presentation#getSlides--) , sehingga Anda dapat memanggil metode `AddClone` dari presentasi yang ingin Anda tambahkan slide.
-
-Metode `AddClone` mengembalikan objek `ISlide`, yang merupakan klon dari slide sumber. Slide dalam presentasi keluaran hanyalah salinan dari slide sumber. Oleh karena itu, Anda dapat mengubah slide yang dihasilkan (misalnya, menerapkan gaya atau opsi pemformatan atau tata letak) tanpa khawatir presentasi sumber terpengaruh. 
-
-## **Gabungkan Presentasi** 
-
-Aspose.Slides menyediakan metode [**AddClone(ISlide)**](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) yang memungkinkan Anda menggabungkan slide sementara slide tersebut mempertahankan tata letak dan gaya mereka (parameter default).
-
-Kode Java berikut menunjukkan cara menggabungkan presentasi:
+Penggabungan paling sederhana menyalin setiap slide dari presentasi sumber ke presentasi tujuan. Ini adalah pilihan yang tepat ketika slide yang diimpor harus mempertahankan tema, master, dan hubungan layout asli mereka.
 
 ```java
-Presentation pres1 = new Presentation("pres1.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide);
     }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) pres1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **Gabungkan Presentasi dengan Slide Master**
+Presentasi yang dihasilkan mungkin berisi beberapa master ketika sumber dan tujuan menggunakan desain yang berbeda. Hal ini diharapkan ketika format sumber sengaja dipertahankan.
 
-Aspose.Slides menyediakan metode [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) yang memungkinkan Anda menggabungkan slide sambil menerapkan templat slide master presentasi. Dengan cara ini, bila diperlukan, Anda dapat mengubah gaya slide dalam presentasi keluaran.
+## **Gabungkan Slide yang Dipilih**
 
-Kode Java berikut mendemonstrasikan operasi tersebut:
+Anda tidak harus menyalin setiap slide. Contoh berikut mengimpor hanya indeks slide yang dipilih dari presentasi sumber.
 
 ```java
-Presentation pres1 = new Presentation("pres1.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide, pres2.getMasters().get_Item(0), true);
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
+    int[] slideIndexes = { 0, 2, 4 };
+
+    for (int index : slideIndexes) {
+        destination.getSlides().addClone(source.getSlides().get_Item(index));
     }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged-selected-slides.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) pres1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-{{% alert title="Catatan" color="warning" %}} 
-Tata letak slide untuk slide master ditentukan secara otomatis. Ketika tata letak yang tepat tidak dapat ditentukan, jika parameter boolean `allowCloneMissingLayout` dari metode `AddClone` disetel ke true, tata letak slide sumber akan digunakan. Jika tidak, [PptxEditException](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/PptxEditException) akan dilemparkan.
-{{% /alert %}}
+Validasi indeks slide sebelum menyalin ketika mereka berasal dari masukan pengguna atau konfigurasi eksternal.
 
-Jika Anda menginginkan slide dalam presentasi keluaran memiliki tata letak slide yang berbeda, gunakan metode [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) saat menggabungkan.
+## **Gabungkan Slide Menggunakan Master Tujuan**
 
-## **Gabungkan Slide Tertentu dari Presentasi**
-
-Menggabungkan slide tertentu dari beberapa presentasi berguna untuk membuat dek slide khusus. Aspose.Slides untuk Android via Java memungkinkan Anda memilih dan mengimpor hanya slide yang Anda perlukan. API ini mempertahankan format, tata letak, dan desain slide asli.
-
-Kode Java berikut membuat presentasi baru, menambahkan slide judul dari dua presentasi lain, dan menyimpan hasilnya ke sebuah file:
+Gunakan overload [addClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) ketika slide yang diimpor harus mengikuti master yang sudah ada di dalam presentasi tujuan.
 
 ```java
-Presentation presentation = new Presentation();
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    presentation.getSlides().removeAt(0);
-    
-    ISlide slide1 = getTitleSlide(presentation1);
+    IMasterSlide destinationMaster = destination.getMasters().get_Item(0);
 
-    if (slide1 != null)
-        presentation.getSlides().addClone(slide1);
-
-    ISlide slide2 = getTitleSlide(presentation2);
-
-    if (slide2 != null)
-        presentation.getSlides().addClone(slide2);
-
-    presentation.save("combined.pptx", SaveFormat.Pptx);
-} finally {
-    presentation2.dispose();
-    presentation1.dispose();
-    presentation.dispose();
-}
-```
-```java
-static ISlide getTitleSlide(IPresentation presentation) {
-    for (ISlide slide : presentation.getSlides()) {
-        if (slide.getLayoutSlide().getLayoutType() == SlideLayoutType.Title) {
-            return slide;
-        }
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, destinationMaster, true);
     }
-    return null;
+
+    destination.save("merged-with-destination-master.pptx", SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **Gabungkan Presentasi dengan Tata Letak Slide**
+Aspose.Slides memilih layout yang sesuai di bawah master yang ditentukan dengan mencocokkan tipe atau nama layout sumber. Jika tidak ada layout yang cocok dan `allowCloneMissingLayout` bernilai `true`, layout sumber disalin sehingga slide dapat ditambahkan. Jika bernilai `false`, [PptxEditException](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/pptxeditexception/) dilempar.
 
-Kode Java ini menunjukkan cara menggabungkan slide dari presentasi sambil menerapkan tata letak slide pilihan Anda sehingga menghasilkan satu presentasi keluaran:
+Gunakan `false` ketika Anda ingin penggabungan gagal alih-alih menambahkan layout tambahan ke master tujuan.
+
+## **Gabungkan Slide Menggunakan Layout Tujuan Spesifik**
+
+Gunakan overload [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) ketika Anda tahu persis layout tujuan mana yang harus digunakan oleh slide yang diimpor.
 
 ```java
-Presentation pres1 = new Presentation("pres1.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
-    }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres1 != null) pres1.dispose();
-}
+    ILayoutSlide destinationLayout = destination.getLayoutSlides().get_Item(0);
 
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, destinationLayout);
+    }
+
+    destination.save("merged-with-destination-layout.pptx", SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
+}
 ```
+
+Menerapkan layout tujuan mengubah hubungan layout yang diwariskan; hal ini tidak mendesain ulang konten slide sumber. Jika layout sumber dan tujuan memiliki struktur placeholder yang berbeda, periksa hasilnya untuk memastikan bahwa format yang diwariskan dan perilaku placeholder sesuai.
 
 ## **Gabungkan Presentasi dengan Ukuran Slide Berbeda**
 
-{{% alert title="Catatan" color="warning" %}} 
-Anda tidak dapat menggabungkan presentasi dengan ukuran slide yang berbeda. 
-{{% /alert %}}
+Presentasi dengan dimensi slide yang berbeda dapat digabungkan, tetapi menyalin slide ke dalam presentasi dengan ukuran slide lain tidak secara otomatis mendesain ulang kontennya untuk kanvas baru. Oleh karena itu, bentuk dapat tampak bergeser, berskala tidak terduga, atau berada di luar area slide yang terlihat.
 
-Untuk menggabungkan 2 presentasi dengan ukuran slide berbeda, Anda harus mengubah ukuran salah satu presentasi sehingga ukurannya cocok dengan presentasi lainnya. 
-
-Kode contoh berikut mendemonstrasikan operasi tersebut:
+Pendekatan praktis adalah mengubah ukuran presentasi sumber sebelum menyalin. Metode [SlideSize.setSize](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-) dapat menskalakan konten yang ada sambil mengubah dimensi slide. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/slidesizescaletype/) menskalakan konten agar sesuai dengan ukuran yang diminta.
 
 ```java
-Presentation pres1 = new Presentation("pres1.pptx");
-try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        pres2.getSlideSize().setSize((float)pres1.getSlideSize().getSize().getWidth(), (float)pres1.getSlideSize().getSize().getHeight(), SlideSizeScaleType.EnsureFit);
+import com.aspose.slides.*;
+import com.aspose.slides.android.SizeF;
 
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
+try {
+    SizeF sourceSize = source.getSlideSize().getSize();
+    SizeF destinationSize = destination.getSlideSize().getSize();
+
+    if (sourceSize.getWidth() != destinationSize.getWidth() || 
+        sourceSize.getHeight() != destinationSize.getHeight()) {
+        source.getSlideSize().setSize(
+            destinationSize.getWidth(), 
+            destinationSize.getHeight(), 
+            SlideSizeScaleType.EnsureFit);
     }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
+
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide);
+    }
+
+    destination.save("merged-same-slide-size.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) pres1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **Gabungkan Slide ke Seksi Presentasi**
+Mengubah ukuran mengubah objek presentasi sumber di memori. Jika Anda memerlukan presentasi sumber asli tetap tidak berubah untuk operasi lain, buka instansi terpisah untuk penggabungan.
 
-Kode Java ini menunjukkan cara menggabungkan slide tertentu ke sebuah seksi dalam presentasi:
+## **Gabungkan Slide ke dalam Bagian Presentasi**
+
+Loop penyalinan slide dasar tidak merekonstruksi hierarki bagian dari presentasi sumber. Jika bagian penting dalam output, buat atau pilih bagian di presentasi tujuan dan salin slide ke dalamnya secara eksplisit dengan [addClone(ISlide, ISection)](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-).
 
 ```java
-Presentation pres1 = new Presentation("pres1.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide, pres1.getSections().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
+    ISection importedSection = destination.getSections().appendEmptySection("Imported slides");
+
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, importedSection);
     }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged-with-section.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) pres1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-Slide ditambahkan di akhir seksi. 
+Slide yang disalin ditambahkan ke bagian tujuan yang ditentukan. Untuk mempertahankan beberapa bagian sumber, buat ulang bagian tersebut di presentasi tujuan dan petakan setiap slide sumber ke bagian tujuan yang sesuai.
 
-{{% alert title="Tip" color="primary" %}}
-Aspose menyediakan aplikasi web [COLLAGE GRATIS](https://products.aspose.app/slides/id/collage). Menggunakan layanan daring ini, Anda dapat menggabungkan [JPG ke JPG](https://products.aspose.app/slides/id/collage/jpg) atau PNG ke PNG, membuat [grid foto](https://products.aspose.app/slides/id/collage/photo-grid), dan lain-lain. 
-{{% /alert %}}
+## **Gabungkan Banyak Presentasi dengan Aman**
+
+Contoh end-to-end berikut menggunakan presentasi pertama sebagai tujuan, menormalkan ukuran slide setiap sumber tambahan, menjaga setiap sumber tetap terbuka hanya saat disalin, dan menyimpan file akhir sekali saja.
+
+```java
+import com.aspose.slides.*;
+import com.aspose.slides.android.SizeF;
+
+String[] inputFiles = { "part1.pptx", "part2.pptx", "part3.pptx" };
+
+Presentation merged = new Presentation(inputFiles[0]);
+try {
+    SizeF mergedSize = merged.getSlideSize().getSize();
+
+    for (int fileIndex = 1; fileIndex < inputFiles.length; fileIndex++) {
+        Presentation source = new Presentation(inputFiles[fileIndex]);
+        try {
+            SizeF sourceSize = source.getSlideSize().getSize();
+
+            if (sourceSize.getWidth() != mergedSize.getWidth() || 
+                sourceSize.getHeight() != mergedSize.getHeight()) {
+                source.getSlideSize().setSize(
+                    mergedSize.getWidth(), 
+                    mergedSize.getHeight(), 
+                    SlideSizeScaleType.EnsureFit);
+            }
+
+            for (ISlide slide : source.getSlides()) {
+                merged.getSlides().addClone(slide);
+            }
+        } finally {
+            source.dispose();
+        }
+    }
+
+    merged.save("merged.pptx", SaveFormat.Pptx);
+} finally {
+    merged.dispose();
+}
+```
+
+Ini merupakan baseline yang berguna untuk mempertahankan format sumber slide yang diimpor. Jika output Anda harus menggunakan satu tema tujuan, gantilah pemanggilan sederhana `addClone(slide)` dengan overload master tujuan atau layout tujuan yang sesuai seperti yang ditunjukkan sebelumnya.
+
+## **Pertimbangan Praktis**
+
+### **Master, Layout, dan Keakuratan Format**
+
+Penyalinan slide default dapat secara otomatis membawa master sumber yang diperlukan ke dalam presentasi tujuan. Aspose.Slides menyimpan registri internal untuk master yang disalin secara otomatis agar tidak menyalin master yang sama berulang kali. Master yang disalin secara manual tidak dilacak oleh registri tersebut, jadi hindari menyalin master sebelumnya kecuali Anda memerlukan kontrol eksplisit atas struktur master.
+
+Jangan menganggap dua master atau layout dengan nama yang sama secara visual setara. Jika template perusahaan harus mengontrol tampilan akhir, pilih master atau layout tujuan secara eksplisit dan verifikasi hasil setelah penggabungan.
+
+### **Catatan dan Komentar**
+
+Catatan pembicara dan komentar slide terkait dengan konten slide dan disalin ketika slide disalin. Aspose.Slides juga menyediakan API khusus untuk [presentation notes](https://docs.aspose.com/slides/id/androidjava/presentation-notes/) dan [presentation comments](https://docs.aspose.com/slides/id/androidjava/presentation-comments/).
+
+Jika format halaman catatan penting, verifikasi presentasi yang digabung karena master catatan bersifat tingkat presentasi dan dapat berbeda antara file sumber. Untuk alur kerja peninjauan, verifikasi juga penulis komentar dan komentar berulir setelah menggabungkan file dari penulis atau template yang berbeda.
+
+### **Gambar, Audio, Video, Objek OLE, dan Tautan Eksternal**
+
+Slide dapat merujuk pada sumber daya tingkat presentasi seperti gambar, audio tersemat, video tersemat, dan data OLE. Salin slide itu sendiri alih-alih hanya menyalin bentuk yang terlihat sehingga Aspose.Slides dapat menjaga hubungan slide dengan sumber dayanya.
+
+Sumber daya tersemat dan tertaut harus diperlakukan berbeda. Audio, video, objek OLE, atau hyperlink yang tertaut tetap bergantung pada target eksternal; menyalin slide tidak mengubah tautan eksternal menjadi konten tersemat. Uji jalur dan URL sumber daya tertaut dalam lingkungan tempat presentasi yang digabung akan dibuka.
+
+Aspose.Slides secara eksplisit melacak master yang disalin secara otomatis, tetapi hal ini tidak boleh dianggap sebagai jaminan umum bahwa sumber daya biner identik dari presentasi sumber yang tidak terkait selalu akan didedupikasi. Jika ukuran file output penting, inspeksi paket yang digabung dan ukur hasilnya alih-alih mengandalkan deduplikasi implisit.
+
+### **Font yang Di-embed dan Ketersediaan Font**
+
+Font dikelola pada tingkat presentasi. Jika tipografi harus tetap konsisten di semua mesin, jangan menganggap bahwa menyalin slide saja menjamin semua font yang diperlukan tersedia di lingkungan tujuan. Anda dapat memeriksa font yang di-embed dengan [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) dan mengelola embedding secara eksplisit seperti yang dijelaskan dalam [Embed Fonts in Presentations](https://docs.aspose.com/slides/id/androidjava/embedded-font/).
+
+Juga verifikasi bahwa Anda diperbolehkan untuk meng-embed font yang digunakan oleh file sumber. Lisensi font dapat membatasi embedding.
+
+### **Presentasi yang Dilindungi Password**
+
+Sumber yang dilindungi password harus dibuka dengan sukses sebelum slidennya dapat disalin. Berikan password melalui [LoadOptions.setPassword](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-).
+
+```java
+import com.aspose.slides.*;
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("YOUR_PASSWORD");
+
+Presentation source = new Presentation("protected.pptx", loadOptions);
+try {
+    // Bekerja dengan presentasi yang telah didekripsi.
+} finally {
+    source.dispose();
+}
+```
+
+Membuka sumber yang dienkripsi tidak secara otomatis menerapkan perlindungan yang sama ke presentasi tujuan. Konfigurasikan perlindungan output secara terpisah bila diperlukan.
+
+### **Presentasi Besar dan Penggunaan Memori**
+
+Presentasi besar yang berisi gambar resolusi tinggi, audio, video, atau objek biner besar lainnya dapat mengonsumsi memori yang signifikan. [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) menyediakan kontrol untuk penanganan BLOB dan penggunaan file sementara. Lihat [Manage Presentation BLOBs](https://docs.aspose.com/slides/id/androidjava/manage-blob/) untuk strategi file besar.
+
+Untuk file besar, lebih baik memuat dari jalur file bila memungkinkan, buang setiap presentasi sumber segera setelah selesai digabung, dan hindari menyimpan hasil antara berulang kali kecuali alur kerja memerlukan checkpoint.
+
+### **Keamanan Thread**
+
+Jangan memuat, memodifikasi, menyimpan, atau menyalin instansi [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/) yang sama secara bersamaan dari beberapa thread. Jaga setiap instansi presentasi terbatas pada satu operasi penggabungan. Jika Anda memparallelkan pekerjaan independen, gunakan instansi presentasi yang terpisah dan ikuti [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/id/androidjava/multithreading/).
 
 ## **FAQ**
 
-**Apakah ada batasan jumlah slide saat menggabungkan presentasi?**
+**Bagaimana cara saya menjaga desain asli setiap presentasi sumber?**
 
-Tidak ada batasan ketat. Aspose.Slides dapat menangani file besar, tetapi kinerja bergantung pada ukuran file dan sumber daya sistem. Untuk presentasi yang sangat besar, disarankan menggunakan JVM 64‑bit dan mengalokasikan memori heap yang cukup.
+Gunakan `addClone(sourceSlide)` tanpa menyediakan master atau layout tujuan. Aspose.Slides dapat menyalin master sumber secara otomatis ketika diperlukan oleh slide yang diimpor.
 
-**Bisakah saya menggabungkan presentasi dengan video atau audio yang disematkan?**
+**Bagaimana cara membuat slide yang diimpor menggunakan tema tujuan?**
 
-Ya, Aspose.Slides mempertahankan konten multimedia yang disematkan dalam slide, tetapi presentasi akhir mungkin menjadi jauh lebih besar.
+Gunakan overload yang menerima master tujuan. Berikan master dari presentasi tujuan, bukan dari sumber. Aspose.Slides akan mencoba memetakan setiap slide sumber ke layout yang sesuai di bawah master tersebut.
 
-**Apakah font akan dipertahankan saat menggabungkan presentasi?**
+**Kapan saya harus menggunakan layout tujuan spesifik alih-alih master tujuan?**
 
-Ya. Font yang digunakan dalam presentasi sumber dipertahankan dalam file keluaran, asalkan font tersebut terpasang pada sistem atau [disematkan](/slides/id/androidjava/embedded-font/).
+Gunakan layout spesifik ketika setiap slide yang diimpor harus menggunakan satu layout yang diketahui. Gunakan master ketika Anda ingin Aspose.Slides memilih di antara layout master tersebut berdasarkan tipe atau nama layout sumber.
+
+**Apakah presentasi dengan ukuran slide berbeda dapat digabungkan?**
+
+Ya, tetapi konten slide tidak secara otomatis didesain ulang untuk dimensi tujuan. Ubah ukuran presentasi sumber terlebih dahulu ketika Anda memerlukan penempatan yang dapat diprediksi, misalnya dengan [SlideSize.setSize](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-) dan [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/slidesizescaletype/).
+
+**Dapatkah saya menggabungkan presentasi PPT, PPTX, dan ODP menjadi satu file?**
+
+Ya. Muat setiap presentasi sumber, salin slide yang diperlukan ke satu tujuan, dan simpan tujuan dalam format output yang didukung. Karena format presentasi tidak mendukung set fitur yang persis sama, verifikasi konten kompleks setelah penggabungan lintas format. Lihat [Supported File Formats](https://docs.aspose.com/slides/id/androidjava/supported-file-formats/).
+
+**Apakah bagian sumber dipertahankan secara otomatis?**
+
+Tidak dengan loop dasar yang hanya menyalin slide. Buat ulang bagian yang diperlukan di tujuan dan gunakan overload bagian dari [addClone](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-) ketika struktur bagian harus dipertahankan.
+
+**Apakah catatan pembicara dan komentar dipertahankan?**
+
+Mereka disalin bersama slide yang disalin. Untuk alur kerja yang bergantung pada stilisasi master catatan, penulis komentar, atau data ulasan berulir, verifikasi hasil gabungan karena skenario tersebut melibatkan struktur tingkat presentasi serta konten tingkat slide.
+
+**Apa yang terjadi pada audio, video, objek OLE, dan hyperlink?**
+
+Konten tersemat dibawa sebagai bagian dari hubungan sumber daya slide yang disalin. Tautan eksternal tetap eksternal, sehingga file atau URL target harus tetap tersedia setelah penggabungan.
+
+**Apakah font yang di-embed dari setiap sumber dijamin tersedia dalam presentasi gabungan?**
+
+Jangan mengandalkan penyalinan slide saja untuk penyebaran font. Periksa font yang di-embed di tujuan dan kelola embedding font secara eksplisit atau pastikan ketersediaan font eksternal ketika tipografi penting.
+
+**Bagaimana cara menggabungkan file yang dilindungi password?**
+
+Buka file dengan [LoadOptions.setPassword](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) yang benar, lalu salin slide-nya secara normal. Perlindungan output dikonfigurasikan secara terpisah.
+
+**Bagaimana saya harus menangani presentasi yang sangat besar?**
+
+Gunakan manajemen BLOB ketika objek biner besar mendominasi penggunaan memori, lebih suka memuat dari jalur file untuk file sangat besar, buang presentasi sumber segera setelah selesai digabung, dan simpan hasil akhir hanya bila diperlukan.
+
+**Dapatkah saya menggabungkan slide dari beberapa thread?**
+
+Jangan menggunakan satu instansi [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/) secara bersamaan dari beberapa thread. Jaga setiap operasi penggabungan terisolasi pada instansi presentasi masing-masing.

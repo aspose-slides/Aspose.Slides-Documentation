@@ -1,240 +1,381 @@
 ---
-title: "รวมพรีเซนเทชั่นอย่างมีประสิทธิภาพใน C++"
-linktitle: "รวมพรีเซนเทชั่น"
+title: "รวมงานนำเสนออย่างมีประสิทธิภาพใน C++"
+linktitle: "รวมงานนำเสนอ"
 type: docs
 weight: 40
 url: /th/cpp/merge-presentation/
 keywords:
 - "รวม PowerPoint"
-- "รวมพรีเซนเทชั่น"
+- "รวมงานนำเสนอ"
 - "รวมสไลด์"
 - "รวม PPT"
 - "รวม PPTX"
 - "รวม ODP"
-- "ผสาน PowerPoint"
-- "ผสานพรีเซนเทชั่น"
-- "ผสานสไลด์"
-- "ผสาน PPT"
-- "ผสาน PPTX"
-- "ผสาน ODP"
-- "C++"
-- "Aspose.Slides"
-description: "ผสานพรีเซนเทชั่น PowerPoint (PPT, PPTX) และ OpenDocument (ODP) อย่างง่ายดายด้วย Aspose.Slides สำหรับ C++ เพื่อเพิ่มประสิทธิภาพการทำงานของคุณ"
+- "รวม PowerPoint"
+- "รวมงานนำเสนอ"
+- "รวมสไลด์"
+- "รวม PPT"
+- "รวม PPTX"
+- "รวม ODP"
+- C++
+- Aspose.Slides
+description: "เรียนรู้วิธีการรวมงานนำเสนอ PowerPoint และ OpenDocument ใน C++ ด้วยการคัดลอกสไลด์, การควบคุมมาสเตอร์และเลย์เอาต์, การปรับขนาดเนื้อหาสไลด์, การคงส่วน, และการจัดการไฟล์ที่มีการป้องกันหรือขนาดใหญ่."
 ---
-## **Overview**
+## **ภาพรวม**
 
-Aspose.Slides ช่วยให้คุณรวมพรีเซนเทชั่นโดยการคัดลอกสไลด์จากพรีเซนเทชั่นหนึ่งไปยังอีกพรีเซนเทชั่นหนึ่ง บทความนี้อธิบายวิธีการรวมพรีเซนเทชั่นทั้งหมดหรือสไลด์ที่เลือกใช้มาสเตอร์สไลด์หรือเค้าโครงเฉพาะในระหว่างการรวม วิธีจัดการพรีเซนเทชั่นที่มีขนาดสไลด์ต่างกัน และการเพิ่มสไลด์ที่รวมแล้วเข้าไปในส่วนของพรีเซนเทชั่น นอกจากนี้ยังครอบคลุมโน๊ตผู้พูด คอมเมนต์ ไฟล์ต้นทางที่ป้องกันด้วยรหัสผ่าน และการใช้งานเธรด
+Aspose.Slides for C++ ผสานการนำเสนอโดยการคัดลอกสไลด์จากหนึ่ง [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/) ไปยังอีกอันหนึ่ง การดำเนินการหลักคือ [ISlideCollection::AddClone](https://reference.aspose.com/slides/th/cpp/aspose.slides/islidecollection/addclone/) ซึ่งสามารถคงรูปแบบของสไลด์ต้นฉบับหรือแนบสไลด์ที่คัดลอกไปยังมาสเตอร์หรือเลย์เอาต์ในงานนำเสนอปลายทางได้
 
-## **Presentation Merging**
+บทความนี้ครอบคลุมกระบวนการผสานที่พบมากที่สุด:
 
-เมื่อคุณรวมพรีเซนเทชั่นหนึ่งกับอีกพรีเซนเทชั่นหนึ่ง คุณกำลังรวมสไลด์ของพวกมันให้เป็นพรีเซนเทชั่นเดียวเพื่อให้ได้ไฟล์เดียว
+- ผสานสไลด์ทั้งหมดพร้อมคงรูปแบบต้นฉบับ  
+- ผสานสไลด์ที่เลือกเท่านั้น  
+- ใช้มาสเตอร์จากงานนำเสนอปลายทาง  
+- ใช้เลย์เอาต์เฉพาะจากงานนำเสนอปลายทาง  
+- ทำให้ขนาดสไลด์ต่างกันสม่ำเสมอก่อนผสาน  
+- เพิ่มสไลด์ที่คัดลอกเข้าไปในส่วน (section)  
+- ผสานหลายงานนำเสนอในขั้นตอนทำงานแบบปลายทางถึงปลายทาง  
+- จัดการมาสเตอร์, ทรัพยากร, โน้ต, ความคิดเห็น, สื่อ, ฟอนต์, รหัสผ่าน, ไฟล์ขนาดใหญ่, และข้อกังวลเรื่องการทำงานหลายเธรด
 
-{{% alert title="Info" color="info" %}}
+## **ผลของการคัดลอกสไลด์ต่อมาสเตอร์และเลย์เอาต์**
 
-โปรแกรมพรีเซนเทชั่นส่วนใหญ่ (PowerPoint หรือ OpenOffice) ขาดฟังก์ชันที่ให้ผู้ใช้รวมพรีเซนเทชั่นในลักษณะนี้ได้
+สไลด์สืบทอดลักษณะหลายอย่างจากเลย์เอาต์และมาสเตอร์ด้วยเหตุนี้ การเลือกรูปแบบการคัดลอก (overload) จะกำหนดวิธีที่สไลด์ที่ผสานจะถูกผสานเข้าไปในงานนำเสนอปลายทาง
 
-[**Aspose.Slides for C++**](https://products.aspose.com/slides/th/cpp/), อย่างไรก็ตาม ช่วยให้คุณรวมพรีเซนเทชั่นได้หลายวิธี คุณสามารถรวมพรีเซนเทชั่นพร้อมกับรูปทรง สไตล์ ข้อความ การฟอร์แมต คอมเมนต์ แอนิเมชัน ฯลฯ โดยไม่ต้องกังวลเรื่องการสูญเสียคุณภาพหรือข้อมูล
+ใช้ [ISlideCollection::AddClone](https://reference.aspose.com/slides/th/cpp/aspose.slides/islidecollection/addclone/) ในหนึ่งในรูปแบบต่อไปนี้:
 
-**See also**
+- `AddClone(sourceSlide)` — คงเลย์เอาต์และรูปแบบของสไลด์ต้นฉบับ เมื่อจำเป็น มาสเตอร์ต้นฉบับจะถูกคัดลอกเข้าไปในงานนำเสนอปลายทางโดยอัตโนมัติ Aspose.Slides จะติดตามมาสเตอร์ที่คัดลอกอัตโนมัติไว้เพื่อไม่ให้สไลด์ที่ใช้มาสเตอร์เดียวกันทำการคัดลอกมาสเตอร์ซ้ำหลายครั้ง  
+- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — แนบสไลด์ที่คัดลอกไปยัง [IMasterSlide](https://reference.aspose.com/slides/th/cpp/aspose.slides/imasterslide/) ปลายทางที่ระบุ Aspose.Slides จะค้นหาเลย์เอาต์ที่ตรงกันภายใต้มาสเตอร์นั้นโดยใช้ประเภทหรือชื่อของเลย์เอาต์  
+- `AddClone(sourceSlide, destinationLayout)` — แนบสไลด์ที่คัดลอกโดยตรงไปยัง [ILayoutSlide](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilayoutslide/) ปลายทางที่ระบุ
 
-[Clone Slides](https://docs.aspose.com/slides/th/cpp/clone-slides/)*.*
+มาสเตอร์หรือเลย์เอาต์ที่ส่งเข้า overload ของ `AddClone` ต้องเป็นของ **งานนำเสนอปลายทาง** ไม่ใช่งานนำเสนอต้นฉบับ
 
-{{% /alert %}}
+## **ผสานงานนำเสนอทั้งหมดและคงรูปแบบต้นฉบับ**
 
-### **What Can Be Merged**
-
-ด้วย Aspose.Slides คุณสามารถรวม
-
-* พรีเซนเทชั่นทั้งหมด ทั้งสไลด์จากพรีเซนเทชั่นทั้งหมดจะอยู่ในพรีเซนเทชั่นเดียว
-* สไลด์ที่เลือก สไลด์ที่เลือกจะอยู่ในพรีเซนเทชั่นเดียว
-* พรีเซนเทชั่นในรูปแบบเดียวกัน (PPT ไป PPT, PPTX ไป PPTX ฯลฯ) หรือรูปแบบต่างกัน (PPT ไป PPTX, PPTX ไป ODP ฯลฯ) ให้กันและกัน
-
-{{% alert title="Note" color="warning" %}}
-
-นอกจากพรีเซนเทชั่นแล้ว Aspose.Slides ยังอนุญาตให้คุณรวมไฟล์อื่นได้:
-
-* [Images](https://products.aspose.com/slides/th/cpp/merger/image-to-image/), เช่น [JPG to JPG](https://products.aspose.com/slides/th/cpp/merger/jpg-to-jpg/) หรือ [PNG to PNG](https://products.aspose.com/slides/th/cpp/merger/png-to-png/)
-* เอกสาร เช่น [PDF to PDF](https://products.aspose.com/slides/th/cpp/merger/pdf-to-pdf/) หรือ [HTML to HTML](https://products.aspose.com/slides/th/cpp/merger/html-to-html/)
-* และไฟล์ประเภทต่างกัน เช่น [image to PDF](https://products.aspose.com/slides/th/cpp/merger/image-to-pdf/) หรือ [JPG to PDF](https://products.aspose.com/slides/th/cpp/merger/jpg-to-pdf/) หรือ [TIFF to PDF](https://products.aspose.com/slides/th/cpp/merger/tiff-to-pdf/)
-
-{{% /alert %}}
-
-### **Merging Options**
-
-คุณสามารถกำหนดตัวเลือกที่ตัดสินว่า
-
-* แต่ละสไลด์ในพรีเซนเทชั่นผลลัพธ์จะคงสไตล์เฉพาะของมัน
-* หรือสไตล์เดียวกันจะใช้กับสไลด์ทั้งหมดในพรีเซนเทชั่นผลลัพธ์
-
-เพื่อรวมพรีเซนเทชั่น Aspose.Slides ให้เมธอด [AddClone](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) (จากอินเทอร์เฟซ [ISlideCollection](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.i_slide_collection)) มีการทำงานหลายแบบที่กำหนดพารามิเตอร์ของกระบวนการรวมพรีเซนเทชั่น ทุกอ็อบเจกต์ Presentation มีคอลเลกชัน [Slides](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c) ดังนั้นคุณสามารถเรียกเมธอด `AddClone` จากพรีเซนเทชั่นที่ต้องการรวมสไลด์เข้าไปได้
-
-เมธอด `AddClone` จะคืนค่าเป็นอ็อบเจกต์ `ISlide` ซึ่งเป็นสำเนาของสไลด์ต้นทาง สไลด์ในพรีเซนเทชั่นผลลัพธ์จึงเป็นสำเนาของสไลด์จากต้นทาง ดังนั้นคุณสามารถเปลี่ยนแปลงสไลด์ที่ได้ (เช่น ใช้สไตล์หรือตัวเลือกการฟอร์แมตหรือเค้าโครง) โดยไม่ต้องกังวลว่าจะทำให้พรีเซนเทชั่นต้นทางได้รับผลกระทบ
-
-## **Merge Presentations**
-
-Aspose.Slides มีเมธอด [**AddClone (ISlide)**](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) ที่ให้คุณรวมสไลด์โดยสไลด์ยังคงรักษาเค้าโครงและสไตล์เดิม (พารามิเตอร์เริ่มต้น)
-
-โค้ด C++ ด้านล่างแสดงวิธีการรวมพรีเซนเทชั่น:
+การผสานแบบง่ายที่สุดคือคัดลอกทุกสไลด์จากงานนำเสนอต้นฉบับไปยังงานนำเสนอปลายทาง นี่เป็นตัวเลือกที่เหมาะสมเมื่อสไลด์ที่นำเข้าต้องการคงธีม, มาสเตอร์, และความสัมพันธ์ของเลย์เอาต์เดิมไว้
 
 ```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+for (const auto& slide : source->get_Slides())
 {
-    pres1->get_Slides()->AddClone(slide);
+    destination->get_Slides()->AddClone(slide);
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+destination->Save(u"merged.pptx", SaveFormat::Pptx);
 ```
 
-## **Merge Presentations with a Slide Master**
+งานนำเสนอผลลัพธ์อาจมีมาสเตอร์หลายชุดเมื่อทั้งต้นฉบับและปลายทางใช้ดีไซน์ที่แตกต่างกัน ซึ่งเป็นพฤติกรรมที่คาดหวังเมื่อต้องคงรูปแบบต้นฉบับไว้
 
-Aspose.Slides มีเมธอด [**AddClone (ISlide, IMasterSlide, bool)**](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.i_slide_collection#a6b040e6b30f52ab4644fafdbc650b640) ที่ให้คุณรวมสไลด์พร้อมใช้แม่แบบสไลด์มาสเตอร์ของพรีเซนเทชั่น หากต้องการคุณสามารถเปลี่ยนสไตล์ของสไลด์ในพรีเซนเทชั่นผลลัพธ์ได้
+## **ผสานสไลด์ที่เลือก**
 
-โค้ด C++ ต่อไปนี้สาธิตการทำงานดังกล่าว:
+คุณไม่จำเป็นต้องคัดลอกทุกสไลด์ ตัวอย่างต่อไปนี้นำเข้าเฉพาะสไลด์ตามดัชนีที่เลือกจากงานนำเสนอต้นฉบับ
 
 ```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+int32_t slideIndexes[] = {0, 2, 4};
+
+for (auto index : slideIndexes)
 {
-    pres1->get_Slides()->AddClone(slide, pres2->get_Masters()->idx_get(0), true);
+    destination->get_Slides()->AddClone(source->get_Slide(index));
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+destination->Save(u"merged-selected-slides.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert title="Note" color="warning" %}}
+ตรวจสอบดัชนีสไลด์ก่อนทำการคัดลอกเมื่อดัชนีมาจากการป้อนข้อมูลของผู้ใช้หรือการกำหนดค่าภายนอก
 
-เค้าโครงสไลด์สำหรับมาสเตอร์สไลด์จะถูกกำหนดโดยอัตโนมัติ หากไม่สามารถกำหนดเค้าโครงที่เหมาะสมได้ และพารามิเตอร์ `allowCloneMissingLayout` ของเมธอด `AddClone` ถูกตั้งค่าเป็น true จะใช้เค้าโครงของสไลด์ต้นทาง มิฉะนั้นจะเกิดข้อผิดพลาด [PptxEditException](https://reference.aspose.com/slides/th/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d)
+## **ผสานสไลด์โดยใช้มาสเตอร์ปลายทาง**
 
-{{% /alert %}}
-
-หากคุณต้องการให้สไลด์ในพรีเซนเทชั่นผลลัพธ์ใช้เค้าโครงสไลด์ที่แตกต่างกัน ให้ใช้เมธอด [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.i_slide_collection#a0ed5909b2d92555159007046760ff2f1) แทนเมื่อทำการรวม
-
-## **Merge Specific Slides from Presentations**
-
-การรวมสไลด์เฉพาะจากหลายพรีเซนเทชั่นมีประโยชน์สำหรับการสร้างชุดสไลด์ที่กำหนดเอง Aspose.Slides C++ อนุญาตให้คุณเลือกและนำเข้าเฉพาะสไลด์ที่ต้องการ API จะคงรูปแบบ เค้าโครง และการออกแบบของสไลด์ต้นฉบับ
-
-โค้ด C++ ด้านล่างสร้างพรีเซนเทชั่นใหม่ เพิ่มสไลด์หัวเรื่องจากพรีเซนเทชั่นอื่นสองไฟล์แล้วบันทึกผลลัพธ์ลงไฟล์:
+ใช้ overload [AddClone(ISlide, IMasterSlide, bool)](https://reference.aspose.com/slides/th/cpp/aspose.slides/islidecollection/addclone/) เมื่อสไลด์ที่นำเข้าต้องการใช้มาสเตอร์ที่เป็นของงานนำเสนอปลายทางอยู่แล้ว
 
 ```cpp
-SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation)
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto destinationMaster = destination->get_Master(0);
+
+for (const auto& slide : source->get_Slides())
 {
-    for (auto&& slide : presentation->get_Slides())
+    destination->get_Slides()->AddClone(slide, destinationMaster, true);
+}
+
+destination->Save(u"merged-with-destination-master.pptx", SaveFormat::Pptx);
+```
+
+Aspose.Slides จะเลือกเลย์เอาต์ที่เหมาะสมภายใต้มาสเตอร์ที่ระบุโดยอิงจากประเภทหรือชื่อของเลย์เอาต์ต้นฉบับ หากไม่มีเลย์เอาต์ที่เหมาะสมและ `allowCloneMissingLayout` เป็น `true` เลย์เอาต์ต้นฉบับจะถูกคัดลอกเพื่อให้สไลด์สามารถเพิ่มได้ หากเป็น `false` จะเกิดข้อยกเว้น [PptxEditException](https://reference.aspose.com/slides/th/cpp/aspose.slides/details_pptxeditexception/)
+
+ใช้ค่า `false` เมื่อต้องการให้การผสานล้มเหลวแทนการเพิ่มเลย์เอาต์ใหม่เข้าไปในมาสเตอร์ปลายทาง
+
+## **ผสานสไลด์โดยใช้เลย์เอาต์ปลายทางเฉพาะ**
+
+ใช้ overload [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/th/cpp/aspose.slides/islidecollection/addclone/) เมื่อคุณทราบแน่ชัดว่าเลย์เอาต์ปลายทางใดที่สไลด์ที่นำเข้าต้องใช้
+
+```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto destinationLayout = destination->get_LayoutSlide(0);
+
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide, destinationLayout);
+}
+
+destination->Save(u"merged-with-destination-layout.pptx", SaveFormat::Pptx);
+```
+
+การใช้เลย์เอาต์ปลายทางเปลี่ยนความสัมพันธ์ของเลย์เอาต์ที่สืบทอด; มันไม่ได้ปรับออกแบบเนื้อหาสไลด์ต้นฉบับ หากเลย์เอาต์ต้นฉบับและปลายทางมีโครงสร้าง placeholder ที่แตกต่างกัน ให้ตรวจสอบผลลัพธ์เพื่อยืนยันว่าการจัดรูปแบบและพฤติกรรม placeholder ที่สืบทอดนั้นเหมาะสม
+
+## **ผสานงานนำเสนอที่มีขนาดสไลด์ต่างกัน**
+
+งานนำเสนอที่มีขนาดสไลด์ต่างกันสามารถผสานได้ แต่การคัดลอกสไลด์ไปยังงานนำเสนอที่มีขนาดสไลด์แตกต่างกันจะไม่ทำการออกแบบเนื้อหาใหม่อัตโนมัติสำหรับพิมพ์เขียวขนาดใหม่ รูปร่างอาจถูกเลื่อน, ขยายหรืออยู่ข้างนอกพื้นที่มองเห็นของสไลด์
+
+วิธีที่เป็นประโยชน์คือการปรับขนาดงานนำเสนอต้นฉบับก่อนทำการคัดลอก วิธี [SlideSize::SetSize](https://reference.aspose.com/slides/th/cpp/aspose.slides/slidesize/setsize/) สามารถสเกลเนื้อหาที่มีอยู่พร้อมกับการเปลี่ยนขนาดสไลด์ได้ [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/th/cpp/aspose.slides/slidesizescaletype/) จะสเกลเนื้อหาให้พอดีกับขนาดที่ต้องการ
+
+```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto destinationSize = destination->get_SlideSize()->get_Size();
+auto sourceSize = source->get_SlideSize()->get_Size();
+
+if (sourceSize.get_Width() != destinationSize.get_Width() || 
+    sourceSize.get_Height() != destinationSize.get_Height())
+{
+    source->get_SlideSize()->SetSize(
+        destinationSize.get_Width(), 
+        destinationSize.get_Height(), 
+        SlideSizeScaleType::EnsureFit);
+}
+
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide);
+}
+
+destination->Save(u"merged-same-slide-size.pptx", SaveFormat::Pptx);
+```
+
+การปรับขนาดจะเปลี่ยนวัตถุงานนำเสนอต้นฉบับในหน่วยความจำ หากคุณต้องการให้งานนำต้นฉบับยังคงอยู่ไม่เปลี่ยนแปลงสำหรับการดำเนินการอื่น ๆ ให้เปิดอินสแตนซ์แยกสำหรับการผสาน
+
+## **ผสานสไลด์เข้าไปยัง Section ของงานนำเสนอ**
+
+ลูปคัดลอกสไลด์พื้นฐานจะไม่สร้างโครงสร้าง Section ของงานนำเสนอต้นฉบับ หากต้องการให้ Section มีผลในผลลัพธ์ ให้สร้างหรือเลือก Section ในงานนำเสนอปลายทางและคัดลอกสไลด์เข้าไปในนั้นโดยใช้ [AddClone(ISlide, ISection)](https://reference.aspose.com/slides/th/cpp/aspose.slides/islidecollection/addclone/)
+
+```cpp
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto importedSection = destination->get_Sections()->AppendEmptySection(u"Imported slides");
+
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide, importedSection);
+}
+
+destination->Save(u"merged-with-section.pptx", SaveFormat::Pptx);
+```
+
+สไลด์ที่คัดลอกจะถูกเพิ่มต่อท้ายใน Section ปลายทางที่ระบุ เพื่อคงหลาย Section ของต้นฉบับ ให้สร้าง Section เหล่านั้นในปลายทางและแมปสไลด์ต้นฉบับแต่ละสไลด์ไปยัง Section ปลายทางที่สอดคล้องกัน
+
+## **ผสานหลายงานนำเสนออย่างปลอดภัย**
+
+ตัวอย่างขั้นตอนทำงานแบบปลายทางถึงปลายทางต่อไปนี้ใช้งานนำเสนอแรกเป็นปลายทาง, ปรับขนาดสไลด์ของแต่ละแหล่งข้อมูลเพิ่มเติม, เปิดแต่ละแหล่งข้อมูลเฉพาะเมื่อทำการคัดลอก, และบันทึกไฟล์สุดท้ายเพียงครั้งเดียว
+
+```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+System::String inputFiles[] = {u"part1.pptx", u"part2.pptx", u"part3.pptx"};
+const int32_t inputFileCount = 3;
+
+auto merged = System::MakeObject<Presentation>(inputFiles[0]);
+auto mergedSize = merged->get_SlideSize()->get_Size();
+
+for (int32_t fileIndex = 1; fileIndex < inputFileCount; fileIndex++)
+{
+    auto source = System::MakeObject<Presentation>(inputFiles[fileIndex]);
+    auto sourceSize = source->get_SlideSize()->get_Size();
+
+    if (sourceSize.get_Width() != mergedSize.get_Width() || 
+        sourceSize.get_Height() != mergedSize.get_Height())
     {
-        if (slide->get_LayoutSlide()->get_LayoutType() == SlideLayoutType::Title)
-        {
-            return slide;
-        }
+        source->get_SlideSize()->SetSize(
+            mergedSize.get_Width(), 
+            mergedSize.get_Height(), 
+            SlideSizeScaleType::EnsureFit);
     }
-    return nullptr;
-}
-```
-```cpp
-auto presentation = MakeObject<Presentation>();
-auto presentation1 = MakeObject<Presentation>(u"presentation1.pptx");
-auto presentation2 = MakeObject<Presentation>(u"presentation2.pptx");
 
-presentation->get_Slides()->RemoveAt(0);
-
-auto slide1 = GetTitleSlide(presentation1);
-
-if (slide1 != nullptr)
-    presentation->get_Slides()->AddClone(slide1);
-
-auto slide2 = GetTitleSlide(presentation2);
-
-if (slide2 != nullptr)
-    presentation->get_Slides()->AddClone(slide2);
-
-presentation->Save(u"combined.pptx", SaveFormat::Pptx);
-
-presentation2->Dispose();
-presentation1->Dispose();
-presentation->Dispose();
-```
-
-## **Merge Presentations with a Slide Layout**
-
-โค้ด C++ นี้แสดงวิธีการรวมสไลด์จากพรีเซนเทชั่นพร้อมประยุกต์ใช้เค้าโครงสไลด์ที่คุณต้องการเพื่อให้ได้พรีเซนเทชั่นผลลัพธ์เดียว:
-
-```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
-{
-    pres1->get_Slides()->AddClone(slide, pres2->get_LayoutSlides()->idx_get(0));
+    for (const auto& slide : source->get_Slides())
+    {
+        merged->get_Slides()->AddClone(slide);
+    }
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+merged->Save(u"merged.pptx", SaveFormat::Pptx);
 ```
 
-## **Merge Presentations with Different Slide Sizes**
+นี่เป็นพื้นฐานที่มีประโยชน์สำหรับการคงรูปแบบต้นฉบับของสไลด์ที่นำเข้า หากผลลัพธ์ของคุณต้องใช้ธีมเดียวของปลายทาง ให้แทนที่การเรียก `AddClone(slide)` ง่าย ๆ ด้วย overload มาสเตอร์หรือเลย์เอาต์ปลายทางที่แสดงไว้ก่อนหน้านี้
 
-{{% alert title="Note" color="warning" %}}
+## **ข้อควรพิจารณาเชิงปฏิบัติ**
 
-คุณไม่สามารถรวมพรีเซนเทชั่นที่มีขนาดสไลด์ต่างกันได้
+### **มาสเตอร์, เลย์เอาต์, และความแม่นยำของการจัดรูปแบบ**
 
-{{% /alert %}}
+การคัดลอกสไลด์แบบเริ่มต้นสามารถนำมาสเตอร์ต้นฉบับที่จำเป็นเข้าสู่งานนำเสนอปลายทางโดยอัตโนมัติ Aspose.Slides จะเก็บทะเบียนภายในสำหรับมาสเตอร์ที่คัดลอกอัตโนมัติเพื่อหลีกเลี่ยงการคัดลอกมาสเตอร์เดียวซ้ำหลายครั้ง มาสเตอร์ที่คัดลอกด้วยตนเองจะไม่ถูกติดตามโดยทะเบียนนั้น ดังนั้นหลีกเลี่ยงการคัดลอกมาสเตอร์ล่วงหน้า เว้นแต่คุณต้องการควบคุมโครงสร้างมาสเตอร์อย่างชัดเจน
 
-เพื่อรวมพรีเซนเทชั่น 2 ตัวที่มีขนาดสไลด์แตกต่างกัน คุณต้องปรับขนาดของพรีเซนเทชั่นหนึ่งให้ตรงกับอีกพรีเซนเทชั่นหนึ่ง
+อย่ assuming ว่ามาสเตอร์หรือเลย์เอาต์สองชุดที่มีชื่อเดียวกันจะแสดงผลเหมือนกัน หากเทมเพลตองค์กรต้องควบคุมรูปลักษณ์สุดท้าย ให้เลือกมาสเตอร์หรือเลย์เอาต์ปลายทางอย่างเจาะจงและตรวจสอบผลหลังการผสาน
 
-โค้ดตัวอย่างต่อไปนี้สาธิตวิธีการดังกล่าว:
+### **โน้ตและความคิดเห็น**
+
+โน้ตของผู้นำเสนอและความคิดเห็นของสไลด์เชื่อมโยงกับเนื้อหาสไลด์และจะถูกคัดลอกเมื่อสไลด์ถูกคัดลอก Aspose.Slides ยังมี API เฉพาะสำหรับ [presentation notes](https://docs.aspose.com/slides/th/cpp/presentation-notes/) และ [presentation comments](https://docs.aspose.com/slides/th/cpp/presentation-comments/)
+
+หากรูปแบบของหน้าโน้ตสำคัญ ให้ตรวจสอบงานนำเสนอที่ผสานแล้ว เนื่องจากโน้ตมาสเตอร์เป็นอ็อบเจกต์ระดับงานนำเสนอและอาจแตกต่างระหว่างไฟล์ต้นฉบับ สำหรับกระบวนการตรวจทาน ให้ตรวจสอบผู้เขียนความคิดเห็นและเธรดของความคิดเห็นหลังจากรวมไฟล์จากผู้เขียนหรือเทมเพลตต่าง ๆ
+
+### **รูปภาพ, เสียง, วีดีโอ, วัตถุ OLE, และลิงก์ภายนอก**
+
+สไลด์อาจอ้างอิงทรัพยากรระดับงานนำเสนอเช่นรูปภาพ, เสียงฝัง, วีดีโอฝัง, และข้อมูล OLE ให้คัดลอกสไลด์เองแทนการคัดลอกเฉพาะรูปร่างที่มองเห็น เพื่อให้ Aspose.Slides คงความสัมพันธ์ของสไลด์กับทรัพยากรเหล่านั้นได้
+
+ทรัพยากรที่ฝังและที่ลิงก์ควรจัดการแยกกัน เสียง, วีดีโอ, วัตถุ OLE หรือไฮเปอร์ลิงก์ที่ลิงก์อยู่ยังคงพึ่งพาแหล่งภายนอก; การคัดลอกสไลด์ไม่ได้เปลี่ยนลิงก์ภายนอกให้กลายเป็นเนื้อหาที่ฝังไว้ ตรวจสอบเส้นทางและ URL ของทรัพยากรที่ลิงก์ในสภาพแวดล้อมที่งานนำเสนอที่ผสานจะถูกเปิด
+
+Aspose.Slides ติดตามมาสเตอร์ที่คัดลอกอัตโนมัติ แต่ไม่ควรถือว่าเป็นการรับประกันทั่วไปว่าทรัพยากรไบนารีที่เหมือนกันจากแหล่งต้นฉบับที่ไม่เกี่ยวข้องจะถูกทำสำเนาอัตโนมัติ หากขนาดไฟล์ผลลัพธ์สำคัญ ให้ตรวจสอบแพคเกจที่ผสานและวัดผลลัพธ์แทนการพึ่งพาการทำสำเนาโดยอ้อม
+
+### **ฟอนต์ที่ฝังและความพร้อมใช้งานของฟอนต์**
+
+ฟอนต์ถูกจัดการระดับงานนำเสนอ หากต้องการให้การจัดพิมพ์คงที่บนหลายเครื่อง อย่า assuming ว่าการคัดลอกสไลด์อย่างเดียวทำให้ฟอนต์ที่ต้องการทั้งหมดพร้อมใช้งานในสภาพแวดล้อมปลายทาง คุณสามารถตรวจสอบฟอนต์ที่ฝังด้วย [FontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/th/cpp/aspose.slides/fontsmanager/getembeddedfonts/) และจัดการการฝังอย่างชัดเจนตามที่อธิบายใน [Embed Fonts in Presentations](https://docs.aspose.com/slides/th/cpp/embedded-font/)
+
+นอกจากนี้ ตรวจสอบว่าคุณได้รับสิทธิ์ในการฝังฟอนต์ที่ใช้ในไฟล์ต้นฉบับ ใบอนุญาตฟอนต์บางประเภทอาจจำกัดการฝังได้
+
+### **งานนำเสนอที่มีรหัสผ่าน**
+
+ไฟล์ต้นฉบับที่มีรหัสผ่านต้องเปิดสำเร็จก่อนจึงจะคัดลอกสไลด์ได้ ให้ส่งรหัสผ่านผ่าน [LoadOptions::set_Password](https://reference.aspose.com/slides/th/cpp/aspose.slides/loadoptions/set_password/)
 
 ```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres1Size = pres1->get_SlideSize()->get_Size();
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
 
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-pres2->get_SlideSize()->SetSize(pres1Size.get_Width(), pres1Size.get_Height(), SlideSizeScaleType::EnsureFit);
+using namespace Aspose::Slides;
 
-for (const auto& slide : pres2->get_Slides())
-{
-    pres1->get_Slides()->AddClone(slide);
-}
+auto loadOptions = System::MakeObject<LoadOptions>();
+loadOptions->set_Password(u"YOUR_PASSWORD");
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+auto source = System::MakeObject<Presentation>(u"protected.pptx", loadOptions);
 ```
 
-## **Merge Slides to a Presentation Section**
+การเปิดไฟล์ที่เข้ารหัสไม่ได้ทำให้การป้องกันเดียวกันถูกนำไปใช้กับงานนำเสนอปลายทาง เพียงกำหนดการป้องกันผลลัพธ์แยกต่างหากเมื่อจำเป็น
 
-โค้ด C++ นี้แสดงวิธีการรวมสไลด์เฉพาะเข้ากับส่วนหนึ่งของพรีเซนเทชั่น:
+### **งานนำเสนอขนาดใหญ่และการใช้หน่วยความจำ**
 
-```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (int32_t index = 0; index < pres2->get_Slides()->get_Count(); index++)
-{
-    auto slide = pres2->get_Slides()->idx_get(index);
-    pres1->get_Slides()->AddClone(slide, pres1->get_Sections()->idx_get(0));
-}
+งานนำเสนอขนาดใหญ่ที่มีภาพความละเอียดสูง, เสียง, วีดีโอ หรืออ็อบเจกต์ไบนารีขนาดใหญ่สามารถใช้หน่วยความจำอย่างมาก [LoadOptions::set_BlobManagementOptions](https://reference.aspose.com/slides/th/cpp/aspose.slides/loadoptions/set_blobmanagementoptions/) ให้การควบคุมการจัดการ BLOB และการใช้ไฟล์ชั่วคราว ดู [Manage Presentation BLOBs](https://docs.aspose.com/slides/th/cpp/manage-blob/) สำหรับกลยุทธ์ไฟล์ขนาดใหญ่
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
-```
+สำหรับไฟล์ขนาดใหญ่ ให้โหลดจากเส้นทางไฟล์เมื่อเป็นไปได้ ปล่อยงานนำเสนอต้นฉบับทิ้งทันทีหลังจากทำการผสานเสร็จ และหลีกเลี่ยงการบันทึกผลลัพธ์กลางหลายครั้ง เว้นแต่กระบวนการต้องการจุดตรวจสอบ
 
-สไลด์จะถูกเพิ่มที่ส่วนท้ายของเซคชั่นนั้น
+### **ความปลอดภัยเมื่อทำงานหลายเธรด**
 
-{{% alert title="Tip" color="primary" %}}
+ห้ามโหลด, แก้ไข, บันทึกหรือคัดลอกอินสแตนซ์ [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/) เดียวกันพร้อมกันจากหลายเธรด ให้จำกัดอินสแตนซ์งานนำเสนอแต่ละอันให้ทำงานผสานเพียงหนึ่งครั้ง หากต้องการประมวลผลแบบขนาน ให้ใช้อินสแตนซ์งานนำเสนอแยกกันและปฏิบัติตามคำแนะนำ [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/th/cpp/multithreading/)
 
-Aspose มีแอปเว็บ **FREE Collage** ([https://products.aspose.app/slides/th/collage](https://products.aspose.app/slides/th/collage)) ให้คุณรวมภาพ [JPG to JPG](https://products.aspose.app/slides/th/collage/jpg) หรือ PNG to PNG, สร้าง [photo grids](https://products.aspose.app/slides/th/collage/photo-grid) ฯลฯ
+## **คำถามที่พบบ่อย**
 
-{{% /alert %}}
+**ฉันจะรักษาการออกแบบเดิมของแต่ละงานนำเสนอได้อย่างไร?**
 
-## **FAQ**
+ใช้ [`AddClone(sourceSlide)`](https://reference.aspose.com/slides/th/cpp/aspose.slides/islidecollection/addclone/) โดยไม่ระบุมาสเตอร์หรือเลย์เอาต์ปลายทาง Aspose.Slides สามารถคัดลอกมาสเตอร์ต้นฉบับโดยอัตโนมัติเมื่อสไลด์ที่นำเข้าต้องการ
 
-**Are speaker notes preserved during merge?**
+**จะทำให้งานนำเข้าสไลด์ใช้ธีมของปลายทางได้อย่างไร?**
 
-ใช่ เมื่อตัวคัดลอกสไลด์ Aspose.Slides จะคัดลอกองค์ประกอบสไลด์ทั้งหมดรวมถึงโน้ตผู้พูด ฟอร์แมต และแอนิเมชัน
+ใช้ overload ที่รับมาสเตอร์ปลายทาง ให้ส่งมาสเตอร์จากงานนำเสนอปลายทาง ไม่ใช่จากต้นฉบับ Aspose.Slides จะพยายามแมปสไลด์แต่ละสไลด์ไปยังเลย์เอาต์ที่เหมาะสมภายใต้มาสเตอร์นั้น
 
-**Are comments and their authors transferred?**
+**ควรใช้เลย์เอาต์ปลายทางเฉพาะแทนมาสเตอร์ปลายทางเมื่อใด?**
 
-คอมเมนต์เป็นส่วนของเนื้อหาสไลด์และจะถูกคัดลอกพร้อมสไลด์ ป้ายชื่อผู้เขียนคอมเมนต์จะถูกเก็บเป็นอ็อบเจกต์คอมเมนต์ในพรีเซนเทชั่นผลลัพธ์
+ใช้เลย์เอาต์เฉพาะเมื่อสไลด์ที่นำเข้าทุกสไลด์ต้องใช้เลย์เอาต์ที่รู้จักเดียวกัน ใช้มาสเตอร์เมื่อคุณต้องการให้ Aspose.Slides เลือกเลย์เอาต์จากมาสเตอร์นั้นตามประเภทหรือชื่อของเลย์เอาต์ต้นฉบับ
 
-**What if the source presentation is password-protected?**
+**สามารถผสานงานนำเสนอที่มีขนาดสไลด์ต่างกันได้หรือไม่?**
 
-ต้อง **เปิดด้วยรหัสผ่าน** (/slides/th/cpp/password-protected-presentation/) ผ่านเมธอด [LoadOptions::set_Password](https://reference.aspose.com/slides/th/cpp/aspose.slides/loadoptions/set_password/) หลังจากโหลดแล้วสไลด์เหล่านั้นสามารถคัดลอกไปยังไฟล์เป้าหมายที่ไม่ได้ป้องกัน (หรือไฟล์ที่ป้องกันก็ได้)
+ทำได้ แต่เนื้อหาสไลด์จะไม่ถูกออกแบบใหม่อัตโนมัติเพื่อให้เข้ากับมิติปลายทาง ปรับขนาดงานนำเสนอต้นฉบับก่อนเมื่อจำเป็นต้องการตำแหน่งที่คาดการณ์ได้ เช่นใช้ [SlideSize::SetSize](https://reference.aspose.com/slides/th/cpp/aspose.slides/slidesize/setsize/) และ [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/th/cpp/aspose.slides/slidesizescaletype/)
 
-**How thread-safe is the merge operation?**
+**สามารถผสานไฟล์ PPT, PPTX, และ ODP ไว้ในไฟล์เดียวได้หรือไม่?**
 
-ห้ามใช้อ็อบเจกต์ [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/) ตัวเดียวกันจากหลายเธรด (/slides/th/cpp/multithreading/) กฎแนะนำคือ “หนึ่งเอกสาร — หนึ่งเธรด” ไฟล์ต่าง ๆ สามารถประมวลผลพร้อมกันในเธรดแยกต่างหากได้.
+ได้ เปิดแต่ละงานนำเสนอที่เป็นแหล่งข้อมูล คัดลอกสไลด์ที่ต้องการเข้าไปในงานนำเสนอปลายทางหนึ่งและบันทึกผลลัพธ์ในรูปแบบที่รองรับ เนื่องจากฟอร์แมตงานนำเสนอไม่สนับสนุนชุดฟีเจอร์เดียวกันทั้งหมด จึงควรตรวจสอบเนื้อหาซับซ้อนหลังการผสานแบบข้ามฟอร์แมต ดู [Supported File Formats](https://docs.aspose.com/slides/th/cpp/supported-file-formats/)
+
+**ส่วนของงานนำเสนอ (Section) ของต้นฉบับจะถูกเก็บไว้โดยอัตโนมัติหรือไม่?**
+
+ไม่โดยลูปพื้นฐานที่คัดลอกสไลด์เท่านั้น ให้สร้างส่วนที่ต้องการในงานนำเสนอปลายทางและใช้ overload ของ [AddClone](https://reference.aspose.com/slides/th/cpp/aspose.slides/islidecollection/addclone/) ที่รวม Section เมื่อโครงสร้าง Section ต้องการคงไว้
+
+**โน้ตของผู้บรรยายและความคิดเห็นจะถูกเก็บไว้หรือไม่?**
+
+พวกมันจะถูกคัดลอกพร้อมกับสไลด์ที่คัดลอก สำหรับกระบวนการที่ต้องอิงสไลด์มาสเตอร์ของโน้ต, ผู้เขียนความคิดเห็น หรือข้อมูลการตรวจทานแบบเธรด ให้ตรวจสอบผลลัพธ์ที่ผสาน เนื่องจากสถานการณ์เหล่านั้นเกี่ยวข้องกับโครงสร้างระดับงานนำเสนอและระดับสไลด์พร้อมกัน
+
+**เสียง, วีดีโอ, วัตถุ OLE, และไฮเปอร์ลิงก์จะเกิดอะไรขึ้น?**
+
+เนื้อหาที่ฝังจะติดตามมาเป็นส่วนของความสัมพันธ์ทรัพยากรของสไลด์ที่คัดลอก ลิงก์ภายนอกยังคงเป็นลิงก์ภายนอก ดังนั้นไฟล์หรือ URL ปลายทางต้องยังคงพร้อมใช้งานหลังการผสาน
+
+**ฟอนต์ที่ฝังจากทุกแหล่งจะพร้อมใช้งานในงานนำเสนอที่ผสานแล้วหรือไม่?**
+
+อย่าอาศัยการคัดลอกสไลด์อย่างเดียวสำหรับการจัดเตรียมฟอนต์ ตรวจสอบฟอนต์ที่ฝังในปลายทางและจัดการการฝังฟอนต์หรือความพร้อมใช้งานฟอนต์ภายนอกอย่างชัดเจนเมื่อการพิมพ์สำคัญ
+
+**จะผสานไฟล์ที่มีรหัสผ่านอย่างไร?**
+
+เปิดไฟล์ด้วย [LoadOptions::set_Password](https://reference.aspose.com/slides/th/cpp/aspose.slides/loadoptions/set_password/) ที่ถูกต้อง จากนั้นคัดลอกสไลด์ตามปกติ การป้องกันผลลัพธ์ต้องกำหนดแยกต่างหาก
+
+**ควรจัดการงานนำเสนอขนาดใหญ่อย่างไร?**
+
+ใช้การจัดการ BLOB เมื่อวัตถุไบนารีขนาดใหญ่เป็นภาระหลัก, โหลดจากเส้นทางไฟล์สำหรับไฟล์ขนาดใหญ่อย่างเต็มที่, ปล่อยงานนำเสนอแหล่งข้อมูลโดยเร็วหลังการผสาน, และบันทึกผลลัพธ์สุดท้ายเฉพาะเมื่อจำเป็น
+
+**สามารถคัดลอกสไลด์จากหลายเธรดได้หรือไม่?**
+
+ห้ามใช้อินสแตนซ์ [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/) เดียวกันพร้อมกันจากหลายเธรด ให้แยกแต่ละการผสานเป็นอินสแตนซ์งานนำเสนอของตนเอง.

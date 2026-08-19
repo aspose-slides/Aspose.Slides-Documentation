@@ -1,16 +1,16 @@
 ---
-title: Kết hợp hiệu quả các bản trình bày trong Java
-linktitle: Hợp nhất các bản trình bày
+title: Kết hợp các bản trình bày trong Java một cách hiệu quả
+linktitle: Kết hợp các bản trình bày
 type: docs
 weight: 40
 url: /vi/java/merge-presentation/
 keywords:
-- hợp nhất PowerPoint
-- hợp nhất bản trình bày
-- hợp nhất slide
-- hợp nhất PPT
-- hợp nhất PPTX
-- hợp nhất ODP
+- kết hợp PowerPoint
+- kết hợp bản trình bày
+- kết hợp slide
+- kết hợp PPT
+- kết hợp PPTX
+- kết hợp ODP
 - kết hợp PowerPoint
 - kết hợp bản trình bày
 - kết hợp slide
@@ -19,225 +19,344 @@ keywords:
 - kết hợp ODP
 - Java
 - Aspose.Slides
-description: "Dễ dàng hợp nhất các bản trình bày PowerPoint (PPT, PPTX) và OpenDocument (ODP) bằng Aspose.Slides cho Java, tối ưu hoá quy trình làm việc của bạn."
+description: "Tìm hiểu cách kết hợp các bản trình bày PowerPoint và OpenDocument trong Java bằng cách sao chép slide, kiểm soát master và layout, thay đổi kích thước nội dung slide, bảo tồn các section, và xử lý các tệp được bảo vệ hoặc có kích thước lớn."
 ---
 ## **Tổng quan**
 
-Kết hợp các bản trình bày PowerPoint và OpenDocument là một nhiệm vụ phổ biến trong nhiều ứng dụng Java, đặc biệt khi tạo báo cáo, biên soạn các slide từ các nguồn khác nhau, hoặc tự động hoá quy trình trình bày. Aspose.Slides for Java cung cấp một API mạnh mẽ và dễ sử dụng để hợp nhất nhiều tệp PPT, PPTX hoặc ODP thành một bản trình bày duy nhất mà không cần cài đặt Microsoft PowerPoint, LibreOffice hoặc OpenOffice.
+Aspose.Slides for Java hợp nhất các bản trình bày bằng cách sao chép slide từ một [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) sang bản trình bày khác. Thao tác chính là [ISlideCollection.addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-), cho phép bảo tồn định dạng của slide nguồn hoặc gắn slide đã sao chép vào một master hoặc layout trong bản trình bày đích.
 
-Trong hướng dẫn này, bạn sẽ học cách hợp nhất các bản trình bày PowerPoint và OpenDocument chỉ bằng vài dòng mã Java. Chúng tôi sẽ cung cấp các ví dụ sẵn sàng dùng và chỉ ra cách bảo tồn định dạng slide, bố cục và các thành phần khác của bản trình bày trong quá trình hợp nhất.
+Bài viết này bao gồm các quy trình hợp nhất phổ biến nhất:
 
-Cho dù bạn đang xây dựng một ứng dụng doanh nghiệp hay một công cụ tự động đơn giản, Aspose.Slides giúp hợp nhất bản trình bày trong Java nhanh chóng, đáng tin cậy và mở rộng được. Aspose.Slides for Java cho phép bạn hợp nhất bản trình bày theo nhiều cách. Bạn có thể kết hợp các bản trình bày với tất cả các hình dạng, kiểu, văn bản, định dạng, bình luận, hoạt ảnh và hơn thế nữa—mà không lo mất chất lượng hoặc dữ liệu.
+- hợp nhất tất cả các slide đồng thời giữ nguyên định dạng nguồn;
+- hợp nhất các slide đã chọn;
+- áp dụng master từ bản trình bày đích;
+- áp dụng layout cụ thể từ bản trình bày đích;
+- chuẩn hoá kích thước slide khác nhau trước khi hợp nhất;
+- thêm các slide đã sao chép vào một section;
+- hợp nhất nhiều bản trình bày trong một quy trình đầu‑cuối;
+- xử lý master, tài nguyên, ghi chú, bình luận, media, phông chữ, mật khẩu, tệp lớn và các vấn đề đa luồng.
 
-{{% alert color="primary" %}}
-Xem thêm: [Sao chép Slide](https://docs.aspose.com/slides/vi/java/clone-slides/)
-{{% /alert %}}
+## **Cách sao chép slide ảnh hưởng đến Master và Layout**
 
-### **Có thể hợp nhất những gì?**
+Một slide kế thừa phần lớn giao diện từ layout và master của nó. Vì vậy, phương thức sao chép mà bạn chọn sẽ quyết định cách slide được tích hợp vào bản trình bày đích.
 
-Với Aspose.Slides, bạn có thể hợp nhất:
+Sử dụng [ISlideCollection.addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islidecollection/) theo một trong các cách sau:
 
-**Toàn bộ bản trình bày** – tất cả các slide từ nhiều bản trình bày được kết hợp thành một.
+- `addClone(sourceSlide)` — bảo tồn layout và định dạng của slide nguồn. Khi cần, master nguồn sẽ tự động được sao chép vào bản trình bày đích. Aspose.Slides tự động theo dõi các master đã sao chép để các slide lặp lại sử dụng cùng một master nguồn không gây sao chép master nhiều lần.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — gắn slide đã sao chép vào một [IMasterSlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterslide/) đích cụ thể. Aspose.Slides tìm layout phù hợp dưới master đó bằng kiểu hoặc tên layout.
+- `addClone(sourceSlide, destinationLayout)` — gắn slide đã sao chép trực tiếp vào một [ILayoutSlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ilayoutslide/) đích cụ thể.
 
-**Các slide cụ thể** – chỉ các slide được chọn được hợp nhất vào một bản trình bày duy nhất.
+Master hoặc layout được truyền vào phương thức `addClone` phải thuộc về **bản trình bày đích**, không phải bản trình bày nguồn.
 
-**Các bản trình bày cùng định dạng** (ví dụ: PPT sang PPT, PPTX sang PPTX) và **các bản trình bày ở định dạng khác nhau** (ví dụ: PPT sang PPTX, PPTX sang ODP).
+## **Hợp nhất toàn bộ bản trình bày và giữ nguyên định dạng nguồn**
 
-### **Tùy chọn hợp nhất**
-
-Bạn có thể áp dụng các tùy chọn xác định liệu:
-
-- Mỗi slide trong bản trình bày đầu ra giữ nguyên kiểu ban đầu
-- Một kiểu cụ thể được áp dụng cho tất cả các slide trong bản trình bày đầu ra
-
-Để hợp nhất các bản trình bày, Aspose.Slides cung cấp các phương thức `AddClone` từ giao diện [ISlideCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islidecollection/) . Có một số overload của phương thức `AddClone` xác định cách quá trình hợp nhất hoạt động. Mỗi đối tượng [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) có một collection Slides. Vì vậy, bạn có thể gọi phương thức `AddClone` trên bản trình bày đích mà bạn muốn hợp nhất các slide vào.
-
-Phương thức `AddClone` trả về một đối tượng [ISlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islide/) , là bản sao của slide nguồn. Các slide kết quả trong bản trình bày đầu ra chỉ là bản sao của các slide gốc. Điều này có nghĩa là bạn có thể an toàn chỉnh sửa các slide đã sao chép—như áp dụng kiểu, tùy chọn định dạng hoặc bố cục—mà không ảnh hưởng đến bản trình bày nguồn.
-
-## **Hợp nhất các bản trình bày**
-
-Aspose.Slides cung cấp phương thức [AddClone(ISlide)](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISSlide-) cho phép bạn kết hợp các slide trong khi bảo tồn bố cục và kiểu gốc (hành vi mặc định).
-
-Mã Java sau cho thấy cách hợp nhất các bản trình bày:
+Cách hợp nhất đơn giản nhất là sao chép mọi slide từ bản trình bày nguồn sang bản trình bày đích. Đây là lựa chọn phù hợp khi các slide được nhập cần giữ nguyên theme, master và quan hệ layout gốc.
 
 ```java
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    for (ISlide slide : presentation2.getSlides()) {
-        presentation1.getSlides().addClone(slide);
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide);
     }
-    presentation1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged.pptx", SaveFormat.Pptx);
 } finally {
-    presentation2.dispose();
-    presentation1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **Hợp nhất các bản trình bày với Slide Master**
+Kết quả có thể chứa nhiều master khi nguồn và đích sử dụng các thiết kế khác nhau. Điều này là bình thường khi định dạng nguồn được cố ý bảo tồn.
 
-Aspose.Slides cung cấp phương thức [AddClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISSlide-com.aspose.slides.IMasterSlide-boolean-) cho phép bạn kết hợp các slide trong khi áp dụng slide master từ một mẫu bản trình bày. Như vậy, nếu cần, bạn có thể thay đổi kiểu của các slide trong bản trình bày đầu ra.
+## **Hợp nhất các slide đã chọn**
 
-Mã Java sau minh họa thao tác này:
+Bạn không cần sao chép mọi slide. Ví dụ dưới đây chỉ nhập các chỉ mục slide đã chọn từ bản trình bày nguồn.
 
 ```java
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    for (ISlide slide : presentation2.getSlides()) {
-        IMasterSlide masterSlide = presentation2.getMasters().get_Item(0);
-        presentation1.getSlides().addClone(slide, masterSlide, true);
+    int[] slideIndexes = { 0, 2, 4 };
+
+    for (int index : slideIndexes) {
+        destination.getSlides().addClone(source.getSlides().get_Item(index));
     }
-    presentation1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged-selected-slides.pptx", SaveFormat.Pptx);
 } finally {
-    presentation2.dispose();
-    presentation1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-{{% alert title="Note" color="warning" %}}
-Bố cục slide được xác định tự động. Khi không tìm được bố cục phù hợp, và tham số boolean `allowCloneMissingLayout` của phương thức `AddClone` được đặt thành `true`, bố cục từ slide nguồn sẽ được sử dụng. Ngược lại, một [PptxEditException](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pptxeditexception/) sẽ được ném.
-{{% /alert %}}
+Hãy kiểm tra chỉ mục slide trước khi sao chép khi chúng đến từ nhập liệu người dùng hoặc cấu hình bên ngoài.
 
-## **Hợp nhất các slide cụ thể từ các bản trình bày**
+## **Hợp nhất slide bằng Master đích**
 
-Hợp nhất các slide cụ thể từ nhiều bản trình bày hữu ích cho việc tạo bộ slide tùy chỉnh. Aspose.Slides for Java cho phép bạn chọn và nhập chỉ các slide bạn cần. API bảo tồn định dạng, bố cục và thiết kế của các slide gốc.
-
-Mã Java sau tạo một bản trình bày mới, thêm các slide tiêu đề từ hai bản trình bày khác và lưu kết quả vào tệp:
+Sử dụng overload [addClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) khi các slide nhập vào cần tuân theo một master đã tồn tại trong bản trình bày đích.
 
 ```java
-Presentation presentation = new Presentation();
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    presentation.getSlides().removeAt(0);
-    
-    ISlide slide1 = getTitleSlide(presentation1);
+    IMasterSlide destinationMaster = destination.getMasters().get_Item(0);
 
-    if (slide1 != null)
-        presentation.getSlides().addClone(slide1);
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, destinationMaster, true);
+    }
 
-    ISlide slide2 = getTitleSlide(presentation2);
-
-    if (slide2 != null)
-        presentation.getSlides().addClone(slide2);
-
-    presentation.save("combined.pptx", SaveFormat.Pptx);
+    destination.save("merged-with-destination-master.pptx", SaveFormat.Pptx);
 } finally {
-    presentation2.dispose();
-    presentation1.dispose();
-    presentation.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
+
+Aspose.Slides chọn một layout phù hợp dưới master đã chỉ định bằng cách khớp kiểu hoặc tên layout nguồn. Nếu không tìm thấy layout phù hợp và `allowCloneMissingLayout` là `true`, layout nguồn sẽ được sao chép để slide có thể được thêm. Nếu `false`, một [PptxEditException](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pptxeditexception/) sẽ được ném ra.
+
+Sử dụng `false` khi bạn muốn quá trình hợp nhất thất bại thay vì tự động tạo một layout bổ sung trong master đích.
+
+## **Hợp nhất slide bằng Layout đích cụ thể**
+
+Sử dụng overload [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) khi bạn biết chính xác layout đích mà các slide nhập vào nên sử dụng.
+
 ```java
-static ISlide getTitleSlide(IPresentation presentation) {
-    for (ISlide slide : presentation.getSlides()) {
-        if (slide.getLayoutSlide().getLayoutType() == SlideLayoutType.Title) {
-            return slide;
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
+try {
+    ILayoutSlide destinationLayout = destination.getLayoutSlides().get_Item(0);
+
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, destinationLayout);
+    }
+
+    destination.save("merged-with-destination-layout.pptx", SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
+}
+```
+
+Áp dụng layout đích thay đổi quan hệ layout được kế thừa; nó không thay đổi nội dung slide nguồn. Nếu layout nguồn và đích có cấu trúc placeholder khác nhau, hãy kiểm tra kết quả để xác nhận rằng định dạng kế thừa và hành vi placeholder là phù hợp.
+
+## **Hợp nhất bản trình bày có kích thước slide khác nhau**
+
+Các bản trình bày có kích thước slide khác nhau có thể được hợp nhất, nhưng sao chép slide vào một bản trình bày có kích thước slide khác sẽ không tự động thiết kế lại nội dung cho canvas mới. Do đó các hình dạng có thể bị dịch, thu phóng không mong muốn hoặc nằm ngoài vùng hiển thị của slide.
+
+Một cách thực tế là thay đổi kích thước bản trình bày nguồn trước khi sao chép. Phương thức [SlideSize.setSize](https://reference.aspose.com/slides/vi/java/com.aspose.slides/slidesize/#setSize-float-float-int-) có thể thu phóng nội dung hiện có đồng thời thay đổi kích thước slide. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/vi/java/com.aspose.slides/slidesizescaletype/) thu phóng nội dung để vừa với kích thước yêu cầu.
+
+```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
+try {
+    Dimension2D sourceSize = source.getSlideSize().getSize();
+    Dimension2D destinationSize = destination.getSlideSize().getSize();
+
+    if (sourceSize.getWidth() != destinationSize.getWidth() || 
+        sourceSize.getHeight() != destinationSize.getHeight()) {
+        source.getSlideSize().setSize(
+            (float) destinationSize.getWidth(), 
+            (float) destinationSize.getHeight(), 
+            SlideSizeScaleType.EnsureFit);
+    }
+
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide);
+    }
+
+    destination.save("merged-same-slide-size.pptx", SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
+}
+```
+
+Thay đổi kích thước sẽ làm thay đổi đối tượng bản trình bày nguồn trong bộ nhớ. Nếu bạn cần giữ bản trình bày nguồn nguyên trạng cho các thao tác khác, hãy mở một thể hiện riêng cho quá trình hợp nhất.
+
+## **Hợp nhất slide vào một Section của bản trình bày**
+
+Vòng lặp sao chép slide cơ bản không tái tạo cấu trúc section của bản trình bày nguồn. Nếu section quan trọng trong đầu ra, hãy tạo hoặc chọn các section trong bản trình bày đích và sao chép slide vào chúng một cách rõ ràng bằng [addClone(ISlide, ISection)](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-).
+
+```java
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
+try {
+    ISection importedSection = destination.getSections().appendEmptySection("Imported slides");
+
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, importedSection);
+    }
+
+    destination.save("merged-with-section.pptx", SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
+}
+```
+
+Các slide đã sao chép sẽ được nối vào section đích đã chỉ định. Để bảo tồn nhiều section nguồn, hãy tạo lại các section đó trong bản trình bày đích và ánh xạ mỗi slide nguồn tới section đích tương ứng.
+
+## **Hợp nhất nhiều bản trình bày một cách an toàn**
+
+Ví dụ đầu‑cuối dưới đây sử dụng bản trình bày đầu tiên làm đích, chuẩn hoá kích thước slide của mỗi nguồn bổ sung, mở mỗi nguồn chỉ trong thời gian sao chép và lưu tệp cuối cùng một lần.
+
+```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
+String[] inputFiles = { "part1.pptx", "part2.pptx", "part3.pptx" };
+
+Presentation merged = new Presentation(inputFiles[0]);
+try {
+    Dimension2D mergedSize = merged.getSlideSize().getSize();
+
+    for (int fileIndex = 1; fileIndex < inputFiles.length; fileIndex++) {
+        Presentation source = new Presentation(inputFiles[fileIndex]);
+        try {
+            Dimension2D sourceSize = source.getSlideSize().getSize();
+
+            if (sourceSize.getWidth() != mergedSize.getWidth() || 
+                sourceSize.getHeight() != mergedSize.getHeight()) {
+                source.getSlideSize().setSize(
+                    (float) mergedSize.getWidth(), 
+                    (float) mergedSize.getHeight(), 
+                    SlideSizeScaleType.EnsureFit);
+            }
+
+            for (ISlide slide : source.getSlides()) {
+                merged.getSlides().addClone(slide);
+            }
+        } finally {
+            source.dispose();
         }
     }
-    return null;
+
+    merged.save("merged.pptx", SaveFormat.Pptx);
+} finally {
+    merged.dispose();
 }
 ```
 
-## **Hợp nhất các bản trình bày với Bố cục Slide**
+Đây là một nền tảng hữu ích để bảo tồn định dạng nguồn của các slide được nhập. Nếu đầu ra của bạn phải sử dụng một theme đích duy nhất, hãy thay thế lời gọi đơn giản `addClone(slide)` bằng overload master hoặc layout đích thích hợp đã mô tả ở trên.
 
-Để áp dụng một bố cục slide khác cho các slide đầu ra trong quá trình hợp nhất, sử dụng phương thức [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISSlide-com.aspose.slides.ILayoutSlide-) thay thế.
+## **Lưu ý thực tiễn**
 
-Mã Java sau cho thấy cách kết hợp các slide từ nhiều bản trình bày trong khi áp dụng bố cục slide ưa thích của bạn, tạo ra một bản trình bày đầu ra duy nhất:
+### **Master, Layout và Độ trung thực định dạng**
+
+Việc sao chép slide mặc định có thể tự động đưa master nguồn cần thiết vào bản trình bày đích. Aspose.Slides duy trì một registry nội bộ cho các master được sao chép tự động nhằm tránh sao chép cùng một master nhiều lần. Các master được sao chép thủ công không được theo dõi trong registry, vì vậy tránh sao chép master trước nếu không cần kiểm soát cấu trúc master một cách rõ ràng.
+
+Đừng cho rằng hai master hoặc layout cùng tên sẽ nhìn giống nhau. Nếu một mẫu công ty phải kiểm soát giao diện cuối cùng, hãy chọn master hoặc layout đích một cách rõ ràng và xác minh kết quả sau khi hợp nhất.
+
+### **Ghi chú và bình luận**
+
+Ghi chú người thuyết trình và bình luận slide được gắn với nội dung slide và sẽ được sao chép khi slide được sao chép. Aspose.Slides cũng cung cấp các API riêng cho [presentation notes](https://docs.aspose.com/slides/vi/java/presentation-notes/) và [presentation comments](https://docs.aspose.com/slides/vi/java/presentation-comments/).
+
+Nếu định dạng trang ghi chú quan trọng, hãy kiểm tra bản trình bày đã hợp nhất vì master ghi chú là đối tượng cấp độ bản trình bày và có thể khác nhau giữa các tệp nguồn. Đối với quy trình đánh giá, hãy kiểm tra tác giả bình luận và các chuỗi bình luận sau khi kết hợp các tệp từ các tác giả hoặc mẫu khác nhau.
+
+### **Hình ảnh, âm thanh, video, OLE và liên kết ngoài**
+
+Slide có thể tham chiếu đến các tài nguyên cấp độ bản trình bày như hình ảnh, âm thanh nhúng, video nhúng và dữ liệu OLE. Hãy sao chép toàn bộ slide thay vì chỉ sao chép các hình dạng hiển thị để Aspose.Slides có thể duy trì mối quan hệ giữa slide và các tài nguyên của nó.
+
+Tài nguyên liên kết và tài nguyên nhúng cần được xử lý khác nhau. Một audio, video, OLE hoặc hyperlink được liên kết vẫn phụ thuộc vào mục tiêu bên ngoài; sao chép slide không biến một liên kết ngoài thành nội dung nhúng. Hãy kiểm tra đường dẫn và URL của tài nguyên liên kết trong môi trường nơi bản trình bày hợp nhất sẽ được mở.
+
+Aspose.Slides theo dõi các master được sao chép tự động, nhưng điều này không đồng nghĩa với việc tất cả các tài nguyên nhị phân giống nhau từ các bản trình bày nguồn không liên quan sẽ luôn được loại bỏ trùng lặp. Nếu kích thước tệp đầu ra quan trọng, hãy kiểm tra gói đã hợp nhất và đo kích thước thay vì dựa vào việc loại bỏ trùng lặp ngầm.
+
+### **Phông chữ nhúng và khả năng sẵn có của phông chữ**
+
+Phông chữ được quản lý ở mức độ bản trình bày. Nếu kiểu chữ phải giữ nhất quán trên các máy, đừng cho rằng chỉ sao chép slide sẽ đảm bảo mọi phông chữ cần thiết đã có sẵn trong môi trường đích. Bạn có thể kiểm tra phông chữ nhúng bằng [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/vi/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) và quản lý việc nhúng một cách rõ ràng như mô tả trong [Embed Fonts in Presentations](https://docs.aspose.com/slides/vi/java/embedded-font/).
+
+Cũng cần xác minh bạn được phép nhúng các phông chữ được sử dụng trong các tệp nguồn. Giấy phép phông chữ có thể hạn chế việc nhúng.
+
+### **Bản trình bày có bảo vệ bằng mật khẩu**
+
+Một nguồn được bảo vệ bằng mật khẩu phải được mở thành công trước khi các slide của nó có thể được sao chép. Cung cấp mật khẩu qua [LoadOptions.setPassword](https://reference.aspose.com/slides/vi/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-).
 
 ```java
-int layoutIndex = 0;
+import com.aspose.slides.*;
 
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("YOUR_PASSWORD");
+
+Presentation source = new Presentation("protected.pptx", loadOptions);
 try {
-    for (ISlide slide : presentation2.getSlides()) {
-        ILayoutSlide layoutSlide = presentation2.getLayoutSlides().get_Item(layoutIndex);
-        presentation1.getSlides().addClone(slide, layoutSlide);
-    }
-    presentation1.save("combined.pptx", SaveFormat.Pptx);
+    // Làm việc với bản trình bày đã giải mã.
 } finally {
-    presentation2.dispose();
-    presentation1.dispose();
+    source.dispose();
 }
 ```
 
-## **Hợp nhất các bản trình bày với kích thước slide khác nhau**
+Mở một nguồn được mã hoá không tự động áp dụng cùng một bảo vệ cho bản trình bày đích. Cấu hình bảo vệ đầu ra riêng biệt khi cần.
 
-Để hợp nhất hai bản trình bày có kích thước slide khác nhau, bạn nên thay đổi kích thước của một bản sao cho khớp với kích thước slide của bản trình bày còn lại.
+### **Bản trình bày lớn và việc sử dụng bộ nhớ**
 
-Mã Java sau minh họa thao tác này:
+Các bản trình bày lớn chứa hình ảnh độ phân giải cao, âm thanh, video hoặc các đối tượng nhị phân lớn khác có thể tiêu tốn nhiều bộ nhớ. [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/vi/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) cung cấp các tùy chọn kiểm soát việc xử lý BLOB và sử dụng tệp tạm thời. Xem [Manage Presentation BLOBs](https://docs.aspose.com/slides/vi/java/manage-blob/) để biết chiến lược cho tệp lớn.
 
-```java
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
-try {
-    Dimension2D slideSize = presentation1.getSlideSize().getSize();
-    float slideWidth = (float) slideSize.getWidth();
-    float slideHeight = (float) slideSize.getHeight();
-    
-    presentation2.getSlideSize().setSize(slideWidth, slideHeight, SlideSizeScaleType.EnsureFit);
+Đối với tệp lớn, ưu tiên tải từ đường dẫn tệp khi có thể, giải phóng mỗi bản trình bày nguồn ngay sau khi đã hợp nhất, và tránh lưu kết quả trung gian nhiều lần trừ khi quy trình yêu cầu checkpoint.
 
-    for (ISlide slide : presentation2.getSlides()) {
-        presentation1.getSlides().addClone(slide);
-    }
-    presentation1.save("combined.pptx", SaveFormat.Pptx);
-} finally {
-    presentation2.dispose();
-    presentation1.dispose();
-}
-```
+### **An toàn đa luồng**
 
-## **Hợp nhất các slide vào một phần của bản trình bày**
-
-Hợp nhất slide vào một phần cụ thể của bản trình bày giúp tổ chức nội dung và cải thiện điều hướng slide. Aspose.Slides cho phép bạn hợp nhất slide vào các phần hiện có. Điều này đảm bảo cấu trúc rõ ràng đồng thời bảo tồn định dạng gốc của mỗi slide.
-
-Mã Java sau cho thấy cách hợp nhất một slide cụ thể vào một phần trong bản trình bày:
-
-```java
-int sectionIndex = 0;
-
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
-try {
-    for (ISlide slide : presentation2.getSlides()) {
-        ISection section = presentation1.getSections().get_Item(sectionIndex);
-        presentation1.getSlides().addClone(slide, section);
-    }
-    presentation1.save("combined.pptx", SaveFormat.Pptx);
-} finally {
-    presentation2.dispose();
-    presentation1.dispose();
-}
-```
-
-Slide được thêm vào cuối phần.
-
-## **Xem thêm**
-
-Aspose cung cấp một [Công cụ tạo Collage trực tuyến MIỄN PHÍ](https://products.aspose.app/slides/vi/collage). Sử dụng dịch vụ trực tuyến này, bạn có thể hợp nhất các hình ảnh [JPG sang JPG](https://products.aspose.app/slides/vi/collage/jpg) hoặc PNG sang PNG, tạo [lưới ảnh](https://products.aspose.app/slides/vi/collage/photo-grid), và hơn thế nữa.
-
-Kiểm tra [Aspose MERGER TRỰC TUYẾN MIỄN PHÍ](https://products.aspose.app/slides/vi/merger). Nó cho phép bạn hợp nhất các bản trình bày PowerPoint cùng định dạng (ví dụ: PPT sang PPT, PPTX sang PPTX) hoặc qua các định dạng khác nhau (ví dụ: PPT sang PPTX, PPTX sang ODP).
-
-[![Aspose FREE Online Merger](slides-merger.png)](https://products.aspose.app/slides/vi/merger)
-
-Ngoài các bản trình bày, Aspose.Slides cho phép bạn hợp nhất các loại tệp khác:
-
-- **Ảnh**, chẳng hạn như [JPG sang JPG](https://products.aspose.com/slides/vi/java/merger/jpg-to-jpg/) hoặc [PNG sang PNG](https://products.aspose.com/slides/vi/java/merger/png-to-png/)
-- **Tài liệu**, chẳng hạn như [PDF sang PDF](https://products.aspose.com/slides/vi/java/merger/pdf-to-pdf/) hoặc [HTML sang HTML](https://products.aspose.com/slides/vi/java/merger/html-to-html/)
-- **Các loại tệp hỗn hợp**, chẳng hạn như [hình ảnh sang PDF](https://products.aspose.com/slides/vi/java/merger/image-to-pdf/), [JPG sang PDF](https://products.aspose.com/slides/vi/java/merger/jpg-to-pdf/), hoặc [TIFF sang PDF](https://products.aspose.com/slides/vi/java/merger/tiff-to-pdf/)
+Không tải, chỉnh sửa, lưu hoặc sao chép cùng một thể hiện [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) đồng thời từ nhiều luồng. Giữ mỗi thể hiện bản trình bày trong một thao tác hợp nhất duy nhất. Nếu bạn thực hiện các công việc độc lập song song, hãy dùng các thể hiện bản trình bày độc lập và tuân theo hướng dẫn [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/vi/java/multithreading/).
 
 ## **Câu hỏi thường gặp**
 
-**Có bất kỳ hạn chế nào về số lượng slide khi hợp nhất các bản trình bày không?**
+**Làm sao giữ nguyên thiết kế gốc của mỗi bản trình bày nguồn?**
 
-Không có hạn chế nghiêm ngặt. Aspose.Slides có thể xử lý các tệp lớn, nhưng hiệu suất phụ thuộc vào kích thước và tài nguyên hệ thống. Đối với các bản trình bày rất lớn, nên sử dụng JVM 64‑bit và cấp phát đủ bộ nhớ heap.
+Sử dụng [`addClone(sourceSlide)`](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) mà không cung cấp master hoặc layout đích. Aspose.Slides có thể tự động sao chép master nguồn khi slide nhập vào cần nó.
 
-**Tôi có thể hợp nhất các bản trình bày có video hoặc âm thanh nhúng không?**
+**Làm sao để các slide nhập vào sử dụng theme đích?**
 
-Có, Aspose.Slides bảo tồn nội dung đa phương tiện được nhúng trong slide, nhưng bản trình bày cuối cùng có thể trở nên lớn đáng kể.
+Sử dụng overload chấp nhận master đích. Cung cấp một master từ bản trình bày đích, không phải từ nguồn. Aspose.Slides sẽ cố gắng ánh xạ mỗi slide nguồn tới một layout phù hợp dưới master đó.
 
-**Phông chữ có được bảo tồn khi hợp nhất các bản trình bày không?**
+**Khi nào nên dùng layout đích cụ thể thay vì master đích?**
 
-Có. Các phông chữ được sử dụng trong bản trình bày nguồn được giữ nguyên trong tệp đầu ra, với điều kiện chúng được cài đặt trên hệ thống hoặc [embedded](/slides/vi/java/embedded-font/).
+Dùng layout cụ thể khi mọi slide nhập vào phải sử dụng một layout đã biết. Dùng master khi bạn muốn Aspose.Slides tự chọn layout trong master đó dựa trên kiểu hoặc tên layout nguồn.
+
+**Có thể hợp nhất các bản trình bày có kích thước slide khác nhau không?**
+
+Có, nhưng nội dung slide sẽ không tự động được thiết kế lại cho kích thước đích. Hãy thay đổi kích thước bản trình bày nguồn trước khi sao chép, ví dụ bằng [SlideSize.setSize](https://reference.aspose.com/slides/vi/java/com.aspose.slides/slidesize/#setSize-float-float-int-) và [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/vi/java/com.aspose.slides/slidesizescaletype/).
+
+**Có thể hợp nhất các tệp PPT, PPTX và ODP thành một tệp không?**
+
+Có. Tải mỗi bản trình bày nguồn, sao chép các slide cần thiết vào một bản trình bày đích, và lưu bản trình bày đích ở định dạng xuất ra hỗ trợ. Vì các định dạng bản trình bày không hỗ trợ đầy đủ cùng một bộ tính năng, hãy xác minh nội dung phức tạp sau khi hợp nhất đa định dạng. Xem [Supported File Formats](https://docs.aspose.com/slides/vi/java/supported-file-formats/).
+
+**Các section nguồn có được bảo tồn tự động không?**
+
+Không, đối với vòng lặp cơ bản chỉ sao chép slide. Hãy tạo lại các section cần thiết trong bản trình bày đích và sử dụng overload section của [addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-) khi cấu trúc section phải được duy trì.
+
+**Ghi chú và bình luận có được bảo tồn không?**
+
+Chúng được sao chép cùng với slide đã sao chép. Đối với quy trình phụ thuộc vào kiểu dáng master ghi chú, tác giả bình luận hoặc dữ liệu review dạng chuỗi, hãy xác minh kết quả hợp nhất vì các kịch bản này liên quan đến cấu trúc cấp độ bản trình bày cũng như nội dung slide.
+
+**Điều gì xảy ra với audio, video, OLE và hyperlink?**
+
+Nội dung nhúng sẽ được mang theo như một phần của các mối quan hệ tài nguyên của slide đã sao chép. Các liên kết ngoài vẫn ngoài, vì vậy các tệp hoặc URL mục tiêu phải vẫn khả dụng sau khi hợp nhất.
+
+**Các phông chữ nhúng từ mọi nguồn có được đảm bảo có trong bản trình bày đã hợp nhất không?**
+
+Đừng dựa vào việc sao chép slide để triển khai phông chữ. Kiểm tra các phông chữ nhúng trong bản trình bày đích và quản lý việc nhúng phông chữ hoặc tính sẵn có của phông chữ bên ngoài một cách rõ ràng khi typographic quan trọng.
+
+**Làm sao hợp nhất một tệp được bảo vệ bằng mật khẩu?**
+
+Mở tệp bằng [LoadOptions.setPassword](https://reference.aspose.com/slides/vi/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-), sau đó sao chép các slide như bình thường. Bảo vệ đầu ra được cấu hình riêng biệt.
+
+**Làm sao xử lý các bản trình bày rất lớn?**
+
+Sử dụng quản lý BLOB khi các đối tượng nhị phân lớn chiếm phần lớn bộ nhớ, ưu tiên tải từ đường dẫn tệp cho các tệp rất lớn, giải phóng nhanh các bản trình bày nguồn, và chỉ lưu kết quả cuối cùng khi cần.
+
+**Có thể hợp nhất slide từ nhiều luồng không?**
+
+Không dùng một thể hiện [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) đồng thời từ nhiều luồng. Giữ mỗi thao tác hợp nhất riêng biệt trong các thể hiện bản trình bày của riêng nó.

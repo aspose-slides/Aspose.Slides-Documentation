@@ -1,5 +1,5 @@
 ---
-title: دمج العروض التقديمية بكفاءة في .NET
+title: دمج العروض التقديمية بفعالية في .NET
 linktitle: دمج العروض
 type: docs
 weight: 40
@@ -20,249 +20,316 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "دمج عروض PowerPoint (PPT, PPTX) ومستندات OpenDocument (ODP) بسهولة مع Aspose.Slides لـ .NET، مما يُبسّط سير عملك."
+description: "تعلم كيفية دمج عروض PowerPoint وOpenDocument في .NET عن طريق استنساخ الشرائح، والتحكم في الماسترات والتخطيطات، وتغيير حجم محتوى الشرائح، والحفاظ على الأقسام، ومعالجة الملفات المحمية أو الكبيرة."
 ---
+## **نظرة عامة**
 
-## **تحسين دمج العروض التقديمية**
+Aspose.Slides for .NET يدمج العروض التقديمية عن طريق استنساخ الشرائح من [العرض التقديمي](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) إلى آخر. العملية الرئيسية هي [ISlideCollection.AddClone](https://reference.aspose.com/slides/ar/net/aspose.slides/islidecollection/addclone/)، والتي يمكنها الحفاظ على تنسيق الشريحة الأصلية أو إرفاق الشريحة المستنسخة إلى ماستر أو تخطيط في العرض التقديمي الهدف.
 
-مع [Aspose.Slides for .NET](https://products.aspose.com/slides/net/)، يمكنك دمج عروض PowerPoint بسلاسة مع الحفاظ على الأنماط والتنسيقات وجميع العناصر. على عكس الأدوات الأخرى، يقوم Aspose.Slides بدمج العروض دون التضحية بالجودة أو فقدان البيانات. دمج العروض بالكامل، أو شرائح محددة، وحتى صيغ ملفات مختلفة (PPT إلى PPTX، إلخ).
+تغطي هذه المقالة أكثر سير عمل دمج شائعًا:
 
-### **ميزات الدمج**
+- دمج جميع الشرائح مع الحفاظ على تنسيقها الأصلي؛
+- دمج الشرائح المحددة؛
+- تطبيق ماستر من العرض التقديمي الهدف؛
+- تطبيق تخطيط محدد من العرض التقديمي الهدف؛
+- توحيد أحجام الشرائح المختلفة قبل الدمج؛
+- إضافة الشرائح المستنسخة إلى قسم؛
+- دمج عدة عروض تقديمية في سير عمل شامل واحد؛
+- التعامل مع الماسترات، الموارد، الملاحظات، التعليقات، الوسائط، الخطوط، كلمات المرور، الملفات الكبيرة، ومشكلات البرمجة المتعددة الخيوط.
 
-- **دمج العرض الكامل:** تجميع جميع الشرائح في ملف واحد.
-- **دمج شرائح محددة:** اختيار ودمج الشرائح المختارة.
-- **دمج عبر الصيغ:** دمج عروض بصيغ مختلفة مع الحفاظ على سلامتها.
+## **كيف يؤثر استنساخ الشرائح على الماسترات والتخطيطات**
 
-{{% alert title="Tip" color="primary" %}}  
+تستمد الشريحة جزءًا كبيرًا من مظهرها من التخطيط والماستر الخاص بها. لهذا السبب، يحدد اختيارك للوظيفة الزائدة (overload) في الاستنساخ كيفية دمج الشريحة المدمجة في العرض التقديمي الهدف.
 
-تبحث عن أداة **مجانية على الإنترنت** لدمج عروض PowerPoint؟ جرّب [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/merger).  
+استخدم [ISlideCollection.AddClone](https://reference.aspose.com/slides/ar/net/aspose.slides/islidecollection/addclone/) بأحد الطرق التالية:
 
-- **دمج ملفات PowerPoint بسهولة**: دمج عدة عروض **PPT, PPTX, ODP** في ملف واحد.  
-- **دعم صيغ مختلفة**: دمج **PPT إلى PPTX**, **PPTX إلى ODP**, وأكثر.  
-- **بدون تثبيت**: يعمل مباشرة في المتصفح، بسرعة وأمان.  
+- `AddClone(sourceSlide)` — الحفاظ على تخطيط وتنسيق الشريحة الأصلية. عند الحاجة، يمكن استنساخ الماستر الأصلي إلى العرض الهدف تلقائيًا. تتبع Aspose.Slides الماسترات المستنسخة تلقائيًا بحيث لا يتم استنساخ الماستر نفسه مرات متعددة عند وجود شرائح مكررة تستخدم نفس الماستر.
+- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — إرفاق الشريحة المستنسخة إلى ماستر هدف محدد [IMasterSlide](https://reference.aspose.com/slides/ar/net/aspose.slides/imasterslide/). تبحث Aspose.Slides عن تخطيط متطابق تحت ذلك الماستر حسب نوع التخطيط أو اسمه.
+- `AddClone(sourceSlide, destinationLayout)` — إرفاق الشريحة المستنسخة مباشرةً إلى تخطيط هدف محدد [ILayoutSlide](https://reference.aspose.com/slides/ar/net/aspose.slides/ilayoutslide/).
 
-[![Merge PowerPoint Files Online](slides-merger.png)](https://products.aspose.app/slides/merger)  
+يجب أن يكون الماستر أو التخطيط المُمرّر إلى وظيفة `AddClone` جزءًا من العرض التقديمي **الهدف**، وليس من العرض المصدر.
 
-ابدأ دمج ملفات PowerPoint الخاصة بك باستخدام **أداة Aspose المجانية على الإنترنت** اليوم!  
+## **دمج العروض التقديمية بالكامل مع الحفاظ على تنسيق المصدر**
 
-{{% /alert %}}
+أبسط طريقة دمج هي نسخ كل شريحة من العرض التقديمي المصدر إلى العرض التقديمي الهدف. هذا هو الاختيار المناسب عندما يجب أن تحتفظ الشرائح المستوردة بموضوعها الأصلي، والماستر، وعلاقات التخطيط.
 
-## **دمج العروض التقديمية**
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-عندما تقوم بـ[دمج عرض تقديمي بآخر](https://products.aspose.com/slides/net/merger/ppt/)، فإنك في الواقع تجمع شرائحه في عرض واحد للحصول على ملف موحد. 
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
 
-{{% alert title="Info" color="info" %}}
-
-معظم برامج العروض (PowerPoint أو OpenOffice) تفتقر إلى وظائف تسمح للمستخدمين بدمج العروض بهذه الطريقة. 
-
-[**Aspose.Slides for .NET**](https://products.aspose.com/slides/net/) يسمح لك بدمج العروض بطرق مختلفة. يمكنك دمج العروض مع جميع الأشكال، الأنماط، النصوص، التنسيقات، التعليقات، الرسوم المتحركة، إلخ دون القلق بشأن فقدان الجودة أو البيانات. 
-
-**انظر أيضاً**
-
-[Clone Slides](https://docs.aspose.com/slides/net/cloning-commenting-and-manipulating-slides/#cloning-commentingandmanipulatingslides-cloningslides)*.* 
-
-{{% /alert %}}
-
-### **ما يمكن دمجه**
-
-مع Aspose.Slides، يمكنك دمج 
-
-* العروض بالكامل. جميع الشرائح من العروض تنتهي في عرض واحد
-* شرائح محددة. الشرائح المختارة تنتهي في عرض واحد
-* عروض بصيغة واحدة (PPT إلى PPT، PPTX إلى PPTX، إلخ) أو بصيغ مختلفة (PPT إلى PPTX، PPTX إلى ODP، إلخ) مع بعضها البعض. 
-
-{{% alert title="Note" color="warning" %}} 
-
-إضافةً إلى العروض، يسمح لك Aspose.Slides بدمج ملفات أخرى:
-
-* [الصور](https://products.aspose.com/slides/net/merger/image-to-image/)، مثل [JPG إلى JPG](https://products.aspose.com/slides/net/merger/jpg-to-jpg/) أو [PNG إلى PNG](https://products.aspose.com/slides/net/merger/png-to-png/)
-* المستندات، مثل [PDF إلى PDF](https://products.aspose.com/slides/net/merger/pdf-to-pdf/) أو [HTML إلى HTML](https://products.aspose.com/slides/net/merger/html-to-html/)
-* وملفين مختلفين مثل [صورة إلى PDF](https://products.aspose.com/slides/net/merger/image-to-pdf/) أو [JPG إلى PDF](https://products.aspose.com/slides/net/merger/jpg-to-pdf/) أو [TIFF إلى PDF](https://products.aspose.com/slides/net/merger/tiff-to-pdf/).
-
-{{% /alert %}}
-
-### **خيارات الدمج**
-
-يمكنك تطبيق خيارات تحدد ما إذا كان
-
-* كل شريحة في العرض الناتج تحتفظ بنمط فريد
-* يُستخدم نمط محدد لجميع الشرائح في العرض الناتج. 
-
-لدمج العروض، يوفر Aspose.Slides طرق [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone) (من واجهة [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection)). هناك عدة تطبيقات لطرق `AddClone` تحدد معلمات عملية دمج العروض. كل كائن Presentation يحتوي على مجموعة [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides)، لذا يمكنك استدعاء طريقة `AddClone` من العرض الذي تريد دمج الشرائح فيه. 
-
-طريقة `AddClone` تُعيد كائن `ISlide`، وهو نسخة مطابقة من الشريحة المصدر. الشرائح في العرض الناتج هي مجرد نسخة من الشرائح المصدر. لذلك يمكنك تعديل الشرائح الناتجة (مثلاً، تطبيق أنماط أو خيارات تنسيق أو تخطيطات) دون القلق من تأثيرها على العروض المصدرية. 
-
-## **دمج العروض** 
-
-يوفر Aspose.Slides طريقة [**AddClone (ISlide)**](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone) التي تسمح لك بدمج الشرائح مع بقاء تخطيطاتها وأنماطها (المعلمات الافتراضية). 
-
-هذا الكود C# يوضح كيفية دمج العروض:
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
+foreach (var slide in source.Slides)
 {
-    foreach (ISlide slide in pres2.Slides)
+    destination.Slides.AddClone(slide);
+}
+
+destination.Save("merged.pptx", SaveFormat.Pptx);
+```
+
+قد يحتوي العرض الناتج على عدة ماسترات عندما يستخدم المصدر والهدف تصاميم مختلفة. وهذا متوقع عندما يتم الحفاظ على تنسيق المصدر عن قصد.
+
+## **دمج الشرائح المحددة**
+
+ليس عليك استنساخ كل شريحة. المثال التالي يستورد فقط فهارس الشرائح المحددة من العرض التقديمي المصدر.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var slideIndexes = new[] { 0, 2, 4 };
+
+foreach (var index in slideIndexes)
+{
+    destination.Slides.AddClone(source.Slides[index]);
+}
+
+destination.Save("merged-selected-slides.pptx", SaveFormat.Pptx);
+```
+
+تحقق من صحة فهارس الشرائح قبل الاستنساخ عندما تأتي من مدخلات المستخدم أو من تكوين خارجي.
+
+## **دمج الشرائح باستخدام ماستر هدف**
+
+استخدم الوظيفة الزائدة [AddClone(ISlide, IMasterSlide, Boolean)](https://reference.aspose.com/slides/ar/net/aspose.slides/islidecollection/addclone/) عندما يجب أن تتبع الشرائح المستوردة ماسترًا ينتمي بالفعل إلى العرض التقديمي الهدف.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var destinationMaster = destination.Masters[0];
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide, destinationMaster, allowCloneMissingLayout: true);
+}
+
+destination.Save("merged-with-destination-master.pptx", SaveFormat.Pptx);
+```
+
+تختار Aspose.Slides تخطيطًا مناسبًا تحت الماستر المحدد عن طريق مطابقة نوع التخطيط المصدر أو اسمه. إذا لم يكن هناك تخطيط مناسب وكان `allowCloneMissingLayout` يساوي `true`، يتم استنساخ التخطيط المصدر حتى يمكن إضافة الشريحة. إذا كان `false`، يتم إلقاء استثناء [PptxEditException](https://reference.aspose.com/slides/ar/net/aspose.slides/pptxeditexception/).
+
+استخدم `false` عندما تريد أن يفشل الدمج بدلاً من إدخال تخطيط إضافي إلى الماستر الهدف.
+
+## **دمج الشرائح باستخدام تخطيط هدف محدد**
+
+استخدم الوظيفة الزائدة [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/ar/net/aspose.slides/islidecollection/addclone/) عندما تعرف بالضبط أي تخطيط هدف يجب أن تستخدمه الشرائح المستوردة.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var destinationLayout = destination.LayoutSlides[0];
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide, destinationLayout);
+}
+
+destination.Save("merged-with-destination-layout.pptx", SaveFormat.Pptx);
+```
+
+تطبيق تخطيط هدف يغيّر علاقة التخطيط الموروثة؛ لكنه لا يعيد تصميم محتوى الشريحة المصدر. إذا كان للتخطيطين المصدر والهدف هياكل عنصر نائب مختلفة، تحقق من النتيجة لتؤكد أن التنسيق الموروث وسلوك العنصر النائب ملائم.
+
+## **دمج العروض التقديمية بأحجام شرائح مختلفة**
+
+يمكن دمج العروض التقديمية ذات أبعاد شرائح مختلفة، ولكن استنساخ شريحة إلى عرض تقديمي بحجم شريحة مختلف لا يعيد تصميم محتواها تلقائيًا للقماش الجديد. لذلك قد تظهر الأشكال مُزاحة، أو مُقاسة بشكل غير متوقع، أو خارج مساحة الشريحة المرئية.
+
+نهج عملي هو تغيير حجم العرض التقديمي المصدر قبل الاستنساخ. يمكن للطريقة [SlideSize.SetSize](https://reference.aspose.com/slides/ar/net/aspose.slides/slidesize/setsize/) أن تُعيد تحجيم المحتوى الموجود أثناء تغيير أبعاد الشريحة. كما أن [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/ar/net/aspose.slides/slidesizescaletype/) يُعيد تحجيم المحتوى ليتناسب مع الحجم المطلوب.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+if (source.SlideSize.Size.Width != destination.SlideSize.Size.Width || 
+    source.SlideSize.Size.Height != destination.SlideSize.Size.Height)
+{
+    source.SlideSize.SetSize(
+        destination.SlideSize.Size.Width, 
+        destination.SlideSize.Size.Height, 
+        SlideSizeScaleType.EnsureFit);
+}
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide);
+}
+
+destination.Save("merged-same-slide-size.pptx", SaveFormat.Pptx);
+```
+
+تغيير الحجم يُعدِّل كائن العرض التقديمي المصدر في الذاكرة. إذا كنت بحاجة إلى إبقاء العرض التقديمي الأصلي غير متغير لعمليات أخرى، افتح نسخة منفصلة للدمج.
+
+## **دمج الشرائح في قسم من العرض التقديمي**
+
+حَلقة استنساخ الشرائح الأساسية لا تعيد إنشاء هيكلية الأقسام في العرض التقديمي المصدر. إذا كانت الأقسام مهمة في النتيجة، أنشئ أو اختر أقسامًا في العرض الهدف واستنسخ الشرائح إليها صراحةً باستخدام [AddClone(ISlide, ISection)](https://reference.aspose.com/slides/ar/net/aspose.slides/islidecollection/addclone/).
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var importedSection = destination.Sections.AppendEmptySection("Imported slides");
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide, importedSection);
+}
+
+destination.Save("merged-with-section.pptx", SaveFormat.Pptx);
+```
+
+تُضاف الشرائح المستنسخة إلى القسم الهدف المحدد. للحفاظ على عدة أقسام مصدر، أعد إنشاء تلك الأقسام في الهدف واربط كل شريحة مصدر بالقسم الهدف المقابل.
+
+## **دمج عروض تقديمية متعددة بأمان**
+
+المثال التالي الشامل يستخدم العرض التقديمي الأول كهدف، ويُوحد حجم الشرائح لكل مصدر إضافي، ويُبقي كل مصدر مفتوحًا فقط أثناء نسخه، ويحفظ الملف النهائي مرة واحدة.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var inputFiles = new[] { "part1.pptx", "part2.pptx", "part3.pptx" };
+
+using var merged = new Presentation(inputFiles[0]);
+
+for (var fileIndex = 1; fileIndex < inputFiles.Length; fileIndex++)
+{
+    using var source = new Presentation(inputFiles[fileIndex]);
+
+    if (source.SlideSize.Size.Width != merged.SlideSize.Size.Width || 
+        source.SlideSize.Size.Height != merged.SlideSize.Size.Height)
     {
-        pres1.Slides.AddClone(slide);
+        source.SlideSize.SetSize(
+            merged.SlideSize.Size.Width, 
+            merged.SlideSize.Size.Height, 
+            SlideSizeScaleType.EnsureFit);
     }
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
-
-
-## **دمج العروض مع شريحة رئيسية (Slide Master)**
-
-يوفر Aspose.Slides طريقة [**AddClone (ISlide, IMasterSlide, Boolean)**](https://reference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/2) التي تسمح بدمج الشرائح مع تطبيق قالب شريحة رئيسية. بهذه الطريقة، إذا لزم الأمر، يمكنك تغيير النمط للشرائح في العرض الناتج. 
-
-هذا الكود C# يوضح العملية المذكورة:
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    foreach (ISlide slide in pres2.Slides)
+    foreach (var slide in source.Slides)
     {
-        pres1.Slides.AddClone(slide, pres2.Masters[0], allowCloneMissingLayout: true);
+        merged.Slides.AddClone(slide);
     }
-
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
 }
+
+merged.Save("merged.pptx", SaveFormat.Pptx);
 ```
 
+هذه قاعدة مفيدة للحفاظ على تنسيق المصدر للشرائح المستوردة. إذا كان يجب أن يستخدم الإخراج موضوعًا واحدًا للهدف، استبدل الاستدعاء البسيط `AddClone(slide)` بالوظيفة الزائدة المناسبة للماستر الهدف أو التخطيط الهدف المذكورة أعلاه.
 
-{{% alert title="Note" color="warning" %}} 
+## **اعتبارات عملية**
 
-تُحدد تخطيط الشريحة للماستر تلقائياً. عندما لا يمكن تحديد تخطيط مناسب، إذا تم ضبط معلمة `allowCloneMissingLayout` من نوع Boolean في طريقة `AddClone` على true، يُستخدم تخطيط الشريحة المصدر. وإلا، سيتم إلقاء استثناء [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception). 
+### **الماسترات، التخطيطات، ودقة التنسيق**
 
-{{% /alert %}}
+يمكن لاستنساخ الشرائح الافتراضي أن يجلب ماستر المصدر المطلوب تلقائيًا إلى العرض الهدف. تحتفظ Aspose.Slides بسجل داخلي للماسترات المستنسخة تلقائيًا لتجنب استنساخ الماستر نفسه مرّات متعددة. لا يتم تتبع الماسترات المستنسخة يدويًا بهذا السجل، لذا تجنّب استنساخ الماسترات مسبقًا ما لم تحتاج إلى تحكم صريح في هيكلة الماستر.
 
-إذا أردت أن تتضمن الشرائح في العرض الناتج تخطيط شريحة مختلف، استخدم طريقة [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/1) بدلاً من ذلك عند الدمج. 
+لا تفترض أن ماسترَين أو تخطيطين لهما نفس الاسم متساويين بصريًا. إذا كان القالب المؤسسي يجب أن يتحكم في المظهر النهائي، اختر ماستر أو تخطيط هدف صراحةً وتحقق من النتيجة بعد الدمج.
 
-## **دمج شرائح محددة من العروض**
+### **الملاحظات والتعليقات**
 
-دمج شرائح محددة من عروض متعددة مفيد لإنشاء مجموعات شرائح مخصصة. يتيح Aspose.Slides for .NET لك اختيار واستيراد الشرائح التي تحتاجها فقط. يحافظ الـ API على التنسيق، التخطيط، وتصميم الشرائح الأصلية.
+ملاحظات المتحدث وتعليقات الشريحة مرتبطة بمحتوى الشريحة وتُنسخ عند استنساخ الشريحة. كما توفر Aspose.Slides واجهات برمجة تطبيقات مخصصة لـ [ملاحظات العرض التقديمي](https://docs.aspose.com/slides/ar/net/presentation-notes/) و[تعليقات العرض التقديمي](https://docs.aspose.com/slides/ar/net/presentation-comments/).
 
-الكود C# التالي ينشئ عرضاً جديداً، يضيف شرائح عنوان من عرضين آخرين، ويحفظ النتيجة في ملف:
-```cs
-using (Presentation presentation = new Presentation())
-using (Presentation presentation1 = new Presentation("presentation1.pptx"))
-using (Presentation presentation2 = new Presentation("presentation2.pptx"))
-{
-    presentation.Slides.RemoveAt(0);
+إذا كان تنسيق صفحة الملاحظات مهمًا، تحقق من العرض المدمج لأن ماسترات الملاحظات هي كائنات على مستوى العرض وقد تختلف بين ملفات المصدر. لأعمال المراجعة، تحقق أيضًا من مؤلفي التعليقات وتعليقات السلسلة بعد دمج ملفات من مؤلفين أو قوالب مختلفة.
 
-    ISlide slide1 = GetTitleSlide(presentation1);
+### **الصور، الصوت، الفيديو، كائنات OLE، والروابط الخارجية**
 
-    if (slide1 != null)
-        presentation.Slides.AddClone(slide1);
+يمكن للشرائح الإشارة إلى موارد على مستوى العرض مثل الصور، الصوت المدمج، الفيديو المدمج، وبيانات OLE. استنسخ الشريحة نفسها بدلاً من نسخ الأشكال المرئية فقط حتى تتمكن Aspose.Slides من الحفاظ على علاقات الشريحة بمواردها.
 
-    ISlide slide2 = GetTitleSlide(presentation2);
+يجب التعامل مع الموارد المدمجة والمُربطة بشكل مختلف. يبقى الصوت أو الفيديو أو كائن OLE أو الارتباط التشعبي المرتبط يعتمد على هدفه الخارجي؛ استنساخ الشريحة لا يحول الرابط الخارجي إلى محتوى مدمج. اختبر مسارات الموارد المرتبطة وعناوين URL في البيئة التي سيفتح فيها العرض المدمج.
 
-    if (slide2 != null)
-        presentation.Slides.AddClone(slide2);
+تتبع Aspose.Slides صراحةً الماسترات المستنسخة تلقائيًا، لكن لا ينبغي اعتبار ذلك ضمانًا عامًا بأن الموارد الثنائية المتطابقة من عروض تقديمية مصادر غير مرتبطة ستتم إزالتها دائمًا. إذا كان حجم ملف الإخراج مهمًا، فافحص الحزمة المدمجة وقم بقياس النتيجة بدلًا من الاعتماد على الإزالة الضمنية للتكرارات.
 
-    presentation.Save("combined.pptx", SaveFormat.Pptx);
-}
+### **الخطوط المدمجة وتوافر الخطوط**
+
+تُدار الخطوط على مستوى العرض التقديمي. إذا كان يجب أن يبقى التنسيق الطباعي متسقًا عبر الأجهزة، لا تفترض أن استنساخ الشرائح وحده يضمن توفر كل خط مطلوب في بيئة الهدف. يمكنك فحص الخطوط المدمجة عبر [FontsManager.GetEmbeddedFonts](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsmanager/getembeddedfonts/) وإدارة الدمج صراحةً كما هو موضح في [دمج الخطوط في العروض التقديمية](https://docs.aspose.com/slides/ar/net/embedded-font/).
+
+تحقق أيضًا من أنك مسموح لك بدمج الخطوط المستخدمة في ملفات المصدر. قد تقيد تراخيص الخطوط عملية الدمج.
+
+### **العروض التقديمية المحمية بكلمة مرور**
+
+يجب فتح المصدر المحمي بكلمة مرور بنجاح قبل إمكانية استنساخ شرائحه. قدم كلمة المرور عبر [LoadOptions.Password](https://reference.aspose.com/slides/ar/net/aspose.slides/loadoptions/password/).
+
+```csharp
+using Aspose.Slides;
+
+var loadOptions = new LoadOptions { Password = "YOUR_PASSWORD" };
+
+using var source = new Presentation("protected.pptx", loadOptions);
 ```
 
-```cs
-static ISlide GetTitleSlide(IPresentation presentation)
-{
-    foreach (ISlide slide in presentation.Slides)
-    {
-        if (slide.LayoutSlide.LayoutType == SlideLayoutType.Title)
-        {
-            return slide;
-        }
-    }
-    return null;
-}
-```
+فتح مصدر مشفر لا يطبق الحماية نفسها تلقائيًا على العرض التقديمي الهدف. قم بتكوين حماية الإخراج بشكل منفصل عند الحاجة.
 
+### **العروض التقديمية الكبيرة واستخدام الذاكرة**
 
-## **دمج العروض مع تخطيط شريحة**
+العروض التقديمية الكبيرة التي تحتوي على صور عالية الدقة، صوت، فيديو، أو كائنات ثنائية كبيرة أخرى يمكن أن تستهلك ذاكرة كبيرة. توفر [LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/ar/net/aspose.slides/loadoptions/blobmanagementoptions/) أدوات للتحكم في معالجة الـ BLOB واستخدام الملفات المؤقتة. راجع [إدارة BLOBs للعرض التقديمي](https://docs.aspose.com/slides/ar/net/manage-blob/) لاستراتيجيات الملفات الكبيرة.
 
-هذا الكود C# يوضح كيفية دمج الشرائح من العروض مع تطبيق تخطيط شريحة مفضلة للحصول على عرض نهائي واحد:
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    foreach (ISlide slide in pres2.Slides)
-    {
-        pres1.Slides.AddClone(slide, pres2.LayoutSlides[0]);
-    }
+بالنسبة للملفات الكبيرة، يفضَّل التحميل من مسارات الملفات عندما يكون ذلك ممكنًا، وتفريغ كل عرض تقديمي مصدر بمجرد دمجه، وتجنب حفظ النتائج المتوسطة بشكل متكرر إلا إذا كان سير العمل يتطلب نقاط تحقق.
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
+### **سلامة الخيوط**
 
+لا تقم بتحميل أو تعديل أو حفظ أو استنساخ نفس نسخة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) بشكل متزامن من عدة خيوط. احتفظ بكل نسخة عرض تقديمي محصورة في عملية دمج واحدة. إذا قمت بتوازية مهام مستقلة، استخدم نسخ عرض تقديمي مستقلة وتابع إرشادات [البرمجة المتعددة الخيوط في Aspose.Slides](https://docs.aspose.com/slides/ar/net/multithreading/).
 
-## **دمج العروض بأحجام شرائح مختلفة**
+## **الأسئلة الشائعة**
 
-{{% alert title="Note" color="warning" %}} 
+**كيف أحافظ على التصميم الأصلي لكل عرض تقديمي مصدر؟**
 
-لا يمكن دمج عروض بأحجام شرائح مختلفة. 
+استخدم [`AddClone(sourceSlide)`](https://reference.aspose.com/slides/ar/net/aspose.slides/islidecollection/addclone/) بدون توفير ماستر أو تخطيط هدف. يمكن لـ Aspose.Slides استنساخ ماستر المصدر تلقائيًا عندما تحتاجه الشريحة المستوردة.
 
-{{% /alert %}}
+**كيف أجعل الشرائح المستوردة تستخدم موضوع العرض الهدف؟**
 
-لدمج عرضين بأحجام شرائح مختلفة، عليك تعديل حجم أحد العروض لتطابق حجم العرض الآخر. 
+استخدم الوظيفة الزائدة التي تقبل ماستر هدف. مرر ماسترًا من العرض التقديمي الهدف، وليس من المصدر. ستحاول Aspose.Slides ربط كل شريحة مصدر بتخطيط مناسب تحت ذلك الماستر.
 
-الكود النموذجي يوضح العملية المذكورة:
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-   pres2 = new Presentation("pres2.pptx"))
-{
-   pres2.SlideSize.SetSize(pres1.SlideSize.Size.Width, pres1.SlideSize.Size.Height, SlideSizeScaleType.EnsureFit);
- 
-   foreach (ISlide slide in pres2.Slides)
-   {
-       pres1.Slides.AddClone(slide);
-   }
- 
-   pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
+**متى ينبغي استخدام تخطيط هدف محدد بدلاً من ماستر هدف؟**
 
+استخدم تخطيطًا محددًا عندما يجب أن تستخدم كل شريحة مستوردة تخطيطًا معروفًا واحدًا. استخدم ماسترًا عندما تريد أن تختار Aspose.Slides من بين تخطيطات ذلك الماستر بناءً على نوع التخطيط المصدر أو اسمه.
 
-## **دمج الشرائح إلى قسم في العرض**
+**هل يمكن دمج عروض تقديمية بأحجام شرائح مختلفة؟**
 
-هذا الكود C# يوضح كيفية دمج شريحة محددة إلى قسم في العرض:
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    for (var index = 0; index < pres2.Slides.Count; index++)
-    {
-        ISlide slide = pres2.Slides[index];
-        pres1.Slides.AddClone(slide, pres1.Sections[0]);
-    }
+نعم، لكن محتوى الشريحة لا يُعاد تصميمه تلقائيًا لأبعاد الهدف. قم بتغيير حجم العرض المصدر أولاً عندما تحتاج إلى وضع متوقع، على سبيل المثال باستخدام [SlideSize.SetSize](https://reference.aspose.com/slides/ar/net/aspose.slides/slidesize/setsize/) و[SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/ar/net/aspose.slides/slidesizescaletype/).
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
+**هل يمكن دمج عروض PPT, PPTX, و ODP في ملف واحد؟**
 
+نعم. حمِّل كل عرض تقديمي مصدر، استنسخ الشرائح المطلوبة إلى هدف واحد، واحفظ الهدف بصيغة خروج مدعومة. نظرًا لأن تنسيقات العروض لا تدعم تمامًا نفس مجموعة الميزات، تحقق من المحتوى المعقد بعد عمليات الدمج بين التنسيقات. راجع [تنسيقات الملفات المدعومة](https://docs.aspose.com/slides/ar/net/supported-file-formats/).
 
-تُضاف الشريحة في نهاية القسم. 
+**هل يتم الحفاظ على أقسام المصدر تلقائيًا؟**
 
-{{% alert title="Tip" color="primary" %}}
+ليس بواسطة حلقة أساسية تستنسخ الشرائح فقط. أعد إنشاء الأقسام المطلوبة في الهدف واستخدم الوظيفة الزائدة للقسم في [AddClone](https://reference.aspose.com/slides/ar/net/aspose.slides/islidecollection/addclone/) عندما يجب الحفاظ على بنية الأقسام.
 
-توفر Aspose تطبيق ويب مجاني للتجميع [FREE Collage](https://products.aspose.app/slides/collage). باستخدام هذه الخدمة على الإنترنت، يمكنك دمج [JPG إلى JPG](https://products.aspose.app/slides/collage/jpg) أو PNG إلى PNG، وإنشاء [شبكات صور](https://products.aspose.app/slides/collage/photo-grid)، وما إلى ذلك. 
+**هل يتم الحفاظ على ملاحظات المتحدث والتعليقات؟**
 
-{{% /alert %}}
+يتم نسخها مع الشريحة المستنسخة. لأعمال تعتمد على تنسيق ماستر الملاحظات، مؤلفي التعليقات، أو بيانات المراجعة المتسلسلة، تحقق من النتيجة المدمجة لأن هذه السيناريوهات تشمل هياكل على مستوى العرض وكذلك محتوى على مستوى الشريحة.
 
-## **الأسئلة المتكررة**
+**ماذا يحدث للملفات الصوتية، الفيديو، كائنات OLE، والروابط التشعبية؟**
 
-**هل يتم الاحتفاظ بملاحظات المتحدث أثناء الدمج؟**
+يتم نقل المحتوى المدمج كجزء من علاقات موارد الشريحة المستنسخة. تبقى الروابط الخارجية خارجية، لذا يجب أن تظل ملفات الهدف أو عناوين URL متاحة بعد الدمج.
 
-نعم. عند استنساخ الشرائح، ينقل Aspose.Slides جميع عناصر الشريحة، بما في ذلك الملاحظات، التنسيق، والرسوم المتحركة.
+**هل تضمن الخطوط المدمجة من كل مصدر توافرها في العرض المدمج؟**
 
-**هل يتم نقل التعليقات ومؤلفيها؟**
+لا تعتمد على استنساخ الشرائح فقط لنشر الخطوط. افحص الخطوط المدمجة في الهدف وأدرج إدارة دمج الخطوط صراحةً أو توفر الخطوط الخارجية عندما يكون التنسيق الطباعي مهمًا.
 
-التعليقات، كجزء من محتوى الشريحة، تُنسخ مع الشريحة. تُحافظ تسميات مؤلفي التعليقات ككائنات تعليق في العرض الناتج.
+**كيف أدمج ملفًا محمًى بكلمة مرور؟**
 
-**ماذا لو كان العرض المصدر محمياً بكلمة مرور؟**
+افتحه باستخدام [LoadOptions.Password](https://reference.aspose.com/slides/ar/net/aspose.slides/loadoptions/password/) الصحيحة، ثم استنسخ شرائحه كالمعتاد. يتم تكوين حماية الإخراج بشكل منفصل.
 
-يجب [فتح العرض باستخدام كلمة المرور](/slides/ar/net/password-protected-presentation/) عبر [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/); بعد التحميل، يمكن استنساخ تلك الشرائح بأمان إلى ملف هدف غير محمي (أو محمي أيضاً).
+**كيف يجب التعامل مع العروض التقديمية الكبيرة جدًا؟**
 
-**ما مدى أمان الخيوط (thread‑safe) لعملية الدمج؟**
+استخدم إدارة BLOB عندما تهيمن الكائنات الثنائية الكبيرة على استهلاك الذاكرة، ويفضل التحميل من مسار الملف للملفات الكبيرة جدًا، وتفريغ العروض المصدرية فور الانتهاء من دمجها، واحفظ النتيجة النهائية فقط عند الحاجة.
 
-لا تستخدم نفس كائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) من [عدة خيوط](/slides/ar/net/multithreading/). القاعدة المفضلة هي "مستند واحد — خيط واحد"; يمكن معالجة ملفات مختلفة بالتوازي في خيوط منفصلة.
+**هل يمكن دمج الشرائح من عدة خيوط؟**
+
+لا تستخدم نسخة واحدة من [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) بشكل متزامن من عدة خيوط. احفظ كل عملية دمج معزولة إلى نسخ العرض الخاصة بها.

@@ -19,263 +19,390 @@ keywords:
 - combiner ODP
 - PHP
 - Aspose.Slides
-description: "Fusionnez sans effort les présentations PowerPoint (PPT, PPTX) et OpenDocument (ODP) avec Aspose.Slides pour PHP via Java, simplifiant votre flux de travail."
+description: "Apprenez comment fusionner des présentations PowerPoint et OpenDocument en PHP en clonant des diapositives, en contrôlant les masters et les dispositions, en redimensionnant le contenu des diapositives, en préservant les sections et en gérant les fichiers protégés ou volumineux."
 ---
+## **Vue d'ensemble**
 
-## **Fusion de présentations**
+Aspose.Slides for PHP via Java fusionne des présentations en clonant les diapositives d’une [Presentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/) vers une autre. L’opération principale est [SlideCollection::addClone()](https://reference.aspose.com/slides/fr/php-java/aspose.slides/slidecollection/addclone/), qui peut conserver le formatage de la diapositive source ou attacher la diapositive clonée à un master ou à une disposition dans la présentation de destination.
 
-Lorsque vous fusionnez une présentation avec une autre, vous combinez effectivement leurs diapositives dans une seule présentation pour obtenir un seul fichier. 
+Cet article couvre les flux de travail de fusion les plus courants :
 
-{{% alert title="Info" color="info" %}}
+- fusionner toutes les diapositives tout en conservant leur formatage source ;
+- fusionner des diapositives sélectionnées ;
+- appliquer un master de la présentation de destination ;
+- appliquer une disposition spécifique de la présentation de destination ;
+- normaliser des tailles de diapositives différentes avant la fusion ;
+- ajouter des diapositives clonées à une section ;
+- fusionner plusieurs présentations dans un flux de travail complet ;
+- gérer les masters, les ressources, les notes, les commentaires, les médias, les polices, les mots de passe, les gros fichiers et les problèmes de multithreading.
 
-La plupart des programmes de présentation (PowerPoint ou OpenOffice) ne disposent pas de fonctions permettant aux utilisateurs de combiner des présentations de cette manière. 
+## **Comment le clonage de diapositives affecte les masters et les dispositions**
 
-[**Aspose.Slides for PHP via Java**](https://products.aspose.com/slides/php-java/), cependant, vous permet de fusionner des présentations de différentes manières. Vous pouvez fusionner des présentations avec toutes leurs formes, styles, textes, formats, commentaires, animations, etc., sans vous soucier d'une perte de qualité ou de données.
+Une diapositive hérite d’une grande partie de son apparence de sa disposition et de son master. Pour cette raison, la surcharge de clonage que vous choisissez détermine la façon dont la diapositive fusionnée est intégrée à la présentation de destination.
 
-**Voir aussi**
+Utilisez [SlideCollection::addClone()](https://reference.aspose.com/slides/fr/php-java/aspose.slides/slidecollection/addclone/) de l’une des manières suivantes :
 
-[Cloner les diapositives](/slides/fr/php-java/clone-slides/).
+- `addClone(sourceSlide)` — conserver la disposition et le formatage de la diapositive source. Si nécessaire, le master source peut être cloné automatiquement dans la présentation de destination. Aspose.Slides suit les masters clonés automatiquement afin que les diapositives répétées utilisant le même master source ne provoquent pas de clonage répété de ce master.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — attacher la diapositive clonée à un [MasterSlide](https://reference.aspose.com/slides/fr/php-java/aspose.slides/masterslide/) de destination spécifique. Aspose.Slides recherche une disposition correspondante sous ce master par type ou par nom.
+- `addClone(sourceSlide, destinationLayout)` — attacher directement la diapositive clonée à un [LayoutSlide](https://reference.aspose.com/slides/fr/php-java/aspose.slides/layoutslide/) de destination spécifique.
 
-{{% /alert %}}
+Le master ou la disposition passé à une surcharge `addClone` doit appartenir à la **présentation de destination**, et non à la présentation source.
 
-### **Ce qui peut être fusionné**
+## **Fusionner des présentations entières en conservant le formatage source**
 
-Avec Aspose.Slides, vous pouvez fusionner 
+La fusion la plus simple copie chaque diapositive de la présentation source vers la présentation de destination. C’est le choix approprié lorsque les diapositives importées doivent conserver leur thème, master et relations de disposition d’origine.
 
-* des présentations complètes. Toutes les diapositives des présentations se retrouvent dans une présentation unique
-* des diapositives spécifiques. Les diapositives sélectionnées se retrouvent dans une présentation unique
-* des présentations dans un même format (PPT vers PPT, PPTX vers PPTX, etc.) et dans des formats différents (PPT vers PPTX, PPTX vers ODP, etc.) les unes vers les autres. 
-
-{{% alert title="Note" color="warning" %}} 
-
-En plus des présentations, Aspose.Slides vous permet de fusionner d'autres fichiers :
-
-* [Images](https://products.aspose.com/slides/php-java/merger/image-to-image/), telles que [JPG vers JPG](https://products.aspose.com/slides/php-java/merger/jpg-to-jpg/) ou [PNG vers PNG](https://products.aspose.com/slides/php-java/merger/png-to-png/)
-* Documents, tels que [PDF vers PDF](https://products.aspose.com/slides/php-java/merger/pdf-to-pdf/) ou [HTML vers HTML](https://products.aspose.com/slides/php-java/merger/html-to-html/)
-* Et deux fichiers différents tels que [image vers PDF](https://products.aspose.com/slides/php-java/merger/image-to-pdf/), [JPG vers PDF](https://products.aspose.com/slides/php-java/merger/jpg-to-pdf/) ou [TIFF vers PDF](https://products.aspose.com/slides/php-java/merger/tiff-to-pdf/).
-
-{{% /alert %}}
-
-### **Options de fusion**
-
-Vous pouvez appliquer des options qui déterminent si
-
-* chaque diapositive de la présentation de sortie conserve un style unique
-* un style spécifique est utilisé pour toutes les diapositives de la présentation de sortie. 
-
-Pour fusionner des présentations, Aspose.Slides fournit les méthodes [addClone](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/addclone/) (de la classe [SlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/) ). Il existe plusieurs implémentations des méthodes `addClone` qui définissent les paramètres du processus de fusion de présentations. Chaque objet Presentation possède une collection de [diapositive](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getslides/) ; vous pouvez donc appeler une méthode `addClone` depuis la présentation dans laquelle vous souhaitez fusionner les diapositives.
-
-La méthode `addClone` renvoie un objet `Slide`, qui est un clone de la diapositive source. Les diapositives d’une présentation de sortie sont simplement une copie des diapositives de la source. Par conséquent, vous pouvez modifier les diapositives résultantes (par exemple, appliquer des styles, des options de formatage ou des mises en page) sans vous soucier d’impact sur les présentations source.
-
-## **Fusionner des présentations** 
-
-Aspose.Slides fournit la méthode [addClone(Slide)](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/addclone/) qui vous permet de combiner des diapositives tout en conservant leurs mises en page et styles (paramètres par défaut).
-
-Ce code PHP vous montre comment fusionner des présentations :
 ```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
     try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide);
-      }
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide);
+        }
     } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
+        $source->dispose();
     }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
+
+    $destination->save("merged.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
 ```
 
+La présentation résultante peut contenir plusieurs masters lorsque la source et la destination utilisent des conceptions différentes. C’est le comportement attendu lorsque le formatage source est intentionnellement conservé.
 
-## **Fusionner des présentations avec un masque de diapositive** 
+## **Fusionner des diapositives sélectionnées**
 
-Aspose.Slides fournit la méthode [addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/addclone/) qui vous permet de combiner des diapositives tout en appliquant un modèle de masque de diapositive. Ainsi, si nécessaire, vous pouvez modifier le style des diapositives de la présentation de sortie.
+Vous n’avez pas besoin de cloner chaque diapositive. L’exemple suivant importe uniquement les index de diapositives sélectionnés depuis la présentation source.
 
-Ce code démontre l’opération décrite :
 ```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
     try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide, $pres2->getMasters()->get_Item(0), true);
-      }
+        $slideIndexes = [0, 2, 4];
+
+        foreach ($slideIndexes as $index) {
+            $destination->getSlides()->addClone($source->getSlides()->get_Item($index));
+        }
     } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
+        $source->dispose();
     }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
+
+    $destination->save("merged-selected-slides.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
 ```
 
+Validez les index de diapositives avant le clonage lorsqu’ils proviennent d’une entrée utilisateur ou d’une configuration externe.
 
-{{% alert title="Note" color="warning" %}} 
+## **Fusionner des diapositives en utilisant un master de destination**
 
-La mise en page de la diapositive pour le masque est déterminée automatiquement. Lorsqu’aucune mise en page appropriée ne peut être déterminée, si le paramètre booléen `allowCloneMissingLayout` de la méthode `addClone` est fixé à true, la mise en page de la diapositive source est utilisée. Sinon, [PptxEditException](https://reference.aspose.com/slides/php-java/aspose.slides/PptxEditException) sera levée.
+Utilisez la surcharge [addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/fr/php-java/aspose.slides/slidecollection/addclone/) lorsque les diapositives importées doivent suivre un master qui appartient déjà à la présentation de destination.
 
-{{% /alert %}}
-
-Si vous voulez que les diapositives de la présentation de sortie utilisent une mise en page différente, utilisez plutôt la méthode [addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/addclone/) lors de la fusion.
-
-## **Fusionner des diapositives spécifiques de présentations** 
-
-Fusionner des diapositives spécifiques provenant de plusieurs présentations est utile pour créer des jeux de diapositives personnalisés. Aspose.Slides for PHP via Java vous permet de sélectionner et d’importer uniquement les diapositives dont vous avez besoin. L’API conserve le formatage, la mise en page et le design des diapositives originales.
-
-Le code PHP suivant crée une nouvelle présentation, ajoute des diapositives titres provenant de deux autres présentations et enregistre le résultat dans un fichier :
 ```php
-function getTitleSlide(Presentation $presentation) {
-    for ($i = 0; $i < java_values($presentation->getSlides()->size()); $i++) {
-        $slide = $presentation->getSlides()->get_Item($i);
-        if (java_values($slide->getLayoutSlide()->getLayoutType()) === SlideLayoutType::Title) {
-            return $slide;
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
+    try {
+        $destinationMaster = $destination->getMasters()->get_Item(0);
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide, $destinationMaster, true);
+        }
+    } finally {
+        $source->dispose();
+    }
+
+    $destination->save("merged-with-destination-master.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
+```
+
+Aspose.Slides sélectionne une disposition appropriée sous le master indiqué en faisant correspondre le type ou le nom de la disposition source. Si aucune disposition adéquate n’existe et que `allowCloneMissingLayout` vaut `true`, la disposition source est clonée afin que la diapositive puisse être ajoutée. Si elle vaut `false`, une [PptxEditException](https://reference.aspose.com/slides/fr/php-java/aspose.slides/pptxeditexception/) est levée.
+
+Utilisez `false` lorsque vous souhaitez que la fusion échoue plutôt que d’introduire une disposition supplémentaire dans le master de destination.
+
+## **Fusionner des diapositives en utilisant une disposition de destination spécifique**
+
+Utilisez la surcharge [addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/fr/php-java/aspose.slides/slidecollection/addclone/) lorsque vous savez exactement quelle disposition de destination les diapositives importées doivent utiliser.
+
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
+    try {
+        $destinationLayout = $destination->getLayoutSlides()->get_Item(0);
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide, $destinationLayout);
+        }
+    } finally {
+        $source->dispose();
+    }
+
+    $destination->save("merged-with-destination-layout.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
+```
+
+L’application d’une disposition de destination modifie la relation de disposition héritée ; elle ne redessine pas le contenu de la diapositive source. Si les dispositions source et destination possèdent des structures de zones réservées différentes, inspectez le résultat pour confirmer que le formatage hérité et le comportement des zones réservées sont appropriés.
+
+## **Fusionner des présentations avec des tailles de diapositive différentes**
+
+Des présentations avec des dimensions de diapositive différentes peuvent être fusionnées, mais cloner une diapositive dans une présentation dont la taille de diapositive diffère ne redessine pas automatiquement son contenu pour le nouveau canevas. Les formes peuvent donc apparaître déplacées, redimensionnées de façon inattendue ou en dehors de la zone visible de la diapositive.
+
+Une approche pratique consiste à redimensionner la présentation source avant le clonage. La méthode [SlideSize::setSize()](https://reference.aspose.com/slides/fr/php-java/aspose.slides/slidesize/setsize/) peut mettre à l’échelle le contenu existant tout en modifiant les dimensions des diapositives. [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/fr/php-java/aspose.slides/slidesizescaletype/) met le contenu à l’échelle pour qu’il tienne dans la taille demandée.
+
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideSizeScaleType;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
+    try {
+        $sourceWidth = java_values($source->getSlideSize()->getSize()->getWidth());
+        $sourceHeight = java_values($source->getSlideSize()->getSize()->getHeight());
+        $destinationWidth = java_values($destination->getSlideSize()->getSize()->getWidth());
+        $destinationHeight = java_values($destination->getSlideSize()->getSize()->getHeight());
+
+        if ($sourceWidth != $destinationWidth || $sourceHeight != $destinationHeight) {
+            $source->getSlideSize()->setSize($destinationWidth, $destinationHeight, SlideSizeScaleType::EnsureFit);
+        }
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide);
+        }
+    } finally {
+        $source->dispose();
+    }
+
+    $destination->save("merged-same-slide-size.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
+```
+
+Le redimensionnement modifie l’objet de la présentation source en mémoire. Si vous avez besoin que la présentation source d’origine reste inchangée pour d’autres opérations, ouvrez une instance distincte pour la fusion.
+
+## **Fusionner des diapositives dans une section de présentation**
+
+La boucle de clonage de diapositives de base ne recrée pas la hiérarchie de sections de la présentation source. Si les sections sont importantes dans le résultat, créez ou sélectionnez des sections dans la présentation de destination et clonez les diapositives dedans explicitement avec [addClone(Slide, Section)](https://reference.aspose.com/slides/fr/php-java/aspose.slides/slidecollection/addclone/).
+
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
+    try {
+        $importedSection = $destination->getSections()->appendEmptySection("Imported slides");
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide, $importedSection);
+        }
+    } finally {
+        $source->dispose();
+    }
+
+    $destination->save("merged-with-section.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
+```
+
+Les diapositives clonées sont ajoutées à la section de destination spécifiée. Pour conserver plusieurs sections sources, recréez ces sections dans la destination et associez chaque diapositive source à la section de destination correspondante.
+
+## **Fusionner plusieurs présentations en toute sécurité**
+
+L’exemple de bout en bout suivant utilise la première présentation comme destination, normalise la taille de diapositive de chaque source supplémentaire, garde chaque source ouverte uniquement pendant sa copie, et enregistre le fichier final une fois.
+
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideSizeScaleType;
+
+$inputFiles = ["part1.pptx", "part2.pptx", "part3.pptx"];
+
+$merged = new Presentation($inputFiles[0]);
+try {
+    $mergedWidth = java_values($merged->getSlideSize()->getSize()->getWidth());
+    $mergedHeight = java_values($merged->getSlideSize()->getSize()->getHeight());
+
+    for ($fileIndex = 1; $fileIndex < count($inputFiles); $fileIndex++) {
+        $source = new Presentation($inputFiles[$fileIndex]);
+        try {
+            $sourceWidth = java_values($source->getSlideSize()->getSize()->getWidth());
+            $sourceHeight = java_values($source->getSlideSize()->getSize()->getHeight());
+
+            if ($sourceWidth != $mergedWidth || $sourceHeight != $mergedHeight) {
+                $source->getSlideSize()->setSize($mergedWidth, $mergedHeight, SlideSizeScaleType::EnsureFit);
+            }
+
+            foreach ($source->getSlides() as $slide) {
+                $merged->getSlides()->addClone($slide);
+            }
+        } finally {
+            $source->dispose();
         }
     }
-    return null;
-}
-```
 
-```php
-$presentation = new Presentation();
-$presentation1 = new Presentation($folderPath . "presentation1.pptx");
-$presentation2 = new Presentation($folderPath . "presentation2.pptx");
-try {
-    $presentation->getSlides()->removeAt(0);
-    
-    $slide1 = getTitleSlide($presentation1);
-
-    if ($slide1 != null)
-        $presentation->getSlides()->addClone($slide1);
-
-    $slide2 = getTitleSlide($presentation2);
-
-    if ($slide2 != null)
-        $presentation->getSlides()->addClone($slide2);
-
-    $presentation->save($folderPath . "combined.pptx", SaveFormat::Pptx);
+    $merged->save("merged.pptx", SaveFormat::Pptx);
 } finally {
-    $presentation2->dispose();
-    $presentation1->dispose();
-    $presentation->dispose();
+    $merged->dispose();
 }
 ```
 
+C’est une base utile pour conserver le formatage source des diapositives importées. Si votre résultat doit utiliser un thème unique de destination, remplacez l’appel simple `addClone($slide)` par la surcharge master‑de‑destination ou layout‑de‑destination appropriée présentée plus haut.
 
-## **Fusionner des présentations avec une mise en page de diapositive** 
+## **Considérations pratiques**
 
-Ce code PHP montre comment combiner des diapositives de présentations tout en appliquant votre mise en page de diapositive préférée afin d’obtenir une présentation de sortie unique :
+### **Masters, dispositions et fidélité du formatage**
+
+Le clonage de diapositives par défaut peut automatiquement introduire un master source requis dans la présentation de destination. Aspose.Slides conserve un registre interne des masters clonés automatiquement afin d’éviter de cloner le même master à plusieurs reprises. Les masters clonés manuellement ne sont pas suivis par ce registre, évitez donc de pré‑cloner les masters sauf si vous avez besoin d’un contrôle explicite sur la structure du master.
+
+Ne partez pas du principe que deux masters ou deux dispositions portant le même nom sont visuellement équivalents. Si un modèle d’entreprise doit contrôler l’apparence finale, choisissez explicitement un master ou une disposition de destination et vérifiez le résultat après la fusion.
+
+### **Notes et commentaires**
+
+Les notes du présentateur et les commentaires de diapositive sont associés au contenu de la diapositive et sont copiés lorsqu’une diapositive est clonée. Aspose.Slides propose également des API dédiées pour les [notes de présentation](https://docs.aspose.com/slides/fr/php-java/presentation-notes/) et les [commentaires de présentation](https://docs.aspose.com/slides/fr/php-java/presentation-comments/).
+
+Si le formatage de la page de notes est important, vérifiez la présentation fusionnée car les masters de notes sont des objets au niveau de la présentation et peuvent différer entre les fichiers sources. Pour les flux de révision, vérifiez également les auteurs des commentaires et les commentaires en fil après avoir combiné des fichiers provenant d’auteurs ou de modèles différents.
+
+### **Images, audio, vidéo, objets OLE et liens externes**
+
+Les diapositives peuvent référencer des ressources au niveau de la présentation : images, audio intégré, vidéo intégrée et données OLE. Clonez la diapositive elle‑même plutôt que de copier uniquement ses formes visibles afin qu’Aspose.Slides puisse maintenir les relations de la diapositive avec ses ressources.
+
+Les ressources incorporées et les ressources liées doivent être traitées différemment. Un audio, une vidéo, un objet OLE ou un hyperlien lié demeure dépendant de sa cible externe ; le clonage d’une diapositive ne transforme pas un lien externe en contenu incorporé. Testez les chemins et les URL des ressources liées dans l’environnement où la présentation fusionnée sera ouverte.
+
+Aspose.Slides suit explicitement les masters clonés automatiquement, mais cela ne doit pas être considéré comme une garantie générale que des ressources binaires identiques provenant de présentations sources différentes seront toujours dédupliquées. Si la taille du fichier de sortie est importante, inspectez le package fusionné et mesurez le résultat plutôt que de compter sur la déduplication implicite.
+
+### **Polices incorporées et disponibilité des polices**
+
+Les polices sont gérées au niveau de la présentation. Si la typographie doit rester cohérente d’une machine à l’autre, ne supposez pas que le simple clonage de diapositives garantit que chaque police requise est disponible dans l’environnement de destination. Vous pouvez inspecter les polices incorporées avec [FontsManager::getEmbeddedFonts()](https://reference.aspose.com/slides/fr/php-java/aspose.slides/fontsmanager/getembeddedfonts/) et gérer l’incorporation explicitement comme décrit dans [Incorporer des polices dans les présentations](https://docs.aspose.com/slides/fr/php-java/embedded-font/).
+
+Vérifiez également que vous êtes autorisé à incorporer les polices utilisées par les fichiers sources. Les licences de polices peuvent restreindre l’incorporation.
+
+### **Présentations protégées par mot de passe**
+
+Une source protégée par mot de passe doit être ouverte avec succès avant que ses diapositives puissent être clonées. Fournissez le mot de passe via [LoadOptions::setPassword()](https://reference.aspose.com/slides/fr/php-java/aspose.slides/loadoptions/setpassword/).
+
 ```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
-    try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide, $pres2->getLayoutSlides()->get_Item(0));
-      }
-    } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
-    }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("YOUR_PASSWORD");
+
+$source = new Presentation("protected.pptx", $loadOptions);
+try {
+    // Travaillez avec la présentation déchiffrée.
+} finally {
+    $source->dispose();
+}
 ```
 
+L’ouverture d’une source chiffrée n’applique pas automatiquement la même protection à la présentation de destination. Configurez la protection de sortie séparément si nécessaire.
 
-## **Fusionner des présentations avec des tailles de diapositive différentes** 
+### **Présentations volumineuses et utilisation de la mémoire**
 
-{{% alert title="Note" color="warning" %}} 
+Les présentations volumineuses contenant des images haute résolution, de l’audio, de la vidéo ou d’autres gros objets binaires peuvent consommer beaucoup de mémoire. [LoadOptions::getBlobManagementOptions()](https://reference.aspose.com/slides/fr/php-java/aspose.slides/loadoptions/getblobmanagementoptions/) offre des contrôles pour la gestion des BLOB et l’utilisation de fichiers temporaires. Consultez [Ouvrir des présentations](https://docs.aspose.com/slides/fr/php-java/open-presentation/#open-large-presentations) pour un exemple PHP via Java de gros fichiers.
 
-Vous ne pouvez pas fusionner des présentations avec des tailles de diapositive différentes. 
+Pour les gros fichiers, privilégiez le chargement depuis des chemins de fichier lorsqu’il est possible, libérez chaque présentation source dès qu’elle a été fusionnée, et évitez d’enregistrer de façon répétée des résultats intermédiaires sauf si le flux de travail impose des points de contrôle.
 
-{{% /alert %}}
+### **Sécurité des threads**
 
-Pour fusionner 2 présentations dont les tailles de diapositives diffèrent, vous devez redimensionner l’une des présentations afin qu’elle corresponde à la taille de l’autre.
-
-Ce code d’exemple montre l’opération décrite :
-```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
-    try {
-      $pres2->getSlideSize()->setSize($pres1->getSlideSize()->getSize()->getWidth(), $pres1->getSlideSize()->getSize()->getHeight(), SlideSizeScaleType::EnsureFit);
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide);
-      }
-    } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
-    }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
-```
-
-
-## **Fusionner des diapositives dans une section de présentation** 
-
-Ce code PHP montre comment fusionner une diapositive spécifique dans une section d’une présentation :
-```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
-    try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide, $pres1->getSections()->get_Item(0));
-      }
-    } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
-    }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
-```
-
-
-La diapositive est ajoutée à la fin de la section. 
-
-## **Voir aussi** 
-
-Aspose propose un [Créateur de collage en ligne GRATUIT](https://products.aspose.app/slides/collage). En utilisant ce service en ligne, vous pouvez fusionner des images [JPG vers JPG](https://products.aspose.app/slides/collage/jpg) ou [PNG vers PNG](https://products.aspose.app/slides/collage/png), créer des [grilles de photos](https://products.aspose.app/slides/collage/photo-grid) et bien plus encore.
-
-Découvrez le [Aspose MERGEUR EN LIGNE GRATUIT](https://products.aspose.app/slides/merger). Il vous permet de fusionner des présentations PowerPoint dans le même format (par ex., PPT vers PPT, PPTX vers PPTX) ou entre différents formats (par ex., PPT vers PPTX, PPTX vers ODP).
-
-[![Aspose MERGEUR EN LIGNE GRATUIT](slides-merger.png)](https://products.aspose.app/slides/merger)
+Ne chargez, modifiez, enregistrez ou clonez pas d’instances de [Presentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/) dans plusieurs threads. Ces opérations ne sont pas prises en charge pour une utilisation multithread en PHP via Java. Si vous avez besoin de travaux de fusion parallèles, exécutez‑les dans des processus séparés monothreads, chaque processus utilisant ses propres instances de présentation, et suivez les [directives multithreading d’Aspose.Slides](https://docs.aspose.com/slides/fr/php-java/multithreading/).
 
 ## **FAQ**
 
-**Existe-t-il des limitations quant au nombre de diapositives lors de la fusion de présentations ?**
+**Comment conserver le design original de chaque présentation source ?**
 
-Aucune limitation stricte. Aspose.Slides peut gérer de gros fichiers, mais les performances dépendent de la taille et des ressources système. Pour des présentations très volumineuses, il est recommandé d’utiliser une JVM 64 bits et d’allouer suffisamment de mémoire heap.
+Utilisez [`addClone(sourceSlide)`](https://reference.aspose.com/slides/fr/php-java/aspose.slides/slidecollection/addclone/) sans fournir de master ou de disposition de destination. Aspose.Slides peut cloner automatiquement le master source lorsqu’il est nécessaire pour la diapositive importée.
 
-**Puis-je fusionner des présentations contenant des vidéos ou de l’audio intégrés ?**
+**Comment faire en sorte que les diapositives importées utilisent le thème de destination ?**
 
-Oui, Aspose.Slides conserve le contenu multimédia intégré aux diapositives, mais la présentation finale peut devenir nettement plus volumineuse.
+Utilisez la surcharge qui accepte un master de destination. Passez un master de la présentation de destination, pas de la source. Aspose.Slides tentera de mapper chaque diapositive source à une disposition appropriée sous ce master.
 
-**Les polices seront‑elles conservées lors de la fusion de présentations ?**
+**Quand faut‑il utiliser une disposition de destination spécifique plutôt qu’un master de destination ?**
 
-Oui. Les polices utilisées dans les présentations sources sont conservées dans le fichier de sortie, à condition qu’elles soient installées sur le système ou [intégré](/slides/fr/php-java/embedded-font/).
+Utilisez une disposition spécifique lorsque chaque diapositive importée doit utiliser une disposition connue. Utilisez un master lorsque vous voulez qu’Aspose.Slides sélectionne parmi les dispositions de ce master en fonction du type ou du nom de la disposition source.
+
+**Les présentations avec des tailles de diapositive différentes peuvent‑elles être fusionnées ?**
+
+Oui, mais le contenu des diapositives n’est pas automatiquement redessiné pour les dimensions de destination. Redimensionnez d’abord la présentation source lorsque vous avez besoin d’un placement prévisible, par exemple avec [SlideSize::setSize()](https://reference.aspose.com/slides/fr/php-java/aspose.slides/slidesize/setsize/) et [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/fr/php-java/aspose.slides/slidesizescaletype/).
+
+**Puis‑je fusionner des présentations PPT, PPTX et ODP en un seul fichier ?**
+
+Oui. Chargez chaque présentation source, clonez les diapositives requises dans une destination unique, puis enregistrez la destination dans un format de sortie pris en charge. Parce que les formats de présentation ne supportent pas exactement le même ensemble de fonctionnalités, vérifiez le contenu complexe après des fusions inter‑format. Voir [Formats de fichiers pris en charge](https://docs.aspose.com/slides/fr/php-java/supported-file-formats/).
+
+**Les sections sources sont‑elles préservées automatiquement ?**
+
+Pas avec une boucle de base qui ne clone que les diapositives. Recréez les sections requises dans la destination et utilisez la surcharge de section de [addClone](https://reference.aspose.com/slides/fr/php-java/aspose.slides/slidecollection/addclone/) lorsque la structure des sections doit être conservée.
+
+**Les notes du présentateur et les commentaires sont‑ils conservés ?**
+
+Ils sont copiés avec la diapositive clonée. Pour les flux qui dépendent du style du master de notes, des auteurs de commentaires ou des données de révision en fil, vérifiez le résultat fusionné car ces scénarios impliquent également des structures au niveau de la présentation.
+
+**Que se passe‑t‑il avec l’audio, la vidéo, les objets OLE et les hyperliens ?**
+
+Le contenu incorporé est transporté avec les relations de ressources de la diapositive clonée. Les liens externes restent externes, leurs fichiers cibles ou URL doivent donc rester accessibles après la fusion.
+
+**Les polices incorporées de chaque source sont‑elles garanties d’être disponibles dans la présentation fusionnée ?**
+
+Ne comptez pas uniquement sur le clonage de diapositives pour le déploiement des polices. Inspectez les polices incorporées de la destination et gérez explicitement l’incorporation des polices ou la disponibilité des polices externes lorsque la typographie est importante.
+
+**Comment fusionner un fichier protégé par mot de passe ?**
+
+Ouvrez‑le avec le bon [LoadOptions::setPassword()](https://reference.aspose.com/slides/fr/php-java/aspose.slides/loadoptions/setpassword/), puis clonez ses diapositives normalement. La protection de sortie est configurée séparément.
+
+**Comment gérer des présentations très volumineuses ?**
+
+Utilisez la gestion des BLOB lorsque les gros objets binaires dominent l’utilisation de la mémoire, privilégiez le chargement par chemin de fichier pour les très gros fichiers, libérez rapidement les présentations sources, et enregistrez le résultat final uniquement quand cela est nécessaire.
+
+**Puis‑je fusionner des diapositives depuis plusieurs threads ?**
+
+Le chargement, l’enregistrement ou le clonage de présentations dans plusieurs threads n’est pas pris en charge en PHP via Java. Pour du travail parallèle, utilisez des processus séparés monothreads et maintenez les instances de présentation isolées dans chaque processus.

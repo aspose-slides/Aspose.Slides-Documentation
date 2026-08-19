@@ -6,265 +6,330 @@ weight: 40
 url: /zh-hant/net/merge-presentation/
 keywords:
 - 合併 PowerPoint
-- 合併 簡報
-- 合併 投影片
+- 合併簡報
+- 合併投影片
 - 合併 PPT
 - 合併 PPTX
 - 合併 ODP
-- 結合 PowerPoint
-- 結合 簡報
-- 結合 投影片
-- 結合 PPT
-- 結合 PPTX
-- 結合 ODP
+- 整合 PowerPoint
+- 整合簡報
+- 整合投影片
+- 整合 PPT
+- 整合 PPTX
+- 整合 ODP
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 Aspose.Slides for .NET，輕鬆合併 PowerPoint (PPT、PPTX) 與 OpenDocument (ODP) 簡報，簡化您的工作流程。"
+description: "了解如何在 .NET 中透過複製投影片、控制母片與版面配置、調整投影片內容大小、保留區段，以及處理受保護或大型檔案，來合併 PowerPoint 與 OpenDocument 簡報。"
 ---
 ## **概觀**
 
-Aspose.Slides 允許您透過從一個簡報複製投影片到另一個簡報來合併簡報。本文說明了如何合併整個簡報或選取的投影片、在合併過程中使用投影片母片或特定版面、處理具有不同投影片尺寸的簡報，以及將合併的投影片加入簡報章節。還涵蓋與合併內容相關的實用說明，包括講者備註、評論、受密碼保護的來源檔案，以及執行緒使用方式。
+Aspose.Slides for .NET 透過從一個 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/) 複製投影片至另一個投影片，來合併簡報。主要的操作是 [ISlideCollection.AddClone](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/islidecollection/addclone/)，它可以保留來源投影片的格式，或將複製的投影片附加至目標簡報的母片或版面配置。
 
-## **最佳化您的簡報合併**
+本文說明最常見的合併工作流程：
 
-使用 [Aspose.Slides for .NET](https://products.aspose.com/slides/zh-hant/net/)，可無縫結合 PowerPoint 簡報，同時保留樣式、版面配置以及所有元素。與其他工具不同，Aspose.Slides 在合併簡報時不會犧牲品質或遺失資料。您可以合併整個簡報、特定投影片，甚至不同檔案格式（PPT 轉 PPTX 等）。
+- 合併所有投影片，同時保留其來源格式；
+- 合併選取的投影片；
+- 套用目標簡報的母片；
+- 套用目標簡報的特定版面配置；
+- 在合併前正規化不同的投影片尺寸；
+- 將複製的投影片加入區段；
+- 在單一端對端工作流程中合併多個簡報；
+- 處理母片、資源、備註、評論、媒體、字型、密碼、大檔案以及多執行緒相關問題。
 
-### **合併功能**
+## **投影片複製對母片與版面配置的影響**
 
-- **完整簡報合併：** 將所有投影片組合成單一檔案。
-- **特定投影片合併：** 選取並結合指定的投影片。
-- **跨格式合併：** 整合不同格式的簡報，保持完整性。
+投影片的大部分外觀來自於其版面配置與母片。因此，您選擇的複製重載方式會決定合併後的投影片如何整合到目標簡報中。
 
-{{% alert title="Tip" color="primary" %}}  
+可使用 [ISlideCollection.AddClone](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/islidecollection/addclone/) 以以下任一方式：
 
-尋找快速且 **免費的線上工具** 來 **合併 PowerPoint 簡報**？試試 [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/zh-hant/merger)。  
+- `AddClone(sourceSlide)` — 保留來源投影片的版面配置與格式。必要時，來源母片會自動複製到目標簡報。Aspose.Slides 會追蹤自動複製的母片，以免多次使用相同來源母片的投影片重複複製母片。
+- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — 將複製的投影片附加至特定的目標 [IMasterSlide](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imasterslide/)。Aspose.Slides 會依版面類型或名稱在該母片下尋找相符的版面配置。
+- `AddClone(sourceSlide, destinationLayout)` — 直接將複製的投影片附加至特定的目標 [ILayoutSlide](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ilayoutslide/)。
 
-- **輕鬆合併 PowerPoint 檔案**：將多個 **PPT、PPTX、ODP** 簡報合併為單一檔案。  
-- **支援不同格式**：合併 **PPT 轉 PPTX**、**PPTX 轉 ODP** 等。  
-- **無需安裝**：直接在瀏覽器中使用，快速且安全。  
+傳遞給 `AddClone` 重載的母片或版面配置必須屬於 **目標** 簡報，而非來源簡報。
 
-[![Merge PowerPoint Files Online](slides-merger.png)](https://products.aspose.app/slides/zh-hant/merger)  
+## **合併完整簡報並保留來源格式**
 
-立即使用 **Aspose 免費線上工具** 合併您的 PowerPoint 檔案！  
+最簡單的合併方式是將來源簡報的每張投影片全部複製至目標簡報。當匯入的投影片需要保留原始佈景主題、母片與版面配置關係時，這是適當的選擇。
 
-{{% /alert %}}
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-## **簡報合併**
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
 
-當您 [將一個簡報合併至另一個簡報](https://products.aspose.com/slides/zh-hant/net/merger/ppt/)，實際上是將它們的投影片合併成單一簡報，以取得唯一的檔案。
-
-{{% alert title="Info" color="info" %}}
-
-大多數簡報程式（PowerPoint 或 OpenOffice）都缺乏允許使用者以此方式合併簡報的功能。  
-
-[**Aspose.Slides for .NET**](https://products.aspose.com/slides/zh-hant/net/)，卻允許您以多種方式合併簡報。您可以合併簡報的所有圖形、樣式、文字、格式、評論、動畫等，而不必擔心品質或資料遺失。  
-
-**另見**  
-
-[複製投影片](https://docs.aspose.com/slides/zh-hant/net/cloning-commenting-and-manipulating-slides/#cloning-commentingandmanipulatingslides-cloningslides)*.*  
-
-{{% /alert %}}
-
-### **可以合併的內容**
-
-使用 Aspose.Slides，您可以合併  
-
-* 整個簡報。所有簡報中的投影片最終匯聚於一個簡報中  
-* 特定投影片。選取的投影片最終匯聚於一個簡報中  
-* 同一格式的簡報（PPT 轉 PPT、PPTX 轉 PPTX 等）及不同格式的簡報（PPT 轉 PPTX、PPTX 轉 ODP 等）相互合併  
-
-{{% alert title="Note" color="warning" %}} 
-
-除了簡報之外，Aspose.Slides 也允許您合併其他檔案：
-
-* [影像](https://products.aspose.com/slides/zh-hant/net/merger/image-to-image/)，例如 [JPG 轉 JPG](https://products.aspose.com/slides/zh-hant/net/merger/jpg-to-jpg/) 或 [PNG 轉 PNG](https://products.aspose.com/slides/zh-hant/net/merger/png-to-png/)  
-* 文件，例如 [PDF 轉 PDF](https://products.aspose.com/slides/zh-hant/net/merger/pdf-to-pdf/) 或 [HTML 轉 HTML](https://products.aspose.com/slides/zh-hant/net/merger/html-to-html/)  
-* 以及兩種不同類型的檔案，例如 [影像轉 PDF](https://products.aspose.com/slides/zh-hant/net/merger/image-to-pdf/) 或 [JPG 轉 PDF](https://products.aspose.com/slides/zh-hant/net/merger/jpg-to-pdf/) 或 [TIFF 轉 PDF](https://products.aspose.com/slides/zh-hant/net/merger/tiff-to-pdf/)  
-
-{{% /alert %}}
-
-### **合併選項**
-
-您可以套用選項以決定是否  
-
-* 輸出簡報中的每一張投影片保留各自的樣式  
-* 所有投影片使用相同的樣式  
-
-要合併簡報，Aspose.Slides 提供 [AddClone](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/islidecollection/methods/addclone) 方法（來自 [ISlideCollection](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/islidecollection) 介面）。`AddClone` 方法有多種實作，定義了簡報合併過程的參數。每個 Presentation 物件都有一個 [Slides](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/properties/slides) 集合，您可以從欲合併投影片的簡報呼叫 `AddClone` 方法。  
-
-`AddClone` 方法會回傳一個 `ISlide` 物件，該物件是來源投影片的複製品。輸出簡報中的投影片僅是來源投影片的副本。因此，您可以對產生的投影片進行變更（例如套用樣式、格式設定或版面配置），而不必擔心會影響來源簡報。  
-
-## **合併簡報** 
-
-Aspose.Slides 提供 [**AddClone (ISlide)**](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/islidecollection/methods/addclone) 方法，可在保留投影片版面與樣式（預設參數）的情況下合併投影片。  
-
-以下 C# 程式碼示範如何合併簡報：
-
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
+foreach (var slide in source.Slides)
 {
-    foreach (ISlide slide in pres2.Slides)
+    destination.Slides.AddClone(slide);
+}
+
+destination.Save("merged.pptx", SaveFormat.Pptx);
+```
+
+若來源與目標使用不同的設計，產生的簡報可能會包含多個母片。這在刻意保留來源格式時屬於預期行為。
+
+## **合併選取的投影片**
+
+您不需要複製每張投影片。以下範例僅匯入來源簡報中選取的投影片索引。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var slideIndexes = new[] { 0, 2, 4 };
+
+foreach (var index in slideIndexes)
+{
+    destination.Slides.AddClone(source.Slides[index]);
+}
+
+destination.Save("merged-selected-slides.pptx", SaveFormat.Pptx);
+```
+
+在從使用者輸入或外部設定取得投影片索引時，請先驗證索引的有效性再進行複製。
+
+## **使用目標母片合併投影片**
+
+當匯入的投影片應使用已屬於目標簡報的母片時，請使用 [AddClone(ISlide, IMasterSlide, Boolean)](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/islidecollection/addclone/) 重載。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var destinationMaster = destination.Masters[0];
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide, destinationMaster, allowCloneMissingLayout: true);
+}
+
+destination.Save("merged-with-destination-master.pptx", SaveFormat.Pptx);
+```
+
+Aspose.Slides 會依來源版面配置的類型或名稱，在指定的母片下尋找相符的版面配置。若不存在合適的版面且 `allowCloneMissingLayout` 為 `true`，則會複製來源版面以加入投影片。若為 `false`，則會拋出 [PptxEditException](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/pptxeditexception/)。
+
+若希望合併失敗而非在目標母片中新增版面，請使用 `false`。
+
+## **使用特定目標版面配置合併投影片**
+
+當您確切知道匯入的投影片應使用哪個目標版面配置時，請使用 [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/islidecollection/addclone/) 重載。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var destinationLayout = destination.LayoutSlides[0];
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide, destinationLayout);
+}
+
+destination.Save("merged-with-destination-layout.pptx", SaveFormat.Pptx);
+```
+
+套用目標版面配置會變更繼承的版面關係；但不會重新設計來源投影片的內容。若來源與目標版面配置的佔位元件結構不同，請檢查結果，以確認繼承的格式與佔位元件行為是否正確。
+
+## **合併不同投影片尺寸的簡報**
+
+不同尺寸的簡報可以合併，但將投影片複製至尺寸不同的簡報時，內容不會自動重新設計以適應新的畫布。因此圖形可能會出現偏移、意外縮放，或位於可見投影片範圍之外。
+
+實務上可在複製前先調整來源簡報的尺寸。使用 [SlideSize.SetSize](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/slidesize/setsize/) 方法在變更投影片尺寸的同時縮放現有內容。[SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/slidesizescaletype/) 可將內容縮放以符合指定大小。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+if (source.SlideSize.Size.Width != destination.SlideSize.Size.Width || 
+    source.SlideSize.Size.Height != destination.SlideSize.Size.Height)
+{
+    source.SlideSize.SetSize(
+        destination.SlideSize.Size.Width, 
+        destination.SlideSize.Size.Height, 
+        SlideSizeScaleType.EnsureFit);
+}
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide);
+}
+
+destination.Save("merged-same-slide-size.pptx", SaveFormat.Pptx);
+```
+
+調整大小會在記憶體中變更來源簡報物件。如果需要保留原始來源簡報以供其他操作，請為合併開啟另一個實例。
+
+## **將投影片合併至簡報區段**
+
+基本的投影片複製迴圈不會重建來源簡報的區段層級。若輸出結果需要保留區段，請在目標簡報中建立或選取區段，並使用 [AddClone(ISlide, ISection)](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/islidecollection/addclone/) 明確將投影片複製至該區段。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var importedSection = destination.Sections.AppendEmptySection("Imported slides");
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide, importedSection);
+}
+
+destination.Save("merged-with-section.pptx", SaveFormat.Pptx);
+```
+
+複製的投影片會被附加至指定的目標區段。若要保留多個來源區段，請在目標中重新建立這些區段，並將每張來源投影片對映至相對應的目標區段。
+
+## **安全地合併多個簡報**
+
+以下端對端範例將第一個簡報作為目標，對每個後續來源的投影片尺寸進行正規化，只在複製期間保持來源開啟，最後一次儲存最終檔案。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var inputFiles = new[] { "part1.pptx", "part2.pptx", "part3.pptx" };
+
+using var merged = new Presentation(inputFiles[0]);
+
+for (var fileIndex = 1; fileIndex < inputFiles.Length; fileIndex++)
+{
+    using var source = new Presentation(inputFiles[fileIndex]);
+
+    if (source.SlideSize.Size.Width != merged.SlideSize.Size.Width || 
+        source.SlideSize.Size.Height != merged.SlideSize.Size.Height)
     {
-        pres1.Slides.AddClone(slide);
+        source.SlideSize.SetSize(
+            merged.SlideSize.Size.Width, 
+            merged.SlideSize.Size.Height, 
+            SlideSizeScaleType.EnsureFit);
     }
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
-
-## **使用投影片母片合併簡報** 
-
-Aspose.Slides 提供 [**AddClone (ISlide, IMasterSlide, Boolean)**](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.islidecollection/addclone/methods/2) 方法，可在合併投影片時套用投影片母片範本。如此一來，必要時您就能變更輸出簡報中投影片的樣式。  
-
-以下 C# 程式碼示範上述操作：
-
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    foreach (ISlide slide in pres2.Slides)
+    foreach (var slide in source.Slides)
     {
-        pres1.Slides.AddClone(slide, pres2.Masters[0], allowCloneMissingLayout: true);
+        merged.Slides.AddClone(slide);
     }
-
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
 }
+
+merged.Save("merged.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert title="Note" color="warning" %}} 
+此範例可作為保留匯入投影片來源格式的基礎。如果輸出必須使用單一目標主題，請將簡單的 `AddClone(slide)` 呼叫取代為前述的目標母片或目標版面配置重載。
 
-投影片母片的版面會自動決定。當無法判斷適當的版面時，若 `AddClone` 方法的 `allowCloneMissingLayout` 布林參數設為 true，則使用來源投影片的版面；否則將拋出 [PptxEditException](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/pptxeditexception)。  
+## **實務考量**
 
-{{% /alert %}}
+### **母片、版面配置與格式忠實度**
 
-若您希望輸出簡報中的投影片使用不同的投影片版面，請改用 [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.islidecollection/addclone/methods/1) 方法進行合併。  
+預設的投影片複製會自動將所需的來源母片帶入目標簡報。Aspose.Slides 會維護一個內部註冊表，追蹤自動複製的母片，以避免重複複製相同的母片。手動複製的母片不會被此註冊表追蹤，因此除非您需要對母片結構進行明確控制，否則避免事先複製母片。
 
-## **從簡報中合併特定投影片** 
+不要假設名稱相同的兩個母片或版面配置在視覺上是等效的。如需企業範本控制最終外觀，請明確選擇目標母片或版面配置，並在合併後檢查結果。
 
-從多個簡報合併特定投影片可用於建立自訂投影片組。Aspose.Slides for .NET 允許您僅選取並匯入所需的投影片。API 會保留原始投影片的格式、版面與設計。  
+### **備註與評論**
 
-以下 C# 程式碼會建立新簡報，從兩個其他簡報中加入標題投影片，並將結果儲存為檔案：
+演講者備註與投影片評論與投影片內容相關聯，會在投影片複製時一起複製。Aspose.Slides 亦提供專用 API 針對 [presentation notes](https://docs.aspose.com/slides/zh-hant/net/presentation-notes/) 與 [presentation comments](https://docs.aspose.com/slides/zh-hant/net/presentation-comments/)。
 
-```cs
-using (Presentation presentation = new Presentation())
-using (Presentation presentation1 = new Presentation("presentation1.pptx"))
-using (Presentation presentation2 = new Presentation("presentation2.pptx"))
-{
-    presentation.Slides.RemoveAt(0);
+如果備註頁面的格式很重要，請驗證合併後的簡報，因為備註母片是簡報層級的物件，可能在來源檔案間不同。對於審閱工作流程，也需在合併來自不同作者或範本的檔案後，驗證評論作者與串聯評論。
 
-    ISlide slide1 = GetTitleSlide(presentation1);
+### **影像、音訊、視訊、OLE 物件與外部連結**
 
-    if (slide1 != null)
-        presentation.Slides.AddClone(slide1);
+投影片可以參照簡報層級的資源，如影像、內嵌音訊、內嵌視訊與 OLE 資料。請複製整個投影片，而非僅複製可見的圖形，讓 Aspose.Slides 能維持投影片與其資源的關聯。
 
-    ISlide slide2 = GetTitleSlide(presentation2);
+內嵌資源與連結資源應分別處理。連結的音訊、視訊、OLE 物件或超連結仍依賴其外部目標；複製投影片不會將外部連結轉換為內嵌內容。請在最終開啟合併簡報的環境中測試連結資源的路徑與 URL。
 
-    if (slide2 != null)
-        presentation.Slides.AddClone(slide2);
+Aspose.Slides 明確追蹤自動複製的母片，但這不應視為對來自不同來源簡報之相同二進位資源必定會去除重複的保證。若檔案大小重要，請檢查合併後的封裝檔並測量結果，而非依賴隱含的去重功能。
 
-    presentation.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
-```cs
-static ISlide GetTitleSlide(IPresentation presentation)
-{
-    foreach (ISlide slide in presentation.Slides)
-    {
-        if (slide.LayoutSlide.LayoutType == SlideLayoutType.Title)
-        {
-            return slide;
-        }
-    }
-    return null;
-}
+### **內嵌字型與字型可用性**
+
+字型在簡報層級管理。如果排版必須在不同機器上保持一致，請勿假設僅複製投影片就能保證所有必要字型在目標環境中可用。您可使用 [FontsManager.GetEmbeddedFonts](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/fontsmanager/getembeddedfonts/) 檢查內嵌字型，並依照 [Embed Fonts in Presentations](https://docs.aspose.com/slides/zh-hant/net/embedded-font/) 中的說明明確管理字型內嵌。
+
+同時確認您有權限內嵌來源檔案所使用的字型。字型授權可能限制內嵌。
+
+### **受密碼保護的簡報**
+
+必須先成功開啟受密碼保護的來源簡報，才能複製其投影片。請透過 [LoadOptions.Password](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/loadoptions/password/) 提供密碼。
+
+```csharp
+using Aspose.Slides;
+
+var loadOptions = new LoadOptions { Password = "YOUR_PASSWORD" };
+
+using var source = new Presentation("protected.pptx", loadOptions);
 ```
 
-## **使用投影片版面合併簡報** 
+開啟加密的來源簡報不會自動對目標簡報套用相同的保護。若需要，請另外設定輸出保護。
 
-此 C# 程式碼示範如何從簡報中合併投影片，同時套用您偏好的投影片版面，最終產生單一輸出簡報：
+### **大型簡報與記憶體使用**
 
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    foreach (ISlide slide in pres2.Slides)
-    {
-        pres1.Slides.AddClone(slide, pres2.LayoutSlides[0]);
-    }
+包含高解析度影像、音訊、視訊或其他大型二進位物件的大型簡報會佔用大量記憶體。[LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/loadoptions/blobmanagementoptions/) 提供 BLOB 處理與暫存檔使用的控制項。請參考 [Manage Presentation BLOBs](https://docs.aspose.com/slides/zh-hant/net/manage-blob/) 瞭解大型檔案策略。
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
+對於大型檔案，盡可能從檔案路徑載入，合併完畢即釋放每個來源簡報，且除非工作流程需要檢查點，否則避免多次儲存中間結果。
 
-## **合併不同投影片尺寸的簡報** 
+### **執行緒安全性**
 
-{{% alert title="Note" color="warning" %}} 
+請勿同時從多個執行緒載入、修改、儲存或複製同一個 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/) 實例。將每個簡報實例限制在單一合併操作中。若平行處理獨立工作，請使用獨立的簡報實例，並遵循 [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/zh-hant/net/multithreading/)。
 
-無法合併投影片尺寸不同的簡報。  
+## **常見問題**
 
-{{% /alert %}}
+**如何保留每個來源簡報的原始設計？**
 
-若要合併兩個投影片尺寸不同的簡報，必須先將其中一個簡報的尺寸調整為與另一個簡報相同。  
+使用 [`AddClone(sourceSlide)`](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/islidecollection/addclone/) 且不提供目標母片或版面配置。當匯入的投影片需要來源母片時，Aspose.Slides 會自動複製該母片。
 
-以下範例程式碼示範此操作：
+**如何讓匯入的投影片使用目標主題？**
 
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-   pres2 = new Presentation("pres2.pptx"))
-{
-   pres2.SlideSize.SetSize(pres1.SlideSize.Size.Width, pres1.SlideSize.Size.Height, SlideSizeScaleType.EnsureFit);
- 
-   foreach (ISlide slide in pres2.Slides)
-   {
-       pres1.Slides.AddClone(slide);
-   }
- 
-   pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
+使用接受目標母片的重載。傳入來自目標簡報的母片，而非來源簡報。Aspose.Slides 會嘗試將每張來源投影片對映至該母片下的適當版面配置。
 
-## **將投影片合併至簡報章節** 
+**什麼時候應該使用特定目標版面配置而非目標母片？**
 
-此 C# 程式碼示範如何將特定投影片合併至簡報的章節：
+若每張匯入的投影片皆應使用已知的單一版面配置，請使用特定版面配置。若希望 Aspose.Slides 根據來源版面類型或名稱在該母片的版面中自動挑選，則使用母片。
 
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    for (var index = 0; index < pres2.Slides.Count; index++)
-    {
-        ISlide slide = pres2.Slides[index];
-        pres1.Slides.AddClone(slide, pres1.Sections[0]);
-    }
+**不同投影片尺寸的簡報可以合併嗎？**
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
+可以，但投影片內容不會自動重新設計以符合目標尺寸。若需要可預測的版面，請先調整來源簡報，例如使用 [SlideSize.SetSize](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/slidesize/setsize/) 與 [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/slidesizescaletype/)。
 
-投影片會被加入至該章節的末端。  
+**我可以將 PPT、PPTX 與 ODP 簡報合併為一個檔案嗎？**
 
-{{% alert title="Tip" color="primary" %}}
+可以。載入每個來源簡報，將所需投影片複製至同一個目標簡報，然後以支援的輸出格式儲存。由於不同的簡報格式支援的功能集合不完全相同，交叉格式合併後請驗證複雜內容。請參考 [Supported File Formats](https://docs.aspose.com/slides/zh-hant/net/supported-file-formats/)。
 
-Aspose 提供一個 [FREE Collage 網路應用程式](https://products.aspose.app/slides/zh-hant/collage)。使用此線上服務，您可以合併 [JPG 轉 JPG](https://products.aspose.app/slides/zh-hant/collage/jpg) 或 PNG 轉 PNG 圖片，建立 [相片網格](https://products.aspose.app/slides/zh-hant/collage/photo-grid) 等。  
+**來源區段會自動保留嗎？**
 
-{{% /alert %}}
+僅使用基本的投影片複製迴圈不會保留區段。若必須保留區段結構，請在目標簡報中重新建立必要的區段，並使用 [AddClone](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/islidecollection/addclone/) 的區段重載。
 
-## **常見問題** 
+**演講者備註與評論會被保留嗎？**
 
-**合併時會保留講者備註嗎？**  
+它們會隨複製的投影片一起被複製。對於依賴備註母片樣式、評論作者或串聯審閱資料的工作流程，請驗證合併結果，因為這些情況涉及簡報層級結構與投影片層級內容。
 
-會。當複製投影片時，Aspose.Slides 會攜帶所有投影片元素，包括備註、格式與動畫。  
+**音訊、視訊、OLE 物件與超連結會發生什麼？**
 
-**評論及其作者會被轉移嗎？**  
+內嵌內容會隨複製的投影片資源關係一起保留。外部連結仍保持外部狀態，合併後仍需確保其目標檔案或 URL 可用。
 
-評論作為投影片內容的一部分，會被一起複製。評論作者的標籤會以評論物件形式保留在產生的簡報中。  
+**每個來源的內嵌字型是否保證在合併簡報中可用？**
 
-**如果來源簡報受密碼保護怎麼辦？**  
+不要僅依賴投影片複製來部署字型。當排版重要時，請檢查目標簡報的內嵌字型，並明確管理字型內嵌或外部字型可用性。
 
-必須使用 [LoadOptions.Password](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/loadoptions/password/) 透過密碼開啟（請參閱 [/slides/zh-hant/net/password-protected-presentation/](/slides/zh-hant/net/password-protected-presentation/)），載入後即可安全地將投影片複製至未受保護的目標檔案（或同樣受保護的檔案）。  
+**如何合併受密碼保護的檔案？**
 
-**合併操作的執行緒安全性如何？**  
+使用正確的 [LoadOptions.Password](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/loadoptions/password/) 開啟，然後照常複製其投影片。輸出保護另行設定。
 
-請勿在 [多個執行緒](/slides/zh-hant/net/multithreading/) 中共用同一個 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/) 實例。建議的規則是「一個文件—一個執行緒」；不同檔案可在各自的執行緒中平行處理。
+**如何處理非常大的簡報？**
+
+當大型二進位物件佔用大量記憶體時，請使用 BLOB 管理；對於極大檔案，優先使用檔案路徑載入，及時釋放來源簡報，且僅在需要時儲存最終結果。
+
+**我可以從多個執行緒合併投影片嗎？**
+
+請勿同時在多個執行緒中使用同一個 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/) 實例。將每個合併操作限制於各自的簡報實例中。

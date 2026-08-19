@@ -1,5 +1,5 @@
 ---
-title: دمج العروض التقديمية بكفاءة في C++
+title: دمج العروض التقديمية بفعالية في C++
 linktitle: دمج العروض التقديمية
 type: docs
 weight: 40
@@ -19,228 +19,363 @@ keywords:
 - دمج ODP
 - C++
 - Aspose.Slides
-description: "دمج شرائح PowerPoint (PPT, PPTX) وعروض OpenDocument (ODP) بسهولة باستخدام Aspose.Slides للـ C++، مما يبسط سير العمل الخاص بك."
+description: "تعلم كيفية دمج عروض PowerPoint وOpenDocument في C++ عن طريق استنساخ الشرائح، والتحكم في الماسترات والتخطيطات، وتغيير حجم محتوى الشرائح، والحفاظ على الأقسام، ومعالجة الملفات المحمية أو الكبيرة."
 ---
+## **نظرة عامة**
 
-{{% alert  title="Tip" color="primary" %}} 
+Aspose.Slides for C++ يدمج العروض التقديمية عن طريق استنساخ الشرائح من [العرض التقديمي](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/) إلى آخر. العملية الأساسية هي [ISlideCollection::AddClone](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islidecollection/addclone/)، والتي يمكنها الحفاظ على تنسيق الشريحة المصدر أو إرفاق الشريحة المستنسخة إلى ماستر أو تخطيط في العرض التقديمي المستهدف.
 
-قد ترغب في تجربة **Aspose المجانية عبر الإنترنت**[تطبيق دمج](https://products.aspose.app/slides/merger). يتيح للمستخدمين دمج عروض PowerPoint بنفس الصيغة (PPT إلى PPT، PPTX إلى PPTX، إلخ) ودمج العروض بصيغ مختلفة (PPT إلى PPTX، PPTX إلى ODP، إلخ).
+يغطي هذا المقال أكثر سير عمل الدمج شيوعًا:
 
-[![todo:image_alt_text](slides-merger.png)](https://products.aspose.app/slides/merger)
+- دمج جميع الشرائح مع الحفاظ على تنسيق المصدر؛
+- دمج شرائح مختارة؛
+- تطبيق ماستر من العرض التقديمي المستهدف؛
+- تطبيق تخطيط محدد من العرض التقديمي المستهدف؛
+- توحيد أحجام الشرائح المختلفة قبل الدمج؛
+- إضافة الشرائح المستنسخة إلى قسم؛
+- دمج عدة عروض تقديمية في سير عمل شامل من البداية إلى النهاية؛
+- التعامل مع الماسترات، الموارد، الملاحظات، التعليقات، الوسائط، الخطوط، كلمات السر، الملفات الكبيرة، ومخاوف تعدد الخيوط.
 
-{{% /alert %}} 
+## **كيف يؤثر استنساخ الشرائح على الماسترات والتخطيطات**
 
+تستمد الشريحة جزءًا كبيرًا من مظهرها من تخطيطها والماستر الخاص بها. لهذا السبب، يحدد التحميل الزائد (overload) الذي تختاره كيفية دمج الشريحة في العرض التقديمي المستهدف.
 
-## **دمج العروض التقديمية**
+استخدم [ISlideCollection::AddClone](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islidecollection/addclone/) بأحد الطرق التالية:
 
-عند دمج عرض تقديمي مع آخر، تقوم فعليًا بدمج شرائحه في عرض تقديمي واحد للحصول على ملف واحد. 
+- `AddClone(sourceSlide)` — الحفاظ على تخطيط وتنسيق الشريحة المصدر. عند الحاجة، يمكن استنساخ ماستر المصدر تلقائيًا إلى العرض التقديمي المستهدف. Aspose.Slides يتعقب الماسترات المستنسخة تلقائيًا بحيث لا يتم استنساخ الماستر نفسه مرّات متعددة عندما تستخدم شرائح متعددة نفس الماستر المصدر.
+- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — إرفاق الشريحة المستنسخة إلى [IMasterSlide](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasterslide/) محدد في المستهدف. يبحث Aspose.Slides عن تخطيط مطابق تحت ذلك الماستر بناءً على نوع التخطيط أو اسمه.
+- `AddClone(sourceSlide, destinationLayout)` — إرفاق الشريحة المستنسخة مباشرةً إلى [ILayoutSlide](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ilayoutslide/) محدد في المستهدف.
 
-{{% alert title="Info" color="info" %}}
+يجب أن ينتمي الماستر أو التخطيط الممرر إلى **العرض التقديمي المستهدف**، وليس إلى العرض التقديمي المصدر.
 
-معظم برامج العروض التقديمية (PowerPoint أو OpenOffice) تفتقر إلى وظائف تسمح للمستخدمين بدمج العروض بهذه الطريقة. 
+## **دمج العروض التقديمية بالكامل مع الحفاظ على تنسيق المصدر**
 
-[**Aspose.Slides for C++**](https://products.aspose.com/slides/cpp/) ، مع ذلك، يتيح لك دمج العروض بطرق مختلفة. يمكنك دمج العروض مع جميع الأشكال والأنماط والنصوص والتنسيقات والتعليقات والرسوم المتحركة، وما إلى ذلك دون القلق بشأن فقدان الجودة أو البيانات. 
+أبسط طريقة دمج هي نسخ كل شريحة من العرض التقديمي المصدر إلى العرض التقديمي المستهدف. هذا هو الاختيار المناسب عندما يجب أن تحتفظ الشرائح المستوردة بالثيم والماستر وعلاقات التخطيط الأصلية.
 
-**انظر أيضًا**
-
-[استنساخ الشرائح](https://docs.aspose.com/slides/cpp/clone-slides/)*.* 
-
-{{% /alert %}}
-
-### **ما الذي يمكن دمجه**
-
-مع Aspose.Slides، يمكنك دمج 
-* العروض الكاملة. جميع الشرائح من العروض تنتهي في عرض تقديمي واحد
-* شرائح محددة. الشرائح المختارة تنتهي في عرض تقديمي واحد
-* العروض بصيغة واحدة (PPT إلى PPT، PPTX إلى PPTX، إلخ) وبصيغ مختلفة (PPT إلى PPTX، PPTX إلى ODP، إلخ) إلى بعضها البعض. 
-
-{{% alert title="Note" color="warning" %}} 
-
-إلى جانب العروض، يتيح لك Aspose.Slides دمج ملفات أخرى:
-
-* [الصور](https://products.aspose.com/slides/cpp/merger/image-to-image/)، مثل [JPG إلى JPG](https://products.aspose.com/slides/cpp/merger/jpg-to-jpg/) أو [PNG إلى PNG](https://products.aspose.com/slides/cpp/merger/png-to-png/)
-* المستندات، مثل [PDF إلى PDF](https://products.aspose.com/slides/cpp/merger/pdf-to-pdf/) أو [HTML إلى HTML](https://products.aspose.com/slides/cpp/merger/html-to-html/)
-* وملفين مختلفين مثل [صورة إلى PDF](https://products.aspose.com/slides/cpp/merger/image-to-pdf/) أو [JPG إلى PDF](https://products.aspose.com/slides/cpp/merger/jpg-to-pdf/) أو [TIFF إلى PDF](https://products.aspose.com/slides/cpp/merger/tiff-to-pdf/).
-
-{{% /alert %}}
-
-### **خيارات الدمج**
-
-يمكنك تطبيق خيارات تحدد ما إذاً
-
-* كل شريحة في العرض الناتج تحتفظ بنمط فريد
-* يتم استخدام نمط محدد لجميع الشرائح في العرض الناتج. 
-
-لدمج العروض، يوفر Aspose.Slides طرقًا [AddClone](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) (من واجهة [ISlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection)). هناك عدة تنفيذات لطرق `AddClone` تُعرّف معلمات عملية دمج العروض. كل كائن Presentation يحتوي على مجموعة [Slides](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c)، لذا يمكنك استدعاء طريقة `AddClone` من العرض الذي تريد دمج الشرائح إليه. 
-
-تعيد طريقة `AddClone` كائن `ISlide`، وهو نسخة مستنسخة من الشريحة المصدر. الشرائح في العرض الناتج هي ببساطة نسخة من الشرائح في المصدر. لذلك يمكنك إجراء تغييرات على الشرائح الناتجة (مثل تطبيق الأنماط أو خيارات التنسيق أو التخطيطات) دون القلق من تأثير ذلك على العروض المصدر. 
-
-## **دمج العروض التقديمية** 
-
-يوفر Aspose.Slides طريقة [**AddClone (ISlide)**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) التي تسمح لك بدمج الشرائح مع الحفاظ على تخطيطاتها وأنماطها (المعلمات الافتراضية). 
-
-هذا الكود C++ يوضح لك كيفية دمج العروض:
 ```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+for (const auto& slide : source->get_Slides())
 {
-    pres1->get_Slides()->AddClone(slide);
+    destination->get_Slides()->AddClone(slide);
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+destination->Save(u"merged.pptx", SaveFormat::Pptx);
 ```
 
+قد يحتوي العرض الناتج على عدة ماسترات عندما يستخدم المصدر والمستهدف تصاميم مختلفة. هذا سلوك متوقع عندما يتم الحفاظ على تنسيق المصدر عن قصد.
 
-## **دمج العروض التقديمية مع شريحة رئيسية** 
+## **دمج شرائح مختارة**
 
-يوفر Aspose.Slides طريقة [**AddClone (ISlide, IMasterSlide, bool)**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a6b040e6b30f52ab4644fafdbc650b640) التي تسمح لك بدمج الشرائح مع تطبيق نموذج شريحة رئيسية للعرض. بهذه الطريقة، إذا لزم الأمر، يمكنك تغيير النمط للشرائح في العرض الناتج. 
+لا يلزم استنساخ كل الشريحة. المثال التالي يستورد فهارس شرائح مختارة فقط من العرض التقديمي المصدر.
 
-هذا الكود C++ يوضح العملية الموصوفة:
 ```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+int32_t slideIndexes[] = {0, 2, 4};
+
+for (auto index : slideIndexes)
 {
-    pres1->get_Slides()->AddClone(slide, pres2->get_Masters()->idx_get(0), true);
+    destination->get_Slides()->AddClone(source->get_Slide(index));
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+destination->Save(u"merged-selected-slides.pptx", SaveFormat::Pptx);
 ```
 
+تحقق من صحة فهارس الشرائح قبل الاستنساخ عندما تكون مستلمة من مدخلات المستخدم أو تكوين خارجي.
 
-{{% alert title="Note" color="warning" %}} 
+## **دمج شرائح باستخدام ماستر المستهدف**
 
-يتم تحديد تخطيط شريحة الماستر تلقائيًا. عندما لا يمكن تحديد تخطيط مناسب، إذا تم ضبط معامل `allowCloneMissingLayout` المنطقي لطريقة `AddClone` على true، يُستخدم تخطيط الشريحة المصدر. وإلا، سيتم رفع استثناء [PptxEditException](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d). 
+استخدم التحميل الزائد [AddClone(ISlide, IMasterSlide, bool)](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islidecollection/addclone/) عندما يجب أن تتبع الشرائح المستوردة ماسترًا موجودًا بالفعل في العرض التقديمي المستهدف.
 
-{{% /alert %}}
-
-إذا كنت تريد أن تكون للشرائح في العرض الناتج تخطيط شريحة مختلف، استخدم طريقة [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0ed5909b2d92555159007046760ff2f1) بدلاً من ذلك عند الدمج. 
-
-## **دمج شرائح محددة من العروض التقديمية** 
-
-دمج شرائح محددة من عروض متعددة مفيد لإنشاء مجموعات شرائح مخصصة. يتيح لك Aspose.Slides C++ اختيار واستيراد الشرائح التي تحتاجها فقط. تحافظ الواجهة البرمجية على تنسيق وتخطيط وتصميم الشرائح الأصلية. 
-
-الكود C++ التالي ينشئ عرضًا تقديميًا جديدًا، يضيف شرائح عنوان من عرضين آخرين، ويحفظ النتيجة في ملف:
 ```cpp
-SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation)
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto destinationMaster = destination->get_Master(0);
+
+for (const auto& slide : source->get_Slides())
 {
-    for (auto&& slide : presentation->get_Slides())
+    destination->get_Slides()->AddClone(slide, destinationMaster, true);
+}
+
+destination->Save(u"merged-with-destination-master.pptx", SaveFormat::Pptx);
+```
+
+يختار Aspose.Slides تخطيطًا مناسبًا تحت الماستر المحدد من خلال مطابقة نوع أو اسم تخطيط المصدر. إذا لم يكن هناك تخطيط مناسب و`allowCloneMissingLayout` يساوي `true`، يتم استنساخ تخطيط المصدر بحيث يمكن إضافة الشريحة. إذا كان `false`، سيتم رمي استثناء [PptxEditException](https://reference.aspose.com/slides/ar/cpp/aspose.slides/details_pptxeditexception/).
+
+استخدم `false` عندما تريد أن يفشل الدمج بدلاً من إضافة تخطيط إضافي إلى الماستر المستهدف.
+
+## **دمج شرائح باستخدام تخطيط مستهدف محدد**
+
+استخدم التحميل الزائد [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islidecollection/addclone/) عندما تعرف بالضبط أي تخطيط مستهدف يجب أن تستخدمه الشرائح المستوردة.
+
+```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto destinationLayout = destination->get_LayoutSlide(0);
+
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide, destinationLayout);
+}
+
+destination->Save(u"merged-with-destination-layout.pptx", SaveFormat::Pptx);
+```
+
+تطبيق تخطيط مستهدف يغيّر علاقة التخطيط الوراثية؛ لكنه لا يعيد تصميم محتوى الشريحة المصدر. إذا كان لتخطيطات المصدر والمستهدف هياكل عناصر نائبة مختلفة، تحقق من النتيجة لتتأكد من أن التنسيق الموروث وسلوك العناصر النائبة مناسبان.
+
+## **دمج عروض تقديمية بأحجام شرائح مختلفة**
+
+يمكن دمج عروض تقديمية بأبعاد شرائح مختلفة، لكن استنساخ شريحة إلى عرض بأبعاد مختلفة لا يعيد تصميم محتواها تلقائيًا لتناسب القماش الجديد. لذلك قد تظهر الأشكال مائلة، مقيّمة بشكل غير متوقع، أو خارج مساحة الشريحة المرئية.
+
+نهج عملي هو تعديل حجم العرض المصدر قبل الاستنساخ. يمكن طريقة [SlideSize::SetSize](https://reference.aspose.com/slides/ar/cpp/aspose.slides/slidesize/setsize/) أن تُعيد قياس المحتوى الموجود مع تغيير أبعاد الشريحة. النوع [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/ar/cpp/aspose.slides/slidesizescaletype/) يُعيد قياس المحتوى ليتناسب مع الحجم المطلوب.
+
+```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto destinationSize = destination->get_SlideSize()->get_Size();
+auto sourceSize = source->get_SlideSize()->get_Size();
+
+if (sourceSize.get_Width() != destinationSize.get_Width() || 
+    sourceSize.get_Height() != destinationSize.get_Height())
+{
+    source->get_SlideSize()->SetSize(
+        destinationSize.get_Width(), 
+        destinationSize.get_Height(), 
+        SlideSizeScaleType::EnsureFit);
+}
+
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide);
+}
+
+destination->Save(u"merged-same-slide-size.pptx", SaveFormat::Pptx);
+```
+
+إعادة الحجم تغيّر كائن العرض المصدر في الذاكرة. إذا كنت تحتاج إلى الاحتفاظ بالعرض المصدر الأصلي دون تغيير لعمليات أخرى، افتح نسخة منفصلة للدمج.
+
+## **دمج شرائح في قسم من العرض التقديمي**
+
+الحلقة الأساسية لاستنساخ الشرائح لا تُعيد إنشاء هيكل أقسام العرض المصدر. إذا كانت الأقسام مهمة في النتيجة، أنشئ أو اختر أقسامًا في العرض المستهدف واستنسخ الشرائح إليها صراحةً باستخدام [AddClone(ISlide, ISection)](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islidecollection/addclone/).
+
+```cpp
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto importedSection = destination->get_Sections()->AppendEmptySection(u"Imported slides");
+
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide, importedSection);
+}
+
+destination->Save(u"merged-with-section.pptx", SaveFormat::Pptx);
+```
+
+تُضاف الشرائح المستنسخة إلى القسم المستهدف المحدد. للحفاظ على عدة أقسام مصدرية، أعد إنشاء تلك الأقسام في المستهدف وربط كل شريحة مصدرية بالقسم المستهدف المناسب.
+
+## **دمج عروض تقديمية متعددة بأمان**
+
+المثال التالي يغطي سير عمل شامل من البداية إلى النهاية يستخدم العرض الأول كوجهة، يوحد حجم الشرائح لكل مصدر إضافي، يبقي كل مصدر مفتوحًا فقط أثناء نسخه، ويحفظ الملف النهائي مرة واحدة.
+
+```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+System::String inputFiles[] = {u"part1.pptx", u"part2.pptx", u"part3.pptx"};
+const int32_t inputFileCount = 3;
+
+auto merged = System::MakeObject<Presentation>(inputFiles[0]);
+auto mergedSize = merged->get_SlideSize()->get_Size();
+
+for (int32_t fileIndex = 1; fileIndex < inputFileCount; fileIndex++)
+{
+    auto source = System::MakeObject<Presentation>(inputFiles[fileIndex]);
+    auto sourceSize = source->get_SlideSize()->get_Size();
+
+    if (sourceSize.get_Width() != mergedSize.get_Width() || 
+        sourceSize.get_Height() != mergedSize.get_Height())
     {
-        if (slide->get_LayoutSlide()->get_LayoutType() == SlideLayoutType::Title)
-        {
-            return slide;
-        }
+        source->get_SlideSize()->SetSize(
+            mergedSize.get_Width(), 
+            mergedSize.get_Height(), 
+            SlideSizeScaleType::EnsureFit);
     }
-    return nullptr;
-}
-```
 
-```cpp
-auto presentation = MakeObject<Presentation>();
-auto presentation1 = MakeObject<Presentation>(u"presentation1.pptx");
-auto presentation2 = MakeObject<Presentation>(u"presentation2.pptx");
-
-presentation->get_Slides()->RemoveAt(0);
-
-auto slide1 = GetTitleSlide(presentation1);
-
-if (slide1 != nullptr)
-    presentation->get_Slides()->AddClone(slide1);
-
-auto slide2 = GetTitleSlide(presentation2);
-
-if (slide2 != nullptr)
-    presentation->get_Slides()->AddClone(slide2);
-
-presentation->Save(u"combined.pptx", SaveFormat::Pptx);
-
-presentation2->Dispose();
-presentation1->Dispose();
-presentation->Dispose();
-```
-
-
-## **دمج العروض التقديمية مع تخطيط شريحة** 
-
-هذا الكود C++ يوضح لك كيفية دمج الشرائح من العروض مع تطبيق تخطيط شريحة مفضل لديك للحصول على عرض تقديمي واحد ناتج:
-```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
-{
-    pres1->get_Slides()->AddClone(slide, pres2->get_LayoutSlides()->idx_get(0));
+    for (const auto& slide : source->get_Slides())
+    {
+        merged->get_Slides()->AddClone(slide);
+    }
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+merged->Save(u"merged.pptx", SaveFormat::Pptx);
 ```
 
+هذا أساس مفيد للحفاظ على تنسيق المصدر للشرائح المستوردة. إذا كان عليك استخدام ثيم واحد للوجهة، استبدل استدعاء `AddClone(slide)` البسيط بالتحميل الزائد المناسب للماستر أو التخطيط المستهدف الموضح أعلاه.
 
-## **دمج العروض التقديمية بأحجام شرائح مختلفة** 
+## **اعتبارات عملية**
 
-{{% alert title="Note" color="warning" %}} 
+### **الماسترات والتخطيطات ودقة التنسيق**
 
-لا يمكنك دمج عروض تقديمية بأحجام شرائح مختلفة. 
+يمكن لاستنساخ الشرائح الافتراضي أن يجلب ماسترًا مطلوبًا من المصدر إلى العرض المستهدف تلقائيًا. Aspose.Slides يحتفظ بسجل داخلي للماسترات المستنسخة تلقائيًا لتجنب استنساخ نفس الماستر مرّات متعددة. الماسترات التي تم استنساخها يدويًا لا يتم تتبعها بهذا السجل، لذا تجنّب استنساخ الماسترات مسبقًا إلا إذا كنت تحتاج إلى تحكم صريح في هيكل الماستر.
 
-{{% /alert %}} 
+لا تفترض أن ماسترين أو تخطيطين يحملان نفس الاسم متساويان بصريًا. إذا كان هناك قالب مؤسسي يتحكم في المظهر النهائي، اختر ماسترًا أو تخطيطًا للوجهة بوضوح وتحقق من النتيجة بعد الدمج.
 
-لدمج عرضين بحجم شرائح مختلف، عليك تغيير حجم أحد العروض لجعل حجمه يطابق حجم العرض الآخر. 
+### **الملاحظات والتعليقات**
 
-هذا الكود النموذجي يوضح العملية الموصوفة:
+ملاحظات المتحدث وتعليقات الشرائح مرتبطة بمحتوى الشريحة وتُنسخ عند استنساخ الشريحة. Aspose.Slides يُوفر أيضًا واجهات برمجة تطبيقات مخصصة لـ[ملاحظات العرض التقديمي](https://docs.aspose.com/slides/ar/cpp/presentation-notes/) و[تعليقات العرض التقديمي](https://docs.aspose.com/slides/ar/cpp/presentation-comments/).
+
+إذا كانت تنسيقات صفحة الملاحظات مهمة، تحقق من العرض المدموج لأن ماسترات الملاحظات هي كائنات على مستوى العرض وقد تختلف بين الملفات المصدرية. في سير عمل المراجعة، تحقق أيضًا من مؤلفي التعليقات وتعليقات السلاسل بعد دمج ملفات من مؤلفين أو قوالب مختلفة.
+
+### **الصور، الصوت، الفيديو، كائنات OLE، والروابط الخارجية**
+
+يمكن للشرائح الإشارة إلى موارد على مستوى العرض مثل الصور، الصوت المُضمن، الفيديو المُضمّن، وبيانات OLE. استنسخ الشريحة نفسها بدلاً من نسخ الأشكال المرئية فقط حتى يتمكن Aspose.Slides من الحفاظ على علاقات الشريحة بمواردها.
+
+يجب معالجة الموارد المضمنة والمربوطة بشكل مختلف. يظل الصوت أو الفيديو أو كائن OLE أو الرابط الخارجي معتمدًا على هدفه الخارجي؛ استنساخ الشريحة لا يُحول الرابط الخارجي إلى محتوى مُضمّن. اختبر مسارات وروابط الموارد المربوطة في البيئة التي سيفتح فيها العرض المدموج.
+
+Aspose.Slides يتعقب الماسترات المستنسخة تلقائيًا، لكن لا ينبغي اعتبار ذلك ضمانًا عامًّا بأن الموارد الثنائية المتطابقة من عروض مصدرية غير مرتبطة سيتم دمجها دائمًا. إذا كان حجم الملف الناتج مهمًا، افحص الحزمة المدموجة وقِس النتيجة بدلًا من الاعتماد على الاستنساخ الضمني للموارد.
+
+### **الخطوط المُضمنة وتوافر الخطوط**
+
+تُدار الخطوط على مستوى العرض. إذا كان من الضروري الحفاظ على تنسيق الطباعة عبر الأجهزة، لا تفترض أن استنساخ الشرائح وحده يضمن توفر كل الخطوط المطلوبة في بيئة الوجهة. يمكنك فحص الخطوط المُضمنة باستخدام [FontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/ar/cpp/aspose.slides/fontsmanager/getembeddedfonts/) وإدارة الإدراج كما هو موضح في [تضمين الخطوط في العروض التقديمية](https://docs.aspose.com/slides/ar/cpp/embedded-font/).
+
+تحقق أيضًا من أنك مسموح لك بتضمين الخطوط المستخدمة في الملفات المصدرية؛ قد تقيد تراخيص الخطوط عملية التضمين.
+
+### **العروض التقديمية المحمية بكلمة سر**
+
+يجب فتح المصدر المحمي بكلمة سر بنجاح قبل أن يتم استنساخ شرائحه. قدم كلمة السر عبر [LoadOptions::set_Password](https://reference.aspose.com/slides/ar/cpp/aspose.slides/loadoptions/set_password/).
+
 ```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres1Size = pres1->get_SlideSize()->get_Size();
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
 
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-pres2->get_SlideSize()->SetSize(pres1Size.get_Width(), pres1Size.get_Height(), SlideSizeScaleType::EnsureFit);
+using namespace Aspose::Slides;
 
-for (const auto& slide : pres2->get_Slides())
-{
-    pres1->get_Slides()->AddClone(slide);
-}
+auto loadOptions = System::MakeObject<LoadOptions>();
+loadOptions->set_Password(u"YOUR_PASSWORD");
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+auto source = System::MakeObject<Presentation>(u"protected.pptx", loadOptions);
 ```
 
+فتح مصدر مشفّر لا يطبق الحماية نفسها تلقائيًا على العرض المستهدف. عين حماية المخرجات بشكل منفصل عند الضرورة.
 
-## **دمج شرائح إلى قسم في العرض التقديمي** 
+### **العروض الكبيرة واستهلاك الذاكرة**
 
-هذا الكود C++ يوضح لك كيفية دمج شريحة محددة إلى قسم في عرض تقديمي:
-```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (int32_t index = 0; index < pres2->get_Slides()->get_Count(); index++)
-{
-    auto slide = pres2->get_Slides()->idx_get(index);
-    pres1->get_Slides()->AddClone(slide, pres1->get_Sections()->idx_get(0));
-}
+العروض الكبيرة التي تحتوي على صور عالية الدقة أو صوت أو فيديو أو كائنات ثنائية أخرى يمكن أن تستهلك ذاكرةً كبيرة. توفر [LoadOptions::set_BlobManagementOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides/loadoptions/set_blobmanagementoptions/) تحكمًا في معالجة الـBLOBs واستخدام الملفات المؤقتة. راجع [إدارة BLOBs في العروض التقديمية](https://docs.aspose.com/slides/ar/cpp/manage-blob/) لاستراتيجيات الملفات الكبيرة.
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
-```
+بالنسبة للملفات الكبيرة، يفضَّل التحميل من مسارات الملفات عند الإمكان، وتحرير كل عرض مصدر بمجرد دمجه، وتجنب حفظ النتائج الوسيطة بشكل متكرر إلا إذا كان سير العمل يتطلب نقاط تحقق.
 
+### **سلامة الخيوط**
 
-يتم إضافة الشريحة في نهاية القسم. 
+لا تقم بتحميل أو تعديل أو حفظ أو استنساخ نفس كائن [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/) بشكل متزامن من خيوط متعددة. احرص على أن يبقى كل كائن عرض محصورًا في عملية دمج واحدة. إذا قمت بتوازي وظائف مستقلة، استخدم كائنات عرض مستقلة واتبع [دليل تعدد الخيوط في Aspose.Slides](https://docs.aspose.com/slides/ar/cpp/multithreading/).
 
-{{% alert title="Tip" color="primary" %}}
+## **الأسئلة المتكررة**
 
-توفر Aspose تطبيق ويب مجاني لتجميع الصور [FREE Collage web app](https://products.aspose.app/slides/collage). يمكنك من خلال هذه الخدمة عبر الإنترنت دمج [JPG إلى JPG](https://products.aspose.app/slides/collage/jpg) أو PNG إلى PNG، وإنشاء [شبكات صور](https://products.aspose.app/slides/collage/photo-grid)، وما إلى ذلك. 
+**كيف أحافظ على التصميم الأصلي لكل عرض تقديمي مصدر؟**
 
-{{% /alert %}}
+استخدم [`AddClone(sourceSlide)`](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islidecollection/addclone/) دون توفير ماستر أو تخطيط للوجهة. Aspose.Slides يمكنه استنساخ ماستر المصدر تلقائيًا عندما تحتاجه الشريحة المستوردة.
 
-## **الأسئلة الشائعة** 
+**كيف أجعل الشرائح المستوردة تستخدم ثيم الوجهة؟**
 
-**هل يتم الحفاظ على ملاحظات المتحدث أثناء الدمج؟**  
+استخدم التحميل الزائد الذي يقبل ماسترًا للوجهة. مرّر ماسترًا من العرض المستهدف، لا من المصدر. سيحاول Aspose.Slides مطابقة كل شريحة مصدرية إلى تخطيط مناسب تحت ذلك الماستر.
 
-نعم. عند استنساخ الشرائح، تنقل Aspose.Slides جميع عناصر الشريحة بما في ذلك الملاحظات والتنسيقات والرسوم المتحركة. 
+**متى يجب استخدام تخطيط مستهدف محدد بدلاً من ماستر الوجهة؟**
 
-**هل يتم نقل التعليقات ومؤلفيها؟**  
+استخدم تخطيطًا محددًا عندما يجب أن تستخدم كل شريحة مستوردة تخطيطًا معروفًا واحدًا. استخدم ماسترًا عندما تريد أن يختار Aspose.Slides بين تخطيطات ذلك الماستر بناءً على نوع أو اسم تخطيط المصدر.
 
-التعليقات، كجزء من محتوى الشريحة، تُنسخ مع الشريحة. تُحافظ تسميات مؤلفي التعليقات ككائنات تعليقات في العرض الناتج. 
+**هل يمكن دمج عروض بأحجام شرائح مختلفة؟**
 
-**ماذا لو كان العرض المصدر محميًا بكلمة مرور؟**  
+نعم، لكن محتوى الشريحة لا يُعاد تصميمه تلقائيًا لأبعاد الوجهة. قم بتغيير حجم العرض المصدر أولًا عندما تحتاج إلى وضعيات متوقعة، مثلًا باستخدام [SlideSize::SetSize](https://reference.aspose.com/slides/ar/cpp/aspose.slides/slidesize/setsize/) و[SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/ar/cpp/aspose.slides/slidesizescaletype/).
 
-يجب أن يتم [تم فتحه باستخدام كلمة المرور](/slides/ar/cpp/password-protected-presentation/) عبر [LoadOptions::set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/)؛ بعد التحميل، يمكن استنساخ تلك الشرائح بأمان إلى ملف هدف غير محمي (أو محمي أيضًا). 
+**هل يمكن دمج ملفات PPT و PPTX و ODP في ملف واحد؟**
 
-**ما مدى أمان الخيط للدمج؟**  
+نعم. قم بتحميل كل عرض مصدر، استنسخ الشرائح المطلوبة إلى عرض واحد للوجهة، واحفظ الوجهة بصيغة مدعومة. نظرًا لاختلاف مجموعات الميزات بين الصيغ، تحقق من المحتوى المعقّد بعد الدمج عبر الصيغ المختلفة. راجع [الصيغ المدعومة للملفات](https://docs.aspose.com/slides/ar/cpp/supported-file-formats/).
 
-لا تقم Using نفس [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) من [multiple threads](/slides/ar/cpp/multithreading/). القاعدة الموصى بها هي "وثيقة واحدة — خيط واحد"؛ يمكن معالجة ملفات مختلفة بالتوازي في خيوط منفصلة.
+**هل يتم الحفاظ على أقسام المصدر تلقائيًا؟**
+
+ليس عبر حلقة أساسية تستنسخ الشرائح فقط. أعد إنشاء الأقسام المطلوبة في الوجهة واستخدم تحميل الزائد الخاص بـ[AddClone](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islidecollection/addclone/) عندما يجب الحفاظ على هيكل الأقسام.
+
+**هل تُحفظ ملاحظات المتحدث والتعليقات؟**
+
+يتم نسخها مع الشريحة المستنسخة. بالنسبة لسير العمل الذي يعتمد على تنسيق ماستر الملاحظة أو مؤلفي التعليقات أو بيانات المراجعة المتسلسلة، تحقق من النتيجة المدموجة لأن هذه السيناريوهات تشمل هياكل على مستوى العرض بالإضافة إلى محتوى على مستوى الشريحة.
+
+**ماذا يحدث للملفات الصوتية والفيديوية وكائنات OLE والروابط التشعبية؟**
+
+المحتوى المضمن يُنقل كجزء من علاقات موارد الشريحة المستنسخة. الروابط الخارجية تظل خارجية، لذا يجب أن تكون ملفات الهدف أو الروابط URL متاحة بعد الدمج.
+
+**هل الخطوط المضمنة من كل مصدر مضمونة التوفر في العرض المدموج؟**
+
+لا تعتمد على استنساخ الشرائح فقط لنشر الخطوط. افحص الخطوط المضمنة في الوجهة وأدرج الخطوط أو تأكد من توفر الخطوط الخارجية صراحةً عندما تكون الطباعة مهمة.
+
+**كيف أدمج ملفًا محميًا بكلمة سر؟**
+
+افتحه باستخدام [LoadOptions::set_Password](https://reference.aspose.com/slides/ar/cpp/aspose.slides/loadoptions/set_password/)، ثم استنسخ شرائحه كالمعتاد. تُضبط حماية المخرج بشكل منفصل.
+
+**كيف أتعامل مع العروض التقديمية الضخمة؟**
+
+استخدم إدارة الـBLOB عندما تهيمن الكائنات الثنائية الكبيرة على استهلاك الذاكرة، وفضّل التحميل من مسار الملف للملفات الضخمة، حرّر عروض المصدر فور الانتهاء من دمجها، واحفظ النتيجة النهائية فقط عند الحاجة.
+
+**هل يمكن دمج الشرائح من خيوط متعددة؟**
+
+لا تستخدم كائن [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/) واحدًا بشكل متزامن من خيوط متعددة. حافظ على عزل كل عملية دمج في كائنات عرض خاصة بها.

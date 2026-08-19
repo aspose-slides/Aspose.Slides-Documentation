@@ -1,6 +1,6 @@
 ---
-title: دمج العروض التقديمية بكفاءة في JavaScript
-linktitle: دمج العروض التقديمية
+title: دمج العروض التقديمية بفعالية في جافا سكريبت
+linktitle: دمج العروض
 type: docs
 weight: 40
 url: /ar/nodejs-java/merge-presentation/
@@ -11,271 +11,353 @@ keywords:
 - دمج PPT
 - دمج PPTX
 - دمج ODP
-- جمع PowerPoint
-- جمع العروض التقديمية
-- جمع الشرائح
-- جمع PPT
-- جمع PPTX
-- جمع ODP
+- دمج PowerPoint
+- دمج العروض التقديمية
+- دمج الشرائح
+- دمج PPT
+- دمج PPTX
+- دمج ODP
 - Node.js
-- JavaScript
+- جافا سكريبت
 - Aspose.Slides
-description: "دمج عروض PowerPoint (PPT, PPTX) وOpenDocument (ODP) بسهولة في JavaScript باستخدام Aspose.Slides لـ Node.js، مما يبسط سير عملك."
+description: "تعرّف على كيفية دمج عروض PowerPoint وOpenDocument في جافا سكريبت عن طريق استنساخ الشرائح، والتحكم في الـ masters والـ layouts، وتغيير حجم محتوى الشرائح، وحفظ الأقسام، ومعالجة الملفات المحمية أو الكبيرة."
 ---
+## **نظرة عامة**
 
-## **دمج العروض التقديمية**
+Aspose.Slides for Node.js عبر Java يدمج العروض التقديمية عن طريق استنساخ الشرائح من عرض تقديمي [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) إلى آخر. العملية الرئيسية هي [SlideCollection.addClone](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-)، والتي يمكنها الحفاظ على تنسيق الشريحة المصدر أو ربط الشريحة المستنسخة ب​master أو layout في عرض التقديم الوجهة.
 
-عند دمج عرض تقديمي بآخر، فإنك فعليًا تجمع شرائحه في عرض تقديمي واحد للحصول على ملف واحد. 
+يغطي هذا المقال أكثر سيناريوهات الدمج شيوعًا:
 
-{{% alert title="معلومات" color="info" %}}
+- دمج جميع الشرائح مع الحفاظ على تنسيقها الأصلي؛
+- دمج شرائح مختارة؛
+- تطبيق master من عرض التقديم الوجهة؛
+- تطبيق layout محدد من عرض التقديم الوجهة؛
+- توحيد أحجام الشرائح المختلفة قبل الدمج؛
+- إضافة الشرائح المستنسخة إلى قسم؛
+- دمج عدة عروض تقديمية في سير عمل شامل؛
+- التعامل مع masters، والموارد، والملاحظات، والتعليقات، والوسائط، والخطوط، وكلمات المرور، والملفات الكبيرة، ومخاوف تعدد الخيوط.
 
-معظم برامج العروض التقديمية (PowerPoint أو OpenOffice) تفتقر إلى وظائف تسمح للمستخدمين بدمج العروض بهذه الطريقة. 
+## **كيف يؤثر استنساخ الشرائح على Masters والـ Layouts**
 
-[**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/nodejs-java/)، يسمح لك بدمج عروض تقديمية بطرق مختلفة. يمكنك دمج العروض مع جميع الأشكال والأنماط والنصوص والتنسيقات والتعليقات والرسوم المتحركة، إلخ، دون القلق بشأن فقدان الجودة أو البيانات.
+تستمد الشريحة جزءًا كبيرًا من مظهرها من layout وmaster الخاصين بها. لهذا السبب يحدد اختيارك للنسخة المتجاوزة (overload) كيف يتم دمج الشريحة في عرض التقديم الوجهة.
 
-**انظر أيضًا**
+استخدم [SlideCollection.addClone](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slidecollection/) بأحد الطرق التالية:
 
-[استنساخ الشرائح](https://docs.aspose.com/slides/nodejs-java/clone-slides/).
+- `addClone(sourceSlide)` — الحفاظ على layout وتنسيق الشريحة المصدر. عند الحاجة، يمكن استنساخ الـ master المصدر إلى عرض التقديم الوجهة تلقائيًا. يتعقب Aspose.Slides الـ masters المستنسخة تلقائيًا بحيث لا يتم استنساخ الـ master نفسه مرارًا عندما تُستخدم الشرائح المتعددة ذات الـ master نفسه.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — ربط الشريحة المستنسخة ب​[MasterSlide](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/masterslide/) معين في الوجهة. يبحث Aspose.Slides عن layout مطابق تحت ذلك الـ master إما بنوع الـ layout أو باسمه.
+- `addClone(sourceSlide, destinationLayout)` — ربط الشريحة المستنسخة مباشرةً بـ[LayoutSlide](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/layoutslide/) معين في الوجهة.
 
-{{% /alert %}}
+يجب أن يكون الـ master أو الـ layout الممرر إلى نسخة `addClone` المتجاوزة تابعًا لـ **العرض الوجهة**، وليس للعرض المصدر.
 
-### **ما الذي يمكن دمجه**
+## **دمج عروض تقديمية كاملة مع الحفاظ على تنسيق المصدر**
 
-مع Aspose.Slides، يمكنك دمج 
+أبسط طريقة دمج هي نسخ كل شريحة من العرض المصدر إلى العرض الوجهة. هذا هو الاختيار المناسب عندما يجب أن تحتفظ الشرائح المستوردة بالموضوع، والـ master، وعلاقات الـ layout الأصلية.
 
-* العروض الكاملة. جميع الشرائح من العروض تنتهي في عرض واحد  
-* شرائح محددة. الشرائح المختارة تنتهي في عرض واحد  
-* عروض بصيغة واحدة (PPT إلى PPT، PPTX إلى PPTX، إلخ) وبصيغ مختلفة (PPT إلى PPTX، PPTX إلى ODP، إلخ) إلى بعضها البعض.  
-
-### **خيارات الدمج**
-
-يمكنك تطبيق خيارات تحدد ما إذا كان
-
-* كل شريحة في عرض الإخراج تحتفظ بنمط فريد  
-* يُستخدم نمط محدد لجميع الشرائح في عرض الإخراج.  
-
-لدمج العروض، توفر Aspose.Slides طريقة [addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) (من فئة [SlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection)). هناك عدة تطبيقات لطريقة `addClone` تحدد معاملات عملية دمج العروض. كل كائن Presentation يمتلك مجموعة [Slides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getSlides--)، لذا يمكنك استدعاء طريقة `addClone` من العرض الذي تريد دمج الشرائح إليه.
-
-طريقة `addClone` تُعيد كائن `Slide`، وهو نسخة مستنسخة من الشريحة المصدر. الشرائح في عرض الإخراج هي مجرد نسخة من الشرائح المصدر. لذلك يمكنك تعديل الشرائح الناتجة (مثلاً تطبيق أنماط أو خيارات تنسيق أو تخطيطات) دون القلق من تأثيرها على العروض المصدر.
-
-## **دمج العروض**
-
-توفر Aspose.Slides الطريقة [**AddClone(ISlide)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) التي تسمح لك بدمج الشرائح مع الاحتفاظ بتخطيطاتها وأنماطها (معلمات افتراضية).
-
-هذا الكود JavaScript يوضح كيفية دمج العروض:
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i));
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+قد يحتوي العرض الناتج على عدة masters عندما تستخدم العروض المصدر والوجهة تصاميم مختلفة. وهذا متوقع عندما يُراد الحفاظ على تنسيق المصدر عن قصد.
 
-## **دمج العروض مع القالب الرئيسي للشرائح**
+## **دمج شرائح مختارة**
 
-توفر Aspose.Slides الطريقة [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) التي تسمح لك بدمج الشرائح مع تطبيق قالب رئيسي للشرائح. بهذه الطريقة، إذا لزم الأمر، يمكنك تغيير النمط للشرائح في عرض الإخراج.
+ليس من الضروري استنساخ كل شريحة. المثال التالي يستورد فهارس شرائح مختارة فقط من العرض المصدر.
 
-هذا الكود JavaScript يوضح العملية الموصوفة:
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres2.getMasters().get_Item(0), true);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const slideIndexes = [0, 2, 4];
+
+    for (const index of slideIndexes) {
+        destination.getSlides().addClone(source.getSlides().get_Item(index));
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-selected-slides.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+تحقق من صحة فهارس الشرائح قبل الاستنساخ عندما تكون مأخوذة من إدخال المستخدم أو تكوين خارجي.
 
-{{% alert title="ملاحظة" color="warning" %}} 
+## **دمج الشرائح باستخدام Master في الوجهة**
 
-يتم تحديد تخطيط الشريحة للقالب الرئيسي تلقائيًا. عندما لا يمكن تحديد تخطيط مناسب، إذا تم ضبط المعامل المنطقي `allowCloneMissingLayout` في طريقة `addClone` على true، يُستخدم تخطيط الشريحة المصدر. خلاف ذلك، سيتم إلقاء [PptxEditException](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PptxEditException).
+استخدم نسخة [addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) عندما يجب أن تتبع الشرائح المستوردة master موجود مسبقًا في عرض التقديم الوجهة.
 
-{{% /alert %}}
-
-إذا كنت تريد أن تكون للشرائح في عرض الإخراج تخطيط شريحة مختلف، استخدم طريقة [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.ILayoutSlide-) عند الدمج.
-
-## **دمج شرائح محددة من العروض**
-
-دمج شرائح محددة من عروض متعددة مفيد لإنشاء مجموعات شرائح مخصصة. يسمح Aspose.Slides for Node.js via Java لك باختيار واستيراد الشرائح التي تحتاجها فقط. يحافظ API على التنسيق والتخطيط وتصميم الشرائح الأصلية.
-
-الكود JavaScript التالي ينشئ عرضًا تقديميًا جديدًا، يضيف شرائح عنوان من عرضين آخرين، ويحفظ النتيجة في ملف:
-```js
-function getTitleSlide(presentation) {
-  for (let i = 0; i < presentation.getSlides().size(); i++) {
-    let slide = presentation.getSlides().get_Item(i);
-    if (slide.getLayoutSlide().getLayoutType() == aspose.slides.SlideLayoutType.Title) {
-      return slide;
-    }
-  }
-  return null;
-}
-```
-
-```js
-let presentation = new aspose.slides.Presentation();
-let presentation1 = new aspose.slides.Presentation("presentation1.pptx");
-let presentation2 = new aspose.slides.Presentation("presentation2.pptx");
-try {
-    presentation.getSlides().removeAt(0);
-    
-    let slide1 = getTitleSlide(presentation1);
-
-    if (slide1 != null)
-        presentation.getSlides().addClone(slide1);
-
-    let slide2 = getTitleSlide(presentation2);
-
-    if (slide2 != null)
-        presentation.getSlides().addClone(slide2);
-
-    presentation.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    presentation2.dispose();
-    presentation1.dispose();
-    presentation.dispose();
-}
-```
-
-
-## **دمج العروض مع تخطيط الشرائح**
-
-هذا الكود JavaScript يوضح كيفية دمج الشرائح من العروض مع تطبيق تخطيط شريحة مفضل للحصول على عرض إخراج واحد:
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const destinationMaster = destination.getMasters().get_Item(0);
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), destinationMaster, true);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-with-destination-master.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+يحدد Aspose.Slides layout مناسب تحت الـ master المحدد بمطابقة نوع أو اسم layout المصدر. إذا لم يكن هناك layout مناسب وكان `allowCloneMissingLayout` يساوي `true`، يتم استنساخ layout المصدر لكي يمكن إضافة الشريحة. إذا كان `false`، يتم رفع استثناء [PptxEditException](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pptxeditexception/).
 
-## **دمج العروض بأحجام شرائح مختلفة**
+استخدم `false` عندما تريد أن يفشل الدمج بدلاً من إضافة layout إضافي إلى الـ master الوجهة.
 
-{{% alert title="ملاحظة" color="warning" %}} 
+## **دمج الشرائح باستخدام Layout محدد في الوجهة**
 
-لا يمكنك دمج عروض بأحجام شرائح مختلفة. 
+استخدم نسخة [addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ILayoutSlide-) عندما تعرف بالضبط أي layout في الوجهة يجب أن تُستخدم للشرائح المستوردة.
 
-{{% /alert %}}
-
-لدمج عرضين بأحجام شرائح مختلفة، عليك تغيير حجم أحد العروض لتطابق حجم العرض الآخر.
-
-هذا الكود النموذجي يوضح العملية الموصوفة:
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        pres2.getSlideSize().setSize(pres1.getSlideSize().getSize().getWidth(), pres1.getSlideSize().getSize().getHeight(), aspose.slides.SlideSizeScaleType.EnsureFit);
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const destinationLayout = destination.getLayoutSlides().get_Item(0);
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), destinationLayout);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-with-destination-layout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+تطبيق layout في الوجهة يغيّر علاقة الـ layout الموروثة؛ لا يعيد تصميم محتوى الشريحة المصدر. إذا كان للـ layoutين (المصدر والوجهة) هياكل placeholder مختلفة، افحص النتيجة لتتأكد من أن التنسيق والسلوك الموروث مناسبين.
+
+## **دمج عروض تقديمية بأحجام شرائح مختلفة**
+
+يمكن دمج عروض تقديمية بأبعاد شرائح مختلفة، لكن استنساخ شريحة إلى عرض بأبعاد مختلفة لا يُعيد تصميم المحتوى تلقائيًا ليتناسب مع القماش الجديد. قد تظهر الأشكال مُحَوَّلة أو مُقَدَّرة بشكل غير متوقع أو خارج مساحة الشريحة المرئية.
+
+نهج عملي هو إعادة تحجيم العرض المصدر قبل الاستنساخ. طريقة [SlideSize.setSize](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slidesize/#setSize-float-float-int-) يمكنها تحجيم المحتوى الحالي مع تغيير أبعاد الشريحة. النوع [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slidesizescaletype/) يُحَجِّم المحتوى ليتناسب مع الحجم المطلوب.
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
+try {
+    const sourceSize = source.getSlideSize().getSize();
+    const destinationSize = destination.getSlideSize().getSize();
+    const sizesDiffer = sourceSize.getWidth() !== destinationSize.getWidth() || 
+                        sourceSize.getHeight() !== destinationSize.getHeight();
+
+    if (sizesDiffer) {
+        source.getSlideSize().setSize(
+            destinationSize.getWidth(), 
+            destinationSize.getHeight(), 
+            aspose.slides.SlideSizeScaleType.EnsureFit);
+    }
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i));
+    }
+
+    destination.save("merged-same-slide-size.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
+}
+```
+
+إعادة التحجيم تغير كائن العرض المصدر في الذاكرة. إذا كنت بحاجة إلى إبقاء العرض المصدر الأصلي دون تغيير لعمليات أخرى، افتح نسخة منفصلة للدمج.
 
 ## **دمج الشرائح إلى قسم في العرض**
 
-هذا الكود JavaScript يوضح كيفية دمج شريحة محددة إلى قسم في عرض:
+الحلقة الأساسية لاستنساخ الشرائح لا تُعيد إنشاء هيكلية الأقسام من العرض المصدر. إذا كانت الأقسام مهمة في الناتج، أنشئ أو اختر أقسامًا في العرض الوجهة واستنسخ الشرائح إليها صراحة باستخدام [addClone(Slide, Section)](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ISection-).
+
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres1.getSections().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const importedSection = destination.getSections().appendEmptySection("Imported slides");
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), importedSection);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-with-section.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+تُضاف الشرائح المستنسخة إلى القسم المحدد في الوجهة. للحفاظ على عدة أقسام مصدر، أعد إنشاء تلك الأقسام في الوجهة وربط كل شريحة مصدر بالقسم الوجهة المقابل.
 
-تُضاف الشريحة في نهاية القسم. 
+## **دمج عروض تقديمية متعددة بأمان**
 
-## **الأسئلة المتكررة**
+المثال الشامل التالي يستخدم العرض الأول كوجهة، يطبع حجم الشرائح لكل مصدر إضافي، يبقي كل مصدر مفتوحًا فقط أثناء النسخ، ويحفظ الملف النهائي مرة واحدة.
 
-**هل يتم الحفاظ على ملاحظات المتحدث أثناء الدمج؟**
+```javascript
+const aspose = require("aspose.slides.via.java");
 
-نعم. عند استنساخ الشرائح، تنقل Aspose.Slides جميع عناصر الشريحة، بما في ذلك الملاحظات والتنسيق والرسوم المتحركة.
+const inputFiles = ["part1.pptx", "part2.pptx", "part3.pptx"];
 
-**هل يتم نقل التعليقات ومؤلفيها؟**
+const merged = new aspose.slides.Presentation(inputFiles[0]);
+try {
+    const mergedSize = merged.getSlideSize().getSize();
 
-التعليقات، كجزء من محتوى الشريحة، تُنسخ مع الشريحة. تُحافظ تسميات مؤلفي التعليقات ككائنات تعليق في العرض الناتج.
+    for (let fileIndex = 1; fileIndex < inputFiles.length; fileIndex++) {
+        const source = new aspose.slides.Presentation(inputFiles[fileIndex]);
+        try {
+            const sourceSize = source.getSlideSize().getSize();
+            const sizesDiffer = sourceSize.getWidth() !== mergedSize.getWidth() || 
+                                sourceSize.getHeight() !== mergedSize.getHeight();
 
-**ماذا لو كان العرض المصدر محمياً بكلمة مرور؟**
+            if (sizesDiffer) {
+                source.getSlideSize().setSize(
+                    mergedSize.getWidth(), 
+                    mergedSize.getHeight(), 
+                    aspose.slides.SlideSizeScaleType.EnsureFit);
+            }
 
-يجب [فتح العرض باستخدام كلمة المرور](/slides/ar/nodejs-java/password-protected-presentation/) عبر [LoadOptions.setPassword](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/setpassword/); بعد التحميل، يمكن استنساخ تلك الشرائح بأمان إلى ملف هدف غير محمي (أو محمي كذلك).
+            for (let slideIndex = 0; slideIndex < source.getSlides().size(); slideIndex++) {
+                merged.getSlides().addClone(source.getSlides().get_Item(slideIndex));
+            }
+        } finally {
+            source.dispose();
+        }
+    }
 
-**ما مدى أمان العملية من حيث الترابط (thread‑safe)؟**
+    merged.save("merged.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    merged.dispose();
+}
+```
 
-لا تستخدم نفس كائن [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) من [عدة خيوط](/slides/ar/nodejs-java/multithreading/). القاعدة الموصى بها هي "مستند واحد — خيط واحد"؛ يمكن معالجة ملفات مختلفة بالتوازي في خيوط منفصلة.
+هذا هو أساس موثوق للحفاظ على تنسيق الشرائح المستوردة. إذا كان ناتجك بحاجة إلى موضوع (theme) واحد للوجهة، استبدل الاستدعاء البسيط `addClone(sourceSlide)` بالنسخة المناسبة التي تستخدم master أو layout في الوجهة كما هو موضح أعلاه.
 
-## **انظر أيضًا**
+## **اعتبارات عملية**
 
-توفر Aspose أداة [صانع كولاج مجاني على الإنترنت](https://products.aspose.app/slides/collage). باستخدام هذه الخدمة على الإنترنت، يمكنك دمج صور [JPG إلى JPG](https://products.aspose.app/slides/collage/jpg) أو PNG إلى PNG، إنشاء [شبكات صور](https://products.aspose.app/slides/collage/photo-grid)، والمزيد.
+### **Masters و Layouts ودقة التنسيق**
 
-جرب [أداة الدمج المجانية على الإنترنت من Aspose](https://products.aspose.app/slides/merger). تسمح لك بدمج عروض PowerPoint بنفس الصيغة (مثل PPT إلى PPT، PPTX إلى PPTX) أو عبر صيغ مختلفة (مثل PPT إلى PPTX، PPTX إلى ODP).
+الاستنساخ الافتراضي للشرائح يمكنه جلب الـ master المطلوب من المصدر إلى العرض الوجهة تلقائيًا. يحتفظ Aspose.Slides بسجل داخلي للـ masters المستنسخة تلقائيًا لتجنب استنساخ الـ master نفسه مرارًا. الـ masters التي تم استنساخها يدويًا لا يتم تتبعها في ذلك السجل، لذا تجنّب استنساخ الـ masters مسبقًا إلا إذا كنت بحاجة إلى تحكم صريح في بنية الـ master.
 
-[![Aspose FREE Online Merger](slides-merger.png)](https://products.aspose.app/slides/merger)
+لا تفترض أن master أو layoutين يحملان نفس الاسم متطابقان بصريًا. إذا كان القالب المؤسسي يجب أن يتحكم في المظهر النهائي، اختر master أو layout وجهة صراحةً وتحقق من النتيجة بعد الدمج.
+
+### **الملاحظات والتعليقات**
+
+الملاحظات الخاصة بالمقدم وتعليقات الشرائح مرتبطة بمحتوى الشريحة وتُنسخ عند استنساخ الشريحة. يقدم Aspose.Slides أيضًا واجهات برمجة تطبيقات مخصصة لـ[presentation notes](https://docs.aspose.com/slides/ar/nodejs-java/presentation-notes/) و[presentation comments](https://docs.aspose.com/slides/ar/nodejs-java/presentation-comments/).
+
+إذا كان تنسيق صفحة الملاحظات مهمًا، تحقق من العرض المدمج لأن masters الملاحظات هي كائنات على مستوى العرض وقد تختلف بين ملفات المصدر. في سير عمل المراجعة، تحقق أيضًا من مؤلفي التعليقات وتعليقات السلاسل بعد دمج ملفات من مؤلفين أو قوالب مختلفة.
+
+### **الصور، الصوت، الفيديو، كائنات OLE، والروابط الخارجية**
+
+يمكن للشرائح الإشارة إلى موارد على مستوى العرض مثل الصور، الصوت المدمج، الفيديو المدمج، وبيانات OLE. استنسخ الشريحة نفسها بدلاً من نسخ الأشكال المرئية فقط حتى يتمكن Aspose.Slides من الحفاظ على علاقات الشريحة بمواردها.
+
+يجب معالجة الموارد المدمجة والموارد المرتبطة بشكل مختلف. يبقى الصوت أو الفيديو أو كائن OLE أو الرابط الخارجي معتمدًا على الهدف الخارجي؛ استنساخ الشريحة لا يحول الرابط الخارجي إلى محتوى مدمج. اختبر مسارات الموارد المرتبطة وعناوين URL في البيئة التي سيفتح فيها العرض المدمج.
+
+يتعقب Aspose.Slides الـ masters المستنسخة تلقائيًا، لكن لا ينبغي اعتبار ذلك ضمانًا عامًّا بأن الموارد الثنائية المتطابقة من عروض مصدر غير مرتبطة سيتم إلغاء تكرارها دائمًا. إذا كان حجم ملف الإخراج مهمًا، افحص الحزمة المدمجة وقس الحجم بدلًا من الاعتماد على الإلغاء الضمني للتكرار.
+
+### **الخطوط المدمجة وتوفر الخطوط**
+
+تُدار الخطوط على مستوى العرض. إذا كان من الضروري الحفاظ على تناسق الطباعة عبر الأجهزة، لا تفترض أن استنساخ الشرائح وحده يضمن توفر كل خط مطلوب في بيئة الوجهة. يمكنك فحص الخطوط المدمجة عبر [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fontsmanager/#getEmbeddedFonts--) وإدارة الدمج صراحةً كما هو موضح في [Embed Fonts in Presentations](https://docs.aspose.com/slides/ar/nodejs-java/embedded-font/).
+
+تحقق أيضًا من أنك مسموح لك بدمج الخطوط المستخدمة في ملفات المصدر؛ تراخيص الخطوط قد تقيد عملية الدمج.
+
+### **العروض المحمية بكلمة مرور**
+
+يجب فتح المصدر المحمي بكلمة مرور بنجاح قبل أن يمكن استنساخ شرائحه. قدّم كلمة المرور عبر [LoadOptions.setPassword](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/loadoptions/#setPassword-String-).
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const loadOptions = new aspose.slides.LoadOptions();
+loadOptions.setPassword("YOUR_PASSWORD");
+
+const source = new aspose.slides.Presentation("protected.pptx", loadOptions);
+try {
+    // التعامل مع العرض المفرغ من التشفير.
+} finally {
+    source.dispose();
+}
+```
+
+فتح مصدر مشفر لا يطبق الحماية نفسها تلقائيًا على العرض الوجهة. اضبط حماية الإخراج بصورة منفصلة عند الحاجة.
+
+### **العروض الكبيرة واستخدام الذاكرة**
+
+العروض الكبيرة التي تحتوي على صور عالية الدقة، صوت، فيديو أو كائنات ثنائية كبيرة قد تستهلك ذاكرةً ملحوظة. توفر [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions--) تحكمًا في معالجة الـ BLOBs واستخدام الملفات المؤقتة. راجع [Manage Presentation BLOBs](https://docs.aspose.com/slides/ar/nodejs-java/manage-blob/) لاستراتيجيات الملفات الكبيرة.
+
+للملفات الضخمة، يفضَّل التحميل من مسارات الملفات حينما يكون ذلك ممكنًا، وتفريغ كل عرض مصدر بمجرد دمجه، وتجنّب حفظ النتائج الوسيطة بشكل متكرر ما لم يتطلب سير العمل نقاط فحص.
+
+### **سلامة الخيوط**
+
+لا تقم بتحميل أو حفظ أو استنساخ كائن [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) في عدة خيوط. هذه العمليات غير مدعومة للاستخدام المتعدد الخيوط. إذا احتجت إلى تنفيذ وظائف دمج مستقلة بالتوازي، استخدم عدة عمليات منفصلة أحادية الخيط، كلٌ منها يمتلك مثاله الخاص من العروض، واتبع إرشادات [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/ar/nodejs-java/multithreading/).
+
+## **التعليمات المتكررة (FAQ)**
+
+**كيف يمكنني الحفاظ على التصميم الأصلي لكل عرض مصدر؟**
+
+استخدم [`addClone(sourceSlide)`](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-) دون تحديد master أو layout للوجهة. يستطيع Aspose.Slides استنساخ الـ master المصدر تلقائيًا عندما تكون الحاجة إليه من قبل الشريحة المستوردة.
+
+**كيف أجعل الشرائح المستوردة تستخدم موضوع (theme) الوجهة؟**
+
+استخدم النسخة المتجاوزة التي تقبل master وجهة. مرّر master من العرض الوجهة، وليس من العرض المصدر. سيحاول Aspose.Slides ربط كل شريحة مصدر بـlayout مناسب تحت ذلك الـ master.
+
+**متى يجب استخدام layout وجهة محدد بدلاً من master وجهة؟**
+
+استخدم layout محدد عندما يجب أن تستخدم كل شريحة مستوردة نفس الـ layout المعروف. استخدم master عندما تريد أن يختار Aspose.Slides بين الـ layouts المتاحة للـ master بناءً على نوع أو اسم layout المصدر.
+
+**هل يمكن دمج عروض بأحجام شرائح مختلفة؟**
+
+نعم، لكن محتوى الشرائح لا يُعاد تصميمه تلقائيًا لأبعاد الوجهة. احرص على تحجيم العرض المصدر مسبقًا عندما تحتاج إلى وضعية predictable، على سبيل المثال باستخدام [SlideSize.setSize](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slidesize/#setSize-float-float-int-) و[SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slidesizescaletype/).
+
+**هل يمكنني دمج عروض PPT و PPTX و ODP في ملف واحد؟**
+
+نعم. حمّل كل عرض مصدر، استنسخ الشرائح المطلوبة إلى عرض وجهة واحد، واحفظ الوجهة بصيغة إخراج مدعومة. نظرًا لاختلاف مجموعة الميزات بين الصيغ، تحقق من المحتوى المعقّد بعد عمليات الدمج عبر الصيغ. راجع [Supported File Formats](https://docs.aspose.com/slides/ar/nodejs-java/supported-file-formats/).
+
+**هل يتم الحفاظ على الأقسام المصدر تلقائيًا؟**
+
+ليس في حلقة أساسية تستنسخ الشرائح فقط. أعد إنشاء الأقسام المطلوبة في الوجهة واستخدم نسخة الـ section من [addClone](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ISection-) عندما يجب الحفاظ على بنية الأقسام.
+
+**هل تُحفظ ملاحظات المتحدث والتعليقات؟**
+
+نعم، تُنسخ مع الشريحة المستنسخة. بالنسبة لسير عمل يعتمد على تنسيق master الملاحظات أو مؤلفي التعليقات أو بيانات المراجعة المتسلسلة، تحقق من النتيجة المدمجة لأن هذه السيناريوهات تشمل هياكل على مستوى العرض بالإضافة إلى محتوى الشرائح.
+
+**ماذا يحدث للملفات الصوتية والفيديوية وكائنات OLE والروابط؟**
+
+المحتوى المدمج يُحمل كجزء من علاقات الموارد للشرائح المستنسخة. الروابط الخارجية تظل خارجية، لذا يجب أن تكون الملفات أو عناوين URL المستهدفة متاحة بعد الدمج.
+
+**هل الخطوط المدمجة من كل مصدر مضمونة التوفر في العرض المدمج؟**
+
+لا تعتمد على استنساخ الشرائح فقط لنشر الخطوط. افحص الخطوط المدمجة في الوجهة وادارة دمج الخطوط صراحةً أو تأكد من توفر الخطوط الخارجية عندما تكون الطباعة مهمة.
+
+**كيف أدمج ملفًا محميًا بكلمة مرور؟**
+
+افتحه باستخدام [LoadOptions.setPassword](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/loadoptions/#setPassword-String-)، ثم استنسخ شرائحه كالمعتاد. تُضبط حماية الإخراج بشكل منفصل.
+
+**كيف أتعامل مع عروض تقديمية ضخمة جدًا؟**
+
+استخدم إدارة الـ BLOB عندما تهيمن الكائنات الثنائية الكبيرة على استهلاك الذاكرة، وفضّل تحميل من مسار الملف للملفات الضخمة، وتفريغ عروض المصدر بسرعة بعد دمجها، واحفظ النتيجة النهائية فقط عند الحاجة.
+
+**هل يمكنني دمج شرائح من عدة خيوط؟**
+
+لا تقم بتحميل أو حفظ أو استنساخ كائنات العرض في عدة خيوط. للوظائف المستقلة المتوازية، استخدم عمليات أحادية الخيط منفصلة مع مثيلاتها المستقلة من العروض وتبع إرشادات [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/ar/nodejs-java/multithreading/).

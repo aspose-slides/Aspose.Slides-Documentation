@@ -1,283 +1,408 @@
 ---
-title: Kết hợp hiệu quả các bài thuyết trình trong PHP
-linktitle: Kết hợp các bài thuyết trình
+title: Hiệu quả hợp nhất các bản trình chiếu trong PHP
+linktitle: Hợp nhất bản trình chiếu
 type: docs
 weight: 40
 url: /vi/php-java/merge-presentation/
 keywords:
-- gộp PowerPoint
-- gộp bài thuyết trình
-- gộp slide
-- gộp PPT
-- gộp PPTX
-- gộp ODP
+- hợp nhất PowerPoint
+- hợp nhất bản trình chiếu
+- hợp nhất slide
+- hợp nhất PPT
+- hợp nhất PPTX
+- hợp nhất ODP
 - kết hợp PowerPoint
-- kết hợp bài thuyết trình
+- kết hợp bản trình chiếu
 - kết hợp slide
 - kết hợp PPT
 - kết hợp PPTX
 - kết hợp ODP
 - PHP
 - Aspose.Slides
-description: "Dễ dàng gộp các bài thuyết trình PowerPoint (PPT, PPTX) và OpenDocument (ODP) với Aspose.Slides for PHP via Java, tối ưu hoá quy trình làm việc của bạn."
+description: "Tìm hiểu cách hợp nhất các bản trình chiếu PowerPoint và OpenDocument trong PHP bằng cách sao chép slide, kiểm soát master và layout, thay đổi kích thước nội dung slide, giữ nguyên các phần, và xử lý các tệp được bảo vệ hoặc lớn."
 ---
 ## **Tổng quan**
 
-Aspose.Slides cho phép bạn gộp các bài thuyết trình bằng cách sao chép các slide từ một bài thuyết trình sang bài thuyết trình khác. Bài viết này giải thích cách gộp toàn bộ bài thuyết trình hoặc các slide đã chọn, sử dụng slide master hoặc bố cục cụ thể trong quá trình gộp, xử lý các bài thuyết trình có kích thước slide khác nhau, và thêm các slide đã gộp vào một phần của bài thuyết trình. Nó cũng bao gồm các lưu ý thực tiễn liên quan đến nội dung đã gộp, bao gồm ghi chú người thuyết trình, bình luận, tệp nguồn được bảo vệ bằng mật khẩu và việc sử dụng luồng.
+Aspose.Slides for PHP qua Java hợp nhất các bản trình chiếu bằng cách sao chép các slide từ một [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/) sang bản khác. Hoạt động chính là [SlideCollection::addClone()](https://reference.aspose.com/slides/vi/php-java/aspose.slides/slidecollection/addclone/), có thể giữ nguyên định dạng của slide nguồn hoặc gắn slide đã sao chép vào một master hoặc layout trong bản trình chiếu đích.
 
-## **Gộp Bài Thuyết Trình**
+Bài viết này đề cập đến các quy trình hợp nhất phổ biến nhất:
 
-Khi bạn gộp một bài thuyết trình vào bài khác, bạn thực tế đang kết hợp các slide của chúng trong một bài thuyết trình duy nhất để có được một tệp.
+- hợp nhất tất cả các slide đồng thời giữ nguyên định dạng nguồn;
+- hợp nhất các slide đã chọn;
+- áp dụng một master từ bản trình chiếu đích;
+- áp dụng một layout cụ thể từ bản trình chiếu đích;
+- chuẩn hóa các kích thước slide khác nhau trước khi hợp nhất;
+- thêm các slide đã sao chép vào một phần;
+- hợp nhất nhiều bản trình chiếu trong một quy trình đầu‑cuối;
+- xử lý master, tài nguyên, ghi chú, bình luận, đa phương tiện, phông chữ, mật khẩu, tệp lớn và các vấn đề đa luồng.
 
-{{% alert title="Info" color="info" %}}
+## **Cách sao chép Slide ảnh hưởng đến Master và Layouts**
 
-Hầu hết các chương trình trình chiếu (PowerPoint hoặc OpenOffice) thiếu các chức năng cho phép người dùng kết hợp các bài thuyết trình theo cách này.
+Một slide kế thừa phần lớn giao diện của nó từ layout và master. Vì vậy, phương thức overload sao chép mà bạn chọn quyết định cách slide được hợp nhất sẽ được tích hợp vào bản trình chiếu đích.
 
-[**Aspose.Slides for PHP via Java**](https://products.aspose.com/slides/vi/php-java/), tuy nhiên, cho phép bạn gộp các bài thuyết trình theo các cách khác nhau. Bạn có thể gộp các bài thuyết trình cùng với tất cả các hình dạng, kiểu dáng, văn bản, định dạng, bình luận, hoạt ảnh, v.v. mà không phải lo lắng về việc mất chất lượng hay dữ liệu.
+Sử dụng [SlideCollection::addClone()](https://reference.aspose.com/slides/vi/php-java/aspose.slides/slidecollection/addclone/) theo một trong các cách sau:
 
-**Xem thêm**
+- `addClone(sourceSlide)` — giữ nguyên layout và định dạng của slide nguồn. Khi cần, master nguồn có thể được sao chép tự động vào bản trình chiếu đích. Aspose.Slides theo dõi các master được sao chép tự động để các slide lặp lại sử dụng cùng một master nguồn không bị sao chép nhiều lần.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — gắn slide đã sao chép vào một [MasterSlide](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masterslide/) đích cụ thể. Aspose.Slides tìm kiếm một layout phù hợp dưới master đó dựa trên loại layout hoặc tên.
+- `addClone(sourceSlide, destinationLayout)` — gắn slide đã sao chép trực tiếp vào một [LayoutSlide](https://reference.aspose.com/slides/vi/php-java/aspose.slides/layoutslide/) đích cụ thể.
 
-[**Sao chép Slide**](/slides/vi/php-java/clone-slides/).
+Master hoặc layout được truyền tới overload `addClone` phải thuộc về bản trình chiếu **đích**, không phải bản trình chiếu nguồn.
 
-{{% /alert %}}
+## **Hợp nhất toàn bộ bản trình chiếu và giữ nguyên định dạng nguồn**
 
-### **Những Đối Tượng Có Thể Gộp**
-
-Với Aspose.Slides, bạn có thể gộp 
-
-* toàn bộ các bài thuyết trình. Tất cả các slide từ các bài thuyết trình sẽ nằm trong một bài thuyết trình duy nhất
-* các slide cụ thể. Các slide đã chọn sẽ nằm trong một bài thuyết trình duy nhất
-* các bài thuyết trình ở cùng một định dạng (PPT sang PPT, PPTX sang PPTX, v.v.) và ở các định dạng khác nhau (PPT sang PPTX, PPTX sang ODP, v.v.) với nhau. 
-
-{{% alert title="Note" color="warning" %}} 
-
-Ngoài các bài thuyết trình, Aspose.Slides cho phép bạn gộp các tệp khác:
-
-* [Ảnh](https://products.aspose.com/slides/vi/php-java/merger/image-to-image/), chẳng hạn như [JPG sang JPG](https://products.aspose.com/slides/vi/php-java/merger/jpg-to-jpg/) hoặc [PNG sang PNG](https://products.aspose.com/slides/vi/php-java/merger/png-to-png/)
-* Tài liệu, chẳng hạn như [PDF sang PDF](https://products.aspose.com/slides/vi/php-java/merger/pdf-to-pdf/) hoặc [HTML sang HTML](https://products.aspose.com/slides/vi/php-java/merger/html-to-html/)
-* Và hai tệp khác nhau như [hình ảnh sang PDF](https://products.aspose.com/slides/vi/php-java/merger/image-to-pdf/) hoặc [JPG sang PDF](https://products.aspose.com/slides/vi/php-java/merger/jpg-to-pdf/) hoặc [TIFF sang PDF](https://products.aspose.com/slides/vi/php-java/merger/tiff-to-pdf/).
-
-{{% /alert %}}
-
-### **Tùy Chọn Gộp**
-
-Bạn có thể áp dụng các tùy chọn xác định xem
-
-* mỗi slide trong bài thuyết trình đầu ra có giữ lại một kiểu dáng duy nhất
-* một kiểu dáng cụ thể được sử dụng cho tất cả các slide trong bài thuyết trình đầu ra. 
-
-Để gộp các bài thuyết trình, Aspose.Slides cung cấp các phương thức [addClone](https://reference.aspose.com/slides/vi/php-java/aspose.slides/slidecollection/addclone/) (từ lớp [SlideCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/slidecollection/)). Có một số triển khai của các phương thức `addClone` xác định các tham số quá trình gộp bài thuyết trình. Mỗi đối tượng Presentation có một bộ sưu tập [slide](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/getslides/), vì vậy bạn có thể gọi phương thức `addClone` từ bài thuyết trình mà bạn muốn gộp slide vào.
-
-Phương thức `addClone` trả về một đối tượng `Slide`, là bản sao của slide nguồn. Các slide trong bài thuyết trình đầu ra chỉ là bản sao của các slide từ nguồn. Do đó, bạn có thể thực hiện các thay đổi trên các slide kết quả (ví dụ, áp dụng kiểu dáng hoặc tùy chọn định dạng hoặc bố cục) mà không lo ảnh hưởng đến các bài thuyết trình nguồn.
-
-## **Gộp Các Bài Thuyết Trình** 
-
-Aspose.Slides cung cấp phương thức [addClone(Slide)](https://reference.aspose.com/slides/vi/php-java/aspose.slides/slidecollection/addclone/) cho phép bạn kết hợp các slide trong khi các slide vẫn giữ nguyên bố cục và kiểu dáng (các tham số mặc định).
-
-Mã PHP này cho thấy cách gộp các bài thuyết trình:
+Cách hợp nhất đơn giản nhất là sao chép mọi slide từ bản trình chiếu nguồn sang bản trình chiếu đích. Đây là lựa chọn phù hợp khi các slide được nhập cần giữ nguyên chủ đề, master và quan hệ layout gốc.
 
 ```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
     try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide);
-      }
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide);
+        }
     } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
+        $source->dispose();
     }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
+
+    $destination->save("merged.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
 ```
 
-## **Gộp Các Bài Thuyết Trình với Slide Master**
+Bản trình chiếu kết quả có thể chứa nhiều master khi nguồn và đích sử dụng các thiết kế khác nhau. Điều này là mong đợi khi định dạng nguồn được cố ý giữ nguyên.
 
-Aspose.Slides cung cấp phương thức [addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/vi/php-java/aspose.slides/slidecollection/addclone/) cho phép bạn kết hợp các slide trong khi áp dụng mẫu slide master. Bằng cách này, nếu cần, bạn có thể thay đổi kiểu dáng cho các slide trong bài thuyết trình đầu ra.
+## **Hợp nhất các slide đã chọn**
 
-Mã này minh họa hoạt động đã mô tả:
+Bạn không cần sao chép mọi slide. Ví dụ dưới đây chỉ nhập các chỉ mục slide đã chọn từ bản trình chiếu nguồn.
 
 ```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
     try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide, $pres2->getMasters()->get_Item(0), true);
-      }
+        $slideIndexes = [0, 2, 4];
+
+        foreach ($slideIndexes as $index) {
+            $destination->getSlides()->addClone($source->getSlides()->get_Item($index));
+        }
     } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
+        $source->dispose();
     }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
+
+    $destination->save("merged-selected-slides.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
 ```
 
-{{% alert title="Note" color="warning" %}} 
+Xác thực các chỉ mục slide trước khi sao chép khi chúng đến từ đầu vào của người dùng hoặc cấu hình bên ngoài.
 
-Bố cục slide cho slide master được xác định tự động. Khi không thể xác định được bố cục phù hợp, nếu tham số boolean `allowCloneMissingLayout` của phương thức `addClone` được đặt thành true, sẽ sử dụng bố cục của slide nguồn. Ngược lại, sẽ ném ra ngoại lệ [PptxEditException](https://reference.aspose.com/slides/vi/php-java/aspose.slides/PptxEditException).
+## **Hợp nhất slide bằng Master đích**
 
-{{% /alert %}}
-
-Nếu bạn muốn các slide trong bài thuyết trình đầu ra có một bố cục slide khác, hãy sử dụng phương thức [addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/vi/php-java/aspose.slides/slidecollection/addclone/) thay thế khi gộp.
-
-## **Gộp Các Slide Cụ Thể Từ Các Bài Thuyết Trình**
-
-Gộp các slide cụ thể từ nhiều bài thuyết trình hữu ích cho việc tạo các bộ slide tùy chỉnh. Aspose.Slides for PHP via Java cho phép bạn chọn và nhập chỉ những slide bạn cần. API giữ nguyên định dạng, bố cục và thiết kế của các slide gốc.
-
-Mã PHP sau tạo một bài thuyết trình mới, thêm các slide tiêu đề từ hai bài thuyết trình khác, và lưu kết quả vào tệp:
+Sử dụng overload [addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/vi/php-java/aspose.slides/slidecollection/addclone/) khi các slide được nhập cần tuân theo một master đã thuộc về bản trình chiếu đích.
 
 ```php
-function getTitleSlide(Presentation $presentation) {
-    for ($i = 0; $i < java_values($presentation->getSlides()->size()); $i++) {
-        $slide = $presentation->getSlides()->get_Item($i);
-        if (java_values($slide->getLayoutSlide()->getLayoutType()) === SlideLayoutType::Title) {
-            return $slide;
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
+    try {
+        $destinationMaster = $destination->getMasters()->get_Item(0);
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide, $destinationMaster, true);
+        }
+    } finally {
+        $source->dispose();
+    }
+
+    $destination->save("merged-with-destination-master.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
+```
+
+Aspose.Slides chọn một layout phù hợp dưới master đã chỉ định bằng cách khớp loại hoặc tên của layout nguồn. Nếu không có layout phù hợp và `allowCloneMissingLayout` là `true`, layout nguồn sẽ được sao chép để slide có thể được thêm. Nếu nó là `false`, một [PptxEditException](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pptxeditexception/) sẽ được ném.
+
+Sử dụng `false` khi bạn muốn quá trình hợp nhất thất bại thay vì tạo thêm một layout vào master đích.
+
+## **Hợp nhất slide bằng Layout đích cụ thể**
+
+Sử dụng overload [addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/vi/php-java/aspose.slides/slidecollection/addclone/) khi bạn biết chính xác layout đích nào mà các slide được nhập nên sử dụng.
+
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
+    try {
+        $destinationLayout = $destination->getLayoutSlides()->get_Item(0);
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide, $destinationLayout);
+        }
+    } finally {
+        $source->dispose();
+    }
+
+    $destination->save("merged-with-destination-layout.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
+```
+
+Áp dụng một layout đích thay đổi quan hệ layout được kế thừa; nó không thiết kế lại nội dung slide nguồn. Nếu layout nguồn và đích có cấu trúc placeholder khác nhau, hãy kiểm tra kết quả để xác nhận rằng định dạng kế thừa và hành vi placeholder là phù hợp.
+
+## **Hợp nhất bản trình chiếu với các kích thước slide khác nhau**
+
+Các bản trình chiếu có kích thước slide khác nhau có thể được hợp nhất, nhưng sao chép một slide vào bản trình chiếu có kích thước slide khác không tự động thiết kế lại nội dung cho canvas mới. Do đó các hình dạng có thể xuất hiện bị dịch vị, tỷ lệ không mong muốn, hoặc nằm ngoài vùng slide hiển thị.
+
+Cách thực tế là thay đổi kích thước bản trình chiếu nguồn trước khi sao chép. Phương thức [SlideSize::setSize()](https://reference.aspose.com/slides/vi/php-java/aspose.slides/slidesize/setsize/) có thể thu phóng nội dung hiện có trong khi thay đổi kích thước slide. [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/vi/php-java/aspose.slides/slidesizescaletype/) thu phóng nội dung để vừa với kích thước yêu cầu.
+
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideSizeScaleType;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
+    try {
+        $sourceWidth = java_values($source->getSlideSize()->getSize()->getWidth());
+        $sourceHeight = java_values($source->getSlideSize()->getSize()->getHeight());
+        $destinationWidth = java_values($destination->getSlideSize()->getSize()->getWidth());
+        $destinationHeight = java_values($destination->getSlideSize()->getSize()->getHeight());
+
+        if ($sourceWidth != $destinationWidth || $sourceHeight != $destinationHeight) {
+            $source->getSlideSize()->setSize($destinationWidth, $destinationHeight, SlideSizeScaleType::EnsureFit);
+        }
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide);
+        }
+    } finally {
+        $source->dispose();
+    }
+
+    $destination->save("merged-same-slide-size.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
+```
+
+Thay đổi kích thước sẽ thay đổi đối tượng bản trình chiếu nguồn trong bộ nhớ. Nếu bạn cần bản trình chiếu nguồn gốc không bị thay đổi cho các thao tác khác, hãy mở một thể hiện riêng cho quá trình hợp nhất.
+
+## **Hợp nhất slide vào một phần của bản trình chiếu**
+
+Vòng lặp sao chép slide cơ bản không tái tạo cấu trúc phần (section) của bản trình chiếu nguồn. Nếu các phần quan trọng trong kết quả, hãy tạo hoặc chọn các phần trong bản trình chiếu đích và sao chép slide vào chúng một cách rõ ràng bằng [addClone(Slide, Section)](https://reference.aspose.com/slides/vi/php-java/aspose.slides/slidecollection/addclone/).
+
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
+    try {
+        $importedSection = $destination->getSections()->appendEmptySection("Imported slides");
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide, $importedSection);
+        }
+    } finally {
+        $source->dispose();
+    }
+
+    $destination->save("merged-with-section.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
+```
+
+Các slide đã sao chép sẽ được thêm vào phần đích đã chỉ định. Để giữ lại nhiều phần nguồn, hãy tạo lại các phần đó trong đích và ánh xạ mỗi slide nguồn tới phần đích tương ứng.
+
+## **Hợp nhất nhiều bản trình chiếu một cách an toàn**
+
+Ví dụ đầu‑cuối dưới đây sử dụng bản trình chiếu đầu tiên làm đích, chuẩn hóa kích thước slide của mỗi nguồn bổ sung, giữ mỗi nguồn mở chỉ khi đang sao chép, và lưu tệp cuối cùng một lần.
+
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideSizeScaleType;
+
+$inputFiles = ["part1.pptx", "part2.pptx", "part3.pptx"];
+
+$merged = new Presentation($inputFiles[0]);
+try {
+    $mergedWidth = java_values($merged->getSlideSize()->getSize()->getWidth());
+    $mergedHeight = java_values($merged->getSlideSize()->getSize()->getHeight());
+
+    for ($fileIndex = 1; $fileIndex < count($inputFiles); $fileIndex++) {
+        $source = new Presentation($inputFiles[$fileIndex]);
+        try {
+            $sourceWidth = java_values($source->getSlideSize()->getSize()->getWidth());
+            $sourceHeight = java_values($source->getSlideSize()->getSize()->getHeight());
+
+            if ($sourceWidth != $mergedWidth || $sourceHeight != $mergedHeight) {
+                $source->getSlideSize()->setSize($mergedWidth, $mergedHeight, SlideSizeScaleType::EnsureFit);
+            }
+
+            foreach ($source->getSlides() as $slide) {
+                $merged->getSlides()->addClone($slide);
+            }
+        } finally {
+            $source->dispose();
         }
     }
-    return null;
-}
-```
-```php
-$presentation = new Presentation();
-$presentation1 = new Presentation($folderPath . "presentation1.pptx");
-$presentation2 = new Presentation($folderPath . "presentation2.pptx");
-try {
-    $presentation->getSlides()->removeAt(0);
-    
-    $slide1 = getTitleSlide($presentation1);
 
-    if ($slide1 != null)
-        $presentation->getSlides()->addClone($slide1);
-
-    $slide2 = getTitleSlide($presentation2);
-
-    if ($slide2 != null)
-        $presentation->getSlides()->addClone($slide2);
-
-    $presentation->save($folderPath . "combined.pptx", SaveFormat::Pptx);
+    $merged->save("merged.pptx", SaveFormat::Pptx);
 } finally {
-    $presentation2->dispose();
-    $presentation1->dispose();
-    $presentation->dispose();
+    $merged->dispose();
 }
 ```
 
-## **Gộp Các Bài Thuyết Trình với Bố Cục Slide**
+Đây là một nền tảng hữu ích để giữ định dạng nguồn của các slide được nhập. Nếu đầu ra của bạn phải sử dụng một chủ đề đích duy nhất, hãy thay thế lời gọi `addClone($slide)` đơn giản bằng overload master đích hoặc layout đích thích hợp đã trình bày ở trên.
 
-Mã PHP này cho thấy cách kết hợp các slide từ các bài thuyết trình trong khi áp dụng bố cục slide ưa thích của bạn để có được một bài thuyết trình đầu ra duy nhất:
+## **Các cân nhắc thực tiễn**
 
-```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
-    try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide, $pres2->getLayoutSlides()->get_Item(0));
-      }
-    } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
-    }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
-```
+### **Masters, Layouts, và Độ chính xác Định dạng**
 
-## **Gộp Các Bài Thuyết Trình với Kích Thước Slide Khác Nhau**
+Việc sao chép slide mặc định có thể tự động đưa một master nguồn cần thiết vào bản trình chiếu đích. Aspose.Slides duy trì một danh sách nội bộ cho các master được sao chép tự động nhằm tránh sao chép lại cùng một master nhiều lần. Các master được sao chép thủ công không được theo dõi bởi danh sách này, vì vậy tránh sao chép trước các master trừ khi bạn cần kiểm soát rõ ràng cấu trúc master.
 
-{{% alert title="Note" color="warning" %}} 
+Không giả định rằng hai master hoặc layout có cùng tên sẽ nhìn giống nhau. Nếu một mẫu công ty phải kiểm soát giao diện cuối cùng, hãy chọn một master hoặc layout đích một cách rõ ràng và kiểm tra kết quả sau khi hợp nhất.
 
-Bạn không thể gộp các bài thuyết trình có kích thước slide khác nhau. 
+### **Ghi chú và Bình luận**
 
-{{% /alert %}}
+Ghi chú người thuyết trình và bình luận slide được liên kết với nội dung slide và được sao chép khi slide được sao chép. Aspose.Slides cũng cung cấp các API chuyên dụng cho [presentation notes](https://docs.aspose.com/slides/vi/php-java/presentation-notes/) và [presentation comments](https://docs.aspose.com/slides/vi/php-java/presentation-comments/).
 
-Để gộp 2 bài thuyết trình có kích thước slide khác nhau, bạn phải thay đổi kích thước một trong các bài thuyết trình sao cho kích thước của nó khớp với bài thuyết trình còn lại. 
+Nếu định dạng trang ghi chú quan trọng, hãy kiểm tra bản trình chiếu đã hợp nhất vì các notes master là đối tượng cấp bản trình chiếu và có thể khác nhau giữa các tệp nguồn. Đối với quy trình xem xét, cũng hãy xác thực tác giả bình luận và các bình luận dạng chuỗi sau khi kết hợp các tệp từ các tác giả hoặc mẫu khác nhau.
 
-Mã mẫu này minh họa hoạt động đã mô tả:
+### **Hình ảnh, Audio, Video, Đối tượng OLE và Liên kết Ngoài**
+
+Các slide có thể tham chiếu tới các tài nguyên cấp bản trình chiếu như hình ảnh, audio nhúng, video nhúng và dữ liệu OLE. Hãy sao chép toàn bộ slide thay vì chỉ sao chép các hình dạng hiển thị để Aspose.Slides có thể duy trì các mối quan hệ của slide với tài nguyên của nó.
+
+Các tài nguyên nhúng và liên kết nên được xử lý riêng biệt. Một audio, video, đối tượng OLE hoặc hyperlink được liên kết vẫn phụ thuộc vào mục tiêu bên ngoài; sao chép một slide không biến một liên kết ngoài thành nội dung nhúng. Kiểm tra đường dẫn và URL của tài nguyên liên kết trong môi trường nơi bản trình chiếu hợp nhất sẽ được mở.
+
+Aspose.Slides theo dõi một cách rõ ràng các master được sao chép tự động, nhưng điều này không nên được coi là đảm bảo chung rằng các tài nguyên nhị phân giống nhau từ các bản trình chiếu nguồn không liên quan sẽ luôn được loại bỏ trùng lặp. Nếu kích thước tệp đầu ra quan trọng, hãy kiểm tra gói hợp nhất và đo kết quả thay vì dựa vào việc loại bỏ trùng lặp ngầm.
+
+### **Phông chữ Nhúng và Tính khả dụng của Phông chữ**
+
+Phông chữ được quản lý ở cấp bản trình chiếu. Nếu kiểu chữ phải nhất quán trên các máy, không nên giả định rằng việc sao chép slide thôi đủ để đảm bảo mọi phông chữ cần thiết đều có sẵn trong môi trường đích. Bạn có thể kiểm tra phông chữ nhúng bằng [FontsManager::getEmbeddedFonts()](https://reference.aspose.com/slides/vi/php-java/aspose.slides/fontsmanager/getembeddedfonts/) và quản lý việc nhúng một cách rõ ràng như mô tả trong [Embed Fonts in Presentations](https://docs.aspose.com/slides/vi/php-java/embedded-font/).
+
+Cũng hãy xác thực rằng bạn được phép nhúng các phông chữ được sử dụng trong các tệp nguồn. Giấy phép phông chữ có thể hạn chế việc nhúng.
+
+### **Bản trình chiếu được bảo vệ bằng mật khẩu**
+
+Một nguồn được bảo vệ bằng mật khẩu phải được mở thành công trước khi các slide của nó có thể được sao chép. Cung cấp mật khẩu qua [LoadOptions::setPassword()](https://reference.aspose.com/slides/vi/php-java/aspose.slides/loadoptions/setpassword/).
 
 ```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
-    try {
-      $pres2->getSlideSize()->setSize($pres1->getSlideSize()->getSize()->getWidth(), $pres1->getSlideSize()->getSize()->getHeight(), SlideSizeScaleType::EnsureFit);
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide);
-      }
-    } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
-    }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("YOUR_PASSWORD");
+
+$source = new Presentation("protected.pptx", $loadOptions);
+try {
+    // Làm việc với bản trình chiếu đã giải mã.
+} finally {
+    $source->dispose();
+}
 ```
 
-## **Gộp Slide vào Section của Bài Thuyết Trình**
+Mở một nguồn được mã hóa không tự động áp dụng cùng một mức bảo vệ cho bản trình chiếu đích. Cấu hình bảo vệ đầu ra được thực hiện riêng biệt khi cần.
 
-Mã PHP này cho thấy cách gộp một slide cụ thể vào một section trong bài thuyết trình:
+### **Bản trình chiếu lớn và Sử dụng Bộ nhớ**
 
-```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
-    try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide, $pres1->getSections()->get_Item(0));
-      }
-    } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
-    }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
-```
+Các bản trình chiếu lớn chứa hình ảnh độ phân giải cao, audio, video hoặc các đối tượng nhị phân lớn khác có thể tiêu tốn đáng kể bộ nhớ. [LoadOptions::getBlobManagementOptions()](https://reference.aspose.com/slides/vi/php-java/aspose.slides/loadoptions/getblobmanagementoptions/) cung cấp các điều khiển cho việc xử lý BLOB và sử dụng tệp tạm thời. Xem [Open Presentations](https://docs.aspose.com/slides/vi/php-java/open-presentation/#open-large-presentations) để biết ví dụ tệp lớn trong PHP qua Java.
 
-Slide được thêm vào cuối phần.
+Đối với các tệp lớn, ưu tiên tải từ đường dẫn tệp khi có thể, giải phóng mỗi bản trình chiếu nguồn ngay sau khi đã hợp nhất, và tránh lưu kết quả trung gian lặp đi lặp lại trừ khi quy trình yêu cầu các điểm kiểm tra.
 
-## **Xem Thêm**
+### **An toàn đa luồng**
 
-Aspose cung cấp một [Công Cụ Tạo Collage Trực Tuyến MIỄN PHÍ](https://products.aspose.app/slides/vi/collage). Sử dụng dịch vụ trực tuyến này, bạn có thể gộp [JPG sang JPG](https://products.aspose.app/slides/vi/collage/jpg) hoặc PNG sang PNG, tạo [lưới ảnh](https://products.aspose.app/slides/vi/collage/photo-grid), và hơn thế nữa.
+Không tải, sửa đổi, lưu hoặc sao chép các thực thể [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/) trong nhiều luồng. Các thao tác này không được hỗ trợ cho việc sử dụng đa luồng trong PHP qua Java. Nếu bạn cần các công việc hợp nhất song song, hãy chạy chúng trong các tiến trình đơn luồng riêng biệt, mỗi tiến trình sử dụng các thực thể bản trình chiếu riêng, và tuân theo [hướng dẫn đa luồng của Aspose.Slides](https://docs.aspose.com/slides/vi/php-java/multithreading/).
 
-Hãy khám phá [Công Cụ Gộp Trực Tuyến MIỄN PHÍ](https://products.aspose.app/slides/vi/merger). Nó cho phép bạn gộp các bài thuyết trình PowerPoint cùng định dạng (ví dụ, PPT sang PPT, PPTX sang PPTX) hoặc giữa các định dạng khác nhau (ví dụ, PPT sang PPTX, PPTX sang ODP).
+## **CÂU HỎI THƯỜNG GẶP**
 
-[![Aspose FREE Online Merger](slides-merger.png)](https://products.aspose.app/slides/vi/merger)
+**Làm thế nào để giữ nguyên thiết kế gốc của mỗi bản trình chiếu nguồn?**
 
-## **Câu Hỏi Thường Gặp**
+Sử dụng [`addClone(sourceSlide)`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/slidecollection/addclone/) mà không cung cấp master hoặc layout đích. Aspose.Slides có thể tự động sao chép master nguồn khi slide được nhập cần tới.
 
-**Có bất kỳ giới hạn nào về số lượng slide khi gộp các bài thuyết trình không?**
+**Làm thế nào để các slide được nhập sử dụng chủ đề đích?**
 
-Không có giới hạn nghiêm ngặt. Aspose.Slides có thể xử lý các tệp lớn, nhưng hiệu suất phụ thuộc vào kích thước và tài nguyên hệ thống. Đối với các bài thuyết trình rất lớn, nên sử dụng JVM 64‑bit và cấp phát đủ bộ nhớ heap.
+Sử dụng overload chấp nhận một master đích. Truyền một master từ bản trình chiếu đích, không phải từ nguồn. Aspose.Slides sẽ cố gắng ánh xạ mỗi slide nguồn tới một layout phù hợp dưới master đó.
 
-**Tôi có thể gộp các bài thuyết trình có video hoặc âm thanh nhúng không?**
+**Khi nào nên sử dụng layout đích cụ thể thay vì master đích?**
 
-Có, Aspose.Slides giữ nguyên nội dung đa phương tiện được nhúng trong các slide, nhưng bài thuyết trình cuối cùng có thể trở nên lớn đáng kể.
+Sử dụng một layout cụ thể khi mọi slide được nhập phải sử dụng một layout đã biết. Sử dụng master khi bạn muốn Aspose.Slides chọn parmi các layout của master đó dựa trên loại hoặc tên layout nguồn.
 
-**Phông chữ có được giữ nguyên khi gộp các bài thuyết trình không?**
+**Các bản trình chiếu có kích thước slide khác nhau có thể được hợp nhất không?**
 
-Có. Các phông chữ được sử dụng trong các bài thuyết trình nguồn sẽ được giữ lại trong tệp đầu ra, với điều kiện chúng đã được cài đặt trên hệ thống hoặc [được nhúng](/slides/vi/php-java/embedded-font/).
+Có, nhưng nội dung slide không tự động được thiết kế lại cho kích thước đích. Thay đổi kích thước bản trình chiếu nguồn trước khi cần vị trí dự đoán, ví dụ bằng [SlideSize::setSize()](https://reference.aspose.com/slides/vi/php-java/aspose.slides/slidesize/setsize/) và [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/vi/php-java/aspose.slides/slidesizescaletype/).
+
+**Tôi có thể hợp nhất các bản trình chiếu PPT, PPTX và ODP thành một tệp không?**
+
+Có. Tải mỗi bản trình chiếu nguồn, sao chép các slide cần thiết vào một đích, và lưu đích ở định dạng xuất được hỗ trợ. Vì các định dạng bản trình chiếu không hỗ trợ cùng một bộ tính năng, hãy kiểm tra nội dung phức tạp sau khi hợp nhất đa định dạng. Xem [Supported File Formats](https://docs.aspose.com/slides/vi/php-java/supported-file-formats/).
+
+**Các phần nguồn có được giữ tự động không?**
+
+Không, với một vòng lặp cơ bản chỉ sao chép slide. Tạo lại các phần cần thiết trong đích và sử dụng overload phần của [addClone](https://reference.aspose.com/slides/vi/php-java/aspose.slides/slidecollection/addclone/) khi cấu trúc phần phải được giữ.
+
+**Ghi chú người thuyết trình và bình luận có được giữ không?**
+
+Chúng được sao chép cùng với slide đã sao chép. Đối với quy trình phụ thuộc vào kiểu style của notes-master, tác giả bình luận hoặc dữ liệu review dạng chuỗi, hãy kiểm tra kết quả hợp nhất vì các kịch bản này liên quan đến cấu trúc cấp bản trình chiếu cũng như nội dung cấp slide.
+
+**Điều gì xảy ra với audio, video, đối tượng OLE và hyperlink?**
+
+Nội dung nhúng được mang theo như một phần của các mối quan hệ tài nguyên của slide đã sao chép. Các liên kết ngoài vẫn ở ngoài, vì vậy các tệp hoặc URL mục tiêu của chúng vẫn phải khả dụng sau khi hợp nhất.
+
+**Các phông chữ nhúng từ mọi nguồn có được đảm bảo có sẵn trong bản trình chiếu hợp nhất không?**
+
+Không nên chỉ dựa vào việc sao chép slide để triển khai phông chữ. Kiểm tra các phông chữ nhúng của đích và quản lý việc nhúng phông chữ hoặc tính khả dụng phông chữ bên ngoài một cách rõ ràng khi kiểu chữ quan trọng.
+
+**Làm thế nào để hợp nhất một tệp được bảo vệ bằng mật khẩu?**
+
+Mở nó bằng [LoadOptions::setPassword()](https://reference.aspose.com/slides/vi/php-java/aspose.slides/loadoptions/setpassword/) đúng, sau đó sao chép các slide bình thường. Bảo vệ đầu ra được cấu hình riêng.
+
+**Làm thế nào để xử lý các bản trình chiếu rất lớn?**
+
+Sử dụng quản lý BLOB khi các đối tượng nhị phân lớn chiếm ưu tiên bộ nhớ, ưu tiên tải từ đường dẫn tệp cho các tệp rất lớn, giải phóng nhanh các bản trình chiếu nguồn, và lưu kết quả cuối cùng chỉ khi cần.
+
+**Tôi có thể hợp nhất slide từ nhiều luồng không?**
+
+Việc tải, lưu hoặc sao chép các bản trình chiếu trong nhiều luồng không được hỗ trợ trong PHP qua Java. Đối với công việc song song, hãy sử dụng các tiến trình đơn luồng riêng biệt và giữ các thực thể bản trình chiếu cách biệt trong mỗi tiến trình.
